@@ -11,15 +11,6 @@
     .keyword {
       font-weight: bold;
     }
-    .python .keyword {
-      color: green;
-    }
-    .delphi .keyword {
-      color: blue;
-    }
-    .delphi .function .params {
-      color: read;
-    }
     .function .title,
     .class .title {
       color: #800;
@@ -29,14 +20,8 @@
     .css .rules .value {
       color: #800;
     }
-    .css .rules {
-      color: green;
-    }
     .css .id {
-      color: #008;
-    }
-    .css .class {
-      color: #04F;
+      font-weight: bold;
     }
   </style>
 
@@ -44,32 +29,6 @@
 
 
 <p>Some python code:
-
-<pre><code>@register.simple_tag(takes_context=True)
-def paginator(context):
-
-  paginator = context['paginator']
-  page = context['page']
-
-  # Делаются линки на соседние страницы, если они есть
-  if paginator.has_next_page(page-1):
-    next_link = '&lt;a href="?page=%s" class="next"&gt;вперед →&lt;/a&gt;'%page+1
-  else:
-    next_link = ''
-  if paginator.has_previous_page(page-1):
-    previous_link = '&lt;a href="?page=%s" class="previous"&gt;← назад&lt;/a&gt; '%page-1
-  else:
-    previous_link = ''
-
-  # Составляется финальный код
-  return '''
-    &lt;div class="paginator"&gt;
-
-      %s
-      &lt;span class="pages"&gt;стр. %s из %s&lt;/span&gt;
-      %s
-    &lt;/div&gt;'''%(previous_link, page, paginator.pages, next_link)
-</code></pre>
 
 <pre><code>def somefunc(param1, param2):
   '''A docstring'''
@@ -82,7 +41,7 @@ def paginator(context):
     pass
 </code></pre>
 
-<p>Some HTML text:
+<p>Some HTML code:
 
 <pre><code>&lt;head&gt;
   &lt;title&gt;Title&lt;/title&gt;
@@ -97,8 +56,12 @@ def paginator(context):
 
 <p>Some CSS code:
 
-<pre><code>
+<pre><code>body, 
 html {
+  font: Tahoma, Arial, san-serif;
+}
+
+#content {
   width: 100%;
   height: 100%
 }
