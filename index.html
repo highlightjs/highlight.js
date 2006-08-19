@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<head>
+  <title>Highlight</title>
+  <style>
+    .string {
+      color: #800;
+    }
+    .comment {
+      color: #888;
+    }
+    .keyword {
+      font-weight: bold;
+    }
+    .python .keyword {
+      color: green;
+    }
+    .delphi .keyword {
+      color: blue;
+    }
+    .delphi .function .params {
+      color: read;
+    }
+    .function .title,
+    .class .title {
+      color: #800;
+      font-weight:bold;
+    }
+    .tag .attribute .value,
+    .css .rules .value {
+      color: #800;
+    }
+    .css .rules {
+      color: green;
+    }
+    .css .id {
+      color: #008;
+    }
+    .css .class {
+      color: #04F;
+    }
+  </style>
+
+<body>
+
+
+<p>Some python code:
+
+<pre><code>@register.simple_tag(takes_context=True)
+def paginator(context):
+
+  paginator = context['paginator']
+  page = context['page']
+
+  # Делаются линки на соседние страницы, если они есть
+  if paginator.has_next_page(page-1):
+    next_link = '&lt;a href="?page=%s" class="next"&gt;вперед →&lt;/a&gt;'%page+1
+  else:
+    next_link = ''
+  if paginator.has_previous_page(page-1):
+    previous_link = '&lt;a href="?page=%s" class="previous"&gt;← назад&lt;/a&gt; '%page-1
+  else:
+    previous_link = ''
+
+  # Составляется финальный код
+  return '''
+    &lt;div class="paginator"&gt;
+
+      %s
+      &lt;span class="pages"&gt;стр. %s из %s&lt;/span&gt;
+      %s
+    &lt;/div&gt;'''%(previous_link, page, paginator.pages, next_link)
+</code></pre>
+
+<pre><code>def somefunc(param1, param2):
+  '''A docstring'''
+  if param1 > param2: # interesting
+    print 'Gre\'ater'
+    print ''
+  return param2 - param1
+  
+  class SomeClass:
+    pass
+</code></pre>
+
+<p>Some HTML text:
+
+<pre><code>&lt;head&gt;
+  &lt;title&gt;Title&lt;/title&gt;
+&lt;body&gt;
+  &lt;p class="something"&gt;Something&lt;/p&gt;
+  &lt;p class=something&gt;Something&lt;/p&gt;
+  &lt;!-- comment --&gt;
+  &lt;p class&gt;Something&lt;/p&gt;
+  &lt;p class="something" title="p"&gt;Something&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>Some CSS code:
+
+<pre><code>
+html {
+  width: 100%;
+  height: 100%
+}
+</pre></code>
+
+<P>Delphi code
+
+<pre><code>TList=Class(TObject) 
+Private
+  Some: String;
+Public
+  Procedure Inside;
+End;{TList}
+
+Procedure CopyFile(InFileName,var OutFileName:String);
+Const
+  BufSize=4096; (* Huh? *)
+Var
+  InFile,OutFile:TStream;
+  Buffer:Array[1..BufSize] Of Byte;
+  ReadBufSize:Integer;
+Begin
+  InFile:=Nil;
+  OutFile:=Nil;
+  Try
+    InFile:=TFileStream.Create(InFileName,fmOpenRead);
+    OutFile:=TFileStream.Create(OutFileName,fmCreate);
+    Repeat
+      ReadBufSize:=InFile.Read(Buffer,BufSize);
+      OutFile.Write(Buffer,ReadBufSize);
+    Until ReadBufSize&lt;&gt;BufSize;
+  Finally
+    InFile.Free;
+    OutFile.Free;
+  End;{Try}
+End;{CopyFile}</code></pre>
+
+<script type="text/javascript" src="highlight.js"></script>
+<script type="text/javascript">
+  initHighlighting();
+</script>
