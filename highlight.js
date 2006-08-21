@@ -1,3 +1,5 @@
+alert(document.location);
+
 var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
 
 var LANGUAGES = {}

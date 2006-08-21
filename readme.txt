@@ -65,7 +65,7 @@ HTML:
 
 CSS:
 
-  keyword         тег языка HTML
+  keyword         тег языка HTML в селекторах или свойство CSS в правилах
   id              #some_name в селекторах
   class           .some_name в селекторах
   comment         комментарий
