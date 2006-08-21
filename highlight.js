@@ -153,6 +153,10 @@ LANGUAGES.css = {
     {
       className: 'rules',
       begin: '{', end: '}',
+      lexems: [
+        /[A-Za-z-]+/
+      ],
+      keywords: ['background', 'background-attachment', 'background-color', 'background-image', 'background-position', 'background-repeat', 'border', 'border-bottom', 'border-bottom-width', 'border-color', 'border-left', 'border-left-width', 'border-right', 'border-right-width', 'border-style', 'border-top', 'border-top-width', 'border-width', 'clear', 'color', 'display', 'float', 'font', 'font-family', 'font-size', 'font-style', 'font-variant', 'font-weight', 'height', 'letter-spacing', 'line-height', 'list-style', 'list-style-image', 'list-style-position', 'list-style-type', 'margin', 'margin-bottom', 'margin-left', 'margin-right', 'margin-top', 'padding', 'padding-bottom', 'padding-left', 'padding-right', 'padding-top', 'text-align', 'text-decoration', 'text-indent', 'text-transform', 'vertical-align', 'white-space', 'width', 'word-spacing'],
       contains: ['comment', 'value']
     },
     {
@@ -266,10 +270,12 @@ function initHighlight(block) {
   var result = null;
   var language = '';
   var max_relevance = 2;
+  var relevance = 0;
   for (var key in LANGUAGES) {
     var highlight = new Highlighter(key, block.firstChild.nodeValue);
-    if (highlight.relevance > max_relevance) {
-      max_relevance = highlight.relevance;
+    relevance = highlight.keyword_count + highlight.relevance;
+    if (highlight.keyword_count && relevance > max_relevance) {
+      max_relevance = relevance;
       result = highlight;
     }//if
   }//for
@@ -329,7 +335,7 @@ function Highlighter(language_name, value) {
     if (this.language.case_insensitive)
       lexem = lexem.toLowerCase();
     if (bcontains(this.currentMode().keywords, lexem)) {
-      this.relevance++;
+      this.keyword_count++;
       return '<span class="keyword">' + html + '</span>';
     } else {
       return html;
@@ -393,6 +399,7 @@ function Highlighter(language_name, value) {
   this.language = LANGUAGES[language_name];
   this.modes = [this.language.defaultMode];
   this.relevance = 0;
+  this.keyword_count = 0;
   this.result = '';
   this.highlight(value);
 }//Highlighter
