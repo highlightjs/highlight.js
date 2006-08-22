@@ -256,7 +256,17 @@ for (var i in LANGUAGES) {
   }//for
 }//for
 
+var selected_languages = {};
+
 function initHighlighting() {
+  if (arguments.length) {
+    for (var i = 0; i < arguments.length; i++) {
+      if (LANGUAGES[arguments[i]]) {
+        selected_languages[arguments[i]] = LANGUAGES[arguments[i]];
+      }//if
+    }//for
+  } else
+    selected_languages = LANGUAGES;
   var pres = document.getElementsByTagName('pre');
   for (var i = 0; i < pres.length; i++) {
     if (pres[i].firstChild && pres[i].firstChild.nodeName == 'CODE')
@@ -271,7 +281,7 @@ function initHighlight(block) {
   var language = '';
   var max_relevance = 2;
   var relevance = 0;
-  for (var key in LANGUAGES) {
+  for (var key in selected_languages) {
     var highlight = new Highlighter(key, block.firstChild.nodeValue);
     relevance = highlight.keyword_count + highlight.relevance;
     if (highlight.keyword_count && relevance > max_relevance) {
