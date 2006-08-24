@@ -180,7 +180,7 @@ LANGUAGES.delphi = {
       new RegExp(IDENT_RE, 'i')
     ],
     contains: ['comment', 'string', 'function', 'class'],
-    keywords: DELPHI_KEYWORDS,
+    keywords: DELPHI_KEYWORDS
   },
   case_insensitive: true,
   modes: [
