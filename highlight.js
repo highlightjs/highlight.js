@@ -258,47 +258,6 @@ for (var i in LANGUAGES) {
 
 var selected_languages = {};
 
-function initHighlighting() {
-  if (arguments.length) {
-    for (var i = 0; i < arguments.length; i++) {
-      if (LANGUAGES[arguments[i]]) {
-        selected_languages[arguments[i]] = LANGUAGES[arguments[i]];
-      }//if
-    }//for
-  } else
-    selected_languages = LANGUAGES;
-  var pres = document.getElementsByTagName('pre');
-  for (var i = 0; i < pres.length; i++) {
-    if (pres[i].firstChild && pres[i].firstChild.nodeName == 'CODE')
-      initHighlight(pres[i].firstChild);
-  }//for
-}//initHighlighting
-
-function initHighlight(block) {
-  if (block.childNodes.length != 1 || block.firstChild.nodeType != 3)
-    return;
-  var result = null;
-  var language = '';
-  var max_relevance = 2;
-  var relevance = 0;
-  for (var key in selected_languages) {
-    var highlight = new Highlighter(key, block.firstChild.nodeValue);
-    relevance = highlight.keyword_count + highlight.relevance;
-    if (highlight.keyword_count && relevance > max_relevance) {
-      max_relevance = relevance;
-      result = highlight;
-    }//if
-  }//for
-  
-  if(result) {
-    // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
-    var container = document.createElement('div');
-    container.innerHTML = '<pre class="' + result.language_name + '"><code>' + result.result + '</code></pre>';
-    var environment = block.parentNode.parentNode;
-    environment.replaceChild(container.firstChild, block.parentNode);
-  }//if
-}//initHighlight
-
 function Highlighter(language_name, value) {
   this.currentMode = function(){
     return this.modes[this.modes.length - 1];
@@ -438,3 +397,44 @@ function bcontains(array, item) {
   }//while
   return item == array[current];
 }//bcontains
+
+function initHighlighting() {
+  if (arguments.length) {
+    for (var i = 0; i < arguments.length; i++) {
+      if (LANGUAGES[arguments[i]]) {
+        selected_languages[arguments[i]] = LANGUAGES[arguments[i]];
+      }//if
+    }//for
+  } else
+    selected_languages = LANGUAGES;
+  var pres = document.getElementsByTagName('pre');
+  for (var i = 0; i < pres.length; i++) {
+    if (pres[i].firstChild && pres[i].firstChild.nodeName == 'CODE')
+      initHighlight(pres[i].firstChild);
+  }//for
+}//initHighlighting
+
+function initHighlight(block) {
+  if (block.childNodes.length != 1 || block.firstChild.nodeType != 3)
+    return;
+  var result = null;
+  var language = '';
+  var max_relevance = 2;
+  var relevance = 0;
+  for (var key in selected_languages) {
+    var highlight = new Highlighter(key, block.firstChild.nodeValue);
+    relevance = highlight.keyword_count + highlight.relevance;
+    if (highlight.keyword_count && relevance > max_relevance) {
+      max_relevance = relevance;
+      result = highlight;
+    }//if
+  }//for
+  
+  if(result) {
+    // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
+    var container = document.createElement('div');
+    container.innerHTML = '<pre class="' + result.language_name + '"><code>' + result.result + '</code></pre>';
+    var environment = block.parentNode.parentNode;
+    environment.replaceChild(container.firstChild, block.parentNode);
+  }//if
+}//initHighlight
