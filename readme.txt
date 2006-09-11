@@ -58,6 +58,7 @@ Highlight.js нужен для подсветки синтаксиса в при
 Python:
 
   keyword         ключевое слово языка
+  number          число
   string          строка (любого типа)
   comment         комментарий
   function        заголовок функции "def some_name(...):"
@@ -87,6 +88,7 @@ Delphi:
 
   keyword         ключевое слово языка
   comment         комментарий (любого типа)
+  number          число
   string          строка
   function        заголовок функции, процедуры, конструктора или деструктора
   title           название функции, процедура, конструктора или деструктора
@@ -94,6 +96,15 @@ Delphi:
   params          все, что в скобках внутри заголовка функций
   class           тело класса от "= class" до "end;"
   
+Perl:
+
+  keyword         ключевое слово языка
+  comment         комментарий
+  number          число
+  string          строка
+  regexp          регулярное выражение
+  sub             заголовок процедуры (от "sub" до "{")
+
 
 ## Эвристика
 
@@ -115,6 +126,10 @@ Delphi:
 
 ## Координаты
 
-Версия: 0.2 (beta)
+Версия: 0.3 (beta)
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
+
+Внесли свой вклад:
+
+  - Леонов Петр <gojpeg@gmail.com>

@@ -23,6 +23,9 @@
     .css .id {
       font-weight: bold;
     }
+    .number {
+      color: #080;
+    }
   </style>
 
 <body>
@@ -35,7 +38,7 @@
   if param1 > param2: # interesting
     print 'Gre\'ater'
     print ''
-  return param2 - param1
+  return param2 - param1 + 1
   
   class SomeClass:
     pass
@@ -62,7 +65,7 @@ html {
 }
 
 #content {
-  width: 100%;
+  width: 100%; /* комментарий */
   height: 100%
 }
 </pre></code>
@@ -98,6 +101,51 @@ Begin
     OutFile.Free;
   End;{Try}
 End;{CopyFile}</code></pre>
+
+
+<p>A bit of Perl:
+
+<pre><code># loads object
+sub load
+{
+  my $c = shift;
+  my $id = shift;
+  
+  my $flds = $c-&gt;db_load($id,@_) || do { Carp::carp "Can`t load (class: $c, id: $id): '$!'"; return undef };
+  
+  my $o = $c-&gt;_perl_new();
+  
+  $id12 = $id;
+  $o-&gt;{'ID'} = $id12 + 123;
+  
+  $o-&gt;{'PAPA'} = $flds-&gt;{'PAPA'};
+  #$o-&gt;{'SHCUT'} = $flds-&gt;{'SHCUT'};
+  
+  my $p = $o-&gt;props;
+  
+  #if($o-&gt;{'SHCUT'})
+  #{
+  #  $flds = $o-&gt;db_load($o-&gt;{'SHCUT'},@_);
+  #}
+  
+  my $vt;
+  for my $key (keys %$p)
+  {
+    if(${$vt.'::property'})
+    {
+      $o-&gt;{$key . '_real'} = $flds-&gt;{$key};
+      tie $o-&gt;{$key}, 'CMSBuilder::Property', $o, $key;
+    }
+    else
+    {
+      $o-&gt;{$key} = $flds-&gt;{$key};
+    }
+  }
+  
+  $o-&gt;save if delete $o-&gt;{'_save_after_load'};
+  
+  return $o;
+}</code></pre>
 
 <p>Explicit Python highlight:
 
