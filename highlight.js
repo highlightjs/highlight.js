@@ -12,7 +12,7 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 */
 
 var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
-var NUMBER_RE = '\\b\\d+';
+var NUMBER_RE = '\\b\\d+(\\.\\d+)?';
 
 var LANGUAGES = {}
 
