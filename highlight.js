@@ -159,6 +159,7 @@ LANGUAGES.css = {
       new RegExp(IDENT_RE)
     ]
   },
+  case_insensitive: true,
   modes: [
     {
       className: 'id',
