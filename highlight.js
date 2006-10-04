@@ -30,7 +30,7 @@ LANGUAGES.python = {
       lexems: [
         new RegExp(IDENT_RE)
       ],
-      begin: 'def ', end: ':$',
+      begin: 'def ', end: ':',
       keywords: ['def '],
       contains: ['title', 'params'],
       relevance: 10
