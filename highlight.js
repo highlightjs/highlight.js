@@ -232,8 +232,9 @@ LANGUAGES.delphi = {
     {
       className: 'function',
       begin: 'function', end: '[:;]',
-      keywords: ['function', 'procedure'],
-      contains: ['title', 'params', 'comment']
+      keywords: ['function'],
+      contains: ['title', 'params', 'comment'],
+      relevance: 0
     },
     {
       className: 'function',
