@@ -20,7 +20,7 @@ var LANGUAGES = {}
 LANGUAGES.python = {
   defaultMode: {
     lexems: [
-      new RegExp(IDENT_RE)
+      IDENT_RE
     ],
     contains: ['comment', 'string', 'function', 'class', 'number'],
     keywords: ['and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'None', 'not', 'or', 'pass', 'print', 'raise', 'return', 'try', 'while', 'with', 'yield']
@@ -29,7 +29,7 @@ LANGUAGES.python = {
     {
       className: 'function',
       lexems: [
-        new RegExp(IDENT_RE)
+        IDENT_RE
       ],
       begin: 'def ', end: ':',
       keywords: ['def '],
@@ -39,7 +39,7 @@ LANGUAGES.python = {
     {
       className: 'class',
       lexems: [
-        new RegExp(IDENT_RE)
+        IDENT_RE
       ],
       begin: 'class ', end: ':$',
       keywords: ['class '],
@@ -157,7 +157,7 @@ LANGUAGES.css = {
     contains: ['id', 'class', 'rules', 'comment'],
     keywords: HTML_TAGS,
     lexems: [
-      new RegExp(IDENT_RE)
+      IDENT_RE
     ]
   },
   case_insensitive: true,
@@ -175,7 +175,7 @@ LANGUAGES.css = {
       className: 'rules',
       begin: '{', end: '}',
       lexems: [
-        /[A-Za-z-]+/
+        '[A-Za-z-]+'
       ],
       keywords: ['background', 'background-attachment', 'background-color', 'background-image', 'background-position', 'background-repeat', 'border', 'border-bottom', 'border-bottom-width', 'border-color', 'border-left', 'border-left-width', 'border-right', 'border-right-width', 'border-style', 'border-top', 'border-top-width', 'border-width', 'clear', 'color', 'display', 'float', 'font', 'font-family', 'font-size', 'font-style', 'font-variant', 'font-weight', 'height', 'letter-spacing', 'line-height', 'list-style', 'list-style-image', 'list-style-position', 'list-style-type', 'margin', 'margin-bottom', 'margin-left', 'margin-right', 'margin-top', 'padding', 'padding-bottom', 'padding-left', 'padding-right', 'padding-top', 'text-align', 'text-decoration', 'text-indent', 'text-transform', 'vertical-align', 'white-space', 'width', 'word-spacing'],
       contains: ['comment', 'value']
@@ -198,7 +198,7 @@ var DELPHI_CLASS_KEYWORDS = ['and', 'array', 'asm', 'begin', 'case', 'cdecl', 'c
 LANGUAGES.delphi = {
   defaultMode: {
     lexems: [
-      new RegExp(IDENT_RE, 'i')
+      IDENT_RE
     ],
     contains: ['comment', 'string', 'number', 'function', 'class'],
     keywords: DELPHI_KEYWORDS
@@ -250,7 +250,7 @@ LANGUAGES.delphi = {
       className: 'params',
       begin: '\\(', end: '\\)',
       lexems: [
-        new RegExp(IDENT_RE, 'i')
+        IDENT_RE
       ],
       keywords: DELPHI_KEYWORDS,
       contains: ['string']
@@ -259,7 +259,7 @@ LANGUAGES.delphi = {
       className: 'class',
       begin: '=\\s*class', end: 'end;',
       lexems: [
-        new RegExp(IDENT_RE, 'i')
+        IDENT_RE
       ],
       keywords: DELPHI_CLASS_KEYWORDS,
       contains: ['string', 'comment', 'function']
@@ -275,7 +275,7 @@ LANGUAGES.delphi = {
 LANGUAGES.perl = {
   defaultMode: {
     lexems: [
-      new RegExp(IDENT_RE)
+      IDENT_RE
     ],
     contains: ['comment', 'string', 'number', 'regexp', 'sub', 'variable'],
     keywords: ['abs', 'accept', 'alarm', 'atan2', 'bind', 'binmode', 'bless', 'caller', 'chdir', 'chmod', 'chomp', 'chop', 'chown', 'chr', 'chroot', 'close', 'closedir', 'connect', 'continue', 'cos', 'crypt', 'dbmclose', 'dbmopen', 'defined', 'delete', 'die', 'do', 'dump', 'each', 'else', 'elsif', 'endgrent', 'endhostent', 'endnetent', 'endprotoent', 'endpwent', 'endservent', 'eof', 'eval', 'exec', 'exists', 'exit', 'exp', 'fcntl', 'fileno', 'flock', 'for', 'foreach', 'fork', 'format', 'formline', 'getc', 'getgrent', 'getgrgid', 'getgrnam', 'gethostbyaddr', 'gethostbyname', 'gethostent', 'getlogin', 'getnetbyaddr', 'getnetbyname', 'getnetent', 'getpeername', 'getpgrp', 'getpriority', 'getprotobyname', 'getprotobynumber', 'getprotoent', 'getpwent', 'getpwnam', 'getpwuid', 'getservbyname', 'getservbyport', 'getservent', 'getsockname', 'getsockopt', 'glob', 'gmtime', 'goto', 'grep', 'hex', 'if', 'index', 'int', 'ioctl', 'join', 'keys', 'kill', 'last', 'last', 'lc', 'lcfirst', 'length', 'link', 'listen', 'local', 'localtime', 'log', 'lstat', 'ma', 'map', 'mkdir', 'msgctl', 'msgget', 'msgrcv', 'msgsnd', 'my', 'next', 'next', 'no', 'oct', 'open', 'opendir', 'ord', 'our', 'pack', 'package', 'pipe', 'pop', 'pos', 'print', 'printf', 'prototype', 'push', 'q', 'qq', 'quotemeta', 'qw', 'qx', 'rand', 'read', 'readdir', 'readline', 'readlink', 'readpipe', 'recv', 'redo', 'redo', 'ref', 'rename', 'require', 'reset', 'return', 'reverse', 'rewinddir', 'rindex', 'rmdir', 's', 'scalar', 'seek', 'seekdir', 'select', 'semctl', 'semget', 'semop', 'send', 'setgrent', 'sethostent', 'setnetent', 'setpgrp', 'setpriority', 'setprotoent', 'setpwent', 'setservent', 'setsockopt', 'shift', 'shmctl', 'shmget', 'shmread', 'shmwrite', 'shutdown', 'sin', 'sleep', 'socket', 'socketpair', 'sort', 'splice', 'split', 'sprintf', 'sqrt', 'srand', 'stat', 'study', 'sub', 'sub', 'substr', 'symlink', 'syscall', 'sysopen', 'sysread', 'sysseek', 'system', 'syswrite', 'tell', 'telldir', 'tie', 'tied', 'time', 'times', 'tr', 'truncate', 'uc', 'ucfirst', 'umask', 'undef', 'unless', 'unlink', 'unpack', 'unshift', 'untie', 'until', 'use', 'utime', 'values', 'vec', 'wait', 'waitpid', 'wantarray', 'warn', 'while', 'write', 'y']
@@ -315,7 +315,7 @@ LANGUAGES.perl = {
       className: 'sub',
       begin: 'sub ', end: '{',
       lexems: [
-        new RegExp(IDENT_RE)
+        IDENT_RE
       ],
       keywords: ['sub '],
       relevance: 10
@@ -362,9 +362,9 @@ PHP5_KEYWORDS = [
 
 PHP_IDENTIFIER_RE = '[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*';
 
-LANGUAGES.php5 = {
+LANGUAGES.php = {
 	defaultMode: {
-		lexems: [new RegExp(IDENT_RE, 'i')],
+		lexems: [IDENT_RE],
 		contains: ['comment', 'number', 'string', 'variable'],
 		keywords: PHP5_KEYWORDS
 	},
@@ -409,20 +409,19 @@ LANGUAGES.php5 = {
 			begin: '\\$' + PHP_IDENTIFIER_RE, end: '^'
 		},
     ]
-};//php5
+};//php
 
-//Compiling RegExps
 function langRe(language, value) {
   return new RegExp(value, language.case_insensitive ? 'mi' : 'm');
 }//re
-  
+
 for (var i in LANGUAGES) {
   var language = LANGUAGES[i];
   for (var key in language.modes) {
     if (language.modes[key].begin)
-      language.modes[key].begin = langRe(language, language.modes[key].begin);
+      language.modes[key].beginRe = langRe(language, language.modes[key].begin);
     if (language.modes[key].end)
-      language.modes[key].end = langRe(language, language.modes[key].end);
+      language.modes[key].endRe = langRe(language, language.modes[key].end);
   }//for
 }//for
 
@@ -485,13 +484,13 @@ function Highlighter(language_name, value) {
     if (!this.currentMode().contains)
       return null;
     for (var key in this.language.modes)
-      if (contains(this.currentMode().contains, this.language.modes[key].className) && this.language.modes[key].begin.test(lexem))
+      if (contains(this.currentMode().contains, this.language.modes[key].className) && this.language.modes[key].beginRe.test(lexem))
         return this.language.modes[key];
     return null;
   }//subMode
 
   this.endOfMode = function(mode_index, lexem) {
-    if (this.modes[mode_index].end && this.modes[mode_index].end.test(lexem))
+    if (this.modes[mode_index].end && this.modes[mode_index].endRe.test(lexem))
       return 1;
     if (this.modes[mode_index].endsWithParent) {
       var level = this.endOfMode(mode_index - 1, lexem);
@@ -501,37 +500,38 @@ function Highlighter(language_name, value) {
   }//endOfMode
 
   this.getLexem = function(value, index) {
-    var terminators = [];
-    if (this.currentMode().contains)
-      for (var key in this.language.modes) {
-        if (contains(this.currentMode().contains, this.language.modes[key].className))
-          terminators[terminators.length] = this.language.modes[key].begin;
-      }//for
-    var mode_index = this.modes.length - 1;
-    do {
-      if (this.modes[mode_index].end)
-        terminators[terminators.length] = this.modes[mode_index].end;
-      mode_index--;
-    } while (this.modes[mode_index + 1].endsWithParent);
-    if (this.currentMode().lexems)
-      terminators = terminators.concat(this.currentMode().lexems);
-    value = value.substr(index);
-    var min_index = value.length + 1;
-    var min_match = null;
-    for (var key in terminators) {
-      var match = terminators[key].exec(value);
-      if (match && match.index < min_index) {
-        min_match = match;
-        min_index = match.index;
-      }//if
-    }//for
-    if (min_match) {
-      if (min_match.index == 0)
-        return min_match[0];
-      else
-        return value.substr(0, min_match.index);
+    if (!this.currentMode().terminators) {
+      var terminators = [];
+      if (this.currentMode().contains)
+        for (var key in this.language.modes) {
+          if (contains(this.currentMode().contains, this.language.modes[key].className) &&
+              !contains(terminators, this.language.modes[key].begin))
+            terminators[terminators.length] = this.language.modes[key].begin;
+        }//for
+      var mode_index = this.modes.length - 1;
+      do {
+        if (this.modes[mode_index].end && !contains(terminators, this.modes[mode_index].end))
+          terminators[terminators.length] = this.modes[mode_index].end;
+        mode_index--;
+      } while (this.modes[mode_index + 1].endsWithParent);
+      if (this.currentMode().lexems)
+        for (var key in this.currentMode().lexems)
+          if (!contains(terminators, this.currentMode().lexems[key]))
+            terminators[terminators.length] = this.currentMode().lexems[key];
+      var terminator_re = '(' + terminators[0];
+      for (var i = 0; i < terminators.length; i++)
+        terminator_re += '|' + terminators[i];
+      terminator_re += ')';
+      this.currentMode().terminators = langRe(this.language, terminator_re);
     }//if
-    return value;
+    value = value.substr(index);
+    var match = this.currentMode().terminators.exec(value);
+    if (!match) 
+      return value;
+    if (match.index == 0)
+      return match[0];
+    else
+      return value.substr(0, match.index);
   }//getLexem
   
   this.language_name = language_name;
