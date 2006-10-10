@@ -135,7 +135,7 @@ PHP:
 
 ## Координаты
 
-Версия: 0.3 (beta)
+Версия: 0.4 (beta)
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
