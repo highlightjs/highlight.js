@@ -8,6 +8,7 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 Внесли свой вклад:
 
 - Леонов Петр <gojpeg@gmail.com> 
+- Карамзин Виктор <Victor.Karamzin@enterra-inc.com>
 
 */
 
@@ -276,7 +277,7 @@ LANGUAGES.perl = {
     lexems: [
       new RegExp(IDENT_RE)
     ],
-    contains: ['comment', 'string', 'number', 'regexp', 'sub'],
+    contains: ['comment', 'string', 'number', 'regexp', 'sub', 'variable'],
     keywords: ['abs', 'accept', 'alarm', 'atan2', 'bind', 'binmode', 'bless', 'caller', 'chdir', 'chmod', 'chomp', 'chop', 'chown', 'chr', 'chroot', 'close', 'closedir', 'connect', 'continue', 'cos', 'crypt', 'dbmclose', 'dbmopen', 'defined', 'delete', 'die', 'do', 'dump', 'each', 'else', 'elsif', 'endgrent', 'endhostent', 'endnetent', 'endprotoent', 'endpwent', 'endservent', 'eof', 'eval', 'exec', 'exists', 'exit', 'exp', 'fcntl', 'fileno', 'flock', 'for', 'foreach', 'fork', 'format', 'formline', 'getc', 'getgrent', 'getgrgid', 'getgrnam', 'gethostbyaddr', 'gethostbyname', 'gethostent', 'getlogin', 'getnetbyaddr', 'getnetbyname', 'getnetent', 'getpeername', 'getpgrp', 'getpriority', 'getprotobyname', 'getprotobynumber', 'getprotoent', 'getpwent', 'getpwnam', 'getpwuid', 'getservbyname', 'getservbyport', 'getservent', 'getsockname', 'getsockopt', 'glob', 'gmtime', 'goto', 'grep', 'hex', 'if', 'index', 'int', 'ioctl', 'join', 'keys', 'kill', 'last', 'last', 'lc', 'lcfirst', 'length', 'link', 'listen', 'local', 'localtime', 'log', 'lstat', 'ma', 'map', 'mkdir', 'msgctl', 'msgget', 'msgrcv', 'msgsnd', 'my', 'next', 'next', 'no', 'oct', 'open', 'opendir', 'ord', 'our', 'pack', 'package', 'pipe', 'pop', 'pos', 'print', 'printf', 'prototype', 'push', 'q', 'qq', 'quotemeta', 'qw', 'qx', 'rand', 'read', 'readdir', 'readline', 'readlink', 'readpipe', 'recv', 'redo', 'redo', 'ref', 'rename', 'require', 'reset', 'return', 'reverse', 'rewinddir', 'rindex', 'rmdir', 's', 'scalar', 'seek', 'seekdir', 'select', 'semctl', 'semget', 'semop', 'send', 'setgrent', 'sethostent', 'setnetent', 'setpgrp', 'setpriority', 'setprotoent', 'setpwent', 'setservent', 'setsockopt', 'shift', 'shmctl', 'shmget', 'shmread', 'shmwrite', 'shutdown', 'sin', 'sleep', 'socket', 'socketpair', 'sort', 'splice', 'split', 'sprintf', 'sqrt', 'srand', 'stat', 'study', 'sub', 'sub', 'substr', 'symlink', 'syscall', 'sysopen', 'sysread', 'sysseek', 'system', 'syswrite', 'tell', 'telldir', 'tie', 'tied', 'time', 'times', 'tr', 'truncate', 'uc', 'ucfirst', 'umask', 'undef', 'unless', 'unlink', 'unpack', 'unshift', 'untie', 'until', 'use', 'utime', 'values', 'vec', 'wait', 'waitpid', 'wantarray', 'warn', 'while', 'write', 'y']
   },
   modes: [
@@ -333,9 +334,82 @@ LANGUAGES.perl = {
       className: 'string',
       begin: '"', end: '(^|[^\\\\])"',
       relevance: 0
+    },
+    {
+      className: 'variable',
+      begin: '\\$' + IDENT_RE, end: '^'
     }
   ]
 };//perl
+
+/*
+
+Определение для PHP5 (с) Виктор Карамзин <Victor.Karamzin@enterra-inc.com>
+
+*/
+PHP5_KEYWORDS = [
+	'__CLASS__', '__FILE__', '__FUNCTION__', '__LINE__', '__METHOD__',
+	'abstract', 'and', 'array', 'as', 'break', 'case', 'catch', 'class',
+	'clone', 'const', 'continue', 'declare', 'default', 'die', 'do', 'echo',
+	'else', 'elseif', 'empty', 'enddeclare', 'endfor', 'endforeach', 'endif',
+	'endswitch', 'endwhile', 'eval', 'exception', 'exit', 'extends', 'final',
+	'for', 'foreach', 'function', 'global', 'if', 'implements', 'include',
+	'include_once', 'interface', 'isset', 'list', 'new', 'null', 'or', 'parent',
+	'php_user_filter', 'print', 'private', 'protected', 'public', 'require',
+	'require_once', 'return', 'self', 'static', 'switch', 'this', 'throw',
+	'try', 'unset', 'use', 'var', 'while', 'xor'
+];
+
+PHP_IDENTIFIER_RE = '[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*';
+
+LANGUAGES.php5 = {
+	defaultMode: {
+		lexems: [new RegExp(IDENT_RE, 'i')],
+		contains: ['comment', 'number', 'string', 'variable'],
+		keywords: PHP5_KEYWORDS
+	},
+	case_insensitive: true,
+	modes: [
+		{
+			className: 'comment',
+			begin: '//', end: '$',
+      relevance: 0
+		},
+		{
+			className: 'comment',
+			begin: '#', end: '$'
+		},
+		{
+			className: 'comment',
+			begin: '/\\*', end: '\\*/',
+			contains: ['phpdoc']
+		},
+		{
+			className: 'phpdoc',
+			begin: '\\s@[A-Za-z]+', end: '^',
+      relevance: 10
+		},
+		{
+			className: 'number',
+			begin: NUMBER_RE, end: '^',
+      relevance: 0
+		},
+		{
+			className: 'string',
+			begin: '\\\'', end: '[^\\\\]?\\\'',
+      relevance: 0
+		},
+		{
+			className: 'string',
+			begin: '"', end: '[^\\\\]?"',
+			relevance: 0
+		},
+		{
+			className: 'variable',
+			begin: '\\$' + PHP_IDENTIFIER_RE, end: '^'
+		},
+    ]
+};//php5
 
 //Compiling RegExps
 function langRe(language, value) {

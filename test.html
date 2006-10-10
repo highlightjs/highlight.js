@@ -26,10 +26,12 @@
     .number {
       color: #080;
     }
+    .phpdoc {
+      font-weight: bold;
+    }
   </style>
 
 <body>
-
 
 <p>Some python code:
 
@@ -146,6 +148,88 @@ sub load
   
   return $o;
 }</code></pre>
+
+<p>A chunk of PHP:
+
+<pre><code>require_once 'Zend.php';
+require_once 'Zend/Uri/Exception.php';
+require_once 'Zend/Uri/Http.php';
+
+/**
+ * Zend_Uri_Mailto
+ */
+require_once 'Zend/Uri/Mailto.php';
+
+
+/**
+ * @category   Zend
+ * @package    Zend_Uri
+ * @copyright  Copyright (c) 2006 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ */
+abstract class Zend_Uri
+{
+
+
+	/**
+	 * Scheme of this URI (http, ftp, etc.)
+	 * @var string
+	 */
+	protected $_scheme = "";
+
+
+    /**
+     * Return a string representation of this URI.
+     *
+     * @see     getUri()
+     * @return  string
+     */
+    public function __toString()
+    {
+        return $this-&gt;getUri();
+    }
+
+
+    static public function check($uri)
+    {
+        try {
+            $uri = self::factory($uri);
+        } catch (Exception $e) {
+            return false;
+        }
+
+        return $uri-&gt;valid();
+    }
+
+
+    /**
+     * Create a new Zend_Uri object for a URI.  If building a new URI, then $uri should contain
+     * only the scheme (http, ftp, etc).  Otherwise, supply $uri with the complete URI.
+     *
+     * @param string $uri
+     * @throws Zend_Uri_Exception
+     * @return Zend_Uri
+     */
+    static public function factory($uri = 'http')
+    {
+        /**
+         * Separate the scheme from the scheme-specific parts
+         * @link http://www.faqs.org/rfcs/rfc2396.html
+         */
+        $uri = explode(':', $uri, 2);
+        $scheme = strtolower($uri[0]);
+        $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
+
+        if (!strlen($scheme)) {
+            throw new Zend_Uri_Exception('An empty string was supplied for the scheme');
+        }
+
+        // Security check: $scheme is used to load a class file, so only alphanumerics are allowed.
+        if (!ctype_alnum($scheme)) {
+            throw new Zend_Uri_Exception('Illegal scheme supplied, only alphanumeric characters are permitted');
+        }
+}
+</code></pre>
 
 <p>Explicit Python highlight:
 

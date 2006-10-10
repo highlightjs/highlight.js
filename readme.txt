@@ -104,7 +104,16 @@ Perl:
   string          строка
   regexp          регулярное выражение
   sub             заголовок процедуры (от "sub" до "{")
+  variable        переменная, начинающаяся с "$"
 
+PHP:
+
+  keyword         ключевое слово языка
+  number          число
+  string          строка (любого типа)
+  comment         комментарий
+  phpdoc          параметры phpdoc в комментарии
+  variable        переменная, начинающаяся с "$"
 
 ## Эвристика
 
@@ -133,3 +142,4 @@ URL:    http://softwaremaniacs.org/soft/highlight/
 Внесли свой вклад:
 
   - Леонов Петр <gojpeg@gmail.com>
+  - Карамзин Виктор <Victor.Karamzin@enterra-inc.com>
