@@ -2,6 +2,18 @@
 <head>
   <title>Highlight</title>
   <style>
+    code[class]:after {
+      content: 'highlight: ' attr(class);
+      display: block; text-align: right;
+      font-size: smaller;
+      color: #CCC; background: white;
+      border-top: solid 1px;
+      padding-top: 0.5em;
+    }
+    code {
+      display: block;
+      background: #F0F0F0;
+    }
     .string {
       color: #800;
     }
@@ -26,6 +38,9 @@
     .number {
       color: #080;
     }
+    .perl .regexp {
+      color: #080;
+    }
     .phpdoc {
       font-weight: bold;
     }
@@ -33,9 +48,9 @@
 
 <body>
 
-<p>Some python code:
+<p>Some Python code:
 
-<pre><code>def somefunc(param1, param2):
+<pre><code class="python">def somefunc(param1, param2):
   '''A docstring'''
   if param1 > param2: # interesting
     print 'Gre\'ater'
@@ -102,8 +117,8 @@ Begin
     InFile.Free;
     OutFile.Free;
   End;{Try}
-End;{CopyFile}</code></pre>
-
+End;{CopyFile}
+</code></pre>
 
 <p>A bit of Perl:
 
@@ -147,7 +162,8 @@ sub load
   $o-&gt;save if delete $o-&gt;{'_save_after_load'};
   
   return $o;
-}</code></pre>
+}
+</code></pre>
 
 <p>A chunk of PHP:
 
