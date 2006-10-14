@@ -32,6 +32,7 @@ LANGUAGES.python = {
         IDENT_RE
       ],
       begin: 'def ', end: ':',
+      illegal: '$',
       keywords: ['def '],
       contains: ['title', 'params'],
       relevance: 10
@@ -42,6 +43,7 @@ LANGUAGES.python = {
         IDENT_RE
       ],
       begin: 'class ', end: ':$',
+      illegal: '$',
       keywords: ['class '],
       contains: ['title', 'params'],
       relevance: 10
@@ -423,6 +425,8 @@ for (var i in LANGUAGES) {
       language.modes[key].beginRe = langRe(language, language.modes[key].begin);
     if (language.modes[key].end)
       language.modes[key].endRe = langRe(language, language.modes[key].end);
+    if (language.modes[key].illegal)
+      language.modes[key].illegalRe = langRe(language, '^(?:' + language.modes[key].illegal + ')');
   }//for
 }//for
 
@@ -442,6 +446,8 @@ function Highlighter(language_name, value) {
   }//highlight
   
   this.processLexem = function(lexem) {
+    if (this.isIllegal(lexem))
+      throw 'Illegal';
     var new_mode = this.subMode(lexem)
     if (new_mode) {
       this.modes[this.modes.length] = new_mode;
@@ -499,22 +505,35 @@ function Highlighter(language_name, value) {
     }//if
     return 0;
   }//endOfMode
+  
+  this.isIllegal = function(lexem) {
+    if (!this.currentMode().illegalRe)
+      return false;
+    return this.currentMode().illegalRe.test(lexem);
+  }//isIllegal
 
   this.getLexem = function(value, index) {
     if (!this.currentMode().terminators) {
       var terminators = [];
+      
       if (this.currentMode().contains)
         for (var key in this.language.modes) {
           if (contains(this.currentMode().contains, this.language.modes[key].className) &&
               !contains(terminators, this.language.modes[key].begin))
             terminators[terminators.length] = this.language.modes[key].begin;
         }//for
+      
       var mode_index = this.modes.length - 1;
       do {
         if (this.modes[mode_index].end && !contains(terminators, this.modes[mode_index].end))
           terminators[terminators.length] = this.modes[mode_index].end;
         mode_index--;
       } while (this.modes[mode_index + 1].endsWithParent);
+      
+      if (this.currentMode().illegal)
+        if (!contains(terminators, this.currentMode().illegal))
+          terminators[terminators.length] = this.currentMode().illegal;
+      
       if (this.currentMode().lexems)
         for (var key in this.currentMode().lexems)
           if (!contains(terminators, this.currentMode().lexems[key]))
@@ -541,7 +560,17 @@ function Highlighter(language_name, value) {
   this.relevance = 0;
   this.keyword_count = 0;
   this.result = '';
-  this.highlight(value);
+  try {
+    this.highlight(value);
+  } catch (e) {
+    if (e == 'Illegal') {
+      this.relevance = 0;
+      this.keyword_count = 0;
+      this.result = value;
+    } else {
+      throw E;
+    }//if
+  }//try
 }//Highlighter
 
 function contains(array, item) {
