@@ -115,6 +115,18 @@ PHP:
   phpdoc          параметры phpdoc в комментарии
   variable        переменная, начинающаяся с "$"
 
+Java:
+
+  keyword         ключевое слово языка
+  number          число
+  string          строка
+  comment         комментарий
+  javadoc         javadoc-комментарии
+  class           заголовок класса от "class" до "{"
+  title           название класса внутри заголовка
+  params          все, что в скобках внутри заголовка класса
+  inheritance     слова "extends" и "implements" внутри заголовка класса
+
 ## Эвристика
 
 Определение языка, на котором написан фрагмент, делается с помощью 
@@ -135,7 +147,7 @@ PHP:
 
 ## Координаты
 
-Версия: 0.4 (beta)
+Версия: 0.5 (beta)
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
@@ -143,3 +155,4 @@ URL:    http://softwaremaniacs.org/soft/highlight/
 
   - Леонов Петр <gojpeg@gmail.com>
   - Карамзин Виктор <Victor.Karamzin@enterra-inc.com>
+  - Всеволод Соловьёв <vsevolod.solovyov@gmail.com>

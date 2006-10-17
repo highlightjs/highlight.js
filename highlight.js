@@ -9,11 +9,13 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 
 - Леонов Петр <gojpeg@gmail.com> 
 - Карамзин Виктор <Victor.Karamzin@enterra-inc.com>
+- Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
 
 */
 
 var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
 var NUMBER_RE = '\\b\\d+(\\.\\d+)?';
+var C_NUMBER_RE = '\\b(0x)?\\d+(\\.\\d+)?';
 
 var LANGUAGES = {}
 
@@ -43,7 +45,7 @@ LANGUAGES.python = {
         IDENT_RE
       ],
       begin: 'class ', end: ':$',
-      illegal: '$',
+      illegal: '[${]',
       keywords: ['class '],
       contains: ['title', 'params'],
       relevance: 10
@@ -63,7 +65,7 @@ LANGUAGES.python = {
     },
     {
       className: 'number',
-      begin: NUMBER_RE, end: '^',
+      begin: C_NUMBER_RE, end: '^',
       relevance: 0
     },
     {
@@ -128,7 +130,7 @@ LANGUAGES.html = {
     {
       className: 'tag',
       lexems: [
-        /[a-zA-Z][a-zA-Z0-9_]*/
+        '[a-zA-Z][a-zA-Z0-9_]*'
       ],
       keywords: HTML_TAGS,
       begin: '<', end: '>',
@@ -301,8 +303,13 @@ LANGUAGES.perl = {
     {
       className: 'regexp',
       // не совсем правда: у qr меньше квантификаторов, и не должна съедать ведущую небукву
-      begin: '(m|qr|\\W)\\/', end: '(|[^\\\\])\\/[cgimosx]*',
+      begin: '(m|qr|\\W)\\/.', end: '(|[^\\\\])\\/[cgimosx]*',
       relevance: 10
+    },
+    {
+      className: 'regexp',
+      begin: '(m|qr|\\W)\\/', end: '(|[^\\\\])\\/[cgimosx]*',
+      relevance: 0 // то же, что и предыдущий, но допускающий пустой "//", который является комментарием в других языках
     },
     {
       className: 'regexp',
@@ -394,7 +401,7 @@ LANGUAGES.php = {
 		},
 		{
 			className: 'number',
-			begin: NUMBER_RE, end: '^',
+			begin: C_NUMBER_RE, end: '^',
       relevance: 0
 		},
 		{
@@ -413,6 +420,78 @@ LANGUAGES.php = {
 		},
     ]
 };//php
+
+
+/*
+
+Определение для Java (с) Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
+
+*/
+LANGUAGES.java  = {
+  defaultMode: {
+    lexems: [
+      IDENT_RE
+    ],
+    contains: ['comment', 'string', 'class', 'number', 'javadoc'],
+    keywords: ['abstract', 'assert', 'boolean', 'break', 'byte', 'case', 'catch', 'char', 'class', 'const', 'continue', 'default', 'double', 'else', 'enum', 'extends', 'false', 'final', 'finally', 'float', 'for', 'if', 'implements', 'import', 'instanceof', 'interface', 'int', 'long', 'native', 'new', 'null', 'package', 'private', 'protected', 'public', 'return', 'short', 'static', 'strictfp', 'super', 'switch', 'synchronized', 'this', 'throw', 'throws', 'transient', 'true', 'try', 'void', 'volatile', 'while']
+  },
+  modes: [
+    {
+      className: 'class',
+      lexems: [
+        IDENT_RE
+      ],
+      begin: '(class |interface )', end: '{', 
+      illegal: ':',
+      keywords: ['class ', 'interface '],
+      contains: ['inheritance', 'title']
+    },
+    {
+      className: 'inheritance',
+      begin: '(implements|extends)', end: '^',
+      keywords: ['extends', 'implements'],
+      relevance: 10
+    },
+    {
+      className: 'title',
+      begin: IDENT_RE, end: '^'
+    },
+    {
+      className: 'params',
+      begin: '\\(', end: '\\)',
+      contains: ['string']
+    },
+    {
+      className: 'number',
+      begin: C_NUMBER_RE, end: '^',
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '\'', end: '(^|[^\\\\])\'',
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '"', end: '(^|[^\\\\])"',
+      relevance: 0
+    },
+    {
+      className: 'comment',
+      begin: '//', end: '$',
+      relevance: 0
+    },
+    {
+      className: 'javadoc',
+      begin: '/\\*\\*', end: '\\*/',
+      relevance: 10
+    },
+    {
+      className: 'comment',
+      begin: '\\/\\*', end: '\\*/'
+    }
+  ]
+};//java
 
 function langRe(language, value) {
   return new RegExp(value, language.case_insensitive ? 'mi' : 'm');
@@ -568,7 +647,7 @@ function Highlighter(language_name, value) {
       this.keyword_count = 0;
       this.result = value;
     } else {
-      throw E;
+      throw e;
     }//if
   }//try
 }//Highlighter

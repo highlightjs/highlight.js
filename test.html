@@ -44,6 +44,9 @@
     .phpdoc {
       font-weight: bold;
     }
+    .javadoc {
+      color: #88F;
+    }
   </style>
 
 <body>
@@ -244,6 +247,74 @@ abstract class Zend_Uri
         if (!ctype_alnum($scheme)) {
             throw new Zend_Uri_Exception('Illegal scheme supplied, only alphanumeric characters are permitted');
         }
+}
+</code></pre>
+
+<p>From Java world:
+
+<pre><code>package l2f.gameserver.model;
+
+import java.util.ArrayList;
+
+/**
+ * Mother class of all character objects of the world (PC, NPC...)&lt;BR&gt;&lt;BR&gt;
+ *
+ */
+public abstract class L2Character extends L2Object
+{
+	protected static final Logger _log = Logger.getLogger(L2Character.class.getName());
+
+	public static final Short ABNORMAL_EFFECT_BLEEDING = 0x0001; // not sure
+	public static final Short ABNORMAL_EFFECT_POISON = 0x0002;
+
+	/**
+	 * Cancel the AI.&lt;BR&gt;&lt;BR&gt;
+	 */
+	public void detachAI()
+	{
+		_ai = null;
+		//jbf = null;
+		if (1 > 5)
+		{
+			return;
+		}
+	}
+
+	public void moveTo(int x, int y, int z)
+	{
+		moveTo(x, y, z, 0);
+	}
+
+	/** Task of AI notification */
+	public class NotifyAITask implements Runnable
+	{
+		private final CtrlEvent _evt;
+
+		public NotifyAITask(CtrlEvent evt)
+		{
+			this._evt = evt;
+		}
+
+		public void run()
+		{
+			try
+			{
+				getAI().notifyEvent(_evt, null, null);
+			}
+			catch (Throwable t)
+			{
+				_log.warning("Exception " + t);
+				t.printStackTrace();
+			}
+		}
+	}
+
+	private static final int HP_REGEN_FLAG = 1;
+	private static final int MP_REGEN_FLAG = 2;
+	private static final int CP_REGEN_FLAG = 4;
+
+	/** The table containing the List of all stacked effect in progress for each Stack group Identifier */
+	private ConcurrentHashMap&lt;String, Short&gt; _stackedEffects = null;
 }
 </code></pre>
 
