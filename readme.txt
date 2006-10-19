@@ -132,6 +132,14 @@ Java:
   params          все, что в скобках внутри заголовка класса
   inheritance     слова "extends" и "implements" внутри заголовка класса
 
+C++:
+
+  keyword         ключевое слово языка
+  number          число
+  string          строка и одиночный символ
+  comment         комментарий
+  preprocessor    директивы препроцессора
+
 ## Эвристика
 
 Определение языка, на котором написан фрагмент, делается с помощью 
@@ -152,7 +160,7 @@ Java:
 
 ## Координаты
 
-Версия: 0.6 (beta)
+Версия: 0.7 (beta)
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 

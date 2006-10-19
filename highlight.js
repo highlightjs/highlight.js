@@ -15,7 +15,7 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 
 var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
 var NUMBER_RE = '\\b\\d+(\\.\\d+)?';
-var C_NUMBER_RE = '\\b(0x)?\\d+(\\.\\d+)?';
+var C_NUMBER_RE = '\\b(0x[A-Za-z0-9]+|\\d+(\\.\\d+)?)';
 
 var LANGUAGES = {}
 
@@ -306,9 +306,13 @@ LANGUAGES.perl = {
     },
     {
       className: 'regexp',
+      begin: '(m|qr|\\W)\\/\\*', end: '(|[^\\\\])\\/[cgimosx]*',
+      relevance: 0 // чтобы не путалась с распространенными комментариями /* */ 
+    },
+    {
+      className: 'regexp',
       // не совсем правда: у qr меньше квантификаторов, и не должна съедать ведущую небукву
-      begin: '(m|qr|\\W)\\/.', end: '(|[^\\\\])\\/[cgimosx]*',
-      relevance: 10
+      begin: '(m|qr|\\W)\\/.', end: '(|[^\\\\])\\/[cgimosx]*'
     },
     {
       className: 'regexp',
@@ -500,6 +504,46 @@ LANGUAGES.java  = {
     }
   ]
 };//java
+
+LANGUAGES.cpp = {
+  defaultMode: {
+    lexems: [
+      IDENT_RE
+    ],
+    contains: ['comment', 'string', 'number', 'preprocessor'],
+    keywords: ['asm', 'auto', 'bool', 'break', 'case', 'catch', 'char', 'class', 'const', 'const_cast', 'continue', 'default', 'delete', 'do', 'double', 'dynamic_cast', 'else', 'enum', 'explicit', 'export', 'extern', 'false', 'float', 'for', 'friend', 'goto', 'if', 'inline', 'int', 'long', 'mutable', 'namespace', 'new', 'operator', 'private', 'protected', 'public', 'register', 'reinterpret_cast', 'return', 'short', 'signed', 'sizeof', 'static', 'static_cast', 'struct', 'switch', 'template', 'this', 'throw', 'true', 'try', 'typedef', 'typeid', 'typename', 'union', 'unsigned', 'using', 'virtual', 'void', 'volatile', 'wchar_t', 'while'],
+  },
+  modes: [
+    {
+      className: 'comment',
+      begin: '//', end: '$',
+      relevance: 0
+    },
+    {
+      className: 'comment',
+      begin: '/\\*', end: '\\*/'
+    },
+    {
+      className: 'number',
+      begin: C_NUMBER_RE, end: '^',
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '"', end: '(^|[^\\\\])"',
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '\'', end: '[^\\\\]\'',
+      illegal: '[^\\\\][^\']'
+    },
+    {
+      className: 'preprocessor',
+      begin: '#', end: '$'
+    }
+  ]
+};//cpp
 
 function langRe(language, value) {
   return new RegExp(value, language.case_insensitive ? 'mi' : 'm');

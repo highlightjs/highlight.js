@@ -14,7 +14,8 @@
       display: block;
       background: #F0F0F0;
     }
-    .string {
+    .string,
+    .cpp .preprocessor {
       color: #800;
     }
     .comment,
@@ -319,6 +320,20 @@ public abstract class L2Character extends L2Object
 
 	/** The table containing the List of all stacked effect in progress for each Stack group Identifier */
 	private ConcurrentHashMap&lt;String, Short&gt; _stackedEffects = null;
+}
+</code></pre>
+
+<p>C++:
+
+<pre><code>#include &lt;iostream&gt;
+
+int main(int argc, char *argv[]) {
+  
+  /* An annoying "Hello World" example */
+  for (unsigned i = 0; i &lt; 0xFFFF; i++)
+    cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
+  
+  c = '\n'; // just a test 
 }
 </code></pre>
 
