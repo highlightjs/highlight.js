@@ -708,7 +708,7 @@ function initHighlight(block) {
     return;
   var classes = block.className.split(/\s+/);
   for (var i = 0; i < classes.length; i++) {
-    if (selected_languages[classes[i]]) {
+    if (LANGUAGES[classes[i]]) {
       highlightLanguage(block, classes[i]);
       return;
     }//if
