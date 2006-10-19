@@ -24,7 +24,7 @@ LANGUAGES.python = {
     lexems: [
       IDENT_RE
     ],
-    contains: ['comment', 'string', 'function', 'class', 'number'],
+    contains: ['comment', 'string', 'function', 'class', 'number', 'decorator'],
     keywords: ['and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'None', 'not', 'or', 'pass', 'print', 'raise', 'return', 'try', 'while', 'with', 'yield']
   },
   modes: [
@@ -111,6 +111,10 @@ LANGUAGES.python = {
     {
       className: 'string',
       begin: 'ur"', end: '"'
+    },
+    {
+      className: 'decorator',
+      begin: '@', end: '$'
     }
   ]
 };//python
@@ -432,7 +436,7 @@ LANGUAGES.java  = {
     lexems: [
       IDENT_RE
     ],
-    contains: ['comment', 'string', 'class', 'number', 'javadoc'],
+    contains: ['comment', 'string', 'class', 'number', 'javadoc', 'annotation'],
     keywords: ['abstract', 'assert', 'boolean', 'break', 'byte', 'case', 'catch', 'char', 'class', 'const', 'continue', 'default', 'double', 'else', 'enum', 'extends', 'false', 'final', 'finally', 'float', 'for', 'if', 'implements', 'import', 'instanceof', 'interface', 'int', 'long', 'native', 'new', 'null', 'package', 'private', 'protected', 'public', 'return', 'short', 'static', 'strictfp', 'super', 'switch', 'synchronized', 'this', 'throw', 'throws', 'transient', 'true', 'try', 'void', 'volatile', 'while']
   },
   modes: [
@@ -459,7 +463,7 @@ LANGUAGES.java  = {
     {
       className: 'params',
       begin: '\\(', end: '\\)',
-      contains: ['string']
+      contains: ['string', 'annotation']
     },
     {
       className: 'number',
@@ -489,6 +493,10 @@ LANGUAGES.java  = {
     {
       className: 'comment',
       begin: '\\/\\*', end: '\\*/'
+    },
+    {
+      className: 'annotation',
+      begin: '@[A-Za-z]+', end: '^'
     }
   ]
 };//java

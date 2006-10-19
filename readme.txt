@@ -61,6 +61,7 @@ Python:
   number          число
   string          строка (любого типа)
   comment         комментарий
+  decorator       @-декоратор функции
   function        заголовок функции "def some_name(...):"
   class           заголовок класса "class SomeName(...):"
   title           название функции или класса внутри заголовка
@@ -121,6 +122,7 @@ Java:
   number          число
   string          строка
   comment         комментарий
+  annotaion       аннотация
   javadoc         javadoc-комментарии
   class           заголовок класса от "class" до "{"
   title           название класса внутри заголовка

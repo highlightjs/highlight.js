@@ -17,7 +17,9 @@
     .string {
       color: #800;
     }
-    .comment {
+    .comment,
+    .python .decorator,
+    .java .annotation {
       color: #888;
     }
     .keyword {
@@ -53,7 +55,8 @@
 
 <p>Some Python code:
 
-<pre><code class="python">def somefunc(param1, param2):
+<pre><code class="python">@requires_authorization
+def somefunc(param1, param2):
   '''A docstring'''
   if param1 > param2: # interesting
     print 'Gre\'ater'
@@ -286,6 +289,7 @@ public abstract class L2Character extends L2Object
 	}
 
 	/** Task of AI notification */
+	@SuppressWarnings( { "nls", "unqualified-field-access", "boxing" })
 	public class NotifyAITask implements Runnable
 	{
 		private final CtrlEvent _evt;
