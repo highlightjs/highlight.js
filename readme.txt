@@ -152,7 +152,7 @@ Java:
 
 ## Координаты
 
-Версия: 0.5 (beta)
+Версия: 0.6 (beta)
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
