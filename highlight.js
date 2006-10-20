@@ -24,6 +24,7 @@ LANGUAGES.python = {
     lexems: [
       IDENT_RE
     ],
+    illegal: '(</|->)',
     contains: ['comment', 'string', 'function', 'class', 'number', 'decorator'],
     keywords: ['and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'None', 'not', 'or', 'pass', 'print', 'raise', 'return', 'try', 'while', 'with', 'yield']
   },
@@ -208,6 +209,7 @@ LANGUAGES.delphi = {
     lexems: [
       IDENT_RE
     ],
+    illegal: '("|\\$[G-Zg-z]|\\*)',
     contains: ['comment', 'string', 'number', 'function', 'class'],
     keywords: DELPHI_KEYWORDS
   },
@@ -307,26 +309,31 @@ LANGUAGES.perl = {
     {
       className: 'regexp',
       begin: '(m|qr|\\W)\\/\\*', end: '(|[^\\\\])\\/[cgimosx]*',
+      illegal: '$',
       relevance: 0 // чтобы не путалась с распространенными комментариями /* */ 
     },
     {
       className: 'regexp',
       // не совсем правда: у qr меньше квантификаторов, и не должна съедать ведущую небукву
-      begin: '(m|qr|\\W)\\/.', end: '(|[^\\\\])\\/[cgimosx]*'
+      begin: '(m|qr|\\W)\\/.', end: '(|[^\\\\])\\/[cgimosx]*',
+      illegal: '$'
     },
     {
       className: 'regexp',
       begin: '(m|qr|\\W)\\/', end: '(|[^\\\\])\\/[cgimosx]*',
+      illegal: '$',
       relevance: 0 // то же, что и предыдущий, но допускающий пустой "//", который является комментарием в других языках
     },
     {
       className: 'regexp',
       begin: 's\\/.*?(|[^\\\\])\\/', end: '(|[^\\\\])\\/[egimosx]*',
+      illegal: '$',
       relevance: 10
     },
     {
       className: 'regexp',
       begin: '(tr|y)\\/.*?(|[^\\\\])\\/', end: '(|[^\\\\])\\/[cds]*',
+      illegal: '$',
       relevance: 10
     },
     {
@@ -558,6 +565,7 @@ for (var i in LANGUAGES) {
       language.modes[key].endRe = langRe(language, language.modes[key].end);
     if (language.modes[key].illegal)
       language.modes[key].illegalRe = langRe(language, '^(?:' + language.modes[key].illegal + ')');
+    language.defaultMode.illegalRe = langRe(language, '^(?:' + language.defaultMode.illegal + ')');
   }//for
 }//for
 
