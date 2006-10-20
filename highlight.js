@@ -163,7 +163,7 @@ LANGUAGES.html = {
 
 LANGUAGES.css = {
   defaultMode: {
-    contains: ['id', 'class', 'rules', 'comment'],
+    contains: ['id', 'class', 'attr_selector', 'rules', 'comment'],
     keywords: HTML_TAGS,
     lexems: [
       IDENT_RE
@@ -180,6 +180,11 @@ LANGUAGES.css = {
       className: 'class',
       begin: '\\.[A-Za-z0-9_-]+', end: '^',
       relevance: 0
+    },
+    {
+      className: 'attr_selector',
+      begin: '\\[', end: '\\]',
+      illegal: '$'
     },
     {
       className: 'rules',
