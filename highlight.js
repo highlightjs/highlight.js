@@ -167,7 +167,8 @@ LANGUAGES.css = {
     keywords: HTML_TAGS,
     lexems: [
       IDENT_RE
-    ]
+    ],
+    illegal: '='
   },
   case_insensitive: true,
   modes: [
