@@ -286,62 +286,24 @@ LANGUAGES.delphi = {
 
 /*
 
-Определение для Perl (с) Леонов Петр <gojpeg@gmail.com> 
+Определение для Perl (с) Леонов Петр <gojpeg@gmail.com>
+Протестировать ваш perl-код можно тут: http://wiki.cmsbuilder.ru/Highlite_test
 
 */
+
+var PERL_IDENT_RE = '\\S[a-zA-Z0-9_]*';
+
 LANGUAGES.perl = {
   defaultMode: {
     lexems: [
       IDENT_RE
     ],
     contains: ['comment', 'string', 'number', 'regexp', 'sub', 'variable'],
-    keywords: ['abs', 'accept', 'alarm', 'atan2', 'bind', 'binmode', 'bless', 'caller', 'chdir', 'chmod', 'chomp', 'chop', 'chown', 'chr', 'chroot', 'close', 'closedir', 'connect', 'continue', 'cos', 'crypt', 'dbmclose', 'dbmopen', 'defined', 'delete', 'die', 'do', 'dump', 'each', 'else', 'elsif', 'endgrent', 'endhostent', 'endnetent', 'endprotoent', 'endpwent', 'endservent', 'eof', 'eval', 'exec', 'exists', 'exit', 'exp', 'fcntl', 'fileno', 'flock', 'for', 'foreach', 'fork', 'format', 'formline', 'getc', 'getgrent', 'getgrgid', 'getgrnam', 'gethostbyaddr', 'gethostbyname', 'gethostent', 'getlogin', 'getnetbyaddr', 'getnetbyname', 'getnetent', 'getpeername', 'getpgrp', 'getpriority', 'getprotobyname', 'getprotobynumber', 'getprotoent', 'getpwent', 'getpwnam', 'getpwuid', 'getservbyname', 'getservbyport', 'getservent', 'getsockname', 'getsockopt', 'glob', 'gmtime', 'goto', 'grep', 'hex', 'if', 'index', 'int', 'ioctl', 'join', 'keys', 'kill', 'last', 'last', 'lc', 'lcfirst', 'length', 'link', 'listen', 'local', 'localtime', 'log', 'lstat', 'ma', 'map', 'mkdir', 'msgctl', 'msgget', 'msgrcv', 'msgsnd', 'my', 'next', 'next', 'no', 'oct', 'open', 'opendir', 'ord', 'our', 'pack', 'package', 'pipe', 'pop', 'pos', 'print', 'printf', 'prototype', 'push', 'q', 'qq', 'quotemeta', 'qw', 'qx', 'rand', 'read', 'readdir', 'readline', 'readlink', 'readpipe', 'recv', 'redo', 'redo', 'ref', 'rename', 'require', 'reset', 'return', 'reverse', 'rewinddir', 'rindex', 'rmdir', 's', 'scalar', 'seek', 'seekdir', 'select', 'semctl', 'semget', 'semop', 'send', 'setgrent', 'sethostent', 'setnetent', 'setpgrp', 'setpriority', 'setprotoent', 'setpwent', 'setservent', 'setsockopt', 'shift', 'shmctl', 'shmget', 'shmread', 'shmwrite', 'shutdown', 'sin', 'sleep', 'socket', 'socketpair', 'sort', 'splice', 'split', 'sprintf', 'sqrt', 'srand', 'stat', 'study', 'sub', 'sub', 'substr', 'symlink', 'syscall', 'sysopen', 'sysread', 'sysseek', 'system', 'syswrite', 'tell', 'telldir', 'tie', 'tied', 'time', 'times', 'tr', 'truncate', 'uc', 'ucfirst', 'umask', 'undef', 'unless', 'unlink', 'unpack', 'unshift', 'untie', 'until', 'use', 'utime', 'values', 'vec', 'wait', 'waitpid', 'wantarray', 'warn', 'while', 'write', 'y']
+    keywords: ['abs', 'accept', 'alarm', 'and', 'atan2', 'bind', 'binmode', 'bless', 'caller', 'chdir', 'chmod', 'chomp', 'chop', 'chown', 'chr', 'chroot', 'close', 'closedir', 'connect', 'continue', 'cos', 'crypt', 'dbmclose', 'dbmopen', 'defined', 'delete', 'die', 'do', 'dump', 'each', 'else', 'elsif', 'endgrent', 'endhostent', 'endnetent', 'endprotoent', 'endpwent', 'endservent', 'eof', 'eval', 'exec', 'exists', 'exit', 'exp', 'fcntl', 'fileno', 'flock', 'for', 'foreach', 'fork', 'format', 'formline', 'getc', 'getgrent', 'getgrgid', 'getgrnam', 'gethostbyaddr', 'gethostbyname', 'gethostent', 'getlogin', 'getnetbyaddr', 'getnetbyname', 'getnetent', 'getpeername', 'getpgrp', 'getpriority', 'getprotobyname', 'getprotobynumber', 'getprotoent', 'getpwent', 'getpwnam', 'getpwuid', 'getservbyname', 'getservbyport', 'getservent', 'getsockname', 'getsockopt', 'glob', 'gmtime', 'goto', 'grep', 'hex', 'if', 'index', 'int', 'ioctl', 'join', 'keys', 'kill', 'last', 'last', 'lc', 'lcfirst', 'length', 'link', 'listen', 'local', 'localtime', 'log', 'lstat', 'ma', 'map', 'mkdir', 'msgctl', 'msgget', 'msgrcv', 'msgsnd', 'my', 'next', 'no', 'not', 'oct', 'open', 'opendir', 'ord', 'our', 'pack', 'package', 'pipe', 'pop', 'pos', 'print', 'printf', 'prototype', 'push', 'q', 'qq', 'quotemeta', 'qw', 'qx', 'rand', 'read', 'readdir', 'readline', 'readlink', 'readpipe', 'recv', 'redo', 'redo', 'ref', 'rename', 'require', 'reset', 'return', 'reverse', 'rewinddir', 'rindex', 'rmdir', 's', 'scalar', 'seek', 'seekdir', 'select', 'semctl', 'semget', 'semop', 'send', 'setgrent', 'sethostent', 'setnetent', 'setpgrp', 'setpriority', 'setprotoent', 'setpwent', 'setservent', 'setsockopt', 'shift', 'shmctl', 'shmget', 'shmread', 'shmwrite', 'shutdown', 'sin', 'sleep', 'socket', 'socketpair', 'sort', 'splice', 'split', 'sprintf', 'sqrt', 'srand', 'stat', 'study', 'sub', 'sub', 'substr', 'symlink', 'syscall', 'sysopen', 'sysread', 'sysseek', 'system', 'syswrite', 'tell', 'telldir', 'tie', 'tied', 'time', 'times', 'tr', 'truncate', 'uc', 'ucfirst', 'umask', 'undef', 'unless', 'unlink', 'unpack', 'unshift', 'untie', 'until', 'use', 'utime', 'values', 'vec', 'wait', 'waitpid', 'wantarray', 'warn', 'while', 'write', 'x', 'xor', 'y']
   },
   modes: [
-    {
-      className: 'comment',
-      begin: '#', end: '$'
-    },
-    {
-      className: 'number',
-      begin: NUMBER_RE, end: '^',
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: 'q\\(', end: '[^\\\\]\\)',
-      relevance: 10
-    },
-    {
-      className: 'regexp',
-      begin: '(m|qr|\\W)\\/\\*', end: '(|[^\\\\])\\/[cgimosx]*',
-      illegal: '$',
-      relevance: 0 // чтобы не путалась с распространенными комментариями /* */ 
-    },
-    {
-      className: 'regexp',
-      // не совсем правда: у qr меньше квантификаторов, и не должна съедать ведущую небукву
-      begin: '(m|qr|\\W)\\/.', end: '(|[^\\\\])\\/[cgimosx]*',
-      illegal: '$'
-    },
-    {
-      className: 'regexp',
-      begin: '(m|qr|\\W)\\/', end: '(|[^\\\\])\\/[cgimosx]*',
-      illegal: '$',
-      relevance: 0 // то же, что и предыдущий, но допускающий пустой "//", который является комментарием в других языках
-    },
-    {
-      className: 'regexp',
-      begin: 's\\/.*?(|[^\\\\])\\/', end: '(|[^\\\\])\\/[egimosx]*',
-      illegal: '$',
-      relevance: 10
-    },
-    {
-      className: 'regexp',
-      begin: '(tr|y)\\/.*?(|[^\\\\])\\/', end: '(|[^\\\\])\\/[cds]*',
-      illegal: '$',
-      relevance: 10
-    },
+      
+    // подпрограммы
     {
       className: 'sub',
       begin: 'sub ', end: '{',
@@ -351,9 +313,26 @@ LANGUAGES.perl = {
       keywords: ['sub '],
       relevance: 10
     },
+    
+    // переменные
+    {
+      className: 'variable',
+      begin: '\\$\\d', end: '^'
+    },
+    {
+      className: 'variable',
+      begin: '[\\$\\%\\@]' + PERL_IDENT_RE, end: '^'
+    },
+
+    // числа и строки
+    {
+      className: 'number',
+      begin: NUMBER_RE, end: '^',
+      relevance: 0
+    },
     {
       className: 'string',
-      begin: 'qq\\(', end: '(^|[^\\\\])\\)',
+      begin: 'q[qwxr]?\\(', end: '[^\\\\]\\)',
       relevance: 10
     },
     {
@@ -363,12 +342,50 @@ LANGUAGES.perl = {
     },
     {
       className: 'string',
-      begin: '"', end: '(^|[^\\\\])"',
+      begin: '`', end: '(^|[^\\\\])`',
       relevance: 0
     },
     {
-      className: 'variable',
-      begin: '\\$' + IDENT_RE, end: '^'
+      className: 'string',
+      begin: '"', end: '(^|[^\\\\])"',
+      relevance: 0
+    },
+    { // конструкции типа {some_string}
+      className: 'string',
+      begin: '{\\w+}', end: '^',
+      relevance: 0
+    },
+    { // конструкции типа some_string => ...
+      className: 'string',
+      begin: '\\w+\\s*\\=\\>', end: '^',
+      relevance: 5
+    },
+    
+    // регекспы
+    {
+      className: 'regexp',
+      begin: '(s|tr|y)(\\/.*?[^\\\\]\\/|\\/\\/)(.*?[^\\\\]\\/|\\/)[a-z]*', end: '^',
+      relevance: 10
+    },
+    {
+      className: 'regexp',
+      begin: '(m|qr)?\\/\\/[cgimosxe]*', end: '^',
+      relevance: 0 // допускает пустой "//", который является комментарием в других языках
+    },
+    {
+      className: 'regexp',
+      begin: '(m|qr)?\\/.*?[^\\\\/]\\/[cgimosxe]*', end: '^',
+      relevance: 10
+    },
+
+    // комментарии
+    {
+      className: 'comment',
+      begin: '#', end: '$'
+    },
+    {
+      className: 'comment',
+      begin: '^=\\w', end: '^=cut'
     }
   ]
 };//perl
