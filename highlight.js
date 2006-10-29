@@ -759,11 +759,27 @@ function initHighlighting() {
   }//for
 }//initHighlighting
 
+function blockText(block) {
+  var result = '';
+  for (var i = 0; i < block.childNodes.length; i++)
+    if (block.childNodes[i].nodeType == 3)
+      result += block.childNodes[i].nodeValue;
+    else if (block.childNodes[i].nodeName == 'BR')
+      result += '\n';
+    else
+      throw 'Complex markup';
+  return result;
+}//blockText
+
 function initHighlight(block) {
-  if (block.childNodes.length != 1 || 
-      block.firstChild.nodeType != 3 ||
-      block.className.search(/\bno\-highlight\b/) != -1)
+  if (block.className.search(/\bno\-highlight\b/) != -1)
     return;
+  try {
+    blockText(block);
+  } catch (e) {
+    if (e == 'Complex markup')
+      return;
+  }//try
   var classes = block.className.split(/\s+/);
   for (var i = 0; i < classes.length; i++) {
     if (LANGUAGES[classes[i]]) {
@@ -775,7 +791,7 @@ function initHighlight(block) {
 }//initHighlight
 
 function highlightLanguage(block, language) {
-  var highlight = new Highlighter(language, block.firstChild.nodeValue);
+  var highlight = new Highlighter(language, blockText(block));
   // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
   var container = document.createElement('div');
   container.innerHTML = '<pre><code class="' + block.className + '">' + highlight.result + '</code></pre>';
@@ -788,8 +804,9 @@ function highlightAuto(block) {
   var language = '';
   var max_relevance = 2;
   var relevance = 0;
+  var block_text = blockText(block);
   for (var key in selected_languages) {
-    var highlight = new Highlighter(key, block.firstChild.nodeValue);
+    var highlight = new Highlighter(key, block_text);
     relevance = highlight.keyword_count + highlight.relevance;
     if (highlight.keyword_count && relevance > max_relevance) {
       max_relevance = relevance;
