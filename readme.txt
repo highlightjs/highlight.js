@@ -161,7 +161,7 @@ C++:
 
 ## Координаты
 
-Версия: 0.7 (beta)
+Версия: 0.8 (release candidate)
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
