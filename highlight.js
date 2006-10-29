@@ -396,66 +396,66 @@ LANGUAGES.perl = {
 
 */
 PHP5_KEYWORDS = [
-	'__CLASS__', '__FILE__', '__FUNCTION__', '__LINE__', '__METHOD__',
-	'abstract', 'and', 'array', 'as', 'break', 'case', 'catch', 'class',
-	'clone', 'const', 'continue', 'declare', 'default', 'die', 'do', 'echo',
-	'else', 'elseif', 'empty', 'enddeclare', 'endfor', 'endforeach', 'endif',
-	'endswitch', 'endwhile', 'eval', 'exception', 'exit', 'extends', 'final',
-	'for', 'foreach', 'function', 'global', 'if', 'implements', 'include',
-	'include_once', 'interface', 'isset', 'list', 'new', 'null', 'or', 'parent',
-	'php_user_filter', 'print', 'private', 'protected', 'public', 'require',
-	'require_once', 'return', 'self', 'static', 'switch', 'this', 'throw',
-	'try', 'unset', 'use', 'var', 'while', 'xor'
+  '__CLASS__', '__FILE__', '__FUNCTION__', '__LINE__', '__METHOD__',
+  'abstract', 'and', 'array', 'as', 'break', 'case', 'catch', 'class',
+  'clone', 'const', 'continue', 'declare', 'default', 'die', 'do', 'echo',
+  'else', 'elseif', 'empty', 'enddeclare', 'endfor', 'endforeach', 'endif',
+  'endswitch', 'endwhile', 'eval', 'exception', 'exit', 'extends', 'final',
+  'for', 'foreach', 'function', 'global', 'if', 'implements', 'include',
+  'include_once', 'interface', 'isset', 'list', 'new', 'null', 'or', 'parent',
+  'php_user_filter', 'print', 'private', 'protected', 'public', 'require',
+  'require_once', 'return', 'self', 'static', 'switch', 'this', 'throw',
+  'try', 'unset', 'use', 'var', 'while', 'xor'
 ];
 
 PHP_IDENTIFIER_RE = '[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*';
 
 LANGUAGES.php = {
-	defaultMode: {
-		lexems: [IDENT_RE],
-		contains: ['comment', 'number', 'string', 'variable'],
-		keywords: PHP5_KEYWORDS
-	},
-	case_insensitive: true,
-	modes: [
-		{
-			className: 'comment',
-			begin: '//', end: '$',
+  defaultMode: {
+    lexems: [IDENT_RE],
+    contains: ['comment', 'number', 'string', 'variable'],
+    keywords: PHP5_KEYWORDS
+  },
+  case_insensitive: true,
+  modes: [
+    {
+      className: 'comment',
+      begin: '//', end: '$',
       relevance: 0
-		},
-		{
-			className: 'comment',
-			begin: '#', end: '$'
-		},
-		{
-			className: 'comment',
-			begin: '/\\*', end: '\\*/',
-			contains: ['phpdoc']
-		},
-		{
-			className: 'phpdoc',
-			begin: '\\s@[A-Za-z]+', end: '^',
+    },
+    {
+      className: 'comment',
+      begin: '#', end: '$'
+    },
+    {
+      className: 'comment',
+      begin: '/\\*', end: '\\*/',
+      contains: ['phpdoc']
+    },
+    {
+      className: 'phpdoc',
+      begin: '\\s@[A-Za-z]+', end: '^',
       relevance: 10
-		},
-		{
-			className: 'number',
-			begin: C_NUMBER_RE, end: '^',
+    },
+    {
+      className: 'number',
+      begin: C_NUMBER_RE, end: '^',
       relevance: 0
-		},
-		{
-			className: 'string',
-			begin: '\\\'', end: '[^\\\\]?\\\'',
+    },
+    {
+      className: 'string',
+      begin: '\\\'', end: '[^\\\\]?\\\'',
       relevance: 0
-		},
-		{
-			className: 'string',
-			begin: '"', end: '[^\\\\]?"',
-			relevance: 0
-		},
-		{
-			className: 'variable',
-			begin: '\\$' + PHP_IDENTIFIER_RE, end: '^'
-		},
+    },
+    {
+      className: 'string',
+      begin: '"', end: '[^\\\\]?"',
+      relevance: 0
+    },
+    {
+      className: 'variable',
+      begin: '\\$' + PHP_IDENTIFIER_RE, end: '^'
+    },
     ]
 };//php
 
