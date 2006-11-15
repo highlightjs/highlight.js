@@ -605,6 +605,8 @@ function Highlighter(language_name, value) {
       this.processLexem(lexem);
       index += lexem.length;
     }//for
+    if(this.modes.length > 1)
+      throw 'Illegal';
   }//highlight
   
   this.processLexem = function(lexem) {
