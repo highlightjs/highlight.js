@@ -762,22 +762,6 @@ function bcontains(array, item) {
   return item == array[current];
 }//bcontains
 
-function initHighlighting() {
-  if (arguments.length) {
-    for (var i = 0; i < arguments.length; i++) {
-      if (LANGUAGES[arguments[i]]) {
-        selected_languages[arguments[i]] = LANGUAGES[arguments[i]];
-      }//if
-    }//for
-  } else
-    selected_languages = LANGUAGES;
-  var pres = document.getElementsByTagName('pre');
-  for (var i = 0; i < pres.length; i++) {
-    if (pres[i].firstChild && pres[i].firstChild.nodeName == 'CODE')
-      initHighlight(pres[i].firstChild);
-  }//for
-}//initHighlighting
-
 function blockText(block) {
   var result = '';
   for (var i = 0; i < block.childNodes.length; i++)
@@ -841,3 +825,34 @@ function highlightAuto(block) {
     environment.replaceChild(container.firstChild, block.parentNode);
   }//if
 }//highlightAuto
+
+function initHighlighting() {
+  if (initHighlighting.called)
+    return;
+  initHighlighting.called = true;
+  if (arguments.length) {
+    for (var i = 0; i < arguments.length; i++) {
+      if (LANGUAGES[arguments[i]]) {
+        selected_languages[arguments[i]] = LANGUAGES[arguments[i]];
+      }//if
+    }//for
+  } else
+    selected_languages = LANGUAGES;
+  var pres = document.getElementsByTagName('pre');
+  for (var i = 0; i < pres.length; i++) {
+    if (pres[i].firstChild && pres[i].firstChild.nodeName == 'CODE')
+      initHighlight(pres[i].firstChild);
+  }//for
+}//initHighlighting
+
+function initHighlightingOnLoad() {
+  var original_arguments = arguments;
+  var handler = function(){initHighlighting.apply(null, original_arguments)};
+  if (window.addEventListener) {
+    window.addEventListener('DOMContentLoaded', handler, false);
+    window.addEventListener('load', handler, false);
+  } else if (window.attachEvent)
+    window.attachEvent('onload', handler);
+  else
+    window.onload = handler;
+}//initHighlightingOnLoad

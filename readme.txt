@@ -15,7 +15,7 @@ Highlight.js нужен для подсветки синтаксиса в при
 
     <script type="text/javascript" src="highlight.js"></script>
     <script type="text/javascript">
-      window.onload = function() {initHighlighting();}
+      initHighlightingOnLoad();
     </script>
 
 Автоматическое определение языков может работать довольно медленно, когда
@@ -23,7 +23,7 @@ Highlight.js нужен для подсветки синтаксиса в при
 функции initHighlighting только те языки, которые используются в тексте:
 
     <script type="text/javascript">
-      window.onload = function() {initHighlighting('html', 'css');}
+      initHighlightingOnLoad('html', 'css');
     </script>
 
 Такое перечисление языков влияет только на автоматическое определение, 
