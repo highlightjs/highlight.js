@@ -1,15 +1,42 @@
 /*
 
-Автоматическая javascript'овая подсветка синтаксиса на веб-страницах.
+Syntax highlighting with language autodetection.
 
 URL:   http://softwaremaniacs.org/soft/highlight/
-Автор: Иван Сагалаев <Maniac@SoftwareManiacs.Org>
+Author: Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 
-Внесли свой вклад:
+Contributors:
 
-- Петр Леонов <gojpeg@gmail.com> 
-- Виктор Карамзин <Victor.Karamzin@enterra-inc.com>
-- Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
+- Peter Leonov <gojpeg@gmail.com> 
+- Victor Karamzin <Victor.Karamzin@enterra-inc.com>
+- Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
+
+License (BSD):
+
+* Copyright (c) 2006, Ivan Sagalaev
+* All rights reserved.
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are met:
+*
+*     * Redistributions of source code must retain the above copyright
+*       notice, this list of conditions and the following disclaimer.
+*     * Redistributions in binary form must reproduce the above copyright
+*       notice, this list of conditions and the following disclaimer in the
+*       documentation and/or other materials provided with the distribution.
+*     * Neither the name of the University of California, Berkeley nor the
+*       names of its contributors may be used to endorse or promote products
+*       derived from this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND ANY
+* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+* DISCLAIMED. IN NO EVENT SHALL THE REGENTS AND CONTRIBUTORS BE LIABLE FOR ANY
+* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
 
@@ -269,8 +296,8 @@ LANGUAGES.delphi = {
 
 /*
 
-Определение для Perl (с) Леонов Петр <gojpeg@gmail.com>
-Протестировать ваш perl-код можно тут: http://wiki.cmsbuilder.ru/Highlite_test
+Perl definition (с) Peter Leonov <gojpeg@gmail.com>
+Test you perl code here: http://wiki.cmsbuilder.ru/Highlite_test
 
 */
 
@@ -284,7 +311,7 @@ LANGUAGES.perl = {
   },
   modes: [
       
-    // подпрограммы
+    // subroutines
     {
       className: 'sub',
       begin: 'sub ', end: '{',
@@ -293,7 +320,7 @@ LANGUAGES.perl = {
       relevance: 10
     },
     
-    // переменные
+    // variables
     {
       className: 'variable',
       begin: '\\$\\d', end: '^'
@@ -303,7 +330,7 @@ LANGUAGES.perl = {
       begin: '[\\$\\%\\@]' + PERL_IDENT_RE, end: '^'
     },
 
-    // числа и строки
+    // numbers and strings
     {
       className: 'number',
       begin: NUMBER_RE, end: '^',
@@ -329,18 +356,18 @@ LANGUAGES.perl = {
       begin: '"', end: '(^|[^\\\\])"',
       relevance: 0
     },
-    { // конструкции типа {some_string}
+    { // things like {some_string}
       className: 'string',
       begin: '{\\w+}', end: '^',
       relevance: 0
     },
-    { // конструкции типа some_string => ...
+    { // things like some_string => ...
       className: 'string',
       begin: '\\w+\\s*\\=\\>', end: '^',
       relevance: 5
     },
     
-    // регекспы
+    // regexps
     {
       className: 'regexp',
       begin: '(s|tr|y)(\\/.*?[^\\\\]\\/|\\/\\/)(.*?[^\\\\]\\/|\\/)[a-z]*', end: '^',
@@ -349,7 +376,7 @@ LANGUAGES.perl = {
     {
       className: 'regexp',
       begin: '(m|qr)?\\/\\/[cgimosxe]*', end: '^',
-      relevance: 0 // допускает пустой "//", который является комментарием в других языках
+      relevance: 0 // allows empty "//" which is a common comment delimiter in other languages
     },
     {
       className: 'regexp',
@@ -357,7 +384,7 @@ LANGUAGES.perl = {
       relevance: 10
     },
 
-    // комментарии
+    // comments
     {
       className: 'comment',
       begin: '#', end: '$'
@@ -371,7 +398,7 @@ LANGUAGES.perl = {
 
 /*
 
-Определение для PHP5 (с) Виктор Карамзин <Victor.Karamzin@enterra-inc.com>
+PHP5 definition (с) Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 
 */
 PHP5_KEYWORDS = [
@@ -441,7 +468,7 @@ LANGUAGES.php = {
 
 /*
 
-Определение для Java (с) Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
+Java definition (с) Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
 
 */
 LANGUAGES.java  = {
