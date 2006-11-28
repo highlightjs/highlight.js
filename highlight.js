@@ -14,6 +14,7 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 */
 
 var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
+var UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
 var NUMBER_RE = '\\b\\d+(\\.\\d+)?';
 var C_NUMBER_RE = '\\b(0x[A-Za-z0-9]+|\\d+(\\.\\d+)?)';
 
@@ -22,7 +23,7 @@ var LANGUAGES = {}
 LANGUAGES.python = {
   defaultMode: {
     lexems: [
-      IDENT_RE
+      UNDERSCORE_IDENT_RE
     ],
     illegal: '(</|->)',
     contains: ['comment', 'string', 'function', 'class', 'number', 'decorator'],
@@ -32,7 +33,7 @@ LANGUAGES.python = {
     {
       className: 'function',
       lexems: [
-        IDENT_RE
+        UNDERSCORE_IDENT_RE
       ],
       begin: 'def ', end: ':',
       illegal: '$',
@@ -43,7 +44,7 @@ LANGUAGES.python = {
     {
       className: 'class',
       lexems: [
-        IDENT_RE
+        UNDERSCORE_IDENT_RE
       ],
       begin: 'class ', end: ':$',
       illegal: '[${]',
@@ -53,7 +54,7 @@ LANGUAGES.python = {
     },
     {
       className: 'title',
-      begin: IDENT_RE, end: '^'
+      begin: UNDERSCORE_IDENT_RE, end: '^'
     },
     {
       className: 'params',
@@ -468,7 +469,7 @@ LANGUAGES.php = {
 LANGUAGES.java  = {
   defaultMode: {
     lexems: [
-      IDENT_RE
+      UNDERSCORE_IDENT_RE
     ],
     contains: ['comment', 'string', 'class', 'number', 'javadoc', 'annotation'],
     keywords: ['abstract', 'assert', 'boolean', 'break', 'byte', 'case', 'catch', 'char', 'class', 'const', 'continue', 'default', 'double', 'else', 'enum', 'extends', 'false', 'final', 'finally', 'float', 'for', 'if', 'implements', 'import', 'instanceof', 'interface', 'int', 'long', 'native', 'new', 'null', 'package', 'private', 'protected', 'public', 'return', 'short', 'static', 'strictfp', 'super', 'switch', 'synchronized', 'this', 'throw', 'throws', 'transient', 'true', 'try', 'void', 'volatile', 'while']
@@ -477,7 +478,7 @@ LANGUAGES.java  = {
     {
       className: 'class',
       lexems: [
-        IDENT_RE
+        UNDERSCORE_IDENT_RE
       ],
       begin: '(class |interface )', end: '{', 
       illegal: ':',
@@ -492,7 +493,7 @@ LANGUAGES.java  = {
     },
     {
       className: 'title',
-      begin: IDENT_RE, end: '^'
+      begin: UNDERSCORE_IDENT_RE, end: '^'
     },
     {
       className: 'params',
@@ -538,7 +539,7 @@ LANGUAGES.java  = {
 LANGUAGES.cpp = {
   defaultMode: {
     lexems: [
-      IDENT_RE
+      UNDERSCORE_IDENT_RE
     ],
     illegal: '</',
     contains: ['comment', 'string', 'number', 'preprocessor'],
