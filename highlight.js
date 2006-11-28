@@ -22,9 +22,7 @@ var LANGUAGES = {}
 
 LANGUAGES.python = {
   defaultMode: {
-    lexems: [
-      UNDERSCORE_IDENT_RE
-    ],
+    lexems: [UNDERSCORE_IDENT_RE],
     illegal: '(</|->)',
     contains: ['comment', 'string', 'function', 'class', 'number', 'decorator'],
     keywords: ['and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'None', 'not', 'or', 'pass', 'print', 'raise', 'return', 'try', 'while', 'with', 'yield']
@@ -32,9 +30,7 @@ LANGUAGES.python = {
   modes: [
     {
       className: 'function',
-      lexems: [
-        UNDERSCORE_IDENT_RE
-      ],
+      lexems: [UNDERSCORE_IDENT_RE],
       begin: 'def ', end: ':',
       illegal: '$',
       keywords: ['def '],
@@ -43,9 +39,7 @@ LANGUAGES.python = {
     },
     {
       className: 'class',
-      lexems: [
-        UNDERSCORE_IDENT_RE
-      ],
+      lexems: [UNDERSCORE_IDENT_RE],
       begin: 'class ', end: ':$',
       illegal: '[${]',
       keywords: ['class '],
@@ -135,9 +129,7 @@ LANGUAGES.html = {
     },
     {
       className: 'tag',
-      lexems: [
-        '[a-zA-Z][a-zA-Z0-9_]*'
-      ],
+      lexems: [IDENT_RE],
       keywords: HTML_TAGS,
       begin: '<', end: '>',
       contains: ['attribute']
@@ -166,9 +158,7 @@ LANGUAGES.css = {
   defaultMode: {
     contains: ['id', 'class', 'attr_selector', 'rules', 'comment'],
     keywords: HTML_TAGS,
-    lexems: [
-      IDENT_RE
-    ],
+    lexems: [IDENT_RE],
     illegal: '='
   },
   case_insensitive: true,
@@ -190,9 +180,7 @@ LANGUAGES.css = {
     {
       className: 'rules',
       begin: '{', end: '}',
-      lexems: [
-        '[A-Za-z-]+'
-      ],
+      lexems: ['[A-Za-z-]+'],
       keywords: ['background', 'background-attachment', 'background-color', 'background-image', 'background-position', 'background-repeat', 'border', 'border-bottom', 'border-bottom-width', 'border-color', 'border-left', 'border-left-width', 'border-right', 'border-right-width', 'border-style', 'border-top', 'border-top-width', 'border-width', 'clear', 'color', 'display', 'float', 'font', 'font-family', 'font-size', 'font-style', 'font-variant', 'font-weight', 'height', 'letter-spacing', 'line-height', 'list-style', 'list-style-image', 'list-style-position', 'list-style-type', 'margin', 'margin-bottom', 'margin-left', 'margin-right', 'margin-top', 'padding', 'padding-bottom', 'padding-left', 'padding-right', 'padding-top', 'text-align', 'text-decoration', 'text-indent', 'text-transform', 'vertical-align', 'white-space', 'width', 'word-spacing'],
       contains: ['comment', 'value']
     },
@@ -213,9 +201,7 @@ var DELPHI_CLASS_KEYWORDS = ['and', 'array', 'asm', 'begin', 'case', 'cdecl', 'c
 
 LANGUAGES.delphi = {
   defaultMode: {
-    lexems: [
-      IDENT_RE
-    ],
+    lexems: [IDENT_RE],
     illegal: '("|\\$[G-Zg-z]|\\*|</)',
     contains: ['comment', 'string', 'number', 'function', 'class'],
     keywords: DELPHI_KEYWORDS
@@ -267,18 +253,14 @@ LANGUAGES.delphi = {
     {
       className: 'params',
       begin: '\\(', end: '\\)',
-      lexems: [
-        IDENT_RE
-      ],
+      lexems: [IDENT_RE],
       keywords: DELPHI_KEYWORDS,
       contains: ['string']
     },
     {
       className: 'class',
       begin: '=\\s*class', end: 'end;',
-      lexems: [
-        IDENT_RE
-      ],
+      lexems: [IDENT_RE],
       keywords: DELPHI_CLASS_KEYWORDS,
       contains: ['string', 'comment', 'function']
     }
@@ -296,9 +278,7 @@ var PERL_IDENT_RE = '\\S[a-zA-Z0-9_]*';
 
 LANGUAGES.perl = {
   defaultMode: {
-    lexems: [
-      IDENT_RE
-    ],
+    lexems: [IDENT_RE],
     contains: ['comment', 'string', 'number', 'regexp', 'sub', 'variable'],
     keywords: ['abs', 'accept', 'alarm', 'and', 'atan2', 'bind', 'binmode', 'bless', 'caller', 'chdir', 'chmod', 'chomp', 'chop', 'chown', 'chr', 'chroot', 'close', 'closedir', 'connect', 'continue', 'cos', 'crypt', 'dbmclose', 'dbmopen', 'defined', 'delete', 'die', 'do', 'dump', 'each', 'else', 'elsif', 'endgrent', 'endhostent', 'endnetent', 'endprotoent', 'endpwent', 'endservent', 'eof', 'eval', 'exec', 'exists', 'exit', 'exp', 'fcntl', 'fileno', 'flock', 'for', 'foreach', 'fork', 'format', 'formline', 'getc', 'getgrent', 'getgrgid', 'getgrnam', 'gethostbyaddr', 'gethostbyname', 'gethostent', 'getlogin', 'getnetbyaddr', 'getnetbyname', 'getnetent', 'getpeername', 'getpgrp', 'getpriority', 'getprotobyname', 'getprotobynumber', 'getprotoent', 'getpwent', 'getpwnam', 'getpwuid', 'getservbyname', 'getservbyport', 'getservent', 'getsockname', 'getsockopt', 'glob', 'gmtime', 'goto', 'grep', 'hex', 'if', 'index', 'int', 'ioctl', 'join', 'keys', 'kill', 'last', 'last', 'lc', 'lcfirst', 'length', 'link', 'listen', 'local', 'localtime', 'log', 'lstat', 'ma', 'map', 'mkdir', 'msgctl', 'msgget', 'msgrcv', 'msgsnd', 'my', 'next', 'no', 'not', 'oct', 'open', 'opendir', 'ord', 'our', 'pack', 'package', 'pipe', 'pop', 'pos', 'print', 'printf', 'prototype', 'push', 'q', 'qq', 'quotemeta', 'qw', 'qx', 'rand', 'read', 'readdir', 'readline', 'readlink', 'readpipe', 'recv', 'redo', 'redo', 'ref', 'rename', 'require', 'reset', 'return', 'reverse', 'rewinddir', 'rindex', 'rmdir', 's', 'scalar', 'seek', 'seekdir', 'select', 'semctl', 'semget', 'semop', 'send', 'setgrent', 'sethostent', 'setnetent', 'setpgrp', 'setpriority', 'setprotoent', 'setpwent', 'setservent', 'setsockopt', 'shift', 'shmctl', 'shmget', 'shmread', 'shmwrite', 'shutdown', 'sin', 'sleep', 'socket', 'socketpair', 'sort', 'splice', 'split', 'sprintf', 'sqrt', 'srand', 'stat', 'study', 'sub', 'sub', 'substr', 'symlink', 'syscall', 'sysopen', 'sysread', 'sysseek', 'system', 'syswrite', 'tell', 'telldir', 'tie', 'tied', 'time', 'times', 'tr', 'truncate', 'uc', 'ucfirst', 'umask', 'undef', 'unless', 'unlink', 'unpack', 'unshift', 'untie', 'until', 'use', 'utime', 'values', 'vec', 'wait', 'waitpid', 'wantarray', 'warn', 'while', 'write', 'x', 'xor', 'y']
   },
@@ -308,9 +288,7 @@ LANGUAGES.perl = {
     {
       className: 'sub',
       begin: 'sub ', end: '{',
-      lexems: [
-        IDENT_RE
-      ],
+      lexems: [IDENT_RE],
       keywords: ['sub '],
       relevance: 10
     },
@@ -468,18 +446,14 @@ LANGUAGES.php = {
 */
 LANGUAGES.java  = {
   defaultMode: {
-    lexems: [
-      UNDERSCORE_IDENT_RE
-    ],
+    lexems: [UNDERSCORE_IDENT_RE],
     contains: ['comment', 'string', 'class', 'number', 'javadoc', 'annotation'],
     keywords: ['abstract', 'assert', 'boolean', 'break', 'byte', 'case', 'catch', 'char', 'class', 'const', 'continue', 'default', 'double', 'else', 'enum', 'extends', 'false', 'final', 'finally', 'float', 'for', 'if', 'implements', 'import', 'instanceof', 'interface', 'int', 'long', 'native', 'new', 'null', 'package', 'private', 'protected', 'public', 'return', 'short', 'static', 'strictfp', 'super', 'switch', 'synchronized', 'this', 'throw', 'throws', 'transient', 'true', 'try', 'void', 'volatile', 'while']
   },
   modes: [
     {
       className: 'class',
-      lexems: [
-        UNDERSCORE_IDENT_RE
-      ],
+      lexems: [UNDERSCORE_IDENT_RE],
       begin: '(class |interface )', end: '{', 
       illegal: ':',
       keywords: ['class ', 'interface '],
@@ -538,9 +512,7 @@ LANGUAGES.java  = {
 
 LANGUAGES.cpp = {
   defaultMode: {
-    lexems: [
-      UNDERSCORE_IDENT_RE
-    ],
+    lexems: [UNDERSCORE_IDENT_RE],
     illegal: '</',
     contains: ['comment', 'string', 'number', 'preprocessor'],
     keywords: ['asm', 'auto', 'bool', 'break', 'case', 'catch', 'char', 'class', 'const', 'const_cast', 'continue', 'default', 'delete', 'do', 'double', 'dynamic_cast', 'else', 'enum', 'explicit', 'export', 'extern', 'false', 'float', 'for', 'friend', 'goto', 'if', 'inline', 'int', 'long', 'mutable', 'namespace', 'new', 'operator', 'private', 'protected', 'public', 'register', 'reinterpret_cast', 'return', 'short', 'signed', 'sizeof', 'static', 'static_cast', 'struct', 'switch', 'template', 'this', 'throw', 'true', 'try', 'typedef', 'typeid', 'typename', 'union', 'unsigned', 'using', 'virtual', 'void', 'volatile', 'wchar_t', 'while']
