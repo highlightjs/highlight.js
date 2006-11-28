@@ -7,8 +7,8 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 
 Внесли свой вклад:
 
-- Леонов Петр <gojpeg@gmail.com> 
-- Карамзин Виктор <Victor.Karamzin@enterra-inc.com>
+- Петр Леонов <gojpeg@gmail.com> 
+- Виктор Карамзин <Victor.Karamzin@enterra-inc.com>
 - Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
 
 */
