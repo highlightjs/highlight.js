@@ -75,7 +75,7 @@ Python:
 
   keyword         keyword
   number          number
-  string          string (of any любого типа)
+  string          string (of any type)
   comment         comment
   decorator       @-decorator for functions
   function        function header "def some_name(...):"
@@ -154,6 +154,16 @@ C++:
   comment         comment
   preprocessor    preprocessor directive
 
+Ruby:
+
+  keyword         keyword
+  string          string
+  comment         comment
+  function        function header "def some_name(...):"
+  class           class header "class SomeName(...):"
+  title           name of a function or a class inside a header
+  symbol          symbol
+
 ## Heuristics
 
 Autodetection of a code's language is done with a simple heuristics:
@@ -173,7 +183,7 @@ To disable highlighting of a fragment altogether use "no-highlight" class:
 
 ## Contacts
 
-Version: 1.0
+Version: 1.1
 URL:     http://softwaremaniacs.org/soft/highlight/en/
 Author:  Ivan Sagalaev (Maniac@SoftwareManiacs.Org)
 
