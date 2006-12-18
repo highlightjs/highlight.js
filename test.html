@@ -10,48 +10,44 @@
       border-top: solid 1px;
       padding-top: 0.5em;
     }
+    
     code {
       display: block;
       background: #F0F0F0;
     }
+    
     .string,
-    .cpp .preprocessor {
+    .function .title,
+    .class .title, 
+    .tag .attribute .value,
+    .css .rules .value,
+    .cpp .preprocessor,
+    .ruby .symbol {
       color: #800;
     }
+    
     .comment,
     .python .decorator,
     .java .annotation {
       color: #888;
     }
-    .keyword {
-      font-weight: bold;
-    }
-    .function .title,
-    .class .title {
-      color: #800;
-      font-weight:bold;
-    }
-    .tag .attribute .value,
-    .css .rules .value {
-      color: #800;
-    }
-    .css .id {
-      font-weight: bold;
-    }
-    .number {
-      color: #080;
-    }
+    
+    .number,
     .perl .regexp {
       color: #080;
     }
-    .phpdoc {
-      font-weight: bold;
-    }
-    .javadoc {
+    
+    .javadoc,
+    .ruby .string {
       color: #88F;
     }
-    .ruby .symbol {
-      color: #800;
+    
+    .keyword,
+    .css .id,
+    .phpdoc,
+    .function .title,
+    .class .title {
+      font-weight: bold;
     }
   </style>
   
