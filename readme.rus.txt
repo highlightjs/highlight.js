@@ -185,3 +185,4 @@ URL:    http://softwaremaniacs.org/soft/highlight/
 - Петр Леонов <gojpeg@gmail.com>
 - Виктор Карамзин <Victor.Karamzin@enterra-inc.com>
 - Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
+- Антон Ковалёв <anton@kovalyov.net>

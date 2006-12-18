@@ -50,6 +50,9 @@
     .javadoc {
       color: #88F;
     }
+    .ruby .symbol {
+      color: #800;
+    }
   </style>
   
   <script type="text/javascript" src="highlight.js"></script>
@@ -343,6 +346,28 @@ int main(int argc, char *argv[]) {
   
   c = '\n'; // just a test 
 }
+</code></pre>
+
+<p>Short sample of Ruby:
+
+<pre><code># Ruby support for highlight.js
+  
+class CategoriesController &lt; ApplicationController
+  layout "core"
+
+  before_filter :login_required
+  before_filter :xhr_required, :only =&gt; [:create, :update]
+  before_filter :admin_privileges_required, :except =&gt; [:show]
+
+=begin
+  This method creates a category. Very difficult to understand, huh?
+=end
+
+  def create
+    @category = Category.create(params[:category])
+    flash[:notice] = "Category was successfully created"
+  end
+end
 </code></pre>
 
 <p>Explicit Python highlight:

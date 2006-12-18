@@ -182,3 +182,4 @@ Contributors:
 - Peter Leonov <gojpeg@gmail.com> 
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
+- Anton Kovalyov <anton@kovalyov.net>

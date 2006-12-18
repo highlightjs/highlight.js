@@ -10,6 +10,7 @@ Contributors:
 - Peter Leonov <gojpeg@gmail.com> 
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
+- Anton Kovalyov <anton@kovalyov.net>
 
 License (BSD):
 
@@ -575,6 +576,71 @@ LANGUAGES.cpp = {
     }
   ]
 };//cpp
+
+/*
+
+Ruby definition (с) Anton Kovalyov <anton@kovalyov.net>
+
+*/
+LANGUAGES.ruby = {
+  defaultMode: {
+    lexems: [UNDERSCORE_IDENT_RE],
+    contains: ['comment', 'string', 'class', 'function', 'symbol'],
+    keywords: ['BEGIN', 'END', 'alias', 'and', 'begin', 'break', 'case', 'class', 'def', 'defined', 'do', 'else', 'elsif', 'end', 'ensure', 'false', 'for', 'if', 'in', 'module', 'next', 'nil', 'not', 'or', 'redo', 'require', 'rescue', 'retry', 'return', 'self', 'super', 'then', 'true', 'undef', 'unless', 'until', 'when', 'while', 'yield']
+  },
+  modes: [
+    {
+      className: 'comment',
+      begin: '#', end: '$'
+    },
+    {
+      className: 'comment',
+      begin: '^\\=begin', end: '^\\=end',
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '"', end: '"'
+    },
+    {
+      className: 'string',
+      begin: '\'', end: '\''
+    },
+    {
+      className: 'function',
+      lexems: [IDENT_RE],
+      begin: 'def ', end: '$',
+      illegal: '{',
+      keywords: ['def '],
+      contains: ['title', 'comment'],
+      relevance: 10
+    },    
+    { 
+      className: 'class',
+      lexems: [IDENT_RE],
+      begin: 'class ', end: '$',
+      illegal: '{',
+      contains: ['title', 'comment'],      
+      keywords: ['class ']
+    },
+    {
+      className: 'symbol',
+      begin: ':' + UNDERSCORE_IDENT_RE, end: '^'
+    },
+    {
+      className: 'title',
+      begin: IDENT_RE + "\\s*<\\s*" + IDENT_RE, end: '^'
+    },
+    {
+      className: 'title',
+      begin: 'self.' + IDENT_RE, end: '^'
+    },
+    {
+      className: 'title',
+      begin: IDENT_RE, end: '^'
+    }
+  ]
+};//ruby
 
 function langRe(language, value) {
   return new RegExp(value, language.case_insensitive ? 'mi' : 'm');
