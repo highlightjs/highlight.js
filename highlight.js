@@ -61,7 +61,7 @@ LANGUAGES.python = {
       lexems: [UNDERSCORE_IDENT_RE],
       begin: 'def ', end: ':',
       illegal: '$',
-      keywords: {'def ': 1},
+      keywords: {'def': 1},
       contains: ['title', 'params'],
       relevance: 10
     },
@@ -70,7 +70,7 @@ LANGUAGES.python = {
       lexems: [UNDERSCORE_IDENT_RE],
       begin: 'class ', end: ':$',
       illegal: '[${]',
-      keywords: {'class ': 1},
+      keywords: {'class': 1},
       contains: ['title', 'params'],
       relevance: 10
     },
@@ -225,7 +225,7 @@ LANGUAGES.css = {
 };//css
 
 var DELPHI_KEYWORDS = {'and': 1, 'safecall': 1, 'cdecl': 1, 'then': 1, 'string': 1, 'exports': 1, 'library': 1, 'not': 1, 'pascal': 1, 'set': 1, 'virtual': 1, 'file': 1, 'in': 1, 'array': 1, 'label': 1, 'packed': 1, 'end.': 1, 'index': 1, 'while': 1, 'const': 1, 'raise': 1, 'for': 1, 'to': 1, 'implementation': 1, 'with': 1, 'except': 1, 'overload': 1, 'destructor': 1, 'downto': 1, 'finally': 1, 'program': 1, 'exit': 1, 'unit': 1, 'inherited': 1, 'override': 1, 'if': 1, 'type': 1, 'until': 1, 'function': 1, 'do': 1, 'begin': 1, 'repeat': 1, 'goto': 1, 'nil': 1, 'far': 1, 'initialization': 1, 'object': 1, 'else': 1, 'var': 1, 'uses': 1, 'external': 1, 'resourcestring': 1, 'interface': 1, 'end': 1, 'finalization': 1, 'class': 1, 'asm': 1, 'mod': 1, 'case': 1, 'on': 1, 'shr': 1, 'shl': 1, 'of': 1, 'register': 1, 'xorwrite': 1, 'threadvar': 1, 'try': 1, 'record': 1, 'near': 1, 'stored': 1, 'constructor': 1, 'stdcall': 1, 'inline': 1, 'div': 1, 'out': 1, 'or': 1, 'procedure': 1};
-var DELPHI_CLASS_KEYWORDS = {'safecall': 1, 'stdcall': 1, 'pascal': 1, 'stored': 1, 'const': 1, 'implementation': 1, 'finalization': 1, 'except': 1, 'to': 1, 'finally': 1, 'program': 1, 'inherited': 1, 'override': 1, 'then': 1, 'exports': 1, 'string': 1, 'read': 1, 'not': 1, 'mod': 1, 'shr': 1, 'try': 1, 'div': 1, 'shl': 1, 'set': 1, 'library': 1, 'message': 1, 'packed': 1, 'end.': 1, 'index': 1, 'for': 1, 'near': 1, 'overload': 1, 'label': 1, 'downto': 1, 'exit': 1, 'public': 1, 'goto': 1, 'interface': 1, 'asm': 1, 'on': 1, 'of': 1, 'constructor': 1, 'or': 1, 'private': 1, 'array': 1, 'unit': 1, 'raise': 1, 'destructor': 1, 'var': 1, 'type': 1, 'until': 1, 'function': 1, 'else': 1, 'external': 1, 'with': 1, 'case': 1, 'default': 1, 'record': 1, 'while': 1, 'protected': 1, 'property': 1, 'procedure': 1, 'published': 1, 'and': 1, 'cdecl': 1, 'do': 1, 'threadvar': 1, 'file': 1, 'in': 1, 'if': 1, 'end': 1, 'virtual': 1, 'write': 1, 'far': 1, 'out': 1, 'begin': 1, 'repeat': 1, 'nil': 1, 'initialization': 1, 'object': 1, 'uses': 1, 'resourcestring': 1, 'class': 1, 'register': 1, 'xorwrite': 1, 'inline': 1};
+var DELPHI_CLASS_KEYWORDS = {'safecall': 1, 'stdcall': 1, 'pascal': 1, 'stored': 1, 'const': 1, 'implementation': 1, 'finalization': 1, 'except': 1, 'to': 1, 'finally': 1, 'program': 1, 'inherited': 1, 'override': 1, 'then': 1, 'exports': 1, 'string': 1, 'read': 1, 'not': 1, 'mod': 1, 'shr': 1, 'try': 1, 'div': 1, 'shl': 1, 'set': 1, 'library': 1, 'message': 1, 'packed': 1, 'index': 1, 'for': 1, 'near': 1, 'overload': 1, 'label': 1, 'downto': 1, 'exit': 1, 'public': 1, 'goto': 1, 'interface': 1, 'asm': 1, 'on': 1, 'of': 1, 'constructor': 1, 'or': 1, 'private': 1, 'array': 1, 'unit': 1, 'raise': 1, 'destructor': 1, 'var': 1, 'type': 1, 'until': 1, 'function': 1, 'else': 1, 'external': 1, 'with': 1, 'case': 1, 'default': 1, 'record': 1, 'while': 1, 'protected': 1, 'property': 1, 'procedure': 1, 'published': 1, 'and': 1, 'cdecl': 1, 'do': 1, 'threadvar': 1, 'file': 1, 'in': 1, 'if': 1, 'end': 1, 'virtual': 1, 'write': 1, 'far': 1, 'out': 1, 'begin': 1, 'repeat': 1, 'nil': 1, 'initialization': 1, 'object': 1, 'uses': 1, 'resourcestring': 1, 'class': 1, 'register': 1, 'xorwrite': 1, 'inline': 1};
 
 LANGUAGES.delphi = {
   defaultMode: {
@@ -263,6 +263,7 @@ LANGUAGES.delphi = {
     {
       className: 'function',
       begin: 'function', end: '[:;]',
+      lexems: [IDENT_RE],
       keywords: {'function': 1},
       contains: ['title', 'params', 'comment'],
       relevance: 0
@@ -270,6 +271,7 @@ LANGUAGES.delphi = {
     {
       className: 'function',
       begin: '(procedure|constructor|destructor)', end: ';',
+      lexems: [IDENT_RE],
       keywords: {'constructor': 1, 'destructor': 1, 'procedure': 1},
       contains: ['title', 'params', 'comment'],
       relevance: 10
@@ -479,6 +481,7 @@ LANGUAGES.java  = {
     {
       className: 'inheritance',
       begin: '(implements|extends)', end: '^',
+      lexems: [IDENT_RE],
       keywords: {'extends': 1, 'implements': 1},
       relevance: 10
     },
@@ -631,8 +634,9 @@ LANGUAGES.ruby = {
   ]
 };//ruby
 
-function langRe(language, value) {
-  return new RegExp(value, language.case_insensitive ? 'mi' : 'm');
+function langRe(language, value, global) {
+  var mode =  'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '');
+  return new RegExp(value, mode);
 }//re
 
 for (var i in LANGUAGES) {
@@ -657,56 +661,89 @@ function Highlighter(language_name, value) {
   
   this.highlight = function(value) {
     var index = 0;
-    for (var lexem = this.getLexem(value, index); index < value.length; lexem = this.getLexem(value, index)) {
-      this.processLexem(lexem);
-      index += lexem.length;
+    this.language.defaultMode.buffer = '';
+    for (var mode_info = this.eatModeChunk(value, index); index < value.length; mode_info = this.eatModeChunk(value, index)) {
+      this.processModeInfo(mode_info[0], mode_info[1], mode_info[2]);
+      index += mode_info[0].length + mode_info[1].length;
     }//for
     if(this.modes.length > 1)
       throw 'Illegal';
   }//highlight
   
-  this.processLexem = function(lexem) {
+  this.processModeInfo = function(buffer, lexem, end) {
+    if (end) {
+      this.result += this.processKeywords(this.currentMode().buffer + buffer);
+      return;
+    }//if
     if (this.isIllegal(lexem))
       throw 'Illegal';
-    var new_mode = this.subMode(lexem)
+    var new_mode = this.subMode(lexem);
     if (new_mode) {
+      this.currentMode().buffer += buffer;
+      this.result += this.processKeywords(this.currentMode().buffer);
+      if (new_mode.excludeBegin) {
+        this.result += lexem + '<span class="' + new_mode.className + '">';
+        new_mode.buffer = '';
+      } else {
+        this.result += '<span class="' + new_mode.className + '">';
+        new_mode.buffer = lexem;
+      }//if
       this.modes[this.modes.length] = new_mode;
-      if (new_mode.excludeBegin)
-        this.result += this.keyword(lexem) + '<span class="' + new_mode.className + '">';
-      else
-        this.result += '<span class="' + new_mode.className + '">' + this.keyword(lexem);
       this.relevance += this.currentMode().relevance != undefined ? this.currentMode().relevance : 1;
       return;
     }//if
     var end_level = this.endOfMode(this.modes.length - 1, lexem);
     if (end_level) {
+      this.currentMode().buffer += buffer;
+      if (this.currentMode().excludeEnd) {
+        this.result += this.processKeywords(this.currentMode().buffer) + '</span>' + lexem;
+      } else {
+        this.result += this.processKeywords(this.currentMode().buffer + lexem) + '</span>';
+      }
       while (end_level > 1) {
         this.result += '</span>';
         end_level--;
         this.modes.length--;
       }//while
-      if (this.currentMode().excludeEnd)
-        this.result += '</span>' + this.keyword(lexem);
-      else
-        this.result += this.keyword(lexem) + '</span>';
       this.modes.length--;
+      this.currentMode().buffer = '';
       return;
     }//if
-    this.result += this.keyword(lexem);
-  }//processLexem
+  }//processModeInfo
 
-  this.keyword = function(lexem) {
-    var html = lexem.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
-    if (this.language.case_insensitive)
-      lexem = lexem.toLowerCase();
+  this.processKeywords = function(buffer) {
     var mode = this.currentMode();
-    if (mode.keywords && mode.keywords[lexem]) {
-      this.keyword_count++;
-      return '<span class="keyword">' + html + '</span>';
-    } else {
-      return html;
+    if (!mode.keywords || !mode.lexems)
+      return escape(buffer);
+    if (!mode.lexemsRe) {
+      var lexems = [];
+      for (var key in mode.lexems)
+        if (!contains(lexems, mode.lexems[key]))
+          lexems[lexems.length] = mode.lexems[key];
+      var lexems_re = '(' + lexems[0];
+      for (var i = 1; i < lexems.length; i++)
+        lexems_re += '|' + lexems[i];
+      lexems_re += ')';
+      mode.lexemsRe = langRe(this.language, lexems_re, true);
     }//if
-  }//keyword
+    var result = '';
+    var last_index = 0;
+    mode.lexemsRe.lastIndex = 0;
+    var match = mode.lexemsRe.exec(buffer);
+    while (match) {
+      result += escape(buffer.substr(last_index, match.index - last_index));
+      if (mode.keywords[this.language.case_insensitive ? match[0].toLowerCase() : match[0]]) {
+        this.keyword_count++;
+        result += '<span class="keyword">' + escape(match[0]) + '</span>';
+      } else {
+        result += escape(match[0]);
+      }//if
+      last_index = mode.lexemsRe.lastIndex;
+      match = mode.lexemsRe.exec(buffer);
+    }//while
+    result += escape(buffer.substr(last_index, buffer.length - last_index));
+    return result;
+  }//processKeywords
 
   this.subMode = function(lexem) {
     if (!this.currentMode().contains)
@@ -733,7 +770,7 @@ function Highlighter(language_name, value) {
     return this.currentMode().illegalRe.test(lexem);
   }//isIllegal
 
-  this.getLexem = function(value, index) {
+  this.eatModeChunk = function(value, index) {
     if (!this.currentMode().terminators) {
       var terminators = [];
       
@@ -755,10 +792,6 @@ function Highlighter(language_name, value) {
         if (!contains(terminators, this.currentMode().illegal))
           terminators[terminators.length] = this.currentMode().illegal;
       
-      if (this.currentMode().lexems)
-        for (var key in this.currentMode().lexems)
-          if (!contains(terminators, this.currentMode().lexems[key]))
-            terminators[terminators.length] = this.currentMode().lexems[key];
       var terminator_re = '(' + terminators[0];
       for (var i = 0; i < terminators.length; i++)
         terminator_re += '|' + terminators[i];
@@ -768,12 +801,12 @@ function Highlighter(language_name, value) {
     value = value.substr(index);
     var match = this.currentMode().terminators.exec(value);
     if (!match) 
-      return value;
+      return [value, '', true];
     if (match.index == 0)
-      return match[0];
+      return ['', match[0], false];
     else
-      return value.substr(0, match.index);
-  }//getLexem
+      return [value.substr(0, match.index), match[0], false];
+  }//eatModeChunk
   
   this.language_name = language_name;
   this.language = LANGUAGES[language_name];
@@ -802,6 +835,10 @@ function contains(array, item) {
       return true;
   return false;
 }//contains
+
+function escape(value) {
+  return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
+}//escape
 
 function blockText(block) {
   var result = '';
