@@ -475,7 +475,7 @@ LANGUAGES.java  = {
       lexems: [UNDERSCORE_IDENT_RE],
       begin: '(class |interface )', end: '{', 
       illegal: ':',
-      keywords: {'class ': 1, 'interface ': 1},
+      keywords: {'class': 1, 'interface': 1},
       contains: ['inheritance', 'title']
     },
     {

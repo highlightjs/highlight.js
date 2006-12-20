@@ -186,7 +186,7 @@ Ruby:
 
 ## Координаты
 
-Версия: 2.0
+Версия: 2.1
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
