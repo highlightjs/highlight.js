@@ -3,7 +3,7 @@
 Plugin Name: highlight.js
 Plugin URI: http://softwaremaniacs.org/soft/highlight/
 Description: Syntax highlighting with language autodetection
-Version: 1.0
+Version: 2.0
 Author: Ivan Sagalaev
 Author URI: http://softwaremaniacs.org/about/
 */
