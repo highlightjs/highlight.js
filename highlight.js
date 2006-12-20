@@ -230,7 +230,7 @@ var DELPHI_CLASS_KEYWORDS = {'safecall': 1, 'stdcall': 1, 'pascal': 1, 'stored':
 LANGUAGES.delphi = {
   defaultMode: {
     lexems: [IDENT_RE],
-    illegal: '("|\\$[G-Zg-z]|\\*|</)',
+    illegal: '("|\\$[G-Zg-z]|\\/\\*|</)',
     contains: ['comment', 'string', 'number', 'function', 'class'],
     keywords: DELPHI_KEYWORDS
   },
@@ -257,7 +257,7 @@ LANGUAGES.delphi = {
     },
     {
       className: 'string',
-      begin: '\'', end: '[^\\\']\'',
+      begin: '\'', end: '(^|[^\\\'])\'',
       relevance: 0
     },
     {
