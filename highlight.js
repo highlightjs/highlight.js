@@ -655,64 +655,79 @@ for (var i in LANGUAGES) {
 var selected_languages = {};
 
 function Highlighter(language_name, value) {
-  this.currentMode = function(){
-    return this.modes[this.modes.length - 1];
+  currentMode = function(){
+    return modes[modes.length - 1];
   }//currentMode
   
-  this.highlight = function(value) {
-    var index = 0;
-    this.language.defaultMode.buffer = '';
-    for (var mode_info = this.eatModeChunk(value, index); index < value.length; mode_info = this.eatModeChunk(value, index)) {
-      this.processModeInfo(mode_info[0], mode_info[1], mode_info[2]);
-      index += mode_info[0].length + mode_info[1].length;
-    }//for
-    if(this.modes.length > 1)
-      throw 'Illegal';
-  }//highlight
-  
-  this.processModeInfo = function(buffer, lexem, end) {
-    if (end) {
-      this.result += this.processKeywords(this.currentMode().buffer + buffer);
-      return;
-    }//if
-    if (this.isIllegal(lexem))
-      throw 'Illegal';
-    var new_mode = this.subMode(lexem);
-    if (new_mode) {
-      this.currentMode().buffer += buffer;
-      this.result += this.processKeywords(this.currentMode().buffer);
-      if (new_mode.excludeBegin) {
-        this.result += lexem + '<span class="' + new_mode.className + '">';
-        new_mode.buffer = '';
-      } else {
-        this.result += '<span class="' + new_mode.className + '">';
-        new_mode.buffer = lexem;
-      }//if
-      this.modes[this.modes.length] = new_mode;
-      this.relevance += this.currentMode().relevance != undefined ? this.currentMode().relevance : 1;
-      return;
-    }//if
-    var end_level = this.endOfMode(this.modes.length - 1, lexem);
-    if (end_level) {
-      this.currentMode().buffer += buffer;
-      if (this.currentMode().excludeEnd) {
-        this.result += this.processKeywords(this.currentMode().buffer) + '</span>' + lexem;
-      } else {
-        this.result += this.processKeywords(this.currentMode().buffer + lexem) + '</span>';
-      }
-      while (end_level > 1) {
-        this.result += '</span>';
-        end_level--;
-        this.modes.length--;
-      }//while
-      this.modes.length--;
-      this.currentMode().buffer = '';
-      return;
-    }//if
-  }//processModeInfo
+  function subMode(lexem) {
+    if (!currentMode().contains)
+      return null;
+    for (var key in language.modes)
+      if (contains(currentMode().contains, language.modes[key].className) && language.modes[key].beginRe.test(lexem))
+        return language.modes[key];
+    return null;
+  }//subMode
 
-  this.processKeywords = function(buffer) {
-    var mode = this.currentMode();
+  function endOfMode(mode_index, lexem) {
+    if (modes[mode_index].end && modes[mode_index].endRe.test(lexem))
+      return 1;
+    if (modes[mode_index].endsWithParent) {
+      var level = endOfMode(mode_index - 1, lexem);
+      return level ? level + 1 : 0;
+    }//if
+    return 0;
+  }//endOfMode
+  
+  function isIllegal(lexem) {
+    if (!currentMode().illegalRe)
+      return false;
+    return currentMode().illegalRe.test(lexem);
+  }//isIllegal
+
+  function eatModeChunk(value, index) {
+    if (!currentMode().terminators) {
+      var terminators = [];
+      
+      if (currentMode().contains)
+        for (var key in language.modes) {
+          if (contains(currentMode().contains, language.modes[key].className) &&
+              !contains(terminators, language.modes[key].begin))
+            terminators[terminators.length] = language.modes[key].begin;
+        }//for
+      
+      var mode_index = modes.length - 1;
+      do {
+        if (modes[mode_index].end && !contains(terminators, modes[mode_index].end))
+          terminators[terminators.length] = modes[mode_index].end;
+        mode_index--;
+      } while (modes[mode_index + 1].endsWithParent);
+      
+      if (currentMode().illegal)
+        if (!contains(terminators, currentMode().illegal))
+          terminators[terminators.length] = currentMode().illegal;
+      
+      var terminator_re = '(' + terminators[0];
+      for (var i = 0; i < terminators.length; i++)
+        terminator_re += '|' + terminators[i];
+      terminator_re += ')';
+      currentMode().terminators = langRe(language, terminator_re);
+    }//if
+    value = value.substr(index);
+    var match = currentMode().terminators.exec(value);
+    if (!match) 
+      return [value, '', true];
+    if (match.index == 0)
+      return ['', match[0], false];
+    else
+      return [value.substr(0, match.index), match[0], false];
+  }//eatModeChunk
+  
+  function escape(value) {
+    return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
+  }//escape
+  
+  function processKeywords(buffer) {
+    var mode = currentMode();
     if (!mode.keywords || !mode.lexems)
       return escape(buffer);
     if (!mode.lexemsRe) {
@@ -724,7 +739,7 @@ function Highlighter(language_name, value) {
       for (var i = 1; i < lexems.length; i++)
         lexems_re += '|' + lexems[i];
       lexems_re += ')';
-      mode.lexemsRe = langRe(this.language, lexems_re, true);
+      mode.lexemsRe = langRe(language, lexems_re, true);
     }//if
     var result = '';
     var last_index = 0;
@@ -732,8 +747,8 @@ function Highlighter(language_name, value) {
     var match = mode.lexemsRe.exec(buffer);
     while (match) {
       result += escape(buffer.substr(last_index, match.index - last_index));
-      if (mode.keywords[this.language.case_insensitive ? match[0].toLowerCase() : match[0]]) {
-        this.keyword_count++;
+      if (mode.keywords[language.case_insensitive ? match[0].toLowerCase() : match[0]]) {
+        keyword_count++;
         result += '<span class="keyword">' + escape(match[0]) + '</span>';
       } else {
         result += escape(match[0]);
@@ -744,78 +759,70 @@ function Highlighter(language_name, value) {
     result += escape(buffer.substr(last_index, buffer.length - last_index));
     return result;
   }//processKeywords
-
-  this.subMode = function(lexem) {
-    if (!this.currentMode().contains)
-      return null;
-    for (var key in this.language.modes)
-      if (contains(this.currentMode().contains, this.language.modes[key].className) && this.language.modes[key].beginRe.test(lexem))
-        return this.language.modes[key];
-    return null;
-  }//subMode
-
-  this.endOfMode = function(mode_index, lexem) {
-    if (this.modes[mode_index].end && this.modes[mode_index].endRe.test(lexem))
-      return 1;
-    if (this.modes[mode_index].endsWithParent) {
-      var level = this.endOfMode(mode_index - 1, lexem);
-      return level ? level + 1 : 0;
-    }//if
-    return 0;
-  }//endOfMode
   
-  this.isIllegal = function(lexem) {
-    if (!this.currentMode().illegalRe)
-      return false;
-    return this.currentMode().illegalRe.test(lexem);
-  }//isIllegal
-
-  this.eatModeChunk = function(value, index) {
-    if (!this.currentMode().terminators) {
-      var terminators = [];
-      
-      if (this.currentMode().contains)
-        for (var key in this.language.modes) {
-          if (contains(this.currentMode().contains, this.language.modes[key].className) &&
-              !contains(terminators, this.language.modes[key].begin))
-            terminators[terminators.length] = this.language.modes[key].begin;
-        }//for
-      
-      var mode_index = this.modes.length - 1;
-      do {
-        if (this.modes[mode_index].end && !contains(terminators, this.modes[mode_index].end))
-          terminators[terminators.length] = this.modes[mode_index].end;
-        mode_index--;
-      } while (this.modes[mode_index + 1].endsWithParent);
-      
-      if (this.currentMode().illegal)
-        if (!contains(terminators, this.currentMode().illegal))
-          terminators[terminators.length] = this.currentMode().illegal;
-      
-      var terminator_re = '(' + terminators[0];
-      for (var i = 0; i < terminators.length; i++)
-        terminator_re += '|' + terminators[i];
-      terminator_re += ')';
-      this.currentMode().terminators = langRe(this.language, terminator_re);
+  function processModeInfo(buffer, lexem, end) {
+    if (end) {
+      result += processKeywords(currentMode().buffer + buffer);
+      return;
     }//if
-    value = value.substr(index);
-    var match = this.currentMode().terminators.exec(value);
-    if (!match) 
-      return [value, '', true];
-    if (match.index == 0)
-      return ['', match[0], false];
-    else
-      return [value.substr(0, match.index), match[0], false];
-  }//eatModeChunk
+    if (isIllegal(lexem))
+      throw 'Illegal';
+    var new_mode = subMode(lexem);
+    if (new_mode) {
+      currentMode().buffer += buffer;
+      result += processKeywords(currentMode().buffer);
+      if (new_mode.excludeBegin) {
+        result += lexem + '<span class="' + new_mode.className + '">';
+        new_mode.buffer = '';
+      } else {
+        result += '<span class="' + new_mode.className + '">';
+        new_mode.buffer = lexem;
+      }//if
+      modes[modes.length] = new_mode;
+      relevance += currentMode().relevance != undefined ? currentMode().relevance : 1;
+      return;
+    }//if
+    var end_level = endOfMode(modes.length - 1, lexem);
+    if (end_level) {
+      currentMode().buffer += buffer;
+      if (currentMode().excludeEnd) {
+        result += processKeywords(currentMode().buffer) + '</span>' + lexem;
+      } else {
+        result += processKeywords(currentMode().buffer + lexem) + '</span>';
+      }
+      while (end_level > 1) {
+        result += '</span>';
+        end_level--;
+        modes.length--;
+      }//while
+      modes.length--;
+      currentMode().buffer = '';
+      return;
+    }//if
+  }//processModeInfo
+
+  function highlight(value) {
+    var index = 0;
+    language.defaultMode.buffer = '';
+    for (var mode_info = eatModeChunk(value, index); index < value.length; mode_info = eatModeChunk(value, index)) {
+      processModeInfo(mode_info[0], mode_info[1], mode_info[2]);
+      index += mode_info[0].length + mode_info[1].length;
+    }//for
+    if(modes.length > 1)
+      throw 'Illegal';
+  }//highlight
   
   this.language_name = language_name;
-  this.language = LANGUAGES[language_name];
-  this.modes = [this.language.defaultMode];
-  this.relevance = 0;
-  this.keyword_count = 0;
-  this.result = '';
+  var language = LANGUAGES[language_name];
+  var modes = [language.defaultMode];
+  var relevance = 0;
+  var keyword_count = 0;
+  var result = '';
   try {
-    this.highlight(value);
+    highlight(value);
+    this.relevance = relevance;
+    this.keyword_count = keyword_count;
+    this.result = result;
   } catch (e) {
     if (e == 'Illegal') {
       this.relevance = 0;
@@ -835,10 +842,6 @@ function contains(array, item) {
       return true;
   return false;
 }//contains
-
-function escape(value) {
-  return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
-}//escape
 
 function blockText(block) {
   var result = '';
