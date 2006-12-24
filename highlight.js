@@ -319,7 +319,7 @@ LANGUAGES.perl = {
       className: 'sub',
       begin: 'sub ', end: '{',
       lexems: [IDENT_RE],
-      keywords: {'sub ': 1},
+      keywords: {'sub': 1},
       relevance: 10
     },
     
