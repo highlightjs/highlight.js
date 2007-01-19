@@ -263,7 +263,7 @@ LANGUAGES.delphi = {
     },
     {
       className: 'quote',
-      begin: '\'\'', end: '^',
+      begin: '\'\'', end: '^'
     },
     {
       className: 'function',
@@ -688,7 +688,7 @@ LANGUAGES.javascript = {
       className: 'params',
       begin: '\\(', end: '\\)',
       contains: ['string', 'comment']
-    },
+    }
   ]
 };//javascript
 
