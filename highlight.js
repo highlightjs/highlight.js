@@ -608,7 +608,7 @@ LANGUAGES.ruby = {
       lexems: [IDENT_RE],
       begin: 'def ', end: '$',
       illegal: '{',
-      keywords: {'def ': 1},
+      keywords: {'def': 1},
       contains: ['title', 'comment'],
       relevance: 10
     },    
@@ -618,7 +618,7 @@ LANGUAGES.ruby = {
       begin: 'class ', end: '$',
       illegal: '{',
       contains: ['title', 'comment'],      
-      keywords: {'class ': 1}
+      keywords: {'class': 1}
     },
     {
       className: 'symbol',
