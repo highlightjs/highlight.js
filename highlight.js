@@ -388,8 +388,7 @@ LANGUAGES.perl = {
     },
     {
       className: 'regexp',
-      begin: '(m|qr)?\\/.*?[^\\\\/]\\/[cgimosxe]*', end: '^',
-      relevance: 10
+      begin: '(m|qr)?\\/.*?[^\\\\/]\\/[cgimosxe]*', end: '^'
     },
 
     // comments
@@ -638,6 +637,60 @@ LANGUAGES.ruby = {
     }
   ]
 };//ruby
+
+LANGUAGES.javascript = {
+  defaultMode: {
+    lexems: [UNDERSCORE_IDENT_RE],
+    contains: ['string', 'comment', 'number', 'regexp', 'function'],
+    keywords: {'in': 1, 'if': 1, 'for': 1, 'while': 1, 'finally': 1, 'var': 1, 'new': 1, 'function': 1, 'do': 1, 'return': 1, 'void': 1, 'else': 1, 'break': 1, 'catch': 1, 'instanceof': 1, 'with': 1, 'throw': 1, 'case': 1, 'default': 1, 'try': 1, 'this': 1, 'switch': 1, 'continue': 1, 'typeof': 1, 'delete': 1}
+  },
+  modes: [
+    {
+      className: 'comment',
+      begin: '//', end: '$',
+      relevance: 0
+    },
+    {
+      className: 'comment',
+      begin: '/\\*', end: '\\*/'
+    },
+    {
+      className: 'number',
+      begin: C_NUMBER_RE, end: '^',
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '"', end: '(^|[^\\\\])"',
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '\'', end: '(^|[^\\\\])\'',
+      relevance: 0
+    },
+    {
+      className: 'regexp',
+      begin: '\\/[^\\/]', end: '(^|[^\\\\])\\/[gim]*'
+    },
+    {
+      className: 'function',
+      begin: 'function ', end: '{',
+      lexems: [UNDERSCORE_IDENT_RE],
+      keywords: {'function': 1},
+      contains: ['title', 'params']
+    },
+    {
+      className: 'title',
+      begin: UNDERSCORE_IDENT_RE, end: '^'
+    },
+    {
+      className: 'params',
+      begin: '\\(', end: '\\)',
+      contains: ['string', 'comment']
+    },
+  ]
+};//javascript
 
 function langRe(language, value, global) {
   var mode =  'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '');

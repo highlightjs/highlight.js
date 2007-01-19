@@ -83,36 +83,15 @@ Python:
   title           name of a function or a class inside a header
   params          everything inside parentheses in a function's or class' header
   
-HTML:
-
-  keyword         HTML tag
-  tag             any tag from "<" till ">"
-  comment         comment
-  attribute       tag's attribute with or withou value
-  value           attribute's value
-
-CSS:
-
-  keyword         HTML tag when in selectors, CSS keyword when in rules
-  id              #some_name in selectors
-  class           .some_name in selectors
-  attr_selector   attribute selector (square brackets in a[href^=http://])
-  comment         comment
-  rules           everything from "{" till "}"
-  value           property's value inside a rule, from ":" till ";" or
-                  till the end of rule block
-
-Delphi:
+Ruby:
 
   keyword         keyword
-  comment         comment (of any type)
-  number          number
   string          string
-  function        header of a function, procedure, constructor and destructor
-  title           name of a function, procedure, constructor or destructor
-                  inside a header
-  params          everything inside parentheses in a function's header
-  class           class' body from "= class" till "end;"
+  comment         comment
+  function        function header "def some_name(...):"
+  class           class header "class SomeName(...):"
+  title           name of a function or a class inside a header
+  symbol          symbol
   
 Perl:
 
@@ -133,6 +112,48 @@ PHP:
   phpdoc          phpdoc params in comments
   variable        variable starting with "$"
 
+HTML:
+
+  keyword         HTML tag
+  tag             any tag from "<" till ">"
+  comment         comment
+  attribute       tag's attribute with or withou value
+  value           attribute's value
+
+CSS:
+
+  keyword         HTML tag when in selectors, CSS keyword when in rules
+  id              #some_name in selectors
+  class           .some_name in selectors
+  attr_selector   attribute selector (square brackets in a[href^=http://])
+  comment         comment
+  rules           everything from "{" till "}"
+  value           property's value inside a rule, from ":" till ";" or
+                  till the end of rule block
+
+Javascript:
+
+  keyword         keyword
+  comment         comment
+  number          number
+  string          string
+  regexp          regular expression
+  function        header of a function
+  title           name of a function inside a header
+  params          everything inside parentheses in a function's header
+
+Delphi:
+
+  keyword         keyword
+  comment         comment (of any type)
+  number          number
+  string          string
+  function        header of a function, procedure, constructor and destructor
+  title           name of a function, procedure, constructor or destructor
+                  inside a header
+  params          everything inside parentheses in a function's header
+  class           class' body from "= class" till "end;"
+  
 Java:
 
   keyword         keyword
@@ -153,16 +174,6 @@ C++:
   string          string and character
   comment         comment
   preprocessor    preprocessor directive
-
-Ruby:
-
-  keyword         keyword
-  string          string
-  comment         comment
-  function        function header "def some_name(...):"
-  class           class header "class SomeName(...):"
-  title           name of a function or a class inside a header
-  symbol          symbol
 
 ## Heuristics
 

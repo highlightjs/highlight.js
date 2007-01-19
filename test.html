@@ -33,7 +33,7 @@
     }
     
     .number,
-    .perl .regexp {
+    .regexp {
       color: #080;
     }
     
@@ -71,68 +71,26 @@ def somefunc(param1, param2):
 class SomeClass:<br>    pass
 </code></pre>
 
-<p>Some HTML code:
+<p>Short sample of Ruby:
 
-<pre><code>&lt;head&gt;
-  &lt;title&gt;Title&lt;/title&gt;
-&lt;body&gt;
-  &lt;p class="something"&gt;Something&lt;/p&gt;
-  &lt;p class=something&gt;Something&lt;/p&gt;
-  &lt;!-- comment --&gt;
-  &lt;p class&gt;Something&lt;/p&gt;
-  &lt;p class="something" title="p"&gt;Something&lt;/p&gt;
-&lt;/body&gt;
-</code></pre>
+<pre><code># Ruby support for highlight.js
+  
+class CategoriesController &lt; ApplicationController
+  layout "core"
 
-<p>Some CSS code:
+  before_filter :login_required
+  before_filter :xhr_required, :only =&gt; [:create, :update]
+  before_filter :admin_privileges_required, :except =&gt; [:show]
 
-<pre><code>body, 
-html {
-  font: Tahoma, Arial, san-serif;
-}
+=begin
+  This method creates a category. Very difficult to understand, huh?
+=end
 
-#content {
-  width: 100%; /* комментарий */
-  height: 100%
-}
-
-p[lang=ru] {
-  color: red;
-}
-</pre></code>
-
-<P>Delphi code
-
-<pre><code>TList=Class(TObject) 
-Private
-  Some: String;
-Public
-  Procedure Inside;
-End;{TList}
-
-Procedure CopyFile(InFileName,var OutFileName:String);
-Const
-  BufSize=4096; (* Huh? *)
-Var
-  InFile,OutFile:TStream;
-  Buffer:Array[1..BufSize] Of Byte;
-  ReadBufSize:Integer;
-Begin
-  InFile:=Nil;
-  OutFile:=Nil;
-  Try
-    InFile:=TFileStream.Create(InFileName,fmOpenRead);
-    OutFile:=TFileStream.Create(OutFileName,fmCreate);
-    Repeat
-      ReadBufSize:=InFile.Read(Buffer,BufSize);
-      OutFile.Write(Buffer,ReadBufSize);
-    Until ReadBufSize&lt;&gt;BufSize;
-    Log('File '''+InFileName+''' copied');
-  Finally
-    InFile.Free;
-    OutFile.Free;
-  End;{Try}
-End;{CopyFile}
+  def create
+    @category = Category.create(params[:category])
+    flash[:notice] = "Category was successfully created"
+  end
+end
 </code></pre>
 
 <p>A bit of Perl:
@@ -262,6 +220,91 @@ abstract class Zend_Uri
 }
 </code></pre>
 
+<p>Some HTML code:
+
+<pre><code>&lt;head&gt;
+  &lt;title&gt;Title&lt;/title&gt;
+&lt;body&gt;
+  &lt;p class="something"&gt;Something&lt;/p&gt;
+  &lt;p class=something&gt;Something&lt;/p&gt;
+  &lt;!-- comment --&gt;
+  &lt;p class&gt;Something&lt;/p&gt;
+  &lt;p class="something" title="p"&gt;Something&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>Some CSS code:
+
+<pre><code>body, 
+html {
+  font: Tahoma, Arial, san-serif;
+}
+
+#content {
+  width: 100%; /* комментарий */
+  height: 100%
+}
+
+p[lang=ru] {
+  color: red;
+}
+</pre></code>
+
+<p>Javascript here too (right from the source, mind you): 
+
+<pre><code>function initHighlight(block) {
+  if (block.className.search(/\bno\-highlight\b/) != -1)
+    return;
+  try {
+    blockText(block);
+  } catch (e) {
+    if (e == 'Complex markup')
+      return;
+  }//try
+  var classes = block.className.split(/\s+/);
+  for (var i = 0; i &lt; classes.length; i++) {
+    if (LANGUAGES[classes[i]]) {
+      highlightLanguage(block, classes[i]);
+      return;
+    }//if
+  }//for
+  highlightAuto(block);
+}//initHighlight</code></pre>
+
+<P>Delphi code
+
+<pre><code>TList=Class(TObject) 
+Private
+  Some: String;
+Public
+  Procedure Inside;
+End;{TList}
+
+Procedure CopyFile(InFileName,var OutFileName:String);
+Const
+  BufSize=4096; (* Huh? *)
+Var
+  InFile,OutFile:TStream;
+  Buffer:Array[1..BufSize] Of Byte;
+  ReadBufSize:Integer;
+Begin
+  InFile:=Nil;
+  OutFile:=Nil;
+  Try
+    InFile:=TFileStream.Create(InFileName,fmOpenRead);
+    OutFile:=TFileStream.Create(OutFileName,fmCreate);
+    Repeat
+      ReadBufSize:=InFile.Read(Buffer,BufSize);
+      OutFile.Write(Buffer,ReadBufSize);
+    Until ReadBufSize&lt;&gt;BufSize;
+    Log('File '''+InFileName+''' copied');
+  Finally
+    InFile.Free;
+    OutFile.Free;
+  End;{Try}
+End;{CopyFile}
+</code></pre>
+
 <p>From Java world:
 
 <pre><code>package l2f.gameserver.model;
@@ -345,27 +388,7 @@ int main(int argc, char *argv[]) {
 }
 </code></pre>
 
-<p>Short sample of Ruby:
-
-<pre><code># Ruby support for highlight.js
-  
-class CategoriesController &lt; ApplicationController
-  layout "core"
-
-  before_filter :login_required
-  before_filter :xhr_required, :only =&gt; [:create, :update]
-  before_filter :admin_privileges_required, :except =&gt; [:show]
-
-=begin
-  This method creates a category. Very difficult to understand, huh?
-=end
-
-  def create
-    @category = Category.create(params[:category])
-    flash[:notice] = "Category was successfully created"
-  end
-end
-</code></pre>
+<hr>
 
 <p>Explicit Python highlight:
 
