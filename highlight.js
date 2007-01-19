@@ -257,8 +257,13 @@ LANGUAGES.delphi = {
     },
     {
       className: 'string',
-      begin: '\'', end: '(^|[^\\\'])\'',
+      begin: '\'', end: '\'',
+      contains: ['quote'],
       relevance: 0
+    },
+    {
+      className: 'quote',
+      begin: '\'\'', end: '^',
     },
     {
       className: 'function',

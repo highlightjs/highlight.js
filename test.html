@@ -127,6 +127,7 @@ Begin
       ReadBufSize:=InFile.Read(Buffer,BufSize);
       OutFile.Write(Buffer,ReadBufSize);
     Until ReadBufSize&lt;&gt;BufSize;
+    Log('File '''+InFileName+''' copied');
   Finally
     InFile.Free;
     OutFile.Free;
