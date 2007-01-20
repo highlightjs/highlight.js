@@ -641,7 +641,7 @@ LANGUAGES.ruby = {
 LANGUAGES.javascript = {
   defaultMode: {
     lexems: [UNDERSCORE_IDENT_RE],
-    contains: ['string', 'comment', 'number', 'regexp', 'function'],
+    contains: ['string', 'comment', 'number', 'regexp', 'function', 'literal'],
     keywords: {'in': 1, 'if': 1, 'for': 1, 'while': 1, 'finally': 1, 'var': 1, 'new': 1, 'function': 1, 'do': 1, 'return': 1, 'void': 1, 'else': 1, 'break': 1, 'catch': 1, 'instanceof': 1, 'with': 1, 'throw': 1, 'case': 1, 'default': 1, 'try': 1, 'this': 1, 'switch': 1, 'continue': 1, 'typeof': 1, 'delete': 1}
   },
   modes: [
@@ -658,6 +658,10 @@ LANGUAGES.javascript = {
       className: 'number',
       begin: C_NUMBER_RE, end: '^',
       relevance: 0
+    },
+    {
+      className: 'literal',
+      begin: '\\b(true|false|null)', end: '^'
     },
     {
       className: 'string',

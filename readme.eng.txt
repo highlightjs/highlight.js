@@ -136,6 +136,7 @@ Javascript:
   keyword         keyword
   comment         comment
   number          number
+  literal         special literal: "true", "false" and "null"
   string          string
   regexp          regular expression
   function        header of a function

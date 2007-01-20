@@ -33,7 +33,8 @@
     }
     
     .number,
-    .regexp {
+    .regexp,
+    .javascript .literal {
       color: #080;
     }
     
@@ -254,7 +255,7 @@ p[lang=ru] {
 
 <pre><code>function initHighlight(block) {
   if (block.className.search(/\bno\-highlight\b/) != -1)
-    return;
+    return false;
   try {
     blockText(block);
   } catch (e) {
