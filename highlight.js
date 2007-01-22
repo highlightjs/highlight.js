@@ -372,7 +372,7 @@ LANGUAGES.perl = {
     },
     {
       className: 'regexp',
-      begin: '(m|qr)?\\/.*?[^\\\\/]\\/[cgimosxe]+', end: '^'
+      begin: '(m|qr)?\\/.*?[^\\\\/]\\/[cgimosxe]*', end: '^'
     },
 
     // bareword context
