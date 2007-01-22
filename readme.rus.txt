@@ -200,7 +200,7 @@ C++:
 
 ## Координаты
 
-Версия: 2.3
+Версия: 2.4
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
