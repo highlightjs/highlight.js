@@ -102,6 +102,8 @@ Perl:
   regexp          regular expression
   sub             subroutine header (from "sub" till "{")
   variable        variable starting with "$", "%", "@"
+  operator        operator
+  pod             plain old doc
 
 PHP:
 
