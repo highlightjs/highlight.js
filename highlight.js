@@ -452,12 +452,12 @@ LANGUAGES.php = {
     },
     {
       className: 'string',
-      begin: '\\\'', end: '[^\\\\]?\\\'',
+      begin: '\\\'', end: '(^|[^\\\\])\\\'',
       relevance: 0
     },
     {
       className: 'string',
-      begin: '"', end: '[^\\\\]?"',
+      begin: '"', end: '(^|[^\\\\])"',
       relevance: 0
     },
     {
@@ -602,11 +602,11 @@ LANGUAGES.ruby = {
     },
     {
       className: 'string',
-      begin: '"', end: '"'
+      begin: '"', end: '(^|[^\\\\])"'
     },
     {
       className: 'string',
-      begin: '\'', end: '\''
+      begin: '\'', end: '(^|[^\\\\])\''
     },
     {
       className: 'function',
