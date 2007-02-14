@@ -895,7 +895,7 @@ function Highlighter(language_name, value) {
     if (e == 'Illegal') {
       this.relevance = 0;
       this.keyword_count = 0;
-      this.result = value;
+      this.result = escape(value);
     } else {
       throw e;
     }//if
