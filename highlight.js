@@ -114,27 +114,33 @@ LANGUAGES.python = {
     },
     {
       className: 'string',
-      begin: 'r\'', end: '\''
+      begin: 'r\'', end: '\'',
+      relevance: 10
     },
     {
       className: 'string',
-      begin: 'r"', end: '"'
+      begin: 'r"', end: '"',
+      relevance: 10
     },
     {
       className: 'string',
-      begin: 'u\'', end: '(^|[^\\\\])\''
+      begin: 'u\'', end: '(^|[^\\\\])\'',
+      relevance: 10
     },
     {
       className: 'string',
-      begin: 'u"', end: '(^|[^\\\\])"'
+      begin: 'u"', end: '(^|[^\\\\])"',
+      relevance: 10
     },
     {
       className: 'string',
-      begin: 'ur\'', end: '\''
+      begin: 'ur\'', end: '\'',
+      relevance: 10
     },
     {
       className: 'string',
-      begin: 'ur"', end: '"'
+      begin: 'ur"', end: '"',
+      relevance: 10
     },
     {
       className: 'decorator',
@@ -612,7 +618,7 @@ LANGUAGES.ruby = {
       className: 'function',
       lexems: [IDENT_RE],
       begin: 'def ', end: '$',
-      illegal: '{',
+      illegal: '[{\\:]',
       keywords: {'def': 1},
       contains: ['title', 'comment'],
       relevance: 10
@@ -621,7 +627,7 @@ LANGUAGES.ruby = {
       className: 'class',
       lexems: [IDENT_RE],
       begin: 'class ', end: '$',
-      illegal: '{',
+      illegal: '[{\\:]',
       contains: ['title', 'comment'],      
       keywords: {'class': 1}
     },
