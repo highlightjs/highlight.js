@@ -46,6 +46,36 @@ var UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
 var NUMBER_RE = '\\b\\d+(\\.\\d+)?';
 var C_NUMBER_RE = '\\b(0x[A-Za-z0-9]+|\\d+(\\.\\d+)?)';
 
+// Common modes
+var APOS_STRING_MODE = {
+  className: 'string',
+  begin: '\'', end: '(^|[^\\\\])\'',
+  relevance: 0
+}
+var QUOTE_STRING_MODE = {
+  className: 'string',
+  begin: '"', end: '(^|[^\\\\])"',
+  relevance: 0
+}
+var C_LINE_COMMENT_MODE = {
+  className: 'comment',
+  begin: '//', end: '$',
+  relevance: 0
+}
+var C_BLOCK_COMMENT_MODE = {
+  className: 'comment',
+  begin: '/\\*', end: '\\*/'
+}
+var HASH_COMMENT_MODE = {
+  className: 'comment',
+  begin: '#', end: '$'
+}
+var C_NUMBER_MODE = {
+  className: 'number',
+  begin: C_NUMBER_RE, end: '^',
+  relevance: 0
+}
+
 var LANGUAGES = {}
 
 LANGUAGES.python = {
@@ -83,15 +113,8 @@ LANGUAGES.python = {
       begin: '\\(', end: '\\)',
       contains: ['string']
     },
-    {
-      className: 'comment',
-      begin: '#', end: '$'
-    },
-    {
-      className: 'number',
-      begin: C_NUMBER_RE, end: '^',
-      relevance: 0
-    },
+    HASH_COMMENT_MODE,
+    C_NUMBER_MODE,
     {
       className: 'string',
       begin: '\'\'\'', end: '\'\'\'',
@@ -102,16 +125,8 @@ LANGUAGES.python = {
       begin: '"""', end: '"""',
       relevance: 10
     },
-    {
-      className: 'string',
-      begin: '\'', end: '(^|[^\\\\])\'',
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '"', end: '(^|[^\\\\])"',
-      relevance: 0
-    },
+    APOS_STRING_MODE,
+    QUOTE_STRING_MODE,
     {
       className: 'string',
       begin: 'r\'', end: '\'',
@@ -218,10 +233,7 @@ LANGUAGES.css = {
       keywords: {'play-during': 1, 'counter-reset': 1, 'counter-increment': 1, 'min-height': 1, 'quotes': 1, 'border-top': 1, 'pitch': 1, 'font': 1, 'pause': 1, 'list-style-image': 1, 'border-width': 1, 'cue': 1, 'outline-width': 1, 'border-left': 1, 'elevation': 1, 'richness': 1, 'speech-rate': 1, 'border-bottom': 1, 'border-spacing': 1, 'background': 1, 'list-style-type': 1, 'text-align': 1, 'page-break-inside': 1, 'orphans': 1, 'page-break-before': 1, 'text-transform': 1, 'line-height': 1, 'padding-left': 1, 'font-size': 1, 'right': 1, 'word-spacing': 1, 'padding-top': 1, 'outline-style': 1, 'bottom': 1, 'content': 1, 'border-right-style': 1, 'padding-right': 1, 'border-left-style': 1, 'voice-family': 1, 'background-color': 1, 'border-bottom-color': 1, 'outline-color': 1, 'unicode-bidi': 1, 'max-width': 1, 'font-family': 1, 'caption-side': 1, 'border-right-width': 1, 'pause-before': 1, 'border-top-style': 1, 'color': 1, 'border-collapse': 1, 'border-bottom-width': 1, 'float': 1, 'height': 1, 'max-height': 1, 'margin-right': 1, 'border-top-width': 1, 'speak': 1, 'speak-header': 1, 'top': 1, 'cue-before': 1, 'min-width': 1, 'width': 1, 'font-variant': 1, 'border-top-color': 1, 'background-position': 1, 'empty-cells': 1, 'direction': 1, 'border-right': 1, 'visibility': 1, 'padding': 1, 'border-style': 1, 'background-attachment': 1, 'overflow': 1, 'border-bottom-style': 1, 'cursor': 1, 'margin': 1, 'display': 1, 'border-left-width': 1, 'letter-spacing': 1, 'vertical-align': 1, 'clip': 1, 'border-color': 1, 'list-style': 1, 'padding-bottom': 1, 'pause-after': 1, 'speak-numeral': 1, 'margin-left': 1, 'widows': 1, 'border': 1, 'font-style': 1, 'border-left-color': 1, 'pitch-range': 1, 'background-repeat': 1, 'table-layout': 1, 'margin-bottom': 1, 'speak-punctuation': 1, 'font-weight': 1, 'border-right-color': 1, 'page-break-after': 1, 'position': 1, 'white-space': 1, 'text-indent': 1, 'background-image': 1, 'volume': 1, 'stress': 1, 'outline': 1, 'clear': 1, 'z-index': 1, 'text-decoration': 1, 'margin-top': 1, 'azimuth': 1, 'cue-after': 1, 'left': 1, 'list-style-position': 1},
       contains: ['comment', 'value']
     },
-    {
-      className: 'comment',
-      begin: '/\\*', end: '\\*/'
-    },
+    C_BLOCK_COMMENT_MODE,
     {
       className: 'value',
       begin: ':', end: ';', endsWithParent: true, 
@@ -251,11 +263,7 @@ LANGUAGES.delphi = {
       begin: '\\(\\*', end: '\\*\\)',
       relevance: 10
     },
-    {
-      className: 'comment',
-      begin: '//', end: '$',
-      relevance: 0
-    },
+    C_LINE_COMMENT_MODE,
     {
       className: 'number',
       begin: NUMBER_RE, end: '^',
@@ -343,19 +351,11 @@ LANGUAGES.perl = {
       begin: 'q[qwxr]?\\(', end: '[^\\\\]\\)',
       relevance: 10
     },
-    {
-      className: 'string',
-      begin: '\'', end: '(^|[^\\\\])\'',
-      relevance: 0
-    },
+    APOS_STRING_MODE,
+    QUOTE_STRING_MODE,
     {
       className: 'string',
       begin: '`', end: '(^|[^\\\\])`',
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '"', end: '(^|[^\\\\])"',
       relevance: 0
     },
     
@@ -403,10 +403,8 @@ LANGUAGES.perl = {
     },
 
     // comments
-    {
-      className: 'comment',
-      begin: '#', end: '$'
-    },
+    HASH_COMMENT_MODE,
+    
     // pod
     {
       className: 'pod',
@@ -432,15 +430,8 @@ LANGUAGES.php = {
   },
   case_insensitive: true,
   modes: [
-    {
-      className: 'comment',
-      begin: '//', end: '$',
-      relevance: 0
-    },
-    {
-      className: 'comment',
-      begin: '#', end: '$'
-    },
+    C_LINE_COMMENT_MODE,
+    HASH_COMMENT_MODE,
     {
       className: 'comment',
       begin: '/\\*', end: '\\*/',
@@ -451,21 +442,9 @@ LANGUAGES.php = {
       begin: '\\s@[A-Za-z]+', end: '^',
       relevance: 10
     },
-    {
-      className: 'number',
-      begin: C_NUMBER_RE, end: '^',
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '\\\'', end: '(^|[^\\\\])\\\'',
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '"', end: '(^|[^\\\\])"',
-      relevance: 0
-    },
+    C_NUMBER_MODE,
+    APOS_STRING_MODE,
+    QUOTE_STRING_MODE,
     {
       className: 'variable',
       begin: '\\$' + PHP_IDENTIFIER_RE, end: '^'
@@ -510,35 +489,16 @@ LANGUAGES.java  = {
       begin: '\\(', end: '\\)',
       contains: ['string', 'annotation']
     },
-    {
-      className: 'number',
-      begin: C_NUMBER_RE, end: '^',
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '\'', end: '(^|[^\\\\])\'',
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '"', end: '(^|[^\\\\])"',
-      relevance: 0
-    },
-    {
-      className: 'comment',
-      begin: '//', end: '$',
-      relevance: 0
-    },
+    C_NUMBER_MODE,
+    APOS_STRING_MODE,
+    QUOTE_STRING_MODE,
+    C_LINE_COMMENT_MODE,
     {
       className: 'javadoc',
       begin: '/\\*\\*', end: '\\*/',
       relevance: 10
     },
-    {
-      className: 'comment',
-      begin: '\\/\\*', end: '\\*/'
-    },
+    C_BLOCK_COMMENT_MODE,
     {
       className: 'annotation',
       begin: '@[A-Za-z]+', end: '^'
@@ -554,25 +514,10 @@ LANGUAGES.cpp = {
     keywords: {'false': 1, 'int': 1, 'float': 1, 'while': 1, 'private': 1, 'char': 1, 'catch': 1, 'export': 1, 'virtual': 1, 'operator': 1, 'sizeof': 1, 'dynamic_cast': 1, 'typedef': 1, 'const_cast': 1, 'const': 1, 'struct': 1, 'for': 1, 'static_cast': 1, 'union': 1, 'namespace': 1, 'unsigned': 1, 'long': 1, 'throw': 1, 'volatile': 1, 'static': 1, 'protected': 1, 'bool': 1, 'template': 1, 'mutable': 1, 'if': 1, 'public': 1, 'friend': 1, 'do': 1, 'return': 1, 'goto': 1, 'auto': 1, 'void': 1, 'enum': 1, 'else': 1, 'break': 1, 'new': 1, 'extern': 1, 'using': 1, 'true': 1, 'class': 1, 'asm': 1, 'case': 1, 'typeid': 1, 'short': 1, 'reinterpret_cast': 1, 'default': 1, 'double': 1, 'register': 1, 'explicit': 1, 'signed': 1, 'typename': 1, 'try': 1, 'this': 1, 'switch': 1, 'continue': 1, 'wchar_t': 1, 'inline': 1, 'delete': 1}
   },
   modes: [
-    {
-      className: 'comment',
-      begin: '//', end: '$',
-      relevance: 0
-    },
-    {
-      className: 'comment',
-      begin: '/\\*', end: '\\*/'
-    },
-    {
-      className: 'number',
-      begin: C_NUMBER_RE, end: '^',
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '"', end: '(^|[^\\\\])"',
-      relevance: 0
-    },
+    C_LINE_COMMENT_MODE,
+    C_BLOCK_COMMENT_MODE,
+    C_NUMBER_MODE,
+    QUOTE_STRING_MODE,
     {
       className: 'string',
       begin: '\'', end: '[^\\\\]\'',
@@ -597,23 +542,14 @@ LANGUAGES.ruby = {
     keywords: {'and': 1, 'false': 1, 'then': 1, 'defined': 1, 'module': 1, 'in': 1, 'return': 1, 'redo': 1, 'if': 1, 'BEGIN': 1, 'retry': 1, 'end': 1, 'for': 1, 'true': 1, 'self': 1, 'when': 1, 'next': 1, 'until': 1, 'do': 1, 'begin': 1, 'unless': 1, 'END': 1, 'rescue': 1, 'nil': 1, 'else': 1, 'break': 1, 'undef': 1, 'not': 1, 'super': 1, 'class': 1, 'case': 1, 'require': 1, 'yield': 1, 'alias': 1, 'while': 1, 'ensure': 1, 'elsif': 1, 'or': 1, 'def': 1}
   },
   modes: [
-    {
-      className: 'comment',
-      begin: '#', end: '$'
-    },
+    HASH_COMMENT_MODE,
     {
       className: 'comment',
       begin: '^\\=begin', end: '^\\=end',
       relevance: 10
     },
-    {
-      className: 'string',
-      begin: '"', end: '(^|[^\\\\])"'
-    },
-    {
-      className: 'string',
-      begin: '\'', end: '(^|[^\\\\])\''
-    },
+    APOS_STRING_MODE,
+    QUOTE_STRING_MODE,
     {
       className: 'function',
       lexems: [IDENT_RE],
@@ -657,34 +593,15 @@ LANGUAGES.javascript = {
     keywords: {'in': 1, 'if': 1, 'for': 1, 'while': 1, 'finally': 1, 'var': 1, 'new': 1, 'function': 1, 'do': 1, 'return': 1, 'void': 1, 'else': 1, 'break': 1, 'catch': 1, 'instanceof': 1, 'with': 1, 'throw': 1, 'case': 1, 'default': 1, 'try': 1, 'this': 1, 'switch': 1, 'continue': 1, 'typeof': 1, 'delete': 1}
   },
   modes: [
-    {
-      className: 'comment',
-      begin: '//', end: '$',
-      relevance: 0
-    },
-    {
-      className: 'comment',
-      begin: '/\\*', end: '\\*/'
-    },
-    {
-      className: 'number',
-      begin: C_NUMBER_RE, end: '^',
-      relevance: 0
-    },
+    C_LINE_COMMENT_MODE,
+    C_BLOCK_COMMENT_MODE,
+    C_NUMBER_MODE,
     {
       className: 'literal',
       begin: '\\b(true|false|null)', end: '^'
     },
-    {
-      className: 'string',
-      begin: '"', end: '(^|[^\\\\])"',
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '\'', end: '(^|[^\\\\])\'',
-      relevance: 0
-    },
+    APOS_STRING_MODE,
+    QUOTE_STRING_MODE,
     {
       className: 'regexp',
       begin: '\\/[^\\/]', end: '(^|[^\\\\])\\/[gim]*'
