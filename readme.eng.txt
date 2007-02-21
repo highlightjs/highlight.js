@@ -145,6 +145,14 @@ Javascript:
   title           name of a function inside a header
   params          everything inside parentheses in a function's header
 
+VBScript:
+
+  keyword         keyword
+  number          number
+  string          string
+  comment         comment
+  built_in        built-in function
+
 Delphi:
 
   keyword         keyword
@@ -197,7 +205,7 @@ To disable highlighting of a fragment altogether use "no-highlight" class:
 
 ## Contacts
 
-Version: 2.6
+Version: 2.7
 URL:     http://softwaremaniacs.org/soft/highlight/en/
 Author:  Ivan Sagalaev (Maniac@SoftwareManiacs.Org)
 
@@ -207,3 +215,4 @@ Contributors:
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
 - Anton Kovalyov <anton@kovalyov.net>
+- Nikita Ledyaev <lenikita@yandex.ru>

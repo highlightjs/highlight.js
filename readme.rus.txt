@@ -146,6 +146,14 @@ Javascript:
   title           название функции внутри заголовка
   params          все, что в скобках внутри заголовка функции
 
+VBScript:
+
+  keyword         ключевое слово языка
+  comment         комментарий
+  number          число
+  string          строка
+  built_in        встроенная функция
+
 Delphi:
 
   keyword         ключевое слово языка
@@ -200,7 +208,7 @@ C++:
 
 ## Координаты
 
-Версия: 2.6
+Версия: 2.7
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
@@ -210,3 +218,4 @@ URL:    http://softwaremaniacs.org/soft/highlight/
 - Виктор Карамзин <Victor.Karamzin@enterra-inc.com>
 - Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
 - Антон Ковалёв <anton@kovalyov.net>
+- Никита Ледяев <lenikita@yandex.ru>

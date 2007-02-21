@@ -22,7 +22,8 @@
     .tag .attribute .value,
     .css .rules .value,
     .cpp .preprocessor,
-    .ruby .symbol {
+    .ruby .symbol,
+    .vbscript .built_in {
       color: #800;
     }
     
@@ -47,7 +48,8 @@
     .css .id,
     .phpdoc,
     .function .title,
-    .class .title {
+    .class .title,
+    .vbscript .built_in {
       font-weight: bold;
     }
   </style>
@@ -271,6 +273,47 @@ p[lang=ru] {
   }//for
   highlightAuto(block);
 }//initHighlight</code></pre>
+
+<p>VBScript
+
+<pre><code>' creating configuration storage and initializing with default values
+Set cfg = CreateObject("Scripting.Dictionary")
+cfg.add "dest", ""
+cfg.add "dest_gz", ""
+cfg.add "gzip_exe", ""
+cfg.add "perl_exe", ""
+cfg.add "uncompressed_postfix", ""
+
+' reading ini file
+for i = 0 to ubound(ini_strings)
+    s = trim(ini_strings(i))
+
+    ' skipping empty strings and comments
+    if mid(s, 1, 1) &lt;&gt; "#" and len(s) > 0 then 
+      ' obtaining key and value
+      parts = split(s, "=", -1, 1)
+
+      if ubound(parts)+1 = 2 then
+        parts(0) = trim(parts(0))
+        parts(1) = trim(parts(1))
+
+        ' reading configuration and filenames
+        select case lcase(parts(0))
+          case "dest"                 cfg.item("dest") = parts(1)
+          case "dest_gz"              cfg.item("dest_gz") = parts(1)
+          case "gzip_exe"             cfg.item("gzip_exe") = parts(1)
+          case "perl_exe"             cfg.item("perl_exe") = parts(1)
+          case "uncompressed_postfix" cfg.item("uncompressed_postfix") = parts(1)
+          case "f"
+                    options = split(parts(1), "|", -1, 1)
+                    if ubound(options)+1 = 2 then
+                      ' 0: filename,  1: options
+                      ff.add trim(options(0)), trim(options(1))
+                    end if
+        end select
+      end if
+    end if
+next</code></pre>
 
 <P>Delphi code
 
