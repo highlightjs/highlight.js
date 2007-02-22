@@ -664,9 +664,9 @@ for (var i in LANGUAGES) {
   var language = LANGUAGES[i];
   for (var key in language.modes) {
     if (language.modes[key].begin)
-      language.modes[key].beginRe = langRe(language, language.modes[key].begin);
+      language.modes[key].beginRe = langRe(language, '^' + language.modes[key].begin);
     if (language.modes[key].end)
-      language.modes[key].endRe = langRe(language, language.modes[key].end);
+      language.modes[key].endRe = langRe(language, '^' + language.modes[key].end);
     if (language.modes[key].illegal)
       language.modes[key].illegalRe = langRe(language, '^(?:' + language.modes[key].illegal + ')');
     language.defaultMode.illegalRe = langRe(language, '^(?:' + language.defaultMode.illegal + ')');
