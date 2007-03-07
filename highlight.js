@@ -99,10 +99,10 @@ LANGUAGES.python = {
     {
       className: 'class',
       lexems: [UNDERSCORE_IDENT_RE],
-      begin: 'class ', end: ':\\s*$',
+      begin: 'class ', end: ':',
       illegal: '[${]',
       keywords: {'class': 1},
-      contains: ['title', 'params'],
+      contains: ['title', 'params',],
       relevance: 10
     },
     {
