@@ -181,7 +181,7 @@ LANGUAGES.html = {
       className: 'tag',
       lexems: [IDENT_RE],
       keywords: HTML_TAGS,
-      begin: '<', end: '>',
+      begin: '<[A-Za-z/]', end: '>',
       contains: ['attribute']
     },
     {
