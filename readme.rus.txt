@@ -89,6 +89,7 @@ Ruby:
 
   keyword         ключевое слово языка
   string          строка
+  subst           внутристроковая подстановка (#{...})
   comment         комментарий
   function        заголовок функции "def ..."
   class           заголовок класса "class ..."
@@ -208,7 +209,7 @@ C++:
 
 ## Координаты
 
-Версия: 2.8
+Версия: 2.9
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 

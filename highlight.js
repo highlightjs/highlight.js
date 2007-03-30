@@ -277,6 +277,10 @@ LANGUAGES.delphi = {
       relevance: 0
     },
     {
+      className: 'string',
+      begin: '(#\\d+)+', end: '^'
+    },
+    {
       className: 'quote',
       begin: '\'\'', end: '^'
     },
@@ -549,8 +553,24 @@ LANGUAGES.ruby = {
       begin: '^\\=begin', end: '^\\=end',
       relevance: 10
     },
-    APOS_STRING_MODE,
-    QUOTE_STRING_MODE,
+    {
+      className: 'string',
+      begin: '\'', end: '(^|[^\\\\])\'',
+      contains: ['subst'],
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '"', end: '(^|[^\\\\])"',
+      contains: ['subst'],
+      relevance: 0
+    },
+    {
+      className: 'subst',
+      begin: '#\\{', end: '\}',
+      contains: ['string'],
+      relevance: 10
+    },
     {
       className: 'function',
       lexems: [IDENT_RE],

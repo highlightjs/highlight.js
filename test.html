@@ -52,6 +52,10 @@
     .vbscript .built_in {
       font-weight: bold;
     }
+    
+    .ruby .subst {
+      color: black;
+    }
   </style>
   
   <script type="text/javascript" src="highlight.js"></script>
@@ -91,7 +95,7 @@ class CategoriesController &lt; ApplicationController
 
   def create
     @category = Category.create(params[:category])
-    flash[:notice] = "Category was successfully created"
+    flash[:notice] = "Category #{@category + "..."} was successfully created"
   end
 end
 </code></pre>
@@ -341,7 +345,7 @@ Begin
       ReadBufSize:=InFile.Read(Buffer,BufSize);
       OutFile.Write(Buffer,ReadBufSize);
     Until ReadBufSize&lt;&gt;BufSize;
-    Log('File '''+InFileName+''' copied');
+    Log('File '''+InFileName+''' copied'#13#10);
   Finally
     InFile.Free;
     OutFile.Free;
