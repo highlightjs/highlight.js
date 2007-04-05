@@ -169,13 +169,18 @@ var HTML_TAGS = {'code': 1, 'kbd': 1, 'font': 1, 'noscript': 1, 'style': 1, 'img
 
 LANGUAGES.html = {
   defaultMode: {
-    contains: ['tag', 'comment']
+    contains: ['tag', 'comment', 'doctype']
   },
   case_insensitive: true,
   modes: [
     {
       className: 'comment',
       begin: '<!--', end: '-->'
+    },
+    {
+      className: 'doctype',
+      begin: '<!DOCTYPE', end: '>',
+      relevance: 10
     },
     {
       className: 'tag',
@@ -933,7 +938,7 @@ function highlightAuto(block) {
   for (var key in selected_languages) {
     var highlight = new Highlighter(key, block_text);
     relevance = highlight.keyword_count + highlight.relevance;
-    if (highlight.keyword_count && relevance > max_relevance) {
+    if (relevance > max_relevance) {
       max_relevance = relevance;
       result = highlight;
     }//if

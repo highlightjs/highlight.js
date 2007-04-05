@@ -120,6 +120,7 @@ HTML:
   keyword         HTML tag
   tag             any tag from "<" till ">"
   comment         comment
+  doctype         <!DOCTYPE ... > declaration
   attribute       tag's attribute with or withou value
   value           attribute's value
 
