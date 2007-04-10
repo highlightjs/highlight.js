@@ -50,12 +50,19 @@ var C_NUMBER_RE = '\\b(0x[A-Za-z0-9]+|\\d+(\\.\\d+)?)';
 // Common modes
 var APOS_STRING_MODE = {
   className: 'string',
-  begin: '\'', end: '(^|[^\\\\])\'',
+  begin: '\'', end: '\'',
+  contains: ['escape'],
   relevance: 0
 }
 var QUOTE_STRING_MODE = {
   className: 'string',
-  begin: '"', end: '(^|[^\\\\])"',
+  begin: '"', end: '"',
+  contains: ['escape'],
+  relevance: 0
+}
+var BACKSLASH_ESCAPE = {
+  className: 'escape',
+  begin: '\\\\.', end: '^',
   relevance: 0
 }
 var C_LINE_COMMENT_MODE = {
@@ -128,6 +135,7 @@ LANGUAGES.python = {
     },
     APOS_STRING_MODE,
     QUOTE_STRING_MODE,
+    BACKSLASH_ESCAPE,
     {
       className: 'string',
       begin: 'r\'', end: '\'',
@@ -363,6 +371,7 @@ LANGUAGES.perl = {
     },
     APOS_STRING_MODE,
     QUOTE_STRING_MODE,
+    BACKSLASH_ESCAPE,
     {
       className: 'string',
       begin: '`', end: '(^|[^\\\\])`',
@@ -455,6 +464,7 @@ LANGUAGES.php = {
     C_NUMBER_MODE,
     APOS_STRING_MODE,
     QUOTE_STRING_MODE,
+    BACKSLASH_ESCAPE,
     {
       className: 'variable',
       begin: '\\$' + PHP_IDENTIFIER_RE, end: '^'
@@ -502,6 +512,7 @@ LANGUAGES.java  = {
     C_NUMBER_MODE,
     APOS_STRING_MODE,
     QUOTE_STRING_MODE,
+    BACKSLASH_ESCAPE,
     C_LINE_COMMENT_MODE,
     {
       className: 'javadoc',
@@ -528,6 +539,7 @@ LANGUAGES.cpp = {
     C_BLOCK_COMMENT_MODE,
     C_NUMBER_MODE,
     QUOTE_STRING_MODE,
+    BACKSLASH_ESCAPE,
     {
       className: 'string',
       begin: '\'', end: '[^\\\\]\'',
@@ -628,6 +640,7 @@ LANGUAGES.javascript = {
     },
     APOS_STRING_MODE,
     QUOTE_STRING_MODE,
+    BACKSLASH_ESCAPE,
     {
       className: 'regexp',
       begin: '\\/[^\\/]', end: '(^|[^\\\\])\\/[gim]*'
@@ -667,6 +680,7 @@ LANGUAGES.vbscript = {
   case_insensitive: true,
   modes: [
     QUOTE_STRING_MODE,
+    BACKSLASH_ESCAPE,
     {
       className: 'comment',
       begin: '\'', end: '$'
