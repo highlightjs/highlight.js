@@ -1,0 +1,14 @@
+Syntax highlighting with language autodetection.
+
+URL:   http://softwaremaniacs.org/soft/highlight/en/
+
+Original author and current maintainer: 
+Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+
+Contributors:
+
+- Peter Leonov <gojpeg@gmail.com> 
+- Victor Karamzin <Victor.Karamzin@enterra-inc.com>
+- Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
+- Anton Kovalyov <anton@kovalyov.net>
+- Nikita Ledyaev <lenikita@yandex.ru>

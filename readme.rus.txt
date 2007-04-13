@@ -214,10 +214,5 @@ C++:
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
-Внесли свой вклад:
-
-- Петр Леонов <gojpeg@gmail.com>
-- Виктор Карамзин <Victor.Karamzin@enterra-inc.com>
-- Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
-- Антон Ковалёв <anton@kovalyov.net>
-- Никита Ледяев <lenikita@yandex.ru>
+Лицензионное соглашение читайте в файле LICENSE.
+Список соавторов читайте в файле AUTHORS.ru.txt

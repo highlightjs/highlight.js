@@ -211,10 +211,5 @@ Version: 2.9
 URL:     http://softwaremaniacs.org/soft/highlight/en/
 Author:  Ivan Sagalaev (Maniac@SoftwareManiacs.Org)
 
-Contributors:
-
-- Peter Leonov <gojpeg@gmail.com> 
-- Victor Karamzin <Victor.Karamzin@enterra-inc.com>
-- Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
-- Anton Kovalyov <anton@kovalyov.net>
-- Nikita Ledyaev <lenikita@yandex.ru>
+For the license terms see LICENSE files.
+For the list of contributors see AUTHORS.en.txt file.
