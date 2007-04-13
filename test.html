@@ -1,62 +1,8 @@
 ﻿<!DOCTYPE html>
 <head>
   <title>Highlight</title>
-  <style>
-    code[class]:after {
-      content: 'highlight: ' attr(class);
-      display: block; text-align: right;
-      font-size: smaller;
-      color: #CCC; background: white;
-      border-top: solid 1px;
-      padding-top: 0.5em;
-    }
-    
-    code {
-      display: block;
-      background: #F0F0F0;
-    }
-    
-    .string,
-    .function .title,
-    .class .title, 
-    .tag .attribute .value,
-    .css .rules .value,
-    .cpp .preprocessor,
-    .ruby .symbol,
-    .vbscript .built_in {
-      color: #800;
-    }
-    
-    .comment,
-    .python .decorator,
-    .java .annotation {
-      color: #888;
-    }
-    
-    .number,
-    .regexp,
-    .javascript .literal {
-      color: #080;
-    }
-    
-    .javadoc,
-    .ruby .string {
-      color: #88F;
-    }
-    
-    .keyword,
-    .css .id,
-    .phpdoc,
-    .function .title,
-    .class .title,
-    .vbscript .built_in {
-      font-weight: bold;
-    }
-    
-    .ruby .subst {
-      color: black;
-    }
-  </style>
+  
+  <link rel="stylesheet" href="sample.css">
   
   <script type="text/javascript" src="highlight.js"></script>
   <script type="text/javascript">

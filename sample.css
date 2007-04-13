@@ -1,0 +1,55 @@
+﻿pre code[class]:after {
+  content: 'highlight: ' attr(class);
+  display: block; text-align: right;
+  font-size: smaller;
+  color: #CCC; background: white;
+  border-top: solid 1px;
+  padding-top: 0.5em;
+}
+
+pre code {
+  display: block;
+  background: #F0F0F0;
+}
+
+pre code, 
+.ruby .subst {
+  color: black;
+}
+
+.string,
+.function .title,
+.class .title, 
+.tag .attribute .value,
+.css .rules .value,
+.cpp .preprocessor,
+.ruby .symbol,
+.vbscript .built_in {
+  color: #800;
+}
+
+.comment,
+.java .annotation {
+  color: #888;
+}
+
+.number,
+.regexp,
+.javascript .literal {
+  color: #080;
+}
+
+.javadoc,
+.ruby .string,
+.python .decorator {
+  color: #88F;
+}
+
+.keyword,
+.css .id,
+.phpdoc,
+.function .title,
+.class .title,
+.vbscript .built_in {
+  font-weight: bold;
+}

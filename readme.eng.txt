@@ -47,6 +47,8 @@ used to actually style the code elements:
     .html .atribute .value {
       color: green;
     }
+    
+You can use included sample.css as a starting point for you own style.
 
 A full list of available classes is below ("Languages").
 
