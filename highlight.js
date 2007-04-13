@@ -3,6 +3,8 @@ Syntax highlighting with language autodetection.
 http://softwaremaniacs.org/soft/highlight/
 */
 
+var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'html', 'javascript', 'vbscript', 'delphi', 'java', 'cpp'];
+
 var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
 var UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
 var NUMBER_RE = '\\b\\d+(\\.\\d+)?';
@@ -351,7 +353,7 @@ function injectScripts(languages) {
     }//if
   }//for
   if (languages.length == 0) {
-    languages = ['python', 'ruby', 'perl', 'php', 'css', 'html', 'javascript', 'vbscript', 'delphi', 'java', 'cpp'];
+    languages = DEFAULT_LANGUAGES;
   }//if
   for (var i=0; i < languages.length; i++) {
     document.write('<script type="text/javascript" src="' + path + 'languages/' + languages[i] + '.js"></script>');
