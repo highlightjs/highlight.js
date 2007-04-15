@@ -191,7 +191,26 @@ C++:
   number          число
   string          строка и одиночный символ
   comment         комментарий
-  preprocessor    директивы препроцессора
+  preprocessor    директива препроцессора
+
+RenderMan (RSL):
+
+  keyword         ключевое слово языка
+  number          число
+  string          строка
+  comment         комментарий
+  preprocessor    директива препроцессора
+  shader          ключевое слово шейдеров
+  shading         ключевое слово затенений
+  built_in        встроенная функция
+
+RenderMan (RIB):
+
+  keyword         ключевое слово языка
+  number          число
+  string          строка
+  comment         комментарий
+  commands        команда
 
 ## Эвристика
 

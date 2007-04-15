@@ -190,6 +190,25 @@ C++:
   comment         comment
   preprocessor    preprocessor directive
 
+RenderMan (RSL):
+
+  keyword         keyword
+  number          number
+  string          string
+  comment         comment
+  preprocessor    preprocessor directive
+  shader          sahder keywords
+  shading         shading keywords
+  built_in        built-in function
+
+RenderMan (RIB):
+
+  keyword         keyword
+  number          number
+  string          string
+  comment         comment
+  commands        command
+
 ## Heuristics
 
 Autodetection of a code's language is done with a simple heuristics:

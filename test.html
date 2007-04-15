@@ -383,6 +383,59 @@ int main(int argc, char *argv[]) {
 }
 </code></pre>
 
+<p>Bet you didn't expected to see a highlighted RenderMan (both RenderMan 
+Shading Language and RenderMan Interface Bytestream:</p>
+
+<pre><code>#define TEST_DEFINE 3.14
+/*	plastic surface shader
+ *
+ * 	Pixie is:
+ * 	(c) Copyright 1999-2003 Okan Arikan. All rights reserved.
+ */
+
+surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
+                 color specularcolor = 1;) {
+	normal Nf = faceforward (normalize(N),I);
+	Ci = Cs * (Ka*ambient() + Kd*diffuse(Nf)) + specularcolor * Ks*specular(Nf,-normalize(I),roughness);
+	Oi = Os;
+	Ci *= Oi;
+}
+</code></pre>
+
+<pre><code>FrameBegin 0
+Display "Scene" "framebuffer" "rgb"
+Option "searchpath" "shader" "+&:/home/kew"
+Option "trace" "int maxdepth" [4]
+Attribute "visibility" "trace" [1]
+Attribute "irradiance" "maxerror" [0.1]
+Attribute "visibility" "transmission" "opaque"
+Format 640 480 1.0
+ShadingRate 2
+PixelFilter "catmull-rom" 1 1
+PixelSamples 4 4
+Projection "perspective" "fov" 49.5502811377
+Scale 1 1 -1
+ConcatTransform [-0.105581186712 -0.336664259434 0.935686826706 0.0
+
+		      0.994097530842 -0.0121211335063 0.107810914516 0.0
+
+          -0.0249544940889 0.941546678543 0.335956931114 0.0
+
+          0.103667020798 -1.30126297474 -6.22769546509 1.0]
+
+WorldBegin
+
+ReadArchive "/home/qewerty/blends/my/instances/Lamp.002_Light/instance.rib"
+Surface "plastic"
+ReadArchive "/home/qewerty/blends/my/instances/Cube.004_Mesh/instance.rib"
+# ReadArchive "/home/qewerty/blends/my/instances/Sphere.010_Mesh/instance.rib"
+# ReadArchive "/home/qewerty/blends/my/instances/Sphere.009_Mesh/instance.rib"
+ReadArchive "/home/qewerty/blends/my/instances/Sphere.006_Mesh/instance.rib"
+
+WorldEnd
+FrameEnd
+</code></pre>
+
 <hr>
 
 <p>Explicit Python highlight:

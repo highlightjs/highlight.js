@@ -3,7 +3,7 @@ Syntax highlighting with language autodetection.
 http://softwaremaniacs.org/soft/highlight/
 */
 
-var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'html', 'javascript', 'vbscript', 'delphi', 'java', 'cpp'];
+var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'html', 'javascript', 'vbscript', 'delphi', 'java', 'cpp', 'rsl', 'rib'];
 
 var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
 var UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';

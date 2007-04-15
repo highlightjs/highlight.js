@@ -22,9 +22,9 @@ pre code,
 .class .title, 
 .tag .attribute .value,
 .css .rules .value,
-.cpp .preprocessor,
+.preprocessor,
 .ruby .symbol,
-.vbscript .built_in {
+.built_in {
   color: #800;
 }
 

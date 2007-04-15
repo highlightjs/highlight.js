@@ -12,3 +12,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
 - Антон Ковалёв <anton@kovalyov.net>
 - Никита Ледяев <lenikita@yandex.ru>
+- Константин Евдокименко <qewerty@gmail.com>
