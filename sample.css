@@ -1,4 +1,8 @@
-﻿pre code[class]:after {
+﻿/*
+You can use this file as is or as a starting point for you own styling
+*/
+
+pre code[class]:after {
   content: 'highlight: ' attr(class);
   display: block; text-align: right;
   font-size: smaller;

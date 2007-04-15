@@ -24,8 +24,9 @@ initialization function only those languages that you actually use on your pages
       initHighlightingOnLoad('html', 'css');
     </script>
 
-This set of languages is adhered only for autodetection but you can
-always set the code's language explicitly (see "Heuristics").
+When called this way highlight.js will dynamically load appropriate language
+files and thus will also weigh less than with the default set that includes all
+languages implemented.
 
 Then the script looks in your page for fragments `<pre><code>...</code></pre>`
 that are used traditionally to mark up code examples. Their content is
@@ -228,7 +229,7 @@ To disable highlighting of a fragment altogether use "no-highlight" class:
 
 ## Contacts
 
-Version: 2.9
+Version: 3.0
 URL:     http://softwaremaniacs.org/soft/highlight/en/
 Author:  Ivan Sagalaev (Maniac@SoftwareManiacs.Org)
 
