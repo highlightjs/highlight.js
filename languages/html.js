@@ -20,7 +20,8 @@ LANGUAGES.html = {
       lexems: [IDENT_RE],
       keywords: HTML_TAGS,
       begin: '<[A-Za-z/]', end: '>',
-      contains: ['attribute']
+      contains: ['attribute'],
+      illegal: '[+\\.]'
     },
     {
       className: 'attribute',
