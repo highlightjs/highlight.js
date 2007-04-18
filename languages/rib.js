@@ -26,12 +26,8 @@ LANGUAGES.rib  = {
     },
     HASH_COMMENT_MODE,
     C_NUMBER_MODE,
+    APOS_STRING_MODE,
     QUOTE_STRING_MODE,
-    BACKSLASH_ESCAPE,
-    {
-      className: 'string',
-      begin: '\'', end: '[^\\\\]\'',
-      illegal: '[^\\\\][^\']'
-    }
+    BACKSLASH_ESCAPE
   ]
 };//rib

@@ -41,12 +41,8 @@ LANGUAGES.rsl  = {
     C_BLOCK_COMMENT_MODE,
     C_NUMBER_MODE,
     QUOTE_STRING_MODE,
+    APOS_STRING_MODE,
     BACKSLASH_ESCAPE,
-    {
-      className: 'string',
-      begin: '\'', end: '[^\\\\]\'',
-      illegal: '[^\\\\][^\']'
-    },
     {
       className: 'preprocessor',
       begin: '#', end: '$'
