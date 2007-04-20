@@ -21,7 +21,7 @@ LANGUAGES.html = {
       keywords: HTML_TAGS,
       begin: '<[A-Za-z/]', end: '>',
       contains: ['attribute'],
-      illegal: '[+\\.]'
+      illegal: '\\+|(\\.\\s*["\'])|(["\']\\s*\\.)'
     },
     {
       className: 'attribute',
