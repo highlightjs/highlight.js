@@ -210,6 +210,14 @@ RenderMan (RIB):
   comment         comment
   commands        command
 
+SQL:
+
+  keyword         keyword (mostly SQL'92 and SQL'99)
+  number          number
+  string          string (of any type: "..", '..', `..`)
+  comment         comment
+  aggregate       aggregate function
+
 ## Heuristics
 
 Autodetection of a code's language is done with a simple heuristics:

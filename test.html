@@ -436,6 +436,33 @@ WorldEnd
 FrameEnd
 </code></pre>
 
+<p>SQL:
+
+<pre><code>BEGIN;
+CREATE TABLE "cicero_topic" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "forum_id" integer NOT NULL,
+    "subject" varchar(255) NOT NULL,
+    "created" timestamp with time zone NOT NULL
+);
+ALTER TABLE "cicero_topic" 
+ADD CONSTRAINT forum_id_refs_id_4be56999 
+FOREIGN KEY ("forum_id") 
+REFERENCES "cicero_forum" ("id") 
+DEFERRABLE INITIALLY DEFERRED;
+
+-- Initials
+insert into "cicero_forum" ("slug", "name", "group", "ordering") values ('test', 'Тест''овый форум', 'Тест', 0);
+
+-- Indices
+CREATE INDEX "cicero_topic_forum_id" ON "cicero_topic" ("forum_id");
+
+-- Test
+select count(*) from cicero_forum;
+
+COMMIT;
+</code></pre>
+
 <hr>
 
 <p>Explicit Python highlight:

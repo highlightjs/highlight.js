@@ -39,7 +39,8 @@ pre code,
 
 .number,
 .regexp,
-.javascript .literal {
+.javascript .literal,
+.sql .aggregate {
   color: #080;
 }
 
