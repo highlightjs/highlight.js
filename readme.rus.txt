@@ -225,9 +225,11 @@ RenderMan (RIB):
   number           число
   string           строка
   comment          комментарий
-  commands         командаSQL:
+  commands         команда
+
+SQL:
     
-  keyword          ключевое слово языка (в основном SQL'92 и SQL'99)
+  keyword          ключевое слово (в основном из SQL'92 и SQL'99)
   number           число
   string           строка (любого типа: "..", '..', `..`)
   comment          комментарий
