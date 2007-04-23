@@ -3,14 +3,6 @@ var HTML_COMMENT = {
   className: 'comment',
   begin: '<!--', end: '-->'
 };
-var HTML_TAG = {
-  className: 'tag',
-  lexems: [IDENT_RE],
-  keywords: HTML_TAGS,
-  begin: '<[A-Za-z/]', end: '>',
-  contains: ['attribute'],
-  illegal: '\\+|(\\.\\s*["\'])|(["\']\\s*\\.)'
-};
 var HTML_DOCTYPE = {
   className: 'doctype',
   begin: '<!DOCTYPE', end: '>',
@@ -25,10 +17,6 @@ var HTML_ATTR2 = {
   className: 'attribute',
   begin: ' [a-zA-Z]+', end: '^'
 };
-var HTML_VALUE1 = {
-  className: 'value',
-  begin: '"', end: '"'
-};
 var HTML_VALUE2 = {
   className: 'value',
   begin: '[a-zA-Z0-9]+', end: '^'
@@ -42,10 +30,20 @@ LANGUAGES.html = {
   modes: [
     HTML_COMMENT,
     HTML_DOCTYPE,
-    HTML_TAG,
+    {
+      className: 'tag',
+      lexems: [IDENT_RE],
+      keywords: HTML_TAGS,
+      begin: '<[A-Za-z/]', end: '>',
+      contains: ['attribute'],
+      illegal: '[\\+\\.]'
+    },
     HTML_ATTR1,
     HTML_ATTR2,
-    HTML_VALUE1,
+    {
+      className: 'value',
+      begin: '"', end: '"'
+    },
     HTML_VALUE2
   ]
 };//html
@@ -97,10 +95,20 @@ LANGUAGES.django = {
   modes: [
     HTML_COMMENT,
     HTML_DOCTYPE,
-    HTML_TAG,
+    {
+      className: 'tag',
+      lexems: [IDENT_RE],
+      keywords: HTML_TAGS,
+      begin: '<[A-Za-z/]', end: '>',
+      contains: ['attribute', 'template_tag', 'variable', 'template_comment']
+    },
     HTML_ATTR1,
     HTML_ATTR2,
-    HTML_VALUE1,
+    {
+      className: 'value',
+      begin: '"', end: '"',
+      contains: ['template_tag', 'variable', 'template_comment']
+    },
     HTML_VALUE2,
     {
       className: 'template_comment',
