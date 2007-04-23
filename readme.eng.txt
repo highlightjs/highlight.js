@@ -232,6 +232,18 @@ SQL:
   comment          comment
   aggregate        aggregate function
 
+Axapta:
+    
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  class            class header from "class" till "{"
+  title            class name inside a header
+  params           everything in parentheses inside a class header
+  inheritance      keywords "extends" and "implements" inside class header
+  preprocessor     preprocessor directive
+
 
 ## Heuristics
 

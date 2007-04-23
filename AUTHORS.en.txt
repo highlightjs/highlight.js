@@ -13,3 +13,4 @@ Contributors:
 - Anton Kovalyov <anton@kovalyov.net>
 - Nikita Ledyaev <lenikita@yandex.ru>
 - Konstantin Evdokimenko <qewerty@gmail.com>
+- Dmitri Roudakov <dmitri@roudakov.ru>

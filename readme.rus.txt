@@ -233,6 +233,18 @@ RenderMan (RIB):
   comment          комментарий
   aggregate        агрегатная функция
 
+Java:
+    
+  keyword          ключевое слово языка
+  number           число
+  string           строка
+  comment          комментарий
+  class            заголовок класса от "class" до "{"
+  title            название класса внутри заголовка
+  params           все, что в скобках внутри заголовка класса
+  inheritance      слова "extends" и "implements" внутри заголовка класса
+  preprocessor     директива препроцессора
+
 
 ## Эвристика
 
