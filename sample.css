@@ -28,12 +28,15 @@ pre code,
 .css .rules .value,
 .preprocessor,
 .ruby .symbol,
-.built_in {
+.built_in,
+.django .template_tag,
+.django .variable {
   color: #800;
 }
 
 .comment,
-.java .annotation {
+.java .annotation,
+.template_comment {
   color: #888;
 }
 
@@ -46,7 +49,8 @@ pre code,
 
 .javadoc,
 .ruby .string,
-.python .decorator {
+.python .decorator,
+.django .filter .argument {
   color: #88F;
 }
 

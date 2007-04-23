@@ -186,6 +186,25 @@ abstract class Zend_Uri
 &lt;/body&gt;
 </code></pre>
 
+<p>HTML with Django templates:
+
+<pre><code>
+{% if articles|length %}
+{% for article in articles %}
+
+{# Striped table #}
+&lt;tr class="{% cycle odd,even %}"&gt;
+  &lt;td&gt;{{ article|default:"Hi... "|escape }}&lt;/td&gt;
+  &lt;td&gt;{{ article.date|date:"d.m.Y" }}&lt;/td&gt;
+
+&lt;/tr&gt;
+  
+{% endfor %}
+{% endif %}
+
+{% comment %}Comments may be long{% endcomment %}
+</code></pre>
+
 <p>Some CSS code:
 
 <pre><code>body, 

@@ -75,148 +75,163 @@ This is a full list of available classes corresponding to languages'
 syntactic structures.
 
 Python:
+    
+  keyword          keyword
+  number           number
+  string           string (of any type)
+  comment          comment
+  decorator        @-decorator for functions
+  function         function header "def some_name(...):"
+  class            class header "class SomeName(...):"
+  title            name of a function or a class inside a header
+  params           everything inside parentheses in a function's or class' header
 
-  keyword         keyword
-  number          number
-  string          string (of any type)
-  comment         comment
-  decorator       @-decorator for functions
-  function        function header "def some_name(...):"
-  class           class header "class SomeName(...):"
-  title           name of a function or a class inside a header
-  params          everything inside parentheses in a function's or class' header
-  
 Ruby:
+    
+  keyword          keyword
+  string           string
+  subst            in-string substitution (#{...})
+  comment          comment
+  function         function header "def some_name(...):"
+  class            class header "class SomeName(...):"
+  title            name of a function or a class inside a header
+  symbol           symbol
 
-  keyword         keyword
-  string          string
-  subst           in-string substitution (#{...})
-  comment         comment
-  function        function header "def some_name(...):"
-  class           class header "class SomeName(...):"
-  title           name of a function or a class inside a header
-  symbol          symbol
-  
 Perl:
-
-  keyword         keyword
-  comment         comment
-  number          number
-  string          string
-  regexp          regular expression
-  sub             subroutine header (from "sub" till "{")
-  variable        variable starting with "$", "%", "@"
-  operator        operator
-  pod             plain old doc
+    
+  keyword          keyword
+  comment          comment
+  number           number
+  string           string
+  regexp           regular expression
+  sub              subroutine header (from "sub" till "{")
+  variable         variable starting with "$", "%", "@"
+  operator         operator
+  pod              plain old doc
 
 PHP:
-
-  keyword         keyword
-  number          number
-  string          string (of any type)
-  comment         comment
-  phpdoc          phpdoc params in comments
-  variable        variable starting with "$"
+    
+  keyword          keyword
+  number           number
+  string           string (of any type)
+  comment          comment
+  phpdoc           phpdoc params in comments
+  variable         variable starting with "$"
 
 HTML:
-
-  keyword         HTML tag
-  tag             any tag from "<" till ">"
-  comment         comment
-  doctype         <!DOCTYPE ... > declaration
-  attribute       tag's attribute with or withou value
-  value           attribute's value
+    
+  keyword          HTML tag
+  tag              any tag from "<" till ">"
+  comment          comment
+  doctype          <!DOCTYPE ... > declaration
+  attribute        tag's attribute with or withou value
+  value            attribute's value
 
 CSS:
+    
+  keyword          HTML tag when in selectors, CSS keyword when in rules
+  id               #some_name in selectors
+  class            .some_name in selectors
+  attr_selector    attribute selector (square brackets in a[href^=http://])
+  comment          comment
+  rules            everything from "{" till "}"
+  value            property's value inside a rule, from ":" till ";" or
+                   till the end of rule block
 
-  keyword         HTML tag when in selectors, CSS keyword when in rules
-  id              #some_name in selectors
-  class           .some_name in selectors
-  attr_selector   attribute selector (square brackets in a[href^=http://])
-  comment         comment
-  rules           everything from "{" till "}"
-  value           property's value inside a rule, from ":" till ";" or
-                  till the end of rule block
+Django:
+
+  keyword          HTML tag in HTML, default tags and default filters in templates
+  tag              any tag from "<" till ">"
+  comment          comment
+  doctype          <!DOCTYPE ... > declaration
+  attribute        tag's attribute with or withou value
+  value            attribute's value
+  template_tag     template tag {% .. %}
+  variable         template variable {{ .. }}
+  template_comment template comment, both {# .. #} and {% comment %}
+  filter           filter from "|" till the next filter or the end of tag
+  argument         filter argument
 
 Javascript:
-
-  keyword         keyword
-  comment         comment
-  number          number
-  literal         special literal: "true", "false" and "null"
-  string          string
-  regexp          regular expression
-  function        header of a function
-  title           name of a function inside a header
-  params          everything inside parentheses in a function's header
+    
+  keyword          keyword
+  comment          comment
+  number           number
+  literal          special literal: "true", "false" and "null"
+  string           string
+  regexp           regular expression
+  function         header of a function
+  title            name of a function inside a header
+  params           everything inside parentheses in a function's header
 
 VBScript:
-
-  keyword         keyword
-  number          number
-  string          string
-  comment         comment
-  built_in        built-in function
+    
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  built_in         built-in function
 
 Delphi:
+    
+  keyword          keyword
+  comment          comment (of any type)
+  number           number
+  string           string
+  function         header of a function, procedure, constructor and destructor
+  title            name of a function, procedure, constructor or destructor
+                   inside a header
+  params           everything inside parentheses in a function's header
+  class            class' body from "= class" till "end;"
 
-  keyword         keyword
-  comment         comment (of any type)
-  number          number
-  string          string
-  function        header of a function, procedure, constructor and destructor
-  title           name of a function, procedure, constructor or destructor
-                  inside a header
-  params          everything inside parentheses in a function's header
-  class           class' body from "= class" till "end;"
-  
 Java:
-
-  keyword         keyword
-  number          number
-  string          string
-  comment         commment
-  annotaion       annotation
-  javadoc         javadoc comment
-  class           class header from "class" till "{"
-  title           class name inside a header
-  params          everything in parentheses inside a class header
-  inheritance     keywords "extends" and "implements" inside class header
+    
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  annotaion        annotation
+  javadoc          javadoc comment
+  class            class header from "class" till "{"
+  title            class name inside a header
+  params           everything in parentheses inside a class header
+  inheritance      keywords "extends" and "implements" inside class header
 
 C++:
-
-  keyword         keyword
-  number          number
-  string          string and character
-  comment         comment
-  preprocessor    preprocessor directive
+    
+  keyword          keyword
+  number           number
+  string           string and character
+  comment          comment
+  preprocessor     preprocessor directive
 
 RenderMan (RSL):
-
-  keyword         keyword
-  number          number
-  string          string
-  comment         comment
-  preprocessor    preprocessor directive
-  shader          sahder keywords
-  shading         shading keywords
-  built_in        built-in function
+    
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  preprocessor     preprocessor directive
+  shader           sahder keywords
+  shading          shading keywords
+  built_in         built-in function
 
 RenderMan (RIB):
-
-  keyword         keyword
-  number          number
-  string          string
-  comment         comment
-  commands        command
+    
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  commands         command
 
 SQL:
+    
+  keyword          keyword (mostly SQL'92 and SQL'99)
+  number           number
+  string           string (of any type: "..", '..', `..`)
+  comment          comment
+  aggregate        aggregate function
 
-  keyword         keyword (mostly SQL'92 and SQL'99)
-  number          number
-  string          string (of any type: "..", '..', `..`)
-  comment         comment
-  aggregate       aggregate function
 
 ## Heuristics
 
