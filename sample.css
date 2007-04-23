@@ -59,6 +59,7 @@ pre code,
 .phpdoc,
 .function .title,
 .class .title,
-.vbscript .built_in {
+.vbscript .built_in,
+.rsl .built_in {
   font-weight: bold;
 }

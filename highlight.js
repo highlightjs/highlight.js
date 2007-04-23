@@ -122,6 +122,24 @@ function Highlighter(language_name, value) {
     return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
   }//escape
   
+  function keywordMatch(mode, match) {
+    if (!mode.keywordGroups) {
+      for (var key in mode.keywords) {
+        if (mode.keywords[key] instanceof Object)
+          mode.keywordGroups = mode.keywords;
+        else
+          mode.keywordGroups = {'keyword': mode.keywords};
+        break;
+      }//for
+    }//if
+    for (var className in mode.keywordGroups) {
+      var value = mode.keywordGroups[className][language.case_insensitive ? match[0].toLowerCase() : match[0]];
+      if (value)
+        return [className, value];
+    }//for
+    return false;
+  }//keywordMatch
+  
   function processKeywords(buffer) {
     var mode = currentMode();
     if (!mode.keywords || !mode.lexems)
@@ -143,10 +161,10 @@ function Highlighter(language_name, value) {
     var match = mode.lexemsRe.exec(buffer);
     while (match) {
       result += escape(buffer.substr(last_index, match.index - last_index));
-      keyword_value = mode.keywords[language.case_insensitive ? match[0].toLowerCase() : match[0]];
-      if (keyword_value) {
-        keyword_count += keyword_value;
-        result += '<span class="keyword">' + escape(match[0]) + '</span>';
+      keyword_match = keywordMatch(mode, match);
+      if (keyword_match) {
+        keyword_count += keyword_match[1];
+        result += '<span class="'+ keyword_match[0] +'">' + escape(match[0]) + '</span>';
       } else {
         result += escape(match[0]);
       }//if
