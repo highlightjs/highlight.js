@@ -29,6 +29,7 @@ pre code,
 .preprocessor,
 .ruby .symbol,
 .built_in,
+.sql .aggregate,
 .django .template_tag,
 .django .variable {
   color: #800;
@@ -42,8 +43,7 @@ pre code,
 
 .number,
 .regexp,
-.javascript .literal,
-.sql .aggregate {
+.javascript .literal {
   color: #080;
 }
 
@@ -60,6 +60,7 @@ pre code,
 .function .title,
 .class .title,
 .vbscript .built_in,
+.sql .aggregate,
 .rsl .built_in {
   font-weight: bold;
 }

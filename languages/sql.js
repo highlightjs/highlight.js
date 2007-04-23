@@ -6,15 +6,14 @@ LANGUAGES.sql =
   defaultMode:
   {
     lexems: [IDENT_RE],
-    contains: ['string', 'number', 'aggregate', 'comment'],
-    keywords: SQL_KEYWORDS
+    contains: ['string', 'number', 'comment'],
+    keywords: {
+      'keyword': SQL_KEYWORDS,
+      'aggregate': {'count': 1, 'sum': 1, 'min': 1, 'max': 1, 'avg': 1}
+    }
   },
 
   modes: [
-    {
-      className: 'aggregate',
-      begin: 'count|sum|min|max|avg', end: '^'
-    },
     C_NUMBER_MODE,
     C_BLOCK_COMMENT_MODE,
     {
