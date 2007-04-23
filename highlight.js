@@ -4,6 +4,11 @@ http://softwaremaniacs.org/soft/highlight/
 */
 
 var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'html', 'django', 'javascript', 'vbscript', 'delphi', 'java', 'cpp', 'rsl', 'rib', 'sql'];
+var LANGUAGE_GROUPS = {
+  'html': 'html',
+  'css': 'html',
+  'django': 'html'
+}
 
 var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
 var UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
@@ -373,8 +378,13 @@ function injectScripts(languages) {
   if (languages.length == 0) {
     languages = DEFAULT_LANGUAGES;
   }//if
+  var injected = {}
   for (var i=0; i < languages.length; i++) {
-    document.write('<script type="text/javascript" src="' + path + 'languages/' + languages[i] + '.js"></script>');
+    var filename = LANGUAGE_GROUPS[languages[i]] ? LANGUAGE_GROUPS[languages[i]] : languages[i];
+    if (!injected[filename]) {
+      document.write('<script type="text/javascript" src="' + path + 'languages/' + filename + '.js"></script>');
+      injected[filename] = true;
+    }//if
   }//for
 }//injectScripts
 
