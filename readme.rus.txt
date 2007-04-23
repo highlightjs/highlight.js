@@ -233,7 +233,7 @@ RenderMan (RIB):
   comment          комментарий
   aggregate        агрегатная функция
 
-Java:
+Axapta:
     
   keyword          ключевое слово языка
   number           число
