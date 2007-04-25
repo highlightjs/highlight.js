@@ -14,3 +14,4 @@ Contributors:
 - Nikita Ledyaev <lenikita@yandex.ru>
 - Konstantin Evdokimenko <qewerty@gmail.com>
 - Dmitri Roudakov <dmitri@roudakov.ru>
+- Yuri Ivanov <ivanov@supersoft.ru>

@@ -14,3 +14,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Никита Ледяев <lenikita@yandex.ru>
 - Константин Евдокименко <qewerty@gmail.com>
 - Дмитрий Рудаков <dmitri@roudakov.ru>
+- Юрий Иванов <ivanov@supersoft.ru>

@@ -244,6 +244,16 @@ Axapta:
   inheritance      keywords "extends" and "implements" inside class header
   preprocessor     preprocessor directive
 
+1C:
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  function         header of function or procudure
+  title            function name inside a header
+  params           everything in parentheses inside a function header
+  preprocessor     preprocessor directive
 
 ## Heuristics
 
