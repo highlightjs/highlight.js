@@ -110,7 +110,8 @@ LANGUAGES.perl = {
       className: 'identifier',
       begin: '\\b[a-zA-Z]\\w*\\b', end: '^',
       lexems: [IDENT_RE],
-      keywords: PERL_KEYWORDS
+      keywords: PERL_KEYWORDS,
+      relevance: 0
     }
   ]
 };//perl
