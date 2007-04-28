@@ -15,4 +15,5 @@ Contributors:
 - Konstantin Evdokimenko <qewerty@gmail.com>
 - Dmitri Roudakov <dmitri@roudakov.ru>
 - Yuri Ivanov <ivanov@supersoft.ru>
+- Vladimir Ermakov <vooon341@mail.ru>
 - Vladimir Gubarkov <xonixx@gmail.com>
