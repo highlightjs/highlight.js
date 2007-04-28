@@ -16,4 +16,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Дмитрий Рудаков <dmitri@roudakov.ru>
 - Юрий Иванов <ivanov@supersoft.ru>
 - Владимир Ермаков <vooon341@mail.ru>
-- Владимир Губарков <xonixx@gmail.com>
+- Владимир Губарьков <xonixx@gmail.com>
