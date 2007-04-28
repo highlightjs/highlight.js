@@ -15,3 +15,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Константин Евдокименко <qewerty@gmail.com>
 - Дмитрий Рудаков <dmitri@roudakov.ru>
 - Юрий Иванов <ivanov@supersoft.ru>
+- Владимир Губарков <xonixx@gmail.com>

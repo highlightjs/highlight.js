@@ -3,7 +3,7 @@ Syntax highlighting with language autodetection.
 http://softwaremaniacs.org/soft/highlight/
 */
 
-var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'html', 'django', 'javascript', 'java', 'cpp', 'sql'];
+var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'html', 'django', 'javascript', 'java', 'cpp', 'sql', 'smalltalk'];
 var LANGUAGE_GROUPS = {
   'html': 'html',
   'css': 'html',

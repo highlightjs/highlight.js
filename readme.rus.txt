@@ -235,6 +235,18 @@ SQL:
   comment          комментарий
   aggregate        агрегатная функция
 
+Smalltalk:
+
+  keyword          ключевое слово
+  number           число
+  string           строка
+  comment          комментарий
+  symbol           символ
+  array            массив
+  class            имя класса
+  char             буква
+  localvars        блок локальных переменных
+
 Axapta:
     
   keyword          ключевое слово языка

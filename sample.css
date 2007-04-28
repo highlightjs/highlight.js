@@ -31,7 +31,8 @@ pre code,
 .built_in,
 .sql .aggregate,
 .django .template_tag,
-.django .variable {
+.django .variable,
+.smalltalk .class {
   color: #800;
 }
 
@@ -43,14 +44,18 @@ pre code,
 
 .number,
 .regexp,
-.javascript .literal {
+.javascript .literal,
+.smalltalk .symbol,
+.smalltalk .char {
   color: #080;
 }
 
 .javadoc,
 .ruby .string,
 .python .decorator,
-.django .filter .argument {
+.django .filter .argument,
+.smalltalk .localvars,
+.smalltalk .array {
   color: #88F;
 }
 
@@ -61,6 +66,7 @@ pre code,
 .class .title,
 .vbscript .built_in,
 .sql .aggregate,
-.rsl .built_in {
+.rsl .built_in,
+.smalltalk .class {
   font-weight: bold;
 }

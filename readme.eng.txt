@@ -232,6 +232,18 @@ SQL:
   comment          comment
   aggregate        aggregate function
 
+Smalltalk:
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  symbol           symbol
+  array            array
+  class            name of a class
+  char             char
+  localvars        block of local variables
+
 Axapta:
     
   keyword          keyword
