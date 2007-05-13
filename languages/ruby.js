@@ -37,7 +37,7 @@ LANGUAGES.ruby = {
     {
       className: 'function',
       lexems: [IDENT_RE],
-      begin: 'def ', end: '$',
+      begin: '\\bdef ', end: '$',
       illegal: '[{\\:]',
       keywords: {'def': 1},
       contains: ['title', 'comment'],
@@ -46,7 +46,7 @@ LANGUAGES.ruby = {
     { 
       className: 'class',
       lexems: [IDENT_RE],
-      begin: 'class ', end: '$',
+      begin: '\\bclass ', end: '$',
       illegal: '[{\\:]',
       contains: ['title', 'comment'],      
       keywords: {'class': 1}

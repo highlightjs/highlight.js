@@ -9,7 +9,7 @@ LANGUAGES.python = {
     {
       className: 'function',
       lexems: [UNDERSCORE_IDENT_RE],
-      begin: 'def ', end: ':',
+      begin: '\\bdef ', end: ':',
       illegal: '$',
       keywords: {'def': 1},
       contains: ['title', 'params'],
@@ -18,7 +18,7 @@ LANGUAGES.python = {
     {
       className: 'class',
       lexems: [UNDERSCORE_IDENT_RE],
-      begin: 'class ', end: ':',
+      begin: '\\bclass ', end: ':',
       illegal: '[${]',
       keywords: {'class': 1},
       contains: ['title', 'params',],
