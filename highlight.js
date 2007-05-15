@@ -224,10 +224,11 @@ function Highlighter(language_name, value) {
   function highlight(value) {
     var index = 0;
     language.defaultMode.buffer = '';
-    for (var mode_info = eatModeChunk(value, index); index < value.length; mode_info = eatModeChunk(value, index)) {
+    do {
+      var mode_info = eatModeChunk(value, index);
       processModeInfo(mode_info[0], mode_info[1], mode_info[2]);
       index += mode_info[0].length + mode_info[1].length;
-    }//for
+    } while (!mode_info[2]); 
     if(modes.length > 1)
       throw 'Illegal';
   }//highlight
