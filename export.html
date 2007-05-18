@@ -20,7 +20,7 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
     </head>
     <body>
         <script type="text/javascript">
-            injectScripts([]); // all
+            injectScripts(ALL_LANGUAGES); // all
 
             String.prototype.escape = function() {
                 return this.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
@@ -57,8 +57,7 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
         <script type="text/javascript">
             var langSelectorHtml = '<label>Language <select id="langSelector">';
             langSelectorHtml += '<option value="">Auto</option>';
-            for (var i=0; i<DEFAULT_LANGUAGES.length; i++) {
-                var lang = DEFAULT_LANGUAGES[i];
+            for (var lang in LANGUAGES) {
                 langSelectorHtml += '<option value=\"'+lang+'\">'+lang.charAt(0).toUpperCase()+lang.substr(1)+'</option>';
             }
             langSelectorHtml += '</select></label>';

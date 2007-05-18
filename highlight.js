@@ -4,6 +4,7 @@ http://softwaremaniacs.org/soft/highlight/
 */
 
 var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'html', 'django', 'javascript', 'java', 'cpp', 'sql', 'smalltalk'];
+var ALL_LANGUAGES = (DEFAULT_LANGUAGES.join(',') + ',' + ['1c', 'axapta', 'delphi', 'rib', 'rsl', 'vbscript'].join(',')).split(',');
 var LANGUAGE_GROUPS = {
   'html': 'html',
   'css': 'html',
