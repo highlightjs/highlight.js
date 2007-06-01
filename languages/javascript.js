@@ -16,7 +16,7 @@ LANGUAGES.javascript = {
     BACKSLASH_ESCAPE,
     {
       className: 'regexp',
-      begin: '\\/[^\\/]', end: '(^|[^\\\\])\\/[gim]*'
+      begin: '/.*?[^\\\\/]/[gim]*', end: '^'
     },
     {
       className: 'function',
