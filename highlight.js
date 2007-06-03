@@ -57,19 +57,18 @@ var LANGUAGES = {}
 var selected_languages = {};
 
 function Highlighter(language_name, value) {
-  currentMode = function(){
-    return modes[modes.length - 1];
-  }//currentMode
-  
   function subMode(lexem) {
-    if (!currentMode().contains)
+    if (!modes[modes.length - 1].contains)
       return null;
-    for (var key in language.modes)
-      if (contains(currentMode().contains, language.modes[key].className) && language.modes[key].beginRe.test(lexem))
-        return language.modes[key];
+    for (var i in modes[modes.length - 1].contains) {
+      var className = modes[modes.length - 1].contains[i];
+      for (var key in language.modes)
+        if (language.modes[key].className == className && language.modes[key].beginRe.test(lexem))
+          return language.modes[key];
+    }//for
     return null;
   }//subMode
-
+  
   function endOfMode(mode_index, lexem) {
     if (modes[mode_index].end && modes[mode_index].endRe.test(lexem))
       return 1;
@@ -81,18 +80,18 @@ function Highlighter(language_name, value) {
   }//endOfMode
   
   function isIllegal(lexem) {
-    if (!currentMode().illegalRe)
+    if (!modes[modes.length - 1].illegalRe)
       return false;
-    return currentMode().illegalRe.test(lexem);
+    return modes[modes.length - 1].illegalRe.test(lexem);
   }//isIllegal
 
   function eatModeChunk(value, index) {
-    if (!currentMode().terminators) {
+    if (!modes[modes.length - 1].terminators) {
       var terminators = [];
       
-      if (currentMode().contains)
+      if (modes[modes.length - 1].contains)
         for (var key in language.modes) {
-          if (contains(currentMode().contains, language.modes[key].className) &&
+          if (contains(modes[modes.length - 1].contains, language.modes[key].className) &&
               !contains(terminators, language.modes[key].begin))
             terminators[terminators.length] = language.modes[key].begin;
         }//for
@@ -104,18 +103,18 @@ function Highlighter(language_name, value) {
         mode_index--;
       } while (modes[mode_index + 1].endsWithParent);
       
-      if (currentMode().illegal)
-        if (!contains(terminators, currentMode().illegal))
-          terminators[terminators.length] = currentMode().illegal;
+      if (modes[modes.length - 1].illegal)
+        if (!contains(terminators, modes[modes.length - 1].illegal))
+          terminators[terminators.length] = modes[modes.length - 1].illegal;
       
       var terminator_re = '(' + terminators[0];
       for (var i = 0; i < terminators.length; i++)
         terminator_re += '|' + terminators[i];
       terminator_re += ')';
-      currentMode().terminators = langRe(language, terminator_re);
+      modes[modes.length - 1].terminators = langRe(language, terminator_re);
     }//if
     value = value.substr(index);
-    var match = currentMode().terminators.exec(value);
+    var match = modes[modes.length - 1].terminators.exec(value);
     if (!match) 
       return [value, '', true];
     if (match.index == 0)
@@ -139,7 +138,7 @@ function Highlighter(language_name, value) {
   }//keywordMatch
   
   function processKeywords(buffer) {
-    var mode = currentMode();
+    var mode = modes[modes.length - 1];
     if (!mode.keywords || !mode.lexems)
       return escape(buffer);
     if (!mode.lexemsRe) {
@@ -175,15 +174,15 @@ function Highlighter(language_name, value) {
   
   function processModeInfo(buffer, lexem, end) {
     if (end) {
-      result += processKeywords(currentMode().buffer + buffer);
+      result += processKeywords(modes[modes.length - 1].buffer + buffer);
       return;
     }//if
     if (isIllegal(lexem))
       throw 'Illegal';
     var new_mode = subMode(lexem);
     if (new_mode) {
-      currentMode().buffer += buffer;
-      result += processKeywords(currentMode().buffer);
+      modes[modes.length - 1].buffer += buffer;
+      result += processKeywords(modes[modes.length - 1].buffer);
       if (new_mode.excludeBegin) {
         result += lexem + '<span class="' + new_mode.className + '">';
         new_mode.buffer = '';
@@ -192,16 +191,16 @@ function Highlighter(language_name, value) {
         new_mode.buffer = lexem;
       }//if
       modes[modes.length] = new_mode;
-      relevance += currentMode().relevance != undefined ? currentMode().relevance : 1;
+      relevance += modes[modes.length - 1].relevance != undefined ? modes[modes.length - 1].relevance : 1;
       return;
     }//if
     var end_level = endOfMode(modes.length - 1, lexem);
     if (end_level) {
-      currentMode().buffer += buffer;
-      if (currentMode().excludeEnd) {
-        result += processKeywords(currentMode().buffer) + '</span>' + lexem;
+      modes[modes.length - 1].buffer += buffer;
+      if (modes[modes.length - 1].excludeEnd) {
+        result += processKeywords(modes[modes.length - 1].buffer) + '</span>' + lexem;
       } else {
-        result += processKeywords(currentMode().buffer + lexem) + '</span>';
+        result += processKeywords(modes[modes.length - 1].buffer + lexem) + '</span>';
       }
       while (end_level > 1) {
         result += '</span>';
@@ -209,7 +208,7 @@ function Highlighter(language_name, value) {
         modes.length--;
       }//while
       modes.length--;
-      currentMode().buffer = '';
+      modes[modes.length - 1].buffer = '';
       return;
     }//if
   }//processModeInfo
