@@ -138,8 +138,9 @@ function Highlighter(language_name, value) {
         break;
       }//for
     }//if
+    var match_str = language.case_insensitive ? match[0].toLowerCase() : match[0]
     for (var className in mode.keywordGroups) {
-      var value = mode.keywordGroups[className][language.case_insensitive ? match[0].toLowerCase() : match[0]];
+      var value = mode.keywordGroups[className].hasOwnProperty(match_str);
       if (value)
         return [className, value];
     }//for
