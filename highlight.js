@@ -129,15 +129,6 @@ function Highlighter(language_name, value) {
   }//escape
   
   function keywordMatch(mode, match) {
-    if (!mode.keywordGroups) {
-      for (var key in mode.keywords) {
-        if (mode.keywords[key] instanceof Object)
-          mode.keywordGroups = mode.keywords;
-        else
-          mode.keywordGroups = {'keyword': mode.keywords};
-        break;
-      }//for
-    }//if
     var match_str = language.case_insensitive ? match[0].toLowerCase() : match[0]
     for (var className in mode.keywordGroups) {
       var value = mode.keywordGroups[className].hasOwnProperty(match_str);
@@ -350,11 +341,35 @@ function compileRes() {
   }//for
 }//compileRes
 
+function compileKeywords() {
+
+  function compileModeKeywords(mode) {
+    if (!mode.keywordGroups) {
+      for (var key in mode.keywords) {
+        if (mode.keywords[key] instanceof Object)
+          mode.keywordGroups = mode.keywords;
+        else
+          mode.keywordGroups = {'keyword': mode.keywords};
+        break;
+      }//for
+    }//if
+  }//compileModeKeywords
+  
+  for (var i in LANGUAGES) {
+    var language = LANGUAGES[i];
+    compileModeKeywords(language.defaultMode);
+    for (var key in language.modes) {
+      compileModeKeywords(language.modes[key]);
+    }//for
+  }//for
+}//compileKeywords
+
 function initHighlighting() {
   if (initHighlighting.called)
     return;
   initHighlighting.called = true;
   compileRes();
+  compileKeywords();
   if (arguments.length) {
     for (var i = 0; i < arguments.length; i++) {
       if (LANGUAGES[arguments[i]]) {
