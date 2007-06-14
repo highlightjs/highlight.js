@@ -55,7 +55,8 @@ pre code,
 .python .decorator,
 .django .filter .argument,
 .smalltalk .localvars,
-.smalltalk .array {
+.smalltalk .array,
+.css .attr_selector {
   color: #88F;
 }
 
