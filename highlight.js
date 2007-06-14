@@ -20,12 +20,14 @@ var C_NUMBER_RE = '\\b(0x[A-Za-z0-9]+|\\d+(\\.\\d+)?)';
 var APOS_STRING_MODE = {
   className: 'string',
   begin: '\'', end: '\'',
+  illegal: '\\n',
   contains: ['escape'],
   relevance: 0
 }
 var QUOTE_STRING_MODE = {
   className: 'string',
   begin: '"', end: '"',
+  illegal: '\\n',
   contains: ['escape'],
   relevance: 0
 }
