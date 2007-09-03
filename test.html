@@ -6,7 +6,7 @@
   
   <script type="text/javascript" src="highlight.js"></script>
   <script type="text/javascript">
-    initHighlightingOnLoad('1c', 'axapta', 'cpp', 'delphi', 'html', 'css', 'django', 'java', 'javascript', 'perl', 'php', 'python', 'rib', 'rsl', 'ruby', 'smalltalk', 'sql', 'vbscript');
+    initHighlightingOnLoad('1c', 'axapta', 'cpp', 'delphi', 'html', 'css', 'django', 'java', 'javascript', 'perl', 'php', 'python', 'rib', 'rsl', 'ruby', 'smalltalk', 'sql', 'vbscript', 'forth');
   </script>
 
 <body>
@@ -590,6 +590,77 @@ public boolean unpack(container packedClass)
 
 КонецПроцедуры
 </code></pre>
+
+<p>Doing Forth also:
+
+<pre><code>REQUIRE ConnectHost ~ac/lib/win/winsock/sockets.f
+REQUIRE PRO ~profit/lib/bac4th.f
+REQUIRE NEXT-PARAM ~day/common/clparam.f
+\ REQUIRE NUMBER ~ygrek/lib/parse.f
+
+\ Преобразовать строку a u в число (только символы текущей системы счисления)
+: NUMBER ( a u -- n -1 | 0 ) 
+   0 0 2SWAP >NUMBER NIP IF 2DROP FALSE ELSE D>S TRUE THEN ; 
+
+: tryConnect ( a u port -- ? ) 
+    ConnectHost 0= \ если удаётся установить соединение - ior ноль
+    IF 
+     CloseSocket DROP \  тогда корректно закрываем сокет 
+     TRUE
+    ELSE 
+     DROP FALSE \ иначе возвращаем признак неудачи
+    THEN ;
+
+\ сканируем последовательность портов
+: tryConnectRange=> ( a u port1 port2 --&gt; port \ &lt;-- )
+   PRO
+   2DUP &lt; IF SWAP THEN \ гарантируем корректность параметров цикла
+   ?DO 
+    2DUP I tryConnect 
+    IF 
+      I CONT \ если удача - генерируем вызов с номером порта
+    THEN
+   LOOP 2DROP ;
+
+\ получаем параметры из коммандной строки
+: getParameters ( -- a u port1 port2 )
+   NEXT-PARAM 2DROP \ первый параметр - путь к исполняемому файлу - игнорируем
+   \ если параметров не хватает - выкидываем исключение
+   NEXT-PARAM DUP 0= THROW 
+   NEXT-PARAM DUP 0= THROW NUMBER 0= THROW
+   NEXT-PARAM DUP 0= IF 2DROP DUP 1+ ELSE NUMBER 0= THROW THEN ;
+
+: printUsage ( -- )
+   CR S" Usage: portscan.exe host port_from [port_to]" TYPE 
+   CR S" host - IP address or domain to scan ports" TYPE 
+   CR S" port_from port_to - port range to scan" TYPE
+      S" , if port_to is omitted only port_from is checked" TYPE 
+;
+
+\ для каждой удавшейся попытки соединения просто печатаем номер порта
+: performScan ( a u port1 port2 -- )
+   tryConnectRange=> CR ." Port is open : " . ;
+
+: main
+  ['] getParameters CATCH \ ловим исключения от обработки комстроки
+  IF 
+   printUsage BYE \ если ошибка в параметрах то пишем информацию по использованию
+  THEN 
+  \ !!!   не забываем проинициализировать систему сокетов   !!!
+  SocketsStartup THROW 
+  CR ." Performing scan on : "
+  2OVER TYPE 
+  CR ." Port range : " 2DUP SWAP . ." - " .
+  performScan 
+  CR ." Finished"
+  KEY DROP BYE ;
+
+: save
+  0 TO SPF-INIT? \ выключаем интерпретацию комстроки spf-ом
+  ['] main MAINX ! \ устанавливаем нашу точку входа
+  S" portscan.exe" SAVE ; \ сохраняем программу в exe-файл
+
+save BYE</code></pre>
 
 <hr>
 
