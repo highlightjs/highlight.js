@@ -8,7 +8,14 @@ var ALL_LANGUAGES = (DEFAULT_LANGUAGES.join(',') + ',' + ['1c', 'axapta', 'delph
 var LANGUAGE_GROUPS = {
   'html': 'html',
   'css': 'html',
-  'django': 'html'
+  'django': 'html',
+  'python': 'dynamic',
+  'perl': 'dynamic',
+  'php': 'dynamic',
+  'ruby': 'dynamic',
+  'cpp': 'static',
+  'java': 'static',
+  'delphi': 'static'
 }
 
 var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
