@@ -389,8 +389,8 @@ function initHighlighting() {
 function injectScripts(languages) {
   var scripts = document.getElementsByTagName('SCRIPT');
   for (var i=0; i < scripts.length; i++) {
-    if (scripts[i].src.match(/highlight\.js$/)) {
-      var path = scripts[i].src.replace(/highlight\.js$/, '');
+    if (scripts[i].src.match(/highlight\.js(\?.+)?$/)) {
+      var path = scripts[i].src.replace(/highlight\.js(\?.+)?$/, '');
       break;
     }//if
   }//for
