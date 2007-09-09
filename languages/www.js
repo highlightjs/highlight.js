@@ -4,7 +4,7 @@ var XML_COMMENT = {
 };
 var XML_ATTR = {
   className: 'attribute',
-  begin: ' [a-zA-Z]+=', end: '^',
+  begin: ' [a-zA-Z-]+=', end: '^',
   contains: ['value']
 };
 var XML_VALUE = {
