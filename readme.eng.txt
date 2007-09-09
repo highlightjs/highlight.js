@@ -130,6 +130,7 @@ XML:
   tag              any tag from "<" till ">"
   comment          comment
   pi               processing instruction (<? ... ?>)
+  cdata            CDATA section
   attribute        attribute
   value            attribute's value
 
