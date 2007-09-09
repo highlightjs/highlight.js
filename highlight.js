@@ -3,12 +3,13 @@ Syntax highlighting with language autodetection.
 http://softwaremaniacs.org/soft/highlight/
 */
 
-var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'html', 'django', 'javascript', 'java', 'cpp', 'sql', 'smalltalk'];
+var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'xml', 'html', 'django', 'javascript', 'java', 'cpp', 'sql', 'smalltalk'];
 var ALL_LANGUAGES = (DEFAULT_LANGUAGES.join(',') + ',' + ['1c', 'axapta', 'delphi', 'rib', 'rsl', 'vbscript'].join(',')).split(',');
 var LANGUAGE_GROUPS = {
-  'html': 'html',
-  'css': 'html',
-  'django': 'html',
+  'xml': 'www',
+  'html': 'www',
+  'css': 'www',
+  'django': 'www',
   'python': 'dynamic',
   'perl': 'dynamic',
   'php': 'dynamic',

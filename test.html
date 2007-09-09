@@ -6,7 +6,7 @@
   
   <script type="text/javascript" src="highlight.js"></script>
   <script type="text/javascript">
-    initHighlightingOnLoad('1c', 'axapta', 'cpp', 'delphi', 'html', 'css', 'django', 'java', 'javascript', 'perl', 'php', 'python', 'rib', 'rsl', 'ruby', 'smalltalk', 'sql', 'vbscript');
+    initHighlightingOnLoad('1c', 'axapta', 'cpp', 'delphi', 'xml', 'html', 'css', 'django', 'java', 'javascript', 'perl', 'php', 'python', 'rib', 'rsl', 'ruby', 'smalltalk', 'sql', 'vbscript');
   </script>
 
 <body>
@@ -171,6 +171,18 @@ abstract class Zend_Uri
             throw new Zend_Uri_Exception('Illegal scheme supplied, only alphanumeric characters are permitted');
         }
 }
+</code></pre>
+
+<p>A custom XML document:
+
+<pre><code>&lt;?xml version="1.0"?&gt;
+&lt;response value="ok"&gt;
+  &lt;text&gt;Ok&lt;/text&gt;
+  &lt;comment/&gt;
+  &lt;description&gt;&lt;![CDATA[ 
+  CDATA is &lt;not&gt; magical. 
+  ]]&gt;&lt;/description&gt;
+&lt;/response&gt;
 </code></pre>
 
 <p>Some HTML code:

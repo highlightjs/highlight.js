@@ -56,7 +56,8 @@ pre code,
 .django .filter .argument,
 .smalltalk .localvars,
 .smalltalk .array,
-.css .attr_selector {
+.css .attr_selector,
+.xml .pi {
   color: #88F;
 }
 
@@ -68,6 +69,7 @@ pre code,
 .vbscript .built_in,
 .sql .aggregate,
 .rsl .built_in,
-.smalltalk .class {
+.smalltalk .class,
+.xml .tag .title {
   font-weight: bold;
 }
