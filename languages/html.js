@@ -89,7 +89,7 @@ LANGUAGES.css = {
 
 LANGUAGES.django = {
   defaultMode: {
-    contains: ['tag', 'comment', 'doctype', 'template_tag', 'variable', 'template_comment']
+    contains: ['tag', 'comment', 'doctype', 'template_comment', 'template_tag', 'variable']
   },
   case_insensitive: true,
   modes: [
@@ -100,19 +100,19 @@ LANGUAGES.django = {
       lexems: [IDENT_RE],
       keywords: HTML_TAGS,
       begin: '<[A-Za-z/]', end: '>',
-      contains: ['attribute', 'template_tag', 'variable', 'template_comment']
+      contains: ['attribute', 'template_comment', 'template_tag', 'variable']
     },
     HTML_ATTR1,
     HTML_ATTR2,
     {
       className: 'value',
       begin: '"', end: '"',
-      contains: ['template_tag', 'variable', 'template_comment']
+      contains: ['template_comment', 'template_tag', 'variable']
     },
     HTML_VALUE2,
     {
       className: 'template_comment',
-      begin: '\\{%\\s*comment\\s*%\\}', end: '\\{%\\s*endcomment\\s*%\\}'
+      begin: '\\{\\%\\s*comment\\s*\\%\\}', end: '\\{\\%\\s*endcomment\\s*\\%\\}'
     },
     {
       className: 'template_comment',
