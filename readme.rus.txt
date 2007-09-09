@@ -308,7 +308,7 @@ Axapta:
 
 ## Координаты
 
-Версия: 3.4
+Версия: 3.5
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
