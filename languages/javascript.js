@@ -20,7 +20,7 @@ LANGUAGES.javascript = {
     },
     {
       className: 'function',
-      begin: 'function ', end: '{',
+      begin: 'function\\b', end: '{',
       lexems: [UNDERSCORE_IDENT_RE],
       keywords: {'function': 1},
       contains: ['title', 'params']
