@@ -102,7 +102,9 @@ Ruby:
   function         function header "def some_name(...):"
   class            class header "class SomeName(...):"
   title            name of a function or a class inside a header
+  parent           name of a parent class
   symbol           symbol
+  instancevar      instance variable
 
 Perl:
     
