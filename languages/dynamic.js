@@ -235,8 +235,18 @@ LANGUAGES.php = {
       relevance: 10
     },
     C_NUMBER_MODE,
-    APOS_STRING_MODE,
-    QUOTE_STRING_MODE,
+    {
+      className: 'string',
+      begin: '\'', end: '\'',
+      contains: ['escape'],
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '"', end: '"',
+      contains: ['escape'],
+      relevance: 0
+    },
     BACKSLASH_ESCAPE,
     {
       className: 'variable',
@@ -244,7 +254,6 @@ LANGUAGES.php = {
     },
     ]
 };//php
-
 
 /*
 
