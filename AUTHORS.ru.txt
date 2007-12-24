@@ -17,3 +17,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Юрий Иванов <ivanov@supersoft.ru>
 - Владимир Ермаков <vooon341@mail.ru>
 - Владимир Губарьков <xonixx@gmail.com>
+- Брайан Бек <exogen@gmail.com>

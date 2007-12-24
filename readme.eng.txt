@@ -93,6 +93,18 @@ Python:
   title            name of a function or a class inside a header
   params           everything inside parentheses in a function's or class' header
 
+Python profiler results:
+    
+  number           number
+  string           string
+  builtin          builtin function entry
+  filename         filename in an entry
+  summary          profiling summary
+  header           header of table of results
+  keyword          column header
+  function         function name in an entry (including parentheses)
+  title            actual name of a function in an entry (excluding parentheses)
+
 Ruby:
     
   keyword          keyword

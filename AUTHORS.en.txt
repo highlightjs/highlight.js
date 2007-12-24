@@ -17,3 +17,4 @@ Contributors:
 - Yuri Ivanov <ivanov@supersoft.ru>
 - Vladimir Ermakov <vooon341@mail.ru>
 - Vladimir Gubarkov <xonixx@gmail.com>
+- Brian Beck <exogen@gmail.com>
