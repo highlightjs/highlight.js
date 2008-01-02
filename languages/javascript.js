@@ -27,7 +27,7 @@ LANGUAGES.javascript = {
     },
     {
       className: 'title',
-      begin: UNDERSCORE_IDENT_RE, end: '^'
+      begin: '[A-Za-z$_][0-9A-Za-z$_]*', end: '^'
     },
     {
       className: 'params',
