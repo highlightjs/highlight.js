@@ -248,46 +248,44 @@ var hljs = new function() {
     var classes = block.className.split(/\s+/);
     for (var i = 0; i < classes.length; i++) {
       if (LANGUAGES[classes[i]]) {
-        highlightLanguage(block, classes[i]);
+        highlightBlock(block, classes[i]);
         return;
       }//if
     }//for
-    highlightAuto(block);
+    highlightBlock(block);
   }//initHighlight
-
-  function highlightLanguage(block, language) {
-    var highlight = new Highlighter(language, blockText(block));
-    // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
-    var container = document.createElement('div');
-    container.innerHTML = '<pre><code class="' + block.className + '">' + highlight.result + '</code></pre>';
-    var environment = block.parentNode.parentNode;
-    environment.replaceChild(container.firstChild, block.parentNode);
-  }//highlightLanguage
-      
-  function highlightAuto(block) {
-    var result = null;
-    var language = '';
-    var max_relevance = 2;
-    var relevance = 0;
+  
+  function highlightBlock(block, language) {
     var block_text = blockText(block);
-    for (var key in selected_languages) {
-      var highlight = new Highlighter(key, block_text);
-      relevance = highlight.keyword_count + highlight.relevance;
-      if (relevance > max_relevance) {
-        max_relevance = relevance;
-        result = highlight;
-      }//if
-    }//for
+    var result;
+    if (language) {
+      result = new Highlighter(language, block_text);
+    } else {
+      var max_relevance = 2;
+      var relevance = 0;
+      for (var key in selected_languages) {
+        var highlight = new Highlighter(key, block_text);
+        relevance = highlight.keyword_count + highlight.relevance;
+        if (relevance > max_relevance) {
+          max_relevance = relevance;
+          result = highlight;
+        }//if
+      }//for
+    }//if
     
-    if(result) {
+    if (result) {
+      var className = block.className;
+      if (!className.match(result.language_name)) {
+        className += ' ' + result.language_name;
+      }//if
       // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
       var container = document.createElement('div');
-      container.innerHTML = '<pre><code class="' + result.language_name + '">' + result.result + '</code></pre>';
+      container.innerHTML = '<pre><code class="' + className + '">' + result.result + '</code></pre>';
       var environment = block.parentNode.parentNode;
       environment.replaceChild(container.firstChild, block.parentNode);
     }//if
-  }//highlightAuto
-
+  }//highlightBlock
+      
   function langRe(language, value, global) {
     var mode =  'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '');
     return new RegExp(value, mode);
