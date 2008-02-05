@@ -3,15 +3,15 @@
 Python profiler results (c) Brian Beck <exogen@gmail.com>
 
 */
-LANGUAGES.profile = {
+hljs.LANGUAGES.profile = {
   defaultMode: {
-    lexems: [UNDERSCORE_IDENT_RE],
+    lexems: [hljs.UNDERSCORE_IDENT_RE],
     contains: ['number', 'builtin', 'filename', 'header', 'summary', 'string', 'function']
   },
   modes: [
-    C_NUMBER_MODE,
-    APOS_STRING_MODE,
-    QUOTE_STRING_MODE,
+    hljs.C_NUMBER_MODE,
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE,
     {
       className: 'summary',
       begin: 'function calls', end: '$',
@@ -21,19 +21,19 @@ LANGUAGES.profile = {
     {
       className: 'header',
       begin: '(ncalls|tottime|cumtime)', end: '$',
-      lexems: [IDENT_RE],
+      lexems: [hljs.IDENT_RE],
       keywords: {'ncalls': 1, 'tottime': 10, 'cumtime': 10, 'filename': 1},
       relevance: 10
     },
     {
       className: 'function',
       begin: '\\(', end: '\\)',
-      lexems: [UNDERSCORE_IDENT_RE],
+      lexems: [hljs.UNDERSCORE_IDENT_RE],
       contains: ['title']
     },
     {
       className: 'title',
-      begin: UNDERSCORE_IDENT_RE, end: '^'
+      begin: hljs.UNDERSCORE_IDENT_RE, end: '^'
     },
     {
       className: 'builtin',

@@ -4,15 +4,15 @@ Smalltalk definition (c) Vladimir Gubarkov <xonixx@gmail.com>
 
 */
 
-var SMALLTALK_KEYWORDS = {'self': 1, 'super': 1, 'nil': 1, 'true': 1, 'false': 1, 'thisContext': 1}; // only 6
-var VAR_IDENT_RE = '[a-z][a-zA-Z0-9_]*';
+hljs.SMALLTALK_KEYWORDS = {'self': 1, 'super': 1, 'nil': 1, 'true': 1, 'false': 1, 'thisContext': 1}; // only 6
+hljs.VAR_IDENT_RE = '[a-z][a-zA-Z0-9_]*';
 
-LANGUAGES.smalltalk = {
+hljs.LANGUAGES.smalltalk = {
   defaultMode: {
-    lexems: [UNDERSCORE_IDENT_RE],
+    lexems: [hljs.UNDERSCORE_IDENT_RE],
     contains: ['comment', 'string', 'class', 'method',
                 'number', 'symbol', 'char', 'localvars', 'array'],
-    keywords: SMALLTALK_KEYWORDS
+    keywords: hljs.SMALLTALK_KEYWORDS
   },
   modes: [
     {
@@ -22,10 +22,10 @@ LANGUAGES.smalltalk = {
     },
     {
       className: 'symbol',
-      begin: '#' + UNDERSCORE_IDENT_RE, end: '^'
+      begin: '#' + hljs.UNDERSCORE_IDENT_RE, end: '^'
     },
-    C_NUMBER_MODE,
-    APOS_STRING_MODE,
+    hljs.C_NUMBER_MODE,
+    hljs.APOS_STRING_MODE,
     {
       className: 'comment',
       begin: '"', end: '"',
@@ -33,7 +33,7 @@ LANGUAGES.smalltalk = {
     },
     {
       className: 'method',
-      begin: VAR_IDENT_RE+':', end:'^'
+      begin: hljs.VAR_IDENT_RE+':', end:'^'
     },
     {
       className: 'char',
@@ -41,7 +41,7 @@ LANGUAGES.smalltalk = {
     },
     {
       className: 'localvars',
-      begin: '\\|\\s*(('+VAR_IDENT_RE+')\\s*)+\\|', end: '^',
+      begin: '\\|\\s*(('+hljs.VAR_IDENT_RE+')\\s*)+\\|', end: '^',
       relevance: 10
     },
     {

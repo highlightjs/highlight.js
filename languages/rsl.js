@@ -4,9 +4,9 @@ RenderMan Shading Language (c) Konstantin Evdokimenko <qewerty@gmail.com>
 
 */
 
-LANGUAGES.rsl  = {
+hljs.LANGUAGES.rsl  = {
   defaultMode: {
-    lexems: [UNDERSCORE_IDENT_RE],
+    lexems: [hljs.UNDERSCORE_IDENT_RE],
     illegal: '</',
     contains: ['comment', 'string', 'number', 'preprocessor',
                'shader', 'shading'],
@@ -23,21 +23,21 @@ LANGUAGES.rsl  = {
     {
       className: 'shader',
       begin: 'surface |displacement |light |volume |imager ', end: '\\(',
-      lexems: [IDENT_RE],
+      lexems: [hljs.IDENT_RE],
       keywords: {'surface': 1, 'displacement': 1, 'light': 1, 'volume': 1, 'imager': 1}
     },
     {
       className: 'shading',
       begin: 'illuminate|illuminance|gather', end: '\\(',
-      lexems: [IDENT_RE],
+      lexems: [hljs.IDENT_RE],
       keywords: {'illuminate': 1, 'illuminance': 1, 'gather': 1}
     },
-    C_LINE_COMMENT_MODE,
-    C_BLOCK_COMMENT_MODE,
-    C_NUMBER_MODE,
-    QUOTE_STRING_MODE,
-    APOS_STRING_MODE,
-    BACKSLASH_ESCAPE,
+    hljs.C_LINE_COMMENT_MODE,
+    hljs.C_BLOCK_COMMENT_MODE,
+    hljs.C_NUMBER_MODE,
+    hljs.QUOTE_STRING_MODE,
+    hljs.APOS_STRING_MODE,
+    hljs.BACKSLASH_ESCAPE,
     {
       className: 'preprocessor',
       begin: '#', end: '$'

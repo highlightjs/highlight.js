@@ -4,9 +4,9 @@ RenderMan Interface Bytestream (c) Konstantin Evdokimenko <qewerty@gmail.com>
 
 */
 
-LANGUAGES.rib  = {
+hljs.LANGUAGES.rib  = {
   defaultMode: {
-    lexems: [UNDERSCORE_IDENT_RE],
+    lexems: [hljs.UNDERSCORE_IDENT_RE],
     illegal: '</',
     contains: ['comment', 'string', 'number'],
     keywords: {
@@ -21,10 +21,10 @@ LANGUAGES.rib  = {
     }
   },
   modes: [
-    HASH_COMMENT_MODE,
-    C_NUMBER_MODE,
-    APOS_STRING_MODE,
-    QUOTE_STRING_MODE,
-    BACKSLASH_ESCAPE
+    hljs.HASH_COMMENT_MODE,
+    hljs.C_NUMBER_MODE,
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE,
+    hljs.BACKSLASH_ESCAPE
   ]
 };//rib

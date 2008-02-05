@@ -3,9 +3,9 @@
 VBScript definition (c) Nikita Ledyaev <lenikita@yandex.ru>
 
 */
-LANGUAGES.vbscript = {
+hljs.LANGUAGES.vbscript = {
   defaultMode: {
-    lexems: [IDENT_RE],
+    lexems: [hljs.IDENT_RE],
     contains: ['string', 'comment', 'number', 'built_in'],
     keywords: {
       'keyword': {'call' : 1,'class' : 1,'const' : 1,'dim' : 1,'do' : 1,'loop' : 1,'erase' : 1,'execute' : 1,'executeglobal' : 1,'exit' : 1,'for' : 1,'each' : 1,'next' : 1,'function' : 1,'if' : 1,'then' : 1,'else' : 1,'on' : 1, 'error' : 1,'option' : 1, 'explicit' : 1,'private' : 1,'property' : 1,'let' : 1,'get' : 1,'public' : 1,'randomize' : 1,'redim' : 1,'rem' : 1,'select' : 1,'case' : 1,'set' : 1,'stop' : 1,'sub' : 1,'while' : 1,'wend' : 1,'with' : 1, 'end' : 1, 'to' : 1},
@@ -14,12 +14,12 @@ LANGUAGES.vbscript = {
   },
   case_insensitive: true,
   modes: [
-    QUOTE_STRING_MODE,
-    BACKSLASH_ESCAPE,
+    hljs.QUOTE_STRING_MODE,
+    hljs.BACKSLASH_ESCAPE,
     {
       className: 'comment',
       begin: '\'', end: '$'
     },
-    C_NUMBER_MODE
+    hljs.C_NUMBER_MODE
   ]
 };//vbscript
