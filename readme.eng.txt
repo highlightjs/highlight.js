@@ -13,7 +13,7 @@ initialization call:
 
     <script type="text/javascript" src="highlight.js"></script>
     <script type="text/javascript">
-      initHighlightingOnLoad();
+      hljs.initHighlightingOnLoad();
     </script>
 
 Autodetection can work a bit slow if it includes too many languages and code
@@ -21,7 +21,7 @@ blocks are large. To speed up highlighting in this case you can pass to the
 initialization function only those languages that you actually use on your pages:
 
     <script type="text/javascript">
-      initHighlightingOnLoad('html', 'css');
+      hljs.initHighlightingOnLoad('html', 'css');
     </script>
 
 When called this way highlight.js will dynamically load appropriate language
