@@ -385,7 +385,7 @@ var hljs = new function() {
     }//for
   }//injectScripts
 
-  this.initHighlightingOnLoad = function() {
+  function initHighlightingOnLoad() {
     var original_arguments = arguments;
     injectScripts(arguments);
     var handler = function(){initHighlighting.apply(null, original_arguments)};
@@ -399,6 +399,9 @@ var hljs = new function() {
   }//initHighlightingOnLoad
   
   this.LANGUAGES = LANGUAGES;
+  this.ALL_LANGUAGES = ALL_LANGUAGES;
+  this.initHighlightingOnLoad = initHighlightingOnLoad;
+  this.highlightBlock = highlightBlock;
   
   // Common regexps
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';

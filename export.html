@@ -11,17 +11,19 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
     <head>
         <title>Highlited code export</title>
         <link rel="stylesheet" href="sample.css">
+        <meta charset="utf-8">
         <style type="text/css">
             #t1, #t2 { width: 100%;}
             tr { vertical-align: top; }
             address { margin-top: 4em; }
         </style>
         <script type="text/javascript" src="highlight.js"></script>
+        <script>
+          hljs.initHighlightingOnLoad.apply(hljs.ALL_LANGUAGES);
+        </script>
     </head>
     <body>
         <script type="text/javascript">
-            injectScripts(ALL_LANGUAGES); // all
-
             String.prototype.escape = function() {
                 return this.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
             }
@@ -32,14 +34,12 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
                 var t2 = document.getElementById("t2");
                 var selector = document.getElementById("langSelector");
                 var selectedLang = selector.options[selector.selectedIndex].value.toLowerCase();
-                initHighlighting.called = false;
                 if(selectedLang) {
                     viewDiv.innerHTML = '<pre><code class="'+selectedLang+'">'+t1.value.escape()+"</code></pre>";
-                    initHighlighting(selectedLang);
                 } else { // try auto
                     viewDiv.innerHTML = '<pre><code>' + t1.value.escape() + "</code></pre>";
-                    initHighlighting();
                 }
+                hljs.highlightBlock(viewDiv.firstChild.firstChild);
                 t2.value = viewDiv.innerHTML;
             }
 
@@ -57,7 +57,8 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
         <script type="text/javascript">
             var langSelectorHtml = '<label>Language <select id="langSelector">';
             langSelectorHtml += '<option value="">Auto</option>';
-            for (var lang in LANGUAGES) {
+            for (var i in hljs.ALL_LANGUAGES) {
+                var lang = hljs.ALL_LANGUAGES[i];
                 langSelectorHtml += '<option value=\"'+lang+'\">'+lang.charAt(0).toUpperCase()+lang.substr(1)+'</option>';
             }
             langSelectorHtml += '</select></label>';
