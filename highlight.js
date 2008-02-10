@@ -18,7 +18,9 @@ var hljs = new function() {
     'ruby': 'dynamic',
     'cpp': 'static',
     'java': 'static',
-    'delphi': 'static'
+    'delphi': 'static',
+    'rib': 'renderman',
+    'rsl': 'renderman'
   }
 
   var LANGUAGES = {}
