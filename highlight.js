@@ -40,11 +40,11 @@ var hljs = new function() {
   }//contains
   
   function highlight(language_name, value) {
-    function subMode(lexem) {
-      if (!modes[modes.length - 1].contains)
+    function subMode(lexem, mode) {
+      if (!mode.contains)
         return null;
-      for (var i in modes[modes.length - 1].contains) {
-        var className = modes[modes.length - 1].contains[i];
+      for (var i in mode.contains) {
+        var className = mode.contains[i];
         for (var key in language.modes)
           if (language.modes[key].className == className && language.modes[key].beginRe.test(lexem))
             return language.modes[key];
@@ -62,13 +62,11 @@ var hljs = new function() {
       return 0;
     }//endOfMode
     
-    function isIllegal(lexem) {
-      if (!modes[modes.length - 1].illegalRe)
-        return false;
-      return modes[modes.length - 1].illegalRe.test(lexem);
+    function isIllegal(lexem, mode) {
+      return mode.illegalRe && mode.illegalRe.test(lexem);
     }//isIllegal
     
-    function compileTerminators(modes, language) {
+    function compileTerminators(mode, language) {
       var terminators = [];
       
       function addTerminator(re) {
@@ -77,9 +75,6 @@ var hljs = new function() {
         }//if
       }//addTerminator
       
-      var index = modes.length - 1;
-      var mode = modes[index];
-      
       if (mode.contains)
         for (var key in language.modes) {
           if (contains(mode.contains, language.modes[key].className)) {
@@ -87,6 +82,7 @@ var hljs = new function() {
           }//if
         }//for
       
+      var index = modes.length - 1;
       do {
         if (modes[index].end) {
           addTerminator(modes[index].end);
@@ -106,11 +102,12 @@ var hljs = new function() {
     }//compileTerminators
 
     function eatModeChunk(value, index) {
-      if (!modes[modes.length - 1].terminators) {
-        modes[modes.length - 1].terminators = compileTerminators(modes, language);
+      var mode = modes[modes.length - 1];
+      if (!mode.terminators) {
+        mode.terminators = compileTerminators(mode, language);
       }//if
       value = value.substr(index);
-      var match = modes[modes.length - 1].terminators.exec(value);
+      var match = mode.terminators.exec(value);
       if (!match) 
         return [value, '', true];
       if (match.index == 0)
@@ -169,9 +166,9 @@ var hljs = new function() {
         result += processKeywords(modes[modes.length - 1].buffer + buffer);
         return;
       }//if
-      if (isIllegal(lexem))
+      if (isIllegal(lexem, modes[modes.length - 1]))
         throw 'Illegal';
-      var new_mode = subMode(lexem);
+      var new_mode = subMode(lexem, modes[modes.length - 1]);
       if (new_mode) {
         modes[modes.length - 1].buffer += buffer;
         result += processKeywords(modes[modes.length - 1].buffer);
