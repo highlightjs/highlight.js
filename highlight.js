@@ -181,7 +181,7 @@ var hljs = new function() {
           new_mode.buffer = lexem;
         }//if
         modes[modes.length] = new_mode;
-        relevance += new_mode.relevance != undefined ? new_mode.relevance : 1;
+        relevance += new_mode.relevance;
         return;
       }//if
       
@@ -303,7 +303,7 @@ var hljs = new function() {
     return new RegExp(value, mode);
   }//langRe
 
-  function compileRes() {
+  function compileModes() {
     for (var i in LANGUAGES) {
       var language = LANGUAGES[i];
       for (var key in language.modes) {
@@ -314,9 +314,12 @@ var hljs = new function() {
         if (language.modes[key].illegal)
           language.modes[key].illegalRe = langRe(language, '^(?:' + language.modes[key].illegal + ')');
         language.defaultMode.illegalRe = langRe(language, '^(?:' + language.defaultMode.illegal + ')');
+        if (language.modes[key].relevance == undefined) {
+          language.modes[key].relevance = 1;
+        }//if
       }//for
     }//for
-  }//compileRes
+  }//compileModes
 
   function compileKeywords() {
 
@@ -345,7 +348,7 @@ var hljs = new function() {
     if (initHighlighting.called)
       return;
     initHighlighting.called = true;
-    compileRes();
+    compileModes();
     compileKeywords();
     if (arguments.length) {
       for (var i = 0; i < arguments.length; i++) {
