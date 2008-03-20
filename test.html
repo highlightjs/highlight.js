@@ -199,10 +199,20 @@ abstract class Zend_Uri
 &lt;/response&gt;
 </code></pre>
 
-<p>Some HTML code:
+<p>Some HTML code (with inline css and javascript):
 
 <pre><code>&lt;head&gt;
   &lt;title&gt;Title&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      width: 500px;
+    }
+  &lt;/style&gt;
+  &lt;script&gt;
+    function someFunction() {
+      return true;
+    }
+  &lt;/script&gt;
 &lt;body&gt;
   &lt;p class="something"&gt;Something&lt;/p&gt;
   &lt;p class=something&gt;Something&lt;/p&gt;

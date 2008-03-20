@@ -78,9 +78,37 @@ hljs.LANGUAGES.html = {
       className: 'tag',
       lexems: [hljs.IDENT_RE],
       keywords: hljs.HTML_TAGS,
+      begin: '<style', end: '>',
+      contains: ['attribute'],
+      illegal: '[\\+\\.]',
+      starts: 'css'
+    },
+    {
+      className: 'tag',
+      lexems: [hljs.IDENT_RE],
+      keywords: hljs.HTML_TAGS,
+      begin: '<script', end: '>',
+      contains: ['attribute'],
+      illegal: '[\\+\\.]',
+      starts: 'javascript'
+    },
+    {
+      className: 'tag',
+      lexems: [hljs.IDENT_RE],
+      keywords: hljs.HTML_TAGS,
       begin: '<[A-Za-z/]', end: '>',
       contains: ['attribute'],
       illegal: '[\\+\\.]'
+    },
+    {
+      className: 'css',
+      end: '</style>', returnEnd: true,
+      subLanguage: 'css',
+    },
+    {
+      className: 'javascript',
+      end: '</script>', returnEnd: true,
+      subLanguage: 'javascript',
     },
     hljs.XML_ATTR,
     hljs.HTML_ATTR,
