@@ -126,8 +126,7 @@ var hljs = new function() {
       return false;
     }//keywordMatch
     
-    function processKeywords(buffer) {
-      var mode = modes[modes.length - 1];
+    function processKeywords(buffer, mode) {
       if (!mode.keywords || !mode.lexems)
         return escape(buffer);
       if (!mode.lexemsRe) {
@@ -161,36 +160,53 @@ var hljs = new function() {
       return result;
     }//processKeywords
     
+    function processBuffer(buffer, mode) {
+      if (mode.subLanguage && LANGUAGES[mode.subLanguage]) {
+        var result = highlight(mode.subLanguage, buffer);
+        keyword_count += result.keyword_count;
+        relevance += result.relevance;
+        return result.value;
+      } else {
+        return processKeywords(buffer, mode);
+      }//if
+    }//processBuffer
+    
+    function startNewMode(mode, lexem) {
+      if (mode.excludeBegin) {
+        result += lexem + '<span class="' + mode.className + '">';
+        mode.buffer = '';
+      } else {
+        result += '<span class="' + mode.className + '">';
+        mode.buffer = lexem;
+      }//if
+      modes[modes.length] = mode;
+    }//startNewMode
+    
     function processModeInfo(buffer, lexem, end) {
       var current_mode = modes[modes.length - 1];
       if (end) {
-        result += processKeywords(current_mode.buffer + buffer);
-        return;
+        result += processBuffer(current_mode.buffer + buffer, current_mode);
+        return false;
       }//if
       if (isIllegal(lexem, current_mode))
         throw 'Illegal';
       
       var new_mode = subMode(lexem, current_mode);
       if (new_mode) {
-        result += processKeywords(current_mode.buffer + buffer);
-        if (new_mode.excludeBegin) {
-          result += lexem + '<span class="' + new_mode.className + '">';
-          new_mode.buffer = '';
-        } else {
-          result += '<span class="' + new_mode.className + '">';
-          new_mode.buffer = lexem;
-        }//if
-        modes[modes.length] = new_mode;
+        result += processBuffer(current_mode.buffer + buffer, current_mode);
+        startNewMode(new_mode, lexem);
         relevance += new_mode.relevance;
-        return;
+        return false;
       }//if
       
       var end_level = endOfMode(modes.length - 1, lexem);
       if (end_level) {
-        if (current_mode.excludeEnd) {
-          result += processKeywords(current_mode.buffer + buffer) + '</span>' + lexem;
+        if (current_mode.returnEnd) {
+          result += processBuffer(current_mode.buffer + buffer, current_mode) + '</span>';
+        } else if (current_mode.excludeEnd) {
+          result += processBuffer(current_mode.buffer + buffer, current_mode) + '</span>' + escape(lexem);
         } else {
-          result += processKeywords(current_mode.buffer + buffer + lexem) + '</span>';
+          result += processBuffer(current_mode.buffer + buffer + lexem, current_mode) + '</span>';
         }
         while (end_level > 1) {
           result += '</span>';
@@ -199,7 +215,15 @@ var hljs = new function() {
         }//while
         modes.length--;
         modes[modes.length - 1].buffer = '';
-        return;
+        if (current_mode.starts) {
+          for (var i = 0; i < language.modes.length; i++) {
+            if (language.modes[i].className == current_mode.starts) {
+              startNewMode(language.modes[i], '');
+              break;
+            }//if
+          }//for
+        }//if
+        return current_mode.returnEnd;
       }//if
     }//processModeInfo
     
@@ -213,8 +237,11 @@ var hljs = new function() {
       language.defaultMode.buffer = '';
       do {
         var mode_info = eatModeChunk(value, index);
-        processModeInfo(mode_info[0], mode_info[1], mode_info[2]);
-        index += mode_info[0].length + mode_info[1].length;
+        var return_lexem = processModeInfo(mode_info[0], mode_info[1], mode_info[2]);
+        index += mode_info[0].length;
+        if (!return_lexem) {
+          index += mode_info[1].length;
+        }//if
       } while (!mode_info[2]); 
       if(modes.length > 1)
         throw 'Illegal';
