@@ -103,12 +103,12 @@ hljs.LANGUAGES.html = {
     {
       className: 'css',
       end: '</style>', returnEnd: true,
-      subLanguage: 'css',
+      subLanguage: 'css'
     },
     {
       className: 'javascript',
       end: '</script>', returnEnd: true,
-      subLanguage: 'javascript',
+      subLanguage: 'javascript'
     },
     hljs.XML_ATTR,
     hljs.HTML_ATTR,
