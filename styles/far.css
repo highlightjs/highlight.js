@@ -1,0 +1,78 @@
+/*
+
+FAR Style (c) MajestiC <majestic2k@gmail.com>
+
+*/
+
+pre code[class]:after {
+  content: 'highlight: ' attr(class);
+  display: block; text-align: right;
+  font-size: smaller;
+  color: #CCC; background: white;
+  border-top: solid 1px;
+  padding-top: 0.5em;
+}
+
+pre code {
+  display: block;
+  background: #000080;
+}
+
+pre code, 
+.ruby .subst {
+  color: #0FF;
+}
+
+.string,
+.ruby .string,
+.function .title,
+.class .title, 
+.tag .attribute .value,
+.css .rules .value,
+.preprocessor,
+.ruby .symbol,
+.built_in,
+.sql .aggregate,
+.django .template_tag,
+.django .variable,
+.smalltalk .class {
+  color: #FF0;
+}
+
+.comment,
+.phpdoc,
+.javadoc,
+.java .annotation,
+.template_comment {
+  color: #888;
+}
+
+.number,
+.regexp,
+.javascript .literal,
+.smalltalk .symbol,
+.smalltalk .char {
+  color: #0F0;
+}
+
+.python .decorator,
+.django .filter .argument,
+.smalltalk .localvars,
+.smalltalk .array,
+.css .attr_selector,
+.xml .pi {
+  color: #008080;
+}
+
+.keyword,
+.css .id,
+.function .title,
+.class .title,
+.vbscript .built_in,
+.sql .aggregate,
+.rsl .built_in,
+.smalltalk .class,
+.xml .tag .title {
+  color: #FFF;
+  font-weight: bold;
+}

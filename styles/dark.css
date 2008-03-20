@@ -1,5 +1,7 @@
 ﻿/*
-You can use this file as is or as a starting point for you own styling
+
+Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+
 */
 
 pre code[class]:after {
@@ -7,18 +9,23 @@ pre code[class]:after {
   display: block; text-align: right;
   font-size: smaller;
   color: #CCC; background: white;
-  border-top: solid 1px;
+  border-top: solid 1px black;
   padding-top: 0.5em;
 }
 
 pre code {
   display: block;
-  background: #F0F0F0;
+  background: #444;
+}
+
+.keyword,
+.literal {
+  color: white;
 }
 
 pre code, 
 .ruby .subst {
-  color: black;
+  color: #DDD;
 }
 
 .string,
@@ -34,36 +41,27 @@ pre code,
 .sql .aggregate,
 .django .template_tag,
 .django .variable,
-.smalltalk .class {
-  color: #800;
+.smalltalk .class,
+.javadoc,
+.ruby .string,
+.django .filter .argument,
+.smalltalk .localvars,
+.smalltalk .array,
+.css .attr_selector {
+  color: #D88;
 }
 
 .comment,
 .java .annotation,
-.template_comment {
-  color: #888;
-}
-
-.number,
-.regexp,
-.javascript .literal,
-.smalltalk .symbol,
-.smalltalk .char {
-  color: #080;
-}
-
-.javadoc,
-.ruby .string,
 .python .decorator,
-.django .filter .argument,
-.smalltalk .localvars,
-.smalltalk .array,
-.css .attr_selector,
-.xml .pi {
-  color: #88F;
+.template_comment,
+.pi,
+.doctype {
+  color: #777;
 }
 
 .keyword,
+.literal, 
 .css .id,
 .phpdoc,
 .function .title,

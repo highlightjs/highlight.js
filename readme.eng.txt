@@ -49,7 +49,8 @@ used to actually style the code elements:
       color: green;
     }
     
-You can use included sample.css as a starting point for you own style.
+Highligt.js comes with several style themes located in "styles" directory that
+can be used directly or as a base for your own experiments.
 
 A full list of available classes is below ("Languages").
 

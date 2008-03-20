@@ -1,0 +1,58 @@
+﻿/*
+
+Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+pre code {
+    display: block;
+    background: #fff;
+    font: 12px / 1em Monospaced, monospace;
+}
+
+pre code,
+    .ruby .subst {
+    color: black;
+}
+
+.number, .regexp {
+    color: #0000ff;
+}
+
+.comment {
+    color: #808080;
+    font-style: italic;
+}
+
+.annotation, .decorator, .preprocessor, .doctype, .pi {
+    color: #808000;
+}
+
+.java .class .title {
+    color: #000;
+}
+
+.tag {
+    background: #efefef;
+}
+
+.keyword, .xml .tag .title, .css .id, .css .attr_selector {
+    font-weight: bold;
+    color: #000080;
+}
+
+.attribute, .css .rules .keyword {
+    font-weight: bold;
+    color: #0000ff;
+}
+
+.string, .attribute .value, .css .rules .value {
+    color: #008000;
+    font-weight: bold;
+}
+
+.ruby .symbol {
+    color: #000;
+    background: #d0eded;
+    font-style: italic;
+}

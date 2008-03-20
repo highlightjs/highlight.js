@@ -18,3 +18,5 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Владимир Ермаков <vooon341@mail.ru>
 - Владимир Губарьков <xonixx@gmail.com>
 - Брайан Бек <exogen@gmail.com>
+- MajestiC <majestic2k@gmail.com>
+- Василий Половнёв <vast@whiteants.net>

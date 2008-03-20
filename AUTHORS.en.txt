@@ -18,3 +18,5 @@ Contributors:
 - Vladimir Ermakov <vooon341@mail.ru>
 - Vladimir Gubarkov <xonixx@gmail.com>
 - Brian Beck <exogen@gmail.com>
+- MajestiC <majestic2k@gmail.com>
+- Vasily Polovnyov <vast@whiteants.net>

@@ -1,0 +1,79 @@
+﻿/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+
+*/
+
+pre code[class]:after {
+  content: 'highlight: ' attr(class);
+  display: block; text-align: right;
+  font-size: smaller;
+  color: #CCC; background: white;
+  border-top: solid 1px;
+  padding-top: 0.5em;
+}
+
+pre code {
+  display: block;
+  background: #F0F0F0;
+}
+
+pre code, 
+.ruby .subst {
+  color: black;
+}
+
+.string,
+.function .title,
+.class .title, 
+.tag .attribute .value,
+.css .rules .value,
+.preprocessor,
+.ruby .symbol,
+.ruby .instancevar,
+.ruby .class .parent,
+.built_in,
+.sql .aggregate,
+.django .template_tag,
+.django .variable,
+.smalltalk .class {
+  color: #800;
+}
+
+.comment,
+.java .annotation,
+.template_comment {
+  color: #888;
+}
+
+.number,
+.regexp,
+.javascript .literal,
+.smalltalk .symbol,
+.smalltalk .char {
+  color: #080;
+}
+
+.javadoc,
+.ruby .string,
+.python .decorator,
+.django .filter .argument,
+.smalltalk .localvars,
+.smalltalk .array,
+.css .attr_selector,
+.xml .pi {
+  color: #88F;
+}
+
+.keyword,
+.css .id,
+.phpdoc,
+.function .title,
+.class .title,
+.vbscript .built_in,
+.sql .aggregate,
+.rsl .built_in,
+.smalltalk .class,
+.xml .tag .title {
+  font-weight: bold;
+}
