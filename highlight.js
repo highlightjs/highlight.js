@@ -162,16 +162,17 @@ var hljs = new function() {
     }//processKeywords
     
     function processModeInfo(buffer, lexem, end) {
+      var current_mode = modes[modes.length - 1];
       if (end) {
-        result += processKeywords(modes[modes.length - 1].buffer + buffer);
+        result += processKeywords(current_mode.buffer + buffer);
         return;
       }//if
-      if (isIllegal(lexem, modes[modes.length - 1]))
+      if (isIllegal(lexem, current_mode))
         throw 'Illegal';
-      var new_mode = subMode(lexem, modes[modes.length - 1]);
+      
+      var new_mode = subMode(lexem, current_mode);
       if (new_mode) {
-        modes[modes.length - 1].buffer += buffer;
-        result += processKeywords(modes[modes.length - 1].buffer);
+        result += processKeywords(current_mode.buffer + buffer);
         if (new_mode.excludeBegin) {
           result += lexem + '<span class="' + new_mode.className + '">';
           new_mode.buffer = '';
@@ -180,16 +181,16 @@ var hljs = new function() {
           new_mode.buffer = lexem;
         }//if
         modes[modes.length] = new_mode;
-        relevance += modes[modes.length - 1].relevance != undefined ? modes[modes.length - 1].relevance : 1;
+        relevance += new_mode.relevance != undefined ? new_mode.relevance : 1;
         return;
       }//if
+      
       var end_level = endOfMode(modes.length - 1, lexem);
       if (end_level) {
-        modes[modes.length - 1].buffer += buffer;
-        if (modes[modes.length - 1].excludeEnd) {
-          result += processKeywords(modes[modes.length - 1].buffer) + '</span>' + lexem;
+        if (current_mode.excludeEnd) {
+          result += processKeywords(current_mode.buffer + buffer) + '</span>' + lexem;
         } else {
-          result += processKeywords(modes[modes.length - 1].buffer + lexem) + '</span>';
+          result += processKeywords(current_mode.buffer + buffer + lexem) + '</span>';
         }
         while (end_level > 1) {
           result += '</span>';
