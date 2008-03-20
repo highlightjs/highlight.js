@@ -161,7 +161,7 @@ var hljs = new function() {
     }//processKeywords
     
     function processBuffer(buffer, mode) {
-      if (mode.subLanguage && LANGUAGES[mode.subLanguage]) {
+      if (mode.subLanguage && selected_languages[mode.subLanguage]) {
         var result = highlight(mode.subLanguage, buffer);
         keyword_count += result.keyword_count;
         relevance += result.relevance;
