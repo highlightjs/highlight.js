@@ -1,0 +1,79 @@
+/*
+
+Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+pre code {
+    font: 12px / 1.3em 'Lucida Console', 'courier new', monospace;
+    color: #f8f8f8;
+}
+
+pre {
+    background: #000;
+}
+
+.comment, .template_comment {
+    color: #aeaeae;
+    font-style: italic;
+}
+
+.keyword, .ruby .function .keyword {
+    color: #E28964;
+}
+
+.function .keyword, .sub .keyword, .method {
+    color: #99CF50;
+}
+
+.string, .attribute .value, .cdata, .filter .argument, .attr_selector {
+    color: #65B042;
+}
+
+.subst {
+    color: #DAEFA3;
+}
+
+.regexp {
+    color: #E9C062;
+}
+
+.function .title, .sub .identifier, .pi, .tag, .tag .keyword, .decorator {
+    color: #89BDFF;
+}
+
+.class .title, .smalltalk .class {
+    text-decoration: underline;
+}
+
+.symbol, .number {
+    color: #3387CC;
+}
+
+.params, .variable {
+    color: #3E87E3;
+}
+
+.css .keyword {
+    color: #CDA869;
+}
+
+.rules .keyword {
+    color: #C5AF75;
+}
+
+.rules .value {
+    color: #CF6A4C;
+}
+
+.css .id {
+    color: #8B98AB;
+}
+
+.annotation {
+    color: #9B859D;
+}
+
+.preprocessor {
+    color: #8996A8;
+}
