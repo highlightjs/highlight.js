@@ -77,3 +77,8 @@ pre code,
 .xml .tag .title {
   font-weight: bold;
 }
+
+.html .css,
+.html .javascript {
+  opacity: 0.5;
+}
