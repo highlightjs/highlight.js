@@ -40,14 +40,28 @@ var hljs = new function() {
   }//contains
   
   function highlight(language_name, value) {
-    function subMode(lexem, mode) {
-      if (!mode.contains)
-        return null;
+    function compileSubModes(mode, language) {
+      mode.sub_modes = [];
       for (var i in mode.contains) {
-        var className = mode.contains[i];
-        for (var key in language.modes)
-          if (language.modes[key].className == className && language.modes[key].beginRe.test(lexem))
-            return language.modes[key];
+        for (var j in language.modes) {
+          if (language.modes[j].className == mode.contains[i]) {
+            mode.sub_modes[mode.sub_modes.length] = language.modes[j];
+          }//if
+        }//for
+      }//for
+    }//compileSubModes
+  
+    function subMode(lexem, mode) {
+      if (!mode.contains) {
+        return null;
+      }//if
+      if (!mode.sub_modes) {
+        compileSubModes(mode, language);
+      }//if
+      for (var i in mode.sub_modes) {
+        if (mode.sub_modes[i].beginRe.test(lexem)) {
+          return mode.sub_modes[i];
+        }//if
       }//for
       return null;
     }//subMode
