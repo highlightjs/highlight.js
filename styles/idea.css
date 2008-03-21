@@ -6,6 +6,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 
 pre code {
     font: 12px / 1em "Monospaced", monospace;
+    display: block;
     color: #000;
     background: #fff;
 }
