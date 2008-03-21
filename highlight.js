@@ -182,8 +182,11 @@ var hljs = new function() {
     }//processBuffer
     
     function startNewMode(mode, lexem) {
-      if (mode.excludeBegin) {
-        result += lexem + '<span class="' + mode.className + '">';
+      if (mode.returnBegin) {
+        result += '<span class="' + mode.className + '">';
+        mode.buffer = '';
+      } else if (mode.excludeBegin) {
+        result += escape(lexem) + '<span class="' + mode.className + '">';
         mode.buffer = '';
       } else {
         result += '<span class="' + mode.className + '">';
@@ -206,7 +209,7 @@ var hljs = new function() {
         result += processBuffer(current_mode.buffer + buffer, current_mode);
         startNewMode(new_mode, lexem);
         relevance += new_mode.relevance;
-        return false;
+        return new_mode.returnBegin;
       }//if
       
       var end_level = endOfMode(modes.length - 1, lexem);
