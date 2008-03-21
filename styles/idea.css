@@ -16,7 +16,7 @@ pre code {
     color: #000;
 }
 
-.comment, .template_comment {
+.comment, .template_comment,.javadoc {
     color: #808080;
     font-style: italic;
 }
@@ -29,7 +29,7 @@ pre code {
     background: #efefef;
 }
 
-.tag .title, .id, .attr_selector, .literal, .keyword {
+.tag .title, .id, .attr_selector, .literal, .keyword, .hexcolor {
     font-weight: bold;
     color: #000080;
 }
@@ -54,6 +54,6 @@ pre code {
     font-style: italic;
 }
 
-.phpdoc {
+.phpdoc, .javadoctag {
     text-decoration: underline;
 }

@@ -168,6 +168,9 @@ CSS:
   rules            everything from "{" till "}"
   value            property's value inside a rule, from ":" till ";" or
                    till the end of rule block
+  number           number within a value
+  string           string within a value
+  hexcolor         hex color (#FFFFFF) within a value
 
 Django:
 

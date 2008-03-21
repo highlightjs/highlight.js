@@ -13,7 +13,7 @@ pre {
     background: #000;
 }
 
-.comment, .template_comment {
+.comment, .template_comment, .javadoc {
     color: #aeaeae;
     font-style: italic;
 }
@@ -42,7 +42,7 @@ pre {
     color: #89BDFF;
 }
 
-.class .title, .smalltalk .class {
+.class .title, .smalltalk .class, .javadoctag, .phpdoc {
     text-decoration: underline;
 }
 
@@ -76,4 +76,8 @@ pre {
 
 .preprocessor {
     color: #8996A8;
+}
+
+.hexcolor, .css .number {
+    color: #DD7B3B;
 }

@@ -151,8 +151,19 @@ hljs.LANGUAGES.css = {
     {
       className: 'value',
       begin: ':', end: ';', endsWithParent: true, 
-      excludeBegin: true, excludeEnd: true
-    }
+      excludeBegin: true, excludeEnd: true,
+      contains: ['number', 'hexcolor', 'string']
+    },
+    {
+      className: 'number',
+      begin: hljs.NUMBER_RE, end: '^'
+    },
+    {
+      className: 'hexcolor',
+      begin: '\\#[0-9A-F]+', end: '^'
+    },
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE
   ]
 };//css
 
