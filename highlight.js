@@ -144,13 +144,9 @@ var hljs = new function() {
       if (!mode.keywords || !mode.lexems)
         return escape(buffer);
       if (!mode.lexemsRe) {
-        var lexems = [];
-        for (var key in mode.lexems)
-          if (!contains(lexems, mode.lexems[key]))
-            lexems[lexems.length] = mode.lexems[key];
-        var lexems_re = '(' + lexems[0];
-        for (var i = 1; i < lexems.length; i++)
-          lexems_re += '|' + lexems[i];
+        var lexems_re = '(' + mode.lexems[0];
+        for (var i = 1; i < mode.lexems.length; i++)
+          lexems_re += '|' + mode.lexems[i];
         lexems_re += ')';
         mode.lexemsRe = langRe(language, lexems_re, true);
       }//if
