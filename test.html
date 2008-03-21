@@ -9,9 +9,22 @@
   <link rel="alternate stylesheet" title="Sunburst" href="styles/sunburst.css">
   <style>
     h2 {
-      font: bold 120% Arial, sans-serif;
-      margin-top: 1.5em;
+      font: bold 100% Arial, sans-serif;
+      margin-top: 2em;
       margin-bottom: 0.5em;
+    }
+    table {
+      width: 100%;
+    }
+    th {
+      width: 10em; font-weight: normal;
+    }
+    td, th {
+      vertical-align: top;
+      text-align: left;
+    }
+    pre {
+      margin-top: 0;
     }
   </style>
   
@@ -29,8 +42,10 @@ between alternate stylesheets.
 
 <h2>Automatically detected languages</h2>
 
-<p>Some Python code:
-
+<table>
+  <tr>
+    <th>Python
+    <td>
 <pre><code>@requires_authorization
 def somefunc(param1, param2):
   '''A docstring'''
@@ -42,8 +57,9 @@ def somefunc(param1, param2):
 class SomeClass:<br>    pass
 </code></pre>
 
-<p>Along with a Python's profiler output:
-
+  <tr>
+    <th>Python's profiler output
+    <td>
 <pre><code>       261917242 function calls in 686.251 CPU seconds
 
        ncalls  tottime  filename:lineno(function)
@@ -54,8 +70,9 @@ class SomeClass:<br>    pass
 304393/151570    0.963  rrule.py:102(_iter_cached)
 </code></pre>
 
-<p>Short sample of Ruby:
-
+  <tr>
+    <th>Ruby
+    <td>
 <pre><code>class CategoriesController &lt; App::ApplicationController
   layout "core"
 
@@ -74,12 +91,15 @@ class SomeClass:<br>    pass
 end
 </code></pre>
 
-<p>A bit of Perl:
-
+  <tr>
+    <th>Perl
+    <td>
 <pre><code># loads object
 sub load
 {
-  my $flds = $c-&gt;db_load($id,@_) || do { Carp::carp "Can`t load (class: $c, id: $id): '$!'"; return undef };
+  my $flds = $c-&gt;db_load($id,@_) || do { 
+    Carp::carp "Can`t load (class: $c, id: $id): '$!'"; return undef
+  };
   my $o = $c-&gt;_perl_new();
   $id12 = $id;
   $o-&gt;{'ID'} = $id12 + 123;
@@ -102,8 +122,9 @@ sub load
 }
 </code></pre>
 
-<p>A chunk of PHP:
-
+  <tr>
+    <th>PHP
+    <td>
 <pre><code>require_once 'Zend.php';
 require_once 'Zend/Uri/Exception.php';
 require_once 'Zend/Uri/Http.php';
@@ -129,16 +150,18 @@ abstract class Zend_Uri
       $scheme = strtolower($uri[0]);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
 
-      // Security check: $scheme is used to load a class file, so only alphanumerics are allowed.
+      // Security check: $scheme is used to load a class file, 
+      // so only alphanumerics are allowed.
       if (!ctype_alnum($scheme)) {
-          throw new Zend_Uri_Exception('Illegal scheme supplied, only alphanumeric characters are permitted');
+          throw new Zend_Uri_Exception('Illegal scheme');
       }
   }
 }
 </code></pre>
 
-<p>A custom XML document:
-
+  <tr>
+    <th>XML
+    <td>
 <pre><code>&lt;?xml version="1.0"?&gt;
 &lt;response value="ok" xml:lang="en"&gt;
   &lt;text&gt;Ok&lt;/text&gt;
@@ -149,8 +172,9 @@ abstract class Zend_Uri
 &lt;/response&gt;
 </code></pre>
 
-<p>Some HTML code (with inline css and javascript):
-
+  <tr>
+    <th>HTML (with inline css and javascript)
+    <td>
 <pre><code>&lt;head&gt;
   &lt;title&gt;Title&lt;/title&gt;
   &lt;style&gt;
@@ -172,8 +196,9 @@ abstract class Zend_Uri
 &lt;/body&gt;
 </code></pre>
 
-<p>HTML with Django templates:
-
+  <tr>
+    <th>Django templates
+    <td>
 <pre><code>{% if articles|length %}
 {% for article in articles %}
 
@@ -192,8 +217,9 @@ multiline.
 {% endcomment %}
 </code></pre>
 
-<p>Some CSS code:
-
+  <tr>
+    <th>CSS
+    <td>
 <pre><code>body, 
 html {
   font: Tahoma, Arial, san-serif;
@@ -209,8 +235,9 @@ p[lang=ru] {
 }
 </pre></code>
 
-<p>Javascript here too (right from the source, mind you): 
-
+  <tr>
+    <th>Javascript 
+    <td>
 <pre><code>function $initHighlight(block) {
   if (block.className.search(/\bno\-highlight\b/) != -1)
     return false;
@@ -230,8 +257,9 @@ p[lang=ru] {
   highlightAuto(block);
 }//initHighlight</code></pre>
 
-<p>VBScript
-
+  <tr>
+    <th>VBScript
+    <td>
 <pre><code>' creating configuration storage and initializing with default values
 Set cfg = CreateObject("Scripting.Dictionary")
 
@@ -262,8 +290,9 @@ for i = 0 to ubound(ini_strings)
     end if
 next</code></pre>
 
-<P>Delphi code
-
+  <tr>
+    <th>Delphi
+    <td>
 <pre><code>TList=Class(TObject) 
 Private
   Some: String;
@@ -296,8 +325,9 @@ Begin
 End;{CopyFile}
 </code></pre>
 
-<p>From Java world:
-
+  <tr>
+    <th>Java
+    <td>
 <pre><code>package l2f.gameserver.model;
 
 import java.util.ArrayList;
@@ -343,8 +373,9 @@ public abstract class L2Character extends L2Object
 }
 </code></pre>
 
-<p>C++:
-
+  <tr>
+    <th>C++
+    <td>
 <pre><code>#include &lt;iostream&gt;
 
 int main(int argc, char *argv[]) {
@@ -358,9 +389,9 @@ int main(int argc, char *argv[]) {
 }
 </code></pre>
 
-<p>Bet you didn't expect to see a highlighted RenderMan (both RenderMan 
-Shading Language and RenderMan Interface Bytestream):</p>
-
+  <tr>
+    <th>RenderMan RSL
+    <td>
 <pre><code>#define TEST_DEFINE 3.14
 /*	plastic surface shader
  *
@@ -371,12 +402,16 @@ Shading Language and RenderMan Interface Bytestream):</p>
 surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
                  color specularcolor = 1;) {
 	normal Nf = faceforward (normalize(N),I);
-	Ci = Cs * (Ka*ambient() + Kd*diffuse(Nf)) + specularcolor * Ks*specular(Nf,-normalize(I),roughness);
+	Ci = Cs * (Ka*ambient() + Kd*diffuse(Nf)) + specularcolor * Ks * 
+       specular(Nf,-normalize(I),roughness);
 	Oi = Os;
 	Ci *= Oi;
 }
 </code></pre>
 
+  <tr>
+    <th>RenderMan RIB
+    <td>
 <pre><code>FrameBegin 0
 Display "Scene" "framebuffer" "rgb"
 Option "searchpath" "shader" "+&:/home/kew"
@@ -404,8 +439,9 @@ WorldEnd
 FrameEnd
 </code></pre>
 
-<p>SQL:
-
+  <tr>
+    <th>SQL
+    <td>
 <pre><code>BEGIN;
 CREATE TABLE "cicero_topic" (
     "id" serial NOT NULL PRIMARY KEY,
@@ -420,7 +456,10 @@ REFERENCES "cicero_forum" ("id")
 DEFERRABLE INITIALLY DEFERRED;
 
 -- Initials
-insert into "cicero_forum" ("slug", "name", "group", "ordering") values ('test', 'Тест''овый форум', 'Тест', 0);
+insert into "cicero_forum" 
+  ("slug", "name", "group", "ordering") 
+values 
+  ('test', 'Тест''овый форум', 'Тест', 0);
 
 -- Indices
 CREATE INDEX "cicero_topic_forum_id" ON "cicero_topic" ("forum_id");
@@ -431,8 +470,9 @@ select count(*) from cicero_forum;
 COMMIT;
 </code></pre>
 
-<p>Good old classic SmallTalk:
-
+  <tr>
+    <th>SmallTalk
+    <td>
 <pre><code>Object>>method: num
     "comment 123"
     | var1 var2 |
@@ -474,8 +514,9 @@ heapExample
     Transcript cr; show: 'Time for SortedCollection: ' , time printString , ' msecs'
 </code></pre>
 
-<p>Axapta:
-
+  <tr>
+    <th>Axapta
+    <td>
 <pre><code>class ExchRateLoadBatch extends RunBaseBatch {
   ExchRateLoad rbc;
   container currencies;
@@ -510,8 +551,9 @@ public boolean unpack(container packedClass) {
 }
 </code></pre>
 
-<p>And this is a russian enterpise system "1С":
-
+  <tr>
+    <th>1С
+    <td>
 <pre><code class="1c">
 #Если Клиент Тогда
 Перем СимвольныйКодКаталога = "ля-ля-ля"; //комментарий
@@ -529,25 +571,32 @@ public boolean unpack(container packedClass) {
   Обработки.Помощник.ПолучитьФорму("Форма").Открыть();
 КонецПроцедуры
 </code></pre>
+</table>
 
 <h2>Special tests</h2>
 
-<p>Explicit Python highlight:
-
+<table>
+  <tr>
+    <th>Explicit Python highlighting
+    <td>
 <pre><code class="python">for x in [1, 2, 3]:
   count(x)
 </code></pre>
 
-<p>Disabled highlighting:
-
+  <tr>
+    <th>Disabled highlighting
+    <td>
 <pre><code class="no-highlight">&lt;div id="contents"&gt;
   &lt;p&gt;Hello, World!
 &lt;/div&gt;
 </code></pre>
 
-<p>Custom markup doesn't get replaced:
-
+  <tr>
+    <th>Custom markup is left intact
+    <td>
 <pre><code>&lt;div id="contents"&gt;
-  &lt;p&gt;<b>Hello, World!</b>
+  &lt;p&gt;<b><i>Hello, World!</i></b>
 &lt;/div&gt;
 </code></pre>
+
+</table>
