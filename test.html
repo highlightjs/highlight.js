@@ -23,6 +23,7 @@
 <body>
 
 <p>This page is a demo/test showing all langugaes supported by <a href="http://softwaremaniacs.org/soft/highlight/">highlight.js</a>.
+Most of the code doesn't work :-).
 <p>You can see this page in several different styles if your browser can switch
 between alternate stylesheets.
 
@@ -51,15 +52,11 @@ class SomeClass:<br>    pass
     129590630   82.439  {cmp}
        153900    1.296  rrule.py:399(_iter)
 304393/151570    0.963  rrule.py:102(_iter_cached)
-        57358    0.630  rrule.py:780(wdayset)
-       151570    0.510  rrule.py:864(_iter)
-       152127    0.232  rrule.py:836(next)</code></pre>
+</code></pre>
 
 <p>Short sample of Ruby:
 
-<pre><code># Ruby support for highlight.js
-  
-class CategoriesController &lt; App::ApplicationController
+<pre><code>class CategoriesController &lt; App::ApplicationController
   layout "core"
 
   before_filter :login_required
@@ -82,42 +79,25 @@ end
 <pre><code># loads object
 sub load
 {
-  my $c = shift;
-  my $id = shift;
-  
   my $flds = $c-&gt;db_load($id,@_) || do { Carp::carp "Can`t load (class: $c, id: $id): '$!'"; return undef };
-  
   my $o = $c-&gt;_perl_new();
-  
   $id12 = $id;
   $o-&gt;{'ID'} = $id12 + 123;
-  
   $o-&gt;{'PAPA'} = $flds-&gt;{'PAPA'};
   #$o-&gt;{'SHCUT'} = $flds-&gt;{'SHCUT'};
-  
   my $p = $o-&gt;props;
-  
-  #if($o-&gt;{'SHCUT'})
-  #{
-  #  $flds = $o-&gt;db_load($o-&gt;{'SHCUT'},@_);
-  #}
-  
   my $vt;
+  $string =~ m/^sought_text$/;
   for my $key (keys %$p)
   {
-    if(${$vt.'::property'})
-    {
+    if(${$vt.'::property'}) {
       $o-&gt;{$key . '_real'} = $flds-&gt;{$key};
       tie $o-&gt;{$key}, 'CMSBuilder::Property', $o, $key;
-    }
-    else
-    {
+    } else {
       $o-&gt;{$key} = $flds-&gt;{$key};
     }
   }
-  
   $o-&gt;save if delete $o-&gt;{'_save_after_load'};
-  
   return $o;
 }
 </code></pre>
@@ -127,80 +107,33 @@ sub load
 <pre><code>require_once 'Zend.php';
 require_once 'Zend/Uri/Exception.php';
 require_once 'Zend/Uri/Http.php';
-
-/**
- * Zend_Uri_Mailto
- */
 require_once 'Zend/Uri/Mailto.php';
 
-
-/**
- * @category   Zend
- * @package    Zend_Uri
- * @copyright  Copyright (c) 2006 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
- */
 abstract class Zend_Uri
 {
 
+  /**
+   * Return a string representation of this URI.
+   *
+   * @see     getUri()
+   * @return  string
+   */
+  public function __toString()
+  {
+      return $this-&gt;getUri();
+  }
 
-	/**
-	 * Scheme of this URI (http, ftp, etc.)
-	 * @var string
-	 */
-	protected $_scheme = "";
+  static public function factory($uri = 'http')
+  {
+      $uri = explode(':', $uri, 2);
+      $scheme = strtolower($uri[0]);
+      $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
 
-
-    /**
-     * Return a string representation of this URI.
-     *
-     * @see     getUri()
-     * @return  string
-     */
-    public function __toString()
-    {
-        return $this-&gt;getUri();
-    }
-
-
-    static public function check($uri)
-    {
-        try {
-            $uri = self::factory($uri);
-        } catch (Exception $e) {
-            return false;
-        }
-
-        return $uri-&gt;valid();
-    }
-
-
-    /**
-     * Create a new Zend_Uri object for a URI.  If building a new URI, then $uri should contain
-     * only the scheme (http, ftp, etc).  Otherwise, supply $uri with the complete URI.
-     *
-     * @param string $uri
-     * @throws Zend_Uri_Exception
-     * @return Zend_Uri
-     */
-    static public function factory($uri = 'http')
-    {
-        /**
-         * Separate the scheme from the scheme-specific parts
-         * @link http://www.faqs.org/rfcs/rfc2396.html
-         */
-        $uri = explode(':', $uri, 2);
-        $scheme = strtolower($uri[0]);
-        $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
-
-        if (!strlen($scheme)) {
-            throw new Zend_Uri_Exception('An empty string was supplied for the scheme');
-        }
-
-        // Security check: $scheme is used to load a class file, so only alphanumerics are allowed.
-        if (!ctype_alnum($scheme)) {
-            throw new Zend_Uri_Exception('Illegal scheme supplied, only alphanumeric characters are permitted');
-        }
+      // Security check: $scheme is used to load a class file, so only alphanumerics are allowed.
+      if (!ctype_alnum($scheme)) {
+          throw new Zend_Uri_Exception('Illegal scheme supplied, only alphanumeric characters are permitted');
+      }
+  }
 }
 </code></pre>
 
@@ -301,11 +234,6 @@ p[lang=ru] {
 
 <pre><code>' creating configuration storage and initializing with default values
 Set cfg = CreateObject("Scripting.Dictionary")
-cfg.add "dest", ""
-cfg.add "dest_gz", ""
-cfg.add "gzip_exe", ""
-cfg.add "perl_exe", ""
-cfg.add "uncompressed_postfix", ""
 
 ' reading ini file
 for i = 0 to ubound(ini_strings)
@@ -322,10 +250,6 @@ for i = 0 to ubound(ini_strings)
 
         ' reading configuration and filenames
         select case lcase(parts(0))
-          case "dest"                 cfg.item("dest") = parts(1)
-          case "dest_gz"              cfg.item("dest_gz") = parts(1)
-          case "gzip_exe"             cfg.item("gzip_exe") = parts(1)
-          case "perl_exe"             cfg.item("perl_exe") = parts(1)
           case "uncompressed_postfix" cfg.item("uncompressed_postfix") = parts(1)
           case "f"
                     options = split(parts(1), "|", -1, 1)
@@ -384,60 +308,38 @@ import java.util.ArrayList;
  */
 public abstract class L2Character extends L2Object
 {
-	protected static final Logger _log = Logger.getLogger(L2Character.class.getName());
+  protected static final Logger _log = Logger.getLogger(L2Character.class.getName());
 
-	public static final Short ABNORMAL_EFFECT_BLEEDING = 0x0001; // not sure
-	public static final Short ABNORMAL_EFFECT_POISON = 0x0002;
+  public static final Short ABNORMAL_EFFECT_BLEEDING = 0x0001; // not sure
+  public static final Short ABNORMAL_EFFECT_POISON = 0x0002;
 
-	/**
-	 * Cancel the AI.&lt;BR&gt;&lt;BR&gt;
-	 */
-	public void detachAI()
-	{
-		_ai = null;
-		//jbf = null;
-		if (1 > 5)
-		{
-			return;
-		}
-	}
+  public void detachAI() {
+    _ai = null;
+    //jbf = null;
+    if (1 > 5) {
+      return;
+    }
+  }
 
-	public void moveTo(int x, int y, int z)
-	{
-		moveTo(x, y, z, 0);
-	}
+  public void moveTo(int x, int y, int z) {
+    moveTo(x, y, z, 0);
+  }
 
-	/** Task of AI notification */
-	@SuppressWarnings( { "nls", "unqualified-field-access", "boxing" })
-	public class NotifyAITask implements Runnable
-	{
-		private final CtrlEvent _evt;
+  /** Task of AI notification */
+  @SuppressWarnings( { "nls", "unqualified-field-access", "boxing" })
+  public class NotifyAITask implements Runnable {
+    private final CtrlEvent _evt;
 
-		public NotifyAITask(CtrlEvent evt)
-		{
-			this._evt = evt;
-		}
+    public void run() {
+      try {
+        getAI().notifyEvent(_evt, null, null);
+      } catch (Throwable t) {
+        _log.warning("Exception " + t);
+        t.printStackTrace();
+      }
+    }
+  }
 
-		public void run()
-		{
-			try
-			{
-				getAI().notifyEvent(_evt, null, null);
-			}
-			catch (Throwable t)
-			{
-				_log.warning("Exception " + t);
-				t.printStackTrace();
-			}
-		}
-	}
-
-	private static final int HP_REGEN_FLAG = 1;
-	private static final int MP_REGEN_FLAG = 2;
-	private static final int CP_REGEN_FLAG = 4;
-
-	/** The table containing the List of all stacked effect in progress for each Stack group Identifier */
-	private ConcurrentHashMap&lt;String, Short&gt; _stackedEffects = null;
 }
 </code></pre>
 
@@ -488,22 +390,15 @@ PixelFilter "catmull-rom" 1 1
 PixelSamples 4 4
 Projection "perspective" "fov" 49.5502811377
 Scale 1 1 -1
-ConcatTransform [-0.105581186712 -0.336664259434 0.935686826706 0.0
-
-		      0.994097530842 -0.0121211335063 0.107810914516 0.0
-
-          -0.0249544940889 0.941546678543 0.335956931114 0.0
-
-          0.103667020798 -1.30126297474 -6.22769546509 1.0]
 
 WorldBegin
 
-ReadArchive "/home/qewerty/blends/my/instances/Lamp.002_Light/instance.rib"
+ReadArchive "Lamp.002_Light/instance.rib"
 Surface "plastic"
-ReadArchive "/home/qewerty/blends/my/instances/Cube.004_Mesh/instance.rib"
-# ReadArchive "/home/qewerty/blends/my/instances/Sphere.010_Mesh/instance.rib"
-# ReadArchive "/home/qewerty/blends/my/instances/Sphere.009_Mesh/instance.rib"
-ReadArchive "/home/qewerty/blends/my/instances/Sphere.006_Mesh/instance.rib"
+ReadArchive "Cube.004_Mesh/instance.rib"
+# ReadArchive "Sphere.010_Mesh/instance.rib"
+# ReadArchive "Sphere.009_Mesh/instance.rib"
+ReadArchive "Sphere.006_Mesh/instance.rib"
 
 WorldEnd
 FrameEnd
@@ -551,9 +446,8 @@ COMMIT;
 
 heapExample
     "HeapTest new heapExample"
-    "Create a sorted collection of numbers, remove the elements
-    sequentially and add new objects randomly.
-    Note: This is the kind of benchmark a heap is designed for."
+    "Multiline
+    decription"
     | n rnd array time sorted |
     n := 5000.
     "# of elements to sort"
@@ -582,40 +476,37 @@ heapExample
 
 <p>Axapta:
 
-<pre><code>class ExchRateLoadBatch extends RunBaseBatch
-{
-    ExchRateLoad rbc;
-    container currencies;
-    boolean actual;
-    boolean overwrite;
-    date beg;
-    date end;
+<pre><code>class ExchRateLoadBatch extends RunBaseBatch {
+  ExchRateLoad rbc;
+  container currencies;
+  boolean actual;
+  boolean overwrite;
+  date beg;
+  date end;
 
-    #define.CurrentVersion(5)
+  #define.CurrentVersion(5)
 
-    #localmacro.CurrentList
-        currencies,
-        actual,
-        beg,
-        end
-    #endmacro
+  #localmacro.CurrentList
+    currencies,
+    actual,
+    beg,
+    end
+  #endmacro
 }
 
-public boolean unpack(container packedClass)
-{
-    container       base;
-    boolean         ret;
-    Integer         version    = runbase::getVersion(packedClass);
+public boolean unpack(container packedClass) {
+  container       base;
+  boolean         ret;
+  Integer         version    = runbase::getVersion(packedClass);
 
-    switch (version)
-    {
-        case #CurrentVersion:
-            [version, #CurrentList] = packedClass;
-            return true;
-        default:
-            return false;
-    }
-    return ret;
+  switch (version) {
+    case #CurrentVersion:
+      [version, #CurrentList] = packedClass;
+      return true;
+    default:
+      return false;
+  }
+  return ret;
 }
 </code></pre>
 
@@ -625,23 +516,17 @@ public boolean unpack(container packedClass)
 #Если Клиент Тогда
 Перем СимвольныйКодКаталога = "ля-ля-ля"; //комментарий
 Функция Сообщить(Знач ТекстСообщения, ТекстСообщения2) Экспорт //комментарий к функции
-	x=ТекстСообщения+ТекстСообщения2+"
-	|строка1
-	|строка2
-	|строка3";
+  x=ТекстСообщения+ТекстСообщения2+"
+  |строка1
+  |строка2
+  |строка3";
 КонецФункции
 #КонецЕсли
-
-////////////////////////////////////////////////////////////////////////////////
-// ОБРАБОТЧИКИ СОБЫТИЙ
-// 
 
 // Процедура ПриНачалеРаботыСистемы
 // 
 Процедура ПриНачалеРаботыСистемы()
-
-	Обработки.Помощник.ПолучитьФорму("Форма").Открыть();
-
+  Обработки.Помощник.ПолучитьФорму("Форма").Открыть();
 КонецПроцедуры
 </code></pre>
 
