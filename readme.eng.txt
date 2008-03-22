@@ -171,6 +171,8 @@ CSS:
   number           number within a value
   string           string within a value
   hexcolor         hex color (#FFFFFF) within a value
+  function         CSS function within a value
+  params           everything between "(" and ")" within a function
 
 Django:
 
