@@ -19,37 +19,37 @@ pre code {
 }
 
 pre code, 
-.ruby .subst {
+.ruby .subst,
+.xml .title {
   color: black;
 }
 
 .string,
-.function .title,
-.class .title, 
+.title, 
+.parent,
 .tag .attribute .value,
-.css .rules .value,
-.css .rules .value .number,
+.rules .value,
+.rules .value .number,
 .preprocessor,
 .ruby .symbol,
-.ruby .instancevar,
-.ruby .class .parent,
+.instancevar,
 .built_in,
-.sql .aggregate,
-.django .template_tag,
+.aggregate,
+.template_tag,
 .django .variable,
 .smalltalk .class {
   color: #800;
 }
 
 .comment,
-.java .annotation,
+.annotation,
 .template_comment {
   color: #888;
 }
 
 .number,
 .regexp,
-.javascript .literal,
+.literal,
 .smalltalk .symbol,
 .smalltalk .char {
   color: #080;
@@ -57,25 +57,24 @@ pre code,
 
 .javadoc,
 .ruby .string,
-.python .decorator,
-.django .filter .argument,
-.smalltalk .localvars,
-.smalltalk .array,
-.css .attr_selector,
-.xml .pi {
+.decorator,
+.filter .argument,
+.localvars,
+.array,
+.attr_selector,
+.pi,
+.doctype {
   color: #88F;
 }
 
 .keyword,
-.css .id,
+.id,
 .phpdoc,
-.function .title,
-.class .title,
+.title,
 .vbscript .built_in,
-.sql .aggregate,
 .rsl .built_in,
-.smalltalk .class,
-.xml .tag .title {
+.aggregate,
+.smalltalk .class {
   font-weight: bold;
 }
 
