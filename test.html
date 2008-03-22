@@ -231,7 +231,7 @@ html {
 }
 
 #content {
-  width: 100%; /* комментарий */
+  width: 100%; /* wide enough */
   height: 100%
 }
 
@@ -464,10 +464,7 @@ DEFERRABLE INITIALLY DEFERRED;
 insert into "cicero_forum" 
   ("slug", "name", "group", "ordering") 
 values 
-  ('test', 'Тест''овый форум', 'Тест', 0);
-
--- Indices
-CREATE INDEX "cicero_topic_forum_id" ON "cicero_topic" ("forum_id");
+  ('test', 'Forum for te''sting', 'Test', 0);
 
 -- Test
 select count(*) from cicero_forum;
