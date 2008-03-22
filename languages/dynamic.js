@@ -429,7 +429,7 @@ hljs.LANGUAGES.ruby = {
     hljs.BACKSLASH_ESCAPE,
     {
       className: 'subst',
-      begin: '#{', end: '}',
+      begin: '#\\{', end: '}',
       lexems: [hljs.RUBY_IDENT_RE],
       keywords: hljs.RUBY_KEYWORDS,
       contains: hljs.RUBY_DEFAULT_CONTAINS
