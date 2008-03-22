@@ -5,7 +5,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 */
 
 pre code {
-    font: 12px / 1em "Monospaced", monospace;
+    font: 12px "Monospaced", monospace;
     display: block;
     color: #000;
     background: #fff;
@@ -29,7 +29,7 @@ pre code {
     background: #efefef;
 }
 
-.tag .title, .id, .attr_selector, .literal, .keyword, .hexcolor {
+.tag .title, .id, .attr_selector, .literal, .keyword, .hexcolor,.css .function {
     font-weight: bold;
     color: #000080;
 }
@@ -43,7 +43,7 @@ pre code {
     font-weight: normal;
 }
 
-.string, .value, .filter .argument {
+.string, .value, .filter .argument, .css .function .params {
     color: #008000;
     font-weight: bold;
 }

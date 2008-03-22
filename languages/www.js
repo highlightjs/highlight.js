@@ -152,7 +152,7 @@ hljs.LANGUAGES.css = {
       className: 'value',
       begin: ':', end: ';', endsWithParent: true, 
       excludeBegin: true, excludeEnd: true,
-      contains: ['number', 'hexcolor', 'string']
+      contains: ['function', 'number', 'hexcolor', 'string']
     },
     {
       className: 'number',
@@ -161,6 +161,16 @@ hljs.LANGUAGES.css = {
     {
       className: 'hexcolor',
       begin: '\\#[0-9A-F]+', end: '^'
+    },
+    {
+      className: 'function',
+      begin: hljs.IDENT_RE + '\\(', end: '\\)',
+      contains: ['params']
+    },
+    {
+      className: 'params',
+      begin: '^', endsWithParent: true, excludeEnd: true,
+      contains: ['number', 'string']
     },
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE

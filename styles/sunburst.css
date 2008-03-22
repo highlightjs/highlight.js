@@ -81,3 +81,7 @@ pre {
 .hexcolor, .css .number {
     color: #DD7B3B;
 }
+
+.css .function {
+    color: #DAD085;
+}
