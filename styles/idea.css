@@ -57,3 +57,7 @@ pre code {
 .phpdoc, .javadoctag {
     text-decoration: underline;
 }
+
+.variable {
+    color: #660e7a;
+}
