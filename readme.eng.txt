@@ -236,6 +236,7 @@ Java:
 C++:
     
   keyword          keyword
+  built_in         standard library types (including STL)
   number           number
   string           string and character
   comment          comment
