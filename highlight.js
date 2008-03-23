@@ -58,7 +58,7 @@ var hljs = new function() {
       if (!mode.sub_modes) {
         compileSubModes(mode, language);
       }//if
-      for (var i in mode.sub_modes) {
+      for (var i = 0; i < mode.sub_modes.length; i++) {
         if (mode.sub_modes[i].beginRe.test(lexem)) {
           return mode.sub_modes[i];
         }//if
