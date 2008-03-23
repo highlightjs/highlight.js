@@ -88,6 +88,7 @@ highlight.js.
 Python:
     
   keyword          ключевое слово языка
+  built_in         стандартные значения (None, False, True и Ellipsis)
   number           число
   string           строка (любого типа)
   comment          комментарий

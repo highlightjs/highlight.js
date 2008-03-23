@@ -85,6 +85,7 @@ syntactic structures.
 Python:
     
   keyword          keyword
+  built_in         built-in objects (None, False, True and Ellipsis)
   number           number
   string           string (of any type)
   comment          comment
