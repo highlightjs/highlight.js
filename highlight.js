@@ -201,8 +201,6 @@ var hljs = new function() {
         result += processBuffer(current_mode.buffer + buffer, current_mode);
         return false;
       }//if
-      if (isIllegal(lexem, current_mode))
-        throw 'Illegal';
       
       var new_mode = subMode(lexem, current_mode);
       if (new_mode) {
@@ -238,6 +236,9 @@ var hljs = new function() {
         }//if
         return current_mode.returnEnd;
       }//if
+      
+      if (isIllegal(lexem, current_mode))
+        throw 'Illegal';
     }//processModeInfo
     
     var language = LANGUAGES[language_name];
