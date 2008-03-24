@@ -20,3 +20,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Брайан Бек <exogen@gmail.com>
 - MajestiC <majestic2k@gmail.com>
 - Василий Половнёв <vast@whiteants.net>
+- Владимир Епифанов <voldmar@voldmar.ru>

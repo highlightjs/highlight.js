@@ -1,0 +1,95 @@
+/*
+
+Zenburn style from voldmar.ru (c) Vladimir Epifanov <voldmar@voldmar.ru>
+based on dark.css by Ivan Sagalaev
+
+*/
+
+pre code[class]:after {
+  content: 'highlight: ' attr(class);
+  display: block; text-align: right;
+  font-size: smaller;
+  color: #CCC; background: white;
+  border-top: solid 1px black;
+  padding-top: 0.5em;
+}
+
+pre code {
+  display: block;
+  background: #3F3F3F;
+  color: #DCDCDC;
+}
+
+.keyword,
+.tag,
+.django .tag,
+.django .keyword,
+.css .class,
+.css .id {
+  color: #E3CEAB;
+}
+
+.django .template_tag,
+.django .variable,
+.django .filter .argument {
+  color: #CC9393;
+  color: #DCDCDC;
+/*
+ * color: red;
+ */
+}
+
+
+.number {
+  color: #8CD0D3
+}
+
+.python .exception,
+.python .built_in,
+.literal {
+  color: #EFEFAF;
+}
+
+.ruby .subst {
+  color: #8F8F8F;
+}
+
+.python .decorator,
+.class .title, 
+.function .title,
+.ruby .class .parent {
+    color: #efef8f;
+}
+
+.ruby .symbol,
+.ruby .string,
+.ruby .instancevar {
+  color: #DCA3A3;
+}
+
+.string,
+.tag .attribute .value,
+.preprocessor,
+.built_in,
+.sql .aggregate,
+.javadoc,
+.smalltalk .class,
+.smalltalk .localvars,
+.smalltalk .array,
+.css .rules .value,
+.css .attr_selector {
+  color: #CC9393;
+}
+
+.comment,
+.java .annotation,
+.template_comment,
+.pi,
+.doctype {
+  color: #7F9F7F;
+}
+
+.html .css,
+.html .javascript {
+  opacity: 0.5;
+}
