@@ -282,6 +282,14 @@ Smalltalk:
   char             char
   localvars        block of local variables
 
+Ini:
+    
+  title            title of a section
+  value            value of a setting of any type
+  string           string
+  number           number
+  keyword          boolean value keyword
+
 Axapta:
     
   keyword          keyword

@@ -29,7 +29,7 @@ pre code {
     background: #efefef;
 }
 
-.tag .title, .id, .attr_selector, .literal, .keyword, .hexcolor,.css .function {
+.tag .title, .id, .attr_selector, .literal, .keyword, .hexcolor,.css .function, .ini .title {
     font-weight: bold;
     color: #000080;
 }

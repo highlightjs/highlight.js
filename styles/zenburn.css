@@ -57,6 +57,7 @@ pre code {
 .python .decorator,
 .class .title, 
 .function .title,
+.ini .title,
 .ruby .class .parent {
     color: #efef8f;
 }

@@ -518,6 +518,22 @@ heapExample
 </code></pre>
 
   <tr>
+    <th>Ini file
+    <td>
+<pre><code>;Settings relating to the location and loading of the database
+[Database]
+ProfileDir=.
+ShowProfileMgr=smart
+DefaultProfile=True
+AutoCreate = no
+
+[AutoExec]
+Use="prompt"
+Glob=autoexec_*.ini
+AskAboutIgnoredPlugins=0
+</code></pre>
+
+  <tr>
     <th>Axapta
     <td>
 <pre><code>class ExchRateLoadBatch extends RunBaseBatch {
