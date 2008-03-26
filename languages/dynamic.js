@@ -86,7 +86,7 @@ hljs.LANGUAGES.python = {
       begin: '@', end: '$'
     }
   ]
-};//python
+};
 
 
 /*
@@ -239,7 +239,7 @@ hljs.LANGUAGES.perl = {
     }
 
   ]
-};//perl
+};
 
 /*
 
@@ -289,7 +289,7 @@ hljs.LANGUAGES.php = {
       begin: '\\$' + hljs.PHP_IDENTIFIER_RE, end: '^'
     },
     ]
-};//php
+};
 
 /*
 
@@ -448,4 +448,4 @@ hljs.LANGUAGES.ruby = {
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))', end: '^'
     }
   ]
-};//ruby
+};

@@ -35,4 +35,4 @@ hljs.LANGUAGES.javascript = {
       contains: ['string', 'comment']
     }
   ]
-};//javascript
+};

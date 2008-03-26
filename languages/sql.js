@@ -47,4 +47,4 @@ hljs.LANGUAGES.sql =
     },
     hljs.BACKSLASH_ESCAPE
   ]
-};//sql
+};

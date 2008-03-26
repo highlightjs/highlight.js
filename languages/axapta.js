@@ -49,4 +49,4 @@ hljs.LANGUAGES.axapta  = {
       begin: '#', end: '$'
     }
   ]
-};//axapta
+};

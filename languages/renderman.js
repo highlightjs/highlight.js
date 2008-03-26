@@ -27,7 +27,7 @@ hljs.LANGUAGES.rib  = {
     hljs.QUOTE_STRING_MODE,
     hljs.BACKSLASH_ESCAPE
   ]
-};//rib
+};
 
 hljs.LANGUAGES.rsl  = {
   defaultMode: {
@@ -68,4 +68,4 @@ hljs.LANGUAGES.rsl  = {
       begin: '#', end: '$'
     }
   ]
-};//rsl
+};

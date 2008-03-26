@@ -22,4 +22,4 @@ hljs.LANGUAGES.vbscript = {
     },
     hljs.C_NUMBER_MODE
   ]
-};//vbscript
+};

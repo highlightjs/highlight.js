@@ -79,4 +79,4 @@ hljs.LANGUAGES['1c'] = {
       lexems: [hljs.IDENT_RE_RU]
     }
   ]
-};//1c
+};

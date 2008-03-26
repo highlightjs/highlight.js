@@ -50,4 +50,4 @@ hljs.LANGUAGES.smalltalk = {
       contains: ['string', 'char', 'number', 'symbol']
     }
   ]
-};//smalltalk
+};
