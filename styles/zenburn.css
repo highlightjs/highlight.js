@@ -32,11 +32,7 @@ pre code {
 .django .template_tag,
 .django .variable,
 .django .filter .argument {
-  color: #CC9393;
   color: #DCDCDC;
-/*
- * color: red;
- */
 }
 
 
@@ -44,12 +40,14 @@ pre code {
   color: #8CD0D3
 }
 
+.diff .change,
 .python .exception,
 .python .built_in,
 .literal {
   color: #EFEFAF;
 }
 
+.diff .chunk,
 .ruby .subst {
   color: #8F8F8F;
 }
@@ -58,6 +56,7 @@ pre code {
 .class .title, 
 .function .title,
 .ini .title,
+.header,
 .ruby .class .parent {
     color: #efef8f;
 }
@@ -68,6 +67,7 @@ pre code {
   color: #DCA3A3;
 }
 
+.diff .deletion,
 .string,
 .tag .attribute .value,
 .preprocessor,
@@ -82,6 +82,7 @@ pre code {
   color: #CC9393;
 }
 
+.diff .addition,
 .comment,
 .java .annotation,
 .template_comment,
@@ -94,3 +95,4 @@ pre code {
 .html .javascript {
   opacity: 0.5;
 }
+
