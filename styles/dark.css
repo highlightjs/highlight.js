@@ -64,7 +64,8 @@ pre code,
 .template_comment,
 .pi,
 .doctype,
-.deletion {
+.deletion,
+.shebang {
   color: #777;
 }
 
@@ -81,7 +82,8 @@ pre code,
 .xml .tag .title,
 .diff .header,
 .chunk,
-.winutils {
+.winutils,
+.bash .variable {
   font-weight: bold;
 }
 

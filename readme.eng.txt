@@ -298,6 +298,16 @@ DOS:
   winutils         some commands (see dos.js specifically)
   envvar           environment variables
 
+Bash:
+
+  keyword          keyword
+  string           string
+  number           number
+  comment          comment
+  literal          special literal: "true" и "false"
+  variable         variable
+  shebang          script interpreter header
+
 Diff:
     
   header           file header

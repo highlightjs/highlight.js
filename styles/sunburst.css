@@ -38,7 +38,7 @@ pre {
     color: #E9C062;
 }
 
-.function .title, .sub .identifier, .pi, .tag, .tag .keyword, .decorator, .ini .title {
+.function .title, .sub .identifier, .pi, .tag, .tag .keyword, .decorator, .ini .title, .shebang {
     color: #89BDFF;
 }
 

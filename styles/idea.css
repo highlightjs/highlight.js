@@ -21,7 +21,7 @@ pre code {
     font-style: italic;
 }
 
-.annotation, .decorator, .preprocessor, .doctype, .pi, .chunk {
+.annotation, .decorator, .preprocessor, .doctype, .pi, .chunk, .shebang {
     color: #808000;
 }
 

@@ -22,3 +22,4 @@ Contributors:
 - Vasily Polovnyov <vast@whiteants.net>
 - Vladimir Epifanov <voldmar@voldmar.ru>
 - Alexander Makarov (http://rmcreative.ru/)
+- Vah <vahtenberg@gmail.com>

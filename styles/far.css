@@ -43,7 +43,8 @@ pre code,
 }
 
 .change,
-.envvar {
+.envvar,
+.bash .variable {
   color: #FFF;
 }
 
@@ -58,7 +59,7 @@ pre code,
 
 .number,
 .regexp,
-.javascript .literal,
+.literal,
 .smalltalk .symbol,
 .smalltalk .char {
   color: #0F0;
@@ -71,7 +72,8 @@ pre code,
 .css .attr_selector,
 .xml .pi,
 .diff .header,
-.chunk {
+.chunk,
+.shebang {
   color: #008080;
 }
 

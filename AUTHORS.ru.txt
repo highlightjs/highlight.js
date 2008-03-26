@@ -22,3 +22,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Василий Половнёв <vast@whiteants.net>
 - Владимир Епифанов <voldmar@voldmar.ru>
 - Александр Макаров (http://rmcreative.ru/)
+- Vah <vahtenberg@gmail.com>

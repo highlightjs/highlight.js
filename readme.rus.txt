@@ -301,6 +301,16 @@ DOS:
   winutils         некоторые (см. dos.js за списком)
   envvar           переменная окружения
 
+Bash:
+
+  keyword          ключевое слово
+  string           строка
+  number           число
+  comment          комментарий
+  literal          специальное слово: "true" и "false"
+  variable         переменная
+  shebang          заголовок интерпретатора скрипта
+
 Diff:
     
   header           заголовок файла

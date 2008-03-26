@@ -598,6 +598,34 @@ xcopy %1\*.* %2
 </code></pre>
 
   <tr>
+    <th>Bash
+    <td>
+<pre><code>#!/bin/bash
+
+###### BEGIN CONFIG
+ACCEPTED_HOSTS="/root/.hag_accepted.conf"
+BE_VERBOSE=false
+###### END CONFIG
+
+if [ "$UID" -ne 0 ]
+then 
+ echo "Superuser rights is required"
+ exit 2
+fi
+
+genApacheConf(){
+ if [[ "$2" = "www" ]]
+ then 
+  full_domain=$1
+ else
+  full_domain=$2.$1
+ fi 
+ host_root="${APACHE_HOME_DIR}$1/$2"
+ echo -e "# Host $1/$2 :"
+}
+</code></pre>
+
+  <tr>
     <th>Axapta
     <td>
 <pre><code>class ExchRateLoadBatch extends RunBaseBatch {

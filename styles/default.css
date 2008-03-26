@@ -39,7 +39,8 @@ pre code,
 .smalltalk .class,
 .addition,
 .flow,
-.stream {
+.stream,
+.bash .variable {
   color: #800;
 }
 
@@ -70,7 +71,8 @@ pre code,
 .pi,
 .doctype,
 .deletion,
-.envvar {
+.envvar,
+.shebang {
   color: #88F;
 }
 
@@ -82,7 +84,8 @@ pre code,
 .rsl .built_in,
 .aggregate,
 .smalltalk .class,
-.winutils {
+.winutils,
+.bash .variable {
   font-weight: bold;
 }
 
