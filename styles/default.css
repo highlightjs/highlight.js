@@ -37,7 +37,9 @@ pre code,
 .template_tag,
 .django .variable,
 .smalltalk .class,
-.addition {
+.addition,
+.flow,
+.stream {
   color: #800;
 }
 
@@ -67,7 +69,8 @@ pre code,
 .attr_selector,
 .pi,
 .doctype,
-.deletion {
+.deletion,
+.envvar {
   color: #88F;
 }
 
@@ -78,7 +81,8 @@ pre code,
 .vbscript .built_in,
 .rsl .built_in,
 .aggregate,
-.smalltalk .class {
+.smalltalk .class,
+.winutils {
   font-weight: bold;
 }
 

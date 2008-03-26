@@ -293,6 +293,14 @@ Ini:
   number           число
   keyword          ключевое слово булевского значения
 
+DOS:
+    
+  keyword          ключевое слово
+  flow             команда .bat-файла
+  stream           специальные файлы DOS ("con", "prn", ...)
+  winutils         некоторые (см. dos.js за списком)
+  envvar           переменная окружения
+
 Diff:
     
   header           заголовок файла

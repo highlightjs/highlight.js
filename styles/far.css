@@ -42,7 +42,8 @@ pre code,
   color: #FF0;
 }
 
-.change {
+.change,
+.envvar {
   color: #FFF;
 }
 
@@ -83,7 +84,9 @@ pre code,
 .sql .aggregate,
 .rsl .built_in,
 .smalltalk .class,
-.xml .tag .title {
+.xml .tag .title,
+.winutils,
+.flow {
   color: #FFF;
   font-weight: bold;
 }

@@ -20,7 +20,9 @@ pre code {
 
 .keyword,
 .literal,
-.change {
+.change,
+.winutils,
+.flow {
   color: white;
 }
 
@@ -50,7 +52,9 @@ pre code,
 .smalltalk .localvars,
 .smalltalk .array,
 .css .attr_selector,
-.addition {
+.addition,
+.stream,
+.envvar {
   color: #D88;
 }
 
@@ -76,7 +80,8 @@ pre code,
 .smalltalk .class,
 .xml .tag .title,
 .header,
-.chunk {
+.chunk,
+.winutils {
   font-weight: bold;
 }
 

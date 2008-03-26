@@ -290,6 +290,14 @@ Ini:
   number           number
   keyword          boolean value keyword
 
+DOS:
+    
+  keyword          keyword
+  flow             batch control keyword
+  stream           DOS special files ("con", "prn", ...)
+  winutils         some commands (see dos.js specifically)
+  envvar           environment variables
+
 Diff:
     
   header           file header
