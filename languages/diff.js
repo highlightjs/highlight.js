@@ -25,18 +25,6 @@ hljs.LANGUAGES.diff = {
       relevance: 10
     },
     {
-      className: 'addition',
-      begin: '^\\+', end: '$'
-    },
-    {
-      className: 'deletion',
-      begin: '^\\-', end: '$'
-    },
-    {
-      className: 'change',
-      begin: '^\\!', end: '$'
-    },
-    {
       className: 'header',
       begin: 'Index: ', end: '$'
     },
@@ -59,6 +47,18 @@ hljs.LANGUAGES.diff = {
     {
       className: 'header',
       begin: '\\*{5}', end: '\\*{5}$'
+    },
+    {
+      className: 'addition',
+      begin: '^\\+', end: '$'
+    },
+    {
+      className: 'deletion',
+      begin: '^\\-', end: '$'
+    },
+    {
+      className: 'change',
+      begin: '^\\!', end: '$'
     }
   ]
 }
