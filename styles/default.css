@@ -36,13 +36,16 @@ pre code,
 .aggregate,
 .template_tag,
 .django .variable,
-.smalltalk .class {
+.smalltalk .class,
+.addition {
   color: #800;
 }
 
 .comment,
 .annotation,
-.template_comment {
+.template_comment,
+.header,
+.chunk {
   color: #888;
 }
 
@@ -50,7 +53,8 @@ pre code,
 .regexp,
 .literal,
 .smalltalk .symbol,
-.smalltalk .char {
+.smalltalk .char,
+.change {
   color: #080;
 }
 
@@ -62,7 +66,8 @@ pre code,
 .array,
 .attr_selector,
 .pi,
-.doctype {
+.doctype,
+.deletion {
   color: #88F;
 }
 

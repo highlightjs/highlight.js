@@ -37,15 +37,21 @@ pre code,
 .sql .aggregate,
 .django .template_tag,
 .django .variable,
-.smalltalk .class {
+.smalltalk .class,
+.addition {
   color: #FF0;
+}
+
+.change {
+  color: #FFF;
 }
 
 .comment,
 .phpdoc,
 .javadoc,
 .java .annotation,
-.template_comment {
+.template_comment,
+.deletion {
   color: #888;
 }
 
@@ -62,7 +68,9 @@ pre code,
 .smalltalk .localvars,
 .smalltalk .array,
 .css .attr_selector,
-.xml .pi {
+.xml .pi,
+.header,
+.chunk {
   color: #008080;
 }
 

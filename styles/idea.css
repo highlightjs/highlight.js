@@ -16,12 +16,12 @@ pre code {
     color: #000;
 }
 
-.comment, .template_comment,.javadoc {
+.comment, .template_comment, .javadoc, .diff .header {
     color: #808080;
     font-style: italic;
 }
 
-.annotation, .decorator, .preprocessor, .doctype, .pi {
+.annotation, .decorator, .preprocessor, .doctype, .pi, .chunk {
     color: #808000;
 }
 
@@ -60,4 +60,16 @@ pre code {
 
 .variable {
     color: #660e7a;
+}
+
+.addition {
+    background: #baeeba;
+}
+
+.deletion {
+    background: #ffc8bd;
+}
+
+.diff .change {
+    background: #bccff9;
 }

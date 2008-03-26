@@ -85,3 +85,24 @@ pre {
 .css .function {
     color: #DAD085;
 }
+
+.diff .header, .chunk {
+    background-color: #0E2231;
+    color: #F8F8F8;
+    font-style: italic;
+}
+
+.diff .change {
+    background-color: #4A410D;
+    color: #F8F8F8;
+}
+
+.addition {
+    background-color: #253B22;
+    color: #F8F8F8;
+}
+
+.deletion {
+    background-color: #420E09;
+    color: #F8F8F8;
+}

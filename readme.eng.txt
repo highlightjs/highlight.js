@@ -290,6 +290,14 @@ Ini:
   number           number
   keyword          boolean value keyword
 
+Diff:
+    
+  header           file header
+  chunk            chunk header within a file
+  addition         added lines
+  deletion         deleted lines
+  change           changed lines
+
 Axapta:
     
   keyword          keyword
