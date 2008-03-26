@@ -46,7 +46,7 @@ pre code,
 .comment,
 .annotation,
 .template_comment,
-.header,
+.diff .header,
 .chunk {
   color: #888;
 }

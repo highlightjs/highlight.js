@@ -79,7 +79,7 @@ pre code,
 .rsl .built_in,
 .smalltalk .class,
 .xml .tag .title,
-.header,
+.diff .header,
 .chunk,
 .winutils {
   font-weight: bold;

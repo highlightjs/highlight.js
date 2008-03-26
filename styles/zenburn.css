@@ -56,7 +56,7 @@ pre code {
 .class .title, 
 .function .title,
 .ini .title,
-.header,
+.diff .header,
 .ruby .class .parent {
     color: #efef8f;
 }

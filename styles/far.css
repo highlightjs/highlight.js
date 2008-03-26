@@ -70,7 +70,7 @@ pre code,
 .smalltalk .array,
 .css .attr_selector,
 .xml .pi,
-.header,
+.diff .header,
 .chunk {
   color: #008080;
 }
