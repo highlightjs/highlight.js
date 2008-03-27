@@ -35,11 +35,17 @@ pre code {
   color: #DCDCDC;
 }
 
-
 .number {
-  color: #8CD0D3
+  color: #8CD0D3;
 }
 
+.dos .envvar,
+.dos .stream,
+.variable {
+  color: #EFDCBC;
+}
+
+.dos .flow,
 .diff .change,
 .python .exception,
 .python .built_in,
@@ -52,6 +58,7 @@ pre code {
   color: #8F8F8F;
 }
 
+.dos .keyword,
 .python .decorator,
 .class .title, 
 .function .title,
@@ -61,6 +68,7 @@ pre code {
     color: #efef8f;
 }
 
+.dos .winutils,
 .ruby .symbol,
 .ruby .string,
 .ruby .instancevar {
@@ -82,6 +90,7 @@ pre code {
   color: #CC9393;
 }
 
+.shebang,
 .diff .addition,
 .comment,
 .java .annotation,
