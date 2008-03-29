@@ -363,7 +363,7 @@ Axapta:
 
 ## Координаты
 
-Версия: 4.0
+Версия: 4.1
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
