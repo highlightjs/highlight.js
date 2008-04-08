@@ -29,7 +29,7 @@ pre code {
     background: #efefef;
 }
 
-.tag .title, .id, .attr_selector, .literal, .keyword, .hexcolor,.css .function, .ini .title {
+.tag .title, .id, .attr_selector, .literal, .keyword, .hexcolor,.css .function, .ini .title, .css .class {
     font-weight: bold;
     color: #000080;
 }
@@ -58,7 +58,7 @@ pre code {
     text-decoration: underline;
 }
 
-.variable {
+.variable, .envvar {
     color: #660e7a;
 }
 
