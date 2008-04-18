@@ -9,7 +9,8 @@ hljs.LANGUAGES.lisp = {
   case_insensitive: true,
   defaultMode: {
     lexems: [hljs.LISP_IDENT_RE],
-    contains: ['literal', 'number', 'string', 'comment', 'quoted', 'list']
+    contains: ['literal', 'number', 'string', 'comment', 'quoted', 'list'],
+    illegal: '[^\\s]'
   },
   modes: [
     hljs.QUOTE_STRING_MODE,
