@@ -282,6 +282,19 @@ Smalltalk:
   char             char
   localvars        block of local variables
 
+Lisp:
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  variable         variable
+  literal          b, t and nil
+  list             non-quoted list
+  title            first symbol in a non-quoted list 
+  body             remainder of the non-quoted list
+  quoted_list      quoted list, both "(quote .. )" and "'(..)"
+
 Ini:
     
   title            title of a section

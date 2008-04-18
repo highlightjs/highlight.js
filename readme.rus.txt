@@ -285,6 +285,19 @@ Smalltalk:
   char             буква
   localvars        блок локальных переменных
 
+Lisp:
+
+  keyword          ключевое слово
+  number           число
+  string           строка
+  comment          комментарий
+  variable         переменная
+  literal          b, t и nil
+  list             неквотированный список
+  title            первый символ неквотированного списка 
+  body             остаток неквотированного списка 
+  quoted_list      квотированный список: и "(quote .. )", и "'(..)"
+
 Ini:
     
   title            заголовок секции

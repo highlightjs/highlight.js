@@ -25,7 +25,8 @@ pre code {
 .django .tag,
 .django .keyword,
 .css .class,
-.css .id {
+.css .id,
+.lisp .title {
   color: #E3CEAB;
 }
 

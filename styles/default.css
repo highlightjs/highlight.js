@@ -20,7 +20,8 @@ pre code {
 
 pre code, 
 .ruby .subst,
-.xml .title {
+.xml .title,
+.lisp .title {
   color: black;
 }
 

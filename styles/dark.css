@@ -22,7 +22,8 @@ pre code {
 .literal,
 .change,
 .winutils,
-.flow {
+.flow,
+.lisp .title {
   color: white;
 }
 
@@ -83,7 +84,8 @@ pre code,
 .diff .header,
 .chunk,
 .winutils,
-.bash .variable {
+.bash .variable,
+.lisp .title {
   font-weight: bold;
 }
 

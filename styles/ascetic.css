@@ -32,6 +32,7 @@ pre code {
 .tag .title,
 .ini .title,
 .winutils,
-.flow {
+.flow,
+.lisp .title {
   font-weight: bold;
 }
