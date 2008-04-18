@@ -22,7 +22,7 @@ pre {
     color: #E28964;
 }
 
-.function .keyword, .sub .keyword, .method {
+.function .keyword, .sub .keyword, .method, .list .title {
     color: #99CF50;
 }
 
