@@ -87,7 +87,7 @@ class SomeClass:<br>    pass
   This method creates a category. Very difficult to understand, huh?
 =end
 
-  def create
+  def create  # create!
     @category = Category.create(params[:category])
     flash[:notice] = "Category #{@category + "..."} was successfully created"
   end

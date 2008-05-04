@@ -332,7 +332,7 @@ hljs.LANGUAGES.ruby = {
       begin: '\\bdef\\b', end: '$|;',
       lexems: [hljs.RUBY_IDENT_RE],
       keywords: hljs.RUBY_KEYWORDS,
-      contains: ['title', 'params']
+      contains: ['title', 'params', 'comment']
     },
     {
       className: 'class',
