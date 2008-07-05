@@ -384,6 +384,16 @@ var hljs = new function() {
       }
     }
   }
+  
+  function findCode(pre) {
+    for (var i = 0; i < pre.childNodes.length; i++) {
+      node = pre.childNodes[i];
+      if (node.nodeName == 'CODE')
+        return node;
+      if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
+        return null;
+    }
+  }
 
   function initHighlighting() {
     if (initHighlighting.called)
@@ -401,8 +411,9 @@ var hljs = new function() {
       selected_languages = LANGUAGES;
     var pres = document.getElementsByTagName('pre');
     for (var i = 0; i < pres.length; i++) {
-      if (pres[i].firstChild && pres[i].firstChild.nodeName == 'CODE')
-        highlightBlock(pres[i].firstChild);
+      var code = findCode(pres[i]);
+      if (code)
+        highlightBlock(code);
     }
   }
 
