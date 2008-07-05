@@ -29,19 +29,99 @@
     pre {
       margin-top: 0;
     }
+    ul#switch {
+      padding: 0;
+      margin: 0 0 0 -0.5em;
+    }
+    ul#switch li {
+      border-bottom: 1px dashed blue; 
+      display: inline;
+      padding: 0;
+      margin: 0.5em;
+      cursor: pointer;
+    }
+    ul#switch li.current {
+      border-bottom: none;
+      cursor: default;
+    }
   </style>
   
-  <script type="text/javascript" src="highlight.js"></script>
-  <script type="text/javascript">
-    hljs.initHighlightingOnLoad.apply(null, hljs.ALL_LANGUAGES);
-  </script>
+  <script src="highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad.apply(null, hljs.ALL_LANGUAGES);</script>
+  
+  <script>
+  // A stylesheet switcher for the test page. Not part of the highlight.js itself
+  // (c) Vladimir Epifanov <voldmar@voldmar.ru>
+  (function(container_id) {
+      if (window.addEventListener) {
+          var attach = function(el, ev, handler) {
+              el.addEventListener(ev, handler, false);
+          }
+      } else if (window.attachEvent) {
+          var attach = function(el, ev, handler) {
+              el.attachEvent('on' + ev, handler);
+          }
+      } else {
+          var attach = function(el, ev, handler) {
+              ev['on' + ev] = handler;
+          }
+      }
 
+
+      attach(window, 'load', function() {
+          var current = null;
+
+          var info = {};
+          var links = document.getElementsByTagName('link');
+          var ul = document.createElement('ul')
+
+          for (var i = 0; (link = links[i]); i++) {
+              if (link.getAttribute('rel').indexOf('style') != -1
+                  && link.title) {
+
+                  var title = link.title;
+
+                  info[title] = {
+                  'link': link,
+                  'li': document.createElement('li')
+                  }
+
+                  ul.appendChild(info[title].li)
+                  info[title].li.title = title;
+
+                  info[title].link.disabled = true;
+
+                  info[title].li.appendChild(document.createTextNode(title));
+                  attach(info[title].li, 'click', (function (el) {
+                      return function() {
+                          current.li.className = '';
+                          current.link.disabled = true;
+                          current = el;
+                          current.li.className = 'current';
+                          current.link.disabled = false;
+                      }})(info[title]));
+              }
+          }
+
+          current = info['Default']
+          current.li.className = 'current';
+          current.link.disabled = false;
+
+          ul.id = 'switch';
+          container = document.getElementById(container_id);
+          container.appendChild(ul);
+      });
+
+  })('styleswitcher');
+  </script>
 <body>
 
 <p>This page is a demo/test showing all languages supported by <a href="http://softwaremaniacs.org/soft/highlight/">highlight.js</a>.
 Most of the code doesn't work :-).
-<p>You can see this page in several different styles if your browser can switch
-between alternate stylesheets.
+<p>You can see this page in several different styles bundled with the library or
+write your own (and contribute it back!)
+
+<div id="styleswitcher"></div>
 
 <h2>Automatically detected languages</h2>
 
