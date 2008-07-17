@@ -265,6 +265,14 @@ RenderMan (RIB):
   comment          комментарий
   commands         команда
 
+Maya Embedded Language (MEL):
+
+  keyword          ключевое слово языка
+  number           число
+  string           строка
+  comment          комментарий
+  variable         переменная
+
 SQL:
     
   keyword          ключевое слово (в основном из SQL'92 и SQL'99)

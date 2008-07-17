@@ -23,3 +23,4 @@ Contributors:
 - Vladimir Epifanov <voldmar@voldmar.ru>
 - Alexander Makarov (http://rmcreative.ru/)
 - Vah <vahtenberg@gmail.com>
+- Shuen-Huei Guan <drake.guan@gmail.com>

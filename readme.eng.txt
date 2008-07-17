@@ -262,6 +262,14 @@ RenderMan (RIB):
   comment          comment
   commands         command
 
+Maya Embedded Language (MEL):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  variable         variable
+
 SQL:
     
   keyword          keyword (mostly SQL'92 and SQL'99)

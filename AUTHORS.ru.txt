@@ -23,3 +23,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Владимир Епифанов <voldmar@voldmar.ru>
 - Александр Макаров (http://rmcreative.ru/)
 - Vah <vahtenberg@gmail.com>
+- Шуэн-Хуэй Гуан <drake.guan@gmail.com>
