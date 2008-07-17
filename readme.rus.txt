@@ -83,9 +83,11 @@ highlight.js.
 ## Языки
 
 В списке приведены все языки, которые знает библиотека с классами, 
-соответствующими различным синтаксическим частям.
+соответствующими различным синтаксическим частям. В скобках после 
+названий языков указаны идентификаторы языков, используемые в качестве
+классов элемента `<code>`.
 
-Python:
+Python ("python"):
     
   keyword          ключевое слово языка
   built_in         стандартные значения (None, False, True и Ellipsis)
@@ -98,7 +100,7 @@ Python:
   title            название функции или класса внутри заголовка
   params           все, что в скобках внутри заголовка функции или класса
 
-Результаты профайлинга Питона:
+Результаты профайлинга Питона ("profile"):
     
   number           число
   string           строка
@@ -110,7 +112,7 @@ Python:
   function         название функции в строке результата (включая скобки)
   title            само название функци в строке результата (без скобок)
 
-Ruby:
+Ruby ("ruby"):
     
   keyword          ключевое слово языка
   string           строка
@@ -123,7 +125,7 @@ Ruby:
   symbol           символ
   instancevar      переменная класса
 
-Perl:
+Perl ("perl"):
     
   keyword          ключевое слово языка
   comment          комментарий
@@ -135,7 +137,7 @@ Perl:
   operator         оператор
   pod              документация (plain old doc)
 
-PHP:
+PHP ("php"):
     
   keyword          ключевое слово языка
   number           число
@@ -144,7 +146,7 @@ PHP:
   phpdoc           параметры phpdoc в комментарии
   variable         переменная, начинающаяся с "$"
 
-XML:
+XML ("xml"):
     
   tag              любой открывающий или закрывающий тег от "<" до ">"
   comment          комментарий
@@ -153,7 +155,7 @@ XML:
   attribute        атрибут
   value            значение атрибута
 
-HTML:
+HTML ("html"):
     
   keyword          тег языка HTML
   tag              любой открывающий или закрывающий тег от "<" до ">"
@@ -162,7 +164,7 @@ HTML:
   attribute        атрибут внутри тега со значением или без
   value            значение атрибута
 
-CSS:
+CSS ("css"):
     
   keyword          тег языка HTML в селекторах или свойство CSS в правилах
   id               #some_name в селекторах
@@ -178,7 +180,7 @@ CSS:
   function         CSS-функция внутри значения
   params           все от "(" до ")" внутри функции
 
-Django:
+Django ("django"):
 
   keyword          тег HTML в HTML, встроенные шаблонные теги и фильтры в шаблонах
   tag              любой открывающий или закрывающий тег от "<" до ">"
@@ -192,7 +194,7 @@ Django:
   filter           фильтр от "|" до следующего фильтра или до конца тега
   argument         аргумент фильтра
 
-Javascript:
+Javascript ("javascript"):
     
   keyword          ключевое слово языка
   comment          комментарий
@@ -204,7 +206,7 @@ Javascript:
   title            название функции внутри заголовка
   params           все, что в скобках внутри заголовка функции
 
-VBScript:
+VBScript ("vbscript"):
     
   keyword          ключевое слово языка
   comment          комментарий
@@ -212,7 +214,7 @@ VBScript:
   string           строка
   built_in         встроенная функция
 
-Delphi:
+Delphi ("delphi"):
     
   keyword          ключевое слово языка
   comment          комментарий (любого типа)
@@ -224,7 +226,7 @@ Delphi:
   params           все, что в скобках внутри заголовка функций
   class            тело класса от "= class" до "end;"
 
-Java:
+Java ("java"):
     
   keyword          ключевое слово языка
   number           число
@@ -237,7 +239,7 @@ Java:
   params           все, что в скобках внутри заголовка класса
   inheritance      слова "extends" и "implements" внутри заголовка класса
 
-C++:
+C++ ("cpp"):
     
   keyword          ключевое слово языка
   built_in         тип из стандартной библиотеки (включая STL)
@@ -246,7 +248,7 @@ C++:
   comment          комментарий
   preprocessor     директива препроцессора
 
-RenderMan (RSL):
+RenderMan RSL ("rsl"):
     
   keyword          ключевое слово языка
   number           число
@@ -257,7 +259,7 @@ RenderMan (RSL):
   shading          ключевое слово затенений
   built_in         встроенная функция
 
-RenderMan (RIB):
+RenderMan RIB ("rib"):
     
   keyword          ключевое слово языка
   number           число
@@ -265,7 +267,7 @@ RenderMan (RIB):
   comment          комментарий
   commands         команда
 
-Maya Embedded Language (MEL):
+Maya Embedded Language ("mel"):
 
   keyword          ключевое слово языка
   number           число
@@ -273,7 +275,7 @@ Maya Embedded Language (MEL):
   comment          комментарий
   variable         переменная
 
-SQL:
+SQL ("sql"):
     
   keyword          ключевое слово (в основном из SQL'92 и SQL'99)
   number           число
@@ -281,7 +283,7 @@ SQL:
   comment          комментарий
   aggregate        агрегатная функция
 
-Smalltalk:
+Smalltalk ("smalltalk"):
 
   keyword          ключевое слово
   number           число
@@ -293,7 +295,7 @@ Smalltalk:
   char             буква
   localvars        блок локальных переменных
 
-Lisp:
+Lisp ("lisp"):
 
   keyword          ключевое слово
   number           число
@@ -306,7 +308,7 @@ Lisp:
   body             остаток неквотированного списка 
   quoted_list      квотированный список: и "(quote .. )", и "'(..)"
 
-Ini:
+Ini ("ini"):
     
   title            заголовок секции
   value            значение настройки любого типа
@@ -314,7 +316,7 @@ Ini:
   number           число
   keyword          ключевое слово булевского значения
 
-DOS:
+DOS ("dos"):
     
   keyword          ключевое слово
   flow             команда .bat-файла
@@ -322,7 +324,7 @@ DOS:
   winutils         некоторые (см. dos.js за списком)
   envvar           переменная окружения
 
-Bash:
+Bash ("bash"):
 
   keyword          ключевое слово
   string           строка
@@ -332,7 +334,7 @@ Bash:
   variable         переменная
   shebang          заголовок интерпретатора скрипта
 
-Diff:
+Diff ("diff"):
     
   header           заголовок файла
   chunk            заголовок куска внутри файла
@@ -340,7 +342,7 @@ Diff:
   deletion         удаленные строки
   change           измененные строки
 
-Axapta:
+Axapta ("axapta"):
     
   keyword          ключевое слово языка
   number           число
@@ -352,7 +354,7 @@ Axapta:
   inheritance      слова "extends" и "implements" внутри заголовка класса
   preprocessor     директива препроцессора
 
-1С:
+1С ("1c"):
 
   keyword          ключевое слово языка
   number           число

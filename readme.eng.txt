@@ -80,9 +80,10 @@ in situations when one can't use the script itself on a site.
 ## Languages
 
 This is a full list of available classes corresponding to languages' 
-syntactic structures.
+syntactic structures. In parentheses after language names are identifiers
+used as class names in `<code>` element.
 
-Python:
+Python ("python"):
     
   keyword          keyword
   built_in         built-in objects (None, False, True and Ellipsis)
@@ -95,7 +96,7 @@ Python:
   title            name of a function or a class inside a header
   params           everything inside parentheses in a function's or class' header
 
-Python profiler results:
+Python profiler results ("profile"):
     
   number           number
   string           string
@@ -107,7 +108,7 @@ Python profiler results:
   function         function name in an entry (including parentheses)
   title            actual name of a function in an entry (excluding parentheses)
 
-Ruby:
+Ruby ("ruby"):
     
   keyword          keyword
   string           string
@@ -120,7 +121,7 @@ Ruby:
   symbol           symbol
   instancevar      instance variable
 
-Perl:
+Perl ("perl"):
     
   keyword          keyword
   comment          comment
@@ -132,7 +133,7 @@ Perl:
   operator         operator
   pod              plain old doc
 
-PHP:
+PHP ("php"):
     
   keyword          keyword
   number           number
@@ -141,7 +142,7 @@ PHP:
   phpdoc           phpdoc params in comments
   variable         variable starting with "$"
 
-XML:
+XML ("xml"):
     
   tag              any tag from "<" till ">"
   comment          comment
@@ -150,7 +151,7 @@ XML:
   attribute        attribute
   value            attribute's value
 
-HTML:
+HTML ("html"):
     
   keyword          HTML tag
   tag              any tag from "<" till ">"
@@ -159,7 +160,7 @@ HTML:
   attribute        tag's attribute with or without value
   value            attribute's value
 
-CSS:
+CSS ("css"):
     
   keyword          HTML tag when in selectors, CSS keyword when in rules
   id               #some_name in selectors
@@ -175,7 +176,7 @@ CSS:
   function         CSS function within a value
   params           everything between "(" and ")" within a function
 
-Django:
+Django ("django"):
 
   keyword          HTML tag in HTML, default tags and default filters in templates
   tag              any tag from "<" till ">"
@@ -189,7 +190,7 @@ Django:
   filter           filter from "|" till the next filter or the end of tag
   argument         filter argument
 
-Javascript:
+Javascript ("javascript"):
     
   keyword          keyword
   comment          comment
@@ -201,7 +202,7 @@ Javascript:
   title            name of a function inside a header
   params           everything inside parentheses in a function's header
 
-VBScript:
+VBScript ("vbscript"):
     
   keyword          keyword
   number           number
@@ -209,7 +210,7 @@ VBScript:
   comment          comment
   built_in         built-in function
 
-Delphi:
+Delphi ("delphi"):
     
   keyword          keyword
   comment          comment (of any type)
@@ -221,7 +222,7 @@ Delphi:
   params           everything inside parentheses in a function's header
   class            class' body from "= class" till "end;"
 
-Java:
+Java ("java"):
     
   keyword          keyword
   number           number
@@ -234,7 +235,7 @@ Java:
   params           everything in parentheses inside a class header
   inheritance      keywords "extends" and "implements" inside class header
 
-C++:
+C++ ("cpp"):
     
   keyword          keyword
   built_in         standard library types (including STL)
@@ -243,7 +244,7 @@ C++:
   comment          comment
   preprocessor     preprocessor directive
 
-RenderMan (RSL):
+RenderMan RSL ("rsl"):
     
   keyword          keyword
   number           number
@@ -254,7 +255,7 @@ RenderMan (RSL):
   shading          shading keywords
   built_in         built-in function
 
-RenderMan (RIB):
+RenderMan RIB ("rib"):
     
   keyword          keyword
   number           number
@@ -262,7 +263,7 @@ RenderMan (RIB):
   comment          comment
   commands         command
 
-Maya Embedded Language (MEL):
+Maya Embedded Language ("mel"):
 
   keyword          keyword
   number           number
@@ -270,7 +271,7 @@ Maya Embedded Language (MEL):
   comment          comment
   variable         variable
 
-SQL:
+SQL ("sql"):
     
   keyword          keyword (mostly SQL'92 and SQL'99)
   number           number
@@ -278,7 +279,7 @@ SQL:
   comment          comment
   aggregate        aggregate function
 
-Smalltalk:
+Smalltalk ("smalltalk"):
 
   keyword          keyword
   number           number
@@ -290,7 +291,7 @@ Smalltalk:
   char             char
   localvars        block of local variables
 
-Lisp:
+Lisp ("lisp"):
 
   keyword          keyword
   number           number
@@ -303,7 +304,7 @@ Lisp:
   body             remainder of the non-quoted list
   quoted_list      quoted list, both "(quote .. )" and "'(..)"
 
-Ini:
+Ini ("ini"):
     
   title            title of a section
   value            value of a setting of any type
@@ -311,7 +312,7 @@ Ini:
   number           number
   keyword          boolean value keyword
 
-DOS:
+DOS ("dos"):
     
   keyword          keyword
   flow             batch control keyword
@@ -319,7 +320,7 @@ DOS:
   winutils         some commands (see dos.js specifically)
   envvar           environment variables
 
-Bash:
+Bash ("bash"):
 
   keyword          keyword
   string           string
@@ -329,7 +330,7 @@ Bash:
   variable         variable
   shebang          script interpreter header
 
-Diff:
+Diff ("diff"):
     
   header           file header
   chunk            chunk header within a file
@@ -337,7 +338,7 @@ Diff:
   deletion         deleted lines
   change           changed lines
 
-Axapta:
+Axapta ("axapta"):
     
   keyword          keyword
   number           number
@@ -349,7 +350,7 @@ Axapta:
   inheritance      keywords "extends" and "implements" inside class header
   preprocessor     preprocessor directive
 
-1C:
+1C ("1c"):
 
   keyword          keyword
   number           number
