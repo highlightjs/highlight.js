@@ -9,11 +9,14 @@ Author URI: http://softwaremaniacs.org/about/
 */
 
 add_option('hljs_languages', '');
+$components = explode('/', dirname(__FILE__));
+$l = sizeof($components);
+$script_path = get_settings('home') . '/' . $components[$l - 3] . '/' . $components[$l - 2] . '/' . $components[$l - 1];
 if (!get_option('hljs_script_path')) {
-  $components = explode('/', dirname(__FILE__));
-  $l = sizeof($components);
-  $script_path = get_settings('home') . '/' . $components[$l - 3] . '/' . $components[$l - 2] . '/' . $components[$l - 1];
   add_option('hljs_script_path', $script_path . '/highlight.js');
+}
+if (!get_option('hljs_css_path')) {
+  add_option('hljs_css_path', $script_path . '/styles/default.css');
 }
 add_option('hljs_css', '');
 
@@ -37,6 +40,11 @@ function init_highlighting_on_load() {
 </style>
 <?php
   }
+  $css_path = get_option('hljs_css_path');
+  if ($css_path) {?>
+<link rel="stylesheet" href="<?php echo $css_path ?>" />
+<?php
+  }
 }
 add_action('wp_head', 'init_highlighting_on_load');
 
@@ -51,6 +59,7 @@ function hljs_subpanel() {
   if (isset($_POST['hljs_script_path'])) {
     update_option('hljs_languages', $_POST['hljs_languages']);
     update_option('hljs_script_path', $_POST['hljs_script_path']);
+    update_option('hljs_css_path', $_POST['hljs_css_path']);
     update_option('hljs_css', $_POST['hljs_css']);
     ?><div class="updated"><p><strong>Options updated.</strong></p></div><?php
 	} ?>
@@ -67,6 +76,11 @@ function hljs_subpanel() {
     <div>
       <p><label for="id_hljs_script_path">Path to highlight.js:</label> <input type="text" name="hljs_script_path" id="id_hljs_script_path" value="<?php echo get_option('hljs_script_path'); ?>" /></p>
       <p><small>Let's you place the script in a convenient place</small></p>
+    </div>
+    
+    <div>
+      <p><label for="id_hljs_css_path">Path to CSS (if any):</label> <input type="text" name="hljs_css_path" id="id_hljs_css_path" value="<?php echo get_option('hljs_css_path'); ?>" /></p>
+      <p><small>You can choose one of the bundled style files or leave it empty</small></p>
     </div>
     
     <div>
