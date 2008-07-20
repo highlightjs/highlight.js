@@ -253,7 +253,7 @@ hljs.PHP_IDENTIFIER_RE = '[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*';
 hljs.LANGUAGES.php = {
   defaultMode: {
     lexems: [hljs.IDENT_RE],
-    contains: ['comment', 'number', 'string', 'variable'],
+    contains: ['comment', 'number', 'string', 'variable', 'preprocessor'],
     keywords: hljs.PHP5_KEYWORDS
   },
   case_insensitive: true,
@@ -288,7 +288,16 @@ hljs.LANGUAGES.php = {
       className: 'variable',
       begin: '\\$' + hljs.PHP_IDENTIFIER_RE, end: '^'
     },
-    ]
+    {
+      className: 'preprocessor',
+      begin: '<\\?php', end: '^',
+      relevance: 10
+    },
+    {
+      className: 'preprocessor',
+      begin: '\\?>', end: '^'
+    }
+  ]
 };
 
 /*
