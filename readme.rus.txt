@@ -145,6 +145,7 @@ PHP ("php"):
   comment          комментарий
   phpdoc           параметры phpdoc в комментарии
   variable         переменная, начинающаяся с "$"
+  preprocessor     метки препроцессора: "<?php" and "?>"
 
 XML ("xml"):
     

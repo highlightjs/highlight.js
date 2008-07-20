@@ -141,6 +141,7 @@ PHP ("php"):
   comment          comment
   phpdoc           phpdoc params in comments
   variable         variable starting with "$"
+  preprocessor     preprocessor marks: "<?php" and "?>"
 
 XML ("xml"):
     
