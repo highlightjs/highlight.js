@@ -68,7 +68,7 @@ hljs.HTML_VALUE = {
 
 hljs.LANGUAGES.html = {
   defaultMode: {
-    contains: ['tag', 'comment', 'doctype']
+    contains: ['tag', 'comment', 'doctype', 'vbscript']
   },
   case_insensitive: true,
   modes: [
@@ -113,7 +113,12 @@ hljs.LANGUAGES.html = {
     hljs.XML_ATTR,
     hljs.HTML_ATTR,
     hljs.XML_VALUE,
-    hljs.HTML_VALUE
+    hljs.HTML_VALUE,
+    {
+      className: 'vbscript',
+      begin: '<%', end: '%>',
+      subLanguage: 'vbscript'
+    }
   ]
 };
 

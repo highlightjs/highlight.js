@@ -90,6 +90,7 @@ pre code,
 }
 
 .html .css,
-.html .javascript {
+.html .javascript,
+.html .vbscript {
   opacity: 0.5;
 }
