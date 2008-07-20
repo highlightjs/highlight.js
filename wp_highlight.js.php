@@ -3,7 +3,7 @@
 Plugin Name: highlight.js
 Plugin URI: http://softwaremaniacs.org/soft/highlight/
 Description: Syntax highlighting with language autodetection
-Version: 4.2
+Version: 4.2.1
 Author: Ivan Sagalaev
 Author URI: http://softwaremaniacs.org/about/
 */
@@ -32,17 +32,17 @@ function init_highlighting_on_load() {
   ?>
 <script type="text/javascript" src="<?php echo get_option('hljs_script_path');?>"></script>
 <script type="text/javascript">hljs.initHighlightingOnLoad(<?php echo $languages_str; ?>);</script>
+<?php 
+  $css_path = get_option('hljs_css_path');
+  if ($css_path) {?>
+<link rel="stylesheet" href="<?php echo $css_path ?>" />
 <?php
+  }
   $css = get_option('hljs_css');
   if ($css) {?>
 <style type="text/css">
 <?php echo $css ?>
 </style>
-<?php
-  }
-  $css_path = get_option('hljs_css_path');
-  if ($css_path) {?>
-<link rel="stylesheet" href="<?php echo $css_path ?>" />
 <?php
   }
 }
