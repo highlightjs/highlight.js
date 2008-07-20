@@ -243,6 +243,7 @@ C++ ("cpp"):
   string           string and character
   comment          comment
   preprocessor     preprocessor directive
+  stl_container    instantiation of STL containers ("vector<...>")
 
 RenderMan RSL ("rsl"):
     

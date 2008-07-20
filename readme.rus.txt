@@ -247,6 +247,7 @@ C++ ("cpp"):
   string           строка и одиночный символ
   comment          комментарий
   preprocessor     директива препроцессора
+  stl_container    инстанцирование STL-контейнеров ("vector<...>")
 
 RenderMan RSL ("rsl"):
     
