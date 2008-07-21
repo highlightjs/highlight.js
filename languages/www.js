@@ -7,10 +7,15 @@ hljs.XML_ATTR = {
   begin: ' [a-zA-Z\\:-]+=', end: '^',
   contains: ['value']
 };
-hljs.XML_VALUE = {
+hljs.XML_VALUE_QUOT = {
   className: 'value',
   begin: '"', end: '"'
 };
+hljs.XML_VALUE_APOS = {
+  className: 'value',
+  begin: '\'', end: '\''
+};
+
 
 hljs.LANGUAGES.xml = {
   defaultMode: {
@@ -47,7 +52,8 @@ hljs.LANGUAGES.xml = {
       illegal: '[\\+\\.]'
     },
     hljs.XML_ATTR,
-    hljs.XML_VALUE
+    hljs.XML_VALUE_QUOT,
+    hljs.XML_VALUE_APOS
   ]
 };
 
@@ -59,7 +65,7 @@ hljs.HTML_DOCTYPE = {
 };
 hljs.HTML_ATTR = {
   className: 'attribute',
-  begin: ' [a-zA-Z]+', end: '^'
+  begin: ' [a-zA-Z]+', end: '^',
 };
 hljs.HTML_VALUE = {
   className: 'value',
@@ -112,7 +118,8 @@ hljs.LANGUAGES.html = {
     },
     hljs.XML_ATTR,
     hljs.HTML_ATTR,
-    hljs.XML_VALUE,
+    hljs.XML_VALUE_QUOT,
+    hljs.XML_VALUE_APOS,
     hljs.HTML_VALUE,
     {
       className: 'vbscript',
