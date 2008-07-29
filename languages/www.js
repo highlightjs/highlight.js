@@ -65,6 +65,11 @@ hljs.HTML_DOCTYPE = {
 };
 hljs.HTML_ATTR = {
   className: 'attribute',
+  begin: ' [a-zA-Z\\:-]+=', end: '^',
+  contains: ['value']
+};
+hljs.HTML_SHORT_ATTR = {
+  className: 'attribute',
   begin: ' [a-zA-Z]+', end: '^',
 };
 hljs.HTML_VALUE = {
@@ -116,8 +121,8 @@ hljs.LANGUAGES.html = {
       end: '</script>', returnEnd: true,
       subLanguage: 'javascript'
     },
-    hljs.XML_ATTR,
     hljs.HTML_ATTR,
+    hljs.HTML_SHORT_ATTR,
     hljs.XML_VALUE_QUOT,
     hljs.XML_VALUE_APOS,
     hljs.HTML_VALUE,
@@ -209,8 +214,8 @@ hljs.LANGUAGES.django = {
       begin: '<[A-Za-z/]', end: '>',
       contains: ['attribute', 'template_comment', 'template_tag', 'variable']
     },
-    hljs.XML_ATTR,
     hljs.HTML_ATTR,
+    hljs.HTML_SHORT_ATTR,
     {
       className: 'value',
       begin: '"', end: '"',
