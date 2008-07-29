@@ -310,33 +310,24 @@ var hljs = new function() {
         return;
     }
     
+    var result = null;
     if (language) {
-      var result = highlight(language, text).value;
+      result = highlight(language, text);
+      result.language = language;
     } else {
       var max_relevance = 2;
       var relevance = 0;
       for (var key in selected_languages) {
-        var r = highlight(key, text);
+        r = highlight(key, text);
         relevance = r.keyword_count + r.relevance;
         if (relevance > max_relevance) {
           max_relevance = relevance;
-          var result = r.value;
-          language = key;
+          result = r;
+          result.language = key;
         }
       }
     }
-    
-    if (result) {
-      var className = block.className;
-      if (!className.match(language)) {
-        className += ' ' + language;
-      }
-      // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
-      var container = document.createElement('div');
-      container.innerHTML = '<pre><code class="' + className + '">' + result + '</code></pre>';
-      var environment = block.parentNode.parentNode;
-      environment.replaceChild(container.firstChild, block.parentNode);
-    }
+    return result;
   }
   
   function langRe(language, value, global) {
@@ -412,8 +403,20 @@ var hljs = new function() {
     var pres = document.getElementsByTagName('pre');
     for (var i = 0; i < pres.length; i++) {
       var code = findCode(pres[i]);
-      if (code)
-        highlightBlock(code);
+      if (code) {
+        var result = highlightBlock(code);
+        if (result) {
+          var className = code.className;
+          if (!className.match(result.language)) {
+            className += ' ' + result.language;
+          }
+          // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
+          var container = document.createElement('div');
+          container.innerHTML = '<pre><code class="' + className + '">' + result.value + '</code></pre>';
+          var environment = code.parentNode.parentNode;
+          environment.replaceChild(container.firstChild, code.parentNode);
+        }
+      }
     }
   }
 
