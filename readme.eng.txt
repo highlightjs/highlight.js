@@ -28,6 +28,8 @@ When called this way highlight.js will dynamically load appropriate language
 files and thus will also weigh less than with the default set that includes all
 languages implemented.
 
+A full list of available classes is below ("Languages").
+
 Then the script looks in your page for fragments `<pre><code>...</code></pre>`
 that are used traditionally to mark up code examples. Their content is
 marked up by logical pieces with defined class names. The classes are
@@ -51,8 +53,6 @@ used to actually style the code elements:
     
 Highligt.js comes with several style themes located in "styles" directory that
 can be used directly or as a base for your own experiments.
-
-A full list of available classes is below ("Languages").
 
 ### WordPress plugin
 
