@@ -25,8 +25,10 @@ initialization function only those languages that you actually use on your pages
     </script>
 
 When called this way highlight.js will dynamically load appropriate language
-files and thus will also weigh less than with the default set that includes all
-languages implemented.
+files and thus will also weigh less than with the default set that includes many
+popular languages. This explicit passing of languages is also required if you
+need a language that is not included in the default set (see DEFAULT_LANGUAGES
+in the file highlight.js).
 
 A full list of available classes is below ("Languages").
 
