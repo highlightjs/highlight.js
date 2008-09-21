@@ -253,6 +253,14 @@ C++ ("cpp"):
   preprocessor     директива препроцессора
   stl_container    инстанцирование STL-контейнеров ("vector<...>")
 
+C# ("cs"):
+    
+  keyword          ключевое слово языка
+  number           число
+  string           строка (включая @"..")
+  comment          комментарий
+  xmlDocTag        тег в xmldoc ("///", "<!--", "-->", "<..>")
+
 RenderMan RSL ("rsl"):
     
   keyword          ключевое слово языка

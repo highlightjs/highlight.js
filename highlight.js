@@ -5,7 +5,7 @@ http://softwaremaniacs.org/soft/highlight/
 
 var hljs = new function() {
 
-  var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'xml', 'html', 'django', 'javascript', 'java', 'cpp', 'sql', 'ini', 'diff'];
+  var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'xml', 'html', 'django', 'javascript', 'java', 'cpp', 'cs', 'sql', 'ini', 'diff'];
   var ALL_LANGUAGES = (DEFAULT_LANGUAGES.join(',') + ',' + ['1c', 'axapta', 'delphi', 'rib', 'rsl', 'vbscript', 'profile', 'dos', 'bash', 'lisp', 'smalltalk', 'mel'].join(',')).split(',');
   var LANGUAGE_GROUPS = {
     'xml': 'www',
@@ -19,6 +19,7 @@ var hljs = new function() {
     'cpp': 'static',
     'java': 'static',
     'delphi': 'static',
+    'cs': 'static',
     'rib': 'renderman',
     'rsl': 'renderman'
   }

@@ -241,18 +241,25 @@ Java ("java"):
 C++ ("cpp"):
     
   keyword          keyword
-  built_in         standard library types (including STL)
   number           number
   string           string and character
   comment          comment
   preprocessor     preprocessor directive
   stl_container    instantiation of STL containers ("vector<...>")
 
-RenderMan RSL ("rsl"):
+C# ("cs"):
     
   keyword          keyword
   number           number
   string           string
+  comment          commment
+  xmlDocTag        xmldoc tag ("///", "<!--", "-->", "<..>")
+
+RenderMan RSL ("rsl"):
+    
+  keyword          keyword
+  number           number
+  string           string (including @"..")
   comment          comment
   preprocessor     preprocessor directive
   shader           sahder keywords

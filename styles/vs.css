@@ -1,0 +1,65 @@
+/*
+
+Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
+
+*/
+.comment,
+.annotation,
+.template_comment,
+.diff .header,
+.chunk {
+    color: rgb(0, 128, 0);
+}
+
+.keyword,
+.id,
+.title,
+.vbscript .built_in,
+.rsl .built_in,
+.cpp .built_in,
+.aggregate,
+.smalltalk .class,
+.winutils,
+.bash .variable {
+    color: rgb(0, 0, 255);
+}
+
+.string,
+.title, 
+.parent,
+.tag .attribute .value,
+.rules .value,
+.rules .value .number,
+.ruby .symbol,
+.instancevar,
+.aggregate,
+.template_tag,
+.django .variable,
+.addition,
+.flow,
+.stream {
+    color: rgb(163, 21, 21);
+}
+
+.ruby .string,
+.decorator,
+.filter .argument,
+.localvars,
+.array,
+.attr_selector,
+.pi,
+.doctype,
+.deletion,
+.envvar,
+.shebang,
+.preprocessor,
+.userType {
+    color: rgb(43, 145, 175);
+}
+
+.phpdoc,
+.javadoc,
+.xmlDocTag {
+    color: rgb(128, 128, 128);
+}
+

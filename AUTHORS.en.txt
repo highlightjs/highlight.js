@@ -24,3 +24,4 @@ Contributors:
 - Alexander Makarov (http://rmcreative.ru/)
 - Vah <vahtenberg@gmail.com>
 - Shuen-Huei Guan <drake.guan@gmail.com>
+- Jason Diamond <jason@diamond.name>

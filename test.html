@@ -9,6 +9,7 @@
   <link rel="alternate stylesheet" title="IDEA" href="styles/idea.css">
   <link rel="alternate stylesheet" title="Sunburst" href="styles/sunburst.css">
   <link rel="alternate stylesheet" title="Zenburn" href="styles/zenburn.css">
+  <link rel="alternate stylesheet" title="Visual Studio" href="styles/vs.css">
   <link rel="alternate stylesheet" title="Ascetic" href="styles/ascetic.css">
   <style>
     h2 {
@@ -475,6 +476,33 @@ int main(int argc, char *argv[]) {
   char c = '\n'; // just a test 
   map &lt;string, vector&lt;string&gt; &gt; m;
   m["key"] = "\\\\"; // yaeh, I know it's an error
+}
+</code></pre>
+
+  <tr>
+    <th>C#
+    <td>
+<pre><code>using System;
+
+public class Program
+{
+    /// &lt;summary&gt;The entry point to the program.&lt;/summary&gt;
+    /// &lt;remarks&gt;
+    /// Using the Visual Studio style, the tags in this comment
+    /// should be grey, but this text should be green.
+    /// This comment should be green on the inside:
+    /// &lt;!-- I'm green! --&gt;
+    /// &lt;/remarks&gt;
+    public static int Main(string[] args)
+    {
+        Console.WriteLine("Hello, World!");
+        string s = @"This
+""string""
+spans
+multiple
+lines!";
+        return 0;
+    }
 }
 </code></pre>
 

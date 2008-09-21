@@ -24,3 +24,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Александр Макаров (http://rmcreative.ru/)
 - Vah <vahtenberg@gmail.com>
 - Шуэн-Хуэй Гуан <drake.guan@gmail.com>
+- Джейсон Даймонд <jason@diamond.name>
