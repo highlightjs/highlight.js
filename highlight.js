@@ -34,8 +34,8 @@ var hljs = new function() {
   function contains(array, item) {
     if (!array)
       return false;
-    for (var key in array)
-      if (array[key] == item)
+    for (var i = 0; i < array.length; i++)
+      if (array[i] == item)
         return true;
     return false;
   }
@@ -43,8 +43,8 @@ var hljs = new function() {
   function highlight(language_name, value) {
     function compileSubModes(mode, language) {
       mode.sub_modes = [];
-      for (var i in mode.contains) {
-        for (var j in language.modes) {
+      for (var i = 0; i < mode.contains.length; i++) {
+        for (var j = 0; j < language.modes.length; j++) {
           if (language.modes[j].className == mode.contains[i]) {
             mode.sub_modes[mode.sub_modes.length] = language.modes[j];
           }
@@ -91,9 +91,9 @@ var hljs = new function() {
       }
       
       if (mode.contains)
-        for (var key in language.modes) {
-          if (contains(mode.contains, language.modes[key].className)) {
-            addTerminator(language.modes[key].begin);
+        for (var i = 0; i < language.modes.length; i++) {
+          if (contains(mode.contains, language.modes[i].className)) {
+            addTerminator(language.modes[i].begin);
           }
         }
       
@@ -134,6 +134,8 @@ var hljs = new function() {
     function keywordMatch(mode, match) {
       var match_str = language.case_insensitive ? match[0].toLowerCase() : match[0]
       for (var className in mode.keywordGroups) {
+        if (!mode.keywordGroups.hasOwnProperty(className))
+          continue;
         var value = mode.keywordGroups[className].hasOwnProperty(match_str);
         if (value)
           return [className, value];
@@ -317,6 +319,8 @@ var hljs = new function() {
       var max_relevance = 2;
       var relevance = 0;
       for (var key in selected_languages) {
+        if (!selected_languages.hasOwnProperty(key))
+          continue;
         var r = highlight(key, text);
         relevance = r.keyword_count + r.relevance;
         if (relevance > max_relevance) {
@@ -347,17 +351,19 @@ var hljs = new function() {
 
   function compileModes() {
     for (var i in LANGUAGES) {
+      if (!LANGUAGES.hasOwnProperty(i))
+        continue;
       var language = LANGUAGES[i];
-      for (var key in language.modes) {
-        if (language.modes[key].begin)
-          language.modes[key].beginRe = langRe(language, '^' + language.modes[key].begin);
-        if (language.modes[key].end)
-          language.modes[key].endRe = langRe(language, '^' + language.modes[key].end);
-        if (language.modes[key].illegal)
-          language.modes[key].illegalRe = langRe(language, '^(?:' + language.modes[key].illegal + ')');
+      for (var j = 0; j < language.modes.length; j++) {
+        if (language.modes[j].begin)
+          language.modes[j].beginRe = langRe(language, '^' + language.modes[j].begin);
+        if (language.modes[j].end)
+          language.modes[j].endRe = langRe(language, '^' + language.modes[j].end);
+        if (language.modes[j].illegal)
+          language.modes[j].illegalRe = langRe(language, '^(?:' + language.modes[j].illegal + ')');
         language.defaultMode.illegalRe = langRe(language, '^(?:' + language.defaultMode.illegal + ')');
-        if (language.modes[key].relevance == undefined) {
-          language.modes[key].relevance = 1;
+        if (language.modes[j].relevance == undefined) {
+          language.modes[j].relevance = 1;
         }
       }
     }
@@ -368,6 +374,8 @@ var hljs = new function() {
     function compileModeKeywords(mode) {
       if (!mode.keywordGroups) {
         for (var key in mode.keywords) {
+          if (!mode.keywords.hasOwnProperty(key))
+            continue;
           if (mode.keywords[key] instanceof Object)
             mode.keywordGroups = mode.keywords;
           else
@@ -378,10 +386,12 @@ var hljs = new function() {
     }
     
     for (var i in LANGUAGES) {
+      if (!LANGUAGES.hasOwnProperty(i))
+        continue;
       var language = LANGUAGES[i];
       compileModeKeywords(language.defaultMode);
-      for (var key in language.modes) {
-        compileModeKeywords(language.modes[key]);
+      for (var j = 0; j < language.modes.length; j++) {
+        compileModeKeywords(language.modes[j]);
       }
     }
   }
@@ -420,7 +430,7 @@ var hljs = new function() {
 
   function injectScripts(languages) {
     var scripts = document.getElementsByTagName('SCRIPT');
-    for (var i=0; i < scripts.length; i++) {
+    for (var i = 0; i < scripts.length; i++) {
       if (scripts[i].src.match(/highlight\.js(\?.+)?$/)) {
         var path = scripts[i].src.replace(/highlight\.js(\?.+)?$/, '');
         break;
@@ -430,7 +440,7 @@ var hljs = new function() {
       languages = DEFAULT_LANGUAGES;
     }
     var injected = {}
-    for (var i=0; i < languages.length; i++) {
+    for (var i = 0; i < languages.length; i++) {
       var filename = LANGUAGE_GROUPS[languages[i]] ? LANGUAGE_GROUPS[languages[i]] : languages[i];
       if (!injected[filename]) {
         document.write('<script type="text/javascript" src="' + path + 'languages/' + filename + '.js"></script>');
