@@ -70,7 +70,7 @@ hljs.HTML_ATTR = {
 };
 hljs.HTML_SHORT_ATTR = {
   className: 'attribute',
-  begin: ' [a-zA-Z]+', end: '^',
+  begin: ' [a-zA-Z]+', end: '^'
 };
 hljs.HTML_VALUE = {
   className: 'value',
