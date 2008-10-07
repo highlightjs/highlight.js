@@ -399,7 +399,7 @@ Axapta ("axapta"):
 
 ## Координаты
 
-Версия: 4.4
+Версия: 4.5
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
