@@ -316,13 +316,12 @@ var hljs = new function() {
     if (language) {
       var result = highlight(language, text).value;
     } else {
-      var max_relevance = 2;
-      var relevance = 0;
+      var max_relevance = 0;
       for (var key in selected_languages) {
         if (!selected_languages.hasOwnProperty(key))
           continue;
         var r = highlight(key, text);
-        relevance = r.keyword_count + r.relevance;
+        var relevance = r.keyword_count + r.relevance;
         if (relevance > max_relevance) {
           max_relevance = relevance;
           var result = r.value;
