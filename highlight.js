@@ -465,6 +465,7 @@ var hljs = new function() {
   this.ALL_LANGUAGES = ALL_LANGUAGES;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
   this.highlightBlock = highlightBlock;
+  this.initHighlighting = initHighlighting;
   
   // Common regexps
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
