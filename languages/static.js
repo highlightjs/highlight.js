@@ -139,7 +139,7 @@ hljs.LANGUAGES.delphi = {
     },
     {
       className: 'function',
-      begin: 'function', end: '[:;]',
+      begin: 'function\\b', end: '[:;]',
       lexems: [hljs.IDENT_RE],
       keywords: {'function': 1},
       contains: ['title', 'params', 'comment'],
@@ -147,7 +147,7 @@ hljs.LANGUAGES.delphi = {
     },
     {
       className: 'function',
-      begin: '(procedure|constructor|destructor)', end: ';',
+      begin: '(procedure|constructor|destructor)\\b', end: ';',
       lexems: [hljs.IDENT_RE],
       keywords: {'constructor': 1, 'destructor': 1, 'procedure': 1},
       contains: ['title', 'params', 'comment'],
@@ -166,7 +166,7 @@ hljs.LANGUAGES.delphi = {
     },
     {
       className: 'class',
-      begin: '=\\s*class', end: 'end;',
+      begin: '=\\bclass\\b', end: 'end;',
       lexems: [hljs.IDENT_RE],
       keywords: hljs.DELPHI_CLASS_KEYWORDS,
       contains: ['string', 'comment', 'function']
