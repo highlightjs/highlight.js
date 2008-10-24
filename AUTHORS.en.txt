@@ -25,3 +25,4 @@ Contributors:
 - Vah <vahtenberg@gmail.com>
 - Shuen-Huei Guan <drake.guan@gmail.com>
 - Jason Diamond <jason@diamond.name>
+- Michal Gabrukiewicz <mgabru@gmail.com>

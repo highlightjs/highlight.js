@@ -25,3 +25,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Vah <vahtenberg@gmail.com>
 - Шуэн-Хуэй Гуан <drake.guan@gmail.com>
 - Джейсон Даймонд <jason@diamond.name>
+- Михал Габрукевич <mgabru@gmail.com>
