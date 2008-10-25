@@ -40,7 +40,7 @@ hljs.LANGUAGES.lisp = {
     },
     {
       className: 'quoted',
-      begin: '\\\'\\(', end: '\\)',
+      begin: '[\'`]\\(', end: '\\)',
       contains: ['number', 'string', 'variable', 'keyword', 'quoted_list']
     },
     {
