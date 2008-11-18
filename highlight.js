@@ -4,26 +4,6 @@ http://softwaremaniacs.org/soft/highlight/
 */
 
 var hljs = new function() {
-
-  var DEFAULT_LANGUAGES = ['python', 'ruby', 'perl', 'php', 'css', 'xml', 'html', 'django', 'javascript', 'java', 'cpp', 'cs', 'sql', 'ini', 'diff'];
-  var ALL_LANGUAGES = (DEFAULT_LANGUAGES.join(',') + ',' + ['1c', 'axapta', 'delphi', 'rib', 'rsl', 'vbscript', 'profile', 'dos', 'bash', 'lisp', 'smalltalk', 'mel'].join(',')).split(',');
-  var LANGUAGE_GROUPS = {
-    'xml': 'www',
-    'html': 'www',
-    'css': 'www',
-    'django': 'www',
-    'python': 'dynamic',
-    'perl': 'dynamic',
-    'php': 'dynamic',
-    'ruby': 'dynamic',
-    'cpp': 'static',
-    'java': 'static',
-    'delphi': 'static',
-    'cs': 'static',
-    'rib': 'renderman',
-    'rsl': 'renderman'
-  }
-
   var LANGUAGES = {}
   var selected_languages = {};
   
@@ -159,7 +139,7 @@ var hljs = new function() {
       var match = mode.lexemsRe.exec(buffer);
       while (match) {
         result += escape(buffer.substr(last_index, match.index - last_index));
-        keyword_match = keywordMatch(mode, match);
+        var keyword_match = keywordMatch(mode, match);
         if (keyword_match) {
           keyword_count += keyword_match[1];
           result += '<span class="'+ keyword_match[0] +'">' + escape(match[0]) + '</span>';
@@ -331,13 +311,13 @@ var hljs = new function() {
     }
     
     if (result) {
-      var className = block.className;
-      if (!className.match(language)) {
-        className += ' ' + language;
+      var class_name = block.className;
+      if (!class_name.match(language)) {
+        class_name += ' ' + language;
       }
       // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
       var container = document.createElement('div');
-      container.innerHTML = '<pre><code class="' + className + '">' + result + '</code></pre>';
+      container.innerHTML = '<pre><code class="' + class_name + '">' + result + '</code></pre>';
       var environment = block.parentNode.parentNode;
       environment.replaceChild(container.firstChild, block.parentNode);
     }
@@ -427,30 +407,8 @@ var hljs = new function() {
     }
   }
 
-  function injectScripts(languages) {
-    var scripts = document.getElementsByTagName('SCRIPT');
-    for (var i = 0; i < scripts.length; i++) {
-      if (scripts[i].src.match(/highlight\.js(\?.+)?$/)) {
-        var path = scripts[i].src.replace(/highlight\.js(\?.+)?$/, '');
-        break;
-      }
-    }
-    if (languages.length == 0) {
-      languages = DEFAULT_LANGUAGES;
-    }
-    var injected = {}
-    for (var i = 0; i < languages.length; i++) {
-      var filename = LANGUAGE_GROUPS[languages[i]] ? LANGUAGE_GROUPS[languages[i]] : languages[i];
-      if (!injected[filename]) {
-        document.write('<script type="text/javascript" src="' + path + 'languages/' + filename + '.js"></script>');
-        injected[filename] = true;
-      }
-    }
-  }
-
   function initHighlightingOnLoad() {
     var original_arguments = arguments;
-    injectScripts(arguments);
     var handler = function(){initHighlighting.apply(null, original_arguments)};
     if (window.addEventListener) {
       window.addEventListener('DOMContentLoaded', handler, false);
@@ -462,7 +420,6 @@ var hljs = new function() {
   }
   
   this.LANGUAGES = LANGUAGES;
-  this.ALL_LANGUAGES = ALL_LANGUAGES;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;
