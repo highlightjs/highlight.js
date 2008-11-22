@@ -52,10 +52,8 @@ def pack_library(content):
         content = re.sub(r'\b%s\b' % r, v, content)
     return content
 
-def main():
-    path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-    build_path = os.path.join(path, 'build')
-    lang_path = os.path.join(path, 'languages')
+def pack(library_path, build_path):
+    lang_path = os.path.join(library_path, 'languages')
 
     if not os.path.exists(build_path):
         os.makedirs(build_path)
@@ -64,7 +62,7 @@ def main():
     languages = [l for l in languages if l.endswith('.js')]
 
     f = open(os.path.join(build_path, 'highlight.js'), 'w')
-    f.write(pack_library(open('highlight.js').read()))
+    f.write(pack_library(open(os.path.join(library_path, 'highlight.js')).read()))
     f.close()
     for language in languages:
         
@@ -73,4 +71,6 @@ def main():
         f.close()
 
 if __name__ == '__main__':
-    main()
+    path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    build_path = os.path.join(path, 'build')
+    pack(path, build_path)
