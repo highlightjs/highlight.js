@@ -51,17 +51,20 @@ def get_compressor(tools_path):
         return content
     return compress
 
+def replace(content, s, r):
+    return re.sub(r'(?<=[^\w"\'])%s(?=[^\w"\'])' % s, r, content)
+    
 def pack_language(content):
-    for r, v in REPLACES.items():
-        content = re.sub(r'\b%s\b' % r, v, content)
+    for s, r in REPLACES.items():
+        content = replace(content, s, r)
     return content
 
 def pack_library(content):
-    for r, v in REPLACES.items():
-        content = re.sub(r'\b%s\b' % r, v, content)
+    for s, r in REPLACES.items():
+        content = replace(content, s, r)
     content = re.sub(r'block\.cN', 'block.className', content)
-    for r, v in LIBRARY_REPLACES.items():
-        content = re.sub(r'\b%s\b' % r, v, content)
+    for s, r in LIBRARY_REPLACES.items():
+        content = replace(content, s, r)
     return content
 
 def build_file(filename, in_path, out_path, packer, compressor):
