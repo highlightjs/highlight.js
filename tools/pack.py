@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 import os
 import re
+import subprocess
 
 REPLACES = {
     'defaultMode': 'dM',
@@ -39,6 +40,17 @@ LIBRARY_REPLACES = {
     'terminators': 't',
 }
 
+def get_compressor(tools_path):
+    cmd = 'java -jar %s --type js' % os.path.join(tools_path, 'yuicompressor.jar')
+    def compress(content):
+        p = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+        p.stdin.write(content)
+        p.stdin.close()
+        content = p.stdout.read()
+        p.stdout.close()
+        return content
+    return compress
+
 def pack_language(content):
     for r, v in REPLACES.items():
         content = re.sub(r'\b%s\b' % r, v, content)
@@ -52,25 +64,30 @@ def pack_library(content):
         content = re.sub(r'\b%s\b' % r, v, content)
     return content
 
-def pack(library_path, build_path):
+def build_file(filename, in_path, out_path, packer, compressor):
+    print 'Building %s' % filename
+    content = open(os.path.join(in_path, filename)).read()
+    content = packer(content)
+    content = compressor(content)
+    f = open(os.path.join(out_path, filename), 'w')
+    f.write(content)
+    f.close()
+    
+def build(library_path, build_path, tools_path):
     lang_path = os.path.join(library_path, 'languages')
-
     if not os.path.exists(build_path):
         os.makedirs(build_path)
 
     languages = os.listdir(lang_path)
     languages = [l for l in languages if l.endswith('.js')]
 
-    f = open(os.path.join(build_path, 'highlight.js'), 'w')
-    f.write(pack_library(open(os.path.join(library_path, 'highlight.js')).read()))
-    f.close()
+    compressor = get_compressor(tools_path)
+    build_file('highlight.js', library_path, build_path, pack_library, compressor)
     for language in languages:
-        
-        f = open(os.path.join(build_path, language), 'w')
-        f.write(pack_language(open(os.path.join(lang_path, language)).read()))
-        f.close()
+        build_file(language, lang_path, build_path, pack_language, compressor)
 
 if __name__ == '__main__':
     path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     build_path = os.path.join(path, 'build')
-    pack(path, build_path)
+    tools_path = os.path.join(path, 'tools')
+    build(path, build_path, tools_path)
