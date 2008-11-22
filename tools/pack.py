@@ -5,6 +5,7 @@ import subprocess
 
 REPLACES = {
     'defaultMode': 'dM',
+    'case_insensitive': 'cI',
     'lexems': 'l',
     'contains': 'c',
     'keywords': 'k',
@@ -18,6 +19,7 @@ REPLACES = {
     'excludeEnd': 'eE',
     'returnBegin': 'rB',
     'returnEnd': 'rE',
+    'relevance': 'r',
     'IDENT_RE': 'IR',
     'UNDERSCORE_IDENT_RE': 'UIR',
     'NUMBER_RE': 'NR',

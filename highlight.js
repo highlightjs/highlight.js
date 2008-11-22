@@ -300,11 +300,11 @@ var hljs = new function() {
       for (var key in selected_languages) {
         if (!selected_languages.hasOwnProperty(key))
           continue;
-        var r = highlight(key, text);
-        var relevance = r.keyword_count + r.relevance;
+        var lang_result = highlight(key, text);
+        var relevance = lang_result.keyword_count + lang_result.relevance;
         if (relevance > max_relevance) {
           max_relevance = relevance;
-          var result = r.value;
+          var result = lang_result.value;
           language = key;
         }
       }
