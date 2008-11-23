@@ -1,4 +1,8 @@
 # -*- coding:utf-8 -*-
+'''
+Creates packed .js files for all source files (highlight.js and languages) in a 
+separate directory.
+'''
 import os
 import re
 import subprocess
