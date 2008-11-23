@@ -93,6 +93,7 @@ def build(library_path, build_path, tools_path):
 
 if __name__ == '__main__':
     path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    build_path = os.path.join(path, 'build')
+    library_path = os.path.join(path, 'src')
+    build_path = os.path.join(path, 'packed')
     tools_path = os.path.join(path, 'tools')
-    build(path, build_path, tools_path)
+    build(library_path, build_path, tools_path)
