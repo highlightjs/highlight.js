@@ -13,7 +13,7 @@ $components = explode('/', dirname(__FILE__));
 $l = sizeof($components);
 $script_path = get_settings('home') . '/' . $components[$l - 3] . '/' . $components[$l - 2] . '/' . $components[$l - 1];
 if (!get_option('hljs_script_path')) {
-  add_option('hljs_script_path', $script_path . '/highlight.js');
+  add_option('hljs_script_path', $script_path . '/highlight.pack.js');
 }
 if (!get_option('hljs_css_path')) {
   add_option('hljs_css_path', $script_path . '/styles/default.css');
