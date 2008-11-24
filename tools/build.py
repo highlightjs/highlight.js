@@ -7,20 +7,37 @@ pre-packed modules.
 import os
 import sys
 
-def build(packed_path, target_path, languages):
+ALIASES = {
+    'html': ['html-xml'],
+    'xml': ['html-xml'],
+    'css': ['html-xml', 'css'],
+    'django': ['html-xml', 'django'],
+}
+
+def language_files(packed_path):
     '''
-    packed_path -- path to pre-packed .js files including language files and highligh.js itself
-    target_path -- path where to put the final 'highlight.pack.js'
-    languages -- list of language names to include in the final package
+    Returns a list of all language .js files from packed_path.
     '''
-    ALIASES = {
-        'html': ['html-xml'],
-        'xml': ['html-xml'],
-        'css': ['html-xml', 'css'],
-        'django': ['html-xml', 'django'],
-    }
-    all_files = os.listdir(packed_path)
-    all_files = [l for l in all_files if l.endswith('.js') and not l.startswith('highlight.')]
+    files = os.listdir(packed_path)
+    files = [l for l in files if l.endswith('.js') and not l.startswith('highlight.')]
+    return files
+
+def language_names(packed_path):
+    '''
+    Returns a list of all available language names converting necessary filenames with ALIASES
+    '''
+    aliased_filenames = set()
+    for l in ALIASES.values():
+        aliased_filenames |= set(l)
+    aliased_languages = ALIASES.keys()
+    names = [os.path.splitext(f)[0] for f in language_files(packed_path)]
+    return [n for n in names if n not in aliased_filenames or n in aliased_languages]
+
+def build_content(packed_path, languages):
+    '''
+    Builds content of highlight.pack.js and returns it as a  string.
+    '''
+    all_files = language_files(packed_path)
     if languages is not None:
         selected_languages = []
         for l in languages:
@@ -30,10 +47,19 @@ def build(packed_path, target_path, languages):
         files = ['%s.js' % l for l in languages]
     else:
         files = all_files
+    contents = [open(os.path.join(packed_path, f)).read() for f in files]
+    contents.insert(0, open(os.path.join(packed_path, 'highlight.js')).read())
+    return ''.join(contents)
+    
+def build(packed_path, target_path, languages):
+    '''
+    Builds highlight.pack.js and puts it under target_path.
+    
+    packed_path -- path to pre-packed .js files including language files and highligh.js itself
+    languages -- list of language names to include in the final package.
+    '''
     f = open(os.path.join(target_path, 'highlight.pack.js'), 'w')
-    f.write(open(os.path.join(packed_path, 'highlight.js')).read())
-    for file in files:
-        f.write(open(os.path.join(packed_path, file)).read())
+    f.write(build_content(packed_path, languages))
     f.close()
 
 if __name__ == '__main__':
