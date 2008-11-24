@@ -362,7 +362,7 @@ p[lang=ru] {
       return;
   }//try
   var classes = block.className.split(/\s+/);
-  for (var i = 0; i &lt; classes.length; i++) {
+  for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp start
     if (LANGUAGES[classes[i]]) {
       highlightLanguage(block, classes[i]);
       return;
