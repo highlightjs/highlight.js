@@ -16,8 +16,7 @@ hljs.LANGUAGES.javascript = {
     hljs.BACKSLASH_ESCAPE,
     {
       className: 'regexp_container',
-      begin: '(!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~|case|return|throw)\\s*',
-      end: '^', noMarkup: true,
+      begin: '(' + hljs.RE_STARTERS_RE + '|case|return|throw)\\s*', end: '^', noMarkup: true,
       lexems: [hljs.IDENT_RE],
       keywords: {'return': 1, 'throw': 1, 'case': 1},
       contains: ['comment', 'regexp'],
