@@ -8,27 +8,25 @@ Autodetection can be fine tuned when it fails by itself (see "Heuristics").
 
 ## Installation and usage
 
+Downloaded package includes file "highlight.pack.js" which is a full compressed
+version of the library intended to use in production. All uncompressed source
+files are also available, feel free to look into them!
+
 The script is installed by linking to a single file and making a single
 initialization call:
 
-    <script type="text/javascript" src="highlight.js"></script>
+    <script type="text/javascript" src="highlight.pack.js"></script>
     <script type="text/javascript">
       hljs.initHighlightingOnLoad();
     </script>
 
-Autodetection can work a bit slow if it includes too many languages and code
-blocks are large. To speed up highlighting in this case you can pass to the
-initialization function only those languages that you actually use on your pages:
+Despite highlight.pack.js already includes only those languages that you need sometimes 
+you may want to further constrain a set of languages used on a page by listing them as
+parameters to initialization:
 
     <script type="text/javascript">
       hljs.initHighlightingOnLoad('html', 'css');
     </script>
-
-When called this way highlight.js will dynamically load appropriate language
-files and thus will also weigh less than with the default set that includes many
-popular languages. This explicit passing of languages is also required if you
-need a language that is not included in the default set (see DEFAULT_LANGUAGES
-in the file highlight.js).
 
 A full list of available classes is below ("Languages").
 
