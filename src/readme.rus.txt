@@ -396,7 +396,7 @@ Axapta ("axapta"):
 
 ## Координаты
 
-Версия: 4.5
+Версия: 5.0 бета
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
