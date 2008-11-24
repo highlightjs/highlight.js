@@ -35,8 +35,9 @@ def language_names(packed_path):
     aliased_filenames = set()
     for l in ALIASES.values():
         aliased_filenames |= set(l)
-    aliased_languages = ALIASES.keys()
+    aliased_languages = set(ALIASES.keys())
     names = [os.path.splitext(f)[0] for f in language_files(packed_path)]
+    names = set(names) | set(ALIASES.keys())
     return [n for n in names if n not in aliased_filenames or n in aliased_languages]
 
 def build_content(packed_path, languages):
