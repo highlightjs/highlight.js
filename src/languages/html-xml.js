@@ -46,7 +46,7 @@ hljs.LANGUAGES.xml = {
     },
     {
       className: 'tag_internal',
-      begin: '^', endsWithParent: true,
+      begin: '^', endsWithParent: true, noMarkup: true,
       contains: ['attribute'],
       relevance: 0,
       illegal: '[\\+\\.]'

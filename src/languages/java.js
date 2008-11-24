@@ -20,7 +20,7 @@ hljs.LANGUAGES.java  = {
     },
     {
       className: 'inheritance',
-      begin: '(implements|extends)', end: '^',
+      begin: '(implements|extends)', end: '^', noMarkup: true,
       lexems: [hljs.IDENT_RE],
       keywords: {'extends': 1, 'implements': 1},
       relevance: 10

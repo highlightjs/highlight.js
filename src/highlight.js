@@ -165,14 +165,15 @@ var hljs = new function() {
     }
     
     function startNewMode(mode, lexem) {
+      var markup = mode.noMarkup?'':'<span class="' + mode.className + '">';
       if (mode.returnBegin) {
-        result += '<span class="' + mode.className + '">';
+        result += markup;
         mode.buffer = '';
       } else if (mode.excludeBegin) {
-        result += escape(lexem) + '<span class="' + mode.className + '">';
+        result += escape(lexem) + markup;
         mode.buffer = '';
       } else {
-        result += '<span class="' + mode.className + '">';
+        result += markup;
         mode.buffer = lexem;
       }
       modes[modes.length] = mode;
@@ -195,15 +196,17 @@ var hljs = new function() {
       
       var end_level = endOfMode(modes.length - 1, lexem);
       if (end_level) {
+        var markup = current_mode.noMarkup?'':'</span>';
         if (current_mode.returnEnd) {
-          result += processBuffer(current_mode.buffer + buffer, current_mode) + '</span>';
+          result += processBuffer(current_mode.buffer + buffer, current_mode) + markup;
         } else if (current_mode.excludeEnd) {
-          result += processBuffer(current_mode.buffer + buffer, current_mode) + '</span>' + escape(lexem);
+          result += processBuffer(current_mode.buffer + buffer, current_mode) + markup + escape(lexem);
         } else {
-          result += processBuffer(current_mode.buffer + buffer + lexem, current_mode) + '</span>';
+          result += processBuffer(current_mode.buffer + buffer + lexem, current_mode) + markup;
         }
         while (end_level > 1) {
-          result += '</span>';
+          markup = modes[modes.length - 2].noMarkup?'':'</span>';
+          result += markup;
           end_level--;
           modes.length--;
         }
@@ -447,7 +450,7 @@ var hljs = new function() {
   };
   this.BACKSLASH_ESCAPE = {
     className: 'escape',
-    begin: '\\\\.', end: '^',
+    begin: '\\\\.', end: '^', noMarkup: true,
     relevance: 0
   };
   this.C_LINE_COMMENT_MODE = {

@@ -26,7 +26,7 @@ hljs.LANGUAGES.sql =
     },
     {
       className: 'squote',
-      begin: '\'\'', end: '^'
+      begin: '\'\'', end: '^', noMarkup: true
     },
     {
       className: 'string',
@@ -36,7 +36,7 @@ hljs.LANGUAGES.sql =
     },
     {
       className: 'dquote',
-      begin: '""', end: '^'
+      begin: '""', end: '^', noMarkup: true
     },
     {
       className: 'string',

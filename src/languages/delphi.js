@@ -37,7 +37,7 @@ hljs.LANGUAGES.delphi = function(){
       },
       {
         className: 'quote',
-        begin: '\'\'', end: '^'
+        begin: '\'\'', end: '^', noMarkup: true
       },
       {
         className: 'function',

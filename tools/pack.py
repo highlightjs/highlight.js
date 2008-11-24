@@ -23,6 +23,7 @@ REPLACES = {
     'excludeEnd': 'eE',
     'returnBegin': 'rB',
     'returnEnd': 'rE',
+    'noMarkup': 'nM',
     'relevance': 'r',
     'IDENT_RE': 'IR',
     'UNDERSCORE_IDENT_RE': 'UIR',
