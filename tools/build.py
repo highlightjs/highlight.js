@@ -14,6 +14,12 @@ ALIASES = {
     'django': ['html-xml', 'django'],
 }
 
+FILES_ORDER = {
+    'html-xml.js': 0,
+    'css.js': 1,
+    'django.js': 1,
+}
+
 def language_files(packed_path):
     '''
     Returns a list of all language .js files from packed_path.
@@ -47,6 +53,9 @@ def build_content(packed_path, languages):
         files = ['%s.js' % l for l in languages]
     else:
         files = all_files
+    ordered_files = [(FILES_ORDER.get(f, 0), f) for f in files]
+    ordered_files.sort()
+    files = [f for o, f in ordered_files]
     contents = [open(os.path.join(packed_path, f)).read() for f in files]
     contents.insert(0, open(os.path.join(packed_path, 'highlight.js')).read())
     return ''.join(contents)
