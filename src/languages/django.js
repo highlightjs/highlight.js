@@ -1,4 +1,7 @@
-/* requires html-xml.js */
+/*
+Language: Django
+Requires: html-xml.js
+*/
 
 hljs.LANGUAGES.django = {
   defaultMode: {

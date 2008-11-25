@@ -1,3 +1,7 @@
+/*
+Language: HTML, XML
+*/
+
 hljs.XML_COMMENT = {
   className: 'comment',
   begin: '<!--', end: '-->'

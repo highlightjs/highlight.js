@@ -1,8 +1,8 @@
 /*
-
-Axapta definition (с) Dmitri Roudakov <dmitri@roudakov.ru>
-
+Language: Axapta
+Author: Dmitri Roudakov <dmitri@roudakov.ru>
 */
+
 hljs.LANGUAGES.axapta  = {
   defaultMode: {
     lexems: [hljs.UNDERSCORE_IDENT_RE],

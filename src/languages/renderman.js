@@ -1,7 +1,7 @@
 /*
-
-RenderMan Languages (c) Konstantin Evdokimenko <qewerty@gmail.com>
-
+Language: RenderMan
+Description: RenderMan Languages RIB and RSL
+Author: Konstantin Evdokimenko <qewerty@gmail.com>
 */
 
 hljs.LANGUAGES.rib  = {

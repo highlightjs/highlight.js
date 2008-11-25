@@ -1,3 +1,7 @@
+/*
+Language: Javascript
+*/
+
 hljs.LANGUAGES.javascript = {
   defaultMode: {
     lexems: [hljs.UNDERSCORE_IDENT_RE],

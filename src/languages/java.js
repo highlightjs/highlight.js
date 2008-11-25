@@ -1,8 +1,8 @@
 /*
-
-Java definition (с) Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
-
+Language: Java
+Author: Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
 */
+
 hljs.LANGUAGES.java  = {
   defaultMode: {
     lexems: [hljs.UNDERSCORE_IDENT_RE],
@@ -13,7 +13,7 @@ hljs.LANGUAGES.java  = {
     {
       className: 'class',
       lexems: [hljs.UNDERSCORE_IDENT_RE],
-      begin: '(class |interface )', end: '{', 
+      begin: '(class |interface )', end: '{',
       illegal: ':',
       keywords: {'class': 1, 'interface': 1},
       contains: ['inheritance', 'title']

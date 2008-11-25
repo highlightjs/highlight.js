@@ -1,8 +1,8 @@
 /*
-
-Smalltalk definition (c) Vladimir Gubarkov <xonixx@gmail.com>
-
+Language: Smalltalk
+Author: Vladimir Gubarkov <xonixx@gmail.com>
 */
+
 hljs.LANGUAGES.smalltalk = function(){
   var VAR_IDENT_RE = '[a-z][a-zA-Z0-9_]*';
   return {

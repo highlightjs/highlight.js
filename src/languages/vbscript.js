@@ -1,12 +1,9 @@
 /*
-
-VBScript definition (c) Nikita Ledyaev <lenikita@yandex.ru>
-
-Contributors: 
-
-- Michal Gabrukiewicz <mgabru@gmail.com>
-
+Language: VBScript
+Author: Nikita Ledyaev <lenikita@yandex.ru>
+Contributors: Michal Gabrukiewicz <mgabru@gmail.com>
 */
+
 hljs.LANGUAGES.vbscript = {
   defaultMode: {
     lexems: [hljs.IDENT_RE],

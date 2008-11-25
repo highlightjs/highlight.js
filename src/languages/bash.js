@@ -1,8 +1,8 @@
 /*
-
-Bash Scripts by vah <vahtenberg@gmail.com>
-
+Language: Bash
+Author: vah <vahtenberg@gmail.com>
 */
+
 hljs.LANGUAGES.bash = function(){
   var BASH_LITERAL = {'true' : 1, 'false' : 1}
   return {
@@ -18,14 +18,14 @@ hljs.LANGUAGES.bash = function(){
     modes: [
       {
         className: 'shebang',
-        begin: '(#!\\/bin\\/bash)|(#!\\/bin\\/sh)', 
+        begin: '(#!\\/bin\\/bash)|(#!\\/bin\\/sh)',
         end: '^',
         relevance: 10
       },
       hljs.HASH_COMMENT_MODE,
       {
         className: 'test_condition',
-        begin: '\\[ ', 
+        begin: '\\[ ',
         end: ' \\]',
         contains: ['string', 'variable', 'number'],
         lexems: [hljs.IDENT_RE],
@@ -36,7 +36,7 @@ hljs.LANGUAGES.bash = function(){
       },
       {
         className: 'test_condition',
-        begin: '\\[\\[ ', 
+        begin: '\\[\\[ ',
         end: ' \\]\\]',
         contains: ['string', 'variable', 'number'],
         lexems: [hljs.IDENT_RE],
@@ -46,12 +46,12 @@ hljs.LANGUAGES.bash = function(){
       },
       {
         className: 'variable',
-        begin: '\\$([a-zA-Z0-9_]+)\\b', 
+        begin: '\\$([a-zA-Z0-9_]+)\\b',
         end: '^'
       },
       {
         className: 'variable',
-        begin: '\\$\\{(([^}])|(\\\\}))+\\}', 
+        begin: '\\$\\{(([^}])|(\\\\}))+\\}',
         end: '^',
         contains: ['number']
       },

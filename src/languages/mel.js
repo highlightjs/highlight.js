@@ -1,14 +1,15 @@
 /*
-
-Maya Embedded Language (c) Shuen-Huei Guan <drake.guan@gmail.com>
-
+Language: MEL
+Description: Maya Embedded Language
+Author: Shuen-Huei Guan <drake.guan@gmail.com>
 */
+
 hljs.LANGUAGES.mel = {
   defaultMode: {
     lexems: [hljs.UNDERSCORE_IDENT_RE],
     illegal: '</',
     contains: ['number', 'string', 'variable', 'comment'],
-    keywords: {'int': 1, 'float': 1, 'string': 1, 'float': 1, 'vector': 1, 'matrix': 1, 
+    keywords: {'int': 1, 'float': 1, 'string': 1, 'float': 1, 'vector': 1, 'matrix': 1,
     'if': 1, 'else': 1, 'switch': 1, 'case': 1, 'default': 1, 'while': 1, 'do': 1, 'for': 1, 'in': 1, 'break': 1, 'continue': 1,
     'exists': 1, 'objExists': 1, 'attributeExists': 1,
     'global': 1, 'proc': 1, 'return': 1,

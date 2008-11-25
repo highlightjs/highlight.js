@@ -1,8 +1,9 @@
 /*
-
-Unified and context diff definition (c) Vasily Polovnyov <vast@whiteants.net>
-
+Language: diff
+Description: Unified and context diff
+Author: Vasily Polovnyov <vast@whiteants.net>
 */
+
 hljs.LANGUAGES.diff = {
   case_insensitive: true,
   defaultMode: {

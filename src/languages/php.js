@@ -1,8 +1,8 @@
 /*
-
-PHP5 definition (с) Victor Karamzin <Victor.Karamzin@enterra-inc.com>
-
+Language: PHP
+Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 */
+
 hljs.LANGUAGES.php = {
   defaultMode: {
     lexems: [hljs.IDENT_RE],

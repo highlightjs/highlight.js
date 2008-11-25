@@ -6,78 +6,73 @@ pre-packed modules.
 
 import os
 import sys
+import re
 
-ALIASES = {
-    'html': ['html-xml'],
-    'xml': ['html-xml'],
-    'css': ['html-xml', 'css'],
-    'django': ['html-xml', 'django'],
-}
-
-FILES_ORDER = {
-    'html-xml.js': 0,
-    'css.js': 1,
-    'django.js': 1,
-}
-
-def language_files(packed_path):
+def parse_header(src_path, filename):
     '''
-    Returns a list of all language .js files from packed_path.
+    Parses possible language description header from a file. If a header is found returns it
+    returned as dict, otherwise returns None.
     '''
-    files = os.listdir(packed_path)
-    files = [l for l in files if l.endswith('.js') and not l.startswith('highlight.')]
-    return files
+    content = open(os.path.join(src_path, 'languages', filename)).read()
+    match = re.search(r'^\s*/\*(.*?)\*/', content, re.S)
+    if not match:
+        return
+    headers = match.group(1).split('\n')
+    headers = [h.strip().split(': ') for h in headers if ': ' in h]
+    result = dict(headers)
+    return result if 'Language' in result else None
 
-def language_names(packed_path):
+def language_infos(src_path):
     '''
-    Returns a list of all available language names converting necessary filenames with ALIASES
+    Returns pairs (header_info, filename) for all language files from src_path/languages.
     '''
-    aliased_filenames = set()
-    for l in ALIASES.values():
-        aliased_filenames |= set(l)
-    aliased_languages = set(ALIASES.keys())
-    names = [os.path.splitext(f)[0] for f in language_files(packed_path)]
-    names = set(names) | set(ALIASES.keys())
-    return [n for n in names if n not in aliased_filenames or n in aliased_languages]
+    files = os.listdir(os.path.join(src_path, 'languages'))
+    files = [f for f in files if f.endswith('.js')]
+    result = [(parse_header(src_path, f), f) for f in files]
+    return [(i, f) for i, f in result if i]
 
-def build_content(packed_path, languages):
+def build_content(src_path, packed_path, filenames):
     '''
     Builds content of highlight.pack.js and returns it as a  string.
     '''
-    all_files = language_files(packed_path)
-    if languages is not None:
-        selected_languages = []
-        for l in languages:
-            selected_languages += ALIASES.get(l, [l])
-        all_languages = set(os.path.splitext(l)[0] for l in all_files)
-        languages = all_languages & set(selected_languages)
-        files = ['%s.js' % l for l in languages]
-    else:
-        files = all_files
-    ordered_files = [(FILES_ORDER.get(f, 0), f) for f in files]
-    ordered_files.sort()
-    files = [f for o, f in ordered_files]
+    infos = language_infos(src_path)
+    if filenames is not None:
+        infos = [(i, f) for i, f in infos if f in filenames]
+
+    def append(filename):
+        if filename not in files:
+            files.append(filename)
+
+    files = []
+    for info, filename in infos:
+        if 'Requires' in info:
+            requires = [r.strip() for r in info['Requires'].split(',')]
+            for r in requires:
+                append(r)
+        append(filename)
     contents = [open(os.path.join(packed_path, f)).read() for f in files]
     contents.insert(0, open(os.path.join(packed_path, 'highlight.js')).read())
     return ''.join(contents)
-    
-def build(packed_path, target_path, languages):
+
+def build(src_path, packed_path, target_path, filenames):
     '''
     Builds highlight.pack.js and puts it under target_path.
-    
+
+    src_path -- path to the root of highlight.js source files
     packed_path -- path to pre-packed .js files including language files and highligh.js itself
-    languages -- list of language names to include in the final package.
+    languages -- list of language files to include in the final package.
     '''
     f = open(os.path.join(target_path, 'highlight.pack.js'), 'w')
-    f.write(build_content(packed_path, languages))
+    f.write(build_content(src_path, packed_path, filenames))
     f.close()
 
 if __name__ == '__main__':
     path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     packed_path = os.path.join(path, 'packed')
-    target_path = os.path.join(path, 'src')
+    src_path = os.path.join(path, 'src')
+    target_path = src_path
     if len(sys.argv) > 1:
         languages = sys.argv[1:]
     else:
         languages = None
-    build(packed_path, target_path, languages)
+    build(src_path, packed_path, target_path, languages)

@@ -1,8 +1,8 @@
 /*
-
-C# definition (с) Jason Diamond <jason@diamond.name>
-
+Language: C#
+AUthor: Jason Diamond <jason@diamond.name>
 */
+
 hljs.LANGUAGES.cs  = {
   defaultMode: {
     lexems: [hljs.UNDERSCORE_IDENT_RE],

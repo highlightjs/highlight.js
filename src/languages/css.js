@@ -1,4 +1,7 @@
-/* requires html-xml.js */
+/*
+Language: CSS
+Requires:  html-xml.js
+*/
 
 hljs.LANGUAGES.css = {
   defaultMode: {

@@ -1,6 +1,8 @@
 /*
-DOS definition. Alexander Makarov (http://rmcreative.ru/)
+Language: DOS .bat
+Author: Alexander Makarov (http://rmcreative.ru/)
 */
+
 hljs.LANGUAGES.dos = {
   case_insensitive: true,
   defaultMode: {

@@ -1,3 +1,7 @@
+/*
+Language: SQL
+*/
+
 hljs.LANGUAGES.sql =
 {
   case_insensitive: true,

@@ -1,8 +1,9 @@
 /*
-
-Python profiler results (c) Brian Beck <exogen@gmail.com>
-
+Language: Python profile
+Description: Python profiler results
+Author: Brian Beck <exogen@gmail.com>
 */
+
 hljs.LANGUAGES.profile = {
   defaultMode: {
     lexems: [hljs.UNDERSCORE_IDENT_RE],

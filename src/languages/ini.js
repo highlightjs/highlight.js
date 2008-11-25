@@ -1,3 +1,7 @@
+/*
+Language: Ini
+*/
+
 hljs.LANGUAGES.ini =
 {
   case_insensitive: true,

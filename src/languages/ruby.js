@@ -1,8 +1,9 @@
 /*
-
-Ruby definition (с) Anton Kovalyov <anton@kovalyov.net>, Peter Leonov <gojpeg@yandex.ru>
-
+Language: Ruby
+Author: Anton Kovalyov <anton@kovalyov.net>
+Contributors: Peter Leonov <gojpeg@yandex.ru>
 */
+
 hljs.LANGUAGES.ruby = function(){
   var RUBY_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*(\\!|\\?)?';
   var RUBY_DEFAULT_CONTAINS = ['comment', 'string', 'char', 'class', 'function', 'symbol', 'number', 'variable', 'regexp_container']
