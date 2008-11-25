@@ -44,12 +44,12 @@ hljs.LANGUAGES.python = {
     hljs.C_NUMBER_MODE,
     {
       className: 'string',
-      begin: '\'\'\'', end: '\'\'\'',
+      begin: 'u?r?\'\'\'', end: '\'\'\'',
       relevance: 10
     },
     {
       className: 'string',
-      begin: '"""', end: '"""',
+      begin: 'u?r?"""', end: '"""',
       relevance: 10
     },
     hljs.APOS_STRING_MODE,
@@ -57,32 +57,14 @@ hljs.LANGUAGES.python = {
     hljs.BACKSLASH_ESCAPE,
     {
       className: 'string',
-      begin: 'r\'', end: '\'',
+      begin: '(u|r|ur)\'', end: '\'',
+      contains: ['escape'],
       relevance: 10
     },
     {
       className: 'string',
-      begin: 'r"', end: '"',
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: 'u\'', end: '(^|[^\\\\])\'',
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: 'u"', end: '(^|[^\\\\])"',
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: 'ur\'', end: '\'',
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: 'ur"', end: '"',
+      begin: '(u|r|ur)"', end: '"',
+      contains: ['escape'],
       relevance: 10
     },
     {
