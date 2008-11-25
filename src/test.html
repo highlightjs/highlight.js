@@ -2,7 +2,7 @@
 <head>
   <title>Highlight</title>
   <meta charset="utf-8">
-  
+
   <link rel="stylesheet" title="Default" href="styles/default.css">
   <link rel="alternate stylesheet" title="Dark" href="styles/dark.css">
   <link rel="alternate stylesheet" title="FAR" href="styles/far.css">
@@ -35,7 +35,7 @@
       margin: 0 0 0 -0.5em;
     }
     ul#switch li {
-      border-bottom: 1px dashed blue; 
+      border-bottom: 1px dashed blue;
       display: inline;
       padding: 0;
       margin: 0.5em;
@@ -46,7 +46,7 @@
       cursor: default;
     }
   </style>
-  
+
   <script src="highlight.js"></script>
   <script src="languages/cs.js"></script>
   <script src="languages/python.js"></script>
@@ -74,7 +74,7 @@
   <script src="languages/php.js"></script>
   <script src="languages/diff.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  
+
   <script>
   // A stylesheet switcher for the test page. Not part of the highlight.js itself
   // (c) Vladimir Epifanov <voldmar@voldmar.ru>
@@ -163,7 +163,7 @@ def somefunc(param1, param2):
     print 'Gre\'ater'
     print ''
   return (param2 - param1 + 1) or None
-  
+
 class SomeClass:<br>    pass
 </code></pre>
 
@@ -207,7 +207,7 @@ end
 <pre><code># loads object
 sub load
 {
-  my $flds = $c-&gt;db_load($id,@_) || do { 
+  my $flds = $c-&gt;db_load($id,@_) || do {
     Carp::carp "Can`t load (class: $c, id: $id): '$!'"; return undef
   };
   my $o = $c-&gt;_perl_new();
@@ -260,7 +260,7 @@ abstract class Zend_Uri
       $scheme = strtolower($uri[0]);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
 
-      // Security check: $scheme is used to load a class file, 
+      // Security check: $scheme is used to load a class file,
       // so only alphanumerics are allowed.
       if (!ctype_alnum($scheme)) {
           throw new Zend_Uri_Exception('Illegal scheme');
@@ -276,8 +276,8 @@ abstract class Zend_Uri
 &lt;response value="ok" xml:lang="en"&gt;
   &lt;text&gt;Ok&lt;/text&gt;
   &lt;comment/&gt;
-  &lt;ns:description&gt;&lt;![CDATA[ 
-  CDATA is &lt;not&gt; magical. 
+  &lt;ns:description&gt;&lt;![CDATA[
+  CDATA is &lt;not&gt; magical.
   ]]&gt;&lt;/ns:description&gt;
 &lt;/response&gt;
 </code></pre>
@@ -287,13 +287,13 @@ abstract class Zend_Uri
     <td>
 <pre><code>&lt;head&gt;
   &lt;title&gt;Title&lt;/title&gt;
-  
+
   &lt;style&gt;
     body {
       width: 500px;
     }
   &lt;/style&gt;
-  
+
   &lt;script&gt;
     function someFunction() {
       return true;
@@ -320,7 +320,7 @@ abstract class Zend_Uri
   &lt;td&gt;{{ article|default:"Hi... "|escape }}&lt;/td&gt;
   &lt;td&gt;{{ article.date|date:"d.m.Y" }}&lt;/td&gt;
 &lt;/tr&gt;
-  
+
 {% endfor %}
 {% endif %}
 
@@ -333,7 +333,7 @@ multiline.
   <tr>
     <th>CSS
     <td>
-<pre><code>body, 
+<pre><code>body,
 html {
   font: Tahoma, Arial, san-serif;
   background: url('hatch.png');
@@ -350,7 +350,7 @@ p[lang=ru] {
 </code></pre>
 
   <tr>
-    <th>Javascript 
+    <th>Javascript
     <td>
 <pre><code>function $initHighlight(block) {
   if (block.className.search(/\bno\-highlight\b/) != -1)
@@ -382,7 +382,7 @@ for i = 0 to ubound(ini_strings)
     s = trim(ini_strings(i))
 
     ' skipping empty strings and comments
-    if mid(s, 1, 1) &lt;&gt; "#" and len(s) > 0 then 
+    if mid(s, 1, 1) &lt;&gt; "#" and len(s) > 0 then
       ' obtaining key and value
       parts = split(s, "=", -1, 1)
 
@@ -407,7 +407,7 @@ next</code></pre>
   <tr>
     <th>Delphi
     <td>
-<pre><code>TList=Class(TObject) 
+<pre><code>TList=Class(TObject)
 Private
   Some: String;
 Public
@@ -493,12 +493,12 @@ public abstract class L2Character extends L2Object
 <pre><code>#include &lt;iostream&gt;
 
 int main(int argc, char *argv[]) {
-  
+
   /* An annoying "Hello World" example */
   for (unsigned i = 0; i &lt; 0xFFFF; i++)
     cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
-  
-  char c = '\n'; // just a test 
+
+  char c = '\n'; // just a test
   map &lt;string, vector&lt;string&gt; &gt; m;
   m["key"] = "\\\\"; // yaeh, I know it's an error
 }
@@ -544,7 +544,7 @@ lines!";
 surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
                  color specularcolor = 1;) {
 	normal Nf = faceforward (normalize(N),I);
-	Ci = Cs * (Ka*ambient() + Kd*diffuse(Nf)) + specularcolor * Ks * 
+	Ci = Cs * (Ka*ambient() + Kd*diffuse(Nf)) + specularcolor * Ks *
        specular(Nf,-normalize(I),roughness);
 	Oi = Os;
 	Ci *= Oi;
@@ -594,7 +594,7 @@ FrameEnd
   for ( $shape in $select )
   {
     // Determine if this is a light.
-    // 
+    //
     string $class[] = getClassification( `nodeType $shape` );
 
 
@@ -604,7 +604,7 @@ FrameEnd
     }
   }
 
-  // Result is an array of all lights included in 
+  // Result is an array of all lights included in
 
   // current selection list.
   return $selectedLights;
@@ -621,16 +621,16 @@ CREATE TABLE "cicero_topic" (
     "subject" varchar(255) NOT NULL,
     "created" timestamp with time zone NOT NULL
 );
-ALTER TABLE "cicero_topic" 
-ADD CONSTRAINT forum_id_refs_id_4be56999 
-FOREIGN KEY ("forum_id") 
-REFERENCES "cicero_forum" ("id") 
+ALTER TABLE "cicero_topic"
+ADD CONSTRAINT forum_id_refs_id_4be56999
+FOREIGN KEY ("forum_id")
+REFERENCES "cicero_forum" ("id")
 DEFERRABLE INITIALLY DEFERRED;
 
 -- Initials
-insert into "cicero_forum" 
-  ("slug", "name", "group", "ordering") 
-values 
+insert into "cicero_forum"
+  ("slug", "name", "group", "ordering")
+values
   ('test', 'Forum for te''sting', 'Test', 0);
 
 -- Test
@@ -795,18 +795,18 @@ BE_VERBOSE=false
 ###### END CONFIG
 
 if [ "$UID" -ne 0 ]
-then 
+then
  echo "Superuser rights is required"
  exit 2
 fi
 
 genApacheConf(){
  if [[ "$2" = "www" ]]
- then 
+ then
   full_domain=$1
  else
   full_domain=$2.$1
- fi 
+ fi
  host_root="${APACHE_HOME_DIR}$1/$2"
  echo -e "# Host $1/$2 :"
 }
@@ -864,7 +864,7 @@ public boolean unpack(container packedClass) {
 #КонецЕсли
 
 // Процедура ПриНачалеРаботыСистемы
-// 
+//
 Процедура ПриНачалеРаботыСистемы()
   Обработки.Помощник.ПолучитьФорму("Форма").Открыть();
 КонецПроцедуры
