@@ -5,7 +5,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 */
 
 pre code {
-    font: 12px / 1.3em 'Lucida Console', 'courier new', monospace;
+    font: 1em / 1.3em 'Lucida Console', 'courier new', monospace;
     color: #f8f8f8;
 }
 
