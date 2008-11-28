@@ -32,7 +32,7 @@ hljs.LANGUAGES.javascript = {
     },
     {
       className: 'function',
-      begin: 'function\\b', end: '{',
+      begin: '\\bfunction\\b', end: '{',
       lexems: [hljs.UNDERSCORE_IDENT_RE],
       keywords: {'function': 1},
       contains: ['title', 'params']
