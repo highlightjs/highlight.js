@@ -3,7 +3,7 @@
 Plugin Name: highlight.js
 Plugin URI: http://softwaremaniacs.org/soft/highlight/
 Description: Syntax highlighting with language autodetection
-Version: 5.0 beta
+Version: 5.0
 Author: Ivan Sagalaev
 Author URI: http://softwaremaniacs.org/about/
 */
@@ -32,7 +32,7 @@ function init_highlighting_on_load() {
   ?>
 <script type="text/javascript" src="<?php echo get_option('hljs_script_path');?>"></script>
 <script type="text/javascript">hljs.initHighlightingOnLoad(<?php echo $languages_str; ?>);</script>
-<?php 
+<?php
   $css_path = get_option('hljs_css_path');
   if ($css_path) {?>
 <link rel="stylesheet" href="<?php echo $css_path ?>" />
@@ -66,30 +66,30 @@ function hljs_subpanel() {
 <div class="wrap">
   <form method="post">
     <h2>highlight.js options</h2>
-    
+
     <div>
       <p><label for="id_hljs_languages">Highlight Languages:</label> <input type="text" name="hljs_languages" id="id_hljs_languages" value="<?php echo get_option('hljs_languages'); ?>" /></p>
       <p><small>List here languages that you want to highlight on your blog like this: php, html, css. Empty string means "all known languages". For the list
       of supported languages refer to <a href="http://softwaremaniacs.org/soft/highlight/">highlight.js homepage</a>.</small></p>
     </div>
-      
+
     <div>
       <p><label for="id_hljs_script_path">Path to highlight.js:</label> <input type="text" name="hljs_script_path" id="id_hljs_script_path" value="<?php echo get_option('hljs_script_path'); ?>" /></p>
       <p><small>Let's you place the script in a convenient place</small></p>
     </div>
-    
+
     <div>
       <p><label for="id_hljs_css_path">Path to CSS (if any):</label> <input type="text" name="hljs_css_path" id="id_hljs_css_path" value="<?php echo get_option('hljs_css_path'); ?>" /></p>
       <p><small>You can choose one of the bundled style files or leave it empty</small></p>
     </div>
-    
+
     <div>
       <p><label for="id_hljs_css">Custom CSS:</label></p>
       <p><textarea name="hljs_css" id="id_hljs_css" rows="20" cols="70"><?php echo get_option('hljs_css'); ?></textarea></p>
       <p><small>Normally styling of code snippets goes into site's main CSS files. But you can
       write it here if you can't access site's CSS or just like it this way.</small></p>
     </div>
-    
+
     <div class="submit">
       <input type="submit" name="info_update" value="Update options »" />
     </div>
