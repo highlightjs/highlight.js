@@ -62,6 +62,7 @@ pre code,
   color: #080;
 }
 
+.label,
 .javadoc,
 .ruby .string,
 .decorator,
@@ -84,6 +85,7 @@ pre code,
 .vbscript .built_in,
 .rsl .built_in,
 .cpp .built_in,
+.avrasm .built_in,
 .aggregate,
 .smalltalk .class,
 .winutils,
