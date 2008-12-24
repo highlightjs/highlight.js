@@ -370,6 +370,17 @@ Axapta ("axapta"):
   params           everything in parentheses inside a function header
   preprocessor     preprocessor directive
 
+AVR assembler ("avrasm"):
+
+  keyword          keyword
+  built_in         pre-defined register
+  number           number
+  string           string
+  comment          commment
+  label            label
+  preprocessor     preprocessor directive
+  localvars        substitution in .macro
+
 ## Heuristics
 
 Autodetection of a code's language is done with a simple heuristics:

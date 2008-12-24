@@ -375,6 +375,17 @@ Axapta ("axapta"):
   params           все, что в скобках внутри заголовка функции
   preprocessor     директива препроцессора
 
+AVR ассемблер ("avrasm"):
+
+  keyword          ключевое слово языка
+  built_in         предопределенный регистр
+  number           число
+  string           строка
+  comment          комментарий
+  label            метка
+  preprocessor     директива препроцессора
+  localvars        подстановка в .macro
+
 
 ## Эвристика
 
