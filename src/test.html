@@ -78,6 +78,7 @@
   <script src="languages/javascript.js"></script>
   <script src="languages/php.js"></script>
   <script src="languages/diff.js"></script>
+  <script src="languages/avrasm.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
   <script>
@@ -873,6 +874,30 @@ public boolean unpack(container packedClass) {
 Процедура ПриНачалеРаботыСистемы()
   Обработки.Помощник.ПолучитьФорму("Форма").Открыть();
 КонецПроцедуры
+</code></pre>
+
+  <tr>
+    <th>AVR Assembler
+    <td>
+<pre><code>;* Title:       Block Copy Routines
+;* Version:     1.1
+
+.include "8515def.inc"
+
+    rjmp    RESET   ;reset handle
+
+.def    flashsize=r16       ;size of block to be copied
+
+flash2ram:
+    lpm         ;get constant
+    st  Y+,r0       ;store in SRAM and increment Y-pointer
+    adiw    ZL,1        ;increment Z-pointer
+    dec flashsize
+    brne    flash2ram   ;if not end of table, loop more
+    ret
+
+.def    ramtemp =r1     ;temporary storage register
+.def    ramsize =r16        ;size of block to be copied
 </code></pre>
 </table>
 
