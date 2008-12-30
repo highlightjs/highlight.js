@@ -1,6 +1,6 @@
 /*
 Language: C#
-AUthor: Jason Diamond <jason@diamond.name>
+Author: Jason Diamond <jason@diamond.name>
 */
 
 hljs.LANGUAGES.cs  = {
