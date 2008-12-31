@@ -7,7 +7,8 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .annotation,
 .template_comment,
 .diff .header,
-.chunk {
+.chunk,
+.apache .cbracket {
     color: rgb(0, 128, 0);
 }
 
@@ -25,7 +26,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 }
 
 .string,
-.title, 
+.title,
 .parent,
 .tag .attribute .value,
 .rules .value,
@@ -37,7 +38,8 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .django .variable,
 .addition,
 .flow,
-.stream {
+.stream,
+.apache .tag {
     color: rgb(163, 21, 21);
 }
 
@@ -53,7 +55,8 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .envvar,
 .shebang,
 .preprocessor,
-.userType {
+.userType,
+.apache .sqbracket {
     color: rgb(43, 145, 175);
 }
 

@@ -26,3 +26,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Шуэн-Хуэй Гуан <drake.guan@gmail.com>
 - Джейсон Даймонд <jason@diamond.name>
 - Михал Габрукевич <mgabru@gmail.com>
+- Руслан Кеба <rukeba@gmail.com>

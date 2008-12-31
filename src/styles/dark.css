@@ -27,14 +27,14 @@ pre code {
   color: white;
 }
 
-pre code, 
+pre code,
 .ruby .subst {
   color: #DDD;
 }
 
 .string,
 .function .title,
-.class .title, 
+.class .title,
 .ini .title,
 .tag .attribute .value,
 .css .rules .value,
@@ -55,7 +55,9 @@ pre code,
 .css .attr_selector,
 .addition,
 .stream,
-.envvar {
+.envvar,
+.apache .tag,
+.apache .cbracket {
   color: #D88;
 }
 
@@ -66,12 +68,13 @@ pre code,
 .pi,
 .doctype,
 .deletion,
-.shebang {
+.shebang,
+.apache .sqbracket {
   color: #777;
 }
 
 .keyword,
-.literal, 
+.literal,
 .css .id,
 .phpdoc,
 .function .title,
@@ -85,7 +88,8 @@ pre code,
 .chunk,
 .winutils,
 .bash .variable,
-.lisp .title {
+.lisp .title,
+.apache .tag {
   font-weight: bold;
 }
 

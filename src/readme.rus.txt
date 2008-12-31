@@ -326,6 +326,16 @@ Ini ("ini"):
   number           число
   keyword          ключевое слово булевского значения
 
+Apache ("apache"):
+
+  keyword          ключевое слово
+  number           число
+  comment          комментарий
+  literal          "On" и "Off"
+  sqbracket        переменная в rewrite'ах "%{..}"
+  cbracket         опции в rewrite'ах "[..]"
+  tag              начало и конец раздела конфига
+
 DOS ("dos"):
 
   keyword          ключевое слово

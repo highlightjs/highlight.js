@@ -18,7 +18,7 @@ pre code {
   background: #F0F0F0;
 }
 
-pre code, 
+pre code,
 .ruby .subst,
 .xml .title,
 .lisp .title {
@@ -26,7 +26,7 @@ pre code,
 }
 
 .string,
-.title, 
+.title,
 .parent,
 .tag .attribute .value,
 .rules .value,
@@ -41,7 +41,9 @@ pre code,
 .addition,
 .flow,
 .stream,
-.bash .variable {
+.bash .variable,
+.apache .tag,
+.apache .cbracket {
   color: #800;
 }
 
@@ -74,7 +76,8 @@ pre code,
 .doctype,
 .deletion,
 .envvar,
-.shebang {
+.shebang,
+.apache .sqbracket {
   color: #88F;
 }
 
@@ -89,7 +92,8 @@ pre code,
 .aggregate,
 .smalltalk .class,
 .winutils,
-.bash .variable {
+.bash .variable,
+.apache .tag {
   font-weight: bold;
 }
 

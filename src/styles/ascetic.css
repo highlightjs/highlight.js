@@ -14,17 +14,20 @@ pre code {
 .attribute .value,
 .filter .argument,
 .addition,
-.change {
+.change,
+.apache .tag,
+.apache .cbracket {
   color: #888;
 }
 
-.comment, 
+.comment,
 .template_comment,
 .shebang,
 .doctype,
 .pi,
 .javadoc,
-.deletion {
+.deletion,
+.apache .sqbracket {
   color: #CCC;
 }
 
@@ -33,6 +36,7 @@ pre code {
 .ini .title,
 .winutils,
 .flow,
-.lisp .title {
+.lisp .title,
+.apache .tag {
   font-weight: bold;
 }

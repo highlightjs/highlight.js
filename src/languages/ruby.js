@@ -154,6 +154,7 @@ hljs.LANGUAGES.ruby = function(){
       {
         className: 'regexp',
         begin: '/', end: '/[a-z]*',
+        illegal: '\\n',
         contains: ['escape']
       },
       {

@@ -18,7 +18,7 @@ pre code {
   background: #000080;
 }
 
-pre code, 
+pre code,
 .ruby .subst {
   color: #0FF;
 }
@@ -26,7 +26,7 @@ pre code,
 .string,
 .ruby .string,
 .function .title,
-.class .title, 
+.class .title,
 .ini .title,
 .tag .attribute .value,
 .css .rules .value,
@@ -38,10 +38,25 @@ pre code,
 .django .template_tag,
 .django .variable,
 .smalltalk .class,
-.addition {
+.addition,
+.apache .tag,
+.apache .cbracket {
   color: #FF0;
 }
 
+.keyword,
+.css .id,
+.function .title,
+.class .title,
+.ini .title,
+.vbscript .built_in,
+.sql .aggregate,
+.rsl .built_in,
+.smalltalk .class,
+.xml .tag .title,
+.winutils,
+.flow,
+.lisp .title,
 .change,
 .envvar,
 .bash .variable {
@@ -53,7 +68,8 @@ pre code,
 .javadoc,
 .java .annotation,
 .template_comment,
-.deletion {
+.deletion,
+.apache .sqbracket {
   color: #888;
 }
 
@@ -89,7 +105,7 @@ pre code,
 .xml .tag .title,
 .winutils,
 .flow,
-.lisp .title {
-  color: #FFF;
+.lisp .title,
+.apache .tag {
   font-weight: bold;
 }

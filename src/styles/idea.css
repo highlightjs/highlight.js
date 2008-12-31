@@ -20,7 +20,7 @@ pre code {
     font-style: italic;
 }
 
-.annotation, .decorator, .preprocessor, .doctype, .pi, .chunk, .shebang {
+.annotation, .decorator, .preprocessor, .doctype, .pi, .chunk, .shebang, .apache .cbracket {
     color: #808000;
 }
 
@@ -42,7 +42,7 @@ pre code {
     font-weight: normal;
 }
 
-.string, .value, .filter .argument, .css .function .params {
+.string, .value, .filter .argument, .css .function .params, .apache .tag {
     color: #008000;
     font-weight: bold;
 }
@@ -57,7 +57,7 @@ pre code {
     text-decoration: underline;
 }
 
-.variable, .envvar {
+.variable, .envvar, .apache .sqbracket {
     color: #660e7a;
 }
 

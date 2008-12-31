@@ -2,12 +2,12 @@ Syntax highlighting with language autodetection.
 
 URL:   http://softwaremaniacs.org/soft/highlight/en/
 
-Original author and current maintainer: 
+Original author and current maintainer:
 Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 
 Contributors:
 
-- Peter Leonov <gojpeg@gmail.com> 
+- Peter Leonov <gojpeg@gmail.com>
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
 - Anton Kovalyov <anton@kovalyov.net>
@@ -26,3 +26,4 @@ Contributors:
 - Shuen-Huei Guan <drake.guan@gmail.com>
 - Jason Diamond <jason@diamond.name>
 - Michal Gabrukiewicz <mgabru@gmail.com>
+- Ruslan Keba <rukeba@gmail.com>

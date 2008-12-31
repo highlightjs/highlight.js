@@ -42,7 +42,8 @@ pre code {
 
 .dos .envvar,
 .dos .stream,
-.variable {
+.variable,
+.apache .sqbracket {
   color: #EFDCBC;
 }
 
@@ -61,11 +62,12 @@ pre code {
 
 .dos .keyword,
 .python .decorator,
-.class .title, 
+.class .title,
 .function .title,
 .ini .title,
 .diff .header,
-.ruby .class .parent {
+.ruby .class .parent,
+.apache .tag {
     color: #efef8f;
 }
 
@@ -87,7 +89,8 @@ pre code {
 .smalltalk .localvars,
 .smalltalk .array,
 .css .rules .value,
-.css .attr_selector {
+.css .attr_selector,
+.apache .cbracket {
   color: #CC9393;
 }
 

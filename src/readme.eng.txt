@@ -321,6 +321,16 @@ Ini ("ini"):
   number           number
   keyword          boolean value keyword
 
+Apache ("apache"):
+
+  keyword          keyword
+  number           number
+  comment          commment
+  literal          On and Off
+  sqbracket        variables in rewrites "%{..}"
+  cbracket         options in rewrites "[..]"
+  tag              begin and end of a configuration section
+
 DOS ("dos"):
 
   keyword          keyword
