@@ -1,0 +1,106 @@
+﻿/*
+Description: Magula style for highligh.js
+Author: Ruslan Keba <rukeba@gmail.com>
+Website: http://rukeba.com/
+Version: 1.0
+Date: 2009-01-03
+Music: Aphex Twin / Xtal
+*/
+
+pre {
+  margin: .5em; padding: .5em;
+  background-color: #f4f4f4;
+}
+
+pre code,
+.ruby .subst,
+.lisp .title {
+  color: black;
+}
+
+.string,
+.title,
+.parent,
+.tag .attribute .value,
+.rules .value,
+.rules .value .number,
+.preprocessor,
+.ruby .symbol,
+.instancevar,
+.aggregate,
+.template_tag,
+.django .variable,
+.smalltalk .class,
+.addition,
+.flow,
+.stream,
+.bash .variable,
+.apache .cbracket {
+  color: #050;
+}
+
+.comment,
+.annotation,
+.template_comment,
+.diff .header,
+.chunk {
+  color: #777;
+}
+
+.number,
+.regexp,
+.literal,
+.smalltalk .symbol,
+.smalltalk .char,
+.change {
+  color: #800;
+}
+
+.label,
+.javadoc,
+.ruby .string,
+.decorator,
+.filter .argument,
+.localvars,
+.array,
+.attr_selector,
+.pi,
+.doctype,
+.deletion,
+.envvar,
+.shebang,
+.apache .sqbracket {
+  color: #00e;
+}
+
+.keyword,
+.id,
+.phpdoc,
+.title,
+.vbscript .built_in,
+.rsl .built_in,
+.cpp .built_in,
+.avrasm .built_in,
+.aggregate,
+.smalltalk .class,
+.winutils,
+.bash .variable,
+.apache .tag,
+.xml .tag,
+.xml .title {
+  font-weight: bold;
+  color: navy;
+}
+
+.html .css,
+.html .javascript,
+.html .vbscript {
+  opacity: 0.5;
+}
+
+/* --- */
+.apache .tag {
+  font-weight: bold;
+  color: blue;
+}
+
