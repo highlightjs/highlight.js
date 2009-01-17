@@ -74,7 +74,7 @@ function hljs_subpanel() {
     </div>
 
     <div>
-      <p><label for="id_hljs_script_path">Path to highlight.js:</label> <input type="text" name="hljs_script_path" id="id_hljs_script_path" value="<?php echo get_option('hljs_script_path'); ?>" /></p>
+      <p><label for="id_hljs_script_path">Path to highlight.pack.js:</label> <input type="text" name="hljs_script_path" id="id_hljs_script_path" value="<?php echo get_option('hljs_script_path'); ?>" /></p>
       <p><small>Let's you place the script in a convenient place</small></p>
     </div>
 
