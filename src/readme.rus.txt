@@ -417,7 +417,7 @@ AVR ассемблер ("avrasm"):
 
 ## Координаты
 
-Версия: 5.0
+Версия: 5.1
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
