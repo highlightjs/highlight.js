@@ -27,3 +27,4 @@ Contributors:
 - Jason Diamond <jason@diamond.name>
 - Michal Gabrukiewicz <mgabru@gmail.com>
 - Ruslan Keba <rukeba@gmail.com>
+- Sergey Baranov <segyrn@yandex.ru>

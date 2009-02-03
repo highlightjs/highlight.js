@@ -27,3 +27,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Джейсон Даймонд <jason@diamond.name>
 - Михал Габрукевич <mgabru@gmail.com>
 - Руслан Кеба <rukeba@gmail.com>
+- Сергей Баранов <segyrn@yandex.ru>
