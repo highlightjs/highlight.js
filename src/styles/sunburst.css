@@ -26,7 +26,7 @@ pre {
     color: #99CF50;
 }
 
-.string, .attribute .value, .cdata, .filter .argument, .attr_selector, .apache .cbracket {
+.string, .attribute .value, .cdata, .filter .argument, .attr_selector, .apache .cbracket, .date {
     color: #65B042;
 }
 

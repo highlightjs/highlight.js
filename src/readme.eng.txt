@@ -373,6 +373,7 @@ Axapta ("axapta"):
 
   keyword          keyword
   number           number
+  date             date
   string           string
   comment          commment
   function         header of function or procudure

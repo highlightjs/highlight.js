@@ -33,7 +33,7 @@ pre code {
     color: #000080;
 }
 
-.attribute, .rules .keyword, .number, .regexp {
+.attribute, .rules .keyword, .number, .date, .regexp {
     font-weight: bold;
     color: #0000ff;
 }

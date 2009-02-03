@@ -36,7 +36,8 @@ pre code {
   color: #DCDCDC;
 }
 
-.number {
+.number,
+.date {
   color: #8CD0D3;
 }
 

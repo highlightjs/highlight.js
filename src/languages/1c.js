@@ -12,7 +12,7 @@ hljs.LANGUAGES['1c'] = function(){
   return {
     defaultMode: {
       lexems: [IDENT_RE_RU],
-      contains: ['comment', 'string', 'function', 'preprocessor', 'number'],
+      contains: ['comment', 'string', 'function', 'preprocessor', 'number', 'date'],
       keywords: {'keyword':OneS_KEYWORDS,'built_in':OneS_BUILT_IN}
     },
     case_insensitive: true,
@@ -39,11 +39,9 @@ hljs.LANGUAGES['1c'] = function(){
         begin: '\\|', end: '"',
         contains: ['dquote']
       },
-      /*т.к. отедльной подсветки под дату нет, пусть лучше подсвечивается как строка*/
       {
-        className: 'string',
-        //lexems: [IDENT_RE_DATE],
-        begin: '\'', end: '\''
+        className: 'date',
+        begin: '\'\\d{2}\\.\\d{2}\\.(\\d{2}|\\d{4})\'', end: '^'
       },
       {
         className: 'dquote',

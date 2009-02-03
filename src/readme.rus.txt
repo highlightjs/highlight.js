@@ -378,6 +378,7 @@ Axapta ("axapta"):
 
   keyword          ключевое слово языка
   number           число
+  date             дата
   string           строка
   comment          комментарий
   function         заголовок функции или процедуры
