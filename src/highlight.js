@@ -287,7 +287,7 @@ var hljs = new function() {
     }
   }
 
-  function highlightBlock(block) {
+  function highlightBlock(block, tabReplace) {
     try {
       var text = blockText(block);
       var language = blockLanguage(block);
@@ -314,6 +314,11 @@ var hljs = new function() {
     }
 
     if (result) {
+      if (tabReplace) {
+        result = result.replace(/^(\t+)/gm, function(match, p1, offset, s) {
+          return p1.replace(/\t/g, tabReplace);
+        })
+      }
       var class_name = block.className;
       if (!class_name.match(language)) {
         class_name += ' ' + language;
@@ -406,7 +411,7 @@ var hljs = new function() {
     for (var i = 0; i < pres.length; i++) {
       var code = findCode(pres[i]);
       if (code)
-        highlightBlock(code);
+        highlightBlock(code, hljs.tabReplace);
     }
   }
 

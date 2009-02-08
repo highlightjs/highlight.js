@@ -81,7 +81,10 @@
   <script src="languages/php.js"></script>
   <script src="languages/diff.js"></script>
   <script src="languages/avrasm.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
+  <script>
+  hljs.tabReplace = '    ';
+  hljs.initHighlightingOnLoad();
+  </script>
 
   <script>
   // A stylesheet switcher for the test page. Not part of the highlight.js itself
@@ -551,11 +554,11 @@ lines!";
 
 surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
                  color specularcolor = 1;) {
-	normal Nf = faceforward (normalize(N),I);
-	Ci = Cs * (Ka*ambient() + Kd*diffuse(Nf)) + specularcolor * Ks *
+  normal Nf = faceforward (normalize(N),I);
+  Ci = Cs * (Ka*ambient() + Kd*diffuse(Nf)) + specularcolor * Ks *
        specular(Nf,-normalize(I),roughness);
-	Oi = Os;
-	Ci *= Oi;
+  Oi = Os;
+  Ci *= Oi;
 }
 </code></pre>
 
@@ -932,6 +935,13 @@ flash2ram:
     <td>
 <pre><code class="python">for x in [1, 2, 3]:
   count(x)
+</code></pre>
+
+  <tr>
+    <th>Replacing TAB with 4 spaces
+    <td>
+<pre><code class="python">for x in [1, 2, 3]:
+	count(x)
 </code></pre>
 
   <tr>

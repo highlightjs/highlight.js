@@ -20,6 +20,17 @@ initialization call:
       hljs.initHighlightingOnLoad();
     </script>
 
+Also you can replaces TAB ('\x09') characters used for indentation in your code
+with some fixed number of spaces or with a `<span>` to set them special styling:
+
+    <script type="text/javascript">
+      hljs.tabReplace = '    '; // 4 spaces
+      // ... or
+      hljs.tabReplace = '<span class="indent">\t</span>';
+
+      hljs.initHighlightingOnLoad();
+    </script>
+
 Despite highlight.pack.js already includes only those languages that you need sometimes
 you may want to further constrain a set of languages used on a page by listing them as
 parameters to initialization:
