@@ -12,7 +12,7 @@ hljs.LANGUAGES.apache =
   case_insensitive: true,
   defaultMode: {
     lexems: [hljs.IDENT_RE],
-    contains: ['comment', 'sqbracket', 'cbracket', 'number', 'tag'],
+    contains: ['comment', 'sqbracket', 'cbracket', 'number', 'tag', 'string'],
     keywords: {
       'keyword': {
         'acceptfilter': 1,
@@ -39,6 +39,7 @@ hljs.LANGUAGES.apache =
         'addtype': 1,
         'alias': 1,
         'aliasmatch': 1,
+        'allow': 1,
         'allowconnect': 1,
         'allowencodedslashes': 1,
         'allowoverride': 1,
@@ -144,6 +145,7 @@ hljs.LANGUAGES.apache =
         'deflatefilternote': 1,
         'deflatememlevel': 1,
         'deflatewindowsize': 1,
+        'deny': 1,
         'directoryindex': 1,
         'directorymatch': 1,
         'directoryslash': 1,
@@ -155,6 +157,7 @@ hljs.LANGUAGES.apache =
         'enablemmap': 1,
         'enablesendfile': 1,
         'errordocument': 1,
+        'errorlog': 1,
         'example': 1,
         'expiresactive': 1,
         'expiresbytype': 1,
@@ -265,6 +268,7 @@ hljs.LANGUAGES.apache =
         'nwssltrustedcerts': 1,
         'nwsslupgradeable': 1,
         'options': 1,
+        'order': 1,
         'passenv': 1,
         'pidfile': 1,
         'protocolecho': 1,
@@ -432,6 +436,7 @@ hljs.LANGUAGES.apache =
       className: 'number',
       begin: '[\\$%]\\d+', end: '^'
     },
+    hljs.QUOTE_STRING_MODE,
     hljs.BACKSLASH_ESCAPE
   ]
 };
