@@ -329,9 +329,13 @@ var hljs = new function() {
       container.innerHTML = '<pre><code class="' + class_name + '">' + result + '</code></pre>';
       var environment = block.parentNode.parentNode;
       environment.replaceChild(container.firstChild, block.parentNode);
-      if (0)
+      if (0) {
       @*/
       block.innerHTML = result;
+      block.className = class_name;
+      /*@cc_on
+      }
+      @*/
     }
   }
 
