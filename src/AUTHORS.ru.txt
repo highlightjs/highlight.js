@@ -28,4 +28,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Михал Габрукевич <mgabru@gmail.com>
 - Руслан Кеба <rukeba@gmail.com>
 - Сергей Баранов <segyrn@yandex.ru>
-- Зарипов Юра <yur4ik7@gmail.com>
+- Зарипов Юра <yur4ik7@ukr.net>

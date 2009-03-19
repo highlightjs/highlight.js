@@ -28,4 +28,4 @@ Contributors:
 - Michal Gabrukiewicz <mgabru@gmail.com>
 - Ruslan Keba <rukeba@gmail.com>
 - Sergey Baranov <segyrn@yandex.ru>
-- Zaripov Yura <yur4ik7@gmail.com>
+- Zaripov Yura <yur4ik7@ukr.net>
