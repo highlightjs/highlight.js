@@ -1,0 +1,103 @@
+/*
+
+Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@gmail.com>
+
+*/
+
+pre code[class]:after {
+  content: 'highlight: ' attr(class);
+  display: block; text-align: right;
+  font-size: smaller;
+  color: #2c2c2c; background: transparent;
+  border-top: solid 1px black;
+  padding-top: 0.5em;
+}
+
+pre code {
+  display: block;
+  background:#b7a68e url(./brown_papersq.png);
+  padding-left:10px;
+  padding-top:10px;
+}
+
+.keyword,
+.literal,
+.change,
+.winutils,
+.flow,
+.lisp .title {
+  color:#005599;
+  font-weight:bold;
+}
+
+pre code,
+.ruby .subst {
+  color: #363C69;
+}
+
+.string,
+.function .title,
+.class .title,
+.ini .title,
+.tag .attribute .value,
+.css .rules .value,
+.preprocessor,
+.ruby .symbol,
+.ruby .instancevar,
+.ruby .class .parent,
+.built_in,
+.sql .aggregate,
+.django .template_tag,
+.django .variable,
+.smalltalk .class,
+.javadoc,
+.ruby .string,
+.django .filter .argument,
+.smalltalk .localvars,
+.smalltalk .array,
+.css .attr_selector,
+.addition,
+.stream,
+.envvar,
+.apache .tag,
+.apache .cbracket {
+  color: #2C009F;
+}
+
+.comment,
+.java .annotation,
+.python .decorator,
+.template_comment,
+.pi,
+.doctype,
+.deletion,
+.shebang,
+.apache .sqbracket {
+  color: #802022;
+}
+
+.keyword,
+.literal,
+.css .id,
+.phpdoc,
+.function .title,
+.class .title,
+.vbscript .built_in,
+.sql .aggregate,
+.rsl .built_in,
+.smalltalk .class,
+.xml .tag .title,
+.diff .header,
+.chunk,
+.winutils,
+.bash .variable,
+.lisp .title,
+.apache .tag {
+  font-weight: bold;
+}
+
+.html .css,
+.html .javascript,
+.html .vbscript {
+  opacity: 0.8;
+}
