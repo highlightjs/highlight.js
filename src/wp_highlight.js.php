@@ -9,7 +9,7 @@ Author URI: http://softwaremaniacs.org/about/
 */
 
 add_option('hljs_languages', '');
-$components = explode('/', dirname(__FILE__));
+$components = explode(DIRECTORY_SEPARATOR, dirname(__FILE__));
 $l = sizeof($components);
 $script_path = get_settings('home') . '/' . $components[$l - 3] . '/' . $components[$l - 2] . '/' . $components[$l - 1];
 if (!get_option('hljs_script_path')) {
