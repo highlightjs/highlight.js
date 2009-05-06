@@ -5,7 +5,7 @@ Requires:  html-xml.js
 
 hljs.LANGUAGES.css = {
   defaultMode: {
-    contains: ['id', 'class', 'attr_selector', 'rules', 'comment'],
+    contains: ['id', 'class', 'attr_selector', 'pseudo', 'rules', 'comment'],
     keywords: hljs.HTML_TAGS,
     lexems: [hljs.IDENT_RE],
     illegal: '='
@@ -25,6 +25,10 @@ hljs.LANGUAGES.css = {
       className: 'attr_selector',
       begin: '\\[', end: '\\]',
       illegal: '$'
+    },
+    {
+      className: 'pseudo',
+      begin: ':[:a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+', end: '^'
     },
     {
       className: 'rules',
