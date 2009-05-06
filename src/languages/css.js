@@ -5,13 +5,21 @@ Requires:  html-xml.js
 
 hljs.LANGUAGES.css = {
   defaultMode: {
-    contains: ['id', 'class', 'attr_selector', 'pseudo', 'rules', 'comment'],
+    contains: ['at_rule', 'id', 'class', 'attr_selector', 'pseudo', 'rules', 'comment'],
     keywords: hljs.HTML_TAGS,
     lexems: [hljs.IDENT_RE],
     illegal: '='
   },
   case_insensitive: true,
   modes: [
+    {
+      className: 'at_rule',
+      begin: '@', end: '[{;]',
+      excludeEnd: true,
+      lexems: [hljs.IDENT_RE],
+      keywords: {'import': 1, 'page': 1, 'media': 1, 'charset': 1, 'font-face': 1},
+      contains: ['function', 'string', 'number', 'pseudo']
+    },
     {
       className: 'id',
       begin: '\\#[A-Za-z0-9_-]+', end: '^'
