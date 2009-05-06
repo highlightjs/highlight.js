@@ -28,7 +28,7 @@ pre code {
     background: #efefef;
 }
 
-.tag .title, .id, .attr_selector, .literal, .keyword, .hexcolor, .css .function, .ini .title, .css .class, .list .title {
+.tag .title, .id, .attr_selector, .pseudo, .literal, .keyword, .hexcolor, .css .function, .ini .title, .css .class, .list .title {
     font-weight: bold;
     color: #000080;
 }

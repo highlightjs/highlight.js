@@ -54,7 +54,7 @@ pre {
     color: #3E87E3;
 }
 
-.css .keyword {
+.css .keyword, .pseudo {
     color: #CDA869;
 }
 
