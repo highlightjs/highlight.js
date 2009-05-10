@@ -36,7 +36,7 @@ hljs.LANGUAGES.css = {
     },
     {
       className: 'pseudo',
-      begin: ':[:a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+', end: '^'
+      begin: ':(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+', end: '^'
     },
     {
       className: 'rules',
