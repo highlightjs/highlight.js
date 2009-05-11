@@ -347,12 +347,21 @@ multiline.
   <tr>
     <th>CSS
     <td>
-<pre><code>body,
+<pre><code class="css">body,
 html {
   font: Tahoma, Arial, san-serif;
   background: url('hatch.png');
 }
+  
+@import url('print.css');
 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @page :left {
+    body:first-of-type pre:after {
+      content: 'highlight: ' attr(class);
+    }
+}
+ 
 #content {
   width: 100%; /* wide enough */
   height: 100%
