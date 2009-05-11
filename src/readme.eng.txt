@@ -177,7 +177,9 @@ CSS ("css"):
   keyword          HTML tag when in selectors, CSS keyword when in rules
   id               #some_name in selectors
   class            .some_name in selectors
+  at_rule          @-rule till first "{" or ";"
   attr_selector    attribute selector (square brackets in a[href^=http://])
+  pseudo           pseudo classes and elemens (:after, ::after etc.)
   comment          comment
   rules            everything from "{" till "}"
   value            property's value inside a rule, from ":" till ";" or

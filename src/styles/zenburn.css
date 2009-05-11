@@ -90,7 +90,8 @@ pre code {
 .smalltalk .localvars,
 .smalltalk .array,
 .css .rules .value,
-.css .attr_selector,
+.attr_selector,
+.pseudo,
 .apache .cbracket {
   color: #CC9393;
 }
