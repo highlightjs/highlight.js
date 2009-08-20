@@ -276,7 +276,8 @@ var hljs = new function() {
   }
 
   function blockLanguage(block) {
-    var classes = block.className.split(/\s+/);
+    var classes = block.className.split(/\s+/)
+    classes = classes.concat(block.parentNode.className.split(/\s+/));
     for (var i = 0; i < classes.length; i++) {
       if (classes[i] == 'no-highlight') {
         throw 'No highlight'
