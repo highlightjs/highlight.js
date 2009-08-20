@@ -1,0 +1,68 @@
+/*
+  IR_Black style (c) Vasily Mikhailitchenko <vaskas@programica.ru>
+*/
+
+pre code {
+    font: 1em / 1.3em 'Lucida Console', 'courier new', monospace;
+    color: #f8f8f8;
+}
+
+pre {
+    background: #000;
+}
+
+.shebang, .comment, .template_comment, .javadoc {
+    color: #7c7c7c;
+}
+
+.keyword, .tag, .ruby .function .keyword {
+    color: #96CBFE;
+}
+
+.function .keyword, .sub .keyword, .method, .list .title {
+    color: #FFFFB6;
+}
+
+.string, .attribute .value, .cdata, .filter .argument, .attr_selector, .apache .cbracket, .date {
+    color: #A8FF60;
+}
+
+.subst {
+    color: #DAEFA3;
+}
+
+.regexp {
+    color: #E9C062;
+}
+
+.function .title, .sub .identifier, .pi, .decorator, .ini .title {
+    color: #FFFFB6;
+}
+
+.class .title, .smalltalk .class, .javadoctag, .phpdoc {
+    color: #FFFFB6;
+}
+
+.symbol, .number, .variable, .vbscript, .literal {
+    color: #C6C5FE;
+}
+
+.css .keyword {
+    color: #96CBFE;
+}
+
+.css .rule .keyword, .css .id {
+    color: #FFFFB6;
+}
+
+.css .class {
+    color: #FFF;
+}
+
+.hexcolor {
+    color: #C6C5FE;
+}
+
+.number {
+    color:#FF73FD;
+}
