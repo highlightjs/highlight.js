@@ -19,7 +19,7 @@ hljs.LANGUAGES.parser3 = {
     {
       className: 'comment',
       begin: '\\^rem{', end: '}',
-      relevance: 5
+      relevance: 10
     },
     {
       className: 'preprocessor',
