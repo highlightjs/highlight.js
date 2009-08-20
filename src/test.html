@@ -84,6 +84,7 @@
   <script src="languages/php.js"></script>
   <script src="languages/diff.js"></script>
   <script src="languages/avrasm.js"></script>
+  <script src="languages/parser3.js"></script>
   <script>
   hljs.tabReplace = '    ';
   hljs.initHighlightingOnLoad();
@@ -937,6 +938,44 @@ flash2ram:
 .def    ramtemp =r1     ;temporary storage register
 .def    ramsize =r16        ;size of block to be copied
 </code></pre>
+
+  <tr>
+    <th>Parser 3
+    <td>
+<pre><code>@CLASS
+base
+
+@USE
+module.p
+
+@BASE
+class
+
+# Comment for code
+@create[aParam1;aParam2][local1;local2]
+  ^connect[mysql://host/database?ClientCharset=windows-1251]
+  ^for[i](1;10){
+    &lt;p class=&quot;paragraph&quot;&gt;^eval($i+10)&lt;/p&gt;
+    ^connect[mysql://host/database]{
+      $tab[^table::sql{select * from `table` where a='1'}]
+      $var_Name[some${value}]
+    }
+  }
+
+  ^rem{
+    Multiline comment with code: $var
+    ^while(true){
+      ^sleep[]
+    }
+  }
+  ^taint[^#0A]
+
+@GET_base[]
+## Comment for code
+  # Isn't comment
+  $result[$.hash_item1[one] $.hash_item2[two]]
+</code></pre>
+
 </table>
 
 <h2>Special tests</h2>
