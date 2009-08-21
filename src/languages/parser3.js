@@ -18,8 +18,15 @@ hljs.LANGUAGES.parser3 = {
     },
     {
       className: 'comment',
+      contains: ['commented_block'],
       begin: '\\^rem{', end: '}',
       relevance: 10
+    },
+    {
+      className: 'commented_block',
+      contains: ['commented_block'],
+      begin: '{', end: '}',
+      noMarkup: true
     },
     {
       className: 'preprocessor',
