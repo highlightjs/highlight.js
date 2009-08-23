@@ -413,18 +413,10 @@ var hljs = new function() {
         result = mergeStreams(original, nodeStream(pre), text);
       }
       // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
-      /*@cc_on
       var container = document.createElement('div');
       container.innerHTML = '<pre><code class="' + class_name + '">' + result + '</code></pre>';
       var environment = block.parentNode.parentNode;
       environment.replaceChild(container.firstChild, block.parentNode);
-      if (0) {
-      @*/
-      block.innerHTML = result;
-      block.className = class_name;
-      /*@cc_on
-      }
-      @*/
     }
   }
 
