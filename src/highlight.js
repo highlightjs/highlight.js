@@ -318,27 +318,19 @@ var hljs = new function() {
   }
 
   function mergeStreams(stream1, stream2, value) {
-    var index1 = 0;
-    var index2 = 0;
     var processed = 0;
     var result = '';
     var nodeStack = [];
-    var current;
 
     function selectStream() {
-      if (index1 >= stream1.length)
-        return 2;
-      if (index2 >= stream2.length)
-        return 1;
-      if (stream1[index1].offset < stream2[index2].offset)
-        return 1;
-      if (stream1[index1].offset > stream2[index2].offset)
-        return 2;
-      if (stream1[index1].event == 'start' && stream2[index2].event == 'stop')
-        return 2;
-      if (stream1[index1].event == 'stop' && stream2[index2].event == 'start')
-        return 1;
-      return 1;
+      if (stream1.length && stream2.length) {
+        if (stream1[0].offset != stream2[0].offset)
+          return (stream1[0].offset < stream2[0].offset) ? stream1 : stream2;
+        else
+          return (stream1[0].event == 'start' && stream2[0].event == 'stop') ? stream2 : stream1;
+      } else {
+        return stream1.length ? stream1 : stream2;
+      }
     }
 
     function open(node) {
@@ -353,14 +345,8 @@ var hljs = new function() {
       return '</' + node.nodeName.toLowerCase() + '>';
     }
 
-    while (index1 < stream1.length || index2 < stream2.length) {
-      if (selectStream() == 1) {
-        current = stream1[index1];
-        index1++;
-      } else {
-        current = stream2[index2];
-        index2++;
-      }
+    while (stream1.length || stream2.length) {
+      var current = selectStream().splice(0, 1)[0];
       result += escape(value.substr(processed, current.offset - processed));
       processed = current.offset;
       if ( current.event == 'start') {
