@@ -405,6 +405,15 @@ AVR assembler ("avrasm"):
   preprocessor     preprocessor directive
   localvars        substitution in .macro
 
+Parser3 ("parser3"):
+
+  keyword          keyword
+  number           number
+  comment          commment
+  variable         variable starting with "$"
+  preprocessor     preprocessor directive
+  title            user-defined name starting with "@"
+
 ## Heuristics
 
 Autodetection of a code's language is done with a simple heuristics:
@@ -417,6 +426,9 @@ This means that in short fragments the probability of an error is high
 language explicitly by assigning a class to the `<code>` element:
 
     <pre><code class="html">...</code></pre>
+
+You can use class names recommended in HTML5: "language-html",
+"language-php". Classes also can be assigned to the `<pre>` element.
 
 To disable highlighting of a fragment altogether use "no-highlight" class:
 
