@@ -29,3 +29,5 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Руслан Кеба <rukeba@gmail.com>
 - Сергей Баранов <segyrn@yandex.ru>
 - Зарипов Юра <yur4ik7@ukr.net>
+- Олег Волчков <oleg@volchkov.net>
+- Василий Михайличенко <vaskas@programica.ru>
