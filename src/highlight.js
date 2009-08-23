@@ -271,7 +271,7 @@ var hljs = new function() {
       else if (block.childNodes[i].nodeName == 'BR')
         result += '\n';
       else
-        throw 'No highlight';
+        result += blockText(block.childNodes[i]);
     return result;
   }
 
@@ -287,6 +287,101 @@ var hljs = new function() {
         return className;
       }
     }
+  }
+
+  function nodeStream(block) {
+    function _(block, result, offset) {
+      for (var i = 0; i < block.childNodes.length; i++) {
+        if (block.childNodes[i].nodeType == 3)
+          offset += block.childNodes[i].nodeValue.length;
+        else if (block.childNodes[i].nodeName == 'BR')
+          offset += 1
+        else {
+          result.push({
+            event: 'start',
+            offset: offset,
+            node: block.childNodes[i]
+          });
+          offset = _(block.childNodes[i], result, offset)
+          result.push({
+            event: 'stop',
+            offset: offset,
+            node: block.childNodes[i]
+          });
+        }
+      }
+      return offset;
+    }
+    var result = []
+    _(block, result, 0)
+    return result;
+  }
+
+  function mergeStreams(stream1, stream2, value) {
+    var index1 = 0;
+    var index2 = 0;
+    var processed = 0;
+    var result = '';
+    var nodeStack = [];
+    var current;
+
+    function selectStream() {
+      if (index1 >= stream1.length)
+        return 2;
+      if (index2 >= stream2.length)
+        return 1;
+      if (stream1[index1].offset < stream2[index2].offset)
+        return 1;
+      if (stream1[index1].offset > stream2[index2].offset)
+        return 2;
+      if (stream1[index1].event == 'start' && stream2[index2].event == 'stop')
+        return 2;
+      if (stream1[index1].event == 'stop' && stream2[index2].event == 'start')
+        return 1;
+      return 1;
+    }
+
+    function open(node) {
+      var result = '<' + node.nodeName.toLowerCase();
+      for (var i = 0; i < node.attributes.length; i++) {
+        result += ' ' + node.attributes[i].nodeName.toLowerCase()  + '="' + escape(node.attributes[i].nodeValue) + '"';
+      }
+      return result + '>';
+    }
+
+    function close(node) {
+      return '</' + node.nodeName.toLowerCase() + '>';
+    }
+
+    while (index1 < stream1.length || index2 < stream2.length) {
+      if (selectStream() == 1) {
+        current = stream1[index1];
+        index1++;
+      } else {
+        current = stream2[index2];
+        index2++;
+      }
+      result += escape(value.substr(processed, current.offset - processed));
+      processed = current.offset;
+      if ( current.event == 'start') {
+        result += open(current.node);
+        nodeStack.push(current.node);
+      } else if (current.event == 'stop') {
+        var i = nodeStack.length;
+        do {
+          i--;
+          var node = nodeStack[i];
+          result += close(node);
+        } while (node != current.node);
+        nodeStack.splice(i, 1);
+        while (i < nodeStack.length) {
+          result += open(nodeStack[i]);
+          i++;
+        }
+      }
+    }
+    result += value.substr(processed);
+    return result;
   }
 
   function highlightBlock(block, tabReplace) {
@@ -324,6 +419,12 @@ var hljs = new function() {
       var class_name = block.className;
       if (!class_name.match(language)) {
         class_name += ' ' + language;
+      }
+      var original = nodeStream(block);
+      if (original.length) {
+        var pre = document.createElement('pre');
+        pre.innerHTML = result;
+        result = mergeStreams(original, nodeStream(pre), text);
       }
       // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
       /*@cc_on
