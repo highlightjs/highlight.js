@@ -290,7 +290,8 @@ var hljs = new function() {
   }
 
   function nodeStream(node) {
-    function _(node, result, offset) {
+    var result = [];
+    (function (node, offset) {
       for (var i = 0; i < node.childNodes.length; i++) {
         if (node.childNodes[i].nodeType == 3)
           offset += node.childNodes[i].nodeValue.length;
@@ -302,7 +303,7 @@ var hljs = new function() {
             offset: offset,
             node: node.childNodes[i]
           });
-          offset = _(node.childNodes[i], result, offset)
+          offset = arguments.callee(node.childNodes[i], offset)
           result.push({
             event: 'stop',
             offset: offset,
@@ -311,9 +312,7 @@ var hljs = new function() {
         }
       }
       return offset;
-    }
-    var result = []
-    _(node, result, 0)
+    })(node, 0);
     return result;
   }
 
