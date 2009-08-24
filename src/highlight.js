@@ -289,31 +289,31 @@ var hljs = new function() {
     }
   }
 
-  function nodeStream(block) {
-    function _(block, result, offset) {
-      for (var i = 0; i < block.childNodes.length; i++) {
-        if (block.childNodes[i].nodeType == 3)
-          offset += block.childNodes[i].nodeValue.length;
-        else if (block.childNodes[i].nodeName == 'BR')
+  function nodeStream(node) {
+    function _(node, result, offset) {
+      for (var i = 0; i < node.childNodes.length; i++) {
+        if (node.childNodes[i].nodeType == 3)
+          offset += node.childNodes[i].nodeValue.length;
+        else if (node.childNodes[i].nodeName == 'BR')
           offset += 1
         else {
           result.push({
             event: 'start',
             offset: offset,
-            node: block.childNodes[i]
+            node: node.childNodes[i]
           });
-          offset = _(block.childNodes[i], result, offset)
+          offset = _(node.childNodes[i], result, offset)
           result.push({
             event: 'stop',
             offset: offset,
-            node: block.childNodes[i]
+            node: node.childNodes[i]
           });
         }
       }
       return offset;
     }
     var result = []
-    _(block, result, 0)
+    _(node, result, 0)
     return result;
   }
 
