@@ -279,12 +279,12 @@ var hljs = new function() {
     var classes = block.className.split(/\s+/)
     classes = classes.concat(block.parentNode.className.split(/\s+/));
     for (var i = 0; i < classes.length; i++) {
-      className = classes[i].replace(/^language-/, '');
-      if (className == 'no-highlight') {
+      var class_ = classes[i].replace(/^language-/, '');
+      if (class_ == 'no-highlight') {
         throw 'No highlight'
       }
-      if (LANGUAGES[className]) {
-        return className;
+      if (LANGUAGES[class_]) {
+        return class_;
       }
     }
   }

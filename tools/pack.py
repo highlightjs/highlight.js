@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 '''
-Creates packed .js files for all source files (highlight.js and languages) in a 
+Creates packed .js files for all source files (highlight.js and languages) in a
 separate directory.
 '''
 import os
@@ -61,7 +61,7 @@ def get_compressor(tools_path):
 
 def replace(content, s, r):
     return re.sub(r'(?<=[^\w"\'])%s(?=[^\w"\'])' % s, r, content)
-    
+
 def pack_language(content):
     for s, r in REPLACES.items():
         content = replace(content, s, r)
@@ -70,7 +70,7 @@ def pack_language(content):
 def pack_library(content):
     for s, r in REPLACES.items():
         content = replace(content, s, r)
-    content = re.sub(r'block\.cN', 'block.className', content)
+    content = re.sub(r'(block|parentNode)\.cN', r'\1.className', content)
     for s, r in LIBRARY_REPLACES.items():
         content = replace(content, s, r)
     return content
@@ -83,7 +83,7 @@ def build_file(filename, in_path, out_path, packer, compressor):
     f = open(os.path.join(out_path, filename), 'w')
     f.write(content)
     f.close()
-    
+
 def build(library_path, build_path, tools_path):
     lang_path = os.path.join(library_path, 'languages')
     if not os.path.exists(build_path):
