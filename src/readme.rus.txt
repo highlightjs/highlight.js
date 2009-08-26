@@ -445,7 +445,7 @@ Parser3 ("parser3"):
 
 ## Координаты
 
-Версия: 5.3
+Версия: 5.4
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
