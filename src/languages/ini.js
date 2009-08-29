@@ -20,7 +20,7 @@ hljs.LANGUAGES.ini =
     },
     {
       className: 'setting',
-      begin: '^[a-z]+[ \\t]*=[ \\t]*', end: '$',
+      begin: '^[a-z0-9_\\[\\]]+[ \\t]*=[ \\t]*', end: '$',
       contains: ['value']
     },
     {
