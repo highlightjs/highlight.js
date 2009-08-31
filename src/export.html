@@ -2,7 +2,7 @@
 <!-- ^^^ This is for IE not to show security warning for local files,
 see http://www.microsoft.com/technet/prodtechnol/winxppro/maintain/sp2brows.mspx-->
 
-<!-- 
+<!--
 Highlighted code export
 Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
 -->
@@ -36,6 +36,7 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
         <script src="languages/django.js"></script>
         <script src="languages/vbscript.js"></script>
         <script src="languages/ini.js"></script>
+        <script src="languages/apache.js"></script>
         <script src="languages/ruby.js"></script>
         <script src="languages/css.js"></script>
         <script src="languages/lisp.js"></script>
@@ -44,6 +45,7 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
         <script src="languages/php.js"></script>
         <script src="languages/diff.js"></script>
         <script src="languages/avrasm.js"></script>
+        <script src="languages/parser3.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
     </head>
     <body>
@@ -51,7 +53,7 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
             String.prototype.escape = function() {
                 return this.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
             }
-                    
+
             function doIt() {
                 var viewDiv = document.getElementById("highlight-view");
                 var t1 = document.getElementById("t1");
