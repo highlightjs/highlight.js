@@ -16,7 +16,8 @@ hljs.LANGUAGES.delphi = function(){
     modes: [
       {
         className: 'comment',
-        begin: '{', end: '}'
+        begin: '{', end: '}',
+        relevance: 0
       },
       {
         className: 'comment',
