@@ -417,7 +417,7 @@ for i = 0 to ubound(ini_strings)
 
         ' reading configuration and filenames
         select case lcase(parts(0))
-          case "uncompressed_postfix" cfg.item("uncompressed_postfix") = parts(1)
+          case "uncompressed""_postfix" cfg.item("uncompressed""_postfix") = parts(1)
           case "f"
                     options = split(parts(1), "|", -1, 1)
                     if ubound(options)+1 = 2 then

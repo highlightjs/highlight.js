@@ -16,8 +16,17 @@ hljs.LANGUAGES.vbscript = {
   },
   case_insensitive: true,
   modes: [
-    hljs.QUOTE_STRING_MODE,
-    hljs.BACKSLASH_ESCAPE,
+    { // can't use standard QUOTE_STRING_MODE since it's compiled with its own escape and doesn't use the local one
+      className: 'string',
+      begin: '"', end: '"',
+      illegal: '\\n',
+      contains: ['escape'],
+      relevance: 0
+    },
+    {
+      className: 'escape',
+      begin: '""', end: '^', noMarkup: true
+    },
     {
       className: 'comment',
       begin: '\'', end: '$'
