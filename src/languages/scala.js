@@ -58,6 +58,6 @@ hljs.LANGUAGES.scala  = {
       className: 'string',
       begin: 'u?r?"""', end: '"""',
       relevance: 10
-    },
+    }
   ]
 };
