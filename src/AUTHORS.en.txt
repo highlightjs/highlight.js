@@ -31,3 +31,4 @@ Contributors:
 - Zaripov Yura <yur4ik7@ukr.net>
 - Oleg Volchkov <oleg@volchkov.net>
 - Vasily Mikhailitchenko <vaskas@programica.ru>
+- Jan Berkel <jan.berkel@gmail.com>
