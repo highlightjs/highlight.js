@@ -86,6 +86,7 @@
   <script src="languages/diff.js"></script>
   <script src="languages/avrasm.js"></script>
   <script src="languages/parser3.js"></script>
+  <script src="languages/scala.js"></script>
   <script>
   hljs.tabReplace = '    ';
   hljs.initHighlightingOnLoad();
@@ -281,6 +282,43 @@ abstract class Zend_Uri
       if (!ctype_alnum($scheme)) {
           throw new Zend_Uri_Exception('Illegal scheme');
       }
+  }
+}
+</code></pre>
+
+  <tr>
+    <th>Scala
+    <td>
+<pre><code>object abstractTypes extends Application {
+  abstract class SeqBuffer {
+    type T; val element: Seq[T]; def length = element.length
+  }
+}
+
+/** Turn command line arguments to uppercase */
+object Main {
+  def main(args: Array[String]) {
+    val res = for (a &lt;- args) yield a.toUpperCase
+    println("Arguments: " + res.toString)
+  }
+}
+
+/** Maps are easy to use in Scala. */
+object Maps {
+  val colors = Map("red" -> 0xFF0000,
+                   "turquoise" -> 0x00FFFF,
+                   "black" -> 0x000000,
+                   "orange" -> 0xFF8040,
+                   "brown" -> 0x804000)
+  def main(args: Array[String]) {
+    for (name &lt;- args) println(
+      colors.get(name) match {
+        case Some(code) =>
+          name + " has code: " + code
+        case None =&gt;
+          "Unknown color: " + name
+      }
+    )
   }
 }
 </code></pre>
