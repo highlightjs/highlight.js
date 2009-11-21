@@ -10,58 +10,58 @@ pre {
     background: #000;
 }
 
-.shebang, .comment, .template_comment, .javadoc {
+pre .shebang, pre .comment, pre .template_comment, pre .javadoc {
     color: #7c7c7c;
 }
 
-.keyword, .tag, .ruby .function .keyword {
+pre .keyword, pre .tag, pre .ruby .function .keyword {
     color: #96CBFE;
 }
 
-.function .keyword, .sub .keyword, .method, .list .title {
+pre .function .keyword, pre .sub .keyword, pre .method, pre .list .title {
     color: #FFFFB6;
 }
 
-.string, .attribute .value, .cdata, .filter .argument, .attr_selector, .apache .cbracket, .date {
+pre .string, pre .attribute .value, pre .cdata, pre .filter .argument, pre .attr_selector, pre .apache .cbracket, pre .date {
     color: #A8FF60;
 }
 
-.subst {
+pre .subst {
     color: #DAEFA3;
 }
 
-.regexp {
+pre .regexp {
     color: #E9C062;
 }
 
-.function .title, .sub .identifier, .pi, .decorator, .ini .title {
+pre .function .title, pre .sub .identifier, pre .pi, pre .decorator, pre .ini .title {
     color: #FFFFB6;
 }
 
-.class .title, .smalltalk .class, .javadoctag, .phpdoc {
+pre .class .title, pre .smalltalk .class, pre .javadoctag, pre .phpdoc {
     color: #FFFFB6;
 }
 
-.symbol, .number, .variable, .vbscript, .literal {
+pre .symbol, pre .number, pre .variable, pre .vbscript, pre .literal {
     color: #C6C5FE;
 }
 
-.css .keyword {
+pre .css .keyword {
     color: #96CBFE;
 }
 
-.css .rule .keyword, .css .id {
+pre .css .rule .keyword, pre .css .id {
     color: #FFFFB6;
 }
 
-.css .class {
+pre .css .class {
     color: #FFF;
 }
 
-.hexcolor {
+pre .hexcolor {
     color: #C6C5FE;
 }
 
-.number {
+pre .number {
     color:#FF73FD;
 }

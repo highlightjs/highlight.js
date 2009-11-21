@@ -13,100 +13,100 @@ pre {
     background: #000;
 }
 
-.comment, .template_comment, .javadoc {
+pre .comment, pre .template_comment, pre .javadoc {
     color: #aeaeae;
     font-style: italic;
 }
 
-.keyword, .ruby .function .keyword {
+pre .keyword, pre .ruby .function .keyword {
     color: #E28964;
 }
 
-.function .keyword, .sub .keyword, .method, .list .title {
+pre .function .keyword, pre .sub .keyword, pre .method, pre .list .title {
     color: #99CF50;
 }
 
-.string, .attribute .value, .cdata, .filter .argument, .attr_selector, .apache .cbracket, .date {
+pre .string, pre .attribute .value, pre .cdata, pre .filter .argument, pre .attr_selector, pre .apache .cbracket, pre .date {
     color: #65B042;
 }
 
-.subst {
+pre .subst {
     color: #DAEFA3;
 }
 
-.regexp {
+pre .regexp {
     color: #E9C062;
 }
 
-.function .title, .sub .identifier, .pi, .tag, .tag .keyword, .decorator, .ini .title, .shebang {
+pre .function .title, pre .sub .identifier, pre .pi, pre .tag, pre .tag .keyword, pre .decorator, pre .ini .title, pre .shebang {
     color: #89BDFF;
 }
 
-.class .title, .smalltalk .class, .javadoctag, .phpdoc {
+pre .class .title, pre .smalltalk .class, pre .javadoctag, pre .phpdoc {
     text-decoration: underline;
 }
 
-.symbol, .number {
+pre .symbol, pre .number {
     color: #3387CC;
 }
 
-.params, .variable {
+pre .params, pre .variable {
     color: #3E87E3;
 }
 
-.css .keyword, .pseudo {
+pre .css .keyword, pre .pseudo {
     color: #CDA869;
 }
 
-.css .class {
+pre .css .class {
     color: #9B703F;
 }
 
-.rules .keyword {
+pre .rules .keyword {
     color: #C5AF75;
 }
 
-.rules .value {
+pre .rules .value {
     color: #CF6A4C;
 }
 
-.css .id {
+pre .css .id {
     color: #8B98AB;
 }
 
-.annotation, .apache .sqbracket {
+pre .annotation, pre .apache .sqbracket {
     color: #9B859D;
 }
 
-.preprocessor {
+pre .preprocessor {
     color: #8996A8;
 }
 
-.hexcolor, .css .value .number {
+pre .hexcolor, pre .css .value .number {
     color: #DD7B3B;
 }
 
-.css .function {
+pre .css .function {
     color: #DAD085;
 }
 
-.diff .header, .chunk {
+pre .diff .header, pre .chunk {
     background-color: #0E2231;
     color: #F8F8F8;
     font-style: italic;
 }
 
-.diff .change {
+pre .diff .change {
     background-color: #4A410D;
     color: #F8F8F8;
 }
 
-.addition {
+pre .addition {
     background-color: #253B22;
     color: #F8F8F8;
 }
 
-.deletion {
+pre .deletion {
     background-color: #420E09;
     color: #F8F8F8;
 }

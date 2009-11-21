@@ -10,33 +10,33 @@ pre code {
   border: solid #CCC 1px;
 }
 
-.string,
-.attribute .value,
-.filter .argument,
-.addition,
-.change,
-.apache .tag,
-.apache .cbracket {
+pre .string,
+pre .attribute .value,
+pre .filter .argument,
+pre .addition,
+pre .change,
+pre .apache .tag,
+pre .apache .cbracket {
   color: #888;
 }
 
-.comment,
-.template_comment,
-.shebang,
-.doctype,
-.pi,
-.javadoc,
-.deletion,
-.apache .sqbracket {
+pre .comment,
+pre .template_comment,
+pre .shebang,
+pre .doctype,
+pre .pi,
+pre .javadoc,
+pre .deletion,
+pre .apache .sqbracket {
   color: #CCC;
 }
 
-.keyword,
-.tag .title,
-.ini .title,
-.winutils,
-.flow,
-.lisp .title,
-.apache .tag {
+pre .keyword,
+pre .tag .title,
+pre .ini .title,
+pre .winutils,
+pre .flow,
+pre .lisp .title,
+pre .apache .tag {
   font-weight: bold;
 }

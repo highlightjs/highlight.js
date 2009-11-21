@@ -10,81 +10,81 @@ pre code {
     background: #f8f8ff
 }
 
-.comment, .template_comment, .diff .header, .javadoc {
+pre .comment, pre .template_comment, pre .diff .header, pre .javadoc {
     color: #998;
     font-style: italic
 }
 
-.keyword, .css .rule .keyword, .winutils, .javascript .title, .lisp .title, .subst {
+pre .keyword, pre .css .rule .keyword, pre .winutils, pre .javascript .title, pre .lisp .title, pre .subst {
     color: #000;
-    font-weight: bold 
+    font-weight: bold
 }
 
-.number, .hexcolor {
+pre .number, pre .hexcolor {
     color: #40a070
 }
 
-.string, .attribute .value, .phpdoc {
+pre .string, pre .attribute .value, pre .phpdoc {
     color: #d14
 }
 
-.title, .id {
+pre .title, pre .id {
     color: #900;
     font-weight: bold
 }
 
-.javascript .title, .lisp .title, .subst {
+pre .javascript .title, pre .lisp .title, pre .subst {
     font-weight: normal
 }
 
-.class .title {
+pre .class .title {
     color: #458;
     font-weight: bold
 }
 
-.tag, .css .keyword, .html .keyword, .tag .title, .django .tag .keyword {
+pre .tag, pre .css .keyword, pre .html .keyword, pre .tag .title, pre .django .tag .keyword {
     color: #000080;
     font-weight: normal
 }
 
-.attribute, .variable, .instancevar, .lisp .body {
+pre .attribute, pre .variable, pre .instancevar, pre .lisp .body {
     color: #008080
 }
 
-.regexp {
+pre .regexp {
     color: #009926
 }
 
-.class {
+pre .class {
     color: #458;
     font-weight: bold
 }
 
-.symbol, .lisp .keyword {
+pre .symbol, pre .lisp .keyword {
     color: #990073
 }
 
-.builtin, .built_in, .lisp .title {
+pre .builtin, pre .built_in, pre .lisp .title {
     color: #0086b3
 }
 
-.preprocessor, .pi, .doctype, .shebang, .cdata {
+pre .preprocessor, pre .pi, pre .doctype, pre .shebang, pre .cdata {
     color: #999;
     font-weight: bold
 }
 
-.deletion {
+pre .deletion {
     background: #fdd
 }
 
-.addition {
+pre .addition {
     background: #dfd
 }
 
-.diff .change {
+pre .diff .change {
     background: #0086b3
 }
 
-.chunk {
+pre .chunk {
     color: #aaa
 }

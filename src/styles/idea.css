@@ -10,65 +10,65 @@ pre code {
     background: #fff;
 }
 
-.subst, .title {
+pre .subst, pre .title {
     font-weight: normal;
     color: #000;
 }
 
-.comment, .template_comment, .javadoc, .diff .header {
+pre .comment, pre .template_comment, pre .javadoc, pre .diff .header {
     color: #808080;
     font-style: italic;
 }
 
-.annotation, .decorator, .preprocessor, .doctype, .pi, .chunk, .shebang, .apache .cbracket {
+pre .annotation, pre .decorator, pre .preprocessor, pre .doctype, pre .pi, pre .chunk, pre .shebang, pre .apache .cbracket {
     color: #808000;
 }
 
-.tag, .pi {
+pre .tag, pre .pi {
     background: #efefef;
 }
 
-.tag .title, .id, .attr_selector, .pseudo, .literal, .keyword, .hexcolor, .css .function, .ini .title, .css .class, .list .title {
+pre .tag .title, pre .id, pre .attr_selector, pre .pseudo, pre .literal, pre .keyword, pre .hexcolor, pre .css .function, pre .ini .title, pre .css .class, pre .list .title {
     font-weight: bold;
     color: #000080;
 }
 
-.attribute, .rules .keyword, .number, .date, .regexp {
+pre .attribute, pre .rules .keyword, pre .number, pre .date, pre .regexp {
     font-weight: bold;
     color: #0000ff;
 }
 
-.number, .regexp {
+pre .number, pre .regexp {
     font-weight: normal;
 }
 
-.string, .value, .filter .argument, .css .function .params, .apache .tag {
+pre .string, pre .value, pre .filter .argument, pre .css .function .params, pre .apache .tag {
     color: #008000;
     font-weight: bold;
 }
 
-.symbol, .char {
+pre .symbol, pre .char {
     color: #000;
     background: #d0eded;
     font-style: italic;
 }
 
-.phpdoc, .javadoctag {
+pre .phpdoc, pre .javadoctag {
     text-decoration: underline;
 }
 
-.variable, .envvar, .apache .sqbracket {
+pre .variable, pre .envvar, pre .apache .sqbracket {
     color: #660e7a;
 }
 
-.addition {
+pre .addition {
     background: #baeeba;
 }
 
-.deletion {
+pre .deletion {
     background: #ffc8bd;
 }
 
-.diff .change {
+pre .diff .change {
     background: #bccff9;
 }

@@ -19,85 +19,85 @@ pre code {
 }
 
 pre code,
-.ruby .subst,
-.xml .title,
-.lisp .title {
+pre .ruby .subst,
+pre .xml .title,
+pre .lisp .title {
   color: black;
 }
 
-.string,
-.title,
-.parent,
-.tag .attribute .value,
-.rules .value,
-.rules .value .number,
-.preprocessor,
-.ruby .symbol,
-.instancevar,
-.aggregate,
-.template_tag,
-.django .variable,
-.smalltalk .class,
-.addition,
-.flow,
-.stream,
-.bash .variable,
-.apache .tag,
-.apache .cbracket {
+pre .string,
+pre .title,
+pre .parent,
+pre .tag .attribute .value,
+pre .rules .value,
+pre .rules .value .number,
+pre .preprocessor,
+pre .ruby .symbol,
+pre .instancevar,
+pre .aggregate,
+pre .template_tag,
+pre .django .variable,
+pre .smalltalk .class,
+pre .addition,
+pre .flow,
+pre .stream,
+pre .bash .variable,
+pre .apache .tag,
+pre .apache .cbracket {
   color: #800;
 }
 
-.comment,
-.annotation,
-.template_comment,
-.diff .header,
-.chunk {
+pre .comment,
+pre .annotation,
+pre .template_comment,
+pre .diff .header,
+pre .chunk {
   color: #888;
 }
 
-.number,
-.date,
-.regexp,
-.literal,
-.smalltalk .symbol,
-.smalltalk .char,
-.change {
+pre .number,
+pre .date,
+pre .regexp,
+pre .literal,
+pre .smalltalk .symbol,
+pre .smalltalk .char,
+pre .change {
   color: #080;
 }
 
-.label,
-.javadoc,
-.ruby .string,
-.decorator,
-.filter .argument,
-.localvars,
-.array,
-.attr_selector,
-.pseudo,
-.pi,
-.doctype,
-.deletion,
-.envvar,
-.shebang,
-.apache .sqbracket {
+pre .label,
+pre .javadoc,
+pre .ruby .string,
+pre .decorator,
+pre .filter .argument,
+pre .localvars,
+pre .array,
+pre .attr_selector,
+pre .pseudo,
+pre .pi,
+pre .doctype,
+pre .deletion,
+pre .envvar,
+pre .shebang,
+pre .apache .sqbracket {
   color: #88F;
 }
 
-.keyword,
-.id,
-.phpdoc,
-.title,
-.built_in,
-.aggregate,
-.smalltalk .class,
-.winutils,
-.bash .variable,
-.apache .tag {
+pre .keyword,
+pre .id,
+pre .phpdoc,
+pre .title,
+pre .built_in,
+pre .aggregate,
+pre .smalltalk .class,
+pre .winutils,
+pre .bash .variable,
+pre .apache .tag {
   font-weight: bold;
 }
 
-.html .css,
-.html .javascript,
-.html .vbscript {
+pre .html .css,
+pre .html .javascript,
+pre .html .vbscript {
   opacity: 0.5;
 }
