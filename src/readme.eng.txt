@@ -154,6 +154,20 @@ PHP ("php"):
   variable         variable starting with "$"
   preprocessor     preprocessor marks: "<?php" and "?>"
 
+Scala ("scala"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  annotaion        annotation
+  javadoc          javadoc comment
+  javadoctag       @-tag in javadoc
+  class            class header
+  title            class name inside a header
+  params           everything in parentheses inside a class header
+  inheritance      keywords "extends" and "with" inside class header
+
 XML ("xml"):
 
   tag              any tag from "<" till ">"

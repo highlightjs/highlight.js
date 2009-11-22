@@ -159,6 +159,20 @@ PHP ("php"):
   variable         переменная, начинающаяся с "$"
   preprocessor     метки препроцессора: "<?php" and "?>"
 
+Scala ("scala"):
+
+  keyword          ключевое слово языка
+  number           число
+  string           строка
+  comment          комментарий
+  annotaion        аннотация
+  javadoc          javadoc-комментарии
+  javadoctag       @-тег в javadoc
+  class            заголовок класса
+  title            название класса внутри заголовка
+  params           все, что в скобках внутри заголовка класса
+  inheritance      слова "extends" и "with" внутри заголовка класса
+
 XML ("xml"):
 
   tag              любой открывающий или закрывающий тег от "<" до ">"
