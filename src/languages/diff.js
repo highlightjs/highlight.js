@@ -62,4 +62,4 @@ hljs.LANGUAGES.diff = {
       begin: '^\\!', end: '$'
     }
   ]
-}
+};
