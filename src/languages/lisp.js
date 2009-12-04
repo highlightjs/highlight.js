@@ -15,7 +15,13 @@ hljs.LANGUAGES.lisp = function(){
       illegal: '[^\\s]'
     },
     modes: [
-      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'string',
+        begin: '"', end: '"',
+        contains: ['escape'],
+        relevance: 0
+      },
+      hljs.BACKSLASH_ESCAPE,
       {
         className: 'number',
         begin: LISP_SIMPLE_NUMBER_RE, end: '^'
