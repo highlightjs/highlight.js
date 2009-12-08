@@ -8,7 +8,7 @@ hljs.XML_COMMENT = {
 };
 hljs.XML_ATTR = {
   className: 'attribute',
-  begin: '\\s[a-zA-Z\\:-]+=', end: '^',
+  begin: '\\s[a-zA-Z\\:_-]+=', end: '^',
   contains: ['value']
 };
 hljs.XML_VALUE_QUOT = {
@@ -69,7 +69,7 @@ hljs.HTML_DOCTYPE = {
 };
 hljs.HTML_ATTR = {
   className: 'attribute',
-  begin: '\\s[a-zA-Z\\:-]+=', end: '^',
+  begin: '\\s[a-zA-Z\\:_-]+=', end: '^',
   contains: ['value']
 };
 hljs.HTML_SHORT_ATTR = {
