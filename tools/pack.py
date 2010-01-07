@@ -51,7 +51,7 @@ LIBRARY_REPLACES = {
 def get_compressor(tools_path):
     cmd = 'java -jar %s --type js' % os.path.join(tools_path, 'yuicompressor.jar')
     def compress(content):
-        p = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+        p = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         p.stdin.write(content)
         p.stdin.close()
         content = p.stdout.read()
