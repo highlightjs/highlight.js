@@ -73,7 +73,8 @@ pre .pi,
 pre .doctype,
 pre .deletion,
 pre .shebang,
-pre .apache .sqbracket {
+pre .apache .sqbracket,
+pre .nginx .built_in {
   color: #802022;
 }
 

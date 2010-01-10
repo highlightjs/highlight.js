@@ -63,7 +63,8 @@ pre .addition,
 pre .stream,
 pre .envvar,
 pre .apache .tag,
-pre .apache .cbracket {
+pre .apache .cbracket,
+pre .nginx .built_in {
   color: #2C009F;
 }
 

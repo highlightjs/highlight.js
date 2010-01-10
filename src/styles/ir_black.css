@@ -38,7 +38,7 @@ pre .function .title, pre .sub .identifier, pre .pi, pre .decorator, pre .ini .t
     color: #FFFFB6;
 }
 
-pre .class .title, pre .smalltalk .class, pre .javadoctag, pre .phpdoc {
+pre .class .title, pre .smalltalk .class, pre .javadoctag, pre .phpdoc,  pre .nginx .built_in {
     color: #FFFFB6;
 }
 

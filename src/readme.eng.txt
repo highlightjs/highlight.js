@@ -358,6 +358,15 @@ Apache ("apache"):
   cbracket         options in rewrites "[..]"
   tag              begin and end of a configuration section
 
+Nginx ("nginx"):
+
+  keyword          keyword
+  string           string
+  number           number
+  comment          comment
+  built_in         built-in constant
+  variable         $-variable
+
 DOS ("dos"):
 
   keyword          keyword

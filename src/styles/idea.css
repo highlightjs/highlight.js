@@ -57,7 +57,7 @@ pre .phpdoc, pre .javadoctag {
     text-decoration: underline;
 }
 
-pre .variable, pre .envvar, pre .apache .sqbracket {
+pre .variable, pre .envvar, pre .apache .sqbracket, pre .nginx .built_in {
     color: #660e7a;
 }
 

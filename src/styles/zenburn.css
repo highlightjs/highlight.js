@@ -68,7 +68,8 @@ pre .function .title,
 pre .ini .title,
 pre .diff .header,
 pre .ruby .class .parent,
-pre .apache .tag {
+pre .apache .tag,
+pre .nginx .built_in {
     color: #efef8f;
 }
 

@@ -74,7 +74,7 @@ pre .css .id {
     color: #8B98AB;
 }
 
-pre .annotation, pre .apache .sqbracket {
+pre .annotation, pre .apache .sqbracket, pre .nginx .built_in {
     color: #9B859D;
 }
 

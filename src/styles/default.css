@@ -79,7 +79,8 @@ pre .doctype,
 pre .deletion,
 pre .envvar,
 pre .shebang,
-pre .apache .sqbracket {
+pre .apache .sqbracket,
+pre .nginx .built_in {
   color: #88F;
 }
 
@@ -94,6 +95,10 @@ pre .winutils,
 pre .bash .variable,
 pre .apache .tag {
   font-weight: bold;
+}
+
+pre .nginx .built_in {
+  font-weight: normal;
 }
 
 pre .html .css,

@@ -364,6 +364,15 @@ Apache ("apache"):
   cbracket         опции в rewrite'ах "[..]"
   tag              начало и конец раздела конфига
 
+Nginx ("nginx"):
+
+  keyword          ключевое слово
+  string           строка
+  number           число
+  comment          комментарий
+  built_in         встроенная константа
+  variable         $-переменная
+
 DOS ("dos"):
 
   keyword          ключевое слово

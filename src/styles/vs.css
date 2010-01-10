@@ -56,7 +56,8 @@ pre .envvar,
 pre .shebang,
 pre .preprocessor,
 pre .userType,
-pre .apache .sqbracket {
+pre .apache .sqbracket,
+pre .nginx .built_in {
     color: rgb(43, 145, 175);
 }
 

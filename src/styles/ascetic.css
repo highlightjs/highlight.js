@@ -16,7 +16,8 @@ pre .filter .argument,
 pre .addition,
 pre .change,
 pre .apache .tag,
-pre .apache .cbracket {
+pre .apache .cbracket,
+pre .nginx .built_in {
   color: #888;
 }
 

@@ -91,7 +91,8 @@ pre .pseudo,
 pre .xml .pi,
 pre .diff .header,
 pre .chunk,
-pre .shebang {
+pre .shebang,
+pre .nginx .built_in {
   color: #008080;
 }
 
@@ -108,6 +109,7 @@ pre .xml .tag .title,
 pre .winutils,
 pre .flow,
 pre .lisp .title,
-pre .apache .tag {
+pre .apache .tag,
+pre .nginx .built_in {
   font-weight: bold;
 }

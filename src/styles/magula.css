@@ -71,7 +71,8 @@ pre .doctype,
 pre .deletion,
 pre .envvar,
 pre .shebang,
-pre .apache .sqbracket {
+pre .apache .sqbracket,
+ pre .nginx .built_in {
   color: #00e;
 }
 
@@ -89,6 +90,10 @@ pre .xml .tag,
 pre .xml .title {
   font-weight: bold;
   color: navy;
+}
+
+pre .nginx .built_in {
+  font-weight: normal;
 }
 
 pre .html .css,
