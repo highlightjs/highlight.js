@@ -40,7 +40,7 @@ hljs.LANGUAGES.nginx = {
     },
     {
       className: 'http',
-      begin: 'http://.*?/', end: '^', noMarkup: true,
+      begin: 'http[s]?://', end: '[;\\s]', noMarkup: true,
       relevance: 0
     },
     {
