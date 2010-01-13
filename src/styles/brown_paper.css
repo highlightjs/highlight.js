@@ -25,7 +25,8 @@ pre .literal,
 pre .change,
 pre .winutils,
 pre .flow,
-pre .lisp .title {
+pre .lisp .title,
+pre .tex .special_symbol {
   color:#005599;
   font-weight:bold;
 }
@@ -61,7 +62,8 @@ pre .addition,
 pre .stream,
 pre .envvar,
 pre .apache .tag,
-pre .apache .cbracket {
+pre .apache .cbracket,
+pre .tex .number {
   color: #2C009F;
 }
 
@@ -74,7 +76,8 @@ pre .doctype,
 pre .deletion,
 pre .shebang,
 pre .apache .sqbracket,
-pre .nginx .built_in {
+pre .nginx .built_in,
+pre .tex .formula {
   color: #802022;
 }
 
@@ -94,12 +97,14 @@ pre .chunk,
 pre .winutils,
 pre .bash .variable,
 pre .lisp .title,
-pre .apache .tag {
+pre .apache .tag,
+pre .tex .command {
   font-weight: bold;
 }
 
 pre .html .css,
 pre .html .javascript,
-pre .html .vbscript {
+pre .html .vbscript,
+pre .tex .formula {
   opacity: 0.8;
 }

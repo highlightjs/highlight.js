@@ -9,7 +9,7 @@ pre .template_comment,
 pre .diff .header,
 pre .chunk,
 pre .apache .cbracket {
-    color: rgb(0, 128, 0);
+  color: rgb(0, 128, 0);
 }
 
 pre .keyword,
@@ -19,8 +19,9 @@ pre .built_in,
 pre .aggregate,
 pre .smalltalk .class,
 pre .winutils,
-pre .bash .variable {
-    color: rgb(0, 0, 255);
+pre .bash .variable,
+pre .tex .command {
+  color: rgb(0, 0, 255);
 }
 
 pre .string,
@@ -38,8 +39,9 @@ pre .addition,
 pre .flow,
 pre .stream,
 pre .apache .tag,
-pre .date {
-    color: rgb(163, 21, 21);
+pre .date,
+pre .tex .formula {
+  color: rgb(163, 21, 21);
 }
 
 pre .ruby .string,
@@ -57,13 +59,14 @@ pre .shebang,
 pre .preprocessor,
 pre .userType,
 pre .apache .sqbracket,
-pre .nginx .built_in {
-    color: rgb(43, 145, 175);
+pre .nginx .built_in,
+pre .tex .special_symbol {
+  color: rgb(43, 145, 175);
 }
 
 pre .phpdoc,
 pre .javadoc,
 pre .xmlDocTag {
-    color: rgb(128, 128, 128);
+  color: rgb(128, 128, 128);
 }
 

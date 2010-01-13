@@ -53,7 +53,8 @@ pre .regexp,
 pre .literal,
 pre .smalltalk .symbol,
 pre .smalltalk .char,
-pre .change {
+pre .change,
+pre .tex .special_symbol {
   color: #800;
 }
 
@@ -72,7 +73,8 @@ pre .deletion,
 pre .envvar,
 pre .shebang,
 pre .apache .sqbracket,
- pre .nginx .built_in {
+pre .nginx .built_in,
+pre .tex .formula {
   color: #00e;
 }
 
@@ -87,7 +89,8 @@ pre .winutils,
 pre .bash .variable,
 pre .apache .tag,
 pre .xml .tag,
-pre .xml .title {
+pre .xml .title,
+pre .tex .command {
   font-weight: bold;
   color: navy;
 }
@@ -98,7 +101,8 @@ pre .nginx .built_in {
 
 pre .html .css,
 pre .html .javascript,
-pre .html .vbscript {
+pre .html .vbscript,
+pre .tex .formula {
   opacity: 0.5;
 }
 

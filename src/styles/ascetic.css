@@ -17,7 +17,8 @@ pre .addition,
 pre .change,
 pre .apache .tag,
 pre .apache .cbracket,
-pre .nginx .built_in {
+pre .nginx .built_in,
+pre .tex .formula {
   color: #888;
 }
 
@@ -38,6 +39,7 @@ pre .ini .title,
 pre .winutils,
 pre .flow,
 pre .lisp .title,
-pre .apache .tag {
+pre .apache .tag,
+pre .tex .command {
   font-weight: bold;
 }
