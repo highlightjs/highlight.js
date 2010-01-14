@@ -444,7 +444,7 @@ TeX ("tex"):
   command          command
   parameter        parameter
   formula          formula
-  symbol           special symbol
+  special          special symbol
 
 
 ## Heuristics

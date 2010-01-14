@@ -450,7 +450,7 @@ TeX ("tex"):
   command          команда
   parameter        параметр
   formula          формула
-  symbol           специальный символ
+  special          специальный символ
 
 
 ## Эвристика

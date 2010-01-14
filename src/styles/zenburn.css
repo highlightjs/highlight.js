@@ -53,7 +53,7 @@ pre .diff .change,
 pre .python .exception,
 pre .python .built_in,
 pre .literal,
-pre .tex .symbol {
+pre .tex .special {
   color: #EFEFAF;
 }
 

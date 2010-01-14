@@ -31,7 +31,7 @@ pre .change,
 pre .winutils,
 pre .flow,
 pre .lisp .title,
-pre .tex .symbol {
+pre .tex .special {
   color:#005599;
   font-weight:bold;
 }

@@ -60,7 +60,7 @@ pre .preprocessor,
 pre .userType,
 pre .apache .sqbracket,
 pre .nginx .built_in,
-pre .tex .symbol {
+pre .tex .special {
   color: rgb(43, 145, 175);
 }
 

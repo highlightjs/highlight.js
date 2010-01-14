@@ -54,7 +54,7 @@ pre .literal,
 pre .smalltalk .symbol,
 pre .smalltalk .char,
 pre .change,
-pre .tex .symbol {
+pre .tex .special {
   color: #800;
 }
 

@@ -61,7 +61,7 @@ pre .lisp .title,
 pre .change,
 pre .envvar,
 pre .bash .variable,
-pre .tex .symbol {
+pre .tex .special {
   color: #FFF;
 }
 
@@ -115,6 +115,6 @@ pre .lisp .title,
 pre .apache .tag,
 pre .nginx .built_in,
 pre .tex .command,
-pre .tex .symbol {
+pre .tex .special {
   font-weight: bold;
 }

@@ -24,7 +24,7 @@ pre .change,
 pre .winutils,
 pre .flow,
 pre .lisp .title,
-pre .tex .symbol {
+pre .tex .special {
   color: white;
 }
 
@@ -94,7 +94,7 @@ pre .winutils,
 pre .bash .variable,
 pre .lisp .title,
 pre .apache .tag,
-pre .tex .special_sybmol {
+pre .tex .special {
   font-weight: bold;
 }
 

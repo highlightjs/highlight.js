@@ -54,7 +54,7 @@ pre .sub .identifier,
 pre .pi,
 pre .decorator,
 pre .ini .title,
-pre .tex .symbol {
+pre .tex .special {
   color: #FFFFB6;
 }
 
