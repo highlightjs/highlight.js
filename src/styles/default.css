@@ -45,7 +45,7 @@ pre .bash .variable,
 pre .apache .tag,
 pre .apache .cbracket,
 pre .tex .command,
-pre .tex .special_symbol {
+pre .tex .symbol {
   color: #800;
 }
 

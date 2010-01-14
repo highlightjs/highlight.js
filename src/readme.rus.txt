@@ -443,6 +443,15 @@ Parser3 ("parser3"):
   preprocessor     директива препроцессора
   title            пользовательское имя, начинающееся с "@"
 
+TeX ("tex"):
+
+  comment          комментарий
+  number           число
+  command          команда
+  parameter        параметр
+  formula          формула
+  symbol           специальный символ
+
 
 ## Эвристика
 

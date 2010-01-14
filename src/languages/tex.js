@@ -6,7 +6,7 @@ Website: http://fulc.ru/
 
 hljs.LANGUAGES.tex = {
   defaultMode: {
-    contains: ['parameter', 'command', 'special_symbol', 'formula', 'comment']
+    contains: ['parameter', 'command', 'symbol', 'formula', 'comment']
   },
   modes: [
     {
@@ -33,20 +33,20 @@ hljs.LANGUAGES.tex = {
       relevance: 0
     },
     {
-      className: 'special_symbol',
+      className: 'symbol',
       begin: '[{}\\[\\]\\&#~]', end: '^',
       relevance: 0
     },
     {
       className: 'formula',
       begin: '\\$\\$', end: '\\$\\$',
-      contains: ['command', 'special_symbol'],
+      contains: ['command', 'symbol'],
       relevance: 0
     },
     {
       className: 'formula',
       begin: '\\$', end: '\\$',
-      contains: ['command', 'special_symbol'],
+      contains: ['command', 'symbol'],
       relevance: 0
     },
     {

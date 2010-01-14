@@ -81,7 +81,7 @@ pre .variable {
 
 pre .css .keyword,
 pre .pseudo,
-pre .tex .special_symbol {
+pre .tex .symbol {
   color: #CDA869;
 }
 

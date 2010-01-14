@@ -32,3 +32,4 @@ Contributors:
 - Oleg Volchkov <oleg@volchkov.net>
 - Vasily Mikhailitchenko <vaskas@programica.ru>
 - Jan Berkel <jan.berkel@gmail.com>
+- Vladimir Moskva <vladmos@gmail.com>

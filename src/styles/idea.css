@@ -61,7 +61,7 @@ pre .rules .keyword,
 pre .number,
 pre .date,
 pre .regexp,
-pre .tex .special_symbol {
+pre .tex .symbol {
   font-weight: bold;
   color: #0000ff;
 }

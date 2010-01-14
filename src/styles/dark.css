@@ -24,7 +24,7 @@ pre .change,
 pre .winutils,
 pre .flow,
 pre .lisp .title,
-pre .tex .special_symbol {
+pre .tex .symbol {
   color: white;
 }
 

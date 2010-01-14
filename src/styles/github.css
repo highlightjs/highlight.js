@@ -85,7 +85,7 @@ pre .class {
 
 pre .symbol,
 pre .lisp .keyword,
-pre .tex .special_symbol {
+pre .tex .symbol {
   color: #990073
 }
 

@@ -437,6 +437,16 @@ Parser3 ("parser3"):
   preprocessor     preprocessor directive
   title            user-defined name starting with "@"
 
+TeX ("tex"):
+
+  comment          comment
+  number           number
+  command          command
+  parameter        parameter
+  formula          formula
+  symbol           special symbol
+
+
 ## Heuristics
 
 Autodetection of a code's language is done with a simple heuristics:
