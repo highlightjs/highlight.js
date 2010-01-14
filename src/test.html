@@ -88,6 +88,7 @@
   <script src="languages/avrasm.js"></script>
   <script src="languages/parser3.js"></script>
   <script src="languages/scala.js"></script>
+  <script src="languages/tex.js"></script>
   <script>
   hljs.tabReplace = '    ';
   hljs.initHighlightingOnLoad();
@@ -1069,6 +1070,28 @@ class
   $result[$.hash_item1[one] $.hash_item2[two]]
 </code></pre>
 
+  <tr>
+    <th>TeX
+    <td>
+<pre>
+<code>\documentclass{article}
+\usepackage[koi8-r]{inputenc}
+\hoffset=0pt
+\voffset=.3em
+\tolerance=400
+\newcommand{\eTiX}{\TeX}
+\begin{document}
+\section*{Highlight.js}
+\begin{table}[c|c]
+$\frac 12\, + \, \frac 1{x^3}\text{Hello \! world}$ & \textbf{Goodbye\~ world} \\\eTiX $ \pi=400 $
+\end{table}
+Ch\'erie, \c{c}a ne me pla\^\i t pas! % comment \b
+G\"otterd\"ammerung~45\%=34.
+$$
+    \int\limits_{0}^{\pi}\frac{4}{x-7}=3
+$$
+\end{document}
+</code></pre>
 </table>
 
 <h2>Special tests</h2>

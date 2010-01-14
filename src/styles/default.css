@@ -43,7 +43,9 @@ pre .flow,
 pre .stream,
 pre .bash .variable,
 pre .apache .tag,
-pre .apache .cbracket {
+pre .apache .cbracket,
+pre .tex .command,
+pre .tex .special_symbol {
   color: #800;
 }
 
@@ -80,7 +82,8 @@ pre .deletion,
 pre .envvar,
 pre .shebang,
 pre .apache .sqbracket,
-pre .nginx .built_in {
+pre .nginx .built_in,
+pre .tex .formula {
   color: #88F;
 }
 
@@ -93,7 +96,8 @@ pre .aggregate,
 pre .smalltalk .class,
 pre .winutils,
 pre .bash .variable,
-pre .apache .tag {
+pre .apache .tag,
+pre .tex .command {
   font-weight: bold;
 }
 
@@ -103,6 +107,7 @@ pre .nginx .built_in {
 
 pre .html .css,
 pre .html .javascript,
-pre .html .vbscript {
+pre .html .vbscript,
+pre .tex .formula {
   opacity: 0.5;
 }

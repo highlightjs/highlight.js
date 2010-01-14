@@ -40,7 +40,8 @@ pre .django .variable,
 pre .smalltalk .class,
 pre .addition,
 pre .apache .tag,
-pre .apache .cbracket {
+pre .apache .cbracket,
+pre .tex .command {
   color: #FF0;
 }
 
@@ -59,7 +60,8 @@ pre .flow,
 pre .lisp .title,
 pre .change,
 pre .envvar,
-pre .bash .variable {
+pre .bash .variable,
+pre .tex .special_symbol {
   color: #FFF;
 }
 
@@ -69,7 +71,8 @@ pre .javadoc,
 pre .java .annotation,
 pre .template_comment,
 pre .deletion,
-pre .apache .sqbracket {
+pre .apache .sqbracket,
+pre .tex .formula {
   color: #888;
 }
 
@@ -110,6 +113,8 @@ pre .winutils,
 pre .flow,
 pre .lisp .title,
 pre .apache .tag,
-pre .nginx .built_in {
+pre .nginx .built_in,
+pre .tex .command,
+pre .tex .special_symbol {
   font-weight: bold;
 }

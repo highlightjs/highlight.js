@@ -8,7 +8,6 @@ pre code[class]:after {
   content: 'highlight: ' attr(class);
   display: block; text-align: right;
   color: #CCC; background: transparent;
-
   padding-top: 0.5em;
 }
 
@@ -16,18 +15,23 @@ pre code {
   display: block;
   margin-left:30px;
   margin-top:15px;
-    font-size: 11px !important;
+  font-size: 11px !important;
   line-height:16px !important;
-  }
-pre{background:#f6f6ae url(./school_book.png);
-	border-top: solid 2px #d2e8b9;
-	border-bottom: solid 1px #d2e8b9;}
+}
+
+pre{
+  background:#f6f6ae url(./school_book.png);
+  border-top: solid 2px #d2e8b9;
+  border-bottom: solid 1px #d2e8b9;
+}
+
 pre .keyword,
 pre .literal,
 pre .change,
 pre .winutils,
 pre .flow,
-pre .lisp .title {
+pre .lisp .title,
+pre .tex .special_symbol {
   color:#005599;
   font-weight:bold;
 }
@@ -64,7 +68,8 @@ pre .stream,
 pre .envvar,
 pre .apache .tag,
 pre .apache .cbracket,
-pre .nginx .built_in {
+pre .nginx .built_in,
+pre .tex .command {
   color: #2C009F;
 }
 
@@ -96,12 +101,14 @@ pre .chunk,
 pre .winutils,
 pre .bash .variable,
 pre .lisp .title,
-pre .apache .tag {
+pre .apache .tag,
+pre .tex .command {
   font-weight: bold;
 }
 
 pre .html .css,
 pre .html .javascript,
-pre .html .vbscript {
-  opacity: 0.8;
+pre .html .vbscript,
+pre .tex .formula {
+  opacity: 0.5;
 }

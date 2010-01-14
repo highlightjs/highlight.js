@@ -52,7 +52,8 @@ pre .dos .flow,
 pre .diff .change,
 pre .python .exception,
 pre .python .built_in,
-pre .literal {
+pre .literal,
+pre .tex .special_symbol {
   color: #EFEFAF;
 }
 
@@ -69,7 +70,8 @@ pre .ini .title,
 pre .diff .header,
 pre .ruby .class .parent,
 pre .apache .tag,
-pre .nginx .built_in {
+pre .nginx .built_in,
+pre .tex .command {
     color: #efef8f;
 }
 
@@ -93,7 +95,8 @@ pre .smalltalk .array,
 pre .css .rules .value,
 pre .attr_selector,
 pre .pseudo,
-pre .apache .cbracket {
+pre .apache .cbracket,
+pre .tex .formula {
   color: #CC9393;
 }
 
@@ -108,7 +111,8 @@ pre .doctype {
 }
 
 pre .html .css,
-pre .html .javascript {
+pre .html .javascript,
+pre .tex .formula {
   opacity: 0.5;
 }
 
