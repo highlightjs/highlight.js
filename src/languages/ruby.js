@@ -18,10 +18,20 @@ hljs.LANGUAGES.ruby = function(){
       keywords: RUBY_KEYWORDS
     },
     modes: [
-      hljs.HASH_COMMENT_MODE,
+      {
+        className: 'comment',
+        begin: '#', end: '$',
+        contains: ['yardoctag'],
+        relevance: 10
+      },
+      {
+        className: 'yardoctag',
+        begin: '@[A-Za-z]+', end: '^'
+      },
       {
         className: 'comment',
         begin: '^\\=begin', end: '^\\=end',
+        contains: ['yardoctag'],
         relevance: 10
       },
       {

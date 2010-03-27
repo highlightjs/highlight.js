@@ -65,6 +65,7 @@ pre .shebang {
 pre .class .title,
 pre .smalltalk .class,
 pre .javadoctag,
+pre .yardoctag,
 pre .phpdoc {
   text-decoration: underline;
 }

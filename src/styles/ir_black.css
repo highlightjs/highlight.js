@@ -62,6 +62,7 @@ pre .class .title,
 pre .constant,
 pre .smalltalk .class,
 pre .javadoctag,
+pre .yardoctag,
 pre .phpdoc,
 pre .nginx .built_in {
   color: #FFFFB6;

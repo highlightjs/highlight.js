@@ -89,6 +89,7 @@ pre .tex .formula {
 }
 
 pre .phpdoc,
+pre .yardoctag,
 pre .javadoctag {
   text-decoration: underline;
 }
