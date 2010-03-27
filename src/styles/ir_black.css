@@ -59,6 +59,7 @@ pre .tex .special {
 }
 
 pre .class .title,
+pre .constant,
 pre .smalltalk .class,
 pre .javadoctag,
 pre .phpdoc,
