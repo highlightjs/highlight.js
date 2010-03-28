@@ -21,8 +21,7 @@ hljs.LANGUAGES.ruby = function(){
       {
         className: 'comment',
         begin: '#', end: '$',
-        contains: ['yardoctag'],
-        relevance: 10
+        contains: ['yardoctag']
       },
       {
         className: 'yardoctag',
