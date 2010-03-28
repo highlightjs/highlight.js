@@ -125,6 +125,7 @@ Ruby ("ruby"):
   string           string
   subst            in-string substitution (#{...})
   comment          comment
+  yardoctag        YARD tag
   function         function header "def some_name(...):"
   class            class header "class SomeName(...):"
   title            name of a function or a class inside a header
