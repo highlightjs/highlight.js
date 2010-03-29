@@ -162,8 +162,7 @@ hljs.LANGUAGES.ruby = function(){
         className: 'identifier',
         begin: RUBY_IDENT_RE, end: '^',
         lexems: [RUBY_IDENT_RE],
-        keywords: RUBY_KEYWORDS,
-        contains: RUBY_DEFAULT_CONTAINS
+        keywords: RUBY_KEYWORDS
       },
       hljs.BACKSLASH_ESCAPE,
       {
