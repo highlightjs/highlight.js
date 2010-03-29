@@ -79,6 +79,8 @@ pre .tex .command {
 pre .dos .winutils,
 pre .ruby .symbol,
 pre .ruby .symbol .string,
+pre .ruby .symbol .keyword,
+pre .ruby .symbol .keymethods,
 pre .ruby .string,
 pre .ruby .instancevar {
   color: #DCA3A3;
