@@ -89,6 +89,12 @@ pre .tex .formula {
   color: #88F;
 }
 
+pre .javadoctag,
+pre .phpdoc,
+pre .yardoctag {
+  font-weight: bold;
+}
+
 pre .keyword,
 pre .id,
 pre .phpdoc,
