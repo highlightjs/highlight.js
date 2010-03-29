@@ -50,6 +50,7 @@ pre .regexp {
 }
 
 pre .function .title,
+pre .function .ftitle,
 pre .sub .identifier,
 pre .pi,
 pre .decorator,

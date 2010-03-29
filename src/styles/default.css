@@ -27,6 +27,7 @@ pre .lisp .title {
 
 pre .string,
 pre .title,
+pre .ftitle,
 pre .constant,
 pre .parent,
 pre .tag .attribute .value,
@@ -98,6 +99,7 @@ pre .yardoctag {
 pre .keyword,
 pre .id,
 pre .phpdoc,
+pre .ftitle,
 pre .title,
 pre .built_in,
 pre .aggregate,

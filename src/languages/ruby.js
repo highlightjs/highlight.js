@@ -6,6 +6,7 @@ Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.
 
 hljs.LANGUAGES.ruby = function(){
   var RUBY_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*(\\!|\\?)?';
+  var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
   var RUBY_DEFAULT_CONTAINS = ['comment', 'string', 'char', 'class', 'function', 'constant', 'symbol', 'number', 'variable', 'identifier', 'regexp_container']
   var RUBY_KEYWORDS = {
     'keyword': {'and': 1, 'false': 1, 'then': 1, 'defined': 1, 'module': 1, 'in': 1, 'return': 1, 'redo': 1, 'if': 1, 'BEGIN': 1, 'retry': 1, 'end': 1, 'for': 1, 'true': 1, 'self': 1, 'when': 1, 'next': 1, 'until': 1, 'do': 1, 'begin': 1, 'unless': 1, 'END': 1, 'rescue': 1, 'nil': 1, 'else': 1, 'break': 1, 'undef': 1, 'not': 1, 'super': 1, 'class': 1, 'case': 1, 'require': 1, 'yield': 1, 'alias': 1, 'while': 1, 'ensure': 1, 'elsif': 1, 'or': 1, 'def': 1},
@@ -46,10 +47,16 @@ hljs.LANGUAGES.ruby = function(){
       },
       {
         className: 'function',
-        begin: '\\bdef\\b', end: '$|;',
+        begin: '\\bdef\\s+', end: ' |$|;',
         lexems: [RUBY_IDENT_RE],
         keywords: RUBY_KEYWORDS,
-        contains: ['title', 'params', 'comment']
+        contains: ['ftitle', 'params', 'comment']
+      },
+      {
+        className: 'ftitle',
+        begin: RUBY_METHOD_RE, end: '^',
+        lexems: [RUBY_IDENT_RE],
+        keywords: RUBY_KEYWORDS
       },
       {
         className: 'class',

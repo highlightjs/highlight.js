@@ -14,6 +14,7 @@ pre .apache .cbracket {
 
 pre .keyword,
 pre .id,
+pre .ftitle,
 pre .title,
 pre .built_in,
 pre .aggregate,
@@ -25,6 +26,7 @@ pre .tex .command {
 }
 
 pre .string,
+pre .ftitle,
 pre .title,
 pre .parent,
 pre .tag .attribute .value,

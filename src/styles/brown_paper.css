@@ -37,6 +37,7 @@ pre .ruby .subst {
 }
 
 pre .string,
+pre .function .ftitle,
 pre .function .title,
 pre .class .title,
 pre .ini .title,
@@ -86,6 +87,7 @@ pre .keyword,
 pre .literal,
 pre .css .id,
 pre .phpdoc,
+pre .function .ftitle,
 pre .function .title,
 pre .class .title,
 pre .vbscript .built_in,

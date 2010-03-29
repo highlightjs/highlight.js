@@ -51,6 +51,7 @@ pre .regexp {
   color: #E9C062;
 }
 
+pre .function .ftitle,
 pre .function .title,
 pre .sub .identifier,
 pre .pi,

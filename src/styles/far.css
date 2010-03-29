@@ -25,6 +25,7 @@ pre code,
 
 pre .string,
 pre .ruby .string,
+pre .function .ftitle,
 pre .function .title,
 pre .class .title,
 pre .ini .title,
@@ -48,6 +49,7 @@ pre .tex .command {
 
 pre .keyword,
 pre .css .id,
+pre .function .ftitle,
 pre .function .title,
 pre .class .title,
 pre .ini .title,
@@ -102,6 +104,7 @@ pre .nginx .built_in {
 
 pre .keyword,
 pre .css .id,
+pre .function .ftitle,
 pre .function .title,
 pre .class .title,
 pre .ini .title,
