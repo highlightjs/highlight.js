@@ -84,6 +84,7 @@ pre .class {
 }
 
 pre .symbol,
+pre .ruby .symbol .string,
 pre .lisp .keyword,
 pre .tex .special {
   color: #990073

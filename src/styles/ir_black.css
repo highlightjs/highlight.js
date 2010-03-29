@@ -69,6 +69,7 @@ pre .nginx .built_in {
 }
 
 pre .symbol,
+pre .ruby .symbol .string,
 pre .number,
 pre .variable,
 pre .vbscript,

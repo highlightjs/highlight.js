@@ -71,6 +71,7 @@ pre .phpdoc {
 }
 
 pre .symbol,
+pre .ruby .symbol .string,
 pre .number {
   color: #3387CC;
 }
