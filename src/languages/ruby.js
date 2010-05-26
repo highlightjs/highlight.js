@@ -144,7 +144,7 @@ hljs.LANGUAGES.ruby = function(){
       },
       {
         className: 'constant',
-        begin: '(::)?([A-Z]\\w*(::)?)+', end: '^',
+        begin: '(::)?([A-Z]\\w*(::)?)+', end: '^'
       },
       {
         className: 'symbol',

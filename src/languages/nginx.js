@@ -5,7 +5,7 @@ Author: Peter Leonov <gojpeg@yandex.ru>
 
 hljs.LANGUAGES.nginx = {
   defaultMode: {
-    contains: ['comment', 'directive'],
+    contains: ['comment', 'directive']
   },
   modes: [
     hljs.HASH_COMMENT_MODE,
