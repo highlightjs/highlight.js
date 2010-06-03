@@ -165,7 +165,7 @@ var hljs = new function() {
     }
 
     function startNewMode(mode, lexem) {
-      var markup = mode.noMarkup?'':'<span class="' + mode.className + '">';
+      var markup = mode.noMarkup?'':'<span class="' + mode.displayClassName + '">';
       if (mode.returnBegin) {
         result += markup;
         mode.buffer = '';
@@ -434,15 +434,19 @@ var hljs = new function() {
         continue;
       var language = LANGUAGES[i];
       for (var j = 0; j < language.modes.length; j++) {
-        if (language.modes[j].begin)
-          language.modes[j].beginRe = langRe(language, '^' + language.modes[j].begin);
-        if (language.modes[j].end)
-          language.modes[j].endRe = langRe(language, '^' + language.modes[j].end);
-        if (language.modes[j].illegal)
-          language.modes[j].illegalRe = langRe(language, '^(?:' + language.modes[j].illegal + ')');
+        var mode = language.modes[j];
+        if (mode.begin)
+          mode.beginRe = langRe(language, '^' + mode.begin);
+        if (mode.end)
+          mode.endRe = langRe(language, '^' + mode.end);
+        if (mode.illegal)
+          mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
         language.defaultMode.illegalRe = langRe(language, '^(?:' + language.defaultMode.illegal + ')');
-        if (language.modes[j].relevance == undefined) {
-          language.modes[j].relevance = 1;
+        if (mode.relevance == undefined) {
+          mode.relevance = 1;
+        }
+        if (!mode.displayClassName) {
+          mode.displayClassName = mode.className;
         }
       }
     }

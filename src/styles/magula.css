@@ -19,7 +19,6 @@ pre .lisp .title {
 }
 
 pre .string,
-pre .ftitle,
 pre .title,
 pre .parent,
 pre .tag .attribute .value,
@@ -85,7 +84,6 @@ pre .tex .formula {
 pre .keyword,
 pre .id,
 pre .phpdoc,
-pre .ftitle,
 pre .title,
 pre .built_in,
 pre .aggregate,

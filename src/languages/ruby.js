@@ -53,7 +53,7 @@ hljs.LANGUAGES.ruby = function(){
         contains: ['ftitle', 'params', 'comment']
       },
       {
-        className: 'ftitle',
+        className: 'ftitle', displayClassName: 'title',
         begin: RUBY_METHOD_RE, end: '^',
         lexems: [RUBY_IDENT_RE],
         keywords: RUBY_KEYWORDS
