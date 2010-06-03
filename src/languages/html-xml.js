@@ -8,7 +8,7 @@ hljs.XML_COMMENT = {
 };
 hljs.XML_ATTR = {
   className: 'attribute',
-  begin: '\\s[a-zA-Z\\:_-]+=', end: '^',
+  begin: '\\s[A-Za-z0-9\\._:-]+=', end: '^',
   contains: ['value']
 };
 hljs.XML_VALUE_QUOT = {
@@ -45,7 +45,7 @@ hljs.LANGUAGES.xml = {
     },
     {
       className: 'title',
-      begin: '[A-Za-z:_][A-Za-z0-9\\._:-]*', end: '^',
+      begin: '[A-Za-z0-9\\._:-]+', end: '^',
       relevance: 0
     },
     {
