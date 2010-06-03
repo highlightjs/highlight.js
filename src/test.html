@@ -202,22 +202,26 @@ class SomeClass:<br>    pass
   <tr>
     <th>Ruby
     <td>
-<pre><code>class CategoriesController &lt; App::ApplicationController
-  layout "core"
+<pre><code>class A &lt; B; def self.create(object = User) object end end
+class Zebra; def inspect; "X#{2 + self.object_id}" end end
+  
+module ABC::DEF
+  include Comparable
 
-  before_filter :login_required
-  before_filter :xhr_required, :only =&gt; [:create, :update]
-  before_filter :admin_privileges_required, :except =&gt; [:show]
-
-=begin
-  This method creates a category. Very difficult to understand, huh?
-=end
-
-  def create  # create!
-    @category = Category.create(params[:category])
-    flash[:notice] = "Category #{@category + "..."} was successfully created"
+  # @param test
+  # @return [String] nothing
+  def foo(test)
+    Thread.new do |blockvar|
+      ABC::DEF.reverse(:a_symbol, :'a symbol' + 'test' + test)
+    end.join
   end
+  
+  def [](index) self[index] end
+  def ==(other) other == self end
 end
+
+anIdentifier = an_identifier
+Constant = 1
 </code></pre>
 
   <tr>

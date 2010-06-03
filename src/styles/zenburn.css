@@ -65,6 +65,7 @@ pre .ruby .subst {
 pre .dos .keyword,
 pre .python .decorator,
 pre .class .title,
+pre .function .ftitle,
 pre .function .title,
 pre .ini .title,
 pre .diff .header,
@@ -77,6 +78,9 @@ pre .tex .command {
 
 pre .dos .winutils,
 pre .ruby .symbol,
+pre .ruby .symbol .string,
+pre .ruby .symbol .keyword,
+pre .ruby .symbol .keymethods,
 pre .ruby .string,
 pre .ruby .instancevar {
   color: #DCA3A3;

@@ -27,6 +27,7 @@ pre .lisp .title {
 
 pre .string,
 pre .title,
+pre .ftitle,
 pre .constant,
 pre .parent,
 pre .tag .attribute .value,
@@ -34,6 +35,9 @@ pre .rules .value,
 pre .rules .value .number,
 pre .preprocessor,
 pre .ruby .symbol,
+pre .ruby .symbol .string,
+pre .ruby .symbol .keyword,
+pre .ruby .symbol .keymethods,
 pre .instancevar,
 pre .aggregate,
 pre .template_tag,
@@ -88,9 +92,16 @@ pre .tex .formula {
   color: #88F;
 }
 
+pre .javadoctag,
+pre .phpdoc,
+pre .yardoctag {
+  font-weight: bold;
+}
+
 pre .keyword,
 pre .id,
 pre .phpdoc,
+pre .ftitle,
 pre .title,
 pre .built_in,
 pre .aggregate,

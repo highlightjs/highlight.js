@@ -14,6 +14,7 @@ pre .apache .cbracket {
 
 pre .keyword,
 pre .id,
+pre .ftitle,
 pre .title,
 pre .built_in,
 pre .aggregate,
@@ -25,12 +26,16 @@ pre .tex .command {
 }
 
 pre .string,
+pre .ftitle,
 pre .title,
 pre .parent,
 pre .tag .attribute .value,
 pre .rules .value,
 pre .rules .value .number,
 pre .ruby .symbol,
+pre .ruby .symbol .string,
+pre .ruby .symbol .keyword,
+pre .ruby .symbol .keymethods,
 pre .instancevar,
 pre .aggregate,
 pre .template_tag,
