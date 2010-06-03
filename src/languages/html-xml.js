@@ -45,7 +45,7 @@ hljs.LANGUAGES.xml = {
     },
     {
       className: 'title',
-      begin: '[A-Za-z:_][A-Za-z0-9\\._:-]+', end: '^',
+      begin: '[A-Za-z:_][A-Za-z0-9\\._:-]*', end: '^',
       relevance: 0
     },
     {

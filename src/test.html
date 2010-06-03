@@ -204,7 +204,7 @@ class SomeClass:<br>    pass
     <td>
 <pre><code>class A &lt; B; def self.create(object = User) object end end
 class Zebra; def inspect; "X#{2 + self.object_id}" end end
-  
+
 module ABC::DEF
   include Comparable
 
@@ -215,7 +215,7 @@ module ABC::DEF
       ABC::DEF.reverse(:a_symbol, :'a symbol' + 'test' + test)
     end.join
   end
-  
+
   def [](index) self[index] end
   def ==(other) other == self end
 end
@@ -339,6 +339,7 @@ object Maps {
   &lt;ns:description&gt;&lt;![CDATA[
   CDATA is &lt;not&gt; magical.
   ]]&gt;&lt;/ns:description&gt;
+  &lt;a&gt;&lt;/a&gt; &lt;a/&gt;
 &lt;/response&gt;
 </code></pre>
 
