@@ -335,7 +335,11 @@ var hljs = new function() {
     function open(node) {
       var result = '<' + node.nodeName.toLowerCase();
       for (var i = 0; i < node.attributes.length; i++) {
-        result += ' ' + node.attributes[i].nodeName.toLowerCase()  + '="' + escape(node.attributes[i].nodeValue) + '"';
+        var attribute = node.attributes[i];
+        result += ' ' + attribute.nodeName.toLowerCase();
+        if (attribute.nodeValue != undefined) {
+          result += '="' + escape(attribute.nodeValue) + '"';
+        }
       }
       return result + '>';
     }
