@@ -5,6 +5,10 @@ http://softwaremaniacs.org/soft/highlight/
 
 var hljs = new function() {
   var LANGUAGES = {}
+  // selected_languages is used to support legacy mode of selecting languages
+  // available for highlighting by passing them as arguments into
+  // initHighlighting function. Currently the whole library is expected to
+  // contain only those language definitions that are actually get used.
   var selected_languages = {};
 
   /* Utility functions */
@@ -447,9 +451,20 @@ var hljs = new function() {
     }
   }
 
+  function initialize() {
+    if (initialize.called)
+        return;
+    initialize.called = true;
+    compileModes();
+    compileKeywords();
+    selected_languages = LANGUAGES;
+  }
+
   /* Public library functions */
 
   function highlightBlock(block, tabReplace) {
+    initialize();
+
     try {
       var text = blockText(block);
       var language = blockLanguage(block);
@@ -503,16 +518,14 @@ var hljs = new function() {
     if (initHighlighting.called)
       return;
     initHighlighting.called = true;
-    compileModes();
-    compileKeywords();
+    initialize();
     if (arguments.length) {
       for (var i = 0; i < arguments.length; i++) {
         if (LANGUAGES[arguments[i]]) {
           selected_languages[arguments[i]] = LANGUAGES[arguments[i]];
         }
       }
-    } else
-      selected_languages = LANGUAGES;
+    }
     var pres = document.getElementsByTagName('pre');
     for (var i = 0; i < pres.length; i++) {
       var code = findCode(pres[i]);

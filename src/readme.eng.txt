@@ -6,6 +6,7 @@ automatically: finds blocks of code, detects a language, highlights it.
 
 Autodetection can be fine tuned when it fails by itself (see "Heuristics").
 
+
 ## Installation and usage
 
 Downloaded package includes file "highlight.pack.js" which is a full compressed
@@ -31,20 +32,28 @@ with some fixed number of spaces or with a `<span>` to set them special styling:
       hljs.initHighlightingOnLoad();
     </script>
 
-Despite highlight.pack.js already includes only those languages that you need sometimes
-you may want to further constrain a set of languages used on a page by listing them as
-parameters to initialization:
-
-    <script type="text/javascript">
-      hljs.initHighlightingOnLoad('html', 'css');
-    </script>
-
-A full list of available classes is below ("Languages").
-
 Then the script looks in your page for fragments `<pre><code>...</code></pre>`
 that are used traditionally to mark up code examples. Their content is
-marked up by logical pieces with defined class names. The classes are
-used to actually style the code elements:
+marked up by logical pieces with defined class names.
+
+
+### Custom initialization
+
+If you use different markup for code blocks you can initialize them manually
+with `highlightBlock(code, tabReplace)` function. It takes a DOM element
+containing the code to highlight and optionally a string with which to replace
+TAB characters.
+
+Initialization using for example jQuery might look like this:
+
+    $(document).ready(function() {
+      $('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
+    });
+
+
+### Styling
+
+Elements of code marked up with classes can be styled as desired:
 
     .comment {
       color: gray;
@@ -64,6 +73,9 @@ used to actually style the code elements:
 
 Highligt.js comes with several style themes located in "styles" directory that
 can be used directly or as a base for your own experiments.
+
+A full list of available classes is below ("Languages").
+
 
 ### WordPress plugin
 
