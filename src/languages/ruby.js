@@ -151,7 +151,8 @@ hljs.LANGUAGES.ruby = function(){
       },
       {
         className: 'constant',
-        begin: '(::)?([A-Z]\\w*(::)?)+', end: '^'
+        begin: '(::)?([A-Z]\\w*(::)?)+', end: '^',
+        relevance: 0
       },
       {
         className: 'symbol',
@@ -162,7 +163,8 @@ hljs.LANGUAGES.ruby = function(){
         className: 'identifier',
         begin: RUBY_IDENT_RE, end: '^',
         lexems: [RUBY_IDENT_RE],
-        keywords: RUBY_KEYWORDS
+        keywords: RUBY_KEYWORDS,
+        relevance: 0
       },
       hljs.BACKSLASH_ESCAPE,
       {
