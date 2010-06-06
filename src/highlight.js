@@ -7,6 +7,8 @@ var hljs = new function() {
   var LANGUAGES = {}
   var selected_languages = {};
 
+  /* Utility functions */
+
   function escape(value) {
     return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
   }
@@ -19,6 +21,135 @@ var hljs = new function() {
         return true;
     return false;
   }
+
+  function langRe(language, value, global) {
+    var mode =  'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '');
+    return new RegExp(value, mode);
+  }
+
+  function findCode(pre) {
+    for (var i = 0; i < pre.childNodes.length; i++) {
+      node = pre.childNodes[i];
+      if (node.nodeName == 'CODE')
+        return node;
+      if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
+        return null;
+    }
+  }
+
+  function blockText(block) {
+    var result = '';
+    for (var i = 0; i < block.childNodes.length; i++)
+      if (block.childNodes[i].nodeType == 3)
+        result += block.childNodes[i].nodeValue;
+      else if (block.childNodes[i].nodeName == 'BR')
+        result += '\n';
+      else
+        result += blockText(block.childNodes[i]);
+    return result;
+  }
+
+  function blockLanguage(block) {
+    var classes = block.className.split(/\s+/)
+    classes = classes.concat(block.parentNode.className.split(/\s+/));
+    for (var i = 0; i < classes.length; i++) {
+      var class_ = classes[i].replace(/^language-/, '');
+      if (class_ == 'no-highlight') {
+        throw 'No highlight'
+      }
+      if (LANGUAGES[class_]) {
+        return class_;
+      }
+    }
+  }
+
+  /* Stream merging */
+
+  function nodeStream(node) {
+    var result = [];
+    (function (node, offset) {
+      for (var i = 0; i < node.childNodes.length; i++) {
+        if (node.childNodes[i].nodeType == 3)
+          offset += node.childNodes[i].nodeValue.length;
+        else if (node.childNodes[i].nodeName == 'BR')
+          offset += 1
+        else {
+          result.push({
+            event: 'start',
+            offset: offset,
+            node: node.childNodes[i]
+          });
+          offset = arguments.callee(node.childNodes[i], offset)
+          result.push({
+            event: 'stop',
+            offset: offset,
+            node: node.childNodes[i]
+          });
+        }
+      }
+      return offset;
+    })(node, 0);
+    return result;
+  }
+
+  function mergeStreams(stream1, stream2, value) {
+    var processed = 0;
+    var result = '';
+    var nodeStack = [];
+
+    function selectStream() {
+      if (stream1.length && stream2.length) {
+        if (stream1[0].offset != stream2[0].offset)
+          return (stream1[0].offset < stream2[0].offset) ? stream1 : stream2;
+        else
+          return (stream1[0].event == 'start' && stream2[0].event == 'stop') ? stream2 : stream1;
+      } else {
+        return stream1.length ? stream1 : stream2;
+      }
+    }
+
+    function open(node) {
+      var result = '<' + node.nodeName.toLowerCase();
+      for (var i = 0; i < node.attributes.length; i++) {
+        var attribute = node.attributes[i];
+        result += ' ' + attribute.nodeName.toLowerCase();
+        if (attribute.nodeValue != undefined) {
+          result += '="' + escape(attribute.nodeValue) + '"';
+        }
+      }
+      return result + '>';
+    }
+
+    function close(node) {
+      return '</' + node.nodeName.toLowerCase() + '>';
+    }
+
+    while (stream1.length || stream2.length) {
+      var current = selectStream().splice(0, 1)[0];
+      result += escape(value.substr(processed, current.offset - processed));
+      processed = current.offset;
+      if ( current.event == 'start') {
+        result += open(current.node);
+        nodeStack.push(current.node);
+      } else if (current.event == 'stop') {
+        var i = nodeStack.length;
+        do {
+          i--;
+          var node = nodeStack[i];
+          result += close(node);
+        } while (node != current.node);
+        nodeStack.splice(i, 1);
+        while (i < nodeStack.length) {
+          result += open(nodeStack[i]);
+          i++;
+        }
+      }
+    }
+    result += value.substr(processed);
+    return result;
+  }
+
+  /* Core highlighting function */
 
   function highlight(language_name, value) {
     function compileSubModes(mode, language) {
@@ -263,170 +394,7 @@ var hljs = new function() {
     }
   }
 
-  function blockText(block) {
-    var result = '';
-    for (var i = 0; i < block.childNodes.length; i++)
-      if (block.childNodes[i].nodeType == 3)
-        result += block.childNodes[i].nodeValue;
-      else if (block.childNodes[i].nodeName == 'BR')
-        result += '\n';
-      else
-        result += blockText(block.childNodes[i]);
-    return result;
-  }
-
-  function blockLanguage(block) {
-    var classes = block.className.split(/\s+/)
-    classes = classes.concat(block.parentNode.className.split(/\s+/));
-    for (var i = 0; i < classes.length; i++) {
-      var class_ = classes[i].replace(/^language-/, '');
-      if (class_ == 'no-highlight') {
-        throw 'No highlight'
-      }
-      if (LANGUAGES[class_]) {
-        return class_;
-      }
-    }
-  }
-
-  function nodeStream(node) {
-    var result = [];
-    (function (node, offset) {
-      for (var i = 0; i < node.childNodes.length; i++) {
-        if (node.childNodes[i].nodeType == 3)
-          offset += node.childNodes[i].nodeValue.length;
-        else if (node.childNodes[i].nodeName == 'BR')
-          offset += 1
-        else {
-          result.push({
-            event: 'start',
-            offset: offset,
-            node: node.childNodes[i]
-          });
-          offset = arguments.callee(node.childNodes[i], offset)
-          result.push({
-            event: 'stop',
-            offset: offset,
-            node: node.childNodes[i]
-          });
-        }
-      }
-      return offset;
-    })(node, 0);
-    return result;
-  }
-
-  function mergeStreams(stream1, stream2, value) {
-    var processed = 0;
-    var result = '';
-    var nodeStack = [];
-
-    function selectStream() {
-      if (stream1.length && stream2.length) {
-        if (stream1[0].offset != stream2[0].offset)
-          return (stream1[0].offset < stream2[0].offset) ? stream1 : stream2;
-        else
-          return (stream1[0].event == 'start' && stream2[0].event == 'stop') ? stream2 : stream1;
-      } else {
-        return stream1.length ? stream1 : stream2;
-      }
-    }
-
-    function open(node) {
-      var result = '<' + node.nodeName.toLowerCase();
-      for (var i = 0; i < node.attributes.length; i++) {
-        var attribute = node.attributes[i];
-        result += ' ' + attribute.nodeName.toLowerCase();
-        if (attribute.nodeValue != undefined) {
-          result += '="' + escape(attribute.nodeValue) + '"';
-        }
-      }
-      return result + '>';
-    }
-
-    function close(node) {
-      return '</' + node.nodeName.toLowerCase() + '>';
-    }
-
-    while (stream1.length || stream2.length) {
-      var current = selectStream().splice(0, 1)[0];
-      result += escape(value.substr(processed, current.offset - processed));
-      processed = current.offset;
-      if ( current.event == 'start') {
-        result += open(current.node);
-        nodeStack.push(current.node);
-      } else if (current.event == 'stop') {
-        var i = nodeStack.length;
-        do {
-          i--;
-          var node = nodeStack[i];
-          result += close(node);
-        } while (node != current.node);
-        nodeStack.splice(i, 1);
-        while (i < nodeStack.length) {
-          result += open(nodeStack[i]);
-          i++;
-        }
-      }
-    }
-    result += value.substr(processed);
-    return result;
-  }
-
-  function highlightBlock(block, tabReplace) {
-    try {
-      var text = blockText(block);
-      var language = blockLanguage(block);
-    } catch (e) {
-      if (e == 'No highlight')
-        return;
-    }
-
-    if (language) {
-      var result = highlight(language, text).value;
-    } else {
-      var max_relevance = 0;
-      for (var key in selected_languages) {
-        if (!selected_languages.hasOwnProperty(key))
-          continue;
-        var lang_result = highlight(key, text);
-        var relevance = lang_result.keyword_count + lang_result.relevance;
-        if (relevance > max_relevance) {
-          max_relevance = relevance;
-          var result = lang_result.value;
-          language = key;
-        }
-      }
-    }
-
-    if (result) {
-      if (tabReplace) {
-        result = result.replace(/^(\t+)/gm, function(match, p1, offset, s) {
-          return p1.replace(/\t/g, tabReplace);
-        })
-      }
-      var class_name = block.className;
-      if (!class_name.match(language)) {
-        class_name += ' ' + language;
-      }
-      var original = nodeStream(block);
-      if (original.length) {
-        var pre = document.createElement('pre');
-        pre.innerHTML = result;
-        result = mergeStreams(original, nodeStream(pre), text);
-      }
-      // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
-      var container = document.createElement('div');
-      container.innerHTML = '<pre><code class="' + class_name + '">' + result + '</code></pre>';
-      var environment = block.parentNode.parentNode;
-      environment.replaceChild(container.firstChild, block.parentNode);
-    }
-  }
-
-  function langRe(language, value, global) {
-    var mode =  'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '');
-    return new RegExp(value, mode);
-  }
+  /* Initialization */
 
   function compileModes() {
     for (var i in LANGUAGES) {
@@ -479,13 +447,55 @@ var hljs = new function() {
     }
   }
 
-  function findCode(pre) {
-    for (var i = 0; i < pre.childNodes.length; i++) {
-      node = pre.childNodes[i];
-      if (node.nodeName == 'CODE')
-        return node;
-      if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
-        return null;
+  /* Public library functions */
+
+  function highlightBlock(block, tabReplace) {
+    try {
+      var text = blockText(block);
+      var language = blockLanguage(block);
+    } catch (e) {
+      if (e == 'No highlight')
+        return;
+    }
+
+    if (language) {
+      var result = highlight(language, text).value;
+    } else {
+      var max_relevance = 0;
+      for (var key in selected_languages) {
+        if (!selected_languages.hasOwnProperty(key))
+          continue;
+        var lang_result = highlight(key, text);
+        var relevance = lang_result.keyword_count + lang_result.relevance;
+        if (relevance > max_relevance) {
+          max_relevance = relevance;
+          var result = lang_result.value;
+          language = key;
+        }
+      }
+    }
+
+    if (result) {
+      if (tabReplace) {
+        result = result.replace(/^(\t+)/gm, function(match, p1, offset, s) {
+          return p1.replace(/\t/g, tabReplace);
+        })
+      }
+      var class_name = block.className;
+      if (!class_name.match(language)) {
+        class_name += ' ' + language;
+      }
+      var original = nodeStream(block);
+      if (original.length) {
+        var pre = document.createElement('pre');
+        pre.innerHTML = result;
+        result = mergeStreams(original, nodeStream(pre), text);
+      }
+      // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
+      var container = document.createElement('div');
+      container.innerHTML = '<pre><code class="' + class_name + '">' + result + '</code></pre>';
+      var environment = block.parentNode.parentNode;
+      environment.replaceChild(container.firstChild, block.parentNode);
     }
   }
 
@@ -522,6 +532,8 @@ var hljs = new function() {
     else
       window.onload = handler;
   }
+
+  /* Interface definition */
 
   this.LANGUAGES = LANGUAGES;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
