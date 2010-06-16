@@ -68,6 +68,7 @@
   <script src="languages/smalltalk.js"></script>
   <script src="languages/profile.js"></script>
   <script src="languages/bash.js"></script>
+  <script src="languages/lua.js"></script>
   <script src="languages/html-xml.js"></script>
   <script src="languages/renderman.js"></script>
   <script src="languages/1c.js"></script>
@@ -473,6 +474,43 @@ for i = 0 to ubound(ini_strings)
       end if
     end if
 next</code></pre>
+
+  <tr>
+    <th>Lua
+    <td>
+<pre><code>--[[
+Simple signal/slot implementation
+]]
+local signal_mt = {
+    __index = {
+        register = table.insert
+    }
+}
+function signal_mt.__index:emit(... --[[ Comment in params ]])
+    for _, slot in ipairs(self) do
+        slot(self, ...)
+    end
+end
+local function create_signal()
+    return setmetatable({}, signal_mt)
+end
+
+-- Signal test
+local signal = create_signal()
+signal:register(function (signal, ...)
+    print(...)
+end)
+signal:emit('Answer to Life, the Universe, and Everything:', 42)
+
+--[==[ [=[ [[
+Nested ]]
+multi-line ]=]
+comment ]==]
+[==[ Nested
+[=[ multi-line
+[[ string
+]] ]=] ]==]
+</code></pre>
 
   <tr>
     <th>Delphi

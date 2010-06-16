@@ -34,3 +34,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Ян Беркель <jan.berkel@gmail.com>
 - Владимир Москва <vladmos@gmail.com>
 - Лорен Сегал <lsegal@soen.ca>
+- Андрей Фёдоров <dmmdrs@mail.ru>

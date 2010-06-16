@@ -251,6 +251,18 @@ VBScript ("vbscript"):
   comment          comment
   built_in         built-in function
 
+Lua ("lua"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  built_in         built-in operator
+  function         header of a function
+  title            name of a function inside a header
+  params           everything inside parentheses in a function's header
+  long_brackets    multiline string in [=[ .. ]=]
+
 Delphi ("delphi"):
 
   keyword          keyword

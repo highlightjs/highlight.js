@@ -255,6 +255,18 @@ VBScript ("vbscript"):
   string           строка
   built_in         встроенная функция
 
+Lua ("lua"):
+
+  keyword          ключевое слово языка
+  number           число
+  string           строка
+  comment          комментарий
+  built_in         встроенный оператор
+  function         заголовок функции
+  title            название функции внутри заголовка
+  params           все, что в скобках внутри заголовка функции
+  long_brackets    многострочная строка в [=[ .. ]=]
+
 Delphi ("delphi"):
 
   keyword          ключевое слово языка
