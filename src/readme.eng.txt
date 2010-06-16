@@ -77,22 +77,6 @@ can be used directly or as a base for your own experiments.
 A full list of available classes is below ("Languages").
 
 
-### WordPress plugin
-
-Generally installing highlight.js in a [WordPress][wp] blog is no different
-than for any other web page. However it can also be installed as a plugin.
-This is useful if your blog is located on a shared hosting and you don't
-have a permission to edit template and style files. Or it may be more convenient
-to you this way.
-
-To install the plugin copy the whole directory with highlight.js to the
-WordPress plugins directory. After this you can activate and deactivate it
-from the Plugins panel. There is also a page "highlight.js" under the Options
-menu where you can set a list of languages and style rules. Insanely convenient :-)
-
-[wp]: http://wordpress.org/
-
-
 ## Export
 
 File export.html contains a little program that shows and allows to copy and paste
