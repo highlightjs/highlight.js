@@ -1,7 +1,7 @@
 /*
 Language: Ruby
 Author: Anton Kovalyov <anton@kovalyov.net>
-Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.net>
+Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.net>, Loren Segal <lsegal@soen.ca>
 */
 
 hljs.LANGUAGES.ruby = function(){
