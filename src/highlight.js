@@ -491,11 +491,6 @@ var hljs = new function() {
     }
 
     if (result) {
-      if (tabReplace) {
-        result = result.replace(/^(\t+)/gm, function(match, p1, offset, s) {
-          return p1.replace(/\t/g, tabReplace);
-        })
-      }
       var class_name = block.className;
       if (!class_name.match(language)) {
         class_name += ' ' + language;
@@ -505,6 +500,11 @@ var hljs = new function() {
         var pre = document.createElement('pre');
         pre.innerHTML = result;
         result = mergeStreams(original, nodeStream(pre), text);
+      }
+      if (tabReplace) {
+        result = result.replace(/^((<[^>]+>)*\t+)/gm, function(match, p1, offset, s) {
+          return p1.replace(/\t/g, tabReplace);
+        })
       }
       // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
       var container = document.createElement('div');
