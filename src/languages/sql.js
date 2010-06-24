@@ -7,7 +7,8 @@ hljs.LANGUAGES.sql =
   case_insensitive: true,
   defaultMode:
   {
-    contains: ['operator', 'comment']
+    contains: ['operator', 'comment'],
+    illegal: '[^\\s]'
   },
 
   modes: [
