@@ -14,7 +14,7 @@ hljs.LANGUAGES.sql =
   modes: [
     {
       className: 'operator',
-      begin: '(begin|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show)\\b', end: ';|$',
+      begin: '(begin|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma)\\b', end: ';|$',
       contains: ['string', 'number', 'newline'],
       lexems: ['[a-zA-Z][a-zA-Z0-9_\\.]*'],
       keywords: {
@@ -62,7 +62,7 @@ hljs.LANGUAGES.sql =
           'whenever': 1, 'interval': 1, 'work': 1, 'order': 1, 'cascade': 1,
           'diagnostics': 1, 'nchar': 1, 'having': 1, 'left': 1, 'call': 1,
           'do': 1, 'handler': 1, 'load': 1, 'replace': 1, 'truncate': 1,
-          'start': 1, 'lock': 1, 'show': 1},
+          'start': 1, 'lock': 1, 'show': 1, 'pragma': 1},
         'aggregate': {'count': 1, 'sum': 1, 'min': 1, 'max': 1, 'avg': 1}
       }
     },
