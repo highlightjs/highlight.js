@@ -502,7 +502,7 @@ var hljs = new function() {
         result = mergeStreams(original, nodeStream(pre), text);
       }
       if (tabReplace) {
-        result = result.replace(/^((<[^>]+>)*\t+)/gm, function(match, p1, offset, s) {
+        result = result.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
           return p1.replace(/\t/g, tabReplace);
         })
       }
