@@ -60,7 +60,7 @@ def get_compressor(tools_path):
     return compress
 
 def replace(content, s, r):
-    return re.sub(r'(?<=[^\w"\'])%s(?=[^\w"\'])' % s, r, content)
+    return re.sub(r'(?<=[^\w"\'|])%s(?=[^\w"\'|])' % s, r, content)
 
 def pack_language(content):
     for s, r in REPLACES.items():
