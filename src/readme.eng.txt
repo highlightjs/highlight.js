@@ -200,6 +200,7 @@ CSS ("css"):
   hexcolor         hex color (#FFFFFF) within a value
   function         CSS function within a value
   params           everything between "(" and ")" within a function
+  important        "!important" symbol
 
 Django ("django"):
 

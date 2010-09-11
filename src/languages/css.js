@@ -55,7 +55,7 @@ hljs.LANGUAGES.css = {
     {
       className: 'value',
       begin: '^', endsWithParent: true, excludeEnd: true,
-      contains: ['function', 'number', 'hexcolor', 'string', 'comment']
+      contains: ['function', 'number', 'hexcolor', 'string', 'important', 'comment']
     },
     {
       className: 'number',
@@ -74,6 +74,10 @@ hljs.LANGUAGES.css = {
       className: 'params',
       begin: '^', endsWithParent: true, excludeEnd: true,
       contains: ['number', 'string']
+    },
+    {
+      className: 'important',
+      begin: '!important', end: '^'
     },
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE

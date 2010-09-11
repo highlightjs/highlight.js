@@ -205,6 +205,7 @@ CSS ("css"):
   hexcolor         шестнадцатеричный цвет (#FFFFFF) внутри значения
   function         CSS-функция внутри значения
   params           все от "(" до ")" внутри функции
+  important        символ "!important"
 
 Django ("django"):
 
