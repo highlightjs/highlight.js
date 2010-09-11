@@ -55,7 +55,7 @@ hljs.LANGUAGES.css = {
     {
       className: 'value',
       begin: '^', endsWithParent: true, excludeEnd: true,
-      contains: ['function', 'number', 'hexcolor', 'string']
+      contains: ['function', 'number', 'hexcolor', 'string', 'comment']
     },
     {
       className: 'number',
