@@ -487,7 +487,7 @@ TeX ("tex"):
 
 ## Координаты
 
-Версия: 5.11
+Версия: 5.12
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
