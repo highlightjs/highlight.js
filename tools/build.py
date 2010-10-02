@@ -36,7 +36,7 @@ def build_content(src_path, packed_path, filenames):
     Builds content of highlight.pack.js and returns it as a  string.
     '''
     infos = language_infos(src_path)
-    if filenames is not None:
+    if filenames:
         infos = [(i, f) for i, f in infos if f in filenames]
 
     def append(filename):
@@ -54,14 +54,15 @@ def build_content(src_path, packed_path, filenames):
     contents.insert(0, open(os.path.join(packed_path, 'highlight.js')).read())
     return ''.join(contents)
 
-def build(src_path, packed_path, target_path, filenames):
+def build(src_path, packed_path, target_path, languages):
     '''
     Builds highlight.pack.js and puts it under target_path.
 
     src_path -- path to the root of highlight.js source files
     packed_path -- path to pre-packed .js files including language files and highligh.js itself
-    languages -- list of language files to include in the final package.
+    languages -- list of language file names (without '.js') to include in the final package.
     '''
+    filenames = ['%s.js' % l for l in languages]
     f = open(os.path.join(target_path, 'highlight.pack.js'), 'w')
     f.write(build_content(src_path, packed_path, filenames))
     f.close()
@@ -74,5 +75,5 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         languages = sys.argv[1:]
     else:
-        languages = None
+        languages = []
     build(src_path, packed_path, target_path, languages)
