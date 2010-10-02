@@ -493,7 +493,7 @@ var hljs = new function() {
     if (result) {
       var class_name = block.className;
       if (!class_name.match(language)) {
-        class_name += ' ' + language;
+        class_name = class_name ? (class_name + ' ' + language) : language;
       }
       var original = nodeStream(block);
       if (original.length) {
@@ -506,11 +506,20 @@ var hljs = new function() {
           return p1.replace(/\t/g, tabReplace);
         })
       }
-      // See these 4 lines? This is IE's notion of "block.innerHTML = result". Love this browser :-/
-      var container = document.createElement('div');
-      container.innerHTML = '<pre><code class="' + class_name + '">' + result + '</code></pre>';
-      var environment = block.parentNode.parentNode;
-      environment.replaceChild(container.firstChild, block.parentNode);
+      if (/MSIE 6/i.test(navigator.userAgent)) {
+        // This is for backwards compatibility only. IE6 needs this strange
+        // hack becasue it cannot just cleanly replace <code> block contents.
+        // This shouldn't be used in general since we now don't assume the code
+        // to be in <pre><code> only.
+        var pre = block.parentNode;
+        var container = document.createElement('div');
+        container.innerHTML = '<pre><code class="' + class_name + '">' + result + '</code></pre>';
+        container.firstChild.className = pre.className;
+        pre.parentNode.replaceChild(container.firstChild, pre);
+      } else {
+        block.innerHTML = result;
+        block.className = class_name;
+      }
     }
   }
 

@@ -1132,8 +1132,8 @@ $$
     var tds = table.getElementsByTagName('TD');
     var failed = [];
     for (var i = 0; i < tds.length; i++) {
-      var tdClass = tds[i].className.replace(' ', '');
-      var codeClass = tds[i].getElementsByTagName('CODE')[0].className.replace(' ', '');
+      var tdClass = tds[i].className;
+      var codeClass = tds[i].getElementsByTagName('CODE')[0].className;
       var passed = tdClass == codeClass;
       var result = document.createElement('P');
       result.className = 'test ' + (passed ? 'passed' : 'failed');
