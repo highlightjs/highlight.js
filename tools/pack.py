@@ -26,6 +26,7 @@ REPLACES = {
     'returnEnd': 'rE',
     'noMarkup': 'nM',
     'relevance': 'r',
+    'IMMEDIATE_RE': 'IMR',
     'IDENT_RE': 'IR',
     'UNDERSCORE_IDENT_RE': 'UIR',
     'NUMBER_RE': 'NR',

@@ -19,7 +19,7 @@ hljs.LANGUAGES.bash = function(){
       {
         className: 'shebang',
         begin: '(#!\\/bin\\/bash)|(#!\\/bin\\/sh)',
-        end: '^',
+        end: hljs.IMMEDIATE_RE,
         relevance: 10
       },
       hljs.HASH_COMMENT_MODE,
@@ -47,12 +47,12 @@ hljs.LANGUAGES.bash = function(){
       {
         className: 'variable',
         begin: '\\$([a-zA-Z0-9_]+)\\b',
-        end: '^'
+        end: hljs.IMMEDIATE_RE
       },
       {
         className: 'variable',
         begin: '\\$\\{(([^}])|(\\\\}))+\\}',
-        end: '^',
+        end: hljs.IMMEDIATE_RE,
         contains: ['number']
       },
       {

@@ -27,7 +27,7 @@ hljs.LANGUAGES.delphi = function(){
       hljs.C_LINE_COMMENT_MODE,
       {
         className: 'number',
-        begin: hljs.NUMBER_RE, end: '^',
+        begin: hljs.NUMBER_RE, end: hljs.IMMEDIATE_RE,
         relevance: 0
       },
       {
@@ -38,11 +38,11 @@ hljs.LANGUAGES.delphi = function(){
       },
       {
         className: 'string',
-        begin: '(#\\d+)+', end: '^'
+        begin: '(#\\d+)+', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'quote',
-        begin: '\'\'', end: '^', noMarkup: true
+        begin: '\'\'', end: hljs.IMMEDIATE_RE, noMarkup: true
       },
       {
         className: 'function',
@@ -62,7 +62,7 @@ hljs.LANGUAGES.delphi = function(){
       },
       {
         className: 'title',
-        begin: hljs.IDENT_RE, end: '^'
+        begin: hljs.IDENT_RE, end: hljs.IMMEDIATE_RE
       },
       {
         className: 'params',

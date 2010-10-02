@@ -20,7 +20,7 @@ hljs.LANGUAGES.php = {
     },
     {
       className: 'phpdoc',
-      begin: '\\s@[A-Za-z]+', end: '^',
+      begin: '\\s@[A-Za-z]+', end: hljs.IMMEDIATE_RE,
       relevance: 10
     },
     hljs.C_NUMBER_MODE,
@@ -39,16 +39,16 @@ hljs.LANGUAGES.php = {
     hljs.BACKSLASH_ESCAPE,
     {
       className: 'variable',
-      begin: '\\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*', end: '^'
+      begin: '\\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'preprocessor',
-      begin: '<\\?php', end: '^',
+      begin: '<\\?php', end: hljs.IMMEDIATE_RE,
       relevance: 10
     },
     {
       className: 'preprocessor',
-      begin: '\\?>', end: '^'
+      begin: '\\?>', end: hljs.IMMEDIATE_RE
     }
   ]
 };

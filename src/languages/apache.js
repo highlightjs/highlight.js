@@ -434,7 +434,7 @@ hljs.LANGUAGES.apache =
     },
     {
       className: 'number',
-      begin: '[\\$%]\\d+', end: '^'
+      begin: '[\\$%]\\d+', end: hljs.IMMEDIATE_RE
     },
     hljs.QUOTE_STRING_MODE,
     hljs.BACKSLASH_ESCAPE

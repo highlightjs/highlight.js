@@ -22,11 +22,11 @@ hljs.LANGUAGES.css = {
     },
     {
       className: 'id',
-      begin: '\\#[A-Za-z0-9_-]+', end: '^'
+      begin: '\\#[A-Za-z0-9_-]+', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'class',
-      begin: '\\.[A-Za-z0-9_-]+', end: '^',
+      begin: '\\.[A-Za-z0-9_-]+', end: hljs.IMMEDIATE_RE,
       relevance: 0
     },
     {
@@ -36,7 +36,7 @@ hljs.LANGUAGES.css = {
     },
     {
       className: 'pseudo',
-      begin: ':(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+', end: '^'
+      begin: ':(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'rules',
@@ -54,16 +54,16 @@ hljs.LANGUAGES.css = {
     hljs.C_BLOCK_COMMENT_MODE,
     {
       className: 'value',
-      begin: '^', endsWithParent: true, excludeEnd: true,
+      begin: hljs.IMMEDIATE_RE, endsWithParent: true, excludeEnd: true,
       contains: ['function', 'number', 'hexcolor', 'string', 'important', 'comment']
     },
     {
       className: 'number',
-      begin: hljs.NUMBER_RE, end: '^'
+      begin: hljs.NUMBER_RE, end: hljs.IMMEDIATE_RE
     },
     {
       className: 'hexcolor',
-      begin: '\\#[0-9A-F]+', end: '^'
+      begin: '\\#[0-9A-F]+', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'function',
@@ -72,12 +72,12 @@ hljs.LANGUAGES.css = {
     },
     {
       className: 'params',
-      begin: '^', endsWithParent: true, excludeEnd: true,
+      begin: hljs.IMMEDIATE_RE, endsWithParent: true, excludeEnd: true,
       contains: ['number', 'string']
     },
     {
       className: 'important',
-      begin: '!important', end: '^'
+      begin: '!important', end: hljs.IMMEDIATE_RE
     },
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE

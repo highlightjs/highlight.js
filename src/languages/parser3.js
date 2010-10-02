@@ -30,24 +30,24 @@ hljs.LANGUAGES.parser3 = {
     },
     {
       className: 'preprocessor',
-      begin: '^@(?:BASE|USE|CLASS|OPTIONS)$', end: '^',
+      begin: '^@(?:BASE|USE|CLASS|OPTIONS)$', end: hljs.IMMEDIATE_RE,
       relevance: 10
     },
     {
       className: 'title',
-      begin: '@[\\w\\-]+\\[[\\w^;\\-]*\\](?:\\[[\\w^;\\-]*\\])?(?:.*)$', end: '^'
+      begin: '@[\\w\\-]+\\[[\\w^;\\-]*\\](?:\\[[\\w^;\\-]*\\])?(?:.*)$', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'variable',
-      begin: '\\$\\{?[\\w\\-\\.\\:]+\\}?', end: '^'
+      begin: '\\$\\{?[\\w\\-\\.\\:]+\\}?', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'keyword',
-      begin: '\\^[\\w\\-\\.\\:]+', end: '^'
+      begin: '\\^[\\w\\-\\.\\:]+', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'number',
-      begin: '\\^#[0-9a-fA-F]+', end: '^'
+      begin: '\\^#[0-9a-fA-F]+', end: hljs.IMMEDIATE_RE
     },
     hljs.C_NUMBER_MODE
   ]

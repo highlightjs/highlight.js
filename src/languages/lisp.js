@@ -24,19 +24,19 @@ hljs.LANGUAGES.lisp = function(){
       hljs.BACKSLASH_ESCAPE,
       {
         className: 'number',
-        begin: LISP_SIMPLE_NUMBER_RE, end: '^'
+        begin: LISP_SIMPLE_NUMBER_RE, end: hljs.IMMEDIATE_RE
       },
       {
         className: 'number',
-        begin: '#b[0-1]+(/[0-1]+)?', end: '^'
+        begin: '#b[0-1]+(/[0-1]+)?', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'number',
-        begin: '#o[0-7]+(/[0-7]+)?', end: '^'
+        begin: '#o[0-7]+(/[0-7]+)?', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'number',
-        begin: '#x[0-9a-f]+(/[0-9a-f]+)?', end: '^'
+        begin: '#x[0-9a-f]+(/[0-9a-f]+)?', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'number',
@@ -70,17 +70,17 @@ hljs.LANGUAGES.lisp = function(){
       },
       {
         className: 'title',
-        begin: LISP_IDENT_RE, end: '^',
+        begin: LISP_IDENT_RE, end: hljs.IMMEDIATE_RE,
         endsWithParent: true
       },
       {
         className: 'body',
-        begin: '^', endsWithParent: true, excludeEnd: true,
+        begin: hljs.IMMEDIATE_RE, endsWithParent: true, excludeEnd: true,
         contains: ['quoted', 'list', 'literal', 'number', 'string', 'comment', 'variable', 'keyword']
       },
       {
         className: 'keyword',
-        begin: '[:&]' + LISP_IDENT_RE, end: '^'
+        begin: '[:&]' + LISP_IDENT_RE, end: hljs.IMMEDIATE_RE
       },
       {
         className: 'variable',
@@ -88,7 +88,7 @@ hljs.LANGUAGES.lisp = function(){
       },
       {
         className: 'literal',
-        begin: '\\b(t{1}|nil)\\b', end: '^'
+        begin: '\\b(t{1}|nil)\\b', end: hljs.IMMEDIATE_RE
       }
     ]
   };

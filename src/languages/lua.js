@@ -57,7 +57,7 @@ hljs.LANGUAGES.lua = function(){
       },
       {
         className: 'title',
-        begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*', end: '^'
+        begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'params',

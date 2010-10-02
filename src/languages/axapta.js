@@ -24,14 +24,14 @@ hljs.LANGUAGES.axapta  = {
     },
     {
       className: 'inheritance',
-      begin: '(implements|extends)', end: '^',
+      begin: '(implements|extends)', end: hljs.IMMEDIATE_RE,
       lexems: [hljs.IDENT_RE],
       keywords: {'extends': 1, 'implements': 1},
       relevance: 10
     },
     {
       className: 'title',
-      begin: hljs.UNDERSCORE_IDENT_RE, end: '^'
+      begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
     },
     {
       className: 'params',

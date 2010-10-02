@@ -22,7 +22,7 @@ hljs.LANGUAGES.cs  = {
     },
     {
       className: 'xmlDocTag',
-      begin: '///|<!--|-->', end: '^'
+      begin: '///|<!--|-->', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'xmlDocTag',
@@ -35,7 +35,7 @@ hljs.LANGUAGES.cs  = {
     },
     {
       className: 'quoteQuote',
-      begin: '""', end: '^'
+      begin: '""', end: hljs.IMMEDIATE_RE
     },
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,

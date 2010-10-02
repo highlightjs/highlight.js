@@ -20,7 +20,7 @@ hljs.LANGUAGES.javascript = {
     hljs.BACKSLASH_ESCAPE,
     {
       className: 'regexp_container',
-      begin: '(' + hljs.RE_STARTERS_RE + '|case|return|throw)\\s*', end: '^', noMarkup: true,
+      begin: '(' + hljs.RE_STARTERS_RE + '|case|return|throw)\\s*', end: hljs.IMMEDIATE_RE, noMarkup: true,
       lexems: [hljs.IDENT_RE],
       keywords: {'return': 1, 'throw': 1, 'case': 1},
       contains: ['comment', 'regexp'],
@@ -28,7 +28,7 @@ hljs.LANGUAGES.javascript = {
     },
     {
       className: 'regexp',
-      begin: '/.*?[^\\\\/]/[gim]*', end: '^'
+      begin: '/.*?[^\\\\/]/[gim]*', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'function',
@@ -39,7 +39,7 @@ hljs.LANGUAGES.javascript = {
     },
     {
       className: 'title',
-      begin: '[A-Za-z$_][0-9A-Za-z$_]*', end: '^'
+      begin: '[A-Za-z$_][0-9A-Za-z$_]*', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'params',

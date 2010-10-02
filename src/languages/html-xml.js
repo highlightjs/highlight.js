@@ -8,7 +8,7 @@ hljs.XML_COMMENT = {
 };
 hljs.XML_ATTR = {
   className: 'attribute',
-  begin: '\\s[A-Za-z0-9\\._:-]+=', end: '^',
+  begin: '\\s[A-Za-z0-9\\._:-]+=', end: hljs.IMMEDIATE_RE,
   contains: ['value']
 };
 hljs.XML_VALUE_QUOT = {
@@ -45,12 +45,12 @@ hljs.LANGUAGES.xml = {
     },
     {
       className: 'title',
-      begin: '[A-Za-z0-9\\._:-]+', end: '^',
+      begin: '[A-Za-z0-9\\._:-]+', end: hljs.IMMEDIATE_RE,
       relevance: 0
     },
     {
       className: 'tag_internal',
-      begin: '^', endsWithParent: true, noMarkup: true,
+      begin: hljs.IMMEDIATE_RE, endsWithParent: true, noMarkup: true,
       contains: ['attribute'],
       relevance: 0,
       illegal: '[\\+\\.]'
@@ -69,16 +69,16 @@ hljs.HTML_DOCTYPE = {
 };
 hljs.HTML_ATTR = {
   className: 'attribute',
-  begin: '\\s[a-zA-Z\\:_-]+=', end: '^',
+  begin: '\\s[a-zA-Z\\:_-]+=', end: hljs.IMMEDIATE_RE,
   contains: ['value']
 };
 hljs.HTML_SHORT_ATTR = {
   className: 'attribute',
-  begin: ' [a-zA-Z]+', end: '^'
+  begin: ' [a-zA-Z]+', end: hljs.IMMEDIATE_RE
 };
 hljs.HTML_VALUE = {
   className: 'value',
-  begin: '[a-zA-Z0-9]+', end: '^'
+  begin: '[a-zA-Z0-9]+', end: hljs.IMMEDIATE_RE
 };
 
 hljs.LANGUAGES.html = {

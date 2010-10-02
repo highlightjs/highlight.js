@@ -34,7 +34,7 @@ hljs.LANGUAGES.profile = {
     },
     {
       className: 'title',
-      begin: hljs.UNDERSCORE_IDENT_RE, end: '^'
+      begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
     },
     {
       className: 'builtin',

@@ -230,7 +230,7 @@ var hljs = new function() {
       for (var i = 1; i < terminators.length; i++)
         terminator_re += '|' + terminators[i];
       terminator_re += ')';
-      return langRe(language, terminator_re);
+      return langRe(language, terminator_re, true);
     }
 
     function eatModeChunk(value, index) {
@@ -238,12 +238,12 @@ var hljs = new function() {
       if (!mode.terminators) {
         mode.terminators = compileTerminators(mode, language);
       }
-      value = value.substr(index);
+      mode.terminators.lastIndex = index;
       var match = mode.terminators.exec(value);
       if (match)
-        return [value.substr(0, match.index), match[0], false];
+        return [value.substr(index, match.index - index), match[0], false];
       else
-        return [value, '', true];
+        return [value.substr(index), '', true];
     }
 
     function keywordMatch(mode, match) {
@@ -408,9 +408,9 @@ var hljs = new function() {
       for (var j = 0; j < language.modes.length; j++) {
         var mode = language.modes[j];
         if (mode.begin)
-          mode.beginRe = langRe(language, '^' + mode.begin);
+          mode.beginRe = langRe(language, mode.begin);
         if (mode.end)
-          mode.endRe = langRe(language, '^' + mode.end);
+          mode.endRe = langRe(language, mode.end);
         if (mode.illegal)
           mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
         language.defaultMode.illegalRe = langRe(language, '^(?:' + language.defaultMode.illegal + ')');
@@ -561,6 +561,7 @@ var hljs = new function() {
   this.initHighlighting = initHighlighting;
 
   // Common regexps
+  this.IMMEDIATE_RE = '\\b|\\B'
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
   this.UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
   this.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
@@ -584,7 +585,7 @@ var hljs = new function() {
   };
   this.BACKSLASH_ESCAPE = {
     className: 'escape',
-    begin: '\\\\.', end: '^', noMarkup: true,
+    begin: '\\\\.', end: this.IMMEDIATE_RE, noMarkup: true,
     relevance: 0
   };
   this.C_LINE_COMMENT_MODE = {
@@ -602,7 +603,7 @@ var hljs = new function() {
   };
   this.C_NUMBER_MODE = {
     className: 'number',
-    begin: this.C_NUMBER_RE, end: '^',
+    begin: this.C_NUMBER_RE, end: this.IMMEDIATE_RE,
     relevance: 0
   };
 }();

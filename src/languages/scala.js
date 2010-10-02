@@ -20,14 +20,14 @@ hljs.LANGUAGES.scala  = {
     },
     {
       className: 'inheritance',
-      begin: '(extends|with)', end: '^', noMarkup: true,
+      begin: '(extends|with)', end: hljs.IMMEDIATE_RE, noMarkup: true,
       lexems: [hljs.IDENT_RE],
       keywords: {'extends': 1, 'with': 1},
       relevance: 10
     },
     {
       className: 'title',
-      begin: hljs.UNDERSCORE_IDENT_RE, end: '^'
+      begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
     },
     {
       className: 'params',
@@ -47,12 +47,12 @@ hljs.LANGUAGES.scala  = {
     },
     {
       className: 'javadoctag',
-      begin: '@[A-Za-z]+', end: '^'
+      begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
     },
     hljs.C_BLOCK_COMMENT_MODE,
     {
       className: 'annotation',
-      begin: '@[A-Za-z]+', end: '^'
+      begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'string',

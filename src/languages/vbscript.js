@@ -25,7 +25,7 @@ hljs.LANGUAGES.vbscript = {
     },
     {
       className: 'escape',
-      begin: '""', end: '^', noMarkup: true
+      begin: '""', end: hljs.IMMEDIATE_RE, noMarkup: true
     },
     {
       className: 'comment',

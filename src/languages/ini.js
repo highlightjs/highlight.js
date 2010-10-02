@@ -25,7 +25,7 @@ hljs.LANGUAGES.ini =
     },
     {
       className: 'value',
-      begin: '^', endsWithParent: true,
+      begin: hljs.IMMEDIATE_RE, endsWithParent: true,
       contains: ['string', 'number'],
       lexems: [hljs.IDENT_RE],
       keywords: {'on': 1, 'off': 1, 'true': 1, 'false': 1, 'yes': 1, 'no': 1}
@@ -34,7 +34,7 @@ hljs.LANGUAGES.ini =
     hljs.BACKSLASH_ESCAPE,
     {
       className: 'number',
-      begin: '\\d+', end: '^'
+      begin: '\\d+', end: hljs.IMMEDIATE_RE
     }
   ]
 };

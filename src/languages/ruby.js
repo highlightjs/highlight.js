@@ -26,7 +26,7 @@ hljs.LANGUAGES.ruby = function(){
       },
       {
         className: 'yardoctag',
-        begin: '@[A-Za-z]+', end: '^'
+        begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'comment',
@@ -54,7 +54,7 @@ hljs.LANGUAGES.ruby = function(){
       },
       {
         className: 'ftitle', displayClassName: 'title',
-        begin: RUBY_METHOD_RE, end: '^',
+        begin: RUBY_METHOD_RE, end: hljs.IMMEDIATE_RE,
         lexems: [RUBY_IDENT_RE],
         keywords: RUBY_KEYWORDS
       },
@@ -68,26 +68,26 @@ hljs.LANGUAGES.ruby = function(){
       },
       {
         className: 'title',
-        begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?', end: '^',
+        begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?', end: hljs.IMMEDIATE_RE,
         relevance: 0
       },
       {
         className: 'inheritance',
-        begin: '<\\s*', end: '^',
+        begin: '<\\s*', end: hljs.IMMEDIATE_RE,
         contains: ['parent']
       },
       {
         className: 'parent',
-        begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE, end: '^'
+        begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE, end: hljs.IMMEDIATE_RE
       },
       {
         className: 'number',
-        begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b', end: '^',
+        begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b', end: hljs.IMMEDIATE_RE,
         relevance: 0
       },
       {
         className: 'number',
-        begin: '\\?\\w', end: '^'
+        begin: '\\?\\w', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'string',
@@ -151,17 +151,17 @@ hljs.LANGUAGES.ruby = function(){
       },
       {
         className: 'constant',
-        begin: '(::)?([A-Z]\\w*(::)?)+', end: '^',
+        begin: '(::)?([A-Z]\\w*(::)?)+', end: hljs.IMMEDIATE_RE,
         relevance: 0
       },
       {
         className: 'symbol',
-        begin: ':', end: '^',
+        begin: ':', end: hljs.IMMEDIATE_RE,
         contains: ['string', 'identifier']
       },
       {
         className: 'identifier',
-        begin: RUBY_IDENT_RE, end: '^',
+        begin: RUBY_IDENT_RE, end: hljs.IMMEDIATE_RE,
         lexems: [RUBY_IDENT_RE],
         keywords: RUBY_KEYWORDS,
         relevance: 0
@@ -176,7 +176,7 @@ hljs.LANGUAGES.ruby = function(){
       },
       {
         className: 'regexp_container',
-        begin: '(' + hljs.RE_STARTERS_RE + ')\\s*', end: '^', noMarkup: true,
+        begin: '(' + hljs.RE_STARTERS_RE + ')\\s*', end: hljs.IMMEDIATE_RE, noMarkup: true,
         contains: ['comment', 'regexp'],
         relevance: 0
       },
@@ -188,7 +188,7 @@ hljs.LANGUAGES.ruby = function(){
       },
       {
         className: 'variable',
-        begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))', end: '^'
+        begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))', end: hljs.IMMEDIATE_RE
       }
     ]
   };

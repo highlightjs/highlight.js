@@ -41,21 +41,21 @@ hljs.LANGUAGES['1c'] = function(){
       },
       {
         className: 'date',
-        begin: '\'\\d{2}\\.\\d{2}\\.(\\d{2}|\\d{4})\'', end: '^'
+        begin: '\'\\d{2}\\.\\d{2}\\.(\\d{2}|\\d{4})\'', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'dquote',
-        begin: '""', end: '^'
+        begin: '""', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'number',
-        begin: hljs.NUMBER_RE, end: '^',
+        begin: hljs.NUMBER_RE, end: hljs.IMMEDIATE_RE,
         relevance: 0
       },
       {
         className: 'title',
         lexems: [IDENT_RE_RU],
-        begin: IDENT_RE_RU, end: '^'
+        begin: IDENT_RE_RU, end: hljs.IMMEDIATE_RE
       },
       {
         className: 'params',
@@ -74,7 +74,7 @@ hljs.LANGUAGES['1c'] = function(){
       },
       {
         className: 'tail',
-        begin: '^',  endsWithParent: true,
+        begin: hljs.IMMEDIATE_RE,  endsWithParent: true,
         lexems: [IDENT_RE_RU],
         contains: ['params', 'export']
       },

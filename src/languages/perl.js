@@ -17,11 +17,11 @@ hljs.LANGUAGES.perl = function(){
       // variables
       {
         className: 'variable',
-        begin: '\\$\\d', end: '^'
+        begin: '\\$\\d', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'variable',
-        begin: '[\\$\\%\\@\\*](\\^\\w\\b|#\\w+(\\:\\:\\w+)*|[^\\s\\w{]|{\\w+}|\\w+(\\:\\:\\w*)*)', end: '^'
+        begin: '[\\$\\%\\@\\*](\\^\\w\\b|#\\w+(\\:\\:\\w+)*|[^\\s\\w{]|{\\w+}|\\w+(\\:\\:\\w*)*)', end: hljs.IMMEDIATE_RE
       },
 
       // numbers and strings
@@ -35,7 +35,7 @@ hljs.LANGUAGES.perl = function(){
       },
       {
         className: 'number',
-        begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b', end: '^',
+        begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b', end: hljs.IMMEDIATE_RE,
         relevance: 0
       },
       {
@@ -96,7 +96,7 @@ hljs.LANGUAGES.perl = function(){
       // regexps
       {
         className: 'regexp',
-        begin: '(s|tr|y)/(\\\\.|[^/])*/(\\\\.|[^/])*/[a-z]*', end: '^',
+        begin: '(s|tr|y)/(\\\\.|[^/])*/(\\\\.|[^/])*/[a-z]*', end: hljs.IMMEDIATE_RE,
         relevance: 10
       },
       {
@@ -109,12 +109,12 @@ hljs.LANGUAGES.perl = function(){
       // bareword context
       {
         className: 'string',
-        begin: '{\\w+}', end: '^',
+        begin: '{\\w+}', end: hljs.IMMEDIATE_RE,
         relevance: 0
       },
       {
         className: 'string',
-        begin: '\-?\\w+\\s*\\=\\>', end: '^',
+        begin: '\-?\\w+\\s*\\=\\>', end: hljs.IMMEDIATE_RE,
         relevance: 0
       },
 
@@ -130,7 +130,7 @@ hljs.LANGUAGES.perl = function(){
       // operators
       {
         className: 'operator',
-        begin: '-\\w\\b', end: '^',
+        begin: '-\\w\\b', end: hljs.IMMEDIATE_RE,
         relevance: 0
       },
 

@@ -68,7 +68,7 @@ hljs.LANGUAGES.sql =
     },
     {
       className: 'newline',
-      begin: '\\n', end: '^', noMarkup: true
+      begin: '\\n', end: hljs.IMMEDIATE_RE, noMarkup: true
     },
     hljs.C_NUMBER_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
@@ -84,7 +84,7 @@ hljs.LANGUAGES.sql =
     },
     {
       className: 'squote',
-      begin: '\'\'', end: '^', noMarkup: true
+      begin: '\'\'', end: hljs.IMMEDIATE_RE, noMarkup: true
     },
     {
       className: 'string',
@@ -94,7 +94,7 @@ hljs.LANGUAGES.sql =
     },
     {
       className: 'dquote',
-      begin: '""', end: '^', noMarkup: true
+      begin: '""', end: hljs.IMMEDIATE_RE, noMarkup: true
     },
     {
       className: 'string',
