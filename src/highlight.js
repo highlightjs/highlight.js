@@ -506,11 +506,9 @@ var hljs = new function() {
           return p1.replace(/\t/g, tabReplace);
         })
       }
-      if (/MSIE 6/i.test(navigator.userAgent)) {
-        // This is for backwards compatibility only. IE6 needs this strange
+      if (/MSIE [678]/.test(navigator.userAgent) && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
+        // This is for backwards compatibility only. IE needs this strange
         // hack becasue it cannot just cleanly replace <code> block contents.
-        // This shouldn't be used in general since we now don't assume the code
-        // to be in <pre><code> only.
         var pre = block.parentNode;
         var container = document.createElement('div');
         container.innerHTML = '<pre><code class="' + class_name + '">' + result + '</code></pre>';
