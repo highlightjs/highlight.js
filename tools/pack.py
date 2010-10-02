@@ -4,6 +4,7 @@ Creates packed .js files for all source files (highlight.js and languages) in a
 separate directory.
 '''
 import os
+import sys
 import re
 import subprocess
 
@@ -75,8 +76,8 @@ def pack_library(content):
         content = replace(content, s, r)
     return content
 
-def build_file(filename, in_path, out_path, packer, compressor):
-    print 'Building %s' % filename
+def pack_file(filename, in_path, out_path, packer, compressor):
+    print 'Packing %s' % filename
     content = open(os.path.join(in_path, filename)).read()
     content = packer(content)
     content = compressor(content)
@@ -84,22 +85,28 @@ def build_file(filename, in_path, out_path, packer, compressor):
     f.write(content)
     f.close()
 
-def build(library_path, build_path, tools_path):
+def pack(library_path, pack_path, tools_path, languages):
     lang_path = os.path.join(library_path, 'languages')
-    if not os.path.exists(build_path):
-        os.makedirs(build_path)
+    if not os.path.exists(pack_path):
+        os.makedirs(pack_path)
 
-    languages = os.listdir(lang_path)
-    languages = [l for l in languages if l.endswith('.js')]
+    files = os.listdir(lang_path)
+    files = [f for f in files if f.endswith('.js')]
+    if languages:
+        files = [f for f in files if os.path.splitext(f)[0] in languages]
 
     compressor = get_compressor(tools_path)
-    build_file('highlight.js', library_path, build_path, pack_library, compressor)
-    for language in languages:
-        build_file(language, lang_path, build_path, pack_language, compressor)
+    pack_file('highlight.js', library_path, pack_path, pack_library, compressor)
+    for file in files:
+        pack_file(file, lang_path, pack_path, pack_language, compressor)
 
 if __name__ == '__main__':
     path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     library_path = os.path.join(path, 'src')
-    build_path = os.path.join(path, 'packed')
+    pack_path = os.path.join(path, 'packed')
     tools_path = os.path.join(path, 'tools')
-    build(library_path, build_path, tools_path)
+    if len(sys.argv) > 1:
+        languages = set(sys.argv[1:])
+    else:
+        languages = set()
+    pack(library_path, pack_path, tools_path, languages)
