@@ -28,12 +28,15 @@
     th {
       width: 10em; font-weight: normal;
     }
+    td {
+      padding-bottom: 1em;
+    }
     td, th {
       vertical-align: top;
       text-align: left;
     }
     pre {
-      margin-top: 0;
+      margin: 0;
     }
     ul#switch {
       padding: 0;
@@ -49,6 +52,19 @@
     ul#switch li.current {
       border-bottom: none;
       cursor: default;
+    }
+    .test {
+      margin: 0.5em 0 0 0;
+      font: medium monospace;
+    }
+    .test var {
+      font-style: normal;
+    }
+    .test.passed var {
+      color: green;
+    }
+    .test.failed var {
+      color: red;
     }
   </style>
 
@@ -171,10 +187,10 @@ write your own (and contribute it back!)
 
 <h2>Automatically detected languages</h2>
 
-<table>
+<table id="autotest">
   <tr>
     <th>Python
-    <td>
+    <td class="python">
 <pre>
 <code>@requires_authorization
 def somefunc(param1, param2):
@@ -189,7 +205,7 @@ class SomeClass:<br>    pass
 
   <tr>
     <th>Python's profiler output
-    <td>
+    <td class="profile">
 <pre><code>       261917242 function calls in 686.251 CPU seconds
 
        ncalls  tottime  filename:lineno(function)
@@ -202,7 +218,7 @@ class SomeClass:<br>    pass
 
   <tr>
     <th>Ruby
-    <td>
+    <td class="ruby">
 <pre><code>class A &lt; B; def self.create(object = User) object end end
 class Zebra; def inspect; "X#{2 + self.object_id}" end end
 
@@ -227,7 +243,7 @@ Constant = 1
 
   <tr>
     <th>Perl
-    <td>
+    <td class="perl">
 <pre><code># loads object
 sub load
 {
@@ -258,7 +274,7 @@ sub load
 
   <tr>
     <th>PHP
-    <td>
+    <td class="php">
 <pre><code>require_once 'Zend.php';
 require_once 'Zend/Uri/Exception.php';
 require_once 'Zend/Uri/Http.php';
@@ -295,7 +311,7 @@ abstract class Zend_Uri
 
   <tr>
     <th>Scala
-    <td>
+    <td class="scala">
 <pre><code>object abstractTypes extends Application {
   abstract class SeqBuffer {
     type T; val element: Seq[T]; def length = element.length
@@ -332,7 +348,7 @@ object Maps {
 
   <tr>
     <th>XML
-    <td>
+    <td class="xml">
 <pre><code>&lt;?xml version="1.0"?&gt;
 &lt;response value="ok" xml:lang="en"&gt;
   &lt;text&gt;Ok&lt;/text&gt;
@@ -346,7 +362,7 @@ object Maps {
 
   <tr>
     <th>HTML (with inline css and javascript)
-    <td>
+    <td class="html">
 <pre><code>&lt;head&gt;
   &lt;title&gt;Title&lt;/title&gt;
 
@@ -373,7 +389,7 @@ object Maps {
 
   <tr>
     <th>Django templates
-    <td>
+    <td class="django">
 <pre><code>{% if articles|length %}
 {% for article in articles %}
 
@@ -394,7 +410,7 @@ multiline.
 
   <tr>
     <th>CSS
-    <td>
+    <td class="css">
 <pre><code>body,
 html {
   font: Tahoma, Arial, san-serif;
@@ -422,7 +438,7 @@ p[lang=ru] {
 
   <tr>
     <th>Javascript
-    <td>
+    <td class="javascript">
 <pre><code>function $initHighlight(block) {
   if (block.className.search(/\bno\-highlight\b/) != -1)
     return false;
@@ -444,7 +460,7 @@ p[lang=ru] {
 
   <tr>
     <th>VBScript
-    <td>
+    <td class="vbscript">
 <pre><code>' creating configuration storage and initializing with default values
 Set cfg = CreateObject("Scripting.Dictionary")
 
@@ -477,7 +493,7 @@ next</code></pre>
 
   <tr>
     <th>Lua
-    <td>
+    <td class="lua">
 <pre><code>--[[
 Simple signal/slot implementation
 ]]
@@ -514,7 +530,7 @@ comment ]==]
 
   <tr>
     <th>Delphi
-    <td>
+    <td class="delphi">
 <pre><code>TList=Class(TObject)
 Private
   Some: String;
@@ -549,7 +565,7 @@ End;{CopyFile}
 
   <tr>
     <th>Java
-    <td>
+    <td class="java">
 <pre><code>package l2f.gameserver.model;
 
 import java.util.ArrayList;
@@ -597,7 +613,7 @@ public abstract class L2Character extends L2Object
 
   <tr>
     <th>C++
-    <td>
+    <td class="cpp">
 <pre><code>#include &lt;iostream&gt;
 
 int main(int argc, char *argv[]) {
@@ -614,7 +630,7 @@ int main(int argc, char *argv[]) {
 
   <tr>
     <th>C#
-    <td>
+    <td class="cs">
 <pre><code>using System;
 
 public class Program
@@ -641,7 +657,7 @@ lines!";
 
   <tr>
     <th>RenderMan RSL
-    <td>
+    <td class="rsl">
 <pre><code>#define TEST_DEFINE 3.14
 /*	plastic surface shader
  *
@@ -661,7 +677,7 @@ surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
 
   <tr>
     <th>RenderMan RIB
-    <td>
+    <td class="rib">
 <pre><code>FrameBegin 0
 Display "Scene" "framebuffer" "rgb"
 Option "searchpath" "shader" "+&:/home/kew"
@@ -691,7 +707,7 @@ FrameEnd
 
   <tr>
     <th>MEL (Maya Embedded Language)
-    <td>
+    <td class="mel">
 <pre><code class="mel">proc string[] getSelectedLights()
 
 {
@@ -721,7 +737,7 @@ FrameEnd
 
   <tr>
     <th>SQL
-    <td>
+    <td class="sql">
 <pre><code>BEGIN;
 CREATE TABLE "cicero_topic" (
     "id" serial NOT NULL PRIMARY KEY,
@@ -749,7 +765,7 @@ COMMIT;
 
   <tr>
     <th>SmallTalk
-    <td>
+    <td class="smalltalk">
 <pre><code>Object>>method: num
     "comment 123"
     | var1 var2 |
@@ -816,7 +832,7 @@ heapExample
 
   <tr>
     <th>Ini file
-    <td>
+    <td class="ini">
 <pre><code>;Settings relating to the location and loading of the database
 [Database]
 ProfileDir=.
@@ -833,7 +849,7 @@ AskAboutIgnoredPlugins=0
 
   <tr>
     <th>Apache
-    <td>
+    <td class="apache">
 <pre><code># rewrite`s rules for wordpress pretty url
 LoadModule rewrite_module  modules/mod_rewrite.so
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -854,7 +870,7 @@ ExpiresByType application/x-javascript  "access plus 1 days"
 
   <tr>
     <th>nginx
-    <td>
+    <td class="nginx">
 <pre><code>user  www www;
 worker_processes  2;
 pid /var/run/nginx.pid;
@@ -901,7 +917,7 @@ http {
 
   <tr>
     <th>Diff
-    <td>
+    <td class="diff">
 <pre><code>Index: languages/ini.js
 ===================================================================
 --- languages/ini.js    (revision 199)
@@ -936,7 +952,7 @@ http {
 
   <tr>
     <th>DOS batch files
-    <td>
+    <td class="dos">
 <pre><code>cd \
 copy a b
 ping 192.168.0.1
@@ -965,7 +981,7 @@ xcopy %1\*.* %2
 
   <tr>
     <th>Bash
-    <td>
+    <td class="bash">
 <pre><code>#!/bin/bash
 
 ###### BEGIN CONFIG
@@ -993,7 +1009,7 @@ genApacheConf(){
 
   <tr>
     <th>Axapta
-    <td>
+    <td class="axapta">
 <pre><code>class ExchRateLoadBatch extends RunBaseBatch {
   ExchRateLoad rbc;
   container currencies;
@@ -1030,7 +1046,7 @@ public boolean unpack(container packedClass) {
 
   <tr>
     <th>1С
-    <td>
+    <td class="1c">
 <pre><code>
 #Если Клиент Тогда
 Перем СимвольныйКодКаталога = "ля-ля-ля"; //комментарий
@@ -1052,7 +1068,7 @@ public boolean unpack(container packedClass) {
 
   <tr>
     <th>AVR Assembler
-    <td>
+    <td class="avrasm">
 <pre><code>;* Title:       Block Copy Routines
 ;* Version:     1.1
 
@@ -1076,7 +1092,7 @@ flash2ram:
 
   <tr>
     <th>Parser 3
-    <td>
+    <td class="parser3">
 <pre><code>@CLASS
 base
 
@@ -1115,7 +1131,7 @@ class
 
   <tr>
     <th>TeX
-    <td>
+    <td class="tex">
 <pre>
 <code>\documentclass{article}
 \usepackage[koi8-r]{inputenc}
@@ -1136,6 +1152,35 @@ $$
 \end{document}
 </code></pre>
 </table>
+
+<script>
+  function testDetection() {
+    if (!hljs.initHighlighting.called) {
+      window.setTimeout(testDetection, 500);
+      return;
+    }
+    var table = document.getElementById('autotest');
+    var tds = table.getElementsByTagName('TD');
+    var failed = [];
+    for (var i = 0; i < tds.length; i++) {
+      var tdClass = tds[i].className.replace(' ', '');
+      var codeClass = tds[i].getElementsByTagName('CODE')[0].className.replace(' ', '');
+      var passed = tdClass == codeClass;
+      var result = document.createElement('P');
+      result.className = 'test ' + (passed ? 'passed' : 'failed');
+      result.innerHTML = 'detected: <var>' + codeClass + '</var>';
+      tds[i].appendChild(result);
+      if (!passed) {
+        failed.push(tdClass);
+      }
+    }
+    var summary = document.createElement('P');
+    summary.innerHTML = failed.length ? ('Failed tests: ' + failed.join(', ')) : 'All tests passed';
+    table.parentNode.insertBefore(summary, table);
+  }
+  testDetection();
+</script>
+
 
 <h2>Special tests</h2>
 
