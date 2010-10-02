@@ -27,7 +27,7 @@ hljs.LANGUAGES.cpp = function(){
       'deque': 1, 'list': 1, 'queue': 1, 'stack': 1, 'vector': 1, 'map': 1,
       'set': 1, 'bitset': 1, 'multiset': 1, 'multimap': 1, 'unordered_set': 1,
       'unordered_map': 1, 'unordered_multiset': 1, 'unordered_multimap': 1,
-      'array': 1
+      'array': 1, 'shared_ptr': 1
     }
   };
   return {
