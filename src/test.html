@@ -603,11 +603,11 @@ public abstract class L2Character extends L2Object
 int main(int argc, char *argv[]) {
 
   /* An annoying "Hello World" example */
-  for (unsigned i = 0; i &lt; 0xFFFF; i++)
+  for (auto i = 0; i &lt; 0xFFFF; i++)
     cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
 
   char c = '\n'; // just a test
-  map &lt;string, vector&lt;string&gt; &gt; m;
+  unordered_map &lt;string, vector&lt;string&gt; &gt; m;
   m["key"] = "\\\\"; // yeah, I know it's an error
 }
 </code></pre>
