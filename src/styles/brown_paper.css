@@ -4,20 +4,9 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 
 */
 
-pre code[class]:after {
-  content: 'highlight: ' attr(class);
-  display: block; text-align: right;
-  font-size: smaller;
-  color: #2c2c2c; background: transparent;
-  border-top: solid 1px black;
-  padding-top: 0.5em;
-}
-
 pre code {
-  display: block;
+  display: block; padding: 0.5em;
   background:#b7a68e url(./brown_papersq.png);
-  padding-left:10px;
-  padding-top:10px;
 }
 
 pre .keyword,

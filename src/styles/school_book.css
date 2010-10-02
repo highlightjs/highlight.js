@@ -4,17 +4,8 @@ School Book style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 
 */
 
-pre code[class]:after {
-  content: 'highlight: ' attr(class);
-  display: block; text-align: right;
-  color: #CCC; background: transparent;
-  padding-top: 0.5em;
-}
-
 pre code {
-  display: block;
-  margin-left:30px;
-  margin-top:15px;
+  display: block; padding: 15px 0.5em 0.5em 30px;
   font-size: 11px !important;
   line-height:16px !important;
 }

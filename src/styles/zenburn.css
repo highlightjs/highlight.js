@@ -5,17 +5,8 @@ based on dark.css by Ivan Sagalaev
 
 */
 
-pre code[class]:after {
-  content: 'highlight: ' attr(class);
-  display: block; text-align: right;
-  font-size: smaller;
-  color: #CCC; background: white;
-  border-top: solid 1px black;
-  padding-top: 0.5em;
-}
-
 pre code {
-  display: block;
+  display: block; padding: 0.5em;
   background: #3F3F3F;
   color: #DCDCDC;
 }

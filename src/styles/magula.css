@@ -7,8 +7,8 @@ Date: 2009-01-03
 Music: Aphex Twin / Xtal
 */
 
-pre {
-  margin: .5em; padding: .5em;
+pre code {
+  display: block; padding: 0.5em;
   background-color: #f4f4f4;
 }
 

@@ -4,17 +4,8 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 
 */
 
-pre code[class]:after {
-  content: 'highlight: ' attr(class);
-  display: block; text-align: right;
-  font-size: smaller;
-  color: #CCC; background: white;
-  border-top: solid 1px;
-  padding-top: 0.5em;
-}
-
 pre code {
-  display: block;
+  display: block; padding: 0.5em;
   background: #F0F0F0;
 }
 

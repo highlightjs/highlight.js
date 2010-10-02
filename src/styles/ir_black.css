@@ -3,11 +3,8 @@
 */
 
 pre code {
-  color: #f8f8f8;
-}
-
-pre {
-  background: #000;
+  display: block; padding: 0.5em;
+  background: #000; color: #f8f8f8;
 }
 
 pre .shebang,

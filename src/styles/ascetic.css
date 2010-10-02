@@ -5,9 +5,8 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 */
 
 pre code {
-  display: block;
+  display: block; padding: 0.5em;
   background: white; color: black;
-  border: solid #CCC 1px;
 }
 
 pre .string,
