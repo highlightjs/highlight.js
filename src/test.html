@@ -187,6 +187,7 @@ write your own (and contribute it back!)
 
 <h2>Automatically detected languages</h2>
 
+<p id="summary">...
 <table id="autotest">
   <tr>
     <th>Python
@@ -1174,9 +1175,8 @@ $$
         failed.push(tdClass);
       }
     }
-    var summary = document.createElement('P');
+    var summary = document.getElementById('summary');
     summary.innerHTML = failed.length ? ('Failed tests: ' + failed.join(', ')) : 'All tests passed';
-    table.parentNode.insertBefore(summary, table);
   }
   testDetection();
 </script>
