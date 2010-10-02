@@ -164,7 +164,7 @@ write your own (and contribute it back!)
 <code>@requires_authorization
 def somefunc(param1, param2):
   r'''A docstring'''
-  if param1 > param2: # interesting
+  if param1 &gt; param2: # interesting
     print 'Gre\'ater'
     print ''
   return (param2 - param1 + 1) or None
@@ -297,15 +297,15 @@ object Main {
 
 /** Maps are easy to use in Scala. */
 object Maps {
-  val colors = Map("red" -> 0xFF0000,
-                   "turquoise" -> 0x00FFFF,
-                   "black" -> 0x000000,
-                   "orange" -> 0xFF8040,
-                   "brown" -> 0x804000)
+  val colors = Map("red" -&gt; 0xFF0000,
+                   "turquoise" -&gt; 0x00FFFF,
+                   "black" -&gt; 0x000000,
+                   "orange" -&gt; 0xFF8040,
+                   "brown" -&gt; 0x804000)
   def main(args: Array[String]) {
     for (name &lt;- args) println(
       colors.get(name) match {
-        case Some(code) =>
+        case Some(code) =&gt;
           name + " has code: " + code
         case None =&gt;
           "Unknown color: " + name
@@ -438,7 +438,7 @@ for i = 0 to ubound(ini_strings)
     s = trim(ini_strings(i))
 
     ' skipping empty strings and comments
-    if mid(s, 1, 1) &lt;&gt; "#" and len(s) > 0 then
+    if mid(s, 1, 1) &lt;&gt; "#" and len(s) &gt; 0 then
       ' obtaining key and value
       parts = split(s, "=", -1, 1)
 
@@ -553,7 +553,7 @@ public abstract class L2Character extends L2Object
   public void detachAI() {
     _ai = null;
     //jbf = null;
-    if (1 > 5) {
+    if (1 &gt; 5) {
       return;
     }
   }
@@ -649,7 +649,7 @@ surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
     <td class="rib">
 <pre><code>FrameBegin 0
 Display "Scene" "framebuffer" "rgb"
-Option "searchpath" "shader" "+&:/home/kew"
+Option "searchpath" "shader" "+&amp;:/home/kew"
 Option "trace" "int maxdepth" [4]
 Attribute "visibility" "trace" [1]
 Attribute "irradiance" "maxerror" [0.1]
@@ -691,7 +691,7 @@ FrameEnd
     string $class[] = getClassification( `nodeType $shape` );
 
 
-    if ( ( `size $class` ) > 0 &amp;&amp; ( "light" == $class[0] ) )
+    if ( ( `size $class` ) &gt; 0 &amp;&amp; ( "light" == $class[0] ) )
     {
       $selectedLights[ `size $selectedLights` ] = $shape;
     }
@@ -735,7 +735,7 @@ COMMIT;
   <tr>
     <th>SmallTalk
     <td class="smalltalk">
-<pre><code>Object>>method: num
+<pre><code>Object&gt;&gt;method: num
     "comment 123"
     | var1 var2 |
     (1 to: num) do: [:i | |var| ^i].
@@ -1111,7 +1111,7 @@ class
 \begin{document}
 \section*{Highlight.js}
 \begin{table}[c|c]
-$\frac 12\, + \, \frac 1{x^3}\text{Hello \! world}$ & \textbf{Goodbye\~ world} \\\eTiX $ \pi=400 $
+$\frac 12\, + \, \frac 1{x^3}\text{Hello \! world}$ &amp; \textbf{Goodbye\~ world} \\\eTiX $ \pi=400 $
 \end{table}
 Ch\'erie, \c{c}a ne me pla\^\i t pas! % comment \b
 G\"otterd\"ammerung~45\%=34.
