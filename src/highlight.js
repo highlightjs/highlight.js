@@ -50,6 +50,8 @@ var hljs = new function() {
         result += '\n';
       else
         result += blockText(block.childNodes[i]);
+    // Thank you, MSIE...
+    result = result.replace(/\r/g, '\n');
     return result;
   }
 
