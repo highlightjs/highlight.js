@@ -240,12 +240,10 @@ var hljs = new function() {
       }
       value = value.substr(index);
       var match = mode.terminators.exec(value);
-      if (!match)
-        return [value, '', true];
-      if (match.index == 0)
-        return ['', match[0], false];
-      else
+      if (match)
         return [value.substr(0, match.index), match[0], false];
+      else
+        return [value, '', true];
     }
 
     function keywordMatch(mode, match) {
