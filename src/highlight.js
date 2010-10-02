@@ -227,7 +227,7 @@ var hljs = new function() {
       }
 
       var terminator_re = '(' + terminators[0];
-      for (var i = 0; i < terminators.length; i++)
+      for (var i = 1; i < terminators.length; i++)
         terminator_re += '|' + terminators[i];
       terminator_re += ')';
       return langRe(language, terminator_re);
