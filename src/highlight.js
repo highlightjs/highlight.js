@@ -229,10 +229,7 @@ var hljs = new function() {
         addTerminator(mode.illegal);
       }
 
-      var terminator_re = '(' + terminators[0];
-      for (var i = 1; i < terminators.length; i++)
-        terminator_re += '|' + terminators[i];
-      terminator_re += ')';
+      var terminator_re = '(' + terminators.join('|') + ')';
       return langRe(language, terminator_re, true);
     }
 
@@ -265,10 +262,7 @@ var hljs = new function() {
       if (!mode.keywords || !mode.lexems)
         return escape(buffer);
       if (!mode.lexemsRe) {
-        var lexems_re = '(' + mode.lexems[0];
-        for (var i = 1; i < mode.lexems.length; i++)
-          lexems_re += '|' + mode.lexems[i];
-        lexems_re += ')';
+        var lexems_re = '(' + mode.lexems.join('|') + ')';
         mode.lexemsRe = langRe(language, lexems_re, true);
       }
       var result = '';
