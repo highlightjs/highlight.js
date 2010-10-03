@@ -35,3 +35,4 @@ Contributors:
 - Vladimir Moskva <vladmos@gmail.com>
 - Loren Segal <lsegal@soen.ca>
 - Andrew Fedorov <dmmdrs@mail.ru>
+- Igor Kalnitsky <igor.kalnitsky@gmail.com>
