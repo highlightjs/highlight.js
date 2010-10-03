@@ -66,6 +66,12 @@
     .test.failed var {
       color: red;
     }
+    .code {
+      font: medium monospace;
+    }
+    .code .keyword {
+      font-weight: bold;
+    }
   </style>
 
   <!--
@@ -1226,6 +1232,14 @@ $$
 	if x == 3:
 	<span style="background:yellow">	</span>count(x + 1)
 </code></pre>
+
+  <tr>
+    <th>Non-pre container
+    <td>
+<div id="codecontainer" class="code">for x in [1, 2, 3]:<br>
+&nbsp;&nbsp;count(x)<br>
+</div>
+<script>hljs.highlightBlock(document.getElementById('codecontainer'), null, true);</script>
 
   <tr>
     <th>Disabled highlighting

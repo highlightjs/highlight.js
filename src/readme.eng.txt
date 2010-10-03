@@ -50,6 +50,11 @@ Initialization using for example jQuery might look like this:
       $('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
     });
 
+If your code container relies on `<br>` tags instead of line breaks (i.e. if
+it's not `<pre>`) pass `true` into third parameter of `highlightBlock`:
+
+    $('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
+
 
 ### Styling
 

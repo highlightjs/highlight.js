@@ -41,12 +41,15 @@ var hljs = new function() {
     }
   }
 
-  function blockText(block) {
+  function blockText(block, ignoreNewLines) {
     var result = '';
     for (var i = 0; i < block.childNodes.length; i++)
-      if (block.childNodes[i].nodeType == 3)
-        result += block.childNodes[i].nodeValue;
-      else if (block.childNodes[i].nodeName == 'BR')
+      if (block.childNodes[i].nodeType == 3) {
+        var chunk = block.childNodes[i].nodeValue;
+        if (ignoreNewLines)
+          chunk = chunk.replace(/\n/g, '');
+        result += chunk;
+      } else if (block.childNodes[i].nodeName == 'BR')
         result += '\n';
       else
         result += blockText(block.childNodes[i]);
@@ -462,11 +465,11 @@ var hljs = new function() {
 
   /* Public library functions */
 
-  function highlightBlock(block, tabReplace) {
+  function highlightBlock(block, tabReplace, useBR) {
     initialize();
 
     try {
-      var text = blockText(block);
+      var text = blockText(block, useBR);
       var language = blockLanguage(block);
     } catch (e) {
       if (e == 'No highlight')
@@ -505,6 +508,9 @@ var hljs = new function() {
         result = result.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
           return p1.replace(/\t/g, tabReplace);
         })
+      }
+      if (useBR) {
+        result = result.replace(/\n/g, '<br>');
       }
       if (/MSIE [678]/.test(navigator.userAgent) && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
         // This is for backwards compatibility only. IE needs this strange

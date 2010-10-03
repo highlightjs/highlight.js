@@ -53,6 +53,11 @@ DOM-элемент с текстом расцвечиваемого кода и 
       $('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
     });
 
+Если ваш блок кода использует `<br>` вместо переводов строки (т.е. если это не
+`<pre>`), передайте `true` третьим параметром в `highlightBlock`:
+
+    $('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
+
 
 ### Выбор стилей
 
