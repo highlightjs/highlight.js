@@ -34,7 +34,7 @@ pre .hexcolor {
 }
 
 pre .string,
-pre .attribute .value,
+pre .tag .value,
 pre .phpdoc,
 pre .tex .formula {
   color: #d14

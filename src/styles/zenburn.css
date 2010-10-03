@@ -78,7 +78,7 @@ pre .ruby .instancevar {
 
 pre .diff .deletion,
 pre .string,
-pre .tag .attribute .value,
+pre .tag .value,
 pre .preprocessor,
 pre .built_in,
 pre .sql .aggregate,

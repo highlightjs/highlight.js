@@ -21,7 +21,7 @@ pre .lisp .title {
 pre .string,
 pre .title,
 pre .parent,
-pre .tag .attribute .value,
+pre .tag .value,
 pre .rules .value,
 pre .rules .value .number,
 pre .preprocessor,

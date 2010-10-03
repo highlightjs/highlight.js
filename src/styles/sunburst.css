@@ -30,7 +30,7 @@ pre .list .title {
 }
 
 pre .string,
-pre .attribute .value,
+pre .tag .value,
 pre .cdata,
 pre .filter .argument,
 pre .attr_selector,

@@ -348,11 +348,12 @@ var hljs = new function() {
           end_level--;
           modes.length--;
         }
+        var last_ended_mode = modes[modes.length - 1];
         modes.length--;
         modes[modes.length - 1].buffer = '';
-        if (current_mode.starts) {
+        if (last_ended_mode.starts) {
           for (var i = 0; i < language.modes.length; i++) {
-            if (language.modes[i].className == current_mode.starts) {
+            if (language.modes[i].className == last_ended_mode.starts) {
               startNewMode(language.modes[i], '');
               break;
             }
@@ -411,9 +412,9 @@ var hljs = new function() {
       for (var j = 0; j < language.modes.length; j++) {
         var mode = language.modes[j];
         if (mode.begin)
-          mode.beginRe = langRe(language, mode.begin);
+          mode.beginRe = langRe(language, '^' + mode.begin);
         if (mode.end)
-          mode.endRe = langRe(language, mode.end);
+          mode.endRe = langRe(language, '^' + mode.end);
         if (mode.illegal)
           mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
         language.defaultMode.illegalRe = langRe(language, '^(?:' + language.defaultMode.illegal + ')');
@@ -612,6 +613,17 @@ var hljs = new function() {
     begin: this.C_NUMBER_RE, end: this.IMMEDIATE_RE,
     relevance: 0
   };
+
+  // Utility functions
+  this.inherit = function(parent, obj) {
+    var result = {}
+    for (var key in parent)
+      result[key] = parent[key];
+    if (obj)
+      for (var key in obj)
+        result[key] = obj[key];
+    return result;
+  }
 }();
 
 var initHighlightingOnLoad = hljs.initHighlightingOnLoad;

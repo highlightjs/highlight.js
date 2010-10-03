@@ -31,7 +31,7 @@ pre .tex .command {
 pre .string,
 pre .title,
 pre .parent,
-pre .tag .attribute .value,
+pre .tag .value,
 pre .rules .value,
 pre .rules .value .number,
 pre .ruby .symbol,

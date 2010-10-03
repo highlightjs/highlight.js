@@ -11,7 +11,7 @@ pre code {
 
 pre code,
 pre .ruby .subst,
-pre .xml .title,
+pre .tag .title,
 pre .lisp .title {
   color: black;
 }
@@ -20,7 +20,7 @@ pre .string,
 pre .title,
 pre .constant,
 pre .parent,
-pre .tag .attribute .value,
+pre .tag .value,
 pre .rules .value,
 pre .rules .value .number,
 pre .preprocessor,

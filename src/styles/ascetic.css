@@ -10,7 +10,7 @@ pre code {
 }
 
 pre .string,
-pre .attribute .value,
+pre .tag .value,
 pre .filter .argument,
 pre .addition,
 pre .change,

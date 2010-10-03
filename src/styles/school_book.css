@@ -28,7 +28,8 @@ pre .tex .special {
 }
 
 pre code,
-pre .ruby .subst {
+pre .ruby .subst,
+pre .tag .keyword {
   color: #3E5915;
 }
 
@@ -36,7 +37,7 @@ pre .string,
 pre .function .title,
 pre .class .title,
 pre .ini .title,
-pre .tag .attribute .value,
+pre .tag .value,
 pre .css .rules .value,
 pre .preprocessor,
 pre .ruby .symbol,
