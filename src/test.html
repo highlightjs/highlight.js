@@ -347,7 +347,7 @@ object Maps {
     }
   &lt;/style&gt;
 
-  &lt;script&gt;
+  &lt;script type="application/javascript"&gt;
     function someFunction() {
       return true;
     }
@@ -371,7 +371,7 @@ object Maps {
 {# Striped table #}
 &lt;tr class="{% cycle odd,even %}"&gt;
   &lt;td&gt;{{ article|default:"Hi... "|escape }}&lt;/td&gt;
-  &lt;td&gt;{{ article.date|date:"d.m.Y" }}&lt;/td&gt;
+  &lt;td {% if article.today %}class="today"{% endif %}&gt;{{ article.date|date:"d.m.Y" }}&lt;/td&gt;
 &lt;/tr&gt;
 
 {% endfor %}
