@@ -161,24 +161,8 @@ var hljs = new function() {
   /* Core highlighting function */
 
   function highlight(language_name, value) {
-    function compileSubModes(mode, language) {
-      mode.sub_modes = [];
-      for (var i = 0; i < mode.contains.length; i++) {
-        for (var j = 0; j < language.modes.length; j++) {
-          if (language.modes[j].className == mode.contains[i]) {
-            mode.sub_modes[mode.sub_modes.length] = language.modes[j];
-          }
-        }
-      }
-    }
 
     function subMode(lexem, mode) {
-      if (!mode.contains) {
-        return null;
-      }
-      if (!mode.sub_modes) {
-        compileSubModes(mode, language);
-      }
       for (var i = 0; i < mode.sub_modes.length; i++) {
         if (mode.sub_modes[i].beginRe.test(lexem)) {
           return mode.sub_modes[i];
@@ -206,16 +190,13 @@ var hljs = new function() {
 
       function addTerminator(re) {
         if (!contains(terminators, re)) {
-          terminators[terminators.length] = re;
+          terminators.push(re);
         }
       }
 
-      if (mode.contains)
-        for (var i = 0; i < language.modes.length; i++) {
-          if (contains(mode.contains, language.modes[i].className)) {
-            addTerminator(language.modes[i].begin);
-          }
-        }
+      for (var i = 0; i < mode.sub_modes.length; i++) {
+        addTerminator(mode.sub_modes[i].begin);
+      }
 
       var index = modes.length - 1;
       do {
@@ -399,25 +380,49 @@ var hljs = new function() {
   /* Initialization */
 
   function compileModes() {
+
+    function compileMode(mode, language) {
+      if (mode.compiled)
+        return;
+
+      if (mode.begin)
+        mode.beginRe = langRe(language, '^' + mode.begin);
+      if (mode.end)
+        mode.endRe = langRe(language, '^' + mode.end);
+      if (mode.illegal)
+        mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
+      if (mode.relevance == undefined)
+        mode.relevance = 1;
+      if (!mode.displayClassName)
+        mode.displayClassName = mode.className;
+      mode.sub_modes = [];
+      if (mode.contains) {
+        for (var i = 0; i < mode.contains.length; i++) {
+          if (mode.contains[i] instanceof Object) { // inline mode
+            mode.sub_modes.push(mode.contains[i]);
+          } else { // named mode
+            for (var j = 0; j < language.modes.length; j++) {
+              if (language.modes[j].className == mode.contains[i]) {
+                mode.sub_modes.push(language.modes[j]);
+              }
+            }
+          }
+        }
+      }
+      // compiled flag is set before compiling submodes to avoid self-recursion
+      // (see lisp where quoted_list contains quoted_list)
+      mode.compiled = true;
+      for (var i = 0; i < mode.sub_modes.length; i++) {
+        compileMode(mode.sub_modes[i], language);
+      }
+    }
+
     for (var i in LANGUAGES) {
       if (!LANGUAGES.hasOwnProperty(i))
         continue;
-      var language = LANGUAGES[i];
-      for (var j = 0; j < language.modes.length; j++) {
-        var mode = language.modes[j];
-        if (mode.begin)
-          mode.beginRe = langRe(language, '^' + mode.begin);
-        if (mode.end)
-          mode.endRe = langRe(language, '^' + mode.end);
-        if (mode.illegal)
-          mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
-        language.defaultMode.illegalRe = langRe(language, '^(?:' + language.defaultMode.illegal + ')');
-        if (mode.relevance == undefined) {
-          mode.relevance = 1;
-        }
-        if (!mode.displayClassName) {
-          mode.displayClassName = mode.className;
-        }
+      var modes = [LANGUAGES[i].defaultMode].concat(LANGUAGES[i].modes);
+      for (var j = 0; j < modes.length; j++) {
+        compileMode(modes[j], LANGUAGES[i]);
       }
     }
   }
