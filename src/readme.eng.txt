@@ -451,12 +451,13 @@ AVR assembler ("avrasm"):
   preprocessor     preprocessor directive
   localvars        substitution in .macro
 
-VHDL
+VHDL ("vhdl")
 
   keyword          keyword
   number           number
   string           string
   comment          commment
+  literal          signal logical value
 
 Parser3 ("parser3"):
 

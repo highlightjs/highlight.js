@@ -457,12 +457,13 @@ AVR ассемблер ("avrasm"):
   preprocessor     директива препроцессора
   localvars        подстановка в .macro
 
-VHDL
+VHDL ("vhdl")
 
   keyword          ключевое слово языка
   number           число
   string           строка
   comment          комментарий
+  literal          логическое значение сигнала
 
 Parser3 ("parser3"):
 
