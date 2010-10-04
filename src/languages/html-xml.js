@@ -69,7 +69,7 @@ Language: HTML, XML
       TAG_INTERNAL,
       ATTR,
       VALUE_CONTAINER_QUOT,
-      VALUE_CONTAINER_APOS,
+      VALUE_CONTAINER_APOS
     ]
   };
 
