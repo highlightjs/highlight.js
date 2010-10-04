@@ -414,7 +414,7 @@ CMake ("cmake")
   number           number
   string           string
   comment          commment
-  pseudo           $-variable
+  envvar           $-variable
 
 Axapta ("axapta"):
 

@@ -420,7 +420,7 @@ CMake ("cmake")
   number           число
   string           строка
   comment          комментарий
-  pseudo           $-переменная
+  envvar           $-переменная
 
 Axapta ("axapta"):
 
