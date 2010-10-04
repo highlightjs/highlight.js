@@ -20,10 +20,7 @@ hljs.LANGUAGES.vbscript = {
       className: 'string',
       begin: '"', end: '"',
       illegal: '\\n',
-      contains: [{
-        className: 'escape',
-        begin: '""', end: hljs.IMMEDIATE_RE, noMarkup: true
-      }],
+      contains: [{begin: '""', end: hljs.IMMEDIATE_RE}],
       relevance: 0
     },
     {

@@ -388,6 +388,8 @@ var hljs = new function() {
         mode.relevance = 1;
       if (!mode.displayClassName)
         mode.displayClassName = mode.className;
+      if (!mode.className)
+        mode.noMarkup = true;
       for (var key in mode.keywords) {
         if (!mode.keywords.hasOwnProperty(key))
           continue;

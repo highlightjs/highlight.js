@@ -18,8 +18,7 @@ hljs.LANGUAGES.scala  = {
       keywords: {'case' : 1, 'class': 1, 'trait': 1, 'object': 1},
       contains: [
         {
-          className: 'inheritance',
-          begin: '(extends|with)', end: hljs.IMMEDIATE_RE, noMarkup: true,
+          begin: '(extends|with)', end: hljs.IMMEDIATE_RE,
           lexems: [hljs.IDENT_RE],
           keywords: {'extends': 1, 'with': 1},
           relevance: 10

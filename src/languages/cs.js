@@ -31,12 +31,7 @@ hljs.LANGUAGES.cs  = {
     {
       className: 'string',
       begin: '@"', end: '"',
-      contains: [
-        {
-          className: 'quoteQuote',
-          begin: '""', end: hljs.IMMEDIATE_RE, noMarkup: true
-        },
-      ]
+      contains: [{begin: '""', end: hljs.IMMEDIATE_RE}]
     },
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,

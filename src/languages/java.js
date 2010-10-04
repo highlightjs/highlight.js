@@ -18,8 +18,7 @@ hljs.LANGUAGES.java  = {
       keywords: {'class': 1, 'interface': 1},
       contains: [
         {
-          className: 'inheritance',
-          begin: '(implements|extends)', end: hljs.IMMEDIATE_RE, noMarkup: true,
+          begin: '(implements|extends)', end: hljs.IMMEDIATE_RE,
           lexems: [hljs.IDENT_RE],
           keywords: {'extends': 1, 'implements': 1},
           relevance: 10

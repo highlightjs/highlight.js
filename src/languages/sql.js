@@ -18,10 +18,7 @@ hljs.LANGUAGES.sql =
       contains: [
         'string',
         'number',
-        {
-          className: 'newline',
-          begin: '\\n', end: hljs.IMMEDIATE_RE, noMarkup: true
-        }
+        {begin: '\\n', end: hljs.IMMEDIATE_RE}
       ],
       lexems: ['[a-zA-Z][a-zA-Z0-9_\\.]*'],
       keywords: {
@@ -82,25 +79,13 @@ hljs.LANGUAGES.sql =
     {
       className: 'string',
       begin: '\'', end: '\'',
-      contains: [
-        'escape',
-        {
-          className: 'squote',
-          begin: '\'\'', end: hljs.IMMEDIATE_RE, noMarkup: true
-        }
-      ],
+      contains: ['escape', {begin: '\'\'', end: hljs.IMMEDIATE_RE}],
       relevance: 0
     },
     {
       className: 'string',
       begin: '"', end: '"',
-      contains: [
-        'escape',
-        {
-          className: 'dquote',
-          begin: '""', end: hljs.IMMEDIATE_RE, noMarkup: true
-        }
-      ],
+      contains: ['escape', {begin: '""', end: hljs.IMMEDIATE_RE}],
       relevance: 0
     },
     {

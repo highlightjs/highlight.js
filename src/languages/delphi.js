@@ -29,12 +29,7 @@ hljs.LANGUAGES.delphi = function(){
       {
         className: 'string',
         begin: '\'', end: '\'',
-        contains: [
-          {
-            className: 'quote',
-            begin: '\'\'', end: hljs.IMMEDIATE_RE, noMarkup: true
-          }
-        ],
+        contains: [{begin: '\'\'', end: hljs.IMMEDIATE_RE}],
         relevance: 0
       },
       {
