@@ -188,30 +188,23 @@ var hljs = new function() {
     function compileTerminators(mode, language) {
       var terminators = [];
 
-      function addTerminator(re) {
-        if (!contains(terminators, re)) {
-          terminators.push(re);
-        }
-      }
-
       for (var i = 0; i < mode.sub_modes.length; i++) {
-        addTerminator(mode.sub_modes[i].begin);
+        terminators.push(mode.sub_modes[i].begin);
       }
 
       var index = modes.length - 1;
       do {
         if (modes[index].end) {
-          addTerminator(modes[index].end);
+          terminators.push(modes[index].end);
         }
         index--;
       } while (modes[index + 1].endsWithParent);
 
       if (mode.illegal) {
-        addTerminator(mode.illegal);
+        terminators.push(mode.illegal);
       }
 
-      var terminator_re = '(' + terminators.join('|') + ')';
-      return langRe(language, terminator_re, true);
+      return langRe(language, '(' + terminators.join('|') + ')', true);
     }
 
     function eatModeChunk(value, index) {
