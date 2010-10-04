@@ -1095,6 +1095,67 @@ flash2ram:
 </code></pre>
 
   <tr>
+    <th>VHDL
+    <td class="vhdl">
+<pre><code>------------------------------------
+-- RS Trigger with Assynch. Reset --
+------------------------------------
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity RS_AR is
+	generic (T: Time := 0ns);
+
+	port(
+		 -- Default RS Trigger
+		 R  : in  STD_LOGIC;
+		 S  : in  STD_LOGIC;
+		 Q  : out STD_LOGIC;
+		 nQ : out STD_LOGIC;
+
+		 -- Special Input Signals
+		 AR : in  STD_LOGIC; -- assynch. reset
+		 C  : in  STD_LOGIC  -- synch. signal
+	     );
+end RS_AR;
+
+
+architecture RS_AR of RS_AR is
+	signal QT: std_logic; -- Q(t)
+begin
+
+	process(C, AR) is
+		subtype RS is std_logic_vector ( 1 downto 0 );
+	begin
+		if AR='0' then
+			QT &lt;= '0';
+		else
+			if rising_edge(C) then
+
+				if not (R'stable(T) and S'stable(T)) then
+				QT &lt;= 'X';
+				else
+
+				case RS'(R&amp;S) is
+					when "01" =&gt; QT &lt;= '1';
+					when "10" =&gt; QT &lt;= '0';
+					when "11" =&gt; QT &lt;= 'X';
+					when others =&gt; null;
+				end case;
+
+				end if;
+			end if;
+		end if;
+	end process;
+
+	Q  &lt;= QT;
+	nQ &lt;= not QT;
+
+end RS_AR;
+</code></pre>
+
+  <tr>
     <th>Parser 3
     <td class="parser3">
 <pre><code>@CLASS
