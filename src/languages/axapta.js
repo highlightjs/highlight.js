@@ -20,18 +20,19 @@ hljs.LANGUAGES.axapta  = {
       begin: '(class |interface )', end: '{',
       illegal: ':',
       keywords: {'class': 1, 'interface': 1},
-      contains: ['inheritance', 'title']
-    },
-    {
-      className: 'inheritance',
-      begin: '(implements|extends)', end: hljs.IMMEDIATE_RE,
-      lexems: [hljs.IDENT_RE],
-      keywords: {'extends': 1, 'implements': 1},
-      relevance: 10
-    },
-    {
-      className: 'title',
-      begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+      contains: [
+        {
+          className: 'inheritance',
+          begin: '(implements|extends)', end: hljs.IMMEDIATE_RE,
+          lexems: [hljs.IDENT_RE],
+          keywords: {'extends': 1, 'implements': 1},
+          relevance: 10
+        },
+        {
+          className: 'title',
+          begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+        }
+      ]
     },
     {
       className: 'params',

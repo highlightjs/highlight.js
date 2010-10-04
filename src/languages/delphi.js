@@ -25,24 +25,21 @@ hljs.LANGUAGES.delphi = function(){
         relevance: 10
       },
       hljs.C_LINE_COMMENT_MODE,
-      {
-        className: 'number',
-        begin: hljs.NUMBER_RE, end: hljs.IMMEDIATE_RE,
-        relevance: 0
-      },
+      hljs.NUMBER_MODE,
       {
         className: 'string',
         begin: '\'', end: '\'',
-        contains: ['quote'],
+        contains: [
+          {
+            className: 'quote',
+            begin: '\'\'', end: hljs.IMMEDIATE_RE, noMarkup: true
+          }
+        ],
         relevance: 0
       },
       {
         className: 'string',
         begin: '(#\\d+)+', end: hljs.IMMEDIATE_RE
-      },
-      {
-        className: 'quote',
-        begin: '\'\'', end: hljs.IMMEDIATE_RE, noMarkup: true
       },
       {
         className: 'function',

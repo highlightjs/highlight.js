@@ -23,28 +23,31 @@ hljs.LANGUAGES.javascript = {
       begin: '(' + hljs.RE_STARTERS_RE + '|case|return|throw)\\s*', end: hljs.IMMEDIATE_RE, noMarkup: true,
       lexems: [hljs.IDENT_RE],
       keywords: {'return': 1, 'throw': 1, 'case': 1},
-      contains: ['comment', 'regexp'],
+      contains: [
+        'comment',
+        {
+          className: 'regexp',
+          begin: '/.*?[^\\\\/]/[gim]*', end: hljs.IMMEDIATE_RE
+        }
+      ],
       relevance: 0
-    },
-    {
-      className: 'regexp',
-      begin: '/.*?[^\\\\/]/[gim]*', end: hljs.IMMEDIATE_RE
     },
     {
       className: 'function',
       begin: '\\bfunction\\b', end: '{',
       lexems: [hljs.UNDERSCORE_IDENT_RE],
       keywords: {'function': 1},
-      contains: ['title', 'params']
-    },
-    {
-      className: 'title',
-      begin: '[A-Za-z$_][0-9A-Za-z$_]*', end: hljs.IMMEDIATE_RE
-    },
-    {
-      className: 'params',
-      begin: '\\(', end: '\\)',
-      contains: ['string', 'comment']
+      contains: [
+        {
+          className: 'title',
+          begin: '[A-Za-z$_][0-9A-Za-z$_]*', end: hljs.IMMEDIATE_RE
+        },
+        {
+          className: 'params',
+          begin: '\\(', end: '\\)',
+          contains: ['string', 'comment']
+        }
+      ]
     }
   ]
 };

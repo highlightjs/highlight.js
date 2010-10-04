@@ -34,20 +34,18 @@ Language: HTML, XML
   var VALUE_CONTAINER_QUOT = {
     className: 'value_container',
     begin: '="', returnBegin: true, end: '"', noMarkup: true,
-    contains: ['value_quot']
+    contains: [{
+        className: 'value',
+        begin: '"', endsWithParent: true
+    }]
   };
   var VALUE_CONTAINER_APOS = {
     className: 'value_container',
     begin: '=\'', returnBegin: true, end: '\'', noMarkup: true,
-    contains: ['value_apos']
-  };
-  var VALUE_QUOT = {
-    className: 'value_quot', displayClassName: 'value',
-    begin: '"', endsWithParent: true
-  };
-  var VALUE_APOS = {
-    className: 'value_apos', displayClassName: 'value',
-    begin: '\'', endsWithParent: true
+    contains: [{
+      className: 'value',
+      begin: '\'', endsWithParent: true
+    }]
   };
 
   hljs.LANGUAGES.xml = {
@@ -72,8 +70,6 @@ Language: HTML, XML
       ATTR,
       VALUE_CONTAINER_QUOT,
       VALUE_CONTAINER_APOS,
-      VALUE_QUOT,
-      VALUE_APOS,
     ]
   };
 
@@ -148,16 +144,15 @@ Language: HTML, XML
       ATTR,
       VALUE_CONTAINER_QUOT,
       VALUE_CONTAINER_APOS,
-      VALUE_QUOT,
-      VALUE_APOS,
       {
         className: 'value_container',
         begin: '=', end: hljs.IMMEDIATE_RE,
-        contains: ['unquoted_value']
-      },
-      {
-        className: 'unquoted_value', displayClassName: 'value',
-        begin: '[^\\s/>]+', end: hljs.IMMEDIATE_RE
+        contains: [
+          {
+            className: 'unquoted_value', displayClassName: 'value',
+            begin: '[^\\s/>]+', end: hljs.IMMEDIATE_RE
+          }
+        ]
       }
     ]
   };

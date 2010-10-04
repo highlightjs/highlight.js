@@ -16,23 +16,24 @@ hljs.LANGUAGES.scala  = {
       begin: '((case )?class |object |trait )', end: '({|$)',
       illegal: ':',
       keywords: {'case' : 1, 'class': 1, 'trait': 1, 'object': 1},
-      contains: ['inheritance', 'title', 'params']
-    },
-    {
-      className: 'inheritance',
-      begin: '(extends|with)', end: hljs.IMMEDIATE_RE, noMarkup: true,
-      lexems: [hljs.IDENT_RE],
-      keywords: {'extends': 1, 'with': 1},
-      relevance: 10
-    },
-    {
-      className: 'title',
-      begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
-    },
-    {
-      className: 'params',
-      begin: '\\(', end: '\\)',
-      contains: ['string', 'annotation']
+      contains: [
+        {
+          className: 'inheritance',
+          begin: '(extends|with)', end: hljs.IMMEDIATE_RE, noMarkup: true,
+          lexems: [hljs.IDENT_RE],
+          keywords: {'extends': 1, 'with': 1},
+          relevance: 10
+        },
+        {
+          className: 'title',
+          begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+        },
+        {
+          className: 'params',
+          begin: '\\(', end: '\\)',
+          contains: ['string', 'annotation']
+        }
+      ]
     },
     hljs.C_NUMBER_MODE,
     hljs.APOS_STRING_MODE,
@@ -42,12 +43,11 @@ hljs.LANGUAGES.scala  = {
     {
       className: 'javadoc',
       begin: '/\\*\\*', end: '\\*/',
-      contains: ['javadoctag'],
+      contains: [{
+        className: 'javadoctag',
+        begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
+      }],
       relevance: 10
-    },
-    {
-      className: 'javadoctag',
-      begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
     },
     hljs.C_BLOCK_COMMENT_MODE,
     {

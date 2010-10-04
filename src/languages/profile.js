@@ -30,11 +30,10 @@ hljs.LANGUAGES.profile = {
       className: 'function',
       begin: '\\(', end: '\\)',
       lexems: [hljs.UNDERSCORE_IDENT_RE],
-      contains: ['title']
-    },
-    {
-      className: 'title',
-      begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+      contains: [{
+        className: 'title',
+        begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+      }]
     },
     {
       className: 'builtin',

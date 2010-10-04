@@ -21,20 +21,16 @@ hljs.LANGUAGES.ini =
     {
       className: 'setting',
       begin: '^[a-z0-9_\\[\\]]+[ \\t]*=[ \\t]*', end: '$',
-      contains: ['value']
-    },
-    {
-      className: 'value',
-      begin: hljs.IMMEDIATE_RE, endsWithParent: true,
-      contains: ['string', 'number'],
-      lexems: [hljs.IDENT_RE],
-      keywords: {'on': 1, 'off': 1, 'true': 1, 'false': 1, 'yes': 1, 'no': 1}
+      contains: [{
+          className: 'value',
+          begin: hljs.IMMEDIATE_RE, endsWithParent: true,
+          contains: ['string', 'number'],
+          lexems: [hljs.IDENT_RE],
+          keywords: {'on': 1, 'off': 1, 'true': 1, 'false': 1, 'yes': 1, 'no': 1}
+      }]
     },
     hljs.QUOTE_STRING_MODE,
     hljs.BACKSLASH_ESCAPE,
-    {
-      className: 'number',
-      begin: '\\d+', end: hljs.IMMEDIATE_RE
-    }
+    hljs.NUMBER_MODE,
   ]
 };

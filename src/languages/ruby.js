@@ -25,10 +25,6 @@ hljs.LANGUAGES.ruby = function(){
         contains: ['yardoctag']
       },
       {
-        className: 'yardoctag',
-        begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
-      },
-      {
         className: 'comment',
         begin: '^\\=begin', end: '^\\=end',
         contains: ['yardoctag'],
@@ -39,46 +35,53 @@ hljs.LANGUAGES.ruby = function(){
         begin: '^__END__', end: '\\n$'
       },
       {
-        className: 'params',
-        begin: '\\(', end: '\\)',
-        lexems: [RUBY_IDENT_RE],
-        keywords: RUBY_KEYWORDS,
-        contains: RUBY_DEFAULT_CONTAINS
+        className: 'yardoctag',
+        begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
       },
       {
         className: 'function',
         begin: '\\bdef\\s+', end: ' |$|;',
         lexems: [RUBY_IDENT_RE],
         keywords: RUBY_KEYWORDS,
-        contains: ['ftitle', 'params', 'comment']
-      },
-      {
-        className: 'ftitle', displayClassName: 'title',
-        begin: RUBY_METHOD_RE, end: hljs.IMMEDIATE_RE,
-        lexems: [RUBY_IDENT_RE],
-        keywords: RUBY_KEYWORDS
+        contains: [
+          {
+            className: 'ftitle', displayClassName: 'title',
+            begin: RUBY_METHOD_RE, end: hljs.IMMEDIATE_RE,
+            lexems: [RUBY_IDENT_RE],
+            keywords: RUBY_KEYWORDS
+          },
+          {
+            className: 'params',
+            begin: '\\(', end: '\\)',
+            lexems: [RUBY_IDENT_RE],
+            keywords: RUBY_KEYWORDS,
+            contains: RUBY_DEFAULT_CONTAINS
+          },
+          'comment'
+        ]
       },
       {
         className: 'class',
         begin: '\\b(class|module)\\b', end: '$|;',
         lexems: [hljs.UNDERSCORE_IDENT_RE],
         keywords: RUBY_KEYWORDS,
-        contains: ['title', 'inheritance', 'comment'],
+        contains: [
+          {
+            className: 'title',
+            begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?', end: hljs.IMMEDIATE_RE,
+            relevance: 0
+          },
+          {
+            className: 'inheritance',
+            begin: '<\\s*', end: hljs.IMMEDIATE_RE,
+            contains: [{
+              className: 'parent',
+              begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE, end: hljs.IMMEDIATE_RE
+            }]
+          },
+          'comment'
+        ],
         keywords: {'class': 1, 'module': 1}
-      },
-      {
-        className: 'title',
-        begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?', end: hljs.IMMEDIATE_RE,
-        relevance: 0
-      },
-      {
-        className: 'inheritance',
-        begin: '<\\s*', end: hljs.IMMEDIATE_RE,
-        contains: ['parent']
-      },
-      {
-        className: 'parent',
-        begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE, end: hljs.IMMEDIATE_RE
       },
       {
         className: 'number',

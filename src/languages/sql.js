@@ -15,7 +15,14 @@ hljs.LANGUAGES.sql =
     {
       className: 'operator',
       begin: '(begin|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma)\\b', end: ';|$',
-      contains: ['string', 'number', 'newline'],
+      contains: [
+        'string',
+        'number',
+        {
+          className: 'newline',
+          begin: '\\n', end: hljs.IMMEDIATE_RE, noMarkup: true
+        }
+      ],
       lexems: ['[a-zA-Z][a-zA-Z0-9_\\.]*'],
       keywords: {
         'keyword': {
@@ -66,10 +73,6 @@ hljs.LANGUAGES.sql =
         'aggregate': {'count': 1, 'sum': 1, 'min': 1, 'max': 1, 'avg': 1}
       }
     },
-    {
-      className: 'newline',
-      begin: '\\n', end: hljs.IMMEDIATE_RE, noMarkup: true
-    },
     hljs.C_NUMBER_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     {
@@ -79,22 +82,26 @@ hljs.LANGUAGES.sql =
     {
       className: 'string',
       begin: '\'', end: '\'',
-      contains: ['escape', 'squote'],
+      contains: [
+        'escape',
+        {
+          className: 'squote',
+          begin: '\'\'', end: hljs.IMMEDIATE_RE, noMarkup: true
+        }
+      ],
       relevance: 0
-    },
-    {
-      className: 'squote',
-      begin: '\'\'', end: hljs.IMMEDIATE_RE, noMarkup: true
     },
     {
       className: 'string',
       begin: '"', end: '"',
-      contains: [ 'escape', 'dquote'],
+      contains: [
+        'escape',
+        {
+          className: 'dquote',
+          begin: '""', end: hljs.IMMEDIATE_RE, noMarkup: true
+        }
+      ],
       relevance: 0
-    },
-    {
-      className: 'dquote',
-      begin: '""', end: hljs.IMMEDIATE_RE, noMarkup: true
     },
     {
       className: 'string',

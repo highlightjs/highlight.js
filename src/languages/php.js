@@ -16,12 +16,11 @@ hljs.LANGUAGES.php = {
     {
       className: 'comment',
       begin: '/\\*', end: '\\*/',
-      contains: ['phpdoc']
-    },
-    {
-      className: 'phpdoc',
-      begin: '\\s@[A-Za-z]+', end: hljs.IMMEDIATE_RE,
-      relevance: 10
+      contains: [{
+          className: 'phpdoc',
+          begin: '\\s@[A-Za-z]+', end: hljs.IMMEDIATE_RE,
+          relevance: 10
+      }]
     },
     hljs.C_NUMBER_MODE,
     {

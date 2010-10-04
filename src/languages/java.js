@@ -16,23 +16,19 @@ hljs.LANGUAGES.java  = {
       begin: '(class |interface )', end: '{',
       illegal: ':',
       keywords: {'class': 1, 'interface': 1},
-      contains: ['inheritance', 'title']
-    },
-    {
-      className: 'inheritance',
-      begin: '(implements|extends)', end: hljs.IMMEDIATE_RE, noMarkup: true,
-      lexems: [hljs.IDENT_RE],
-      keywords: {'extends': 1, 'implements': 1},
-      relevance: 10
-    },
-    {
-      className: 'title',
-      begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
-    },
-    {
-      className: 'params',
-      begin: '\\(', end: '\\)',
-      contains: ['string', 'annotation']
+      contains: [
+        {
+          className: 'inheritance',
+          begin: '(implements|extends)', end: hljs.IMMEDIATE_RE, noMarkup: true,
+          lexems: [hljs.IDENT_RE],
+          keywords: {'extends': 1, 'implements': 1},
+          relevance: 10
+        },
+        {
+          className: 'title',
+          begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+        }
+      ]
     },
     hljs.C_NUMBER_MODE,
     hljs.APOS_STRING_MODE,
@@ -42,12 +38,11 @@ hljs.LANGUAGES.java  = {
     {
       className: 'javadoc',
       begin: '/\\*\\*', end: '\\*/',
-      contains: ['javadoctag'],
+      contains: [{
+        className: 'javadoctag',
+        begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
+      }],
       relevance: 10
-    },
-    {
-      className: 'javadoctag',
-      begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
     },
     hljs.C_BLOCK_COMMENT_MODE,
     {

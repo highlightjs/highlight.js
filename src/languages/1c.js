@@ -47,43 +47,41 @@ hljs.LANGUAGES['1c'] = function(){
         className: 'dquote',
         begin: '""', end: hljs.IMMEDIATE_RE
       },
-      {
-        className: 'number',
-        begin: hljs.NUMBER_RE, end: hljs.IMMEDIATE_RE,
-        relevance: 0
-      },
+      hljs.NUMBER_MODE,
       {
         className: 'title',
-        lexems: [IDENT_RE_RU],
         begin: IDENT_RE_RU, end: hljs.IMMEDIATE_RE
-      },
-      {
-        className: 'params',
-        begin: '\\(', end: '\\)',
-        lexems: [IDENT_RE_RU],
-        keywords: {'знач':1},
-        contains: ['string']
       },
       {
         className: 'function',
         begin: '(процедура|функция)', end: '$',
         lexems: [IDENT_RE_RU],
         keywords: {'процедура': 1, 'экспорт': 1, 'функция': 1},
-        contains: ['title','tail','comment'],
+        contains: [
+          'title',
+          {
+            className: 'tail',
+            begin: hljs.IMMEDIATE_RE,  endsWithParent: true,
+            contains: [
+              {
+                className: 'params',
+                begin: '\\(', end: '\\)',
+                lexems: [IDENT_RE_RU],
+                keywords: {'знач':1},
+                contains: ['string']
+              },
+              {
+                className: 'export',
+                begin: 'экспорт', endsWithParent: true,
+                lexems: [IDENT_RE_RU],
+                keywords: {'экспорт': 1},
+                contains: ['comment']
+              }
+            ]
+          },
+          'comment'
+        ],
         relevance: 0
-      },
-      {
-        className: 'tail',
-        begin: hljs.IMMEDIATE_RE,  endsWithParent: true,
-        lexems: [IDENT_RE_RU],
-        contains: ['params', 'export']
-      },
-      {
-        className: 'export',
-        begin: 'экспорт', endsWithParent: true,
-        lexems: [IDENT_RE_RU],
-        keywords: {'экспорт': 1},
-        contains: ['comment']
       },
       {
         className: 'preprocessor',

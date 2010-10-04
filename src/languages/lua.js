@@ -53,16 +53,18 @@ hljs.LANGUAGES.lua = function(){
         begin: '\\bfunction\\b', end: '\\)',
         lexems: [hljs.UNDERSCORE_IDENT_RE],
         keywords: {'function': 1},
-        contains: ['title', 'params', 'comment']
-      },
-      {
-        className: 'title',
-        begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*', end: hljs.IMMEDIATE_RE
-      },
-      {
-        className: 'params',
-        begin: '\\(', endsWithParent: true,
-        contains: ['comment']
+        contains: [
+          {
+            className: 'title',
+            begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*', end: hljs.IMMEDIATE_RE
+          },
+          {
+            className: 'params',
+            begin: '\\(', endsWithParent: true,
+            contains: ['comment']
+          },
+          'comment'
+        ]
       },
       // number
       hljs.C_NUMBER_MODE,

@@ -581,6 +581,11 @@ var hljs = new function() {
     className: 'comment',
     begin: '#', end: '$'
   };
+  this.NUMBER_MODE = {
+    className: 'number',
+    begin: this.NUMBER_RE, end: this.IMMEDIATE_RE,
+    relevance: 0
+  };
   this.C_NUMBER_MODE = {
     className: 'number',
     begin: this.C_NUMBER_RE, end: this.IMMEDIATE_RE,
