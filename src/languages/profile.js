@@ -28,18 +28,21 @@ hljs.LANGUAGES.profile = {
     },
     {
       className: 'function',
-      begin: '\\(', end: '\\)',
+      begin: '\\(', end: '\\)$',
       lexems: [hljs.UNDERSCORE_IDENT_RE],
       contains: [{
         className: 'title',
-        begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
-      }]
+        begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE,
+        relevance: 0
+      }],
+      relevance: 0
     },
     {
       className: 'builtin',
-      begin: '{', end: '}',
+      begin: '{', end: '}$',
       contains: ['string'],
-      excludeBegin: true, excludeEnd: true
+      excludeBegin: true, excludeEnd: true,
+      relevance: 0
     },
     {
       className: 'filename',
