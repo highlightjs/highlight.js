@@ -388,6 +388,15 @@ var hljs = new function() {
         mode.relevance = 1;
       if (!mode.displayClassName)
         mode.displayClassName = mode.className;
+      for (var key in mode.keywords) {
+        if (!mode.keywords.hasOwnProperty(key))
+          continue;
+        if (mode.keywords[key] instanceof Object)
+          mode.keywordGroups = mode.keywords;
+        else
+          mode.keywordGroups = {'keyword': mode.keywords};
+        break;
+      }
       mode.sub_modes = [];
       if (mode.contains) {
         for (var i = 0; i < mode.contains.length; i++) {
@@ -420,39 +429,11 @@ var hljs = new function() {
     }
   }
 
-  function compileKeywords() {
-
-    function compileModeKeywords(mode) {
-      if (!mode.keywordGroups) {
-        for (var key in mode.keywords) {
-          if (!mode.keywords.hasOwnProperty(key))
-            continue;
-          if (mode.keywords[key] instanceof Object)
-            mode.keywordGroups = mode.keywords;
-          else
-            mode.keywordGroups = {'keyword': mode.keywords};
-          break;
-        }
-      }
-    }
-
-    for (var i in LANGUAGES) {
-      if (!LANGUAGES.hasOwnProperty(i))
-        continue;
-      var language = LANGUAGES[i];
-      compileModeKeywords(language.defaultMode);
-      for (var j = 0; j < language.modes.length; j++) {
-        compileModeKeywords(language.modes[j]);
-      }
-    }
-  }
-
   function initialize() {
     if (initialize.called)
         return;
     initialize.called = true;
     compileModes();
-    compileKeywords();
     selected_languages = LANGUAGES;
   }
 
