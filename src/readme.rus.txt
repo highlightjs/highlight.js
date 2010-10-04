@@ -388,6 +388,14 @@ Nginx ("nginx"):
   built_in         встроенная константа
   variable         $-переменная
 
+Diff ("diff"):
+
+  header           заголовок файла
+  chunk            заголовок куска внутри файла
+  addition         добавленные строки
+  deletion         удаленные строки
+  change           измененные строки
+
 DOS ("dos"):
 
   keyword          ключевое слово
@@ -406,13 +414,13 @@ Bash ("bash"):
   variable         переменная
   shebang          заголовок интерпретатора скрипта
 
-Diff ("diff"):
+CMake ("cmake")
 
-  header           заголовок файла
-  chunk            заголовок куска внутри файла
-  addition         добавленные строки
-  deletion         удаленные строки
-  change           измененные строки
+  keyword          ключевое слово языка
+  number           число
+  string           строка
+  comment          комментарий
+  pseudo           $-переменная
 
 Axapta ("axapta"):
 
@@ -448,6 +456,13 @@ AVR ассемблер ("avrasm"):
   label            метка
   preprocessor     директива препроцессора
   localvars        подстановка в .macro
+
+VHDL
+
+  keyword          ключевое слово языка
+  number           число
+  string           строка
+  comment          комментарий
 
 Parser3 ("parser3"):
 

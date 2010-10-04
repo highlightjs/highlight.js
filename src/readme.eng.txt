@@ -382,6 +382,14 @@ Nginx ("nginx"):
   built_in         built-in constant
   variable         $-variable
 
+Diff ("diff"):
+
+  header           file header
+  chunk            chunk header within a file
+  addition         added lines
+  deletion         deleted lines
+  change           changed lines
+
 DOS ("dos"):
 
   keyword          keyword
@@ -400,13 +408,13 @@ Bash ("bash"):
   variable         variable
   shebang          script interpreter header
 
-Diff ("diff"):
+CMake ("cmake")
 
-  header           file header
-  chunk            chunk header within a file
-  addition         added lines
-  deletion         deleted lines
-  change           changed lines
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  pseudo           $-variable
 
 Axapta ("axapta"):
 
@@ -442,6 +450,13 @@ AVR assembler ("avrasm"):
   label            label
   preprocessor     preprocessor directive
   localvars        substitution in .macro
+
+VHDL
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
 
 Parser3 ("parser3"):
 
