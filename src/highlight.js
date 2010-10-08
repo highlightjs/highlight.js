@@ -63,10 +63,7 @@ var hljs = new function() {
     classes = classes.concat(block.parentNode.className.split(/\s+/));
     for (var i = 0; i < classes.length; i++) {
       var class_ = classes[i].replace(/^language-/, '');
-      if (class_ == 'no-highlight') {
-        throw 'No highlight'
-      }
-      if (LANGUAGES[class_]) {
+      if (LANGUAGES[class_] || class_ == 'no-highlight') {
         return class_;
       }
     }
@@ -444,14 +441,10 @@ var hljs = new function() {
   function highlightBlock(block, tabReplace, useBR) {
     initialize();
 
-    try {
-      var text = blockText(block, useBR);
-      var language = blockLanguage(block);
-    } catch (e) {
-      if (e == 'No highlight')
+    var text = blockText(block, useBR);
+    var language = blockLanguage(block);
+    if (language == 'no-highlight')
         return;
-    }
-
     if (language) {
       var result = highlight(language, text).value;
     } else {
