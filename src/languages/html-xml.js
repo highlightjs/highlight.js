@@ -157,4 +157,4 @@ Language: HTML, XML
     ]
   };
 
-})()
+})();
