@@ -350,6 +350,7 @@ var hljs = new function() {
       if(modes.length > 1)
         throw 'Illegal';
       return {
+        language: language_name,
         relevance: relevance,
         keyword_count: keyword_count,
         value: result
@@ -357,6 +358,7 @@ var hljs = new function() {
     } catch (e) {
       if (e == 'Illegal') {
         return {
+          language: null,
           relevance: 0,
           keyword_count: 0,
           value: escape(value)
@@ -446,53 +448,63 @@ var hljs = new function() {
     if (language == 'no-highlight')
         return;
     if (language) {
-      var result = highlight(language, text).value;
+      var result = highlight(language, text);
     } else {
-      var max_relevance = 0;
+      var result = {language: null, keyword_count: 0, relevance: 0, value: ''};
       for (var key in selected_languages) {
         if (!selected_languages.hasOwnProperty(key))
           continue;
-        var lang_result = highlight(key, text);
-        var relevance = lang_result.keyword_count + lang_result.relevance;
-        if (relevance > max_relevance) {
-          max_relevance = relevance;
-          var result = lang_result.value;
-          language = key;
+        var current = highlight(key, text);
+        if (current.keyword_count + current.relevance > result.keyword_count + result.relevance) {
+          var second_best = result;
+          result = current;
         }
       }
     }
 
-    if (result) {
-      var class_name = block.className;
-      if (!class_name.match(language)) {
-        class_name = class_name ? (class_name + ' ' + language) : language;
-      }
-      var original = nodeStream(block);
-      if (original.length) {
-        var pre = document.createElement('pre');
-        pre.innerHTML = result;
-        result = mergeStreams(original, nodeStream(pre), text);
-      }
-      if (tabReplace) {
-        result = result.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
-          return p1.replace(/\t/g, tabReplace);
-        })
-      }
-      if (useBR) {
-        result = result.replace(/\n/g, '<br>');
-      }
-      if (/MSIE [678]/.test(navigator.userAgent) && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
-        // This is for backwards compatibility only. IE needs this strange
-        // hack becasue it cannot just cleanly replace <code> block contents.
-        var pre = block.parentNode;
-        var container = document.createElement('div');
-        container.innerHTML = '<pre><code class="' + class_name + '">' + result + '</code></pre>';
-        container.firstChild.className = pre.className;
-        pre.parentNode.replaceChild(container.firstChild, pre);
-      } else {
-        block.innerHTML = result;
-        block.className = class_name;
-      }
+    var class_name = block.className;
+    if (!class_name.match(result.language)) {
+      class_name = class_name ? (class_name + ' ' + result.language) : result.language;
+    }
+    var original = nodeStream(block);
+    if (original.length) {
+      var pre = document.createElement('pre');
+      pre.innerHTML = result.value;
+      result.value = mergeStreams(original, nodeStream(pre), text);
+    }
+    if (tabReplace) {
+      result.value = result.value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
+        return p1.replace(/\t/g, tabReplace);
+      })
+    }
+    if (useBR) {
+      result.value = result.value.replace(/\n/g, '<br>');
+    }
+    if (/MSIE [678]/.test(navigator.userAgent) && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
+      // This is for backwards compatibility only. IE needs this strange
+      // hack becasue it cannot just cleanly replace <code> block contents.
+      var pre = block.parentNode;
+      var container = document.createElement('div');
+      container.innerHTML = '<pre><code>' + result.value + '</code></pre>';
+      container.firstChild.className = pre.className;
+      pre.parentNode.replaceChild(container.firstChild, pre);
+      block = container.firstChild.firstChild;
+    } else {
+      block.innerHTML = result.value;
+    }
+    block.className = class_name;
+    block.dataset = {};
+    block.dataset.result = {
+      language: result.language,
+      keyword_count: result.keyword_count,
+      relevance: result.relevance
+    };
+    if (second_best) {
+      block.dataset.second_best = {
+        language: second_best.language,
+        keyword_count: second_best.keyword_count,
+        relevance: second_best.relevance
+      };
     }
   }
 
