@@ -499,7 +499,7 @@ var hljs = new function() {
       kw: result.keyword_count,
       re: result.relevance
     };
-    if (second_best) {
+    if (second_best && second_best.language) {
       block.dataset.second_best = {
         language: second_best.language,
         kw: second_best.keyword_count,
