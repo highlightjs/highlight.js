@@ -6,6 +6,16 @@ Language: HTML, XML
 
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
 
+  var PI = {
+    className: 'pi',
+    begin: '<\\?', end: '\\?>',
+    relevance: 10
+  };
+  var DOCTYPE = {
+    className: 'doctype',
+    begin: '<!DOCTYPE', end: '>',
+    relevance: 10
+  };
   var COMMENT = {
     className: 'comment',
     begin: '<!--', end: '-->'
@@ -50,22 +60,19 @@ Language: HTML, XML
 
   hljs.LANGUAGES.xml = {
     defaultMode: {
-      contains: ['pi', 'comment', 'cdata', 'tag']
+      contains: ['pi', 'doctype', 'comment', 'cdata', 'tag']
     },
     case_insensitive: true,
     modes: [
       {
-        className: 'pi',
-        begin: '<\\?', end: '\\?>',
-        relevance: 10
-      },
-      {
         className: 'cdata',
         begin: '<\\!\\[CDATA\\[', end: '\\]\\]>'
       },
+      PI,
+      DOCTYPE,
       COMMENT,
       TAG,
-      TITLE,
+      hljs.inherit(TITLE, {relevance: 1.5}),
       TAG_INTERNAL,
       ATTR,
       VALUE_CONTAINER_QUOT,
@@ -97,15 +104,10 @@ Language: HTML, XML
 
   hljs.LANGUAGES.html = {
     defaultMode: {
-      contains: ['comment', 'doctype', 'vbscript', 'tag']
+      contains: ['comment', 'pi', 'doctype', 'vbscript', 'tag']
     },
     case_insensitive: true,
     modes: [
-      {
-        className: 'doctype',
-        begin: '<!DOCTYPE', end: '>',
-        relevance: 10
-      },
       {
         className: 'tag',
         begin: '<style', end: '>',
@@ -136,11 +138,13 @@ Language: HTML, XML
         subLanguage: 'vbscript'
       },
       COMMENT,
+      PI,
+      DOCTYPE,
       hljs.inherit(TAG),
       hljs.inherit(TITLE, {
         lexems: [hljs.IDENT_RE], keywords: HTML_TAGS,
       }),
-      hljs.inherit(TAG_INTERNAL),
+      hljs.inherit(TAG_INTERNAL, {illegal: null}),
       ATTR,
       VALUE_CONTAINER_QUOT,
       VALUE_CONTAINER_APOS,
