@@ -450,7 +450,7 @@ var hljs = new function() {
     if (language) {
       var result = highlight(language, text);
     } else {
-      var result = {language: null, keyword_count: 0, relevance: 0, value: ''};
+      var result = {language: '', keyword_count: 0, relevance: 0, value: escape(text)};
       for (var key in selected_languages) {
         if (!selected_languages.hasOwnProperty(key))
           continue;
