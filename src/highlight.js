@@ -496,14 +496,14 @@ var hljs = new function() {
     block.dataset = {};
     block.dataset.result = {
       language: result.language,
-      keyword_count: result.keyword_count,
-      relevance: result.relevance
+      kw: result.keyword_count,
+      re: result.relevance
     };
     if (second_best) {
       block.dataset.second_best = {
         language: second_best.language,
-        keyword_count: second_best.keyword_count,
-        relevance: second_best.relevance
+        kw: second_best.keyword_count,
+        re: second_best.relevance
       };
     }
   }

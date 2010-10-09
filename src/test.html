@@ -1235,9 +1235,7 @@ $$
       result.className = 'test';
       result.innerHTML = 'detected: <var class="'+ (passed ? 'passed' : 'failed') +'">' + code.className + '</var>';
       function counts(r) {
-        return ' (' + r.keyword_count +
-               '+' + r.relevance +
-               '=' + (r.keyword_count + r.relevance) + ')';
+        return ' (' + r.kw + '+' + r.re + '=' + (r.kw + r.re) + ')';
       }
       result.innerHTML += counts(code.dataset.result);
       if (code.dataset.second_best) {
