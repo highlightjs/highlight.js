@@ -486,9 +486,9 @@ var hljs = new function() {
       var pre = block.parentNode;
       var container = document.createElement('div');
       container.innerHTML = '<pre><code>' + result.value + '</code></pre>';
+      block = container.firstChild.firstChild;
       container.firstChild.className = pre.className;
       pre.parentNode.replaceChild(container.firstChild, pre);
-      block = container.firstChild.firstChild;
     } else {
       block.innerHTML = result.value;
     }
