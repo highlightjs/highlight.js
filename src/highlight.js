@@ -451,12 +451,16 @@ var hljs = new function() {
       var result = highlight(language, text);
     } else {
       var result = {language: '', keyword_count: 0, relevance: 0, value: escape(text)};
+      var second_best = result;
       for (var key in selected_languages) {
         if (!selected_languages.hasOwnProperty(key))
           continue;
         var current = highlight(key, text);
+        if (current.keyword_count + current.relevance > second_best.keyword_count + second_best.relevance) {
+          second_best = current;
+        }
         if (current.keyword_count + current.relevance > result.keyword_count + result.relevance) {
-          var second_best = result;
+          second_best = result;
           result = current;
         }
       }
