@@ -27,19 +27,18 @@ Language: HTML, XML
   };
   var TITLE = {
     className: 'title',
-    begin: XML_IDENT_RE, end: hljs.IMMEDIATE_RE,
-    relevance: 0
+    begin: XML_IDENT_RE, end: hljs.IMMEDIATE_RE
   };
   var TAG_INTERNAL = {
     className: 'tag_internal',
     begin: hljs.IMMEDIATE_RE, endsWithParent: true, noMarkup: true,
     contains: ['attribute', 'value_container'],
-    relevance: 0,
-    illegal: '[^\\s]'
+    relevance: 0
   };
   var ATTR = {
     className: 'attribute',
     begin: XML_IDENT_RE, end: hljs.IMMEDIATE_RE,
+    relevance: 0
   };
   var VALUE_CONTAINER_QUOT = {
     className: 'value_container',
@@ -66,13 +65,14 @@ Language: HTML, XML
     modes: [
       {
         className: 'cdata',
-        begin: '<\\!\\[CDATA\\[', end: '\\]\\]>'
+        begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
+        relevance: 10
       },
       PI,
       DOCTYPE,
       COMMENT,
       TAG,
-      hljs.inherit(TITLE, {relevance: 1.5}),
+      hljs.inherit(TITLE, {relevance: 1.75}),
       TAG_INTERNAL,
       ATTR,
       VALUE_CONTAINER_QUOT,
@@ -144,7 +144,7 @@ Language: HTML, XML
       hljs.inherit(TITLE, {
         lexems: [hljs.IDENT_RE], keywords: HTML_TAGS,
       }),
-      hljs.inherit(TAG_INTERNAL, {illegal: null}),
+      hljs.inherit(TAG_INTERNAL),
       ATTR,
       VALUE_CONTAINER_QUOT,
       VALUE_CONTAINER_APOS,
