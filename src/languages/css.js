@@ -84,6 +84,7 @@ hljs.LANGUAGES.css = {
       begin: '!important', end: hljs.IMMEDIATE_RE
     },
     hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE
+    hljs.QUOTE_STRING_MODE,
+    hljs.BACKSLASH_ESCAPE
   ]
 };

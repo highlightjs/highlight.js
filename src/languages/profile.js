@@ -13,6 +13,7 @@ hljs.LANGUAGES.profile = {
     hljs.C_NUMBER_MODE,
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
+    hljs.BACKSLASH_ESCAPE,
     {
       className: 'summary',
       begin: 'function calls', end: '$',
