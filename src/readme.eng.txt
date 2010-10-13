@@ -500,7 +500,7 @@ To disable highlighting of a fragment altogether use "no-highlight" class:
 
 ## Contacts
 
-Version: 5.13
+Version: 5.14
 URL:     http://softwaremaniacs.org/soft/highlight/en/
 Author:  Ivan Sagalaev (Maniac@SoftwareManiacs.Org)
 
