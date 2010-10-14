@@ -265,7 +265,7 @@ var hljs = new function() {
         result += markup;
         mode.buffer = lexem;
       }
-      modes[modes.length] = mode;
+      modes.push(mode);
     }
 
     function processModeInfo(buffer, lexem, end) {
