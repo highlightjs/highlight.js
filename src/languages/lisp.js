@@ -18,10 +18,9 @@ hljs.LANGUAGES.lisp = function(){
       {
         className: 'string',
         begin: '"', end: '"',
-        contains: ['escape'],
+        contains: [hljs.BACKSLASH_ESCAPE],
         relevance: 0
       },
-      hljs.BACKSLASH_ESCAPE,
       {
         className: 'number',
         begin: LISP_SIMPLE_NUMBER_RE, end: hljs.IMMEDIATE_RE

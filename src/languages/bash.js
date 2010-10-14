@@ -59,17 +59,9 @@ hljs.LANGUAGES.bash = function(){
         className: 'string',
         begin: '"', end: '"',
         illegal: '\\n',
-        contains: ['escape', 'variable'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'variable'],
         relevance: 0
       },
-      {
-        className: 'string',
-        begin: '"', end: '"',
-        illegal: '\\n',
-        contains: ['escape', 'variable'],
-        relevance: 0
-      },
-      hljs.BACKSLASH_ESCAPE,
       hljs.C_NUMBER_MODE,
       {
         className: 'comment',

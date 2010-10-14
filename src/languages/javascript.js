@@ -17,7 +17,6 @@ hljs.LANGUAGES.javascript = {
     hljs.C_NUMBER_MODE,
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
-    hljs.BACKSLASH_ESCAPE,
     {
       className: 'regexp_container',
       begin: '(' + hljs.RE_STARTERS_RE + '|case|return|throw)\\s*', end: hljs.IMMEDIATE_RE, noMarkup: true,

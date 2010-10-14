@@ -23,11 +23,10 @@ hljs.LANGUAGES.mel = {
     // string
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
-    hljs.BACKSLASH_ESCAPE,
     {
       className: 'string',
       begin: '`', end: '`',
-      contains: ['escape']
+      contains: [hljs.BACKSLASH_ESCAPE]
     },
     // variable
     {

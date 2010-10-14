@@ -76,8 +76,7 @@ hljs.LANGUAGES.lua = function(){
         begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
         contains: ['long_brackets'],
         relevance: 10
-      },
-      hljs.BACKSLASH_ESCAPE
+      }
     ]
   };
 }();

@@ -79,20 +79,19 @@ hljs.LANGUAGES.sql =
     {
       className: 'string',
       begin: '\'', end: '\'',
-      contains: ['escape', {begin: '\'\'', end: hljs.IMMEDIATE_RE}],
+      contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\'', end: hljs.IMMEDIATE_RE}],
       relevance: 0
     },
     {
       className: 'string',
       begin: '"', end: '"',
-      contains: ['escape', {begin: '""', end: hljs.IMMEDIATE_RE}],
+      contains: [hljs.BACKSLASH_ESCAPE, {begin: '""', end: hljs.IMMEDIATE_RE}],
       relevance: 0
     },
     {
       className: 'string',
       begin: '`', end: '`',
-      contains: ['escape']
-    },
-    hljs.BACKSLASH_ESCAPE
+      contains: [hljs.BACKSLASH_ESCAPE]
+    }
   ]
 };

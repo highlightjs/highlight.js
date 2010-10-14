@@ -55,7 +55,6 @@ hljs.LANGUAGES.avrasm =
       className: 'comment',
       begin: ';',  end: '$'
     },
-    hljs.BACKSLASH_ESCAPE,
     hljs.QUOTE_STRING_MODE,
     {
       className: 'string',

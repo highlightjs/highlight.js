@@ -25,12 +25,11 @@ hljs.LANGUAGES.vhdl = {
     },
     hljs.C_NUMBER_MODE,
     hljs.QUOTE_STRING_MODE,
-    hljs.BACKSLASH_ESCAPE,
     {
       className: 'literal',
       begin: '\'(U|X|0|1|Z|W|L|H|-)',
       end: '\'',
-      contains: ['escape'],
+      contains: [hljs.BACKSLASH_ESCAPE],
       relevance: 5
     }
   ]

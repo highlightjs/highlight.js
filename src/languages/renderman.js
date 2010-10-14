@@ -118,8 +118,7 @@ hljs.LANGUAGES.rib  = {
     hljs.HASH_COMMENT_MODE,
     hljs.C_NUMBER_MODE,
     hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE,
-    hljs.BACKSLASH_ESCAPE
+    hljs.QUOTE_STRING_MODE
   ]
 };
 
@@ -230,7 +229,6 @@ hljs.LANGUAGES.rsl  = {
     hljs.C_NUMBER_MODE,
     hljs.QUOTE_STRING_MODE,
     hljs.APOS_STRING_MODE,
-    hljs.BACKSLASH_ESCAPE,
     {
       className: 'preprocessor',
       begin: '#', end: '$'

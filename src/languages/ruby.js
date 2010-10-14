@@ -95,61 +95,61 @@ hljs.LANGUAGES.ruby = function(){
       {
         className: 'string',
         begin: '\'', end: '\'',
-        contains: ['escape', 'subst'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst'],
         relevance: 0
       },
       {
         className: 'string',
         begin: '"', end: '"',
-        contains: ['escape', 'subst'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst'],
         relevance: 0
       },
       {
         className: 'string',
         begin: '%[qw]?\\(', end: '\\)',
-        contains: ['escape', 'subst'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst'],
         relevance: 10
       },
       {
         className: 'string',
         begin: '%[qw]?\\[', end: '\\]',
-        contains: ['escape', 'subst'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst'],
         relevance: 10
       },
       {
         className: 'string',
         begin: '%[qw]?{', end: '}',
-        contains: ['escape', 'subst'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst'],
         relevance: 10
       },
       {
         className: 'string',
         begin: '%[qw]?<', end: '>',
-        contains: ['escape', 'subst'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst'],
         relevance: 10
       },
       {
         className: 'string',
         begin: '%[qw]?/', end: '/',
-        contains: ['escape', 'subst'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst'],
         relevance: 10
       },
       {
         className: 'string',
         begin: '%[qw]?%', end: '%',
-        contains: ['escape', 'subst'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst'],
         relevance: 10
       },
       {
         className: 'string',
         begin: '%[qw]?-', end: '-',
-        contains: ['escape', 'subst'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst'],
         relevance: 10
       },
       {
         className: 'string',
         begin: '%[qw]?\\|', end: '\\|',
-        contains: ['escape', 'subst'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst'],
         relevance: 10
       },
       {
@@ -169,7 +169,6 @@ hljs.LANGUAGES.ruby = function(){
         keywords: RUBY_KEYWORDS,
         relevance: 0
       },
-      hljs.BACKSLASH_ESCAPE,
       {
         className: 'subst',
         begin: '#\\{', end: '}',
@@ -187,7 +186,7 @@ hljs.LANGUAGES.ruby = function(){
         className: 'regexp',
         begin: '/', end: '/[a-z]*',
         illegal: '\\n',
-        contains: ['escape']
+        contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
         className: 'variable',

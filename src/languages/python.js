@@ -54,17 +54,16 @@ hljs.LANGUAGES.python = {
     },
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
-    hljs.BACKSLASH_ESCAPE,
     {
       className: 'string',
       begin: '(u|r|ur)\'', end: '\'',
-      contains: ['escape'],
+      contains: [hljs.BACKSLASH_ESCAPE],
       relevance: 10
     },
     {
       className: 'string',
       begin: '(u|r|ur)"', end: '"',
-      contains: ['escape'],
+      contains: [hljs.BACKSLASH_ESCAPE],
       relevance: 10
     },
     {

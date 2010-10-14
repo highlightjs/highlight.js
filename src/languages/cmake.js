@@ -20,7 +20,6 @@ hljs.LANGUAGES.cmake = {
   modes: [
     hljs.HASH_COMMENT_MODE,
     hljs.QUOTE_STRING_MODE,
-    hljs.BACKSLASH_ESCAPE,
     hljs.NUMBER_MODE,
     {
       className: 'envvar',

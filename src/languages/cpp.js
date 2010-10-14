@@ -42,7 +42,6 @@ hljs.LANGUAGES.cpp = function(){
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       hljs.QUOTE_STRING_MODE,
-      hljs.BACKSLASH_ESCAPE,
       {
         className: 'string',
         begin: '\'', end: '[^\\\\]\'',

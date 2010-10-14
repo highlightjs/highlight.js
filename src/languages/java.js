@@ -32,7 +32,6 @@ hljs.LANGUAGES.java  = {
     hljs.C_NUMBER_MODE,
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
-    hljs.BACKSLASH_ESCAPE,
     hljs.C_LINE_COMMENT_MODE,
     {
       className: 'javadoc',

@@ -179,13 +179,13 @@ hljs.LANGUAGES.nginx = {
     {
       className: 'string',
       begin: '"', end: '"',
-      contains: ['escape', 'variable'],
+      contains: [hljs.BACKSLASH_ESCAPE, 'variable'],
       relevance: 0
     },
     {
       className: 'string',
       begin: "'", end: "'",
-      contains: ['escape', 'variable'],
+      contains: [hljs.BACKSLASH_ESCAPE, 'variable'],
       relevance: 0
     },
     {
@@ -195,26 +195,25 @@ hljs.LANGUAGES.nginx = {
     {
       className: 'regexp',
       begin: "\\s\\^", end: "\\s|{|;", returnEnd: true,
-      contains: ['escape', 'variable']
+      contains: [hljs.BACKSLASH_ESCAPE, 'variable']
     },
     // regexp locations (~, ~*)
     {
       className: 'regexp',
       begin: "~\\*?\\s+", end: "\\s|{|;", returnEnd: true,
-      contains: ['escape', 'variable']
+      contains: [hljs.BACKSLASH_ESCAPE, 'variable']
     },
     // *.example.com
     {
       className: 'regexp',
       begin: "\\*(\\.[a-z\\-]+)+", end: "^",
-      contains: ['escape', 'variable']
+      contains: [hljs.BACKSLASH_ESCAPE, 'variable']
     },
     // sub.example.*
     {
       className: 'regexp',
       begin: "([a-z\\-]+\\.)+\\*", end: "^",
-      contains: ['escape', 'variable']
-    },
-    hljs.BACKSLASH_ESCAPE
+      contains: [hljs.BACKSLASH_ESCAPE, 'variable']
+    }
   ]
 };

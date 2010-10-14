@@ -560,23 +560,21 @@ var hljs = new function() {
   this.RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
 
   // Common modes
+  this.BACKSLASH_ESCAPE = {
+    begin: '\\\\.', end: this.IMMEDIATE_RE, relevance: 0
+  };
   this.APOS_STRING_MODE = {
     className: 'string',
     begin: '\'', end: '\'',
     illegal: '\\n',
-    contains: ['escape'],
+    contains: [this.BACKSLASH_ESCAPE],
     relevance: 0
   };
   this.QUOTE_STRING_MODE = {
     className: 'string',
     begin: '"', end: '"',
     illegal: '\\n',
-    contains: ['escape'],
-    relevance: 0
-  };
-  this.BACKSLASH_ESCAPE = {
-    className: 'escape',
-    begin: '\\\\.', end: this.IMMEDIATE_RE, noMarkup: true,
+    contains: [this.BACKSLASH_ESCAPE],
     relevance: 0
   };
   this.C_LINE_COMMENT_MODE = {

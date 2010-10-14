@@ -30,7 +30,6 @@ hljs.LANGUAGES.ini =
       }]
     },
     hljs.QUOTE_STRING_MODE,
-    hljs.BACKSLASH_ESCAPE,
     hljs.NUMBER_MODE
   ]
 };

@@ -41,56 +41,55 @@ hljs.LANGUAGES.perl = function(){
       {
         className: 'string',
         begin: 'q[qwxr]?\\s*\\(', end: '\\)',
-        contains: ['escape', 'subst', 'variable'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst', 'variable'],
         relevance: 5
       },
       {
         className: 'string',
         begin: 'q[qwxr]?\\s*\\[', end: '\\]',
-        contains: ['escape', 'subst', 'variable'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst', 'variable'],
         relevance: 5
       },
       {
         className: 'string',
         begin: 'q[qwxr]?\\s*\\{', end: '\\}',
-        contains: ['escape', 'subst', 'variable'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst', 'variable'],
         relevance: 5
       },
       {
         className: 'string',
         begin: 'q[qwxr]?\\s*\\|', end: '\\|',
-        contains: ['escape', 'subst', 'variable'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst', 'variable'],
         relevance: 5
       },
       {
         className: 'string',
         begin: 'q[qwxr]?\\s*\\<', end: '\\>',
-        contains: ['escape', 'subst', 'variable'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst', 'variable'],
         relevance: 5
       },
       {
         className: 'string',
         begin: 'qw\\s+q', end: 'q',
-        contains: ['escape', 'subst', 'variable'],
+        contains: [hljs.BACKSLASH_ESCAPE, 'subst', 'variable'],
         relevance: 5
       },
       {
         className: 'string',
         begin: '\'', end: '\'',
-        contains: ['escape'],
+        contains: [hljs.BACKSLASH_ESCAPE],
         relevance: 0
       },
       {
         className: 'string',
         begin: '"', end: '"',
-        contains: ['escape','subst','variable'],
+        contains: [hljs.BACKSLASH_ESCAPE,'subst','variable'],
         relevance: 0
       },
-      hljs.BACKSLASH_ESCAPE,
       {
         className: 'string',
         begin: '`', end: '`',
-        contains: ['escape']
+        contains: [hljs.BACKSLASH_ESCAPE]
       },
 
       // regexps
@@ -102,7 +101,7 @@ hljs.LANGUAGES.perl = function(){
       {
         className: 'regexp',
         begin: '(m|qr)?/', end: '/[a-z]*',
-        contains: ['escape'],
+        contains: [hljs.BACKSLASH_ESCAPE],
         relevance: 0 // allows empty "//" which is a common comment delimiter in other languages
       },
 

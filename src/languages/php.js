@@ -23,19 +23,8 @@ hljs.LANGUAGES.php = {
       }]
     },
     hljs.C_NUMBER_MODE,
-    {
-      className: 'string',
-      begin: '\'', end: '\'',
-      contains: ['escape'],
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '"', end: '"',
-      contains: ['escape'],
-      relevance: 0
-    },
-    hljs.BACKSLASH_ESCAPE,
+    hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
+    hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
     {
       className: 'variable',
       begin: '\\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*', end: hljs.IMMEDIATE_RE
