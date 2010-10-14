@@ -17,15 +17,6 @@ var hljs = new function() {
     return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;');
   }
 
-  function contains(array, item) {
-    if (!array)
-      return false;
-    for (var i = 0; i < array.length; i++)
-      if (array[i] == item)
-        return true;
-    return false;
-  }
-
   function langRe(language, value, global) {
     var mode =  'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '');
     return new RegExp(value, mode);
