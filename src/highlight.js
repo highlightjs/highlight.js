@@ -14,7 +14,7 @@ var hljs = new function() {
   /* Utility functions */
 
   function escape(value) {
-    return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
+    return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;');
   }
 
   function contains(array, item) {
