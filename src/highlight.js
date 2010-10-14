@@ -222,10 +222,6 @@ var hljs = new function() {
     function processKeywords(buffer, mode) {
       if (!mode.keywords || !mode.lexems)
         return escape(buffer);
-      if (!mode.lexemsRe) {
-        var lexems_re = '(' + mode.lexems.join('|') + ')';
-        mode.lexemsRe = langRe(language, lexems_re, true);
-      }
       var result = '';
       var last_index = 0;
       mode.lexemsRe.lastIndex = 0;
@@ -373,6 +369,8 @@ var hljs = new function() {
         mode.endRe = langRe(language, '^' + mode.end);
       if (mode.illegal)
         mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
+      if (mode.lexems)
+        mode.lexemsRe = langRe(language, mode.lexems.join('|'), true);
       if (mode.relevance == undefined)
         mode.relevance = 1;
       if (!mode.displayClassName)
