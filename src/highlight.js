@@ -28,7 +28,7 @@ var hljs = new function() {
       if (node.nodeName == 'CODE')
         return node;
       if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
-        return null;
+        break;
     }
   }
 
@@ -156,7 +156,6 @@ var hljs = new function() {
           return mode.sub_modes[i];
         }
       }
-      return null;
     }
 
     function endOfMode(mode_index, lexem) {
