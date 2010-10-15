@@ -7,7 +7,7 @@ hljs.LANGUAGES.smalltalk = function(){
   var VAR_IDENT_RE = '[a-z][a-zA-Z0-9_]*';
   return {
     defaultMode: {
-      lexems: [hljs.UNDERSCORE_IDENT_RE],
+      lexems: hljs.UNDERSCORE_IDENT_RE,
       contains: ['comment', 'string', 'class', 'method',
                   'number', 'symbol', 'char', 'localvars', 'array'],
       keywords: {'self': 1, 'super': 1, 'nil': 1, 'true': 1, 'false': 1, 'thisContext': 1} // only 6

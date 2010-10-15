@@ -25,7 +25,7 @@ hljs.LANGUAGES.ini =
           className: 'value',
           begin: hljs.IMMEDIATE_RE, endsWithParent: true,
           contains: ['string', 'number'],
-          lexems: [hljs.IDENT_RE],
+          lexems: hljs.IDENT_RE,
           keywords: {'on': 1, 'off': 1, 'true': 1, 'false': 1, 'yes': 1, 'no': 1}
       }]
     },

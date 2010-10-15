@@ -20,7 +20,7 @@ hljs.LANGUAGES.sql =
         'number',
         {begin: '\\n', end: hljs.IMMEDIATE_RE}
       ],
-      lexems: ['[a-zA-Z][a-zA-Z0-9_\\.]*'],
+      lexems: '[a-zA-Z][a-zA-Z0-9_\\.]*',
       keywords: {
         'keyword': {
           'all': 1, 'partial': 1, 'global': 1, 'month': 1,

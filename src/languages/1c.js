@@ -11,7 +11,7 @@ hljs.LANGUAGES['1c'] = function(){
 
   return {
     defaultMode: {
-      lexems: [IDENT_RE_RU],
+      lexems: IDENT_RE_RU,
       contains: ['comment', 'string', 'function', 'preprocessor', 'number', 'date'],
       keywords: {'keyword':OneS_KEYWORDS,'built_in':OneS_BUILT_IN}
     },
@@ -55,7 +55,7 @@ hljs.LANGUAGES['1c'] = function(){
       {
         className: 'function',
         begin: '(процедура|функция)', end: '$',
-        lexems: [IDENT_RE_RU],
+        lexems: IDENT_RE_RU,
         keywords: {'процедура': 1, 'экспорт': 1, 'функция': 1},
         contains: [
           'title',
@@ -66,14 +66,14 @@ hljs.LANGUAGES['1c'] = function(){
               {
                 className: 'params',
                 begin: '\\(', end: '\\)',
-                lexems: [IDENT_RE_RU],
+                lexems: IDENT_RE_RU,
                 keywords: {'знач':1},
                 contains: ['string']
               },
               {
                 className: 'export',
                 begin: 'экспорт', endsWithParent: true,
-                lexems: [IDENT_RE_RU],
+                lexems: IDENT_RE_RU,
                 keywords: {'экспорт': 1},
                 contains: ['comment']
               }
@@ -86,7 +86,7 @@ hljs.LANGUAGES['1c'] = function(){
       {
         className: 'preprocessor',
         begin: '#', end: '$',
-        lexems: [IDENT_RE_RU]
+        lexems: IDENT_RE_RU
       }
     ]
   };

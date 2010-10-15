@@ -370,7 +370,7 @@ var hljs = new function() {
       if (mode.illegal)
         mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
       if (mode.lexems)
-        mode.lexemsRe = langRe(language, mode.lexems.join('|'), true);
+        mode.lexemsRe = langRe(language, mode.lexems, true);
       if (mode.relevance == undefined)
         mode.relevance = 1;
       if (!mode.displayClassName)

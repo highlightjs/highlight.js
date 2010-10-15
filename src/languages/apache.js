@@ -11,7 +11,7 @@ hljs.LANGUAGES.apache =
 {
   case_insensitive: true,
   defaultMode: {
-    lexems: [hljs.IDENT_RE],
+    lexems: hljs.IDENT_RE,
     contains: ['comment', 'sqbracket', 'cbracket', 'number', 'tag', 'string'],
     keywords: {
       'keyword': {

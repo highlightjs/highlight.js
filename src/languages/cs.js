@@ -5,7 +5,7 @@ Author: Jason Diamond <jason@diamond.name>
 
 hljs.LANGUAGES.cs  = {
   defaultMode: {
-    lexems: [hljs.UNDERSCORE_IDENT_RE],
+    lexems: hljs.UNDERSCORE_IDENT_RE,
     contains: ['comment', 'string', 'number'],
     keywords: {
         // Normal keywords.

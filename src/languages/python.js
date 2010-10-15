@@ -4,7 +4,7 @@ Language: Python
 
 hljs.LANGUAGES.python = {
   defaultMode: {
-    lexems: [hljs.UNDERSCORE_IDENT_RE],
+    lexems: hljs.UNDERSCORE_IDENT_RE,
     illegal: '(</|->|\\?)',
     contains: ['comment', 'string', 'function', 'class', 'number', 'decorator'],
     keywords: {
@@ -15,7 +15,7 @@ hljs.LANGUAGES.python = {
   modes: [
     {
       className: 'function',
-      lexems: [hljs.UNDERSCORE_IDENT_RE],
+      lexems: hljs.UNDERSCORE_IDENT_RE,
       begin: '\\bdef ', end: ':',
       illegal: '$',
       keywords: {'def': 1},
@@ -24,7 +24,7 @@ hljs.LANGUAGES.python = {
     },
     {
       className: 'class',
-      lexems: [hljs.UNDERSCORE_IDENT_RE],
+      lexems: hljs.UNDERSCORE_IDENT_RE,
       begin: '\\bclass ', end: ':',
       illegal: '[${]',
       keywords: {'class': 1},

@@ -6,7 +6,7 @@ Contributors: Michal Gabrukiewicz <mgabru@gmail.com>
 
 hljs.LANGUAGES.vbscript = {
   defaultMode: {
-    lexems: [hljs.IDENT_RE],
+    lexems: hljs.IDENT_RE,
     contains: ['string', 'comment', 'number', 'built_in'],
     keywords: {
       'keyword': {'call' : 1,'class' : 1,'const' : 1,'dim' : 1,'do' : 1,'loop' : 1,'erase' : 1,'execute' : 1,'executeglobal' : 1,'exit' : 1,'for' : 1,'each' : 1,'next' : 1,'function' : 1,'if' : 1,'then' : 1,'else' : 1,'on' : 1, 'error' : 1,'option' : 1, 'explicit' : 1, 'new': 1, 'private' : 1,'property' : 1,'let' : 1,'get' : 1,'public' : 1,'randomize' : 1,'redim' : 1,'rem' : 1,'select' : 1,'case' : 1,'set' : 1,'stop' : 1,'sub' : 1,'while' : 1,'wend' : 1,'with' : 1, 'end' : 1, 'to' : 1, 'elseif': 1, 'is': 1, 'or': 1, 'xor': 1, 'and': 1, 'not': 1, 'class_initialize': 1, 'class_terminate': 1, 'default': 1, 'preserve': 1, 'in': 1, 'me': 1, 'byval': 1, 'byref': 1, 'step': 1, 'resume': 1, 'goto': 1},

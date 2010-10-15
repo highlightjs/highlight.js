@@ -111,14 +111,14 @@ Language: HTML, XML
       {
         className: 'tag',
         begin: '<style', end: '>',
-        lexems: [hljs.IDENT_RE],  keywords: {'style': 1},
+        lexems: hljs.IDENT_RE,  keywords: {'style': 1},
         contains: ['tag_internal'],
         starts: 'css'
       },
       {
         className: 'tag',
         begin: '<script', end: '>',
-        lexems: [hljs.IDENT_RE],  keywords: {'script': 1},
+        lexems: hljs.IDENT_RE,  keywords: {'script': 1},
         contains: ['tag_internal'],
         starts: 'javascript'
       },
@@ -142,7 +142,7 @@ Language: HTML, XML
       DOCTYPE,
       hljs.inherit(TAG),
       hljs.inherit(TITLE, {
-        lexems: [hljs.IDENT_RE], keywords: HTML_TAGS,
+        lexems: hljs.IDENT_RE, keywords: HTML_TAGS,
       }),
       hljs.inherit(TAG_INTERNAL),
       ATTR,

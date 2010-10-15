@@ -6,7 +6,7 @@ Author: Alexander Makarov (http://rmcreative.ru/)
 hljs.LANGUAGES.dos = {
   case_insensitive: true,
   defaultMode: {
-    lexems: [hljs.IDENT_RE],
+    lexems: hljs.IDENT_RE,
     contains: ['envvar', 'number', 'comment'],
     keywords: {
       'flow': {'if':1, 'else':1, 'goto':1, 'for':1, 'in':1, 'do':1, 'call':1, 'exit':1, 'not':1, 'exist':1, 'errorlevel':1, 'defined':1, 'equ':1, 'neq':1, 'lss':1, 'leq':1, 'gtr':1, 'geq':1},

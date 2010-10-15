@@ -6,7 +6,7 @@ Author: Shuen-Huei Guan <drake.guan@gmail.com>
 
 hljs.LANGUAGES.mel = {
   defaultMode: {
-    lexems: [hljs.UNDERSCORE_IDENT_RE],
+    lexems: hljs.UNDERSCORE_IDENT_RE,
     illegal: '</',
     contains: ['number', 'string', 'variable', 'comment'],
     keywords: {'int': 1, 'float': 1, 'string': 1, 'float': 1, 'vector': 1, 'matrix': 1,

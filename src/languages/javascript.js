@@ -4,7 +4,7 @@ Language: Javascript
 
 hljs.LANGUAGES.javascript = {
   defaultMode: {
-    lexems: [hljs.UNDERSCORE_IDENT_RE],
+    lexems: hljs.UNDERSCORE_IDENT_RE,
     contains: ['string', 'comment', 'number', 'regexp_container', 'function'],
     keywords: {
       'keyword': {'in': 1, 'if': 1, 'for': 1, 'while': 1, 'finally': 1, 'var': 1, 'new': 1, 'function': 1, 'do': 1, 'return': 1, 'void': 1, 'else': 1, 'break': 1, 'catch': 1, 'instanceof': 1, 'with': 1, 'throw': 1, 'case': 1, 'default': 1, 'try': 1, 'this': 1, 'switch': 1, 'continue': 1, 'typeof': 1, 'delete': 1},
@@ -20,7 +20,7 @@ hljs.LANGUAGES.javascript = {
     {
       className: 'regexp_container',
       begin: '(' + hljs.RE_STARTERS_RE + '|case|return|throw)\\s*', end: hljs.IMMEDIATE_RE, noMarkup: true,
-      lexems: [hljs.IDENT_RE],
+      lexems: hljs.IDENT_RE,
       keywords: {'return': 1, 'throw': 1, 'case': 1},
       contains: [
         'comment',
@@ -34,7 +34,7 @@ hljs.LANGUAGES.javascript = {
     {
       className: 'function',
       begin: '\\bfunction\\b', end: '{',
-      lexems: [hljs.UNDERSCORE_IDENT_RE],
+      lexems: hljs.UNDERSCORE_IDENT_RE,
       keywords: {'function': 1},
       contains: [
         {

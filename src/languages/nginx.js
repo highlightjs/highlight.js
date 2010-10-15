@@ -13,7 +13,7 @@ hljs.LANGUAGES.nginx = {
       className: 'directive',
       begin: hljs.UNDERSCORE_IDENT_RE, end: ';|{', returnEnd: true, noMarkup: true,
       contains: ['comment', 'parameters'],
-      lexems: [hljs.UNDERSCORE_IDENT_RE],
+      lexems: hljs.UNDERSCORE_IDENT_RE,
       keywords: {
         accept_mutex: 1, accept_mutex_delay: 1, access_log: 1,
         add_after_body: 1, add_before_body: 1, add_header: 1,
