@@ -600,5 +600,3 @@ var hljs = new function() {
     return result;
   }
 }();
-
-var initHighlightingOnLoad = hljs.initHighlightingOnLoad;
