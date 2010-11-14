@@ -142,7 +142,7 @@ Language: HTML, XML
       DOCTYPE,
       hljs.inherit(TAG),
       hljs.inherit(TITLE, {
-        lexems: hljs.IDENT_RE, keywords: HTML_TAGS,
+        lexems: hljs.IDENT_RE, keywords: HTML_TAGS
       }),
       hljs.inherit(TAG_INTERNAL),
       ATTR,
