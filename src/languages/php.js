@@ -21,7 +21,7 @@ hljs.LANGUAGES.php = {
       'exception': 1, 'php_user_filter': 1, 'default': 1, 'die': 1,
       'require': 1, '__FUNCTION__': 1, 'enddeclare': 1, 'final': 1, 'try': 1,
       'this': 1, 'switch': 1, 'continue': 1, 'endfor': 1, 'endif': 1,
-      'declare': 1, 'unset': 1
+      'declare': 1, 'unset': 1, 'true': 1, 'false': 1, 'namespace': 1
     }
   },
   case_insensitive: true,
