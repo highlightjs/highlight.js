@@ -45,7 +45,8 @@ var hljs = new function() {
       else
         result += blockText(block.childNodes[i]);
     // Thank you, MSIE...
-    result = result.replace(/\r/g, '\n');
+    if (/MSIE [678]/.test(navigator.userAgent)
+      result = result.replace(/\r/g, '\n');
     return result;
   }
 
