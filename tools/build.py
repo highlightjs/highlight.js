@@ -7,73 +7,137 @@ pre-packed modules.
 import os
 import sys
 import re
+import optparse
+import subprocess
 
-def parse_header(src_path, filename):
+REPLACES = {
+    'defaultMode': 'dM',
+    'case_insensitive': 'cI',
+    'lexems': 'l',
+    'contains': 'c',
+    'keywords': 'k',
+    'modes': 'm',
+    'className': 'cN',
+    'begin': 'b',
+    'end': 'e',
+    'endsWithParent': 'eW',
+    'illegal': 'i',
+    'excludeBegin': 'eB',
+    'excludeEnd': 'eE',
+    'returnBegin': 'rB',
+    'returnEnd': 'rE',
+    'noMarkup': 'nM',
+    'relevance': 'r',
+    'IMMEDIATE_RE': 'IMR',
+    'IDENT_RE': 'IR',
+    'UNDERSCORE_IDENT_RE': 'UIR',
+    'NUMBER_RE': 'NR',
+    'C_NUMBER_RE': 'CNR',
+    'RE_STARTERS_RE': 'RSR',
+    'APOS_STRING_MODE': 'ASM',
+    'QUOTE_STRING_MODE': 'QSM',
+    'BACKSLASH_ESCAPE': 'BE',
+    'C_LINE_COMMENT_MODE': 'CLCM',
+    'C_BLOCK_COMMENT_MODE': 'CBLCLM',
+    'HASH_COMMENT_MODE': 'HCM',
+    'C_NUMBER_MODE': 'CNM',
+    'NUMBER_MODE': 'NM',
+}
+
+LIBRARY_REPLACES = {
+    'beginRe': 'bR',
+    'endRe': 'eR',
+    'illegalRe': 'iR',
+    'lexemsRe': 'lR',
+    'sub_modes': 'sm',
+    'terminators': 't',
+}
+
+def compress_content(tools_path, content):
+    cmd = 'java -jar %s --type js' % os.path.join(tools_path, 'yuicompressor.jar')
+
+    def replace(content, s, r):
+        return re.sub(r'(?<=[^\w"\'|])%s(?=[^\w"\'|])' % s, r, content)
+
+    for s, r in REPLACES.items():
+        content = replace(content, s, r)
+    if not parse_header(content): # this is the highlight.js file, not a language file
+        content = re.sub(r'(block|parentNode)\.cN', r'\1.className', content)
+        for s, r in LIBRARY_REPLACES.items():
+            content = replace(content, s, r)
+    p = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    p.stdin.write(content)
+    p.stdin.close()
+    content = p.stdout.read()
+    p.stdout.close()
+    return content
+
+def parse_header(content):
     '''
     Parses possible language description header from a file. If a header is found returns it
-    returned as dict, otherwise returns None.
+    as dict, otherwise returns None.
     '''
-    content = open(os.path.join(src_path, 'languages', filename)).read()
     match = re.search(r'^\s*/\*(.*?)\*/', content, re.S)
     if not match:
         return
     headers = match.group(1).split('\n')
-    headers = [h.strip().split(': ') for h in headers if ': ' in h]
-    result = dict(headers)
-    return result if 'Language' in result else None
+    headers = dict(h.strip().split(': ') for h in headers if ': ' in h)
+    return headers if 'Language' in headers else None
 
-def language_infos(src_path):
+def language_filenames(src_path, languages):
     '''
-    Returns pairs (header_info, filename) for all language files from src_path/languages.
+    Resolves dependencies and returns the list of actual language filenames
     '''
-    files = os.listdir(os.path.join(src_path, 'languages'))
-    files = [f for f in files if f.endswith('.js')]
-    result = [(parse_header(src_path, f), f) for f in files]
-    return [(i, f) for i, f in result if i]
+    lang_path = os.path.join(src_path, 'languages')
+    filenames = os.listdir(lang_path)
+    infos = [
+        (parse_header(open(os.path.join(lang_path, f)).read(1024)), f)
+        for f in filenames]
+    infos = [(i, f) for i, f in infos if i]
 
-def build_content(src_path, packed_path, filenames):
-    '''
-    Builds content of highlight.pack.js and returns it as a  string.
-    '''
-    infos = language_infos(src_path)
-    if filenames:
-        infos = [(i, f) for i, f in infos if f in filenames]
+    if languages:
+        infos = [(i, f) for i, f in infos if os.path.splitext(f)[0] in languages]
 
     def append(filename):
-        if filename not in files:
-            files.append(filename)
+        if filename not in filenames:
+            filenames.append(filename)
 
-    files = []
+    filenames = []
     for info, filename in infos:
         if 'Requires' in info:
             requires = [r.strip() for r in info['Requires'].split(',')]
             for r in requires:
                 append(r)
         append(filename)
-    contents = [open(os.path.join(packed_path, f)).read() for f in files]
-    contents.insert(0, open(os.path.join(packed_path, 'highlight.js')).read())
-    return ''.join(contents)
+    return [os.path.join(lang_path, f) for f in filenames]
 
-def build(src_path, packed_path, target_path, languages):
-    '''
-    Builds highlight.pack.js and puts it under target_path.
+def file_content(filename, compressor):
+    content = open(filename).read()
+    content = compressor(content)
+    return content
 
-    src_path -- path to the root of highlight.js source files
-    packed_path -- path to pre-packed .js files including language files and highligh.js itself
-    languages -- list of language file names (without '.js') to include in the final package.
-    '''
-    filenames = ['%s.js' % l for l in languages]
-    f = open(os.path.join(target_path, 'highlight.pack.js'), 'w')
-    f.write(build_content(src_path, packed_path, filenames))
+def build(root, compress, languages):
+    src_path = os.path.join(root, 'src')
+    tools_path = os.path.join(root, 'tools')
+    files = [os.path.join(src_path, 'highlight.js')] + \
+            language_filenames(src_path, languages)
+    f = open(os.path.join(src_path, 'highlight.pack.js'), 'w')
+    for file in files:
+        print file
+        content = open(file).read()
+        if compress:
+            content = compress_content(tools_path, content)
+        f.write(content)
     f.close()
 
 if __name__ == '__main__':
-    path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    packed_path = os.path.join(path, 'packed')
-    src_path = os.path.join(path, 'src')
-    target_path = src_path
-    if len(sys.argv) > 1:
-        languages = sys.argv[1:]
-    else:
-        languages = []
-    build(src_path, packed_path, target_path, languages)
+    parser = optparse.OptionParser()
+    parser.add_option(
+        '-n', '--no-compress',
+        dest = 'compress', action = 'store_false', default = True,
+        help = 'don\'t compress source files',
+    )
+    parser.set_usage('%prog [options] [<language>...]')
+    options, args = parser.parse_args()
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    build(root, options.compress, args)
