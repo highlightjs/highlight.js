@@ -7,7 +7,7 @@ hljs.LANGUAGES.haskell = {
   defaultMode: {
     lexems: hljs.UNDERSCORE_IDENT_RE,
     illegal: '',
-    contains: ['comment', 'string', 'function', 'class', 'number', 'shebang'],
+    contains: ['comment', 'string', 'function', 'class', 'number', 'shebang', 'label'],
     keywords: {
       'keyword': {'let': 1,'in': 1,'if': 1,'then': 1,'else': 1,'case': 1,'of': 1,'where': 1,'do': 1,'module': 1,'import': 1, 'hiding': 1,'qualified': 1,'type': 1,'data': 1,'deriving': 1,'class': 1,'instance': 1,'null': 1,'not': 1},
       'built_in': {'Bool': 1,'True': 1,'False': 1,'Int': 1,'Char': 1,'Maybe': 1,'Nothing': 1,'String': 1}
@@ -35,15 +35,15 @@ hljs.LANGUAGES.haskell = {
       lexems: hljs.UNDERSCORE_IDENT_RE,
       begin: '\\bclass', end: 'where|$',
       keywords: {'class': 1,'where': 1},
-      contains: ['title','params']
+      contains: ['label']
     },
     {
       className: 'title',
-      begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+      begin: '^[_a-z][\\w\\\']*', end: hljs.IMMEDIATE_RE
     },
     {
-      className: 'params',
-      begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+      className: 'label',
+      begin: '[A-Z][\\w\\\']*', end: hljs.IMMEDIATE_RE
     }
-  ]
+   ]
 };
