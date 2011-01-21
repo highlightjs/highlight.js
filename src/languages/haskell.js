@@ -5,12 +5,12 @@ Author: Jeremy Hull <sourdrums@gmail.com>
 
 hljs.LANGUAGES.haskell = {
   defaultMode: {
-    lexems: '[a-zA-Z-\\+\\*/\\\\><\\:=\\$][a-zA-Z-\\+\\*/\\\\><\\:=\\$]*',
+    lexems: '[a-zA-Z-\\+\\*/\\\\><\\:=\\$\\|][a-zA-Z-\\+\\*/\\\\><\\:=\\$\\|]*',
     illegal: '',
     contains: ['comment', 'string', 'function', 'class', 'number', 'shebang', 'label', 'title'],
     keywords: {
       'keyword': {'let': 1,'in': 1,'if': 1,'then': 1,'else': 1,'case': 1,'of': 1,'where': 1,'do': 1,'module': 1,'import': 1, 'hiding': 1,'qualified': 1,'type': 1,'data': 1,'deriving': 1,'class': 1,'instance': 1,'null': 1,'not': 1},
-      'built_in': {'Bool': 1,'True': 1,'False': 1,'Int': 1,'Char': 1,'Maybe': 1,'Nothing': 1,'String': 1,'::': 1,'->': 1,'<-': 1,'=>': 1, '<=': 1,'=': 1,'\\\\': 1,'$': 1,'+': 1,'-': 1,'*': 1,'/': 1}
+      'built_in': {'Bool': 1,'True': 1,'False': 1,'Int': 1,'Char': 1,'Maybe': 1,'Nothing': 1,'String': 1,'::': 1,'->': 1,'<-': 1,'=>': 1, '<=': 1,'=': 1,'\\\\': 1,'$': 1,'+': 1,'-': 1,'*': 1,'/': 1,'==': 1,'/=': 1,'<': 1,'>': 1,'|': 1}
     }
   },
   modes: [
@@ -43,7 +43,7 @@ hljs.LANGUAGES.haskell = {
     },
     {
       className: 'label',
-      begin: '[A-Z][\\w\\\']*', end: hljs.IMMEDIATE_RE
+      begin: '\\b[A-Z][\\w\\\']*', end: hljs.IMMEDIATE_RE
     },
   ]
 };
