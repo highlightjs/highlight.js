@@ -1248,6 +1248,60 @@ baseCircle r = Circle(Point 0 0) r
 baseRect :: Float -> Float -> Shape
 baseRect w h = Rectangle (Point 0 0) (Point w h)
 </code></pre>
+  <tr>
+    <th>Erlang
+    <td class="erlang">
+<pre>
+<code>%%%----------------------------------------------------------------------
+%%% File    : chargen.erl
+%%% Author  : Claes Wikstrom
+%%% Purpose :
+%%% Created : 3 Nov 1998 by Claes Wikstrom
+%%%----------------------------------------------------------------------
+
+-module(chargen).
+-author('klacke@erix.ericsson.se').
+
+-export([start_link/0, loop0/1, worker/2]).
+
+-define(PORTNO, 2019).
+
+start_link() ->
+    start_link(?PORTNO).
+start_link(P) ->
+    spawn_link(?MODULE, loop0, [P]).
+
+loop0(Port) ->
+    case gen_tcp:listen(Port, [binary, {reuseaddr, true},
+			       {packet, 0}, {active, false}]) of
+	{ok, LSock} ->
+	    spawn(?MODULE, worker, [self(), LSock]),
+	    loop(LSock);
+	Other ->
+	    io:format("Can't listen to socket ~p~n", [Other])
+    end.
+
+loop(S) ->
+    receive
+	next_worker ->
+	    spawn_link(?MODULE, worker, [self(), S])
+    end,
+    loop(S).
+
+
+worker(Server, LS) ->
+    case gen_tcp:accept(LS) of
+	{ok, Socket} ->
+	    Server ! next_worker,
+	    gen_chars(Socket, 32);
+	{error, Reason} ->
+	    Server ! next_worker,
+	    io:format("Can't accept socket ~p~n", [Reason])
+    end.
+
+terminate(_Reason, _State) ->
+    ok.
+</code></pre>
 </table>
 
 <script>
@@ -1351,3 +1405,4 @@ baseRect w h = Rectangle (Point 0 0) (Point w h)
 </code></pre>
 
 </table>
+</body>
