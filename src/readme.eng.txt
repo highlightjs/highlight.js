@@ -480,13 +480,13 @@ TeX ("tex"):
 Haskell ("haskell"):
 
   keyword          keyword
-  built_in         built-in typeclass/functions (Bool, Int, ->)
+  built_in         built-in typeclass/functions (Bool, Int)
   number           number
   string           string
   comment          comment
   class            Anything starting with a capital letter (haskell standard for classes)
-  title            name of a function
-  label            using this as a class name may change it later
+  title            function name
+  label            class name
 
 ## Heuristics
 
