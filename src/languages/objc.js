@@ -29,7 +29,8 @@ hljs.LANGUAGES.objc = function(){
       'UIActivityIndicator': 50, 'UITabbar': 50, 'UIToolBar': 50, 
       'UIBarButtonItem': 50, 'UIImageView': 50, 'NSAutoreleasePool': 50, 
       'UITableView': 50, 'BOOL': 1, 'NSInteger': 20, 'CGFloat': 20,
-      'NSException': 50, 'NSLog': 50
+      'NSException': 50, 'NSLog': 50, 'NSMutableString': 50, 
+      'NSMutableArray': 50, 'NSMutableDictionary': 50, 'NSURL': 50
     }
   };
   return {
