@@ -6,7 +6,6 @@ Author: Jeremy Hull <sourdrums@gmail.com>
 hljs.LANGUAGES.haskell = {
   defaultMode: {
     lexems: '[a-zA-Z-\\+\\*/\\\\><\\:=\\$\\|][a-zA-Z-\\+\\*/\\\\><\\:=\\$\\|]*',
-    illegal: '',
     contains: ['comment', 'string', 'import', 'module', 'class', 'number', 'shebang', 'label', 'title'],
     keywords: {
       'keyword': {'let': 1,'in': 1,'if': 1,'then': 1,'else': 1,'case': 1,'of': 1,'where': 1,'do': 1,'module': 1,'import': 1, 'hiding': 1,'qualified': 1,'type': 1,'data': 1,'deriving': 1,'class': 1,'instance': 1,'null': 1,'not': 1,'as': 1},
