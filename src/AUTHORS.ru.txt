@@ -36,3 +36,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Лорен Сегал <lsegal@soen.ca>
 - Андрей Фёдоров <dmmdrs@mail.ru>
 - Игорь Кальницкий <igor.kalnitsky@gmail.com>
+- Джереми Халл <sourdrums@gmail.com>
