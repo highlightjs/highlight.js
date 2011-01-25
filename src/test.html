@@ -1217,6 +1217,37 @@ $$
 $$
 \end{document}
 </code></pre>
+  <tr>
+    <th>Haskell
+    <td class="haskell">
+<pre>
+<code>module Shapes
+( Point(..)  ,
+  Shape(..)  ,
+  surface    ,
+  baseCircle ,
+  baseRect
+) where
+
+-- Single line comment
+{-
+multi
+line
+comment
+-}
+data Point = Point Float Float deriving (Show)
+data Shape = Circle Point Float | Rectangle Point Point deriving (Show)
+
+surface :: Shape -> Float
+surface (Circle _ r) = pi * r^2
+surface (Rectangle (Point x1 y1) (Point x2 y2)) = (abs $ x2 - x1) * (abs $ y2 - y1)
+
+baseCircle :: Float -> Shape
+baseCircle r = Circle(Point 0 0) r
+
+baseRect :: Float -> Float -> Shape
+baseRect w h = Rectangle (Point 0 0) (Point w h)
+</code></pre>
 </table>
 
 <script>
