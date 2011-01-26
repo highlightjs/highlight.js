@@ -163,6 +163,113 @@ write your own (and contribute it back!)
 
 <p id="summary">...
 <table id="autotest">
+    <tr>
+        <th>Erlang
+        <td class="erlang">
+        <pre> 
+<code class="erlang">
+-module(ssh_cli).
+
+-behaviour(ssh_channel).
+
+-include("ssh.hrl").
+%% backwards compatibility
+-export([listen/1, listen/2, listen/3, listen/4, stop/1]).
+
+%% state
+-record(state, {
+	  cm,
+	  channel
+	 }).
+
+test(Foo)->Foo.
+
+init([Shell, Exec]) ->
+    {ok, #state{shell = Shell, exec = Exec}};
+init([Shell]) ->
+    false = not true,
+    io:format("Hello, \"~p!~n", [atom_to_list('World')]),
+    {ok, #state{shell = Shell}}.
+
+handle_ssh_msg({ssh_cm, _ConnectionManager, 
+		{data, _ChannelId, _Type, Data}}, 
+	       #state{group = Group} = State) ->
+    Group ! {self(), {data, binary_to_list(Data)}},
+    {ok, State};
+
+handle_ssh_msg({ssh_cm, ConnectionManager, 
+		{pty, ChannelId, WantReply, 
+		 {TermName, Width, Height, PixWidth, PixHeight, Modes}}}, 
+	       State0) ->
+    State = State0#state{pty = 
+			 #ssh_pty{term = TermName,
+				  width =  not_zero(Width, 80),
+				  height = not_zero(Height, 24),
+				  pixel_width = PixWidth,
+				  pixel_height = PixHeight,
+				  modes = Modes}},
+    set_echo(State),
+    ssh_connection:reply_request(ConnectionManager, WantReply, 
+				 success, ChannelId),
+    {ok, State};
+
+concat([Single]) -> Single;
+concat(RList) ->
+    EpsilonFree = lists:filter(
+        fun (Element) ->
+            case Element of
+                epsilon -> false;
+                _ -> true
+            end
+        end,
+        RList),
+    case EpsilonFree of 
+        [Single] -> Single;
+        Other -> {concat, Other}
+    end.
+
+desimplify_concat_([], Acc) -> lists:reverse(Acc);
+desimplify_concat_([{union, _}=H|T], Acc) ->
+    desimplify_concat_(T, [H|Acc]);
+desimplify_concat_(L, Acc) ->
+    {NewGroup, T} = lists:splitwith(
+        fun (X) -> case (X) of {union, _} -> false; _ -> true end end,
+        L),
+    desimplify_concat_(T, [concat(NewGroup)|Acc]).
+
+% expand complex regexp to union (resolve nested unions)
+expand({union, _}=Union) ->
+    List = union_to_list(Union),
+    simplify_union(union(lists:map(
+        fun expand/1,
+        List)));
+expand({concat, _}=Concat) ->
+    {concat, RList} = simplify_concat(Concat),
+    ConcatWONesting = concat(lists:map(
+            fun expand/1,
+            RList)),
+    {concat, DesimplifiedConcatList} = desimplify_concat(ConcatWONesting),
+    UnionOfDesimpConcat = expand_concat_list(DesimplifiedConcatList),
+    union(lists:map(
+        fun simplify_concat/1,
+        union_to_list(UnionOfDesimpConcat)));
+expand(Other) -> Other.
+
+union_dot_union({union, _}=U1, {union, _}=U2) ->
+    union(lists:flatten(
+        lists:map(
+            fun (X1) ->
+                lists:map(
+                    fun (X2) ->
+                        concat([X1, X2])
+                    end,
+                    union_to_list(U2)
+                )
+            end,
+            union_to_list(U1)
+        ))).
+</code>
+</pre>
   <tr>
     <th>Python
     <td class="python">
