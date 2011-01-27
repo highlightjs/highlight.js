@@ -483,6 +483,16 @@ TeX ("tex"):
   formula          формула
   special          специальный символ
 
+Haskell ("haskell"):
+
+  keyword          ключевое слово языка
+  built_in         встроенные классы типов и функции (Bool, Int)
+  number           число
+  string           строка
+  comment          комментарий
+  class            идентификатор с заглавной буквы (соглашение Haskell о классах)
+  title            название функции
+  label            название класса
 
 ## Эвристика
 

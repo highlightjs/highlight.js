@@ -36,3 +36,4 @@ Contributors:
 - Loren Segal <lsegal@soen.ca>
 - Andrew Fedorov <dmmdrs@mail.ru>
 - Igor Kalnitsky <igor.kalnitsky@gmail.com>
+- Jeremy Hull <sourdrums@gmail.com>

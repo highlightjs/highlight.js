@@ -477,6 +477,16 @@ TeX ("tex"):
   formula          formula
   special          special symbol
 
+Haskell ("haskell"):
+
+  keyword          keyword
+  built_in         built-in typeclass/functions (Bool, Int)
+  number           number
+  string           string
+  comment          comment
+  class            Anything starting with a capital letter (haskell standard for classes)
+  title            function name
+  label            class name
 
 ## Heuristics
 
