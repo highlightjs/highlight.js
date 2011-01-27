@@ -603,6 +603,57 @@ int main(int argc, char *argv[]) {
 }
 </code></pre>
 
+<tr>
+    <th>Objective C
+    <td class="objectivec">
+<pre>
+<code>
+#import &lt;UIKit/UIKit.h&gt;
+#import "Dependency.h"
+
+@protocol WorldDataSource 
+@optional
+- (NSString*)worldName;
+@required
+- (BOOL)allowsToLive;
+@end
+
+@interface Test : NSObject &lt;HelloDelegate, WorldDataSource&gt; {
+	NSString *_greeting;
+}
+
+@property (nonatomic, readonly) NSString *greeting;
+- (IBAction) show;
+@end
+
+@implementation Test 
+
+@synthesize test=_test;
+
++ (id) test {
+	return [self testWithGreeting:@"Hello, world!\nFoo bar!"];
+}
+
++ (id) testWithGreeting:(NSString*)greeting {
+	return [[[self alloc] initWithGreeting:greeting] autorelease];
+}
+
+- (id) initWithGreeting:(NSString*)greeting {
+	if ( (self = [super init]) ) {
+		_greeting = [greeting retain];
+	}
+	return self;
+}
+
+- (void) dealloc {
+	[_greeting release];
+	[super dealloc];
+}
+
+@end
+
+</code></pre>
+
   <tr>
     <th>C#
     <td class="cs">
@@ -1217,6 +1268,41 @@ $$
 $$
 \end{document}
 </code></pre>
+
+
+
+  <tr>
+    <th>Haskell
+    <td class="haskell">
+<pre>
+<code>module Shapes
+( Point(..)  ,
+  Shape(..)  ,
+  surface    ,
+  baseCircle ,
+  baseRect
+) where
+
+-- Single line comment
+{-
+multi
+line
+comment
+-}
+data Point = Point Float Float deriving (Show)
+data Shape = Circle Point Float | Rectangle Point Point deriving (Show)
+
+surface :: Shape -> Float
+surface (Circle _ r) = pi * r^2
+surface (Rectangle (Point x1 y1) (Point x2 y2)) = (abs $ x2 - x1) * (abs $ y2 - y1)
+
+baseCircle :: Float -> Shape
+baseCircle r = Circle(Point 0 0) r
+
+baseRect :: Float -> Float -> Shape
+baseRect w h = Rectangle (Point 0 0) (Point w h)
+</code></pre>
+
   <tr>
     <th>Haskell
     <td class="haskell">

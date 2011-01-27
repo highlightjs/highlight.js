@@ -37,3 +37,7 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Андрей Фёдоров <dmmdrs@mail.ru>
 - Игорь Кальницкий <igor.kalnitsky@gmail.com>
 - Джереми Халл <sourdrums@gmail.com>
+<<<<<<< HEAD
+=======
+- Валерий Хиора <valerii.hiora@gmail.com>
+>>>>>>> isagalaev-fork

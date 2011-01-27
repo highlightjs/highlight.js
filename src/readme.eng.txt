@@ -287,6 +287,15 @@ C++ ("cpp"):
   preprocessor     preprocessor directive
   stl_container    instantiation of STL containers ("vector<...>")
 
+Objective C ("objectivec"):
+  keyword          keyword
+  built_in         Cocoa/Cocoa Touch constants and classes 
+  number           number
+  string           string
+  comment          comment
+  preprocessor     preprocessor directive
+  class            interface/implementation, protocol and forward class declaration      
+
 C# ("cs"):
 
   keyword          keyword
