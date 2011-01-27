@@ -1,8 +1,9 @@
 /*
 Language: Objective C
+Author: Valerii Hiora <valerii.hiora@gmail.com>
 */
 
-hljs.LANGUAGES.objc = function(){
+hljs.LANGUAGES.objectivec = function(){
   var OBJC_KEYWORDS = { 
     'keyword': {
       'false': 1, 'int': 1, 'float': 1, 'while': 1, 'private': 1, 'char': 1,

@@ -37,3 +37,4 @@ Contributors:
 - Andrew Fedorov <dmmdrs@mail.ru>
 - Igor Kalnitsky <igor.kalnitsky@gmail.com>
 - Jeremy Hull <sourdrums@gmail.com>
+- Valerii Hiora <valerii.hiora@gmail.com>
