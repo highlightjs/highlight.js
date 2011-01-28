@@ -3,7 +3,7 @@
  Author: Sergey Ignatov <sergey@ignatov.spb.su>
  */
 
-hljs.LANGUAGES.erlang = {
+hljs.LANGUAGES.erlang_repl = {
   defaultMode: {
     lexems: hljs.UNDERSCORE_IDENT_RE,
     contains: [
