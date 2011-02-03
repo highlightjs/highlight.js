@@ -15,12 +15,12 @@ hljs.LANGUAGES.smalltalk = function(){
     modes: [
       {
         className: 'class',
-        begin: '\\b[A-Z][A-Za-z0-9_]*', end: hljs.IMMEDIATE_RE,
+        begin: '\\b[A-Z][A-Za-z0-9_]*',
         relevance: 0
       },
       {
         className: 'symbol',
-        begin: '#' + hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+        begin: '#' + hljs.UNDERSCORE_IDENT_RE
       },
       hljs.C_NUMBER_MODE,
       hljs.APOS_STRING_MODE,
@@ -31,15 +31,15 @@ hljs.LANGUAGES.smalltalk = function(){
       },
       {
         className: 'method',
-        begin: VAR_IDENT_RE + ':', end:hljs.IMMEDIATE_RE
+        begin: VAR_IDENT_RE + ':'
       },
       {
         className: 'char',
-        begin: '\\$.{1}', end: hljs.IMMEDIATE_RE
+        begin: '\\$.{1}'
       },
       {
         className: 'localvars',
-        begin: '\\|\\s*((' + VAR_IDENT_RE + ')\\s*)+\\|', end: hljs.IMMEDIATE_RE,
+        begin: '\\|\\s*((' + VAR_IDENT_RE + ')\\s*)+\\|',
         relevance: 10
       },
       {

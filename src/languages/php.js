@@ -33,7 +33,7 @@ hljs.LANGUAGES.php = {
       begin: '/\\*', end: '\\*/',
       contains: [{
           className: 'phpdoc',
-          begin: '\\s@[A-Za-z]+', end: hljs.IMMEDIATE_RE,
+          begin: '\\s@[A-Za-z]+',
           relevance: 10
       }]
     },
@@ -42,16 +42,16 @@ hljs.LANGUAGES.php = {
     hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
     {
       className: 'variable',
-      begin: '\\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*', end: hljs.IMMEDIATE_RE
+      begin: '\\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
     },
     {
       className: 'preprocessor',
-      begin: '<\\?php', end: hljs.IMMEDIATE_RE,
+      begin: '<\\?php',
       relevance: 10
     },
     {
       className: 'preprocessor',
-      begin: '\\?>', end: hljs.IMMEDIATE_RE
+      begin: '\\?>'
     }
   ]
 };

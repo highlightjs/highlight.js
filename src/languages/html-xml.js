@@ -27,7 +27,7 @@ Language: HTML, XML
   };
   var TITLE = {
     className: 'title',
-    begin: XML_IDENT_RE, end: hljs.IMMEDIATE_RE
+    begin: XML_IDENT_RE
   };
   var TAG_INTERNAL = {
     className: 'tag_internal',
@@ -37,7 +37,7 @@ Language: HTML, XML
   };
   var ATTR = {
     className: 'attribute',
-    begin: XML_IDENT_RE, end: hljs.IMMEDIATE_RE,
+    begin: XML_IDENT_RE,
     relevance: 0
   };
   var VALUE_CONTAINER_QUOT = {
@@ -150,11 +150,11 @@ Language: HTML, XML
       VALUE_CONTAINER_APOS,
       {
         className: 'value_container',
-        begin: '=', end: hljs.IMMEDIATE_RE,
+        begin: '=',
         contains: [
           {
             className: 'unquoted_value', displayClassName: 'value',
-            begin: '[^\\s/>]+', end: hljs.IMMEDIATE_RE
+            begin: '[^\\s/>]+'
           }
         ]
       }

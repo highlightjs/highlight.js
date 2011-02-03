@@ -19,14 +19,14 @@ hljs.LANGUAGES.javascript = {
     hljs.QUOTE_STRING_MODE,
     {
       className: 'regexp_container',
-      begin: '(' + hljs.RE_STARTERS_RE + '|case|return|throw)\\s*', end: hljs.IMMEDIATE_RE, noMarkup: true,
+      begin: '(' + hljs.RE_STARTERS_RE + '|case|return|throw)\\s*', noMarkup: true,
       lexems: hljs.IDENT_RE,
       keywords: {'return': 1, 'throw': 1, 'case': 1},
       contains: [
         'comment',
         {
           className: 'regexp',
-          begin: '/.*?[^\\\\/]/[gim]*', end: hljs.IMMEDIATE_RE
+          begin: '/.*?[^\\\\/]/[gim]*'
         }
       ],
       relevance: 0
@@ -39,7 +39,7 @@ hljs.LANGUAGES.javascript = {
       contains: [
         {
           className: 'title',
-          begin: '[A-Za-z$_][0-9A-Za-z$_]*', end: hljs.IMMEDIATE_RE
+          begin: '[A-Za-z$_][0-9A-Za-z$_]*'
         },
         {
           className: 'params',

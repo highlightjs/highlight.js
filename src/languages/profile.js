@@ -32,7 +32,7 @@ hljs.LANGUAGES.profile = {
       lexems: hljs.UNDERSCORE_IDENT_RE,
       contains: [{
         className: 'title',
-        begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE,
+        begin: hljs.UNDERSCORE_IDENT_RE,
         relevance: 0
       }],
       relevance: 0

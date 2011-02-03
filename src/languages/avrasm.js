@@ -65,11 +65,11 @@ hljs.LANGUAGES.avrasm =
     /*{  // Hex: 0x00, $00;  Oct: 0o00;  Bin: 0b00000000;  Dec: 0
       // пока что-то не получается :(, буду использовать сишную моду.
       className: 'number',
-      begin: '((0[xX]|\$)[A-Fa-f0-9]+|0[oO][0-7]+|0[bB][0-1]+|\\d+)',  end: hljs.IMMEDIATE_RE
+      begin: '((0[xX]|\$)[A-Fa-f0-9]+|0[oO][0-7]+|0[bB][0-1]+|\\d+)'
     }*/
     {
       className: 'label',
-      begin: '^[A-Za-z0-9_.$]+:',  end: hljs.IMMEDIATE_RE
+      begin: '^[A-Za-z0-9_.$]+:'
     },
     {
       className: 'preprocessor',
@@ -77,11 +77,11 @@ hljs.LANGUAGES.avrasm =
     },
     {  // директивы «.include» «.macro» и т.д.
       className: 'preprocessor',
-      begin: '\\.[a-zA-Z]+', end: hljs.IMMEDIATE_RE
+      begin: '\\.[a-zA-Z]+'
     },
     {  // подстановка в «.macro»
       className: 'localvars',
-      begin: '@[0-9]+', end: hljs.IMMEDIATE_RE
+      begin: '@[0-9]+'
     }
   ]
 };

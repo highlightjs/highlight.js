@@ -146,7 +146,7 @@ hljs.LANGUAGES.nginx = {
     // variables (like in perl)
     {
       className: 'variable',
-      begin: '\\$\\d+', end: hljs.IMMEDIATE_RE
+      begin: '\\$\\d+'
     },
     {
       className: 'variable',
@@ -154,26 +154,26 @@ hljs.LANGUAGES.nginx = {
     },
     {
       className: 'variable',
-      begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE,
+      begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE,
       relevance: 0
     },
     {
       className: 'built_in',
-      begin: '\\b(on|off|yes|no|true|false|none|blocked|debug|info|notice|warn|error|crit|select|permanent|redirect)\\b', end: hljs.IMMEDIATE_RE
+      begin: '\\b(on|off|yes|no|true|false|none|blocked|debug|info|notice|warn|error|crit|select|permanent|redirect)\\b'
     },
     {
       className: 'built_in',
-      begin: '\\b(kqueue|rtsig|epoll|poll)\\b|/dev/poll', end: hljs.IMMEDIATE_RE
+      begin: '\\b(kqueue|rtsig|epoll|poll)\\b|/dev/poll'
     },
     // IP
     {
       className: 'number',
-      begin: '\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b', end: hljs.IMMEDIATE_RE
+      begin: '\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b'
     },
     // units
     {
       className: 'number',
-      begin: '\\s\\d+[kKmMgGdshdwy]*\\b', end: hljs.IMMEDIATE_RE,
+      begin: '\\s\\d+[kKmMgGdshdwy]*\\b',
       relevance: 0
     },
     {

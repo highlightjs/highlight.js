@@ -18,14 +18,14 @@ hljs.LANGUAGES.scala  = {
       keywords: {'case' : 1, 'class': 1, 'trait': 1, 'object': 1},
       contains: [
         {
-          begin: '(extends|with)', end: hljs.IMMEDIATE_RE,
+          begin: '(extends|with)',
           lexems: hljs.IDENT_RE,
           keywords: {'extends': 1, 'with': 1},
           relevance: 10
         },
         {
           className: 'title',
-          begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+          begin: hljs.UNDERSCORE_IDENT_RE
         },
         {
           className: 'params',
@@ -43,14 +43,14 @@ hljs.LANGUAGES.scala  = {
       begin: '/\\*\\*', end: '\\*/',
       contains: [{
         className: 'javadoctag',
-        begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
+        begin: '@[A-Za-z]+'
       }],
       relevance: 10
     },
     hljs.C_BLOCK_COMMENT_MODE,
     {
       className: 'annotation',
-      begin: '@[A-Za-z]+', end: hljs.IMMEDIATE_RE
+      begin: '@[A-Za-z]+'
     },
     {
       className: 'string',

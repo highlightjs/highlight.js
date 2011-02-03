@@ -12,17 +12,17 @@ hljs.LANGUAGES.diff = {
   modes: [
     {
       className: 'chunk',
-      begin: '^\\@\\@ +\\-\\d+,\\d+ +\\+\\d+,\\d+ +\\@\\@$', end:hljs.IMMEDIATE_RE,
+      begin: '^\\@\\@ +\\-\\d+,\\d+ +\\+\\d+,\\d+ +\\@\\@$',
       relevance: 10
     },
     {
       className: 'chunk',
-      begin: '^\\*\\*\\* +\\d+,\\d+ +\\*\\*\\*\\*$', end: hljs.IMMEDIATE_RE,
+      begin: '^\\*\\*\\* +\\d+,\\d+ +\\*\\*\\*\\*$',
       relevance: 10
     },
     {
       className: 'chunk',
-      begin: '^\\-\\-\\- +\\d+,\\d+ +\\-\\-\\-\\-$', end: hljs.IMMEDIATE_RE,
+      begin: '^\\-\\-\\- +\\d+,\\d+ +\\-\\-\\-\\-$',
       relevance: 10
     },
     {

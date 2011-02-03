@@ -22,7 +22,7 @@ hljs.LANGUAGES.cs  = {
     },
     {
       className: 'xmlDocTag',
-      begin: '///|<!--|-->', end: hljs.IMMEDIATE_RE
+      begin: '///|<!--|-->'
     },
     {
       className: 'xmlDocTag',
@@ -31,7 +31,7 @@ hljs.LANGUAGES.cs  = {
     {
       className: 'string',
       begin: '@"', end: '"',
-      contains: [{begin: '""', end: hljs.IMMEDIATE_RE}]
+      contains: [{begin: '""'}]
     },
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
