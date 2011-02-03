@@ -365,15 +365,12 @@ var hljs = new function() {
         return;
 
       if (!mode.is_default) {
-        if (!mode.begin)
-          mode.begin = '\\B|\\b';
+        mode.beginRe = langRe(language, mode.begin ? '^' + mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
           mode.end = '\\B|\\b'
+        if (mode.end)
+          mode.endRe = langRe(language, '^' + mode.end);
       }
-      if (mode.begin)
-        mode.beginRe = langRe(language, '^' + mode.begin);
-      if (mode.end)
-        mode.endRe = langRe(language, '^' + mode.end);
       if (mode.illegal)
         mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
       if (mode.lexems)
