@@ -141,6 +141,16 @@ hljs.LANGUAGES.nginx = {
     {
       className: 'parameters',
       begin: '\\s', end: '[;{]', returnBegin: true, returnEnd: true, noMarkup: true,
+      lexems: '[a-z/]+',
+      keywords: {
+        'built_in': {
+          'on': 1, 'off': 1, 'yes': 1, 'no': 1, 'true': 1, 'false': 1,
+          'none': 1, 'blocked': 1, 'debug': 1, 'info': 1, 'notice': 1,
+          'warn': 1, 'error': 1, 'crit': 1, 'select': 1, 'permanent': 1,
+          'redirect': 1, 'kqueue': 1, 'rtsig': 1, 'epoll': 1, 'poll': 1,
+          '/dev/poll': 1
+        }
+      },
       contains: ['comment', 'string', 'regexp', 'number', 'variable', 'built_in']
     },
     // variables (like in perl)
@@ -156,14 +166,6 @@ hljs.LANGUAGES.nginx = {
       className: 'variable',
       begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE,
       relevance: 0
-    },
-    {
-      className: 'built_in',
-      begin: '\\b(on|off|yes|no|true|false|none|blocked|debug|info|notice|warn|error|crit|select|permanent|redirect)\\b', end: hljs.IMMEDIATE_RE
-    },
-    {
-      className: 'built_in',
-      begin: '\\b(kqueue|rtsig|epoll|poll)\\b|/dev/poll', end: hljs.IMMEDIATE_RE
     },
     // IP
     {
