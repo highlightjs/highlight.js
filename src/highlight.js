@@ -525,6 +525,10 @@ var hljs = new function() {
   this.initHighlighting = initHighlighting;
 
   // Common regexps
+<<<<<<< HEAD
+=======
+  this.IMMEDIATE_RE = '\\b|\\B';
+>>>>>>> Absent 'end' defaults to IMMEDIATE_RE in simple cases where there's also no 'endsWithParent'
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
   this.UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
   this.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
