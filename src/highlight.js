@@ -364,10 +364,14 @@ var hljs = new function() {
       if (mode.compiled)
         return;
 
+      if (!mode.is_default) {
+        if (!mode.begin)
+          mode.begin = '\\B|\\b';
+        if (!mode.end && !mode.endsWithParent)
+          mode.end = '\\B|\\b'
+      }
       if (mode.begin)
         mode.beginRe = langRe(language, '^' + mode.begin);
-      if (mode.begin && !mode.end && !mode.endsWithParent)
-        mode.end = hljs.IMMEDIATE_RE;
       if (mode.end)
         mode.endRe = langRe(language, '^' + mode.end);
       if (mode.illegal)
@@ -415,6 +419,7 @@ var hljs = new function() {
       if (!LANGUAGES.hasOwnProperty(i))
         continue;
       var modes = [LANGUAGES[i].defaultMode].concat(LANGUAGES[i].modes);
+      modes[0].is_default = true;
       for (var j = 0; j < modes.length; j++) {
         compileMode(modes[j], LANGUAGES[i]);
       }
@@ -543,7 +548,6 @@ var hljs = new function() {
   this.initHighlighting = initHighlighting;
 
   // Common regexps
-  this.IMMEDIATE_RE = '\\b|\\B';
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
   this.UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
   this.NUMBER_RE = '\\b\\d+(\\.\\d+)?';

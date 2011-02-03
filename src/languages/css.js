@@ -50,7 +50,7 @@ hljs.LANGUAGES.css = {
           contains: [
             {
               className: 'value',
-              begin: hljs.IMMEDIATE_RE, endsWithParent: true, excludeEnd: true,
+              endsWithParent: true, excludeEnd: true,
               contains: ['function', 'number', 'hexcolor', 'string', 'important', 'comment']
             }
           ]
@@ -74,7 +74,7 @@ hljs.LANGUAGES.css = {
       contains: [
         {
           className: 'params',
-          begin: hljs.IMMEDIATE_RE, endsWithParent: true, excludeEnd: true,
+          endsWithParent: true, excludeEnd: true,
           contains: ['number', 'string']
         }
       ]

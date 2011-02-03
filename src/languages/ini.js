@@ -23,7 +23,7 @@ hljs.LANGUAGES.ini =
       begin: '^[a-z0-9_\\[\\]]+[ \\t]*=[ \\t]*', end: '$',
       contains: [{
           className: 'value',
-          begin: hljs.IMMEDIATE_RE, endsWithParent: true,
+          endsWithParent: true,
           contains: ['string', 'number'],
           lexems: hljs.IDENT_RE,
           keywords: {'on': 1, 'off': 1, 'true': 1, 'false': 1, 'yes': 1, 'no': 1}

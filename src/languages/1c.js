@@ -61,7 +61,7 @@ hljs.LANGUAGES['1c'] = function(){
           'title',
           {
             className: 'tail',
-            begin: hljs.IMMEDIATE_RE,  endsWithParent: true,
+            endsWithParent: true,
             contains: [
               {
                 className: 'params',
