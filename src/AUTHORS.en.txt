@@ -38,3 +38,5 @@ Contributors:
 - Igor Kalnitsky <igor.kalnitsky@gmail.com>
 - Jeremy Hull <sourdrums@gmail.com>
 - Valerii Hiora <valerii.hiora@gmail.com>
+- Nikolay Zakharov <nikolay.desh@gmail.com>
+- Dmitry Kovega <arhibot@gmail.com>

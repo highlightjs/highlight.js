@@ -38,3 +38,5 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Игорь Кальницкий <igor.kalnitsky@gmail.com>
 - Джереми Халл <sourdrums@gmail.com>
 - Валерий Хиора <valerii.hiora@gmail.com>
+- Николай Захаров <nikolay.desh@gmail.com>
+- Дмитрий Ковега <arhibot@gmail.com>
