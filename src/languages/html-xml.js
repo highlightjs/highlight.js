@@ -31,7 +31,7 @@ Language: HTML, XML
   };
   var TAG_INTERNAL = {
     className: 'tag_internal',
-    begin: hljs.IMMEDIATE_RE, endsWithParent: true, noMarkup: true,
+    endsWithParent: true, noMarkup: true,
     contains: ['attribute', 'value_container'],
     relevance: 0
   };

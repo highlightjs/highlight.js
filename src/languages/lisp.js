@@ -73,7 +73,7 @@ hljs.LANGUAGES.lisp = function(){
       },
       {
         className: 'body',
-        begin: hljs.IMMEDIATE_RE, endsWithParent: true, excludeEnd: true,
+        endsWithParent: true, excludeEnd: true,
         contains: ['quoted', 'list', 'literal', 'number', 'string', 'comment', 'variable', 'keyword']
       },
       {
