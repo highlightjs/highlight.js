@@ -156,7 +156,7 @@ hljs.LANGUAGES.nginx = {
     // variables (like in perl)
     {
       className: 'variable',
-      begin: '\\$\\d+', end: hljs.IMMEDIATE_RE
+      begin: '\\$\\d+'
     },
     {
       className: 'variable',
@@ -164,18 +164,18 @@ hljs.LANGUAGES.nginx = {
     },
     {
       className: 'variable',
-      begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE,
+      begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE,
       relevance: 0
     },
     // IP
     {
       className: 'number',
-      begin: '\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b', end: hljs.IMMEDIATE_RE
+      begin: '\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b'
     },
     // units
     {
       className: 'number',
-      begin: '\\s\\d+[kKmMgGdshdwy]*\\b', end: hljs.IMMEDIATE_RE,
+      begin: '\\s\\d+[kKmMgGdshdwy]*\\b',
       relevance: 0
     },
     {

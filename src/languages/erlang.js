@@ -70,20 +70,20 @@ hljs.LANGUAGES.erlang = function(){
       },
       {
         className: 'function_name',
-        begin: FUNCTION_NAME_RE, end: hljs.IMMEDIATE_RE
+        begin: FUNCTION_NAME_RE
       },
       {
         className: 'title',
-        begin: BASIC_ATOM_RE, end: hljs.IMMEDIATE_RE
+        begin: BASIC_ATOM_RE
       },
       {
         className: 'variable',
-        begin: '\\b_([A-Z][A-Za-z0-9_]*)?', end: hljs.IMMEDIATE_RE,
+        begin: '\\b_([A-Z][A-Za-z0-9_]*)?',
         relevance: 0
       },
       {
         className: 'named_fun',
-        begin: 'fun\\s+' + BASIC_ATOM_RE + '/\\d+', end: hljs.IMMEDIATE_RE
+        begin: 'fun\\s+' + BASIC_ATOM_RE + '/\\d+'
       },
       {
         className: 'block_statements',
@@ -94,7 +94,7 @@ hljs.LANGUAGES.erlang = function(){
       },
       {
         className: 'variable',
-        begin: '[A-Z][a-zA-Z0-9_]*', end: hljs.IMMEDIATE_RE,
+        begin: '[A-Z][a-zA-Z0-9_]*',
         relevance: 0
       },
       {
@@ -152,7 +152,7 @@ hljs.LANGUAGES.erlang = function(){
       },
       {
         className: 'record_name',
-        begin: '#' + hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE,
+        begin: '#' + hljs.UNDERSCORE_IDENT_RE,
         relevance: 0
       },
       {

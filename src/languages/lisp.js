@@ -23,19 +23,19 @@ hljs.LANGUAGES.lisp = function(){
       },
       {
         className: 'number',
-        begin: LISP_SIMPLE_NUMBER_RE, end: hljs.IMMEDIATE_RE
+        begin: LISP_SIMPLE_NUMBER_RE
       },
       {
         className: 'number',
-        begin: '#b[0-1]+(/[0-1]+)?', end: hljs.IMMEDIATE_RE
+        begin: '#b[0-1]+(/[0-1]+)?'
       },
       {
         className: 'number',
-        begin: '#o[0-7]+(/[0-7]+)?', end: hljs.IMMEDIATE_RE
+        begin: '#o[0-7]+(/[0-7]+)?'
       },
       {
         className: 'number',
-        begin: '#x[0-9a-f]+(/[0-9a-f]+)?', end: hljs.IMMEDIATE_RE
+        begin: '#x[0-9a-f]+(/[0-9a-f]+)?'
       },
       {
         className: 'number',
@@ -69,8 +69,7 @@ hljs.LANGUAGES.lisp = function(){
       },
       {
         className: 'title',
-        begin: LISP_IDENT_RE, end: hljs.IMMEDIATE_RE,
-        endsWithParent: true
+        begin: LISP_IDENT_RE
       },
       {
         className: 'body',
@@ -79,7 +78,7 @@ hljs.LANGUAGES.lisp = function(){
       },
       {
         className: 'keyword',
-        begin: '[:&]' + LISP_IDENT_RE, end: hljs.IMMEDIATE_RE
+        begin: '[:&]' + LISP_IDENT_RE
       },
       {
         className: 'variable',
@@ -87,7 +86,7 @@ hljs.LANGUAGES.lisp = function(){
       },
       {
         className: 'literal',
-        begin: '\\b(t{1}|nil)\\b', end: hljs.IMMEDIATE_RE
+        begin: '\\b(t{1}|nil)\\b'
       }
     ]
   };

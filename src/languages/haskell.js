@@ -38,7 +38,7 @@ hljs.LANGUAGES.haskell = {
     },
     {
       className: 'title',
-      begin: '^[_a-z][\\w\\\']*', end: hljs.IMMEDIATE_RE
+      begin: '^[_a-z][\\w\\\']*'
     },
     {
       className: 'container',
@@ -46,13 +46,13 @@ hljs.LANGUAGES.haskell = {
       begin: '\\(', end: '\\)',
       contains: ['label', {
           className: 'title',
-          begin: '[_a-z][\\w\\\']*', end: hljs.IMMEDIATE_RE
+          begin: '[_a-z][\\w\\\']*'
         }
       ]
     },
     {
       className: 'label',
-      begin: '\\b[A-Z][\\w\\\']*', end: hljs.IMMEDIATE_RE,
+      begin: '\\b[A-Z][\\w\\\']*',
       relevance: 0
     },
     {

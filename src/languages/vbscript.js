@@ -20,7 +20,7 @@ hljs.LANGUAGES.vbscript = {
       className: 'string',
       begin: '"', end: '"',
       illegal: '\\n',
-      contains: [{begin: '""', end: hljs.IMMEDIATE_RE}],
+      contains: [{begin: '""'}],
       relevance: 0
     },
     {

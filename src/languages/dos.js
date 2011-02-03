@@ -18,7 +18,7 @@ hljs.LANGUAGES.dos = {
   modes: [
     {
     	className: 'number',
-    	begin: '\\b\\d+', end: hljs.IMMEDIATE_RE,
+    	begin: '\\b\\d+',
     	relevance: 0
     },
     {
@@ -27,7 +27,7 @@ hljs.LANGUAGES.dos = {
     },
     {
       className: 'envvar',
-      begin: '%[^ ]+?%', end: hljs.IMMEDIATE_RE
+      begin: '%[^ ]+?%'
     }
   ]
 };

@@ -22,11 +22,11 @@ hljs.LANGUAGES.css = {
     },
     {
       className: 'id',
-      begin: '\\#[A-Za-z0-9_-]+', end: hljs.IMMEDIATE_RE
+      begin: '\\#[A-Za-z0-9_-]+'
     },
     {
       className: 'class',
-      begin: '\\.[A-Za-z0-9_-]+', end: hljs.IMMEDIATE_RE,
+      begin: '\\.[A-Za-z0-9_-]+',
       relevance: 0
     },
     {
@@ -36,7 +36,7 @@ hljs.LANGUAGES.css = {
     },
     {
       className: 'pseudo',
-      begin: ':(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+', end: hljs.IMMEDIATE_RE
+      begin: ':(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
     },
     {
       className: 'rules',
@@ -62,11 +62,11 @@ hljs.LANGUAGES.css = {
     hljs.C_BLOCK_COMMENT_MODE,
     {
       className: 'number',
-      begin: hljs.NUMBER_RE, end: hljs.IMMEDIATE_RE
+      begin: hljs.NUMBER_RE
     },
     {
       className: 'hexcolor',
-      begin: '\\#[0-9A-F]+', end: hljs.IMMEDIATE_RE
+      begin: '\\#[0-9A-F]+'
     },
     {
       className: 'function',
@@ -81,7 +81,7 @@ hljs.LANGUAGES.css = {
     },
     {
       className: 'important',
-      begin: '!important', end: hljs.IMMEDIATE_RE
+      begin: '!important'
     },
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE

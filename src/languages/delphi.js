@@ -29,12 +29,12 @@ hljs.LANGUAGES.delphi = function(){
       {
         className: 'string',
         begin: '\'', end: '\'',
-        contains: [{begin: '\'\'', end: hljs.IMMEDIATE_RE}],
+        contains: [{begin: '\'\''}],
         relevance: 0
       },
       {
         className: 'string',
-        begin: '(#\\d+)+', end: hljs.IMMEDIATE_RE
+        begin: '(#\\d+)+'
       },
       {
         className: 'function',
@@ -54,7 +54,7 @@ hljs.LANGUAGES.delphi = function(){
       },
       {
         className: 'title',
-        begin: hljs.IDENT_RE, end: hljs.IMMEDIATE_RE
+        begin: hljs.IDENT_RE
       },
       {
         className: 'params',

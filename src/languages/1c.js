@@ -41,16 +41,16 @@ hljs.LANGUAGES['1c'] = function(){
       },
       {
         className: 'date',
-        begin: '\'\\d{2}\\.\\d{2}\\.(\\d{2}|\\d{4})\'', end: hljs.IMMEDIATE_RE
+        begin: '\'\\d{2}\\.\\d{2}\\.(\\d{2}|\\d{4})\''
       },
       {
         className: 'dquote',
-        begin: '""', end: hljs.IMMEDIATE_RE
+        begin: '""'
       },
       hljs.NUMBER_MODE,
       {
         className: 'title',
-        begin: IDENT_RE_RU, end: hljs.IMMEDIATE_RE
+        begin: IDENT_RE_RU
       },
       {
         className: 'function',

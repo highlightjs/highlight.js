@@ -33,7 +33,7 @@ hljs.LANGUAGES.python = {
     },
     {
       className: 'title',
-      begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+      begin: hljs.UNDERSCORE_IDENT_RE
     },
     {
       className: 'params',

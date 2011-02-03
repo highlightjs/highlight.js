@@ -31,12 +31,12 @@ hljs.LANGUAGES.mel = {
     // variable
     {
       className: 'variable',
-      begin: '\\$\\d', end: hljs.IMMEDIATE_RE,
+      begin: '\\$\\d',
       relevance: 5
     },
     {
       className: 'variable',
-      begin: '[\\$\\%\\@\\*](\\^\\w\\b|#\\w+|[^\\s\\w{]|{\\w+}|\\w+)', end: hljs.IMMEDIATE_RE
+      begin: '[\\$\\%\\@\\*](\\^\\w\\b|#\\w+|[^\\s\\w{]|{\\w+}|\\w+)'
     },
     // array, $a[3] = {"a","b","c"}, $b[3] = {1,2,3}
     // vector, $test = <<3.0, 7.7, 9.1>>

@@ -366,6 +366,8 @@ var hljs = new function() {
 
       if (mode.begin)
         mode.beginRe = langRe(language, '^' + mode.begin);
+      if (mode.begin && !mode.end && !mode.endsWithParent)
+        mode.end = hljs.IMMEDIATE_RE;
       if (mode.end)
         mode.endRe = langRe(language, '^' + mode.end);
       if (mode.illegal)
@@ -541,7 +543,7 @@ var hljs = new function() {
   this.initHighlighting = initHighlighting;
 
   // Common regexps
-  this.IMMEDIATE_RE = '\\b|\\B'
+  this.IMMEDIATE_RE = '\\b|\\B';
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
   this.UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
   this.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
@@ -550,7 +552,7 @@ var hljs = new function() {
 
   // Common modes
   this.BACKSLASH_ESCAPE = {
-    begin: '\\\\.', end: this.IMMEDIATE_RE, relevance: 0
+    begin: '\\\\.', relevance: 0
   };
   this.APOS_STRING_MODE = {
     className: 'string',
@@ -581,12 +583,12 @@ var hljs = new function() {
   };
   this.NUMBER_MODE = {
     className: 'number',
-    begin: this.NUMBER_RE, end: this.IMMEDIATE_RE,
+    begin: this.NUMBER_RE,
     relevance: 0
   };
   this.C_NUMBER_MODE = {
     className: 'number',
-    begin: this.C_NUMBER_RE, end: this.IMMEDIATE_RE,
+    begin: this.C_NUMBER_RE,
     relevance: 0
   };
 

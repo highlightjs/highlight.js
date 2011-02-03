@@ -11,7 +11,7 @@ hljs.LANGUAGES.tex = {
   modes: [
     {
       className: 'parameter',
-      begin: '\\\\[a-zA-Zа-яА-я]+[\\*]? *= *-?\\d*\\.?\\d+(pt|pc|mm|cm|in|dd|cc|ex|em)?', end: hljs.IMMEDIATE_RE,
+      begin: '\\\\[a-zA-Zа-яА-я]+[\\*]? *= *-?\\d*\\.?\\d+(pt|pc|mm|cm|in|dd|cc|ex|em)?',
       returnBegin: true,
       contains: ['command', 'number'],
       noMarkup: true,
@@ -19,12 +19,12 @@ hljs.LANGUAGES.tex = {
     },
     {
       className: 'command',
-      begin: '\\\\[a-zA-Zа-яА-я]+[\\*]?', end: hljs.IMMEDIATE_RE,
+      begin: '\\\\[a-zA-Zа-яА-я]+[\\*]?',
       relevance: 10
     },
     {
       className: 'command',
-      begin: '\\\\[^a-zA-Zа-яА-я0-9]', end: hljs.IMMEDIATE_RE,
+      begin: '\\\\[^a-zA-Zа-яА-я0-9]',
       relevance: 0
     },
     {
@@ -34,7 +34,7 @@ hljs.LANGUAGES.tex = {
     },
     {
       className: 'special',
-      begin: '[{}\\[\\]\\&#~]', end: hljs.IMMEDIATE_RE,
+      begin: '[{}\\[\\]\\&#~]',
       relevance: 0
     },
     {
