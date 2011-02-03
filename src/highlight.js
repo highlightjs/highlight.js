@@ -399,7 +399,15 @@ var hljs = new function() {
     for (var i in LANGUAGES) {
       if (!LANGUAGES.hasOwnProperty(i))
         continue;
+<<<<<<< HEAD
       compileMode(LANGUAGES[i].defaultMode, LANGUAGES[i], true);
+=======
+      var modes = [LANGUAGES[i].defaultMode].concat(LANGUAGES[i].modes);
+      modes[0].is_default = true;
+      for (var j = 0; j < modes.length; j++) {
+        compileMode(modes[j], LANGUAGES[i]);
+      }
+>>>>>>> Absent 'begin' defaults to IMMEDIATE_RE for all submodes.
     }
   }
 
@@ -526,9 +534,12 @@ var hljs = new function() {
 
   // Common regexps
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   this.IMMEDIATE_RE = '\\b|\\B';
 >>>>>>> Absent 'end' defaults to IMMEDIATE_RE in simple cases where there's also no 'endsWithParent'
+=======
+>>>>>>> Absent 'begin' defaults to IMMEDIATE_RE for all submodes.
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
   this.UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
   this.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
