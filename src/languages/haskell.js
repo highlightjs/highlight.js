@@ -44,10 +44,16 @@ hljs.LANGUAGES.haskell = {
       className: 'container',
       lexems: hljs.UNDERSCORE_IDENT_RE,
       begin: '\\(', end: '\\)',
-      contains: ['label', {
+      contains: [
+        {
+          className: 'label',
+          begin: '\\b[A-Z][\\w\\(\\)\\.\\\']*', end: hljs.IMMEDIATE_RE
+        },
+        {
           className: 'title',
-          begin: '[_a-z][\\w\\\']*', end: hljs.IMMEDIATE_RE
-        }
+          begin: '\\b[_a-z][\\w\\\']*', end: hljs.IMMEDIATE_RE
+        },
+        'comment'
       ]
     },
     {
