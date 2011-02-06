@@ -8,8 +8,6 @@ hljs.LANGUAGES.avrasm =
   case_insensitive: true,
   defaultMode: {
     lexems: hljs.IDENT_RE,
-    contains: ['comment',  'number', 'string', 'label', 'preprocessor', 'localvars'],
-    illegal: '',
     keywords: {
         'keyword': {
           /* mnemonic */
@@ -46,43 +44,33 @@ hljs.LANGUAGES.avrasm =
           'spsr': 1, 'spcr': 1, 'udr0': 1, 'ucsr0a': 1, 'ucsr0b': 1, 'ubrr0l': 1, 'acsr': 1, 'admux': 1, 'adcsr': 1, 'adch': 1,
           'adcl': 1, 'porte': 1, 'ddre': 1, 'pine': 1, 'pinf': 1
         }
+    },
+    contains: [
+      hljs.C_BLOCK_COMMENT_MODE,
+      {className: 'comment', begin: ';',  end: '$'},
+      hljs.C_NUMBER_MODE,
+      /*{  // Hex: 0x00, $00;  Oct: 0o00;  Bin: 0b00000000;  Dec: 0
+        // пока что-то не получается :(, буду использовать сишную моду.
+        className: 'number',
+        begin: '((0[xX]|\$)[A-Fa-f0-9]+|0[oO][0-7]+|0[bB][0-1]+|\\d+)'
+      }*/
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'string',
+        begin: '\'', end: '[^\\\\]\'',
+        illegal: '[^\\\\][^\']'
+      },
+      {className: 'label',  begin: '^[A-Za-z0-9_.$]+:'},
+      {className: 'preprocessor', begin: '#', end: '$'},
+      {  // директивы «.include» «.macro» и т.д.
+        className: 'preprocessor',
+        begin: '\\.[a-zA-Z]+'
+      },
+      {  // подстановка в «.macro»
+        className: 'localvars',
+        begin: '@[0-9]+'
       }
-  },
-
-  modes: [
-    hljs.C_BLOCK_COMMENT_MODE,
-    {
-      className: 'comment',
-      begin: ';',  end: '$'
-    },
-    hljs.QUOTE_STRING_MODE,
-    {
-      className: 'string',
-      begin: '\'', end: '[^\\\\]\'',
-      illegal: '[^\\\\][^\']'
-    },
-    hljs.C_NUMBER_MODE,
-    /*{  // Hex: 0x00, $00;  Oct: 0o00;  Bin: 0b00000000;  Dec: 0
-      // пока что-то не получается :(, буду использовать сишную моду.
-      className: 'number',
-      begin: '((0[xX]|\$)[A-Fa-f0-9]+|0[oO][0-7]+|0[bB][0-1]+|\\d+)'
-    }*/
-    {
-      className: 'label',
-      begin: '^[A-Za-z0-9_.$]+:'
-    },
-    {
-      className: 'preprocessor',
-      begin: '#', end: '$'
-    },
-    {  // директивы «.include» «.macro» и т.д.
-      className: 'preprocessor',
-      begin: '\\.[a-zA-Z]+'
-    },
-    {  // подстановка в «.macro»
-      className: 'localvars',
-      begin: '@[0-9]+'
-    }
-  ]
+    ]
+  }
 };
 
