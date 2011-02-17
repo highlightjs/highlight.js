@@ -1,4 +1,4 @@
-﻿/*
+/*
 
 Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 
@@ -40,7 +40,8 @@ pre .bash .variable,
 pre .apache .tag,
 pre .apache .cbracket,
 pre .tex .command,
-pre .tex .special {
+pre .tex .special,
+pre .erlang_repl .function_or_atom {
   color: #800;
 }
 
@@ -79,7 +80,8 @@ pre .envvar,
 pre .shebang,
 pre .apache .sqbracket,
 pre .nginx .built_in,
-pre .tex .formula {
+pre .tex .formula,
+pre .erlang_repl .reserved {
   color: #88F;
 }
 
