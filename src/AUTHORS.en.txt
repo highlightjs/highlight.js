@@ -40,3 +40,4 @@ Contributors:
 - Valerii Hiora <valerii.hiora@gmail.com>
 - Nikolay Zakharov <nikolay.desh@gmail.com>
 - Dmitry Kovega <arhibot@gmail.com>
+- Sergey Ignatov <sergey@ignatov.spb.su>
