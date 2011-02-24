@@ -40,3 +40,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Валерий Хиора <valerii.hiora@gmail.com>
 - Николай Захаров <nikolay.desh@gmail.com>
 - Дмитрий Ковега <arhibot@gmail.com>
+- Сергей Игнатов <sergey@ignatov.spb.su>
