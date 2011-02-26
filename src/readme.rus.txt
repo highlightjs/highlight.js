@@ -503,6 +503,17 @@ Haskell ("haskell"):
   title            название функции
   label            название класса
 
+Erlang ("erlang"):
+  comment          комментарий
+  string           строка
+  number           число
+  keyword          ключевые слова языка
+  record_name      обращение к записи (#record_name)
+  title            имя объявляемой функции
+  variable         переменная (с заглавной буквы или с _)
+  pp.keywords      аттрибуты модуля (-attribute)
+  function_name    atom или atom:atom при вызове функции
+
 ## Эвристика
 
 Определение языка, на котором написан фрагмент, делается с помощью

@@ -497,6 +497,17 @@ Haskell ("haskell"):
   title            function name
   label            class name
 
+Erlang ("erlang"):
+  comment          comment
+  string           string
+  number           number
+  keyword          keyword
+  record_name      record access (#record_name)
+  title            name of declaration function
+  variable         variable (starts with capital letter or with _)
+  pp.keywords      module's attribute (-attribute)
+  function_name    atom or atom:atom in case of function call
+
 ## Heuristics
 
 Autodetection of a code's language is done with a simple heuristics:
