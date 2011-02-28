@@ -46,7 +46,7 @@ hljs.LANGUAGES.vala  = {
           begin: '(implements|extends)', end: hljs.IMMEDIATE_RE,
           lexems: hljs.IDENT_RE,
           keywords: {'extends': 1, 'implements': 1},
-          relevance: 10
+          relevance: 1
         },
         {
           className: 'title',
@@ -71,7 +71,7 @@ hljs.LANGUAGES.vala  = {
     {
       className: 'preprocessor',
       begin: '^#', end: '$',
-      relevance: 1
+      relevance: 2
     },
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,

@@ -497,6 +497,18 @@ Haskell ("haskell"):
   title            function name
   label            class name
 
+Vala ("vala"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  class            class definitions
+  title            in class definition
+  constant         ALL_UPPER_CASE 
+
+
+
 ## Heuristics
 
 Autodetection of a code's language is done with a simple heuristics:
