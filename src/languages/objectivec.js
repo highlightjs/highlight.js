@@ -34,54 +34,66 @@ hljs.LANGUAGES.objectivec = function(){
       'NSMutableArray': 50, 'NSMutableDictionary': 50, 'NSURL': 50
     }
   };
-  return {
-    defaultMode: {
-      lexems: hljs.UNDERSCORE_IDENT_RE,
-      illegal: '</',
-      contains: ['comment', 'string', 'number', 'preprocessor', 'class'],
-      keywords: OBJC_KEYWORDS
-    },
-    modes: [
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.C_NUMBER_MODE,
-      hljs.QUOTE_STRING_MODE,
-      {
-        className: 'string',
-        begin: '\'', end: '[^\\\\]\'',
-        illegal: '[^\\\\][^\']'
-      },
-      {
-        className: 'preprocessor',
-        begin: '#import', end: '$',
-        contains: [
-            {
-                className: 'title',
-                begin: '\"', end: '\"',
-                lexems: hljs.IDENT_RE
-            },
-            {
-                className: 'title',
-                begin: '<', end: '>',
-                lexems: hljs.IDENT_RE
-            }
-        ]
-      },
-      {
-        className: 'preprocessor',
-        begin: '#', end: '$'
-      },
-      {
-        className: 'id',
-        begin: hljs.UNDERSCORE_IDENT_RE
-      },
-      {
-        className: 'class',
-        lexems: hljs.UNDERSCORE_IDENT_RE,
-        begin: 'interface|class|protocol|implementation', end: '({|$)',
-        keywords: {'interface': 1, 'class': 1, 'protocol': 5, 'implementation': 5},
-        contains: ['id']
-      }
-    ]
-  };
+	return {
+	    defaultMode: {
+	        lexems: hljs.UNDERSCORE_IDENT_RE,
+	        illegal: '</',
+	        contains: [
+		        hljs.C_LINE_COMMENT_MODE,
+		        hljs.C_BLOCK_COMMENT_MODE,
+		        hljs.C_NUMBER_MODE,
+		        hljs.QUOTE_STRING_MODE,
+		        {
+		            className: 'string',
+		            begin: '\'',
+		            end: '[^\\\\]\'',
+		            illegal: '[^\\\\][^\']'
+		        },
+
+		        {
+		            className: 'preprocessor',
+		            begin: '#import',
+		            end: '$',
+		            contains: [
+		            {
+		                className: 'title',
+		                begin: '\"',
+		                end: '\"',
+		                lexems: hljs.IDENT_RE
+		            },
+		            {
+		                className: 'title',
+		                begin: '<',
+		                end: '>',
+		                lexems: hljs.IDENT_RE
+		            }
+		            ]
+		        },
+		        {
+		            className: 'preprocessor',
+		            begin: '#',
+		            end: '$'
+		        },
+		        {
+		            className: 'class',
+		            lexems: hljs.UNDERSCORE_IDENT_RE,
+		            begin: 'interface|class|protocol|implementation',
+		            end: '({|$)',
+		            keywords: {
+		                'interface': 1,
+		                'class': 1,
+		                'protocol': 5,
+		                'implementation': 5
+		            },
+		            contains: [{
+		                className: 'id',
+		                begin: hljs.UNDERSCORE_IDENT_RE
+		            },
+		            ]
+		        }
+	        ],
+	        // end of contains
+	        keywords: OBJC_KEYWORDS
+	    },
+	};
 }();
