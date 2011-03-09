@@ -81,7 +81,7 @@ pre .variable {
 }
 
 pre .css .tag,
-pre .css .attribute,
+pre .rules .property,
 pre .pseudo,
 pre .tex .special {
   color: #CDA869;

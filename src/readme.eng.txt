@@ -190,7 +190,7 @@ HTML ("html"):
 
 CSS ("css"):
 
-  keyword          HTML tag when in selectors, CSS keyword when in rules
+  tag              HTML tag in selectors
   id               #some_name in selectors
   class            .some_name in selectors
   at_rule          @-rule till first "{" or ";"
@@ -198,7 +198,8 @@ CSS ("css"):
   pseudo           pseudo classes and elemens (:after, ::after etc.)
   comment          comment
   rules            everything from "{" till "}"
-  value            property's value inside a rule, from ":" till ";" or
+  property         property name inside a rule
+  value            property value inside a rule, from ":" till ";" or
                    till the end of rule block
   number           number within a value
   string           string within a value

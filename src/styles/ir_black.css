@@ -80,7 +80,7 @@ pre .css .tag {
   color: #96CBFE;
 }
 
-pre .css .rule .attribute,
+pre .css .rules .property,
 pre .css .id {
   color: #FFFFB6;
 }
