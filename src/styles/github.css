@@ -60,7 +60,6 @@ pre .tex .command {
 
 pre .tag,
 pre .css .keyword,
-pre .html .keyword,
 pre .tag .title,
 pre .django .tag .keyword {
   color: #000080;

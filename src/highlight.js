@@ -394,6 +394,9 @@ var hljs = new function() {
       for (var i = 0; i < mode.contains.length; i++) {
         compileMode(mode.contains[i], language, false);
       }
+      if (mode.starts) {
+        compileMode(mode.starts, language, false);
+      }
     }
 
     for (var i in LANGUAGES) {
