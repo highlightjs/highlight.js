@@ -292,7 +292,7 @@ C++ ("cpp"):
   comment          комментарий
   preprocessor     директива препроцессора
   stl_container    инстанцирование STL-контейнеров ("vector<...>")
-  
+
 Objective C ("objectivec"):
   keyword          ключевое слово языка
   built_in         константы и названия классов Cocoa/Cocoa Touch
@@ -300,7 +300,17 @@ Objective C ("objectivec"):
   string           строка
   comment          комментарий
   preprocessor     директива препроцессора
-  class            объявление/имплементация класса, протокол, 
+  class            объявление/имплементация класса, протокол,
+
+Vala ("vala"):
+
+  keyword          ключевое слово языка
+  number           число
+  string           строка
+  comment          комментарий
+  class            заголовок класса
+  title            имя класса в заголовке
+  constant         константа из заглавных буква (ALL_UPPER_CASE)
 
 C# ("cs"):
 
