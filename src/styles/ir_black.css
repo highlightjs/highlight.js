@@ -76,11 +76,11 @@ pre .literal {
   color: #C6C5FE;
 }
 
-pre .css .keyword {
+pre .css .tag {
   color: #96CBFE;
 }
 
-pre .css .rule .keyword,
+pre .css .rule .attribute,
 pre .css .id {
   color: #FFFFB6;
 }

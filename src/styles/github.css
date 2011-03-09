@@ -59,8 +59,8 @@ pre .tex .command {
 }
 
 pre .tag,
-pre .css .keyword,
 pre .tag .title,
+pre .rule .attribute,
 pre .django .tag .keyword {
   color: #000080;
   font-weight: normal

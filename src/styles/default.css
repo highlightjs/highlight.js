@@ -85,6 +85,7 @@ pre .erlang_repl .reserved {
   color: #88F;
 }
 
+pre .css .tag,
 pre .javadoctag,
 pre .phpdoc,
 pre .yardoctag {
