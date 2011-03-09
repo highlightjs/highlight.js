@@ -37,6 +37,7 @@ hljs.LANGUAGES.objectivec = function(){
   return {
     defaultMode: {
       lexems: hljs.UNDERSCORE_IDENT_RE,
+      keywords: OBJC_KEYWORDS,
       illegal: '</',
       contains: [
         hljs.C_LINE_COMMENT_MODE,
@@ -58,14 +59,12 @@ hljs.LANGUAGES.objectivec = function(){
           {
             className: 'title',
             begin: '\"',
-            end: '\"',
-            lexems: hljs.IDENT_RE
+            end: '\"'
           },
           {
             className: 'title',
             begin: '<',
-            end: '>',
-            lexems: hljs.IDENT_RE
+            end: '>'
           }
           ]
         },
@@ -91,9 +90,7 @@ hljs.LANGUAGES.objectivec = function(){
           }
           ]
         }
-      ],
-      // end of contains
-      keywords: OBJC_KEYWORDS
+      ]
     }
   };
 }();
