@@ -41,4 +41,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Николай Захаров <nikolay.desh@gmail.com>
 - Дмитрий Ковега <arhibot@gmail.com>
 - Сергей Игнатов <sergey@ignatov.spb.su>
-
+- Антоно Васильев <self@antono.info>

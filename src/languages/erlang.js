@@ -63,6 +63,8 @@ hljs.LANGUAGES.erlang = function(){
       },
       {
         className: 'function_body',
+        lexems: BASIC_ATOM_RE,
+        keywords: ERLANG_RESERVED,
         begin: '->', endsWithParent: true,
         contains: BASIC_MODES
       },

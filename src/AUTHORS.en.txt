@@ -41,3 +41,4 @@ Contributors:
 - Nikolay Zakharov <nikolay.desh@gmail.com>
 - Dmitry Kovega <arhibot@gmail.com>
 - Sergey Ignatov <sergey@ignatov.spb.su>
+- Antono Vasiljev <self@antono.info>

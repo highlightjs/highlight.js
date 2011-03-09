@@ -7,7 +7,7 @@ hljs.LANGUAGES.erlang_repl = {
   defaultMode: {
     lexems: hljs.UNDERSCORE_IDENT_RE,
     contains: [
-      'input_number', 'comment', 'number', 'string', 'module_attributes',
+      'input_number', 'comment', 'number', 'string',
       'statement', 'constant', 'special_functions',
       'arrow', 'ok', 'exclamation_mark', 'function_or_atom', 'variable'],
     keywords: {
@@ -58,12 +58,6 @@ hljs.LANGUAGES.erlang_repl = {
       className: 'constant',
       begin: '\\?(::)?([A-Z]\\w*(::)?)+',
       end: hljs.IMMEDIATE_RE
-    },
-    {
-      className: 'module_attributes',
-      begin: '^-[a-z][a-zA-Z0-9_]*',
-      end: hljs.IMMEDIATE_RE,
-      relevance: 1
     },
     {
       className: 'arrow',

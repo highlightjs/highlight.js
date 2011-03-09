@@ -292,7 +292,7 @@ C++ ("cpp"):
   comment          комментарий
   preprocessor     директива препроцессора
   stl_container    инстанцирование STL-контейнеров ("vector<...>")
-  
+
 Objective C ("objectivec"):
   keyword          ключевое слово языка
   built_in         константы и названия классов Cocoa/Cocoa Touch
@@ -300,7 +300,17 @@ Objective C ("objectivec"):
   string           строка
   comment          комментарий
   preprocessor     директива препроцессора
-  class            объявление/имплементация класса, протокол, 
+  class            объявление/имплементация класса, протокол,
+
+Vala ("vala"):
+
+  keyword          ключевое слово языка
+  number           число
+  string           строка
+  comment          комментарий
+  class            заголовок класса
+  title            имя класса в заголовке
+  constant         константа из заглавных буква (ALL_UPPER_CASE)
 
 C# ("cs"):
 
@@ -502,6 +512,17 @@ Haskell ("haskell"):
   class            идентификатор с заглавной буквы (соглашение Haskell о классах)
   title            название функции
   label            название класса
+
+Erlang ("erlang"):
+  comment          комментарий
+  string           строка
+  number           число
+  keyword          ключевые слова языка
+  record_name      обращение к записи (#record_name)
+  title            имя объявляемой функции
+  variable         переменная (с заглавной буквы или с _)
+  pp.keywords      аттрибуты модуля (-attribute)
+  function_name    atom или atom:atom при вызове функции
 
 ## Эвристика
 

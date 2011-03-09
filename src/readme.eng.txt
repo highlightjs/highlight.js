@@ -289,12 +289,22 @@ C++ ("cpp"):
 
 Objective C ("objectivec"):
   keyword          keyword
-  built_in         Cocoa/Cocoa Touch constants and classes 
+  built_in         Cocoa/Cocoa Touch constants and classes
   number           number
   string           string
   comment          comment
   preprocessor     preprocessor directive
-  class            interface/implementation, protocol and forward class declaration      
+  class            interface/implementation, protocol and forward class declaration
+
+Vala ("vala"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  class            class definitions
+  title            in class definition
+  constant         ALL_UPPER_CASE
 
 C# ("cs"):
 
@@ -496,6 +506,18 @@ Haskell ("haskell"):
   class            Anything starting with a capital letter (haskell standard for classes)
   title            function name
   label            class name
+
+Erlang ("erlang"):
+  comment          comment
+  string           string
+  number           number
+  keyword          keyword
+  record_name      record access (#record_name)
+  title            name of declaration function
+  variable         variable (starts with capital letter or with _)
+  pp.keywords      module's attribute (-attribute)
+  function_name    atom or atom:atom in case of function call
+
 
 ## Heuristics
 
