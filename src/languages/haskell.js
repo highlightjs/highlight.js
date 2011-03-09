@@ -8,7 +8,7 @@ hljs.LANGUAGES.haskell = {
     lexems: '[a-zA-Z-\\+\\*/\\\\><\\:=\\$\\|][a-zA-Z-\\+\\*/\\\\><\\:=\\$\\|]*',
     contains: ['comment', 'string', 'import', 'module', 'class', 'number', 'shebang', 'label', 'title'],
     keywords: {
-      'keyword': {'let': 1,'in': 1,'if': 1,'then': 1,'else': 1,'case': 1,'of': 1,'where': 1,'do': 1,'module': 1,'import': 1, 'hiding': 1,'qualified': 1,'type': 1,'data': 1,'deriving': 1,'class': 1,'instance': 1,'null': 1,'not': 1,'as': 1},
+      'keyword': {'let': 1,'in': 1,'if': 1,'then': 1,'else': 1,'case': 1,'of': 1,'where': 1,'do': 1,'module': 1,'import': 1, 'hiding': 1,'qualified': 1,'type': 1,'data': 1,'newtype': 1,'deriving': 1,'class': 1,'instance': 1,'null': 1,'not': 1,'as': 1},
       'built_in': {'Bool': 1,'True': 1,'False': 1,'Int': 1,'Char': 1,'Maybe': 1,'Nothing': 1,'String': 1}
     }
   },
