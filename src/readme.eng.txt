@@ -373,7 +373,7 @@ Lisp ("lisp"):
   list             non-quoted list
   title            first symbol in a non-quoted list
   body             remainder of the non-quoted list
-  quoted_list      quoted list, both "(quote .. )" and "'(..)"
+  quoted           quoted list, both "(quote .. )" and "'(..)"
 
 Ini ("ini"):
 
