@@ -4,9 +4,9 @@ Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 */
 
 hljs.LANGUAGES.php = {
+  case_insensitive: true,
   defaultMode: {
     lexems: hljs.IDENT_RE,
-    contains: ['comment', 'number', 'string', 'variable', 'preprocessor'],
     keywords: {
       'and': 1, 'include_once': 1, 'list': 1, 'abstract': 1, 'global': 1,
       'private': 1, 'echo': 1, 'interface': 1, 'as': 1, 'static': 1,
@@ -22,36 +22,35 @@ hljs.LANGUAGES.php = {
       'require': 1, '__FUNCTION__': 1, 'enddeclare': 1, 'final': 1, 'try': 1,
       'this': 1, 'switch': 1, 'continue': 1, 'endfor': 1, 'endif': 1,
       'declare': 1, 'unset': 1, 'true': 1, 'false': 1, 'namespace': 1
-    }
-  },
-  case_insensitive: true,
-  modes: [
-    hljs.C_LINE_COMMENT_MODE,
-    hljs.HASH_COMMENT_MODE,
-    {
-      className: 'comment',
-      begin: '/\\*', end: '\\*/',
-      contains: [{
-          className: 'phpdoc',
-          begin: '\\s@[A-Za-z]+',
-          relevance: 10
-      }]
     },
-    hljs.C_NUMBER_MODE,
-    hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
-    hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
-    {
-      className: 'variable',
-      begin: '\\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
-    },
-    {
-      className: 'preprocessor',
-      begin: '<\\?php',
-      relevance: 10
-    },
-    {
-      className: 'preprocessor',
-      begin: '\\?>'
-    }
-  ]
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.HASH_COMMENT_MODE,
+      {
+        className: 'comment',
+        begin: '/\\*', end: '\\*/',
+        contains: [{
+            className: 'phpdoc',
+            begin: '\\s@[A-Za-z]+',
+            relevance: 10
+        }]
+      },
+      hljs.C_NUMBER_MODE,
+      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
+      {
+        className: 'variable',
+        begin: '\\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
+      },
+      {
+        className: 'preprocessor',
+        begin: '<\\?php',
+        relevance: 10
+      },
+      {
+        className: 'preprocessor',
+        begin: '\\?>'
+      }
+    ]
+  }
 };
