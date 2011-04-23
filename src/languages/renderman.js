@@ -8,8 +8,6 @@ Contributors: Shuen-Huei Guan <drake.guan@gmail.com>
 hljs.LANGUAGES.rib  = {
   defaultMode: {
     lexems: hljs.UNDERSCORE_IDENT_RE,
-    illegal: '</',
-    contains: ['comment', 'string', 'number'],
     keywords: {
       'keyword': {
             'ArchiveRecord': 1,
@@ -112,22 +110,20 @@ hljs.LANGUAGES.rib  = {
             'WorldBegin': 1,
             'WorldEnd': 1
             }
-    }
-  },
-  modes: [
-    hljs.HASH_COMMENT_MODE,
-    hljs.C_NUMBER_MODE,
-    hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE
-  ]
+    },
+    illegal: '</',
+    contains: [
+      hljs.HASH_COMMENT_MODE,
+      hljs.C_NUMBER_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  }
 };
 
 hljs.LANGUAGES.rsl  = {
   defaultMode: {
     lexems: hljs.UNDERSCORE_IDENT_RE,
-    illegal: '</',
-    contains: ['comment', 'string', 'number', 'preprocessor',
-               'shader', 'shading'],
     keywords: {
       'keyword': {'float': 1, 'color': 1, 'point': 1, 'normal': 1, 'vector': 1,
                   'matrix': 1, 'while': 1, 'for': 1, 'if': 1, 'do': 1,
@@ -209,29 +205,30 @@ hljs.LANGUAGES.rsl  = {
                     'ycomp': 1,
                     'zcomp': 1
                     }
-    }
-  },
-  modes: [
-    {
-      className: 'shader',
-      begin: 'surface |displacement |light |volume |imager ', end: '\\(',
-      lexems: hljs.IDENT_RE,
-      keywords: {'surface': 1, 'displacement': 1, 'light': 1, 'volume': 1, 'imager': 1}
     },
-    {
-      className: 'shading',
-      begin: 'illuminate|illuminance|gather', end: '\\(',
-      lexems: hljs.IDENT_RE,
-      keywords: {'illuminate': 1, 'illuminance': 1, 'gather': 1}
-    },
-    hljs.C_LINE_COMMENT_MODE,
-    hljs.C_BLOCK_COMMENT_MODE,
-    hljs.C_NUMBER_MODE,
-    hljs.QUOTE_STRING_MODE,
-    hljs.APOS_STRING_MODE,
-    {
-      className: 'preprocessor',
-      begin: '#', end: '$'
-    }
-  ]
+    illegal: '</',
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.C_NUMBER_MODE,
+      {
+        className: 'preprocessor',
+        begin: '#', end: '$'
+      },
+      {
+        className: 'shader',
+        begin: 'surface |displacement |light |volume |imager ', end: '\\(',
+        lexems: hljs.IDENT_RE,
+        keywords: {'surface': 1, 'displacement': 1, 'light': 1, 'volume': 1, 'imager': 1}
+      },
+      {
+        className: 'shading',
+        begin: 'illuminate|illuminance|gather', end: '\\(',
+        lexems: hljs.IDENT_RE,
+        keywords: {'illuminate': 1, 'illuminance': 1, 'gather': 1}
+      }
+    ]
+  }
 };
