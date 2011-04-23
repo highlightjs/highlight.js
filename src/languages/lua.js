@@ -3,8 +3,23 @@ Language: Lua
 Author: Andrew Fedorov <dmmdrs@mail.ru>
 */
 
-hljs.LANGUAGES.lua = function(){
-  var OPENING_LONG_BRACKET = '\\[=*\\[', CLOSING_LONG_BRACKET = '\\]=*\\]';
+hljs.LANGUAGES.lua = function() {
+  var OPENING_LONG_BRACKET = '\\[=*\\[';
+  var CLOSING_LONG_BRACKET = '\\]=*\\]';
+  var LONG_BRACKETS = {
+    begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET
+  };
+  LONG_BRACKETS.contains = [LONG_BRACKETS];
+  var COMMENT1 = {
+    className: 'comment',
+    begin: '--(?!' + OPENING_LONG_BRACKET + ')', end: '$'
+  };
+  var COMMENT2 = {
+    className: 'comment',
+    begin: '--' + OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
+    contains: [LONG_BRACKETS],
+    relevance: 10
+  };
   return {
     defaultMode: {
       lexems: hljs.UNDERSCORE_IDENT_RE,
@@ -26,57 +41,36 @@ hljs.LANGUAGES.lua = function(){
           'string': 1, 'table': 1
         }
       },
-      contains: ['comment', 'function', 'number', 'string']
-    },
-    modes: [
-      // comment
-      {
-        className: 'comment',
-        begin: '--(?!' + OPENING_LONG_BRACKET + ')', end: '$'
-      },
-      {
-        className: 'comment',
-        begin: '--' + OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
-        contains: ['long_brackets'],
-        relevance: 10
-      },
-      // long_brackets
-      {
-        className: 'long_brackets',
-        begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
-        contains: ['long_brackets'],
-        noMarkup: true
-      },
-      // function
-      {
-        className: 'function',
-        begin: '\\bfunction\\b', end: '\\)',
-        lexems: hljs.UNDERSCORE_IDENT_RE,
-        keywords: {'function': 1},
-        contains: [
-          {
-            className: 'title',
-            begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'
-          },
-          {
-            className: 'params',
-            begin: '\\(', endsWithParent: true,
-            contains: ['comment']
-          },
-          'comment'
-        ]
-      },
-      // number
-      hljs.C_NUMBER_MODE,
-      // string
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE,
-      {
-        className: 'string',
-        begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
-        contains: ['long_brackets'],
-        relevance: 10
-      }
-    ]
+      contains: [
+        COMMENT1, COMMENT2,
+        {
+          className: 'function',
+          begin: '\\bfunction\\b', end: '\\)',
+          lexems: hljs.UNDERSCORE_IDENT_RE,
+          keywords: {'function': 1},
+          contains: [
+            {
+              className: 'title',
+              begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'
+            },
+            {
+              className: 'params',
+              begin: '\\(', endsWithParent: true,
+              contains: [COMMENT1, COMMENT2]
+            },
+            COMMENT1, COMMENT2
+          ]
+        },
+        hljs.C_NUMBER_MODE,
+        hljs.APOS_STRING_MODE,
+        hljs.QUOTE_STRING_MODE,
+        {
+          className: 'string',
+          begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
+          contains: [LONG_BRACKETS],
+          relevance: 10
+        }
+      ]
+    }
   };
 }();
