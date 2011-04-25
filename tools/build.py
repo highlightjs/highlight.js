@@ -16,7 +16,6 @@ REPLACES = {
     'lexems': 'l',
     'contains': 'c',
     'keywords': 'k',
-    'keywordGroups': 'kG',
     'subLanguage': 'sL',
     'modes': 'm',
     'className': 'cN',
@@ -52,6 +51,7 @@ LIBRARY_REPLACES = {
     'lexemsRe': 'lR',
     'sub_modes': 'sm',
     'terminators': 't',
+    'keywordGroups': 'kG',
 }
 
 def compress_content(tools_path, content):
