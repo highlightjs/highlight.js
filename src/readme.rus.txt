@@ -549,7 +549,7 @@ Erlang ("erlang"):
 
 ## Координаты
 
-Версия: 5.14
+Версия: 6.0 beta
 URL:    http://softwaremaniacs.org/soft/highlight/
 Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
 
