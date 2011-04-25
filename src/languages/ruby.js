@@ -104,7 +104,7 @@ hljs.LANGUAGES.ruby = function(){
     keywords: RUBY_KEYWORDS,
     contains: [
       {
-        className: 'ftitle', displayClassName: 'title',
+        className: 'title',
         begin: RUBY_METHOD_RE,
         lexems: RUBY_IDENT_RE,
         keywords: RUBY_KEYWORDS

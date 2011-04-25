@@ -255,7 +255,7 @@ var hljs = new function() {
     }
 
     function startNewMode(mode, lexem) {
-      var markup = mode.noMarkup?'':'<span class="' + mode.displayClassName + '">';
+      var markup = mode.className?'<span class="' + mode.className + '">':'';
       if (mode.returnBegin) {
         result += markup;
         mode.buffer = '';
@@ -286,7 +286,7 @@ var hljs = new function() {
 
       var end_level = endOfMode(modes.length - 1, lexem);
       if (end_level) {
-        var markup = current_mode.noMarkup?'':'</span>';
+        var markup = current_mode.className?'</span>':'';
         if (current_mode.returnEnd) {
           result += processBuffer(current_mode.buffer + buffer, current_mode) + markup;
         } else if (current_mode.excludeEnd) {
@@ -295,7 +295,7 @@ var hljs = new function() {
           result += processBuffer(current_mode.buffer + buffer + lexem, current_mode) + markup;
         }
         while (end_level > 1) {
-          markup = modes[modes.length - 2].noMarkup?'':'</span>';
+          markup = modes[modes.length - 2].className?'</span>':'';
           result += markup;
           end_level--;
           modes.length--;
@@ -372,10 +372,6 @@ var hljs = new function() {
         mode.lexemsRe = langRe(language, mode.lexems, true);
       if (mode.relevance == undefined)
         mode.relevance = 1;
-      if (!mode.displayClassName)
-        mode.displayClassName = mode.className;
-      if (!mode.className)
-        mode.noMarkup = true;
       for (var key in mode.keywords) {
         if (!mode.keywords.hasOwnProperty(key))
           continue;
