@@ -104,8 +104,9 @@ pre .doctype {
   color: #7F9F7F;
 }
 
-pre .html .css,
-pre .html .javascript,
+pre .xml .css,
+pre .xml .javascript,
+pre .xml .vbscript,
 pre .tex .formula {
   opacity: 0.5;
 }

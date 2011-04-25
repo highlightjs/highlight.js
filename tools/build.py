@@ -16,6 +16,7 @@ REPLACES = {
     'lexems': 'l',
     'contains': 'c',
     'keywords': 'k',
+    'subLanguage': 'sL',
     'modes': 'm',
     'className': 'cN',
     'begin': 'b',
@@ -28,7 +29,6 @@ REPLACES = {
     'returnEnd': 'rE',
     'noMarkup': 'nM',
     'relevance': 'r',
-    'IMMEDIATE_RE': 'IMR',
     'IDENT_RE': 'IR',
     'UNDERSCORE_IDENT_RE': 'UIR',
     'NUMBER_RE': 'NR',
@@ -51,6 +51,7 @@ LIBRARY_REPLACES = {
     'lexemsRe': 'lR',
     'sub_modes': 'sm',
     'terminators': 't',
+    'keywordGroups': 'kG',
 }
 
 def compress_content(tools_path, content):

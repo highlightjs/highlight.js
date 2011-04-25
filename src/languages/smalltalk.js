@@ -3,50 +3,55 @@ Language: Smalltalk
 Author: Vladimir Gubarkov <xonixx@gmail.com>
 */
 
-hljs.LANGUAGES.smalltalk = function(){
+hljs.LANGUAGES.smalltalk = function() {
   var VAR_IDENT_RE = '[a-z][a-zA-Z0-9_]*';
+  var CHAR = {
+    className: 'char',
+    begin: '\\$.{1}'
+  };
+  var SYMBOL = {
+    className: 'symbol',
+    begin: '#' + hljs.UNDERSCORE_IDENT_RE
+  };
   return {
     defaultMode: {
       lexems: hljs.UNDERSCORE_IDENT_RE,
-      contains: ['comment', 'string', 'class', 'method',
-                  'number', 'symbol', 'char', 'localvars', 'array'],
-      keywords: {'self': 1, 'super': 1, 'nil': 1, 'true': 1, 'false': 1, 'thisContext': 1} // only 6
-    },
-    modes: [
-      {
-        className: 'class',
-        begin: '\\b[A-Z][A-Za-z0-9_]*', end: hljs.IMMEDIATE_RE,
-        relevance: 0
-      },
-      {
-        className: 'symbol',
-        begin: '#' + hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
-      },
-      hljs.C_NUMBER_MODE,
-      hljs.APOS_STRING_MODE,
-      {
-        className: 'comment',
-        begin: '"', end: '"',
-        relevance: 0
-      },
-      {
-        className: 'method',
-        begin: VAR_IDENT_RE + ':', end:hljs.IMMEDIATE_RE
-      },
-      {
-        className: 'char',
-        begin: '\\$.{1}', end: hljs.IMMEDIATE_RE
-      },
-      {
-        className: 'localvars',
-        begin: '\\|\\s*((' + VAR_IDENT_RE + ')\\s*)+\\|', end: hljs.IMMEDIATE_RE,
-        relevance: 10
-      },
-      {
-        className: 'array',
-        begin: '\\#\\(', end: '\\)',
-        contains: ['string', 'char', 'number', 'symbol']
-      }
-    ]
+      keywords: {'self': 1, 'super': 1, 'nil': 1, 'true': 1, 'false': 1, 'thisContext': 1}, // only 6
+      contains: [
+        {
+          className: 'comment',
+          begin: '"', end: '"',
+          relevance: 0
+        },
+        hljs.APOS_STRING_MODE,
+        {
+          className: 'class',
+          begin: '\\b[A-Z][A-Za-z0-9_]*',
+          relevance: 0
+        },
+        {
+          className: 'method',
+          begin: VAR_IDENT_RE + ':'
+        },
+        hljs.C_NUMBER_MODE,
+        SYMBOL,
+        CHAR,
+        {
+          className: 'localvars',
+          begin: '\\|\\s*((' + VAR_IDENT_RE + ')\\s*)+\\|',
+          relevance: 10
+        },
+        {
+          className: 'array',
+          begin: '\\#\\(', end: '\\)',
+          contains: [
+            hljs.APOS_STRING_MODE,
+            CHAR,
+            hljs.C_NUMBER_MODE,
+            SYMBOL
+          ]
+        }
+      ]
+    }
   };
 }();

@@ -30,35 +30,35 @@ hljs.LANGUAGES.cpp = function(){
       'array': 1, 'shared_ptr': 1
     }
   };
+  var STL_CONTAINER = {
+    className: 'stl_container',
+    begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
+    lexems: hljs.UNDERSCORE_IDENT_RE,
+    keywords: CPP_KEYWORDS['built_in'],
+    relevance: 10
+  };
+  STL_CONTAINER.contains = [STL_CONTAINER];
   return {
     defaultMode: {
       lexems: hljs.UNDERSCORE_IDENT_RE,
+      keywords: CPP_KEYWORDS,
       illegal: '</',
-      contains: ['comment', 'string', 'number', 'preprocessor', 'stl_container'],
-      keywords: CPP_KEYWORDS
-    },
-    modes: [
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.C_NUMBER_MODE,
-      hljs.QUOTE_STRING_MODE,
-      {
-        className: 'string',
-        begin: '\'', end: '[^\\\\]\'',
-        illegal: '[^\\\\][^\']'
-      },
-      {
-        className: 'preprocessor',
-        begin: '#', end: '$'
-      },
-      {
-        className: 'stl_container',
-        begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
-        contains: ['stl_container'],
-        lexems: hljs.UNDERSCORE_IDENT_RE,
-        keywords: CPP_KEYWORDS['built_in'],
-        relevance: 10
-      }
-    ]
+      contains: [
+        hljs.C_LINE_COMMENT_MODE,
+        hljs.C_BLOCK_COMMENT_MODE,
+        hljs.QUOTE_STRING_MODE,
+        {
+          className: 'string',
+          begin: '\'', end: '[^\\\\]\'',
+          illegal: '[^\\\\][^\']'
+        },
+        hljs.C_NUMBER_MODE,
+        {
+          className: 'preprocessor',
+          begin: '#', end: '$'
+        },
+        STL_CONTAINER
+      ]
+    }
   };
 }();

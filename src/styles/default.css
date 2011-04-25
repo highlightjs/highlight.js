@@ -85,6 +85,7 @@ pre .erlang_repl .reserved {
   color: #88F;
 }
 
+pre .css .tag,
 pre .javadoctag,
 pre .phpdoc,
 pre .yardoctag {
@@ -109,9 +110,9 @@ pre .nginx .built_in {
   font-weight: normal;
 }
 
-pre .html .css,
-pre .html .javascript,
-pre .html .vbscript,
+pre .xml .css,
+pre .xml .javascript,
+pre .xml .vbscript,
 pre .tex .formula {
   opacity: 0.5;
 }

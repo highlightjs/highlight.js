@@ -80,7 +80,8 @@ pre .variable {
   color: #3E87E3;
 }
 
-pre .css .keyword,
+pre .css .tag,
+pre .rules .property,
 pre .pseudo,
 pre .tex .special {
   color: #CDA869;

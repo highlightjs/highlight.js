@@ -4,12 +4,6 @@ http://softwaremaniacs.org/soft/highlight/
 */
 
 var hljs = new function() {
-  var LANGUAGES = {}
-  // selected_languages is used to support legacy mode of selecting languages
-  // available for highlighting by passing them as arguments into
-  // initHighlighting function. Currently the whole library is expected to
-  // contain only those language definitions that are actually get used.
-  var selected_languages = {};
 
   /* Utility functions */
 
@@ -55,7 +49,7 @@ var hljs = new function() {
     classes = classes.concat(block.parentNode.className.split(/\s+/));
     for (var i = 0; i < classes.length; i++) {
       var class_ = classes[i].replace(/^language-/, '');
-      if (LANGUAGES[class_] || class_ == 'no-highlight') {
+      if (languages[class_] || class_ == 'no-highlight') {
         return class_;
       }
     }
@@ -152,9 +146,9 @@ var hljs = new function() {
   function highlight(language_name, value) {
 
     function subMode(lexem, mode) {
-      for (var i = 0; i < mode.sub_modes.length; i++) {
-        if (mode.sub_modes[i].beginRe.test(lexem)) {
-          return mode.sub_modes[i];
+      for (var i = 0; i < mode.contains.length; i++) {
+        if (mode.contains[i].beginRe.test(lexem)) {
+          return mode.contains[i];
         }
       }
     }
@@ -176,8 +170,8 @@ var hljs = new function() {
     function compileTerminators(mode, language) {
       var terminators = [];
 
-      for (var i = 0; i < mode.sub_modes.length; i++) {
-        terminators.push(mode.sub_modes[i].begin);
+      for (var i = 0; i < mode.contains.length; i++) {
+        terminators.push(mode.contains[i].begin);
       }
 
       var index = modes.length - 1;
@@ -244,7 +238,7 @@ var hljs = new function() {
     }
 
     function processBuffer(buffer, mode) {
-      if (mode.subLanguage && selected_languages[mode.subLanguage]) {
+      if (mode.subLanguage && languages[mode.subLanguage]) {
         var result = highlight(mode.subLanguage, buffer);
         keyword_count += result.keyword_count;
         relevance += result.relevance;
@@ -255,7 +249,7 @@ var hljs = new function() {
     }
 
     function startNewMode(mode, lexem) {
-      var markup = mode.noMarkup?'':'<span class="' + mode.displayClassName + '">';
+      var markup = mode.className?'<span class="' + mode.className + '">':'';
       if (mode.returnBegin) {
         result += markup;
         mode.buffer = '';
@@ -286,7 +280,7 @@ var hljs = new function() {
 
       var end_level = endOfMode(modes.length - 1, lexem);
       if (end_level) {
-        var markup = current_mode.noMarkup?'':'</span>';
+        var markup = current_mode.className?'</span>':'';
         if (current_mode.returnEnd) {
           result += processBuffer(current_mode.buffer + buffer, current_mode) + markup;
         } else if (current_mode.excludeEnd) {
@@ -295,7 +289,7 @@ var hljs = new function() {
           result += processBuffer(current_mode.buffer + buffer + lexem, current_mode) + markup;
         }
         while (end_level > 1) {
-          markup = modes[modes.length - 2].noMarkup?'':'</span>';
+          markup = modes[modes.length - 2].className?'</span>':'';
           result += markup;
           end_level--;
           modes.length--;
@@ -304,12 +298,7 @@ var hljs = new function() {
         modes.length--;
         modes[modes.length - 1].buffer = '';
         if (last_ended_mode.starts) {
-          for (var i = 0; i < language.modes.length; i++) {
-            if (language.modes[i].className == last_ended_mode.starts) {
-              startNewMode(language.modes[i], '');
-              break;
-            }
-          }
+          startNewMode(last_ended_mode.starts, '');
         }
         return current_mode.returnEnd;
       }
@@ -318,7 +307,7 @@ var hljs = new function() {
         throw 'Illegal';
     }
 
-    var language = LANGUAGES[language_name];
+    var language = languages[language_name];
     var modes = [language.defaultMode];
     var relevance = 0;
     var keyword_count = 0;
@@ -360,24 +349,23 @@ var hljs = new function() {
 
   function compileModes() {
 
-    function compileMode(mode, language) {
+    function compileMode(mode, language, is_default) {
       if (mode.compiled)
         return;
 
-      if (mode.begin)
-        mode.beginRe = langRe(language, '^' + mode.begin);
-      if (mode.end)
-        mode.endRe = langRe(language, '^' + mode.end);
+      if (!is_default) {
+        mode.beginRe = langRe(language, mode.begin ? '^' + mode.begin : '\\B|\\b');
+        if (!mode.end && !mode.endsWithParent)
+          mode.end = '\\B|\\b'
+        if (mode.end)
+          mode.endRe = langRe(language, '^' + mode.end);
+      }
       if (mode.illegal)
         mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
       if (mode.lexems)
         mode.lexemsRe = langRe(language, mode.lexems, true);
       if (mode.relevance == undefined)
         mode.relevance = 1;
-      if (!mode.displayClassName)
-        mode.displayClassName = mode.className;
-      if (!mode.className)
-        mode.noMarkup = true;
       for (var key in mode.keywords) {
         if (!mode.keywords.hasOwnProperty(key))
           continue;
@@ -387,35 +375,24 @@ var hljs = new function() {
           mode.keywordGroups = {'keyword': mode.keywords};
         break;
       }
-      mode.sub_modes = [];
-      if (mode.contains) {
-        for (var i = 0; i < mode.contains.length; i++) {
-          if (mode.contains[i] instanceof Object) { // inline mode
-            mode.sub_modes.push(mode.contains[i]);
-          } else { // named mode
-            for (var j = 0; j < language.modes.length; j++) {
-              if (language.modes[j].className == mode.contains[i]) {
-                mode.sub_modes.push(language.modes[j]);
-              }
-            }
-          }
-        }
+      if (!mode.contains) {
+        mode.contains = [];
       }
       // compiled flag is set before compiling submodes to avoid self-recursion
       // (see lisp where quoted_list contains quoted_list)
       mode.compiled = true;
-      for (var i = 0; i < mode.sub_modes.length; i++) {
-        compileMode(mode.sub_modes[i], language);
+      for (var i = 0; i < mode.contains.length; i++) {
+        compileMode(mode.contains[i], language, false);
+      }
+      if (mode.starts) {
+        compileMode(mode.starts, language, false);
       }
     }
 
-    for (var i in LANGUAGES) {
-      if (!LANGUAGES.hasOwnProperty(i))
+    for (var i in languages) {
+      if (!languages.hasOwnProperty(i))
         continue;
-      var modes = [LANGUAGES[i].defaultMode].concat(LANGUAGES[i].modes);
-      for (var j = 0; j < modes.length; j++) {
-        compileMode(modes[j], LANGUAGES[i]);
-      }
+      compileMode(languages[i].defaultMode, languages[i], true);
     }
   }
 
@@ -424,7 +401,6 @@ var hljs = new function() {
         return;
     initialize.called = true;
     compileModes();
-    selected_languages = LANGUAGES;
   }
 
   /* Public library functions */
@@ -441,8 +417,8 @@ var hljs = new function() {
     } else {
       var result = {language: '', keyword_count: 0, relevance: 0, value: escape(text)};
       var second_best = result;
-      for (var key in selected_languages) {
-        if (!selected_languages.hasOwnProperty(key))
+      for (var key in languages) {
+        if (!languages.hasOwnProperty(key))
           continue;
         var current = highlight(key, text);
         if (current.keyword_count + current.relevance > second_best.keyword_count + second_best.relevance) {
@@ -506,13 +482,6 @@ var hljs = new function() {
       return;
     initHighlighting.called = true;
     initialize();
-    if (arguments.length) {
-      for (var i = 0; i < arguments.length; i++) {
-        if (LANGUAGES[arguments[i]]) {
-          selected_languages[arguments[i]] = LANGUAGES[arguments[i]];
-        }
-      }
-    }
     var pres = document.getElementsByTagName('pre');
     for (var i = 0; i < pres.length; i++) {
       var code = findCode(pres[i]);
@@ -533,15 +502,16 @@ var hljs = new function() {
       window.onload = handler;
   }
 
+  var languages = {}; // a shortcut to avoid writing "this." everywhere
+
   /* Interface definition */
 
-  this.LANGUAGES = LANGUAGES;
+  this.LANGUAGES = languages;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;
 
   // Common regexps
-  this.IMMEDIATE_RE = '\\b|\\B'
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
   this.UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
   this.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
@@ -550,7 +520,7 @@ var hljs = new function() {
 
   // Common modes
   this.BACKSLASH_ESCAPE = {
-    begin: '\\\\.', end: this.IMMEDIATE_RE, relevance: 0
+    begin: '\\\\.', relevance: 0
   };
   this.APOS_STRING_MODE = {
     className: 'string',
@@ -581,12 +551,12 @@ var hljs = new function() {
   };
   this.NUMBER_MODE = {
     className: 'number',
-    begin: this.NUMBER_RE, end: this.IMMEDIATE_RE,
+    begin: this.NUMBER_RE,
     relevance: 0
   };
   this.C_NUMBER_MODE = {
     className: 'number',
-    begin: this.C_NUMBER_RE, end: this.IMMEDIATE_RE,
+    begin: this.C_NUMBER_RE,
     relevance: 0
   };
 

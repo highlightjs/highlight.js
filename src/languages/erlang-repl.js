@@ -6,10 +6,6 @@
 hljs.LANGUAGES.erlang_repl = {
   defaultMode: {
     lexems: hljs.UNDERSCORE_IDENT_RE,
-    contains: [
-      'input_number', 'comment', 'number', 'string',
-      'statement', 'constant', 'special_functions',
-      'arrow', 'ok', 'exclamation_mark', 'function_or_atom', 'variable'],
     keywords: {
       'special_functions':{
         'spawn':10,
@@ -46,57 +42,40 @@ hljs.LANGUAGES.erlang_repl = {
         'when':1,
         'xor':1
       }
-    }
-  },
-  modes: [
-    {
-      className: 'comment',
-      begin: '%',
-      end: '$'
     },
-    {
-      className: 'constant',
-      begin: '\\?(::)?([A-Z]\\w*(::)?)+',
-      end: hljs.IMMEDIATE_RE
-    },
-    {
-      className: 'arrow',
-      begin: '->',
-      end: hljs.IMMEDIATE_RE,
-      relevance: 1
-    },
-    {
-      className: 'exclamation_mark',
-      begin: '!',
-      end: hljs.IMMEDIATE_RE,
-      relevance: 1
-    },
-    {
-      className: 'function_or_atom',
-      begin: '(\\b[a-z\'][a-zA-Z0-9_\']*:[a-z\'][a-zA-Z0-9_\']*)|(\\b[a-z\'][a-zA-Z0-9_\']*)',
-      end: hljs.IMMEDIATE_RE,
-      relevance: 0
-    },
-    {
-      className: 'variable',
-      begin: '[A-Z][a-zA-Z0-9_\']*',
-      end: hljs.IMMEDIATE_RE,
-      relevance: 0
-    },
-    {
-      className: 'ok',
-      begin: 'ok',
-      end: hljs.IMMEDIATE_RE,
-      relevance: 1
-    },
-    {
-      className: 'input_number',
-      begin: '^[0-9]+>',
-      end: hljs.IMMEDIATE_RE,
-      relevance: 1
-    },
-    hljs.NUMBER_MODE,
-    hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE
-  ]
+    contains: [
+      {
+        className: 'input_number', begin: '^[0-9]+>'
+      },
+      {
+        className: 'comment',
+        begin: '%', end: '$'
+      },
+      hljs.NUMBER_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'constant', begin: '\\?(::)?([A-Z]\\w*(::)?)+'
+      },
+      {
+        className: 'arrow', begin: '->'
+      },
+      {
+        className: 'ok', begin: 'ok'
+      },
+      {
+        className: 'exclamation_mark', begin: '!'
+      },
+      {
+        className: 'function_or_atom',
+        begin: '(\\b[a-z\'][a-zA-Z0-9_\']*:[a-z\'][a-zA-Z0-9_\']*)|(\\b[a-z\'][a-zA-Z0-9_\']*)',
+        relevance: 0
+      },
+      {
+        className: 'variable',
+        begin: '[A-Z][a-zA-Z0-9_\']*',
+        relevance: 0
+      }
+    ]
+  }
 };
