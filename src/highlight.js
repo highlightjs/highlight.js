@@ -4,12 +4,6 @@ http://softwaremaniacs.org/soft/highlight/
 */
 
 var hljs = new function() {
-  var LANGUAGES = {}
-  // selected_languages is used to support legacy mode of selecting languages
-  // available for highlighting by passing them as arguments into
-  // initHighlighting function. Currently the whole library is expected to
-  // contain only those language definitions that are actually get used.
-  var selected_languages = {};
 
   /* Utility functions */
 
@@ -55,7 +49,7 @@ var hljs = new function() {
     classes = classes.concat(block.parentNode.className.split(/\s+/));
     for (var i = 0; i < classes.length; i++) {
       var class_ = classes[i].replace(/^language-/, '');
-      if (LANGUAGES[class_] || class_ == 'no-highlight') {
+      if (languages[class_] || class_ == 'no-highlight') {
         return class_;
       }
     }
@@ -244,7 +238,7 @@ var hljs = new function() {
     }
 
     function processBuffer(buffer, mode) {
-      if (mode.subLanguage && selected_languages[mode.subLanguage]) {
+      if (mode.subLanguage && languages[mode.subLanguage]) {
         var result = highlight(mode.subLanguage, buffer);
         keyword_count += result.keyword_count;
         relevance += result.relevance;
@@ -313,7 +307,7 @@ var hljs = new function() {
         throw 'Illegal';
     }
 
-    var language = LANGUAGES[language_name];
+    var language = languages[language_name];
     var modes = [language.defaultMode];
     var relevance = 0;
     var keyword_count = 0;
@@ -395,10 +389,10 @@ var hljs = new function() {
       }
     }
 
-    for (var i in LANGUAGES) {
-      if (!LANGUAGES.hasOwnProperty(i))
+    for (var i in languages) {
+      if (!languages.hasOwnProperty(i))
         continue;
-      compileMode(LANGUAGES[i].defaultMode, LANGUAGES[i], true);
+      compileMode(languages[i].defaultMode, languages[i], true);
     }
   }
 
@@ -407,7 +401,6 @@ var hljs = new function() {
         return;
     initialize.called = true;
     compileModes();
-    selected_languages = LANGUAGES;
   }
 
   /* Public library functions */
@@ -424,8 +417,8 @@ var hljs = new function() {
     } else {
       var result = {language: '', keyword_count: 0, relevance: 0, value: escape(text)};
       var second_best = result;
-      for (var key in selected_languages) {
-        if (!selected_languages.hasOwnProperty(key))
+      for (var key in languages) {
+        if (!languages.hasOwnProperty(key))
           continue;
         var current = highlight(key, text);
         if (current.keyword_count + current.relevance > second_best.keyword_count + second_best.relevance) {
@@ -489,13 +482,6 @@ var hljs = new function() {
       return;
     initHighlighting.called = true;
     initialize();
-    if (arguments.length) {
-      for (var i = 0; i < arguments.length; i++) {
-        if (LANGUAGES[arguments[i]]) {
-          selected_languages[arguments[i]] = LANGUAGES[arguments[i]];
-        }
-      }
-    }
     var pres = document.getElementsByTagName('pre');
     for (var i = 0; i < pres.length; i++) {
       var code = findCode(pres[i]);
@@ -516,9 +502,11 @@ var hljs = new function() {
       window.onload = handler;
   }
 
+  var languages = {}; // a shortcut to avoid writing "this." everywhere
+
   /* Interface definition */
 
-  this.LANGUAGES = LANGUAGES;
+  this.LANGUAGES = languages;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;
