@@ -16,6 +16,8 @@ REPLACES = {
     'lexems': 'l',
     'contains': 'c',
     'keywords': 'k',
+    'keywordGroups': 'kG',
+    'subLanguage': 'sL',
     'modes': 'm',
     'className': 'cN',
     'begin': 'b',
