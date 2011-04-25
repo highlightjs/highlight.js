@@ -46,22 +46,22 @@ hljs.LANGUAGES.django = function() {
   var DJANGO_CONTAINS = [
     {
       className: 'template_comment',
-      begin: '\\{\\%\\s*comment\\s*\\%\\}', end: '\\{\\%\\s*endcomment\\s*\\%\\}'
+      begin: '{%\\s*comment\\s*%}', end: '{%\\s*endcomment\\s*%}'
     },
     {
       className: 'template_comment',
-      begin: '\\{#', end: '#\\}'
+      begin: '{#', end: '#}'
     },
     {
       className: 'template_tag',
-      begin: '\\{\\%', end: '\\%\\}',
+      begin: '{%', end: '%}',
       lexems: hljs.IDENT_RE,
       keywords: {'comment': 1, 'endcomment': 1, 'load': 1, 'templatetag': 1, 'ifchanged': 1, 'endifchanged': 1, 'if': 1, 'endif': 1, 'firstof': 1, 'for': 1, 'endfor': 1, 'in': 1, 'ifnotequal': 1, 'endifnotequal': 1, 'widthratio': 1, 'extends': 1, 'include': 1, 'spaceless': 1, 'endspaceless': 1, 'regroup': 1, 'by': 1, 'as': 1, 'ifequal': 1, 'endifequal': 1, 'ssi': 1, 'now': 1, 'with': 1, 'cycle': 1, 'url': 1, 'filter': 1, 'endfilter': 1, 'debug': 1, 'block': 1, 'endblock': 1, 'else': 1},
       contains: [FILTER]
     },
     {
       className: 'variable',
-      begin: '\\{\\{', end: '\\}\\}',
+      begin: '{{', end: '}}',
       contains: [FILTER]
     }
   ];
