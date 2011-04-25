@@ -13,6 +13,20 @@ hljs.LANGUAGES.xml = function(){
         relevance: 0
       },
       {
+        begin: '=',
+        contains: [
+          {
+            className: 'value', begin: '"', end: '"'
+          },
+          {
+            className: 'value', begin: '\'', end: '\''
+          },
+          {
+            className: 'value', begin: '[^\\s/>]+'
+          }
+        ]
+      }
+      /*{
         begin: '="', returnBegin: true, end: '"',
         contains: [{
             className: 'value',
@@ -32,7 +46,7 @@ hljs.LANGUAGES.xml = function(){
           className: 'value',
           begin: '[^\\s/>]+'
         }]
-      }
+      }*/
     ]
   };
   return {
