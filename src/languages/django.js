@@ -1,6 +1,6 @@
 /*
 Language: Django
-Requires: html-xml.js
+Requires: xml.js
 */
 
 hljs.LANGUAGES.django = function() {

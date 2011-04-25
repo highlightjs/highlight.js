@@ -1,6 +1,6 @@
 /*
 Language: Parser3
-Requires: html-xml.js
+Requires: xml.js
 Author: Oleg Volchkov <oleg@volchkov.net>
 */
 
