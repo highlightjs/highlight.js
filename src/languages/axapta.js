@@ -40,11 +40,6 @@ hljs.LANGUAGES.axapta  = {
             begin: hljs.UNDERSCORE_IDENT_RE
           }
         ]
-      },
-      {
-        className: 'params',
-        begin: '\\(', end: '\\)',
-        contains: [hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,]
       }
     ]
   }
