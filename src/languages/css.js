@@ -66,25 +66,24 @@ hljs.LANGUAGES.css = function() {
                   className: 'attribute',
                   begin: '[A-Z\\_\\.\\-]+', end: ':',
                   excludeEnd: true,
-                  illegal: '[^\\s]'
-                },
-                {
-                  className: 'value',
-                  begin: '\\s*', endsWithParent: true,
-                  excludeBegin: true, excludeEnd: true,
-                  contains: [
-                    FUNCTION,
-                    hljs.NUMBER_MODE,
-                    hljs.QUOTE_STRING_MODE,
-                    hljs.APOS_STRING_MODE,
-                    hljs.C_BLOCK_COMMENT_MODE,
-                    {
-                      className: 'hexcolor', begin: '\\#[0-9A-F]+'
-                    },
-                    {
-                      className: 'important', begin: '!important'
-                    }
-                  ]
+                  illegal: '[^\\s]',
+                  starts: {
+                    className: 'value',
+                    endsWithParent: true, excludeEnd: true,
+                    contains: [
+                      FUNCTION,
+                      hljs.NUMBER_MODE,
+                      hljs.QUOTE_STRING_MODE,
+                      hljs.APOS_STRING_MODE,
+                      hljs.C_BLOCK_COMMENT_MODE,
+                      {
+                        className: 'hexcolor', begin: '\\#[0-9A-F]+'
+                      },
+                      {
+                        className: 'important', begin: '!important'
+                      }
+                    ]
+                  }
                 }
               ]
             }
