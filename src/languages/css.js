@@ -42,15 +42,15 @@ hljs.LANGUAGES.css = function() {
           relevance: 0
         },
         {
-          className: 'tag', begin: hljs.IDENT_RE,
-          relevance: 0
-        },
-        {
           className: 'attr_selector',
           begin: '\\[', end: '\\]',
           illegal: '$'
         },
         PSEUDO,
+        {
+          className: 'tag', begin: hljs.IDENT_RE,
+          relevance: 0
+        },
         {
           className: 'rules',
           begin: '{', end: '}',
