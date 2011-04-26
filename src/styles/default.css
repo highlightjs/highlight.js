@@ -81,8 +81,9 @@ pre .shebang,
 pre .apache .sqbracket,
 pre .nginx .built_in,
 pre .tex .formula,
-pre .erlang_repl .reserved {
-  color: #88F;
+pre .erlang_repl .reserved,
+pre .input_number {
+  color: #88F
 }
 
 pre .css .tag,

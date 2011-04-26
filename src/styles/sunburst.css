@@ -54,7 +54,8 @@ pre .tag,
 pre .tag .keyword,
 pre .decorator,
 pre .ini .title,
-pre .shebang {
+pre .shebang,
+pre .input_number {
   color: #89BDFF;
 }
 

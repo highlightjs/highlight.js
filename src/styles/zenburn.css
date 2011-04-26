@@ -62,7 +62,8 @@ pre .diff .header,
 pre .ruby .class .parent,
 pre .apache .tag,
 pre .nginx .built_in,
-pre .tex .command {
+pre .tex .command,
+pre .input_number {
     color: #efef8f;
 }
 

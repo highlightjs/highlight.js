@@ -31,7 +31,8 @@ pre .doctype,
 pre .pi,
 pre .chunk,
 pre .shebang,
-pre .apache .cbracket {
+pre .apache .cbracket,
+pre .input_number {
   color: #808000;
 }
 
