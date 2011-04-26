@@ -356,14 +356,14 @@ var hljs = new function() {
         return;
 
       if (!is_default) {
-        mode.beginRe = langRe(language, mode.begin ? '^' + mode.begin : '\\B|\\b');
+        mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
           mode.end = '\\B|\\b'
         if (mode.end)
-          mode.endRe = langRe(language, '^' + mode.end);
+          mode.endRe = langRe(language, mode.end);
       }
       if (mode.illegal)
-        mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
+        mode.illegalRe = langRe(language, mode.illegal);
       if (mode.lexems)
         mode.lexemsRe = langRe(language, mode.lexems, true);
       if (mode.relevance == undefined)
