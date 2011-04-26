@@ -35,14 +35,14 @@ hljs.LANGUAGES.css = function() {
           ]
         },
         {
-          className: 'tag', begin: hljs.IDENT_RE,
-          relevance: 0
-        },
-        {
           className: 'id', begin: '\\#[A-Za-z0-9_-]+'
         },
         {
           className: 'class', begin: '\\.[A-Za-z0-9_-]+',
+          relevance: 0
+        },
+        {
+          className: 'tag', begin: hljs.IDENT_RE,
           relevance: 0
         },
         {
