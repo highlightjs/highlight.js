@@ -12,10 +12,9 @@ var hljs = new function() {
   }
 
   function langRe(language, value, global) {
-    var mode = 'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '');
     return RegExp(
       value,
-      mode
+      'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
     );
   }
 
