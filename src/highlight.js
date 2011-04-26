@@ -95,8 +95,24 @@ var hljs = new function() {
       if (stream1.length && stream2.length) {
         if (stream1[0].offset != stream2[0].offset)
           return (stream1[0].offset < stream2[0].offset) ? stream1 : stream2;
-        else
-          return (stream1[0].event == 'start' && stream2[0].event == 'stop') ? stream2 : stream1;
+        else {
+          /*
+          To avoid starting the stream just before it should stop the order is
+          ensured that stream1 always starts first and closes last:
+
+          if (event1 == 'start' && event2 == 'start')
+            return stream1;
+          if (event1 == 'start' && event2 == 'stop')
+            return stream2;
+          if (event1 == 'stop' && event2 == 'start')
+            return stream1;
+          if (event1 == 'stop' && event2 == 'stop')
+            return stream2;
+
+          ... which is collapsed to:
+          */
+          return stream2[0].event == 'start' ? stream1 : stream2;
+        }
       } else {
         return stream1.length ? stream1 : stream2;
       }
