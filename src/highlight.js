@@ -12,13 +12,16 @@ var hljs = new function() {
   }
 
   function langRe(language, value, global) {
-    var mode =  'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '');
-    return new RegExp(value, mode);
+    var mode = 'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '');
+    return RegExp(
+      value,
+      mode
+    );
   }
 
   function findCode(pre) {
     for (var i = 0; i < pre.childNodes.length; i++) {
-      node = pre.childNodes[i];
+      var node = pre.childNodes[i];
       if (node.nodeName == 'CODE')
         return node;
       if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
