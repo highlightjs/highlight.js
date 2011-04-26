@@ -34,7 +34,7 @@ hljs.LANGUAGES.erlang = function(){
         'rem': 1,
         'try': 1,
         'when': 1,
-        'xor': 1,
+        'xor': 1
     },
     'literal': {'false': 1, 'true': 1}
   };

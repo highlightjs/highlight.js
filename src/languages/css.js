@@ -39,7 +39,7 @@ hljs.LANGUAGES.css = function() {
           relevance: 0
         },
         {
-          className: 'id', begin: '\\#[A-Za-z0-9_-]+',
+          className: 'id', begin: '\\#[A-Za-z0-9_-]+'
         },
         {
           className: 'class', begin: '\\.[A-Za-z0-9_-]+',
@@ -66,7 +66,7 @@ hljs.LANGUAGES.css = function() {
                   className: 'attribute',
                   begin: '[A-Z\\_\\.\\-]+', end: ':',
                   excludeEnd: true,
-                  illegal: '[^\\s]',
+                  illegal: '[^\\s]'
                 },
                 {
                   className: 'value',

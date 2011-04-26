@@ -113,7 +113,7 @@ hljs.LANGUAGES.ruby = function(){
         className: 'params',
         begin: '\\(', end: '\\)',
         lexems: RUBY_IDENT_RE,
-        keywords: RUBY_KEYWORDS,
+        keywords: RUBY_KEYWORDS
       },
       COMMENT1, COMMENT2, COMMENT3
     ]
