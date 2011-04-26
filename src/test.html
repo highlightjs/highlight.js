@@ -1449,6 +1449,10 @@ ok
     var failed = [];
     for (var i = 0; i < tds.length; i++) {
       var tdClass = tds[i].className;
+      if (!hljs.LANGUAGES.hasOwnProperty(tdClass)) {
+        tds[i].parentNode.style.display = 'none';
+        continue;
+      }
       var code = tds[i].getElementsByTagName('CODE')[0];
       var passed = tdClass == code.className;
       var result = document.createElement('P');
