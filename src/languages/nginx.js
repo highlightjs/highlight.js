@@ -162,6 +162,7 @@ hljs.LANGUAGES.nginx = function() {
                   '/dev/poll': 1
                 }
               },
+              relevance: 0,
               contains: [
                 hljs.HASH_COMMENT_MODE,
                 {
