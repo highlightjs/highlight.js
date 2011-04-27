@@ -53,18 +53,21 @@ hljs.LANGUAGES.erlang = function(){
     relevance: 0,
     contains: [
       {
-        className: 'function_name', begin: FUNCTION_NAME_RE
+        className: 'function_name', begin: FUNCTION_NAME_RE,
+        relevance: 0
       },
       {
         begin: '\\(', end: '\\)', endsWithParent: true,
-        returnEnd: true
+        returnEnd: true,
+        relevance: 0
         // "contains" defined later
       }
     ]
   };
   var TUPLE = {
     className: 'tuple',
-    begin: '{', end: '}'
+    begin: '{', end: '}',
+    relevance: 0
     // "contains" defined later
   };
   var VAR1 = {

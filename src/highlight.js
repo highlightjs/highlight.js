@@ -556,8 +556,7 @@ var hljs = new function() {
   };
   this.C_LINE_COMMENT_MODE = {
     className: 'comment',
-    begin: '//', end: '$',
-    relevance: 0
+    begin: '//', end: '$'
   };
   this.C_BLOCK_COMMENT_MODE = {
     className: 'comment',
