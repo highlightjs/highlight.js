@@ -18,7 +18,7 @@ hljs.LANGUAGES.css = function() {
   return {
     case_insensitive: true,
     defaultMode: {
-      illegal: '=',
+      illegal: '=|/|\'',
       contains: [
         hljs.C_BLOCK_COMMENT_MODE,
         {
