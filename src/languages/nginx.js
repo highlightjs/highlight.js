@@ -14,8 +14,7 @@ hljs.LANGUAGES.nginx = function() {
   };
   var VAR3 = {
     className: 'variable',
-    begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE,
-    relevance: 0
+    begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE
   };
 
   return {

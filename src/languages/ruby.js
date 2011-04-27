@@ -160,7 +160,8 @@ hljs.LANGUAGES.ruby = function(){
     {
       className: 'symbol',
       begin: ':',
-      contains: [STR1, STR2, STR3, STR4, STR5, STR6, STR7, STR8, STR9, STR10, IDENTIFIER]
+      contains: [STR1, STR2, STR3, STR4, STR5, STR6, STR7, STR8, STR9, STR10, IDENTIFIER],
+      relevance: 0
     },
     {
       className: 'number',
