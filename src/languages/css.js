@@ -11,10 +11,6 @@ hljs.LANGUAGES.css = function() {
         contains: [hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
     }]
   };
-  var PSEUDO = {
-    className: 'pseudo',
-    begin: ':(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
-  };
   return {
     case_insensitive: true,
     defaultMode: {
@@ -33,7 +29,10 @@ hljs.LANGUAGES.css = function() {
           begin: '\\[', end: '\\]',
           illegal: '$'
         },
-        PSEUDO,
+        {
+          className: 'pseudo',
+          begin: ':(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
+        },
         {
           className: 'at_rule',
           begin: '@font-face',
