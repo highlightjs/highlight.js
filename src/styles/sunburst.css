@@ -60,6 +60,7 @@ pre .input_number {
 }
 
 pre .class .title,
+pre .haskell .label,
 pre .smalltalk .class,
 pre .javadoctag,
 pre .yardoctag,

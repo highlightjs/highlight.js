@@ -504,9 +504,9 @@ Haskell ("haskell"):
   number           number
   string           string
   comment          comment
-  class            Anything starting with a capital letter (haskell standard for classes)
+  class            type classes and other data types
   title            function name
-  label            class name
+  label            type class name
 
 Erlang ("erlang"):
   comment          comment

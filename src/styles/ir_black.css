@@ -56,6 +56,7 @@ pre .tex .special {
 }
 
 pre .class .title,
+pre .haskell .label,
 pre .constant,
 pre .smalltalk .class,
 pre .javadoctag,
