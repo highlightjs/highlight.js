@@ -53,6 +53,7 @@ pre .subst {
 }
 
 pre .class .title,
+pre .haskell .label,
 pre .tex .command {
   color: #458;
   font-weight: bold
