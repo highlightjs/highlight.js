@@ -52,9 +52,9 @@ hljs.LANGUAGES.haskell = function(){
         },
         {
           className: 'class',
-          begin: '\\b(class|instance)', end: 'where',
+          begin: '\\b(class|instance|data|(new)?type)', end: '(where|$)',
           lexems: hljs.UNDERSCORE_IDENT_RE,
-          keywords: {'class': 1, 'where': 1, 'instance': 1},
+          keywords: {'class': 1, 'where': 1, 'instance': 1,'data': 1,'type': 1,'newtype': 1, 'deriving': 1},
           contains: [LABEL]
         },
         hljs.C_NUMBER_MODE,
