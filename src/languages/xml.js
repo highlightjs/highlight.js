@@ -91,7 +91,7 @@ hljs.LANGUAGES.xml = function(){
           begin: '</?', end: '/?>',
           contains: [
             {
-              className: 'title', begin: XML_IDENT_RE
+              className: 'title', begin: '[^ />]+'
             },
             TAG_INTERNALS
           ]
