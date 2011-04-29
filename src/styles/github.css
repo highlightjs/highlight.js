@@ -87,7 +87,8 @@ pre .ruby .symbol .string,
 pre .ruby .symbol .keyword,
 pre .ruby .symbol .keymethods,
 pre .lisp .keyword,
-pre .tex .special {
+pre .tex .special,
+pre .input_number {
   color: #990073
 }
 

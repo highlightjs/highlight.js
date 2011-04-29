@@ -338,7 +338,8 @@ object Maps {
   <tr>
     <th>HTML (with inline css and javascript)
     <td class="xml">
-<pre><code>&lt;head&gt;
+<pre><code>&lt;!DOCTYPE html5&gt;
+&lt;head&gt;
   &lt;title&gt;Title&lt;/title&gt;
 
   &lt;style&gt;
@@ -1449,6 +1450,10 @@ ok
     var failed = [];
     for (var i = 0; i < tds.length; i++) {
       var tdClass = tds[i].className;
+      if (!hljs.LANGUAGES.hasOwnProperty(tdClass)) {
+        tds[i].parentNode.style.display = 'none';
+        continue;
+      }
       var code = tds[i].getElementsByTagName('CODE')[0];
       var passed = tdClass == code.className;
       var result = document.createElement('P');

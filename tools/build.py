@@ -112,11 +112,6 @@ def language_filenames(src_path, languages):
         append(filename)
     return [os.path.join(lang_path, f) for f in filenames]
 
-def file_content(filename, compressor):
-    content = open(filename).read()
-    content = compressor(content)
-    return content
-
 def build(root, compress, languages):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')

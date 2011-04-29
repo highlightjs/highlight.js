@@ -38,8 +38,7 @@ hljs.LANGUAGES.smalltalk = function() {
         CHAR,
         {
           className: 'localvars',
-          begin: '\\|\\s*((' + VAR_IDENT_RE + ')\\s*)+\\|',
-          relevance: 10
+          begin: '\\|\\s*((' + VAR_IDENT_RE + ')\\s*)+\\|'
         },
         {
           className: 'array',

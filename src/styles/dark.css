@@ -54,7 +54,8 @@ pre .stream,
 pre .envvar,
 pre .apache .tag,
 pre .apache .cbracket,
-pre .tex .command {
+pre .tex .command,
+pre .input_number {
   color: #D88;
 }
 

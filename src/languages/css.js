@@ -18,7 +18,7 @@ hljs.LANGUAGES.css = function() {
   return {
     case_insensitive: true,
     defaultMode: {
-      illegal: '=',
+      illegal: '[=/|\']',
       contains: [
         hljs.C_BLOCK_COMMENT_MODE,
         {
@@ -35,11 +35,7 @@ hljs.LANGUAGES.css = function() {
           ]
         },
         {
-          className: 'tag', begin: hljs.IDENT_RE,
-          relevance: 0
-        },
-        {
-          className: 'id', begin: '\\#[A-Za-z0-9_-]+',
+          className: 'id', begin: '\\#[A-Za-z0-9_-]+'
         },
         {
           className: 'class', begin: '\\.[A-Za-z0-9_-]+',
@@ -51,6 +47,10 @@ hljs.LANGUAGES.css = function() {
           illegal: '$'
         },
         PSEUDO,
+        {
+          className: 'tag', begin: hljs.IDENT_RE,
+          relevance: 0
+        },
         {
           className: 'rules',
           begin: '{', end: '}',
@@ -67,24 +67,23 @@ hljs.LANGUAGES.css = function() {
                   begin: '[A-Z\\_\\.\\-]+', end: ':',
                   excludeEnd: true,
                   illegal: '[^\\s]',
-                },
-                {
-                  className: 'value',
-                  begin: '\\s*', endsWithParent: true,
-                  excludeBegin: true, excludeEnd: true,
-                  contains: [
-                    FUNCTION,
-                    hljs.NUMBER_MODE,
-                    hljs.QUOTE_STRING_MODE,
-                    hljs.APOS_STRING_MODE,
-                    hljs.C_BLOCK_COMMENT_MODE,
-                    {
-                      className: 'hexcolor', begin: '\\#[0-9A-F]+'
-                    },
-                    {
-                      className: 'important', begin: '!important'
-                    }
-                  ]
+                  starts: {
+                    className: 'value',
+                    endsWithParent: true, excludeEnd: true,
+                    contains: [
+                      FUNCTION,
+                      hljs.NUMBER_MODE,
+                      hljs.QUOTE_STRING_MODE,
+                      hljs.APOS_STRING_MODE,
+                      hljs.C_BLOCK_COMMENT_MODE,
+                      {
+                        className: 'hexcolor', begin: '\\#[0-9A-F]+'
+                      },
+                      {
+                        className: 'important', begin: '!important'
+                      }
+                    ]
+                  }
                 }
               ]
             }

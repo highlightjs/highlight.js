@@ -45,7 +45,8 @@ hljs.LANGUAGES.erlang_repl = {
     },
     contains: [
       {
-        className: 'input_number', begin: '^[0-9]+>'
+        className: 'input_number', begin: '^[0-9]+> ',
+        relevance: 10
       },
       {
         className: 'comment',

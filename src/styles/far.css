@@ -89,7 +89,8 @@ pre .xml .pi,
 pre .diff .header,
 pre .chunk,
 pre .shebang,
-pre .nginx .built_in {
+pre .nginx .built_in,
+pre .input_number {
   color: #008080;
 }
 

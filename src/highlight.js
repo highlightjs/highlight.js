@@ -12,13 +12,15 @@ var hljs = new function() {
   }
 
   function langRe(language, value, global) {
-    var mode =  'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '');
-    return new RegExp(value, mode);
+    return RegExp(
+      value,
+      'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
+    );
   }
 
   function findCode(pre) {
     for (var i = 0; i < pre.childNodes.length; i++) {
-      node = pre.childNodes[i];
+      var node = pre.childNodes[i];
       if (node.nodeName == 'CODE')
         return node;
       if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
@@ -93,8 +95,24 @@ var hljs = new function() {
       if (stream1.length && stream2.length) {
         if (stream1[0].offset != stream2[0].offset)
           return (stream1[0].offset < stream2[0].offset) ? stream1 : stream2;
-        else
-          return (stream1[0].event == 'start' && stream2[0].event == 'stop') ? stream2 : stream1;
+        else {
+          /*
+          To avoid starting the stream just before it should stop the order is
+          ensured that stream1 always starts first and closes last:
+
+          if (event1 == 'start' && event2 == 'start')
+            return stream1;
+          if (event1 == 'start' && event2 == 'stop')
+            return stream2;
+          if (event1 == 'stop' && event2 == 'start')
+            return stream1;
+          if (event1 == 'stop' && event2 == 'stop')
+            return stream2;
+
+          ... which is collapsed to:
+          */
+          return stream2[0].event == 'start' ? stream1 : stream2;
+        }
       } else {
         return stream1.length ? stream1 : stream2;
       }
@@ -354,14 +372,14 @@ var hljs = new function() {
         return;
 
       if (!is_default) {
-        mode.beginRe = langRe(language, mode.begin ? '^' + mode.begin : '\\B|\\b');
+        mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
           mode.end = '\\B|\\b'
         if (mode.end)
-          mode.endRe = langRe(language, '^' + mode.end);
+          mode.endRe = langRe(language, mode.end);
       }
       if (mode.illegal)
-        mode.illegalRe = langRe(language, '^(?:' + mode.illegal + ')');
+        mode.illegalRe = langRe(language, mode.illegal);
       if (mode.lexems)
         mode.lexemsRe = langRe(language, mode.lexems, true);
       if (mode.relevance == undefined)
@@ -538,8 +556,7 @@ var hljs = new function() {
   };
   this.C_LINE_COMMENT_MODE = {
     className: 'comment',
-    begin: '//', end: '$',
-    relevance: 0
+    begin: '//', end: '$'
   };
   this.C_BLOCK_COMMENT_MODE = {
     className: 'comment',
