@@ -510,9 +510,9 @@ Haskell ("haskell"):
   number           число
   string           строка
   comment          комментарий
-  class            идентификатор с заглавной буквы (соглашение Haskell о классах)
+  class            классы типов и другие типы данных
   title            название функции
-  label            название класса
+  label            название класса типов
 
 Erlang ("erlang"):
   comment          комментарий
