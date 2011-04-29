@@ -22,19 +22,6 @@ hljs.LANGUAGES.css = function() {
       contains: [
         hljs.C_BLOCK_COMMENT_MODE,
         {
-          className: 'at_rule',
-          begin: '@', end: '[{;]',
-          excludeEnd: true,
-          lexems: hljs.IDENT_RE,
-          keywords: {'import': 1, 'page': 1, 'media': 1, 'charset': 1, 'font-face': 1},
-          contains: [
-            FUNCTION,
-            hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
-            hljs.NUMBER_MODE,
-            PSEUDO
-          ]
-        },
-        {
           className: 'id', begin: '\\#[A-Za-z0-9_-]+'
         },
         {
@@ -47,6 +34,28 @@ hljs.LANGUAGES.css = function() {
           illegal: '$'
         },
         PSEUDO,
+        {
+          className: 'at_rule',
+          begin: '@font-face',
+          lexems: '[a-z-]+',
+          keywords: {'font-face': 1}
+        },
+        {
+          className: 'at_rule',
+          begin: '@', end: '[{;]', // at_rule eating first "{" is a good thing
+                                   // because it doesn't let it to be parsed as
+                                   // a rule set but instead drops parser into
+                                   // the defaultMode which is how it should be.
+          excludeEnd: true,
+          lexems: hljs.IDENT_RE,
+          keywords: {'import': 1, 'page': 1, 'media': 1, 'charset': 1},
+          contains: [
+            FUNCTION,
+            hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
+            hljs.NUMBER_MODE,
+            PSEUDO
+          ]
+        },
         {
           className: 'tag', begin: hljs.IDENT_RE,
           relevance: 0
