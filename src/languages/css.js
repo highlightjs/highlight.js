@@ -52,8 +52,7 @@ hljs.LANGUAGES.css = function() {
           contains: [
             FUNCTION,
             hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
-            hljs.NUMBER_MODE,
-            PSEUDO
+            hljs.NUMBER_MODE
           ]
         },
         {
