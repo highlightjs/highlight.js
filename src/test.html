@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>Highlight</title>
+  <title>highlight.js test</title>
   <meta charset="utf-8">
 
   <link rel="stylesheet" title="Default" href="styles/default.css">
@@ -15,18 +15,22 @@
   <link rel="alternate stylesheet" title="GitHub" href="styles/github.css">
   <link rel="alternate stylesheet" title="Brown Paper" href="styles/brown_paper.css">
   <link rel="alternate stylesheet" title="School Book" href="styles/school_book.css">
-  <link rel="alternate stylesheet" title="IR_Black" href="styles/ir_black.css">
+  <link rel="alternate stylesheet" title="IR Black" href="styles/ir_black.css">
   <style>
+    body {
+      font: small Arial, sans-serif;
+    }
     h2 {
       font: bold 100% Arial, sans-serif;
       margin-top: 2em;
       margin-bottom: 0.5em;
     }
     table {
-      width: 100%;
+      width: 100%; padding: 0; border-collapse: collapse;
     }
     th {
       width: 10em; font-weight: normal;
+      padding: 0; margin: 0;
     }
     td {
       padding-bottom: 1em;
@@ -36,22 +40,22 @@
       text-align: left;
     }
     pre {
-      margin: 0;
+      margin: 0; font-size: medium;
     }
-    ul#switch {
-      padding: 0;
-      margin: 0 0 0 -0.5em;
+    #switch {
+      overflow: auto; width: 57em;
+      list-style: none;
+      padding: 0; margin: 0;
     }
-    ul#switch li {
-      border-bottom: 1px dashed blue;
-      display: inline;
-      padding: 0;
-      margin: 0.5em;
+    #switch li {
+      float: left; width: 10em;
+      padding: 0.1em; margin: 0.1em 1em 0.1em 0;
+      background: #EEE;
       cursor: pointer;
     }
-    ul#switch li.current {
-      border-bottom: none;
-      cursor: default;
+    #switch li.current {
+      background: #CCC;
+      font-weight: bold;
     }
     .test {
       margin: 0.5em 0 0 0;
@@ -60,10 +64,10 @@
     .test var {
       font-style: normal;
     }
-    .test .passed {
+    .passed {
       color: green;
     }
-    .test .failed {
+    .failed {
       color: red;
     }
     .code {
@@ -74,11 +78,6 @@
     }
   </style>
 
-  <!--
-  Don't include languages as individual files in production environment.
-  Instead use <script src="highlight.pack.js"></script> with highlight.pack.js
-  containing all the languages you've chosen when downloading the library
-  -->
   <script src="highlight.pack.js"></script>
   <script>
   hljs.tabReplace = '    ';
@@ -86,8 +85,7 @@
   </script>
 
   <script>
-  // A stylesheet switcher for the test page. Not part of the highlight.js itself
-  // (c) Vladimir Epifanov <voldmar@voldmar.ru>
+  // Stylesheet switcher © Vladimir Epifanov <voldmar@voldmar.ru>
   (function(container_id) {
       if (window.addEventListener) {
           var attach = function(el, ev, handler) {
@@ -152,12 +150,12 @@
   </script>
 <body>
 
-<p>This page is a demo/test showing all languages supported by <a href="http://softwaremaniacs.org/soft/highlight/">highlight.js</a>.
-Most of the code doesn't work :-).
-<p>You can see this page in several different styles bundled with the library or
-write your own (and contribute it back!)
+<p>This is a demo/test page showing all languages supported by <a href="http://softwaremaniacs.org/soft/highlight/en/">highlight.js</a>.
+Most snippets do not contain working code :-).
 
-<div id="styleswitcher"></div>
+<div id="styleswitcher">
+  <h2>Styles</h2>
+</div>
 
 <h2>Automatically detected languages</h2>
 
@@ -169,11 +167,11 @@ write your own (and contribute it back!)
 <pre>
 <code>@requires_authorization
 def somefunc(param1, param2):
-  r'''A docstring'''
-  if param1 &gt; param2: # interesting
-    print 'Gre\'ater'
-    print ''
-  return (param2 - param1 + 1) or None
+    r'''A docstring'''
+    if param1 &gt; param2: # interesting
+        print 'Gre\'ater'
+        print ''
+    return (param2 - param1 + 1) or None
 
 class SomeClass:<br>    pass
 </code></pre>
@@ -1480,6 +1478,7 @@ ok
     }
     var summary = document.getElementById('summary');
     summary.innerHTML = failed.length ? ('Failed tests: ' + failed.join(', ')) : 'All tests passed';
+    summary.className = failed.length ? 'failed' : 'passed';
   }
   testDetection();
 </script>
