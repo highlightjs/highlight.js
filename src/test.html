@@ -29,7 +29,7 @@
       width: 100%; padding: 0; border-collapse: collapse;
     }
     th {
-      width: 10em; font-weight: normal;
+      width: 12em;
       padding: 0; margin: 0;
     }
     td {
@@ -58,8 +58,9 @@
       font-weight: bold;
     }
     .test {
-      margin: 0.5em 0 0 0;
-      font: medium monospace;
+      color: #888;
+      font-weight: normal;
+      margin: 2em 0 0 0;
     }
     .test var {
       font-style: normal;
@@ -1460,18 +1461,18 @@ ok
       }
       var code = tds[i].getElementsByTagName('CODE')[0];
       var passed = tdClass == code.className;
-      var result = document.createElement('P');
+      var result = document.createElement('DIV');
       result.className = 'test';
-      result.innerHTML = 'detected: <var class="'+ (passed ? 'passed' : 'failed') +'">' + code.className + '</var>';
+      result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + code.className + '</var>';
       function counts(r) {
         return ' (' + r.kw + '+' + r.re + '=' + (r.kw + r.re) + ')';
       }
       result.innerHTML += counts(code.dataset.result);
       if (code.dataset.second_best) {
-        result.innerHTML += ', second best: ' + code.dataset.second_best.language +
-                            counts(code.dataset.second_best);
+        result.innerHTML += '<br>' + code.dataset.second_best.language +
+                            counts(code.dataset.second_best) ;
       }
-      tds[i].appendChild(result);
+      tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
       if (!passed) {
         failed.push(tdClass);
       }
