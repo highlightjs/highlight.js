@@ -59,6 +59,7 @@ pre .regexp,
 pre .literal,
 pre .smalltalk .symbol,
 pre .smalltalk .char,
+pre .go .constant,
 pre .change {
   color: #080;
 }
@@ -86,6 +87,11 @@ pre .input_number {
   color: #88F
 }
 
+pre .go .gofeature {
+  color: #88F;
+  font-weight: bold;
+}
+
 pre .css .tag,
 pre .javadoctag,
 pre .phpdoc,
@@ -103,6 +109,7 @@ pre .smalltalk .class,
 pre .winutils,
 pre .bash .variable,
 pre .apache .tag,
+pre .go .typename,
 pre .tex .command {
   font-weight: bold;
 }

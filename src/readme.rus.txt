@@ -525,6 +525,18 @@ Erlang ("erlang"):
   pp.keywords      аттрибуты модуля (-attribute)
   function_name    atom или atom:atom при вызове функции
 
+Go language ("go"):
+  comment          комментарий
+  string           строка
+  number           число
+  keyword          ключевые слова языка: http://golang.org/doc/go_spec.html#Keywords
+                   за исключением go и defer
+  constant         true false nil iota
+  typename         встроенные простые типы (int, string etc.)
+  built_in         встроенные функции
+  gofeature        go defer
+
+
 ## Эвристика
 
 Определение языка, на котором написан фрагмент, делается с помощью
