@@ -42,3 +42,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Дмитрий Ковега <arhibot@gmail.com>
 - Сергей Игнатов <sergey@ignatov.spb.su>
 - Антоно Васильев <self@antono.info>
+- Степан Кунцьо <steplg@gmail.com>
