@@ -175,6 +175,17 @@ Scala ("scala"):
   params           все, что в скобках внутри заголовка класса
   inheritance      слова "extends" и "with" внутри заголовка класса
 
+Go language ("go"):
+  comment          комментарий
+  string           строка
+  number           число
+  keyword          ключевые слова языка: http://golang.org/doc/go_spec.html#Keywords
+                   за исключением go и defer
+  constant         true false nil iota
+  typename         встроенные простые типы (int, string etc.)
+  built_in         встроенные функции
+  gofeature        go defer
+
 XML ("xml"):
 
   tag              любой открывающий или закрывающий тег от "<" до ">"
@@ -524,17 +535,6 @@ Erlang ("erlang"):
   variable         переменная (с заглавной буквы или с _)
   pp.keywords      аттрибуты модуля (-attribute)
   function_name    atom или atom:atom при вызове функции
-
-Go language ("go"):
-  comment          комментарий
-  string           строка
-  number           число
-  keyword          ключевые слова языка: http://golang.org/doc/go_spec.html#Keywords
-                   за исключением go и defer
-  constant         true false nil iota
-  typename         встроенные простые типы (int, string etc.)
-  built_in         встроенные функции
-  gofeature        go defer
 
 
 ## Эвристика

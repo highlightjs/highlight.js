@@ -170,6 +170,17 @@ Scala ("scala"):
   params           everything in parentheses inside a class header
   inheritance      keywords "extends" and "with" inside class header
 
+Go language ("go"):
+  comment          comment
+  string           string constant
+  number           number
+  keyword          language keywords: http://golang.org/doc/go_spec.html#Keywords
+                   except go и defer
+  constant         true false nil iota
+  typename         built-in plain types (int, string etc.)
+  built_in         built-in functions
+  gofeature        go defer
+
 XML ("xml"):
 
   tag              any tag from "<" till ">"
@@ -518,17 +529,6 @@ Erlang ("erlang"):
   variable         variable (starts with capital letter or with _)
   pp.keywords      module's attribute (-attribute)
   function_name    atom or atom:atom in case of function call
-
-Go language ("go"):
-  comment          comment
-  string           string constant
-  number           number
-  keyword          language keywords: http://golang.org/doc/go_spec.html#Keywords
-                   except go и defer
-  constant         true false nil iota
-  typename         built-in plain types (int, string etc.)
-  built_in         built-in functions
-  gofeature        go defer
 
 
 ## Heuristics
