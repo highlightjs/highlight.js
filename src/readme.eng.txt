@@ -174,12 +174,10 @@ Go language ("go"):
   comment          comment
   string           string constant
   number           number
-  keyword          language keywords: http://golang.org/doc/go_spec.html#Keywords
-                   except go и defer
+  keyword          language keywords
   constant         true false nil iota
   typename         built-in plain types (int, string etc.)
   built_in         built-in functions
-  gofeature        go defer
 
 XML ("xml"):
 

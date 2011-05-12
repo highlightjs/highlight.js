@@ -179,12 +179,10 @@ Go language ("go"):
   comment          комментарий
   string           строка
   number           число
-  keyword          ключевые слова языка: http://golang.org/doc/go_spec.html#Keywords
-                   за исключением go и defer
+  keyword          ключевые слова языка
   constant         true false nil iota
   typename         встроенные простые типы (int, string etc.)
   built_in         встроенные функции
-  gofeature        go defer
 
 XML ("xml"):
 
