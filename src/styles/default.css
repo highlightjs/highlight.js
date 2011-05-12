@@ -87,11 +87,6 @@ pre .input_number {
   color: #88F
 }
 
-pre .go .gofeature {
-  color: #88F;
-  font-weight: bold;
-}
-
 pre .css .tag,
 pre .javadoctag,
 pre .phpdoc,
