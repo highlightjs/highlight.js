@@ -321,6 +321,52 @@ object Maps {
 </code></pre>
 
   <tr>
+    <th>Go
+    <td class="go">
+<pre><code>package main
+
+import (
+    "fmt"
+    "rand"
+    "os"
+)
+
+const (
+    Sunday = iota
+    Partyday
+    numberOfDays  // this constant is not exported
+)
+
+type Foo interface {
+    FooFunc(int, float32) (complex128, []int)
+}
+
+// simple comment
+type Bar struct {
+    os.File /* multi
+    line
+    comment */
+
+    PublicData chan int
+}
+
+func main() {
+    ch := make(chan int)
+    ch &lt;- 1
+    x, ok := &lt;- ch
+    ok = true
+    x = nil
+    float_var := 1.0e10
+    defer fmt.Println('exitting \' now')
+    defer fmt.Println(`exitting \` now`)
+    var fv1 float64 = 0.75
+    go println(len("hello world!"))
+    return
+}
+
+</code></pre>
+
+  <tr>
     <th>XML
     <td class="xml">
 <pre><code>&lt;?xml version="1.0"?&gt;

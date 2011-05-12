@@ -170,6 +170,15 @@ Scala ("scala"):
   params           everything in parentheses inside a class header
   inheritance      keywords "extends" and "with" inside class header
 
+Go language ("go"):
+  comment          comment
+  string           string constant
+  number           number
+  keyword          language keywords
+  constant         true false nil iota
+  typename         built-in plain types (int, string etc.)
+  built_in         built-in functions
+
 XML ("xml"):
 
   tag              any tag from "<" till ">"
