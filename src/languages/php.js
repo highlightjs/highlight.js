@@ -6,7 +6,6 @@ Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 hljs.LANGUAGES.php = {
   case_insensitive: true,
   defaultMode: {
-    lexems: hljs.IDENT_RE,
     keywords: {
       'and': 1, 'include_once': 1, 'list': 1, 'abstract': 1, 'global': 1,
       'private': 1, 'echo': 1, 'interface': 1, 'as': 1, 'static': 1,

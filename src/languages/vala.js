@@ -6,7 +6,6 @@ Description: Vala is a new programming language that aims to bring modern progra
 
 hljs.LANGUAGES.vala = {
   defaultMode: {
-    lexems: [hljs.UNDERSCORE_IDENT_RE],
     keywords: {
       keyword: {
         // Value types
@@ -37,13 +36,11 @@ hljs.LANGUAGES.vala = {
     contains: [
       {
         className: 'class',
-        lexems: hljs.UNDERSCORE_IDENT_RE,
         begin: '(class |interface |delegate |namespace )', end: '{',
         keywords: {'class': 1, 'interface': 1},
         contains: [
           {
             begin: '(implements|extends)', end: hljs.IMMEDIATE_RE,
-            lexems: hljs.IDENT_RE,
             keywords: {'extends': 1, 'implements': 1},
             relevance: 1
           },

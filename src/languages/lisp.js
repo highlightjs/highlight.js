@@ -56,7 +56,6 @@ hljs.LANGUAGES.lisp = function(){
   var QUOTED2 = {
     className: 'quoted',
     begin: '\\(quote ', end: '\\)',
-    lexems: LISP_IDENT_RE,
     keywords: {'title': {'quote': 1}},
     contains: [NUMBER1, NUMBER2, NUMBER3, NUMBER4, NUMBER5, STRING, VARIABLE, KEYWORD, QUOTED_LIST]
   };

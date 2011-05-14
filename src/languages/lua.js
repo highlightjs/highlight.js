@@ -46,7 +46,6 @@ hljs.LANGUAGES.lua = function() {
         {
           className: 'function',
           begin: '\\bfunction\\b', end: '\\)',
-          lexems: hljs.UNDERSCORE_IDENT_RE,
           keywords: {'function': 1},
           contains: [
             {

@@ -7,7 +7,6 @@ hljs.LANGUAGES.avrasm =
 {
   case_insensitive: true,
   defaultMode: {
-    lexems: hljs.IDENT_RE,
     keywords: {
         'keyword': {
           /* mnemonic */

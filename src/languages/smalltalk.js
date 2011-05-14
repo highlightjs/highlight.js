@@ -15,7 +15,6 @@ hljs.LANGUAGES.smalltalk = function() {
   };
   return {
     defaultMode: {
-      lexems: hljs.UNDERSCORE_IDENT_RE,
       keywords: {'self': 1, 'super': 1, 'nil': 1, 'true': 1, 'false': 1, 'thisContext': 1}, // only 6
       contains: [
         {

@@ -25,7 +25,6 @@ hljs.LANGUAGES.bash = function(){
     className: 'test_condition',
     begin: '', end: '',
     contains: [STRING, VAR1, VAR2, hljs.C_NUMBER_MODE],
-    lexems: hljs.IDENT_RE,
     keywords: {
       'literal': BASH_LITERAL
     },
@@ -34,7 +33,6 @@ hljs.LANGUAGES.bash = function(){
 
   return {
     defaultMode: {
-      lexems: hljs.IDENT_RE,
       keywords: {
         'keyword': {'if' : 1, 'then' : 1, 'else' : 1, 'fi' : 1, 'for' : 1, 'break' : 1, 'continue' : 1, 'while' : 1, 'in' : 1, 'do' : 1, 'done' : 1, 'echo' : 1, 'exit' : 1, 'return' : 1, 'set' : 1, 'declare' : 1},
         'literal': BASH_LITERAL

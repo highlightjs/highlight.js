@@ -36,7 +36,6 @@ hljs.LANGUAGES.css = function() {
         {
           className: 'at_rule',
           begin: '@font-face',
-          lexems: '[a-z-]+',
           keywords: {'font-face': 1}
         },
         {
@@ -46,7 +45,6 @@ hljs.LANGUAGES.css = function() {
                                    // a rule set but instead drops parser into
                                    // the defaultMode which is how it should be.
           excludeEnd: true,
-          lexems: hljs.IDENT_RE,
           keywords: {'import': 1, 'page': 1, 'media': 1, 'charset': 1},
           contains: [
             FUNCTION,

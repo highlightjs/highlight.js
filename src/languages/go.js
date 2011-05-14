@@ -30,7 +30,6 @@ hljs.LANGUAGES.go = function(){
   };
   return {
     defaultMode: {
-      lexems: [hljs.UNDERSCORE_IDENT_RE],
       keywords: GO_KEYWORDS,
       illegal: '</',
       contains: [

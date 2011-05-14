@@ -27,7 +27,6 @@ hljs.LANGUAGES.delphi = function(){
   var FUNCTION = {
     className: 'function',
     begin: '(procedure|constructor|destructor|function)\\b', end: '[:;]',
-    lexems: hljs.IDENT_RE,
     keywords: {'function': 1, 'constructor': 10, 'destructor': 10, 'procedure': 10},
     contains: [
       {
@@ -36,7 +35,6 @@ hljs.LANGUAGES.delphi = function(){
       {
         className: 'params',
         begin: '\\(', end: '\\)',
-        lexems: hljs.IDENT_RE,
         keywords: DELPHI_KEYWORDS,
         contains: [STRING, CHAR_STRING]
       },
@@ -46,7 +44,6 @@ hljs.LANGUAGES.delphi = function(){
   return {
     case_insensitive: true,
     defaultMode: {
-      lexems: hljs.IDENT_RE,
       keywords: DELPHI_KEYWORDS,
       illegal: '("|\\$[G-Zg-z]|\\/\\*|</)',
       contains: [
@@ -57,7 +54,6 @@ hljs.LANGUAGES.delphi = function(){
         {
           className: 'class',
           begin: '=\\bclass\\b', end: 'end;',
-          lexems: hljs.IDENT_RE,
           keywords: DELPHI_CLASS_KEYWORDS,
           contains: [
             STRING, CHAR_STRING,

@@ -10,7 +10,6 @@ hljs.LANGUAGES.sql = {
       {
         className: 'operator',
         begin: '(begin|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma)\\b', end: ';|$',
-        lexems: '[a-zA-Z][a-zA-Z0-9_\\.]*',
         keywords: {
           'keyword': {
             'all': 1, 'partial': 1, 'global': 1, 'month': 1,

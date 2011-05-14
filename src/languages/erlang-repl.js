@@ -5,7 +5,6 @@
 
 hljs.LANGUAGES.erlang_repl = {
   defaultMode: {
-    lexems: hljs.UNDERSCORE_IDENT_RE,
     keywords: {
       'special_functions':{
         'spawn':10,

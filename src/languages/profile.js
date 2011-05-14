@@ -6,7 +6,6 @@ Author: Brian Beck <exogen@gmail.com>
 
 hljs.LANGUAGES.profile = {
   defaultMode: {
-    lexems: hljs.UNDERSCORE_IDENT_RE,
     contains: [
       hljs.C_NUMBER_MODE,
       {
@@ -24,7 +23,6 @@ hljs.LANGUAGES.profile = {
       {
         className: 'header',
         begin: '(ncalls|tottime|cumtime)', end: '$',
-        lexems: hljs.IDENT_RE,
         keywords: {'ncalls': 1, 'tottime': 10, 'cumtime': 10, 'filename': 1},
         relevance: 10
       },

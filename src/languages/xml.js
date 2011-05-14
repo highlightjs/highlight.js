@@ -62,7 +62,7 @@ hljs.LANGUAGES.xml = function(){
         {
           className: 'tag',
           begin: '<style', end: '>',
-          lexems: hljs.IDENT_RE,  keywords: {'title': {'style': 1}},
+          keywords: {'title': {'style': 1}},
           contains: [TAG_INTERNALS],
           starts: {
             className: 'css',
@@ -73,7 +73,7 @@ hljs.LANGUAGES.xml = function(){
         {
           className: 'tag',
           begin: '<script', end: '>',
-          lexems: hljs.IDENT_RE,  keywords: {'title': {'script': 1}},
+          keywords: {'title': {'script': 1}},
           contains: [TAG_INTERNALS],
           starts: {
             className: 'javascript',

@@ -23,7 +23,6 @@ hljs.LANGUAGES.nginx = function() {
         hljs.HASH_COMMENT_MODE,
         { // directive
           begin: hljs.UNDERSCORE_IDENT_RE, end: ';|{', returnEnd: true,
-          lexems: hljs.UNDERSCORE_IDENT_RE,
           keywords: {
             accept_mutex: 1, accept_mutex_delay: 1, access_log: 1,
             add_after_body: 1, add_before_body: 1, add_header: 1,

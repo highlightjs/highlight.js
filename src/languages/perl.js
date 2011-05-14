@@ -8,7 +8,6 @@ hljs.LANGUAGES.perl = function(){
   var SUBST = {
     className: 'subst',
     begin: '[$@]\\{', end: '\}',
-    lexems: hljs.IDENT_RE,
     keywords: PERL_KEYWORDS,
     relevance: 10
   };
@@ -110,7 +109,6 @@ hljs.LANGUAGES.perl = function(){
     {
       className: 'sub',
       begin: '\\bsub\\b', end: '(\\s*\\(.*?\\))?[;{]',
-      lexems: hljs.IDENT_RE,
       keywords: {'sub':1},
       relevance: 5
     },
@@ -129,7 +127,6 @@ hljs.LANGUAGES.perl = function(){
 
   return {
     defaultMode: {
-      lexems: hljs.IDENT_RE,
       keywords: PERL_KEYWORDS,
       contains: PERL_DEFAULT_CONTAINS
     }

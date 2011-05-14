@@ -36,7 +36,6 @@ hljs.LANGUAGES.objectivec = function(){
   };
   return {
     defaultMode: {
-      lexems: hljs.UNDERSCORE_IDENT_RE,
       keywords: OBJC_KEYWORDS,
       illegal: '</',
       contains: [
@@ -75,7 +74,6 @@ hljs.LANGUAGES.objectivec = function(){
         },
         {
           className: 'class',
-          lexems: hljs.UNDERSCORE_IDENT_RE,
           begin: 'interface|class|protocol|implementation',
           end: '({|$)',
           keywords: {

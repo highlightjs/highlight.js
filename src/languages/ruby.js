@@ -132,7 +132,6 @@ hljs.LANGUAGES.ruby = function(){
     {
       className: 'class',
       begin: '\\b(class|module)\\b', end: '$|;',
-      lexems: hljs.UNDERSCORE_IDENT_RE,
       keywords: {'class': 1, 'module': 1},
       contains: [
         {

@@ -6,7 +6,6 @@ Author: Shuen-Huei Guan <drake.guan@gmail.com>
 
 hljs.LANGUAGES.mel = {
   defaultMode: {
-    lexems: hljs.UNDERSCORE_IDENT_RE,
     keywords: {
       'int': 1, 'float': 1, 'string': 1, 'float': 1, 'vector': 1, 'matrix': 1,
       'if': 1, 'else': 1, 'switch': 1, 'case': 1, 'default': 1, 'while': 1, 'do': 1, 'for': 1, 'in': 1, 'break': 1, 'continue': 1,

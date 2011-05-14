@@ -14,7 +14,6 @@ hljs.LANGUAGES.scala = function() {
   };
   return {
     defaultMode: {
-      lexems: hljs.UNDERSCORE_IDENT_RE,
       keywords: { 'type': 1, 'yield': 1, 'lazy': 1, 'override': 1, 'def': 1, 'with': 1, 'val':1, 'var': 1, 'false': 1, 'true': 1, 'sealed': 1, 'abstract': 1, 'private': 1, 'trait': 1,  'object': 1, 'null': 1, 'if': 1, 'for': 1, 'while': 1, 'throw': 1, 'finally': 1, 'protected': 1, 'extends': 1, 'import': 1, 'final': 1, 'return': 1, 'else': 1, 'break': 1, 'new': 1, 'catch': 1, 'super': 1, 'class': 1, 'case': 1,'package': 1, 'default': 1, 'try': 1, 'this': 1, 'match': 1, 'continue': 1, 'throws': 1},
       contains: [
         {
@@ -32,12 +31,10 @@ hljs.LANGUAGES.scala = function() {
           className: 'class',
           begin: '((case )?class |object |trait )', end: '({|$)',
           illegal: ':',
-          lexems: hljs.UNDERSCORE_IDENT_RE,
           keywords: {'case' : 1, 'class': 1, 'trait': 1, 'object': 1},
           contains: [
             {
               begin: '(extends|with)',
-              lexems: hljs.IDENT_RE,
               keywords: {'extends': 1, 'with': 1},
               relevance: 10
             },

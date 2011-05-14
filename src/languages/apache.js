@@ -17,7 +17,6 @@ hljs.LANGUAGES.apache = function(){
   return {
     case_insensitive: true,
     defaultMode: {
-      lexems: hljs.IDENT_RE,
       keywords: {
         'keyword': {
           'acceptfilter': 1,

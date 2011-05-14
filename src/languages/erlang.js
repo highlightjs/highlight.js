@@ -100,7 +100,6 @@ hljs.LANGUAGES.erlang = function(){
   };
 
   var BLOCK_STATEMENTS = {
-    lexems: BASIC_ATOM_RE,
     keywords: ERLANG_RESERVED,
     begin: '(fun|receive|if|try|case)', end: 'end'
   };
@@ -140,7 +139,6 @@ hljs.LANGUAGES.erlang = function(){
   };
   return {
     defaultMode: {
-      lexems: hljs.UNDERSCORE_IDENT_RE,
       keywords: ERLANG_RESERVED,
       illegal: '(</|\\*=|\\+=|-=|/=|/\\*|\\*/|\\(\\*|\\*\\))',
       contains: [
@@ -154,7 +152,6 @@ hljs.LANGUAGES.erlang = function(){
               className: 'title', begin: BASIC_ATOM_RE
             },
             {
-              lexems: BASIC_ATOM_RE,
               keywords: ERLANG_RESERVED,
               begin: '->', endsWithParent: true,
               contains: BASIC_MODES
@@ -168,7 +165,7 @@ hljs.LANGUAGES.erlang = function(){
           relevance: 0,
           excludeEnd: true,
           returnBegin: true,
-          lexems: '-' + hljs.UNDERSCORE_IDENT_RE,
+          lexems: '-' + hljs.IDENT_RE,
           keywords: {
             '-module':1,
             '-record':1,
