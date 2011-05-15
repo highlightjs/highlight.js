@@ -130,10 +130,6 @@ var hljs = new function() {
       return result + '>';
     }
 
-    function close(node) {
-      return '</' + node.nodeName.toLowerCase() + '>';
-    }
-
     while (stream1.length || stream2.length) {
       var current = selectStream().splice(0, 1)[0];
       result += escape(value.substr(processed, current.offset - processed));
@@ -146,7 +142,7 @@ var hljs = new function() {
         do {
           i--;
           var node = nodeStack[i];
-          result += close(node);
+          result += ('</' + node.nodeName.toLowerCase() + '>');
         } while (node != current.node);
         nodeStack.splice(i, 1);
         while (i < nodeStack.length) {
