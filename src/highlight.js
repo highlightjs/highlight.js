@@ -255,7 +255,6 @@ var hljs = new function() {
       if (mode.subLanguage && languages[mode.subLanguage]) {
         var result = highlight(mode.subLanguage, buffer);
         keyword_count += result.keyword_count;
-        relevance += result.relevance;
         return result.value;
       } else {
         return processKeywords(buffer, mode);
@@ -275,6 +274,7 @@ var hljs = new function() {
         mode.buffer = lexem;
       }
       modes.push(mode);
+      relevance += mode.relevance;
     }
 
     function processModeInfo(buffer, lexem, end) {
@@ -288,7 +288,6 @@ var hljs = new function() {
       if (new_mode) {
         result += processBuffer(current_mode.buffer + buffer, current_mode);
         startNewMode(new_mode, lexem);
-        relevance += new_mode.relevance;
         return new_mode.returnBegin;
       }
 
