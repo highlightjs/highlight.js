@@ -117,11 +117,12 @@ highlight.js.
 
     <pre><code class="no-highlight">...</code></pre>
 
+
 ## Координаты
 
-Версия: 6.0 beta
-URL:    http://softwaremaniacs.org/soft/highlight/
-Автор:  Иван Сагалаев (Maniac@SoftwareManiacs.Org)
+- Версия: 6.0 beta
+- URL:    http://softwaremaniacs.org/soft/highlight/
+- Автор:  Иван Сагалаев (<Maniac@SoftwareManiacs.Org>)
 
 Лицензионное соглашение читайте в файле LICENSE.
 Список соавторов читайте в файле AUTHORS.ru.txt

@@ -111,11 +111,12 @@ To disable highlighting of a fragment altogether use "no-highlight" class:
 
     <pre><code class="no-highlight">...</code></pre>
 
-## Contacts
 
-Version: 6.0 beta
-URL:     http://softwaremaniacs.org/soft/highlight/en/
-Author:  Ivan Sagalaev (Maniac@SoftwareManiacs.Org)
+## Meta
+
+- Version: 6.0 beta
+- URL:     http://softwaremaniacs.org/soft/highlight/en/
+- Author:  Ivan Sagalaev (<Maniac@SoftwareManiacs.Org>)
 
 For the license terms see LICENSE files.
 For the list of contributors see AUTHORS.en.txt file.
