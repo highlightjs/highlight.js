@@ -1,0 +1,437 @@
+This is a full list of available classes corresponding to languages'
+syntactic structures. The parentheses after language name contain identifiers
+used as class names in `<code>` element.
+
+Python ("python"):
+
+  keyword          keyword
+  built_in         built-in objects (None, False, True and Ellipsis)
+  number           number
+  string           string (of any type)
+  comment          comment
+  decorator        @-decorator for functions
+  function         function header "def some_name(...):"
+  class            class header "class SomeName(...):"
+  title            name of a function or a class inside a header
+  params           everything inside parentheses in a function's or class' header
+
+Python profiler results ("profile"):
+
+  number           number
+  string           string
+  builtin          builtin function entry
+  filename         filename in an entry
+  summary          profiling summary
+  header           header of table of results
+  keyword          column header
+  function         function name in an entry (including parentheses)
+  title            actual name of a function in an entry (excluding parentheses)
+
+Ruby ("ruby"):
+
+  keyword          keyword
+  string           string
+  subst            in-string substitution (#{...})
+  comment          comment
+  yardoctag        YARD tag
+  function         function header "def some_name(...):"
+  class            class header "class SomeName(...):"
+  title            name of a function or a class inside a header
+  parent           name of a parent class
+  symbol           symbol
+  instancevar      instance variable
+
+Perl ("perl"):
+
+  keyword          keyword
+  comment          comment
+  number           number
+  string           string
+  regexp           regular expression
+  sub              subroutine header (from "sub" till "{")
+  variable         variable starting with "$", "%", "@"
+  operator         operator
+  pod              plain old doc
+
+PHP ("php"):
+
+  keyword          keyword
+  number           number
+  string           string (of any type)
+  comment          comment
+  phpdoc           phpdoc params in comments
+  variable         variable starting with "$"
+  preprocessor     preprocessor marks: "<?php" and "?>"
+
+Scala ("scala"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  annotaion        annotation
+  javadoc          javadoc comment
+  javadoctag       @-tag in javadoc
+  class            class header
+  title            class name inside a header
+  params           everything in parentheses inside a class header
+  inheritance      keywords "extends" and "with" inside class header
+
+Go language ("go"):
+  comment          comment
+  string           string constant
+  number           number
+  keyword          language keywords
+  constant         true false nil iota
+  typename         built-in plain types (int, string etc.)
+  built_in         built-in functions
+
+XML ("xml"):
+
+  tag              any tag from "<" till ">"
+  comment          comment
+  pi               processing instruction (<? ... ?>)
+  cdata            CDATA section
+  attribute        attribute
+  value            attribute's value
+
+HTML ("html"):
+
+  keyword          HTML tag
+  tag              any tag from "<" till ">"
+  comment          comment
+  doctype          <!DOCTYPE ... > declaration
+  attribute        tag's attribute with or without value
+  value            attribute's value
+
+CSS ("css"):
+
+  tag              HTML tag in selectors
+  id               #some_name in selectors
+  class            .some_name in selectors
+  at_rule          @-rule till first "{" or ";"
+  attr_selector    attribute selector (square brackets in a[href^=http://])
+  pseudo           pseudo classes and elemens (:after, ::after etc.)
+  comment          comment
+  rules            everything from "{" till "}"
+  property         property name inside a rule
+  value            property value inside a rule, from ":" till ";" or
+                   till the end of rule block
+  number           number within a value
+  string           string within a value
+  hexcolor         hex color (#FFFFFF) within a value
+  function         CSS function within a value
+  params           everything between "(" and ")" within a function
+  important        "!important" symbol
+
+Django ("django"):
+
+  keyword          HTML tag in HTML, default tags and default filters in templates
+  tag              any tag from "<" till ">"
+  comment          comment
+  doctype          <!DOCTYPE ... > declaration
+  attribute        tag's attribute with or withou value
+  value            attribute's value
+  template_tag     template tag {% .. %}
+  variable         template variable {{ .. }}
+  template_comment template comment, both {# .. #} and {% comment %}
+  filter           filter from "|" till the next filter or the end of tag
+  argument         filter argument
+
+Javascript ("javascript"):
+
+  keyword          keyword
+  comment          comment
+  number           number
+  literal          special literal: "true", "false" and "null"
+  string           string
+  regexp           regular expression
+  function         header of a function
+  title            name of a function inside a header
+  params           everything inside parentheses in a function's header
+
+VBScript ("vbscript"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  built_in         built-in function
+
+Lua ("lua"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  built_in         built-in operator
+  function         header of a function
+  title            name of a function inside a header
+  params           everything inside parentheses in a function's header
+  long_brackets    multiline string in [=[ .. ]=]
+
+Delphi ("delphi"):
+
+  keyword          keyword
+  comment          comment (of any type)
+  number           number
+  string           string
+  function         header of a function, procedure, constructor and destructor
+  title            name of a function, procedure, constructor or destructor
+                   inside a header
+  params           everything inside parentheses in a function's header
+  class            class' body from "= class" till "end;"
+
+Java ("java"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  annotaion        annotation
+  javadoc          javadoc comment
+  class            class header from "class" till "{"
+  title            class name inside a header
+  params           everything in parentheses inside a class header
+  inheritance      keywords "extends" and "implements" inside class header
+
+C++ ("cpp"):
+
+  keyword          keyword
+  number           number
+  string           string and character
+  comment          comment
+  preprocessor     preprocessor directive
+  stl_container    instantiation of STL containers ("vector<...>")
+
+Objective C ("objectivec"):
+  keyword          keyword
+  built_in         Cocoa/Cocoa Touch constants and classes
+  number           number
+  string           string
+  comment          comment
+  preprocessor     preprocessor directive
+  class            interface/implementation, protocol and forward class declaration
+
+Vala ("vala"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  class            class definitions
+  title            in class definition
+  constant         ALL_UPPER_CASE
+
+C# ("cs"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  xmlDocTag        xmldoc tag ("///", "<!--", "-->", "<..>")
+
+RenderMan RSL ("rsl"):
+
+  keyword          keyword
+  number           number
+  string           string (including @"..")
+  comment          comment
+  preprocessor     preprocessor directive
+  shader           sahder keywords
+  shading          shading keywords
+  built_in         built-in function
+
+RenderMan RIB ("rib"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  commands         command
+
+Maya Embedded Language ("mel"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          comment
+  variable         variable
+
+SQL ("sql"):
+
+  keyword          keyword (mostly SQL'92 and SQL'99)
+  number           number
+  string           string (of any type: "..", '..', `..`)
+  comment          comment
+  aggregate        aggregate function
+
+Smalltalk ("smalltalk"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  symbol           symbol
+  array            array
+  class            name of a class
+  char             char
+  localvars        block of local variables
+
+Lisp ("lisp"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  variable         variable
+  literal          b, t and nil
+  list             non-quoted list
+  title            first symbol in a non-quoted list
+  body             remainder of the non-quoted list
+  quoted           quoted list, both "(quote .. )" and "'(..)"
+
+Ini ("ini"):
+
+  title            title of a section
+  value            value of a setting of any type
+  string           string
+  number           number
+  keyword          boolean value keyword
+
+Apache ("apache"):
+
+  keyword          keyword
+  number           number
+  comment          commment
+  literal          On and Off
+  sqbracket        variables in rewrites "%{..}"
+  cbracket         options in rewrites "[..]"
+  tag              begin and end of a configuration section
+
+Nginx ("nginx"):
+
+  keyword          keyword
+  string           string
+  number           number
+  comment          comment
+  built_in         built-in constant
+  variable         $-variable
+
+Diff ("diff"):
+
+  header           file header
+  chunk            chunk header within a file
+  addition         added lines
+  deletion         deleted lines
+  change           changed lines
+
+DOS ("dos"):
+
+  keyword          keyword
+  flow             batch control keyword
+  stream           DOS special files ("con", "prn", ...)
+  winutils         some commands (see dos.js specifically)
+  envvar           environment variables
+
+Bash ("bash"):
+
+  keyword          keyword
+  string           string
+  number           number
+  comment          comment
+  literal          special literal: "true" и "false"
+  variable         variable
+  shebang          script interpreter header
+
+CMake ("cmake")
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  envvar           $-variable
+
+Axapta ("axapta"):
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  class            class header from "class" till "{"
+  title            class name inside a header
+  params           everything in parentheses inside a class header
+  inheritance      keywords "extends" and "implements" inside class header
+  preprocessor     preprocessor directive
+
+1C ("1c"):
+
+  keyword          keyword
+  number           number
+  date             date
+  string           string
+  comment          commment
+  function         header of function or procudure
+  title            function name inside a header
+  params           everything in parentheses inside a function header
+  preprocessor     preprocessor directive
+
+AVR assembler ("avrasm"):
+
+  keyword          keyword
+  built_in         pre-defined register
+  number           number
+  string           string
+  comment          commment
+  label            label
+  preprocessor     preprocessor directive
+  localvars        substitution in .macro
+
+VHDL ("vhdl")
+
+  keyword          keyword
+  number           number
+  string           string
+  comment          commment
+  literal          signal logical value
+
+Parser3 ("parser3"):
+
+  keyword          keyword
+  number           number
+  comment          commment
+  variable         variable starting with "$"
+  preprocessor     preprocessor directive
+  title            user-defined name starting with "@"
+
+TeX ("tex"):
+
+  comment          comment
+  number           number
+  command          command
+  parameter        parameter
+  formula          formula
+  special          special symbol
+
+Haskell ("haskell"):
+
+  keyword          keyword
+  built_in         built-in typeclass/functions (Bool, Int)
+  number           number
+  string           string
+  comment          comment
+  class            type classes and other data types
+  title            function name
+  label            type class name
+
+Erlang ("erlang"):
+
+  comment          comment
+  string           string
+  number           number
+  keyword          keyword
+  record_name      record access (#record_name)
+  title            name of declaration function
+  variable         variable (starts with capital letter or with _)
+  pp.keywords      module's attribute (-attribute)
+  function_name    atom or atom:atom in case of function call
