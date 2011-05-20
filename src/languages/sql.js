@@ -1,5 +1,6 @@
 /*
 Language: SQL
+Category: common
 */
 
 hljs.LANGUAGES.sql = {

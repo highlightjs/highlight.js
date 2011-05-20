@@ -1,5 +1,6 @@
 /*
 Language: Javascript
+Category: common
 */
 
 hljs.LANGUAGES.javascript = {

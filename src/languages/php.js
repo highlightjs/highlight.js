@@ -1,6 +1,7 @@
 /*
 Language: PHP
 Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
+Category: common
 */
 
 hljs.LANGUAGES.php = {

@@ -93,11 +93,20 @@ def language_filenames(src_path, languages):
     filenames = os.listdir(lang_path)
     infos = [
         (parse_header(open(os.path.join(lang_path, f)).read(1024)), f)
-        for f in filenames]
+        for f in filenames
+    ]
     infos = [(i, f) for i, f in infos if i]
 
+    # Filtering infos based on list of languages and categories
     if languages:
-        infos = [(i, f) for i, f in infos if os.path.splitext(f)[0] in languages]
+        categories = set(l for l in languages if l.startswith(':'))
+        languages = set(languages) - categories
+        categories = set(c.strip(':') for c in categories)
+        languages = set(os.path.splitext(l)[0] for l in languages)
+        infos = [
+            (i, f) for i, f in infos
+            if f in languages or i.get('Category') in categories
+        ]
 
     def append(filename):
         if filename not in filenames:
@@ -133,7 +142,7 @@ if __name__ == '__main__':
         dest = 'compress', action = 'store_false', default = True,
         help = 'don\'t compress source files',
     )
-    parser.set_usage('%prog [options] [<language>...]')
+    parser.set_usage('%prog [options] [<language>|:<category> ...]')
     options, args = parser.parse_args()
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     build(root, options.compress, args)

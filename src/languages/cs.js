@@ -1,6 +1,7 @@
 /*
 Language: C#
 Author: Jason Diamond <jason@diamond.name>
+Category: common
 */
 
 hljs.LANGUAGES.cs  = {
