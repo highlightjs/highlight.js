@@ -120,7 +120,7 @@ highlight.js.
 
 ## Координаты
 
-- Версия: 6.0 beta
+- Версия: 6.0
 - URL:    http://softwaremaniacs.org/soft/highlight/
 - Автор:  Иван Сагалаев (<Maniac@SoftwareManiacs.Org>)
 
