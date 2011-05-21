@@ -1,5 +1,5 @@
 /*
-Language: nginx
+Language: Nginx
 Author: Peter Leonov <gojpeg@yandex.ru>
 */
 
