@@ -102,10 +102,9 @@ def language_filenames(src_path, languages):
         categories = set(l for l in languages if l.startswith(':'))
         languages = set(languages) - categories
         categories = set(c.strip(':') for c in categories)
-        languages = set(os.path.splitext(l)[0] for l in languages)
         infos = [
             (i, f) for i, f in infos
-            if f in languages or i.get('Category') in categories
+            if os.path.splitext(f)[0] in languages or i.get('Category') in categories
         ]
 
     def append(filename):
