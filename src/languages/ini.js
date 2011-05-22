@@ -14,7 +14,7 @@ hljs.LANGUAGES.ini = {
       },
       {
         className: 'title',
-        begin: '^\\[', end: '\\]',
+        begin: '^\\[', end: '\\]'
       },
       {
         className: 'setting',
