@@ -3,7 +3,7 @@ Language: Apache
 Author: Ruslan Keba <rukeba@gmail.com>
 Website: http://rukeba.com/
 Description: language definition for Apache configuration files (httpd.conf & .htaccess)
-Version 1.1
+Version: 1.1
 Date: 2008-12-27
 */
 
