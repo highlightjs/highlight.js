@@ -1,5 +1,5 @@
 /*
- Language: Erlang
+ Language: Erlang REPL
  Author: Sergey Ignatov <sergey@ignatov.spb.su>
  */
 
