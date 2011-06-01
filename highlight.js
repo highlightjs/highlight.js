@@ -13,7 +13,6 @@ function loadLang(filename) {
   var _filename = __dirname + '/src/languages/' + filename;
   var code = fs.readFileSync(_filename, 'utf-8');
   var req = getRequire(code);
-  console.log(filename + ' dep: ' + req);
   if(req) loadLang(req);
   vm.runInNewContext(code, {hljs: hljs}, _filename);
   loaded.push(filename);
