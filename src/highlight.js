@@ -418,13 +418,9 @@ this.hljs = new function() {
 
   /* Public library functions */
 
-  function highlightBlock(block, tabReplace, useBR) {
+  function selectHighlight(text, language) {
     initialize();
 
-    var text = blockText(block, useBR);
-    var language = blockLanguage(block);
-    if (language == 'no-highlight')
-        return;
     if (language) {
       var result = highlight(language, text);
     } else {
@@ -443,7 +439,34 @@ this.hljs = new function() {
         }
       }
     }
+    return [result, second_best];
+  }
 
+  function fixResult(result, tabReplace, useBR){
+    if (tabReplace) {
+      result.value = result.value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
+        return p1.replace(/\t/g, tabReplace);
+      })
+    }
+    if (useBR) {
+      result.value = result.value.replace(/\n/g, '<br>');
+    }
+  }
+
+  function highlightText(text, tabReplace, useBR, language){
+    var result = selectHighlight(text, language)[0];
+    fixResult(result, tabReplace, useBR);
+    return result.value;
+  }
+
+  function highlightBlock(block, tabReplace, useBR) {
+    var text = blockText(block, useBR);
+    var language = blockLanguage(block);
+    if (language == 'no-highlight')
+        return;
+    var results = selectHighlight(text, language);
+    var result = results[0];
+    var second_best = results[1];
     var class_name = block.className;
     if (!class_name.match(result.language)) {
       class_name = class_name ? (class_name + ' ' + result.language) : result.language;
@@ -454,14 +477,7 @@ this.hljs = new function() {
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
-    if (tabReplace) {
-      result.value = result.value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
-        return p1.replace(/\t/g, tabReplace);
-      })
-    }
-    if (useBR) {
-      result.value = result.value.replace(/\n/g, '<br>');
-    }
+    fixResult(result, tabReplace, useBR);
     if (/MSIE [678]/.test(navigator.userAgent) && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
       // This is for backwards compatibility only. IE needs this strange
       // hack becasue it cannot just cleanly replace <code> block contents.
@@ -521,6 +537,7 @@ this.hljs = new function() {
 
   this.LANGUAGES = languages;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
+  this.highlightText = highlightText;
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;
 
