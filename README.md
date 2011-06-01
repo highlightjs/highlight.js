@@ -84,6 +84,31 @@ For full reference list of classes see [classref.txt][cr].
 
 [cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
 
+## Node.js
+
+### Installation
+
+Use `npm` package manager
+
+    npm install highlight
+
+### Usage
+
+Include syntax highlighter
+
+    var hl = require("highlight").Highlight;
+
+highlight code
+
+    html = hl("for(var i=0;i<10;i++)alert(i);");
+
+use special tab replacing string (default is 4 spaces)
+
+    html = hl(code_string, "<span>  </span>");
+
+convert code only between &lt;code&gt; blocks (leaves everything else as is) - especially useful if used together with converted [Markdown](/andris9/node-markdown) syntax that includes &lt;code&gt; blocks.
+
+    html = hl("<p>PHP:</p><code><?php echo 'Hello world!';?></code>", false, true);
 
 ## Export
 
