@@ -3,7 +3,7 @@ Syntax highlighting with language autodetection.
 http://softwaremaniacs.org/soft/highlight/
 */
 
-this.hljs = new function() {
+var hljs = this.hljs = new function() {
 
   /* Utility functions */
 
