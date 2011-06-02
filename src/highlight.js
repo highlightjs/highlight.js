@@ -537,6 +537,8 @@ var hljs = this.hljs = new function() {
 
   this.LANGUAGES = languages;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
+  this.selectHighlight = selectHighlight;
+  this.fixResult = fixResult;
   this.highlightText = highlightText;
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;

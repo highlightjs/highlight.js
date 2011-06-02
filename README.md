@@ -90,7 +90,7 @@ For full reference list of classes see [classref.txt][cr].
 
 Use `npm` package manager
 
-    npm install highlight
+    npm install highlighter
 
 ### Usage
 

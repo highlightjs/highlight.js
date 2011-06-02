@@ -1,0 +1,17 @@
+{
+  "author": "Gui Lin <guileen@gmail.com> (http://github.com/guileen)",
+  "name": "highlighter",
+  "description": "code syntax highlighter base on highlight.js",
+  "version": "0.1.0",
+  "homepage": "http://github.com/guileen/highlight.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/guileen/highlight.js.git"
+  },
+  "main": "./highlight",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
