@@ -23,7 +23,8 @@ hljs.LANGUAGES.javascript = {
           hljs.C_BLOCK_COMMENT_MODE,
           {
             className: 'regexp',
-            begin: '/.*?[^\\\\/]/[gim]*'
+            begin: '/', end: '/[gim]*',
+            contains: [{begin: '\\\\/'}]
           }
         ],
         relevance: 0

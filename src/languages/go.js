@@ -38,7 +38,8 @@ hljs.LANGUAGES.go = function(){
         hljs.QUOTE_STRING_MODE,
         {
           className: 'string',
-          begin: '\'', end: '[^\\\\]\''
+          begin: '\'', end: '[^\\\\]\'',
+          relevance: 0
         },
         {
           className: 'string',
@@ -46,7 +47,8 @@ hljs.LANGUAGES.go = function(){
         },
         {
           className: 'number',
-          begin: '[^a-zA-Z_0-9](\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?'
+          begin: '[^a-zA-Z_0-9](\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?',
+          relevance: 0
         },
         hljs.C_NUMBER_MODE
       ]
