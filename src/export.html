@@ -26,7 +26,7 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
                 return this.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
             }
 
-            function doIt() {
+            function doItBlock() {
                 var viewDiv = document.getElementById("highlight-view");
                 var t1 = document.getElementById("t1");
                 var t2 = document.getElementById("t2");
@@ -38,6 +38,21 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
                     viewDiv.innerHTML = '<pre><code>' + t1.value.escape() + "</code></pre>";
                 }
                 hljs.highlightBlock(viewDiv.firstChild.firstChild);
+                t2.value = viewDiv.innerHTML;
+            }
+
+            function doItText() {
+                var viewDiv = document.getElementById("highlight-view");
+                var t1 = document.getElementById("t1");
+                var t2 = document.getElementById("t2");
+                var selector = document.getElementById("langSelector");
+                var selectedLang = selector.options[selector.selectedIndex].value.toLowerCase();
+                if(selectedLang) {
+                    viewDiv.innerHTML = '<pre><code class="'+selectedLang+'">'+t1.value.escape()+"</code></pre>";
+                } else { // try auto
+                    viewDiv.innerHTML = '<pre><code>' + t1.value.escape() + "</code></pre>";
+                }
+                viewDiv.firstChild.firstChild.innerHTML = hljs.highlightText(t1.value, null, null, selectedLang);
                 t2.value = viewDiv.innerHTML;
             }
 
@@ -74,7 +89,8 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
         </table>
         <table width="98%">
             <tr>
-                <td><input type="button" value="Export &rarr;" onclick="doIt()"/></td>
+                <td><input type="button" value="highlightBlock &rarr;" onclick="doItBlock()"/>
+                    <input type="button" value="highlightText &rarr;" onclick="doItText()"/></td>
                 <td align="right"><input type="button" value="Copy to buffer" onclick="copyToBuffer(document.getElementById('t2').value);"/></td>
             </tr>
         </table>
