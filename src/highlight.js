@@ -155,8 +155,16 @@ var hljs = new function() {
     return result;
   }
 
-  /* Core highlighting function */
+  /*
+  Core highlighting function. Accepts a language name and a string with the
+  code to highlight. Returns an object with the following properties:
 
+  - language (same language name that is passed in the first argument)
+  - relevance (int)
+  - keyword_count (int)
+  - value (an HTML string with highlighting markup)
+
+  */
   function highlight(language_name, value) {
 
     function subMode(lexem, mode) {
@@ -416,7 +424,43 @@ var hljs = new function() {
     compileModes();
   }
 
-  /* Public library functions */
+  /*
+  Highlighting with language detection. Accepts a string with the code to
+  highlight. Returns an object with the following properties:
+
+  - language (detected language)
+  - relevance (int)
+  - keyword_count (int)
+  - value (an HTML string with highlighting markup)
+  - second_best (object with the same structure for second-best heuristically
+    detected language, may be absent)
+
+  */
+  function highlightAuto(text) {
+    var result = {
+      language: '',
+      keyword_count: 0,
+      relevance: 0,
+      value: escape(text)
+    };
+    var second_best = result;
+    for (var key in languages) {
+      if (!languages.hasOwnProperty(key))
+        continue;
+      var current = highlight(key, text);
+      if (current.keyword_count + current.relevance > second_best.keyword_count + second_best.relevance) {
+        second_best = current;
+      }
+      if (current.keyword_count + current.relevance > result.keyword_count + result.relevance) {
+        second_best = result;
+        result = current;
+      }
+    }
+    if (second_best.language) {
+      result.second_best = second_best;
+    }
+    return result;
+  }
 
   function highlightBlock(block, tabReplace, useBR) {
     initialize();
@@ -425,24 +469,7 @@ var hljs = new function() {
     var language = blockLanguage(block);
     if (language == 'no-highlight')
         return;
-    if (language) {
-      var result = highlight(language, text);
-    } else {
-      var result = {language: '', keyword_count: 0, relevance: 0, value: escape(text)};
-      var second_best = result;
-      for (var key in languages) {
-        if (!languages.hasOwnProperty(key))
-          continue;
-        var current = highlight(key, text);
-        if (current.keyword_count + current.relevance > second_best.keyword_count + second_best.relevance) {
-          second_best = current;
-        }
-        if (current.keyword_count + current.relevance > result.keyword_count + result.relevance) {
-          second_best = result;
-          result = current;
-        }
-      }
-    }
+    var result = language ? highlight(language, text) : highlightAuto(text);
 
     var class_name = block.className;
     if (!class_name.match(result.language)) {
@@ -481,11 +508,11 @@ var hljs = new function() {
       kw: result.keyword_count,
       re: result.relevance
     };
-    if (second_best && second_best.language) {
+    if (result.second_best) {
       block.dataset.second_best = {
-        language: second_best.language,
-        kw: second_best.keyword_count,
-        re: second_best.relevance
+        language: result.second_best.language,
+        kw: result.second_best.keyword_count,
+        re: result.second_best.relevance
       };
     }
   }
@@ -520,9 +547,11 @@ var hljs = new function() {
   /* Interface definition */
 
   this.LANGUAGES = languages;
-  this.initHighlightingOnLoad = initHighlightingOnLoad;
+  this.highlight = highlight;
+  this.highlightAuto = highlightAuto;
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;
+  this.initHighlightingOnLoad = initHighlightingOnLoad;
 
   // Common regexps
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
