@@ -563,6 +563,7 @@ var hljs = new function() {
   this.LANGUAGES = languages;
   this.highlight = highlight;
   this.highlightAuto = highlightAuto;
+  this.fixMakrup = fixMakrup;
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
