@@ -159,7 +159,6 @@ var hljs = new function() {
   Core highlighting function. Accepts a language name and a string with the
   code to highlight. Returns an object with the following properties:
 
-  - language (same language name that is passed in the first argument)
   - relevance (int)
   - keyword_count (int)
   - value (an HTML string with highlighting markup)
@@ -347,7 +346,6 @@ var hljs = new function() {
       if(modes.length > 1)
         throw 'Illegal';
       return {
-        language: language_name,
         relevance: relevance,
         keyword_count: keyword_count,
         value: result
@@ -355,7 +353,6 @@ var hljs = new function() {
     } catch (e) {
       if (e == 'Illegal') {
         return {
-          language: null,
           relevance: 0,
           keyword_count: 0,
           value: escape(value)
@@ -438,7 +435,6 @@ var hljs = new function() {
   */
   function highlightAuto(text) {
     var result = {
-      language: '',
       keyword_count: 0,
       relevance: 0,
       value: escape(text)
@@ -448,6 +444,7 @@ var hljs = new function() {
       if (!languages.hasOwnProperty(key))
         continue;
       var current = highlight(key, text);
+      current.language = key;
       if (current.keyword_count + current.relevance > second_best.keyword_count + second_best.relevance) {
         second_best = current;
       }
@@ -469,11 +466,16 @@ var hljs = new function() {
     var language = blockLanguage(block);
     if (language == 'no-highlight')
         return;
-    var result = language ? highlight(language, text) : highlightAuto(text);
+    if (language) {
+      var result = highlight(language, text);
+    } else {
+      var result = highlightAuto(text);
+      language = result.language;
+    }
 
     var class_name = block.className;
-    if (!class_name.match(result.language)) {
-      class_name = class_name ? (class_name + ' ' + result.language) : result.language;
+    if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
+      class_name = class_name ? (class_name + ' ' + language) : language;
     }
     var original = nodeStream(block);
     if (original.length) {
@@ -504,7 +506,7 @@ var hljs = new function() {
     block.className = class_name;
     block.dataset = {};
     block.dataset.result = {
-      language: result.language,
+      language: language,
       kw: result.keyword_count,
       re: result.relevance
     };
