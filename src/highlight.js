@@ -459,6 +459,25 @@ var hljs = new function() {
     return result;
   }
 
+  /*
+  Post-processing highlighted markup:
+
+  - replace TABs with something more useful
+  - replace real line-breaks with '<br>' for non-pre containers
+
+  */
+  function fixMakrup(value, tabReplace, useBR) {
+    if (tabReplace) {
+      value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
+        return p1.replace(/\t/g, tabReplace);
+      })
+    }
+    if (useBR) {
+      value = value.replace(/\n/g, '<br>');
+    }
+    return value;
+  }
+
   function highlightBlock(block, tabReplace, useBR) {
     initialize();
 
@@ -472,24 +491,17 @@ var hljs = new function() {
       var result = highlightAuto(text);
       language = result.language;
     }
-
-    var class_name = block.className;
-    if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
-      class_name = class_name ? (class_name + ' ' + language) : language;
-    }
     var original = nodeStream(block);
     if (original.length) {
       var pre = document.createElement('pre');
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
-    if (tabReplace) {
-      result.value = result.value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
-        return p1.replace(/\t/g, tabReplace);
-      })
-    }
-    if (useBR) {
-      result.value = result.value.replace(/\n/g, '<br>');
+    result.value = fixMakrup(result.value, tabReplace, useBR);
+
+    var class_name = block.className;
+    if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
+      class_name = class_name ? (class_name + ' ' + language) : language;
     }
     if (/MSIE [678]/.test(navigator.userAgent) && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
       // This is for backwards compatibility only. IE needs this strange
