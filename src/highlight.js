@@ -539,15 +539,13 @@ var hljs = new function() {
   }
 
   function initHighlightingOnLoad() {
-    var original_arguments = arguments;
-    var handler = function(){initHighlighting.apply(null, original_arguments)};
     if (window.addEventListener) {
-      window.addEventListener('DOMContentLoaded', handler, false);
-      window.addEventListener('load', handler, false);
+      window.addEventListener('DOMContentLoaded', initHighlighting, false);
+      window.addEventListener('load', initHighlighting, false);
     } else if (window.attachEvent)
-      window.attachEvent('onload', handler);
+      window.attachEvent('onload', initHighlighting);
     else
-      window.onload = handler;
+      window.onload = initHighlighting;
   }
 
   var languages = {}; // a shortcut to avoid writing "this." everywhere
