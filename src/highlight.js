@@ -155,6 +155,57 @@ var hljs = new function() {
     return result;
   }
 
+  /* Initialization */
+
+  function compileModes() {
+
+    function compileMode(mode, language, is_default) {
+      if (mode.compiled)
+        return;
+
+      if (!is_default) {
+        mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
+        if (!mode.end && !mode.endsWithParent)
+          mode.end = '\\B|\\b'
+        if (mode.end)
+          mode.endRe = langRe(language, mode.end);
+      }
+      if (mode.illegal)
+        mode.illegalRe = langRe(language, mode.illegal);
+      if (mode.relevance == undefined)
+        mode.relevance = 1;
+      if (mode.keywords)
+        mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
+      for (var key in mode.keywords) {
+        if (!mode.keywords.hasOwnProperty(key))
+          continue;
+        if (mode.keywords[key] instanceof Object)
+          mode.keywordGroups = mode.keywords;
+        else
+          mode.keywordGroups = {'keyword': mode.keywords};
+        break;
+      }
+      if (!mode.contains) {
+        mode.contains = [];
+      }
+      // compiled flag is set before compiling submodes to avoid self-recursion
+      // (see lisp where quoted_list contains quoted_list)
+      mode.compiled = true;
+      for (var i = 0; i < mode.contains.length; i++) {
+        compileMode(mode.contains[i], language, false);
+      }
+      if (mode.starts) {
+        compileMode(mode.starts, language, false);
+      }
+    }
+
+    for (var i in languages) {
+      if (!languages.hasOwnProperty(i))
+        continue;
+      compileMode(languages[i].defaultMode, languages[i], true);
+    }
+  }
+
   /*
   Core highlighting function. Accepts a language name and a string with the
   code to highlight. Returns an object with the following properties:
@@ -165,6 +216,10 @@ var hljs = new function() {
 
   */
   function highlight(language_name, value) {
+    if (!compileModes.called) {
+      compileModes();
+      compileModes.called = true;
+    }
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -363,64 +418,6 @@ var hljs = new function() {
     }
   }
 
-  /* Initialization */
-
-  function compileModes() {
-
-    function compileMode(mode, language, is_default) {
-      if (mode.compiled)
-        return;
-
-      if (!is_default) {
-        mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
-        if (!mode.end && !mode.endsWithParent)
-          mode.end = '\\B|\\b'
-        if (mode.end)
-          mode.endRe = langRe(language, mode.end);
-      }
-      if (mode.illegal)
-        mode.illegalRe = langRe(language, mode.illegal);
-      if (mode.relevance == undefined)
-        mode.relevance = 1;
-      if (mode.keywords)
-        mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
-      for (var key in mode.keywords) {
-        if (!mode.keywords.hasOwnProperty(key))
-          continue;
-        if (mode.keywords[key] instanceof Object)
-          mode.keywordGroups = mode.keywords;
-        else
-          mode.keywordGroups = {'keyword': mode.keywords};
-        break;
-      }
-      if (!mode.contains) {
-        mode.contains = [];
-      }
-      // compiled flag is set before compiling submodes to avoid self-recursion
-      // (see lisp where quoted_list contains quoted_list)
-      mode.compiled = true;
-      for (var i = 0; i < mode.contains.length; i++) {
-        compileMode(mode.contains[i], language, false);
-      }
-      if (mode.starts) {
-        compileMode(mode.starts, language, false);
-      }
-    }
-
-    for (var i in languages) {
-      if (!languages.hasOwnProperty(i))
-        continue;
-      compileMode(languages[i].defaultMode, languages[i], true);
-    }
-  }
-
-  function initialize() {
-    if (initialize.called)
-        return;
-    initialize.called = true;
-    compileModes();
-  }
-
   /*
   Highlighting with language detection. Accepts a string with the code to
   highlight. Returns an object with the following properties:
@@ -479,8 +476,6 @@ var hljs = new function() {
   }
 
   function highlightBlock(block, tabReplace, useBR) {
-    initialize();
-
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
     if (language == 'no-highlight')
@@ -535,7 +530,6 @@ var hljs = new function() {
     if (initHighlighting.called)
       return;
     initHighlighting.called = true;
-    initialize();
     var pres = document.getElementsByTagName('pre');
     for (var i = 0; i < pres.length; i++) {
       var code = findCode(pres[i]);
