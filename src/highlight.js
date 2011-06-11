@@ -457,13 +457,13 @@ var hljs = new function() {
   }
 
   /*
-  Post-processing highlighted markup:
+  Post-processing of the highlighted markup:
 
   - replace TABs with something more useful
   - replace real line-breaks with '<br>' for non-pre containers
 
   */
-  function fixMakrup(value, tabReplace, useBR) {
+  function fixMarkup(value, tabReplace, useBR) {
     if (tabReplace) {
       value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
         return p1.replace(/\t/g, tabReplace);
@@ -496,7 +496,7 @@ var hljs = new function() {
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
-    result.value = fixMakrup(result.value, tabReplace, useBR);
+    result.value = fixMarkup(result.value, tabReplace, useBR);
 
     var class_name = block.className;
     if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
@@ -565,7 +565,7 @@ var hljs = new function() {
   this.LANGUAGES = languages;
   this.highlight = highlight;
   this.highlightAuto = highlightAuto;
-  this.fixMakrup = fixMakrup;
+  this.fixMarkup = fixMarkup;
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
