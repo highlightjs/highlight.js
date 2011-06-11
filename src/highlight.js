@@ -475,6 +475,10 @@ var hljs = new function() {
     return value;
   }
 
+  /*
+  Applies highlighting to a DOM node containing code. Accepts a DOM node and
+  two optional parameters for fixMarkup.
+  */
   function highlightBlock(block, tabReplace, useBR) {
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
@@ -526,6 +530,9 @@ var hljs = new function() {
     }
   }
 
+  /*
+  Applies highlighting to all <pre><code>..</code></pre> blocks on a page.
+  */
   function initHighlighting() {
     if (initHighlighting.called)
       return;
@@ -538,6 +545,9 @@ var hljs = new function() {
     }
   }
 
+  /*
+  Attaches highlighting to the page load event.
+  */
   function initHighlightingOnLoad() {
     if (window.addEventListener) {
       window.addEventListener('DOMContentLoaded', initHighlighting, false);
