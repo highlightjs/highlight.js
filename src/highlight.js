@@ -155,9 +155,71 @@ var hljs = new function() {
     return result;
   }
 
-  /* Core highlighting function */
+  /* Initialization */
 
+  function compileModes() {
+
+    function compileMode(mode, language, is_default) {
+      if (mode.compiled)
+        return;
+
+      if (!is_default) {
+        mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
+        if (!mode.end && !mode.endsWithParent)
+          mode.end = '\\B|\\b'
+        if (mode.end)
+          mode.endRe = langRe(language, mode.end);
+      }
+      if (mode.illegal)
+        mode.illegalRe = langRe(language, mode.illegal);
+      if (mode.relevance == undefined)
+        mode.relevance = 1;
+      if (mode.keywords)
+        mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
+      for (var key in mode.keywords) {
+        if (!mode.keywords.hasOwnProperty(key))
+          continue;
+        if (mode.keywords[key] instanceof Object)
+          mode.keywordGroups = mode.keywords;
+        else
+          mode.keywordGroups = {'keyword': mode.keywords};
+        break;
+      }
+      if (!mode.contains) {
+        mode.contains = [];
+      }
+      // compiled flag is set before compiling submodes to avoid self-recursion
+      // (see lisp where quoted_list contains quoted_list)
+      mode.compiled = true;
+      for (var i = 0; i < mode.contains.length; i++) {
+        compileMode(mode.contains[i], language, false);
+      }
+      if (mode.starts) {
+        compileMode(mode.starts, language, false);
+      }
+    }
+
+    for (var i in languages) {
+      if (!languages.hasOwnProperty(i))
+        continue;
+      compileMode(languages[i].defaultMode, languages[i], true);
+    }
+  }
+
+  /*
+  Core highlighting function. Accepts a language name and a string with the
+  code to highlight. Returns an object with the following properties:
+
+  - relevance (int)
+  - keyword_count (int)
+  - value (an HTML string with highlighting markup)
+
+  */
   function highlight(language_name, value) {
+    if (!compileModes.called) {
+      compileModes();
+      compileModes.called = true;
+    }
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -339,7 +401,6 @@ var hljs = new function() {
       if(modes.length > 1)
         throw 'Illegal';
       return {
-        language: language_name,
         relevance: relevance,
         keyword_count: keyword_count,
         value: result
@@ -347,7 +408,6 @@ var hljs = new function() {
     } catch (e) {
       if (e == 'Illegal') {
         return {
-          language: null,
           relevance: 0,
           keyword_count: 0,
           value: escape(value)
@@ -358,69 +418,68 @@ var hljs = new function() {
     }
   }
 
-  /* Initialization */
+  /*
+  Highlighting with language detection. Accepts a string with the code to
+  highlight. Returns an object with the following properties:
 
-  function compileModes() {
+  - language (detected language)
+  - relevance (int)
+  - keyword_count (int)
+  - value (an HTML string with highlighting markup)
+  - second_best (object with the same structure for second-best heuristically
+    detected language, may be absent)
 
-    function compileMode(mode, language, is_default) {
-      if (mode.compiled)
-        return;
-
-      if (!is_default) {
-        mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
-        if (!mode.end && !mode.endsWithParent)
-          mode.end = '\\B|\\b'
-        if (mode.end)
-          mode.endRe = langRe(language, mode.end);
-      }
-      if (mode.illegal)
-        mode.illegalRe = langRe(language, mode.illegal);
-      if (mode.relevance == undefined)
-        mode.relevance = 1;
-      if (mode.keywords)
-        mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
-      for (var key in mode.keywords) {
-        if (!mode.keywords.hasOwnProperty(key))
-          continue;
-        if (mode.keywords[key] instanceof Object)
-          mode.keywordGroups = mode.keywords;
-        else
-          mode.keywordGroups = {'keyword': mode.keywords};
-        break;
-      }
-      if (!mode.contains) {
-        mode.contains = [];
-      }
-      // compiled flag is set before compiling submodes to avoid self-recursion
-      // (see lisp where quoted_list contains quoted_list)
-      mode.compiled = true;
-      for (var i = 0; i < mode.contains.length; i++) {
-        compileMode(mode.contains[i], language, false);
-      }
-      if (mode.starts) {
-        compileMode(mode.starts, language, false);
-      }
-    }
-
-    for (var i in languages) {
-      if (!languages.hasOwnProperty(i))
+  */
+  function highlightAuto(text) {
+    var result = {
+      keyword_count: 0,
+      relevance: 0,
+      value: escape(text)
+    };
+    var second_best = result;
+    for (var key in languages) {
+      if (!languages.hasOwnProperty(key))
         continue;
-      compileMode(languages[i].defaultMode, languages[i], true);
+      var current = highlight(key, text);
+      current.language = key;
+      if (current.keyword_count + current.relevance > second_best.keyword_count + second_best.relevance) {
+        second_best = current;
+      }
+      if (current.keyword_count + current.relevance > result.keyword_count + result.relevance) {
+        second_best = result;
+        result = current;
+      }
     }
+    if (second_best.language) {
+      result.second_best = second_best;
+    }
+    return result;
   }
 
-  function initialize() {
-    if (initialize.called)
-        return;
-    initialize.called = true;
-    compileModes();
+  /*
+  Post-processing highlighted markup:
+
+  - replace TABs with something more useful
+  - replace real line-breaks with '<br>' for non-pre containers
+
+  */
+  function fixMakrup(value, tabReplace, useBR) {
+    if (tabReplace) {
+      value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
+        return p1.replace(/\t/g, tabReplace);
+      })
+    }
+    if (useBR) {
+      value = value.replace(/\n/g, '<br>');
+    }
+    return value;
   }
 
-  /* Public library functions */
-
+  /*
+  Applies highlighting to a DOM node containing code. Accepts a DOM node and
+  two optional parameters for fixMarkup.
+  */
   function highlightBlock(block, tabReplace, useBR) {
-    initialize();
-
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
     if (language == 'no-highlight')
@@ -428,25 +487,8 @@ var hljs = new function() {
     if (language) {
       var result = highlight(language, text);
     } else {
-      var result = {language: '', keyword_count: 0, relevance: 0, value: escape(text)};
-      var second_best = result;
-      for (var key in languages) {
-        if (!languages.hasOwnProperty(key))
-          continue;
-        var current = highlight(key, text);
-        if (current.keyword_count + current.relevance > second_best.keyword_count + second_best.relevance) {
-          second_best = current;
-        }
-        if (current.keyword_count + current.relevance > result.keyword_count + result.relevance) {
-          second_best = result;
-          result = current;
-        }
-      }
-    }
-
-    var class_name = block.className;
-    if (!class_name.match(result.language)) {
-      class_name = class_name ? (class_name + ' ' + result.language) : result.language;
+      var result = highlightAuto(text);
+      language = result.language;
     }
     var original = nodeStream(block);
     if (original.length) {
@@ -454,13 +496,11 @@ var hljs = new function() {
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
-    if (tabReplace) {
-      result.value = result.value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
-        return p1.replace(/\t/g, tabReplace);
-      })
-    }
-    if (useBR) {
-      result.value = result.value.replace(/\n/g, '<br>');
+    result.value = fixMakrup(result.value, tabReplace, useBR);
+
+    var class_name = block.className;
+    if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
+      class_name = class_name ? (class_name + ' ' + language) : language;
     }
     if (/MSIE [678]/.test(navigator.userAgent) && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
       // This is for backwards compatibility only. IE needs this strange
@@ -477,24 +517,26 @@ var hljs = new function() {
     block.className = class_name;
     block.dataset = {};
     block.dataset.result = {
-      language: result.language,
+      language: language,
       kw: result.keyword_count,
       re: result.relevance
     };
-    if (second_best && second_best.language) {
+    if (result.second_best) {
       block.dataset.second_best = {
-        language: second_best.language,
-        kw: second_best.keyword_count,
-        re: second_best.relevance
+        language: result.second_best.language,
+        kw: result.second_best.keyword_count,
+        re: result.second_best.relevance
       };
     }
   }
 
+  /*
+  Applies highlighting to all <pre><code>..</code></pre> blocks on a page.
+  */
   function initHighlighting() {
     if (initHighlighting.called)
       return;
     initHighlighting.called = true;
-    initialize();
     var pres = document.getElementsByTagName('pre');
     for (var i = 0; i < pres.length; i++) {
       var code = findCode(pres[i]);
@@ -503,16 +545,17 @@ var hljs = new function() {
     }
   }
 
+  /*
+  Attaches highlighting to the page load event.
+  */
   function initHighlightingOnLoad() {
-    var original_arguments = arguments;
-    var handler = function(){initHighlighting.apply(null, original_arguments)};
     if (window.addEventListener) {
-      window.addEventListener('DOMContentLoaded', handler, false);
-      window.addEventListener('load', handler, false);
+      window.addEventListener('DOMContentLoaded', initHighlighting, false);
+      window.addEventListener('load', initHighlighting, false);
     } else if (window.attachEvent)
-      window.attachEvent('onload', handler);
+      window.attachEvent('onload', initHighlighting);
     else
-      window.onload = handler;
+      window.onload = initHighlighting;
   }
 
   var languages = {}; // a shortcut to avoid writing "this." everywhere
@@ -520,9 +563,12 @@ var hljs = new function() {
   /* Interface definition */
 
   this.LANGUAGES = languages;
-  this.initHighlightingOnLoad = initHighlightingOnLoad;
+  this.highlight = highlight;
+  this.highlightAuto = highlightAuto;
+  this.fixMakrup = fixMakrup;
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;
+  this.initHighlightingOnLoad = initHighlightingOnLoad;
 
   // Common regexps
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
