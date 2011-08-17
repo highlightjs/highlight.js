@@ -1513,10 +1513,10 @@ ok
       function counts(r) {
         return ' (' + r.kw + '+' + r.re + '=' + (r.kw + r.re) + ')';
       }
-      result.innerHTML += counts(code.dataset.result);
-      if (code.dataset.second_best) {
-        result.innerHTML += '<br>' + code.dataset.second_best.language +
-                            counts(code.dataset.second_best) ;
+      result.innerHTML += counts(code.result);
+      if (code.second_best) {
+        result.innerHTML += '<br>' + code.second_best.language +
+                            counts(code.second_best) ;
       }
       tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
       if (!passed) {

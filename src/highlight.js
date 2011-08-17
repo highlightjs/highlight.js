@@ -515,14 +515,13 @@ var hljs = new function() {
       block.innerHTML = result.value;
     }
     block.className = class_name;
-    block.dataset = {};
-    block.dataset.result = {
+    block.result = {
       language: language,
       kw: result.keyword_count,
       re: result.relevance
     };
     if (result.second_best) {
-      block.dataset.second_best = {
+      block.second_best = {
         language: result.second_best.language,
         kw: result.second_best.keyword_count,
         re: result.second_best.relevance
