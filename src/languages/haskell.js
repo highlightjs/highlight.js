@@ -6,23 +6,27 @@ Author: Jeremy Hull <sourdrums@gmail.com>
 hljs.LANGUAGES.haskell = function(){
   var LABEL = {
     className: 'label',
-    begin: '\\b[A-Z][\\w\\\']*',
+    begin: '\\b[A-Z][\\w\']*',
     relevance: 0
   };
   var CONTAINER = {
     className: 'container',
     begin: '\\(', end: '\\)',
     contains: [
-      {className: 'label', begin: '\\b[A-Z][\\w\\(\\)\\.\\\']*'},
-      {className: 'title', begin: '[_a-z][\\w\\\']*'}
+      {className: 'label', begin: '\\b[A-Z][\\w\\(\\)\\.\']*'},
+      {className: 'title', begin: '[_a-z][\\w\']*'}
     ]
   };
 
   return {
     defaultMode: {
       keywords: {
-        'keyword': {'let': 1,'in': 1,'if': 1,'then': 1,'else': 1,'case': 1,'of': 1,'where': 1,'do': 1,'module': 1,'import': 1, 'hiding': 1,'qualified': 1,'type': 1,'data': 1,'newtype': 1,'deriving': 1,'class': 1,'instance': 1,'null': 1,'not': 1,'as': 1},
-        'built_in': {'Bool': 1,'True': 1,'False': 1,'Int': 1,'Char': 1,'Maybe': 1,'Nothing': 1,'String': 1}
+        'keyword': {
+          'let': 1, 'in': 1, 'if': 1, 'then': 1, 'else': 1, 'case': 1, 'of': 1,
+          'where': 1, 'do': 1, 'module': 1, 'import': 1, 'hiding': 1,
+          'qualified': 1, 'type': 1, 'data': 1, 'newtype': 1, 'deriving': 1,
+          'class': 1, 'instance': 1, 'null': 1, 'not': 1, 'as': 1
+        }
       },
       contains: [
         {
@@ -33,7 +37,12 @@ hljs.LANGUAGES.haskell = function(){
           className: 'comment',
           begin: '{-', end: '-}'
         },
-        hljs.APOS_STRING_MODE,
+        {
+          className: 'string',
+          begin: '\\s+\'', end: '\'',
+          contains: [hljs.BACKSLASH_ESCAPE],
+          relevance: 0
+        },
         hljs.QUOTE_STRING_MODE,
         {
           className: 'import',
@@ -60,7 +69,7 @@ hljs.LANGUAGES.haskell = function(){
         },
         LABEL,
         {
-          className: 'title', begin: '^[_a-z][\\w\\\']*'
+          className: 'title', begin: '^[_a-z][\\w\']*'
         }
       ]
     }
