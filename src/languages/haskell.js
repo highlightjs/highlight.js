@@ -6,15 +6,15 @@ Author: Jeremy Hull <sourdrums@gmail.com>
 hljs.LANGUAGES.haskell = function(){
   var LABEL = {
     className: 'label',
-    begin: '\\b[A-Z][\\w\\\']*',
+    begin: '\\b[A-Z][\\w\']*',
     relevance: 0
   };
   var CONTAINER = {
     className: 'container',
     begin: '\\(', end: '\\)',
     contains: [
-      {className: 'label', begin: '\\b[A-Z][\\w\\(\\)\\.\\\']*'},
-      {className: 'title', begin: '[_a-z][\\w\\\']*'}
+      {className: 'label', begin: '\\b[A-Z][\\w\\(\\)\\.\']*'},
+      {className: 'title', begin: '[_a-z][\\w\']*'}
     ]
   };
 
@@ -33,7 +33,12 @@ hljs.LANGUAGES.haskell = function(){
           className: 'comment',
           begin: '{-', end: '-}'
         },
-        hljs.APOS_STRING_MODE,
+        {
+          className: 'string',
+          begin: '\\s+\'', end: '\'',
+          contains: [hljs.BACKSLASH_ESCAPE],
+          relevance: 0
+        },
         hljs.QUOTE_STRING_MODE,
         {
           className: 'import',
@@ -60,7 +65,7 @@ hljs.LANGUAGES.haskell = function(){
         },
         LABEL,
         {
-          className: 'title', begin: '^[_a-z][\\w\\\']*'
+          className: 'title', begin: '^[_a-z][\\w\']*'
         }
       ]
     }
