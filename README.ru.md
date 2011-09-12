@@ -18,22 +18,26 @@ Highlight.js нужен для подсветки синтаксиса в при
 Скрипт подключается одним файлом и одним вызовом инициализирующей
 функции:
 
-    <script type="text/javascript" src="highlight.pack.js"></script>
-    <script type="text/javascript">
-      hljs.initHighlightingOnLoad();
-    </script>
+```html
+<script type="text/javascript" src="highlight.pack.js"></script>
+<script type="text/javascript">
+  hljs.initHighlightingOnLoad();
+</script>
+```
 
 Также вы можете заменить символы TAB ('\x09'), используемые для отступов, на
 фиксированное количество пробелов или на отдельный `<span>`, чтобы задать ему
 какой-нибудь специальный стиль:
 
-    <script type="text/javascript">
-      hljs.tabReplace = '    '; // 4 spaces
-      // ... or
-      hljs.tabReplace = '<span class="indent">\t</span>';
+```html
+<script type="text/javascript">
+  hljs.tabReplace = '    '; // 4 spaces
+  // ... or
+  hljs.tabReplace = '<span class="indent">\t</span>';
 
-      hljs.initHighlightingOnLoad();
-    </script>
+  hljs.initHighlightingOnLoad();
+</script>
+```
 
 Дальше скрипт ищет на странице конструкции `<pre><code>...</code></pre>`,
 которые традиционно используются для написания кода, и код в них
@@ -49,35 +53,40 @@ DOM-элемент с текстом расцвечиваемого кода и 
 
 Например с использованием jQuery код инициализации может выглядеть так:
 
-    $(document).ready(function() {
-      $('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
-    });
+```javascript
+$(document).ready(function() {
+  $('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
+});
+```
 
 Если ваш блок кода использует `<br>` вместо переводов строки (т.е. если это не
 `<pre>`), передайте `true` третьим параметром в `highlightBlock`:
 
-    $('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
-
+```javascript
+$('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
+```
 
 ### Выбор стилей
 
 Размеченным классами элементам кода можно задать желаемые стили например так:
 
-    .comment {
-      color: gray;
-    }
+```css
+.comment {
+  color: gray;
+}
 
-    .keyword {
-      font-weight: bold;
-    }
+.keyword {
+  font-weight: bold;
+}
 
-    .python .string {
-      color: blue;
-    }
+.python .string {
+  color: blue;
+}
 
-    .html .atribute .value {
-      color: green;
-    }
+.html .atribute .value {
+  color: green;
+}
+```
 
 В комплекте с highlight.js идут несколько стилевых тем в директории styles,
 которые можно использовать напрямую или как основу для собственных экспериментов.
@@ -107,7 +116,9 @@ highlight.js.
 периодически и случается. Чтобы указать язык фрагмента явно, надо написать
 его название в виде класса к элементу `<code>`:
 
-    <pre><code class="html">...</code></pre>
+```html
+<pre><code class="html">...</code></pre>
+```
 
 Можно использовать рекомендованные в HTML5 названия классов:
 "language-html", "language-php". Также можно назначать классы на элемент
@@ -115,8 +126,9 @@ highlight.js.
 
 Чтобы запретить расцветку фрагмента вообще, используется класс "no-highlight":
 
-    <pre><code class="no-highlight">...</code></pre>
-
+```html
+<pre><code class="no-highlight">...</code></pre>
+```
 
 ## Координаты
 
