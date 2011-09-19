@@ -1,6 +1,5 @@
 /*
 Language: HTML, XML
-Category: common
 */
 
 hljs.LANGUAGES.xml = function(){

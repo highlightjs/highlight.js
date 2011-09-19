@@ -2,7 +2,6 @@
 Language: Ruby
 Author: Anton Kovalyov <anton@kovalyov.net>
 Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.net>, Loren Segal <lsegal@soen.ca>
-Category: common
 */
 
 hljs.LANGUAGES.ruby = function(){

@@ -1,7 +1,6 @@
 /*
 Language: Bash
 Author: vah <vahtenberg@gmail.com>
-Category: common
 */
 
 hljs.LANGUAGES.bash = function(){

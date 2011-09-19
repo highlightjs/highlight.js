@@ -1,7 +1,6 @@
 /*
 Language: Perl
 Author: Peter Leonov <gojpeg@yandex.ru>
-Category: common
 */
 
 hljs.LANGUAGES.perl = function(){

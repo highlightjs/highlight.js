@@ -1,6 +1,5 @@
 /*
 Language: Python
-Category: common
 */
 
 hljs.LANGUAGES.python = function() {

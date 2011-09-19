@@ -1,6 +1,5 @@
 /*
 Language: Ini
-Category: common
 */
 
 hljs.LANGUAGES.ini = {

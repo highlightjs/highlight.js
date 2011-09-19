@@ -1,6 +1,5 @@
 /*
 Language: C++
-Category: common
 */
 
 hljs.LANGUAGES.cpp = function(){

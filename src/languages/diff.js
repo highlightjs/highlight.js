@@ -2,7 +2,6 @@
 Language: Diff
 Description: Unified and context diff
 Author: Vasily Polovnyov <vast@whiteants.net>
-Category: common
 */
 
 hljs.LANGUAGES.diff = {

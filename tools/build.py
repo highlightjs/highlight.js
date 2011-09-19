@@ -54,6 +54,10 @@ LIBRARY_REPLACES = {
     'keywordGroups': 'kG',
 }
 
+CATEGORIES = {
+    'common': ['bash', 'java', 'ini', 'sql', 'diff', 'php', 'cs', 'cpp', 'ruby', 'python', 'css', 'perl', 'xml', 'javascript'],
+}
+
 def compress_content(tools_path, content):
     cmd = 'java -jar %s --type js' % os.path.join(tools_path, 'yuicompressor.jar')
 
@@ -102,9 +106,15 @@ def language_filenames(src_path, languages):
         categories = set(l for l in languages if l.startswith(':'))
         languages = set(languages) - categories
         categories = set(c.strip(':') for c in categories)
+        cat_languages = reduce(
+            lambda a, b: set(a) | set(b),
+            [l for c, l in CATEGORIES.items() if c in categories],
+            set()
+        )
+        languages |= cat_languages
         infos = [
             (i, f) for i, f in infos
-            if os.path.splitext(f)[0] in languages or i.get('Category') in categories
+            if os.path.splitext(f)[0] in languages
         ]
 
     def append(filename):

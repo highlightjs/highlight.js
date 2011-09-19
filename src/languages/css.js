@@ -1,6 +1,5 @@
 /*
 Language: CSS
-Category: common
 */
 
 hljs.LANGUAGES.css = function() {
