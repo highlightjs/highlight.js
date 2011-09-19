@@ -16,22 +16,26 @@ uncompressed source files are also available, feel free to look into them!
 The script is installed by linking to a single file and making a single
 initialization call:
 
-    <script type="text/javascript" src="highlight.pack.js"></script>
-    <script type="text/javascript">
-      hljs.initHighlightingOnLoad();
-    </script>
+```html
+<script type="text/javascript" src="highlight.pack.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+```
 
 Also you can replace TAB ('\x09') characters used for indentation in your code
 with some fixed number of spaces or with a `<span>` to give them special
 styling:
 
-    <script type="text/javascript">
-      hljs.tabReplace = '    '; // 4 spaces
-      // ... or
-      hljs.tabReplace = '<span class="indent">\t</span>';
+```html
+<script type="text/javascript">
+  hljs.tabReplace = '    '; // 4 spaces
+  // ... or
+  hljs.tabReplace = '<span class="indent">\t</span>';
 
-      hljs.initHighlightingOnLoad();
-    </script>
+  hljs.initHighlightingOnLoad();
+</script>
+```
 
 The script looks in your page for fragments `<pre><code>...</code></pre>`
 that are traditionally used to mark up code examples. Their content is
@@ -47,35 +51,40 @@ TAB characters.
 
 Initialization using, for example, jQuery might look like this:
 
-    $(document).ready(function() {
-      $('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
-    });
+```javascript
+$(document).ready(function() {
+  $('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
+});
+```
 
 If your code container relies on `<br>` tags instead of line breaks (i.e. if
 it's not `<pre>`) pass `true` into third parameter of `highlightBlock`:
 
-    $('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
-
+```javascript
+$('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
+```
 
 ### Styling
 
 Elements of code marked up with classes can be styled as desired:
 
-    .comment {
-      color: gray;
-    }
+```css
+.comment {
+  color: gray;
+}
 
-    .keyword {
-      font-weight: bold;
-    }
+.keyword {
+  font-weight: bold;
+}
 
-    .python .string {
-      color: blue;
-    }
+.python .string {
+  color: blue;
+}
 
-    .html .atribute .value {
-      color: green;
-    }
+.html .atribute .value {
+  color: green;
+}
+```
 
 Highlight.js comes with several style themes located in "styles" directory that
 can be used directly or as a base for your own experiments.
@@ -104,15 +113,18 @@ This means that in short fragments the probability of an error is high
 (and it really happens sometimes). In this cases you can set the fragment's
 language explicitly by assigning a class to the `<code>` element:
 
-    <pre><code class="html">...</code></pre>
+```html
+<pre><code class="html">...</code></pre>
+```
 
 You can use class names recommended in HTML5: "language-html",
 "language-php". Classes also can be assigned to the `<pre>` element.
 
 To disable highlighting of a fragment altogether use "no-highlight" class:
 
-    <pre><code class="no-highlight">...</code></pre>
-
+```html
+<pre><code class="no-highlight">...</code></pre>
+```
 
 ## Meta
 
