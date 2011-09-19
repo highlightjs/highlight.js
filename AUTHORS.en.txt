@@ -43,3 +43,4 @@ Contributors:
 - Sergey Ignatov <sergey@ignatov.spb.su>
 - Antono Vasiljev <self@antono.info>
 - Stephan Kountso <steplg@gmail.com>
+- pumbur <pumbur@pumbur.net>

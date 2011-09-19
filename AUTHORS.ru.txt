@@ -43,3 +43,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Сергей Игнатов <sergey@ignatov.spb.su>
 - Антоно Васильев <self@antono.info>
 - Степан Кунцьо <steplg@gmail.com>
+- pumbur <pumbur@pumbur.net>
