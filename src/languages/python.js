@@ -5,23 +5,23 @@ Language: Python
 hljs.LANGUAGES.python = function() {
   var STR1 = {
     className: 'string',
-    begin: 'u?r?\'\'\'', end: '\'\'\'',
+    begin: '(u|b)?r?\'\'\'', end: '\'\'\'',
     relevance: 10
   };
   var STR2 = {
     className: 'string',
-    begin: 'u?r?"""', end: '"""',
+    begin: '(u|b)?r?"""', end: '"""',
     relevance: 10
   };
   var STR3 = {
     className: 'string',
-    begin: '(u|r|ur)\'', end: '\'',
+    begin: '(u|r|ur|b|br)\'', end: '\'',
     contains: [hljs.BACKSLASH_ESCAPE],
     relevance: 10
   };
   var STR4 = {
     className: 'string',
-    begin: '(u|r|ur)"', end: '"',
+    begin: '(u|r|ur|b|br)"', end: '"',
     contains: [hljs.BACKSLASH_ESCAPE],
     relevance: 10
   };
