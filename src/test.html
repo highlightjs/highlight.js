@@ -445,11 +445,13 @@ html {
 @import url('print.css');
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @page :left {
-    body:first-of-type pre::after {
-      content: 'highlight: ' attr(class);
-    }
+  body:first-of-type pre::after {
+    content: 'highlight: ' attr(class);
   }
+}
+
+@page:right {
+ margin: 1cm 2cm 1.3cm 4cm;
 }
 
 @font-face {

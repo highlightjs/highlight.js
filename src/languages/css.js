@@ -35,9 +35,9 @@ hljs.LANGUAGES.css = function() {
         },
         {
           className: 'at_rule',
-          begin: '@font-face',
+          begin: '@(font-face|page)',
           lexems: '[a-z-]+',
-          keywords: {'font-face': 1}
+          keywords: {'font-face': 1, 'page': 1}
         },
         {
           className: 'at_rule',
