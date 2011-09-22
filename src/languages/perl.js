@@ -21,6 +21,7 @@ hljs.LANGUAGES.perl = function(){
   };
   var STRING_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST, VAR1, VAR2];
   var PERL_DEFAULT_CONTAINS = [
+    VAR1, VAR2,
     hljs.HASH_COMMENT_MODE,
     {
       className: 'comment',
@@ -112,7 +113,6 @@ hljs.LANGUAGES.perl = function(){
       keywords: {'sub':1},
       relevance: 5
     },
-    VAR1, VAR2,
     {
       className: 'operator',
       begin: '-\\w\\b',
