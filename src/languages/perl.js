@@ -20,6 +20,13 @@ hljs.LANGUAGES.perl = function(){
     begin: '[\\$\\%\\@\\*](\\^\\w\\b|#\\w+(\\:\\:\\w+)*|[^\\s\\w{]|{\\w+}|\\w+(\\:\\:\\w*)*)'
   };
   var STRING_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST, VAR1, VAR2];
+  var METHOD = {
+    begin: '->',
+    contains: [
+      {begin: hljs.IDENT_RE},
+      {begin: '{', end: '}'}
+    ]
+  };
   var PERL_DEFAULT_CONTAINS = [
     VAR1, VAR2,
     hljs.HASH_COMMENT_MODE,
@@ -28,6 +35,7 @@ hljs.LANGUAGES.perl = function(){
       begin: '^(__END__|__DATA__)', end: '\\n$',
       relevance: 5
     },
+    METHOD,
     {
       className: 'string',
       begin: 'q[qwxr]?\\s*\\(', end: '\\)',
@@ -124,6 +132,7 @@ hljs.LANGUAGES.perl = function(){
     }
   ];
   SUBST.contains = PERL_DEFAULT_CONTAINS;
+  METHOD.contains[1].contains = PERL_DEFAULT_CONTAINS;
 
   return {
     defaultMode: {

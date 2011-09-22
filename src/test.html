@@ -243,6 +243,7 @@ sub load
       tie $o-&gt;{$key}, 'CMSBuilder::Property', $o, $key;
     } else {
       $o-&gt;{$key} = $flds-&gt;{$key};
+      $o->kill();
     }
   }
   $o-&gt;save if delete $o-&gt;{'_save_after_load'};
