@@ -3,7 +3,7 @@ Syntax highlighting with language autodetection.
 URL:   http://softwaremaniacs.org/soft/highlight/en/
 
 Original author and current maintainer:
-Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 Contributors:
 

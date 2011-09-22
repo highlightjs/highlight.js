@@ -3,7 +3,7 @@
 URL:   http://softwaremaniacs.org/soft/highlight/
 
 Первоначальный автор и ведущий проекта:
-Иван Сагалаев <Maniac@SoftwareManiacs.Org>
+Иван Сагалаев <maniac@softwaremaniacs.org>
 
 Внесли свой вклад:
 

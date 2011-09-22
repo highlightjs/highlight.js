@@ -132,9 +132,9 @@ highlight.js.
 
 ## Координаты
 
-- Версия: 6.0
+- Версия: 6.1
 - URL:    http://softwaremaniacs.org/soft/highlight/
-- Автор:  Иван Сагалаев (<Maniac@SoftwareManiacs.Org>)
+- Автор:  Иван Сагалаев (<maniac@softwaremaniacs.org>)
 
 Лицензионное соглашение читайте в файле LICENSE.
 Список соавторов читайте в файле AUTHORS.ru.txt
