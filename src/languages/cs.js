@@ -29,6 +29,10 @@ hljs.LANGUAGES.cs  = {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
+        className: 'preprocessor',
+        begin: '#', end: '$'
+      },
+      {
         className: 'string',
         begin: '@"', end: '"',
         contains: [{begin: '""'}]
