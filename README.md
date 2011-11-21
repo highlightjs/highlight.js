@@ -89,6 +89,9 @@ Elements of code marked up with classes can be styled as desired:
 Highlight.js comes with several style themes located in "styles" directory that
 can be used directly or as a base for your own experiments.
 
+**Note**: provided styles work for code defined inside `<pre>` blocks. If you use
+custom markup you should modify styles accordingly.
+
 For full reference list of classes see [classref.txt][cr].
 
 [cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
