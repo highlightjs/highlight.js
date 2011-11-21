@@ -30,7 +30,11 @@ hljs.LANGUAGES.cs  = {
       hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'preprocessor',
-        begin: '#', end: '$'
+        begin: '#', end: '$',
+        keywords: {
+          'if': 1, 'else': 1, 'elif': 1, 'endif': 1, 'define': 1, 'undef': 1, 'warning': 1,
+          'error': 1, 'line': 1, 'region': 1, 'endregion': 1, 'pragma': 1, 'checksum': 1
+        }
       },
       {
         className: 'string',
