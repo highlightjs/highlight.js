@@ -62,9 +62,6 @@ hljs.LANGUAGES.delphi = function(){
           ]
         }
       ]
-    },
-    modes: [
-
-    ]
+    }
   };
 }();
