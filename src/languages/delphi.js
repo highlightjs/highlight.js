@@ -57,7 +57,7 @@ hljs.LANGUAGES.delphi = function(){
           keywords: DELPHI_CLASS_KEYWORDS,
           contains: [
             STRING, CHAR_STRING,
-            CURLY_COMMENT, PAREN_COMMENT,
+            CURLY_COMMENT, PAREN_COMMENT, hljs.C_LINE_COMMENT_MODE,
             FUNCTION
           ]
         }
