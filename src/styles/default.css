@@ -41,7 +41,8 @@ pre .apache .tag,
 pre .apache .cbracket,
 pre .tex .command,
 pre .tex .special,
-pre .erlang_repl .function_or_atom {
+pre .erlang_repl .function_or_atom,
+pre .markdown .header {
   color: #800;
 }
 
@@ -60,7 +61,8 @@ pre .literal,
 pre .smalltalk .symbol,
 pre .smalltalk .char,
 pre .go .constant,
-pre .change {
+pre .change,
+pre .markdown .bullet {
   color: #080;
 }
 
@@ -83,7 +85,8 @@ pre .apache .sqbracket,
 pre .nginx .built_in,
 pre .tex .formula,
 pre .erlang_repl .reserved,
-pre .input_number {
+pre .input_number,
+pre .markdown .link_label {
   color: #88F
 }
 

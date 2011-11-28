@@ -124,6 +124,18 @@ CSS ("css"):
   params           everything between "(" and ")" within a function
   important        "!important" symbol
 
+Markdown ("markdown"):
+
+  header:           Headers
+  bullet:           Bullets for lists
+	strong: 					Strong segments
+  emphasis: 				Emphasis segments
+  blockquote: 			Blockquotes
+  code: 						Code segment
+  horizontal_rule:  Horizontal rule
+  link_label:       The text part of a link
+  link_url:         The URL part of a link
+
 Django ("django"):
 
   keyword          HTML tag in HTML, default tags and default filters in templates
