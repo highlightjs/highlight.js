@@ -44,3 +44,4 @@ Contributors:
 - Antono Vasiljev <self@antono.info>
 - Stephan Kountso <steplg@gmail.com>
 - pumbur <pumbur@pumbur.net>
+- John Crepezzi <john.crepezzi@gmail.com>

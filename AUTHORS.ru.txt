@@ -44,3 +44,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Антоно Васильев <self@antono.info>
 - Степан Кунцьо <steplg@gmail.com>
 - pumbur <pumbur@pumbur.net>
+- John Crepezzi <john.crepezzi@gmail.com>
