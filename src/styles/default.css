@@ -50,7 +50,8 @@ pre .comment,
 pre .annotation,
 pre .template_comment,
 pre .diff .header,
-pre .chunk {
+pre .chunk,
+pre .markdown .blockquote {
   color: #888;
 }
 
@@ -62,7 +63,8 @@ pre .smalltalk .symbol,
 pre .smalltalk .char,
 pre .go .constant,
 pre .change,
-pre .markdown .bullet {
+pre .markdown .bullet,
+pre .markdown .link_url {
   color: #080;
 }
 
@@ -90,26 +92,28 @@ pre .markdown .link_label {
   color: #88F
 }
 
-pre .css .tag,
-pre .javadoctag,
-pre .phpdoc,
-pre .yardoctag {
-  font-weight: bold;
-}
-
 pre .keyword,
 pre .id,
 pre .phpdoc,
 pre .title,
 pre .built_in,
 pre .aggregate,
+pre .css .tag,
+pre .javadoctag,
+pre .phpdoc,
+pre .yardoctag,
 pre .smalltalk .class,
 pre .winutils,
 pre .bash .variable,
 pre .apache .tag,
 pre .go .typename,
-pre .tex .command {
+pre .tex .command,
+pre .markdown .strong {
   font-weight: bold;
+}
+
+pre .markdown .emphasis {
+  font-style: italic;
 }
 
 pre .nginx .built_in {

@@ -68,7 +68,8 @@ hljs.LANGUAGES.markdown = {
           },
           {
             className: 'link_url',
-            begin: '\\(', end: '\\)'
+            begin: '\\(', end: '\\)',
+            excludeBegin: true, excludeEnd: true
           }
         ]
       }
