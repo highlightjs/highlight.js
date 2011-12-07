@@ -67,7 +67,7 @@ var hljs = new function() {
           offset += node.childNodes[i].nodeValue.length;
         else if (node.childNodes[i].nodeName == 'BR')
           offset += 1
-        else {
+        else if (node.childNodes[i].nodeType == 1) {
           result.push({
             event: 'start',
             offset: offset,
@@ -123,8 +123,8 @@ var hljs = new function() {
       for (var i = 0; i < node.attributes.length; i++) {
         var attribute = node.attributes[i];
         result += ' ' + attribute.nodeName.toLowerCase();
-        if (attribute.nodeValue != undefined && attribute.nodeValue != false && attribute.nodeValue != null) {
-          result += '="' + escape(attribute.nodeValue) + '"';
+        if (attribute.value != undefined && attribute.value != false && attribute.value != null) {
+          result += '="' + escape(attribute.value) + '"';
         }
       }
       return result + '>';
