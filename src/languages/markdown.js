@@ -2,7 +2,6 @@
 Language: Markdown
 Author: John Crepezzi <john.crepezzi@gmail.com>
 Website: http://seejohncode.com/
-Description: Syntax Highlighting for markdown files
 */
 
 hljs.LANGUAGES.markdown = function() {
@@ -13,66 +12,55 @@ hljs.LANGUAGES.markdown = function() {
         // highlight headers
         {
           className: 'header',
-          begin: '^\#{1,3}',
-          end: '$'
+          begin: '^\#{1,3}', end: '$'
         },
         {
           className: 'header',
-          begin: '^.+?\\n[=-]{2,}$',
-          end: hljs.IMMEDIATE_RE
+          begin: '^.+?\\n[=-]{2,}$'
         },
         // inline html
         {
-          begin: '<',
-          end: '>',
+          begin: '<', end: '>',
           subLanguage: 'xml'
         },
         // lists (indicators only)
         {
           className: 'bullet',
-          begin: '^([*+-]|(\\d+\.))\\s+',
-          end: hljs.IMMEDIATE_RE
+          begin: '^([*+-]|(\\d+\.))\\s+'
         },
         // strong segments
         {
           className: 'strong',
-          begin: '[*_]{2}.+?[*_]{2}',
-          end: hljs.IMMEDIATE_RE
+          begin: '[*_]{2}.+?[*_]{2}'
         },
         // emphasis segments
         {
           className: 'emphasis',
-          begin: '[*_].+?[*_]',
-          end: hljs.IMMEDIATE_RE
+          begin: '[*_].+?[*_]'
         },
         // blockquotes
         {
-          className: 'blockquote',        
-          begin: '^>\\s+',
-          end: '$'
+          className: 'blockquote',
+          begin: '^>\\s+', end: '$'
         },
         // code snippets
         {
           className: 'code',
-          begin: '`.+?`',
-          end: hljs.IMMEDIATE_RE
+          begin: '`.+?`'
         },
         {
           className: 'code',
-          begin: '^    ',
-          end: '$',
+          begin: '^    ', end: '$',
           relevance: 0
         },
         // horizontal rules
         {
           className: 'horizontal_rule',
-          begin: '^-{3,}',
-          end: '$'
+          begin: '^-{3,}', end: '$'
         },
         // using links - title and link
         {
           begin: '\\[.+?\\]\\(.+?\\)',
-          end: hljs.IMMEDIATE_RE,
           returnBegin: true,
           contains: [
             {
@@ -81,12 +69,11 @@ hljs.LANGUAGES.markdown = function() {
             },
             {
               className: 'link_url',
-              begin: '\\(',
-              end: '\\)'
+              begin: '\\(', end: '\\)'
             }
           ]
         }
       ]
-    }  
+    }
   };
 }();
