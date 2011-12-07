@@ -126,15 +126,15 @@ CSS ("css"):
 
 Markdown ("markdown"):
 
-  header:           Headers
-  bullet:           Bullets for lists
-	strong: 					Strong segments
-  emphasis: 				Emphasis segments
-  blockquote: 			Blockquotes
-  code: 						Code segment
-  horizontal_rule:  Horizontal rule
-  link_label:       The text part of a link
-  link_url:         The URL part of a link
+  header            header
+  bullet            list bullet
+  emphasis          emphasis
+  strong            strong emphasis
+  blockquote        blockquote
+  code              code
+  horizontal_rule   horizontal rule
+  link_label        link label
+  link_url          link url
 
 Django ("django"):
 
