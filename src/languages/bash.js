@@ -48,12 +48,12 @@ hljs.LANGUAGES.bash = function(){
           begin: '(#!\\/bin\\/bash)|(#!\\/bin\\/sh)',
           relevance: 10
         },
+        VAR1,
+        VAR2,
         hljs.HASH_COMMENT_MODE,
         hljs.C_NUMBER_MODE,
         QUOTE_STRING,
         APOS_STRING,
-        VAR1,
-        VAR2,
         hljs.inherit(TEST_CONDITION, {begin: '\\[ ', end: ' \\]', relevance: 0}),
         hljs.inherit(TEST_CONDITION, {begin: '\\[\\[ ', end: ' \\]\\]'})
       ]
