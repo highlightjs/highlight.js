@@ -45,3 +45,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Степан Кунцьо <steplg@gmail.com>
 - pumbur <pumbur@pumbur.net>
 - Джон Крепецци <john.crepezzi@gmail.com>
+- Андрей Власовских <andrey.vlasovskikh@gmail.com>

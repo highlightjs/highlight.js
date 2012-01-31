@@ -1528,6 +1528,71 @@ ok
 4
 </code></pre>
 
+  <tr>
+    <th>Rust
+    <td class="rust">
+<pre>
+<code>use std;
+
+import std::io;
+export fac, test1;
+
+123;                               // type int
+123u;                              // type uint
+123_u;                             // type uint
+0xff00;                            // type int
+0xff_u8;                           // type u8
+0b1111_1111_1001_0000_i32;         // type i32
+123.0;                             // type float
+0.1;                               // type float
+3f;                                // type float
+0.1f32;                            // type f32
+12E+99_f64;                        // type f64
+
+/* Factorial */
+fn fac(n: int) -> int {
+    let s: str = "This is
+a multi-line string.
+
+It ends with an unescaped '\"'.";
+    let c: char = 'Ф';
+
+    let result = 1, i = 1;
+    while i <= n { // No parens around the condition
+        result *= i;
+        i += 1;
+    }
+    ret result;
+}
+
+pure fn pure_length&lt;T>(ls: list&lt;T>) -> uint { /* ... */ }
+
+type t = map::hashtbl&lt;int,str>;
+let x = id::&lt;int>(10);
+
+// Define some modules.
+#[path = "foo.rs"]
+mod foo;
+
+iface seq&lt;T> {
+    fn len() -> uint;
+}
+
+impl &lt;T> of seq&lt;T> for [T] {
+    fn len() -> uint { vec::len(self) }
+    fn iter(b: fn(T)) {
+        for elt in self { b(elt); }
+    }
+}
+
+enum list&lt;T> {
+    nil;
+    cons(T, @list&lt;T>);
+}
+
+let a: list&lt;int> = cons(7, @cons(13, @nil));
+</code></pre>
+
 </table>
 
 <script>
