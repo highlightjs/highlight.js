@@ -53,31 +53,26 @@ hljs.LANGUAGES.rust = function() {
           className: 'function',
           begin: 'fn', end: '(\\(|<)',
           keywords: {'fn': 1},
-          contains: [TITLE],
-          relevance: 10
+          contains: [TITLE]
         },
         {
           className: 'preprocessor',
-          begin: '#\\[', end: '\\]',
-          relevance: 10
+          begin: '#\\[', end: '\\]'
         },
         {
           begin: 'type', end: '(=|<)',
           keywords: {'type': 1},
-          contains: [TITLE],
-          relevance: 10
+          contains: [TITLE]
         },
         {
           begin: 'iface', end: '({|<)',
           keywords: {'iface': 1},
-          contains: [TITLE],
-          relevance: 10
+          contains: [TITLE]
         },
         {
           begin: 'enum', end: '({|<)',
           keywords: {'enum': 1},
-          contains: [TITLE],
-          relevance: 10
+          contains: [TITLE]
         }
       ]
     }
