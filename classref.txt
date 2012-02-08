@@ -447,3 +447,12 @@ Erlang ("erlang"):
   variable         variable (starts with capital letter or with _)
   pp.keywords      module's attribute (-attribute)
   function_name    atom or atom:atom in case of function call
+
+Rust ("rust"):
+
+  comment          comment
+  string           string
+  number           number
+  keyword          keyword
+  title            name of declaration
+  preprocessor     preprocessor directive
