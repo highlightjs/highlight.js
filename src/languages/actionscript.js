@@ -12,6 +12,7 @@ hljs.LANGUAGES.actionscript = function() {
     begin: '[.]{3}', end: IDENT_RE,
     relevance: 10
   };
+  var TITLE_MODE = {className: 'title', begin: IDENT_RE};
 
   return {
     defaultMode: {
@@ -30,12 +31,7 @@ hljs.LANGUAGES.actionscript = function() {
           className: 'package',
           begin: 'package ?', end: '{',
           keywords: {'package': 1},
-          contains: [
-            {
-              className: 'title',
-              begin: IDENT_RE
-            }
-          ]
+          contains: [TITLE_MODE]
         },
         {
           className: 'class',
@@ -47,10 +43,7 @@ hljs.LANGUAGES.actionscript = function() {
               keywords: {'extends': 1, 'implements': 1},
               relevance: 5
             },
-            {
-              className: 'title',
-              begin: IDENT_RE
-            }
+            TITLE_MODE
           ]
         },
         {
@@ -63,10 +56,7 @@ hljs.LANGUAGES.actionscript = function() {
           begin: 'function ', end: '[{;]',
           keywords: {'function': 1},
           contains: [
-            {
-              className: 'title',
-              begin: IDENT_RE
-            },
+            TITLE_MODE,
             {
               className: 'params',
               begin: '\\(', end: '\\)',
