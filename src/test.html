@@ -522,6 +522,40 @@ p[lang=ru] {
   highlightAuto(block);
 }//initHighlight</code></pre>
 
+<tr>
+    <th>ActionScript
+    <td class="actionscript">
+<pre><code>package org.as3lib.mvc
+{
+        /**
+         * Provides basic services for the "controller" of
+         * a Model/View/Controller triad.
+         *
+         * Based on original AS2 code by Colin Moock
+         */
+        public class AbstractController implements IController
+        {
+                /**
+                 * Constructor
+                 *
+                 * @param   model   The model this controller's view is observing.
+                 */
+                public function AbstractController( model : * )
+                {
+                        this.model = model;
+                }
+
+                public function get model():* { return _model; }
+                public function set model(model:*):void { _model = model; }
+                protected var _model:*;
+
+
+                public function get view():IView { return _view; }
+                public function set view(view:IView):void { _view = view; }
+                protected var _view:IView;
+        }
+}</code></pre>
+
   <tr>
     <th>VBScript
     <td class="vbscript">
@@ -1591,41 +1625,6 @@ enum list&lt;T> {
 }
 
 let a: list&lt;int> = cons(7, @cons(13, @nil));
-</code></pre>
-
-<tr>
-    <th>ActionScript
-    <td class="actionscript">
-<pre><code>package org.as3lib.mvc
-{
-        /**
-         * Provides basic services for the "controller" of
-         * a Model/View/Controller triad.
-         *
-         * Based on original AS2 code by Colin Moock
-         */
-        public class AbstractController implements IController
-        {
-                /**
-                 * Constructor
-                 *
-                 * @param   model   The model this controller's view is observing.
-                 */
-                public function AbstractController( model : * )
-                {
-                        this.model = model;
-                }
-
-                public function get model():* { return _model; }
-                public function set model(model:*):void { _model = model; }
-                protected var _model:*;
-
-
-                public function get view():IView { return _view; }
-                public function set view(view:IView):void { _view = view; }
-                protected var _view:IView;
-        }
-}
 </code></pre>
 
 </table>
