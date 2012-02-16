@@ -1601,7 +1601,7 @@ let a: list&lt;int> = cons(7, @cons(13, @nil));
         /**
          * Provides basic services for the "controller" of
          * a Model/View/Controller triad.
-         * 
+         *
          * Based on original AS2 code by Colin Moock
          */
         public class AbstractController implements IController
@@ -1615,12 +1615,12 @@ let a: list&lt;int> = cons(7, @cons(13, @nil));
                 {
                         this.model = model;
                 }
-                
+
                 public function get model():* { return _model; }
                 public function set model(model:*):void { _model = model; }
                 protected var _model:*;
-                
-                
+
+
                 public function get view():IView { return _view; }
                 public function set view(view:IView):void { _view = view; }
                 protected var _view:IView;

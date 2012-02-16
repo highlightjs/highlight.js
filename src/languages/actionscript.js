@@ -6,13 +6,13 @@ Author: Alexander Myadzel <myadzel@gmail.com>
 hljs.LANGUAGES.actionscript = function() {
   var IDENT_RE = '[a-zA-Z_$][a-zA-Z0-9_$]*';
   var IDENT_FUNC_RETURN_TYPE_RE = '([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)';
-  
+
   var AS3_REST_ARG_MODE = {
     className: 'rest_arg',
     begin: '[.]{3}', end: IDENT_RE,
     relevance: 10
   };
-  
+
   return {
     defaultMode: {
       keywords: {
@@ -32,11 +32,10 @@ hljs.LANGUAGES.actionscript = function() {
           keywords: {'package': 1},
           contains: [
             {
-              className: 'title', 
+              className: 'title',
               begin: IDENT_RE
             }
-          ],
-          relevance: 5
+          ]
         },
         {
           className: 'class',
@@ -55,12 +54,17 @@ hljs.LANGUAGES.actionscript = function() {
           ]
         },
         {
+          className: 'preprocessor',
+          begin: '(import|include)\\b', end: ';',
+          keywords: {'import': 1, 'include': 1}
+        },
+        {
           className: 'function',
           begin: 'function ', end: '[{;]',
           keywords: {'function': 1},
           contains: [
             {
-              className: 'title', 
+              className: 'title',
               begin: IDENT_RE
             },
             {
@@ -75,24 +79,12 @@ hljs.LANGUAGES.actionscript = function() {
               ]
             },
             {
-              className: 'type', 
+              className: 'type',
               begin: ':',
               end: IDENT_FUNC_RETURN_TYPE_RE,
               relevance: 10
             }
           ]
-        },
-        {
-          className: 'preprocessor',
-          begin: 'import ', end: ';',
-          keywords: {'import': 1},
-          relevance: 5
-        },
-        {
-          className: 'preprocessor',
-          begin: 'include ', end: '\n',
-          keywords: {'include': 1},
-          relevance: 5
         }
       ]
     }
