@@ -525,37 +525,36 @@ p[lang=ru] {
 <tr>
     <th>ActionScript
     <td class="actionscript">
-<pre><code>include org.example.dummy;
+<pre><code>package org.example.dummy {
+    import org.dummy.*;
 
-package org.as3lib.mvc
-{
-        /**
-         * Provides basic services for the "controller" of
-         * a Model/View/Controller triad.
-         *
-         * Based on original AS2 code by Colin Moock
-         */
-        public class AbstractController implements IController
-        {
-                /**
-                 * Constructor
-                 *
-                 * @param   model   The model this controller's view is observing.
-                 */
-                public function AbstractController( model : * )
-                {
-                        this.model = model;
-                }
+    /*define package inline interface*/
+    public interface IFooBarzable {
+        public function foo(... pairs):Array;
+    }
 
-                public function get model():* { return _model; }
-                public function set model(model:*):void { _model = model; }
-                protected var _model:*;
+    public class FooBar implements IFooBarzable {
+        static private var cnt:uint = 0;
 
+        private var bar:String;
 
-                public function get view():IView { return _view; }
-                public function set view(view:IView):void { _view = view; }
-                protected var _view:IView;
+        //constructor
+        public function TestBar(bar:String):void {
+            bar = bar;
+
+            ++cnt;
         }
+
+        public function foo(... pairs):Array {
+            pairs.push(bar);
+
+            return pairs;
+        }
+
+        protected function includeTestFile():void {
+            include "Test.as";
+        }
+    }
 }</code></pre>
 
   <tr>
