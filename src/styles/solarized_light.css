@@ -55,12 +55,6 @@ pre .id {
   color: #268bd2;
 }
 
-pre .tag .title,
-pre .rules .property,
-pre .django .tag .keyword {
-  font-weight: bold;
-}
-
 pre .attribute,
 pre .variable,
 pre .instancevar,
