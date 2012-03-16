@@ -124,6 +124,7 @@ pre .parser3 .title
   font-weight: bold;
 }
 
+pre .coffeescript .javascript,
 pre .xml .javascript,
 pre .xml .css,
 pre .xml .cdata
