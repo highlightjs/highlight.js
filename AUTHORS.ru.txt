@@ -48,3 +48,5 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Андрей Власовских <andrey.vlasovskikh@gmail.com>
 - Александр Мядзель <myadzel@gmail.com>
 - Евгений Степанищев <imbolk@gmail.com>
+- Дмитрий Нагирняк <dnagir@gmail.com>
+- Олег Ефимов <efimovov@gmail.com>

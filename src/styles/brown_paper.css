@@ -97,6 +97,7 @@ pre .tex .command {
   font-weight: bold;
 }
 
+pre .coffeescript .javascript,
 pre .xml .css,
 pre .xml .javascript,
 pre .xml .vbscript,

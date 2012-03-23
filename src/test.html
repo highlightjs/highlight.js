@@ -507,7 +507,7 @@ p[lang=ru] {
 </code></pre>
 
   <tr>
-    <th>Javascript
+    <th>JavaScript
     <td class="javascript">
 <pre><code>function $initHighlight(block) {
   if (block.className.search(/\bno\-highlight\b/) != -1)
@@ -527,6 +527,56 @@ p[lang=ru] {
   }//for
   highlightAuto(block);
 }//initHighlight</code></pre>
+
+  <tr>
+    <th>CoffeeScript
+    <td class="coffeescript">
+<pre><code>grade = (student) -&gt;
+  if student.excellentWork
+    "A+"
+  else if student.okayStuff
+    if student.triedHard then "B" else "B-"
+  else
+    "C"
+
+eldest = if 24 &gt; 21 then "Liz" else "Ike"
+
+square = (x) -> x * x
+
+two = -> 2
+
+math =
+  root:   Math.sqrt
+  square: square
+  cube:   (x) -> x * square x
+    
+race = (winner, runners...) ->
+  print winner, runners
+
+hi = `function() {
+  return [document.title, "Hello JavaScript"].join(": ");
+}`
+
+substr = "JavaScript numbers test #{ 010 / 0xf }"
+
+heredoc = """
+CoffeeScript numbers test #{ 010 / 0b10 }
+"""
+
+###
+CoffeeScript Compiler v1.2.0
+Released under the MIT License
+###
+
+OPERATOR = /// ^ (
+?: [-=]>             # function
+ | [-+*/%<>&|^!?=]=  # compound assign / compare
+ | >>>=?             # zero-fill right shift
+ | ([-+:])\1         # doubles
+ | ([&|<>])\2=?      # logic / shift
+ | \?\.              # soak access
+ | \.{2,3}           # range or splat
+) ///</code></pre>
 
 <tr>
     <th>ActionScript

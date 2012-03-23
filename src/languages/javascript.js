@@ -1,5 +1,5 @@
 /*
-Language: Javascript
+Language: JavaScript
 */
 
 hljs.LANGUAGES.javascript = {
