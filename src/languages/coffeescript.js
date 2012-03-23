@@ -11,9 +11,9 @@ hljs.LANGUAGES.coffeescript = function() {
     'keyword': {
       // JS keywords
       'in': 1, 'if': 1, 'for': 1, 'while': 1, 'finally': 1,
-      'new': 1, 'do': 1, 'return': 1, 'else': 1, 
-      'break': 1, 'catch': 1, 'instanceof': 1, 'throw': 1, 
-      'try': 1, 'this': 1, 'switch': 1, 'continue': 1, 'typeof': 1, 
+      'new': 1, 'do': 1, 'return': 1, 'else': 1,
+      'break': 1, 'catch': 1, 'instanceof': 1, 'throw': 1,
+      'try': 1, 'this': 1, 'switch': 1, 'continue': 1, 'typeof': 1,
       'delete': 1, 'debugger': 1,
       'class': 1, 'extends': 1, 'super': 1,
       // Coffee keywords
@@ -32,19 +32,17 @@ hljs.LANGUAGES.coffeescript = function() {
       '__hasProp': 1 , '__extends': 1 , '__slice': 1 , '__bind': 1 , '__indexOf': 1
     }
   };
-  
+
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
 
   var COFFEE_BINARY_NUMBER_MODE = {
     className: 'number',
     begin: '\\b0b[01]+',
-    relevance: 2
   };
 
   var COFFEE_QUOTE_STRING_SUBST_MODE = {
     className: 'subst',
     begin: '#\\{', end: '}',
-    relevance: 1,
     keywords: keywords,
     contains: [COFFEE_BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]
   };
@@ -59,7 +57,6 @@ hljs.LANGUAGES.coffeescript = function() {
   var COFFEE_HEREDOC_MODE = {
     className: 'string',
     begin: '"""', end: '"""',
-    relevance: 2,
     contains: [hljs.BACKSLASH_ESCAPE, COFFEE_QUOTE_STRING_SUBST_MODE]
   };
 
@@ -67,22 +64,18 @@ hljs.LANGUAGES.coffeescript = function() {
     className: 'comment',
     begin: '###',
     end: '###',
-    relevance: 2
   };
 
   var COFFEE_HEREGEX_MODE = {
     className: 'regexp',
     begin: '///', end: '///',
-    relevance: 2,
     contains: [hljs.HASH_COMMENT_MODE]
   };
- 
+
   var COFFEE_FUNCTION_DECLARATION_MODE = {
     className: 'function',
-    begin: '' + JS_IDENT_RE + '\\s*[=:]\\s*\\(',
+    begin: JS_IDENT_RE + '\\s*[=:]\\s*(\\(.+\\))?\\s*[-=]>',
     returnBegin: true,
-    end: '[-=]>',
-    relevance: 2,
     contains: [
       {
         className: 'title',
@@ -94,20 +87,6 @@ hljs.LANGUAGES.coffeescript = function() {
       }
     ]
   };
-  
-  var COFFEE_FUNCTION_WO_PARAMS_DECLARATION_MODE = {
-    className: 'function',
-    begin: '' + JS_IDENT_RE + '\\s*[=:]\\s*[-=]',
-    returnBegin: true,
-    end: '>',
-    relevance: 2,
-    contains: [
-      {
-        className: 'title',
-        begin: JS_IDENT_RE
-      }
-    ]
-  };
 
   var COFFEE_EMBEDDED_JAVASCRIPT = {
     className: 'javascript',
@@ -115,7 +94,6 @@ hljs.LANGUAGES.coffeescript = function() {
     end: '`',
     excludeBegin: true,
     excludeEnd: true,
-    relevance: 2,
     subLanguage: 'javascript'
   };
 
@@ -135,8 +113,7 @@ hljs.LANGUAGES.coffeescript = function() {
         // Other
         COFFEE_HEREGEX_MODE,
         COFFEE_EMBEDDED_JAVASCRIPT,
-        COFFEE_FUNCTION_DECLARATION_MODE,
-        COFFEE_FUNCTION_WO_PARAMS_DECLARATION_MODE
+        COFFEE_FUNCTION_DECLARATION_MODE
       ]
     }
   };
