@@ -38,7 +38,7 @@ hljs.LANGUAGES.php = {
       {
           className: 'comment',
           excludeBegin: true,
-          begin: '__halt_compiler\\(\\);', end: '[\n\r]$',
+          begin: '__halt_compiler[^;]+;', end: '[\n\r]$',
       },
       {
         className: 'number',
