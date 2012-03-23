@@ -40,7 +40,6 @@ hljs.LANGUAGES.php = {
         begin: '\\b(0b[01]+|0[xX]9[A-Za-z0-9]+|\\d+(\\.\\d+)?)',
         relevance: 0
       },
-      hljs.C_NUMBER_MODE,
       hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       {
