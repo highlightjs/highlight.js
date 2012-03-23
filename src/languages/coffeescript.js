@@ -62,8 +62,7 @@ hljs.LANGUAGES.coffeescript = function() {
 
   var COFFEE_HERECOMMENT_MODE = {
     className: 'comment',
-    begin: '###',
-    end: '###',
+    begin: '###', end: '###'
   };
 
   var COFFEE_HEREGEX_MODE = {
@@ -89,11 +88,9 @@ hljs.LANGUAGES.coffeescript = function() {
   };
 
   var COFFEE_EMBEDDED_JAVASCRIPT = {
-    className: 'javascript',
-    begin: '`',
-    end: '`',
-    excludeBegin: true,
-    excludeEnd: true,
+    //className: 'javascript',
+    begin: '`', end: '`',
+    excludeBegin: true, excludeEnd: true,
     subLanguage: 'javascript'
   };
 
