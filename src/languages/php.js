@@ -20,7 +20,8 @@ hljs.LANGUAGES.php = {
       'exception': 1, 'php_user_filter': 1, 'default': 1, 'die': 1,
       'require': 1, '__FUNCTION__': 1, 'enddeclare': 1, 'final': 1, 'try': 1,
       'this': 1, 'switch': 1, 'continue': 1, 'endfor': 1, 'endif': 1,
-      'declare': 1, 'unset': 1, 'true': 1, 'false': 1, 'namespace': 1
+      'declare': 1, 'unset': 1, 'true': 1, 'false': 1, 'namespace': 1, 'trait':1,
+      'goto':1, 'instanceof':1, '__DIR__':1, '__NAMESPACE__':1, '__halt_compiler':1
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
@@ -33,6 +34,11 @@ hljs.LANGUAGES.php = {
             begin: '\\s@[A-Za-z]+',
             relevance: 10
         }]
+      },
+      {
+        className: 'number',
+        begin: '\\b(0b[01]+|0[xX]9[A-Za-z0-9]+|\\d+(\\.\\d+)?)',
+        relevance: 0
       },
       hljs.C_NUMBER_MODE,
       hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
