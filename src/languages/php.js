@@ -49,6 +49,16 @@ hljs.LANGUAGES.php = {
       hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       {
+        className: 'string',
+        begin: 'b"', end: '"',
+        contains: [hljs.BACKSLASH_ESCAPE],
+      },
+      {
+        className: 'string',
+        begin: 'b\'', end: '\'',
+        contains: [hljs.BACKSLASH_ESCAPE],
+      },
+      {
         className: 'variable',
         begin: '\\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
       },
