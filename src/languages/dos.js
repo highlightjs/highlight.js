@@ -17,6 +17,12 @@ hljs.LANGUAGES.dos = {
         className: 'envvar', begin: '%[^ ]+?%'
       },
       {
+        className: 'evnvar', begin: '%%[^ ]'
+      },
+        {
+        className: 'evnvar', begin: '![^ ]+?!'
+      },
+      {
         className: 'number', begin: '\\b\\d+',
         relevance: 0
       },
