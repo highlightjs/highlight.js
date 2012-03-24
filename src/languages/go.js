@@ -43,7 +43,7 @@ hljs.LANGUAGES.go = function(){
         },
         {
           className: 'string',
-          begin: '`', end: '[^\\\\]`'
+          begin: '`', end: '`'
         },
         {
           className: 'number',
