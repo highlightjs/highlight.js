@@ -87,7 +87,7 @@ hljs.LANGUAGES.coffeescript = function() {
   };
 
   var COFFEE_EMBEDDED_JAVASCRIPT = {
-    //className: 'javascript',
+    className: 'javascript',
     begin: '`', end: '`',
     excludeBegin: true, excludeEnd: true,
     subLanguage: 'javascript'
