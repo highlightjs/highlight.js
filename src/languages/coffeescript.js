@@ -72,7 +72,7 @@ hljs.LANGUAGES.coffeescript = function() {
 
   var COFFEE_FUNCTION_DECLARATION_MODE = {
     className: 'function',
-    begin: JS_IDENT_RE + '\\s*[=:]\\s*(\\(.+\\))?\\s*[-=]>',
+    begin: JS_IDENT_RE + '\\s*=\\s*(\\(.+\\))?\\s*[-=]>',
     returnBegin: true,
     contains: [
       {
