@@ -15,15 +15,25 @@ hljs.LANGUAGES.python = function() {
   };
   var STR3 = {
     className: 'string',
-    begin: '(u|r|ur|b|br)\'', end: '\'',
+    begin: '(u|r|ur)\'', end: '\'',
     contains: [hljs.BACKSLASH_ESCAPE],
     relevance: 10
   };
   var STR4 = {
     className: 'string',
-    begin: '(u|r|ur|b|br)"', end: '"',
+    begin: '(u|r|ur)"', end: '"',
     contains: [hljs.BACKSLASH_ESCAPE],
     relevance: 10
+  };
+  var STR5 = {
+    className: 'string',
+    begin: '(b|br)\'', end: '\'',
+    contains: [hljs.BACKSLASH_ESCAPE]
+  };
+  var STR6 = {
+    className: 'string',
+    begin: '(b|br)"', end: '"',
+    contains: [hljs.BACKSLASH_ESCAPE]
   };
   var TITLE = {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
@@ -31,7 +41,7 @@ hljs.LANGUAGES.python = function() {
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)',
-    contains: [STR1, STR2, STR3, STR4, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
+    contains: [STR1, STR2, STR3, STR4, STR5, STR6, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
   };
 
   return {
@@ -43,7 +53,7 @@ hljs.LANGUAGES.python = function() {
       illegal: '(</|->|\\?)',
       contains: [
         hljs.HASH_COMMENT_MODE,
-        STR1, STR2, STR3, STR4, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
+        STR1, STR2, STR3, STR4, STR5, STR6, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
         {
           className: 'function',
           begin: '\\bdef ', end: ':',
