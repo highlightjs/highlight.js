@@ -43,7 +43,7 @@ hljs.LANGUAGES.php = {
       },
       {
         className: 'number',
-        begin: '\\b(0b[01]+|0[xX]9[A-Fa-f0-9]+|\\d+(\\.\\d*)?([eE][\\-\\+]?\\d+)?)',
+        begin: '\\b(0b[01]+|0[xX]9[A-Fa-f0-9]+|\\d+(\\.\\d*)?([eE][\\-\\+]?\\d+)?)|\\.\\d+',
         relevance: 0
       },
       hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
@@ -56,6 +56,11 @@ hljs.LANGUAGES.php = {
       {
         className: 'string',
         begin: 'b\'', end: '\'',
+        contains: [hljs.BACKSLASH_ESCAPE],
+      },
+      {
+        className: 'string',
+        begin: '<<<[\'"]?\\w+[\'"]?$', end: '^\\w+;',
         contains: [hljs.BACKSLASH_ESCAPE],
       },
       {
