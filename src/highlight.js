@@ -530,6 +530,17 @@ var hljs = new function() {
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
+
+    var lines = text.split('\n');
+    for (var i = 0; i < lines.length - 1 || lines[i]; i++) {
+      lines[i] = '<span class="line">' + escape(lines[i]) + '</span>';
+    }
+    var resultPre = document.createElement('pre');
+    resultPre.innerHTML = result.value;
+    var linesPre = document.createElement('pre');
+    linesPre.innerHTML = lines.join('\n');
+    result.value = mergeStreams(nodeStream(linesPre), nodeStream(resultPre), text);
+
     result.value = fixMarkup(result.value, tabReplace, useBR);
 
     var class_name = block.className;
