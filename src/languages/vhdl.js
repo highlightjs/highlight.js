@@ -22,8 +22,7 @@ hljs.LANGUAGES.vhdl = {
       {
         className: 'literal',
         begin: '\'(U|X|0|1|Z|W|L|H|-)', end: '\'',
-        contains: [hljs.BACKSLASH_ESCAPE],
-        relevance: 5
+        contains: [hljs.BACKSLASH_ESCAPE]
       }
     ]
   }

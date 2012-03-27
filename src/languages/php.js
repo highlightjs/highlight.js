@@ -32,8 +32,7 @@ hljs.LANGUAGES.php = {
         begin: '/\\*', end: '\\*/',
         contains: [{
             className: 'phpdoc',
-            begin: '\\s@[A-Za-z]+',
-            relevance: 10
+            begin: '\\s@[A-Za-z]+'
         }]
       },
       {
