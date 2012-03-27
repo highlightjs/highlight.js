@@ -34,16 +34,11 @@ hljs.LANGUAGES.coffeescript = function() {
 
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
 
-  var COFFEE_BINARY_NUMBER_MODE = {
-    className: 'number',
-    begin: '\\b0b[01]+',
-  };
-
   var COFFEE_QUOTE_STRING_SUBST_MODE = {
     className: 'subst',
     begin: '#\\{', end: '}',
     keywords: keywords,
-    contains: [COFFEE_BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]
+    contains: [hljs.C_NUMBER_MODE, hljs.BINARY_NUMBER_MODE]
   };
 
   var COFFEE_QUOTE_STRING_MODE = {
@@ -97,16 +92,17 @@ hljs.LANGUAGES.coffeescript = function() {
     defaultMode: {
       keywords: keywords,
       contains: [
-        COFFEE_BINARY_NUMBER_MODE,
+        // Numbers 
         hljs.C_NUMBER_MODE,
+        hljs.BINARY_NUMBER_MODE,
         // Strings
         hljs.APOS_STRING_MODE,
         COFFEE_HEREDOC_MODE, // Should be before COFFEE_QUOTE_STRING_MODE for greater priority
         COFFEE_QUOTE_STRING_MODE,
-        // comments
-        COFFEE_HERECOMMENT_MODE,// Should be before hljs.HASH_COMMENT_MODE for greater priority
+        // Comments
+        COFFEE_HERECOMMENT_MODE, // Should be before hljs.HASH_COMMENT_MODE for greater priority
         hljs.HASH_COMMENT_MODE,
-        // Other
+        // CoffeeScript specific modes
         COFFEE_HEREGEX_MODE,
         COFFEE_EMBEDDED_JAVASCRIPT,
         COFFEE_FUNCTION_DECLARATION_MODE
