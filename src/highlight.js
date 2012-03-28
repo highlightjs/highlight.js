@@ -283,8 +283,8 @@ var hljs = new function() {
       for (var className in mode.keywordGroups) {
         if (!mode.keywordGroups.hasOwnProperty(className))
           continue;
-        var value = mode.keywordGroups[className].hasOwnProperty(match_str);
-        if (value)
+        var value = mode.keywordGroups[className][match_str];
+        if (value && typeof value == 'number')
           return [className, value];
       }
       return false;
