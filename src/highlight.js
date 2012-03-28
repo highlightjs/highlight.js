@@ -174,16 +174,23 @@ var hljs = new function() {
         mode.illegalRe = langRe(language, mode.illegal);
       if (mode.relevance == undefined)
         mode.relevance = 1;
-      if (mode.keywords)
+      if (mode.keywords) {
         mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
-      for (var key in mode.keywords) {
-        if (!mode.keywords.hasOwnProperty(key))
-          continue;
-        if (mode.keywords[key] instanceof Object)
-          mode.keywordGroups = mode.keywords;
-        else
-          mode.keywordGroups = {'keyword': mode.keywords};
-        break;
+        for (var className in mode.keywords) {
+          if (!mode.keywords.hasOwnProperty(className))
+            continue;
+          if (mode.keywords[className] instanceof Object) {
+            var group = mode.keywords[className];
+          } else {
+            var group = mode.keywords;
+            className = 'keyword';
+          }
+          for (var keyword in group) {
+            if (!group.hasOwnProperty(keyword))
+              continue;
+            mode.keywords[keyword] = [className, group[keyword]];
+          }
+        }
       }
       if (!mode.contains) {
         mode.contains = [];
@@ -279,14 +286,10 @@ var hljs = new function() {
     }
 
     function keywordMatch(mode, match) {
-      var match_str = language.case_insensitive ? match[0].toLowerCase() : match[0]
-      for (var className in mode.keywordGroups) {
-        if (!mode.keywordGroups.hasOwnProperty(className))
-          continue;
-        var value = mode.keywordGroups[className][match_str];
-        if (value && typeof value == 'number')
-          return [className, value];
-      }
+      var match_str = language.case_insensitive ? match[0].toLowerCase() : match[0];
+      var value = mode.keywords[match_str];
+      if (value && value instanceof Array)
+          return value;
       return false;
     }
 

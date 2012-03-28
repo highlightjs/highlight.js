@@ -53,7 +53,6 @@ LIBRARY_REPLACES = {
     'lexemsRe': 'lR',
     'sub_modes': 'sm',
     'terminators': 't',
-    'keywordGroups': 'kG',
 }
 
 CATEGORIES = {
