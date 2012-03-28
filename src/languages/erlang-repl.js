@@ -51,7 +51,11 @@ hljs.LANGUAGES.erlang_repl = {
         className: 'comment',
         begin: '%', end: '$'
       },
-      hljs.NUMBER_MODE,
+      {
+        className: 'number',
+        begin: '\\b(\\d+#[a-fA-F0-9]+|\\d+(\\.\\d+)?([eE][-+]?\\d+)?)',
+        relevance: 0
+      },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
