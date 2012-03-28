@@ -625,12 +625,11 @@ var hljs = new function() {
 
   // Utility functions
   this.inherit = function(parent, obj) {
-    var result = {}
-    for (var key in parent)
-      result[key] = parent[key];
-    if (obj)
+    function wrapper() {
       for (var key in obj)
-        result[key] = obj[key];
-    return result;
+        this[key] = obj[key];
+    }
+    wrapper.prototype = parent;
+    return new wrapper();
   }
 }();
