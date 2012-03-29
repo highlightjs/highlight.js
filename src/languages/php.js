@@ -32,8 +32,7 @@ hljs.LANGUAGES.php = {
         begin: '/\\*', end: '\\*/',
         contains: [{
             className: 'phpdoc',
-            begin: '\\s@[A-Za-z]+',
-            relevance: 10
+            begin: '\\s@[A-Za-z]+'
         }]
       },
       {
@@ -41,16 +40,28 @@ hljs.LANGUAGES.php = {
           excludeBegin: true,
           begin: '__halt_compiler[^;]+;', end: '[\\n\\r]$'
       },
-      {
-        className: 'number',
-        begin: '\\b(0b[01]+|0[xX]9[A-Za-z0-9]+|\\d+(\\.\\d+)?)',
-        relevance: 0
-      },
+      hljs.C_NUMBER_MODE, // 0x..., 0..., decimal, float
+      hljs.BINARY_NUMBER_MODE, // 0b...
       hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       {
+        className: 'string',
+        begin: 'b"', end: '"',
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
+        className: 'string',
+        begin: 'b\'', end: '\'',
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
+        className: 'string',
+        begin: '<<<[\'"]?\\w+[\'"]?$', end: '^\\w+;',
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
         className: 'variable',
-        begin: '\\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
+        begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
       },
       {
         className: 'preprocessor',
