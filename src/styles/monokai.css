@@ -11,6 +11,7 @@ pre .params .identifier .keymethods {
 	color: #FD971F;
 }
 
+pre .tag,
 pre .keyword,
 pre .literal,
 pre .change,
@@ -25,7 +26,6 @@ pre code {
   color: #DDD;
 }
 
-pre .attribute,
 pre code .constant {
 	color: #66D9EF;
 }
@@ -34,11 +34,13 @@ pre .class .title {
 	color: white;
 }
 
+pre .attribute,
 pre .symbol,
 pre .value {
 	color: #BF79DB;
 }
 
+pre .tag .value,
 pre .string,
 pre .ruby .subst,
 pre .function .title,
