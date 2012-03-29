@@ -500,14 +500,11 @@ var hljs = new function() {
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
 
-    var lines = text.split('\n');
-    for (var i = 0; i < lines.length - 1 || lines[i]; i++) {
-      lines[i] = '<span class="line"></span>' + escape(lines[i]);
-    }
     var resultPre = document.createElement('pre');
     resultPre.innerHTML = result.value;
     var linesPre = document.createElement('pre');
-    linesPre.innerHTML = lines.join('\n');
+    var lines = escape(text).replace(/^/gm, '<span class="line"></span>');
+    linesPre.innerHTML = lines;
     result.value = mergeStreams(nodeStream(linesPre), nodeStream(resultPre), text);
 
     result.value = fixMarkup(result.value, tabReplace, useBR);
