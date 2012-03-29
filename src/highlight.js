@@ -502,7 +502,7 @@ var hljs = new function() {
 
     var lines = text.split('\n');
     for (var i = 0; i < lines.length - 1 || lines[i]; i++) {
-      lines[i] = '<span class="line">' + escape(lines[i]) + '</span>';
+      lines[i] = '<span class="line"></span>' + escape(lines[i]);
     }
     var resultPre = document.createElement('pre');
     resultPre.innerHTML = result.value;
