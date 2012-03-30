@@ -297,26 +297,26 @@ var hljs = new function() {
     }
 
     function processKeywords(buffer, mode) {
+      buffer = escape(buffer)
       if (!mode.keywords)
-        return escape(buffer);
+        return buffer;
       var result = '';
       var last_index = 0;
       mode.lexemsRe.lastIndex = 0;
       var match = mode.lexemsRe.exec(buffer);
       while (match) {
-        result += escape(buffer.substr(last_index, match.index - last_index));
+        result += buffer.substr(last_index, match.index - last_index);
         var keyword_match = keywordMatch(mode, match);
         if (keyword_match) {
           keyword_count += keyword_match[1];
-          result += '<span class="'+ keyword_match[0] +'">' + escape(match[0]) + '</span>';
+          result += '<span class="'+ keyword_match[0] +'">' + match[0] + '</span>';
         } else {
-          result += escape(match[0]);
+          result += match[0];
         }
         last_index = mode.lexemsRe.lastIndex;
         match = mode.lexemsRe.exec(buffer);
       }
-      result += escape(buffer.substr(last_index, buffer.length - last_index));
-      return result;
+      return result + buffer.substr(last_index, buffer.length - last_index);
     }
 
     function processBuffer(buffer, mode) {
