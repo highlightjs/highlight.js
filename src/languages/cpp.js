@@ -30,13 +30,6 @@ hljs.LANGUAGES.cpp = function(){
       'array': 1, 'shared_ptr': 1
     }
   };
-  var STL_CONTAINER = {
-    className: 'stl_container',
-    begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
-    keywords: CPP_KEYWORDS,
-    relevance: 10
-  };
-  STL_CONTAINER.contains = [STL_CONTAINER];
   return {
     defaultMode: {
       keywords: CPP_KEYWORDS,
@@ -55,7 +48,13 @@ hljs.LANGUAGES.cpp = function(){
           className: 'preprocessor',
           begin: '#', end: '$'
         },
-        STL_CONTAINER
+        {
+          className: 'stl_container',
+          begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
+          keywords: CPP_KEYWORDS,
+          relevance: 10,
+          contains: ['self']
+        }
       ]
     }
   };

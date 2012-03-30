@@ -7,9 +7,9 @@ hljs.LANGUAGES.lua = function() {
   var OPENING_LONG_BRACKET = '\\[=*\\[';
   var CLOSING_LONG_BRACKET = '\\]=*\\]';
   var LONG_BRACKETS = {
-    begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET
+    begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
+    contains: ['self']
   };
-  LONG_BRACKETS.contains = [LONG_BRACKETS];
   var COMMENT1 = {
     className: 'comment',
     begin: '--(?!' + OPENING_LONG_BRACKET + ')', end: '$'

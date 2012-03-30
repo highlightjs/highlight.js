@@ -199,6 +199,9 @@ var hljs = new function() {
       // (see lisp where quoted_list contains quoted_list)
       mode.compiled = true;
       for (var i = 0; i < mode.contains.length; i++) {
+        if (mode.contains[i] == 'self') {
+          mode.contains[i] = mode;
+        }
         compileMode(mode.contains[i], language, false);
       }
       if (mode.starts) {

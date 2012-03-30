@@ -45,9 +45,9 @@ hljs.LANGUAGES.lisp = function(){
     begin: '[:&]' + LISP_IDENT_RE
   };
   var QUOTED_LIST = {
-    begin: '\\(', end: '\\)'
+    begin: '\\(', end: '\\)',
+    contains: ['self', LITERAL, NUMBER1, NUMBER2, NUMBER3, NUMBER4, NUMBER5, STRING]
   };
-  QUOTED_LIST.contains = [QUOTED_LIST, LITERAL, NUMBER1, NUMBER2, NUMBER3, NUMBER4, NUMBER5, STRING];
   var QUOTED1 = {
     className: 'quoted',
     begin: '[\'`]\\(', end: '\\)',
