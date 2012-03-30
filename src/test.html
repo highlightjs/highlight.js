@@ -230,7 +230,7 @@ sub load
     Carp::carp "Can`t load (class: $c, id: $id): '$!'"; return undef
   };
   my $o = $c-&gt;_perl_new();
-  $id12 = $id;
+  $id12 = $id / 24 / 3600;
   $o-&gt;{'ID'} = $id12 + 123;
   $o-&gt;{'PAPA'} = $flds-&gt;{'PAPA'};
   #$o-&gt;{'SHCUT'} = $flds-&gt;{'SHCUT'};

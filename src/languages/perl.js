@@ -55,14 +55,15 @@ hljs.LANGUAGES.perl = function(){
       {begin: '{', end: '}'}
     ]
   };
+  var COMMENT = {
+    className: 'comment',
+    begin: '^(__END__|__DATA__)', end: '\\n$',
+    relevance: 5
+  }
   var PERL_DEFAULT_CONTAINS = [
     VAR1, VAR2,
     hljs.HASH_COMMENT_MODE,
-    {
-      className: 'comment',
-      begin: '^(__END__|__DATA__)', end: '\\n$',
-      relevance: 5
-    },
+    COMMENT,
     METHOD,
     {
       className: 'string',
@@ -132,16 +133,24 @@ hljs.LANGUAGES.perl = function(){
       begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
       relevance: 0
     },
-    {
-      className: 'regexp',
-      begin: '(s|tr|y)/(\\\\.|[^/])*/(\\\\.|[^/])*/[a-z]*',
-      relevance: 10
-    },
-    {
-      className: 'regexp',
-      begin: '(m|qr)?/', end: '/[a-z]*',
-      contains: [hljs.BACKSLASH_ESCAPE],
-      relevance: 0 // allows empty "//" which is a common comment delimiter in other languages
+    { // regexp container
+      begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
+      relevance: 0,
+      contains: [
+        hljs.HASH_COMMENT_MODE,
+        COMMENT,
+        {
+          className: 'regexp',
+          begin: '(s|tr|y)/(\\\\.|[^/])*/(\\\\.|[^/])*/[a-z]*',
+          relevance: 10
+        },
+        {
+          className: 'regexp',
+          begin: '(m|qr)?/', end: '/[a-z]*',
+          contains: [hljs.BACKSLASH_ESCAPE],
+          relevance: 0 // allows empty "//" which is a common comment delimiter in other languages
+        }
+      ]
     },
     {
       className: 'sub',
