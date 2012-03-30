@@ -50,4 +50,4 @@ Contributors:
 - Evgeny Stepanischev <imbolk@gmail.com>
 - Dmytrii Nagirniak <dnagir@gmail.com>
 - Oleg Efimov <efimovov@gmail.com>
-- Luigi Maselli (http://grigio.org)
+- Luigi Maselli <grigio.org@gmail.com>
