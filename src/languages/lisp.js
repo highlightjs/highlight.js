@@ -11,21 +11,23 @@ hljs.LANGUAGES.lisp = function(){
     className: 'literal',
     begin: '\\b(t{1}|nil)\\b'
   };
-  var NUMBER1 = {
-    className: 'number', begin: LISP_SIMPLE_NUMBER_RE
-  };
-  var NUMBER2 = {
-    className: 'number', begin: '#b[0-1]+(/[0-1]+)?'
-  };
-  var NUMBER3 = {
-    className: 'number', begin: '#o[0-7]+(/[0-7]+)?'
-  };
-  var NUMBER4 = {
-    className: 'number', begin: '#x[0-9a-f]+(/[0-9a-f]+)?'
-  };
-  var NUMBER5 = {
-    className: 'number', begin: '#c\\(' + LISP_SIMPLE_NUMBER_RE + ' +' + LISP_SIMPLE_NUMBER_RE, end: '\\)'
-  };
+  var NUMBERS = [
+    {
+      className: 'number', begin: LISP_SIMPLE_NUMBER_RE
+    },
+    {
+      className: 'number', begin: '#b[0-1]+(/[0-1]+)?'
+    },
+    {
+      className: 'number', begin: '#o[0-7]+(/[0-7]+)?'
+    },
+    {
+      className: 'number', begin: '#x[0-9a-f]+(/[0-9a-f]+)?'
+    },
+    {
+      className: 'number', begin: '#c\\(' + LISP_SIMPLE_NUMBER_RE + ' +' + LISP_SIMPLE_NUMBER_RE, end: '\\)'
+    }
+  ]
   var STRING = {
     className: 'string',
     begin: '"', end: '"',
@@ -46,18 +48,18 @@ hljs.LANGUAGES.lisp = function(){
   };
   var QUOTED_LIST = {
     begin: '\\(', end: '\\)',
-    contains: ['self', LITERAL, NUMBER1, NUMBER2, NUMBER3, NUMBER4, NUMBER5, STRING]
+    contains: ['self', LITERAL, STRING].concat(NUMBERS)
   };
   var QUOTED1 = {
     className: 'quoted',
     begin: '[\'`]\\(', end: '\\)',
-    contains: [NUMBER1, NUMBER2, NUMBER3, NUMBER4, NUMBER5, STRING, VARIABLE, KEYWORD, QUOTED_LIST]
+    contains: NUMBERS.concat([STRING, VARIABLE, KEYWORD, QUOTED_LIST])
   };
   var QUOTED2 = {
     className: 'quoted',
     begin: '\\(quote ', end: '\\)',
     keywords: {'title': {'quote': 1}},
-    contains: [NUMBER1, NUMBER2, NUMBER3, NUMBER4, NUMBER5, STRING, VARIABLE, KEYWORD, QUOTED_LIST]
+    contains: NUMBERS.concat([STRING, VARIABLE, KEYWORD, QUOTED_LIST])
   };
   var LIST = {
     className: 'list',
@@ -68,20 +70,19 @@ hljs.LANGUAGES.lisp = function(){
     endsWithParent: true, excludeEnd: true
   };
   LIST.contains = [{className: 'title', begin: LISP_IDENT_RE}, BODY];
-  BODY.contains = [QUOTED1, QUOTED2, LIST, LITERAL, NUMBER1, NUMBER2, NUMBER3, NUMBER4, NUMBER5, STRING, COMMENT, VARIABLE, KEYWORD];
+  BODY.contains = [QUOTED1, QUOTED2, LIST, LITERAL].concat(NUMBERS).concat([STRING, COMMENT, VARIABLE, KEYWORD]);
 
   return {
     case_insensitive: true,
     defaultMode: {
       illegal: '[^\\s]',
-      contains: [
+      contains: NUMBERS.concat([
         LITERAL,
-        NUMBER1, NUMBER2, NUMBER3, NUMBER4, NUMBER5,
         STRING,
         COMMENT,
         QUOTED1, QUOTED2,
         LIST
-      ]
+      ])
     }
   };
 }();

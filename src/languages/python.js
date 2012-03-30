@@ -3,45 +3,50 @@ Language: Python
 */
 
 hljs.LANGUAGES.python = function() {
-  var STR1 = {
-    className: 'string',
-    begin: '(u|b)?r?\'\'\'', end: '\'\'\'',
-    relevance: 10
-  };
-  var STR2 = {
-    className: 'string',
-    begin: '(u|b)?r?"""', end: '"""',
-    relevance: 10
-  };
-  var STR3 = {
-    className: 'string',
-    begin: '(u|r|ur)\'', end: '\'',
-    contains: [hljs.BACKSLASH_ESCAPE],
-    relevance: 10
-  };
-  var STR4 = {
-    className: 'string',
-    begin: '(u|r|ur)"', end: '"',
-    contains: [hljs.BACKSLASH_ESCAPE],
-    relevance: 10
-  };
-  var STR5 = {
-    className: 'string',
-    begin: '(b|br)\'', end: '\'',
-    contains: [hljs.BACKSLASH_ESCAPE]
-  };
-  var STR6 = {
-    className: 'string',
-    begin: '(b|br)"', end: '"',
-    contains: [hljs.BACKSLASH_ESCAPE]
-  };
+  var STRINGS = [
+    {
+      className: 'string',
+      begin: '(u|b)?r?\'\'\'', end: '\'\'\'',
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '(u|b)?r?"""', end: '"""',
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '(u|r|ur)\'', end: '\'',
+      contains: [hljs.BACKSLASH_ESCAPE],
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '(u|r|ur)"', end: '"',
+      contains: [hljs.BACKSLASH_ESCAPE],
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '(b|br)\'', end: '\'',
+      contains: [hljs.BACKSLASH_ESCAPE]
+    },
+    {
+      className: 'string',
+      begin: '(b|br)"', end: '"',
+      contains: [hljs.BACKSLASH_ESCAPE]
+    }
+  ].concat([
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE
+  ]);
   var TITLE = {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
   };
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)',
-    contains: [STR1, STR2, STR3, STR4, STR5, STR6, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
+    contains: STRINGS.concat([hljs.C_NUMBER_MODE])
   };
 
   return {
@@ -56,9 +61,8 @@ hljs.LANGUAGES.python = function() {
         'built_in': {'None': 1, 'True': 1, 'False': 1, 'Ellipsis': 1, 'NotImplemented': 1}
       },
       illegal: '(</|->|\\?)',
-      contains: [
+      contains: STRINGS.concat([
         hljs.HASH_COMMENT_MODE,
-        STR1, STR2, STR3, STR4, STR5, STR6, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
         {
           className: 'function',
           begin: '\\bdef ', end: ':',
@@ -80,7 +84,7 @@ hljs.LANGUAGES.python = function() {
           className: 'decorator',
           begin: '@', end: '$'
         }
-      ]
+      ])
     }
   };
 }();

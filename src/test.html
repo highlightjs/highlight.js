@@ -173,11 +173,10 @@ Most snippets do not contain working code :-).
     <td class="python">
 <pre>
 <code>@requires_authorization
-def somefunc(param1, param2):
+def somefunc(param1='', param2=0):
     r'''A docstring'''
     if param1 &gt; param2: # interesting
         print 'Gre\'ater'
-        print ''
     return (param2 - param1 + 1) or None
 
 class SomeClass:<br>    pass

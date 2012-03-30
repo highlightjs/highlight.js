@@ -66,21 +66,23 @@ hljs.LANGUAGES.ruby = function(){
     className: 'yardoctag',
     begin: '@[A-Za-z]+'
   };
-  var COMMENT1 = {
-    className: 'comment',
-    begin: '#', end: '$',
-    contains: [YARDOCTAG]
-  };
-  var COMMENT2 = {
-    className: 'comment',
-    begin: '^\\=begin', end: '^\\=end',
-    contains: [YARDOCTAG],
-    relevance: 10
-  };
-  var COMMENT3 = {
-    className: 'comment',
-    begin: '^__END__', end: '\\n$'
-  };
+  var COMMENTS = [
+    {
+      className: 'comment',
+      begin: '#', end: '$',
+      contains: [YARDOCTAG]
+    },
+    {
+      className: 'comment',
+      begin: '^\\=begin', end: '^\\=end',
+      contains: [YARDOCTAG],
+      relevance: 10
+    },
+    {
+      className: 'comment',
+      begin: '^__END__', end: '\\n$'
+    }
+  ];
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
@@ -88,66 +90,68 @@ hljs.LANGUAGES.ruby = function(){
     keywords: RUBY_KEYWORDS
   };
   var STR_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST];
-  var STR1 = {
-    className: 'string',
-    begin: '\'', end: '\'',
-    contains: STR_CONTAINS,
-    relevance: 0
-  };
-  var STR2 = {
-    className: 'string',
-    begin: '"', end: '"',
-    contains: STR_CONTAINS,
-    relevance: 0
-  };
-  var STR3 = {
-    className: 'string',
-    begin: '%[qw]?\\(', end: '\\)',
-    contains: STR_CONTAINS,
-    relevance: 10
-  };
-  var STR4 = {
-    className: 'string',
-    begin: '%[qw]?\\[', end: '\\]',
-    contains: STR_CONTAINS,
-    relevance: 10
-  };
-  var STR5 = {
-    className: 'string',
-    begin: '%[qw]?{', end: '}',
-    contains: STR_CONTAINS,
-    relevance: 10
-  };
-  var STR6 = {
-    className: 'string',
-    begin: '%[qw]?<', end: '>',
-    contains: STR_CONTAINS,
-    relevance: 10
-  };
-  var STR7 = {
-    className: 'string',
-    begin: '%[qw]?/', end: '/',
-    contains: STR_CONTAINS,
-    relevance: 10
-  };
-  var STR8 = {
-    className: 'string',
-    begin: '%[qw]?%', end: '%',
-    contains: STR_CONTAINS,
-    relevance: 10
-  };
-  var STR9 = {
-    className: 'string',
-    begin: '%[qw]?-', end: '-',
-    contains: STR_CONTAINS,
-    relevance: 10
-  };
-  var STR10 = {
-    className: 'string',
-    begin: '%[qw]?\\|', end: '\\|',
-    contains: STR_CONTAINS,
-    relevance: 10
-  };
+  var STRINGS = [
+    {
+      className: 'string',
+      begin: '\'', end: '\'',
+      contains: STR_CONTAINS,
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '"', end: '"',
+      contains: STR_CONTAINS,
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '%[qw]?\\(', end: '\\)',
+      contains: STR_CONTAINS,
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '%[qw]?\\[', end: '\\]',
+      contains: STR_CONTAINS,
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '%[qw]?{', end: '}',
+      contains: STR_CONTAINS,
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '%[qw]?<', end: '>',
+      contains: STR_CONTAINS,
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '%[qw]?/', end: '/',
+      contains: STR_CONTAINS,
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '%[qw]?%', end: '%',
+      contains: STR_CONTAINS,
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '%[qw]?-', end: '-',
+      contains: STR_CONTAINS,
+      relevance: 10
+    },
+    {
+      className: 'string',
+      begin: '%[qw]?\\|', end: '\\|',
+      contains: STR_CONTAINS,
+      relevance: 10
+    }
+  ];
   var FUNCTION = {
     className: 'function',
     begin: '\\bdef\\s+', end: ' |$|;',
@@ -165,9 +169,8 @@ hljs.LANGUAGES.ruby = function(){
         begin: '\\(', end: '\\)',
         lexems: RUBY_IDENT_RE,
         keywords: RUBY_KEYWORDS
-      },
-      COMMENT1, COMMENT2, COMMENT3
-    ]
+      }
+    ].concat(COMMENTS)
   };
   var IDENTIFIER = {
     className: 'identifier',
@@ -177,9 +180,7 @@ hljs.LANGUAGES.ruby = function(){
     relevance: 0
   };
 
-  var RUBY_DEFAULT_CONTAINS = [
-    COMMENT1, COMMENT2, COMMENT3,
-    STR1, STR2, STR3, STR4, STR5, STR6, STR7, STR8, STR9, STR10,
+  var RUBY_DEFAULT_CONTAINS = COMMENTS.concat(STRINGS.concat([
     {
       className: 'class',
       begin: '\\b(class|module)\\b', end: '$|;',
@@ -198,8 +199,7 @@ hljs.LANGUAGES.ruby = function(){
             begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE
           }]
         },
-        COMMENT1, COMMENT2, COMMENT3
-      ]
+      ].concat(COMMENTS)
     },
     FUNCTION,
     {
@@ -210,7 +210,7 @@ hljs.LANGUAGES.ruby = function(){
     {
       className: 'symbol',
       begin: ':',
-      contains: [STR1, STR2, STR3, STR4, STR5, STR6, STR7, STR8, STR9, STR10, IDENTIFIER],
+      contains: STRINGS.concat([IDENTIFIER]),
       relevance: 0
     },
     {
@@ -229,18 +229,17 @@ hljs.LANGUAGES.ruby = function(){
     IDENTIFIER,
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
-      contains: [
-        COMMENT1, COMMENT2, COMMENT3,
+      contains: COMMENTS.concat([
         {
           className: 'regexp',
           begin: '/', end: '/[a-z]*',
           illegal: '\\n',
           contains: [hljs.BACKSLASH_ESCAPE]
         }
-      ],
+      ]),
       relevance: 0
     }
-  ];
+  ]));
   SUBST.contains = RUBY_DEFAULT_CONTAINS;
   FUNCTION.contains[1].contains = RUBY_DEFAULT_CONTAINS;
 
