@@ -198,7 +198,7 @@ hljs.LANGUAGES.ruby = function(){
             className: 'parent',
             begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE
           }]
-        },
+        }
       ].concat(COMMENTS)
     },
     FUNCTION,
