@@ -40,8 +40,8 @@ hljs.LANGUAGES.cpp = function(){
         hljs.QUOTE_STRING_MODE,
         {
           className: 'string',
-          begin: '\'', end: '[^\\\\]\'',
-          illegal: '[^\\\\][^\']'
+          begin: '\'\\\\?.', end: '\'',
+          illegal: '.'
         },
         hljs.C_NUMBER_MODE,
         {

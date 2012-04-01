@@ -778,9 +778,9 @@ int main(int argc, char *argv[]) {
   for (auto i = 0; i &lt; 0xFFFF; i++)
     cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
 
-  char c = '\n'; // just a test
+  char c = '\n';
   unordered_map &lt;string, vector&lt;string&gt; &gt; m;
-  m["key"] = "\\\\"; // yeah, I know it's an error
+  m["key"] = "\\\\"; // this is an error
 
   return -2e3;
 }
