@@ -485,3 +485,13 @@ ActionScript ("actionscript"):
   function         function
   param            params of function
   rest_arg         rest argument of function
+
+Matlab ("matlab"):
+
+  comment          comment
+  string           string
+  number           number
+  keyword          keyword
+  title            function name
+  function         function
+  param            params of function
