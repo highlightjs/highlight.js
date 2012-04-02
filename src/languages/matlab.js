@@ -1,5 +1,6 @@
 /*
 Language: Matlab
+Author: Denis Bardadym <bardadymchik@gmail.com>
 */
 
 hljs.LANGUAGES.matlab = {
