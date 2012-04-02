@@ -51,3 +51,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Дмитрий Нагирняк <dnagir@gmail.com>
 - Олег Ефимов <efimovov@gmail.com>
 - Луиджи Мазелли <grigio.org@gmail.com>
+- Денис Бардадым <bardadymchik@gmail.com>
