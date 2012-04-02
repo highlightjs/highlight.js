@@ -41,18 +41,18 @@ hljs.LANGUAGES.matlab = {
     contains: [
       {
         className: 'function',
-        begin: '(function)', end: '$',
+        begin: 'function', end: '$',
         keywords: {'function': 1},
         contains: [
           {
               className: 'title',
               begin: hljs.UNDERSCORE_IDENT_RE
-		  },
+          },
           {
               className: 'params',
               begin: '\\(', end: '\\)'
           },
-		  {
+          {
               className: 'params',
               begin: '\\[', end: '\\]'
           }
@@ -61,13 +61,11 @@ hljs.LANGUAGES.matlab = {
       {
         className: 'string',
         begin: '\'', end: '\'',
-        contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}],
-        relevance: 3
+        contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}]
       },
-	  {
+      {
         className: 'comment',
-        begin: '\\%', end: '$',
-		relevance: 5
+        begin: '\\%', end: '$'
       },
       hljs.C_NUMBER_MODE
     ]
