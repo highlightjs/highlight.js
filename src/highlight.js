@@ -151,7 +151,7 @@ var hljs = new function() {
         }
       }
     }
-    return result + value.substr(processed);
+    return result + escape(value.substr(processed));
   }
 
   /* Initialization */
