@@ -134,7 +134,8 @@ hljs.LANGUAGES.perl = function(){
       relevance: 0
     },
     { // regexp container
-      begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
+      begin: '(' + hljs.RE_STARTERS_RE + '|split|return|print|reverse|grep)\\s*',
+      keywords: {'split': 1, 'return': 1, 'print': 1, 'reverse': 1, 'grep': 1},
       relevance: 0,
       contains: [
         hljs.HASH_COMMENT_MODE,
