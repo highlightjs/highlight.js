@@ -60,7 +60,7 @@ CATEGORIES = {
 }
 
 def compress_content(tools_path, content):
-    cmd = 'java -jar %s --type js' % os.path.join(tools_path, 'yuicompressor.jar')
+    cmd = 'java -jar \'%s\' --type js' % os.path.join(tools_path, 'yuicompressor.jar')
 
     def replace(content, s, r):
         return re.sub(r'(?<=[^\w"\'|])%s(?=[^\w"\'|])' % s, r, content)
