@@ -51,7 +51,6 @@ LIBRARY_REPLACES = {
     'endRe': 'eR',
     'illegalRe': 'iR',
     'lexemsRe': 'lR',
-    'sub_modes': 'sm',
     'terminators': 't',
 }
 
