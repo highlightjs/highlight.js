@@ -249,7 +249,7 @@ var hljs = new function() {
     }
 
     function isIllegal(lexem, mode) {
-      return mode.illegalRe && mode.illegalRe.test(lexem);
+      return mode.illegal && mode.illegalRe.test(lexem);
     }
 
     function compileTerminators(mode, language) {
@@ -630,11 +630,12 @@ var hljs = new function() {
 
   // Utility functions
   this.inherit = function(parent, obj) {
-    function wrapper() {
+    var result = {}
+    for (var key in parent)
+      result[key] = parent[key];
+    if (obj)
       for (var key in obj)
-        this[key] = obj[key];
-    }
-    wrapper.prototype = parent;
-    return new wrapper();
+        result[key] = obj[key];
+    return result;
   }
 }();

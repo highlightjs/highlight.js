@@ -284,6 +284,8 @@ abstract class Zend_Uri
       $uri = explode(':', $uri, 2);
       $scheme = strtolower($uri[0]);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
+      $desc = 'Multi
+line description';
 
       // Security check: $scheme is used to load a class file,
       // so only alphanumerics are allowed.
