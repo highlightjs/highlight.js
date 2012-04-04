@@ -47,7 +47,7 @@ var hljs = new function() {
   }
 
   function blockLanguage(block) {
-    var classes = block.className.split(/\s+/)
+    var classes = block.className.split(/\s+/);
     classes = classes.concat(block.parentNode.className.split(/\s+/));
     for (var i = 0; i < classes.length; i++) {
       var class_ = classes[i].replace(/^language-/, '');
@@ -66,14 +66,14 @@ var hljs = new function() {
         if (node.childNodes[i].nodeType == 3)
           offset += node.childNodes[i].nodeValue.length;
         else if (node.childNodes[i].nodeName == 'BR')
-          offset += 1
+          offset += 1;
         else if (node.childNodes[i].nodeType == 1) {
           result.push({
             event: 'start',
             offset: offset,
             node: node.childNodes[i]
           });
-          offset = arguments.callee(node.childNodes[i], offset)
+          offset = arguments.callee(node.childNodes[i], offset);
           result.push({
             event: 'stop',
             offset: offset,
@@ -123,7 +123,7 @@ var hljs = new function() {
       for (var i = 0; i < node.attributes.length; i++) {
         var attribute = node.attributes[i];
         result += ' ' + attribute.nodeName.toLowerCase();
-        if (attribute.value != undefined && attribute.value != false && attribute.value != null) {
+        if (attribute.value !== undefined && attribute.value !== false && attribute.value !== null) {
           result += '="' + escape(attribute.value) + '"';
         }
       }
@@ -165,13 +165,13 @@ var hljs = new function() {
       if (!is_default) {
         mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
-          mode.end = '\\B|\\b'
+          mode.end = '\\B|\\b';
         if (mode.end)
           mode.endRe = langRe(language, mode.end);
       }
       if (mode.illegal)
         mode.illegalRe = langRe(language, mode.illegal);
-      if (mode.relevance == undefined)
+      if (mode.relevance === undefined)
         mode.relevance = 1;
       if (mode.keywords) {
         mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
@@ -296,7 +296,7 @@ var hljs = new function() {
     }
 
     function processKeywords(buffer, mode) {
-      buffer = escape(buffer)
+      buffer = escape(buffer);
       if (!mode.keywords)
         return buffer;
       var result = '';
@@ -409,14 +409,14 @@ var hljs = new function() {
         relevance: relevance,
         keyword_count: keyword_count,
         value: result
-      }
+      };
     } catch (e) {
       if (e == 'Illegal') {
         return {
           relevance: 0,
           keyword_count: 0,
           value: escape(value)
-        }
+        };
       } else {
         throw e;
       }
@@ -472,7 +472,7 @@ var hljs = new function() {
     if (tabReplace) {
       value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
         return p1.replace(/\t/g, tabReplace);
-      })
+      });
     }
     if (useBR) {
       value = value.replace(/\n/g, '<br>');
@@ -636,5 +636,5 @@ var hljs = new function() {
     }
     wrapper.prototype = parent;
     return new wrapper();
-  }
+  };
 }();
