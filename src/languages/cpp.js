@@ -1,5 +1,6 @@
 /*
 Language: C++
+Contributors: Evgeny Stepanischev <imbolk@gmail.com>
 */
 
 hljs.LANGUAGES.cpp = function(){
@@ -19,7 +20,7 @@ hljs.LANGUAGES.cpp = function(){
       'this': 1, 'switch': 1, 'continue': 1, 'wchar_t': 1, 'inline': 1,
       'delete': 1, 'alignof': 1, 'char16_t': 1, 'char32_t': 1, 'constexpr': 1,
       'decltype': 1, 'noexcept': 1, 'nullptr': 1, 'static_assert': 1,
-      'thread_local': 1
+      'thread_local': 1, 'restrict': 1
     },
     'built_in': {
       'std': 1, 'string': 1, 'cin': 1, 'cout': 1, 'cerr': 1, 'clog': 1,
