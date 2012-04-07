@@ -52,3 +52,4 @@ Contributors:
 - Oleg Efimov <efimovov@gmail.com>
 - Luigi Maselli <grigio.org@gmail.com>
 - Denis Bardadym <bardadymchik@gmail.com>
+- Aahan Krish <geekpanth3r@gmail.com>
