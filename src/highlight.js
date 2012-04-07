@@ -47,7 +47,7 @@ var hljs = new function() {
   }
 
   function blockLanguage(block) {
-    var classes = block.className.split(/\s+/)
+    var classes = block.className.split(/\s+/);
     classes = classes.concat(block.parentNode.className.split(/\s+/));
     for (var i = 0; i < classes.length; i++) {
       var class_ = classes[i].replace(/^language-/, '');
@@ -66,14 +66,14 @@ var hljs = new function() {
         if (node.childNodes[i].nodeType == 3)
           offset += node.childNodes[i].nodeValue.length;
         else if (node.childNodes[i].nodeName == 'BR')
-          offset += 1
+          offset += 1;
         else if (node.childNodes[i].nodeType == 1) {
           result.push({
             event: 'start',
             offset: offset,
             node: node.childNodes[i]
           });
-          offset = arguments.callee(node.childNodes[i], offset)
+          offset = arguments.callee(node.childNodes[i], offset);
           result.push({
             event: 'stop',
             offset: offset,
@@ -123,7 +123,7 @@ var hljs = new function() {
       for (var i = 0; i < node.attributes.length; i++) {
         var attribute = node.attributes[i];
         result += ' ' + attribute.nodeName.toLowerCase();
-        if (attribute.value != undefined && attribute.value != false && attribute.value != null) {
+        if (attribute.value !== undefined && attribute.value !== false && attribute.value !== null) {
           result += '="' + escape(attribute.value) + '"';
         }
       }
@@ -138,10 +138,10 @@ var hljs = new function() {
         result += open(current.node);
         nodeStack.push(current.node);
       } else if (current.event == 'stop') {
-        var i = nodeStack.length;
+        var node, i = nodeStack.length;
         do {
           i--;
-          var node = nodeStack[i];
+          node = nodeStack[i];
           result += ('</' + node.nodeName.toLowerCase() + '>');
         } while (node != current.node);
         nodeStack.splice(i, 1);
@@ -161,17 +161,18 @@ var hljs = new function() {
     function compileMode(mode, language, is_default) {
       if (mode.compiled)
         return;
+      var group;
 
       if (!is_default) {
         mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
-          mode.end = '\\B|\\b'
+          mode.end = '\\B|\\b';
         if (mode.end)
           mode.endRe = langRe(language, mode.end);
       }
       if (mode.illegal)
         mode.illegalRe = langRe(language, mode.illegal);
-      if (mode.relevance == undefined)
+      if (mode.relevance === undefined)
         mode.relevance = 1;
       if (mode.keywords) {
         mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
@@ -179,9 +180,9 @@ var hljs = new function() {
           if (!mode.keywords.hasOwnProperty(className))
             continue;
           if (mode.keywords[className] instanceof Object) {
-            var group = mode.keywords[className];
+            group = mode.keywords[className];
           } else {
-            var group = mode.keywords;
+            group = mode.keywords;
             className = 'keyword';
           }
           for (var keyword in group) {
@@ -296,7 +297,7 @@ var hljs = new function() {
     }
 
     function processKeywords(buffer, mode) {
-      buffer = escape(buffer)
+      buffer = escape(buffer);
       if (!mode.keywords)
         return buffer;
       var result = '';
@@ -393,10 +394,10 @@ var hljs = new function() {
     var keyword_count = 0;
     var result = '';
     try {
-      var index = 0;
+      var mode_info, index = 0;
       language.defaultMode.buffer = '';
       do {
-        var mode_info = eatModeChunk(value, index);
+        mode_info = eatModeChunk(value, index);
         var return_lexem = processModeInfo(mode_info[0], mode_info[1], mode_info[2]);
         index += mode_info[0].length;
         if (!return_lexem) {
@@ -409,14 +410,14 @@ var hljs = new function() {
         relevance: relevance,
         keyword_count: keyword_count,
         value: result
-      }
+      };
     } catch (e) {
       if (e == 'Illegal') {
         return {
           relevance: 0,
           keyword_count: 0,
           value: escape(value)
-        }
+        };
       } else {
         throw e;
       }
@@ -472,7 +473,7 @@ var hljs = new function() {
     if (tabReplace) {
       value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
         return p1.replace(/\t/g, tabReplace);
-      })
+      });
     }
     if (useBR) {
       value = value.replace(/\n/g, '<br>');
@@ -487,17 +488,18 @@ var hljs = new function() {
   function highlightBlock(block, tabReplace, useBR) {
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
+    var result, pre;
     if (language == 'no-highlight')
         return;
     if (language) {
-      var result = highlight(language, text);
+      result = highlight(language, text);
     } else {
-      var result = highlightAuto(text);
+      result = highlightAuto(text);
       language = result.language;
     }
     var original = nodeStream(block);
     if (original.length) {
-      var pre = document.createElement('pre');
+      pre = document.createElement('pre');
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
@@ -510,7 +512,7 @@ var hljs = new function() {
     if (/MSIE [678]/.test(navigator.userAgent) && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
       // This is for backwards compatibility only. IE needs this strange
       // hack becasue it cannot just cleanly replace <code> block contents.
-      var pre = block.parentNode;
+      pre = block.parentNode;
       var container = document.createElement('div');
       container.innerHTML = '<pre><code>' + result.value + '</code></pre>';
       block = container.firstChild.firstChild;
