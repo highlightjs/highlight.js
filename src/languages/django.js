@@ -46,7 +46,6 @@ hljs.LANGUAGES.django = function() {
       'truncatewords_html': 1, 'upper': 1, 'length': 1, 'phone2numeric': 1, 'wordwrap': 1, 'time': 1, 'addslashes': 1,
       'slugify': 1, 'first': 1, 'escapejs': 1, 'force_escape': 1, 'iriencode': 1, 'last': 1, 'safe': 1, 'safeseq': 1,
       'truncatechars': 1, 'localize': 1, 'unlocalize': 1, 'localtime': 1, 'utc': 1, 'timezone': 1
-
     },
     contains: [
       {className: 'argument', begin: '"', end: '"'}
@@ -70,12 +69,11 @@ hljs.LANGUAGES.django = function() {
         'extends': 1, 'include': 1, 'spaceless': 1, 'endspaceless': 1, 'regroup': 1, 'by': 1, 'as': 1, 'ifequal': 1,
         'endifequal': 1, 'ssi': 1, 'now': 1, 'with': 1, 'cycle': 1, 'url': 1, 'filter': 1, 'endfilter': 1, 'debug': 1,
         'block': 1, 'endblock': 1, 'else': 1, 'autoescape': 1, 'endautoescape': 1, 'csrf_token': 1, 'empty': 1,
-        'elif': 1, 'endwith': 1, 'static': 1, 'trans': 1, 'endtrans': 1, 'blocktrans': 1, 'endblocktrans': 1,
+        'elif': 1, 'endwith': 1, 'static': 1, 'trans': 1, 'blocktrans': 1, 'endblocktrans': 1,
         'get_static_prefix': 1, 'get_media_prefix': 1, 'plural': 1, 'get_current_language': 1, 'language': 1,
         'get_available_languages': 1, 'get_current_language_bidi': 1, 'get_language_info': 1,
         'get_language_info_list': 1, 'localize': 1, 'endlocalize': 1, 'localtime': 1, 'endlocaltime': 1, 'timezone': 1,
         'endtimezone': 1, 'get_current_timezone': 1
-
       },
       contains: [FILTER]
     },
