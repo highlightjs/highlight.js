@@ -131,7 +131,7 @@ To disable highlighting of a fragment altogether use "no-highlight" class:
 
 ## Meta
 
-- Version: 6.1
+- Version: 6.2
 - URL:     http://softwaremaniacs.org/soft/highlight/en/
 - Author:  Ivan Sagalaev (<maniac@softwaremaniacs.org>)
 
