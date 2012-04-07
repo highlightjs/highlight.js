@@ -43,6 +43,10 @@ hljs.LANGUAGES.cpp = function(){
           begin: '\'\\\\?.', end: '\'',
           illegal: '.'
         },
+        {
+          className: 'number',
+          begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)'
+        },
         hljs.C_NUMBER_MODE,
         {
           className: 'preprocessor',
