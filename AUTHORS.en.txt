@@ -47,4 +47,10 @@ Contributors:
 - John Crepezzi <john.crepezzi@gmail.com>
 - Andrey Vlasovskikh <andrey.vlasovskikh@gmail.com>
 - Alexander Myadzel <myadzel@gmail.com>
+- Evgeny Stepanischev <imbolk@gmail.com>
+- Dmytrii Nagirniak <dnagir@gmail.com>
+- Oleg Efimov <efimovov@gmail.com>
+- Luigi Maselli <grigio.org@gmail.com>
+- Denis Bardadym <bardadymchik@gmail.com>
+- Aahan Krish <geekpanth3r@gmail.com>
 - Aleksandar Ruzicic <aleksandar@ruzicic.info>

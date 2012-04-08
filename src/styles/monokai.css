@@ -1,14 +1,17 @@
 /*
-
-Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
-
+Monokai style - ported by Luigi Maselli - http://grigio.org
 */
 
 pre code {
   display: block; padding: 0.5em;
-  background:#b7a68e url(./brown_papersq.png);
+  background: #272822;
 }
 
+pre .params .identifier .keymethods {
+	color: #FD971F;
+}
+
+pre .tag,
 pre .keyword,
 pre .literal,
 pre .change,
@@ -16,28 +19,34 @@ pre .winutils,
 pre .flow,
 pre .lisp .title,
 pre .tex .special {
-  color:#005599;
-  font-weight:bold;
+  color: #F92672;
 }
 
-pre code,
-pre .ruby .subst,
-pre .tag .keyword {
-  color: #363C69;
+pre code {
+  color: #DDD;
 }
 
+pre code .constant {
+	color: #66D9EF;
+}
+
+pre .class .title {
+	color: white;
+}
+
+pre .attribute,
+pre .symbol,
+pre .value {
+	color: #BF79DB;
+}
+
+pre .tag .value,
 pre .string,
+pre .ruby .subst,
 pre .function .title,
-pre .class .title,
 pre .haskell .label,
 pre .ini .title,
-pre .tag .value,
-pre .css .rules .value,
 pre .preprocessor,
-pre .ruby .symbol,
-pre .ruby .symbol .string,
-pre .ruby .symbol .keyword,
-pre .ruby .symbol .keymethods,
 pre .ruby .instancevar,
 pre .ruby .class .parent,
 pre .built_in,
@@ -57,8 +66,9 @@ pre .stream,
 pre .envvar,
 pre .apache .tag,
 pre .apache .cbracket,
-pre .tex .number {
-  color: #2C009F;
+pre .tex .command,
+pre .input_number {
+  color: #A6E22E;
 }
 
 pre .comment,
@@ -70,9 +80,8 @@ pre .doctype,
 pre .deletion,
 pre .shebang,
 pre .apache .sqbracket,
-pre .nginx .built_in,
 pre .tex .formula {
-  color: #802022;
+  color: #75715E;
 }
 
 pre .keyword,
@@ -93,7 +102,7 @@ pre .winutils,
 pre .bash .variable,
 pre .lisp .title,
 pre .apache .tag,
-pre .tex .command {
+pre .tex .special {
   font-weight: bold;
 }
 
@@ -102,5 +111,5 @@ pre .xml .css,
 pre .xml .javascript,
 pre .xml .vbscript,
 pre .tex .formula {
-  opacity: 0.8;
+  opacity: 0.5;
 }

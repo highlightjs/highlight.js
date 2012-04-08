@@ -17,7 +17,7 @@ hljs.LANGUAGES.profile = {
       },
       {
         className: 'filename',
-        begin: '(/\w|[a-zA-Z_][\da-zA-Z_]+\\.[\da-zA-Z_]{1,3})', end: ':',
+        begin: '[a-zA-Z_][\\da-zA-Z_]+\\.[\\da-zA-Z_]{1,3}', end: ':',
         excludeEnd: true
       },
       {

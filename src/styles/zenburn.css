@@ -106,6 +106,7 @@ pre .doctype {
   color: #7F9F7F;
 }
 
+pre .coffeescript .javascript,
 pre .xml .css,
 pre .xml .javascript,
 pre .xml .vbscript,

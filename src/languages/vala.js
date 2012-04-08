@@ -40,13 +40,12 @@ hljs.LANGUAGES.vala = {
         keywords: {'class': 1, 'interface': 1},
         contains: [
           {
-            begin: '(implements|extends)', end: hljs.IMMEDIATE_RE,
-            keywords: {'extends': 1, 'implements': 1},
-            relevance: 1
+            begin: '(implements|extends)',
+            keywords: {'extends': 1, 'implements': 1}
           },
           {
             className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE, end: hljs.IMMEDIATE_RE
+            begin: hljs.UNDERSCORE_IDENT_RE
           }
         ]
       },
@@ -67,7 +66,7 @@ hljs.LANGUAGES.vala = {
       },
       {
         className: 'constant',
-        begin: ' [A-Z_]+ ', end: hljs.IMMEDIATE_RE,
+        begin: ' [A-Z_]+ ',
         relevance: 0
       }
     ]

@@ -13,12 +13,15 @@
   <link rel="alternate stylesheet" title="Ascetic" href="styles/ascetic.css">
   <link rel="alternate stylesheet" title="Magula" href="styles/magula.css">
   <link rel="alternate stylesheet" title="GitHub" href="styles/github.css">
+  <link rel="alternate stylesheet" title="Google Code" href="styles/googlecode.css">
   <link rel="alternate stylesheet" title="Brown Paper" href="styles/brown_paper.css">
   <link rel="alternate stylesheet" title="School Book" href="styles/school_book.css">
   <link rel="alternate stylesheet" title="IR Black" href="styles/ir_black.css">
   <link rel="alternate stylesheet" title="Solarized - Dark" href="styles/solarized_dark.css">
   <link rel="alternate stylesheet" title="Solarized - Light" href="styles/solarized_light.css">
   <link rel="alternate stylesheet" title="Arta" href="styles/arta.css">
+  <link rel="alternate stylesheet" title="Monokai" href="styles/monokai.css">
+
 
   <style>
     body {
@@ -171,11 +174,10 @@ Most snippets do not contain working code :-).
     <td class="python">
 <pre>
 <code>@requires_authorization
-def somefunc(param1, param2):
+def somefunc(param1='', param2=0):
     r'''A docstring'''
     if param1 &gt; param2: # interesting
         print 'Gre\'ater'
-        print ''
     return (param2 - param1 + 1) or None
 
 class SomeClass:<br>    pass
@@ -229,13 +231,14 @@ sub load
     Carp::carp "Can`t load (class: $c, id: $id): '$!'"; return undef
   };
   my $o = $c-&gt;_perl_new();
-  $id12 = $id;
+  $id12 = $id / 24 / 3600;
   $o-&gt;{'ID'} = $id12 + 123;
   $o-&gt;{'PAPA'} = $flds-&gt;{'PAPA'};
   #$o-&gt;{'SHCUT'} = $flds-&gt;{'SHCUT'};
   my $p = $o-&gt;props;
   my $vt;
   $string =~ m/^sought_text$/;
+  $items = split //, 'abc';
   for my $key (keys %$p)
   {
     if(${$vt.'::property'}) {
@@ -282,6 +285,8 @@ abstract class Zend_Uri
       $uri = explode(':', $uri, 2);
       $scheme = strtolower($uri[0]);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
+      $desc = 'Multi
+line description';
 
       // Security check: $scheme is used to load a class file,
       // so only alphanumerics are allowed.
@@ -290,6 +295,12 @@ abstract class Zend_Uri
       }
   }
 }
+
+__halt_compiler () ; datahere
+datahere
+datahere */
+datahere
+
 </code></pre>
 
   <tr>
@@ -366,8 +377,8 @@ func main() {
     ok = true
     x = nil
     float_var := 1.0e10
-    defer fmt.Println('exitting \' now')
-    defer fmt.Println(`exitting \` now`)
+    defer fmt.Println('\'')
+    defer fmt.Println(`exitting now\`)
     var fv1 float64 = 0.75
     go println(len("hello world!"))
     return
@@ -501,7 +512,7 @@ p[lang=ru] {
 </code></pre>
 
   <tr>
-    <th>Javascript
+    <th>JavaScript
     <td class="javascript">
 <pre><code>function $initHighlight(block) {
   if (block.className.search(/\bno\-highlight\b/) != -1)
@@ -521,6 +532,56 @@ p[lang=ru] {
   }//for
   highlightAuto(block);
 }//initHighlight</code></pre>
+
+  <tr>
+    <th>CoffeeScript
+    <td class="coffeescript">
+<pre><code>grade = (student) -&gt;
+  if student.excellentWork
+    "A+"
+  else if student.okayStuff
+    if student.triedHard then "B" else "B-"
+  else
+    "C"
+
+eldest = if 24 &gt; 21 then "Liz" else "Ike"
+
+square = (x) -> x * x
+
+two = -> 2
+
+math =
+  root:   Math.sqrt
+  square: square
+  cube:   (x) -> x * square x
+
+race = (winner, runners...) ->
+  print winner, runners
+
+hi = `function() {
+  return [document.title, "Hello JavaScript"].join(": ");
+}`
+
+substr = "JavaScript numbers test #{ 010 / 0xf }"
+
+heredoc = """
+CoffeeScript numbers test #{ 010 / 0b10 }
+"""
+
+###
+CoffeeScript Compiler v1.2.0
+Released under the MIT License
+###
+
+OPERATOR = /// ^ (
+?: [-=]>             # function
+ | [-+*/%<>&|^!?=]=  # compound assign / compare
+ | >>>=?             # zero-fill right shift
+ | ([-+:])\1         # doubles
+ | ([&|<>])\2=?      # logic / shift
+ | \?\.              # soak access
+ | \.{2,3}           # range or splat
+) ///</code></pre>
 
 <tr>
     <th>ActionScript
@@ -721,9 +782,11 @@ int main(int argc, char *argv[]) {
   for (auto i = 0; i &lt; 0xFFFF; i++)
     cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
 
-  char c = '\n'; // just a test
+  char c = '\n';
   unordered_map &lt;string, vector&lt;string&gt; &gt; m;
-  m["key"] = "\\\\"; // yeah, I know it's an error
+  m["key"] = "\\\\"; // this is an error
+
+  return -2e3 + 12l;
 }
 </code></pre>
 
@@ -1561,6 +1624,10 @@ ok
 {4,abcd}
 9> L.
 4
+10> 2#101.
+5
+11> 1.85e+3.
+1850
 </code></pre>
 
   <tr>
@@ -1626,6 +1693,46 @@ enum list&lt;T> {
 }
 
 let a: list&lt;int> = cons(7, @cons(13, @nil));
+</code></pre>
+
+  <tr>
+    <th>Matlab
+    <td class="matlab">
+<pre><code>n = 20; % number of points
+points = [random('unid', 100, n, 1), random('unid', 100, n, 1)];
+len = zeros(1, n - 1);
+points = sortrows(points);
+%% Initial set of points
+plot(points(:,1),points(:,2));
+for i = 1: n-1
+    len(i) = points(i + 1, 1) - points(i, 1);
+end
+while(max(len) > 2 * min(len))
+    [d, i] = max(len);
+    k = on_margin(points, i, d, -1);
+    m = on_margin(points, i + 1, d, 1);
+    xm = 0; ym = 0;
+%% New point
+    if(i == 1 || i + 1 == n)
+        xm = mean(points([i,i+1],1))
+        ym = mean(points([i,i+1],2))
+    else
+        [xm, ym] = dlg1(points([k, i, i + 1, m], 1), ...
+            points([k, i, i + 1, m], 2))
+    end
+
+    points = [ points(1:i, :); [xm, ym]; points(i + 1:end, :)];
+end
+
+function [net] = get_fit_network(inputs, targets)
+    % Create Network
+    numHiddenNeurons = 20;  % Adjust as desired
+    net = newfit(inputs,targets,numHiddenNeurons);
+    net.trainParam.goal = 0.01;
+    net.trainParam.epochs = 1000;
+    % Train and Apply Network
+    [net,tr] = train(net,inputs,targets);
+end
 </code></pre>
 
 </table>

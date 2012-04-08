@@ -150,7 +150,7 @@ Django ("django"):
   filter           filter from "|" till the next filter or the end of tag
   argument         filter argument
 
-Javascript ("javascript"):
+JavaScript ("javascript"):
 
   keyword          keyword
   comment          comment
@@ -160,7 +160,19 @@ Javascript ("javascript"):
   regexp           regular expression
   function         header of a function
   title            name of a function inside a header
-  params           everything inside parentheses in a function's header
+  params           parentheses and everything inside them in a function's header
+
+CoffeeScript ("coffeescript"):
+
+  keyword          keyword
+  comment          comment
+  number           number
+  literal          special literal: "true", "false" and "null"
+  string           string
+  regexp           regular expression
+  function         header of a function
+  title            name of a function variable inside a header
+  params           parentheses and everything inside them in a function's header
 
 VBScript ("vbscript"):
 
@@ -473,3 +485,13 @@ ActionScript ("actionscript"):
   function         function
   param            params of function
   rest_arg         rest argument of function
+
+Matlab ("matlab"):
+
+  comment          comment
+  string           string
+  number           number
+  keyword          keyword
+  title            function name
+  function         function
+  param            params of function

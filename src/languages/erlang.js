@@ -44,6 +44,11 @@ hljs.LANGUAGES.erlang = function(){
     begin: '%', end: '$',
     relevance: 0
   };
+  var NUMBER = {
+    className: 'number',
+    begin: '\\b(\\d+#[a-fA-F0-9]+|\\d+(\\.\\d+)?([eE][-+]?\\d+)?)',
+    relevance: 0
+  };
   var NAMED_FUN = {
     begin: 'fun\\s+' + BASIC_ATOM_RE + '/\\d+'
   };
@@ -110,7 +115,7 @@ hljs.LANGUAGES.erlang = function(){
     BLOCK_STATEMENTS,
     FUNCTION_CALL,
     hljs.QUOTE_STRING_MODE,
-    hljs.C_NUMBER_MODE,
+    NUMBER,
     TUPLE,
     VAR1, VAR2,
     RECORD_ACCESS
@@ -122,7 +127,7 @@ hljs.LANGUAGES.erlang = function(){
     BLOCK_STATEMENTS,
     FUNCTION_CALL,
     hljs.QUOTE_STRING_MODE,
-    hljs.C_NUMBER_MODE,
+    NUMBER,
     TUPLE,
     VAR1, VAR2,
     RECORD_ACCESS
@@ -190,7 +195,7 @@ hljs.LANGUAGES.erlang = function(){
           },
           contains: [PARAMS]
         },
-        hljs.C_NUMBER_MODE,
+        NUMBER,
         hljs.QUOTE_STRING_MODE,
         RECORD_ACCESS,
         VAR1, VAR2,

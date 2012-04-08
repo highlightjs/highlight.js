@@ -47,12 +47,12 @@ hljs.LANGUAGES.avrasm =
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
       {className: 'comment', begin: ';',  end: '$'},
-      hljs.C_NUMBER_MODE,
-      /*{  // Hex: 0x00, $00;  Oct: 0o00;  Bin: 0b00000000;  Dec: 0
-        // пока что-то не получается :(, буду использовать сишную моду.
+      hljs.C_NUMBER_MODE, // 0x..., decimal, float
+      hljs.BINARY_NUMBER_MODE, // 0b...
+      {
         className: 'number',
-        begin: '((0[xX]|\$)[A-Fa-f0-9]+|0[oO][0-7]+|0[bB][0-1]+|\\d+)'
-      }*/
+        begin: '\\b(\\$[a-zA-Z0-9]+|0o[0-7]+)' // $..., 0o...
+      },
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',

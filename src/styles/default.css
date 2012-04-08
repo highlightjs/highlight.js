@@ -120,6 +120,7 @@ pre .nginx .built_in {
   font-weight: normal;
 }
 
+pre .coffeescript .javascript,
 pre .xml .css,
 pre .xml .javascript,
 pre .xml .vbscript,
