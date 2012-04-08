@@ -47,3 +47,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Джон Крепецци <john.crepezzi@gmail.com>
 - Андрей Власовских <andrey.vlasovskikh@gmail.com>
 - Александр Мядзель <myadzel@gmail.com>
+- Александр Ružičić <aleksandar@ruzicic.info>
