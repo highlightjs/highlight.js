@@ -18,8 +18,6 @@ Date: 2012-04-08
  * - content of token string is colored as a string (i.e. no keyword coloring inside a token string)
  *   also, content of token string is not validated to contain only valid D tokens
  *
- * - nesting comments limited to 7 levels of depth
- *
  * - special token sequence rule is not strictly following D grammar (anything following #line
  *   up to the end of line is matched as special token sequence)
  */
