@@ -261,38 +261,32 @@ foreach my $num (0..$#array) {
   <tr>
     <th>PHP
     <td class="php">
-<pre><code>require_once 'Zend.php';
-require_once 'Zend/Uri/Exception.php';
-require_once 'Zend/Uri/Http.php';
-require_once 'Zend/Uri/Mailto.php';
+<pre><code>require_once 'Zend/Uri/Http.php';
 
-abstract class Zend_Uri
+abstract class URI extends BaseURI
 {
 
   /**
-   * Return a string representation of this URI.
+   * Returns a URI
    *
-   * @see     getUri()
-   * @return  string
+   * @return  URI
    */
-  public function __toString()
-  {
-      return $this-&gt;getUri();
-  }
-
-  static public function factory($uri = 'http')
+  static public function _factory($uri = 'http')
   {
       $uri = explode(':', $uri, 2);
-      $scheme = strtolower($uri[0]);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
       $desc = 'Multi
 line description';
 
-      // Security check: $scheme is used to load a class file,
-      // so only alphanumerics are allowed.
+      // Security check
       if (!ctype_alnum($scheme)) {
           throw new Zend_Uri_Exception('Illegal scheme');
       }
+
+      return [
+        'uri' => $uri,
+        'value' => null,
+      ];
   }
 }
 
