@@ -468,7 +468,7 @@ Rust ("rust"):
   keyword          keyword
   title            name of declaration
   preprocessor     preprocessor directive
-  
+
 ActionScript ("actionscript"):
 
   comment          comment
@@ -495,3 +495,11 @@ Matlab ("matlab"):
   title            function name
   function         function
   param            params of function
+
+D language ("d"):
+  comment          comment
+  string           string constant
+  number           number
+  keyword          language keywords (including @attributes)
+  constant         true false null
+  built_in         built-in plain types (int, string etc.)

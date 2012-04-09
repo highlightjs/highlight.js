@@ -54,3 +54,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Денис Бардадым <bardadymchik@gmail.com>
 - Аахан Криш <geekpanth3r@gmail.com>
 - Илья Барышев <baryshev@gmail.com>
+- Александр Ружичич <aleksandar@ruzicic.info>

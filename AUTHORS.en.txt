@@ -54,3 +54,4 @@ Contributors:
 - Denis Bardadym <bardadymchik@gmail.com>
 - Aahan Krish <geekpanth3r@gmail.com>
 - Ilya Baryshev <baryshev@gmail.com>
+- Aleksandar Ruzicic <aleksandar@ruzicic.info>
