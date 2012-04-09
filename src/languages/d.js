@@ -267,48 +267,13 @@ hljs.LANGUAGES.d = function() {
 	 *
 	 * @type {Object}
 	 */
-	var D_NESTING_COMMENT_L1_MODE = {  // what follows is an ugly way of supporting nesting comments
+	var D_NESTING_COMMENT_MODE = {
 		className: 'comment',
 		begin: '\\/\\+',
+		contains: ['self'],
 		end: '\\+\\/',
 		relevance: 10
-	}, D_NESTING_COMMENT_L2_MODE = {
-		className: 'comment',
-		begin: '\\/\\+',
-		contains: [D_NESTING_COMMENT_L1_MODE],
-		end: '\\+\\/',
-		relevance: 10
-	}, D_NESTING_COMMENT_L3_MODE = {
-		className: 'comment',
-		begin: '\\/\\+',
-		contains: [D_NESTING_COMMENT_L2_MODE],
-		end: '\\+\\/',
-		relevance: 10
-	}, D_NESTING_COMMENT_L4_MODE = {
-		className: 'comment',
-		begin: '\\/\\+',
-		contains: [D_NESTING_COMMENT_L3_MODE],
-		end: '\\+\\/',
-		relevance: 10
-	}, D_NESTING_COMMENT_L5_MODE = {
-		className: 'comment',
-		begin: '\\/\\+',
-		contains: [D_NESTING_COMMENT_L4_MODE],
-		end: '\\+\\/',
-		relevance: 10
-	}, D_NESTING_COMMENT_L6_MODE = {
-		className: 'comment',
-		begin: '\\/\\+',
-		contains: [D_NESTING_COMMENT_L5_MODE],
-		end: '\\+\\/',
-		relevance: 10
-	}, D_NESTING_COMMENT_MODE = {
-		className: 'comment',
-		begin: '\\/\\+',
-		contains: [D_NESTING_COMMENT_L6_MODE],
-		end: '\\+\\/',
-		relevance: 10
-	};
+	}
 
 	return {
 		defaultMode: {
