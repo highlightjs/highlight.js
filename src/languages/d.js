@@ -200,8 +200,7 @@ hljs.LANGUAGES.d = function() {
 	var D_ALTERNATE_WYSIWYG_STRING_MODE = {
 		className: 'string',
 		begin: '`',
-		end: '`[cwd]?',
-		relevance: 1
+		end: '`[cwd]?'
 	};
 
 	/**
@@ -212,7 +211,7 @@ hljs.LANGUAGES.d = function() {
 	var D_HEX_STRING_MODE = {
 		className: 'string',
 		begin: 'x"[\\da-fA-F\\s\\n\\r]*"[cwd]?',
-		relevance: 5
+		relevance: 10
 	};
 
 	/**
@@ -223,8 +222,7 @@ hljs.LANGUAGES.d = function() {
 	var D_TOKEN_STRING_MODE = {
 		className: 'string',
 		begin: 'q"\\{',
-		end: '\\}"',
-		relevance: 1
+		end: '\\}"'
 	};
 
 	/**
@@ -258,8 +256,7 @@ hljs.LANGUAGES.d = function() {
 	 */
 	var D_ATTRIBUTE_MODE = {
 		className: 'keyword',
-		begin: '@[a-zA-Z_][a-zA-Z_\\d]*',
-		relevance: 5
+		begin: '@[a-zA-Z_][a-zA-Z_\\d]*'
 	};
 
 	/**
