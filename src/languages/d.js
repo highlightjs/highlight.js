@@ -56,6 +56,7 @@ hljs.LANGUAGES.d = function() {
 			'__DATE__': 2, '__EOF__': 2, '__TIME__': 2, '__TIMESTAMP__': 2, '__VENDOR__': 2, '__VERSION__': 2
 		},
 		built_in: {
+			'bool': 1,
 			'cdouble': 5, 'cent': 5, 'cfloat': 5, 'char': 1, 'creal': 5,
 			'dchar': 10, 'delegate': 5, 'double': 1, 'dstring': 10,
 			'float': 1, 'function': 1,
@@ -67,7 +68,6 @@ hljs.LANGUAGES.d = function() {
 			'wchar': 1, 'wstring': 1
 		},
 		literal: {
-			'bool': 1,
 			'false': 1,
 			'null': 1,
 			'true': 1

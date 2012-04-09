@@ -501,5 +501,5 @@ D language ("d"):
   string           string constant
   number           number
   keyword          language keywords (including @attributes)
-  constant         true false nil iota
+  constant         true false null
   built_in         built-in plain types (int, string etc.)
