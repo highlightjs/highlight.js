@@ -53,3 +53,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Луиджи Мазелли <grigio.org@gmail.com>
 - Денис Бардадым <bardadymchik@gmail.com>
 - Аахан Криш <geekpanth3r@gmail.com>
+- Илья Барышев <baryshev@gmail.com>
