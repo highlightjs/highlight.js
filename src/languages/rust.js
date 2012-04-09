@@ -62,17 +62,20 @@ hljs.LANGUAGES.rust = function() {
         {
           begin: 'type', end: '(=|<)',
           keywords: {'type': 1},
-          contains: [TITLE]
+          contains: [TITLE],
+          illegal: '\\S'
         },
         {
           begin: 'iface', end: '({|<)',
           keywords: {'iface': 1},
-          contains: [TITLE]
+          contains: [TITLE],
+          illegal: '\\S'
         },
         {
           begin: 'enum', end: '({|<)',
           keywords: {'enum': 1},
-          contains: [TITLE]
+          contains: [TITLE],
+          illegal: '\\S'
         }
       ]
     }
