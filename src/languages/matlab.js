@@ -30,7 +30,7 @@ hljs.LANGUAGES.matlab = {
        'freqspace': 1,'meshgrid': 1,'accumarray': 1,'size': 1,'length': 1,'ndims': 1,'numel': 1,
        'disp': 1,'isempty': 1,'isequal': 1,'isequalwithequalnans': 1,'cat': 1,'reshape': 1,
        'diag': 1,'blkdiag': 1,'tril': 1,'triu': 1,'fliplr': 1,'flipud': 1,'flipdim': 1,'rot90': 1,
-       'find': 1,'end': 1,'sub2ind': 1,'ind2sub': 1,'bsxfun': 1,'ndgrid': 1,'permute': 1,
+       'find': 1, 'sub2ind': 1,'ind2sub': 1,'bsxfun': 1,'ndgrid': 1,'permute': 1,
        'ipermute': 1,'shiftdim': 1,'circshift': 1,'squeeze': 1,'isscalar': 1,'isvector': 1,
        'ans': 1,'eps': 1,'realmax': 1,'realmin': 1,'pi': 1,'i': 1,'inf': 1,'nan': 1,'isnan': 1,
        'isinf': 1,'isfinite': 1,'j': 1,'why': 1,'compan': 1,'gallery': 1,'hadamard': 1,'hankel': 1,
