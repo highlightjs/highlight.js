@@ -24,7 +24,7 @@ hljs.LANGUAGES.php = function() {
   ];
   var NUMBERS = [
     hljs.C_NUMBER_MODE, // 0x..., 0..., decimal, float
-    hljs.BINARY_NUMBER_MODE, // 0b...
+    hljs.BINARY_NUMBER_MODE // 0b...
   ];
   var TITLE = {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
@@ -112,7 +112,7 @@ hljs.LANGUAGES.php = function() {
           ]
         },
         {
-          'begin': '=>' // No markup, just a relevance booster
+          begin: '=>' // No markup, just a relevance booster
         }
       ].concat(STRINGS).concat(NUMBERS)
     }
