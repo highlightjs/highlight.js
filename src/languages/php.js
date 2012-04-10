@@ -84,6 +84,7 @@ hljs.LANGUAGES.php = function() {
           className: 'function',
           begin: '\\bfunction\\b', end: '{',
           keywords: {'function': 1},
+          illegal: '\\$',
           contains: [
             TITLE,
             {
@@ -100,7 +101,7 @@ hljs.LANGUAGES.php = function() {
           className: 'class',
           begin: '\\bclass\\b', end: '{',
           keywords: {'class': 1},
-          illegal: '\\(|:',
+          illegal: '[:\\(\\$]',
           contains: [
             {
               begin: '\\bextends\\b', endsWithParent: true,
