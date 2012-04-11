@@ -36,7 +36,8 @@ pre .class .title {
 
 pre .attribute,
 pre .symbol,
-pre .value {
+pre .value,
+pre .regexp {
 	color: #BF79DB;
 }
 
