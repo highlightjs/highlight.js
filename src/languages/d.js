@@ -150,9 +150,8 @@ hljs.LANGUAGES.d = function() {
 	 */
 	var D_CHARACTER_MODE = {
 		className: 'string',
-		begin: '\'([^\'\\\\]|' + escape_sequence_re + ')\'',
-		illegal: '\\n',
-		relevance: 0
+		begin: '\'(' + escape_sequence_re + '|.)', end: '\'',
+		illegal: '.'
 	};
 
 	/**

@@ -928,10 +928,9 @@ import std.stdio;
 
 enum COMPILED_ON = __TIMESTAMP__;  // special token
 
-enum character = '&copy;';  // character literal
-enum copy_valid = '&amp;copy;';   // named char entity
-enum copy_invalid = '&amp;copy';  // invalid named char entity (semicolon missing)
-enum invalid = 'foo';  // only one char allowed
+enum character = '©';
+enum copy_valid = '&amp;copy;';
+enum backslash_escaped = '\\';
 
 // string literals
 enum str = `hello "world"!`;
