@@ -1,6 +1,7 @@
 /*
 Language: Go
 Author: Stephan Kountso aka StepLg <steplg@gmail.com>
+Contributors: Evgeny Stepanischev <imbolk@gmail.com>
 Description: Google go language (golang). For info about language see http://golang.org/
 */
 
@@ -20,12 +21,12 @@ hljs.LANGUAGES.go = function(){
        'bool': 1, 'byte': 1, 'complex64': 1, 'complex128': 1, 'float32': 1,
        'float64': 1, 'int8': 1, 'int16': 1, 'int32': 1, 'int64': 1, 'string': 1,
        'uint8': 1, 'uint16': 1, 'uint32': 1, 'uint64': 1, 'int': 1, 'uint': 1,
-       'uintptr': 1
+       'uintptr': 1, 'rune': 1
    },
     'built_in': {
        'append': 1, 'cap': 1, 'close': 1, 'complex': 1, 'copy': 1, 'imag': 1,
        'len': 1, 'make': 1, 'new': 1, 'panic': 1, 'print': 1, 'println': 1,
-       'real': 1, 'recover': 1
+       'real': 1, 'recover': 1, 'delete': 1
     }
   };
   return {

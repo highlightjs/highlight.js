@@ -7,19 +7,21 @@ hljs.LANGUAGES.lua = function() {
   var OPENING_LONG_BRACKET = '\\[=*\\[';
   var CLOSING_LONG_BRACKET = '\\]=*\\]';
   var LONG_BRACKETS = {
-    begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET
+    begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
+    contains: ['self']
   };
-  LONG_BRACKETS.contains = [LONG_BRACKETS];
-  var COMMENT1 = {
-    className: 'comment',
-    begin: '--(?!' + OPENING_LONG_BRACKET + ')', end: '$'
-  };
-  var COMMENT2 = {
-    className: 'comment',
-    begin: '--' + OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
-    contains: [LONG_BRACKETS],
-    relevance: 10
-  };
+  var COMMENTS = [
+    {
+      className: 'comment',
+      begin: '--(?!' + OPENING_LONG_BRACKET + ')', end: '$'
+    },
+    {
+      className: 'comment',
+      begin: '--' + OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
+      contains: [LONG_BRACKETS],
+      relevance: 10
+    }
+  ]
   return {
     defaultMode: {
       lexems: hljs.UNDERSCORE_IDENT_RE,
@@ -41,8 +43,7 @@ hljs.LANGUAGES.lua = function() {
           'string': 1, 'table': 1
         }
       },
-      contains: [
-        COMMENT1, COMMENT2,
+      contains: COMMENTS.concat([
         {
           className: 'function',
           begin: '\\bfunction\\b', end: '\\)',
@@ -55,10 +56,9 @@ hljs.LANGUAGES.lua = function() {
             {
               className: 'params',
               begin: '\\(', endsWithParent: true,
-              contains: [COMMENT1, COMMENT2]
-            },
-            COMMENT1, COMMENT2
-          ]
+              contains: COMMENTS
+            }
+          ].concat(COMMENTS)
         },
         hljs.C_NUMBER_MODE,
         hljs.APOS_STRING_MODE,
@@ -69,7 +69,7 @@ hljs.LANGUAGES.lua = function() {
           contains: [LONG_BRACKETS],
           relevance: 10
         }
-      ]
+      ])
     }
   };
 }();

@@ -13,12 +13,15 @@
   <link rel="alternate stylesheet" title="Ascetic" href="styles/ascetic.css">
   <link rel="alternate stylesheet" title="Magula" href="styles/magula.css">
   <link rel="alternate stylesheet" title="GitHub" href="styles/github.css">
+  <link rel="alternate stylesheet" title="Google Code" href="styles/googlecode.css">
   <link rel="alternate stylesheet" title="Brown Paper" href="styles/brown_paper.css">
   <link rel="alternate stylesheet" title="School Book" href="styles/school_book.css">
   <link rel="alternate stylesheet" title="IR Black" href="styles/ir_black.css">
   <link rel="alternate stylesheet" title="Solarized - Dark" href="styles/solarized_dark.css">
   <link rel="alternate stylesheet" title="Solarized - Light" href="styles/solarized_light.css">
   <link rel="alternate stylesheet" title="Arta" href="styles/arta.css">
+  <link rel="alternate stylesheet" title="Monokai" href="styles/monokai.css">
+
 
   <style>
     body {
@@ -172,11 +175,10 @@ Most snippets do not contain working code :-).
     <td class="python">
 <pre>
 <code>@requires_authorization
-def somefunc(param1, param2):
+def somefunc(param1='', param2=0):
     r'''A docstring'''
     if param1 &gt; param2: # interesting
         print 'Gre\'ater'
-        print ''
     return (param2 - param1 + 1) or None
 
 class SomeClass:<br>    pass
@@ -230,13 +232,14 @@ sub load
     Carp::carp "Can`t load (class: $c, id: $id): '$!'"; return undef
   };
   my $o = $c-&gt;_perl_new();
-  $id12 = $id;
+  $id12 = $id / 24 / 3600;
   $o-&gt;{'ID'} = $id12 + 123;
   $o-&gt;{'PAPA'} = $flds-&gt;{'PAPA'};
   #$o-&gt;{'SHCUT'} = $flds-&gt;{'SHCUT'};
   my $p = $o-&gt;props;
   my $vt;
   $string =~ m/^sought_text$/;
+  $items = split //, 'abc';
   for my $key (keys %$p)
   {
     if(${$vt.'::property'}) {
@@ -259,36 +262,32 @@ foreach my $num (0..$#array) {
   <tr>
     <th>PHP
     <td class="php">
-<pre><code>require_once 'Zend.php';
-require_once 'Zend/Uri/Exception.php';
-require_once 'Zend/Uri/Http.php';
-require_once 'Zend/Uri/Mailto.php';
+<pre><code>require_once 'Zend/Uri/Http.php';
 
-abstract class Zend_Uri
+abstract class URI extends BaseURI
 {
 
   /**
-   * Return a string representation of this URI.
+   * Returns a URI
    *
-   * @see     getUri()
-   * @return  string
+   * @return  URI
    */
-  public function __toString()
-  {
-      return $this-&gt;getUri();
-  }
-
-  static public function factory($uri = 'http')
+  static public function _factory($uri = 'http')
   {
       $uri = explode(':', $uri, 2);
-      $scheme = strtolower($uri[0]);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
+      $desc = 'Multi
+line description';
 
-      // Security check: $scheme is used to load a class file,
-      // so only alphanumerics are allowed.
+      // Security check
       if (!ctype_alnum($scheme)) {
           throw new Zend_Uri_Exception('Illegal scheme');
       }
+
+      return [
+        'uri' => $uri,
+        'value' => null,
+      ];
   }
 }
 
@@ -778,11 +777,11 @@ int main(int argc, char *argv[]) {
   for (auto i = 0; i &lt; 0xFFFF; i++)
     cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
 
-  char c = '\n'; // just a test
+  char c = '\n';
   unordered_map &lt;string, vector&lt;string&gt; &gt; m;
-  m["key"] = "\\\\"; // yeah, I know it's an error
+  m["key"] = "\\\\"; // this is an error
 
-  return -2e3l;
+  return -2e3 + 12l;
 }
 </code></pre>
 
@@ -914,6 +913,55 @@ multiple
 lines!";
         return 0;
     }
+}
+</code></pre>
+
+<tr>
+    <th>D
+    <td class="d">
+<pre><code>#!/usr/bin/rdmd
+// Computes average line length for standard input.
+import std.stdio;
+
+/+
+  this is a /+ nesting +/ comment
++/
+
+enum COMPILED_ON = __TIMESTAMP__;  // special token
+
+enum character = '©';
+enum copy_valid = '&amp;copy;';
+enum backslash_escaped = '\\';
+
+// string literals
+enum str = `hello "world"!`;
+enum multiline = r"lorem
+ipsum
+dolor";  // wysiwyg string, no escapes here allowed
+enum multiline2 = "sit
+amet
+\"adipiscing\"
+elit.";
+enum hex = x"66 6f 6f";   // same as "foo"
+
+#line 5
+
+// float literals
+enum f = [3.14f, .1, 1., 1e100, 0xc0de.01p+100];
+
+static if (something == true) {
+   import std.algorithm;
+}
+
+void main() pure nothrow @safe {
+    ulong lines = 0;
+    double sumLength = 0;
+    foreach (line; stdin.byLine()) {
+        ++lines;
+        sumLength += line.length;
+    }
+    writeln("Average line length: ",
+        lines ? sumLength / lines : 0);
 }
 </code></pre>
 
@@ -1689,6 +1737,46 @@ enum list&lt;T> {
 }
 
 let a: list&lt;int> = cons(7, @cons(13, @nil));
+</code></pre>
+
+  <tr>
+    <th>Matlab
+    <td class="matlab">
+<pre><code>n = 20; % number of points
+points = [random('unid', 100, n, 1), random('unid', 100, n, 1)];
+len = zeros(1, n - 1);
+points = sortrows(points);
+%% Initial set of points
+plot(points(:,1),points(:,2));
+for i = 1: n-1
+    len(i) = points(i + 1, 1) - points(i, 1);
+end
+while(max(len) > 2 * min(len))
+    [d, i] = max(len);
+    k = on_margin(points, i, d, -1);
+    m = on_margin(points, i + 1, d, 1);
+    xm = 0; ym = 0;
+%% New point
+    if(i == 1 || i + 1 == n)
+        xm = mean(points([i,i+1],1))
+        ym = mean(points([i,i+1],2))
+    else
+        [xm, ym] = dlg1(points([k, i, i + 1, m], 1), ...
+            points([k, i, i + 1, m], 2))
+    end
+
+    points = [ points(1:i, :); [xm, ym]; points(i + 1:end, :)];
+end
+
+function [net] = get_fit_network(inputs, targets)
+    % Create Network
+    numHiddenNeurons = 20;  % Adjust as desired
+    net = newfit(inputs,targets,numHiddenNeurons);
+    net.trainParam.goal = 0.01;
+    net.trainParam.epochs = 1000;
+    % Train and Apply Network
+    [net,tr] = train(net,inputs,targets);
+end
 </code></pre>
 
 </table>

@@ -9,11 +9,6 @@ Date: 2008-12-27
 
 hljs.LANGUAGES.apache = function(){
   var NUMBER = {className: 'number', begin: '[\\$%]\\d+'};
-  var CBRACKET = {
-    className: 'cbracket',
-    begin: '[\\$%]\\{', end: '\\}'
-  };
-  CBRACKET.contains = [CBRACKET, NUMBER];
   return {
     case_insensitive: true,
     defaultMode: {
@@ -421,8 +416,15 @@ hljs.LANGUAGES.apache = function(){
       },
       contains: [
         hljs.HASH_COMMENT_MODE,
-        {className: 'sqbracket', begin: '\\s\\[', end: '\\]$'},
-        CBRACKET,
+        {
+          className: 'sqbracket',
+          begin: '\\s\\[', end: '\\]$'
+        },
+        {
+          className: 'cbracket',
+          begin: '[\\$%]\\{', end: '\\}',
+          contains: ['self', NUMBER]
+        },
         NUMBER,
         {className: 'tag', begin: '</?', end: '>'},
         hljs.QUOTE_STRING_MODE

@@ -28,6 +28,7 @@ hljs.LANGUAGES.vhdl = {
         'std_ulogic': 2, 'std_ulogic_vector': 2, 'std_logic': 2, 'std_logic_vector': 2
       }
     },
+    illegal: '{',
     contains: [
       {
         className: 'comment',
