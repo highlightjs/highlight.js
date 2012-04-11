@@ -64,6 +64,10 @@ hljs.LANGUAGES.perl = function(){
     VAR1, VAR2,
     hljs.HASH_COMMENT_MODE,
     COMMENT,
+    {
+      className: 'pod',
+      begin: '^\\=\\w', end: '\\=cut'
+    },
     METHOD,
     {
       className: 'string',
@@ -163,10 +167,6 @@ hljs.LANGUAGES.perl = function(){
       className: 'operator',
       begin: '-\\w\\b',
       relevance: 0
-    },
-    {
-      className: 'pod',
-      begin: '\\=\\w', end: '\\=cut'
     }
   ];
   SUBST.contains = PERL_DEFAULT_CONTAINS;
