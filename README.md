@@ -56,7 +56,7 @@ You can strip empty start and end lines:
 
 ```html
 <script type="text/javascript">
-  hljs.showLineNumbers = true;
+  hljs.stripEmptyLines = true;
   hljs.initHighlightingOnLoad();
 </script>
 ```
