@@ -63,7 +63,7 @@ hljs.LANGUAGES.php = function() {
         {
             className: 'comment',
             excludeBegin: true,
-            begin: '__halt_compiler[^;]+;', end: '[\\n\\r]$'
+            begin: '__halt_compiler.+?;', end: '(?![\\s\\S])' // end of file
         },
         {
           className: 'string',
