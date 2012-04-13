@@ -469,11 +469,34 @@ var hljs = new function() {
   - replace real line-breaks with '<br>' for non-pre containers
 
   */
-  function fixMarkup(value, tabReplace, useBR) {
+  function fixMarkup(value, tabReplace, useBR, showLineNumbers, stripEmptyLines) {
     if (tabReplace) {
       value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
         return p1.replace(/\t/g, tabReplace);
       });
+    }
+    if(stripEmptyLines) {
+        var lines = value.split(/\n/g);
+        var numLines = lines.length;
+        value = "";
+        
+        for(i in lines) {
+        
+            line = lines[i];
+            // Strip the line if it's an end line and empty
+            if((i == 0 || i == numLines - 1) && line == "") {
+                continue;
+            }
+            value += line + "\n";
+        }
+    }
+    if (showLineNumbers) {
+        var lines = value.split(/\n/g);
+        var numLines = lines.length;
+        value = "";
+        for(var i = 1; i < numLines; i++) {
+            value += "<span class=\"line_number\">" + i + "</span>" + lines[i-1] + "\n";
+        }
     }
     if (useBR) {
       value = value.replace(/\n/g, '<br>');
@@ -485,7 +508,7 @@ var hljs = new function() {
   Applies highlighting to a DOM node containing code. Accepts a DOM node and
   two optional parameters for fixMarkup.
   */
-  function highlightBlock(block, tabReplace, useBR) {
+  function highlightBlock(block, tabReplace, useBR, showLineNumbers, stripEmptyLines) {
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
     var result, pre;
@@ -503,7 +526,7 @@ var hljs = new function() {
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
-    result.value = fixMarkup(result.value, tabReplace, useBR);
+    result.value = fixMarkup(result.value, tabReplace, useBR, showLineNumbers, stripEmptyLines);
 
     var class_name = block.className;
     if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
@@ -547,7 +570,7 @@ var hljs = new function() {
     for (var i = 0; i < pres.length; i++) {
       var code = findCode(pres[i]);
       if (code)
-        highlightBlock(code, hljs.tabReplace);
+        highlightBlock(code, hljs.tabReplace, hljs.useBR, hljs.showLineNumbers, hljs.stripEmptyLines);
     }
   }
 

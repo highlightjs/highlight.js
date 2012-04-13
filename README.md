@@ -23,7 +23,13 @@ initialization call:
 </script>
 ```
 
-Also you can replace TAB ('\x09') characters used for indentation in your code
+The script looks in your page for fragments `<pre><code>...</code></pre>`
+that are traditionally used to mark up code examples. Their content is
+marked up by logical pieces with defined class names.
+
+### Configuration
+
+You can replace TAB ('\x09') characters used for indentation in your code
 with some fixed number of spaces or with a `<span>` to give them special
 styling:
 
@@ -37,10 +43,23 @@ styling:
 </script>
 ```
 
-The script looks in your page for fragments `<pre><code>...</code></pre>`
-that are traditionally used to mark up code examples. Their content is
-marked up by logical pieces with defined class names.
+You can display line numbers:
 
+```html
+<script type="text/javascript">
+  hljs.showLineNumbers = true;
+  hljs.initHighlightingOnLoad();
+</script>
+```
+
+You can strip empty start and end lines:
+
+```html
+<script type="text/javascript">
+  hljs.stripEmptyLines = true;
+  hljs.initHighlightingOnLoad();
+</script>
+```
 
 ### Custom initialization
 
