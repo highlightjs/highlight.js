@@ -440,12 +440,48 @@ hello world
 
 &lt;this_is inline="xml"&gt;&lt;/this_is&gt;
 
-&gt; markdown is so cool
+&gt; markdown is so [cool][1]
 
     so are code segments
 
+## My Second Header Starts A List:
+
 1. one thing (yeah!)
+	* Sublist!
+	1. This is [valid][sovalid] too.
 2. two thing `i can write code`, and `more` wipee!
+
+Another Boring List
+-------------------
+
+* Okay I guess I want a new list.
+* Yep this is a [list.][16]
+
+	### This is an interesting case, because it could be highlighted as markdown (since it is)
+
+	* Naw, I want a real code segment, showing markdown syntax.
+	* But this *is* a code segment!
+	* Well this is an interesting case.
+
+> To be or not to be.
+> That is the question.
+> Whether 'tis nobler in the mind to suffer.
+>> (it is--and this is a blockquote)
+>> ## Plus some markdown syntax here too.
+>> My proof that this is true in on <http://www.google.com>. Nifty, an automatic link!
+
+	# should this read as markdown? code? python?
+	def my_function(x,y):
+		x += 5
+		return y % x
+	for key in dict.iterkeys():
+		print key
+	
+
+[1] : you can even write footnotes! Like **this** one. _Duh._
+[sovalid] : Yeah, it totally is, I swear!
+[16] http://daringfireball.net/projects/markdown/syntax#list : 'Proof (in the title)'
+
 </code></pre>
 
   <tr>
