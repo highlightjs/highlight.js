@@ -127,3 +127,11 @@ pre .chunk {
 pre .tex .formula {
   opacity: 0.5;
 }
+
+pre .line_number {
+    background: #DDD;
+    padding: 0px 10px;
+    margin-right: 10px;
+    width: 30px;
+    display: inline-block;
+}
