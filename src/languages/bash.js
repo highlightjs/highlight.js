@@ -24,6 +24,7 @@ hljs.LANGUAGES.bash = function(){
   var APOS_STRING = {
     className: 'string',
     begin: '\'', end: '\'',
+    contains: [{begin: '\'\''}],
     relevance: 0
   };
   var TEST_CONDITION = {
