@@ -19,7 +19,7 @@ hljs.LANGUAGES.javascript = {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       { // regexp container
-        begin: '(' + hljs.RE_STARTERS_RE + '|case|return|throw)\\s*',
+        begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: {'return': 1, 'throw': 1, 'case': 1},
         contains: [
           hljs.C_LINE_COMMENT_MODE,
