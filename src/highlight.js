@@ -163,7 +163,7 @@ var hljs = new function() {
         return;
       var group;
 
-      var keywords = []; // used later with beginWithKeywords but filled as a side-effect of keywords compilation
+      var keywords = []; // used later with beginWithKeyword but filled as a side-effect of keywords compilation
       if (mode.keywords) {
         mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
         for (var className in mode.keywords) {
