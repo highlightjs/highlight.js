@@ -35,12 +35,12 @@ hljs.LANGUAGES.scala = function() {
         hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE, STRING,
         {
           className: 'class',
-          begin: '((case )?class |object |trait )', end: '({|$)',
+          begin: '((case )?class |object |trait )', end: '({|$)', // beginWithKeyword won't work because a single "case" shouldn't start this mode
           illegal: ':',
           keywords: {'case' : 1, 'class': 1, 'trait': 1, 'object': 1},
           contains: [
             {
-              begin: '(extends|with)',
+              beginWithKeyword: true,
               keywords: {'extends': 1, 'with': 1},
               relevance: 10
             },

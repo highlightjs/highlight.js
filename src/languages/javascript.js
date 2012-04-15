@@ -34,7 +34,7 @@ hljs.LANGUAGES.javascript = {
       },
       {
         className: 'function',
-        begin: '\\bfunction\\b', end: '{',
+        beginWithKeyword: true, end: '{',
         keywords: {'function': 1},
         contains: [
           {

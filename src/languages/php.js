@@ -82,7 +82,7 @@ hljs.LANGUAGES.php = function() {
         VARIABLE,
         {
           className: 'function',
-          begin: '\\bfunction\\b', end: '{',
+          beginWithKeyword: true, end: '{',
           keywords: {'function': 1},
           illegal: '\\$',
           contains: [
@@ -99,12 +99,12 @@ hljs.LANGUAGES.php = function() {
         },
         {
           className: 'class',
-          begin: '\\bclass\\b', end: '{',
+          beginWithKeyword: true, end: '{',
           keywords: {'class': 1},
           illegal: '[:\\(\\$]',
           contains: [
             {
-              begin: '\\bextends\\b', endsWithParent: true,
+              beginWithKeyword: true, endsWithParent: true,
               keywords: {'extends': 1},
               contains: [TITLE]
             },

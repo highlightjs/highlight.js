@@ -42,7 +42,7 @@ hljs.LANGUAGES.matlab = {
     contains: [
       {
         className: 'function',
-        begin: 'function', end: '$',
+        beginWithKeyword: true, end: '$',
         keywords: {'function': 1},
         contains: [
           {

@@ -48,6 +48,12 @@ hljs.LANGUAGES.python = function() {
     begin: '\\(', end: '\\)',
     contains: STRINGS.concat([hljs.C_NUMBER_MODE])
   };
+  var FUNC_CLASS_PROTO = {
+    beginWithKeyword: true, end: ':',
+    illegal: '[${]',
+    contains: [TITLE, PARAMS],
+    relevance: 10
+  };
 
   return {
     defaultMode: {
@@ -63,22 +69,8 @@ hljs.LANGUAGES.python = function() {
       illegal: '(</|->|\\?)',
       contains: STRINGS.concat([
         hljs.HASH_COMMENT_MODE,
-        {
-          className: 'function',
-          begin: '\\bdef ', end: ':',
-          illegal: '$',
-          keywords: {'def': 1},
-          contains: [TITLE, PARAMS],
-          relevance: 10
-        },
-        {
-          className: 'class',
-          begin: '\\bclass ', end: ':',
-          illegal: '[${]',
-          keywords: {'class': 1},
-          contains: [TITLE, PARAMS],
-          relevance: 10
-        },
+        hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', keywords: {'def': 1}}),
+        hljs.inherit(FUNC_CLASS_PROTO, {className: 'class', keywords: {'class': 1}}),
         hljs.C_NUMBER_MODE,
         {
           className: 'decorator',

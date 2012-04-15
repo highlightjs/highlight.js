@@ -47,11 +47,11 @@ hljs.LANGUAGES.actionscript = function() {
         },
         {
           className: 'class',
-          begin: '(class|interface) ', end: '{',
+          beginWithKeyword: true, end: '{',
           keywords: {'class': 1, 'interface': 1},
           contains: [
             {
-              begin: '(implements|extends)',
+              beginWithKeyword: true,
               keywords: {'extends': 1, 'implements': 1},
               relevance: 5
             },
@@ -60,12 +60,12 @@ hljs.LANGUAGES.actionscript = function() {
         },
         {
           className: 'preprocessor',
-          begin: '(import|include)\\b', end: ';',
+          beginWithKeyword: true, end: ';',
           keywords: {'import': 1, 'include': 1}
         },
         {
           className: 'function',
-          begin: 'function ', end: '[{;]',
+          beginWithKeyword: true, end: '[{;]',
           keywords: {'function': 1},
           contains: [
             TITLE_MODE,

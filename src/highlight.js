@@ -163,17 +163,7 @@ var hljs = new function() {
         return;
       var group;
 
-      if (!is_default) {
-        mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
-        if (!mode.end && !mode.endsWithParent)
-          mode.end = '\\B|\\b';
-        if (mode.end)
-          mode.endRe = langRe(language, mode.end);
-      }
-      if (mode.illegal)
-        mode.illegalRe = langRe(language, mode.illegal);
-      if (mode.relevance === undefined)
-        mode.relevance = 1;
+      var keywords = []; // used later with beginWithKeywords but filled as a side-effect of keywords compilation
       if (mode.keywords) {
         mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
         for (var className in mode.keywords) {
@@ -189,9 +179,24 @@ var hljs = new function() {
             if (!group.hasOwnProperty(keyword))
               continue;
             mode.keywords[keyword] = [className, group[keyword]];
+            keywords.push(keyword);
           }
         }
       }
+      if (!is_default) {
+        if (mode.beginWithKeyword) {
+          mode.begin = '\\b(' + keywords.join('|') + ')\\s';
+        }
+        mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
+        if (!mode.end && !mode.endsWithParent)
+          mode.end = '\\B|\\b';
+        if (mode.end)
+          mode.endRe = langRe(language, mode.end);
+      }
+      if (mode.illegal)
+        mode.illegalRe = langRe(language, mode.illegal);
+      if (mode.relevance === undefined)
+        mode.relevance = 1;
       if (!mode.contains) {
         mode.contains = [];
       }

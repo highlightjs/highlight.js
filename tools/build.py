@@ -20,6 +20,7 @@ REPLACES = {
     'modes': 'm',
     'className': 'cN',
     'begin': 'b',
+    'beginWithKeyword': 'bWK',
     'end': 'e',
     'endsWithParent': 'eW',
     'illegal': 'i',

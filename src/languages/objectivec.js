@@ -74,7 +74,7 @@ hljs.LANGUAGES.objectivec = function(){
         },
         {
           className: 'class',
-          begin: 'interface|class|protocol|implementation',
+          beginWithKeyword: true,
           end: '({|$)',
           keywords: {
             'interface': 1,
