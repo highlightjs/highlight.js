@@ -277,7 +277,7 @@ var hljs = new function() {
         terminators.push(mode.illegal);
       }
 
-      return langRe(language, '(' + terminators.join('|') + ')', true);
+      return langRe(language, terminators.join('|'), true);
     }
 
     function eatModeChunk(value, index) {
