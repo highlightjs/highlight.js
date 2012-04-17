@@ -287,10 +287,7 @@ var hljs = new function() {
       }
       mode.terminators.lastIndex = index;
       var match = mode.terminators.exec(value);
-      if (match)
-        return [value.substr(index, match.index - index), match[0], false];
-      else
-        return [value.substr(index), '', true];
+      return match ? [value.substr(index, match.index - index), match[0], false] : [value.substr(index), '', true];
     }
 
     function keywordMatch(mode, match) {
