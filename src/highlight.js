@@ -324,7 +324,14 @@ var hljs = new function() {
     function processBuffer(buffer, mode) {
       if (mode.subLanguage && languages[mode.subLanguage]) {
         var result = highlight(mode.subLanguage, buffer);
-        keyword_count += result.keyword_count;
+        // Counting embedded language score towards the host language may be disabled
+        // with zeroing the containing mode relevance. Usecase in point is Markdown that
+        // allows XML everywhere and makes every XML snippet to have a much larger Markdown
+        // score.
+        if (mode.relevance > 0) {
+          keyword_count += result.keyword_count;
+          relevance += result.relevance;
+        }
         return result.value;
       } else {
         return processKeywords(buffer, mode);
