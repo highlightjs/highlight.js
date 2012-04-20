@@ -61,7 +61,7 @@ var hljs = new function() {
 
   function nodeStream(node) {
     var result = [];
-    (function (node, offset) {
+    (function _nodeStream(node, offset) {
       for (var i = 0; i < node.childNodes.length; i++) {
         if (node.childNodes[i].nodeType == 3)
           offset += node.childNodes[i].nodeValue.length;
@@ -73,7 +73,7 @@ var hljs = new function() {
             offset: offset,
             node: node.childNodes[i]
           });
-          offset = arguments.callee(node.childNodes[i], offset);
+          offset = _nodeStream(node.childNodes[i], offset);
           result.push({
             event: 'stop',
             offset: offset,
