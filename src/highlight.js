@@ -238,7 +238,8 @@ var hljs = new function() {
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
-        if (mode.contains[i].beginRe.test(lexem)) {
+        var match = mode.contains[i].beginRe.exec(lexem);
+        if (match && match.index == 0) {
           return mode.contains[i];
         }
       }
