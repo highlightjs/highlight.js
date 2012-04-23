@@ -323,13 +323,11 @@ var hljs = new function() {
     }
 
     function processSubLanguage(buffer, mode) {
-      var result, value;
+      var result;
       if (mode.subLanguage == '') {
         result = highlightAuto(buffer);
-        value = '<span class="' + result.language + '">' + result.value + '</span>';
       } else {
         result = highlight(mode.subLanguage, buffer);
-        value = result.value;
       }
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Usecase in point is Markdown that
@@ -339,7 +337,7 @@ var hljs = new function() {
         keyword_count += result.keyword_count;
         relevance += result.relevance;
       }
-      return value;
+      return '<span class="' + result.language  + '">' + result.value + '</span>';
     }
 
     function processBuffer(buffer, mode) {
@@ -430,7 +428,8 @@ var hljs = new function() {
       return {
         relevance: relevance,
         keyword_count: keyword_count,
-        value: result
+        value: result,
+        language: language_name
       };
     } catch (e) {
       if (e == 'Illegal') {

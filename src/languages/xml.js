@@ -72,7 +72,6 @@ hljs.LANGUAGES.xml = function(){
           keywords: {'title': {'style': 1}},
           contains: [TAG_INTERNALS],
           starts: {
-            className: 'css',
             end: '</style>', returnEnd: true,
             subLanguage: 'css'
           }
@@ -84,13 +83,11 @@ hljs.LANGUAGES.xml = function(){
           keywords: {'title': {'script': 1}},
           contains: [TAG_INTERNALS],
           starts: {
-            className: 'javascript',
             end: '</script>', returnEnd: true,
             subLanguage: 'javascript'
           }
         },
         {
-          className: 'vbscript',
           begin: '<%', end: '%>',
           subLanguage: 'vbscript'
         },
