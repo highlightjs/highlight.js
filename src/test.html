@@ -646,13 +646,13 @@ next</code></pre>
   <tr>
     <th>HTTP
     <td class="http">
-<pre><code>HTTP/1.1 200 OK
-Server: Apache-Coyote/1.1
-Date: Sat, 14 Apr 2012 18:01:56 GMT
-Content-Type: application/vnd-riv.crm.scheduling.v1_1+json; charset=UTF-8
-Content-Length: 1405
+<pre><code>POST /task?id=1 HTTP/1.1
+Host: example.org
+Content-Type: application/xml; charset=utf-8
+Content-Length: 19
 
-&lt;xml&gt;&lt;/xml&gt;</code></pre>
+&lt;status&gt;OK&lt;/status&gt;
+</code></pre>
 
   <tr>
     <th>Lua
