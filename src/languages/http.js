@@ -3,27 +3,21 @@
 */
 hljs.LANGUAGES.http = {
   defaultMode: {
-    illegal: '.',
+    illegal: '\\S',
     contains: [
       {
         className: 'title',
         begin: '^HTTP/[0-9\\.]+', end: '$',
-        starts: {
-          end: '\\n\\n',
-          contains: [
-            {
-              className: 'key',
-              begin: '^\\w', end: ': ', excludeEnd: true,
-              starts: {
-                className: 'value', end: '$'
-              }
-            }
-          ],
-          starts: {
-            end: hljs.EOF_RE,
-            subLanguage: ''
-          }
-        }
+      },
+      {
+        className: 'key',
+        begin: '^\\w', end: ': ', excludeEnd: true,
+        illegal: '\\n',
+        starts: {className: 'value', end: '$'}
+      },
+      {
+        begin: '\\n\\n',
+        starts: {subLanguage: '', end: hljs.EOF_RE}
       }
     ]
   }
