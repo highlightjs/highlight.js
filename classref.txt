@@ -497,9 +497,19 @@ Matlab ("matlab"):
   param            params of function
 
 D language ("d"):
+
   comment          comment
   string           string constant
   number           number
   keyword          language keywords (including @attributes)
   constant         true false null
   built_in         built-in plain types (int, string etc.)
+
+R ("r"):
+
+  comment          comment
+  string           string constant
+  number           number
+  keyword          language keywords (function, if) plus "structural"
+                   functions (attach, require, setClass)
+  literal          special literal: TRUE, FALSE, NULL, NA, etc.
