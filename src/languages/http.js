@@ -1,6 +1,9 @@
 /*
   Language: HTTP
+  Description: HTTP request and response headers with automatic body highlighting
+  Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 */
+
 hljs.LANGUAGES.http = {
   defaultMode: {
     illegal: '\\S',
