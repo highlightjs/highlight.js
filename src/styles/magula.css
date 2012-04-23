@@ -93,8 +93,8 @@ pre .winutils,
 pre .bash .variable,
 pre .apache .tag,
 pre .xml .tag,
-pre .xml .title,
-pre .tex .command {
+pre .tex .command,
+pre .header {
   font-weight: bold;
   color: navy;
 }

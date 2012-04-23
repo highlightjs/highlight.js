@@ -32,7 +32,8 @@ pre .pi,
 pre .chunk,
 pre .shebang,
 pre .apache .cbracket,
-pre .input_number {
+pre .input_number,
+pre .http .title {
   color: #808000;
 }
 
@@ -62,7 +63,8 @@ pre .rules .keyword,
 pre .number,
 pre .date,
 pre .regexp,
-pre .tex .special {
+pre .tex .special,
+pre .header {
   font-weight: bold;
   color: #0000ff;
 }

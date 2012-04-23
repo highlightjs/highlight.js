@@ -14,7 +14,7 @@ hljs.LANGUAGES.http = {
         begin: '^[A-Z]+ .*?HTTP/[0-9\\.]+$',
       },
       {
-        className: 'key',
+        className: 'header',
         begin: '^\\w', end: ': ', excludeEnd: true,
         illegal: '\\n',
         starts: {className: 'value', end: '$'}

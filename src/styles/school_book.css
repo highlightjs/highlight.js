@@ -22,7 +22,8 @@ pre .change,
 pre .winutils,
 pre .flow,
 pre .lisp .title,
-pre .tex .special {
+pre .tex .special,
+pre .header {
   color:#005599;
   font-weight:bold;
 }
@@ -34,10 +35,8 @@ pre .tag .keyword {
 }
 
 pre .string,
-pre .function .title,
-pre .class .title,
+pre .title,
 pre .haskell .label,
-pre .ini .title,
 pre .tag .value,
 pre .css .rules .value,
 pre .preprocessor,
@@ -85,8 +84,7 @@ pre .keyword,
 pre .literal,
 pre .css .id,
 pre .phpdoc,
-pre .function .title,
-pre .class .title,
+pre .title,
 pre .haskell .label,
 pre .vbscript .built_in,
 pre .sql .aggregate,
@@ -97,7 +95,6 @@ pre .diff .header,
 pre .chunk,
 pre .winutils,
 pre .bash .variable,
-pre .lisp .title,
 pre .apache .tag,
 pre .tex .command {
   font-weight: bold;

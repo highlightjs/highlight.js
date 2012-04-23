@@ -25,7 +25,8 @@ pre .list .title,
 pre .tag .title,
 pre .setting .value,
 pre .winutils,
-pre .tex .command {
+pre .tex .command,
+pre .http .title {
   color: #008;
 }
 
@@ -79,7 +80,8 @@ pre .class .id,
 pre .built_in,
 pre .setting,
 pre .params,
-pre .variable {
+pre .variable,
+pre .header {
   color: #606;
 }
 
