@@ -12,6 +12,7 @@ pre .params .identifier .keymethods {
 }
 
 pre .tag,
+pre .tag .title,
 pre .keyword,
 pre .literal,
 pre .change,
