@@ -322,18 +322,27 @@ var hljs = new function() {
       return result + buffer.substr(last_index, buffer.length - last_index);
     }
 
+    function processSubLanguage(buffer, mode) {
+      var result;
+      if (mode.subLanguage == '') {
+        result = highlightAuto(buffer);
+      } else {
+        result = highlight(mode.subLanguage, buffer);
+      }
+      // Counting embedded language score towards the host language may be disabled
+      // with zeroing the containing mode relevance. Usecase in point is Markdown that
+      // allows XML everywhere and makes every XML snippet to have a much larger Markdown
+      // score.
+      if (mode.relevance > 0) {
+        keyword_count += result.keyword_count;
+        relevance += result.relevance;
+      }
+      return '<span class="' + result.language  + '">' + result.value + '</span>';
+    }
+
     function processBuffer(buffer, mode) {
-      if (mode.subLanguage && languages[mode.subLanguage]) {
-        var result = highlight(mode.subLanguage, buffer);
-        // Counting embedded language score towards the host language may be disabled
-        // with zeroing the containing mode relevance. Usecase in point is Markdown that
-        // allows XML everywhere and makes every XML snippet to have a much larger Markdown
-        // score.
-        if (mode.relevance > 0) {
-          keyword_count += result.keyword_count;
-          relevance += result.relevance;
-        }
-        return result.value;
+      if (mode.subLanguage && languages[mode.subLanguage] || mode.subLanguage == '') {
+        return processSubLanguage(buffer, mode);
       } else {
         return processKeywords(buffer, mode);
       }
@@ -419,7 +428,8 @@ var hljs = new function() {
       return {
         relevance: relevance,
         keyword_count: keyword_count,
-        value: result
+        value: result,
+        language: language_name
       };
     } catch (e) {
       if (e == 'Illegal') {

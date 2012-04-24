@@ -25,8 +25,7 @@ pre .ruby .subst {
 }
 
 pre .string,
-pre .function .title,
-pre .class .title,
+pre .title,
 pre .haskell .label,
 pre .ini .title,
 pre .tag .value,
@@ -75,23 +74,21 @@ pre .tex .formula {
 
 pre .keyword,
 pre .literal,
+pre .title,
 pre .css .id,
 pre .phpdoc,
-pre .function .title,
-pre .class .title,
 pre .haskell .label,
 pre .vbscript .built_in,
 pre .sql .aggregate,
 pre .rsl .built_in,
 pre .smalltalk .class,
-pre .xml .tag .title,
 pre .diff .header,
 pre .chunk,
 pre .winutils,
 pre .bash .variable,
-pre .lisp .title,
 pre .apache .tag,
-pre .tex .special {
+pre .tex .special,
+pre .header {
   font-weight: bold;
 }
 

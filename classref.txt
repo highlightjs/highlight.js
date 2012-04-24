@@ -182,6 +182,12 @@ VBScript ("vbscript"):
   comment          comment
   built_in         built-in function
 
+HTTP ("http"):
+
+  title            first line of a request or a response
+  header           header
+  value            value
+
 Lua ("lua"):
 
   keyword          keyword

@@ -644,6 +644,17 @@ for i = 0 to ubound(ini_strings)
 next</code></pre>
 
   <tr>
+    <th>HTTP
+    <td class="http">
+<pre><code>POST /task?id=1 HTTP/1.1
+Host: example.org
+Content-Type: application/xml; charset=utf-8
+Content-Length: 19
+
+&lt;status&gt;OK&lt;/status&gt;
+</code></pre>
+
+  <tr>
     <th>Lua
     <td class="lua">
 <pre><code>--[[

@@ -18,13 +18,12 @@ pre .apache .cbracket {
 
 pre .keyword,
 pre .id,
-pre .title,
 pre .built_in,
-pre .aggregate,
 pre .smalltalk .class,
 pre .winutils,
 pre .bash .variable,
-pre .tex .command {
+pre .tex .command,
+pre .header {
   color: rgb(0, 0, 255);
 }
 

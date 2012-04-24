@@ -17,7 +17,8 @@ pre .django .tag,
 pre .django .keyword,
 pre .css .class,
 pre .css .id,
-pre .lisp .title {
+pre .lisp .title,
+pre .header {
   color: #E3CEAB;
 }
 
@@ -55,10 +56,8 @@ pre .ruby .subst {
 
 pre .dos .keyword,
 pre .python .decorator,
-pre .class .title,
+pre .title,
 pre .haskell .label,
-pre .function .title,
-pre .ini .title,
 pre .diff .header,
 pre .ruby .class .parent,
 pre .apache .tag,

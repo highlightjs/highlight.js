@@ -82,7 +82,6 @@ hljs.LANGUAGES.coffeescript = function() {
   };
 
   var COFFEE_EMBEDDED_JAVASCRIPT = {
-    className: 'javascript',
     begin: '`', end: '`',
     excludeBegin: true, excludeEnd: true,
     subLanguage: 'javascript'
@@ -92,7 +91,7 @@ hljs.LANGUAGES.coffeescript = function() {
     defaultMode: {
       keywords: keywords,
       contains: [
-        // Numbers 
+        // Numbers
         hljs.C_NUMBER_MODE,
         hljs.BINARY_NUMBER_MODE,
         // Strings
