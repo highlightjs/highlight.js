@@ -55,3 +55,4 @@ Contributors:
 - Aahan Krish <geekpanth3r@gmail.com>
 - Ilya Baryshev <baryshev@gmail.com>
 - Aleksandar Ruzicic <aleksandar@ruzicic.info>
+- Joe Cheng <joe@rstudio.org>

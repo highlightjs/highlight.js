@@ -55,3 +55,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Аахан Криш <geekpanth3r@gmail.com>
 - Илья Барышев <baryshev@gmail.com>
 - Александр Ружичич <aleksandar@ruzicic.info>
+- Джо Ченг <joe@rstudio.org>
