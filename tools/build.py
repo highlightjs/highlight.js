@@ -57,7 +57,7 @@ LIBRARY_REPLACES = {
 }
 
 CATEGORIES = {
-    'common': ['bash', 'java', 'ini', 'sql', 'diff', 'php', 'cs', 'cpp', 'ruby', 'python', 'css', 'perl', 'xml', 'javascript'],
+    'common': ['bash', 'java', 'ini', 'sql', 'diff', 'php', 'cs', 'cpp', 'ruby', 'python', 'css', 'perl', 'xml', 'javascript', 'http'],
 }
 
 def compress_content(tools_path, content):
