@@ -10,7 +10,7 @@ hljs.LANGUAGES.javascript = {
         'return': 1, 'void': 1, 'else': 1, 'break': 1, 'catch': 1, 'instanceof': 1, 'with': 1, 'throw': 1,
         'case': 1, 'default': 1, 'try': 1, 'this': 1, 'switch': 1, 'continue': 1, 'typeof': 1, 'delete': 1
       },
-      'literal': {'true': 1, 'false': 1, 'null': 1}
+      'literal': { 'true': 1, 'false': 1, 'null': 1, 'undefined': 1, 'NaN': 1, 'Infinity': 1}
     },
     contains: [
       hljs.APOS_STRING_MODE,
