@@ -8,9 +8,10 @@ hljs.LANGUAGES.javascript = {
       'keyword': {
         'in': 1, 'if': 1, 'for': 1, 'while': 1, 'finally': 1, 'var': 1, 'new': 1, 'function': 1, 'do': 1,
         'return': 1, 'void': 1, 'else': 1, 'break': 1, 'catch': 1, 'instanceof': 1, 'with': 1, 'throw': 1,
-        'case': 1, 'default': 1, 'try': 1, 'this': 1, 'switch': 1, 'continue': 1, 'typeof': 1, 'delete': 1
+        'case': 1, 'default': 1, 'try': 1, 'this': 1, 'switch': 1, 'continue': 1, 'typeof': 1, 'delete': 1,
+        'true': 1, 'false': 1, 'null': 1
       },
-      'literal': {'true': 1, 'false': 1, 'null': 1}
+      'literal': { 'undefined': 1, 'NaN': 1, 'Infinity': 1 }
     },
     contains: [
       hljs.APOS_STRING_MODE,
