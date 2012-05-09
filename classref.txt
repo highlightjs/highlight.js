@@ -150,6 +150,14 @@ Django ("django"):
   filter           filter from "|" till the next filter or the end of tag
   argument         filter argument
 
+JSON ("json"):
+
+  number           number
+  literal          "true", "false" and "null"
+  string           string value
+  key              name of an object property
+  value            value of an object property
+
 JavaScript ("javascript"):
 
   keyword          keyword
