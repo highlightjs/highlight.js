@@ -504,6 +504,23 @@ p[lang=ru] {
 </code></pre>
 
   <tr>
+    <th>JSON
+    <td class="json">
+<pre><code>[
+  {
+    "title": "apples",
+    "count": [12000, 20000],
+    "description": {"text": "...", "sensitive": false}
+  },
+  {
+    "title": "oranges",
+    "count": [17500, null],
+    "description": {"text": "...", "sensitive": false}
+  }
+]
+</code></pre>
+
+  <tr>
     <th>JavaScript
     <td class="javascript">
 <pre><code>function $initHighlight(block) {
@@ -648,10 +665,10 @@ next</code></pre>
     <td class="http">
 <pre><code>POST /task?id=1 HTTP/1.1
 Host: example.org
-Content-Type: application/xml; charset=utf-8
+Content-Type: application/json; charset=utf-8
 Content-Length: 19
 
-&lt;status&gt;OK&lt;/status&gt;
+{"status": "ok", "extended": true}
 </code></pre>
 
   <tr>
