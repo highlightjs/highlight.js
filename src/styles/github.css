@@ -23,7 +23,9 @@ pre .css .rule .keyword,
 pre .winutils,
 pre .javascript .title,
 pre .lisp .title,
-pre .subst {
+pre .subst,
+pre .request,
+pre .status {
   color: #000;
   font-weight: bold
 }

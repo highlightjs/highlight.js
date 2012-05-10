@@ -22,7 +22,9 @@ pre .built_in,
 pre .smalltalk .class,
 pre .winutils,
 pre .bash .variable,
-pre .tex .command {
+pre .tex .command,
+pre .request,
+pre .status {
   color: rgb(0, 0, 255);
 }
 

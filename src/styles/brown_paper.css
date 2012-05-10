@@ -15,7 +15,9 @@ pre .change,
 pre .winutils,
 pre .flow,
 pre .lisp .title,
-pre .tex .special {
+pre .tex .special,
+pre .request,
+pre .status {
   color:#005599;
   font-weight:bold;
 }

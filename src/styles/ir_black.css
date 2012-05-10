@@ -16,7 +16,9 @@ pre .javadoc {
 
 pre .keyword,
 pre .tag,
-pre .tex .command {
+pre .tex .command,
+pre .request,
+pre .status {
   color: #96CBFE;
 }
 

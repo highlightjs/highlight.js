@@ -13,11 +13,11 @@ pre code {
 
 pre .keyword,
 pre .tag,
-pre .django .tag,
-pre .django .keyword,
 pre .css .class,
 pre .css .id,
-pre .lisp .title {
+pre .lisp .title,
+pre .request,
+pre .status {
   color: #E3CEAB;
 }
 

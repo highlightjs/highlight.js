@@ -100,7 +100,9 @@ pre .chunk,
 pre .winutils,
 pre .bash .variable,
 pre .apache .tag,
-pre .tex .special {
+pre .tex .special,
+pre .request,
+pre .status {
   font-weight: bold;
 }
 

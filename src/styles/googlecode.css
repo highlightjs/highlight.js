@@ -17,16 +17,15 @@ pre .comment * {
 }
 
 pre .keyword,
-pre .ruby .function .keyword,
-pre .function .keyword,
-pre .sub .keyword,
 pre .method,
 pre .list .title,
 pre .tag .title,
 pre .setting .value,
 pre .winutils,
 pre .tex .command,
-pre .http .title {
+pre .http .title,
+pre .request,
+pre .status {
   color: #008;
 }
 

@@ -17,7 +17,9 @@ pre .javadoc {
 }
 
 pre .keyword,
-pre .ruby .function .keyword {
+pre .ruby .function .keyword,
+pre .request,
+pre .status {
   color: #E28964;
 }
 

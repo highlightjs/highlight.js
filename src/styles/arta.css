@@ -81,7 +81,9 @@ pre .css .pseudo,
 pre .css .attr_selector,
 pre .lisp .title,
 pre .winutils,
-pre .tex .command
+pre .tex .command,
+pre .request,
+pre .status
 {
   color: #6644aa;
 }

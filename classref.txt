@@ -209,9 +209,11 @@ VBScript ("vbscript"):
 
 HTTP ("http"):
 
-  title            first line of a request or a response
+  request          first line of a request
+  status           first line of a response
   attribute        header name
-  string           header value
+  string           header value or query string in a request line
+  number           status code
 
 Lua ("lua"):
 

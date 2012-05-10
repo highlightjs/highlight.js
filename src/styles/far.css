@@ -103,6 +103,8 @@ pre .flow,
 pre .apache .tag,
 pre .nginx .built_in,
 pre .tex .command,
-pre .tex .special {
+pre .tex .special,
+pre .request,
+pre .status {
   font-weight: bold;
 }

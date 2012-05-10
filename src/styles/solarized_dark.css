@@ -21,11 +21,12 @@ pre .javadoc {
 }
 
 pre .keyword,
-pre .css .rule .keyword,
 pre .winutils,
 pre .method,
 pre .addition,
-pre .css .tag {
+pre .css .tag,
+pre .request,
+pre .status {
   color: #859900;
 }
 

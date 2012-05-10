@@ -108,7 +108,9 @@ pre .bash .variable,
 pre .apache .tag,
 pre .go .typename,
 pre .tex .command,
-pre .markdown .strong {
+pre .markdown .strong,
+pre .request,
+pre .status {
   font-weight: bold;
 }
 
