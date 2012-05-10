@@ -155,7 +155,7 @@ JSON ("json"):
   number           number
   literal          "true", "false" and "null"
   string           string value
-  key              name of an object property
+  attribute        name of an object property
   value            value of an object property
 
 JavaScript ("javascript"):
@@ -210,8 +210,8 @@ VBScript ("vbscript"):
 HTTP ("http"):
 
   title            first line of a request or a response
-  header           header
-  value            value
+  attribute        header name
+  string           header value
 
 Lua ("lua"):
 

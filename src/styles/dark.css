@@ -87,8 +87,7 @@ pre .chunk,
 pre .winutils,
 pre .bash .variable,
 pre .apache .tag,
-pre .tex .special,
-pre .header {
+pre .tex .special {
   font-weight: bold;
 }
 

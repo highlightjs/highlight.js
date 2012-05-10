@@ -17,8 +17,7 @@ pre .change,
 pre .apache .tag,
 pre .apache .cbracket,
 pre .nginx .built_in,
-pre .tex .formula,
-pre .header {
+pre .tex .formula {
   color: #888;
 }
 

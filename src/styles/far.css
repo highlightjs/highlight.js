@@ -103,7 +103,6 @@ pre .flow,
 pre .apache .tag,
 pre .nginx .built_in,
 pre .tex .command,
-pre .tex .special,
-pre .header {
+pre .tex .special {
   font-weight: bold;
 }

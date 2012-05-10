@@ -108,8 +108,7 @@ pre .bash .variable,
 pre .apache .tag,
 pre .go .typename,
 pre .tex .command,
-pre .markdown .strong,
-pre .header {
+pre .markdown .strong {
   font-weight: bold;
 }
 

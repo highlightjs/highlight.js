@@ -17,8 +17,7 @@ pre .django .tag,
 pre .django .keyword,
 pre .css .class,
 pre .css .id,
-pre .lisp .title,
-pre .header {
+pre .lisp .title {
   color: #E3CEAB;
 }
 

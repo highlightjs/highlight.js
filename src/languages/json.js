@@ -19,7 +19,7 @@ hljs.LANGUAGES.json = function(){
     begin: '{', end: '}',
     contains: [
       {
-        className: 'key',
+        className: 'attribute',
         begin: '\\s*"', end: '"\\s*:\\s*', excludeBegin: true, excludeEnd: true,
         contains: [hljs.BACKSLASH_ESCAPE],
         illegal: '\\n',

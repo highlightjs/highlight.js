@@ -17,8 +17,7 @@ pre .javadoc {
 }
 
 pre .keyword,
-pre .ruby .function .keyword,
-pre .header {
+pre .ruby .function .keyword {
   color: #E28964;
 }
 

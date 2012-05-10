@@ -25,8 +25,7 @@ pre .css .rule .keyword,
 pre .winutils,
 pre .method,
 pre .addition,
-pre .css .tag,
-pre .header {
+pre .css .tag {
   color: #859900;
 }
 

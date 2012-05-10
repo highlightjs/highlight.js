@@ -9,7 +9,6 @@ pre code
   background: #222;
 }
 
-pre .header,
 pre .profile .header *,
 pre .ini .title
 {
@@ -38,8 +37,8 @@ pre .symbol,
 pre .diff .change,
 pre .regexp,
 pre .xml .attribute,
-pre .xml .value,
 pre .smalltalk .char,
+pre .xml .value,
 pre .ini .value
 {
   color: #ffcc33;

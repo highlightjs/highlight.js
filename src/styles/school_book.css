@@ -22,8 +22,7 @@ pre .change,
 pre .winutils,
 pre .flow,
 pre .lisp .title,
-pre .tex .special,
-pre .header {
+pre .tex .special {
   color:#005599;
   font-weight:bold;
 }

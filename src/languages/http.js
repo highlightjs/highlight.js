@@ -17,10 +17,10 @@ hljs.LANGUAGES.http = {
         begin: '^[A-Z]+ .*?HTTP/[0-9\\.]+$',
       },
       {
-        className: 'header',
+        className: 'attribute',
         begin: '^\\w', end: ': ', excludeEnd: true,
         illegal: '\\n',
-        starts: {className: 'value', end: '$'}
+        starts: {className: 'string', end: '$'}
       },
       {
         begin: '\\n\\n',
