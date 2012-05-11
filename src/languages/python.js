@@ -46,7 +46,7 @@ hljs.LANGUAGES.python = function() {
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)',
-    contains: STRINGS.concat([hljs.C_NUMBER_MODE])
+    contains: ['self', hljs.C_NUMBER_MODE].concat(STRINGS)
   };
   var FUNC_CLASS_PROTO = {
     beginWithKeyword: true, end: ':',

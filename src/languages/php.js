@@ -91,6 +91,7 @@ hljs.LANGUAGES.php = function() {
               className: 'params',
               begin: '\\(', end: '\\)',
               contains: [
+                'self',
                 VARIABLE,
                 hljs.C_BLOCK_COMMENT_MODE
               ].concat(STRINGS).concat(NUMBERS)
