@@ -1042,25 +1042,16 @@ FrameEnd
     <th>SQL
     <td class="sql">
 <pre><code>BEGIN;
-CREATE TABLE "cicero_topic" (
+CREATE TABLE "topic" (
     "id" serial NOT NULL PRIMARY KEY,
     "forum_id" integer NOT NULL,
-    "subject" varchar(255) NOT NULL,
-    "created" timestamp with time zone NOT NULL
+    "subject" varchar(255) NOT NULL
 );
-ALTER TABLE "cicero_topic"
-ADD CONSTRAINT forum_id_refs_id_4be56999
-FOREIGN KEY ("forum_id")
-REFERENCES "cicero_forum" ("id")
-DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "topic" ADD CONSTRAINT forum_id FOREIGN KEY ("forum_id") REFERENCES "forum" ("id");
 
 -- Initials
-insert into "cicero_forum"
-  ("slug", "name", "group", "ordering")
-values
-  ('test', 'Forum for te''sting', 'Test', 0);
+insert into "topic" ("forum_id", "subject") values (2, 'D''artagnian');
 
--- Test
 select count(*) from cicero_forum;
 
 -- this line lacks ; at the end to allow people to be sloppy and omit it in one-liners
