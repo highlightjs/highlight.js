@@ -32,7 +32,7 @@ hljs.LANGUAGES.http = {
       },
       {
         begin: '\\n\\n',
-        starts: {subLanguage: '', end: hljs.EOF_RE}
+        starts: {subLanguage: '', endsWithParent: true}
       }
     ]
   }

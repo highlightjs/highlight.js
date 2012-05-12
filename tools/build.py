@@ -36,7 +36,6 @@ REPLACES = {
     'C_NUMBER_RE': 'CNR',
     'BINARY_NUMBER_RE': 'BNR',
     'RE_STARTERS_RE': 'RSR',
-    'EOF_RE': 'ER',
     'APOS_STRING_MODE': 'ASM',
     'QUOTE_STRING_MODE': 'QSM',
     'BACKSLASH_ESCAPE': 'BE',

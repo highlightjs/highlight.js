@@ -282,16 +282,19 @@ var hljs = new function() {
         terminators.push(mode.illegal);
       }
 
-      return langRe(language, terminators.join('|'), true);
+      return terminators.length ? langRe(language, terminators.join('|'), true) : null;
     }
 
     function eatModeChunk(value, index) {
       var mode = modes[modes.length - 1];
-      if (!mode.terminators) {
+      if (mode.terminators === undefined) {
         mode.terminators = compileTerminators(mode, language);
       }
-      mode.terminators.lastIndex = index;
-      var match = mode.terminators.exec(value);
+      var match;
+      if (mode.terminators) {
+        mode.terminators.lastIndex = index;
+        match = mode.terminators.exec(value);
+      }
       return match ? [value.substr(index, match.index - index), match[0], false] : [value.substr(index), '', true];
     }
 
@@ -607,7 +610,6 @@ var hljs = new function() {
   this.C_NUMBER_RE = '\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
   this.BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
   this.RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
-  this.EOF_RE = '(?![\\s\\S])';
 
   // Common modes
   this.BACKSLASH_ESCAPE = {
