@@ -391,27 +391,17 @@ func main() {
     <th>HTML (with inline css and javascript)
     <td class="xml">
 <pre><code>&lt;!DOCTYPE html5&gt;
-&lt;head&gt;
-  &lt;title&gt;Title&lt;/title&gt;
+&lt;title&gt;Title&lt;/title&gt;
 
-  &lt;style&gt;
-    body {
-      width: 500px;
-    }
-  &lt;/style&gt;
+&lt;style&gt;body {width: 500px;}&lt;/style&gt;
 
-  &lt;script type="application/javascript"&gt;
-    function someFunction() {
-      return true;
-    }
-  &lt;/script&gt;
+&lt;script type="application/javascript"&gt;
+  function $init() {return true;}
+&lt;/script&gt;
 
 &lt;body&gt;
-  &lt;p class="something" id='12'&gt;Something&lt;/p&gt;
-  &lt;p class=something&gt;Something&lt;/p&gt;
-  &lt;!-- comment --&gt;
-  &lt;p class&gt;Something&lt;/p&gt;
-  &lt;p class="something" title="p"&gt;Something&lt;/p&gt;
+  &lt;p checked class="title" id='title'&gt;Title&lt;/p&gt;
+  &lt;!-- here goes the rest of the page --&gt;
 &lt;/body&gt;
 </code></pre>
 
