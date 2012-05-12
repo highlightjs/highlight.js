@@ -499,24 +499,18 @@ li[lang=ru] {
   <tr>
     <th>JavaScript
     <td class="javascript">
-<pre><code>function $initHighlight(block) {
-  if (block.className.search(/\bno\-highlight\b/) != -1)
-    return false;
+<pre><code>function $initHighlight(block, flags) {
   try {
-    blockText(block);
+    if (block.className.search(/\bno\-highlight\b/) != -1)
+      return processBlock(block, true, 0x0F);
   } catch (e) {
-    if (e == 'Complex markup')
-      return;
-  }//try
-  var classes = block.className.split(/\s+/);
-  for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp start
-    if (LANGUAGES[classes[i]]) {
-      highlightLanguage(block, classes[i]);
-      return;
-    }//if
-  }//for
-  highlightAuto(block);
-}//initHighlight</code></pre>
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp
+    if (checkCondition(classes[i]) === undefined)
+      return /\d+/g;
+  }
+}</code></pre>
 
   <tr>
     <th>CoffeeScript

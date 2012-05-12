@@ -44,11 +44,10 @@ hljs.LANGUAGES.javascript = {
             className: 'params',
             begin: '\\(', end: '\\)',
             contains: [
-              hljs.APOS_STRING_MODE,
-              hljs.QUOTE_STRING_MODE,
               hljs.C_LINE_COMMENT_MODE,
               hljs.C_BLOCK_COMMENT_MODE
-            ]
+            ],
+            illegal: '["\'\\(]'
           }
         ]
       }
