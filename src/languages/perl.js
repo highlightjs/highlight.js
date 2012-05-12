@@ -65,8 +65,8 @@ hljs.LANGUAGES.perl = function(){
     hljs.HASH_COMMENT_MODE,
     COMMENT,
     {
-      className: 'pod',
-      begin: '^\\=\\w', end: '\\=cut'
+      className: 'comment',
+      begin: '^\\=\\w', end: '\\=cut', endsWithParent: true
     },
     METHOD,
     {

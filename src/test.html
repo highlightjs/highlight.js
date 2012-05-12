@@ -233,7 +233,6 @@ sub load
   my $o = $c-&gt;_perl_new();
   $id12 = $id / 24 / 3600;
   $o-&gt;{'ID'} = $id12 + 123;
-  $o-&gt;{'PAPA'} = $flds-&gt;{'PAPA'};
   #$o-&gt;{'SHCUT'} = $flds-&gt;{'SHCUT'};
   my $p = $o-&gt;props;
   my $vt;
@@ -244,18 +243,14 @@ sub load
     if(${$vt.'::property'}) {
       $o-&gt;{$key . '_real'} = $flds-&gt;{$key};
       tie $o-&gt;{$key}, 'CMSBuilder::Property', $o, $key;
-    } else {
-      $o-&gt;{$key} = $flds-&gt;{$key};
-      $o->kill();
     }
   }
   $o-&gt;save if delete $o-&gt;{'_save_after_load'};
   return $o;
 }
 
-foreach my $num (0..$#array) {
-  # something
-}
+=head1 NAME
+POD till the end of file
 </code></pre>
 
   <tr>
