@@ -455,36 +455,27 @@ multiline.
   <tr>
     <th>CSS
     <td class="css">
-<pre><code>body,
-html {
-  font: Tahoma, Arial, san-serif;
-  background: url('hatch.png');
-}
-
-@import url('print.css');
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+<pre><code>@media screen and (-webkit-min-device-pixel-ratio: 0) {
   body:first-of-type pre::after {
     content: 'highlight: ' attr(class);
   }
 }
 
+@import url('print.css');
 @page:right {
  margin: 1cm 2cm 1.3cm 4cm;
 }
 
 @font-face {
-	font-family: Chunkfive;
-	src: url('Chunkfive.otf');
+  font-family: Chunkfive; src: url('Chunkfive.otf');
 }
 
-#content {
-  width: /* wide enough */ 100% /* 400px */;
-  height: 100%
-}
-
-p[lang=ru] {
-  color: #F0F0F0; background: white !important;
+div.text,
+#content,
+li[lang=ru] {
+  font: Tahoma, Chunkfive, sans-serif;
+  background: url('hatch.png') /* wtf? */;  color: #F0F0F0 !important;
+  width: 100%;
 }
 </code></pre>
 
