@@ -427,7 +427,7 @@ var hljs = new function() {
           index += mode_info[1].length;
         }
       } while (!mode_info[2]);
-      if(modes.length > 1)
+      if(modes.length > 2 || (modes.length == 2 && !modes[1].endsWithParent))
         throw 'Illegal';
       return {
         relevance: relevance,
