@@ -575,24 +575,17 @@ OPERATOR = /// ^ (
 
     public class FooBar implements IFooBarzable {
         static private var cnt:uint = 0;
-
         private var bar:String;
 
         //constructor
         public function TestBar(bar:String):void {
             bar = bar;
-
             ++cnt;
         }
 
         public function foo(... pairs):Array {
             pairs.push(bar);
-
             return pairs;
-        }
-
-        protected function includeTestFile():void {
-            include "Test.as";
         }
     }
 }</code></pre>

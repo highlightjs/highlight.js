@@ -19,18 +19,18 @@ hljs.LANGUAGES.actionscript = function() {
       keywords: {
         'keyword': {
           'as': 1, 'break': 1, 'case': 1, 'catch': 1, 'class': 1, 'const': 1, 'continue': 1, 'default': 1,
-          'delete': 1, 'do': 1, 'dynamic': 5, 'each': 1, 'else': 1, 'extends': 1, 'final': 1, 'finally': 1,
+          'delete': 1, 'do': 1, 'dynamic': 1, 'each': 1, 'else': 1, 'extends': 1, 'final': 1, 'finally': 1,
           'for': 1, 'function': 1, 'get': 1, 'if': 1, 'implements': 1, 'import': 1, 'in': 1, 'include': 1,
           'instanceof': 1, 'interface': 1, 'internal': 1, 'is': 1, 'namespace': 1, 'native': 1, 'new': 1,
           'override': 1, 'package': 1, 'private': 1, 'protected': 1, 'public': 1, 'return': 1, 'set': 1,
-          'static': 1, 'super': 5, 'switch': 1, 'this': 1, 'throw': 1, 'try': 1, 'typeof': 1, 'use': 1,
+          'static': 1, 'super': 1, 'switch': 1, 'this': 1, 'throw': 1, 'try': 1, 'typeof': 1, 'use': 1,
           'var': 1, 'void': 1, 'while': 1, 'with': 1
         },
         'literal': {'true': 1, 'false': 1, 'null': 1, 'undefined': 1},
         'reserved': {
-          'abstract': 0, 'boolean': 0, 'byte': 0, 'cast': 0, 'char': 0, 'debugger': 0, 'double': 0, 'enum': 0,
-          'export': 0, 'float': 0, 'goto': 0, 'intrinsic': 0, 'long': 0, 'prototype': 0, 'short': 0,
-          'synchronized': 0, 'throws': 0, 'to': 0, 'transient': 0, 'type': 0, 'virtual': 0, 'volatile': 0
+          'abstract': 1, 'boolean': 1, 'byte': 1, 'cast': 1, 'char': 1, 'debugger': 1, 'double': 1, 'enum': 1,
+          'export': 1, 'float': 1, 'goto': 1, 'intrinsic': 1, 'long': 1, 'prototype': 1, 'short': 1,
+          'synchronized': 1, 'throws': 1, 'to': 1, 'transient': 1, 'type': 1, 'virtual': 1, 'volatile': 1
         }
       },
       contains: [
@@ -41,7 +41,7 @@ hljs.LANGUAGES.actionscript = function() {
         hljs.C_NUMBER_MODE,
         {
           className: 'package',
-          begin: 'package ?', end: '{',
+          beginWithKeyword: true, end: '{',
           keywords: {'package': 1},
           contains: [TITLE_MODE]
         },
@@ -52,8 +52,7 @@ hljs.LANGUAGES.actionscript = function() {
           contains: [
             {
               beginWithKeyword: true,
-              keywords: {'extends': 1, 'implements': 1},
-              relevance: 5
+              keywords: {'extends': 1, 'implements': 1}
             },
             TITLE_MODE
           ]
@@ -67,6 +66,7 @@ hljs.LANGUAGES.actionscript = function() {
           className: 'function',
           beginWithKeyword: true, end: '[{;]',
           keywords: {'function': 1},
+          illegal: '\\S',
           contains: [
             TITLE_MODE,
             {
