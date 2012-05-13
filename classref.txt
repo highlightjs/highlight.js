@@ -460,6 +460,8 @@ VHDL ("vhdl")
   string           string
   comment          commment
   literal          signal logical value
+  typename         typename
+  attribute        signal attribute
 
 Parser3 ("parser3"):
 
