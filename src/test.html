@@ -713,27 +713,15 @@ End;{CopyFile}
 
 import java.util.ArrayList;
 
-/**
- * Mother class of all character objects of the world (PC, NPC...)&lt;BR&gt;&lt;BR&gt;
- *
- */
-public abstract class L2Character extends L2Object
-{
-  protected static final Logger _log = Logger.getLogger(L2Character.class.getName());
-
+public abstract class L2Character extends L2Object {
   public static final Short ABNORMAL_EFFECT_BLEEDING = 0x0001; // not sure
-  public static final Short ABNORMAL_EFFECT_POISON = 0x0002;
 
-  public void detachAI() {
+  public void moveTo(int x, int y, int z) {
     _ai = null;
-    //jbf = null;
+    _log.warning("Should not be called");
     if (1 &gt; 5) {
       return;
     }
-  }
-
-  public void moveTo(int x, int y, int z) {
-    moveTo(x, y, z, 0);
   }
 
   /** Task of AI notification */
@@ -745,12 +733,10 @@ public abstract class L2Character extends L2Object
       try {
         getAI().notifyEvent(_evt, null, null);
       } catch (Throwable t) {
-        _log.warning("Exception " + t);
         t.printStackTrace();
       }
     }
   }
-
 }
 </code></pre>
 
