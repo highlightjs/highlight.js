@@ -26,12 +26,7 @@ hljs.LANGUAGES.actionscript = function() {
           'static': 1, 'super': 1, 'switch': 1, 'this': 1, 'throw': 1, 'try': 1, 'typeof': 1, 'use': 1,
           'var': 1, 'void': 1, 'while': 1, 'with': 1
         },
-        'literal': {'true': 1, 'false': 1, 'null': 1, 'undefined': 1},
-        'reserved': {
-          'abstract': 1, 'boolean': 1, 'byte': 1, 'cast': 1, 'char': 1, 'debugger': 1, 'double': 1, 'enum': 1,
-          'export': 1, 'float': 1, 'goto': 1, 'intrinsic': 1, 'long': 1, 'prototype': 1, 'short': 1,
-          'synchronized': 1, 'throws': 1, 'to': 1, 'transient': 1, 'type': 1, 'virtual': 1, 'volatile': 1
-        }
+        'literal': {'true': 1, 'false': 1, 'null': 1, 'undefined': 1}
       },
       contains: [
         hljs.APOS_STRING_MODE,
