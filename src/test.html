@@ -1391,62 +1391,47 @@ flash2ram:
   <tr>
     <th>VHDL
     <td class="vhdl">
-<pre><code>------------------------------------
--- RS Trigger with Assynch. Reset --
-------------------------------------
+<pre><code>/*
+ * RS-trigger with assynch. reset
+ */
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
-entity RS_AR is
-	generic (T: Time := 0ns);
+entity RS_trigger is
+    generic (T: Time := 0ns);
+    port ( R, S  : in  std_logic;
+           Q, nQ : out std_logic;
+           reset, clock : in  std_logic );
+end RS_trigger;
 
-	port(
-		 -- Default RS Trigger
-		 R  : in  STD_LOGIC;
-		 S  : in  STD_LOGIC;
-		 Q  : out STD_LOGIC;
-		 nQ : out STD_LOGIC;
-
-		 -- Special Input Signals
-		 AR : in  STD_LOGIC; -- assynch. reset
-		 C  : in  STD_LOGIC  -- synch. signal
-	     );
-end RS_AR;
-
-
-architecture RS_AR of RS_AR is
-	signal QT: std_logic; -- Q(t)
+architecture behaviour of RS_trigger is
+    signal QT: std_logic; -- Q(t)
 begin
+    process(clock, reset) is
+        subtype RS is std_logic_vector (1 downto 0);
+    begin
+        if reset = '0' then
+            QT &lt;= '0';
+        else
+            if rising_edge(C) then
+                if not (R'stable(T) and S'stable(T)) then
+                    QT &lt;= 'X';
+                else
+                    case RS'(R&amp;S) is
+                        when "01" =&gt; QT &lt;= '1';
+                        when "10" =&gt; QT &lt;= '0';
+                        when "11" =&gt; QT &lt;= 'X';
+                        when others =&gt; null;
+                    end case;
+                end if;
+            end if;
+        end if;
+    end process;
 
-	process(C, AR) is
-		subtype RS is std_logic_vector ( 1 downto 0 );
-	begin
-		if AR='0' then
-			QT &lt;= '0';
-		else
-			if rising_edge(C) then
-
-				if not (R'stable(T) and S'stable(T)) then
-				QT &lt;= 'X';
-				else
-
-				case RS'(R&amp;S) is
-					when "01" =&gt; QT &lt;= '1';
-					when "10" =&gt; QT &lt;= '0';
-					when "11" =&gt; QT &lt;= 'X';
-					when others =&gt; null;
-				end case;
-
-				end if;
-			end if;
-		end if;
-	end process;
-
-	Q  &lt;= QT;
-	nQ &lt;= not QT;
-
-end RS_AR;
+    Q  &lt;= QT;
+    nQ &lt;= not QT;
+end architecture behaviour;
 </code></pre>
 
   <tr>
