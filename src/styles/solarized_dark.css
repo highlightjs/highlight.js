@@ -49,6 +49,7 @@ pre .builtin,
 pre .built_in,
 pre .identifier,
 pre .title .keymethods,
+pre .vhdl .literal,
 pre .id {
   color: #268bd2;
 }

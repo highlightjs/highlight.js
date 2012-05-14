@@ -52,7 +52,7 @@ pre .addition
 
 pre .built_in,
 pre .literal,
-pre .vhdl .type,
+pre .vhdl .typename,
 pre .go .constant,
 pre .go .typename,
 pre .ini .keyword,

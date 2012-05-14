@@ -35,7 +35,7 @@ Contributors:
 - Vladimir Moskva <vladmos@gmail.com>
 - Loren Segal <lsegal@soen.ca>
 - Andrew Fedorov <dmmdrs@mail.ru>
-- Igor Kalnitsky <igor.kalnitsky@gmail.com>
+- Igor Kalnitsky <igor@kalnitsky.org>
 - Jeremy Hull <sourdrums@gmail.com>
 - Valerii Hiora <valerii.hiora@gmail.com>
 - Nikolay Zakharov <nikolay.desh@gmail.com>
