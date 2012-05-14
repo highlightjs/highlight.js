@@ -269,6 +269,7 @@ Objective C ("objectivec"):
   comment          comment
   preprocessor     preprocessor directive
   class            interface/implementation, protocol and forward class declaration
+  variable         properties and struct accesors
 
 Vala ("vala"):
 
