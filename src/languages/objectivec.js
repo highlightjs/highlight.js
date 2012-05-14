@@ -1,6 +1,7 @@
 /*
 Language: Objective C
 Author: Valerii Hiora <valerii.hiora@gmail.com>
+Contributors: Angel G. Olloqui <angelgarcia.mail@gmail.com>
 */
 
 hljs.LANGUAGES.objectivec = function(){
