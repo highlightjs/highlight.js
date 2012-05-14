@@ -6,24 +6,6 @@ Description: VHDL is a hardware description language used in electronic design a
 */
 
 hljs.LANGUAGES.vhdl = function() {
-  var ATTRIBUTES_REGEXP = function() {
-      var keywords = [
-        'base',               'left',               'right',
-        'low',                'high',               'ascending',
-        'image',              'value',              'pos',
-        'val',                'succ',               'pred',
-        'leftof',             'rightof',            'reverse_range',
-        'length',             'element',            'delayed',
-        'stable',             'quiet',              'transaction',
-        'event',              'active',             'last_event',
-        'last_active',        'last_value',         'driving',
-        'driving_value',      'simple_name',        'path_name',
-        'instance_name'
-      ];
-
-      return '\'(' + keywords.join('|') + ')';
-  }();
-
   return {
     case_insensitive: true,
     defaultMode: {
@@ -96,8 +78,7 @@ hljs.LANGUAGES.vhdl = function() {
         },
         {
           className: 'attribute',
-          begin: ATTRIBUTES_REGEXP,
-          end: hljs.IMMEIDATE_RE,
+          begin: '\'[A-Za-z](_?[A-Za-z0-9])*',
           contains: [hljs.BACKSLASH_ESCAPE]
         }
       ]
