@@ -17,16 +17,12 @@ hljs.LANGUAGES.actionscript = function() {
   return {
     defaultMode: {
       keywords: {
-        'keyword': {
-          'as': 1, 'break': 1, 'case': 1, 'catch': 1, 'class': 1, 'const': 1, 'continue': 1, 'default': 1,
-          'delete': 1, 'do': 1, 'dynamic': 1, 'each': 1, 'else': 1, 'extends': 1, 'final': 1, 'finally': 1,
-          'for': 1, 'function': 1, 'get': 1, 'if': 1, 'implements': 1, 'import': 1, 'in': 1, 'include': 1,
-          'instanceof': 1, 'interface': 1, 'internal': 1, 'is': 1, 'namespace': 1, 'native': 1, 'new': 1,
-          'override': 1, 'package': 1, 'private': 1, 'protected': 1, 'public': 1, 'return': 1, 'set': 1,
-          'static': 1, 'super': 1, 'switch': 1, 'this': 1, 'throw': 1, 'try': 1, 'typeof': 1, 'use': 1,
-          'var': 1, 'void': 1, 'while': 1, 'with': 1
-        },
-        'literal': {'true': 1, 'false': 1, 'null': 1, 'undefined': 1}
+        keyword: 'as break case catch class const continue default delete do dynamic each ' +
+          'else extends final finally for function get if implements import in include ' +
+          'instanceof interface internal is namespace native new override package private ' +
+          'protected public return set static super switch this throw try typeof use var void ' +
+          'while with',
+        literal: 'true false null undefined'
       },
       contains: [
         hljs.APOS_STRING_MODE,
@@ -37,17 +33,17 @@ hljs.LANGUAGES.actionscript = function() {
         {
           className: 'package',
           beginWithKeyword: true, end: '{',
-          keywords: {'package': 1},
+          keywords: 'package',
           contains: [TITLE_MODE]
         },
         {
           className: 'class',
           beginWithKeyword: true, end: '{',
-          keywords: {'class': 1, 'interface': 1},
+          keywords: 'class interface',
           contains: [
             {
               beginWithKeyword: true,
-              keywords: {'extends': 1, 'implements': 1}
+              keywords: 'extends implements'
             },
             TITLE_MODE
           ]
@@ -55,12 +51,12 @@ hljs.LANGUAGES.actionscript = function() {
         {
           className: 'preprocessor',
           beginWithKeyword: true, end: ';',
-          keywords: {'import': 1, 'include': 1}
+          keywords: 'import include'
         },
         {
           className: 'function',
           beginWithKeyword: true, end: '[{;]',
-          keywords: {'function': 1},
+          keywords: 'function',
           illegal: '\\S',
           contains: [
             TITLE_MODE,
