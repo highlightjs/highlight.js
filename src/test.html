@@ -502,7 +502,7 @@ li[lang=ru] {
 <pre><code>function $initHighlight(block, flags) {
   try {
     if (block.className.search(/\bno\-highlight\b/) != -1)
-      return processBlock(block, true, 0x0F);
+      return processBlock(block, true, 0x0F) + ' class=""';
   } catch (e) {
     /* handle exception */
   }
