@@ -10,7 +10,7 @@ import re
 import optparse
 import subprocess
 
-REPLACES = {
+ATTRIBUTE_REPLACES = {
     'defaultMode': 'dM',
     'case_insensitive': 'cI',
     'lexems': 'l',
@@ -30,6 +30,9 @@ REPLACES = {
     'returnEnd': 'rE',
     'noMarkup': 'nM',
     'relevance': 'r',
+}
+
+REPLACES = {
     'IDENT_RE': 'IR',
     'UNDERSCORE_IDENT_RE': 'UIR',
     'NUMBER_RE': 'NR',
@@ -62,15 +65,23 @@ CATEGORIES = {
 def compress_content(tools_path, content):
     args = ['java', '-jar', os.path.join(tools_path, 'yuicompressor.jar'), '--type', 'js']
 
-    def replace(content, s, r):
+    def replace(content, s, r, as_attr=False):
+        if as_attr:
+            s += ':'
+            r += ':'
         return re.sub(r'(?<=[^\w"\'|])%s(?=[^\w"\'|])' % s, r, content)
 
     for s, r in REPLACES.items():
         content = replace(content, s, r)
     if not parse_header(content): # this is the highlight.js file, not a language file
+        for s, r in ATTRIBUTE_REPLACES.items():
+            content = replace(content, s, r)
         content = re.sub(r'(block|parentNode)\.cN', r'\1.className', content)
         for s, r in LIBRARY_REPLACES.items():
             content = replace(content, s, r)
+    else:
+        for s, r in ATTRIBUTE_REPLACES.items():
+            content = replace(content, s, r, True)
     p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     p.stdin.write(content)
     p.stdin.close()
