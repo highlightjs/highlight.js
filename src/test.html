@@ -21,7 +21,7 @@
   <link rel="alternate stylesheet" title="Solarized - Light" href="styles/solarized_light.css">
   <link rel="alternate stylesheet" title="Arta" href="styles/arta.css">
   <link rel="alternate stylesheet" title="Monokai" href="styles/monokai.css">
-
+  <link rel="alternate stylesheet" title="XCode" href="styles/xcode.css">
 
   <style>
     body {
@@ -234,7 +234,6 @@ sub load
   my $o = $c-&gt;_perl_new();
   $id12 = $id / 24 / 3600;
   $o-&gt;{'ID'} = $id12 + 123;
-  $o-&gt;{'PAPA'} = $flds-&gt;{'PAPA'};
   #$o-&gt;{'SHCUT'} = $flds-&gt;{'SHCUT'};
   my $p = $o-&gt;props;
   my $vt;
@@ -245,18 +244,14 @@ sub load
     if(${$vt.'::property'}) {
       $o-&gt;{$key . '_real'} = $flds-&gt;{$key};
       tie $o-&gt;{$key}, 'CMSBuilder::Property', $o, $key;
-    } else {
-      $o-&gt;{$key} = $flds-&gt;{$key};
-      $o->kill();
     }
   }
   $o-&gt;save if delete $o-&gt;{'_save_after_load'};
   return $o;
 }
 
-foreach my $num (0..$#array) {
-  # something
-}
+=head1 NAME
+POD till the end of file
 </code></pre>
 
   <tr>
@@ -272,7 +267,7 @@ abstract class URI extends BaseURI
    *
    * @return  URI
    */
-  static public function _factory($uri = 'http')
+  static public function _factory($stats = array(), $uri = 'http')
   {
       $uri = explode(':', $uri, 2);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
@@ -294,9 +289,7 @@ line description';
 __halt_compiler () ; datahere
 datahere
 datahere */
-datahere
-
-</code></pre>
+datahere</code></pre>
 
   <tr>
     <th>Scala
@@ -399,27 +392,17 @@ func main() {
     <th>HTML (with inline css and javascript)
     <td class="xml">
 <pre><code>&lt;!DOCTYPE html5&gt;
-&lt;head&gt;
-  &lt;title&gt;Title&lt;/title&gt;
+&lt;title&gt;Title&lt;/title&gt;
 
-  &lt;style&gt;
-    body {
-      width: 500px;
-    }
-  &lt;/style&gt;
+&lt;style&gt;body {width: 500px;}&lt;/style&gt;
 
-  &lt;script type="application/javascript"&gt;
-    function someFunction() {
-      return true;
-    }
-  &lt;/script&gt;
+&lt;script type="application/javascript"&gt;
+  function $init() {return true;}
+&lt;/script&gt;
 
 &lt;body&gt;
-  &lt;p class="something" id='12'&gt;Something&lt;/p&gt;
-  &lt;p class=something&gt;Something&lt;/p&gt;
-  &lt;!-- comment --&gt;
-  &lt;p class&gt;Something&lt;/p&gt;
-  &lt;p class="something" title="p"&gt;Something&lt;/p&gt;
+  &lt;p checked class="title" id='title'&gt;Title&lt;/p&gt;
+  &lt;!-- here goes the rest of the page --&gt;
 &lt;/body&gt;
 </code></pre>
 
@@ -473,60 +456,62 @@ multiline.
   <tr>
     <th>CSS
     <td class="css">
-<pre><code>body,
-html {
-  font: Tahoma, Arial, san-serif;
-  background: url('hatch.png');
-}
-
-@import url('print.css');
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+<pre><code>@media screen and (-webkit-min-device-pixel-ratio: 0) {
   body:first-of-type pre::after {
     content: 'highlight: ' attr(class);
   }
 }
 
+@import url('print.css');
 @page:right {
  margin: 1cm 2cm 1.3cm 4cm;
 }
 
 @font-face {
-	font-family: Chunkfive;
-	src: url('Chunkfive.otf');
+  font-family: Chunkfive; src: url('Chunkfive.otf');
 }
 
-#content {
-  width: /* wide enough */ 100% /* 400px */;
-  height: 100%
+div.text,
+#content,
+li[lang=ru] {
+  font: Tahoma, Chunkfive, sans-serif;
+  background: url('hatch.png') /* wtf? */;  color: #F0F0F0 !important;
+  width: 100%;
 }
+</code></pre>
 
-p[lang=ru] {
-  color: #F0F0F0; background: white !important;
-}
+  <tr>
+    <th>JSON
+    <td class="json">
+<pre><code>[
+  {
+    "title": "apples",
+    "count": [12000, 20000],
+    "description": {"text": "...", "sensitive": false}
+  },
+  {
+    "title": "oranges",
+    "count": [17500, null],
+    "description": {"text": "...", "sensitive": false}
+  }
+]
 </code></pre>
 
   <tr>
     <th>JavaScript
     <td class="javascript">
-<pre><code>function $initHighlight(block) {
-  if (block.className.search(/\bno\-highlight\b/) != -1)
-    return false;
+<pre><code>function $initHighlight(block, flags) {
   try {
-    blockText(block);
+    if (block.className.search(/\bno\-highlight\b/) != -1)
+      return processBlock(block, true, 0x0F) + ' class=""';
   } catch (e) {
-    if (e == 'Complex markup')
-      return;
-  }//try
-  var classes = block.className.split(/\s+/);
-  for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp start
-    if (LANGUAGES[classes[i]]) {
-      highlightLanguage(block, classes[i]);
-      return;
-    }//if
-  }//for
-  highlightAuto(block);
-}//initHighlight</code></pre>
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp
+    if (checkCondition(classes[i]) === undefined)
+      return /\d+/g;
+  }
+}</code></pre>
 
   <tr>
     <th>CoffeeScript
@@ -591,24 +576,17 @@ OPERATOR = /// ^ (
 
     public class FooBar implements IFooBarzable {
         static private var cnt:uint = 0;
-
         private var bar:String;
 
         //constructor
         public function TestBar(bar:String):void {
             bar = bar;
-
             ++cnt;
         }
 
         public function foo(... pairs):Array {
             pairs.push(bar);
-
             return pairs;
-        }
-
-        protected function includeTestFile():void {
-            include "Test.as";
         }
     }
 }</code></pre>
@@ -645,6 +623,17 @@ for i = 0 to ubound(ini_strings)
       end if
     end if
 next</code></pre>
+
+  <tr>
+    <th>HTTP
+    <td class="http">
+<pre><code>POST /task?id=1 HTTP/1.1
+Host: example.org
+Content-Type: application/json; charset=utf-8
+Content-Length: 19
+
+{"status": "ok", "extended": true}
+</code></pre>
 
   <tr>
     <th>Lua
@@ -725,27 +714,15 @@ End;{CopyFile}
 
 import java.util.ArrayList;
 
-/**
- * Mother class of all character objects of the world (PC, NPC...)&lt;BR&gt;&lt;BR&gt;
- *
- */
-public abstract class L2Character extends L2Object
-{
-  protected static final Logger _log = Logger.getLogger(L2Character.class.getName());
-
+public abstract class L2Character extends L2Object {
   public static final Short ABNORMAL_EFFECT_BLEEDING = 0x0001; // not sure
-  public static final Short ABNORMAL_EFFECT_POISON = 0x0002;
 
-  public void detachAI() {
+  public void moveTo(int x, int y, int z) {
     _ai = null;
-    //jbf = null;
+    _log.warning("Should not be called");
     if (1 &gt; 5) {
       return;
     }
-  }
-
-  public void moveTo(int x, int y, int z) {
-    moveTo(x, y, z, 0);
   }
 
   /** Task of AI notification */
@@ -757,12 +734,10 @@ public abstract class L2Character extends L2Object
       try {
         getAI().notifyEvent(_evt, null, null);
       } catch (Throwable t) {
-        _log.warning("Exception " + t);
         t.printStackTrace();
       }
     }
   }
-
 }
 </code></pre>
 
@@ -789,8 +764,7 @@ int main(int argc, char *argv[]) {
     <th>Objective C
     <td class="objectivec">
 <pre>
-<code>
-#import &lt;UIKit/UIKit.h&gt;
+<code>#import &lt;UIKit/UIKit.h&gt;
 #import "Dependency.h"
 
 @protocol WorldDataSource
@@ -833,7 +807,6 @@ int main(int argc, char *argv[]) {
 }
 
 @end
-
 </code></pre>
 
   <tr>
@@ -897,12 +870,6 @@ void main () {
 public class Program
 {
     /// &lt;summary&gt;The entry point to the program.&lt;/summary&gt;
-    /// &lt;remarks&gt;
-    /// Using the Visual Studio style, the tags in this comment
-    /// should be grey, but this text should be green.
-    /// This comment should be green on the inside:
-    /// &lt;!-- I'm green! --&gt;
-    /// &lt;/remarks&gt;
     public static int Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
@@ -1049,29 +1016,20 @@ FrameEnd
     <th>SQL
     <td class="sql">
 <pre><code>BEGIN;
-CREATE TABLE "cicero_topic" (
+CREATE TABLE "topic" (
     "id" serial NOT NULL PRIMARY KEY,
     "forum_id" integer NOT NULL,
-    "subject" varchar(255) NOT NULL,
-    "created" timestamp with time zone NOT NULL
+    "subject" varchar(255) NOT NULL
 );
-ALTER TABLE "cicero_topic"
-ADD CONSTRAINT forum_id_refs_id_4be56999
-FOREIGN KEY ("forum_id")
-REFERENCES "cicero_forum" ("id")
-DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "topic" ADD CONSTRAINT forum_id FOREIGN KEY ("forum_id") REFERENCES "forum" ("id");
 
 -- Initials
-insert into "cicero_forum"
-  ("slug", "name", "group", "ordering")
-values
-  ('test', 'Forum for te''sting', 'Test', 0);
+insert into "topic" ("forum_id", "subject") values (2, 'D''artagnian');
 
--- Test
 select count(*) from cicero_forum;
 
-COMMIT;
-</code></pre>
+-- this line lacks ; at the end to allow people to be sloppy and omit it in one-liners
+COMMIT</code></pre>
 
   <tr>
     <th>SmallTalk
@@ -1434,62 +1392,47 @@ flash2ram:
   <tr>
     <th>VHDL
     <td class="vhdl">
-<pre><code>------------------------------------
--- RS Trigger with Assynch. Reset --
-------------------------------------
+<pre><code>/*
+ * RS-trigger with assynch. reset
+ */
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
-entity RS_AR is
-	generic (T: Time := 0ns);
+entity RS_trigger is
+    generic (T: Time := 0ns);
+    port ( R, S  : in  std_logic;
+           Q, nQ : out std_logic;
+           reset, clock : in  std_logic );
+end RS_trigger;
 
-	port(
-		 -- Default RS Trigger
-		 R  : in  STD_LOGIC;
-		 S  : in  STD_LOGIC;
-		 Q  : out STD_LOGIC;
-		 nQ : out STD_LOGIC;
-
-		 -- Special Input Signals
-		 AR : in  STD_LOGIC; -- assynch. reset
-		 C  : in  STD_LOGIC  -- synch. signal
-	     );
-end RS_AR;
-
-
-architecture RS_AR of RS_AR is
-	signal QT: std_logic; -- Q(t)
+architecture behaviour of RS_trigger is
+    signal QT: std_logic; -- Q(t)
 begin
+    process(clock, reset) is
+        subtype RS is std_logic_vector (1 downto 0);
+    begin
+        if reset = '0' then
+            QT &lt;= '0';
+        else
+            if rising_edge(C) then
+                if not (R'stable(T) and S'stable(T)) then
+                    QT &lt;= 'X';
+                else
+                    case RS'(R&amp;S) is
+                        when "01" =&gt; QT &lt;= '1';
+                        when "10" =&gt; QT &lt;= '0';
+                        when "11" =&gt; QT &lt;= 'X';
+                        when others =&gt; null;
+                    end case;
+                end if;
+            end if;
+        end if;
+    end process;
 
-	process(C, AR) is
-		subtype RS is std_logic_vector ( 1 downto 0 );
-	begin
-		if AR='0' then
-			QT &lt;= '0';
-		else
-			if rising_edge(C) then
-
-				if not (R'stable(T) and S'stable(T)) then
-				QT &lt;= 'X';
-				else
-
-				case RS'(R&amp;S) is
-					when "01" =&gt; QT &lt;= '1';
-					when "10" =&gt; QT &lt;= '0';
-					when "11" =&gt; QT &lt;= 'X';
-					when others =&gt; null;
-				end case;
-
-				end if;
-			end if;
-		end if;
-	end process;
-
-	Q  &lt;= QT;
-	nQ &lt;= not QT;
-
-end RS_AR;
+    Q  &lt;= QT;
+    nQ &lt;= not QT;
+end architecture behaviour;
 </code></pre>
 
   <tr>
@@ -1777,6 +1720,80 @@ function [net] = get_fit_network(inputs, targets)
     % Train and Apply Network
     [net,tr] = train(net,inputs,targets);
 end
+</code></pre>
+
+  <tr>
+    <th>R
+    <td class="r">
+<pre><code>library(ggplot2)
+
+centre <- function(x, type, ...) {
+  switch(type,
+         mean = mean(x),
+         median = median(x),
+         trimmed = mean(x, trim = .1))
+}
+
+myVar1
+myVar.2
+data$x
+foo "bar" baz
+# test "test"
+"test # test"
+
+(123) (1) (10) (0.1) (.2) (1e-7)
+(1.2e+7) (2e) (3e+10) (0x0) (0xa)
+(0xabcdef1234567890) (123L) (1L)
+(0x10L) (10000000L) (1e6L) (1.1L)
+(1e-3L) (4123.381E-10i)
+(3.) (3.E10) # BUG: .E10 should be part of number
+
+# Numbers in some different contexts
+1L
+0x40
+.234
+3.
+1L + 30
+plot(cars, xlim=20)
+plot(cars, xlim=0x20)
+foo<-30
+my.data.3 <- read() # not a number
+c(1,2,3)
+1%%2
+
+"this is a quote that spans
+multiple lines
+\"
+
+is this still a quote? it should be.
+# even still!
+
+" # now we're done.
+
+'same for
+single quotes #'
+
+# keywords
+NULL, NA, TRUE, FALSE, Inf, NaN, NA_integer_,
+NA_real_, NA_character_, NA_complex_, function,
+while, repeat, for, if, in, else, next, break,
+..., ..1, ..2
+
+# not keywords
+the quick brown fox jumped over the lazy dogs
+null na true false inf nan na_integer_ na_real_
+na_character_ na_complex_ Function While Repeat
+For If In Else Next Break .. .... "NULL" `NULL` 'NULL'
+
+# operators
++, -, *, /, %%, ^, >, >=, <, <=, ==, !=, !, &, |, ~,
+->, <-, <<-, $, :, ::
+
+# infix operator
+foo %union% bar
+%"test"%
+`"test"`
+
 </code></pre>
 
 </table>

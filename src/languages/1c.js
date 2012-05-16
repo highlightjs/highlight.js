@@ -64,7 +64,7 @@ hljs.LANGUAGES['1c'] = function(){
           className: 'function',
           begin: '(процедура|функция)', end: '$',
           lexems: IDENT_RE_RU,
-          keywords: {'процедура': 1, 'экспорт': 1, 'функция': 1},
+          keywords: {'процедура': 1, 'функция': 1},
           contains: [
             {className: 'title', begin: IDENT_RE_RU},
             {

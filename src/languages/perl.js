@@ -64,6 +64,10 @@ hljs.LANGUAGES.perl = function(){
     VAR1, VAR2,
     hljs.HASH_COMMENT_MODE,
     COMMENT,
+    {
+      className: 'comment',
+      begin: '^\\=\\w', end: '\\=cut', endsWithParent: true
+    },
     METHOD,
     {
       className: 'string',
@@ -134,7 +138,7 @@ hljs.LANGUAGES.perl = function(){
       relevance: 0
     },
     { // regexp container
-      begin: '(' + hljs.RE_STARTERS_RE + '|split|return|print|reverse|grep)\\s*',
+      begin: '(' + hljs.RE_STARTERS_RE + '|\\b(split|return|print|reverse|grep)\\b)\\s*',
       keywords: {'split': 1, 'return': 1, 'print': 1, 'reverse': 1, 'grep': 1},
       relevance: 0,
       contains: [
@@ -163,10 +167,6 @@ hljs.LANGUAGES.perl = function(){
       className: 'operator',
       begin: '-\\w\\b',
       relevance: 0
-    },
-    {
-      className: 'pod',
-      begin: '\\=\\w', end: '\\=cut'
     }
   ];
   SUBST.contains = PERL_DEFAULT_CONTAINS;

@@ -27,13 +27,13 @@ hljs.LANGUAGES.axapta  = {
       },
       {
         className: 'class',
-        begin: '(class |interface )', end: '{',
+        beginWithKeyword: true, end: '{',
         illegal: ':',
         keywords: {'class': 1, 'interface': 1},
         contains: [
           {
             className: 'inheritance',
-            begin: '(implements|extends)',
+            beginWithKeyword: true,
             keywords: {'extends': 1, 'implements': 1},
             relevance: 10
           },

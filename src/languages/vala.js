@@ -36,11 +36,11 @@ hljs.LANGUAGES.vala = {
     contains: [
       {
         className: 'class',
-        begin: '(class |interface |delegate |namespace )', end: '{',
-        keywords: {'class': 1, 'interface': 1},
+        beginWithKeyword: true, end: '{',
+        keywords: {'class': 1, 'interface': 1, 'delegate': 1, 'namespace': 1},
         contains: [
           {
-            begin: '(implements|extends)',
+            beginWithKeyword: true,
             keywords: {'extends': 1, 'implements': 1}
           },
           {

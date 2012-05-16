@@ -46,7 +46,7 @@ hljs.LANGUAGES.lua = function() {
       contains: COMMENTS.concat([
         {
           className: 'function',
-          begin: '\\bfunction\\b', end: '\\)',
+          beginWithKeyword: true, end: '\\)',
           keywords: {'function': 1},
           contains: [
             {

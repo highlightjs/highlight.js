@@ -21,7 +21,8 @@ hljs.LANGUAGES.markdown = {
       // inline html
       {
         begin: '<', end: '>',
-        subLanguage: 'xml'
+        subLanguage: 'xml',
+        relevance: 0
       },
       // lists (indicators only)
       {

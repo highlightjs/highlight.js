@@ -217,12 +217,12 @@ hljs.LANGUAGES.rsl  = {
       },
       {
         className: 'shader',
-        begin: 'surface |displacement |light |volume |imager ', end: '\\(',
+        beginWithKeyword: true, end: '\\(',
         keywords: {'surface': 1, 'displacement': 1, 'light': 1, 'volume': 1, 'imager': 1}
       },
       {
         className: 'shading',
-        begin: 'illuminate|illuminance|gather', end: '\\(',
+        beginWithKeyword: true, end: '\\(',
         keywords: {'illuminate': 1, 'illuminance': 1, 'gather': 1}
       }
     ]
