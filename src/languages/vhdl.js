@@ -73,7 +73,7 @@ hljs.LANGUAGES.vhdl = function() {
         hljs.C_NUMBER_MODE,
         {
           className: 'literal',
-          begin: '\'(U|X|0|1|Z|W|L|H|-)', end: '\'',
+          begin: '\'(U|X|0|1|Z|W|L|H|-)\'',
           contains: [hljs.BACKSLASH_ESCAPE]
         },
         {
