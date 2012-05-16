@@ -6,41 +6,11 @@
 hljs.LANGUAGES.erlang_repl = {
   defaultMode: {
     keywords: {
-      'special_functions':{
-        'spawn':10,
-        'spawn_link':10,
-        'self':2
-      },
-      'reserved':{
-        'after':1,
-        'and':1,
-        'andalso':5,
-        'band':1,
-        'begin':1,
-        'bnot':1,
-        'bor':1,
-        'bsl':1,
-        'bsr':1,
-        'bxor':1,
-        'case':1,
-        'catch':0,
-        'cond':1,
-        'div':1,
-        'end':1,
-        'fun':0,
-        'if':0,
-        'let':1,
-        'not':0,
-        'of':1,
-        'or':1,
-        'orelse':5,
-        'query':1,
-        'receive':0,
-        'rem':1,
-        'try':0,
-        'when':1,
-        'xor':1
-      }
+      special_functions:
+        'spawn spawn_link self',
+      reserved:
+        'after and andalso/10 band begin bnot bor bsl bsr bxor case catch cond div end fun if ' +
+        'let not of or orelse/10 query receive rem try when xor'
     },
     contains: [
       {
