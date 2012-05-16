@@ -42,7 +42,7 @@ hljs.LANGUAGES.css = function() {
         {
           className: 'at_rule',
           begin: '@', end: '[{;]', // at_rule eating first "{" is a good thing
-                                   // because it doesn't let it to be parsed as
+                                   // because it doesn’t let it to be parsed as
                                    // a rule set but instead drops parser into
                                    // the defaultMode which is how it should be.
           excludeEnd: true,
