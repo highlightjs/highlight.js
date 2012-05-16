@@ -20,14 +20,9 @@ hljs.LANGUAGES.haskell = function(){
 
   return {
     defaultMode: {
-      keywords: {
-        'keyword': {
-          'let': 1, 'in': 1, 'if': 1, 'then': 1, 'else': 1, 'case': 1, 'of': 1,
-          'where': 1, 'do': 1, 'module': 1, 'import': 1, 'hiding': 1,
-          'qualified': 1, 'type': 1, 'data': 1, 'newtype': 1, 'deriving': 1,
-          'class': 1, 'instance': 1, 'null': 1, 'not': 1, 'as': 1
-        }
-      },
+      keywords:
+        'let in if then else case of where do module import hiding qualified type data ' +
+        'newtype deriving class instance null not as',
       contains: [
         {
           className: 'comment',
@@ -47,19 +42,19 @@ hljs.LANGUAGES.haskell = function(){
         {
           className: 'import',
           begin: '\\bimport', end: '$',
-          keywords: {'import': 1, 'qualified': 1, 'as': 1, 'hiding': 1},
+          keywords: 'import qualified as hiding',
           contains: [CONTAINER]
         },
         {
           className: 'module',
           begin: '\\bmodule', end: 'where',
-          keywords: {'module': 1, 'where': 1},
+          keywords: 'module where',
           contains: [CONTAINER]
         },
         {
           className: 'class',
           begin: '\\b(class|instance|data|(new)?type)', end: '(where|$)',
-          keywords: {'class': 1, 'where': 1, 'instance': 1,'data': 1,'type': 1,'newtype': 1, 'deriving': 1},
+          keywords: 'class where instance data type newtype deriving',
           contains: [LABEL]
         },
         hljs.C_NUMBER_MODE,

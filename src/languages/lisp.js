@@ -58,7 +58,7 @@ hljs.LANGUAGES.lisp = function(){
   var QUOTED2 = {
     className: 'quoted',
     begin: '\\(quote ', end: '\\)',
-    keywords: {'title': {'quote': 1}},
+    keywords: {title: 'quote'},
     contains: NUMBERS.concat([STRING, VARIABLE, KEYWORD, QUOTED_LIST])
   };
   var LIST = {

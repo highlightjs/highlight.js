@@ -7,27 +7,16 @@ Description: Google go language (golang). For info about language see http://gol
 
 hljs.LANGUAGES.go = function(){
   var GO_KEYWORDS = {
-    'keyword': {
-       'break' : 1, 'default' : 1, 'func' : 1, 'interface' : 1, 'select' : 1,
-       'case' : 1, 'map' : 1, 'struct' : 1, 'chan' : 1,
-       'else' : 1, 'goto' : 1, 'package' : 1, 'switch' : 1, 'const' : 1,
-       'fallthrough' : 1, 'if' : 1, 'range' : 1, 'type' : 1, 'continue' : 1,
-       'for' : 1, 'import' : 1, 'return' : 1, 'var' : 1, 'go': 1, 'defer' : 1
-    },
-    'constant': {
-       'true': 1, 'false': 1, 'iota': 1, 'nil': 1
-    },
-    'typename': {
-       'bool': 1, 'byte': 1, 'complex64': 1, 'complex128': 1, 'float32': 1,
-       'float64': 1, 'int8': 1, 'int16': 1, 'int32': 1, 'int64': 1, 'string': 1,
-       'uint8': 1, 'uint16': 1, 'uint32': 1, 'uint64': 1, 'int': 1, 'uint': 1,
-       'uintptr': 1, 'rune': 1
-   },
-    'built_in': {
-       'append': 1, 'cap': 1, 'close': 1, 'complex': 1, 'copy': 1, 'imag': 1,
-       'len': 1, 'make': 1, 'new': 1, 'panic': 1, 'print': 1, 'println': 1,
-       'real': 1, 'recover': 1, 'delete': 1
-    }
+    keyword:
+      'break default func interface select case map struct chan else goto package switch ' +
+      'const fallthrough if range type continue for import return var go defer',
+    constant:
+       'true false iota nil',
+    typename:
+      'bool byte complex64 complex128 float32 float64 int8 int16 int32 int64 string uint8 ' +
+      'uint16 uint32 uint64 int uint uintptr rune',
+    built_in:
+      'append cap close complex copy imag len make new panic print println real recover delete'
   };
   return {
     defaultMode: {

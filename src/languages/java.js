@@ -5,7 +5,8 @@ Author: Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
 
 hljs.LANGUAGES.java  = {
   defaultMode: {
-    keywords: 'false synchronized int abstract float private char boolean static null if const ' +
+    keywords:
+      'false synchronized int abstract float private char boolean static null if const ' +
       'for true while long throw strictfp finally protected import native final return void ' +
       'enum else break transient new catch instanceof byte super volatile case assert short ' +
       'package default double public try this switch continue throws',
