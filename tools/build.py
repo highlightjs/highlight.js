@@ -86,7 +86,6 @@ def mapnonstrings(source, func):
     return ''.join(result)
 
 def compress_content(tools_path, content):
-    args = ['java', '-jar', os.path.join(tools_path, 'yuicompressor.jar'), '--type', 'js']
 
     def replace(s, r, content):
         return re.sub(r'(?<=[^\w"\'|])%s(?=[^\w"\'|])' % s, r, content)
@@ -97,11 +96,14 @@ def compress_content(tools_path, content):
         content = re.sub(r'(block|parentNode)\.cN', r'\1.className', content)
         for s, r in LIBRARY_REPLACES.items():
             content = replace(s, r, content)
+
+    args = ['java', '-jar', os.path.join(tools_path, 'yuicompressor.jar'), '--type', 'js']
     p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     p.stdin.write(content)
     p.stdin.close()
     content = p.stdout.read()
     p.stdout.close()
+
     return content
 
 def parse_header(content):
