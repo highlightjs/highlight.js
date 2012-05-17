@@ -8,13 +8,15 @@ hljs.LANGUAGES.ruby = function(){
   var RUBY_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*(\\!|\\?)?';
   var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
   var RUBY_KEYWORDS = {
-    keyword: 'and false then defined module in return redo if BEGIN retry end for true self ' +
-      'when next until do begin unless END rescue nil else break undef not super class case ' +
+    keyword:
+      'and false then defined module in return redo if BEGIN retry end for true self when ' +
+      'next until do begin unless END rescue nil else break undef not super class case ' +
       'require yield alias while ensure elsif or def',
-    keymethods: '__id__ __send__ abort abs all? allocate ancestors any? arity assoc at ' +
-      'at_exit autoload autoload? between? binding binmode block_given? call callcc caller ' +
-      'capitalize capitalize! casecmp catch ceil center chomp chomp! chop chop! chr class ' +
-      'class_eval class_variable_defined? class_variables clear clone close close_read ' +
+    keymethods:
+      '__id__ __send__ abort abs all? allocate ancestors any? arity assoc at at_exit ' +
+      'autoload autoload? between? binding binmode block_given? call callcc caller capitalize ' +
+      'capitalize! casecmp catch ceil center chomp chomp! chop chop! chr class class_eval ' +
+      'class_variable_defined? class_variables clear clone close close_read ' +
       'close_write closed? coerce collect collect! compact compact! concat const_defined? ' +
       'const_get const_missing const_set constants count crypt default default_proc delete ' +
       'delete! delete_at delete_if detect display div divmod downcase downcase! downto dump ' +

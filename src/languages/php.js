@@ -32,11 +32,12 @@ hljs.LANGUAGES.php = function() {
   return {
     case_insensitive: true,
     defaultMode: {
-      keywords: 'and include_once list abstract global private echo interface as static ' +
-        'endswitch array null if endwhile or const for endforeach self var while isset ' +
-        'public protected exit foreach throw elseif include __FILE__ empty require_once do ' +
-        'xor return implements parent clone use __CLASS__ __LINE__ else break print eval ' +
-        'new catch __METHOD__ case exception php_user_filter default die require __FUNCTION__ ' +
+      keywords:
+        'and include_once list abstract global private echo interface as static endswitch ' +
+        'array null if endwhile or const for endforeach self var while isset public ' +
+        'protected exit foreach throw elseif include __FILE__ empty require_once do xor ' +
+        'return implements parent clone use __CLASS__ __LINE__ else break print eval new ' +
+        'catch __METHOD__ case exception php_user_filter default die require __FUNCTION__ ' +
         'enddeclare final try this switch continue endfor endif declare unset true false ' +
         'namespace trait goto instanceof insteadof __DIR__ __NAMESPACE__ __halt_compiler',
       contains: [
