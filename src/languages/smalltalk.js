@@ -15,7 +15,7 @@ hljs.LANGUAGES.smalltalk = function() {
   };
   return {
     defaultMode: {
-      keywords: {'self': 1, 'super': 1, 'nil': 1, 'true': 1, 'false': 1, 'thisContext': 1}, // only 6
+      keywords: 'self super nil true false thisContext', // only 6
       contains: [
         {
           className: 'comment',
