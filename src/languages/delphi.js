@@ -39,7 +39,7 @@ hljs.LANGUAGES.delphi = function(){
   var FUNCTION = {
     className: 'function',
     beginWithKeyword: true, end: '[:;]',
-    keywords: 'function constructor/10 destructor/10 procedure/10',
+    keywords: 'function constructor|10 destructor|10 procedure|10',
     contains: [
       {
         className: 'title', begin: hljs.IDENT_RE

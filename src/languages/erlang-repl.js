@@ -9,8 +9,8 @@ hljs.LANGUAGES.erlang_repl = {
       special_functions:
         'spawn spawn_link self',
       reserved:
-        'after and andalso/10 band begin bnot bor bsl bsr bxor case catch cond div end fun if ' +
-        'let not of or orelse/10 query receive rem try when xor'
+        'after and andalso|10 band begin bnot bor bsl bsr bxor case catch cond div end fun if ' +
+        'let not of or orelse|10 query receive rem try when xor'
     },
     contains: [
       {

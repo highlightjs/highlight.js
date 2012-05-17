@@ -6,10 +6,10 @@ Contributors: Evgeny Stepanischev <imbolk@gmail.com>
 hljs.LANGUAGES.cpp = function(){
   var CPP_KEYWORDS = {
     keyword: 'false int float while private char catch export virtual operator sizeof ' +
-      'dynamic_cast/10 typedef const_cast/10 const struct for static_cast/10 union namespace ' +
+      'dynamic_cast|10 typedef const_cast|10 const struct for static_cast|10 union namespace ' +
       'unsigned long throw volatile static protected bool template mutable if public friend ' +
       'do return goto auto void enum else break new extern using true class asm case typeid ' +
-      'short reinterpret_cast/10 default double register explicit signed typename try this ' +
+      'short reinterpret_cast|10 default double register explicit signed typename try this ' +
       'switch continue wchar_t inline delete alignof char16_t char32_t constexpr decltype ' +
       'noexcept nullptr static_assert thread_local restrict _Bool complex',
     built_in: 'std string cin cout cerr clog stringstream istringstream ostringstream ' +

@@ -169,7 +169,7 @@ var hljs = new function() {
         function flatten(className, str) {
           var group = str.split(' ');
           for (var i = 0; i < group.length; i++) {
-            var pair = group[i].split('/');
+            var pair = group[i].split('|');
             compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
             keywords.push(pair[0]);
           }

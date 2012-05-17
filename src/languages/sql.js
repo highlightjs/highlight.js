@@ -14,7 +14,7 @@ hljs.LANGUAGES.sql = {
           keyword: 'all partial global month current_timestamp using go revoke smallint ' +
             'indicator end-exec disconnect zone with character assertion to add current_user ' +
             'usage input local alter match collate real then rollback get read timestamp ' +
-            'session_user not integer bit unique day minute desc insert execute like ilike/2 ' +
+            'session_user not integer bit unique day minute desc insert execute like ilike|2 ' +
             'level decimal drop continue isolation found where constraints domain right ' +
             'national some module transaction relative second connect escape close system_user ' +
             'for deferred section cast current sqlstate allocate intersect deallocate numeric ' +
