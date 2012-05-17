@@ -60,7 +60,7 @@ hljs.LANGUAGES.python = function() {
       keywords: {
         keyword:
           'and elif is global as in if from raise for except finally print import pass return ' +
-          'exec else break not with class assert yield try whilecontinue del or def lambda ' +
+          'exec else break not with class assert yield try while continue del or def lambda ' +
           'nonlocal|10',
         built_in:
           'None True False Ellipsis NotImplemented'
