@@ -58,19 +58,18 @@ hljs.LANGUAGES.python = function() {
   return {
     defaultMode: {
       keywords: {
-        'keyword': {
-          'and': 1, 'elif': 1, 'is': 1, 'global': 1, 'as': 1, 'in': 1, 'if': 1, 'from': 1, 'raise': 1, 'for': 1,
-          'except': 1, 'finally': 1, 'print': 1, 'import': 1, 'pass': 1, 'return': 1, 'exec': 1, 'else': 1,
-          'break': 1, 'not': 1, 'with': 1, 'class': 1, 'assert': 1, 'yield': 1, 'try': 1, 'while': 1, 'continue': 1,
-          'del': 1, 'or': 1, 'def': 1, 'lambda': 1, 'nonlocal': 10
-        },
-        'built_in': {'None': 1, 'True': 1, 'False': 1, 'Ellipsis': 1, 'NotImplemented': 1}
+        keyword:
+          'and elif is global as in if from raise for except finally print import pass return ' +
+          'exec else break not with class assert yield try whilecontinue del or def lambda ' +
+          'nonlocal|10',
+        built_in:
+          'None True False Ellipsis NotImplemented'
       },
       illegal: '(</|->|\\?)',
       contains: STRINGS.concat([
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', keywords: {'def': 1}}),
-        hljs.inherit(FUNC_CLASS_PROTO, {className: 'class', keywords: {'class': 1}}),
+        hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', keywords: 'def'}),
+        hljs.inherit(FUNC_CLASS_PROTO, {className: 'class', keywords: 'class'}),
         hljs.C_NUMBER_MODE,
         {
           className: 'decorator',

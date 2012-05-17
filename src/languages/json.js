@@ -4,7 +4,7 @@ Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 */
 
 hljs.LANGUAGES.json = function(){
-  var LITERALS = {'literal': {'true': 1, 'false': 1, 'null': 1}};
+  var LITERALS = {literal: 'true false null'};
   var TYPES = [
     hljs.QUOTE_STRING_MODE,
     hljs.C_NUMBER_MODE

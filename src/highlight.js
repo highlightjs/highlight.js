@@ -161,31 +161,31 @@ var hljs = new function() {
     function compileMode(mode, language, is_default) {
       if (mode.compiled)
         return;
-      var group;
 
       var keywords = []; // used later with beginWithKeyword but filled as a side-effect of keywords compilation
       if (mode.keywords) {
+        var compiled_keywords = {};
 
-        function flatten(className, group) {
-          for (var keyword in group) {
-            if (!group.hasOwnProperty(keyword))
-              continue;
-            mode.keywords[keyword] = [className, group[keyword]];
-            keywords.push(keyword);
+        function flatten(className, str) {
+          var group = str.split(' ');
+          for (var i = 0; i < group.length; i++) {
+            var pair = group[i].split('|');
+            compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
+            keywords.push(pair[0]);
           }
         }
 
         mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
-        for (var className in mode.keywords) {
-          if (!mode.keywords.hasOwnProperty(className))
-            continue;
-          if (mode.keywords[className] instanceof Object) {
+        if (typeof mode.keywords == 'string') { // string
+          flatten('keyword', mode.keywords)
+        } else {
+          for (var className in mode.keywords) {
+            if (!mode.keywords.hasOwnProperty(className))
+              continue;
             flatten(className, mode.keywords[className]);
-          } else {
-            flatten('keyword', mode.keywords);
-            break; // flatten already looped through all keywords, break out early
           }
         }
+        mode.keywords = compiled_keywords;
       }
       if (!is_default) {
         if (mode.beginWithKeyword) {

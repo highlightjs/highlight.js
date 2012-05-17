@@ -7,41 +7,34 @@ Description: Vala is a new programming language that aims to bring modern progra
 hljs.LANGUAGES.vala = {
   defaultMode: {
     keywords: {
-      keyword: {
+      keyword:
         // Value types
-        'char': 1, 'uchar': 1, 'unichar': 1,
-        'int': 1, 'uint': 1, 'long': 1, 'ulong': 1,
-        'short': 1, 'ushort': 1,
-        'int8': 1, 'int16': 1, 'int32': 1, 'int64': 1,
-        'uint8': 1, 'uint16': 1, 'uint32': 1, 'uint64': 1,
-        'float': 1, 'double': 1, 'bool': 1, 'struct': 1, 'enum': 1,
-        'string': 1, 'void': 1,
+        'char uchar unichar int uint long ulong short ushort int8 int16 int32 int64 uint8 ' +
+        'uint16 uint32 uint64 float double bool struct enum string void ' +
         // Reference types
-        'weak': 5, 'unowned': 5, 'owned': 5,
+        'weak unowned owned ' +
         // Modifiers
-        'async': 5, 'signal': 5, 'static': 1, 'abstract': 1, 'interface': 1, 'override': 1,
+        'async signal static abstract interface override ' +
         // Control Structures
-        'while': 1, 'do': 1, 'for': 1, 'foreach': 1, 'else': 1, 'switch': 1,
-        'case': 1, 'break': 1, 'default': 1, 'return': 1, 'try': 1, 'catch': 1,
+        'while do for foreach else switch case break default return try catch ' +
         // Visibility
-        'public': 1, 'private': 1, 'protected': 1, 'internal': 1,
+        'public private protected internal ' +
         // Other
-        'using': 1, 'new': 1, 'this': 1, 'get': 1, 'set': 1, 'const': 1,
-        'stdout': 1, 'stdin': 1, 'stderr': 1, 'var': 1,
-        // Builtins
-        'DBus': 2, 'GLib': 2, 'CCode': 10, 'Gee': 10, 'Object': 1
-      },
-      literal: { 'false': 1, 'true': 1, 'null': 1 }
+        'using new this get set const stdout stdin stderr var',
+      built_in:
+        'DBus GLib CCode Gee Object',
+      literal:
+        'false true null'
     },
     contains: [
       {
         className: 'class',
         beginWithKeyword: true, end: '{',
-        keywords: {'class': 1, 'interface': 1, 'delegate': 1, 'namespace': 1},
+        keywords: 'class interface delegate namespace',
         contains: [
           {
             beginWithKeyword: true,
-            keywords: {'extends': 1, 'implements': 1}
+            keywords: 'extends implements'
           },
           {
             className: 'title',

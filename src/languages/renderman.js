@@ -7,109 +7,21 @@ Contributors: Shuen-Huei Guan <drake.guan@gmail.com>
 
 hljs.LANGUAGES.rib  = {
   defaultMode: {
-    keywords: {
-      'keyword': {
-            'ArchiveRecord': 1,
-            'AreaLightSource': 1,
-            'Atmosphere': 1,
-            'Attribute': 1,
-            'AttributeBegin': 1,
-            'AttributeEnd': 1,
-            'Basis': 1,
-            'Begin': 1,
-            'Blobby': 1,
-            'Bound': 1,
-            'Clipping': 1,
-            'ClippingPlane': 1,
-            'Color': 1,
-            'ColorSamples': 1,
-            'ConcatTransform': 1,
-            'Cone': 1,
-            'CoordinateSystem': 1,
-            'CoordSysTransform': 1,
-            'CropWindow': 1,
-            'Curves': 1,
-            'Cylinder': 1,
-            'DepthOfField': 1,
-            'Detail': 1,
-            'DetailRange': 1,
-            'Disk': 1,
-            'Displacement': 1,
-            'Display': 1,
-            'End': 1,
-            'ErrorHandler': 1,
-            'Exposure': 1,
-            'Exterior': 1,
-            'Format': 1,
-            'FrameAspectRatio': 1,
-            'FrameBegin': 1,
-            'FrameEnd': 1,
-            'GeneralPolygon': 1,
-            'GeometricApproximation': 1,
-            'Geometry': 1,
-            'Hider': 1,
-            'Hyperboloid': 1,
-            'Identity': 1,
-            'Illuminate': 1,
-            'Imager': 1,
-            'Interior': 1,
-            'LightSource': 1,
-            'MakeCubeFaceEnvironment': 1,
-            'MakeLatLongEnvironment': 1,
-            'MakeShadow': 1,
-            'MakeTexture': 1,
-            'Matte': 1,
-            'MotionBegin': 1,
-            'MotionEnd': 1,
-            'NuPatch': 1,
-            'ObjectBegin': 1,
-            'ObjectEnd': 1,
-            'ObjectInstance': 1,
-            'Opacity': 1,
-            'Option': 1,
-            'Orientation': 1,
-            'Paraboloid': 1,
-            'Patch': 1,
-            'PatchMesh': 1,
-            'Perspective': 1,
-            'PixelFilter': 1,
-            'PixelSamples': 1,
-            'PixelVariance': 1,
-            'Points': 1,
-            'PointsGeneralPolygons': 1,
-            'PointsPolygons': 1,
-            'Polygon': 1,
-            'Procedural': 1,
-            'Projection': 1,
-            'Quantize': 1,
-            'ReadArchive': 1,
-            'RelativeDetail': 1,
-            'ReverseOrientation': 1,
-            'Rotate': 1,
-            'Scale': 1,
-            'ScreenWindow': 1,
-            'ShadingInterpolation': 1,
-            'ShadingRate': 1,
-            'Shutter': 1,
-            'Sides': 1,
-            'Skew': 1,
-            'SolidBegin': 1,
-            'SolidEnd': 1,
-            'Sphere': 1,
-            'SubdivisionMesh': 1,
-            'Surface': 1,
-            'TextureCoordinates': 1,
-            'Torus': 1,
-            'Transform': 1,
-            'TransformBegin': 1,
-            'TransformEnd': 1,
-            'TransformPoints': 1,
-            'Translate': 1,
-            'TrimCurve': 1,
-            'WorldBegin': 1,
-            'WorldEnd': 1
-            }
-    },
+    keywords:
+      'ArchiveRecord AreaLightSource Atmosphere Attribute AttributeBegin AttributeEnd Basis ' +
+      'Begin Blobby Bound Clipping ClippingPlane Color ColorSamples ConcatTransform Cone ' +
+      'CoordinateSystem CoordSysTransform CropWindow Curves Cylinder DepthOfField Detail ' +
+      'DetailRange Disk Displacement Display End ErrorHandler Exposure Exterior Format ' +
+      'FrameAspectRatio FrameBegin FrameEnd GeneralPolygon GeometricApproximation Geometry ' +
+      'Hider Hyperboloid Identity Illuminate Imager Interior LightSource ' +
+      'MakeCubeFaceEnvironment MakeLatLongEnvironment MakeShadow MakeTexture Matte ' +
+      'MotionBegin MotionEnd NuPatch ObjectBegin ObjectEnd ObjectInstance Opacity Option ' +
+      'Orientation Paraboloid Patch PatchMesh Perspective PixelFilter PixelSamples ' +
+      'PixelVariance Points PointsGeneralPolygons PointsPolygons Polygon Procedural Projection ' +
+      'Quantize ReadArchive RelativeDetail ReverseOrientation Rotate Scale ScreenWindow ' +
+      'ShadingInterpolation ShadingRate Shutter Sides Skew SolidBegin SolidEnd Sphere ' +
+      'SubdivisionMesh Surface TextureCoordinates Torus Transform TransformBegin TransformEnd ' +
+      'TransformPoints Translate TrimCurve WorldBegin WorldEnd',
     illegal: '</',
     contains: [
       hljs.HASH_COMMENT_MODE,
@@ -123,86 +35,16 @@ hljs.LANGUAGES.rib  = {
 hljs.LANGUAGES.rsl  = {
   defaultMode: {
     keywords: {
-      'keyword': {'float': 1, 'color': 1, 'point': 1, 'normal': 1, 'vector': 1,
-                  'matrix': 1, 'while': 1, 'for': 1, 'if': 1, 'do': 1,
-                  'return': 1, 'else': 1, 'break': 1, 'extern': 1, 'continue': 1},
-      'built_in': {
-                    'abs': 1,
-                    'acos': 1,
-                    'ambient': 1,
-                    'area': 1,
-                    'asin': 1,
-                    'atan': 1,
-                    'atmosphere': 1,
-                    'attribute': 1,
-                    'calculatenormal': 1,
-                    'ceil': 1,
-                    'cellnoise': 1,
-                    'clamp': 1,
-                    'comp': 1,
-                    'concat': 1,
-                    'cos': 1,
-                    'degrees': 1,
-                    'depth': 1,
-                    'Deriv': 1,
-                    'diffuse': 1,
-                    'distance': 1,
-                    'Du': 1,
-                    'Dv': 1,
-                    'environment': 1,
-                    'exp': 1,
-                    'faceforward': 1,
-                    'filterstep': 1,
-                    'floor': 1,
-                    'format': 1,
-                    'fresnel': 1,
-                    'incident': 1,
-                    'length': 1,
-                    'lightsource': 1,
-                    'log': 1,
-                    'match': 1,
-                    'max': 1,
-                    'min': 1,
-                    'mod': 1,
-                    'noise': 1,
-                    'normalize': 1,
-                    'ntransform': 1,
-                    'opposite': 1,
-                    'option': 1,
-                    'phong': 1,
-                    'pnoise': 1,
-                    'pow': 1,
-                    'printf': 1,
-                    'ptlined': 1,
-                    'radians': 1,
-                    'random': 1,
-                    'reflect': 1,
-                    'refract': 1,
-                    'renderinfo': 1,
-                    'round': 1,
-                    'setcomp': 1,
-                    'setxcomp': 1,
-                    'setycomp': 1,
-                    'setzcomp': 1,
-                    'shadow': 1,
-                    'sign': 1,
-                    'sin': 1,
-                    'smoothstep': 1,
-                    'specular': 1,
-                    'specularbrdf': 1,
-                    'spline': 1,
-                    'sqrt': 1,
-                    'step': 1,
-                    'tan': 1,
-                    'texture': 1,
-                    'textureinfo': 1,
-                    'trace': 1,
-                    'transform': 1,
-                    'vtransform': 1,
-                    'xcomp': 1,
-                    'ycomp': 1,
-                    'zcomp': 1
-                    }
+      keyword:
+        'float color point normal vector matrix while for if do return else break extern continue',
+      built_in:
+        'abs acos ambient area asin atan atmosphere attribute calculatenormal ceil cellnoise ' +
+        'clamp comp concat cos degrees depth Deriv diffuse distance Du Dv environment exp ' +
+        'faceforward filterstep floor format fresnel incident length lightsource log match ' +
+        'max min mod noise normalize ntransform opposite option phong pnoise pow printf ' +
+        'ptlined radians random reflect refract renderinfo round setcomp setxcomp setycomp ' +
+        'setzcomp shadow sign sin smoothstep specular specularbrdf spline sqrt step tan ' +
+        'texture textureinfo trace transform vtransform xcomp ycomp zcomp'
     },
     illegal: '</',
     contains: [
@@ -218,12 +60,12 @@ hljs.LANGUAGES.rsl  = {
       {
         className: 'shader',
         beginWithKeyword: true, end: '\\(',
-        keywords: {'surface': 1, 'displacement': 1, 'light': 1, 'volume': 1, 'imager': 1}
+        keywords: 'surface displacement light volume imager'
       },
       {
         className: 'shading',
         beginWithKeyword: true, end: '\\(',
-        keywords: {'illuminate': 1, 'illuminance': 1, 'gather': 1}
+        keywords: 'illuminate illuminance gather'
       }
     ]
   }
