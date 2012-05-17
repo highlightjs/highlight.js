@@ -61,7 +61,7 @@ var hljs = new function() {
 
   function nodeStream(node) {
     var result = [];
-    (function (node, offset) {
+    (function _nodeStream(node, offset) {
       for (var i = 0; i < node.childNodes.length; i++) {
         if (node.childNodes[i].nodeType == 3)
           offset += node.childNodes[i].nodeValue.length;
@@ -73,7 +73,7 @@ var hljs = new function() {
             offset: offset,
             node: node.childNodes[i]
           });
-          offset = arguments.callee(node.childNodes[i], offset);
+          offset = _nodeStream(node.childNodes[i], offset);
           result.push({
             event: 'stop',
             offset: offset,
@@ -161,9 +161,36 @@ var hljs = new function() {
     function compileMode(mode, language, is_default) {
       if (mode.compiled)
         return;
-      var group;
 
+      var keywords = []; // used later with beginWithKeyword but filled as a side-effect of keywords compilation
+      if (mode.keywords) {
+        var compiled_keywords = {};
+
+        function flatten(className, str) {
+          var group = str.split(' ');
+          for (var i = 0; i < group.length; i++) {
+            var pair = group[i].split('|');
+            compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
+            keywords.push(pair[0]);
+          }
+        }
+
+        mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
+        if (typeof mode.keywords == 'string') { // string
+          flatten('keyword', mode.keywords)
+        } else {
+          for (var className in mode.keywords) {
+            if (!mode.keywords.hasOwnProperty(className))
+              continue;
+            flatten(className, mode.keywords[className]);
+          }
+        }
+        mode.keywords = compiled_keywords;
+      }
       if (!is_default) {
+        if (mode.beginWithKeyword) {
+          mode.begin = '\\b(' + keywords.join('|') + ')\\s';
+        }
         mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
           mode.end = '\\B|\\b';
@@ -174,24 +201,6 @@ var hljs = new function() {
         mode.illegalRe = langRe(language, mode.illegal);
       if (mode.relevance === undefined)
         mode.relevance = 1;
-      if (mode.keywords) {
-        mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
-        for (var className in mode.keywords) {
-          if (!mode.keywords.hasOwnProperty(className))
-            continue;
-          if (mode.keywords[className] instanceof Object) {
-            group = mode.keywords[className];
-          } else {
-            group = mode.keywords;
-            className = 'keyword';
-          }
-          for (var keyword in group) {
-            if (!group.hasOwnProperty(keyword))
-              continue;
-            mode.keywords[keyword] = [className, group[keyword]];
-          }
-        }
-      }
       if (!mode.contains) {
         mode.contains = [];
       }
@@ -233,7 +242,8 @@ var hljs = new function() {
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
-        if (mode.contains[i].beginRe.test(lexem)) {
+        var match = mode.contains[i].beginRe.exec(lexem);
+        if (match && match.index == 0) {
           return mode.contains[i];
         }
       }
@@ -272,20 +282,20 @@ var hljs = new function() {
         terminators.push(mode.illegal);
       }
 
-      return langRe(language, '(' + terminators.join('|') + ')', true);
+      return terminators.length ? langRe(language, terminators.join('|'), true) : null;
     }
 
     function eatModeChunk(value, index) {
       var mode = modes[modes.length - 1];
-      if (!mode.terminators) {
+      if (mode.terminators === undefined) {
         mode.terminators = compileTerminators(mode, language);
       }
-      mode.terminators.lastIndex = index;
-      var match = mode.terminators.exec(value);
-      if (match)
-        return [value.substr(index, match.index - index), match[0], false];
-      else
-        return [value.substr(index), '', true];
+      var match;
+      if (mode.terminators) {
+        mode.terminators.lastIndex = index;
+        match = mode.terminators.exec(value);
+      }
+      return match ? [value.substr(index, match.index - index), match[0], false] : [value.substr(index), '', true];
     }
 
     function keywordMatch(mode, match) {
@@ -319,11 +329,27 @@ var hljs = new function() {
       return result + buffer.substr(last_index, buffer.length - last_index);
     }
 
-    function processBuffer(buffer, mode) {
-      if (mode.subLanguage && languages[mode.subLanguage]) {
-        var result = highlight(mode.subLanguage, buffer);
+    function processSubLanguage(buffer, mode) {
+      var result;
+      if (mode.subLanguage == '') {
+        result = highlightAuto(buffer);
+      } else {
+        result = highlight(mode.subLanguage, buffer);
+      }
+      // Counting embedded language score towards the host language may be disabled
+      // with zeroing the containing mode relevance. Usecase in point is Markdown that
+      // allows XML everywhere and makes every XML snippet to have a much larger Markdown
+      // score.
+      if (mode.relevance > 0) {
         keyword_count += result.keyword_count;
-        return result.value;
+        relevance += result.relevance;
+      }
+      return '<span class="' + result.language  + '">' + result.value + '</span>';
+    }
+
+    function processBuffer(buffer, mode) {
+      if (mode.subLanguage && languages[mode.subLanguage] || mode.subLanguage == '') {
+        return processSubLanguage(buffer, mode);
       } else {
         return processKeywords(buffer, mode);
       }
@@ -404,12 +430,13 @@ var hljs = new function() {
           index += mode_info[1].length;
         }
       } while (!mode_info[2]);
-      if(modes.length > 1)
+      if(modes.length > 2 || (modes.length == 2 && !modes[1].endsWithParent))
         throw 'Illegal';
       return {
         relevance: relevance,
         keyword_count: keyword_count,
-        value: result
+        value: result,
+        language: language_name
       };
     } catch (e) {
       if (e == 'Illegal') {

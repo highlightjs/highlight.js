@@ -23,124 +23,85 @@ hljs.LANGUAGES.nginx = function() {
         hljs.HASH_COMMENT_MODE,
         { // directive
           begin: hljs.UNDERSCORE_IDENT_RE, end: ';|{', returnEnd: true,
-          keywords: {
-            accept_mutex: 1, accept_mutex_delay: 1, access_log: 1,
-            add_after_body: 1, add_before_body: 1, add_header: 1,
-            addition_types: 1, alias: 1, allow: 1, ancient_browser: 1,
-            ancient_browser_value: 1, auth_basic: 1, auth_basic_user_file: 1,
-            autoindex: 1, autoindex_exact_size: 1, autoindex_localtime: 1,
-            'break': 1, charset: 1, charset_map: 1,
-            charset_types: 1, client_body_buffer_size: 1,
-            client_body_in_file_only: 1, client_body_in_single_buffer: 1,
-            client_body_temp_path: 1, client_body_timeout: 1,
-            client_header_buffer_size: 1, client_header_timeout: 1,
-            client_max_body_size: 1, connection_pool_size: 1, connections: 1,
-            create_full_put_path: 1, daemon: 1, dav_access: 1, dav_methods: 1,
-            debug_connection: 1, debug_points: 1, default_type: 1, deny: 1,
-            directio: 1, directio_alignment: 1, echo: 1, echo_after_body: 1,
-            echo_before_body: 1, echo_blocking_sleep: 1, echo_duplicate: 1,
-            echo_end: 1, echo_exec: 1, echo_flush: 1, echo_foreach_split: 1,
-            echo_location: 1, echo_location_async: 1, echo_read_request_body: 1,
-            echo_request_body: 1, echo_reset_timer: 1, echo_sleep: 1,
-            echo_subrequest: 1, echo_subrequest_async: 1, empty_gif: 1,
-            env: 1, error_log: 1, error_page: 1,
-            events: 1, expires: 1, fastcgi_bind: 1, fastcgi_buffer_size: 1,
-            fastcgi_buffers: 1, fastcgi_busy_buffers_size: 1, fastcgi_cache: 1,
-            fastcgi_cache_key: 1, fastcgi_cache_methods: 1,
-            fastcgi_cache_min_uses: 1, fastcgi_cache_path: 1,
-            fastcgi_cache_use_stale: 1, fastcgi_cache_valid: 1,
-            fastcgi_catch_stderr: 1, fastcgi_connect_timeout: 1,
-            fastcgi_hide_header: 1, fastcgi_ignore_client_abort: 1,
-            fastcgi_ignore_headers: 1, fastcgi_index: 1,
-            fastcgi_intercept_errors: 1, fastcgi_max_temp_file_size: 1,
-            fastcgi_next_upstream: 1, fastcgi_param: 1, fastcgi_pass: 1,
-            fastcgi_pass_header: 1, fastcgi_pass_request_body: 1,
-            fastcgi_pass_request_headers: 1, fastcgi_read_timeout: 1,
-            fastcgi_send_lowat: 1, fastcgi_send_timeout: 1,
-            fastcgi_split_path_info: 1, fastcgi_store: 1, fastcgi_store_access: 1,
-            fastcgi_temp_file_write_size: 1, fastcgi_temp_path: 1,
-            fastcgi_upstream_fail_timeout: 1, fastcgi_upstream_max_fails: 1,
-            flv: 1,  geo: 1, geoip_city: 1, geoip_country: 1, gzip: 1,
-            gzip_buffers: 1, gzip_comp_level: 1, gzip_disable: 1, gzip_hash: 1,
-            gzip_http_version: 1, gzip_min_length: 1, gzip_no_buffer: 1,
-            gzip_proxied: 1, gzip_static: 1, gzip_types: 1, gzip_vary: 1,
-            gzip_window: 1, http: 1, 'if': 1, if_modified_since: 1,
-            ignore_invalid_headers: 1, image_filter: 1, image_filter_buffer: 1,
-            image_filter_jpeg_quality: 1, image_filter_transparency: 1, include: 1,
-            index: 1, internal: 1, ip_hash: 1, js: 1, js_load: 1, js_require: 1,
-            js_utf8: 1, keepalive_requests: 1, keepalive_timeout: 1,
-            kqueue_changes: 1, kqueue_events: 1, large_client_header_buffers: 1,
-            limit_conn: 1, limit_conn_log_level: 1, limit_except: 1, limit_rate: 1,
-            limit_rate_after: 1, limit_req: 1, limit_req_log_level: 1,
-            limit_req_zone: 1, limit_zone: 1, lingering_time: 1,
-            lingering_timeout: 1, listen: 1, location: 1, lock_file: 1,
-            log_format: 1, log_not_found: 1, log_subrequest: 1, map: 1,
-            map_hash_bucket_size: 1, map_hash_max_size: 1, master_process: 1,
-            memcached_bind: 1, memcached_buffer_size: 1,
-            memcached_connect_timeout: 1, memcached_next_upstream: 1,
-            memcached_pass: 1, memcached_read_timeout: 1,
-            memcached_send_timeout: 1, memcached_upstream_fail_timeout: 1,
-            memcached_upstream_max_fails: 1, merge_slashes: 1, min_delete_depth: 1,
-            modern_browser: 1, modern_browser_value: 1, more_clear_headers: 1,
-            more_clear_input_headers: 1, more_set_headers: 1,
-            more_set_input_headers: 1, msie_padding: 1, msie_refresh: 1,
-            multi_accept: 1, open_file_cache: 1, open_file_cache_errors: 1,
-            open_file_cache_events: 1, open_file_cache_min_uses: 1,
-            open_file_cache_retest: 1, open_file_cache_valid: 1,
-            open_log_file_cache: 1, optimize_server_names: 1, output_buffers: 1,
-            override_charset: 1, perl: 1, perl_modules: 1,
-            perl_require: 1, perl_set: 1, pid: 1, port_in_redirect: 1,
-            post_action: 1, postpone_gzipping: 1, postpone_output: 1,
-            proxy_bind: 1, proxy_buffer_size: 1, proxy_buffering: 1,
-            proxy_buffers: 1, proxy_busy_buffers_size: 1, proxy_cache: 1,
-            proxy_cache_key: 1, proxy_cache_methods: 1, proxy_cache_min_uses: 1,
-            proxy_cache_path: 1, proxy_cache_use_stale: 1, proxy_cache_valid: 1,
-            proxy_connect_timeout: 1, proxy_headers_hash_bucket_size: 1,
-            proxy_headers_hash_max_size: 1, proxy_hide_header: 1,
-            proxy_ignore_client_abort: 1, proxy_ignore_headers: 1,
-            proxy_intercept_errors: 1, proxy_max_temp_file_size: 1,
-            proxy_method: 1, proxy_next_upstream: 1, proxy_pass: 1,
-            proxy_pass_header: 1, proxy_pass_request_body: 1,
-            proxy_pass_request_headers: 1, proxy_read_timeout: 1,
-            proxy_redirect: 1, proxy_send_lowat: 1, proxy_send_timeout: 1,
-            proxy_set_body: 1, proxy_set_header: 1, proxy_store: 1,
-            proxy_store_access: 1, proxy_temp_file_write_size: 1,
-            proxy_temp_path: 1, proxy_upstream_fail_timeout: 1,
-            proxy_upstream_max_fails: 1, push_authorized_channels_only: 1,
-            push_channel_group: 1, push_max_channel_id_length: 1,
-            push_max_channel_subscribers: 1, push_max_message_buffer_length: 1,
-            push_max_reserved_memory: 1, push_message_buffer_length: 1,
-            push_message_timeout: 1, push_min_message_buffer_length: 1,
-            push_min_message_recipients: 1, push_publisher: 1,
-            push_store_messages: 1, push_subscriber: 1,
-            push_subscriber_concurrency: 1, random_index: 1, read_ahead: 1,
-            real_ip_header: 1, recursive_error_pages: 1, request_pool_size: 1,
-            reset_timedout_connection: 1, resolver: 1, resolver_timeout: 1,
-            'return': 1, rewrite: 1, rewrite_log: 1, root: 1, satisfy: 1,
-            satisfy_any: 1, send_lowat: 1, send_timeout: 1, sendfile: 1,
-            sendfile_max_chunk: 1, server: 1, server_name: 1,
-            server_name_in_redirect: 1, server_names_hash_bucket_size: 1,
-            server_names_hash_max_size: 1, server_tokens: 1, 'set': 1,
-            set_real_ip_from: 1, source_charset: 1, ssi: 1,
-            ssi_ignore_recycled_buffers: 1, ssi_min_file_chunk: 1,
-            ssi_silent_errors: 1, ssi_types: 1, ssi_value_length: 1, ssl: 1,
-            ssl_certificate: 1, ssl_certificate_key: 1, ssl_ciphers: 1,
-            ssl_client_certificate: 1, ssl_crl: 1, ssl_dhparam: 1,
-            ssl_prefer_server_ciphers: 1, ssl_protocols: 1, ssl_session_cache: 1,
-            ssl_session_timeout: 1, ssl_verify_client: 1, ssl_verify_depth: 1,
-            sub_filter: 1, sub_filter_once: 1, sub_filter_types: 1, tcp_nodelay: 1,
-            tcp_nopush: 1, timer_resolution: 1, try_files: 1, types: 1,
-            types_hash_bucket_size: 1, types_hash_max_size: 1,
-            underscores_in_headers: 1, uninitialized_variable_warn: 1, upstream: 1,
-            use: 1, user: 1, userid: 1, userid_domain: 1, userid_expires: 1, userid_mark: 1,
-            userid_name: 1,  userid_p3p: 1, userid_path: 1, userid_service: 1,
-            valid_referers: 1, variables_hash_bucket_size: 1,
-            variables_hash_max_size: 1, worker_connections: 1,
-            worker_cpu_affinity: 1, worker_priority: 1, worker_processes: 1,
-            worker_rlimit_core: 1, worker_rlimit_nofile: 1,
-            worker_rlimit_sigpending: 1, working_directory: 1, xml_entities: 1,
-            xslt_stylesheet: 1, xslt_types: 1
-          },
+          keywords:
+            'accept_mutex accept_mutex_delay access_log add_after_body add_before_body ' +
+            'add_header addition_types alias allow ancient_browser ancient_browser_value ' +
+            'auth_basic auth_basic_user_file autoindex autoindex_exact_size ' +
+            'autoindex_localtime break charset charset_map charset_types ' +
+            'client_body_buffer_size client_body_in_file_only client_body_in_single_buffer ' +
+            'client_body_temp_path client_body_timeout client_header_buffer_size ' +
+            'client_header_timeout client_max_body_size connection_pool_size connections ' +
+            'create_full_put_path daemon dav_access dav_methods debug_connection ' +
+            'debug_points default_type deny directio directio_alignment echo echo_after_body ' +
+            'echo_before_body echo_blocking_sleep echo_duplicate echo_end echo_exec ' +
+            'echo_flush echo_foreach_split echo_location echo_location_async ' +
+            'echo_read_request_body echo_request_body echo_reset_timer echo_sleep ' +
+            'echo_subrequest echo_subrequest_async empty_gif env error_log error_page events ' +
+            'expires fastcgi_bind fastcgi_buffer_size fastcgi_buffers ' +
+            'fastcgi_busy_buffers_size fastcgi_cache fastcgi_cache_key fastcgi_cache_methods ' +
+            'fastcgi_cache_min_uses fastcgi_cache_path fastcgi_cache_use_stale ' +
+            'fastcgi_cache_valid fastcgi_catch_stderr fastcgi_connect_timeout ' +
+            'fastcgi_hide_header fastcgi_ignore_client_abort fastcgi_ignore_headers ' +
+            'fastcgi_index fastcgi_intercept_errors fastcgi_max_temp_file_size ' +
+            'fastcgi_next_upstream fastcgi_param fastcgi_pass fastcgi_pass_header ' +
+            'fastcgi_pass_request_body fastcgi_pass_request_headers fastcgi_read_timeout ' +
+            'fastcgi_send_lowat fastcgi_send_timeout fastcgi_split_path_info fastcgi_store ' +
+            'fastcgi_store_access fastcgi_temp_file_write_size fastcgi_temp_path ' +
+            'fastcgi_upstream_fail_timeout fastcgi_upstream_max_fails flv geo geoip_city ' +
+            'geoip_country gzip gzip_buffers gzip_comp_level gzip_disable gzip_hash ' +
+            'gzip_http_version gzip_min_length gzip_no_buffer gzip_proxied gzip_static ' +
+            'gzip_types gzip_vary gzip_window http if if_modified_since ' +
+            'ignore_invalid_headers image_filter image_filter_buffer ' +
+            'image_filter_jpeg_quality image_filter_transparency include index internal ' +
+            'ip_hash js js_load js_require js_utf8 keepalive_requests keepalive_timeout ' +
+            'kqueue_changes kqueue_events large_client_header_buffers limit_conn ' +
+            'limit_conn_log_level limit_except limit_rate limit_rate_after limit_req ' +
+            'limit_req_log_level limit_req_zone limit_zone lingering_time lingering_timeout ' +
+            'listen location lock_file log_format log_not_found log_subrequest map ' +
+            'map_hash_bucket_size map_hash_max_size master_process memcached_bind ' +
+            'memcached_buffer_size memcached_connect_timeout memcached_next_upstream ' +
+            'memcached_pass memcached_read_timeout memcached_send_timeout ' +
+            'memcached_upstream_fail_timeout memcached_upstream_max_fails merge_slashes ' +
+            'min_delete_depth modern_browser modern_browser_value more_clear_headers ' +
+            'more_clear_input_headers more_set_headers more_set_input_headers msie_padding ' +
+            'msie_refresh multi_accept open_file_cache open_file_cache_errors ' +
+            'open_file_cache_events open_file_cache_min_uses open_file_cache_retest ' +
+            'open_file_cache_valid open_log_file_cache optimize_server_names output_buffers ' +
+            'override_charset perl perl_modules perl_require perl_set pid port_in_redirect ' +
+            'post_action postpone_gzipping postpone_output proxy_bind proxy_buffer_size ' +
+            'proxy_buffering proxy_buffers proxy_busy_buffers_size proxy_cache ' +
+            'proxy_cache_key proxy_cache_methods proxy_cache_min_uses proxy_cache_path ' +
+            'proxy_cache_use_stale proxy_cache_valid proxy_connect_timeout ' +
+            'proxy_headers_hash_bucket_size proxy_headers_hash_max_size proxy_hide_header ' +
+            'proxy_ignore_client_abort proxy_ignore_headers proxy_intercept_errors ' +
+            'proxy_max_temp_file_size proxy_method proxy_next_upstream proxy_pass ' +
+            'proxy_pass_header proxy_pass_request_body proxy_pass_request_headers ' +
+            'proxy_read_timeout proxy_redirect proxy_send_lowat proxy_send_timeout ' +
+            'proxy_set_body proxy_set_header proxy_store proxy_store_access ' +
+            'proxy_temp_file_write_size proxy_temp_path proxy_upstream_fail_timeout ' +
+            'proxy_upstream_max_fails push_authorized_channels_only push_channel_group ' +
+            'push_max_channel_id_length push_max_channel_subscribers ' +
+            'push_max_message_buffer_length push_max_reserved_memory ' +
+            'push_message_buffer_length push_message_timeout push_min_message_buffer_length ' +
+            'push_min_message_recipients push_publisher push_store_messages push_subscriber ' +
+            'push_subscriber_concurrency random_index read_ahead real_ip_header ' +
+            'recursive_error_pages request_pool_size reset_timedout_connection resolver ' +
+            'resolver_timeout return rewrite rewrite_log root satisfy satisfy_any ' +
+            'send_lowat send_timeout sendfile sendfile_max_chunk server server_name ' +
+            'server_name_in_redirect server_names_hash_bucket_size server_names_hash_max_size ' +
+            'server_tokens set set_real_ip_from source_charset ssi ' +
+            'ssi_ignore_recycled_buffers ssi_min_file_chunk ssi_silent_errors ssi_types ' +
+            'ssi_value_length ssl ssl_certificate ssl_certificate_key ssl_ciphers ' +
+            'ssl_client_certificate ssl_crl ssl_dhparam ssl_prefer_server_ciphers ' +
+            'ssl_protocols ssl_session_cache ssl_session_timeout ssl_verify_client ' +
+            'ssl_verify_depth sub_filter sub_filter_once sub_filter_types tcp_nodelay ' +
+            'tcp_nopush timer_resolution try_files types types_hash_bucket_size ' +
+            'types_hash_max_size underscores_in_headers uninitialized_variable_warn upstream ' +
+            'use user userid userid_domain userid_expires userid_mark userid_name userid_p3p ' +
+            'userid_path userid_service valid_referers variables_hash_bucket_size ' +
+            'variables_hash_max_size worker_connections worker_cpu_affinity worker_priority ' +
+            'worker_processes worker_rlimit_core worker_rlimit_nofile ' +
+            'worker_rlimit_sigpending working_directory xml_entities xslt_stylesheet xslt_types',
           relevance: 0,
           contains: [
             hljs.HASH_COMMENT_MODE,
@@ -148,13 +109,9 @@ hljs.LANGUAGES.nginx = function() {
               begin: '\\s', end: '[;{]', returnBegin: true, returnEnd: true,
               lexems: '[a-z/]+',
               keywords: {
-                'built_in': {
-                  'on': 1, 'off': 1, 'yes': 1, 'no': 1, 'true': 1, 'false': 1,
-                  'none': 1, 'blocked': 1, 'debug': 1, 'info': 1, 'notice': 1,
-                  'warn': 1, 'error': 1, 'crit': 1, 'select': 1, 'permanent': 1,
-                  'redirect': 1, 'kqueue': 1, 'rtsig': 1, 'epoll': 1, 'poll': 1,
-                  '/dev/poll': 1
-                }
+                built_in:
+                  'on off yes no true false none blocked debug info notice warn error crit ' +
+                  'select permanent redirect kqueue rtsig epoll poll /dev/poll'
               },
               relevance: 0,
               contains: [

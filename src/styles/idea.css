@@ -32,7 +32,8 @@ pre .pi,
 pre .chunk,
 pre .shebang,
 pre .apache .cbracket,
-pre .input_number {
+pre .input_number,
+pre .http .title {
   color: #808000;
 }
 
@@ -52,7 +53,9 @@ pre .css .function,
 pre .ini .title,
 pre .css .class,
 pre .list .title,
-pre .tex .command {
+pre .tex .command,
+pre .request,
+pre .status {
   font-weight: bold;
   color: #000080;
 }
