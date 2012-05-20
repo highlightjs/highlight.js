@@ -17,7 +17,6 @@ REPLACES = {
     'contains': 'c',
     'keywords': 'k',
     'subLanguage': 'sL',
-    'modes': 'm',
     'className': 'cN',
     'begin': 'b',
     'beginWithKeyword': 'bWK',
@@ -28,7 +27,6 @@ REPLACES = {
     'excludeEnd': 'eE',
     'returnBegin': 'rB',
     'returnEnd': 'rE',
-    'noMarkup': 'nM',
     'relevance': 'r',
 
     'IDENT_RE': 'IR',
