@@ -5,7 +5,6 @@ pre-packed modules.
 '''
 
 import os
-import sys
 import re
 import optparse
 import subprocess
@@ -31,6 +30,7 @@ REPLACES = {
     'returnEnd': 'rE',
     'noMarkup': 'nM',
     'relevance': 'r',
+
     'IDENT_RE': 'IR',
     'UNDERSCORE_IDENT_RE': 'UIR',
     'NUMBER_RE': 'NR',
@@ -46,9 +46,7 @@ REPLACES = {
     'C_NUMBER_MODE': 'CNM',
     'BINARY_NUMBER_MODE': 'BNM',
     'NUMBER_MODE': 'NM',
-}
 
-LIBRARY_REPLACES = {
     'beginRe': 'bR',
     'endRe': 'eR',
     'illegalRe': 'iR',
@@ -86,16 +84,9 @@ def mapnonstrings(source, func):
     return ''.join(result)
 
 def compress_content(tools_path, content):
-
-    def replace(s, r, content):
-        return re.sub(r'(?<=[^\w"\'|])%s(?=[^\w"\'|])' % s, r, content)
-
     for s, r in REPLACES.items():
-        content = mapnonstrings(content, partial(replace, s, r))
-    if not parse_header(content): # this is the highlight.js file, not a language file
-        content = re.sub(r'(block|parentNode)\.cN', r'\1.className', content)
-        for s, r in LIBRARY_REPLACES.items():
-            content = replace(s, r, content)
+        content = mapnonstrings(content, partial(re.sub, r'\b%s\b' % s, r))
+    content = re.sub(r'(block|parentNode)\.cN', r'\1.className', content)
 
     args = ['java', '-jar', os.path.join(tools_path, 'yuicompressor.jar'), '--type', 'js']
     p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
@@ -162,16 +153,17 @@ def language_filenames(src_path, languages):
 def build(root, compress, languages):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')
-    files = [os.path.join(src_path, 'highlight.js')] + \
-            language_filenames(src_path, languages)
-    f = open(os.path.join(src_path, 'highlight.pack.js'), 'w')
-    for file in files:
-        print file
-        content = open(file).read()
-        if compress:
-            content = compress_content(tools_path, content)
-        f.write(content)
-    f.close()
+    filenames = language_filenames(src_path, languages)
+    print 'Building %d files:\n%s' % (len(filenames), '\n'.join(filenames))
+    content = open(os.path.join(src_path, 'highlight.js')).read() + \
+              ''.join(open(f).read() for f in filenames)
+    print 'Uncompressed size:', len(content)
+    if compress:
+        print 'Compressing...'
+        content = compress_content(tools_path, content)
+        print 'Compressed size:', len(content)
+    open(os.path.join(src_path, 'highlight.pack.js'), 'w').write(content)
+    print 'Done.'
 
 if __name__ == '__main__':
     parser = optparse.OptionParser()
