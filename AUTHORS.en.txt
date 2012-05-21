@@ -57,3 +57,4 @@ Contributors:
 - Aleksandar Ruzicic <aleksandar@ruzicic.info>
 - Joe Cheng <joe@rstudio.org>
 - Angel G. Olloqui <angelgarcia.mail@gmail.com>
+- Jason Tate <adminz@web-cms-designs.com>

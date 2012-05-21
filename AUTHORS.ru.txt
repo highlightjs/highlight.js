@@ -57,3 +57,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Александр Ружичич <aleksandar@ruzicic.info>
 - Джо Ченг <joe@rstudio.org>
 - Анхель Ойоки <angelgarcia.mail@gmail.com>
+- Джейсон Тейт <adminz@web-cms-designs.com>
