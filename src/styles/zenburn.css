@@ -56,7 +56,7 @@ pre .ruby .subst {
 pre .dos .keyword,
 pre .python .decorator,
 pre .title,
-pre .haskell .label,
+pre .haskell .type,
 pre .diff .header,
 pre .ruby .class .parent,
 pre .apache .tag,

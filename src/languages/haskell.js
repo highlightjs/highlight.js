@@ -4,16 +4,16 @@ Author: Jeremy Hull <sourdrums@gmail.com>
 */
 
 hljs.LANGUAGES.haskell = function(){
-  var LABEL = {
-    className: 'label',
+  var TYPE = {
+    className: 'type',
     begin: '\\b[A-Z][\\w\']*',
     relevance: 0
   };
   var CONTAINER = {
     className: 'container',
-    begin: '\\(', end: '\\)',
+    begin: '\\(|{', end: '\\)|}',
     contains: [
-      {className: 'label', begin: '\\b[A-Z][\\w\\(\\)\\.\']*'},
+      {className: 'type', begin: '\\b[A-Z][\\w\\(\\)\\.\']*'},
       {className: 'title', begin: '[_a-z][\\w\']*'}
     ]
   };
@@ -57,14 +57,14 @@ hljs.LANGUAGES.haskell = function(){
           className: 'class',
           begin: '\\b(class|instance|data|(new)?type)', end: '(where|$)',
           keywords: 'class where instance data type newtype deriving',
-          contains: [LABEL]
+          contains: [TYPE]
         },
         hljs.C_NUMBER_MODE,
         {
           className: 'shebang',
           begin: '#!\\/usr\\/bin\\/env\ runhaskell', end: '$'
         },
-        LABEL,
+        TYPE,
         {
           className: 'title', begin: '^[_a-z][\\w\']*'
         }
