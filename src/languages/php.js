@@ -75,7 +75,7 @@ hljs.LANGUAGES.php = function() {
           className: 'function',
           beginWithKeyword: true, end: '{',
           keywords: 'function',
-          illegal: '\\$',
+          illegal: '\\$|\\[|%',
           contains: [
             TITLE,
             {

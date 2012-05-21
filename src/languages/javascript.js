@@ -48,7 +48,8 @@ hljs.LANGUAGES.javascript = {
             ],
             illegal: '["\'\\(]'
           }
-        ]
+        ],
+        illegal: '\\[|%'
       }
     ]
   }
