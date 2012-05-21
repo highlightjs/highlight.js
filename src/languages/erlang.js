@@ -115,7 +115,6 @@ hljs.LANGUAGES.erlang = function(){
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)',
-    endsWithParent: true,
     contains: BASIC_MODES
   };
   return {
@@ -125,19 +124,20 @@ hljs.LANGUAGES.erlang = function(){
       contains: [
         {
           className: 'function',
-          begin: '^' + BASIC_ATOM_RE + '\\(', end: ';|\\.',
+          begin: '^' + BASIC_ATOM_RE + '\\(', end: '->',
           returnBegin: true,
+          illegal: '\\(|#|//',
           contains: [
             PARAMS,
             {
               className: 'title', begin: BASIC_ATOM_RE
-            },
-            {
-              keywords: ERLANG_RESERVED,
-              begin: '->', endsWithParent: true,
-              contains: BASIC_MODES
             }
-          ]
+          ],
+          starts: {
+            end: ';|\\.',
+            keywords: ERLANG_RESERVED,
+            contains: BASIC_MODES
+          }
         },
         COMMENT,
         {
