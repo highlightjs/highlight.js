@@ -11,12 +11,17 @@ hljs.LANGUAGES.haskell = function(){
   };
   var CONTAINER = {
     className: 'container',
-    begin: '\\(|{', end: '\\)|}',
+    begin: '\\(', end: '\\)',
     contains: [
-      {className: 'type', begin: '\\b[A-Z][\\w\\(\\)\\.\']*'},
+      {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
       {className: 'title', begin: '[_a-z][\\w\']*'}
     ]
   };
+  var CONTAINER2 = {
+    className: 'container',
+    begin: '{', end: '}',
+    contains: CONTAINER.contains
+  }
 
   return {
     defaultMode: {
@@ -59,9 +64,15 @@ hljs.LANGUAGES.haskell = function(){
         },
         {
           className: 'class',
-          begin: '\\b(class|instance|data|(new)?type)', end: '(where|$)',
-          keywords: 'class where instance data type newtype deriving',
+          begin: '\\b(class|instance)', end: 'where',
+          keywords: 'class where instance',
           contains: [TYPE]
+        },
+        {
+          className: 'typedef',
+          begin: '\\b(data|(new)?type)', end: '$',
+          keywords: 'data type newtype deriving',
+          contains: [TYPE, CONTAINER, CONTAINER2]
         },
         hljs.C_NUMBER_MODE,
         {

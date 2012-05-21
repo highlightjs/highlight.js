@@ -491,6 +491,7 @@ Haskell ("haskell"):
   class            type classes and other data types
   title            function name
   type             type class name
+  typedef          definition of types (type, newtype, data)
 
 Erlang ("erlang"):
 
