@@ -43,13 +43,15 @@ hljs.LANGUAGES.haskell = function(){
           className: 'import',
           begin: '\\bimport', end: '$',
           keywords: 'import qualified as hiding',
-          contains: [CONTAINER]
+          contains: [CONTAINER],
+          illegal: '\\.|;'
         },
         {
           className: 'module',
           begin: '\\bmodule', end: 'where',
           keywords: 'module where',
-          contains: [CONTAINER]
+          contains: [CONTAINER],
+          illegal: '\\.|;'
         },
         {
           className: 'class',
