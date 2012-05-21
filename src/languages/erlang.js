@@ -124,9 +124,9 @@ hljs.LANGUAGES.erlang = function(){
       contains: [
         {
           className: 'function',
-          begin: '^' + BASIC_ATOM_RE + '\\(', end: '->',
+          begin: '^' + BASIC_ATOM_RE, end: '->',
           returnBegin: true,
-          illegal: '\\(|#|//',
+          illegal: '\\(|#|//|/\\*|\\\\|:',
           contains: [
             PARAMS,
             {
