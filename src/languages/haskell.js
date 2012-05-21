@@ -22,11 +22,15 @@ hljs.LANGUAGES.haskell = function(){
     defaultMode: {
       keywords:
         'let in if then else case of where do module import hiding qualified type data ' +
-        'newtype deriving class instance null not as',
+        'newtype deriving class instance not as foreign ccall safe unsafe',
       contains: [
         {
           className: 'comment',
           begin: '--', end: '$'
+        },
+        {
+          className: 'preprocessor',
+          begin: '{-#', end: '#-}'
         },
         {
           className: 'comment',
