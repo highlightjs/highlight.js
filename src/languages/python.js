@@ -76,7 +76,7 @@ hljs.LANGUAGES.python = function() {
           begin: '@', end: '$'
         },
         {
-          begin: 'print\\(' // don’t highlight function-style "print" in Python 3 as a keyword
+          begin: '\\b(print|exec)\\(' // don’t highlight keywords-turned-functions in Python 3
         }
       ])
     }
