@@ -66,7 +66,7 @@ pre .smalltalk .number,
 pre .constant,
 pre .class .title,
 pre .parent,
-pre .haskell .label {
+pre .haskell .type {
   color: #b58900;
 }
 
