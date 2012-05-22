@@ -1501,32 +1501,44 @@ $$
     <th>Haskell
     <td class="haskell">
 <pre>
-<code>module Shapes
-( Point(..)  ,
-  Shape(..)  ,
-  surface    ,
-  baseCircle ,
-  baseRect
+<code>{-# LANGUAGE TypeSynonymInstances #-}
+module Network.UDP
+( DataPacket(..)
+, openBoundUDPPort
+, openListeningUDPPort
+, pingUDPPort
+, sendUDPPacketTo
+, recvUDPPacket
+, recvUDPPacketFrom
 ) where
 
--- Single line comment
-{-
-multi
-line
-comment
--}
-data Point = Point Float Float deriving (Show)
-data Shape = Circle Point Float | Rectangle Point Point deriving (Show)
+import qualified Data.ByteString as Strict (ByteString, concat, singleton)
+import qualified Data.ByteString.Lazy as Lazy (ByteString, toChunks, fromChunks)
+import Data.ByteString.Char8 (pack, unpack)
+import Network.Socket hiding (sendTo, recv, recvFrom)
+import Network.Socket.ByteString (sendTo, recv, recvFrom)
 
-surface :: Shape -> Float
-surface (Circle _ r) = pi * r^2
-surface (Rectangle (Point x1 y1) (Point x2 y2)) = (abs $ x2 - x1) * (abs $ y2 - y1)
+-- Type class for converting StringLike types to and from strict ByteStrings
+class DataPacket a where
+  toStrictBS :: a -> Strict.ByteString
+  fromStrictBS :: Strict.ByteString -> a
 
-baseCircle :: Float -> Shape
-baseCircle r = Circle(Point 0 0) r
+instance DataPacket Strict.ByteString where
+  toStrictBS = id
+  {-# INLINE toStrictBS #-}
+  fromStrictBS = id
+  {-# INLINE fromStrictBS #-}
 
-baseRect :: Float -> Float -> Shape
-baseRect w h = Rectangle (Point 0 0) (Point w h)
+openBoundUDPPort :: String -> Int -> IO Socket
+openBoundUDPPort uri port = do
+  s <- getUDPSocket
+  bindAddr <- inet_addr uri
+  let a = SockAddrInet (toEnum port) bindAddr
+  bindSocket s a
+  return s
+
+pingUDPPort :: Socket -> SockAddr -> IO ()
+pingUDPPort s a = sendTo s (Strict.singleton 0) a >> return ()
 </code></pre>
 
   <tr>
