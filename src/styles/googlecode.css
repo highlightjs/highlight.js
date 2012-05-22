@@ -67,7 +67,7 @@ pre .css .function {
 }
 
 pre .class .title,
-pre .haskell .label,
+pre .haskell .type,
 pre .smalltalk .class,
 pre .javadoctag,
 pre .yardoctag,

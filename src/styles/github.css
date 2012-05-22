@@ -55,7 +55,7 @@ pre .subst {
 }
 
 pre .class .title,
-pre .haskell .label,
+pre .haskell .type,
 pre .vhdl .literal,
 pre .tex .command {
   color: #458;
