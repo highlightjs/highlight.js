@@ -74,6 +74,9 @@ hljs.LANGUAGES.python = function() {
         {
           className: 'decorator',
           begin: '@', end: '$'
+        },
+        {
+          begin: 'print\\(' // don’t highlight function-style "print" in Python 3 as a keyword
         }
       ])
     }
