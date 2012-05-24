@@ -27,7 +27,7 @@ hljs.LANGUAGES.nginx = function() {
             'accept_mutex accept_mutex_delay access_log add_after_body add_before_body ' +
             'add_header addition_types alias allow ancient_browser ancient_browser_value ' +
             'auth_basic auth_basic_user_file autoindex autoindex_exact_size ' +
-            'autoindex_localtime break charset charset_map charset_types ' +
+            'autoindex_localtime charset charset_map charset_types ' +
             'client_body_buffer_size client_body_in_file_only client_body_in_single_buffer ' +
             'client_body_temp_path client_body_timeout client_header_buffer_size ' +
             'client_header_timeout client_max_body_size connection_pool_size connections ' +
@@ -37,7 +37,9 @@ hljs.LANGUAGES.nginx = function() {
             'echo_flush echo_foreach_split echo_location echo_location_async ' +
             'echo_read_request_body echo_request_body echo_reset_timer echo_sleep ' +
             'echo_subrequest echo_subrequest_async empty_gif env error_log error_page events ' +
-            'expires fastcgi_bind fastcgi_buffer_size fastcgi_buffers ' +
+            'expires ' +
+
+            'fastcgi_bind fastcgi_buffer_size fastcgi_buffers ' +
             'fastcgi_busy_buffers_size fastcgi_cache fastcgi_cache_key fastcgi_cache_methods ' +
             'fastcgi_cache_min_uses fastcgi_cache_path fastcgi_cache_use_stale ' +
             'fastcgi_cache_valid fastcgi_catch_stderr fastcgi_connect_timeout ' +
@@ -47,7 +49,20 @@ hljs.LANGUAGES.nginx = function() {
             'fastcgi_pass_request_body fastcgi_pass_request_headers fastcgi_read_timeout ' +
             'fastcgi_send_lowat fastcgi_send_timeout fastcgi_split_path_info fastcgi_store ' +
             'fastcgi_store_access fastcgi_temp_file_write_size fastcgi_temp_path ' +
-            'fastcgi_upstream_fail_timeout fastcgi_upstream_max_fails flv geo geoip_city ' +
+            'fastcgi_upstream_fail_timeout fastcgi_upstream_max_fails ' +
+
+            'uwsgi_bind uwsgi_buffer_size uwsgi_buffering uwsgi_buffers ' +
+            'uwsgi_busy_buffers_size uwsgi_cache uwsgi_cache_bypass uwsgi_cache_key ' +
+            'uwsgi_cache_methods uwsgi_cache_min_uses uwsgi_cache_path uwsgi_cache_use_stale ' +
+            'uwsgi_cache_valid uwsgi_connect_timeout uwsgi_hide_header ' +
+            'uwsgi_ignore_client_abort uwsgi_ignore_headers uwsgi_intercept_errors ' +
+            'uwsgi_max_temp_file_size uwsgi_modifier1 uwsgi_modifier2 uwsgi_next_upstream ' +
+            'uwsgi_no_cache uwsgi_param uwsgi_pass uwsgi_pass_header uwsgi_pass_request_body ' +
+            'uwsgi_pass_request_headers uwsgi_read_timeout uwsgi_send_timeout ' +
+            'uwsgi_store uwsgi_store_access uwsgi_string uwsgi_temp_file_write_size ' +
+            'uwsgi_temp_path ' +
+
+            'flv geo geoip_city ' +
             'geoip_country gzip gzip_buffers gzip_comp_level gzip_disable gzip_hash ' +
             'gzip_http_version gzip_min_length gzip_no_buffer gzip_proxied gzip_static ' +
             'gzip_types gzip_vary gzip_window http if if_modified_since ' +
@@ -111,7 +126,7 @@ hljs.LANGUAGES.nginx = function() {
               keywords: {
                 built_in:
                   'on off yes no true false none blocked debug info notice warn error crit ' +
-                  'select permanent redirect kqueue rtsig epoll poll /dev/poll'
+                  'select break last permanent redirect kqueue rtsig epoll poll /dev/poll'
               },
               relevance: 0,
               contains: [
