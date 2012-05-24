@@ -50,7 +50,7 @@ hljs.LANGUAGES.python = function() {
   };
   var FUNC_CLASS_PROTO = {
     beginWithKeyword: true, end: ':',
-    illegal: '[${=;]',
+    illegal: '[${=;\\n]',
     contains: [TITLE, PARAMS],
     relevance: 10
   };
