@@ -90,20 +90,17 @@ hljs.LANGUAGES.ruby = function(){
     {
       className: 'string',
       begin: '%[qw]?\\(', end: '\\)',
-      contains: STR_CONTAINS,
-      relevance: 10
+      contains: STR_CONTAINS
     },
     {
       className: 'string',
       begin: '%[qw]?\\[', end: '\\]',
-      contains: STR_CONTAINS,
-      relevance: 10
+      contains: STR_CONTAINS
     },
     {
       className: 'string',
       begin: '%[qw]?{', end: '}',
-      contains: STR_CONTAINS,
-      relevance: 10
+      contains: STR_CONTAINS
     },
     {
       className: 'string',
