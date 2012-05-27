@@ -58,3 +58,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Джо Ченг <joe@rstudio.org>
 - Анхель Ойоки <angelgarcia.mail@gmail.com>
 - Джейсон Тейт <adminz@web-cms-designs.com>
+- Сергей Тихомиров <me@stikhomirov.com>
