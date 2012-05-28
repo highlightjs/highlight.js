@@ -2,7 +2,7 @@
 Language: Python
 */
 
-hljs.LANGUAGES.python = function() {
+function(hljs) {
   var STRINGS = [
     {
       className: 'string',
@@ -81,4 +81,4 @@ hljs.LANGUAGES.python = function() {
       ])
     }
   };
-}();
+}

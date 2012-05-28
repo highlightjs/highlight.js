@@ -3,7 +3,7 @@ Syntax highlighting with language autodetection.
 http://softwaremaniacs.org/soft/highlight/
 */
 
-var hljs = new function() {
+function() {
 
   /* Utility functions */
 
@@ -665,4 +665,4 @@ var hljs = new function() {
         result[key] = obj[key];
     return result;
   }
-}();
+}

@@ -3,7 +3,7 @@ Language: Bash
 Author: vah <vahtenberg@gmail.com>
 */
 
-hljs.LANGUAGES.bash = function(){
+function(hljs) {
   var BASH_LITERAL = 'true false';
   var VAR1 = {
     className: 'variable',
@@ -60,4 +60,4 @@ hljs.LANGUAGES.bash = function(){
       ]
     }
   };
-}();
+}

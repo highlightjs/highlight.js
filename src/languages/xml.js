@@ -2,7 +2,7 @@
 Language: HTML, XML
 */
 
-hljs.LANGUAGES.xml = function(){
+function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
   var TAG_INTERNALS = {
     endsWithParent: true,
@@ -104,4 +104,4 @@ hljs.LANGUAGES.xml = function(){
       ]
     }
   };
-}();
+}

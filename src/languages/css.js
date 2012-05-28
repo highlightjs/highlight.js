@@ -2,7 +2,7 @@
 Language: CSS
 */
 
-hljs.LANGUAGES.css = function() {
+function(hljs) {
   var FUNCTION = {
     className: 'function',
     begin: hljs.IDENT_RE + '\\(', end: '\\)',
@@ -98,4 +98,4 @@ hljs.LANGUAGES.css = function() {
       ]
     }
   };
-}();
+}

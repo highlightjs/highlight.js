@@ -148,19 +148,31 @@ def language_filenames(src_path, languages):
         append(filename)
     return [os.path.join(lang_path, f) for f in filenames]
 
-def build(root, compress, languages):
+def strip_read(filename):
+    s = open(filename).read()
+    pattern = re.compile(r'^\s*(/\*(.*?)\*/)?\s*', re.DOTALL)
+    s = pattern.sub('', s)
+    return s.strip()
+
+def build_browser(root, languages, options):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')
+    build_path = os.path.join(root, 'build')
     filenames = language_filenames(src_path, languages)
     print 'Building %d files:\n%s' % (len(filenames), '\n'.join(filenames))
-    content = open(os.path.join(src_path, 'highlight.js')).read() + \
-              ''.join(open(f).read() for f in filenames)
+    hljs = 'var hljs = %s();' % strip_read(os.path.join(src_path, 'highlight.js'))
+    files = (strip_read(f) for f in filenames)
+    languages = [os.path.splitext(os.path.basename(f))[0] for f in filenames]
+    files = ['\nhljs.LANGUAGES[\'%s\'] = %s(hljs);' % (l, f) for l, f in zip(languages, files)]
+    content = ''.join([hljs] + files)
     print 'Uncompressed size:', len(content)
-    if compress:
+    if options.compress:
         print 'Compressing...'
         content = compress_content(tools_path, content)
         print 'Compressed size:', len(content)
-    open(os.path.join(src_path, 'highlight.pack.js'), 'w').write(content)
+    if not os.path.exists(build_path):
+        os.mkdir(build_path)
+    open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
     print 'Done.'
 
 if __name__ == '__main__':
@@ -168,9 +180,18 @@ if __name__ == '__main__':
     parser.add_option(
         '-n', '--no-compress',
         dest = 'compress', action = 'store_false', default = True,
-        help = 'don\'t compress source files',
+        help = 'Don\'t compress source files. Compression only works for the "browser" target',
+    )
+    parser.add_option(
+        '-t', '--target',
+        dest = 'target', default = 'browser',
+        help = 'Target format: "browser" or "commonjs"',
     )
     parser.set_usage('%prog [options] [<language>|:<category> ...]')
     options, args = parser.parse_args()
+    try:
+        build = locals()['build_%s' % options.target]
+    except KeyError:
+        print 'Unknown target:', options.target
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    build(root, options.compress, args)
+    build(root, args, options)
