@@ -532,3 +532,12 @@ R ("r"):
   keyword          language keywords (function, if) plus "structural"
                    functions (attach, require, setClass)
   literal          special literal: TRUE, FALSE, NULL, NA, etc.
+
+OpenGL Shading Language ("glsl"):
+  
+  comment          comment
+  number           number
+  preprocessor     preprocessor directive
+  keyword          keyword
+  built_in         GLSL built-in functions and variables
+  literal          true false
