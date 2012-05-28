@@ -160,7 +160,7 @@ def build_browser(root, languages, options):
     build_path = os.path.join(root, 'build')
     filenames = language_filenames(src_path, languages)
     print 'Building %d files:\n%s' % (len(filenames), '\n'.join(filenames))
-    hljs = 'var hljs = %s();' % strip_read(os.path.join(src_path, 'highlight.js'))
+    hljs = 'var hljs = new %s();' % strip_read(os.path.join(src_path, 'highlight.js'))
     files = (strip_read(f) for f in filenames)
     languages = [os.path.splitext(os.path.basename(f))[0] for f in filenames]
     files = ['\nhljs.LANGUAGES[\'%s\'] = %s(hljs);' % (l, f) for l, f in zip(languages, files)]
