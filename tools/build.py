@@ -211,7 +211,7 @@ if __name__ == '__main__':
     parser.add_option(
         '-t', '--target',
         dest = 'target', default = 'browser',
-        help = 'Target format: "browser" or "commonjs"',
+        help = 'Target format: "browser" or "node"',
     )
     parser.set_usage('%prog [options] [<language>|:<category> ...]')
     options, args = parser.parse_args()
