@@ -6,6 +6,7 @@ pre-packed modules.
 
 import os
 import shutil
+import sys
 import re
 import optparse
 import subprocess
@@ -219,5 +220,6 @@ if __name__ == '__main__':
         buildfunc = locals()['build_%s' % options.target]
     except KeyError:
         print 'Unknown target:', options.target
+        sys.exit(1)
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     build(buildfunc, root, args, options)
