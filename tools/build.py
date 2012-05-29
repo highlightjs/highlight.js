@@ -5,6 +5,7 @@ pre-packed modules.
 '''
 
 import os
+import shutil
 import re
 import optparse
 import subprocess
@@ -154,10 +155,9 @@ def strip_read(filename):
     s = pattern.sub('', s)
     return s.strip()
 
-def build_browser(root, languages, options):
+def build_browser(root, build_path, languages, options):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')
-    build_path = os.path.join(root, 'build')
     filenames = language_filenames(src_path, languages)
     print 'Building %d files:\n%s' % (len(filenames), '\n'.join(filenames))
     hljs = 'var hljs = new %s();' % strip_read(os.path.join(src_path, 'highlight.js'))
@@ -170,18 +170,13 @@ def build_browser(root, languages, options):
         print 'Compressing...'
         content = compress_content(tools_path, content)
         print 'Compressed size:', len(content)
-    if not os.path.exists(build_path):
-        os.mkdir(build_path)
     open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
     print 'Done.'
 
-def build_node(root, languages, options):
+def build_node(root, build_path, languages, options):
     src_path = os.path.join(root, 'src')
-    build_path = os.path.join(root, 'build')
     filenames = language_filenames(src_path, languages)
     print 'Building %d files:' % len(filenames)
-    if not os.path.exists(build_path):
-        os.mkdir(build_path)
     for filename in filenames:
         print filename
         content = 'module.exports = %s' % strip_read(filename)
@@ -199,6 +194,12 @@ def build_node(root, languages, options):
         print 'Notice: not compressing files for "node" target.'
     print 'Done.'
 
+def build(buildfunc, root, *args):
+    build_path = os.path.join(root, 'build')
+    if os.path.exists(build_path):
+        shutil.rmtree(build_path)
+    os.mkdir(build_path)
+    buildfunc(root, build_path, *args)
 
 if __name__ == '__main__':
     parser = optparse.OptionParser()
@@ -215,8 +216,8 @@ if __name__ == '__main__':
     parser.set_usage('%prog [options] [<language>|:<category> ...]')
     options, args = parser.parse_args()
     try:
-        build = locals()['build_%s' % options.target]
+        buildfunc = locals()['build_%s' % options.target]
     except KeyError:
         print 'Unknown target:', options.target
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    build(root, args, options)
+    build(buildfunc, root, args, options)
