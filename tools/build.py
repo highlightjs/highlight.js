@@ -175,6 +175,31 @@ def build_browser(root, languages, options):
     open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
     print 'Done.'
 
+def build_node(root, languages, options):
+    src_path = os.path.join(root, 'src')
+    build_path = os.path.join(root, 'build')
+    filenames = language_filenames(src_path, languages)
+    print 'Building %d files:' % len(filenames)
+    if not os.path.exists(build_path):
+        os.mkdir(build_path)
+    for filename in filenames:
+        print filename
+        content = 'module.exports = %s' % strip_read(filename)
+        open(os.path.join(build_path, os.path.basename(filename)), 'w').write(content)
+    filename = os.path.join(src_path, 'highlight.js')
+    print filename
+    hljs = 'var hljs = new %s();' % strip_read(filename)
+    print 'Registering languages with the library...'
+    filenames = map(os.path.basename, filenames)
+    for filename in filenames:
+        hljs += '\nhljs.LANGUAGES[\'%s\'] = require(\'./%s\')(hljs);' % (os.path.splitext(filename)[0], filename)
+    hljs += '\nmodule.exports = hljs;'
+    open(os.path.join(build_path, 'highlight.js'), 'w').write(hljs)
+    if options.compress:
+        print 'Notice: not compressing files for "node" target.'
+    print 'Done.'
+
+
 if __name__ == '__main__':
     parser = optparse.OptionParser()
     parser.add_option(
