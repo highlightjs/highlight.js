@@ -3,7 +3,7 @@ Language: Lua
 Author: Andrew Fedorov <dmmdrs@mail.ru>
 */
 
-hljs.LANGUAGES.lua = function() {
+function(hljs) {
   var OPENING_LONG_BRACKET = '\\[=*\\[';
   var CLOSING_LONG_BRACKET = '\\]=*\\]';
   var LONG_BRACKETS = {
@@ -64,4 +64,4 @@ hljs.LANGUAGES.lua = function() {
       ])
     }
   };
-}();
+}

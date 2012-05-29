@@ -5,7 +5,7 @@ Contributors: Oleg Efimov <efimovov@gmail.com>
 Description: CoffeeScript is a programming language that transcompiles to JavaScript. For info about language see http://coffeescript.org/
 */
 
-hljs.LANGUAGES.coffeescript = function() {
+function(hljs) {
   var keywords = {
     keyword:
       // JS keywords
@@ -98,4 +98,4 @@ hljs.LANGUAGES.coffeescript = function() {
       ]
     }
   };
-}();
+}

@@ -3,7 +3,7 @@ Language: Smalltalk
 Author: Vladimir Gubarkov <xonixx@gmail.com>
 */
 
-hljs.LANGUAGES.smalltalk = function() {
+function(hljs) {
   var VAR_IDENT_RE = '[a-z][a-zA-Z0-9_]*';
   var CHAR = {
     className: 'char',
@@ -52,4 +52,4 @@ hljs.LANGUAGES.smalltalk = function() {
       ]
     }
   };
-}();
+}

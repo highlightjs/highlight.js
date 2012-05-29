@@ -3,7 +3,7 @@ Language: Nginx
 Author: Peter Leonov <gojpeg@yandex.ru>
 */
 
-hljs.LANGUAGES.nginx = function() {
+function(hljs) {
   var VAR1 = {
     className: 'variable',
     begin: '\\$\\d+'
@@ -189,4 +189,4 @@ hljs.LANGUAGES.nginx = function() {
       ]
     }
   }
-}();
+}

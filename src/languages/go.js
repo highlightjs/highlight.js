@@ -5,7 +5,7 @@ Contributors: Evgeny Stepanischev <imbolk@gmail.com>
 Description: Google go language (golang). For info about language see http://golang.org/
 */
 
-hljs.LANGUAGES.go = function(){
+function(hljs) {
   var GO_KEYWORDS = {
     keyword:
       'break default func interface select case map struct chan else goto package switch ' +
@@ -44,5 +44,4 @@ hljs.LANGUAGES.go = function(){
       ]
     }
   };
-}();
-
+}

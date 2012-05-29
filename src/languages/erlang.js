@@ -4,7 +4,7 @@ Description: Erlang is a general-purpose functional language, with strict evalua
 Author: Nikolay Zakharov <nikolay.desh@gmail.com>, Dmitry Kovega <arhibot@gmail.com>
 */
 
-hljs.LANGUAGES.erlang = function(){
+function(hljs) {
   var BASIC_ATOM_RE = '[a-z\'][a-zA-Z0-9_\']*';
   var FUNCTION_NAME_RE = '(' + BASIC_ATOM_RE + ':' + BASIC_ATOM_RE + '|' + BASIC_ATOM_RE + ')';
   var ERLANG_RESERVED = {
@@ -161,4 +161,4 @@ hljs.LANGUAGES.erlang = function(){
       ]
     }
   };
-}();
+}

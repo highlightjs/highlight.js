@@ -5,7 +5,7 @@ Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Contributors: Ilya Baryshev <baryshev@gmail.com>
 */
 
-hljs.LANGUAGES.django = function() {
+function(hljs) {
 
   function allowsDjangoSyntax(mode, parent) {
     return (
@@ -87,4 +87,4 @@ hljs.LANGUAGES.django = function() {
     defaultMode: copy(hljs.LANGUAGES.xml.defaultMode)
   };
 
-}();
+}

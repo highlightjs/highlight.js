@@ -4,7 +4,7 @@ Author: Vladimir Moskva <vladmos@gmail.com>
 Website: http://fulc.ru/
 */
 
-hljs.LANGUAGES.tex = function() {
+function(hljs) {
   var COMMAND1 = {
     className: 'command',
     begin: '\\\\[a-zA-Zа-яА-я]+[\\*]?'
@@ -57,4 +57,4 @@ hljs.LANGUAGES.tex = function() {
       ]
     }
   };
-}();
+}

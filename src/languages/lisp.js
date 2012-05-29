@@ -4,7 +4,7 @@ Description: Generic lisp syntax
 Author: Vasily Polovnyov <vast@whiteants.net>
 */
 
-hljs.LANGUAGES.lisp = function(){
+function(hljs) {
   var LISP_IDENT_RE = '[a-zA-Z_\\-\\+\\*\\/\\<\\=\\>\\&\\#][a-zA-Z0-9_\\-\\+\\*\\/\\<\\=\\>\\&\\#]*';
   var LISP_SIMPLE_NUMBER_RE = '(\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?';
   var LITERAL = {
@@ -85,4 +85,4 @@ hljs.LANGUAGES.lisp = function(){
       ])
     }
   };
-}();
+}
