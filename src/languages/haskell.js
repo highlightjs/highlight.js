@@ -39,6 +39,7 @@ function(hljs) {
         },
         {
           className: 'comment',
+          contains: ['self'],
           begin: '{-', end: '-}'
         },
         {
