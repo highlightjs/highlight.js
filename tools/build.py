@@ -207,14 +207,17 @@ if __name__ == '__main__':
     parser.add_option(
         '-n', '--no-compress',
         dest = 'compress', action = 'store_false', default = True,
-        help = 'Don\'t compress source files. Compression only works for the "browser" target',
+        help = 'Don\'t compress source files. Compression only works for the "browser" target.',
     )
     parser.add_option(
         '-t', '--target',
         dest = 'target', default = 'browser',
-        help = 'Target format: "browser" or "node"',
+        help = 'Target format: "browser" (the default) or "node".',
     )
-    parser.set_usage('%prog [options] [<language>|:<category> ...]')
+    parser.set_usage('''%%prog [options] [<language>|:<category> ...]
+
+- <language> is the name of a language file without the .js extension
+- <category> is a pre-defined set of language names: %s''' % ', '.join(CATEGORIES.keys()))
     options, args = parser.parse_args()
     try:
         buildfunc = locals()['build_%s' % options.target]
