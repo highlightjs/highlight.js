@@ -10,6 +10,7 @@ import sys
 import re
 import optparse
 import subprocess
+import json
 from functools import partial
 
 REPLACES = {
@@ -193,6 +194,15 @@ def build_node(root, build_path, languages, options):
     open(os.path.join(build_path, 'highlight.js'), 'w').write(hljs)
     if options.compress:
         print 'Notice: not compressing files for "node" target.'
+    filename = os.path.join(src_path, 'package.json')
+    print filename
+    package_json = json.loads(strip_read(filename))
+    authors = strip_read(os.path.join(root, 'AUTHORS.en.txt'))
+    authors = re.findall('^- (.*) <(.*)>$', authors, re.MULTILINE)
+    for author in authors:
+        package_json['contributors'].append({'name': author[0], 'email': author[1]})
+    content = json.dumps(package_json, indent=2)
+    open(os.path.join(build_path, 'package.json'), 'w').write(content)
     print 'Done.'
 
 def build(buildfunc, root, *args):
