@@ -1,0 +1,20 @@
+{ "name" : "highlightjs-test"
+, "description" : "Syntax highlighting with language autodetection."
+, "keywords" : ["highlight", "syntax"]
+, "homepage" : "http://softwaremaniacs.org/wiki/doku.php/highlight.js:highlight.js"
+, "version" : "0.0.0"
+, "author" :
+  { "name": "Ivan Sagalaev"
+  , "email": "maniac@softwaremaniacs.org"
+  }
+, "contributors" : []
+, "bugs" : { "url" : "https://github.com/isagalaev/highlight.js/issues" }
+, "licenses" : [ { "type" : "MIT" } ]
+, "repository" :
+  { "type" : "git"
+  , "url" : "git://github.com/isagalaev/highlight.js.git"
+  }
+, "main" : "./highlight.js"
+, "scripts" : {}
+, "engines" : { "node" : "*" }
+}
