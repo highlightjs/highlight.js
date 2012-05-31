@@ -326,7 +326,7 @@ function() {
         last_index = mode.lexemsRe.lastIndex;
         match = mode.lexemsRe.exec(buffer);
       }
-      return result + buffer.substr(last_index, buffer.length - last_index);
+      return result + buffer.substr(last_index);
     }
 
     function processSubLanguage(buffer, mode) {
