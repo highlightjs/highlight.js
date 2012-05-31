@@ -192,7 +192,7 @@ def build_node(root, build_path, languages, options):
     if options.compress:
         print 'Notice: not compressing files for "node" target.'
 
-    print 'Adding package.json'
+    print 'Adding package.json...'
     package = json.load(open(os.path.join(src_path, 'package.json')))
     authors = open(os.path.join(root, 'AUTHORS.en.txt'))
     matches = (re.match('^- (?P<name>.*) <(?P<email>.*)>$', a) for a in authors)
