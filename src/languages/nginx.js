@@ -4,18 +4,17 @@ Author: Peter Leonov <gojpeg@yandex.ru>
 */
 
 function(hljs) {
-  var VAR1 = {
-    className: 'variable',
-    begin: '\\$\\d+'
-  };
-  var VAR2 = {
-    className: 'variable',
-    begin: '\\${', end: '}'
-  };
-  var VAR3 = {
-    className: 'variable',
-    begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE
-  };
+  var VARS = [
+    {
+      className: 'variable', begin: '\\$\\d+'
+    },
+    {
+      className: 'variable', begin: '\\${', end: '}'
+    },
+    {
+      className: 'variable', begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE
+    }
+  ];
 
   return {
     defaultMode: {
@@ -134,13 +133,13 @@ function(hljs) {
                 {
                   className: 'string',
                   begin: '"', end: '"',
-                  contains: [hljs.BACKSLASH_ESCAPE, VAR1, VAR2, VAR3],
+                  contains: [hljs.BACKSLASH_ESCAPE].concat(VARS),
                   relevance: 0
                 },
                 {
                   className: 'string',
                   begin: "'", end: "'",
-                  contains: [hljs.BACKSLASH_ESCAPE, VAR1, VAR2, VAR3],
+                  contains: [hljs.BACKSLASH_ESCAPE].concat(VARS),
                   relevance: 0
                 },
                 {
@@ -150,25 +149,25 @@ function(hljs) {
                 {
                   className: 'regexp',
                   begin: "\\s\\^", end: "\\s|{|;", returnEnd: true,
-                  contains: [hljs.BACKSLASH_ESCAPE, VAR1, VAR2, VAR3]
+                  contains: [hljs.BACKSLASH_ESCAPE].concat(VARS)
                 },
                 // regexp locations (~, ~*)
                 {
                   className: 'regexp',
                   begin: "~\\*?\\s+", end: "\\s|{|;", returnEnd: true,
-                  contains: [hljs.BACKSLASH_ESCAPE, VAR1, VAR2, VAR3]
+                  contains: [hljs.BACKSLASH_ESCAPE].concat(VARS)
                 },
                 // *.example.com
                 {
                   className: 'regexp',
                   begin: "\\*(\\.[a-z\\-]+)+",
-                  contains: [hljs.BACKSLASH_ESCAPE, VAR1, VAR2, VAR3]
+                  contains: [hljs.BACKSLASH_ESCAPE].concat(VARS)
                 },
                 // sub.example.*
                 {
                   className: 'regexp',
                   begin: "([a-z\\-]+\\.)+\\*",
-                  contains: [hljs.BACKSLASH_ESCAPE, VAR1, VAR2, VAR3]
+                  contains: [hljs.BACKSLASH_ESCAPE].concat(VARS)
                 },
                 // IP
                 {
@@ -180,9 +179,8 @@ function(hljs) {
                   className: 'number',
                   begin: '\\s\\d+[kKmMgGdshdwy]*\\b',
                   relevance: 0
-                },
-                VAR1, VAR2, VAR3
-              ]
+                }
+              ].concat(VARS)
             }
           ]
         }
