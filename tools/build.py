@@ -185,8 +185,9 @@ def build_node(root, build_path, languages, options):
         open(os.path.join(build_path, os.path.basename(filename)), 'w').write(content)
     filename = os.path.join(src_path, 'highlight.js')
     print filename
-    hljs = 'var hljs = new %s();' % strip_read(filename)
+
     print 'Registering languages with the library...'
+    hljs = 'var hljs = new %s();' % strip_read(filename)
     filenames = map(os.path.basename, filenames)
     for filename in filenames:
         hljs += '\nhljs.LANGUAGES[\'%s\'] = require(\'./%s\')(hljs);' % (os.path.splitext(filename)[0], filename)
@@ -194,15 +195,15 @@ def build_node(root, build_path, languages, options):
     open(os.path.join(build_path, 'highlight.js'), 'w').write(hljs)
     if options.compress:
         print 'Notice: not compressing files for "node" target.'
-    filename = os.path.join(src_path, 'package.json')
-    print filename
-    package_json = json.loads(strip_read(filename))
-    authors = strip_read(os.path.join(root, 'AUTHORS.en.txt'))
-    authors = re.findall('^- (.*) <(.*)>$', authors, re.MULTILINE)
-    for author in authors:
-        package_json['contributors'].append({'name': author[0], 'email': author[1]})
-    content = json.dumps(package_json, indent=2)
+
+    print 'Adding package.json'
+    package = json.load(open(os.path.join(src_path, 'package.json')))
+    authors = open(os.path.join(root, 'AUTHORS.en.txt'))
+    matches = (re.match('^- (?P<name>.*) <(?P<email>.*)>$', a) for a in authors)
+    package['contributors'] = [m.groupdict() for m in matches if m]
+    content = json.dumps(package, indent=2)
     open(os.path.join(build_path, 'package.json'), 'w').write(content)
+
     print 'Done.'
 
 def build(buildfunc, root, *args):
