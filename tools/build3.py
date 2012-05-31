@@ -11,7 +11,7 @@ import re
 import optparse
 import subprocess
 import json
-from functools import partial, reduce
+from functools import partial
 
 REPLACES = {
     'defaultMode': 'dM',
@@ -127,11 +127,7 @@ def language_filenames(src_path, languages):
         categories = set(l for l in languages if l.startswith(':'))
         languages = set(languages) - categories
         categories = set(c.strip(':') for c in categories)
-        cat_languages = reduce(
-            lambda a, b: set(a) | set(b),
-            [l for c, l in CATEGORIES.items() if c in categories],
-            set()
-        )
+        cat_languages = set(l for c, ls in CATEGORIES.items() if c in categories for l in ls)
         languages |= cat_languages
         infos = [
             (i, f) for i, f in infos
