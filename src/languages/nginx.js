@@ -25,7 +25,7 @@ function(hljs) {
         'select break last permanent redirect kqueue rtsig epoll poll /dev/poll'
     },
     relevance: 0,
-    illegal: '[:]',
+    illegal: ':|=>',
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
