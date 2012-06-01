@@ -59,6 +59,9 @@ CATEGORIES = {
     'common': ['bash', 'java', 'ini', 'sql', 'diff', 'php', 'cs', 'cpp', 'ruby', 'python', 'css', 'perl', 'xml', 'javascript', 'http', 'json'],
 }
 
+def lang_name(filename):
+    return os.path.splitext(os.path.basename(filename))[0]
+
 def mapnonstrings(source, func):
     result = []
     pos = 0
@@ -131,7 +134,7 @@ def language_filenames(src_path, languages):
         languages |= cat_languages
         infos = [
             (i, f) for i, f in infos
-            if os.path.splitext(f)[0] in languages
+            if lang_name(f) in languages
         ]
 
     def append(filename):
@@ -175,9 +178,8 @@ def glue_files(hljs_filename, language_filenames, compressed):
         hljs = 'var hljs = new %s();'
         glue = '\nhljs.LANGUAGES[\'%s\'] = %s(hljs);'
     hljs =  hljs % strip_read(hljs_filename)
-    files = (strip_read(f) for f in language_filenames)
-    languages = [os.path.splitext(os.path.basename(f))[0] for f in language_filenames]
-    files = [glue % data for data in zip(languages, files)]
+    files = ((lang_name(f), strip_read(f)) for f in language_filenames)
+    files = [glue % data for data in files]
     return ''.join([hljs] + files)
 
 def build_browser(root, build_path, languages, options):
@@ -209,7 +211,7 @@ def build_node(root, build_path, languages, options):
     hljs = 'var hljs = new %s();' % strip_read(filename)
     filenames = map(os.path.basename, filenames)
     for filename in filenames:
-        hljs += '\nhljs.LANGUAGES[\'%s\'] = require(\'./%s\')(hljs);' % (os.path.splitext(filename)[0], filename)
+        hljs += '\nhljs.LANGUAGES[\'%s\'] = require(\'./%s\')(hljs);' % (lang_name(filename), filename)
     hljs += '\nmodule.exports = hljs;'
     open(os.path.join(build_path, 'highlight.js'), 'w').write(hljs)
     if options.compress:
