@@ -153,16 +153,39 @@ def strip_read(filename):
     s = pattern.sub('', s)
     return s.strip()
 
+def glue_files(hljs_filename, language_filenames, compressed):
+    '''
+    Glues files together for the browser build.
+
+    The "compressed" parameter controls two modes of execution:
+
+    - If compressed is False the function expects source files to be uncompressed and
+      glues them together while maintaining readability of the source. This is the mode
+      used when called from shell when the whole glued file can be then compressed at
+      once.
+    - If compressed is True the function expects source files to be alread compressed
+      individually and glues them together with the minimal glue, effectively emulating
+      what yuicompressor does. This mode is used when called from hljs_download on the
+      server where any form of compression on the fly is too slow.
+    '''
+    if compressed:
+        hljs = 'var hljs=new %s();'
+        glue = 'hljs.LANGUAGES["%s"]=%s(hljs);'
+    else:
+        hljs = 'var hljs = new %s();'
+        glue = '\nhljs.LANGUAGES[\'%s\'] = %s(hljs);'
+    hljs =  hljs % strip_read(hljs_filename)
+    files = (strip_read(f) for f in language_filenames)
+    languages = [os.path.splitext(os.path.basename(f))[0] for f in language_filenames]
+    files = [glue % data for data in zip(languages, files)]
+    return ''.join([hljs] + files)
+
 def build_browser(root, build_path, languages, options):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')
     filenames = language_filenames(src_path, languages)
     print 'Building %d files:\n%s' % (len(filenames), '\n'.join(filenames))
-    hljs = 'var hljs = new %s();' % strip_read(os.path.join(src_path, 'highlight.js'))
-    files = (strip_read(f) for f in filenames)
-    languages = [os.path.splitext(os.path.basename(f))[0] for f in filenames]
-    files = ['\nhljs.LANGUAGES[\'%s\'] = %s(hljs);' % (l, f) for l, f in zip(languages, files)]
-    content = ''.join([hljs] + files)
+    content = glue_files(os.path.join(src_path, 'highlight.js'), filenames, False)
     print 'Uncompressed size:', len(content)
     if options.compress:
         print 'Compressing...'
