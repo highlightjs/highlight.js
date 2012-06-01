@@ -22,6 +22,7 @@ pre .change,
 pre .winutils,
 pre .flow,
 pre .lisp .title,
+pre .nginx .title,
 pre .tex .special {
   color:#005599;
   font-weight:bold;

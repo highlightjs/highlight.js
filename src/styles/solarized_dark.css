@@ -26,7 +26,8 @@ pre .method,
 pre .addition,
 pre .css .tag,
 pre .request,
-pre .status {
+pre .status,
+pre .nginx .title {
   color: #859900;
 }
 

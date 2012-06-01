@@ -24,7 +24,8 @@ pre .winutils,
 pre .bash .variable,
 pre .tex .command,
 pre .request,
-pre .status {
+pre .status,
+pre .nginx .title {
   color: rgb(0, 0, 255);
 }
 

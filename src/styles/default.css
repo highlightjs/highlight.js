@@ -12,7 +12,8 @@ pre code {
 pre code,
 pre .ruby .subst,
 pre .tag .title,
-pre .lisp .title {
+pre .lisp .title,
+pre .nginx .title {
   color: black;
 }
 

@@ -16,6 +16,7 @@ pre .tag,
 pre .css .class,
 pre .css .id,
 pre .lisp .title,
+pre .nginx .title,
 pre .request,
 pre .status {
   color: #E3CEAB;

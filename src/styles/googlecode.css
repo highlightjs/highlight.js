@@ -19,6 +19,7 @@ pre .comment * {
 pre .keyword,
 pre .method,
 pre .list .title,
+pre .nginx .title,
 pre .tag .title,
 pre .setting .value,
 pre .winutils,

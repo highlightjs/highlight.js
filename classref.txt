@@ -378,12 +378,13 @@ Apache ("apache"):
 
 Nginx ("nginx"):
 
-  keyword          keyword
+  title            directive title
   string           string
   number           number
   comment          comment
   built_in         built-in constant
   variable         $-variable
+  regexp           regexp
 
 Diff ("diff"):
 
@@ -534,7 +535,7 @@ R ("r"):
   literal          special literal: TRUE, FALSE, NULL, NA, etc.
 
 OpenGL Shading Language ("glsl"):
-  
+
   comment          comment
   number           number
   preprocessor     preprocessor directive

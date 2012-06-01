@@ -24,7 +24,8 @@ pre .status {
 
 pre .sub .keyword,
 pre .method,
-pre .list .title {
+pre .list .title,
+pre .nginx .title {
   color: #FFFFB6;
 }
 

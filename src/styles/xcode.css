@@ -17,8 +17,9 @@ pre .comment * {
 }
 
 pre .keyword,
-pre .literal {
-  color: rgb(170,13,145);	
+pre .literal,
+pre .nginx .title {
+  color: rgb(170,13,145);
 }
 pre .method,
 pre .list .title,
@@ -87,7 +88,7 @@ pre .params {
 }
 
 pre .variable {
- color: rgb(63,110,116);	
+ color: rgb(63,110,116);
 }
 pre .css .tag,
 pre .rules .property,

@@ -19,7 +19,8 @@ pre .javadoc {
 pre .keyword,
 pre .ruby .function .keyword,
 pre .request,
-pre .status {
+pre .status,
+pre .nginx .title {
   color: #E28964;
 }
 

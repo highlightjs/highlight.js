@@ -29,7 +29,8 @@ pre .javascript .title,
 pre .method,
 pre .addition,
 pre .css .tag,
-pre .lisp .title {
+pre .lisp .title,
+pre .nginx .title {
   color: #B64926;
 }
 
