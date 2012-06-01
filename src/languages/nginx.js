@@ -86,7 +86,6 @@ function(hljs) {
       contains: [
         hljs.HASH_COMMENT_MODE,
         {
-          className: 'directive',
           begin: hljs.UNDERSCORE_IDENT_RE, end: ';|{', returnBegin: true,
           contains: [
             {
