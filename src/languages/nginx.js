@@ -70,12 +70,12 @@ function(hljs) {
       // IP
       {
         className: 'number',
-        begin: '\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b'
+        begin: '\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(:\\d{1,5})?\\b'
       },
       // units
       {
         className: 'number',
-        begin: '\\s\\d+[kKmMgGdshdwy]*\\b',
+        begin: '\\b\\d+[kKmMgGdshdwy]*\\b',
         relevance: 0
       }
     ].concat(VARS)

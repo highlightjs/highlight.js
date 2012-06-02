@@ -1219,6 +1219,10 @@ http {
             charset            koi8-r;
         }
 
+        location /api/ {
+            fastcgi_pass 127.0.0.1:9000;
+        }
+
         location ~* \.(jpg|jpeg|gif)$ {
             root         /spool/www;
         }
