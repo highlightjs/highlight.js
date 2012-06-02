@@ -112,7 +112,7 @@ on a site.
 
 ## Meta
 
-- Version: 6.2
+- Version: 7.0
 - URL:     http://softwaremaniacs.org/soft/highlight/en/
 - Author:  Ivan Sagalaev (<maniac@softwaremaniacs.org>)
 
