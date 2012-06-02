@@ -41,8 +41,8 @@ function(hljs) {
         relevance: 0
       },
       {
-        className: 'string',
-        begin: '([a-z]+):/', end: '[;\\s]', returnEnd: true
+        className: 'url',
+        begin: '([a-z]+):/', end: '\\s', endsWithParent: true, excludeEnd: true
       },
       {
         className: 'regexp',
