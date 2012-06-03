@@ -86,7 +86,7 @@ function(hljs) {
       contains: [
         hljs.HASH_COMMENT_MODE,
         {
-          begin: hljs.UNDERSCORE_IDENT_RE, end: ';|{', returnBegin: true,
+          begin: hljs.UNDERSCORE_IDENT_RE + '\\s', end: ';|{', returnBegin: true,
           contains: [
             {
               className: 'title',

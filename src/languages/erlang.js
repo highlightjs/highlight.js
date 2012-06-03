@@ -124,7 +124,7 @@ function(hljs) {
       contains: [
         {
           className: 'function',
-          begin: '^' + BASIC_ATOM_RE, end: '->',
+          begin: '^' + BASIC_ATOM_RE + '\\s*\\(', end: '->',
           returnBegin: true,
           illegal: '\\(|#|//|/\\*|\\\\|:',
           contains: [
