@@ -173,12 +173,19 @@ def glue_files(hljs_filename, language_filenames, compressed):
     '''
     if compressed:
         hljs = 'var hljs=new %s();'
-        glue = 'hljs.LANGUAGES["%s"]=%s(hljs);'
+        glue = 'hljs.LANGUAGES%s=%s(hljs);'
+        def name_func(filename):
+            name = lang_name(filename)
+            return ('["%s"]' if '-' in name or name[0].isdigit() else '.%s') % name
+        def file_func(filename):
+            return strip_read(filename).rstrip(';')
     else:
         hljs = 'var hljs = new %s();'
         glue = '\nhljs.LANGUAGES[\'%s\'] = %s(hljs);'
-    hljs =  hljs % strip_read(hljs_filename)
-    files = ((lang_name(f), strip_read(f)) for f in language_filenames)
+        name_func = lang_name
+        file_func = strip_read
+    hljs =  hljs % file_func(hljs_filename)
+    files = ((name_func(f), file_func(f)) for f in language_filenames)
     files = [glue % data for data in files]
     return ''.join([hljs] + files)
 
@@ -202,7 +209,7 @@ def build_node(root, build_path, languages, options):
     print 'Building %d files:' % len(filenames)
     for filename in filenames:
         print filename
-        content = 'module.exports = %s' % strip_read(filename)
+        content = 'module.exports = %s;' % strip_read(filename)
         open(os.path.join(build_path, os.path.basename(filename)), 'w').write(content)
     filename = os.path.join(src_path, 'highlight.js')
     print filename
