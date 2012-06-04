@@ -94,7 +94,7 @@ function(hljs) {
         {
           className: 'preprocessor',
           begin: '#', end: '$'
-        },
+        }
       ]
     }
   };

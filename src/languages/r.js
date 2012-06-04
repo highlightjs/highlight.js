@@ -75,7 +75,7 @@ function(hljs) {
           end: "'",
           contains: [hljs.BACKSLASH_ESCAPE],
           relevance: 0
-        },
+        }
       ]
     }
   };
