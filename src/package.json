@@ -2,7 +2,7 @@
 , "description" : "Syntax highlighting with language autodetection."
 , "keywords" : ["highlight", "syntax"]
 , "homepage" : "http://softwaremaniacs.org/soft/highlight/en/"
-, "version" : "7.0"
+, "version" : "7.0.1"
 , "author" :
   { "name": "Ivan Sagalaev"
   , "email": "maniac@softwaremaniacs.org"
