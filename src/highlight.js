@@ -156,7 +156,7 @@ function() {
 
   /* Initialization */
 
-  function compileModes() {
+  function compileModes(language_name) {
 
     function compileMode(mode, language, is_default) {
       if (mode.compiled)
@@ -217,13 +217,10 @@ function() {
         compileMode(mode.starts, language, false);
       }
     }
-
-    for (var i in languages) {
-      if (!languages.hasOwnProperty(i))
-        continue;
-      compileMode(languages[i].defaultMode, languages[i], true);
-    }
+    compileMode(languages[language_name].defaultMode, languages[language_name], true);
   }
+
+  var compiledLangs = {};
 
   /*
   Core highlighting function. Accepts a language name and a string with the
@@ -235,9 +232,9 @@ function() {
 
   */
   function highlight(language_name, value) {
-    if (!compileModes.called) {
-      compileModes();
-      compileModes.called = true;
+    if (!compiledLangs[language_name]) {
+      compileModes(language_name);
+      compiledLangs[language_name] = true;
     }
 
     function subMode(lexem, mode) {
