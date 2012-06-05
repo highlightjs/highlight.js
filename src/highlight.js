@@ -220,7 +220,7 @@ function() {
     compileMode(languages[language_name].defaultMode, languages[language_name], true);
   }
 
-  var compiledLangs = {};
+  var compiled_languages = {};
 
   /*
   Core highlighting function. Accepts a language name and a string with the
@@ -232,9 +232,9 @@ function() {
 
   */
   function highlight(language_name, value) {
-    if (!compiledLangs[language_name]) {
-      compileModes(language_name);
-      compiledLangs[language_name] = true;
+    if (!compiled_languages[language_name]) {
+      compiled_languages(language_name);
+      compiled_languages[language_name] = true;
     }
 
     function subMode(lexem, mode) {
