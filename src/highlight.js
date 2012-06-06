@@ -233,7 +233,7 @@ function() {
   */
   function highlight(language_name, value) {
     if (!compiled_languages[language_name]) {
-      compiled_languages(language_name);
+      compileModes(language_name);
       compiled_languages[language_name] = true;
     }
 
