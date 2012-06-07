@@ -8,7 +8,8 @@ function(hljs) {
       keywords: {
         keyword:
           'in if for while finally var new function do return void else break catch ' +
-          'instanceof with throw case default try this switch continue typeof delete',
+          'instanceof with throw case default try this switch continue typeof delete ' +
+          'let yield',
         literal:
           'true false null undefined NaN Infinity'
       },
