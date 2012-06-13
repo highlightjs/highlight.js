@@ -225,10 +225,8 @@ function(hljs) {
   FUNCTION.contains[1].contains = RUBY_DEFAULT_CONTAINS;
 
   return {
-    defaultMode: {
-      lexems: RUBY_IDENT_RE,
-      keywords: RUBY_KEYWORDS,
-      contains: RUBY_DEFAULT_CONTAINS
-    }
+    lexems: RUBY_IDENT_RE,
+    keywords: RUBY_KEYWORDS,
+    contains: RUBY_DEFAULT_CONTAINS
   };
 }

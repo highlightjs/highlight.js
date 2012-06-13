@@ -11,13 +11,6 @@ function() {
     return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;');
   }
 
-  function langRe(language, value, global) {
-    return RegExp(
-      value,
-      'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
-    );
-  }
-
   function findCode(pre) {
     for (var i = 0; i < pre.childNodes.length; i++) {
       var node = pre.childNodes[i];
@@ -158,7 +151,14 @@ function() {
 
   function compileModes(language_name) {
 
-    function compileMode(mode, language, is_default) {
+    function langRe(value, case_insensitive, global) {
+      return RegExp(
+        value,
+        'm' + (case_insensitive ? 'i' : '') + (global ? 'g' : '')
+      );
+    }
+
+    function compileMode(mode, parent) {
       if (mode.compiled)
         return;
 
@@ -175,7 +175,7 @@ function() {
           }
         }
 
-        mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
+        mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE, case_insensitive, true);
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords)
         } else {
@@ -187,18 +187,19 @@ function() {
         }
         mode.keywords = compiled_keywords;
       }
-      if (!is_default) {
+      mode.parent = parent;
+      if (parent) {
         if (mode.beginWithKeyword) {
           mode.begin = '\\b(' + keywords.join('|') + ')\\s';
         }
-        mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
+        mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b', case_insensitive);
         if (!mode.end && !mode.endsWithParent)
           mode.end = '\\B|\\b';
         if (mode.end)
-          mode.endRe = langRe(language, mode.end);
+          mode.endRe = langRe(mode.end, case_insensitive);
       }
       if (mode.illegal)
-        mode.illegalRe = langRe(language, mode.illegal);
+        mode.illegalRe = langRe(mode.illegal, case_insensitive);
       if (mode.relevance === undefined)
         mode.relevance = 1;
       if (!mode.contains) {
@@ -211,13 +212,31 @@ function() {
         if (mode.contains[i] == 'self') {
           mode.contains[i] = mode;
         }
-        compileMode(mode.contains[i], language, false);
+        compileMode(mode.contains[i], mode);
       }
       if (mode.starts) {
-        compileMode(mode.starts, language, false);
+        compileMode(mode.starts, parent);
       }
+
+      var terminators = [];
+      for (var i = 0; i < mode.contains.length; i++) {
+        terminators.push(mode.contains[i].begin);
+      }
+      var current = mode;
+      do {
+        if (current.end) {
+          terminators.push(current.end);
+        }
+        current = current.endsWithParent ? current.parent : null;
+      } while (current);
+      if (mode.illegal) {
+        terminators.push(mode.illegal);
+      }
+      mode.terminators = terminators.length ? langRe(terminators.join('|'), case_insensitive, true) : null;
     }
-    compileMode(languages[language_name].defaultMode, languages[language_name], true);
+
+    var case_insensitive = languages[language_name].case_insensitive;
+    compileMode(languages[language_name], null);
   }
 
   var compiled_languages = {};
@@ -260,33 +279,8 @@ function() {
       return mode.illegal && mode.illegalRe.test(lexem);
     }
 
-    function compileTerminators(mode, language) {
-      var terminators = [];
-
-      for (var i = 0; i < mode.contains.length; i++) {
-        terminators.push(mode.contains[i].begin);
-      }
-
-      var index = modes.length - 1;
-      do {
-        if (modes[index].end) {
-          terminators.push(modes[index].end);
-        }
-        index--;
-      } while (modes[index + 1].endsWithParent);
-
-      if (mode.illegal) {
-        terminators.push(mode.illegal);
-      }
-
-      return terminators.length ? langRe(language, terminators.join('|'), true) : null;
-    }
-
     function eatModeChunk(value, index) {
       var mode = modes[modes.length - 1];
-      if (mode.terminators === undefined) {
-        mode.terminators = compileTerminators(mode, language);
-      }
       var match;
       if (mode.terminators) {
         mode.terminators.lastIndex = index;
@@ -412,13 +406,13 @@ function() {
     }
 
     var language = languages[language_name];
-    var modes = [language.defaultMode];
+    var modes = [language];
     var relevance = 0;
     var keyword_count = 0;
     var result = '';
     try {
       var mode_info, index = 0;
-      language.defaultMode.buffer = '';
+      language.buffer = '';
       do {
         mode_info = eatModeChunk(value, index);
         var return_lexem = processModeInfo(mode_info[0], mode_info[1], mode_info[2]);

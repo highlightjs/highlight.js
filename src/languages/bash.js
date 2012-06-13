@@ -38,26 +38,24 @@ function(hljs) {
   };
 
   return {
-    defaultMode: {
-      keywords: {
-        keyword: 'if then else fi for break continue while in do done echo exit return set declare',
-        literal: BASH_LITERAL
+    keywords: {
+      keyword: 'if then else fi for break continue while in do done echo exit return set declare',
+      literal: BASH_LITERAL
+    },
+    contains: [
+      {
+        className: 'shebang',
+        begin: '(#!\\/bin\\/bash)|(#!\\/bin\\/sh)',
+        relevance: 10
       },
-      contains: [
-        {
-          className: 'shebang',
-          begin: '(#!\\/bin\\/bash)|(#!\\/bin\\/sh)',
-          relevance: 10
-        },
-        VAR1,
-        VAR2,
-        hljs.HASH_COMMENT_MODE,
-        hljs.C_NUMBER_MODE,
-        QUOTE_STRING,
-        APOS_STRING,
-        hljs.inherit(TEST_CONDITION, {begin: '\\[ ', end: ' \\]', relevance: 0}),
-        hljs.inherit(TEST_CONDITION, {begin: '\\[\\[ ', end: ' \\]\\]'})
-      ]
-    }
+      VAR1,
+      VAR2,
+      hljs.HASH_COMMENT_MODE,
+      hljs.C_NUMBER_MODE,
+      QUOTE_STRING,
+      APOS_STRING,
+      hljs.inherit(TEST_CONDITION, {begin: '\\[ ', end: ' \\]', relevance: 0}),
+      hljs.inherit(TEST_CONDITION, {begin: '\\[\\[ ', end: ' \\]\\]'})
+    ]
   };
 }

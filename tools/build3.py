@@ -14,7 +14,6 @@ import json
 from functools import partial
 
 REPLACES = {
-    'defaultMode': 'dM',
     'case_insensitive': 'cI',
     'lexems': 'l',
     'contains': 'c',
