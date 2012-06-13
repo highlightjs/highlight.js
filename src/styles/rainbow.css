@@ -1,0 +1,155 @@
+/*
+
+Style with support for rainbow parens
+
+*/
+
+pre ::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
+pre ::selection { background:#FF5E99; color:#fff; text-shadow: none; }
+
+pre code {
+  display: block; padding: 0.5em;
+  background: #474949; color: #D1D9E1;
+  font-family: 'Bitstream Vera Sans Mono', 'Courier', monospace; 
+}
+
+
+pre .body,
+pre .collection {
+   color: #D1D9E1;
+}
+
+pre .list-1 {
+  color: #dc322f;
+}
+
+pre .list-2 {
+  color: #D96565;
+}
+
+pre .list-3 {
+  color: #BF4D28;
+}
+
+pre .list-4 {
+  color: #EBC910;
+}
+
+pre .list-5 {
+  color: #D6FF6F;
+}
+
+pre .list-6 {
+  color: #88CE77;
+}
+
+pre .list-7 {
+  color: #76ACE1;
+}
+
+pre .list-8 {
+  color: #AAB0FF;
+}
+
+pre .list-9 {
+  color: #CFACF7;
+}
+
+pre .list-0 {
+  color: #E8DAFB;
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .doctype,
+pre .lisp .string,
+pre .javadoc {
+  color: #969896;
+  font-style: italic;
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .addition,
+pre .css .tag,
+pre .lisp .title {
+  color: #cc99cc; font-weight: bold;
+}
+
+pre .number { color: #f99157; }
+
+pre .command,
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula,
+pre .regexp,
+pre .hexcolor {
+  color: #8abeb7;
+}
+
+pre .title,
+pre .localvars,
+pre .function .title,
+pre .chunk,
+pre .decorator,
+pre .builtin,
+pre .built_in,
+pre .lisp .title,
+pre .identifier,
+{
+  color: #b5bd68;
+}
+
+pre .class .keyword
+{
+  color: #f2777a;
+}
+
+pre .variable,
+pre .instancevar,
+pre .lisp .body,
+pre .smalltalk .number,
+pre .constant,
+pre .class .title,
+pre .parent,
+pre .haskell .label,
+pre .id {
+   color: #ffcc66;
+}
+
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  font-weight: bold;
+}
+
+pre .attribute,
+pre .method {
+  color: #81a2be;
+}
+
+pre .preprocessor,
+pre .pi,
+pre .shebang,
+pre .symbol,
+pre .diff .change,
+pre .special,
+pre .keymethods,
+pre .attr_selector,
+pre .important,
+pre .subst,
+pre .cdata {
+  color: #f99157;
+}
+
+pre .deletion {
+  color: #dc322f;
+}
+
+pre .tex .formula {
+  background: #eee8d5;
+}
