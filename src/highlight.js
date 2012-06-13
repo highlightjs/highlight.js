@@ -149,7 +149,7 @@ function() {
 
   /* Initialization */
 
-  function compileModes(language_name) {
+  function compileLanguage(language) {
 
     function langRe(value, case_insensitive, global) {
       return RegExp(
@@ -161,6 +161,7 @@ function() {
     function compileMode(mode, parent) {
       if (mode.compiled)
         return;
+      mode.compiled = true;
 
       var keywords = []; // used later with beginWithKeyword but filled as a side-effect of keywords compilation
       if (mode.keywords) {
@@ -175,7 +176,7 @@ function() {
           }
         }
 
-        mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE, case_insensitive, true);
+        mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE, language.case_insensitive, true);
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords)
         } else {
@@ -192,22 +193,19 @@ function() {
         if (mode.beginWithKeyword) {
           mode.begin = '\\b(' + keywords.join('|') + ')\\s';
         }
-        mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b', case_insensitive);
+        mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b', language.case_insensitive);
         if (!mode.end && !mode.endsWithParent)
           mode.end = '\\B|\\b';
         if (mode.end)
-          mode.endRe = langRe(mode.end, case_insensitive);
+          mode.endRe = langRe(mode.end, language.case_insensitive);
       }
       if (mode.illegal)
-        mode.illegalRe = langRe(mode.illegal, case_insensitive);
+        mode.illegalRe = langRe(mode.illegal, language.case_insensitive);
       if (mode.relevance === undefined)
         mode.relevance = 1;
       if (!mode.contains) {
         mode.contains = [];
       }
-      // compiled flag is set before compiling submodes to avoid self-recursion
-      // (see lisp where quoted_list contains quoted_list)
-      mode.compiled = true;
       for (var i = 0; i < mode.contains.length; i++) {
         if (mode.contains[i] == 'self') {
           mode.contains[i] = mode;
@@ -232,14 +230,11 @@ function() {
       if (mode.illegal) {
         terminators.push(mode.illegal);
       }
-      mode.terminators = terminators.length ? langRe(terminators.join('|'), case_insensitive, true) : null;
+      mode.terminators = terminators.length ? langRe(terminators.join('|'), language.case_insensitive, true) : null;
     }
 
-    var case_insensitive = languages[language_name].case_insensitive;
-    compileMode(languages[language_name], null);
+    compileMode(language);
   }
-
-  var compiled_languages = {};
 
   /*
   Core highlighting function. Accepts a language name and a string with the
@@ -251,10 +246,6 @@ function() {
 
   */
   function highlight(language_name, value) {
-    if (!compiled_languages[language_name]) {
-      compileModes(language_name);
-      compiled_languages[language_name] = true;
-    }
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -406,6 +397,7 @@ function() {
     }
 
     var language = languages[language_name];
+    compileLanguage(language);
     var modes = [language];
     var relevance = 0;
     var keyword_count = 0;
