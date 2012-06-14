@@ -28,6 +28,8 @@ function() {
     }
   }
 
+  var is_old_IE = (typeof navigator !== 'undefined' && /MSIE [678]/.test(navigator.userAgent));
+
   function blockText(block, ignoreNewLines) {
     var result = '';
     for (var i = 0; i < block.childNodes.length; i++)
@@ -40,8 +42,7 @@ function() {
         result += '\n';
       else
         result += blockText(block.childNodes[i]);
-    // Thank you, MSIE...
-    if (/MSIE [678]/.test(navigator.userAgent))
+    if (is_old_IE)
       result = result.replace(/\r/g, '\n');
     return result;
   }
@@ -531,7 +532,7 @@ function() {
     if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
       class_name = class_name ? (class_name + ' ' + language) : language;
     }
-    if (/MSIE [678]/.test(navigator.userAgent) && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
+    if (is_old_IE && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
       // This is for backwards compatibility only. IE needs this strange
       // hack becasue it cannot just cleanly replace <code> block contents.
       pre = block.parentNode;
