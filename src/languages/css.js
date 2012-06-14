@@ -6,10 +6,7 @@ hljs.LANGUAGES.css = function() {
   var FUNCTION = {
     className: 'function',
     begin: hljs.IDENT_RE + '\\(', end: '\\)',
-    contains: [{
-        endsWithParent: true, excludeEnd: true,
-        contains: [hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
-    }]
+    contains: [hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
   };
   return {
     case_insensitive: true,
