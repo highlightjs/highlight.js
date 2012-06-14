@@ -404,7 +404,6 @@ function() {
     var result = '';
     try {
       var mode_info, index = 0;
-      language.buffer = '';
       do {
         mode_info = eatModeChunk(value, index);
         var return_lexem = processModeInfo(mode_info[0], mode_info[1], mode_info[2]);
