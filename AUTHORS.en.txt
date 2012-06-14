@@ -21,7 +21,7 @@ Contributors:
 - MajestiC <majestic2k@gmail.com>
 - Vasily Polovnyov <vast@whiteants.net>
 - Vladimir Epifanov <voldmar@voldmar.ru>
-- Alexander Makarov (http://rmcreative.ru/)
+- Alexander Makarov <sam@rmcreative.ru>
 - Vah <vahtenberg@gmail.com>
 - Shuen-Huei Guan <drake.guan@gmail.com>
 - Jason Diamond <jason@diamond.name>
@@ -35,7 +35,7 @@ Contributors:
 - Vladimir Moskva <vladmos@gmail.com>
 - Loren Segal <lsegal@soen.ca>
 - Andrew Fedorov <dmmdrs@mail.ru>
-- Igor Kalnitsky <igor.kalnitsky@gmail.com>
+- Igor Kalnitsky <igor@kalnitsky.org>
 - Jeremy Hull <sourdrums@gmail.com>
 - Valerii Hiora <valerii.hiora@gmail.com>
 - Nikolay Zakharov <nikolay.desh@gmail.com>
@@ -56,3 +56,6 @@ Contributors:
 - Ilya Baryshev <baryshev@gmail.com>
 - Aleksandar Ruzicic <aleksandar@ruzicic.info>
 - Joe Cheng <joe@rstudio.org>
+- Angel G. Olloqui <angelgarcia.mail@gmail.com>
+- Jason Tate <adminz@web-cms-designs.com>
+- Sergey Tikhomirov <me@stikhomirov.com>

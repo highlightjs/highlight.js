@@ -3,8 +3,8 @@ Language: Bash
 Author: vah <vahtenberg@gmail.com>
 */
 
-hljs.LANGUAGES.bash = function(){
-  var BASH_LITERAL = {'true' : 1, 'false' : 1};
+function(hljs) {
+  var BASH_LITERAL = 'true false';
   var VAR1 = {
     className: 'variable',
     begin: '\\$([a-zA-Z0-9_]+)\\b'
@@ -32,7 +32,7 @@ hljs.LANGUAGES.bash = function(){
     begin: '', end: '',
     contains: [QUOTE_STRING, APOS_STRING, VAR1, VAR2, hljs.C_NUMBER_MODE],
     keywords: {
-      'literal': BASH_LITERAL
+      literal: BASH_LITERAL
     },
     relevance: 0
   };
@@ -40,11 +40,8 @@ hljs.LANGUAGES.bash = function(){
   return {
     defaultMode: {
       keywords: {
-        'keyword': {
-          'if' : 1, 'then' : 1, 'else' : 1, 'fi' : 1, 'for' : 1, 'break' : 1, 'continue' : 1, 'while' : 1, 'in' : 1,
-          'do' : 1, 'done' : 1, 'echo' : 1, 'exit' : 1, 'return' : 1, 'set' : 1, 'declare' : 1
-        },
-        'literal': BASH_LITERAL
+        keyword: 'if then else fi for break continue while in do done echo exit return set declare',
+        literal: BASH_LITERAL
       },
       contains: [
         {
@@ -63,4 +60,4 @@ hljs.LANGUAGES.bash = function(){
       ]
     }
   };
-}();
+}

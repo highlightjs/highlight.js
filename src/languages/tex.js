@@ -4,16 +4,14 @@ Author: Vladimir Moskva <vladmos@gmail.com>
 Website: http://fulc.ru/
 */
 
-hljs.LANGUAGES.tex = function() {
+function(hljs) {
   var COMMAND1 = {
     className: 'command',
-    begin: '\\\\[a-zA-Zа-яА-я]+[\\*]?',
-    relevance: 10
+    begin: '\\\\[a-zA-Zа-яА-я]+[\\*]?'
   };
   var COMMAND2 = {
     className: 'command',
-    begin: '\\\\[^a-zA-Zа-яА-я0-9]',
-    relevance: 0
+    begin: '\\\\[^a-zA-Zа-яА-я0-9]'
   };
   var SPECIAL = {
     className: 'special',
@@ -59,4 +57,4 @@ hljs.LANGUAGES.tex = function() {
       ]
     }
   };
-}();
+}

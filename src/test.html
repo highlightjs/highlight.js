@@ -21,7 +21,8 @@
   <link rel="alternate stylesheet" title="Solarized - Light" href="styles/solarized_light.css">
   <link rel="alternate stylesheet" title="Arta" href="styles/arta.css">
   <link rel="alternate stylesheet" title="Monokai" href="styles/monokai.css">
-
+  <link rel="alternate stylesheet" title="XCode" href="styles/xcode.css">
+  <link rel="alternate stylesheet" title="Pojoaque" href="styles/pojoaque.css">
 
   <style>
     body {
@@ -86,7 +87,7 @@
     }
   </style>
 
-  <script src="highlight.pack.js"></script>
+  <script src="../build/highlight.pack.js"></script>
   <script>
   hljs.tabReplace = '    ';
   hljs.initHighlightingOnLoad();
@@ -390,28 +391,18 @@ func main() {
   <tr>
     <th>HTML (with inline css and javascript)
     <td class="xml">
-<pre><code>&lt;!DOCTYPE html5&gt;
-&lt;head&gt;
-  &lt;title&gt;Title&lt;/title&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;title&gt;Title&lt;/title&gt;
 
-  &lt;style&gt;
-    body {
-      width: 500px;
-    }
-  &lt;/style&gt;
+&lt;style&gt;body {width: 500px;}&lt;/style&gt;
 
-  &lt;script type="application/javascript"&gt;
-    function someFunction() {
-      return true;
-    }
-  &lt;/script&gt;
+&lt;script type="application/javascript"&gt;
+  function $init() {return true;}
+&lt;/script&gt;
 
 &lt;body&gt;
-  &lt;p class="something" id='12'&gt;Something&lt;/p&gt;
-  &lt;p class=something&gt;Something&lt;/p&gt;
-  &lt;!-- comment --&gt;
-  &lt;p class&gt;Something&lt;/p&gt;
-  &lt;p class="something" title="p"&gt;Something&lt;/p&gt;
+  &lt;p checked class="title" id='title'&gt;Title&lt;/p&gt;
+  &lt;!-- here goes the rest of the page --&gt;
 &lt;/body&gt;
 </code></pre>
 
@@ -465,36 +456,27 @@ multiline.
   <tr>
     <th>CSS
     <td class="css">
-<pre><code>body,
-html {
-  font: Tahoma, Arial, san-serif;
-  background: url('hatch.png');
-}
-
-@import url('print.css');
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+<pre><code>@media screen and (-webkit-min-device-pixel-ratio: 0) {
   body:first-of-type pre::after {
     content: 'highlight: ' attr(class);
   }
 }
 
+@import url('print.css');
 @page:right {
  margin: 1cm 2cm 1.3cm 4cm;
 }
 
 @font-face {
-	font-family: Chunkfive;
-	src: url('Chunkfive.otf');
+  font-family: Chunkfive; src: url('Chunkfive.otf');
 }
 
-#content {
-  width: /* wide enough */ 100% /* 400px */;
-  height: 100%
-}
-
-p[lang=ru] {
-  color: #F0F0F0; background: white !important;
+div.text,
+#content,
+li[lang=ru] {
+  font: Tahoma, Chunkfive, sans-serif;
+  background: url('hatch.png') /* wtf? */;  color: #F0F0F0 !important;
+  width: 100%;
 }
 </code></pre>
 
@@ -518,24 +500,18 @@ p[lang=ru] {
   <tr>
     <th>JavaScript
     <td class="javascript">
-<pre><code>function $initHighlight(block) {
-  if (block.className.search(/\bno\-highlight\b/) != -1)
-    return false;
+<pre><code>function $initHighlight(block, flags) {
   try {
-    blockText(block);
+    if (block.className.search(/\bno\-highlight\b/) != -1)
+      return processBlock(block, true, 0x0F) + ' class=""';
   } catch (e) {
-    if (e == 'Complex markup')
-      return;
-  }//try
-  var classes = block.className.split(/\s+/);
-  for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp start
-    if (LANGUAGES[classes[i]]) {
-      highlightLanguage(block, classes[i]);
-      return;
-    }//if
-  }//for
-  highlightAuto(block);
-}//initHighlight</code></pre>
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp
+    if (checkCondition(classes[i]) === undefined)
+      return /\d+/g;
+  }
+}</code></pre>
 
   <tr>
     <th>CoffeeScript
@@ -600,24 +576,17 @@ OPERATOR = /// ^ (
 
     public class FooBar implements IFooBarzable {
         static private var cnt:uint = 0;
-
         private var bar:String;
 
         //constructor
         public function TestBar(bar:String):void {
             bar = bar;
-
             ++cnt;
         }
 
         public function foo(... pairs):Array {
             pairs.push(bar);
-
             return pairs;
-        }
-
-        protected function includeTestFile():void {
-            include "Test.as";
         }
     }
 }</code></pre>
@@ -745,27 +714,15 @@ End;{CopyFile}
 
 import java.util.ArrayList;
 
-/**
- * Mother class of all character objects of the world (PC, NPC...)&lt;BR&gt;&lt;BR&gt;
- *
- */
-public abstract class L2Character extends L2Object
-{
-  protected static final Logger _log = Logger.getLogger(L2Character.class.getName());
-
+public abstract class L2Character extends L2Object {
   public static final Short ABNORMAL_EFFECT_BLEEDING = 0x0001; // not sure
-  public static final Short ABNORMAL_EFFECT_POISON = 0x0002;
 
-  public void detachAI() {
+  public void moveTo(int x, int y, int z) {
     _ai = null;
-    //jbf = null;
+    _log.warning("Should not be called");
     if (1 &gt; 5) {
       return;
     }
-  }
-
-  public void moveTo(int x, int y, int z) {
-    moveTo(x, y, z, 0);
   }
 
   /** Task of AI notification */
@@ -777,12 +734,10 @@ public abstract class L2Character extends L2Object
       try {
         getAI().notifyEvent(_evt, null, null);
       } catch (Throwable t) {
-        _log.warning("Exception " + t);
         t.printStackTrace();
       }
     }
   }
-
 }
 </code></pre>
 
@@ -809,8 +764,7 @@ int main(int argc, char *argv[]) {
     <th>Objective C
     <td class="objectivec">
 <pre>
-<code>
-#import &lt;UIKit/UIKit.h&gt;
+<code>#import &lt;UIKit/UIKit.h&gt;
 #import "Dependency.h"
 
 @protocol WorldDataSource
@@ -853,7 +807,6 @@ int main(int argc, char *argv[]) {
 }
 
 @end
-
 </code></pre>
 
   <tr>
@@ -917,12 +870,6 @@ void main () {
 public class Program
 {
     /// &lt;summary&gt;The entry point to the program.&lt;/summary&gt;
-    /// &lt;remarks&gt;
-    /// Using the Visual Studio style, the tags in this comment
-    /// should be grey, but this text should be green.
-    /// This comment should be green on the inside:
-    /// &lt;!-- I'm green! --&gt;
-    /// &lt;/remarks&gt;
     public static int Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
@@ -1066,32 +1013,65 @@ FrameEnd
 </code></pre>
 
   <tr>
+    <th>GLSL
+    <td class="glsl">
+<pre><code>// vertex shader
+#version 150
+in  vec2 in_Position;
+in  vec3 in_Color;
+
+out vec3 ex_Color;
+void main(void) {
+    gl_Position = vec4(in_Position.x, in_Position.y, 0.0, 1.0);
+    ex_Color = in_Color;
+}
+
+
+// geometry shader
+#version 150
+
+layout(triangles) in;
+layout(triangle_strip, max_vertices = 3) out;
+
+void main() {
+  for(int i = 0; i < gl_in.length(); i++) {
+    gl_Position = gl_in[i].gl_Position;
+    EmitVertex();
+  }
+  EndPrimitive();
+}
+
+
+// fragment shader
+#version 150
+precision highp float;
+
+in  vec3 ex_Color;
+out vec4 gl_FragColor;
+
+void main(void) {
+    gl_FragColor = vec4(ex_Color, 1.0);
+}
+</code></pre>
+
+  <tr>
     <th>SQL
     <td class="sql">
 <pre><code>BEGIN;
-CREATE TABLE "cicero_topic" (
+CREATE TABLE "topic" (
     "id" serial NOT NULL PRIMARY KEY,
     "forum_id" integer NOT NULL,
-    "subject" varchar(255) NOT NULL,
-    "created" timestamp with time zone NOT NULL
+    "subject" varchar(255) NOT NULL
 );
-ALTER TABLE "cicero_topic"
-ADD CONSTRAINT forum_id_refs_id_4be56999
-FOREIGN KEY ("forum_id")
-REFERENCES "cicero_forum" ("id")
-DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "topic" ADD CONSTRAINT forum_id FOREIGN KEY ("forum_id") REFERENCES "forum" ("id");
 
 -- Initials
-insert into "cicero_forum"
-  ("slug", "name", "group", "ordering")
-values
-  ('test', 'Forum for te''sting', 'Test', 0);
+insert into "topic" ("forum_id", "subject") values (2, 'D''artagnian');
 
--- Test
 select count(*) from cicero_forum;
 
-COMMIT;
-</code></pre>
+-- this line lacks ; at the end to allow people to be sloppy and omit it in one-liners
+COMMIT</code></pre>
 
   <tr>
     <th>SmallTalk
@@ -1237,6 +1217,10 @@ http {
             proxy_set_header   Host             $host;
             proxy_set_header   X-Real-IP        $remote_addr;
             charset            koi8-r;
+        }
+
+        location /api/ {
+            fastcgi_pass 127.0.0.1:9000;
         }
 
         location ~* \.(jpg|jpeg|gif)$ {
@@ -1454,62 +1438,47 @@ flash2ram:
   <tr>
     <th>VHDL
     <td class="vhdl">
-<pre><code>------------------------------------
--- RS Trigger with Assynch. Reset --
-------------------------------------
+<pre><code>/*
+ * RS-trigger with assynch. reset
+ */
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
-entity RS_AR is
-	generic (T: Time := 0ns);
+entity RS_trigger is
+    generic (T: Time := 0ns);
+    port ( R, S  : in  std_logic;
+           Q, nQ : out std_logic;
+           reset, clock : in  std_logic );
+end RS_trigger;
 
-	port(
-		 -- Default RS Trigger
-		 R  : in  STD_LOGIC;
-		 S  : in  STD_LOGIC;
-		 Q  : out STD_LOGIC;
-		 nQ : out STD_LOGIC;
-
-		 -- Special Input Signals
-		 AR : in  STD_LOGIC; -- assynch. reset
-		 C  : in  STD_LOGIC  -- synch. signal
-	     );
-end RS_AR;
-
-
-architecture RS_AR of RS_AR is
-	signal QT: std_logic; -- Q(t)
+architecture behaviour of RS_trigger is
+    signal QT: std_logic; -- Q(t)
 begin
+    process(clock, reset) is
+        subtype RS is std_logic_vector (1 downto 0);
+    begin
+        if reset = '0' then
+            QT &lt;= '0';
+        else
+            if rising_edge(C) then
+                if not (R'stable(T) and S'stable(T)) then
+                    QT &lt;= 'X';
+                else
+                    case RS'(R&amp;S) is
+                        when "01" =&gt; QT &lt;= '1';
+                        when "10" =&gt; QT &lt;= '0';
+                        when "11" =&gt; QT &lt;= 'X';
+                        when others =&gt; null;
+                    end case;
+                end if;
+            end if;
+        end if;
+    end process;
 
-	process(C, AR) is
-		subtype RS is std_logic_vector ( 1 downto 0 );
-	begin
-		if AR='0' then
-			QT &lt;= '0';
-		else
-			if rising_edge(C) then
-
-				if not (R'stable(T) and S'stable(T)) then
-				QT &lt;= 'X';
-				else
-
-				case RS'(R&amp;S) is
-					when "01" =&gt; QT &lt;= '1';
-					when "10" =&gt; QT &lt;= '0';
-					when "11" =&gt; QT &lt;= 'X';
-					when others =&gt; null;
-				end case;
-
-				end if;
-			end if;
-		end if;
-	end process;
-
-	Q  &lt;= QT;
-	nQ &lt;= not QT;
-
-end RS_AR;
+    Q  &lt;= QT;
+    nQ &lt;= not QT;
+end architecture behaviour;
 </code></pre>
 
   <tr>
@@ -1578,32 +1547,46 @@ $$
     <th>Haskell
     <td class="haskell">
 <pre>
-<code>module Shapes
-( Point(..)  ,
-  Shape(..)  ,
-  surface    ,
-  baseCircle ,
-  baseRect
+<code>{-# LANGUAGE TypeSynonymInstances #-}
+module Network.UDP
+( DataPacket(..)
+, openBoundUDPPort
+, openListeningUDPPort
+, pingUDPPort
+, sendUDPPacketTo
+, recvUDPPacket
+, recvUDPPacketFrom
 ) where
 
--- Single line comment
-{-
-multi
-line
-comment
--}
-data Point = Point Float Float deriving (Show)
-data Shape = Circle Point Float | Rectangle Point Point deriving (Show)
+{- this is a {- nested -} comment -}
 
-surface :: Shape -> Float
-surface (Circle _ r) = pi * r^2
-surface (Rectangle (Point x1 y1) (Point x2 y2)) = (abs $ x2 - x1) * (abs $ y2 - y1)
+import qualified Data.ByteString as Strict (ByteString, concat, singleton)
+import qualified Data.ByteString.Lazy as Lazy (ByteString, toChunks, fromChunks)
+import Data.ByteString.Char8 (pack, unpack)
+import Network.Socket hiding (sendTo, recv, recvFrom)
+import Network.Socket.ByteString (sendTo, recv, recvFrom)
 
-baseCircle :: Float -> Shape
-baseCircle r = Circle(Point 0 0) r
+-- Type class for converting StringLike types to and from strict ByteStrings
+class DataPacket a where
+  toStrictBS :: a -> Strict.ByteString
+  fromStrictBS :: Strict.ByteString -> a
 
-baseRect :: Float -> Float -> Shape
-baseRect w h = Rectangle (Point 0 0) (Point w h)
+instance DataPacket Strict.ByteString where
+  toStrictBS = id
+  {-# INLINE toStrictBS #-}
+  fromStrictBS = id
+  {-# INLINE fromStrictBS #-}
+
+openBoundUDPPort :: String -> Int -> IO Socket
+openBoundUDPPort uri port = do
+  s <- getUDPSocket
+  bindAddr <- inet_addr uri
+  let a = SockAddrInet (toEnum port) bindAddr
+  bindSocket s a
+  return s
+
+pingUDPPort :: Socket -> SockAddr -> IO ()
+pingUDPPort s a = sendTo s (Strict.singleton 0) a >> return ()
 </code></pre>
 
   <tr>

@@ -26,7 +26,8 @@ pre .method,
 pre .addition,
 pre .css .tag,
 pre .request,
-pre .status {
+pre .status,
+pre .nginx .title {
   color: #859900;
 }
 
@@ -49,6 +50,7 @@ pre .builtin,
 pre .built_in,
 pre .identifier,
 pre .title .keymethods,
+pre .vhdl .literal,
 pre .id {
   color: #268bd2;
 }
@@ -61,7 +63,7 @@ pre .smalltalk .number,
 pre .constant,
 pre .class .title,
 pre .parent,
-pre .haskell .label {
+pre .haskell .type {
   color: #b58900;
 }
 

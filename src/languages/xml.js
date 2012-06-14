@@ -2,7 +2,7 @@
 Language: HTML, XML
 */
 
-hljs.LANGUAGES.xml = function(){
+function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
   var TAG_INTERNALS = {
     endsWithParent: true,
@@ -69,7 +69,7 @@ hljs.LANGUAGES.xml = function(){
           by hljs.subMode() that tests lexems outside the stream.
           */
           begin: '<style(?=\\s|>|$)', end: '>',
-          keywords: {'title': {'style': 1}},
+          keywords: {title: 'style'},
           contains: [TAG_INTERNALS],
           starts: {
             end: '</style>', returnEnd: true,
@@ -80,7 +80,7 @@ hljs.LANGUAGES.xml = function(){
           className: 'tag',
           // See the comment in the <style tag about the lookahead pattern
           begin: '<script(?=\\s|>|$)', end: '>',
-          keywords: {'title': {'script': 1}},
+          keywords: {title: 'script'},
           contains: [TAG_INTERNALS],
           starts: {
             end: '</script>', returnEnd: true,
@@ -104,4 +104,4 @@ hljs.LANGUAGES.xml = function(){
       ]
     }
   };
-}();
+}

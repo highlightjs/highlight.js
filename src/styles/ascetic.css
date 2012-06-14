@@ -34,14 +34,15 @@ pre .apache .sqbracket {
 
 pre .keyword,
 pre .tag .title,
-pre .css .tag,
 pre .ini .title,
+pre .lisp .title,
+pre .http .title,
+pre .nginx .title,
+pre .css .tag,
 pre .winutils,
 pre .flow,
-pre .lisp .title,
 pre .apache .tag,
 pre .tex .command,
-pre .http .title,
 pre .request,
 pre .status {
   font-weight: bold;

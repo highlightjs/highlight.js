@@ -1,25 +1,28 @@
 /*
 
-Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
+XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 
 */
 
 pre code {
   display: block; padding: 0.5em;
-  background: white; color: black;
+  background: #fff; color: black;
 }
 
 pre .comment,
 pre .template_comment,
 pre .javadoc,
 pre .comment * {
-  color: #800;
+  color: rgb(0,106,0);
 }
 
 pre .keyword,
+pre .literal,
+pre .nginx .title {
+  color: rgb(170,13,145);
+}
 pre .method,
 pre .list .title,
-pre .nginx .title,
 pre .tag .title,
 pre .setting .value,
 pre .winutils,
@@ -35,7 +38,9 @@ pre .tex .special {
   color: #660;
 }
 
-pre .string,
+pre .string {
+  color: rgb(196,26,22);
+}
 pre .tag .value,
 pre .cdata,
 pre .filter .argument,
@@ -57,14 +62,13 @@ pre .input_number,
 pre .hexcolor,
 pre .rules .value,
 pre .css .value .number,
-pre .literal,
 pre .symbol,
 pre .ruby .symbol .string,
 pre .ruby .symbol .keyword,
 pre .ruby .symbol .keymethods,
 pre .number,
 pre .css .function {
-  color: #066;
+  color: rgb(28,0,207);
 }
 
 pre .class .title,
@@ -79,11 +83,13 @@ pre .doctype,
 pre .class .id,
 pre .built_in,
 pre .setting,
-pre .params,
-pre .variable {
-  color: #606;
+pre .params {
+  color: rgb(92,38,153);
 }
 
+pre .variable {
+ color: rgb(63,110,116);
+}
 pre .css .tag,
 pre .rules .property,
 pre .pseudo,
@@ -112,7 +118,7 @@ pre .nginx .built_in {
 
 pre .preprocessor,
 pre .preprocessor * {
-  color: #444;
+  color: rgb(100,56,32);
 }
 
 pre .tex .formula {
@@ -140,4 +146,8 @@ pre .deletion {
 
 pre .comment .yardoctag {
   font-weight: bold;
+}
+
+pre .method .id {
+  color: #000;
 }

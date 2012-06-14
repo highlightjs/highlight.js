@@ -22,7 +22,7 @@ Date: 2012-04-08
  *   up to the end of line is matched as special token sequence)
  */
 
-hljs.LANGUAGES.d = function() {
+function(hljs) {
 
 	/**
 	 * Language keywords
@@ -30,46 +30,21 @@ hljs.LANGUAGES.d = function() {
 	 * @type {Object}
 	 */
 	var D_KEYWORDS = {
-		keyword: {
-			'abstract': 1, 'alias': 1, 'align': 1, 'asm': 1, 'assert': 1, 'auto': 1,
-			'body': 1, 'break': 1, 'byte': 1,
-			'case': 1, 'cast': 1, 'catch': 1, 'class': 1, 'const': 1, 'continue': 1,
-			'debug': 1, 'default': 1, 'delete': 1, 'deprecated': 1, 'do': 1,
-			'else': 1, 'enum': 1, 'export': 1, 'extern': 1,
-			'final': 1, 'finally': 1, 'for': 1, 'foreach': 1, 'foreach_reverse': 10,
-			'goto': 1,
-			'if': 1, 'immutable': 1, 'import': 1, 'in': 1, 'inout': 1, 'int': 1, 'interface': 1, 'invariant': 1, 'is': 1,
-			'lazy': 1,
-			'macro': 1, 'mixin': 1, 'module': 1,
-			'new': 1, 'nothrow': 1,
-			'out': 1, 'override': 1,
-			'package': 1, 'pragma': 1, 'private': 1, 'protected': 1, 'public': 1, 'pure': 1,
-			'ref': 1, 'return': 1,
-			'scope': 1, 'shared': 1, 'static': 1, 'struct': 1, 'super': 1, 'switch': 1, 'synchronized': 1,
-			'template': 1, 'this': 1, 'throw': 1, 'try': 1, 'typedef': 1, 'typeid': 1, 'typeof': 1,
-			'union': 1, 'unittest': 1,
-			'version': 1, 'void': 1, 'volatile': 1,
-			'while': 1, 'with': 1,
-			'__FILE__': 1, '__LINE__': 1, '__gshared': 10, '__thread': 10, '__traits': 10,
-			'__DATE__': 1, '__EOF__': 1, '__TIME__': 1, '__TIMESTAMP__': 1, '__VENDOR__': 1, '__VERSION__': 1
-		},
-		built_in: {
-			'bool': 1,
-			'cdouble': 1, 'cent': 1, 'cfloat': 1, 'char': 1, 'creal': 1,
-			'dchar': 1, 'delegate': 1, 'double': 1, 'dstring': 1,
-			'float': 1, 'function': 1,
-			'idouble': 1, 'ifloat': 1, 'ireal': 1,
-			'long': 1,
-			'real': 1,
-			'short': 1, 'string': 1,
-			'ubyte': 1, 'ucent': 1, 'uint': 1, 'ulong': 1, 'ushort': 1,
-			'wchar': 1, 'wstring': 1
-		},
-		literal: {
-			'false': 1,
-			'null': 1,
-			'true': 1
-		}
+		keyword:
+			'abstract alias align asm assert auto body break byte case cast catch class ' +
+			'const continue debug default delete deprecated do else enum export extern final ' +
+			'finally for foreach foreach_reverse|10 goto if immutable import in inout int ' +
+			'interface invariant is lazy macro mixin module new nothrow out override package ' +
+			'pragma private protected public pure ref return scope shared static struct ' +
+			'super switch synchronized template this throw try typedef typeid typeof union ' +
+			'unittest version void volatile while with __FILE__ __LINE__ __gshared|10 ' +
+			'__thread __traits __DATE__ __EOF__ __TIME__ __TIMESTAMP__ __VENDOR__ __VERSION__',
+		built_in:
+			'bool cdouble cent cfloat char creal dchar delegate double dstring float function ' +
+			'idouble ifloat ireal long real short string ubyte ucent uint ulong ushort wchar ' +
+			'wstring',
+		literal:
+			'false null true'
 	};
 
 	/**
@@ -291,4 +266,4 @@ hljs.LANGUAGES.d = function() {
 			]
 		}
 	};
-}();
+}

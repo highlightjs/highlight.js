@@ -19,7 +19,8 @@ pre .javadoc {
 pre .keyword,
 pre .ruby .function .keyword,
 pre .request,
-pre .status {
+pre .status,
+pre .nginx .title {
   color: #E28964;
 }
 
@@ -61,7 +62,7 @@ pre .input_number {
 }
 
 pre .class .title,
-pre .haskell .label,
+pre .haskell .type,
 pre .smalltalk .class,
 pre .javadoctag,
 pre .yardoctag,

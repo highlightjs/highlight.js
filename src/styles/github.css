@@ -23,6 +23,7 @@ pre .css .rule .keyword,
 pre .winutils,
 pre .javascript .title,
 pre .lisp .title,
+pre .nginx .title,
 pre .subst,
 pre .request,
 pre .status {
@@ -55,7 +56,8 @@ pre .subst {
 }
 
 pre .class .title,
-pre .haskell .label,
+pre .haskell .type,
+pre .vhdl .literal,
 pre .tex .command {
   color: #458;
   font-weight: bold

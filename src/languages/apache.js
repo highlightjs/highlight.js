@@ -7,412 +7,97 @@ Version: 1.1
 Date: 2008-12-27
 */
 
-hljs.LANGUAGES.apache = function(){
+function(hljs) {
   var NUMBER = {className: 'number', begin: '[\\$%]\\d+'};
   return {
     case_insensitive: true,
     defaultMode: {
       keywords: {
-        'keyword': {
-          'acceptfilter': 1,
-          'acceptmutex': 1,
-          'acceptpathinfo': 1,
-          'accessfilename': 1,
-          'action': 1,
-          'addalt': 1,
-          'addaltbyencoding': 1,
-          'addaltbytype': 1,
-          'addcharset': 1,
-          'adddefaultcharset': 1,
-          'adddescription': 1,
-          'addencoding': 1,
-          'addhandler': 1,
-          'addicon': 1,
-          'addiconbyencoding': 1,
-          'addiconbytype': 1,
-          'addinputfilter': 1,
-          'addlanguage': 1,
-          'addmoduleinfo': 1,
-          'addoutputfilter': 1,
-          'addoutputfilterbytype': 1,
-          'addtype': 1,
-          'alias': 1,
-          'aliasmatch': 1,
-          'allow': 1,
-          'allowconnect': 1,
-          'allowencodedslashes': 1,
-          'allowoverride': 1,
-          'anonymous': 1,
-          'anonymous_logemail': 1,
-          'anonymous_mustgiveemail': 1,
-          'anonymous_nouserid': 1,
-          'anonymous_verifyemail': 1,
-          'authbasicauthoritative': 1,
-          'authbasicprovider': 1,
-          'authdbduserpwquery': 1,
-          'authdbduserrealmquery': 1,
-          'authdbmgroupfile': 1,
-          'authdbmtype': 1,
-          'authdbmuserfile': 1,
-          'authdefaultauthoritative': 1,
-          'authdigestalgorithm': 1,
-          'authdigestdomain': 1,
-          'authdigestnccheck': 1,
-          'authdigestnonceformat': 1,
-          'authdigestnoncelifetime': 1,
-          'authdigestprovider': 1,
-          'authdigestqop': 1,
-          'authdigestshmemsize': 1,
-          'authgroupfile': 1,
-          'authldapbinddn': 1,
-          'authldapbindpassword': 1,
-          'authldapcharsetconfig': 1,
-          'authldapcomparednonserver': 1,
-          'authldapdereferencealiases': 1,
-          'authldapgroupattribute': 1,
-          'authldapgroupattributeisdn': 1,
-          'authldapremoteuserattribute': 1,
-          'authldapremoteuserisdn': 1,
-          'authldapurl': 1,
-          'authname': 1,
-          'authnprovideralias': 1,
-          'authtype': 1,
-          'authuserfile': 1,
-          'authzdbmauthoritative': 1,
-          'authzdbmtype': 1,
-          'authzdefaultauthoritative': 1,
-          'authzgroupfileauthoritative': 1,
-          'authzldapauthoritative': 1,
-          'authzownerauthoritative': 1,
-          'authzuserauthoritative': 1,
-          'balancermember': 1,
-          'browsermatch': 1,
-          'browsermatchnocase': 1,
-          'bufferedlogs': 1,
-          'cachedefaultexpire': 1,
-          'cachedirlength': 1,
-          'cachedirlevels': 1,
-          'cachedisable': 1,
-          'cacheenable': 1,
-          'cachefile': 1,
-          'cacheignorecachecontrol': 1,
-          'cacheignoreheaders': 1,
-          'cacheignorenolastmod': 1,
-          'cacheignorequerystring': 1,
-          'cachelastmodifiedfactor': 1,
-          'cachemaxexpire': 1,
-          'cachemaxfilesize': 1,
-          'cacheminfilesize': 1,
-          'cachenegotiateddocs': 1,
-          'cacheroot': 1,
-          'cachestorenostore': 1,
-          'cachestoreprivate': 1,
-          'cgimapextension': 1,
-          'charsetdefault': 1,
-          'charsetoptions': 1,
-          'charsetsourceenc': 1,
-          'checkcaseonly': 1,
-          'checkspelling': 1,
-          'chrootdir': 1,
-          'contentdigest': 1,
-          'cookiedomain': 1,
-          'cookieexpires': 1,
-          'cookielog': 1,
-          'cookiename': 1,
-          'cookiestyle': 1,
-          'cookietracking': 1,
-          'coredumpdirectory': 1,
-          'customlog': 1,
-          'dav': 1,
-          'davdepthinfinity': 1,
-          'davgenericlockdb': 1,
-          'davlockdb': 1,
-          'davmintimeout': 1,
-          'dbdexptime': 1,
-          'dbdkeep': 1,
-          'dbdmax': 1,
-          'dbdmin': 1,
-          'dbdparams': 1,
-          'dbdpersist': 1,
-          'dbdpreparesql': 1,
-          'dbdriver': 1,
-          'defaulticon': 1,
-          'defaultlanguage': 1,
-          'defaulttype': 1,
-          'deflatebuffersize': 1,
-          'deflatecompressionlevel': 1,
-          'deflatefilternote': 1,
-          'deflatememlevel': 1,
-          'deflatewindowsize': 1,
-          'deny': 1,
-          'directoryindex': 1,
-          'directorymatch': 1,
-          'directoryslash': 1,
-          'documentroot': 1,
-          'dumpioinput': 1,
-          'dumpiologlevel': 1,
-          'dumpiooutput': 1,
-          'enableexceptionhook': 1,
-          'enablemmap': 1,
-          'enablesendfile': 1,
-          'errordocument': 1,
-          'errorlog': 1,
-          'example': 1,
-          'expiresactive': 1,
-          'expiresbytype': 1,
-          'expiresdefault': 1,
-          'extendedstatus': 1,
-          'extfilterdefine': 1,
-          'extfilteroptions': 1,
-          'fileetag': 1,
-          'filterchain': 1,
-          'filterdeclare': 1,
-          'filterprotocol': 1,
-          'filterprovider': 1,
-          'filtertrace': 1,
-          'forcelanguagepriority': 1,
-          'forcetype': 1,
-          'forensiclog': 1,
-          'gracefulshutdowntimeout': 1,
-          'group': 1,
-          'header': 1,
-          'headername': 1,
-          'hostnamelookups': 1,
-          'identitycheck': 1,
-          'identitychecktimeout': 1,
-          'imapbase': 1,
-          'imapdefault': 1,
-          'imapmenu': 1,
-          'include': 1,
-          'indexheadinsert': 1,
-          'indexignore': 1,
-          'indexoptions': 1,
-          'indexorderdefault': 1,
-          'indexstylesheet': 1,
-          'isapiappendlogtoerrors': 1,
-          'isapiappendlogtoquery': 1,
-          'isapicachefile': 1,
-          'isapifakeasync': 1,
-          'isapilognotsupported': 1,
-          'isapireadaheadbuffer': 1,
-          'keepalive': 1,
-          'keepalivetimeout': 1,
-          'languagepriority': 1,
-          'ldapcacheentries': 1,
-          'ldapcachettl': 1,
-          'ldapconnectiontimeout': 1,
-          'ldapopcacheentries': 1,
-          'ldapopcachettl': 1,
-          'ldapsharedcachefile': 1,
-          'ldapsharedcachesize': 1,
-          'ldaptrustedclientcert': 1,
-          'ldaptrustedglobalcert': 1,
-          'ldaptrustedmode': 1,
-          'ldapverifyservercert': 1,
-          'limitinternalrecursion': 1,
-          'limitrequestbody': 1,
-          'limitrequestfields': 1,
-          'limitrequestfieldsize': 1,
-          'limitrequestline': 1,
-          'limitxmlrequestbody': 1,
-          'listen': 1,
-          'listenbacklog': 1,
-          'loadfile': 1,
-          'loadmodule': 1,
-          'lockfile': 1,
-          'logformat': 1,
-          'loglevel': 1,
-          'maxclients': 1,
-          'maxkeepaliverequests': 1,
-          'maxmemfree': 1,
-          'maxrequestsperchild': 1,
-          'maxrequestsperthread': 1,
-          'maxspareservers': 1,
-          'maxsparethreads': 1,
-          'maxthreads': 1,
-          'mcachemaxobjectcount': 1,
-          'mcachemaxobjectsize': 1,
-          'mcachemaxstreamingbuffer': 1,
-          'mcacheminobjectsize': 1,
-          'mcacheremovalalgorithm': 1,
-          'mcachesize': 1,
-          'metadir': 1,
-          'metafiles': 1,
-          'metasuffix': 1,
-          'mimemagicfile': 1,
-          'minspareservers': 1,
-          'minsparethreads': 1,
-          'mmapfile': 1,
-          'mod_gzip_on': 1,
-          'mod_gzip_add_header_count': 1,
-          'mod_gzip_keep_workfiles': 1,
-          'mod_gzip_dechunk': 1,
-          'mod_gzip_min_http': 1,
-          'mod_gzip_minimum_file_size': 1,
-          'mod_gzip_maximum_file_size': 1,
-          'mod_gzip_maximum_inmem_size': 1,
-          'mod_gzip_temp_dir': 1,
-          'mod_gzip_item_include': 1,
-          'mod_gzip_item_exclude': 1,
-          'mod_gzip_command_version': 1,
-          'mod_gzip_can_negotiate': 1,
-          'mod_gzip_handle_methods': 1,
-          'mod_gzip_static_suffix': 1,
-          'mod_gzip_send_vary': 1,
-          'mod_gzip_update_static': 1,
-          'modmimeusepathinfo': 1,
-          'multiviewsmatch': 1,
-          'namevirtualhost': 1,
-          'noproxy': 1,
-          'nwssltrustedcerts': 1,
-          'nwsslupgradeable': 1,
-          'options': 1,
-          'order': 1,
-          'passenv': 1,
-          'pidfile': 1,
-          'protocolecho': 1,
-          'proxybadheader': 1,
-          'proxyblock': 1,
-          'proxydomain': 1,
-          'proxyerroroverride': 1,
-          'proxyftpdircharset': 1,
-          'proxyiobuffersize': 1,
-          'proxymaxforwards': 1,
-          'proxypass': 1,
-          'proxypassinterpolateenv': 1,
-          'proxypassmatch': 1,
-          'proxypassreverse': 1,
-          'proxypassreversecookiedomain': 1,
-          'proxypassreversecookiepath': 1,
-          'proxypreservehost': 1,
-          'proxyreceivebuffersize': 1,
-          'proxyremote': 1,
-          'proxyremotematch': 1,
-          'proxyrequests': 1,
-          'proxyset': 1,
-          'proxystatus': 1,
-          'proxytimeout': 1,
-          'proxyvia': 1,
-          'readmename': 1,
-          'receivebuffersize': 1,
-          'redirect': 1,
-          'redirectmatch': 1,
-          'redirectpermanent': 1,
-          'redirecttemp': 1,
-          'removecharset': 1,
-          'removeencoding': 1,
-          'removehandler': 1,
-          'removeinputfilter': 1,
-          'removelanguage': 1,
-          'removeoutputfilter': 1,
-          'removetype': 1,
-          'requestheader': 1,
-          'require': 2,
-          'rewritebase': 1,
-          'rewritecond': 10,
-          'rewriteengine': 1,
-          'rewritelock': 1,
-          'rewritelog': 1,
-          'rewriteloglevel': 1,
-          'rewritemap': 1,
-          'rewriteoptions': 1,
-          'rewriterule': 10,
-          'rlimitcpu': 1,
-          'rlimitmem': 1,
-          'rlimitnproc': 1,
-          'satisfy': 1,
-          'scoreboardfile': 1,
-          'script': 1,
-          'scriptalias': 1,
-          'scriptaliasmatch': 1,
-          'scriptinterpretersource': 1,
-          'scriptlog': 1,
-          'scriptlogbuffer': 1,
-          'scriptloglength': 1,
-          'scriptsock': 1,
-          'securelisten': 1,
-          'seerequesttail': 1,
-          'sendbuffersize': 1,
-          'serveradmin': 1,
-          'serveralias': 1,
-          'serverlimit': 1,
-          'servername': 1,
-          'serverpath': 1,
-          'serverroot': 1,
-          'serversignature': 1,
-          'servertokens': 1,
-          'setenv': 1,
-          'setenvif': 1,
-          'setenvifnocase': 1,
-          'sethandler': 1,
-          'setinputfilter': 1,
-          'setoutputfilter': 1,
-          'ssienableaccess': 1,
-          'ssiendtag': 1,
-          'ssierrormsg': 1,
-          'ssistarttag': 1,
-          'ssitimeformat': 1,
-          'ssiundefinedecho': 1,
-          'sslcacertificatefile': 1,
-          'sslcacertificatepath': 1,
-          'sslcadnrequestfile': 1,
-          'sslcadnrequestpath': 1,
-          'sslcarevocationfile': 1,
-          'sslcarevocationpath': 1,
-          'sslcertificatechainfile': 1,
-          'sslcertificatefile': 1,
-          'sslcertificatekeyfile': 1,
-          'sslciphersuite': 1,
-          'sslcryptodevice': 1,
-          'sslengine': 1,
-          'sslhonorciperorder': 1,
-          'sslmutex': 1,
-          'ssloptions': 1,
-          'sslpassphrasedialog': 1,
-          'sslprotocol': 1,
-          'sslproxycacertificatefile': 1,
-          'sslproxycacertificatepath': 1,
-          'sslproxycarevocationfile': 1,
-          'sslproxycarevocationpath': 1,
-          'sslproxyciphersuite': 1,
-          'sslproxyengine': 1,
-          'sslproxymachinecertificatefile': 1,
-          'sslproxymachinecertificatepath': 1,
-          'sslproxyprotocol': 1,
-          'sslproxyverify': 1,
-          'sslproxyverifydepth': 1,
-          'sslrandomseed': 1,
-          'sslrequire': 1,
-          'sslrequiressl': 1,
-          'sslsessioncache': 1,
-          'sslsessioncachetimeout': 1,
-          'sslusername': 1,
-          'sslverifyclient': 1,
-          'sslverifydepth': 1,
-          'startservers': 1,
-          'startthreads': 1,
-          'substitute': 1,
-          'suexecusergroup': 1,
-          'threadlimit': 1,
-          'threadsperchild': 1,
-          'threadstacksize': 1,
-          'timeout': 1,
-          'traceenable': 1,
-          'transferlog': 1,
-          'typesconfig': 1,
-          'unsetenv': 1,
-          'usecanonicalname': 1,
-          'usecanonicalphysicalport': 1,
-          'user': 1,
-          'userdir': 1,
-          'virtualdocumentroot': 1,
-          'virtualdocumentrootip': 1,
-          'virtualscriptalias': 1,
-          'virtualscriptaliasip': 1,
-          'win32disableacceptex': 1,
-          'xbithack': 1
-        },
-        'literal': {'on': 1, 'off': 1}
+        keyword: 'acceptfilter acceptmutex acceptpathinfo accessfilename action addalt ' +
+          'addaltbyencoding addaltbytype addcharset adddefaultcharset adddescription ' +
+          'addencoding addhandler addicon addiconbyencoding addiconbytype addinputfilter ' +
+          'addlanguage addmoduleinfo addoutputfilter addoutputfilterbytype addtype alias ' +
+          'aliasmatch allow allowconnect allowencodedslashes allowoverride anonymous ' +
+          'anonymous_logemail anonymous_mustgiveemail anonymous_nouserid anonymous_verifyemail ' +
+          'authbasicauthoritative authbasicprovider authdbduserpwquery authdbduserrealmquery ' +
+          'authdbmgroupfile authdbmtype authdbmuserfile authdefaultauthoritative ' +
+          'authdigestalgorithm authdigestdomain authdigestnccheck authdigestnonceformat ' +
+          'authdigestnoncelifetime authdigestprovider authdigestqop authdigestshmemsize ' +
+          'authgroupfile authldapbinddn authldapbindpassword authldapcharsetconfig ' +
+          'authldapcomparednonserver authldapdereferencealiases authldapgroupattribute ' +
+          'authldapgroupattributeisdn authldapremoteuserattribute authldapremoteuserisdn ' +
+          'authldapurl authname authnprovideralias authtype authuserfile authzdbmauthoritative ' +
+          'authzdbmtype authzdefaultauthoritative authzgroupfileauthoritative ' +
+          'authzldapauthoritative authzownerauthoritative authzuserauthoritative ' +
+          'balancermember browsermatch browsermatchnocase bufferedlogs cachedefaultexpire ' +
+          'cachedirlength cachedirlevels cachedisable cacheenable cachefile ' +
+          'cacheignorecachecontrol cacheignoreheaders cacheignorenolastmod ' +
+          'cacheignorequerystring cachelastmodifiedfactor cachemaxexpire cachemaxfilesize ' +
+          'cacheminfilesize cachenegotiateddocs cacheroot cachestorenostore cachestoreprivate ' +
+          'cgimapextension charsetdefault charsetoptions charsetsourceenc checkcaseonly ' +
+          'checkspelling chrootdir contentdigest cookiedomain cookieexpires cookielog ' +
+          'cookiename cookiestyle cookietracking coredumpdirectory customlog dav ' +
+          'davdepthinfinity davgenericlockdb davlockdb davmintimeout dbdexptime dbdkeep ' +
+          'dbdmax dbdmin dbdparams dbdpersist dbdpreparesql dbdriver defaulticon ' +
+          'defaultlanguage defaulttype deflatebuffersize deflatecompressionlevel ' +
+          'deflatefilternote deflatememlevel deflatewindowsize deny directoryindex ' +
+          'directorymatch directoryslash documentroot dumpioinput dumpiologlevel dumpiooutput ' +
+          'enableexceptionhook enablemmap enablesendfile errordocument errorlog example ' +
+          'expiresactive expiresbytype expiresdefault extendedstatus extfilterdefine ' +
+          'extfilteroptions fileetag filterchain filterdeclare filterprotocol filterprovider ' +
+          'filtertrace forcelanguagepriority forcetype forensiclog gracefulshutdowntimeout ' +
+          'group header headername hostnamelookups identitycheck identitychecktimeout ' +
+          'imapbase imapdefault imapmenu include indexheadinsert indexignore indexoptions ' +
+          'indexorderdefault indexstylesheet isapiappendlogtoerrors isapiappendlogtoquery ' +
+          'isapicachefile isapifakeasync isapilognotsupported isapireadaheadbuffer keepalive ' +
+          'keepalivetimeout languagepriority ldapcacheentries ldapcachettl ' +
+          'ldapconnectiontimeout ldapopcacheentries ldapopcachettl ldapsharedcachefile ' +
+          'ldapsharedcachesize ldaptrustedclientcert ldaptrustedglobalcert ldaptrustedmode ' +
+          'ldapverifyservercert limitinternalrecursion limitrequestbody limitrequestfields ' +
+          'limitrequestfieldsize limitrequestline limitxmlrequestbody listen listenbacklog ' +
+          'loadfile loadmodule lockfile logformat loglevel maxclients maxkeepaliverequests ' +
+          'maxmemfree maxrequestsperchild maxrequestsperthread maxspareservers maxsparethreads ' +
+          'maxthreads mcachemaxobjectcount mcachemaxobjectsize mcachemaxstreamingbuffer ' +
+          'mcacheminobjectsize mcacheremovalalgorithm mcachesize metadir metafiles metasuffix ' +
+          'mimemagicfile minspareservers minsparethreads mmapfile mod_gzip_on ' +
+          'mod_gzip_add_header_count mod_gzip_keep_workfiles mod_gzip_dechunk ' +
+          'mod_gzip_min_http mod_gzip_minimum_file_size mod_gzip_maximum_file_size ' +
+          'mod_gzip_maximum_inmem_size mod_gzip_temp_dir mod_gzip_item_include ' +
+          'mod_gzip_item_exclude mod_gzip_command_version mod_gzip_can_negotiate ' +
+          'mod_gzip_handle_methods mod_gzip_static_suffix mod_gzip_send_vary ' +
+          'mod_gzip_update_static modmimeusepathinfo multiviewsmatch namevirtualhost noproxy ' +
+          'nwssltrustedcerts nwsslupgradeable options order passenv pidfile protocolecho ' +
+          'proxybadheader proxyblock proxydomain proxyerroroverride proxyftpdircharset ' +
+          'proxyiobuffersize proxymaxforwards proxypass proxypassinterpolateenv ' +
+          'proxypassmatch proxypassreverse proxypassreversecookiedomain ' +
+          'proxypassreversecookiepath proxypreservehost proxyreceivebuffersize proxyremote ' +
+          'proxyremotematch proxyrequests proxyset proxystatus proxytimeout proxyvia ' +
+          'readmename receivebuffersize redirect redirectmatch redirectpermanent ' +
+          'redirecttemp removecharset removeencoding removehandler removeinputfilter ' +
+          'removelanguage removeoutputfilter removetype requestheader require rewritebase ' +
+          'rewritecond rewriteengine rewritelock rewritelog rewriteloglevel rewritemap ' +
+          'rewriteoptions rewriterule rlimitcpu rlimitmem rlimitnproc satisfy scoreboardfile ' +
+          'script scriptalias scriptaliasmatch scriptinterpretersource scriptlog ' +
+          'scriptlogbuffer scriptloglength scriptsock securelisten seerequesttail ' +
+          'sendbuffersize serveradmin serveralias serverlimit servername serverpath ' +
+          'serverroot serversignature servertokens setenv setenvif setenvifnocase sethandler ' +
+          'setinputfilter setoutputfilter ssienableaccess ssiendtag ssierrormsg ssistarttag ' +
+          'ssitimeformat ssiundefinedecho sslcacertificatefile sslcacertificatepath ' +
+          'sslcadnrequestfile sslcadnrequestpath sslcarevocationfile sslcarevocationpath ' +
+          'sslcertificatechainfile sslcertificatefile sslcertificatekeyfile sslciphersuite ' +
+          'sslcryptodevice sslengine sslhonorciperorder sslmutex ssloptions ' +
+          'sslpassphrasedialog sslprotocol sslproxycacertificatefile ' +
+          'sslproxycacertificatepath sslproxycarevocationfile sslproxycarevocationpath ' +
+          'sslproxyciphersuite sslproxyengine sslproxymachinecertificatefile ' +
+          'sslproxymachinecertificatepath sslproxyprotocol sslproxyverify ' +
+          'sslproxyverifydepth sslrandomseed sslrequire sslrequiressl sslsessioncache ' +
+          'sslsessioncachetimeout sslusername sslverifyclient sslverifydepth startservers ' +
+          'startthreads substitute suexecusergroup threadlimit threadsperchild ' +
+          'threadstacksize timeout traceenable transferlog typesconfig unsetenv ' +
+          'usecanonicalname usecanonicalphysicalport user userdir virtualdocumentroot ' +
+          'virtualdocumentrootip virtualscriptalias virtualscriptaliasip ' +
+          'win32disableacceptex xbithack',
+        literal: 'on off'
       },
       contains: [
         hljs.HASH_COMMENT_MODE,
@@ -431,4 +116,4 @@ hljs.LANGUAGES.apache = function(){
       ]
     }
   };
-}();
+}

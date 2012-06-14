@@ -12,7 +12,8 @@ pre code {
 pre code,
 pre .ruby .subst,
 pre .tag .title,
-pre .lisp .title {
+pre .lisp .title,
+pre .nginx .title {
   color: black;
 }
 
@@ -88,7 +89,8 @@ pre .nginx .built_in,
 pre .tex .formula,
 pre .erlang_repl .reserved,
 pre .input_number,
-pre .markdown .link_label {
+pre .markdown .link_label,
+pre .vhdl .attribute {
   color: #88F
 }
 

@@ -95,9 +95,9 @@ def compress_content(tools_path, content, filetype='js'):
 
     args = ['java', '-jar', os.path.join(tools_path, 'yuicompressor.jar'), '--type', filetype]
     p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    p.stdin.write(content)
+    p.stdin.write(content.encode('utf-8'))
     p.stdin.close()
-    content = p.stdout.read()
+    content = p.stdout.read().decode('utf-8')
     p.stdout.close()
 
     return content
@@ -192,26 +192,26 @@ def glue_files(hljs_filename, language_filenames, compressed):
 def build_browser(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')
-    print 'Building %d files:\n%s' % (len(filenames), '\n'.join(filenames))
+    print('Building %d files:\n%s' % (len(filenames), '\n'.join(filenames)))
     content = glue_files(os.path.join(src_path, 'highlight.js'), filenames, False)
-    print 'Uncompressed size:', len(content)
+    print('Uncompressed size:', len(content.encode('utf-8')))
     if options.compress:
-        print 'Compressing...'
+        print('Compressing...')
         content = compress_content(tools_path, content)
-        print 'Compressed size:', len(content)
+        print('Compressed size:', len(content.encode('utf-8')))
     open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
 
 def build_node(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
-    print 'Building %d files:' % len(filenames)
+    print('Building %d files:' % len(filenames))
     for filename in filenames:
-        print filename
+        print(filename)
         content = 'module.exports = %s;' % strip_read(filename)
         open(os.path.join(build_path, os.path.basename(filename)), 'w').write(content)
     filename = os.path.join(src_path, 'highlight.js')
-    print filename
+    print(filename)
 
-    print 'Registering languages with the library...'
+    print('Registering languages with the library...')
     hljs = 'var hljs = new %s();' % strip_read(filename)
     filenames = map(os.path.basename, filenames)
     for filename in filenames:
@@ -219,9 +219,9 @@ def build_node(root, build_path, filenames, options):
     hljs += '\nmodule.exports = hljs;'
     open(os.path.join(build_path, 'highlight.js'), 'w').write(hljs)
     if options.compress:
-        print 'Notice: not compressing files for "node" target.'
+        print('Notice: not compressing files for "node" target.')
 
-    print 'Adding package.json...'
+    print('Adding package.json...')
     package = json.load(open(os.path.join(src_path, 'package.json')))
     authors = open(os.path.join(root, 'AUTHORS.en.txt'))
     matches = (re.match('^- (?P<name>.*) <(?P<email>.*)>$', a) for a in authors)
@@ -233,27 +233,27 @@ def build_cdn(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')
     if not options.compress:
-        print 'Notice: forcing compression for "cdn" target'
+        print('Notice: forcing compression for "cdn" target')
         options.compress = True
     build_browser(root, build_path, filenames, options)
     os.rename(os.path.join(build_path, 'highlight.pack.js'), os.path.join(build_path, 'highlight.min.js'))
-    print 'Compressing all languages...'
+    print('Compressing all languages...')
     lang_path = os.path.join(build_path, 'languages')
     os.mkdir(lang_path)
     all_filenames = language_filenames(src_path, [])
     for filename in all_filenames:
-        print filename
+        print(filename)
         content = compress_content(tools_path, open(filename).read())
         content = wrap_language(filename, content, True)
         open(os.path.join(lang_path, '%s.min.js' % lang_name(filename)), 'w').write(content)
-    print 'Compressing styles...'
+    print('Compressing styles...')
     build_style_path = os.path.join(build_path, 'styles')
     src_style_path = os.path.join(src_path, 'styles')
     os.mkdir(build_style_path)
     styles = [lang_name(f) for f in os.listdir(src_style_path) if f.endswith('.css')]
     for style in styles:
         filename = os.path.join(src_style_path, '%s.css' % style)
-        print filename
+        print(filename)
         content = compress_content(tools_path, open(filename).read(), 'css')
         open(os.path.join(build_style_path, '%s.min.css' % style), 'w').write(content)
 
@@ -264,7 +264,7 @@ def build(buildfunc, root, languages, options):
     os.mkdir(build_path)
     filenames = language_filenames(os.path.join(root, 'src'), languages)
     buildfunc(root, build_path, filenames, options)
-    print 'Done.'
+    print('Done.')
 
 if __name__ == '__main__':
     parser = optparse.OptionParser()
@@ -281,12 +281,12 @@ if __name__ == '__main__':
     parser.set_usage('''%%prog [options] [<language>|:<category> ...]
 
 - <language> is the name of a language file without the .js extension
-- <category> is a pre-defined set of language names: %s''' % ', '.join(CATEGORIES.keys()))
+- <category> is a pre-defined set of language names: %s''' % ', '.join(CATEGORIES))
     options, args = parser.parse_args()
     try:
         buildfunc = locals()['build_%s' % options.target]
     except KeyError:
-        print 'Unknown target:', options.target
+        print('Unknown target:', options.target)
         sys.exit(1)
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     build(buildfunc, root, args, options)

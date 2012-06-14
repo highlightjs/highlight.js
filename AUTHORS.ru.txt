@@ -21,7 +21,7 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - MajestiC <majestic2k@gmail.com>
 - Василий Половнёв <vast@whiteants.net>
 - Владимир Епифанов <voldmar@voldmar.ru>
-- Александр Макаров (http://rmcreative.ru/)
+- Александр Макаров <sam@rmcreative.ru>
 - Vah <vahtenberg@gmail.com>
 - Шуэн-Хуэй Гуан <drake.guan@gmail.com>
 - Джейсон Даймонд <jason@diamond.name>
@@ -35,7 +35,7 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Владимир Москва <vladmos@gmail.com>
 - Лорен Сегал <lsegal@soen.ca>
 - Андрей Фёдоров <dmmdrs@mail.ru>
-- Игорь Кальницкий <igor.kalnitsky@gmail.com>
+- Игорь Кальницкий <igor@kalnitsky.org>
 - Джереми Халл <sourdrums@gmail.com>
 - Валерий Хиора <valerii.hiora@gmail.com>
 - Николай Захаров <nikolay.desh@gmail.com>
@@ -56,3 +56,6 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Илья Барышев <baryshev@gmail.com>
 - Александр Ружичич <aleksandar@ruzicic.info>
 - Джо Ченг <joe@rstudio.org>
+- Анхель Ойоки <angelgarcia.mail@gmail.com>
+- Джейсон Тейт <adminz@web-cms-designs.com>
+- Сергей Тихомиров <me@stikhomirov.com>

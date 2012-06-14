@@ -24,7 +24,8 @@ pre .status {
 
 pre .sub .keyword,
 pre .method,
-pre .list .title {
+pre .list .title,
+pre .nginx .title {
   color: #FFFFB6;
 }
 
@@ -51,7 +52,7 @@ pre .sub .identifier,
 pre .pi,
 pre .decorator,
 pre .tex .special,
-pre .haskell .label,
+pre .haskell .type,
 pre .constant,
 pre .smalltalk .class,
 pre .javadoctag,
