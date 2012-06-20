@@ -9,7 +9,7 @@ function(hljs) {
 
   function allowsDjangoSyntax(mode, parent) {
     return (
-      parent == undefined || // defaultMode
+      parent == undefined || // default mode
       (!mode.className && parent.className == 'tag') || // tag_internal
       mode.className == 'value' // value
     );
@@ -82,9 +82,7 @@ function(hljs) {
     }
   ];
 
-  return {
-    case_insensitive: true,
-    defaultMode: copy(hljs.LANGUAGES.xml.defaultMode)
-  };
-
+  var result = copy(hljs.LANGUAGES.xml);
+  result.case_insensitive = true;
+  return result;
 }

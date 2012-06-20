@@ -32,59 +32,57 @@ function(hljs) {
       'dispatch_queue_t dispatch_sync dispatch_async dispatch_once'
   };
   return {
-    defaultMode: {
-      keywords: OBJC_KEYWORDS,
-      illegal: '</',
-      contains: [
-        hljs.C_LINE_COMMENT_MODE,
-        hljs.C_BLOCK_COMMENT_MODE,
-        hljs.C_NUMBER_MODE,
-        hljs.QUOTE_STRING_MODE,
-        {
-          className: 'string',
-          begin: '\'',
-          end: '[^\\\\]\'',
-          illegal: '[^\\\\][^\']'
-        },
+    keywords: OBJC_KEYWORDS,
+    illegal: '</',
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.C_NUMBER_MODE,
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'string',
+        begin: '\'',
+        end: '[^\\\\]\'',
+        illegal: '[^\\\\][^\']'
+      },
 
+      {
+        className: 'preprocessor',
+        begin: '#import',
+        end: '$',
+        contains: [
         {
-          className: 'preprocessor',
-          begin: '#import',
-          end: '$',
-          contains: [
-          {
-            className: 'title',
-            begin: '\"',
-            end: '\"'
-          },
-          {
-            className: 'title',
-            begin: '<',
-            end: '>'
-          }
-          ]
+          className: 'title',
+          begin: '\"',
+          end: '\"'
         },
         {
-          className: 'preprocessor',
-          begin: '#',
-          end: '$'
-        },
-        {
-          className: 'class',
-          beginWithKeyword: true,
-          end: '({|$)',
-          keywords: 'interface class protocol implementation',
-          contains: [{
-            className: 'id',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          }
-          ]
-        },
-        {
-          className: 'variable',
-          begin: '\\.'+hljs.UNDERSCORE_IDENT_RE
+          className: 'title',
+          begin: '<',
+          end: '>'
         }
-      ]
-    }
+        ]
+      },
+      {
+        className: 'preprocessor',
+        begin: '#',
+        end: '$'
+      },
+      {
+        className: 'class',
+        beginWithKeyword: true,
+        end: '({|$)',
+        keywords: 'interface class protocol implementation',
+        contains: [{
+          className: 'id',
+          begin: hljs.UNDERSCORE_IDENT_RE
+        }
+        ]
+      },
+      {
+        className: 'variable',
+        begin: '\\.'+hljs.UNDERSCORE_IDENT_RE
+      }
+    ]
   };
 }

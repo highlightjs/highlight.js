@@ -118,47 +118,45 @@ function(hljs) {
     contains: BASIC_MODES
   };
   return {
-    defaultMode: {
-      keywords: ERLANG_RESERVED,
-      illegal: '(</|\\*=|\\+=|-=|/=|/\\*|\\*/|\\(\\*|\\*\\))',
-      contains: [
-        {
-          className: 'function',
-          begin: '^' + BASIC_ATOM_RE + '\\s*\\(', end: '->',
-          returnBegin: true,
-          illegal: '\\(|#|//|/\\*|\\\\|:',
-          contains: [
-            PARAMS,
-            {
-              className: 'title', begin: BASIC_ATOM_RE
-            }
-          ],
-          starts: {
-            end: ';|\\.',
-            keywords: ERLANG_RESERVED,
-            contains: BASIC_MODES
+    keywords: ERLANG_RESERVED,
+    illegal: '(</|\\*=|\\+=|-=|/=|/\\*|\\*/|\\(\\*|\\*\\))',
+    contains: [
+      {
+        className: 'function',
+        begin: '^' + BASIC_ATOM_RE + '\\s*\\(', end: '->',
+        returnBegin: true,
+        illegal: '\\(|#|//|/\\*|\\\\|:',
+        contains: [
+          PARAMS,
+          {
+            className: 'title', begin: BASIC_ATOM_RE
           }
-        },
-        COMMENT,
-        {
-          className: 'pp',
-          begin: '^-', end: '\\.',
-          relevance: 0,
-          excludeEnd: true,
-          returnBegin: true,
-          lexems: '-' + hljs.IDENT_RE,
-          keywords:
-            '-module -record -undef -export -ifdef -ifndef -author -copyright -doc -vsn ' +
-            '-import -include -include_lib -compile -define -else -endif -file -behaviour ' +
-            '-behavior',
-          contains: [PARAMS]
-        },
-        NUMBER,
-        hljs.QUOTE_STRING_MODE,
-        RECORD_ACCESS,
-        VAR1, VAR2,
-        TUPLE
-      ]
-    }
+        ],
+        starts: {
+          end: ';|\\.',
+          keywords: ERLANG_RESERVED,
+          contains: BASIC_MODES
+        }
+      },
+      COMMENT,
+      {
+        className: 'pp',
+        begin: '^-', end: '\\.',
+        relevance: 0,
+        excludeEnd: true,
+        returnBegin: true,
+        lexems: '-' + hljs.IDENT_RE,
+        keywords:
+          '-module -record -undef -export -ifdef -ifndef -author -copyright -doc -vsn ' +
+          '-import -include -include_lib -compile -define -else -endif -file -behaviour ' +
+          '-behavior',
+        contains: [PARAMS]
+      },
+      NUMBER,
+      hljs.QUOTE_STRING_MODE,
+      RECORD_ACCESS,
+      VAR1, VAR2,
+      TUPLE
+    ]
   };
 }

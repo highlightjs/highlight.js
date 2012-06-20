@@ -55,25 +55,23 @@ function(hljs) {
   };
   return {
     case_insensitive: true,
-    defaultMode: {
-      keywords: DELPHI_KEYWORDS,
-      illegal: '("|\\$[G-Zg-z]|\\/\\*|</)',
-      contains: [
-        CURLY_COMMENT, PAREN_COMMENT, hljs.C_LINE_COMMENT_MODE,
-        STRING, CHAR_STRING,
-        hljs.NUMBER_MODE,
-        FUNCTION,
-        {
-          className: 'class',
-          begin: '=\\bclass\\b', end: 'end;',
-          keywords: DELPHI_CLASS_KEYWORDS,
-          contains: [
-            STRING, CHAR_STRING,
-            CURLY_COMMENT, PAREN_COMMENT, hljs.C_LINE_COMMENT_MODE,
-            FUNCTION
-          ]
-        }
-      ]
-    }
+    keywords: DELPHI_KEYWORDS,
+    illegal: '("|\\$[G-Zg-z]|\\/\\*|</)',
+    contains: [
+      CURLY_COMMENT, PAREN_COMMENT, hljs.C_LINE_COMMENT_MODE,
+      STRING, CHAR_STRING,
+      hljs.NUMBER_MODE,
+      FUNCTION,
+      {
+        className: 'class',
+        begin: '=\\bclass\\b', end: 'end;',
+        keywords: DELPHI_CLASS_KEYWORDS,
+        contains: [
+          STRING, CHAR_STRING,
+          CURLY_COMMENT, PAREN_COMMENT, hljs.C_LINE_COMMENT_MODE,
+          FUNCTION
+        ]
+      }
+    ]
   };
 }

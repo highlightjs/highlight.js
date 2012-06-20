@@ -74,15 +74,13 @@ function(hljs) {
 
   return {
     case_insensitive: true,
-    defaultMode: {
-      illegal: '[^\\s]',
-      contains: NUMBERS.concat([
-        LITERAL,
-        STRING,
-        COMMENT,
-        QUOTED1, QUOTED2,
-        LIST
-      ])
-    }
+    illegal: '[^\\s]',
+    contains: NUMBERS.concat([
+      LITERAL,
+      STRING,
+      COMMENT,
+      QUOTED1, QUOTED2,
+      LIST
+    ])
   };
 }
