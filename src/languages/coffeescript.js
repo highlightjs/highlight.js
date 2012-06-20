@@ -61,8 +61,7 @@ function(hljs) {
 
   var COFFEE_REGEX_MODE = {
     className: 'regexp',
-    begin: '/\\S(\\\\.|[^\\n])*/[gim]*', // \S is required to parse x / 2 / 3 as two divisions
-    contains: [{begin: '\\\\/'}]
+    begin: '/\\S(\\\\.|[^\\n])*/[gim]*' // \S is required to parse x / 2 / 3 as two divisions
   };
 
   var COFFEE_FUNCTION_DECLARATION_MODE = {
