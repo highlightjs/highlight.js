@@ -101,9 +101,9 @@ function(hljs) {
         COFFEE_HERECOMMENT_MODE, // Should be before hljs.HASH_COMMENT_MODE for greater priority
         hljs.HASH_COMMENT_MODE,
         // CoffeeScript specific modes
+        COFFEE_HEREGEX_MODE,
         COFFEE_EMPTY_REGEX_MODE,
         COFFEE_REGEX_MODE,
-        COFFEE_HEREGEX_MODE,
         COFFEE_EMBEDDED_JAVASCRIPT,
         COFFEE_FUNCTION_DECLARATION_MODE
       ]
