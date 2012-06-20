@@ -55,6 +55,16 @@ function(hljs) {
     contains: [hljs.HASH_COMMENT_MODE]
   };
 
+  var COFFEE_EMPTY_REGEX_MODE = {
+    className: 'regexp', begin: '//[gim]*'
+  };
+
+  var COFFEE_REGEX_MODE = {
+    className: 'regexp',
+    begin: '/\\S(\\\\.|[^\\n])*/[gim]*', // \S is required to parse x / 2 / 3 as two divisions
+    contains: [{begin: '\\\\/'}]
+  };
+
   var COFFEE_FUNCTION_DECLARATION_MODE = {
     className: 'function',
     begin: JS_IDENT_RE + '\\s*=\\s*(\\(.+\\))?\\s*[-=]>',
@@ -92,6 +102,8 @@ function(hljs) {
         COFFEE_HERECOMMENT_MODE, // Should be before hljs.HASH_COMMENT_MODE for greater priority
         hljs.HASH_COMMENT_MODE,
         // CoffeeScript specific modes
+        COFFEE_EMPTY_REGEX_MODE,
+        COFFEE_REGEX_MODE,
         COFFEE_HEREGEX_MODE,
         COFFEE_EMBEDDED_JAVASCRIPT,
         COFFEE_FUNCTION_DECLARATION_MODE
