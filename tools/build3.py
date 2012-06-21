@@ -52,6 +52,7 @@ REPLACES = {
     'illegalRe': 'iR',
     'lexemsRe': 'lR',
     'terminators': 't',
+    'terminator_end': 'tE',
 }
 
 CATEGORIES = {

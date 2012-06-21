@@ -188,7 +188,6 @@ function() {
         }
         mode.keywords = compiled_keywords;
       }
-      mode.parent = parent;
       if (parent) {
         if (mode.beginWithKeyword) {
           mode.begin = '\\b(' + keywords.join('|') + ')\\s';
@@ -198,6 +197,9 @@ function() {
           mode.end = '\\B|\\b';
         if (mode.end)
           mode.endRe = langRe(mode.end, language.case_insensitive);
+        mode.terminator_end = mode.end || '';
+        if (mode.endsWithParent && parent.terminator_end)
+          mode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
       }
       if (mode.illegal)
         mode.illegalRe = langRe(mode.illegal, language.case_insensitive);
@@ -220,13 +222,9 @@ function() {
       for (var i = 0; i < mode.contains.length; i++) {
         terminators.push(mode.contains[i].begin);
       }
-      var current = mode;
-      do {
-        if (current.end) {
-          terminators.push(current.end);
-        }
-        current = current.endsWithParent ? current.parent : null;
-      } while (current);
+      if (mode.terminator_end) {
+        terminators.push(mode.terminator_end);
+      }
       if (mode.illegal) {
         terminators.push(mode.illegal);
       }
