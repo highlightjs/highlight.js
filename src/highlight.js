@@ -397,6 +397,7 @@ function() {
     var language = languages[language_name];
     compileLanguage(language);
     var modes = [language];
+    language.buffer = '';
     var relevance = 0;
     var keyword_count = 0;
     var result = '';
