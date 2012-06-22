@@ -23,6 +23,7 @@
   <link rel="alternate stylesheet" title="Monokai" href="styles/monokai.css">
   <link rel="alternate stylesheet" title="XCode" href="styles/xcode.css">
   <link rel="alternate stylesheet" title="Pojoaque" href="styles/pojoaque.css">
+  <link rel="alternate stylesheet" title="Rainbow" href="styles/rainbow.css">
 
   <style>
     body {
@@ -1855,6 +1856,98 @@ foo %union% bar
 `"test"`
 
 </code></pre>
+ <tr>
+    <th>Clojure
+    <td class="clojure">
+<pre>
+<code>
+;   Copyright (c) Rich Hickey. All rights reserved.
+;   The use and distribution terms for this software are covered by the
+;   Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php)
+;   which can be found in the file epl-v10.html at the root of this distribution.
+;   By using this software in any fashion, you are agreeing to be bound by
+;   the terms of this license.
+;   You must not remove this notice, or any other, from this software.
+
+(ns ^{:doc "The core Clojure language."
+       :author "Rich Hickey"}
+  clojure.core)
+
+(def unquote)
+(def unquote-splicing)
+
+(def
+ ^{:arglists '([& items])
+   :doc "Creates a new list containing the items."
+   :added "1.0"}
+  list (. clojure.lang.PersistentList creator))
+
+(def
+ ^{:arglists '([x seq])
+    :doc "Returns a new seq where x is the first element and seq is
+    the rest."
+   :added "1.0"
+   :static true}
+
+ cons (fn* ^:static cons [x seq] (. clojure.lang.RT (cons x seq))))
+
+;during bootstrap we don't have destructuring let, loop or fn, will redefine later
+(def
+  ^{:macro true
+    :added "1.0"}
+  let (fn* let [&form &env & decl] (cons 'let* decl)))
+
+(def 
+
+ ^{:doc "Same as (def name (fn [params* ] exprs*)) or (def
+    name (fn ([params* ] exprs*)+)) with any doc-string or attrs added
+    to the var metadata. prepost-map defines a map with optional keys
+    :pre and :post that contain collections of pre or post conditions."
+   :arglists '([name doc-string? attr-map? [params*] prepost-map? body]
+                [name doc-string? attr-map? ([params*] prepost-map? body)+ attr-map?])
+   :added "1.0"}
+ defn (fn defn [&form &env name & fdecl]
+        (let [m (if (string? (first fdecl))
+                  {:doc (first fdecl)}
+                  {})
+              fdecl (if (string? (first fdecl))
+                      (next fdecl)
+                      fdecl)
+              m (if (map? (first fdecl))
+                  (conj m (first fdecl))
+                  m)
+              fdecl (if (map? (first fdecl))
+                      (next fdecl)
+                      fdecl)
+              fdecl (if (vector? (first fdecl))
+                      (list fdecl)
+                      fdecl)
+              m (if (map? (last fdecl))
+                  (conj m (last fdecl))
+                  m)
+              fdecl (if (map? (last fdecl))
+                      (butlast fdecl)
+                      fdecl)
+              m (conj {:arglists (list 'quote (sigs fdecl))} m)
+              m (let [inline (:inline m)
+                      ifn (first inline)
+                      iname (second inline)]
+                  ;; same as: (if (and (= 'fn ifn) (not (symbol? iname))) ...)
+                  (if (if (clojure.lang.Util/equiv 'fn ifn)
+                        (if (instance? clojure.lang.Symbol iname) false true))
+                    ;; inserts the same fn name to the inline fn if it does not have one
+                    (assoc m :inline (cons ifn (cons (clojure.lang.Symbol/intern (.concat (.getName ^clojure.lang.Symbol name) "__inliner"))
+                                                     (next inline))))
+                    m))
+              m (conj (if (meta name) (meta name) {}) m)]
+          (list 'def (with-meta name m)
+                ;;todo - restore propagation of fn name
+                ;;must figure out how to convey primitive hints to self calls first
+                (cons `fn fdecl) ))))
+
+(. (var defn) (setMacro))
+</code></pre>
+</tr>
 
 </table>
 
