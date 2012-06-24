@@ -10,53 +10,13 @@ pre ::selection { background:#FF5E99; color:#fff; text-shadow: none; }
 pre code {
   display: block; padding: 0.5em;
   background: #474949; color: #D1D9E1;
-  font-family: 'Bitstream Vera Sans Mono', 'Courier', monospace; 
+  font-family: 'Bitstream Vera Sans Mono', 'Courier', monospace;
 }
 
 
 pre .body,
 pre .collection {
    color: #D1D9E1;
-}
-
-pre .list-1 {
-  color: #dc322f;
-}
-
-pre .list-2 {
-  color: #D96565;
-}
-
-pre .list-3 {
-  color: #BF4D28;
-}
-
-pre .list-4 {
-  color: #EBC910;
-}
-
-pre .list-5 {
-  color: #D6FF6F;
-}
-
-pre .list-6 {
-  color: #88CE77;
-}
-
-pre .list-7 {
-  color: #76ACE1;
-}
-
-pre .list-8 {
-  color: #AAB0FF;
-}
-
-pre .list-9 {
-  color: #CFACF7;
-}
-
-pre .list-0 {
-  color: #E8DAFB;
 }
 
 pre .comment,

@@ -354,7 +354,7 @@ function() {
     }
 
     function startNewMode(mode, lexem) {
-      var markup = mode.className? '<span class="' + ((mode.expandClassName)? mode.className(modes) : mode.className) + '">': '';
+      var markup = mode.className? '<span class="' + mode.className + '">': '';
       if (mode.returnBegin) {
         result += markup;
         mode.buffer = '';
