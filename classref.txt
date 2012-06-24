@@ -542,3 +542,13 @@ OpenGL Shading Language ("glsl"):
   keyword          keyword
   built_in         GLSL built-in functions and variables
   literal          true false
+
+Clojure ("clojure"):
+
+  comment          comments and hints
+  keyword          keyword
+  string           string
+  number           number
+  collection       collections
+  title            built-in function name
+

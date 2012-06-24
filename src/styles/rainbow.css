@@ -34,9 +34,7 @@ pre .css .rule .keyword,
 pre .winutils,
 pre .javascript .title,
 pre .addition,
-pre .css .tag,
-pre .lisp .title,
-pre .clojure .title .built_in {
+pre .css .tag {
   color: #cc99cc; font-weight: bold;
 }
 
@@ -77,7 +75,9 @@ pre .constant,
 pre .class .title,
 pre .parent,
 pre .haskell .label,
-pre .id {
+pre .id, 
+pre .lisp .title,
+pre .clojure .title .built_in {
    color: #ffcc66;
 }
 
