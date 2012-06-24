@@ -57,23 +57,19 @@ function(hljs) {
   };
   var COLLECTION = {
     className: 'collection',
-    begin: '[\\[\\{]', end: '[\\]\\}]',
-    relevance: 1
+    begin: '[\\[\\{]', end: '[\\]\\}]'
   };
   var HINT = {
     className: 'comment',
-    begin: '\\^' + CLJ_IDENT_RE,
-    relevance: 2
+    begin: '\\^' + CLJ_IDENT_RE
   };
   var HINT_COL = {
     className: 'comment',
-    begin: '\\^\\{', end: '\\}',
-    relevance: 3
+    begin: '\\^\\{', end: '\\}'
   };
   var KEY = {
     className: 'variable',
-    begin: '[:]' + CLJ_IDENT_RE,
-    relevance: 5
+    begin: '[:]' + CLJ_IDENT_RE
   };
   var LIST = {
     begin: '\\(', end: '\\)',
@@ -99,6 +95,7 @@ function(hljs) {
   return {
     case_insensitive: true,
     defaultMode: {
+      illegal: '\\S',
       contains: [
         COMMENT,
         LIST
