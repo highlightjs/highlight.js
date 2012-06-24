@@ -85,14 +85,14 @@ function(hljs) {
     keywords: {literal: 'true false nil'},
     relevance: 0
   };
-  var FN = {
+  var TITLE = {
     keywords: keywords,
     lexems: CLJ_IDENT_RE,
     className: 'title', begin: CLJ_IDENT_RE,
-    relevance: 1
+    starts: BODY
   };
 
-  LIST.contains = [{className: 'comment', begin: 'comment'}, FN, HINT, HINT_COL, COLLECTION, BODY];
+  LIST.contains = [{className: 'comment', begin: 'comment'}, TITLE];
   BODY.contains = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER];
   COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER];
 
