@@ -34,10 +34,8 @@ pre .css .rule .keyword,
 pre .winutils,
 pre .javascript .title,
 pre .addition,
-pre .css .tag,
-pre .lisp .title,
-pre .clojure .title .built_in {
-  color: #cc99cc; font-weight: bold;
+pre .css .tag {
+  color: #cc99cc;
 }
 
 pre .number { color: #f99157; }
@@ -59,7 +57,7 @@ pre .chunk,
 pre .decorator,
 pre .built_in,
 pre .lisp .title,
-pre .identifier,
+pre .identifier
 {
   color: #b5bd68;
 }
@@ -77,13 +75,16 @@ pre .constant,
 pre .class .title,
 pre .parent,
 pre .haskell .label,
-pre .id {
+pre .id, 
+pre .lisp .title,
+pre .clojure .title .built_in {
    color: #ffcc66;
 }
 
 pre .tag .title,
 pre .rules .property,
-pre .django .tag .keyword {
+pre .django .tag .keyword,
+pre .clojure .title .built_in {
   font-weight: bold;
 }
 
