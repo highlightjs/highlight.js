@@ -41,8 +41,8 @@ function(hljs) {
   var SIMPLE_NUMBER_RE = '[\\s:\\(\\{]+\\d+(\\.\\d+)?';
 
   var NUMBER = {
-      className: 'number', begin: SIMPLE_NUMBER_RE,
-      relevance: 0
+    className: 'number', begin: SIMPLE_NUMBER_RE,
+    relevance: 0
   };
   var STRING = {
     className: 'string',
