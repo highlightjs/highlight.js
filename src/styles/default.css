@@ -13,6 +13,7 @@ pre code,
 pre .ruby .subst,
 pre .tag .title,
 pre .lisp .title,
+pre .clojure .built_in,
 pre .nginx .title {
   color: black;
 }

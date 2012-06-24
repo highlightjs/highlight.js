@@ -22,7 +22,6 @@ pre .keyword,
 pre .css .rule .keyword,
 pre .winutils,
 pre .javascript .title,
-pre .lisp .title,
 pre .nginx .title,
 pre .subst,
 pre .request,
@@ -51,6 +50,7 @@ pre .id {
 
 pre .javascript .title,
 pre .lisp .title,
+pre .clojure .title,
 pre .subst {
   font-weight: normal
 }
@@ -97,9 +97,9 @@ pre .input_number {
   color: #990073
 }
 
-pre .builtin,
 pre .built_in,
-pre .lisp .title {
+pre .lisp .title,
+pre .clojure .built_in {
   color: #0086b3
 }
 

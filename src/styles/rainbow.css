@@ -35,7 +35,8 @@ pre .winutils,
 pre .javascript .title,
 pre .addition,
 pre .css .tag,
-pre .lisp .title {
+pre .lisp .title,
+pre .clojure .title .built_in {
   color: #cc99cc; font-weight: bold;
 }
 
@@ -56,7 +57,6 @@ pre .localvars,
 pre .function .title,
 pre .chunk,
 pre .decorator,
-pre .builtin,
 pre .built_in,
 pre .lisp .title,
 pre .identifier,
@@ -88,7 +88,7 @@ pre .django .tag .keyword {
 }
 
 pre .attribute,
-pre .method {
+pre .clojure .title {
   color: #81a2be;
 }
 

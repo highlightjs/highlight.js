@@ -14,7 +14,8 @@ pre code {
 
 pre code,
 pre .ruby .subst,
-pre .lisp .title {
+pre .lisp .title,
+pre .clojure .built_in {
   color: black;
 }
 

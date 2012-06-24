@@ -6,7 +6,7 @@ Author: mfornos
 
 function(hljs) {
   var keywords = {
-    keyword:
+    built_in:
       // Clojure keywords
       'def cond apply if-not if-let if not not= = &lt; < > &lt;= <= >= == + / * - rem '+
       'quot neg? pos? delay? symbol? keyword? true? false? integer? empty? coll? list? '+
@@ -43,10 +43,6 @@ function(hljs) {
   var NUMBER = {
       className: 'number', begin: SIMPLE_NUMBER_RE,
       relevance: 0
-  };
-  var LITERAL = {
-      className: 'keymethods', begin: 'true|false|nil',
-      relevance: 1
   };
   var STRING = {
     className: 'string',
@@ -86,17 +82,18 @@ function(hljs) {
   var BODY = {
     className: 'body',
     endsWithParent: true, excludeEnd: true,
+    keywords: {literal: 'true false nil'},
     relevance: 0
   };
   var FN = {
     keywords: keywords,
     lexems: CLJ_IDENT_RE,
-    className: 'method', begin: CLJ_IDENT_RE,
+    className: 'title', begin: CLJ_IDENT_RE,
     relevance: 1
   };
 
   LIST.contains = [{className: 'comment', begin: 'comment'}, FN, HINT, HINT_COL, COLLECTION, BODY];
-  BODY.contains = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, LITERAL, NUMBER];
+  BODY.contains = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER];
   COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER];
 
   return {
