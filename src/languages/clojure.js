@@ -76,7 +76,6 @@ function(hljs) {
     relevance: 0
   };
   var BODY = {
-    className: 'body',
     endsWithParent: true, excludeEnd: true,
     keywords: {literal: 'true false nil'},
     relevance: 0
