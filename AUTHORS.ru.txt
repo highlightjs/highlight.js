@@ -60,3 +60,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Джейсон Тейт <adminz@web-cms-designs.com>
 - Сергей Тихомиров <me@stikhomirov.com>
 - Марк Форнос <marc.fornos@gmail.com>
+- Йошихиде Джимбо <yjimbo@gmail.com>
