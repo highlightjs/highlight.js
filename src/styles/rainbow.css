@@ -10,7 +10,6 @@ pre ::selection { background:#FF5E99; color:#fff; text-shadow: none; }
 pre code {
   display: block; padding: 0.5em;
   background: #474949; color: #D1D9E1;
-  font-family: 'Bitstream Vera Sans Mono', 'Courier', monospace;
 }
 
 
@@ -75,7 +74,7 @@ pre .constant,
 pre .class .title,
 pre .parent,
 pre .haskell .label,
-pre .id, 
+pre .id,
 pre .lisp .title,
 pre .clojure .title .built_in {
    color: #ffcc66;
