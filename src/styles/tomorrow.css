@@ -35,9 +35,5 @@ pre code {
   display: block;
   background: white;
   color: #4d4d4c;
-  font-family: Menlo, Monaco, Consolas, monospace;
-  font-size: 12px;
-  line-height: 1.5;
-  border: 1px solid #ccc;
-  padding: 10px;
+  padding: 0.5em;
 }
