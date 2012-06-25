@@ -79,7 +79,8 @@ pre .number {
 }
 
 pre .params,
-pre .variable {
+pre .variable,
+pre .clojure .attribute {
   color: #3E87E3;
 }
 

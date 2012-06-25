@@ -29,7 +29,7 @@ pre .javadoc {
 }
 
 pre .keyword,
-pre .css .rule .keyword,
+pre .clojure .attribute,
 pre .winutils,
 pre .javascript .title,
 pre .addition,

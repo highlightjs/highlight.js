@@ -79,7 +79,8 @@ pre .shebang,
 pre .apache .sqbracket,
 pre .nginx .built_in,
 pre .tex .formula,
-pre .input_number {
+pre .input_number,
+pre .clojure .attribute {
   color: #00e;
 }
 

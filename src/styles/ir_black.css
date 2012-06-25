@@ -18,7 +18,8 @@ pre .keyword,
 pre .tag,
 pre .tex .command,
 pre .request,
-pre .status {
+pre .status,
+pre .clojure .attribute {
   color: #96CBFE;
 }
 

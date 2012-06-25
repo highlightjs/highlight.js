@@ -46,7 +46,6 @@ pre .title,
 pre .localvars,
 pre .chunk,
 pre .decorator,
-pre .builtin,
 pre .built_in,
 pre .identifier,
 pre .title .keymethods,
@@ -77,7 +76,8 @@ pre .keymethods,
 pre .attr_selector,
 pre .important,
 pre .subst,
-pre .cdata {
+pre .cdata,
+pre .clojure .title {
   color: #cb4b16;
 }
 

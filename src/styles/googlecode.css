@@ -19,6 +19,7 @@ pre .comment * {
 pre .keyword,
 pre .method,
 pre .list .title,
+pre .clojure .built_in,
 pre .nginx .title,
 pre .tag .title,
 pre .setting .value,
@@ -63,7 +64,8 @@ pre .ruby .symbol .string,
 pre .ruby .symbol .keyword,
 pre .ruby .symbol .keymethods,
 pre .number,
-pre .css .function {
+pre .css .function,
+pre .clojure .attribute {
   color: #066;
 }
 
@@ -80,7 +82,8 @@ pre .class .id,
 pre .built_in,
 pre .setting,
 pre .params,
-pre .variable {
+pre .variable,
+pre .clojure .title {
   color: #606;
 }
 

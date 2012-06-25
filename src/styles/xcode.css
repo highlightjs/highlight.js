@@ -67,7 +67,9 @@ pre .ruby .symbol .string,
 pre .ruby .symbol .keyword,
 pre .ruby .symbol .keymethods,
 pre .number,
-pre .css .function {
+pre .css .function,
+pre .clojure .title,
+pre .clojure .built_in {
   color: rgb(28,0,207);
 }
 
@@ -83,7 +85,8 @@ pre .doctype,
 pre .class .id,
 pre .built_in,
 pre .setting,
-pre .params {
+pre .params,
+pre .clojure .attribute {
   color: rgb(92,38,153);
 }
 

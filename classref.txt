@@ -358,6 +358,16 @@ Lisp ("lisp"):
   body             remainder of the non-quoted list
   quoted           quoted list, both "(quote .. )" and "'(..)"
 
+Clojure ("clojure"):
+
+  comment          comments and hints
+  string           string
+  number           number
+  collection       collections
+  attribute        :keyword
+  title            function name (built-in or user defined)
+  built_in         built-in function name
+
 Ini ("ini"):
 
   title            title of a section
@@ -542,13 +552,3 @@ OpenGL Shading Language ("glsl"):
   keyword          keyword
   built_in         GLSL built-in functions and variables
   literal          true false
-
-Clojure ("clojure"):
-
-  comment          comments and hints
-  keyword          keyword
-  string           string
-  number           number
-  collection       collections
-  title            built-in function name
-

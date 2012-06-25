@@ -40,7 +40,8 @@ pre .regexp,
 pre .xml .attribute,
 pre .smalltalk .char,
 pre .xml .value,
-pre .ini .value
+pre .ini .value,
+pre .clojure .attribute
 {
   color: #ffcc33;
 }

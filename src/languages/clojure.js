@@ -68,10 +68,11 @@ function(hljs) {
     begin: '\\^\\{', end: '\\}'
   };
   var KEY = {
-    className: 'keyword',
+    className: 'attribute',
     begin: '[:]' + CLJ_IDENT_RE
   };
   var LIST = {
+    className: 'list',
     begin: '\\(', end: '\\)',
     relevance: 0
   };

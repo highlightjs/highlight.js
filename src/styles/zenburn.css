@@ -18,7 +18,8 @@ pre .css .id,
 pre .lisp .title,
 pre .nginx .title,
 pre .request,
-pre .status {
+pre .status,
+pre .clojure .attribute {
   color: #E3CEAB;
 }
 

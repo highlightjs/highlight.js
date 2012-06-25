@@ -33,7 +33,8 @@ pre .smalltalk .class,
 pre .addition,
 pre .apache .tag,
 pre .apache .cbracket,
-pre .tex .command {
+pre .tex .command,
+pre .clojure .title {
   color: #FF0;
 }
 
@@ -51,7 +52,8 @@ pre .flow,
 pre .change,
 pre .envvar,
 pre .bash .variable,
-pre .tex .special {
+pre .tex .special,
+pre .clojure .built_in {
   color: #FFF;
 }
 
@@ -71,7 +73,8 @@ pre .date,
 pre .regexp,
 pre .literal,
 pre .smalltalk .symbol,
-pre .smalltalk .char {
+pre .smalltalk .char,
+pre .clojure .attribute {
   color: #0F0;
 }
 
