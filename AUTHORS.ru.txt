@@ -59,3 +59,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Анхель Ойоки <angelgarcia.mail@gmail.com>
 - Джейсон Тейт <adminz@web-cms-designs.com>
 - Сергей Тихомиров <me@stikhomirov.com>
+- Марк Форнос <marc.fornos@gmail.com>
