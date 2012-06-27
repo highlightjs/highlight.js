@@ -609,7 +609,7 @@ function() {
 
   // Common modes
   this.BACKSLASH_ESCAPE = {
-    begin: '\\\\.', relevance: 0
+    begin: '\\\\[.\\n]', relevance: 0
   };
   this.APOS_STRING_MODE = {
     className: 'string',
