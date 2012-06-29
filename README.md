@@ -33,19 +33,26 @@ If you use different markup or need to apply highlighting dynamically, read
 [cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
 
 
-## Usage in node.js
+## node.js
 
-To install:
+Highlight.js can be used under node.js. The package with all supported languages is
+installable from NPM:
 
     npm install highlight.js
 
-To use:
+Alternatively, you can build it from the source with only languages you need:
+
+    python tools/build.py -tnode lang1 lang2 ..
+
+Using the library:
 
 ```javascript
 var hljs = require('highlight.js');
-//If you know the language
+
+// If you know the language
 hljs.highlight(lang, code).value;
-//If you don't know the language
+
+// Automatic language detection
 hljs.highlightAuto(code).value;
 ```
 
