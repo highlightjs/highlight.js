@@ -33,6 +33,22 @@ If you use different markup or need to apply highlighting dynamically, read
 [cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
 
 
+## Usage in node.js
+
+To install:
+
+    npm install highlight.js
+
+To use:
+
+```javascript
+var hljs = require('highlight.js');
+//If you know the language
+hljs.highlight(lang, code).value;
+//If you don't know the language
+hljs.highlightAuto(code).value;
+```
+
 ## Tab replacement
 
 You can replace TAB ('\x09') characters used for indentation in your code
