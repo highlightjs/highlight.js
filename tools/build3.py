@@ -214,29 +214,6 @@ def build_amd(root, build_path, filenames, options):
         print('Compressed size:', len(content.encode('utf-8')))
     open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
 
-def build_browser(root, build_path, filenames, options):
-    src_path = os.path.join(root, 'src')
-    tools_path = os.path.join(root, 'tools')
-    print('Building %d files:\n%s' % (len(filenames), '\n'.join(filenames)))
-    content = glue_files(os.path.join(src_path, 'highlight.js'), filenames, False)
-    print('Uncompressed size:', len(content.encode('utf-8')))
-    if options.compress:
-        print('Compressing...')
-        content = compress_content(tools_path, content)
-        print('Compressed size:', len(content.encode('utf-8')))
-    open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
-
-def build_browser(root, build_path, filenames, options):
-    src_path = os.path.join(root, 'src')
-    tools_path = os.path.join(root, 'tools')
-    print('Building %d files:\n%s' % (len(filenames), '\n'.join(filenames)))
-    content = glue_files(os.path.join(src_path, 'highlight.js'), filenames, False)
-    print('Uncompressed size:', len(content.encode('utf-8')))
-    if options.compress:
-        print('Compressing...')
-        content = compress_content(tools_path, content)
-        print('Compressed size:', len(content.encode('utf-8')))
-    open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
 def build_node(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
     print('Building %d files:' % len(filenames))
