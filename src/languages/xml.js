@@ -40,11 +40,6 @@ function(hljs) {
     defaultMode: {
       contains: [
         {
-          className: 'pi',
-          begin: '<\\?', end: '\\?>',
-          relevance: 10
-        },
-        {
           className: 'doctype',
           begin: '<!DOCTYPE', end: '>',
           relevance: 10,
@@ -54,6 +49,11 @@ function(hljs) {
           begin: '<\\?php', end: '\\?>',
           subLanguage: 'php',
           relevance: 0
+        },
+        {
+          className: 'pi',
+          begin: '<\\?', end: '\\?>',
+          relevance: 10
         },
         {
           className: 'comment',
