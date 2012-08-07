@@ -51,6 +51,11 @@ function(hljs) {
           contains: [{begin: '\\[', end: '\\]'}]
         },
         {
+          begin: '<?php', end: '?>',
+          subLanguage: 'php',
+          relevance: 0
+        },
+        {
           className: 'comment',
           begin: '<!--', end: '-->',
           relevance: 10
