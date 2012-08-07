@@ -395,7 +395,7 @@ func main() {
 </code></pre>
 
   <tr>
-    <th>HTML (with inline css and javascript)
+    <th>HTML (with inline css, php and javascript)
     <td class="xml">
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;title&gt;Title&lt;/title&gt;
@@ -409,6 +409,12 @@ func main() {
 &lt;body&gt;
   &lt;p checked class="title" id='title'&gt;Title&lt;/p&gt;
   &lt;!-- here goes the rest of the page --&gt;
+
+    &lt;?php
+      if ($a &gt; $b)
+      echo "a is bigger than b";
+    ?&gt;
+
 &lt;/body&gt;
 </code></pre>
 
