@@ -51,7 +51,7 @@ function(hljs) {
           contains: [{begin: '\\[', end: '\\]'}]
         },
         {
-          begin: '<?php', end: '?>',
+          begin: '<\\?php', end: '\\?>',
           subLanguage: 'php',
           relevance: 0
         },
