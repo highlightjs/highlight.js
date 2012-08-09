@@ -88,8 +88,6 @@ pre .apache .tag {
 
 pre .symbol,
 pre .ruby .symbol .string,
-pre .ruby .symbol .keyword,
-pre .ruby .symbol .keymethods,
 pre .char,
 pre .tex .formula {
   color: #000;

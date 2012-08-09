@@ -7,10 +7,6 @@ pre code {
   background: #272822;
 }
 
-pre .params .identifier .keymethods {
-	color: #FD971F;
-}
-
 pre .tag,
 pre .tag .title,
 pre .keyword,
@@ -39,6 +35,7 @@ pre .class .title {
 
 pre .attribute,
 pre .symbol,
+pre .symbol .string,
 pre .value,
 pre .regexp {
 	color: #BF79DB;

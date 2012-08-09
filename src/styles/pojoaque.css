@@ -54,7 +54,6 @@ pre .built_in,
 pre .lisp .title,
 pre .clojure .built_in,
 pre .identifier,
-pre .title .keymethods,
 pre .id {
   color: #FFB03B;
 }
@@ -87,9 +86,9 @@ pre .preprocessor,
 pre .pi,
 pre .shebang,
 pre .symbol,
+pre .symbol .string,
 pre .diff .change,
 pre .special,
-pre .keymethods,
 pre .attr_selector,
 pre .important,
 pre .subst,
