@@ -17,7 +17,6 @@ function(hljs) {
     }
   ];
   var DEFAULT = {
-    className: 'default',
     endsWithParent: true,
     lexems: '[a-z/_]+',
     keywords: {
@@ -26,7 +25,7 @@ function(hljs) {
         'select break last permanent redirect kqueue rtsig epoll poll /dev/poll'
     },
     relevance: 0,
-    illegal: '=',
+    illegal: '=>',
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
