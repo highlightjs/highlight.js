@@ -1252,9 +1252,10 @@ http {
     #lingering_time 30;
 
     server {
-        listen        one.example.com;
         server_name   one.example.com  www.one.example.com;
         access_log   /var/log/nginx.access_log  main;
+
+        rewrite (.*) /index.php?page=$1 break;
 
         location / {
             proxy_pass         http://127.0.0.1/;
