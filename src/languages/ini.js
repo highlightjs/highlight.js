@@ -18,7 +18,7 @@ function(hljs) {
         },
         {
           className: 'setting',
-          begin: '^[a-z0-9_\\[\\]]+[ \\t]*=[ \\t]*', end: '$',
+          begin: '^[a-z0-9\\[\\]_-]+[ \\t]*=[ \\t]*', end: '$',
           contains: [
             {
               className: 'value',
