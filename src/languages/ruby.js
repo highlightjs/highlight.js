@@ -150,7 +150,7 @@ function(hljs) {
     {
       className: 'symbol',
       begin: ':',
-      contains: STRINGS.concat([{begin: RUBY_IDENT_RE, relevance: 0}]),
+      contains: STRINGS.concat([{begin: RUBY_IDENT_RE}]),
       relevance: 0
     },
     {
