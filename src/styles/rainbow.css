@@ -67,7 +67,6 @@ pre .class .keyword
 }
 
 pre .variable,
-pre .instancevar,
 pre .lisp .body,
 pre .smalltalk .number,
 pre .constant,
@@ -96,9 +95,9 @@ pre .preprocessor,
 pre .pi,
 pre .shebang,
 pre .symbol,
+pre .symbol .string,
 pre .diff .change,
 pre .special,
-pre .keymethods,
 pre .attr_selector,
 pre .important,
 pre .subst,

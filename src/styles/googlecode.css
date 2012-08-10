@@ -61,8 +61,6 @@ pre .css .value .number,
 pre .literal,
 pre .symbol,
 pre .ruby .symbol .string,
-pre .ruby .symbol .keyword,
-pre .ruby .symbol .keymethods,
 pre .number,
 pre .css .function,
 pre .clojure .attribute {

@@ -73,7 +73,6 @@ pre .django .tag .keyword {
 
 pre .attribute,
 pre .variable,
-pre .instancevar,
 pre .lisp .body {
   color: #008080
 }
@@ -89,8 +88,6 @@ pre .class {
 
 pre .symbol,
 pre .ruby .symbol .string,
-pre .ruby .symbol .keyword,
-pre .ruby .symbol .keymethods,
 pre .lisp .keyword,
 pre .tex .special,
 pre .input_number {
