@@ -73,7 +73,6 @@ pre .django .tag .keyword {
 
 pre .attribute,
 pre .variable,
-pre .instancevar,
 pre .lisp .body {
   color: #008080
 }

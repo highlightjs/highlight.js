@@ -71,8 +71,7 @@ pre .input_number {
 pre .dos .winutils,
 pre .ruby .symbol,
 pre .ruby .symbol .string,
-pre .ruby .string,
-pre .ruby .instancevar {
+pre .ruby .string {
   color: #DCA3A3;
 }
 

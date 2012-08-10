@@ -67,7 +67,6 @@ pre .class .keyword
 }
 
 pre .variable,
-pre .instancevar,
 pre .lisp .body,
 pre .smalltalk .number,
 pre .constant,

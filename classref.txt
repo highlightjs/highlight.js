@@ -39,7 +39,6 @@ Ruby ("ruby"):
   title            name of a function or a class inside a header
   parent           name of a parent class
   symbol           symbol
-  instancevar      instance variable
 
 Perl ("perl"):
 
