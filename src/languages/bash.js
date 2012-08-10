@@ -6,13 +6,10 @@ Author: vah <vahtenberg@gmail.com>
 function(hljs) {
   var BASH_LITERAL = 'true false';
   var VAR1 = {
-    className: 'variable',
-    begin: '\\$([a-zA-Z0-9_]+)\\b'
+    className: 'variable', begin: '\\$[a-zA-Z0-9_]+\\b'
   };
   var VAR2 = {
-    className: 'variable',
-    begin: '\\$\\{(([^}])|(\\\\}))+\\}',
-    contains: [hljs.C_NUMBER_MODE]
+    className: 'variable', begin: '\\${([^}]|\\\\})+}'
   };
   var QUOTE_STRING = {
     className: 'string',
@@ -30,7 +27,7 @@ function(hljs) {
   var TEST_CONDITION = {
     className: 'test_condition',
     begin: '', end: '',
-    contains: [QUOTE_STRING, APOS_STRING, VAR1, VAR2, hljs.C_NUMBER_MODE],
+    contains: [QUOTE_STRING, APOS_STRING, VAR1, VAR2],
     keywords: {
       literal: BASH_LITERAL
     },
@@ -51,7 +48,6 @@ function(hljs) {
       VAR1,
       VAR2,
       hljs.HASH_COMMENT_MODE,
-      hljs.C_NUMBER_MODE,
       QUOTE_STRING,
       APOS_STRING,
       hljs.inherit(TEST_CONDITION, {begin: '\\[ ', end: ' \\]', relevance: 0}),

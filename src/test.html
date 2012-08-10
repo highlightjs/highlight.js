@@ -23,6 +23,13 @@
   <link rel="alternate stylesheet" title="Monokai" href="styles/monokai.css">
   <link rel="alternate stylesheet" title="XCode" href="styles/xcode.css">
   <link rel="alternate stylesheet" title="Pojoaque" href="styles/pojoaque.css">
+  <link rel="alternate stylesheet" title="Rainbow" href="styles/rainbow.css">
+  <link rel="alternate stylesheet" title="Tomorrow" href="styles/tomorrow.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night" href="styles/tomorrow-night.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night Bright" href="styles/tomorrow-night-bright.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night Blue" href="styles/tomorrow-night-blue.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night Eighties" href="styles/tomorrow-night-eighties.css">
+
 
   <style>
     body {
@@ -51,19 +58,18 @@
       margin: 0; font-size: medium;
     }
     #switch {
-      overflow: auto; width: 57em;
+      overflow: auto; width: 67em;
       list-style: none;
       padding: 0; margin: 0;
     }
     #switch li {
-      float: left; width: 10em;
+      float: left; width: 12em;
       padding: 0.1em; margin: 0.1em 1em 0.1em 0;
       background: #EEE;
       cursor: pointer;
     }
     #switch li.current {
       background: #CCC;
-      font-weight: bold;
     }
     .test {
       color: #888;
@@ -1141,6 +1147,45 @@ heapExample
     (print (+ x y))
   )</code></pre>
 
+ <tr>
+    <th>Clojure
+    <td class="clojure">
+<pre><code>;   You must not remove this notice, or any other, from this software.
+
+(ns ^{:doc "The core Clojure language."
+       :author "Rich Hickey"}
+  clojure.core)
+
+(def unquote)
+
+(def
+  ^{:macro true
+    :added "1.0"}
+  let (fn* let [&form &env & decl] (cons 'let* decl)))
+
+(def
+
+ defn (fn defn [&form &env name & fdecl]
+        (let [m (conj {:arglists (list 'quote (sigs fdecl))} m)
+              m (let [inline (:inline m)
+                      ifn (first inline)
+                      iname (second inline)]
+                  ;; same as: (if (and (= 'fn ifn) (not (symbol? iname))) ...)
+                  (if (if (clojure.lang.Util/equiv 'fn ifn)
+                        (if (instance? clojure.lang.Symbol iname) false true))
+                    ;; inserts the same fn name to the inline fn if it does not have one
+                    (assoc m :inline (cons ifn (cons (clojure.lang.Symbol/intern (.concat (.getName ^clojure.lang.Symbol name) "__inliner"))
+                                                     (next inline))))
+                    m))
+              m (conj (if (meta name) (meta name) {}) m)]
+          (list 'def (with-meta name m)
+                ;;todo - restore propagation of fn name
+                ;;must figure out how to convey primitive hints to self calls first
+                (cons `fn fdecl) ))))
+
+(. (var defn) (setMacro))
+</code></pre>
+
   <tr>
     <th>Ini file
     <td class="ini">
@@ -1153,7 +1198,7 @@ DefaultProfile=True
 AutoCreate = no
 
 [AutoExec]
-Use="prompt"
+use-prompt="prompt"
 Glob=autoexec_*.ini
 AskAboutIgnoredPlugins=0
 </code></pre>
@@ -1207,9 +1252,10 @@ http {
     #lingering_time 30;
 
     server {
-        listen        one.example.com;
         server_name   one.example.com  www.one.example.com;
         access_log   /var/log/nginx.access_log  main;
+
+        rewrite (.*) /index.php?page=$1 break;
 
         location / {
             proxy_pass         http://127.0.0.1/;

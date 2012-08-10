@@ -39,7 +39,6 @@ Ruby ("ruby"):
   title            name of a function or a class inside a header
   parent           name of a parent class
   symbol           symbol
-  instancevar      instance variable
 
 Perl ("perl"):
 
@@ -357,6 +356,16 @@ Lisp ("lisp"):
   title            first symbol in a non-quoted list
   body             remainder of the non-quoted list
   quoted           quoted list, both "(quote .. )" and "'(..)"
+
+Clojure ("clojure"):
+
+  comment          comments and hints
+  string           string
+  number           number
+  collection       collections
+  attribute        :keyword
+  title            function name (built-in or user defined)
+  built_in         built-in function name
 
 Ini ("ini"):
 

@@ -59,3 +59,6 @@ Contributors:
 - Angel G. Olloqui <angelgarcia.mail@gmail.com>
 - Jason Tate <adminz@web-cms-designs.com>
 - Sergey Tikhomirov <me@stikhomirov.com>
+- Marc Fornos <marc.fornos@gmail.com>
+- Yoshihide Jimbo <yjimbo@gmail.com>
+- Casey Duncan <casey.duncan@gmail.com>

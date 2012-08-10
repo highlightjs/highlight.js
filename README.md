@@ -33,6 +33,29 @@ If you use different markup or need to apply highlighting dynamically, read
 [cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
 
 
+## node.js
+
+Highlight.js can be used under node.js. The package with all supported languages is
+installable from NPM:
+
+    npm install highlight.js
+
+Alternatively, you can build it from the source with only languages you need:
+
+    python tools/build.py -tnode lang1 lang2 ..
+
+Using the library:
+
+```javascript
+var hljs = require('highlight.js');
+
+// If you know the language
+hljs.highlight(lang, code).value;
+
+// Automatic language detection
+hljs.highlightAuto(code).value;
+```
+
 ## Tab replacement
 
 You can replace TAB ('\x09') characters used for indentation in your code

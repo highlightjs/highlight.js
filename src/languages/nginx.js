@@ -95,6 +95,6 @@ function(hljs) {
         ]
       }
     ],
-    illegal: '[\\\\/%\\[\\$]'
+    illegal: '[^\\s\\}]'
   };
 }

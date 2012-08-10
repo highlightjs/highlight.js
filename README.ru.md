@@ -36,6 +36,30 @@ Highlight.js нужен для подсветки синтаксиса в при
 [cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
 
 
+## node.js
+
+Highlight.js можно использовать в node.js. Библиотеку со всеми возможными языками можно
+установить с NPM:
+
+    npm install highlight.js
+
+Также её можно собрать из исходников с только теми языками, которые нужны:
+
+    python tools/build.py -tnode lang1 lang2 ..
+
+Использование библиотеки:
+
+```javascript
+var hljs = require('highlight.js');
+
+// Если вы знаете язык
+hljs.highlight(lang, code).value;
+
+// Автоопределение языка
+hljs.highlightAuto(code).value;
+```
+
+
 ## Замена TABов
 
 Также вы можете заменить символы TAB ('\x09'), используемые для отступов, на
