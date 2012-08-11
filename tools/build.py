@@ -281,7 +281,6 @@ def build_cache(root, build_path, filenames, options):
     for filename in all_filenames:
         print filename
         content = compress_content(tools_path, open(filename).read())
-        content = wrap_language(filename, content, True)
         open(os.path.join(build_path, os.path.basename(filename)), 'w').write(content)
 
 def build(buildfunc, root, languages, options):
