@@ -135,7 +135,7 @@ on a site.
 
 ## Meta
 
-- Version: 7.0
+- Version: 7.1
 - URL:     http://softwaremaniacs.org/soft/highlight/en/
 - Author:  Ivan Sagalaev (<maniac@softwaremaniacs.org>)
 
