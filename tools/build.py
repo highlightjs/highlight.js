@@ -270,6 +270,20 @@ def build_cdn(root, build_path, filenames, options):
         content = compress_content(tools_path, open(filename).read(), 'css')
         open(os.path.join(build_style_path, '%s.min.css' % style), 'w').write(content)
 
+def build_cache(root, build_path, filenames, options):
+    src_path = os.path.join(root, 'src')
+    tools_path = os.path.join(root, 'tools')
+    if not options.compress:
+        print 'Notice: forcing compression for "cache" target'
+        options.compress = True
+    all_filenames = [os.path.join(src_path, 'highlight.js')] + language_filenames(src_path, [])
+    print 'Compressing the library and %s languages...' % (len(all_filenames) - 1)
+    for filename in all_filenames:
+        print filename
+        content = compress_content(tools_path, open(filename).read())
+        content = wrap_language(filename, content, True)
+        open(os.path.join(build_path, os.path.basename(filename)), 'w').write(content)
+
 def build(buildfunc, root, languages, options):
     build_path = os.path.join(root, 'build')
     if os.path.exists(build_path):
@@ -289,7 +303,7 @@ if __name__ == '__main__':
     parser.add_option(
         '-t', '--target',
         dest = 'target', default = 'browser',
-        help = 'Target format: "browser" (default), "node", "cdn", "amd"',
+        help = 'Target format: "browser" (default), "node", "cdn", "amd", "cache"',
     )
     parser.set_usage('''%%prog [options] [<language>|:<category> ...]
 
