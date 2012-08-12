@@ -11,13 +11,6 @@ function() {
     return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;');
   }
 
-  function langRe(language, value, global) {
-    return RegExp(
-      value,
-      'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
-    );
-  }
-
   function findCode(pre) {
     for (var i = 0; i < pre.childNodes.length; i++) {
       var node = pre.childNodes[i];
@@ -157,11 +150,19 @@ function() {
 
   /* Initialization */
 
-  function compileModes(language_name) {
+  function compileLanguage(language) {
 
-    function compileMode(mode, language, is_default) {
+    function langRe(value, case_insensitive, global) {
+      return RegExp(
+        value,
+        'm' + (case_insensitive ? 'i' : '') + (global ? 'g' : '')
+      );
+    }
+
+    function compileMode(mode, parent) {
       if (mode.compiled)
         return;
+      mode.compiled = true;
 
       var keywords = []; // used later with beginWithKeyword but filled as a side-effect of keywords compilation
       if (mode.keywords) {
@@ -176,7 +177,7 @@ function() {
           }
         }
 
-        mode.lexemsRe = langRe(language, mode.lexems || hljs.IDENT_RE, true);
+        mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE, language.case_insensitive, true);
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords)
         } else {
@@ -188,40 +189,51 @@ function() {
         }
         mode.keywords = compiled_keywords;
       }
-      if (!is_default) {
+      if (parent) {
         if (mode.beginWithKeyword) {
           mode.begin = '\\b(' + keywords.join('|') + ')\\s';
         }
-        mode.beginRe = langRe(language, mode.begin ? mode.begin : '\\B|\\b');
+        mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b', language.case_insensitive);
         if (!mode.end && !mode.endsWithParent)
           mode.end = '\\B|\\b';
         if (mode.end)
-          mode.endRe = langRe(language, mode.end);
+          mode.endRe = langRe(mode.end, language.case_insensitive);
+        mode.terminator_end = mode.end || '';
+        if (mode.endsWithParent && parent.terminator_end)
+          mode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
       }
       if (mode.illegal)
-        mode.illegalRe = langRe(language, mode.illegal);
+        mode.illegalRe = langRe(mode.illegal, language.case_insensitive);
       if (mode.relevance === undefined)
         mode.relevance = 1;
       if (!mode.contains) {
         mode.contains = [];
       }
-      // compiled flag is set before compiling submodes to avoid self-recursion
-      // (see lisp where quoted_list contains quoted_list)
-      mode.compiled = true;
       for (var i = 0; i < mode.contains.length; i++) {
         if (mode.contains[i] == 'self') {
           mode.contains[i] = mode;
         }
-        compileMode(mode.contains[i], language, false);
+        compileMode(mode.contains[i], mode);
       }
       if (mode.starts) {
-        compileMode(mode.starts, language, false);
+        compileMode(mode.starts, parent);
       }
-    }
-    compileMode(languages[language_name].defaultMode, languages[language_name], true);
-  }
 
-  var compiled_languages = {};
+      var terminators = [];
+      for (var i = 0; i < mode.contains.length; i++) {
+        terminators.push(mode.contains[i].begin);
+      }
+      if (mode.terminator_end) {
+        terminators.push(mode.terminator_end);
+      }
+      if (mode.illegal) {
+        terminators.push(mode.illegal);
+      }
+      mode.terminators = terminators.length ? langRe(terminators.join('|'), language.case_insensitive, true) : null;
+    }
+
+    compileMode(language);
+  }
 
   /*
   Core highlighting function. Accepts a language name and a string with the
@@ -233,10 +245,6 @@ function() {
 
   */
   function highlight(language_name, value) {
-    if (!compiled_languages[language_name]) {
-      compileModes(language_name);
-      compiled_languages[language_name] = true;
-    }
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -261,33 +269,8 @@ function() {
       return mode.illegal && mode.illegalRe.test(lexem);
     }
 
-    function compileTerminators(mode, language) {
-      var terminators = [];
-
-      for (var i = 0; i < mode.contains.length; i++) {
-        terminators.push(mode.contains[i].begin);
-      }
-
-      var index = modes.length - 1;
-      do {
-        if (modes[index].end) {
-          terminators.push(modes[index].end);
-        }
-        index--;
-      } while (modes[index + 1].endsWithParent);
-
-      if (mode.illegal) {
-        terminators.push(mode.illegal);
-      }
-
-      return terminators.length ? langRe(language, terminators.join('|'), true) : null;
-    }
-
     function eatModeChunk(value, index) {
       var mode = modes[modes.length - 1];
-      if (mode.terminators === undefined) {
-        mode.terminators = compileTerminators(mode, language);
-      }
       var match;
       if (mode.terminators) {
         mode.terminators.lastIndex = index;
@@ -413,13 +396,14 @@ function() {
     }
 
     var language = languages[language_name];
-    var modes = [language.defaultMode];
+    compileLanguage(language);
+    var modes = [language];
+    language.buffer = '';
     var relevance = 0;
     var keyword_count = 0;
     var result = '';
     try {
       var mode_info, index = 0;
-      language.defaultMode.buffer = '';
       do {
         mode_info = eatModeChunk(value, index);
         var return_lexem = processModeInfo(mode_info[0], mode_info[1], mode_info[2]);

@@ -19,29 +19,27 @@ function(hljs) {
       'append cap close complex copy imag len make new panic print println real recover delete'
   };
   return {
-    defaultMode: {
-      keywords: GO_KEYWORDS,
-      illegal: '</',
-      contains: [
-        hljs.C_LINE_COMMENT_MODE,
-        hljs.C_BLOCK_COMMENT_MODE,
-        hljs.QUOTE_STRING_MODE,
-        {
-          className: 'string',
-          begin: '\'', end: '[^\\\\]\'',
-          relevance: 0
-        },
-        {
-          className: 'string',
-          begin: '`', end: '`'
-        },
-        {
-          className: 'number',
-          begin: '[^a-zA-Z_0-9](\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?',
-          relevance: 0
-        },
-        hljs.C_NUMBER_MODE
-      ]
-    }
+    keywords: GO_KEYWORDS,
+    illegal: '</',
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'string',
+        begin: '\'', end: '[^\\\\]\'',
+        relevance: 0
+      },
+      {
+        className: 'string',
+        begin: '`', end: '`'
+      },
+      {
+        className: 'number',
+        begin: '[^a-zA-Z_0-9](\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?',
+        relevance: 0
+      },
+      hljs.C_NUMBER_MODE
+    ]
   };
 }

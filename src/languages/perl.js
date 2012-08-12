@@ -163,9 +163,7 @@ function(hljs) {
   METHOD.contains[1].contains = PERL_DEFAULT_CONTAINS;
 
   return {
-    defaultMode: {
-      keywords: PERL_KEYWORDS,
-      contains: PERL_DEFAULT_CONTAINS
-    }
+    keywords: PERL_KEYWORDS,
+    contains: PERL_DEFAULT_CONTAINS
   };
 }

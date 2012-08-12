@@ -49,46 +49,44 @@ function(hljs){
 
   return {
     case_insensitive: true,
-    defaultMode: {
-      lexems: IDENT_RE_RU,
-      keywords: {keyword: OneS_KEYWORDS, built_in: OneS_BUILT_IN},
-      contains: [
-        hljs.C_LINE_COMMENT_MODE,
-        hljs.NUMBER_MODE,
-        STR_START, STR_CONT,
-        {
-          className: 'function',
-          begin: '(процедура|функция)', end: '$',
-          lexems: IDENT_RE_RU,
-          keywords: 'процедура функция',
-          contains: [
-            {className: 'title', begin: IDENT_RE_RU},
-            {
-              className: 'tail',
-              endsWithParent: true,
-              contains: [
-                {
-                  className: 'params',
-                  begin: '\\(', end: '\\)',
-                  lexems: IDENT_RE_RU,
-                  keywords: 'знач',
-                  contains: [STR_START, STR_CONT]
-                },
-                {
-                  className: 'export',
-                  begin: 'экспорт', endsWithParent: true,
-                  lexems: IDENT_RE_RU,
-                  keywords: 'экспорт',
-                  contains: [hljs.C_LINE_COMMENT_MODE]
-                }
-              ]
-            },
-            hljs.C_LINE_COMMENT_MODE
-          ]
-        },
-        {className: 'preprocessor', begin: '#', end: '$'},
-        {className: 'date', begin: '\'\\d{2}\\.\\d{2}\\.(\\d{2}|\\d{4})\''}
-      ]
-    }
+    lexems: IDENT_RE_RU,
+    keywords: {keyword: OneS_KEYWORDS, built_in: OneS_BUILT_IN},
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.NUMBER_MODE,
+      STR_START, STR_CONT,
+      {
+        className: 'function',
+        begin: '(процедура|функция)', end: '$',
+        lexems: IDENT_RE_RU,
+        keywords: 'процедура функция',
+        contains: [
+          {className: 'title', begin: IDENT_RE_RU},
+          {
+            className: 'tail',
+            endsWithParent: true,
+            contains: [
+              {
+                className: 'params',
+                begin: '\\(', end: '\\)',
+                lexems: IDENT_RE_RU,
+                keywords: 'знач',
+                contains: [STR_START, STR_CONT]
+              },
+              {
+                className: 'export',
+                begin: 'экспорт', endsWithParent: true,
+                lexems: IDENT_RE_RU,
+                keywords: 'экспорт',
+                contains: [hljs.C_LINE_COMMENT_MODE]
+              }
+            ]
+          },
+          hljs.C_LINE_COMMENT_MODE
+        ]
+      },
+      {className: 'preprocessor', begin: '#', end: '$'},
+      {className: 'date', begin: '\'\\d{2}\\.\\d{2}\\.(\\d{2}|\\d{4})\''}
+    ]
   };
 }
