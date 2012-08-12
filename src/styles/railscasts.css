@@ -1,0 +1,176 @@
+/*
+
+Railscasts-like style (c) Visoft, Inc. (Damien White)
+
+*/
+
+pre code {
+  display: block;
+  padding: 1em;
+  background: #232323;
+  color: #E6E1DC;
+}
+
+pre .comment,
+pre .template_comment,
+pre .javadoc {
+  color: #BC9458;
+  font-style: italic;
+}
+
+pre .keyword,
+pre .ruby .function .keyword,
+pre .request,
+pre .status,
+pre .nginx .title {
+  color: #CC7833;
+}
+
+pre .function .keyword,
+pre .sub .keyword,
+pre .method,
+pre .list .title {
+  color: #99CF50;
+}
+
+pre .string,
+pre .tag .value,
+pre .cdata,
+pre .filter .argument,
+pre .attr_selector,
+pre .apache .cbracket,
+pre .date,
+pre .tex .command {
+  color: #65B042;
+}
+
+pre .subst {
+  color: #DAEFA3;
+}
+
+pre .regexp {
+  color: #E9C062;
+}
+
+pre .title,
+pre .sub .identifier,
+pre .pi,
+pre .decorator,
+pre .shebang,
+pre .input_number {
+  color: #fff;
+}
+
+pre .tag,
+pre .tag .keyword,
+pre .tag .title {
+  color: #E8BF6A;
+}
+
+pre .identifier {
+  color: #D0D0FF;
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .smalltalk .class,
+pre .javadoctag,
+pre .yardoctag,
+pre .phpdoc {
+  text-decoration: none;
+}
+
+pre .constant {
+  color: #DA4939;
+}
+
+pre .number {
+  color: #A5C261;
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .ruby .symbol .identifier {
+  color: #6D9CBE;
+}
+
+
+
+pre .params,
+pre .variable,
+pre .clojure .attribute {
+  color: #E6E1DC;
+}
+
+pre .css .tag,
+pre .rules .property,
+pre .pseudo,
+pre .tex .special {
+  color: #CDA869;
+}
+
+pre .css .class {
+  color: #9B703F;
+}
+
+pre .rules .keyword {
+  color: #C5AF75;
+}
+
+pre .rules .value {
+  color: #CF6A4C;
+}
+
+pre .css .id {
+  color: #8B98AB;
+}
+
+pre .annotation,
+pre .apache .sqbracket,
+pre .nginx .built_in {
+  color: #9B859D;
+}
+
+pre .preprocessor,
+pre .preprocessor *{
+  color: #8996A8 !important;
+}
+
+pre .hexcolor,
+pre .css .value .number {
+  color: #A5C261;
+}
+
+pre .css .function {
+  color: #FFC66D;
+}
+
+pre .diff .header,
+pre .chunk,
+pre .tex .formula {
+  background-color: #2F33AB;
+  color: #E6E1DC;
+  display: inline-block;
+  width: 100%;
+}
+
+pre .diff .change {
+  background-color: #4A410D;
+  color: #F8F8F8;
+  display: inline-block;
+  width: 100%;
+}
+
+pre .addition {
+  background-color: #144212;
+  color: #E6E1DC;
+  display: inline-block;
+  width: 100%;
+}
+
+pre .deletion {
+  background-color: #600;
+  color: #E6E1DC;
+  display: inline-block;
+  width: 100%;
+}
