@@ -35,10 +35,8 @@ function(hljs) {
   };
   TYPES.splice(TYPES.length, 0, OBJECT, ARRAY);
   return {
-    defaultMode: {
-      contains: TYPES,
-      keywords: LITERALS,
-      illegal: '\\S'
-    }
+    contains: TYPES,
+    keywords: LITERALS,
+    illegal: '\\S'
   };
 }

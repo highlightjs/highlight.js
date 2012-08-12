@@ -25,38 +25,36 @@ function(hljs) {
     'log mod mutable native note of prove pure resource ret self str syntax true type u16 u32 ' +
     'u64 u8 uint unchecked unsafe use vec while';
   return {
-    defaultMode: {
-      keywords: KEYWORDS,
-      illegal: '</',
-      contains: [
-        hljs.C_LINE_COMMENT_MODE,
-        hljs.C_BLOCK_COMMENT_MODE,
-        QUOTE_STRING,
-        hljs.APOS_STRING_MODE,
-        NUMBER,
-        {
-          className: 'function',
-          beginWithKeyword: true, end: '(\\(|<)',
-          keywords: 'fn',
-          contains: [TITLE]
-        },
-        {
-          className: 'preprocessor',
-          begin: '#\\[', end: '\\]'
-        },
-        {
-          beginWithKeyword: true, end: '(=|<)',
-          keywords: 'type',
-          contains: [TITLE],
-          illegal: '\\S'
-        },
-        {
-          beginWithKeyword: true, end: '({|<)',
-          keywords: 'iface enum',
-          contains: [TITLE],
-          illegal: '\\S'
-        }
-      ]
-    }
+    keywords: KEYWORDS,
+    illegal: '</',
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      QUOTE_STRING,
+      hljs.APOS_STRING_MODE,
+      NUMBER,
+      {
+        className: 'function',
+        beginWithKeyword: true, end: '(\\(|<)',
+        keywords: 'fn',
+        contains: [TITLE]
+      },
+      {
+        className: 'preprocessor',
+        begin: '#\\[', end: '\\]'
+      },
+      {
+        beginWithKeyword: true, end: '(=|<)',
+        keywords: 'type',
+        contains: [TITLE],
+        illegal: '\\S'
+      },
+      {
+        beginWithKeyword: true, end: '({|<)',
+        keywords: 'iface enum',
+        contains: [TITLE],
+        illegal: '\\S'
+      }
+    ]
   };
 }

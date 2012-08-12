@@ -94,12 +94,10 @@ function(hljs) {
 
   return {
     case_insensitive: true,
-    defaultMode: {
-      illegal: '\\S',
-      contains: [
-        COMMENT,
-        LIST
-      ]
-    }
+    illegal: '\\S',
+    contains: [
+      COMMENT,
+      LIST
+    ]
   }
 }

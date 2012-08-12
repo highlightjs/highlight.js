@@ -25,7 +25,8 @@ pre .bash .variable,
 pre .tex .command,
 pre .request,
 pre .status,
-pre .nginx .title {
+pre .nginx .title,
+pre .xml .tag {
   color: rgb(0, 0, 255);
 }
 
@@ -80,3 +81,5 @@ pre .vhdl .typename { font-weight: bold; }
 pre .vhdl .string { color: #666666; }
 pre .vhdl .literal { color: rgb(163, 21, 21); }
 pre .vhdl .attribute { color: #00B0E8; }
+
+pre .xml .attribute { color: rgb(255, 0, 0); }

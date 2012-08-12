@@ -14,7 +14,6 @@ import json
 from functools import partial
 
 REPLACES = {
-    'defaultMode': 'dM',
     'case_insensitive': 'cI',
     'lexems': 'l',
     'contains': 'c',
@@ -53,6 +52,7 @@ REPLACES = {
     'illegalRe': 'iR',
     'lexemsRe': 'lR',
     'terminators': 't',
+    'terminator_end': 'tE',
 }
 
 CATEGORIES = {
