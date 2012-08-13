@@ -271,12 +271,10 @@ function() {
 
     function eatModeChunk(value, index) {
       var mode = modes[modes.length - 1];
-      var match;
       if (mode.terminators) {
         mode.terminators.lastIndex = index;
-        match = mode.terminators.exec(value);
+        return mode.terminators.exec(value);
       }
-      return match ? [value.substr(index, match.index - index), match[0], false] : [value.substr(index), '', true];
     }
 
     function keywordMatch(mode, match) {
@@ -352,11 +350,11 @@ function() {
       relevance += mode.relevance;
     }
 
-    function processModeInfo(buffer, lexem, end) {
+    function processModeInfo(buffer, lexem) {
       var current_mode = modes[modes.length - 1];
-      if (end) {
+      if (lexem === undefined) {
         result += processBuffer(current_mode.buffer + buffer, current_mode);
-        return false;
+        return;
       }
 
       var new_mode = subMode(lexem, current_mode);
@@ -403,15 +401,15 @@ function() {
     var keyword_count = 0;
     var result = '';
     try {
-      var mode_info, index = 0;
-      do {
-        mode_info = eatModeChunk(value, index);
-        var return_lexem = processModeInfo(mode_info[0], mode_info[1], mode_info[2]);
-        index += mode_info[0].length;
-        if (!return_lexem) {
-          index += mode_info[1].length;
-        }
-      } while (!mode_info[2]);
+      var match, index = 0;
+      while (true) {
+        match = eatModeChunk(value, index);
+        if (!match)
+          break;
+        var return_lexem = processModeInfo(value.substr(index, match.index - index), match[0]);
+        index = match.index + (return_lexem ? 0 : match[0].length);
+      }
+      processModeInfo(value.substr(index), undefined);
       return {
         relevance: relevance,
         keyword_count: keyword_count,
