@@ -4,9 +4,9 @@ Description: Unified and context diff
 Author: Vasily Polovnyov <vast@whiteants.net>
 */
 
-hljs.LANGUAGES.diff = {
-  case_insensitive: true,
-  defaultMode: {
+function(hljs) {
+  return {
+    case_insensitive: true,
     contains: [
       {
         className: 'chunk',
@@ -60,5 +60,5 @@ hljs.LANGUAGES.diff = {
         begin: '^\\!', end: '$'
       }
     ]
-  }
-};
+  };
+}

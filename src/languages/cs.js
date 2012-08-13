@@ -3,8 +3,8 @@ Language: C#
 Author: Jason Diamond <jason@diamond.name>
 */
 
-hljs.LANGUAGES.cs  = {
-  defaultMode: {
+function(hljs) {
+  return {
     keywords:
       // Normal keywords.
       'abstract as base bool break byte case catch char checked class const continue decimal ' +
@@ -47,5 +47,5 @@ hljs.LANGUAGES.cs  = {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE
     ]
-  }
-};
+  };
+}

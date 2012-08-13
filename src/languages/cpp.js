@@ -3,7 +3,7 @@ Language: C++
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>
 */
 
-hljs.LANGUAGES.cpp = function(){
+function(hljs) {
   var CPP_KEYWORDS = {
     keyword: 'false int float while private char catch export virtual operator sizeof ' +
       'dynamic_cast|10 typedef const_cast|10 const struct for static_cast|10 union namespace ' +
@@ -17,35 +17,33 @@ hljs.LANGUAGES.cpp = function(){
       'unordered_map unordered_multiset unordered_multimap array shared_ptr'
   };
   return {
-    defaultMode: {
-      keywords: CPP_KEYWORDS,
-      illegal: '</',
-      contains: [
-        hljs.C_LINE_COMMENT_MODE,
-        hljs.C_BLOCK_COMMENT_MODE,
-        hljs.QUOTE_STRING_MODE,
-        {
-          className: 'string',
-          begin: '\'\\\\?.', end: '\'',
-          illegal: '.'
-        },
-        {
-          className: 'number',
-          begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)'
-        },
-        hljs.C_NUMBER_MODE,
-        {
-          className: 'preprocessor',
-          begin: '#', end: '$'
-        },
-        {
-          className: 'stl_container',
-          begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
-          keywords: CPP_KEYWORDS,
-          relevance: 10,
-          contains: ['self']
-        }
-      ]
-    }
+    keywords: CPP_KEYWORDS,
+    illegal: '</',
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'string',
+        begin: '\'\\\\?.', end: '\'',
+        illegal: '.'
+      },
+      {
+        className: 'number',
+        begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)'
+      },
+      hljs.C_NUMBER_MODE,
+      {
+        className: 'preprocessor',
+        begin: '#', end: '$'
+      },
+      {
+        className: 'stl_container',
+        begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
+        keywords: CPP_KEYWORDS,
+        relevance: 10,
+        contains: ['self']
+      }
+    ]
   };
-}();
+}

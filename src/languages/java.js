@@ -3,8 +3,8 @@ Language: Java
 Author: Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
 */
 
-hljs.LANGUAGES.java  = {
-  defaultMode: {
+function(hljs) {
+  return {
     keywords:
       'false synchronized int abstract float private char boolean static null if const ' +
       'for true while long throw strictfp finally protected import native final return void ' +
@@ -45,5 +45,5 @@ hljs.LANGUAGES.java  = {
         className: 'annotation', begin: '@[A-Za-z]+'
       }
     ]
-  }
-};
+  };
+}

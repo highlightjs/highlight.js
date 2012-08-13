@@ -3,8 +3,8 @@
  Author: Sergey Ignatov <sergey@ignatov.spb.su>
  */
 
-hljs.LANGUAGES.erlang_repl = {
-  defaultMode: {
+function(hljs) {
+  return {
     keywords: {
       special_functions:
         'spawn spawn_link self',
@@ -51,5 +51,5 @@ hljs.LANGUAGES.erlang_repl = {
         relevance: 0
       }
     ]
-  }
-};
+  };
+}

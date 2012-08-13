@@ -3,8 +3,8 @@ Language: Matlab
 Author: Denis Bardadym <bardadymchik@gmail.com>
 */
 
-hljs.LANGUAGES.matlab = {
-  defaultMode: {
+function(hljs) {
+  return {
     keywords: {
       keyword:
         'break case catch classdef continue else elseif end enumerated events for function ' +
@@ -58,5 +58,5 @@ hljs.LANGUAGES.matlab = {
       },
       hljs.C_NUMBER_MODE
     ]
-  }
-};
+  };
+}

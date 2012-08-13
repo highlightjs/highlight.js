@@ -4,8 +4,8 @@ Description: Maya Embedded Language
 Author: Shuen-Huei Guan <drake.guan@gmail.com>
 */
 
-hljs.LANGUAGES.mel = {
-  defaultMode: {
+function(hljs) {
+  return {
     keywords:
       'int float string vector matrix if else switch case default while do for in break ' +
       'continue global proc return about abs addAttr addAttributeEditorNodeHelp addDynamic ' +
@@ -232,5 +232,5 @@ hljs.LANGUAGES.mel = {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
     ]
-  }
-};
+  };
+}

@@ -4,7 +4,7 @@ Description: Erlang is a general-purpose functional language, with strict evalua
 Author: Nikolay Zakharov <nikolay.desh@gmail.com>, Dmitry Kovega <arhibot@gmail.com>
 */
 
-hljs.LANGUAGES.erlang = function(){
+function(hljs) {
   var BASIC_ATOM_RE = '[a-z\'][a-zA-Z0-9_\']*';
   var FUNCTION_NAME_RE = '(' + BASIC_ATOM_RE + ':' + BASIC_ATOM_RE + '|' + BASIC_ATOM_RE + ')';
   var ERLANG_RESERVED = {
@@ -115,50 +115,48 @@ hljs.LANGUAGES.erlang = function(){
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)',
-    endsWithParent: true,
     contains: BASIC_MODES
   };
   return {
-    defaultMode: {
-      keywords: ERLANG_RESERVED,
-      illegal: '(</|\\*=|\\+=|-=|/=|/\\*|\\*/|\\(\\*|\\*\\))',
-      contains: [
-        {
-          className: 'function',
-          begin: '^' + BASIC_ATOM_RE + '\\(', end: ';|\\.',
-          returnBegin: true,
-          contains: [
-            PARAMS,
-            {
-              className: 'title', begin: BASIC_ATOM_RE
-            },
-            {
-              keywords: ERLANG_RESERVED,
-              begin: '->', endsWithParent: true,
-              contains: BASIC_MODES
-            }
-          ]
-        },
-        COMMENT,
-        {
-          className: 'pp',
-          begin: '^-', end: '\\.',
-          relevance: 0,
-          excludeEnd: true,
-          returnBegin: true,
-          lexems: '-' + hljs.IDENT_RE,
-          keywords:
-            '-module -record -undef -export -ifdef -ifndef -author -copyright -doc -vsn ' +
-            '-import -include -include_lib -compile -define -else -endif -file -behaviour ' +
-            '-behavior',
-          contains: [PARAMS]
-        },
-        NUMBER,
-        hljs.QUOTE_STRING_MODE,
-        RECORD_ACCESS,
-        VAR1, VAR2,
-        TUPLE
-      ]
-    }
+    keywords: ERLANG_RESERVED,
+    illegal: '(</|\\*=|\\+=|-=|/=|/\\*|\\*/|\\(\\*|\\*\\))',
+    contains: [
+      {
+        className: 'function',
+        begin: '^' + BASIC_ATOM_RE + '\\s*\\(', end: '->',
+        returnBegin: true,
+        illegal: '\\(|#|//|/\\*|\\\\|:',
+        contains: [
+          PARAMS,
+          {
+            className: 'title', begin: BASIC_ATOM_RE
+          }
+        ],
+        starts: {
+          end: ';|\\.',
+          keywords: ERLANG_RESERVED,
+          contains: BASIC_MODES
+        }
+      },
+      COMMENT,
+      {
+        className: 'pp',
+        begin: '^-', end: '\\.',
+        relevance: 0,
+        excludeEnd: true,
+        returnBegin: true,
+        lexems: '-' + hljs.IDENT_RE,
+        keywords:
+          '-module -record -undef -export -ifdef -ifndef -author -copyright -doc -vsn ' +
+          '-import -include -include_lib -compile -define -else -endif -file -behaviour ' +
+          '-behavior',
+        contains: [PARAMS]
+      },
+      NUMBER,
+      hljs.QUOTE_STRING_MODE,
+      RECORD_ACCESS,
+      VAR1, VAR2,
+      TUPLE
+    ]
   };
-}();
+}

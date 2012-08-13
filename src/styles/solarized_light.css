@@ -26,7 +26,8 @@ pre .method,
 pre .addition,
 pre .css .tag,
 pre .request,
-pre .status {
+pre .status,
+pre .nginx .title {
   color: #859900;
 }
 
@@ -45,10 +46,8 @@ pre .title,
 pre .localvars,
 pre .chunk,
 pre .decorator,
-pre .builtin,
 pre .built_in,
 pre .identifier,
-pre .title .keymethods,
 pre .vhdl .literal,
 pre .id {
   color: #268bd2;
@@ -56,13 +55,12 @@ pre .id {
 
 pre .attribute,
 pre .variable,
-pre .instancevar,
 pre .lisp .body,
 pre .smalltalk .number,
 pre .constant,
 pre .class .title,
 pre .parent,
-pre .haskell .label {
+pre .haskell .type {
   color: #b58900;
 }
 
@@ -70,13 +68,14 @@ pre .preprocessor,
 pre .preprocessor .keyword,
 pre .shebang,
 pre .symbol,
+pre .symbol .string,
 pre .diff .change,
 pre .special,
-pre .keymethods,
 pre .attr_selector,
 pre .important,
 pre .subst,
-pre .cdata {
+pre .cdata,
+pre .clojure .title {
   color: #cb4b16;
 }
 

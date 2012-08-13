@@ -5,7 +5,7 @@ Contributors: Evgeny Stepanischev <imbolk@gmail.com>
 Description: Google go language (golang). For info about language see http://golang.org/
 */
 
-hljs.LANGUAGES.go = function(){
+function(hljs) {
   var GO_KEYWORDS = {
     keyword:
       'break default func interface select case map struct chan else goto package switch ' +
@@ -19,30 +19,27 @@ hljs.LANGUAGES.go = function(){
       'append cap close complex copy imag len make new panic print println real recover delete'
   };
   return {
-    defaultMode: {
-      keywords: GO_KEYWORDS,
-      illegal: '</',
-      contains: [
-        hljs.C_LINE_COMMENT_MODE,
-        hljs.C_BLOCK_COMMENT_MODE,
-        hljs.QUOTE_STRING_MODE,
-        {
-          className: 'string',
-          begin: '\'', end: '[^\\\\]\'',
-          relevance: 0
-        },
-        {
-          className: 'string',
-          begin: '`', end: '`'
-        },
-        {
-          className: 'number',
-          begin: '[^a-zA-Z_0-9](\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?',
-          relevance: 0
-        },
-        hljs.C_NUMBER_MODE
-      ]
-    }
+    keywords: GO_KEYWORDS,
+    illegal: '</',
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'string',
+        begin: '\'', end: '[^\\\\]\'',
+        relevance: 0
+      },
+      {
+        className: 'string',
+        begin: '`', end: '`'
+      },
+      {
+        className: 'number',
+        begin: '[^a-zA-Z_0-9](\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?',
+        relevance: 0
+      },
+      hljs.C_NUMBER_MODE
+    ]
   };
-}();
-
+}

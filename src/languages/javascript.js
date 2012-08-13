@@ -2,12 +2,13 @@
 Language: JavaScript
 */
 
-hljs.LANGUAGES.javascript = {
-  defaultMode: {
+function(hljs) {
+  return {
     keywords: {
       keyword:
         'in if for while finally var new function do return void else break catch ' +
-        'instanceof with throw case default try this switch continue typeof delete',
+        'instanceof with throw case default try this switch continue typeof delete ' +
+        'let yield',
       literal:
         'true false null undefined NaN Infinity'
     },
@@ -48,8 +49,9 @@ hljs.LANGUAGES.javascript = {
             ],
             illegal: '["\'\\(]'
           }
-        ]
+        ],
+        illegal: '\\[|%'
       }
     ]
-  }
-};
+  };
+}

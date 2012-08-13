@@ -3,8 +3,8 @@ Language: Axapta
 Author: Dmitri Roudakov <dmitri@roudakov.ru>
 */
 
-hljs.LANGUAGES.axapta  = {
-  defaultMode: {
+function(hljs) {
+  return {
     keywords: 'false int abstract private char interface boolean static null if for true ' +
       'while long throw finally protected extends final implements return void enum else ' +
       'break new catch byte super class case short default double public try this switch ' +
@@ -40,5 +40,5 @@ hljs.LANGUAGES.axapta  = {
         ]
       }
     ]
-  }
-};
+  };
+}

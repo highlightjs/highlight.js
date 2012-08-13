@@ -2,9 +2,9 @@
 Language: SQL
 */
 
-hljs.LANGUAGES.sql = {
-  case_insensitive: true,
-  defaultMode: {
+function(hljs) {
+  return {
+    case_insensitive: true,
     illegal: '[^\\s]',
     contains: [
       {
@@ -60,5 +60,5 @@ hljs.LANGUAGES.sql = {
         begin: '--', end: '$'
       }
     ]
-  }
-};
+  };
+}

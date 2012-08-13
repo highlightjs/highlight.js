@@ -39,7 +39,6 @@ Ruby ("ruby"):
   title            name of a function or a class inside a header
   parent           name of a parent class
   symbol           symbol
-  instancevar      instance variable
 
 Perl ("perl"):
 
@@ -358,6 +357,16 @@ Lisp ("lisp"):
   body             remainder of the non-quoted list
   quoted           quoted list, both "(quote .. )" and "'(..)"
 
+Clojure ("clojure"):
+
+  comment          comments and hints
+  string           string
+  number           number
+  collection       collections
+  attribute        :keyword
+  title            function name (built-in or user defined)
+  built_in         built-in function name
+
 Ini ("ini"):
 
   title            title of a section
@@ -378,12 +387,13 @@ Apache ("apache"):
 
 Nginx ("nginx"):
 
-  keyword          keyword
+  title            directive title
   string           string
   number           number
   comment          comment
   built_in         built-in constant
   variable         $-variable
+  regexp           regexp
 
 Diff ("diff"):
 
@@ -485,13 +495,13 @@ TeX ("tex"):
 Haskell ("haskell"):
 
   keyword          keyword
-  built_in         built-in typeclass/functions (Bool, Int)
   number           number
   string           string
   comment          comment
   class            type classes and other data types
   title            function name
-  label            type class name
+  type             type class name
+  typedef          definition of types (type, newtype, data)
 
 Erlang ("erlang"):
 
@@ -532,3 +542,12 @@ R ("r"):
   keyword          language keywords (function, if) plus "structural"
                    functions (attach, require, setClass)
   literal          special literal: TRUE, FALSE, NULL, NA, etc.
+
+OpenGL Shading Language ("glsl"):
+
+  comment          comment
+  number           number
+  preprocessor     preprocessor directive
+  keyword          keyword
+  built_in         GLSL built-in functions and variables
+  literal          true false

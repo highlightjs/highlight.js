@@ -3,9 +3,9 @@ Language: DOS .bat
 Author: Alexander Makarov (http://rmcreative.ru/)
 */
 
-hljs.LANGUAGES.dos = {
-  case_insensitive: true,
-  defaultMode: {
+function(hljs) {
+  return {
+    case_insensitive: true,
     keywords: {
       flow: 'if else goto for in do call exit not exist errorlevel defined equ neq lss leq gtr geq',
       keyword: 'shift cd dir echo setlocal endlocal set pause copy',
@@ -31,5 +31,5 @@ hljs.LANGUAGES.dos = {
         begin: '@?rem', end: '$'
       }
     ]
-  }
-};
+  };
+}

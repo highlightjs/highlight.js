@@ -4,8 +4,8 @@
   Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 */
 
-hljs.LANGUAGES.http = {
-  defaultMode: {
+function(hljs) {
+  return {
     illegal: '\\S',
     contains: [
       {
@@ -35,5 +35,5 @@ hljs.LANGUAGES.http = {
         starts: {subLanguage: '', endsWithParent: true}
       }
     ]
-  }
+  };
 }

@@ -18,13 +18,15 @@ pre .keyword,
 pre .tag,
 pre .tex .command,
 pre .request,
-pre .status {
+pre .status,
+pre .clojure .attribute {
   color: #96CBFE;
 }
 
 pre .sub .keyword,
 pre .method,
-pre .list .title {
+pre .list .title,
+pre .nginx .title {
   color: #FFFFB6;
 }
 
@@ -51,7 +53,7 @@ pre .sub .identifier,
 pre .pi,
 pre .decorator,
 pre .tex .special,
-pre .haskell .label,
+pre .haskell .type,
 pre .constant,
 pre .smalltalk .class,
 pre .javadoctag,
@@ -63,8 +65,6 @@ pre .nginx .built_in {
 
 pre .symbol,
 pre .ruby .symbol .string,
-pre .ruby .symbol .keyword,
-pre .ruby .symbol .keymethods,
 pre .number,
 pre .variable,
 pre .vbscript,

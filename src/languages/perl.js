@@ -3,7 +3,7 @@ Language: Perl
 Author: Peter Leonov <gojpeg@yandex.ru>
 */
 
-hljs.LANGUAGES.perl = function(){
+function(hljs) {
   var PERL_KEYWORDS = 'getpwent getservent quotemeta msgrcv scalar kill dbmclose undef lc ' +
     'ma syswrite tr send umask sysopen shmwrite vec qx utime local oct semctl localtime ' +
     'readpipe do return format read sprintf dbmopen pop getpgrp not getpwnam rewinddir qq' +
@@ -163,9 +163,7 @@ hljs.LANGUAGES.perl = function(){
   METHOD.contains[1].contains = PERL_DEFAULT_CONTAINS;
 
   return {
-    defaultMode: {
-      keywords: PERL_KEYWORDS,
-      contains: PERL_DEFAULT_CONTAINS
-    }
+    keywords: PERL_KEYWORDS,
+    contains: PERL_DEFAULT_CONTAINS
   };
-}();
+}

@@ -2,9 +2,9 @@
 Language: Ini
 */
 
-hljs.LANGUAGES.ini = {
-  case_insensitive: true,
-  defaultMode: {
+function(hljs) {
+  return {
+    case_insensitive: true,
     illegal: '[^\\s]',
     contains: [
       {
@@ -17,7 +17,7 @@ hljs.LANGUAGES.ini = {
       },
       {
         className: 'setting',
-        begin: '^[a-z0-9_\\[\\]]+[ \\t]*=[ \\t]*', end: '$',
+        begin: '^[a-z0-9\\[\\]_-]+[ \\t]*=[ \\t]*', end: '$',
         contains: [
           {
             className: 'value',
@@ -28,5 +28,5 @@ hljs.LANGUAGES.ini = {
         ]
       }
     ]
-  }
-};
+  };
+}

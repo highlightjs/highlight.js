@@ -5,9 +5,9 @@ Author: John Crepezzi <john.crepezzi@gmail.com>
 Website: http://seejohncode.com/
 */
 
-hljs.LANGUAGES.markdown = {
-  case_insensitive: true,
-  defaultMode: {
+function(hljs) {
+  return {
+    case_insensitive: true,
     contains: [
       // highlight headers
       {
@@ -81,5 +81,5 @@ hljs.LANGUAGES.markdown = {
         ]
       }
     ]
-  }
-};
+  };
+}

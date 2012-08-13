@@ -3,16 +3,13 @@ Language: Bash
 Author: vah <vahtenberg@gmail.com>
 */
 
-hljs.LANGUAGES.bash = function(){
+function(hljs) {
   var BASH_LITERAL = 'true false';
   var VAR1 = {
-    className: 'variable',
-    begin: '\\$([a-zA-Z0-9_]+)\\b'
+    className: 'variable', begin: '\\$[a-zA-Z0-9_]+\\b'
   };
   var VAR2 = {
-    className: 'variable',
-    begin: '\\$\\{(([^}])|(\\\\}))+\\}',
-    contains: [hljs.C_NUMBER_MODE]
+    className: 'variable', begin: '\\${([^}]|\\\\})+}'
   };
   var QUOTE_STRING = {
     className: 'string',
@@ -30,7 +27,7 @@ hljs.LANGUAGES.bash = function(){
   var TEST_CONDITION = {
     className: 'test_condition',
     begin: '', end: '',
-    contains: [QUOTE_STRING, APOS_STRING, VAR1, VAR2, hljs.C_NUMBER_MODE],
+    contains: [QUOTE_STRING, APOS_STRING, VAR1, VAR2],
     keywords: {
       literal: BASH_LITERAL
     },
@@ -38,26 +35,23 @@ hljs.LANGUAGES.bash = function(){
   };
 
   return {
-    defaultMode: {
-      keywords: {
-        keyword: 'if then else fi for break continue while in do done echo exit return set declare',
-        literal: BASH_LITERAL
+    keywords: {
+      keyword: 'if then else fi for break continue while in do done echo exit return set declare',
+      literal: BASH_LITERAL
+    },
+    contains: [
+      {
+        className: 'shebang',
+        begin: '(#!\\/bin\\/bash)|(#!\\/bin\\/sh)',
+        relevance: 10
       },
-      contains: [
-        {
-          className: 'shebang',
-          begin: '(#!\\/bin\\/bash)|(#!\\/bin\\/sh)',
-          relevance: 10
-        },
-        VAR1,
-        VAR2,
-        hljs.HASH_COMMENT_MODE,
-        hljs.C_NUMBER_MODE,
-        QUOTE_STRING,
-        APOS_STRING,
-        hljs.inherit(TEST_CONDITION, {begin: '\\[ ', end: ' \\]', relevance: 0}),
-        hljs.inherit(TEST_CONDITION, {begin: '\\[\\[ ', end: ' \\]\\]'})
-      ]
-    }
+      VAR1,
+      VAR2,
+      hljs.HASH_COMMENT_MODE,
+      QUOTE_STRING,
+      APOS_STRING,
+      hljs.inherit(TEST_CONDITION, {begin: '\\[ ', end: ' \\]', relevance: 0}),
+      hljs.inherit(TEST_CONDITION, {begin: '\\[\\[ ', end: ' \\]\\]'})
+    ]
   };
-}();
+}

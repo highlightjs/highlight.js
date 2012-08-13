@@ -5,9 +5,9 @@ Author: Igor Kalnitsky <igor.kalnitsky@gmail.com>
 Website: http://kalnitsky.org.ua/
 */
 
-hljs.LANGUAGES.cmake = {
-  case_insensitive: true,
-  defaultMode: {
+function(hljs) {
+  return {
+    case_insensitive: true,
     keywords: 'add_custom_command add_custom_target add_definitions add_dependencies ' +
       'add_executable add_library add_subdirectory add_test aux_source_directory ' +
       'break build_command cmake_minimum_required cmake_policy configure_file ' +
@@ -34,5 +34,5 @@ hljs.LANGUAGES.cmake = {
       hljs.QUOTE_STRING_MODE,
       hljs.NUMBER_MODE
     ]
-  }
-};
+  };
+}

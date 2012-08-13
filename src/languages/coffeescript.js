@@ -5,7 +5,7 @@ Contributors: Oleg Efimov <efimovov@gmail.com>
 Description: CoffeeScript is a programming language that transcompiles to JavaScript. For info about language see http://coffeescript.org/
 */
 
-hljs.LANGUAGES.coffeescript = function() {
+function(hljs) {
   var keywords = {
     keyword:
       // JS keywords
@@ -55,6 +55,15 @@ hljs.LANGUAGES.coffeescript = function() {
     contains: [hljs.HASH_COMMENT_MODE]
   };
 
+  var COFFEE_EMPTY_REGEX_MODE = {
+    className: 'regexp', begin: '//[gim]*'
+  };
+
+  var COFFEE_REGEX_MODE = {
+    className: 'regexp',
+    begin: '/\\S(\\\\.|[^\\n])*/[gim]*' // \S is required to parse x / 2 / 3 as two divisions
+  };
+
   var COFFEE_FUNCTION_DECLARATION_MODE = {
     className: 'function',
     begin: JS_IDENT_RE + '\\s*=\\s*(\\(.+\\))?\\s*[-=]>',
@@ -78,24 +87,24 @@ hljs.LANGUAGES.coffeescript = function() {
   };
 
   return {
-    defaultMode: {
-      keywords: keywords,
-      contains: [
-        // Numbers
-        hljs.C_NUMBER_MODE,
-        hljs.BINARY_NUMBER_MODE,
-        // Strings
-        hljs.APOS_STRING_MODE,
-        COFFEE_HEREDOC_MODE, // Should be before COFFEE_QUOTE_STRING_MODE for greater priority
-        COFFEE_QUOTE_STRING_MODE,
-        // Comments
-        COFFEE_HERECOMMENT_MODE, // Should be before hljs.HASH_COMMENT_MODE for greater priority
-        hljs.HASH_COMMENT_MODE,
-        // CoffeeScript specific modes
-        COFFEE_HEREGEX_MODE,
-        COFFEE_EMBEDDED_JAVASCRIPT,
-        COFFEE_FUNCTION_DECLARATION_MODE
-      ]
-    }
+    keywords: keywords,
+    contains: [
+      // Numbers
+      hljs.C_NUMBER_MODE,
+      hljs.BINARY_NUMBER_MODE,
+      // Strings
+      hljs.APOS_STRING_MODE,
+      COFFEE_HEREDOC_MODE, // Should be before COFFEE_QUOTE_STRING_MODE for greater priority
+      COFFEE_QUOTE_STRING_MODE,
+      // Comments
+      COFFEE_HERECOMMENT_MODE, // Should be before hljs.HASH_COMMENT_MODE for greater priority
+      hljs.HASH_COMMENT_MODE,
+      // CoffeeScript specific modes
+      COFFEE_HEREGEX_MODE,
+      COFFEE_EMPTY_REGEX_MODE,
+      COFFEE_REGEX_MODE,
+      COFFEE_EMBEDDED_JAVASCRIPT,
+      COFFEE_FUNCTION_DECLARATION_MODE
+    ]
   };
-}();
+}

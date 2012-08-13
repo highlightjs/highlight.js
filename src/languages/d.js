@@ -22,7 +22,7 @@ Date: 2012-04-08
  *   up to the end of line is matched as special token sequence)
  */
 
-hljs.LANGUAGES.d = function() {
+function(hljs) {
 
 	/**
 	 * Language keywords
@@ -245,25 +245,23 @@ hljs.LANGUAGES.d = function() {
 	}
 
 	return {
-		defaultMode: {
-			lexems: hljs.UNDERSCORE_IDENT_RE,
-			keywords: D_KEYWORDS,
-			contains: [
-				hljs.C_LINE_COMMENT_MODE,
-      			hljs.C_BLOCK_COMMENT_MODE,
-      			D_NESTING_COMMENT_MODE,
-      			D_HEX_STRING_MODE,
-      			D_STRING_MODE,
-      			D_WYSIWYG_DELIMITED_STRING_MODE,
-      			D_ALTERNATE_WYSIWYG_STRING_MODE,
-      			D_TOKEN_STRING_MODE,
-      			D_FLOAT_MODE,
-      			D_INTEGER_MODE,
-      			D_CHARACTER_MODE,
-      			D_HASHBANG_MODE,
-      			D_SPECIAL_TOKEN_SEQUENCE_MODE,
-      			D_ATTRIBUTE_MODE
-			]
-		}
+		lexems: hljs.UNDERSCORE_IDENT_RE,
+		keywords: D_KEYWORDS,
+		contains: [
+			hljs.C_LINE_COMMENT_MODE,
+  			hljs.C_BLOCK_COMMENT_MODE,
+  			D_NESTING_COMMENT_MODE,
+  			D_HEX_STRING_MODE,
+  			D_STRING_MODE,
+  			D_WYSIWYG_DELIMITED_STRING_MODE,
+  			D_ALTERNATE_WYSIWYG_STRING_MODE,
+  			D_TOKEN_STRING_MODE,
+  			D_FLOAT_MODE,
+  			D_INTEGER_MODE,
+  			D_CHARACTER_MODE,
+  			D_HASHBANG_MODE,
+  			D_SPECIAL_TOKEN_SEQUENCE_MODE,
+  			D_ATTRIBUTE_MODE
+		]
 	};
-}();
+}

@@ -4,8 +4,8 @@ Requires: xml.js
 Author: Oleg Volchkov <oleg@volchkov.net>
 */
 
-hljs.LANGUAGES.parser3 = {
-  defaultMode: {
+function(hljs) {
+  return {
     subLanguage: 'xml',
     contains: [
       {
@@ -46,5 +46,5 @@ hljs.LANGUAGES.parser3 = {
       },
       hljs.C_NUMBER_MODE
     ]
-  }
-};
+  };
+}

@@ -4,9 +4,9 @@ Author: Nikita Ledyaev <lenikita@yandex.ru>
 Contributors: Michal Gabrukiewicz <mgabru@gmail.com>
 */
 
-hljs.LANGUAGES.vbscript = {
-  case_insensitive: true,
-  defaultMode: {
+function(hljs) {
+  return {
+    case_insensitive: true,
     keywords: {
       keyword:
         'call class const dim do loop erase execute executeglobal exit for each next function ' +
@@ -42,5 +42,5 @@ hljs.LANGUAGES.vbscript = {
       },
       hljs.C_NUMBER_MODE
     ]
-  }
-};
+  };
+}

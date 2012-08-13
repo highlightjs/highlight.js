@@ -17,8 +17,9 @@ pre .comment * {
 }
 
 pre .keyword,
-pre .literal {
-  color: rgb(170,13,145);	
+pre .literal,
+pre .nginx .title {
+  color: rgb(170,13,145);
 }
 pre .method,
 pre .list .title,
@@ -62,16 +63,16 @@ pre .hexcolor,
 pre .rules .value,
 pre .css .value .number,
 pre .symbol,
-pre .ruby .symbol .string,
-pre .ruby .symbol .keyword,
-pre .ruby .symbol .keymethods,
+pre .symbol .string,
 pre .number,
-pre .css .function {
+pre .css .function,
+pre .clojure .title,
+pre .clojure .built_in {
   color: rgb(28,0,207);
 }
 
 pre .class .title,
-pre .haskell .label,
+pre .haskell .type,
 pre .smalltalk .class,
 pre .javadoctag,
 pre .yardoctag,
@@ -82,12 +83,13 @@ pre .doctype,
 pre .class .id,
 pre .built_in,
 pre .setting,
-pre .params {
+pre .params,
+pre .clojure .attribute {
   color: rgb(92,38,153);
 }
 
 pre .variable {
- color: rgb(63,110,116);	
+ color: rgb(63,110,116);
 }
 pre .css .tag,
 pre .rules .property,
