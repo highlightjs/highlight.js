@@ -152,10 +152,10 @@ function() {
 
   function compileLanguage(language) {
 
-    function langRe(value, case_insensitive, global) {
+    function langRe(value, global) {
       return RegExp(
         value,
-        'm' + (case_insensitive ? 'i' : '') + (global ? 'g' : '')
+        'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
       );
     }
 
@@ -177,7 +177,7 @@ function() {
           }
         }
 
-        mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE, language.case_insensitive, true);
+        mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE, true);
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords)
         } else {
@@ -193,17 +193,17 @@ function() {
         if (mode.beginWithKeyword) {
           mode.begin = '\\b(' + keywords.join('|') + ')\\s';
         }
-        mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b', language.case_insensitive);
+        mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
           mode.end = '\\B|\\b';
         if (mode.end)
-          mode.endRe = langRe(mode.end, language.case_insensitive);
+          mode.endRe = langRe(mode.end);
         mode.terminator_end = mode.end || '';
         if (mode.endsWithParent && parent.terminator_end)
           mode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
       }
       if (mode.illegal)
-        mode.illegalRe = langRe(mode.illegal, language.case_insensitive);
+        mode.illegalRe = langRe(mode.illegal);
       if (mode.relevance === undefined)
         mode.relevance = 1;
       if (!mode.contains) {
@@ -229,7 +229,7 @@ function() {
       if (mode.illegal) {
         terminators.push(mode.illegal);
       }
-      mode.terminators = terminators.length ? langRe(terminators.join('|'), language.case_insensitive, true) : null;
+      mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : null;
     }
 
     compileMode(language);
