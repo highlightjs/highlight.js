@@ -26,7 +26,8 @@ pre .tex .command,
 pre .request,
 pre .status,
 pre .nginx .title,
-pre .xml .tag {
+pre .xml .tag,
+pre .xml .tag .value {
   color: rgb(0, 0, 255);
 }
 
