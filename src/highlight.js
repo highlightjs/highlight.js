@@ -345,9 +345,7 @@ function() {
         result += markup;
         mode.buffer = lexem;
       }
-      var wrapper = function(){this.parent = top};
-      wrapper.prototype = mode;
-      top = new wrapper();
+      top = Object.create(mode, {parent: {value: top}});
       relevance += mode.relevance;
     }
 
