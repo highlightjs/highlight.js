@@ -27,7 +27,7 @@ function(hljs) {
       {
         className: 'attribute',
         begin: '^\\w', end: ': ', excludeEnd: true,
-        illegal: '\\n',
+        illegal: '\\n|\\s|=',
         starts: {className: 'string', end: '$'}
       },
       {
