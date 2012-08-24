@@ -1826,6 +1826,9 @@ function [net] = get_fit_network(inputs, targets)
     % Train and Apply Network
     [net,tr] = train(net,inputs,targets);
 end
+
+foo_matrix = [1, 2, 3; 4, 5, 6]''';
+foo_cell = {1, 2, 3; 4, 5, 6}''.'.';
 </code></pre>
 
   <tr>
