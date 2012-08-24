@@ -1,9 +1,18 @@
 /*
 Language: Matlab
 Author: Denis Bardadym <bardadymchik@gmail.com>
+Contributors: Eugene Nizhibitsky <nizhibitsky@ya.ru>
 */
 
 function(hljs) {
+
+  this.MATLAB_STRING_MODE = {
+    className: 'string',
+    begin: '\'', end: '\'',
+    contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}],
+    relevance: 0
+  };
+
   return {
     keywords: {
       keyword:
@@ -47,15 +56,24 @@ function(hljs) {
         ]
       },
       {
-        className: 'string',
-        begin: '\'', end: '\'',
-        contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}],
-        relevance: 0
+        className: 'transposed_variable',
+        begin: '[a-zA-Z_][a-zA-Z_0-9]*(\'+[\\.\']*|[\\.\']+)', end: ''
+      },
+      {
+        className: 'matrix',
+        begin: '\\[', end: '\\]\'*[\\.\']*',
+        contains: [hljs.C_NUMBER_MODE, this.MATLAB_STRING_MODE]
+      },
+      {
+        className: 'cell',
+        begin: '\\{', end: '\\}\'*[\\.\']*',
+        contains: [hljs.C_NUMBER_MODE, this.MATLAB_STRING_MODE]
       },
       {
         className: 'comment',
         begin: '\\%', end: '$'
       },
+      this.MATLAB_STRING_MODE,
       hljs.C_NUMBER_MODE
     ]
   };
