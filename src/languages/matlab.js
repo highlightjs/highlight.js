@@ -6,12 +6,15 @@ Contributors: Eugene Nizhibitsky <nizhibitsky@ya.ru>
 
 function(hljs) {
 
-  var MATLAB_STRING_MODE = {
-    className: 'string',
-    begin: '\'', end: '\'',
-    contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}],
-    relevance: 0
-  };
+  var COMMON_CONTAINS = [
+    hljs.C_NUMBER_MODE,
+    {
+      className: 'string',
+      begin: '\'', end: '\'',
+      contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}],
+      relevance: 0
+    }
+  ];
 
   return {
     keywords: {
@@ -62,19 +65,17 @@ function(hljs) {
       {
         className: 'matrix',
         begin: '\\[', end: '\\]\'*[\\.\']*',
-        contains: [hljs.C_NUMBER_MODE, MATLAB_STRING_MODE]
+        contains: COMMON_CONTAINS
       },
       {
         className: 'cell',
         begin: '\\{', end: '\\}\'*[\\.\']*',
-        contains: [hljs.C_NUMBER_MODE, MATLAB_STRING_MODE]
+        contains: COMMON_CONTAINS
       },
       {
         className: 'comment',
         begin: '\\%', end: '$'
-      },
-      MATLAB_STRING_MODE,
-      hljs.C_NUMBER_MODE
-    ]
+      }
+    ].concat(COMMON_CONTAINS)
   };
 }
