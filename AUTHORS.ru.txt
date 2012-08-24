@@ -62,3 +62,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Марк Форнос <marc.fornos@gmail.com>
 - Йошихиде Джимбо <yjimbo@gmail.com>
 - Кейси Данкан <casey.duncan@gmail.com>
+- Евгений Нижибицкий <nizhibitsky@gmail.com>
