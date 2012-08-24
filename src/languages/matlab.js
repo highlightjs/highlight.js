@@ -6,7 +6,7 @@ Contributors: Eugene Nizhibitsky <nizhibitsky@ya.ru>
 
 function(hljs) {
 
-  this.MATLAB_STRING_MODE = {
+  var MATLAB_STRING_MODE = {
     className: 'string',
     begin: '\'', end: '\'',
     contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}],
@@ -62,18 +62,18 @@ function(hljs) {
       {
         className: 'matrix',
         begin: '\\[', end: '\\]\'*[\\.\']*',
-        contains: [hljs.C_NUMBER_MODE, this.MATLAB_STRING_MODE]
+        contains: [hljs.C_NUMBER_MODE, MATLAB_STRING_MODE]
       },
       {
         className: 'cell',
         begin: '\\{', end: '\\}\'*[\\.\']*',
-        contains: [hljs.C_NUMBER_MODE, this.MATLAB_STRING_MODE]
+        contains: [hljs.C_NUMBER_MODE, MATLAB_STRING_MODE]
       },
       {
         className: 'comment',
         begin: '\\%', end: '$'
       },
-      this.MATLAB_STRING_MODE,
+      MATLAB_STRING_MODE,
       hljs.C_NUMBER_MODE
     ]
   };
