@@ -85,23 +85,15 @@ Go language ("go"):
   typename         built-in plain types (int, string etc.)
   built_in         built-in functions
 
-XML ("xml"):
+HTML, XML ("xml"):
 
   tag              any tag from "<" till ">"
-  comment          comment
-  pi               processing instruction (<? ... ?>)
-  cdata            CDATA section
-  attribute        attribute
-  value            attribute's value
-
-HTML ("html"):
-
-  keyword          HTML tag
-  tag              any tag from "<" till ">"
-  comment          comment
-  doctype          <!DOCTYPE ... > declaration
   attribute        tag's attribute with or without value
   value            attribute's value
+  comment          comment
+  pi               processing instruction (<? ... ?>)
+  doctype          <!DOCTYPE ... > declaration
+  cdata            CDATA section
 
 CSS ("css"):
 
