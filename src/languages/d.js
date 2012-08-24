@@ -66,7 +66,7 @@ function(hljs) {
 		hexadecimal_float_re = '(0[xX](' +
 									hexadecimal_digits_re + '\\.' + hexadecimal_digits_re + '|'+
 									'\\.?' + hexadecimal_digits_re +
-							   ')[pP][+-]?' + decimal_integer_nosus_re + ')';
+							   ')[pP][+-]?' + decimal_integer_nosus_re + ')',
 
 		integer_re = '(' +
 			decimal_integer_re + '|' +
