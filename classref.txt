@@ -97,7 +97,7 @@ HTML, XML ("xml"):
 
 CSS ("css"):
 
-  tag              HTML tag in selectors
+  tag              tag in selectors
   id               #some_name in selectors
   class            .some_name in selectors
   at_rule          @-rule till first "{" or ";"
@@ -105,14 +105,13 @@ CSS ("css"):
   pseudo           pseudo classes and elemens (:after, ::after etc.)
   comment          comment
   rules            everything from "{" till "}"
-  property         property name inside a rule
+  attribute        property name inside a rule
   value            property value inside a rule, from ":" till ";" or
                    till the end of rule block
   number           number within a value
   string           string within a value
   hexcolor         hex color (#FFFFFF) within a value
   function         CSS function within a value
-  params           everything between "(" and ")" within a function
   important        "!important" symbol
 
 Markdown ("markdown"):
