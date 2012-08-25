@@ -85,27 +85,19 @@ Go language ("go"):
   typename         built-in plain types (int, string etc.)
   built_in         built-in functions
 
-XML ("xml"):
+HTML, XML ("xml"):
 
   tag              any tag from "<" till ">"
-  comment          comment
-  pi               processing instruction (<? ... ?>)
-  cdata            CDATA section
-  attribute        attribute
-  value            attribute's value
-
-HTML ("html"):
-
-  keyword          HTML tag
-  tag              any tag from "<" till ">"
-  comment          comment
-  doctype          <!DOCTYPE ... > declaration
   attribute        tag's attribute with or without value
   value            attribute's value
+  comment          comment
+  pi               processing instruction (<? ... ?>)
+  doctype          <!DOCTYPE ... > declaration
+  cdata            CDATA section
 
 CSS ("css"):
 
-  tag              HTML tag in selectors
+  tag              tag in selectors
   id               #some_name in selectors
   class            .some_name in selectors
   at_rule          @-rule till first "{" or ";"
@@ -113,14 +105,13 @@ CSS ("css"):
   pseudo           pseudo classes and elemens (:after, ::after etc.)
   comment          comment
   rules            everything from "{" till "}"
-  property         property name inside a rule
+  attribute        property name inside a rule
   value            property value inside a rule, from ":" till ";" or
                    till the end of rule block
   number           number within a value
   string           string within a value
   hexcolor         hex color (#FFFFFF) within a value
   function         CSS function within a value
-  params           everything between "(" and ")" within a function
   important        "!important" symbol
 
 Markdown ("markdown"):
@@ -533,6 +524,8 @@ Matlab ("matlab"):
   title            function name
   function         function
   param            params of function
+  matrix           matrix in [ .. ]
+  cell             cell in { .. }
 
 R ("r"):
 

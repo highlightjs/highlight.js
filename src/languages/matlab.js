@@ -1,9 +1,21 @@
 /*
 Language: Matlab
 Author: Denis Bardadym <bardadymchik@gmail.com>
+Contributors: Eugene Nizhibitsky <nizhibitsky@ya.ru>
 */
 
 function(hljs) {
+
+  var COMMON_CONTAINS = [
+    hljs.C_NUMBER_MODE,
+    {
+      className: 'string',
+      begin: '\'', end: '\'',
+      contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}],
+      relevance: 0
+    }
+  ];
+
   return {
     keywords: {
       keyword:
@@ -47,16 +59,23 @@ function(hljs) {
         ]
       },
       {
-        className: 'string',
-        begin: '\'', end: '\'',
-        contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}],
-        relevance: 0
+        className: 'transposed_variable',
+        begin: '[a-zA-Z_][a-zA-Z_0-9]*(\'+[\\.\']*|[\\.\']+)', end: ''
+      },
+      {
+        className: 'matrix',
+        begin: '\\[', end: '\\]\'*[\\.\']*',
+        contains: COMMON_CONTAINS
+      },
+      {
+        className: 'cell',
+        begin: '\\{', end: '\\}\'*[\\.\']*',
+        contains: COMMON_CONTAINS
       },
       {
         className: 'comment',
         begin: '\\%', end: '$'
-      },
-      hljs.C_NUMBER_MODE
-    ]
+      }
+    ].concat(COMMON_CONTAINS)
   };
 }
