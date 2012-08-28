@@ -18,6 +18,10 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
+      { // EX4
+        begin: '<', end: '>;',
+        subLanguage: 'xml'
+      },
       { // regexp container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: 'return throw case',
