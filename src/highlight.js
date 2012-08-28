@@ -154,12 +154,11 @@ function() {
         var compiled_keywords = {};
 
         function flatten(className, str) {
-          var group = str.split(' ');
-          for (var i = 0; i < group.length; i++) {
-            var pair = group[i].split('|');
+          str.split(' ').forEach(function(kw) {
+            var pair = kw.split('|');
             compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
             keywords.push(pair[0]);
-          }
+          });
         }
 
         mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE, true);
