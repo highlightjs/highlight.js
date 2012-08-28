@@ -22,18 +22,15 @@ function() {
   }
 
   function blockText(block, ignoreNewLines) {
-    var result = '';
-    for (var i = 0; i < block.childNodes.length; i++)
-      if (block.childNodes[i].nodeType == 3) {
-        var chunk = block.childNodes[i].nodeValue;
-        if (ignoreNewLines)
-          chunk = chunk.replace(/\n/g, '');
-        result += chunk;
-      } else if (block.childNodes[i].nodeName == 'BR')
-        result += '\n';
-      else
-        result += blockText(block.childNodes[i]);
-    return result;
+    return Array.prototype.map.call(block.childNodes, function(node) {
+      if (node.nodeType == 3) {
+        return ignoreNewLines ? node.nodeValue.replace(/\n/g, '') : node.nodeValue;
+      }
+      if (node.nodeName == 'BR') {
+        return '\n';
+      }
+      return blockText(node, ignoreNewLines);
+    }).join('');
   }
 
   function blockLanguage(block) {
