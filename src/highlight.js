@@ -48,22 +48,22 @@ function() {
   function nodeStream(node) {
     var result = [];
     (function _nodeStream(node, offset) {
-      for (var i = 0; i < node.childNodes.length; i++) {
-        if (node.childNodes[i].nodeType == 3)
-          offset += node.childNodes[i].nodeValue.length;
-        else if (node.childNodes[i].nodeName == 'BR')
+      for (var child = node.firstChild; child; child = child.nextSibling) {
+        if (child.nodeType == 3)
+          offset += child.nodeValue.length;
+        else if (child.nodeName == 'BR')
           offset += 1;
-        else if (node.childNodes[i].nodeType == 1) {
+        else if (child.nodeType == 1) {
           result.push({
             event: 'start',
             offset: offset,
-            node: node.childNodes[i]
+            node: child
           });
-          offset = _nodeStream(node.childNodes[i], offset);
+          offset = _nodeStream(child, offset);
           result.push({
             event: 'stop',
             offset: offset,
-            node: node.childNodes[i]
+            node: child
           });
         }
       }
