@@ -21,8 +21,6 @@ function() {
     }
   }
 
-  var is_old_IE = (typeof navigator !== 'undefined' && /MSIE [678]/.test(navigator.userAgent));
-
   function blockText(block, ignoreNewLines) {
     var result = '';
     for (var i = 0; i < block.childNodes.length; i++)
@@ -35,8 +33,6 @@ function() {
         result += '\n';
       else
         result += blockText(block.childNodes[i]);
-    if (is_old_IE)
-      result = result.replace(/\r/g, '\n');
     return result;
   }
 
@@ -514,18 +510,7 @@ function() {
     if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
       class_name = class_name ? (class_name + ' ' + language) : language;
     }
-    if (is_old_IE && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
-      // This is for backwards compatibility only. IE needs this strange
-      // hack becasue it cannot just cleanly replace <code> block contents.
-      pre = block.parentNode;
-      var container = document.createElement('div');
-      container.innerHTML = '<pre><code>' + result.value + '</code></pre>';
-      block = container.firstChild.firstChild;
-      container.firstChild.className = pre.className;
-      pre.parentNode.replaceChild(container.firstChild, pre);
-    } else {
-      block.innerHTML = result.value;
-    }
+    block.innerHTML = result.value;
     block.className = class_name;
     block.result = {
       language: language,
