@@ -525,12 +525,9 @@ function() {
     if (initHighlighting.called)
       return;
     initHighlighting.called = true;
-    var pres = document.getElementsByTagName('pre');
-    for (var i = 0; i < pres.length; i++) {
-      var code = findCode(pres[i]);
-      if (code)
-        highlightBlock(code, hljs.tabReplace);
-    }
+    Array.prototype.map.call(document.getElementsByTagName('pre'), findCode).
+      filter(Boolean).
+      forEach(function(code){highlightBlock(code, hljs.tabReplace)});
   }
 
   /*
