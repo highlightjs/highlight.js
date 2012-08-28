@@ -12,8 +12,7 @@ function() {
   }
 
   function findCode(pre) {
-    for (var i = 0; i < pre.childNodes.length; i++) {
-      var node = pre.childNodes[i];
+    for (var node = pre.firstChild; node; node = node.nextSibling) {
       if (node.nodeName == 'CODE')
         return node;
       if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
