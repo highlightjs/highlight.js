@@ -105,15 +105,8 @@ function() {
     }
 
     function open(node) {
-      var result = '<' + node.nodeName.toLowerCase();
-      for (var i = 0; i < node.attributes.length; i++) {
-        var attribute = node.attributes[i];
-        result += ' ' + attribute.nodeName.toLowerCase();
-        if (attribute.value !== undefined && attribute.value !== false && attribute.value !== null) {
-          result += '="' + escape(attribute.value) + '"';
-        }
-      }
-      return result + '>';
+      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"'};
+      return '<' + node.nodeName + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
     }
 
     while (stream1.length || stream2.length) {
