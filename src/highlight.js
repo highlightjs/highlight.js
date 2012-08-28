@@ -486,18 +486,13 @@ function() {
   function highlightBlock(block, tabReplace, useBR) {
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
-    var result, pre;
     if (language == 'no-highlight')
         return;
-    if (language) {
-      result = highlight(language, text);
-    } else {
-      result = highlightAuto(text);
-      language = result.language;
-    }
+    var result = language ? highlight(language, text) : highlightAuto(text);
+    language = result.language;
     var original = nodeStream(block);
     if (original.length) {
-      pre = document.createElement('pre');
+      var pre = document.createElement('pre');
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
