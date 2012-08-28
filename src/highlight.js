@@ -251,11 +251,11 @@ function() {
       }
     }
 
-    function endOfMode(mode_index, lexem) {
-      if (modes[mode_index].end && modes[mode_index].endRe.test(lexem))
+    function endOfMode(mode, lexem) {
+      if (mode.end && mode.endRe.test(lexem))
         return 1;
-      if (modes[mode_index].endsWithParent) {
-        var level = endOfMode(mode_index - 1, lexem);
+      if (mode.endsWithParent) {
+        var level = endOfMode(mode.parent, lexem);
         return level ? level + 1 : 0;
       }
       return 0;
@@ -266,10 +266,9 @@ function() {
     }
 
     function eatModeChunk(value, index) {
-      var mode = modes[modes.length - 1];
-      if (mode.terminators) {
-        mode.terminators.lastIndex = index;
-        return mode.terminators.exec(value);
+      if (top.terminators) {
+        top.terminators.lastIndex = index;
+        return top.terminators.exec(value);
       }
     }
 
@@ -342,12 +341,12 @@ function() {
         result += markup;
         mode.buffer = lexem;
       }
-      modes.push(mode);
+      top = Object.create(mode, {parent: {value: top}});
       relevance += mode.relevance;
     }
 
     function processModeInfo(buffer, lexem) {
-      var current_mode = modes[modes.length - 1];
+      var current_mode = top;
       if (lexem === undefined) {
         result += processBuffer(current_mode.buffer + buffer, current_mode);
         return;
@@ -360,7 +359,7 @@ function() {
         return new_mode.returnBegin;
       }
 
-      var end_level = endOfMode(modes.length - 1, lexem);
+      var end_level = endOfMode(current_mode, lexem);
       if (end_level) {
         var markup = current_mode.className?'</span>':'';
         if (current_mode.returnEnd) {
@@ -371,14 +370,15 @@ function() {
           result += processBuffer(current_mode.buffer + buffer + lexem, current_mode) + markup;
         }
         while (end_level > 1) {
-          markup = modes[modes.length - 2].className?'</span>':'';
-          result += markup;
+          if (current_mode.parent.className) {
+            result += '</span>';
+          }
           end_level--;
-          modes.length--;
+          top = top.parent;
         }
-        var last_ended_mode = modes[modes.length - 1];
-        modes.length--;
-        modes[modes.length - 1].buffer = '';
+        var last_ended_mode = top;
+        top = top.parent;
+        top.buffer = '';
         if (last_ended_mode.starts) {
           startNewMode(last_ended_mode.starts, '');
         }
@@ -391,7 +391,7 @@ function() {
 
     var language = languages[language_name];
     compileLanguage(language);
-    var modes = [language];
+    var top = language;
     language.buffer = '';
     var relevance = 0;
     var keyword_count = 0;
