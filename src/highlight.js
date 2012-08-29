@@ -12,8 +12,7 @@ function() {
   }
 
   function findCode(pre) {
-    for (var i = 0; i < pre.childNodes.length; i++) {
-      var node = pre.childNodes[i];
+    for (var node = pre.firstChild; node; node = node.nextSibling) {
       if (node.nodeName == 'CODE')
         return node;
       if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
@@ -21,23 +20,16 @@ function() {
     }
   }
 
-  var is_old_IE = (typeof navigator !== 'undefined' && /MSIE [678]/.test(navigator.userAgent));
-
   function blockText(block, ignoreNewLines) {
-    var result = '';
-    for (var i = 0; i < block.childNodes.length; i++)
-      if (block.childNodes[i].nodeType == 3) {
-        var chunk = block.childNodes[i].nodeValue;
-        if (ignoreNewLines)
-          chunk = chunk.replace(/\n/g, '');
-        result += chunk;
-      } else if (block.childNodes[i].nodeName == 'BR')
-        result += '\n';
-      else
-        result += blockText(block.childNodes[i]);
-    if (is_old_IE)
-      result = result.replace(/\r/g, '\n');
-    return result;
+    return Array.prototype.map.call(block.childNodes, function(node) {
+      if (node.nodeType == 3) {
+        return ignoreNewLines ? node.nodeValue.replace(/\n/g, '') : node.nodeValue;
+      }
+      if (node.nodeName == 'BR') {
+        return '\n';
+      }
+      return blockText(node, ignoreNewLines);
+    }).join('');
   }
 
   function blockLanguage(block) {
@@ -56,22 +48,22 @@ function() {
   function nodeStream(node) {
     var result = [];
     (function _nodeStream(node, offset) {
-      for (var i = 0; i < node.childNodes.length; i++) {
-        if (node.childNodes[i].nodeType == 3)
-          offset += node.childNodes[i].nodeValue.length;
-        else if (node.childNodes[i].nodeName == 'BR')
+      for (var child = node.firstChild; child; child = child.nextSibling) {
+        if (child.nodeType == 3)
+          offset += child.nodeValue.length;
+        else if (child.nodeName == 'BR')
           offset += 1;
-        else if (node.childNodes[i].nodeType == 1) {
+        else if (child.nodeType == 1) {
           result.push({
             event: 'start',
             offset: offset,
-            node: node.childNodes[i]
+            node: child
           });
-          offset = _nodeStream(node.childNodes[i], offset);
+          offset = _nodeStream(child, offset);
           result.push({
             event: 'stop',
             offset: offset,
-            node: node.childNodes[i]
+            node: child
           });
         }
       }
@@ -113,15 +105,8 @@ function() {
     }
 
     function open(node) {
-      var result = '<' + node.nodeName.toLowerCase();
-      for (var i = 0; i < node.attributes.length; i++) {
-        var attribute = node.attributes[i];
-        result += ' ' + attribute.nodeName.toLowerCase();
-        if (attribute.value !== undefined && attribute.value !== false && attribute.value !== null) {
-          result += '="' + escape(attribute.value) + '"';
-        }
-      }
-      return result + '>';
+      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"'};
+      return '<' + node.nodeName + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
     }
 
     while (stream1.length || stream2.length) {
@@ -169,12 +154,11 @@ function() {
         var compiled_keywords = {};
 
         function flatten(className, str) {
-          var group = str.split(' ');
-          for (var i = 0; i < group.length; i++) {
-            var pair = group[i].split('|');
+          str.split(' ').forEach(function(kw) {
+            var pair = kw.split('|');
             compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
             keywords.push(pair[0]);
-          }
+          });
         }
 
         mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE, true);
@@ -255,11 +239,11 @@ function() {
       }
     }
 
-    function endOfMode(mode_index, lexem) {
-      if (modes[mode_index].end && modes[mode_index].endRe.test(lexem))
+    function endOfMode(mode, lexem) {
+      if (mode.end && mode.endRe.test(lexem))
         return 1;
-      if (modes[mode_index].endsWithParent) {
-        var level = endOfMode(mode_index - 1, lexem);
+      if (mode.endsWithParent) {
+        var level = endOfMode(mode.parent, lexem);
         return level ? level + 1 : 0;
       }
       return 0;
@@ -270,10 +254,9 @@ function() {
     }
 
     function eatModeChunk(value, index) {
-      var mode = modes[modes.length - 1];
-      if (mode.terminators) {
-        mode.terminators.lastIndex = index;
-        return mode.terminators.exec(value);
+      if (top.terminators) {
+        top.terminators.lastIndex = index;
+        return top.terminators.exec(value);
       }
     }
 
@@ -346,12 +329,12 @@ function() {
         result += markup;
         mode.buffer = lexem;
       }
-      modes.push(mode);
+      top = Object.create(mode, {parent: {value: top}});
       relevance += mode.relevance;
     }
 
     function processModeInfo(buffer, lexem) {
-      var current_mode = modes[modes.length - 1];
+      var current_mode = top;
       if (lexem === undefined) {
         result += processBuffer(current_mode.buffer + buffer, current_mode);
         return;
@@ -364,7 +347,7 @@ function() {
         return new_mode.returnBegin;
       }
 
-      var end_level = endOfMode(modes.length - 1, lexem);
+      var end_level = endOfMode(current_mode, lexem);
       if (end_level) {
         var markup = current_mode.className?'</span>':'';
         if (current_mode.returnEnd) {
@@ -375,14 +358,15 @@ function() {
           result += processBuffer(current_mode.buffer + buffer + lexem, current_mode) + markup;
         }
         while (end_level > 1) {
-          markup = modes[modes.length - 2].className?'</span>':'';
-          result += markup;
+          if (current_mode.parent.className) {
+            result += '</span>';
+          }
           end_level--;
-          modes.length--;
+          top = top.parent;
         }
-        var last_ended_mode = modes[modes.length - 1];
-        modes.length--;
-        modes[modes.length - 1].buffer = '';
+        var last_ended_mode = top;
+        top = top.parent;
+        top.buffer = '';
         if (last_ended_mode.starts) {
           startNewMode(last_ended_mode.starts, '');
         }
@@ -395,7 +379,7 @@ function() {
 
     var language = languages[language_name];
     compileLanguage(language);
-    var modes = [language];
+    var top = language;
     language.buffer = '';
     var relevance = 0;
     var keyword_count = 0;
@@ -493,18 +477,13 @@ function() {
   function highlightBlock(block, tabReplace, useBR) {
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
-    var result, pre;
     if (language == 'no-highlight')
         return;
-    if (language) {
-      result = highlight(language, text);
-    } else {
-      result = highlightAuto(text);
-      language = result.language;
-    }
+    var result = language ? highlight(language, text) : highlightAuto(text);
+    language = result.language;
     var original = nodeStream(block);
     if (original.length) {
-      pre = document.createElement('pre');
+      var pre = document.createElement('pre');
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
@@ -514,18 +493,7 @@ function() {
     if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
       class_name = class_name ? (class_name + ' ' + language) : language;
     }
-    if (is_old_IE && block.tagName == 'CODE' && block.parentNode.tagName == 'PRE') {
-      // This is for backwards compatibility only. IE needs this strange
-      // hack becasue it cannot just cleanly replace <code> block contents.
-      pre = block.parentNode;
-      var container = document.createElement('div');
-      container.innerHTML = '<pre><code>' + result.value + '</code></pre>';
-      block = container.firstChild.firstChild;
-      container.firstChild.className = pre.className;
-      pre.parentNode.replaceChild(container.firstChild, pre);
-    } else {
-      block.innerHTML = result.value;
-    }
+    block.innerHTML = result.value;
     block.className = class_name;
     block.result = {
       language: language,
@@ -548,12 +516,9 @@ function() {
     if (initHighlighting.called)
       return;
     initHighlighting.called = true;
-    var pres = document.getElementsByTagName('pre');
-    for (var i = 0; i < pres.length; i++) {
-      var code = findCode(pres[i]);
-      if (code)
-        highlightBlock(code, hljs.tabReplace);
-    }
+    Array.prototype.map.call(document.getElementsByTagName('pre'), findCode).
+      filter(Boolean).
+      forEach(function(code){highlightBlock(code, hljs.tabReplace)});
   }
 
   /*

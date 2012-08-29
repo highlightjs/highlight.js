@@ -141,7 +141,7 @@ highlight.js.
 
 ## Координаты
 
-- Версия: 7.1
+- Версия: 7.2
 - URL:    http://softwaremaniacs.org/soft/highlight/
 - Автор:  Иван Сагалаев (<maniac@softwaremaniacs.org>)
 

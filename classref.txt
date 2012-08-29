@@ -68,7 +68,7 @@ Scala ("scala"):
   number           number
   string           string
   comment          comment
-  annotaion        annotation
+  annotation       annotation
   javadoc          javadoc comment
   javadoctag       @-tag in javadoc
   class            class header
