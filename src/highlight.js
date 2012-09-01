@@ -524,13 +524,8 @@ function() {
   Attaches highlighting to the page load event.
   */
   function initHighlightingOnLoad() {
-    if (window.addEventListener) {
-      window.addEventListener('DOMContentLoaded', initHighlighting, false);
-      window.addEventListener('load', initHighlighting, false);
-    } else if (window.attachEvent)
-      window.attachEvent('onload', initHighlighting);
-    else
-      window.onload = initHighlighting;
+    window.addEventListener('DOMContentLoaded', initHighlighting, false);
+    window.addEventListener('load', initHighlighting, false);
   }
 
   var languages = {}; // a shortcut to avoid writing "this." everywhere
