@@ -19,7 +19,7 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       { // EX4
-        begin: '<', end: '>;',
+        begin: '(?:=\\s*)<', end: '>;',
         subLanguage: 'xml'
       },
       { // regexp container
