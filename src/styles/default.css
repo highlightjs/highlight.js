@@ -10,7 +10,7 @@ pre code {
 }
 
 pre code,
-pre .ruby .subst,
+pre .subst,
 pre .tag .title,
 pre .lisp .title,
 pre .clojure .built_in,

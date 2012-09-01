@@ -30,7 +30,7 @@ pre .tex .special {
 }
 
 pre code,
-pre .ruby .subst,
+pre .subst,
 pre .tag .keyword {
   color: #3E5915;
 }

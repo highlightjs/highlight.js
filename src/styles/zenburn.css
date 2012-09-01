@@ -51,7 +51,7 @@ pre .tex .special {
 }
 
 pre .diff .chunk,
-pre .ruby .subst {
+pre .subst {
   color: #8F8F8F;
 }
 

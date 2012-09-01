@@ -22,7 +22,7 @@ pre .tex .special {
 }
 
 pre code,
-pre .ruby .subst {
+pre .subst {
   color: #DDD;
 }
 

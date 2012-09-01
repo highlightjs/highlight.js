@@ -25,7 +25,7 @@ pre .status {
 }
 
 pre code,
-pre .ruby .subst,
+pre .subst,
 pre .tag .keyword {
   color: #363C69;
 }

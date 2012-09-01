@@ -43,7 +43,7 @@ pre .regexp {
 
 pre .tag .value,
 pre .string,
-pre .ruby .subst,
+pre .subst,
 pre .title,
 pre .haskell .type,
 pre .preprocessor,
