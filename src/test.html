@@ -554,10 +554,8 @@ hi = `function() {
   return [document.title, "Hello JavaScript"].join(": ");
 }`
 
-substr = "JavaScript numbers test #{ 010 / 0xf }"
-
 heredoc = """
-CoffeeScript numbers test #{ 010 / 0b10 }
+CoffeeScript numbers test #{ 010 + 0xf / 0b10 }
 """
 
 ###
