@@ -27,15 +27,15 @@ function(hljs) {
     className: 'subst',
     begin: '#\\{', end: '}',
     keywords: KEYWORDS,
-    contains: [hljs.C_NUMBER_MODE, hljs.BINARY_NUMBER_MODE]
+    contains: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]
   };
 
   return {
     keywords: KEYWORDS,
     contains: [
       // Numbers
-      hljs.C_NUMBER_MODE,
       hljs.BINARY_NUMBER_MODE,
+      hljs.C_NUMBER_MODE,
       // Strings
       hljs.APOS_STRING_MODE,
       {
