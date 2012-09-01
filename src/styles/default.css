@@ -89,7 +89,8 @@ pre .erlang_repl .reserved,
 pre .input_number,
 pre .markdown .link_label,
 pre .vhdl .attribute,
-pre .clojure .attribute {
+pre .clojure .attribute,
+pre .coffeescript .property {
   color: #88F
 }
 

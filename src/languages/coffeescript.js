@@ -80,6 +80,11 @@ function(hljs) {
     ]
   };
 
+  var COFFEE_PROPERTY_MODE = {
+    className: 'property',
+    begin: '@' + JS_IDENT_RE
+  };
+
   var COFFEE_EMBEDDED_JAVASCRIPT = {
     begin: '`', end: '`',
     excludeBegin: true, excludeEnd: true,
@@ -104,7 +109,8 @@ function(hljs) {
       COFFEE_EMPTY_REGEX_MODE,
       COFFEE_REGEX_MODE,
       COFFEE_EMBEDDED_JAVASCRIPT,
-      COFFEE_FUNCTION_DECLARATION_MODE
+      COFFEE_FUNCTION_DECLARATION_MODE,
+      COFFEE_PROPERTY_MODE
     ]
   };
 }

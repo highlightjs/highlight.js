@@ -544,6 +544,10 @@ math =
 race = (winner, runners...) ->
   print winner, runners
 
+Account = (customer, cart) ->
+  @customer = customer
+  @cart = cart
+
 hi = `function() {
   return [document.title, "Hello JavaScript"].join(": ");
 }`
