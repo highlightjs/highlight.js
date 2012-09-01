@@ -169,6 +169,7 @@ CoffeeScript ("coffeescript"):
   string           string
   regexp           regular expression
   function         header of a function
+  class            header of a class
   title            name of a function variable inside a header
   params           parentheses and everything inside them in a function's header
   property         @-property within class and functions

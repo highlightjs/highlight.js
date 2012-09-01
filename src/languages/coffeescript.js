@@ -24,6 +24,8 @@ function(hljs) {
 
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
 
+  var TITLE = {className: 'title', begin: JS_IDENT_RE};
+
   var COFFEE_QUOTE_STRING_SUBST_MODE = {
     className: 'subst',
     begin: '#\\{', end: '}',
@@ -69,14 +71,27 @@ function(hljs) {
     begin: JS_IDENT_RE + '\\s*=\\s*(\\(.+\\))?\\s*[-=]>',
     returnBegin: true,
     contains: [
-      {
-        className: 'title',
-        begin: JS_IDENT_RE
-      },
+      TITLE,
       {
         className: 'params',
         begin: '\\(', end: '\\)'
       }
+    ]
+  };
+
+  var COFFE_CLASS_DECLARATION_MODE = {
+    className: 'class',
+    beginWithKeyword: true, keywords: 'class',
+    end: '$',
+    illegal: ':',
+    contains: [
+      {
+        beginWithKeyword: true, keywords: 'extends',
+        endsWithParent: true,
+        illegal: ':',
+        contains: [TITLE]
+      },
+      TITLE
     ]
   };
 
@@ -110,6 +125,7 @@ function(hljs) {
       COFFEE_REGEX_MODE,
       COFFEE_EMBEDDED_JAVASCRIPT,
       COFFEE_FUNCTION_DECLARATION_MODE,
+      COFFE_CLASS_DECLARATION_MODE,
       COFFEE_PROPERTY_MODE
     ]
   };

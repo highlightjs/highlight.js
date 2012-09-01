@@ -544,9 +544,11 @@ math =
 race = (winner, runners...) ->
   print winner, runners
 
-Account = (customer, cart) ->
-  @customer = customer
-  @cart = cart
+class Animal extends Being
+  constructor: (@name) ->
+
+  move: (meters) ->
+    alert @name + " moved #{meters}m."
 
 hi = `function() {
   return [document.title, "Hello JavaScript"].join(": ");
