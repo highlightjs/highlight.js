@@ -18,7 +18,7 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
-      { // regexp container
+      { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: 'return throw case',
         contains: [
@@ -27,7 +27,12 @@ function(hljs) {
           {
             className: 'regexp',
             begin: '/', end: '/[gim]*',
+            illegal: '\\n',
             contains: [{begin: '\\\\/'}]
+          },
+          { // E4X
+            begin: '<', end: '>;',
+            subLanguage: 'xml'
           }
         ],
         relevance: 0
