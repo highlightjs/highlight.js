@@ -39,3 +39,13 @@ pre code {
   color: #eaeaea;
   padding: 0.5em;
 }
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: 0.5;
+}

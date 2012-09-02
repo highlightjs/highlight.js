@@ -128,7 +128,10 @@ pre .parser3 .title
 }
 
 pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
 pre .xml .javascript,
+pre .xml .vbscript,
 pre .xml .css,
 pre .xml .cdata
 {
