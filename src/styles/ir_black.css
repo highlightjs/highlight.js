@@ -93,6 +93,12 @@ pre .number {
   color:#FF73FD;
 }
 
-pre .tex .formula {
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
   opacity: 0.7;
 }
