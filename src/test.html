@@ -275,7 +275,7 @@ abstract class URI extends BaseURI
    */
   static public function _factory($stats = array(), $uri = 'http')
   {
-      $uri = explode(':', $uri, 2);
+      $uri = explode(':', $uri, 0b10);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
       $desc = 'Multi
 line description';

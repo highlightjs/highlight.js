@@ -22,10 +22,7 @@ function(hljs) {
       contains: [hljs.BACKSLASH_ESCAPE]
     }
   ];
-  var NUMBERS = [
-    hljs.C_NUMBER_MODE, // 0x..., 0..., decimal, float
-    hljs.BINARY_NUMBER_MODE // 0b...
-  ];
+  var NUMBERS = [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE];
   var TITLE = {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
   };
