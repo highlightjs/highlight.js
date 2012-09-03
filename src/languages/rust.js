@@ -8,12 +8,6 @@ function(hljs) {
     className: 'title',
     begin: hljs.UNDERSCORE_IDENT_RE
   };
-  var QUOTE_STRING = {
-    className: 'string',
-    begin: '"', end: '"',
-    contains: [hljs.BACKSLASH_ESCAPE],
-    relevance: 0
-  };
   var NUMBER = {
     className: 'number',
     begin: '\\b(0[xb][A-Za-z0-9_]+|[0-9_]+(\\.[0-9_]+)?([uif](8|16|32|64)?)?)',
@@ -30,7 +24,7 @@ function(hljs) {
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      QUOTE_STRING,
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       hljs.APOS_STRING_MODE,
       NUMBER,
       {
