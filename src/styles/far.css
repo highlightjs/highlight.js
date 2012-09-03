@@ -10,7 +10,7 @@ pre code {
 }
 
 pre code,
-.ruby .subst {
+pre .subst {
   color: #0FF;
 }
 

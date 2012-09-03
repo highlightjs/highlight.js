@@ -33,12 +33,11 @@ function() {
   }
 
   function blockLanguage(block) {
-    var classes = block.className.split(/\s+/);
-    classes = classes.concat(block.parentNode.className.split(/\s+/));
+    var classes = (block.className + ' ' + block.parentNode.className).split(/\s+/);
+    classes = classes.map(function(c) {return c.replace(/^language-/, '')});
     for (var i = 0; i < classes.length; i++) {
-      var class_ = classes[i].replace(/^language-/, '');
-      if (languages[class_] || class_ == 'no-highlight') {
-        return class_;
+      if (languages[classes[i]] || classes[i] == 'no-highlight') {
+        return classes[i];
       }
     }
   }
@@ -525,13 +524,8 @@ function() {
   Attaches highlighting to the page load event.
   */
   function initHighlightingOnLoad() {
-    if (window.addEventListener) {
-      window.addEventListener('DOMContentLoaded', initHighlighting, false);
-      window.addEventListener('load', initHighlighting, false);
-    } else if (window.attachEvent)
-      window.attachEvent('onload', initHighlighting);
-    else
-      window.onload = initHighlighting;
+    window.addEventListener('DOMContentLoaded', initHighlighting, false);
+    window.addEventListener('load', initHighlighting, false);
   }
 
   var languages = {}; // a shortcut to avoid writing "this." everywhere

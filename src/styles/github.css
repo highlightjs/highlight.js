@@ -125,7 +125,3 @@ pre .diff .change {
 pre .chunk {
   color: #aaa
 }
-
-pre .tex .formula {
-  opacity: 0.5;
-}

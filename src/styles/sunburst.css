@@ -146,3 +146,13 @@ pre .deletion {
   background-color: #420E09;
   color: #F8F8F8;
 }
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: 0.5;
+}

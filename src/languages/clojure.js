@@ -93,7 +93,6 @@ function(hljs) {
   COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER];
 
   return {
-    case_insensitive: true,
     illegal: '\\S',
     contains: [
       COMMENT,

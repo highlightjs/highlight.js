@@ -29,13 +29,7 @@ function(hljs) {
     },
     illegal: '//',
     contains: [
-      { // can’t use standard QUOTE_STRING_MODE since it’s compiled with its own escape and doesn’t use the local one
-        className: 'string',
-        begin: '"', end: '"',
-        illegal: '\\n',
-        contains: [{begin: '""'}],
-        relevance: 0
-      },
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {contains: [{begin: '""'}]}),
       {
         className: 'comment',
         begin: '\'', end: '$'

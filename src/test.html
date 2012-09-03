@@ -275,7 +275,7 @@ abstract class URI extends BaseURI
    */
   static public function _factory($stats = array(), $uri = 'http')
   {
-      $uri = explode(':', $uri, 2);
+      $uri = explode(':', $uri, 0b10);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
       $desc = 'Multi
 line description';
@@ -518,6 +518,10 @@ li[lang=ru] {
       return processBlock(block, true, 0x0F) + ' class=""';
   } catch (e) {
     /* handle exception */
+
+    var e4x =
+        &lt;div&gt;Example
+            &lt;p&gt;1234&lt;/p&gt;&lt;/div&gt;;
   }
   for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp
     if (checkCondition(classes[i]) === undefined)
@@ -550,14 +554,18 @@ math =
 race = (winner, runners...) ->
   print winner, runners
 
+class Animal extends Being
+  constructor: (@name) ->
+
+  move: (meters) ->
+    alert @name + " moved #{meters}m."
+
 hi = `function() {
   return [document.title, "Hello JavaScript"].join(": ");
 }`
 
-substr = "JavaScript numbers test #{ 010 / 0xf }"
-
 heredoc = """
-CoffeeScript numbers test #{ 010 / 0b10 }
+CoffeeScript numbers test #{ 010 + 0xf / 0b10 }
 """
 
 ###

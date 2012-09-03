@@ -43,7 +43,7 @@ pre .regexp {
 
 pre .tag .value,
 pre .string,
-pre .ruby .subst,
+pre .subst,
 pre .title,
 pre .haskell .type,
 pre .preprocessor,
@@ -104,9 +104,11 @@ pre .status {
 }
 
 pre .coffeescript .javascript,
-pre .xml .css,
+pre .javascript .xml,
+pre .tex .formula,
 pre .xml .javascript,
 pre .xml .vbscript,
-pre .tex .formula {
+pre .xml .css,
+pre .xml .cdata {
   opacity: 0.5;
 }
