@@ -64,3 +64,4 @@ Contributors:
 - Casey Duncan <casey.duncan@gmail.com>
 - Eugene Nizhibitsky <nizhibitsky@gmail.com>
 - Alberto Gimeno <gimenete@gmail.com>
+- Kirk Kimmel <kimmel.k.programmer@gmail.com>
