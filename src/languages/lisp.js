@@ -73,7 +73,6 @@ function(hljs) {
   BODY.contains = [QUOTED1, QUOTED2, LIST, LITERAL].concat(NUMBERS).concat([STRING, COMMENT, VARIABLE, KEYWORD]);
 
   return {
-    case_insensitive: true,
     illegal: '[^\\s]',
     contains: NUMBERS.concat([
       LITERAL,
