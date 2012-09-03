@@ -1,8 +1,23 @@
 /*
 Language: AppleScript
+Authors: Nathan Grigg <nathan@nathanamy.org>
+         Dr. Drang <drdrang@gmail.com>
 */
 
 function(hljs) {
+  var STRINGS = [
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE
+  ];
+  var TITLE = {
+    className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
+  };
+  var PARAMS = {
+    className: 'params',
+    begin: '\\(', end: '\\)',
+    contains: ['self', hljs.C_NUMBER_MODE].concat(STRINGS)
+  };
+
   return {
     defaultMode: {
       keywords: {
@@ -32,6 +47,14 @@ function(hljs) {
           begin: '\\(\\*', end: '\\*\\)'
         },
         hljs.C_NUMBER_MODE,
+        {
+          className: 'function_start',
+          beginWithKeyword: true,
+          keywords: 'on',
+          illegal: '[${=;\\n]',
+          contains: [TITLE, PARAMS],
+          relevance: 10
+        }
       ]
     }
   };
