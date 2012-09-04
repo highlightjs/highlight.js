@@ -332,36 +332,34 @@ function() {
     }
 
     function processModeInfo(buffer, lexem) {
-      var current_mode = top;
       if (lexem === undefined) {
-        result += processBuffer(current_mode.buffer + buffer, current_mode);
+        result += processBuffer(top.buffer + buffer, top);
         return;
       }
 
-      var new_mode = subMode(lexem, current_mode);
+      var new_mode = subMode(lexem, top);
       if (new_mode) {
-        result += processBuffer(current_mode.buffer + buffer, current_mode);
+        result += processBuffer(top.buffer + buffer, top);
         startNewMode(new_mode, lexem);
         return new_mode.returnBegin;
       }
 
-      var end_mode = endOfMode(current_mode, lexem);
+      var end_mode = endOfMode(top, lexem);
       if (end_mode) {
         if (!(end_mode.returnEnd || end_mode.excludeEnd)) {
-          result += processBuffer(current_mode.buffer + buffer + lexem, current_mode);
+          result += processBuffer(top.buffer + buffer + lexem, top);
         } else {
-          result += processBuffer(current_mode.buffer + buffer, current_mode);
+          result += processBuffer(top.buffer + buffer, top);
         }
         do {
-          if (current_mode.className) {
+          if (top.className) {
             result += '</span>';
           }
-          current_mode = current_mode.parent;
-        } while (current_mode != end_mode.parent);
+          top = top.parent;
+        } while (top != end_mode.parent);
         if (end_mode.excludeEnd) {
           result += escape(lexem);
         }
-        top = current_mode;
         top.buffer = '';
         if (end_mode.starts) {
           startNewMode(end_mode.starts, '');
@@ -369,7 +367,7 @@ function() {
         return end_mode.returnEnd;
       }
 
-      if (isIllegal(lexem, current_mode))
+      if (isIllegal(lexem, top))
         throw 'Illegal';
     }
 
