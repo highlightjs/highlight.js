@@ -239,13 +239,12 @@ function() {
     }
 
     function endOfMode(mode, lexem) {
-      if (mode.end && mode.endRe.test(lexem))
-        return 1;
-      if (mode.endsWithParent) {
-        var level = endOfMode(mode.parent, lexem);
-        return level ? level + 1 : 0;
+      if (mode.end && mode.endRe.test(lexem)) {
+        return mode;
       }
-      return 0;
+      if (mode.endsWithParent) {
+        return endOfMode(mode.parent, lexem);
+      }
     }
 
     function isIllegal(lexem, mode) {
@@ -346,30 +345,28 @@ function() {
         return new_mode.returnBegin;
       }
 
-      var end_level = endOfMode(current_mode, lexem);
-      if (end_level) {
-        var markup = current_mode.className?'</span>':'';
-        if (current_mode.returnEnd) {
-          result += processBuffer(current_mode.buffer + buffer, current_mode) + markup;
-        } else if (current_mode.excludeEnd) {
-          result += processBuffer(current_mode.buffer + buffer, current_mode) + markup + escape(lexem);
+      var end_mode = endOfMode(current_mode, lexem);
+      if (end_mode) {
+        if (!(end_mode.returnEnd || end_mode.excludeEnd)) {
+          result += processBuffer(current_mode.buffer + buffer + lexem, current_mode);
         } else {
-          result += processBuffer(current_mode.buffer + buffer + lexem, current_mode) + markup;
+          result += processBuffer(current_mode.buffer + buffer, current_mode);
         }
-        while (end_level > 1) {
-          if (current_mode.parent.className) {
+        do {
+          if (current_mode.className) {
             result += '</span>';
           }
-          end_level--;
-          top = top.parent;
+          current_mode = current_mode.parent;
+        } while (current_mode != end_mode.parent);
+        if (end_mode.excludeEnd) {
+          result += escape(lexem);
         }
-        var last_ended_mode = top;
-        top = top.parent;
+        top = current_mode;
         top.buffer = '';
-        if (last_ended_mode.starts) {
-          startNewMode(last_ended_mode.starts, '');
+        if (end_mode.starts) {
+          startNewMode(end_mode.starts, '');
         }
-        return current_mode.returnEnd;
+        return end_mode.returnEnd;
       }
 
       if (isIllegal(lexem, current_mode))
