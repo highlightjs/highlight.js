@@ -212,7 +212,7 @@ function() {
       if (mode.illegal) {
         terminators.push(mode.illegal);
       }
-      mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : null;
+      mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : {exec: function(s) {return null;}};
     }
 
     compileMode(language);
@@ -249,13 +249,6 @@ function() {
 
     function isIllegal(lexem, mode) {
       return mode.illegal && mode.illegalRe.test(lexem);
-    }
-
-    function eatModeChunk(value, index) {
-      if (top.terminators) {
-        top.terminators.lastIndex = index;
-        return top.terminators.exec(value);
-      }
     }
 
     function keywordMatch(mode, match) {
@@ -381,7 +374,8 @@ function() {
     try {
       var match, index = 0;
       while (true) {
-        match = eatModeChunk(value, index);
+        top.terminators.lastIndex = index;
+        match = top.terminators.exec(value);
         if (!match)
           break;
         var return_lexem = processModeInfo(value.substr(index, match.index - index), match[0]);
