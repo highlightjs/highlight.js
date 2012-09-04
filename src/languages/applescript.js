@@ -52,8 +52,16 @@ function(hljs) {
           beginWithKeyword: true,
           keywords: 'on',
           illegal: '[${=;\\n]',
-          contains: [TITLE, PARAMS],
-          relevance: 10
+          contains: [TITLE, PARAMS]
+        },
+        {
+          className: 'unix',
+          begin: 'do shell script|quoted form|POSIX path',
+        },
+        {
+          className: 'ui',
+          begin: 'display dialog|display alert|choose from list|' +
+                 'choose file|choose folder|choose color',
         }
       ]
     }
