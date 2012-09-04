@@ -259,8 +259,8 @@ function() {
       return false;
     }
 
-    function processKeywords(buffer, mode) {
-      buffer = escape(buffer);
+    function processKeywords(mode) {
+      var buffer = escape(mode_buffer);
       if (!mode.keywords)
         return buffer;
       var result = '';
@@ -282,12 +282,12 @@ function() {
       return result + buffer.substr(last_index);
     }
 
-    function processSubLanguage(buffer, mode) {
+    function processSubLanguage(mode) {
       var result;
       if (mode.subLanguage == '') {
-        result = highlightAuto(buffer);
+        result = highlightAuto(mode_buffer);
       } else {
-        result = highlight(mode.subLanguage, buffer);
+        result = highlight(mode.subLanguage, mode_buffer);
       }
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Usecase in point is Markdown that
@@ -300,11 +300,11 @@ function() {
       return '<span class="' + result.language  + '">' + result.value + '</span>';
     }
 
-    function processBuffer(buffer, mode) {
+    function processBuffer(mode) {
       if (mode.subLanguage && languages[mode.subLanguage] || mode.subLanguage == '') {
-        return processSubLanguage(buffer, mode);
+        return processSubLanguage(mode);
       } else {
-        return processKeywords(buffer, mode);
+        return processKeywords(mode);
       }
     }
 
@@ -312,28 +312,28 @@ function() {
       var markup = mode.className? '<span class="' + mode.className + '">': '';
       if (mode.returnBegin) {
         result += markup;
-        mode.buffer = '';
+        mode_buffer = '';
       } else if (mode.excludeBegin) {
         result += escape(lexem) + markup;
-        mode.buffer = '';
+        mode_buffer = '';
       } else {
         result += markup;
-        mode.buffer = lexem;
+        mode_buffer = lexem;
       }
       top = Object.create(mode, {parent: {value: top}});
       relevance += mode.relevance;
     }
 
     function processModeInfo(buffer, lexem) {
-      buffer = top.buffer + buffer;
+      mode_buffer += buffer;
       if (lexem === undefined) {
-        result += processBuffer(buffer, top);
+        result += processBuffer(top);
         return;
       }
 
       var new_mode = subMode(lexem, top);
       if (new_mode) {
-        result += processBuffer(buffer, top);
+        result += processBuffer(top);
         startNewMode(new_mode, lexem);
         return new_mode.returnBegin;
       }
@@ -341,9 +341,9 @@ function() {
       var end_mode = endOfMode(top, lexem);
       if (end_mode) {
         if (!(end_mode.returnEnd || end_mode.excludeEnd)) {
-          buffer += lexem;
+          mode_buffer += lexem;
         }
-        result += processBuffer(buffer, top);
+        result += processBuffer(top);
         do {
           if (top.className) {
             result += '</span>';
@@ -353,7 +353,7 @@ function() {
         if (end_mode.excludeEnd) {
           result += escape(lexem);
         }
-        top.buffer = '';
+        mode_buffer = '';
         if (end_mode.starts) {
           startNewMode(end_mode.starts, '');
         }
@@ -367,7 +367,7 @@ function() {
     var language = languages[language_name];
     compileLanguage(language);
     var top = language;
-    language.buffer = '';
+    var mode_buffer = '';
     var relevance = 0;
     var keyword_count = 0;
     var result = '';
