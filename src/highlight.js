@@ -259,52 +259,52 @@ function() {
       return false;
     }
 
-    function processKeywords(mode) {
+    function processKeywords() {
       var buffer = escape(mode_buffer);
-      if (!mode.keywords)
+      if (!top.keywords)
         return buffer;
       var result = '';
       var last_index = 0;
-      mode.lexemsRe.lastIndex = 0;
-      var match = mode.lexemsRe.exec(buffer);
+      top.lexemsRe.lastIndex = 0;
+      var match = top.lexemsRe.exec(buffer);
       while (match) {
         result += buffer.substr(last_index, match.index - last_index);
-        var keyword_match = keywordMatch(mode, match);
+        var keyword_match = keywordMatch(top, match);
         if (keyword_match) {
           keyword_count += keyword_match[1];
           result += '<span class="'+ keyword_match[0] +'">' + match[0] + '</span>';
         } else {
           result += match[0];
         }
-        last_index = mode.lexemsRe.lastIndex;
-        match = mode.lexemsRe.exec(buffer);
+        last_index = top.lexemsRe.lastIndex;
+        match = top.lexemsRe.exec(buffer);
       }
       return result + buffer.substr(last_index);
     }
 
-    function processSubLanguage(mode) {
+    function processSubLanguage() {
       var result;
-      if (mode.subLanguage == '') {
+      if (top.subLanguage == '') {
         result = highlightAuto(mode_buffer);
       } else {
-        result = highlight(mode.subLanguage, mode_buffer);
+        result = highlight(top.subLanguage, mode_buffer);
       }
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Usecase in point is Markdown that
       // allows XML everywhere and makes every XML snippet to have a much larger Markdown
       // score.
-      if (mode.relevance > 0) {
+      if (top.relevance > 0) {
         keyword_count += result.keyword_count;
         relevance += result.relevance;
       }
       return '<span class="' + result.language  + '">' + result.value + '</span>';
     }
 
-    function processBuffer(mode) {
-      if (mode.subLanguage && languages[mode.subLanguage] || mode.subLanguage == '') {
-        return processSubLanguage(mode);
+    function processBuffer() {
+      if (top.subLanguage && languages[top.subLanguage] || top.subLanguage == '') {
+        return processSubLanguage();
       } else {
-        return processKeywords(mode);
+        return processKeywords();
       }
     }
 
@@ -327,13 +327,13 @@ function() {
     function processModeInfo(buffer, lexem) {
       mode_buffer += buffer;
       if (lexem === undefined) {
-        result += processBuffer(top);
+        result += processBuffer();
         return;
       }
 
       var new_mode = subMode(lexem, top);
       if (new_mode) {
-        result += processBuffer(top);
+        result += processBuffer();
         startNewMode(new_mode, lexem);
         return new_mode.returnBegin;
       }
@@ -343,7 +343,7 @@ function() {
         if (!(end_mode.returnEnd || end_mode.excludeEnd)) {
           mode_buffer += lexem;
         }
-        result += processBuffer(top);
+        result += processBuffer();
         do {
           if (top.className) {
             result += '</span>';
