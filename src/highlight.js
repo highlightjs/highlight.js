@@ -280,12 +280,10 @@ function() {
     }
 
     function processSubLanguage() {
-      var result;
-      if (top.subLanguage == '') {
-        result = highlightAuto(mode_buffer);
-      } else {
-        result = highlight(top.subLanguage, mode_buffer);
+      if (top.subLanguage && !languages[top.subLanguage]) {
+        return escape(mode_buffer);
       }
+      var result = top.subLanguage ? highlightAuto(mode_buffer) : highlight(top.subLanguage, mode_buffer);
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Usecase in point is Markdown that
       // allows XML everywhere and makes every XML snippet to have a much larger Markdown
@@ -298,11 +296,7 @@ function() {
     }
 
     function processBuffer() {
-      if (top.subLanguage && languages[top.subLanguage] || top.subLanguage == '') {
-        return processSubLanguage();
-      } else {
-        return processKeywords();
-      }
+      return top.subLanguage !== undefined ? processSubLanguage() : processKeywords();
     }
 
     function startNewMode(mode, lexem) {
