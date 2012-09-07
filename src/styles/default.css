@@ -143,3 +143,21 @@ pre .line::before {
   padding-right: 0.5em; margin-right: 0.5em;
   color: #BBB; border-right: solid 1px;
 }
+
+pre .line-callout::before {
+  content: '\2192'; text-align: right;
+  display: inline-block; width: 2em;
+  padding-right: 0.5em; margin-right: 0.5em;
+  color: #BBB;
+}
+
+.lines-callout {
+  opacity:0.6;
+  filter:alpha(opacity=60);
+  background: white;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: solid thin #BBB;
+}
+

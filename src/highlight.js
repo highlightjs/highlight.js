@@ -488,6 +488,60 @@ function() {
     return value;
   }
 
+  function linesToCallout(block) {
+    if (block.attributes["data-callout-lines"]) {
+      var calloutLines = block.attributes["data-callout-lines"].value.split(",");
+      var adjustedCalloutLines = [];
+      for (var i in calloutLines) {
+        adjustedCalloutLines.push(parseInt(calloutLines[i]) - 1);
+      }
+      return adjustedCalloutLines;
+    }
+    else {
+      return [];
+    }
+  }
+
+  /** Wraps each line a <span> and also calls out lines if data-callout-lines was set on the code block */
+  function markupAndCalloutLines(result,block,text) {
+    var calloutLines = linesToCallout(block);
+    var resultPre = document.createElement('pre');
+    resultPre.innerHTML = result.value;
+    var linesPre = document.createElement('pre');
+    var eachLine = escape(text).split("\n");
+    var markedUpLines = "";
+    var previousLineCalledOut = false;
+    for (var i in eachLine) {
+      var calloutClass = '';
+      var startCalloutBlock = "";
+      var stopCalloutBlock = "";
+      if (calloutLines.indexOf(parseInt(i)) != -1) {
+        calloutClass = "line-callout";
+        if (!previousLineCalledOut) {
+          startCalloutBlock = "<div class='lines-callout'>";
+        }
+        previousLineCalledOut = true;
+      }
+      else {
+        if (previousLineCalledOut) {
+          stopCalloutBlock = "</div>";
+        }
+        previousLineCalledOut = false;
+      }
+      markedUpLines += stopCalloutBlock;
+      markedUpLines += startCalloutBlock;
+      markedUpLines += '<span class="line line-' + i + ' ' + calloutClass + ' ">'
+      markedUpLines += eachLine[i];
+      markedUpLines += '</span>' + "\n";
+    }
+    if (previousLineCalledOut) {
+      stopCalloutBlock = "</div>";
+    }
+    markedUpLines += stopCalloutBlock;
+    linesPre.innerHTML = markedUpLines;
+    return mergeStreams(nodeStream(linesPre), nodeStream(resultPre), text);
+  }
+
   /*
   Applies highlighting to a DOM node containing code. Accepts a DOM node and
   two optional parameters for fixMarkup.
@@ -511,12 +565,7 @@ function() {
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
     if (lineNodes) {
-      var resultPre = document.createElement('pre');
-      resultPre.innerHTML = result.value;
-      var linesPre = document.createElement('pre');
-      var lines = escape(text).replace(/^/gm, '<span class="line"></span>');
-      linesPre.innerHTML = lines;
-      result.value = mergeStreams(nodeStream(linesPre), nodeStream(resultPre), text);
+      result.value = markupAndCalloutLines(result,block,text);
     }
     result.value = fixMarkup(result.value, tabReplace, useBR);
 

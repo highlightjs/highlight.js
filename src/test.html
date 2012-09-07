@@ -2009,5 +2009,24 @@ foo %union% bar
   &lt;p&gt;Hello, World!
 &lt;/div&gt;
 </code></pre>
+  <tr>
+    <th>Callouts:
+<pre>
+&lt;code class="ruby" 
+      data-callout-lines='2,3,4,7'&gt;
+  &hellip;
+&lt;&gt;
+</pre>
+    <td>
+<pre><code class="ruby" data-callout-lines='2,3,4,7'>class Person < Struct.new(:name,:age)
+  def minor?
+    @age < 18
+  end
+end
+
+p = Person.new("Bob",24)
+
+puts "too young" if p.minor?
+</code></pre>
 
 </table>
