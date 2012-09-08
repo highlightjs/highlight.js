@@ -5,16 +5,14 @@ Authors: Nathan Grigg <nathan@nathanamy.org>
 */
 
 function(hljs) {
-  var STRINGS = [
-    hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: ''})
-  ];
+  var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: ''});
   var TITLE = {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
   };
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)',
-    contains: ['self', hljs.C_NUMBER_MODE].concat(STRINGS)
+    contains: ['self', hljs.C_NUMBER_MODE, STRING]
   };
 
   return {
@@ -36,6 +34,7 @@ function(hljs) {
       },
       contains: [
         hljs.HASH_COMMENT_MODE,
+        STRING,
         {
           className: 'comment',
           begin: '--', end: '$'
@@ -61,7 +60,7 @@ function(hljs) {
           begin: 'display dialog|display alert|choose from list|' +
                  'choose file|choose folder|choose color',
         }
-      ].concat(STRINGS)
+      ]
     }
   };
 }
