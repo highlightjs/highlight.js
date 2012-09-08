@@ -6,8 +6,7 @@ Authors: Nathan Grigg <nathan@nathanamy.org>
 
 function(hljs) {
   var STRINGS = [
-    hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE
+    hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: ''})
   ];
   var TITLE = {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
@@ -36,7 +35,6 @@ function(hljs) {
           'true false me my'
       },
       contains: [
-        hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: ''}),
         hljs.HASH_COMMENT_MODE,
         {
           className: 'comment',
@@ -63,7 +61,7 @@ function(hljs) {
           begin: 'display dialog|display alert|choose from list|' +
                  'choose file|choose folder|choose color',
         }
-      ]
+      ].concat(STRINGS)
     }
   };
 }
