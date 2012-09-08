@@ -14,6 +14,18 @@ function(hljs) {
     begin: '\\(', end: '\\)',
     contains: ['self', hljs.C_NUMBER_MODE, STRING]
   };
+  var COMMENTS = [
+    {
+      className: 'comment',
+      begin: '--', end: '$',
+    },
+    {
+      className: 'comment',
+      begin: '\\(\\*', end: '\\*\\)',
+      contains: ['self', {begin: '--', end: '$'}] //allow nesting
+    },
+    hljs.HASH_COMMENT_MODE
+  ];
 
   return {
     defaultMode: {
@@ -33,16 +45,7 @@ function(hljs) {
           'true false me my'
       },
       contains: [
-        hljs.HASH_COMMENT_MODE,
         STRING,
-        {
-          className: 'comment',
-          begin: '--', end: '$'
-        },
-        {
-          className: 'comment',
-          begin: '\\(\\*', end: '\\*\\)'
-        },
         hljs.C_NUMBER_MODE,
         {
           className: 'function_start',
@@ -60,7 +63,7 @@ function(hljs) {
           begin: 'display dialog|display alert|choose from list|' +
                  'choose file|choose folder|choose color',
         }
-      ]
+      ].concat(COMMENTS)
     }
   };
 }
