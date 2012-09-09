@@ -65,3 +65,5 @@ Contributors:
 - Eugene Nizhibitsky <nizhibitsky@gmail.com>
 - Alberto Gimeno <gimenete@gmail.com>
 - Kirk Kimmel <kimmel.k.programmer@gmail.com>
+- Nathan Grigg <nathan@nathanamy.org>
+- Dr. Drang <drdrang@gmail.com>
