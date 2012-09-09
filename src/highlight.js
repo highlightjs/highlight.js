@@ -283,7 +283,7 @@ function() {
       if (top.subLanguage && !languages[top.subLanguage]) {
         return escape(mode_buffer);
       }
-      var result = top.subLanguage ? highlightAuto(mode_buffer) : highlight(top.subLanguage, mode_buffer);
+      var result = top.subLanguage ? highlight(top.subLanguage, mode_buffer) : highlightAuto(mode_buffer);
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Usecase in point is Markdown that
       // allows XML everywhere and makes every XML snippet to have a much larger Markdown
