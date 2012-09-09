@@ -37,12 +37,12 @@ function(hljs) {
           'equals error every exit fifth first for fourth from front ' +
           'get given global if ignoring in into is it its last local me ' +
           'middle mod my ninth not of on onto or over prop property put ref ' +
-          'reference repeat return returning script second set seventh since ' +
+          'reference repeat returning script second set seventh since ' +
           'sixth some tell tenth that the then third through thru ' +
           'timeout times to transaction try until where while whose with ' +
           'without',
         constant:
-          'AppleScript false linefeed pi quote result space tab true',
+          'AppleScript false linefeed return pi quote result space tab true',
         type:
           'alias application boolean class constant date file integer list ' +
           'number real record string text',
@@ -71,8 +71,8 @@ function(hljs) {
             '(load|run|store) script|scripting components|' +
             'ASCII (character|number)|localized string|' +
             'choose (application|color|file|file name|' +
-              'folder|from list|remote application|URL)|' +
-            'display (alert|dialog))\\b'
+            'folder|from list|remote application|URL)|' +
+            'display (alert|dialog))\\b|^\\s*return\\b'
         },
         {
           className: 'constant',
