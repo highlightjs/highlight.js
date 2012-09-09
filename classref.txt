@@ -546,3 +546,15 @@ OpenGL Shading Language ("glsl"):
   keyword          keyword
   built_in         GLSL built-in functions and variables
   literal          true false
+
+AppleScript ("applescript"):
+
+  keyword          keyword
+  command          core AppleScript command
+  constant         AppleScript built in constant
+  type             AppleScript variable type (integer, etc.)
+  property         Applescript built in property (length, etc.)
+  number           number
+  string           string
+  comment          comment
+  title            name of a handler
