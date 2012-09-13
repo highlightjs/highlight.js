@@ -10,15 +10,20 @@ function(hljs){
         className: 'comment',
         begin: '[^\\[\\]\\.,\\+\\-<>]',
         excludeEnd: true,
-        end: '[\\[\\]\\.,\\+\\-<>]'
+        end: '[\\[\\]\\.,\\+\\-<>]',
+        relevance: 0
       },
       {
         className: 'keyword',
-        begin: '[\\[\\]]'
+        begin: '[\\[\\]]',
+        relevance: 0
       },
       {
         className: 'string',
         begin: '[\\.,]'
+      },
+      {
+        begin: '\\+\\+\\+\\+' // silly relevance booster
       }
     ]
   };
