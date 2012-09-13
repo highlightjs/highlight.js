@@ -561,6 +561,7 @@ AppleScript ("applescript"):
 
 Brainfuck ("brainfuck"):
 
-  keyword          Brainfuck while loop command
+  title            Brainfuck while loop command
+  literal          Brainfuck inc and dec commands
   comment          comment
   string           Brainfuck input and output commands 
