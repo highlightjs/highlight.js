@@ -559,7 +559,7 @@ AppleScript ("applescript"):
   comment          comment
   title            name of a handler
 
-Brainfuck ("brainfuck")
+Brainfuck ("brainfuck"):
 
   keyword          Brainfuck while loop command
   comment          comment
