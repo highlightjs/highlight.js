@@ -5,11 +5,11 @@ Language: SQL
 function(hljs) {
   return {
     case_insensitive: true,
-    illegal: '[^\\s]',
     contains: [
       {
         className: 'operator',
-        begin: '(begin|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma|grant)\\b', end: ';', endsWithParent: true,
+        begin: '(begin|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma|grant)\\b(?!:)', // negative look-ahead here is specifically to prevent stomping on SmallTalk
+        end: ';', endsWithParent: true,
         keywords: {
           keyword: 'all partial global month current_timestamp using go revoke smallint ' +
             'indicator end-exec disconnect zone with character assertion to add current_user ' +
