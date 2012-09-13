@@ -65,3 +65,5 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Евгений Нижибицкий <nizhibitsky@gmail.com>
 - Альберто Гимено <gimenete@gmail.com>
 - Кирк Киммельы <kimmel.k.programmer@gmail.com>
+- Натан Григг <nathan@nathanamy.org>
+- Dr. Drang <drdrang@gmail.com>
