@@ -3,28 +3,23 @@ Language: Brainfuck
 Author: Evgeny Stepanischev <imbolk@gmail.com>
 */
 
-hljs.LANGUAGES.brainfuck = {
-  defaultMode: {
+function(hljs){
+  return {
     contains: [
       {
         className: 'comment',
         begin: '[^\\[\\]\\.,\\+\\-<>]',
         excludeEnd: true,
-        end: '[\\[\\]\\.,\\+\\-<>]',
-        relevance: -1
+        end: '[\\[\\]\\.,\\+\\-<>]'
       },
       {
         className: 'keyword',
-        begin: '[\\[\\]]',
-        end: '',
-        relevance: -1
+        begin: '[\\[\\]]'
       },
       {
         className: 'string',
-        begin: '[\\.,]',
-        end: '',
-        relevance: -1
+        begin: '[\\.,]'
       }
     ]
-  }
-};
+  };
+}
