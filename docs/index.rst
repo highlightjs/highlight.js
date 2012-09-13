@@ -3,13 +3,20 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to highlight.js's documentation!
-========================================
+``highlight.js`` documentation
+==========================================
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
+
+   api
+   define_language
+   mode_reference
+   style_guide
+   contributor_checklist
+   building_testing
 
 
 
