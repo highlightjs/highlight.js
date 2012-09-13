@@ -558,3 +558,9 @@ AppleScript ("applescript"):
   string           string
   comment          comment
   title            name of a handler
+
+Brainfuck ("brainfuck")
+
+  keyword          Brainfuck while loop command
+  comment          comment
+  string           Brainfuck input and output commands 
