@@ -687,6 +687,25 @@ comment ]==]
 </code></pre>
 
   <tr>
+    <th>AppleScript
+    <td class="applescript">
+<pre><code>repeat 5 times
+    if foo is greater than bar then
+        display dialog "Hello there"
+    else
+        beep
+    end if
+end repeat
+
+(* comment (*nested comment*) *)
+on do_something(s, y)
+    return {s + pi, y mod 4}
+end do_something
+
+do shell script "/bin/echo 'hello'"
+</code></pre>
+
+  <tr>
     <th>Delphi
     <td class="delphi">
 <pre><code>TList=Class(TObject)
@@ -789,7 +808,7 @@ int main(int argc, char *argv[]) {
 @end
 
 @interface Test : NSObject &lt;HelloDelegate, WorldDataSource&gt; {
-	NSString *_greeting;
+  NSString *_greeting;
 }
 
 @property (nonatomic, readonly) NSString *greeting;
@@ -801,23 +820,23 @@ int main(int argc, char *argv[]) {
 @synthesize test=_test;
 
 + (id) test {
-	return [self testWithGreeting:@"Hello, world!\nFoo bar!"];
+  return [self testWithGreeting:@"Hello, world!\nFoo bar!"];
 }
 
 + (id) testWithGreeting:(NSString*)greeting {
-	return [[[self alloc] initWithGreeting:greeting] autorelease];
+  return [[[self alloc] initWithGreeting:greeting] autorelease];
 }
 
 - (id) initWithGreeting:(NSString*)greeting {
-	if ( (self = [super init]) ) {
-		_greeting = [greeting retain];
-	}
-	return self;
+  if ( (self = [super init]) ) {
+    _greeting = [greeting retain];
+  }
+  return self;
 }
 
 - (void) dealloc {
-	[_greeting release];
-	[super dealloc];
+  [_greeting release];
+  [super dealloc];
 }
 
 @end
@@ -839,12 +858,12 @@ namespace Test {
 
 /* defining a class */
 class Track : GLib.Object {              /* subclassing 'GLib.Object' */
-	public double mass;                  /* a public field */
-	public double name { get; set; }     /* a public property */
-	private bool terminated = false;     /* a private field */
-	public void terminate() {            /* a public method */
-	  terminated = true;
-	}
+  public double mass;                  /* a public field */
+  public double name { get; set; }     /* a public property */
+  private bool terminated = false;     /* a private field */
+  public void terminate() {            /* a public method */
+    terminated = true;
+  }
 }
 
 const ALL_UPPER_CASE = "you should follow this convention";
@@ -950,10 +969,10 @@ void main() pure nothrow @safe {
     <th>RenderMan RSL
     <td class="rsl">
 <pre><code>#define TEST_DEFINE 3.14
-/*	plastic surface shader
+/*  plastic surface shader
  *
- * 	Pixie is:
- * 	(c) Copyright 1999-2003 Okan Arikan. All rights reserved.
+ *  Pixie is:
+ *  (c) Copyright 1999-2003 Okan Arikan. All rights reserved.
  */
 
 surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
@@ -1656,9 +1675,9 @@ pingUDPPort s a = sendTo s (Strict.singleton 0) a >> return ()
 
 %% state
 -record(state, {
-	  cm,
-	  channel
-	 }).
+    cm,
+    channel
+   }).
 
 test(Foo)->Foo.
 
@@ -1913,26 +1932,6 @@ foo %union% bar
 
 </code></pre>
 
-
-  <tr>
-    <th>AppleScript>
-    <td class="applescript">
-<pre><code>repeat 5 times
-    if foo is greater than bar then
-        display dialog "Hello there"
-    else
-        beep
-    end if
-end repeat
-
-(* comment (*nested comment*) *)
-on do_something(s, y)
-    return {s + pi, y mod 4}
-end do_something
-
-do shell script "/bin/echo 'hello'"
-
-</code></pre>
 
 </table>
 
