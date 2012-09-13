@@ -30,7 +30,7 @@ function(hljs) {
             'privileges when cross check write current_date pad begin temporary exec time ' +
             'update catalog user sql date on identity timezone_hour natural whenever interval ' +
             'work order cascade diagnostics nchar having left call do handler load replace ' +
-            'truncate start lock show pragma',
+            'truncate start lock show pragma exists number',
           aggregate: 'count sum min max avg'
         },
         contains: [
