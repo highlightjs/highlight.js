@@ -25,9 +25,6 @@ function(hljs){
       {
         className: 'literal',
         begin: '[\\+\\-]',
-      },
-      {
-        begin: '\\+{4}' // silly relevance booster
       }
     ]
   };
