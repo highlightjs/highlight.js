@@ -8,13 +8,13 @@ function(hljs){
     contains: [
       {
         className: 'comment',
-        begin: '[^\\[\\]\\.,\\+\\-<>]',
+        begin: '[^\\[\\]\\.,\\+\\-<> \r\n]',
         excludeEnd: true,
-        end: '[\\[\\]\\.,\\+\\-<>]',
+        end: '[\\[\\]\\.,\\+\\-<> \r\n]',
         relevance: 0
       },
       {
-        className: 'keyword',
+        className: 'title',
         begin: '[\\[\\]]',
         relevance: 0
       },
@@ -23,7 +23,11 @@ function(hljs){
         begin: '[\\.,]'
       },
       {
-        begin: '\\+\\+\\+\\+' // silly relevance booster
+        className: 'literal',
+        begin: '[\\+\\-]',
+      },
+      {
+        begin: '\\+{4}' // silly relevance booster
       }
     ]
   };
