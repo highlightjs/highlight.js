@@ -24,7 +24,7 @@ function(hljs){
       },
       {
         className: 'literal',
-        begin: '[\\+\\-]',
+        begin: '[\\+\\-]'
       }
     ]
   };
