@@ -18,6 +18,13 @@ Contents:
    contribution
    building-testing
 
+Miscellaneous:
+
+.. toctree::
+   :maxdepth: 1
+
+   line-numbers
+
 
 
 Indices and tables
