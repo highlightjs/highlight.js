@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-``highlight.js`` documentation
+``highlight.js`` developer documentation
 ==========================================
 
 Contents:
@@ -12,11 +12,11 @@ Contents:
    :maxdepth: 2
 
    api
-   define_language
-   mode_reference
-   style_guide
-   contributor_checklist
-   building_testing
+   language-guide
+   reference
+   style-guide
+   contribution
+   building-testing
 
 
 
