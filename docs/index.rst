@@ -25,6 +25,11 @@ Miscellaneous:
 
    line-numbers
 
+Links:
+
+- Code: https://github.com/isagalaev/highlight.js
+- Discussion: http://groups.google.com/group/highlightjs
+- Bug tracking: https://github.com/isagalaev/highlight.js/issues
 
 
 Indices and tables
