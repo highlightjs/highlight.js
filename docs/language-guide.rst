@@ -67,7 +67,7 @@ In the simple case language keywords are defined in a string, separated by space
 ::
 
   {
-    keywords: 'else for if while' 
+    keywords: 'else for if while'
   }
 
 Some languages have different kinds of "keywords" that might not be called as such by the language spec
@@ -107,7 +107,7 @@ Sub-modes are listed in the ``contains`` attribute:
   {
     keywords: '...',
     contains: [
-      hljs.QUOTE_STRING_MODE, 
+      hljs.QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT,
       { ... custom mode definition ... }
     ]
@@ -135,7 +135,7 @@ Modes usually generate actual highlighting markup — ``<span>`` elements with s
   {
     contains: [
       {
-        className: 'string', 
+        className: 'string',
         // ... other attributes
       },
       {
@@ -165,7 +165,7 @@ For such modes ``className`` attribute should be omitted so they won't generate 
 Mode attributes
 ---------------
 
-Other useful attributes are defined in the :doc:`mode reference </mode_reference>`.
+Other useful attributes are defined in the :doc:`mode reference </reference>`.
 
 
 .. _relevance:
@@ -242,4 +242,4 @@ at the end under "Common regexps" and "Common modes" titles. Use them when possi
 Contributing
 ------------
 
-Follow :doc:`contributor checklist </contributor_checklist>`.
+Follow the :doc:`contributor checklist </contribution>`.
