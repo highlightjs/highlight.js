@@ -216,7 +216,7 @@ module ABC::DEF
   # @return [String] nothing
   def foo(test)
     Thread.new do |blockvar|
-      ABC::DEF.reverse(:a_symbol, :'a symbol' + 'test' + test)
+      ABC::DEF.reverse(:a_symbol, :'a symbol', :<=>, 'test' + test)
     end.join
   end
 
@@ -226,6 +226,7 @@ end
 
 anIdentifier = an_identifier
 Constant = 1
+render action: :new
 </code></pre>
 
   <tr>
