@@ -80,7 +80,7 @@ function(hljs) {
           TITLE,
           {
             className: 'params',
-            begin: '\\(', end: '\\)'
+            begin: '\\s*=\\s*(\\(.+\\))?\\s*[-=]>'
           }
         ]
       },
