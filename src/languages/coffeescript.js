@@ -100,7 +100,6 @@ function(hljs) {
   }
   var REGEXP = {
     className: 'regexp',
-    // begin: '/\\S(\\\\.|[^\\n])*/[gim]*'
     begin: '/(?:[\\S])',
     end: '/[gim]*\\b',
     illegal: '\\n',
@@ -113,8 +112,6 @@ function(hljs) {
       REGEXP_RANGE,
       REGEXP_OPERATORS
     ]
-    // markBegin: true,
-    // markEnd: true
   }
   var HASH_KEY = {
     className: 'hash',
@@ -240,16 +237,6 @@ function(hljs) {
         markBegin: true,
         markEnd: true,
         end: '\\s*' + JS_IDENT_RE
-        // illegal: ':',
-        // contains: [
-        //   {
-        //     beginWithKeyword: true, keywords: 'extends',
-        //     endsWithParent: true,
-        //     illegal: ':',
-        //     contains: [TITLE]
-        //   },
-        //   TITLE
-        // ]
       },
       OPERATORS,
       PUNCTUATION,
