@@ -368,7 +368,7 @@ function() {
       }
 
       if (isIllegal(lexem, top))
-        throw 'Illegal';
+        throw new Error('Illegal lexem "' + lexem + '" for mode "' + mode.className + '"');
     }
 
     var language = languages[language_name];
@@ -396,7 +396,7 @@ function() {
         language: language_name
       };
     } catch (e) {
-      if (e == 'Illegal') {
+      if (e.message.indexOf('Illegal') != -1) {
         return {
           relevance: 0,
           keyword_count: 0,
