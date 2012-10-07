@@ -308,8 +308,17 @@ function() {
         result += escape(lexem) + markup;
         mode_buffer = '';
       } else {
-        result += markup;
-        mode_buffer = lexem;
+        if(mode.markBegin)
+        {
+          markup += '<span class="' + mode.className + '_begin">' + lexem + '</span>'
+          result += markup;
+          mode_buffer = '';
+        }
+        else
+        {
+          result += markup;
+          mode_buffer = lexem;
+        }
       }
       top = Object.create(mode, {parent: {value: top}});
       relevance += mode.relevance;
@@ -331,10 +340,17 @@ function() {
 
       var end_mode = endOfMode(top, lexem);
       if (end_mode) {
-        if (!(end_mode.returnEnd || end_mode.excludeEnd)) {
-          mode_buffer += lexem;
-        }
         result += processBuffer();
+        if (!(end_mode.returnEnd || end_mode.excludeEnd)) {
+          if(end_mode.markEnd)
+          {
+            result += '<span class="'+ end_mode.className+'_end">'+lexem + '</span>';
+          }
+          else
+          {
+            result += lexem
+          }
+        }
         do {
           if (top.className) {
             result += '</span>';
