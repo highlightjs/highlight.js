@@ -81,6 +81,18 @@ function(hljs) {
           {
             className: 'params',
             begin: '\\s*=\\s*(\\(.+\\))?\\s*[-=]>'
+          },
+          {
+            className: 'assignment',
+            begin: '\\s*=\\s*'
+          },
+          {
+            className: 'params',
+            begin: '(\\(.+\\))'
+          },
+          {
+            className: 'constructor',
+            begin: '\\s*[-=]>'
           }
         ]
       },
