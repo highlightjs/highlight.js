@@ -352,7 +352,7 @@ function() {
       }
 
       if (isIllegal(lexem, top))
-        throw 'Illegal';
+        throw new Error('Illegal lexem "' + lexem + '" for mode "' + (top.className || '<unnamed>') + '"');
 
       /*
       Parser should not reach this point as all types of lexems should be caught
@@ -388,7 +388,7 @@ function() {
         language: language_name
       };
     } catch (e) {
-      if (e == 'Illegal') {
+      if (e.message.indexOf('Illegal') != -1) {
         return {
           relevance: 0,
           keyword_count: 0,
