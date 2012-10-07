@@ -368,7 +368,7 @@ function() {
       }
 
       if (isIllegal(lexem, top))
-        throw new Error('Illegal lexem "' + lexem );
+        throw new Error('Illegal lexem "' + lexem + '" in mode "' + (top ? top.className : null) + '"' );
     }
 
     var language = languages[language_name];
@@ -393,14 +393,15 @@ function() {
         relevance: relevance,
         keyword_count: keyword_count,
         value: result,
-        language: language_name
+        language: language_name,
       };
     } catch (e) {
       if (e.message.indexOf('Illegal') != -1) {
         return {
           relevance: 0,
           keyword_count: 0,
-          value: escape(value)
+          value: escape(value),
+          error: true
         };
       } else {
         throw e;
@@ -546,7 +547,9 @@ function() {
 
   // Common modes
   this.BACKSLASH_ESCAPE = {
-    begin: '\\\\[\\s\\S]', relevance: 0
+    className: 'escaped',
+    begin: '\\\\[\\s\\S]',
+    relevance: 0
   };
   this.APOS_STRING_MODE = {
     className: 'string',
