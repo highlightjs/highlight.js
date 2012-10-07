@@ -368,7 +368,7 @@ function() {
       }
 
       if (isIllegal(lexem, top))
-        throw new Error('Illegal lexem "' + lexem + '" for mode "' + mode.className + '"');
+        throw new Error('Illegal lexem "' + lexem );
     }
 
     var language = languages[language_name];
