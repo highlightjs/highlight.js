@@ -1,8 +1,52 @@
 /*
 Language: CoffeeScript
 Author: Dmytrii Nagirniak <dnagir@gmail.com>
-Contributors: Oleg Efimov <efimovov@gmail.com>
+Contributors: Oleg Efimov <efimovov@gmail.com>, Cédric Néhémie <cedric.nehemie@gmail.com>
 Description: CoffeeScript is a programming language that transcompiles to JavaScript. For info about language see http://coffeescript.org/
+
+Styles defined for the coffeescript language:
+
+char_range        // for [a-b]
+char_range_begin
+char_range_end
+class
+class_begin
+class_end
+comment
+comment_begin     // only with ### ... ### comments
+comment_end       // only with ### ... ### comments
+constant
+embedded
+embedded_begin
+embedded_end
+escaped
+function
+global
+hash
+hash_begin
+hash_end
+heredocs
+heredocs_begin
+heredocs_end
+hereregexp
+keyword
+literal
+number
+operators
+params
+params_begin
+params_end
+property
+property_end     // match the : in object literals and class members
+punctuation
+regexp
+regexp_operators // ?, ^, $, etc...
+string
+string_begin
+string_end
+subst
+subst_begin
+subst_end
 */
 
 function(hljs) {
