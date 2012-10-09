@@ -15,7 +15,7 @@ function(hljs) {
       'switch continue typeof delete debugger super' +
       // Coffee keywords
       'then unless until loop of by when and or is isnt not extends',
-    native: 'npm require console print module exports global window document',
+    global: 'require console print module exports global window document',
     literal:
       // JS literals
       'true false null undefined ' +
