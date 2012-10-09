@@ -6,7 +6,9 @@ Description: CoffeeScript is a programming language that transcompiles to JavaSc
 */
 
 function(hljs) {
-  var KEYWORDS = {
+  var KEYWORDS, JS_IDENT_RE, JS_CONSTANT_RE, PROPERTY, CONSTANT, OPERATORS, PUNCTUATION, SINGLE_QUOTE_STRING, DOUBLE_QUOTE_STRING, DOUBLE_QUOTE_STRING_NO_INTERPOLATION, HEREDOCS_SIMPLE, HEREDOCS_DOUBLE,REGEXP, HEREREGEXP, CLASS, FUNCTION, COMMENTS, EMBEDDED, REGEXP_RANGE, REGEXP_OPERATORS, REGEXP_CHAR_GROUP, HASH, HASH_KEY, HASH_COMMENT_MODE, NO_INTERPOLATION, SUBST, SHADOWED, SHADOWS, CODE_CONTENT;
+
+  KEYWORDS = {
     keyword:
       // JS keywords
       'in if for while finally new do return else break catch instanceof throw try this ' +
@@ -22,55 +24,100 @@ function(hljs) {
     reserved: 'case default function var void with const let enum export import native ' +
       '__hasProp __extends __slice __bind __indexOf'
   };
-  var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
-  var JS_CONSTANT_RE = '\\b[A-Z][0-9A-Za-z$_]*';
-  var TITLE = {className: 'title', begin: JS_IDENT_RE};
-  var PROPERTY = {
+  JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
+  JS_CONSTANT_RE = '\\b[A-Z][0-9A-Za-z$_]*';
+
+  /*
+    To have circular references between modes the modes are shadowed with
+    pre-defined objects that are populated at the end of the file.
+
+    This array list the modes to shadow.
+  */
+  SHADOWED = [
+    'HEREDOCS_DOUBLE',
+    'HEREDOCS_SIMPLE',
+    'SINGLE_QUOTE_STRING',
+    'DOUBLE_QUOTE_STRING',
+    'HEREREGEXP',
+    'REGEXP',
+    'EMBEDDED',
+    'FUNCTION',
+    'CLASS',
+    'OPERATORS',
+    'HASH',
+    'PUNCTUATION',
+    'HASH_KEY',
+    'CONSTANT',
+    'PROPERTY'
+  ]
+  // Stores the shadow instances.
+  SHADOWS = {};
+  for(var i=0; i<SHADOWED.length; i++) SHADOWS[SHADOWED[i]] = {};
+  // Stores the real instances.
+  REALS = {};
+
+  PROPERTY = REALS['PROPERTY'] = {
     className: 'property',
     begin: '@(' + JS_IDENT_RE + ')*'
   }
-  var CONSTANT = {
+  CONSTANT = REALS['CONSTANT'] = {
     className: 'constant',
     begin: JS_CONSTANT_RE
   }
-  var OPERATORS = {
+  OPERATORS = REALS['OPERATORS'] = {
     className: 'operators',
     begin: '\\+|\\*|\\||/|-|&|=|&&=|==|===|!=|!==|\\|\\|=|\\|\\||&&|\\?'
   }
-  var PUNCTUATION = {
+  PUNCTUATION = REALS['PUNCTUATION'] = {
     className: 'punctuation',
-    begin: '\\$|\\(|:|\\)|\\{|\\}|\\[|\\]'
+    begin: '\\$|\\(|:|\\)|\\[|\\]|\\.\\.|\\.\\.\\.'
   }
-  var SUBST_PUNCTUATION = {
-    className: 'punctuation',
-    begin: '\\$|\\(|:|\\)|\\[|\\]'
+  NO_INTERPOLATION = REALS['NO_INTERPOLATION'] = {
+    className: 'string_quote',
+    begin: '#\\{',
+    end: '\\}'
   }
-  var SINGLE_QUOTE_STRING = {
+  SINGLE_QUOTE_STRING = REALS['SINGLE_QUOTE_STRING'] = {
     className: 'string',
     begin: '\'',
     end: '\'',
     markBegin: true,
     markEnd: true,
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      NO_INTERPOLATION,
+    ],
+    relevance: 0
+  }
+  DOUBLE_QUOTE_STRING_NO_INTERPOLATION = REALS['DOUBLE_QUOTE_STRING_NO_INTERPOLATION'] = {
+    className: 'string',
+    begin: '"',
+    end: '"',
+    markBegin: true,
+    markEnd: true,
     contains: [hljs.BACKSLASH_ESCAPE],
     relevance: 0
   }
-  var HEREDOCS_SIMPLE = {
+  HEREDOCS_SIMPLE = REALS['HEREDOCS_SIMPLE'] = {
     className: 'string',
     begin: "'''",
     end: "'''",
     markBegin: true,
     markEnd: true,
-    contains: [hljs.BACKSLASH_ESCAPE],
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      NO_INTERPOLATION
+    ],
   }
-  var EMBEDDED =  {
+  EMBEDDED = REALS['EMBEDDED'] =  {
     begin: '`',
     end: '`',
     markBegin: true,
     markEnd: true,
     className: 'embedded'
   }
-  var REGEXP_CHAR_GROUP = {
-    className: 'char_group',
+  REGEXP_CHAR_GROUP = REALS['REGEXP_CHAR_GROUP'] = {
+    className: 'char_range',
     begin: '\\[',
     end: '\\]',
     markBegin: true,
@@ -79,7 +126,7 @@ function(hljs) {
       hljs.BACKSLASH_ESCAPE
     ]
   }
-  var REGEXP_RANGE = {
+  REGEXP_RANGE = REALS['REGEXP_RANGE'] = {
     className: 'range',
     begin: '\\{',
     end: '\\}',
@@ -93,11 +140,11 @@ function(hljs) {
       }
     ]
   }
-  var REGEXP_OPERATORS = {
+  REGEXP_OPERATORS = REALS['REGEXP_OPERATORS'] = {
     className: 'regexp_operators',
     begin: '\\(\\?:|\\?=|\\(\\?!|\\*|\\+|\\^|\\?|\\$|\\(|\\)'
   }
-  var REGEXP = {
+  REGEXP = REALS['REGEXP'] = {
     className: 'regexp',
     begin: '/[^\\s]',
     end: '/[gim]*(\\b|[,.)]|$)',
@@ -112,14 +159,14 @@ function(hljs) {
       REGEXP_OPERATORS
     ]
   }
-  var HASH_KEY = {
-    className: 'hash',
+  HASH_KEY = REALS['HASH_KEY'] = {
+    className: 'property',
     begin: '@?' + JS_IDENT_RE+'\\s*:',
     returnBegin: true,
     end: ':',
     markEnd: true
   }
-  var SUBST = {
+  SUBST = REALS['SUBST'] = {
     className: 'subst',
     begin: '#\\{',
     end: '\\}',
@@ -127,43 +174,70 @@ function(hljs) {
     markEnd: true,
     keywords: KEYWORDS,
     contains: [
+      // Numbers
       hljs.BINARY_NUMBER_MODE,
       hljs.C_NUMBER_MODE,
-      SINGLE_QUOTE_STRING,
-      {
-        className: 'string',
-        begin: '"',
-        end: '"',
-        markBegin: true,
-        markEnd: true,
-        contains: [hljs.BACKSLASH_ESCAPE],
-        relevance: 0
-      },
-      REGEXP,
-      OPERATORS,
-      SUBST_PUNCTUATION,
-      CONSTANT,
-      PROPERTY
+      // Strings
+      SHADOWS['HEREDOCS_DOUBLE'],
+      SHADOWS['HEREDOCS_SIMPLE'],
+      SHADOWS['SINGLE_QUOTE_STRING'],
+      SHADOWS['DOUBLE_QUOTE_STRING'],
+      // RegExps
+      SHADOWS['HEREREGEXP'],
+      SHADOWS['REGEXP'],
+      // Javascript
+      SHADOWS['EMBEDDED'],
+      // Entity
+      SHADOWS['FUNCTION'],
+      SHADOWS['CLASS'],
+      SHADOWS['HASH'],
+      SHADOWS['HASH_KEY'],
+      // Punctations
+      SHADOWS['OPERATORS'],
+      SHADOWS['PUNCTUATION'],
+      // Words
+      SHADOWS['CONSTANT'],
+      SHADOWS['PROPERTY']
     ]
   }
-  var HEREDOCS_DOUBLE = {
+  HEREDOCS_DOUBLE = REALS['HEREDOCS_DOUBLE'] = {
     className: 'heredocs',
     begin: '"""',
     end: '"""',
     markBegin: true,
     markEnd: true,
-    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      SUBST
+    ],
   }
-  var DOUBLE_QUOTE_STRING = {
+  DOUBLE_QUOTE_STRING = REALS['DOUBLE_QUOTE_STRING'] = {
     className: 'string',
     begin: '"',
     end: '"',
     markBegin: true,
     markEnd: true,
-    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      SUBST
+    ],
     relevance: 0
   }
-  var HEREREGEXP = {
+  HASH = REALS['HASH'] = {
+    className: 'hash',
+    begin: '\\{',
+    end: '\\}',
+    markBegin: true,
+    markEnd: true,
+    contains: [
+      HASH_KEY,
+      DOUBLE_QUOTE_STRING,
+      SINGLE_QUOTE_STRING,
+      hljs.C_NUMBER_MODE
+    ]
+  }
+
+  HEREREGEXP = REALS['HEREREGEXP'] = {
     className: 'hereregexp',
     begin: '///',
     end: '///[gim]*',
@@ -178,6 +252,57 @@ function(hljs) {
       REGEXP_OPERATORS
     ]
   }
+  COMMENTS = REALS['COMMENTS'] = {
+    className: 'comment',
+    begin: '###',
+    end: '###',
+    markBegin: true,
+    markEnd: true
+  }
+  FUNCTION = REALS['FUNCTION'] = {
+    className: 'function',
+    begin: '(\\([^)]+\\))?\\s*[-=]>',
+    returnBegin: true,
+    end: '>',
+    keywords: KEYWORDS,
+    contains: [
+      {
+        className: 'params',
+        begin: '\\(',
+        end: '\\)',
+        markBegin: true,
+        markEnd: true,
+        contains: [
+          HEREDOCS_SIMPLE,
+          HEREDOCS_DOUBLE,
+          SINGLE_QUOTE_STRING,
+          DOUBLE_QUOTE_STRING,
+          HEREREGEXP,
+          REGEXP,
+          OPERATORS,
+          CONSTANT,
+          PROPERTY
+        ]
+      }
+    ]
+  }
+  CLASS = REALS['CLASS'] = {
+    className: 'class',
+    beginWithKeyword: true,
+    keywords: 'class',
+    markBegin: true,
+    markEnd: true,
+    end: '\\s*' + JS_IDENT_RE
+  }
+
+  // Here the shadowing is perfected, content of shadowed modes
+  // is pasted in the shadows.
+  for(var i=0; i<SHADOWED.length; i++){
+    k = SHADOWED[i]
+    o = REALS[k]
+    for(var key in o)
+      SHADOWS[k][key] = o[key]
+  }
 
   return {
     keywords: KEYWORDS,
@@ -190,56 +315,23 @@ function(hljs) {
       HEREDOCS_SIMPLE,
       SINGLE_QUOTE_STRING,
       DOUBLE_QUOTE_STRING,
+      // RegExps
       HEREREGEXP,
       REGEXP,
+      // Javascript
       EMBEDDED,
       // Comments
-      {
-        className: 'comment',
-        begin: '###',
-        end: '###',
-        markBegin: true,
-        markEnd: true
-      },
+      COMMENTS,
       hljs.HASH_COMMENT_MODE,
-      {
-        className: 'function',
-        begin: '(\\([^)]+\\))?\\s*[-=]>',
-        returnBegin: true,
-        end: '>',
-        keywords: KEYWORDS,
-        contains: [
-          {
-            className: 'params',
-            begin: '\\(',
-            end: '\\)',
-            markBegin: true,
-            markEnd: true,
-            contains: [
-              HEREDOCS_SIMPLE,
-              HEREDOCS_DOUBLE,
-              SINGLE_QUOTE_STRING,
-              DOUBLE_QUOTE_STRING,
-              HEREREGEXP,
-              REGEXP,
-              OPERATORS,
-              CONSTANT,
-              PROPERTY
-            ]
-          }
-        ]
-      },
-      {
-        className: 'class',
-        beginWithKeyword: true,
-        keywords: 'class',
-        markBegin: true,
-        markEnd: true,
-        end: '\\s*' + JS_IDENT_RE
-      },
+      // Entity
+      FUNCTION,
+      CLASS,
+      HASH,
+      HASH_KEY,
+      // Punctuation
       OPERATORS,
       PUNCTUATION,
-      HASH_KEY,
+      // Words
       CONSTANT,
       PROPERTY
     ]
