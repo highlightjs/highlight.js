@@ -295,10 +295,15 @@ function() {
       return '<span class="' + result.language  + '">' + result.value + '</span>';
     }
 
+    function compact(array){
+      return array.filter(function(o){ return !!o; })
+    }
+
     function processCaptures(mode, lexem, match, end){
       if(typeof end === 'undefined' && end === undefined) end = false;
       var captures = end ? mode.endCaptures : mode.beginCaptures;
       var lexArray = null;
+      var m = compact(match)
       if(captures)
       {
         for(var _i in captures)
@@ -308,16 +313,20 @@ function() {
           if(isNaN(i))
             throw new Error("Captures key must be an integer but was " + _i + " : " + (typeof _i))
 
-          var part = match[i];
+          var part = m[i];
           if(typeof part === 'undefined' && part === undefined)
-            throw new Error("Can't find a capture group at index " + i + " in [" + match + "]");
+            throw new Error("Can't find a capture group at index " + i + " in [" + m + "]");
+
+          if(end && mode.returnEndCapture > 0 && i == mode.returnEndCapture)
+            return lexArray ? lexArray.join('') : lexem.substring(0, lexem.indexOf(part));
+
+          if(!end && mode.returnBeginCapture > 0 && i == mode.returnBeginCapture)
+            return lexArray ? lexArray.join('') : lexem.substring(0, lexem.indexOf(part));
 
           if(part.length > 0)
           {
             if(!lexArray)
-            {
               lexArray = lexem.split(part);
-            }
             else
               lexArray = lexArray.concat(lexArray.pop().split(part))
 
@@ -328,7 +337,20 @@ function() {
       }
       else
       {
-        return lexem;
+        if(end && mode.returnEndCapture > 0)
+        {
+          var part = m[mode.returnEndCapture];
+          if(part)
+            return lexem.substring(0, lexem.indexOf(part));
+        }
+        if(!end && mode.returnBeginCapture > 0)
+        {
+          var part = m[mode.returnBeginCapture];
+          if(part)
+            return lexem.substring(0, lexem.indexOf(part));
+        }
+        else
+          return lexem;
       }
     }
 
@@ -355,6 +377,7 @@ function() {
         {
           result += markup;
           mode_buffer = processCaptures(mode, lexem, match);
+
         }
       }
       top = Object.create(mode, {parent: {value: top}});
@@ -365,14 +388,33 @@ function() {
       mode_buffer += buffer;
       if (lexem === undefined) {
         result += processBuffer();
-        return;
+        return 0;
       }
 
       var new_mode = subMode(lexem, top);
       if (new_mode) {
         result += processBuffer();
         startNewMode(new_mode, lexem);
-        return new_mode.returnBegin;
+        if(new_mode.returnBegin)
+          return 0;
+        else
+        {
+          if(new_mode.returnBeginCapture > 0)
+          {
+            var m = match.filter(function(o){ return !!o; })
+            var part = m[new_mode.returnBeginCapture]
+            if(!part)
+              throw new Error("Can't find the capture group at "+new_mode.returnBeginCapture+" for lexem " + lexem + " of mode " + new_mode.className)
+
+            if(part.length == 0)
+              return m[0].length;
+            else
+              var index = lexem.indexOf(part);
+              return Math.max(0,index)
+          }
+          else
+            return match[0].length;
+        }
       }
 
       var end_mode = endOfMode(top, lexem);
@@ -401,7 +443,25 @@ function() {
         if (end_mode.starts) {
           startNewMode(end_mode.starts, '');
         }
-        return end_mode.returnEnd;
+
+        if(end_mode.returnEnd)
+          return 0;
+        else
+        {
+          if(end_mode.returnEndCapture > 0)
+          {
+            var m = match.filter(function(o){ return !!o; })
+            var part = m[end_mode.returnEndCapture]
+
+            if(!part || part.length == 0)
+              return m[0].length;
+            else
+              var index = lexem.indexOf(part);
+              return Math.max(0,index)
+          }
+          else
+            return match[0].length;
+        }
       }
 
       if (isIllegal(lexem, top))
@@ -422,8 +482,10 @@ function() {
         match = top.terminators.exec(value);
         if (!match)
           break;
+
         var return_lexem = processModeInfo(value.substr(index, match.index - index), match[0]);
-        index = match.index + (return_lexem ? 0 : match[0].length);
+        index = match.index + return_lexem;
+
       }
       processModeInfo(value.substr(index), undefined);
       return {
