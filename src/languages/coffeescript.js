@@ -221,13 +221,11 @@ function(hljs) {
   }
   REGEXP = REALS['REGEXP'] = {
     className: 'regexp',
-    begin: '/[^\\s]',
+    begin: '/([^\\s])',
     end: '/[gim]*([,.)\\}\\]]|$)',
     illegal: '\\n',
-    returnBegin: true,
-    endCaptures: {
-      '1' : 'punctuation'
-    },
+    returnBeginCapture: 1,
+    returnEndCapture: 1,
     contains: [
       REGEXP_CHAR_GROUP,
       hljs.BACKSLASH_ESCAPE,
