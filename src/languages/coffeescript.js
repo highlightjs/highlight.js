@@ -103,9 +103,18 @@ function(hljs) {
   // Stores the real instances.
   REALS = {};
 
+  NUMBER = {
+    className: 'number',
+    begin: hljs.C_NUMBER_RE + '\\s*(/)',
+    beginCaptures: {
+      '3': 'operators'
+    },
+    relevance: 0
+  }
+
   CODE_CONTENT = [
     // Numbers
-    hljs.BINARY_NUMBER_MODE,
+    NUMBER,
     hljs.C_NUMBER_MODE,
     // Strings
     SHADOWS['HEREDOCS_DOUBLE'],
@@ -130,6 +139,7 @@ function(hljs) {
     SHADOWS['CONSTANT'],
     SHADOWS['PROPERTY']
   ]
+
 
   PROPERTY = REALS['PROPERTY'] = {
     className: 'property',
@@ -221,7 +231,7 @@ function(hljs) {
   }
   REGEXP = REALS['REGEXP'] = {
     className: 'regexp',
-    begin: '/([^\\s])',
+    begin: '/([^\\s]).*/[gim]*([,.)\\}\\]]|$)',
     end: '/[gim]*([,.)\\}\\]]|$)',
     illegal: '\\n',
     returnBeginCapture: 1,
@@ -341,7 +351,7 @@ function(hljs) {
     keywords: KEYWORDS,
     contains: [
       // Numbers
-      hljs.BINARY_NUMBER_MODE,
+      NUMBER,
       hljs.C_NUMBER_MODE,
       // Strings
       HEREDOCS_DOUBLE,
