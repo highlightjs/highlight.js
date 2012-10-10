@@ -309,7 +309,7 @@ function(hljs) {
   }
   COMMENTS = REALS['COMMENTS'] = {
     className: 'comment',
-    begin: '###',
+    begin: '###(?!#)',
     end: '###',
     markBegin: true,
     markEnd: true
