@@ -257,9 +257,10 @@ function() {
     }
 
     function processKeywords() {
+      var buffer_safe = mode_buffer;
       var buffer = escape(mode_buffer);
       if (!top.keywords)
-        return buffer;
+        return buffer_safe; // It prevents the keyword process from changing the markup created by the captures
       var result = '';
       var last_index = 0;
       top.lexemsRe.lastIndex = 0;
@@ -377,7 +378,6 @@ function() {
         {
           result += markup;
           mode_buffer = processCaptures(mode, lexem, match);
-
         }
       }
       top = Object.create(mode, {parent: {value: top}});
