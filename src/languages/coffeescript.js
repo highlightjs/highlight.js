@@ -115,7 +115,7 @@ function(hljs) {
   }
   PUNCTUATION = REALS['PUNCTUATION'] = {
     className: 'punctuation',
-    begin: '\\$|\\(|:|\\)|\\[|\\]|\\.\\.|\\.\\.\\.'
+    begin: '\\$|\\(|:|\\)|\\[|\\]|\\.|,'
   }
   NO_INTERPOLATION = REALS['NO_INTERPOLATION'] = {
     className: 'string_quote',
