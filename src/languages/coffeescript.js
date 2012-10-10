@@ -56,7 +56,7 @@ function(hljs) {
     keyword:
       // JS keywords
       'in if for while finally new do return else break catch instanceof throw try this ' +
-      'switch continue typeof delete debugger super' +
+      'switch continue typeof delete debugger super ' +
       // Coffee keywords
       'then unless until loop of by when and or is isnt not extends',
     global: 'require console print module exports global window document',
