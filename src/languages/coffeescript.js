@@ -93,13 +93,43 @@ function(hljs) {
     'PUNCTUATION',
     'HASH_KEY',
     'CONSTANT',
-    'PROPERTY'
+    'PROPERTY',
+    'GROUP'
   ]
+
   // Stores the shadow instances.
   SHADOWS = {};
   for(var i=0; i<SHADOWED.length; i++) SHADOWS[SHADOWED[i]] = {};
   // Stores the real instances.
   REALS = {};
+
+  CODE_CONTENT = [
+    // Numbers
+    hljs.BINARY_NUMBER_MODE,
+    hljs.C_NUMBER_MODE,
+    // Strings
+    SHADOWS['HEREDOCS_DOUBLE'],
+    SHADOWS['HEREDOCS_SIMPLE'],
+    SHADOWS['SINGLE_QUOTE_STRING'],
+    SHADOWS['DOUBLE_QUOTE_STRING'],
+    // RegExps
+    SHADOWS['HEREREGEXP'],
+    SHADOWS['REGEXP'],
+    // Javascript
+    SHADOWS['EMBEDDED'],
+    // Entity
+    SHADOWS['GROUP'],
+    SHADOWS['FUNCTION'],
+    SHADOWS['CLASS'],
+    SHADOWS['HASH'],
+    SHADOWS['HASH_KEY'],
+    // Punctations
+    SHADOWS['OPERATORS'],
+    SHADOWS['PUNCTUATION'],
+    // Words
+    SHADOWS['CONSTANT'],
+    SHADOWS['PROPERTY']
+  ]
 
   PROPERTY = REALS['PROPERTY'] = {
     className: 'property',
@@ -115,7 +145,7 @@ function(hljs) {
   }
   PUNCTUATION = REALS['PUNCTUATION'] = {
     className: 'punctuation',
-    begin: '\\$|\\(|:|\\)|\\[|\\]|\\.|,'
+    begin: '\\$|:|\\[|\\]|\\.|,'
   }
   NO_INTERPOLATION = REALS['NO_INTERPOLATION'] = {
     className: 'string_quote',
@@ -192,7 +222,7 @@ function(hljs) {
   REGEXP = REALS['REGEXP'] = {
     className: 'regexp',
     begin: '/[^\\s]',
-    end: '/[gim]*(\\b|[,.)\\}\\]]|$)',
+    end: '/[gim]*([,.)\\}\\]]|$)',
     illegal: '\\n',
     returnBegin: true,
     endCaptures: {
@@ -204,6 +234,15 @@ function(hljs) {
       REGEXP_RANGE,
       REGEXP_OPERATORS
     ]
+  }
+  GROUP = REALS['GROUP'] = {
+    className: 'group',
+    begin: '\\(',
+    end: '\\)',
+    markBegin: true,
+    markEnd: true,
+    contains: CODE_CONTENT,
+    keywords: KEYWORDS
   }
   HASH_KEY = REALS['HASH_KEY'] = {
     className: 'property',
@@ -221,32 +260,7 @@ function(hljs) {
     markBegin: true,
     markEnd: true,
     keywords: KEYWORDS,
-    contains: [
-      // Numbers
-      hljs.BINARY_NUMBER_MODE,
-      hljs.C_NUMBER_MODE,
-      // Strings
-      SHADOWS['HEREDOCS_DOUBLE'],
-      SHADOWS['HEREDOCS_SIMPLE'],
-      SHADOWS['SINGLE_QUOTE_STRING'],
-      SHADOWS['DOUBLE_QUOTE_STRING'],
-      // RegExps
-      SHADOWS['HEREREGEXP'],
-      SHADOWS['REGEXP'],
-      // Javascript
-      SHADOWS['EMBEDDED'],
-      // Entity
-      SHADOWS['FUNCTION'],
-      SHADOWS['CLASS'],
-      SHADOWS['HASH'],
-      SHADOWS['HASH_KEY'],
-      // Punctations
-      SHADOWS['OPERATORS'],
-      SHADOWS['PUNCTUATION'],
-      // Words
-      SHADOWS['CONSTANT'],
-      SHADOWS['PROPERTY']
-    ]
+    contains: CODE_CONTENT
   }
   HEREDOCS_DOUBLE = REALS['HEREDOCS_DOUBLE'] = {
     className: 'heredocs',
@@ -277,12 +291,7 @@ function(hljs) {
     end: '\\}',
     markBegin: true,
     markEnd: true,
-    contains: [
-      HASH_KEY,
-      DOUBLE_QUOTE_STRING,
-      SINGLE_QUOTE_STRING,
-      hljs.C_NUMBER_MODE
-    ]
+    contains: CODE_CONTENT
   }
 
   HEREREGEXP = REALS['HEREREGEXP'] = {
@@ -309,30 +318,7 @@ function(hljs) {
   }
   FUNCTION = REALS['FUNCTION'] = {
     className: 'function',
-    begin: '(\\([^)]+\\))?\\s*[-=]>',
-    returnBegin: true,
-    end: '>',
-    keywords: KEYWORDS,
-    contains: [
-      {
-        className: 'params',
-        begin: '\\(',
-        end: '\\)',
-        markBegin: true,
-        markEnd: true,
-        contains: [
-          HEREDOCS_SIMPLE,
-          HEREDOCS_DOUBLE,
-          SINGLE_QUOTE_STRING,
-          DOUBLE_QUOTE_STRING,
-          HEREREGEXP,
-          REGEXP,
-          OPERATORS,
-          CONSTANT,
-          PROPERTY
-        ]
-      }
-    ]
+    begin: '[-=]>',
   }
   CLASS = REALS['CLASS'] = {
     className: 'class',
@@ -373,6 +359,7 @@ function(hljs) {
       COMMENTS,
       hljs.HASH_COMMENT_MODE,
       // Entity
+      GROUP,
       FUNCTION,
       CLASS,
       HASH,
