@@ -295,6 +295,43 @@ function() {
       return '<span class="' + result.language  + '">' + result.value + '</span>';
     }
 
+    function processCaptures(mode, lexem, match, end){
+      if(typeof end === 'undefined' && end === undefined) end = false;
+      var captures = end ? mode.endCaptures : mode.beginCaptures;
+      var lexArray = null;
+      if(captures)
+      {
+        for(var _i in captures)
+        {
+          var i = parseInt(_i);
+          var className = captures[_i];
+          if(isNaN(i))
+            throw new Error("Captures key must be an integer but was " + _i + " : " + (typeof _i))
+
+          var part = match[i];
+          if(typeof part === 'undefined' && part === undefined)
+            throw new Error("Can't find a capture group at index " + i + " in [" + match + "]");
+
+          if(part.length > 0)
+          {
+            if(!lexArray)
+            {
+              lexArray = lexem.split(part);
+            }
+            else
+              lexArray = lexArray.concat(lexArray.pop().split(part))
+
+            lexArray.splice(-1,0, "<span class='" + className + "'>" + part + "</span>");
+          }
+        }
+        return lexArray ? lexArray.join('') : lexem;
+      }
+      else
+      {
+        return lexem;
+      }
+    }
+
     function processBuffer() {
       return top.subLanguage !== undefined ? processSubLanguage() : processKeywords();
     }
@@ -310,14 +347,14 @@ function() {
       } else {
         if(mode.markBegin)
         {
-          markup += '<span class="' + mode.className + '_begin">' + lexem + '</span>'
+          markup += '<span class="' + mode.className + '_begin">' +  processCaptures(mode, lexem, match) + '</span>'
           result += markup;
           mode_buffer = '';
         }
         else
         {
           result += markup;
-          mode_buffer = lexem;
+          mode_buffer = processCaptures(mode, lexem, match);
         }
       }
       top = Object.create(mode, {parent: {value: top}});
@@ -344,11 +381,11 @@ function() {
         if (!(end_mode.returnEnd || end_mode.excludeEnd)) {
           if(end_mode.markEnd)
           {
-            result += '<span class="'+ end_mode.className+'_end">'+lexem + '</span>';
+            result += '<span class="'+ end_mode.className+'_end">'+ processCaptures(end_mode, lexem, match, true) + '</span>';
           }
           else
           {
-            result += lexem
+            result += processCaptures(end_mode, lexem, match, true)
           }
         }
         do {
