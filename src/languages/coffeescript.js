@@ -47,6 +47,7 @@ string_end
 subst
 subst_begin
 subst_end
+title
 */
 
 function(hljs) {
@@ -191,11 +192,12 @@ function(hljs) {
   REGEXP = REALS['REGEXP'] = {
     className: 'regexp',
     begin: '/[^\\s]',
-    end: '/[gim]*(\\b|[,.)]|$)',
+    end: '/[gim]*(\\b|[,.)\\}\\]]|$)',
     illegal: '\\n',
     returnBegin: true,
-    markBegin: true,
-    markEnd: true,
+    endCaptures: {
+      '1' : 'punctuation'
+    },
     contains: [
       REGEXP_CHAR_GROUP,
       hljs.BACKSLASH_ESCAPE,
@@ -208,7 +210,9 @@ function(hljs) {
     begin: '@?' + JS_IDENT_RE+'\\s*:',
     returnBegin: true,
     end: ':',
-    markEnd: true
+    endCaptures: {
+      '0' : 'punctuation'
+    }
   }
   SUBST = REALS['SUBST'] = {
     className: 'subst',
@@ -334,9 +338,10 @@ function(hljs) {
     className: 'class',
     beginWithKeyword: true,
     keywords: 'class',
-    markBegin: true,
-    markEnd: true,
-    end: '\\s*' + JS_IDENT_RE
+    end: '\\s*(' + JS_IDENT_RE + ')',
+    endCaptures: {
+      '1': 'title'
+    }
   }
 
   // Here the shadowing is perfected, content of shadowed modes
