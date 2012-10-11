@@ -257,9 +257,10 @@ function() {
     }
 
     function processKeywords() {
+      var buffer_safe = mode_buffer;
       var buffer = escape(mode_buffer);
       if (!top.keywords)
-        return buffer;
+        return buffer_safe; // It prevents the keyword process from changing the markup created by the captures
       var result = '';
       var last_index = 0;
       top.lexemsRe.lastIndex = 0;
@@ -295,6 +296,65 @@ function() {
       return '<span class="' + result.language  + '">' + result.value + '</span>';
     }
 
+    function compact(array){
+      return array.filter(function(o){ return !!o; })
+    }
+
+    function processCaptures(mode, lexem, match, end){
+      if(typeof end === 'undefined' && end === undefined) end = false;
+      var captures = end ? mode.endCaptures : mode.beginCaptures;
+      var lexArray = null;
+      var m = compact(match)
+      if(captures)
+      {
+        for(var _i in captures)
+        {
+          var i = parseInt(_i);
+          var className = captures[_i];
+          if(isNaN(i))
+            throw new Error("Captures key must be an integer but was " + _i + " : " + (typeof _i))
+
+          var part = m[i];
+          if(typeof part === 'undefined' && part === undefined)
+            throw new Error("Can't find a capture group at index " + i + " in [" + m + "]");
+
+          if(end && mode.returnEndCapture > 0 && i == mode.returnEndCapture)
+            return lexArray ? lexArray.join('') : lexem.substring(0, lexem.indexOf(part));
+
+          if(!end && mode.returnBeginCapture > 0 && i == mode.returnBeginCapture)
+            return lexArray ? lexArray.join('') : lexem.substring(0, lexem.indexOf(part));
+
+          if(part.length > 0)
+          {
+            if(!lexArray)
+              lexArray = lexem.split(part);
+            else
+              lexArray = lexArray.concat(lexArray.pop().split(part))
+
+            lexArray.splice(-1,0, "<span class='" + className + "'>" + part + "</span>");
+          }
+        }
+        return lexArray ? lexArray.join('') : lexem;
+      }
+      else
+      {
+        if(end && mode.returnEndCapture > 0)
+        {
+          var part = m[mode.returnEndCapture];
+          if(part)
+            return lexem.substring(0, lexem.indexOf(part));
+        }
+        if(!end && mode.returnBeginCapture > 0)
+        {
+          var part = m[mode.returnBeginCapture];
+          if(part)
+            return lexem.substring(0, lexem.indexOf(part));
+        }
+        else
+          return lexem;
+      }
+    }
+
     function processBuffer() {
       return top.subLanguage !== undefined ? processSubLanguage() : processKeywords();
     }
@@ -308,8 +368,17 @@ function() {
         result += escape(lexem) + markup;
         mode_buffer = '';
       } else {
-        result += markup;
-        mode_buffer = lexem;
+        if(mode.markBegin)
+        {
+          markup += '<span class="' + mode.className + '_begin">' +  processCaptures(mode, lexem, match) + '</span>'
+          result += markup;
+          mode_buffer = '';
+        }
+        else
+        {
+          result += markup;
+          mode_buffer = processCaptures(mode, lexem, match);
+        }
       }
       top = Object.create(mode, {parent: {value: top}});
       relevance += mode.relevance;
@@ -319,22 +388,48 @@ function() {
       mode_buffer += buffer;
       if (lexem === undefined) {
         result += processBuffer();
-        return;
+        return 0;
       }
 
       var new_mode = subMode(lexem, top);
       if (new_mode) {
         result += processBuffer();
         startNewMode(new_mode, lexem);
-        return new_mode.returnBegin;
+        if(new_mode.returnBegin)
+          return 0;
+        else
+        {
+          if(new_mode.returnBeginCapture > 0)
+          {
+            var m = match.filter(function(o){ return !!o; })
+            var part = m[new_mode.returnBeginCapture]
+            if(!part)
+              throw new Error("Can't find the capture group at "+new_mode.returnBeginCapture+" for lexem " + lexem + " of mode " + new_mode.className)
+
+            if(part.length == 0)
+              return m[0].length;
+            else
+              var index = lexem.indexOf(part);
+              return Math.max(0,index)
+          }
+          else
+            return match[0].length;
+        }
       }
 
       var end_mode = endOfMode(top, lexem);
       if (end_mode) {
-        if (!(end_mode.returnEnd || end_mode.excludeEnd)) {
-          mode_buffer += lexem;
-        }
         result += processBuffer();
+        if (!(end_mode.returnEnd || end_mode.excludeEnd)) {
+          if(end_mode.markEnd)
+          {
+            result += '<span class="'+ end_mode.className+'_end">'+ processCaptures(end_mode, lexem, match, true) + '</span>';
+          }
+          else
+          {
+            result += processCaptures(end_mode, lexem, match, true)
+          }
+        }
         do {
           if (top.className) {
             result += '</span>';
@@ -348,11 +443,29 @@ function() {
         if (end_mode.starts) {
           startNewMode(end_mode.starts, '');
         }
-        return end_mode.returnEnd;
+
+        if(end_mode.returnEnd)
+          return 0;
+        else
+        {
+          if(end_mode.returnEndCapture > 0)
+          {
+            var m = match.filter(function(o){ return !!o; })
+            var part = m[end_mode.returnEndCapture]
+
+            if(!part || part.length == 0)
+              return m[0].length;
+            else
+              var index = lexem.indexOf(part);
+              return Math.max(0,index)
+          }
+          else
+            return match[0].length;
+        }
       }
 
       if (isIllegal(lexem, top))
-        throw 'Illegal';
+        throw new Error('Illegal lexem "' + lexem + '" in mode "' + (top ? top.className : null) + '"' );
     }
 
     var language = languages[language_name];
@@ -369,22 +482,25 @@ function() {
         match = top.terminators.exec(value);
         if (!match)
           break;
+
         var return_lexem = processModeInfo(value.substr(index, match.index - index), match[0]);
-        index = match.index + (return_lexem ? 0 : match[0].length);
+        index = match.index + return_lexem;
+
       }
       processModeInfo(value.substr(index), undefined);
       return {
         relevance: relevance,
         keyword_count: keyword_count,
         value: result,
-        language: language_name
+        language: language_name,
       };
     } catch (e) {
-      if (e == 'Illegal') {
+      if (e.message.indexOf('Illegal') != -1) {
         return {
           relevance: 0,
           keyword_count: 0,
-          value: escape(value)
+          value: escape(value),
+          error: true
         };
       } else {
         throw e;
@@ -530,7 +646,9 @@ function() {
 
   // Common modes
   this.BACKSLASH_ESCAPE = {
-    begin: '\\\\[\\s\\S]', relevance: 0
+    className: 'escaped',
+    begin: '\\\\[\\s\\S]',
+    relevance: 0
   };
   this.APOS_STRING_MODE = {
     className: 'string',
