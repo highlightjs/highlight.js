@@ -1385,6 +1385,12 @@ then
  exit 2
 fi
 
+if test $# -eq 0
+then
+elif test [ $1 == 'start' ]
+else
+fi
+
 genApacheConf(){
  if [[ "$2" = "www" ]]
  then
