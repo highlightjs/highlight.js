@@ -319,14 +319,14 @@ function() {
       mode_buffer += buffer;
       if (lexem === undefined) {
         result += processBuffer();
-        return;
+        return 0;
       }
 
       var new_mode = subMode(lexem, top);
       if (new_mode) {
         result += processBuffer();
         startNewMode(new_mode, lexem);
-        return new_mode.returnBegin;
+        return new_mode.returnBegin ? 0 : lexem.length;
       }
 
       var end_mode = endOfMode(top, lexem);
@@ -348,11 +348,19 @@ function() {
         if (end_mode.starts) {
           startNewMode(end_mode.starts, '');
         }
-        return end_mode.returnEnd;
+        return end_mode.returnEnd ? 0 : lexem.length;
       }
 
       if (isIllegal(lexem, top))
         throw 'Illegal';
+
+      /*
+      Parser should not reach this point as all types of lexems should be caught
+      earlier, but if it does due to some bug make sure it advances at least one
+      character forward to prevent infinite looping.
+      */
+      mode_buffer += lexem;
+      return lexem.length || 1;
     }
 
     var language = languages[language_name];
@@ -369,8 +377,8 @@ function() {
         match = top.terminators.exec(value);
         if (!match)
           break;
-        var return_lexem = processModeInfo(value.substr(index, match.index - index), match[0]);
-        index = match.index + (return_lexem ? 0 : match[0].length);
+        var count = processModeInfo(value.substr(index, match.index - index), match[0]);
+        index = match.index + count;
       }
       processModeInfo(value.substr(index), undefined);
       return {
