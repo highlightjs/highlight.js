@@ -5,6 +5,7 @@ Author: vah <vahtenberg@gmail.com>
 
 function(hljs) {
   var BASH_LITERAL = 'true false';
+  var BASH_KEYWORD = 'if then else elif fi for break continue while in do done echo exit return set declare';
   var VAR1 = {
     className: 'variable', begin: '\\$[a-zA-Z0-9_#]+'
   };
@@ -36,7 +37,7 @@ function(hljs) {
 
   return {
     keywords: {
-      keyword: 'if then else fi for break continue while in do done echo exit return set declare',
+      keyword: BASH_KEYWORD,
       literal: BASH_LITERAL
     },
     contains: [
