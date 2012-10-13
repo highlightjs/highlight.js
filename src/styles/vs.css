@@ -68,7 +68,7 @@ pre .userType,
 pre .apache .sqbracket,
 pre .nginx .built_in,
 pre .tex .special,
-pre .input_number {
+pre .prompt {
   color: rgb(43, 145, 175);
 }
 

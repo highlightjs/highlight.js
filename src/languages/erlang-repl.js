@@ -14,7 +14,7 @@ function(hljs) {
     },
     contains: [
       {
-        className: 'input_number', begin: '^[0-9]+> ',
+        className: 'prompt', begin: '^[0-9]+> ',
         relevance: 10
       },
       {

@@ -26,6 +26,7 @@ Python profiler results ("profile"):
   keyword          column header
   function         function name in an entry (including parentheses)
   title            actual name of a function in an entry (excluding parentheses)
+  prompt           interpreter prompt (>>> or ...)
 
 Ruby ("ruby"):
 
@@ -564,4 +565,4 @@ Brainfuck ("brainfuck"):
   title            Brainfuck while loop command
   literal          Brainfuck inc and dec commands
   comment          comment
-  string           Brainfuck input and output commands 
+  string           Brainfuck input and output commands

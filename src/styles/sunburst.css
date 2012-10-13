@@ -57,7 +57,7 @@ pre .tag,
 pre .tag .keyword,
 pre .decorator,
 pre .shebang,
-pre .input_number {
+pre .prompt {
   color: #89BDFF;
 }
 

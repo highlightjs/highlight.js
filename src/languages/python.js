@@ -3,15 +3,20 @@ Language: Python
 */
 
 function(hljs) {
+  var PROMPT = {
+    className: 'prompt',  begin: '^(>>>|\\.\\.\\.) '
+  }
   var STRINGS = [
     {
       className: 'string',
       begin: '(u|b)?r?\'\'\'', end: '\'\'\'',
+      contains: [PROMPT],
       relevance: 10
     },
     {
       className: 'string',
       begin: '(u|b)?r?"""', end: '"""',
+      contains: [PROMPT],
       relevance: 10
     },
     {
@@ -46,7 +51,7 @@ function(hljs) {
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)',
-    contains: ['self', hljs.C_NUMBER_MODE].concat(STRINGS)
+    contains: ['self', hljs.C_NUMBER_MODE, PROMPT].concat(STRINGS)
   };
   var FUNC_CLASS_PROTO = {
     beginWithKeyword: true, end: ':',
@@ -66,6 +71,7 @@ function(hljs) {
     },
     illegal: '(</|->|\\?)',
     contains: STRINGS.concat([
+      PROMPT,
       hljs.HASH_COMMENT_MODE,
       hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', keywords: 'def'}),
       hljs.inherit(FUNC_CLASS_PROTO, {className: 'class', keywords: 'class'}),

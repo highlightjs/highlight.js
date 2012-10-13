@@ -65,7 +65,7 @@ pre .envvar,
 pre .apache .tag,
 pre .apache .cbracket,
 pre .tex .command,
-pre .input_number {
+pre .prompt {
   color: #A6E22E;
 }
 

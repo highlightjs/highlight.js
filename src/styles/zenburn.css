@@ -64,7 +64,7 @@ pre .ruby .class .parent,
 pre .apache .tag,
 pre .nginx .built_in,
 pre .tex .command,
-pre .input_number {
+pre .prompt {
     color: #efef8f;
 }
 

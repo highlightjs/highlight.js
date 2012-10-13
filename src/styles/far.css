@@ -87,7 +87,7 @@ pre .diff .header,
 pre .chunk,
 pre .shebang,
 pre .nginx .built_in,
-pre .input_number {
+pre .prompt {
   color: #008080;
 }
 

@@ -91,7 +91,7 @@ pre .symbol,
 pre .ruby .symbol .string,
 pre .lisp .keyword,
 pre .tex .special,
-pre .input_number {
+pre .prompt {
   color: #990073
 }
 
