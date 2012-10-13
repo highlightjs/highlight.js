@@ -6,7 +6,7 @@ Author: vah <vahtenberg@gmail.com>
 function(hljs) {
   var BASH_LITERAL = 'true false';
   var VAR1 = {
-    className: 'variable', begin: '\\$[a-zA-Z0-9_]+\\b'
+    className: 'variable', begin: '\\$[a-zA-Z0-9_#]+'
   };
   var VAR2 = {
     className: 'variable', begin: '\\${([^}]|\\\\})+}'
