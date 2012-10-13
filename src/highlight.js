@@ -315,7 +315,7 @@ function() {
       relevance += mode.relevance;
     }
 
-    function processModeInfo(buffer, lexem) {
+    function processLexem(buffer, lexem) {
       mode_buffer += buffer;
       if (lexem === undefined) {
         result += processBuffer();
@@ -371,16 +371,16 @@ function() {
     var keyword_count = 0;
     var result = '';
     try {
-      var match, index = 0;
+      var match, count, index = 0;
       while (true) {
         top.terminators.lastIndex = index;
         match = top.terminators.exec(value);
         if (!match)
           break;
-        var count = processModeInfo(value.substr(index, match.index - index), match[0]);
+        count = processLexem(value.substr(index, match.index - index), match[0]);
         index = match.index + count;
       }
-      processModeInfo(value.substr(index), undefined);
+      processLexem(value.substr(index))
       return {
         relevance: relevance,
         keyword_count: keyword_count,
