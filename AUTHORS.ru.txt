@@ -67,3 +67,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Кирк Киммель <kimmel.k.programmer@gmail.com>
 - Натан Григг <nathan@nathanamy.org>
 - Dr. Drang <drdrang@gmail.com>
+- Robin Ward <robin.ward@gmail.com>
