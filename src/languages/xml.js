@@ -55,6 +55,11 @@ function(hljs) {
         relevance: 10
       },
       {
+        className: 'escapeEntity',
+        begin: '&', end: ';',
+        relevance: 10
+      },
+      {
         className: 'cdata',
         begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
         relevance: 10
