@@ -72,7 +72,8 @@ function(hljs) {
         'endwith static trans blocktrans endblocktrans get_static_prefix get_media_prefix ' +
         'plural get_current_language language get_available_languages ' +
         'get_current_language_bidi get_language_info get_language_info_list localize ' +
-        'endlocalize localtime endlocaltime timezone endtimezone get_current_timezone',
+        'endlocalize localtime endlocaltime timezone endtimezone get_current_timezone ' +
+        'verbatim',
       contains: [FILTER]
     },
     {
