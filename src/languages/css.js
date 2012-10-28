@@ -3,7 +3,7 @@ Language: CSS
 */
 
 function(hljs) {
-  var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_-]*';
+  var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   var FUNCTION = {
     className: 'function',
     begin: IDENT_RE + '\\(', end: '\\)',
