@@ -3,9 +3,10 @@ Language: CSS
 */
 
 function(hljs) {
+  var IDENT_RE = '[a-zA-Z][a-zA-Z0-9_-]*';
   var FUNCTION = {
     className: 'function',
-    begin: hljs.IDENT_RE + '\\(', end: '\\)',
+    begin: IDENT_RE + '\\(', end: '\\)',
     contains: [hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
   };
   return {
@@ -50,7 +51,7 @@ function(hljs) {
         ]
       },
       {
-        className: 'tag', begin: hljs.IDENT_RE,
+        className: 'tag', begin: IDENT_RE,
         relevance: 0
       },
       {
