@@ -678,7 +678,7 @@ end
 
 -- Signal test
 local signal = create_signal()
-signal:register(function (signal, ...)
+signal:register(function(signal, ...)
     print(...)
 end)
 signal:emit('Answer to Life, the Universe, and Everything:', 42)
