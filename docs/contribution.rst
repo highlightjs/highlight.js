@@ -18,7 +18,7 @@ this is done during the build process and details differ for different build tar
     }
   }
   
-The name of the file is used as a a short language identifier and should be usable as a class name in HTML and CSS.
+The name of the file is used as a short language identifier and should be usable as a class name in HTML and CSS.
   
 
 2. Provide meta data
@@ -42,9 +42,9 @@ Meta data format is simply key-value pairs each occupying its own line:
 ``Requires`` — a list of other language files required for this language to work.
 This make it possible to describe languages that extend definitions of other ones.
 Required files aren't processed in any special way.
-The build system just make sure that they will be in the final package in ``LANGUAGES`` object.
+The build system just makes sure that they will be in the final package in ``LANGUAGES`` object.
 
-Meaning of other headers is pretty obvious.
+The meaning of the other headers is pretty obvious.
 
 
 3. Create a test fragment
