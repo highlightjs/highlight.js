@@ -6,9 +6,8 @@ pre-packed modules.
 
 import os
 import shutil
-import sys
 import re
-import optparse
+import argparse
 import subprocess
 import json
 from functools import partial
@@ -270,36 +269,32 @@ def build_cdn(root, build_path, filenames, options):
         content = compress_content(tools_path, open(filename).read(), 'css')
         open(os.path.join(build_style_path, '%s.min.css' % style), 'w').write(content)
 
-def build(buildfunc, root, languages, options):
+def build(buildfunc, root, args):
     build_path = os.path.join(root, 'build')
     if os.path.exists(build_path):
         shutil.rmtree(build_path)
     os.mkdir(build_path)
-    filenames = language_filenames(os.path.join(root, 'src'), languages)
-    buildfunc(root, build_path, filenames, options)
+    filenames = language_filenames(os.path.join(root, 'src'), args.languages)
+    buildfunc(root, build_path, filenames, args)
     print('Done.')
 
 if __name__ == '__main__':
-    parser = optparse.OptionParser()
-    parser.add_option(
+    parser = argparse.ArgumentParser(description='Build highlight.js for various targets')
+    parser.add_argument(
+        'languages', nargs='*',
+        help = 'language (the name of a language file without the .js extension) or :category (currently the only available category is ":common")',
+    )
+    parser.add_argument(
         '-n', '--no-compress',
         dest = 'compress', action = 'store_false', default = True,
         help = 'Don\'t compress source files. Compression only works for the "browser" target.',
     )
-    parser.add_option(
-        '-t', '--target',
-        dest = 'target', default = 'browser',
-        help = 'Target format: "browser" (default), "node", "cdn", "amd"',
+    parser.add_argument(
+        '-t', '--target', dest = 'target',
+        choices = ['browser', 'node', 'cdn', 'amd'], default = 'browser',
+        help = 'Target format, default is "browser"',
     )
-    parser.set_usage('''%%prog [options] [<language>|:<category> ...]
-
-- <language> is the name of a language file without the .js extension
-- <category> is a pre-defined set of language names: %s''' % ', '.join(CATEGORIES))
-    options, args = parser.parse_args()
-    try:
-        buildfunc = locals()['build_%s' % options.target]
-    except KeyError:
-        print('Unknown target:', options.target)
-        sys.exit(1)
+    args = parser.parse_args()
+    buildfunc = locals()['build_%s' % args.target]
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    build(buildfunc, root, args, options)
+    build(buildfunc, root, args)
