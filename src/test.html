@@ -177,19 +177,6 @@ Most snippets do not contain working code :-).
 <p id="summary">...</p>
 <table id="autotest">
   <tr>
-    <th>Handlebars
-    <td class="handlebars">
-<pre>
-<code>&lt;h3&gt;Hours&lt;/h3&gt;
-
-&lt;ul&gt;  
-  {{#each content.users}}
-  &lt;li {{bindAttr hello="world"}}&gt;{{firstName}}&lt;/li&gt;
-  {{/each}}
-&lt;/ul&gt; 
-</code></pre>
-
-  <tr>
     <th>Python
     <td class="python">
 <pre>
@@ -474,6 +461,19 @@ hello world
 Comments may be long and
 multiline.
 {% endcomment %}
+</code></pre>
+
+  <tr>
+    <th>Handlebars
+    <td class="handlebars">
+<pre>
+<code>&lt;h3&gt;Hours&lt;/h3&gt;
+
+&lt;ul&gt;
+  {{#each content.users}}
+  &lt;li {{bindAttr hello="world"}}&gt;{{firstName}}&lt;/li&gt;
+  {{/each}}
+&lt;/ul&gt;
 </code></pre>
 
   <tr>
