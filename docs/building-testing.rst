@@ -14,22 +14,15 @@ for that too.
 
 The tool is located in ``tools/build.py``. A few useful examples:
 
-* Build for a browser using only common languages (they will be listed as it
-works):
-
-::
+* Build for a browser using only common languages::
 
   python3 tools/build.py :common
 
-* Build for node.js including all available languages:
-
-::
+* Build for node.js including all available languages::
 
   python3 tools/build.py -t node
 
-* Build two specific languages for debugging, skipping compression in this case:
-
-::
+* Build two specific languages for debugging, skipping compression in this case::
 
   python3 tools/build.py -n python ruby
 
