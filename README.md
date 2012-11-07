@@ -56,6 +56,28 @@ hljs.highlight(lang, code).value;
 hljs.highlightAuto(code).value;
 ```
 
+## AMD
+
+Highlight.js can be used with an AMD loader.  You will need to build it from 
+source in order to do so:
+
+```bash
+$ python tools/build.py -tamd lang1 lang2 ..
+```
+
+Which will generate a ``build/highlight.pack.js`` which will load as an AMD 
+module with support for the built languages and can be used like so:
+
+```javascript
+require(["highlight.js/build/highlight.pack"], function(hljs){
+  // If you know the language
+  hljs.hlighlight(lang, code).value;
+
+  // Automatic language detection
+  hljs.highlightAuto(code).value;
+});
+```
+
 ## Tab replacement
 
 You can replace TAB ('\x09') characters used for indentation in your code
