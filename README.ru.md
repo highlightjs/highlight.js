@@ -60,6 +60,30 @@ hljs.highlightAuto(code).value;
 ```
 
 
+## AMD
+
+Highlight.js можно использовать с загрузчиком AMD-модулей.  Для этого его
+нужно собрать из исходников следующей командой:
+
+```bash
+$ python3 tools/build.py -tamd lang1 lang2 ..
+```
+
+Она создаст файл `build/highlight.pack.js`, который является загружаемым
+AMD-модулем и содержит все выбранные при сборке языки. Используется он так:
+
+```javascript
+require(["highlight.js/build/highlight.pack"], function(hljs){
+
+  // Если вы знаете язык
+  hljs.hlighlight(lang, code).value;
+
+  // Автоопределение языка
+  hljs.highlightAuto(code).value;
+});
+```
+
+
 ## Замена TABов
 
 Также вы можете заменить символы TAB ('\x09'), используемые для отступов, на
