@@ -42,7 +42,7 @@ installable from NPM:
 
 Alternatively, you can build it from the source with only languages you need:
 
-    python tools/build.py -tnode lang1 lang2 ..
+    python3 tools/build.py -tnode lang1 lang2 ..
 
 Using the library:
 
