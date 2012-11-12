@@ -7,6 +7,10 @@ Author: Vasily Polovnyov <vast@whiteants.net>
 function(hljs) {
   var LISP_IDENT_RE = '[a-zA-Z_\\-\\+\\*\\/\\<\\=\\>\\&\\#][a-zA-Z0-9_\\-\\+\\*\\/\\<\\=\\>\\&\\#]*';
   var LISP_SIMPLE_NUMBER_RE = '(\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?';
+  var SHEBANG = {
+    className: 'shebang',
+    begin: '^#!', end: '$'
+  };
   var LITERAL = {
     className: 'literal',
     begin: '\\b(t{1}|nil)\\b'
@@ -75,6 +79,7 @@ function(hljs) {
   return {
     illegal: '[^\\s]',
     contains: NUMBERS.concat([
+      SHEBANG,
       LITERAL,
       STRING,
       COMMENT,
