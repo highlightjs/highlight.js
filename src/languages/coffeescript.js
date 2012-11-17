@@ -61,6 +61,7 @@ function(hljs) {
       // Coffee keywords
       'then unless until loop of by when and or is isnt not extends',
     global: 'require console print module exports global window document',
+    top_level: 'decodeURI ecodeURIComponent encodeURI encodeURIComponent escape eval isFinite isNaN Number parseFloat parseInt String unescape',
     literal:
       // JS literals
       'true false null undefined ' +
@@ -73,7 +74,7 @@ function(hljs) {
   JS_CONSTANT_RE = '\\b[A-Z][0-9A-Za-z$_]*';
 
   /*
-    To have circular references between modes the modes are shadowed with
+    To have circular references between modes, the modes are shadowed with
     pre-defined objects that are populated at the end of the file.
 
     This array list the modes to shadow.
@@ -299,6 +300,7 @@ function(hljs) {
     end: '\\}',
     markBegin: true,
     markEnd: true,
+    keywords: KEYWORDS,
     contains: CODE_CONTENT
   }
 
