@@ -101,11 +101,12 @@ def compress_content(tools_path, content, filetype='js'):
 
     return content
 
-def parse_header(content):
+def parse_header(filename):
     '''
     Parses possible language description header from a file. If a header is found returns it
     as dict, otherwise returns None.
     '''
+    content = open(filename, encoding='utf-8').read(1024)
     match = re.search(r'^\s*/\*(.*?)\*/', content, re.S)
     if not match:
         return
@@ -118,12 +119,9 @@ def language_filenames(src_path, languages):
     Resolves dependencies and returns the list of actual language filenames
     '''
     lang_path = os.path.join(src_path, 'languages')
-    filenames = os.listdir(lang_path)
-    infos = [
-        (parse_header(open(os.path.join(lang_path, f)).read(1024)), f)
-        for f in filenames
-    ]
-    infos = [(i, f) for i, f in infos if i]
+    filenames = [os.path.join(lang_path, f) for f in os.listdir(lang_path)]
+    headers = [parse_header(f) for f in filenames]
+    infos = [(h, f) for h, f in zip(headers, filenames) if h]
 
     # Filtering infos based on list of languages and categories
     if languages:
