@@ -125,10 +125,10 @@ def language_filenames(src_path, languages):
 
     # Filtering infos based on list of languages and categories
     if languages:
-        categories = set(l for l in languages if l.startswith(':'))
+        categories = {l for l in languages if l.startswith(':')}
         languages = set(languages) - categories
-        categories = set(c.strip(':') for c in categories)
-        cat_languages = set(l for c, ls in CATEGORIES.items() if c in categories for l in ls)
+        categories = {c.strip(':') for c in categories}
+        cat_languages = {l for c, ls in CATEGORIES.items() if c in categories for l in ls}
         languages |= cat_languages
         infos = [
             (i, f) for i, f in infos
