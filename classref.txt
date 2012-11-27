@@ -290,6 +290,15 @@ C# ("cs"):
   comment          commment
   xmlDocTag        xmldoc tag ("///", "<!--", "-->", "<..>")
 
+F# ("fsharp"):
+  keywords         keyword
+  number           number
+  string           string
+  commment         comment
+  class            any custom F# type
+  title            the name of a custom F# type
+  annotation       any attribute
+ 
 D language ("d"):
 
   comment          comment
