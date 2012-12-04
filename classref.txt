@@ -127,6 +127,21 @@ Markdown ("markdown"):
   link_label        link label
   link_url          link url
 
+AsciiDoc ("asciidoc"):
+
+  header            heading
+  bullet            list or labeled bullet
+  emphasis          emphasis
+  strong            strong emphasis
+  blockquote        blockquote
+  code              inline or block code
+  horizontal_rule   horizontal rule
+  link_label        link or image label
+  link_url          link or image url
+  comment           comment
+  attribute         document attribute, block attributes
+  label             admonition label
+
 Django ("django"):
 
   keyword          HTML tag in HTML, default tags and default filters in templates
