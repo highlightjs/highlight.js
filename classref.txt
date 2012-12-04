@@ -41,6 +41,18 @@ Ruby ("ruby"):
   parent           name of a parent class
   symbol           symbol
 
+Haml ("haml"):
+
+  tag              any tag starting with "%"
+  title            tag's name
+  attribute        tag's attribute
+  keyword          tag's attribute that is a keyword
+  string           attribute's value that is a string
+  value            attribute's value, shorthand id or class for tag
+  comment          comment
+  doctype          !!! declaration
+  bullet           line defined by variable
+
 Perl ("perl"):
 
   keyword          keyword
