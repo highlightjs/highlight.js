@@ -69,3 +69,4 @@ Contributors:
 - Dr. Drang <drdrang@gmail.com>
 - Robin Ward <robin.ward@gmail.com>
 - Dmitry Medvinsky <me@dmedvinsky.name>
+- Dan Allen <dan.j.allen@gmail.com>
