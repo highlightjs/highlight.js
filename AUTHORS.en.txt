@@ -70,3 +70,4 @@ Contributors:
 - Robin Ward <robin.ward@gmail.com>
 - Dmitry Medvinsky <me@dmedvinsky.name>
 - Jason Jacobson <jason.a.jacobson@gmail.com>
+- Jonas Follesø <jonas@follesoe.no>

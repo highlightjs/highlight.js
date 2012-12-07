@@ -936,6 +936,74 @@ lines!";
 }
 </code></pre>
 
+  <tr>
+    <th>F#
+    <td class="fsharp">
+<pre><code>
+open System
+
+// Single line comment...
+(*
+  This is a
+  multiline comment.
+*)
+let computeDerivative f x =
+  let p1 = f (x - 0.05)
+  let p2 = f (x + 0.05)
+  (p2 - p1) / 0.1
+
+let checkList alist =
+    match alist with
+    | [] -> 0
+    | [a] -> 1
+    | [a; b] -> 2
+    | [a; b; c] -> 3
+    | _ -> failwith "List is too big!"
+
+let getType (x : obj) =
+    match x with
+    | :? string           -> "x is a string"
+    | :? int              -> "x is an int"
+    | :? System.Exception -> "x is an exception"
+
+type IEncoding =
+    abstract Encode : string -> string
+    abstract Decode : string -> string
+let catalog = """
+Some long string...
+"""
+
+let text = "Some text..."
+let text2 = @"A verbatim string..."
+
+let rec fib x = if x <= 2 then 1 else fib(x-1) + fib(x-2)
+
+let foo = (0 + 1)
+ 
+let fibs =
+    Async.Parallel [ for i in 0..40 -> async { return fib(i) } ]
+    |> Async.RunSynchronously
+
+type Sprocket(gears) =
+  member this.Gears : int = gears
+
+[&ltAbstractClass&gt]
+type Animal =
+  abstract Speak : unit -> unit
+
+type Widget =
+  | RedWidget
+  | GreenWidget
+
+type Point = {X: float; Y: float;}
+
+[&ltMeasure&gt]
+type s
+
+let minutte = 60&lts&gt
+
+</code></pre>
+
 <tr>
     <th>D
     <td class="d">
