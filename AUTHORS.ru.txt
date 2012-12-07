@@ -69,3 +69,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Dr. Drang <drdrang@gmail.com>
 - Робин Ворд <robin.ward@gmail.com>
 - Дмитрий Медвинский <me@dmedvinsky.name>
+- Джейсон Джейкобсон <jason.a.jacobson@gmail.com>
