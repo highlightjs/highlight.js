@@ -443,6 +443,15 @@ Axapta ("axapta"):
   inheritance      keywords "extends" and "implements" inside class header
   preprocessor     preprocessor directive
 
+Oracle Rules Language ("ruleslanguage"):
+
+  comment          comment
+  string           string constant
+  number           number
+  keyword          language keywords
+  built_in         built-in functions
+  array            array stem
+
 1C ("1c"):
 
   keyword          keyword
@@ -574,11 +583,3 @@ Brainfuck ("brainfuck"):
   literal          Brainfuck inc and dec commands
   comment          comment
   string           Brainfuck input and output commands
-
-Oracle Rules Language ("ruleslanguage"):
-  comment          comment
-  string           string constant
-  number           number
-  keyword          language keywords
-  built_in         built-in functions
-  array            array stem
