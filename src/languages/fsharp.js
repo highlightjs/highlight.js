@@ -5,21 +5,23 @@ Description: F# language definition.
 */
 function(hljs) {
   return {
-    keywords: 
+    keywords:
       'abstract and as assert base begin class default delegate do done ' +
       'downcast downto elif else end exception extern false finally for ' +
       'fun function global if in inherit inline interface internal lazy let ' +
-      'match member module mutable namespace new null of open or ' + 
+      'match member module mutable namespace new null of open or ' +
       'override private public rec return sig static struct then to ' +
-      'true try type upcast use val void when while with yield',  
+      'true try type upcast use val void when while with yield',
     contains: [
-    
+
       {
         className: 'string',
-        begin: '"', end: '"',
-        contains: [
-          {begin: '@"', end: ""}
-        ]
+        begin: '@"', end: '"',
+        contains: [{begin: '""'}]
+      },
+      {
+        className: 'string',
+        begin: '"""', end: '"""'
       },
       {
         className: 'comment',
@@ -27,7 +29,7 @@ function(hljs) {
       },
       {
         className: 'comment',
-        begin: '\\(\\*', end: '\\*\\)' 
+        begin: '\\(\\*', end: '\\*\\)'
       },
       {
         className: 'class',
@@ -46,9 +48,9 @@ function(hljs) {
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE,
-      hljs.C_NUMBER_MODE      
+      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
+      hljs.C_NUMBER_MODE
     ]
   }
 }

@@ -958,12 +958,12 @@ let checkList alist =
 type IEncoding =
     abstract Encode : string -> string
     abstract Decode : string -> string
-let catalog = """
-Some long string...
-"""
 
 let text = "Some text..."
-let text2 = @"A verbatim string..."
+let text2 = @"A ""verbatim"" string..."
+let catalog = """
+Some "long" string...
+"""
 
 let rec fib x = if x <= 2 then 1 else fib(x-1) + fib(x-2)
 
