@@ -574,3 +574,11 @@ Brainfuck ("brainfuck"):
   literal          Brainfuck inc and dec commands
   comment          comment
   string           Brainfuck input and output commands
+
+Oracle Rules Language ("ruleslanguage"):
+  comment          comment
+  string           string constant
+  number           number
+  keyword          language keywords
+  built_in         built-in functions
+  array            array stem
