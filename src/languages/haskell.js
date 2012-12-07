@@ -12,6 +12,7 @@ function(hljs) {
   var CONTAINER = {
     className: 'container',
     begin: '\\(', end: '\\)',
+    illegal: '"',
     contains: [
       {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
       {className: 'title', begin: '[_a-z][\\w\']*'}
@@ -82,7 +83,8 @@ function(hljs) {
       TYPE,
       {
         className: 'title', begin: '^[_a-z][\\w\']*'
-      }
+      },
+      {begin: '->|<-'} // No markup, relevance booster
     ]
   };
 }
