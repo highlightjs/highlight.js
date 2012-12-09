@@ -227,7 +227,7 @@ function() {
   - value (an HTML string with highlighting markup)
 
   */
-  function highlight(language_name, value) {
+  function highlight(language_name, value, ignore_illegals) {
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -248,7 +248,7 @@ function() {
     }
 
     function isIllegal(lexem, mode) {
-      return mode.illegal && mode.illegalRe.test(lexem);
+      return !ignore_illegals && mode.illegal && mode.illegalRe.test(lexem);
     }
 
     function keywordMatch(mode, match) {
@@ -422,7 +422,7 @@ function() {
     for (var key in languages) {
       if (!languages.hasOwnProperty(key))
         continue;
-      var current = highlight(key, text);
+      var current = highlight(key, text, false);
       current.language = key;
       if (current.keyword_count + current.relevance > second_best.keyword_count + second_best.relevance) {
         second_best = current;
@@ -466,7 +466,7 @@ function() {
     var language = blockLanguage(block);
     if (language == 'no-highlight')
         return;
-    var result = language ? highlight(language, text) : highlightAuto(text);
+    var result = language ? highlight(language, text, true) : highlightAuto(text);
     language = result.language;
     var original = nodeStream(block);
     if (original.length) {
