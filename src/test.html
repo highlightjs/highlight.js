@@ -234,6 +234,25 @@ render action: :new
 </code></pre>
 
   <tr>
+    <th>Haml
+    <td class="haml">
+    <pre><code>!!! XML
+%html
+  %body
+    %h1.jumbo{:id=&gt;"a", :style=&gt;'font-weight: normal', :title=&gt;title} highlight.js
+    /html comment
+    -# ignore this line
+    %ul(style='margin: 0')
+    -items.each do |i|
+      %i= i
+    = variable
+    =variable2
+    ~ variable3
+    ~variable4
+    The current year is #{DataTime.now.year}.
+    </code></pre>
+
+  <tr>
     <th>Perl
     <td class="perl">
 <pre><code># loads object
