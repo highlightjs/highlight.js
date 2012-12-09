@@ -71,3 +71,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Дмитрий Медвинский <me@dmedvinsky.name>
 - Джейсон Джейкобсон <jason.a.jacobson@gmail.com>
 - Йонас Фоллесо <jonas@follesoe.no>
+- Ден Аллен <dan.j.allen@gmail.com>
