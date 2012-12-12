@@ -64,7 +64,7 @@ def lang_name(filename):
 def mapnonstrings(source, func):
     result = []
     pos = 0
-    quotes = re.compile('[\'"]')
+    quotes = re.compile('[\'"/]')
     while pos < len(source):
         match = quotes.search(source, pos)
         end = match.start() if match else len(source)
