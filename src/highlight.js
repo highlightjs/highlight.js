@@ -137,10 +137,19 @@ function() {
   function compileLanguage(language) {
 
     function langRe(value, global) {
-      return RegExp(
-        value,
-        'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
-      );
+      if(typeof value === 'string') {
+        return RegExp(
+          value,
+          'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
+        );
+      }
+      else return value;
+    }
+
+    function pattern(value) {
+      if(value === undefined) return undefined;
+      else if(typeof value === 'string') return value;
+      else return value.source;
     }
 
     function compileMode(mode, parent) {
@@ -181,7 +190,7 @@ function() {
           mode.end = '\\B|\\b';
         if (mode.end)
           mode.endRe = langRe(mode.end);
-        mode.terminator_end = mode.end || '';
+        mode.terminator_end = pattern(mode.end) || '';
         if (mode.endsWithParent && parent.terminator_end)
           mode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
       }
@@ -204,13 +213,13 @@ function() {
 
       var terminators = [];
       for (var i = 0; i < mode.contains.length; i++) {
-        terminators.push(mode.contains[i].begin);
+        terminators.push(pattern(mode.contains[i].begin));
       }
       if (mode.terminator_end) {
-        terminators.push(mode.terminator_end);
+        terminators.push(pattern(mode.terminator_end));
       }
       if (mode.illegal) {
-        terminators.push(mode.illegal);
+        terminators.push(pattern(mode.illegal));
       }
       mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : {exec: function(s) {return null;}};
     }
