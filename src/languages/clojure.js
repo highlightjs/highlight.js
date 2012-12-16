@@ -73,8 +73,7 @@ function(hljs) {
   };
   var LIST = {
     className: 'list',
-    begin: '\\(', end: '\\)',
-    relevance: 0
+    begin: '\\(', end: '\\)'
   };
   var BODY = {
     endsWithParent: true, excludeEnd: true,
