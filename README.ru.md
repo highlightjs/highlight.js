@@ -76,7 +76,7 @@ AMD-модулем и содержит все выбранные при сбор
 require(["highlight.js/build/highlight.pack"], function(hljs){
 
   // Если вы знаете язык
-  hljs.hlighlight(lang, code).value;
+  hljs.highlight(lang, code).value;
 
   // Автоопределение языка
   hljs.highlightAuto(code).value;
