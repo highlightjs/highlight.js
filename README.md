@@ -73,7 +73,7 @@ module with support for the built languages and can be used like so:
 require(["highlight.js/build/highlight.pack"], function(hljs){
 
   // If you know the language
-  hljs.hlighlight(lang, code).value;
+  hljs.highlight(lang, code).value;
 
   // Automatic language detection
   hljs.highlightAuto(code).value;
