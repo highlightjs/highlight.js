@@ -152,11 +152,11 @@ function(hljs) {
   }
   OPERATORS = REALS['OPERATORS'] = {
     className: 'operators',
-    begin: '\\+|\\*|\\||/|-|&|=|&&=|==|===|!=|!==|\\|\\|=|\\|\\||&&|\\?'
+    begin: '\\+|\\*|\\||/|-|&|=|&&=|==|===|!=|!==|\\|\\|=|\\|\\||&&|\\?|<|>|%'
   }
   PUNCTUATION = REALS['PUNCTUATION'] = {
     className: 'punctuation',
-    begin: '\\$|:|\\[|\\]|\\.|,'
+    begin: '\\$|:|\\[|\\]|\\.|,|\\.\\.\\.|\\.\\.'
   }
   NO_INTERPOLATION = REALS['NO_INTERPOLATION'] = {
     className: 'string_quote',
@@ -228,7 +228,7 @@ function(hljs) {
   }
   REGEXP_OPERATORS = REALS['REGEXP_OPERATORS'] = {
     className: 'regexp_operators',
-    begin: '\\(\\?:|\\?=|\\(\\?!|\\*|\\+|\\^|\\?|\\$|\\(|\\)'
+    begin: '\\(\\?:|\\?=|\\(\\?!|\\*|\\+|\\^|\\?|\\$|\\(|\\)|\\|\\.'
   }
   REGEXP = REALS['REGEXP'] = {
     className: 'regexp',
