@@ -160,7 +160,7 @@ function() {
           });
         }
 
-        mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE, true);
+        mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE + '(?!\\.)', true);
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords)
         } else {
@@ -174,7 +174,7 @@ function() {
       }
       if (parent) {
         if (mode.beginWithKeyword) {
-          mode.begin = '\\b(' + keywords.join('|') + ')\\b\\s*';
+          mode.begin = '\\b(' + keywords.join('|') + ')\\b(?!\\.)\\s*';
         }
         mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
