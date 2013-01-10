@@ -142,8 +142,7 @@ pre .css .function {
 }
 
 pre .diff .header,
-pre .chunk,
-pre .tex .formula {
+pre .chunk {
   background-color: #2F33AB;
   color: #E6E1DC;
   display: inline-block;
