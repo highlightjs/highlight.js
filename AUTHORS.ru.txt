@@ -73,3 +73,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Йонас Фоллесо <jonas@follesoe.no>
 - Ден Аллен <dan.j.allen@gmail.com>
 - noformnocontent <i@noformnocontent.com>
+- Дамиен Вайт <damien.white@visoftinc.com>
