@@ -5,9 +5,9 @@ Author: Dmitri Roudakov <dmitri@roudakov.ru>
 
 function(hljs) {
   return {
-    keywords: 'false int abstract private char interface boolean static null if for true ' +
-      'while long throw finally protected extends final implements return void enum else ' +
-      'break new catch byte super class case short default double public try this switch ' +
+    keywords: 'false int abstract private char boolean static null if for true ' +
+      'while long throw finally protected final return void enum else ' +
+      'break new catch byte super case short default double public try this switch ' +
       'continue reverse firstfast firstonly forupdate nofetch sum avg minof maxof count ' +
       'order group by asc desc index hint like dispaly edit client server ttsbegin ' +
       'ttscommit str real date container anytype common div mod',
