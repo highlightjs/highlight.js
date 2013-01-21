@@ -65,6 +65,7 @@ pre .smalltalk .symbol,
 pre .smalltalk .char,
 pre .go .constant,
 pre .change,
+pre .lasso .variable,
 pre .asciidoc .bullet,
 pre .markdown .bullet,
 pre .asciidoc .link_url,
@@ -98,6 +99,7 @@ pre .markdown .link_label,
 pre .vhdl .attribute,
 pre .clojure .attribute,
 pre .asciidoc .attribute,
+pre .lasso .attribute,
 pre .coffeescript .property {
   color: #88F
 }
@@ -135,6 +137,7 @@ pre .nginx .built_in {
 
 pre .coffeescript .javascript,
 pre .javascript .xml,
+pre .lasso .markup,
 pre .tex .formula,
 pre .xml .javascript,
 pre .xml .vbscript,

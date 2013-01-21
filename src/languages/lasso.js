@@ -42,6 +42,7 @@ function(hljs) {
         begin: '\\]|\\?>',
         relevance: 0,
         starts: {
+          className: 'markup',
           end: '\\[|' + LASSO_START,
           returnEnd: true
         }
@@ -50,6 +51,7 @@ function(hljs) {
         className: 'preprocessor',
         begin: '\\[noprocess\\]',
         starts: {
+          className: 'markup',
           end: '\\[/noprocess\\]',
           returnEnd: true
         }
