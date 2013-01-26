@@ -153,7 +153,7 @@
               }
           }
 
-          current = info['Default']
+          current = info['Monokai']
           current.li.className = 'current';
           current.link.disabled = false;
 
@@ -591,6 +591,39 @@ li[lang=ru] {
   background: url('hatch.png') /* wtf? */;  color: #F0F0F0 !important;
   width: 100%;
 }
+</code></pre>
+
+  <tr>
+    <th>SCSS
+    <td class="scss">
+<pre><code>
+@mixin container {
+  padding: 8px;
+}
+
+
+$white: #ffffff;
+
+@import url('print.css');
+
+.container {
+  padding: 12px;
+  .row {
+    float: left;
+  }
+}
+
+div {
+  font-family: arial;
+  padding: 12px;
+}
+
+#header {
+  top: 12px;
+}
+
+// This is a comment
+
 </code></pre>
 
   <tr>

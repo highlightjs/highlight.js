@@ -127,6 +127,27 @@ CSS ("css"):
   function         CSS function within a value
   important        "!important" symbol
 
+SCSS ("scss")
+
+  tag              tag in selectors
+  id               #some_name in selectors
+  class            .some_name in selectors
+  at_rule          @-rule till first "{" or ";"
+  attr_selector    attribute selector (square brackets in a[href^=http://])
+  pseudo           pseudo classes and elemens (:after, ::after etc.)
+  comment          comment
+  rules            everything from "{" till "}"
+  attribute        property name inside a rule
+  value            property value inside a rule, from ":" till ";" or
+                   till the end of rule block
+  number           number within a value
+  string           string within a value
+  hexcolor         hex color (#FFFFFF) within a value
+  function         CSS function within a value
+  important        "!important" symbol
+  variable         variable starting with "$"
+  mixin            @mixin definitions
+
 Markdown ("markdown"):
 
   header            header
