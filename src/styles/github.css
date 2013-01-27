@@ -44,7 +44,9 @@ pre .tex .formula {
 }
 
 pre .title,
-pre .id {
+pre .id,
+pre .scss .preprocessor
+ {
   color: #900;
   font-weight: bold
 }

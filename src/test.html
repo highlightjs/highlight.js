@@ -597,56 +597,67 @@ li[lang=ru] {
     <th>SCSS
     <td class="scss">
 <pre><code>
-  // This is a comment.
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    body:first-of-type pre::after {
+      content: 'highlight: ' attr(class);
+    }
+    body {
+      background: linear-gradient(45deg, blue, red);
+    }
+  }
   
-  $grid-columns:            12;
-  $grid-gutter-width:       1em;
-  $grid-column-width:       8em;
-  $grid-container-padding:  1em;
+  // This is a comment
   
-  #header {
+  @import "compass/css3/border-radius";
+  @include establish-baseline;
+  
+  @import url('print.css');
+  @page:right {
+   margin: 1cm 2cm 1.3cm 4cm;
+  }
+  
+  @mixin swatchesDarken($color) {
+    @for $i from 1 through 10 {
+      $x:$i+11;
+        li:nth-child(#{$x}) {
+        $n:$i*5;
+        $bgc:darken($color,$n);
+        background-color: $bgc;
+        &:before {
+          content: "#{$bgc}";
+          color: lighten($bgc,40);
+          font-family: verdana;
+          font-size: 8px;
+          padding: 2px;
+        }
+      }
+    }
+  }
+  
+  ul.yellow { 
+    @include swatchesLighten($yellowBase);
+    @include swatchesDarken($yellowBase);
+    li:nth-child(11) {
+      background-color: $yellowBase;
+    }
+  }
+
+  @font-face {
+    font-family: Chunkfive; src: url('Chunkfive.otf');
+  }
+
+  div.text,
+  #content,
+  li[lang=ru] {
+    font: Tahoma, Chunkfive, sans-serif;
+    background: url('hatch.png') /* wtf? */;  color: #F0F0F0 !important;
+    width: 100%;
+  }
+  
+  @mixin bigbutton {
     padding: 2px;
   }
-  
-  .header {
-    padding: 2px;
-    width: auto;
-  }
-  
-  input[type="text"] {
-    border: 1px solid #ffffff;
-  }
-  
-  div {
-    margin: 10px;
-  }
-  div.text {
-    display: block;
-  }
-  
-  h1, h2, h3 {
-    font-size: 10px;
-  }
-  
-  li:first-child {
-    border: none;
-  }
-  
-  @mixin row {
-    margin-left: 10px;
-  }
-  
-  pre {
-    font-size: .875em;
-    font-weight: bold;
-    @include margin-trailer(.25);
-    @include margin-leader(.25);
-    @include border-box;
-    padding: 10px;
-    margin: 20px 0;
-    text-align: center;
-  }
-  
+    
 </code></pre>
 
   <tr>

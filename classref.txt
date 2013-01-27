@@ -146,7 +146,7 @@ SCSS ("scss")
   function         CSS function within a value
   important        "!important" symbol
   variable         variable starting with "$"
-  mixin            @mixin definitions
+  preprocessor     keywords after @
 
 Markdown ("markdown"):
 
