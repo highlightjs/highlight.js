@@ -153,7 +153,7 @@
               }
           }
 
-          current = info['Monokai']
+          current = info['GitHub']
           current.li.className = 'current';
           current.link.disabled = false;
 
@@ -597,33 +597,56 @@ li[lang=ru] {
     <th>SCSS
     <td class="scss">
 <pre><code>
-@mixin container {
-  padding: 8px;
-}
-
-
-$white: #ffffff;
-
-@import url('print.css');
-
-.container {
-  padding: 12px;
-  .row {
-    float: left;
+  // This is a comment.
+  
+  $grid-columns:            12;
+  $grid-gutter-width:       1em;
+  $grid-column-width:       8em;
+  $grid-container-padding:  1em;
+  
+  #header {
+    padding: 2px;
   }
-}
-
-div {
-  font-family: arial;
-  padding: 12px;
-}
-
-#header {
-  top: 12px;
-}
-
-// This is a comment
-
+  
+  .header {
+    padding: 2px;
+    width: auto;
+  }
+  
+  input[type="text"] {
+    border: 1px solid #ffffff;
+  }
+  
+  div {
+    margin: 10px;
+  }
+  div.text {
+    display: block;
+  }
+  
+  h1, h2, h3 {
+    font-size: 10px;
+  }
+  
+  li:first-child {
+    border: none;
+  }
+  
+  @mixin row {
+    margin-left: 10px;
+  }
+  
+  pre {
+    font-size: .875em;
+    font-weight: bold;
+    @include margin-trailer(.25);
+    @include margin-leader(.25);
+    @include border-box;
+    padding: 10px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
 </code></pre>
 
   <tr>
