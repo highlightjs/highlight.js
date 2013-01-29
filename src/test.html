@@ -153,7 +153,7 @@
               }
           }
 
-          current = info['GitHub']
+          current = info['Default']
           current.li.className = 'current';
           current.link.disabled = false;
 
@@ -597,65 +597,100 @@ li[lang=ru] {
     <th>SCSS
     <td class="scss">
 <pre><code>
-  @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    body:first-of-type pre::after {
-      content: 'highlight: ' attr(class);
+// import
+@import "compass/reset";
+
+// variable
+$colorGreen: #008000;
+
+// variable with function
+$colorGreenDark: darken($colorGreen, 10);
+
+//mixin
+@mixin container {
+    max-width: 980px;
+}
+
+// mixins with parameters
+@mixin button($color:green) {
+    @if ($color == green) {
+        background-color: #008000;
     }
-    body {
-      background: linear-gradient(45deg, blue, red);
+    @else if ($color == red) {
+        background-color: #B22222;
     }
-  }
-  
-  // This is a comment
-  
-  @import "compass/css3/border-radius";
-  @include establish-baseline;
-  
-  @import url('print.css');
-  @page:right {
-   margin: 1cm 2cm 1.3cm 4cm;
-  }
-  
-  @mixin swatchesDarken($color) {
-    @for $i from 1 through 10 {
-      $x:$i+11;
-        li:nth-child(#{$x}) {
-        $n:$i*5;
-        $bgc:darken($color,$n);
-        background-color: $bgc;
-        &:before {
-          content: "#{$bgc}";
-          color: lighten($bgc,40);
-          font-family: verdana;
-          font-size: 8px;
-          padding: 2px;
-        }
+}
+
+button {
+    @include button(red);
+}
+
+// tag, class, id, attribute selectors
+div {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.navbar {
+    width: auto;
+}
+
+#header {
+    margin: 0 auto;
+}
+
+input[type="input"] {
+    display: block;
+}
+
+.row-12 > [class*="spans"] {
+    border-left: 1px solid #B5C583;
+}
+
+// nested definitions
+  ul {
+      width: 100%;
+      padding: {
+          left: 5px;
+          right: 5px;
+      }
+    li {
+        float: left;
+        margin-right: 10px;
+        .home {
+            background: url('http://placehold.it/20') scroll no-repeat 0 0;
       }
     }
   }
-  
-  ul.yellow { 
-    @include swatchesLighten($yellowBase);
-    @include swatchesDarken($yellowBase);
-    li:nth-child(11) {
-      background-color: $yellowBase;
+
+  .banner {
+      @extend .container;
+  }
+
+  a {
+    color: $colorGreen;
+    &:hover { color: $colorGreenDark; }
+    &:visited { color: #c458cb; }
+  }
+
+  // for loop and literal
+  @for $i from 1 through 5 {
+      .span#{$i} {
+          width: 20px*$i;
+      }
+  }
+
+  // media query content mixin
+  @mixin mobile {
+    @media screen and (max-width : 600px) {
+      @content;
     }
   }
 
-  @font-face {
-    font-family: Chunkfive; src: url('Chunkfive.otf');
-  }
-
-  div.text,
-  #content,
-  li[lang=ru] {
-    font: Tahoma, Chunkfive, sans-serif;
-    background: url('hatch.png') /* wtf? */;  color: #F0F0F0 !important;
-    width: 100%;
-  }
-  
-  @mixin bigbutton {
-    padding: 2px;
+  .banner {
+    float: left;
+    @include mobile {
+        float: none;
+    }
   }
     
 </code></pre>
