@@ -98,6 +98,7 @@ function(hljs) {
         illegal: '[${=;\\n]',
         contains: [TITLE, PARAMS]
       }
-    ].concat(COMMENTS)
+    ].concat(COMMENTS),
+    illegal: '//'
   };
 }
