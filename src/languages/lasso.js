@@ -5,27 +5,28 @@ Description: Lasso is a language and server platform for database-driven web app
 */
 
 function(hljs) {
-  var LASSO_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*';
+  var LASSO_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*|&[lg]t;';
   var LASSO_START = '<\\?(lasso(script)?|=)';
   return {
     case_insensitive: true,
     lexems: LASSO_IDENT_RE,
     keywords: {
-      literal:  // omits lt and gt due to conflict with &lt; and &gt;
+      literal:
         'true false none minimal full all infinity nan and or not ' +
-        'bw ew cn lte gte eq neq ft rx nrx',
+        'bw ew cn lt lte gt gte eq neq ft rx nrx',
       built_in:
         'array date decimal duration integer map pair string tag xml null ' +
-        'local var variable data self inherited global void',
+        'list queue set stack staticarray local var variable data global ' +
+        'self inherited void',
       keyword:
-        'namespace_using cache database_names database_schemanames ' +
-        'database_tablenames define_tag define_type email_batch ' +
-        'encode_set html_comment handle handle_error header if inline ' +
-        'iterate ljax_target link link_currentaction link_currentgroup ' +
-        'link_currentrecord link_detail link_firstgroup found_count ' +
+        'error_code error_msg error_pop error_push error_reset cache ' +
+        'database_names database_schemanames database_tablenames define_tag ' +
+        'define_type email_batch encode_set html_comment handle handle_error ' +
+        'header if inline iterate ljax_target link link_currentaction ' +
+        'link_currentgroup link_currentrecord link_detail link_firstgroup ' +
         'link_firstrecord link_lastgroup link_lastrecord link_nextgroup ' +
         'link_nextrecord link_prevgroup link_prevrecord log loop ' +
-        'noprocess output_none portal private protect records referer ' +
+        'namespace_using output_none portal private protect records referer ' +
         'referrer repeating resultset rows search_args search_arguments ' +
         'select sort_args sort_arguments thread_atomic value_list while ' +
         'abort case else if_empty if_false if_null if_true loop_abort ' +
@@ -58,7 +59,7 @@ function(hljs) {
       },
       {
         className: 'preprocessor',
-        begin: '\\[no_square_brackets|\\[/noprocess|' + LASSO_START,
+        begin: '\\[no_square_brackets|\\[/noprocess|' + LASSO_START
       },
       {
         className: 'preprocessor',
@@ -73,7 +74,7 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       {
         className: 'javadoc',
-        begin: '/\\*\\*!', end: '\\*/',
+        begin: '/\\*\\*!', end: '\\*/'
       },
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
@@ -97,8 +98,8 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginWithKeyword: true, end: '\\(|=>',
-        keywords: 'define', excludeEnd: true,
+        beginWithKeyword: true, keywords: 'define',
+        excludeEnd: true, end: '\\(|=>',
         contains: [
           {
             className: 'title',
