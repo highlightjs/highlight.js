@@ -74,3 +74,4 @@ Contributors:
 - Dan Allen <dan.j.allen@gmail.com>
 - noformnocontent <i@noformnocontent.com>
 - Damien White <damien.white@visoftinc.com>
+- Poren Chiang <ren.chiang@gmail.com>
