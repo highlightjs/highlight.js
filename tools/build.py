@@ -149,7 +149,7 @@ def language_filenames(src_path, languages):
     return [os.path.join(lang_path, f) for f in filenames]
 
 def strip_read(filename):
-    s = open(filename).read()
+    s = open(filename, encoding='utf-8').read()
     pattern = re.compile(r'^\s*(/\*(.*?)\*/)?\s*', re.DOTALL)
     s = pattern.sub('', s)
     return s.strip()
@@ -180,7 +180,7 @@ def glue_files(hljs_filename, language_filenames, compressed):
     '''
     if compressed:
         hljs = 'var hljs=new %s();' % strip_read(hljs_filename).rstrip(';')
-        file_func = lambda f: open(f).read()
+        file_func = lambda f: open(f, encoding='utf-8').read()
     else:
         hljs = 'var hljs = new %s();\n' % strip_read(hljs_filename)
         file_func = strip_read
@@ -196,7 +196,7 @@ def build_browser(root, build_path, filenames, options):
         print('Compressing...')
         content = compress_content(tools_path, content)
         print('Compressed size:', len(content.encode('utf-8')))
-    open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
+    open(os.path.join(build_path, 'highlight.pack.js'), 'w', encoding='utf-8').write(content)
 
 def build_amd(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
@@ -209,7 +209,7 @@ def build_amd(root, build_path, filenames, options):
         print('Compressing...')
         content = compress_content(tools_path, content)
         print('Compressed size:', len(content.encode('utf-8')))
-    open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
+    open(os.path.join(build_path, 'highlight.pack.js'), 'w', encoding='utf-8').write(content)
 
 def build_node(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
@@ -217,7 +217,7 @@ def build_node(root, build_path, filenames, options):
     for filename in filenames:
         print(filename)
         content = 'module.exports = %s;' % strip_read(filename)
-        open(os.path.join(build_path, os.path.basename(filename)), 'w').write(content)
+        open(os.path.join(build_path, os.path.basename(filename)), 'w', encoding='utf-8').write(content)
     filename = os.path.join(src_path, 'highlight.js')
     print(filename)
 
@@ -227,17 +227,17 @@ def build_node(root, build_path, filenames, options):
     for filename in filenames:
         hljs += '\nhljs.LANGUAGES[\'%s\'] = require(\'./%s\')(hljs);' % (lang_name(filename), filename)
     hljs += '\nmodule.exports = hljs;'
-    open(os.path.join(build_path, 'highlight.js'), 'w').write(hljs)
+    open(os.path.join(build_path, 'highlight.js'), 'w', encoding='utf-8').write(hljs)
     if options.compress:
         print('Notice: not compressing files for "node" target.')
 
     print('Adding package.json...')
-    package = json.load(open(os.path.join(src_path, 'package.json')))
-    authors = open(os.path.join(root, 'AUTHORS.en.txt'))
+    package = json.load(open(os.path.join(src_path, 'package.json'), encoding='utf-8'))
+    authors = open(os.path.join(root, 'AUTHORS.en.txt'), encoding='utf-8')
     matches = (re.match('^- (?P<name>.*) <(?P<email>.*)>$', a) for a in authors)
     package['contributors'] = [m.groupdict() for m in matches if m]
     content = json.dumps(package, indent=2)
-    open(os.path.join(build_path, 'package.json'), 'w').write(content)
+    open(os.path.join(build_path, 'package.json'), 'w', encoding='utf-8').write(content)
 
 def build_cdn(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
@@ -255,7 +255,7 @@ def build_cdn(root, build_path, filenames, options):
         print(filename)
         content = compress_content(tools_path, open(filename).read())
         content = wrap_language(filename, content, True)
-        open(os.path.join(lang_path, '%s.min.js' % lang_name(filename)), 'w').write(content)
+        open(os.path.join(lang_path, '%s.min.js' % lang_name(filename)), 'w', encoding='utf-8').write(content)
     print('Compressing styles...')
     build_style_path = os.path.join(build_path, 'styles')
     src_style_path = os.path.join(src_path, 'styles')
@@ -265,7 +265,7 @@ def build_cdn(root, build_path, filenames, options):
         filename = os.path.join(src_style_path, '%s.css' % style)
         print(filename)
         content = compress_content(tools_path, open(filename).read(), 'css')
-        open(os.path.join(build_style_path, '%s.min.css' % style), 'w').write(content)
+        open(os.path.join(build_style_path, '%s.min.css' % style), 'w', encoding='utf-8').write(content)
 
 def build(buildfunc, root, args):
     build_path = os.path.join(root, 'build')
