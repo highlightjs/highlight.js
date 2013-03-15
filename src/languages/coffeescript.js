@@ -198,9 +198,8 @@ function(hljs) {
   EMBEDDED = REALS['EMBEDDED'] =  {
     begin: '`',
     end: '`',
-    markBegin: true,
-    markEnd: true,
-    className: 'embedded'
+    excludeBegin: true, excludeEnd: true,
+    subLanguage: 'javascript'
   }
   REGEXP_CHAR_GROUP = REALS['REGEXP_CHAR_GROUP'] = {
     className: 'char_range',
