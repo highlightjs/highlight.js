@@ -4,9 +4,7 @@
  */
 
 pre code {
-    display: block;
-    padding: 0.5em;
-    border-radius: 4px;
+    display: block; padding: 0.5em;
     background: #282B2E;
 }
 
