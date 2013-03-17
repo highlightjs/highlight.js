@@ -1025,6 +1025,13 @@ lines!";
         return 0;
     }
 }
+
+async Task&lt;int&gt; AccessTheWebAsync()
+{
+    // ...
+    string urlContents = await getStringTask;
+    return urlContents.Length;
+}
 </code></pre>
 
   <tr>
