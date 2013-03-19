@@ -4,6 +4,7 @@ http://softwaremaniacs.org/soft/highlight/
 */
 
 function() {
+  var self = this;
 
   /* Utility functions */
 
@@ -160,7 +161,7 @@ function() {
           });
         }
 
-        mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE + '(?!\\.)', true);
+        mode.lexemsRe = langRe(mode.lexems || self.IDENT_RE + '(?!\\.)', true);
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords)
         } else {
@@ -505,7 +506,7 @@ function() {
     initHighlighting.called = true;
     Array.prototype.map.call(document.getElementsByTagName('pre'), findCode).
       filter(Boolean).
-      forEach(function(code){highlightBlock(code, hljs.tabReplace)});
+      forEach(function(code){highlightBlock(code, self.tabReplace)});
   }
 
   /*
