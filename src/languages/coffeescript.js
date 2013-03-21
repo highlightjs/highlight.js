@@ -44,7 +44,8 @@ function(hljs) {
     {
       className: 'string',
       begin: '\'', end: '\'',
-      contains: [hljs.BACKSLASH_ESCAPE]
+      contains: [hljs.BACKSLASH_ESCAPE],
+      relevance: 0
     },
     {
       className: 'string',
@@ -64,7 +65,8 @@ function(hljs) {
       contains: [hljs.HASH_COMMENT_MODE]
     },
     {
-      className: 'regexp', begin: '//[gim]*'
+      className: 'regexp', begin: '//[gim]*',
+      relevance: 0
     },
     {
       className: 'regexp',
@@ -103,7 +105,7 @@ function(hljs) {
         className: 'class',
         beginWithKeyword: true, keywords: 'class',
         end: '$',
-        illegal: ':',
+        illegal: '[:\\[\\]]',
         contains: [
           {
             beginWithKeyword: true, keywords: 'extends',
