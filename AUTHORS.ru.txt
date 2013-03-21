@@ -75,3 +75,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - noformnocontent <i@noformnocontent.com>
 - Дамиен Вайт <damien.white@visoftinc.com>
 - Александр Маренин <great_muchacho@mail.ru>
+- Седрик Нееми <cedric.nehemie@gmail.com>
