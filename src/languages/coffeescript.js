@@ -31,7 +31,7 @@ function(hljs) {
   var EXPRESSIONS = [
     // Numbers
     hljs.BINARY_NUMBER_MODE,
-    hljs.C_NUMBER_MODE,
+    hljs.inherit(hljs.C_NUMBER_MODE, {starts: {end: '(\\s*/)?', relevance: 0}}), // a number tries to eat the following slash to prevent treating it as a regexp
     // Strings
     {
       className: 'string',
@@ -65,7 +65,7 @@ function(hljs) {
     },
     {
       className: 'regexp',
-      begin: '/\\S(\\\\.|[^\\n])*/[gim]*' // \S is required to parse x / 2 / 3 as two divisions
+      begin: '/\\S(\\\\.|[^\\n])*?/[gim]*(?=\\s|\\W|$)' // \S is required to parse x / 2 / 3 as two divisions
     },
     // Javascript
     {

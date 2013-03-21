@@ -634,7 +634,21 @@ li[lang=ru] {
   <tr>
     <th>CoffeeScript
     <td class="coffeescript">
-<pre><code>grade = (student) -&gt;
+<pre><code># Divisions
+x = 6/foo/i
+x = 6 /foo
+x = 6 / foo
+x = 6 /foo * 2/gm
+x = f /foo
+x = f / foo / gm
+x = f /foo * 2/6
+
+# Regexps
+x = f /6 * 2/ - 3
+x = f /foo * 2/gm
+x = if true then /\n/ else /[.,]+/
+
+grade = (student) -&gt;
   if student.excellentWork
     "A+"
   else if student.okayStuff
@@ -677,12 +691,6 @@ Released under the MIT License
 
 OPERATOR = /// ^ (
 ?: [-=]>             # function
- | [-+*/%<>&|^!?=]=  # compound assign / compare
- | >>>=?             # zero-fill right shift
- | ([-+:])\1         # doubles
- | ([&|<>])\2=?      # logic / shift
- | \?\.              # soak access
- | \.{2,3}           # range or splat
 ) ///</code></pre>
 
 <tr>
