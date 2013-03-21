@@ -202,7 +202,9 @@ CoffeeScript ("coffeescript"):
   comment          comment
   number           number
   literal          special literal: "true", "false" and "null"
+  builtin          built-in objects and functions ("window", "console", "require", etc...)
   string           string
+  subst            #{ ... } interpolation in double-quoted strings
   regexp           regular expression
   function         header of a function
   class            header of a class
@@ -325,7 +327,7 @@ F# ("fsharp"):
   class            any custom F# type
   title            the name of a custom F# type
   annotation       any attribute
- 
+
 D language ("d"):
 
   comment          comment
