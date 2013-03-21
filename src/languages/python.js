@@ -4,41 +4,41 @@ Language: Python
 
 function(hljs) {
   var PROMPT = {
-    className: 'prompt',  begin: '^(>>>|\\.\\.\\.) '
+    className: 'prompt',  begin: /^(>>>|\.\.\.) /
   }
   var STRINGS = [
     {
       className: 'string',
-      begin: '(u|b)?r?\'\'\'', end: '\'\'\'',
+      begin: /(u|b)?r?'''/, end: /'''/,
       contains: [PROMPT],
       relevance: 10
     },
     {
       className: 'string',
-      begin: '(u|b)?r?"""', end: '"""',
+      begin: /(u|b)?r?"""/, end: /"""/,
       contains: [PROMPT],
       relevance: 10
     },
     {
       className: 'string',
-      begin: '(u|r|ur)\'', end: '\'',
+      begin: /(u|r|ur)'/, end: /'/,
       contains: [hljs.BACKSLASH_ESCAPE],
       relevance: 10
     },
     {
       className: 'string',
-      begin: '(u|r|ur)"', end: '"',
+      begin: /(u|r|ur)"/, end: /"/,
       contains: [hljs.BACKSLASH_ESCAPE],
       relevance: 10
     },
     {
       className: 'string',
-      begin: '(b|br)\'', end: '\'',
+      begin: /(b|br)'/, end: /'/,
       contains: [hljs.BACKSLASH_ESCAPE]
     },
     {
       className: 'string',
-      begin: '(b|br)"', end: '"',
+      begin: /(b|br)"/, end: /"/,
       contains: [hljs.BACKSLASH_ESCAPE]
     }
   ].concat([
@@ -50,12 +50,12 @@ function(hljs) {
   };
   var PARAMS = {
     className: 'params',
-    begin: '\\(', end: '\\)',
+    begin: /\(/, end: /\)/,
     contains: ['self', hljs.C_NUMBER_MODE, PROMPT].concat(STRINGS)
   };
   var FUNC_CLASS_PROTO = {
-    beginWithKeyword: true, end: ':',
-    illegal: '[${=;\\n]',
+    beginWithKeyword: true, end: /:/,
+    illegal: /[${=;\n]/,
     contains: [TITLE, PARAMS],
     relevance: 10
   };
@@ -69,7 +69,7 @@ function(hljs) {
       built_in:
         'None True False Ellipsis NotImplemented'
     },
-    illegal: '(</|->|\\?)',
+    illegal: /(<\/|->|\?)/,
     contains: STRINGS.concat([
       PROMPT,
       hljs.HASH_COMMENT_MODE,
@@ -78,10 +78,10 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'decorator',
-        begin: '@', end: '$'
+        begin: /@/, end: /$/
       },
       {
-        begin: '\\b(print|exec)\\(' // don’t highlight keywords-turned-functions in Python 3
+        begin: /\b(print|exec)\(/ // don’t highlight keywords-turned-functions in Python 3
       }
     ])
   };
