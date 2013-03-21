@@ -76,3 +76,4 @@ Contributors:
 - Damien White <damien.white@visoftinc.com>
 - Alexander Marenin <great_muchacho@mail.ru>
 - Cédric Néhémie <cedric.nehemie@gmail.com>
+- Simon Madine <simon@angryrobotzombie.com>
