@@ -9,7 +9,7 @@ function(hljs) {
     contains: [
       hljs.C_NUMBER_MODE,
       {
-        className: 'builtin',
+        className: 'built_in',
         begin: '{', end: '}$',
         excludeBegin: true, excludeEnd: true,
         contains: [hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE],

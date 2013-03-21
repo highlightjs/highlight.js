@@ -19,7 +19,7 @@ Python profiler results ("profile"):
 
   number           number
   string           string
-  builtin          builtin function entry
+  built_in         built-in function entry
   filename         filename in an entry
   summary          profiling summary
   header           header of table of results
@@ -202,7 +202,7 @@ CoffeeScript ("coffeescript"):
   comment          comment
   number           number
   literal          special literal: "true", "false" and "null"
-  builtin          built-in objects and functions ("window", "console", "require", etc...)
+  built_in         built-in objects and functions ("window", "console", "require", etc...)
   string           string
   subst            #{ ... } interpolation in double-quoted strings
   regexp           regular expression

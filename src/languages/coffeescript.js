@@ -21,7 +21,7 @@ function(hljs) {
     reserved:
       'case default function var void with const let enum export import native ' +
       '__hasProp __extends __slice __bind __indexOf',
-    builtin:
+    built_in:
       'npm require console print module exports global window document'
   };
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
