@@ -136,15 +136,15 @@ function() {
 
   function compileLanguage(language) {
 
-    function langRe(value, global) {
-      return RegExp(
-        value,
-        'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
-      );
-    }
-
     function reStr(re) {
         return (re && re.source) || re;
+    }
+
+    function langRe(value, global) {
+      return RegExp(
+        reStr(value),
+        'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
+      );
     }
 
     function compileMode(mode, parent) {
