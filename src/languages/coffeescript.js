@@ -27,51 +27,63 @@ function(hljs) {
     className: 'subst',
     begin: '#\\{', end: '}',
     keywords: KEYWORDS,
-    contains: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]
   };
+  var EXPRESSIONS = [
+    // Numbers
+    hljs.BINARY_NUMBER_MODE,
+    hljs.C_NUMBER_MODE,
+    // Strings
+    {
+      className: 'string',
+      begin: '\'\'\'', end: '\'\'\'',
+      contains: [hljs.BACKSLASH_ESCAPE]
+    },
+    {
+      className: 'string',
+      begin: '\'', end: '\'',
+      contains: [hljs.BACKSLASH_ESCAPE]
+    },
+    {
+      className: 'string',
+      begin: '"""', end: '"""',
+      contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+    },
+    {
+      className: 'string',
+      begin: '"', end: '"',
+      contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+      relevance: 0
+    },
+    // RegExps
+    {
+      className: 'regexp',
+      begin: '///', end: '///',
+      contains: [hljs.HASH_COMMENT_MODE]
+    },
+    {
+      className: 'regexp', begin: '//[gim]*'
+    },
+    {
+      className: 'regexp',
+      begin: '/\\S(\\\\.|[^\\n])*/[gim]*' // \S is required to parse x / 2 / 3 as two divisions
+    },
+    // Javascript
+    {
+      begin: '`', end: '`',
+      excludeBegin: true, excludeEnd: true,
+      subLanguage: 'javascript'
+    }
+  ];
+  SUBST.contains = EXPRESSIONS;
 
   return {
     keywords: KEYWORDS,
-    contains: [
-      // Numbers
-      hljs.BINARY_NUMBER_MODE,
-      hljs.C_NUMBER_MODE,
-      // Strings
-      hljs.APOS_STRING_MODE,
-      {
-        className: 'string',
-        begin: '"""', end: '"""',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-      },
-      {
-        className: 'string',
-        begin: '"', end: '"',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-        relevance: 0
-      },
-      // Comments
+    contains: EXPRESSIONS.concat([
       {
         className: 'comment',
         begin: '###', end: '###'
       },
       hljs.HASH_COMMENT_MODE,
-      {
-        className: 'regexp',
-        begin: '///', end: '///',
-        contains: [hljs.HASH_COMMENT_MODE]
-      },
-      {
-        className: 'regexp', begin: '//[gim]*'
-      },
-      {
-        className: 'regexp',
-        begin: '/\\S(\\\\.|[^\\n])*/[gim]*' // \S is required to parse x / 2 / 3 as two divisions
-      },
-      {
-        begin: '`', end: '`',
-        excludeBegin: true, excludeEnd: true,
-        subLanguage: 'javascript'
-      },
       {
         className: 'function',
         begin: JS_IDENT_RE + '\\s*=\\s*(\\(.+\\))?\\s*[-=]>',
@@ -103,6 +115,6 @@ function(hljs) {
         className: 'property',
         begin: '@' + JS_IDENT_RE
       }
-    ]
+    ])
   };
 }

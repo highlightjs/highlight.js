@@ -667,7 +667,7 @@ hi = `function() {
 }`
 
 heredoc = """
-CoffeeScript numbers test #{ 010 + 0xf / 0b10 }
+CoffeeScript subst test #{ 010 + 0xf / 0b10 + "nested string #{ /\n/ }"}
 """
 
 ###
