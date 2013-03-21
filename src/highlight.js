@@ -138,9 +138,9 @@ function() {
 
     function langRe(value, global) {
       return RegExp(
-          value,
-          'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
-        );
+        value,
+        'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
+      );
     }
 
     function reStr(re) {
