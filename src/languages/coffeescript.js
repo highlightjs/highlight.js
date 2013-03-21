@@ -17,9 +17,12 @@ function(hljs) {
       // JS literals
       'true false null undefined ' +
       // Coffee literals
-      'yes no on off ',
-    reserved: 'case default function var void with const let enum export import native ' +
-      '__hasProp __extends __slice __bind __indexOf'
+      'yes no on off',
+    reserved:
+      'case default function var void with const let enum export import native ' +
+      '__hasProp __extends __slice __bind __indexOf',
+    builtin:
+      'npm require console print module exports global window document'
   };
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var TITLE = {className: 'title', begin: JS_IDENT_RE};
