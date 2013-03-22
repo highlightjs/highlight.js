@@ -190,11 +190,13 @@ def glue_files(hljs_filename, language_filenames, compressed):
         file_func = strip_read
     return ''.join([hljs] + [wrap_language(f, file_func(f), compressed) for f in language_filenames])
 
-def build_browser(root, build_path, filenames, options):
+def build_browser(root, build_path, filenames, options, isAMD=False):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')
     print('Building %d files:\n%s' % (len(filenames), '\n'.join(filenames)))
     content = glue_files(os.path.join(src_path, 'highlight.js'), filenames, False)
+    if isAMD:
+      content = 'define(function() {\n%s\nreturn hljs;\n});' % content # AMD wrap
     print('Uncompressed size:', len(content.encode('utf-8')))
     if options.compress:
         print('Compressing...')
@@ -203,17 +205,7 @@ def build_browser(root, build_path, filenames, options):
     utf8_open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
 
 def build_amd(root, build_path, filenames, options):
-    src_path = os.path.join(root, 'src')
-    tools_path = os.path.join(root, 'tools')
-    print('Building %d files:\n%s' % (len(filenames), '\n'.join(filenames)))
-    content = glue_files(os.path.join(src_path, 'highlight.js'), filenames, False)
-    content = 'define(function() {\n%s\nreturn hljs;\n});' % content # AMD wrap
-    print('Uncompressed size:', len(content.encode('utf-8')))
-    if options.compress:
-        print('Compressing...')
-        content = compress_content(tools_path, content)
-        print('Compressed size:', len(content.encode('utf-8')))
-    utf8_open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
+    build_browser(root, build_path, filenames, options, True)
 
 def build_node(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
