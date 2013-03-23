@@ -5,10 +5,6 @@ Contributrors: Benjamin Pannell <contact@sierrasoftworks.com>
 */
 
 function(hljs) {
-  var BASH_LITERAL = 'true false';
-  var BASH_KEYWORD = 'if then else elif fi for break continue while in do done exit return set declare case esac export exec';
-  var BASH_BUILTIN = 'printf echo read cd pwd pushd popd dirs let eval unset typeset readonly getopts source shopt caller type hash bind help sudo';
-  var BASH_OPERATOR = '-ne -eq -lt -gt -f -d -e -s -l -a'; // relevance booster
   var VAR1 = {
     className: 'variable', begin: /\$[\w\d#@][\w\d_]*/
   };
@@ -39,10 +35,16 @@ function(hljs) {
   return {
     lexems: /-?[a-z]+/,
     keywords: {
-      keyword: BASH_KEYWORD,
-      literal: BASH_LITERAL,
-      built_in: BASH_BUILTIN,
-      operator: BASH_OPERATOR
+      keyword:
+        'if then else elif fi for break continue while in do done exit return set '+
+        'declare case esac export exec',
+      literal:
+        'true false',
+      built_in:
+        'printf echo read cd pwd pushd popd dirs let eval unset typeset readonly '+
+        'getopts source shopt caller type hash bind help sudo',
+      operator:
+        '-ne -eq -lt -gt -f -d -e -s -l -a' // relevance booster
     },
     contains: [
       {
