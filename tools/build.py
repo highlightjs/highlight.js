@@ -68,7 +68,7 @@ def utf8_open(filename, mode='r'):
 def mapnonstrings(source, func):
     result = []
     pos = 0
-    quotes = re.compile('[\'"/]')
+    quotes = re.compile('[\'"]')
     while pos < len(source):
         match = quotes.search(source, pos)
         end = match.start() if match else len(source)
@@ -249,7 +249,7 @@ def build_cdn(root, build_path, filenames, options):
     all_filenames = language_filenames(src_path, [])
     for filename in all_filenames:
         print(filename)
-        content = compress_content(tools_path, open(filename).read())
+        content = compress_content(tools_path, utf8_open(filename).read())
         content = wrap_language(filename, content, True)
         utf8_open(os.path.join(lang_path, '%s.min.js' % lang_name(filename)), 'w').write(content)
     print('Compressing styles...')
