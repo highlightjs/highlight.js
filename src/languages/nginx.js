@@ -92,7 +92,8 @@ function(hljs) {
             begin: hljs.UNDERSCORE_IDENT_RE,
             starts: DEFAULT
           }
-        ]
+        ],
+        relevance: 0
       }
     ],
     illegal: '[^\\s\\}]'
