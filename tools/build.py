@@ -196,7 +196,7 @@ def build_browser(root, build_path, filenames, options, isAMD=False):
     print('Building %d files:\n%s' % (len(filenames), '\n'.join(filenames)))
     content = glue_files(os.path.join(src_path, 'highlight.js'), filenames, False)
     if isAMD:
-      content = 'define(function() {\n%s\nreturn hljs;\n});' % content # AMD wrap
+        content = 'define(function() {\n%s\nreturn hljs;\n});' % content # AMD wrap
     print('Uncompressed size:', len(content.encode('utf-8')))
     if options.compress:
         print('Compressing...')
@@ -232,7 +232,7 @@ def build_node(root, build_path, filenames, options):
     authors = utf8_open(os.path.join(root, 'AUTHORS.en.txt'))
     matches = (re.match('^- (?P<name>.*) <(?P<email>.*)>$', a) for a in authors)
     package['contributors'] = [m.groupdict() for m in matches if m]
-    content = json.dumps(package, indent=2)
+    content = json.dumps(package, indent=2, ensure_ascii=False)
     utf8_open(os.path.join(build_path, 'package.json'), 'w').write(content)
 
 def build_cdn(root, build_path, filenames, options):
