@@ -77,3 +77,4 @@ Contributors:
 - Alexander Marenin <great_muchacho@mail.ru>
 - Cédric Néhémie <cedric.nehemie@gmail.com>
 - Simon Madine <simon@angryrobotzombie.com>
+- Benjamin Pannell <contact@sierrasoftworks.com>

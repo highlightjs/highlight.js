@@ -1580,7 +1580,7 @@ genApacheConf(){
  else
   full_domain=$2.$1
  fi
- host_root="${APACHE_HOME_DIR}$1/$2"
+ host_root="${APACHE_HOME_DIR}$1/$2/$(title)"
  echo -e "# Host $1/$2 :"
 }
 </code></pre>

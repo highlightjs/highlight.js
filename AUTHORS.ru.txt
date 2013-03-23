@@ -77,3 +77,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Александр Маренин <great_muchacho@mail.ru>
 - Седрик Нееми <cedric.nehemie@gmail.com>
 - Саймон Мадин <simon@angryrobotzombie.com>
+- Бенджамин Паннел <contact@sierrasoftworks.com>
