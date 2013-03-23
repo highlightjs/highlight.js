@@ -139,7 +139,7 @@ function(hljs) {
       // inline code snippets (TODO should get same treatment as strong and emphasis)
       {
         className: 'code',
-        begin: '`.+?`',
+        begin: '(`.+?`|\\+.+?\\+)',
         relevance: 0
       },
       // indented literal block
