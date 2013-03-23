@@ -76,7 +76,7 @@ function(hljs) {
     begin: '\\(', end: '\\)'
   };
   var BODY = {
-    endsWithParent: true, excludeEnd: true,
+    endsWithParent: true,
     keywords: {literal: 'true false nil'},
     relevance: 0
   };

@@ -335,7 +335,8 @@ function() {
 
       var end_mode = endOfMode(top, lexem);
       if (end_mode) {
-        if (!(end_mode.returnEnd || end_mode.excludeEnd)) {
+        var origin = top;
+        if (!(origin.returnEnd || origin.excludeEnd)) {
           mode_buffer += lexem;
         }
         result += processBuffer();
@@ -345,14 +346,14 @@ function() {
           }
           top = top.parent;
         } while (top != end_mode.parent);
-        if (end_mode.excludeEnd) {
+        if (origin.excludeEnd) {
           result += escape(lexem);
         }
         mode_buffer = '';
         if (end_mode.starts) {
           startNewMode(end_mode.starts, '');
         }
-        return end_mode.returnEnd ? 0 : lexem.length;
+        return origin.returnEnd ? 0 : lexem.length;
       }
 
       if (isIllegal(lexem, top))

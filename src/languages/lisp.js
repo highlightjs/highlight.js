@@ -70,7 +70,7 @@ function(hljs) {
     begin: '\\(', end: '\\)'
   };
   var BODY = {
-    endsWithParent: true, excludeEnd: true,
+    endsWithParent: true,
     relevance: 0
   };
   LIST.contains = [{className: 'title', begin: LISP_IDENT_RE}, BODY];
