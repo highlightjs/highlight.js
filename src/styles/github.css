@@ -44,7 +44,8 @@ pre .tex .formula {
 }
 
 pre .title,
-pre .id {
+pre .id,
+pre .coffeescript .params {
   color: #900;
   font-weight: bold
 }
