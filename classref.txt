@@ -108,6 +108,23 @@ HTML, XML ("xml"):
   doctype          <!DOCTYPE ... > declaration
   cdata            CDATA section
 
+Lasso ("lasso"):
+
+  preprocessor     delimiters and interpreter flags
+  shebang          Lasso 9 shell script header
+  comment          single- or multi-line comment
+  javadoc          doc comment
+  keyword          keyword
+  literal          keyword representing a value
+  built_in         built-in types and variables
+  number           number
+  string           string
+  variable         variable reference starting with "#" or "$"
+  tag              tag literal
+  attribute        named or rest parameter in method signature
+  class            type, trait, or method header
+  title            name following "define" inside a header
+
 CSS ("css"):
 
   tag              tag in selectors

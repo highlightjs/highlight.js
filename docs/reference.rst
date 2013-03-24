@@ -81,7 +81,7 @@ Used instead of ``begin`` for modes starting with keywords to avoid needless rep
 ::
 
   {
-    beginWithKeywords: true, keywords: 'extends implements'
+    beginWithKeyword: true, keywords: 'extends implements'
   }
 
 

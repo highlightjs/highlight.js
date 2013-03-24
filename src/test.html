@@ -438,6 +438,54 @@ func main() {
 &lt;/body&gt;
 </code></pre>
 
+  <tr>
+    <th>Lasso
+    <td class="lasso">
+<pre><code>
+&lt;?LassoScript
+/* Lasso 8 */
+  local('query' = 'SELECT * FROM `'+var:'table'+'` WHERE `id` &gt; 10
+    ORDER BY `Name` LIMIT 30');
+  Inline: -Username=$DBuser, -Password=$DBpass, -Database=$DBname, -sql=#query;
+    var("class.name" = (found_count != 0 ? `subtotal` | `nonefound`));
+    records;
+      output: ?&gt;&lt;tr&gt;[loop_count]&lt;/tr&gt;&lt;?=;
+    /records;
+  /Inline;
+?&gt;&lt;div class="[$class.name]"&gt;[found_count]&lt;/div&gt;
+[noprocess] causes [delimiters] to be skipped until the next [/noprocess]
+&lt;?lasso
+/* Lasso 9 */
+  define strings_combine(value::string, ...other)::string =&gt; { 
+    local(result = #value-&gt;append(#other-&gt;asString))
+    return #result
+  }
+  /**! descriptive text */
+  define person =&gt; type {
+    data name::string, protected nickname
+    data birthdate::date
+    data private ssn = null
+    public showName() =&gt; return .'name'
+    protected fullName() =&gt; '"' + .nickname + '"' + .'name'
+    public ssnListed =&gt; .ssn ? true | false
+  }
+  define person-&gt;name=(value) =&gt; {
+    .'name' = #value
+    return self-&gt;'name'
+  }
+  // query expression
+  with n in array(-1, 0xABCD, 3.14159e14)
+  let swapped = pair(#n-&gt;second, #n-&gt;first)
+  group #swapped by #n-&gt;first into t
+  let key = #t-&gt;key
+  order by #key
+  select pair(#key, #t)
+  do {^
+    #n-&gt;upperCase
+  ^}
+?&gt;
+</code></pre>
+
 	<tr>
 		<th>Markdown
 		<td class="markdown">

@@ -78,3 +78,4 @@ Contributors:
 - Cédric Néhémie <cedric.nehemie@gmail.com>
 - Simon Madine <simon@angryrobotzombie.com>
 - Benjamin Pannell <contact@sierrasoftworks.com>
+- Eric Knibbe <eric@lassosoft.com>
