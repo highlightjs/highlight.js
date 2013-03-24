@@ -441,8 +441,7 @@ func main() {
   <tr>
     <th>Lasso
     <td class="lasso">
-<pre><code>
-&lt;?LassoScript
+<pre><code>&lt;?LassoScript
 /* Lasso 8 */
   local('query' = 'SELECT * FROM `'+var:'table'+'` WHERE `id` &gt; 10
     ORDER BY `Name` LIMIT 30');
@@ -456,7 +455,7 @@ func main() {
 [noprocess] causes [delimiters] to be skipped until the next [/noprocess]
 &lt;?lasso
 /* Lasso 9 */
-  define strings_combine(value::string, ...other)::string =&gt; { 
+  define strings_combine(value::string, ...other)::string =&gt; {
     local(result = #value-&gt;append(#other-&gt;asString))
     return #result
   }
