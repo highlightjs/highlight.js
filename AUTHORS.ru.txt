@@ -78,3 +78,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Седрик Нееми <cedric.nehemie@gmail.com>
 - Саймон Мадин <simon@angryrobotzombie.com>
 - Бенджамин Паннел <contact@sierrasoftworks.com>
+- Эрик Книббе <eric@lassosoft.com>
