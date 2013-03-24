@@ -43,7 +43,8 @@ pre .tex .command,
 pre .tex .special,
 pre .erlang_repl .function_or_atom,
 pre .asciidoc .header,
-pre .markdown .header {
+pre .markdown .header,
+pre .coffeescript .attribute {
   color: #800;
 }
 

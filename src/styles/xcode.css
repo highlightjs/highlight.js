@@ -67,7 +67,9 @@ pre .symbol .string,
 pre .number,
 pre .css .function,
 pre .clojure .title,
-pre .clojure .built_in {
+pre .clojure .built_in,
+pre .function .title,
+pre .coffeescript .attribute {
   color: rgb(28,0,207);
 }
 

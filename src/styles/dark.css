@@ -54,7 +54,8 @@ pre .envvar,
 pre .apache .tag,
 pre .apache .cbracket,
 pre .tex .command,
-pre .prompt {
+pre .prompt,
+pre .coffeescript .attribute {
   color: #D88;
 }
 

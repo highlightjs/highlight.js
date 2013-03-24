@@ -89,7 +89,8 @@ pre .css .rules .value,
 pre .attr_selector,
 pre .pseudo,
 pre .apache .cbracket,
-pre .tex .formula {
+pre .tex .formula,
+pre .coffeescript .attribute {
   color: #CC9393;
 }
 

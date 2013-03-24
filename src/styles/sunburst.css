@@ -38,7 +38,8 @@ pre .filter .argument,
 pre .attr_selector,
 pre .apache .cbracket,
 pre .date,
-pre .tex .command {
+pre .tex .command,
+pre .coffeescript .attribute {
   color: #65B042;
 }
 

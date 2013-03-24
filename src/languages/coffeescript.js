@@ -126,6 +126,11 @@ function(hljs) {
       {
         className: 'property',
         begin: '@' + JS_IDENT_RE
+      },
+      {
+        className: 'attribute',
+        begin: JS_IDENT_RE + ':', end: ':',
+        returnBegin: true, excludeEnd: true
       }
     ])
   };

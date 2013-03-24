@@ -36,7 +36,8 @@ pre .addition,
 pre .flow,
 pre .stream,
 pre .bash .variable,
-pre .apache .cbracket {
+pre .apache .cbracket,
+pre .coffeescript .attribute {
   color: #050;
 }
 

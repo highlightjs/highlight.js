@@ -47,7 +47,8 @@ pre .flow,
 pre .stream,
 pre .apache .tag,
 pre .date,
-pre .tex .formula {
+pre .tex .formula,
+pre .coffeescript .attribute {
   color: rgb(163, 21, 21);
 }
 

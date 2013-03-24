@@ -62,7 +62,8 @@ pre .envvar,
 pre .apache .tag,
 pre .apache .cbracket,
 pre .nginx .built_in,
-pre .tex .command {
+pre .tex .command,
+pre .coffeescript .attribute {
   color: #2C009F;
 }
 

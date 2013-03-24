@@ -32,7 +32,8 @@ pre .addition,
 pre .apache .tag,
 pre .apache .cbracket,
 pre .tex .command,
-pre .clojure .title {
+pre .clojure .title,
+pre .coffeescript .attribute {
   color: #FF0;
 }
 
