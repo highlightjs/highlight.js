@@ -6,7 +6,7 @@ Author: Oleg Volchkov <oleg@volchkov.net>
 
 function(hljs) {
   return {
-    subLanguage: 'xml',
+    subLanguage: 'xml', relevance: 0,
     contains: [
       {
         className: 'comment',
