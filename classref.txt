@@ -638,3 +638,8 @@ Brainfuck ("brainfuck"):
   literal          Brainfuck inc and dec commands
   comment          comment
   string           Brainfuck input and output commands
+
+Mizar ("mizar"):
+
+  keyword          keyword
+  comment          comment
