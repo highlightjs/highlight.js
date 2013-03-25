@@ -72,7 +72,11 @@ function(hljs) {
       className: 'regexp',
       begin: '/\\S(\\\\.|[^\\n])*?/[gim]*(?=\\s|\\W|$)' // \S is required to parse x / 2 / 3 as two divisions
     },
-    // Javascript
+
+    {
+      className: 'property',
+      begin: '@' + JS_IDENT_RE
+    },
     {
       begin: '`', end: '`',
       excludeBegin: true, excludeEnd: true,
@@ -122,10 +126,6 @@ function(hljs) {
           },
           TITLE
         ]
-      },
-      {
-        className: 'property',
-        begin: '@' + JS_IDENT_RE
       },
       {
         className: 'attribute',
