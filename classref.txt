@@ -254,6 +254,16 @@ VBScript ("vbscript"):
   comment          comment
   built_in         built-in function
 
+VB.Net ("vbnet"):
+
+  keyword          keyword
+  built_in         built-in types
+  literal          "true", "false" and "nothing"
+  string           string
+  comment          comment
+  xmlDocTag        xmldoc tag ("'''", "<!--", "-->", "<..>")
+  preprocessor     preprocessor directive
+
 HTTP ("http"):
 
   request          first line of a request
