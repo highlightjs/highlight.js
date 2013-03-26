@@ -5,7 +5,6 @@
 
 function(hljs) {
   return {
-    case_insensitive: false,
     keywords: [
       "environ vocabularies notations constructors definitions registrations theorems schemes requirements",
       "begin end definition registration cluster existence pred func defpred deffunc theorem proof",

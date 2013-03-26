@@ -2230,6 +2230,277 @@ foo %union% bar
 
 </code></pre>
 
+
+  <tr>
+    <th>Mizar
+    <td class="mizar">
+<pre><code>::: ## Lambda calculus
+
+::: Environ originally taken from `finseq_2`. Later, I added trees and orders.
+environ
+
+  ::: Vocabularies are basically for Mizar's lexer.
+  vocabularies LAMBDA,
+      NUMBERS,
+      NAT_1, XBOOLE_0, SUBSET_1, FINSEQ_1, XXREAL_0, CARD_1,
+      ARYTM_1, ARYTM_3, TARSKI, RELAT_1, ORDINAL4, FUNCOP_1,
+      FUNCT_1, FUNCT_2,
+      ZFMISC_1, PARTFUN1,
+      ORDERS_2, ORDERS_1,
+      FINSEQ_2, PBOOLE, CARD_3, VALUED_1,
+      TREES_2, TREES_1;
+  
+  ::: Radix type specifications
+  notations TARSKI, XBOOLE_0, ENUMSET1, ZFMISC_1, SUBSET_1, ORDINAL1, CARD_1,
+      NUMBERS, XCMPLX_0, DOMAIN_1, NAT_1, RELAT_1, PARTFUN1,
+      FUNCT_1, FUNCT_2,
+      FUNCT_3, FINSEQ_1, BINOP_1, PBOOLE, FUNCOP_1, CARD_3,
+      TREES_2, TREES_1,
+      ORDERS_1, ORDERS_2,
+      XXREAL_0, VALUED_1,
+      RECDEF_1;
+
+  ::: For modes? (unknown mode format resolved)
+  constructors RELAT_2, PARTFUN1, BINOP_1, DOMAIN_1,
+      FUNCT_1, FUNCT_2, FUNCT_3,
+      FUNCOP_1,
+      SQUARE_1, NAT_1, FINSEQ_1, RELSET_1, PBOOLE, CARD_3, VALUED_1, SETFAM_1,
+      TREES_2, TREES_1,
+      ORDERS_1, ORDERS_2,
+      RECDEF_1;
+
+  ::: Definition are for automatically unfolding predicates in the thesis you are proving
+  definitions TARSKI,
+      FUNCT_1, FUNCT_2,
+      FINSEQ_1, CARD_1, PBOOLE, FUNCOP_1,
+      ORDERS_1,
+      TREES_2, TREES_1;
+
+  ::: Registrations are for clusters (showing that a type exists (is non-empty),
+  :::  and automatically adding adjectives)
+  registrations XBOOLE_0, SUBSET_1, RELAT_1, ORDINAL1, PARTFUN1,
+      FUNCT_1, FUNCT_2,
+      FUNCOP_1, XXREAL_0, XREAL_0, NAT_1, FINSEQ_1, CARD_1, RELSET_1,
+      PBOOLE, CARD_3,
+      ORDERS_2,
+      TREES_2, TREES_1;
+
+  schemes RECDEF_1;
+
+  requirements BOOLE, SUBSET, NUMERALS, ARITHM, REAL;
+
+begin
+
+reserve D for DecoratedTree,
+        p,q,r for FinSequence of NAT,
+        x for set;
+
+::: ### Lambda terms
+::
+
+::: A _lambda term_ is identified with it's AST (abstract
+:::  syntax tree). More precisely, we identify a lambda term
+:::  with a finite decorated tree.
+::: The nodes of the tree denote either application, abstraction
+:::  or a variable. Using _De Bruijn_ variable indexing, we decorate
+:::  variables with their De Bruijn index (a natural nuber). Note
+:::  that we needn't explicitly annotate the type of a node,
+:::  as the three types of nodes differ in how many children they must
+:::  have: an application always has two children, an abstraction but one,
+:::  and variables don't have any. So it suffices to decorate application
+:::  and abstraction nodes with some default value (say, $0$).
+
+::: In Mizar, a `Tree` is a non-empty subset of `NAT*`, so a set of finite
+:::  sequences of natural numbers, such that certain logical properties hold.
+::: Every such sequence denotes a node in the tree, and can be interpreted
+:::  as a _path specification_ (how to get there, from the top). We see, then,
+:::  that lambda term trees are a specific subset of general trees, in which
+:::  only finite sequences of $\\{0,1\\}$ are used to denote nodes, nodes
+:::  with children are decorated with a $0$, and is also finite in height.
+::: By _decorating_ a node `r` with a number `n`, we mean that `M.r = n`.
+::: Here `M` is the `DecoratedTree of NAT` which represents the lambda term.
+
+definition
+  let D;
+  
+  attr D is LambdaTerm-like means
+    (dom D qua Tree) is finite &
+::>                          *143,306
+::                           This must be an environ error,
+::                            but I haven't been able to sort it out.
+    for r st r in dom D holds
+      r is FinSequence of {0,1} &
+      r^<*0*> in dom D implies D.r = 0;
+end;
+
+registration
+  cluster LambdaTerm-like for DecoratedTree of NAT;
+  existence;
+::>       *4
+end;
+
+definition
+  mode LambdaTerm is LambdaTerm-like DecoratedTree of NAT;
+end;
+
+reserve M,N,P,Q for LambdaTerm;
+
+::: Let Mizar know that `M|r` is also a `LambdaTerm`.
+::: The definition of `|` that we are using is the definition
+:::  that operates on (and returns) a `DecoratedTree`. Showing
+:::  that retricting a `LambdaTerm` produces a `NAT-valued` result
+:::  ensures that the result is then a `DecoratedTree of NAT`;
+:::  which then together with `LambdaTerm-like` means that it is
+:::  indeed a `LambdaTerm`.
+registration
+  let M,r;
+
+  cluster M|r -> NAT-valued LambdaTerm-like;
+  coherence;
+::>       *4,4
+end;
+
+theorem
+  (M|r qua DecoratedTree of NAT) is LambdaTerm
+proof
+  thus thesis;
+end;
+
+::: See below, definition of `beta*`.
+definition
+  func LAMBDA_TERMS -> set means
+    for M holds M in it & for x st x in it holds x is LambdaTerm;
+  existence;
+::>       *4
+  uniqueness;
+::>        *4
+end;
+
+::: Some helper definitions for working with lambda terms.
+definition
+  let M,r;
+  
+  pred r is_variable_in M means
+    not r^<*0*> in dom M;
+
+  pred r is_abstraction_in M means
+    r^<*0*> in dom M & not r^<*1*> in dom M;
+
+  pred r is_application_in M means
+    r^<*0*> in dom M & r^<*1*> in dom M;
+end;
+
+::: By $r$ being an _active variable_ of some term $M$ (or more precisely,
+:::  a path identifying an active variable), I mean that if $\lambda M$ were
+:::  to be applied to some other term $N$, we would substitute this variable
+:::  by $M$.
+definition
+  let M,r;
+  
+  pred r is_active_variable_in M means
+    r is_variable_in M &
+    M.r = card { p where p is Element of dom M
+                 : p is_a_proper_prefix_of r &
+                   p is_abstraction_in M };
+end;
+
+definition
+  let M;
+  
+  func Abs(M) -> LambdaTerm means
+    it|<*0*> = M & not <*0*> in dom it;
+  existence;
+::>       *4
+  uniqueness;
+::>        *4
+end;
+
+definition
+  let M,N;
+
+  func App(M,N) -> LambdaTerm means
+    it|<*0*> = M & it|<*1*> = N;
+  existence;
+::>       *4
+  uniqueness;
+::>        *4
+end;
+
+definition
+  let M,N;
+
+  func SubstituteActiveVar(M,N) -> LambdaTerm means
+    :: most things are the same,
+    (for r st not (ex p st p is_active_variable_in N &
+                           p is_a_prefix_of r)
+           holds [r,x] in it iff [r,x] in N
+    ) &
+    :: except that the active variables are replaced with M
+    (for r st r is_active_variable_in N holds it|r = M);
+  existence;
+::>       *4
+  uniqueness;
+::>        *4
+end;
+
+::: ### Reduction and conversion
+::
+
+::: First I define _shallow_ one-step beta substitution, which only
+:::  states (the De Bruijn equivalent of)
+:::  $(\\lambda x.N)M \\to_{\\beta} N[x:=M]$.
+
+definition
+  let P,Q;
+  
+  :: P === (\x.N)M --> N[x:=M] === Q
+  pred P beta_shallow Q means
+    ex M,N st
+      :: P === (\x.N)M
+      P = App(Abs(N),M) &
+
+      :: Q === N[x:=M]
+      Q = SubstituteActiveVar(N,M);
+end;
+
+::: Then we extend this ordinary one-step beta reduction, that is,
+:::  any subterm is also allowed to reduce.
+definition
+  let M,N;
+
+  pred M beta N means
+    ex p st
+      M|p beta_shallow N|p &
+      for q st not p is_a_prefix_of q holds
+        [r,x] in M iff [r,x] in N;
+end;
+
+::: We close the relation under transitivity and reflexivity
+:::  to get the full beta reduction relation.
+
+::: I defined the set `LAMBDA_TERMS` above, to avoid the 102 error
+:::  here, but apparently is doesn't work (as can be seen by the fact
+:::  that the qua gives an 116 error).
+definition
+  let M,N;
+  
+  pred M beta* N means
+    ex Ps being FinSequence of LAMBDA_TERMS st
+      (Ps.1 qua LambdaTerm) = M & Ps.(len Ps) = N &
+::>           *116
+      for n being Nat st 1 <= n & n < len Ps holds
+        (Ps.n qua LambdaTerm) beta Ps.(n + 1);
+::>             *116             *102
+end;
+
+::: And then close under symmetry to get beta conversion.
+definition
+  let M,N;
+  
+  pred M beta= N means
+    M beta* N or N beta* M;
+end;</code></pre>
+
 </table>
 
 <script>
