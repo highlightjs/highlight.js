@@ -200,6 +200,9 @@ function() {
         if (mode.contains[i] == 'self') {
           mode.contains[i] = mode;
         }
+        else if(mode.contains[i] == 'parent') {
+          mode.contains[i] = parent;
+        }
         compileMode(mode.contains[i], mode);
       }
       if (mode.starts) {
