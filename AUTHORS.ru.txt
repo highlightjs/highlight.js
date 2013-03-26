@@ -79,3 +79,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Саймон Мадин <simon@angryrobotzombie.com>
 - Бенджамин Паннел <contact@sierrasoftworks.com>
 - Эрик Книббе <eric@lassosoft.com>
+- Порен Чянь <ren.chiang@gmail.com>

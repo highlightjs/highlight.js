@@ -1,7 +1,6 @@
 /*
 Language: VB.NET
 Author: Poren Chiang <ren.chiang@gmail.com>
-Contributors: Poren Chiang <ren.chiang@gmail.com>
 */
 
 function(hljs) {
