@@ -80,3 +80,4 @@ Contributors:
 - Benjamin Pannell <contact@sierrasoftworks.com>
 - Eric Knibbe <eric@lassosoft.com>
 - Poren Chiang <ren.chiang@gmail.com>
+- Kelley van Evert <kelleyvanevert@gmail.com>
