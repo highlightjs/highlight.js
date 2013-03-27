@@ -45,7 +45,8 @@ pre .tex .formula {
 
 pre .title,
 pre .id,
-pre .coffeescript .params {
+pre .coffeescript .params,
+pre .scss .preprocessor {
   color: #900;
   font-weight: bold
 }
