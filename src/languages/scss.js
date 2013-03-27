@@ -35,7 +35,7 @@ function(hljs) {
   return {
     case_insensitive: true,
     illegal: '[=/|\']',
-    contains: [     
+    contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
@@ -50,7 +50,7 @@ function(hljs) {
       {
         className: 'class', begin: '\\.[A-Za-z0-9_-]+',
         relevance: 0
-      },      
+      },
       {
         className: 'attr_selector',
         begin: '\\[', end: '\\]',
@@ -67,7 +67,7 @@ function(hljs) {
       },
       {
         className: 'pseudo',
-        begin: '::(after|before|choices|first-letter|first-line|repeat-index|repeat-item|selection|value)'        
+        begin: '::(after|before|choices|first-letter|first-line|repeat-index|repeat-item|selection|value)'
       },
       {
         className: 'attribute',
@@ -104,7 +104,8 @@ function(hljs) {
           hljs.NUMBER_MODE,
           {
             className: 'preprocessor',
-             begin: '\\s[A-Za-z0-9_.-]+'
+            begin: '\\s[A-Za-z0-9_.-]+',
+            relevance: 0
           }
         ]
       }
