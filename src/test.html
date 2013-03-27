@@ -647,17 +647,12 @@ li[lang=ru] {
   <tr>
     <th>SCSS
     <td class="scss">
-<pre><code>
-// import
-@import "compass/reset";
+<pre><code>@import "compass/reset";
 
-// variable
+// variables
 $colorGreen: #008000;
-
-// variable with function
 $colorGreenDark: darken($colorGreen, 10);
 
-//mixin
 @mixin container {
     max-width: 980px;
 }
@@ -676,20 +671,13 @@ button {
     @include button(red);
 }
 
-// tag, class, id, attribute selectors
-div {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-.navbar {
-    width: auto;
-}
-
-#header {
-    margin: 0 auto;
-}
-
+div,
+.navbar,
+#header,
 input[type="input"] {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    width: auto;
+    margin: 0 auto;
     display: block;
 }
 
@@ -698,53 +686,40 @@ input[type="input"] {
 }
 
 // nested definitions
-  ul {
-      width: 100%;
-      padding: {
-          left: 5px;
-          right: 5px;
-      }
-    li {
-        float: left;
-        margin-right: 10px;
-        .home {
-            background: url('http://placehold.it/20') scroll no-repeat 0 0;
-      }
+ul {
+    width: 100%;
+    padding: {
+        left: 5px; right: 5px;
+    }
+  li {
+      float: left; margin-right: 10px;
+      .home {
+          background: url('http://placehold.it/20') scroll no-repeat 0 0;
     }
   }
+}
 
-  .banner {
-      @extend .container;
-  }
+.banner {
+    @extend .container;
+}
 
-  a {
-    color: $colorGreen;
-    &:hover { color: $colorGreenDark; }
-    &:visited { color: #c458cb; }
-  }
+a {
+  color: $colorGreen;
+  &:hover { color: $colorGreenDark; }
+  &:visited { color: #c458cb; }
+}
 
-  // for loop and literal
-  @for $i from 1 through 5 {
-      .span#{$i} {
-          width: 20px*$i;
-      }
-  }
-
-  // media query content mixin
-  @mixin mobile {
-    @media screen and (max-width : 600px) {
-      @content;
+@for $i from 1 through 5 {
+    .span#{$i} {
+        width: 20px*$i;
     }
-  }
+}
 
-  .banner {
-    float: left;
-    @include mobile {
-        float: none;
-    }
+@mixin mobile {
+  @media screen and (max-width : 600px) {
+    @content;
   }
-    
-</code></pre>
+}</code></pre>
 
   <tr>
     <th>JSON
@@ -2392,7 +2367,7 @@ environ
       NUMBERS,
       NAT_1, XBOOLE_0, SUBSET_1, FINSEQ_1, XXREAL_0, CARD_1,
       ARYTM_1, ARYTM_3, TARSKI, RELAT_1, ORDINAL4, FUNCOP_1;
-      
+
   :: etc...
 
 begin
@@ -2403,7 +2378,7 @@ reserve D for DecoratedTree,
 
 definition
   let D;
-  
+
   attr D is LambdaTerm-like means
     (dom D qua Tree) is finite &
 ::>                          *143,306
