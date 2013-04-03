@@ -316,7 +316,6 @@ function() {
         mode_buffer = lexem;
       }
       top = Object.create(mode, {parent: {value: top}});
-      relevance += mode.relevance;
     }
 
     function processLexem(buffer, lexem) {
@@ -344,6 +343,7 @@ function() {
           if (top.className) {
             result += '</span>';
           }
+          relevance += top.relevance;
           top = top.parent;
         } while (top != end_mode.parent);
         if (origin.excludeEnd) {
