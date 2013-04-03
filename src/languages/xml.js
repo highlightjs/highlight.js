@@ -6,6 +6,7 @@ function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
   var TAG_INTERNALS = {
     endsWithParent: true,
+    relevance: 0,
     contains: [
       {
         className: 'attribute',
@@ -93,9 +94,10 @@ function(hljs) {
       {
         className: 'tag',
         begin: '</?', end: '/?>',
+        relevance: 0,
         contains: [
           {
-            className: 'title', begin: '[^ />]+'
+            className: 'title', begin: '[^ /><]+'
           },
           TAG_INTERNALS
         ]
