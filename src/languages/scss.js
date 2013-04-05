@@ -9,6 +9,9 @@ function(hljs) {
     begin: IDENT_RE + '\\(', end: '\\)',
     contains: ['self', hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
   };
+  var HEXCOLOR = {
+    className: 'hexcolor', begin: '#[0-9A-Fa-f]+'
+  };
   var DEF_INTERNALS = {
     className: 'attribute',
     begin: '[A-Z\\_\\.\\-]+', end: ':',
@@ -19,13 +22,11 @@ function(hljs) {
       endsWithParent: true, excludeEnd: true,
       contains: [
         FUNCTION,
+        HEXCOLOR,
         hljs.NUMBER_MODE,
         hljs.QUOTE_STRING_MODE,
         hljs.APOS_STRING_MODE,
         hljs.C_BLOCK_COMMENT_MODE,
-        {
-          className: 'hexcolor', begin: '\\#[0-9A-F]+'
-        },
         {
           className: 'important', begin: '!important'
         }
@@ -82,12 +83,10 @@ function(hljs) {
         className: 'value',
         begin: ':', end: ';',
         contains: [
+          HEXCOLOR,
           hljs.NUMBER_MODE,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
-          {
-            className: 'hexcolor', begin: '\\#[0-9A-F]+'
-          },
           {
             className: 'important', begin: '!important'
           }
@@ -101,6 +100,7 @@ function(hljs) {
           FUNCTION,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
+          HEXCOLOR,
           hljs.NUMBER_MODE,
           {
             className: 'preprocessor',
