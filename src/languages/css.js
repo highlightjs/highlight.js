@@ -80,7 +80,7 @@ function(hljs) {
                     hljs.APOS_STRING_MODE,
                     hljs.C_BLOCK_COMMENT_MODE,
                     {
-                      className: 'hexcolor', begin: '\\#[0-9A-F]+'
+                      className: 'hexcolor', begin: '#[0-9A-Fa-f]+'
                     },
                     {
                       className: 'important', begin: '!important'
