@@ -42,12 +42,20 @@ function(hljs) {
                                  // because it doesn’t let it to be parsed as
                                  // a rule set but instead drops parser into
                                  // the default mode which is how it should be.
-        excludeEnd: true,
-        keywords: 'import page media charset',
         contains: [
-          FUNCTION,
-          hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
-          hljs.NUMBER_MODE
+          {
+            className: 'keyword',
+            begin: /\S+/
+          },
+          {
+            begin: /\s/, endsWithParent: true, excludeEnd: true,
+            relevance: 0,
+            contains: [
+              FUNCTION,
+              hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
+              hljs.NUMBER_MODE
+            ]
+          }
         ]
       },
       {
