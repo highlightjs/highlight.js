@@ -23,7 +23,8 @@ function(hljs) {
             className: 'value',
             endsWithParent: true,
             keywords: 'on off true false yes no',
-            contains: [hljs.QUOTE_STRING_MODE, hljs.NUMBER_MODE]
+            contains: [hljs.QUOTE_STRING_MODE, hljs.NUMBER_MODE],
+            relevance: 0
           }
         ]
       }
