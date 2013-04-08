@@ -7,12 +7,8 @@ Date: 2013-04-02
 */
 
 pre code {
-  font-size: .9em;
-  display: block;
-  line-height: 1.4;
-  background-color: #eee;
-  font-family: monospace;
-  padding: .8em;
+  display: block; padding: 0.5em;
+  background: #eee;
 }
 
 pre .decorator,
