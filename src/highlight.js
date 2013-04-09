@@ -586,6 +586,19 @@ function() {
     begin: this.BINARY_NUMBER_RE,
     relevance: 0
   };
+  this.REGEXP_MODE = {
+    className: 'regexp',
+    begin: /\//, end: /\/[gim]*/,
+    illegal: /\n/,
+    contains: [
+      this.BACKSLASH_ESCAPE,
+      {
+        begin: /\[/, end: /\]/,
+        relevance: 0,
+        contains: [this.BACKSLASH_ESCAPE]
+      }
+    ]
+  }
 
   // Utility functions
   this.inherit = function(parent, obj) {

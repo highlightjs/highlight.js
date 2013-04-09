@@ -755,7 +755,7 @@ a {
   }
   for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp
     if (checkCondition(classes[i]) === undefined)
-      return /\d+/g;
+      return /\d+[\s/]/g;
   }
 }</code></pre>
 

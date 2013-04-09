@@ -24,12 +24,7 @@ function(hljs) {
         contains: [
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
-          {
-            className: 'regexp',
-            begin: /\//, end: /\/[gim]*/,
-            illegal: /\n/,
-            contains: [{begin: /\\[\\\/]/}]
-          },
+          hljs.REGEXP_MODE,
           { // E4X
             begin: /</, end: />;/,
             subLanguage: 'xml'
