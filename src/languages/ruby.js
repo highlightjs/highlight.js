@@ -1,7 +1,7 @@
 /*
 Language: Ruby
 Author: Anton Kovalyov <anton@kovalyov.net>
-Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.net>, Loren Segal <lsegal@soen.ca>
+Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.net>, Loren Segal <lsegal@soen.ca>, Alexander Kaupanin <kaupanin@gmail.com>
 */
 
 function(hljs) {
@@ -165,7 +165,7 @@ function(hljs) {
     },
     {
       className: 'number',
-      begin: '\\?\\w'
+      begin: '^\\?\\d'
     },
     {
       className: 'variable',
