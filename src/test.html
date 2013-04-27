@@ -2583,6 +2583,66 @@ then  y in ProperPrefixes v or y = v &amp; v in ProperPrefixes (v^&lt;*x*&gt;)
   by A3,TARSKI:def 1,TREES_1:def 2;
   hence thesis by A4;
 end;</code></pre>
+  <tr>
+    <th>Oxygene
+    <td class="oxygene">
+<pre><code>namespace LinkedList;
+
+interface
+
+uses
+  System.Text;
+
+type
+  List&lt;T&gt; = public class
+    where T is Object;
+  private
+    method AppendToString(aBuilder: StringBuilder); 
+  public
+    constructor(aData: T);
+    constructor(aData: T; aNext: List&lt;T&gt;);
+    property Next: List&lt;T&gt;;
+    property Data: T;
+    
+    method ToString: string; override;
+  end;
+  
+implementation
+
+constructor List&lt;T&gt;(aData: T); 
+begin
+  Data := aData;
+end;
+
+constructor List&lt;T&gt;(aData: T; aNext: List&lt;T&gt;); 
+begin
+  constructor(aData);
+  Next := aNext;
+end;
+
+method List&lt;T&gt;.ToString: string;
+begin
+  with lBuilder := new StringBuilder do begin
+    AppendToString(lBuilder);
+    result := lBuilder.ToString();
+  end;
+end;
+
+method List&lt;T&gt;.AppendToString(aBuilder: StringBuilder); 
+begin
+  if assigned(Data) then
+    aBuilder.Append(Data.ToString)
+  else
+    aBuilder.Append('nil');
+    
+  if assigned(Next) then begin
+    aBuilder.Append(', ');
+    Next.AppendToString(aBuilder);
+  end;
+end;
+
+end.
+</code></pre>
 
 </table>
 
