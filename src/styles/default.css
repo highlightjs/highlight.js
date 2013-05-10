@@ -48,6 +48,7 @@ pre .coffeescript .attribute {
   color: #800;
 }
 
+pre .smartquote,
 pre .comment,
 pre .annotation,
 pre .template_comment,

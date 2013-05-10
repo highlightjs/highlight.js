@@ -11,26 +11,42 @@ pre code {
   background: #eee;
 }
 
+pre .header,
 pre .decorator,
 pre .annotation {
   color: #000077;
 }
 
+pre .horizontal_rule,
+pre .link_url,
+pre .emphasis,
 pre .attribute {
   color: #070;
 }
 
+pre .emphasis {
+  font-style: italic;
+}
+
+pre .link_label,
+pre .strong,
 pre .value,
 pre .string,
 pre .scss .value .string {
   color: #d14;
 }
 
+pre .strong {
+  font-weight: bold;
+}
+
+pre .blockquote,
 pre .comment {
   color: #998;
   font-style: italic;
 }
 
+pre .asciidoc .title,
 pre .function .title {
   color: #900;
 }
@@ -50,6 +66,7 @@ pre .variable {
   color: #336699;
 }
 
+pre .bullet, 
 pre .javadoc {
   color: #997700;
 }
@@ -59,6 +76,7 @@ pre .doctype {
   color: #3344bb;
 }
 
+pre .code,
 pre .number {
   color: #099;
 }
@@ -67,6 +85,7 @@ pre .important {
   color: #f00;
 }
 
+pre .smartquote,
 pre .label {
   color: #970;
 }
