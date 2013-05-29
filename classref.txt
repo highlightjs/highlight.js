@@ -674,3 +674,13 @@ Mizar ("mizar"):
 
   keyword          keyword
   comment          comment
+
+NSIS ("nsis"):
+
+  keyword          keyword
+  literal          true, false, on, off, show, hide ...
+  comment          comment
+  number           number
+  variable         variable
+  constant         constant
+  function         function

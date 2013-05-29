@@ -487,9 +487,9 @@ func main() {
 ?&gt;
 </code></pre>
 
-	<tr>
-		<th>Markdown
-		<td class="markdown">
+  <tr>
+    <th>Markdown
+    <td class="markdown">
 <pre>
 <code># hello world
 
@@ -513,9 +513,9 @@ hello world
 2. two thing `i can write code`, and `more` wipee!
 </code></pre>
 
-	<tr>
-		<th>AsciiDoc
-		<td class="asciidoc">
+  <tr>
+    <th>AsciiDoc
+    <td class="asciidoc">
 <pre>
 <code>Hello, World!
 ============
@@ -2447,6 +2447,161 @@ then  y in ProperPrefixes v or y = v &amp; v in ProperPrefixes (v^&lt;*x*&gt;)
   by A3,TARSKI:def 1,TREES_1:def 2;
   hence thesis by A4;
 end;</code></pre>
+  <tr>
+    <th>Mizar
+    <td class="mizar">
+<pre><code>::: ## Lambda calculus
+
+environ
+
+  vocabularies LAMBDA,
+      NUMBERS,
+      NAT_1, XBOOLE_0, SUBSET_1, FINSEQ_1, XXREAL_0, CARD_1,
+      ARYTM_1, ARYTM_3, TARSKI, RELAT_1, ORDINAL4, FUNCOP_1;
+
+  :: etc...
+
+begin
+
+reserve D for DecoratedTree,
+        p,q,r for FinSequence of NAT,
+        x for set;
+
+definition
+  let D;
+
+  attr D is LambdaTerm-like means
+    (dom D qua Tree) is finite &amp;
+::&gt;                          *143,306
+    for r st r in dom D holds
+      r is FinSequence of {0,1} &amp;
+      r^&lt;*0*&gt; in dom D implies D.r = 0;
+end;
+
+registration
+  cluster LambdaTerm-like for DecoratedTree of NAT;
+  existence;
+::&gt;       *4
+end;
+
+definition
+  mode LambdaTerm is LambdaTerm-like DecoratedTree of NAT;
+end;
+
+::: Then we extend this ordinary one-step beta reduction, that is,
+:::  any subterm is also allowed to reduce.
+definition
+  let M,N;
+
+  pred M beta N means
+    ex p st
+      M|p beta_shallow N|p &amp;
+      for q st not p is_a_prefix_of q holds
+        [r,x] in M iff [r,x] in N;
+end;
+
+theorem Th4:
+  ProperPrefixes (v^&lt;*x*&gt;) = ProperPrefixes v \/ {v}
+proof
+  thus ProperPrefixes (v^&lt;*x*&gt;) c= ProperPrefixes v \/ {v}
+  proof
+    let y;
+    assume y in ProperPrefixes (v^&lt;*x*&gt;);
+    then consider v1 such that
+A1: y = v1 and
+A2: v1 is_a_proper_prefix_of v^&lt;*x*&gt; by TREES_1:def 2;
+ v1 is_a_prefix_of v &amp; v1 &lt;&gt; v or v1 = v by A2,TREES_1:9;
+then
+ v1 is_a_proper_prefix_of v or v1 in {v} by TARSKI:def 1,XBOOLE_0:def 8;
+then  y in ProperPrefixes v or y in {v} by A1,TREES_1:def 2;
+    hence thesis by XBOOLE_0:def 3;
+  end;
+  let y;
+  assume y in ProperPrefixes v \/ {v};
+then A3: y in ProperPrefixes v or y in {v} by XBOOLE_0:def 3;
+A4: now
+    assume y in ProperPrefixes v;
+    then consider v1 such that
+A5: y = v1 and
+A6: v1 is_a_proper_prefix_of v by TREES_1:def 2;
+ v is_a_prefix_of v^&lt;*x*&gt; by TREES_1:1;
+then  v1 is_a_proper_prefix_of v^&lt;*x*&gt; by A6,XBOOLE_1:58;
+    hence thesis by A5,TREES_1:def 2;
+  end;
+ v^{} = v by FINSEQ_1:34;
+  then
+ v is_a_prefix_of v^&lt;*x*&gt; &amp; v &lt;&gt; v^&lt;*x*&gt; by FINSEQ_1:33,TREES_1:1;
+then  v is_a_proper_prefix_of v^&lt;*x*&gt; by XBOOLE_0:def 8;
+then  y in ProperPrefixes v or y = v &amp; v in ProperPrefixes (v^&lt;*x*&gt;)
+  by A3,TARSKI:def 1,TREES_1:def 2;
+  hence thesis by A4;
+end;</code></pre>
+
+<tr>
+    <th>BrainFuck
+    <td class="brainfuck">
+<pre><code>++++++++++
+[ 3*10 and 10*10
+  -&gt;+++&gt;++++++++++&lt;&lt;
+]&gt;&gt;
+[ filling cells
+  -&gt;++&gt;&gt;++&gt;++&gt;+&gt;++&gt;&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++[&lt;]&lt;[&lt;]&lt;[&lt;]&gt;&gt;
+]&lt;
++++++++++&lt;&lt;
+[ rough codes correction loop
+  -&gt;&gt;&gt;+&gt;+&gt;+&gt;+++&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+[&lt;]&lt;
+]
+more accurate сodes correction
+&gt;&gt;&gt;++&gt;
+--&gt;+++++++&gt;------&gt;++++++&gt;++&gt;+++++++++&gt;++++++++++&gt;++++++++&gt;---&gt;++++++++++&gt;------&gt;++++++&gt;
+++&gt;+++++++++++&gt;++++++++++++&gt;------&gt;+++
+rewind and output
+[&lt;]&gt;[.&gt;]
+</code></pre>
+
+  <tr>
+    <th>NSIS
+    <td class="nsis">
+<pre>
+<code>/*
+  Multi-line
+  comment
+*/
+
+; Includes ---------------------------------
+!include nsDialogs.nsh
+!include LogicLib.nsh
+
+; Settings ---------------------------------
+Name "installer_name"
+OutFile "installer_name.exe"
+RequestExecutionLevel user
+CRCCheck on
+InstallDir "$PROGRAMFILES\installer_name"
+
+; Pages ------------------------------------
+Page custom "nsdialog_page"
+Page components
+Page directory
+Page instfiles
+
+; Functions --------------------------------
+Function "nsdialog_page"
+
+  nsDialogs::Create 1018
+  Pop $0
+
+  nsDialogs::Show
+
+FunctionEnd
+
+; Sections ---------------------------------
+Section "section_name" section_index
+
+  # your code here
+
+SectionEnd
+</code></pre>
 
 </table>
 
@@ -2519,7 +2674,7 @@ end;</code></pre>
     <th>Replacing TAB with 4 spaces
     <td>
 <pre><code class="python">for x in [1, 2, 3]:
-	count(x)
+  count(x)
 </code></pre>
 
   <tr>
@@ -2534,9 +2689,9 @@ end;</code></pre>
     <th>Custom markup + TAB replacement
     <td>
 <pre><code class="python">for x in [1, 2, 3]:
-<span style="background:yellow">	</span>count(x)
-	if x == 3:
-	<span style="background:yellow">	</span>count(x + 1)
+<span style="background:yellow">  </span>count(x)
+  if x == 3:
+  <span style="background:yellow">  </span>count(x + 1)
 </code></pre>
 
   <tr>
