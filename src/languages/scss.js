@@ -95,7 +95,7 @@ function(hljs) {
       {
         className: 'at_rule',
         begin: '@', end: '[{;]',
-        keywords: 'mixin include for extend charset import media page font-face namespace',
+        keywords: 'mixin include extend for if else each while charset import debug media page content font-face namespace warn',
         contains: [
           FUNCTION,
           hljs.QUOTE_STRING_MODE,
