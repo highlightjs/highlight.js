@@ -2564,36 +2564,31 @@ rewind and output
     <td class="nsis">
 <pre>
 <code>/*
-  Multi-line
-  comment
+  NSIS Scheme
+  for highlighter.js
 */
 
 ; Includes ---------------------------------
-!include nsDialogs.nsh
-!include LogicLib.nsh
+!include MUI2.nsh
 
 ; Settings ---------------------------------
 Name "installer_name"
 OutFile "installer_name.exe"
 RequestExecutionLevel user
 CRCCheck on
-InstallDir "$PROGRAMFILES\installer_name"
+!ifdef x64
+  InstallDir "$PROGRAMFILES64\installer_name"
+!else
+  InstallDir "$PROGRAMFILES\installer_name"
+!endif
 
 ; Pages ------------------------------------
-Page custom "nsdialog_page"
-Page components
-Page directory
-Page instfiles
+!insertmacro MUI_PAGE_COMPONENTS 
+!insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_INSTFILES
 
-; Functions --------------------------------
-Function "nsdialog_page"
-
-  nsDialogs::Create 1018
-  Pop $0
-
-  nsDialogs::Show
-
-FunctionEnd
+; Languages --------------------------------
+!insertmacro MUI_LANGUAGE "English"
 
 ; Sections ---------------------------------
 Section "section_name" section_index
@@ -2601,6 +2596,20 @@ Section "section_name" section_index
   # your code here
 
 SectionEnd
+
+; Descriptions -----------------------------
+LangString DESC_section_index ${LANG_English} "section_description"
+
+!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
+  !insertmacro MUI_DESCRIPTION_TEXT ${section_index} $(DESC_section_index)
+!insertmacro MUI_FUNCTION_DESCRIPTION_END
+
+; Functions --------------------------------
+Function .onInit
+
+  MessageBox MB_OK "Here comes a$\n$\rline-break!"
+
+FunctionEnd
 </code></pre>
 
 </table>

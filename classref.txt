@@ -684,3 +684,4 @@ NSIS ("nsis"):
   variable         variable
   constant         constant
   function         function
+  built_in         built-in variables, line-breaks etc.
