@@ -369,6 +369,10 @@ function() {
     }
 
     var language = languages[language_name];
+    if (!language) {
+      throw new Error('Unknown language: "' + language_name + '"');
+    }
+
     compileLanguage(language);
     var top = language;
     var mode_buffer = '';
