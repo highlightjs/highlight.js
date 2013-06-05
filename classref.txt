@@ -674,3 +674,18 @@ Mizar ("mizar"):
 
   keyword          keyword
   comment          comment
+
+LiveCode Server ("livecodeserver"):
+
+  variable         variable starting with "g", "t", "p", "s", "$_"
+  string           string
+  comment          comment
+  number           number
+  title            name of a command or a function
+  keyword          keyword
+  constant         constant
+  operator         operator
+  built_in         built_in functions and commands
+  function         header of a function
+  command          header of a command
+  preprocessor     preprocessor marks: "<?", "<?rev", "<?lc", "<?livecode" and "?>"
