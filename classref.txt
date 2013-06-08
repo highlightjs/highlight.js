@@ -516,6 +516,7 @@ CMake ("cmake")
   string           string
   comment          commment
   envvar           $-variable
+  operator         operator (LESS, STREQUAL, MATCHES, etc)
 
 Axapta ("axapta"):
 
