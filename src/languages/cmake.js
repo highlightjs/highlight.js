@@ -1,8 +1,8 @@
 /*
 Language: CMake
 Description: CMake is an open-source cross-platform system for build automation.
-Author: Igor Kalnitsky <igor.kalnitsky@gmail.com>
-Website: http://kalnitsky.org.ua/
+Author: Igor Kalnitsky <igor@kalnitsky.org>
+Website: http://kalnitsky.org/
 */
 
 function(hljs) {
