@@ -1,4 +1,4 @@
-﻿Подсветка синтаксиса с автоопределением языка.
+Подсветка синтаксиса с автоопределением языка.
 
 URL:   http://softwaremaniacs.org/soft/highlight/
 
@@ -7,7 +7,6 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 
 Внесли свой вклад:
 
-- Эрик Paluka <erik.paluka@gmail.com>
 - Петр Леонов <gojpeg@gmail.com>
 - Виктор Карамзин <Victor.Karamzin@enterra-inc.com>
 - Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
