@@ -1,4 +1,4 @@
-This is a full list of available classes corresponding to languages'
+﻿This is a full list of available classes corresponding to languages'
 syntactic structures. The parentheses after language name contain identifiers
 used as class names in `<code>` element.
 
@@ -674,3 +674,12 @@ Mizar ("mizar"):
 
   keyword          keyword
   comment          comment
+
+
+Processing ("processing"):
+
+  pConstant        Processing constants
+  pSpecial         Processing special variables
+  pVariable        Processing variables
+  pSetup           Processing setup functions
+  pFunction        Processing functions

@@ -1067,6 +1067,29 @@ public abstract class L2Character extends L2Object {
 }
 </code></pre>
 
+<tr>
+    <th>Processing
+    <td class="processing">
+<pre><code>
+import java.util.LinkedList;
+import java.awt.Point;
+
+PGraphics pg;
+String load;
+
+void setup() {
+  size(displayWidth, displayHeight, P3D);
+  pg = createGraphics(displayWidth*2,displayHeight,P2D);
+  pg.beginDraw();
+  pg.background(255,255,255);
+  //pg.smooth(8);
+  pg.endDraw();
+}
+void draw(){
+  background(255);
+}
+</code></pre>
+
   <tr>
     <th>C++
     <td class="cpp">

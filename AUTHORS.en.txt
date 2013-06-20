@@ -1,4 +1,4 @@
-Syntax highlighting with language autodetection.
+﻿Syntax highlighting with language autodetection.
 
 URL:   http://softwaremaniacs.org/soft/highlight/en/
 
@@ -7,6 +7,7 @@ Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 Contributors:
 
+- Erik Paluka <erik.paluka@gmail.com>
 - Peter Leonov <gojpeg@gmail.com>
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
