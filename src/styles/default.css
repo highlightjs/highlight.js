@@ -147,3 +147,24 @@ pre .xml .css,
 pre .xml .cdata {
   opacity: 0.5;
 }
+
+pre .pConstant {
+  color: #660;
+}
+
+pre .pSetup {
+    font-weight: bold;
+    color: #0c2de0;   
+}
+
+pre .pSpecial {
+    color: #f50eda;
+}
+
+pre .pVariable {
+    color: #f5930e;
+}
+
+pre .pFunction {
+    color: #0c2de0;
+}
