@@ -13,19 +13,19 @@ function() {
 
   function findCode(pre) {
     for (var node = pre.firstChild; node; node = node.nextSibling) {
-      if (node.nodeName == 'CODE')
+      if (node.nodeName === 'CODE')
         return node;
-      if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
+      if (!(node.nodeType === 3 && node.nodeValue.match(/\s+/)))
         break;
     }
   }
 
   function blockText(block, ignoreNewLines) {
     return Array.prototype.map.call(block.childNodes, function(node) {
-      if (node.nodeType == 3) {
+      if (node.nodeType === 3) {
         return ignoreNewLines ? node.nodeValue.replace(/\n/g, '') : node.nodeValue;
       }
-      if (node.nodeName == 'BR') {
+      if (node.nodeName === 'BR') {
         return '\n';
       }
       return blockText(node, ignoreNewLines);
@@ -34,9 +34,9 @@ function() {
 
   function blockLanguage(block) {
     var classes = (block.className + ' ' + (block.parentNode ? block.parentNode.className : '')).split(/\s+/);
-    classes = classes.map(function(c) {return c.replace(/^language-/, '')});
+    classes = classes.map(function(c) {return c.replace(/^language-/, '');});
     for (var i = 0; i < classes.length; i++) {
-      if (languages[classes[i]] || classes[i] == 'no-highlight') {
+      if (languages[classes[i]] || classes[i] === 'no-highlight') {
         return classes[i];
       }
     }
@@ -48,11 +48,11 @@ function() {
     var result = [];
     (function _nodeStream(node, offset) {
       for (var child = node.firstChild; child; child = child.nextSibling) {
-        if (child.nodeType == 3)
+        if (child.nodeType === 3)
           offset += child.nodeValue.length;
-        else if (child.nodeName == 'BR')
+        else if (child.nodeName === 'BR')
           offset += 1;
-        else if (child.nodeType == 1) {
+        else if (child.nodeType === 1) {
           result.push({
             event: 'start',
             offset: offset,
@@ -78,25 +78,25 @@ function() {
 
     function selectStream() {
       if (stream1.length && stream2.length) {
-        if (stream1[0].offset != stream2[0].offset)
+        if (stream1[0].offset !== stream2[0].offset)
           return (stream1[0].offset < stream2[0].offset) ? stream1 : stream2;
         else {
           /*
           To avoid starting the stream just before it should stop the order is
           ensured that stream1 always starts first and closes last:
 
-          if (event1 == 'start' && event2 == 'start')
+          if (event1 === 'start' && event2 === 'start')
             return stream1;
-          if (event1 == 'start' && event2 == 'stop')
+          if (event1 === 'start' && event2 === 'stop')
             return stream2;
-          if (event1 == 'stop' && event2 == 'start')
+          if (event1 === 'stop' && event2 === 'start')
             return stream1;
-          if (event1 == 'stop' && event2 == 'stop')
+          if (event1 === 'stop' && event2 === 'stop')
             return stream2;
 
           ... which is collapsed to:
           */
-          return stream2[0].event == 'start' ? stream1 : stream2;
+          return stream2[0].event === 'start' ? stream1 : stream2;
         }
       } else {
         return stream1.length ? stream1 : stream2;
@@ -104,7 +104,7 @@ function() {
     }
 
     function open(node) {
-      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"'};
+      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
       return '<' + node.nodeName + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
     }
 
@@ -112,16 +112,16 @@ function() {
       var current = selectStream().splice(0, 1)[0];
       result += escape(value.substr(processed, current.offset - processed));
       processed = current.offset;
-      if ( current.event == 'start') {
+      if ( current.event === 'start') {
         result += open(current.node);
         nodeStack.push(current.node);
-      } else if (current.event == 'stop') {
+      } else if (current.event === 'stop') {
         var node, i = nodeStack.length;
         do {
           i--;
           node = nodeStack[i];
           result += ('</' + node.nodeName.toLowerCase() + '>');
-        } while (node != current.node);
+        } while (node !== current.node);
         nodeStack.splice(i, 1);
         while (i < nodeStack.length) {
           result += open(nodeStack[i]);
@@ -165,8 +165,8 @@ function() {
         }
 
         mode.lexemsRe = langRe(mode.lexems || hljs.IDENT_RE + '(?!\\.)', true);
-        if (typeof mode.keywords == 'string') { // string
-          flatten('keyword', mode.keywords)
+        if (typeof mode.keywords === 'string') { // string
+          flatten('keyword', mode.keywords);
         } else {
           for (var className in mode.keywords) {
             if (!mode.keywords.hasOwnProperty(className))
@@ -197,7 +197,7 @@ function() {
         mode.contains = [];
       }
       for (var i = 0; i < mode.contains.length; i++) {
-        if (mode.contains[i] == 'self') {
+        if (mode.contains[i] === 'self') {
           mode.contains[i] = mode;
         }
         compileMode(mode.contains[i], mode);
@@ -236,7 +236,7 @@ function() {
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
         var match = mode.contains[i].beginRe.exec(lexem);
-        if (match && match.index == 0) {
+        if (match && match.index === 0) {
           return mode.contains[i];
         }
       }
@@ -345,7 +345,7 @@ function() {
           }
           relevance += top.relevance;
           top = top.parent;
-        } while (top != end_mode.parent);
+        } while (top !== end_mode.parent);
         if (origin.excludeEnd) {
           result += escape(lexem);
         }
@@ -385,7 +385,7 @@ function() {
         count = processLexem(value.substr(index, match.index - index), match[0]);
         index = match.index + count;
       }
-      processLexem(value.substr(index))
+      processLexem(value.substr(index));
       return {
         relevance: relevance,
         keyword_count: keyword_count,
@@ -393,7 +393,7 @@ function() {
         language: language_name
       };
     } catch (e) {
-      if (e.message.indexOf('Illegal') != -1) {
+      if (e.message.indexOf('Illegal') !== -1) {
         return {
           relevance: 0,
           keyword_count: 0,
@@ -469,7 +469,7 @@ function() {
   function highlightBlock(block, tabReplace, useBR) {
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
-    if (language == 'no-highlight')
+    if (language === 'no-highlight')
         return;
     var result = language ? highlight(language, text, true) : highlightAuto(text);
     language = result.language;
@@ -510,7 +510,7 @@ function() {
     initHighlighting.called = true;
     Array.prototype.map.call(document.getElementsByTagName('pre'), findCode).
       filter(Boolean).
-      forEach(function(code){highlightBlock(code, hljs.tabReplace)});
+      forEach(function(code){highlightBlock(code, hljs.tabReplace);});
   }
 
   /*
@@ -598,16 +598,16 @@ function() {
         contains: [this.BACKSLASH_ESCAPE]
       }
     ]
-  }
+  };
 
   // Utility functions
   this.inherit = function(parent, obj) {
-    var result = {}
+    var result = {};
     for (var key in parent)
       result[key] = parent[key];
     if (obj)
       for (var key in obj)
         result[key] = obj[key];
     return result;
-  }
+  };
 }
