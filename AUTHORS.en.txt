@@ -82,3 +82,5 @@ Contributors:
 - Poren Chiang <ren.chiang@gmail.com>
 - Kelley van Evert <kelleyvanevert@gmail.com>
 - Kurt Emch <kurt@kurtemch.com>
+- Sylvestre Ledru <sylvestre.ledru@scilab-enterprises.com>
+
