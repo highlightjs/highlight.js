@@ -1,0 +1,57 @@
+/*
+
+    Name:       Base16 Default Light
+    Author:     Chris Kempson (http://chriskempson.com)
+
+    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+.default-light-comment, pre .comment, pre .title {
+  color: #505050;
+}
+
+.default-light-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: #ac4142;
+}
+
+.default-light-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #d28445;
+}
+
+.default-light-yellow, pre .ruby .class .title, pre .css .rules .attribute {
+  color: #f4bf75;
+}
+
+.default-light-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: #90a959;
+}
+
+.default-light-aqua, pre .css .hexcolor {
+  color: #75b5aa;
+}
+
+.default-light-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #6a9fb5;
+}
+
+.default-light-purple, pre .keyword, pre .javascript .function {
+  color: #aa759f;
+}
+
+pre code {
+  display: block;
+  background: #f5f5f5;
+  color: #303030;
+  padding: 0.5em;
+}
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: 0.5;
+}
