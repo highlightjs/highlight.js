@@ -106,7 +106,7 @@ pre .clojure .attribute,
 pre .asciidoc .attribute,
 pre .lasso .attribute,
 pre .coffeescript .property {
-  color: #88F
+  color: #88F;
 }
 
 pre .keyword,

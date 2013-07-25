@@ -4,7 +4,7 @@ Author: Tomas Aparicio <tomas@aparicio.me>
 Description: Jade is a high performance template engine heavily influenced by Haml and implemented with JavaScript for node. 
 */
 
-// TODO work in process: detect indentation (comments, multiline), support specific keywords
+// TODO work in process: detect indentation (comments, multiline), attributes with classes
 function (hljs) {
   return {
     case_insensitive: true,
@@ -18,7 +18,7 @@ function (hljs) {
         className: 'comment',
         // add identation support
         begin: '^\\s*(//|//-).*$',
-        relevance: 0
+        relevance: 3
       },
       {
         begin: '^\\s*-(?!#)',
@@ -28,12 +28,34 @@ function (hljs) {
         relevance: 0
       },
       {
+        className: 'attribute keyword',
+        begin: '^[A-Za-z$_][0-9A-Za-z$_]*',
+        keywords: {
+          keyword: 'mixin include if for while do '
+            + 'else break instanceof switch continue typeof'
+        },
+        end: '[\\s\\n]+'
+      },
+      {
         className: 'tag',
         begin: '^(?!#)\\s*',
+        end: '[\\n]+',
         contains: [
+          {
+            className: 'value keyword',
+            begin: '#{.*}',
+            relevance: 1
+          },
+          {
+            className: 'value keyword',
+            begin: '{{.*}}',
+            relevance: 1
+          },
           {
             className: 'value',
             begin: '[#]\\w+',
+            end: '[\\s\\n\\(\\.]+',
+            excludeEnd: true,
             relevance: 1
           },
           {
@@ -44,6 +66,8 @@ function (hljs) {
           {
             className: 'bullet',
             begin: '[\.]\\w+',
+            end: '[\\(\\n\\s)]+',
+            excludeEnd: true,
             relevance: 0
           },
           {
@@ -95,9 +119,14 @@ function (hljs) {
         relevance: 0
       },
       {
-        className: 'title',
+        className: 'value keyword',
         begin: '#{.*}',
-        relevance: 0
+        relevance: 1
+      },
+      {
+        className: 'value keyword',
+        begin: '{{.*}}',
+        relevance: 1
       }
     ]
   };
