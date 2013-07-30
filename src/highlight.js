@@ -13,7 +13,7 @@ function() {
 
   function findCode(pre) {
     for (var node = pre.firstChild; node; node = node.nextSibling) {
-      if (node.nodeName == 'CODE')
+      if (node.nodeName.toUpperCase () == 'CODE')
         return node;
       if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
         break;
@@ -25,7 +25,7 @@ function() {
       if (node.nodeType == 3) {
         return ignoreNewLines ? node.nodeValue.replace(/\n/g, '') : node.nodeValue;
       }
-      if (node.nodeName == 'BR') {
+      if (node.nodeName.toUpperCase () == 'BR') {
         return '\n';
       }
       return blockText(node, ignoreNewLines);
@@ -50,7 +50,7 @@ function() {
       for (var child = node.firstChild; child; child = child.nextSibling) {
         if (child.nodeType == 3)
           offset += child.nodeValue.length;
-        else if (child.nodeName == 'BR')
+        else if (child.nodeName.toUpperCase() == 'BR')
           offset += 1;
         else if (child.nodeType == 1) {
           result.push({
@@ -475,7 +475,7 @@ function() {
     language = result.language;
     var original = nodeStream(block);
     if (original.length) {
-      var pre = document.createElement('pre');
+      var pre = document.createElementNS('http://www.w3.org/1999/xhtml', 'pre');
       pre.innerHTML = result.value;
       result.value = mergeStreams(original, nodeStream(pre), text);
     }
@@ -508,7 +508,7 @@ function() {
     if (initHighlighting.called)
       return;
     initHighlighting.called = true;
-    Array.prototype.map.call(document.getElementsByTagName('pre'), findCode).
+    Array.prototype.map.call(document.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'pre'), findCode).
       filter(Boolean).
       forEach(function(code){highlightBlock(code, hljs.tabReplace)});
   }
