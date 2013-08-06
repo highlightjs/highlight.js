@@ -3,45 +3,45 @@
     Name:       3024 night
     Author:     Jan T. Sott (http://github.com/idleberg)
 
-    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
-    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+    3024 color scheme and highlight.js template by Jan T. Sott (https://github.com/idleberg)
+    Built with a modified version of Base16 Builder by Chris Kempson (https://github.com/chriskempson)
 
 */
-.3024-night-comment, pre .comment, pre .title {
+.base16-3024-dark-comment, pre .comment, pre .title {
   color: #807d7c;
 }
 
-.3024-night-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+.base16-3024-dark-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
   color: #db2d20;
 }
 
-.3024-night-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+.base16-3024-dark-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
   color: #e8bbd0;
 }
 
-.3024-night-yellow, pre .ruby .class .title, pre .css .rules .attribute {
+.base16-3024-dark-yellow, pre .ruby .class .title, pre .css .rules .attribute {
   color: #fded02;
 }
 
-.3024-night-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+.base16-3024-dark-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
   color: #01a252;
 }
 
-.3024-night-aqua, pre .css .hexcolor {
+.base16-3024-dark-aqua, pre .css .hexcolor {
   color: #b5e4f4;
 }
 
-.3024-night-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+.base16-3024-dark-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
   color: #01a0e4;
 }
 
-.3024-night-purple, pre .keyword, pre .javascript .function {
+.base16-3024-dark-purple, pre .keyword, pre .javascript .function {
   color: #a16a94;
 }
 
 pre code {
   display: block;
-  background: #3a3432;
+  background: #090300;
   color: #a5a2a2;
   padding: 0.5em;
 }
