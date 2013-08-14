@@ -35,7 +35,8 @@ function(hljs) {
       'return implements parent clone use __CLASS__ __LINE__ else break print eval new ' +
       'catch __METHOD__ case exception php_user_filter default die require __FUNCTION__ ' +
       'enddeclare final try this switch continue endfor endif declare unset true false ' +
-      'namespace trait goto instanceof insteadof __DIR__ __NAMESPACE__ __halt_compiler',
+      'namespace trait goto instanceof insteadof __DIR__ __NAMESPACE__ __halt_compiler ' +
+      'yield finally',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.HASH_COMMENT_MODE,
