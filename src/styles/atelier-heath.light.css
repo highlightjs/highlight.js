@@ -1,0 +1,57 @@
+/*
+
+    Name:       Base16 Atelier Heath Light
+    Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/heath)
+
+    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+.base16-atelierheath-light-comment, pre .comment, pre .title {
+  color: #776977;
+}
+
+.base16-atelierheath-light-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: #ca402b;
+}
+
+.base16-atelierheath-light-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #a65926;
+}
+
+.base16-atelierheath-light-yellow, pre .ruby .class .title, pre .css .rules .attribute {
+  color: #bb8a35;
+}
+
+.base16-atelierheath-light-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: #379a37;
+}
+
+.base16-atelierheath-light-aqua, pre .css .hexcolor {
+  color: #159393;
+}
+
+.base16-atelierheath-light-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #516aec;
+}
+
+.base16-atelierheath-light-purple, pre .keyword, pre .javascript .function {
+  color: #7b59c0;
+}
+
+pre code {
+  display: block;
+  background: #f7f3f7;
+  color: #695d69;
+  padding: 0.5em;
+}
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: 0.5;
+}

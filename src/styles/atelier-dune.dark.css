@@ -1,0 +1,57 @@
+/*
+
+    Name:       Base16 Atelier Dune Dark
+    Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune)
+
+    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+.base16-atelierdune-dark-comment, pre .comment, pre .title {
+  color: #999580;
+}
+
+.base16-atelierdune-dark-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: #d73737;
+}
+
+.base16-atelierdune-dark-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #b65611;
+}
+
+.base16-atelierdune-dark-yellow, pre .ruby .class .title, pre .css .rules .attribute {
+  color: #cfb017;
+}
+
+.base16-atelierdune-dark-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: #60ac39;
+}
+
+.base16-atelierdune-dark-aqua, pre .css .hexcolor {
+  color: #1fad83;
+}
+
+.base16-atelierdune-dark-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #6684e1;
+}
+
+.base16-atelierdune-dark-purple, pre .keyword, pre .javascript .function {
+  color: #b854d4;
+}
+
+pre code {
+  display: block;
+  background: #292824;
+  color: #a6a28c;
+  padding: 0.5em;
+}
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: 0.5;
+}

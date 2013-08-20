@@ -82,3 +82,4 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Порен Чянь <ren.chiang@gmail.com>
 - Келли ван Эверт <kelleyvanevert@gmail.com>
 - Курт Эмч <kurt@kurtemch.com>
+- Брэм де Хаан <info@atelierbramdehaan.nl>
