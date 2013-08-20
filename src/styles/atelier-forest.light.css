@@ -1,0 +1,57 @@
+/*
+
+    Name:       Base16 Atelier Forest Light
+    Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/forest)
+
+    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+.base16-atelierforest-light-comment, pre .comment, pre .title {
+  color: #766e6b;
+}
+
+.base16-atelierforest-light-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: #f22c40;
+}
+
+.base16-atelierforest-light-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #df5320;
+}
+
+.base16-atelierforest-light-yellow, pre .ruby .class .title, pre .css .rules .attribute {
+  color: #d5911a;
+}
+
+.base16-atelierforest-light-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: #5ab738;
+}
+
+.base16-atelierforest-light-aqua, pre .css .hexcolor {
+  color: #00ad9c;
+}
+
+.base16-atelierforest-light-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #407ee7;
+}
+
+.base16-atelierforest-light-purple, pre .keyword, pre .javascript .function {
+  color: #6666ea;
+}
+
+pre code {
+  display: block;
+  background: #f1efee;
+  color: #68615e;
+  padding: 0.5em;
+}
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: 0.5;
+}

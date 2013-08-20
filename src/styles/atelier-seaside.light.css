@@ -1,0 +1,57 @@
+/*
+
+    Name:       Base16 Atelier Seaside Light
+    Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside/)
+
+    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+.base16-atelierseaside-light-comment, pre .comment, pre .title {
+  color: #687d68;
+}
+
+.base16-atelierseaside-light-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: #e6193c;
+}
+
+.base16-atelierseaside-light-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #87711d;
+}
+
+.base16-atelierseaside-light-yellow, pre .ruby .class .title, pre .css .rules .attribute {
+  color: #c3c322;
+}
+
+.base16-atelierseaside-light-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: #29a329;
+}
+
+.base16-atelierseaside-light-aqua, pre .css .hexcolor {
+  color: #1999b3;
+}
+
+.base16-atelierseaside-light-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #3d62f5;
+}
+
+.base16-atelierseaside-light-purple, pre .keyword, pre .javascript .function {
+  color: #ad2bee;
+}
+
+pre code {
+  display: block;
+  background: #f0fff0;
+  color: #5e6e5e;
+  padding: 0.5em;
+}
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: 0.5;
+}
