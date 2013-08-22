@@ -34,8 +34,9 @@ function(hljs) {
         'run_children soap_definetag soap_lastrequest soap_lastresponse ' +
         'tag_name ascending average by define descending do equals ' +
         'frozen group handle_failure import in into join let match max ' +
-        'min on order parent protected provide public require skip ' +
-        'split_thread sum take thread to trait type where with yield'
+        'min on order parent protected provide public require returnhome ' +
+        'skip split_thread sum take thread to trait type where with ' +
+        'yield yieldhome'
     },
     contains: [
       {
