@@ -23,7 +23,7 @@ function(hljs) {
 
   var PREPROCESSOR = {
     className: 'haskell_preprocessor',
-    begin: '#', end: '$'
+    begin: '^#', end: '$'
   };
 
   var VARIABLE = {
