@@ -34,7 +34,7 @@ function(hljs) {
   // Value, type, class constructors.
   var CONSTRUCTOR = {
     className: 'haskell_constructor',
-    begin: '\\b[A-Z][\\w\']*',
+    begin: '\\b[A-Z][\\w\']*', // TODO: other constructors.
     relevance: 0
   };
 
@@ -71,14 +71,14 @@ function(hljs) {
 
       {
         className: 'haskell_module',
-        begin: '\\bmodule', end: 'where',
+        begin: '\\bmodule\ ', end: 'where',
         keywords: 'module where',
         contains: [LIST, COMMENT2],
         illegal: '\\W\\.|;'
       },
       {
         className: 'haskell_import',
-        begin: '\\bimport', end: '$',
+        begin: '\\bimport\ ', end: '$',
         keywords: 'import qualified as hiding',
         contains: [LIST, COMMENT1, COMMENT2],
         illegal: '\\W\\.|;'
@@ -86,31 +86,31 @@ function(hljs) {
 
       {
         className: 'haskell_class',
-        begin: '\\b(class|instance)', end: 'where',
+        begin: '\\b(class\ |instance\ )', end: 'where',
         keywords: 'class family instance where',
         contains: [CONSTRUCTOR, LIST, COMMENT2]
       },
       {
         className: 'haskell_type',
-        begin: '\\b(data|(new)?type)', end: '$',
+        begin: '\\b(data\ |(new)?type\ )', end: '$',
         keywords: 'data family type newtype deriving',
         contains: [CONSTRUCTOR, LIST, RECORD, COMMENT1, COMMENT2]
       },
       {
         className: 'haskell_default',
-        begin: '\\bdefault', end: '$',
+        begin: '\\bdefault\ ', end: '$',
         keywords: 'default',
         contains: [CONSTRUCTOR, LIST, COMMENT1, COMMENT2]
       },
       {
         className: 'haskell_infix',
-        begin: '\\b(infix|infixl|infixr)', end: '$',
+        begin: '\\b(infix\ |infixl\ |infixr\ )', end: '$',
         keywords: 'infix infixl infixr',
         contains: [hljs.C_NUMBER_MODE, COMMENT1, COMMENT2]
       },
       {
         className: 'haskell_foreign',
-        begin: '\\bforeign', end: '$',
+        begin: '\\bforeign\ ', end: '$',
         keywords: 'foreign import export ccall stdcall cplusplus jvm dotnet safe unsafe',
         contains: [CONSTRUCTOR, hljs.QUOTE_STRING_MODE, COMMENT1, COMMENT2]
       },
@@ -128,12 +128,7 @@ function(hljs) {
 
       // Literals and names.
 
-      {
-        className: 'haskell_char',
-        begin: '\\s+\'', end: '\'',
-        contains: [hljs.BACKSLASH_ESCAPE],
-        relevance: 0
-      },
+      // TODO: characters.
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
