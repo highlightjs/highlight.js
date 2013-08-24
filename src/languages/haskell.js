@@ -27,7 +27,7 @@ function(hljs) {
   return {
     keywords:
       'let in if then else case of where do module import hiding qualified type data ' +
-      'newtype deriving class instance not as foreign ccall safe unsafe',
+      'newtype deriving class instance as foreign ccall safe unsafe',
     contains: [
       {
         className: 'haskell_comment',
