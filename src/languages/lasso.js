@@ -13,7 +13,7 @@ function(hljs) {
     keywords: {
       literal:
         'true false none minimal full all infinity nan and or not ' +
-        'bw ew cn lt lte gt gte eq neq ft rx nrx',
+        'bw nbw ew new cn ncn lt lte gt gte eq neq rx nrx ft',
       built_in:
         'array date decimal duration integer map pair string tag xml null ' +
         'list queue set stack staticarray local var variable data global ' +
