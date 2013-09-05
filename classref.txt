@@ -375,6 +375,7 @@ F# ("fsharp"):
   class            any custom F# type
   title            the name of a custom F# type
   annotation       any attribute
+  typeparam        a type parameter to a type signature
 
 D language ("d"):
 
