@@ -235,6 +235,15 @@ end
 anIdentifier = an_identifier
 Constant = 1
 render action: :new
+
+str =~ /^(?:foo)$/
+str =~ /\/foo|bar|buz$/
+str =~ %r{foo|bar|buz$}
+str =~ %r!foo|bar$!
+str =~ %r[foo|bar$]
+str =~ %r(\(foo|bar\)$)
+str =~ %r \.(gif|jpg|jpeg|png)$ i
+
 </code></pre>
 
   <tr>
