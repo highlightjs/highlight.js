@@ -94,7 +94,7 @@ function(hljs) {
         className: 'haskell_type',
         begin: '\\b(data |(new)?type )', end: '$',
         keywords: 'data family type newtype deriving',
-        contains: [CONSTRUCTOR, LIST, RECORD, COMMENT1, COMMENT2]
+        contains: [PRAGMA, COMMENT1, COMMENT2, CONSTRUCTOR, LIST, RECORD]
       },
       {
         className: 'haskell_default',
