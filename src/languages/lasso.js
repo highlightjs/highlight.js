@@ -12,12 +12,12 @@ function(hljs) {
     lexems: LASSO_IDENT_RE,
     keywords: {
       literal:
-        'true false none minimal full all infinity nan and or not ' +
-        'bw ew cn lt lte gt gte eq neq ft rx nrx',
+        'true false none minimal full all void infinity nan and or not ' +
+        'bw nbw ew new cn ncn lt lte gt gte eq neq rx nrx ft',
       built_in:
         'array date decimal duration integer map pair string tag xml null ' +
-        'list queue set stack staticarray local var variable data global ' +
-        'self inherited void',
+        'bytes list queue set stack staticarray tie local var variable ' +
+        'global data self inherited',
       keyword:
         'error_code error_msg error_pop error_push error_reset cache ' +
         'database_names database_schemanames database_tablenames define_tag ' +
@@ -34,8 +34,9 @@ function(hljs) {
         'run_children soap_definetag soap_lastrequest soap_lastresponse ' +
         'tag_name ascending average by define descending do equals ' +
         'frozen group handle_failure import in into join let match max ' +
-        'min on order parent protected provide public require skip ' +
-        'split_thread sum take thread to trait type where with yield'
+        'min on order parent protected provide public require returnhome ' +
+        'skip split_thread sum take thread to trait type where with ' +
+        'yield yieldhome'
     },
     contains: [
       {
