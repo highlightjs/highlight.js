@@ -16,8 +16,8 @@ function(hljs) {
         'bw nbw ew new cn ncn lt lte gt gte eq neq rx nrx ft',
       built_in:
         'array date decimal duration integer map pair string tag xml null ' +
-        'list queue set stack staticarray local var variable global data ' +
-        'self inherited',
+        'bytes list queue set stack staticarray tie local var variable ' +
+        'global data self inherited',
       keyword:
         'error_code error_msg error_pop error_push error_reset cache ' +
         'database_names database_schemanames database_tablenames define_tag ' +
