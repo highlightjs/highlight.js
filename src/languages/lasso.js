@@ -12,12 +12,12 @@ function(hljs) {
     lexems: LASSO_IDENT_RE,
     keywords: {
       literal:
-        'true false none minimal full all infinity nan and or not ' +
+        'true false none minimal full all void infinity nan and or not ' +
         'bw nbw ew new cn ncn lt lte gt gte eq neq rx nrx ft',
       built_in:
         'array date decimal duration integer map pair string tag xml null ' +
-        'list queue set stack staticarray local var variable data global ' +
-        'self inherited void',
+        'list queue set stack staticarray local var variable global data ' +
+        'self inherited',
       keyword:
         'error_code error_msg error_pop error_push error_reset cache ' +
         'database_names database_schemanames database_tablenames define_tag ' +
