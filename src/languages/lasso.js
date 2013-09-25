@@ -5,14 +5,14 @@ Description: Lasso is a language and server platform for database-driven web app
 */
 
 function(hljs) {
-  var LASSO_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*|&[lg]t;';
+  var LASSO_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*';
   var LASSO_START = '<\\?(lasso(script)?|=)';
   return {
     case_insensitive: true,
-    lexems: LASSO_IDENT_RE,
+    lexems: LASSO_IDENT_RE + '|&[lg]t;',
     keywords: {
       literal:
-        'true false none minimal full all void infinity nan and or not ' +
+        'true false none minimal full all void and or not ' +
         'bw nbw ew new cn ncn lt lte gt gte eq neq rx nrx ft',
       built_in:
         'array date decimal duration integer map pair string tag xml null ' +
@@ -78,7 +78,7 @@ function(hljs) {
         begin: '/\\*\\*!', end: '\\*/'
       },
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.C_NUMBER_MODE,
+      hljs.inherit(hljs.C_NUMBER_MODE, {begin: hljs.C_NUMBER_RE + '|-?(infinity|nan)\\b'}),
       hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       {

@@ -474,7 +474,7 @@ func main() {
     return self-&gt;'name'
   }
   // query expression
-  with n in array(-1, 0xABCD, 3.14159e14)
+  with n in array((:-1, 0xABCD, 3.14159e14), (:NaN, -infinity, -.57721))
   let swapped = pair(#n-&gt;second, #n-&gt;first)
   group #swapped by #n-&gt;first into t
   let key = #t-&gt;key
