@@ -98,6 +98,14 @@ function(hljs) {
         begin: '\\.\\.\\.|-' + hljs.UNDERSCORE_IDENT_RE
       },
       {
+        className: 'variable',
+        begin: '\\.\'' + LASSO_IDENT_RE + '\''
+      },
+      {
+        className: 'built_in',
+        begin: '\\.\\.?'
+      },
+      {
         className: 'class',
         beginWithKeyword: true, keywords: 'define',
         excludeEnd: true, end: '\\(|=>',
