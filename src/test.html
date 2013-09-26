@@ -465,7 +465,7 @@ func main() {
   /**! descriptive text */
   define person =&gt; type {
     parent entity
-    data name::string, protected nickname, birthdate::date
+    data name::string, protected nickname, birthdate :: date
     data private ssn = null
     private showAge() =&gt; { return ..age }
     protected fullName() =&gt; `"` + .nickname + `"` + .'name'

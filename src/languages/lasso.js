@@ -84,7 +84,7 @@ function(hljs) {
     },
     {
       className: 'tag',
-      begin: '::\s*', end: LASSO_IDENT_RE,
+      begin: '::\\s*', end: LASSO_IDENT_RE,
       illegal: '\\W'
     },
     {
@@ -92,8 +92,14 @@ function(hljs) {
       begin: '\\.\\.\\.|-' + hljs.UNDERSCORE_IDENT_RE
     },
     {
-      begin: '->',
+      className: 'subst',
+      begin: '->\\s*',
       contains: [ LASSO_DATAMEMBER ]
+    },
+    {
+      className: 'subst',
+      begin: ':=|[-+*/%=<>&|!?\\\\]+',
+      relevance: 0
     },
     {
       className: 'built_in',
@@ -104,7 +110,7 @@ function(hljs) {
     {
       className: 'class',
       beginWithKeyword: true, keywords: 'define',
-      excludeEnd: true, end: '\\(|=>',
+      returnEnd: true, end: '\\(|=>',
       contains: [
         {
           className: 'title',
