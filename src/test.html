@@ -469,13 +469,14 @@ func main() {
     data private ssn = null
     private showAge() =&gt; { return ..age }
     protected fullName() =&gt; `"` + .nickname + `"` + .'name'
-    public ssnListed::boolean =&gt; .ssn ? true | false
+    public ssnListed::boolean =&gt; .ssn() ? true | false
   }
   define person-&gt;name=(value) =&gt; {
     .'name' = #value
     return self-&gt;'name'
   }
 ]
+[no_square_brackets] disables [square brackets] for the rest of the file
 &lt;?=
   // query expression
   with n in array((:-12, 0xABCD, 3.14159e14), (:NaN, -infinity, .57721))
