@@ -447,19 +447,19 @@ func main() {
   local('query' = 'SELECT * FROM `'+var:'table'+'` WHERE `id` &gt; 10
     ORDER BY `Name` LIMIT 30');
   Inline: -Username=$DBuser, -Password=$DBpass, -Database=$DBname, -sql=#query;
-    var("class.name" = (found_count != 0 ? "subtotal" | "nonefound"),
+    var("class1.name" = (found_count != 0 ? "subtotal" | "nonefound"),
         "total_amount" = found_count);
     records;
       output: "&lt;tr&gt;"loop_count"&lt;/tr&gt";
     /records;
   /Inline;
-?&gt;&lt;div class="[$class.name]"&gt;[$total_amount]&lt;/div&gt;
+?&gt;&lt;div class="[$class1.name]"&gt;[$total_amount]&lt;/div&gt;
 &lt;?lasso
 /* Lasso 9 */ ?&gt;
 [noprocess] causes [delimiters] to be &lt;?=skipped?&gt; until the next [/noprocess]
 [
   define strings_combine(value::string, ...other)::string =&gt; {
-    local(result = #value-&gt;append(#other-&gt;asString))
+    local(result = #value-&gt;append(#other-&gt;asString&amp;trim))
     return #result
   }
   /**! descriptive text */
@@ -475,7 +475,7 @@ func main() {
     .'name' = #value
     return self-&gt;'name'
   }
-]
+] &lt;!-- an HTML comment &lt;?=disables delimiters?&gt; as well --&gt;
 [no_square_brackets] disables [square brackets] for the rest of the file
 &lt;?=
   // query expression

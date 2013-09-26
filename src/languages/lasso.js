@@ -36,13 +36,19 @@ function(hljs) {
       'skip split_thread sum take thread to trait type where with ' +
       'yield yieldhome'
   };
+  var HTML_COMMENT = {
+    className: 'comment',
+    begin: '<!--', end: '-->',
+    relevance: 0
+  };
   var LASSO_NOPROCESS = {
     className: 'preprocessor',
     begin: '\\[noprocess\\]',
     starts: {
       className: 'markup',
       end: '\\[/noprocess\\]',
-      returnEnd: true
+      returnEnd: true,
+      contains: [ HTML_COMMENT ]
     }
   };
   var LASSO_START = {
@@ -102,7 +108,7 @@ function(hljs) {
       contains: [
         {
           className: 'title',
-          begin: hljs.UNDERSCORE_IDENT_RE + '=?'
+          begin: hljs.UNDERSCORE_IDENT_RE + '(=(?!>))?'
         }
       ]
     }
@@ -119,7 +125,8 @@ function(hljs) {
         starts: {
           className: 'markup',
           end: '\\[|' + LASSO_ANGLE_RE,
-          returnEnd: true
+          returnEnd: true,
+          contains: [ HTML_COMMENT ]
         }
       },
       LASSO_NOPROCESS,
@@ -139,7 +146,8 @@ function(hljs) {
               starts: {
                 className: 'markup',
                 end: LASSO_ANGLE_RE,
-                returnEnd: true
+                returnEnd: true,
+                contains: [ HTML_COMMENT ]
               }
             },
             LASSO_NOPROCESS,
