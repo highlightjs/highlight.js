@@ -49,6 +49,10 @@ function(hljs) {
     className: 'preprocessor',
     begin: '\\[/noprocess|' + LASSO_ANGLE_RE
   };
+  var LASSO_DATAMEMBER = {
+    className: 'variable',
+    begin: '\'' + LASSO_IDENT_RE + '\''
+  };
   var LASSO_CODE = [
     hljs.C_LINE_COMMENT_MODE,
     {
@@ -65,29 +69,31 @@ function(hljs) {
     },
     {
       className: 'variable',
-      begin: '#\\d+|[#$]' + LASSO_IDENT_RE
+      begin: '[#$]' + LASSO_IDENT_RE
+    },
+    {
+      className: 'variable',
+      begin: '#', end: '\\d+',
+      illegal: '\\W'
     },
     {
       className: 'tag',
-      begin: '::', end: LASSO_IDENT_RE
+      begin: '::\s*', end: LASSO_IDENT_RE,
+      illegal: '\\W'
     },
     {
       className: 'attribute',
       begin: '\\.\\.\\.|-' + hljs.UNDERSCORE_IDENT_RE
     },
     {
-      begin: '(->|\\.)\'', end: '\'',
-      illegal: '[\\s\\W]',
-      contains: [
-        {
-          className: 'variable',
-          begin: LASSO_IDENT_RE
-        }
-      ]
+      begin: '->',
+      contains: [ LASSO_DATAMEMBER ]
     },
     {
       className: 'built_in',
-      begin: '\\.\\.?'
+      begin: '\\.\\.?',
+      relevance: 0,
+      contains: [ LASSO_DATAMEMBER ]
     },
     {
       className: 'class',
