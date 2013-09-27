@@ -819,6 +819,82 @@ OPERATOR = /// ^ (
 ?: [-=]>             # function
 ) ///</code></pre>
 
+
+  <tr>
+    <th>Kal
+    <td class="kal">
+<pre><code># Divisions
+x = 6/foo/i
+x = 6 /foo
+x = 6 / foo
+x = 6 /foo * 2/gm
+x = f /foo
+x = f / foo / gm
+x = f /foo * 2/6
+
+# Regexps
+x = f /6 * 2/ - 3
+x = f /foo * 2/gm
+x = /\n/ if true else /[.,]+/
+
+grade = (student, period=(7 when b exists otherise 6), messages={"A": "Excellent"}) -&gt;
+  if student.excellentWork
+    return "A+"
+  else if student.okayStuff
+    when student.triedHard
+      return "B"
+    otherwise
+      return "B-"
+  else
+    return "C"
+
+square = (x) ->
+  x * x
+
+two = ->
+  2
+
+three = function ()
+  return 3
+
+function four(arg=no)
+  return 4 unless arg
+
+math =
+  root:   Math.sqrt
+  square: square
+  cube:   (x) ->
+    return x * square x
+
+class Animal inherits from Being
+  method initialize(name)
+    me.name = name
+
+  method move(meters)
+    alert me.name + " moved #{meters}m."
+
+method other() of Animal
+  return "other"
+
+###
+Kal Compiler v0.5.4
+Released under the MIT License
+@ ; >> <<
+###
+
+task async_thing(v)
+  wait for x from y()
+  wait for z, w from y a, b
+  run in parallel
+    safe wait for x from y()
+    safe wait for y()
+    y a, b
+  for parallel x in y
+    wait for a from z(x)
+    print a
+
+</code></pre>
+
 <tr>
     <th>ActionScript
     <td class="actionscript">
