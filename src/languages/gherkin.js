@@ -6,39 +6,33 @@
 
 function (hljs) {
     return {
+        keywords: 'Feature Background Ability Business\ Need Scenario Scenarios Scenario\ Outline Scenario\ Template Examples Given And Then But When',
         contains: [
             {
                 className: 'keyword',
-                begin: '^\\s*(But |And |Then |When |Given |\\* |Scenarios|Examples|Scenario Template|Scenario Outline|Scenario|Background|Ability|Business Need|Feature)',
-                relevance: 10
+                begin: '\\*'
             },
             {
-                className: 'keyword',
-                begin: '( do$|^end$)',
-                relevance: 0
+                className: 'comment',
+                begin: '@[^@\r\n\t ]+', end: '$'
             },
             {
                 className: 'string',
-                begin: '\\|',
-                relevance: 0
+                begin: '\\|', end: '\\$',
+                relevance: 10
             },
             {
-                className: 'literal',
-                begin: '/\\^', end: '\\$/',
-                relevance: 0
+                className: 'variable',
+                begin: '<', end: '>',
             },
             hljs.HASH_COMMENT_MODE,
             {
                 className: 'string',
                 begin: '"""', end: '"""',
-                relevance: 10
+                relevance: 0
             },
             hljs.APOS_STRING_MODE,
-            hljs.QUOTE_STRING_MODE,
-            hljs.C_NUMBER_MODE,
-            {
-                className: 'annotation', begin: '@[^@\r\n\t ]+'
-            }
+            hljs.QUOTE_STRING_MODE
         ]
-    };
+    }
 }
