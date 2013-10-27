@@ -253,7 +253,7 @@ def build_cdn(root, build_path, filenames, options):
     all_filenames = language_filenames(src_path, [])
     for filename in all_filenames:
         print(filename)
-        content = compress_content(tools_path, open(filename).read())
+        content = compress_content(tools_path, strip_read(filename))
         content = wrap_language(filename, content, True)
         open(os.path.join(lang_path, '%s.min.js' % lang_name(filename)), 'w', encoding='utf-8').write(content)
     print('Compressing styles...')
