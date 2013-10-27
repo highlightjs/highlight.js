@@ -119,8 +119,8 @@ def language_filenames(src_path, languages):
     Resolves dependencies and returns the list of actual language filenames
     '''
     lang_path = os.path.join(src_path, 'languages')
-    filenames = [os.path.join(lang_path, f) for f in os.listdir(lang_path) if f.endswith('.js')]
-    headers = [parse_header(f) for f in filenames]
+    filenames = [f for f in os.listdir(lang_path) if f.endswith('.js')]
+    headers = [parse_header(os.path.join(lang_path, f)) for f in filenames]
     infos = [(h, f) for h, f in zip(headers, filenames) if h]
 
     # Filtering infos based on list of languages and categories
