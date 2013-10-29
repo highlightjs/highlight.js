@@ -26,7 +26,7 @@ Highlight.js нужен для подсветки синтаксиса в при
 
 - Вы можете скачать собственную версию "highlight.pack.js" или сослаться
   на захостенный файл, как описано на странице загрузки:
-  <http://softwaremaniacs.org/soft/highlight/download/>
+  <http://highlightjs.org/download/>
 
 - Стилевые темы можно найти в загруженном архиве или также использовать
   захостенные. Чтобы сделать собственный стиль для своего сайта, вам
@@ -166,7 +166,7 @@ highlight.js.
 ## Координаты
 
 - Версия: 7.3
-- URL:    http://softwaremaniacs.org/soft/highlight/
+- URL:    http://highlightjs.org/
 - Автор:  Иван Сагалаев (<maniac@softwaremaniacs.org>)
 
 Лицензионное соглашение читайте в файле LICENSE.

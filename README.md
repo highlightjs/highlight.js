@@ -24,7 +24,7 @@ If you use different markup or need to apply highlighting dynamically, read
 
 - You can download your own customized version of "highlight.pack.js" or
   use the hosted one as described on the download page:
-  <http://softwaremaniacs.org/soft/highlight/en/download/>
+  <http://highlightjs.org/download/>
 
 - Style themes are available in the download package or as hosted files.
   To create a custom style for your site see the class reference in the file
@@ -161,7 +161,7 @@ on a site.
 ## Meta
 
 - Version: 7.3
-- URL:     http://softwaremaniacs.org/soft/highlight/en/
+- URL:     http://highlightjs.org/
 - Author:  Ivan Sagalaev (<maniac@softwaremaniacs.org>)
 
 For the license terms see LICENSE files.

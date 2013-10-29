@@ -1,6 +1,6 @@
 Syntax highlighting with language autodetection.
 
-URL:   http://softwaremaniacs.org/soft/highlight/en/
+URL:   http://highlightjs.org/
 
 Original author and current maintainer:
 Ivan Sagalaev <maniac@softwaremaniacs.org>

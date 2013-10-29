@@ -1,6 +1,6 @@
 /*
 Syntax highlighting with language autodetection.
-http://softwaremaniacs.org/soft/highlight/
+http://highlightjs.org/
 */
 
 function() {
