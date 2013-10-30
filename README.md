@@ -160,7 +160,7 @@ on a site.
 
 ## Meta
 
-- Version: 7.3
+- Version: 7.4
 - URL:     http://highlightjs.org/
 - Author:  Ivan Sagalaev (<maniac@softwaremaniacs.org>)
 
