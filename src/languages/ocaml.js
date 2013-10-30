@@ -23,7 +23,8 @@ function(hljs) {
       },
       {
         className: 'comment',
-        begin: '\\(\\*', end: '\\*\\)'
+        begin: '\\(\\*', end: '\\*\\)',
+		contains: ['self']
       },
       {
         className: 'class',
