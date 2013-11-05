@@ -28,14 +28,6 @@ function(hljs) {
   };
   return {
     case_insensitive: true,
-    keywords:
-      'and include_once list abstract global private echo interface as static endswitch ' +
-      'array null if endwhile or const for endforeach self var while isset public ' +
-      'protected exit foreach throw elseif include __FILE__ empty require_once do xor ' +
-      'return implements parent clone use __CLASS__ __LINE__ else break print eval new ' +
-      'catch __METHOD__ case exception php_user_filter default die require __FUNCTION__ ' +
-      'enddeclare final try this switch continue endfor endif declare unset true false ' +
-      'namespace trait goto instanceof insteadof __DIR__ __NAMESPACE__ __halt_compiler',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.HASH_COMMENT_MODE,
@@ -58,6 +50,11 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
+        subLanguage: 'xml',
+        begin: '\\?>', end: '<\\?php',
+        excludeBegin: true, excludeEnd: true
+      },
+      {
         className: 'preprocessor',
         begin: '<\\?php',
         relevance: 10
@@ -66,13 +63,64 @@ function(hljs) {
         className: 'preprocessor',
         begin: '\\?>'
       },
+      {
+        className: 'namespace',
+        beginWithKeyword: true, end: ';',
+        keywords: 'namespace',
+        excludeEnd: true
+      },
+      {
+        className: 'alias',
+        beginWithKeyword: true, end: ';',
+        keywords: 'use',
+        excludeEnd: true,
+        contains: [
+          {
+            lexems: '[a-zA-Z\\\\][a-zA-Z0-9_\\\\]*',
+            className: 'keyword',
+            begin: '[a-zA-Z0-9_\x7f-\xff\\\\]+'
+          }
+        ]
+      },
       VARIABLE,
+      {
+        className: 'keyword',
+        begin: '\\b((a(bstract|nd|rray|s))|(c(a(llable|se|tch)|lone|on(st|tinue)))|(d(e(clare|fault)|ie|o))|(e(cho|lse(if)?|mpty|nd(declare|for(each)?|if|switch|while)|val|x(it|tends)))|(f(inal|or(each)?))|(g(lobal|oto))|(i(f|mplements|n(clude(_once)?|st(anceof|eadof)|terface)|sset))|(p(r(i(nt|vate)|otected)|ublic))|(re(quire(_once)?|turn))|(s(tatic|witch))|(t(hrow|r(ait|y)))|(u(nset|se))|(__halt_compiler|break|list|new|(x)?or|var|while))\\b'
+      },
+      {
+        className: 'keyword',
+        begin: '(->|\\-\\-|\\+\\+|\\-|\\+|\\*|/|%|(!|&&|\\|\\|)|<<|>>|~|\\^|&|\\||===|==|!==|!=|<=|>=|<>|<|>|\\.=|\\.|=)'
+      },
+      {
+        className: 'literal',
+        begin: '(true|false|null|__(class|dir|f(ile|unction)|line|method|namespace|trait)__|\\b(on|off|yes|no|nl|br|tab)\\b)'
+      },
+      {
+        className: 'class',
+        lexems: '',
+        begin: '[a-zA-Z0-9_\x7f-\xff]+::+',
+        returnBegin: true,
+        contains: [
+          {
+            className: 'keyword',
+            begin: '[a-zA-Z0-9_\x7f-\xff]+'
+          }
+        ]
+      },
+      {
+        className: 'keyword',
+        begin: '::'
+      },
       {
         className: 'function',
         beginWithKeyword: true, end: '{',
         keywords: 'function',
         illegal: '\\$|\\[|%',
         contains: [
+          {
+            className: 'corefunction',
+            begin: '(?:(__(?:call|(?:con|de)struct|get|(?:is|un)?set|tostring|clone|set_state|sleep|wakeup|autoload)))'
+          },
           TITLE,
           {
             className: 'params',
@@ -93,7 +141,7 @@ function(hljs) {
         contains: [
           {
             beginWithKeyword: true, endsWithParent: true,
-            keywords: 'extends',
+            keywords: 'extends interface',
             contains: [TITLE]
           },
           TITLE
