@@ -16,6 +16,7 @@ function(hljs) {
         'bool char float int list unit array exn option int32 int64 nativeint ' +
         'format4 format6 lazy_t in_channel out_channel string',
     },
+    illegal: /\/\//,
     contains: [
       {
         className: 'string',
