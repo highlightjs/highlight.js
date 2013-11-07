@@ -157,6 +157,9 @@ function() {
         var compiled_keywords = {};
 
         function flatten(className, str) {
+          if (language.case_insensitive) {
+            str = str.toLowerCase();
+          }
           str.split(' ').forEach(function(kw) {
             var pair = kw.split('|');
             compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
