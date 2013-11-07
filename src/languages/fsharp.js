@@ -23,10 +23,7 @@ function(hljs) {
         className: 'string',
         begin: '"""', end: '"""'
       },
-      {
-        className: 'comment',
-        begin: '//', end: '$', returnBegin: true
-      },
+      hljs.C_LINE_COMMENT_MODE,
       {
         className: 'comment',
         begin: '\\(\\*', end: '\\*\\)'
