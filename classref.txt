@@ -376,6 +376,15 @@ F# ("fsharp"):
   title            the name of a custom F# type
   annotation       any attribute
 
+OCaml:
+  keywords         keyword
+  number           number
+  string           string
+  commment         comment
+  class            any custom OCaml type
+  title            the name of a custom OCaml type
+  annotation       any attribute
+
 D language ("d"):
 
   comment          comment
