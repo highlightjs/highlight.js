@@ -224,7 +224,8 @@ module ABC::DEF
   # @return [String] nothing
   def foo(test)
     Thread.new do |blockvar|
-      ABC::DEF.reverse(:a_symbol, :'a symbol', :&lt;=&gt;, 'test' + test)
+      ABC::DEF.reverse(:a_symbol, :'a symbol', :&lt;=&gt;, 'test' + ?\012)
+      answer = valid?4 && valid?CONST && ?A && ?A.ord
     end.join
   end
 
