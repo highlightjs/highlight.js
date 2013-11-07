@@ -24,7 +24,7 @@ function(hljs) {
       {
         className: 'comment',
         begin: '\\(\\*', end: '\\*\\)',
-		contains: ['self']
+        contains: ['self']
       },
       {
         className: 'class',
