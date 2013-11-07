@@ -82,3 +82,5 @@ URL:   http://highlightjs.org/
 - Порен Чянь <ren.chiang@gmail.com>
 - Келли ван Эверт <kelleyvanevert@gmail.com>
 - Курт Эмч <kurt@kurtemch.com>
+- Мейди Догги <mehdi@dogguy.org>
+- Николя Бро-Сантони <nicolas.braud-santoni@ens-cachan.fr>
