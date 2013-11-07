@@ -294,8 +294,6 @@ POD till the end of file
     <td class="php">
 <pre><code>require_once 'Zend/Uri/Http.php';
 
-__FILE__ = '';
-
 abstract class URI extends BaseURI
 {
 
@@ -306,6 +304,7 @@ abstract class URI extends BaseURI
    */
   static public function _factory($stats = array(), $uri = 'http')
   {
+      echo __METHOD__;
       $uri = explode(':', $uri, 0b10);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
       $desc = 'Multi
