@@ -92,7 +92,7 @@ function(hljs) {
   COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER];
 
   return {
-    illegal: '\\S',
+    illegal: /\S/,
     contains: [
       COMMENT,
       LIST

@@ -77,7 +77,7 @@ function(hljs) {
   BODY.contains = [QUOTED1, QUOTED2, LIST, LITERAL].concat(NUMBERS).concat([STRING, COMMENT, VARIABLE, KEYWORD]);
 
   return {
-    illegal: '[^\\s]',
+    illegal: /\S/,
     contains: NUMBERS.concat([
       SHEBANG,
       LITERAL,
