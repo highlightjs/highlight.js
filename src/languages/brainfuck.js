@@ -20,7 +20,8 @@ function(hljs){
       },
       {
         className: 'string',
-        begin: '[\\.,]'
+        begin: '[\\.,]',
+        relevance: 0
       },
       {
         className: 'literal',
