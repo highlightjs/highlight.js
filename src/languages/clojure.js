@@ -87,7 +87,7 @@ function(hljs) {
     starts: BODY
   };
 
-  LIST.contains = [{className: 'comment', begin: 'comment'}, TITLE];
+  LIST.contains = [{className: 'comment', begin: 'comment'}, TITLE, BODY];
   BODY.contains = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER];
   COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER];
 
