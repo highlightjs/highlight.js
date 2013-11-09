@@ -17,7 +17,7 @@ function(hljs) {
   };
   var NUMBERS = [
     {
-      className: 'number', begin: LISP_SIMPLE_NUMBER_RE
+      className: 'number', begin: LISP_SIMPLE_NUMBER_RE, relevance: 0
     },
     {
       className: 'number', begin: '#b[0-1]+(/[0-1]+)?'
