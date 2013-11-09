@@ -6,16 +6,45 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 pre code {
   display: block;
-  padding: 0.5em;
-  background: #23241f;
 }
 pre .tag,
 pre code {
   color: #f8f8f2;
 }
+pre .header {
+  color: #F92672;
+}
+pre .strongemphasis,
+pre .strong,
+pre .emphasis {
+  color: #a8a8a2;
+}
+pre .bullet,
+pre .blockquote,
+pre .horizontal_rule,
+pre .link {
+  color: #ae81ff;
+}
+pre .code {
+  color: #a6e22e;
+}
+pre .link_label,
+pre .link_url {
+  color: #e6db74;
+}
+pre .link_url {
+  font-size: 80%;
+}
+pre .strong,
+pre .strongemphasis {
+  font-weight: bold;
+}
+pre .emphasis,
+pre .strongemphasis {
+  font-style: italic;
+}
 pre .keyword,
 pre .function,
-pre .literal,
 pre .change,
 pre .winutils,
 pre .flow,
@@ -23,32 +52,51 @@ pre .lisp .title,
 pre .clojure .built_in,
 pre .nginx .title,
 pre .tex .special {
+  color: #F92672;
+}
+pre .corefunction,
+pre .function .keyword,
+pre .class .keyword:first-child {
   color: #66d9ef;
 }
 pre .variable,
 pre .params {
-  color: #fd9720;
+  color: #f8f8f2;
 }
 pre .constant {
   color: #66d9ef;
 }
+pre .class .title {
+  color: #f8f8f2;
+}
 pre .title,
-pre .class .title,
 pre .css .class {
   color: #a6e22e;
+}
+pre .class .title:last-child {
+  color: #a6e22e;
+  font-style: italic;
 }
 pre .attribute,
 pre .symbol,
 pre .symbol .string,
 pre .tag .title,
-pre .value,
-pre .css .tag {
+pre .value {
   color: #f92672;
 }
 pre .number,
-pre .preprocessor,
-pre .regexp {
+pre .regexp,
+pre .namespace,
+pre .namespace .keyword,
+pre .alias .keyword,
+pre .literal {
   color: #ae81ff;
+}
+pre .preprocessor {
+  color: #f8f8f2;
+}
+pre .alias .keyword:first-child {
+  color: #F92672;
 }
 pre .tag .value,
 pre .string,
@@ -96,6 +144,25 @@ pre .tex .formula {
 pre .xml .javascript,
 pre .xml .vbscript,
 pre .xml .css,
-pre .xml .cdata {
+pre .xml .cdata,
+pre .xml .php,
+pre .php .xml {
   opacity: 0.5;
+}
+
+pre .css .rules,
+pre .css .value,
+pre .css .function {
+  color: #f8f8f2;
+}
+pre .css .attribute {
+  color: #66d9ef;
+}
+pre .css .tag,
+pre .css .unit,
+pre .css .important {
+  color: #f92672;
+}
+pre .hexcolor {
+  color: #ae81ff;
 }
