@@ -62,6 +62,9 @@ CATEGORIES = {
 def lang_name(filename):
     return os.path.splitext(os.path.basename(filename))[0]
 
+# This is used instead of plain `open` everywhere as there are apparently
+# "some systems" that don't use utf-8 as the default system encoding.
+# We should probably drop it in the better, brighter future.
 def utf8_open(filename, mode='r'):
     return codecs.open(filename, mode, 'utf-8')
 
