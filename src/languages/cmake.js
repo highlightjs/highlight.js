@@ -9,7 +9,8 @@ function(hljs) {
   return {
     case_insensitive: true,
     keywords: {
-      'keyword': 'add_custom_command add_custom_target add_definitions add_dependencies ' +
+      keyword:
+        'add_custom_command add_custom_target add_definitions add_dependencies ' +
         'add_executable add_library add_subdirectory add_test aux_source_directory ' +
         'break build_command cmake_minimum_required cmake_policy configure_file ' +
         'create_test_sourcelist define_property else elseif enable_language enable_testing ' +
@@ -27,8 +28,8 @@ function(hljs) {
         'install_programs install_targets link_libraries make_directory remove subdir_depends ' +
         'subdirs use_mangled_mesa utility_source variable_requires write_file ' +
         'qt5_use_modules qt5_use_package qt5_wrap_cpp on off true false and or',
-
-      'operator': 'equal less greater strless strgreater strequal matches'
+      operator:
+        'equal less greater strless strgreater strequal matches'
     },
     contains: [
       {
