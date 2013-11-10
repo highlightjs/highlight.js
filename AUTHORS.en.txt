@@ -84,3 +84,4 @@ Contributors:
 - Kurt Emch <kurt@kurtemch.com>
 - Mehdi Dogguy <mehdi@dogguy.org>
 - Nicolas Braud-Santoni <nicolas.braud-santoni@ens-cachan.fr>
+- Ralf Bitter <rabit@revigniter.com>
