@@ -8,7 +8,8 @@ Date: 2013-06-03
 
 function(hljs) {
   var VARIABLE = {
-	className: 'variable', begin: '\\b[gtps][A-Z]+[A-Za-z0-9_\\-]*\\b|\\$_[A-Z]+'
+	className: 'variable', begin: '\\b[gtps][A-Z]+[A-Za-z0-9_\\-]*\\b|\\$_[A-Z]+',
+	relevance: 0
   };
   var STRINGS = [
     hljs.inherit(hljs.APOS_STRING_MODE),
@@ -18,8 +19,7 @@ function(hljs) {
 	hljs.inherit(hljs.C_BLOCK_COMMENT_MODE),
 	{
 		className: 'comment',
-		begin: '--', end: '\\n',
-		relevance: 10
+		begin: '--', end: '$'
 	},
 	{
 		className: 'comment',
@@ -33,8 +33,7 @@ function(hljs) {
   var NUMBERS = [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE];
   var TITLE = [
 	{
-      className: 'title', begin: '\\b_*rig[A-Z]+[A-Za-z0-9_\\-]*',
-	  relevance: 10
+      className: 'title', begin: '\\b_*rig[A-Z]+[A-Za-z0-9_\\-]*'
 	},
 	{
 	  className: 'title', begin: '\\b_[a-z0-9\\-]+'
@@ -63,7 +62,7 @@ function(hljs) {
 		'div mod wrap and or bitAnd bitNot bitOr bitXor among not in a an within ' +
 		'contains ends with begins the keys of keys',
 	  built_in:
-		'put|10 abs acos aliasReference annuity arrayDecode arrayEncode asin atan atan2 average avg base64Decode ' +
+		'put abs acos aliasReference annuity arrayDecode arrayEncode asin atan atan2 average avg base64Decode ' +
 		'base64Encode baseConvert binaryDecode binaryEncode byteToNum cachedURL cachedURLs charToNum ' +
 		'cipherNames commandNames compound compress constantNames cos date dateFormat decompress directories ' +
 		'diskSpace DNSServers exp exp1 exp2 exp10 extents files flushEvents folders format functionNames global ' +
@@ -96,7 +95,7 @@ function(hljs) {
 		'uniDecode uniEncode upper URLDecode URLEncode URLStatus value variableNames version waitDepth weekdayNames wordOffset ' +
 		'add breakpoint cancel clear local variable file word line folder directory URL close socket process ' +
 		'combine constant convert create new alias folder directory decrypt delete variable word line folder ' +
-		'directory URL dispatch divide do encrypt filter get|10 include intersect kill libURLDownloadToFile ' +
+		'directory URL dispatch divide do encrypt filter get include intersect kill libURLDownloadToFile ' +
 		'libURLFollowHttpRedirects libURLftpUpload libURLftpUploadFile libURLresetAll libUrlSetAuthCallback ' +
 		'libURLSetCustomHTTPHeaders libUrlSetExpect100 libURLSetFTPListCommand libURLSetFTPMode libURLSetFTPStopTime ' +
 		'libURLSetStatusCallback load multiply socket process post seek rel relative read from process rename ' +
@@ -120,7 +119,7 @@ function(hljs) {
 	  },
 	  {
 	 	className: 'function',
-	    beginWithKeyword: true, end: '\\n',
+	    beginWithKeyword: true, end: '$',
 	    keywords: 'function',
 	    contains: [
 		  VARIABLE,
@@ -132,7 +131,7 @@ function(hljs) {
 	  },
 	  {
 	 	className: 'function',
-	    beginWithKeyword: true, end: '\\n',
+	    beginWithKeyword: true, end: '$',
 	    keywords: 'end',
 	    contains: [
 		  {
@@ -143,8 +142,8 @@ function(hljs) {
 	  },
 	  {
 	 	className: 'command',
-	    beginWithKeyword: true, end: '\\n',
-	    keywords: 'command|10 on',
+	    beginWithKeyword: true, end: '$',
+	    keywords: 'command on',
 	    contains: [
 		  VARIABLE,
 		  {
@@ -155,7 +154,7 @@ function(hljs) {
 	  },
 	  {
 	 	className: 'command',
-	    beginWithKeyword: true, end: '\\n',
+	    beginWithKeyword: true, end: '$',
 	    keywords: 'end',
 	    contains: [
 		  {
