@@ -136,6 +136,18 @@ function(hljs) {
         end: '(\\n{2}|_)',
         relevance: 0
       },
+      // inline double smart quotes
+      {
+        className: 'smartquote',
+        begin: "``.+?''",
+        relevance: 10
+      },
+      // inline single smart quotes
+      {
+        className: 'smartquote',
+        begin: "`.+?'",
+        relevance: 10
+      },
       // inline code snippets (TODO should get same treatment as strong and emphasis)
       {
         className: 'code',
@@ -152,7 +164,7 @@ function(hljs) {
       // horizontal rules
       {
         className: 'horizontal_rule',
-        begin: '^\'{4,}[ \\t]*$',
+        begin: '^\'{3,}[ \\t]*$',
         relevance: 10
       },
       // images and links

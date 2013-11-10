@@ -26,7 +26,8 @@ pre code {
   color: #DDD;
 }
 
-pre code .constant {
+pre code .constant,
+pre .asciidoc .code {
 	color: #66D9EF;
 }
 
@@ -78,6 +79,7 @@ pre .prompt {
 
 pre .comment,
 pre .java .annotation,
+pre .smartquote,
 pre .blockquote,
 pre .horizontal_rule,
 pre .python .decorator,
