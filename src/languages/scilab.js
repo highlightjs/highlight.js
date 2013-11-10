@@ -1,8 +1,8 @@
 /*
 Language: Scilab
-Author: Denis Bardadym <bardadymchik@gmail.com>
 Author: Sylvestre Ledru <sylvestre.ledru@scilab-enterprises.com>
-(Scilab port)
+Origin: matlab.js
+Description: Scilab is a port from Matlab
 */
 
 function(hljs) {
