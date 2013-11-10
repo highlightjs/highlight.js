@@ -658,6 +658,17 @@ Matlab ("matlab"):
   matrix           matrix in [ .. ]
   cell             cell in { .. }
 
+Scilab ("scilab"):
+
+  comment          comment
+  string           string
+  number           number
+  keyword          keyword
+  title            function name
+  function         function
+  param            params of function
+  matrix           matrix in [ .. ]
+
 R ("r"):
 
   comment          comment
