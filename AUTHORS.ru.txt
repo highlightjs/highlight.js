@@ -84,3 +84,4 @@ URL:   http://highlightjs.org/
 - Курт Эмч <kurt@kurtemch.com>
 - Мейди Догги <mehdi@dogguy.org>
 - Николя Бро-Сантони <nicolas.braud-santoni@ens-cachan.fr>
+- Ральф Биттер <rabit@revigniter.com>
