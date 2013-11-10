@@ -193,12 +193,12 @@ def glue_files(hljs_filename, language_filenames, compressed):
         file_func = strip_read
     return ''.join([hljs] + [wrap_language(f, file_func(f), compressed) for f in language_filenames])
 
-def build_browser(root, build_path, filenames, options, isAMD=False):
+def build_browser(root, build_path, filenames, options, is_amd=False):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')
     print('Building %d files:\n%s' % (len(filenames), '\n'.join(filenames)))
     content = glue_files(os.path.join(src_path, 'highlight.js'), filenames, False)
-    if isAMD:
+    if is_amd:
         content = 'define(function() {\n%s\nreturn hljs;\n});' % content # AMD wrap
     print('Uncompressed size:', len(content.encode('utf-8')))
     if options.compress:
