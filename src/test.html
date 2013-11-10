@@ -2031,6 +2031,65 @@ class
 </code></pre>
 
   <tr>
+    <th>LiveCode Server
+    <td class="livecodeserver">
+<pre><code>&lt;?rev
+
+global gControllerHandlers, gData
+local sTest
+put "blog,index" into gControllerHandlers
+
+
+command blog
+  put "Hello World!" into sTest
+  put "form,url,asset" into tHelpers
+  rigLoadHelper tHelpers
+end blog
+
+
+command index
+  -- simple comment
+  put "YourPageTitle" into gData["pageTitle"]
+
+  # ANOTHER COMMENT
+  get rigLoadView("blogView")
+end index
+
+
+/*Hello
+block comment!*/
+
+
+command rigCommand pParam1 pParam2
+  put empty into sEmptyLocal
+  // comment
+  put "test" contains "es" into tTemp
+  put "test" &amp; $_POST["post"] into tTestVar
+  put rigFunction(tTestVar) into gData["arrayVal"]
+end rigCommand
+
+
+function rigFunction pParam
+  rigAnotherCommand pParamA, pPAramB
+  return "bla" &amp;&amp; pParam &amp; comma
+end rigFunction
+
+
+function myFunction
+  if the secs > 2000000000 then
+    put "Welcome to the future!"
+  else
+    return "something"
+  end if
+end myFunction
+
+
+--| END OF blog.lc
+--| Location: ./system/application/controllers/blog.lc
+----------------------------------------------------------------------
+</code></pre>
+
+  <tr>
     <th>TeX
     <td class="tex">
 <pre>
@@ -2481,65 +2540,6 @@ then  y in ProperPrefixes v or y = v &amp; v in ProperPrefixes (v^&lt;*x*&gt;)
   by A3,TARSKI:def 1,TREES_1:def 2;
   hence thesis by A4;
 end;</code></pre>
-
-  <tr>
-    <th>LiveCode Server
-    <td class="livecodeserver">
-<pre><code>&lt;?rev
-
-global gControllerHandlers, gData
-local sTest
-put "blog,index" into gControllerHandlers
-
-
-command blog
-	put "Hello World!" into sTest
-	put "form,url,asset" into tHelpers
-	rigLoadHelper tHelpers
-end blog
-
-
-command index
-	-- simple comment
-	put "YourPageTitle" into gData["pageTitle"]
-
-	# ANOTHER COMMENT
-	get rigLoadView("blogView")
-end index
-
-
-/*Hello
-block comment!*/
-
-
-command rigCommand pParam1 pParam2
-	put empty into sEmptyLocal
-	// comment
-	put "test" contains "es" into tTemp
-	put "test" &amp; $_POST["post"] into tTestVar
-	put rigFunction(tTestVar) into gData["arrayVal"]
-end rigCommand
-
-
-function rigFunction pParam
-	rigAnotherCommand pParamA, pPAramB
-	return "bla" &amp;&amp; pParam &amp; comma
-end rigFunction
-
-
-function myFunction
-	if the secs > 2000000000 then
-		put "Welcome to the future!"
-	else
-		return "something"
-	end if
-end myFunction
-
-
---| END OF blog.lc
---| Location: ./system/application/controllers/blog.lc
-----------------------------------------------------------------------
-</code></pre>
 
 </table>
 
