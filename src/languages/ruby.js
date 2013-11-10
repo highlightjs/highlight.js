@@ -181,6 +181,30 @@ function(hljs) {
           begin: '/', end: '/[a-z]*',
           illegal: '\\n',
           contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r{', end: '}[a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r\\(', end: '\\)[a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r!', end: '![a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r\\[', end: '\\][a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
         }
       ]),
       relevance: 0
