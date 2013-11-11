@@ -2,8 +2,11 @@ Syntax highlighting with language autodetection.
 
 URL:   http://highlightjs.org/
 
-Original author and current maintainer:
-Ivan Sagalaev <maniac@softwaremaniacs.org>
+Core developers (in order of appearance):
+
+- Ivan Sagalaev (original author) <maniac@softwaremaniacs.org>
+- Jeremy Hull <sourdrums@gmail.com>
+- Oleg Efimov <efimovov@gmail.com>
 
 Contributors:
 
@@ -36,7 +39,6 @@ Contributors:
 - Loren Segal <lsegal@soen.ca>
 - Andrew Fedorov <dmmdrs@mail.ru>
 - Igor Kalnitsky <igor@kalnitsky.org>
-- Jeremy Hull <sourdrums@gmail.com>
 - Valerii Hiora <valerii.hiora@gmail.com>
 - Nikolay Zakharov <nikolay.desh@gmail.com>
 - Dmitry Kovega <arhibot@gmail.com>
@@ -49,7 +51,6 @@ Contributors:
 - Alexander Myadzel <myadzel@gmail.com>
 - Evgeny Stepanischev <imbolk@gmail.com>
 - Dmytrii Nagirniak <dnagir@gmail.com>
-- Oleg Efimov <efimovov@gmail.com>
 - Luigi Maselli <grigio.org@gmail.com>
 - Denis Bardadym <bardadymchik@gmail.com>
 - Aahan Krish <geekpanth3r@gmail.com>

@@ -2,8 +2,11 @@
 
 URL:   http://highlightjs.org/
 
-Первоначальный автор и ведущий проекта:
-Иван Сагалаев <maniac@softwaremaniacs.org>
+Ключевые разработчики (в порядке появления):
+
+- Иван Сагалаев (первоначальный автор) <maniac@softwaremaniacs.org>
+- Джереми Халл <sourdrums@gmail.com>
+- Олег Ефимов <efimovov@gmail.com>
 
 Внесли свой вклад:
 
@@ -36,7 +39,6 @@ URL:   http://highlightjs.org/
 - Лорен Сегал <lsegal@soen.ca>
 - Андрей Фёдоров <dmmdrs@mail.ru>
 - Игорь Кальницкий <igor@kalnitsky.org>
-- Джереми Халл <sourdrums@gmail.com>
 - Валерий Хиора <valerii.hiora@gmail.com>
 - Николай Захаров <nikolay.desh@gmail.com>
 - Дмитрий Ковега <arhibot@gmail.com>
@@ -49,7 +51,6 @@ URL:   http://highlightjs.org/
 - Александр Мядзель <myadzel@gmail.com>
 - Евгений Степанищев <imbolk@gmail.com>
 - Дмитрий Нагирняк <dnagir@gmail.com>
-- Олег Ефимов <efimovov@gmail.com>
 - Луиджи Мазелли <grigio.org@gmail.com>
 - Денис Бардадым <bardadymchik@gmail.com>
 - Аахан Криш <geekpanth3r@gmail.com>

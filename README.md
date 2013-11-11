@@ -162,7 +162,6 @@ on a site.
 
 - Version: 7.4
 - URL:     http://highlightjs.org/
-- Author:  Ivan Sagalaev (<maniac@softwaremaniacs.org>)
 
 For the license terms see LICENSE files.
-For the list of contributors see AUTHORS.en.txt file.
+For authors and contributors see AUTHORS.en.txt file.

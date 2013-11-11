@@ -167,7 +167,6 @@ highlight.js.
 
 - Версия: 7.4
 - URL:    http://highlightjs.org/
-- Автор:  Иван Сагалаев (<maniac@softwaremaniacs.org>)
 
 Лицензионное соглашение читайте в файле LICENSE.
-Список соавторов читайте в файле AUTHORS.ru.txt
+Список авторов и соавторов читайте в файле AUTHORS.ru.txt
