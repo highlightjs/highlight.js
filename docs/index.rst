@@ -24,6 +24,7 @@ Miscellaneous:
    :maxdepth: 1
 
    line-numbers
+   language-requests
 
 Links:
 
