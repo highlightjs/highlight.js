@@ -89,7 +89,8 @@ Scala ("scala"):
   params           everything in parentheses inside a class header
   inheritance      keywords "extends" and "with" inside class header
 
-Go language ("go"):
+Go ("go"):
+
   comment          comment
   string           string constant
   number           number
@@ -144,7 +145,7 @@ CSS ("css"):
   function         CSS function within a value
   important        "!important" symbol
 
-SCSS ("scss")
+SCSS ("scss"):
 
   tag              tag in selectors
   id               #some_name in selectors
@@ -340,6 +341,7 @@ C++ ("cpp"):
   stl_container    instantiation of STL containers ("vector<...>")
 
 Objective C ("objectivec"):
+
   keyword          keyword
   built_in         Cocoa/Cocoa Touch constants and classes
   number           number
@@ -368,6 +370,7 @@ C# ("cs"):
   xmlDocTag        xmldoc tag ("///", "<!--", "-->", "<..>")
 
 F# ("fsharp"):
+
   keywords         keyword
   number           number
   string           string
@@ -376,7 +379,7 @@ F# ("fsharp"):
   title            the name of a custom F# type
   annotation       any attribute
 
-OCaml:
+OCaml ("ocaml"):
   keywords         keyword
   number           number
   string           string
@@ -385,7 +388,7 @@ OCaml:
   title            the name of a custom OCaml type
   annotation       any attribute
 
-D language ("d"):
+D ("d"):
 
   comment          comment
   string           string constant
@@ -518,7 +521,7 @@ Bash ("bash"):
   variable         variable
   shebang          script interpreter header
 
-CMake ("cmake")
+CMake ("cmake"):
 
   keyword          keyword
   number           number
@@ -571,7 +574,7 @@ AVR assembler ("avrasm"):
   preprocessor     preprocessor directive
   localvars        substitution in .macro
 
-VHDL ("vhdl")
+VHDL ("vhdl"):
 
   keyword          keyword
   number           number
