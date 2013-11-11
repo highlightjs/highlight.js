@@ -5,7 +5,7 @@ Highilght.js exports a few functions as methods of the ``hljs`` object.
 
 
 ``highlight(language_name, value, ignore_illegals)``
------------------------------------
+----------------------------------------------------
 
 Core highlighting function.
 Accepts a language name and a string with the code to highlight. The third
