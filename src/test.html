@@ -1798,6 +1798,24 @@ genApacheConf(){
 </code></pre>
 
   <tr>
+    <th>Makefile
+    <td class="makefile">
+<pre><code># Makefile
+
+BUILDDIR      = _build
+EXTRAS       ?= $(BUILDDIR)/extras
+
+.PHONY: main clean
+
+main:
+	@echo "Building main facility..."
+	build_main $(BUILDDIR)
+
+clean:
+	rm -rf $(BUILDDIR)/*
+</code></pre>
+
+  <tr>
     <th>CMake
     <td class="cmake">
 <pre><code>cmake_minimum_required(VERSION 2.8.8)

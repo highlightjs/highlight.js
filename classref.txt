@@ -521,6 +521,15 @@ Bash ("bash"):
   variable         variable
   shebang          script interpreter header
 
+Makefile ("makefile"):
+
+  keyword          keyword ".PHONY" within the phony line
+  string           string
+  comment          comment
+  variable         $(..) variable
+  title            target title
+  constant         constant within the initial definition
+
 CMake ("cmake"):
 
   keyword          keyword

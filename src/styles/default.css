@@ -69,6 +69,7 @@ pre .smalltalk .char,
 pre .go .constant,
 pre .change,
 pre .lasso .variable,
+pre .makefile .variable,
 pre .asciidoc .bullet,
 pre .markdown .bullet,
 pre .asciidoc .link_url,
@@ -103,7 +104,8 @@ pre .vhdl .attribute,
 pre .clojure .attribute,
 pre .asciidoc .attribute,
 pre .lasso .attribute,
-pre .coffeescript .property {
+pre .coffeescript .property,
+pre .makefile .phony {
   color: #88F
 }
 
