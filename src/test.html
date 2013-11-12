@@ -1637,6 +1637,9 @@ RewriteRule . index.php [NC,L]
 ExpiresActive On
 ExpiresByType application/x-javascript  "access plus 1 days"
 
+Order Deny,Allow
+Allow from All
+
 &lt;Location /maps/&gt;
   RewriteMap map txt:map.txt
   RewriteMap lower int:tolower
