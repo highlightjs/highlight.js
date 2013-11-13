@@ -23,7 +23,6 @@ function(hljs) {
         className: 'string',
         begin: '"""', end: '"""'
       },
-      hljs.C_LINE_COMMENT_MODE,
       {
         className: 'comment',
         begin: '\\(\\*', end: '\\*\\)'
@@ -43,9 +42,12 @@ function(hljs) {
         className: 'annotation',
         begin: '\\[<', end: '>\\]'
       },
+      {
+        className: 'attribute',
+        begin: '\\B(\'[A-Za-z])\\b',
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       hljs.C_NUMBER_MODE
     ]
