@@ -234,7 +234,7 @@ function() {
   - value (an HTML string with highlighting markup)
 
   */
-  function highlight(language_name, value, ignore_illegals) {
+  function highlight(language_name, value, ignore_illegals, continuation) {
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -290,7 +290,8 @@ function() {
       if (top.subLanguage && !languages[top.subLanguage]) {
         return escape(mode_buffer);
       }
-      var result = top.subLanguage ? highlight(top.subLanguage, mode_buffer) : highlightAuto(mode_buffer);
+      var continuation = top.subLanguageMode == 'continuous' ? top.top : undefined;
+      var result = top.subLanguage ? highlight(top.subLanguage, mode_buffer, true, continuation) : highlightAuto(mode_buffer);
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Usecase in point is Markdown that
       // allows XML everywhere and makes every XML snippet to have a much larger Markdown
@@ -299,6 +300,7 @@ function() {
         keyword_count += result.keyword_count;
         relevance += result.relevance;
       }
+      top.top = result.top;
       return '<span class="' + result.language  + '">' + result.value + '</span>';
     }
 
@@ -377,11 +379,16 @@ function() {
     }
 
     compileLanguage(language);
-    var top = language;
+    var top = continuation || language;
+    var result = '';
+    for(var current = top; current != language; current = current.parent) {
+      if (current.className) {
+        result = '<span class="' + current.className +'">' + result;
+      }
+    }
     var mode_buffer = '';
     var relevance = 0;
     var keyword_count = 0;
-    var result = '';
     try {
       var match, count, index = 0;
       while (true) {
