@@ -515,9 +515,11 @@ function() {
     if (initHighlighting.called)
       return;
     initHighlighting.called = true;
-    Array.prototype.map.call(document.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'pre'), findCode).
-      filter(Boolean).
-      forEach(function(code){highlightBlock(code, hljs.tabReplace);});
+    var blocks = document.querySelectorAll('pre code.hljs');
+
+     Array.prototype.forEach.call(blocks, function(block) {
+        highlightBlock(block, hljs.tabReplace);
+      });
   }
 
   /*
