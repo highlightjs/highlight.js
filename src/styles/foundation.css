@@ -6,7 +6,7 @@ Version: 1.0
 Date: 2013-04-02
 */
 
-pre code {
+pre code.hljs {
   display: block; padding: 0.5em;
   background: #eee;
 }

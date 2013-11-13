@@ -4,7 +4,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 
 */
 
-pre code {
+pre code.hljs {
   display: block; padding: 0.5em;
   background: #fff; color: black;
 }
