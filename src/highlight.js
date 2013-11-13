@@ -393,11 +393,17 @@ function() {
         index = match.index + count;
       }
       processLexem(value.substr(index));
+      for(var current = top; current.parent; current = current.parent) { // close dangling modes
+        if (current.className) {
+          result += '</span>';
+        }
+      };
       return {
         relevance: relevance,
         keyword_count: keyword_count,
         value: result,
-        language: language_name
+        language: language_name,
+        top: top
       };
     } catch (e) {
       if (e.message.indexOf('Illegal') != -1) {
