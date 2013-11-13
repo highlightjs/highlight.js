@@ -33,7 +33,7 @@
   color: #c397d8;
 }
 
-pre code {
+.hljs {
   display: block;
   background: black;
   color: #eaeaea;

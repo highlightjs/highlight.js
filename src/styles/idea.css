@@ -4,7 +4,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
 
-pre code {
+.hljs {
   display: block; padding: 0.5em;
   color: #000;
   background: #fff;

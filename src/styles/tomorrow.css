@@ -31,7 +31,7 @@
   color: #8959a8;
 }
 
-pre code {
+.hljs {
   display: block;
   background: white;
   color: #4d4d4c;
