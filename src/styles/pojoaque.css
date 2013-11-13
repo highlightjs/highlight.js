@@ -6,7 +6,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 
 */
 
-pre code {
+.hljs {
   display: block; padding: 0.5em;
   color: #DCCF8F;
   background: url(./pojoaque.jpg) repeat scroll left top #181914;

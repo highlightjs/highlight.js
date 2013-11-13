@@ -33,11 +33,11 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
                 var selector = document.getElementById("langSelector");
                 var selectedLang = selector.options[selector.selectedIndex].value.toLowerCase();
                 if(selectedLang) {
-                    viewDiv.innerHTML = '<pre><code class="'+selectedLang+'">'+t1.value.escape()+"</code></pre>";
+                    viewDiv.innerHTML = '<pre class="hljs '+selectedLang+'">'+t1.value.escape()+"</pre>";
                 } else { // try auto
-                    viewDiv.innerHTML = '<pre><code>' + t1.value.escape() + "</code></pre>";
+                    viewDiv.innerHTML = '<pre class="hljs">' + t1.value.escape() + "</pre>";
                 }
-                hljs.highlightBlock(viewDiv.firstChild.firstChild);
+                hljs.highlightBlock(viewDiv.firstChild);
                 t2.value = viewDiv.innerHTML;
             }
 
