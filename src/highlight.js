@@ -509,9 +509,9 @@ function() {
     initHighlighting.called = true;
     var blocks = document.querySelectorAll('pre code.hljs');
 
-     Array.prototype.forEach.call(blocks, function(block) {
-        highlightBlock(block, hljs.tabReplace);
-      });
+    Array.prototype.forEach.call(blocks, function(block) {
+      highlightBlock(block, hljs.tabReplace);
+    });
   }
 
   /*
