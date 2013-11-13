@@ -509,7 +509,8 @@ function() {
   }
 
   /*
-  Applies highlighting to all <pre><code>..</code></pre> blocks on a page.
+  Applies highlighting to all <pre><code class="hljs">..</code></pre> blocks
+  on a page.
   */
   function initHighlighting() {
     if (initHighlighting.called)
