@@ -456,39 +456,44 @@ func main() {
   local('query' = 'SELECT * FROM `'+var:'table'+'` WHERE `id` &gt; 10
     ORDER BY `Name` LIMIT 30');
   Inline: -Username=$DBuser, -Password=$DBpass, -Database=$DBname, -sql=#query;
-    var("class.name" = (found_count != 0 ? `subtotal` | `nonefound`));
+    var("class1.name" = (found_count != 0 ? "subtotal" | "nonefound"),
+        "total_amount" = found_count);
     records;
-      output: ?&gt;&lt;tr&gt;[loop_count]&lt;/tr&gt;&lt;?=;
+      output: "&lt;tr&gt;"loop_count"&lt;/tr&gt";
     /records;
   /Inline;
-?&gt;&lt;div class="[$class.name]"&gt;[found_count]&lt;/div&gt;
-[noprocess] causes [delimiters] to be skipped until the next [/noprocess]
+?&gt;&lt;div class="[$class1.name]"&gt;[$total_amount]&lt;/div&gt;
 &lt;?lasso
-/* Lasso 9 */
+/* Lasso 9 */ ?&gt;
+[noprocess] causes [delimiters] to be &lt;?=skipped?&gt; until the next [/noprocess]
+[
   define strings_combine(value::string, ...other)::string =&gt; {
-    local(result = #value-&gt;append(#other-&gt;asString))
+    local(result = #value-&gt;append(#other-&gt;asString&amp;trim))
     return #result
   }
   /**! descriptive text */
   define person =&gt; type {
-    data name::string, protected nickname
-    data birthdate::date
+    parent entity
+    data name::string, protected nickname, birthdate :: date
     data private ssn = null
-    public showName() =&gt; return .'name'
-    protected fullName() =&gt; '"' + .nickname + '"' + .'name'
-    public ssnListed =&gt; .ssn ? true | false
+    private showAge() =&gt; { return ..age }
+    protected fullName() =&gt; `"` + .nickname + `"` + .'name'
+    public ssnListed::boolean =&gt; .ssn() ? true | false
   }
   define person-&gt;name=(value) =&gt; {
     .'name' = #value
     return self-&gt;'name'
   }
+] &lt;!-- an HTML comment &lt;?=disables delimiters?&gt; as well --&gt;
+[no_square_brackets] disables [square brackets] for the rest of the file
+&lt;?=
   // query expression
-  with n in array(-1, 0xABCD, 3.14159e14)
+  with n in array((:-12, 0xABCD, 3.14159e14), (:NaN, -infinity, .57721))
   let swapped = pair(#n-&gt;second, #n-&gt;first)
   group #swapped by #n-&gt;first into t
   let key = #t-&gt;key
   order by #key
-  select pair(#key, #t)
+  select pair(#key, #1)
   do {^
     #n-&gt;upperCase
   ^}
