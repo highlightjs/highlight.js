@@ -54,6 +54,8 @@ pre .deletion,
 pre .shebang,
 pre .string .variable,
 pre .link_url,
-pre .bullet {
+pre .bullet,
+pre .sqbracket,
+pre .phony {
   color: #4C81C9;
 }
