@@ -87,3 +87,4 @@ Contributors:
 - Nicolas Braud-Santoni <nicolas.braud-santoni@ens-cachan.fr>
 - Ralf Bitter <rabit@revigniter.com>
 - Sylvestre Ledru <sylvestre.ledru@scilab-enterprises.com>
+- Troy Kershaw <hello@troykershaw.com>

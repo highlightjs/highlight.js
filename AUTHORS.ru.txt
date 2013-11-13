@@ -87,3 +87,4 @@ URL:   http://highlightjs.org/
 - Николя Бро-Сантони <nicolas.braud-santoni@ens-cachan.fr>
 - Ральф Биттер <rabit@revigniter.com>
 - Сильвестр Ледру <sylvestre.ledru@scilab-enterprises.com>
+- Трой Кершоу <hello@troykershaw.com>

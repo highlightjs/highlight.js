@@ -1,6 +1,7 @@
 /*
 Language: F#
 Author: Jonas Follesø <jonas@follesoe.no>
+Contributors: Troy Kershaw <hello@troykershaw.com>
 Description: F# language definition.
 */
 function(hljs) {
