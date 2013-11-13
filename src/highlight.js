@@ -34,7 +34,7 @@ function() {
 
   function blockLanguage(block) {
     var classes = (block.className + ' ' + (block.parentNode ? block.parentNode.className : '')).split(/\s+/);
-    classes = classes.map(function(c) {return c.replace(/^language-/, '')});
+    classes = classes.map(function(c) {return c.replace(/^language-/, '');});
     for (var i = 0; i < classes.length; i++) {
       if (languages[classes[i]] || classes[i] == 'no-highlight') {
         return classes[i];
@@ -104,7 +104,7 @@ function() {
     }
 
     function open(node) {
-      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"'};
+      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
       return '<' + node.nodeName + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
     }
 
@@ -169,7 +169,7 @@ function() {
 
         mode.lexemsRe = langRe(mode.lexems || '\\b' + hljs.IDENT_RE + '\\b(?!\\.)', true);
         if (typeof mode.keywords == 'string') { // string
-          flatten('keyword', mode.keywords)
+          flatten('keyword', mode.keywords);
         } else {
           for (var className in mode.keywords) {
             if (!mode.keywords.hasOwnProperty(className))
@@ -392,7 +392,7 @@ function() {
         count = processLexem(value.substr(index, match.index - index), match[0]);
         index = match.index + count;
       }
-      processLexem(value.substr(index))
+      processLexem(value.substr(index));
       return {
         relevance: relevance,
         keyword_count: keyword_count,
@@ -517,7 +517,7 @@ function() {
     initHighlighting.called = true;
     Array.prototype.map.call(document.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'pre'), findCode).
       filter(Boolean).
-      forEach(function(code){highlightBlock(code, hljs.tabReplace)});
+      forEach(function(code){highlightBlock(code, hljs.tabReplace);});
   }
 
   /*
@@ -605,16 +605,16 @@ function() {
         contains: [this.BACKSLASH_ESCAPE]
       }
     ]
-  }
+  };
 
   // Utility functions
   this.inherit = function(parent, obj) {
-    var result = {}
+    var result = {};
     for (var key in parent)
       result[key] = parent[key];
     if (obj)
       for (var key in obj)
         result[key] = obj[key];
     return result;
-  }
+  };
 }
