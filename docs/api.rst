@@ -57,7 +57,7 @@ or within initialization code of third-party Javascript frameworks.
 ``initHighlighting()``
 ----------------------
 
-Applies highlighting to all ``<pre><code>..</code></pre>`` blocks on a page.
+Applies highlighting to all ``<pre><code class="hljs">..</code></pre>`` blocks on a page.
 
 To control tab replacement  use global flags on ``hljs`` object before initialization:
 
