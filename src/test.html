@@ -605,7 +605,7 @@ NOTE: AsciiDoc is quite cool, you should try it.</code></pre>
 {# Striped table #}
 &lt;tr class="{% cycle odd,even %}"&gt;
   &lt;td&gt;{{ article|default:"Hi... "|escape }}&lt;/td&gt;
-  &lt;td {% if article.today %}class="today"{% endif %}&gt;{{ article.date|date:"d.m.Y" }}&lt;/td&gt;
+  &lt;td {% if article.today %}class="today"{% endif %}&gt;{{ article.date|date:'d.m.Y' }}&lt;/td&gt;
 &lt;/tr&gt;
 
 {% endfor %}

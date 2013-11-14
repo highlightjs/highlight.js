@@ -8,7 +8,7 @@ Contributors: Ilya Baryshev <baryshev@gmail.com>
 function(hljs) {
   var FILTER = {
     className: 'filter',
-    begin: '\\|[A-Za-z]+\\:?',
+    begin: /\|[A-Za-z]+\:?/,
     keywords:
       'truncatewords removetags linebreaksbr yesno get_digit timesince random striptags ' +
       'filesizeformat escape linebreaks length_is ljust rjust cut urlize fix_ampersands ' +
@@ -19,7 +19,8 @@ function(hljs) {
       'escapejs force_escape iriencode last safe safeseq truncatechars localize unlocalize ' +
       'localtime utc timezone',
     contains: [
-      {className: 'argument', begin: '"', end: '"'}
+      {className: 'argument', begin: /"/, end: /"/},
+      {className: 'argument', begin: /'/, end: /'/}
     ]
   };
 
@@ -29,15 +30,15 @@ function(hljs) {
     contains: [
       {
         className: 'template_comment',
-        begin: '{%\\s*comment\\s*%}', end: '{%\\s*endcomment\\s*%}'
+        begin: /{%\s*comment\s*%}/, end: /{%\s*endcomment\s*%}/
       },
       {
         className: 'template_comment',
-        begin: '{#', end: '#}'
+        begin: /{#/, end: /#}/
       },
       {
         className: 'template_tag',
-        begin: '{%', end: '%}',
+        begin: /{%/, end: /%}/,
         keywords:
           'comment endcomment load templatetag ifchanged endifchanged if endif firstof for ' +
           'endfor in ifnotequal endifnotequal widthratio extends include spaceless ' +
@@ -52,7 +53,7 @@ function(hljs) {
       },
       {
         className: 'variable',
-        begin: '{{', end: '}}',
+        begin: /{{/, end: /}}/,
         contains: [FILTER]
       }
     ]
