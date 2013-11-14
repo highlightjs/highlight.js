@@ -33,9 +33,9 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
                 var selector = document.getElementById("langSelector");
                 var selectedLang = selector.options[selector.selectedIndex].value.toLowerCase();
                 if(selectedLang) {
-                    viewDiv.innerHTML = '<pre><code class="'+selectedLang+'">'+t1.value.escape()+"</code></pre>";
+                    viewDiv.innerHTML = '<pre><code class="hljs '+selectedLang+'">'+t1.value.escape()+"</code></pre>";
                 } else { // try auto
-                    viewDiv.innerHTML = '<pre><code>' + t1.value.escape() + "</code></pre>";
+                    viewDiv.innerHTML = '<pre><code class="hljs">' + t1.value.escape() + "</code></pre>";
                 }
                 hljs.highlightBlock(viewDiv.firstChild.firstChild);
                 t2.value = viewDiv.innerHTML;

@@ -185,7 +185,7 @@ Most snippets do not contain working code :-).
     <th>Python
     <td class="python">
 <pre>
-<code>@requires_authorization
+<code class="hljs">@requires_authorization
 def somefunc(param1='', param2=0):
     r'''A docstring'''
     if param1 &gt; param2: # interesting
@@ -201,7 +201,7 @@ class SomeClass:<br>    pass
   <tr>
     <th>Python's profiler output
     <td class="profile">
-<pre><code>       261917242 function calls in 686.251 CPU seconds
+<pre><code class="hljs">       261917242 function calls in 686.251 CPU seconds
 
        ncalls  tottime  filename:lineno(function)
        152824  513.894  {method 'sort' of 'list' objects}
@@ -214,7 +214,7 @@ class SomeClass:<br>    pass
   <tr>
     <th>Ruby
     <td class="ruby">
-<pre><code>class A &lt; B; def self.create(object = User) object end end
+<pre><code class="hljs">class A &lt; B; def self.create(object = User) object end end
 class Zebra; def inspect; "X#{2 + self.object_id}" end end
 
 module ABC::DEF
@@ -247,7 +247,7 @@ str =~ %r(\(foo|bar\)$)
   <tr>
     <th>Haml
     <td class="haml">
-    <pre><code>!!! XML
+    <pre><code class="hljs">!!! XML
 %html
   %body
     %h1.jumbo{:id=&gt;"a", :style=&gt;'font-weight: normal', :title=&gt;title} highlight.js
@@ -266,7 +266,7 @@ str =~ %r(\(foo|bar\)$)
   <tr>
     <th>Perl
     <td class="perl">
-<pre><code># loads object
+<pre><code class="hljs"># loads object
 sub load
 {
   my $flds = $c-&gt;db_load($id,@_) || do {
@@ -298,7 +298,7 @@ POD till the end of file
   <tr>
     <th>PHP
     <td class="php">
-<pre><code>require_once 'Zend/Uri/Http.php';
+<pre><code class="hljs">require_once 'Zend/Uri/Http.php';
 
 abstract class URI extends BaseURI
 {
@@ -336,7 +336,7 @@ datahere</code></pre>
   <tr>
     <th>Scala
     <td class="scala">
-<pre><code>object abstractTypes extends Application {
+<pre><code class="hljs">object abstractTypes extends Application {
   abstract class SeqBuffer {
     type T; val element: Seq[T]; def length = element.length
   }
@@ -373,7 +373,7 @@ object Maps {
   <tr>
     <th>Go
     <td class="go">
-<pre><code>package main
+<pre><code class="hljs">package main
 
 import (
     "fmt"
@@ -419,7 +419,7 @@ func main() {
   <tr>
     <th>XML
     <td class="xml">
-<pre><code>&lt;?xml version="1.0"?&gt;
+<pre><code class="hljs">&lt;?xml version="1.0"?&gt;
 &lt;response value="ok" xml:lang="en"&gt;
   &lt;text&gt;Ok&lt;/text&gt;
   &lt;comment html_allowed="true"/&gt;
@@ -433,7 +433,7 @@ func main() {
   <tr>
     <th>HTML (with inline css and javascript)
     <td class="xml">
-<pre><code>&lt;!DOCTYPE html&gt;
+<pre><code class="hljs">&lt;!DOCTYPE html&gt;
 &lt;title&gt;Title&lt;/title&gt;
 
 &lt;style&gt;body {width: 500px;}&lt;/style&gt;
@@ -451,7 +451,7 @@ func main() {
   <tr>
     <th>Lasso
     <td class="lasso">
-<pre><code>&lt;?LassoScript
+<pre><code class="hljs">&lt;?LassoScript
 /* Lasso 8 */
   local('query' = 'SELECT * FROM `'+var:'table'+'` WHERE `id` &gt; 10
     ORDER BY `Name` LIMIT 30');
@@ -504,7 +504,7 @@ func main() {
 		<th>Markdown
 		<td class="markdown">
 <pre>
-<code># hello world
+<code class="hljs"># hello world
 
 you can write text [with links](http://example.com).
 
@@ -530,7 +530,7 @@ hello world
 		<th>AsciiDoc
 		<td class="asciidoc">
 <pre>
-<code>Hello, World!
+<code class="hljs">Hello, World!
 ============
 Author Name, &lt;author@domain.foo&gt;
 
@@ -599,7 +599,7 @@ NOTE: AsciiDoc is quite cool, you should try it.</code></pre>
   <tr>
     <th>Django templates
     <td class="django">
-<pre><code>{% if articles|length %}
+<pre><code class="hljs">{% if articles|length %}
 {% for article in articles %}
 
 {# Striped table #}
@@ -621,7 +621,7 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
     <th>Handlebars
     <td class="handlebars">
 <pre>
-<code>&lt;h3&gt;Hours&lt;/h3&gt;
+<code class="hljs">&lt;h3&gt;Hours&lt;/h3&gt;
 
 &lt;ul&gt;
   {{#each content.users}}
@@ -633,7 +633,7 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
   <tr>
     <th>CSS
     <td class="css">
-<pre><code>@media screen and (-webkit-min-device-pixel-ratio: 0) {
+<pre><code class="hljs">@media screen and (-webkit-min-device-pixel-ratio: 0) {
   body:first-of-type pre::after {
     content: 'highlight: ' attr(class);
   }
@@ -663,7 +663,7 @@ li[lang=ru] {
   <tr>
     <th>SCSS
     <td class="scss">
-<pre><code>@import "compass/reset";
+<pre><code class="hljs">@import "compass/reset";
 
 // variables
 $colorGreen: #008000;
@@ -740,7 +740,7 @@ a {
   <tr>
     <th>JSON
     <td class="json">
-<pre><code>[
+<pre><code class="hljs">[
   {
     "title": "apples",
     "count": [12000, 20000],
@@ -757,7 +757,7 @@ a {
   <tr>
     <th>JavaScript
     <td class="javascript">
-<pre><code>function $initHighlight(block, flags) {
+<pre><code class="hljs">function $initHighlight(block, flags) {
   try {
     if (block.className.search(/\bno\-highlight\b/) != -1)
       return processBlock(block, true, 0x0F) + ' class=""';
@@ -777,7 +777,7 @@ a {
   <tr>
     <th>CoffeeScript
     <td class="coffeescript">
-<pre><code># Divisions
+<pre><code class="hljs"># Divisions
 x = 6/foo/i
 x = 6 /foo
 x = 6 / foo
@@ -837,7 +837,7 @@ OPERATOR = /// ^ (
 <tr>
     <th>ActionScript
     <td class="actionscript">
-<pre><code>package org.example.dummy {
+<pre><code class="hljs">package org.example.dummy {
     import org.dummy.*;
 
     /*define package inline interface*/
@@ -865,7 +865,7 @@ OPERATOR = /// ^ (
   <tr>
     <th>VBScript
     <td class="vbscript">
-<pre><code>' creating configuration storage and initializing with default values
+<pre><code class="hljs">' creating configuration storage and initializing with default values
 Set cfg = CreateObject("Scripting.Dictionary")
 
 ' reading ini file
@@ -898,7 +898,7 @@ next</code></pre>
   <tr>
     <th>VB.NET
     <td class="vbnet">
-<pre><code>Import System
+<pre><code class="hljs">Import System
 Import System.IO
 #Const DEBUG = True
 
@@ -945,7 +945,7 @@ End Namespace
   <tr>
     <th>HTTP
     <td class="http">
-<pre><code>POST /task?id=1 HTTP/1.1
+<pre><code class="hljs">POST /task?id=1 HTTP/1.1
 Host: example.org
 Content-Type: application/json; charset=utf-8
 Content-Length: 19
@@ -956,7 +956,7 @@ Content-Length: 19
   <tr>
     <th>Lua
     <td class="lua">
-<pre><code>--[[
+<pre><code class="hljs">--[[
 Simple signal/slot implementation
 ]]
 local signal_mt = {
@@ -993,7 +993,7 @@ comment ]==]
   <tr>
     <th>AppleScript
     <td class="applescript">
-<pre><code>repeat 5 times
+<pre><code class="hljs">repeat 5 times
     if foo is greater than bar then
         display dialog "Hello there"
     else
@@ -1012,7 +1012,7 @@ do shell script "/bin/echo 'hello'"
   <tr>
     <th>Delphi
     <td class="delphi">
-<pre><code>TList=Class(TObject)
+<pre><code class="hljs">TList=Class(TObject)
 Private
   Some: String;
 Public
@@ -1047,7 +1047,7 @@ End;{CopyFile}
   <tr>
     <th>Java
     <td class="java">
-<pre><code>/**
+<pre><code class="hljs">/**
  * @author John Smith &lt;john.smith@example.com&gt;
  * @version 1.0
 */
@@ -1085,7 +1085,7 @@ public abstract class L2Character extends L2Object {
   <tr>
     <th>C++
     <td class="cpp">
-<pre><code>#include &lt;iostream&gt;
+<pre><code class="hljs">#include &lt;iostream&gt;
 
 int main(int argc, char *argv[]) {
 
@@ -1105,7 +1105,7 @@ int main(int argc, char *argv[]) {
     <th>Objective C
     <td class="objectivec">
 <pre>
-<code>#import &lt;UIKit/UIKit.h&gt;
+<code class="hljs">#import &lt;UIKit/UIKit.h&gt;
 #import "Dependency.h"
 
 @protocol WorldDataSource
@@ -1153,7 +1153,7 @@ int main(int argc, char *argv[]) {
   <tr>
     <th>Vala
     <td class="vala">
-<pre><code>using DBus;
+<pre><code class="hljs">using DBus;
 
 namespace Test {
   class Foo : Object {
@@ -1204,7 +1204,7 @@ void main () {
   <tr>
     <th>C#
     <td class="cs">
-<pre><code>using System;
+<pre><code class="hljs">using System;
 
 #pragma warning disable 414, 3021
 
@@ -1234,7 +1234,7 @@ async Task&lt;int&gt; AccessTheWebAsync()
   <tr>
     <th>F#
     <td class="fsharp">
-<pre><code>open System
+<pre><code class="hljs">open System
 
 // Single line comment...
 (*
@@ -1289,7 +1289,7 @@ let minutte = 60&lt;s&gt;
     <th>OCaml
     <td class="ocaml">
 <pre>
-<code>(* This is a
+<code class="hljs">(* This is a
 multiline, (* nested *) comment *)
 type point = { x: float; y: float };;
 let some_string = "this is a string";;
@@ -1317,7 +1317,7 @@ class point =
 <tr>
     <th>D
     <td class="d">
-<pre><code>#!/usr/bin/rdmd
+<pre><code class="hljs">#!/usr/bin/rdmd
 // Computes average line length for standard input.
 import std.stdio;
 
@@ -1366,7 +1366,7 @@ void main() pure nothrow @safe {
   <tr>
     <th>RenderMan RSL
     <td class="rsl">
-<pre><code>#define TEST_DEFINE 3.14
+<pre><code class="hljs">#define TEST_DEFINE 3.14
 /*  plastic surface shader
  *
  *  Pixie is:
@@ -1386,7 +1386,7 @@ surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
   <tr>
     <th>RenderMan RIB
     <td class="rib">
-<pre><code>FrameBegin 0
+<pre><code class="hljs">FrameBegin 0
 Display "Scene" "framebuffer" "rgb"
 Option "searchpath" "shader" "+&amp;:/home/kew"
 Option "trace" "int maxdepth" [4]
@@ -1416,7 +1416,7 @@ FrameEnd
   <tr>
     <th>MEL (Maya Embedded Language)
     <td class="mel">
-<pre><code>proc string[] getSelectedLights()
+<pre><code class="hljs">proc string[] getSelectedLights()
 
 {
   string $selectedLights[];
@@ -1446,7 +1446,7 @@ FrameEnd
   <tr>
     <th>GLSL
     <td class="glsl">
-<pre><code>// vertex shader
+<pre><code class="hljs">// vertex shader
 #version 150
 in  vec2 in_Position;
 in  vec3 in_Color;
@@ -1488,7 +1488,7 @@ void main(void) {
   <tr>
     <th>SQL
     <td class="sql">
-<pre><code>BEGIN;
+<pre><code class="hljs">BEGIN;
 CREATE TABLE "topic" (
     "id" serial NOT NULL PRIMARY KEY,
     "forum_id" integer NOT NULL,
@@ -1507,7 +1507,7 @@ COMMIT</code></pre>
   <tr>
     <th>SmallTalk
     <td class="smalltalk">
-<pre><code>Object&gt;&gt;method: num
+<pre><code class="hljs">Object&gt;&gt;method: num
     "comment 123"
     | var1 var2 |
     (1 to: num) do: [:i | |var| ^i].
@@ -1551,7 +1551,7 @@ heapExample
   <tr>
     <th>Lisp
     <td class="lisp">
-<pre><code>#!/usr/bin/env csi
+<pre><code class="hljs">#!/usr/bin/env csi
 
 (defun prompt-for-cd ()
    "Prompts
@@ -1577,7 +1577,7 @@ heapExample
  <tr>
     <th>Clojure
     <td class="clojure">
-<pre><code>;   You must not remove this notice, or any other, from this software.
+<pre><code class="hljs">;   You must not remove this notice, or any other, from this software.
 
 (ns ^{:doc "The core Clojure language."
        :author "Rich Hickey"}
@@ -1616,7 +1616,7 @@ heapExample
   <tr>
     <th>Ini file
     <td class="ini">
-<pre><code>;Settings relating to the location and loading of the database
+<pre><code class="hljs">;Settings relating to the location and loading of the database
 [Database]
 ProfileDir=.
 ShowProfileMgr=smart
@@ -1633,7 +1633,7 @@ AskAboutIgnoredPlugins=0
   <tr>
     <th>Apache
     <td class="apache">
-<pre><code># rewrite`s rules for wordpress pretty url
+<pre><code class="hljs"># rewrite`s rules for wordpress pretty url
 LoadModule rewrite_module  modules/mod_rewrite.so
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -1657,7 +1657,7 @@ Allow from All
   <tr>
     <th>nginx
     <td class="nginx">
-<pre><code>user  www www;
+<pre><code class="hljs">user  www www;
 worker_processes  2;
 pid /var/run/nginx.pid;
 error_log  /var/log/nginx.error_log  debug | info | notice | warn | error | crit;
@@ -1709,7 +1709,7 @@ http {
   <tr>
     <th>Diff
     <td class="diff">
-<pre><code>Index: languages/ini.js
+<pre><code class="hljs">Index: languages/ini.js
 ===================================================================
 --- languages/ini.js    (revision 199)
 +++ languages/ini.js    (revision 200)
@@ -1744,7 +1744,7 @@ http {
   <tr>
     <th>DOS batch files
     <td class="dos">
-<pre><code>cd \
+<pre><code class="hljs">cd \
 copy a b
 ping 192.168.0.1
 @rem ping 192.168.0.1
@@ -1773,7 +1773,7 @@ xcopy %1\*.* %2
   <tr>
     <th>Bash
     <td class="bash">
-<pre><code>#!/bin/bash
+<pre><code class="hljs">#!/bin/bash
 
 ###### BEGIN CONFIG
 ACCEPTED_HOSTS="/root/.hag_accepted.conf"
@@ -1808,7 +1808,7 @@ genApacheConf(){
   <tr>
     <th>Makefile
     <td class="makefile">
-<pre><code># Makefile
+<pre><code class="hljs"># Makefile
 
 BUILDDIR      = _build
 EXTRAS       ?= $(BUILDDIR)/extras
@@ -1826,7 +1826,7 @@ clean:
   <tr>
     <th>CMake
     <td class="cmake">
-<pre><code>cmake_minimum_required(VERSION 2.8.8)
+<pre><code class="hljs">cmake_minimum_required(VERSION 2.8.8)
 project(cmake_example)
 
 # Show message on Linux platform
@@ -1850,7 +1850,7 @@ qt5_use_modules(myproject Widgets)
   <tr>
     <th>Axapta
     <td class="axapta">
-<pre><code>class ExchRateLoadBatch extends RunBaseBatch {
+<pre><code class="hljs">class ExchRateLoadBatch extends RunBaseBatch {
   ExchRateLoad rbc;
   container currencies;
   boolean actual;
@@ -1887,7 +1887,7 @@ public boolean unpack(container packedClass) {
 <tr>
   <th>Oracle Rules Language
   <td class="ruleslanguage">
-<pre><code>//This is a comment
+<pre><code class="hljs">//This is a comment
 ABORT "You experienced an abort.";
 WARN "THIS IS A WARNING";
 CALL "RIDER_X";
@@ -1928,7 +1928,7 @@ EMPTY_HNDL = INTDCREATEHANDLE('05/03/2006 00:00:00', '05/03/2006 23:59:59', 3600
   <tr>
     <th>1С
     <td class="1c">
-<pre><code>#Если Клиент Тогда
+<pre><code class="hljs">#Если Клиент Тогда
 Перем СимвольныйКодКаталога = "ля-ля-ля"; //комментарий
 Функция Сообщить(Знач ТекстСообщения, ТекстСообщения2) Экспорт //комментарий к функции
   x=ТекстСообщения+ТекстСообщения2+"
@@ -1949,7 +1949,7 @@ EMPTY_HNDL = INTDCREATEHANDLE('05/03/2006 00:00:00', '05/03/2006 23:59:59', 3600
   <tr>
     <th>AVR Assembler
     <td class="avrasm">
-<pre><code>;* Title:       Block Copy Routines
+<pre><code class="hljs">;* Title:       Block Copy Routines
 ;* Version:     1.1
 
 .include "8515def.inc"
@@ -1973,7 +1973,7 @@ flash2ram:
   <tr>
     <th>VHDL
     <td class="vhdl">
-<pre><code>/*
+<pre><code class="hljs">/*
  * RS-trigger with assynch. reset
  */
 
@@ -2019,7 +2019,7 @@ end architecture behaviour;
   <tr>
     <th>Parser 3
     <td class="parser3">
-<pre><code>@CLASS
+<pre><code class="hljs">@CLASS
 base
 
 @USE
@@ -2058,7 +2058,7 @@ class
   <tr>
     <th>LiveCode Server
     <td class="livecodeserver">
-<pre><code>&lt;?rev
+<pre><code class="hljs">&lt;?rev
 
 global gControllerHandlers, gData
 local sTest
@@ -2118,7 +2118,7 @@ end myFunction
     <th>TeX
     <td class="tex">
 <pre>
-<code>\documentclass{article}
+<code class="hljs">\documentclass{article}
 \usepackage[koi8-r]{inputenc}
 \hoffset=0pt
 \voffset=.3em
@@ -2140,7 +2140,7 @@ $$
   <tr>
     <th>BrainFuck
     <td class="brainfuck">
-<pre><code>++++++++++
+<pre><code class="hljs">++++++++++
 [ 3*10 and 10*10
   -&gt;+++&gt;++++++++++&lt;&lt;
 ]&gt;&gt;
@@ -2163,7 +2163,7 @@ rewind and output
     <th>Haskell
     <td class="haskell">
 <pre>
-<code>{-# LANGUAGE TypeSynonymInstances #-}
+<code class="hljs">{-# LANGUAGE TypeSynonymInstances #-}
 module Network.UDP
 ( DataPacket(..)
 , openBoundUDPPort
@@ -2208,7 +2208,7 @@ pingUDPPort s a = sendTo s (Strict.singleton 0) a &gt;&gt; return ()
   <tr>
     <th>Erlang
     <td class="erlang">
-<pre><code>-module(ssh_cli).
+<pre><code class="hljs">-module(ssh_cli).
 
 -behaviour(ssh_channel).
 
@@ -2264,7 +2264,7 @@ union_dot_union({union, _}=U1, {union, _}=U2) -&gt;
   <tr>
     <th>Erlang REPL
     <td class="erlang-repl">
-<pre><code>1&gt; Str = "abcd".
+<pre><code class="hljs">1&gt; Str = "abcd".
 "abcd"
 2&gt; L = test:length(Str).
 4
@@ -2297,7 +2297,7 @@ ok
     <th>Rust
     <td class="rust">
 <pre>
-<code>use std;
+<code class="hljs">use std;
 
 import std::io;
 export fac, test1;
@@ -2361,7 +2361,7 @@ let a: list&lt;int&gt; = cons(7, @cons(13, @nil));
   <tr>
     <th>Matlab
     <td class="matlab">
-<pre><code>n = 20; % number of points
+<pre><code class="hljs">n = 20; % number of points
 points = [random('unid', 100, n, 1), random('unid', 100, n, 1)];
 len = zeros(1, n - 1);
 points = sortrows(points);
@@ -2404,7 +2404,7 @@ foo_cell = {1, 2, 3; 4, 5, 6}''.'.';
   <tr>
     <th>Scilab
     <td class="scilab">
-<pre><code>// A comment
+<pre><code class="hljs">// A comment
 function I = foo(dims, varargin)
   d=[1; matrix(dims(1:$-1),-1,1)]
   for i=1:size(varargin)
@@ -2423,7 +2423,7 @@ foo_matrix = [1, 2, 3; 4, 5, 6];
   <tr>
     <th>R
     <td class="r">
-<pre><code>library(ggplot2)
+<pre><code class="hljs">library(ggplot2)
 
 centre &lt;- function(x, type, ...) {
   switch(type,
@@ -2498,7 +2498,7 @@ foo %union% bar
   <tr>
     <th>Mizar
     <td class="mizar">
-<pre><code>::: ## Lambda calculus
+<pre><code class="hljs">::: ## Lambda calculus
 
 environ
 
@@ -2602,11 +2602,12 @@ end;</code></pre>
         tds[i].parentNode.style.display = 'none';
         continue;
       }
-      var code = tds[i].getElementsByTagName('CODE')[0];
-      var passed = tdClass == code.className;
+      var code = tds[i].querySelector('.hljs');
+      var langClass = code.className.split(' ')[1];
+      var passed = tdClass == langClass;
       var result = document.createElement('DIV');
       result.className = 'test';
-      result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + code.className + '</var>';
+      result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + langClass+ '</var>';
       function counts(r) {
         return ' (' + r.kw + '+' + r.re + '=' + (r.kw + r.re) + ')';
       }
@@ -2634,35 +2635,35 @@ end;</code></pre>
   <tr>
     <th>Explicit Python highlighting
     <td>
-<pre><code class="python">for x in [1, 2, 3]:
+<pre><code class="hljs python">for x in [1, 2, 3]:
   count(x)
 </code></pre>
 
   <tr>
     <th>Language set on &lt;pre&gt;
     <td>
-<pre class="python"><code>for x in [1, 2, 3]:
+<pre class="python"><code class="hljs">for x in [1, 2, 3]:
   count(x)
 </code></pre>
 
   <tr>
     <th>HTML5-style language class (language-python)
     <td>
-<pre><code class="language-python">for x in [1, 2, 3]:
+<pre><code class="hljs language-python">for x in [1, 2, 3]:
   count(x)
 </code></pre>
 
   <tr>
     <th>Replacing TAB with 4 spaces
     <td>
-<pre><code class="python">for x in [1, 2, 3]:
+<pre><code class="hljs python">for x in [1, 2, 3]:
 	count(x)
 </code></pre>
 
   <tr>
     <th>Custom markup
     <td>
-<pre><code>&lt;<a href="http://dev.w3.org/html5/spec/Overview.html#the-div-element">div</a> id="contents"&gt;
+<pre><code class="hljs">&lt;<a href="http://dev.w3.org/html5/spec/Overview.html#the-div-element">div</a> id="contents"&gt;
   <del>&lt;p&gt;Hello, World!</del><!-- A comment should not break merging --><ins>Goodbye, cruel world!</ins>
 &lt;/div&gt;
 </code></pre>
@@ -2670,7 +2671,7 @@ end;</code></pre>
   <tr>
     <th>Custom markup + TAB replacement
     <td>
-<pre><code class="python">for x in [1, 2, 3]:
+<pre><code class="hljs python">for x in [1, 2, 3]:
 <span style="background:yellow">	</span>count(x)
 	if x == 3:
 	<span style="background:yellow">	</span>count(x + 1)
@@ -2687,7 +2688,7 @@ end;</code></pre>
   <tr>
     <th>Disabled highlighting
     <td>
-<pre><code class="no-highlight">&lt;div id="contents"&gt;
+<pre><code class="hljs no-highlight">&lt;div id="contents"&gt;
   &lt;p&gt;Hello, World!
 &lt;/div&gt;
 </code></pre>

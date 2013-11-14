@@ -18,7 +18,7 @@ the page load event:
 <script>hljs.initHighlightingOnLoad();</script>
 ```
 
-This will highlight all code on the page marked up as `<pre><code> .. </code></pre>`.
+This will highlight all code on the page marked up as `<pre><code class="hljs"> .. </code></pre>`.
 If you use different markup or need to apply highlighting dynamically, read
 "Custom initialization" below.
 
@@ -137,7 +137,7 @@ This means that in short fragments the probability of an error is high
 language explicitly by assigning a class to the `<code>` element:
 
 ```html
-<pre><code class="html">...</code></pre>
+<pre><code class="hljs html">...</code></pre>
 ```
 
 You can use class names recommended in HTML5: "language-html",
@@ -146,7 +146,7 @@ You can use class names recommended in HTML5: "language-html",
 To disable highlighting of a fragment altogether use "no-highlight" class:
 
 ```html
-<pre><code class="no-highlight">...</code></pre>
+<pre><code class="hljs no-highlight">...</code></pre>
 ```
 
 

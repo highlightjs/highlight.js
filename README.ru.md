@@ -20,7 +20,7 @@ Highlight.js нужен для подсветки синтаксиса в при
 <script>hljs.initHighlightingOnLoad();</script>
 ```
 
-Весь код на странице, обрамлённый в теги `<pre><code> .. </code></pre>`
+Весь код на странице, обрамлённый в теги `<pre><code class="hljs"> .. </code></pre>`
 будет автоматически подсвечен. Если вы используете другие теги или хотите
 подсвечивать блоки кода динамически, читайте "Инициализацию вручную" ниже.
 
@@ -141,7 +141,7 @@ $('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
 его название в виде класса к элементу `<code>`:
 
 ```html
-<pre><code class="html">...</code></pre>
+<pre><code class="hljs html">...</code></pre>
 ```
 
 Можно использовать рекомендованные в HTML5 названия классов:
@@ -151,7 +151,7 @@ $('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
 Чтобы запретить расцветку фрагмента вообще, используется класс "no-highlight":
 
 ```html
-<pre><code class="no-highlight">...</code></pre>
+<pre><code class="hljs no-highlight">...</code></pre>
 ```
 
 
