@@ -235,6 +235,9 @@ function() {
 
   */
   function highlight(language_name, value, ignore_illegals, continuation) {
+    var classprefix = '<span class="';
+
+    classprefix += hljs.compatibilityMode ? '' : 'hljs-';
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -276,7 +279,7 @@ function() {
         var keyword_match = keywordMatch(top, match);
         if (keyword_match) {
           keyword_count += keyword_match[1];
-          result += '<span class="'+ keyword_match[0] +'">' + match[0] + '</span>';
+          result += classprefix + keyword_match[0] +'">' + match[0] + '</span>';
         } else {
           result += match[0];
         }
@@ -301,7 +304,7 @@ function() {
         relevance += result.relevance;
       }
       top.top = result.top;
-      return '<span class="' + result.language  + '">' + result.value + '</span>';
+      return classprefix + result.language  + '">' + result.value + '</span>';
     }
 
     function processBuffer() {
@@ -309,7 +312,7 @@ function() {
     }
 
     function startNewMode(mode, lexem) {
-      var markup = mode.className? '<span class="' + mode.className + '">': '';
+      var markup = mode.className? classprefix + mode.className + '">': '';
       if (mode.returnBegin) {
         result += markup;
         mode_buffer = '';
@@ -383,7 +386,7 @@ function() {
     var result = '';
     for(var current = top; current != language; current = current.parent) {
       if (current.className) {
-        result = '<span class="' + current.className +'">' + result;
+        result = classprefix + current.className +'">' + result;
       }
     }
     var mode_buffer = '';
