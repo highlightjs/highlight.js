@@ -9,137 +9,137 @@ pre code {
   background: white; color: black;
 }
 
-pre .comment,
-pre .template_comment,
-pre .javadoc,
-pre .comment * {
+pre .hljs-comment,
+pre .hljs-template_comment,
+pre .hljs-javadoc,
+pre .hljs-comment * {
   color: #800;
 }
 
-pre .keyword,
+pre .hljs-keyword,
 pre .method,
-pre .list .title,
-pre .clojure .built_in,
-pre .nginx .title,
-pre .tag .title,
-pre .setting .value,
-pre .winutils,
-pre .tex .command,
-pre .http .title,
-pre .request,
-pre .status {
+pre .hljs-list .hljs-title,
+pre .clojure .hljs-built_in,
+pre .nginx .hljs-title,
+pre .hljs-tag .hljs-title,
+pre .setting .hljs-value,
+pre .hljs-winutils,
+pre .tex .hljs-command,
+pre .http .hljs-title,
+pre .hljs-request,
+pre .hljs-status {
   color: #008;
 }
 
-pre .envvar,
-pre .tex .special {
+pre .hljs-envvar,
+pre .tex .hljs-special {
   color: #660;
 }
 
-pre .string,
-pre .tag .value,
-pre .cdata,
-pre .filter .argument,
-pre .attr_selector,
-pre .apache .cbracket,
-pre .date,
-pre .regexp,
-pre .coffeescript .attribute {
+pre .hljs-string,
+pre .hljs-tag .hljs-value,
+pre .hljs-cdata,
+pre .hljs-filter .hljs-argument,
+pre .hljs-attr_selector,
+pre .apache .hljs-cbracket,
+pre .hljs-date,
+pre .hljs-regexp,
+pre .coffeescript .hljs-attribute {
   color: #080;
 }
 
-pre .sub .identifier,
-pre .pi,
-pre .tag,
-pre .tag .keyword,
-pre .decorator,
-pre .ini .title,
-pre .shebang,
-pre .prompt,
-pre .hexcolor,
-pre .rules .value,
-pre .css .value .number,
-pre .literal,
-pre .symbol,
-pre .ruby .symbol .string,
-pre .number,
-pre .css .function,
-pre .clojure .attribute {
+pre .hljs-sub .hljs-identifier,
+pre .hljs-pi,
+pre .hljs-tag,
+pre .hljs-tag .hljs-keyword,
+pre .hljs-decorator,
+pre .ini .hljs-title,
+pre .hljs-shebang,
+pre .hljs-prompt,
+pre .hljs-hexcolor,
+pre .hljs-rules .hljs-value,
+pre .css .hljs-value .hljs-number,
+pre .hljs-literal,
+pre .hljs-symbol,
+pre .ruby .hljs-symbol .hljs-string,
+pre .hljs-number,
+pre .css .hljs-function,
+pre .clojure .hljs-attribute {
   color: #066;
 }
 
-pre .class .title,
-pre .haskell .type,
-pre .smalltalk .class,
-pre .javadoctag,
-pre .yardoctag,
-pre .phpdoc,
-pre .typename,
-pre .tag .attribute,
-pre .doctype,
-pre .class .id,
-pre .built_in,
+pre .hljs-class .hljs-title,
+pre .haskell .hljs-type,
+pre .smalltalk .hljs-class,
+pre .hljs-javadoctag,
+pre .hljs-yardoctag,
+pre .hljs-phpdoc,
+pre .hljs-typename,
+pre .hljs-tag .hljs-attribute,
+pre .hljs-doctype,
+pre .hljs-class .hljs-id,
+pre .hljs-built_in,
 pre .setting,
-pre .params,
-pre .variable,
-pre .clojure .title {
+pre .hljs-params,
+pre .hljs-variable,
+pre .clojure .hljs-title {
   color: #606;
 }
 
-pre .css .tag,
-pre .rules .property,
-pre .pseudo,
-pre .subst {
+pre .css .hljs-tag,
+pre .hljs-rules .hljs-property,
+pre .hljs-pseudo,
+pre .hljs-subst {
   color: #000;
 }
 
-pre .css .class, pre .css .id {
+pre .css .hljs-class, pre .css .hljs-id {
   color: #9B703F;
 }
 
-pre .value .important {
+pre .hljs-value .hljs-important {
   color: #ff7700;
   font-weight: bold;
 }
 
-pre .rules .keyword {
+pre .hljs-rules .hljs-keyword {
   color: #C5AF75;
 }
 
-pre .annotation,
-pre .apache .sqbracket,
-pre .nginx .built_in {
+pre .hljs-annotation,
+pre .apache .hljs-sqbracket,
+pre .nginx .hljs-built_in {
   color: #9B859D;
 }
 
-pre .preprocessor,
-pre .preprocessor * {
+pre .hljs-preprocessor,
+pre .hljs-preprocessor * {
   color: #444;
 }
 
-pre .tex .formula {
+pre .tex .hljs-formula {
   background-color: #EEE;
   font-style: italic;
 }
 
-pre .diff .header,
-pre .chunk {
+pre .diff .hljs-header,
+pre .hljs-chunk {
   color: #808080;
   font-weight: bold;
 }
 
-pre .diff .change {
+pre .diff .hljs-change {
   background-color: #BCCFF9;
 }
 
-pre .addition {
+pre .hljs-addition {
   background-color: #BAEEBA;
 }
 
-pre .deletion {
+pre .hljs-deletion {
   background-color: #FFC8BD;
 }
 
-pre .comment .yardoctag {
+pre .hljs-comment .hljs-yardoctag {
   font-weight: bold;
 }

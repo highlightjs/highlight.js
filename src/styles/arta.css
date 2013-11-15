@@ -9,132 +9,132 @@ pre code
   background: #222;
 }
 
-pre .profile .header *,
-pre .ini .title,
-pre .nginx .title
+pre .profile .hljs-header *,
+pre .ini .hljs-title,
+pre .nginx .hljs-title
 {
   color: #fff;
 }
 
-pre .comment,
-pre .javadoc,
-pre .preprocessor,
-pre .preprocessor .title,
-pre .shebang,
-pre .profile .summary,
+pre .hljs-comment,
+pre .hljs-javadoc,
+pre .hljs-preprocessor,
+pre .hljs-preprocessor .hljs-title,
+pre .hljs-shebang,
+pre .profile .hljs-summary,
 pre .diff,
-pre .pi,
-pre .doctype,
-pre .tag,
-pre .template_comment,
-pre .css .rules,
-pre .tex .special
+pre .hljs-pi,
+pre .hljs-doctype,
+pre .hljs-tag,
+pre .hljs-template_comment,
+pre .css .hljs-rules,
+pre .tex .hljs-special
 {
   color: #444;
 }
 
-pre .string,
-pre .symbol,
-pre .diff .change,
-pre .regexp,
-pre .xml .attribute,
-pre .smalltalk .char,
-pre .xml .value,
-pre .ini .value,
-pre .clojure .attribute,
-pre .coffeescript .attribute
+pre .hljs-string,
+pre .hljs-symbol,
+pre .diff .hljs-change,
+pre .hljs-regexp,
+pre .xml .hljs-attribute,
+pre .smalltalk .hljs-char,
+pre .xml .hljs-value,
+pre .ini .hljs-value,
+pre .clojure .hljs-attribute,
+pre .coffeescript .hljs-attribute
 {
   color: #ffcc33;
 }
 
-pre .number,
-pre .addition
+pre .hljs-number,
+pre .hljs-addition
 {
   color: #00cc66;
 }
 
-pre .built_in,
-pre .literal,
-pre .vhdl .typename,
-pre .go .constant,
-pre .go .typename,
-pre .ini .keyword,
-pre .lua .title,
-pre .perl .variable,
-pre .php .variable,
-pre .mel .variable,
-pre .django .variable,
+pre .hljs-built_in,
+pre .hljs-literal,
+pre .vhdl .hljs-typename,
+pre .go .hljs-constant,
+pre .go .hljs-typename,
+pre .ini .hljs-keyword,
+pre .lua .hljs-title,
+pre .perl .hljs-variable,
+pre .php .hljs-variable,
+pre .mel .hljs-variable,
+pre .django .hljs-variable,
 pre .css .funtion,
 pre .smalltalk .method,
-pre .hexcolor,
-pre .important,
-pre .flow,
-pre .inheritance,
-pre .parser3 .variable
+pre .hljs-hexcolor,
+pre .hljs-important,
+pre .hljs-flow,
+pre .hljs-inheritance,
+pre .parser3 .hljs-variable
 {
   color: #32AAEE;
 }
 
-pre .keyword,
-pre .tag .title,
-pre .css .tag,
-pre .css .class,
-pre .css .id,
-pre .css .pseudo,
-pre .css .attr_selector,
-pre .lisp .title,
-pre .clojure .built_in,
-pre .winutils,
-pre .tex .command,
-pre .request,
-pre .status
+pre .hljs-keyword,
+pre .hljs-tag .hljs-title,
+pre .css .hljs-tag,
+pre .css .hljs-class,
+pre .css .hljs-id,
+pre .css .hljs-pseudo,
+pre .css .hljs-attr_selector,
+pre .lisp .hljs-title,
+pre .clojure .hljs-built_in,
+pre .hljs-winutils,
+pre .tex .hljs-command,
+pre .hljs-request,
+pre .hljs-status
 {
   color: #6644aa;
 }
 
-pre .title,
-pre .ruby .constant,
-pre .vala .constant,
-pre .parent,
-pre .deletion,
-pre .template_tag,
-pre .css .keyword,
-pre .objectivec .class .id,
-pre .smalltalk .class,
-pre .lisp .keyword,
-pre .apache .tag,
-pre .nginx .variable,
-pre .envvar,
-pre .bash .variable,
-pre .go .built_in,
-pre .vbscript .built_in,
-pre .lua .built_in,
-pre .rsl .built_in,
+pre .hljs-title,
+pre .ruby .hljs-constant,
+pre .vala .hljs-constant,
+pre .hljs-parent,
+pre .hljs-deletion,
+pre .hljs-template_tag,
+pre .css .hljs-keyword,
+pre .objectivec .hljs-class .hljs-id,
+pre .smalltalk .hljs-class,
+pre .lisp .hljs-keyword,
+pre .apache .hljs-tag,
+pre .nginx .hljs-variable,
+pre .hljs-envvar,
+pre .bash .hljs-variable,
+pre .go .hljs-built_in,
+pre .vbscript .hljs-built_in,
+pre .lua .hljs-built_in,
+pre .rsl .hljs-built_in,
 pre .tail,
-pre .avrasm .label,
-pre .tex .formula,
-pre .tex .formula *
+pre .avrasm .hljs-label,
+pre .tex .hljs-formula,
+pre .tex .hljs-formula *
 {
   color: #bb1166;
 }
 
-pre .yardoctag,
-pre .phpdoc,
-pre .profile .header,
-pre .ini .title,
-pre .apache .tag,
-pre .parser3 .title
+pre .hljs-yardoctag,
+pre .hljs-phpdoc,
+pre .profile .hljs-header,
+pre .ini .hljs-title,
+pre .apache .hljs-tag,
+pre .parser3 .hljs-title
 {
   font-weight: bold;
 }
 
 pre .coffeescript .javascript,
 pre .javascript .xml,
-pre .tex .formula,
+pre .tex .hljs-formula,
 pre .xml .javascript,
 pre .xml .vbscript,
 pre .xml .css,
-pre .xml .cdata
+pre .xml .hljs-cdata
 {
   opacity: 0.6;
 }
@@ -143,13 +143,13 @@ pre code,
 pre .javascript,
 pre .css,
 pre .xml,
-pre .subst,
-pre .diff .chunk,
-pre .css .value,
-pre .css .attribute,
-pre .lisp .string,
-pre .lisp .number,
-pre .tail .params,
+pre .hljs-subst,
+pre .diff .hljs-chunk,
+pre .css .hljs-value,
+pre .css .hljs-attribute,
+pre .lisp .hljs-string,
+pre .lisp .hljs-number,
+pre .tail .hljs-params,
 pre .container,
 pre .haskell *,
 pre .erlang *,

@@ -6,56 +6,56 @@ pre code {
   background: #EAEEF3; color: #00193A;
 }
 
-pre .keyword,
-pre .title,
-pre .important,
-pre .request,
-pre .header,
-pre .javadoctag {
+pre .hljs-keyword,
+pre .hljs-title,
+pre .hljs-important,
+pre .hljs-request,
+pre .hljs-header,
+pre .hljs-javadoctag {
   font-weight: bold;
 }
 
-pre .comment,
-pre .chunk,
-pre .template_comment {
+pre .hljs-comment,
+pre .hljs-chunk,
+pre .hljs-template_comment {
   color: #738191;
 }
 
-pre .string,
-pre .title,
-pre .parent,
-pre .built_in,
-pre .literal,
-pre .filename,
-pre .value,
-pre .addition,
-pre .tag,
-pre .argument,
-pre .link_label,
-pre .blockquote,
-pre .header {
+pre .hljs-string,
+pre .hljs-title,
+pre .hljs-parent,
+pre .hljs-built_in,
+pre .hljs-literal,
+pre .hljs-filename,
+pre .hljs-value,
+pre .hljs-addition,
+pre .hljs-tag,
+pre .hljs-argument,
+pre .hljs-link_label,
+pre .hljs-blockquote,
+pre .hljs-header {
   color: #0048AB;
 }
 
-pre .decorator,
-pre .prompt,
-pre .yardoctag,
-pre .subst,
-pre .symbol,
-pre .doctype,
-pre .regexp,
-pre .preprocessor,
-pre .pi,
-pre .attribute,
-pre .attr_selector,
-pre .javadoc,
-pre .xmlDocTag,
-pre .deletion,
-pre .shebang,
-pre .string .variable,
-pre .link_url,
-pre .bullet,
-pre .sqbracket,
+pre .hljs-decorator,
+pre .hljs-prompt,
+pre .hljs-yardoctag,
+pre .hljs-subst,
+pre .hljs-symbol,
+pre .hljs-doctype,
+pre .hljs-regexp,
+pre .hljs-preprocessor,
+pre .hljs-pi,
+pre .hljs-attribute,
+pre .hljs-attr_selector,
+pre .hljs-javadoc,
+pre .hljs-xmlDocTag,
+pre .hljs-deletion,
+pre .hljs-shebang,
+pre .hljs-string .hljs-variable,
+pre .hljs-link_url,
+pre .hljs-bullet,
+pre .hljs-sqbracket,
 pre .phony {
   color: #4C81C9;
 }

@@ -12,93 +12,93 @@ pre code {
   background: url(./pojoaque.jpg) repeat scroll left top #181914;
 }
 
-pre .comment,
-pre .template_comment,
-pre .diff .header,
-pre .doctype,
-pre .lisp .string,
-pre .javadoc {
+pre .hljs-comment,
+pre .hljs-template_comment,
+pre .diff .hljs-header,
+pre .hljs-doctype,
+pre .lisp .hljs-string,
+pre .hljs-javadoc {
   color: #586e75;
   font-style: italic;
 }
 
-pre .keyword,
-pre .css .rule .keyword,
-pre .winutils,
-pre .javascript .title,
+pre .hljs-keyword,
+pre .css .rule .hljs-keyword,
+pre .hljs-winutils,
+pre .javascript .hljs-title,
 pre .method,
-pre .addition,
-pre .css .tag,
-pre .clojure .title,
-pre .nginx .title {
+pre .hljs-addition,
+pre .css .hljs-tag,
+pre .clojure .hljs-title,
+pre .nginx .hljs-title {
   color: #B64926;
 }
 
-pre .number,
-pre .command,
-pre .string,
-pre .tag .value,
-pre .phpdoc,
-pre .tex .formula,
-pre .regexp,
-pre .hexcolor {
+pre .hljs-number,
+pre .hljs-command,
+pre .hljs-string,
+pre .hljs-tag .hljs-value,
+pre .hljs-phpdoc,
+pre .tex .hljs-formula,
+pre .hljs-regexp,
+pre .hljs-hexcolor {
   color: #468966;
 }
 
-pre .title,
-pre .localvars,
-pre .function .title,
-pre .chunk,
-pre .decorator,
-pre .built_in,
-pre .lisp .title,
-pre .clojure .built_in,
-pre .identifier,
-pre .id {
+pre .hljs-title,
+pre .hljs-localvars,
+pre .hljs-function .hljs-title,
+pre .hljs-chunk,
+pre .hljs-decorator,
+pre .hljs-built_in,
+pre .lisp .hljs-title,
+pre .clojure .hljs-built_in,
+pre .hljs-identifier,
+pre .hljs-id {
   color: #FFB03B;
 }
 
-pre .attribute,
-pre .variable,
-pre .lisp .body,
-pre .smalltalk .number,
-pre .constant,
-pre .class .title,
-pre .parent,
-pre .haskell .type {
+pre .hljs-attribute,
+pre .hljs-variable,
+pre .lisp .hljs-body,
+pre .smalltalk .hljs-number,
+pre .hljs-constant,
+pre .hljs-class .hljs-title,
+pre .hljs-parent,
+pre .haskell .hljs-type {
   color: #b58900;
 }
 
-pre .css .attribute {
+pre .css .hljs-attribute {
   color: #b89859;
 }
 
-pre .css .number,pre .css .hexcolor{
+pre .css .hljs-number,pre .css .hljs-hexcolor{
   color: #DCCF8F;
 }
 
-pre .css .class {
+pre .css .hljs-class {
   color: #d3a60c;
 }
 
-pre .preprocessor,
-pre .pi,
-pre .shebang,
-pre .symbol,
-pre .symbol .string,
-pre .diff .change,
-pre .special,
-pre .attr_selector,
-pre .important,
-pre .subst,
-pre .cdata {
+pre .hljs-preprocessor,
+pre .hljs-pi,
+pre .hljs-shebang,
+pre .hljs-symbol,
+pre .hljs-symbol .hljs-string,
+pre .diff .hljs-change,
+pre .hljs-special,
+pre .hljs-attr_selector,
+pre .hljs-important,
+pre .hljs-subst,
+pre .hljs-cdata {
   color: #cb4b16;
 }
 
-pre .deletion {
+pre .hljs-deletion {
   color: #dc322f;
 }
 
-pre .tex .formula {
+pre .tex .hljs-formula {
   background: #073642;
 }

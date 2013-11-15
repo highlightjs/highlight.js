@@ -10,112 +10,112 @@ pre code {
   background: #fff;
 }
 
-pre .subst,
-pre .title {
+pre .hljs-subst,
+pre .hljs-title {
   font-weight: normal;
   color: #000;
 }
 
-pre .comment,
-pre .template_comment,
-pre .javadoc,
-pre .diff .header {
+pre .hljs-comment,
+pre .hljs-template_comment,
+pre .hljs-javadoc,
+pre .diff .hljs-header {
   color: #808080;
   font-style: italic;
 }
 
-pre .annotation,
-pre .decorator,
-pre .preprocessor,
-pre .doctype,
-pre .pi,
-pre .chunk,
-pre .shebang,
-pre .apache .cbracket,
-pre .prompt,
-pre .http .title {
+pre .hljs-annotation,
+pre .hljs-decorator,
+pre .hljs-preprocessor,
+pre .hljs-doctype,
+pre .hljs-pi,
+pre .hljs-chunk,
+pre .hljs-shebang,
+pre .apache .hljs-cbracket,
+pre .hljs-prompt,
+pre .http .hljs-title {
   color: #808000;
 }
 
-pre .tag,
-pre .pi {
+pre .hljs-tag,
+pre .hljs-pi {
   background: #efefef;
 }
 
-pre .tag .title,
-pre .id,
-pre .attr_selector,
-pre .pseudo,
-pre .literal,
-pre .keyword,
-pre .hexcolor,
-pre .css .function,
-pre .ini .title,
-pre .css .class,
-pre .list .title,
-pre .clojure .title,
-pre .nginx .title,
-pre .tex .command,
-pre .request,
-pre .status {
+pre .hljs-tag .hljs-title,
+pre .hljs-id,
+pre .hljs-attr_selector,
+pre .hljs-pseudo,
+pre .hljs-literal,
+pre .hljs-keyword,
+pre .hljs-hexcolor,
+pre .css .hljs-function,
+pre .ini .hljs-title,
+pre .css .hljs-class,
+pre .hljs-list .hljs-title,
+pre .clojure .hljs-title,
+pre .nginx .hljs-title,
+pre .tex .hljs-command,
+pre .hljs-request,
+pre .hljs-status {
   font-weight: bold;
   color: #000080;
 }
 
-pre .attribute,
-pre .rules .keyword,
-pre .number,
-pre .date,
-pre .regexp,
-pre .tex .special {
+pre .hljs-attribute,
+pre .hljs-rules .hljs-keyword,
+pre .hljs-number,
+pre .hljs-date,
+pre .hljs-regexp,
+pre .tex .hljs-special {
   font-weight: bold;
   color: #0000ff;
 }
 
-pre .number,
-pre .regexp {
+pre .hljs-number,
+pre .hljs-regexp {
   font-weight: normal;
 }
 
-pre .string,
-pre .value,
-pre .filter .argument,
-pre .css .function .params,
-pre .apache .tag {
+pre .hljs-string,
+pre .hljs-value,
+pre .hljs-filter .hljs-argument,
+pre .css .hljs-function .hljs-params,
+pre .apache .hljs-tag {
   color: #008000;
   font-weight: bold;
 }
 
-pre .symbol,
-pre .ruby .symbol .string,
-pre .char,
-pre .tex .formula {
+pre .hljs-symbol,
+pre .ruby .hljs-symbol .hljs-string,
+pre .hljs-char,
+pre .tex .hljs-formula {
   color: #000;
   background: #d0eded;
   font-style: italic;
 }
 
-pre .phpdoc,
-pre .yardoctag,
-pre .javadoctag {
+pre .hljs-phpdoc,
+pre .hljs-yardoctag,
+pre .hljs-javadoctag {
   text-decoration: underline;
 }
 
-pre .variable,
-pre .envvar,
-pre .apache .sqbracket,
-pre .nginx .built_in {
+pre .hljs-variable,
+pre .hljs-envvar,
+pre .apache .hljs-sqbracket,
+pre .nginx .hljs-built_in {
   color: #660e7a;
 }
 
-pre .addition {
+pre .hljs-addition {
   background: #baeeba;
 }
 
-pre .deletion {
+pre .hljs-deletion {
   background: #ffc8bd;
 }
 
-pre .diff .change {
+pre .diff .hljs-change {
   background: #bccff9;
 }

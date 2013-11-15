@@ -1,35 +1,35 @@
 /* Tomorrow Night Eighties Theme */
 /* Original theme - https://github.com/chriskempson/tomorrow-theme */
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-.tomorrow-comment, pre .comment, pre .title {
+.tomorrow-comment, pre .hljs-comment, pre .hljs-title {
   color: #999999;
 }
 
-.tomorrow-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+.tomorrow-red, pre .hljs-variable, pre .hljs-attribute, pre .hljs-tag, pre .hljs-regexp, pre .ruby .hljs-constant, pre .xml .hljs-tag .hljs-title, pre .xml .hljs-pi, pre .xml .hljs-doctype, pre .html .hljs-doctype, pre .css .hljs-id, pre .css .hljs-class, pre .css .hljs-pseudo {
   color: #f2777a;
 }
 
-.tomorrow-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+.tomorrow-orange, pre .hljs-number, pre .hljs-preprocessor, pre .hljs-built_in, pre .hljs-literal, pre .hljs-params, pre .hljs-constant {
   color: #f99157;
 }
 
-.tomorrow-yellow, pre .ruby .class .title, pre .css .rules .attribute {
+.tomorrow-yellow, pre .ruby .hljs-class .hljs-title, pre .css .hljs-rules .hljs-attribute {
   color: #ffcc66;
 }
 
-.tomorrow-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+.tomorrow-green, pre .hljs-string, pre .hljs-value, pre .hljs-inheritance, pre .hljs-header, pre .ruby .hljs-symbol, pre .xml .hljs-cdata {
   color: #99cc99;
 }
 
-.tomorrow-aqua, pre .css .hexcolor {
+.tomorrow-aqua, pre .css .hljs-hexcolor {
   color: #66cccc;
 }
 
-.tomorrow-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+.tomorrow-blue, pre .hljs-function, pre .python .hljs-decorator, pre .python .hljs-title, pre .ruby .hljs-function .hljs-title, pre .ruby .hljs-title .hljs-keyword, pre .perl .hljs-sub, pre .javascript .hljs-title, pre .coffeescript .hljs-title {
   color: #6699cc;
 }
 
-.tomorrow-purple, pre .keyword, pre .javascript .function {
+.tomorrow-purple, pre .hljs-keyword, pre .javascript .hljs-function {
   color: #cc99cc;
 }
 
@@ -42,10 +42,10 @@ pre code {
 
 pre .coffeescript .javascript,
 pre .javascript .xml,
-pre .tex .formula,
+pre .tex .hljs-formula,
 pre .xml .javascript,
 pre .xml .vbscript,
 pre .xml .css,
-pre .xml .cdata {
+pre .xml .hljs-cdata {
   opacity: 0.5;
 }
