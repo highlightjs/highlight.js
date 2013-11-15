@@ -71,34 +71,35 @@ function() {
     return result;
   }
 
-  function mergeStreams(stream1, stream2, value) {
+  function mergeStreams(original, highlighted, value) {
     var processed = 0;
     var result = '';
     var nodeStack = [];
 
     function selectStream() {
-      if (!stream1.length || !stream2.length) {
-        return stream1.length ? stream1 : stream2;
+      if (!original.length || !highlighted.length) {
+        return original.length ? original : highlighted;
       }
-      if (stream1[0].offset != stream2[0].offset) {
-        return (stream1[0].offset < stream2[0].offset) ? stream1 : stream2;
+      if (original[0].offset != highlighted[0].offset) {
+        return (original[0].offset < highlighted[0].offset) ? original : highlighted;
       }
+
       /*
       To avoid starting the stream just before it should stop the order is
-      ensured that stream1 always starts first and closes last:
+      ensured that original always starts first and closes last:
 
       if (event1 == 'start' && event2 == 'start')
-        return stream1;
+        return original;
       if (event1 == 'start' && event2 == 'stop')
-        return stream2;
+        return highlighted;
       if (event1 == 'stop' && event2 == 'start')
-        return stream1;
+        return original;
       if (event1 == 'stop' && event2 == 'stop')
-        return stream2;
+        return highlighted;
 
       ... which is collapsed to:
       */
-      return stream2[0].event == 'start' ? stream1 : stream2;
+      return highlighted[0].event == 'start' ? original : highlighted;
     }
 
     function open(node) {
@@ -106,11 +107,11 @@ function() {
       return '<' + node.nodeName + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
     }
 
-    while (stream1.length || stream2.length) {
+    while (original.length || highlighted.length) {
       var current = selectStream().splice(0, 1)[0];
       result += escape(value.substr(processed, current.offset - processed));
       processed = current.offset;
-      if ( current.event == 'start') {
+      if (current.event == 'start') {
         result += open(current.node);
         nodeStack.push(current.node);
       } else if (current.event == 'stop') {
