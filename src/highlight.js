@@ -107,24 +107,35 @@ function() {
       return '<' + node.nodeName + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
     }
 
+    function close(node) {
+      return '</' + node.nodeName.toLowerCase() + '>';
+    }
+
     while (original.length || highlighted.length) {
-      var current = selectStream().splice(0, 1)[0];
-      result += escape(value.substr(processed, current.offset - processed));
-      processed = current.offset;
-      if (current.event == 'start') {
-        result += open(current.node);
-        nodeStack.push(current.node);
-      } else if (current.event == 'stop') {
-        var node, i = nodeStack.length;
-        do {
-          i--;
-          node = nodeStack[i];
-          result += ('</' + node.nodeName.toLowerCase() + '>');
-        } while (node != current.node);
-        nodeStack.splice(i, 1);
-        while (i < nodeStack.length) {
+      var stream = selectStream();
+      var item = stream.splice(0, 1)[0];
+      result += escape(value.substr(processed, item.offset - processed));
+      processed = item.offset;
+      if (stream == original) {
+        for (var i = nodeStack.length - 1; i >= 0; i--) {
+          result += close(nodeStack[i]);
+        }
+      }
+      if (item.event == 'start') {
+        result += open(item.node);
+        if (stream == highlighted) {
+          nodeStack.push(item.node);
+        }
+      }
+      if (item.event == 'stop') {
+        result += close(item.node);
+        if (stream == highlighted) {
+          nodeStack.pop();
+        }
+      }
+      if (stream == original) {
+        for (var i = 0; i < nodeStack.length; i++) {
           result += open(nodeStack[i]);
-          i++;
         }
       }
     }
