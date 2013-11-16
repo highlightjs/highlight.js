@@ -1,33 +1,33 @@
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-.tomorrow-comment, pre .hljs-comment, pre .hljs-title {
+/* http://jmblog.github.com/color-themes-for-google-pre code-highlightjs */
+.tomorrow-comment, .hljs-comment, .hljs-title {
   color: #8e908c;
 }
 
-.tomorrow-red, pre .hljs-variable, pre .hljs-attribute, pre .hljs-tag, pre .hljs-regexp, pre .ruby .hljs-constant, pre .xml .hljs-tag .hljs-title, pre .xml .hljs-pi, pre .xml .hljs-doctype, pre .html .hljs-doctype, pre .css .hljs-id, pre .css .hljs-class, pre .css .hljs-pseudo {
+.tomorrow-red, .hljs-variable, .hljs-attribute, .hljs-tag, .hljs-regexp, .ruby .hljs-constant, .xml .hljs-tag .hljs-title, .xml .hljs-pi, .xml .hljs-doctype, .html .hljs-doctype, .css .hljs-id, .css .hljs-class, .css .hljs-pseudo {
   color: #c82829;
 }
 
-.tomorrow-orange, pre .hljs-number, pre .hljs-preprocessor, pre .hljs-built_in, pre .hljs-literal, pre .hljs-params, pre .hljs-constant {
+.tomorrow-orange, .hljs-number, .hljs-preprocessor, .hljs-built_in, .hljs-literal, .hljs-params, .hljs-constant {
   color: #f5871f;
 }
 
-.tomorrow-yellow, pre .ruby .hljs-class .hljs-title, pre .css .hljs-rules .hljs-attribute {
+.tomorrow-yellow, .ruby .hljs-class .hljs-title, .css .hljs-rules .hljs-attribute {
   color: #eab700;
 }
 
-.tomorrow-green, pre .hljs-string, pre .hljs-value, pre .hljs-inheritance, pre .hljs-header, pre .ruby .hljs-symbol, pre .xml .hljs-cdata {
+.tomorrow-green, .hljs-string, .hljs-value, .hljs-inheritance, .hljs-header, .ruby .hljs-symbol, .xml .hljs-cdata {
   color: #718c00;
 }
 
-.tomorrow-aqua, pre .css .hljs-hexcolor {
+.tomorrow-aqua, .css .hljs-hexcolor {
   color: #3e999f;
 }
 
-.tomorrow-blue, pre .hljs-function, pre .python .hljs-decorator, pre .python .hljs-title, pre .ruby .hljs-function .hljs-title, pre .ruby .hljs-title .hljs-keyword, pre .perl .hljs-sub, pre .javascript .hljs-title, pre .coffeescript .hljs-title {
+.tomorrow-blue, .hljs-function, .python .hljs-decorator, .python .hljs-title, .ruby .hljs-function .hljs-title, .ruby .hljs-title .hljs-keyword, .perl .hljs-sub, .javascript .hljs-title, .coffeescript .hljs-title {
   color: #4271ae;
 }
 
-.tomorrow-purple, pre .hljs-keyword, pre .javascript .hljs-function {
+.tomorrow-purple, .hljs-keyword, .javascript .hljs-function {
   color: #8959a8;
 }
 
@@ -38,12 +38,12 @@ pre code {
   padding: 0.5em;
 }
 
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .hljs-formula,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .hljs-cdata {
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
   opacity: 0.5;
 }

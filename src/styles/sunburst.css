@@ -9,151 +9,151 @@ pre code {
   background: #000; color: #f8f8f8;
 }
 
-pre .hljs-comment,
-pre .hljs-template_comment,
-pre .hljs-javadoc {
+.hljs-comment,
+.hljs-template_comment,
+.hljs-javadoc {
   color: #aeaeae;
   font-style: italic;
 }
 
-pre .hljs-keyword,
-pre .ruby .hljs-function .hljs-keyword,
-pre .hljs-request,
-pre .hljs-status,
-pre .nginx .hljs-title {
+.hljs-keyword,
+.ruby .hljs-function .hljs-keyword,
+.hljs-request,
+.hljs-status,
+.nginx .hljs-title {
   color: #E28964;
 }
 
-pre .hljs-function .hljs-keyword,
-pre .hljs-sub .hljs-keyword,
-pre .method,
-pre .hljs-list .hljs-title {
+.hljs-function .hljs-keyword,
+.hljs-sub .hljs-keyword,
+.method,
+.hljs-list .hljs-title {
   color: #99CF50;
 }
 
-pre .hljs-string,
-pre .hljs-tag .hljs-value,
-pre .hljs-cdata,
-pre .hljs-filter .hljs-argument,
-pre .hljs-attr_selector,
-pre .apache .hljs-cbracket,
-pre .hljs-date,
-pre .tex .hljs-command,
-pre .coffeescript .hljs-attribute {
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.tex .hljs-command,
+.coffeescript .hljs-attribute {
   color: #65B042;
 }
 
-pre .hljs-subst {
+.hljs-subst {
   color: #DAEFA3;
 }
 
-pre .hljs-regexp {
+.hljs-regexp {
   color: #E9C062;
 }
 
-pre .hljs-title,
-pre .hljs-sub .hljs-identifier,
-pre .hljs-pi,
-pre .hljs-tag,
-pre .hljs-tag .hljs-keyword,
-pre .hljs-decorator,
-pre .hljs-shebang,
-pre .hljs-prompt {
+.hljs-title,
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.hljs-tag,
+.hljs-tag .hljs-keyword,
+.hljs-decorator,
+.hljs-shebang,
+.hljs-prompt {
   color: #89BDFF;
 }
 
-pre .hljs-class .hljs-title,
-pre .haskell .hljs-type,
-pre .smalltalk .hljs-class,
-pre .hljs-javadoctag,
-pre .hljs-yardoctag,
-pre .hljs-phpdoc {
+.hljs-class .hljs-title,
+.haskell .hljs-type,
+.smalltalk .hljs-class,
+.hljs-javadoctag,
+.hljs-yardoctag,
+.hljs-phpdoc {
   text-decoration: underline;
 }
 
-pre .hljs-symbol,
-pre .ruby .hljs-symbol .hljs-string,
-pre .hljs-number {
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.hljs-number {
   color: #3387CC;
 }
 
-pre .hljs-params,
-pre .hljs-variable,
-pre .clojure .hljs-attribute {
+.hljs-params,
+.hljs-variable,
+.clojure .hljs-attribute {
   color: #3E87E3;
 }
 
-pre .css .hljs-tag,
-pre .hljs-rules .hljs-property,
-pre .hljs-pseudo,
-pre .tex .hljs-special {
+.css .hljs-tag,
+.hljs-rules .hljs-property,
+.hljs-pseudo,
+.tex .hljs-special {
   color: #CDA869;
 }
 
-pre .css .hljs-class {
+.css .hljs-class {
   color: #9B703F;
 }
 
-pre .hljs-rules .hljs-keyword {
+.hljs-rules .hljs-keyword {
   color: #C5AF75;
 }
 
-pre .hljs-rules .hljs-value {
+.hljs-rules .hljs-value {
   color: #CF6A4C;
 }
 
-pre .css .hljs-id {
+.css .hljs-id {
   color: #8B98AB;
 }
 
-pre .hljs-annotation,
-pre .apache .hljs-sqbracket,
-pre .nginx .hljs-built_in {
+.hljs-annotation,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in {
   color: #9B859D;
 }
 
-pre .hljs-preprocessor {
+.hljs-preprocessor {
   color: #8996A8;
 }
 
-pre .hljs-hexcolor,
-pre .css .hljs-value .hljs-number {
+.hljs-hexcolor,
+.css .hljs-value .hljs-number {
   color: #DD7B3B;
 }
 
-pre .css .hljs-function {
+.css .hljs-function {
   color: #DAD085;
 }
 
-pre .diff .hljs-header,
-pre .hljs-chunk,
-pre .tex .hljs-formula {
+.diff .hljs-header,
+.hljs-chunk,
+.tex .hljs-formula {
   background-color: #0E2231;
   color: #F8F8F8;
   font-style: italic;
 }
 
-pre .diff .hljs-change {
+.diff .hljs-change {
   background-color: #4A410D;
   color: #F8F8F8;
 }
 
-pre .hljs-addition {
+.hljs-addition {
   background-color: #253B22;
   color: #F8F8F8;
 }
 
-pre .hljs-deletion {
+.hljs-deletion {
   background-color: #420E09;
   color: #F8F8F8;
 }
 
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .hljs-formula,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .hljs-cdata {
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
   opacity: 0.5;
 }

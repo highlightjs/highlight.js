@@ -11,171 +11,171 @@ pre code {
   color: #E6E1DC;
 }
 
-pre .hljs-comment,
-pre .hljs-template_comment,
-pre .hljs-javadoc,
-pre .hljs-shebang {
+.hljs-comment,
+.hljs-template_comment,
+.hljs-javadoc,
+.hljs-shebang {
   color: #BC9458;
   font-style: italic;
 }
 
-pre .hljs-keyword,
-pre .ruby .hljs-function .hljs-keyword,
-pre .hljs-request,
-pre .hljs-status,
-pre .nginx .hljs-title,
-pre .method,
-pre .hljs-list .hljs-title {
+.hljs-keyword,
+.ruby .hljs-function .hljs-keyword,
+.hljs-request,
+.hljs-status,
+.nginx .hljs-title,
+.method,
+.hljs-list .hljs-title {
   color: #C26230;
 }
 
-pre .hljs-string,
-pre .hljs-number,
-pre .hljs-regexp,
-pre .hljs-tag .hljs-value,
-pre .hljs-cdata,
-pre .hljs-filter .hljs-argument,
-pre .hljs-attr_selector,
-pre .apache .hljs-cbracket,
-pre .hljs-date,
-pre .tex .hljs-command,
-pre .markdown .hljs-link_label {
+.hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.tex .hljs-command,
+.markdown .hljs-link_label {
   color: #A5C261;
 }
 
-pre .hljs-subst {
+.hljs-subst {
   color: #519F50;
 }
 
-pre .hljs-tag,
-pre .hljs-tag .hljs-keyword,
-pre .hljs-tag .hljs-title,
-pre .hljs-doctype,
-pre .hljs-sub .hljs-identifier,
-pre .hljs-pi,
-pre .input_number {
+.hljs-tag,
+.hljs-tag .hljs-keyword,
+.hljs-tag .hljs-title,
+.hljs-doctype,
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.input_number {
   color: #E8BF6A;
 }
 
-pre .hljs-identifier {
+.hljs-identifier {
   color: #D0D0FF;
 }
 
-pre .hljs-class .hljs-title,
-pre .haskell .hljs-type,
-pre .smalltalk .hljs-class,
-pre .hljs-javadoctag,
-pre .hljs-yardoctag,
-pre .hljs-phpdoc {
+.hljs-class .hljs-title,
+.haskell .hljs-type,
+.smalltalk .hljs-class,
+.hljs-javadoctag,
+.hljs-yardoctag,
+.hljs-phpdoc {
   text-decoration: none;
 }
 
-pre .hljs-constant {
+.hljs-constant {
   color: #DA4939;
 }
 
 
-pre .hljs-symbol,
-pre .hljs-built_in,
-pre .ruby .hljs-symbol .hljs-string,
-pre .ruby .hljs-symbol .hljs-identifier,
-pre .markdown .hljs-link_url,
-pre .hljs-attribute {
+.hljs-symbol,
+.hljs-built_in,
+.ruby .hljs-symbol .hljs-string,
+.ruby .hljs-symbol .hljs-identifier,
+.markdown .hljs-link_url,
+.hljs-attribute {
   color: #6D9CBE;
 }
 
-pre .markdown .hljs-link_url {
+.markdown .hljs-link_url {
   text-decoration: underline;
 }
 
 
 
-pre .hljs-params,
-pre .hljs-variable,
-pre .clojure .hljs-attribute {
+.hljs-params,
+.hljs-variable,
+.clojure .hljs-attribute {
   color: #D0D0FF;
 }
 
-pre .css .hljs-tag,
-pre .hljs-rules .hljs-property,
-pre .hljs-pseudo,
-pre .tex .hljs-special {
+.css .hljs-tag,
+.hljs-rules .hljs-property,
+.hljs-pseudo,
+.tex .hljs-special {
   color: #CDA869;
 }
 
-pre .css .hljs-class {
+.css .hljs-class {
   color: #9B703F;
 }
 
-pre .hljs-rules .hljs-keyword {
+.hljs-rules .hljs-keyword {
   color: #C5AF75;
 }
 
-pre .hljs-rules .hljs-value {
+.hljs-rules .hljs-value {
   color: #CF6A4C;
 }
 
-pre .css .hljs-id {
+.css .hljs-id {
   color: #8B98AB;
 }
 
-pre .hljs-annotation,
-pre .apache .hljs-sqbracket,
-pre .nginx .hljs-built_in {
+.hljs-annotation,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in {
   color: #9B859D;
 }
 
-pre .hljs-preprocessor,
-pre .hljs-preprocessor *{
+.hljs-preprocessor,
+.hljs-preprocessor *{
   color: #8996A8 !important;
 }
 
-pre .hljs-hexcolor,
-pre .css .hljs-value .hljs-number {
+.hljs-hexcolor,
+.css .hljs-value .hljs-number {
   color: #A5C261;
 }
 
-pre .hljs-title,
-pre .hljs-decorator,
-pre .css .hljs-function {
+.hljs-title,
+.hljs-decorator,
+.css .hljs-function {
   color: #FFC66D;
 }
 
-pre .diff .hljs-header,
-pre .hljs-chunk {
+.diff .hljs-header,
+.hljs-chunk {
   background-color: #2F33AB;
   color: #E6E1DC;
   display: inline-block;
   width: 100%;
 }
 
-pre .diff .hljs-change {
+.diff .hljs-change {
   background-color: #4A410D;
   color: #F8F8F8;
   display: inline-block;
   width: 100%;
 }
 
-pre .hljs-addition {
+.hljs-addition {
   background-color: #144212;
   color: #E6E1DC;
   display: inline-block;
   width: 100%;
 }
 
-pre .hljs-deletion {
+.hljs-deletion {
   background-color: #600;
   color: #E6E1DC;
   display: inline-block;
   width: 100%;
 }
 
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .hljs-formula,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .hljs-cdata {
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
   opacity: 0.7;
 }

@@ -8,124 +8,124 @@ pre code {
   background: #f8f8ff
 }
 
-pre .hljs-comment,
-pre .hljs-template_comment,
-pre .diff .hljs-header,
-pre .hljs-javadoc {
+.hljs-comment,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-javadoc {
   color: #408080;
   font-style: italic
 }
 
-pre .hljs-keyword,
-pre .assignment,
-pre .hljs-literal,
-pre .css .rule .hljs-keyword,
-pre .hljs-winutils,
-pre .javascript .hljs-title,
-pre .lisp .hljs-title,
-pre .hljs-subst {
+.hljs-keyword,
+.assignment,
+.hljs-literal,
+.css .rule .hljs-keyword,
+.hljs-winutils,
+.javascript .hljs-title,
+.lisp .hljs-title,
+.hljs-subst {
   color: #954121;
 }
 
-pre .hljs-number,
-pre .hljs-hexcolor {
+.hljs-number,
+.hljs-hexcolor {
   color: #40a070
 }
 
-pre .hljs-string,
-pre .hljs-tag .hljs-value,
-pre .hljs-phpdoc,
-pre .tex .hljs-formula {
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.tex .hljs-formula {
   color: #219161;
 }
 
-pre .hljs-title,
-pre .hljs-id {
+.hljs-title,
+.hljs-id {
   color: #19469D;
 }
-pre .hljs-params {
+.hljs-params {
   color: #00F;
 }
 
-pre .javascript .hljs-title,
-pre .lisp .hljs-title,
-pre .hljs-subst {
+.javascript .hljs-title,
+.lisp .hljs-title,
+.hljs-subst {
   font-weight: normal
 }
 
-pre .hljs-class .hljs-title,
-pre .haskell .hljs-label,
-pre .tex .hljs-command {
+.hljs-class .hljs-title,
+.haskell .hljs-label,
+.tex .hljs-command {
   color: #458;
   font-weight: bold
 }
 
-pre .hljs-tag,
-pre .hljs-tag .hljs-title,
-pre .hljs-rules .hljs-property,
-pre .django .hljs-tag .hljs-keyword {
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
   color: #000080;
   font-weight: normal
 }
 
-pre .hljs-attribute,
-pre .hljs-variable,
-pre .instancevar,
-pre .lisp .hljs-body {
+.hljs-attribute,
+.hljs-variable,
+.instancevar,
+.lisp .hljs-body {
   color: #008080
 }
 
-pre .hljs-regexp {
+.hljs-regexp {
   color: #B68
 }
 
-pre .hljs-class {
+.hljs-class {
   color: #458;
   font-weight: bold
 }
 
-pre .hljs-symbol,
-pre .ruby .hljs-symbol .hljs-string,
-pre .ruby .hljs-symbol .hljs-keyword,
-pre .ruby .hljs-symbol .keymethods,
-pre .lisp .hljs-keyword,
-pre .tex .hljs-special,
-pre .input_number {
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.ruby .hljs-symbol .hljs-keyword,
+.ruby .hljs-symbol .keymethods,
+.lisp .hljs-keyword,
+.tex .hljs-special,
+.input_number {
   color: #990073
 }
 
-pre .builtin,
-pre .constructor,
-pre .hljs-built_in,
-pre .lisp .hljs-title {
+.builtin,
+.constructor,
+.hljs-built_in,
+.lisp .hljs-title {
   color: #0086b3
 }
 
-pre .hljs-preprocessor,
-pre .hljs-pi,
-pre .hljs-doctype,
-pre .hljs-shebang,
-pre .hljs-cdata {
+.hljs-preprocessor,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
   color: #999;
   font-weight: bold
 }
 
-pre .hljs-deletion {
+.hljs-deletion {
   background: #fdd
 }
 
-pre .hljs-addition {
+.hljs-addition {
   background: #dfd
 }
 
-pre .diff .hljs-change {
+.diff .hljs-change {
   background: #0086b3
 }
 
-pre .hljs-chunk {
+.hljs-chunk {
   color: #aaa
 }
 
-pre .tex .hljs-formula {
+.tex .hljs-formula {
   opacity: 0.5;
 }

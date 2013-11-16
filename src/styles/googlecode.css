@@ -1,6 +1,6 @@
 /*
 
-Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
+Google pre code style (c) Aahan Krish <geekpanth3r@gmail.com>
 
 */
 
@@ -9,137 +9,137 @@ pre code {
   background: white; color: black;
 }
 
-pre .hljs-comment,
-pre .hljs-template_comment,
-pre .hljs-javadoc,
-pre .hljs-comment * {
+.hljs-comment,
+.hljs-template_comment,
+.hljs-javadoc,
+.hljs-comment * {
   color: #800;
 }
 
-pre .hljs-keyword,
-pre .method,
-pre .hljs-list .hljs-title,
-pre .clojure .hljs-built_in,
-pre .nginx .hljs-title,
-pre .hljs-tag .hljs-title,
-pre .setting .hljs-value,
-pre .hljs-winutils,
-pre .tex .hljs-command,
-pre .http .hljs-title,
-pre .hljs-request,
-pre .hljs-status {
+.hljs-keyword,
+.method,
+.hljs-list .hljs-title,
+.clojure .hljs-built_in,
+.nginx .hljs-title,
+.hljs-tag .hljs-title,
+.setting .hljs-value,
+.hljs-winutils,
+.tex .hljs-command,
+.http .hljs-title,
+.hljs-request,
+.hljs-status {
   color: #008;
 }
 
-pre .hljs-envvar,
-pre .tex .hljs-special {
+.hljs-envvar,
+.tex .hljs-special {
   color: #660;
 }
 
-pre .hljs-string,
-pre .hljs-tag .hljs-value,
-pre .hljs-cdata,
-pre .hljs-filter .hljs-argument,
-pre .hljs-attr_selector,
-pre .apache .hljs-cbracket,
-pre .hljs-date,
-pre .hljs-regexp,
-pre .coffeescript .hljs-attribute {
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.hljs-regexp,
+.coffeescript .hljs-attribute {
   color: #080;
 }
 
-pre .hljs-sub .hljs-identifier,
-pre .hljs-pi,
-pre .hljs-tag,
-pre .hljs-tag .hljs-keyword,
-pre .hljs-decorator,
-pre .ini .hljs-title,
-pre .hljs-shebang,
-pre .hljs-prompt,
-pre .hljs-hexcolor,
-pre .hljs-rules .hljs-value,
-pre .css .hljs-value .hljs-number,
-pre .hljs-literal,
-pre .hljs-symbol,
-pre .ruby .hljs-symbol .hljs-string,
-pre .hljs-number,
-pre .css .hljs-function,
-pre .clojure .hljs-attribute {
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.hljs-tag,
+.hljs-tag .hljs-keyword,
+.hljs-decorator,
+.ini .hljs-title,
+.hljs-shebang,
+.hljs-prompt,
+.hljs-hexcolor,
+.hljs-rules .hljs-value,
+.css .hljs-value .hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.hljs-number,
+.css .hljs-function,
+.clojure .hljs-attribute {
   color: #066;
 }
 
-pre .hljs-class .hljs-title,
-pre .haskell .hljs-type,
-pre .smalltalk .hljs-class,
-pre .hljs-javadoctag,
-pre .hljs-yardoctag,
-pre .hljs-phpdoc,
-pre .hljs-typename,
-pre .hljs-tag .hljs-attribute,
-pre .hljs-doctype,
-pre .hljs-class .hljs-id,
-pre .hljs-built_in,
-pre .setting,
-pre .hljs-params,
-pre .hljs-variable,
-pre .clojure .hljs-title {
+.hljs-class .hljs-title,
+.haskell .hljs-type,
+.smalltalk .hljs-class,
+.hljs-javadoctag,
+.hljs-yardoctag,
+.hljs-phpdoc,
+.hljs-typename,
+.hljs-tag .hljs-attribute,
+.hljs-doctype,
+.hljs-class .hljs-id,
+.hljs-built_in,
+.setting,
+.hljs-params,
+.hljs-variable,
+.clojure .hljs-title {
   color: #606;
 }
 
-pre .css .hljs-tag,
-pre .hljs-rules .hljs-property,
-pre .hljs-pseudo,
-pre .hljs-subst {
+.css .hljs-tag,
+.hljs-rules .hljs-property,
+.hljs-pseudo,
+.hljs-subst {
   color: #000;
 }
 
-pre .css .hljs-class, pre .css .hljs-id {
+.css .hljs-class, .css .hljs-id {
   color: #9B703F;
 }
 
-pre .hljs-value .hljs-important {
+.hljs-value .hljs-important {
   color: #ff7700;
   font-weight: bold;
 }
 
-pre .hljs-rules .hljs-keyword {
+.hljs-rules .hljs-keyword {
   color: #C5AF75;
 }
 
-pre .hljs-annotation,
-pre .apache .hljs-sqbracket,
-pre .nginx .hljs-built_in {
+.hljs-annotation,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in {
   color: #9B859D;
 }
 
-pre .hljs-preprocessor,
-pre .hljs-preprocessor * {
+.hljs-preprocessor,
+.hljs-preprocessor * {
   color: #444;
 }
 
-pre .tex .hljs-formula {
+.tex .hljs-formula {
   background-color: #EEE;
   font-style: italic;
 }
 
-pre .diff .hljs-header,
-pre .hljs-chunk {
+.diff .hljs-header,
+.hljs-chunk {
   color: #808080;
   font-weight: bold;
 }
 
-pre .diff .hljs-change {
+.diff .hljs-change {
   background-color: #BCCFF9;
 }
 
-pre .hljs-addition {
+.hljs-addition {
   background-color: #BAEEBA;
 }
 
-pre .hljs-deletion {
+.hljs-deletion {
   background-color: #FFC8BD;
 }
 
-pre .hljs-comment .hljs-yardoctag {
+.hljs-comment .hljs-yardoctag {
   font-weight: bold;
 }

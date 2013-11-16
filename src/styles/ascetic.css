@@ -9,42 +9,42 @@ pre code {
   background: white; color: black;
 }
 
-pre .hljs-string,
-pre .hljs-tag .hljs-value,
-pre .hljs-filter .hljs-argument,
-pre .hljs-addition,
-pre .hljs-change,
-pre .apache .hljs-tag,
-pre .apache .hljs-cbracket,
-pre .nginx .hljs-built_in,
-pre .tex .hljs-formula {
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-filter .hljs-argument,
+.hljs-addition,
+.hljs-change,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.nginx .hljs-built_in,
+.tex .hljs-formula {
   color: #888;
 }
 
-pre .hljs-comment,
-pre .hljs-template_comment,
-pre .hljs-shebang,
-pre .hljs-doctype,
-pre .hljs-pi,
-pre .hljs-javadoc,
-pre .hljs-deletion,
-pre .apache .hljs-sqbracket {
+.hljs-comment,
+.hljs-template_comment,
+.hljs-shebang,
+.hljs-doctype,
+.hljs-pi,
+.hljs-javadoc,
+.hljs-deletion,
+.apache .hljs-sqbracket {
   color: #CCC;
 }
 
-pre .hljs-keyword,
-pre .hljs-tag .hljs-title,
-pre .ini .hljs-title,
-pre .lisp .hljs-title,
-pre .clojure .hljs-title,
-pre .http .hljs-title,
-pre .nginx .hljs-title,
-pre .css .hljs-tag,
-pre .hljs-winutils,
-pre .hljs-flow,
-pre .apache .hljs-tag,
-pre .tex .hljs-command,
-pre .hljs-request,
-pre .hljs-status {
+.hljs-keyword,
+.hljs-tag .hljs-title,
+.ini .hljs-title,
+.lisp .hljs-title,
+.clojure .hljs-title,
+.http .hljs-title,
+.nginx .hljs-title,
+.css .hljs-tag,
+.hljs-winutils,
+.hljs-flow,
+.apache .hljs-tag,
+.tex .hljs-command,
+.hljs-request,
+.hljs-status {
   font-weight: bold;
 }

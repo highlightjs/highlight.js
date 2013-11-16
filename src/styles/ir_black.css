@@ -7,99 +7,99 @@ pre code {
   background: #000; color: #f8f8f8;
 }
 
-pre .hljs-shebang,
-pre .hljs-comment,
-pre .hljs-template_comment,
-pre .hljs-javadoc {
+.hljs-shebang,
+.hljs-comment,
+.hljs-template_comment,
+.hljs-javadoc {
   color: #7c7c7c;
 }
 
-pre .hljs-keyword,
-pre .hljs-tag,
-pre .tex .hljs-command,
-pre .hljs-request,
-pre .hljs-status,
-pre .clojure .hljs-attribute {
+.hljs-keyword,
+.hljs-tag,
+.tex .hljs-command,
+.hljs-request,
+.hljs-status,
+.clojure .hljs-attribute {
   color: #96CBFE;
 }
 
-pre .hljs-sub .hljs-keyword,
-pre .method,
-pre .hljs-list .hljs-title,
-pre .nginx .hljs-title {
+.hljs-sub .hljs-keyword,
+.method,
+.hljs-list .hljs-title,
+.nginx .hljs-title {
   color: #FFFFB6;
 }
 
-pre .hljs-string,
-pre .hljs-tag .hljs-value,
-pre .hljs-cdata,
-pre .hljs-filter .hljs-argument,
-pre .hljs-attr_selector,
-pre .apache .hljs-cbracket,
-pre .hljs-date,
-pre .coffeescript .hljs-attribute {
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.coffeescript .hljs-attribute {
   color: #A8FF60;
 }
 
-pre .hljs-subst {
+.hljs-subst {
   color: #DAEFA3;
 }
 
-pre .hljs-regexp {
+.hljs-regexp {
   color: #E9C062;
 }
 
-pre .hljs-title,
-pre .hljs-sub .hljs-identifier,
-pre .hljs-pi,
-pre .hljs-decorator,
-pre .tex .hljs-special,
-pre .haskell .hljs-type,
-pre .hljs-constant,
-pre .smalltalk .hljs-class,
-pre .hljs-javadoctag,
-pre .hljs-yardoctag,
-pre .hljs-phpdoc,
-pre .nginx .hljs-built_in {
+.hljs-title,
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.hljs-decorator,
+.tex .hljs-special,
+.haskell .hljs-type,
+.hljs-constant,
+.smalltalk .hljs-class,
+.hljs-javadoctag,
+.hljs-yardoctag,
+.hljs-phpdoc,
+.nginx .hljs-built_in {
   color: #FFFFB6;
 }
 
-pre .hljs-symbol,
-pre .ruby .hljs-symbol .hljs-string,
-pre .hljs-number,
-pre .hljs-variable,
-pre .vbscript,
-pre .hljs-literal {
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.hljs-number,
+.hljs-variable,
+.vbscript,
+.hljs-literal {
   color: #C6C5FE;
 }
 
-pre .css .hljs-tag {
+.css .hljs-tag {
   color: #96CBFE;
 }
 
-pre .css .hljs-rules .hljs-property,
-pre .css .hljs-id {
+.css .hljs-rules .hljs-property,
+.css .hljs-id {
   color: #FFFFB6;
 }
 
-pre .css .hljs-class {
+.css .hljs-class {
   color: #FFF;
 }
 
-pre .hljs-hexcolor {
+.hljs-hexcolor {
   color: #C6C5FE;
 }
 
-pre .hljs-number {
+.hljs-number {
   color:#FF73FD;
 }
 
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .hljs-formula,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .hljs-cdata {
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
   opacity: 0.7;
 }

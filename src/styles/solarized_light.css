@@ -9,83 +9,83 @@ pre code {
   background: #fdf6e3; color: #657b83;
 }
 
-pre .hljs-comment,
-pre .hljs-template_comment,
-pre .diff .hljs-header,
-pre .hljs-doctype,
-pre .hljs-pi,
-pre .lisp .hljs-string,
-pre .hljs-javadoc {
+.hljs-comment,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-doctype,
+.hljs-pi,
+.lisp .hljs-string,
+.hljs-javadoc {
   color: #93a1a1;
   font-style: italic;
 }
 
-pre .hljs-keyword,
-pre .hljs-winutils,
-pre .method,
-pre .hljs-addition,
-pre .css .hljs-tag,
-pre .hljs-request,
-pre .hljs-status,
-pre .nginx .hljs-title {
+.hljs-keyword,
+.hljs-winutils,
+.method,
+.hljs-addition,
+.css .hljs-tag,
+.hljs-request,
+.hljs-status,
+.nginx .hljs-title {
   color: #859900;
 }
 
-pre .hljs-number,
-pre .hljs-command,
-pre .hljs-string,
-pre .hljs-tag .hljs-value,
-pre .hljs-rules .hljs-value,
-pre .hljs-phpdoc,
-pre .tex .hljs-formula,
-pre .hljs-regexp,
-pre .hljs-hexcolor {
+.hljs-number,
+.hljs-command,
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-rules .hljs-value,
+.hljs-phpdoc,
+.tex .hljs-formula,
+.hljs-regexp,
+.hljs-hexcolor {
   color: #2aa198;
 }
 
-pre .hljs-title,
-pre .hljs-localvars,
-pre .hljs-chunk,
-pre .hljs-decorator,
-pre .hljs-built_in,
-pre .hljs-identifier,
-pre .vhdl .hljs-literal,
-pre .hljs-id,
-pre .css .hljs-function {
+.hljs-title,
+.hljs-localvars,
+.hljs-chunk,
+.hljs-decorator,
+.hljs-built_in,
+.hljs-identifier,
+.vhdl .hljs-literal,
+.hljs-id,
+.css .hljs-function {
   color: #268bd2;
 }
 
-pre .hljs-attribute,
-pre .hljs-variable,
-pre .lisp .hljs-body,
-pre .smalltalk .hljs-number,
-pre .hljs-constant,
-pre .hljs-class .hljs-title,
-pre .hljs-parent,
-pre .haskell .hljs-type {
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body,
+.smalltalk .hljs-number,
+.hljs-constant,
+.hljs-class .hljs-title,
+.hljs-parent,
+.haskell .hljs-type {
   color: #b58900;
 }
 
-pre .hljs-preprocessor,
-pre .hljs-preprocessor .hljs-keyword,
-pre .hljs-shebang,
-pre .hljs-symbol,
-pre .hljs-symbol .hljs-string,
-pre .diff .hljs-change,
-pre .hljs-special,
-pre .hljs-attr_selector,
-pre .hljs-important,
-pre .hljs-subst,
-pre .hljs-cdata,
-pre .clojure .hljs-title,
-pre .css .hljs-pseudo {
+.hljs-preprocessor,
+.hljs-preprocessor .hljs-keyword,
+.hljs-shebang,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.diff .hljs-change,
+.hljs-special,
+.hljs-attr_selector,
+.hljs-important,
+.hljs-subst,
+.hljs-cdata,
+.clojure .hljs-title,
+.css .hljs-pseudo {
   color: #cb4b16;
 }
 
-pre .hljs-deletion {
+.hljs-deletion {
   color: #dc322f;
 }
 
-pre .tex .hljs-formula {
+.tex .hljs-formula {
   background: #eee8d5;
 }
