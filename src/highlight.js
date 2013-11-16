@@ -75,6 +75,7 @@ function() {
     var processed = 0;
     var result = '';
     var nodeStack = [];
+    var backedUp = false;
 
     function selectStream() {
       if (!original.length || !highlighted.length) {
@@ -111,24 +112,43 @@ function() {
       return '</' + node.nodeName.toLowerCase() + '>';
     }
 
-    while (original.length || highlighted.length) {
-      var stream = selectStream();
-      var item = stream.splice(0, 1)[0];
-      result += escape(value.substr(processed, item.offset - processed));
-      processed = item.offset;
-      if (stream == original) {
+    function backupStack() {
+      if (!backedUp) {
         for (var i = nodeStack.length - 1; i >= 0; i--) {
           result += close(nodeStack[i]);
         }
-      } else {
-        item.event == 'start' ? nodeStack.push(item.node) : nodeStack.pop()
       }
-      result += (item.event == 'start' ? open : close)(item.node);
-      if (stream == original) {
+      backedUp = true;
+    }
+
+    function restoreStack() {
+      if (backedUp) {
         for (var i = 0; i < nodeStack.length; i++) {
           result += open(nodeStack[i]);
         }
       }
+      backedUp = false;
+    }
+
+    while (original.length || highlighted.length) {
+      var stream = selectStream();
+      var item = stream.splice(0, 1)[0];
+      if (item.offset > processed) {
+        restoreStack();
+      }
+      result += escape(value.substr(processed, item.offset - processed));
+      processed = item.offset;
+      if (stream == original) {
+        backupStack();
+      } else {
+        if (item.event == 'start') {
+          restoreStack();
+          nodeStack.push(item.node);
+        } else {
+          nodeStack.pop();
+        }
+      }
+      result += (item.event == 'start' ? open : close)(item.node);
     }
     return result + escape(value.substr(processed));
   }
