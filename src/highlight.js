@@ -120,19 +120,10 @@ function() {
         for (var i = nodeStack.length - 1; i >= 0; i--) {
           result += close(nodeStack[i]);
         }
+      } else {
+        item.event == 'start' ? nodeStack.push(item.node) : nodeStack.pop()
       }
-      if (item.event == 'start') {
-        result += open(item.node);
-        if (stream == highlighted) {
-          nodeStack.push(item.node);
-        }
-      }
-      if (item.event == 'stop') {
-        result += close(item.node);
-        if (stream == highlighted) {
-          nodeStack.pop();
-        }
-      }
+      result += (item.event == 'start' ? open : close)(item.node);
       if (stream == original) {
         for (var i = 0; i < nodeStack.length; i++) {
           result += open(nodeStack[i]);
