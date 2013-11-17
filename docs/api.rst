@@ -75,7 +75,7 @@ highlight.js:
 
 ::
 
-  hljs.compatibilityMode = true;
+  hljs.classPrefix = '';
   hljs.initHighlighting();
 
 
