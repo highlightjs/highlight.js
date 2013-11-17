@@ -515,7 +515,7 @@ function() {
       class_name = class_name ? (class_name + ' ' + language) : language;
     }
     block.innerHTML = result.value;
-    block.className = class_name;
+    block.className = 'hljs ' + class_name;
     block.result = {
       language: language,
       kw: result.keyword_count,
