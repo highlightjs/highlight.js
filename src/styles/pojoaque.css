@@ -1,12 +1,12 @@
 /*
 
 Pojoaque Style by Jason Tate
-http://web-cms-designs.com/ftopict-10-pojoaque-style-for-highlight-js-pre code-highlighter.html
+http://web-cms-designs.com/ftopict-10-pojoaque-style-for-highlight-js-.hljs-highlighter.html
 Based on Solarized Style from http://ethanschoonover.com/solarized
 
 */
 
-pre code {
+.hljs {
   display: block; padding: 0.5em;
   color: #DCCF8F;
   background: url(./pojoaque.jpg) repeat scroll left top #181914;

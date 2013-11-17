@@ -4,7 +4,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 
 */
 
-pre code {
+.hljs {
   display: block; padding: 0.5em;
   background:#b7a68e url(./brown_papersq.png);
 }
@@ -24,7 +24,7 @@ pre code {
   font-weight:bold;
 }
 
-pre code,
+.hljs,
 .hljs-subst,
 .hljs-tag .hljs-keyword {
   color: #363C69;

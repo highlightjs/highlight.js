@@ -4,7 +4,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 
 */
 
-pre code {
+.hljs {
   display: block; padding: 0.5em;
   background: #444;
 }
@@ -21,7 +21,7 @@ pre code {
   color: white;
 }
 
-pre code,
+.hljs,
 .hljs-subst {
   color: #DDD;
 }

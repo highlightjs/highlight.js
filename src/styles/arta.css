@@ -3,7 +3,7 @@ Date: 17.V.2011
 Author: pumbur <pumbur@pumbur.net>
 */
 
-pre code
+.hljs
 {
   display: block; padding: 0.5em;
   background: #222;
@@ -139,7 +139,7 @@ pre code
   opacity: 0.6;
 }
 
-pre code,
+.hljs,
 .javascript,
 .css,
 .xml,

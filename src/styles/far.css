@@ -4,12 +4,12 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 
 */
 
-pre code {
+.hljs {
   display: block; padding: 0.5em;
   background: #000080;
 }
 
-pre code,
+.hljs,
 .hljs-subst {
   color: #0FF;
 }

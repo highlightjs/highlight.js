@@ -1,10 +1,10 @@
 /*
 
-Xpre code style (c) Angel Garcia <angelgarcia.mail@gmail.com>
+X.hljs style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 
 */
 
-pre code {
+.hljs {
   display: block; padding: 0.5em;
   background: #fff; color: black;
 }

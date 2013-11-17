@@ -4,7 +4,7 @@ School Book style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 
 */
 
-pre code {
+.hljs {
   display: block; padding: 15px 0.5em 0.5em 30px;
   font-size: 11px !important;
   line-height:16px !important;
@@ -29,7 +29,7 @@ pre{
   font-weight:bold;
 }
 
-pre code,
+.hljs,
 .hljs-subst,
 .hljs-tag .hljs-keyword {
   color: #3E5915;

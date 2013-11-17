@@ -6,7 +6,7 @@ Version: 1.0
 Date: 2013-04-02
 */
 
-pre code {
+.hljs {
   display: block; padding: 0.5em;
   background: #eee;
 }
@@ -76,7 +76,7 @@ pre code {
   color: #3344bb;
 }
 
-.hljs-pre code,
+.hljs-.hljs,
 .hljs-number {
   color: #099;
 }

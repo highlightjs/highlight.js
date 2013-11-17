@@ -4,13 +4,13 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 */
 
-pre code {
+.hljs {
   display: block;
   padding: 0.5em;
   background: #23241f;
 }
 .hljs-tag,
-pre code {
+.hljs {
   color: #f8f8f2;
 }
 .hljs-keyword,

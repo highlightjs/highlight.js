@@ -3,7 +3,7 @@
  * ported by Alexander Marenin (http://github.com/ioncreature)
  */
 
-pre code {
+.hljs {
     display: block; padding: 0.5em;
     background: #282B2E;
 }
@@ -25,7 +25,7 @@ pre code {
     color: #FFCD22;
 }
 
-pre code {
+.hljs {
     color: #E0E2E4;
 }
 
@@ -35,7 +35,7 @@ pre code {
 }
 
 .hljs-attribute,
-pre code .hljs-constant {
+.hljs .hljs-constant {
     color: #668BB0;
 }
 
@@ -47,7 +47,7 @@ pre code .hljs-constant {
     color: #E8E2B7;
 }
 
-.hljs-pre code,
+.hljs-.hljs,
 .hljs-class .hljs-title,
 .hljs-header {
     color: white;

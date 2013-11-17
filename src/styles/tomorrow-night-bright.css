@@ -1,6 +1,6 @@
 /* Tomorrow Night Bright Theme */
 /* Original theme - https://github.com/chriskempson/tomorrow-theme */
-/* http://jmblog.github.com/color-themes-for-google-pre code-highlightjs */
+/* http://jmblog.github.com/color-themes-for-google-.hljs-highlightjs */
 .tomorrow-comment, .hljs-comment, .hljs-title {
   color: #969896;
 }
@@ -33,7 +33,7 @@
   color: #c397d8;
 }
 
-pre code {
+.hljs {
   display: block;
   background: black;
   color: #eaeaea;

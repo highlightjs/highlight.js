@@ -1,10 +1,10 @@
 /*
 
-Google pre code style (c) Aahan Krish <geekpanth3r@gmail.com>
+Google .hljs style (c) Aahan Krish <geekpanth3r@gmail.com>
 
 */
 
-pre code {
+.hljs {
   display: block; padding: 0.5em;
   background: white; color: black;
 }

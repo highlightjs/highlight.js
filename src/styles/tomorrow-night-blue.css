@@ -1,7 +1,7 @@
 /* Tomorrow Night Blue Theme */
-/* http://jmblog.github.com/color-themes-for-google-pre code-highlightjs */
+/* http://jmblog.github.com/color-themes-for-google-.hljs-highlightjs */
 /* Original theme - https://github.com/chriskempson/tomorrow-theme */
-/* http://jmblog.github.com/color-themes-for-google-pre code-highlightjs */
+/* http://jmblog.github.com/color-themes-for-google-.hljs-highlightjs */
 .tomorrow-comment, .hljs-comment, .hljs-title {
   color: #7285b7;
 }
@@ -34,7 +34,7 @@
   color: #ebbbff;
 }
 
-pre code {
+.hljs {
   display: block;
   background: #002451;
   color: white;

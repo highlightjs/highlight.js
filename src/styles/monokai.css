@@ -2,7 +2,7 @@
 Monokai style - ported by Luigi Maselli - http://grigio.org
 */
 
-pre code {
+.hljs {
   display: block; padding: 0.5em;
   background: #272822;
 }
@@ -22,16 +22,16 @@ pre code {
   color: #F92672;
 }
 
-pre code {
+.hljs {
   color: #DDD;
 }
 
-pre code .hljs-constant,
-.asciidoc .hljs-pre code {
+.hljs .hljs-constant,
+.asciidoc .hljs-.hljs {
 	color: #66D9EF;
 }
 
-.hljs-pre code,
+.hljs-.hljs,
 .hljs-class .hljs-title,
 .hljs-header {
 	color: white;
