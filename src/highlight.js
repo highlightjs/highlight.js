@@ -235,7 +235,6 @@ function() {
 
   */
   function highlight(language_name, value, ignore_illegals, continuation) {
-    var classprefix = '<span class="' + hljs.classPrefix;
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -262,6 +261,15 @@ function() {
     function keywordMatch(mode, match) {
       var match_str = language.case_insensitive ? match[0].toLowerCase() : match[0];
       return mode.keywords.hasOwnProperty(match_str) && mode.keywords[match_str];
+    }
+
+    function buildSpan(classname, insideSpan, leaveOpen) {
+      var openSpan  = '<span class="' + hljs.classPrefix,
+          closeSpan = leaveOpen ? '' : '</span>';
+
+      openSpan += classname + '">';
+
+      return openSpan + insideSpan + closeSpan;
     }
 
     function processKeywords() {
