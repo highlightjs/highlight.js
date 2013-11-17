@@ -235,9 +235,7 @@ function() {
 
   */
   function highlight(language_name, value, ignore_illegals, continuation) {
-    var classprefix = '<span class="';
-
-    classprefix += hljs.compatibilityMode ? '' : 'hljs-';
+    var classprefix = '<span class="' + hljs.classPrefix;
 
     function subMode(lexem, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -555,6 +553,7 @@ function() {
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
+  this.classPrefix = 'hljs-';
 
   // Common regexps
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
