@@ -105,7 +105,7 @@ function() {
 
     function open(node) {
       function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
-      return '<' + node.nodeName + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
+      return '<' + node.nodeName.toLowerCase() + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
     }
 
     function close(node) {
