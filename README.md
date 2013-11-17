@@ -97,22 +97,6 @@ styling:
 </script>
 ```
 
-## Backwards Compatibility Mode
-
-With the newest version of highlight.js, we will be prefixing all classes
-located in [classref.txt][cr] with `hljs-` because some class names would
-collide with other people's stylesheets. If you were using an older version,
-you might still want the previous behavior, but still want to upgrade. To
-suppress this new behavior, you would initialize like so:
-
-```html
-<script type="text/javascript">
-  hljs.compatibilityMode = true;
-
-  hljs.initHighlightingOnLoad();
-</script>
-```
-
 ## Custom initialization
 
 If you use different markup for code blocks you can initialize them manually
