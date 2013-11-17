@@ -27,11 +27,11 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 }
 
 .hljs .hljs-constant,
-.asciidoc .hljs-.hljs {
+.asciidoc .hljs-code {
 	color: #66D9EF;
 }
 
-.hljs-.hljs,
+.hljs-code,
 .hljs-class .hljs-title,
 .hljs-header {
 	color: white;
