@@ -285,7 +285,7 @@ function() {
         var keyword_match = keywordMatch(top, match);
         if (keyword_match) {
           keyword_count += keyword_match[1];
-          result += classprefix + keyword_match[0] +'">' + match[0] + '</span>';
+          result += buildSpan(keyword_match[0], match[0]);
         } else {
           result += match[0];
         }
@@ -310,7 +310,7 @@ function() {
         relevance += result.relevance;
       }
       top.top = result.top;
-      return classprefix + result.language  + '">' + result.value + '</span>';
+      return buildSpan(result.language, result.value);
     }
 
     function processBuffer() {
@@ -318,7 +318,7 @@ function() {
     }
 
     function startNewMode(mode, lexem) {
-      var markup = mode.className? classprefix + mode.className + '">': '';
+      var markup = mode.className? buildSpan(mode.className, '', true): '';
       if (mode.returnBegin) {
         result += markup;
         mode_buffer = '';
@@ -392,7 +392,7 @@ function() {
     var result = '';
     for(var current = top; current != language; current = current.parent) {
       if (current.className) {
-        result = classprefix + current.className +'">' + result;
+        result = buildSpan(current.className, result, true);
       }
     }
     var mode_buffer = '';
