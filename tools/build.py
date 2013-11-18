@@ -56,7 +56,14 @@ REPLACES = {
 }
 
 CATEGORIES = {
-    'common': ['bash', 'java', 'ini', 'sql', 'diff', 'php', 'cs', 'cpp', 'ruby', 'python', 'css', 'perl', 'xml', 'javascript', 'http', 'json'],
+    'common': [
+        'apache', 'nginx',
+        'java', 'cs', 'cpp', 'objectivec',
+        'ini', 'diff', 'bash', 'makefile',
+        'sql', 'php', 'ruby', 'python', 'perl',
+        'css', 'xml', 'javascript', 'coffeescript', 'http', 'json',
+        'markdown',
+    ],
 }
 
 def lang_name(filename):
