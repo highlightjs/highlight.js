@@ -75,7 +75,6 @@ function() {
     var processed = 0;
     var result = '';
     var nodeStack = [];
-    var backedUp = false;
 
     function selectStream() {
       if (!original.length || !highlighted.length) {
@@ -112,43 +111,44 @@ function() {
       return '</' + node.nodeName.toLowerCase() + '>';
     }
 
-    function backupStack() {
-      if (!backedUp) {
-        for (var i = nodeStack.length - 1; i >= 0; i--) {
-          result += close(nodeStack[i]);
-        }
-      }
-      backedUp = true;
-    }
-
-    function restoreStack() {
-      if (backedUp) {
-        for (var i = 0; i < nodeStack.length; i++) {
-          result += open(nodeStack[i]);
-        }
-      }
-      backedUp = false;
+    function render(event) {
+      return (event.event == 'start' ? open : close)(event.node);
     }
 
     while (original.length || highlighted.length) {
       var stream = selectStream();
       var item = stream.splice(0, 1)[0];
-      if (item.offset > processed) {
-        restoreStack();
-      }
       result += escape(value.substr(processed, item.offset - processed));
       processed = item.offset;
       if (stream == original) {
-        backupStack();
+        /*
+        On any opening or closed tag of the original markup we first close
+        the entire highlighted node stack, then render the original tag along
+        with all the following original tags at the same offset and then
+        reopen all the tags on the highlighted stack.
+        */
+        for (var i = nodeStack.length - 1; i >= 0; i--) {
+          result += close(nodeStack[i]);
+        }
+        result += render(item);
+        while (true) {
+          stream = selectStream();
+          if (stream != original || !stream.length || stream[0].offset > processed) {
+            break;
+          }
+          result += render(stream.splice(0, 1)[0]);
+        }
+        for (var i = 0; i < nodeStack.length; i++) {
+          result += open(nodeStack[i]);
+        }
       } else {
+        result += render(item);
         if (item.event == 'start') {
-          restoreStack();
           nodeStack.push(item.node);
         } else {
           nodeStack.pop();
         }
       }
-      result += (item.event == 'start' ? open : close)(item.node);
     }
     return result + escape(value.substr(processed));
   }
