@@ -112,17 +112,16 @@ function() {
     }
 
     function render(event) {
-      return (event.event == 'start' ? open : close)(event.node);
+      result += (event.event == 'start' ? open : close)(event.node);
     }
 
     while (original.length || highlighted.length) {
       var stream = selectStream();
-      var item = stream.splice(0, 1)[0];
-      result += escape(value.substr(processed, item.offset - processed));
-      processed = item.offset;
+      result += escape(value.substr(processed, stream[0].offset - processed));
+      processed = stream[0].offset;
       if (stream == original) {
         /*
-        On any opening or closed tag of the original markup we first close
+        On any opening or closing tag of the original markup we first close
         the entire highlighted node stack, then render the original tag along
         with all the following original tags at the same offset and then
         reopen all the tags on the highlighted stack.
@@ -130,19 +129,16 @@ function() {
         for (var i = nodeStack.length - 1; i >= 0; i--) {
           result += close(nodeStack[i]);
         }
-        result += render(item);
-        while (true) {
+        do {
+          render(stream.splice(0, 1)[0]);
           stream = selectStream();
-          if (stream != original || !stream.length || stream[0].offset > processed) {
-            break;
-          }
-          result += render(stream.splice(0, 1)[0]);
-        }
+        } while (stream == original && stream.length && stream[0].offset == processed);
         for (var i = 0; i < nodeStack.length; i++) {
           result += open(nodeStack[i]);
         }
       } else {
-        result += render(item);
+        var item = stream.splice(0, 1)[0];
+        render(item);
         if (item.event == 'start') {
           nodeStack.push(item.node);
         } else {
