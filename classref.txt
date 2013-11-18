@@ -591,14 +591,23 @@ TeX ("tex"):
 
 Haskell ("haskell"):
 
+  comment          comment
+  pragma           GHC pragma
+  preprocessor     CPP preprocessor directive
   keyword          keyword
   number           number
   string           string
-  comment          comment
-  class            type classes and other data types
-  title            function name
-  type             type class name
-  typedef          definition of types (type, newtype, data)
+  title            function or variable name
+  type             value, type or type class constructor name (i.e. capitalized)
+  container        (..., ...) or {...; ...} list in declaration or record
+  module           module declaration
+  import           import declaration
+  class            type class or instance declaration
+  typedef          type declaration (type, newtype, data)
+  default          default declaration
+  infix            infix declaration
+  foreign          FFI declaration
+  shebang          shebang line
 
 Erlang ("erlang"):
 
