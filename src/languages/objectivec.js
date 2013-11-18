@@ -9,10 +9,10 @@ function(hljs) {
     keyword:
       'int float while private char catch export sizeof typedef const struct for union ' +
       'unsigned long volatile static protected bool mutable if public do return goto void ' +
-      'enum else break extern class asm case short default double throw register explicit ' +
+      'enum else break extern asm case short default double throw register explicit ' +
       'signed typename try this switch continue wchar_t inline readonly assign property ' +
-      'protocol self synchronized end synthesize id optional required implementation ' +
-      'nonatomic interface super unichar finally dynamic IBOutlet IBAction selector strong ' +
+      'self synchronized end synthesize id optional required ' +
+      'nonatomic super unichar finally dynamic IBOutlet IBAction selector strong ' +
       'weak readonly',
     literal:
     	'false true FALSE TRUE nil YES NO NULL',
@@ -27,7 +27,7 @@ function(hljs) {
       'NSFetchedResultsChangeType UIScrollView UIScrollViewDelegate UIEdgeInsets UIColor ' +
       'UIFont UIApplication NSNotFound NSNotificationCenter NSNotification ' +
       'UILocalNotification NSBundle NSFileManager NSTimeInterval NSDate NSCalendar ' +
-      'NSUserDefaults UIWindow NSRange NSArray NSError NSURLRequest NSURLConnection class ' +
+      'NSUserDefaults UIWindow NSRange NSArray NSError NSURLRequest NSURLConnection ' +
       'UIInterfaceOrientation MPMoviePlayerController dispatch_once_t ' +
       'dispatch_queue_t dispatch_sync dispatch_async dispatch_once'
   };
@@ -81,7 +81,8 @@ function(hljs) {
       },
       {
         className: 'variable',
-        begin: '\\.'+hljs.UNDERSCORE_IDENT_RE
+        begin: '\\.'+hljs.UNDERSCORE_IDENT_RE,
+        relevance: 0
       }
     ]
   };

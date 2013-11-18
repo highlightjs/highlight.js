@@ -5,11 +5,11 @@ Language: SQL
 function(hljs) {
   return {
     case_insensitive: true,
-    illegal: '[^\\s]',
     contains: [
       {
         className: 'operator',
-        begin: '(begin|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma|grant)\\b', end: ';', endsWithParent: true,
+        begin: '(begin|end|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma|grant)\\b(?!:)', // negative look-ahead here is specifically to prevent stomping on SmallTalk
+        end: ';', endsWithParent: true,
         keywords: {
           keyword: 'all partial global month current_timestamp using go revoke smallint ' +
             'indicator end-exec disconnect zone with character assertion to add current_user ' +
@@ -30,7 +30,7 @@ function(hljs) {
             'privileges when cross check write current_date pad begin temporary exec time ' +
             'update catalog user sql date on identity timezone_hour natural whenever interval ' +
             'work order cascade diagnostics nchar having left call do handler load replace ' +
-            'truncate start lock show pragma',
+            'truncate start lock show pragma exists number trigger if before after each row',
           aggregate: 'count sum min max avg'
         },
         contains: [

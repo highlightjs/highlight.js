@@ -6,7 +6,6 @@ Author: Vasily Polovnyov <vast@whiteants.net>
 
 function(hljs) {
   return {
-    case_insensitive: true,
     contains: [
       {
         className: 'chunk',

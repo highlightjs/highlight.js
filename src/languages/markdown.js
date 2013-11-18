@@ -7,7 +7,6 @@ Website: http://seejohncode.com/
 
 function(hljs) {
   return {
-    case_insensitive: true,
     contains: [
       // highlight headers
       {

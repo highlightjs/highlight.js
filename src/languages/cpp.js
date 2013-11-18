@@ -35,7 +35,11 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'preprocessor',
-        begin: '#', end: '$'
+        begin: '#', end: '$',
+        contains: [
+          {begin: '<', end: '>', illegal: '\\n'},
+          hljs.C_LINE_COMMENT_MODE
+        ]
       },
       {
         className: 'stl_container',

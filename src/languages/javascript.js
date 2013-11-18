@@ -8,7 +8,7 @@ function(hljs) {
       keyword:
         'in if for while finally var new function do return void else break catch ' +
         'instanceof with throw case default try this switch continue typeof delete ' +
-        'let yield',
+        'let yield const',
       literal:
         'true false null undefined NaN Infinity'
     },
@@ -18,39 +18,39 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
-      { // regexp container
+      { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: 'return throw case',
         contains: [
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
-          {
-            className: 'regexp',
-            begin: '/', end: '/[gim]*',
-            contains: [{begin: '\\\\/'}]
+          hljs.REGEXP_MODE,
+          { // E4X
+            begin: /</, end: />;/,
+            subLanguage: 'xml'
           }
         ],
         relevance: 0
       },
       {
         className: 'function',
-        beginWithKeyword: true, end: '{',
+        beginWithKeyword: true, end: /{/,
         keywords: 'function',
         contains: [
           {
-            className: 'title', begin: '[A-Za-z$_][0-9A-Za-z$_]*'
+            className: 'title', begin: /[A-Za-z$_][0-9A-Za-z$_]*/
           },
           {
             className: 'params',
-            begin: '\\(', end: '\\)',
+            begin: /\(/, end: /\)/,
             contains: [
               hljs.C_LINE_COMMENT_MODE,
               hljs.C_BLOCK_COMMENT_MODE
             ],
-            illegal: '["\'\\(]'
+            illegal: /["'\(]/
           }
         ],
-        illegal: '\\[|%'
+        illegal: /\[|%/
       }
     ]
   };

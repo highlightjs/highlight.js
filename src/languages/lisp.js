@@ -5,15 +5,19 @@ Author: Vasily Polovnyov <vast@whiteants.net>
 */
 
 function(hljs) {
-  var LISP_IDENT_RE = '[a-zA-Z_\\-\\+\\*\\/\\<\\=\\>\\&\\#][a-zA-Z0-9_\\-\\+\\*\\/\\<\\=\\>\\&\\#]*';
+  var LISP_IDENT_RE = '[a-zA-Z_\\-\\+\\*\\/\\<\\=\\>\\&\\#][a-zA-Z0-9_\\-\\+\\*\\/\\<\\=\\>\\&\\#!]*';
   var LISP_SIMPLE_NUMBER_RE = '(\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?';
+  var SHEBANG = {
+    className: 'shebang',
+    begin: '^#!', end: '$'
+  };
   var LITERAL = {
     className: 'literal',
     begin: '\\b(t{1}|nil)\\b'
   };
   var NUMBERS = [
     {
-      className: 'number', begin: LISP_SIMPLE_NUMBER_RE
+      className: 'number', begin: LISP_SIMPLE_NUMBER_RE, relevance: 0
     },
     {
       className: 'number', begin: '#b[0-1]+(/[0-1]+)?'
@@ -66,16 +70,16 @@ function(hljs) {
     begin: '\\(', end: '\\)'
   };
   var BODY = {
-    className: 'body',
-    endsWithParent: true, excludeEnd: true
+    endsWithParent: true,
+    relevance: 0
   };
   LIST.contains = [{className: 'title', begin: LISP_IDENT_RE}, BODY];
   BODY.contains = [QUOTED1, QUOTED2, LIST, LITERAL].concat(NUMBERS).concat([STRING, COMMENT, VARIABLE, KEYWORD]);
 
   return {
-    case_insensitive: true,
-    illegal: '[^\\s]',
+    illegal: /\S/,
     contains: NUMBERS.concat([
+      SHEBANG,
       LITERAL,
       STRING,
       COMMENT,

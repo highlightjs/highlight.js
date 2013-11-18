@@ -1,9 +1,12 @@
 Подсветка синтаксиса с автоопределением языка.
 
-URL:   http://softwaremaniacs.org/soft/highlight/
+URL:   http://highlightjs.org/
 
-Первоначальный автор и ведущий проекта:
-Иван Сагалаев <maniac@softwaremaniacs.org>
+Ключевые разработчики (в порядке появления):
+
+- Иван Сагалаев (первоначальный автор) <maniac@softwaremaniacs.org>
+- Джереми Халл <sourdrums@gmail.com>
+- Олег Ефимов <efimovov@gmail.com>
 
 Внесли свой вклад:
 
@@ -36,7 +39,6 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Лорен Сегал <lsegal@soen.ca>
 - Андрей Фёдоров <dmmdrs@mail.ru>
 - Игорь Кальницкий <igor@kalnitsky.org>
-- Джереми Халл <sourdrums@gmail.com>
 - Валерий Хиора <valerii.hiora@gmail.com>
 - Николай Захаров <nikolay.desh@gmail.com>
 - Дмитрий Ковега <arhibot@gmail.com>
@@ -49,7 +51,6 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Александр Мядзель <myadzel@gmail.com>
 - Евгений Степанищев <imbolk@gmail.com>
 - Дмитрий Нагирняк <dnagir@gmail.com>
-- Олег Ефимов <efimovov@gmail.com>
 - Луиджи Мазелли <grigio.org@gmail.com>
 - Денис Бардадым <bardadymchik@gmail.com>
 - Аахан Криш <geekpanth3r@gmail.com>
@@ -62,3 +63,28 @@ URL:   http://softwaremaniacs.org/soft/highlight/
 - Марк Форнос <marc.fornos@gmail.com>
 - Йошихиде Джимбо <yjimbo@gmail.com>
 - Кейси Данкан <casey.duncan@gmail.com>
+- Евгений Нижибицкий <nizhibitsky@gmail.com>
+- Альберто Гимено <gimenete@gmail.com>
+- Кирк Киммель <kimmel.k.programmer@gmail.com>
+- Натан Григг <nathan@nathanamy.org>
+- Dr. Drang <drdrang@gmail.com>
+- Робин Ворд <robin.ward@gmail.com>
+- Дмитрий Медвинский <me@dmedvinsky.name>
+- Джейсон Джейкобсон <jason.a.jacobson@gmail.com>
+- Йонас Фоллесо <jonas@follesoe.no>
+- Ден Аллен <dan.j.allen@gmail.com>
+- noformnocontent <i@noformnocontent.com>
+- Дамиен Вайт <damien.white@visoftinc.com>
+- Александр Маренин <great_muchacho@mail.ru>
+- Седрик Нееми <cedric.nehemie@gmail.com>
+- Саймон Мадин <simon@angryrobotzombie.com>
+- Бенджамин Паннел <contact@sierrasoftworks.com>
+- Эрик Книббе <eric@lassosoft.com>
+- Порен Чянь <ren.chiang@gmail.com>
+- Келли ван Эверт <kelleyvanevert@gmail.com>
+- Курт Эмч <kurt@kurtemch.com>
+- Мейди Догги <mehdi@dogguy.org>
+- Николя Бро-Сантони <nicolas.braud-santoni@ens-cachan.fr>
+- Ральф Биттер <rabit@revigniter.com>
+- Сильвестр Ледру <sylvestre.ledru@scilab-enterprises.com>
+- Трой Кершоу <hello@troykershaw.com>

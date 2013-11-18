@@ -24,7 +24,7 @@ If you use different markup or need to apply highlighting dynamically, read
 
 - You can download your own customized version of "highlight.pack.js" or
   use the hosted one as described on the download page:
-  <http://softwaremaniacs.org/soft/highlight/en/download/>
+  <http://highlightjs.org/download/>
 
 - Style themes are available in the download package or as hosted files.
   To create a custom style for your site see the class reference in the file
@@ -42,7 +42,7 @@ installable from NPM:
 
 Alternatively, you can build it from the source with only languages you need:
 
-    python tools/build.py -tnode lang1 lang2 ..
+    python3 tools/build.py -tnode lang1 lang2 ..
 
 Using the library:
 
@@ -55,6 +55,31 @@ hljs.highlight(lang, code).value;
 // Automatic language detection
 hljs.highlightAuto(code).value;
 ```
+
+
+## AMD
+
+Highlight.js can be used with an AMD loader.  You will need to build it from
+source in order to do so:
+
+```bash
+$ python3 tools/build.py -tamd lang1 lang2 ..
+```
+
+Which will generate a `build/highlight.pack.js` which will load as an AMD
+module with support for the built languages and can be used like so:
+
+```javascript
+require(["highlight.js/build/highlight.pack"], function(hljs){
+
+  // If you know the language
+  hljs.highlight(lang, code).value;
+
+  // Automatic language detection
+  hljs.highlightAuto(code).value;
+});
+```
+
 
 ## Tab replacement
 
@@ -135,9 +160,8 @@ on a site.
 
 ## Meta
 
-- Version: 7.1
-- URL:     http://softwaremaniacs.org/soft/highlight/en/
-- Author:  Ivan Sagalaev (<maniac@softwaremaniacs.org>)
+- Version: 7.4
+- URL:     http://highlightjs.org/
 
 For the license terms see LICENSE files.
-For the list of contributors see AUTHORS.en.txt file.
+For authors and contributors see AUTHORS.en.txt file.

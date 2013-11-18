@@ -31,11 +31,8 @@ function(hljs) {
         className: 'class',
         beginWithKeyword: true, end: '{',
         keywords: 'class interface delegate namespace',
+        illegal: '[^,:\\n\\s\\.]',
         contains: [
-          {
-            beginWithKeyword: true,
-            keywords: 'extends implements'
-          },
           {
             className: 'title',
             begin: hljs.UNDERSCORE_IDENT_RE

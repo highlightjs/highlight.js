@@ -19,13 +19,14 @@ Python profiler results ("profile"):
 
   number           number
   string           string
-  builtin          builtin function entry
+  built_in         built-in function entry
   filename         filename in an entry
   summary          profiling summary
   header           header of table of results
   keyword          column header
   function         function name in an entry (including parentheses)
   title            actual name of a function in an entry (excluding parentheses)
+  prompt           interpreter prompt (>>> or ...)
 
 Ruby ("ruby"):
 
@@ -39,6 +40,18 @@ Ruby ("ruby"):
   title            name of a function or a class inside a header
   parent           name of a parent class
   symbol           symbol
+
+Haml ("haml"):
+
+  tag              any tag starting with "%"
+  title            tag's name
+  attribute        tag's attribute
+  keyword          tag's attribute that is a keyword
+  string           attribute's value that is a string
+  value            attribute's value, shorthand id or class for tag
+  comment          comment
+  doctype          !!! declaration
+  bullet           line defined by variable
 
 Perl ("perl"):
 
@@ -68,7 +81,7 @@ Scala ("scala"):
   number           number
   string           string
   comment          comment
-  annotaion        annotation
+  annotation       annotation
   javadoc          javadoc comment
   javadoctag       @-tag in javadoc
   class            class header
@@ -76,7 +89,8 @@ Scala ("scala"):
   params           everything in parentheses inside a class header
   inheritance      keywords "extends" and "with" inside class header
 
-Go language ("go"):
+Go ("go"):
+
   comment          comment
   string           string constant
   number           number
@@ -85,27 +99,36 @@ Go language ("go"):
   typename         built-in plain types (int, string etc.)
   built_in         built-in functions
 
-XML ("xml"):
+HTML, XML ("xml"):
 
   tag              any tag from "<" till ">"
-  comment          comment
-  pi               processing instruction (<? ... ?>)
-  cdata            CDATA section
-  attribute        attribute
-  value            attribute's value
-
-HTML ("html"):
-
-  keyword          HTML tag
-  tag              any tag from "<" till ">"
-  comment          comment
-  doctype          <!DOCTYPE ... > declaration
   attribute        tag's attribute with or without value
   value            attribute's value
+  comment          comment
+  pi               processing instruction (<? ... ?>)
+  doctype          <!DOCTYPE ... > declaration
+  cdata            CDATA section
+
+Lasso ("lasso"):
+
+  preprocessor     delimiters and interpreter flags
+  shebang          Lasso 9 shell script header
+  comment          single- or multi-line comment
+  javadoc          doc comment
+  keyword          keyword
+  literal          keyword representing a value
+  built_in         built-in types and variables
+  number           number
+  string           string
+  variable         variable reference starting with "#" or "$"
+  tag              tag literal
+  attribute        named or rest parameter in method signature
+  class            type, trait, or method header
+  title            name following "define" inside a header
 
 CSS ("css"):
 
-  tag              HTML tag in selectors
+  tag              tag in selectors
   id               #some_name in selectors
   class            .some_name in selectors
   at_rule          @-rule till first "{" or ";"
@@ -113,15 +136,35 @@ CSS ("css"):
   pseudo           pseudo classes and elemens (:after, ::after etc.)
   comment          comment
   rules            everything from "{" till "}"
-  property         property name inside a rule
+  attribute        property name inside a rule
   value            property value inside a rule, from ":" till ";" or
                    till the end of rule block
   number           number within a value
   string           string within a value
   hexcolor         hex color (#FFFFFF) within a value
   function         CSS function within a value
-  params           everything between "(" and ")" within a function
   important        "!important" symbol
+
+SCSS ("scss"):
+
+  tag              tag in selectors
+  id               #some_name in selectors
+  class            .some_name in selectors
+  at_rule          @-rule till first "{" or ";"
+  attr_selector    attribute selector (square brackets in a[href^=http://])
+  pseudo           pseudo classes and elemens (:after, ::after etc.)
+  comment          comment
+  rules            everything from "{" till "}"
+  attribute        property name inside a rule
+  value            property value inside a rule, from ":" till ";" or
+                   till the end of rule block
+  number           number within a value
+  string           string within a value
+  hexcolor         hex color (#FFFFFF) within a value
+  function         CSS function within a value
+  important        "!important" symbol
+  variable         variable starting with "$"
+  preprocessor     keywords after @
 
 Markdown ("markdown"):
 
@@ -134,6 +177,21 @@ Markdown ("markdown"):
   horizontal_rule   horizontal rule
   link_label        link label
   link_url          link url
+
+AsciiDoc ("asciidoc"):
+
+  header            heading
+  bullet            list or labeled bullet
+  emphasis          emphasis
+  strong            strong emphasis
+  blockquote        blockquote
+  code              inline or block code
+  horizontal_rule   horizontal rule
+  link_label        link or image label
+  link_url          link or image url
+  comment           comment
+  attribute         document attribute, block attributes
+  label             admonition label
 
 Django ("django"):
 
@@ -148,6 +206,14 @@ Django ("django"):
   template_comment template comment, both {# .. #} and {% comment %}
   filter           filter from "|" till the next filter or the end of tag
   argument         filter argument
+
+Handlebars ("handlebars"):
+
+  expression       expression to be evaluated
+  variable         variable
+  begin-block      the beginning of a block
+  end-block        the ending of a block
+  string           string
 
 JSON ("json"):
 
@@ -175,11 +241,15 @@ CoffeeScript ("coffeescript"):
   comment          comment
   number           number
   literal          special literal: "true", "false" and "null"
+  built_in         built-in objects and functions ("window", "console", "require", etc...)
   string           string
+  subst            #{ ... } interpolation in double-quoted strings
   regexp           regular expression
   function         header of a function
+  class            header of a class
   title            name of a function variable inside a header
   params           parentheses and everything inside them in a function's header
+  property         @-property within class and functions
 
 ActionScript ("actionscript"):
 
@@ -205,6 +275,16 @@ VBScript ("vbscript"):
   string           string
   comment          comment
   built_in         built-in function
+
+VB.Net ("vbnet"):
+
+  keyword          keyword
+  built_in         built-in types
+  literal          "true", "false" and "nothing"
+  string           string
+  comment          comment
+  xmlDocTag        xmldoc tag ("'''", "<!--", "-->", "<..>")
+  preprocessor     preprocessor directive
 
 HTTP ("http"):
 
@@ -261,6 +341,7 @@ C++ ("cpp"):
   stl_container    instantiation of STL containers ("vector<...>")
 
 Objective C ("objectivec"):
+
   keyword          keyword
   built_in         Cocoa/Cocoa Touch constants and classes
   number           number
@@ -288,7 +369,26 @@ C# ("cs"):
   comment          commment
   xmlDocTag        xmldoc tag ("///", "<!--", "-->", "<..>")
 
-D language ("d"):
+F# ("fsharp"):
+
+  keywords         keyword
+  number           number
+  string           string
+  commment         comment
+  class            any custom F# type
+  title            the name of a custom F# type
+  annotation       any attribute
+
+OCaml ("ocaml"):
+  keywords         keyword
+  number           number
+  string           string
+  commment         comment
+  class            any custom OCaml type
+  title            the name of a custom OCaml type
+  annotation       any attribute
+
+D ("d"):
 
   comment          comment
   string           string constant
@@ -421,13 +521,23 @@ Bash ("bash"):
   variable         variable
   shebang          script interpreter header
 
-CMake ("cmake")
+Makefile ("makefile"):
+
+  keyword          keyword ".PHONY" within the phony line
+  string           string
+  comment          comment
+  variable         $(..) variable
+  title            target title
+  constant         constant within the initial definition
+
+CMake ("cmake"):
 
   keyword          keyword
   number           number
   string           string
   comment          commment
   envvar           $-variable
+  operator         operator (LESS, STREQUAL, MATCHES, etc)
 
 Axapta ("axapta"):
 
@@ -440,6 +550,15 @@ Axapta ("axapta"):
   params           everything in parentheses inside a class header
   inheritance      keywords "extends" and "implements" inside class header
   preprocessor     preprocessor directive
+
+Oracle Rules Language ("ruleslanguage"):
+
+  comment          comment
+  string           string constant
+  number           number
+  keyword          language keywords
+  built_in         built-in functions
+  array            array stem
 
 1C ("1c"):
 
@@ -464,7 +583,7 @@ AVR assembler ("avrasm"):
   preprocessor     preprocessor directive
   localvars        substitution in .macro
 
-VHDL ("vhdl")
+VHDL ("vhdl"):
 
   keyword          keyword
   number           number
@@ -482,6 +601,21 @@ Parser3 ("parser3"):
   variable         variable starting with "$"
   preprocessor     preprocessor directive
   title            user-defined name starting with "@"
+
+LiveCode Server ("livecodeserver"):
+
+  variable         variable starting with "g", "t", "p", "s", "$_"
+  string           string
+  comment          comment
+  number           number
+  title            name of a command or a function
+  keyword          keyword
+  constant         constant
+  operator         operator
+  built_in         built_in functions and commands
+  function         header of a function
+  command          header of a command
+  preprocessor     preprocessor marks: "<?", "<?rev", "<?lc", "<?livecode" and "?>"
 
 TeX ("tex"):
 
@@ -533,6 +667,19 @@ Matlab ("matlab"):
   title            function name
   function         function
   param            params of function
+  matrix           matrix in [ .. ]
+  cell             cell in { .. }
+
+Scilab ("scilab"):
+
+  comment          comment
+  string           string
+  number           number
+  keyword          keyword
+  title            function name
+  function         function
+  param            params of function
+  matrix           matrix in [ .. ]
 
 R ("r"):
 
@@ -551,3 +698,27 @@ OpenGL Shading Language ("glsl"):
   keyword          keyword
   built_in         GLSL built-in functions and variables
   literal          true false
+
+AppleScript ("applescript"):
+
+  keyword          keyword
+  command          core AppleScript command
+  constant         AppleScript built in constant
+  type             AppleScript variable type (integer, etc.)
+  property         Applescript built in property (length, etc.)
+  number           number
+  string           string
+  comment          comment
+  title            name of a handler
+
+Brainfuck ("brainfuck"):
+
+  title            Brainfuck while loop command
+  literal          Brainfuck inc and dec commands
+  comment          comment
+  string           Brainfuck input and output commands
+
+Mizar ("mizar"):
+
+  keyword          keyword
+  comment          comment

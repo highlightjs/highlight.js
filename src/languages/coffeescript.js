@@ -1,110 +1,137 @@
 /*
 Language: CoffeeScript
 Author: Dmytrii Nagirniak <dnagir@gmail.com>
-Contributors: Oleg Efimov <efimovov@gmail.com>
+Contributors: Oleg Efimov <efimovov@gmail.com>, Cédric Néhémie <cedric.nehemie@gmail.com>
 Description: CoffeeScript is a programming language that transcompiles to JavaScript. For info about language see http://coffeescript.org/
 */
 
 function(hljs) {
-  var keywords = {
+  var KEYWORDS = {
     keyword:
       // JS keywords
       'in if for while finally new do return else break catch instanceof throw try this ' +
-      'switch continue typeof delete debugger class extends super' +
+      'switch continue typeof delete debugger super ' +
       // Coffee keywords
       'then unless until loop of by when and or is isnt not',
     literal:
       // JS literals
       'true false null undefined ' +
       // Coffee literals
-      'yes no on off ',
-    reserved: 'case default function var void with const let enum export import native ' +
-      '__hasProp __extends __slice __bind __indexOf'
+      'yes no on off',
+    reserved:
+      'case default function var void with const let enum export import native ' +
+      '__hasProp __extends __slice __bind __indexOf',
+    built_in:
+      'npm require console print module exports global window document'
   };
-
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
-
-  var COFFEE_QUOTE_STRING_SUBST_MODE = {
+  var TITLE = {className: 'title', begin: JS_IDENT_RE};
+  var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
-    keywords: keywords,
-    contains: [hljs.C_NUMBER_MODE, hljs.BINARY_NUMBER_MODE]
+    keywords: KEYWORDS,
   };
+  var EXPRESSIONS = [
+    // Numbers
+    hljs.BINARY_NUMBER_MODE,
+    hljs.inherit(hljs.C_NUMBER_MODE, {starts: {end: '(\\s*/)?', relevance: 0}}), // a number tries to eat the following slash to prevent treating it as a regexp
+    // Strings
+    {
+      className: 'string',
+      begin: '\'\'\'', end: '\'\'\'',
+      contains: [hljs.BACKSLASH_ESCAPE]
+    },
+    {
+      className: 'string',
+      begin: '\'', end: '\'',
+      contains: [hljs.BACKSLASH_ESCAPE],
+      relevance: 0
+    },
+    {
+      className: 'string',
+      begin: '"""', end: '"""',
+      contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+    },
+    {
+      className: 'string',
+      begin: '"', end: '"',
+      contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+      relevance: 0
+    },
+    // RegExps
+    {
+      className: 'regexp',
+      begin: '///', end: '///',
+      contains: [hljs.HASH_COMMENT_MODE]
+    },
+    {
+      className: 'regexp', begin: '//[gim]*',
+      relevance: 0
+    },
+    {
+      className: 'regexp',
+      begin: '/\\S(\\\\.|[^\\n])*?/[gim]*(?=\\s|\\W|$)' // \S is required to parse x / 2 / 3 as two divisions
+    },
 
-  var COFFEE_QUOTE_STRING_MODE = {
-    className: 'string',
-    begin: '"', end: '"',
-    relevance: 0,
-    contains: [hljs.BACKSLASH_ESCAPE, COFFEE_QUOTE_STRING_SUBST_MODE]
-  };
-
-  var COFFEE_HEREDOC_MODE = {
-    className: 'string',
-    begin: '"""', end: '"""',
-    contains: [hljs.BACKSLASH_ESCAPE, COFFEE_QUOTE_STRING_SUBST_MODE]
-  };
-
-  var COFFEE_HERECOMMENT_MODE = {
-    className: 'comment',
-    begin: '###', end: '###'
-  };
-
-  var COFFEE_HEREGEX_MODE = {
-    className: 'regexp',
-    begin: '///', end: '///',
-    contains: [hljs.HASH_COMMENT_MODE]
-  };
-
-  var COFFEE_EMPTY_REGEX_MODE = {
-    className: 'regexp', begin: '//[gim]*'
-  };
-
-  var COFFEE_REGEX_MODE = {
-    className: 'regexp',
-    begin: '/\\S(\\\\.|[^\\n])*/[gim]*' // \S is required to parse x / 2 / 3 as two divisions
-  };
-
-  var COFFEE_FUNCTION_DECLARATION_MODE = {
-    className: 'function',
-    begin: JS_IDENT_RE + '\\s*=\\s*(\\(.+\\))?\\s*[-=]>',
-    returnBegin: true,
-    contains: [
-      {
-        className: 'title',
-        begin: JS_IDENT_RE
-      },
-      {
-        className: 'params',
-        begin: '\\(', end: '\\)'
-      }
-    ]
-  };
-
-  var COFFEE_EMBEDDED_JAVASCRIPT = {
-    begin: '`', end: '`',
-    excludeBegin: true, excludeEnd: true,
-    subLanguage: 'javascript'
-  };
+    {
+      className: 'property',
+      begin: '@' + JS_IDENT_RE
+    },
+    {
+      begin: '`', end: '`',
+      excludeBegin: true, excludeEnd: true,
+      subLanguage: 'javascript'
+    }
+  ];
+  SUBST.contains = EXPRESSIONS;
 
   return {
-    keywords: keywords,
-    contains: [
-      // Numbers
-      hljs.C_NUMBER_MODE,
-      hljs.BINARY_NUMBER_MODE,
-      // Strings
-      hljs.APOS_STRING_MODE,
-      COFFEE_HEREDOC_MODE, // Should be before COFFEE_QUOTE_STRING_MODE for greater priority
-      COFFEE_QUOTE_STRING_MODE,
-      // Comments
-      COFFEE_HERECOMMENT_MODE, // Should be before hljs.HASH_COMMENT_MODE for greater priority
+    keywords: KEYWORDS,
+    contains: EXPRESSIONS.concat([
+      {
+        className: 'comment',
+        begin: '###', end: '###'
+      },
       hljs.HASH_COMMENT_MODE,
-      // CoffeeScript specific modes
-      COFFEE_HEREGEX_MODE,
-      COFFEE_EMPTY_REGEX_MODE,
-      COFFEE_REGEX_MODE,
-      COFFEE_EMBEDDED_JAVASCRIPT,
-      COFFEE_FUNCTION_DECLARATION_MODE
-    ]
+      {
+        className: 'function',
+        begin: '(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*[-=]>', end: '[-=]>',
+        returnBegin: true,
+        contains: [
+          TITLE,
+          {
+            className: 'params',
+            begin: '\\(', returnBegin: true,
+            /* We need another contained nameless mode to not have every nested
+            pair of parens to be called "params" */
+            contains: [{
+              begin: /\(/, end: /\)/,
+              keywords: KEYWORDS,
+              contains: ['self'].concat(EXPRESSIONS)
+            }]
+          }
+        ]
+      },
+      {
+        className: 'class',
+        beginWithKeyword: true, keywords: 'class',
+        end: '$',
+        illegal: '[:\\[\\]]',
+        contains: [
+          {
+            beginWithKeyword: true, keywords: 'extends',
+            endsWithParent: true,
+            illegal: ':',
+            contains: [TITLE]
+          },
+          TITLE
+        ]
+      },
+      {
+        className: 'attribute',
+        begin: JS_IDENT_RE + ':', end: ':',
+        returnBegin: true, excludeEnd: true
+      }
+    ])
   };
 }

@@ -73,11 +73,10 @@ function(hljs) {
   };
   var LIST = {
     className: 'list',
-    begin: '\\(', end: '\\)',
-    relevance: 0
+    begin: '\\(', end: '\\)'
   };
   var BODY = {
-    endsWithParent: true, excludeEnd: true,
+    endsWithParent: true,
     keywords: {literal: 'true false nil'},
     relevance: 0
   };
@@ -88,13 +87,12 @@ function(hljs) {
     starts: BODY
   };
 
-  LIST.contains = [{className: 'comment', begin: 'comment'}, TITLE];
+  LIST.contains = [{className: 'comment', begin: 'comment'}, TITLE, BODY];
   BODY.contains = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER];
   COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER];
 
   return {
-    case_insensitive: true,
-    illegal: '\\S',
+    illegal: /\S/,
     contains: [
       COMMENT,
       LIST

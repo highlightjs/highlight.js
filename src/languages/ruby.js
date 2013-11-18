@@ -98,6 +98,12 @@ function(hljs) {
       begin: '%[qw]?\\|', end: '\\|',
       contains: STR_CONTAINS,
       relevance: 10
+    },
+    {
+      className: 'string',
+      // \B in the beginning suppresses recognition of ?-sequences where ?
+      // is the last character of a preceding identifier, as in: `func?4`
+      begin: /\B\?(\\\d{1,3}|\\x[A-Fa-f0-9]{1,2}|\\u[A-Fa-f0-9]{4}|\\?\S)\b/
     }
   ];
   var FUNCTION = {
@@ -150,17 +156,18 @@ function(hljs) {
     {
       className: 'symbol',
       begin: ':',
-      contains: STRINGS.concat([{begin: RUBY_IDENT_RE}]),
+      contains: STRINGS.concat([{begin: RUBY_METHOD_RE}]),
+      relevance: 0
+    },
+    {
+      className: 'symbol',
+      begin: RUBY_IDENT_RE + ':',
       relevance: 0
     },
     {
       className: 'number',
       begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
       relevance: 0
-    },
-    {
-      className: 'number',
-      begin: '\\?\\w'
     },
     {
       className: 'variable',
@@ -173,7 +180,31 @@ function(hljs) {
           className: 'regexp',
           begin: '/', end: '/[a-z]*',
           illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE]
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r{', end: '}[a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r\\(', end: '\\)[a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r!', end: '![a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r\\[', end: '\\][a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
         }
       ]),
       relevance: 0

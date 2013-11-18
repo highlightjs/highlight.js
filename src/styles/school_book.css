@@ -30,7 +30,7 @@ pre .tex .special {
 }
 
 pre code,
-pre .ruby .subst,
+pre .subst,
 pre .tag .keyword {
   color: #3E5915;
 }
@@ -62,7 +62,8 @@ pre .envvar,
 pre .apache .tag,
 pre .apache .cbracket,
 pre .nginx .built_in,
-pre .tex .command {
+pre .tex .command,
+pre .coffeescript .attribute {
   color: #2C009F;
 }
 
@@ -101,9 +102,11 @@ pre .status {
 }
 
 pre .coffeescript .javascript,
-pre .xml .css,
+pre .javascript .xml,
+pre .tex .formula,
 pre .xml .javascript,
 pre .xml .vbscript,
-pre .tex .formula {
+pre .xml .css,
+pre .xml .cdata {
   opacity: 0.5;
 }

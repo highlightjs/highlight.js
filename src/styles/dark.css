@@ -22,7 +22,7 @@ pre .tex .special {
 }
 
 pre code,
-pre .ruby .subst {
+pre .subst {
   color: #DDD;
 }
 
@@ -54,7 +54,8 @@ pre .envvar,
 pre .apache .tag,
 pre .apache .cbracket,
 pre .tex .command,
-pre .input_number {
+pre .prompt,
+pre .coffeescript .attribute {
   color: #D88;
 }
 
@@ -93,9 +94,11 @@ pre .status {
 }
 
 pre .coffeescript .javascript,
-pre .xml .css,
+pre .javascript .xml,
+pre .tex .formula,
 pre .xml .javascript,
 pre .xml .vbscript,
-pre .tex .formula {
+pre .xml .css,
+pre .xml .cdata {
   opacity: 0.5;
 }

@@ -36,7 +36,10 @@ function(hljs) {
       CHAR,
       {
         className: 'localvars',
-        begin: '\\|\\s*((' + VAR_IDENT_RE + ')\\s*)+\\|'
+        // This looks more complicated than needed to avoid combinatorial
+        // explosion under V8. It effectively means `| var1 var2 ... |` with
+        // whitespace adjacent to `|` being optional.
+        begin: '\\|\\s*' + VAR_IDENT_RE + '(\\s+' + VAR_IDENT_RE + ')*\\s*\\|'
       },
       {
         className: 'array',
