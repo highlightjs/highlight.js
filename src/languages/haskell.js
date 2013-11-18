@@ -6,41 +6,39 @@ Author: Jeremy Hull <sourdrums@gmail.com>
 function(hljs) {
 
   var COMMENT1 = {
-    className: 'haskell_comment',
+    className: 'comment',
     begin: '--', end: '$'
   };
 
   var COMMENT2 = {
-    className: 'haskell_comment',
+    className: 'comment',
     contains: ['self'],
     begin: '{-', end: '-}'
   };
 
   var PRAGMA = {
-    className: 'haskell_pragma',
+    className: 'pragma',
     begin: '{-#', end: '#-}'
   };
 
   var PREPROCESSOR = {
-    className: 'haskell_preprocessor',
+    className: 'preprocessor',
     begin: '^#', end: '$'
   };
 
   var VARIABLE = {
-    className: 'haskell_variable',
+    className: 'title',
     begin: '^[_a-z][\\w\']*'
   };
 
-  // Value, type, class constructors.
   var CONSTRUCTOR = {
-    className: 'haskell_constructor',
-    begin: '\\b[A-Z][\\w\']*', // TODO: other constructors.
+    className: 'type',
+    begin: '\\b[A-Z][\\w\']*', // TODO: other constructors (build-in, infix).
     relevance: 0
   };
 
-  // Not [] :: * -> * but lists in module, import, deriving, class context, default etc.
   var LIST = {
-    className: 'haskell_list',
+    className: 'container',
     begin: '\\(', end: '\\)',
     illegal: '"',
     contains: [
@@ -48,13 +46,13 @@ function(hljs) {
       COMMENT1,
       COMMENT2,
       PREPROCESSOR,
-      {className: 'haskell_constructor', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
+      {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
       VARIABLE
     ]
   };
 
   var RECORD = {
-    className: 'haskell_record',
+    className: 'container',
     begin: '{', end: '}',
     contains: LIST.contains
   };
@@ -70,14 +68,14 @@ function(hljs) {
       // Top-level constructions.
 
       {
-        className: 'haskell_module',
+        className: 'module',
         begin: '\\bmodule ', end: 'where',
         keywords: 'module where',
         contains: [LIST, COMMENT2],
         illegal: '\\W\\.|;'
       },
       {
-        className: 'haskell_import',
+        className: 'import',
         begin: '\\bimport ', end: '$',
         keywords: 'import qualified as hiding',
         contains: [LIST, COMMENT1, COMMENT2],
@@ -85,37 +83,37 @@ function(hljs) {
       },
 
       {
-        className: 'haskell_class',
+        className: 'class',
         begin: '\\b(class |instance )', end: 'where',
         keywords: 'class family instance where',
         contains: [CONSTRUCTOR, LIST, COMMENT2]
       },
       {
-        className: 'haskell_type',
+        className: 'typedef',
         begin: '\\b(data |(new)?type )', end: '$',
         keywords: 'data family type newtype deriving',
         contains: [PRAGMA, COMMENT1, COMMENT2, CONSTRUCTOR, LIST, RECORD]
       },
       {
-        className: 'haskell_default',
+        className: 'default',
         begin: '\\bdefault ', end: '$',
         keywords: 'default',
         contains: [CONSTRUCTOR, LIST, COMMENT1, COMMENT2]
       },
       {
-        className: 'haskell_infix',
+        className: 'infix',
         begin: '\\b(infix |infixl |infixr )', end: '$',
         keywords: 'infix infixl infixr',
         contains: [hljs.C_NUMBER_MODE, COMMENT1, COMMENT2]
       },
       {
-        className: 'haskell_foreign',
+        className: 'foreign',
         begin: '\\bforeign ', end: '$',
         keywords: 'foreign import export ccall stdcall cplusplus jvm dotnet safe unsafe',
         contains: [CONSTRUCTOR, hljs.QUOTE_STRING_MODE, COMMENT1, COMMENT2]
       },
       {
-        className: 'haskell_shebang',
+        className: 'shebang',
         begin: '#!\\/usr\\/bin\\/env\ runhaskell', end: '$'
       },
 
