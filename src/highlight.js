@@ -104,15 +104,15 @@ function() {
 
     function open(node) {
       function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
-      return '<' + node.nodeName.toLowerCase() + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
+      result += '<' + node.nodeName.toLowerCase() + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
     }
 
     function close(node) {
-      return '</' + node.nodeName.toLowerCase() + '>';
+      result += '</' + node.nodeName.toLowerCase() + '>';
     }
 
     function render(event) {
-      result += (event.event == 'start' ? open : close)(event.node);
+      (event.event == 'start' ? open : close)(event.node);
     }
 
     while (original.length || highlighted.length) {
@@ -127,14 +127,14 @@ function() {
         reopen all the tags on the highlighted stack.
         */
         for (var i = nodeStack.length - 1; i >= 0; i--) {
-          result += close(nodeStack[i]);
+          close(nodeStack[i]);
         }
         do {
           render(stream.splice(0, 1)[0]);
           stream = selectStream();
         } while (stream == original && stream.length && stream[0].offset == processed);
         for (var i = 0; i < nodeStack.length; i++) {
-          result += open(nodeStack[i]);
+          open(nodeStack[i]);
         }
       } else {
         var item = stream.splice(0, 1)[0];
