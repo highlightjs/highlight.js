@@ -126,24 +126,19 @@ function() {
         with all the following original tags at the same offset and then
         reopen all the tags on the highlighted stack.
         */
-        for (var i = nodeStack.length - 1; i >= 0; i--) {
-          close(nodeStack[i]);
-        }
+        nodeStack.reverse().forEach(close);
         do {
           render(stream.splice(0, 1)[0]);
           stream = selectStream();
         } while (stream == original && stream.length && stream[0].offset == processed);
-        for (var i = 0; i < nodeStack.length; i++) {
-          open(nodeStack[i]);
-        }
+        nodeStack.reverse().forEach(open);
       } else {
-        var item = stream.splice(0, 1)[0];
-        render(item);
-        if (item.event == 'start') {
-          nodeStack.push(item.node);
+        if (stream[0].event == 'start') {
+          nodeStack.push(stream[0].node);
         } else {
           nodeStack.pop();
         }
+        render(stream.splice(0, 1)[0]);
       }
     }
     return result + escape(value.substr(processed));
