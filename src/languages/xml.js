@@ -37,6 +37,7 @@ function(hljs) {
     ]
   };
   return {
+    aliases: ['html'],
     case_insensitive: true,
     contains: [
       {
