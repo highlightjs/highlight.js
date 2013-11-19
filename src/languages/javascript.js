@@ -4,6 +4,7 @@ Language: JavaScript
 
 function(hljs) {
   return {
+    aliases: ['js'],
     keywords: {
       keyword:
         'in if for while finally var new function do return void else break catch ' +

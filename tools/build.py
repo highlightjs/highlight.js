@@ -181,11 +181,10 @@ def wrap_language(filename, content, compressed):
     '''
     name = lang_name(filename)
     if compressed:
-        name = ('["%s"]' if '-' in name or name[0].isdigit() else '.%s') % name
         content = content.rstrip(';')
-        wrap = 'hljs.LANGUAGES%s=%s(hljs);'
+        wrap = 'hljs.registerLanguage("%s", %s(hljs));'
     else:
-        wrap = 'hljs.LANGUAGES[\'%s\'] = %s(hljs);\n'
+        wrap = '\nhljs.registerLanguage(\'%s\', %s(hljs));\n'
     return wrap % (name, content)
 
 def glue_files(hljs_filename, language_filenames, compressed):
