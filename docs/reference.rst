@@ -26,6 +26,22 @@ Types of attributes values in this reference:
 Attributes
 ----------
 
+case_insensitive
+^^^^^^^^^^^^^^^^
+
+**type**: boolean
+
+Case insensitivity of language keywords and regexps. Used only on the top-level mode.
+
+
+aliases
+^^^^^^^
+
+**type**: array
+
+A list of additional names (besides the canonical one given by the filename) that can be used to identify a language in HTML classes and in a call to :ref:`getLanguage <getLanguage>`.
+
+
 className
 ^^^^^^^^^
 

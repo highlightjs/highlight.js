@@ -99,7 +99,7 @@ Go ("go"):
   typename         built-in plain types (int, string etc.)
   built_in         built-in functions
 
-HTML, XML ("xml"):
+HTML, XML ("xml", "html"):
 
   tag              any tag from "<" till ">"
   attribute        tag's attribute with or without value
@@ -223,7 +223,7 @@ JSON ("json"):
   attribute        name of an object property
   value            value of an object property
 
-JavaScript ("javascript"):
+JavaScript ("javascript", "js"):
 
   keyword          keyword
   comment          comment
@@ -331,7 +331,7 @@ Java ("java"):
   params           everything in parentheses inside a class header
   inheritance      keywords "extends" and "implements" inside class header
 
-C++ ("cpp"):
+C++ ("cpp", "c"):
 
   keyword          keyword
   number           number
