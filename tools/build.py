@@ -182,7 +182,7 @@ def wrap_language(filename, content, compressed):
     name = lang_name(filename)
     if compressed:
         content = content.rstrip(';')
-        wrap = 'hljs.registerLanguage("%s", %s(hljs));'
+        wrap = 'hljs.registerLanguage("%s",%s(hljs));'
     else:
         wrap = '\nhljs.registerLanguage(\'%s\', %s(hljs));\n'
     return wrap % (name, content)
