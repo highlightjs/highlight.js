@@ -515,7 +515,7 @@ function() {
       var resultPre = document.createElement('pre');
       resultPre.innerHTML = result.value;
       var linesPre = document.createElement('pre');
-      var lines = escape(text).replace(/^/gm, '<span class="line"></span>');
+      var lines = escape(text.trimRight()).replace(/^.*?(\n|$)/gm, '<span class="line">$&</span>');
       linesPre.innerHTML = lines;
       result.value = mergeStreams(nodeStream(linesPre), nodeStream(resultPre), text);
     }
@@ -550,7 +550,7 @@ function() {
     initHighlighting.called = true;
     Array.prototype.map.call(document.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'pre'), findCode).
       filter(Boolean).
-      forEach(function(code){highlightBlock(code, hljs.tabReplace, hljs.lineNodes);});
+      forEach(function(code){highlightBlock(code, hljs.tabReplace, false, hljs.lineNodes);});
   }
 
   /*
