@@ -1,6 +1,7 @@
 /*
 Language: Haskell
 Author: Jeremy Hull <sourdrums@gmail.com>
+Contributors: Zena Treep <zena.treep@gmail.com>
 */
 
 function(hljs) {
