@@ -230,7 +230,7 @@ def build_node(root, build_path, filenames, options):
     hljs = 'var hljs = new %s();' % strip_read(filename)
     filenames = map(os.path.basename, filenames)
     for filename in filenames:
-        hljs += '\nhljs.LANGUAGES[\'%s\'] = require(\'./%s\')(hljs);' % (lang_name(filename), filename)
+        hljs += '\nhljs.registerLanguage(\'%s\', require(\'./%s\')(hljs));' % (lang_name(filename), filename)
     hljs += '\nmodule.exports = hljs;'
     utf8_open(os.path.join(build_path, 'highlight.js'), 'w').write(hljs)
     if options.compress:
