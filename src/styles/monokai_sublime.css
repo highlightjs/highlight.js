@@ -47,6 +47,7 @@ pre .css .tag {
 }
 pre .number,
 pre .preprocessor,
+pre .pragma,
 pre .regexp {
   color: #ae81ff;
 }

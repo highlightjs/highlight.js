@@ -9,7 +9,7 @@
   color: #f2777a;
 }
 
-.tomorrow-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+.tomorrow-orange, pre .number, pre .preprocessor, pre .pragma, pre .built_in, pre .literal, pre .params, pre .constant {
   color: #f99157;
 }
 
