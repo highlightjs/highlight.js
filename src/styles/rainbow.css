@@ -92,6 +92,7 @@ Style with support for rainbow parens
 }
 
 .hljs-preprocessor,
+.hljs-pragma,
 .hljs-pi,
 .hljs-shebang,
 .hljs-symbol,

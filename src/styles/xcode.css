@@ -120,7 +120,8 @@ X.hljs style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 .hljs-preprocessor,
-.hljs-preprocessor * {
+.hljs-preprocessor *,
+.hljs-pragma {
   color: rgb(100,56,32);
 }
 

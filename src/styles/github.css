@@ -104,6 +104,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-preprocessor,
+.hljs-pragma,
 .hljs-pi,
 .hljs-doctype,
 .hljs-shebang,

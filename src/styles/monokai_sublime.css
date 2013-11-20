@@ -47,6 +47,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 }
 .hljs-number,
 .hljs-preprocessor,
+.hljs-pragma,
 .hljs-regexp {
   color: #ae81ff;
 }

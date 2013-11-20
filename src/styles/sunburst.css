@@ -112,7 +112,8 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #9B859D;
 }
 
-.hljs-preprocessor {
+.hljs-preprocessor,
+.hljs-pragma {
   color: #8996A8;
 }
 

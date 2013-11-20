@@ -7,7 +7,7 @@
   color: #c82829;
 }
 
-.tomorrow-orange, .hljs-number, .hljs-preprocessor, .hljs-built_in, .hljs-literal, .hljs-params, .hljs-constant {
+.tomorrow-orange, .hljs-number, .hljs-preprocessor, .hljs-pragma, .hljs-built_in, .hljs-literal, .hljs-params, .hljs-constant {
   color: #f5871f;
 }
 

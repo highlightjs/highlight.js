@@ -102,6 +102,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-preprocessor,
+.hljs-pragma,
 .hljs-pi,
 .hljs-doctype,
 .hljs-shebang,

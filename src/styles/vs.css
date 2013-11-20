@@ -66,6 +66,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-envvar,
 .hljs-shebang,
 .hljs-preprocessor,
+.hljs-pragma,
 .userType,
 .apache .hljs-sqbracket,
 .nginx .hljs-built_in,

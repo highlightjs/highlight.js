@@ -33,6 +33,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-tag .hljs-value,
 .css .hljs-rules .hljs-value,
 .hljs-preprocessor,
+.hljs-pragma,
 .ruby .hljs-symbol,
 .ruby .hljs-symbol .hljs-string,
 .ruby .hljs-class .hljs-parent,

@@ -71,62 +71,74 @@ function() {
     return result;
   }
 
-  function mergeStreams(stream1, stream2, value) {
+  function mergeStreams(original, highlighted, value) {
     var processed = 0;
     var result = '';
     var nodeStack = [];
 
     function selectStream() {
-      if (stream1.length && stream2.length) {
-        if (stream1[0].offset != stream2[0].offset)
-          return (stream1[0].offset < stream2[0].offset) ? stream1 : stream2;
-        else {
-          /*
-          To avoid starting the stream just before it should stop the order is
-          ensured that stream1 always starts first and closes last:
-
-          if (event1 == 'start' && event2 == 'start')
-            return stream1;
-          if (event1 == 'start' && event2 == 'stop')
-            return stream2;
-          if (event1 == 'stop' && event2 == 'start')
-            return stream1;
-          if (event1 == 'stop' && event2 == 'stop')
-            return stream2;
-
-          ... which is collapsed to:
-          */
-          return stream2[0].event == 'start' ? stream1 : stream2;
-        }
-      } else {
-        return stream1.length ? stream1 : stream2;
+      if (!original.length || !highlighted.length) {
+        return original.length ? original : highlighted;
       }
+      if (original[0].offset != highlighted[0].offset) {
+        return (original[0].offset < highlighted[0].offset) ? original : highlighted;
+      }
+
+      /*
+      To avoid starting the stream just before it should stop the order is
+      ensured that original always starts first and closes last:
+
+      if (event1 == 'start' && event2 == 'start')
+        return original;
+      if (event1 == 'start' && event2 == 'stop')
+        return highlighted;
+      if (event1 == 'stop' && event2 == 'start')
+        return original;
+      if (event1 == 'stop' && event2 == 'stop')
+        return highlighted;
+
+      ... which is collapsed to:
+      */
+      return highlighted[0].event == 'start' ? original : highlighted;
     }
 
     function open(node) {
       function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
-      return '<' + node.nodeName + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
+      result += '<' + node.nodeName.toLowerCase() + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
     }
 
-    while (stream1.length || stream2.length) {
-      var current = selectStream().splice(0, 1)[0];
-      result += escape(value.substr(processed, current.offset - processed));
-      processed = current.offset;
-      if ( current.event == 'start') {
-        result += open(current.node);
-        nodeStack.push(current.node);
-      } else if (current.event == 'stop') {
-        var node, i = nodeStack.length;
+    function close(node) {
+      result += '</' + node.nodeName.toLowerCase() + '>';
+    }
+
+    function render(event) {
+      (event.event == 'start' ? open : close)(event.node);
+    }
+
+    while (original.length || highlighted.length) {
+      var stream = selectStream();
+      result += escape(value.substr(processed, stream[0].offset - processed));
+      processed = stream[0].offset;
+      if (stream == original) {
+        /*
+        On any opening or closing tag of the original markup we first close
+        the entire highlighted node stack, then render the original tag along
+        with all the following original tags at the same offset and then
+        reopen all the tags on the highlighted stack.
+        */
+        nodeStack.reverse().forEach(close);
         do {
-          i--;
-          node = nodeStack[i];
-          result += ('</' + node.nodeName.toLowerCase() + '>');
-        } while (node != current.node);
-        nodeStack.splice(i, 1);
-        while (i < nodeStack.length) {
-          result += open(nodeStack[i]);
-          i++;
+          render(stream.splice(0, 1)[0]);
+          stream = selectStream();
+        } while (stream == original && stream.length && stream[0].offset == processed);
+        nodeStack.reverse().forEach(open);
+      } else {
+        if (stream[0].event == 'start') {
+          nodeStack.push(stream[0].node);
+        } else {
+          nodeStack.pop();
         }
+        render(stream.splice(0, 1)[0]);
       }
     }
     return result + escape(value.substr(processed));

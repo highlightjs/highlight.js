@@ -90,7 +90,8 @@ Date: 2013-04-02
   color: #970;
 }
 
-.hljs-preprocessor {
+.hljs-preprocessor,
+.hljs-pragma {
   color: #579;
 }
 
