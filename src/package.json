@@ -9,7 +9,11 @@
   }
 , "contributors" : []
 , "bugs" : { "url" : "https://github.com/isagalaev/highlight.js/issues" }
-, "licenses" : [ { "type" : "BSD" } ]
+, "licenses" : [
+    { "type" : "BSD"
+    , "url" : "https://github.com/isagalaev/highlight.js/blob/master/LICENSE"
+    }
+  ]
 , "repository" :
   { "type" : "git"
   , "url" : "git://github.com/isagalaev/highlight.js.git"
