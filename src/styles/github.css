@@ -104,6 +104,7 @@ pre .clojure .built_in {
 }
 
 pre .preprocessor,
+pre .pragma,
 pre .pi,
 pre .doctype,
 pre .shebang,

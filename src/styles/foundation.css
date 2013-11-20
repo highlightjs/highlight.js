@@ -90,7 +90,8 @@ pre .label {
   color: #970;
 }
 
-pre .preprocessor {
+pre .preprocessor,
+pre .pragma {
   color: #579;
 }
 

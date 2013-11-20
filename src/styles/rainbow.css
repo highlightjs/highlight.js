@@ -92,6 +92,7 @@ pre .clojure .title {
 }
 
 pre .preprocessor,
+pre .pragma,
 pre .pi,
 pre .shebang,
 pre .symbol,

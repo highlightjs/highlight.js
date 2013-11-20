@@ -62,8 +62,7 @@ function(hljs) {
     relevance: 0
   };
   var RECORD_ACCESS = {
-    begin: '#', end: '}',
-    illegal: '.',
+    begin: '#' + hljs.UNDERSCORE_IDENT_RE,
     relevance: 0,
     returnBegin: true,
     contains: [
@@ -73,7 +72,7 @@ function(hljs) {
         relevance: 0
       },
       {
-        begin: '{', endsWithParent: true,
+        begin: '{', end: '}',
         relevance: 0
         // "contains" defined later
       }

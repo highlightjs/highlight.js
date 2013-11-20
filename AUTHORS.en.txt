@@ -88,3 +88,4 @@ Contributors:
 - Ralf Bitter <rabit@revigniter.com>
 - Sylvestre Ledru <sylvestre.ledru@scilab-enterprises.com>
 - Troy Kershaw <hello@troykershaw.com>
+- Zena Treep <zena.treep@gmail.com>

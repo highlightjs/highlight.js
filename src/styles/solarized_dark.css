@@ -68,6 +68,7 @@ pre .haskell .type {
 
 pre .preprocessor,
 pre .preprocessor .keyword,
+pre .pragma,
 pre .shebang,
 pre .symbol,
 pre .symbol .string,
