@@ -2258,6 +2258,9 @@ union_dot_union({union, _}=U1, {union, _}=U2) -&gt;
             end,
             union_to_list(U1)
         ))).
+
+read(State) -&gt;
+    {ok, State#state.channel}.
 </code></pre>
 
   <tr>
