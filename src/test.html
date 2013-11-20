@@ -182,6 +182,27 @@ Most snippets do not contain working code :-).
 <p id="summary">...</p>
 <table id="autotest">
   <tr>
+    <th>Mathematica</th>
+    <td class="mathematica">
+<pre>
+<code>(* ::Package:: *)
+
+(* Mathematica Package *)
+
+BeginPackage["SomePkg`"]
+
+Begin["`Private`"]
+
+SomeFn[ns_List] := Fold[Function[{x, y}, x + y], 0, Map[# * 2 &amp;, ns]]
+
+End[] (* End Private Context *)
+
+EndPackage[]
+</code></pre>
+</td>
+</tr>
+
+  <tr>
     <th>Python
     <td class="python">
 <pre>
