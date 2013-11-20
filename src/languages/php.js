@@ -28,14 +28,16 @@ function(hljs) {
   };
   return {
     case_insensitive: true,
+    lexems: hljs.UNDERSCORE_IDENT_RE,
     keywords:
       'and include_once list abstract global private echo interface as static endswitch ' +
       'array null if endwhile or const for endforeach self var while isset public ' +
       'protected exit foreach throw elseif include __FILE__ empty require_once do xor ' +
       'return implements parent clone use __CLASS__ __LINE__ else break print eval new ' +
-      'catch __METHOD__ case exception php_user_filter default die require __FUNCTION__ ' +
+      'catch __METHOD__ case exception default die require __FUNCTION__ ' +
       'enddeclare final try this switch continue endfor endif declare unset true false ' +
-      'namespace trait goto instanceof insteadof __DIR__ __NAMESPACE__ __halt_compiler',
+      'namespace trait goto instanceof insteadof __DIR__ __NAMESPACE__ ' +
+      'yield finally',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.HASH_COMMENT_MODE,
@@ -49,8 +51,8 @@ function(hljs) {
       },
       {
           className: 'comment',
-          excludeBegin: true,
-          begin: '__halt_compiler.+?;', endsWithParent: true
+          begin: '__halt_compiler.+?;', endsWithParent: true,
+          keywords: '__halt_compiler', lexems: hljs.UNDERSCORE_IDENT_RE
       },
       {
         className: 'string',

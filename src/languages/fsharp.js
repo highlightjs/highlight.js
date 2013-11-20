@@ -1,6 +1,7 @@
 /*
 Language: F#
 Author: Jonas Follesø <jonas@follesoe.no>
+Contributors: Troy Kershaw <hello@troykershaw.com>
 Description: F# language definition.
 */
 function(hljs) {
@@ -25,10 +26,6 @@ function(hljs) {
       },
       {
         className: 'comment',
-        begin: '//', end: '$', returnBegin: true
-      },
-      {
-        className: 'comment',
         begin: '\\(\\*', end: '\\*\\)'
       },
       {
@@ -46,9 +43,12 @@ function(hljs) {
         className: 'annotation',
         begin: '\\[<', end: '>\\]'
       },
+      {
+        className: 'attribute',
+        begin: '\\B(\'[A-Za-z])\\b',
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       hljs.C_NUMBER_MODE
     ]

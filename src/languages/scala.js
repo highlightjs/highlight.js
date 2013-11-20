@@ -28,7 +28,7 @@ function(hljs) {
         relevance: 10
       },
       hljs.C_LINE_COMMENT_MODE, hljs.C_BLOCK_COMMENT_MODE,
-      hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE, STRING,
+      STRING, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
       {
         className: 'class',
         begin: '((case )?class |object |trait )', end: '({|$)', // beginWithKeyword won't work because a single "case" shouldn't start this mode

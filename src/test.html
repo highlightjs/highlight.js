@@ -34,6 +34,7 @@
   <link rel="alternate stylesheet" title="Obsidian" href="styles/obsidian.css">
   <link rel="alternate stylesheet" title="Docco" href="styles/docco.css">
   <link rel="alternate stylesheet" title="Mono Blue" href="styles/mono-blue.css">
+  <link rel="alternate stylesheet" title="Foundation" href="styles/foundation.css">
 
   <style>
     body {
@@ -169,7 +170,7 @@
   </script>
 <body>
 
-<p>This is a demo/test page showing all languages supported by <a href="http://softwaremaniacs.org/soft/highlight/en/">highlight.js</a>.
+<p>This is a demo/test page showing all languages supported by <a href="http://highlightjs.org/">highlight.js</a>.
 Most snippets do not contain working code :-).
 
 <div id="styleswitcher">
@@ -223,7 +224,8 @@ module ABC::DEF
   # @return [String] nothing
   def foo(test)
     Thread.new do |blockvar|
-      ABC::DEF.reverse(:a_symbol, :'a symbol', :<=>, 'test' + test)
+      ABC::DEF.reverse(:a_symbol, :'a symbol', :&lt;=&gt;, 'test' + ?\012)
+      answer = valid?4 && valid?CONST && ?A && ?A.ord
     end.join
   end
 
@@ -234,12 +236,18 @@ end
 anIdentifier = an_identifier
 Constant = 1
 render action: :new
+
+str =~ /^(?:foo)$/
+str =~ %r{foo|bar|buz$}
+str =~ %r!foo|bar$!
+str =~ %r[foo|bar$]
+str =~ %r(\(foo|bar\)$)
 </code></pre>
 
   <tr>
     <th>Haml
     <td class="haml">
-    <pre><code>!!! XML
+<pre><code>!!! XML
 %html
   %body
     %h1.jumbo{:id=&gt;"a", :style=&gt;'font-weight: normal', :title=&gt;title} highlight.js
@@ -253,7 +261,7 @@ render action: :new
     ~ variable3
     ~variable4
     The current year is #{DataTime.now.year}.
-    </code></pre>
+</code></pre>
 
   <tr>
     <th>Perl
@@ -302,6 +310,7 @@ abstract class URI extends BaseURI
    */
   static public function _factory($stats = array(), $uri = 'http')
   {
+      echo __METHOD__;
       $uri = explode(':', $uri, 0b10);
       $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
       $desc = 'Multi
@@ -404,7 +413,6 @@ func main() {
     go println(len("hello world!"))
     return
 }
-
 </code></pre>
 
   <tr>
@@ -532,6 +540,8 @@ using an explicit link:http://example.com[link prefix].
 ** alternatively, you can put underlines around a phrase to add _emphasis_
 * astericks around a phrase make the text *bold*
 * pluses around a phrase make it +monospaced+
+* `smart' quotes using a leading backtick and trailing single quote
+** use two of each for double ``smart'' quotes
 
 - escape characters are supported
 - you can escape a quote inside emphasized text like 'here\'s johnny!'
@@ -594,15 +604,15 @@ NOTE: AsciiDoc is quite cool, you should try it.</code></pre>
 {# Striped table #}
 &lt;tr class="{% cycle odd,even %}"&gt;
   &lt;td&gt;{{ article|default:"Hi... "|escape }}&lt;/td&gt;
-  &lt;td {% if article.today %}class="today"{% endif %}&gt;{{ article.date|date:"d.m.Y" }}&lt;/td&gt;
+  &lt;td {% if article.today %}class="today"{% endif %}&gt;{{ article.date|date:'d.m.Y' }}&lt;/td&gt;
 &lt;/tr&gt;
 
 {% endfor %}
 {% endif %}
 
 {% comment %}
-Comments may be long and
-multiline.
+Comments may be long and multiline.
+Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
 {% endcomment %}
 </code></pre>
 
@@ -710,8 +720,8 @@ ul {
 
 a {
   color: $colorGreen;
-  &:hover { color: $colorGreenDark; }
-  &:visited { color: #c458cb; }
+  &amp;:hover { color: $colorGreenDark; }
+  &amp;:visited { color: #c458cb; }
 }
 
 @for $i from 1 through 5 {
@@ -759,7 +769,7 @@ a {
   }
   for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp
     if (checkCondition(classes[i]) === undefined)
-      return /\d+/g;
+      return /\d+[\s/]/g;
   }
 }</code></pre>
 
@@ -1232,16 +1242,16 @@ async Task&lt;int&gt; AccessTheWebAsync()
 *)
 let checkList alist =
     match alist with
-    | [] -> 0
-    | [a] -> 1
-    | [a; b] -> 2
-    | [a; b; c] -> 3
-    | _ -> failwith "List is too big!"
+    | [] -&gt; 0
+    | [a] -&gt; 1
+    | [a; b] -&gt; 2
+    | [a; b; c] -&gt; 3
+    | _ -&gt; failwith "List is too big!"
 
 
 type IEncoding =
-    abstract Encode : string -> string
-    abstract Decode : string -> string
+    abstract Encode : string -&gt; string
+    abstract Decode : string -&gt; string
 
 let text = "Some text..."
 let text2 = @"A ""verbatim"" string..."
@@ -1249,18 +1259,18 @@ let catalog = """
 Some "long" string...
 """
 
-let rec fib x = if x <= 2 then 1 else fib(x-1) + fib(x-2)
+let rec fib x = if x &lt;= 2 then 1 else fib(x-1) + fib(x-2)
 
 let fibs =
-    Async.Parallel [ for i in 0..40 -> async { return fib(i) } ]
-    |> Async.RunSynchronously
+    Async.Parallel [ for i in 0..40 -&gt; async { return fib(i) } ]
+    |&gt; Async.RunSynchronously
 
 type Sprocket(gears) =
   member this.Gears : int = gears
 
-[&ltAbstractClass&gt]
+[&lt;AbstractClass&gt;]
 type Animal =
-  abstract Speak : unit -> unit
+  abstract Speak : unit -&gt; unit
 
 type Widget =
   | RedWidget
@@ -1268,10 +1278,39 @@ type Widget =
 
 type Point = {X: float; Y: float;}
 
-[&ltMeasure&gt]
+[&lt;Measure&gt;]
 type s
-let minutte = 60&lts&gt
+let minutte = 60&lt;s&gt;
 
+</code></pre>
+
+  <tr>
+    <th>OCaml
+    <td class="ocaml">
+<pre>
+<code>(* This is a
+multiline, (* nested *) comment *)
+type point = { x: float; y: float };;
+let some_string = "this is a string";;
+let rec length lst =
+    match lst with
+      [] -> 0
+    | head :: tail -> 1 + length tail
+  ;;
+exception Test;;
+type expression =
+      Const of float
+    | Var of string
+    | Sum of expression * expression    (* e1 + e2 *)
+    | Diff of expression * expression   (* e1 - e2 *)
+    | Prod of expression * expression   (* e1 * e2 *)
+    | Quot of expression * expression   (* e1 / e2 *)
+class point =
+    object
+      val mutable x = 0
+      method get_x = x
+      method private move d = x <- x + d
+    end;;
 </code></pre>
 
 <tr>
@@ -1425,7 +1464,7 @@ layout(triangles) in;
 layout(triangle_strip, max_vertices = 3) out;
 
 void main() {
-  for(int i = 0; i < gl_in.length(); i++) {
+  for(int i = 0; i &lt; gl_in.length(); i++) {
     gl_Position = gl_in[i].gl_Position;
     EmitVertex();
   }
@@ -1548,11 +1587,11 @@ heapExample
 (def
   ^{:macro true
     :added "1.0"}
-  let (fn* let [&form &env & decl] (cons 'let* decl)))
+  let (fn* let [&amp;form &amp;env &amp; decl] (cons 'let* decl)))
 
 (def
 
- defn (fn defn [&form &env name & fdecl]
+ defn (fn defn [&amp;form &amp;env name &amp; fdecl]
         (let [m (conj {:arglists (list 'quote (sigs fdecl))} m)
               m (let [inline (:inline m)
                       ifn (first inline)
@@ -1601,6 +1640,9 @@ RewriteRule . index.php [NC,L]
 
 ExpiresActive On
 ExpiresByType application/x-javascript  "access plus 1 days"
+
+Order Deny,Allow
+Allow from All
 
 &lt;Location /maps/&gt;
   RewriteMap map txt:map.txt
@@ -1763,32 +1805,45 @@ genApacheConf(){
 </code></pre>
 
   <tr>
+    <th>Makefile
+    <td class="makefile">
+<pre><code># Makefile
+
+BUILDDIR      = _build
+EXTRAS       ?= $(BUILDDIR)/extras
+
+.PHONY: main clean
+
+main:
+	@echo "Building main facility..."
+	build_main $(BUILDDIR)
+
+clean:
+	rm -rf $(BUILDDIR)/*
+</code></pre>
+
+  <tr>
     <th>CMake
     <td class="cmake">
-<pre><code>project(test)
-cmake_minimum_required(VERSION 2.6)
+<pre><code>cmake_minimum_required(VERSION 2.8.8)
+project(cmake_example)
 
-# IF LINUX
+# Show message on Linux platform
 if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
-    message("\nOS:\t\tLinux")
+    message("Good choice, bro!")
 endif()
 
-# IF WINDOWS
-if (${CMAKE_SYSTEM_NAME} MATCHES Windows)
-    message("\nOS:\t\tWindows")
-endif()
+# Tell CMake to run moc when necessary:
+set(CMAKE_AUTOMOC ON)
+# As moc files are generated in the binary dir,
+# tell CMake to always look for includes there:
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(test test0.cpp test1.cpp test2.cpp)
+# Widgets finds its own dependencies.
+find_package(Qt5Widgets REQUIRED)
 
-include_directories(./)
-
-set(EXECUTABLE_OUTPUT_PATH ../bin)
-
-add_subdirectory(src)
-
-add_executable(test WIN32 ${test})
-
-target_link_libraries(test msimg32)
+add_executable(myproject main.cpp mainwindow.cpp)
+qt5_use_modules(myproject Widgets)
 </code></pre>
 
   <tr>
@@ -1872,8 +1927,7 @@ EMPTY_HNDL = INTDCREATEHANDLE('05/03/2006 00:00:00', '05/03/2006 23:59:59', 3600
   <tr>
     <th>1С
     <td class="1c">
-<pre><code>
-#Если Клиент Тогда
+<pre><code>#Если Клиент Тогда
 Перем СимвольныйКодКаталога = "ля-ля-ля"; //комментарий
 Функция Сообщить(Знач ТекстСообщения, ТекстСообщения2) Экспорт //комментарий к функции
   x=ТекстСообщения+ТекстСообщения2+"
@@ -2001,6 +2055,65 @@ class
 </code></pre>
 
   <tr>
+    <th>LiveCode Server
+    <td class="livecodeserver">
+<pre><code>&lt;?rev
+
+global gControllerHandlers, gData
+local sTest
+put "blog,index" into gControllerHandlers
+
+
+command blog
+  put "Hello World!" into sTest
+  put "form,url,asset" into tHelpers
+  rigLoadHelper tHelpers
+end blog
+
+
+command index
+  -- simple comment
+  put "YourPageTitle" into gData["pageTitle"]
+
+  # ANOTHER COMMENT
+  get rigLoadView("blogView")
+end index
+
+
+/*Hello
+block comment!*/
+
+
+command rigCommand pParam1 pParam2
+  put empty into sEmptyLocal
+  // comment
+  put "test" contains "es" into tTemp
+  put "test" &amp; $_POST["post"] into tTestVar
+  put rigFunction(tTestVar) into gData["arrayVal"]
+end rigCommand
+
+
+function rigFunction pParam
+  rigAnotherCommand pParamA, pPAramB
+  return "bla" &amp;&amp; pParam &amp; comma
+end rigFunction
+
+
+function myFunction
+  if the secs > 2000000000 then
+    put "Welcome to the future!"
+  else
+    return "something"
+  end if
+end myFunction
+
+
+--| END OF blog.lc
+--| Location: ./system/application/controllers/blog.lc
+----------------------------------------------------------------------
+</code></pre>
+
+  <tr>
     <th>TeX
     <td class="tex">
 <pre>
@@ -2028,21 +2141,22 @@ $$
     <td class="brainfuck">
 <pre><code>++++++++++
 [ 3*10 and 10*10
-  ->+++>++++++++++<<
-]>>
+  -&gt;+++&gt;++++++++++&lt;&lt;
+]&gt;&gt;
 [ filling cells
-  ->++>>++>++>+>++>>++>++>++>++>++>++>++>++>++>++>++[<]<[<]<[<]>>
-]<
-+++++++++<<
+  -&gt;++&gt;&gt;++&gt;++&gt;+&gt;++&gt;&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++[&lt;/]&lt;[&lt;]&lt;[&lt;]&gt;&gt;
+]&lt;
++++++++++&lt;&lt;
 [ rough codes correction loop
-  ->>>+>+>+>+++>+>+>+>+>+>+>+>+>+>+>+>+>+>+[<]<
+  -&gt;&gt;&gt;+&gt;+&gt;+&gt;+++&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+&gt;+[&lt;]&lt;
 ]
 more accurate сodes correction
->>>++>
--->+++++++>------>++++++>++>+++++++++>++++++++++>++++++++>--->++++++++++>------>++++++>
-++>+++++++++++>++++++++++++>------>+++
+&gt;&gt;&gt;++&gt;
+--&gt;+++++++&gt;------&gt;++++++&gt;++&gt;+++++++++&gt;++++++++++&gt;++++++++&gt;---&gt;++++++++++&gt;------&gt;++++++&gt;
+++&gt;+++++++++++&gt;++++++++++++&gt;------&gt;+++
 rewind and output
-[<]>[.>]</code></pre>
+[&lt;]&gt;[.&gt;]
+</code></pre>
 
   <tr>
     <th>Haskell
@@ -2069,8 +2183,8 @@ import Network.Socket.ByteString (sendTo, recv, recvFrom)
 
 -- Type class for converting StringLike types to and from strict ByteStrings
 class DataPacket a where
-  toStrictBS :: a -> Strict.ByteString
-  fromStrictBS :: Strict.ByteString -> a
+  toStrictBS :: a -&gt; Strict.ByteString
+  fromStrictBS :: Strict.ByteString -&gt; a
 
 instance DataPacket Strict.ByteString where
   toStrictBS = id
@@ -2078,16 +2192,16 @@ instance DataPacket Strict.ByteString where
   fromStrictBS = id
   {-# INLINE fromStrictBS #-}
 
-openBoundUDPPort :: String -> Int -> IO Socket
+openBoundUDPPort :: String -&gt; Int -&gt; IO Socket
 openBoundUDPPort uri port = do
-  s <- getUDPSocket
-  bindAddr <- inet_addr uri
+  s &lt;- getUDPSocket
+  bindAddr &lt;- inet_addr uri
   let a = SockAddrInet (toEnum port) bindAddr
   bindSocket s a
   return s
 
-pingUDPPort :: Socket -> SockAddr -> IO ()
-pingUDPPort s a = sendTo s (Strict.singleton 0) a >> return ()
+pingUDPPort :: Socket -&gt; SockAddr -&gt; IO ()
+pingUDPPort s a = sendTo s (Strict.singleton 0) a &gt;&gt; return ()
 </code></pre>
 
   <tr>
@@ -2107,36 +2221,36 @@ pingUDPPort s a = sendTo s (Strict.singleton 0) a >> return ()
     channel
    }).
 
-test(Foo)->Foo.
+test(Foo)-&gt;Foo.
 
-init([Shell, Exec]) ->
+init([Shell, Exec]) -&gt;
     {ok, #state{shell = Shell, exec = Exec}};
-init([Shell]) ->
+init([Shell]) -&gt;
     false = not true,
     io:format("Hello, \"~p!~n", [atom_to_list('World')]),
     {ok, #state{shell = Shell}}.
 
-concat([Single]) -> Single;
-concat(RList) ->
+concat([Single]) -&gt; Single;
+concat(RList) -&gt;
     EpsilonFree = lists:filter(
-        fun (Element) ->
+        fun (Element) -&gt;
             case Element of
-                epsilon -> false;
-                _ -> true
+                epsilon -&gt; false;
+                _ -&gt; true
             end
         end,
         RList),
     case EpsilonFree of
-        [Single] -> Single;
-        Other -> {concat, Other}
+        [Single] -&gt; Single;
+        Other -&gt; {concat, Other}
     end.
 
-union_dot_union({union, _}=U1, {union, _}=U2) ->
+union_dot_union({union, _}=U1, {union, _}=U2) -&gt;
     union(lists:flatten(
         lists:map(
-            fun (X1) ->
+            fun (X1) -&gt;
                 lists:map(
-                    fun (X2) ->
+                    fun (X2) -&gt;
                         concat([X1, X2])
                     end,
                     union_to_list(U2)
@@ -2149,32 +2263,32 @@ union_dot_union({union, _}=U1, {union, _}=U2) ->
   <tr>
     <th>Erlang REPL
     <td class="erlang-repl">
-<pre><code>1> Str = "abcd".
+<pre><code>1&gt; Str = "abcd".
 "abcd"
-2> L = test:length(Str).
+2&gt; L = test:length(Str).
 4
-3> Descriptor = {L, list_to_atom(Str)}.
+3&gt; Descriptor = {L, list_to_atom(Str)}.
 {4,abcd}
-4> L.
+4&gt; L.
 4
-5> b().
+5&gt; b().
 Descriptor = {4,abcd}
 L = 4
 Str = "abcd"
 ok
-6> f(L).
+6&gt; f(L).
 ok
-7> b().
+7&gt; b().
 Descriptor = {4,abcd}
 Str = "abcd"
 ok
-8> {L, _} = Descriptor.
+8&gt; {L, _} = Descriptor.
 {4,abcd}
-9> L.
+9&gt; L.
 4
-10> 2#101.
+10&gt; 2#101.
 5
-11> 1.85e+3.
+11&gt; 1.85e+3.
 1850
 </code></pre>
 
@@ -2200,7 +2314,7 @@ export fac, test1;
 12E+99_f64;                        // type f64
 
 /* Factorial */
-fn fac(n: int) -> int {
+fn fac(n: int) -&gt; int {
     let s: str = "This is
 a multi-line string.
 
@@ -2208,39 +2322,39 @@ It ends with an unescaped '\"'.";
     let c: char = 'Ф';
 
     let result = 1, i = 1;
-    while i <= n { // No parens around the condition
+    while i &lt;= n { // No parens around the condition
         result *= i;
         i += 1;
     }
     ret result;
 }
 
-pure fn pure_length&lt;T>(ls: list&lt;T>) -> uint { /* ... */ }
+pure fn pure_length&lt;T&gt;(ls: list&lt;T&gt;) -&gt; uint { /* ... */ }
 
-type t = map::hashtbl&lt;int,str>;
-let x = id::&lt;int>(10);
+type t = map::hashtbl&lt;int,str&gt;;
+let x = id::&lt;int&gt;(10);
 
 // Define some modules.
 #[path = "foo.rs"]
 mod foo;
 
-iface seq&lt;T> {
-    fn len() -> uint;
+iface seq&lt;T&gt; {
+    fn len() -&gt; uint;
 }
 
-impl &lt;T> of seq&lt;T> for [T] {
-    fn len() -> uint { vec::len(self) }
+impl &lt;T&gt; of seq&lt;T&gt; for [T] {
+    fn len() -&gt; uint { vec::len(self) }
     fn iter(b: fn(T)) {
         for elt in self { b(elt); }
     }
 }
 
-enum list&lt;T> {
+enum list&lt;T&gt; {
     nil;
-    cons(T, @list&lt;T>);
+    cons(T, @list&lt;T&gt;);
 }
 
-let a: list&lt;int> = cons(7, @cons(13, @nil));
+let a: list&lt;int&gt; = cons(7, @cons(13, @nil));
 </code></pre>
 
   <tr>
@@ -2255,7 +2369,7 @@ plot(points(:,1),points(:,2));
 for i = 1: n-1
     len(i) = points(i + 1, 1) - points(i, 1);
 end
-while(max(len) > 2 * min(len))
+while(max(len) &gt; 2 * min(len))
     [d, i] = max(len);
     k = on_margin(points, i, d, -1);
     m = on_margin(points, i + 1, d, 1);
@@ -2287,11 +2401,30 @@ foo_cell = {1, 2, 3; 4, 5, 6}''.'.';
 </code></pre>
 
   <tr>
+    <th>Scilab
+    <td class="scilab">
+<pre><code>// A comment
+function I = foo(dims, varargin)
+  d=[1; matrix(dims(1:$-1),-1,1)]
+  for i=1:size(varargin)
+    if varargin(i)==[] then
+       I=[],
+       return;
+    end
+  end
+endfunction
+
+b = cos(a) + cosh(a);
+bar_matrix = [ "Hello", "world" ];
+foo_matrix = [1, 2, 3; 4, 5, 6];
+</code></pre>
+
+  <tr>
     <th>R
     <td class="r">
 <pre><code>library(ggplot2)
 
-centre <- function(x, type, ...) {
+centre &lt;- function(x, type, ...) {
   switch(type,
          mean = mean(x),
          median = median(x),
@@ -2320,8 +2453,8 @@ foo "bar" baz
 1L + 30
 plot(cars, xlim=20)
 plot(cars, xlim=0x20)
-foo<-30
-my.data.3 <- read() # not a number
+foo&lt;-30
+my.data.3 &lt;- read() # not a number
 c(1,2,3)
 1%%2
 
@@ -2350,8 +2483,8 @@ na_character_ na_complex_ Function While Repeat
 For If In Else Next Break .. .... "NULL" `NULL` 'NULL'
 
 # operators
-+, -, *, /, %%, ^, >, >=, <, <=, ==, !=, !, &, |, ~,
-->, <-, <<-, $, :, ::
++, -, *, /, %%, ^, &gt;, &gt;=, &lt;, &lt;=, ==, !=, !, &amp;, |, ~,
+-&gt;, &lt;-, &lt;&lt;-, $, :, ::
 
 # infix operator
 foo %union% bar
@@ -2385,17 +2518,17 @@ definition
   let D;
 
   attr D is LambdaTerm-like means
-    (dom D qua Tree) is finite &
-::>                          *143,306
+    (dom D qua Tree) is finite &amp;
+::&gt;                          *143,306
     for r st r in dom D holds
-      r is FinSequence of {0,1} &
-      r^<*0*> in dom D implies D.r = 0;
+      r is FinSequence of {0,1} &amp;
+      r^&lt;*0*&gt; in dom D implies D.r = 0;
 end;
 
 registration
   cluster LambdaTerm-like for DecoratedTree of NAT;
   existence;
-::>       *4
+::&gt;       *4
 end;
 
 definition
@@ -2409,22 +2542,22 @@ definition
 
   pred M beta N means
     ex p st
-      M|p beta_shallow N|p &
+      M|p beta_shallow N|p &amp;
       for q st not p is_a_prefix_of q holds
         [r,x] in M iff [r,x] in N;
 end;
 
 theorem Th4:
-  ProperPrefixes (v^<*x*>) = ProperPrefixes v \/ {v}
+  ProperPrefixes (v^&lt;*x*&gt;) = ProperPrefixes v \/ {v}
 proof
-  thus ProperPrefixes (v^<*x*>) c= ProperPrefixes v \/ {v}
+  thus ProperPrefixes (v^&lt;*x*&gt;) c= ProperPrefixes v \/ {v}
   proof
     let y;
-    assume y in ProperPrefixes (v^<*x*>);
+    assume y in ProperPrefixes (v^&lt;*x*&gt;);
     then consider v1 such that
 A1: y = v1 and
-A2: v1 is_a_proper_prefix_of v^<*x*> by TREES_1:def 2;
- v1 is_a_prefix_of v & v1 <> v or v1 = v by A2,TREES_1:9;
+A2: v1 is_a_proper_prefix_of v^&lt;*x*&gt; by TREES_1:def 2;
+ v1 is_a_prefix_of v &amp; v1 &lt;&gt; v or v1 = v by A2,TREES_1:9;
 then
  v1 is_a_proper_prefix_of v or v1 in {v} by TARSKI:def 1,XBOOLE_0:def 8;
 then  y in ProperPrefixes v or y in {v} by A1,TREES_1:def 2;
@@ -2438,15 +2571,15 @@ A4: now
     then consider v1 such that
 A5: y = v1 and
 A6: v1 is_a_proper_prefix_of v by TREES_1:def 2;
- v is_a_prefix_of v^<*x*> by TREES_1:1;
-then  v1 is_a_proper_prefix_of v^<*x*> by A6,XBOOLE_1:58;
+ v is_a_prefix_of v^&lt;*x*&gt; by TREES_1:1;
+then  v1 is_a_proper_prefix_of v^&lt;*x*&gt; by A6,XBOOLE_1:58;
     hence thesis by A5,TREES_1:def 2;
   end;
  v^{} = v by FINSEQ_1:34;
   then
- v is_a_prefix_of v^<*x*> & v <> v^<*x*> by FINSEQ_1:33,TREES_1:1;
-then  v is_a_proper_prefix_of v^<*x*> by XBOOLE_0:def 8;
-then  y in ProperPrefixes v or y = v & v in ProperPrefixes (v^<*x*>)
+ v is_a_prefix_of v^&lt;*x*&gt; &amp; v &lt;&gt; v^&lt;*x*&gt; by FINSEQ_1:33,TREES_1:1;
+then  v is_a_proper_prefix_of v^&lt;*x*&gt; by XBOOLE_0:def 8;
+then  y in ProperPrefixes v or y = v &amp; v in ProperPrefixes (v^&lt;*x*&gt;)
   by A3,TARSKI:def 1,TREES_1:def 2;
   hence thesis by A4;
 end;</code></pre>

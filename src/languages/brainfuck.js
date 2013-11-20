@@ -9,7 +9,7 @@ function(hljs){
       {
         className: 'comment',
         begin: '[^\\[\\]\\.,\\+\\-<> \r\n]',
-        excludeEnd: true,
+        returnEnd: true,
         end: '[\\[\\]\\.,\\+\\-<> \r\n]',
         relevance: 0
       },
@@ -20,7 +20,8 @@ function(hljs){
       },
       {
         className: 'string',
-        begin: '[\\.,]'
+        begin: '[\\.,]',
+        relevance: 0
       },
       {
         className: 'literal',

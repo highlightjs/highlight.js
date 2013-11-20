@@ -26,7 +26,8 @@ pre code {
   color: #DDD;
 }
 
-pre code .constant {
+pre code .constant,
+pre .asciidoc .code {
 	color: #66D9EF;
 }
 
@@ -54,6 +55,7 @@ pre .title,
 pre .emphasis,
 pre .haskell .type,
 pre .preprocessor,
+pre .pragma,
 pre .ruby .class .parent,
 pre .built_in,
 pre .sql .aggregate,
@@ -78,6 +80,7 @@ pre .prompt {
 
 pre .comment,
 pre .java .annotation,
+pre .smartquote,
 pre .blockquote,
 pre .horizontal_rule,
 pre .python .decorator,

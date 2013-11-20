@@ -17,7 +17,7 @@ function(hljs) {
   };
   var NUMBERS = [
     {
-      className: 'number', begin: LISP_SIMPLE_NUMBER_RE
+      className: 'number', begin: LISP_SIMPLE_NUMBER_RE, relevance: 0
     },
     {
       className: 'number', begin: '#b[0-1]+(/[0-1]+)?'
@@ -77,7 +77,7 @@ function(hljs) {
   BODY.contains = [QUOTED1, QUOTED2, LIST, LITERAL].concat(NUMBERS).concat([STRING, COMMENT, VARIABLE, KEYWORD]);
 
   return {
-    illegal: '[^\\s]',
+    illegal: /\S/,
     contains: NUMBERS.concat([
       SHEBANG,
       LITERAL,

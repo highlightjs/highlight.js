@@ -5,6 +5,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 */
 pre code {
   display: block; padding: 0.5em;
+  background: white; color: black;
 }
 
 pre .comment,
@@ -65,6 +66,7 @@ pre .deletion,
 pre .envvar,
 pre .shebang,
 pre .preprocessor,
+pre .pragma,
 pre .userType,
 pre .apache .sqbracket,
 pre .nginx .built_in,

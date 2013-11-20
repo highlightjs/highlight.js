@@ -89,7 +89,8 @@ Scala ("scala"):
   params           everything in parentheses inside a class header
   inheritance      keywords "extends" and "with" inside class header
 
-Go language ("go"):
+Go ("go"):
+
   comment          comment
   string           string constant
   number           number
@@ -144,7 +145,7 @@ CSS ("css"):
   function         CSS function within a value
   important        "!important" symbol
 
-SCSS ("scss")
+SCSS ("scss"):
 
   tag              tag in selectors
   id               #some_name in selectors
@@ -340,6 +341,7 @@ C++ ("cpp"):
   stl_container    instantiation of STL containers ("vector<...>")
 
 Objective C ("objectivec"):
+
   keyword          keyword
   built_in         Cocoa/Cocoa Touch constants and classes
   number           number
@@ -368,6 +370,7 @@ C# ("cs"):
   xmlDocTag        xmldoc tag ("///", "<!--", "-->", "<..>")
 
 F# ("fsharp"):
+
   keywords         keyword
   number           number
   string           string
@@ -376,7 +379,16 @@ F# ("fsharp"):
   title            the name of a custom F# type
   annotation       any attribute
 
-D language ("d"):
+OCaml ("ocaml"):
+  keywords         keyword
+  number           number
+  string           string
+  commment         comment
+  class            any custom OCaml type
+  title            the name of a custom OCaml type
+  annotation       any attribute
+
+D ("d"):
 
   comment          comment
   string           string constant
@@ -509,13 +521,23 @@ Bash ("bash"):
   variable         variable
   shebang          script interpreter header
 
-CMake ("cmake")
+Makefile ("makefile"):
+
+  keyword          keyword ".PHONY" within the phony line
+  string           string
+  comment          comment
+  variable         $(..) variable
+  title            target title
+  constant         constant within the initial definition
+
+CMake ("cmake"):
 
   keyword          keyword
   number           number
   string           string
   comment          commment
   envvar           $-variable
+  operator         operator (LESS, STREQUAL, MATCHES, etc)
 
 Axapta ("axapta"):
 
@@ -561,7 +583,7 @@ AVR assembler ("avrasm"):
   preprocessor     preprocessor directive
   localvars        substitution in .macro
 
-VHDL ("vhdl")
+VHDL ("vhdl"):
 
   keyword          keyword
   number           number
@@ -580,6 +602,21 @@ Parser3 ("parser3"):
   preprocessor     preprocessor directive
   title            user-defined name starting with "@"
 
+LiveCode Server ("livecodeserver"):
+
+  variable         variable starting with "g", "t", "p", "s", "$_"
+  string           string
+  comment          comment
+  number           number
+  title            name of a command or a function
+  keyword          keyword
+  constant         constant
+  operator         operator
+  built_in         built_in functions and commands
+  function         header of a function
+  command          header of a command
+  preprocessor     preprocessor marks: "<?", "<?rev", "<?lc", "<?livecode" and "?>"
+
 TeX ("tex"):
 
   comment          comment
@@ -591,14 +628,23 @@ TeX ("tex"):
 
 Haskell ("haskell"):
 
+  comment          comment
+  pragma           GHC pragma
+  preprocessor     CPP preprocessor directive
   keyword          keyword
   number           number
   string           string
-  comment          comment
-  class            type classes and other data types
-  title            function name
-  type             type class name
-  typedef          definition of types (type, newtype, data)
+  title            function or variable name
+  type             value, type or type class constructor name (i.e. capitalized)
+  container        (..., ...) or {...; ...} list in declaration or record
+  module           module declaration
+  import           import declaration
+  class            type class or instance declaration
+  typedef          type declaration (type, newtype, data)
+  default          default declaration
+  infix            infix declaration
+  foreign          FFI declaration
+  shebang          shebang line
 
 Erlang ("erlang"):
 
@@ -632,6 +678,17 @@ Matlab ("matlab"):
   param            params of function
   matrix           matrix in [ .. ]
   cell             cell in { .. }
+
+Scilab ("scilab"):
+
+  comment          comment
+  string           string
+  number           number
+  keyword          keyword
+  title            function name
+  function         function
+  param            params of function
+  matrix           matrix in [ .. ]
 
 R ("r"):
 

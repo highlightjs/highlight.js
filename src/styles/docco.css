@@ -102,6 +102,7 @@ pre .lisp .title {
 }
 
 pre .preprocessor,
+pre .pragma,
 pre .pi,
 pre .doctype,
 pre .shebang,

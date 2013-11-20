@@ -26,6 +26,7 @@ pre .tag .value,
 pre .rules .value,
 pre .rules .value .number,
 pre .preprocessor,
+pre .pragma,
 pre .haml .symbol,
 pre .ruby .symbol,
 pre .ruby .symbol .string,
@@ -48,6 +49,7 @@ pre .coffeescript .attribute {
   color: #800;
 }
 
+pre .smartquote,
 pre .comment,
 pre .annotation,
 pre .template_comment,
@@ -62,11 +64,13 @@ pre .number,
 pre .date,
 pre .regexp,
 pre .literal,
+pre .hexcolor,
 pre .smalltalk .symbol,
 pre .smalltalk .char,
 pre .go .constant,
 pre .change,
 pre .lasso .variable,
+pre .makefile .variable,
 pre .asciidoc .bullet,
 pre .markdown .bullet,
 pre .asciidoc .link_url,
@@ -101,7 +105,8 @@ pre .vhdl .attribute,
 pre .clojure .attribute,
 pre .asciidoc .attribute,
 pre .lasso .attribute,
-pre .coffeescript .property {
+pre .coffeescript .property,
+pre .makefile .phony {
   color: #88F
 }
 

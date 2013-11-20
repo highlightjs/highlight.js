@@ -98,6 +98,12 @@ function(hljs) {
       begin: '%[qw]?\\|', end: '\\|',
       contains: STR_CONTAINS,
       relevance: 10
+    },
+    {
+      className: 'string',
+      // \B in the beginning suppresses recognition of ?-sequences where ?
+      // is the last character of a preceding identifier, as in: `func?4`
+      begin: /\B\?(\\\d{1,3}|\\x[A-Fa-f0-9]{1,2}|\\u[A-Fa-f0-9]{4}|\\?\S)\b/
     }
   ];
   var FUNCTION = {
@@ -164,10 +170,6 @@ function(hljs) {
       relevance: 0
     },
     {
-      className: 'number',
-      begin: '\\?\\w'
-    },
-    {
       className: 'variable',
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))'
     },
@@ -177,6 +179,30 @@ function(hljs) {
         {
           className: 'regexp',
           begin: '/', end: '/[a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r{', end: '}[a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r\\(', end: '\\)[a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r!', end: '![a-z]*',
+          illegal: '\\n',
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          className: 'regexp',
+          begin: '%r\\[', end: '\\][a-z]*',
           illegal: '\\n',
           contains: [hljs.BACKSLASH_ESCAPE, SUBST]
         }

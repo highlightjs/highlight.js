@@ -10,7 +10,8 @@ pre .keyword,
 pre .title,
 pre .important,
 pre .request,
-pre .header {
+pre .header,
+pre .javadoctag {
   font-weight: bold;
 }
 
@@ -44,6 +45,7 @@ pre .symbol,
 pre .doctype,
 pre .regexp,
 pre .preprocessor,
+pre .pragma,
 pre .pi,
 pre .attribute,
 pre .attr_selector,
@@ -53,6 +55,8 @@ pre .deletion,
 pre .shebang,
 pre .string .variable,
 pre .link_url,
-pre .bullet {
+pre .bullet,
+pre .sqbracket,
+pre .phony {
   color: #4C81C9;
 }

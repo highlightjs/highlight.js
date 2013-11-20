@@ -4,20 +4,24 @@ Library API
 Highilght.js exports a few functions as methods of the ``hljs`` object.
 
 
-``highlight(language_name, value, ignore_illegals)``
------------------------------------
+``highlight(language_name, value, ignore_illegals, continuation)``
+------------------------------------------------------------------
 
 Core highlighting function.
-Accepts a language name and a string with the code to highlight. The third
-parameter ``ignore_illegals``, when present and evaluates to a true value, forces
-highlighting to finish even in case of detecting illegal syntax for the language
-instead of throwing an exception.
+Accepts a language name and a string with the code to highlight.
+The ``ignore_illegals`` parameter, when present and evaluates to a true value,
+forces highlighting to finish even in case of detecting illegal syntax for the
+language instead of throwing an exception.
+The ``continuation`` is an optional mode stack representing unfinished parsing.
+When present, the function will restart parsing from this state instead of
+initializing a new one.
 Returns an object with the following properties:
 
 * ``language``: language name, same as the one passed into a function, returned for consistency with ``highlightAuto``
 * ``relevance``: integer value
 * ``keyword_count``: integer value
 * ``value``: HTML string with highlighting markup
+* ``top``: top of the current mode stack
 
 
 ``highlightAuto(value)``

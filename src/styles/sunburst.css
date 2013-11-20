@@ -112,7 +112,8 @@ pre .nginx .built_in {
   color: #9B859D;
 }
 
-pre .preprocessor {
+pre .preprocessor,
+pre .pragma {
   color: #8996A8;
 }
 
