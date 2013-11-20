@@ -89,3 +89,4 @@ URL:   http://highlightjs.org/
 - Сильвестр Ледру <sylvestre.ledru@scilab-enterprises.com>
 - Трой Кершоу <hello@troykershaw.com>
 - Зена Трип <zena.treep@gmail.com>
+- Даниэль Квасника <dkvasnicka@vendavo.com>

@@ -89,3 +89,4 @@ Contributors:
 - Sylvestre Ledru <sylvestre.ledru@scilab-enterprises.com>
 - Troy Kershaw <hello@troykershaw.com>
 - Zena Treep <zena.treep@gmail.com>
+- Daniel Kvasnicka <dkvasnicka@vendavo.com>

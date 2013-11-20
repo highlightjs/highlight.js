@@ -1,5 +1,6 @@
 /*
 Language: Mathematica
+Author: Daniel Kvasnicka <dkvasnicka@vendavo.com>
 */
 
 function(hljs) {
