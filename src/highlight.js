@@ -275,6 +275,15 @@ function() {
       return mode.keywords.hasOwnProperty(match_str) && mode.keywords[match_str];
     }
 
+    function buildSpan(classname, insideSpan, leaveOpen) {
+      var openSpan  = '<span class="' + hljs.classPrefix,
+          closeSpan = leaveOpen ? '' : '</span>';
+
+      openSpan += classname + '">';
+
+      return openSpan + insideSpan + closeSpan;
+    }
+
     function processKeywords() {
       var buffer = escape(mode_buffer);
       if (!top.keywords)
@@ -288,7 +297,7 @@ function() {
         var keyword_match = keywordMatch(top, match);
         if (keyword_match) {
           keyword_count += keyword_match[1];
-          result += '<span class="'+ keyword_match[0] +'">' + match[0] + '</span>';
+          result += buildSpan(keyword_match[0], match[0]);
         } else {
           result += match[0];
         }
@@ -313,7 +322,7 @@ function() {
         relevance += result.relevance;
       }
       top.top = result.top;
-      return '<span class="' + result.language  + '">' + result.value + '</span>';
+      return buildSpan(result.language, result.value);
     }
 
     function processBuffer() {
@@ -321,7 +330,7 @@ function() {
     }
 
     function startNewMode(mode, lexem) {
-      var markup = mode.className? '<span class="' + mode.className + '">': '';
+      var markup = mode.className? buildSpan(mode.className, '', true): '';
       if (mode.returnBegin) {
         result += markup;
         mode_buffer = '';
@@ -395,7 +404,7 @@ function() {
     var result = '';
     for(var current = top; current != language; current = current.parent) {
       if (current.className) {
-        result = '<span class="' + current.className +'">' + result;
+        result = buildSpan(current.className, result, true);
       }
     }
     var mode_buffer = '';
@@ -518,7 +527,7 @@ function() {
       class_name = class_name ? (class_name + ' ' + language) : language;
     }
     block.innerHTML = result.value;
-    block.className = class_name;
+    block.className = 'hljs ' + class_name;
     block.result = {
       language: language,
       kw: result.keyword_count,
@@ -564,6 +573,7 @@ function() {
   this.highlightBlock = highlightBlock;
   this.initHighlighting = initHighlighting;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
+  this.classPrefix = 'hljs-';
 
   // Common regexps
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
