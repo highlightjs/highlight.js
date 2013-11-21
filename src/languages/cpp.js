@@ -17,6 +17,7 @@ function(hljs) {
       'unordered_map unordered_multiset unordered_multimap array shared_ptr'
   };
   return {
+    aliases: ['c'],
     keywords: CPP_KEYWORDS,
     illegal: '</',
     contains: [

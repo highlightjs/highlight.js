@@ -36,7 +36,7 @@ function() {
     var classes = (block.className + ' ' + (block.parentNode ? block.parentNode.className : '')).split(/\s+/);
     classes = classes.map(function(c) {return c.replace(/^language-/, '');});
     for (var i = 0; i < classes.length; i++) {
-      if (languages[classes[i]] || classes[i] == 'no-highlight') {
+      if (languages[classes[i]] || aliases[classes[i]] || classes[i] == 'no-highlight') {
         return classes[i];
       }
     }
@@ -394,7 +394,7 @@ function() {
       return lexem.length || 1;
     }
 
-    var language = languages[language_name];
+    var language = getLanguage(language_name);
     if (!language) {
       throw new Error('Unknown language: "' + language_name + '"');
     }
@@ -510,6 +510,7 @@ function() {
   function highlightBlock(block, tabReplace, useBR) {
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
+    console.log(language);
     if (language == 'no-highlight')
         return;
     var result = language ? highlight(language, text, true) : highlightAuto(text);
@@ -562,11 +563,22 @@ function() {
     window.addEventListener('load', initHighlighting, false);
   }
 
-  var languages = {}; // a shortcut to avoid writing "this." everywhere
+  var languages = {};
+  var aliases = {};
+
+  function registerLanguage(name, language) {
+    languages[name] = language;
+    if (language.aliases) {
+      language.aliases.forEach(function(alias) {aliases[alias] = name;});
+    }
+  }
+
+  function getLanguage(name) {
+    return languages[name] || languages[aliases[name]];
+  }
 
   /* Interface definition */
 
-  this.LANGUAGES = languages;
   this.highlight = highlight;
   this.highlightAuto = highlightAuto;
   this.fixMarkup = fixMarkup;
@@ -574,6 +586,8 @@ function() {
   this.initHighlighting = initHighlighting;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
   this.classPrefix = 'hljs-';
+  this.registerLanguage = registerLanguage;
+  this.getLanguage = getLanguage;
 
   // Common regexps
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';

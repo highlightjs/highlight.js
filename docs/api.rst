@@ -83,3 +83,19 @@ highlight.js:
 ----------------------------
 
 Attaches highlighting to the page load event.
+
+
+``registerLanguage(name, language)``
+------------------------------------
+
+Adds new language to the library under the specified name. Used mostly internally.
+
+
+.. _getLanguage:
+
+``getLanguage(name)``
+---------------------
+
+Looks up a language by name or alias.
+
+Returns the language object if found, ``undefined`` otherwise.
