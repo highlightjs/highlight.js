@@ -280,6 +280,7 @@ sub load
   my $vt;
   $string =~ m/^sought_text$/;
   $items = split //, 'abc';
+  $string //= "bar";
   for my $key (keys %$p)
   {
     if(${$vt.'::property'}) {
