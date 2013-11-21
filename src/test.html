@@ -93,7 +93,7 @@
     .code {
       font: medium monospace;
     }
-    .code .keyword {
+    .code .hljs-keyword {
       font-weight: bold;
     }
   </style>
@@ -2622,10 +2622,11 @@ EndPackage[]
         continue;
       }
       var code = tds[i].getElementsByTagName('CODE')[0];
-      var passed = tdClass == code.className;
+      var langClass = code.className.split(' ')[1];
+      var passed = tdClass == langClass;
       var result = document.createElement('DIV');
       result.className = 'test';
-      result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + code.className + '</var>';
+      result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + langClass + '</var>';
       function counts(r) {
         return ' (' + r.kw + '+' + r.re + '=' + (r.kw + r.re) + ')';
       }
