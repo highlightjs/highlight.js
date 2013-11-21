@@ -182,27 +182,6 @@ Most snippets do not contain working code :-).
 <p id="summary">...</p>
 <table id="autotest">
   <tr>
-    <th>Mathematica</th>
-    <td class="mathematica">
-<pre>
-<code>(* ::Package:: *)
-
-(* Mathematica Package *)
-
-BeginPackage["SomePkg`"]
-
-Begin["`Private`"]
-
-SomeFn[ns_List] := Fold[Function[{x, y}, x + y], 0, Map[# * 2 &amp;, ns]]
-
-End[] (* End Private Context *)
-
-EndPackage[]
-</code></pre>
-</td>
-</tr>
-
-  <tr>
     <th>Python
     <td class="python">
 <pre>
@@ -2514,7 +2493,6 @@ foo %union% bar
 
 </code></pre>
 
-
   <tr>
     <th>Mizar
     <td class="mizar">
@@ -2604,6 +2582,25 @@ then  y in ProperPrefixes v or y = v &amp; v in ProperPrefixes (v^&lt;*x*&gt;)
   by A3,TARSKI:def 1,TREES_1:def 2;
   hence thesis by A4;
 end;</code></pre>
+
+  <tr>
+    <th>Mathematica</th>
+    <td class="mathematica">
+<pre>
+<code>(* ::Package:: *)
+
+(* Mathematica Package *)
+
+BeginPackage["SomePkg`"]
+
+Begin["`Private`"]
+
+SomeFn[ns_List] := Fold[Function[{x, y}, x + y], 0, Map[# * 2 &amp;, ns]]
+
+End[] (* End Private Context *)
+
+EndPackage[]
+</code></pre>
 
 </table>
 
