@@ -179,7 +179,7 @@ function() {
           });
         }
 
-        mode.lexemsRe = langRe(mode.lexems || '\\b' + hljs.IDENT_RE + '\\b(?!\\.)', true);
+        mode.lexemsRe = langRe(mode.lexems || /[A-Za-z0-9_\\.]+/, true);
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords);
         } else {
