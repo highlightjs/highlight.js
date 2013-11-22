@@ -731,3 +731,15 @@ Mizar ("mizar"):
 
   keyword          keyword
   comment          comment
+
+Oxygene ("oxygene"):
+
+  keyword          keyword
+  comment          comment (of any type)
+  string           string/char
+  function         method, destructor, procedure or function
+  title            name of a function (inside function)
+  params           everything inside parentheses in a function's header
+  number           number
+  class            class' body from "= class" till "end;"
+  

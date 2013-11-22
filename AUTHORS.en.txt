@@ -90,3 +90,4 @@ Contributors:
 - Troy Kershaw <hello@troykershaw.com>
 - Zena Treep <zena.treep@gmail.com>
 - Daniel Kvasnicka <dkvasnicka@vendavo.com>
+- Carlo Kok <ck@remobjects.com>
