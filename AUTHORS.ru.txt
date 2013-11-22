@@ -90,3 +90,4 @@ URL:   http://highlightjs.org/
 - Трой Кершоу <hello@troykershaw.com>
 - Зена Трип <zena.treep@gmail.com>
 - Даниэль Квасничка <dkvasnicka@vendavo.com>
+- Карло Кок <ck@remobjects.com>
