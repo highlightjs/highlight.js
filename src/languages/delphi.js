@@ -3,42 +3,36 @@ Language: Delphi
 */
 
 function(hljs) {
-  var DELPHI_KEYWORDS = 'and safecall cdecl then string exports library not pascal set ' +
-    'virtual file in array label packed end. index while const raise for to implementation ' +
-    'with except overload destructor downto finally program exit unit inherited override if ' +
-    'type until function do begin repeat goto nil far initialization object else var uses ' +
-    'external resourcestring interface end finalization class asm mod case on shr shl of ' +
-    'register xorwrite threadvar try record near stored constructor stdcall inline div out or ' +
-    'procedure';
-  var DELPHI_CLASS_KEYWORDS = 'safecall stdcall pascal stored const implementation ' +
-    'finalization except to finally program inherited override then exports string read not ' +
-    'mod shr try div shl set library message packed index for near overload label downto exit ' +
-    'public goto interface asm on of constructor or private array unit raise destructor var ' +
-    'type until function else external with case default record while protected property ' +
-    'procedure published and cdecl do threadvar file in if end virtual write far out begin ' +
-    'repeat nil initialization object uses resourcestring class register xorwrite inline static';
+  var KEYWORDS =
+    'exports register file shl array record property for mod while set ally label uses raise not ' +
+    'stored class safecall var interface or private static exit index inherited to else stdcall ' +
+    'override shr asm far resourcestring finalization packed virtual out and protected library do ' +
+    'xorwrite goto near function end div overload object unit begin string on inline repeat until ' +
+    'destructor write message program with read initialization except default nil if case cdecl in ' +
+    'downto threadvar of try pascal const external constructor type public then implementation ' +
+    'finally published procedure';
   var CURLY_COMMENT =  {
     className: 'comment',
-    begin: '{', end: '}',
+    begin: /{/, end: /}/,
     relevance: 0
   };
   var PAREN_COMMENT = {
     className: 'comment',
-    begin: '\\(\\*', end: '\\*\\)',
+    begin: /\(\*/, end: /\*\)/,
     relevance: 10
   };
   var STRING = {
     className: 'string',
-    begin: '\'', end: '\'',
-    contains: [{begin: '\'\''}],
+    begin: /'/, end: /'/,
+    contains: [{begin: /''/}],
     relevance: 0
   };
   var CHAR_STRING = {
-    className: 'string', begin: '(#\\d+)+'
+    className: 'string', begin: /(#\d+)+/
   };
   var FUNCTION = {
     className: 'function',
-    beginWithKeyword: true, end: '[:;]',
+    beginWithKeyword: true, end: /[:;]/,
     keywords: 'function constructor|10 destructor|10 procedure|10',
     contains: [
       {
@@ -46,8 +40,8 @@ function(hljs) {
       },
       {
         className: 'params',
-        begin: '\\(', end: '\\)',
-        keywords: DELPHI_KEYWORDS,
+        begin: /\(/, end: /\)/,
+        keywords: KEYWORDS,
         contains: [STRING, CHAR_STRING]
       },
       CURLY_COMMENT, PAREN_COMMENT
@@ -55,23 +49,13 @@ function(hljs) {
   };
   return {
     case_insensitive: true,
-    keywords: DELPHI_KEYWORDS,
-    illegal: '("|\\$[G-Zg-z]|\\/\\*|</)',
+    keywords: KEYWORDS,
+    illegal: /("|\$[G-Zg-z]|\/\*|<\/)/,
     contains: [
       CURLY_COMMENT, PAREN_COMMENT, hljs.C_LINE_COMMENT_MODE,
       STRING, CHAR_STRING,
       hljs.NUMBER_MODE,
-      FUNCTION,
-      {
-        className: 'class',
-        begin: '=\\bclass\\b', end: 'end;',
-        keywords: DELPHI_CLASS_KEYWORDS,
-        contains: [
-          STRING, CHAR_STRING,
-          CURLY_COMMENT, PAREN_COMMENT, hljs.C_LINE_COMMENT_MODE,
-          FUNCTION
-        ]
-      }
+      FUNCTION
     ]
   };
 }
