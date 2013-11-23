@@ -240,6 +240,14 @@ def build_node(root, build_path, filenames, options):
     if options.compress:
         print('Notice: not compressing files for "node" target.')
 
+    print('Copying over Metafiles...')
+
+    filenames = ['LICENSE', 'README.md']
+    for filename in filenames:
+        source = os.path.join(root, filename)
+        dest   = os.path.join(build_path, filename)
+        shutil.copyfile(source, dest)
+
     print('Adding package.json...')
     package = json.load(utf8_open(os.path.join(src_path, 'package.json')))
     authors = utf8_open(os.path.join(root, 'AUTHORS.en.txt'))
