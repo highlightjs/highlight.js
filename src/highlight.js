@@ -510,7 +510,6 @@ function() {
   function highlightBlock(block, tabReplace, useBR) {
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
-    console.log(language);
     if (language == 'no-highlight')
         return;
     var result = language ? highlight(language, text, true) : highlightAuto(text);
