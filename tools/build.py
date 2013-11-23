@@ -218,21 +218,25 @@ def build_amd(root, build_path, filenames, options):
 
 def build_node(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
+    os.makedirs(os.path.join(build_path, 'lib', 'languages'))
     print('Building %d files:' % len(filenames))
     for filename in filenames:
         print(filename)
         content = 'module.exports = %s;' % strip_read(filename)
-        utf8_open(os.path.join(build_path, os.path.basename(filename)), 'w').write(content)
+        utf8_open(os.path.join(build_path, 'lib', 'languages', os.path.basename(filename)), 'w').write(content)
     filename = os.path.join(src_path, 'highlight.js')
     print(filename)
+    core = 'var Highlight = %s;' % strip_read(filename)
+    core += '\nmodule.exports = Highlight;'
+    utf8_open(os.path.join(build_path, 'lib', 'highlight.js'), 'w').write(core)
 
     print('Registering languages with the library...')
-    hljs = 'var hljs = new %s();' % strip_read(filename)
+    hljs = "var Highlight = require('./highlight');\nvar hljs = new Highlight();"
     filenames = map(os.path.basename, filenames)
     for filename in filenames:
-        hljs += '\nhljs.registerLanguage(\'%s\', require(\'./%s\')(hljs));' % (lang_name(filename), filename)
+        hljs += '\nhljs.registerLanguage(\'%s\', require(\'./languages/%s\')(hljs));' % (lang_name(filename), filename)
     hljs += '\nmodule.exports = hljs;'
-    utf8_open(os.path.join(build_path, 'highlight.js'), 'w').write(hljs)
+    utf8_open(os.path.join(build_path, 'lib', 'index.js'), 'w').write(hljs)
     if options.compress:
         print('Notice: not compressing files for "node" target.')
 

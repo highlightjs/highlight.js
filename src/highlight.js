@@ -4,6 +4,7 @@ http://highlightjs.org/
 */
 
 function() {
+  var self = this;
 
   /* Utility functions */
 
@@ -276,7 +277,7 @@ function() {
     }
 
     function buildSpan(classname, insideSpan, leaveOpen) {
-      var openSpan  = '<span class="' + hljs.classPrefix,
+      var openSpan  = '<span class="' + self.classPrefix,
           closeSpan = leaveOpen ? '' : '</span>';
 
       openSpan += classname + '">';
@@ -546,7 +547,7 @@ function() {
     initHighlighting.called = true;
     Array.prototype.map.call(document.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'pre'), findCode).
       filter(Boolean).
-      forEach(function(code){highlightBlock(code, hljs.tabReplace);});
+      forEach(function(code){highlightBlock(code, self.tabReplace);});
   }
 
   /*

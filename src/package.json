@@ -18,7 +18,7 @@
   { "type" : "git"
   , "url" : "git://github.com/isagalaev/highlight.js.git"
   }
-, "main" : "./highlight.js"
+, "main" : "./lib/index.js"
 , "scripts" : {}
 , "engines" : { "node" : "*" }
 }
