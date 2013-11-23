@@ -95,7 +95,12 @@ function(hljs) {
     illegal: /\S/,
     contains: [
       COMMENT,
-      LIST
+      LIST,
+      {
+        className: 'prompt',
+        begin: /^=> /,
+        starts: {end: /\n\n|\Z/} // eat up prompt output to not interfere with the illegal
+      }
     ]
   }
 }
