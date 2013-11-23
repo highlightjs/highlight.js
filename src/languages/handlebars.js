@@ -16,7 +16,7 @@ function(hljs) {
         begin: '{{', end: '}}',
         contains: [
           {
-            className: 'begin-block', begin: '\#[a-zA-Z\ \.]+',
+            className: 'begin-block', begin: '\#[a-zA-Z\-\ \.]+',
             keywords: EXPRESSION_KEYWORDS
           },
           {
@@ -24,11 +24,11 @@ function(hljs) {
             begin: '"', end: '"'
           },
           {
-            className: 'end-block', begin: '\\\/[a-zA-Z\ \.]+',
+            className: 'end-block', begin: '\\\/[a-zA-Z\-\ \.]+',
             keywords: EXPRESSION_KEYWORDS
           },
           {
-            className: 'variable', begin: '[a-zA-Z\.]+',
+            className: 'variable', begin: '[a-zA-Z\-\.]+',
             keywords: EXPRESSION_KEYWORDS
           }
         ]
