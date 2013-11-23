@@ -513,7 +513,6 @@ function() {
     if (language == 'no-highlight')
         return;
     var result = language ? highlight(language, text, true) : highlightAuto(text);
-    language = result.language;
     var original = nodeStream(block);
     if (original.length) {
       var pre = document.createElementNS('http://www.w3.org/1999/xhtml', 'pre');
@@ -522,14 +521,10 @@ function() {
     }
     result.value = fixMarkup(result.value, tabReplace, useBR);
 
-    var class_name = block.className;
-    if (!class_name.match('(\\s|^)(language-)?' + language + '(\\s|$)')) {
-      class_name = class_name ? (class_name + ' ' + language) : language;
-    }
     block.innerHTML = result.value;
-    block.className = 'hljs ' + class_name;
+    block.className += ' hljs ' + (!language && result.language || '');
     block.result = {
-      language: language,
+      language: result.language,
       kw: result.keyword_count,
       re: result.relevance
     };
