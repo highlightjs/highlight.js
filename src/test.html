@@ -2683,7 +2683,7 @@ EndPackage[]
         continue;
       }
       var code = tds[i].getElementsByTagName('CODE')[0];
-      var langClass = code.className.split(' ')[1];
+      var langClass = code.className.replace('hljs', '').trim();
       var passed = tdClass == langClass;
       var result = document.createElement('DIV');
       result.className = 'test';
