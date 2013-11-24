@@ -100,7 +100,8 @@ X.hljs style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   color: #000;
 }
 
-.css .hljs-class, .css .hljs-id {
+.css .hljs-class,
+.css .hljs-id {
   color: #9B703F;
 }
 
