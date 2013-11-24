@@ -13,13 +13,13 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-template_comment,
 .hljs-javadoc,
 .hljs-comment * {
-  color: rgb(0,106,0);
+  color: #006a00;
 }
 
 .hljs-keyword,
 .hljs-literal,
 .nginx .hljs-title {
-  color: rgb(170,13,145);
+  color: #aa0d91;
 }
 .method,
 .hljs-list .hljs-title,
@@ -39,7 +39,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 .hljs-string {
-  color: rgb(196,26,22);
+  color: #c41a16;
 }
 .hljs-tag .hljs-value,
 .hljs-cdata,
@@ -70,7 +70,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .clojure .hljs-built_in,
 .hljs-function .hljs-title,
 .coffeescript .hljs-attribute {
-  color: rgb(28,0,207);
+  color: #1c00cf;
 }
 
 .hljs-class .hljs-title,
@@ -87,11 +87,11 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .setting,
 .hljs-params,
 .clojure .hljs-attribute {
-  color: rgb(92,38,153);
+  color: #5c2699;
 }
 
 .hljs-variable {
- color: rgb(63,110,116);
+ color: #3f6e74;
 }
 .css .hljs-tag,
 .hljs-rules .hljs-property,
@@ -123,7 +123,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-preprocessor,
 .hljs-preprocessor *,
 .hljs-pragma {
-  color: rgb(100,56,32);
+  color: #643820;
 }
 
 .tex .hljs-formula {
