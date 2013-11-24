@@ -1,13 +1,14 @@
 /* Tomorrow Night Bright Theme */
 /* Original theme - https://github.com/chriskempson/tomorrow-theme */
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-.tomorrow-comment,
+
+/* Tomorrow Comment */
 .hljs-comment,
 .hljs-title {
   color: #969896;
 }
 
-.tomorrow-red,
+/* Tomorrow Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
@@ -23,7 +24,7 @@
   color: #d54e53;
 }
 
-.tomorrow-orange,
+/* Tomorrow Orange */
 .hljs-number,
 .hljs-preprocessor,
 .hljs-pragma,
@@ -34,13 +35,13 @@
   color: #e78c45;
 }
 
-.tomorrow-yellow,
+/* Tomorrow Yellow */
 .ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #e7c547;
 }
 
-.tomorrow-green,
+/* Tomorrow Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -50,12 +51,12 @@
   color: #b9ca4a;
 }
 
-.tomorrow-aqua,
+/* Tomorrow Aqua */
 .css .hljs-hexcolor {
   color: #70c0b1;
 }
 
-.tomorrow-blue,
+/* Tomorrow Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -67,7 +68,7 @@
   color: #7aa6da;
 }
 
-.tomorrow-purple,
+/* Tomorrow Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #c397d8;
