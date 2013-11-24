@@ -73,7 +73,8 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
   color: #b89859;
 }
 
-.css .hljs-number,.css .hljs-hexcolor{
+.css .hljs-number,
+.css .hljs-hexcolor {
   color: #DCCF8F;
 }
 
