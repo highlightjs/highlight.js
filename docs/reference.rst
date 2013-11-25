@@ -134,7 +134,7 @@ This is when ``endsWithParent`` comes into play:
 .. _lexemes:
 
 lexemes
-^^^^^^
+^^^^^^^
 
 **type**: regexp
 
