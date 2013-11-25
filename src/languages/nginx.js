@@ -18,7 +18,7 @@ function(hljs) {
   ];
   var DEFAULT = {
     endsWithParent: true,
-    lexems: '[a-z/_]+',
+    lexemes: '[a-z/_]+',
     keywords: {
       built_in:
         'on off yes no true false none blocked debug info notice warn error crit ' +

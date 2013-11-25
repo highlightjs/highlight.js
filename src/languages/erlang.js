@@ -144,7 +144,7 @@ function(hljs) {
         relevance: 0,
         excludeEnd: true,
         returnBegin: true,
-        lexems: '-' + hljs.IDENT_RE,
+        lexemes: '-' + hljs.IDENT_RE,
         keywords:
           '-module -record -undef -export -ifdef -ifndef -author -copyright -doc -vsn ' +
           '-import -include -include_lib -compile -define -else -endif -file -behaviour ' +

@@ -33,7 +33,7 @@ function(hljs) {
       {
         className: 'at_rule',
         begin: '@(font-face|page)',
-        lexems: '[a-z-]+',
+        lexemes: '[a-z-]+',
         keywords: 'font-face page'
       },
       {

@@ -33,7 +33,7 @@ function(hljs) {
   };
 
   return {
-    lexems: /-?[a-z]+/,
+    lexemes: /-?[a-z]+/,
     keywords: {
       keyword:
         'if then else elif fi for break continue while in do done exit return set '+

@@ -23,7 +23,7 @@ function(hljs) {
     }
   ]
   return {
-    lexems: hljs.UNDERSCORE_IDENT_RE,
+    lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords: {
       keyword:
         'and break do else elseif end false for if in local nil not or repeat return then ' +

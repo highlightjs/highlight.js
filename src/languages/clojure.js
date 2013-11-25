@@ -82,7 +82,7 @@ function(hljs) {
   };
   var TITLE = {
     keywords: keywords,
-    lexems: CLJ_IDENT_RE,
+    lexemes: CLJ_IDENT_RE,
     className: 'title', begin: CLJ_IDENT_RE,
     starts: BODY
   };
