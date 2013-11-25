@@ -18,7 +18,7 @@ function(hljs) {
       {
         className: 'comment',
         // FIXME these comments should be allowed to span indented lines
-        begin: '^\\s*(-#|/).*$',
+        begin: '^\\s*(!=#|=#|-#|/).*$',
         relevance: 0
       },
       {
