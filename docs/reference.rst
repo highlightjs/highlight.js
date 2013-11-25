@@ -131,14 +131,14 @@ This is when ``endsWithParent`` comes into play:
   }
 
 
-.. _lexems:
+.. _lexemes:
 
-lexems
+lexemes
 ^^^^^^
 
 **type**: regexp
 
-A regular expression extracting individual lexems from language text to find ``[[#keywords]]`` among them.
+A regular expression extracting individual lexemes from language text to find ``[[#keywords]]`` among them.
 Default value is ``hljs.IDENT_RE`` which works for most languages.
 
 
@@ -172,7 +172,7 @@ excludeBegin, excludeEnd
 
 **type**: boolean
 
-Exclude beginning or ending lexems out of mode's generated markup. For example in CSS syntax a rule ends with a semicolon.
+Exclude beginning or ending lexemes out of mode's generated markup. For example in CSS syntax a rule ends with a semicolon.
 However visually it's better not to color it as the rule contents. Having ``excludeEnd: true`` forces a ``<span>`` element for the rule to close before the semicolon.
 
 
@@ -181,7 +181,7 @@ returnBegin
 
 **type**: boolean
 
-Returns just found beginning lexem back into parser. This is used when beginning of a sub-mode is a complex expression
+Returns just found beginning lexeme back into parser. This is used when beginning of a sub-mode is a complex expression
 that should not only be found within a parent mode but also parsed according to the rules of a sub-mode.
 
 Since the parser is effectively goes back it's quite possible to create a infinite loop here so use with caution!
@@ -192,7 +192,7 @@ returnEnd
 
 **type**: boolean
 
-Returns just found ending lexem back into parser. This is used for example to parse Javascript embedded into HTML.
+Returns just found ending lexeme back into parser. This is used for example to parse Javascript embedded into HTML.
 A Javascript block ends with the HTML closing tag ``</script>`` that cannot be parsed with Javascript rules.
 So it is returned back into its parent HTML mode that knows what to do with it.
 
@@ -226,7 +226,7 @@ subLanguage
 **type**: identifier
 
 The name of another language used to parse the contents of the mode.
-When using this attribute there's no point to define internal parsing rules like :ref:`lexems` or :ref:`keywords`.
+When using this attribute there's no point to define internal parsing rules like :ref:`lexemes` or :ref:`keywords`.
 Also it is recommended to skip ``className`` attribute since the sublanguage will wrap the text in its own ``<span class="language-name">``
 
 If the attribute is set to an empty string highlight.js will highlight the mode contents with language detection.

@@ -15,7 +15,7 @@ from functools import partial
 
 REPLACES = {
     'case_insensitive': 'cI',
-    'lexems': 'l',
+    'lexemes': 'l',
     'contains': 'c',
     'keywords': 'k',
     'subLanguage': 'sL',
@@ -50,7 +50,7 @@ REPLACES = {
     'beginRe': 'bR',
     'endRe': 'eR',
     'illegalRe': 'iR',
-    'lexemsRe': 'lR',
+    'lexemesRe': 'lR',
     'terminators': 't',
     'terminator_end': 'tE',
 }

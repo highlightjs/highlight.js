@@ -28,7 +28,7 @@ function(hljs) {
   };
   return {
     case_insensitive: true,
-    lexems: hljs.UNDERSCORE_IDENT_RE,
+    lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords:
       'and include_once list abstract global private echo interface as static endswitch ' +
       'array null if endwhile or const for endforeach self var while isset public ' +
@@ -52,7 +52,7 @@ function(hljs) {
       {
           className: 'comment',
           begin: '__halt_compiler.+?;', endsWithParent: true,
-          keywords: '__halt_compiler', lexems: hljs.UNDERSCORE_IDENT_RE
+          keywords: '__halt_compiler', lexemes: hljs.UNDERSCORE_IDENT_RE
       },
       {
         className: 'string',

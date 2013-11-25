@@ -180,7 +180,7 @@ function() {
           });
         }
 
-        mode.lexemsRe = langRe(mode.lexems || /[A-Za-z0-9_\\.]+/, true);
+        mode.lexemesRe = langRe(mode.lexemes || /[A-Za-z0-9_\\.]+/, true);
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords);
         } else {
@@ -249,26 +249,26 @@ function() {
   */
   function highlight(language_name, value, ignore_illegals, continuation) {
 
-    function subMode(lexem, mode) {
+    function subMode(lexeme, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
-        var match = mode.contains[i].beginRe.exec(lexem);
+        var match = mode.contains[i].beginRe.exec(lexeme);
         if (match && match.index == 0) {
           return mode.contains[i];
         }
       }
     }
 
-    function endOfMode(mode, lexem) {
-      if (mode.end && mode.endRe.test(lexem)) {
+    function endOfMode(mode, lexeme) {
+      if (mode.end && mode.endRe.test(lexeme)) {
         return mode;
       }
       if (mode.endsWithParent) {
-        return endOfMode(mode.parent, lexem);
+        return endOfMode(mode.parent, lexeme);
       }
     }
 
-    function isIllegal(lexem, mode) {
-      return !ignore_illegals && mode.illegal && mode.illegalRe.test(lexem);
+    function isIllegal(lexeme, mode) {
+      return !ignore_illegals && mode.illegal && mode.illegalRe.test(lexeme);
     }
 
     function keywordMatch(mode, match) {
@@ -291,8 +291,8 @@ function() {
         return buffer;
       var result = '';
       var last_index = 0;
-      top.lexemsRe.lastIndex = 0;
-      var match = top.lexemsRe.exec(buffer);
+      top.lexemesRe.lastIndex = 0;
+      var match = top.lexemesRe.exec(buffer);
       while (match) {
         result += buffer.substr(last_index, match.index - last_index);
         var keyword_match = keywordMatch(top, match);
@@ -302,8 +302,8 @@ function() {
         } else {
           result += match[0];
         }
-        last_index = top.lexemsRe.lastIndex;
-        match = top.lexemsRe.exec(buffer);
+        last_index = top.lexemesRe.lastIndex;
+        match = top.lexemesRe.exec(buffer);
       }
       return result + buffer.substr(last_index);
     }
@@ -330,40 +330,40 @@ function() {
       return top.subLanguage !== undefined ? processSubLanguage() : processKeywords();
     }
 
-    function startNewMode(mode, lexem) {
+    function startNewMode(mode, lexeme) {
       var markup = mode.className? buildSpan(mode.className, '', true): '';
       if (mode.returnBegin) {
         result += markup;
         mode_buffer = '';
       } else if (mode.excludeBegin) {
-        result += escape(lexem) + markup;
+        result += escape(lexeme) + markup;
         mode_buffer = '';
       } else {
         result += markup;
-        mode_buffer = lexem;
+        mode_buffer = lexeme;
       }
       top = Object.create(mode, {parent: {value: top}});
     }
 
-    function processLexem(buffer, lexem) {
+    function processLexeme(buffer, lexeme) {
       mode_buffer += buffer;
-      if (lexem === undefined) {
+      if (lexeme === undefined) {
         result += processBuffer();
         return 0;
       }
 
-      var new_mode = subMode(lexem, top);
+      var new_mode = subMode(lexeme, top);
       if (new_mode) {
         result += processBuffer();
-        startNewMode(new_mode, lexem);
-        return new_mode.returnBegin ? 0 : lexem.length;
+        startNewMode(new_mode, lexeme);
+        return new_mode.returnBegin ? 0 : lexeme.length;
       }
 
-      var end_mode = endOfMode(top, lexem);
+      var end_mode = endOfMode(top, lexeme);
       if (end_mode) {
         var origin = top;
         if (!(origin.returnEnd || origin.excludeEnd)) {
-          mode_buffer += lexem;
+          mode_buffer += lexeme;
         }
         result += processBuffer();
         do {
@@ -374,25 +374,25 @@ function() {
           top = top.parent;
         } while (top != end_mode.parent);
         if (origin.excludeEnd) {
-          result += escape(lexem);
+          result += escape(lexeme);
         }
         mode_buffer = '';
         if (end_mode.starts) {
           startNewMode(end_mode.starts, '');
         }
-        return origin.returnEnd ? 0 : lexem.length;
+        return origin.returnEnd ? 0 : lexeme.length;
       }
 
-      if (isIllegal(lexem, top))
-        throw new Error('Illegal lexem "' + lexem + '" for mode "' + (top.className || '<unnamed>') + '"');
+      if (isIllegal(lexeme, top))
+        throw new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
 
       /*
-      Parser should not reach this point as all types of lexems should be caught
+      Parser should not reach this point as all types of lexemes should be caught
       earlier, but if it does due to some bug make sure it advances at least one
       character forward to prevent infinite looping.
       */
-      mode_buffer += lexem;
-      return lexem.length || 1;
+      mode_buffer += lexeme;
+      return lexeme.length || 1;
     }
 
     var language = getLanguage(language_name);
@@ -418,10 +418,10 @@ function() {
         match = top.terminators.exec(value);
         if (!match)
           break;
-        count = processLexem(value.substr(index, match.index - index), match[0]);
+        count = processLexeme(value.substr(index, match.index - index), match[0]);
         index = match.index + count;
       }
-      processLexem(value.substr(index));
+      processLexeme(value.substr(index));
       for(var current = top; current.parent; current = current.parent) { // close dangling modes
         if (current.className) {
           result += '</span>';

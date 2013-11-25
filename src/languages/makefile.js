@@ -34,7 +34,7 @@ function(hljs) {
       {
         className: 'phony',
         begin: /^\.PHONY:/, end: /$/,
-        keywords: '.PHONY', lexems: /[\.\w]+/
+        keywords: '.PHONY', lexemes: /[\.\w]+/
       },
       {
         begin: /^\t+/, end: /$/,

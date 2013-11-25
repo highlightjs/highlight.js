@@ -37,7 +37,7 @@ function(hljs) {
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
-    lexems: RUBY_IDENT_RE,
+    lexemes: RUBY_IDENT_RE,
     keywords: RUBY_KEYWORDS
   };
   var STR_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST];
@@ -114,13 +114,13 @@ function(hljs) {
       {
         className: 'title',
         begin: RUBY_METHOD_RE,
-        lexems: RUBY_IDENT_RE,
+        lexemes: RUBY_IDENT_RE,
         keywords: RUBY_KEYWORDS
       },
       {
         className: 'params',
         begin: '\\(', end: '\\)',
-        lexems: RUBY_IDENT_RE,
+        lexemes: RUBY_IDENT_RE,
         keywords: RUBY_KEYWORDS
       }
     ].concat(COMMENTS)
@@ -214,7 +214,7 @@ function(hljs) {
   FUNCTION.contains[1].contains = RUBY_DEFAULT_CONTAINS;
 
   return {
-    lexems: RUBY_IDENT_RE,
+    lexemes: RUBY_IDENT_RE,
     keywords: RUBY_KEYWORDS,
     contains: RUBY_DEFAULT_CONTAINS
   };

@@ -121,7 +121,7 @@ function(hljs) {
   ];
   return {
     case_insensitive: true,
-    lexems: LASSO_IDENT_RE + '|&[lg]t;',
+    lexemes: LASSO_IDENT_RE + '|&[lg]t;',
     keywords: LASSO_KEYWORDS,
     contains: [
       {
@@ -142,7 +142,7 @@ function(hljs) {
         begin: '\\[no_square_brackets',
         starts: {
           end: '\\[/no_square_brackets\\]', // not implemented in the language
-          lexems: LASSO_IDENT_RE + '|&[lg]t;',
+          lexemes: LASSO_IDENT_RE + '|&[lg]t;',
           keywords: LASSO_KEYWORDS,
           contains: [
             {
