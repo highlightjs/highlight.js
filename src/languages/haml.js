@@ -22,7 +22,7 @@ function(hljs) {
         relevance: 0
       },
       {
-        begin: '^\\s*-(?!#)',
+        begin: '^\\s*(-|=|!=)(?!#)',
         starts: {
           end: '\\n',
           subLanguage: 'ruby'
