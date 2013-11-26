@@ -223,6 +223,14 @@ JSON ("json"):
   attribute        name of an object property
   value            value of an object property
 
+Mathematica ("mathematica"):
+
+  keyword          keyword
+  number           number
+  comment          comment
+  string           string
+  list             a list { .. } - the basic Mma structure 
+
 JavaScript ("javascript", "js"):
 
   keyword          keyword
