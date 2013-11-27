@@ -750,3 +750,14 @@ Mizar ("mizar"):
 
   keyword          keyword
   comment          comment
+
+AutoHotkey ("autohotkey"):
+
+  keyword          keyword
+  literal          A (active window), true, false, NOT, AND, OR
+  built_in         built-in variables
+  string           string
+  comment          comment
+  number           number
+  var_expand       variable expansion (enclosed in percent sign)
+  label            label, hotkey label, hotstring label
