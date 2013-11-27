@@ -91,3 +91,4 @@ URL:   http://highlightjs.org/
 - Зена Трип <zena.treep@gmail.com>
 - Даниэль Квасничка <dkvasnicka@vendavo.com>
 - Карло Кок <ck@remobjects.com>
+- Брэм де Хаан <info@atelierbramdehaan.nl>

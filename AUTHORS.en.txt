@@ -91,3 +91,4 @@ Contributors:
 - Zena Treep <zena.treep@gmail.com>
 - Daniel Kvasnicka <dkvasnicka@vendavo.com>
 - Carlo Kok <ck@remobjects.com>
+- Bram de Haan <info@atelierbramdehaan.nl>

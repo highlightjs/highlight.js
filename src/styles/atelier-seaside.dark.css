@@ -1,0 +1,93 @@
+/* Base16 Atelier Seaside Dark - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside/) */ 
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+/* https://github.com/jmblog/color-themes-for-highlightjs */
+
+/* base16-atelierseaside-dark-comment */
+.hljs-comment,
+.hljs-title {
+  color: #809980;
+}
+
+/* base16-atelierseaside-dark-red */
+.hljs-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-regexp,
+.ruby .hljs-constant,
+.xml .tag .hljs-title,
+.xml .hljs-pi,
+.xml .hljs-doctype,
+.html .hljs-doctype,
+.css .hljs-id,
+.css .hljs-class,
+.css .hljs-pseudo {
+  color: #e6193c;
+}
+
+/* base16-atelierseaside-dark-orange */
+.hljs-number,
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-built_in,
+.hljs-literal,
+.hljs-params,
+.hljs-constant {
+  color: #87711d;
+}
+
+/* base16-atelierseaside-dark-yellow */
+.hljs-ruby .class .title,
+.css .hljs-rules .hljs-attribute {
+  color: #c3c322;
+}
+
+/* base16-atelierseaside-dark-green */
+.hljs-string,
+.hljs-value,
+.hljs-inheritance,
+.hljs-header,
+.ruby .hljs-symbol,
+.xml .hljs-cdata {
+  color: #29a329;
+}
+
+/* base16-atelierseaside-dark-aqua */
+.css .hljs-hexcolor {
+  color: #1999b3;
+}
+
+/* base16-atelierseaside-dark-blue */
+.hljs-function,
+.python .hljs-decorator,
+.python .hljs-title,
+.ruby .hljs-function .hljs-title,
+.ruby .hljs-title .hljs-keyword,
+.perl .hljs-sub,
+.javascript .hljs-title,
+.coffeescript .hljs-title {
+  color: #3d62f5;
+}
+
+/* base16-atelierseaside-dark-purple */
+.hljs-keyword,
+.javascript .hljs-function {
+  color: #ad2bee;
+}
+
+.hljs {
+  display: block;
+  background: #242924;
+  color: #8ca68c;
+  padding: 0.5em;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
+}

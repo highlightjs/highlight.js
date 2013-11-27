@@ -1,0 +1,93 @@
+/* Base16 Atelier Heath Light - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/heath) */ 
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+/* https://github.com/jmblog/color-themes-for-highlightjs */
+
+/* base16-atelierheath-light-comment */
+.hljs-comment,
+.hljs-title {
+  color: #776977;
+}
+
+/* base16-atelierheath-light-red */
+.hljs-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-regexp,
+.ruby .hljs-constant,
+.xml .tag .hljs-title,
+.xml .hljs-pi,
+.xml .hljs-doctype,
+.html .hljs-doctype,
+.css .hljs-id,
+.css .hljs-class,
+.css .hljs-pseudo {
+  color: #ca402b;
+}
+
+/* base16-atelierheath-light-orange */
+.hljs-number,
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-built_in,
+.hljs-literal,
+.hljs-params,
+.hljs-constant {
+  color: #a65926;
+}
+
+/* base16-atelierheath-light-yellow */
+.hljs-ruby .class .title,
+.css .hljs-rules .hljs-attribute {
+  color: #bb8a35;
+}
+
+/* base16-atelierheath-light-green */
+.hljs-string,
+.hljs-value,
+.hljs-inheritance,
+.hljs-header,
+.ruby .hljs-symbol,
+.xml .hljs-cdata {
+  color: #379a37;
+}
+
+/* base16-atelierheath-light-aqua */
+.css .hljs-hexcolor {
+  color: #159393;
+}
+
+/* base16-atelierheath-light-blue */
+.hljs-function,
+.python .hljs-decorator,
+.python .hljs-title,
+.ruby .hljs-function .hljs-title,
+.ruby .hljs-title .hljs-keyword,
+.perl .hljs-sub,
+.javascript .hljs-title,
+.coffeescript .hljs-title {
+  color: #516aec;
+}
+
+/* base16-atelierheath-light-purple */
+.hljs-keyword,
+.javascript .hljs-function {
+  color: #7b59c0;
+}
+
+.hljs {
+  display: block;
+  background: #f7f3f7;
+  color: #695d69;
+  padding: 0.5em;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
+}
