@@ -151,7 +151,7 @@ Author: pumbur <pumbur@pumbur.net>
 .lisp .hljs-string,
 .lisp .hljs-number,
 .tail .hljs-params,
-.container,
+.hljs-container,
 .haskell *,
 .erlang *,
 .erlang_repl *
