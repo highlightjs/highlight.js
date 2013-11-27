@@ -1,57 +1,93 @@
-/*
+/* Base16 Atelier Dune Dark - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune) */ 
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+/* https://github.com/jmblog/color-themes-for-highlightjs */
 
-    Name:       Base16 Atelier Dune Dark
-    Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune)
-
-    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
-    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-
-*/
-.base16-atelierdune-dark-comment, pre .comment, pre .title {
+/* base16-atelierdune-dark-comment */
+.hljs-comment,
+.hljs-title {
   color: #999580;
 }
 
-.base16-atelierdune-dark-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+/* base16-atelierdune-dark-red */
+.hljs-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-regexp,
+.ruby .hljs-constant,
+.xml .tag .hljs-title,
+.xml .hljs-pi,
+.xml .hljs-doctype,
+.html .hljs-doctype,
+.css .hljs-id,
+.css .hljs-class,
+.css .hljs-pseudo {
   color: #d73737;
 }
 
-.base16-atelierdune-dark-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+/* base16-atelierdune-dark-orange */
+.hljs-number,
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-built_in,
+.hljs-literal,
+.hljs-params,
+.hljs-constant {
   color: #b65611;
 }
 
-.base16-atelierdune-dark-yellow, pre .ruby .class .title, pre .css .rules .attribute {
+/* base16-atelierdune-dark-yellow */
+.ruby .hljs-class .hljs-title,
+.css .hljs-rules .hljs-attribute {
   color: #cfb017;
 }
 
-.base16-atelierdune-dark-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+/* base16-atelierdune-dark-green */
+.hljs-string,
+.hljs-value,
+.hljs-inheritance,
+.hljs-header,
+.ruby .hljs-symbol,
+.xml .hljs-cdata {
   color: #60ac39;
 }
 
-.base16-atelierdune-dark-aqua, pre .css .hexcolor {
+/* base16-atelierdune-dark-aqua */
+.css .hljs-hexcolor {
   color: #1fad83;
 }
 
-.base16-atelierdune-dark-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+/* base16-atelierdune-dark-blue */
+.hljs-function,
+.python .hljs-decorator,
+.python .hljs-title,
+.ruby .function .title,
+.ruby .hljs-title .keyword,
+.perl .hljs-sub,
+.javascript .hljs-title,
+.coffeescript .hljs-title {
   color: #6684e1;
 }
 
-.base16-atelierdune-dark-purple, pre .keyword, pre .javascript .function {
+/* base16-atelierdune-dark-purple */
+.hljs-keyword,
+.javascript .hljs-function {
   color: #b854d4;
 }
 
-pre code {
+.hljs {
   display: block;
   background: #292824;
   color: #a6a28c;
   padding: 0.5em;
 }
 
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .formula,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .cdata {
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
   opacity: 0.5;
 }
