@@ -12,15 +12,6 @@ function() {
     return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
   }
 
-  function findCode(pre) {
-    for (var node = pre.firstChild; node; node = node.nextSibling) {
-      if (node.nodeName.toUpperCase () == 'CODE')
-        return node;
-      if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
-        break;
-    }
-  }
-
   function blockText(block, ignoreNewLines) {
     return Array.prototype.map.call(block.childNodes, function(node) {
       if (node.nodeType == 3) {
@@ -545,9 +536,12 @@ function() {
     if (initHighlighting.called)
       return;
     initHighlighting.called = true;
-    Array.prototype.map.call(document.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'pre'), findCode).
-      filter(Boolean).
-      forEach(function(code){highlightBlock(code, self.tabReplace);});
+
+    var blocks = document.querySelectorAll('pre code');
+
+    Array.prototype.forEach.call(blocks, function(block){
+      highlightBlock(block, self.tabReplace);
+    });
   }
 
   /*
