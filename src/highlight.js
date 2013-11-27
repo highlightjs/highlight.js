@@ -12,15 +12,6 @@ function() {
     return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
   }
 
-  function findCode(pre) {
-    for (var node = pre.firstChild; node; node = node.nextSibling) {
-      if (node.nodeName.toUpperCase () == 'CODE')
-        return node;
-      if (!(node.nodeType == 3 && node.nodeValue.match(/\s+/)))
-        break;
-    }
-  }
-
   function blockText(block, ignoreNewLines) {
     return Array.prototype.map.call(block.childNodes, function(node) {
       if (node.nodeType == 3) {
