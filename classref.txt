@@ -223,13 +223,13 @@ JSON ("json"):
   attribute        name of an object property
   value            value of an object property
 
-Mathematica ("mathematica"):
+Mathematica ("mathematica", "mma"):
 
   keyword          keyword
   number           number
   comment          comment
   string           string
-  list             a list { .. } - the basic Mma structure 
+  list             a list { .. } - the basic Mma structure
 
 JavaScript ("javascript", "js"):
 
