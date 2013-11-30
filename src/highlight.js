@@ -267,9 +267,10 @@ function() {
       return mode.keywords.hasOwnProperty(match_str) && mode.keywords[match_str];
     }
 
-    function buildSpan(classname, insideSpan, leaveOpen) {
-      var openSpan  = '<span class="' + self.classPrefix,
-          closeSpan = leaveOpen ? '' : '</span>';
+    function buildSpan(classname, insideSpan, leaveOpen, noPrefix) {
+      var classPrefix = noPrefix ? '': self.classPrefix,
+          openSpan    = '<span class="' + classPrefix,
+          closeSpan   = leaveOpen ? '' : '</span>';
 
       openSpan += classname + '">';
 
