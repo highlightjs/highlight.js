@@ -28,8 +28,8 @@ function(hljs) {
   var TITLE = {className: 'title', begin: JS_IDENT_RE};
   var SUBST = {
     className: 'subst',
-    begin: '#\\{', end: '}',
-    keywords: KEYWORDS,
+    begin: /#{/, end: /}/,
+    keywords: KEYWORDS
   };
   var EXPRESSIONS = [
     // Numbers
@@ -62,13 +62,7 @@ function(hljs) {
     {
       className: 'regexp',
       begin: '///', end: '///',
-      contains: [
-        {
-          className: 'subst',
-          begin: /#{/, end: /}/
-        },
-        hljs.HASH_COMMENT_MODE
-      ]
+      contains: [SUBST, hljs.HASH_COMMENT_MODE]
     },
     {
       className: 'regexp', begin: '//[gim]*',
