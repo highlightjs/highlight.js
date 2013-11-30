@@ -315,7 +315,7 @@ function() {
         relevance += result.relevance;
       }
       top.top = result.top;
-      return buildSpan(result.language, result.value);
+      return buildSpan(result.language, result.value, false, true);
     }
 
     function processBuffer() {
