@@ -62,7 +62,13 @@ function(hljs) {
     {
       className: 'regexp',
       begin: '///', end: '///',
-      contains: [hljs.HASH_COMMENT_MODE]
+      contains: [
+        {
+          className: 'subst',
+          begin: /#{/, end: /}/
+        },
+        hljs.HASH_COMMENT_MODE
+      ]
     },
     {
       className: 'regexp', begin: '//[gim]*',
