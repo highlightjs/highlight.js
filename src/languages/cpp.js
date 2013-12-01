@@ -38,7 +38,7 @@ function(hljs) {
         className: 'preprocessor',
         begin: '#', end: '$',
         contains: [
-          {begin: '<', end: '>', illegal: '\\n'},
+          {begin: 'include\\s*<', end: '>', illegal: '\\n'},
           hljs.C_LINE_COMMENT_MODE
         ]
       },
