@@ -92,3 +92,4 @@ URL:   http://highlightjs.org/
 - Даниэль Квасничка <dkvasnicka@vendavo.com>
 - Карло Кок <ck@remobjects.com>
 - Брэм де Хаан <info@atelierbramdehaan.nl>
+- Сенгвон Ли <dlimpid@gmail.com>
