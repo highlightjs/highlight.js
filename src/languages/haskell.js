@@ -98,7 +98,7 @@ function(hljs) {
       },
       {
         className: 'infix',
-        begin: '\\b(infix|infixl|infixr)\\b', end: '$',
+        begin: '\\binfix(l|r)?\\b', end: '$',
         keywords: 'infix infixl infixr',
         contains: [hljs.C_NUMBER_MODE, COMMENT1, COMMENT2]
       },
