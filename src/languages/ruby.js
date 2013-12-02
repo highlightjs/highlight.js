@@ -11,7 +11,7 @@ function(hljs) {
     keyword:
       'and false then defined module in return redo if BEGIN retry end for true self when ' +
       'next until do begin unless END rescue nil else break undef not super class case ' +
-      'require yield alias while ensure elsif or include'
+      'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor'
   };
   var YARDOCTAG = {
     className: 'yardoctag',
