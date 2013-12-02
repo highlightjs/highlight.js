@@ -90,6 +90,11 @@ Attaches highlighting to the page load event.
 
 Adds new language to the library under the specified name. Used mostly internally.
 
+* ``name``: a string with the name of the language being registered
+* ``language``: a function that returns an object which represents the
+  language definition. The function is passed the ``hljs`` object to be able
+  to use common regular expressions defined within it.
+
 
 .. _getLanguage:
 
