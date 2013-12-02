@@ -48,10 +48,15 @@ function(hljs) {
   var TITLE = {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
   };
+  var NUMBERS = [
+    {className: 'number', begin: hljs.BINARY_NUMBER_RE + '[lL]?', relevance: 0},
+    {className: 'number', begin: '\\b(0o[0-7]+)[lL]?', relevance: 0},
+    {className: 'number', begin: hljs.C_NUMBER_RE + '[lL]?', relevance: 0}
+  ]
   var PARAMS = {
     className: 'params',
     begin: /\(/, end: /\)/,
-    contains: ['self', hljs.C_NUMBER_MODE, PROMPT].concat(STRINGS)
+    contains: ['self', PROMPT].concat(STRINGS).concat(NUMBERS)
   };
   var FUNC_CLASS_PROTO = {
     beginWithKeyword: true, end: /:/,
@@ -70,12 +75,11 @@ function(hljs) {
         'Ellipsis NotImplemented'
     },
     illegal: /(<\/|->|\?)/,
-    contains: STRINGS.concat([
+    contains: STRINGS.concat(NUMBERS).concat([
       PROMPT,
       hljs.HASH_COMMENT_MODE,
       hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', keywords: 'def'}),
       hljs.inherit(FUNC_CLASS_PROTO, {className: 'class', keywords: 'class'}),
-      hljs.C_NUMBER_MODE,
       {
         className: 'decorator',
         begin: /@/, end: /$/
