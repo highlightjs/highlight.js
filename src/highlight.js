@@ -557,7 +557,7 @@ function() {
   var aliases = {};
 
   function registerLanguage(name, language) {
-    languages[name] = language;
+    languages[name] = language(self);
     if (language.aliases) {
       language.aliases.forEach(function(alias) {aliases[alias] = name;});
     }
