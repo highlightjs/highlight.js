@@ -182,9 +182,9 @@ def wrap_language(filename, content, compressed):
     name = lang_name(filename)
     if compressed:
         content = content.rstrip(';')
-        wrap = 'hljs.registerLanguage("%s",%s(hljs));'
+        wrap = 'hljs.registerLanguage("%s",%s);'
     else:
-        wrap = '\nhljs.registerLanguage(\'%s\', %s(hljs));\n'
+        wrap = '\nhljs.registerLanguage(\'%s\', %s);\n'
     return wrap % (name, content)
 
 def glue_files(hljs_filename, language_filenames, compressed):
@@ -234,7 +234,7 @@ def build_node(root, build_path, filenames, options):
     hljs = "var Highlight = require('./highlight');\nvar hljs = new Highlight();"
     filenames = map(os.path.basename, filenames)
     for filename in filenames:
-        hljs += '\nhljs.registerLanguage(\'%s\', require(\'./languages/%s\')(hljs));' % (lang_name(filename), filename)
+        hljs += '\nhljs.registerLanguage(\'%s\', require(\'./languages/%s\'));' % (lang_name(filename), filename)
     hljs += '\nmodule.exports = hljs;'
     utf8_open(os.path.join(build_path, 'lib', 'index.js'), 'w').write(hljs)
     if options.compress:
