@@ -28,7 +28,7 @@ function(hljs) {
   var TITLE = {className: 'title', begin: JS_IDENT_RE};
   var SUBST = {
     className: 'subst',
-    begin: /#{/, end: /}/,
+    begin: /#\{/, end: /}/,
     keywords: KEYWORDS
   };
   var EXPRESSIONS = [
