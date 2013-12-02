@@ -30,15 +30,15 @@ function(hljs) {
     contains: [
       {
         className: 'template_comment',
-        begin: /{%\s*comment\s*%}/, end: /{%\s*endcomment\s*%}/
+        begin: /\{%\s*comment\s*%}/, end: /\{%\s*endcomment\s*%}/
       },
       {
         className: 'template_comment',
-        begin: /{#/, end: /#}/
+        begin: /\{#/, end: /#}/
       },
       {
         className: 'template_tag',
-        begin: /{%/, end: /%}/,
+        begin: /\{%/, end: /%}/,
         keywords:
           'comment endcomment load templatetag ifchanged endifchanged if endif firstof for ' +
           'endfor in ifnotequal endifnotequal widthratio extends include spaceless ' +
@@ -53,7 +53,7 @@ function(hljs) {
       },
       {
         className: 'variable',
-        begin: /{{/, end: /}}/,
+        begin: /\{\{/, end: /}}/,
         contains: [FILTER]
       }
     ]
