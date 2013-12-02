@@ -92,13 +92,13 @@ function(hljs) {
       },
       {
         className: 'default',
-        begin: '\\bdefault\\b', end: '$',
+        beginWithKeyword: true, end: '$',
         keywords: 'default',
         contains: [CONSTRUCTOR, LIST, COMMENT1, COMMENT2]
       },
       {
         className: 'infix',
-        begin: '\\binfix(l|r)?\\b', end: '$',
+        beginWithKeyword: true, end: '$',
         keywords: 'infix infixl infixr',
         contains: [hljs.C_NUMBER_MODE, COMMENT1, COMMENT2]
       },
