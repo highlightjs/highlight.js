@@ -9,9 +9,9 @@ function(hljs) {
   var ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
   var ELIXIR_KEYWORDS = {
     keyword:
-      'and false then defined module in return redo if BEGIN retry end for true self when ' +
-      'next until do begin unless END rescue nil else break undef not super class case ' +
-      'require yield alias while ensure elsif or include'
+      'and false then defined module in return redo retry end for true self when ' +
+      'next until do begin unless nil break not case cond defmodule defrecord' +
+      'alias while ensure or include use alias fn'
   };
   var COMMENTS = [
     {
@@ -64,20 +64,13 @@ function(hljs) {
     {
       className: 'class',
       beginWithKeyword: true, end: '$|;',
-      keywords: 'defclass defmodule',
+      keywords: 'defclass defmodule defrecord',
       contains: [
         {
           className: 'title',
           begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?',
-          relevance: 0
-        },
-        {
-          className: 'inheritance',
-          begin: '<\\s*',
-          contains: [{
-            className: 'parent',
-            begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE
-          }]
+          relevance: 0,
+          keywords: ELIXIR_KEYWORDS
         }
       ].concat(COMMENTS)
     },

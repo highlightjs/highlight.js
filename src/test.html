@@ -2711,28 +2711,22 @@ return
   <tr>
     <th>Elixir</th>
     <td class="elixir">
-<pre><code>defmodule ListServer do
+<pre><code>defrecord Person, first_name: nil, last_name: "Dudington" do
+  def name record do
+    "#{record.first_name} #{record.last_name}"
+  end
+end
+
+guy = Person.new first_name: "Guy"
+guy.name
+
+defmodule ListServer do
   use GenServer.Behaviour
+  alias Foo.Bar
 
   ### Public API
   def start_link do
     :gen_server.start_link({:local, :list}, __MODULE__, [], [])
-  end
-
-  def clear do
-    :gen_server.cast :list, :clear
-  end
-
-  def add(item) do
-    :gen_server.cast :list, {:add, item}
-  end
-
-  def remove(item) do
-    :gen_server.cast :list, {:remove, item}
-  end
-
-  def items do
-    :gen_server.call :list, :items
   end
 
   ### GenServer API
@@ -2741,20 +2735,17 @@ return
   end
 
   # Clear the list
-  def handle_cast(:clear, list) do
+  def handle_cast :clear, list do
     {:noreply, []}
   end
-  def handle_cast({:add, item}, list) do
-    {:noreply, list ++ [item]}
-  end
-  def handle_cast({:remove, item}, list) do
-    {:noreply, List.delete(list, item)}
-  end
-
-  def handle_call(:items, _from, list) do
-    {:reply, list, list}
-  end
 end
+
+{:ok, pid} = ListServer.start_link
+pid &lt;- {:foo, "bar"}
+
+greeter = fn(x) -&gt; IO.puts "hey #{x}" end
+greeter.("Bob")
+
 </code></pre>
 
 </table>
