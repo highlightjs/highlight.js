@@ -677,6 +677,21 @@ Erlang ("erlang"):
   pp.keywords      module's attribute (-attribute)
   function_name    atom or atom:atom in case of function call
 
+Elixir ("elixir"):
+
+  keyword          keyword
+  string           string
+  subst            in-string substitution (#{...})
+  comment          comment
+  function         function header "def some_name(...):"
+  class            defmodule and defrecord headers
+  title            name of a function or a module inside a header
+  symbol           atom
+  constant         name of a module
+  number           number
+  variable         variable
+  regexp           regexp
+
 Rust ("rust"):
 
   comment          comment

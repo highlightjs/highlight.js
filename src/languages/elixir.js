@@ -1,7 +1,7 @@
 /*
 Language: Elixir
 Author: Josh Adams <josh@isotope11.com>
-Based on ruby language support
+Description: language definition for Elixir source code files (.ex and .exs).  Based on ruby language support.
 */
 
 function(hljs) {
@@ -64,7 +64,7 @@ function(hljs) {
     {
       className: 'class',
       beginWithKeyword: true, end: '$|;',
-      keywords: 'defclass defmodule defrecord',
+      keywords: 'defmodule defrecord',
       contains: [
         {
           className: 'title',
