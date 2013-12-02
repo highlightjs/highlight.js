@@ -19,6 +19,7 @@ function(hljs) {
       'append cap close complex copy imag len make new panic print println real recover delete'
   };
   return {
+    aliases: ["golang"],
     keywords: GO_KEYWORDS,
     illegal: '</',
     contains: [
