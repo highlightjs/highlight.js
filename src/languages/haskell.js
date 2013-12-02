@@ -55,24 +55,24 @@ function(hljs) {
 
   return {
     keywords:
-      'let in if then else case of where do module import hiding qualified type data ' +
-      'newtype deriving class instance as default infix infixl infixr ' +
-      'foreign export ccall stdcall cplusplus jvm dotnet safe unsafe ' +
-      'family forall mdo proc rec',
+      'let in if then else case of where do module import hiding ' +
+      'qualified type data newtype deriving class instance as default ' +
+      'infix infixl infixr foreign export ccall stdcall cplusplus ' +
+      'jvm dotnet safe unsafe family forall mdo proc rec',
     contains: [
 
       // Top-level constructions.
 
       {
         className: 'module',
-        begin: '\\bmodule ', end: 'where',
+        begin: '\\bmodule\\b', end: 'where',
         keywords: 'module where',
         contains: [LIST, COMMENT2],
         illegal: '\\W\\.|;'
       },
       {
         className: 'import',
-        begin: '\\bimport ', end: '$',
+        begin: '\\bimport\\b', end: '$',
         keywords: 'import qualified as hiding',
         contains: [LIST, COMMENT1, COMMENT2],
         illegal: '\\W\\.|;'
@@ -80,32 +80,33 @@ function(hljs) {
 
       {
         className: 'class',
-        begin: '\\b(class |instance )', end: 'where',
+        begin: '\\b(class|instance)\\b', end: 'where',
         keywords: 'class family instance where',
         contains: [CONSTRUCTOR, LIST, COMMENT2]
       },
       {
         className: 'typedef',
-        begin: '\\b(data |(new)?type )', end: '$',
+        begin: '\\b(data|(new)?type)\\b', end: '$',
         keywords: 'data family type newtype deriving',
         contains: [PRAGMA, COMMENT1, COMMENT2, CONSTRUCTOR, LIST, RECORD]
       },
       {
         className: 'default',
-        begin: '\\bdefault ', end: '$',
+        begin: '\\bdefault\\b', end: '$',
         keywords: 'default',
         contains: [CONSTRUCTOR, LIST, COMMENT1, COMMENT2]
       },
       {
         className: 'infix',
-        begin: '\\b(infix |infixl |infixr )', end: '$',
+        begin: '\\binfix(l|r)?\\b', end: '$',
         keywords: 'infix infixl infixr',
         contains: [hljs.C_NUMBER_MODE, COMMENT1, COMMENT2]
       },
       {
         className: 'foreign',
-        begin: '\\bforeign ', end: '$',
-        keywords: 'foreign import export ccall stdcall cplusplus jvm dotnet safe unsafe',
+        begin: '\\bforeign\\b', end: '$',
+        keywords: 'foreign import export ccall stdcall cplusplus jvm ' +
+                  'dotnet safe unsafe',
         contains: [CONSTRUCTOR, hljs.QUOTE_STRING_MODE, COMMENT1, COMMENT2]
       },
       {
