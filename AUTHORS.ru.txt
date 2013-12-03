@@ -93,3 +93,4 @@ URL:   http://highlightjs.org/
 - Карло Кок <ck@remobjects.com>
 - Брэм де Хаан <info@atelierbramdehaan.nl>
 - Сенгвон Ли <dlimpid@gmail.com>
+- Завен Мурадян <megalivoithos@gmail.com>

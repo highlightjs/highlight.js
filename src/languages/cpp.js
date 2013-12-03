@@ -1,6 +1,7 @@
 /*
 Language: C++
-Contributors: Evgeny Stepanischev <imbolk@gmail.com>
+Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
+Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Zaven Muradyan <megalivoithos@gmail.com>
 */
 
 function(hljs) {
