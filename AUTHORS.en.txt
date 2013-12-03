@@ -93,3 +93,4 @@ Contributors:
 - Carlo Kok <ck@remobjects.com>
 - Bram de Haan <info@atelierbramdehaan.nl>
 - Seongwon Lee <dlimpid@gmail.com>
+- Zaven Muradyan <megalivoithos@gmail.com>
