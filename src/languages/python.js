@@ -49,9 +49,9 @@ function(hljs) {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
   };
   var NUMBERS = [
-    {className: 'number', begin: hljs.BINARY_NUMBER_RE + '[lL]?', relevance: 0},
-    {className: 'number', begin: '\\b(0o[0-7]+)[lL]?', relevance: 0},
-    {className: 'number', begin: hljs.C_NUMBER_RE + '[lL]?', relevance: 0}
+    {className: 'number', begin: hljs.BINARY_NUMBER_RE + '[lLjJ]?', relevance: 0},
+    {className: 'number', begin: '\\b(0o[0-7]+)[lLjJ]?', relevance: 0},
+    {className: 'number', begin: hljs.C_NUMBER_RE + '[lLjJ]?', relevance: 0}
   ]
   var PARAMS = {
     className: 'params',
