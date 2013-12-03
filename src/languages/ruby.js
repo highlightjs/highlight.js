@@ -166,33 +166,15 @@ function(hljs) {
         COMMENT,
         {
           className: 'regexp',
-          begin: '/', end: '/[a-z]*',
-          illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-        },
-        {
-          className: 'regexp',
-          begin: '%r{', end: '}[a-z]*',
-          illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-        },
-        {
-          className: 'regexp',
-          begin: '%r\\(', end: '\\)[a-z]*',
-          illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-        },
-        {
-          className: 'regexp',
-          begin: '%r!', end: '![a-z]*',
-          illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-        },
-        {
-          className: 'regexp',
-          begin: '%r\\[', end: '\\][a-z]*',
-          illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+          illegal: /\n/,
+          variants: [
+            {begin: '/', end: '/[a-z]*'},
+            {begin: '%r{', end: '}[a-z]*'},
+            {begin: '%r\\(', end: '\\)[a-z]*'},
+            {begin: '%r!', end: '![a-z]*'},
+            {begin: '%r\\[', end: '\\][a-z]*'}
+          ]
         }
       ],
       relevance: 0
