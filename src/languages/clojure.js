@@ -44,12 +44,7 @@ function(hljs) {
     className: 'number', begin: SIMPLE_NUMBER_RE,
     relevance: 0
   };
-  var STRING = {
-    className: 'string',
-    begin: '"', end: '"',
-    contains: [hljs.BACKSLASH_ESCAPE],
-    relevance: 0
-  };
+  var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null});
   var COMMENT = {
     className: 'comment',
     begin: ';', end: '$',
@@ -66,6 +61,7 @@ function(hljs) {
   var HINT_COL = {
     className: 'comment',
     begin: '\\^\\{', end: '\\}'
+
   };
   var KEY = {
     className: 'attribute',
