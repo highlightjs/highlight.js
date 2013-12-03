@@ -30,6 +30,7 @@ REPLACES = {
     'returnBegin': 'rB',
     'returnEnd': 'rE',
     'relevance': 'r',
+    'variants': 'v',
 
     'IDENT_RE': 'IR',
     'UNDERSCORE_IDENT_RE': 'UIR',
