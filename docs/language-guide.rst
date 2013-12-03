@@ -78,8 +78,8 @@ To define such keyword groups the attribute ``keywords`` becomes an object each 
 
   {
     keywords: {
-      'keyword': 'else for if while',
-      'literal': 'false true null'
+      keyword: 'else for if while',
+      literal: 'false true null'
     }
   }
 
