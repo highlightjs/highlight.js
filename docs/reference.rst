@@ -218,6 +218,25 @@ Currently this attribute is used to highlight Javascript and CSS contained withi
 Tags ``<script>`` and ``<style>`` start sub-modes that use another language definition to parse their contents (see :ref:`subLanguage`).
 
 
+variants
+^^^^^^^^
+
+**type**: array
+
+Modification to the main definitions of the mode, effectively expanding it into several similar modes
+each having all the attributes from the main definition augmented or overriden by the variants::
+
+  {
+    className: 'string',
+    contains: [hljs.BACKSLASH_ESCAPE],
+    relevance: 0,
+    variants: [
+      {begin: /"/, end: /"/},
+      {begin: /'/, end: /'/, relevance: 1}
+    ]
+  }
+
+
 .. _subLanguage:
 
 subLanguage

@@ -5,23 +5,23 @@ Contributrors: Benjamin Pannell <contact@sierrasoftworks.com>
 */
 
 function(hljs) {
-  var VAR1 = {
-    className: 'variable', begin: /\$[\w\d#@][\w\d_]*/
-  };
-  var VAR2 = {
-    className: 'variable', begin: /\$\{(.*?)\}/
+  var VAR = {
+    className: 'variable',
+    variants: [
+      {begin: /\$[\w\d#@][\w\d_]*/},
+      {begin: /\$\{(.*?)\}/}
+    ]
   };
   var QUOTE_STRING = {
     className: 'string',
     begin: /"/, end: /"/,
     contains: [
       hljs.BACKSLASH_ESCAPE,
-      VAR1,
-      VAR2,
+      VAR,
       {
         className: 'variable',
         begin: /\$\(/, end: /\)/,
-        contains: hljs.BACKSLASH_ESCAPE
+        contains: [hljs.BACKSLASH_ESCAPE]
       }
     ],
     relevance: 0
@@ -63,8 +63,7 @@ function(hljs) {
       hljs.NUMBER_MODE,
       QUOTE_STRING,
       APOS_STRING,
-      VAR1,
-      VAR2
+      VAR
     ]
   };
 }

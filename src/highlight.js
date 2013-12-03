@@ -203,12 +203,19 @@ function() {
       if (!mode.contains) {
         mode.contains = [];
       }
-      for (var i = 0; i < mode.contains.length; i++) {
-        if (mode.contains[i] == 'self') {
-          mode.contains[i] = mode;
+      var expanded_contains = [];
+      mode.contains.forEach(function(c) {
+        if (c == 'self') {
+          expanded_contains.push(mode);
+        } else if (c.variants) {
+          c.variants.forEach(function(v) {expanded_contains.push(self.inherit(c, v));});
+        } else {
+          expanded_contains.push(c);
         }
-        compileMode(mode.contains[i], mode);
-      }
+      });
+      mode.contains = expanded_contains;
+      mode.contains.forEach(function(c) {compileMode(c, mode);});
+
       if (mode.starts) {
         compileMode(mode.starts, parent);
       }
