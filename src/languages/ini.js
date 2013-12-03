@@ -5,7 +5,7 @@ Language: Ini
 function(hljs) {
   return {
     case_insensitive: true,
-    illegal: '[^\\s]',
+    illegal: /\S/,
     contains: [
       {
         className: 'comment',

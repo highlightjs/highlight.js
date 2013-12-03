@@ -8,21 +8,21 @@ function(hljs) {
   var VARIABLE = {
     className: 'variable', begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
   };
-  var STRINGS = [
-    hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
-    hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
-    {
-      className: 'string',
-      begin: 'b"', end: '"',
-      contains: [hljs.BACKSLASH_ESCAPE]
-    },
-    {
-      className: 'string',
-      begin: 'b\'', end: '\'',
-      contains: [hljs.BACKSLASH_ESCAPE]
-    }
-  ];
-  var NUMBERS = [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE];
+  var STRING = {
+    className: 'string',
+    contains: [hljs.BACKSLASH_ESCAPE],
+    variants: [
+      {
+        begin: 'b"', end: '"'
+      },
+      {
+        begin: 'b\'', end: '\''
+      },
+      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
+    ]
+  };
+  var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
   var TITLE = {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
   };
@@ -82,8 +82,10 @@ function(hljs) {
             contains: [
               'self',
               VARIABLE,
-              hljs.C_BLOCK_COMMENT_MODE
-            ].concat(STRINGS).concat(NUMBERS)
+              hljs.C_BLOCK_COMMENT_MODE,
+              STRING,
+              NUMBER
+            ]
           }
         ]
       },
@@ -103,7 +105,9 @@ function(hljs) {
       },
       {
         begin: '=>' // No markup, just a relevance booster
-      }
-    ].concat(STRINGS).concat(NUMBERS)
+      },
+      STRING,
+      NUMBER
+    ]
   };
 }
