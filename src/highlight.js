@@ -556,8 +556,8 @@ function() {
   Attaches highlighting to the page load event.
   */
   function initHighlightingOnLoad() {
-    window.addEventListener('DOMContentLoaded', initHighlighting, false);
-    window.addEventListener('load', initHighlighting, false);
+    addEventListener('DOMContentLoaded', initHighlighting, false);
+    addEventListener('load', initHighlighting, false);
   }
 
   var languages = {};
