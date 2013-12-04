@@ -27,6 +27,12 @@ function(hljs) {
   var CHAR_STRING = {
     className: 'string', begin: /(#\d+)+/
   };
+  var CLASS = {
+    begin: hljs.IDENT_RE + '\\s*=\\s*class\\s*\\(', returnBegin: true,
+    contains: [
+      {className: 'title', begin: hljs.IDENT_RE}
+    ]
+  };
   var FUNCTION = {
     className: 'function',
     beginWithKeyword: true, end: /[:;]/,
@@ -52,6 +58,7 @@ function(hljs) {
       COMMENT, hljs.C_LINE_COMMENT_MODE,
       STRING, CHAR_STRING,
       hljs.NUMBER_MODE,
+      CLASS,
       FUNCTION
     ]
   };
