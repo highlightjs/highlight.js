@@ -10,29 +10,21 @@ function(hljs) {
     contains: [
       {
         className: 'attribute',
-        begin: XML_IDENT_RE,
-        relevance: 0
-      },
-      {
-        begin: '="', returnBegin: true, end: '"',
-        contains: [{
-            className: 'value',
-            begin: '"', endsWithParent: true
-        }]
-      },
-      {
-        begin: '=\'', returnBegin: true, end: '\'',
-        contains: [{
-          className: 'value',
-          begin: '\'', endsWithParent: true
-        }]
+        begin: XML_IDENT_RE
       },
       {
         begin: '=',
-        contains: [{
-          className: 'value',
-          begin: '[^\\s/>]+'
-        }]
+        relevance: 0,
+        contains: [
+          {
+            className: 'value',
+            variants: [
+              {begin: /"/, end: /"/},
+              {begin: /'/, end: /'/},
+              {begin: /[^\s\/>]+/}
+            ]
+          }
+        ]
       }
     ]
   };
