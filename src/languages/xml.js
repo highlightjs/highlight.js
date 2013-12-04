@@ -10,7 +10,8 @@ function(hljs) {
     contains: [
       {
         className: 'attribute',
-        begin: XML_IDENT_RE
+        begin: XML_IDENT_RE,
+        relevance: 0
       },
       {
         begin: '=',
