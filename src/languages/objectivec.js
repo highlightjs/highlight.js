@@ -12,8 +12,7 @@ function(hljs) {
       'enum else break extern asm case short default double throw register explicit ' +
       'signed typename try this switch continue wchar_t inline readonly assign property ' +
       'self synchronized end synthesize id optional required ' +
-      'nonatomic super unichar finally dynamic IBOutlet IBAction selector strong ' +
-      'weak readonly',
+      'nonatomic super unichar finally dynamic IBOutlet IBAction selector strong weak',
     literal:
     	'false true FALSE TRUE nil YES NO NULL',
     built_in:
