@@ -34,11 +34,6 @@ function(hljs) {
     case_insensitive: true,
     contains: [
       {
-        className: 'pi',
-        begin: '<\\?', end: '\\?>',
-        relevance: 10
-      },
-      {
         className: 'doctype',
         begin: '<!DOCTYPE', end: '>',
         relevance: 10,
@@ -84,6 +79,15 @@ function(hljs) {
       {
         begin: '<%', end: '%>',
         subLanguage: 'vbscript'
+      },
+      {
+        begin: /<\?(php)?(?!\w)/, end: /\?>/,
+        subLanguage: 'php', subLanguageMode: 'continuous'
+      },
+      {
+        className: 'pi',
+        begin: /<\?\w+/, end: /\?>/,
+        relevance: 10
       },
       {
         className: 'tag',

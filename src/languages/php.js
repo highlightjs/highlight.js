@@ -8,9 +8,12 @@ function(hljs) {
   var VARIABLE = {
     className: 'variable', begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
   };
+  var PREPROCESSOR = {
+    className: 'preprocessor', begin: /<\?(php)?|\?>/
+  };
   var STRING = {
     className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE],
+    contains: [hljs.BACKSLASH_ESCAPE, PREPROCESSOR],
     variants: [
       {
         begin: 'b"', end: '"'
@@ -44,10 +47,13 @@ function(hljs) {
       {
         className: 'comment',
         begin: '/\\*', end: '\\*/',
-        contains: [{
+        contains: [
+          {
             className: 'phpdoc',
             begin: '\\s@[A-Za-z]+'
-        }]
+          },
+          PREPROCESSOR
+        ]
       },
       {
           className: 'comment',
@@ -59,15 +65,7 @@ function(hljs) {
         begin: '<<<[\'"]?\\w+[\'"]?$', end: '^\\w+;',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
-      {
-        className: 'preprocessor',
-        begin: '<\\?php',
-        relevance: 10
-      },
-      {
-        className: 'preprocessor',
-        begin: '\\?>'
-      },
+      PREPROCESSOR,
       VARIABLE,
       {
         className: 'function',
