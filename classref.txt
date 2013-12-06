@@ -388,6 +388,7 @@ C# ("cs"):
   string           string
   comment          commment
   xmlDocTag        xmldoc tag ("///", "<!--", "-->", "<..>")
+  title            title of namespace or class
 
 F# ("fsharp"):
 
