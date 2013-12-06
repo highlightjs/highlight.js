@@ -8,7 +8,7 @@ function(hljs) {
     contains: [
       {
         className: 'operator',
-        begin: '(begin|end|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma|grant|merge)\\b(?!:)', // negative look-ahead here is specifically to prevent stomping on SmallTalk
+        begin: '\\b(begin|end|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma|grant|merge)\\b(?!:)', // negative look-ahead here is specifically to prevent stomping on SmallTalk
         end: ';', endsWithParent: true,
         keywords: {
           keyword: 'all partial global month current_timestamp using go revoke smallint ' +
@@ -31,7 +31,7 @@ function(hljs) {
             'update catalog user sql date on identity timezone_hour natural whenever interval ' +
             'work order cascade diagnostics nchar having left call do handler load replace ' +
             'truncate start lock show pragma exists number trigger if before after each row ' +
-            'merge matched',
+            'merge matched database',
           aggregate: 'count sum min max avg'
         },
         contains: [
