@@ -215,12 +215,10 @@ function() {
       }
       var expanded_contains = [];
       mode.contains.forEach(function(c) {
-        if (c == 'self') {
-          expanded_contains.push(mode);
-        } else if (c.variants) {
+        if (c.variants) {
           c.variants.forEach(function(v) {expanded_contains.push(inherit(c, v));});
         } else {
-          expanded_contains.push(c);
+          expanded_contains.push(c == 'self' ? mode : c);
         }
       });
       mode.contains = expanded_contains;
