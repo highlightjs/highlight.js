@@ -34,6 +34,16 @@ function() {
     }
   }
 
+  function inherit(parent, obj) {
+    var result = {};
+    for (var key in parent)
+      result[key] = parent[key];
+    if (obj)
+      for (var key in obj)
+        result[key] = obj[key];
+    return result;
+  };
+
   /* Stream merging */
 
   function nodeStream(node) {
@@ -208,7 +218,7 @@ function() {
         if (c == 'self') {
           expanded_contains.push(mode);
         } else if (c.variants) {
-          c.variants.forEach(function(v) {expanded_contains.push(self.inherit(c, v));});
+          c.variants.forEach(function(v) {expanded_contains.push(inherit(c, v));});
         } else {
           expanded_contains.push(c);
         }
@@ -588,6 +598,7 @@ function() {
   this.classPrefix = 'hljs-';
   this.registerLanguage = registerLanguage;
   this.getLanguage = getLanguage;
+  this.inherit = inherit;
 
   // Common regexps
   this.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
@@ -654,16 +665,5 @@ function() {
         contains: [this.BACKSLASH_ESCAPE]
       }
     ]
-  };
-
-  // Utility functions
-  this.inherit = function(parent, obj) {
-    var result = {};
-    for (var key in parent)
-      result[key] = parent[key];
-    if (obj)
-      for (var key in obj)
-        result[key] = obj[key];
-    return result;
   };
 }
