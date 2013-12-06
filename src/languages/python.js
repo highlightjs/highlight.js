@@ -57,8 +57,7 @@ function(hljs) {
   var FUNC_CLASS_PROTO = {
     beginWithKeyword: true, end: /:/,
     illegal: /[${=;\n]/,
-    contains: [TITLE, PARAMS],
-    relevance: 10
+    contains: [TITLE, PARAMS]
   };
 
   return {
@@ -76,7 +75,7 @@ function(hljs) {
       NUMBER,
       STRING,
       hljs.HASH_COMMENT_MODE,
-      hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', keywords: 'def'}),
+      hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', keywords: 'def', relevance: 10}),
       hljs.inherit(FUNC_CLASS_PROTO, {className: 'class', keywords: 'class'}),
       {
         className: 'decorator',
