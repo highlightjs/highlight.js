@@ -11,7 +11,8 @@ function(hljs) {
   };
   var COMMENTS = {
     className: 'comment',
-    begin: ';', end: '$'
+    begin: ';', end: '$',
+    relevance: 0
   };
   var BUILT_IN = [
     {
@@ -50,8 +51,7 @@ function(hljs) {
         className: 'label',
         begin: '^[^\\n";]+(::|:)(?!=)',
         illegal: '\\n',
-        contains: [BACKTICK_ESCAPE],
-        relevance: 0
+        contains: [BACKTICK_ESCAPE]
       },
       {
         // consecutive commas, not for highlighting but just for relevance
