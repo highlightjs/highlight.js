@@ -89,7 +89,7 @@ Scala ("scala"):
   params           everything in parentheses inside a class header
   inheritance      keywords "extends" and "with" inside class header
 
-Go ("go"):
+Go ("go", "golang"):
 
   comment          comment
   string           string constant
