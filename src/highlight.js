@@ -245,7 +245,7 @@ function() {
   - value (an HTML string with highlighting markup)
 
   */
-  function highlight(language_name, value, ignore_illegals, continuation) {
+  function highlight(name, value, ignore_illegals, continuation) {
 
     function subMode(lexeme, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -394,9 +394,9 @@ function() {
       return lexeme.length || 1;
     }
 
-    var language = getLanguage(language_name);
+    var language = getLanguage(name);
     if (!language) {
-      throw new Error('Unknown language: "' + language_name + '"');
+      throw new Error('Unknown language: "' + name + '"');
     }
 
     compileLanguage(language);
@@ -430,7 +430,7 @@ function() {
         relevance: relevance,
         keyword_count: keyword_count,
         value: result,
-        language: language_name,
+        language: name,
         top: top
       };
     } catch (e) {
