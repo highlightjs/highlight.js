@@ -30,10 +30,9 @@ Highlight.js нужен для подсветки синтаксиса в при
 
 - Стилевые темы можно найти в загруженном архиве или также использовать
   захостенные. Чтобы сделать собственный стиль для своего сайта, вам
-  будет полезен справочник классов в файле [classref.txt][cr], который тоже
-  есть в архиве.
+  будет полезен [CSS classes reference][cr], который тоже есть в архиве.
 
-[cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
+[cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 
 
 ## node.js

@@ -28,9 +28,9 @@ If you use different markup or need to apply highlighting dynamically, read
 
 - Style themes are available in the download package or as hosted files.
   To create a custom style for your site see the class reference in the file
-  [classref.txt][cr] from the downloaded package.
+  [CSS classes reference][cr] from the downloaded package.
 
-[cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
+[cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 
 
 ## node.js
