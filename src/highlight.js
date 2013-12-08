@@ -247,14 +247,15 @@ function() {
   }
 
   /*
-  Core highlighting function. Accepts a language name and a string with the
-  code to highlight. Returns an object with the following properties:
+  Core highlighting function. Accepts a language name, or alias, and a
+  string with the code to highlight. Returns an object with the following
+  properties:
 
   - relevance (int)
   - value (an HTML string with highlighting markup)
 
   */
-  function highlight(language_name, value, ignore_illegals, continuation) {
+  function highlight(name, value, ignore_illegals, continuation) {
 
     function subMode(lexeme, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
@@ -403,9 +404,9 @@ function() {
       return lexeme.length || 1;
     }
 
-    var language = getLanguage(language_name);
+    var language = getLanguage(name);
     if (!language) {
-      throw new Error('Unknown language: "' + language_name + '"');
+      throw new Error('Unknown language: "' + name + '"');
     }
 
     compileLanguage(language);
@@ -437,7 +438,7 @@ function() {
       return {
         relevance: relevance,
         value: result,
-        language: language_name,
+        language: name,
         top: top
       };
     } catch (e) {
