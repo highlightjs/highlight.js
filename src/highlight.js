@@ -237,8 +237,9 @@ function() {
   }
 
   /*
-  Core highlighting function. Accepts a language name and a string with the
-  code to highlight. Returns an object with the following properties:
+  Core highlighting function. Accepts a language name, or alias, and a
+  string with the code to highlight. Returns an object with the following
+  properties:
 
   - relevance (int)
   - keyword_count (int)
