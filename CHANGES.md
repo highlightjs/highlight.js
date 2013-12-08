@@ -1,19 +1,30 @@
 ## Version 8.0
 
-With the newest version of highlight.js, we will be prefixing all classes
-located in [classref.txt][cr] with `hljs-`, by default, because some class names
-would collide with other people's stylesheets. If you were using an older
-version, you might still want the previous behavior, but still want to upgrade.
-To suppress this new behavior, you would initialize like so:
+The new major release brings a few backwards incompatible changes:
 
-```html
-<script type="text/javascript">
-  hljs.classPrefix = '';
-  hljs.initHighlightingOnLoad();
-</script>
-```
+- With the newest version of highlight.js, we will be prefixing all classes
+  located in [classref.txt][cr] with `hljs-`, by default, because some class
+  names would collide with other people's stylesheets. If you were using an
+  older version, you might still want the previous behavior, but still want to
+  upgrade. To suppress this new behavior, you would initialize like so:
+
+  ```html
+  <script type="text/javascript">
+    hljs.classPrefix = '';
+    hljs.initHighlightingOnLoad();
+  </script>
+  ```
+
+- We removed public-facing (though undocumented) object `hljs.LANGUAGES` which
+  was used to register languages with the library in favor of two new methods:
+  `registerLanguage` and `getLanguage`. Both are documented in our [API docs][].
+
+- Result returned from `highlight` and `highlightAuto` no longer contains two
+  separate attributes contributing to relevance score, `relevance` and
+  `keyword_count`. They are now unified in `relevance`.
 
 [cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
+[api docs]: http://highlightjs.readthedocs.org/en/latest/api.html
 
 
 ## Version 7.5
