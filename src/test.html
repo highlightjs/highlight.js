@@ -2729,13 +2729,9 @@ return
       var result = document.createElement('DIV');
       result.className = 'test';
       result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + langClass + '</var>';
-      function counts(r) {
-        return ' (' + r.kw + '+' + r.re + '=' + (r.kw + r.re) + ')';
-      }
-      result.innerHTML += counts(code.result);
+      result.innerHTML += ' (' + code.result.re + ')';
       if (code.second_best) {
-        result.innerHTML += '<br>' + code.second_best.language +
-                            counts(code.second_best) ;
+        result.innerHTML += '<br>' + code.second_best.language + ' (' + code.second_best.re + ')';
       }
       tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
       if (!passed) {

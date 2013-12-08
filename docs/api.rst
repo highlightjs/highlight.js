@@ -19,7 +19,6 @@ Returns an object with the following properties:
 
 * ``language``: language name, same as the one passed into a function, returned for consistency with ``highlightAuto``
 * ``relevance``: integer value
-* ``keyword_count``: integer value
 * ``value``: HTML string with highlighting markup
 * ``top``: top of the current mode stack
 
@@ -33,7 +32,6 @@ Returns an object with the following properties:
 
 * ``language``: detected language
 * ``relevance``: integer value
-* ``keyword_count``: integer value
 * ``value``: HTML string with highlighting markup
 * ``second_best``: object with the same structure for second-best heuristically detected language, may be absent
 

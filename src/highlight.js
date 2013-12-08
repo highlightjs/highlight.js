@@ -251,7 +251,6 @@ function() {
   code to highlight. Returns an object with the following properties:
 
   - relevance (int)
-  - keyword_count (int)
   - value (an HTML string with highlighting markup)
 
   */
@@ -306,7 +305,7 @@ function() {
         result += buffer.substr(last_index, match.index - last_index);
         var keyword_match = keywordMatch(top, match);
         if (keyword_match) {
-          keyword_count += keyword_match[1];
+          relevance += keyword_match[1];
           result += buildSpan(keyword_match[0], match[0]);
         } else {
           result += match[0];
@@ -327,7 +326,6 @@ function() {
       // allows XML everywhere and makes every XML snippet to have a much larger Markdown
       // score.
       if (top.relevance > 0) {
-        keyword_count += result.keyword_count;
         relevance += result.relevance;
       }
       if (top.subLanguageMode == 'continuous') {
@@ -420,7 +418,6 @@ function() {
     }
     var mode_buffer = '';
     var relevance = 0;
-    var keyword_count = 0;
     try {
       var match, count, index = 0;
       while (true) {
@@ -439,7 +436,6 @@ function() {
       };
       return {
         relevance: relevance,
-        keyword_count: keyword_count,
         value: result,
         language: language_name,
         top: top
@@ -448,7 +444,6 @@ function() {
       if (e.message.indexOf('Illegal') != -1) {
         return {
           relevance: 0,
-          keyword_count: 0,
           value: escape(value)
         };
       } else {
@@ -463,7 +458,6 @@ function() {
 
   - language (detected language)
   - relevance (int)
-  - keyword_count (int)
   - value (an HTML string with highlighting markup)
   - second_best (object with the same structure for second-best heuristically
     detected language, may be absent)
@@ -471,7 +465,6 @@ function() {
   */
   function highlightAuto(text) {
     var result = {
-      keyword_count: 0,
       relevance: 0,
       value: escape(text)
     };
@@ -481,10 +474,10 @@ function() {
         continue;
       var current = highlight(key, text, false);
       current.language = key;
-      if (current.keyword_count + current.relevance > second_best.keyword_count + second_best.relevance) {
+      if (current.relevance > second_best.relevance) {
         second_best = current;
       }
-      if (current.keyword_count + current.relevance > result.keyword_count + result.relevance) {
+      if (current.relevance > result.relevance) {
         second_best = result;
         result = current;
       }
@@ -536,13 +529,11 @@ function() {
     block.className += ' hljs ' + (!language && result.language || '');
     block.result = {
       language: result.language,
-      kw: result.keyword_count,
       re: result.relevance
     };
     if (result.second_best) {
       block.second_best = {
         language: result.second_best.language,
-        kw: result.second_best.keyword_count,
         re: result.second_best.relevance
       };
     }
