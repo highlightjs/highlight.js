@@ -5,8 +5,8 @@ This is a full list of available classes corresponding to languages'
 syntactic structures. The parentheses after language name contain identifiers
 used as class names in ``<code>`` element.
 
-Python ("python"):
-------------------
+Python ("python")
+-----------------
 
 * ``keyword``:          keyword
 * ``built_in``:         built-in objects (None, False, True and Ellipsis)
@@ -19,8 +19,8 @@ Python ("python"):
 * ``title``:            name of a function or a class inside a header
 * ``params``:           everything inside parentheses in a function's or class' header
 
-Python profiler results ("profile"):
-------------------------------------
+Python profiler results ("profile")
+-----------------------------------
 
 * ``number``:           number
 * ``string``:           string
@@ -33,8 +33,8 @@ Python profiler results ("profile"):
 * ``title``:            actual name of a function in an entry (excluding parentheses)
 * ``prompt``:           interpreter prompt (>>> or ...)
 
-Ruby ("ruby"):
---------------
+Ruby ("ruby")
+-------------
 
 * ``keyword``:          keyword
 * ``string``:           string
@@ -47,8 +47,8 @@ Ruby ("ruby"):
 * ``parent``:           name of a parent class
 * ``symbol``:           symbol
 
-Haml ("haml"):
---------------
+Haml ("haml")
+-------------
 
 * ``tag``:              any tag starting with "%"
 * ``title``:            tag's name
@@ -60,8 +60,8 @@ Haml ("haml"):
 * ``doctype``:          !!! declaration
 * ``bullet``:           line defined by variable
 
-Perl ("perl"):
---------------
+Perl ("perl")
+-------------
 
 * ``keyword``:          keyword
 * ``comment``:          comment
@@ -73,8 +73,8 @@ Perl ("perl"):
 * ``operator``:         operator
 * ``pod``:              plain old doc
 
-PHP ("php"):
-------------
+PHP ("php")
+-----------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -84,8 +84,8 @@ PHP ("php"):
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     preprocessor marks: "<?php" and "?>"
 
-Scala ("scala"):
-----------------
+Scala ("scala")
+---------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -99,8 +99,8 @@ Scala ("scala"):
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "with" inside class header
 
-Go ("go", "golang"):
---------------------
+Go ("go", "golang")
+-------------------
 
 * ``comment``:          comment
 * ``string``:           string constant
@@ -110,8 +110,8 @@ Go ("go", "golang"):
 * ``typename``:         built-in plain types (int, string etc.)
 * ``built_in``:         built-in functions
 
-HTML, XML ("xml", "html"):
---------------------------
+HTML, XML ("xml", "html")
+-------------------------
 
 * ``tag``:              any tag from "<" till ">"
 * ``attribute``:        tag's attribute with or without value
@@ -121,8 +121,8 @@ HTML, XML ("xml", "html"):
 * ``doctype``:          <!DOCTYPE ... > declaration
 * ``cdata``:            CDATA section
 
-Lasso ("lasso"):
-----------------
+Lasso ("lasso")
+---------------
 
 * ``preprocessor``:     delimiters and interpreter flags
 * ``shebang``:          Lasso 9 shell script header
@@ -139,8 +139,8 @@ Lasso ("lasso"):
 * ``class``:            type, trait, or method header
 * ``title``:            name following "define" inside a header
 
-CSS ("css"):
-------------
+CSS ("css")
+-----------
 
 * ``tag``:              tag in selectors
 * ``id``:               #some_name in selectors
@@ -158,8 +158,8 @@ CSS ("css"):
 * ``function``:         CSS function within a value
 * ``important``:        "!important" symbol
 
-SCSS ("scss"):
---------------
+SCSS ("scss")
+-------------
 
 * ``tag``:              tag in selectors
 * ``id``:               #some_name in selectors
@@ -179,8 +179,8 @@ SCSS ("scss"):
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     keywords after @
 
-Markdown ("markdown"):
-----------------------
+Markdown ("markdown")
+---------------------
 
 * ``header``:            header
 * ``bullet``:            list bullet
@@ -192,8 +192,8 @@ Markdown ("markdown"):
 * ``link_label``:        link label
 * ``link_url``:          link url
 
-AsciiDoc ("asciidoc"):
-----------------------
+AsciiDoc ("asciidoc")
+---------------------
 
 * ``header``:            heading
 * ``bullet``:            list or labeled bullet
@@ -208,8 +208,8 @@ AsciiDoc ("asciidoc"):
 * ``attribute``:         document attribute, block attributes
 * ``label``:             admonition label
 
-Django ("django"):
-------------------
+Django ("django")
+-----------------
 
 * ``keyword``:          HTML tag in HTML, default tags and default filters in templates
 * ``tag``:              any tag from "<" till ">"
@@ -223,8 +223,8 @@ Django ("django"):
 * ``filter``:           filter from "|" till the next filter or the end of tag
 * ``argument``:         filter argument
 
-Handlebars ("handlebars"):
---------------------------
+Handlebars ("handlebars")
+-------------------------
 
 * ``expression``:       expression to be evaluated
 * ``variable``:         variable
@@ -232,7 +232,8 @@ Handlebars ("handlebars"):
 * ``end``:-block        the ending of a block
 * ``string``:           string
 
-JSON ("json"):
+JSON ("json")
+-------------
 
 * ``number``:           number
 * ``literal``:          "true", "false" and "null"
@@ -240,8 +241,8 @@ JSON ("json"):
 * ``attribute``:        name of an object property
 * ``value``:            value of an object property
 
-Mathematica ("mathematica", "mma"):
------------------------------------
+Mathematica ("mathematica", "mma")
+----------------------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -249,8 +250,8 @@ Mathematica ("mathematica", "mma"):
 * ``string``:           string
 * ``list``:             a list { .. } - the basic Mma structure
 
-JavaScript ("javascript", "js"):
---------------------------------
+JavaScript ("javascript", "js")
+-------------------------------
 
 * ``keyword``:          keyword
 * ``comment``:          comment
@@ -262,8 +263,8 @@ JavaScript ("javascript", "js"):
 * ``title``:            name of a function inside a header
 * ``params``:           parentheses and everything inside them in a function's header
 
-CoffeeScript ("coffeescript"):
-------------------------------
+CoffeeScript ("coffeescript")
+-----------------------------
 
 * ``keyword``:          keyword
 * ``comment``:          comment
@@ -279,8 +280,8 @@ CoffeeScript ("coffeescript"):
 * ``params``:           parentheses and everything inside them in a function's header
 * ``property``:         @-property within class and functions
 
-ActionScript ("actionscript"):
-------------------------------
+ActionScript ("actionscript")
+-----------------------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -297,8 +298,8 @@ ActionScript ("actionscript"):
 * ``param``:            params of function
 * ``rest_arg``:         rest argument of function
 
-VBScript ("vbscript"):
-----------------------
+VBScript ("vbscript")
+---------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -306,8 +307,8 @@ VBScript ("vbscript"):
 * ``comment``:          comment
 * ``built_in``:         built-in function
 
-VB.Net ("vbnet"):
------------------
+VB.Net ("vbnet")
+----------------
 
 * ``keyword``:          keyword
 * ``built_in``:         built-in types
@@ -317,8 +318,8 @@ VB.Net ("vbnet"):
 * ``xmlDocTag``:        xmldoc tag ("'''", "<!--", "-->", "<..>")
 * ``preprocessor``:     preprocessor directive
 
-HTTP ("http"):
---------------
+HTTP ("http")
+-------------
 
 * ``request``:          first line of a request
 * ``status``:           first line of a response
@@ -326,8 +327,8 @@ HTTP ("http"):
 * ``string``:           header value or query string in a request line
 * ``number``:           status code
 
-Lua ("lua"):
-------------
+Lua ("lua")
+-----------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -339,8 +340,8 @@ Lua ("lua"):
 * ``params``:           everything inside parentheses in a function's header
 * ``long_brackets``:    multiline string in [=[ .. ]=]
 
-Delphi ("delphi"):
-------------------
+Delphi ("delphi")
+-----------------
 
 * ``keyword``:          keyword
 * ``comment``:          comment (of any type)
@@ -351,8 +352,8 @@ Delphi ("delphi"):
 * ``params``:           everything inside parentheses in a function's header
 * ``class``:            class' body from "= class" till "end;"
 
-Oxygene ("oxygene"):
---------------------
+Oxygene ("oxygene")
+-------------------
 
 * ``keyword``:          keyword
 * ``comment``:          comment (of any type)
@@ -363,8 +364,8 @@ Oxygene ("oxygene"):
 * ``number``:           number
 * ``class``:            class' body from "= class" till "end;"
 
-Java ("java"):
---------------
+Java ("java")
+-------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -377,8 +378,8 @@ Java ("java"):
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "implements" inside class header
 
-C++ ("cpp", "c"):
------------------
+C++ ("cpp", "c")
+----------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -387,8 +388,8 @@ C++ ("cpp", "c"):
 * ``preprocessor``:     preprocessor directive
 * ``stl_container``:    instantiation of STL containers ("vector<...>")
 
-Objective C ("objectivec"):
----------------------------
+Objective C ("objectivec")
+--------------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         Cocoa/Cocoa Touch constants and classes
@@ -400,8 +401,8 @@ Objective C ("objectivec"):
 * ``title``:            title (id) of interface, implementation, protocol, class
 * ``variable``:         properties and struct accesors
 
-Vala ("vala"):
---------------
+Vala ("vala")
+-------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -411,8 +412,8 @@ Vala ("vala"):
 * ``title``:            in class definition
 * ``constant``:         ALL_UPPER_CASE
 
-C# ("cs"):
-----------
+C# ("cs")
+---------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -421,8 +422,8 @@ C# ("cs"):
 * ``xmlDocTag``:        xmldoc tag ("///", "<!--", "-->", "<..>")
 * ``title``:            title of namespace or class
 
-F# ("fsharp"):
---------------
+F# ("fsharp")
+-------------
 
 * ``keywords``:         keyword
 * ``number``:           number
@@ -432,8 +433,8 @@ F# ("fsharp"):
 * ``title``:            the name of a custom F# type
 * ``annotation``:       any attribute
 
-OCaml ("ocaml"):
-----------------
+OCaml ("ocaml")
+---------------
 
 * ``keywords``:         keyword
 * ``number``:           number
@@ -443,8 +444,8 @@ OCaml ("ocaml"):
 * ``title``:            the name of a custom OCaml type
 * ``annotation``:       any attribute
 
-D ("d"):
---------
+D ("d")
+-------
 
 * ``comment``:          comment
 * ``string``:           string constant
@@ -453,8 +454,8 @@ D ("d"):
 * ``constant``:         true false null
 * ``built_in``:         built-in plain types (int, string etc.)
 
-RenderMan RSL ("rsl"):
-----------------------
+RenderMan RSL ("rsl")
+---------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -465,8 +466,8 @@ RenderMan RSL ("rsl"):
 * ``shading``:          shading keywords
 * ``built_in``:         built-in function
 
-RenderMan RIB ("rib"):
-----------------------
+RenderMan RIB ("rib")
+---------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -474,8 +475,8 @@ RenderMan RIB ("rib"):
 * ``comment``:          comment
 * ``commands``:         command
 
-Maya Embedded Language ("mel"):
--------------------------------
+Maya Embedded Language ("mel")
+------------------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -483,8 +484,8 @@ Maya Embedded Language ("mel"):
 * ``comment``:          comment
 * ``variable``:         variable
 
-SQL ("sql"):
-------------
+SQL ("sql")
+-----------
 
 * ``keyword``:          keyword (mostly SQL'92 and SQL'99)
 * ``number``:           number
@@ -492,8 +493,8 @@ SQL ("sql"):
 * ``comment``:          comment
 * ``aggregate``:        aggregate function
 
-Smalltalk ("smalltalk"):
-------------------------
+Smalltalk ("smalltalk")
+-----------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -505,8 +506,8 @@ Smalltalk ("smalltalk"):
 * ``char``:             char
 * ``localvars``:        block of local variables
 
-Lisp ("lisp"):
---------------
+Lisp ("lisp")
+-------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -519,8 +520,8 @@ Lisp ("lisp"):
 * ``body``:             remainder of the non-quoted list
 * ``quoted``:           quoted list, both "(quote .. )" and "'(..)"
 
-Clojure ("clojure"):
---------------------
+Clojure ("clojure")
+-------------------
 
 * ``comment``:          comments and hints
 * ``string``:           string
@@ -530,8 +531,8 @@ Clojure ("clojure"):
 * ``title``:            function name (built-in or user defined)
 * ``built_in``:         built-in function name
 
-Ini ("ini"):
-------------
+Ini ("ini")
+-----------
 
 * ``title``:            title of a section
 * ``value``:            value of a setting of any type
@@ -539,8 +540,8 @@ Ini ("ini"):
 * ``number``:           number
 * ``keyword``:          boolean value keyword
 
-Apache ("apache"):
-------------------
+Apache ("apache")
+-----------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -550,8 +551,8 @@ Apache ("apache"):
 * ``cbracket``:         options in rewrites "[..]"
 * ``tag``:              begin and end of a configuration section
 
-Nginx ("nginx"):
-----------------
+Nginx ("nginx")
+---------------
 
 * ``title``:            directive title
 * ``string``:           string
@@ -561,8 +562,8 @@ Nginx ("nginx"):
 * ``variable``:         $-variable
 * ``regexp``:           regexp
 
-Diff ("diff"):
---------------
+Diff ("diff")
+-------------
 
 * ``header``:           file header
 * ``chunk``:            chunk header within a file
@@ -570,8 +571,8 @@ Diff ("diff"):
 * ``deletion``:         deleted lines
 * ``change``:           changed lines
 
-DOS ("dos"):
-------------
+DOS ("dos")
+-----------
 
 * ``keyword``:          keyword
 * ``flow``:             batch control keyword
@@ -579,8 +580,8 @@ DOS ("dos"):
 * ``winutils``:         some commands (see dos.js specifically)
 * ``envvar``:           environment variables
 
-Bash ("bash"):
---------------
+Bash ("bash")
+-------------
 
 * ``keyword``:          keyword
 * ``string``:           string
@@ -590,8 +591,8 @@ Bash ("bash"):
 * ``variable``:         variable
 * ``shebang``:          script interpreter header
 
-Makefile ("makefile"):
-----------------------
+Makefile ("makefile")
+---------------------
 
 * ``keyword``:          keyword ".PHONY" within the phony line
 * ``string``:           string
@@ -600,8 +601,8 @@ Makefile ("makefile"):
 * ``title``:            target title
 * ``constant``:         constant within the initial definition
 
-CMake ("cmake"):
-----------------
+CMake ("cmake")
+---------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -610,8 +611,8 @@ CMake ("cmake"):
 * ``envvar``:           $-variable
 * ``operator``:         operator (LESS, STREQUAL, MATCHES, etc)
 
-Axapta ("axapta"):
-------------------
+Axapta ("axapta")
+-----------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -623,8 +624,8 @@ Axapta ("axapta"):
 * ``inheritance``:      keywords "extends" and "implements" inside class header
 * ``preprocessor``:     preprocessor directive
 
-Oracle Rules Language ("ruleslanguage"):
-----------------------------------------
+Oracle Rules Language ("ruleslanguage")
+---------------------------------------
 
 * ``comment``:          comment
 * ``string``:           string constant
@@ -633,8 +634,8 @@ Oracle Rules Language ("ruleslanguage"):
 * ``built_in``:         built-in functions
 * ``array``:            array stem
 
-1C ("1c"):
-----------
+1C ("1c")
+---------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -646,8 +647,8 @@ Oracle Rules Language ("ruleslanguage"):
 * ``params``:           everything in parentheses inside a function header
 * ``preprocessor``:     preprocessor directive
 
-AVR assembler ("avrasm"):
--------------------------
+AVR assembler ("avrasm")
+------------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         pre-defined register
@@ -658,8 +659,8 @@ AVR assembler ("avrasm"):
 * ``preprocessor``:     preprocessor directive
 * ``localvars``:        substitution in .macro
 
-VHDL ("vhdl"):
---------------
+VHDL ("vhdl")
+-------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -669,8 +670,8 @@ VHDL ("vhdl"):
 * ``typename``:         typename
 * ``attribute``:        signal attribute
 
-Parser3 ("parser3"):
---------------------
+Parser3 ("parser3")
+-------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -679,8 +680,8 @@ Parser3 ("parser3"):
 * ``preprocessor``:     preprocessor directive
 * ``title``:            user-defined name starting with "@"
 
-LiveCode Server ("livecodeserver"):
------------------------------------
+LiveCode Server ("livecodeserver")
+----------------------------------
 
 * ``variable``:         variable starting with "g", "t", "p", "s", "$_"
 * ``string``:           string
@@ -695,8 +696,8 @@ LiveCode Server ("livecodeserver"):
 * ``command``:          header of a command
 * ``preprocessor``:     preprocessor marks: "<?", "<?rev", "<?lc", "<?livecode" and "?>"
 
-TeX ("tex"):
-------------
+TeX ("tex")
+-----------
 
 * ``comment``:          comment
 * ``number``:           number
@@ -705,8 +706,8 @@ TeX ("tex"):
 * ``formula``:          formula
 * ``special``:          special symbol
 
-Haskell ("haskell"):
---------------------
+Haskell ("haskell")
+-------------------
 
 * ``comment``:          comment
 * ``pragma``:           GHC pragma
@@ -726,8 +727,8 @@ Haskell ("haskell"):
 * ``foreign``:          FFI declaration
 * ``shebang``:          shebang line
 
-Erlang ("erlang"):
-------------------
+Erlang ("erlang")
+-----------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -739,8 +740,8 @@ Erlang ("erlang"):
 * ``pp``:.keywords      module's attribute (-attribute)
 * ``function_name``:    atom or atom:atom in case of function call
 
-Rust ("rust"):
---------------
+Rust ("rust")
+-------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -749,8 +750,8 @@ Rust ("rust"):
 * ``title``:            name of declaration
 * ``preprocessor``:     preprocessor directive
 
-Matlab ("matlab"):
-------------------
+Matlab ("matlab")
+-----------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -762,8 +763,8 @@ Matlab ("matlab"):
 * ``matrix``:           matrix in [ .. ]
 * ``cell``:             cell in { .. }
 
-Scilab ("scilab"):
-------------------
+Scilab ("scilab")
+-----------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -774,8 +775,8 @@ Scilab ("scilab"):
 * ``param``:            params of function
 * ``matrix``:           matrix in [ .. ]
 
-R ("r"):
---------
+R ("r")
+-------
 
 * ``comment``:          comment
 * ``string``:           string constant
@@ -784,8 +785,8 @@ R ("r"):
                    functions (attach, require, setClass)
 * ``literal``:          special literal: TRUE, FALSE, NULL, NA, etc.
 
-OpenGL Shading Language ("glsl"):
----------------------------------
+OpenGL Shading Language ("glsl")
+--------------------------------
 
 * ``comment``:          comment
 * ``number``:           number
@@ -794,8 +795,8 @@ OpenGL Shading Language ("glsl"):
 * ``built_in``:         GLSL built-in functions and variables
 * ``literal``:          true false
 
-AppleScript ("applescript"):
-----------------------------
+AppleScript ("applescript")
+---------------------------
 
 * ``keyword``:          keyword
 * ``command``:          core AppleScript command
@@ -807,22 +808,22 @@ AppleScript ("applescript"):
 * ``comment``:          comment
 * ``title``:            name of a handler
 
-Brainfuck ("brainfuck"):
-------------------------
+Brainfuck ("brainfuck")
+-----------------------
 
 * ``title``:            Brainfuck while loop command
 * ``literal``:          Brainfuck inc and dec commands
 * ``comment``:          comment
 * ``string``:           Brainfuck input and output commands
 
-Mizar ("mizar"):
-----------------
+Mizar ("mizar")
+---------------
 
 * ``keyword``:          keyword
 * ``comment``:          comment
 
-AutoHotkey ("autohotkey"):
---------------------------
+AutoHotkey ("autohotkey")
+-------------------------
 
 * ``keyword``:          keyword
 * ``literal``:          A (active window), true, false, NOT, AND, OR
