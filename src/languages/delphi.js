@@ -21,8 +21,7 @@ function(hljs) {
   var STRING = {
     className: 'string',
     begin: /'/, end: /'/,
-    contains: [{begin: /''/}],
-    relevance: 0
+    contains: [{begin: /''/}]
   };
   var CHAR_STRING = {
     className: 'string', begin: /(#\d+)+/

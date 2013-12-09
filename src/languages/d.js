@@ -148,8 +148,7 @@ function(hljs) {
 		className: 'string',
 		begin: '"',
 		contains: [D_ESCAPE_SEQUENCE],
-		end: '"[cwd]?',
-		relevance: 0
+		end: '"[cwd]?'
 	};
 
 	/**

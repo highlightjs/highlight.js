@@ -44,23 +44,11 @@ function(hljs) {
     className: 'string',
     contains: STR_CONTAINS,
     variants: [
-      {
-        begin: /'/, end: /'/,
-        relevance: 0
-      },
-      {
-        begin: /"/, end: /"/,
-        relevance: 0
-      },
-      {
-        begin: '%[qw]?\\(', end: '\\)'
-      },
-      {
-        begin: '%[qw]?\\[', end: '\\]'
-      },
-      {
-        begin: '%[qw]?{', end: '}'
-      },
+      {begin: /'/, end: /'/},
+      {begin: /"/, end: /"/},
+      {begin: '%[qw]?\\(', end: '\\)'},
+      {begin: '%[qw]?\\[', end: '\\]'},
+      {begin: '%[qw]?{', end: '}'},
       {
         begin: '%[qw]?<', end: '>',
         relevance: 10

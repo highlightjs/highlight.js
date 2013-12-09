@@ -49,9 +49,12 @@ function(hljs) {
       },
       {
         className: 'label',
-        begin: '^[^\\n";]+(::|:)(?!=)',
-        illegal: '\\n',
-        contains: [BACKTICK_ESCAPE]
+        contains: [BACKTICK_ESCAPE],
+        variants: [
+          {begin: '^[^\\n";]+::(?!=)'},
+          {begin: '^[^\\n";]+:(?!=)', relevance: 0} // zero relevance as it catches a lot of things
+                                                    // followed by a single ':' in many languages
+        ]
       },
       {
         // consecutive commas, not for highlighting but just for relevance

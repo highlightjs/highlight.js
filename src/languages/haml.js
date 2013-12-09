@@ -26,8 +26,7 @@ function(hljs) {
         starts: {
           end: '\\n',
           subLanguage: 'ruby'
-        },
-        relevance: 0
+        }
       },
       {
         className: 'tag',
@@ -35,13 +34,11 @@ function(hljs) {
         contains: [
           {
             className: 'title',
-            begin: '\\w+',
-            relevance: 0
+            begin: '\\w+'
           },
           {
             className: 'value',
-            begin: '[#\\.]\\w+',
-            relevance: 0
+            begin: '[#\\.]\\w+'
           },
           {
             begin: '{\\s*',
@@ -54,33 +51,28 @@ function(hljs) {
                 end: ',\\s+',
                 returnBegin: true,
                 endsWithParent: true,
-                relevance: 0,
                 contains: [
                   {
                     className: 'symbol',
-                    begin: ':\\w+',
-                    relevance: 0
+                    begin: ':\\w+'
                   },
                   {
                     className: 'string',
                     begin: '"',
-                    end: '"',
-                    relevance: 0
+                    end: '"'
                   },
                   {
                     className: 'string',
                     begin: '\'',
-                    end: '\'',
-                    relevance: 0
+                    end: '\''
                   },
                   {
                     begin: '\\w+',
                     relevance: 0
                   }
                 ]
-              },
-            ],
-            relevance: 0
+              }
+            ]
           },
           {
             begin: '\\(\\s*',
@@ -93,7 +85,6 @@ function(hljs) {
                 end: '\\s+',
                 returnBegin: true,
                 endsWithParent: true,
-                relevance: 0,
                 contains: [
                   {
                     className: 'attribute',
@@ -103,14 +94,12 @@ function(hljs) {
                   {
                     className: 'string',
                     begin: '"',
-                    end: '"',
-                    relevance: 0
+                    end: '"'
                   },
                   {
                     className: 'string',
                     begin: '\'',
-                    end: '\'',
-                    relevance: 0
+                    end: '\''
                   },
                   {
                     begin: '\\w+',
@@ -118,11 +107,9 @@ function(hljs) {
                   }
                 ]
               },
-            ],
-            relevance: 0
+            ]
           }
-        ],
-        relevance: 10
+        ]
       },
       {
         className: 'bullet',
@@ -134,8 +121,7 @@ function(hljs) {
         starts: {
           end: '}',
           subLanguage: 'ruby'
-        },
-        relevance: 0
+        }
       }
     ]
   };

@@ -23,13 +23,11 @@ function(hljs) {
         begin: /\$\(/, end: /\)/,
         contains: [hljs.BACKSLASH_ESCAPE]
       }
-    ],
-    relevance: 0
+    ]
   };
   var APOS_STRING = {
     className: 'string',
-    begin: /'/, end: /'/,
-    relevance: 0
+    begin: /'/, end: /'/
   };
 
   return {

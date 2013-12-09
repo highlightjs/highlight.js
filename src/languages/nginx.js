@@ -28,7 +28,6 @@ function(hljs) {
       {
         className: 'string',
         contains: [hljs.BACKSLASH_ESCAPE, VAR],
-        relevance: 0,
         variants: [
           {begin: /"/, end: /"/},
           {begin: /'/, end: /'/}

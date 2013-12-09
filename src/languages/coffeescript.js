@@ -43,8 +43,7 @@ function(hljs) {
         },
         {
           begin: /'/, end: /'/,
-          contains: [hljs.BACKSLASH_ESCAPE],
-          relevance: 0
+          contains: [hljs.BACKSLASH_ESCAPE]
         },
         {
           begin: /"""/, end: /"""/,
@@ -52,8 +51,7 @@ function(hljs) {
         },
         {
           begin: /"/, end: /"/,
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-          relevance: 0
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
         }
       ]
     },
@@ -130,7 +128,8 @@ function(hljs) {
       {
         className: 'attribute',
         begin: JS_IDENT_RE + ':', end: ':',
-        returnBegin: true, excludeEnd: true
+        returnBegin: true, excludeEnd: true,
+        relevance: 0
       }
     ])
   };

@@ -4,6 +4,11 @@ Author: Evgeny Stepanischev <imbolk@gmail.com>
 */
 
 function(hljs){
+  var LITERAL = {
+    className: 'literal',
+    begin: '[\\+\\-]',
+    relevance: 0
+  };
   return {
     contains: [
       {
@@ -24,9 +29,11 @@ function(hljs){
         relevance: 0
       },
       {
-        className: 'literal',
-        begin: '[\\+\\-]'
-      }
+        // this mode works as the only relevance counter
+        begin: /\+\+|\-\-/, returnBegin: true,
+        contains: [LITERAL]
+      },
+      LITERAL
     ]
   };
 }

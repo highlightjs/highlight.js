@@ -55,7 +55,8 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'list',
-        begin: /\{/, end: /\}/
+        begin: /\{/, end: /\}/,
+        illegal: /:/
       }
     ]
   };
