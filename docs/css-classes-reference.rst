@@ -280,7 +280,7 @@ CoffeeScript ("coffeescript"):
 * ``property``:         @-property within class and functions
 
 ActionScript ("actionscript"):
------------------------------
+------------------------------
 
 * ``comment``:          comment
 * ``string``:           string
