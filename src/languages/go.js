@@ -28,8 +28,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
-        begin: '\'', end: '[^\\\\]\'',
-        relevance: 0
+        begin: '\'', end: '[^\\\\]\''
       },
       {
         className: 'string',

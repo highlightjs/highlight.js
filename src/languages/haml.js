@@ -59,14 +59,12 @@ function(hljs) {
                   {
                     className: 'string',
                     begin: '"',
-                    end: '"',
-                    relevance: 0
+                    end: '"'
                   },
                   {
                     className: 'string',
                     begin: '\'',
-                    end: '\'',
-                    relevance: 0
+                    end: '\''
                   },
                   {
                     begin: '\\w+',
@@ -96,14 +94,12 @@ function(hljs) {
                   {
                     className: 'string',
                     begin: '"',
-                    end: '"',
-                    relevance: 0
+                    end: '"'
                   },
                   {
                     className: 'string',
                     begin: '\'',
-                    end: '\'',
-                    relevance: 0
+                    end: '\''
                   },
                   {
                     begin: '\\w+',

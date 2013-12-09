@@ -38,14 +38,12 @@ function(hljs) {
           {
             className: 'string',
             begin: '\'', end: '\'',
-            contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}],
-            relevance: 0
+            contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}]
           },
           {
             className: 'string',
             begin: '"', end: '"',
-            contains: [hljs.BACKSLASH_ESCAPE, {begin: '""'}],
-            relevance: 0
+            contains: [hljs.BACKSLASH_ESCAPE, {begin: '""'}]
           },
           {
             className: 'string',

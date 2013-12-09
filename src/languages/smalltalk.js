@@ -18,8 +18,7 @@ function(hljs) {
     contains: [
       {
         className: 'comment',
-        begin: '"', end: '"',
-        relevance: 0
+        begin: '"', end: '"'
       },
       hljs.APOS_STRING_MODE,
       {

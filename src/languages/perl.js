@@ -88,12 +88,10 @@ function(hljs) {
         },
         {
           begin: '\'', end: '\'',
-          contains: [hljs.BACKSLASH_ESCAPE],
-          relevance: 0
+          contains: [hljs.BACKSLASH_ESCAPE]
         },
         {
-          begin: '"', end: '"',
-          relevance: 0
+          begin: '"', end: '"'
         },
         {
           begin: '`', end: '`',

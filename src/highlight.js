@@ -611,15 +611,13 @@ function() {
     className: 'string',
     begin: '\'', end: '\'',
     illegal: '\\n',
-    contains: [this.BACKSLASH_ESCAPE],
-    relevance: 0
+    contains: [this.BACKSLASH_ESCAPE]
   };
   this.QUOTE_STRING_MODE = {
     className: 'string',
     begin: '"', end: '"',
     illegal: '\\n',
-    contains: [this.BACKSLASH_ESCAPE],
-    relevance: 0
+    contains: [this.BACKSLASH_ESCAPE]
   };
   this.C_LINE_COMMENT_MODE = {
     className: 'comment',
