@@ -130,7 +130,8 @@ function(hljs) {
       {
         className: 'attribute',
         begin: JS_IDENT_RE + ':', end: ':',
-        returnBegin: true, excludeEnd: true
+        returnBegin: true, excludeEnd: true,
+        relevance: 0
       }
     ])
   };

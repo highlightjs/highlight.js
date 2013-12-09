@@ -49,11 +49,13 @@ function(hljs) {
       },
       {
         className: 'transposed_variable',
-        begin: '[a-zA-Z_][a-zA-Z_0-9]*(\'+[\\.\']*|[\\.\']+)', end: ''
+        begin: '[a-zA-Z_][a-zA-Z_0-9]*(\'+[\\.\']*|[\\.\']+)', end: '',
+        relevance: 0
       },
       {
         className: 'matrix',
         begin: '\\[', end: '\\]\'*[\\.\']*',
+        relevance: 0,
         contains: COMMON_CONTAINS
       },
       {

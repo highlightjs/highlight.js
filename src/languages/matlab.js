@@ -60,17 +60,20 @@ function(hljs) {
       },
       {
         className: 'transposed_variable',
-        begin: '[a-zA-Z_][a-zA-Z_0-9]*(\'+[\\.\']*|[\\.\']+)', end: ''
+        begin: '[a-zA-Z_][a-zA-Z_0-9]*(\'+[\\.\']*|[\\.\']+)', end: '',
+        relevance: 0
       },
       {
         className: 'matrix',
         begin: '\\[', end: '\\]\'*[\\.\']*',
-        contains: COMMON_CONTAINS
+        contains: COMMON_CONTAINS,
+        relevance: 0
       },
       {
         className: 'cell',
         begin: '\\{', end: '\\}\'*[\\.\']*',
-        contains: COMMON_CONTAINS
+        contains: COMMON_CONTAINS,
+        illegal: /:/
       },
       {
         className: 'comment',
