@@ -262,6 +262,7 @@ JavaScript ("javascript", "js")
 * ``function``:         header of a function
 * ``title``:            name of a function inside a header
 * ``params``:           parentheses and everything inside them in a function's header
+* ``pi``:               'use strict' processing instruction
 
 CoffeeScript ("coffeescript")
 -----------------------------
