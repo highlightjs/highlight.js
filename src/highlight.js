@@ -247,7 +247,7 @@ function() {
   }
 
   /*
-  Core highlighting function. Accepts a language name, or alias, and a
+  Core highlighting function. Accepts a language name, or an alias, and a
   string with the code to highlight. Returns an object with the following
   properties:
 
