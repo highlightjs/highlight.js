@@ -567,14 +567,10 @@ function() {
   var aliases = {};
 
   function registerLanguage(name, language) {
-    if (typeof language === 'function') {
-      language = language(self);
-    }
+    var lang = languages[name] = language(self);
 
-    languages[name] = language;
-
-    if (language.aliases) {
-      language.aliases.forEach(function(alias) {aliases[alias] = name;});
+    if (lang.aliases) {
+      lang.aliases.forEach(function(alias) {aliases[alias] = name;});
     }
   }
 
