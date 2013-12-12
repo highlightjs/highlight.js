@@ -3,19 +3,19 @@
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 /* https://github.com/jmblog/color-themes-for-highlightjs */
 
-/* base16-atelierdune-light-comment */
+/* Atelier Dune Light Comment */
 .hljs-comment,
 .hljs-title {
   color: #7d7a68;
 }
 
-/* base16-atelierdune-light-red */
+/* Atelier Dune Light Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
 .ruby .hljs-constant,
-.xml .tag .hljs-title,
+.xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
 .xml .hljs-doctype,
 .html .hljs-doctype,
@@ -25,7 +25,7 @@
   color: #d73737;
 }
 
-/* base16-atelierdune-light-orange */
+/* Atelier Dune Light Orange */
 .hljs-number,
 .hljs-preprocessor,
 .hljs-pragma,
@@ -36,13 +36,13 @@
   color: #b65611;
 }
 
-/* base16-atelierdune-light-yellow */
-.hljs-ruby .class .title,
+/* Atelier Dune Light Yellow */
+.hljs-ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #cfb017;
 }
 
-/* base16-atelierdune-light-green */
+/* Atelier Dune Light Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -52,12 +52,12 @@
   color: #60ac39;
 }
 
-/* base16-atelierdune-light-aqua */
+/* Atelier Dune Light Aqua */
 .css .hljs-hexcolor {
   color: #1fad83;
 }
 
-/* base16-atelierdune-light-blue */
+/* Atelier Dune Light Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -69,7 +69,7 @@
   color: #6684e1;
 }
 
-/* base16-atelierdune-light-purple */
+/* Atelier Dune Light Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #b854d4;

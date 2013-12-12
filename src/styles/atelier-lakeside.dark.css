@@ -3,19 +3,19 @@
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 /* https://github.com/jmblog/color-themes-for-highlightjs */
 
-/* base16-atelierlakeside-dark-comment */
+/* Atelier Lakeside Dark Comment */
 .hljs-comment,
 .hljs-title {
   color: #7195a8;
 }
 
-/* base16-atelierlakeside-dark-red */
+/* Atelier Lakeside Dark Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
 .ruby .hljs-constant,
-.xml .tag .hljs-title,
+.xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
 .xml .hljs-doctype,
 .html .hljs-doctype,
@@ -25,7 +25,7 @@
   color: #d22d72;
 }
 
-/* base16-atelierlakeside-dark-orange */
+/* Atelier Lakeside Dark Orange */
 .hljs-number,
 .hljs-preprocessor,
 .hljs-pragma,
@@ -36,13 +36,13 @@
   color: #935c25;
 }
 
-/* base16-atelierlakeside-dark-yellow */
-.hljs-ruby .class .title,
+/* Atelier Lakeside Dark Yellow */
+.hljs-ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #8a8a0f;
 }
 
-/* base16-atelierlakeside-dark-green */
+/* Atelier Lakeside Dark Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -52,12 +52,12 @@
   color: #568c3b;
 }
 
-/* base16-atelierlakeside-dark-aqua */
+/* Atelier Lakeside Dark Aqua */
 .css .hljs-hexcolor {
   color: #2d8f6f;
 }
 
-/* base16-atelierlakeside-dark-blue */
+/* Atelier Lakeside Dark Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -69,7 +69,7 @@
   color: #257fad;
 }
 
-/* base16-atelierlakeside-dark-purple */
+/* Atelier Lakeside Dark Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #5d5db1;
