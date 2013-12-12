@@ -15,7 +15,7 @@
 .hljs-tag,
 .hljs-regexp,
 .ruby .hljs-constant,
-.xml .tag .hljs-title,
+.xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
 .xml .hljs-doctype,
 .html .hljs-doctype,
@@ -37,7 +37,7 @@
 }
 
 /* base16-atelierforest-dark-yellow */
-.hljs-ruby .class .title,
+.hljs-ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #d5911a;
 }
