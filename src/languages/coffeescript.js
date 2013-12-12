@@ -114,12 +114,12 @@ function(hljs) {
         className: 'class',
         beginWithKeyword: true, keywords: 'class',
         end: '$',
-        illegal: '[:\\[\\]]',
+        illegal: /[:="\[\]]/,
         contains: [
           {
             beginWithKeyword: true, keywords: 'extends',
             endsWithParent: true,
-            illegal: ':',
+            illegal: /[:="\[\]]/,
             contains: [TITLE]
           },
           TITLE
