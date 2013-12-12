@@ -3,13 +3,13 @@
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 /* https://github.com/jmblog/color-themes-for-highlightjs */
 
-/* base16-atelierheath-dark-comment */
+/* Atelier Heath Dark Comment */
 .hljs-comment,
 .hljs-title {
   color: #9e8f9e;
 }
 
-/* base16-atelierheath-dark-red */
+/* Atelier Heath Dark Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
@@ -25,7 +25,7 @@
   color: #ca402b;
 }
 
-/* base16-atelierheath-dark-orange */
+/* Atelier Heath Dark Orange */
 .hljs-number,
 .hljs-preprocessor,
 .hljs-pragma,
@@ -36,13 +36,13 @@
   color: #a65926;
 }
 
-/* base16-atelierheath-dark-yellow */
+/* Atelier Heath Dark Yellow */
 .hljs-ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #bb8a35;
 }
 
-/* base16-atelierheath-dark-green */
+/* Atelier Heath Dark Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -52,12 +52,12 @@
   color: #379a37;
 }
 
-/* base16-atelierheath-dark-aqua */
+/* Atelier Heath Dark Aqua */
 .css .hljs-hexcolor {
   color: #159393;
 }
 
-/* base16-atelierheath-dark-blue */
+/* Atelier Heath Dark Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -69,7 +69,7 @@
   color: #516aec;
 }
 
-/* base16-atelierheath-dark-purple */
+/* Atelier Heath Dark Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #7b59c0;

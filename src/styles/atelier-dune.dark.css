@@ -3,13 +3,13 @@
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 /* https://github.com/jmblog/color-themes-for-highlightjs */
 
-/* base16-atelierdune-dark-comment */
+/* Atelier Dune Dark Comment */
 .hljs-comment,
 .hljs-title {
   color: #999580;
 }
 
-/* base16-atelierdune-dark-red */
+/* Atelier Dune Dark Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
@@ -25,7 +25,7 @@
   color: #d73737;
 }
 
-/* base16-atelierdune-dark-orange */
+/* Atelier Dune Dark Orange */
 .hljs-number,
 .hljs-preprocessor,
 .hljs-pragma,
@@ -36,13 +36,13 @@
   color: #b65611;
 }
 
-/* base16-atelierdune-dark-yellow */
+/* Atelier Dune Dark Yellow */
 .ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #cfb017;
 }
 
-/* base16-atelierdune-dark-green */
+/* Atelier Dune Dark Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -52,12 +52,12 @@
   color: #60ac39;
 }
 
-/* base16-atelierdune-dark-aqua */
+/* Atelier Dune Dark Aqua */
 .css .hljs-hexcolor {
   color: #1fad83;
 }
 
-/* base16-atelierdune-dark-blue */
+/* Atelier Dune Dark Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -69,7 +69,7 @@
   color: #6684e1;
 }
 
-/* base16-atelierdune-dark-purple */
+/* Atelier Dune Dark Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #b854d4;
