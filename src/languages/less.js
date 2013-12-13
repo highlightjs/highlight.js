@@ -39,6 +39,11 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE
     ]
   };
+  var AT_RULE = {
+    className: 'at_rule',
+    begins: '@(charset|font-face|import|keyframes|media|namespace|page|region|supports|viewport)',
+    keywords: 'charset font-face import keyframes media namespace page region supports viewport'
+  }
   return {
     case_insensitive: true,
     keywords: 'when and not',
@@ -53,6 +58,7 @@ function(hljs) {
       },
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_LINE_COMMENT_MODE,
+      AT_RULE,
       DEFAULT,
       FUNCTION,
       VARIABLE,
@@ -72,6 +78,10 @@ function(hljs) {
       },
       {
         className: 'pseudo',
+        begin: '[^&]?:(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
+      },
+      {
+        className: 'pseudo',
         begin: ':(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
       },
       {
@@ -79,6 +89,10 @@ function(hljs) {
         begin: '@(font-face|page)',
         lexemes: '[a-z-]+',
         keywords: 'font-face page'
+      },
+      {
+        className: 'tag', begin: IDENT_RE,
+        relevance: 0
       },
 /*
       {
@@ -104,10 +118,6 @@ function(hljs) {
         ]
       },
 */
-      {
-        className: 'tag', begin: IDENT_RE,
-        relevance: 0
-      },
 /*
       {
         className: 'rules',
