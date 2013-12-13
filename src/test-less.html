@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<head>
+  <title>highlight.js test</title>
+  <meta charset="utf-8">
+
+<!--
+  <link rel="stylesheet" title="Default" href="styles/default.css">
+  <link rel="alternate stylesheet" title="Dark" href="styles/dark.css">
+  <link rel="alternate stylesheet" title="FAR" href="styles/far.css">
+  <link rel="alternate stylesheet" title="IDEA" href="styles/idea.css">
+  <link rel="alternate stylesheet" title="Sunburst" href="styles/sunburst.css">
+  <link rel="alternate stylesheet" title="Zenburn" href="styles/zenburn.css">
+  <link rel="alternate stylesheet" title="Visual Studio" href="styles/vs.css">
+  <link rel="alternate stylesheet" title="Ascetic" href="styles/ascetic.css">
+  <link rel="alternate stylesheet" title="Magula" href="styles/magula.css">
+  <link rel="alternate stylesheet" title="GitHub" href="styles/github.css">
+  <link rel="alternate stylesheet" title="Google Code" href="styles/googlecode.css">
+  <link rel="alternate stylesheet" title="Brown Paper" href="styles/brown_paper.css">
+  <link rel="alternate stylesheet" title="School Book" href="styles/school_book.css">
+  <link rel="alternate stylesheet" title="IR Black" href="styles/ir_black.css">
+  <link rel="alternate stylesheet" title="Solarized - Dark" href="styles/solarized_dark.css">
+  <link rel="alternate stylesheet" title="Solarized - Light" href="styles/solarized_light.css">
+  <link rel="alternate stylesheet" title="Arta" href="styles/arta.css">
+  <link rel="alternate stylesheet" title="Monokai" href="styles/monokai.css">
+  <link rel="alternate stylesheet" title="Monokai Sublime" href="styles/monokai_sublime.css">
+  <link rel="alternate stylesheet" title="XCode" href="styles/xcode.css">
+  <link rel="alternate stylesheet" title="Pojoaque" href="styles/pojoaque.css">
+  <link rel="alternate stylesheet" title="Rainbow" href="styles/rainbow.css">
+  <link rel="alternate stylesheet" title="Tomorrow" href="styles/tomorrow.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night" href="styles/tomorrow-night.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night Bright" href="styles/tomorrow-night-bright.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night Blue" href="styles/tomorrow-night-blue.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night Eighties" href="styles/tomorrow-night-eighties.css">
+  <link rel="alternate stylesheet" title="Railscasts" href="styles/railscasts.css">
+  <link rel="alternate stylesheet" title="Obsidian" href="styles/obsidian.css">
+  <link rel="alternate stylesheet" title="Docco" href="styles/docco.css">
+  <link rel="alternate stylesheet" title="Mono Blue" href="styles/mono-blue.css">
+  <link rel="alternate stylesheet" title="Foundation" href="styles/foundation.css">
+  <link rel="alternate stylesheet" title="Atelier Dun - Dark" href="styles/atelier-dune.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Dun - Light" href="styles/atelier-dune.light.css">
+  <link rel="alternate stylesheet" title="Atelier Forest - Dark" href="styles/atelier-forest.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Forest - Light" href="styles/atelier-forest.light.css">
+  <link rel="alternate stylesheet" title="Atelier Heath - Dark" href="styles/atelier-heath.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Heath - Light" href="styles/atelier-heath.light.css">
+  <link rel="alternate stylesheet" title="Atelier Lakeside - Dark" href="styles/atelier-lakeside.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Lakeside - Light" href="styles/atelier-lakeside.light.css">
+  <link rel="alternate stylesheet" title="Atelier Seaside - Dark" href="styles/atelier-seaside.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Seaside - Light" href="styles/atelier-seaside.light.css">
+-->
+  <link rel="stylesheet" href="styles/docco.css">
+  <link rel="stylesheet" href="http://calvinmois.es/css/style.css">
+
+  <style>
+/*
+    body {
+      font: small Arial, sans-serif;
+    }
+    h2 {
+      font: bold 100% Arial, sans-serif;
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+    }
+*/
+    table {
+      width: 100%; padding: 0; border-collapse: collapse;
+    }
+    th {
+      width: 12em;
+      padding: 0; margin: 0;
+    }
+    td {
+      padding-bottom: 1em;
+    }
+    td, th {
+      vertical-align: top;
+      text-align: left;
+    }
+    pre {
+      margin: 0; font-size: medium;
+    }
+    #switch {
+      overflow: auto; width: 67em;
+      list-style: none;
+      padding: 0; margin: 0;
+    }
+    #switch li {
+      float: left; width: 12em;
+      padding: 0.1em; margin: 0.1em 1em 0.1em 0;
+      background: #EEE;
+      cursor: pointer;
+    }
+    #switch li.current {
+      background: #CCC;
+    }
+    .test {
+      color: #888;
+      font-weight: normal;
+      margin: 2em 0 0 0;
+    }
+    .test var {
+      font-style: normal;
+    }
+    .passed {
+      color: green;
+    }
+    .failed {
+      color: red;
+    }
+    .code {
+      font: medium monospace;
+    }
+    .code .hljs-keyword {
+      font-weight: bold;
+    }
+  </style>
+
+  <script src="../build/highlight.pack.js"></script>
+  <script>
+  hljs.tabReplace = '    ';
+  hljs.initHighlightingOnLoad();
+  </script>
+</head>
+<body>
+
+<header><h1>LESS Test</h1></header>
+<div class="main">
+<table id="autotest">
+  <tr>
+    <th>LESS</th>
+    <td class="less">
+<pre><code class="less">/*! LESS */
+//! ----------
+
+@import '_variables';
+@import (reference) '_mixins';
+
+.at-viewport(@width) when (isnumber(@width)) {
+	@at: ~'@';
+	@{at}-ms-viewport { width: @width; }
+	@{at}-o-viewport { width: @width; }
+	@{at}viewport { width: @width; }
+}
+
+.baseline-grid(@color) when (iscolor(@color)) {
+	@linear-gradient:
+		fade(@color,5) 0%, fade(@color,5) 25%,
+		fade(@color,15) 25%, fade(@color,15) 75%,
+		fade(@color,5) 75%, fade(@color,5) 100%;
+	background: -webkit-linear-gradient(@linear-gradient);
+	background: -moz-linear-gradient(@linear-gradient);
+	background: -ms-linear-gradient(@linear-gradient);
+	background: -o-linear-gradient(@linear-gradient);
+	background: linear-gradient(@linear-gradient);
+	background-size: 27px 27px;
+}
+
+#format-string-function { /* from http://lesscss.org */
+  format-a-d: %("repetitions: %a file: %d", 1 + 2, "directory/file.less");
+  format-a-d-upper: %('repetitions: %A file: %D', 1 + 2, "directory/file.less");
+  format-s: %("repetitions: %s file: %s", 1 + 2, "directory/file.less");
+  format-s-upper: %('repetitions: %S file: %S', 1 + 2, "directory/file.less");
+}
+
+.nav {
+  &:extend(.clearfix all);
+  display: block;
+  li {
+    display: inline-block;
+    .ie7-inline-block();
+    margin: 0;
+    padding: 0;
+  }
+}
+
+body {
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    background: linear-gradient(45deg, blue, red);
+    &:first-of-type pre::after {
+      content: 'highlight: ' attr(class);
+    }
+  }
+}
+</code></pre>
+    </td>
+  </tr>
+
+  <tr>
+    <th>CSS</th>
+    <td class="css">
+<pre><code class="css">@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  body:first-of-type pre::after {
+    content: 'highlight: ' attr(class);
+  }
+  body {
+    background: linear-gradient(45deg, blue, red);
+  }
+}
+
+@import url('print.css');
+@page:right {
+ margin: 1cm 2cm 1.3cm 4cm;
+}
+
+@font-face {
+  font-family: Chunkfive; src: url('Chunkfive.otf');
+}
+
+div.text,
+#content,
+li[lang=ru] {
+  font: Tahoma, Chunkfive, sans-serif;
+  background: url('hatch.png') /* wtf? */;  color: #F0F0F0 !important;
+  width: 100%;
+}
+</code></pre>
+    </td>
+  </tr>
+
+  <tr>
+    <th>SCSS</th>
+    <td class="scss">
+<pre><code class="scss">@import "compass/reset";
+
+// variables
+$colorGreen: #008000;
+$colorGreenDark: darken($colorGreen, 10);
+
+@mixin container {
+    max-width: 980px;
+}
+
+// mixins with parameters
+@mixin button($color:green) {
+    @if ($color == green) {
+        background-color: #008000;
+    }
+    @else if ($color == red) {
+        background-color: #B22222;
+    }
+}
+
+button {
+    @include button(red);
+}
+
+div,
+.navbar,
+#header,
+input[type="input"] {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.row-12 > [class*="spans"] {
+    border-left: 1px solid #B5C583;
+}
+
+// nested definitions
+ul {
+    width: 100%;
+    padding: {
+        left: 5px; right: 5px;
+    }
+  li {
+      float: left; margin-right: 10px;
+      .home {
+          background: url('http://placehold.it/20') scroll no-repeat 0 0;
+    }
+  }
+}
+
+.banner {
+    @extend .container;
+}
+
+a {
+  color: $colorGreen;
+  &amp;:hover { color: $colorGreenDark; }
+  &amp;:visited { color: #c458cb; }
+}
+
+@for $i from 1 through 5 {
+    .span#{$i} {
+        width: 20px*$i;
+    }
+}
+
+@mixin mobile {
+  @media screen and (max-width : 600px) {
+    @content;
+  }
+}</code></pre>
+    </td>
+  </tr>
+  
+  <tr>
+    <th>PHP</th>
+    <td class="php">
+<pre><code class="php">require_once 'Zend/Uri/Http.php';
+
+abstract class URI extends BaseURI
+{
+  abstract function test();
+
+  /**
+   * Returns a URI
+   *
+   * @return  URI
+   */
+  static public function _factory($stats = array(), $uri = 'http')
+  {
+      echo __METHOD__;
+      $uri = explode(':', $uri, 0b10);
+      $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
+      $desc = 'Multi
+line description';
+
+      // Security check
+      if (!ctype_alnum($scheme)) {
+          throw new Zend_Uri_Exception('Illegal scheme');
+      }
+
+      return [
+        'uri' => $uri,
+        'value' => null,
+      ];
+  }
+}
+
+__halt_compiler () ; datahere
+datahere
+datahere */
+datahere</code></pre>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
