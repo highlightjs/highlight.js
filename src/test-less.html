@@ -285,7 +285,27 @@ a {
 }</code></pre>
     </td>
   </tr>
-  
+  <tr>
+    <th>JavaScript</th>
+    <td class="javascript">
+<pre><code class="javascript">function $initHighlight(block, flags) {
+  try {
+    if (block.className.search(/\bno\-highlight\b/) != -1)
+      return processBlock(block, true, 0x0F) + ' class=""';
+  } catch (e) {
+    /* handle exception */
+    var e4x =
+        &lt;div&gt;Example
+            &lt;p&gt;1234&lt;/p&gt;&lt;/div&gt;;
+  }
+  for (var i = 0 / 2; i &lt; classes.length; i++) { // "0 / 2" should not be parsed as regexp
+    if (checkCondition(classes[i]) === undefined)
+      return /\d+[\s/]/g;
+  }
+  console.log(new Date());
+}</code></pre>
+    </td>
+  </tr>
   <tr>
     <th>PHP</th>
     <td class="php">
