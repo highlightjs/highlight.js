@@ -9,7 +9,7 @@ function(hljs) {
     className: 'variable',
     begin: '@({)?[a-zA-Z0-9_-]*(})?'
   };
-  var DEFAULT = {
+  var LESS = {
     className: 'function',
     begin: '(escape|e|%|unit|color|data-uri|ceil|floor|percentage|round|sqrt|abs|sin|asin|cos|acos|tan|atan|pi|pow|mod|convert|unit|' +
       'rgb|rgba|argb|hsl|hsla|hsv|hsva|hue|saturation|lightness|hsvhue|hsvsaturation|hsvvalue|red|green|blue|alpha|luma|' +
@@ -33,6 +33,8 @@ function(hljs) {
     relevance: 0,
     contains: [
       'self',
+      LESS,
+      FUNCTION,
       VARIABLE,
       hljs.NUMBER_MODE,
       hljs.APOS_STRING_MODE,
@@ -42,6 +44,7 @@ function(hljs) {
   var AT_RULE = {
     className: 'at_rule',
     begins: '@(charset|font-face|import|keyframes|media|namespace|page|region|supports|viewport)',
+    lexemes: '[a-z-]+',
     keywords: 'charset font-face import keyframes media namespace page region supports viewport'
   }
   return {
@@ -58,11 +61,11 @@ function(hljs) {
       },
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_LINE_COMMENT_MODE,
-      AT_RULE,
-      DEFAULT,
+      LESS,
       FUNCTION,
-      VARIABLE,
       MIXIN,
+      AT_RULE,
+      VARIABLE,
       {
         className: 'id', begin: '\\#[A-Za-z0-9_-]+',
         relevance: 0
@@ -78,18 +81,34 @@ function(hljs) {
       },
       {
         className: 'pseudo',
-        begin: '[^&]?:(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
+        begin: '(&)?:extend\\(', end: '\\)',
+        contains: [
+          {
+            className: 'id', begin: '\\#[A-Za-z0-9_-]+',
+            relevance: 0
+          },
+          {
+            className: 'class', begin: '\\.[A-Za-z0-9_-]+',
+            relevance: 0
+          },
+          {
+            className: 'tag', begin: IDENT_RE,
+            relevance: 0
+          }
+        ]
       },
       {
         className: 'pseudo',
-        begin: ':(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
+        begin: '(&)?:(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
       },
+/*
       {
         className: 'at_rule',
         begin: '@(font-face|page)',
         lexemes: '[a-z-]+',
         keywords: 'font-face page'
       },
+*/
       {
         className: 'tag', begin: IDENT_RE,
         relevance: 0
