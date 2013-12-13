@@ -94,3 +94,4 @@ URL:   http://highlightjs.org/
 - Брэм де Хаан <info@atelierbramdehaan.nl>
 - Сенгвон Ли <dlimpid@gmail.com>
 - Завен Мурадян <megalivoithos@gmail.com>
+- Ян Т. Сотт <jan@idleberg.com>
