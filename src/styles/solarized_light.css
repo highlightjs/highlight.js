@@ -5,8 +5,10 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 */
 
 .hljs {
-  display: block; padding: 0.5em;
-  background: #fdf6e3; color: #657b83;
+  display: block;
+  padding: 0.5em;
+  background: #fdf6e3;
+  color: #657b83;
 }
 
 .hljs-comment,
