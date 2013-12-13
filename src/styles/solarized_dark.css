@@ -43,7 +43,8 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-phpdoc,
 .tex .hljs-formula,
 .hljs-regexp,
-.hljs-hexcolor {
+.hljs-hexcolor,
+.hljs-link_url {
   color: #2aa198;
 }
 
@@ -86,13 +87,19 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-subst,
 .hljs-cdata,
 .clojure .hljs-title,
-.css .hljs-pseudo {
+.css .hljs-pseudo,
+.hljs-header {
   color: #cb4b16;
 }
 
 /* Solarized Red */
 .hljs-deletion {
   color: #dc322f;
+}
+
+/* Solarized Violet */
+.hljs-link_label {
+  color: #6c71c4;
 }
 
 .tex .hljs-formula {
