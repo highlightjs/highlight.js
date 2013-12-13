@@ -1,57 +1,93 @@
 /*
-
-    Name:       Paraíso (Light)
-    Author:     Jan T. Sott
-
+    Paraíso (light)
+    Created by Jan T. Sott (http://github.com/idleberg)
     Inspired by the art of Rubens LP (http://www.rubenslp.com.br)
-    Created using Chris Kempson's Base16-Builder (https://github.com/chriskempson/base16-builder)
-
 */
-.paraiso-light-comment, pre .comment, pre .title {
+
+/* Paraíso Comment */
+.hljs.comment,
+.hljs.title {
   color: #776e71;
 }
 
-.paraiso-light-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+/* Paraíso Red */
+.hljs.variable,
+.hljs.attribute,
+.hljs.tag,
+.hljs.regexp,
+.hljs.ruby .constant,
+.hljs.xml .tag .title,
+.hljs.xml .pi,
+.hljs.xml .doctype,
+.hljs.html .doctype,
+.hljs.css .id,
+.hljs.css .class,
+.hljs.css .pseudo {
   color: #ef6155;
 }
 
-.paraiso-light-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+/* Paraíso Orange */
+.hljs.number,
+.hljs.preprocessor,
+.hljs.built_in,
+.hljs.literal,
+.hljs.params,
+.hljs.constant {
   color: #f99b15;
 }
 
-.paraiso-light-yellow, pre .ruby .class .title, pre .css .rules .attribute {
+/* Paraíso Yellow */
+.hljs.ruby .class .title,
+.hljs.css .rules .attribute {
   color: #fec418;
 }
 
-.paraiso-light-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+/* Paraíso Green */
+.hljs.string,
+.hljs.value,
+.hljs.inheritance,
+.hljs.header,
+.hljs.ruby .symbol,
+.hljs.xml .cdata {
   color: #48b685;
 }
 
-.paraiso-light-aqua, pre .css .hexcolor {
+/* Paraíso Aqua */
+.hljs.css .hexcolor {
   color: #5bc4bf;
 }
 
-.paraiso-light-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+/* Paraíso Blue */
+.hljs.function,
+.hljs.python .decorator,
+.hljs.python .title,
+.hljs.ruby .function .title,
+.hljs.ruby .title .keyword,
+.hljs.perl .sub,
+.hljs.javascript .title,
+.hljs.coffeescript .title {
   color: #06b6ef;
 }
 
-.paraiso-light-purple, pre .keyword, pre .javascript .function {
+/* Paraíso Purple */
+.hljs.keyword,
+.hljs.javascript .function {
   color: #815ba4;
 }
 
-pre code {
+.hljs {
   display: block;
   background: #e7e9db;
   color: #4f424c;
   padding: 0.5em;
 }
 
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .formula,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .cdata {
+.hljs.coffeescript .javascript,
+.hljs.javascript .xml,
+.hljs.tex .formula,
+.hljs.xml .javascript,
+.hljs.xml .vbscript,
+.hljs.xml .css,
+.hljs.xml .cdata {
   opacity: 0.5;
 }
