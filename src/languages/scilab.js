@@ -33,7 +33,7 @@ function(hljs) {
     contains: [
       {
         className: 'function',
-        beginWithKeyword: true, end: '$',
+        beginKeywords: 'function endfunction', end: '$',
         keywords: 'function endfunction|10',
         contains: [
           {

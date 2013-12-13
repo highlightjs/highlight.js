@@ -21,7 +21,7 @@ REPLACES = {
     'subLanguage': 'sL',
     'className': 'cN',
     'begin': 'b',
-    'beginWithKeyword': 'bWK',
+    'beginKeywords': 'bK',
     'end': 'e',
     'endsWithParent': 'eW',
     'illegal': 'i',

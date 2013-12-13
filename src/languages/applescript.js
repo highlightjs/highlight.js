@@ -93,8 +93,7 @@ function(hljs) {
       },
       {
         className: 'function_start',
-        beginWithKeyword: true,
-        keywords: 'on',
+        beginKeywords: 'on',
         illegal: '[${=;\\n]',
         contains: [TITLE, PARAMS]
       }

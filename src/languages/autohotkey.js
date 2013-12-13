@@ -21,8 +21,7 @@ function(hljs) {
     },
     {
       className: 'built_in',
-      beginWithKeyword: true,
-      keywords: 'ComSpec Clipboard ClipboardAll ErrorLevel'
+      beginKeywords: 'ComSpec Clipboard ClipboardAll ErrorLevel'
     }
   ];
 

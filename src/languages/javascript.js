@@ -47,8 +47,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginWithKeyword: true, end: /{/,
-        keywords: 'function',
+        beginKeywords: 'function', end: /\{/,
         contains: [
           {
             className: 'title', begin: /[A-Za-z$_][0-9A-Za-z$_]*/

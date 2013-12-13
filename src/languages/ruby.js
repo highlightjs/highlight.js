@@ -78,8 +78,7 @@ function(hljs) {
   };
   var FUNCTION = {
     className: 'function',
-    beginWithKeyword: true, end: ' |$|;',
-    keywords: 'def',
+    beginKeywords: 'def', end: ' |$|;',
     relevance: 0,
     contains: [
       {
@@ -101,8 +100,7 @@ function(hljs) {
     COMMENT,
     {
       className: 'class',
-      beginWithKeyword: true, end: '$|;',
-      keywords: 'class module',
+      beginKeywords: 'class module', end: '$|;',
       contains: [
         {
           className: 'title',

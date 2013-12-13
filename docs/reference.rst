@@ -78,10 +78,10 @@ Sometimes a mode can end not by itself but implicitly with its containing (paren
 This is achieved with :ref:`endsWithParent <endsWithParent>` attribute.
 
 
-beginWithKeyword
+beginKeywords
 ^^^^^^^^^^^^^^^^
 
-**type**: boolean
+**type**: string
 
 Used instead of ``begin`` for modes starting with keywords to avoid needless repetition:
 
@@ -97,8 +97,10 @@ Used instead of ``begin`` for modes starting with keywords to avoid needless rep
 ::
 
   {
-    beginWithKeyword: true, keywords: 'extends implements'
+    beginKeywords: 'extends implements'
   }
+
+Unlike the ``[[#keywords]]`` attribute, this one allows only a simple list of space separated keywords. If you do need additional features of ``keywords`` or you just need more keywords for this mode you may include ``keywords`` along with ``beginKeywords``.
 
 
 .. _endsWithParent:

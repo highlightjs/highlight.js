@@ -31,31 +31,26 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'package',
-        beginWithKeyword: true, end: '{',
-        keywords: 'package',
+        beginKeywords: 'package', end: '{',
         contains: [TITLE_MODE]
       },
       {
         className: 'class',
-        beginWithKeyword: true, end: '{',
-        keywords: 'class interface',
+        beginKeywords: 'class interface', end: '{',
         contains: [
           {
-            beginWithKeyword: true,
-            keywords: 'extends implements'
+            beginKeywords: 'extends implements'
           },
           TITLE_MODE
         ]
       },
       {
         className: 'preprocessor',
-        beginWithKeyword: true, end: ';',
-        keywords: 'import include'
+        beginKeywords: 'import include', end: ';'
       },
       {
         className: 'function',
-        beginWithKeyword: true, end: '[{;]',
-        keywords: 'function',
+        beginKeywords: 'function', end: '[{;]',
         illegal: '\\S',
         contains: [
           TITLE_MODE,

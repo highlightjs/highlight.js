@@ -69,8 +69,7 @@ function(hljs) {
       VARIABLE,
       {
         className: 'function',
-        beginWithKeyword: true, end: /[;{]/,
-        keywords: 'function',
+        beginKeywords: 'function', end: /[;{]/,
         illegal: '\\$|\\[|%',
         contains: [
           TITLE,
@@ -89,13 +88,11 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginWithKeyword: true, end: '{',
-        keywords: 'class',
+        beginKeywords: 'class', end: '{',
         illegal: '[:\\(\\$]',
         contains: [
           {
-            beginWithKeyword: true, endsWithParent: true,
-            keywords: 'extends',
+            beginKeywords: 'extends', endsWithParent: true,
             contains: [TITLE]
           },
           TITLE

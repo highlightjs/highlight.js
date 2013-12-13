@@ -136,8 +136,7 @@ function(hljs) {
     },
     {
       className: 'sub',
-      beginWithKeyword: true, end: '(\\s*\\(.*?\\))?[;{]',
-      keywords: 'sub',
+      beginKeywords: 'sub', end: '(\\s*\\(.*?\\))?[;{]',
       relevance: 5
     },
     {

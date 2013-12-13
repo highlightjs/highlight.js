@@ -33,7 +33,7 @@ function(hljs) {
   };
   var FUNCTION = {
     className: 'function',
-    beginWithKeyword: true, end: '[:;]',
+    beginKeywords: 'function constructor destructor procedure method', end: '[:;]',
     keywords: 'function constructor|10 destructor|10 procedure|10 method|10',
     contains: [
       {

@@ -51,26 +51,22 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       {
-        beginWithKeyword: true, end: '{',
-        keywords: 'class namespace',
+        beginKeywords: 'class namespace', end: '{',
         contains: [
           TITLE
         ]
       },
       {
-        beginWithKeyword: true, keywords: 'protected public private internal',
-        starts: {
-          end: '{|;',
-          keywords: KEYWORDS,
-          contains: [
-            {
-              begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
-              contains: [
-                TITLE
-              ]
-            }
-          ]
-        }
+        beginKeywords: 'protected public private internal', end: '{|;',
+        keywords: KEYWORDS,
+        contains: [
+          {
+            begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
+            contains: [
+              TITLE
+            ]
+          }
+        ]
       }
     ]
   };

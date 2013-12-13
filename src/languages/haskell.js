@@ -90,14 +90,12 @@ function(hljs) {
       },
       {
         className: 'default',
-        beginWithKeyword: true, end: '$',
-        keywords: 'default',
+        beginKeywords: 'default', end: '$',
         contains: [CONSTRUCTOR, LIST, COMMENT]
       },
       {
         className: 'infix',
-        beginWithKeyword: true, end: '$',
-        keywords: 'infix infixl infixr',
+        beginKeywords: 'infix infixl infixr', end: '$',
         contains: [hljs.C_NUMBER_MODE, COMMENT]
       },
       {

@@ -31,13 +31,12 @@ function(hljs) {
       STRING, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
       {
         className: 'class',
-        begin: '((case )?class |object |trait )', end: '({|$)', // beginWithKeyword won't work because a single "case" shouldn't start this mode
+        begin: '((case )?class |object |trait )', end: '({|$)', // beginKeywords won't work because a single "case" shouldn't start this mode
         illegal: ':',
         keywords: 'case class trait object',
         contains: [
           {
-            beginWithKeyword: true,
-            keywords: 'extends with',
+            beginKeywords: 'extends with',
             relevance: 10
           },
           {

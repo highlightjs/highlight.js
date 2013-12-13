@@ -40,8 +40,7 @@ function(hljs) {
     contains: [
       {
         className: 'function',
-        beginWithKeyword: true, end: '$',
-        keywords: 'function',
+        beginKeywords: 'function', end: '$',
         contains: [
           {
               className: 'title',

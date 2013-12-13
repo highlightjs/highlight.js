@@ -166,7 +166,7 @@ function() {
         return;
       mode.compiled = true;
 
-      var keywords = []; // used later with beginWithKeyword but filled as a side-effect of keywords compilation
+      mode.keywords = mode.keywords || mode.beginKeywords;
       if (mode.keywords) {
         var compiled_keywords = {};
 
@@ -177,7 +177,6 @@ function() {
           str.split(' ').forEach(function(kw) {
             var pair = kw.split('|');
             compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
-            keywords.push(pair[0]);
           });
         }
 
@@ -193,9 +192,10 @@ function() {
         }
         mode.keywords = compiled_keywords;
       }
+
       if (parent) {
-        if (mode.beginWithKeyword) {
-          mode.begin = '\\b(' + keywords.join('|') + ')\\b(?!\\.)\\s*';
+        if (mode.beginKeywords) {
+          mode.begin = '\\b(' + mode.beginKeywords.split(/\s+/).join('|') + ')\\b(?!\\.)\\s*';
         }
         mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
