@@ -3,3 +3,5 @@ build
 docs/_build
 __pycache__
 *.swp
+
+codekit-config.json
