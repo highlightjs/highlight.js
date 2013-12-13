@@ -83,7 +83,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .diff .hljs-change,
 .hljs-special,
 .hljs-attr_selector,
-.hljs-important,
 .hljs-subst,
 .hljs-cdata,
 .clojure .hljs-title,
@@ -93,7 +92,8 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 }
 
 /* Solarized Red */
-.hljs-deletion {
+.hljs-deletion,
+.hljs-important {
   color: #dc322f;
 }
 
