@@ -3,61 +3,19 @@
   <title>highlight.js test</title>
   <meta charset="utf-8">
 
-<!--
-  <link rel="stylesheet" title="Default" href="styles/default.css">
-  <link rel="alternate stylesheet" title="Dark" href="styles/dark.css">
-  <link rel="alternate stylesheet" title="FAR" href="styles/far.css">
-  <link rel="alternate stylesheet" title="IDEA" href="styles/idea.css">
-  <link rel="alternate stylesheet" title="Sunburst" href="styles/sunburst.css">
-  <link rel="alternate stylesheet" title="Zenburn" href="styles/zenburn.css">
-  <link rel="alternate stylesheet" title="Visual Studio" href="styles/vs.css">
-  <link rel="alternate stylesheet" title="Ascetic" href="styles/ascetic.css">
-  <link rel="alternate stylesheet" title="Magula" href="styles/magula.css">
-  <link rel="alternate stylesheet" title="GitHub" href="styles/github.css">
-  <link rel="alternate stylesheet" title="Google Code" href="styles/googlecode.css">
-  <link rel="alternate stylesheet" title="Brown Paper" href="styles/brown_paper.css">
-  <link rel="alternate stylesheet" title="School Book" href="styles/school_book.css">
-  <link rel="alternate stylesheet" title="IR Black" href="styles/ir_black.css">
-  <link rel="alternate stylesheet" title="Solarized - Dark" href="styles/solarized_dark.css">
-  <link rel="alternate stylesheet" title="Solarized - Light" href="styles/solarized_light.css">
-  <link rel="alternate stylesheet" title="Arta" href="styles/arta.css">
-  <link rel="alternate stylesheet" title="Monokai" href="styles/monokai.css">
-  <link rel="alternate stylesheet" title="Monokai Sublime" href="styles/monokai_sublime.css">
-  <link rel="alternate stylesheet" title="XCode" href="styles/xcode.css">
-  <link rel="alternate stylesheet" title="Pojoaque" href="styles/pojoaque.css">
-  <link rel="alternate stylesheet" title="Rainbow" href="styles/rainbow.css">
-  <link rel="alternate stylesheet" title="Tomorrow" href="styles/tomorrow.css">
-  <link rel="alternate stylesheet" title="Tomorrow Night" href="styles/tomorrow-night.css">
-  <link rel="alternate stylesheet" title="Tomorrow Night Bright" href="styles/tomorrow-night-bright.css">
-  <link rel="alternate stylesheet" title="Tomorrow Night Blue" href="styles/tomorrow-night-blue.css">
-  <link rel="alternate stylesheet" title="Tomorrow Night Eighties" href="styles/tomorrow-night-eighties.css">
-  <link rel="alternate stylesheet" title="Railscasts" href="styles/railscasts.css">
-  <link rel="alternate stylesheet" title="Obsidian" href="styles/obsidian.css">
-  <link rel="alternate stylesheet" title="Docco" href="styles/docco.css">
-  <link rel="alternate stylesheet" title="Mono Blue" href="styles/mono-blue.css">
-  <link rel="alternate stylesheet" title="Foundation" href="styles/foundation.css">
-  <link rel="alternate stylesheet" title="Atelier Dun - Dark" href="styles/atelier-dune.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Dun - Light" href="styles/atelier-dune.light.css">
-  <link rel="alternate stylesheet" title="Atelier Forest - Dark" href="styles/atelier-forest.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Forest - Light" href="styles/atelier-forest.light.css">
-  <link rel="alternate stylesheet" title="Atelier Heath - Dark" href="styles/atelier-heath.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Heath - Light" href="styles/atelier-heath.light.css">
-  <link rel="alternate stylesheet" title="Atelier Lakeside - Dark" href="styles/atelier-lakeside.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Lakeside - Light" href="styles/atelier-lakeside.light.css">
-  <link rel="alternate stylesheet" title="Atelier Seaside - Dark" href="styles/atelier-seaside.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Seaside - Light" href="styles/atelier-seaside.light.css">
--->
-
   <link rel="stylesheet" href="http://calvinmois.es/css/style.css">
   <link rel="stylesheet" href="styles/_test-less.css">
 
   <style>
     table {
-      width: 100%; padding: 0; border-collapse: collapse;
+      width: 100%;
+      padding: 0;
+      border-collapse: collapse;
     }
     th {
       width: 12em;
-      padding: 0; margin: 0;
+      margin: 0;
+      padding: 0;
     }
     td {
       padding-bottom: 1em;
@@ -66,59 +24,16 @@
       vertical-align: top;
       text-align: left;
     }
-    pre {
-      margin: 0; font-size: medium;
-    }
-    #switch {
-      overflow: auto; width: 67em;
-      list-style: none;
-      padding: 0; margin: 0;
-    }
-    #switch li {
-      float: left; width: 12em;
-      padding: 0.1em; margin: 0.1em 1em 0.1em 0;
-      background: #EEE;
-      cursor: pointer;
-    }
-    #switch li.current {
-      background: #CCC;
-    }
-    .test {
-      color: #888;
-      font-weight: normal;
-      margin: 2em 0 0 0;
-    }
-    .test var {
-      font-style: normal;
-    }
-    .passed {
-      color: green;
-    }
-    .failed {
-      color: red;
-    }
-    .code {
-      font: medium monospace;
-    }
-    .code .hljs-keyword {
-      font-weight: bold;
-    }
   </style>
-
-  <script src="../build/highlight.pack.js"></script>
-  <script>
-  hljs.tabReplace = '    ';
-  hljs.initHighlightingOnLoad();
-  </script>
 </head>
 <body>
+  <header><h1>LESS Test</h1></header>
 
-<header><h1>LESS Test</h1></header>
-<div class="main">
-<table id="autotest">
-  <tr>
-    <th>LESS</th>
-    <td class="less">
+  <div class="main">
+    <table id="autotest">
+      <tr>
+        <th>LESS</th>
+        <td class="less">
 <pre><code class="less">/*! LESS */
 //! ----------
 
@@ -172,12 +87,12 @@ body {
   }
 }
 </code></pre>
-    </td>
-  </tr>
-
-  <tr>
-    <th>CSS</th>
-    <td class="css">
+        </td>
+      </tr>
+    
+      <tr>
+        <th>CSS</th>
+        <td class="css">
 <pre><code class="css">@media screen and (-webkit-min-device-pixel-ratio: 0) {
   body:first-of-type pre::after {
     content: 'highlight: ' attr(class);
@@ -204,12 +119,12 @@ li[lang=ru] {
   width: 100%;
 }
 </code></pre>
-    </td>
-  </tr>
-
-  <tr>
-    <th>SCSS</th>
-    <td class="scss">
+        </td>
+      </tr>
+    
+      <tr>
+        <th>SCSS</th>
+        <td class="scss">
 <pre><code class="scss">@import "compass/reset";
 
 // variables
@@ -283,11 +198,11 @@ a {
     @content;
   }
 }</code></pre>
-    </td>
-  </tr>
-  <tr>
-    <th>JavaScript</th>
-    <td class="javascript">
+        </td>
+      </tr>
+      <tr>
+        <th>JavaScript</th>
+        <td class="javascript">
 <pre><code class="javascript">function $initHighlight(block, flags) {
   try {
     if (block.className.search(/\bno\-highlight\b/) != -1)
@@ -304,11 +219,11 @@ a {
   }
   console.log(new Date());
 }</code></pre>
-    </td>
-  </tr>
-  <tr>
-    <th>PHP</th>
-    <td class="php">
+        </td>
+      </tr>
+      <tr>
+        <th>PHP</th>
+        <td class="php">
 <pre><code class="php">require_once 'Zend/Uri/Http.php';
 
 abstract class URI extends BaseURI
@@ -344,9 +259,17 @@ __halt_compiler () ; datahere
 datahere
 datahere */
 datahere</code></pre>
-    </td>
-  </tr>
-</table>
-</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="scripts">
+    <script src="../build/highlight.pack.js"></script>
+    <script>
+    hljs.tabReplace = '    ';
+    hljs.initHighlightingOnLoad();
+    </script>
+  </div>
 </body>
 </html>
