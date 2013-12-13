@@ -51,15 +51,15 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       {
-        beginKeywords: 'class namespace', end: '{',
-        contains: [
-          TITLE
-        ]
-      },
-      {
         beginKeywords: 'protected public private internal', end: '{|;',
         keywords: KEYWORDS,
         contains: [
+          {
+            beginKeywords: 'class namespace', endsWithParent: true,
+            contains: [
+              TITLE
+            ]
+          },
           {
             begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
             contains: [
