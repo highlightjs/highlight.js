@@ -4,18 +4,22 @@ Author: Jason Diamond <jason@diamond.name>
 */
 
 function(hljs) {
+  var KEYWORDS =
+    // Normal keywords.
+    'abstract as base bool break byte case catch char checked const continue decimal ' +
+    'default delegate do double else enum event explicit extern false finally fixed float ' +
+    'for foreach goto if implicit in int interface internal is lock long new null ' +
+    'object operator out override params private protected public readonly ref return sbyte ' +
+    'sealed short sizeof stackalloc static string struct switch this throw true try typeof ' +
+    'uint ulong unchecked unsafe ushort using virtual volatile void while async await ' +
+    // Contextual keywords.
+    'ascending descending from get group into join let orderby partial select set value var ' +
+    'where yield';
+  var TITLE = {
+    className: 'title', begin: hljs.IDENT_RE
+  };
   return {
-    keywords:
-      // Normal keywords.
-      'abstract as base bool break byte case catch char checked const continue decimal ' +
-      'default delegate do double else enum event explicit extern false finally fixed float ' +
-      'for foreach goto if implicit in int interface internal is lock long new null ' +
-      'object operator out override params private protected public readonly ref return sbyte ' +
-      'sealed short sizeof stackalloc static string struct switch this throw true try typeof ' +
-      'uint ulong unchecked unsafe ushort using virtual volatile void while async await ' +
-      // Contextual keywords.
-      'ascending descending from get group into join let orderby partial select set value var '+
-      'where yield',
+    keywords: KEYWORDS,
     contains: [
       {
         className: 'comment',
@@ -50,11 +54,23 @@ function(hljs) {
         beginWithKeyword: true, end: '{',
         keywords: 'class namespace',
         contains: [
-          {
-            className: 'title',
-            begin: hljs.IDENT_RE
-          }
+          TITLE
         ]
+      },
+      {
+        beginWithKeyword: true, keywords: 'protected public private internal',
+        starts: {
+          end: '{|;',
+          keywords: KEYWORDS,
+          contains: [
+            {
+              begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
+              contains: [
+                TITLE
+              ]
+            }
+          ]
+        }
       }
     ]
   };
