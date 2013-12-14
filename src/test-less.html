@@ -81,17 +81,6 @@
   format-s-upper: %('repetitions: %S file: %S', 1 + 2, &quot;directory/file.less&quot;);
 }
 
-.nav {
-  &amp;:extend(.clearfix all);
-  display: block;
-  li {
-    display: inline-block;
-    .ie7-inline-block();
-    margin: 0;
-    padding: 0;
-  }
-}
-
 body {
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
     background: linear-gradient(45deg, blue, red);
@@ -100,6 +89,20 @@ body {
     }
   }
   .baseline-grid(darken(dodgerblue,10));
+}
+
+.nav {
+  &amp;:extend(.clearfix all);
+  display: block;
+  li {
+    display: inline-block;
+    .ie7-inline-block();
+    margin: 0;
+    padding: 0;
+    &:nth-child(4n-3) {
+      background-color: @red;
+    }
+  }
 }
 #maybe, .just, a, .lot, .of, #selectors {
   // this would be bad css
