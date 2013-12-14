@@ -91,9 +91,9 @@ require(["highlight.js/build/highlight.pack"], function(hljs){
 
 ```html
 <script type="text/javascript">
-  hljs.tabReplace = '    '; // 4 spaces
+  hljs.configure({tabReplace: '    '}); // 4 spaces
   // ... or
-  hljs.tabReplace = '<span class="indent">\t</span>';
+  hljs.cnofigure({tabReplace: '<span class="indent">\t</span>'});
 
   hljs.initHighlightingOnLoad();
 </script>
@@ -120,10 +120,11 @@ $(document).ready(function() {
 повторно для уже раскрашенных блоков.
 
 Если ваш блок кода использует `<br>` вместо переводов строки (т.е. если это не
-`<pre>`), передайте `true` третьим параметром в `highlightBlock`:
+`<pre>`), включите опцию `useBR`:
 
 ```javascript
-$('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
+hljs.configure({useBR: true});
+$('div.code').each(function(i, e) {hljs.highlightBlock(e)});
 ```
 
 

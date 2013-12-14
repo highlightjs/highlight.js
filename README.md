@@ -89,9 +89,9 @@ styling:
 
 ```html
 <script type="text/javascript">
-  hljs.tabReplace = '    '; // 4 spaces
+  hljs.configure({tabReplace: '    '}); // 4 spaces
   // ... or
-  hljs.tabReplace = '<span class="indent">\t</span>';
+  hljs.cnofigure({tabReplace: '<span class="indent">\t</span>'});
 
   hljs.initHighlightingOnLoad();
 </script>
@@ -117,11 +117,11 @@ the page. Just make sure you don't do it twice for already highlighted
 blocks.
 
 If your code container relies on `<br>` tags instead of line breaks (i.e. if
-it's not `<pre>`) pass `true` into the third parameter of `highlightBlock`
-to make highlight.js use `<br>` in the output:
+it's not `<pre>`) set the `useBR` option to `true`:
 
 ```javascript
-$('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
+hljs.configure({useBR: true});
+$('div.code').each(function(i, e) {hljs.highlightBlock(e)});
 ```
 
 
