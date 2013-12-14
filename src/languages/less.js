@@ -10,6 +10,16 @@ function(hljs) {
   css.HEX_COLOR = {
     className: 'hexcolor', begin: /#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/ 
   }
+  css.FUNCTION = {
+    className: 'function',
+    begin: IDENT_RE + '\\(', end: '\\)',
+    contains: [
+      'self',
+      hljs.NUMBER_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  }
   
   var less = {} // LESS things
     className: 'variable',
