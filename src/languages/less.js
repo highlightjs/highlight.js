@@ -5,26 +5,11 @@ Author: Calvin Juárez
 
 function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
-  var VARIABLE = {
     className: 'variable',
     begin: '@({)?[a-zA-Z0-9_-]*(})?'
-  };
-  var LESS = {
-    className: 'function',
-    begin: '(escape|e|%|unit|color|data-uri|ceil|floor|percentage|round|sqrt|abs|sin|asin|cos|acos|tan|atan|pi|pow|mod|convert|unit|' +
-      'rgb|rgba|argb|hsl|hsla|hsv|hsva|hue|saturation|lightness|hsvhue|hsvsaturation|hsvvalue|red|green|blue|alpha|luma|' +
-      'saturate|desaturate|lighten|darken|fadein|fadeout|fade|spin|mix|tint|shade|greyscale|contrast|multiply|' +
-      'iscolor|isnumber|isstring|iskeyword|isurl|ispixel|ispercentage|isem|isunit)\\(', end: '\\)',
     lexemes: '[a-z-\\%]+',
-    keywords: 'escape e % unit color data-uri ceil floor percentage round sqrt abs sin asin cos acos tan atan pi pow mod convert unit ' +
-      'rgb rgba argb hsl hsla hsv hsva hue saturation lightness hsvhue hsvsaturation hsvvalue red green blue alpha luma ' +
-      'saturate desaturate lighten darken fadein fadeout fade spin mix tint shade greyscale contrast multiply ' +
-      'iscolor isnumber isstring iskeyword isurl ispixel ispercentage isem isunit',
-    contains: ['self', VARIABLE, hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
-  };
   var FUNCTION = {
     className: 'function',
-    begin: IDENT_RE + '\\(', end: '\\)',
     contains: ['self', VARIABLE, hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
   };
   var MIXIN = {
@@ -49,7 +34,6 @@ function(hljs) {
   }
   return {
     case_insensitive: true,
-    keywords: 'when and not',
     illegal: '[=/|\']',
     contains: [
       hljs.NUMBER_MODE,
@@ -59,43 +43,14 @@ function(hljs) {
         className: 'string',
         begin: '~(\'|")', end: '(\'|")'
       },
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.C_LINE_COMMENT_MODE,
-      LESS,
-      FUNCTION,
-      MIXIN,
-      AT_RULE,
-      VARIABLE,
+      
       {
-        className: 'id', begin: '\\#[A-Za-z0-9_-]+',
-        relevance: 0
       },
       {
-        className: 'class', begin: '\\.[A-Za-z0-9_-]+',
-        relevance: 0
       },
       {
-        className: 'attr_selector',
-        begin: '\\[', end: '\\]',
-        illegal: '$'
       },
       {
-        className: 'pseudo',
-        begin: '(&)?:extend\\(', end: '\\)',
-        contains: [
-          {
-            className: 'id', begin: '\\#[A-Za-z0-9_-]+',
-            relevance: 0
-          },
-          {
-            className: 'class', begin: '\\.[A-Za-z0-9_-]+',
-            relevance: 0
-          },
-          {
-            className: 'tag', begin: IDENT_RE,
-            relevance: 0
-          }
-        ]
       },
       {
         className: 'pseudo',
@@ -108,12 +63,6 @@ function(hljs) {
         lexemes: '[a-z-]+',
         keywords: 'font-face page'
       },
-*/
-      {
-        className: 'tag', begin: IDENT_RE,
-        relevance: 0
-      },
-/*
       {
         className: 'at_rule',
         begin: '@', end: '[{;]', // at_rule eating first "{" is a good thing
@@ -136,8 +85,6 @@ function(hljs) {
           }
         ]
       },
-*/
-/*
       {
         className: 'rules',
         begin: '{', end: '}',
