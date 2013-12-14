@@ -8,7 +8,7 @@ function(hljs) {
   
   var css = {} // things LESS should inherit from CSS
   css.HEX_COLOR = {
-    className: 'hexcolor', begin: /#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/ 
+    className: 'hexcolor', begin: /#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/, relevance: 2
   }
   css.FUNCTION = {
     className: 'function',
@@ -25,7 +25,7 @@ function(hljs) {
     begin: /@(charset|font-face|import|keyframes|media|namespace|page|region|supports|viewport)/, end: '[{;]',
     lexemes: '[a-z-()]+',
     keywords: {
-      keyword: 'charset font-face import keyframes media namespace page region supports viewport',
+      keyword: 'charset font-face import|10 keyframes media|10 namespace page region supports viewport',
       operator: 'and not'
     },
     contains: [
@@ -47,11 +47,13 @@ function(hljs) {
   var less = {} // LESS things
   less.VARIABLE = {
     className: 'variable',
-    begin: '@({)?[a-zA-Z0-9_-]*(})?'
+    begin: '@({)?[a-zA-Z0-9_-]*(})?',
+    relevance: 10
   }
   less.EXTEND = {
     className: 'pseudo',
-    begin: '(&)?:extend\\(', end: '\\)',
+    begin: /(&)?:extend\(/, end: /\)/,
+    relevance: 10,
     contains: [
       {
         className: 'id', begin: '\\#[A-Za-z0-9_-]+',
@@ -80,9 +82,10 @@ function(hljs) {
       'ceil floor percentage round sqrt abs sin asin cos acos tan atan pi pow mod convert unit ' + // color
       'rgb rgba argb hsl hsla hsv hsva hue saturation lightness hsvhue hsvsaturation hsvvalue ' +
       'red green blue alpha luma saturate desaturate lighten darken fadein fadeout fade spin ' +
-      'mix tint shade greyscale contrast multiply ' +
-      'iscolor isnumber isstring iskeyword isurl ispixel ispercentage isem isunit', // type
+      'mix|10 tint shade greyscale contrast multiply ' +
+      'iscolor|10 isnumber isstring iskeyword isurl ispixel ispercentage isem isunit', // type
     },
+    relevance: 2,
     contains: [
       'self',
       hljs.NUMBER_MODE,
@@ -138,12 +141,14 @@ function(hljs) {
       
       {
         className: 'operator',
-        begin: '(when|and|not)'
+        begin: '(when|and|not)',
+        relevance: 0
       },
       
       { // less string escape syntax
         className: 'string',
-        begin: '~(\'|")', end: '(\'|")'
+        begin: '~(\'|")', end: '(\'|")',
+        relevance: 5
       },
       
       {
