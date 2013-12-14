@@ -222,14 +222,14 @@ function(hljs) {
         begin: /[A-Za-z0-9-_]+/, end: ':',
         excludeEnd: true,
         starts: {
-          hljs.NUMBER_MODE,
-          hljs.QUOTE_STRING_MODE,
-          hljs.APOS_STRING_MODE,
-          hljs.C_BLOCK_COMMENT_MODE,
           className: 'value',
           begin: /./, end: ';',
           excludeEnd: true,
           contains: [
+            hljs.NUMBER_MODE,
+            hljs.QUOTE_STRING_MODE,
+            hljs.APOS_STRING_MODE,
+            hljs.C_BLOCK_COMMENT_MODE,
             less.FUNCTION,
             css.FUNCTION,
           ]
