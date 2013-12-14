@@ -183,28 +183,87 @@ function(hljs) {
 */
   return {
     case_insensitive: true,
+    keywords: {
+      keyword:
+        'when and not',
+      literal:
+        'true false null undefined NaN Infinity'
+    },
     illegal: '[=/|\']',
     contains: [
       hljs.NUMBER_MODE,
       hljs.QUOTE_STRING_MODE,
       hljs.APOS_STRING_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.C_LINE_COMMENT_MODE,
+      
+      less.FUNCTION,
+      
+      css.HEX_COLOR,
+      css.FUNCTION,
+      css.AT_RULE,
+      
+      less.VARIABLE,
+      less.EXTEND,
+      less.MIX_IN,
+      
       {
+        className: 'operator',
+        begin: '(when|and|not)'
+      },
+      
+      { // less string escape syntax
         className: 'string',
         begin: '~(\'|")', end: '(\'|")'
       },
       
       {
+        className: 'property',
+        begin: /[A-Za-z0-9-_]+/, end: ':',
+        excludeEnd: true,
+        starts: {
+          hljs.NUMBER_MODE,
+          hljs.QUOTE_STRING_MODE,
+          hljs.APOS_STRING_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
+          className: 'value',
+          begin: /./, end: ';',
+          excludeEnd: true,
+          contains: [
+            less.FUNCTION,
+            css.FUNCTION,
+          ]
+        }
+      },
+      
+      {
+        className: 'id', begin: '\\#[A-Za-z0-9_-]+', end: '[,{]',
+        excludeEnd: true,
+        relevance: 0,
+        contains: [less.VARIABLE]
       },
       {
+        className: 'class', begin: '\\.[A-Za-z0-9_-]+', end: '[,{]',
+        excludeEnd: true,
+        relevance: 0,
+        contains: [less.VARIABLE]
       },
       {
-      },
-      {
+        className: 'attr_selector',
+        begin: '\\[', end: '\\]',
+        illegal: '$',
+        contains: [less.VARIABLE]
       },
       {
         className: 'pseudo',
         begin: '(&)?:(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
       },
+      {
+        className: 'tag', begin: IDENT_RE, end: '[,{]',
+        excludeEnd: true,
+        relevance: 0,
+        contains: [less.VARIABLE]
+      }
 /*
       {
         className: 'at_rule',
