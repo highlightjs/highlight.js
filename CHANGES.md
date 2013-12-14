@@ -2,18 +2,25 @@
 
 The new major release brings a few backwards incompatible changes:
 
+
 - With the newest version of highlight.js, we will be prefixing all classes
-  located in [CSS classes reference][cr] with `hljs-`, by default, because some class
-  names would collide with other people's stylesheets. If you were using an
-  older version, you might still want the previous behavior, but still want to
-  upgrade. To suppress this new behavior, you would initialize like so:
+  located in [CSS classes reference][cr] with `hljs-`, by default, because some
+  class names would collide with other people's stylesheets. If you were using
+  an older version, you might still want the previous behavior, but still want
+  to upgrade. To suppress this new behavior, you would initialize like so:
 
   ```html
   <script type="text/javascript">
-    hljs.classPrefix = '';
+    hljs.configure({classPrefix: ''});
     hljs.initHighlightingOnLoad();
   </script>
   ```
+
+- `tabReplace` and `useBR` that were used in different places are also unified
+  into the global options object and are to be set using `configure(options)`.
+  This function is documented in our [API docs][]. Also note that these
+  parameters are gone from `highlightBlock` and `fixMarkup` which are now also
+  rely on `configure`.
 
 - We removed public-facing (though undocumented) object `hljs.LANGUAGES` which
   was used to register languages with the library in favor of two new methods:
