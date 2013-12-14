@@ -141,8 +141,23 @@ function(hljs) {
     }
 */
   }
+  
+/*
   var FUNCTION = {
     className: 'function',
+    begin: '(escape|e|%|unit|color|data-uri|' +
+      'ceil|floor|percentage|round|sqrt|abs|sin|asin|cos|acos|tan|atan|pi|pow|mod|convert|unit|' + // math
+      'rgb|rgba|argb|hsl|hsla|hsv|hsva|hue|saturation|lightness|hsvhue|hsvsaturation|hsvvalue|' + // color
+      'red|green|blue|alpha|luma|saturate|desaturate|lighten|darken|fadein|fadeout|fade|spin|' +
+      'mix|tint|shade|greyscale|contrast|multiply|' +
+      'iscolor|isnumber|isstring|iskeyword|isurl|ispixel|ispercentage|isem|isunit)\\(', end: '\\)', // type
+    lexemes: '[a-z-\\%]+',
+    keywords: 'escape e % unit color data-uri ' + // math
+      'ceil floor percentage round sqrt abs sin asin cos acos tan atan pi pow mod convert unit ' + // color
+      'rgb rgba argb hsl hsla hsv hsva hue saturation lightness hsvhue hsvsaturation hsvvalue ' +
+      'red green blue alpha luma saturate desaturate lighten darken fadein fadeout fade spin ' +
+      'mix tint shade greyscale contrast multiply ' +
+      'iscolor isnumber isstring iskeyword isurl ispixel ispercentage isem isunit', // type
     contains: ['self', VARIABLE, hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
   };
   var MIXIN = {
@@ -165,6 +180,7 @@ function(hljs) {
     lexemes: '[a-z-]+',
     keywords: 'charset font-face import keyframes media namespace page region supports viewport'
   }
+*/
   return {
     case_insensitive: true,
     illegal: '[=/|\']',
