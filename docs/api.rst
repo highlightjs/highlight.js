@@ -23,11 +23,12 @@ Returns an object with the following properties:
 * ``top``: top of the current mode stack
 
 
-``highlightAuto(value)``
-------------------------
+``highlightAuto(value, languageSubset)``
+----------------------------------------
 
 Highlighting with language detection.
-Accepts a string with the code to highlight.
+Accepts a string with the code to highlight and an optional array of language names restricting
+detection to only those languages. The subset can also be set with ``configure``, but the local parameter overrides the option if set.
 Returns an object with the following properties:
 
 * ``language``: detected language
@@ -61,6 +62,7 @@ Configures global options:
 * ``tabReplace``: a string used to replace TAB characters in indentation.
 * ``useBR``: a flag to generate ``<br>`` tags instead of new-line characters in the output, useful when code is marked up using a non-``<pre>`` container.
 * ``classPrefix``: a sting prefix added before class names in the generated markup, used for backwards compatibility with stylesheets.
+* ``languages``: an array of language names restricting auto detection to only these languages.
 
 Accepts an object representing options with the values to updated. Other options don't change
 ::
@@ -68,7 +70,7 @@ Accepts an object representing options with the values to updated. Other options
   hljs.configure({
     tabReplace: '    ', // 4 spaces
     classPrefix: ''     // don't append class prefix
-                        // useBR isn't set, so isn't changed
+                        // … other options aren't changed
   })
   hljs.initHighlighting();
 

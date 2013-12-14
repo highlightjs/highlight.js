@@ -468,17 +468,19 @@ function() {
     detected language, may be absent)
 
   */
-  function highlightAuto(text) {
+  function highlightAuto(text, languageSubset) {
+    languageSubset = languageSubset || options.languages || Object.getOwnPropertyNames(languages);
     var result = {
       relevance: 0,
       value: escape(text)
     };
     var second_best = result;
-    for (var key in languages) {
-      if (!languages.hasOwnProperty(key))
-        continue;
-      var current = highlight(key, text, false);
-      current.language = key;
+    languageSubset.forEach(function(name) {
+      if (!languages.hasOwnProperty(name)) {
+        return;
+      }
+      var current = highlight(name, text, false);
+      current.language = name;
       if (current.relevance > second_best.relevance) {
         second_best = current;
       }
@@ -486,7 +488,7 @@ function() {
         second_best = result;
         result = current;
       }
-    }
+    });
     if (second_best.language) {
       result.second_best = second_best;
     }
@@ -547,7 +549,8 @@ function() {
   var options = {
     classPrefix: 'hljs-',
     tabReplace: null,
-    useBR: false
+    useBR: false,
+    languages: undefined
   };
 
   /*
@@ -582,7 +585,6 @@ function() {
 
   function registerLanguage(name, language) {
     var lang = languages[name] = language(self);
-
     if (lang.aliases) {
       lang.aliases.forEach(function(alias) {aliases[alias] = name;});
     }
