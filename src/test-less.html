@@ -61,7 +61,7 @@
   @{at}viewport { width: @width; }
 }
 
-.baseline-grid(@color) when (iscolor(@color)) {
+.baseline-grid (@color) when (iscolor(@color)) {
   @linear-gradient:
     fade(@color,5) 0%, fade(@color,5) 25%,
     fade(@color,15) 25%, fade(@color,15) 75%,
@@ -100,6 +100,10 @@ body {
     }
   }
   .baseline-grid(darken(dodgerblue,10));
+}
+#maybe, .just, a, .lot, .of, #selectors {
+  // this would be bad css
+  display: none;
 }
 </code></pre>
         </td>
