@@ -5,6 +5,10 @@ Author: Calvin Juárez
 
 function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
+  
+  var css = {} // things LESS should inherit from CSS
+  
+  var less = {} // LESS things
     className: 'variable',
     begin: '@({)?[a-zA-Z0-9_-]*(})?'
     lexemes: '[a-z-\\%]+',
