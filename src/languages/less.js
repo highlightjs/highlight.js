@@ -49,6 +49,24 @@ function(hljs) {
     className: 'variable',
     begin: '@({)?[a-zA-Z0-9_-]*(})?'
   }
+  less.EXTEND = {
+    className: 'pseudo',
+    begin: '(&)?:extend\\(', end: '\\)',
+    contains: [
+      {
+        className: 'id', begin: '\\#[A-Za-z0-9_-]+',
+        relevance: 0
+      },
+      {
+        className: 'class', begin: '\\.[A-Za-z0-9_-]+',
+        relevance: 0
+      },
+      {
+        className: 'tag', begin: IDENT_RE,
+        relevance: 0
+      }
+    ]
+  }
     lexemes: '[a-z-\\%]+',
   var FUNCTION = {
     className: 'function',
