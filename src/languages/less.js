@@ -93,7 +93,54 @@ function(hljs) {
       ]
     }
   }
+  less.FUNCTION = {
+    begin: '(escape|e|%|unit|color|data-uri|' +
+      'ceil|floor|percentage|round|sqrt|abs|sin|asin|cos|acos|tan|atan|pi|pow|mod|convert|unit|' + // math
+      'rgb|rgba|argb|hsl|hsla|hsv|hsva|hue|saturation|lightness|hsvhue|hsvsaturation|hsvvalue|' + // color
+      'red|green|blue|alpha|luma|saturate|desaturate|lighten|darken|fadein|fadeout|fade|spin|' +
+      'mix|tint|shade|greyscale|contrast|multiply|' +
+      'iscolor|isnumber|isstring|iskeyword|isurl|ispixel|ispercentage|isem|isunit)\\(', end: '\\)', // type
     lexemes: '[a-z-\\%]+',
+    keywords: {
+      built_in: 'escape e % unit color data-uri ' + // math
+      'ceil floor percentage round sqrt abs sin asin cos acos tan atan pi pow mod convert unit ' + // color
+      'rgb rgba argb hsl hsla hsv hsva hue saturation lightness hsvhue hsvsaturation hsvvalue ' +
+      'red green blue alpha luma saturate desaturate lighten darken fadein fadeout fade spin ' +
+      'mix tint shade greyscale contrast multiply ' +
+      'iscolor isnumber isstring iskeyword isurl ispixel ispercentage isem isunit', // type
+    },
+    contains: [
+      'self',
+      hljs.NUMBER_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
+      less.VARIABLE,
+      {
+        className: 'params',
+        begin: /\(/, end: /\)/,
+        endsWithParent: true, /* excludeEnd: true, */
+        contains: [
+          hljs.NUMBER_MODE,
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE,
+          less.VARIABLE
+        ]
+      }
+    ],
+/*
+    starts: {
+      className: 'params',
+      begin: /./, end: /\)/,
+      endsWithParent: true, excludeEnd: true,
+      contains: [
+        hljs.NUMBER_MODE,
+        hljs.APOS_STRING_MODE,
+        hljs.QUOTE_STRING_MODE,
+        less.VARIABLE
+      ]
+    }
+*/
+  }
   var FUNCTION = {
     className: 'function',
     contains: ['self', VARIABLE, hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
