@@ -34,6 +34,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       { // this is an "everything after the first space" rule
         begin: /\s/, endsWithParent: true, excludeEnd: true,
+        //keywords: 'reference inline',
         contains: [
           hljs.APOS_STRING_MODE,
           hljs.QUOTE_STRING_MODE,
@@ -113,6 +114,9 @@ function(hljs) {
       css.FUNCTION
     ]
   }
+  
+  css.FUNCTION.contains.push(less.VARIABLE)
+  
   return {
     case_insensitive: true,
     keywords: {
