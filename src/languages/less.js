@@ -44,6 +44,35 @@ function(hljs) {
       }
     ]
   }
+  css.selector = {
+    ID: {
+      className: 'id', begin: '\\b\\#[A-Za-z0-9_-]+\\b', end: '[,{]',
+      excludeEnd: true,
+      relevance: 2,
+    },
+    CLASS: {
+      className: 'class', begin: '\\b\\.[A-Za-z0-9_-]+\\b', end: '[,{]',
+      excludeEnd: true,
+      relevance: 2,
+    },
+    ATTRIBUTE: {
+      className: 'attr_selector',
+      begin: '\\[', end: '\\]',
+      illegal: '$',
+      relevance: 2,
+    },
+    PSEUDO: {
+      className: 'pseudo',
+      begin: '(&)?:(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+',
+      relevance: 2,
+      
+    },
+    TAG: {
+      className: 'tag', begin: '\\b' + IDENT_RE + '\\b', end: '[,{]',
+      excludeEnd: true,
+      relevance: 2,
+    }
+  }
   
   var less = {} // LESS things
   less.VARIABLE = {
@@ -56,18 +85,11 @@ function(hljs) {
     begin: /(&)?:extend\(/, end: /\)/,
     relevance: 10,
     contains: [
-      {
-        className: 'id', begin: '\\#[A-Za-z0-9_-]+',
-        relevance: 0
-      },
-      {
-        className: 'class', begin: '\\.[A-Za-z0-9_-]+',
-        relevance: 0
-      },
-      {
-        className: 'tag', begin: IDENT_RE,
-        relevance: 0
-      }
+      css.selector.ID,
+      css.selector.CLASS,
+      css.selector.ATTRIBUTE,
+      css.selector.PSEUDO,
+      //css.selector.TAG
     ]
   }
   less.FUNCTION = {
@@ -155,53 +177,11 @@ function(hljs) {
         relevance: 5
       },
       
-      {
-        className: 'property',
-        begin: /[A-Za-z0-9-_]+/, end: ':',
-        excludeEnd: true,
-        starts: {
-          className: 'value',
-          begin: /./, end: ';',
-          excludeEnd: true,
-          contains: [
-            hljs.NUMBER_MODE,
-            hljs.QUOTE_STRING_MODE,
-            hljs.APOS_STRING_MODE,
-            hljs.C_BLOCK_COMMENT_MODE,
-            less.FUNCTION,
-            css.FUNCTION,
-          ]
-        }
-      },
-      
-      {
-        className: 'id', begin: '\\#[A-Za-z0-9_-]+', end: '[,{]',
-        excludeEnd: true,
-        relevance: 0,
-        contains: [less.VARIABLE]
-      },
-      {
-        className: 'class', begin: '\\.[A-Za-z0-9_-]+', end: '[,{]',
-        excludeEnd: true,
-        relevance: 0,
-        contains: [less.VARIABLE]
-      },
-      {
-        className: 'attr_selector',
-        begin: '\\[', end: '\\]',
-        illegal: '$',
-        contains: [less.VARIABLE]
-      },
-      {
-        className: 'pseudo',
-        begin: '(&)?:(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
-      },
-      {
-        className: 'tag', begin: IDENT_RE, end: '[,{]',
-        excludeEnd: true,
-        relevance: 0,
-        contains: [less.VARIABLE]
-      }
+      css.selector.ID,
+      css.selector.CLASS,
+      css.selector.ATTRIBUTE,
+      css.selector.PSEUDO,
+      //css.selector.TAG, // causes some trouble at the moment
     ]
   };
 }
