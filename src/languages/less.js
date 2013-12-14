@@ -7,6 +7,9 @@ function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   
   var css = {} // things LESS should inherit from CSS
+  css.HEX_COLOR = {
+    className: 'hexcolor', begin: /#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/ 
+  }
   
   var less = {} // LESS things
     className: 'variable',
