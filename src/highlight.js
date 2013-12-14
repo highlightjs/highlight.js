@@ -188,11 +188,9 @@ function() {
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords);
         } else {
-          for (var className in mode.keywords) {
-            if (!mode.keywords.hasOwnProperty(className))
-              continue;
+          Object.keys(mode.keywords).forEach(function (className) {
             flatten(className, mode.keywords[className]);
-          }
+          });
         }
         mode.keywords = compiled_keywords;
       }
@@ -469,7 +467,7 @@ function() {
 
   */
   function highlightAuto(text, languageSubset) {
-    languageSubset = languageSubset || options.languages || Object.getOwnPropertyNames(languages);
+    languageSubset = languageSubset || options.languages || Object.keys(languages);
     var result = {
       relevance: 0,
       value: escape(text)
