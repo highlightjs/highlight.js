@@ -12,12 +12,16 @@ function() {
     return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
   }
 
+  function tag(node) {
+    return node.nodeName.toLowerCase();
+  }
+
   function blockText(block, ignoreNewLines) {
     return Array.prototype.map.call(block.childNodes, function(node) {
       if (node.nodeType == 3) {
         return ignoreNewLines ? node.nodeValue.replace(/\n/g, '') : node.nodeValue;
       }
-      if (node.nodeName.toUpperCase () == 'BR') {
+      if (tag(node) == 'br') {
         return '\n';
       }
       return blockText(node, ignoreNewLines);
@@ -52,7 +56,7 @@ function() {
       for (var child = node.firstChild; child; child = child.nextSibling) {
         if (child.nodeType == 3)
           offset += child.nodeValue.length;
-        else if (child.nodeName.toUpperCase() == 'BR')
+        else if (tag(child) == 'br')
           offset += 1;
         else if (child.nodeType == 1) {
           result.push({
@@ -106,11 +110,11 @@ function() {
 
     function open(node) {
       function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
-      result += '<' + node.nodeName.toLowerCase() + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
+      result += '<' + tag(node) + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
     }
 
     function close(node) {
-      result += '</' + node.nodeName.toLowerCase() + '>';
+      result += '</' + tag(node) + '>';
     }
 
     function render(event) {
