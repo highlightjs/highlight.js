@@ -67,32 +67,6 @@ function(hljs) {
       }
     ]
   }
-  less.MIX_IN = {
-    className: 'mixin',
-    begin: /[.#]{1}[a-zA-Z-][a-zA-Z0-9_-]*/, end: /\(/,
-    excludeEnd: true,
-    contains: [
-      hljs.NUMBER_MODE,
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE,
-      less.VARIABLE,
-      {
-        begin: /\s/, endsWithParent: true, excludeEnd: true,
-        excludeEnd: true
-      }
-    ],
-    starts: {
-      className: 'params',
-      begin: /\(/, end: /\)/,
-      endsWithParent: true,  excludeEnd: true,
-      contains: [
-        hljs.NUMBER_MODE,
-        hljs.APOS_STRING_MODE,
-        hljs.QUOTE_STRING_MODE,
-        less.VARIABLE
-      ]
-    }
-  }
   less.FUNCTION = {
     begin: '(escape|e|%|unit|color|data-uri|' +
       'ceil|floor|percentage|round|sqrt|abs|sin|asin|cos|acos|tan|atan|pi|pow|mod|convert|unit|' + // math
@@ -115,17 +89,25 @@ function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       less.VARIABLE,
+    ]
+  }
+  less.MIX_IN = {
+    begin: /[.#]{1}[a-zA-Z-][a-zA-Z0-9_-]*\s*\(/, end: /\)/,
+    returnBegin: true,
+    relevance: 10,
+    contains: [
       {
-        className: 'params',
-        begin: /\(/, end: /\)/,
-        endsWithParent: true, /* excludeEnd: true, */
+        className: 'mixin',
+        begin: /[.#]{1}[a-zA-Z-][a-zA-Z0-9_-]*/,
         contains: [
-          hljs.NUMBER_MODE,
-          hljs.APOS_STRING_MODE,
-          hljs.QUOTE_STRING_MODE,
-          less.VARIABLE
+          less.VARIABLE,
+          less.FUNCTION,
+          css.FUNCTION,
         ]
-      }
+      },
+      less.VARIABLE,
+      less.FUNCTION,
+      css.FUNCTION
     ]
   }
   return {
