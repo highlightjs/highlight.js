@@ -4,4 +4,48 @@
 .hljs {
   display: block;
   padding: 0.5em;
+  background-color: #222222;
+  color: #ffffff;
+}
+.hljs-keyword,
+.hljs-operator {
+  font-weight: bold;
+}
+.hljs-comment {
+  color: #888888;
+}
+/* Selectors */
+.hljs-class,
+.hljs-pseudo,
+.hljs-attr_selector,
+.hljs-tag,
+.hljs-id {
+  color: #cccccc;
+}
+.hljs-number,
+.hljs-literal,
+.hljs-hexcolor {
+  color: #55aadd;
+}
+.hljs-string {
+  color: #bbee99;
+}
+.hljs-at_rule .hljs-keyword {
+  color: #fadd1e;
+}
+.hljs-at_rule .hljs-operator {
+  color: #cccccc;
+}
+.hljs-property {
+  color: #ffaa11;
+}
+/* LESS */
+.hljs-built_in {
+  color: #ee5555;
+}
+.hljs-variable {
+  color: #cabbed;
+}
+.hljs-mixin {
+  color: #bb88dd;
 }
