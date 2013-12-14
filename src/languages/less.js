@@ -67,6 +67,32 @@ function(hljs) {
       }
     ]
   }
+  less.MIX_IN = {
+    className: 'mixin',
+    begin: /[.#]{1}[a-zA-Z-][a-zA-Z0-9_-]*/, end: /\(/,
+    excludeEnd: true,
+    contains: [
+      hljs.NUMBER_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
+      less.VARIABLE,
+      {
+        begin: /\s/, endsWithParent: true, excludeEnd: true,
+        excludeEnd: true
+      }
+    ],
+    starts: {
+      className: 'params',
+      begin: /\(/, end: /\)/,
+      endsWithParent: true,  excludeEnd: true,
+      contains: [
+        hljs.NUMBER_MODE,
+        hljs.APOS_STRING_MODE,
+        hljs.QUOTE_STRING_MODE,
+        less.VARIABLE
+      ]
+    }
+  }
     lexemes: '[a-z-\\%]+',
   var FUNCTION = {
     className: 'function',
