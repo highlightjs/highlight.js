@@ -4,7 +4,6 @@ http://highlightjs.org/
 */
 
 function() {
-  var self = this;
 
   /* Utility functions */
 
@@ -582,7 +581,7 @@ function() {
   var aliases = {};
 
   function registerLanguage(name, language) {
-    var lang = languages[name] = language(self);
+    var lang = languages[name] = language(this);
     if (lang.aliases) {
       lang.aliases.forEach(function(alias) {aliases[alias] = name;});
     }
