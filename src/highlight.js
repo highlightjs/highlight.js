@@ -474,7 +474,7 @@ function() {
     };
     var second_best = result;
     languageSubset.forEach(function(name) {
-      if (!languages.hasOwnProperty(name)) {
+      if (!getLanguage(name)) {
         return;
       }
       var current = highlight(name, text, false);
