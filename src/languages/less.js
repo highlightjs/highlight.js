@@ -45,8 +45,10 @@ function(hljs) {
   }
   
   var less = {} // LESS things
+  less.VARIABLE = {
     className: 'variable',
     begin: '@({)?[a-zA-Z0-9_-]*(})?'
+  }
     lexemes: '[a-z-\\%]+',
   var FUNCTION = {
     className: 'function',
