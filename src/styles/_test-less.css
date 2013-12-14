@@ -24,7 +24,8 @@
 }
 .hljs-number,
 .hljs-literal,
-.hljs-hexcolor {
+.hljs-hexcolor,
+.hljs-color {
   color: #55aadd;
 }
 .hljs-string {
@@ -46,6 +47,7 @@
 .hljs-variable {
   color: #cabbed;
 }
+/* -- additions */
 .hljs-mixin {
   color: #bb88dd;
 }

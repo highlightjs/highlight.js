@@ -104,11 +104,14 @@
 .hljs-operator {
   &:extend(.hljs-keyword);
 }
+.hljs-params {}
+/* -- additions */
 .hljs-mixin {
   color: @purple;
 }
-.hljs-params {}
-
+.hljs-color {
+  &:extend(.hljs-hexcolor all);
+}
 
 .hljs-title {}
 .hljs-constant {}
