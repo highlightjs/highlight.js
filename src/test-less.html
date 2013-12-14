@@ -9,6 +9,9 @@
     body {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
+    header {
+      margin-bottom: 1em;
+    }
     table {
       width: 100%;
       padding: 0;
@@ -29,13 +32,12 @@
     pre {
       margin: 0;
     }
-    .hljs
   </style>
 </head>
 <body>
   <header>
     <h1>LESS Test</h1>
-    <div class="content"><button onclick="hljs.initHighlighting()">Highlight!</button></div>
+    <!-- <div class="content"><button onclick="hljs.initHighlighting()">Highlight!</button></div> -->
     <!-- instead of doing it on page load, I'm doing it manually, for safety during testing -->
   </header>
 
@@ -49,6 +51,8 @@
 
 @import '_variables';
 @import (reference) '_mixins';
+
+@red: #e55;
 
 .at-viewport(@width) when (isnumber(@width)) {
   @at: ~'@';
@@ -95,6 +99,7 @@ body {
       content: 'highlight: ' attr(class);
     }
   }
+  .baseline-grid(darken(dodgerblue,10));
 }
 </code></pre>
         </td>
@@ -277,7 +282,7 @@ datahere</code></pre>
   <div id="scripts">
     <script src="../build/highlight.pack.js"></script>
     <script>
-      /* hljs.initHighlightingOnLoad(); */
+      hljs.initHighlightingOnLoad();
     </script>
   </div>
 </body>
