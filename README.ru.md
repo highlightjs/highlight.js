@@ -93,7 +93,7 @@ require(["highlight.js/build/highlight.pack"], function(hljs){
 <script type="text/javascript">
   hljs.configure({tabReplace: '    '}); // 4 spaces
   // ... or
-  hljs.cnofigure({tabReplace: '<span class="indent">\t</span>'});
+  hljs.configure({tabReplace: '<span class="indent">\t</span>'});
 
   hljs.initHighlightingOnLoad();
 </script>
