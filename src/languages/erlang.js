@@ -80,8 +80,8 @@ function(hljs) {
   };
 
   var BLOCK_STATEMENTS = {
-    keywords: ERLANG_RESERVED,
-    begin: '(fun|receive|if|try|case)', end: 'end'
+    beginKeywords: 'fun receive if try case', end: 'end',
+    keywords: ERLANG_RESERVED
   };
   BLOCK_STATEMENTS.contains = [
     COMMENT,
