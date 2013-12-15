@@ -179,7 +179,7 @@ function() {
           });
         }
 
-        mode.lexemesRe = langRe(mode.lexemes || /[A-Za-z0-9_\\.]+/, true);
+        mode.lexemesRe = langRe(mode.lexemes || /[A-Za-z0-9_\.]+/, true);
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords);
         } else {
@@ -606,7 +606,7 @@ function() {
   this.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
   this.C_NUMBER_RE = '(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
   this.BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
-  this.RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
+  this.RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
 
   // Common modes
   this.BACKSLASH_ESCAPE = {
