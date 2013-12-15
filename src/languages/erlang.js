@@ -124,7 +124,7 @@ function(hljs) {
         className: 'function',
         begin: '^' + BASIC_ATOM_RE + '\\s*\\(', end: '->',
         returnBegin: true,
-        illegal: '\\(|#|//|/\\*|\\\\|:',
+        illegal: '\\(|#|//|/\\*|\\\\|:|;',
         contains: [
           PARAMS,
           {
