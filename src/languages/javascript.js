@@ -40,6 +40,7 @@ function(hljs) {
           hljs.REGEXP_MODE,
           { // E4X
             begin: /</, end: />;/,
+            relevance: 0,
             subLanguage: 'xml'
           }
         ],
