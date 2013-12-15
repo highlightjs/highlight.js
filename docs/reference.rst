@@ -59,7 +59,7 @@ begin
 **type**: regexp
 
 Regular expression starting a mode. For example a single quote for strings or two forward slashes for C-style comments.
-If absent, ``begin`` defaults to ``hljs.IMMEDIATE_RE`` that matches anything.
+If absent, ``begin`` defaults to a regexp that matches anything, so the mode starts immediately.
 
 
 end
@@ -72,7 +72,7 @@ Regular expression ending a mode. For example a single quote for strings or "$" 
 It's often the case that a beginning regular expression defines the entire mode and doesn't need any special ending.
 For example a number can be defined with ``begin: "\\b\\d+"`` which spans all the digits.
 
-If absent, ``end`` defaults to ``hljs.IMMEDIATE_RE`` that matches anything.
+If absent, ``end`` defaults to a regexp that matches anything, so the mode ends immediately.
 
 Sometimes a mode can end not by itself but implicitly with its containing (parent) mode.
 This is achieved with :ref:`endsWithParent <endsWithParent>` attribute.
