@@ -26,8 +26,7 @@ function(hljs) {
   var SUBST = {
     className: 'subst',
     begin: '[$@]\\{', end: '\\}',
-    keywords: PERL_KEYWORDS,
-    relevance: 10
+    keywords: PERL_KEYWORDS
   };
   var VAR = {
     className: 'variable',
