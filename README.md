@@ -100,9 +100,9 @@ styling:
 ## Custom initialization
 
 If you use different markup for code blocks you can initialize them manually
-with `highlightBlock(code, tabReplace, useBR)` function. It takes a DOM element
-containing the code to highlight and optionally a string with which to replace
-TAB characters.
+with `highlightBlock(code)` function. It takes a DOM element containing the
+code to highlight and optionally a string with which to replace TAB
+characters.
 
 Initialization using, for example, jQuery might look like this:
 
