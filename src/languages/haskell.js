@@ -122,7 +122,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
-      { className: 'title', begin: '^[_a-z][\\w\']*' },
+      { className: 'title', begin: '^[_a-z][\\w\']*', relevance: 0 },
 
       {begin: '->|<-'} // No markup, relevance booster
     ]
