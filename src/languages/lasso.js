@@ -132,6 +132,7 @@ function(hljs) {
           className: 'markup',
           end: '\\[|' + LASSO_ANGLE_RE,
           returnEnd: true,
+          relevance: 0,
           contains: [ HTML_COMMENT ]
         }
       },
