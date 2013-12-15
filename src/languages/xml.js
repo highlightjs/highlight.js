@@ -92,7 +92,6 @@ function(hljs) {
       {
         className: 'tag',
         begin: '</?', end: '/?>',
-        relevance: 0,
         contains: [
           {
             className: 'title', begin: '[^ /><]+'

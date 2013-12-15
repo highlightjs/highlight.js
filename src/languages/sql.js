@@ -5,6 +5,7 @@ Language: SQL
 function(hljs) {
   return {
     case_insensitive: true,
+    illegal: /[<>]/,
     contains: [
       {
         className: 'operator',
