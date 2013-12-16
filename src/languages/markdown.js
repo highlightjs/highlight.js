@@ -70,7 +70,11 @@ function(hljs) {
         contains: [
           {
             className: 'link_label',
-            begin: '\\[.+\\]'
+            begin: '\\[',
+            end: '\\]',
+            excludeBegin: true,
+            excludeEnd: true,
+            relevance: 0
           },
           {
             className: 'link_url',
