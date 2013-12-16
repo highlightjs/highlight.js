@@ -71,13 +71,18 @@ function(hljs) {
             className: 'link_label',
             begin: '\\[', end: '\\]',
             excludeBegin: true,
-            excludeEnd: true,
+            returnEnd: true,
             relevance: 0
           },
           {
             className: 'link_url',
-            begin: '\\(', end: '\\)',
+            begin: '\\]\\(', end: '\\)',
             excludeBegin: true, excludeEnd: true
+          },
+          {
+            className: 'link_reference',
+            begin: '\\]\\[', end: '\\]',
+            excludeBegin: true, excludeEnd: true,
           }
         ],
         relevance: 10
