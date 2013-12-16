@@ -136,6 +136,7 @@ Lasso ("lasso")
 * ``variable``:         variable reference starting with "#" or "$"
 * ``tag``:              tag literal
 * ``attribute``:        named or rest parameter in method signature
+* ``subst``:            unary/binary/ternary operator symbols
 * ``class``:            type, trait, or method header
 * ``title``:            name following "define" inside a header
 
