@@ -98,7 +98,7 @@ function(hljs) {
     },
     {
       className: 'subst',
-      begin: ':=|[-+*/%=<>&|!?\\\\]+',
+      begin: ':=|/(?!\\w)=?|[-+*%=<>&|!?\\\\]+',
       relevance: 0
     },
     {
