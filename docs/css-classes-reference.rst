@@ -191,6 +191,7 @@ Markdown ("markdown")
 * ``horizontal_rule``:   horizontal rule
 * ``link_label``:        link label
 * ``link_url``:          link url
+* ``link_reference``:    link reference
 
 AsciiDoc ("asciidoc")
 ---------------------

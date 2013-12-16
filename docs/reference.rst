@@ -140,7 +140,7 @@ lexemes
 
 **type**: regexp
 
-A regular expression extracting individual lexemes from language text to find ``[[#keywords]]`` among them.
+A regular expression that extracts individual lexemes from language text to find ``[[#keywords]]`` among them.
 Default value is ``hljs.IDENT_RE`` which works for most languages.
 
 
@@ -165,7 +165,7 @@ illegal
 
 **type**: regexp
 
-A regular expression defining symbols illegal for the mode.
+A regular expression that defines symbols illegal for the mode.
 When the parser finds a match for illegal expression it immediately drops parsing the whole language altogether.
 
 
