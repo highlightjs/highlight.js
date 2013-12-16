@@ -81,7 +81,8 @@ function(hljs) {
             begin: '\\(', end: '\\)',
             excludeBegin: true, excludeEnd: true
           }
-        ]
+        ],
+        relevance: 10
       }
     ]
   };
