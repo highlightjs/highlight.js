@@ -89,3 +89,9 @@ Contributors:
 - Sylvestre Ledru <sylvestre.ledru@scilab-enterprises.com>
 - Troy Kershaw <hello@troykershaw.com>
 - Zena Treep <zena.treep@gmail.com>
+- Daniel Kvasnicka <dkvasnicka@vendavo.com>
+- Carlo Kok <ck@remobjects.com>
+- Bram de Haan <info@atelierbramdehaan.nl>
+- Seongwon Lee <dlimpid@gmail.com>
+- Zaven Muradyan <megalivoithos@gmail.com>
+- Jan T. Sott <jan@idleberg.com>

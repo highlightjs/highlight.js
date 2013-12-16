@@ -109,7 +109,7 @@ function(hljs) {
     },
     {
       className: 'class',
-      beginWithKeyword: true, keywords: 'define',
+      beginKeywords: 'define',
       returnEnd: true, end: '\\(|=>',
       contains: [
         {
@@ -121,7 +121,7 @@ function(hljs) {
   ];
   return {
     case_insensitive: true,
-    lexems: LASSO_IDENT_RE + '|&[lg]t;',
+    lexemes: LASSO_IDENT_RE + '|&[lg]t;',
     keywords: LASSO_KEYWORDS,
     contains: [
       {
@@ -132,6 +132,7 @@ function(hljs) {
           className: 'markup',
           end: '\\[|' + LASSO_ANGLE_RE,
           returnEnd: true,
+          relevance: 0,
           contains: [ HTML_COMMENT ]
         }
       },
@@ -142,7 +143,7 @@ function(hljs) {
         begin: '\\[no_square_brackets',
         starts: {
           end: '\\[/no_square_brackets\\]', // not implemented in the language
-          lexems: LASSO_IDENT_RE + '|&[lg]t;',
+          lexemes: LASSO_IDENT_RE + '|&[lg]t;',
           keywords: LASSO_KEYWORDS,
           contains: [
             {

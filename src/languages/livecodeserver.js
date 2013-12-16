@@ -119,8 +119,7 @@ function(hljs) {
 	  },
 	  {
 	 	className: 'function',
-	    beginWithKeyword: true, end: '$',
-	    keywords: 'function',
+	    beginKeywords: 'function', end: '$',
 	    contains: [
 		  VARIABLE,
 		  {
@@ -131,8 +130,7 @@ function(hljs) {
 	  },
 	  {
 	 	className: 'function',
-	    beginWithKeyword: true, end: '$',
-	    keywords: 'end',
+	    beginKeywords: 'end', end: '$',
 	    contains: [
 		  {
 		  	className: 'title',
@@ -142,8 +140,7 @@ function(hljs) {
 	  },
 	  {
 	 	className: 'command',
-	    beginWithKeyword: true, end: '$',
-	    keywords: 'command on',
+	    beginKeywords: 'command on', end: '$',
 	    contains: [
 		  VARIABLE,
 		  {
@@ -154,8 +151,7 @@ function(hljs) {
 	  },
 	  {
 	 	className: 'command',
-	    beginWithKeyword: true, end: '$',
-	    keywords: 'end',
+	    beginKeywords: 'end', end: '$',
 	    contains: [
 		  {
 		  	className: 'title',

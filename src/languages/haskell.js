@@ -6,15 +6,14 @@ Contributors: Zena Treep <zena.treep@gmail.com>
 
 function(hljs) {
 
-  var COMMENT1 = {
+  var COMMENT = {
     className: 'comment',
-    begin: '--', end: '$'
-  };
-
-  var COMMENT2 = {
-    className: 'comment',
-    contains: ['self'],
-    begin: '{-', end: '-}'
+    variants: [
+      { begin: '--', end: '$' },
+      { begin: '{-', end: '-}'
+      , contains: ['self']
+      }
+    ]
   };
 
   var PRAGMA = {
@@ -39,8 +38,7 @@ function(hljs) {
     illegal: '"',
     contains: [
       PRAGMA,
-      COMMENT1,
-      COMMENT2,
+      COMMENT,
       PREPROCESSOR,
       {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
       { className: 'title', begin: '[_a-z][\\w\']*' }
@@ -55,58 +53,57 @@ function(hljs) {
 
   return {
     keywords:
-      'let in if then else case of where do module import hiding qualified type data ' +
-      'newtype deriving class instance as default infix infixl infixr ' +
-      'foreign export ccall stdcall cplusplus jvm dotnet safe unsafe ' +
-      'family forall mdo proc rec',
+      'let in if then else case of where do module import hiding ' +
+      'qualified type data newtype deriving class instance as default ' +
+      'infix infixl infixr foreign export ccall stdcall cplusplus ' +
+      'jvm dotnet safe unsafe family forall mdo proc rec',
     contains: [
 
       // Top-level constructions.
 
       {
         className: 'module',
-        begin: '\\bmodule ', end: 'where',
+        begin: '\\bmodule\\b', end: 'where',
         keywords: 'module where',
-        contains: [LIST, COMMENT2],
+        contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
       {
         className: 'import',
-        begin: '\\bimport ', end: '$',
+        begin: '\\bimport\\b', end: '$',
         keywords: 'import qualified as hiding',
-        contains: [LIST, COMMENT1, COMMENT2],
+        contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
 
       {
         className: 'class',
-        begin: '\\b(class |instance )', end: 'where',
+        begin: '\\b(class|instance)\\b', end: 'where',
         keywords: 'class family instance where',
-        contains: [CONSTRUCTOR, LIST, COMMENT2]
+        contains: [CONSTRUCTOR, LIST, COMMENT]
       },
       {
         className: 'typedef',
-        begin: '\\b(data |(new)?type )', end: '$',
+        begin: '\\b(data|(new)?type)\\b', end: '$',
         keywords: 'data family type newtype deriving',
-        contains: [PRAGMA, COMMENT1, COMMENT2, CONSTRUCTOR, LIST, RECORD]
+        contains: [PRAGMA, COMMENT, CONSTRUCTOR, LIST, RECORD]
       },
       {
         className: 'default',
-        begin: '\\bdefault ', end: '$',
-        keywords: 'default',
-        contains: [CONSTRUCTOR, LIST, COMMENT1, COMMENT2]
+        beginKeywords: 'default', end: '$',
+        contains: [CONSTRUCTOR, LIST, COMMENT]
       },
       {
         className: 'infix',
-        begin: '\\b(infix |infixl |infixr )', end: '$',
-        keywords: 'infix infixl infixr',
-        contains: [hljs.C_NUMBER_MODE, COMMENT1, COMMENT2]
+        beginKeywords: 'infix infixl infixr', end: '$',
+        contains: [hljs.C_NUMBER_MODE, COMMENT]
       },
       {
         className: 'foreign',
-        begin: '\\bforeign ', end: '$',
-        keywords: 'foreign import export ccall stdcall cplusplus jvm dotnet safe unsafe',
-        contains: [CONSTRUCTOR, hljs.QUOTE_STRING_MODE, COMMENT1, COMMENT2]
+        begin: '\\bforeign\\b', end: '$',
+        keywords: 'foreign import export ccall stdcall cplusplus jvm ' +
+                  'dotnet safe unsafe',
+        contains: [CONSTRUCTOR, hljs.QUOTE_STRING_MODE, COMMENT]
       },
       {
         className: 'shebang',
@@ -116,8 +113,7 @@ function(hljs) {
       // "Whitespaces".
 
       PRAGMA,
-      COMMENT1,
-      COMMENT2,
+      COMMENT,
       PREPROCESSOR,
 
       // Literals and names.
@@ -126,7 +122,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
-      { className: 'title', begin: '^[_a-z][\\w\']*' },
+      { className: 'title', begin: '^[_a-z][\\w\']*', relevance: 0 },
 
       {begin: '->|<-'} // No markup, relevance booster
     ]

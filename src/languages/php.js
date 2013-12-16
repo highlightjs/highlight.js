@@ -8,27 +8,30 @@ function(hljs) {
   var VARIABLE = {
     className: 'variable', begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
   };
-  var STRINGS = [
-    hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
-    hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
-    {
-      className: 'string',
-      begin: 'b"', end: '"',
-      contains: [hljs.BACKSLASH_ESCAPE]
-    },
-    {
-      className: 'string',
-      begin: 'b\'', end: '\'',
-      contains: [hljs.BACKSLASH_ESCAPE]
-    }
-  ];
-  var NUMBERS = [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE];
+  var PREPROCESSOR = {
+    className: 'preprocessor', begin: /<\?(php)?|\?>/
+  };
+  var STRING = {
+    className: 'string',
+    contains: [hljs.BACKSLASH_ESCAPE, PREPROCESSOR],
+    variants: [
+      {
+        begin: 'b"', end: '"'
+      },
+      {
+        begin: 'b\'', end: '\''
+      },
+      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
+    ]
+  };
+  var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
   var TITLE = {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
   };
   return {
     case_insensitive: true,
-    lexems: hljs.UNDERSCORE_IDENT_RE,
+    lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords:
       'and include_once list abstract global private echo interface as static endswitch ' +
       'array null if endwhile or const for endforeach self var while isset public ' +
@@ -44,35 +47,29 @@ function(hljs) {
       {
         className: 'comment',
         begin: '/\\*', end: '\\*/',
-        contains: [{
+        contains: [
+          {
             className: 'phpdoc',
             begin: '\\s@[A-Za-z]+'
-        }]
+          },
+          PREPROCESSOR
+        ]
       },
       {
           className: 'comment',
           begin: '__halt_compiler.+?;', endsWithParent: true,
-          keywords: '__halt_compiler', lexems: hljs.UNDERSCORE_IDENT_RE
+          keywords: '__halt_compiler', lexemes: hljs.UNDERSCORE_IDENT_RE
       },
       {
         className: 'string',
         begin: '<<<[\'"]?\\w+[\'"]?$', end: '^\\w+;',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
-      {
-        className: 'preprocessor',
-        begin: '<\\?php',
-        relevance: 10
-      },
-      {
-        className: 'preprocessor',
-        begin: '\\?>'
-      },
+      PREPROCESSOR,
       VARIABLE,
       {
         className: 'function',
-        beginWithKeyword: true, end: '{',
-        keywords: 'function',
+        beginKeywords: 'function', end: /[;{]/,
         illegal: '\\$|\\[|%',
         contains: [
           TITLE,
@@ -82,20 +79,20 @@ function(hljs) {
             contains: [
               'self',
               VARIABLE,
-              hljs.C_BLOCK_COMMENT_MODE
-            ].concat(STRINGS).concat(NUMBERS)
+              hljs.C_BLOCK_COMMENT_MODE,
+              STRING,
+              NUMBER
+            ]
           }
         ]
       },
       {
         className: 'class',
-        beginWithKeyword: true, end: '{',
-        keywords: 'class',
+        beginKeywords: 'class', end: '{',
         illegal: '[:\\(\\$]',
         contains: [
           {
-            beginWithKeyword: true, endsWithParent: true,
-            keywords: 'extends',
+            beginKeywords: 'extends', endsWithParent: true,
             contains: [TITLE]
           },
           TITLE
@@ -103,7 +100,9 @@ function(hljs) {
       },
       {
         begin: '=>' // No markup, just a relevance booster
-      }
-    ].concat(STRINGS).concat(NUMBERS)
+      },
+      STRING,
+      NUMBER
+    ]
   };
 }

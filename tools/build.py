@@ -15,13 +15,13 @@ from functools import partial
 
 REPLACES = {
     'case_insensitive': 'cI',
-    'lexems': 'l',
+    'lexemes': 'l',
     'contains': 'c',
     'keywords': 'k',
     'subLanguage': 'sL',
     'className': 'cN',
     'begin': 'b',
-    'beginWithKeyword': 'bWK',
+    'beginKeywords': 'bK',
     'end': 'e',
     'endsWithParent': 'eW',
     'illegal': 'i',
@@ -30,6 +30,7 @@ REPLACES = {
     'returnBegin': 'rB',
     'returnEnd': 'rE',
     'relevance': 'r',
+    'variants': 'v',
 
     'IDENT_RE': 'IR',
     'UNDERSCORE_IDENT_RE': 'UIR',
@@ -50,7 +51,7 @@ REPLACES = {
     'beginRe': 'bR',
     'endRe': 'eR',
     'illegalRe': 'iR',
-    'lexemsRe': 'lR',
+    'lexemesRe': 'lR',
     'terminators': 't',
     'terminator_end': 'tE',
 }
@@ -181,11 +182,10 @@ def wrap_language(filename, content, compressed):
     '''
     name = lang_name(filename)
     if compressed:
-        name = ('["%s"]' if '-' in name or name[0].isdigit() else '.%s') % name
         content = content.rstrip(';')
-        wrap = 'hljs.LANGUAGES%s=%s(hljs);'
+        wrap = 'hljs.registerLanguage("%s",%s);'
     else:
-        wrap = 'hljs.LANGUAGES[\'%s\'] = %s(hljs);\n'
+        wrap = '\nhljs.registerLanguage(\'%s\', %s);\n'
     return wrap % (name, content)
 
 def glue_files(hljs_filename, language_filenames, compressed):
@@ -219,23 +219,35 @@ def build_amd(root, build_path, filenames, options):
 
 def build_node(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
+    os.makedirs(os.path.join(build_path, 'lib', 'languages'))
     print('Building %d files:' % len(filenames))
     for filename in filenames:
         print(filename)
         content = 'module.exports = %s;' % strip_read(filename)
-        utf8_open(os.path.join(build_path, os.path.basename(filename)), 'w').write(content)
+        utf8_open(os.path.join(build_path, 'lib', 'languages', os.path.basename(filename)), 'w').write(content)
     filename = os.path.join(src_path, 'highlight.js')
     print(filename)
+    core = 'var Highlight = %s;' % strip_read(filename)
+    core += '\nmodule.exports = Highlight;'
+    utf8_open(os.path.join(build_path, 'lib', 'highlight.js'), 'w').write(core)
 
     print('Registering languages with the library...')
-    hljs = 'var hljs = new %s();' % strip_read(filename)
+    hljs = "var Highlight = require('./highlight');\nvar hljs = new Highlight();"
     filenames = map(os.path.basename, filenames)
     for filename in filenames:
-        hljs += '\nhljs.LANGUAGES[\'%s\'] = require(\'./%s\')(hljs);' % (lang_name(filename), filename)
+        hljs += '\nhljs.registerLanguage(\'%s\', require(\'./languages/%s\'));' % (lang_name(filename), filename)
     hljs += '\nmodule.exports = hljs;'
-    utf8_open(os.path.join(build_path, 'highlight.js'), 'w').write(hljs)
+    utf8_open(os.path.join(build_path, 'lib', 'index.js'), 'w').write(hljs)
     if options.compress:
         print('Notice: not compressing files for "node" target.')
+
+    print('Copying over Metafiles...')
+
+    filenames = ['LICENSE', 'README.md']
+    for filename in filenames:
+        source = os.path.join(root, filename)
+        dest   = os.path.join(build_path, filename)
+        shutil.copyfile(source, dest)
 
     print('Adding package.json...')
     package = json.load(utf8_open(os.path.join(src_path, 'package.json')))

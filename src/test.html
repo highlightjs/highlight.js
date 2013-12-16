@@ -35,6 +35,18 @@
   <link rel="alternate stylesheet" title="Docco" href="styles/docco.css">
   <link rel="alternate stylesheet" title="Mono Blue" href="styles/mono-blue.css">
   <link rel="alternate stylesheet" title="Foundation" href="styles/foundation.css">
+  <link rel="alternate stylesheet" title="Atelier Dun - Dark" href="styles/atelier-dune.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Dun - Light" href="styles/atelier-dune.light.css">
+  <link rel="alternate stylesheet" title="Atelier Forest - Dark" href="styles/atelier-forest.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Forest - Light" href="styles/atelier-forest.light.css">
+  <link rel="alternate stylesheet" title="Atelier Heath - Dark" href="styles/atelier-heath.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Heath - Light" href="styles/atelier-heath.light.css">
+  <link rel="alternate stylesheet" title="Atelier Lakeside - Dark" href="styles/atelier-lakeside.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Lakeside - Light" href="styles/atelier-lakeside.light.css">
+  <link rel="alternate stylesheet" title="Atelier Seaside - Dark" href="styles/atelier-seaside.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Seaside - Light" href="styles/atelier-seaside.light.css">
+  <link rel="alternate stylesheet" title="Paraíso - Dark" href="styles/paraiso.dark.css">
+  <link rel="alternate stylesheet" title="Paraíso - Light" href="styles/paraiso.light.css">
 
   <style>
     body {
@@ -93,14 +105,14 @@
     .code {
       font: medium monospace;
     }
-    .code .keyword {
+    .code .hljs-keyword {
       font-weight: bold;
     }
   </style>
 
   <script src="../build/highlight.pack.js"></script>
   <script>
-  hljs.tabReplace = '    ';
+  hljs.configure({tabReplace: '    '});
   hljs.initHighlightingOnLoad();
   </script>
 
@@ -190,7 +202,7 @@ def somefunc(param1='', param2=0):
     r'''A docstring'''
     if param1 &gt; param2: # interesting
         print 'Gre\'ater'
-    return (param2 - param1 + 1) or None
+    return (param2 - param1 + 1 + 0b10l) or None
 
 class SomeClass:<br>    pass
 
@@ -280,6 +292,7 @@ sub load
   my $vt;
   $string =~ m/^sought_text$/;
   $items = split //, 'abc';
+  $string //= "bar";
   for my $key (keys %$p)
   {
     if(${$vt.'::property'}) {
@@ -302,6 +315,7 @@ POD till the end of file
 
 abstract class URI extends BaseURI
 {
+  abstract function test();
 
   /**
    * Returns a URI
@@ -377,13 +391,11 @@ object Maps {
 
 import (
     "fmt"
-    "rand"
     "os"
 )
 
 const (
     Sunday = iota
-    Partyday
     numberOfDays  // this constant is not exported
 )
 
@@ -391,12 +403,9 @@ type Foo interface {
     FooFunc(int, float32) (complex128, []int)
 }
 
-// simple comment
 type Bar struct {
-    os.File /* multi
-    line
-    comment */
-
+    os.File /* multi-line
+               comment */
     PublicData chan int
 }
 
@@ -405,7 +414,6 @@ func main() {
     ch &lt;- 1
     x, ok := &lt;- ch
     ok = true
-    x = nil
     float_var := 1.0e10
     defer fmt.Println('\'')
     defer fmt.Println(`exitting now\`)
@@ -505,7 +513,7 @@ func main() {
 <pre>
 <code># hello world
 
-you can write text [with links](http://example.com).
+you can write text [with links](http://example.com) inline or [link references][1].
 
 * one _thing_ has *em*phasis
 * two __things__ are **bold**
@@ -523,6 +531,8 @@ hello world
 
 1. one thing (yeah!)
 2. two thing `i can write code`, and `more` wipee!
+
+[1]: http://example.com
 </code></pre>
 
 	<tr>
@@ -762,7 +772,6 @@ a {
       return processBlock(block, true, 0x0F) + ' class=""';
   } catch (e) {
     /* handle exception */
-
     var e4x =
         &lt;div&gt;Example
             &lt;p&gt;1234&lt;/p&gt;&lt;/div&gt;;
@@ -771,6 +780,7 @@ a {
     if (checkCondition(classes[i]) === undefined)
       return /\d+[\s/]/g;
   }
+  console.log(new Date());
 }</code></pre>
 
   <tr>
@@ -789,6 +799,7 @@ x = f /foo * 2/6
 x = f /6 * 2/ - 3
 x = f /foo * 2/gm
 x = if true then /\n/ else /[.,]+/
+x = ///^key-#{key}-\d+///
 
 grade = (student, period=(if b? then 7 else 6), messages={"A": "Excellent"}) -&gt;
   if student.excellentWork
@@ -1011,36 +1022,97 @@ do shell script "/bin/echo 'hello'"
   <tr>
     <th>Delphi
     <td class="delphi">
-<pre><code>TList=Class(TObject)
+<pre><code>TList = Class(TObject)
 Private
   Some: String;
 Public
   Procedure Inside; // Suxx
 End;{TList}
 
-Procedure CopyFile(InFileName,var OutFileName:String);
+Procedure CopyFile(InFileName, var OutFileName: String);
 Const
-  BufSize=4096; (* Huh? *)
+  BufSize = 4096; (* Huh? *)
 Var
-  InFile,OutFile:TStream;
-  Buffer:Array[1..BufSize] Of Byte;
-  ReadBufSize:Integer;
+  InFile, OutFile: TStream;
+  Buffer: Array[1..BufSize] Of Byte;
+  ReadBufSize: Integer;
 Begin
-  InFile:=Nil;
-  OutFile:=Nil;
+  InFile := Nil;
+  OutFile := Nil;
   Try
-    InFile:=TFileStream.Create(InFileName,fmOpenRead);
-    OutFile:=TFileStream.Create(OutFileName,fmCreate);
+    InFile := TFileStream.Create(InFileName, fmOpenRead);
+    OutFile := TFileStream.Create(OutFileName, fmCreate);
     Repeat
-      ReadBufSize:=InFile.Read(Buffer,BufSize);
-      OutFile.Write(Buffer,ReadBufSize);
+      ReadBufSize := InFile.Read(Buffer, BufSize);
+      OutFile.Write(Buffer, ReadBufSize);
     Until ReadBufSize&lt;&gt;BufSize;
-    Log('File '''+InFileName+''' copied'#13#10);
+    Log('File ''' + InFileName + ''' copied'#13#10);
   Finally
     InFile.Free;
     OutFile.Free;
   End;{Try}
 End;{CopyFile}
+</code></pre>
+
+  <tr>
+    <th>Oxygene
+    <td class="oxygene">
+<pre><code>namespace LinkedList;
+
+interface
+
+uses
+  System.Text;
+
+type
+  List&lt;T&gt; = public class
+    where T is Object;
+  private
+    method AppendToString(aBuilder: StringBuilder);
+  public
+    constructor(aData: T);
+    constructor(aData: T; aNext: List&lt;T&gt;);
+    property Next: List&lt;T&gt;;
+    property Data: T;
+
+    method ToString: string; override;
+  end;
+
+implementation
+
+constructor List&lt;T&gt;(aData: T);
+begin
+  Data := aData;
+end;
+
+constructor List&lt;T&gt;(aData: T; aNext: List&lt;T&gt;);
+begin
+  constructor(aData);
+  Next := aNext;
+end;
+
+method List&lt;T&gt;.ToString: string;
+begin
+  with lBuilder := new StringBuilder do begin
+    AppendToString(lBuilder);
+    result := lBuilder.ToString();
+  end;
+end;
+
+method List&lt;T&gt;.AppendToString(aBuilder: StringBuilder);
+begin
+  if assigned(Data) then
+    aBuilder.Append(Data.ToString)
+  else
+    aBuilder.Append('nil');
+
+  if assigned(Next) then begin
+    aBuilder.Append(', ');
+    Next.AppendToString(aBuilder);
+  end;
+end;
+
+end.
 </code></pre>
 
   <tr>
@@ -1085,6 +1157,7 @@ public abstract class L2Character extends L2Object {
     <th>C++
     <td class="cpp">
 <pre><code>#include &lt;iostream&gt;
+#define IABS(x) ((x) &lt; 0 ? -(x) : (x))
 
 int main(int argc, char *argv[]) {
 
@@ -2181,6 +2254,10 @@ import Data.ByteString.Char8 (pack, unpack)
 import Network.Socket hiding (sendTo, recv, recvFrom)
 import Network.Socket.ByteString (sendTo, recv, recvFrom)
 
+infix 3 `foo`
+infixl 6 `bar`
+infixr 9 `baz`
+
 -- Type class for converting StringLike types to and from strict ByteStrings
 class DataPacket a where
   toStrictBS :: a -&gt; Strict.ByteString
@@ -2493,7 +2570,6 @@ foo %union% bar
 
 </code></pre>
 
-
   <tr>
     <th>Mizar
     <td class="mizar">
@@ -2584,6 +2660,56 @@ then  y in ProperPrefixes v or y = v &amp; v in ProperPrefixes (v^&lt;*x*&gt;)
   hence thesis by A4;
 end;</code></pre>
 
+  <tr>
+    <th>Mathematica</th>
+    <td class="mathematica">
+<pre>
+<code>(* ::Package:: *)
+
+(* Mathematica Package *)
+
+BeginPackage["SomePkg`"]
+
+Begin["`Private`"]
+
+SomeFn[ns_List] := Fold[Function[{x, y}, x + y], 0, Map[# * 2 &amp;, ns]];
+Print[$ActivationKey];
+
+End[] (* End Private Context *)
+
+EndPackage[]
+</code></pre>
+
+  <tr>
+    <th>AutoHotkey</th>
+    <td class="autohotkey">
+<pre>
+<code>; hotkeys and hotstrings
+#a::WinSet, AlwaysOnTop, Toggle, A
+#Space::
+  MsgBox, Percent sign (`%) need to be escaped.
+  Run "C:\Program Files\some\program.exe"
+  Gosub, label1
+return
+::btw::by the way
+; volume
+#Numpad8::Send {Volume_Up}
+#Numpad5::Send {Volume_Mute}
+#Numpad2::Send {Volume_Down}
+
+label1:
+  if (Clipboard = "")
+  {
+    MsgBox, , Clipboard, Empty!
+  }
+  else
+  {
+    StringReplace, temp, Clipboard, old, new, All
+    MsgBox, , Clipboard, %temp%
+  }
+return
+</code></pre>
+
 </table>
 
 <script>
@@ -2597,22 +2723,19 @@ end;</code></pre>
     var failed = [];
     for (var i = 0; i < tds.length; i++) {
       var tdClass = tds[i].className;
-      if (!hljs.LANGUAGES.hasOwnProperty(tdClass)) {
+      if (!hljs.getLanguage(tdClass)) {
         tds[i].parentNode.style.display = 'none';
         continue;
       }
       var code = tds[i].getElementsByTagName('CODE')[0];
-      var passed = tdClass == code.className;
+      var langClass = code.className.replace('hljs', '').trim();
+      var passed = tdClass == langClass;
       var result = document.createElement('DIV');
       result.className = 'test';
-      result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + code.className + '</var>';
-      function counts(r) {
-        return ' (' + r.kw + '+' + r.re + '=' + (r.kw + r.re) + ')';
-      }
-      result.innerHTML += counts(code.result);
+      result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + langClass + '</var>';
+      result.innerHTML += ' (' + code.result.re + ')';
       if (code.second_best) {
-        result.innerHTML += '<br>' + code.second_best.language +
-                            counts(code.second_best) ;
+        result.innerHTML += '<br>' + code.second_best.language + ' (' + code.second_best.re + ')';
       }
       tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
       if (!passed) {
@@ -2682,6 +2805,11 @@ end;</code></pre>
 &nbsp;&nbsp;count(x)<br>
 </div>
 <script>hljs.highlightBlock(document.getElementById('codecontainer'), null, true);</script>
+
+  <tr>
+    <th>Language alias
+    <td>
+      <pre><code class="language-js">var x = '&lt;p&gt;this should &lt;b&gt;not&lt;/b&gt; be highlighted as &lt;em&gt;HTML&lt;/em&gt;';</code></pre>
 
   <tr>
     <th>Disabled highlighting

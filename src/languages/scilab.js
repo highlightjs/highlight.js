@@ -12,8 +12,7 @@ function(hljs) {
     {
       className: 'string',
       begin: '\'|\"', end: '\'|\"',
-      contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}],
-      relevance: 0
+      contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}]
     }
   ];
 
@@ -34,7 +33,7 @@ function(hljs) {
     contains: [
       {
         className: 'function',
-        beginWithKeyword: true, end: '$',
+        beginKeywords: 'function endfunction', end: '$',
         keywords: 'function endfunction|10',
         contains: [
           {
@@ -49,11 +48,13 @@ function(hljs) {
       },
       {
         className: 'transposed_variable',
-        begin: '[a-zA-Z_][a-zA-Z_0-9]*(\'+[\\.\']*|[\\.\']+)', end: ''
+        begin: '[a-zA-Z_][a-zA-Z_0-9]*(\'+[\\.\']*|[\\.\']+)', end: '',
+        relevance: 0
       },
       {
         className: 'matrix',
         begin: '\\[', end: '\\]\'*[\\.\']*',
+        relevance: 0,
         contains: COMMON_CONTAINS
       },
       {

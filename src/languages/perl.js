@@ -29,15 +29,13 @@ function(hljs) {
     keywords: PERL_KEYWORDS,
     relevance: 10
   };
-  var VAR1 = {
+  var VAR = {
     className: 'variable',
-    begin: '\\$\\d'
+    variants: [
+      {begin: '\\$\\d'},
+      {begin: '[\\$\\%\\@\\*](\\^\\w\\b|#\\w+(\\:\\:\\w+)*|[^\\s\\w{]|{\\w+}|\\w+(\\:\\:\\w*)*)'}
+    ]
   };
-  var VAR2 = {
-    className: 'variable',
-    begin: '[\\$\\%\\@\\*](\\^\\w\\b|#\\w+(\\:\\:\\w+)*|[^\\s\\w{]|{\\w+}|\\w+(\\:\\:\\w*)*)'
-  };
-  var STRING_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST, VAR1, VAR2];
   var METHOD = {
     begin: '->',
     contains: [
@@ -50,8 +48,9 @@ function(hljs) {
     begin: '^(__END__|__DATA__)', end: '\\n$',
     relevance: 5
   }
+  var STRING_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST, VAR];
   var PERL_DEFAULT_CONTAINS = [
-    VAR1, VAR2,
+    VAR,
     hljs.HASH_COMMENT_MODE,
     COMMENT,
     {
@@ -61,66 +60,54 @@ function(hljs) {
     METHOD,
     {
       className: 'string',
-      begin: 'q[qwxr]?\\s*\\(', end: '\\)',
       contains: STRING_CONTAINS,
-      relevance: 5
-    },
-    {
-      className: 'string',
-      begin: 'q[qwxr]?\\s*\\[', end: '\\]',
-      contains: STRING_CONTAINS,
-      relevance: 5
-    },
-    {
-      className: 'string',
-      begin: 'q[qwxr]?\\s*\\{', end: '\\}',
-      contains: STRING_CONTAINS,
-      relevance: 5
-    },
-    {
-      className: 'string',
-      begin: 'q[qwxr]?\\s*\\|', end: '\\|',
-      contains: STRING_CONTAINS,
-      relevance: 5
-    },
-    {
-      className: 'string',
-      begin: 'q[qwxr]?\\s*\\<', end: '\\>',
-      contains: STRING_CONTAINS,
-      relevance: 5
-    },
-    {
-      className: 'string',
-      begin: 'qw\\s+q', end: 'q',
-      contains: STRING_CONTAINS,
-      relevance: 5
-    },
-    {
-      className: 'string',
-      begin: '\'', end: '\'',
-      contains: [hljs.BACKSLASH_ESCAPE],
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '"', end: '"',
-      contains: STRING_CONTAINS,
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '`', end: '`',
-      contains: [hljs.BACKSLASH_ESCAPE]
-    },
-    {
-      className: 'string',
-      begin: '{\\w+}',
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '\-?\\w+\\s*\\=\\>',
-      relevance: 0
+      variants: [
+        {
+          begin: 'q[qwxr]?\\s*\\(', end: '\\)',
+          relevance: 5
+        },
+        {
+          begin: 'q[qwxr]?\\s*\\[', end: '\\]',
+          relevance: 5
+        },
+        {
+          begin: 'q[qwxr]?\\s*\\{', end: '\\}',
+          relevance: 5
+        },
+        {
+          begin: 'q[qwxr]?\\s*\\|', end: '\\|',
+          relevance: 5
+        },
+        {
+          begin: 'q[qwxr]?\\s*\\<', end: '\\>',
+          relevance: 5
+        },
+        {
+          begin: 'qw\\s+q', end: 'q',
+          relevance: 5
+        },
+        {
+          begin: '\'', end: '\'',
+          contains: [hljs.BACKSLASH_ESCAPE]
+        },
+        {
+          begin: '"', end: '"'
+        },
+        {
+          begin: '`', end: '`',
+          contains: [hljs.BACKSLASH_ESCAPE]
+        },
+        {
+          begin: '{\\w+}',
+          contains: [],
+          relevance: 0
+        },
+        {
+          begin: '\-?\\w+\\s*\\=\\>',
+          contains: [],
+          relevance: 0
+        }
+      ]
     },
     {
       className: 'number',
@@ -128,7 +115,7 @@ function(hljs) {
       relevance: 0
     },
     { // regexp container
-      begin: '(' + hljs.RE_STARTERS_RE + '|\\b(split|return|print|reverse|grep)\\b)\\s*',
+      begin: '(\\/\\/|' + hljs.RE_STARTERS_RE + '|\\b(split|return|print|reverse|grep)\\b)\\s*',
       keywords: 'split return print reverse grep',
       relevance: 0,
       contains: [
@@ -149,8 +136,7 @@ function(hljs) {
     },
     {
       className: 'sub',
-      beginWithKeyword: true, end: '(\\s*\\(.*?\\))?[;{]',
-      keywords: 'sub',
+      beginKeywords: 'sub', end: '(\\s*\\(.*?\\))?[;{]',
       relevance: 5
     },
     {

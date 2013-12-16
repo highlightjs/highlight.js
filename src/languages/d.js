@@ -148,8 +148,7 @@ function(hljs) {
 		className: 'string',
 		begin: '"',
 		contains: [D_ESCAPE_SEQUENCE],
-		end: '"[cwd]?',
-		relevance: 0
+		end: '"[cwd]?'
 	};
 
 	/**
@@ -245,7 +244,7 @@ function(hljs) {
 	}
 
 	return {
-		lexems: hljs.UNDERSCORE_IDENT_RE,
+		lexemes: hljs.UNDERSCORE_IDENT_RE,
 		keywords: D_KEYWORDS,
 		contains: [
 			hljs.C_LINE_COMMENT_MODE,

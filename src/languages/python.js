@@ -6,58 +6,58 @@ function(hljs) {
   var PROMPT = {
     className: 'prompt',  begin: /^(>>>|\.\.\.) /
   }
-  var STRINGS = [
-    {
-      className: 'string',
-      begin: /(u|b)?r?'''/, end: /'''/,
-      contains: [PROMPT],
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: /(u|b)?r?"""/, end: /"""/,
-      contains: [PROMPT],
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: /(u|r|ur)'/, end: /'/,
-      contains: [hljs.BACKSLASH_ESCAPE],
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: /(u|r|ur)"/, end: /"/,
-      contains: [hljs.BACKSLASH_ESCAPE],
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: /(b|br)'/, end: /'/,
-      contains: [hljs.BACKSLASH_ESCAPE]
-    },
-    {
-      className: 'string',
-      begin: /(b|br)"/, end: /"/,
-      contains: [hljs.BACKSLASH_ESCAPE]
-    }
-  ].concat([
-    hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE
-  ]);
+  var STRING = {
+    className: 'string',
+    contains: [hljs.BACKSLASH_ESCAPE],
+    variants: [
+      {
+        begin: /(u|b)?r?'''/, end: /'''/,
+        contains: [PROMPT],
+        relevance: 10
+      },
+      {
+        begin: /(u|b)?r?"""/, end: /"""/,
+        contains: [PROMPT],
+        relevance: 10
+      },
+      {
+        begin: /(u|r|ur)'/, end: /'/,
+        relevance: 10
+      },
+      {
+        begin: /(u|r|ur)"/, end: /"/,
+        relevance: 10
+      },
+      {
+        begin: /(b|br)'/, end: /'/,
+      },
+      {
+        begin: /(b|br)"/, end: /"/,
+      },
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  };
   var TITLE = {
     className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
   };
+  var NUMBER = {
+    className: 'number', relevance: 0,
+    variants: [
+      {begin: hljs.BINARY_NUMBER_RE + '[lLjJ]?'},
+      {begin: '\\b(0o[0-7]+)[lLjJ]?'},
+      {begin: hljs.C_NUMBER_RE + '[lLjJ]?'}
+    ]
+  }
   var PARAMS = {
     className: 'params',
     begin: /\(/, end: /\)/,
-    contains: ['self', hljs.C_NUMBER_MODE, PROMPT].concat(STRINGS)
+    contains: ['self', PROMPT, NUMBER, STRING]
   };
   var FUNC_CLASS_PROTO = {
-    beginWithKeyword: true, end: /:/,
+    end: /:/,
     illegal: /[${=;\n]/,
-    contains: [TITLE, PARAMS],
-    relevance: 10
+    contains: [TITLE, PARAMS]
   };
 
   return {
@@ -70,12 +70,13 @@ function(hljs) {
         'Ellipsis NotImplemented'
     },
     illegal: /(<\/|->|\?)/,
-    contains: STRINGS.concat([
+    contains: [
       PROMPT,
+      NUMBER,
+      STRING,
       hljs.HASH_COMMENT_MODE,
-      hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', keywords: 'def'}),
-      hljs.inherit(FUNC_CLASS_PROTO, {className: 'class', keywords: 'class'}),
-      hljs.C_NUMBER_MODE,
+      hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', beginKeywords: 'def', relevance: 10}),
+      hljs.inherit(FUNC_CLASS_PROTO, {className: 'class', beginKeywords: 'class'}),
       {
         className: 'decorator',
         begin: /@/, end: /$/
@@ -83,6 +84,6 @@ function(hljs) {
       {
         begin: /\b(print|exec)\(/ // don’t highlight keywords-turned-functions in Python 3
       }
-    ])
+    ]
   };
 }

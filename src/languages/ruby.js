@@ -11,126 +11,96 @@ function(hljs) {
     keyword:
       'and false then defined module in return redo if BEGIN retry end for true self when ' +
       'next until do begin unless END rescue nil else break undef not super class case ' +
-      'require yield alias while ensure elsif or include'
+      'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor'
   };
   var YARDOCTAG = {
     className: 'yardoctag',
     begin: '@[A-Za-z]+'
   };
-  var COMMENTS = [
-    {
-      className: 'comment',
-      begin: '#', end: '$',
-      contains: [YARDOCTAG]
-    },
-    {
-      className: 'comment',
-      begin: '^\\=begin', end: '^\\=end',
-      contains: [YARDOCTAG],
-      relevance: 10
-    },
-    {
-      className: 'comment',
-      begin: '^__END__', end: '\\n$'
-    }
-  ];
+  var COMMENT = {
+    className: 'comment',
+    variants: [
+      {
+        begin: '#', end: '$',
+        contains: [YARDOCTAG]
+      },
+      {
+        begin: '^\\=begin', end: '^\\=end',
+        contains: [YARDOCTAG],
+        relevance: 10
+      },
+      {
+        begin: '^__END__', end: '\\n$'
+      }
+    ]
+  };
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
-    lexems: RUBY_IDENT_RE,
     keywords: RUBY_KEYWORDS
   };
   var STR_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST];
-  var STRINGS = [
-    {
-      className: 'string',
-      begin: '\'', end: '\'',
-      contains: STR_CONTAINS,
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '"', end: '"',
-      contains: STR_CONTAINS,
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '%[qw]?\\(', end: '\\)',
-      contains: STR_CONTAINS
-    },
-    {
-      className: 'string',
-      begin: '%[qw]?\\[', end: '\\]',
-      contains: STR_CONTAINS
-    },
-    {
-      className: 'string',
-      begin: '%[qw]?{', end: '}',
-      contains: STR_CONTAINS
-    },
-    {
-      className: 'string',
-      begin: '%[qw]?<', end: '>',
-      contains: STR_CONTAINS,
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: '%[qw]?/', end: '/',
-      contains: STR_CONTAINS,
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: '%[qw]?%', end: '%',
-      contains: STR_CONTAINS,
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: '%[qw]?-', end: '-',
-      contains: STR_CONTAINS,
-      relevance: 10
-    },
-    {
-      className: 'string',
-      begin: '%[qw]?\\|', end: '\\|',
-      contains: STR_CONTAINS,
-      relevance: 10
-    },
-    {
-      className: 'string',
-      // \B in the beginning suppresses recognition of ?-sequences where ?
-      // is the last character of a preceding identifier, as in: `func?4`
-      begin: /\B\?(\\\d{1,3}|\\x[A-Fa-f0-9]{1,2}|\\u[A-Fa-f0-9]{4}|\\?\S)\b/
-    }
-  ];
+  var STRING = {
+    className: 'string',
+    contains: STR_CONTAINS,
+    variants: [
+      {begin: /'/, end: /'/},
+      {begin: /"/, end: /"/},
+      {begin: '%[qw]?\\(', end: '\\)'},
+      {begin: '%[qw]?\\[', end: '\\]'},
+      {begin: '%[qw]?{', end: '}'},
+      {
+        begin: '%[qw]?<', end: '>',
+        relevance: 10
+      },
+      {
+        begin: '%[qw]?/', end: '/',
+        relevance: 10
+      },
+      {
+        begin: '%[qw]?%', end: '%',
+        relevance: 10
+      },
+      {
+        begin: '%[qw]?-', end: '-',
+        relevance: 10
+      },
+      {
+        begin: '%[qw]?\\|', end: '\\|',
+        relevance: 10
+      },
+      {
+        // \B in the beginning suppresses recognition of ?-sequences where ?
+        // is the last character of a preceding identifier, as in: `func?4`
+        begin: /\B\?(\\\d{1,3}|\\x[A-Fa-f0-9]{1,2}|\\u[A-Fa-f0-9]{4}|\\?\S)\b/
+      }
+    ]
+  };
   var FUNCTION = {
     className: 'function',
-    beginWithKeyword: true, end: ' |$|;',
-    keywords: 'def',
+    beginKeywords: 'def', end: ' |$|;',
+    relevance: 0,
     contains: [
       {
         className: 'title',
         begin: RUBY_METHOD_RE,
-        lexems: RUBY_IDENT_RE,
         keywords: RUBY_KEYWORDS
       },
       {
         className: 'params',
         begin: '\\(', end: '\\)',
-        lexems: RUBY_IDENT_RE,
         keywords: RUBY_KEYWORDS
-      }
-    ].concat(COMMENTS)
+      },
+      COMMENT
+    ]
   };
 
-  var RUBY_DEFAULT_CONTAINS = COMMENTS.concat(STRINGS.concat([
+  var RUBY_DEFAULT_CONTAINS = [
+    STRING,
+    COMMENT,
     {
       className: 'class',
-      beginWithKeyword: true, end: '$|;',
-      keywords: 'class module',
+      beginKeywords: 'class module', end: '$|;',
       contains: [
         {
           className: 'title',
@@ -144,8 +114,9 @@ function(hljs) {
             className: 'parent',
             begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE
           }]
-        }
-      ].concat(COMMENTS)
+        },
+        COMMENT
+      ]
     },
     FUNCTION,
     {
@@ -156,7 +127,7 @@ function(hljs) {
     {
       className: 'symbol',
       begin: ':',
-      contains: STRINGS.concat([{begin: RUBY_METHOD_RE}]),
+      contains: [STRING, {begin: RUBY_METHOD_RE}],
       relevance: 0
     },
     {
@@ -175,46 +146,28 @@ function(hljs) {
     },
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
-      contains: COMMENTS.concat([
+      contains: [
+        COMMENT,
         {
           className: 'regexp',
-          begin: '/', end: '/[a-z]*',
-          illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-        },
-        {
-          className: 'regexp',
-          begin: '%r{', end: '}[a-z]*',
-          illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-        },
-        {
-          className: 'regexp',
-          begin: '%r\\(', end: '\\)[a-z]*',
-          illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-        },
-        {
-          className: 'regexp',
-          begin: '%r!', end: '![a-z]*',
-          illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-        },
-        {
-          className: 'regexp',
-          begin: '%r\\[', end: '\\][a-z]*',
-          illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+          illegal: /\n/,
+          variants: [
+            {begin: '/', end: '/[a-z]*'},
+            {begin: '%r{', end: '}[a-z]*'},
+            {begin: '%r\\(', end: '\\)[a-z]*'},
+            {begin: '%r!', end: '![a-z]*'},
+            {begin: '%r\\[', end: '\\][a-z]*'}
+          ]
         }
-      ]),
+      ],
       relevance: 0
     }
-  ]));
+  ];
   SUBST.contains = RUBY_DEFAULT_CONTAINS;
   FUNCTION.contains[1].contains = RUBY_DEFAULT_CONTAINS;
 
   return {
-    lexems: RUBY_IDENT_RE,
     keywords: RUBY_KEYWORDS,
     contains: RUBY_DEFAULT_CONTAINS
   };

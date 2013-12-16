@@ -25,14 +25,12 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'class',
-        beginWithKeyword: true, end: '{',
-        keywords: 'class interface',
+        beginKeywords: 'class interface', end: '{',
         excludeEnd: true,
         illegal: ':',
         contains: [
           {
-            beginWithKeyword: true,
-            keywords: 'extends implements',
+            beginKeywords: 'extends implements',
             relevance: 10
           },
           {

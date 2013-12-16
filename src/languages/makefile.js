@@ -7,7 +7,7 @@ function(hljs) {
   var VARIABLE = {
     className: 'variable',
     begin: /\$\(/, end: /\)/,
-    contains: hljs.BACKSLASH_ESCAPE
+    contains: [hljs.BACKSLASH_ESCAPE]
   }
   return {
     contains: [
@@ -34,7 +34,7 @@ function(hljs) {
       {
         className: 'phony',
         begin: /^\.PHONY:/, end: /$/,
-        keywords: '.PHONY', lexems: /[\.\w]+/
+        keywords: '.PHONY', lexemes: /[\.\w]+/
       },
       {
         begin: /^\t+/, end: /$/,

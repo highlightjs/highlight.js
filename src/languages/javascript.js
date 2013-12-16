@@ -4,15 +4,28 @@ Language: JavaScript
 
 function(hljs) {
   return {
+    aliases: ['js'],
     keywords: {
       keyword:
         'in if for while finally var new function do return void else break catch ' +
         'instanceof with throw case default try this switch continue typeof delete ' +
         'let yield const',
       literal:
-        'true false null undefined NaN Infinity'
+        'true false null undefined NaN Infinity',
+      built_in:
+        'eval isFinite isNaN parseFloat parseInt decodeURI decodeURIComponent ' +
+        'encodeURI encodeURIComponent escape unescape Object Function Boolean Error ' +
+        'EvalError InternalError RangeError ReferenceError StopIteration SyntaxError ' +
+        'TypeError URIError Number Math Date String RegExp Array Float32Array ' +
+        'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
+        'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require'
     },
     contains: [
+      {
+        className: 'pi',
+        begin: /^('|")use strict('|")/,
+        relevance: 10
+      },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,
@@ -34,8 +47,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginWithKeyword: true, end: /{/,
-        keywords: 'function',
+        beginKeywords: 'function', end: /\{/,
         contains: [
           {
             className: 'title', begin: /[A-Za-z$_][0-9A-Za-z$_]*/
