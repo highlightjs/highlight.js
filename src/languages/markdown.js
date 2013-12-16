@@ -64,7 +64,7 @@ function(hljs) {
       },
       // using links - title and link
       {
-        begin: '\\[.+?\\]\\(.+?\\)',
+        begin: '\\[.+?\\][\\(\\[].+?[\\)\\]]',
         returnBegin: true,
         contains: [
           {
