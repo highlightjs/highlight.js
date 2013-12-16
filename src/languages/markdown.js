@@ -60,7 +60,7 @@ function(hljs) {
       // horizontal rules
       {
         className: 'horizontal_rule',
-        begin: '^-{3,}', end: '$'
+        begin: '^[-\\*]{3,}', end: '$'
       },
       // using links - title and link
       {
