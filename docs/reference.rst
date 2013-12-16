@@ -154,8 +154,7 @@ keywords
 Keyword definition comes in two forms:
 
 * ``'for while if else weird_voodoo|10 ... '`` -- a string of space-separated keywords with an optional relevance over a pipe
-* ``{'keyword': ' ... ', 'literal': ' ... '}`` -- an object whose keys are names of different kinds of keywords and values
-                                                  are keyword definition strings in the first form
+* ``{'keyword': ' ... ', 'literal': ' ... '}`` -- an object whose keys are names of different kinds of keywords and values are keyword definition strings in the first form
 
 For detailed explanation see [[Language]] definition guide.
 
