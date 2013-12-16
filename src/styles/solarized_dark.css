@@ -68,7 +68,8 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-constant,
 .hljs-class .hljs-title,
 .hljs-parent,
-.haskell .hljs-type {
+.haskell .hljs-type,
+.hljs-link_reference {
   color: #b58900;
 }
 
