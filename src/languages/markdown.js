@@ -12,7 +12,7 @@ function(hljs) {
       {
         className: 'header',
         variants: [
-          { begin: '^#{1,3}', end: '$' },
+          { begin: '^#{1,6}', end: '$' },
           { begin: '^.+?\\n[=-]{2,}$' }
         ]
       },
