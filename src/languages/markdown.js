@@ -82,6 +82,21 @@ function(hljs) {
           }
         ],
         relevance: 10
+      },
+      {
+        begin: '^\\[\.+\\]:', end: '$',
+        returnBegin: true,
+        contains: [
+          {
+            className: 'link_reference',
+            begin: '\\[', end: '\\]',
+            excludeBegin: true, excludeEnd: true
+          },
+          {
+            className: 'link_url',
+            begin: '\\s', end: '$'
+          }
+        ]
       }
     ]
   };
