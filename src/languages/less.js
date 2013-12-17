@@ -55,16 +55,17 @@ function(hljs) {
       'self',
       hljs.NUMBER_MODE,
       hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE
+      hljs.QUOTE_STRING_MODE,
+      css.COLOR_KEYWORD,
+      css.HEX_COLOR
     ]
   }
   css.AT_RULE = {
     className: 'at_rule',
-    begin: /@(charset|font-face|import|keyframes|media|namespace|page|region|supports|viewport)/, end: '[{;]',
-    lexemes: '[a-z-()]+',
+    begin: /@(charset|font-face|import|keyframes|media|namespace|page|region|supports|viewport)/, end: /[{;]/,
+    lexemes: '[a-z-]+',
     keywords: {
-      keyword: 'charset font-face import|10 keyframes media|10 namespace page region supports viewport',
-      operator: 'and not'
+      keyword: 'charset font-face import keyframes media namespace page region supports viewport'
     },
     contains: [
       hljs.NUMBER_MODE,
@@ -72,7 +73,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       { // this is an "everything after the first space" rule
         begin: /\s/, endsWithParent: true, excludeEnd: true,
-        //keywords: 'reference inline',
+        keywords: { operator: 'and not inline reference'},
         contains: [
           hljs.APOS_STRING_MODE,
           hljs.QUOTE_STRING_MODE,
