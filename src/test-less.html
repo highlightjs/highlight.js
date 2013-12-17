@@ -52,7 +52,8 @@
 @import '_variables';
 @import (reference) '_mixins';
 
-@red: #e55;
+@red:  #e55;
+@grey: #999;
 
 .at-viewport(@width) when (isnumber(@width)) {
   @at: ~'@';
@@ -91,6 +92,14 @@ body {
   .baseline-grid(darken(dodgerblue,10));
 }
 
+div.text,
+#content,
+a[data-toggle="modal"] {
+  font: Tahoma, Chunkfive, sans-serif;
+  background: url('hatch.png') /* wtf? */;  color: #F0F0F0 !important;
+  width: 100%;
+}
+
 .nav {
   &amp;:extend(.clearfix all);
   display: block;
@@ -103,10 +112,9 @@ body {
       background-color: @red;
     }
   }
-}
-#maybe, .just, a, .lot, .of, #selectors {
-  // this would be bad css
-  display: none;
+  a.disabled {
+    color: @grey;
+  }
 }
 </code></pre>
         </td>
