@@ -1,13 +1,17 @@
 ## Version 8.0
 
-The new major release brings a few backwards incompatible changes:
+This new major release is quite a big overhaul bringing both new features and
+some backwards incompatible changes. However, chances are that the majority of
+users won't be affected by the latter: the basic scenario described in the
+README is left intact.
 
+Here's what did change in an incompatible way:
 
-- With the newest version of highlight.js, we will be prefixing all classes
-  located in [CSS classes reference][cr] with `hljs-`, by default, because some
-  class names would collide with other people's stylesheets. If you were using
-  an older version, you might still want the previous behavior, but still want
-  to upgrade. To suppress this new behavior, you would initialize like so:
+- We're now prefixing all classes located in [CSS classes reference][cr] with
+  `hljs-`, by default, because some class names would collide with other
+  people's stylesheets. If you were using an older version, you might still want
+  the previous behavior, but still want to upgrade. To suppress this new
+  behavior, you would initialize like so:
 
   ```html
   <script type="text/javascript">
@@ -30,8 +34,62 @@ The new major release brings a few backwards incompatible changes:
   separate attributes contributing to relevance score, `relevance` and
   `keyword_count`. They are now unified in `relevance`.
 
+Another technically compatible change that nonetheless might need attention:
+
+- The structure of the NPM package was refactored, so if you had installed it
+  locally, you'll have to update your paths. The usual `require('highlight.js')`
+  works as before. This is contributed by [Dmitry Smolin][].
+
+New features:
+
+- Languages now can be recognized by multiple names like "js" for JavaScript or
+  "html" for, well, HTML (which earlier insisted on calling it "xml"). These
+  aliases can be specified in the class attribute of the code container in your
+  HTML as well as in various API calls. For now there are only a few very common
+  aliases but we'll expand it in the future. All of them are listed in the
+  [class reference][].
+
+- Language detection can now be restricted to a subset of languages relevant in
+  a given context — a web page or even a single highlighting call. This is
+  especially useful for node.js build that include all the known languages.
+  Another example is a StackOverflow-style site where users specify languages
+  as tags rather than in the markdown-formatted code snippets. This is
+  documented in the [API reference][] (see methods `highlightAuto` and
+  `configure`).
+
+- Language definition syntax streamlined with [variants][] and
+  [beginKeywords][].
+
+New languages and styles:
+
+- *Oxygene* by [Carlo Kok][]
+- *Mathematica* by [Daniel Kvasnička][]
+- *Autohotkey* by [Seongwon Lee][]
+- *Atelier* family of styles in 10 variants by [Bram de Haan][]
+- *Paraíso* styles by [Jan T. Sott][]
+
+Miscelleanous improvements:
+
+- Highlighting `=>` prompts in Clojure.
+- [Jeremy Hull][] fixed a lot of styles for consistency.
+- Finally, highlighting PHP and HTML [mixed in peculiar ways][php-html].
+- Objective C and C# now properly highlight titles in method definition.
+- Big overhaul of relevance counting for a number of languages. Please do report
+  bugs about mis-detection of non-trivial code snippets!
+
 [cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 [api docs]: http://highlightjs.readthedocs.org/en/latest/api.html
+[variants]: https://groups.google.com/d/topic/highlightjs/VoGC9-1p5vk/discussion
+[beginKeywords]: https://github.com/isagalaev/highlight.js/commit/6c7fdea002eb3949577a85b3f7930137c7c3038d
+[php-html]: https://twitter.com/highlightjs/status/408890903017689088
+
+[Carlo Kok]: https://github.com/carlokok
+[Bram de Haan]: https://github.com/atelierbram
+[Daniel Kvasnička]: https://github.com/dkvasnicka
+[Dmitry Smolin]: https://github.com/dimsmol
+[Jeremy Hull]: https://github.com/sourrust
+[Seongwon Lee]: https://github.com/dlimpid
+[Jan T. Sott]: https://github.com/idleberg
 
 
 ## Version 7.5
