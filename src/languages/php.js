@@ -27,7 +27,7 @@ function(hljs) {
   };
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
   var TITLE = {
-    className: 'title', begin: hljs.UNDERSCORE_IDENT_RE, relevance: 0
+    className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
   };
   return {
     case_insensitive: true,
@@ -100,6 +100,7 @@ function(hljs) {
       {
         className: 'namespace',
         beginKeywords: 'namespace', end: ';',
+        illegal: /[\.']/,
         contains: [TITLE]
       },
       {
