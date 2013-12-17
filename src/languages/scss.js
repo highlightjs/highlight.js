@@ -45,7 +45,8 @@ function(hljs) {
         contains: ['self', hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
       },
       {
-        className: 'id', begin: '\\#[A-Za-z0-9_-]+',
+        className: 'id',
+        begin: '\\#[A-Za-z0-9_-]+', end: '[{,]',
         relevance: 0
       },
       {
