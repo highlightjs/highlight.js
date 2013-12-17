@@ -7,22 +7,15 @@
   background-color: #222222;
   color: #ffffff;
 }
-.hljs-keyword,
-.hljs-operator {
+.hljs-keyword {
   font-weight: bold;
 }
 .hljs-comment {
   color: #888888;
 }
 /* Selectors */
-.hljs-class,
-.hljs-pseudo,
-.hljs-attr_selector,
-.hljs-tag,
-.hljs-id {
-  color: #cccccc;
-}
 .hljs-number,
+.hljs-symbol,
 .hljs-literal,
 .hljs-hexcolor,
 .hljs-color {
@@ -35,19 +28,29 @@
   color: #fadd1e;
 }
 .hljs-at_rule .hljs-operator {
-  color: #cccccc;
+  font-style: italic;
+  color: inherit;
+}
+.hljs-function {
+  color: #ffffff;
 }
 .hljs-property {
   color: #ffaa11;
 }
+.hljs-important {
+  color: #ee5555;
+}
 /* LESS */
+.hljs-preprocessor {
+  color: #bb88dd;
+}
 .hljs-built_in {
   color: #ee5555;
 }
 .hljs-variable {
   color: #cabbed;
 }
-/* -- additions */
-.hljs-mixin {
-  color: #bb88dd;
+.hljs-operator {
+  color: #ffaa11;
 }
+/* -- additions */

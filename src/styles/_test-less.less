@@ -48,27 +48,21 @@
 }
 
 /* Selectors */
-.hljs-class {
-  & { color: @grey-light; }
-}
-.hljs-pseudo {
-  &:extend(.hljs-class);
-}
-.hljs-attr_selector {
-  &:extend(.hljs-class);
-}
-.hljs-tag {
-  &:extend(.hljs-class);
-}
-.hljs-id {
-  &:extend(.hljs-class);
-}
+.hljs-class {}
+.hljs-id {}
+.hljs-attr_selector {}
+.hljs-pseudo {}
+.hljs-tag {}
 
-.hljs-value {}
+.hljs-value {
+}
 .hljs-number {
+  &:extend(.hljs-value);
   color: @blue;
 }
-.hljs-symbol {}
+.hljs-symbol {
+  &:extend(.hljs-number);
+}
 .hljs-literal {
   &:extend(.hljs-number);
 }
@@ -84,17 +78,23 @@
     color: @yellow;
   }
   .hljs-operator {
-    color: @grey-light;
+    font-style: italic;
+    color: inherit;
   }
+}
+.hljs-function {
+  color: @textColor;
 }
 .hljs-property {
   color: @orange;
 }
-.hljs-attribute {}
-.hljs-function {}
-.hljs-important {}
+.hljs-important {
+  color: @red;
+}
 /* LESS */
-.hljs-preprocessor {}
+.hljs-preprocessor {
+  color: @purple;
+}
 .hljs-built_in {
   color: @red;
 }
@@ -102,13 +102,10 @@
   color: @purple-light;
 }
 .hljs-operator {
-  &:extend(.hljs-keyword);
+  color: @orange;
 }
 .hljs-params {}
 /* -- additions */
-.hljs-mixin {
-  color: @purple;
-}
 .hljs-color {
   &:extend(.hljs-hexcolor all);
 }
