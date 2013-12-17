@@ -83,6 +83,40 @@ function(hljs) {
       }
     ]
   }
+  css.VALUE = {
+    className: 'value',
+    endsWithParent: true, excludeEnd: true,
+    contains: [
+      // less.VARIABLE (defined and added later)
+      // less.FUNCTION (defined and added later)
+      // less.VARIABLE (defined and added later)
+      css.FUNCTION,
+      hljs.NUMBER_MODE,
+      hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      css.HEX_COLOR,
+      {
+        className: 'important', begin: '!important'
+      }
+    ]
+  }
+  css.PROPERTY = {
+    begin: /[-a-z]+:/, end: /[;}]/,
+    returnBegin: true, endsWithParent: true, excludeEnd: true,
+    relevance: 0,
+    contains: [
+      {
+        className: 'property',
+        begin: /\S[-a-z]+/, end: /:/,
+        excludeEnd: true,
+        starts: css.VALUE
+      },
+      hljs.NUMBER_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  }
   css.SELECTOR = {
     begin: /([.#&@[]{1}||:{1,2})?[a-zA-Z-]/, end: /[,\s{]/,
     returnBegin: true, endsWithParent: true, excludeEnd: true,
@@ -171,6 +205,11 @@ function(hljs) {
       }
     ]
   }
+  less.ESCAPED_VALUE = {
+    className: 'string',
+    begin: '~(\'|")', end: '(\'|")',
+    relevance: 2
+  }
   less.FUNCTION = {
     begin: '(escape|e|%|unit|color|data-uri|' +
       'ceil|floor|percentage|round|sqrt|abs|sin|asin|cos|acos|tan|atan|pi|pow|mod|convert|unit|' + // math
@@ -219,6 +258,7 @@ function(hljs) {
   
   // fill in the CSS stuff with appropriate LESS stuff
   css.FUNCTION.contains.push(less.VARIABLE)
+  css.VALUE.contains.unshift(less.ESCAPED_VALUE, less.FUNCTION, less.VARIABLE)
   css.SELECTOR.contains.unshift(less.VARIABLE)
   
   return {
@@ -237,6 +277,8 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_LINE_COMMENT_MODE,
       
+      
+      less.ESCAPED_VALUE,
       less.FUNCTION,
       
       css.HEX_COLOR,
@@ -255,12 +297,8 @@ function(hljs) {
         relevance: 0
       },
       
-      { // less string escape syntax
-        className: 'string',
-        begin: '~(\'|")', end: '(\'|")',
-        relevance: 5
-      },
       
+      css.PROPERTY,
       css.SELECTOR
     ]
   };
