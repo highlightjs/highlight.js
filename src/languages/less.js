@@ -83,34 +83,45 @@ function(hljs) {
       }
     ]
   }
-  css.selector = {
-    ID: {
-      className: 'id', begin: '\\b\\#[A-Za-z0-9_-]+\\b', end: '[,{]',
-      excludeEnd: true,
-      relevance: 2,
-    },
-    CLASS: {
-      className: 'class', begin: '\\b\\.[A-Za-z0-9_-]+\\b', end: '[,{]',
-      excludeEnd: true,
-      relevance: 2,
-    },
-    ATTRIBUTE: {
-      className: 'attr_selector',
-      begin: '\\[', end: '\\]',
-      illegal: '$',
-      relevance: 2,
-    },
-    PSEUDO: {
-      className: 'pseudo',
-      begin: '(&)?:(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+',
-      relevance: 2,
-      
-    },
-    TAG: {
-      className: 'tag', begin: '\\b' + IDENT_RE + '\\b', end: '[,{]',
-      excludeEnd: true,
-      relevance: 2,
-    }
+  css.SELECTOR = {
+    begin: /([.#&@[]{1}||:{1,2})?[a-zA-Z-]/, end: /[,\s{]/,
+    returnBegin: true, endsWithParent: true, excludeEnd: true,
+    contains: [
+      {
+        className: 'class',
+        begin: /\.[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[\s.#&@[]/,
+        endsWithParent: true, returnEnd: true,
+      },
+      {
+        className: 'id',
+        begin: /\#[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[\s.#&@[]/,
+        endsWithParent: true, returnEnd: true,
+      },
+      {
+        className: 'attr_selector',
+        begin: /\[/, end: /\]/,
+        endsWithParent: true,
+        contains: [
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE,
+        ]
+      },
+      {
+        className: 'pseudo',
+        begin: /(&)?:(:)?[a-zA-Z0-9\_\-\+\(\)\"\']+/, end: /[\s.#&@[]/,
+        endsWithParent: true, returnEnd: true,
+        contains: [
+          hljs.NUMBER_MODE,
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE,
+        ]
+      },
+      {
+        className: 'tag',
+        begin: /[a-zA-Z][a-zA-Z0-9]*/, end: /[\s.#&@[]/,
+        endsWithParent: true, returnEnd: true,
+      }
+    ]
   }
   
   var less = {} // LESS things
@@ -124,11 +135,40 @@ function(hljs) {
     begin: /(&)?:extend\(/, end: /\)/,
     relevance: 10,
     contains: [
-      css.selector.ID,
-      css.selector.CLASS,
-      css.selector.ATTRIBUTE,
-      css.selector.PSEUDO,
-      //css.selector.TAG
+      {
+        beginWithKeyword: true,
+        keywords: 'all',
+      },
+      {
+        className: 'class',
+        begin: /\.[a-zA-Z-][a-zA-Z0-9_-]+/, end: /\s/,
+        endsWithParent: true, excludeEnd: true,
+        relevance: 0
+      },
+      {
+        className: 'id',
+        begin: /\#[a-zA-Z-][a-zA-Z0-9_-]+/, end: /\s/,
+        endsWithParent: true, excludeEnd: true,
+        relevance: 0
+      },
+      {
+        className: 'attr_selector',
+        begin: /\[/, end: /\]/,
+        endsWithParent: true,
+        relevance: 0
+      },
+      {
+        className: 'pseudo',
+        begin: '(&)?:(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+', end: /\s/,
+        endsWithParent: true, excludeEnd: true,
+        relevance: 0
+      },
+      {
+        className: 'tag',
+        begin: /[a-zA-Z-][a-zA-Z0-9]*/, end: /\s/,
+        endsWithParent: true, excludeEnd: true,
+        relevance: 0
+      }
     ]
   }
   less.FUNCTION = {
@@ -176,7 +216,10 @@ function(hljs) {
     ]
   }
   
+  
+  // fill in the CSS stuff with appropriate LESS stuff
   css.FUNCTION.contains.push(less.VARIABLE)
+  css.SELECTOR.contains.unshift(less.VARIABLE)
   
   return {
     case_insensitive: true,
@@ -218,11 +261,7 @@ function(hljs) {
         relevance: 5
       },
       
-      css.selector.ID,
-      css.selector.CLASS,
-      css.selector.ATTRIBUTE,
-      css.selector.PSEUDO,
-      //css.selector.TAG, // causes some trouble at the moment
+      css.SELECTOR
     ]
   };
 }
