@@ -95,3 +95,4 @@ Contributors:
 - Seongwon Lee <dlimpid@gmail.com>
 - Zaven Muradyan <megalivoithos@gmail.com>
 - Jan T. Sott <jan@idleberg.com>
+- Brent Bradbury <brent@brentium.com>

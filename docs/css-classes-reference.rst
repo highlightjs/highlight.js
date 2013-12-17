@@ -836,3 +836,9 @@ AutoHotkey ("autohotkey")
 * ``number``:           number
 * ``var_expand``:       variable expansion (enclosed in percent sign)
 * ``label``:            label, hotkey label, hotstring label
+
+FIX ("fix")
+-----------
+
+* ``attribute``:        attribute name
+* ``string``:           attribute value

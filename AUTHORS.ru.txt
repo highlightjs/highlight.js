@@ -95,3 +95,4 @@ URL:   http://highlightjs.org/
 - Сенгвон Ли <dlimpid@gmail.com>
 - Завен Мурадян <megalivoithos@gmail.com>
 - Ян Т. Сотт <jan@idleberg.com>
+- Брент Брэдбери <brent@brentium.com>
