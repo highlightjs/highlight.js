@@ -8,10 +8,11 @@ function(hljs) {
   
   var css = {} // things LESS should inherit from CSS
   css.HEX_COLOR = {
-    className: 'hexcolor', begin: /#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/, relevance: 2
+    className: 'hexcolor', begin: /#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/, relevance: 0
   }
   css.COLOR_KEYWORD = {
     beginWithKeyword: true,
+    relevance: 0,
     keywords: {
       color:
         'AliceBlue AntiqueWhite Aqua Aquamarine Azure Beige Bisque Black BlanchedAlmond Blue ' +
@@ -51,6 +52,7 @@ function(hljs) {
   css.FUNCTION = {
     className: 'function',
     begin: IDENT_RE + '\\(', end: '\\)',
+    relevance: 0,
     contains: [
       'self',
       hljs.NUMBER_MODE,
@@ -67,6 +69,7 @@ function(hljs) {
     keywords: {
       keyword: 'charset font-face import keyframes media namespace page region supports viewport'
     },
+    relevance: 0,
     contains: [
       hljs.NUMBER_MODE,
       hljs.APOS_STRING_MODE,
@@ -86,6 +89,7 @@ function(hljs) {
   css.VALUE = {
     className: 'value',
     endsWithParent: true, excludeEnd: true,
+    relevance: 0,
     contains: [
       // less.VARIABLE (defined and added later)
       // less.FUNCTION (defined and added later)
@@ -110,6 +114,7 @@ function(hljs) {
         className: 'property',
         begin: /\S[-a-z]+/, end: /:/,
         excludeEnd: true,
+        relevance: 0,
         starts: css.VALUE
       },
       hljs.NUMBER_MODE,
@@ -120,21 +125,25 @@ function(hljs) {
   css.SELECTOR = {
     begin: /([.#&@[]{1}||:{1,2})?[a-zA-Z-]/, end: /[,\s{]/,
     returnBegin: true, endsWithParent: true, excludeEnd: true,
+    relevance: 0,
     contains: [
       {
         className: 'class',
         begin: /\.[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[\s.#&@[]/,
         endsWithParent: true, returnEnd: true,
+        relevance: 0
       },
       {
         className: 'id',
         begin: /\#[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[\s.#&@[]/,
         endsWithParent: true, returnEnd: true,
+        relevance: 0
       },
       {
         className: 'attr_selector',
         begin: /\[/, end: /\]/,
         endsWithParent: true,
+        relevance: 0,
         contains: [
           hljs.APOS_STRING_MODE,
           hljs.QUOTE_STRING_MODE,
@@ -144,6 +153,7 @@ function(hljs) {
         className: 'pseudo',
         begin: /(&)?:(:)?[a-zA-Z0-9\_\-\+\(\)\"\']+/, end: /[\s.#&@[]/,
         endsWithParent: true, returnEnd: true,
+        relevance: 0,
         contains: [
           hljs.NUMBER_MODE,
           hljs.APOS_STRING_MODE,
@@ -154,6 +164,7 @@ function(hljs) {
         className: 'tag',
         begin: /[a-zA-Z][a-zA-Z0-9]*/, end: /[\s.#&@[]/,
         endsWithParent: true, returnEnd: true,
+        relevance: 0
       }
     ]
   }
@@ -161,13 +172,13 @@ function(hljs) {
   var less = {} // LESS things
   less.VARIABLE = {
     className: 'variable',
-    begin: '@({)?[a-zA-Z0-9_-]*(})?',
-    relevance: 10
+    begin: /@\{?[a-zA-Z0-9_-]*\}?/,
+    relevance: 2
   }
   less.EXTEND = {
-    className: 'pseudo',
     begin: /(&)?:extend\(/, end: /\)/,
-    relevance: 10,
+    keywords: { preprocessor: 'extend' },
+    relevance: 2,
     contains: [
       {
         beginWithKeyword: true,
@@ -240,10 +251,10 @@ function(hljs) {
   less.MIX_IN = {
     begin: /[.#]{1}[a-zA-Z-][a-zA-Z0-9_-]*\s*\(/, end: /\)/,
     returnBegin: true,
-    relevance: 10,
+    relevance: 2,
     contains: [
       {
-        className: 'mixin',
+        className: 'preprocessor', // maybe add 'mixin' class? probs not.
         begin: /[.#]{1}[a-zA-Z-][a-zA-Z0-9_-]*/,
         contains: [
           less.VARIABLE,
@@ -273,7 +284,7 @@ function(hljs) {
       keyword:
         'when and not',
       literal:
-        'true false null undefined NaN Infinity'
+        'true false null undefined NaN '
     },
     illegal: '[=/|\']',
     contains: [
@@ -283,6 +294,13 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_LINE_COMMENT_MODE,
       
+      {
+        className: 'operator',
+        begin: '(when|and|not)',
+        relevance: 0
+      },
+      
+      css.AT_RULE,
       
       less.ESCAPED_VALUE,
       less.FUNCTION,
@@ -290,19 +308,11 @@ function(hljs) {
       css.HEX_COLOR,
       css.COLOR_KEYWORD,
       
-      css.FUNCTION,
-      css.AT_RULE,
-      
       less.VARIABLE,
       less.EXTEND,
       less.MIX_IN,
       
-      {
-        className: 'operator',
-        begin: '(when|and|not)',
-        relevance: 0
-      },
-      
+      css.FUNCTION,
       
       css.PROPERTY,
       css.SELECTOR
