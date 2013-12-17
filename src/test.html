@@ -313,33 +313,40 @@ POD till the end of file
     <td class="php">
 <pre><code>require_once 'Zend/Uri/Http.php';
 
-abstract class URI extends BaseURI
-{
-  abstract function test();
+namespace Location\Web;
 
-  /**
-   * Returns a URI
-   *
-   * @return  URI
-   */
-  static public function _factory($stats = array(), $uri = 'http')
-  {
-      echo __METHOD__;
-      $uri = explode(':', $uri, 0b10);
-      $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
-      $desc = 'Multi
+interface Factory
+{
+    static function _factory();
+}
+
+abstract class URI extends BaseURI implements Factory
+{
+    abstract function test();
+
+    /**
+     * Returns a URI
+     *
+     * @return URI
+     */
+    static public function _factory($stats = array(), $uri = 'http')
+    {
+        echo __METHOD__;
+        $uri = explode(':', $uri, 0b10);
+        $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
+        $desc = 'Multi
 line description';
 
-      // Security check
-      if (!ctype_alnum($scheme)) {
-          throw new Zend_Uri_Exception('Illegal scheme');
-      }
+        // Security check
+        if (!ctype_alnum($scheme)) {
+            throw new Zend_Uri_Exception('Illegal scheme');
+        }
 
-      return [
-        'uri' => $uri,
-        'value' => null,
-      ];
-  }
+        return [
+            'uri'   => $uri,
+            'value' => null,
+        ];
+    }
 }
 
 __halt_compiler () ; datahere

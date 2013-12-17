@@ -27,7 +27,7 @@ function(hljs) {
   };
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
   var TITLE = {
-    className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
+    className: 'title', begin: hljs.UNDERSCORE_IDENT_RE, relevance: 0
   };
   return {
     case_insensitive: true,
@@ -35,10 +35,10 @@ function(hljs) {
       'and include_once list abstract global private echo interface as static endswitch ' +
       'array null if endwhile or const for endforeach self var while isset public ' +
       'protected exit foreach throw elseif include __FILE__ empty require_once do xor ' +
-      'return implements parent clone use __CLASS__ __LINE__ else break print eval new ' +
+      'return parent clone use __CLASS__ __LINE__ else break print eval new ' +
       'catch __METHOD__ case exception default die require __FUNCTION__ ' +
       'enddeclare final try switch continue endfor endif declare unset true false ' +
-      'namespace trait goto instanceof insteadof __DIR__ __NAMESPACE__ ' +
+      'trait goto instanceof insteadof __DIR__ __NAMESPACE__ ' +
       'yield finally',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
@@ -87,15 +87,25 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class', end: '{',
+        beginKeywords: 'class interface', end: '{',
         illegal: '[:\\(\\$]',
         contains: [
           {
-            beginKeywords: 'extends', endsWithParent: true,
-            contains: [TITLE]
+            beginKeywords: 'extends implements',
+            relevance: 10
           },
           TITLE
         ]
+      },
+      {
+        className: 'namespace',
+        beginKeywords: 'namespace', end: ';',
+        contains: [TITLE]
+      },
+      {
+        className: 'use',
+        beginKeywords: 'use', end: ';',
+        contains: [TITLE]
       },
       {
         begin: '=>' // No markup, just a relevance booster
