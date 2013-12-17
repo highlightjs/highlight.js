@@ -121,8 +121,8 @@ HTML, XML ("xml", "html")
 * ``doctype``:          <!DOCTYPE ... > declaration
 * ``cdata``:            CDATA section
 
-Lasso ("lasso")
----------------
+Lasso ("lasso", "ls", "lassoscript")
+------------------------------------
 
 * ``preprocessor``:     delimiters and interpreter flags
 * ``shebang``:          Lasso 9 shell script header
@@ -136,6 +136,7 @@ Lasso ("lasso")
 * ``variable``:         variable reference starting with "#" or "$"
 * ``tag``:              tag literal
 * ``attribute``:        named or rest parameter in method signature
+* ``subst``:            unary/binary/ternary operator symbols
 * ``class``:            type, trait, or method header
 * ``title``:            name following "define" inside a header
 
