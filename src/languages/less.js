@@ -233,6 +233,8 @@ function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       less.VARIABLE,
+      css.COLOR_KEYWORD,
+      css.HEX_COLOR
     ]
   }
   less.MIX_IN = {
@@ -247,11 +249,15 @@ function(hljs) {
           less.VARIABLE,
           less.FUNCTION,
           css.FUNCTION,
+          css.COLOR_KEYWORD,
+          css.HEX_COLOR
         ]
       },
       less.VARIABLE,
       less.FUNCTION,
-      css.FUNCTION
+      css.FUNCTION,
+      css.COLOR_KEYWORD,
+      css.HEX_COLOR
     ]
   }
   
