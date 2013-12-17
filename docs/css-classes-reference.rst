@@ -121,8 +121,8 @@ HTML, XML ("xml", "html")
 * ``doctype``:          <!DOCTYPE ... > declaration
 * ``cdata``:            CDATA section
 
-Lasso ("lasso")
----------------
+Lasso ("lasso", "ls", "lassoscript")
+------------------------------------
 
 * ``preprocessor``:     delimiters and interpreter flags
 * ``shebang``:          Lasso 9 shell script header
