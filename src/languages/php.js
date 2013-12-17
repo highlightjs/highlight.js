@@ -98,13 +98,11 @@ function(hljs) {
         ]
       },
       {
-        className: 'namespace',
         beginKeywords: 'namespace', end: ';',
         illegal: /[\.']/,
         contains: [TITLE]
       },
       {
-        className: 'use',
         beginKeywords: 'use', end: ';',
         contains: [TITLE]
       },
