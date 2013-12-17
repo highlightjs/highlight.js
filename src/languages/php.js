@@ -31,7 +31,6 @@ function(hljs) {
   };
   return {
     case_insensitive: true,
-    lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords:
       'and include_once list abstract global private echo interface as static endswitch ' +
       'array null if endwhile or const for endforeach self var while isset public ' +
