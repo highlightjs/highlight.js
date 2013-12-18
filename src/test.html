@@ -672,7 +672,6 @@ li[lang=ru] {
 // Variables
 @import '_variables';
 @red:  #e55;
-@grey: #999;
 
 // Mixins
 @import (reference) '_mixins';
@@ -700,14 +699,17 @@ li[lang=ru] {
   background-size: 27px 27px;
 }
 
-a.disabled {
-  color: @grey;
+div.text,
+#content,
+a[data-toggle="modal"] {
+  color: dodgerblue;
 }
-.nav {
+#nav {
   &amp;:extend(.clearfix all);
   display: block;
   li {
     display: inline-block;
+    /* ie7 inline-block hack */
     .ie7-inline-block();
     margin: 0;
     padding: 0;
