@@ -266,6 +266,9 @@ function(hljs) {
           css.COLOR_HEX
         ]
       },
+      hljs.NUMBER_MODE,
+      hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE,
       less.VARIABLE,
       less.FUNCTION,
       css.FUNCTION,
