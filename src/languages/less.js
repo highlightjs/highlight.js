@@ -1,6 +1,6 @@
 /*
 Language: LESS
-Author: Calvin Juárez
+Author: Calvin Juárez <calvin.juarez@gmail.com>
 */
 
 function(hljs) {
