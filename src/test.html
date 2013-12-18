@@ -699,11 +699,23 @@ li[lang=ru] {
   background-size: 27px 27px;
 }
 
+// Styles
+body {
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    background: linear-gradient(45deg, blue, red);
+    &:first-of-type pre::after {
+      content: 'highlight: ' attr(class);
+    }
+  }
+  .baseline-grid(darken(dodgerblue,10));
+}
+
 div.text,
 #content,
 a[data-toggle="modal"] {
   color: dodgerblue;
 }
+
 #nav {
   &amp;:extend(.clearfix all);
   display: block;
