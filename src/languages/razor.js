@@ -4,16 +4,24 @@ Author: Won Song (namedquery@namedquery.com)
 */
 
 function(hljs) {
+  var KEYWORDS = 'foreach var if true false null in else model using';
   return {
+    keywords: KEYWORDS,
     contains: [
       {
         className: 'comment',
-        begin: '@*', end: '*@'
+        begin: '@[*]', end: '[*]@'
       },
+	  {
+	    begin: '</?', end: '/?>',
+		subLanguage: 'xml',
+	  },
       hljs.QUOTE_STRING_MODE,
-      {
-        beginKeywords: '@Html @{', end: ';@}'
-      }
+	  {
+	    className: 'start',
+		begin: '@'
+	  }
     ]
   };
 }
+
