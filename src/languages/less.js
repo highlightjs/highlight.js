@@ -151,7 +151,7 @@ function(hljs) {
       },
       {
         className: 'pseudo',
-        begin: /(&)?:(:)?[a-zA-Z0-9\_\-\+\(\)\"\']+/, end: /[,\s.#&@[:]/,
+        begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)\"\']+/, end: /[,\s.#&@[:]/,
         endsWithParent: true, returnEnd: true,
         relevance: 0,
         contains: [
