@@ -12,15 +12,15 @@ function(hljs) {
         className: 'comment',
         begin: '@[*]', end: '[*]@'
       },
-	  {
-	    begin: '</?', end: '/?>',
-		subLanguage: 'xml',
-	  },
+      {
+        begin: '</?', end: '/?>',
+        subLanguage: 'xml',
+      },
       hljs.QUOTE_STRING_MODE,
-	  {
-	    className: 'start',
-		begin: '@'
-	  }
+      {
+        className: 'start',
+        begin: '@'
+      }
     ]
   };
 }
