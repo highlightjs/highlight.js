@@ -123,19 +123,19 @@ function(hljs) {
     ]
   }
   css.SELECTOR = {
-    begin: /([.#&@[]{1}||:{1,2})?[a-zA-Z-]/, end: /[,\s{]/,
+    begin: /([.#&@[]{1}||:{1,2})?[a-zA-Z-]/, end: /\{/,
     returnBegin: true, endsWithParent: true, excludeEnd: true,
     relevance: 0,
     contains: [
       {
         className: 'class',
-        begin: /\.[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[\s.#&@[]/,
+        begin: /\.[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[,\s.#&@[:]/,
         endsWithParent: true, returnEnd: true,
         relevance: 0
       },
       {
         className: 'id',
-        begin: /\#[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[\s.#&@[]/,
+        begin: /\#[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[,\s.#&@[:]/,
         endsWithParent: true, returnEnd: true,
         relevance: 0
       },
@@ -151,7 +151,7 @@ function(hljs) {
       },
       {
         className: 'pseudo',
-        begin: /(&)?:(:)?[a-zA-Z0-9\_\-\+\(\)\"\']+/, end: /[\s.#&@[]/,
+        begin: /(&)?:(:)?[a-zA-Z0-9\_\-\+\(\)\"\']+/, end: /[,\s.#&@[:]/,
         endsWithParent: true, returnEnd: true,
         relevance: 0,
         contains: [
@@ -162,7 +162,7 @@ function(hljs) {
       },
       {
         className: 'tag',
-        begin: /[a-zA-Z][a-zA-Z0-9]*/, end: /[\s.#&@[]/,
+        begin: /[a-zA-Z][a-zA-Z0-9]*/, end: /[,\s.#&@[:]/,
         endsWithParent: true, returnEnd: true,
         relevance: 0
       }

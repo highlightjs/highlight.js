@@ -114,6 +114,9 @@ a[data-toggle="modal"] {
   }
   a.disabled {
     color: @grey;
+    &:hover::after {
+      content: none;
+    }
   }
 }
 </code></pre>
