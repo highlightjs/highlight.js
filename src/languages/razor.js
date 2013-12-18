@@ -10,18 +10,30 @@ function(hljs) {
     contains: [
       {
         className: 'comment',
-        begin: '@[*]', end: '[*]@'
-      },
+        begin: '@[*]', end: '[*]@',
+	  },
+	  {
+	    begin: '</?', end: '/?>',
+		subLanguage: 'xml',
+		contains: [
+		  {
+				begin: '"@', end: '"',
+				subLanguage: 'razor',
+		  }
+		]
+	  },
       {
-        begin: '</?', end: '/?>',
-        subLanguage: 'xml',
-      },
-      hljs.QUOTE_STRING_MODE,
-      {
-        className: 'start',
-        begin: '@'
-      }
+	    className: 'string',
+		begin: '"((?!@))', end: '"',
+		illegal: '\\n'
+	  },
+	  hljs.NUMBER_MODE,
+	  {
+	    className: 'start',
+		begin: '@'
+	  }
     ]
   };
 }
+
 
