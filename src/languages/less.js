@@ -175,7 +175,7 @@ function(hljs) {
   less.VARIABLE = {
     className: 'variable',
     begin: /@\{?[a-zA-Z0-9_-]*\}?/,
-    relevance: 2
+    relevance: 2,
   }
   less.EXTEND = {
     begin: /(&)?:extend\(/, end: /\)/,
@@ -220,7 +220,7 @@ function(hljs) {
   }
   less.ESCAPED_VALUE = {
     className: 'string',
-    begin: '~(\'|")', end: '(\'|")',
+    begin: /~('|")/, end: /('|")/,
     relevance: 2
   }
   less.FUNCTION = {
@@ -239,7 +239,6 @@ function(hljs) {
       'mix tint shade greyscale contrast multiply ' +
       'iscolor isnumber isstring iskeyword isurl ispixel ispercentage isem isunit', // type
     },
-    relevance: 2,
     contains: [
       'self',
       hljs.NUMBER_MODE,
