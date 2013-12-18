@@ -665,6 +665,59 @@ li[lang=ru] {
 }
 </code></pre>
 
+	<tr>
+		<th>LESS
+		<td class="less">
+<pre><code>
+// Variables
+@import '_variables';
+@red:  #e55;
+@grey: #999;
+
+// Mixins
+@import (reference) '_mixins';
+.clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+.baseline-grid(@color) when (iscolor(@color)) {
+  @linear-gradient:
+    fade(@color,5) 0%, fade(@color,5) 25%,
+    fade(@color,15) 25%, fade(@color,15) 75%,
+    fade(@color,5) 75%, fade(@color,5) 100%;
+  background: -webkit-linear-gradient(@linear-gradient);
+  background: -moz-linear-gradient(@linear-gradient);
+  background: -ms-linear-gradient(@linear-gradient);
+  background: -o-linear-gradient(@linear-gradient);
+  background: linear-gradient(@linear-gradient);
+  background-size: 27px 27px;
+}
+
+a.disabled {
+  color: @grey;
+}
+.nav {
+  &amp;:extend(.clearfix all);
+  display: block;
+  li {
+    display: inline-block;
+    .ie7-inline-block();
+    margin: 0;
+    padding: 0;
+    &:nth-child(4n-3) {
+      background-color: @red;
+    }
+  }
+}
+</code></pre>
+
   <tr>
     <th>SCSS
     <td class="scss">
