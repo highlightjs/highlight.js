@@ -108,13 +108,13 @@ function(hljs) {
     ]
   }
   css.PROPERTY = {
-    begin: /[-a-z]+:/, end: /[;}]/,
+    begin: /[a-z-+]+:/, end: /[;}]/,
     returnBegin: true, endsWithParent: true, excludeEnd: true,
     relevance: 0,
     contains: [
       { // I really think CSS, LESS, and SCSS should use 'property' instead of 'attribute'
         className: 'attribute',
-        begin: /\S[-a-z]+/, end: /:/,
+        begin: /\S[a-z-]/, end: /(\+?:)\s*/,
         excludeEnd: true,
         relevance: 0,
         starts: css.VALUE
@@ -296,11 +296,9 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_LINE_COMMENT_MODE,
       
-      {
-        className: 'operator',
-        begin: /(when|and|not)/,
-        relevance: 0
-      },
+      { className: 'operator', begin: /(when|and|not)/, relevance: 0 },
+      
+      { className: 'important', begin: '!important' },
       
       css.AT_RULE,
       
