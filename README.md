@@ -160,7 +160,7 @@ on a site.
 
 ## Meta
 
-- Version: 7.5
+- Version: 8.0 beta
 - URL:     http://highlightjs.org/
 
 For the license terms see LICENSE files.
