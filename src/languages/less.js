@@ -1,16 +1,16 @@
 /*
 Language: LESS
-Author: Calvin Juárez
+Author: Calvin Juárez <calvin.juarez@gmail.com>
 */
 
 function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   
-  var css = {} // things LESS should inherit from CSS
-  css.HEX_COLOR = {
+  var css = {}
+  css.COLOR_HEX = {
     className: 'hexcolor', begin: /#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/, relevance: 0
   }
-  css.COLOR_KEYWORD = {
+  css.COLOR_KEYWORD = { // it'd be nice to include it in CSS and SCSS, too, imo
     beginWithKeyword: true,
     relevance: 0,
     keywords: {
@@ -59,7 +59,7 @@ function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       css.COLOR_KEYWORD,
-      css.HEX_COLOR
+      css.COLOR_HEX
     ]
   }
   css.AT_RULE = {
@@ -74,9 +74,15 @@ function(hljs) {
       hljs.NUMBER_MODE,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
-      { // this is an "everything after the first space" rule
+      {
         begin: /\s/, endsWithParent: true, excludeEnd: true,
-        keywords: { operator: 'and not inline reference'},
+        keywords: {
+          operator: 'and not',
+          option: 'inline reference less' // I'm not sure what to call these. At lesscss.org they're
+                                          // called options, so that's what I'm calling them, but if
+                                          // there is a css class already in Highlight.js that works
+                                          // better, we should use that.
+        },
         contains: [
           hljs.APOS_STRING_MODE,
           hljs.QUOTE_STRING_MODE,
@@ -91,18 +97,16 @@ function(hljs) {
     endsWithParent: true, excludeEnd: true,
     relevance: 0,
     contains: [
-      // less.VARIABLE (defined and added later)
-      // less.FUNCTION (defined and added later)
-      // less.VARIABLE (defined and added later)
+      // less.VARIABLE will be defined and added here later
+      // less.FUNCTION will be defined and added here later
+      // less.ESCAPED_VALUE will be defined and added here later
       css.FUNCTION,
       hljs.NUMBER_MODE,
       hljs.QUOTE_STRING_MODE,
       hljs.APOS_STRING_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      css.HEX_COLOR,
-      {
-        className: 'important', begin: '!important'
-      }
+      css.COLOR_HEX,
+      { className: 'important', begin: '!important' }
     ]
   }
   css.PROPERTY = {
@@ -110,8 +114,8 @@ function(hljs) {
     returnBegin: true, endsWithParent: true, excludeEnd: true,
     relevance: 0,
     contains: [
-      {
-        className: 'property',
+      { // I really think CSS, LESS, and SCSS should use 'property' instead of 'attribute'
+        className: 'attribute',
         begin: /\S[-a-z]+/, end: /:/,
         excludeEnd: true,
         relevance: 0,
@@ -129,13 +133,13 @@ function(hljs) {
     contains: [
       {
         className: 'class',
-        begin: /\.[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[,\s.#&@[:]/,
+        begin: /\.[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[&,\s.#@[:]/,
         endsWithParent: true, returnEnd: true,
         relevance: 0
       },
       {
         className: 'id',
-        begin: /\#[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[,\s.#&@[:]/,
+        begin: /\#[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[&,\s.#@[:]/,
         endsWithParent: true, returnEnd: true,
         relevance: 0
       },
@@ -151,7 +155,7 @@ function(hljs) {
       },
       {
         className: 'pseudo',
-        begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)\"\']+/, end: /[,\s.#&@[:]/,
+        begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)\"\']+/, end: /[&,\s.#@[:]/,
         endsWithParent: true, returnEnd: true,
         relevance: 0,
         contains: [
@@ -162,14 +166,14 @@ function(hljs) {
       },
       {
         className: 'tag',
-        begin: /[a-zA-Z][a-zA-Z0-9]*/, end: /[,\s.#&@[:]/,
+        begin: /[a-zA-Z][a-zA-Z0-9]*/, end: /[&,\s.#@[:]/,
         endsWithParent: true, returnEnd: true,
         relevance: 0
       }
     ]
   }
   
-  var less = {} // LESS things
+  var less = {}
   less.VARIABLE = {
     className: 'variable',
     begin: /@\{?[a-zA-Z0-9_-]*\}?/,
@@ -186,13 +190,13 @@ function(hljs) {
       },
       {
         className: 'class',
-        begin: /\.[a-zA-Z-][a-zA-Z0-9_-]+/, end: /\s/,
+        begin: /\.[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[,\s.#@[:]/,
         endsWithParent: true, excludeEnd: true,
         relevance: 0
       },
       {
         className: 'id',
-        begin: /\#[a-zA-Z-][a-zA-Z0-9_-]+/, end: /\s/,
+        begin: /\#[a-zA-Z-][a-zA-Z0-9_-]*/, end: /[,\s.#@[:]/,
         endsWithParent: true, excludeEnd: true,
         relevance: 0
       },
@@ -204,13 +208,13 @@ function(hljs) {
       },
       {
         className: 'pseudo',
-        begin: '(&)?:(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+', end: /\s/,
+        begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)\"\']+/, end: /[,\s.#@[:]/,
         endsWithParent: true, excludeEnd: true,
         relevance: 0
       },
       {
         className: 'tag',
-        begin: /[a-zA-Z-][a-zA-Z0-9]*/, end: /\s/,
+        begin: /[a-zA-Z][a-zA-Z0-9]*/, end: /[,\s.#@[:]/,
         endsWithParent: true, excludeEnd: true,
         relevance: 0
       }
@@ -234,8 +238,8 @@ function(hljs) {
       'ceil floor percentage round sqrt abs sin asin cos acos tan atan pi pow mod convert unit ' + // color
       'rgb rgba argb hsl hsla hsv hsva hue saturation lightness hsvhue hsvsaturation hsvvalue ' +
       'red green blue alpha luma saturate desaturate lighten darken fadein fadeout fade spin ' +
-      'mix|10 tint shade greyscale contrast multiply ' +
-      'iscolor|10 isnumber isstring iskeyword isurl ispixel ispercentage isem isunit', // type
+      'mix tint shade greyscale contrast multiply ' +
+      'iscolor isnumber isstring iskeyword isurl ispixel ispercentage isem isunit', // type
     },
     relevance: 2,
     contains: [
@@ -245,7 +249,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       less.VARIABLE,
       css.COLOR_KEYWORD,
-      css.HEX_COLOR
+      css.COLOR_HEX
     ]
   }
   less.MIX_IN = {
@@ -254,26 +258,26 @@ function(hljs) {
     relevance: 2,
     contains: [
       {
-        className: 'preprocessor', // maybe add 'mixin' class? probs not.
+        className: 'preprocessor',
         begin: /[.#]{1}[a-zA-Z-][a-zA-Z0-9_-]*/,
         contains: [
           less.VARIABLE,
           less.FUNCTION,
           css.FUNCTION,
           css.COLOR_KEYWORD,
-          css.HEX_COLOR
+          css.COLOR_HEX
         ]
       },
       less.VARIABLE,
       less.FUNCTION,
       css.FUNCTION,
       css.COLOR_KEYWORD,
-      css.HEX_COLOR
+      css.COLOR_HEX
     ]
   }
   
   
-  // fill in the CSS stuff with appropriate LESS stuff
+  // Allow the CSS to contain the previously undeclared but necessary LESS stuff.
   css.FUNCTION.contains.push(less.VARIABLE)
   css.VALUE.contains.unshift(less.ESCAPED_VALUE, less.FUNCTION, less.VARIABLE)
   css.SELECTOR.contains.unshift(less.VARIABLE)
@@ -284,7 +288,7 @@ function(hljs) {
       keyword:
         'when and not',
       literal:
-        'true false null undefined NaN '
+        'true false null undefined NaN'
     },
     illegal: '[=/|\']',
     contains: [
@@ -305,7 +309,7 @@ function(hljs) {
       less.ESCAPED_VALUE,
       less.FUNCTION,
       
-      css.HEX_COLOR,
+      css.COLOR_HEX,
       css.COLOR_KEYWORD,
       
       less.VARIABLE,
