@@ -111,7 +111,7 @@ function(hljs) {
     relevance: 0,
     contains: [
       {
-        className: 'property',
+        className: 'attribute',
         begin: /\S[-a-z]+/, end: /:/,
         excludeEnd: true,
         relevance: 0,
