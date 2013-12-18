@@ -4,8 +4,6 @@ Author: Calvin Juárez <calvin.juarez@gmail.com>
 */
 
 function(hljs) {
-  var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
-  
   var css = {}
   css.COLOR_HEX = {
     className: 'hexcolor', begin: /#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/, relevance: 0
@@ -51,7 +49,7 @@ function(hljs) {
   }
   css.FUNCTION = {
     className: 'function',
-    begin: IDENT_RE + '\\(', end: '\\)',
+    begin: /[a-zA-Z-][a-zA-Z0-9_-]*\(/, end: /\)/,
     relevance: 0,
     contains: [
       'self',
@@ -300,7 +298,7 @@ function(hljs) {
       
       {
         className: 'operator',
-        begin: '(when|and|not)',
+        begin: /(when|and|not)/,
         relevance: 0
       },
       
