@@ -238,8 +238,8 @@ function(hljs) {
       'ceil floor percentage round sqrt abs sin asin cos acos tan atan pi pow mod convert unit ' + // color
       'rgb rgba argb hsl hsla hsv hsva hue saturation lightness hsvhue hsvsaturation hsvvalue ' +
       'red green blue alpha luma saturate desaturate lighten darken fadein fadeout fade spin ' +
-      'mix|10 tint shade greyscale contrast multiply ' +
-      'iscolor|10 isnumber isstring iskeyword isurl ispixel ispercentage isem isunit', // type
+      'mix tint shade greyscale contrast multiply ' +
+      'iscolor isnumber isstring iskeyword isurl ispixel ispercentage isem isunit', // type
     },
     relevance: 2,
     contains: [
