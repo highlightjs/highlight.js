@@ -175,10 +175,11 @@ function(hljs) {
   less.VARIABLE = {
     className: 'variable',
     begin: /@\{?[a-zA-Z0-9_-]*\}?/,
-    relevance: 2
+    relevance: 2,
   }
   less.EXTEND = {
-    begin: /(&)?:extend\(/, end: /\)/,
+    className: 'pseudo',
+    begin: /:extend\(/, end: /\)/,
     keywords: { preprocessor: 'extend' },
     relevance: 2,
     contains: [
@@ -220,7 +221,7 @@ function(hljs) {
   }
   less.ESCAPED_VALUE = {
     className: 'string',
-    begin: '~(\'|")', end: '(\'|")',
+    begin: /~('|")/, end: /('|")/,
     relevance: 2
   }
   less.FUNCTION = {
@@ -239,7 +240,6 @@ function(hljs) {
       'mix tint shade greyscale contrast multiply ' +
       'iscolor isnumber isstring iskeyword isurl ispixel ispercentage isem isunit', // type
     },
-    relevance: 2,
     contains: [
       'self',
       hljs.NUMBER_MODE,
@@ -266,6 +266,9 @@ function(hljs) {
           css.COLOR_HEX
         ]
       },
+      hljs.NUMBER_MODE,
+      hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE,
       less.VARIABLE,
       less.FUNCTION,
       css.FUNCTION,
