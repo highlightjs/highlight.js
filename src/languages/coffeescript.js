@@ -25,7 +25,7 @@ function(hljs) {
       'npm require console print module exports global window document'
   };
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
-  var TITLE = {className: 'title', begin: JS_IDENT_RE};
+  var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: JS_IDENT_RE});
   var SUBST = {
     className: 'subst',
     begin: /#\{/, end: /}/,

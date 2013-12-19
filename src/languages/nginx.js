@@ -71,11 +71,7 @@ function(hljs) {
       {
         begin: hljs.UNDERSCORE_IDENT_RE + '\\s', end: ';|{', returnBegin: true,
         contains: [
-          {
-            className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE,
-            starts: DEFAULT
-          }
+          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {starts: DEFAULT})
         ],
         relevance: 0
       }

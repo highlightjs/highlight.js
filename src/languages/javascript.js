@@ -50,9 +50,7 @@ function(hljs) {
         className: 'function',
         beginKeywords: 'function', end: /\{/,
         contains: [
-          {
-            className: 'title', begin: /[A-Za-z$_][0-9A-Za-z$_]*/
-          },
+          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/}),
           {
             className: 'params',
             begin: /\(/, end: /\)/,

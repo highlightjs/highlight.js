@@ -26,9 +26,6 @@ function(hljs) {
     ]
   };
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
-  var TITLE = {
-    className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
-  };
   return {
     case_insensitive: true,
     keywords:
@@ -71,7 +68,7 @@ function(hljs) {
         beginKeywords: 'function', end: /[;{]/,
         illegal: '\\$|\\[|%',
         contains: [
-          TITLE,
+          hljs.UNDERSCORE_TITLE_MODE,
           {
             className: 'params',
             begin: '\\(', end: '\\)',
@@ -94,17 +91,17 @@ function(hljs) {
             beginKeywords: 'extends implements',
             relevance: 10
           },
-          TITLE
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       {
         beginKeywords: 'namespace', end: ';',
         illegal: /[\.']/,
-        contains: [TITLE]
+        contains: [hljs.UNDERSCORE_TITLE_MODE]
       },
       {
         beginKeywords: 'use', end: ';',
-        contains: [TITLE]
+        contains: [hljs.UNDERSCORE_TITLE_MODE]
       },
       {
         begin: '=>' // No markup, just a relevance booster

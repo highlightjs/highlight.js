@@ -81,11 +81,7 @@ function(hljs) {
     beginKeywords: 'def', end: ' |$|;',
     relevance: 0,
     contains: [
-      {
-        className: 'title',
-        begin: RUBY_METHOD_RE,
-        keywords: RUBY_KEYWORDS
-      },
+      hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {begin: RUBY_METHOD_RE, keywords: RUBY_KEYWORDS}),
       {
         className: 'params',
         begin: '\\(', end: '\\)',
@@ -102,11 +98,7 @@ function(hljs) {
       className: 'class',
       beginKeywords: 'class module', end: '$|;',
       contains: [
-        {
-          className: 'title',
-          begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?',
-          relevance: 0
-        },
+        hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
         {
           className: 'inheritance',
           begin: '<\\s*',

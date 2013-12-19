@@ -47,6 +47,8 @@ REPLACES = {
     'C_NUMBER_MODE': 'CNM',
     'BINARY_NUMBER_MODE': 'BNM',
     'NUMBER_MODE': 'NM',
+    'TITLE_MODE': 'TM',
+    'UNDERSCORE_TITLE_MODE': 'UTM',
 
     'beginRe': 'bR',
     'endRe': 'eR',

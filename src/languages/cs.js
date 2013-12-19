@@ -15,9 +15,6 @@ function(hljs) {
     // Contextual keywords.
     'ascending descending from get group into join let orderby partial select set value var ' +
     'where yield';
-  var TITLE = {
-    className: 'title', begin: hljs.IDENT_RE
-  };
   return {
     keywords: KEYWORDS,
     contains: [
@@ -57,13 +54,13 @@ function(hljs) {
           {
             beginKeywords: 'class namespace', endsWithParent: true,
             contains: [
-              TITLE
+              hljs.TITLE_MODE
             ]
           },
           {
             begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
             contains: [
-              TITLE
+              hljs.TITLE_MODE
             ]
           }
         ]

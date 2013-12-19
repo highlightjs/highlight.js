@@ -38,9 +38,6 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE
     ]
   };
-  var TITLE = {
-    className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
-  };
   var NUMBER = {
     className: 'number', relevance: 0,
     variants: [
@@ -57,7 +54,7 @@ function(hljs) {
   var FUNC_CLASS_PROTO = {
     end: /:/,
     illegal: /[${=;\n]/,
-    contains: [TITLE, PARAMS]
+    contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
   };
 
   return {
