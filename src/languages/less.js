@@ -178,7 +178,8 @@ function(hljs) {
     relevance: 2,
   }
   less.EXTEND = {
-    begin: /(&)?:extend\(/, end: /\)/,
+    className: 'pseudo',
+    begin: /:extend\(/, end: /\)/,
     keywords: { preprocessor: 'extend' },
     relevance: 2,
     contains: [
