@@ -1,22 +1,17 @@
 /*
 Language: Razor (ASP.NET MVC View Engine)
 Author: Won Song (namedquery@namedquery.com)
-Requires C# and XML language packs
+Requires XML language pack
 */
 
 function(hljs) {
-  var LEXEMES = '@[A-Za-z*{(]+'
+  var KEYWORDS = 'foreach var if in else model using false true|0 null int for double decimal float string';
   return {
-    lexemes: LEXEMES,
-    subLanguage: 'cs', subLanguageMode: 'continuous',
+    keywords: KEYWORDS,
     contains: [
       {
-        className: 'keyword',
- 	begin: 'model|using',
-      },
-      {
         className: 'built_in',
- 	begin: 'Scripts|Styles|Html'
+        begin: 'Html|Scripts|RenderBody|RenderSection|Styles'
       },
       {
         className: 'comment',
@@ -25,25 +20,24 @@ function(hljs) {
       {
         className: 'start',
         begin: /[@][?\\w]*/,
-        illegal: /[@][{*]/,
+        illegal: /[@][{*]/
       },
       {
         className: 'string',
         begin: '"((?!@))', end: '"',
-        illegal: '\\n',
+        illegal: '\\n'
       },
       {
-  	begin: '<', end: '>',
+	begin: '<', end: '>',
 	illegal: '</?',
         subLanguage: 'xml',
         contains: [
           {
-            begin: '"@', end: '"',
-	    subLanguage: 'razor',
-	  }
-	]
+            begin: '@', end: '[A-Za-z })](?=")',
+            subLanguage: 'razor'
+          }
+        ]
       }
     ]
   };
 }
-
