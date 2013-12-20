@@ -47,6 +47,7 @@
   <link rel="alternate stylesheet" title="Atelier Seaside - Light" href="styles/atelier-seaside.light.css">
   <link rel="alternate stylesheet" title="Paraíso - Dark" href="styles/paraiso.dark.css">
   <link rel="alternate stylesheet" title="Paraíso - Light" href="styles/paraiso.light.css">
+  <link rel="alternate stylesheet" title="VS with Razor - Light" href="styles/vs.razor.css">  
 
   <style>
     body {
@@ -2709,6 +2710,59 @@ label1:
   }
 return
 </code></pre>
+  <tr>
+    <th>Razor
+    <td class="razor">
+<link rel="stylesheet" href="vs.css" />
+<pre>
+	<code>
+		@using NamedQuery.Test
+		@model TestModel
+		
+		@{
+			Layout = "_layout.cshtml";
+		}
+		
+		@Scripts.Render("~/bundles/me")
+		@Styles.Render("~/bundles/yo")
+		
+		@* Comment *@
+		@Html.DisplayFor(m => m.FirstName)
+			
+		@* Multi Line
+		   Comment *@
+			   
+		@{
+			var test = 0;
+			
+			&lt;div&gt;
+			    &lt;a href="/test/"&gt;Link&lt;/a&gt;
+			&lt;/div&gt;
+		}
+			
+		@foreach (var test in Model) {
+			&lt;p&gt;@test.Item&lt;/p&gt;
+		}
+			
+		@if (true) {
+		    &lt;p&gt;@test.Item&lt;/p&gt;
+		} else {
+		    &lt;p&gt;nope&lt;/p&gt;
+		}
+			
+		@(TestNameSpace.StatisClass.StattMthod)
+			
+		@Html.Action("_Aside", Model);
+			
+		@using (Html.BeingForm("Index", "Home")) {
+		    @Html.AntiForgeryToken()
+			@Html.TextBoxFor(p => p.LastName)
+			&lt;input type="Submit" value="@if(true){&lt;text&gt;true&lt;/text&gt;}" /&gt;
+		}
+			
+		&lt;input type="Submit" disabled="@Model.Value" /&gt;
+	</code>
+</pre>
 
   <tr>
     <th>FIX
