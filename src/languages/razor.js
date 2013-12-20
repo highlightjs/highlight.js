@@ -33,7 +33,7 @@ function(hljs) {
         subLanguage: 'xml',
         contains: [
           {
-            begin: '@', end: '[A-Za-z })](?=")',
+            begin: '"@', end: '"',
             subLanguage: 'razor'
           }
         ]
