@@ -1,39 +1,49 @@
 /*
 Language: Razor (ASP.NET MVC View Engine)
 Author: Won Song (namedquery@namedquery.com)
+Requires C# and XML language packs
 */
 
 function(hljs) {
-  var KEYWORDS = 'foreach var if true false null in else model using';
+  var LEXEMES = '@[A-Za-z*{(]+'
   return {
-    keywords: KEYWORDS,
+    lexemes: LEXEMES,
+    subLanguage: 'cs', subLanguageMode: 'continuous',
     contains: [
+      {
+        className: 'keyword',
+ 	begin: 'model|using',
+      },
+      {
+        className: 'built_in',
+ 	begin: 'Scripts|Styles|Html'
+      },
       {
         className: 'comment',
         begin: '@[*]', end: '[*]@'
       },
       {
-        begin: '</?', end: '/?>',
- 	subLanguage: 'xml',
-	contains: [
-  	  {
-	    begin: '"@', end: '"',
-	    subLanguage: 'razor',
-	  }
-	]
+        className: 'start',
+        begin: /[@][?\\w]*/,
+        illegal: /[@][{*]/,
       },
       {
         className: 'string',
- 	begin: '"((?!@))', end: '"',
-	illegal: '\\n'
+        begin: '"((?!@))', end: '"',
+        illegal: '\\n',
       },
-      hljs.NUMBER_MODE,
       {
-        className: 'start',
-	begin: '@'
+  	begin: '<', end: '>',
+	illegal: '</?',
+        subLanguage: 'xml',
+        contains: [
+          {
+            begin: '"@', end: '"',
+	    subLanguage: 'razor',
+	  }
+	]
       }
     ]
   };
 }
-
 
