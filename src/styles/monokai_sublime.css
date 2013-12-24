@@ -7,162 +7,162 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs {
   display: block;
 }
-pre .hljs-tag,
+.hljs-tag,
 .hljs {
   color: #f8f8f2;
 }
-pre .hljs-header {
+.hljs-header {
   color: #F92672;
 }
-pre .hljs-strongemphasis,
-pre .hljs-strong,
-pre .hljs-emphasis {
+.hljs-strongemphasis,
+.hljs-strong,
+.hljs-emphasis {
   color: #a8a8a2;
 }
-pre .hljs-bullet,
-pre .hljs-blockquote,
-pre .hljs-horizontal_rule,
-pre .link {
+.hljs-bullet,
+.hljs-blockquote,
+.hljs-horizontal_rule,
+.link {
   color: #ae81ff;
 }
-pre .hljs-code {
+.hljs-code {
   color: #a6e22e;
 }
-pre .hljs-link_label,
-pre .hljs-link_url {
+.hljs-link_label,
+.hljs-link_url {
   color: #e6db74;
 }
-pre .hljs-link_url {
+.hljs-link_url {
   font-size: 80%;
 }
-pre .hljs-strong,
-pre .hljs-strongemphasis {
+.hljs-strong,
+.hljs-strongemphasis {
   font-weight: bold;
 }
-pre .hljs-emphasis,
-pre .hljs-strongemphasis {
+.hljs-emphasis,
+.hljs-strongemphasis {
   font-style: italic;
 }
-pre .hljs-keyword,
-pre .hljs-function,
-pre .hljs-change,
-pre .hljs-winutils,
-pre .hljs-flow,
-pre .lisp .hljs-title,
-pre .clojure .hljs-built_in,
-pre .nginx .hljs-title,
-pre .tex .hljs-special {
+.hljs-keyword,
+.hljs-function,
+.hljs-change,
+.hljs-winutils,
+.hljs-flow,
+.lisp .hljs-title,
+.clojure .hljs-built_in,
+.nginx .hljs-title,
+.tex .hljs-special {
   color: #F92672;
 }
-pre .corefunction,
-pre .hljs-function .hljs-keyword,
-pre .hljs-class .hljs-keyword:first-child {
+.corefunction,
+.hljs-function .hljs-keyword,
+.hljs-class .hljs-keyword:first-child {
   color: #66d9ef;
 }
-pre .hljs-variable,
-pre .hljs-params {
+.hljs-variable,
+.hljs-params {
   color: #f8f8f2;
 }
-pre .hljs-constant {
+.hljs-constant {
   color: #66d9ef;
 }
-pre .hljs-class .hljs-title {
+.hljs-class .hljs-title {
   color: #f8f8f2;
 }
-pre .hljs-title,
-pre .css .hljs-class {
+.hljs-title,
+.css .hljs-class {
   color: #a6e22e;
 }
-pre .hljs-class .hljs-title:last-child {
+.hljs-class .hljs-title:last-child {
   color: #a6e22e;
   font-style: italic;
 }
-pre .hljs-attribute,
-pre .hljs-symbol,
-pre .hljs-symbol .hljs-string,
-pre .hljs-tag .hljs-title,
-pre .hljs-value {
+.hljs-attribute,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-tag .hljs-title,
+.hljs-value {
   color: #f92672;
 }
-pre .hljs-number,
-pre .hljs-regexp,
-pre .namespace,
-pre .namespace .hljs-keyword,
-pre .alias .hljs-keyword,
-pre .hljs-literal {
+.hljs-number,
+.hljs-regexp,
+.namespace,
+.namespace .hljs-keyword,
+.alias .hljs-keyword,
+.hljs-literal {
   color: #ae81ff;
 }
-pre .hljs-preprocessor {
+.hljs-preprocessor {
   color: #f8f8f2;
 }
-pre .alias .hljs-keyword:first-child {
+.alias .hljs-keyword:first-child {
   color: #F92672;
 }
-pre .hljs-tag .hljs-value,
-pre .hljs-string,
-pre .css .hljs-id,
-pre .hljs-subst,
-pre .haskell .hljs-type,
-pre .ruby .hljs-class .hljs-parent,
-pre .hljs-built_in,
-pre .sql .hljs-aggregate,
-pre .django .hljs-template_tag,
-pre .django .hljs-variable,
-pre .smalltalk .hljs-class,
-pre .django .hljs-filter .hljs-argument,
-pre .smalltalk .hljs-localvars,
-pre .smalltalk .hljs-array,
-pre .hljs-attr_selector,
-pre .hljs-pseudo,
-pre .hljs-addition,
-pre .hljs-stream,
-pre .hljs-envvar,
-pre .apache .hljs-tag,
-pre .apache .hljs-cbracket,
-pre .tex .hljs-command,
-pre .hljs-prompt {
+.hljs-tag .hljs-value,
+.hljs-string,
+.css .hljs-id,
+.hljs-subst,
+.haskell .hljs-type,
+.ruby .hljs-class .hljs-parent,
+.hljs-built_in,
+.sql .hljs-aggregate,
+.django .hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.django .hljs-filter .hljs-argument,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.hljs-attr_selector,
+.hljs-pseudo,
+.hljs-addition,
+.hljs-stream,
+.hljs-envvar,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.hljs-prompt {
   color: #e6db74;
 }
-pre .hljs-comment,
-pre .hljs-javadoc,
-pre .java .hljs-annotation,
-pre .python .hljs-decorator,
-pre .hljs-template_comment,
-pre .hljs-pi,
-pre .hljs-doctype,
-pre .hljs-deletion,
-pre .hljs-shebang,
-pre .apache .hljs-sqbracket,
-pre .tex .hljs-formula {
+.hljs-comment,
+.hljs-javadoc,
+.java .hljs-annotation,
+.python .hljs-decorator,
+.hljs-template_comment,
+.hljs-pi,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.tex .hljs-formula {
   color: #75715e;
 }
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .hljs-formula {
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula {
   opacity: 0.5;
 }
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .hljs-cdata,
-pre .xml .php,
-pre .php .xml {
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata,
+.xml .php,
+.php .xml {
   opacity: 0.5;
 }
 
-pre .css .hljs-rules,
-pre .css .hljs-value,
-pre .css .hljs-function {
+.css .hljs-rules,
+.css .hljs-value,
+.css .hljs-function {
   color: #f8f8f2;
 }
-pre .css .hljs-attribute {
+.css .hljs-attribute {
   color: #66d9ef;
 }
-pre .css .hljs-tag,
-pre .css .unit,
-pre .css .hljs-important {
+.css .hljs-tag,
+.css .unit,
+.css .hljs-important {
   color: #f92672;
 }
-pre .hljs-hexcolor {
+.hljs-hexcolor {
   color: #ae81ff;
 }
