@@ -9,12 +9,14 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   padding: 0.5em;
   background: #23241f;
 }
+.hljs,
 .hljs-tag,
-.hljs {
+.css .hljs-rules,
+.css .hljs-value,
+.css .hljs-function
+.hljs-preprocessor,
+.hljs-pragma {
   color: #f8f8f2;
-}
-.hljs-header {
-  color: #F92672;
 }
 .hljs-strongemphasis,
 .hljs-strong,
@@ -24,15 +26,22 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-bullet,
 .hljs-blockquote,
 .hljs-horizontal_rule,
-.link {
+.link,
+.hljs-number,
+.hljs-regexp,
+.namespace,
+.namespace .hljs-keyword,
+.alias .hljs-keyword,
+.hljs-literal,
+.hljs-hexcolor {
   color: #ae81ff;
 }
-.hljs-code {
+.hljs-tag .hljs-value,
+.hljs-code,
+.hljs-title,
+.css .hljs-class,
+.hljs-class .hljs-title:last-child {
   color: #a6e22e;
-}
-.hljs-link_label,
-.hljs-link_url {
-  color: #e6db74;
 }
 .hljs-link_url {
   font-size: 80%;
@@ -42,7 +51,8 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   font-weight: bold;
 }
 .hljs-emphasis,
-.hljs-strongemphasis {
+.hljs-strongemphasis,
+.hljs-class .hljs-title:last-child {
   font-style: italic;
 }
 .hljs-keyword,
@@ -53,55 +63,31 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .lisp .hljs-title,
 .clojure .hljs-built_in,
 .nginx .hljs-title,
-.tex .hljs-special {
-  color: #F92672;
-}
-.corefunction,
-.hljs-function .hljs-keyword,
-.hljs-class .hljs-keyword:first-child {
-  color: #66d9ef;
-}
-.hljs-variable,
-.hljs-params {
-  color: #f8f8f2;
-}
-.hljs-constant {
-  color: #66d9ef;
-}
-.hljs-class .hljs-title {
-  color: #f8f8f2;
-}
-.hljs-title,
-.css .hljs-class {
-  color: #a6e22e;
-}
-.hljs-class .hljs-title:last-child {
-  color: #a6e22e;
-  font-style: italic;
-}
+.tex .hljs-special,
+.hljs-header,
 .hljs-attribute,
 .hljs-symbol,
 .hljs-symbol .hljs-string,
 .hljs-tag .hljs-title,
-.hljs-value {
-  color: #f92672;
-}
-.hljs-number,
-.hljs-regexp,
-.namespace,
-.namespace .hljs-keyword,
-.alias .hljs-keyword,
-.hljs-literal {
-  color: #ae81ff;
-}
-.hljs-preprocessor,
-.hljs-pragma {
-  color: #f8f8f2;
-}
-.alias .hljs-keyword:first-child {
+.hljs-value,
+.alias .hljs-keyword:first-child,
+.css .hljs-tag,
+.css .unit,
+.css .hljs-important {
   color: #F92672;
 }
-.hljs-tag .hljs-value,
+.corefunction,
+.hljs-function .hljs-keyword,
+.hljs-class .hljs-keyword:first-child,
+.hljs-constant,
+.css .hljs-attribute {
+  color: #66d9ef;
+}
+.hljs-variable,
+.hljs-params,
+.hljs-class .hljs-title {
+  color: #f8f8f2;
+}
 .hljs-string,
 .css .hljs-id,
 .hljs-subst,
@@ -123,7 +109,9 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .apache .hljs-tag,
 .apache .hljs-cbracket,
 .tex .hljs-command,
-.hljs-prompt {
+.hljs-prompt,
+.hljs-link_label,
+.hljs-link_url {
   color: #e6db74;
 }
 .hljs-comment,
@@ -141,9 +129,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 }
 .coffeescript .javascript,
 .javascript .xml,
-.tex .hljs-formula {
-  opacity: 0.5;
-}
+.tex .hljs-formula,
 .xml .javascript,
 .xml .vbscript,
 .xml .css,
@@ -151,21 +137,4 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .xml .php,
 .php .xml {
   opacity: 0.5;
-}
-
-.css .hljs-rules,
-.css .hljs-value,
-.css .hljs-function {
-  color: #f8f8f2;
-}
-.css .hljs-attribute {
-  color: #66d9ef;
-}
-.css .hljs-tag,
-.css .unit,
-.css .hljs-important {
-  color: #f92672;
-}
-.hljs-hexcolor {
-  color: #ae81ff;
 }
