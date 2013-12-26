@@ -5,7 +5,8 @@ Requires XML language pack
 */
 
 function(hljs) {
-  var KEYWORDS = 'foreach var if in else model using false true|0 null int for double decimal float string';
+  var KEYWORDS = 'foreach|0 var|0 if|0 in|0 else|0 model|0 using|0 false|0' +
+                 'true|0 null|0 int|0 for|0 double|0 decimal|0 float|0 string|0 new|0';
   return {
     keywords: KEYWORDS,
     contains: [

@@ -2713,57 +2713,52 @@ return
   <tr>
     <th>Razor
     <td class="razor">
-<link rel="stylesheet" href="vs.css" />
-<pre>
-	<code>
-		@using NamedQuery.Test
-		@model TestModel
+<link rel="stylesheet" href="vs.razor.css" />
+<pre><code>@using NamedQuery.Test
+@model TestModel
 		
-		@{
-			Layout = "_layout.cshtml";
-		}
+@{
+	Layout = "_layout.cshtml";
+}
 		
-		@Scripts.Render("~/bundles/me")
-		@Styles.Render("~/bundles/yo")
+@Scripts.Render("~/bundles/me")
+@Styles.Render("~/bundles/yo")
 		
-		@* Comment *@
-		@Html.DisplayFor(m => m.FirstName)
+@* Comment *@
+@Html.DisplayFor(m => m.FirstName)
 			
-		@* Multi Line
-		   Comment *@
+@* Multi Line
+   Comment *@
 			   
-		@{
-			var test = 0;
+@{
+	var test = 0;
+	
+	&lt;div&gt;
+	    &lt;a href="/test/"&gt;Link&lt;/a&gt;
+	&lt;/div&gt;
+}
 			
-			&lt;div&gt;
-			    &lt;a href="/test/"&gt;Link&lt;/a&gt;
-			&lt;/div&gt;
-		}
+@foreach (var test in Model) {
+	&lt;p&gt;@test.Item&lt;/p&gt;
+}
 			
-		@foreach (var test in Model) {
-			&lt;p&gt;@test.Item&lt;/p&gt;
-		}
+@if (true) {
+    &lt;p&gt;@test.Item&lt;/p&gt;
+} else {
+    &lt;p&gt;nope&lt;/p&gt;
+}
 			
-		@if (true) {
-		    &lt;p&gt;@test.Item&lt;/p&gt;
-		} else {
-		    &lt;p&gt;nope&lt;/p&gt;
-		}
+@(TestNameSpace.StatisClass.StattMthod)
 			
-		@(TestNameSpace.StatisClass.StattMthod)
+@Html.Action("_Aside", Model);
 			
-		@Html.Action("_Aside", Model);
+@using (Html.BeingForm("Index", "Home")) {
+    @Html.AntiForgeryToken()
+	@Html.TextBoxFor(p => p.LastName)
+	&lt;input type="Submit" value="@if(true){&lt;text&gt;true&lt;/text&gt;}" /&gt;
+}
 			
-		@using (Html.BeingForm("Index", "Home")) {
-		    @Html.AntiForgeryToken()
-			@Html.TextBoxFor(p => p.LastName)
-			&lt;input type="Submit" value="@if(true){&lt;text&gt;true&lt;/text&gt;}" /&gt;
-		}
-			
-		&lt;input type="Submit" disabled="@Model.Value" /&gt;
-	</code>
-</pre>
-
+&lt;input type="Submit" disabled="@Model.Value" /&gt;</code></pre>
   <tr>
     <th>FIX
     <td class="fix">
