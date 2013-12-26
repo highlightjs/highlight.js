@@ -88,7 +88,7 @@ function(hljs) {
       {
         className: 'class',
         beginKeywords: 'class interface', end: '{',
-        illegal: '[:\\(\\$]',
+        illegal: /[:\(\$"]/,
         contains: [
           {
             beginKeywords: 'extends implements',
