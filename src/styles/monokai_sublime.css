@@ -13,9 +13,40 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs {
   color: #f8f8f2;
 }
+.hljs-header {
+  color: #F92672;
+}
+.hljs-strongemphasis,
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+.hljs-bullet,
+.hljs-blockquote,
+.hljs-horizontal_rule,
+.link {
+  color: #ae81ff;
+}
+.hljs-code {
+  color: #a6e22e;
+}
+.hljs-link_label,
+.hljs-link_url {
+  color: #e6db74;
+}
+.hljs-link_url {
+  font-size: 80%;
+}
+.hljs-strong,
+.hljs-strongemphasis {
+  font-weight: bold;
+}
+.hljs-emphasis,
+.hljs-strongemphasis {
+  font-style: italic;
+}
 .hljs-keyword,
 .hljs-function,
-.hljs-literal,
 .hljs-change,
 .hljs-winutils,
 .hljs-flow,
@@ -23,33 +54,52 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .clojure .hljs-built_in,
 .nginx .hljs-title,
 .tex .hljs-special {
+  color: #F92672;
+}
+.corefunction,
+.hljs-function .hljs-keyword,
+.hljs-class .hljs-keyword:first-child {
   color: #66d9ef;
 }
 .hljs-variable,
 .hljs-params {
-  color: #fd9720;
+  color: #f8f8f2;
 }
 .hljs-constant {
   color: #66d9ef;
 }
+.hljs-class .hljs-title {
+  color: #f8f8f2;
+}
 .hljs-title,
-.hljs-class .hljs-title,
 .css .hljs-class {
   color: #a6e22e;
+}
+.hljs-class .hljs-title:last-child {
+  color: #a6e22e;
+  font-style: italic;
 }
 .hljs-attribute,
 .hljs-symbol,
 .hljs-symbol .hljs-string,
 .hljs-tag .hljs-title,
-.hljs-value,
-.css .hljs-tag {
+.hljs-value {
   color: #f92672;
 }
 .hljs-number,
-.hljs-preprocessor,
-.hljs-pragma,
-.hljs-regexp {
+.hljs-regexp,
+.namespace,
+.namespace .hljs-keyword,
+.alias .hljs-keyword,
+.hljs-literal {
   color: #ae81ff;
+}
+.hljs-preprocessor,
+.hljs-pragma {
+  color: #f8f8f2;
+}
+.alias .hljs-keyword:first-child {
+  color: #F92672;
 }
 .hljs-tag .hljs-value,
 .hljs-string,
@@ -97,6 +147,25 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .xml .javascript,
 .xml .vbscript,
 .xml .css,
-.xml .hljs-cdata {
+.xml .hljs-cdata,
+.xml .php,
+.php .xml {
   opacity: 0.5;
+}
+
+.css .hljs-rules,
+.css .hljs-value,
+.css .hljs-function {
+  color: #f8f8f2;
+}
+.css .hljs-attribute {
+  color: #66d9ef;
+}
+.css .hljs-tag,
+.css .unit,
+.css .hljs-important {
+  color: #f92672;
+}
+.hljs-hexcolor {
+  color: #ae81ff;
 }
