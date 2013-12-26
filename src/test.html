@@ -1151,7 +1151,7 @@ public abstract class L2Character extends L2Object {
 
     public void run() {
       try {
-        getAI().notifyEvent(_evt, null, null);
+        getAI().notifyEvent(_evt, _evt.class, null);
       } catch (Throwable t) {
         t.printStackTrace();
       }
