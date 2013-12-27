@@ -32,10 +32,7 @@ function(hljs) {
         className: 'class',
         beginKeywords: 'type', end: '\\(|=|$',
         contains: [
-          {
-            className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          }
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       {

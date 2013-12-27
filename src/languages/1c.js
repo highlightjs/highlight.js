@@ -60,7 +60,7 @@ function(hljs){
         lexemes: IDENT_RE_RU,
         keywords: 'процедура функция',
         contains: [
-          {className: 'title', begin: IDENT_RE_RU},
+          hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE_RU}),
           {
             className: 'tail',
             endsWithParent: true,

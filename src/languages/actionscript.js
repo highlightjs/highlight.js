@@ -12,7 +12,6 @@ function(hljs) {
     begin: '[.]{3}', end: IDENT_RE,
     relevance: 10
   };
-  var TITLE_MODE = {className: 'title', begin: IDENT_RE};
 
   return {
     keywords: {
@@ -32,7 +31,7 @@ function(hljs) {
       {
         className: 'package',
         beginKeywords: 'package', end: '{',
-        contains: [TITLE_MODE]
+        contains: [hljs.TITLE_MODE]
       },
       {
         className: 'class',
@@ -41,7 +40,7 @@ function(hljs) {
           {
             beginKeywords: 'extends implements'
           },
-          TITLE_MODE
+          hljs.TITLE_MODE
         ]
       },
       {
@@ -53,7 +52,7 @@ function(hljs) {
         beginKeywords: 'function', end: '[{;]',
         illegal: '\\S',
         contains: [
-          TITLE_MODE,
+          hljs.TITLE_MODE,
           {
             className: 'params',
             begin: '\\(', end: '\\)',

@@ -31,10 +31,7 @@ function(hljs) {
             beginKeywords: 'extends implements',
             relevance: 10
           },
-          {
-            className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          }
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       }
     ]

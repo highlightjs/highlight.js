@@ -127,9 +127,7 @@ function(hljs) {
         illegal: '\\(|#|//|/\\*|\\\\|:|;',
         contains: [
           PARAMS,
-          {
-            className: 'title', begin: BASIC_ATOM_RE
-          }
+          hljs.inherit(hljs.TITLE_MODE, {begin: BASIC_ATOM_RE})
         ],
         starts: {
           end: ';|\\.',

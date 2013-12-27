@@ -41,7 +41,7 @@ function(hljs) {
       COMMENT,
       PREPROCESSOR,
       {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
-      { className: 'title', begin: '[_a-z][\\w\']*' }
+      hljs.inherit(hljs.TITLE_MODE, {begin: '[_a-z][\\w\']*'})
     ]
   };
 
@@ -122,7 +122,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
-      { className: 'title', begin: '^[_a-z][\\w\']*', relevance: 0 },
+      hljs.inherit(hljs.TITLE_MODE, {begin: '^[_a-z][\\w\']*'}),
 
       {begin: '->|<-'} // No markup, relevance booster
     ]
