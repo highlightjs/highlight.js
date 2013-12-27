@@ -96,3 +96,5 @@ Contributors:
 - Zaven Muradyan <megalivoithos@gmail.com>
 - Jan T. Sott <jan@idleberg.com>
 - Brent Bradbury <brent@brentium.com>
+- Martin Dilling-Hansen <martindlling@gmail.com>
+- Ilya Vassilevsky <vassilevsky@gmail.com>
