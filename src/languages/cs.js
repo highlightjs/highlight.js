@@ -56,7 +56,6 @@ function(hljs) {
         contains: [
           {
             beginKeywords: 'class namespace interface',
-            className: 'container',
             starts: {
               contains: [TITLE]
             }
