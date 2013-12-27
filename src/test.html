@@ -1656,40 +1656,24 @@ heapExample
  <tr>
     <th>Clojure
     <td class="clojure">
-<pre><code>;   You must not remove this notice, or any other, from this software.
-
-(ns ^{:doc "The core Clojure language."
-       :author "Rich Hickey"}
-  clojure.core)
-
-(def unquote)
+<pre><code>; Comment
 
 (def
   ^{:macro true
     :added "1.0"}
   let (fn* let [&amp;form &amp;env &amp; decl] (cons 'let* decl)))
 
-(def
+(def ^:dynamic chunk-size 17)
 
- defn (fn defn [&amp;form &amp;env name &amp; fdecl]
-        (let [m (conj {:arglists (list 'quote (sigs fdecl))} m)
-              m (let [inline (:inline m)
-                      ifn (first inline)
-                      iname (second inline)]
-                  ;; same as: (if (and (= 'fn ifn) (not (symbol? iname))) ...)
-                  (if (if (clojure.lang.Util/equiv 'fn ifn)
-                        (if (instance? clojure.lang.Symbol iname) false true))
-                    ;; inserts the same fn name to the inline fn if it does not have one
-                    (assoc m :inline (cons ifn (cons (clojure.lang.Symbol/intern (.concat (.getName ^clojure.lang.Symbol name) "__inliner"))
-                                                     (next inline))))
-                    m))
-              m (conj (if (meta name) (meta name) {}) m)]
-          (list 'def (with-meta name m)
-                ;;todo - restore propagation of fn name
-                ;;must figure out how to convey primitive hints to self calls first
-                (cons `fn fdecl) ))))
+(defn next-chunk [rdr]
+  (let [buf (char-array chunk-size)
+        s (.read rdr buf)]
+  (when (pos? s)
+    (java.nio.CharBuffer/wrap buf 0 s))))
 
-(. (var defn) (setMacro))
+(defn chunk-seq [rdr]
+  (when-let [chunk (next-chunk rdr)]
+    (cons chunk (lazy-seq (chunk-seq rdr)))))
 </code></pre>
 
   <tr>
