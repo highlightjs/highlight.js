@@ -9,8 +9,6 @@ function(hljs) {
     {
       begin: /[^\u2401\u0001]+/,
       end: /[\u2401\u0001]/,
-      className: 'fixField',
-      lexems: /[^\u2401\u0001]/,
       excludeEnd: true,
       returnBegin: true,
       returnEnd: false,

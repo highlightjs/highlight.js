@@ -78,7 +78,7 @@ function(hljs) {
 
       {
         className: 'class',
-        begin: '\\b(class|instance)\\b', end: 'where',
+        begin: '^(\\s*)?(class|instance)\\b', end: 'where',
         keywords: 'class family instance where',
         contains: [CONSTRUCTOR, LIST, COMMENT]
       },

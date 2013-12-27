@@ -52,10 +52,10 @@ function(hljs) {
         keywords: KEYWORDS,
         contains: [
           {
-            beginKeywords: 'class namespace', endsWithParent: true,
-            contains: [
-              hljs.TITLE_MODE
-            ]
+            beginKeywords: 'class namespace interface',
+            starts: {
+              contains: [hljs.TITLE_MODE]
+            }
           },
           {
             begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
