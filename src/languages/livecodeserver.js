@@ -11,34 +11,27 @@ function(hljs) {
     className: 'variable', begin: '\\b[gtps][A-Z]+[A-Za-z0-9_\\-]*\\b|\\$_[A-Z]+',
     relevance: 0
   };
-  var STRINGS = [
-    hljs.inherit(hljs.APOS_STRING_MODE),
-    hljs.inherit(hljs.QUOTE_STRING_MODE)
-  ];
-  var COMMENTS = [
-    hljs.inherit(hljs.C_BLOCK_COMMENT_MODE),
-    {
-      className: 'comment',
-      begin: '--', end: '$'
-    },
-    {
-      className: 'comment',
-      begin: '[^:]//', end: '\\n'
-    },
-    {
-      className: 'comment',
-      begin: '#', end: '\\n'
-    }
-  ];
-  var NUMBERS = [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE];
-  var TITLE = [
-    {
-      className: 'title', begin: '\\b_*rig[A-Z]+[A-Za-z0-9_\\-]*'
-    },
-    {
-      className: 'title', begin: '\\b_[a-z0-9\\-]+'
-    }
-  ];
+  var COMMENT = {
+    className: 'comment', end: '$',
+    variants: [
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.HASH_COMMENT_MODE,
+      {
+        begin: '--',
+      },
+      {
+        begin: '[^:]//',
+      }
+    ]
+  };
+  var TITLE1 = {
+    className: 'title', relevance: 0,
+    variants: [
+      {begin: '\\b_*rig[A-Z]+[A-Za-z0-9_\\-]*'},
+      {begin: '\\b_[a-z0-9\\-]+'}
+    ]
+  };
+  var TITLE2 = hljs.inherit(hljs.TITLE_MODE, {begin: '\\b([A-Za-z0-9_\\-]+)\\b'});
   return {
     case_insensitive: false,
     keywords: {
@@ -122,42 +115,42 @@ function(hljs) {
         beginKeywords: 'function', end: '$',
         contains: [
           VARIABLE,
-          {
-            className: 'title',
-            begin: '\\b([A-Za-z0-9_\\-]+)\\b'
-          }
-        ].concat(STRINGS).concat(NUMBERS).concat(TITLE)
+          TITLE2,
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE,
+          hljs.BINARY_NUMBER_MODE,
+          hljs.C_NUMBER_MODE,
+          TITLE1
+        ]
       },
       {
         className: 'function',
         beginKeywords: 'end', end: '$',
         contains: [
-          {
-            className: 'title',
-            begin: '\\b([A-Za-z0-9_\\-]+)\\b'
-          }
-        ].concat(TITLE)
+          TITLE2,
+          TITLE1
+        ]
       },
       {
         className: 'command',
         beginKeywords: 'command on', end: '$',
         contains: [
           VARIABLE,
-          {
-            className: 'title',
-            begin: '\\b([A-Za-z0-9_\\-]+)\\b'
-          }
-        ].concat(STRINGS).concat(NUMBERS).concat(TITLE)
+          TITLE2,
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE,
+          hljs.BINARY_NUMBER_MODE,
+          hljs.C_NUMBER_MODE,
+          TITLE1
+        ]
       },
       {
         className: 'command',
         beginKeywords: 'end', end: '$',
         contains: [
-          {
-            className: 'title',
-            begin: '\\b([A-Za-z0-9_\\-]+)\\b'
-          }
-        ].concat(TITLE)
+          TITLE2,
+          TITLE1
+        ]
       },
       {
         className: 'preprocessor',
@@ -171,8 +164,14 @@ function(hljs) {
       {
         className: 'preprocessor',
         begin: '\\?>'
-      }
-    ].concat(COMMENTS).concat(STRINGS).concat(NUMBERS).concat(TITLE),
+      },
+      COMMENT,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
+      hljs.BINARY_NUMBER_MODE,
+      hljs.C_NUMBER_MODE,
+      TITLE1
+    ],
     illegal: ';$|^\\[|^='
   };
 }
