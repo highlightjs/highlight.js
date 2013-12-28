@@ -35,8 +35,9 @@ function(hljs) {
   var VAR = {
     className: 'variable',
     variants: [
-      {begin: '\\$\\d'},
-      {begin: '[\\$\\%\\@\\*](\\^\\w\\b|#\\w+(\\:\\:\\w+)*|[^\\s\\w{]|{\\w+}|\\w+(\\:\\:\\w*)*)'}
+      {begin: /\$\d/},
+      {begin: /[\$\%\@\*](\^\w\b|#\w+(\:\:\w+)*|{\w+}|\w+(\:\:\w*)*)/},
+      {begin: /[\$\%\@\*][^\s\w{]/, relevance: 0}
     ]
   };
   var COMMENT = {
