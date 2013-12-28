@@ -118,10 +118,7 @@ function(hljs) {
       beginKeywords: 'define',
       returnEnd: true, end: '\\(|=>',
       contains: [
-        {
-          className: 'title',
-          begin: hljs.UNDERSCORE_IDENT_RE + '(=(?!>))?'
-        }
+        hljs.inherit(hljs.TITLE_MODE, {begin: hljs.UNDERSCORE_IDENT_RE + '(=(?!>))?'})
       ]
     }
   ];

@@ -39,10 +39,7 @@ function(hljs) {
             beginKeywords: 'extends with',
             relevance: 10
           },
-          {
-            className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          },
+          hljs.UNDERSCORE_TITLE_MODE,
           {
             className: 'params',
             begin: '\\(', end: '\\)',

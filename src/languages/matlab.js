@@ -42,10 +42,7 @@ function(hljs) {
         className: 'function',
         beginKeywords: 'function', end: '$',
         contains: [
-          {
-              className: 'title',
-              begin: hljs.UNDERSCORE_IDENT_RE
-          },
+          hljs.UNDERSCORE_TITLE_MODE,
           {
               className: 'params',
               begin: '\\(', end: '\\)'

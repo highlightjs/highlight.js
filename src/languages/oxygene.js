@@ -36,9 +36,7 @@ function(hljs) {
     beginKeywords: 'function constructor destructor procedure method', end: '[:;]',
     keywords: 'function constructor|10 destructor|10 procedure|10 method|10',
     contains: [
-      {
-        className: 'title', begin: hljs.IDENT_RE
-      },
+      hljs.TITLE_MODE,
       {
         className: 'params',
         begin: '\\(', end: '\\)',

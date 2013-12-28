@@ -36,13 +36,10 @@ function(hljs) {
         beginKeywords: 'function endfunction', end: '$',
         keywords: 'function endfunction|10',
         contains: [
+          hljs.UNDERSCORE_TITLE_MODE,
           {
-              className: 'title',
-              begin: hljs.UNDERSCORE_IDENT_RE
-          },
-          {
-              className: 'params',
-              begin: '\\(', end: '\\)'
+            className: 'params',
+            begin: '\\(', end: '\\)'
           },
         ],
       },

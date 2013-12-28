@@ -24,13 +24,12 @@ function(hljs) {
       }
     ]
   };
-  var TITLE1 = {
-    className: 'title', relevance: 0,
+  var TITLE1 = hljs.inherit(hljs.TITLE_MODE, {
     variants: [
       {begin: '\\b_*rig[A-Z]+[A-Za-z0-9_\\-]*'},
       {begin: '\\b_[a-z0-9\\-]+'}
     ]
-  };
+  });
   var TITLE2 = hljs.inherit(hljs.TITLE_MODE, {begin: '\\b([A-Za-z0-9_\\-]+)\\b'});
   return {
     case_insensitive: false,
