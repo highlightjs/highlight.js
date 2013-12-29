@@ -377,7 +377,7 @@ Java ("java")
 * ``annotaion``:        annotation
 * ``javadoc``:          javadoc comment
 * ``class``:            class header from "class" till "{"
-* ``title``:            class name inside a header
+* ``title``:            class or method name
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "implements" inside class header
 
