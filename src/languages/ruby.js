@@ -97,6 +97,7 @@ function(hljs) {
     {
       className: 'class',
       beginKeywords: 'class module', end: '$|;',
+      illegal: /=/,
       contains: [
         hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
         {

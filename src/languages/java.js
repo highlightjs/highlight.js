@@ -11,6 +11,7 @@ function(hljs) {
     'package default double public try this switch continue throws';
   return {
     keywords: KEYWORDS,
+    illegal: /<\//,
     contains: [
       {
         className: 'javadoc',
