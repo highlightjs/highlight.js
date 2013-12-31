@@ -222,12 +222,11 @@ function(hljs) {
       },
       {
         className: 'variable',
-        begin: '\\$\\d',
-        relevance: 5
-      },
-      {
-        className: 'variable',
-        begin: '[\\$\\%\\@\\*](\\^\\w\\b|#\\w+|[^\\s\\w{]|{\\w+}|\\w+)'
+        variants: [
+          {begin: '\\$\\d'},
+          {begin: '[\\$\\%\\@](\\^\\w\\b|#\\w+|[^\\s\\w{]|{\\w+}|\\w+)'},
+          {begin: '\\*(\\^\\w\\b|#\\w+|[^\\s\\w{]|{\\w+}|\\w+)', relevance: 0}
+        ]
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
