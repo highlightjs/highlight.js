@@ -84,11 +84,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #009926
 }
 
-.hljs-class {
-  color: #458;
-  font-weight: bold
-}
-
 .hljs-symbol,
 .ruby .hljs-symbol .hljs-string,
 .lisp .hljs-keyword,
