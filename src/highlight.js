@@ -15,6 +15,11 @@ function() {
     return node.nodeName.toLowerCase();
   }
 
+  function testRe(re, lexeme) {
+    var match = re && re.exec(lexeme);
+    return match && match.index == 0;
+  }
+
   function blockText(block) {
     return Array.prototype.map.call(block.childNodes, function(node) {
       if (node.nodeType == 3) {
@@ -256,15 +261,14 @@ function() {
 
     function subMode(lexeme, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
-        var match = mode.contains[i].beginRe.exec(lexeme);
-        if (match && match.index == 0) {
+        if (testRe(mode.contains[i].beginRe, lexeme)) {
           return mode.contains[i];
         }
       }
     }
 
     function endOfMode(mode, lexeme) {
-      if (mode.end && mode.endRe.test(lexeme)) {
+      if (testRe(mode.endRe, lexeme)) {
         return mode;
       }
       if (mode.endsWithParent) {
@@ -273,7 +277,7 @@ function() {
     }
 
     function isIllegal(lexeme, mode) {
-      return !ignore_illegals && mode.illegal && mode.illegalRe.test(lexeme);
+      return !ignore_illegals && testRe(mode.illegalRe, lexeme);
     }
 
     function keywordMatch(mode, match) {
