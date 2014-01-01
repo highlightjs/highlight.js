@@ -35,7 +35,7 @@ function(hljs) {
         begin: '\\.' + hljs.UNDERSCORE_IDENT_RE, relevance: 0
       },
       {
-        beginKeywords: 'protected public private', end: '{|;|=',
+        beginKeywords: 'protected public private', end: /[{;=]/,
         keywords: KEYWORDS,
         contains: [
           {
