@@ -62,6 +62,9 @@ function(hljs) {
           }
         ],
         illegal: /\[|%/
+      },
+      {
+        begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
       }
     ]
   };
