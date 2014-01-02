@@ -5,14 +5,11 @@ Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.
 */
 
 function(hljs) {
-  var RUBY_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*(\\!|\\?)?';
   var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
-  var RUBY_KEYWORDS = {
-    keyword:
-      'and false then defined module in return redo if BEGIN retry end for true self when ' +
-      'next until do begin unless END rescue nil else break undef not super class case ' +
-      'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor'
-  };
+  var RUBY_KEYWORDS =
+    'and false then defined module in return redo if BEGIN retry end for true self when ' +
+    'next until do begin unless END rescue nil else break undef not super class case ' +
+    'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor';
   var YARDOCTAG = {
     className: 'yardoctag',
     begin: '@[A-Za-z]+'
@@ -39,10 +36,9 @@ function(hljs) {
     begin: '#\\{', end: '}',
     keywords: RUBY_KEYWORDS
   };
-  var STR_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST];
   var STRING = {
     className: 'string',
-    contains: STR_CONTAINS,
+    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
     variants: [
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/},
@@ -76,19 +72,10 @@ function(hljs) {
       }
     ]
   };
-  var FUNCTION = {
-    className: 'function',
-    beginKeywords: 'def', end: ' |$|;',
-    relevance: 0,
-    contains: [
-      hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {begin: RUBY_METHOD_RE, keywords: RUBY_KEYWORDS}),
-      {
-        className: 'params',
-        begin: '\\(', end: '\\)',
-        keywords: RUBY_KEYWORDS
-      },
-      COMMENT
-    ]
+  var PARAMS = {
+    className: 'params',
+    begin: '\\(', end: '\\)',
+    keywords: RUBY_KEYWORDS
   };
 
   var RUBY_DEFAULT_CONTAINS = [
@@ -99,7 +86,7 @@ function(hljs) {
       beginKeywords: 'class module', end: '$|;',
       illegal: /=/,
       contains: [
-        hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
+        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
         {
           className: 'inheritance',
           begin: '<\\s*',
@@ -111,7 +98,16 @@ function(hljs) {
         COMMENT
       ]
     },
-    FUNCTION,
+    {
+      className: 'function',
+      beginKeywords: 'def', end: ' |$|;',
+      relevance: 0,
+      contains: [
+        hljs.inherit(hljs.TITLE_MODE, {begin: RUBY_METHOD_RE}),
+        PARAMS,
+        COMMENT
+      ]
+    },
     {
       className: 'constant',
       begin: '(::)?(\\b[A-Z]\\w*(::)?)+',
@@ -125,7 +121,7 @@ function(hljs) {
     },
     {
       className: 'symbol',
-      begin: RUBY_IDENT_RE + ':',
+      begin: hljs.UNDERSCORE_IDENT_RE + '(\\!|\\?)?:',
       relevance: 0
     },
     {
@@ -158,7 +154,7 @@ function(hljs) {
     }
   ];
   SUBST.contains = RUBY_DEFAULT_CONTAINS;
-  FUNCTION.contains[1].contains = RUBY_DEFAULT_CONTAINS;
+  PARAMS.contains = RUBY_DEFAULT_CONTAINS;
 
   return {
     keywords: RUBY_KEYWORDS,
