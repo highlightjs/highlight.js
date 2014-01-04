@@ -4,11 +4,16 @@ Language: HTML, XML
 
 function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
+  var PHP = {
+    begin: /<\?(php)?(?!\w)/, end: /\?>/,
+    subLanguage: 'php', subLanguageMode: 'continuous'
+  };
   var TAG_INTERNALS = {
     endsWithParent: true,
     illegal: /</,
     relevance: 0,
     contains: [
+      PHP,
       {
         className: 'attribute',
         begin: XML_IDENT_RE,
@@ -81,10 +86,7 @@ function(hljs) {
         begin: '<%', end: '%>',
         subLanguage: 'vbscript'
       },
-      {
-        begin: /<\?(php)?(?!\w)/, end: /\?>/,
-        subLanguage: 'php', subLanguageMode: 'continuous'
-      },
+      PHP,
       {
         className: 'pi',
         begin: /<\?\w+/, end: /\?>/,
