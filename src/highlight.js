@@ -184,11 +184,11 @@ function() {
           });
         }
 
-        if (typeof keywords == 'string') { // string
-          flatten('keyword', keywords);
+        if (typeof mode.keywords == 'string') { // string
+          flatten('keyword', mode.keywords);
         } else {
-          Object.keys(keywords).forEach(function (className) {
-            flatten(className, keywords[className]);
+          Object.keys(mode.keywords).forEach(function (className) {
+            flatten(className, mode.keywords[className]);
           });
         }
         mode.keywords = compiled_keywords;
@@ -198,7 +198,6 @@ function() {
       if (parent) {
         if (mode.beginKeywords) {
           mode.begin = mode.beginKeywords.split(' ').join('|');
-          mode.beginKeywords = compileKeywords(mode.beginKeywords);
         }
         mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
