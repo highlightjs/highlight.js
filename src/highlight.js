@@ -170,9 +170,8 @@ function() {
         return;
       mode.compiled = true;
 
-      mode.keywords = mode.keywords || mode.beginKeywords;
-      if (mode.keywords) {
-        var compiled_keywords = {};
+      function compileKeywords(keywords) {
+        var result = {};
 
         function flatten(className, str) {
           if (language.case_insensitive) {
@@ -180,24 +179,30 @@ function() {
           }
           str.split(' ').forEach(function(kw) {
             var pair = kw.split('|');
-            compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
+            result[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
           });
         }
 
-        mode.lexemesRe = langRe(mode.lexemes || /[A-Za-z0-9_\.]+/, true);
-        if (typeof mode.keywords == 'string') { // string
-          flatten('keyword', mode.keywords);
+        if (typeof keywords == 'string') { // string
+          flatten('keyword', keywords);
         } else {
-          Object.keys(mode.keywords).forEach(function (className) {
-            flatten(className, mode.keywords[className]);
+          Object.keys(keywords).forEach(function (className) {
+            flatten(className, keywords[className]);
           });
         }
-        mode.keywords = compiled_keywords;
+        return result;
+      }
+
+      mode.lexemesRe = langRe(mode.lexemes || /[A-Za-z0-9_\.]+/, true);
+      mode.keywords = mode.keywords || mode.beginKeywords;
+      if (mode.keywords) {
+        mode.keywords = compileKeywords(mode.keywords);
       }
 
       if (parent) {
         if (mode.beginKeywords) {
-          mode.begin = '\\b(' + mode.beginKeywords.split(/\s+/).join('|') + ')\\b(?!\\.)\\s*';
+          mode.beginKeywords = compileKeywords(mode.beginKeywords);
+          mode.begin = mode.lexemes || /[A-Za-z0-9_\.]+/;
         }
         mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
@@ -231,9 +236,9 @@ function() {
       }
 
       var terminators = [];
-      for (var i = 0; i < mode.contains.length; i++) {
-        terminators.push(reStr(mode.contains[i].begin));
-      }
+      mode.contains.forEach(function(c) {
+        terminators.push(reStr(c.begin));
+      });
       if (mode.terminator_end) {
         terminators.push(reStr(mode.terminator_end));
       }
@@ -261,7 +266,7 @@ function() {
 
     function subMode(lexeme, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
-        if (testRe(mode.contains[i].beginRe, lexeme)) {
+        if (testRe(mode.contains[i].beginRe, lexeme) && (!mode.contains[i].beginKeywords || mode.contains[i].beginKeywords.hasOwnProperty(lexeme))) {
           return mode.contains[i];
         }
       }
@@ -356,6 +361,7 @@ function() {
     }
 
     function processLexeme(buffer, lexeme) {
+
       mode_buffer += buffer;
       if (lexeme === undefined) {
         result += processBuffer();
