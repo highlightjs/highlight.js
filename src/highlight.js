@@ -170,8 +170,9 @@ function() {
         return;
       mode.compiled = true;
 
-      function compileKeywords(keywords) {
-        var result = {};
+      mode.keywords = mode.keywords || mode.beginKeywords;
+      if (mode.keywords) {
+        var compiled_keywords = {};
 
         function flatten(className, str) {
           if (language.case_insensitive) {
@@ -179,7 +180,7 @@ function() {
           }
           str.split(' ').forEach(function(kw) {
             var pair = kw.split('|');
-            result[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
+            compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
           });
         }
 
@@ -190,19 +191,14 @@ function() {
             flatten(className, keywords[className]);
           });
         }
-        return result;
+        mode.keywords = compiled_keywords;
       }
-
       mode.lexemesRe = langRe(mode.lexemes || /[A-Za-z0-9_\.]+/, true);
-      mode.keywords = mode.keywords || mode.beginKeywords;
-      if (mode.keywords) {
-        mode.keywords = compileKeywords(mode.keywords);
-      }
 
       if (parent) {
         if (mode.beginKeywords) {
+          mode.begin = mode.beginKeywords.split(' ').join('|');
           mode.beginKeywords = compileKeywords(mode.beginKeywords);
-          mode.begin = mode.lexemes || /[A-Za-z0-9_\.]+/;
         }
         mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b');
         if (!mode.end && !mode.endsWithParent)
@@ -237,7 +233,7 @@ function() {
 
       var terminators = [];
       mode.contains.forEach(function(c) {
-        terminators.push(reStr(c.begin));
+        terminators.push(reStr(c.beginKeywords ? '\\.?\\b(' + c.begin + ')\\b\\.?' : c.begin));
       });
       if (mode.terminator_end) {
         terminators.push(reStr(mode.terminator_end));
@@ -266,7 +262,7 @@ function() {
 
     function subMode(lexeme, mode) {
       for (var i = 0; i < mode.contains.length; i++) {
-        if (testRe(mode.contains[i].beginRe, lexeme) && (!mode.contains[i].beginKeywords || mode.contains[i].beginKeywords.hasOwnProperty(lexeme))) {
+        if (testRe(mode.contains[i].beginRe, lexeme)) {
           return mode.contains[i];
         }
       }

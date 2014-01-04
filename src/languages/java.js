@@ -35,16 +35,9 @@ function(hljs) {
         begin: '\\.' + hljs.UNDERSCORE_IDENT_RE, relevance: 0
       },
       {
-        className: 'container',
         beginKeywords: 'protected public private', end: /[{;=]/,
         keywords: KEYWORDS,
         contains: [
-          {
-            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true,
-            contains: [
-              hljs.UNDERSCORE_TITLE_MODE
-            ]
-          },
           {
             className: 'class',
             beginKeywords: 'class interface', endsWithParent: true,
@@ -54,6 +47,12 @@ function(hljs) {
                 beginKeywords: 'extends implements',
                 relevance: 10
               },
+              hljs.UNDERSCORE_TITLE_MODE
+            ]
+          },
+          {
+            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true,
+            contains: [
               hljs.UNDERSCORE_TITLE_MODE
             ]
           }
