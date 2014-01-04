@@ -26,15 +26,6 @@ function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        /*
-        Local workaround for a general problem.
-        The begin regex constructed from `beginKeywords` has no way to ensure the absence of
-        the dot before the identifier, so the word "class" in `obj.class()` triggers the whole
-        class mode. Ugliness ensues.
-        */
-        begin: '\\.' + hljs.UNDERSCORE_IDENT_RE, relevance: 0
-      },
-      {
         beginKeywords: 'protected public private', end: /[{;=]/,
         keywords: KEYWORDS,
         contains: [
