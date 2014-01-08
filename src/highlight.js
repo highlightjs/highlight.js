@@ -193,7 +193,7 @@ function() {
         }
         mode.keywords = compiled_keywords;
       }
-      mode.lexemesRe = langRe(mode.lexemes || /[A-Za-z0-9_\.]+/, true);
+      mode.lexemesRe = langRe(mode.lexemes || /\b[A-Za-z0-9_]+\b/, true);
 
       if (parent) {
         if (mode.beginKeywords) {
