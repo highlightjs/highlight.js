@@ -51,7 +51,7 @@ New features:
 
 - Language detection can now be restricted to a subset of languages relevant in
   a given context — a web page or even a single highlighting call. This is
-  especially useful for node.js build that include all the known languages.
+  especially useful for node.js build that includes all the known languages.
   Another example is a StackOverflow-style site where users specify languages
   as tags rather than in the markdown-formatted code snippets. This is
   documented in the [API reference][] (see methods `highlightAuto` and
