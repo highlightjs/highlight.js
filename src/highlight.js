@@ -199,9 +199,11 @@ function() {
         if (mode.beginKeywords) {
           mode.begin = mode.beginKeywords.split(' ').join('|');
         }
-        mode.beginRe = langRe(mode.begin ? mode.begin : '\\B|\\b');
+        if (!mode.begin)
+          mode.begin = /\B|\b/;
+        mode.beginRe = langRe(mode.begin);
         if (!mode.end && !mode.endsWithParent)
-          mode.end = '\\B|\\b';
+          mode.end = /\B|\b/;
         if (mode.end)
           mode.endRe = langRe(mode.end);
         mode.terminator_end = reStr(mode.end) || '';
@@ -230,16 +232,14 @@ function() {
         compileMode(mode.starts, parent);
       }
 
-      var terminators = [];
-      mode.contains.forEach(function(c) {
-        terminators.push(reStr(c.beginKeywords ? '\\.?\\b(' + c.begin + ')\\b\\.?' : c.begin));
-      });
-      if (mode.terminator_end) {
-        terminators.push(reStr(mode.terminator_end));
-      }
-      if (mode.illegal) {
-        terminators.push(reStr(mode.illegal));
-      }
+      var terminators =
+        mode.contains.map(function(c) {
+          return c.beginKeywords ? '\\.?\\b(' + c.begin + ')\\b\\.?' : c.begin;
+        })
+        .concat([mode.terminator_end])
+        .concat([mode.illegal])
+        .map(reStr)
+        .filter(Boolean);
       mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : {exec: function(s) {return null;}};
 
       mode.continuation = {};
