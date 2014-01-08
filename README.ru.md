@@ -164,7 +164,7 @@ highlight.js.
 
 ## Координаты
 
-- Версия: 8.0 beta
+- Версия: 8.0
 - URL:    http://highlightjs.org/
 
 Лицензионное соглашение читайте в файле LICENSE.
