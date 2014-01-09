@@ -23,7 +23,7 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '{',
+        beginKeywords: 'class interface', end: '{', excludeEnd: true,
         illegal: ':',
         contains: [
           {

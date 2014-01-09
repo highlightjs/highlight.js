@@ -31,7 +31,7 @@ function(hljs) {
         contains: [
           {
             className: 'class',
-            beginKeywords: 'class interface', endsWithParent: true,
+            beginKeywords: 'class interface', endsWithParent: true, excludeEnd: true,
             illegal: /[:"<>]/,
             contains: [
               {

@@ -29,7 +29,7 @@ function(hljs) {
     contains: [
       {
         className: 'class',
-        beginKeywords: 'class interface delegate namespace', end: '{',
+        beginKeywords: 'class interface delegate namespace', end: '{', excludeEnd: true,
         illegal: '[^,:\\n\\s\\.]',
         contains: [
           hljs.UNDERSCORE_TITLE_MODE

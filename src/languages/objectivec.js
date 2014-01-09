@@ -73,7 +73,7 @@ function(hljs) {
       },
       {
         className: 'class',
-        begin: '(' + CLASS_KEYWORDS.split(' ').join('|') + ')\\b', end: '({|$)',
+        begin: '(' + CLASS_KEYWORDS.split(' ').join('|') + ')\\b', end: '({|$)', excludeEnd: true,
         keywords: CLASS_KEYWORDS, lexemes: LEXEMES,
         contains: [
           hljs.UNDERSCORE_TITLE_MODE

@@ -65,7 +65,7 @@ function(hljs) {
       VARIABLE,
       {
         className: 'function',
-        beginKeywords: 'function', end: /[;{]/,
+        beginKeywords: 'function', end: /[;{]/, excludeEnd: true,
         illegal: '\\$|\\[|%',
         contains: [
           hljs.UNDERSCORE_TITLE_MODE,
@@ -84,7 +84,7 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '{',
+        beginKeywords: 'class interface', end: '{', excludeEnd: true,
         illegal: /[:\(\$"]/,
         contains: [
           {

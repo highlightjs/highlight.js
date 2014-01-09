@@ -26,7 +26,7 @@ function(hljs) {
       NUMBER,
       {
         className: 'function',
-        beginKeywords: 'fn', end: '(\\(|<)',
+        beginKeywords: 'fn', end: '(\\(|<)', excludeEnd: true,
         contains: [hljs.UNDERSCORE_TITLE_MODE]
       },
       {

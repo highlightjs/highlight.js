@@ -35,7 +35,7 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '{',
+        beginKeywords: 'class interface', end: '{', excludeEnd: true,
         contains: [
           {
             beginKeywords: 'extends implements'
@@ -49,7 +49,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function', end: '[{;]',
+        beginKeywords: 'function', end: '[{;]', excludeEnd: true,
         illegal: '\\S',
         contains: [
           hljs.TITLE_MODE,
