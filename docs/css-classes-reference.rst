@@ -583,7 +583,7 @@ DOS ("dos")
 * ``winutils``:         some commands (see dos.js specifically)
 * ``envvar``:           environment variables
 
-Bash ("bash")
+Bash ("bash", "sh")
 -------------
 
 * ``keyword``:          keyword
