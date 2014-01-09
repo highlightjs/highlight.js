@@ -1,4 +1,4 @@
-## Version 8.0 beta
+## Version 8.0
 
 This new major release is quite a big overhaul bringing both new features and
 some backwards incompatible changes. However, chances are that the majority of
