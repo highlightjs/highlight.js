@@ -98,3 +98,5 @@ Contributors:
 - Brent Bradbury <brent@brentium.com>
 - Martin Dilling-Hansen <martindlling@gmail.com>
 - Ilya Vassilevsky <vassilevsky@gmail.com>
+- Harttle <yangjvn@126.com>
+
