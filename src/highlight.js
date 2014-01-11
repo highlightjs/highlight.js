@@ -236,8 +236,7 @@ function() {
         mode.contains.map(function(c) {
           return c.beginKeywords ? '\\.?\\b(' + c.begin + ')\\b\\.?' : c.begin;
         })
-        .concat([mode.terminator_end])
-        .concat([mode.illegal])
+        .concat([mode.terminator_end, mode.illegal])
         .map(reStr)
         .filter(Boolean);
       mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : {exec: function(s) {return null;}};
