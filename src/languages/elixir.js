@@ -30,21 +30,19 @@ function(hljs) {
     ]
   };
   var PARAMS = {
-    className: 'params',
-    begin: '\\(', end: '\\)',
+    endsWithParent: true, returnEnd: true,
     lexemes: ELIXIR_IDENT_RE,
     keywords: ELIXIR_KEYWORDS
   };
   var FUNCTION = {
     className: 'function',
-    beginKeywords: 'def', end: / |$|;/,
+    beginKeywords: 'def', end: /\bdo\b/,
     contains: [
       {
         className: 'title',
-        begin: ELIXIR_METHOD_RE
-      },
-      PARAMS,
-      hljs.HASH_COMMENT_MODE
+        begin: ELIXIR_METHOD_RE,
+        starts: PARAMS
+      }
     ]
   };
 
