@@ -26,20 +26,17 @@ function(hljs) {
   var STRING = {
     className: 'string',
     begin: '\'', end: '\'',
-    contains: [{begin: '\'\''}],
-    relevance: 0
+    contains: [{begin: '\'\''}]
   };
   var CHAR_STRING = {
     className: 'string', begin: '(#\\d+)+'
   };
   var FUNCTION = {
     className: 'function',
-    beginWithKeyword: true, end: '[:;]',
+    beginKeywords: 'function constructor destructor procedure method', end: '[:;]',
     keywords: 'function constructor|10 destructor|10 procedure|10 method|10',
     contains: [
-      {
-        className: 'title', begin: hljs.IDENT_RE
-      },
+      hljs.TITLE_MODE,
       {
         className: 'params',
         begin: '\\(', end: '\\)',

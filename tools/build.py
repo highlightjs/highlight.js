@@ -21,7 +21,7 @@ REPLACES = {
     'subLanguage': 'sL',
     'className': 'cN',
     'begin': 'b',
-    'beginWithKeyword': 'bWK',
+    'beginKeywords': 'bK',
     'end': 'e',
     'endsWithParent': 'eW',
     'illegal': 'i',
@@ -30,6 +30,7 @@ REPLACES = {
     'returnBegin': 'rB',
     'returnEnd': 'rE',
     'relevance': 'r',
+    'variants': 'v',
 
     'IDENT_RE': 'IR',
     'UNDERSCORE_IDENT_RE': 'UIR',
@@ -46,6 +47,8 @@ REPLACES = {
     'C_NUMBER_MODE': 'CNM',
     'BINARY_NUMBER_MODE': 'BNM',
     'NUMBER_MODE': 'NM',
+    'TITLE_MODE': 'TM',
+    'UNDERSCORE_TITLE_MODE': 'UTM',
 
     'beginRe': 'bR',
     'endRe': 'eR',

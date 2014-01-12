@@ -106,7 +106,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .asciidoc .hljs-attribute,
 .lasso .hljs-attribute,
 .coffeescript .hljs-property,
-.makefile .phony {
+.hljs-phony {
   color: #88F
 }
 

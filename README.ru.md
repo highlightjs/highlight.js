@@ -30,10 +30,9 @@ Highlight.js нужен для подсветки синтаксиса в при
 
 - Стилевые темы можно найти в загруженном архиве или также использовать
   захостенные. Чтобы сделать собственный стиль для своего сайта, вам
-  будет полезен справочник классов в файле [classref.txt][cr], который тоже
-  есть в архиве.
+  будет полезен [CSS classes reference][cr], который тоже есть в архиве.
 
-[cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
+[cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 
 
 ## node.js
@@ -92,9 +91,9 @@ require(["highlight.js/build/highlight.pack"], function(hljs){
 
 ```html
 <script type="text/javascript">
-  hljs.tabReplace = '    '; // 4 spaces
+  hljs.configure({tabReplace: '    '}); // 4 spaces
   // ... or
-  hljs.tabReplace = '<span class="indent">\t</span>';
+  hljs.configure({tabReplace: '<span class="indent">\t</span>'});
 
   hljs.initHighlightingOnLoad();
 </script>
@@ -104,9 +103,8 @@ require(["highlight.js/build/highlight.pack"], function(hljs){
 ## Инициализация вручную
 
 Если вы используете другие теги для блоков кода, вы можете инициализировать их
-явно с помощью функции `highlightBlock(code, tabReplace, useBR)`. Она принимает
-DOM-элемент с текстом расцвечиваемого кода и опционально - строчку для замены
-символов TAB.
+явно с помощью функции `highlightBlock(code)`. Она принимает DOM-элемент с
+текстом расцвечиваемого кода и опционально - строчку для замены символов TAB.
 
 Например с использованием jQuery код инициализации может выглядеть так:
 
@@ -121,10 +119,11 @@ $(document).ready(function() {
 повторно для уже раскрашенных блоков.
 
 Если ваш блок кода использует `<br>` вместо переводов строки (т.е. если это не
-`<pre>`), передайте `true` третьим параметром в `highlightBlock`:
+`<pre>`), включите опцию `useBR`:
 
 ```javascript
-$('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
+hljs.configure({useBR: true});
+$('div.code').each(function(i, e) {hljs.highlightBlock(e)});
 ```
 
 
@@ -165,7 +164,7 @@ highlight.js.
 
 ## Координаты
 
-- Версия: 7.5
+- Версия: 8.0
 - URL:    http://highlightjs.org/
 
 Лицензионное соглашение читайте в файле LICENSE.

@@ -7,7 +7,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs {
   display: block; padding: 0.5em;
   color: #333;
-  background: #f8f8ff
+  background: #f8f8f8
 }
 
 .hljs-comment,
@@ -82,11 +82,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-regexp {
   color: #009926
-}
-
-.hljs-class {
-  color: #458;
-  font-weight: bold
 }
 
 .hljs-symbol,

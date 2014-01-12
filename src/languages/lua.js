@@ -37,13 +37,9 @@ function(hljs) {
     contains: COMMENTS.concat([
       {
         className: 'function',
-        beginWithKeyword: true, end: '\\)',
-        keywords: 'function',
+        beginKeywords: 'function', end: '\\)',
         contains: [
-          {
-            className: 'title',
-            begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'
-          },
+          hljs.inherit(hljs.TITLE_MODE, {begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'}),
           {
             className: 'params',
             begin: '\\(', endsWithParent: true,

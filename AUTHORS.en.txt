@@ -93,3 +93,8 @@ Contributors:
 - Carlo Kok <ck@remobjects.com>
 - Bram de Haan <info@atelierbramdehaan.nl>
 - Seongwon Lee <dlimpid@gmail.com>
+- Zaven Muradyan <megalivoithos@gmail.com>
+- Jan T. Sott <jan@idleberg.com>
+- Brent Bradbury <brent@brentium.com>
+- Martin Dilling-Hansen <martindlling@gmail.com>
+- Ilya Vassilevsky <vassilevsky@gmail.com>

@@ -80,8 +80,8 @@ function(hljs) {
   };
 
   var BLOCK_STATEMENTS = {
-    keywords: ERLANG_RESERVED,
-    begin: '(fun|receive|if|try|case)', end: 'end'
+    beginKeywords: 'fun receive if try case', end: 'end',
+    keywords: ERLANG_RESERVED
   };
   BLOCK_STATEMENTS.contains = [
     COMMENT,
@@ -124,12 +124,10 @@ function(hljs) {
         className: 'function',
         begin: '^' + BASIC_ATOM_RE + '\\s*\\(', end: '->',
         returnBegin: true,
-        illegal: '\\(|#|//|/\\*|\\\\|:',
+        illegal: '\\(|#|//|/\\*|\\\\|:|;',
         contains: [
           PARAMS,
-          {
-            className: 'title', begin: BASIC_ATOM_RE
-          }
+          hljs.inherit(hljs.TITLE_MODE, {begin: BASIC_ATOM_RE})
         ],
         starts: {
           end: ';|\\.',

@@ -5,35 +5,34 @@ Contributrors: Benjamin Pannell <contact@sierrasoftworks.com>
 */
 
 function(hljs) {
-  var VAR1 = {
-    className: 'variable', begin: /\$[\w\d#@][\w\d_]*/
-  };
-  var VAR2 = {
-    className: 'variable', begin: /\$\{(.*?)\}/
+  var VAR = {
+    className: 'variable',
+    variants: [
+      {begin: /\$[\w\d#@][\w\d_]*/},
+      {begin: /\$\{(.*?)\}/}
+    ]
   };
   var QUOTE_STRING = {
     className: 'string',
     begin: /"/, end: /"/,
     contains: [
       hljs.BACKSLASH_ESCAPE,
-      VAR1,
-      VAR2,
+      VAR,
       {
         className: 'variable',
         begin: /\$\(/, end: /\)/,
-        contains: hljs.BACKSLASH_ESCAPE
+        contains: [hljs.BACKSLASH_ESCAPE]
       }
-    ],
-    relevance: 0
+    ]
   };
   var APOS_STRING = {
     className: 'string',
-    begin: /'/, end: /'/,
-    relevance: 0
+    begin: /'/, end: /'/
   };
 
   return {
-    lexemes: /-?[a-z]+/,
+    aliases: ['sh'],
+    lexemes: /-?[a-z\.]+/,
     keywords: {
       keyword:
         'if then else elif fi for break continue while in do done exit return set '+
@@ -56,15 +55,14 @@ function(hljs) {
         className: 'function',
         begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
         returnBegin: true,
-        contains: [{className: 'title', begin: /\w[\w\d_]*/}],
+        contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w\d_]*/})],
         relevance: 0
       },
       hljs.HASH_COMMENT_MODE,
       hljs.NUMBER_MODE,
       QUOTE_STRING,
       APOS_STRING,
-      VAR1,
-      VAR2
+      VAR
     ]
   };
 }

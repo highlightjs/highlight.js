@@ -4,9 +4,6 @@ Style with support for rainbow parens
 
 */
 
-::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
-::selection { background:#FF5E99; color:#fff; text-shadow: none; }
-
 .hljs {
   display: block; padding: 0.5em;
   background: #474949; color: #D1D9E1;

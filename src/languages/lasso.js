@@ -75,12 +75,15 @@ function(hljs) {
     },
     {
       className: 'variable',
-      begin: '[#$]' + LASSO_IDENT_RE
-    },
-    {
-      className: 'variable',
-      begin: '#', end: '\\d+',
-      illegal: '\\W'
+      variants: [
+        {
+          begin: '[#$]' + LASSO_IDENT_RE
+        },
+        {
+          begin: '#', end: '\\d+',
+          illegal: '\\W'
+        }
+      ]
     },
     {
       className: 'tag',
@@ -93,13 +96,16 @@ function(hljs) {
     },
     {
       className: 'subst',
-      begin: '->\\s*',
-      contains: [ LASSO_DATAMEMBER ]
-    },
-    {
-      className: 'subst',
-      begin: ':=|[-+*/%=<>&|!?\\\\]+',
-      relevance: 0
+      variants: [
+        {
+          begin: '->\\s*',
+          contains: [ LASSO_DATAMEMBER ]
+        },
+        {
+          begin: ':=|/(?!\\w)=?|[-+*%=<>&|!?\\\\]+',
+          relevance: 0
+        }
+      ]
     },
     {
       className: 'built_in',
@@ -109,17 +115,15 @@ function(hljs) {
     },
     {
       className: 'class',
-      beginWithKeyword: true, keywords: 'define',
+      beginKeywords: 'define',
       returnEnd: true, end: '\\(|=>',
       contains: [
-        {
-          className: 'title',
-          begin: hljs.UNDERSCORE_IDENT_RE + '(=(?!>))?'
-        }
+        hljs.inherit(hljs.TITLE_MODE, {begin: hljs.UNDERSCORE_IDENT_RE + '(=(?!>))?'})
       ]
     }
   ];
   return {
+    aliases: ['ls', 'lassoscript'],
     case_insensitive: true,
     lexemes: LASSO_IDENT_RE + '|&[lg]t;',
     keywords: LASSO_KEYWORDS,
@@ -132,6 +136,7 @@ function(hljs) {
           className: 'markup',
           end: '\\[|' + LASSO_ANGLE_RE,
           returnEnd: true,
+          relevance: 0,
           contains: [ HTML_COMMENT ]
         }
       },

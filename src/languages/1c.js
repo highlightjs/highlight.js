@@ -38,8 +38,7 @@ function(hljs){
   var STR_START = {
       className: 'string',
       begin: '"', end: '"|$',
-      contains: [DQUOTE],
-      relevance: 0
+      contains: [DQUOTE]
     };
   var STR_CONT = {
     className: 'string',
@@ -61,7 +60,7 @@ function(hljs){
         lexemes: IDENT_RE_RU,
         keywords: 'процедура функция',
         contains: [
-          {className: 'title', begin: IDENT_RE_RU},
+          hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE_RU}),
           {
             className: 'tail',
             endsWithParent: true,

@@ -7,13 +7,14 @@ Contributors: Angel G. Olloqui <angelgarcia.mail@gmail.com>
 function(hljs) {
   var OBJC_KEYWORDS = {
     keyword:
-      'int float while private char catch export sizeof typedef const struct for union ' +
-      'unsigned long volatile static protected bool mutable if public do return goto void ' +
-      'enum else break extern asm case short default double throw register explicit ' +
-      'signed typename try this switch continue wchar_t inline readonly assign property ' +
-      'self synchronized end synthesize id optional required ' +
-      'nonatomic super unichar finally dynamic IBOutlet IBAction selector strong ' +
-      'weak readonly',
+      'int float while char export sizeof typedef const struct for union ' +
+      'unsigned long volatile static bool mutable if do return goto void ' +
+      'enum else break extern asm case short default double register explicit ' +
+      'signed typename this switch continue wchar_t inline readonly assign ' +
+      'self synchronized id ' +
+      'nonatomic super unichar IBOutlet IBAction strong weak ' +
+      '@private @protected @public @try @property @end @throw @catch @finally ' +
+      '@synthesize @dynamic @selector @optional @required',
     literal:
     	'false true FALSE TRUE nil YES NO NULL',
     built_in:
@@ -31,8 +32,10 @@ function(hljs) {
       'UIInterfaceOrientation MPMoviePlayerController dispatch_once_t ' +
       'dispatch_queue_t dispatch_sync dispatch_async dispatch_once'
   };
+  var LEXEMES = /[a-zA-Z@][a-zA-Z0-9_]*/;
+  var CLASS_KEYWORDS = '@interface @class @protocol @implementation';
   return {
-    keywords: OBJC_KEYWORDS,
+    keywords: OBJC_KEYWORDS, lexemes: LEXEMES,
     illegal: '</',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
@@ -70,13 +73,10 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginWithKeyword: true,
-        end: '({|$)',
-        keywords: 'interface class protocol implementation',
-        contains: [{
-          className: 'id',
-          begin: hljs.UNDERSCORE_IDENT_RE
-        }
+        begin: '(' + CLASS_KEYWORDS.split(' ').join('|') + ')\\b', end: '({|$)', excludeEnd: true,
+        keywords: CLASS_KEYWORDS, lexemes: LEXEMES,
+        contains: [
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       {

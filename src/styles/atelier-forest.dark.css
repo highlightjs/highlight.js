@@ -3,19 +3,19 @@
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 /* https://github.com/jmblog/color-themes-for-highlightjs */
 
-/* base16-atelierforest-dark-comment */
+/* Atelier Forest Dark Comment */
 .hljs-comment,
 .hljs-title {
   color: #9c9491;
 }
 
-/* base16-atelierforest-dark-red */
+/* Atelier Forest Dark Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
 .ruby .hljs-constant,
-.xml .tag .hljs-title,
+.xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
 .xml .hljs-doctype,
 .html .hljs-doctype,
@@ -25,7 +25,7 @@
   color: #f22c40;
 }
 
-/* base16-atelierforest-dark-orange */
+/* Atelier Forest Dark Orange */
 .hljs-number,
 .hljs-preprocessor,
 .hljs-pragma,
@@ -36,13 +36,13 @@
   color: #df5320;
 }
 
-/* base16-atelierforest-dark-yellow */
-.hljs-ruby .class .title,
+/* Atelier Forest Dark Yellow */
+.hljs-ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #d5911a;
 }
 
-/* base16-atelierforest-dark-green */
+/* Atelier Forest Dark Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -52,12 +52,12 @@
   color: #5ab738;
 }
 
-/* base16-atelierforest-dark-aqua */
+/* Atelier Forest Dark Aqua */
 .css .hljs-hexcolor {
   color: #00ad9c;
 }
 
-/* base16-atelierforest-dark-blue */
+/* Atelier Forest Dark Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -69,7 +69,7 @@
   color: #407ee7;
 }
 
-/* base16-atelierforest-dark-purple */
+/* Atelier Forest Dark Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #6666ea;

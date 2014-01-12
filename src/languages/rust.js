@@ -4,10 +4,6 @@ Author: Andrey Vlasovskikh <andrey.vlasovskikh@gmail.com>
 */
 
 function(hljs) {
-  var TITLE = {
-    className: 'title',
-    begin: hljs.UNDERSCORE_IDENT_RE
-  };
   var NUMBER = {
     className: 'number',
     begin: '\\b(0[xb][A-Za-z0-9_]+|[0-9_]+(\\.[0-9_]+)?([uif](8|16|32|64)?)?)',
@@ -30,24 +26,21 @@ function(hljs) {
       NUMBER,
       {
         className: 'function',
-        beginWithKeyword: true, end: '(\\(|<)',
-        keywords: 'fn',
-        contains: [TITLE]
+        beginKeywords: 'fn', end: '(\\(|<)', excludeEnd: true,
+        contains: [hljs.UNDERSCORE_TITLE_MODE]
       },
       {
         className: 'preprocessor',
         begin: '#\\[', end: '\\]'
       },
       {
-        beginWithKeyword: true, end: '(=|<)',
-        keywords: 'type',
-        contains: [TITLE],
+        beginKeywords: 'type', end: '(=|<)',
+        contains: [hljs.UNDERSCORE_TITLE_MODE],
         illegal: '\\S'
       },
       {
-        beginWithKeyword: true, end: '({|<)',
-        keywords: 'trait enum',
-        contains: [TITLE],
+        beginKeywords: 'trait enum', end: '({|<)',
+        contains: [hljs.UNDERSCORE_TITLE_MODE],
         illegal: '\\S'
       }
     ]

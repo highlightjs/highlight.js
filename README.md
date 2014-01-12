@@ -28,9 +28,9 @@ If you use different markup or need to apply highlighting dynamically, read
 
 - Style themes are available in the download package or as hosted files.
   To create a custom style for your site see the class reference in the file
-  [classref.txt][cr] from the downloaded package.
+  [CSS classes reference][cr] from the downloaded package.
 
-[cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
+[cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 
 
 ## node.js
@@ -89,9 +89,9 @@ styling:
 
 ```html
 <script type="text/javascript">
-  hljs.tabReplace = '    '; // 4 spaces
+  hljs.configure({tabReplace: '    '}); // 4 spaces
   // ... or
-  hljs.tabReplace = '<span class="indent">\t</span>';
+  hljs.configure({tabReplace: '<span class="indent">\t</span>'});
 
   hljs.initHighlightingOnLoad();
 </script>
@@ -100,9 +100,9 @@ styling:
 ## Custom initialization
 
 If you use different markup for code blocks you can initialize them manually
-with `highlightBlock(code, tabReplace, useBR)` function. It takes a DOM element
-containing the code to highlight and optionally a string with which to replace
-TAB characters.
+with `highlightBlock(code)` function. It takes a DOM element containing the
+code to highlight and optionally a string with which to replace TAB
+characters.
 
 Initialization using, for example, jQuery might look like this:
 
@@ -117,11 +117,11 @@ the page. Just make sure you don't do it twice for already highlighted
 blocks.
 
 If your code container relies on `<br>` tags instead of line breaks (i.e. if
-it's not `<pre>`) pass `true` into the third parameter of `highlightBlock`
-to make highlight.js use `<br>` in the output:
+it's not `<pre>`) set the `useBR` option to `true`:
 
 ```javascript
-$('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
+hljs.configure({useBR: true});
+$('div.code').each(function(i, e) {hljs.highlightBlock(e)});
 ```
 
 
@@ -160,7 +160,7 @@ on a site.
 
 ## Meta
 
-- Version: 7.5
+- Version: 8.0
 - URL:     http://highlightjs.org/
 
 For the license terms see LICENSE files.

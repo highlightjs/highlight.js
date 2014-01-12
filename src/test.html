@@ -45,6 +45,8 @@
   <link rel="alternate stylesheet" title="Atelier Lakeside - Light" href="styles/atelier-lakeside.light.css">
   <link rel="alternate stylesheet" title="Atelier Seaside - Dark" href="styles/atelier-seaside.dark.css">
   <link rel="alternate stylesheet" title="Atelier Seaside - Light" href="styles/atelier-seaside.light.css">
+  <link rel="alternate stylesheet" title="Paraíso - Dark" href="styles/paraiso.dark.css">
+  <link rel="alternate stylesheet" title="Paraíso - Light" href="styles/paraiso.light.css">
 
   <style>
     body {
@@ -110,7 +112,7 @@
 
   <script src="../build/highlight.pack.js"></script>
   <script>
-  hljs.tabReplace = '    ';
+  hljs.configure({tabReplace: '    '});
   hljs.initHighlightingOnLoad();
   </script>
 
@@ -311,33 +313,40 @@ POD till the end of file
     <td class="php">
 <pre><code>require_once 'Zend/Uri/Http.php';
 
-abstract class URI extends BaseURI
-{
-  abstract function test();
+namespace Location\Web;
 
-  /**
-   * Returns a URI
-   *
-   * @return  URI
-   */
-  static public function _factory($stats = array(), $uri = 'http')
-  {
-      echo __METHOD__;
-      $uri = explode(':', $uri, 0b10);
-      $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
-      $desc = 'Multi
+interface Factory
+{
+    static function _factory();
+}
+
+abstract class URI extends BaseURI implements Factory
+{
+    abstract function test();
+
+    /**
+     * Returns a URI
+     *
+     * @return URI
+     */
+    static public function _factory($stats = array(), $uri = 'http')
+    {
+        echo __METHOD__;
+        $uri = explode(':', $uri, 0b10);
+        $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
+        $desc = 'Multi
 line description';
 
-      // Security check
-      if (!ctype_alnum($scheme)) {
-          throw new Zend_Uri_Exception('Illegal scheme');
-      }
+        // Security check
+        if (!ctype_alnum($scheme)) {
+            throw new Zend_Uri_Exception('Illegal scheme');
+        }
 
-      return [
-        'uri' => $uri,
-        'value' => null,
-      ];
-  }
+        return [
+            'uri'   => $uri,
+            'value' => null,
+        ];
+    }
 }
 
 __halt_compiler () ; datahere
@@ -389,13 +398,11 @@ object Maps {
 
 import (
     "fmt"
-    "rand"
     "os"
 )
 
 const (
     Sunday = iota
-    Partyday
     numberOfDays  // this constant is not exported
 )
 
@@ -403,12 +410,9 @@ type Foo interface {
     FooFunc(int, float32) (complex128, []int)
 }
 
-// simple comment
 type Bar struct {
-    os.File /* multi
-    line
-    comment */
-
+    os.File /* multi-line
+               comment */
     PublicData chan int
 }
 
@@ -417,7 +421,6 @@ func main() {
     ch &lt;- 1
     x, ok := &lt;- ch
     ok = true
-    x = nil
     float_var := 1.0e10
     defer fmt.Println('\'')
     defer fmt.Println(`exitting now\`)
@@ -517,7 +520,7 @@ func main() {
 <pre>
 <code># hello world
 
-you can write text [with links](http://example.com).
+you can write text [with links](http://example.com) inline or [link references][1].
 
 * one _thing_ has *em*phasis
 * two __things__ are **bold**
@@ -535,6 +538,8 @@ hello world
 
 1. one thing (yeah!)
 2. two thing `i can write code`, and `more` wipee!
+
+[1]: http://example.com
 </code></pre>
 
 	<tr>
@@ -771,10 +776,9 @@ a {
 <pre><code>function $initHighlight(block, flags) {
   try {
     if (block.className.search(/\bno\-highlight\b/) != -1)
-      return processBlock(block, true, 0x0F) + ' class=""';
+      return processBlock(block.function, true, 0x0F) + ' class=""';
   } catch (e) {
     /* handle exception */
-
     var e4x =
         &lt;div&gt;Example
             &lt;p&gt;1234&lt;/p&gt;&lt;/div&gt;;
@@ -783,6 +787,7 @@ a {
     if (checkCondition(classes[i]) === undefined)
       return /\d+[\s/]/g;
   }
+  console.log(Array.every(classes, Boolean));
 }</code></pre>
 
   <tr>
@@ -1024,31 +1029,31 @@ do shell script "/bin/echo 'hello'"
   <tr>
     <th>Delphi
     <td class="delphi">
-<pre><code>TList=Class(TObject)
+<pre><code>TList = Class(TObject)
 Private
   Some: String;
 Public
   Procedure Inside; // Suxx
 End;{TList}
 
-Procedure CopyFile(InFileName,var OutFileName:String);
+Procedure CopyFile(InFileName, var OutFileName: String);
 Const
-  BufSize=4096; (* Huh? *)
+  BufSize = 4096; (* Huh? *)
 Var
-  InFile,OutFile:TStream;
-  Buffer:Array[1..BufSize] Of Byte;
-  ReadBufSize:Integer;
+  InFile, OutFile: TStream;
+  Buffer: Array[1..BufSize] Of Byte;
+  ReadBufSize: Integer;
 Begin
-  InFile:=Nil;
-  OutFile:=Nil;
+  InFile := Nil;
+  OutFile := Nil;
   Try
-    InFile:=TFileStream.Create(InFileName,fmOpenRead);
-    OutFile:=TFileStream.Create(OutFileName,fmCreate);
+    InFile := TFileStream.Create(InFileName, fmOpenRead);
+    OutFile := TFileStream.Create(OutFileName, fmCreate);
     Repeat
-      ReadBufSize:=InFile.Read(Buffer,BufSize);
-      OutFile.Write(Buffer,ReadBufSize);
+      ReadBufSize := InFile.Read(Buffer, BufSize);
+      OutFile.Write(Buffer, ReadBufSize);
     Until ReadBufSize&lt;&gt;BufSize;
-    Log('File '''+InFileName+''' copied'#13#10);
+    Log('File ''' + InFileName + ''' copied'#13#10);
   Finally
     InFile.Free;
     OutFile.Free;
@@ -1146,7 +1151,7 @@ public abstract class L2Character extends L2Object {
 
     public void run() {
       try {
-        getAI().notifyEvent(_evt, null, null);
+        getAI().notifyEvent(_evt, _evt.class, null);
       } catch (Throwable t) {
         t.printStackTrace();
       }
@@ -1651,40 +1656,24 @@ heapExample
  <tr>
     <th>Clojure
     <td class="clojure">
-<pre><code>;   You must not remove this notice, or any other, from this software.
-
-(ns ^{:doc "The core Clojure language."
-       :author "Rich Hickey"}
-  clojure.core)
-
-(def unquote)
+<pre><code>; Comment
 
 (def
   ^{:macro true
     :added "1.0"}
   let (fn* let [&amp;form &amp;env &amp; decl] (cons 'let* decl)))
 
-(def
+(def ^:dynamic chunk-size 17)
 
- defn (fn defn [&amp;form &amp;env name &amp; fdecl]
-        (let [m (conj {:arglists (list 'quote (sigs fdecl))} m)
-              m (let [inline (:inline m)
-                      ifn (first inline)
-                      iname (second inline)]
-                  ;; same as: (if (and (= 'fn ifn) (not (symbol? iname))) ...)
-                  (if (if (clojure.lang.Util/equiv 'fn ifn)
-                        (if (instance? clojure.lang.Symbol iname) false true))
-                    ;; inserts the same fn name to the inline fn if it does not have one
-                    (assoc m :inline (cons ifn (cons (clojure.lang.Symbol/intern (.concat (.getName ^clojure.lang.Symbol name) "__inliner"))
-                                                     (next inline))))
-                    m))
-              m (conj (if (meta name) (meta name) {}) m)]
-          (list 'def (with-meta name m)
-                ;;todo - restore propagation of fn name
-                ;;must figure out how to convey primitive hints to self calls first
-                (cons `fn fdecl) ))))
+(defn next-chunk [rdr]
+  (let [buf (char-array chunk-size)
+        s (.read rdr buf)]
+  (when (pos? s)
+    (java.nio.CharBuffer/wrap buf 0 s))))
 
-(. (var defn) (setMacro))
+(defn chunk-seq [rdr]
+  (when-let [chunk (next-chunk rdr)]
+    (cons chunk (lazy-seq (chunk-seq rdr)))))
 </code></pre>
 
   <tr>
@@ -2764,6 +2753,14 @@ label1:
 return
 </code></pre>
 
+  <tr>
+    <th>FIX
+    <td class="fix">
+<pre>
+<code>8=FIX.4.2␁9=0␁35=8␁49=SENDERTEST␁56=TARGETTEST␁34=00000001526␁52=20120429-13:30:08.137␁1=ABC12345␁11=2012abc1234␁14=100␁17=201254321␁20=0␁30=NYSE␁31=108.20␁32=100␁38=100␁39=2␁40=1␁47=A␁54=5␁55=BRK␁59=2␁60=20120429-13:30:08.000␁65=B␁76=BROKER␁84=0␁100=NYSE␁111=100␁150=2␁151=0␁167=CS␁377=N␁10000=SampleCustomTag␁10=123␁
+
+8=FIX.4.29=035=849=SENDERTEST56=TARGETTEST34=0000000152652=20120429-13:30:08.1371=ABC1234511=2012abc123414=10017=20125432120=030=NYSE31=108.2032=10038=10039=240=147=A54=555=BRK59=260=20120429-13:30:08.00065=B76=BROKER84=0100=NYSE111=100150=2151=0167=CS377=N10000=SampleCustomTag10=123
+</code></pre>
 </table>
 
 <script>
@@ -2787,13 +2784,9 @@ return
       var result = document.createElement('DIV');
       result.className = 'test';
       result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + langClass + '</var>';
-      function counts(r) {
-        return ' (' + r.kw + '+' + r.re + '=' + (r.kw + r.re) + ')';
-      }
-      result.innerHTML += counts(code.result);
+      result.innerHTML += ' (' + code.result.re + ')';
       if (code.second_best) {
-        result.innerHTML += '<br>' + code.second_best.language +
-                            counts(code.second_best) ;
+        result.innerHTML += '<br>' + code.second_best.language + ' (' + code.second_best.re + ')';
       }
       tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
       if (!passed) {

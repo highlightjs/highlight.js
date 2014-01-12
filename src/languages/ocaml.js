@@ -30,13 +30,9 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginWithKeyword: true, end: '\\(|=|$',
-        keywords: 'type',
+        beginKeywords: 'type', end: '\\(|=|$', excludeEnd: true,
         contains: [
-          {
-            className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          }
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       {
