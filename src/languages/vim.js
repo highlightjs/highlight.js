@@ -6,10 +6,11 @@ Description: full keyword and built-in from http://vimdoc.sourceforge.net/htmldo
 
 function(hljs) {
   return {
+    lexemes: /[!#@\w]+/,
     keywords: {
       keyword: //ex command
-        // express version
-        '! !! # & * < = > @ @@ N P X a ab abc abo al am an ar arga argd arge argdo argg argl argu as au aug aun b bN ba bad bd be bel bf bl bm bn bo bp br brea breaka breakd breakl bro bufdo buffers bun bw c cN cNf ca cabc caddb cad caddf cal cat cb cc ccl cd ce cex cf cfir cgetb cgete cg changes chd che checkt cl cla clo cm cmapc cme cn cnew cnf cno cnorea cnoreme co col colo com comc comp con conf cope '+
+        // express version except: ! & * < = > 
+        '!! # @ @@ N P X a ab abc abo al am an ar arga argd arge argdo argg argl argu as au aug aun b bN ba bad bd be bel bf bl bm bn bo bp br brea breaka breakd breakl bro bufdo buffers bun bw c cN cNf ca cabc caddb cad caddf cal cat cb cc ccl cd ce cex cf cfir cgetb cgete cg changes chd che checkt cl cla clo cm cmapc cme cn cnew cnf cno cnorea cnoreme co col colo com comc comp con conf cope '+
         'cp cpf cq cr cs cst cu cuna cunme cw d delm deb debugg delc delf dif diffg diffo diffp diffpu diffs diffthis dig di dl dell dj dli do doautoa dp dr ds dsp e ea ec echoe echoh echom echon el elsei em en endfo endf endt endw ene ex exe exi exu f files filet fin fina fini fir fix fo foldc foldd folddoc foldo for fu g go gr grepa gu gv ha h helpf helpg helpt hi hid his i ia iabc if ij il im imapc '+
         'ime ino inorea inoreme int is isp iu iuna iunme j ju k keepa kee keepj lN lNf l lad laddb laddf la lan lat lb lc lch lcl lcs le lefta let lex lf lfir lgetb lgete lg lgr lgrepa lh ll lla lli lmak lm lmapc lne lnew lnf ln loadk lo loc lockv lol lope lp lpf lr ls lt lu lua luad luaf lv lvimgrepa lw m ma mak map mapc marks mat me menut mes mk mks mksp mkv mkvie mod mz mzf nbc nb nbs n new nm nmapc nme nn nnoreme noa no noh norea noreme norm nu nun nunme ol o om omapc ome on ono onoreme opt ou ounme ow p '+
         'profd prof pro promptr pc ped pe perld po popu pp pre prev ps pt ptN ptf ptj ptl ptn ptp ptr pts pu pw py3 python3 py3d py3f py pyd pyf q quita qa r rec red redi redr redraws reg res ret retu rew ri rightb rub rubyd rubyf rund ru rv s sN san sa sal sav sb sbN sba sbf sbl sbm sbn sbp sbr scrip scripte scs se setf setg setl sf sfir sh sim sig sil sl sla sm smap smapc sme sn sni sno snor snoreme sor '+
