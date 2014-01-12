@@ -13,66 +13,57 @@ function(hljs) {
       'next until do begin unless nil break not case cond defmodule defrecord' +
       'alias while ensure or include use alias fn'
   };
-  var COMMENTS = [
-    {
-      className: 'comment',
-      begin: '#', end: '$'
-    }
-  ];
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
     lexemes: ELIXIR_IDENT_RE,
     keywords: ELIXIR_KEYWORDS
   };
-  var STR_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST];
-  var STRINGS = [
-    {
-      className: 'string',
-      begin: '\'', end: '\'',
-      contains: STR_CONTAINS,
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '"', end: '"',
-      contains: STR_CONTAINS,
-      relevance: 0
-    }
-  ];
+  var STRING = {
+    className: 'string',
+    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+    variants: [
+      {
+        begin: /'/, end: /'/
+      },
+      {
+        begin: /"/, end: /"/
+      }
+    ]
+  };
+  var PARAMS = {
+    className: 'params',
+    begin: '\\(', end: '\\)',
+    lexemes: ELIXIR_IDENT_RE,
+    keywords: ELIXIR_KEYWORDS
+  };
   var FUNCTION = {
     className: 'function',
-    beginWithKeyword: true, end: ' |$|;',
-    keywords: 'def',
+    beginKeywords: 'def', end: / |$|;/,
     contains: [
       {
         className: 'title',
-        begin: ELIXIR_METHOD_RE,
-        lexemes: ELIXIR_IDENT_RE,
-        keywords: ELIXIR_KEYWORDS
+        begin: ELIXIR_METHOD_RE
       },
-      {
-        className: 'params',
-        begin: '\\(', end: '\\)',
-        lexemes: ELIXIR_IDENT_RE,
-        keywords: ELIXIR_KEYWORDS
-      }
-    ].concat(COMMENTS)
+      PARAMS,
+      hljs.HASH_COMMENT_MODE
+    ]
   };
 
-  var ELIXIR_DEFAULT_CONTAINS = COMMENTS.concat(STRINGS.concat([
+  var ELIXIR_DEFAULT_CONTAINS = [
+    STRING,
+    hljs.HASH_COMMENT_MODE,
     {
       className: 'class',
-      beginWithKeyword: true, end: '$|;',
-      keywords: 'defmodule defrecord',
+      beginKeywords: 'defmodule defrecord', end: /$|;/,
       contains: [
         {
           className: 'title',
           begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?',
-          relevance: 0,
-          keywords: ELIXIR_KEYWORDS
-        }
-      ].concat(COMMENTS)
+          relevance: 0
+        },
+        hljs.HASH_COMMENT_MODE
+      ]
     },
     FUNCTION,
     {
@@ -83,7 +74,7 @@ function(hljs) {
     {
       className: 'symbol',
       begin: ':',
-      contains: STRINGS.concat([{begin: ELIXIR_METHOD_RE}]),
+      contains: [STRING, {begin: ELIXIR_METHOD_RE}],
       relevance: 0
     },
     {
@@ -102,7 +93,8 @@ function(hljs) {
     },
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
-      contains: COMMENTS.concat([
+      contains: [
+        hljs.HASH_COMMENT_MODE,
         {
           className: 'regexp',
           begin: '/', end: '/[a-z]*',
@@ -115,12 +107,12 @@ function(hljs) {
           illegal: '\\n',
           contains: [hljs.BACKSLASH_ESCAPE, SUBST]
         }
-      ]),
+      ],
       relevance: 0
     }
-  ]));
+  ];
   SUBST.contains = ELIXIR_DEFAULT_CONTAINS;
-  FUNCTION.contains[1].contains = ELIXIR_DEFAULT_CONTAINS;
+  PARAMS.contains = ELIXIR_DEFAULT_CONTAINS;
 
   return {
     lexemes: ELIXIR_IDENT_RE,
