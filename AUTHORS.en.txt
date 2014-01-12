@@ -98,3 +98,4 @@ Contributors:
 - Brent Bradbury <brent@brentium.com>
 - Martin Dilling-Hansen <martindlling@gmail.com>
 - Ilya Vassilevsky <vassilevsky@gmail.com>
+- Josh Adams <josh@isotope11.com>
