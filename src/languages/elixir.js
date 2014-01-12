@@ -7,12 +7,10 @@ Description: language definition for Elixir source code files (.ex and .exs).  B
 function(hljs) {
   var ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*(\\!|\\?)?';
   var ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
-  var ELIXIR_KEYWORDS = {
-    keyword:
-      'and false then defined module in return redo retry end for true self when ' +
-      'next until do begin unless nil break not case cond defmodule defrecord' +
-      'alias while ensure or include use alias fn'
-  };
+  var ELIXIR_KEYWORDS =
+    'and false then defined module in return redo retry end for true self when ' +
+    'next until do begin unless nil break not case cond defmodule defrecord' +
+    'alias while ensure or include use alias fn';
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
