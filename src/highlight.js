@@ -197,7 +197,7 @@ function() {
 
       if (parent) {
         if (mode.beginKeywords) {
-          mode.begin = mode.beginKeywords.split(' ').join('|');
+          mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')\\b';
         }
         if (!mode.begin)
           mode.begin = /\B|\b/;
@@ -234,7 +234,7 @@ function() {
 
       var terminators =
         mode.contains.map(function(c) {
-          return c.beginKeywords ? '\\.?\\b(' + c.begin + ')\\b\\.?' : c.begin;
+          return c.beginKeywords ? '\\.?(' + c.begin + ')\\.?' : c.begin;
         })
         .concat([mode.terminator_end, mode.illegal])
         .map(reStr)
