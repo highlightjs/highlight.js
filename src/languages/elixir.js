@@ -45,22 +45,14 @@ function(hljs) {
       }
     ]
   };
-
+  var CLASS = hljs.inherit(FUNCTION, {
+    className: 'class',
+    beginKeywords: 'defmodule defrecord', end: /\bdo\b|$|;/
+  })
   var ELIXIR_DEFAULT_CONTAINS = [
     STRING,
     hljs.HASH_COMMENT_MODE,
-    {
-      className: 'class',
-      beginKeywords: 'defmodule defrecord', end: /$|;/,
-      contains: [
-        {
-          className: 'title',
-          begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?',
-          relevance: 0
-        },
-        hljs.HASH_COMMENT_MODE
-      ]
-    },
+    CLASS,
     FUNCTION,
     {
       className: 'constant',
