@@ -10,6 +10,7 @@ function(hljs){
     relevance: 0
   };
   return {
+    aliases: ['bf'],
     contains: [
       {
         className: 'comment',

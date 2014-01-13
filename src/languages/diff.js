@@ -6,6 +6,7 @@ Author: Vasily Polovnyov <vast@whiteants.net>
 
 function(hljs) {
   return {
+    aliases: ['patch'],
     contains: [
       {
         className: 'chunk',

@@ -58,6 +58,7 @@ function(hljs) {
   };
 
   return {
+    aliases: ['py', 'gyp'],
     keywords: {
       keyword:
         'and elif is global as in if from raise for except finally print import pass return ' +

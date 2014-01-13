@@ -52,6 +52,7 @@ function(hljs) {
   };
 
   return {
+    aliases: ['hs'],
     keywords:
       'let in if then else case of where do module import hiding ' +
       'qualified type data newtype deriving class instance as default ' +

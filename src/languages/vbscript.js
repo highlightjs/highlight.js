@@ -6,6 +6,7 @@ Contributors: Michal Gabrukiewicz <mgabru@gmail.com>
 
 function(hljs) {
   return {
+    aliases: ['vbs'],
     case_insensitive: true,
     keywords: {
       keyword:

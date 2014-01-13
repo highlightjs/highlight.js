@@ -16,6 +16,7 @@ function(hljs) {
     'self static str struct task true trait type u16 u32 u64 u8 uint unsafe ' +
     'use vec while';
   return {
+    aliases: ['rs'],
     keywords: KEYWORDS,
     illegal: '</',
     contains: [

@@ -88,6 +88,7 @@ function(hljs) {
   COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER];
 
   return {
+    aliases: ['clj'],
     illegal: /\S/,
     contains: [
       COMMENT,

@@ -146,6 +146,7 @@ function(hljs) {
   METHOD.contains = PERL_DEFAULT_CONTAINS;
 
   return {
+    aliases: ['pl'],
     keywords: PERL_KEYWORDS,
     contains: PERL_DEFAULT_CONTAINS
   };

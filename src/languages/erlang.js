@@ -117,6 +117,7 @@ function(hljs) {
     contains: BASIC_MODES
   };
   return {
+    aliases: ['erl'],
     keywords: ERLANG_RESERVED,
     illegal: '(</|\\*=|\\+=|-=|/=|/\\*|\\*/|\\(\\*|\\*\\))',
     contains: [

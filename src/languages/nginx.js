@@ -66,6 +66,7 @@ function(hljs) {
   };
 
   return {
+    aliases: ['nginxconf'],
     contains: [
       hljs.HASH_COMMENT_MODE,
       {

@@ -7,6 +7,7 @@ Website: http://kalnitsky.org/
 
 function(hljs) {
   return {
+    aliases: ['cmake.in'],
     case_insensitive: true,
     keywords: {
       keyword:

@@ -157,6 +157,7 @@ function(hljs) {
   PARAMS.contains = RUBY_DEFAULT_CONTAINS;
 
   return {
+    aliases: ['rb', 'gemspec', 'podspec', 'thor'],
     keywords: RUBY_KEYWORDS,
     contains: RUBY_DEFAULT_CONTAINS
   };

@@ -25,6 +25,7 @@ function(hljs) {
   ];
 
   return {
+    aliases: ['osascript'],
     keywords: {
       keyword:
         'about above after against and around as at back before beginning ' +

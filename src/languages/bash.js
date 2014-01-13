@@ -31,7 +31,7 @@ function(hljs) {
   };
 
   return {
-    aliases: ['sh'],
+    aliases: ['sh', 'zsh'],
     lexemes: /-?[a-z\.]+/,
     keywords: {
       keyword:

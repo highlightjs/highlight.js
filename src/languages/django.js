@@ -25,6 +25,7 @@ function(hljs) {
   };
 
   return {
+    aliases: ['jinja'],
     case_insensitive: true,
     subLanguage: 'xml', subLanguageMode: 'continuous',
     contains: [

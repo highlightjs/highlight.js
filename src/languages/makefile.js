@@ -10,6 +10,7 @@ function(hljs) {
     contains: [hljs.BACKSLASH_ESCAPE]
   }
   return {
+    aliases: ['mk', 'mak'],
     contains: [
       hljs.HASH_COMMENT_MODE,
       {

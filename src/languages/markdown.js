@@ -7,6 +7,7 @@ Website: http://seejohncode.com/
 
 function(hljs) {
   return {
+    aliases: ['md', 'mkdown', 'mkd'],
     contains: [
       // highlight headers
       {

@@ -9,6 +9,7 @@ Description: language definition for Apache configuration files (httpd.conf & .h
 function(hljs) {
   var NUMBER = {className: 'number', begin: '[\\$%]\\d+'};
   return {
+    aliases: ['apacheconf'],
     case_insensitive: true,
     contains: [
       hljs.HASH_COMMENT_MODE,

@@ -27,6 +27,7 @@ function(hljs) {
   };
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
   return {
+    aliases: ['php3', 'php4', 'php5', 'php6'],
     case_insensitive: true,
     keywords:
       'and include_once list abstract global private echo interface as static endswitch ' +

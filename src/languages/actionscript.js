@@ -14,6 +14,7 @@ function(hljs) {
   };
 
   return {
+    aliases: ['as'],
     keywords: {
       keyword: 'as break case catch class const continue default delete do dynamic each ' +
         'else extends final finally for function get if implements import in include ' +

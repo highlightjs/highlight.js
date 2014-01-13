@@ -24,7 +24,7 @@ function(hljs) {
       'vfprintf vprintf vsprintf'
   };
   return {
-    aliases: ['c'],
+    aliases: ['c', 'h', 'c++', 'h++'],
     keywords: CPP_KEYWORDS,
     illegal: '</',
     contains: [

@@ -8,6 +8,7 @@ Description: Matcher for Handlebars as well as EmberJS additions.
 function(hljs) {
   var EXPRESSION_KEYWORDS = 'each in with if else unless bindattr action collection debugger log outlet template unbound view yield';
   return {
+    aliases: ['hbs', 'html.hbs', 'html.handlebars'],
     case_insensitive: true,
     subLanguage: 'xml', subLanguageMode: 'continuous',
     contains: [
