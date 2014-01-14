@@ -2129,39 +2129,15 @@ put "blog,index" into gControllerHandlers
 
 
 command blog
+  -- simple comment
   put "Hello World!" into sTest
+  # ANOTHER COMMENT
   put "form,url,asset" into tHelpers
   rigLoadHelper tHelpers
 end blog
 
-
-command index
-  -- simple comment
-  put "YourPageTitle" into gData["pageTitle"]
-
-  # ANOTHER COMMENT
-  get rigLoadView("blogView")
-end index
-
-
 /*Hello
 block comment!*/
-
-
-command rigCommand pParam1 pParam2
-  put empty into sEmptyLocal
-  // comment
-  put "test" contains "es" into tTemp
-  put "test" &amp; $_POST["post"] into tTestVar
-  put rigFunction(tTestVar) into gData["arrayVal"]
-end rigCommand
-
-
-function rigFunction pParam
-  rigAnotherCommand pParamA, pPAramB
-  return "bla" &amp;&amp; pParam &amp; comma
-end rigFunction
-
 
 function myFunction
   if the secs > 2000000000 then
