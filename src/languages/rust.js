@@ -41,6 +41,9 @@ function(hljs) {
         beginKeywords: 'trait enum', end: '({|<)',
         contains: [hljs.UNDERSCORE_TITLE_MODE],
         illegal: '\\S'
+      },
+      {
+        begin: '->'
       }
     ]
   };
