@@ -32,17 +32,17 @@ function(hljs) {
   var PARAMS = {
     endsWithParent: true, returnEnd: true,
     lexemes: ELIXIR_IDENT_RE,
-    keywords: ELIXIR_KEYWORDS
+    keywords: ELIXIR_KEYWORDS,
+    relevance: 0
   };
   var FUNCTION = {
     className: 'function',
     beginKeywords: 'def defmacro', end: /\bdo\b/,
     contains: [
-      {
-        className: 'title',
+      hljs.inherit(hljs.TITLE_MODE, {
         begin: ELIXIR_METHOD_RE,
         starts: PARAMS
-      }
+      })
     ]
   };
   var CLASS = hljs.inherit(FUNCTION, {
@@ -78,6 +78,9 @@ function(hljs) {
     {
       className: 'variable',
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))'
+    },
+    {
+      begin: '->'
     },
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
