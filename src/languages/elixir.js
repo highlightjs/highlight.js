@@ -9,7 +9,8 @@ function(hljs) {
   var ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
   var ELIXIR_KEYWORDS =
     'and false then defined module in return redo retry end for true self when ' +
-    'next until do begin unless nil break not case cond alias while ensure or include use alias fn';
+    'next until do begin unless nil break not case cond alias while ensure or ' +
+    'include use alias fn quote';
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
@@ -35,7 +36,7 @@ function(hljs) {
   };
   var FUNCTION = {
     className: 'function',
-    beginKeywords: 'def', end: /\bdo\b/,
+    beginKeywords: 'def defmacro', end: /\bdo\b/,
     contains: [
       {
         className: 'title',
