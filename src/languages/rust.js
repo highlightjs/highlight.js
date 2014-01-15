@@ -43,6 +43,9 @@ function(hljs) {
         illegal: '\\S'
       },
       {
+        begin: hljs.IDENT_RE + '::'
+      },
+      {
         begin: '->'
       }
     ]

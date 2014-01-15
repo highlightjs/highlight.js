@@ -55,6 +55,9 @@ function(hljs) {
         keywords: CPP_KEYWORDS,
         relevance: 10,
         contains: ['self']
+      },
+      {
+        begin: hljs.IDENT_RE + '::'
       }
     ]
   };

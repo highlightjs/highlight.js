@@ -17,6 +17,7 @@ function(hljs) {
     'where yield';
   return {
     keywords: KEYWORDS,
+    illegal: /::/,
     contains: [
       {
         className: 'comment',
