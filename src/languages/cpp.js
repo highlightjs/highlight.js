@@ -44,8 +44,13 @@ function(hljs) {
       {
         className: 'preprocessor',
         begin: '#', end: '$',
+        keywords: 'if else elif endif define undef warning error line pragma',
         contains: [
-          {begin: 'include\\s*<', end: '>', illegal: '\\n'},
+          {
+            begin: 'include\\s*<', end: '>',
+            keywords: 'include',
+            illegal: '\\n'
+          },
           hljs.C_LINE_COMMENT_MODE
         ]
       },
