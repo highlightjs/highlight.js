@@ -5,8 +5,8 @@ This is a full list of available classes corresponding to languages'
 syntactic structures. The parentheses after language name contain identifiers
 used as class names in ``<code>`` element.
 
-Python ("python")
------------------
+Python ("python", "py", "gyp")
+------------------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         built-in objects (None, False, True and Ellipsis)
@@ -33,8 +33,8 @@ Python profiler results ("profile")
 * ``title``:            actual name of a function in an entry (excluding parentheses)
 * ``prompt``:           interpreter prompt (>>> or ...)
 
-Ruby ("ruby")
--------------
+Ruby ("ruby", "rb", "gemspec", "podspec", "thor")
+-------------------------------------------------
 
 * ``keyword``:          keyword
 * ``string``:           string
@@ -60,8 +60,8 @@ Haml ("haml")
 * ``doctype``:          !!! declaration
 * ``bullet``:           line defined by variable
 
-Perl ("perl")
--------------
+Perl ("perl", "pl")
+-------------------
 
 * ``keyword``:          keyword
 * ``comment``:          comment
@@ -73,8 +73,8 @@ Perl ("perl")
 * ``operator``:         operator
 * ``pod``:              plain old doc
 
-PHP ("php")
------------
+PHP ("php", "php3", "php4", "php5", "php6")
+-------------------------------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -110,8 +110,8 @@ Go ("go", "golang")
 * ``typename``:         built-in plain types (int, string etc.)
 * ``built_in``:         built-in functions
 
-HTML, XML ("xml", "html")
--------------------------
+HTML, XML ("xml", "html", "xhtml", "rss", "atom", "xsl", "plist")
+-----------------------------------------------------------------
 
 * ``tag``:              any tag from "<" till ">"
 * ``attribute``:        tag's attribute with or without value
@@ -180,8 +180,8 @@ SCSS ("scss")
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     keywords after @
 
-Markdown ("markdown")
----------------------
+Markdown ("markdown", "md", "mkdown", "mkd")
+--------------------------------------------
 
 * ``header``:            header
 * ``bullet``:            list bullet
@@ -210,8 +210,8 @@ AsciiDoc ("asciidoc")
 * ``attribute``:         document attribute, block attributes
 * ``label``:             admonition label
 
-Django ("django")
------------------
+Django ("django", "jinja")
+--------------------------
 
 * ``keyword``:          HTML tag in HTML, default tags and default filters in templates
 * ``tag``:              any tag from "<" till ">"
@@ -225,8 +225,8 @@ Django ("django")
 * ``filter``:           filter from "|" till the next filter or the end of tag
 * ``argument``:         filter argument
 
-Handlebars ("handlebars")
--------------------------
+Handlebars ("handlebars", "hbs", "html.hbs", "html.handlebars")
+---------------------------------------------------------------
 
 * ``expression``:       expression to be evaluated
 * ``variable``:         variable
@@ -266,8 +266,8 @@ JavaScript ("javascript", "js")
 * ``params``:           parentheses and everything inside them in a function's header
 * ``pi``:               'use strict' processing instruction
 
-CoffeeScript ("coffeescript")
------------------------------
+CoffeeScript ("coffeescript", "coffee", "cson", "iced")
+-------------------------------------------------------
 
 * ``keyword``:          keyword
 * ``comment``:          comment
@@ -283,8 +283,8 @@ CoffeeScript ("coffeescript")
 * ``params``:           parentheses and everything inside them in a function's header
 * ``property``:         @-property within class and functions
 
-ActionScript ("actionscript")
------------------------------
+ActionScript ("actionscript", "as")
+-----------------------------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -301,8 +301,8 @@ ActionScript ("actionscript")
 * ``param``:            params of function
 * ``rest_arg``:         rest argument of function
 
-VBScript ("vbscript")
----------------------
+VBScript ("vbscript", "vbs")
+----------------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -310,8 +310,8 @@ VBScript ("vbscript")
 * ``comment``:          comment
 * ``built_in``:         built-in function
 
-VB.Net ("vbnet")
-----------------
+VB.Net ("vbnet", "vb")
+----------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         built-in types
@@ -367,8 +367,8 @@ Oxygene ("oxygene")
 * ``number``:           number
 * ``class``:            class' body from "= class" till "end;"
 
-Java ("java")
--------------
+Java ("java", "jsp")
+--------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -381,8 +381,8 @@ Java ("java")
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "implements" inside class header
 
-C++ ("cpp", "c")
-----------------
+C++ ("cpp", "c", "h", "c++", "h++")
+-----------------------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -391,8 +391,8 @@ C++ ("cpp", "c")
 * ``preprocessor``:     preprocessor directive
 * ``stl_container``:    instantiation of STL containers ("vector<...>")
 
-Objective C ("objectivec")
---------------------------
+Objective C ("objectivec", "m", "mm")
+-------------------------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         Cocoa/Cocoa Touch constants and classes
@@ -425,8 +425,8 @@ C# ("cs")
 * ``xmlDocTag``:        xmldoc tag ("///", "<!--", "-->", "<..>")
 * ``title``:            title of namespace or class
 
-F# ("fsharp")
--------------
+F# ("fsharp", "fs")
+-------------------
 
 * ``keywords``:         keyword
 * ``number``:           number
@@ -436,8 +436,8 @@ F# ("fsharp")
 * ``title``:            the name of a custom F# type
 * ``annotation``:       any attribute
 
-OCaml ("ocaml")
----------------
+OCaml ("ocaml", "ml")
+---------------------
 
 * ``keywords``:         keyword
 * ``number``:           number
@@ -496,8 +496,8 @@ SQL ("sql")
 * ``comment``:          comment
 * ``aggregate``:        aggregate function
 
-Smalltalk ("smalltalk")
------------------------
+Smalltalk ("smalltalk", "st")
+-----------------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -523,8 +523,8 @@ Lisp ("lisp")
 * ``body``:             remainder of the non-quoted list
 * ``quoted``:           quoted list, both "(quote .. )" and "'(..)"
 
-Clojure ("clojure")
--------------------
+Clojure ("clojure", "clj")
+--------------------------
 
 * ``comment``:          comments and hints
 * ``string``:           string
@@ -543,8 +543,8 @@ Ini ("ini")
 * ``number``:           number
 * ``keyword``:          boolean value keyword
 
-Apache ("apache")
------------------
+Apache ("apache", "apacheconf")
+-------------------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -554,8 +554,8 @@ Apache ("apache")
 * ``cbracket``:         options in rewrites "[..]"
 * ``tag``:              begin and end of a configuration section
 
-Nginx ("nginx")
----------------
+Nginx ("nginx", "nginxconf")
+----------------------------
 
 * ``title``:            directive title
 * ``string``:           string
@@ -565,8 +565,8 @@ Nginx ("nginx")
 * ``variable``:         $-variable
 * ``regexp``:           regexp
 
-Diff ("diff")
--------------
+Diff ("diff", "patch")
+----------------------
 
 * ``header``:           file header
 * ``chunk``:            chunk header within a file
@@ -574,8 +574,8 @@ Diff ("diff")
 * ``deletion``:         deleted lines
 * ``change``:           changed lines
 
-DOS ("dos")
------------
+DOS ("dos", "bat", "cmd")
+-------------------------
 
 * ``keyword``:          keyword
 * ``flow``:             batch control keyword
@@ -583,8 +583,8 @@ DOS ("dos")
 * ``winutils``:         some commands (see dos.js specifically)
 * ``envvar``:           environment variables
 
-Bash ("bash", "sh")
--------------
+Bash ("bash", "sh", "zsh")
+--------------------------
 
 * ``keyword``:          keyword
 * ``string``:           string
@@ -594,8 +594,8 @@ Bash ("bash", "sh")
 * ``variable``:         variable
 * ``shebang``:          script interpreter header
 
-Makefile ("makefile")
----------------------
+Makefile ("makefile", "mk", "mak")
+----------------------------------
 
 * ``keyword``:          keyword ".PHONY" within the phony line
 * ``string``:           string
@@ -604,8 +604,8 @@ Makefile ("makefile")
 * ``title``:            target title
 * ``constant``:         constant within the initial definition
 
-CMake ("cmake")
----------------
+CMake ("cmake", "cmake.in")
+---------------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -709,8 +709,8 @@ TeX ("tex")
 * ``formula``:          formula
 * ``special``:          special symbol
 
-Haskell ("haskell")
--------------------
+Haskell ("haskell", "hs")
+-------------------------
 
 * ``comment``:          comment
 * ``pragma``:           GHC pragma
@@ -730,8 +730,8 @@ Haskell ("haskell")
 * ``foreign``:          FFI declaration
 * ``shebang``:          shebang line
 
-Erlang ("erlang")
------------------
+Erlang ("erlang", "erl")
+------------------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -759,8 +759,8 @@ Elixir ("elixir")
 *  ``variable``:        variable
 *  ``regexp``:          regexp
 
-Rust ("rust")
--------------
+Rust ("rust", "rs")
+-------------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -782,8 +782,8 @@ Matlab ("matlab")
 * ``matrix``:           matrix in [ .. ]
 * ``cell``:             cell in { .. }
 
-Scilab ("scilab")
------------------
+Scilab ("scilab", "sci")
+------------------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -814,8 +814,8 @@ OpenGL Shading Language ("glsl")
 * ``built_in``:         GLSL built-in functions and variables
 * ``literal``:          true false
 
-AppleScript ("applescript")
----------------------------
+AppleScript ("applescript", "osascript")
+----------------------------------------
 
 * ``keyword``:          keyword
 * ``command``:          core AppleScript command
@@ -827,8 +827,8 @@ AppleScript ("applescript")
 * ``comment``:          comment
 * ``title``:            name of a handler
 
-Brainfuck ("brainfuck")
------------------------
+Brainfuck ("brainfuck", "bf")
+-----------------------------
 
 * ``title``:            Brainfuck while loop command
 * ``literal``:          Brainfuck inc and dec commands
