@@ -72,6 +72,7 @@ function(hljs) {
 			{ // line comments
 				className: 'comment',
 				begin: ';', end: '$',
+				relevance: 0
 			},
 			{
 				className: 'function',
@@ -82,10 +83,7 @@ function(hljs) {
 			VARIABLES,
 			LANGUAGES,
 			PARAMETERS,
-			{
-				className: 'number',
-				begin: hljs.NUMBER_RE,
-			},
+			hljs.NUMBER_MODE,
 			{ // plug::ins
 				className: 'literal',
 				begin: hljs.IDENT_RE + '::' + hljs.IDENT_RE,
