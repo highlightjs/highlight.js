@@ -614,6 +614,19 @@ CMake ("cmake", "cmake.in")
 * ``envvar``:           $-variable
 * ``operator``:         operator (LESS, STREQUAL, MATCHES, etc)
 
+NSIS ("nsis")
+---------------
+
+* ``symbol``:           directory constants
+* ``number``:           number
+* ``constant``:         definitions, language-strings, compiler commands
+* ``variable``:         $-variable
+* ``string``:           string
+* ``comment``:          commment
+* ``params``:           parameters
+* ``keyword``:          keywords
+* ``literal``:          keyword options
+
 Axapta ("axapta")
 -----------------
 
