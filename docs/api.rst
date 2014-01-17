@@ -98,6 +98,13 @@ Adds new language to the library under the specified name. Used mostly internall
   to use common regular expressions defined within it.
 
 
+``listLanguages()``
+----------------------------
+
+Returns the languages names list.
+
+
+
 .. _getLanguage:
 
 
