@@ -2778,6 +2778,39 @@ return
 8=FIX.4.29=035=849=SENDERTEST56=TARGETTEST34=0000000152652=20120429-13:30:08.1371=ABC1234511=2012abc123414=10017=20125432120=030=NYSE31=108.2032=10038=10039=240=147=A54=555=BRK59=260=20120429-13:30:08.00065=B76=BROKER84=0100=NYSE111=100150=2151=0167=CS377=N10000=SampleCustomTag10=123
 </code></pre>
 
+  <tr>
+    <th>Dart</th>
+    <td class="dart">
+<pre>
+<code>library stuff;
+
+/// Non-sense, pushing syntax to the limits, to stress syntax highlighter...
+/// [Stuff] uses [variable] and [otherVariable] too.
+abstract class Stuff extends Animal with NameBrick implements Product, Vector
+{
+	static int variable = 5, otherVariable = 6, z = 5;
+	// $ is legal in identifiers, like in Java (and not recommended, like in Java!)
+	String a$_ = "foo$variable$otherVariable\"$z bar, and ${addFrenchQuotes('I am French')}";
+	String _$b = 'bar\$\'foo${otherVariable * 7}';
+	String $c_1 = """line one\"""
+$variable -#- ${4 * variable / 3}
+line two""";
+	final String $c_2 = '''One\'''
+\u2661 line with Unicode \u000A
+Two''';
+	final String d$d = r"d$z.f\" r'm${not interpolation}m';
+
+	/* A constructor /* Non /**/ comment */ Nesting /***/ block /****/ comments! */
+	Stuff(this._$b, this.$c_1) : super('Natural');
+	/** This creates a default [Stuff] object. */
+	Stuff.defaultObject() : this(3.14.toString(), 42.toString());
+
+	static String addFrenchQuotes(String input) { return "« $input »"; }
+
+	@override toString() => a$_;
+}
+</code></pre>
+
 </table>
 
 <script>

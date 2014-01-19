@@ -871,3 +871,19 @@ FIX ("fix")
 
 * ``attribute``:        attribute name
 * ``string``:           attribute value
+
+Dart ("dart")
+-----------
+
+* ``keyword``:          keyword (reserved word, not to be used as identifier)
+* ``built_in``:          semi-keyword, not reserved but part of syntax
+* ``type``:          commonly used types
+* ``number``:           number
+* ``string``:           string
+* ``comment``:          comment
+* ``javadoc``:          special comment for documentation
+* ``javadoctag``:          reference (word between square brakets) in a dartdoc comment
+* ``class``:            class header from "class" till "{"
+* ``title``:            class or function name
+* ``annotation``:           string
+* ``interpolation``:    $x or ${x.y} inside a string
