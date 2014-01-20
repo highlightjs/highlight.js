@@ -7,7 +7,7 @@ function(hljs) {
   var FUNCTION = {
     className: 'function',
     begin: IDENT_RE + '\\(', end: '\\)',
-    contains: ['self', hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
+    contains: ['self', hljs.CSS_NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
   };
   return {
     case_insensitive: true,
@@ -53,7 +53,7 @@ function(hljs) {
             contains: [
               FUNCTION,
               hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
-              hljs.NUMBER_MODE
+              hljs.CSS_NUMBER_MODE
             ]
           }
         ]
@@ -83,7 +83,7 @@ function(hljs) {
                   endsWithParent: true, excludeEnd: true,
                   contains: [
                     FUNCTION,
-                    hljs.NUMBER_MODE,
+                    hljs.CSS_NUMBER_MODE,
                     hljs.QUOTE_STRING_MODE,
                     hljs.APOS_STRING_MODE,
                     hljs.C_BLOCK_COMMENT_MODE,

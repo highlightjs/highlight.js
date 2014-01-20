@@ -655,6 +655,18 @@ function() {
     begin: this.BINARY_NUMBER_RE,
     relevance: 0
   };
+  this.CSS_NUMBER_MODE = {
+    className: 'number',
+    begin: this.NUMBER_RE + '(' +
+      '%|em|ex|ch|rem'  +
+      '|vw|vh|vmin|vmax' +
+      '|cm|mm|in|pt|pc|px' +
+      '|deg|grad|rad|turn' +
+      '|s|ms' +
+      '|Hz|kHz' +
+      '|dpi|dpcm|dppx' +
+      ')?'
+  };
   this.REGEXP_MODE = {
     className: 'regexp',
     begin: /\//, end: /\/[gim]*/,

@@ -10,12 +10,9 @@ function(hljs) {
   };
   var FUNCTION = {
     className: 'function',
-    begin: IDENT_RE + '\\(', end: '\\)',
-    contains: ['self', 
-               hljs.NUMBER_MODE, 
-               hljs.APOS_STRING_MODE, 
-               hljs.QUOTE_STRING_MODE,
-               VARIABLE]
+    begin: IDENT_RE + '\\(', 
+    returnBegin: true,
+    end: '\\('
   };
   var HEXCOLOR = {
     className: 'hexcolor', begin: '#[0-9A-Fa-f]+'
@@ -31,7 +28,7 @@ function(hljs) {
       contains: [
         FUNCTION,
         HEXCOLOR,
-        hljs.NUMBER_MODE,
+        hljs.CSS_NUMBER_MODE,
         hljs.QUOTE_STRING_MODE,
         hljs.APOS_STRING_MODE,
         hljs.C_BLOCK_COMMENT_MODE,
@@ -91,7 +88,7 @@ function(hljs) {
           FUNCTION,
           VARIABLE,
           HEXCOLOR,
-          hljs.NUMBER_MODE,
+          hljs.CSS_NUMBER_MODE,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           {
@@ -109,7 +106,7 @@ function(hljs) {
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           HEXCOLOR,
-          hljs.NUMBER_MODE,
+          hljs.CSS_NUMBER_MODE,
           {
             className: 'preprocessor',
             begin: '\\s[A-Za-z0-9_.-]+',
