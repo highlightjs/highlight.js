@@ -99,3 +99,4 @@ Contributors:
 - Martin Dilling-Hansen <martindlling@gmail.com>
 - Ilya Vassilevsky <vassilevsky@gmail.com>
 - Josh Adams <josh@isotope11.com>
+- Christophe de Dinechin <christophe@taodyne.com>

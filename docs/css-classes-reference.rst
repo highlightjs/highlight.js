@@ -871,3 +871,22 @@ FIX ("fix")
 
 * ``attribute``:        attribute name
 * ``string``:           attribute value
+
+
+XL ("xl", "tao")
+-----------
+
+* ``keyword``:          keywords defined in the default syntax file
+* ``literal``:          names entered in the compiler (true, false, nil)
+* ``type``:             basic types (integer, real, text, name, etc)
+* ``built_in``:         built-in functions (sin, exp, mod, etc)
+* ``module``:           names of frequently used Tao modules
+* ``id``:               names of frequently used Tao functions
+* ``constant``:         all-uppercase names such as HELLO
+* ``variable``:         Mixed-case names such as Hello (style convention)
+* ``id``:               Lower-case names such as hello
+* ``string``:           Text between single or double quote, long text << >>
+* ``number``:           Number values
+* ``function``:         Function or variable definition
+* ``import``:           Import clause
+
