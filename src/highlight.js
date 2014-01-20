@@ -628,17 +628,23 @@ function() {
     illegal: '\\n',
     contains: [this.BACKSLASH_ESCAPE]
   };
+  this.PHRASAL_WORDS_MODE = {
+    begin: /\b(a|an|the|are|I|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such)\b/
+  }
   this.C_LINE_COMMENT_MODE = {
     className: 'comment',
-    begin: '//', end: '$'
+    begin: '//', end: '$',
+    contains: [this.PHRASAL_WORDS_MODE]
   };
   this.C_BLOCK_COMMENT_MODE = {
     className: 'comment',
-    begin: '/\\*', end: '\\*/'
+    begin: '/\\*', end: '\\*/',
+    contains: [this.PHRASAL_WORDS_MODE]
   };
   this.HASH_COMMENT_MODE = {
     className: 'comment',
-    begin: '#', end: '$'
+    begin: '#', end: '$',
+    contains: [this.PHRASAL_WORDS_MODE]
   };
   this.NUMBER_MODE = {
     className: 'number',
