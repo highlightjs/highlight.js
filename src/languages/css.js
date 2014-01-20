@@ -6,8 +6,10 @@ function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   var FUNCTION = {
     className: 'function',
-    begin: IDENT_RE + '\\(', end: '\\)',
-    contains: ['self', hljs.NUMBER_MODE, hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE]
+    begin: IDENT_RE + '\\(', 
+    returnBegin: true,
+    excludeEnd: true,
+    end: '\\('
   };
   return {
     case_insensitive: true,
@@ -53,7 +55,7 @@ function(hljs) {
             contains: [
               FUNCTION,
               hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE,
-              hljs.NUMBER_MODE
+              hljs.CSS_NUMBER_MODE
             ]
           }
         ]
@@ -83,7 +85,7 @@ function(hljs) {
                   endsWithParent: true, excludeEnd: true,
                   contains: [
                     FUNCTION,
-                    hljs.NUMBER_MODE,
+                    hljs.CSS_NUMBER_MODE,
                     hljs.QUOTE_STRING_MODE,
                     hljs.APOS_STRING_MODE,
                     hljs.C_BLOCK_COMMENT_MODE,
