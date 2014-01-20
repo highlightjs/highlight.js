@@ -6,6 +6,7 @@ Author: Vladimir Ermakov <vooon341@gmail.com>
 function(hljs) {
   return {
     case_insensitive: true,
+    lexemes: '\\.?' + hljs.IDENT_RE,
     keywords: {
       keyword:
         /* mnemonic */
@@ -28,7 +29,10 @@ function(hljs) {
         'tifr mcucr mcucsr tccr0 tcnt0 ocr0 assr tccr1a tccr1b tcnt1h tcnt1l ocr1ah ocr1al ' +
         'ocr1bh ocr1bl icr1h icr1l tccr2 tcnt2 ocr2 ocdr wdtcr sfior eearh eearl eedr eecr ' +
         'porta ddra pina portb ddrb pinb portc ddrc pinc portd ddrd pind spdr spsr spcr udr0 ' +
-        'ucsr0a ucsr0b ubrr0l acsr admux adcsr adch adcl porte ddre pine pinf'
+        'ucsr0a ucsr0b ubrr0l acsr admux adcsr adch adcl porte ddre pine pinf',
+      preprocessor:
+        '.byte .cseg .db .def .device .dseg .dw .endmacro .equ .eseg .exit .include .list ' +
+        '.listmac .macro .nolist .org .set'
     },
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
@@ -47,10 +51,6 @@ function(hljs) {
       },
       {className: 'label',  begin: '^[A-Za-z0-9_.$]+:'},
       {className: 'preprocessor', begin: '#', end: '$'},
-      {  // директивы «.include» «.macro» и т.д.
-        className: 'preprocessor',
-        begin: '\\.[a-zA-Z]+'
-      },
       {  // подстановка в «.macro»
         className: 'localvars',
         begin: '@[0-9]+'
