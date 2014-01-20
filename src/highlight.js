@@ -665,7 +665,8 @@ function() {
       '|s|ms' +
       '|Hz|kHz' +
       '|dpi|dpcm|dppx' +
-      ')?'
+      ')?',
+    relevance: 0
   };
   this.REGEXP_MODE = {
     className: 'regexp',

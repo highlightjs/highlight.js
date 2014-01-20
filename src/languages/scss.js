@@ -12,6 +12,7 @@ function(hljs) {
     className: 'function',
     begin: IDENT_RE + '\\(', 
     returnBegin: true,
+    excludeEnd: true,
     end: '\\('
   };
   var HEXCOLOR = {
