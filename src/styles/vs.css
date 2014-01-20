@@ -19,7 +19,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 
 .hljs-keyword,
 .hljs-id,
-.hljs-built_in,
+.hljs-built_in,.css
 .smalltalk .hljs-class,
 .hljs-winutils,
 .bash .hljs-variable,
@@ -37,7 +37,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-parent,
 .hljs-tag .hljs-value,
 .hljs-rules .hljs-value,
-.hljs-rules .hljs-value .hljs-number,
 .ruby .hljs-symbol,
 .ruby .hljs-symbol .hljs-string,
 .hljs-aggregate,
