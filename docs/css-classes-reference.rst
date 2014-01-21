@@ -283,6 +283,13 @@ CoffeeScript ("coffeescript", "coffee", "cson", "iced")
 * ``params``:           parentheses and everything inside them in a function's header
 * ``property``:         @-property within class and functions
 
+Cirru ("cirru")
+---------------
+
+* ``function``:         function
+* ``string``:           string
+* ``number``:           number
+
 ActionScript ("actionscript", "as")
 -----------------------------------
 
