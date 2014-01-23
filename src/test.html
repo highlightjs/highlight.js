@@ -960,6 +960,49 @@ End Namespace
 </code></pre>
 
   <tr>
+    <th>Protobuf
+    <td class="protobuf">
+<pre><code>package languages.protobuf;
+
+option java_package = "org.highlightjs.languages.protobuf";
+
+message Account {
+  required int64 account_id = 1;
+  repeated Customer customer = 2;
+  optional int32 max_allowed_admins = 3 [default = 3];
+}
+
+message Customer {
+  required int64 customer_id = 1;
+  optional string name = 2;
+  optional string real_name = 3 [default = "Anonymous"];
+  optional Gender gender = 4;
+  repeated string email_addresses = 5;
+
+  optional bool is_admin = 6 [default = false]; // or should this be a repeated field in Account?
+
+  enum Gender {
+    MALE = 1,
+    FEMALE = 2
+  }
+}
+
+message CustomerRequest {
+  optional int64 customer_id = 1;
+  optional string name = 2;
+  optional string email_address = 3;
+}
+
+message CustomerResponse {
+  repeated Customer customer = 1;
+}
+
+service CustomerSearch {
+  rpc FirstMatch(CustomerRequest) returns (CustomerResponse);
+  rpc AllMatches(CustomerRequest) returns (CustomerResponse);
+}</code></pre>
+
+  <tr>
     <th>HTTP
     <td class="http">
 <pre><code>POST /task?id=1 HTTP/1.1

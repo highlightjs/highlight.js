@@ -321,6 +321,18 @@ VB.Net ("vbnet", "vb")
 * ``xmlDocTag``:        xmldoc tag ("'''", "<!--", "-->", "<..>")
 * ``preprocessor``:     preprocessor directive
 
+Protocol Buffers ("protobuf")
+-----------------------------
+
+* ``keyword``:          keyword
+* ``built_in``:         built-in types (e.g., `int64`, `string`)
+* ``string``:           string
+* ``number``:           number
+* ``comment``:          comment
+* ``class``:            message, service, or enum identifier
+* ``title``:            enum value
+* ``function``:         RPC call identifier
+
 HTTP ("http")
 -------------
 
