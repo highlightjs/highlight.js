@@ -18,9 +18,13 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       {
         className: 'class',
-        begin: /^\s*(?:message|enum|service)\s+/, excludeBegin: true,
-        end: /\{/, excludeEnd: true,
-        illegal: '\\n',
+        beginKeywords: 'message enum service', end: /\{/,
+        illegal: /\n/,
+        contains: [
+          hljs.inherit(hljs.TITLE_MODE, {
+            starts: {endsWithParent: true, excludeEnd: true} // hack: eating everything after the first title
+          })
+        ]
       },
       {
         className: 'function',
