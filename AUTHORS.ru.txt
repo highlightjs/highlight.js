@@ -97,3 +97,4 @@ URL:   http://highlightjs.org/
 - Ян Т. Сотт <jan@idleberg.com>
 - Брент Брэдбери <brent@brentium.com>
 - Джош Адамс <josh@isotope11.com>
+- Дан Тао <daniel.tao@gmail.com>
