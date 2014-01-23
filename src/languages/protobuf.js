@@ -9,16 +9,13 @@ function(hljs) {
     keywords: {
       keyword: 'package import option optional required repeated group',
       built_in: 'double float int32 int64 uint32 uint64 sint32 sint64 ' +
-        'fixed32 fixed64 sfixed32 sfixed64 bool string bytes'
+        'fixed32 fixed64 sfixed32 sfixed64 bool string bytes',
+      literal: 'true false'
     },
     contains: [
       hljs.QUOTE_STRING_MODE,
       hljs.NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
-      {
-        className: 'literal',
-        begin: /\b(?:true|false)\b/
-      },
       {
         className: 'class',
         begin: /^\s*(?:message|enum|service)\s+/, excludeBegin: true,
