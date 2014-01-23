@@ -3,6 +3,7 @@ Language: Protocol Buffers
 Author: Dan Tao <daniel.tao@gmail.com>
 Description: Protocol buffer message definition format
 */
+
 function(hljs) {
   return {
     keywords: {
@@ -14,6 +15,10 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
+      {
+        className: 'literal',
+        begin: /\b(?:true|false)\b/
+      },
       {
         className: 'class',
         begin: /^\s*(?:message|enum|service)\s+/, excludeBegin: true,
