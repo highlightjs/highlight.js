@@ -34,7 +34,7 @@ function() {
 
   function blockLanguage(block) {
     var classes = (block.className + ' ' + (block.parentNode ? block.parentNode.className : '')).split(/\s+/);
-    classes = classes.map(function(c) {return c.replace(/^language-/, '');});
+    classes = classes.map(function(c) {return c.replace(/^lang(uage)?-/, '');});
     return classes.filter(function(c) {return getLanguage(c) || c == 'no-highlight';})[0];
   }
 
