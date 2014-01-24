@@ -28,8 +28,9 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: /^\s*rpc\s+/, excludeBegin: true,
-        end: /\(/, excludeEnd: true
+        beginKeywords: 'rpc',
+        end: /;/, excludeEnd: true,
+        keywords: 'returns'
       },
       {
         className: 'constant',
