@@ -100,7 +100,8 @@ Used instead of ``begin`` for modes starting with keywords to avoid needless rep
     beginKeywords: 'extends implements'
   }
 
-Unlike the ``[[#keywords]]`` attribute, this one allows only a simple list of space separated keywords. If you do need additional features of ``keywords`` or you just need more keywords for this mode you may include ``keywords`` along with ``beginKeywords``.
+Unlike the :ref:`keywords <keywords>` attribute, this one allows only a simple list of space separated keywords.
+If you do need additional features of ``keywords`` or you just need more keywords for this mode you may include ``keywords`` along with ``beginKeywords``.
 
 
 .. _endsWithParent:
@@ -140,7 +141,7 @@ lexemes
 
 **type**: regexp
 
-A regular expression that extracts individual lexemes from language text to find ``[[#keywords]]`` among them.
+A regular expression that extracts individual lexemes from language text to find :ref:`keywords <keywords>` among them.
 Default value is ``hljs.IDENT_RE`` which works for most languages.
 
 
@@ -156,7 +157,7 @@ Keyword definition comes in two forms:
 * ``'for while if else weird_voodoo|10 ... '`` -- a string of space-separated keywords with an optional relevance over a pipe
 * ``{'keyword': ' ... ', 'literal': ' ... '}`` -- an object whose keys are names of different kinds of keywords and values are keyword definition strings in the first form
 
-For detailed explanation see [[Language]] definition guide.
+For detailed explanation see :doc:`Language definition guide </language-guide>`.
 
 
 illegal
@@ -205,7 +206,7 @@ contains
 
 **type**: array
 
-The list of sub-modes that can be found inside the mode. For detailed explanation see [[Language]] definition guide.
+The list of sub-modes that can be found inside the mode. For detailed explanation see :doc:`Language definition guide </language-guide>`.
 
 
 starts
