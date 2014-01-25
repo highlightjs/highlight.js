@@ -202,13 +202,28 @@ def glue_files(hljs_filename, language_filenames, compressed):
         file_func = strip_read
     return ''.join([hljs] + [wrap_language(f, file_func(f), compressed) for f in language_filenames])
 
-def build_browser(root, build_path, filenames, options, is_amd=False):
+def copy_docs(root, build_path):
+    build_docs_path = os.path.join(build_path, 'docs')
+    os.makedirs(build_docs_path)
+
+    docs_path = os.path.join(root, 'docs')
+    filenames = os.listdir(docs_path)
+    for filename in filenames:
+        if '.rst' in filename:
+            shutil.copyfile(
+                os.path.join(docs_path, filename),
+                os.path.join(build_docs_path, filename)
+            )
+
+def build_browser(root, build_path, filenames, options, is_amd=False, need_copy_docs=True):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')
+
     print('Building %d files:\n%s' % (len(filenames), '\n'.join(filenames)))
     content = glue_files(os.path.join(src_path, 'highlight.js'), filenames, False)
     if is_amd:
         content = 'define(function() {\n%s\nreturn hljs;\n});' % content # AMD wrap
+
     print('Uncompressed size:', len(content.encode('utf-8')))
     if options.compress:
         print('Compressing...')
@@ -216,12 +231,17 @@ def build_browser(root, build_path, filenames, options, is_amd=False):
         print('Compressed size:', len(content.encode('utf-8')))
     utf8_open(os.path.join(build_path, 'highlight.pack.js'), 'w').write(content)
 
+    if need_copy_docs:
+        print('Copying docs...')
+        copy_docs(root, build_path)
+
 def build_amd(root, build_path, filenames, options):
-    build_browser(root, build_path, filenames, options, True)
+    build_browser(root, build_path, filenames, options, True, False)
 
 def build_node(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
     os.makedirs(os.path.join(build_path, 'lib', 'languages'))
+
     print('Building %d files:' % len(filenames))
     for filename in filenames:
         print(filename)
@@ -244,7 +264,6 @@ def build_node(root, build_path, filenames, options):
         print('Notice: not compressing files for "node" target.')
 
     print('Copying over Metafiles...')
-
     filenames = ['LICENSE', 'README.md']
     for filename in filenames:
         source = os.path.join(root, filename)
@@ -259,14 +278,19 @@ def build_node(root, build_path, filenames, options):
     content = json.dumps(package, indent=2, ensure_ascii=False)
     utf8_open(os.path.join(build_path, 'package.json'), 'w').write(content)
 
+    print('Copying docs...')
+    copy_docs(root, build_path)
+
 def build_cdn(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
     tools_path = os.path.join(root, 'tools')
     if not options.compress:
         print('Notice: forcing compression for "cdn" target')
         options.compress = True
-    build_browser(root, build_path, filenames, options)
+
+    build_browser(root, build_path, filenames, options, False, False)
     os.rename(os.path.join(build_path, 'highlight.pack.js'), os.path.join(build_path, 'highlight.min.js'))
+
     print('Compressing all languages...')
     lang_path = os.path.join(build_path, 'languages')
     os.mkdir(lang_path)
@@ -276,6 +300,7 @@ def build_cdn(root, build_path, filenames, options):
         content = compress_content(tools_path, strip_read(filename))
         content = wrap_language(filename, content, True)
         utf8_open(os.path.join(lang_path, '%s.min.js' % lang_name(filename)), 'w').write(content)
+
     print('Compressing styles...')
     build_style_path = os.path.join(build_path, 'styles')
     src_style_path = os.path.join(src_path, 'styles')
