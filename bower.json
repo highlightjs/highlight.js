@@ -1,0 +1,25 @@
+{
+  "name": "highlight.js",
+  "version": "7.0.1",
+  "homepage": "https://github.com/pburtchaell/highlight.js",
+  "authors": [
+    "Ivan Sagalaev <maniac@softwaremaniacs.org>"
+  ],
+  "main": "./src/highlight.js",
+  "keywords": [
+    "highlight",
+    "highligher",
+    "javascript",
+    "plugin",
+    "code"
+  ],
+  "license": "MIT",
+  "ignore": [
+	"docs/",
+	"tools/",
+	".gitignore",
+	"AUTHORS.en.txt",
+	"AUTHORS.ru.txt",
+	"LICENSE"s
+  ]
+}
