@@ -96,5 +96,8 @@ URL:   http://highlightjs.org/
 - Завен Мурадян <megalivoithos@gmail.com>
 - Ян Т. Сотт <jan@idleberg.com>
 - Брент Брэдбери <brent@brentium.com>
+- Мартин Дилинг-Хэнсен <martindlling@gmail.com>
+- Илья Вассилевский <vassilevsky@gmail.com>
 - Джош Адамс <josh@isotope11.com>
 - Дан Тао <daniel.tao@gmail.com>
+- Джеф Эскаланте <hello@jenius.me>
