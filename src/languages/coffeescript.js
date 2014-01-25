@@ -22,7 +22,7 @@ function(hljs) {
       'case default function var void with const let enum export import native ' +
       '__hasProp __extends __slice __bind __indexOf',
     built_in:
-      'npm require console print module exports global window document'
+      'npm require console print module global window document'
   };
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: JS_IDENT_RE});
