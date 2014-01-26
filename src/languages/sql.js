@@ -32,7 +32,7 @@ function(hljs) {
             'update catalog user sql date on identity timezone_hour natural whenever interval ' +
             'work order cascade diagnostics nchar having left call do handler load replace ' +
             'truncate start lock show pragma exists number trigger if before after each row ' +
-            'merge matched database limit',
+            'merge matched database limit nvarchar',
           aggregate: 'count sum min max avg ifnull'
           built-in: 'checksum_agg count_big grouping grouping_id stdev stdevp var varp ' +
             'cume_dist first_value last_value lead percentile_cont percentile_disc percent_rank ' +
