@@ -32,8 +32,20 @@ function(hljs) {
             'update catalog user sql date on identity timezone_hour natural whenever interval ' +
             'work order cascade diagnostics nchar having left call do handler load replace ' +
             'truncate start lock show pragma exists number trigger if before after each row ' +
-            'merge matched database limit',
-          aggregate: 'count sum min max avg ifnull'
+            'merge matched database limit nvarchar',
+          aggregate: 'count sum min max avg ifnull',
+          built_in: 'checksum_agg count_big grouping grouping_id stdev stdevp var varp ' +
+            'cume_dist first_value last_value lead percentile_cont percentile_disc percent_rank ' +
+            'collationproperty tertiary_weights convert parse try_cast try_convert try_parse ' +
+            'datalength ident_current ident_incr ident_seed sql_variant_property @@datefirst ' +
+            'dateadd datediff datefromparts datename datepart datetime2fromparts ' +
+            'datetime2fromparts datetimeoffsetfromparts eomonth getdate getutcdate isdate ' +
+            'smalldatetimefromparts switchoffset sysdatetime sysdatetimeoffset sysutcdatetime ' +
+            'timefromparts todatetimeoffset choose iif abs acos asin atan atn2 ceiling cos cot ' +
+            'degrees exp floor log log10 pi power radians rand round sign sin sqrt square tan ' +
+            'publishingservername ascii charindex concat difference format len lower ltrim ' +
+            'patindex quotename replicate reverse rtrim soundex str stuff substring unicode ' +
+            'upper columns_updated eventdata trigger_nestlevel'
         },
         contains: [
           {
