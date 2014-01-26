@@ -853,6 +853,18 @@ AppleScript ("applescript", "osascript")
 * ``comment``:          comment
 * ``title``:            name of a handler
 
+Vim Script ("vim")
+------------------
+
+* ``keyword``:          keyword
+* ``built_in``:         built-in functions
+* ``string``:           string, comment
+* ``number``:           number
+* ``function``:         function header "function Foo(...)"
+* ``title``:            name of a function
+* ``params``:           everything inside parentheses in a function's header
+* ``variable``:         vim variables with different visibilities "g:foo, b:bar"
+
 Brainfuck ("brainfuck", "bf")
 -----------------------------
 
@@ -884,16 +896,3 @@ FIX ("fix")
 
 * ``attribute``:        attribute name
 * ``string``:           attribute value
-
-Vim Script ("vim")
------------
-
-* ``keyword``:          keyword
-* ``built_in``:         built-in functions
-* ``string``:           string, comment
-* ``number``:           number
-* ``function``:         function header "function Foo(...)"
-* ``title``:            name of a function
-* ``params``:           everything inside parentheses in a function's header
-* ``variable``:         vim variables with different visibilities "g:foo, b:bar"
-
