@@ -55,9 +55,9 @@ Copyright (c) Vladimir Gubarkov <xonixx@gmail.com>
         <script type="text/javascript">
             var langSelectorHtml = '<label>Language <select id="langSelector">';
             langSelectorHtml += '<option value="">Auto</option>';
-            for (var i in hljs.LANGUAGES) {
-                if (hljs.LANGUAGES.hasOwnProperty(i))
-                    langSelectorHtml += '<option value=\"'+i+'\">'+i.charAt(0).toUpperCase()+i.substr(1)+'</option>';
+            var languages = hljs.listLanguages();
+            for (var i in languages) {
+                langSelectorHtml += '<option value=\"'+languages[i]+'\">'+languages[i].charAt(0).toUpperCase()+languages[i].substr(1)+'</option>';
             }
             langSelectorHtml += '</select></label>';
             document.write(langSelectorHtml);

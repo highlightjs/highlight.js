@@ -586,6 +586,10 @@ function() {
     }
   }
 
+  function listLanguages() {
+    return Object.keys(languages);
+  }
+
   function getLanguage(name) {
     return languages[name] || languages[aliases[name]];
   }
@@ -600,6 +604,7 @@ function() {
   this.initHighlighting = initHighlighting;
   this.initHighlightingOnLoad = initHighlightingOnLoad;
   this.registerLanguage = registerLanguage;
+  this.listLanguages = listLanguages;
   this.getLanguage = getLanguage;
   this.inherit = inherit;
 

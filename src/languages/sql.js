@@ -51,6 +51,7 @@ function(hljs) {
             begin: '`', end: '`',
             contains: [hljs.BACKSLASH_ESCAPE]
           },
+          hljs.C_BLOCK_COMMENT_MODE,
           hljs.C_NUMBER_MODE
         ]
       },
