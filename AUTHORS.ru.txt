@@ -98,3 +98,4 @@ URL:   http://highlightjs.org/
 - Брент Брэдбери <brent@brentium.com>
 - Джош Адамс <josh@isotope11.com>
 - Дан Тао <daniel.tao@gmail.com>
+- Harttle <yangjvn@126.com>
