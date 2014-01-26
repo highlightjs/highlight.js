@@ -42,7 +42,8 @@ function(hljs) {
             'datetime2fromparts datetimeoffsetfromparts eomonth getdate getutcdate isdate ' +
             'smalldatetimefromparts switchoffset sysdatetime sysdatetimeoffset sysutcdatetime ' +
             'timefromparts todatetimeoffset choose iif abs acos asin atan atn2 ceiling cos cot ' +
-            'degrees exp floor log log10 pi power radians rand round sign sin sqrt square tan'
+            'degrees exp floor log log10 pi power radians rand round sign sin sqrt square tan ' +
+            'publishingservername'
         },
         contains: [
           {
