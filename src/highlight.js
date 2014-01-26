@@ -295,26 +295,25 @@ function() {
     }
 
     function processKeywords() {
-      var buffer = escape(mode_buffer);
       if (!top.keywords)
-        return buffer;
+        return escape(mode_buffer);
       var result = '';
       var last_index = 0;
       top.lexemesRe.lastIndex = 0;
-      var match = top.lexemesRe.exec(buffer);
+      var match = top.lexemesRe.exec(mode_buffer);
       while (match) {
-        result += buffer.substr(last_index, match.index - last_index);
+        result += escape(mode_buffer.substr(last_index, match.index - last_index));
         var keyword_match = keywordMatch(top, match);
         if (keyword_match) {
           relevance += keyword_match[1];
-          result += buildSpan(keyword_match[0], match[0]);
+          result += buildSpan(keyword_match[0], escape(match[0]));
         } else {
-          result += match[0];
+          result += escape(match[0]);
         }
         last_index = top.lexemesRe.lastIndex;
-        match = top.lexemesRe.exec(buffer);
+        match = top.lexemesRe.exec(mode_buffer);
       }
-      return result + buffer.substr(last_index);
+      return result + escape(mode_buffer.substr(last_index));
     }
 
     function processSubLanguage() {
