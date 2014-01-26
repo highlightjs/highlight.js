@@ -45,7 +45,7 @@ function(hljs) {
             'degrees exp floor log log10 pi power radians rand round sign sin sqrt square tan ' +
             'publishingservername ascii charindex concat difference format len lower ltrim ' +
             'patindex quotename replicate reverse rtrim soundex str stuff substring unicode ' +
-            'upper'
+            'upper columns_updated eventdata trigger_nestlevel'
         },
         contains: [
           {
