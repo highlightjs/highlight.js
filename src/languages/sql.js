@@ -37,7 +37,11 @@ function(hljs) {
           built-in: 'checksum_agg count_big grouping grouping_id stdev stdevp var varp ' +
             'cume_dist first_value last_value lead percentile_cont percentile_disc percent_rank ' +
             'collationproperty tertiary_weights convert parse try_cast try_convert try_parse ' +
-            'datalength ident_current ident_incr ident_seed sql_variant_property'
+            'datalength ident_current ident_incr ident_seed sql_variant_property @@datefirst ' +
+            'dateadd datediff datefromparts datename datepart datetime2fromparts ' +
+            'datetime2fromparts datetimeoffsetfromparts eomonth getdate getutcdate isdate ' +
+            'smalldatetimefromparts switchoffset sysdatetime sysdatetimeoffset sysutcdatetime ' +
+            'timefromparts todatetimeoffset'
         },
         contains: [
           {
