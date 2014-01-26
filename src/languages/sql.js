@@ -34,6 +34,7 @@ function(hljs) {
             'truncate start lock show pragma exists number trigger if before after each row ' +
             'merge matched database limit',
           aggregate: 'count sum min max avg ifnull'
+          built-in: 'checksum_agg count_big grouping grouping_id stdev stdevp var varp'
         },
         contains: [
           {
