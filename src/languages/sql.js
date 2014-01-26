@@ -41,7 +41,7 @@ function(hljs) {
             'dateadd datediff datefromparts datename datepart datetime2fromparts ' +
             'datetime2fromparts datetimeoffsetfromparts eomonth getdate getutcdate isdate ' +
             'smalldatetimefromparts switchoffset sysdatetime sysdatetimeoffset sysutcdatetime ' +
-            'timefromparts todatetimeoffset'
+            'timefromparts todatetimeoffset choose iif'
         },
         contains: [
           {
