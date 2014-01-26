@@ -36,7 +36,7 @@ function(hljs) {
           aggregate: 'count sum min max avg ifnull'
           built-in: 'checksum_agg count_big grouping grouping_id stdev stdevp var varp ' +
             'cume_dist first_value last_value lead percentile_cont percentile_disc percent_rank ' +
-            'collationproperty tertiary_weights'
+            'collationproperty tertiary_weights convert parse try_cast try_convert try_parse'
         },
         contains: [
           {
