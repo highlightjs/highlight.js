@@ -9,7 +9,7 @@ function(hljs) {
     contains: [
       {
         className: 'operator',
-        begin: '\\b(begin|end|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma|grant|merge)\\b(?!:)', // negative look-ahead here is specifically to prevent stomping on SmallTalk
+        begin: '\\b(begin|end|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma|grant|merge|describe|use|explain|help)\\b(?!:)', // negative look-ahead here is specifically to prevent stomping on SmallTalk
         end: ';', endsWithParent: true,
         keywords: {
           keyword: 'all partial global month current_timestamp using go revoke smallint ' +
