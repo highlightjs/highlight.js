@@ -101,4 +101,6 @@ URL:   http://highlightjs.org/
 - Джош Адамс <josh@isotope11.com>
 - Дан Тао <daniel.tao@gmail.com>
 - Джеф Эскаланте <hello@jenius.me>
-- Harttle <yangjvn@126.com>
+- Джун Янг <yangjvn@126.com>
+- neor-ru <info@neor.ru>
+- Хейко Август <post@auge8472.de>
