@@ -170,8 +170,7 @@ function() {
         return;
       mode.compiled = true;
 
-      mode.keywords = mode.keywords || mode.beginKeywords;
-      if (mode.keywords) {
+      if (mode.keywords || mode.beginKeywords) {
         var compiled_keywords = {};
 
         function flatten(className, str) {
@@ -184,13 +183,20 @@ function() {
           });
         }
 
+        // Flatten `keywords` - may be object or string
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords);
-        } else {
+        } else if (mode.keywords) {
           Object.keys(mode.keywords).forEach(function (className) {
             flatten(className, mode.keywords[className]);
           });
         }
+
+        // Flatten `beginKeywords` - may be only string
+        if (typeof mode.beginKeywords == 'string') {
+          flatten('keyword', mode.beginKeywords);
+        }
+
         mode.keywords = compiled_keywords;
       }
       mode.lexemesRe = langRe(mode.lexemes || /\b[A-Za-z0-9_]+\b/, true);
