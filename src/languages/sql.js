@@ -9,16 +9,16 @@ function(hljs) {
     contains: [
       {
         className: 'operator',
-        begin: '\\b(begin|end|start|commit|rollback|savepoint|lock|alter|create|drop|rename|call|'+
-          'delete|do|handler|insert|load|replace|select|truncate|update|set|show|pragma|grant|'+
-          'merge|describe|use|explain|help|declare|prepare|execute|deallocate|savepoint|release|'+
-          'unlock|purge|reset|change|stop|analyze|cache|flush|optimize|repair|kill|'+
-          'install|uninstall|checksum|restore|check|backup)\\b(?!:)', // negative look-ahead here is specifically to prevent stomping on SmallTalk
-        end: ';', endsWithParent: true,
+        beginKeywords: 'begin end start commit rollback savepoint lock alter create drop rename call '+
+          'delete do handler insert load replace select truncate update set show pragma grant '+
+          'merge describe use explain help declare prepare execute deallocate savepoint release '+
+          'unlock purge reset change stop analyze cache flush optimize repair kill '+
+          'install uninstall checksum restore check backup',
+        end: /;/, endsWithParent: true,
         keywords: 'all partial global month current_timestamp using go revoke smallint ' +
           'indicator end-exec disconnect zone with character assertion to add current_user ' +
           'usage input local alter match collate real then rollback get read timestamp ' +
-          'session_user not integer bit unique day minute desc insert execute like ilike|2 ' +
+          'session_user not integer bit unique day minute desc insert execute like ilike ' +
           'level decimal drop continue isolation found where constraints domain right ' +
           'national some module transaction relative second connect escape close system_user ' +
           'for deferred section cast current sqlstate allocate intersect deallocate numeric ' +
