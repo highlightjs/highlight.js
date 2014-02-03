@@ -404,8 +404,8 @@ C++ ("cpp", "c", "h", "c++", "h++")
 * ``preprocessor``:     preprocessor directive
 * ``stl_container``:    instantiation of STL containers ("vector<...>")
 
-Objective C ("objectivec", "m", "mm")
--------------------------------------
+Objective C ("objectivec", "m", "mm", "objc", "obj-c")
+------------------------------------------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         Cocoa/Cocoa Touch constants and classes
