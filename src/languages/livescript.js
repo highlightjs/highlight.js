@@ -1,8 +1,8 @@
 /*
-Language: CoffeeScript
-Author: Dmytrii Nagirniak <dnagir@gmail.com>
-Contributors: Oleg Efimov <efimovov@gmail.com>, Cédric Néhémie <cedric.nehemie@gmail.com>
-Description: CoffeeScript is a programming language that transcompiles to JavaScript. For info about language see http://coffeescript.org/
+Language: LiveScript
+Author: Taneli Vatanen <taneli.vatanen@gmail.com>
+Contributors: Dmytrii Nagirniak <dnagir@gmail.com>, Oleg Efimov <efimovov@gmail.com>, Cédric Néhémie <cedric.nehemie@gmail.com>
+Description: LiveScript is a programming language that transcompiles to JavaScript. For info about language see http://livescript.net/
 */
 
 function(hljs) {
