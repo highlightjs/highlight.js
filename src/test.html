@@ -108,6 +108,12 @@
     .code .hljs-keyword {
       font-weight: bold;
     }
+    #export_from, #export_to {
+      width: 98%;
+    }
+    address {
+      margin-top: 4em;
+    }
   </style>
 
   <script src="../build/highlight.pack.js"></script>
@@ -133,26 +139,24 @@
           }
       }
 
-
       attach(window, 'load', function() {
           var current = null;
 
           var info = {};
           var links = document.getElementsByTagName('link');
-          var ul = document.createElement('ul')
+          var ul = document.createElement('ul');
 
           for (var i = 0; (link = links[i]); i++) {
-              if (link.getAttribute('rel').indexOf('style') != -1
-                  && link.title) {
+              if ((link.getAttribute('rel').indexOf('style') != -1) && link.title) {
 
                   var title = link.title;
 
                   info[title] = {
                   'link': link,
                   'li': document.createElement('li')
-                  }
+                  };
 
-                  ul.appendChild(info[title].li)
+                  ul.appendChild(info[title].li);
                   info[title].li.title = title;
 
                   info[title].link.disabled = true;
@@ -169,7 +173,7 @@
               }
           }
 
-          current = info['Default']
+          current = info['Default'];
           current.li.className = 'current';
           current.link.disabled = false;
 
@@ -177,8 +181,78 @@
           container = document.getElementById(container_id);
           container.appendChild(ul);
       });
-
   })('styleswitcher');
+  </script>
+
+  <script>
+  // Test result detection © Ivan Sagalaev <maniac@softwaremaniacs.org>
+  function testDetection() {
+      if (!hljs.initHighlighting.called) {
+          window.setTimeout(testDetection, 500);
+          return;
+      }
+      var table = document.getElementById('autotest');
+      var tds = table.getElementsByTagName('TD');
+      var failed = [];
+      for (var i = 0; i < tds.length; i++) {
+          var tdClass = tds[i].className;
+          if (!hljs.getLanguage(tdClass)) {
+              tds[i].parentNode.style.display = 'none';
+              continue;
+          }
+          var code = tds[i].getElementsByTagName('CODE')[0];
+          var langClass = code.className.replace('hljs', '').trim();
+          var passed = (tdClass == langClass);
+          var result = document.createElement('DIV');
+          result.className = 'test';
+          result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + langClass + '</var>';
+          result.innerHTML += ' (' + code.result.re + ')';
+          if (code.second_best) {
+              result.innerHTML += '<br>' + code.second_best.language + ' (' + code.second_best.re + ')';
+          }
+          tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
+          if (!passed) {
+              failed.push(tdClass);
+          }
+      }
+      var summary = document.getElementById('summary');
+      summary.innerHTML = failed.length ? ('Failed tests: ' + failed.join(', ')) : 'All tests passed';
+      summary.className = failed.length ? 'failed' : 'passed';
+  }
+  testDetection();
+  </script>
+
+  <script>
+  // Highlighted code export © Vladimir Gubarkov <xonixx@gmail.com>
+  String.prototype.escape = function() {
+      return this.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
+  };
+
+  function ExportDoIt() {
+      var export_from = document.getElementById("export_from");
+      var export_to = document.getElementById("export_to");
+      var export_view = document.getElementById("export_view");
+      var selector = document.getElementById("langSelector");
+      var selectedLang = selector.options[selector.selectedIndex].value.toLowerCase();
+      if (selectedLang) {
+          export_view.innerHTML = '<pre><code class="' + selectedLang + '">' + export_from.value.escape() + "</code></pre>";
+      } else { // try auto
+          export_view.innerHTML = '<pre><code>' + export_from.value.escape() + "</code></pre>";
+      }
+      hljs.highlightBlock(export_view.firstChild.firstChild);
+      export_to.value = export_view.innerHTML;
+  }
+
+  function ExportCopyToBuffer(textToCopy) {
+      if (window.clipboardData) { // IE
+          window.clipboardData.setData("Text", textToCopy);
+      } else if (window.netscape) { // FF
+          // from http://developer.mozilla.org/en/docs/Using_the_Clipboard
+          netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+          var gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
+          gClipboardHelper.copyString(textToCopy);
+      }
+  }
   </script>
 <body>
 
@@ -2846,43 +2920,6 @@ return
 
 </table>
 
-<script>
-  function testDetection() {
-    if (!hljs.initHighlighting.called) {
-      window.setTimeout(testDetection, 500);
-      return;
-    }
-    var table = document.getElementById('autotest');
-    var tds = table.getElementsByTagName('TD');
-    var failed = [];
-    for (var i = 0; i < tds.length; i++) {
-      var tdClass = tds[i].className;
-      if (!hljs.getLanguage(tdClass)) {
-        tds[i].parentNode.style.display = 'none';
-        continue;
-      }
-      var code = tds[i].getElementsByTagName('CODE')[0];
-      var langClass = code.className.replace('hljs', '').trim();
-      var passed = tdClass == langClass;
-      var result = document.createElement('DIV');
-      result.className = 'test';
-      result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + langClass + '</var>';
-      result.innerHTML += ' (' + code.result.re + ')';
-      if (code.second_best) {
-        result.innerHTML += '<br>' + code.second_best.language + ' (' + code.second_best.re + ')';
-      }
-      tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
-      if (!passed) {
-        failed.push(tdClass);
-      }
-    }
-    var summary = document.getElementById('summary');
-    summary.innerHTML = failed.length ? ('Failed tests: ' + failed.join(', ')) : 'All tests passed';
-    summary.className = failed.length ? 'failed' : 'passed';
-  }
-  testDetection();
-</script>
-
 
 <h2>Special tests</h2>
 
@@ -2955,7 +2992,7 @@ return
     <th>Disabled highlighting
     <td>
 <pre><code class="no-highlight">&lt;div id="contents"&gt;
-  &lt;p&gt;Hello, World!
+  &lt;p&gt;Hello, World!c
 &lt;/div&gt;
 </code></pre>
 
@@ -2965,3 +3002,41 @@ return
 <pre><samp>Computer output</samp></pre>
 
 </table>
+
+<h2>Highlighted code export</h2>
+
+<script type="text/javascript">
+    var langSelectorHtml = '<label>Language <select id="langSelector">';
+    langSelectorHtml += '<option value="">Auto</option>';
+    var languages = hljs.listLanguages();
+    for (var i in languages) {
+        langSelectorHtml += '<option value=\"' + languages[i] + '\">' + languages[i].charAt(0).toUpperCase() + languages[i].substr(1) + '</option>';
+    }
+    langSelectorHtml += '</select></label>';
+    document.write(langSelectorHtml);
+</script>
+
+<table>
+    <tr>
+        <td><textarea rows="20" cols="50" id="export_from"></textarea></td>
+        <td><textarea rows="20" cols="50" id="export_to"></textarea></td>
+    </tr>
+    <tr>
+        <td>Write a code snippet</td>
+        <td>Get HTML to paste anywhere (for actual styles and colors see sample.css)</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td><input type="button" value="Export &rarr;" onclick="ExportDoIt()"/></td>
+        <td align="right"><input type="button" value="Copy to buffer" onclick="ExportCopyToBuffer(document.getElementById('export_to').value);"/></td>
+    </tr>
+</table>
+<div id="export_view"></div>
+
+<address>
+    Stylesheet switcher: <a href="mailto:voldmar@voldmar.ru">Vladimir Epifanov</a><br>
+    Test result detection: <a href="mailto:maniac@softwaremaniacs.org">Ivan Sagalaev</a><br>
+    Export script: <a href="mailto:xonixx@gmail.com">Vladimir Gubarkov</a><br>
+    Highlighting: <a href="http://highlightjs.org/">highlight.js</a>
+</address>
