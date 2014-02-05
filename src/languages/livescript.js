@@ -76,7 +76,7 @@ function(hljs) {
       begin: '@' + JS_IDENT_RE
     },
     {
-      begin: '`', end: '`',
+      begin: '``', end: '``',
       excludeBegin: true, excludeEnd: true,
       subLanguage: 'javascript'
     }
