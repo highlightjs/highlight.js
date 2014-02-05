@@ -15,7 +15,6 @@ function(hljs) {
       'override private public rec return sig static struct then to ' +
       'true try type upcast use val void when while with yield',
     contains: [
-
       {
         className: 'string',
         begin: '@"', end: '"',
@@ -49,5 +48,5 @@ function(hljs) {
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       hljs.C_NUMBER_MODE
     ]
-  }
+  };
 }

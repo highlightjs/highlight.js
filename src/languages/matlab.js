@@ -5,7 +5,6 @@ Contributors: Eugene Nizhibitsky <nizhibitsky@ya.ru>
 */
 
 function(hljs) {
-
   var COMMON_CONTAINS = [
     hljs.C_NUMBER_MODE,
     {

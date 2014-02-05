@@ -5,7 +5,7 @@ Language: Python
 function(hljs) {
   var PROMPT = {
     className: 'prompt',  begin: /^(>>>|\.\.\.) /
-  }
+  };
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE],
@@ -29,10 +29,10 @@ function(hljs) {
         relevance: 10
       },
       {
-        begin: /(b|br)'/, end: /'/,
+        begin: /(b|br)'/, end: /'/
       },
       {
-        begin: /(b|br)"/, end: /"/,
+        begin: /(b|br)"/, end: /"/
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE
@@ -45,7 +45,7 @@ function(hljs) {
       {begin: '\\b(0o[0-7]+)[lLjJ]?'},
       {begin: hljs.C_NUMBER_RE + '[lLjJ]?'}
     ]
-  }
+  };
   var PARAMS = {
     className: 'params',
     begin: /\(/, end: /\)/,
