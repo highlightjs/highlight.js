@@ -59,7 +59,7 @@ function(hljs) {
       className: 'regexp',
       variants: [
         {
-          begin: '///', end: '///',
+          begin: '//', end: '//',
           contains: [SUBST, hljs.HASH_COMMENT_MODE]
         },
         {
