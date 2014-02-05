@@ -12,7 +12,7 @@ function(hljs) {
       'in if for while finally new do return else break catch instanceof throw try this ' +
       'switch continue typeof delete debugger super ' +
       // LiveScript keywords
-      'then unless until loop of by when and or is isnt not',
+      'then unless until loop of by when and or is isnt not fallthrough otherwise',
     literal:
       // JS literals
       'true false null undefined void' +
