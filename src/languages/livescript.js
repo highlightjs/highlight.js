@@ -33,7 +33,16 @@ function(hljs) {
   };
   var EXPRESSIONS = [
     hljs.BINARY_NUMBER_MODE,
-    hljs.inherit(hljs.C_NUMBER_MODE, {starts: {end: '(\\s*/)?', relevance: 0}}), // a number tries to eat the following slash to prevent treating it as a regexp
+    {
+      className: 'number',
+      variants: [
+        {
+          begin: '(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?)([eE][-+]?\\d+)?)',
+          end: '(\\s*/)?', // a number tries to eat the following slash to prevent treating it as a regexp
+          relevance: 0
+        }
+      ]
+    },
     {
       className: 'string',
       variants: [
