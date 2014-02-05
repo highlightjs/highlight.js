@@ -1,6 +1,6 @@
 /*
 Language: SQL
-Contributors: neor-ru <info@neor.ru>, Heiko August <post@auge8472.de>
+Contributors: Nikolay Lisienko <info@neor.ru>, Heiko August <post@auge8472.de>
  */
 
 function(hljs) {

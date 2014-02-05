@@ -102,5 +102,5 @@ Contributors:
 - Dan Tao <daniel.tao@gmail.com>
 - Jeff Escalante <hello@jenius.me>
 - Jun Yang <yangjvn@126.com>
-- neor-ru <info@neor.ru>
+- Nikolay Lisienko <info@neor.ru>
 - Heiko August <post@auge8472.de>

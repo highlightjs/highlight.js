@@ -102,5 +102,5 @@ URL:   http://highlightjs.org/
 - Дан Тао <daniel.tao@gmail.com>
 - Джеф Эскаланте <hello@jenius.me>
 - Джун Янг <yangjvn@126.com>
-- neor-ru <info@neor.ru>
+- Николай Лисиенко <info@neor.ru>
 - Хейко Август <post@auge8472.de>
