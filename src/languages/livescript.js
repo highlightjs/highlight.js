@@ -42,7 +42,7 @@ function(hljs) {
       className: 'number',
       variants: [
         {
-          begin: '(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?)([eE][-+]?\\d+)?)',
+          begin: '(\\b0[xX][a-fA-F0-9_]+)|(\\b\\d(\\d|_\\d)*(\\.(\\d(\\d|_\\d)*)?)?(_*[eE]([-+]\\d(_\\d|\\d)*)?)?[_a-z]*)',
           end: '(\\s*/)?', // a number tries to eat the following slash to prevent treating it as a regexp
           relevance: 0
         }
