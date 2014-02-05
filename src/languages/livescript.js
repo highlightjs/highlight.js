@@ -28,9 +28,14 @@ function(hljs) {
   var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: JS_IDENT_RE});
   var SUBST = {
     className: 'subst',
-    begin: /#\{/, end: /}/,
+    begin: /#\{/, end: /\}/,
     keywords: KEYWORDS
   };
+  var SUBST_SIMPLE = {
+    className: 'subst',
+    begin: /#[A-Za-z$_]/, end: /(?:\-[0-9A-Za-z$_]|[0-9A-Za-z$_])*/,
+    keywords: KEYWORDS
+  }
   var EXPRESSIONS = [
     hljs.BINARY_NUMBER_MODE,
     {
@@ -56,11 +61,11 @@ function(hljs) {
         },
         {
           begin: /"""/, end: /"""/,
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST, SUBST_SIMPLE]
         },
         {
           begin: /"/, end: /"/,
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST, SUBST_SIMPLE]
         },
         {
           begin: /\\/, end: /[^,\]\}\n\r]+/,
