@@ -89,7 +89,7 @@ function(hljs) {
     contains: EXPRESSIONS.concat([
       {
         className: 'comment',
-        begin: '###', end: '###'
+        begin: '/*', end: '*/'
       },
       hljs.HASH_COMMENT_MODE,
       {
