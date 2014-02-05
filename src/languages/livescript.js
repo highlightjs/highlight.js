@@ -84,7 +84,7 @@ function(hljs) {
   SUBST.contains = EXPRESSIONS;
 
   return {
-    aliases: ['coffee', 'cson', 'iced'],
+    aliases: ['ls'],
     keywords: KEYWORDS,
     contains: EXPRESSIONS.concat([
       {
