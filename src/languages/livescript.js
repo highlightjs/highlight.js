@@ -64,7 +64,8 @@ function(hljs) {
         },
         {
           begin: /\\/, end: /[^,\]\}\n\r]+/,
-          contains: [hljs.BACKSLASH_ESCAPE]
+          contains: [hljs.BACKSLASH_ESCAPE],
+          relevance: 10
         }
       ]
     },
@@ -73,7 +74,8 @@ function(hljs) {
       variants: [
         {
           begin: '//', end: '//',
-          contains: [SUBST, hljs.HASH_COMMENT_MODE]
+          contains: [SUBST, hljs.HASH_COMMENT_MODE],
+          relevance: 4
         },
         {
           begin: '//[gim]*',
@@ -109,6 +111,7 @@ function(hljs) {
         className: 'function',
         begin: '!?(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*\\B!?[-~]{1,2}>\\*?', end: '!?[-~]{1,2}?>\\*?',
         returnBegin: true,
+        relevance: 10,
         contains: [
           TITLE,
           {
