@@ -75,7 +75,7 @@ function(hljs) {
         {
           begin: '//', end: '//',
           contains: [SUBST, hljs.HASH_COMMENT_MODE],
-          relevance: 4
+          relevance: 5
         },
         {
           begin: '//[gim]*',
@@ -98,6 +98,18 @@ function(hljs) {
   ];
   SUBST.contains = EXPRESSIONS;
 
+  var PARAMS = {
+    className: 'params',
+    begin: '\\(', returnBegin: true,
+    /* We need another contained nameless mode to not have every nested
+    pair of parens to be called "params" */
+    contains: [{
+      begin: /\(/, end: /\)/,
+      keywords: KEYWORDS,
+      contains: ['self'].concat(EXPRESSIONS)
+    }]
+  }
+
   return {
     aliases: ['ls'],
     keywords: KEYWORDS,
@@ -109,22 +121,24 @@ function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         className: 'function',
-        begin: '!?(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*\\B!?[-~]{1,2}>\\*?', end: '!?[-~]{1,2}?>\\*?',
-        returnBegin: true,
-        relevance: 10,
-        contains: [
-          TITLE,
+        variants: [
           {
-            className: 'params',
-            begin: '\\(', returnBegin: true,
-            /* We need another contained nameless mode to not have every nested
-            pair of parens to be called "params" */
-            contains: [{
-              begin: /\(/, end: /\)/,
-              keywords: KEYWORDS,
-              contains: ['self'].concat(EXPRESSIONS)
-            }]
-          }
+            begin: '(' + JS_IDENT_RE + '\\s*=\\*)?(\\(.*\\))?\\s*\\B->', end: '->',
+            returnBegin: true,
+            contains: [TITLE, PARAMS]
+          },
+          {
+            begin: '(' + JS_IDENT_RE + '\\s*=\\*)?!?(\\(.*\\))?\\s*\\B[-~]{1,2}>\\*?', end: '[-~]{1,2}>\\*?',
+            returnBegin: true,
+            contains: [TITLE, PARAMS]
+            relevance: 10 
+          },
+          {
+            begin: '(' + JS_IDENT_RE + '\\s*=\\*)?(\\(.*\\))?\\s*\\B!?[-~]{1,2}>\\*?', end: '!?[-~]{1,2}>\\*?',
+            returnBegin: true,
+            contains: [TITLE, PARAMS]
+            relevance: 10 
+          },
         ]
       },
       {
