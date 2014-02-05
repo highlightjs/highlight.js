@@ -103,7 +103,7 @@ function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         className: 'function',
-        begin: '(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*\\B[-~][-~]?>\\*?', end: '[-~][-~]?>\\*?',
+        begin: '!?(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*\\B!?[-~]{1,2}>\\*?', end: '!?[-~]{1,2}?>\\*?',
         returnBegin: true,
         contains: [
           TITLE,
