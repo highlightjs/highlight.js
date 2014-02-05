@@ -123,22 +123,22 @@ function(hljs) {
         className: 'function',
         variants: [
           {
-            begin: '(' + JS_IDENT_RE + '\\s*=\\*)?(\\(.*\\))?\\s*\\B->', end: '->',
+            begin: '(' + JS_IDENT_RE + '\\s*=\\*)?(\\(.*\\))?\\s*\\B->\\*?', end: '->\\*?',
             returnBegin: true,
             contains: [TITLE, PARAMS]
           },
           {
             begin: '(' + JS_IDENT_RE + '\\s*=\\*)?!?(\\(.*\\))?\\s*\\B[-~]{1,2}>\\*?', end: '[-~]{1,2}>\\*?',
             returnBegin: true,
-            contains: [TITLE, PARAMS]
+            contains: [TITLE, PARAMS],
             relevance: 10 
           },
           {
             begin: '(' + JS_IDENT_RE + '\\s*=\\*)?(\\(.*\\))?\\s*\\B!?[-~]{1,2}>\\*?', end: '!?[-~]{1,2}>\\*?',
             returnBegin: true,
-            contains: [TITLE, PARAMS]
+            contains: [TITLE, PARAMS],
             relevance: 10 
-          },
+          }
         ]
       },
       {
