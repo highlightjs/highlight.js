@@ -17,10 +17,10 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.HASH_COMMENT_MODE,
       {
-        begin: '--',
+        begin: '--'
       },
       {
-        begin: '[^:]//',
+        begin: '[^:]//'
       }
     ]
   };
