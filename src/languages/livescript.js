@@ -12,14 +12,14 @@ function(hljs) {
       'in if for while finally new do return else break catch instanceof throw try this ' +
       'switch continue typeof delete debugger super ' +
       // LiveScript keywords
-      'then unless until loop of by when and or is isnt not fallthrough otherwise',
+      'then unless until loop of by when and or is isnt not let fallthrough otherwise',
     literal:
       // JS literals
-      'true false null undefined void' +
+      'true false null undefined' +
       // LiveScript literals
-      'yes no on off it that',
+      'yes no on off it that void',
     reserved:
-      'case default function var void with const let enum export import native ' +
+      'case default function var with const enum export import native ' +
       '__hasProp __extends __slice __bind __indexOf',
     built_in:
       'npm require console print module global window document'
