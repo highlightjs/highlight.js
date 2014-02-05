@@ -121,22 +121,18 @@ function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         className: 'function',
+        contains: [TITLE, PARAMS],
+        returnBegin: true,
         variants: [
           {
-            begin: '(' + JS_IDENT_RE + '\\s*=\\*)?(\\(.*\\))?\\s*\\B->\\*?', end: '->\\*?',
-            returnBegin: true,
-            contains: [TITLE, PARAMS]
+            begin: '(' + JS_IDENT_RE + '\\s*[:=]\\s*)?(\\(.*\\))?\\s*\\B\\->\\*?', end: '\\->\\*?'
           },
           {
-            begin: '(' + JS_IDENT_RE + '\\s*=\\*)?!?(\\(.*\\))?\\s*\\B[-~]{1,2}>\\*?', end: '[-~]{1,2}>\\*?',
-            returnBegin: true,
-            contains: [TITLE, PARAMS],
+            begin: '(' + JS_IDENT_RE + '\\s*[:=]\\s*)?!?(\\(.*\\))?\\s*\\B[-~]{1,2}>\\*?', end: '[-~]{1,2}>\\*?',
             relevance: 10 
           },
           {
-            begin: '(' + JS_IDENT_RE + '\\s*=\\*)?(\\(.*\\))?\\s*\\B!?[-~]{1,2}>\\*?', end: '!?[-~]{1,2}>\\*?',
-            returnBegin: true,
-            contains: [TITLE, PARAMS],
+            begin: '(' + JS_IDENT_RE + '\\s*[:=]\\s*)?(\\(.*\\))?\\s*\\B!?[-~]{1,2}>\\*?', end: '!?[-~]{1,2}>\\*?',
             relevance: 10 
           }
         ]
