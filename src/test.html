@@ -1040,12 +1040,6 @@ End Namespace
 
 option java_package = "org.highlightjs.languages.protobuf";
 
-message Account {
-  required int64 account_id = 1;
-  repeated Customer customer = 2;
-  optional int32 max_allowed_admins = 3 [default = 3];
-}
-
 message Customer {
   required int64 customer_id = 1;
   optional string name = 2;
@@ -1059,16 +1053,6 @@ message Customer {
     MALE = 1,
     FEMALE = 2
   }
-}
-
-message CustomerRequest {
-  optional int64 customer_id = 1;
-  optional string name = 2;
-  optional string email_address = 3;
-}
-
-message CustomerResponse {
-  repeated Customer customer = 1;
 }
 
 service CustomerSearch {
