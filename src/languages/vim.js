@@ -1,6 +1,6 @@
 /*
 Language: Vim Script
-Author: harttle <yangjvn@126.com>
+Author: Jun Yang <yangjvn@126.com>
 Description: full keyword and built-in from http://vimdoc.sourceforge.net/htmldoc/
 */
 

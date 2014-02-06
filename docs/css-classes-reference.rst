@@ -503,11 +503,10 @@ Maya Embedded Language ("mel")
 SQL ("sql")
 -----------
 
-* ``keyword``:          keyword (mostly SQL'92 and SQL'99)
+* ``keyword``:          keyword (mostly SQL'92, SQL'99 and T-SQL)
 * ``number``:           number
 * ``string``:           string (of any type: "..", '..', \`..\`)
 * ``comment``:          comment
-* ``aggregate``:        aggregate function
 
 Smalltalk ("smalltalk", "st")
 -----------------------------
