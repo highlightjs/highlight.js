@@ -20,18 +20,6 @@ function() {
     return match && match.index == 0;
   }
 
-  function blockText(block) {
-    return Array.prototype.map.call(block.childNodes, function(node) {
-      if (node.nodeType == 3) {
-        return options.useBR ? node.nodeValue.replace(/\n/g, '') : node.nodeValue;
-      }
-      if (tag(node) == 'br') {
-        return '\n';
-      }
-      return blockText(node);
-    }).join('');
-  }
-
   function blockLanguage(block) {
     var classes = (block.className + ' ' + (block.parentNode ? block.parentNode.className : '')).split(/\s+/);
     classes = classes.map(function(c) {return c.replace(/^lang(uage)?-/, '');});
@@ -515,7 +503,9 @@ function() {
   two optional parameters for fixMarkup.
   */
   function highlightBlock(block) {
-    var text = blockText(block);
+    var text = options.useBR ? block.innerHTML
+      .replace(/\n/g,'').replace(/<br>|<br [^>]*>/g, '\n').replace(/<[^>]*>/g,'')
+      : block.textContent;
     var language = blockLanguage(block);
     if (language == 'no-highlight')
         return;
