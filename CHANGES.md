@@ -1,3 +1,27 @@
+## Master
+
+New features:
+
+- Add `listLanguages()` API method.
+- export.html merged into test.html.
+- Added a bunch of aliases for languages and document current ones.
+  Thanks to [Sindre Sorhus][] for background research.
+- Added phrasal English words to boost relevance in comments.
+- Include docs into the browser download and node.js package.
+
+New languages and styles:
+
+- *Elixir* by [Josh Adams][]
+- *NSIS* by [Jan T. Sott][]
+- *VIM script* by [Jun Yang][]
+- *Protocol Buffers* by [Dan Tao][]
+
+[Sindre Sorhus]: https://github.com/sindresorhus
+[Josh Adams]: https://github.com/knewter
+[Jan T. Sott]: https://github.com/idleberg
+[Jun Yang]: https://github.com/harttle
+[Dan Tao]: https://github.com/dtao
+
 ## Version 8.0
 
 This new major release is quite a big overhaul bringing both new features and
