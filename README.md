@@ -139,15 +139,17 @@ language explicitly by assigning a class to the `<code>` element:
 <pre><code class="html">...</code></pre>
 ```
 
-You can use class names recommended in HTML5: "language-html",
-"language-php". Classes also can be assigned to the `<pre>` element.
+You can use class names prefixed with "lang-", or "language-" as 
+[recommended in the HTML Living Standard][sem]. Classes also can be assigned
+to the `<pre>` element.
+
+[sem]: http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-code-element
 
 To disable highlighting of a fragment altogether use "no-highlight" class:
 
 ```html
 <pre><code class="no-highlight">...</code></pre>
 ```
-
 
 ## Export
 
