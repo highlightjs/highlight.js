@@ -565,6 +565,16 @@ Nginx ("nginx")
 * ``variable``:         $-variable
 * ``regexp``:           regexp
 
+Nix ("nix")
+---------------
+
+* ``string``:           single and double quotes
+* ``number``:           number
+* ``comment``:          comment
+* ``built_in``:         built-in constant
+* ``keyword``:          keyword
+* ``subst``:            antiquote ${}
+
 Diff ("diff")
 -------------
 
