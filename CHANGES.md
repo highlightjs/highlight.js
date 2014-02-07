@@ -15,12 +15,14 @@ New languages and styles:
 - *NSIS* by [Jan T. Sott][]
 - *VIM script* by [Jun Yang][]
 - *Protocol Buffers* by [Dan Tao][]
+- *Ruby Console* by [Pascal Hurni][]
 
 [Sindre Sorhus]: https://github.com/sindresorhus
 [Josh Adams]: https://github.com/knewter
 [Jan T. Sott]: https://github.com/idleberg
 [Jun Yang]: https://github.com/harttle
 [Dan Tao]: https://github.com/dtao
+[Pascal Hurni]: https://github.com/phurni
 
 ## Version 8.0
 

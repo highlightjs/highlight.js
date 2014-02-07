@@ -14,6 +14,10 @@ function(hljs) {
     className: 'yardoctag',
     begin: '@[A-Za-z]+'
   };
+  var IRB_OBJECT = {
+    className: 'value',
+    begin: '#<', end: '>'
+  };
   var COMMENT = {
     className: 'comment',
     variants: [
@@ -80,6 +84,7 @@ function(hljs) {
 
   var RUBY_DEFAULT_CONTAINS = [
     STRING,
+    IRB_OBJECT,
     COMMENT,
     {
       className: 'class',
@@ -136,6 +141,7 @@ function(hljs) {
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
       contains: [
+        IRB_OBJECT,
         COMMENT,
         {
           className: 'regexp',

@@ -104,3 +104,4 @@ Contributors:
 - Jun Yang <yangjvn@126.com>
 - Nikolay Lisienko <info@neor.ru>
 - Heiko August <post@auge8472.de>
+- Pascal Hurni <phi@ruby-reactive.org>

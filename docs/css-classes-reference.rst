@@ -47,6 +47,14 @@ Ruby ("ruby", "rb", "gemspec", "podspec", "thor")
 * ``parent``:           name of a parent class
 * ``symbol``:           symbol
 
+RubyConsole ("irb")
+-------------------------------------------------
+
+* ``input``:            complete input line
+* ``output``:           complete output line
+* ``prompt``:           interpreter prompt (>>)
+* ``status``:           response (=>)
+
 Haml ("haml")
 -------------
 
