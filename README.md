@@ -136,20 +136,22 @@ This means that in short fragments the probability of an error is high
 language explicitly by assigning a class to the `<code>` element:
 
 ```html
-<pre><code class="html">...</code></pre>
+<pre><code class="language-html">...</code></pre>
 ```
 
-You can use class names prefixed with "lang-", or "language-" as 
-[recommended in the HTML Living Standard][sem]. Classes also can be assigned
-to the `<pre>` element.
-
-[sem]: http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-code-element
+You can use class names prefixed with "language-" (or "lang-")
+as [recommended in the HTML Living Standard][sem],
+for example "language-html" or "language-php".
+Classes also can be assigned to the `<pre>` element.
 
 To disable highlighting of a fragment altogether use "no-highlight" class:
 
 ```html
 <pre><code class="no-highlight">...</code></pre>
 ```
+
+[sem]: http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-code-element
+
 
 ## Export
 

@@ -140,18 +140,21 @@ $('div.code').each(function(i, e) {hljs.highlightBlock(e)});
 его название в виде класса к элементу `<code>`:
 
 ```html
-<pre><code class="html">...</code></pre>
+<pre><code class="language-html">...</code></pre>
 ```
 
-Можно использовать рекомендованные в HTML5 названия классов:
-"language-html", "language-php". Также можно назначать классы на элемент
-`<pre>`.
+Можно использовать [рекомендованные в HTML5][sem] названия классов
+с префиксом "language-" (или "lang-"),
+например "language-html" или "language-php".
+Также можно назначать классы на элемент `<pre>`.
 
-Чтобы запретить расцветку фрагмента вообще, используется класс "no-highlight":
+Чтобы запретить расцветку фрагмента, используется класс "no-highlight":
 
 ```html
 <pre><code class="no-highlight">...</code></pre>
 ```
+
+[sem]: http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-code-element
 
 
 ## Экспорт
