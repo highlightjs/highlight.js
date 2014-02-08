@@ -351,6 +351,19 @@ Cap’n Proto ("capnproto", "capnp")
 * ``class``:            message, interface or enum definition header
 * ``title``:            message, interface or enum identifier
 
+Thrift ("thrift")
+-----------------
+
+* ``keyword``:          keyword
+* ``built_in``:         built-in types (e.g. `byte`, `i32`)
+* ``string``:           string
+* ``number``:           number
+* ``literal``:          "true" and "false"
+* ``comment``:          comment
+* ``class``:            struct, enum, service or exception definition header
+* ``title``:            struct, enum, service or exception identifier
+* ``stl_container``:    instantiation of STL-like containers ("list<...>")
+
 HTTP ("http")
 -------------
 

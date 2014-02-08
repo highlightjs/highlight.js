@@ -28,7 +28,7 @@ New languages and styles:
 - *Protocol Buffers* by [Dan Tao][]
 - *Nix* by [Domen Kožar][]
 - *x86asm* by [innocenat][]
-- *Cap’n Proto* by [Oleg Efimov][]
+- *Cap’n Proto* and *Thrift* by [Oleg Efimov][]
 
 [Sindre Sorhus]: https://github.com/sindresorhus
 [Josh Adams]: https://github.com/knewter
