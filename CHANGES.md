@@ -15,12 +15,14 @@ New languages and styles:
 - *NSIS* by [Jan T. Sott][]
 - *VIM script* by [Jun Yang][]
 - *Protocol Buffers* by [Dan Tao][]
+- *Dust* by [Michael Allen][]
 
 [Sindre Sorhus]: https://github.com/sindresorhus
 [Josh Adams]: https://github.com/knewter
 [Jan T. Sott]: https://github.com/idleberg
 [Jun Yang]: https://github.com/harttle
 [Dan Tao]: https://github.com/dtao
+[Michael Allen]: https://github.com/bfui
 
 ## Version 8.0
 
