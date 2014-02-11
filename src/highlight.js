@@ -3,7 +3,7 @@ Syntax highlighting with language autodetection.
 http://highlightjs.org/
 */
 
-function() {
+;(function() {
 
   /* Utility functions */
 
@@ -691,4 +691,4 @@ function() {
     begin: this.UNDERSCORE_IDENT_RE,
     relevance: 0
   };
-}
+})();
