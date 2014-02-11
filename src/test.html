@@ -295,7 +295,7 @@ in stdenv.mkDerivation rec {
   configureFlags = [ "--with-foo2" ] ++ stdenv.lib.optional bar "--with-foo=${ with stdenv.lib; foo }"
 
   postInstall = ''
-    ${ if true then ${ "" } else false }
+    ${ if true then "--${test}" else false }
   '';  
 
   meta = with stdenv.lib; {
