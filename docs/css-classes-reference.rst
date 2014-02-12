@@ -574,6 +574,7 @@ Nix ("nix")
 * ``built_in``:         built-in constant
 * ``keyword``:          keyword
 * ``subst``:            antiquote ${}
+* ``variable``:         function parameter name
 
 Diff ("diff")
 -------------

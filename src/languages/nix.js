@@ -18,12 +18,17 @@ function(hljs) {
     end: /\}/,
     keywords: NIX_KEYWORDS
   };
+  var ATTRS = {
+    className: 'variable',
+    // TODO: we have to figure out a way how to exclude \s*=
+    begin: /[a-zA-Z0-9-_]+(\s*=)/,
+  };
   var SINGLE_QUOTE = {
     className: 'string',
     begin: "''",
     end: "''",
     contains: [
-      ANTIQUOTE,
+      ANTIQUOTE
     ]
   };
   var DOUBLE_QUOTE = {
@@ -31,15 +36,16 @@ function(hljs) {
     begin: '"',
     end: '"',
     contains: [
-      ANTIQUOTE,
+      ANTIQUOTE
     ]
   };
-  EXPRESSIONS = [
+  var EXPRESSIONS = [
     hljs.NUMBER_MODE,
     hljs.HASH_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     SINGLE_QUOTE,
     DOUBLE_QUOTE,
+    ATTRS
   ];  
   ANTIQUOTE.contains = EXPRESSIONS;
   return {
