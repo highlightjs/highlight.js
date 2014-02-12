@@ -626,8 +626,19 @@ CMake ("cmake", "cmake.in")
 * ``envvar``:           $-variable
 * ``operator``:         operator (LESS, STREQUAL, MATCHES, etc)
 
+Nix ("nix")
+-----------
+
+* ``keyword``:          keyword
+* ``built_in``:         built-in constant
+* ``number``:           number
+* ``string``:           single and double quotes
+* ``subst``:            antiquote ${}
+* ``comment``:          comment
+* ``variable``:         function parameter name
+
 NSIS ("nsis")
----------------
+-------------
 
 * ``symbol``:           directory constants
 * ``number``:           number

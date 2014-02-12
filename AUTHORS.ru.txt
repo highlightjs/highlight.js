@@ -104,3 +104,4 @@ URL:   http://highlightjs.org/
 - Джун Янг <yangjvn@126.com>
 - Николай Лисиенко <info@neor.ru>
 - Хейко Август <post@auge8472.de>
+- Домен Кожар <domen@dev.si>
