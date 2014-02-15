@@ -906,3 +906,17 @@ FIX ("fix")
 
 * ``attribute``:        attribute name
 * ``string``:           attribute value
+
+x86 Assembly ("x86asm")
+-----------------------
+
+* ``keyword``:          instuction mnemonic
+* ``literal``:          register name
+* ``pseudo``:           assembler's pseudo instruction
+* ``preprocessor``:     macro
+* ``built_in``:         assembler's keyword
+* ``comment``:          comment
+* ``number``:           number
+* ``string``:           string
+* ``label``:            jump label
+* ``argument``:         macro's argument
