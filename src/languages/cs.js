@@ -55,21 +55,10 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       {
-        beginKeywords: 'protected public private internal', end: /[{;=]/,
-        keywords: KEYWORDS,
+        className: 'class',
+        beginKeywords: 'class namespace interface', end: /[{;=]/, excludeEnd: true,
         contains: [
-          {
-            beginKeywords: 'class namespace interface',
-            starts: {
-              contains: [hljs.TITLE_MODE]
-            }
-          },
-          {
-            begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
-            contains: [
-              hljs.TITLE_MODE
-            ]
-          }
+          hljs.TITLE_MODE
         ]
       }
     ]
