@@ -27,27 +27,15 @@ function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        beginKeywords: 'protected public private', end: /[{;=]/,
-        keywords: KEYWORDS,
+        className: 'class',
+        beginKeywords: 'class interface', end: /[{;=]/, excludeEnd: true,
+        illegal: /[:"<>]/,
         contains: [
           {
-            className: 'class',
-            beginKeywords: 'class interface', endsWithParent: true, excludeEnd: true,
-            illegal: /[:"<>]/,
-            contains: [
-              {
-                beginKeywords: 'extends implements',
-                relevance: 10
-              },
-              hljs.UNDERSCORE_TITLE_MODE
-            ]
+            beginKeywords: 'extends implements',
+            relevance: 10
           },
-          {
-            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true,
-            contains: [
-              hljs.UNDERSCORE_TITLE_MODE
-            ]
-          }
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       hljs.C_NUMBER_MODE,
