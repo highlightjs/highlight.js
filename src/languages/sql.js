@@ -4,6 +4,10 @@
  */
 
 function(hljs) {
+  var COMMENT_MODE = {
+    className: 'comment',
+    begin: '--', end: '$'
+  };
   return {
     case_insensitive: true,
     illegal: /[<>]/,
@@ -91,19 +95,13 @@ function(hljs) {
             begin: '`', end: '`',
             contains: [hljs.BACKSLASH_ESCAPE]
           },
+          hljs.C_NUMBER_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
-          {
-            className: 'comment',
-            begin: '--', end: '$'
-          },
-          hljs.C_NUMBER_MODE
+          COMMENT_MODE
         ]
       },
       hljs.C_BLOCK_COMMENT_MODE,
-      {
-        className: 'comment',
-        begin: '--', end: '$'
-      }
+      COMMENT_MODE
     ]
   };
 }
