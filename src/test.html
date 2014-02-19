@@ -737,6 +737,33 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
 </code></pre>
 
   <tr>
+    <th>Twig templates
+    <td class="twig">
+<pre><code>
+{% if posts|length %}
+  {% for article in articles %}
+  &lt;div&gt;
+  {{ article.title|upper() }}
+
+  {# outputs 'WELCOME' #}
+  &lt;/div&gt;
+  {% endfor %}
+{% endif %}
+
+{% set user = json_encode(user) %}
+
+{{ random(['apple', 'orange', 'citrus']) }}
+
+{{ include(template_from_string("Hello {{ name }}")) }}
+
+
+{#
+Comments may be long and multiline.
+Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
+#}
+</code></pre>
+
+  <tr>
     <th>Handlebars
     <td class="handlebars">
 <pre>

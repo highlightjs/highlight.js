@@ -225,6 +225,23 @@ Django ("django", "jinja")
 * ``filter``:           filter from "|" till the next filter or the end of tag
 * ``argument``:         filter argument
 
+
+Twig ("twig", "craftcms")
+--------------------------
+
+* ``keyword``:          HTML tag in HTML, default tags and default filters in templates
+* ``tag``:              any tag from "<" till ">"
+* ``comment``:          comment
+* ``doctype``:          <!DOCTYPE ... > declaration
+* ``attribute``:        tag's attribute with or withou value
+* ``value``:            attribute's value
+* ``template_tag``:     template tag {% .. %}
+* ``variable``:         template variable {{ .. }}
+* ``template_comment``: template comment {# .. #}
+* ``filter``:           filter from "|" till the next filter or the end of tag
+* ``argument``:         filter argument
+
+
 Handlebars ("handlebars", "hbs", "html.hbs", "html.handlebars")
 ---------------------------------------------------------------
 
