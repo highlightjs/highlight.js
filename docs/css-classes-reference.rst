@@ -602,7 +602,7 @@ Bash ("bash", "sh", "zsh")
 * ``string``:           string
 * ``number``:           number
 * ``comment``:          comment
-* ``literal``:          special literal: "true" и "false"
+* ``literal``:          special literal: "true" and "false"
 * ``variable``:         variable
 * ``shebang``:          script interpreter header
 
