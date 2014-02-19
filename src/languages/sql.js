@@ -85,6 +85,10 @@ function(hljs) {
             contains: [hljs.BACKSLASH_ESCAPE]
           },
           hljs.C_BLOCK_COMMENT_MODE,
+          {
+            className: 'comment',
+            begin: '--', end: '$'
+          },
           hljs.C_NUMBER_MODE
         ]
       },

@@ -1719,9 +1719,10 @@ void main(void) {
     <td class="sql">
 <pre><code>BEGIN;
 CREATE TABLE "topic" (
+    -- This is the greatest table of all time
     "id" serial NOT NULL PRIMARY KEY,
     "forum_id" integer NOT NULL,
-    "subject" varchar(255) NOT NULL
+    "subject" varchar(255) NOT NULL -- Because nobody likes an empty subject
 );
 ALTER TABLE "topic" ADD CONSTRAINT forum_id FOREIGN KEY ("forum_id") REFERENCES "forum" ("id");
 
