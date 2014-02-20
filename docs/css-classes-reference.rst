@@ -504,6 +504,8 @@ SQL ("sql")
 -----------
 
 * ``keyword``:          keyword (mostly SQL'92, SQL'99 and T-SQL)
+* ``literal``:          special literal: "true" and "false"
+* ``built_in``:         built-in type name
 * ``number``:           number
 * ``string``:           string (of any type: "..", '..', \`..\`)
 * ``comment``:          comment

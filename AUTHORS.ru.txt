@@ -105,3 +105,4 @@ URL:   http://highlightjs.org/
 - Николай Лисиенко <info@neor.ru>
 - Хейко Август <post@auge8472.de>
 - Домен Кожар <domen@dev.si>
+- Трэвис Одом <travis.a.odom@gmail.com>
