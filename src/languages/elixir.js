@@ -92,10 +92,10 @@ function(hljs) {
           contains: [hljs.BACKSLASH_ESCAPE, SUBST],
           variants: [
             {
-              begin: '/', end: '/[a-z]*',
+              begin: '/', end: '/[a-z]*'
             },
             {
-              begin: '%r\\[', end: '\\][a-z]*',
+              begin: '%r\\[', end: '\\][a-z]*'
             }
           ]
         }
