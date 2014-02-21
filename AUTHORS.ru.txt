@@ -106,3 +106,4 @@ URL:   http://highlightjs.org/
 - Хейко Август <post@auge8472.de>
 - Домен Кожар <domen@dev.si>
 - Трэвис Одом <travis.a.odom@gmail.com>
+- innocenat <innocenat@gmail.com>
