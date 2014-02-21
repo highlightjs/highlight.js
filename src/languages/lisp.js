@@ -47,11 +47,11 @@ function(hljs) {
     contains: [NUMBER, STRING, VARIABLE, KEYWORD, QUOTED_LIST],
     variants: [
       {
-        begin: '[\'`]\\(', end: '\\)',
+        begin: '[\'`]\\(', end: '\\)'
       },
       {
         begin: '\\(quote ', end: '\\)',
-        keywords: {title: 'quote'},
+        keywords: {title: 'quote'}
       }
     ]
   };

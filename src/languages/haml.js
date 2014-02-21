@@ -106,7 +106,7 @@ function(hljs) {
                     relevance: 0
                   }
                 ]
-              },
+              }
             ]
           }
         ]

@@ -16,7 +16,7 @@ function(hljs) {
         'then to true try type val virtual when while with parser value',
       built_in:
         'bool char float int list unit array exn option int32 int64 nativeint ' +
-        'format4 format6 lazy_t in_channel out_channel string',
+        'format4 format6 lazy_t in_channel out_channel string'
     },
     illegal: /\/\//,
     contains: [

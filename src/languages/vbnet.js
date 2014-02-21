@@ -41,7 +41,7 @@ function(hljs) {
           {
             className: 'xmlDocTag',
             begin: '</?', end: '>'
-          },
+          }
           ]
       },
       hljs.C_NUMBER_MODE,
@@ -49,7 +49,7 @@ function(hljs) {
         className: 'preprocessor',
         begin: '#', end: '$',
         keywords: 'if else elseif end region externalsource'
-      },
+      }
     ]
   };
 }

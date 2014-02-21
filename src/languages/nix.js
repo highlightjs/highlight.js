@@ -21,7 +21,7 @@ function(hljs) {
   var ATTRS = {
     className: 'variable',
     // TODO: we have to figure out a way how to exclude \s*=
-    begin: /[a-zA-Z0-9-_]+(\s*=)/,
+    begin: /[a-zA-Z0-9-_]+(\s*=)/
   };
   var SINGLE_QUOTE = {
     className: 'string',
