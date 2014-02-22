@@ -1043,3 +1043,19 @@ Swift ("swift")
 * ``params``:           parameters of a function
 * ``type``:             a type
 * ``preprocessor``:     @attributes
+
+Dart ("dart")
+--------------------
+
+* ``keyword``:          keyword
+* ``literal``:          keyword that can be uses as identifier but have special meaning in some cases
+* ``built_id``:         some of basic built in classes and function
+* ``number``:           number
+* ``string``:           string
+* ``subst``:            in-string substitution (${...})
+* ``comment``:          commment
+* ``annotaion``:        annotation
+* ``dartdoc``:          dartdoc comment
+* ``class``:            class header from "class" till "{"
+* ``title``:            class name
+
