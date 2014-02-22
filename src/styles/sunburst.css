@@ -71,7 +71,8 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .smalltalk .hljs-class,
 .hljs-javadoctag,
 .hljs-yardoctag,
-.hljs-phpdoc {
+.hljs-phpdoc,
+.hljs-dartdoc {
   text-decoration: underline;
 }
 

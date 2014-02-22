@@ -3431,6 +3431,44 @@ if( propFile.canRead() ) {
 }
 </code></pre>
 
+  <tr>
+  <th>Dart</th>
+  <td class="dart">
+<pre>
+<code>library app;
+import 'dart:html';
+
+part 'app2.dart';
+
+/**
+ * Class description and [link](http://dartlang.org/).
+ */
+@Awesome('it works!')
+class SomeClass&lt;S extends Iterable&gt; extends BaseClass&lt;S&gt; implements Comparable {
+  factory SomeClass(num param);
+  SomeClass._internal(int q) : super() {
+    assert(q != 1);
+    double z = 0.0;
+  }
+
+  /// **Sum** function
+  int sum(int a, int b) =&gt; a + b;
+
+  ElementList els() => querySelectorAll('.dart');
+}
+
+String str = ' (${'parameter' + 'zxc'})';
+String str = " (${true ? 2 + 2 / 2 : null})";
+String str = r'\nraw\';
+String str = r"\nraw\";
+var str = '''
+Something ${2+3}
+''';
+var str = r"""
+Something ${2+3}
+""";
+</code></pre>
+
 </table>
 
 
