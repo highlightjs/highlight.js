@@ -49,6 +49,7 @@
   <link rel="alternate stylesheet" title="Paraíso - Light" href="styles/paraiso.light.css">
 
   <style>
+    /* Base styles */
     body {
       font: small Arial, sans-serif;
     }
@@ -58,7 +59,9 @@
       margin-bottom: 0.5em;
     }
     table {
-      width: 100%; padding: 0; border-collapse: collapse;
+      width: 100%;
+      padding: 0;
+      border-collapse: collapse;
     }
     th {
       width: 12em;
@@ -74,6 +77,7 @@
     pre {
       margin: 0; font-size: medium;
     }
+    /* Style switcher */
     #switch {
       overflow: auto; width: 67em;
       list-style: none;
@@ -88,6 +92,7 @@
     #switch li.current {
       background: #CCC;
     }
+    /* Tests */
     .test {
       color: #888;
       font-weight: normal;
@@ -99,7 +104,7 @@
     .passed {
       color: green;
     }
-    .failed {
+    .failed, .failed a {
       color: red;
     }
     .code {
@@ -108,6 +113,7 @@
     .code .hljs-keyword {
       font-weight: bold;
     }
+    /* Export form */
     #export_from, #export_to {
       width: 98%;
     }
@@ -194,25 +200,33 @@
       var table = document.getElementById('autotest');
       var tds = table.getElementsByTagName('TD');
       var failed = [];
+      var passed, result
       for (var i = 0; i < tds.length; i++) {
           var tdClass = tds[i].className;
-          if (!hljs.getLanguage(tdClass)) {
-              tds[i].parentNode.style.display = 'none';
-              continue;
+          tds[i].id = 'anchor-' + tdClass.replace(/[^\w]/, '-');
+          if (hljs.getLanguage(tdClass)) {
+              var code = tds[i].getElementsByTagName('CODE')[0];
+              var langClass = code.className.replace('hljs', '').trim();
+              passed = (tdClass == langClass);
+              result = document.createElement('DIV');
+              result.className = 'test';
+              result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + langClass + '</var>';
+              result.innerHTML += ' (' + code.result.re + ')';
+              if (code.second_best) {
+                  result.innerHTML += '<br>' + code.second_best.language + ' (' + code.second_best.re + ')';
+              }
+              tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
+          } else {
+              passed = false;
+              result = document.createElement('DIV');
+              result.className = 'test';
+              result.innerHTML = '<var class="failed">Unknown language "' + tdClass + '"</var>';
+              tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
+              // TODO: Remove this at all?
+              //tds[i].parentNode.style.display = 'none';
           }
-          var code = tds[i].getElementsByTagName('CODE')[0];
-          var langClass = code.className.replace('hljs', '').trim();
-          var passed = (tdClass == langClass);
-          var result = document.createElement('DIV');
-          result.className = 'test';
-          result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + langClass + '</var>';
-          result.innerHTML += ' (' + code.result.re + ')';
-          if (code.second_best) {
-              result.innerHTML += '<br>' + code.second_best.language + ' (' + code.second_best.re + ')';
-          }
-          tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
           if (!passed) {
-              failed.push(tdClass);
+              failed.push('<a href="#' + tds[i].id + '">' + tdClass + '</a>');
           }
       }
       var summary = document.getElementById('summary');
