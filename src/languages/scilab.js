@@ -41,8 +41,8 @@ function(hljs) {
           {
             className: 'params',
             begin: '\\(', end: '\\)'
-          },
-        ],
+          }
+        ]
       },
       {
         className: 'transposed_variable',
