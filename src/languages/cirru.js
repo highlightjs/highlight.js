@@ -16,14 +16,14 @@ function(hljs) {
         contains: [
           {
             className: 'keyword',
-            begin: /[^\(\)\$\s"]+/
+            begin: /[^\(\)\$\s"\,]+/
           }
         ]
       },
       {
         className: 'keyword',
-        begin: /^[^\(\)\$\s"]+/
-      },
+        begin: /^[^\(\)\$\s"\,]+/
+      }
     ]
   }
 }
