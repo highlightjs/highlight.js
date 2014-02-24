@@ -8,6 +8,12 @@ New features:
   Thanks to [Sindre Sorhus][] for background research.
 - Added phrasal English words to boost relevance in comments.
 - Include docs into the browser download and node.js package.
+- Many improvements to SQL definition made by [Heiko August][],
+  [Nikolay Lisienko][] and [Travis Odom][].
+
+[Heiko August]: https://github.com/auge8472
+[Nikolay Lisienko]: https://github.com/neor-ru
+[Travis Odom]: https://github.com/Burstaholic
 
 New languages and styles:
 
@@ -16,6 +22,7 @@ New languages and styles:
 - *VIM script* by [Jun Yang][]
 - *Protocol Buffers* by [Dan Tao][]
 - *Nix* by [Domen Kožar][]
+- *x86asm* by [innocenat][]
 
 [Sindre Sorhus]: https://github.com/sindresorhus
 [Josh Adams]: https://github.com/knewter
@@ -23,6 +30,7 @@ New languages and styles:
 [Jun Yang]: https://github.com/harttle
 [Dan Tao]: https://github.com/dtao
 [Domen Kožar]: https://github.com/iElectric
+[innocenat]: https://github.com/innocenat
 
 ## Version 8.0
 
