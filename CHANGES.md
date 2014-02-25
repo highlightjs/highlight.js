@@ -10,10 +10,14 @@ New features:
 - Include docs into the browser download and node.js package.
 - Many improvements to SQL definition made by [Heiko August][],
   [Nikolay Lisienko][] and [Travis Odom][].
+- Add shorted `lang-` prefix for specifying what language will be
+  highlighted.
+  Thanks to [Jeff Escalante][]
 
 [Heiko August]: https://github.com/auge8472
 [Nikolay Lisienko]: https://github.com/neor-ru
 [Travis Odom]: https://github.com/Burstaholic
+[Jeff Escalante]: https://github.com/jenius
 
 New languages and styles:
 
