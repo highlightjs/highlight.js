@@ -131,19 +131,9 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs,
-.javascript,
-.css,
-.xml,
 .hljs-subst,
 .diff .hljs-chunk,
 .css .hljs-value,
-.css .hljs-attribute,
-.lisp .hljs-string,
-.lisp .hljs-number,
-.tail .hljs-params,
-.hljs-container,
-.haskell *,
-.erlang *,
-.erlang_repl * {
+.css .hljs-attribute {
   color: #aaa;
 }
