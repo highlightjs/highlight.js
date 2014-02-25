@@ -11,8 +11,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 
 .hljs-comment,
 .hljs-template_comment,
-.hljs-javadoc,
-.hljs-comment * {
+.hljs-javadoc {
   color: #006a00;
 }
 

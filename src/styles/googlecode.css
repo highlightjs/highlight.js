@@ -11,8 +11,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 
 .hljs-comment,
 .hljs-template_comment,
-.hljs-javadoc,
-.hljs-comment * {
+.hljs-javadoc {
   color: #800;
 }
 
