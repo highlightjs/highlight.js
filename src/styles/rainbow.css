@@ -53,13 +53,11 @@ Style with support for rainbow parens
 .hljs-decorator,
 .hljs-built_in,
 .lisp .hljs-title,
-.hljs-identifier
-{
+.hljs-identifier {
   color: #b5bd68;
 }
 
-.hljs-class .hljs-keyword
-{
+.hljs-class .hljs-keyword {
   color: #f2777a;
 }
 

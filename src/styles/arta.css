@@ -3,16 +3,14 @@ Date: 17.V.2011
 Author: pumbur <pumbur@pumbur.net>
 */
 
-.hljs
-{
+.hljs {
   display: block; padding: 0.5em;
   background: #222;
 }
 
 .profile .hljs-header *,
 .ini .hljs-title,
-.nginx .hljs-title
-{
+.nginx .hljs-title {
   color: #fff;
 }
 
@@ -29,8 +27,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-tag,
 .hljs-template_comment,
 .css .hljs-rules,
-.tex .hljs-special
-{
+.tex .hljs-special {
   color: #444;
 }
 
@@ -43,14 +40,12 @@ Author: pumbur <pumbur@pumbur.net>
 .xml .hljs-value,
 .ini .hljs-value,
 .clojure .hljs-attribute,
-.coffeescript .hljs-attribute
-{
+.coffeescript .hljs-attribute {
   color: #ffcc33;
 }
 
 .hljs-number,
-.hljs-addition
-{
+.hljs-addition {
   color: #00cc66;
 }
 
@@ -71,8 +66,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-important,
 .hljs-flow,
 .hljs-inheritance,
-.parser3 .hljs-variable
-{
+.parser3 .hljs-variable {
   color: #32AAEE;
 }
 
@@ -88,8 +82,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-winutils,
 .tex .hljs-command,
 .hljs-request,
-.hljs-status
-{
+.hljs-status {
   color: #6644aa;
 }
 
@@ -114,8 +107,7 @@ Author: pumbur <pumbur@pumbur.net>
 .tail,
 .avrasm .hljs-label,
 .tex .hljs-formula,
-.tex .hljs-formula *
-{
+.tex .hljs-formula * {
   color: #bb1166;
 }
 
@@ -124,8 +116,7 @@ Author: pumbur <pumbur@pumbur.net>
 .profile .hljs-header,
 .ini .hljs-title,
 .apache .hljs-tag,
-.parser3 .hljs-title
-{
+.parser3 .hljs-title {
   font-weight: bold;
 }
 
@@ -135,8 +126,7 @@ Author: pumbur <pumbur@pumbur.net>
 .xml .javascript,
 .xml .vbscript,
 .xml .css,
-.xml .hljs-cdata
-{
+.xml .hljs-cdata {
   opacity: 0.6;
 }
 
@@ -154,7 +144,6 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-container,
 .haskell *,
 .erlang *,
-.erlang_repl *
-{
+.erlang_repl * {
   color: #aaa;
 }
