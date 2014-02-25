@@ -3,7 +3,8 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 */
 
 .hljs {
-  display: block; padding: 0.5em;
+  display: block;
+  padding: 0.5em;
   color: #000;
   background: #f8f8ff
 }

@@ -2,8 +2,10 @@
   Five-color theme from a single blue hue.
 */
 .hljs {
-  display: block; padding: 0.5em;
-  background: #EAEEF3; color: #00193A;
+  display: block;
+  padding: 0.5em;
+  background: #EAEEF3;
+  color: #00193A;
 }
 
 .hljs-keyword,

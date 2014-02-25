@@ -5,8 +5,10 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 */
 
 .hljs {
-  display: block; padding: 0.5em;
-  background: white; color: black;
+  display: block;
+  padding: 0.5em;
+  background: white;
+  color: black;
 }
 
 .hljs-comment,

@@ -6,7 +6,8 @@ based on dark.css by Ivan Sagalaev
 */
 
 .hljs {
-  display: block; padding: 0.5em;
+  display: block;
+  padding: 0.5em;
   background: #3F3F3F;
   color: #DCDCDC;
 }
