@@ -4,8 +4,10 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 
 */
 .hljs {
-  display: block; padding: 0.5em;
-  background: white; color: black;
+  display: block;
+  padding: 0.5em;
+  background: white;
+  color: black;
 }
 
 .hljs-comment,
@@ -82,6 +84,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .vhdl .hljs-typename { font-weight: bold; }
 .vhdl .hljs-string { color: #666666; }
 .vhdl .hljs-literal { color: #a31515; }
-.vhdl .hljs-attribute { color: #00B0E8; }
+.vhdl .hljs-attribute { color: #00b0e8; }
 
 .xml .hljs-attribute { color: #f00; }

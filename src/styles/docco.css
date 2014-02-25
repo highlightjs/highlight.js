@@ -3,9 +3,10 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 */
 
 .hljs {
-  display: block; padding: 0.5em;
+  display: block;
+  padding: 0.5em;
   color: #000;
-  background: #f8f8ff
+  background: #f8f8ff;
 }
 
 .hljs-comment,
@@ -13,7 +14,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 .diff .hljs-header,
 .hljs-javadoc {
   color: #408080;
-  font-style: italic
+  font-style: italic;
 }
 
 .hljs-keyword,
@@ -29,7 +30,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-number,
 .hljs-hexcolor {
-  color: #40a070
+  color: #40a070;
 }
 
 .hljs-string,
@@ -41,23 +42,23 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-title,
 .hljs-id {
-  color: #19469D;
+  color: #19469d;
 }
 .hljs-params {
-  color: #00F;
+  color: #00f;
 }
 
 .javascript .hljs-title,
 .lisp .hljs-title,
 .hljs-subst {
-  font-weight: normal
+  font-weight: normal;
 }
 
 .hljs-class .hljs-title,
 .haskell .hljs-label,
 .tex .hljs-command {
   color: #458;
-  font-weight: bold
+  font-weight: bold;
 }
 
 .hljs-tag,
@@ -65,23 +66,23 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 .hljs-rules .hljs-property,
 .django .hljs-tag .hljs-keyword {
   color: #000080;
-  font-weight: normal
+  font-weight: normal;
 }
 
 .hljs-attribute,
 .hljs-variable,
 .instancevar,
 .lisp .hljs-body {
-  color: #008080
+  color: #008080;
 }
 
 .hljs-regexp {
-  color: #B68
+  color: #b68;
 }
 
 .hljs-class {
   color: #458;
-  font-weight: bold
+  font-weight: bold;
 }
 
 .hljs-symbol,
@@ -91,14 +92,14 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 .lisp .hljs-keyword,
 .tex .hljs-special,
 .input_number {
-  color: #990073
+  color: #990073;
 }
 
 .builtin,
 .constructor,
 .hljs-built_in,
 .lisp .hljs-title {
-  color: #0086b3
+  color: #0086b3;
 }
 
 .hljs-preprocessor,
@@ -108,23 +109,23 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 .hljs-shebang,
 .hljs-cdata {
   color: #999;
-  font-weight: bold
+  font-weight: bold;
 }
 
 .hljs-deletion {
-  background: #fdd
+  background: #fdd;
 }
 
 .hljs-addition {
-  background: #dfd
+  background: #dfd;
 }
 
 .diff .hljs-change {
-  background: #0086b3
+  background: #0086b3;
 }
 
 .hljs-chunk {
-  color: #aaa
+  color: #aaa;
 }
 
 .tex .hljs-formula {

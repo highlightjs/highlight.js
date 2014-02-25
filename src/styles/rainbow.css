@@ -5,14 +5,16 @@ Style with support for rainbow parens
 */
 
 .hljs {
-  display: block; padding: 0.5em;
-  background: #474949; color: #D1D9E1;
+  display: block;
+  padding: 0.5em;
+  background: #474949;
+  color: #d1d9e1;
 }
 
 
 .hljs-body,
 .hljs-collection {
-   color: #D1D9E1;
+   color: #d1d9e1;
 }
 
 .hljs-comment,
@@ -53,13 +55,11 @@ Style with support for rainbow parens
 .hljs-decorator,
 .hljs-built_in,
 .lisp .hljs-title,
-.hljs-identifier
-{
+.hljs-identifier {
   color: #b5bd68;
 }
 
-.hljs-class .hljs-keyword
-{
+.hljs-class .hljs-keyword {
   color: #f2777a;
 }
 
