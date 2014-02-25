@@ -10,10 +10,14 @@ New features:
 - Include docs into the browser download and node.js package.
 - Many improvements to SQL definition made by [Heiko August][],
   [Nikolay Lisienko][] and [Travis Odom][].
+- Add shorted `lang-` prefix for specifying what language will be
+  highlighted.
+  Thanks to [Jeff Escalante][]
 
 [Heiko August]: https://github.com/auge8472
 [Nikolay Lisienko]: https://github.com/neor-ru
 [Travis Odom]: https://github.com/Burstaholic
+[Jeff Escalante]: https://github.com/jenius
 
 New languages and styles:
 
@@ -81,7 +85,7 @@ New features:
   aliases can be specified in the class attribute of the code container in your
   HTML as well as in various API calls. For now there are only a few very common
   aliases but we'll expand it in the future. All of them are listed in the
-  [class reference][].
+  [class reference][cr].
 
 - Language detection can now be restricted to a subset of languages relevant in
   a given context — a web page or even a single highlighting call. This is
