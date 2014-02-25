@@ -23,7 +23,7 @@ function() {
   function blockLanguage(block) {
     var classes = (block.className + ' ' + (block.parentNode ? block.parentNode.className : '')).split(/\s+/);
     classes = classes.map(function(c) {return c.replace(/^lang(uage)?-/, '');});
-    return classes.filter(function(c) {return getLanguage(c) || c == options.noHighlight;})[0];
+    return classes.filter(function(c) {return getLanguage(c) || c == options.classNoHighlight;})[0];
   }
 
   function inherit(parent, obj) {
@@ -507,7 +507,7 @@ function() {
       .replace(/\n/g,'').replace(/<br>|<br [^>]*>/g, '\n').replace(/<[^>]*>/g,'')
       : block.textContent;
     var language = blockLanguage(block);
-    if (language == options.noHighlight)
+    if (language == options.classNoHighlight)
         return;
     var result = language ? highlight(language, text, true) : highlightAuto(text);
     var original = nodeStream(block);
@@ -534,10 +534,10 @@ function() {
 
   var options = {
     classPrefix: 'hljs-',
+    classNoHighlight: "no-highlight"
     tabReplace: null,
     useBR: false,
-    languages: undefined,
-    noHighlight: "no-highlight"
+    languages: undefined
   };
 
   /*
