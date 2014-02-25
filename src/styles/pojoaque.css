@@ -9,7 +9,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs {
   display: block;
   padding: 0.5em;
-  color: #DCCF8F;
+  color: #dccf8f;
   background: url(./pojoaque.jpg) repeat scroll left top #181914;
 }
 
@@ -32,7 +32,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .css .hljs-tag,
 .clojure .hljs-title,
 .nginx .hljs-title {
-  color: #B64926;
+  color: #b64926;
 }
 
 .hljs-number,
@@ -56,7 +56,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .clojure .hljs-built_in,
 .hljs-identifier,
 .hljs-id {
-  color: #FFB03B;
+  color: #ffb03b;
 }
 
 .hljs-attribute,
@@ -76,7 +76,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 
 .css .hljs-number,
 .css .hljs-hexcolor {
-  color: #DCCF8F;
+  color: #dccf8f;
 }
 
 .css .hljs-class {

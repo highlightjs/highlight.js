@@ -8,13 +8,13 @@ Style with support for rainbow parens
   display: block;
   padding: 0.5em;
   background: #474949;
-  color: #D1D9E1;
+  color: #d1d9e1;
 }
 
 
 .hljs-body,
 .hljs-collection {
-   color: #D1D9E1;
+   color: #d1d9e1;
 }
 
 .hljs-comment,

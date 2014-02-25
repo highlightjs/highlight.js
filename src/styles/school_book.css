@@ -33,7 +33,7 @@ pre{
 .hljs,
 .hljs-subst,
 .hljs-tag .hljs-keyword {
-  color: #3E5915;
+  color: #3e5915;
 }
 
 .hljs-string,
@@ -65,7 +65,7 @@ pre{
 .nginx .hljs-built_in,
 .tex .hljs-command,
 .coffeescript .hljs-attribute {
-  color: #2C009F;
+  color: #2c009f;
 }
 
 .hljs-comment,
@@ -77,7 +77,7 @@ pre{
 .hljs-deletion,
 .hljs-shebang,
 .apache .hljs-sqbracket {
-  color: #E60415;
+  color: #e60415;
 }
 
 .hljs-keyword,

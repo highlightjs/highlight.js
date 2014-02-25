@@ -12,7 +12,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 
 .hljs,
 .hljs-subst {
-  color: #0FF;
+  color: #0ff;
 }
 
 .hljs-string,
@@ -35,7 +35,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .tex .hljs-command,
 .clojure .hljs-title,
 .coffeescript .hljs-attribute {
-  color: #FF0;
+  color: #ff0;
 }
 
 .hljs-keyword,
@@ -53,7 +53,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .bash .hljs-variable,
 .tex .hljs-special,
 .clojure .hljs-built_in {
-  color: #FFF;
+  color: #fff;
 }
 
 .hljs-comment,
@@ -74,7 +74,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .smalltalk .hljs-symbol,
 .smalltalk .hljs-char,
 .clojure .hljs-attribute {
-  color: #0F0;
+  color: #0f0;
 }
 
 .python .hljs-decorator,

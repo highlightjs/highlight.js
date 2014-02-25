@@ -42,10 +42,10 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-title,
 .hljs-id {
-  color: #19469D;
+  color: #19469d;
 }
 .hljs-params {
-  color: #00F;
+  color: #00f;
 }
 
 .javascript .hljs-title,
@@ -77,7 +77,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-regexp {
-  color: #B68;
+  color: #b68;
 }
 
 .hljs-class {

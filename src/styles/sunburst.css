@@ -23,14 +23,14 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-request,
 .hljs-status,
 .nginx .hljs-title {
-  color: #E28964;
+  color: #e28964;
 }
 
 .hljs-function .hljs-keyword,
 .hljs-sub .hljs-keyword,
 .method,
 .hljs-list .hljs-title {
-  color: #99CF50;
+  color: #99cf50;
 }
 
 .hljs-string,
@@ -42,15 +42,15 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-date,
 .tex .hljs-command,
 .coffeescript .hljs-attribute {
-  color: #65B042;
+  color: #65b042;
 }
 
 .hljs-subst {
-  color: #DAEFA3;
+  color: #daefa3;
 }
 
 .hljs-regexp {
-  color: #E9C062;
+  color: #e9c062;
 }
 
 .hljs-title,
@@ -61,7 +61,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-decorator,
 .hljs-shebang,
 .hljs-prompt {
-  color: #89BDFF;
+  color: #89bdff;
 }
 
 .hljs-class .hljs-title,
@@ -76,79 +76,79 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-symbol,
 .ruby .hljs-symbol .hljs-string,
 .hljs-number {
-  color: #3387CC;
+  color: #3387cc;
 }
 
 .hljs-params,
 .hljs-variable,
 .clojure .hljs-attribute {
-  color: #3E87E3;
+  color: #3e87e3;
 }
 
 .css .hljs-tag,
 .hljs-rules .hljs-property,
 .hljs-pseudo,
 .tex .hljs-special {
-  color: #CDA869;
+  color: #cda869;
 }
 
 .css .hljs-class {
-  color: #9B703F;
+  color: #9b703f;
 }
 
 .hljs-rules .hljs-keyword {
-  color: #C5AF75;
+  color: #c5af75;
 }
 
 .hljs-rules .hljs-value {
-  color: #CF6A4C;
+  color: #cf6a4c;
 }
 
 .css .hljs-id {
-  color: #8B98AB;
+  color: #8b98ab;
 }
 
 .hljs-annotation,
 .apache .hljs-sqbracket,
 .nginx .hljs-built_in {
-  color: #9B859D;
+  color: #9b859d;
 }
 
 .hljs-preprocessor,
 .hljs-pragma {
-  color: #8996A8;
+  color: #8996a8;
 }
 
 .hljs-hexcolor,
 .css .hljs-value .hljs-number {
-  color: #DD7B3B;
+  color: #dd7b3b;
 }
 
 .css .hljs-function {
-  color: #DAD085;
+  color: #dad085;
 }
 
 .diff .hljs-header,
 .hljs-chunk,
 .tex .hljs-formula {
-  background-color: #0E2231;
-  color: #F8F8F8;
+  background-color: #0e2231;
+  color: #f8f8f8;
   font-style: italic;
 }
 
 .diff .hljs-change {
-  background-color: #4A410D;
-  color: #F8F8F8;
+  background-color: #4a410d;
+  color: #f8f8f8;
 }
 
 .hljs-addition {
-  background-color: #253B22;
-  color: #F8F8F8;
+  background-color: #253b22;
+  color: #f8f8f8;
 }
 
 .hljs-deletion {
-  background-color: #420E09;
-  color: #F8F8F8;
+  background-color: #420e09;
+  color: #f8f8f8;
 }
 
 .coffeescript .javascript,
