@@ -216,17 +216,11 @@
                   result.innerHTML += '<br>' + code.second_best.language + ' (' + code.second_best.re + ')';
               }
               tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
+	      if (!passed) {
+	          failed.push('<a href="#' + tds[i].id + '">' + tdClass + '</a>');
+	      }
           } else {
-              passed = false;
-              result = document.createElement('DIV');
-              result.className = 'test';
-              result.innerHTML = '<var class="failed">Unknown language "' + tdClass + '"</var>';
-              tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
-              // TODO: Remove this at all?
-              //tds[i].parentNode.style.display = 'none';
-          }
-          if (!passed) {
-              failed.push('<a href="#' + tds[i].id + '">' + tdClass + '</a>');
+              tds[i].parentNode.style.display = 'none';
           }
       }
       var summary = document.getElementById('summary');
