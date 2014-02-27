@@ -61,6 +61,7 @@ Configures global options:
 * ``tabReplace``: a string used to replace TAB characters in indentation.
 * ``useBR``: a flag to generate ``<br>`` tags instead of new-line characters in the output, useful when code is marked up using a non-``<pre>`` container.
 * ``classPrefix``: a sting prefix added before class names in the generated markup, used for backwards compatibility with stylesheets.
+* ``classNoHighlight``: a string used to prevent a code block from syntax highlighting when set to ``class`` attribute for ``<code>``, used for compatibility issues with Markdown which may fail to compile HTML with the default value ``no-highlight``.
 * ``languages``: an array of language names and aliases restricting auto detection to only these languages.
 
 Accepts an object representing options with the values to updated. Other options don't change
