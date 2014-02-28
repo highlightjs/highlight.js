@@ -3,9 +3,15 @@
  Contributor: Benjamin Auder <benjamin.auder@gmail.com>
  Based on languages/sql.js by Nikolay Lisienko, Heiko August and Travis Odom
  
- LIMITATIONS : 1) There are no beginKeywords, because finding the correct ending seems tricky.
+ LIMITATIONS : 1) There are no beginKeywords, because finding the correct ending seems tricky
                2) PL/pgSQL strings with dollar delimiters are not displayed as strings.
-                  However, it might be better like this since functions bodies get highlighted.     
+                  However, it might be better like this since functions bodies get highlighted
+ 
+ TODO : 1) Split keywords/functions, and complete functions list (string_agg, ...etc)
+        2) Recognize all functions by matching func_name open_parenthesis .* open_parenthesis
+ 
+ NOTE : 1) Constants were grouped into a 'literal' list in the original file sql.js
+        2) Type names were grouped into a 'built_in' list in the original file sql.js
 */
 
 function(hljs) {
@@ -27,10 +33,10 @@ function(hljs) {
       'databases datalength date_add date_format date_sub dateadd datediff datefromparts datename ' +
       'datepart datetime2fromparts datetimeoffsetfromparts day dayname dayofmonth dayofweek dayofyear ' +
       'deallocate declare decode default deferrable deferred degrees delayed delete des_decrypt ' +
-      'des_encrypt des_key_file desc describe descriptor diagnostics difference disconnect distinct ' +
-      'distinctrow div do domain double drop dumpfile each else elt enclosed encode encrypt end end-exec ' +
+      'des_encrypt des_key_file desc describe descriptor diagnostics difference disable disconnect distinct ' +
+      'distinctrow div do domain double drop dumpfile each else elt enable enclosed encode encrypt end end-exec ' +
       'engine engines eomonth errors escape escaped event eventdata events except exception exec execute ' +
-      'exists exp explain export_set extended external extract fast fetch field fields find_in_set ' +
+      'exists exit exp explain export_set extended external extract fast fetch field fields find_in_set ' +
       'first first_value floor flush for force foreign format found found_rows from from_base64 ' +
       'from_days from_unixtime full function get get_format get_lock getdate getutcdate global go goto grant ' +
       'grants greatest group group_concat grouping grouping_id gtid_subset gtid_subtract handler having help ' +
@@ -40,14 +46,14 @@ function(hljs) {
       'is_ipv4_compat is_ipv4_mapped is_not is_not_null is_used_lock isdate isnull isolation join key kill ' +
       'language last last_day last_insert_id last_value lcase lead leading least leaves left len lenght level ' +
       'like limit lines ln load load_file local localtime localtimestamp locate lock log log10 log2 logfile ' +
-      'logs low_priority lower lpad ltrim make_set makedate maketime master master_pos_wait match matched max ' +
+      'logs loop low_priority lower lpad ltrim make_set makedate maketime master master_pos_wait match matched max ' +
       'md5 medium merge microsecond mid min minute mod mode module month monthname mutex name_const names ' +
-      'national natural nchar next no no_write_to_binlog not now nullif nvarchar oct ' +
+      'national natural nchar next no no_write_to_binlog not notice now nullif nvarchar oct ' +
       'octet_length of old_password on only open optimize option optionally or ord order outer outfile output ' +
-      'pad parse partial partition password patindex percent_rank percentile_cont percentile_disc period_add ' +
-      'period_diff perform pi plugin position pow power pragma precision prepare preserve primary prior privileges ' +
+      'pad parse partial partition password patindex percent_rank percentile_cont percentile_disc perform period_add ' +
+      'period_diff pi plugin position pow power pragma precision prepare preserve primary prior privileges ' +
       'procedure procedure_analyze processlist profile profiles public publishingservername purge quarter ' +
-      'query quick quote quotename radians rand read references regexp relative relaylog release ' +
+      'query quick quote quotename radians raise rand read recursive references regexp relative relaylog release ' +
       'release_lock rename repair repeat replace replicate reset restore restrict return returns reverse ' +
       'revoke right rlike rollback rollup round row row_count rows rpad rtrim savepoint schema scroll ' +
       'sec_to_time second section select serializable server session session_user set sha sha1 sha2 share ' +
@@ -65,11 +71,11 @@ function(hljs) {
       'validate_password_strength value values var var_pop var_samp variables variance varp ' +
       'version view warnings week weekday weekofyear weight_string when whenever where with work write xml ' +
       'xor year yearweek zon',
-    constant: /* formerly into 'literal' list */
+    constant:
       'true false null',
-    typename: /* formerly into 'built_in' list */
+    typename:
       'array bigint binary bit blob boolean char character date dec decimal float int integer interval number ' +
-      'numeric real serial smallint varchar varying int8 serial8 text'
+      'numeric real serial smallint varchar varying void int8 serial8 text'
   };
   return {
     case_insensitive: true,
