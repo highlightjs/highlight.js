@@ -45,7 +45,7 @@ function(hljs) {
       'national natural nchar next no no_write_to_binlog not now nullif nvarchar oct ' +
       'octet_length of old_password on only open optimize option optionally or ord order outer outfile output ' +
       'pad parse partial partition password patindex percent_rank percentile_cont percentile_disc period_add ' +
-      'period_diff pi plugin position pow power pragma precision prepare preserve primary prior privileges ' +
+      'period_diff perform pi plugin position pow power pragma precision prepare preserve primary prior privileges ' +
       'procedure procedure_analyze processlist profile profiles public publishingservername purge quarter ' +
       'query quick quote quotename radians rand read references regexp relative relaylog release ' +
       'release_lock rename repair repeat replace replicate reset restore restrict return returns reverse ' +
