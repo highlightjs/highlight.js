@@ -3310,6 +3310,17 @@ caption:db      'SEGV',0
 section .drectve info
         db      '/defaultlib:user32.lib /defaultlib:msvcrt.lib '
 </code></pre>
+<tr>
+    <th>Q/KDB+
+    <td class="q">
+<pre><code>
+select time, price by stock from quote
+value flip trade
+select vwap:size wavg price by 5 xbar time.minute from aapl
+f1:{[x;y;z] show (x;y+z);sum 1 2 3}
+</code></pre>
+
+
 
   <tr>
   <th>Monkey

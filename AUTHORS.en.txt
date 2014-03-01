@@ -121,3 +121,4 @@ Contributors:
 - Erik Osheim <d_m@plastic-idolatry.com>
 - Guillaume Laforge <glaforge@gmail.com>
 - Lucas Mazza <lucastmazza@gmail.com>
+- Sergey Vidyuk <svidyuk@gmail.com>
