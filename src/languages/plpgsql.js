@@ -69,7 +69,7 @@ function(hljs) {
       'uncompressed_length unhex unicode uninstall union unique unix_timestamp unknown unlock update upgrade ' +
       'upped upper usage use user user_resources using utc_date utc_time utc_timestamp uuid uuid_short ' +
       'validate_password_strength value values var var_pop var_samp variables variance varp ' +
-      'version view warnings week weekday weekofyear weight_string when whenever where with work write xml ' +
+      'version view warnings week weekday weekofyear weight_string when whenever where while with work write xml ' +
       'xor year yearweek zon',
     constant:
       'true false null',
