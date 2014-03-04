@@ -150,10 +150,10 @@ To disable highlighting of a fragment altogether use "no-highlight" class:
 <pre><code class="no-highlight">...</code></pre>
 ```
 
-Or you may specify a customized class name in the config that will be interpreted as no highlight:
+Or you may specify an array of customized class names in the config that will be interpreted as no highlight:
 
 ```javascript
-hljs.configure({classNoHighlight: "text"});
+hljs.configure({ ignore: ['no-highlight', 'text'] });
 ```
 
 [sem]: http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-code-element
