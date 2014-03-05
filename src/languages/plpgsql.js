@@ -34,7 +34,7 @@ function(hljs) {
       'datepart datetime2fromparts datetimeoffsetfromparts day dayname dayofmonth dayofweek dayofyear ' +
       'deallocate declare decode default deferrable deferred degrees delayed delete des_decrypt ' +
       'des_encrypt des_key_file desc describe descriptor diagnostics difference disable disconnect distinct ' +
-      'distinctrow div do domain double drop dumpfile each else elt enable enclosed encode encrypt end end-exec ' +
+      'distinctrow div do domain double drop dumpfile each else elsif elt enable enclosed encode encrypt end end-exec ' +
       'engine engines eomonth errors escape escaped event eventdata events except exception exec execute ' +
       'exists exit exp explain export_set extended external extract fast fetch field fields find_in_set ' +
       'first first_value floor flush for force foreign format found found_rows from from_base64 ' +
