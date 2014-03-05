@@ -534,7 +534,7 @@ function() {
 
   var options = {
     classPrefix: 'hljs-',
-    ignore: ['no-highligh', 'text'],
+    ignore: ['no-highlight', 'text'],
     tabReplace: null,
     useBR: false,
     languages: undefined
