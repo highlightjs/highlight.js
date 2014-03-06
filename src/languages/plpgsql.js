@@ -56,7 +56,7 @@ function(hljs) {
       'query quick quote quotename radians raise rand read recursive references regexp relative relaylog release ' +
       'release_lock rename repair repeat replace replicate reset restore restrict return returns reverse ' +
       'revoke right rlike rollback rollup round row row_count rows rpad rtrim savepoint schema scroll ' +
-      'sec_to_time second section select serializable server session session_user set sha sha1 sha2 share ' +
+      'sec_to_time second section select serializable server session session_user set setof sha sha1 sha2 share ' +
       'show sign sin size slave sleep smalldatetimefromparts snapshot some soname soundex ' +
       'sounds_like space sql sql_big_result sql_buffer_result sql_cache sql_calc_found_rows sql_no_cache ' +
       'sql_small_result sql_variant_property sqlstate sqrt square start starting status std ' +
@@ -74,8 +74,8 @@ function(hljs) {
     constant:
       'true false null',
     typename:
-      'array bigint binary bit blob boolean char character date dec decimal float int integer interval number ' +
-      'numeric real serial smallint varchar varying void int8 serial8 text'
+      'array bigint binary bit blob boolean char character date dec decimal float int int8 integer interval number ' +
+      'numeric real record serial serial8 smallint text varchar varying void'
   };
   return {
     case_insensitive: true,
