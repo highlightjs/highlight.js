@@ -17,8 +17,7 @@ function(hljs) {
 
   var IDENT_TYPE_MODE =  {
     className: 'built_in',
-    begin: ':',
-    end: hljs.UNDERSCORE_IDENT_RE + '\\b',
+    begin: ':', end: '=|' + hljs.UNDERSCORE_IDENT_RE + '\\b',
     excludeBegin: true,
     relevance: 0
   }
