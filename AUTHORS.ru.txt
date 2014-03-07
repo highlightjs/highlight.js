@@ -107,3 +107,4 @@ URL:   http://highlightjs.org/
 - Домен Кожар <domen@dev.si>
 - Трэвис Одом <travis.a.odom@gmail.com>
 - innocenat <innocenat@gmail.com>
+- Артур Бикмуллин <devolonter@gmail.com>

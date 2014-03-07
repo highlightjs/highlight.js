@@ -917,6 +917,22 @@ AutoHotkey ("autohotkey")
 * ``var_expand``:       variable expansion (enclosed in percent sign)
 * ``label``:            label, hotkey label, hotstring label
 
+Monkey ("monkey")
+-----------------
+
+* ``keyword``:          keyword
+* ``built_in``:         built-in functions, variables and types of variables
+* ``literal``:          True, False, Null, And, Or, Shl, Shr, Mod
+* ``string``:           string
+* ``comment``:          comment
+* ``number``:           number
+* ``function``:         header of a function, method and constructor
+* ``class``:            class header
+* ``title``:            name of an alias, class, interface, function or method inside a header
+* ``variable``:         self and super keywords
+* ``preprocessor``:     import and preprocessor
+* ``pi``:               Strict directive
+
 FIX ("fix")
 -----------
 
