@@ -49,7 +49,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function method', end: '\\(',
+        beginKeywords: 'function method', end: '[(=]|$',
         relevance: 1,
         contains: [
           hljs.UNDERSCORE_TITLE_MODE,
