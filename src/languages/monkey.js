@@ -28,10 +28,10 @@ function(hljs) {
     case_insensitive: true,
     keywords: {
       keyword: 'public private property continue exit extern new try catch ' +
-        'eachin not abstract final select case default const local global field ' +
-        'end if then else elseif endif while wend repeat until forever for to step next return module inline throw',
+        'eachin|5 not abstract final select|2 case default const local|3 global field|3 ' +
+        'end if then else elseif endif while wend repeat until forever|2 for to step next return module inline throw',
 
-      built_in: 'DebugLog DebugStop Error Print ACos ACosr ASin ASinr ATan ATan2 ATan2r ATanr Abs Abs Ceil ' +
+      built_in: 'DebugLog|2 DebugStop|2 Error Print ACos ACosr ASin ASinr ATan ATan2 ATan2r ATanr Abs Abs Ceil ' +
         'Clamp Clamp Cos Cosr Exp Floor Log Max Max Min Min Pow Sgn Sgn Sin Sinr Sqrt Tan Tanr Seed PI HALFPI TWOPI',
 
       literal: 'true false null and or shl shr mod'
@@ -49,8 +49,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function method', end: '[(=]|$',
-        relevance: 1,
+        beginKeywords: 'function method|3', end: '[(=]|$',
         contains: [
           hljs.UNDERSCORE_TITLE_MODE,
           IDENT_TYPE_MODE
@@ -60,7 +59,6 @@ function(hljs) {
         className: 'function',
         beginKeywords: 'new', end: '[();]|$',
         excludeEnd: true,
-        relevance: 1,
         contains: [
           {
             className: 'built_in',
@@ -89,8 +87,7 @@ function(hljs) {
       {
         className: 'preprocessor',
         beginKeywords: 'import',
-        end: '$',
-        relevance: 1
+        end: '$'
       },
       {
         className: 'preprocessor',
@@ -101,16 +98,12 @@ function(hljs) {
       {
         className: 'pi',
         begin: '^\\s*strict\\b',
-        relevance: 5
+        relevance: 2
       },
       {
         beginKeywords: 'alias', end: '=',
-        relevance: 10,
+        relevance: 5,
         contains: [hljs.UNDERSCORE_TITLE_MODE]
-      },
-      {
-        beginKeywords: 'local field method', // No markup, just a relevance booster
-        relevance: 10
       },
       IDENT_TYPE_MODE,
       hljs.QUOTE_STRING_MODE,
