@@ -8,8 +8,7 @@ function(hljs) {
     variants: [
       {
         className: 'number',
-        begin: '[$][a-fA-F0-9]+',
-        relevance: 5
+        begin: '[$][a-fA-F0-9]+'
       },
       hljs.NUMBER_MODE
     ]
@@ -38,8 +37,7 @@ function(hljs) {
     contains: [
       {
         className: 'comment',
-        begin: '#rem', end: '#end',
-        relevance: 5
+        begin: '#rem', end: '#end'
       },
       {
         className: 'comment',
@@ -48,7 +46,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function method|3', end: '[(=]|$',
+        beginKeywords: 'function method', end: '[(=]|$',
         contains: [
           hljs.UNDERSCORE_TITLE_MODE,
           IDENT_TYPE_MODE
@@ -68,20 +66,17 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '$', excludeEnd: true,
-        relevance: 1,
+        beginKeywords: 'class interface', end: '$',
         contains: [
           {
-            beginKeywords: 'extends implements',
-            relevance: 2
+            beginKeywords: 'extends implements'
           },
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       {
         className: 'variable',
-        begin: '\\b(self|super)\\b',
-        relevance: 0
+        begin: '\\b(self|super)\\b'
       },
       {
         className: 'preprocessor',
@@ -91,17 +86,14 @@ function(hljs) {
       {
         className: 'preprocessor',
         begin: '\\s*#', end: '$',
-        keywords: 'if else elseif endif end then',
-        relevance: 0
+        keywords: 'if else elseif endif end then'
       },
       {
         className: 'pi',
-        begin: '^\\s*strict\\b',
-        relevance: 2
+        begin: '^\\s*strict\\b'
       },
       {
         beginKeywords: 'alias', end: '=',
-        relevance: 5,
         contains: [hljs.UNDERSCORE_TITLE_MODE]
       },
       IDENT_TYPE_MODE,
