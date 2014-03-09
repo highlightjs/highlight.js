@@ -26,10 +26,10 @@ function(hljs) {
     case_insensitive: true,
     keywords: {
       keyword: 'public private property continue exit extern new try catch ' +
-        'eachin|5 not abstract final select|2 case default const local|3 global field|3 ' +
-        'end if then else elseif endif while wend repeat until forever|2 for to step next return module inline throw',
+        'eachin not abstract final select case default const local global field ' +
+        'end if then else elseif endif while wend repeat until forever for to step next return module inline throw',
 
-      built_in: 'DebugLog|2 DebugStop|2 Error Print ACos ACosr ASin ASinr ATan ATan2 ATan2r ATanr Abs Abs Ceil ' +
+      built_in: 'DebugLog DebugStop Error Print ACos ACosr ASin ASinr ATan ATan2 ATan2r ATanr Abs Abs Ceil ' +
         'Clamp Clamp Cos Cosr Exp Floor Log Max Max Min Min Pow Sgn Sgn Sin Sinr Sqrt Tan Tanr Seed PI HALFPI TWOPI',
 
       literal: 'true false null and or shl shr mod'
