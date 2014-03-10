@@ -65,9 +65,13 @@ function(hljs) {
       },
       {
         className: 'cell',
-        begin: '\\{', end: '\\}\'*[\\.\']*',
+        begin: '\\{',
         contains: COMMON_CONTAINS,
-        illegal: /:/
+        illegal: /:/,
+        variants: [
+          {end: /\}'[\.']*/},
+          {end: /\}/, relevance: 0}
+        ]
       },
       {
         className: 'comment',

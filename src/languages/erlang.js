@@ -17,8 +17,7 @@ function(hljs) {
 
   var COMMENT = {
     className: 'comment',
-    begin: '%', end: '$',
-    relevance: 0
+    begin: '%', end: '$'
   };
   var NUMBER = {
     className: 'number',
@@ -154,7 +153,8 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       RECORD_ACCESS,
       VAR1, VAR2,
-      TUPLE
+      TUPLE,
+      {begin: /\.$/} // relevance booster
     ]
   };
 }

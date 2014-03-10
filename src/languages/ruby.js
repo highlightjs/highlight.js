@@ -45,26 +45,11 @@ function(hljs) {
       {begin: '%[qw]?\\(', end: '\\)'},
       {begin: '%[qw]?\\[', end: '\\]'},
       {begin: '%[qw]?{', end: '}'},
-      {
-        begin: '%[qw]?<', end: '>',
-        relevance: 10
-      },
-      {
-        begin: '%[qw]?/', end: '/',
-        relevance: 10
-      },
-      {
-        begin: '%[qw]?%', end: '%',
-        relevance: 10
-      },
-      {
-        begin: '%[qw]?-', end: '-',
-        relevance: 10
-      },
-      {
-        begin: '%[qw]?\\|', end: '\\|',
-        relevance: 10
-      },
+      {begin: '%[qw]?<', end: '>'},
+      {begin: '%[qw]?/', end: '/'},
+      {begin: '%[qw]?%', end: '%'},
+      {begin: '%[qw]?-', end: '-'},
+      {begin: '%[qw]?\\|', end: '\\|'},
       {
         // \B in the beginning suppresses recognition of ?-sequences where ?
         // is the last character of a preceding identifier, as in: `func?4`
