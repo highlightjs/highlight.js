@@ -938,3 +938,11 @@ FIX ("fix")
 
 * ``attribute``:        attribute name
 * ``string``:           attribute value
+
+Gherkin ("gherkin")
+----------------------------------
+
+* ``keyword``:          keyword
+* ``number``:           number
+* ``comment``:          comment
+* ``string``:           string
