@@ -276,6 +276,57 @@ Most snippets do not contain working code :-).
 <p id="summary">...</p>
 <table id="autotest">
   <tr>
+    <th>Gherkin
+    <td class="gherkin">
+<pre>
+<code># language: en
+Feature: Addition
+  In order to avoid silly mistakes
+  As a math idiot
+  I want to be told the sum of two numbers
+
+  @this_is_a_tag
+  Scenario Outline: Add two numbers
+    * I have a calculator
+    Given I have entered &lt;input_1&gt; into the calculator
+    And I have entered &lt;input_2&gt; into the calculator
+    When I press &lt;button&gt;
+    Then the result should be &lt;output&gt; on the screen
+    And I have a string like
+    """
+    Here is
+    some
+    multiline text
+    """
+
+  Examples:
+    | input_1 | input_2 | button | output |
+    | 20      | 30      | add    | 50     |
+    | 2       | 5       | add    | 7      |
+    | 0       | 40      | add    | 40     |</code>
+</pre>
+<tr>
+  <th>Gherkin step definitions
+  <td class="step_definitions">
+<pre><code>Before do
+  @calc = Calculator.new
+end
+
+After do
+end
+
+Given /^I have entered (\d+) into the calculator$/ do |n|
+  @calc.push n.to_i
+end
+
+When /^I press (\w+)$/ do |op|
+  @result = @calc.send op
+end
+
+Then /^the result should be (.*) on the screen$/ do |result|
+  @result.should == result.to_f
+end</code></pre>
+  <tr>
     <th>Python
     <td class="python">
 <pre>
