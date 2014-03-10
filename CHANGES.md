@@ -8,6 +8,7 @@ New features:
   Thanks to [Sindre Sorhus][] for background research.
 - Added phrasal English words to boost relevance in comments.
 - Include docs into the browser download and node.js package.
+- Ruby's got support for interactive console sessions. [Pascal Hurni][]
 
 New languages and styles:
 
@@ -15,7 +16,6 @@ New languages and styles:
 - *NSIS* by [Jan T. Sott][]
 - *VIM script* by [Jun Yang][]
 - *Protocol Buffers* by [Dan Tao][]
-- *Ruby Console* by [Pascal Hurni][]
 
 [Sindre Sorhus]: https://github.com/sindresorhus
 [Josh Adams]: https://github.com/knewter
