@@ -29,7 +29,6 @@ function (hljs) {
         className: 'string',
         begin: '"""', end: '"""'
       },
-      hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE
     ]
   };
