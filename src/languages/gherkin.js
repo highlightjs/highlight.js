@@ -18,8 +18,8 @@ function (hljs) {
       },
       {
         className: 'string',
-        begin: '\\|', end: '\\$',
-        relevance: 10
+        begin: '\\|',
+        relevance: 0
       },
       {
         className: 'variable',
@@ -31,7 +31,6 @@ function (hljs) {
         begin: '"""', end: '"""',
         relevance: 0
       },
-      hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE
     ]
   };
