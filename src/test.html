@@ -429,7 +429,7 @@ in stdenv.mkDerivation rec {
 
   postInstall = ''
     ${ if true then "--${test}" else false }
-  '';  
+  '';
 
   meta = with stdenv.lib; {
     homepage = https://nixos.org;

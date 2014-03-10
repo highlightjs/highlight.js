@@ -35,7 +35,7 @@ function(hljs) {
         'get given global if ignoring in into is it its last local me ' +
         'middle mod my ninth not of on onto or over prop property put ref ' +
         'reference repeat returning script second set seventh since ' +
-        'sixth some tell tenth that the then third through thru ' +
+        'sixth some tell tenth that the|0 then third through thru ' +
         'timeout times to transaction try until where while whose with ' +
         'without',
       constant:

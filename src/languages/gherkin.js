@@ -18,8 +18,7 @@ function (hljs) {
       },
       {
         className: 'string',
-        begin: '\\|', end: '\\$',
-        relevance: 10
+        begin: '\\|', end: '\\$'
       },
       {
         className: 'variable',
@@ -28,8 +27,7 @@ function (hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         className: 'string',
-        begin: '"""', end: '"""',
-        relevance: 0
+        begin: '"""', end: '"""'
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE
