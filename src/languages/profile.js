@@ -37,11 +37,9 @@ function(hljs) {
       {
         className: 'function',
         begin: '\\(', end: '\\)$',
-        contains: [{
-          className: 'title',
-          begin: hljs.UNDERSCORE_IDENT_RE,
-          relevance: 0
-        }],
+        contains: [
+          hljs.UNDERSCORE_TITLE_MODE
+        ],
         relevance: 0
       }
     ]

@@ -23,7 +23,7 @@ function(hljs) {
     }
   ]
   return {
-    lexems: hljs.UNDERSCORE_IDENT_RE,
+    lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords: {
       keyword:
         'and break do else elseif end false for if in local nil not or repeat return then ' +
@@ -37,13 +37,9 @@ function(hljs) {
     contains: COMMENTS.concat([
       {
         className: 'function',
-        beginWithKeyword: true, end: '\\)',
-        keywords: 'function',
+        beginKeywords: 'function', end: '\\)',
         contains: [
-          {
-            className: 'title',
-            begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'
-          },
+          hljs.inherit(hljs.TITLE_MODE, {begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'}),
           {
             className: 'params',
             begin: '\\(', endsWithParent: true,

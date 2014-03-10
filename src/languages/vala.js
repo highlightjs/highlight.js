@@ -29,14 +29,10 @@ function(hljs) {
     contains: [
       {
         className: 'class',
-        beginWithKeyword: true, end: '{',
-        keywords: 'class interface delegate namespace',
+        beginKeywords: 'class interface delegate namespace', end: '{', excludeEnd: true,
         illegal: '[^,:\\n\\s\\.]',
         contains: [
-          {
-            className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          }
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       hljs.C_LINE_COMMENT_MODE,

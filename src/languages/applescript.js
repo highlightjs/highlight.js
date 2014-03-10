@@ -6,9 +6,6 @@ Authors: Nathan Grigg <nathan@nathanamy.org>
 
 function(hljs) {
   var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: ''});
-  var TITLE = {
-    className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
-  };
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)',
@@ -17,7 +14,7 @@ function(hljs) {
   var COMMENTS = [
     {
       className: 'comment',
-      begin: '--', end: '$',
+      begin: '--', end: '$'
     },
     {
       className: 'comment',
@@ -28,6 +25,7 @@ function(hljs) {
   ];
 
   return {
+    aliases: ['osascript'],
     keywords: {
       keyword:
         'about above after against and around as at back before beginning ' +
@@ -93,10 +91,9 @@ function(hljs) {
       },
       {
         className: 'function_start',
-        beginWithKeyword: true,
-        keywords: 'on',
+        beginKeywords: 'on',
         illegal: '[${=;\\n]',
-        contains: [TITLE, PARAMS]
+        contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       }
     ].concat(COMMENTS),
     illegal: '//'

@@ -24,13 +24,13 @@ If you use different markup or need to apply highlighting dynamically, read
 
 - You can download your own customized version of "highlight.pack.js" or
   use the hosted one as described on the download page:
-  <http://softwaremaniacs.org/soft/highlight/en/download/>
+  <http://highlightjs.org/download/>
 
 - Style themes are available in the download package or as hosted files.
   To create a custom style for your site see the class reference in the file
-  [classref.txt][cr] from the downloaded package.
+  [CSS classes reference][cr] from the downloaded package.
 
-[cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
+[cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 
 
 ## node.js
@@ -89,9 +89,9 @@ styling:
 
 ```html
 <script type="text/javascript">
-  hljs.tabReplace = '    '; // 4 spaces
+  hljs.configure({tabReplace: '    '}); // 4 spaces
   // ... or
-  hljs.tabReplace = '<span class="indent">\t</span>';
+  hljs.configure({tabReplace: '<span class="indent">\t</span>'});
 
   hljs.initHighlightingOnLoad();
 </script>
@@ -100,9 +100,8 @@ styling:
 ## Custom initialization
 
 If you use different markup for code blocks you can initialize them manually
-with `highlightBlock(code, tabReplace, useBR)` function. It takes a DOM element
-containing the code to highlight and optionally a string with which to replace
-TAB characters.
+with `highlightBlock(code)` function.
+It takes a DOM element containing the code to highlight.
 
 Initialization using, for example, jQuery might look like this:
 
@@ -117,11 +116,11 @@ the page. Just make sure you don't do it twice for already highlighted
 blocks.
 
 If your code container relies on `<br>` tags instead of line breaks (i.e. if
-it's not `<pre>`) pass `true` into the third parameter of `highlightBlock`
-to make highlight.js use `<br>` in the output:
+it's not `<pre>`) set the `useBR` option to `true`:
 
 ```javascript
-$('div.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
+hljs.configure({useBR: true});
+$('div.code').each(function(i, e) {hljs.highlightBlock(e)});
 ```
 
 
@@ -137,17 +136,21 @@ This means that in short fragments the probability of an error is high
 language explicitly by assigning a class to the `<code>` element:
 
 ```html
-<pre><code class="html">...</code></pre>
+<pre><code class="language-html">...</code></pre>
 ```
 
-You can use class names recommended in HTML5: "language-html",
-"language-php". Classes also can be assigned to the `<pre>` element.
+You can use class names prefixed with "language-" (or "lang-")
+as [recommended in the HTML Living Standard][sem],
+for example "language-html" or "language-php".
+Classes also can be assigned to the `<pre>` element.
 
 To disable highlighting of a fragment altogether use "no-highlight" class:
 
 ```html
 <pre><code class="no-highlight">...</code></pre>
 ```
+
+[sem]: http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-code-element
 
 
 ## Export
@@ -160,9 +163,8 @@ on a site.
 
 ## Meta
 
-- Version: 7.3
-- URL:     http://softwaremaniacs.org/soft/highlight/en/
-- Author:  Ivan Sagalaev (<maniac@softwaremaniacs.org>)
+- Version: 8.0
+- URL:     http://highlightjs.org/
 
 For the license terms see LICENSE files.
-For the list of contributors see AUTHORS.en.txt file.
+For authors and contributors see AUTHORS.en.txt file.

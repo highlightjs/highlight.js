@@ -2,3 +2,5 @@
 build
 docs/_build
 .idea/
+__pycache__
+*.swp

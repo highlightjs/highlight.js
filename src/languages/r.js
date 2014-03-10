@@ -11,7 +11,7 @@ function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         begin: IDENT_RE,
-        lexems: IDENT_RE,
+        lexemes: IDENT_RE,
         keywords: {
           keyword:
             'function if in break next repeat else for return switch while try tryCatch|10 ' +
@@ -63,17 +63,11 @@ function(hljs) {
 
       {
         className: 'string',
-        begin: '"',
-        end: '"',
         contains: [hljs.BACKSLASH_ESCAPE],
-        relevance: 0
-      },
-      {
-        className: 'string',
-        begin: "'",
-        end: "'",
-        contains: [hljs.BACKSLASH_ESCAPE],
-        relevance: 0
+        variants: [
+          {begin: '"', end: '"'},
+          {begin: "'", end: "'"}
+        ]
       }
     ]
   };

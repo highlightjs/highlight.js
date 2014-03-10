@@ -35,8 +35,21 @@
   <link rel="alternate stylesheet" title="Docco" href="styles/docco.css">
   <link rel="alternate stylesheet" title="Mono Blue" href="styles/mono-blue.css">
   <link rel="alternate stylesheet" title="Foundation" href="styles/foundation.css">
+  <link rel="alternate stylesheet" title="Atelier Dun - Dark" href="styles/atelier-dune.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Dun - Light" href="styles/atelier-dune.light.css">
+  <link rel="alternate stylesheet" title="Atelier Forest - Dark" href="styles/atelier-forest.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Forest - Light" href="styles/atelier-forest.light.css">
+  <link rel="alternate stylesheet" title="Atelier Heath - Dark" href="styles/atelier-heath.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Heath - Light" href="styles/atelier-heath.light.css">
+  <link rel="alternate stylesheet" title="Atelier Lakeside - Dark" href="styles/atelier-lakeside.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Lakeside - Light" href="styles/atelier-lakeside.light.css">
+  <link rel="alternate stylesheet" title="Atelier Seaside - Dark" href="styles/atelier-seaside.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Seaside - Light" href="styles/atelier-seaside.light.css">
+  <link rel="alternate stylesheet" title="Paraíso - Dark" href="styles/paraiso.dark.css">
+  <link rel="alternate stylesheet" title="Paraíso - Light" href="styles/paraiso.light.css">
 
   <style>
+    /* Base styles */
     body {
       font: small Arial, sans-serif;
     }
@@ -46,7 +59,9 @@
       margin-bottom: 0.5em;
     }
     table {
-      width: 100%; padding: 0; border-collapse: collapse;
+      width: 100%;
+      padding: 0;
+      border-collapse: collapse;
     }
     th {
       width: 12em;
@@ -62,6 +77,7 @@
     pre {
       margin: 0; font-size: medium;
     }
+    /* Style switcher */
     #switch {
       overflow: auto; width: 67em;
       list-style: none;
@@ -76,6 +92,7 @@
     #switch li.current {
       background: #CCC;
     }
+    /* Tests */
     .test {
       color: #888;
       font-weight: normal;
@@ -87,20 +104,27 @@
     .passed {
       color: green;
     }
-    .failed {
+    .failed, .failed a {
       color: red;
     }
     .code {
       font: medium monospace;
     }
-    .code .keyword {
+    .code .hljs-keyword {
       font-weight: bold;
+    }
+    /* Export form */
+    #export_from, #export_to {
+      width: 98%;
+    }
+    address {
+      margin-top: 4em;
     }
   </style>
 
   <script src="../build/highlight.pack.js"></script>
   <script>
-  hljs.tabReplace = '    ';
+  hljs.configure({tabReplace: '    '});
   hljs.initHighlightingOnLoad();
   </script>
 
@@ -121,26 +145,24 @@
           }
       }
 
-
       attach(window, 'load', function() {
           var current = null;
 
           var info = {};
           var links = document.getElementsByTagName('link');
-          var ul = document.createElement('ul')
+          var ul = document.createElement('ul');
 
           for (var i = 0; (link = links[i]); i++) {
-              if (link.getAttribute('rel').indexOf('style') != -1
-                  && link.title) {
+              if ((link.getAttribute('rel').indexOf('style') != -1) && link.title) {
 
                   var title = link.title;
 
                   info[title] = {
                   'link': link,
                   'li': document.createElement('li')
-                  }
+                  };
 
-                  ul.appendChild(info[title].li)
+                  ul.appendChild(info[title].li);
                   info[title].li.title = title;
 
                   info[title].link.disabled = true;
@@ -157,7 +179,7 @@
               }
           }
 
-          current = info['Default']
+          current = info['Default'];
           current.li.className = 'current';
           current.link.disabled = false;
 
@@ -165,12 +187,84 @@
           container = document.getElementById(container_id);
           container.appendChild(ul);
       });
-
   })('styleswitcher');
+  </script>
+
+  <script>
+  // Test result detection © Ivan Sagalaev <maniac@softwaremaniacs.org>
+  function testDetection() {
+      if (!hljs.initHighlighting.called) {
+          window.setTimeout(testDetection, 500);
+          return;
+      }
+      var table = document.getElementById('autotest');
+      var tds = table.getElementsByTagName('TD');
+      var failed = [];
+      var passed, result
+      for (var i = 0; i < tds.length; i++) {
+          var tdClass = tds[i].className;
+          tds[i].id = 'anchor-' + tdClass.replace(/[^\w]/, '-');
+          if (hljs.getLanguage(tdClass)) {
+              var code = tds[i].getElementsByTagName('CODE')[0];
+              var langClass = code.className.replace('hljs', '').trim();
+              passed = (tdClass == langClass);
+              result = document.createElement('DIV');
+              result.className = 'test';
+              result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + langClass + '</var>';
+              result.innerHTML += ' (' + code.result.re + ')';
+              if (code.second_best) {
+                  result.innerHTML += '<br>' + code.second_best.language + ' (' + code.second_best.re + ')';
+              }
+              tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
+	      if (!passed) {
+	          failed.push('<a href="#' + tds[i].id + '">' + tdClass + '</a>');
+	      }
+          } else {
+              tds[i].parentNode.style.display = 'none';
+          }
+      }
+      var summary = document.getElementById('summary');
+      summary.innerHTML = failed.length ? ('Failed tests: ' + failed.join(', ')) : 'All tests passed';
+      summary.className = failed.length ? 'failed' : 'passed';
+  }
+  testDetection();
+  </script>
+
+  <script>
+  // Highlighted code export © Vladimir Gubarkov <xonixx@gmail.com>
+  String.prototype.escape = function() {
+      return this.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
+  };
+
+  function ExportDoIt() {
+      var export_from = document.getElementById("export_from");
+      var export_to = document.getElementById("export_to");
+      var export_view = document.getElementById("export_view");
+      var selector = document.getElementById("langSelector");
+      var selectedLang = selector.options[selector.selectedIndex].value.toLowerCase();
+      if (selectedLang) {
+          export_view.innerHTML = '<pre><code class="' + selectedLang + '">' + export_from.value.escape() + "</code></pre>";
+      } else { // try auto
+          export_view.innerHTML = '<pre><code>' + export_from.value.escape() + "</code></pre>";
+      }
+      hljs.highlightBlock(export_view.firstChild.firstChild);
+      export_to.value = export_view.innerHTML;
+  }
+
+  function ExportCopyToBuffer(textToCopy) {
+      if (window.clipboardData) { // IE
+          window.clipboardData.setData("Text", textToCopy);
+      } else if (window.netscape) { // FF
+          // from http://developer.mozilla.org/en/docs/Using_the_Clipboard
+          netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+          var gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
+          gClipboardHelper.copyString(textToCopy);
+      }
+  }
   </script>
 <body>
 
-<p>This is a demo/test page showing all languages supported by <a href="http://softwaremaniacs.org/soft/highlight/en/">highlight.js</a>.
+<p>This is a demo/test page showing all languages supported by <a href="http://highlightjs.org/">highlight.js</a>.
 Most snippets do not contain working code :-).
 
 <div id="styleswitcher">
@@ -211,27 +305,6 @@ Feature: Addition
     | 2       | 5       | add    | 7      |
     | 0       | 40      | add    | 40     |</code>
 </pre>
-<tr>
-  <th>Gherkin step definitions
-  <td class="step_definitions">
-<pre><code>Before do
-  @calc = Calculator.new
-end
-
-After do
-end
-
-Given /^I have entered (\d+) into the calculator$/ do |n|
-  @calc.push n.to_i
-end
-
-When /^I press (\w+)$/ do |op|
-  @result = @calc.send op
-end
-
-Then /^the result should be (.*) on the screen$/ do |result|
-  @result.should == result.to_f
-end</code></pre>
   <tr>
     <th>Python
     <td class="python">
@@ -241,7 +314,7 @@ def somefunc(param1='', param2=0):
     r'''A docstring'''
     if param1 &gt; param2: # interesting
         print 'Gre\'ater'
-    return (param2 - param1 + 1) or None
+    return (param2 - param1 + 1 + 0b10l) or None
 
 class SomeClass:<br>    pass
 
@@ -275,7 +348,8 @@ module ABC::DEF
   # @return [String] nothing
   def foo(test)
     Thread.new do |blockvar|
-      ABC::DEF.reverse(:a_symbol, :'a symbol', :&lt;=&gt;, 'test' + test)
+      ABC::DEF.reverse(:a_symbol, :'a symbol', :&lt;=&gt;, 'test' + ?\012)
+      answer = valid?4 && valid?CONST && ?A && ?A.ord
     end.join
   end
 
@@ -286,12 +360,18 @@ end
 anIdentifier = an_identifier
 Constant = 1
 render action: :new
+
+str =~ /^(?:foo)$/
+str =~ %r{foo|bar|buz$}
+str =~ %r!foo|bar$!
+str =~ %r[foo|bar$]
+str =~ %r(\(foo|bar\)$)
 </code></pre>
 
   <tr>
     <th>Haml
     <td class="haml">
-    <pre><code>!!! XML
+<pre><code>!!! XML
 %html
   %body
     %h1.jumbo{:id=&gt;"a", :style=&gt;'font-weight: normal', :title=&gt;title} highlight.js
@@ -305,7 +385,36 @@ render action: :new
     ~ variable3
     ~variable4
     The current year is #{DataTime.now.year}.
-    </code></pre>
+</code></pre>
+
+  <tr>
+    <th>Nix
+    <td class="nix">
+<pre><code>{ stdenv, foo, bar ? false, ... }:
+
+/*
+ * foo
+ */
+
+let
+  a = 1; # just a comment
+  b = null;
+  c = toString 10;
+in stdenv.mkDerivation rec {
+  name = "foo-${version}";
+  version = "1.3";
+
+  configureFlags = [ "--with-foo2" ] ++ stdenv.lib.optional bar "--with-foo=${ with stdenv.lib; foo }"
+
+  postInstall = ''
+    ${ if true then "--${test}" else false }
+  '';  
+
+  meta = with stdenv.lib; {
+    homepage = https://nixos.org;
+  };
+}
+</code></pre>
 
   <tr>
     <th>Perl
@@ -324,6 +433,7 @@ sub load
   my $vt;
   $string =~ m/^sought_text$/;
   $items = split //, 'abc';
+  $string //= "bar";
   for my $key (keys %$p)
   {
     if(${$vt.'::property'}) {
@@ -344,31 +454,40 @@ POD till the end of file
     <td class="php">
 <pre><code>require_once 'Zend/Uri/Http.php';
 
-abstract class URI extends BaseURI
-{
+namespace Location\Web;
 
-  /**
-   * Returns a URI
-   *
-   * @return  URI
-   */
-  static public function _factory($stats = array(), $uri = 'http')
-  {
-      $uri = explode(':', $uri, 0b10);
-      $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
-      $desc = 'Multi
+interface Factory
+{
+    static function _factory();
+}
+
+abstract class URI extends BaseURI implements Factory
+{
+    abstract function test();
+
+    /**
+     * Returns a URI
+     *
+     * @return URI
+     */
+    static public function _factory($stats = array(), $uri = 'http')
+    {
+        echo __METHOD__;
+        $uri = explode(':', $uri, 0b10);
+        $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
+        $desc = 'Multi
 line description';
 
-      // Security check
-      if (!ctype_alnum($scheme)) {
-          throw new Zend_Uri_Exception('Illegal scheme');
-      }
+        // Security check
+        if (!ctype_alnum($scheme)) {
+            throw new Zend_Uri_Exception('Illegal scheme');
+        }
 
-      return [
-        'uri' => $uri,
-        'value' => null,
-      ];
-  }
+        return [
+            'uri'   => $uri,
+            'value' => null,
+        ];
+    }
 }
 
 __halt_compiler () ; datahere
@@ -420,13 +539,11 @@ object Maps {
 
 import (
     "fmt"
-    "rand"
     "os"
 )
 
 const (
     Sunday = iota
-    Partyday
     numberOfDays  // this constant is not exported
 )
 
@@ -434,12 +551,9 @@ type Foo interface {
     FooFunc(int, float32) (complex128, []int)
 }
 
-// simple comment
 type Bar struct {
-    os.File /* multi
-    line
-    comment */
-
+    os.File /* multi-line
+               comment */
     PublicData chan int
 }
 
@@ -448,7 +562,6 @@ func main() {
     ch &lt;- 1
     x, ok := &lt;- ch
     ok = true
-    x = nil
     float_var := 1.0e10
     defer fmt.Println('\'')
     defer fmt.Println(`exitting now\`)
@@ -456,7 +569,6 @@ func main() {
     go println(len("hello world!"))
     return
 }
-
 </code></pre>
 
   <tr>
@@ -499,39 +611,44 @@ func main() {
   local('query' = 'SELECT * FROM `'+var:'table'+'` WHERE `id` &gt; 10
     ORDER BY `Name` LIMIT 30');
   Inline: -Username=$DBuser, -Password=$DBpass, -Database=$DBname, -sql=#query;
-    var("class.name" = (found_count != 0 ? `subtotal` | `nonefound`));
+    var("class1.name" = (found_count != 0 ? "subtotal" | "nonefound"),
+        "total_amount" = found_count);
     records;
-      output: ?&gt;&lt;tr&gt;[loop_count]&lt;/tr&gt;&lt;?=;
+      output: "&lt;tr&gt;"loop_count"&lt;/tr&gt";
     /records;
   /Inline;
-?&gt;&lt;div class="[$class.name]"&gt;[found_count]&lt;/div&gt;
-[noprocess] causes [delimiters] to be skipped until the next [/noprocess]
+?&gt;&lt;div class="[$class1.name]"&gt;[$total_amount]&lt;/div&gt;
 &lt;?lasso
-/* Lasso 9 */
+/* Lasso 9 */ ?&gt;
+[noprocess] causes [delimiters] to be &lt;?=skipped?&gt; until the next [/noprocess]
+[
   define strings_combine(value::string, ...other)::string =&gt; {
-    local(result = #value-&gt;append(#other-&gt;asString))
+    local(result = #value-&gt;append(#other-&gt;asString&amp;trim))
     return #result
   }
   /**! descriptive text */
   define person =&gt; type {
-    data name::string, protected nickname
-    data birthdate::date
+    parent entity
+    data name::string, protected nickname, birthdate :: date
     data private ssn = null
-    public showName() =&gt; return .'name'
-    protected fullName() =&gt; '"' + .nickname + '"' + .'name'
-    public ssnListed =&gt; .ssn ? true | false
+    private showAge() =&gt; { return ..age }
+    protected fullName() =&gt; `"` + .nickname + `"` + .'name'
+    public ssnListed::boolean =&gt; .ssn() ? true | false
   }
   define person-&gt;name=(value) =&gt; {
     .'name' = #value
     return self-&gt;'name'
   }
+] &lt;!-- an HTML comment &lt;?=disables delimiters?&gt; as well --&gt;
+[no_square_brackets] disables [square brackets] for the rest of the file
+&lt;?=
   // query expression
-  with n in array(-1, 0xABCD, 3.14159e14)
+  with n in array((:-12, 0xABCD, 3.14159e14), (:NaN, -infinity, .57721))
   let swapped = pair(#n-&gt;second, #n-&gt;first)
   group #swapped by #n-&gt;first into t
   let key = #t-&gt;key
   order by #key
-  select pair(#key, #t)
+  select pair(#key, #1)
   do {^
     #n-&gt;upperCase
   ^}
@@ -544,7 +661,7 @@ func main() {
 <pre>
 <code># hello world
 
-you can write text [with links](http://example.com).
+you can write text [with links](http://example.com) inline or [link references][1].
 
 * one _thing_ has *em*phasis
 * two __things__ are **bold**
@@ -562,6 +679,8 @@ hello world
 
 1. one thing (yeah!)
 2. two thing `i can write code`, and `more` wipee!
+
+[1]: http://example.com
 </code></pre>
 
 	<tr>
@@ -579,6 +698,8 @@ using an explicit link:http://example.com[link prefix].
 ** alternatively, you can put underlines around a phrase to add _emphasis_
 * astericks around a phrase make the text *bold*
 * pluses around a phrase make it +monospaced+
+* `smart' quotes using a leading backtick and trailing single quote
+** use two of each for double ``smart'' quotes
 
 - escape characters are supported
 - you can escape a quote inside emphasized text like 'here\'s johnny!'
@@ -641,15 +762,15 @@ NOTE: AsciiDoc is quite cool, you should try it.</code></pre>
 {# Striped table #}
 &lt;tr class="{% cycle odd,even %}"&gt;
   &lt;td&gt;{{ article|default:"Hi... "|escape }}&lt;/td&gt;
-  &lt;td {% if article.today %}class="today"{% endif %}&gt;{{ article.date|date:"d.m.Y" }}&lt;/td&gt;
+  &lt;td {% if article.today %}class="today"{% endif %}&gt;{{ article.date|date:'d.m.Y' }}&lt;/td&gt;
 &lt;/tr&gt;
 
 {% endfor %}
 {% endif %}
 
 {% comment %}
-Comments may be long and
-multiline.
+Comments may be long and multiline.
+Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
 {% endcomment %}
 </code></pre>
 
@@ -796,10 +917,9 @@ a {
 <pre><code>function $initHighlight(block, flags) {
   try {
     if (block.className.search(/\bno\-highlight\b/) != -1)
-      return processBlock(block, true, 0x0F) + ' class=""';
+      return processBlock(block.function, true, 0x0F) + ' class=""';
   } catch (e) {
     /* handle exception */
-
     var e4x =
         &lt;div&gt;Example
             &lt;p&gt;1234&lt;/p&gt;&lt;/div&gt;;
@@ -808,6 +928,7 @@ a {
     if (checkCondition(classes[i]) === undefined)
       return /\d+[\s/]/g;
   }
+  console.log(Array.every(classes, Boolean));
 }</code></pre>
 
   <tr>
@@ -826,6 +947,7 @@ x = f /foo * 2/6
 x = f /6 * 2/ - 3
 x = f /foo * 2/gm
 x = if true then /\n/ else /[.,]+/
+x = ///^key-#{key}-\d+///
 
 grade = (student, period=(if b? then 7 else 6), messages={"A": "Excellent"}) -&gt;
   if student.excellentWork
@@ -979,6 +1101,33 @@ End Namespace
 </code></pre>
 
   <tr>
+    <th>Protocol Buffers
+    <td class="protobuf">
+<pre><code>package languages.protobuf;
+
+option java_package = "org.highlightjs.languages.protobuf";
+
+message Customer {
+  required int64 customer_id = 1;
+  optional string name = 2;
+  optional string real_name = 3 [default = "Anonymous"];
+  optional Gender gender = 4;
+  repeated string email_addresses = 5;
+
+  optional bool is_admin = 6 [default = false]; // or should this be a repeated field in Account?
+
+  enum Gender {
+    MALE = 1,
+    FEMALE = 2
+  }
+}
+
+service CustomerSearch {
+  rpc FirstMatch(CustomerRequest) returns (CustomerResponse);
+  rpc AllMatches(CustomerRequest) returns (CustomerResponse);
+}</code></pre>
+
+  <tr>
     <th>HTTP
     <td class="http">
 <pre><code>POST /task?id=1 HTTP/1.1
@@ -1046,38 +1195,119 @@ do shell script "/bin/echo 'hello'"
 </code></pre>
 
   <tr>
+    <th>Vim Script
+    <td class="vim">
+<pre><code>if foo &gt; 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+set autoindent
+
+" switch on highlighting
+function UnComment(fl, ll)
+  while idx &gt;= a:ll
+    let srclines=getline(idx)
+    let dstlines=substitute(srclines, b:comment, "", "")
+    call setline(idx, dstlines)
+  endwhile
+endfunction
+</code></pre>
+
+  <tr>
     <th>Delphi
     <td class="delphi">
-<pre><code>TList=Class(TObject)
+<pre><code>TList = Class(TObject)
 Private
   Some: String;
 Public
   Procedure Inside; // Suxx
 End;{TList}
 
-Procedure CopyFile(InFileName,var OutFileName:String);
+Procedure CopyFile(InFileName, var OutFileName: String);
 Const
-  BufSize=4096; (* Huh? *)
+  BufSize = 4096; (* Huh? *)
 Var
-  InFile,OutFile:TStream;
-  Buffer:Array[1..BufSize] Of Byte;
-  ReadBufSize:Integer;
+  InFile, OutFile: TStream;
+  Buffer: Array[1..BufSize] Of Byte;
+  ReadBufSize: Integer;
 Begin
-  InFile:=Nil;
-  OutFile:=Nil;
+  InFile := Nil;
+  OutFile := Nil;
   Try
-    InFile:=TFileStream.Create(InFileName,fmOpenRead);
-    OutFile:=TFileStream.Create(OutFileName,fmCreate);
+    InFile := TFileStream.Create(InFileName, fmOpenRead);
+    OutFile := TFileStream.Create(OutFileName, fmCreate);
     Repeat
-      ReadBufSize:=InFile.Read(Buffer,BufSize);
-      OutFile.Write(Buffer,ReadBufSize);
+      ReadBufSize := InFile.Read(Buffer, BufSize);
+      OutFile.Write(Buffer, ReadBufSize);
     Until ReadBufSize&lt;&gt;BufSize;
-    Log('File '''+InFileName+''' copied'#13#10);
+    Log('File ''' + InFileName + ''' copied'#13#10);
   Finally
     InFile.Free;
     OutFile.Free;
   End;{Try}
 End;{CopyFile}
+</code></pre>
+
+  <tr>
+    <th>Oxygene
+    <td class="oxygene">
+<pre><code>namespace LinkedList;
+
+interface
+
+uses
+  System.Text;
+
+type
+  List&lt;T&gt; = public class
+    where T is Object;
+  private
+    method AppendToString(aBuilder: StringBuilder);
+  public
+    constructor(aData: T);
+    constructor(aData: T; aNext: List&lt;T&gt;);
+    property Next: List&lt;T&gt;;
+    property Data: T;
+
+    method ToString: string; override;
+  end;
+
+implementation
+
+constructor List&lt;T&gt;(aData: T);
+begin
+  Data := aData;
+end;
+
+constructor List&lt;T&gt;(aData: T; aNext: List&lt;T&gt;);
+begin
+  constructor(aData);
+  Next := aNext;
+end;
+
+method List&lt;T&gt;.ToString: string;
+begin
+  with lBuilder := new StringBuilder do begin
+    AppendToString(lBuilder);
+    result := lBuilder.ToString();
+  end;
+end;
+
+method List&lt;T&gt;.AppendToString(aBuilder: StringBuilder);
+begin
+  if assigned(Data) then
+    aBuilder.Append(Data.ToString)
+  else
+    aBuilder.Append('nil');
+
+  if assigned(Next) then begin
+    aBuilder.Append(', ');
+    Next.AppendToString(aBuilder);
+  end;
+end;
+
+end.
 </code></pre>
 
   <tr>
@@ -1109,7 +1339,7 @@ public abstract class L2Character extends L2Object {
 
     public void run() {
       try {
-        getAI().notifyEvent(_evt, null, null);
+        getAI().notifyEvent(_evt, _evt.class, null);
       } catch (Throwable t) {
         t.printStackTrace();
       }
@@ -1122,6 +1352,7 @@ public abstract class L2Character extends L2Object {
     <th>C++
     <td class="cpp">
 <pre><code>#include &lt;iostream&gt;
+#define IABS(x) ((x) &lt; 0 ? -(x) : (x))
 
 int main(int argc, char *argv[]) {
 
@@ -1321,6 +1552,35 @@ let minutte = 60&lt;s&gt;
 
 </code></pre>
 
+  <tr>
+    <th>OCaml
+    <td class="ocaml">
+<pre>
+<code>(* This is a
+multiline, (* nested *) comment *)
+type point = { x: float; y: float };;
+let some_string = "this is a string";;
+let rec length lst =
+    match lst with
+      [] -> 0
+    | head :: tail -> 1 + length tail
+  ;;
+exception Test;;
+type expression =
+      Const of float
+    | Var of string
+    | Sum of expression * expression    (* e1 + e2 *)
+    | Diff of expression * expression   (* e1 - e2 *)
+    | Prod of expression * expression   (* e1 * e2 *)
+    | Quot of expression * expression   (* e1 / e2 *)
+class point =
+    object
+      val mutable x = 0
+      method get_x = x
+      method private move d = x <- x + d
+    end;;
+</code></pre>
+
 <tr>
     <th>D
     <td class="d">
@@ -1497,18 +1757,22 @@ void main(void) {
     <td class="sql">
 <pre><code>BEGIN;
 CREATE TABLE "topic" (
+    -- This is the greatest table of all time
     "id" serial NOT NULL PRIMARY KEY,
     "forum_id" integer NOT NULL,
-    "subject" varchar(255) NOT NULL
+    "subject" varchar(255) NOT NULL -- Because nobody likes an empty subject
 );
 ALTER TABLE "topic" ADD CONSTRAINT forum_id FOREIGN KEY ("forum_id") REFERENCES "forum" ("id");
 
 -- Initials
 insert into "topic" ("forum_id", "subject") values (2, 'D''artagnian');
 
-select count(*) from cicero_forum;
+select /* comment */ count(*) from cicero_forum;
 
 -- this line lacks ; at the end to allow people to be sloppy and omit it in one-liners
+/*
+but who cares?
+*/
 COMMIT</code></pre>
 
   <tr>
@@ -1584,40 +1848,24 @@ heapExample
  <tr>
     <th>Clojure
     <td class="clojure">
-<pre><code>;   You must not remove this notice, or any other, from this software.
-
-(ns ^{:doc "The core Clojure language."
-       :author "Rich Hickey"}
-  clojure.core)
-
-(def unquote)
+<pre><code>; Comment
 
 (def
   ^{:macro true
     :added "1.0"}
   let (fn* let [&amp;form &amp;env &amp; decl] (cons 'let* decl)))
 
-(def
+(def ^:dynamic chunk-size 17)
 
- defn (fn defn [&amp;form &amp;env name &amp; fdecl]
-        (let [m (conj {:arglists (list 'quote (sigs fdecl))} m)
-              m (let [inline (:inline m)
-                      ifn (first inline)
-                      iname (second inline)]
-                  ;; same as: (if (and (= 'fn ifn) (not (symbol? iname))) ...)
-                  (if (if (clojure.lang.Util/equiv 'fn ifn)
-                        (if (instance? clojure.lang.Symbol iname) false true))
-                    ;; inserts the same fn name to the inline fn if it does not have one
-                    (assoc m :inline (cons ifn (cons (clojure.lang.Symbol/intern (.concat (.getName ^clojure.lang.Symbol name) "__inliner"))
-                                                     (next inline))))
-                    m))
-              m (conj (if (meta name) (meta name) {}) m)]
-          (list 'def (with-meta name m)
-                ;;todo - restore propagation of fn name
-                ;;must figure out how to convey primitive hints to self calls first
-                (cons `fn fdecl) ))))
+(defn next-chunk [rdr]
+  (let [buf (char-array chunk-size)
+        s (.read rdr buf)]
+  (when (pos? s)
+    (java.nio.CharBuffer/wrap buf 0 s))))
 
-(. (var defn) (setMacro))
+(defn chunk-seq [rdr]
+  (when-let [chunk (next-chunk rdr)]
+    (cons chunk (lazy-seq (chunk-seq rdr)))))
 </code></pre>
 
   <tr>
@@ -1648,6 +1896,9 @@ RewriteRule . index.php [NC,L]
 
 ExpiresActive On
 ExpiresByType application/x-javascript  "access plus 1 days"
+
+Order Deny,Allow
+Allow from All
 
 &lt;Location /maps/&gt;
   RewriteMap map txt:map.txt
@@ -1810,32 +2061,83 @@ genApacheConf(){
 </code></pre>
 
   <tr>
+    <th>Makefile
+    <td class="makefile">
+<pre><code># Makefile
+
+BUILDDIR      = _build
+EXTRAS       ?= $(BUILDDIR)/extras
+
+.PHONY: main clean
+
+main:
+	@echo "Building main facility..."
+	build_main $(BUILDDIR)
+
+clean:
+	rm -rf $(BUILDDIR)/*
+</code></pre>
+
+  <tr>
     <th>CMake
     <td class="cmake">
-<pre><code>project(test)
-cmake_minimum_required(VERSION 2.6)
+<pre><code>cmake_minimum_required(VERSION 2.8.8)
+project(cmake_example)
 
-# IF LINUX
+# Show message on Linux platform
 if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
-    message("\nOS:\t\tLinux")
+    message("Good choice, bro!")
 endif()
 
-# IF WINDOWS
-if (${CMAKE_SYSTEM_NAME} MATCHES Windows)
-    message("\nOS:\t\tWindows")
-endif()
+# Tell CMake to run moc when necessary:
+set(CMAKE_AUTOMOC ON)
+# As moc files are generated in the binary dir,
+# tell CMake to always look for includes there:
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(test test0.cpp test1.cpp test2.cpp)
+# Widgets finds its own dependencies.
+find_package(Qt5Widgets REQUIRED)
 
-include_directories(./)
+add_executable(myproject main.cpp mainwindow.cpp)
+qt5_use_modules(myproject Widgets)
+</code></pre>
 
-set(EXECUTABLE_OUTPUT_PATH ../bin)
+  <tr>
+    <th>NSIS
+    <td class="nsis">
+<pre><code>/*
+  NSIS Scheme
+  for highlight.js
+*/
 
-add_subdirectory(src)
+; Includes
+!include MUI2.nsh
 
-add_executable(test WIN32 ${test})
+; Settings
+Name "installer_name"
+OutFile "installer_name.exe"
+RequestExecutionLevel user
+CRCCheck on
+!ifdef x64
+  InstallDir "$PROGRAMFILES64\installer_name"
+!else
+  InstallDir "$PROGRAMFILES\installer_name"
+!endif
 
-target_link_libraries(test msimg32)
+; Pages
+!insertmacro MUI_PAGE_INSTFILES
+
+; Sections
+Section "section_name" section_index
+  # your code here
+SectionEnd
+
+; Functions
+Function .onInit
+
+  MessageBox MB_OK "Here comes a$\n$\rline-break!"
+
+FunctionEnd
 </code></pre>
 
   <tr>
@@ -1919,8 +2221,7 @@ EMPTY_HNDL = INTDCREATEHANDLE('05/03/2006 00:00:00', '05/03/2006 23:59:59', 3600
   <tr>
     <th>1С
     <td class="1c">
-<pre><code>
-#Если Клиент Тогда
+<pre><code>#Если Клиент Тогда
 Перем СимвольныйКодКаталога = "ля-ля-ля"; //комментарий
 Функция Сообщить(Знач ТекстСообщения, ТекстСообщения2) Экспорт //комментарий к функции
   x=ТекстСообщения+ТекстСообщения2+"
@@ -2048,6 +2349,41 @@ class
 </code></pre>
 
   <tr>
+    <th>LiveCode Server
+    <td class="livecodeserver">
+<pre><code>&lt;?rev
+
+global gControllerHandlers, gData
+local sTest
+put "blog,index" into gControllerHandlers
+
+
+command blog
+  -- simple comment
+  put "Hello World!" into sTest
+  # ANOTHER COMMENT
+  put "form,url,asset" into tHelpers
+  rigLoadHelper tHelpers
+end blog
+
+/*Hello
+block comment!*/
+
+function myFunction
+  if the secs > 2000000000 then
+    put "Welcome to the future!"
+  else
+    return "something"
+  end if
+end myFunction
+
+
+--| END OF blog.lc
+--| Location: ./system/application/controllers/blog.lc
+----------------------------------------------------------------------
+</code></pre>
+
+  <tr>
     <th>TeX
     <td class="tex">
 <pre>
@@ -2078,7 +2414,7 @@ $$
   -&gt;+++&gt;++++++++++&lt;&lt;
 ]&gt;&gt;
 [ filling cells
-  -&gt;++&gt;&gt;++&gt;++&gt;+&gt;++&gt;&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++[&lt;]&lt;[&lt;]&lt;[&lt;]&gt;&gt;
+  -&gt;++&gt;&gt;++&gt;++&gt;+&gt;++&gt;&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++&gt;++[&lt;/]&lt;[&lt;]&lt;[&lt;]&gt;&gt;
 ]&lt;
 +++++++++&lt;&lt;
 [ rough codes correction loop
@@ -2114,6 +2450,10 @@ import qualified Data.ByteString.Lazy as Lazy (ByteString, toChunks, fromChunks)
 import Data.ByteString.Char8 (pack, unpack)
 import Network.Socket hiding (sendTo, recv, recvFrom)
 import Network.Socket.ByteString (sendTo, recv, recvFrom)
+
+infix 3 `foo`
+infixl 6 `bar`
+infixr 9 `baz`
 
 -- Type class for converting StringLike types to and from strict ByteStrings
 class DataPacket a where
@@ -2227,6 +2567,60 @@ ok
 </code></pre>
 
   <tr>
+    <th>Elixir</th>
+    <td class="elixir">
+<pre><code>defrecord Person, first_name: nil, last_name: "Dudington" do
+  def name record do # huh ?
+    "#{record.first_name} #{record.last_name}"
+  end
+end
+
+defrecord User, name: "José", age: 25
+
+guy = Person.new first_name: "Guy"
+guy.name
+
+defmodule ListServer do
+  @moduledoc """
+  This module provides an easy to use ListServer, useful for keeping
+  lists of things.
+  """
+  use GenServer.Behaviour
+  alias Foo.Bar
+
+  ### Public API
+  @doc """
+  Starts and links a new ListServer, returning {:ok, pid}
+
+  ## Example
+
+    iex> {:ok, pid} = ListServer.start_link
+
+  """
+  def start_link do
+    :gen_server.start_link({:local, :list}, __MODULE__, [], [])
+  end
+
+  ### GenServer API
+  def init(list) do
+    {:ok, list}
+  end
+
+  # Clear the list
+  def handle_cast :clear, list do
+    {:noreply, []}
+  end
+end
+
+{:ok, pid} = ListServer.start_link
+pid &lt;- {:foo, "bar"}
+
+greeter = fn(x) -&gt; IO.puts "hey #{x}" end
+greeter.("Bob")
+
+</code></pre>
+
+  <tr>
     <th>Rust
     <td class="rust">
 <pre>
@@ -2335,6 +2729,25 @@ foo_cell = {1, 2, 3; 4, 5, 6}''.'.';
 </code></pre>
 
   <tr>
+    <th>Scilab
+    <td class="scilab">
+<pre><code>// A comment
+function I = foo(dims, varargin)
+  d=[1; matrix(dims(1:$-1),-1,1)]
+  for i=1:size(varargin)
+    if varargin(i)==[] then
+       I=[],
+       return;
+    end
+  end
+endfunction
+
+b = cos(a) + cosh(a);
+bar_matrix = [ "Hello", "world" ];
+foo_matrix = [1, 2, 3; 4, 5, 6];
+</code></pre>
+
+  <tr>
     <th>R
     <td class="r">
 <pre><code>library(ggplot2)
@@ -2407,7 +2820,6 @@ foo %union% bar
 `"test"`
 
 </code></pre>
-
 
   <tr>
     <th>Mizar
@@ -2499,47 +2911,155 @@ then  y in ProperPrefixes v or y = v &amp; v in ProperPrefixes (v^&lt;*x*&gt;)
   hence thesis by A4;
 end;</code></pre>
 
-</table>
+  <tr>
+    <th>Mathematica</th>
+    <td class="mathematica">
+<pre>
+<code>(* ::Package:: *)
 
-<script>
-  function testDetection() {
-    if (!hljs.initHighlighting.called) {
-      window.setTimeout(testDetection, 500);
-      return;
-    }
-    var table = document.getElementById('autotest');
-    var tds = table.getElementsByTagName('TD');
-    var failed = [];
-    for (var i = 0; i < tds.length; i++) {
-      var tdClass = tds[i].className;
-      if (!hljs.LANGUAGES.hasOwnProperty(tdClass)) {
-        tds[i].parentNode.style.display = 'none';
-        continue;
-      }
-      var code = tds[i].getElementsByTagName('CODE')[0];
-      var passed = tdClass == code.className;
-      var result = document.createElement('DIV');
-      result.className = 'test';
-      result.innerHTML = '<var class="'+ (passed ? 'passed' : 'failed') +'">' + code.className + '</var>';
-      function counts(r) {
-        return ' (' + r.kw + '+' + r.re + '=' + (r.kw + r.re) + ')';
-      }
-      result.innerHTML += counts(code.result);
-      if (code.second_best) {
-        result.innerHTML += '<br>' + code.second_best.language +
-                            counts(code.second_best) ;
-      }
-      tds[i].parentNode.getElementsByTagName('th')[0].appendChild(result);
-      if (!passed) {
-        failed.push(tdClass);
-      }
-    }
-    var summary = document.getElementById('summary');
-    summary.innerHTML = failed.length ? ('Failed tests: ' + failed.join(', ')) : 'All tests passed';
-    summary.className = failed.length ? 'failed' : 'passed';
+(* Mathematica Package *)
+
+BeginPackage["SomePkg`"]
+
+Begin["`Private`"]
+
+SomeFn[ns_List] := Fold[Function[{x, y}, x + y], 0, Map[# * 2 &amp;, ns]];
+Print[$ActivationKey];
+
+End[] (* End Private Context *)
+
+EndPackage[]
+</code></pre>
+
+  <tr>
+    <th>AutoHotkey</th>
+    <td class="autohotkey">
+<pre>
+<code>; hotkeys and hotstrings
+#a::WinSet, AlwaysOnTop, Toggle, A
+#Space::
+  MsgBox, Percent sign (`%) need to be escaped.
+  Run "C:\Program Files\some\program.exe"
+  Gosub, label1
+return
+::btw::by the way
+; volume
+#Numpad8::Send {Volume_Up}
+#Numpad5::Send {Volume_Mute}
+#Numpad2::Send {Volume_Down}
+
+label1:
+  if (Clipboard = "")
+  {
+    MsgBox, , Clipboard, Empty!
   }
-  testDetection();
-</script>
+  else
+  {
+    StringReplace, temp, Clipboard, old, new, All
+    MsgBox, , Clipboard, %temp%
+  }
+return
+</code></pre>
+
+  <tr>
+    <th>FIX
+    <td class="fix">
+<pre>
+<code>8=FIX.4.2␁9=0␁35=8␁49=SENDERTEST␁56=TARGETTEST␁34=00000001526␁52=20120429-13:30:08.137␁1=ABC12345␁11=2012abc1234␁14=100␁17=201254321␁20=0␁30=NYSE␁31=108.20␁32=100␁38=100␁39=2␁40=1␁47=A␁54=5␁55=BRK␁59=2␁60=20120429-13:30:08.000␁65=B␁76=BROKER␁84=0␁100=NYSE␁111=100␁150=2␁151=0␁167=CS␁377=N␁10000=SampleCustomTag␁10=123␁
+
+8=FIX.4.29=035=849=SENDERTEST56=TARGETTEST34=0000000152652=20120429-13:30:08.1371=ABC1234511=2012abc123414=10017=20125432120=030=NYSE31=108.2032=10038=10039=240=147=A54=555=BRK59=260=20120429-13:30:08.00065=B76=BROKER84=0100=NYSE111=100150=2151=0167=CS377=N10000=SampleCustomTag10=123
+</code></pre>
+
+  <tr>
+    <th>x86asm</th>
+    <td class="x86asm">
+<pre>
+<code>section .text
+extern  _MessageBoxA@16
+%if     __NASM_VERSION_ID__ >= 0x02030000
+safeseh handler         ; register handler as "safe handler"
+%endif
+
+handler:
+        push    dword 1 ; MB_OKCANCEL
+        push    dword caption
+        push    dword text
+        push    dword 0
+        call    _MessageBoxA@16
+        sub     eax,1   ; incidentally suits as return value
+                        ; for exception handler
+        ret
+
+global  _main
+_main:  push    dword handler
+        push    dword [fs:0]
+        mov     dword [fs:0], esp
+        xor     eax,eax
+        mov     eax, dword[eax]   ; cause exception
+        pop     dword [fs:0]      ; disengage exception handler
+        add     esp, 4
+        ret
+
+avx2:   vzeroupper
+        push      rbx
+        mov       rbx,   rsp
+        sub       rsp,   0h20
+        vmovdqa   ymm0,  [rcx]
+        vpaddb    ymm0,  [rdx]
+        leave
+        ret
+
+text:   db      'OK to rethrow, CANCEL to generate core dump',0
+caption:db      'SEGV',0
+
+section .drectve info
+        db      '/defaultlib:user32.lib /defaultlib:msvcrt.lib '
+</code></pre>
+
+  <tr>
+  <th>Monkey
+      <td class="monkey">
+<pre>
+<code>#IMAGE_FILES="*.png|*.jpg"
+#SOUND_FILES="*.wav|*.ogg"
+#MUSIC_FILES="*.wav|*.ogg"
+#BINARY_FILES="*.bin|*.dat"
+
+Import mojo
+
+' The main class which expends Mojo's 'App' class:
+Class GameApp Extends App
+    Field player:Player
+
+    Method OnCreate:Int()
+        Local img:Image = LoadImage("player.png")
+        Self.player = New Player()
+        SetUpdateRate(60)
+
+        Return 0
+    End
+
+    Method OnUpdate:Int()
+        player.x += HALFPI
+
+        If (player.x > 100) Then
+            player.x = 0
+        Endif
+
+        Return 0
+    End
+
+    Method OnRender:Int()
+        Cls(32, 64, 128)
+        player.Draw()
+
+        player = Null
+        Return 0
+    End
+End
+</code></pre>
+
+</table>
 
 
 <h2>Special tests</h2>
@@ -2599,10 +3119,21 @@ end;</code></pre>
 <script>hljs.highlightBlock(document.getElementById('codecontainer'), null, true);</script>
 
   <tr>
+    <th>Language alias
+    <td>
+      <pre><code class="language-js">var x = '&lt;p&gt;this should &lt;b&gt;not&lt;/b&gt; be highlighted as &lt;em&gt;HTML&lt;/em&gt;';</code></pre>
+
+  <tr>
+    <th>Shortened language prefix (lang)
+    <td>
+      <pre><code class="lang-python">def add_one(x):
+    return x + 1</code></pre>
+
+  <tr>
     <th>Disabled highlighting
     <td>
 <pre><code class="no-highlight">&lt;div id="contents"&gt;
-  &lt;p&gt;Hello, World!
+  &lt;p&gt;Hello, World!c
 &lt;/div&gt;
 </code></pre>
 
@@ -2612,3 +3143,41 @@ end;</code></pre>
 <pre><samp>Computer output</samp></pre>
 
 </table>
+
+<h2>Highlighted code export</h2>
+
+<script type="text/javascript">
+    var langSelectorHtml = '<label>Language <select id="langSelector">';
+    langSelectorHtml += '<option value="">Auto</option>';
+    var languages = hljs.listLanguages();
+    for (var i in languages) {
+        langSelectorHtml += '<option value=\"' + languages[i] + '\">' + languages[i].charAt(0).toUpperCase() + languages[i].substr(1) + '</option>';
+    }
+    langSelectorHtml += '</select></label>';
+    document.write(langSelectorHtml);
+</script>
+
+<table>
+    <tr>
+        <td><textarea rows="20" cols="50" id="export_from"></textarea></td>
+        <td><textarea rows="20" cols="50" id="export_to"></textarea></td>
+    </tr>
+    <tr>
+        <td>Write a code snippet</td>
+        <td>Get HTML to paste anywhere (for actual styles and colors see sample.css)</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td><input type="button" value="Export &rarr;" onclick="ExportDoIt()"/></td>
+        <td align="right"><input type="button" value="Copy to buffer" onclick="ExportCopyToBuffer(document.getElementById('export_to').value);"/></td>
+    </tr>
+</table>
+<div id="export_view"></div>
+
+<address>
+    Stylesheet switcher: <a href="mailto:voldmar@voldmar.ru">Vladimir Epifanov</a><br>
+    Test result detection: <a href="mailto:maniac@softwaremaniacs.org">Ivan Sagalaev</a><br>
+    Export script: <a href="mailto:xonixx@gmail.com">Vladimir Gubarkov</a><br>
+    Highlighting: <a href="http://highlightjs.org/">highlight.js</a>
+</address>

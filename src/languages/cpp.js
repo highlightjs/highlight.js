@@ -1,6 +1,7 @@
 /*
 Language: C++
-Contributors: Evgeny Stepanischev <imbolk@gmail.com>
+Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
+Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Zaven Muradyan <megalivoithos@gmail.com>
 */
 
 function(hljs) {
@@ -11,12 +12,19 @@ function(hljs) {
       'do return goto auto void enum else break new extern using true class asm case typeid ' +
       'short reinterpret_cast|10 default double register explicit signed typename try this ' +
       'switch continue wchar_t inline delete alignof char16_t char32_t constexpr decltype ' +
-      'noexcept nullptr static_assert thread_local restrict _Bool complex',
+      'noexcept nullptr static_assert thread_local restrict _Bool complex _Complex _Imaginary',
     built_in: 'std string cin cout cerr clog stringstream istringstream ostringstream ' +
       'auto_ptr deque list queue stack vector map set bitset multiset multimap unordered_set ' +
-      'unordered_map unordered_multiset unordered_multimap array shared_ptr'
+      'unordered_map unordered_multiset unordered_multimap array shared_ptr abort abs acos ' +
+      'asin atan2 atan calloc ceil cosh cos exit exp fabs floor fmod fprintf fputs free frexp ' +
+      'fscanf isalnum isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper ' +
+      'isxdigit tolower toupper labs ldexp log10 log malloc memchr memcmp memcpy memset modf pow ' +
+      'printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp ' +
+      'strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan ' +
+      'vfprintf vprintf vsprintf'
   };
   return {
+    aliases: ['c', 'h', 'c++', 'h++'],
     keywords: CPP_KEYWORDS,
     illegal: '</',
     contains: [
@@ -36,8 +44,13 @@ function(hljs) {
       {
         className: 'preprocessor',
         begin: '#', end: '$',
+        keywords: 'if else elif endif define undef warning error line pragma',
         contains: [
-          {begin: '<', end: '>', illegal: '\\n'},
+          {
+            begin: 'include\\s*[<"]', end: '[>"]',
+            keywords: 'include',
+            illegal: '\\n'
+          },
           hljs.C_LINE_COMMENT_MODE
         ]
       },
@@ -47,6 +60,9 @@ function(hljs) {
         keywords: CPP_KEYWORDS,
         relevance: 10,
         contains: ['self']
+      },
+      {
+        begin: hljs.IDENT_RE + '::'
       }
     ]
   };

@@ -14,6 +14,7 @@ Contents:
    api
    language-guide
    reference
+   css-classes-reference
    style-guide
    contribution
    building-testing
@@ -24,6 +25,7 @@ Miscellaneous:
    :maxdepth: 1
 
    line-numbers
+   language-requests
 
 Links:
 

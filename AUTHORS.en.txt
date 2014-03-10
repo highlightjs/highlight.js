@@ -1,9 +1,12 @@
 Syntax highlighting with language autodetection.
 
-URL:   http://softwaremaniacs.org/soft/highlight/en/
+URL:   http://highlightjs.org/
 
-Original author and current maintainer:
-Ivan Sagalaev <maniac@softwaremaniacs.org>
+Core developers (in order of appearance):
+
+- Ivan Sagalaev (original author) <maniac@softwaremaniacs.org>
+- Jeremy Hull <sourdrums@gmail.com>
+- Oleg Efimov <efimovov@gmail.com>
 
 Contributors:
 
@@ -36,7 +39,6 @@ Contributors:
 - Loren Segal <lsegal@soen.ca>
 - Andrew Fedorov <dmmdrs@mail.ru>
 - Igor Kalnitsky <igor@kalnitsky.org>
-- Jeremy Hull <sourdrums@gmail.com>
 - Valerii Hiora <valerii.hiora@gmail.com>
 - Nikolay Zakharov <nikolay.desh@gmail.com>
 - Dmitry Kovega <arhibot@gmail.com>
@@ -49,7 +51,6 @@ Contributors:
 - Alexander Myadzel <myadzel@gmail.com>
 - Evgeny Stepanischev <imbolk@gmail.com>
 - Dmytrii Nagirniak <dnagir@gmail.com>
-- Oleg Efimov <efimovov@gmail.com>
 - Luigi Maselli <grigio.org@gmail.com>
 - Denis Bardadym <bardadymchik@gmail.com>
 - Aahan Krish <geekpanth3r@gmail.com>
@@ -82,3 +83,28 @@ Contributors:
 - Poren Chiang <ren.chiang@gmail.com>
 - Kelley van Evert <kelleyvanevert@gmail.com>
 - Kurt Emch <kurt@kurtemch.com>
+- Mehdi Dogguy <mehdi@dogguy.org>
+- Nicolas Braud-Santoni <nicolas.braud-santoni@ens-cachan.fr>
+- Ralf Bitter <rabit@revigniter.com>
+- Sylvestre Ledru <sylvestre.ledru@scilab-enterprises.com>
+- Troy Kershaw <hello@troykershaw.com>
+- Zena Treep <zena.treep@gmail.com>
+- Daniel Kvasnicka <dkvasnicka@vendavo.com>
+- Carlo Kok <ck@remobjects.com>
+- Bram de Haan <info@atelierbramdehaan.nl>
+- Seongwon Lee <dlimpid@gmail.com>
+- Zaven Muradyan <megalivoithos@gmail.com>
+- Jan T. Sott <git@idleberg.com>
+- Brent Bradbury <brent@brentium.com>
+- Martin Dilling-Hansen <martindlling@gmail.com>
+- Ilya Vassilevsky <vassilevsky@gmail.com>
+- Josh Adams <josh@isotope11.com>
+- Dan Tao <daniel.tao@gmail.com>
+- Jeff Escalante <hello@jenius.me>
+- Jun Yang <yangjvn@126.com>
+- Nikolay Lisienko <info@neor.ru>
+- Heiko August <post@auge8472.de>
+- Domen Kožar <domen@dev.si>
+- Travis Odom <travis.a.odom@gmail.com>
+- innocenat <innocenat@gmail.com>
+- Arthur Bikmullin <devolonter@gmail.com>

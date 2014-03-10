@@ -7,15 +7,15 @@ Website: http://seejohncode.com/
 
 function(hljs) {
   return {
+    aliases: ['md', 'mkdown', 'mkd'],
     contains: [
       // highlight headers
       {
         className: 'header',
-        begin: '^#{1,3}', end: '$'
-      },
-      {
-        className: 'header',
-        begin: '^.+?\\n[=-]{2,}$'
+        variants: [
+          { begin: '^#{1,6}', end: '$' },
+          { begin: '^.+?\\n[=-]{2,}$' }
+        ]
       },
       // inline html
       {
@@ -36,12 +36,12 @@ function(hljs) {
       // emphasis segments
       {
         className: 'emphasis',
-        begin: '\\*.+?\\*'
-      },
-      {
-        className: 'emphasis',
-        begin: '_.+?_',
-        relevance: 0
+        variants: [
+          { begin: '\\*.+?\\*' },
+          { begin: '_.+?_'
+          , relevance: 0
+          }
+        ]
       },
       // blockquotes
       {
@@ -51,31 +51,55 @@ function(hljs) {
       // code snippets
       {
         className: 'code',
-        begin: '`.+?`'
-      },
-      {
-        className: 'code',
-        begin: '^    ', end: '$',
-        relevance: 0
+        variants: [
+          { begin: '`.+?`' },
+          { begin: '^( {4}|\t)', end: '$'
+          , relevance: 0
+          }
+        ]
       },
       // horizontal rules
       {
         className: 'horizontal_rule',
-        begin: '^-{3,}', end: '$'
+        begin: '^[-\\*]{3,}', end: '$'
       },
       // using links - title and link
       {
-        begin: '\\[.+?\\]\\(.+?\\)',
+        begin: '\\[.+?\\][\\(\\[].+?[\\)\\]]',
         returnBegin: true,
         contains: [
           {
             className: 'link_label',
-            begin: '\\[.+\\]'
+            begin: '\\[', end: '\\]',
+            excludeBegin: true,
+            returnEnd: true,
+            relevance: 0
           },
           {
             className: 'link_url',
-            begin: '\\(', end: '\\)',
+            begin: '\\]\\(', end: '\\)',
             excludeBegin: true, excludeEnd: true
+          },
+          {
+            className: 'link_reference',
+            begin: '\\]\\[', end: '\\]',
+            excludeBegin: true, excludeEnd: true
+          }
+        ],
+        relevance: 10
+      },
+      {
+        begin: '^\\[\.+\\]:', end: '$',
+        returnBegin: true,
+        contains: [
+          {
+            className: 'link_reference',
+            begin: '\\[', end: '\\]',
+            excludeBegin: true, excludeEnd: true
+          },
+          {
+            className: 'link_url',
+            begin: '\\s', end: '$'
           }
         ]
       }

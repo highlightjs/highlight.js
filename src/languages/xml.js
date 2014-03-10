@@ -4,46 +4,41 @@ Language: HTML, XML
 
 function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
+  var PHP = {
+    begin: /<\?(php)?(?!\w)/, end: /\?>/,
+    subLanguage: 'php', subLanguageMode: 'continuous'
+  };
   var TAG_INTERNALS = {
     endsWithParent: true,
+    illegal: /</,
     relevance: 0,
     contains: [
+      PHP,
       {
         className: 'attribute',
         begin: XML_IDENT_RE,
         relevance: 0
       },
       {
-        begin: '="', returnBegin: true, end: '"',
-        contains: [{
-            className: 'value',
-            begin: '"', endsWithParent: true
-        }]
-      },
-      {
-        begin: '=\'', returnBegin: true, end: '\'',
-        contains: [{
-          className: 'value',
-          begin: '\'', endsWithParent: true
-        }]
-      },
-      {
         begin: '=',
-        contains: [{
-          className: 'value',
-          begin: '[^\\s/>]+'
-        }]
+        relevance: 0,
+        contains: [
+          {
+            className: 'value',
+            variants: [
+              {begin: /"/, end: /"/},
+              {begin: /'/, end: /'/},
+              {begin: /[^\s\/>]+/}
+            ]
+          }
+        ]
       }
     ]
   };
   return {
+    aliases: ['html', 'xhtml', 'rss', 'atom', 'xsl', 'plist'],
     case_insensitive: true,
     contains: [
-      {
-        className: 'pi',
-        begin: '<\\?', end: '\\?>',
-        relevance: 10
-      },
       {
         className: 'doctype',
         begin: '<!DOCTYPE', end: '>',
@@ -65,8 +60,8 @@ function(hljs) {
         /*
         The lookahead pattern (?=...) ensures that 'begin' only matches
         '<style' as a single word, followed by a whitespace or an
-        ending braket. The '$' is needed for the lexem to be recognized
-        by hljs.subMode() that tests lexems outside the stream.
+        ending braket. The '$' is needed for the lexeme to be recognized
+        by hljs.subMode() that tests lexemes outside the stream.
         */
         begin: '<style(?=\\s|>|$)', end: '>',
         keywords: {title: 'style'},
@@ -91,13 +86,18 @@ function(hljs) {
         begin: '<%', end: '%>',
         subLanguage: 'vbscript'
       },
+      PHP,
+      {
+        className: 'pi',
+        begin: /<\?\w+/, end: /\?>/,
+        relevance: 10
+      },
       {
         className: 'tag',
         begin: '</?', end: '/?>',
-        relevance: 0,
         contains: [
           {
-            className: 'title', begin: '[^ /><]+'
+            className: 'title', begin: '[^ /><]+', relevance: 0
           },
           TAG_INTERNALS
         ]

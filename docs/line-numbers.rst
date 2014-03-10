@@ -9,7 +9,7 @@ maintainer (hey guys!):
     simplicity. Not the simplicity of code (in fact, it's quite complex) but
     the simplicity of usage and of the actual look of highlighted snippets on
     HTML pages. Many highlighters, in my opinion, are overdoing it with such
-    things as separate colors for every single type of lexems, striped
+    things as separate colors for every single type of lexemes, striped
     backgrounds, fancy buttons around code blocks and — yes — line numbers.
     The more fancy stuff resides around the code the more it distracts a
     reader from understanding it.
