@@ -108,3 +108,4 @@ URL:   http://highlightjs.org/
 - Трэвис Одом <travis.a.odom@gmail.com>
 - innocenat <innocenat@gmail.com>
 - Артур Бикмуллин <devolonter@gmail.com>
+- Паскаль Хурни <phi@ruby-reactive.org>

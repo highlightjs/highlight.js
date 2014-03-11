@@ -108,3 +108,4 @@ Contributors:
 - Travis Odom <travis.a.odom@gmail.com>
 - innocenat <innocenat@gmail.com>
 - Arthur Bikmullin <devolonter@gmail.com>
+- Pascal Hurni <phi@ruby-reactive.org>

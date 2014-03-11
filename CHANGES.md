@@ -13,6 +13,7 @@ New features:
 - Add shorted `lang-` prefix for specifying what language will be
   highlighted.
   Thanks to [Jeff Escalante][]
+- Ruby's got support for interactive console sessions. [Pascal Hurni][]
 
 [Heiko August]: https://github.com/auge8472
 [Nikolay Lisienko]: https://github.com/neor-ru
@@ -35,6 +36,7 @@ New languages and styles:
 [Dan Tao]: https://github.com/dtao
 [Domen Kožar]: https://github.com/iElectric
 [innocenat]: https://github.com/innocenat
+[Pascal Hurni]: https://github.com/phurni
 
 ## Version 8.0
 

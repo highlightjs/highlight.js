@@ -327,6 +327,13 @@ module ABC::DEF
   def ==(other) other == self end
 end
 
+class Car < ActiveRecord::Base
+  has_many :wheels, :class_name => 'Wheel', :foreign_key => 'car_id'
+end
+omega = -> { 'alpha' }
+alpha = ->(arg) { arg*2 }
+hash = {1 => 'one', 2 => 'two'}
+
 anIdentifier = an_identifier
 Constant = 1
 render action: :new
@@ -336,6 +343,26 @@ str =~ %r{foo|bar|buz$}
 str =~ %r!foo|bar$!
 str =~ %r[foo|bar$]
 str =~ %r(\(foo|bar\)$)
+
+2.0.0p0 :001 > ['some']
+ => ["some"] 
+2.0.0p0 :002 > if true
+2.0.0p0 :003?>   "yop"
+2.0.0p0 :004?>   end
+ => "yop" 
+
+>> obj = OpenStruct.new :integer => 987, :symbol => :so_great
+=> #&lt;OpenStruct integer=987, symbol=:so_great&gt;
+>> [obj,obj,obj]
+=> [#&lt;OpenStruct integer=987, symbol=:so_great>, #&lt;OpenStruct integer=987, symbol=:so_great>, #&lt;OpenStruct integer=987, symbol=:so_great>]
+>> {1 => obj, 2 => obj}
+=> {1=>#&lt;OpenStruct integer=987, symbol=:so_great>, 2=>#&lt;OpenStruct integer=987, symbol=:so_great>}
+>> if 10 > 20
+>> "YEAH"
+>> else
+?> "NO"
+>> end
+=> "NO"
 </code></pre>
 
   <tr>

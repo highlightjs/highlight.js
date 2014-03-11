@@ -1,7 +1,7 @@
 /*
 Language: Ruby
 Author: Anton Kovalyov <anton@kovalyov.net>
-Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.net>, Loren Segal <lsegal@soen.ca>
+Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.net>, Loren Segal <lsegal@soen.ca>, Pascal Hurni <phi@ruby-reactive.org>
 */
 
 function(hljs) {
@@ -13,6 +13,10 @@ function(hljs) {
   var YARDOCTAG = {
     className: 'yardoctag',
     begin: '@[A-Za-z]+'
+  };
+  var IRB_OBJECT = {
+    className: 'value',
+    begin: '#<', end: '>'
   };
   var COMMENT = {
     className: 'comment',
@@ -65,6 +69,7 @@ function(hljs) {
 
   var RUBY_DEFAULT_CONTAINS = [
     STRING,
+    IRB_OBJECT,
     COMMENT,
     {
       className: 'class',
@@ -121,6 +126,7 @@ function(hljs) {
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
       contains: [
+        IRB_OBJECT,
         COMMENT,
         {
           className: 'regexp',
@@ -140,10 +146,45 @@ function(hljs) {
   ];
   SUBST.contains = RUBY_DEFAULT_CONTAINS;
   PARAMS.contains = RUBY_DEFAULT_CONTAINS;
+  
+  var IRB_DEFAULT = [
+    {
+      relevance: 1,
+      className: 'output',
+      begin: '^\\s*=> ', end: "$",
+      returnBegin: true,
+      contains: [
+        {
+          className: 'status',
+          begin: '^\\s*=>'
+        },
+        {
+          begin: ' ', end: '$',
+          contains: RUBY_DEFAULT_CONTAINS
+        }
+      ]
+    },
+    {
+      relevance: 1,
+      className: 'input',
+      begin: '^[^ ][^=>]*>+ ', end: "$",
+      returnBegin: true,
+      contains: [
+        {
+          className: 'prompt',
+          begin: '^[^ ][^=>]*>+'
+        },
+        {
+          begin: ' ', end: '$',
+          contains: RUBY_DEFAULT_CONTAINS
+        }
+      ]
+    }
+  ];
 
   return {
-    aliases: ['rb', 'gemspec', 'podspec', 'thor'],
+    aliases: ['rb', 'gemspec', 'podspec', 'thor', 'irb'],
     keywords: RUBY_KEYWORDS,
-    contains: RUBY_DEFAULT_CONTAINS
+    contains: IRB_DEFAULT.concat(RUBY_DEFAULT_CONTAINS)
   };
 }

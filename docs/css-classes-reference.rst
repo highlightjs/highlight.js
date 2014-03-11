@@ -33,8 +33,8 @@ Python profiler results ("profile")
 * ``title``:            actual name of a function in an entry (excluding parentheses)
 * ``prompt``:           interpreter prompt (>>> or ...)
 
-Ruby ("ruby", "rb", "gemspec", "podspec", "thor")
--------------------------------------------------
+Ruby ("ruby", "rb", "gemspec", "podspec", "thor", "irb")
+--------------------------------------------------------
 
 * ``keyword``:          keyword
 * ``string``:           string
@@ -46,6 +46,10 @@ Ruby ("ruby", "rb", "gemspec", "podspec", "thor")
 * ``title``:            name of a function or a class inside a header
 * ``parent``:           name of a parent class
 * ``symbol``:           symbol
+* ``input``:            complete input line (interpreter)
+* ``output``:           complete output line  (interpreter)
+* ``prompt``:           interpreter prompt (>>)
+* ``status``:           interpreter response (=>)
 
 Haml ("haml")
 -------------
