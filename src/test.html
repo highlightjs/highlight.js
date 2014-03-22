@@ -81,22 +81,32 @@
       font-size: medium;
     }
     /* Style switcher */
-    #switch {
-      overflow: auto;
-      width: 67em;
+    ul#switch {
+      width: 66em;
+      -webkit-column-width: 15em;
+      -webkit-column-gap: 2em;
+      -moz-column-width: 15em;
+      -moz-column-gap: 2em;
+      -o-column-width: 15em;
+      -o-column-gap: 2em;
+      column-width: 15em;
+      column-gap: 2em;
       list-style: none;
+      overflow: auto;
       padding: 0;
       margin: 0;
     }
-    #switch ul li {
-      float: left;
-      width: 12em;
+    ul#switch li {
+      -webkit-column-break-inside: avoid;
+      -moz-column-break-inside: avoid;
+      -o-column-break-inside: avoid;
+      column-break-inside: avoid;
       padding: 0.1em;
       margin: 0.1em 1em 0.1em 0;
       background: #EEE;
       cursor: pointer;
     }
-    #switch ul li.current {
+    ul#switch li.current {
       background: #CCC;
     }
     /* Tests */
