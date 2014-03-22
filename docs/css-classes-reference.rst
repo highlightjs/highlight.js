@@ -944,7 +944,7 @@ FIX ("fix")
 * ``string``:           attribute value
 
 Gherkin ("gherkin")
-----------------------------------
+-------------------
 
 * ``keyword``:          keyword
 * ``number``:           number

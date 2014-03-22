@@ -16,9 +16,9 @@ this is done during the build process and details differ for different build tar
       contains: [ ..., hljs.NUMBER_MODE, ... ]
     }
   }
-  
+
 The name of the file is used as a short language identifier and should be usable as a class name in HTML and CSS.
-  
+
 
 2. Provide meta data
 --------------------
