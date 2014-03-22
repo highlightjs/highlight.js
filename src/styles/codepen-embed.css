@@ -1,0 +1,74 @@
+/* codepen.io Embed Theme */
+/* Author: Justin Perry <http://github.com/ourmaninamsterdam> */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+.codepen, pre .comment, pre .title{
+  color: #777;
+}
+
+.codepen, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype{
+  color: #ab875d;
+}
+
+.codepen, pre .css .value{
+  color: #cd6a51;
+}
+
+.codepen, pre .css .value .function, pre .css .value .string{
+  color: #a67f59;
+}
+
+.codepen, pre .css .value .number{
+  color: #9b869c;
+}
+
+.codepen, pre .css .id, pre .css .class, pre .css-pseudo, pre .css .selector, pre .css .tag{
+  color: #dfc48c;
+}
+
+.codepen, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #ab875d;
+}
+
+.codepen, pre .ruby .class .title, pre .css .rules .attribute {
+  color: #9B869B;
+}
+
+.codepen, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: #8f9c6c;
+}
+
+.codepen, pre .css .hexcolor {
+  color: #cd6a51;
+}
+
+.codepen, .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #fff;
+}
+
+.codepen, pre .keyword, pre .javascript .function {
+  color: #8f9c6c;
+}
+
+pre code{
+  background: #222;
+  color: #fff; 
+  font-family: Menlo, Monaco, 'Andale Mono', 'Lucida Console', 'Courier New', monospace;
+  font-size: 14px;
+  overflow: auto;
+  margin-bottom: 32px;
+  padding: 8px 16px;
+  white-space: pre;
+}
+
+pre .coffeescript .javascript,
+pre .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  background: transparent;
+  opacity: 1;
+}
