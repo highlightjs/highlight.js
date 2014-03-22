@@ -2510,6 +2510,9 @@ pingUDPPort s a = sendTo s (Strict.singleton 0) a &gt;&gt; return ()
     channel
    }).
 
+-spec foo(integer()) -&gt; integer().
+foo(X) -&gt; 1 + X.
+
 test(Foo)-&gt;Foo.
 
 init([Shell, Exec]) -&gt;
