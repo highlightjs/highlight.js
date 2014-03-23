@@ -287,6 +287,23 @@ CoffeeScript ("coffeescript", "coffee", "cson", "iced")
 * ``params``:           parentheses and everything inside them in a function's header
 * ``property``:         @-property within class and functions
 
+LiveScript ("livescript")
+-------------------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment
+* ``number``:           number
+* ``literal``:          special literal: "true", "false" and "null"
+* ``built_in``:         built-in objects and functions ("window", "console", "require", etc...)
+* ``string``:           string
+* ``subst``:            #{ ... } interpolation in double-quoted strings
+* ``regexp``:           regular expression
+* ``function``:         header of a function
+* ``class``:            header of a class
+* ``title``:            name of a function variable inside a header
+* ``params``:           parentheses and everything inside them in a function's header
+* ``property``:         @-property within class and functions
+
 ActionScript ("actionscript", "as")
 -----------------------------------
 
