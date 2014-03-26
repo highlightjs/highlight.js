@@ -14,13 +14,6 @@ function(hljs) {
     ]
   }
 
-  var IDENT_TYPE_MODE =  {
-    className: 'built_in',
-    begin: ':', end: '=|' + hljs.UNDERSCORE_IDENT_RE + '\\b',
-    excludeBegin: true,
-    relevance: 0
-  }
-
   return {
     aliases: ['monkey'],
     case_insensitive: true,
@@ -46,22 +39,10 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function method', end: '[(=]|$',
+        beginKeywords: 'function method', end: '[(=:]|$',
+        illegal: /\n/,
         contains: [
           hljs.UNDERSCORE_TITLE_MODE,
-          IDENT_TYPE_MODE
-        ]
-      },
-      {
-        className: 'function',
-        beginKeywords: 'new', end: '[();]|$',
-        excludeEnd: true,
-        contains: [
-          {
-            className: 'built_in',
-            begin: hljs.UNDERSCORE_IDENT_RE,
-            relevance: 0
-          }
         ]
       },
       {
@@ -96,7 +77,6 @@ function(hljs) {
         beginKeywords: 'alias', end: '=',
         contains: [hljs.UNDERSCORE_TITLE_MODE]
       },
-      IDENT_TYPE_MODE,
       hljs.QUOTE_STRING_MODE,
       NUMBER
     ]
