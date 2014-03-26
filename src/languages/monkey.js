@@ -15,7 +15,6 @@ function(hljs) {
   }
 
   return {
-    aliases: ['monkey'],
     case_insensitive: true,
     keywords: {
       keyword: 'public private property continue exit extern new try catch ' +
