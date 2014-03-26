@@ -5,11 +5,11 @@ Description: Thrift message definition format
 */
 
 function(hljs) {
-  var BUILT_IN_TYPES = 'bool byte i16|10 i32|10 i64|10 double string binary';
+  var BUILT_IN_TYPES = 'bool byte i16 i32 i64 double string binary';
   return {
     keywords: {
       keyword:
-        'namespace const typedef struct enum service exception void oneway|10 set list map required optional',
+        'namespace const typedef struct enum service exception void oneway set list map required optional',
       built_in:
         BUILT_IN_TYPES,
       literal:
