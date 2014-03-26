@@ -34,7 +34,6 @@ function(hljs) {
         className: 'stl_container',
         begin: '\\b(set|list|map)\\s*<', end: '>',
         keywords: BUILT_IN_TYPES,
-        relevance: 10,
         contains: ['self']
       }
     ]
