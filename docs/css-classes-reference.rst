@@ -33,8 +33,8 @@ Python profiler results ("profile")
 * ``title``:            actual name of a function in an entry (excluding parentheses)
 * ``prompt``:           interpreter prompt (>>> or ...)
 
-Ruby ("ruby", "rb", "gemspec", "podspec", "thor")
--------------------------------------------------
+Ruby ("ruby", "rb", "gemspec", "podspec", "thor", "irb")
+--------------------------------------------------------
 
 * ``keyword``:          keyword
 * ``string``:           string
@@ -46,6 +46,10 @@ Ruby ("ruby", "rb", "gemspec", "podspec", "thor")
 * ``title``:            name of a function or a class inside a header
 * ``parent``:           name of a parent class
 * ``symbol``:           symbol
+* ``input``:            complete input line (interpreter)
+* ``output``:           complete output line  (interpreter)
+* ``prompt``:           interpreter prompt (>>)
+* ``status``:           interpreter response (=>)
 
 Haml ("haml")
 -------------
@@ -325,14 +329,40 @@ Protocol Buffers ("protobuf")
 -----------------------------
 
 * ``keyword``:          keyword
-* ``built_in``:         built-in types (e.g., `int64`, `string`)
+* ``built_in``:         built-in types (e.g. `int64`, `string`)
 * ``string``:           string
 * ``number``:           number
 * ``literal``:          "true" and "false"
 * ``comment``:          comment
-* ``class``:            message, service, or enum identifier
-* ``title``:            enum value
+* ``class``:            message, service or enum definition header
+* ``title``:            message, service or enum identifier
 * ``function``:         RPC call identifier
+
+Cap’n Proto ("capnproto", "capnp")
+----------------------------------
+
+* ``shebang``:          message identifier
+* ``keyword``:          keyword
+* ``built_in``:         built-in types (e.g. `Int64`, `Text`)
+* ``string``:           string
+* ``number``:           number or field number (e.g. @N)
+* ``literal``:          "true" and "false"
+* ``comment``:          comment
+* ``class``:            message, interface or enum definition header
+* ``title``:            message, interface or enum identifier
+
+Thrift ("thrift")
+-----------------
+
+* ``keyword``:          keyword
+* ``built_in``:         built-in types (e.g. `byte`, `i32`)
+* ``string``:           string
+* ``number``:           number
+* ``literal``:          "true" and "false"
+* ``comment``:          comment
+* ``class``:            struct, enum, service or exception definition header
+* ``title``:            struct, enum, service or exception identifier
+* ``stl_container``:    instantiation of STL-like containers ("list<...>")
 
 HTTP ("http")
 -------------
@@ -917,8 +947,32 @@ AutoHotkey ("autohotkey")
 * ``var_expand``:       variable expansion (enclosed in percent sign)
 * ``label``:            label, hotkey label, hotstring label
 
+Monkey ("monkey")
+-----------------
+
+* ``keyword``:          keyword
+* ``built_in``:         built-in functions, variables and types of variables
+* ``literal``:          True, False, Null, And, Or, Shl, Shr, Mod
+* ``string``:           string
+* ``comment``:          comment
+* ``number``:           number
+* ``function``:         header of a function, method and constructor
+* ``class``:            class header
+* ``title``:            name of an alias, class, interface, function or method inside a header
+* ``variable``:         self and super keywords
+* ``preprocessor``:     import and preprocessor
+* ``pi``:               Strict directive
+
 FIX ("fix")
 -----------
 
 * ``attribute``:        attribute name
 * ``string``:           attribute value
+
+Gherkin ("gherkin")
+-------------------
+
+* ``keyword``:          keyword
+* ``number``:           number
+* ``comment``:          comment
+* ``string``:           string

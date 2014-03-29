@@ -107,4 +107,6 @@ Contributors:
 - Domen Kožar <domen@dev.si>
 - Travis Odom <travis.a.odom@gmail.com>
 - innocenat <innocenat@gmail.com>
+- Arthur Bikmullin <devolonter@gmail.com>
+- Pascal Hurni <phi@ruby-reactive.org>
 - Sergey Vidyuk <svidyuk@gmail.com>

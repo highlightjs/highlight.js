@@ -17,8 +17,7 @@ function(hljs) {
 
   var COMMENT = {
     className: 'comment',
-    begin: '%', end: '$',
-    relevance: 0
+    begin: '%', end: '$'
   };
   var NUMBER = {
     className: 'number',
@@ -147,14 +146,15 @@ function(hljs) {
         keywords:
           '-module -record -undef -export -ifdef -ifndef -author -copyright -doc -vsn ' +
           '-import -include -include_lib -compile -define -else -endif -file -behaviour ' +
-          '-behavior',
+          '-behavior -spec',
         contains: [PARAMS]
       },
       NUMBER,
       hljs.QUOTE_STRING_MODE,
       RECORD_ACCESS,
       VAR1, VAR2,
-      TUPLE
+      TUPLE,
+      {begin: /\.$/} // relevance booster
     ]
   };
 }
