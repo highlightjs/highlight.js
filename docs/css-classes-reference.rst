@@ -1059,3 +1059,14 @@ Swift ("swift")
 * ``params``:           parameters of a function
 * ``type``:             a type
 * ``preprocessor``:     @attributes
+
+Q ("k", "kdb")
+-------------------
+
+* ``comment``:          comment
+* ``string``:           string constant
+* ``number``:           number
+* ``keyword``:          language keywords
+* ``constant``:         0/1b
+* ``typename``:         built-in plain types (int, symbol etc.)
+* ``built_in``:         built-in function
