@@ -1,4 +1,4 @@
-Syntax highlighting with language autodetection.
+﻿Syntax highlighting with language autodetection.
 
 URL:   http://highlightjs.org/
 
@@ -109,3 +109,4 @@ Contributors:
 - innocenat <innocenat@gmail.com>
 - Arthur Bikmullin <devolonter@gmail.com>
 - Pascal Hurni <phi@ruby-reactive.org>
+- mucaho <mkucko@gmail.com>
