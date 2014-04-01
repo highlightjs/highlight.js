@@ -78,8 +78,7 @@ function(hljs) {
       variants: [
         {
           begin: '//', end: '//[gim]*',
-          contains: [SUBST, hljs.HASH_COMMENT_MODE],
-          relevance: 5
+          contains: [SUBST, hljs.HASH_COMMENT_MODE]
         },
         {
           begin: '/\\S(\\\\.|[^\\n])*?/[gim]*(?=\\s|\\W|$)' // \S is required to parse x / 2 / 3 as two divisions
