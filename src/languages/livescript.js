@@ -68,9 +68,8 @@ function(hljs) {
           contains: [hljs.BACKSLASH_ESCAPE, SUBST, SUBST_SIMPLE]
         },
         {
-          begin: /\\/, end: /[^,\]\}\n\r]+/,
-          contains: [hljs.BACKSLASH_ESCAPE],
-          relevance: 10
+          begin: /\\/, end: /(\s|$)/,
+          excludeEnd: true
         }
       ]
     },
