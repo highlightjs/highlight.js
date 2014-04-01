@@ -59,12 +59,8 @@ function(hljs) {
       className: 'regexp',
       variants: [
         {
-          begin: '///', end: '///',
+          begin: '///', end: '///[gim]*',
           contains: [SUBST, hljs.HASH_COMMENT_MODE]
-        },
-        {
-          begin: '//[gim]*',
-          relevance: 0
         },
         {
           begin: '/\\S(\\\\.|[^\\n])*?/[gim]*(?=\\s|\\W|$)' // \S is required to parse x / 2 / 3 as two divisions
