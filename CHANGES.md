@@ -28,6 +28,7 @@ New languages and styles:
 - *Protocol Buffers* by [Dan Tao][]
 - *Nix* by [Domen Kožar][]
 - *x86asm* by [innocenat][]
+- *Cap’n Proto* and *Thrift* by [Oleg Efimov][]
 - *LiveScript* by [Taneli Vatanen][] and [Jen Evers-Corvina][]
 
 [Sindre Sorhus]: https://github.com/sindresorhus
@@ -38,8 +39,10 @@ New languages and styles:
 [Domen Kožar]: https://github.com/iElectric
 [innocenat]: https://github.com/innocenat
 [Pascal Hurni]: https://github.com/phurni
+[Oleg Efimov]: https://github.com/Sannis
 [Taneli Vatanen]: https://github.com/Daiz-
 [Jen Evers-Corvina]: https://github.com/sevvie
+
 
 ## Version 8.0
 
