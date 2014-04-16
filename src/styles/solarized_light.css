@@ -5,7 +5,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 */
 
 .hljs {
-  display: block;
+  display: inline-block;
   padding: 0.5em;
   background: #fdf6e3;
   color: #657b83;

@@ -8,7 +8,7 @@ Music: Aphex Twin / Xtal
 */
 
 .hljs {
-  display: block;
+  display: inline-block;
   padding: 0.5em;
   background-color: #f4f4f4;
 }

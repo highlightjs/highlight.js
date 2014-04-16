@@ -5,7 +5,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 */
 
 .hljs {
-  display: block;
+  display: inline-block;
   padding: 0.5em;
   background: #fff;
   color: black;
