@@ -4,6 +4,7 @@ New features:
 
 - Add `listLanguages()` API method.
 - export.html merged into test.html.
+- C/C++/C# detection improved.
 - Added a bunch of aliases for languages and document current ones.
   Thanks to [Sindre Sorhus][] for background research.
 - Added phrasal English words to boost relevance in comments.
@@ -12,16 +13,23 @@ New features:
   [Nikolay Lisienko][] and [Travis Odom][].
 - Add shorted `lang-` prefix for specifying what language will be
   highlighted.
-  Thanks to [Jeff Escalante][]
-- Ruby's got support for interactive console sessions. [Pascal Hurni][]
+  Thanks to [Jeff Escalante][].
+- Ruby's got support for interactive console sessions. Thanks to [Pascal Hurni][].
+- Deal with trailing commas errors. Thanks to [Jiyin Yiyong][].
+- Add built_in functions for R language. Thanks to [Artem A. Klevtsov][].
 
+[Sindre Sorhus]: https://github.com/sindresorhus
 [Heiko August]: https://github.com/auge8472
 [Nikolay Lisienko]: https://github.com/neor-ru
 [Travis Odom]: https://github.com/Burstaholic
 [Jeff Escalante]: https://github.com/jenius
+[Pascal Hurni]: https://github.com/phurni
+[Jiyin Yiyong]: https://github.com/jiyinyiyong
+[Artem A. Klevtsov]: https://github.com/unikum
 
 New languages and styles:
 
+- *Gherkin* by [Sam Pikesley][]
 - *Elixir* by [Josh Adams][]
 - *NSIS* by [Jan T. Sott][]
 - *VIM script* by [Jun Yang][]
@@ -29,16 +37,22 @@ New languages and styles:
 - *Nix* by [Domen Kožar][]
 - *x86asm* by [innocenat][]
 - *Cap’n Proto* and *Thrift* by [Oleg Efimov][]
+- *Monkey* by [Arthur Bikmullin][]
+- *Kimbie* light and dark themes by [Jan T. Sott][]
+- *Color brewer* theme by [Fabrício Tavares de Oliveira][]
+- *Codepen.io embed* theme by [Justin Perry][]
 
-[Sindre Sorhus]: https://github.com/sindresorhus
+[Sam Pikesley]: https://github.com/pikesley
 [Josh Adams]: https://github.com/knewter
 [Jan T. Sott]: https://github.com/idleberg
 [Jun Yang]: https://github.com/harttle
 [Dan Tao]: https://github.com/dtao
 [Domen Kožar]: https://github.com/iElectric
 [innocenat]: https://github.com/innocenat
-[Pascal Hurni]: https://github.com/phurni
 [Oleg Efimov]: https://github.com/Sannis
+[Arthur Bikmullin]: https://github.com/devolonter
+[Fabrício Tavares de Oliveira]: https://github.com/fabriciotav
+[Justin Perry]: https://github.com/ourmaninamsterdam
 
 ## Version 8.0
 
