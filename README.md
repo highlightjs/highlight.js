@@ -4,41 +4,42 @@ Highlight.js highlights syntax in code examples on blogs, forums and,
 in fact, on any web page. It's very easy to use because it works
 automatically: finds blocks of code, detects a language, highlights it.
 
-Autodetection can be fine tuned when it fails by itself (see "Heuristics").
+## Getting Started
 
-
-## Basic usage
-
-Link the library and a stylesheet from your page and hook highlighting to
-the page load event:
+The bare minimum for using highlight.js is linking to the library along
+with one of the styles and call [`initHighlightingOnLoad`][1]:
 
 ```html
-<link rel="stylesheet" href="styles/default.css">
-<script src="highlight.pack.js"></script>
+<link rel="stylesheet" href="/path/to/styles/default.css">
+<script src="/path/to/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 ```
 
-This will highlight all code on the page marked up as `<pre><code> .. </code></pre>`.
-If you use different markup or need to apply highlighting dynamically, read
-"Custom initialization" below.
+This will highlight anything inside of `<pre><code>` using the auto
+detection to figure the language by default.
 
-- You can download your own customized version of "highlight.pack.js" or
-  use the hosted one as described on the download page:
-  <http://highlightjs.org/download/>
+But what if you already know what language you want highlighted? Well
+the way to shut off auto detection for certain blocks is to specify the
+language inside the class of either `pre` or `code` tags.
 
-- Style themes are available in the download package or as hosted files.
-  To create a custom style for your site see the class reference in the file
-  [CSS classes reference][cr] from the downloaded package.
+```html
+<pre class="html"><code>...</code></pre>
+<!-- or -->
+<pre><code class="html">...</code></pre>
+```
 
-[cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
+Just in case you have class names that conflict inside your stylesheets,
+you can prefix these language names with either `language-` or `lang-`.
+In the examples case to can replace plain-old `html` class with
+`language-html` or any other languages that are supported, and it will
+highlight in the syntax of that language.
 
+But sometimes you don't want to highlight something inside of
+`<pre><code>`; for cases like this, you would use `no-highlight` class:
 
-## node.js
-
-Highlight.js can be used under node.js. The package with all supported languages is
-installable from NPM:
-
-    npm install highlight.js
+```html
+<pre><code class="no-highlight">...</code></pre>
+```
 
 Alternatively, you can build it from the source with only languages you need:
 
