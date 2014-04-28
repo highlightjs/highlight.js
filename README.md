@@ -87,35 +87,27 @@ hljs.initHighlightingOnLoad();
 
 To look at the other options, check out the [configuration docs][3].
 
-## Tab replacement
+## Getting the Library
 
-You can replace TAB ('\x09') characters used for indentation in your code
-with some fixed number of spaces or with a `<span>` to give them special
-styling:
+There are several ways to get highlight.js as a local copy or through a
+CDN. The first one is with our [official site][4], where you can get the
+common set of languages or a custom package.
 
-```html
-<script type="text/javascript">
-  hljs.configure({tabReplace: '    '}); // 4 spaces
-  // ... or
-  hljs.configure({tabReplace: '<span class="indent">\t</span>'});
+The another way is with node.js version using npm:
 
-  hljs.initHighlightingOnLoad();
-</script>
-```
+    npm install highlight.js
 
-## Custom initialization
+There is also a [third-party][5] package for bower that you can use. The
+way to install that is:
 
-If you use different markup for code blocks you can initialize them manually
-with `highlightBlock(code)` function.
-It takes a DOM element containing the code to highlight.
+    bower install highlightjs
 
-Initialization using, for example, jQuery might look like this:
+If you wish to use a CDN, there are two different CDNs that highlight.js
+currently support. The first one is [yandex][6], and the other is
+[cdnjs][7]. You just need to replace the source for the library itself
+and the styles with the url that corresponds with the CDN you are using.
 
-```javascript
-$(document).ready(function() {
-  $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-});
-```
+For further explanation, check out [the download][4] page on our site.
 
 You can use `highlightBlock` to highlight blocks dynamically inserted into
 the page. Just make sure you don't do it twice for already highlighted
