@@ -109,47 +109,39 @@ and the styles with the url that corresponds with the CDN you are using.
 
 For further explanation, check out [the download][4] page on our site.
 
-You can use `highlightBlock` to highlight blocks dynamically inserted into
-the page. Just make sure you don't do it twice for already highlighted
-blocks.
+## Building
 
-If your code container relies on `<br>` tags instead of line breaks (i.e. if
-it's not `<pre>`) set the `useBR` option to `true`:
+For those that grab highlight.js straight from the git repository won't
+be able to start using it right away, that is because highlight.js
+requires a build step first. What you need to build highlight.js is
+Python 3 if you aren't going to compress the libraries -- however if you
+want compression you also need Java.
 
-```javascript
-hljs.configure({useBR: true});
-$('div.code').each(function(i, e) {hljs.highlightBlock(e)});
-```
+If you just want all languages:
 
+    python3 /path/to/tools/build.py -n
 
-## Heuristics
+If you just want specific languages:
 
-Autodetection of a code's language is done using a simple heuristic:
-the program tries to highlight a fragment with all available languages and
-counts all syntactic structures that it finds along the way. The language
-with greatest count wins.
+    python3 /path/to/tools/build.py -n lang1 lang2 ...
 
-This means that in short fragments the probability of an error is high
-(and it really happens sometimes). In this cases you can set the fragment's
-language explicitly by assigning a class to the `<code>` element:
+That `-n` flag is to disable compression and you can exclude it if you
+want the script to compress the package.
 
-```html
-<pre><code class="language-html">...</code></pre>
-```
+The default packaging structure is for the browser, but you can also
+build for either node.js or AMD.
 
-You can use class names prefixed with "language-" (or "lang-")
-as [recommended in the HTML Living Standard][sem],
-for example "language-html" or "language-php".
-Classes also can be assigned to the `<pre>` element.
+For node.js:
 
-To disable highlighting of a fragment altogether use "no-highlight" class:
+    python3 /path/to/tools/build.py -t node
 
-```html
-<pre><code class="no-highlight">...</code></pre>
-```
+And for AMD, just replace `node` with `amd`.
 
-[sem]: http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-code-element
+For more more usage info:
 
+    python3 /path/to/tools/build.py -h
+
+Also visit [the build docs][8] for more examples.
 
 ## Export
 
