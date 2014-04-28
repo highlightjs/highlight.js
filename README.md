@@ -41,46 +41,51 @@ But sometimes you don't want to highlight something inside of
 <pre><code class="no-highlight">...</code></pre>
 ```
 
-Alternatively, you can build it from the source with only languages you need:
+### Custom Initialization
 
-    python3 tools/build.py -tnode lang1 lang2 ..
+When you need a bit more control over the initialization of
+highlight.js, you can use the [`highlightBlock`][2] and [`configure`][3]
+functions.
 
-Using the library:
-
-```javascript
-var hljs = require('highlight.js');
-
-// If you know the language
-hljs.highlight(lang, code).value;
-
-// Automatic language detection
-hljs.highlightAuto(code).value;
-```
-
-
-## AMD
-
-Highlight.js can be used with an AMD loader.  You will need to build it from
-source in order to do so:
-
-```bash
-$ python3 tools/build.py -tamd lang1 lang2 ..
-```
-
-Which will generate a `build/highlight.pack.js` which will load as an AMD
-module with support for the built languages and can be used like so:
+Say you want to use jQuery to initialize:
 
 ```javascript
-require(["highlight.js/build/highlight.pack"], function(hljs){
+$(document).ready(function() {
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+};)
+```
 
-  // If you know the language
-  hljs.highlight(lang, code).value;
+This will essentially be equivalent to calling
+[`hljs.initHighlightingOnLoad`][1].
 
-  // Automatic language detection
-  hljs.highlightAuto(code).value;
+Maybe you don't want to use the `<pre><code>` tags and just want a div
+without any use of the two `pre` and `code` tags. In that case you will
+need to configure highlight.js to use the `br` tag with the `useBR`
+option:
+
+```javascript
+hljs.configure({useBR: true});
+
+$('div.code').each(function(i, block) {
+  hljs.highlightBlock(block);
 });
 ```
 
+There are other options that can be used before highlight, but some
+common cases, besides `useBR`, is replacing tab with something else
+using `tabReplace`:
+
+```javascript
+hljs.configure({tabReplace: '    '}); // 4 spaces
+// or
+hljs.configure({tabReplace: '<span class="indent">\t</span>'});
+
+hljs.initHighlightingOnLoad();
+```
+
+To look at the other options, check out the [configuration docs][3].
 
 ## Tab replacement
 
