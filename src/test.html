@@ -2754,10 +2754,8 @@ greeter.("Bob")
     <th>Rust
     <td class="rust">
 <pre>
-<code>use std;
-
-import std::io;
-export fac, test1;
+<code>
+use std;
 
 123;                               // type int
 123u;                              // type uint
@@ -2771,6 +2769,16 @@ export fac, test1;
 0.1f32;                            // type f32
 12E+99_f64;                        // type f64
 
+'a';
+'\n';
+'\x1A';
+'\u12AS';
+'\U1234ASDF';
+
+r"hello";
+r###"world"###;
+r##" "### "# "##;
+
 /* Factorial */
 fn fac(n: int) -&gt; int {
     let s: str = "This is
@@ -2778,6 +2786,7 @@ a multi-line string.
 
 It ends with an unescaped '\"'.";
     let c: char = 'Ф';
+    let r: str = r##" raw string "##;
 
     let result = 1, i = 1;
     while i &lt;= n { // No parens around the condition
@@ -2796,11 +2805,7 @@ let x = id::&lt;int&gt;(10);
 #[path = "foo.rs"]
 mod foo;
 
-iface seq&lt;T&gt; {
-    fn len() -&gt; uint;
-}
-
-impl &lt;T&gt; of seq&lt;T&gt; for [T] {
+impl &lt;T&gt; Seq&lt;T&gt; for [T] {
     fn len() -&gt; uint { vec::len(self) }
     fn iter(b: fn(T)) {
         for elt in self { b(elt); }
@@ -2808,11 +2813,23 @@ impl &lt;T&gt; of seq&lt;T&gt; for [T] {
 }
 
 enum list&lt;T&gt; {
-    nil;
-    cons(T, @list&lt;T&gt;);
+    Nil;
+    Cons(T, @list&lt;T&gt;);
 }
 
-let a: list&lt;int&gt; = cons(7, @cons(13, @nil));
+let a: list&lt;int&gt; = Cons(7, @cons(13, @nil));
+
+struct Baz<'a> {
+    baz: &'a str,
+}
+
+'h: for i in range(0,10) {
+    'g: loop {
+        if i % 2 == 0 { continue 'h; }
+        if i == 9 { break 'h; }
+        break 'g;
+    }
+}
 </code></pre>
 
   <tr>
