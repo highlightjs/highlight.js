@@ -2616,6 +2616,12 @@ pingUDPPort s a = sendTo s (Strict.singleton 0) a &gt;&gt; return ()
 %% backwards compatibility
 -export([listen/1, listen/2, listen/3, listen/4, stop/1]).
 
+if L =/= [] ->      % If L is not empty
+    sum(L) / count(L);
+true ->
+    error
+end.
+
 %% state
 -record(state, {
     cm,

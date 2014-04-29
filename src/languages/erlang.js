@@ -118,7 +118,7 @@ function(hljs) {
   return {
     aliases: ['erl'],
     keywords: ERLANG_RESERVED,
-    illegal: '(</|\\*=|\\+=|-=|/=|/\\*|\\*/|\\(\\*|\\*\\))',
+    illegal: '(</|\\*=|\\+=|-=|/\\*|\\*/|\\(\\*|\\*\\))',
     contains: [
       {
         className: 'function',
