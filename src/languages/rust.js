@@ -7,11 +7,14 @@ function(hljs) {
   return {
     aliases: ['rs'],
     keywords:
-      'assert bool break char check claim comm const cont copy dir do drop ' +
-      'else enum extern export f32 f64 fail false float fn for i16 i32 i64 i8 ' +
-      'if impl int let log loop match mod move mut priv pub pure ref return ' +
-      'self static str struct task true trait type u16 u32 u64 u8 uint unsafe ' +
-      'use vec while',
+      'alignof as be box break const continue crate do else enum extern ' +
+      'false fn for if impl in let loop match mod mut offsetof once priv ' +
+      'proc pub pure ref return self sizeof static struct super trait true ' +
+      'type typeof unsafe unsized use virtual while yield ' +
+      'int i8 i16 i32 i64 ' +
+      'uint u8 u32 u64 ' +
+      'float f32 f64 ' +
+      'str char bool',
     illegal: '</',
     contains: [
       hljs.C_LINE_COMMENT_MODE,

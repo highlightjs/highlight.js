@@ -2754,10 +2754,8 @@ greeter.("Bob")
     <th>Rust
     <td class="rust">
 <pre>
-<code>use std;
-
-import std::io;
-export fac, test1;
+<code>
+use std;
 
 123;                               // type int
 123u;                              // type uint
@@ -2796,11 +2794,7 @@ let x = id::&lt;int&gt;(10);
 #[path = "foo.rs"]
 mod foo;
 
-iface seq&lt;T&gt; {
-    fn len() -&gt; uint;
-}
-
-impl &lt;T&gt; of seq&lt;T&gt; for [T] {
+impl &lt;T&gt; Seq&lt;T&gt; for [T] {
     fn len() -&gt; uint { vec::len(self) }
     fn iter(b: fn(T)) {
         for elt in self { b(elt); }
@@ -2808,11 +2802,11 @@ impl &lt;T&gt; of seq&lt;T&gt; for [T] {
 }
 
 enum list&lt;T&gt; {
-    nil;
-    cons(T, @list&lt;T&gt;);
+    Nil;
+    Cons(T, @list&lt;T&gt;);
 }
 
-let a: list&lt;int&gt; = cons(7, @cons(13, @nil));
+let a: list&lt;int&gt; = Cons(7, @cons(13, @nil));
 </code></pre>
 
   <tr>
