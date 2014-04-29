@@ -109,3 +109,4 @@ URL:   http://highlightjs.org/
 - innocenat <innocenat@gmail.com>
 - Артур Бикмуллин <devolonter@gmail.com>
 - Паскаль Хурни <phi@ruby-reactive.org>
+- Роман Шматов <romanshmatov@gmail.com>

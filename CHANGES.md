@@ -17,6 +17,8 @@ New features:
 - Ruby's got support for interactive console sessions. Thanks to [Pascal Hurni][].
 - Deal with trailing commas errors. Thanks to [Jiyin Yiyong][].
 - Add built_in functions for R language. Thanks to [Artem A. Klevtsov][].
+- Rust got definitions for lifetime parameters and improved string syntax.
+  Thanks to [Roman Shmatov][].
 
 [Sindre Sorhus]: https://github.com/sindresorhus
 [Heiko August]: https://github.com/auge8472
@@ -26,6 +28,7 @@ New features:
 [Pascal Hurni]: https://github.com/phurni
 [Jiyin Yiyong]: https://github.com/jiyinyiyong
 [Artem A. Klevtsov]: https://github.com/unikum
+[Roman Shmatov]: https://github.com/shmatov
 
 New languages and styles:
 
