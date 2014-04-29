@@ -25,6 +25,9 @@ function(hljs) {
         begin: /'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/
       },
       {
+        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
+      },
+      {
         className: 'number',
         begin: '\\b(0[xb][A-Za-z0-9_]+|[0-9_]+(\\.[0-9_]+)?([uif](8|16|32|64)?)?)',
         relevance: 0
