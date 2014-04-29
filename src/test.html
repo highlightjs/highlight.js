@@ -2775,6 +2775,10 @@ use std;
 '\u12AS';
 '\U1234ASDF';
 
+r"hello";
+r###"world"###;
+r##" "### "# "##;
+
 /* Factorial */
 fn fac(n: int) -&gt; int {
     let s: str = "This is
@@ -2782,6 +2786,7 @@ a multi-line string.
 
 It ends with an unescaped '\"'.";
     let c: char = 'Ф';
+    let r: str = r##" raw string "##;
 
     let result = 1, i = 1;
     while i &lt;= n { // No parens around the condition

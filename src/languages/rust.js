@@ -22,6 +22,10 @@ function(hljs) {
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       {
         className: 'string',
+        begin: /r(#*)".*?"\1(?!#)/
+      },
+      {
+        className: 'string',
         begin: /'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/
       },
       {
