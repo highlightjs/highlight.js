@@ -92,7 +92,10 @@ function(hljs) {
     },
     {
       className: 'attribute',
-      begin: '\\.\\.\\.|-' + hljs.UNDERSCORE_IDENT_RE
+      variants: [
+        {begin: '(\\.\\.\\.)' + hljs.UNDERSCORE_IDENT_RE},
+        {begin: '-' + hljs.UNDERSCORE_IDENT_RE, relevance: 0}
+      ]
     },
     {
       className: 'subst',
