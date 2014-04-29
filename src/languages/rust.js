@@ -20,7 +20,10 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
-      hljs.APOS_STRING_MODE,
+      {
+        className: 'string',
+        begin: /'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/
+      },
       {
         className: 'number',
         begin: '\\b(0[xb][A-Za-z0-9_]+|[0-9_]+(\\.[0-9_]+)?([uif](8|16|32|64)?)?)',
