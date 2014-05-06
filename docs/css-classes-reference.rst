@@ -458,7 +458,7 @@ Vala ("vala")
 * ``title``:            in class definition
 * ``constant``:         ALL_UPPER_CASE
 
-C# ("cs")
+C# ("cs", "csharp")
 ---------
 
 * ``keyword``:          keyword
