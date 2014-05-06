@@ -16,6 +16,7 @@ function(hljs) {
     'ascending descending from get group into join let orderby partial select set value var ' +
     'where yield';
   return {
+    aliases: ['csharp'],
     keywords: KEYWORDS,
     illegal: /::/,
     contains: [
