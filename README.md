@@ -126,9 +126,6 @@ Also, all authors and contributes are listed in the AUTHORS.en.txt file.
 [2]: http://highlightjs.readthedocs.org/en/latest/api.html#highlightblock-block
 [3]: http://highlightjs.readthedocs.org/en/latest/api.html#configure-options
 [4]: http://highlightjs.org/download/
-[5]: https://github.com/components/highlightjs
-[6]: http://api.yandex.ru/jslibs/libs.xml#highlightjs
-[7]: http://cdnjs.com/libraries/highlight.js
-[8]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
-[9]: http://highlightjs.org/
-[10]: http://highlightjs.readthedocs.org/
+[5]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
+[6]: http://highlightjs.org/
+[7]: http://highlightjs.readthedocs.org/
