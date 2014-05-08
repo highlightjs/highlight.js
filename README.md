@@ -87,25 +87,13 @@ To look at the other options, check out the [configuration docs][3].
 
 ## Getting the Library
 
-There are several ways to get highlight.js as a local copy or through a
-CDN. The first one is with our [official site][4], where you can get the
-common set of languages or a custom package.
+The [official site][4] is where you want to go to grab the common set of
+languages or a custom package. That page mentions some other options to
+obtain the library as well that you can check out if just a straight up
+browser package isn't what you are looking for.
 
-The another way is with node.js version using npm:
-
-    npm install highlight.js
-
-There is also a [third-party][5] package for bower that you can use. The
-way to install that is:
-
-    bower install highlightjs
-
-If you wish to use a CDN, there are two different CDNs that highlight.js
-currently support. The first one is [yandex][6], and the other is
-[cdnjs][7]. You just need to replace the source for the library itself
-and the styles with the url that corresponds with the CDN you are using.
-
-For further explanation, check out [the download][4] page on our site.
+The other option is through the git repository directly. This is where
+you want to read the next section.
 
 ## Building
 
