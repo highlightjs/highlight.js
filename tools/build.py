@@ -112,8 +112,11 @@ def compress_content(tools_path, content, filetype='js'):
             content = mapnonstrings(content, partial(re.sub, r'\b%s\b' % s, r))
         content = re.sub(r'(block|parentNode)\.cN', r'\1.className', content)
 
-    args = ['java', '-jar', os.path.join(tools_path, 'yuicompressor.jar'), '--type', filetype]
-    p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    try:
+        args = ['java', '-jar', os.path.join(tools_path, 'yuicompressor.jar'), '--type', filetype]
+        p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    except FileNotFoundError as e:
+        raise RuntimeError('Couldn\'t find "%s" which is required for compression to work. You can skip compression with the `-n` option.' % args[0]) from e
     p.stdin.write(content.encode('utf-8'))
     p.stdin.close()
     content = p.stdout.read().decode('utf-8')
