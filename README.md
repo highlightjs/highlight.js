@@ -103,31 +103,11 @@ requires a build step first. What you need to build highlight.js is
 Python 3 if you aren't going to compress the libraries -- however if you
 want compression you also need Java.
 
-If you just want all languages:
-
-    python3 /path/to/tools/build.py -n
-
-If you just want specific languages:
-
-    python3 /path/to/tools/build.py -n lang1 lang2 ...
-
-That `-n` flag is to disable compression and you can exclude it if you
-want the script to compress the package.
-
-The default packaging structure is for the browser, but you can also
-build for either node.js or AMD.
-
-For node.js:
-
-    python3 /path/to/tools/build.py -t node
-
-And for AMD, just replace `node` with `amd`.
-
-For more more usage info:
+For the usage info of this build script:
 
     python3 /path/to/tools/build.py -h
 
-Also visit [the build docs][8] for more examples.
+Also visit [the build docs][8] for some examples.
 
 ## License
 
