@@ -20,11 +20,9 @@ detection to figure the language by default.
 
 But what if you already know what language you want highlighted? Well
 the way to shut off auto detection for certain blocks is to specify the
-language inside the class of either `pre` or `code` tags.
+language inside the class of `code` tags.
 
 ```html
-<pre class="html"><code>...</code></pre>
-<!-- or -->
 <pre><code class="html">...</code></pre>
 ```
 
