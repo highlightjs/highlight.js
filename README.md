@@ -107,7 +107,7 @@ For the usage info of this build script:
 
     python3 /path/to/tools/build.py -h
 
-Also visit [the build docs][8] for some examples.
+Also visit [the build docs][5] for some examples.
 
 ## License
 
@@ -116,8 +116,8 @@ details.
 
 ## More Info
 
-All you need can be found on [the official site][9], but there is also
-[a readthedocs page][10] for an in depth documentation of the API and
+All you need can be found on [the official site][6], but there is also
+[a readthedocs page][7] for an in depth documentation of the API and
 many other subjects.
 
 Also, all authors and contributes are listed in the AUTHORS.en.txt file.
