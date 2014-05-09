@@ -162,7 +162,7 @@ function() {
       if (mode.keywords) {
         var compiled_keywords = {};
 
-        function flatten(className, str) {
+        var flatten = function(className, str) {
           if (language.case_insensitive) {
             str = str.toLowerCase();
           }
@@ -170,7 +170,7 @@ function() {
             var pair = kw.split('|');
             compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
           });
-        }
+        };
 
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords);
