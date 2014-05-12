@@ -33,7 +33,7 @@ To disable highlighting altogether use the `no-highlight` class:
 <pre><code class="no-highlight">...</code></pre>
 ```
 
-### Custom Initialization
+## Custom Initialization
 
 When you need a bit more control over the initialization of
 highlight.js, you can use the [`highlightBlock`][2] and [`configure`][3]
@@ -80,7 +80,7 @@ Highlight.js is released under the BSD License. See [LICENSE][10] file for
 details.
 
 
-## More Info
+## Links
 
 The official site for the library is at <http://highlightjs.org/>.
 
