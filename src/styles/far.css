@@ -5,7 +5,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 */
 
 .hljs {
-  display: block;
+  display: inline-block;
   padding: 0.5em;
   background: #000080;
 }

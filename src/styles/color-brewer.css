@@ -7,7 +7,7 @@ Ported by Fabrício Tavares de Oliveira
 */
 
 .hljs {
-  display: block;
+  display: inline-block;
   padding: 0.5em;
   background: #fff;
 }

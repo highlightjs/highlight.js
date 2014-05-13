@@ -76,7 +76,7 @@
 }
 
 .hljs {
-  display: block;
+  display: inline-block;
   background: #242924;
   color: #8ca68c;
   padding: 0.5em;

@@ -5,7 +5,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 */
 
 .hljs {
-  display: block;
+  display: inline-block;
   padding: 0.5em;
   background: #232323;
   color: #e6e1dc;
