@@ -976,3 +976,17 @@ Gherkin ("gherkin")
 * ``number``:           number
 * ``comment``:          comment
 * ``string``:           string
+
+TP ("tp")
+---------
+
+* ``keyword``:          keyword
+* ``constant``:         ON, OFF, max_speed, LPOS, JPOS, ENABLE, DISABLE, START, STOP, RESET
+* ``number``:           number
+* ``comment``:          comment
+* ``string``:           string
+* ``data``:             numeric registers, positions, position registers, etc.
+* ``io``:               inputs and outputs
+* ``label``:            data and io labels
+* ``variable``:         system variables
+* ``units``:            units (e.g. mm/sec, sec, deg)
