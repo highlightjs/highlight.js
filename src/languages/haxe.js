@@ -32,6 +32,11 @@ function(hljs) {
         ]
       },
       {
+        className: 'preprocessor',
+        begin: '#', end: '$',
+        keywords: 'if else elseif end error'
+      },
+      {
         className: 'function',
         beginKeywords: 'function', end: '[{;]', excludeEnd: true,
         illegal: '\\S',
