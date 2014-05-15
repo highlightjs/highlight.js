@@ -7,12 +7,6 @@ function(hljs) {
   var IDENT_RE = '[a-zA-Z_$][a-zA-Z0-9_$]*';
   var IDENT_FUNC_RETURN_TYPE_RE = '([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)';
 
-  var HAXE_REST_ARG_MODE = {
-    className: 'rest_arg',
-    begin: '[.]{3}', end: IDENT_RE,
-    relevance: 10
-  };
-
   return {
     keywords: {
       keyword: 'break callback case cast catch class continue default do dynamic else enum extends extern ' +
@@ -49,8 +43,7 @@ function(hljs) {
               hljs.APOS_STRING_MODE,
               hljs.QUOTE_STRING_MODE,
               hljs.C_LINE_COMMENT_MODE,
-              hljs.C_BLOCK_COMMENT_MODE,
-              HAXE_REST_ARG_MODE
+              hljs.C_BLOCK_COMMENT_MODE
             ]
           },
           {
