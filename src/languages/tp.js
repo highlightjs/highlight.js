@@ -74,12 +74,13 @@ function(hljs) {
         /* to catch numbers that do not have a word boundary on the left */
         className: 'number',
         lexemes: '[0-9]+',
-        begin: '\\d+\\b'
+        begin: '\\d+\\b',
+        relevance: 0
       },
       {
         className: 'units',
         lexemes: '[a-z\\/]+',
-        begin: '(sec|msec|mm/sec|cm/min|inch/min|deg/sec|mm|in|cm)',
+        begin: '(sec|msec|mm/sec|cm/min|inch/min|deg/sec|mm|in|cm)\\b',
         relevance: 0
       },
       {
