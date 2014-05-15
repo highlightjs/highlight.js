@@ -8,6 +8,7 @@ function(hljs) {
   var IDENT_FUNC_RETURN_TYPE_RE = '([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)';
 
   return {
+    aliases: ['hx'],
     keywords: {
       keyword: 'break callback case cast catch class continue default do dynamic else enum extends extern ' +
 		'for function here if implements import in inline interface never new override package private ' + 
