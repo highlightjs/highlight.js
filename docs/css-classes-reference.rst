@@ -114,6 +114,16 @@ Go ("go", "golang")
 * ``typename``:         built-in plain types (int, string etc.)
 * ``built_in``:         built-in functions
 
+Gradle ("gradle")
+-----------------
+
+* ``keyword``:          keyword
+* ``number``:           number
+* ``string``:           string and character
+* ``comment``:          comment
+* ``regexp``:           regular expression
+
+
 HTML, XML ("xml", "html", "xhtml", "rss", "atom", "xsl", "plist")
 -----------------------------------------------------------------
 
