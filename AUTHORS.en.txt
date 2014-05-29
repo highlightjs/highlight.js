@@ -110,3 +110,4 @@ Contributors:
 - Arthur Bikmullin <devolonter@gmail.com>
 - Pascal Hurni <phi@ruby-reactive.org>
 - Roman Shmatov <romanshmatov@gmail.com>
+- Flaviu Tamas <tamas.flaviu@gmail.com>
