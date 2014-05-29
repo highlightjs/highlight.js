@@ -78,8 +78,8 @@ To define such keyword groups the attribute ``keywords`` becomes an object each 
 
   {
     keywords: {
-      'keyword': 'else for if while',
-      'literal': 'false true null'
+      keyword: 'else for if while',
+      literal: 'false true null'
     }
   }
 
@@ -87,12 +87,12 @@ The group name becomes then a class name in a generated markup enabling differen
 
 To detect keywords highlight.js breaks the processed chunk of code into separate words — a process called lexing.
 The "word" here is defined by the regexp ``[a-zA-Z][a-zA-Z0-9_]*`` that works for keywords in most languages.
-Different lexing rules can be defined by the ``lexems`` attribute:
+Different lexing rules can be defined by the ``lexemes`` attribute:
 
 ::
 
   {
-    lexems: '-[a-z]+',
+    lexemes '-[a-z]+',
     keywords: '-import -export'
   }
 

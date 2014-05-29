@@ -5,6 +5,7 @@ Author: Alexander Makarov (http://rmcreative.ru/)
 
 function(hljs) {
   return {
+    aliases: ['bat', 'cmd'],
     case_insensitive: true,
     keywords: {
       flow: 'if else goto for in do call exit not exist errorlevel defined equ neq lss leq gtr geq',

@@ -1,89 +1,130 @@
 /*
 Language: Haskell
 Author: Jeremy Hull <sourdrums@gmail.com>
+Contributors: Zena Treep <zena.treep@gmail.com>
 */
 
 function(hljs) {
-  var TYPE = {
+
+  var COMMENT = {
+    className: 'comment',
+    variants: [
+      { begin: '--', end: '$' },
+      { begin: '{-', end: '-}'
+      , contains: ['self']
+      }
+    ]
+  };
+
+  var PRAGMA = {
+    className: 'pragma',
+    begin: '{-#', end: '#-}'
+  };
+
+  var PREPROCESSOR = {
+    className: 'preprocessor',
+    begin: '^#', end: '$'
+  };
+
+  var CONSTRUCTOR = {
     className: 'type',
-    begin: '\\b[A-Z][\\w\']*',
+    begin: '\\b[A-Z][\\w\']*', // TODO: other constructors (build-in, infix).
     relevance: 0
   };
-  var CONTAINER = {
+
+  var LIST = {
     className: 'container',
     begin: '\\(', end: '\\)',
     illegal: '"',
     contains: [
+      PRAGMA,
+      COMMENT,
+      PREPROCESSOR,
       {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
-      {className: 'title', begin: '[_a-z][\\w\']*'}
+      hljs.inherit(hljs.TITLE_MODE, {begin: '[_a-z][\\w\']*'})
     ]
   };
-  var CONTAINER2 = {
+
+  var RECORD = {
     className: 'container',
     begin: '{', end: '}',
-    contains: CONTAINER.contains
-  }
+    contains: LIST.contains
+  };
 
   return {
+    aliases: ['hs'],
     keywords:
-      'let in if then else case of where do module import hiding qualified type data ' +
-      'newtype deriving class instance not as foreign ccall safe unsafe',
+      'let in if then else case of where do module import hiding ' +
+      'qualified type data newtype deriving class instance as default ' +
+      'infix infixl infixr foreign export ccall stdcall cplusplus ' +
+      'jvm dotnet safe unsafe family forall mdo proc rec',
     contains: [
-      {
-        className: 'comment',
-        begin: '--', end: '$'
-      },
-      {
-        className: 'preprocessor',
-        begin: '{-#', end: '#-}'
-      },
-      {
-        className: 'comment',
-        contains: ['self'],
-        begin: '{-', end: '-}'
-      },
-      {
-        className: 'string',
-        begin: '\\s+\'', end: '\'',
-        contains: [hljs.BACKSLASH_ESCAPE],
-        relevance: 0
-      },
-      hljs.QUOTE_STRING_MODE,
-      {
-        className: 'import',
-        begin: '\\bimport', end: '$',
-        keywords: 'import qualified as hiding',
-        contains: [CONTAINER],
-        illegal: '\\W\\.|;'
-      },
+
+      // Top-level constructions.
+
       {
         className: 'module',
-        begin: '\\bmodule', end: 'where',
+        begin: '\\bmodule\\b', end: 'where',
         keywords: 'module where',
-        contains: [CONTAINER],
+        contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
       {
+        className: 'import',
+        begin: '\\bimport\\b', end: '$',
+        keywords: 'import|0 qualified as hiding',
+        contains: [LIST, COMMENT],
+        illegal: '\\W\\.|;'
+      },
+
+      {
         className: 'class',
-        begin: '\\b(class|instance)', end: 'where',
-        keywords: 'class where instance',
-        contains: [TYPE]
+        begin: '^(\\s*)?(class|instance)\\b', end: 'where',
+        keywords: 'class family instance where',
+        contains: [CONSTRUCTOR, LIST, COMMENT]
       },
       {
         className: 'typedef',
-        begin: '\\b(data|(new)?type)', end: '$',
-        keywords: 'data type newtype deriving',
-        contains: [TYPE, CONTAINER, CONTAINER2]
+        begin: '\\b(data|(new)?type)\\b', end: '$',
+        keywords: 'data family type newtype deriving',
+        contains: [PRAGMA, COMMENT, CONSTRUCTOR, LIST, RECORD]
       },
-      hljs.C_NUMBER_MODE,
+      {
+        className: 'default',
+        beginKeywords: 'default', end: '$',
+        contains: [CONSTRUCTOR, LIST, COMMENT]
+      },
+      {
+        className: 'infix',
+        beginKeywords: 'infix infixl infixr', end: '$',
+        contains: [hljs.C_NUMBER_MODE, COMMENT]
+      },
+      {
+        className: 'foreign',
+        begin: '\\bforeign\\b', end: '$',
+        keywords: 'foreign import export ccall stdcall cplusplus jvm ' +
+                  'dotnet safe unsafe',
+        contains: [CONSTRUCTOR, hljs.QUOTE_STRING_MODE, COMMENT]
+      },
       {
         className: 'shebang',
         begin: '#!\\/usr\\/bin\\/env\ runhaskell', end: '$'
       },
-      TYPE,
-      {
-        className: 'title', begin: '^[_a-z][\\w\']*'
-      },
+
+      // "Whitespaces".
+
+      PRAGMA,
+      COMMENT,
+      PREPROCESSOR,
+
+      // Literals and names.
+
+      // TODO: characters.
+      hljs.QUOTE_STRING_MODE,
+      hljs.C_NUMBER_MODE,
+      CONSTRUCTOR,
+      hljs.inherit(hljs.TITLE_MODE, {begin: '^[_a-z][\\w\']*'}),
+
       {begin: '->|<-'} // No markup, relevance booster
     ]
   };

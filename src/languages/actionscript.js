@@ -12,9 +12,9 @@ function(hljs) {
     begin: '[.]{3}', end: IDENT_RE,
     relevance: 10
   };
-  var TITLE_MODE = {className: 'title', begin: IDENT_RE};
 
   return {
+    aliases: ['as'],
     keywords: {
       keyword: 'as break case catch class const continue default delete do dynamic each ' +
         'else extends final finally for function get if implements import in include ' +
@@ -31,34 +31,29 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'package',
-        beginWithKeyword: true, end: '{',
-        keywords: 'package',
-        contains: [TITLE_MODE]
+        beginKeywords: 'package', end: '{',
+        contains: [hljs.TITLE_MODE]
       },
       {
         className: 'class',
-        beginWithKeyword: true, end: '{',
-        keywords: 'class interface',
+        beginKeywords: 'class interface', end: '{', excludeEnd: true,
         contains: [
           {
-            beginWithKeyword: true,
-            keywords: 'extends implements'
+            beginKeywords: 'extends implements'
           },
-          TITLE_MODE
+          hljs.TITLE_MODE
         ]
       },
       {
         className: 'preprocessor',
-        beginWithKeyword: true, end: ';',
-        keywords: 'import include'
+        beginKeywords: 'import include', end: ';'
       },
       {
         className: 'function',
-        beginWithKeyword: true, end: '[{;]',
-        keywords: 'function',
+        beginKeywords: 'function', end: '[{;]', excludeEnd: true,
         illegal: '\\S',
         contains: [
-          TITLE_MODE,
+          hljs.TITLE_MODE,
           {
             className: 'params',
             begin: '\\(', end: '\\)',

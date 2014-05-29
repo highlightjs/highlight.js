@@ -104,3 +104,9 @@ A good idea is to include a comment at the top of your contributed CSS file that
   Mean-and-clean style (c) John Smith <email@domain.com>
   
   */
+
+
+Contributing
+------------
+
+Follow the :doc:`style contributor checklist </style-contribution>`.

@@ -12,6 +12,10 @@ function(hljs) {
     begin: 'u?r?"""', end: '"""',
     relevance: 10
   };
+  var SYMBOL = {
+    className: 'symbol',
+    begin: '\'\\w[\\w\\d_]*(?!\')'
+  };
   return {
     keywords:
       'type yield lazy override def with val var false true sealed abstract private trait ' +
@@ -28,27 +32,25 @@ function(hljs) {
         relevance: 10
       },
       hljs.C_LINE_COMMENT_MODE, hljs.C_BLOCK_COMMENT_MODE,
-      hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE, STRING,
+      STRING, hljs.QUOTE_STRING_MODE,
+      SYMBOL,
       {
         className: 'class',
-        begin: '((case )?class |object |trait )', end: '({|$)', // beginWithKeyword won't work because a single "case" shouldn't start this mode
+        begin: '((case )?class |object |trait )', // beginKeywords won't work because a single "case" shouldn't start this mode
+        end: '({|$)', excludeEnd: true,
         illegal: ':',
         keywords: 'case class trait object',
         contains: [
           {
-            beginWithKeyword: true,
-            keywords: 'extends with',
+            beginKeywords: 'extends with',
             relevance: 10
           },
-          {
-            className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          },
+          hljs.UNDERSCORE_TITLE_MODE,
           {
             className: 'params',
             begin: '\\(', end: '\\)',
             contains: [
-              hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE, STRING,
+              hljs.QUOTE_STRING_MODE, STRING,
               ANNOTATION
             ]
           }

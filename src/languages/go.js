@@ -19,6 +19,7 @@ function(hljs) {
       'append cap close complex copy imag len make new panic print println real recover delete'
   };
   return {
+    aliases: ["golang"],
     keywords: GO_KEYWORDS,
     illegal: '</',
     contains: [
@@ -27,8 +28,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
-        begin: '\'', end: '[^\\\\]\'',
-        relevance: 0
+        begin: '\'', end: '[^\\\\]\''
       },
       {
         className: 'string',
