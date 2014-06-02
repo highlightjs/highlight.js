@@ -489,6 +489,11 @@ abstract class URI extends BaseURI implements Factory
 {
     abstract function test();
 
+    public static $st1 = 1;
+    const ME = "Yo";
+    var $list = NULL;
+    private $var;
+
     /**
      * Returns a URI
      *
@@ -507,12 +512,17 @@ line description';
             throw new Zend_Uri_Exception('Illegal scheme');
         }
 
+       	$this-&gt;var = 0 - self::$st;
+        $this-&gt;list = list(Array("1"=&gt; 2, 2=&gt;self::ME));
+
         return [
             'uri'   => $uri,
             'value' => null,
         ];
     }
 }
+
+echo URI::ME . URI::$st1;
 
 __halt_compiler () ; datahere
 datahere
