@@ -111,3 +111,4 @@ URL:   http://highlightjs.org/
 - Паскаль Хурни <phi@ruby-reactive.org>
 - Роман Шматов <romanshmatov@gmail.com>
 - Ник Вест <nic@letolab.com>
+- Пану Хорсмалахти <panu.horsmalahti@iki.fi>

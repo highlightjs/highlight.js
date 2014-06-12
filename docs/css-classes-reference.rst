@@ -270,6 +270,20 @@ JavaScript ("javascript", "js")
 * ``params``:           parentheses and everything inside them in a function's header
 * ``pi``:               'use strict' processing instruction
 
+TypeScript ("typescript", "ts")
+-------------------------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment
+* ``number``:           number
+* ``literal``:          special literal: "true", "false" and "null"
+* ``string``:           string
+* ``regexp``:           regular expression
+* ``function``:         header of a function
+* ``title``:            name of a function inside a header
+* ``params``:           parentheses and everything inside them in a function's header
+* ``pi``:               'use strict' processing instruction
+
 CoffeeScript ("coffeescript", "coffee", "cson", "iced")
 -------------------------------------------------------
 
@@ -459,7 +473,7 @@ Vala ("vala")
 * ``constant``:         ALL_UPPER_CASE
 
 C# ("cs", "csharp")
----------
+-------------------
 
 * ``keyword``:          keyword
 * ``number``:           number

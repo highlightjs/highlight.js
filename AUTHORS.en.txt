@@ -111,3 +111,4 @@ Contributors:
 - Pascal Hurni <phi@ruby-reactive.org>
 - Roman Shmatov <romanshmatov@gmail.com>
 - Nic West <nic@letolab.com>
+- Panu Horsmalahti <panu.horsmalahti@iki.fi>

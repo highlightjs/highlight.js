@@ -41,6 +41,7 @@ New languages and styles:
 - *x86asm* by [innocenat][]
 - *Cap’n Proto* and *Thrift* by [Oleg Efimov][]
 - *Monkey* by [Arthur Bikmullin][]
+- *TypeScript* by [Panu Horsmalahti][]
 - *Kimbie* light and dark themes by [Jan T. Sott][]
 - *Color brewer* theme by [Fabrício Tavares de Oliveira][]
 - *Codepen.io embed* theme by [Justin Perry][]
@@ -55,6 +56,7 @@ New languages and styles:
 [innocenat]: https://github.com/innocenat
 [Oleg Efimov]: https://github.com/Sannis
 [Arthur Bikmullin]: https://github.com/devolonter
+[Panu Horsmalahti]: https://github.com/panuhorsmalahti
 [Fabrício Tavares de Oliveira]: https://github.com/fabriciotav
 [Justin Perry]: https://github.com/ourmaninamsterdam
 [Nic West]: https://github.com/nicwest
