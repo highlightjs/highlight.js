@@ -113,3 +113,4 @@ URL:   http://highlightjs.org/
 - Ник Вест <nic@letolab.com>
 - Пану Хорсмалахти <panu.horsmalahti@iki.fi>
 - Флавиу Тамас <tamas.flaviu@gmail.com>
+- Дамьен Ми <mee.damian@gmail.com>
