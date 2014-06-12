@@ -11,7 +11,7 @@ function(hljs) {
       keyword:
         'task project allprojects subprojects artifacts buildscript configurations ' +
         'dependencies repositories sourceSets description delete from into include ' +
-        'exclude source classpath destinationDir includes options souceCompatibility ' +
+        'exclude source classpath destinationDir includes options sourceCompatibility ' +
         'targetCompatibility group flatDir doLast doFirst flatten todir fromdir ant ' +
         'def abstract break case catch continue default do else extends final finally ' +
         'for if implements instanceof native new private protected public return static ' +
