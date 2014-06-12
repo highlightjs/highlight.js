@@ -44,6 +44,7 @@ New languages and styles:
 - *Kimbie* light and dark themes by [Jan T. Sott][]
 - *Color brewer* theme by [Fabrício Tavares de Oliveira][]
 - *Codepen.io embed* theme by [Justin Perry][]
+- *Hybrid* theme by [Nic West][]
 
 [Sam Pikesley]: https://github.com/pikesley
 [Josh Adams]: https://github.com/knewter
@@ -56,6 +57,7 @@ New languages and styles:
 [Arthur Bikmullin]: https://github.com/devolonter
 [Fabrício Tavares de Oliveira]: https://github.com/fabriciotav
 [Justin Perry]: https://github.com/ourmaninamsterdam
+[Nic West]: https://github.com/nicwest
 
 ## Version 8.0
 
