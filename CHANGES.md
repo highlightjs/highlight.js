@@ -44,6 +44,7 @@ New languages and styles:
 - *TypeScript* by [Panu Horsmalahti][]
 - *Nimrod* by [Flaviu Tamas][]
 - *Gradle* by [Damian Mee][]
+- *Haxe* by [Christopher Kaster][]
 - *Kimbie* light and dark themes by [Jan T. Sott][]
 - *Color brewer* theme by [Fabrício Tavares de Oliveira][]
 - *Codepen.io embed* theme by [Justin Perry][]
@@ -61,6 +62,7 @@ New languages and styles:
 [Panu Horsmalahti]: https://github.com/panuhorsmalahti
 [Flaviu Tamas]: https://github.com/flaviut
 [Damian Mee]: https://github.com/chester1000
+[Christopher Kaster]: http://christopher.kaster.ws
 [Fabrício Tavares de Oliveira]: https://github.com/fabriciotav
 [Justin Perry]: https://github.com/ourmaninamsterdam
 [Nic West]: https://github.com/nicwest

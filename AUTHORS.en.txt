@@ -114,3 +114,4 @@ Contributors:
 - Panu Horsmalahti <panu.horsmalahti@iki.fi>
 - Flaviu Tamas <tamas.flaviu@gmail.com>
 - Damian Mee <mee.damian@gmail.com>
+- Christopher Kaster <ikasoki@gmail.com>

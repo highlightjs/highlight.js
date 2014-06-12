@@ -114,3 +114,4 @@ URL:   http://highlightjs.org/
 - Пану Хорсмалахти <panu.horsmalahti@iki.fi>
 - Флавиу Тамас <tamas.flaviu@gmail.com>
 - Дамьен Ми <mee.damian@gmail.com>
+- Кристофер Кастер <ikasoki@gmail.com>
