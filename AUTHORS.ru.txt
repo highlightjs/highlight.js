@@ -112,3 +112,4 @@ URL:   http://highlightjs.org/
 - Роман Шматов <romanshmatov@gmail.com>
 - Ник Вест <nic@letolab.com>
 - Пану Хорсмалахти <panu.horsmalahti@iki.fi>
+- Флавиу Тамас <tamas.flaviu@gmail.com>

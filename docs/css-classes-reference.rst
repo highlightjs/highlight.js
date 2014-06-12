@@ -990,3 +990,12 @@ Gherkin ("gherkin")
 * ``number``:           number
 * ``comment``:          comment
 * ``string``:           string
+
+Nimrod ("nimrod")
+-----------------
+
+* ``decorator``         pragma
+* ``string``            string literal
+* ``type``              variable type
+* ``number``            numeric literal
+* ``comment``           comment

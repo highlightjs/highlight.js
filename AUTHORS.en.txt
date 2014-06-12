@@ -112,3 +112,4 @@ Contributors:
 - Roman Shmatov <romanshmatov@gmail.com>
 - Nic West <nic@letolab.com>
 - Panu Horsmalahti <panu.horsmalahti@iki.fi>
+- Flaviu Tamas <tamas.flaviu@gmail.com>
