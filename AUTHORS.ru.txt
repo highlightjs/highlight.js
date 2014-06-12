@@ -110,3 +110,4 @@ URL:   http://highlightjs.org/
 - Артур Бикмуллин <devolonter@gmail.com>
 - Паскаль Хурни <phi@ruby-reactive.org>
 - Роман Шматов <romanshmatov@gmail.com>
+- Ник Вест <nic@letolab.com>
