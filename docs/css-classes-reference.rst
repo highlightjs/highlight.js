@@ -305,6 +305,24 @@ ActionScript ("actionscript", "as")
 * ``param``:            params of function
 * ``rest_arg``:         rest argument of function
 
+Haxe ("haxe", "hx")
+--------------------
+
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``keyword``:          keywords
+* ``literal``:          literal
+* ``reserved``:         reserved keyword
+* ``title``:            name of declaration (package, class or function)
+* ``preprocessor``:     preprocessor directive (if, else, elseif, error)
+* ``type``:             type of returned value (for functions)
+* ``package``:          package (named or not)
+* ``class``:            class/interface
+* ``function``:         function
+* ``param``:            params of function
+* ``rest_arg``:         rest argument of function
+
 VBScript ("vbscript", "vbs")
 ----------------------------
 
