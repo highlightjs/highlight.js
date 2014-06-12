@@ -44,6 +44,7 @@ New languages and styles:
 - *Kimbie* light and dark themes by [Jan T. Sott][]
 - *Color brewer* theme by [Fabrício Tavares de Oliveira][]
 - *Codepen.io embed* theme by [Justin Perry][]
+- *Haxe* by [Christopher Kaster](http://christopher.kaster.ws)
 
 [Sam Pikesley]: https://github.com/pikesley
 [Josh Adams]: https://github.com/knewter
