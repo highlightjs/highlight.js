@@ -17,9 +17,7 @@ function(hljs) {
          'nonmutating operator override postfix precedence prefix right set '+ 
          'unowned unowned safe unsafe weak willSet',
       literal:
-        'true false nil',
-      built_in:
-        ''
+        'true false nil'
     },
     contains: [
       hljs.QUOTE_STRING_MODE,
