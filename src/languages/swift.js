@@ -1,11 +1,12 @@
 /*
-Language: JavaScript
+Language: Swift
+Author: Chris Eidhof <chris@eidhof.nl>
 */
 
 
 function(hljs) {
   return {
-    aliases: ['js'],
+    aliases: ['swift'],
     keywords: {
       keyword:
          'class deinit enum extension func import init let protocol static struct subscript typealias var break case continue default do else fallthrough if in for return switch where while as dynamicType is new super self Self Type __COLUMN__ __FILE__ __FUNCTION__ __LINE__ associativity didSet get infix inout left mutating none nonmutating operator override postfix precedence prefix right set unowned unowned safe unsafe weak willSet',
@@ -15,11 +16,6 @@ function(hljs) {
         ''
     },
     contains: [
-      {
-        className: 'comment',
-        begin: '/\\*\\*', end: '\\*/', // todo nested comments
-        relevance: 10
-      },
       hljs.QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
