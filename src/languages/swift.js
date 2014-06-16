@@ -16,6 +16,7 @@ function(hljs) {
   var TYPE = {
     className: 'type',
     begin: '\\b[A-Z][\\w\']*',
+    relevance: 0
   };
   var BLOCK_COMMENT = {
     className: 'comment',
