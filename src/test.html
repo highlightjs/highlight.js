@@ -3342,7 +3342,7 @@ import UIKit
 extension MyClass : Interface {
     class func unarchiveFromFile&lt;A&gt;(file : A) -> SKNode? {
         
-        let path : String = bundle.pathForResource(file, ofType: "sks")
+        let path : String = bundle.pathForResource(file, ofType: "file\(name + "test").txt")
         let integers = [1,2,3]
         var sceneData = NSData.dataWithContentsOfFile(path, options: .DataReadingMappedIfSafe, error: nil)
         /* a comment

@@ -5,32 +5,44 @@ Author: Chris Eidhof <chris@eidhof.nl>
 
 
 function(hljs) {
+  var SWIFT_KEYWORDS = 
+    'class deinit enum extension func import init let protocol static ' +
+    'struct subscript typealias var break case continue default do ' +
+    'else fallthrough if in for return switch where while as dynamicType ' + 
+    'is new super self Self Type __COLUMN__ __FILE__ __FUNCTION__ ' +
+    '__LINE__ associativity didSet get infix inout left mutating none ' +
+    'nonmutating operator override postfix precedence prefix right set '+ 
+    'unowned unowned safe unsafe weak willSet';
   var TYPE = {
     className: 'type',
-    begin: '\\b[A-Z][\\w\']*', // TODO: other constructors (build-in, infix).
+    begin: '\\b[A-Z][\\w\']*',
   };
   var BLOCK_COMMENT = {
     className: 'comment',
     begin: '/\\*', end: '\\*/',
     contains: [hljs.PHRASAL_WORDS_MODE, 'self']
   };
+  var SUBST = {
+    className: 'subst',
+    begin: '\\\\\\(', end: '\\)',
+    keywords: SWIFT_KEYWORDS
+  };
+  var QUOTE_STRING_MODE = {
+    className: 'string',
+    begin: '"', end: '"',
+    illegal: '\\n',
+    contains: [SUBST, hljs.BACKSLASH_ESCAPE]
+  };
       
   return {
     aliases: ['swift'],
     keywords: {
-      keyword:
-         'class deinit enum extension func import init let protocol static ' +
-         'struct subscript typealias var break case continue default do ' +
-         'else fallthrough if in for return switch where while as dynamicType ' + 
-         'is new super self Self Type __COLUMN__ __FILE__ __FUNCTION__ ' +
-         '__LINE__ associativity didSet get infix inout left mutating none ' +
-         'nonmutating operator override postfix precedence prefix right set '+ 
-         'unowned unowned safe unsafe weak willSet',
+      keyword: SWIFT_KEYWORDS,
       literal:
         'true false nil'
     },
     contains: [
-      hljs.QUOTE_STRING_MODE,
+      QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,
       BLOCK_COMMENT,
       TYPE,
