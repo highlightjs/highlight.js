@@ -9,7 +9,13 @@ function(hljs) {
     aliases: ['swift'],
     keywords: {
       keyword:
-         'class deinit enum extension func import init let protocol static struct subscript typealias var break case continue default do else fallthrough if in for return switch where while as dynamicType is new super self Self Type __COLUMN__ __FILE__ __FUNCTION__ __LINE__ associativity didSet get infix inout left mutating none nonmutating operator override postfix precedence prefix right set unowned unowned safe unsafe weak willSet',
+         'class deinit enum extension func import init let protocol static ' +
+         'struct subscript typealias var break case continue default do ' +
+         'else fallthrough if in for return switch where while as dynamicType ' + 
+         'is new super self Self Type __COLUMN__ __FILE__ __FUNCTION__ ' +
+         '__LINE__ associativity didSet get infix inout left mutating none ' +
+         'nonmutating operator override postfix precedence prefix right set '+ 
+         'unowned unowned safe unsafe weak willSet',
       literal:
         'true false nil',
       built_in:
