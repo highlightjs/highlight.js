@@ -26,14 +26,12 @@ function(hljs) {
   var SUBST = {
     className: 'subst',
     begin: /\\\(/, end: '\\)',
-    keywords: SWIFT_KEYWORDS
+    keywords: SWIFT_KEYWORDS,
+    contains: [hljs.C_NUMBER_MODE, hljs.TITLE_MODE, hljs.QUOTE_STRING_MODE]
   };
-  var QUOTE_STRING_MODE = {
-    className: 'string',
-    begin: '"', end: '"',
-    illegal: '\\n',
+  var QUOTE_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     contains: [SUBST, hljs.BACKSLASH_ESCAPE]
-  };
+  });
       
   return {
     aliases: ['swift'],
