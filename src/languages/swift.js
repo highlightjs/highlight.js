@@ -25,7 +25,7 @@ function(hljs) {
   };
   var SUBST = {
     className: 'subst',
-    begin: '\\\\\\(', end: '\\)',
+    begin: /\\\(/, end: '\\)',
     keywords: SWIFT_KEYWORDS
   };
   var QUOTE_STRING_MODE = {
