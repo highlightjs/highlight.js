@@ -1039,3 +1039,4 @@ Swift ("swift")
 * ``func``:             header of a function
 * ``title``:            name of a function
 * ``generics``:         generic parameters of a function
+* ``type``:             a type
