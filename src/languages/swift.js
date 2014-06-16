@@ -30,6 +30,11 @@ function(hljs) {
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/}),
           {
+            className: 'generics',
+            begin: /\</, end: /\>/,
+            illegal: /\>/
+          },
+          {
             className: 'params',
             begin: /\(/, end: /\)/,
             contains: [

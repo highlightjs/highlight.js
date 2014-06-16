@@ -1034,6 +1034,8 @@ Swift ("swift")
 * ``keyword``:          keyword
 * ``comment``:          comment
 * ``number``:           number
-* ``literal``:          special literal: "true", "false" and "null"
+* ``literal``:          special literal: "true", "false" and "nil"
 * ``string``:           string
 * ``func``:             header of a function
+* ``title``:            name of a function
+* ``generics``:         generic parameters of a function
