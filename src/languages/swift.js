@@ -26,7 +26,8 @@ function(hljs) {
   var SUBST = {
     className: 'subst',
     begin: /\\\(/, end: '\\)',
-    keywords: SWIFT_KEYWORDS
+    keywords: SWIFT_KEYWORDS,
+    contains: [hljs.C_NUMBER_MODE, hljs.TITLE_MODE, hljs.QUOTE_STRING_MODE]
   };
   var QUOTE_STRING_MODE = {
     className: 'string',
