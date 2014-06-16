@@ -3345,6 +3345,9 @@ extension MyClass : Interface {
         let path : String = bundle.pathForResource(file, ofType: "sks")
         let integers = [1,2,3]
         var sceneData = NSData.dataWithContentsOfFile(path, options: .DataReadingMappedIfSafe, error: nil)
+        /* a comment
+           /* with a nested comment */
+        */
     }
     override func shouldAutorotate() -> Bool {
         return true

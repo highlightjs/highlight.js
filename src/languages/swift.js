@@ -9,6 +9,12 @@ function(hljs) {
     className: 'type',
     begin: '\\b[A-Z][\\w\']*', // TODO: other constructors (build-in, infix).
   };
+  var BLOCK_COMMENT = {
+    className: 'comment',
+    begin: '/\\*', end: '\\*/',
+    contains: [hljs.PHRASAL_WORDS_MODE, 'self']
+  };
+      
   return {
     aliases: ['swift'],
     keywords: {
@@ -26,7 +32,7 @@ function(hljs) {
     contains: [
       hljs.QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
+      BLOCK_COMMENT,
       TYPE,
       hljs.C_NUMBER_MODE,
       {
