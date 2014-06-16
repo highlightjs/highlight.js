@@ -115,3 +115,4 @@ URL:   http://highlightjs.org/
 - Флавиу Тамас <tamas.flaviu@gmail.com>
 - Дамьен Ми <mee.damian@gmail.com>
 - Кристофер Кастер <ikasoki@gmail.com>
+- Крис Еидхоф <chris@eidhof.nl>

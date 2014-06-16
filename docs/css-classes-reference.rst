@@ -1027,3 +1027,16 @@ Nimrod ("nimrod")
 * ``type``              variable type
 * ``number``            numeric literal
 * ``comment``           comment
+
+Swift ("swift")
+-------------------------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment
+* ``number``:           number
+* ``literal``:          special literal: "true", "false" and "nil"
+* ``string``:           string
+* ``func``:             header of a function
+* ``title``:            name of a function
+* ``generics``:         generic parameters of a function
+* ``type``:             a type
