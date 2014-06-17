@@ -63,7 +63,8 @@ function(hljs) {
     hljs.C_LINE_COMMENT_MODE,
     {
       className: 'javadoc',
-      begin: '/\\*\\*!', end: '\\*/'
+      begin: '/\\*\\*!', end: '\\*/',
+      contains: [hljs.PHRASAL_WORDS_MODE]
     },
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.inherit(hljs.C_NUMBER_MODE, {begin: hljs.C_NUMBER_RE + '|-?(infinity|nan)\\b'}),
