@@ -49,6 +49,7 @@ New languages and styles:
 - *Color brewer* theme by [Fabrício Tavares de Oliveira][]
 - *Codepen.io embed* theme by [Justin Perry][]
 - *Hybrid* theme by [Nic West][]
+- *Swift* by [Chris Eidhof][]
 
 [Sam Pikesley]: https://github.com/pikesley
 [Josh Adams]: https://github.com/knewter
@@ -66,6 +67,7 @@ New languages and styles:
 [Fabrício Tavares de Oliveira]: https://github.com/fabriciotav
 [Justin Perry]: https://github.com/ourmaninamsterdam
 [Nic West]: https://github.com/nicwest
+[Chris Eidhof]: https://github.com/chriseidhof
 
 ## Version 8.0
 
