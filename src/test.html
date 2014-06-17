@@ -1083,7 +1083,7 @@ OPERATOR = /// ^ (
 class Quicksort {
 
     static var arr = [4,8,0,3,9,1,5,2,6,7];
-    
+
     static function quicksort( lo : Int, hi : Int ) : Void {
         var i = lo;
         var j = hi;
@@ -3336,11 +3336,10 @@ let a: uint32 = 0xFFaF'u32
   <tr>
     <th>Swift
     <td class="swift">
-<pre><code>
-import UIKit
+<pre><code>import UIKit
 extension MyClass : Interface {
     class func unarchiveFromFile&lt;A&gt;(file : A) -> SKNode? {
-        
+
         let path : String = bundle.pathForResource(file, ofType: "file\(name + 5 * "test").txt")
         let integers = [1,2,3]
         var sceneData = NSData.dataWithContentsOfFile(path, options: .DataReadingMappedIfSafe, error: nil)
