@@ -162,7 +162,7 @@ CSS ("css")
 * ``class``:            .some_name in selectors
 * ``at_rule``:          @-rule till first "{" or ";"
 * ``attr_selector``:    attribute selector (square brackets in a[href^=http://])
-* ``pseudo``:           pseudo classes and elemens (:after, ::after etc.)
+* ``pseudo``:           pseudo classes and elements (:after, ::after etc.)
 * ``comment``:          comment
 * ``rules``:            everything from "{" till "}"
 * ``attribute``:        property name inside a rule
@@ -181,7 +181,7 @@ SCSS ("scss")
 * ``class``:            .some_name in selectors
 * ``at_rule``:          @-rule till first "{" or ";"
 * ``attr_selector``:    attribute selector (square brackets in a[href^=http://])
-* ``pseudo``:           pseudo classes and elemens (:after, ::after etc.)
+* ``pseudo``:           pseudo classes and elements (:after, ::after etc.)
 * ``comment``:          comment
 * ``rules``:            everything from "{" till "}"
 * ``attribute``:        property name inside a rule
@@ -231,7 +231,7 @@ Django ("django", "jinja")
 * ``tag``:              any tag from "<" till ">"
 * ``comment``:          comment
 * ``doctype``:          <!DOCTYPE ... > declaration
-* ``attribute``:        tag's attribute with or withou value
+* ``attribute``:        tag's attribute with or without value
 * ``value``:            attribute's value
 * ``template_tag``:     template tag {% .. %}
 * ``variable``:         template variable {{ .. }}
@@ -458,7 +458,7 @@ Java ("java", "jsp")
 * ``keyword``:          keyword
 * ``number``:           number
 * ``string``:           string
-* ``comment``:          commment
+* ``comment``:          comment
 * ``annotaion``:        annotation
 * ``javadoc``:          javadoc comment
 * ``class``:            class header from "class" till "{"
@@ -487,7 +487,7 @@ Objective C ("objectivec", "m", "mm", "objc", "obj-c")
 * ``preprocessor``:     preprocessor directive
 * ``class``:            interface/implementation, protocol and forward class declaration
 * ``title``:            title (id) of interface, implementation, protocol, class
-* ``variable``:         properties and struct accesors
+* ``variable``:         properties and struct accessors
 
 Vala ("vala")
 -------------
@@ -506,7 +506,7 @@ C# ("cs", "csharp")
 * ``keyword``:          keyword
 * ``number``:           number
 * ``string``:           string
-* ``comment``:          commment
+* ``comment``:          comment
 * ``xmlDocTag``:        xmldoc tag ("///", "<!--", "-->", "<..>")
 * ``title``:            title of namespace or class
 
@@ -516,7 +516,7 @@ F# ("fsharp", "fs")
 * ``keywords``:         keyword
 * ``number``:           number
 * ``string``:           string
-* ``commment``:         comment
+* ``comment``:          comment
 * ``class``:            any custom F# type
 * ``title``:            the name of a custom F# type
 * ``annotation``:       any attribute
@@ -527,7 +527,7 @@ OCaml ("ocaml", "ml")
 * ``keywords``:         keyword
 * ``number``:           number
 * ``string``:           string
-* ``commment``:         comment\
+* ``comment``:          comment
 * ``class``:            any custom OCaml type
 * ``title``:            the name of a custom OCaml type
 * ``annotation``:       any attribute
@@ -550,7 +550,7 @@ RenderMan RSL ("rsl")
 * ``string``:           string (including @"..")
 * ``comment``:          comment
 * ``preprocessor``:     preprocessor directive
-* ``shader``:           sahder keywords
+* ``shader``:           shader keywords
 * ``shading``:          shading keywords
 * ``built_in``:         built-in function
 
@@ -588,7 +588,7 @@ Smalltalk ("smalltalk", "st")
 * ``keyword``:          keyword
 * ``number``:           number
 * ``string``:           string
-* ``comment``:          commment
+* ``comment``:          comment
 * ``symbol``:           symbol
 * ``array``:            array
 * ``class``:            name of a class
@@ -601,7 +601,7 @@ Lisp ("lisp")
 * ``keyword``:          keyword
 * ``number``:           number
 * ``string``:           string
-* ``comment``:          commment
+* ``comment``:          comment
 * ``variable``:         variable
 * ``literal``:          b, t and nil
 * ``list``:             non-quoted list
@@ -634,7 +634,7 @@ Apache ("apache", "apacheconf")
 
 * ``keyword``:          keyword
 * ``number``:           number
-* ``comment``:          commment
+* ``comment``:          comment
 * ``literal``:          On and Off
 * ``sqbracket``:        variables in rewrites "%{..}"
 * ``cbracket``:         options in rewrites "[..]"
@@ -696,7 +696,7 @@ CMake ("cmake", "cmake.in")
 * ``keyword``:          keyword
 * ``number``:           number
 * ``string``:           string
-* ``comment``:          commment
+* ``comment``:          comment
 * ``envvar``:           $-variable
 * ``operator``:         operator (LESS, STREQUAL, MATCHES, etc)
 
@@ -719,7 +719,7 @@ NSIS ("nsis")
 * ``constant``:         definitions, language-strings, compiler commands
 * ``variable``:         $-variable
 * ``string``:           string
-* ``comment``:          commment
+* ``comment``:          comment
 * ``params``:           parameters
 * ``keyword``:          keywords
 * ``literal``:          keyword options
@@ -730,7 +730,7 @@ Axapta ("axapta")
 * ``keyword``:          keyword
 * ``number``:           number
 * ``string``:           string
-* ``comment``:          commment
+* ``comment``:          comment
 * ``class``:            class header from "class" till "{"
 * ``title``:            class name inside a header
 * ``params``:           everything in parentheses inside a class header
@@ -754,8 +754,8 @@ Oracle Rules Language ("ruleslanguage")
 * ``number``:           number
 * ``date``:             date
 * ``string``:           string
-* ``comment``:          commment
-* ``function``:         header of function or procudure
+* ``comment``:          comment
+* ``function``:         header of function or procedure
 * ``title``:            function name inside a header
 * ``params``:           everything in parentheses inside a function header
 * ``preprocessor``:     preprocessor directive
@@ -763,7 +763,7 @@ Oracle Rules Language ("ruleslanguage")
 x86 Assembly ("x86asm")
 -----------------------
 
-* ``keyword``:          instuction mnemonic
+* ``keyword``:          instruction mnemonic
 * ``literal``:          register name
 * ``pseudo``:           assembler's pseudo instruction
 * ``preprocessor``:     macro
@@ -781,7 +781,7 @@ AVR assembler ("avrasm")
 * ``built_in``:         pre-defined register
 * ``number``:           number
 * ``string``:           string
-* ``comment``:          commment
+* ``comment``:          comment
 * ``label``:            label
 * ``preprocessor``:     preprocessor directive
 * ``localvars``:        substitution in .macro
@@ -792,7 +792,7 @@ VHDL ("vhdl")
 * ``keyword``:          keyword
 * ``number``:           number
 * ``string``:           string
-* ``comment``:          commment
+* ``comment``:          comment
 * ``literal``:          signal logical value
 * ``typename``:         typename
 * ``attribute``:        signal attribute
@@ -802,7 +802,7 @@ Parser3 ("parser3")
 
 * ``keyword``:          keyword
 * ``number``:           number
-* ``comment``:          commment
+* ``comment``:          comment
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     preprocessor directive
 * ``title``:            user-defined name starting with "@"
@@ -924,8 +924,7 @@ R ("r")
 * ``comment``:          comment
 * ``string``:           string constant
 * ``number``:           number
-* ``keyword``:          language keywords (function, if) plus "structural"
-                   functions (attach, require, setClass)
+* ``keyword``:          language keywords (function, if) plus "structural" functions (attach, require, setClass)
 * ``literal``:          special literal: TRUE, FALSE, NULL, NA, etc.
 
 OpenGL Shading Language ("glsl")

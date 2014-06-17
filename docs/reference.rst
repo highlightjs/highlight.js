@@ -226,7 +226,7 @@ variants
 **type**: array
 
 Modification to the main definitions of the mode, effectively expanding it into several similar modes
-each having all the attributes from the main definition augmented or overriden by the variants::
+each having all the attributes from the main definition augmented or overridden by the variants::
 
   {
     className: 'string',
@@ -259,7 +259,7 @@ subLanguageMode
 
 **type**: identifier
 
-The only available value for this is ``'continuous'``. By default ``subLanguage`` highlights the contents of the mode as an isolated code snippet. In continuous mode every occurance of the mode is treated as a continuation of the previous one and highlighted from the point where it was interrupted before.
+The only available value for this is ``'continuous'``. By default ``subLanguage`` highlights the contents of the mode as an isolated code snippet. In continuous mode every occurrence of the mode is treated as a continuation of the previous one and highlighted from the point where it was interrupted before.
 
 This is best illustrated by an example. The following snippet consists of HTML markup intermixed with some templating language::
 
