@@ -5,13 +5,13 @@ Author: Chris Eidhof <chris@eidhof.nl>
 
 
 function(hljs) {
-  var SWIFT_KEYWORDS = 
+  var SWIFT_KEYWORDS =
     'class deinit enum extension func import init let protocol static ' +
     'struct subscript typealias var break case continue default do ' +
-    'else fallthrough if in for return switch where while as dynamicType ' + 
+    'else fallthrough if in for return switch where while as dynamicType ' +
     'is new super self Self Type __COLUMN__ __FILE__ __FUNCTION__ ' +
     '__LINE__ associativity didSet get infix inout left mutating none ' +
-    'nonmutating operator override postfix precedence prefix right set '+ 
+    'nonmutating operator override postfix precedence prefix right set '+
     'unowned unowned safe unsafe weak willSet';
   var TYPE = {
     className: 'type',
@@ -32,7 +32,7 @@ function(hljs) {
   var QUOTE_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     contains: [SUBST, hljs.BACKSLASH_ESCAPE]
   });
-      
+
   return {
     aliases: ['swift'],
     keywords: {
