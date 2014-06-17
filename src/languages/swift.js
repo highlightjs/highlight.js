@@ -35,7 +35,6 @@ function(hljs) {
   SUBST.contains = [hljs.C_NUMBER_MODE, hljs.TITLE_MODE, QUOTE_STRING_MODE];
 
   return {
-    aliases: ['swift'],
     keywords: {
       keyword: SWIFT_KEYWORDS,
       literal:
