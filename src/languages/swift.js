@@ -32,7 +32,7 @@ function(hljs) {
   var QUOTE_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     contains: [SUBST, hljs.BACKSLASH_ESCAPE]
   });
-  SUBST.contains = [hljs.C_NUMBER_MODE, hljs.TITLE_MODE, QUOTE_STRING_MODE];
+  SUBST.contains = [hljs.C_NUMBER_MODE, QUOTE_STRING_MODE];
 
   return {
     keywords: {
