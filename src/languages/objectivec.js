@@ -45,6 +45,13 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
+        begin: '@"',
+        end: '"',
+        illegal: '\\n',
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
+        className: 'string',
         begin: '\'',
         end: '[^\\\\]\'',
         illegal: '[^\\\\][^\']'
