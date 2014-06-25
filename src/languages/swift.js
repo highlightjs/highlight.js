@@ -48,6 +48,7 @@ function(hljs) {
   var NUMBERS = {
       className: 'number',
       begin: '\\b([\\d_]+(\\.[\\deE_]+)?|0x[a-fA-F0-9_]+(\\.[a-fA-F0-9p_]+)?|0b[01_]+|0o[0-7_]+)\\b',
+      relevance: 0
   };
   var QUOTE_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     contains: [SUBST, hljs.BACKSLASH_ESCAPE]
