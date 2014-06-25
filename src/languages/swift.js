@@ -5,14 +5,30 @@ Author: Chris Eidhof <chris@eidhof.nl>
 
 
 function(hljs) {
-  var SWIFT_KEYWORDS =
-    'class deinit enum extension func import init let protocol static ' +
-    'struct subscript typealias var break case continue default do ' +
-    'else fallthrough if in for return switch where while as dynamicType ' +
-    'is new super self Self Type __COLUMN__ __FILE__ __FUNCTION__ ' +
-    '__LINE__ associativity didSet get infix inout left mutating none ' +
-    'nonmutating operator override postfix precedence prefix right set '+
-    'unowned unowned safe unsafe weak willSet';
+  var SWIFT_KEYWORDS = {
+      keyword: 'class deinit enum extension func import init let protocol static ' +
+        'struct subscript typealias var break case continue default do ' +
+        'else fallthrough if in for return switch where while as dynamicType ' +
+        'is new super self Self Type __COLUMN__ __FILE__ __FUNCTION__ ' +
+        '__LINE__ associativity didSet get infix inout left mutating none ' +
+        'nonmutating operator override postfix precedence prefix right set '+
+        'unowned unowned safe unsafe weak willSet',
+      literal: 'true false nil',
+      built_in: 'abs advance alignof alignofValue assert bridgeFromObjectiveC ' +
+        'bridgeFromObjectiveCUnconditional bridgeToObjectiveC ' +
+        'bridgeToObjectiveCUnconditional c contains count countElements ' +
+        'countLeadingZeros debugPrint debugPrintln distance dropFirst dropLast dump ' +
+        'encodeBitsAsWords enumerate equal false filter find getBridgedObjectiveCType ' +
+        'getVaList indices insertionSort isBridgedToObjectiveC ' +
+        'isBridgedVerbatimToObjectiveC isUniquelyReferenced join ' +
+        'lexicographicalCompare map max maxElement min minElement nil numericCast ' +
+        'partition posix print println quickSort reduce reflect reinterpretCast ' +
+        'reverse roundUpToAlignment sizeof sizeofValue sort split startsWith strideof ' +
+        'strideofValue swap swift toString transcode true underestimateCount ' +
+        'unsafeReflect withExtendedLifetime withObjectAtPlusZero withUnsafePointer ' +
+        'withUnsafePointerToObject withUnsafePointers withVaList'
+    };
+
   var TYPE = {
     className: 'type',
     begin: '\\b[A-Z][\\w\']*',
@@ -29,23 +45,24 @@ function(hljs) {
     keywords: SWIFT_KEYWORDS,
     contains: [] // assigned later
   };
+  var NUMBERS = {
+      className: 'number',
+      begin: '\\b([\\d_]+(\\.[\\deE_]+)?|0x[a-fA-F0-9_]+(\\.[a-fA-F0-9p_]+)?|0b[01_]+|0o[0-7_]+)\\b',
+      relevance: 0
+  };
   var QUOTE_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     contains: [SUBST, hljs.BACKSLASH_ESCAPE]
   });
-  SUBST.contains = [hljs.C_NUMBER_MODE, QUOTE_STRING_MODE];
+  SUBST.contains = [NUMBERS];
 
   return {
-    keywords: {
-      keyword: SWIFT_KEYWORDS,
-      literal:
-        'true false nil'
-    },
+    keywords: SWIFT_KEYWORDS,
     contains: [
       QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,
       BLOCK_COMMENT,
       TYPE,
-      hljs.C_NUMBER_MODE,
+      NUMBERS,
       {
         className: 'func',
         beginKeywords: 'func', end: /(\{)|(\->)/, excludeEnd: true,
@@ -67,6 +84,23 @@ function(hljs) {
           }
         ],
         illegal: /\[|%/
+      },
+      {
+        className: 'class',
+        keywords: 'struct protocol class extension enum',
+        begin: '(struct|protocol|class(?! (func|var))|extension|enum)', 
+        end: '\\{',
+        excludeEnd: true,
+        contains: [
+          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/})
+        ]
+      },
+      {
+        className: 'preprocessor', // @attributes
+        begin: '(@assignment|@class_protocol|@exported|@final|@lazy|@noreturn|' +
+                  '@NSCopying|@NSManaged|@objc|@optional|@required|@auto_closure|' +
+                  '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
+                  '@infix|@prefix|@postfix)'
       },
     ]
   };
