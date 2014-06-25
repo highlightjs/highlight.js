@@ -1033,9 +1033,13 @@ Swift ("swift")
 * ``keyword``:          keyword
 * ``comment``:          comment
 * ``number``:           number
-* ``literal``:          special literal: "true", "false" and "nil"
 * ``string``:           string
+* ``literal``:          special literal: "true", "false" and "nil"
+* ``built_in``:         built-in Swift functions
 * ``func``:             header of a function
-* ``title``:            name of a function
-* ``generics``:         generic parameters of a function
+* ``class``:            class, protocol, enum, struct, or extension declaration
+* ``title``:            name of a function or class (or protocol, etc)
+* ``generics``:         generic type of a function
+* ``params``:           parameters of a function
 * ``type``:             a type
+* ``preprocessor``:     @attributes

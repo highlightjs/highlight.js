@@ -3336,18 +3336,14 @@ let a: uint32 = 0xFFaF'u32
   <tr>
     <th>Swift
     <td class="swift">
-<pre><code>import UIKit
-extension MyClass : Interface {
+<pre><code>extension MyClass : Interface {
     class func unarchiveFromFile&lt;A&gt;(file : A) -> SKNode? {
-
-        let path : String = bundle.pathForResource(file, ofType: "file\(name + 5 * "test").txt")
-        let integers = [1,2,3]
+        let path: String = bundle.pathForResource(file, ofType: "file\(name + 5).txt")
+        let funnyNumber = 3 + 0xC2.15p2 * (1_000_000.000_000_1 - 000123.456) + 0o21
         var sceneData = NSData.dataWithContentsOfFile(path, options: .DataReadingMappedIfSafe, error: nil)
-        /* a comment
-           /* with a nested comment */
-        */
+        /* a comment /* with a nested comment */ and the end */
     }
-    override func shouldAutorotate() {
+    @objc override func shouldAutorotate() {
         return true
     }
 }
