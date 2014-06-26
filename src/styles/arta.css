@@ -4,7 +4,8 @@ Author: pumbur <pumbur@pumbur.net>
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #222;
 }

@@ -73,7 +73,8 @@
 }
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   background: white;
   color: #4d4d4c;
   padding: 0.5em;
