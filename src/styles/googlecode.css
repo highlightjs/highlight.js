@@ -5,7 +5,8 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: white;
   color: black;

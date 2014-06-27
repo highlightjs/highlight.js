@@ -6,7 +6,8 @@ based on dark.css by Ivan Sagalaev
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #3f3f3f;
   color: #dcdcdc;
