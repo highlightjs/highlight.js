@@ -19,6 +19,7 @@ New features:
 - Add built_in functions for R language. Thanks to [Artem A. Klevtsov][].
 - Rust got definitions for lifetime parameters and improved string syntax.
   Thanks to [Roman Shmatov][].
+- Improvements to Objective-C definition.
 
 [Sindre Sorhus]: https://github.com/sindresorhus
 [Heiko August]: https://github.com/auge8472
