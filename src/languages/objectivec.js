@@ -47,33 +47,30 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
-        begin: '@"',
-        end: '"',
-        illegal: '\\n',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        variants: [
+          {
+            begin: '@"', end: '"',
+            illegal: '\\n',
+            contains: [hljs.BACKSLASH_ESCAPE]
+          },
+          {
+            begin: '\'', end: '[^\\\\]\'',
+            illegal: '[^\\\\][^\']'
+          }
+        ]
       },
-      {
-        className: 'string',
-        begin: '\'',
-        end: '[^\\\\]\'',
-        illegal: '[^\\\\][^\']'
-      },
-
       {
         className: 'preprocessor',
         begin: '#import',
         end: '$',
         contains: [
-        {
-          className: 'title',
-          begin: '\"',
-          end: '\"'
-        },
-        {
-          className: 'title',
-          begin: '<',
-          end: '>'
-        }
+          {
+            className: 'title',
+            variants: [
+              { begin: '\"', end: '\"' },
+              { begin: '<', end: '>' }
+            ]
+          }
         ]
       },
       {
