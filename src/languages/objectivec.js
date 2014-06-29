@@ -61,7 +61,7 @@ function(hljs) {
       },
       {
         className: 'preprocessor',
-        begin: '#import',
+        begin: '#',
         end: '$',
         contains: [
           {
@@ -72,11 +72,6 @@ function(hljs) {
             ]
           }
         ]
-      },
-      {
-        className: 'preprocessor',
-        begin: '#',
-        end: '$'
       },
       {
         className: 'class',
