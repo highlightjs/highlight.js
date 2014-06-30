@@ -65,9 +65,12 @@ function(hljs) {
       NUMBERS,
       {
         className: 'func',
-        beginKeywords: 'func', end: /(\{)|(\->)/, excludeEnd: true,
+        beginKeywords: 'func', excludeEnd: true,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/}),
+          hljs.inherit(hljs.TITLE_MODE, {
+            begin: /[A-Za-z$_][0-9A-Za-z$_]*/,
+            illegal: /\(/
+          }),
           {
             className: 'generics',
             begin: /\</, end: /\>/,
