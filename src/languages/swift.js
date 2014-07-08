@@ -1,6 +1,7 @@
 /*
 Language: Swift
 Author: Chris Eidhof <chris@eidhof.nl>
+Contributors: Nate Cook <natecook@gmail.com>
 */
 
 
@@ -91,7 +92,7 @@ function(hljs) {
       {
         className: 'class',
         keywords: 'struct protocol class extension enum',
-        begin: '(struct|protocol|class(?! (func|var))|extension|enum)', 
+        begin: '(struct|protocol|class(?! (func|var))|extension|enum)',
         end: '\\{',
         excludeEnd: true,
         contains: [
