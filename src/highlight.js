@@ -44,8 +44,6 @@ function() {
       for (var child = node.firstChild; child; child = child.nextSibling) {
         if (child.nodeType == 3)
           offset += child.nodeValue.length;
-        else if (tag(child) == 'br')
-          offset += 1;
         else if (child.nodeType == 1) {
           result.push({
             event: 'start',
@@ -503,18 +501,25 @@ function() {
   two optional parameters for fixMarkup.
   */
   function highlightBlock(block) {
-    var text = options.useBR ? block.innerHTML
-      .replace(/\n/g,'').replace(/<br>|<br [^>]*>/g, '\n').replace(/<[^>]*>/g,'')
-      : block.textContent;
     var language = blockLanguage(block);
     if (language == 'no-highlight')
         return;
+
+    var html = block.innerHTML;
+    if (options.useBR) {
+      html = html.replace(/\n/g, '');
+    }
+    html = html.replace(/<br[ \/]*>/g, '\n');
+    var node = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+    node.innerHTML = html;
+    var text = node.textContent;
+
     var result = language ? highlight(language, text, true) : highlightAuto(text);
-    var original = nodeStream(block);
-    if (original.length) {
-      var pre = document.createElementNS('http://www.w3.org/1999/xhtml', 'pre');
-      pre.innerHTML = result.value;
-      result.value = mergeStreams(original, nodeStream(pre), text);
+
+    if (html.indexOf('<') != -1) {
+      var resultNode = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+      resultNode.innerHTML = result.value;
+      result.value = mergeStreams(nodeStream(node), nodeStream(resultNode), text);
     }
     result.value = fixMarkup(result.value);
 
