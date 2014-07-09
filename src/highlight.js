@@ -505,21 +505,21 @@ function() {
     if (language == 'no-highlight')
         return;
 
-    var html = block.innerHTML;
+    var node;
     if (options.useBR) {
-      html = html.replace(/\n/g, '');
+      node = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+      node.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ \/]*>/g, '\n');
+    } else {
+      node = block;
     }
-    html = html.replace(/<br[ \/]*>/g, '\n');
-    var node = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
-    node.innerHTML = html;
     var text = node.textContent;
-
     var result = language ? highlight(language, text, true) : highlightAuto(text);
 
-    if (html.indexOf('<') != -1) {
+    var originalStream = nodeStream(node);
+    if (originalStream.length) {
       var resultNode = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
       resultNode.innerHTML = result.value;
-      result.value = mergeStreams(nodeStream(node), nodeStream(resultNode), text);
+      result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
     }
     result.value = fixMarkup(result.value);
 
