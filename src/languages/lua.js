@@ -54,7 +54,7 @@ function(hljs) {
         className: 'string',
         begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
         contains: [LONG_BRACKETS],
-        relevance: 10
+        relevance: 5
       }
     ])
   };

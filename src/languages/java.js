@@ -33,7 +33,7 @@ function(hljs) {
           {
             className: 'class',
             beginKeywords: 'class interface', endsWithParent: true, excludeEnd: true,
-            illegal: /[:"<>]/,
+            illegal: /[:"\[\]]/,
             contains: [
               {
                 beginKeywords: 'extends implements',

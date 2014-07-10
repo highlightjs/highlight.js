@@ -3,6 +3,7 @@
 */
 .hljs {
   display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #eaeef3;
   color: #00193a;

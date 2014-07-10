@@ -51,6 +51,7 @@
   <link rel="alternate stylesheet" title="Codepen.io Embed" href="styles/codepen-embed.css">
   <link rel="alternate stylesheet" title="Kimbie - Dark" href="styles/kimbie.dark.css">
   <link rel="alternate stylesheet" title="Kimbie - Light" href="styles/kimbie.light.css">
+  <link rel="alternate stylesheet" title="Hybrid" href="styles/hybrid.css">
 
   <style>
     /* Base styles */
@@ -309,7 +310,8 @@ def somefunc(param1='', param2=0):
         print 'Gre\'ater'
     return (param2 - param1 + 1 + 0b10l) or None
 
-class SomeClass:<br>    pass
+class SomeClass:
+    pass
 
 &gt;&gt;&gt; message = '''interpreter
 ... prompt'''
@@ -489,6 +491,11 @@ abstract class URI extends BaseURI implements Factory
 {
     abstract function test();
 
+    public static $st1 = 1;
+    const ME = "Yo";
+    var $list = NULL;
+    private $var;
+
     /**
      * Returns a URI
      *
@@ -507,12 +514,17 @@ line description';
             throw new Zend_Uri_Exception('Illegal scheme');
         }
 
+       	$this-&gt;var = 0 - self::$st;
+        $this-&gt;list = list(Array("1"=&gt; 2, 2=&gt;self::ME));
+
         return [
             'uri'   => $uri,
             'value' => null,
         ];
     }
 }
+
+echo URI::ME . URI::$st1;
 
 __halt_compiler () ; datahere
 datahere
@@ -956,6 +968,26 @@ a {
 }</code></pre>
 
   <tr>
+    <th>TypeScript
+    <td class="typescript">
+<pre><code>class MyClass {
+    public static myValue: string;
+    constructor(init: string) {
+      this.myValue = init;
+    }
+  }
+  import fs = require("fs");
+  module MyModule {
+    export interface MyInterface extends OtherInterface {
+      myProperty: any;
+    }
+  }
+  declare magicNumber number;
+  myArray.forEach(() => {
+    // fat arrow syntax
+  });</code></pre>
+
+  <tr>
     <th>CoffeeScript
     <td class="coffeescript">
 <pre><code># Divisions
@@ -1043,6 +1075,40 @@ OPERATOR = /// ^ (
         }
     }
 }</code></pre>
+
+  <tr>
+     <th>Haxe</th>
+     <td class="haxe">
+<pre><code>
+// quicksort example from http://haxe.org/doc/snip/quicksort
+class Quicksort {
+
+    static var arr = [4,8,0,3,9,1,5,2,6,7];
+
+    static function quicksort( lo : Int, hi : Int ) : Void {
+        var i = lo;
+        var j = hi;
+        var buf = arr;
+        var p = buf[(lo+hi)>>1];
+        while( i <= j ) {
+            while( arr[i] > p ) i++;
+            while( arr[j] < p ) j--;
+            if( i <= j ) {
+                var t = buf[i];
+                buf[i++] = buf[j];
+                buf[j--] = t;
+            }
+        }
+        if( lo < j ) quicksort( lo, j );
+        if( i < hi ) quicksort( i, hi );
+    }
+
+    static function main() {
+        quicksort( 0, arr.length-1 );
+        trace(arr);
+    }
+}
+</code></pre>
 
   <tr>
     <th>VBScript
@@ -3241,6 +3307,116 @@ Feature: Addition
     | 0       | 40      | add    | 40     |
 </code></pre>
 
+  <tr>
+    <th>Nimrod
+    <td class="nimrod">
+<pre><code>
+import module1, module2, module3
+from module4 import nil
+
+type
+  TFoo = object ## Doc comment
+    a: int32
+  PFoo = ref TFoo
+
+proc do_stuff314(param_1: TFoo, par2am: var PFoo): PFoo {.exportc: "dostuff" .} =
+  # Regular comment
+  discard """
+  dfag
+sdfg""
+"""
+  result = nil
+
+method abc(a: TFoo) = discard 1u32 + 0xabcdefABCDEFi32 + 0o01234567i8 + 0b010
+
+discard rawstring"asdf""adfa"
+var normalstring = "asdf"
+let a: uint32 = 0xFFaF'u32
+</code></pre>
+
+  <tr>
+    <th>Swift
+    <td class="swift">
+<pre><code>extension MyClass : Interface {
+    class func unarchiveFromFile&lt;A&gt;(file : A, (Int,Int) -> B) -> SKNode? {
+        let path: String = bundle.pathForResource(file, ofType: "file\(name + 5).txt")
+        let funnyNumber = 3 + 0xC2.15p2 * (1_000_000.000_000_1 - 000123.456) + 0o21
+        var sceneData = NSData.dataWithContentsOfFile(path, options: .DataReadingMappedIfSafe, error: nil)
+        /* a comment /* with a nested comment */ and the end */
+    }
+    @objc override func shouldAutorotate() {
+        return true
+    }
+}
+</code></pre>
+
+  <tr>
+    <th>Gradle
+    <td class="gradle">
+<pre><code>
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 19
+        versionCode 5
+        versionName "0.4.4"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    signingConfigs {
+        release
+    }
+    buildTypes {
+        release {
+            // runProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.example:example-lib:1.0.0'
+}
+
+
+def propFile = file('../signing.properties')
+if( propFile.canRead() ) {
+    def Properties p = new Properties()
+    p.load(new FileInputStream(propFile))
+
+    if( p!=null
+    &&  p.containsKey("STORE_FILE")
+    &&  p.containsKey('STORE_PASSWORD')
+    &&  p.containsKey('KEY_ALIAS')
+    &&  p.containsKey('KEY_PASSWORD')
+    ) {
+        println "RELEASE_BUILD: Signing..."
+
+        android.signingConfigs.release.storeFile = file( p['STORE_FILE'] )
+        android.signingConfigs.release.storePassword = p['STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = p['KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = p['KEY_PASSWORD']
+    } else {
+        println "RELEASE_BUILD: Required properties in signing.properties are missing"
+        android.buildTypes.release.signingConfig = null
+    }
+} else {
+    println "RELEASE_BUILD: signing.properties not found"
+    android.buildTypes.release.signingProperties = null
+}
+</code></pre>
+
 </table>
 
 
@@ -3291,14 +3467,6 @@ Feature: Addition
 	if x == 3:
 	<span style="background:yellow">	</span>count(x + 1)
 </code></pre>
-
-  <tr>
-    <th>Non-pre container
-    <td>
-<div id="codecontainer" class="code">for x in [1, 2, 3]:<br>
-&nbsp;&nbsp;count(x)<br>
-</div>
-<script>hljs.highlightBlock(document.getElementById('codecontainer'), null, true);</script>
 
   <tr>
     <th>Language alias

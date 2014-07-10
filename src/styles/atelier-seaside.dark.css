@@ -1,5 +1,5 @@
 /* Base16 Atelier Seaside Dark - Theme */
-/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside/) */ 
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside/) */
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 /* https://github.com/jmblog/color-themes-for-highlightjs */
 
@@ -77,6 +77,7 @@
 
 .hljs {
   display: block;
+  overflow-x: auto;
   background: #242924;
   color: #8ca68c;
   padding: 0.5em;

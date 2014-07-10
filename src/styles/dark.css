@@ -6,6 +6,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 
 .hljs {
   display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #444;
 }

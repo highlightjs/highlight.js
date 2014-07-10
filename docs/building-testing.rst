@@ -43,5 +43,5 @@ highlight.js with only the language you're working on without compression
 (to have readable code in browser error messages). After this you have to build
 the entire package with all the languages and see if anything is broken. If your
 language breaks auto-detection it should be fixed by
-:ref:`improving relevance <relevance>` and is a black art in and of itself. When
-in doubt, please refer to the discussion group!
+:ref:`improving relevance <relevance>`, which is a black art in and of itself.
+When in doubt, please refer to the discussion group!

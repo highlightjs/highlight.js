@@ -6,7 +6,7 @@ Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Ivan Sagalaev <maniac@soft
 
 function(hljs) {
   var VARIABLE = {
-    className: 'variable', begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
+    className: 'variable', begin: '(\\$|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
   };
   var PREPROCESSOR = {
     className: 'preprocessor', begin: /<\?(php)?|\?>/
