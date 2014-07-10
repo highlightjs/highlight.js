@@ -159,6 +159,13 @@ pre .line {
   counter-increment: lines;
 }
 pre .line::before {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -o-user-select: none;
+  user-select: none;
+  
   content: counter(lines); text-align: right;
   display: inline-block; width: 2em;
   padding-right: 0.5em; margin-right: 0.5em;
