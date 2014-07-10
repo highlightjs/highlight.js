@@ -1,7 +1,7 @@
 /*
 Language: Scala
 Author: Jan Berkel <jan.berkel@gmail.com>
-2014-05-09: modified by Erik Osheim <d_m@plastic-idolatry.com>
+Contributors: Erik Osheim <d_m@plastic-idolatry.com>
 */
 
 function(hljs) {
@@ -26,7 +26,8 @@ function(hljs) {
    */
   var TYPE = {
     className: 'literal',
-    begin: '[A-Z][A-Za-z0-9_]*'
+    begin: '[A-Z][A-Za-z0-9_]*',
+    relevantce: 0
   };
 
   var TPARAMS = {
@@ -52,7 +53,8 @@ function(hljs) {
   };
   var BAREWORD = {
     className: 'xyz',
-    begin: '[a-z_][A-Za-z0-9_]*'
+    begin: '[a-z_][A-Za-z0-9_]*',
+    relevance: 0
   };
   return {
     contains: [
@@ -69,7 +71,7 @@ function(hljs) {
       STRING, hljs.QUOTE_STRING_MODE,
       SYMBOL,
       TYPE,
-      hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', beginKeywords: 'def', relevance: 10}),
+      hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', beginKeywords: 'def'}),
       hljs.inherit(FUNC_CLASS_PROTO, {className: 'class', beginKeywords: 'class'}),
       KEYW,
       BAREWORD,
