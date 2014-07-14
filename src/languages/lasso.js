@@ -118,7 +118,7 @@ function(hljs) {
     },
     {
       className: 'built_in',
-      begin: '\\.\\.?',
+      begin: '\\.\\.?\\s*',
       relevance: 0,
       contains: [LASSO_DATAMEMBER]
     },
