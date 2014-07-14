@@ -75,7 +75,8 @@
 }
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   background: black;
   color: #eaeaea;
   padding: 0.5em;

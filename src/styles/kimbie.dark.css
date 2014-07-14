@@ -55,7 +55,7 @@
 
 /* Kimbie Aqua */
 .css .hljs-hexcolor {
-  color:: #088649;
+  color: #088649;
 }
 
 /* Kimbie Blue */
@@ -77,7 +77,8 @@
 }
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   background: #221a0f;
   color: #d3af86;
   padding: 0.5em;

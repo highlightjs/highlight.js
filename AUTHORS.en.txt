@@ -116,3 +116,5 @@ Contributors:
 - Damian Mee <mee.damian@gmail.com>
 - Christopher Kaster <ikasoki@gmail.com>
 - Chris Eidhof <chris@eidhof.nl>
+- Nate Cook <natecook@gmail.com>
+- Matt Diephouse <matt@diephouse.com>

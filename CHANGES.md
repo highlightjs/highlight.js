@@ -1,36 +1,6 @@
-## Master
+## Version 8.1
 
-New features:
-
-- Add `listLanguages()` API method.
-- export.html merged into test.html.
-- C/C++/C# detection improved.
-- Added a bunch of aliases for languages and document current ones.
-  Thanks to [Sindre Sorhus][] for background research.
-- Added phrasal English words to boost relevance in comments.
-- Include docs into the browser download and node.js package.
-- Many improvements to SQL definition made by [Heiko August][],
-  [Nikolay Lisienko][] and [Travis Odom][].
-- Add shorted `lang-` prefix for specifying what language will be
-  highlighted.
-  Thanks to [Jeff Escalante][].
-- Ruby's got support for interactive console sessions. Thanks to [Pascal Hurni][].
-- Deal with trailing commas errors. Thanks to [Jiyin Yiyong][].
-- Add built_in functions for R language. Thanks to [Artem A. Klevtsov][].
-- Rust got definitions for lifetime parameters and improved string syntax.
-  Thanks to [Roman Shmatov][].
-
-[Sindre Sorhus]: https://github.com/sindresorhus
-[Heiko August]: https://github.com/auge8472
-[Nikolay Lisienko]: https://github.com/neor-ru
-[Travis Odom]: https://github.com/Burstaholic
-[Jeff Escalante]: https://github.com/jenius
-[Pascal Hurni]: https://github.com/phurni
-[Jiyin Yiyong]: https://github.com/jiyinyiyong
-[Artem A. Klevtsov]: https://github.com/unikum
-[Roman Shmatov]: https://github.com/shmatov
-
-New languages and styles:
+New languages:
 
 - *Gherkin* by [Sam Pikesley][]
 - *Elixir* by [Josh Adams][]
@@ -45,10 +15,14 @@ New languages and styles:
 - *Nimrod* by [Flaviu Tamas][]
 - *Gradle* by [Damian Mee][]
 - *Haxe* by [Christopher Kaster][]
-- *Kimbie* light and dark themes by [Jan T. Sott][]
-- *Color brewer* theme by [Fabrício Tavares de Oliveira][]
-- *Codepen.io embed* theme by [Justin Perry][]
-- *Hybrid* theme by [Nic West][]
+- *Swift* by [Chris Eidhof][] and [Nate Cook][]
+
+New styles:
+
+- *Kimbie*, light and dark variants by [Jan T. Sott][]
+- *Color brewer* by [Fabrício Tavares de Oliveira][]
+- *Codepen.io embed* by [Justin Perry][]
+- *Hybrid* by [Nic West][]
 
 [Sam Pikesley]: https://github.com/pikesley
 [Josh Adams]: https://github.com/knewter
@@ -66,6 +40,41 @@ New languages and styles:
 [Fabrício Tavares de Oliveira]: https://github.com/fabriciotav
 [Justin Perry]: https://github.com/ourmaninamsterdam
 [Nic West]: https://github.com/nicwest
+[Chris Eidhof]: https://github.com/chriseidhof
+[Nate Cook]: https://github.com/natecook1000
+
+Other improvements:
+
+- The README is heavily reworked and brought up to date by [Jeremy Hull][].
+- Added [`listLanguages()`][ll] method in the API.
+- Improved C/C++/C# detection.
+- Added a bunch of new language aliases, documented the existing ones. Thanks to
+  [Sindre Sorhus][] for background research.
+- Added phrasal English words to boost relevance in comments.
+- Many improvements to SQL definition made by [Heiko August][],
+  [Nikolay Lisienko][] and [Travis Odom][].
+- The shorter `lang-` prefix for language names in HTML classes supported
+  alongside `language-`. Thanks to [Jeff Escalante][].
+- Ruby's got support for interactive console sessions. Thanks to
+  [Pascal Hurni][].
+- Added built-in functions for R language. Thanks to [Artem A. Klevtsov][].
+- Rust's got definition for lifetime parameters and improved string syntax.
+  Thanks to [Roman Shmatov][].
+- Various improvements to Objective-C definition by [Matt Diephouse][].
+- Fixed highlighting of generics in Java.
+
+[ll]: http://highlightjs.readthedocs.org/en/latest/api.html#listlanguages
+[Sindre Sorhus]: https://github.com/sindresorhus
+[Heiko August]: https://github.com/auge8472
+[Nikolay Lisienko]: https://github.com/neor-ru
+[Travis Odom]: https://github.com/Burstaholic
+[Jeff Escalante]: https://github.com/jenius
+[Pascal Hurni]: https://github.com/phurni
+[Jiyin Yiyong]: https://github.com/jiyinyiyong
+[Artem A. Klevtsov]: https://github.com/unikum
+[Roman Shmatov]: https://github.com/shmatov
+[Jeremy Hull]: https://github.com/sourrust
+[Matt Diephouse]: https://github.com/mdiep
 
 ## Version 8.0
 
