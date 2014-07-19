@@ -9,6 +9,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
   overflow-x: auto;
   padding: 0.5em;
   background:#b7a68e url(./brown_papersq.png);
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-keyword,

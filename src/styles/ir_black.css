@@ -8,6 +8,7 @@
   padding: 0.5em;
   background: #000;
   color: #f8f8f8;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-shebang,

@@ -10,6 +10,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   padding: 0.5em;
   background: #fff;
   color: black;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,

@@ -10,6 +10,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   padding: 0.5em;
   background: #232323;
   color: #e6e1dc;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,

@@ -10,6 +10,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
   overflow-x: auto;
   padding: 0.5em;
   background: #1d1f21;
+  -webkit-text-size-adjust: none;
 }
 
 /*selection color*/
