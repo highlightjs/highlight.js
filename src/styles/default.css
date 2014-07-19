@@ -9,6 +9,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
   overflow-x: auto;
   padding: 0.5em;
   background: #f0f0f0;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs,

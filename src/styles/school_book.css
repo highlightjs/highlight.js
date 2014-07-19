@@ -10,6 +10,7 @@ School Book style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
   padding: 15px 0.5em 0.5em 30px;
   font-size: 11px !important;
   line-height:16px !important;
+  -webkit-text-size-adjust: none;
 }
 
 pre{

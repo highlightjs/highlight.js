@@ -10,6 +10,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
   padding: 0.5em;
   color: #000;
   background: #fff;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-subst,
