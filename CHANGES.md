@@ -16,6 +16,7 @@ New languages:
 - *Gradle* by [Damian Mee][]
 - *Haxe* by [Christopher Kaster][]
 - *Swift* by [Chris Eidhof][] and [Nate Cook][]
+- *ქართულსკრიპტი* by [Nodar Chkuaselidze][]
 
 New styles:
 
@@ -42,6 +43,7 @@ New styles:
 [Nic West]: https://github.com/nicwest
 [Chris Eidhof]: https://github.com/chriseidhof
 [Nate Cook]: https://github.com/natecook1000
+[Nodar Chkuaselidze]: https://github.com/nodar-chkuaselidze
 
 Other improvements:
 
