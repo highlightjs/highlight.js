@@ -36,7 +36,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-number,
 .hljs-hexcolor,
 .ruby .hljs-constant {
-  color: #099;
+  color: #008080;
 }
 
 .hljs-string,
