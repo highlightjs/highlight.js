@@ -118,3 +118,4 @@ Contributors:
 - Chris Eidhof <chris@eidhof.nl>
 - Nate Cook <natecook@gmail.com>
 - Matt Diephouse <matt@diephouse.com>
+- Erik Osheim <d_m@plastic-idolatry.com>
