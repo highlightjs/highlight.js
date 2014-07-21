@@ -23,7 +23,8 @@ function(hljs) {
 
   var TYPE = {
     className: 'type',
-    begin: '\\b[A-Z][A-Za-z0-9_]*'
+    begin: '\\b[A-Z][A-Za-z0-9_]*',
+    relevance: 0
   };
 
   var NAME = {
