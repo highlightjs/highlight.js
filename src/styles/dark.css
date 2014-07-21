@@ -31,7 +31,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 
 .hljs-string,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .ini .hljs-title,
 .hljs-tag .hljs-value,
 .css .hljs-rules .hljs-value,
@@ -80,7 +80,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-title,
 .css .hljs-id,
 .hljs-phpdoc,
-.haskell .hljs-type,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,

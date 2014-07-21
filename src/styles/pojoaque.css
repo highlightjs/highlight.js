@@ -68,7 +68,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-constant,
 .hljs-class .hljs-title,
 .hljs-parent,
-.haskell .hljs-type {
+.hljs-type {
   color: #b58900;
 }
 

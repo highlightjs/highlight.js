@@ -62,7 +62,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-class .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .vhdl .hljs-literal,
 .tex .hljs-command {
   color: #458;
