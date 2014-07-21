@@ -1,3 +1,9 @@
+## master
+
+- [Erik Osheim][] heavily reworked Scala definitions making it richer.
+
+[Erik Osheim]: https://github.com/non
+
 ## Version 8.1
 
 New languages:
