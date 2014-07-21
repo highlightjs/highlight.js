@@ -553,6 +553,12 @@ trait Hist { lhs =>
 def gsum[A: Ring](as: Seq[A]): A =
   as.foldLeft(Ring[A].zero)(_ + _)
 
+sealed trait Compass
+case object North extends Compass
+case object South extends Compass
+case object East extends Compass
+case object West extends Compass
+
 trait Cake {
   type T;
   val things: Seq[T]
@@ -569,7 +575,7 @@ val colors = Map(
   "orange" -&gt; 0xFF8040,
   "brown" -&gt; 0x804000)
 
-val ns = for {
+lazy val ns = for {
   x <- 0 until 100
   y <- 0 until 100
 } yield (x + y) * 33.33
