@@ -82,7 +82,9 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
   color: #808080;
 }
 
-.vhdl .hljs-typename { font-weight: bold; }
+.hljs-type,
+.hljs-typename { font-weight: bold; }
+
 .vhdl .hljs-string { color: #666666; }
 .vhdl .hljs-literal { color: #a31515; }
 .vhdl .hljs-attribute { color: #00b0e8; }

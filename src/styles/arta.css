@@ -53,9 +53,9 @@ Author: pumbur <pumbur@pumbur.net>
 
 .hljs-built_in,
 .hljs-literal,
-.vhdl .hljs-typename,
+.hljs-type,
+.hljs-typename,
 .go .hljs-constant,
-.go .hljs-typename,
 .ini .hljs-keyword,
 .lua .hljs-title,
 .perl .hljs-variable,

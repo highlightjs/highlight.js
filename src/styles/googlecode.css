@@ -70,11 +70,11 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 }
 
 .hljs-class .hljs-title,
-.haskell .hljs-type,
 .smalltalk .hljs-class,
 .hljs-javadoctag,
 .hljs-yardoctag,
 .hljs-phpdoc,
+.hljs-type,
 .hljs-typename,
 .hljs-tag .hljs-attribute,
 .hljs-doctype,
