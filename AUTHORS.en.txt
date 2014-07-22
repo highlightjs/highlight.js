@@ -119,3 +119,4 @@ Contributors:
 - Nate Cook <natecook@gmail.com>
 - Matt Diephouse <matt@diephouse.com>
 - Erik Osheim <d_m@plastic-idolatry.com>
+- Guillaume Laforge <glaforge@gmail.com>

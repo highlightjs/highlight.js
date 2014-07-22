@@ -3431,6 +3431,53 @@ if( propFile.canRead() ) {
 }
 </code></pre>
 
+<tr>
+    <th>Groovy</th>
+    <td class="groovy">
+<pre><code>
+package model
+
+import groovy.transform.CompileStatic
+
+trait Distributable {
+    void distribute(String version) {}
+}
+
+@CompileStatic
+class Distribution implements Distributable {
+    int version = 1234.234
+    boolean archivable = false
+    String name = "Guillaume"
+    Closure description = null
+    List&lt;DownloadPackage&gt; packages = []
+    String regex = ~/.*foo.*/
+    String multi = '''
+    multi line string
+    ''' + """
+    now with double quotes and ${gstring}
+    """ + $/
+    even with dollar slashy strings
+    /$
+
+    /**
+     * description method
+     * @param cl the closure
+     */
+    void description(Closure cl) { this.description = cl }
+
+    void version(String name, Closure versionSpec) {
+        // single line comment
+        DownloadPackage pkg = new DownloadPackage(version:name)
+        def clone = versionSpec.rehydrate(pkg,pkg,pkg)
+        /*
+        now clone() in a multiline comment
+        */
+        clone()
+        packages.add(pkg)
+    }
+}
+</code></pre>
+
 </table>
 
 
