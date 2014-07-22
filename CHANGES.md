@@ -1,3 +1,11 @@
+## Version 8.2
+
+New languages:
+
+- *Groovy* by [Guillaume Laforge][]
+
+[Guillaume Laforge]: https://github.com/glaforge
+
 ## Version 8.1
 
 New languages:
