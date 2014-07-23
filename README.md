@@ -27,10 +27,10 @@ specify the language in the class attribute:
 The list of supported language classes is available in the [class reference][8].
 Classes can also be prefixed with either `language-` or `lang-`.
 
-To disable highlighting altogether use the `no-highlight` class:
+To disable highlighting altogether use the `nohighlight` class:
 
 ```html
-<pre><code class="no-highlight">...</code></pre>
+<pre><code class="nohighlight">...</code></pre>
 ```
 
 ## Custom Initialization
