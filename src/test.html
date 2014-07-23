@@ -1542,6 +1542,8 @@ public abstract class L2Character extends L2Object {
   public class NotifyAITask implements Runnable {
     private final CtrlEvent _evt;
 
+    List&lt;String&gt; mList = new ArrayList&lt;String&gt;()
+
     public void run() {
       try {
         getAI().notifyEvent(_evt, _evt.class, null);
