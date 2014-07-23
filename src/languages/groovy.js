@@ -11,14 +11,18 @@ function(hljs) {
             typename: 'byte short char int long boolean float double void',
             literal : 'true false null',
             keyword:
-            'def super this as in assert abstract static volatile transient public private protected synchronized final ' +
-            'class interface trait enum if else for while switch case break default continue ' +
+                // groovy specific keywords
+            'def|2 as|2 in|2 assert|2 trait|2 ' +
+                // common keywords with Java
+            'super this abstract static volatile transient public private protected synchronized final ' +
+            'class interface enum if else for while switch case break default continue ' +
             'throw throws try catch finally implements extends new import package return instanceof ' +
-                // unused but reserved
-            'const strictfp native'
+                // unused but reserved keywords
+            'const|0 strictfp|0 native|0 do|0'
         },
 
         contains: [
+            hljs.C_LINE_COMMENT_MODE,
             {
                 className: 'javadoc',
                 begin: '/\\*\\*', end: '\\*//*',
@@ -26,39 +30,44 @@ function(hljs) {
                     {
                         className: 'javadoctag', begin: '@[A-Za-z]+'
                     }
-                ],
-                relevance: 10
+                ]
+            },
+            hljs.C_BLOCK_COMMENT_MODE,
+            {
+                className: 'string',
+                begin: '"""', end: '"""'
             },
             {
                 className: 'string',
-                begin: '"""', end: '"""',
-                relevance: 10
-            },
-            {
-                className: 'string',
-                begin: "'''", end: "'''",
-                relevance: 10
+                begin: "'''", end: "'''"
             },
             {
                 className: 'string',
                 begin: "\\$/", end: "/\\$",
-                relevance: 10
+                relevance: 10 // bumping relevance as it's specific to Groovy
             },
-            hljs.C_LINE_COMMENT_MODE,
-            hljs.C_BLOCK_COMMENT_MODE,
             hljs.APOS_STRING_MODE,
+            {
+                className: 'regexp',
+                begin: /~?\/[^\/\n]+\//,
+                contains: [
+                    hljs.BACKSLASH_ESCAPE
+                ]
+            },
             hljs.QUOTE_STRING_MODE,
-            hljs.HASH_COMMENT_MODE,
-            hljs.REGEXP_MODE,
+            {
+                className: 'shebang',
+                begin: "^#!/usr/bin/env", end: '$',
+                illegal: '\n'
+            },
             hljs.BINARY_NUMBER_MODE,
             {
                 className: 'class',
-                beginKeywords: 'class interface trait', end: '{',
+                beginKeywords: 'class interface trait enum', end: '{',
                 illegal: ':',
                 contains: [
                     {
-                        beginKeywords: 'extends implements',
-                        relevance: 10
+                        beginKeywords: 'extends implements'
                     },
                     {
                         className: 'title',
@@ -69,7 +78,20 @@ function(hljs) {
             hljs.C_NUMBER_MODE,
             {
                 className: 'annotation', begin: '@[A-Za-z]+'
-            }
+            },
+            {
+                // highlight map keys and named parameters as strings
+                className: 'string', begin: /[^\?]{0}[A-Za-z0-9_$]+ *:/
+            },
+            {
+                // catch middle element of the ternary operator
+                // to avoid highlight it as a label, named parameter, or map key
+                begin: /\?/, end: /\:/
+            },
+            {
+                // highlight labeled statements
+                className: 'label', begin: '^\\s*[A-Za-z0-9_$]+:'
+            },
         ]
     }
 }

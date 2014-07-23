@@ -103,6 +103,22 @@ Scala ("scala")
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "with" inside class header
 
+Groovy ("groovy)
+----------------
+
+* ``keyword``:          keyword
+* ``number``:           number
+* ``string``:           string, map string keys and named argument labels
+* ``regex``:            regular expression
+* ``comment``:          comment
+* ``annotation``:       annotation
+* ``javadoc``:          javadoc comment
+* ``javadoctag``:       @-tag in javadoc
+* ``class``:            class header
+* ``title``:            class name inside a header
+* ``label``:            label
+* ``shebang``:          Groovy shell script header
+
 Go ("go", "golang")
 -------------------
 
