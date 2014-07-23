@@ -66,7 +66,7 @@ function(hljs) {
       NUMBERS,
       {
         className: 'func',
-        beginKeywords: 'func', excludeEnd: true,
+        beginKeywords: 'func', end: '{', excludeEnd: true,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
             begin: /[A-Za-z$_][0-9A-Za-z$_]*/,
@@ -80,9 +80,13 @@ function(hljs) {
           {
             className: 'params',
             begin: /\(/, end: /\)/,
+            keywords: SWIFT_KEYWORDS,
             contains: [
-              hljs.C_LINE_COMMENT_MODE,
-              hljs.C_BLOCK_COMMENT_MODE
+              'self',
+              NUMBERS,
+              QUOTE_STRING_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
+              {begin: ':'} // relevance booster
             ],
             illegal: /["']/
           }
