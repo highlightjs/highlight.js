@@ -48,7 +48,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-title,
 .hljs-id,
-.coffeescript .hljs-params,
 .scss .hljs-preprocessor {
   color: #900;
   font-weight: bold;
