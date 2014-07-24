@@ -16,32 +16,26 @@ function (hljs) {
     className: 'string',
     variants: [
       {
-        begin: 'r\'\'\'', end: '\'\'\'',
-        relevance: 10
+        begin: 'r\'\'\'', end: '\'\'\''
       },
       {
-        begin: 'r"""', end: '"""',
-        relevance: 10
+        begin: 'r"""', end: '"""'
       },
       {
         begin: 'r\'', end: '\'',
-        illegal: '\\n',
-        relevance: 10
+        illegal: '\\n'
       },
       {
         begin: 'r"', end: '"',
-        illegal: '\\n',
-        relevance: 10
+        illegal: '\\n'
       },
       {
         begin: '\'\'\'', end: '\'\'\'',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-        relevance: 10
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
       },
       {
         begin: '"""', end: '"""',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-        relevance: 10
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
       },
       {
         begin: '\'', end: '\'',
@@ -79,15 +73,13 @@ function (hljs) {
         className: 'dartdoc',
         begin: '/\\*\\*', end: '\\*/',
         subLanguage: 'markdown',
-        subLanguageMode: 'continuous',
-        relevance: 5
+        subLanguageMode: 'continuous'
       },
       {
         className: 'dartdoc',
         begin: '///', end: '$',
         subLanguage: 'markdown',
-        subLanguageMode: 'continuous',
-        relevance: 5
+        subLanguageMode: 'continuous'
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
@@ -96,8 +88,7 @@ function (hljs) {
         beginKeywords: 'class interface', end: '{', excludeEnd: true,
         contains: [
           {
-            beginKeywords: 'extends implements',
-            relevance: 10
+            beginKeywords: 'extends implements'
           },
           hljs.UNDERSCORE_TITLE_MODE
         ]
