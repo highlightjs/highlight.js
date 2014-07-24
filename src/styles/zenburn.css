@@ -59,7 +59,7 @@ based on dark.css by Ivan Sagalaev
 }
 
 .dos .hljs-keyword,
-.python .hljs-decorator,
+.hljs-decorator,
 .hljs-title,
 .hljs-type,
 .diff .hljs-header,
@@ -100,7 +100,7 @@ based on dark.css by Ivan Sagalaev
 .hljs-shebang,
 .diff .hljs-addition,
 .hljs-comment,
-.java .hljs-annotation,
+.hljs-annotation,
 .hljs-template_comment,
 .hljs-pi,
 .hljs-doctype {

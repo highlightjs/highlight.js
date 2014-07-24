@@ -64,8 +64,8 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 }
 
 .hljs-comment,
-.java .hljs-annotation,
-.python .hljs-decorator,
+.hljs-annotation,
+.hljs-decorator,
 .hljs-template_comment,
 .hljs-pi,
 .hljs-doctype,

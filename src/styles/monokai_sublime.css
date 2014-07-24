@@ -125,8 +125,8 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .hljs-comment,
 .hljs-javadoc,
-.java .hljs-annotation,
-.python .hljs-decorator,
+.hljs-annotation,
+.hljs-decorator,
 .hljs-template_comment,
 .hljs-pi,
 .hljs-doctype,
