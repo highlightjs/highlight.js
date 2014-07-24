@@ -12,13 +12,11 @@ function(hljs) {
             literal : 'true false null',
             keyword:
                 // groovy specific keywords
-            'def|2 as|2 in|2 assert|2 trait|2 ' +
+            'def as in assert trait ' +
                 // common keywords with Java
             'super this abstract static volatile transient public private protected synchronized final ' +
             'class interface enum if else for while switch case break default continue ' +
-            'throw throws try catch finally implements extends new import package return instanceof ' +
-                // unused but reserved keywords
-            'const|0 strictfp|0 native|0 do|0'
+            'throw throws try catch finally implements extends new import package return instanceof'
         },
 
         contains: [
