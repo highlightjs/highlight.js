@@ -44,7 +44,7 @@ function(hljs) {
             {
                 className: 'string',
                 begin: "\\$/", end: "/\\$",
-                relevance: 10 // bumping relevance as it's specific to Groovy
+                relevance: 10
             },
             hljs.APOS_STRING_MODE,
             {
