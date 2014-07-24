@@ -120,3 +120,4 @@ URL:   http://highlightjs.org/
 - Мэтт Дайпхауз <matt@diephouse.com>
 - Эрик Осхейм <d_m@plastic-idolatry.com>
 - Гийом Ляфорж <glaforge@gmail.com>
+- Максим Дикун <dikmax@gmail.com>

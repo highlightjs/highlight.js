@@ -68,7 +68,8 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .smalltalk .hljs-class,
 .hljs-javadoctag,
 .hljs-yardoctag,
-.hljs-phpdoc {
+.hljs-phpdoc,
+.hljs-dartdoc {
   text-decoration: none;
 }
 
