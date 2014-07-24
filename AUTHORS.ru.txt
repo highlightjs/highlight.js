@@ -119,3 +119,4 @@ URL:   http://highlightjs.org/
 - Нейт Кук <natecook@gmail.com>
 - Мэтт Дайпхауз <matt@diephouse.com>
 - Эрик Осхейм <d_m@plastic-idolatry.com>
+- Гийом Ляфорж <glaforge@gmail.com>
