@@ -39,6 +39,7 @@ function(hljs) {
       },
       {
         begin: /^\t+/, end: /$/,
+        relevance: 0,
         contains: [
           hljs.QUOTE_STRING_MODE,
           VARIABLE
