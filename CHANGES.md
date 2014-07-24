@@ -1,5 +1,13 @@
 ## master
 
+New languages:
+
+- *Groovy* by [Guillaume Laforge][]
+
+[Guillaume Laforge]: https://github.com/glaforge
+
+Other improvements:
+
 - [Erik Osheim][] heavily reworked Scala definitions making it richer.
 
 [Erik Osheim]: https://github.com/non
