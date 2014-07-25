@@ -9,8 +9,10 @@ New languages:
 Other improvements:
 
 - [Erik Osheim][] heavily reworked Scala definitions making it richer.
+- [Lucas Mazza][] fixed Ruby hashes highlighting
 
 [Erik Osheim]: https://github.com/non
+[Lucas Mazza]: https://github.com/lucasmazza
 
 ## Version 8.1
 

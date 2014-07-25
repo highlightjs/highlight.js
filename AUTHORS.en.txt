@@ -120,3 +120,4 @@ Contributors:
 - Matt Diephouse <matt@diephouse.com>
 - Erik Osheim <d_m@plastic-idolatry.com>
 - Guillaume Laforge <glaforge@gmail.com>
+- Lucas Mazza <lucastmazza@gmail.com>
