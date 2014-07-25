@@ -354,6 +354,8 @@ end
 
 class Car < ActiveRecord::Base
   has_many :wheels, :class_name => 'Wheel', :foreign_key => 'car_id'
+  has_many :wheels, class_name: 'Wheel', foreign_key: 'car_id'
+  scope :available, -> { where(available: true) }
 end
 omega = -> { 'alpha' }
 alpha = ->(arg) { arg*2 }
