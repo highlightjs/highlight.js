@@ -106,7 +106,7 @@ function(hljs) {
             contains: [{
               begin: /\(/, end: /\)/,
               keywords: KEYWORDS,
-              contains: ['self', hljs.HASH_COMMENT_MODE].concat(EXPRESSIONS)
+              contains: ['self'].concat(EXPRESSIONS)
             }]
           }
         ]
