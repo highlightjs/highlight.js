@@ -4,6 +4,15 @@ Highlight.js is a syntax highlighter written in JavaScript. It works in the
 browser as well as on the server. It works with pretty much any markup,
 doesn't depend on any framework and has automatic language detection.
 
+## Installation
+
+Highlight.js is available via npm as
+[highlight.js](https://www.npmjs.org/package/highlight.js).
+
+    $ npm install --save highlight.js
+    
+It is also available via [cdnjs](http://cdnjs.com/libraries/highlight.js), and as custom
+packages from the website's [download page](http://highlightjs.org/download/).
 
 ## Getting Started
 
