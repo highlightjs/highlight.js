@@ -1034,7 +1034,6 @@ Gherkin ("gherkin")
 * ``comment``:          comment
 * ``string``:           string
 
-<<<<<<< HEAD
 Nimrod ("nimrod")
 -----------------
 
@@ -1060,8 +1059,6 @@ Swift ("swift")
 * ``params``:           parameters of a function
 * ``type``:             a type
 * ``preprocessor``:     @attributes
-=======
->>>>>>> 46acdda7043ad62f73a3eca8db3e8e283a85d7de
 
 Q ("k", "kdb")
 -------------------
