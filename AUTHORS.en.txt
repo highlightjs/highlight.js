@@ -109,6 +109,7 @@ Contributors:
 - innocenat <innocenat@gmail.com>
 - Arthur Bikmullin <devolonter@gmail.com>
 - Pascal Hurni <phi@ruby-reactive.org>
+<<<<<<< HEAD
 - Roman Shmatov <romanshmatov@gmail.com>
 - Nic West <nic@letolab.com>
 - Panu Horsmalahti <panu.horsmalahti@iki.fi>
@@ -121,4 +122,6 @@ Contributors:
 - Erik Osheim <d_m@plastic-idolatry.com>
 - Guillaume Laforge <glaforge@gmail.com>
 - Lucas Mazza <lucastmazza@gmail.com>
+=======
+>>>>>>> 46acdda7043ad62f73a3eca8db3e8e283a85d7de
 - Sergey Vidyuk <svidyuk@gmail.com>
