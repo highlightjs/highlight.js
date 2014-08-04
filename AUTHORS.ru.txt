@@ -121,3 +121,4 @@ URL:   http://highlightjs.org/
 - Эрик Осхейм <d_m@plastic-idolatry.com>
 - Гийом Ляфорж <glaforge@gmail.com>
 - Лукас Мазза <lucastmazza@gmail.com>
+- Максим Дикун <dikmax@gmail.com>
