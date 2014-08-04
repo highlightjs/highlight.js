@@ -100,7 +100,7 @@ function(hljs) {
           TITLE,
           {
             className: 'params',
-            begin: '\\(', returnBegin: true,
+            begin: '\\([^\\(]', returnBegin: true,
             /* We need another contained nameless mode to not have every nested
             pair of parens to be called "params" */
             contains: [{
