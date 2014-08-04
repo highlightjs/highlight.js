@@ -327,6 +327,21 @@ CoffeeScript ("coffeescript", "coffee", "cson", "iced")
 * ``params``:           parentheses and everything inside them in a function's header
 * ``property``:         @-property within class and functions
 
+Dart ("dart")
+--------------------
+
+* ``keyword``:          keyword
+* ``literal``:          keyword that can be uses as identifier but have special meaning in some cases
+* ``built_in``:         some of basic built in classes and function
+* ``number``:           number
+* ``string``:           string
+* ``subst``:            in-string substitution (${...})
+* ``comment``:          commment
+* ``annotaion``:        annotation
+* ``dartdoc``:          dartdoc comment
+* ``class``:            class header from "class" till "{"
+* ``title``:            class name
+
 ActionScript ("actionscript", "as")
 -----------------------------------
 
@@ -1059,19 +1074,3 @@ Swift ("swift")
 * ``params``:           parameters of a function
 * ``type``:             a type
 * ``preprocessor``:     @attributes
-
-Dart ("dart")
---------------------
-
-* ``keyword``:          keyword
-* ``literal``:          keyword that can be uses as identifier but have special meaning in some cases
-* ``built_id``:         some of basic built in classes and function
-* ``number``:           number
-* ``string``:           string
-* ``subst``:            in-string substitution (${...})
-* ``comment``:          commment
-* ``annotaion``:        annotation
-* ``dartdoc``:          dartdoc comment
-* ``class``:            class header from "class" till "{"
-* ``title``:            class name
-
