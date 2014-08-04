@@ -17,10 +17,10 @@ function(hljs) {
       {
         className: 'javadoc',
         begin: '/\\*\\*', end: '\\*/',
+        relevance: 0,
         contains: [{
           className: 'javadoctag', begin: '(^|\\s)@[A-Za-z]+'
-        }],
-        relevance: 10
+        }]
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
