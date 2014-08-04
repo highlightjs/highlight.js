@@ -3,8 +3,10 @@
 New languages:
 
 - *Groovy* by [Guillaume Laforge][]
+- *Dart* by [Maxim Dikun][]
 
 [Guillaume Laforge]: https://github.com/glaforge
+[Maxim Dikun]: https://github.com/dikmax
 
 Other improvements:
 
