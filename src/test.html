@@ -1858,6 +1858,39 @@ type Point = {X: float; Y: float;}
 type s
 let minutte = 60&lt;s&gt;
 
+namespace FSharp.Actor
+
+open System
+open System.Collections.Concurrent
+open System.Threading
+open FSharp.Actor.Types
+
+type DefaultMailbox&lt;'a&gt;() =
+    let mutable inbox = ConcurrentQueue&lt;'a&gt;()
+    let awaitMsg = new AutoResetEvent(false)
+
+    let rec await timeout cancellationToken = async {
+       match inbox.TryDequeue() with
+       | true, msg -&gt;
+          return msg
+       | false, _ -&gt;
+          let! recd = Async.AwaitWaitHandle(awaitMsg, timeout)
+          if recd
+          then return! await timeout cancellationToken   
+          else return raise(TimeoutException("Receive timed out"))
+    }
+    
+    interface IMailbox&lt;'a&gt; with  
+        member this.Receive(timeout, cancellationToken) = await (defaultArg timeout Timeout.Infinite) cancellationToken
+        member this.Post(msg) = 
+            inbox.Enqueue(msg)
+            awaitMsg.Set() |&gt; ignore
+        member this.Length with get() = inbox.Count
+        member this.IsEmpty with get() = inbox.IsEmpty
+        member x.Dispose() = 
+            awaitMsg.Dispose()
+            inbox &lt;- null
+        member x.Restart() = inbox &lt;- ConcurrentQueue()
 </code></pre>
 
   <tr>
