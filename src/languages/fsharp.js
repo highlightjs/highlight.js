@@ -4,7 +4,12 @@ Author: Jonas Follesø <jonas@follesoe.no>
 Contributors: Troy Kershaw <hello@troykershaw.com>, Henrik Feldt <henrik@haf.se>
 */
 function(hljs) {
-  var TYPEPARAM_NAME_RE = '\'[a-zA-Z0-9_]+';
+  var TYPEPARAM = {
+    begin: '<', end: '>',
+    contains: [
+      hljs.inherit(hljs.TITLE_MODE, {begin: /'[a-zA-Z0-9_]+/})
+    ]
+  };
 
   return {
     aliases: ['fs'],
@@ -36,21 +41,14 @@ function(hljs) {
         className: 'class',
         beginKeywords: 'type', end: '\\(|=|$', excludeEnd: true,
         contains: [
-          hljs.UNDERSCORE_TITLE_MODE
+          hljs.UNDERSCORE_TITLE_MODE,
+          TYPEPARAM
         ]
       },
       {
         className: 'annotation',
         begin: '\\[<', end: '>\\]',
         relevance: 10
-      },
-      {
-        className: 'typeparam',
-        begin: '<', end: '>',
-        contains: [
-          { className: 'title'
-          , begin: TYPEPARAM_NAME_RE }
-        ]
       },
       {
         className: 'attribute',
