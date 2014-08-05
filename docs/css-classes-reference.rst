@@ -1074,3 +1074,13 @@ Swift ("swift")
 * ``params``:           parameters of a function
 * ``type``:             a type
 * ``preprocessor``:     @attributes
+
+STEP Part 21 ("p21", "step", "stp")
+-------------------------------------------
+
+* ``preprocessor``:     delimiters
+* ``comment``:          single- or multi-line comment
+* ``keyword``:          keyword
+* ``number``:           number
+* ``string``:           string
+* ``label``:            variable reference starting with "#"
