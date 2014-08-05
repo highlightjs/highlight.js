@@ -19,9 +19,9 @@ function(hljs) {
       // regular keywords
       'abstract and as assert base begin class default delegate do done ' +
       'downcast downto elif else end exception extern false finally for ' +
-      'fun|10 function global if in inherit inline interface internal lazy let ' +
-      'match member module mutable|10 namespace new null of open or ' +
-      'override private public rec|10 return sig static struct then to ' +
+      'fun function global if in inherit inline interface internal lazy let ' +
+      'match member module mutable namespace new null of open or ' +
+      'override private public rec return sig static struct then to ' +
       'true try type upcast use val void when while with yield',
     contains: [
       {
