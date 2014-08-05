@@ -122,3 +122,4 @@ URL:   http://highlightjs.org/
 - Гийом Ляфорж <glaforge@gmail.com>
 - Лукас Мазза <lucastmazza@gmail.com>
 - Максим Дикун <dikmax@gmail.com>
+- Хенрик Фельдт <henrik@haf.se>
