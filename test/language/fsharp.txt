@@ -14,10 +14,6 @@ let checkList alist =
     | _ -> failwith "List is too big!"
 
 
-type IEncoding =
-    abstract Encode : string -> string
-    abstract Decode : string -> string
-
 let text = "Some text..."
 let text2 = @"A ""verbatim"" string..."
 let catalog = """
@@ -46,3 +42,7 @@ type Point = {X: float; Y: float;}
 [<Measure>]
 type s
 let minutte = 60<s>
+
+type DefaultMailbox<'a>() =
+    let mutable inbox = ConcurrentQueue<'a>()
+    let awaitMsg = new AutoResetEvent(false)

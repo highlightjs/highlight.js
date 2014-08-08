@@ -34,7 +34,7 @@ line description';
             throw new Zend_Uri_Exception('Illegal scheme');
         }
 
-	$this->var = 0 - self::$st;
+        $this->var = 0 - self::$st;
         $this->list = list(Array("1"=> 2, 2=>self::ME));
 
         return [
