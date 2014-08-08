@@ -1,0 +1,12 @@
+;Settings relating to the location and loading of the database
+[Database]
+ProfileDir=.
+ShowProfileMgr=smart
+Profile1_Name[] = "\|/_-=MegaDestoyer=-_\|/"
+DefaultProfile=True
+AutoCreate = no
+
+[AutoExec]
+use-prompt="prompt"
+Glob=autoexec_*.ini
+AskAboutIgnoredPlugins=0
