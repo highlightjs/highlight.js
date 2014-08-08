@@ -83,7 +83,6 @@ Contributors:
 - Poren Chiang <ren.chiang@gmail.com>
 - Kelley van Evert <kelleyvanevert@gmail.com>
 - Kurt Emch <kurt@kurtemch.com>
-<<<<<<< HEAD
 - Mehdi Dogguy <mehdi@dogguy.org>
 - Nicolas Braud-Santoni <nicolas.braud-santoni@ens-cachan.fr>
 - Ralf Bitter <rabit@revigniter.com>
