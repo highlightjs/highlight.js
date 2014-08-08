@@ -19,7 +19,7 @@ describe('custom markup', function() {
     actual.should.equal(expected);
   });
 
-  it('should keep custim markup', function() {
+  it('should keep custom markup', function() {
     var filename  = utility.buildPath('expect', 'custommarkup.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),

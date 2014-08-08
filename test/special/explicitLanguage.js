@@ -13,13 +13,13 @@ describe('explicit language class', function() {
     blocks   = document.querySelectorAll('.hljs');
   });
 
-  it('should highlight in code tag', function() {
+  it('should highlight block with language in code tag', function() {
     var actual = blocks[0].innerHTML;
 
     actual.should.equal(expected);
   });
 
-  it('should highlight in pre tag', function() {
+  it('should highlight block with language in pre tag', function() {
     var actual = blocks[1].innerHTML;
 
     actual.should.equal(expected);
