@@ -1074,3 +1074,14 @@ Swift ("swift")
 * ``params``:           parameters of a function
 * ``type``:             a type
 * ``preprocessor``:     @attributes
+
+G-Code ("nc")
+-------------------------------
+
+* ``keyword``:          G words, looping constructs and conditional operators
+* ``comment``:          comment
+* ``number``:           number
+* ``built_in``:         trigonometric and mathematical functions
+* ``title``:            M words and variable registers
+* ``preprocessor``:     program number and ending character
+* ``label``:            block number
