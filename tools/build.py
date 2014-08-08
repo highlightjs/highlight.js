@@ -277,7 +277,7 @@ def build_node(root, build_path, filenames, options):
         shutil.copyfile(source, dest)
 
     print('Adding package.json...')
-    package = json.load(utf8_open(os.path.join(src_path, 'package.json')))
+    package = json.load(utf8_open(os.path.join(root, 'package.json')))
     authors = utf8_open(os.path.join(root, 'AUTHORS.en.txt'))
     matches = (re.match('^- (?P<name>.*) <(?P<email>.*)>$', a) for a in authors)
     package['contributors'] = [m.groupdict() for m in matches if m]
