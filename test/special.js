@@ -12,10 +12,8 @@ var filename = utility.buildPath('index.html'),
 global.document = jsdom(page);
 
 // Setup hljs environment
-var blocks = document.querySelectorAll('pre code');
-
 hljs.configure({ tabReplace: '    ' });
-[].forEach.call(blocks, hljs.highlightBlock);
+hljs.initHighlighting();
 
 describe('special cases test', function() {
   require('./special/explicitLanguage');
