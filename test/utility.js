@@ -9,7 +9,7 @@ function buildPath() {
       paths = [__dirname].concat(args);
 
   return path.join.apply(this, paths);
-};
+}
 exports.buildPath = buildPath;
 
 exports.languagesList = function() {
