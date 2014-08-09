@@ -32,7 +32,7 @@ describe('explicit language class', function() {
   });
 
   it('should highlight with shortened prefix (lang-)', function() {
-    var filename  = utility.buildPath('expect', 'shortenedexplicit.txt'),
+    var filename = utility.buildPath('expect', 'shortenedexplicit.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
         actual   = blocks[3].innerHTML;

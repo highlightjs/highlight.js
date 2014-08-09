@@ -11,7 +11,7 @@ describe('language alias', function() {
   });
 
   it('should highlight as aliased language', function() {
-    var filename  = utility.buildPath('expect', 'languagealias.txt'),
+    var filename = utility.buildPath('expect', 'languagealias.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
         actual   = blocks[7].innerHTML;
