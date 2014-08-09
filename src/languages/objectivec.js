@@ -19,7 +19,7 @@ function(hljs) {
     literal:
     	'false true FALSE TRUE nil YES NO NULL',
     built_in:
-      'NSString NSDictionary CGRect CGPoint UIButton UILabel UITextView UIWebView MKMapView ' +
+      'NSString NSData NSDictionary CGRect CGPoint UIButton UILabel UITextView UIWebView MKMapView ' +
       'NSView NSViewController NSWindow NSWindowController NSSet NSUUID NSIndexSet ' +
       'UISegmentedControl NSObject UITableViewDelegate UITableViewDataSource NSThread ' +
       'UIActivityIndicator UITabbar UIToolBar UIBarButtonItem UIImageView NSAutoreleasePool ' +
@@ -31,6 +31,7 @@ function(hljs) {
       'UIFont UIApplication NSNotFound NSNotificationCenter NSNotification ' +
       'UILocalNotification NSBundle NSFileManager NSTimeInterval NSDate NSCalendar ' +
       'NSUserDefaults UIWindow NSRange NSArray NSError NSURLRequest NSURLConnection ' +
+      'NSURLSession NSURLSessionDataTask NSURLSessionDownloadTask NSURLSessionUploadTask NSURLResponse' +
       'UIInterfaceOrientation MPMoviePlayerController dispatch_once_t ' +
       'dispatch_queue_t dispatch_sync dispatch_async dispatch_once'
   };
