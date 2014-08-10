@@ -5,9 +5,9 @@ Contributors: Anton Kochkov <anton.kochkov@gmail.com>
 */
 
 function(hljs) {
-  var COMMENTS = {
+  var COMMENT = {
     className: 'comment',
-    begin: '@?rem', end: '$',
+    begin: /@?rem\b/, end: /$/,
 	  relevance: 10
   };
   var LABEL = {
@@ -45,15 +45,15 @@ function(hljs) {
         begin: LABEL.begin, end: 'goto:eof',
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'}),
-          COMMENTS
-        ].concat(COMMENTS),
+          COMMENT
+        ],
         relevance: 10
       },
       {
         className: 'number', begin: '\\b\\d+',
         relevance: 0
       },
-      COMMENTS
+      COMMENT
     ]
   };
 }
