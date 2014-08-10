@@ -67,7 +67,9 @@ function(hljs) {
           relevance: 0
         },
         {
-          begin: '/\\S(\\\\.|[^\\n])*?/[gim]*(?=\\s|\\W|$)' // \S is required to parse x / 2 / 3 as two divisions
+          // regex can't start with space to parse x / 2 / 3 as two divisions
+          // regex can't start with *, and it supports an "illegal" in the main mode
+          begin: '/[^ *](\\\\.|[^\\n])*?/[gim]*(?=\\s|\\W|$)'
         }
       ]
     },
@@ -86,6 +88,7 @@ function(hljs) {
   return {
     aliases: ['coffee', 'cson', 'iced'],
     keywords: KEYWORDS,
+    illegal: /\/\*/,
     contains: EXPRESSIONS.concat([
       {
         className: 'comment',
