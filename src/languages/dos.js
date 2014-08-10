@@ -32,13 +32,7 @@ function(hljs) {
     },
     contains: [
       {
-        className: 'envvar', begin: '%%[^ ]'
-      },
-      {
-        className: 'envvar', begin: '%[^ ]+?%'
-      },
-      {
-        className: 'envvar', begin: '![^ ]+?!'
+        className: 'envvar', begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
       },
       {
         className: 'function',
