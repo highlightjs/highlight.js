@@ -123,3 +123,4 @@ Contributors:
 - Lucas Mazza <lucastmazza@gmail.com>
 - Maxim Dikun <dikmax@gmail.com>
 - Henrik Feldt <henrik@haf.se>
+- Anton Kochkov <anton.kochkov@gmail.com>

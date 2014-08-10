@@ -1,6 +1,7 @@
 /*
 Language: DOS .bat
-Author: Alexander Makarov (http://rmcreative.ru/)
+Author: Alexander Makarov <sam@rmcreative.ru>
+Contributors: Anton Kochkov <anton.kochkov@gmail.com>
 */
 
 function(hljs) {

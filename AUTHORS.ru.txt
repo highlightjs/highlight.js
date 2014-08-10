@@ -123,3 +123,4 @@ URL:   http://highlightjs.org/
 - Лукас Мазза <lucastmazza@gmail.com>
 - Максим Дикун <dikmax@gmail.com>
 - Хенрик Фельдт <henrik@haf.se>
+- Антон Кочков <anton.kochkov@gmail.com>
