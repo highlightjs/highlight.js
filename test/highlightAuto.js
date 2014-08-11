@@ -2,18 +2,23 @@
 
 var fs      = require('fs');
 var hljs    = require('../build');
+var path    = require('path');
 var utility = require('./utility');
 
 function testAutoDetection(language) {
   it('should be detected as ' + language, function() {
-    var filename     = language + '.txt',
-        languagePath = utility.buildPath('language', filename),
-        content      = fs.readFileSync(languagePath, 'utf-8'),
+    var languagePath = utility.buildPath('language', language),
+        examples     = fs.readdirSync(languagePath);
 
-        expected = language,
-        actual   = hljs.highlightAuto(content).language;
+    examples.forEach(function(example) {
+      var filename = path.join(languagePath, example),
+          content  = fs.readFileSync(filename, 'utf-8'),
 
-    actual.should.equal(expected);
+          expected = language,
+          actual   = hljs.highlightAuto(content).language;
+
+      actual.should.equal(expected);
+    });
   });
 }
 
