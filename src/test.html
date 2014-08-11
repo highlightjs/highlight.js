@@ -900,6 +900,19 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
 </code></pre>
 
   <tr>
+    <th>Dust.js
+    <td class="dust">
+<pre>
+<code>&lt;h3&gt;Hours&lt;/h3&gt;
+
+&lt;ul&gt;
+  {#users}
+  &lt;li {hello}}&gt;{firstName}&lt;/li&gt;{~n}
+  {/users}
+&lt;/ul&gt;
+</code></pre>
+
+  <tr>
     <th>CSS
     <td class="css">
 <pre><code>@media screen and (-webkit-min-device-pixel-ratio: 0) {

@@ -4,9 +4,11 @@ New languages:
 
 - *Groovy* by [Guillaume Laforge][]
 - *Dart* by [Maxim Dikun][]
+- *Dust* by [Michael Allen][]
 
 [Guillaume Laforge]: https://github.com/glaforge
 [Maxim Dikun]: https://github.com/dikmax
+[Michael Allen]: https://github.com/bfui
 
 Other improvements:
 
@@ -43,6 +45,7 @@ New styles:
 - *Hybrid* by [Nic West][]
 
 [Sam Pikesley]: https://github.com/pikesley
+[Sindre Sorhus]: https://github.com/sindresorhus
 [Josh Adams]: https://github.com/knewter
 [Jan T. Sott]: https://github.com/idleberg
 [Jun Yang]: https://github.com/harttle

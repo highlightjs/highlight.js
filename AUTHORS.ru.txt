@@ -124,3 +124,4 @@ URL:   http://highlightjs.org/
 - Максим Дикун <dikmax@gmail.com>
 - Хенрик Фельдт <henrik@haf.se>
 - Антон Кочков <anton.kochkov@gmail.com>
+- Михаэль Аллен <Michael.Allen@benefitfocus.com>

@@ -124,3 +124,4 @@ Contributors:
 - Maxim Dikun <dikmax@gmail.com>
 - Henrik Feldt <henrik@haf.se>
 - Anton Kochkov <anton.kochkov@gmail.com>
+- Michael Allen <Michael.Allen@benefitfocus.com>

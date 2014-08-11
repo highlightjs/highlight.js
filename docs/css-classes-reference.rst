@@ -260,8 +260,17 @@ Handlebars ("handlebars", "hbs", "html.hbs", "html.handlebars")
 
 * ``expression``:       expression to be evaluated
 * ``variable``:         variable
-* ``begin``:-block      the beginning of a block
-* ``end``:-block        the ending of a block
+* ``begin-block``:      the beginning of a block
+* ``end-block``:        the ending of a block
+* ``string``:           string
+
+Dust ("dust", "dst")
+--------------------
+
+* ``expression``:       expression to be evaluated
+* ``variable``:         variable
+* ``begin-block``:      the beginning of a block
+* ``end-block``:        the ending of a block
 * ``string``:           string
 
 JSON ("json")
