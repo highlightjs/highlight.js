@@ -15,6 +15,7 @@ function(hljs) {
       {
         className: 'expression',
         begin: '{', end: '}',
+        relevance: 0,
         contains: [
           {
             className: 'begin-block', begin: '\#[a-zA-Z\-\ \.]+',
@@ -30,7 +31,8 @@ function(hljs) {
           },
           {
             className: 'variable', begin: '[a-zA-Z\-\.]+',
-            keywords: EXPRESSION_KEYWORDS
+            keywords: EXPRESSION_KEYWORDS,
+            relevance: 0
           }
         ]
       }
