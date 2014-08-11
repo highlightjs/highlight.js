@@ -16,7 +16,5 @@ exports.languagesList = function() {
   var langPath  = buildPath('language'),
       languages = fs.readdirSync(langPath);
 
-  return languages.map(function(language) {
-    return language.split('.')[0];
-  });
+  return languages;
 };
