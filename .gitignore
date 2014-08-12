@@ -4,3 +4,4 @@ docs/_build
 .idea/
 __pycache__
 *.swp
+node_module

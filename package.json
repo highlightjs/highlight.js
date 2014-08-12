@@ -1,0 +1,40 @@
+{
+  "name": "highlight.js",
+  "description": "Syntax highlighting with language autodetection.",
+  "keywords": [
+    "highlight",
+    "syntax"
+  ],
+  "homepage": "http://highlightjs.org/",
+  "version": "8.1.0",
+  "author": {
+    "name": "Ivan Sagalaev",
+    "email": "maniac@softwaremaniacs.org"
+  },
+  "contributors": [],
+  "bugs": {
+    "url": "https://github.com/isagalaev/highlight.js/issues"
+  },
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "https://github.com/isagalaev/highlight.js/blob/master/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/isagalaev/highlight.js.git"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "devDependencies": {
+    "jsdom": "^0.11.1",
+    "mocha": "^1.21.4",
+    "should": "^4.0.4"
+  }
+}

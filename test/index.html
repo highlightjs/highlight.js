@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>highlight.js test</title>
+</head>
+<body>
+<!-- explicit language (code) -->
+<pre><code class="python">for x in [1, 2, 3]:
+  count(x)</code></pre>
+
+<!-- explicit language (pre) -->
+<pre class="python"><code>for x in [1, 2, 3]:
+  count(x)</code></pre>
+
+<!-- html 5 style language class -->
+<pre><code class="language-python">for x in [1, 2, 3]:
+  count(x)</code></pre>
+
+<!-- shortened language prefix -->
+<pre><code class="lang-python">def add_one(x):
+    return x + 1</code></pre>
+
+<!-- tab replacement -->
+<pre><code class="python">for x in [1, 2, 3]:
+	count(x)</code></pre>
+
+<!-- custom markup -->
+<pre><code class="html">&lt;<a href="http://dev.w3.org/html5/spec/Overview.html#the-div-element">div</a> id="contents"&gt;
+  <del>&lt;p&gt;Hello, World!</del><!-- A comment should not break merging --><ins>Goodbye, cruel world!</ins>
+&lt;/div&gt;</code></pre>
+
+<!-- custom markup and tab replacement -->
+<pre><code class="python">for x in [1, 2, 3]:
+<span style="background:yellow">	</span>count(x)
+	if x == 3:
+	<span style="background:yellow">	</span>count(x + 1)</code></pre>
+
+<!-- language alias -->
+<pre><code class="language-js">var x = '&lt;p&gt;this should &lt;b&gt;not&lt;/b&gt; be highlighted as &lt;em&gt;HTML&lt;/em&gt;';</code></pre>
+
+<!-- disable highlighting -->
+<pre><code class="nohighlight">&lt;div id="contents"&gt;
+  &lt;p&gt;Hello, World!c
+&lt;/div&gt;</code></pre>
+
+<!-- non-code <pre> -->
+<pre><samp>Computer output</samp></pre>
+</body>
+</html>
