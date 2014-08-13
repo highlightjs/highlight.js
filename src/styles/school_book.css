@@ -10,6 +10,7 @@ School Book style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
   padding: 15px 0.5em 0.5em 30px;
   font-size: 11px !important;
   line-height:16px !important;
+  -webkit-text-size-adjust: none;
 }
 
 pre{
@@ -39,7 +40,7 @@ pre{
 
 .hljs-string,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .hljs-tag .hljs-value,
 .css .hljs-rules .hljs-value,
 .hljs-preprocessor,
@@ -70,8 +71,8 @@ pre{
 }
 
 .hljs-comment,
-.java .hljs-annotation,
-.python .hljs-decorator,
+.hljs-annotation,
+.hljs-decorator,
 .hljs-template_comment,
 .hljs-pi,
 .hljs-doctype,
@@ -85,8 +86,9 @@ pre{
 .hljs-literal,
 .css .hljs-id,
 .hljs-phpdoc,
+.hljs-dartdoc,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,

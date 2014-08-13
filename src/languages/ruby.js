@@ -105,13 +105,13 @@ function(hljs) {
     },
     {
       className: 'symbol',
-      begin: ':',
-      contains: [STRING, {begin: RUBY_METHOD_RE}],
+      begin: hljs.UNDERSCORE_IDENT_RE + '(\\!|\\?)?:',
       relevance: 0
     },
     {
       className: 'symbol',
-      begin: hljs.UNDERSCORE_IDENT_RE + '(\\!|\\?)?:',
+      begin: ':',
+      contains: [STRING, {begin: RUBY_METHOD_RE}],
       relevance: 0
     },
     {
@@ -146,45 +146,27 @@ function(hljs) {
   ];
   SUBST.contains = RUBY_DEFAULT_CONTAINS;
   PARAMS.contains = RUBY_DEFAULT_CONTAINS;
-  
+
   var IRB_DEFAULT = [
     {
-      relevance: 1,
-      className: 'output',
-      begin: '^\\s*=> ', end: "$",
-      returnBegin: true,
-      contains: [
-        {
-          className: 'status',
-          begin: '^\\s*=>'
-        },
-        {
-          begin: ' ', end: '$',
-          contains: RUBY_DEFAULT_CONTAINS
-        }
-      ]
+      begin: /^\s*=>/,
+      className: 'status',
+      starts: {
+        end: '$', contains: RUBY_DEFAULT_CONTAINS
+      }
     },
     {
-      relevance: 1,
-      className: 'input',
-      begin: '^[^ ][^=>]*>+ ', end: "$",
-      returnBegin: true,
-      contains: [
-        {
-          className: 'prompt',
-          begin: '^[^ ][^=>]*>+'
-        },
-        {
-          begin: ' ', end: '$',
-          contains: RUBY_DEFAULT_CONTAINS
-        }
-      ]
+      className: 'prompt',
+      begin: /^\S[^=>\n]*>+/,
+      starts: {
+        end: '$', contains: RUBY_DEFAULT_CONTAINS
+      }
     }
   ];
 
   return {
     aliases: ['rb', 'gemspec', 'podspec', 'thor', 'irb'],
     keywords: RUBY_KEYWORDS,
-    contains: IRB_DEFAULT.concat(RUBY_DEFAULT_CONTAINS)
+    contains: [COMMENT].concat(IRB_DEFAULT).concat(RUBY_DEFAULT_CONTAINS)
   };
 }

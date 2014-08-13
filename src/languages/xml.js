@@ -97,7 +97,7 @@ function(hljs) {
         begin: '</?', end: '/?>',
         contains: [
           {
-            className: 'title', begin: '[^ /><]+', relevance: 0
+            className: 'title', begin: /[^ \/><\n\t]+/, relevance: 0
           },
           TAG_INTERNALS
         ]

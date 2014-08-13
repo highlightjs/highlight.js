@@ -10,6 +10,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
   padding: 0.5em;
   background: white;
   color: black;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-string,

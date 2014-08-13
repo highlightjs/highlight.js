@@ -118,3 +118,10 @@ URL:   http://highlightjs.org/
 - Крис Еидхоф <chris@eidhof.nl>
 - Нейт Кук <natecook@gmail.com>
 - Мэтт Дайпхауз <matt@diephouse.com>
+- Эрик Осхейм <d_m@plastic-idolatry.com>
+- Гийом Ляфорж <glaforge@gmail.com>
+- Лукас Мазза <lucastmazza@gmail.com>
+- Максим Дикун <dikmax@gmail.com>
+- Хенрик Фельдт <henrik@haf.se>
+- Антон Кочков <anton.kochkov@gmail.com>
+- Михаэль Аллен <Michael.Allen@benefitfocus.com>

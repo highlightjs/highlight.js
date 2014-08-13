@@ -67,7 +67,9 @@ function(hljs) {
           relevance: 0
         },
         {
-          begin: '/\\S(\\\\.|[^\\n])*?/[gim]*(?=\\s|\\W|$)' // \S is required to parse x / 2 / 3 as two divisions
+          // regex can't start with space to parse x / 2 / 3 as two divisions
+          // regex can't start with *, and it supports an "illegal" in the main mode
+          begin: /\/(?![ *])(\\\/|.)*?\/[gim]*(?=\W|$)/
         }
       ]
     },
@@ -86,6 +88,7 @@ function(hljs) {
   return {
     aliases: ['coffee', 'cson', 'iced'],
     keywords: KEYWORDS,
+    illegal: /\/\*/,
     contains: EXPRESSIONS.concat([
       {
         className: 'comment',
@@ -94,13 +97,13 @@ function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         className: 'function',
-        begin: '(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*\\B[-=]>', end: '[-=]>',
+        begin: '\\B\\s*(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*\\B[-=]>', end: '[-=]>',
         returnBegin: true,
         contains: [
           TITLE,
           {
             className: 'params',
-            begin: '\\(', returnBegin: true,
+            begin: '\\([^\\(]', returnBegin: true,
             /* We need another contained nameless mode to not have every nested
             pair of parens to be called "params" */
             contains: [{

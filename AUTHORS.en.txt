@@ -118,3 +118,10 @@ Contributors:
 - Chris Eidhof <chris@eidhof.nl>
 - Nate Cook <natecook@gmail.com>
 - Matt Diephouse <matt@diephouse.com>
+- Erik Osheim <d_m@plastic-idolatry.com>
+- Guillaume Laforge <glaforge@gmail.com>
+- Lucas Mazza <lucastmazza@gmail.com>
+- Maxim Dikun <dikmax@gmail.com>
+- Henrik Feldt <henrik@haf.se>
+- Anton Kochkov <anton.kochkov@gmail.com>
+- Michael Allen <Michael.Allen@benefitfocus.com>

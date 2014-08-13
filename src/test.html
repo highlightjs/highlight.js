@@ -354,6 +354,8 @@ end
 
 class Car < ActiveRecord::Base
   has_many :wheels, :class_name => 'Wheel', :foreign_key => 'car_id'
+  has_many :wheels, class_name: 'Wheel', foreign_key: 'car_id'
+  scope :available, -> { where(available: true) }
 end
 omega = -> { 'alpha' }
 alpha = ->(arg) { arg*2 }
@@ -534,37 +536,110 @@ datahere</code></pre>
   <tr>
     <th>Scala
     <td class="scala">
-<pre><code>object abstractTypes extends Application {
-  abstract class SeqBuffer {
-    type T; val element: Seq[T]; def length = element.length
-  }
+<pre><code>case class Person(name: String, age: Int)
+
+def absoluteValue(n: Int): Int =
+  if (n < 0) -n else n
+
+val hux = "hux"
+def mux = "mux"
+def qux: String = "qux"
+
+type ξ[A] = (A, A)
+
+trait Hist { lhs =>
+  def ⊕(rhs: Hist): Hist
 }
 
-/** Turn command line arguments to uppercase */
-object Main {
-  def main(args: Array[String]) {
-    val res = for (a &lt;- args) yield a.toUpperCase
-    println("Arguments: " + res.toString)
-  }
+def gsum[A: Ring](as: Seq[A]): A =
+  as.foldLeft(Ring[A].zero)(_ + _)
+
+sealed trait Compass
+case object North extends Compass
+case object South extends Compass
+case object East extends Compass
+case object West extends Compass
+
+trait Cake {
+  type T;
+  val things: Seq[T]
+
+  abstract class Spindler
+
+  def spindle(s: Spindler, ts: Seq[T], reversed: Boolean = false): Seq[T]
 }
 
-/** Maps are easy to use in Scala. */
-object Maps {
-  val colors = Map("red" -&gt; 0xFF0000,
-                   "turquoise" -&gt; 0x00FFFF,
-                   "black" -&gt; 0x000000,
-                   "orange" -&gt; 0xFF8040,
-                   "brown" -&gt; 0x804000)
-  def main(args: Array[String]) {
-    for (name &lt;- args) println(
-      colors.get(name) match {
-        case Some(code) =&gt;
-          name + " has code: " + code
-        case None =&gt;
-          "Unknown color: " + name
-      }
-    )
-  }
+val colors = Map(
+  "red" -&gt; 0xFF0000,
+  "turquoise" -&gt; 0x00FFFF,
+  "black" -&gt; 0x000000,
+  "orange" -&gt; 0xFF8040,
+  "brown" -&gt; 0x804000)
+
+lazy val ns = for {
+  x <- 0 until 100
+  y <- 0 until 100
+} yield (x + y) * 33.33
+</code></pre>
+
+  <tr>
+      <th>Groovy</th>
+      <td class="groovy">
+<pre><code>#!/usr/bin/env groovy
+package model
+
+import groovy.transform.CompileStatic
+import java.util.List as MyList
+
+trait Distributable {
+    void distribute(String version) {}
+}
+
+@CompileStatic
+class Distribution implements Distributable {
+    double number = 1234.234 / 567
+    def otherNumber = 3 / 4
+    boolean archivable = condition ?: true
+    def ternary = a ? b : c
+    String name = "Guillaume"
+    Closure description = null
+    List&lt;DownloadPackage&gt; packages = []
+    String regex = ~/.*foo.*/
+    String multi = '''
+        multi line string
+    ''' + """
+        now with double quotes and ${gstring}
+    """ + $/
+        even with dollar slashy strings
+    /$
+
+    /**
+     * description method
+     * @param cl the closure
+     */
+    void description(Closure cl) { this.description = cl }
+
+    void version(String name, Closure versionSpec) {
+        def closure = { println "hi" } as Runnable
+
+        MyList ml = [1, 2, [a: 1, b:2,c :3]]
+        for (ch in "name") {}
+
+        // single line comment
+        DownloadPackage pkg = new DownloadPackage(version: name)
+
+        check that: true
+
+        label:
+        def clone = versionSpec.rehydrate(pkg, pkg, pkg)
+        /*
+            now clone() in a multiline comment
+        */
+        clone()
+        packages.add(pkg)
+
+        assert 4 / 2 == 2
+    }
 }
 </code></pre>
 
@@ -702,6 +777,8 @@ you can write text [with links](http://example.com) inline or [link references][
 * one _thing_ has *em*phasis
 * two __things__ are **bold**
 
+[1]: http://example.com
+
 ---
 
 hello world
@@ -716,7 +793,6 @@ hello world
 1. one thing (yeah!)
 2. two thing `i can write code`, and `more` wipee!
 
-[1]: http://example.com
 </code></pre>
 
 	<tr>
@@ -820,6 +896,19 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
   {{#each content.users}}
   &lt;li {{bindAttr hello="world"}}&gt;{{firstName}}&lt;/li&gt;
   {{/each}}
+&lt;/ul&gt;
+</code></pre>
+
+  <tr>
+    <th>Dust.js
+    <td class="dust">
+<pre>
+<code>&lt;h3&gt;Hours&lt;/h3&gt;
+
+&lt;ul&gt;
+  {#users}
+  &lt;li {hello}}&gt;{firstName}&lt;/li&gt;{~n}
+  {/users}
 &lt;/ul&gt;
 </code></pre>
 
@@ -1000,6 +1089,9 @@ x = f / foo / gm
 x = f /foo * 2/6
 
 # Regexps
+x = /\//
+x = /\n/
+x = /ab\/ ab/
 x = f /6 * 2/ - 3
 x = f /foo * 2/gm
 x = if true then /\n/ else /[.,]+/
@@ -1047,6 +1139,43 @@ Released under the MIT License
 OPERATOR = /// ^ (
 ?: [-=]>             # function
 ) ///</code></pre>
+
+<tr>
+  <th>Dart</th>
+  <td class="dart">
+<pre><code>library app;
+import 'dart:html';
+
+part 'app2.dart';
+
+/**
+ * Class description and [link](http://dartlang.org/).
+ */
+@Awesome('it works!')
+class SomeClass&lt;S extends Iterable&gt; extends BaseClass&lt;S&gt; implements Comparable {
+  factory SomeClass(num param);
+  SomeClass._internal(int q) : super() {
+    assert(q != 1);
+    double z = 0.0;
+  }
+
+  /// **Sum** function
+  int sum(int a, int b) =&gt; a + b;
+
+  ElementList els() => querySelectorAll('.dart');
+}
+
+String str = ' (${'parameter' + 'zxc'})';
+String str = " (${true ? 2 + 2 / 2 : null})";
+String str = r'\nraw\';
+String str = r"\nraw\";
+var str = '''
+Something ${2+3}
+''';
+var str = r"""
+Something ${2+3}
+""";
+</code></pre>
 
 <tr>
     <th>ActionScript
@@ -1530,6 +1659,8 @@ public abstract class L2Character extends L2Object {
   public class NotifyAITask implements Runnable {
     private final CtrlEvent _evt;
 
+    List&lt;String&gt; mList = new ArrayList&lt;String&gt;()
+
     public void run() {
       try {
         getAI().notifyEvent(_evt, _evt.class, null);
@@ -1710,10 +1841,6 @@ let checkList alist =
     | _ -&gt; failwith "List is too big!"
 
 
-type IEncoding =
-    abstract Encode : string -&gt; string
-    abstract Decode : string -&gt; string
-
 let text = "Some text..."
 let text2 = @"A ""verbatim"" string..."
 let catalog = """
@@ -1743,6 +1870,9 @@ type Point = {X: float; Y: float;}
 type s
 let minutte = 60&lt;s&gt;
 
+type DefaultMailbox&lt;'a&gt;() =
+    let mutable inbox = ConcurrentQueue&lt;'a&gt;()
+    let awaitMsg = new AutoResetEvent(false)
 </code></pre>
 
   <tr>
@@ -2864,6 +2994,7 @@ It ends with an unescaped '\"'.";
         result *= i;
         i += 1;
     }
+    assert!(i == n);
     ret result;
 }
 
@@ -3482,7 +3613,7 @@ if( propFile.canRead() ) {
   <tr>
     <th>Disabled highlighting
     <td>
-<pre><code class="no-highlight">&lt;div id="contents"&gt;
+<pre><code class="nohighlight">&lt;div id="contents"&gt;
   &lt;p&gt;Hello, World!c
 &lt;/div&gt;
 </code></pre>

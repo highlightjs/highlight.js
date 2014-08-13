@@ -9,6 +9,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
   padding: 0.5em;
   background: white;
   color: black;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,
@@ -77,12 +78,15 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 }
 
 .hljs-phpdoc,
+.hljs-dartdoc,
 .hljs-javadoc,
 .hljs-xmlDocTag {
   color: #808080;
 }
 
-.vhdl .hljs-typename { font-weight: bold; }
+.hljs-type,
+.hljs-typename { font-weight: bold; }
+
 .vhdl .hljs-string { color: #666666; }
 .vhdl .hljs-literal { color: #a31515; }
 .vhdl .hljs-attribute { color: #00b0e8; }

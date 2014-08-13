@@ -81,6 +81,7 @@
   background: #f7f3f7;
   color: #695d69;
   padding: 0.5em;
+  -webkit-text-size-adjust: none;
 }
 
 .coffeescript .javascript,

@@ -9,6 +9,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
   overflow-x: auto;
   padding: 0.5em;
   background: #000080;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs,
@@ -42,7 +43,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-keyword,
 .css .hljs-id,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,
@@ -59,8 +60,9 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 
 .hljs-comment,
 .hljs-phpdoc,
+.hljs-dartdoc,
 .hljs-javadoc,
-.java .hljs-annotation,
+.hljs-annotation,
 .hljs-template_comment,
 .hljs-deletion,
 .apache .hljs-sqbracket,
@@ -78,7 +80,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
   color: #0f0;
 }
 
-.python .hljs-decorator,
+.hljs-decorator,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
@@ -96,7 +98,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-keyword,
 .css .hljs-id,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,

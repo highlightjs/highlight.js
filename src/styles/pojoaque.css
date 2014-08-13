@@ -12,6 +12,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
   padding: 0.5em;
   color: #dccf8f;
   background: url(./pojoaque.jpg) repeat scroll left top #181914;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,
@@ -41,6 +42,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-string,
 .hljs-tag .hljs-value,
 .hljs-phpdoc,
+.hljs-dartdoc,
 .tex .hljs-formula,
 .hljs-regexp,
 .hljs-hexcolor {
@@ -67,7 +69,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-constant,
 .hljs-class .hljs-title,
 .hljs-parent,
-.haskell .hljs-type {
+.hljs-type {
   color: #b58900;
 }
 

@@ -11,6 +11,7 @@ Ported by Fabrício Tavares de Oliveira
   overflow-x: auto;
   padding: 0.5em;
   background: #fff;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs,
@@ -121,12 +122,14 @@ Ported by Fabrício Tavares de Oliveira
 .css .hljs-tag,
 .hljs-javadoctag,
 .hljs-phpdoc,
+.hljs-dartdoc,
 .hljs-yardoctag,
 .smalltalk .hljs-class,
 .hljs-winutils,
 .bash .hljs-variable,
 .apache .hljs-tag,
-.go .hljs-typename,
+.hljs-type,
+.hljs-typename,
 .tex .hljs-command,
 .asciidoc .hljs-strong,
 .markdown .hljs-strong,

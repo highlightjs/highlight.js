@@ -9,6 +9,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
   overflow-x: auto;
   padding: 0.5em;
   background:#b7a68e url(./brown_papersq.png);
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-keyword,
@@ -34,7 +35,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 
 .hljs-string,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .hljs-tag .hljs-value,
 .css .hljs-rules .hljs-value,
 .hljs-preprocessor,
@@ -63,8 +64,8 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 }
 
 .hljs-comment,
-.java .hljs-annotation,
-.python .hljs-decorator,
+.hljs-annotation,
+.hljs-decorator,
 .hljs-template_comment,
 .hljs-pi,
 .hljs-doctype,
@@ -80,8 +81,9 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-literal,
 .css .hljs-id,
 .hljs-phpdoc,
+.hljs-dartdoc,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,

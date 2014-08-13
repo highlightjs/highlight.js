@@ -8,6 +8,7 @@
   overflow-x: auto;
   padding: 0.5em;
   background: #282b2e;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-keyword,
@@ -79,7 +80,7 @@
 .hljs-bullet,
 .hljs-subst,
 .hljs-emphasis,
-.haskell .hljs-type,
+.hljs-type,
 .hljs-preprocessor,
 .hljs-pragma,
 .ruby .hljs-class .hljs-parent,
@@ -108,10 +109,10 @@
 }
 
 .hljs-comment,
-.java .hljs-annotation,
+.hljs-annotation,
 .hljs-blockquote,
 .hljs-horizontal_rule,
-.python .hljs-decorator,
+.hljs-decorator,
 .hljs-template_comment,
 .hljs-pi,
 .hljs-deletion,
@@ -125,9 +126,10 @@
 .hljs-literal,
 .css .hljs-id,
 .hljs-phpdoc,
+.hljs-dartdoc,
 .hljs-title,
 .hljs-header,
-.haskell .hljs-type,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,

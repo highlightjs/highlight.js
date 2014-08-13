@@ -10,6 +10,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   padding: 0.5em;
   background: #232323;
   color: #e6e1dc;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,
@@ -63,11 +64,12 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-class .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .smalltalk .hljs-class,
 .hljs-javadoctag,
 .hljs-yardoctag,
-.hljs-phpdoc {
+.hljs-phpdoc,
+.hljs-dartdoc {
   text-decoration: none;
 }
 

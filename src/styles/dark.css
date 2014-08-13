@@ -9,6 +9,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
   overflow-x: auto;
   padding: 0.5em;
   background: #444;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-keyword,
@@ -30,7 +31,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 
 .hljs-string,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .ini .hljs-title,
 .hljs-tag .hljs-value,
 .css .hljs-rules .hljs-value,
@@ -62,8 +63,8 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 }
 
 .hljs-comment,
-.java .hljs-annotation,
-.python .hljs-decorator,
+.hljs-annotation,
+.hljs-decorator,
 .hljs-template_comment,
 .hljs-pi,
 .hljs-doctype,
@@ -79,7 +80,8 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-title,
 .css .hljs-id,
 .hljs-phpdoc,
-.haskell .hljs-type,
+.hljs-dartdoc,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,

@@ -103,6 +103,22 @@ Scala ("scala")
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "with" inside class header
 
+Groovy ("groovy)
+----------------
+
+* ``keyword``:          keyword
+* ``number``:           number
+* ``string``:           string, map string keys and named argument labels
+* ``regex``:            regular expression
+* ``comment``:          comment
+* ``annotation``:       annotation
+* ``javadoc``:          javadoc comment
+* ``javadoctag``:       @-tag in javadoc
+* ``class``:            class header
+* ``title``:            class name inside a header
+* ``label``:            label
+* ``shebang``:          Groovy shell script header
+
 Go ("go", "golang")
 -------------------
 
@@ -244,8 +260,17 @@ Handlebars ("handlebars", "hbs", "html.hbs", "html.handlebars")
 
 * ``expression``:       expression to be evaluated
 * ``variable``:         variable
-* ``begin``:-block      the beginning of a block
-* ``end``:-block        the ending of a block
+* ``begin-block``:      the beginning of a block
+* ``end-block``:        the ending of a block
+* ``string``:           string
+
+Dust ("dust", "dst")
+--------------------
+
+* ``expression``:       expression to be evaluated
+* ``variable``:         variable
+* ``begin-block``:      the beginning of a block
+* ``end-block``:        the ending of a block
 * ``string``:           string
 
 JSON ("json")
@@ -310,6 +335,21 @@ CoffeeScript ("coffeescript", "coffee", "cson", "iced")
 * ``title``:            name of a function variable inside a header
 * ``params``:           parentheses and everything inside them in a function's header
 * ``property``:         @-property within class and functions
+
+Dart ("dart")
+--------------------
+
+* ``keyword``:          keyword
+* ``literal``:          keyword that can be uses as identifier but have special meaning in some cases
+* ``built_in``:         some of basic built in classes and function
+* ``number``:           number
+* ``string``:           string
+* ``subst``:            in-string substitution (${...})
+* ``comment``:          commment
+* ``annotaion``:        annotation
+* ``dartdoc``:          dartdoc comment
+* ``class``:            class header from "class" till "{"
+* ``title``:            class name
 
 ActionScript ("actionscript", "as")
 -----------------------------------

@@ -8,6 +8,7 @@
   padding: 0.5em;
   background: #000;
   color: #f8f8f8;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-shebang,
@@ -57,12 +58,13 @@
 .hljs-pi,
 .hljs-decorator,
 .tex .hljs-special,
-.haskell .hljs-type,
+.hljs-type,
 .hljs-constant,
 .smalltalk .hljs-class,
 .hljs-javadoctag,
 .hljs-yardoctag,
 .hljs-phpdoc,
+.hljs-dartdoc,
 .nginx .hljs-built_in {
   color: #ffffb6;
 }
