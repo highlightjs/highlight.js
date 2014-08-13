@@ -1,21 +1,3 @@
-# Divisions
-x = 6/foo/i
-x = 6 /foo
-x = 6 / foo
-x = 6 /foo * 2/gm
-x = f /foo
-x = f / foo / gm
-x = f /foo * 2/6
-
-# Regexps
-x = /\//
-x = /\n/
-x = /ab\/ ab/
-x = f /6 * 2/ - 3
-x = f /foo * 2/gm
-x = if true then /\n/ else /[.,]+/
-x = ///^key-#{key}-\d+///
-
 grade = (student, period=(if b? then 7 else 6), messages={"A": "Excellent"}) ->
   if student.excellentWork
     "A+"
