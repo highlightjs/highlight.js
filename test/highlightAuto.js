@@ -7,7 +7,7 @@ var utility = require('./utility');
 
 function testAutoDetection(language) {
   it('should be detected as ' + language, function() {
-    var languagePath = utility.buildPath('language', language),
+    var languagePath = utility.buildPath('detect', language),
         examples     = fs.readdirSync(languagePath);
 
     examples.forEach(function(example) {

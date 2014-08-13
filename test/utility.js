@@ -13,7 +13,7 @@ function buildPath() {
 exports.buildPath = buildPath;
 
 exports.languagesList = function() {
-  var langPath  = buildPath('language'),
+  var langPath  = buildPath('detect'),
       languages = fs.readdirSync(langPath);
 
   return languages;
