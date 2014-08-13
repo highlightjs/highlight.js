@@ -33,6 +33,7 @@
     "node": "*"
   },
   "devDependencies": {
+    "glob": "^4.0.5",
     "jsdom": "^0.11.1",
     "mocha": "^1.21.4",
     "should": "^4.0.4"
