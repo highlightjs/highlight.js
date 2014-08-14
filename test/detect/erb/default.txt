@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+  <p><%= link_to post.title, post %></p>
+<% end %>
+
+<%- available_things = things.select(&:available?) -%>
+<%% available_things.inspect %%>
