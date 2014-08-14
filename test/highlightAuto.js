@@ -6,9 +6,16 @@ var path    = require('path');
 var utility = require('./utility');
 
 function testAutoDetection(language) {
+  var languagePath = utility.buildPath('detect', language);
+
+  it('should have test for ' + language, function() {
+    var testExistence = fs.existsSync(languagePath);
+
+    testExistence.should.be.true;
+  });
+
   it('should be detected as ' + language, function() {
-    var languagePath = utility.buildPath('detect', language),
-        examples     = fs.readdirSync(languagePath);
+    var examples = fs.readdirSync(languagePath);
 
     examples.forEach(function(example) {
       var filename = path.join(languagePath, example),
