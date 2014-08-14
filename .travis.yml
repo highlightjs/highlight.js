@@ -1,9 +1,10 @@
 language: python
 python:
   - "3.3"
-before_install: 
+before_install:
   - "python tools/build.py -t node"
   - npm config set python python2.7
+install:
   - npm install
 script:
   - npm test
