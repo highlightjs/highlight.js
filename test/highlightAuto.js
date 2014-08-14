@@ -24,7 +24,7 @@ function testAutoDetection(language) {
 
 describe('hljs', function() {
   describe('.highlightAuto', function() {
-    var languages = utility.languagesList();
+    var languages = hljs.listLanguages();
 
     languages.forEach(testAutoDetection);
   });
