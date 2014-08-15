@@ -226,8 +226,6 @@ function() {
         .map(reStr)
         .filter(Boolean);
       mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : {exec: function(s) {return null;}};
-
-      mode.continuation = {};
     }
 
     compileMode(language);
@@ -306,7 +304,7 @@ function() {
       if (top.subLanguage && !languages[top.subLanguage]) {
         return escape(mode_buffer);
       }
-      var result = top.subLanguage ? highlight(top.subLanguage, mode_buffer, true, top.continuation.top) : highlightAuto(mode_buffer);
+      var result = top.subLanguage ? highlight(top.subLanguage, mode_buffer, true, subLanguageTop) : highlightAuto(mode_buffer);
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Usecase in point is Markdown that
       // allows XML everywhere and makes every XML snippet to have a much larger Markdown
@@ -315,7 +313,7 @@ function() {
         relevance += result.relevance;
       }
       if (top.subLanguageMode == 'continuous') {
-        top.continuation.top = result.top;
+        subLanguageTop = result.top;
       }
       return buildSpan(result.language, result.value, false, true);
     }
@@ -397,6 +395,7 @@ function() {
 
     compileLanguage(language);
     var top = continuation || language;
+    var subLanguageTop;
     var result = '';
     for(var current = top; current != language; current = current.parent) {
       if (current.className) {
