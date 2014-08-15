@@ -1,6 +1,6 @@
 /*
  Language: ERB (Embedded Ruby)
- Requires: xml.js, ruby.js
+ Requires: ruby.js
  Authors: Lucas Mazza <lucastmazza@gmail.com>
           Kassio Borges <kassioborgesm@gmail.com>
  */
