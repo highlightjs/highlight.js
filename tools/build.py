@@ -269,6 +269,15 @@ def build_node(root, build_path, filenames, options):
     if options.compress:
         print('Notice: not compressing files for "node" target.')
 
+    print('Copying styles...')
+    build_style_path = os.path.join(build_path, 'styles')
+    src_style_path = os.path.join(src_path, 'styles')
+    os.mkdir(build_style_path)
+    styles = [os.path.join(src_style_path, f) for f in os.listdir(src_style_path) if f.endswith('.css')]
+    for style in styles:
+        print(style)
+        shutil.copy(style, build_style_path)
+
     print('Copying over Metafiles...')
     filenames = ['LICENSE', 'README.md']
     for filename in filenames:
