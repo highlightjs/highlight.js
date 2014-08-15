@@ -1,6 +1,10 @@
+<%# this is a comment %>
+
 <% @posts.each do |post| %>
   <p><%= link_to post.title, post %></p>
 <% end %>
 
 <%- available_things = things.select(&:available?) -%>
-<%% available_things.inspect %%>
+<%%- x = 1 + 2 -%%>
+<%% value = 'real string' %%>
+<%%= available_things.inspect %%>
