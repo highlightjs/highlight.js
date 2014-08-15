@@ -12,9 +12,11 @@ function(hljs) {
     'object operator out override params private protected public readonly ref return sbyte ' +
     'sealed short sizeof stackalloc static string struct switch this throw true try typeof ' +
     'uint ulong unchecked unsafe ushort using virtual volatile void while async await ' +
+    'protected public private internal ' +
     // Contextual keywords.
     'ascending descending from get group into join let orderby partial select set value var ' +
     'where yield';
+  var GENERIC_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '>)?';
   return {
     aliases: ['csharp'],
     keywords: KEYWORDS,
@@ -56,21 +58,42 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       {
-        beginKeywords: 'protected public private internal', end: /[{;=]/,
+        beginKeywords: 'class namespace interface', end: /[{;=]/,
+        illegal: /[^\s:]/,
+        contains: [
+          hljs.TITLE_MODE,
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
+      },
+      {
+        // this prevents 'new Name(...)' from being recognized as a function definition
+        beginKeywords: 'new', end: /\s/,
+        relevance: 0
+      },
+      {
+        className: 'function',
+        begin: '(' + GENERIC_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
+        excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           {
-            beginKeywords: 'class namespace interface',
-            starts: {
-              contains: [hljs.TITLE_MODE]
-            }
+            begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
+            contains: [hljs.TITLE_MODE]
           },
           {
-            begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
+            className: 'params',
+            begin: /\(/, end: /\)/,
+            keywords: KEYWORDS,
             contains: [
-              hljs.TITLE_MODE
+              hljs.APOS_STRING_MODE,
+              hljs.QUOTE_STRING_MODE,
+              hljs.C_NUMBER_MODE,
+              hljs.C_BLOCK_COMMENT_MODE
             ]
-          }
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
         ]
       }
     ]
