@@ -8,7 +8,7 @@ function(hljs) {
   var keywords = {
     built_in:
       // Clojure keywords
-      'def cond apply if-not if-let if not not= = &lt; < > &lt;= <= >= == + / * - rem '+
+      'def cond apply if-not if-let if not not= = < > <= >= == + / * - rem '+
       'quot neg? pos? delay? symbol? keyword? true? false? integer? empty? coll? list? '+
       'set? ifn? fn? associative? sequential? sorted? counted? reversible? number? decimal? '+
       'class? distinct? isa? float? rational? reduced? ratio? odd? even? char? seq? vector? '+

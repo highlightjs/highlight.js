@@ -22,8 +22,7 @@ function(hljs) {
 
     var LITERAL = {
         className: 'literal',
-        begin: '(#t|#f|#\\\\' + SCHEME_IDENT_RE + '|#\\\\.)',
-        relevance: 10
+        begin: '(#t|#f|#\\\\' + SCHEME_IDENT_RE + '|#\\\\.)'
     };
 
     var NUMBER = {
@@ -48,14 +47,15 @@ function(hljs) {
     var COMMENT = {
         className: 'comment',
         variants: [
-            { begin: ';',  end: '$' },
+            { begin: ';',  end: '$', relevance: 0 },
             { begin: '#\\|', end: '\\|#' }
         ]
     };
 
     var IDENT = {
         className: '',
-        begin: SCHEME_IDENT_RE
+        begin: SCHEME_IDENT_RE,
+        relevance: 0
     };
 
     var QUOTED_IDENT = {
