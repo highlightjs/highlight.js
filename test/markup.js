@@ -1,7 +1,7 @@
 'use strict';
 
 var fs      = require('fs');
-var glob    = require('glob')
+var glob    = require('glob');
 var hljs    = require('../build');
 var path    = require('path');
 var utility = require('./utility');
