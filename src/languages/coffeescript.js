@@ -97,7 +97,7 @@ function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         className: 'function',
-        begin: '\\B\\s*(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*\\B[-=]>', end: '[-=]>',
+        begin: '(^\\s*|\\B)(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*\\B[-=]>', end: '[-=]>',
         returnBegin: true,
         contains: [
           TITLE,
