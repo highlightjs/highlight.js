@@ -1,0 +1,11 @@
+<span class="hljs-function"><span class="hljs-title">returnNull</span> = -&gt;</span> <span class="hljs-literal">null</span>
+<span class="hljs-function"><span class="hljs-title">returnTrue</span> = <span class="hljs-params">()</span> -&gt;</span> <span class="hljs-literal">true</span>
+<span class="hljs-function"><span class="hljs-title">square</span> = <span class="hljs-params">(x)</span> -&gt;</span> x * x
+
+str.split(<span class="hljs-string">" "</span>).map(<span class="hljs-function"><span class="hljs-params">(m)</span> -&gt;</span> m.charCodeAt(<span class="hljs-number">0</span>))
+
+fs.readFile(<span class="hljs-string">"package.json"</span>, <span class="hljs-string">"utf-8"</span>, <span class="hljs-function"><span class="hljs-params">(err, content)</span> -&gt;</span>
+  data = JSON.parse(content)
+
+  data.version
+)
