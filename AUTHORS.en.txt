@@ -1,6 +1,6 @@
 Syntax highlighting with language autodetection.
 
-URL:   http://highlightjs.org/
+URL:   https://highlightjs.org/
 
 Core developers (in order of appearance):
 
