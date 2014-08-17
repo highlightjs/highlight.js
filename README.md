@@ -1,5 +1,7 @@
 # Highlight.js
 
+[![Build Status](https://travis-ci.org/isagalaev/highlight.js.svg?branch=master)](https://travis-ci.org/isagalaev/highlight.js)
+
 Highlight.js is a syntax highlighter written in JavaScript. It works in the
 browser as well as on the server. It works with pretty much any markup,
 doesn't depend on any framework and has automatic language detection.
@@ -82,7 +84,7 @@ details.
 
 ## Links
 
-The official site for the library is at <http://highlightjs.org/>.
+The official site for the library is at <https://highlightjs.org/>.
 
 Further in-depth documentation for the API and other topics is at
 <http://highlightjs.readthedocs.org/>.
@@ -92,7 +94,7 @@ Authors and contributors are listed in the [AUTHORS.en.txt][9] file.
 [1]: http://highlightjs.readthedocs.org/en/latest/api.html#inithighlightingonload
 [2]: http://highlightjs.readthedocs.org/en/latest/api.html#highlightblock-block
 [3]: http://highlightjs.readthedocs.org/en/latest/api.html#configure-options
-[4]: http://highlightjs.org/download/
+[4]: https://highlightjs.org/download/
 [5]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
 [8]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 [9]: https://github.com/isagalaev/highlight.js/blob/master/AUTHORS.en.txt

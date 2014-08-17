@@ -1,6 +1,6 @@
 Syntax highlighting with language autodetection.
 
-URL:   http://highlightjs.org/
+URL:   https://highlightjs.org/
 
 Core developers (in order of appearance):
 
@@ -121,4 +121,8 @@ Contributors:
 - Erik Osheim <d_m@plastic-idolatry.com>
 - Guillaume Laforge <glaforge@gmail.com>
 - Lucas Mazza <lucastmazza@gmail.com>
+- Maxim Dikun <dikmax@gmail.com>
+- Henrik Feldt <henrik@haf.se>
+- Anton Kochkov <anton.kochkov@gmail.com>
+- Michael Allen <Michael.Allen@benefitfocus.com>
 - Sergey Vidyuk <svidyuk@gmail.com>

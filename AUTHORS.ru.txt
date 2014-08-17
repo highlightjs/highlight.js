@@ -1,6 +1,6 @@
 Подсветка синтаксиса с автоопределением языка.
 
-URL:   http://highlightjs.org/
+URL:   https://highlightjs.org/
 
 Ключевые разработчики (в порядке появления):
 
@@ -121,3 +121,7 @@ URL:   http://highlightjs.org/
 - Эрик Осхейм <d_m@plastic-idolatry.com>
 - Гийом Ляфорж <glaforge@gmail.com>
 - Лукас Мазза <lucastmazza@gmail.com>
+- Максим Дикун <dikmax@gmail.com>
+- Хенрик Фельдт <henrik@haf.se>
+- Антон Кочков <anton.kochkov@gmail.com>
+- Михаэль Аллен <Michael.Allen@benefitfocus.com>

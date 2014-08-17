@@ -55,8 +55,10 @@ because real-world code rarely contains all language features in one place.
 This fragment is also absolutely *not* required to actually work or make sense :-).
 Good example are C++ and HTML fragments in ``test.html``.
 
-Then put the fragment into the ``test.html`` similar to other languages
-and test if it's properly detected and doesn't break detection of other languages.
+Then put the fragment into the ``test.html`` and
+``test/language/<language_name>/default.txt``` similar to other languages
+and test if it's properly detected and doesn't break detection of other
+languages.
 
 
 4. Write class reference

@@ -288,7 +288,7 @@
   </script>
 <body>
 
-<p>This is a demo/test page showing all languages supported by <a href="http://highlightjs.org/">highlight.js</a>.
+<p>This is a demo/test page showing all languages supported by <a href="https://highlightjs.org/">highlight.js</a>.
 Most snippets do not contain working code :-).
 
 <div id="styleswitcher">
@@ -777,6 +777,8 @@ you can write text [with links](http://example.com) inline or [link references][
 * one _thing_ has *em*phasis
 * two __things__ are **bold**
 
+[1]: http://example.com
+
 ---
 
 hello world
@@ -791,7 +793,6 @@ hello world
 1. one thing (yeah!)
 2. two thing `i can write code`, and `more` wipee!
 
-[1]: http://example.com
 </code></pre>
 
 	<tr>
@@ -895,6 +896,19 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
   {{#each content.users}}
   &lt;li {{bindAttr hello="world"}}&gt;{{firstName}}&lt;/li&gt;
   {{/each}}
+&lt;/ul&gt;
+</code></pre>
+
+  <tr>
+    <th>Dust.js
+    <td class="dust">
+<pre>
+<code>&lt;h3&gt;Hours&lt;/h3&gt;
+
+&lt;ul&gt;
+  {#users}
+  &lt;li {hello}}&gt;{firstName}&lt;/li&gt;{~n}
+  {/users}
 &lt;/ul&gt;
 </code></pre>
 
@@ -1075,6 +1089,9 @@ x = f / foo / gm
 x = f /foo * 2/6
 
 # Regexps
+x = /\//
+x = /\n/
+x = /ab\/ ab/
 x = f /6 * 2/ - 3
 x = f /foo * 2/gm
 x = if true then /\n/ else /[.,]+/
@@ -1122,6 +1139,43 @@ Released under the MIT License
 OPERATOR = /// ^ (
 ?: [-=]>             # function
 ) ///</code></pre>
+
+<tr>
+  <th>Dart</th>
+  <td class="dart">
+<pre><code>library app;
+import 'dart:html';
+
+part 'app2.dart';
+
+/**
+ * Class description and [link](http://dartlang.org/).
+ */
+@Awesome('it works!')
+class SomeClass&lt;S extends Iterable&gt; extends BaseClass&lt;S&gt; implements Comparable {
+  factory SomeClass(num param);
+  SomeClass._internal(int q) : super() {
+    assert(q != 1);
+    double z = 0.0;
+  }
+
+  /// **Sum** function
+  int sum(int a, int b) =&gt; a + b;
+
+  ElementList els() => querySelectorAll('.dart');
+}
+
+String str = ' (${'parameter' + 'zxc'})';
+String str = " (${true ? 2 + 2 / 2 : null})";
+String str = r'\nraw\';
+String str = r"\nraw\";
+var str = '''
+Something ${2+3}
+''';
+var str = r"""
+Something ${2+3}
+""";
+</code></pre>
 
 <tr>
     <th>ActionScript
@@ -1787,10 +1841,6 @@ let checkList alist =
     | _ -&gt; failwith "List is too big!"
 
 
-type IEncoding =
-    abstract Encode : string -&gt; string
-    abstract Decode : string -&gt; string
-
 let text = "Some text..."
 let text2 = @"A ""verbatim"" string..."
 let catalog = """
@@ -1820,6 +1870,9 @@ type Point = {X: float; Y: float;}
 type s
 let minutte = 60&lt;s&gt;
 
+type DefaultMailbox&lt;'a&gt;() =
+    let mutable inbox = ConcurrentQueue&lt;'a&gt;()
+    let awaitMsg = new AutoResetEvent(false)
 </code></pre>
 
   <tr>
@@ -2941,6 +2994,7 @@ It ends with an unescaped '\"'.";
         result *= i;
         i += 1;
     }
+    assert!(i == n);
     ret result;
 }
 
@@ -3622,5 +3676,5 @@ if( propFile.canRead() ) {
     Stylesheet switcher: <a href="mailto:voldmar@voldmar.ru">Vladimir Epifanov</a><br>
     Test result detection: <a href="mailto:maniac@softwaremaniacs.org">Ivan Sagalaev</a><br>
     Export script: <a href="mailto:xonixx@gmail.com">Vladimir Gubarkov</a><br>
-    Highlighting: <a href="http://highlightjs.org/">highlight.js</a>
+    Highlighting: <a href="https://highlightjs.org/">highlight.js</a>
 </address>
