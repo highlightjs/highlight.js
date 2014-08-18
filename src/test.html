@@ -2260,7 +2260,12 @@ http {
     #lingering_time 30;
 
     server {
-        server_name   one.example.com  www.one.example.com;
+        server_name www.example.com;
+        return 301 http://www.example.com$request_uri;
+    }
+
+    server {
+        server_name   example.com;
         access_log   /var/log/nginx.access_log  main;
 
         rewrite (.*) /index.php?page=$1 break;
