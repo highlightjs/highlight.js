@@ -27,7 +27,7 @@
   },
   "main": "./lib/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/"
+    "test": "python tools/build.py -t node && ./node_modules/.bin/mocha test/"
   },
   "engines": {
     "node": "*"
