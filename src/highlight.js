@@ -53,12 +53,13 @@ function() {
           offset = _nodeStream(child, offset);
           // Prevent br from having an end tag which actually doubles the
           // amount br tags.
-          if(tag(child) === 'br') continue;
-          result.push({
-            event: 'stop',
-            offset: offset,
-            node: child
-          });
+          if(tag(child) !== 'br') {
+            result.push({
+              event: 'stop',
+              offset: offset,
+              node: child
+            });
+          }
         }
       }
       return offset;
