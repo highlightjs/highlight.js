@@ -1,0 +1,79 @@
+/* Base styles */
+body {
+  font: small Arial, sans-serif;
+}
+h2 {
+  font: bold 120% Arial, sans-serif;
+  margin: 0; padding: 0.5em 0;
+}
+table {
+  width: 100%;
+  padding: 0;
+  border-collapse: collapse;
+}
+th {
+  width: 12em;
+  padding: 0; margin: 0;
+}
+td {
+  padding-bottom: 1em;
+}
+td, th {
+  vertical-align: top;
+  text-align: left;
+}
+pre {
+  margin: 0;
+  font-size: medium;
+}
+.hljs-debug {
+  color: red;
+}
+
+#styleswitcher {
+  float: left; width: 20em;
+}
+
+#languages {
+  margin-left: 21em;
+}
+
+#styles,
+#styles li {
+  list-style: none;
+  margin: 0; padding: 0;
+}
+
+#styles li a {
+  color: black;
+  text-decoration: none;
+}
+
+/* Tests */
+.test {
+  color: #888;
+  font-weight: normal;
+  margin: 2em 0 0 0;
+}
+.test var {
+  font-style: normal;
+}
+.passed {
+  color: green;
+}
+.failed, .failed a {
+  color: red;
+}
+.code {
+  font: medium monospace;
+}
+.code .hljs-keyword {
+  font-weight: bold;
+}
+/* Export form */
+#export_from, #export_to {
+  width: 98%;
+}
+address {
+  margin-top: 4em;
+}

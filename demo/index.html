@@ -1,217 +1,68 @@
 <!DOCTYPE html>
 <head>
-  <title>highlight.js test</title>
+  <title>highlight.js demo</title>
   <meta charset="utf-8">
 
-  <link rel="stylesheet" title="Default" href="styles/default.css">
-  <link rel="alternate stylesheet" title="Dark" href="styles/dark.css">
-  <link rel="alternate stylesheet" title="FAR" href="styles/far.css">
-  <link rel="alternate stylesheet" title="IDEA" href="styles/idea.css">
-  <link rel="alternate stylesheet" title="Sunburst" href="styles/sunburst.css">
-  <link rel="alternate stylesheet" title="Zenburn" href="styles/zenburn.css">
-  <link rel="alternate stylesheet" title="Visual Studio" href="styles/vs.css">
-  <link rel="alternate stylesheet" title="Ascetic" href="styles/ascetic.css">
-  <link rel="alternate stylesheet" title="Magula" href="styles/magula.css">
-  <link rel="alternate stylesheet" title="GitHub" href="styles/github.css">
-  <link rel="alternate stylesheet" title="Google Code" href="styles/googlecode.css">
-  <link rel="alternate stylesheet" title="Brown Paper" href="styles/brown_paper.css">
-  <link rel="alternate stylesheet" title="School Book" href="styles/school_book.css">
-  <link rel="alternate stylesheet" title="IR Black" href="styles/ir_black.css">
-  <link rel="alternate stylesheet" title="Solarized - Dark" href="styles/solarized_dark.css">
-  <link rel="alternate stylesheet" title="Solarized - Light" href="styles/solarized_light.css">
-  <link rel="alternate stylesheet" title="Arta" href="styles/arta.css">
-  <link rel="alternate stylesheet" title="Monokai" href="styles/monokai.css">
-  <link rel="alternate stylesheet" title="Monokai Sublime" href="styles/monokai_sublime.css">
-  <link rel="alternate stylesheet" title="XCode" href="styles/xcode.css">
-  <link rel="alternate stylesheet" title="Pojoaque" href="styles/pojoaque.css">
-  <link rel="alternate stylesheet" title="Rainbow" href="styles/rainbow.css">
-  <link rel="alternate stylesheet" title="Tomorrow" href="styles/tomorrow.css">
-  <link rel="alternate stylesheet" title="Tomorrow Night" href="styles/tomorrow-night.css">
-  <link rel="alternate stylesheet" title="Tomorrow Night Bright" href="styles/tomorrow-night-bright.css">
-  <link rel="alternate stylesheet" title="Tomorrow Night Blue" href="styles/tomorrow-night-blue.css">
-  <link rel="alternate stylesheet" title="Tomorrow Night Eighties" href="styles/tomorrow-night-eighties.css">
-  <link rel="alternate stylesheet" title="Railscasts" href="styles/railscasts.css">
-  <link rel="alternate stylesheet" title="Obsidian" href="styles/obsidian.css">
-  <link rel="alternate stylesheet" title="Docco" href="styles/docco.css">
-  <link rel="alternate stylesheet" title="Mono Blue" href="styles/mono-blue.css">
-  <link rel="alternate stylesheet" title="Foundation" href="styles/foundation.css">
-  <link rel="alternate stylesheet" title="Atelier Dun - Dark" href="styles/atelier-dune.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Dun - Light" href="styles/atelier-dune.light.css">
-  <link rel="alternate stylesheet" title="Atelier Forest - Dark" href="styles/atelier-forest.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Forest - Light" href="styles/atelier-forest.light.css">
-  <link rel="alternate stylesheet" title="Atelier Heath - Dark" href="styles/atelier-heath.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Heath - Light" href="styles/atelier-heath.light.css">
-  <link rel="alternate stylesheet" title="Atelier Lakeside - Dark" href="styles/atelier-lakeside.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Lakeside - Light" href="styles/atelier-lakeside.light.css">
-  <link rel="alternate stylesheet" title="Atelier Seaside - Dark" href="styles/atelier-seaside.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Seaside - Light" href="styles/atelier-seaside.light.css">
-  <link rel="alternate stylesheet" title="Paraíso - Dark" href="styles/paraiso.dark.css">
-  <link rel="alternate stylesheet" title="Paraíso - Light" href="styles/paraiso.light.css">
-  <link rel="alternate stylesheet" title="Colorbrewer" href="styles/color-brewer.css">
-  <link rel="alternate stylesheet" title="Codepen.io Embed" href="styles/codepen-embed.css">
-  <link rel="alternate stylesheet" title="Kimbie - Dark" href="styles/kimbie.dark.css">
-  <link rel="alternate stylesheet" title="Kimbie - Light" href="styles/kimbie.light.css">
-  <link rel="alternate stylesheet" title="Hybrid" href="styles/hybrid.css">
+  <link rel="stylesheet" href="style.css">
 
-  <style>
-    /* Base styles */
-    body {
-      font: small Arial, sans-serif;
-    }
-    h2 {
-      font: bold 100% Arial, sans-serif;
-      margin-top: 2em;
-      margin-bottom: 0.5em;
-    }
-    table {
-      width: 100%;
-      padding: 0;
-      border-collapse: collapse;
-    }
-    th {
-      width: 12em;
-      padding: 0; margin: 0;
-    }
-    td {
-      padding-bottom: 1em;
-    }
-    td, th {
-      vertical-align: top;
-      text-align: left;
-    }
-    pre {
-      margin: 0;
-      font-size: medium;
-    }
-    .hljs-debug {
-      color: red;
-    }
-    /* Style switcher */
-    ul#switch {
-      width: 66em;
-      -webkit-column-width: 15em;
-      -webkit-column-gap: 2em;
-      -moz-column-width: 15em;
-      -moz-column-gap: 2em;
-      -o-column-width: 15em;
-      -o-column-gap: 2em;
-      column-width: 15em;
-      column-gap: 2em;
-      list-style: none;
-      overflow: auto;
-      padding: 0;
-      margin: 0;
-    }
-    ul#switch li {
-      -webkit-column-break-inside: avoid;
-      -moz-column-break-inside: avoid;
-      -o-column-break-inside: avoid;
-      column-break-inside: avoid;
-      padding: 0.1em;
-      margin: 0.1em 1em 0.1em 0;
-      background: #EEE;
-      cursor: pointer;
-    }
-    ul#switch li.current {
-      background: #CCC;
-    }
-    /* Tests */
-    .test {
-      color: #888;
-      font-weight: normal;
-      margin: 2em 0 0 0;
-    }
-    .test var {
-      font-style: normal;
-    }
-    .passed {
-      color: green;
-    }
-    .failed, .failed a {
-      color: red;
-    }
-    .code {
-      font: medium monospace;
-    }
-    .code .hljs-keyword {
-      font-weight: bold;
-    }
-    /* Export form */
-    #export_from, #export_to {
-      width: 98%;
-    }
-    address {
-      margin-top: 4em;
-    }
-  </style>
+  <link rel="stylesheet" title="Default" href="../src/styles/default.css">
+  <link rel="alternate stylesheet" title="Dark" href="../src/styles/dark.css">
+  <link rel="alternate stylesheet" title="FAR" href="../src/styles/far.css">
+  <link rel="alternate stylesheet" title="IDEA" href="../src/styles/idea.css">
+  <link rel="alternate stylesheet" title="Sunburst" href="../src/styles/sunburst.css">
+  <link rel="alternate stylesheet" title="Zenburn" href="../src/styles/zenburn.css">
+  <link rel="alternate stylesheet" title="Visual Studio" href="../src/styles/vs.css">
+  <link rel="alternate stylesheet" title="Ascetic" href="../src/styles/ascetic.css">
+  <link rel="alternate stylesheet" title="Magula" href="../src/styles/magula.css">
+  <link rel="alternate stylesheet" title="GitHub" href="../src/styles/github.css">
+  <link rel="alternate stylesheet" title="Google Code" href="../src/styles/googlecode.css">
+  <link rel="alternate stylesheet" title="Brown Paper" href="../src/styles/brown_paper.css">
+  <link rel="alternate stylesheet" title="School Book" href="../src/styles/school_book.css">
+  <link rel="alternate stylesheet" title="IR Black" href="../src/styles/ir_black.css">
+  <link rel="alternate stylesheet" title="Solarized - Dark" href="../src/styles/solarized_dark.css">
+  <link rel="alternate stylesheet" title="Solarized - Light" href="../src/styles/solarized_light.css">
+  <link rel="alternate stylesheet" title="Arta" href="../src/styles/arta.css">
+  <link rel="alternate stylesheet" title="Monokai" href="../src/styles/monokai.css">
+  <link rel="alternate stylesheet" title="Monokai Sublime" href="../src/styles/monokai_sublime.css">
+  <link rel="alternate stylesheet" title="XCode" href="../src/styles/xcode.css">
+  <link rel="alternate stylesheet" title="Pojoaque" href="../src/styles/pojoaque.css">
+  <link rel="alternate stylesheet" title="Rainbow" href="../src/styles/rainbow.css">
+  <link rel="alternate stylesheet" title="Tomorrow" href="../src/styles/tomorrow.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night" href="../src/styles/tomorrow-night.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night Bright" href="../src/styles/tomorrow-night-bright.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night Blue" href="../src/styles/tomorrow-night-blue.css">
+  <link rel="alternate stylesheet" title="Tomorrow Night Eighties" href="../src/styles/tomorrow-night-eighties.css">
+  <link rel="alternate stylesheet" title="Railscasts" href="../src/styles/railscasts.css">
+  <link rel="alternate stylesheet" title="Obsidian" href="../src/styles/obsidian.css">
+  <link rel="alternate stylesheet" title="Docco" href="../src/styles/docco.css">
+  <link rel="alternate stylesheet" title="Mono Blue" href="../src/styles/mono-blue.css">
+  <link rel="alternate stylesheet" title="Foundation" href="../src/styles/foundation.css">
+  <link rel="alternate stylesheet" title="Atelier Dun - Dark" href="../src/styles/atelier-dune.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Dun - Light" href="../src/styles/atelier-dune.light.css">
+  <link rel="alternate stylesheet" title="Atelier Forest - Dark" href="../src/styles/atelier-forest.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Forest - Light" href="../src/styles/atelier-forest.light.css">
+  <link rel="alternate stylesheet" title="Atelier Heath - Dark" href="../src/styles/atelier-heath.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Heath - Light" href="../src/styles/atelier-heath.light.css">
+  <link rel="alternate stylesheet" title="Atelier Lakeside - Dark" href="../src/styles/atelier-lakeside.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Lakeside - Light" href="../src/styles/atelier-lakeside.light.css">
+  <link rel="alternate stylesheet" title="Atelier Seaside - Dark" href="../src/styles/atelier-seaside.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Seaside - Light" href="../src/styles/atelier-seaside.light.css">
+  <link rel="alternate stylesheet" title="Paraíso - Dark" href="../src/styles/paraiso.dark.css">
+  <link rel="alternate stylesheet" title="Paraíso - Light" href="../src/styles/paraiso.light.css">
+  <link rel="alternate stylesheet" title="Colorbrewer" href="../src/styles/color-brewer.css">
+  <link rel="alternate stylesheet" title="Codepen.io Embed" href="../src/styles/codepen-embed.css">
+  <link rel="alternate stylesheet" title="Kimbie - Dark" href="../src/styles/kimbie.dark.css">
+  <link rel="alternate stylesheet" title="Kimbie - Light" href="../src/styles/kimbie.light.css">
+  <link rel="alternate stylesheet" title="Hybrid" href="../src/styles/hybrid.css">
+
+  <script src="jquery-2.1.1.min.js"></script>
+
+  <script src="styleswitcher.js"></script>
 
   <script src="../build/highlight.pack.js"></script>
   <script>
   hljs.configure({tabReplace: '    '});
   hljs.initHighlightingOnLoad();
-  </script>
-
-  <script>
-  // Stylesheet switcher © Vladimir Epifanov <voldmar@voldmar.ru>
-  (function(container_id) {
-      if (window.addEventListener) {
-          var attach = function(el, ev, handler) {
-              el.addEventListener(ev, handler, false);
-          }
-      } else if (window.attachEvent) {
-          var attach = function(el, ev, handler) {
-              el.attachEvent('on' + ev, handler);
-          }
-      } else {
-          var attach = function(el, ev, handler) {
-              ev['on' + ev] = handler;
-          }
-      }
-
-      attach(window, 'load', function() {
-          var current = null;
-
-          var info = {};
-          var links = document.getElementsByTagName('link');
-          var ul = document.createElement('ul');
-
-          for (var i = 0; (link = links[i]); i++) {
-              if ((link.getAttribute('rel').indexOf('style') != -1) && link.title) {
-                  var title = link.title;
-
-                  info[title] = {
-                      'link': link,
-                      'li': document.createElement('li')
-                  };
-
-                  ul.appendChild(info[title].li);
-                  info[title].li.title = title;
-
-                  info[title].link.disabled = true;
-
-                  info[title].li.appendChild(document.createTextNode(title));
-
-                  attach(info[title].li, 'click', (function (el) {
-                      return function() {
-                          current.li.className = '';
-                          current.link.disabled = true;
-                          current = el;
-                          current.li.className = 'current';
-                          current.link.disabled = false;
-                      }
-                  })(info[title]));
-              }
-          }
-
-          current = info['Default'];
-          current.li.className = 'current';
-          current.link.disabled = false;
-
-          ul.id = 'switch';
-          container = document.getElementById(container_id);
-          container.appendChild(ul);
-      });
-  })('styleswitcher');
   </script>
 
   <script>
@@ -288,22 +139,22 @@
   </script>
 <body>
 
-<p>This is a demo/test page showing all languages supported by <a href="https://highlightjs.org/">highlight.js</a>.
-Most snippets do not contain working code :-).
-
 <div id="styleswitcher">
   <h2>Styles</h2>
+  <ul id="styles"></ul>
 </div>
 
-<h2>Automatically detected languages</h2>
+<div id="languages">
+  <h2>Automatically detected languages</h2>
 
-<p id="summary">...</p>
-<table id="autotest">
-  <tr>
-    <th>Python
-    <td class="python">
-<pre>
-<code>@requires_authorization
+  <p>This is a demo/test page showing all languages supported by <a href="https://highlightjs.org/">highlight.js</a>. Most snippets do not contain working code :-).
+
+  <p id="summary">...</p>
+  <table id="autotest">
+    <tr>
+      <th>Python
+      <td class="python">
+<pre><code>@requires_authorization
 def somefunc(param1='', param2=0):
     r'''A docstring'''
     if param1 &gt; param2: # interesting
@@ -317,9 +168,9 @@ class SomeClass:
 ... prompt'''
 </code></pre>
 
-  <tr>
-    <th>Python's profiler output
-    <td class="profile">
+    <tr>
+      <th>Python's profiler output
+      <td class="profile">
 <pre><code>       261917242 function calls in 686.251 CPU seconds
 
        ncalls  tottime  filename:lineno(function)
@@ -330,9 +181,9 @@ class SomeClass:
 304393/151570    0.963  rrule.py:102(_iter_cached)
 </code></pre>
 
-  <tr>
-    <th>Ruby
-    <td class="ruby">
+    <tr>
+      <th>Ruby
+      <td class="ruby">
 <pre><code>class A &lt; B; def self.create(object = User) object end end
 class Zebra; def inspect; "X#{2 + self.object_id}" end end
 
@@ -392,9 +243,9 @@ str =~ %r(\(foo|bar\)$)
 => "NO"
 </code></pre>
 
-  <tr>
-    <th>Haml
-    <td class="haml">
+    <tr>
+      <th>Haml
+      <td class="haml">
 <pre><code>!!! XML
 %html
   %body
@@ -411,9 +262,9 @@ str =~ %r(\(foo|bar\)$)
     The current year is #{DataTime.now.year}.
 </code></pre>
 
-  <tr>
-    <th>Nix
-    <td class="nix">
+    <tr>
+      <th>Nix
+      <td class="nix">
 <pre><code>{ stdenv, foo, bar ? false, ... }:
 
 /*
@@ -440,9 +291,9 @@ in stdenv.mkDerivation rec {
 }
 </code></pre>
 
-  <tr>
-    <th>Perl
-    <td class="perl">
+    <tr>
+      <th>Perl
+      <td class="perl">
 <pre><code># loads object
 sub load
 {
@@ -477,9 +328,9 @@ sub load
 POD till the end of file
 </code></pre>
 
-  <tr>
-    <th>PHP
-    <td class="php">
+    <tr>
+      <th>PHP
+      <td class="php">
 <pre><code>require_once 'Zend/Uri/Http.php';
 
 namespace Location\Web;
@@ -531,11 +382,12 @@ echo URI::ME . URI::$st1;
 __halt_compiler () ; datahere
 datahere
 datahere */
-datahere</code></pre>
+datahere
+</code></pre>
 
-  <tr>
-    <th>Scala
-    <td class="scala">
+    <tr>
+      <th>Scala
+      <td class="scala">
 <pre><code>case class Person(name: String, age: Int)
 
 def absoluteValue(n: Int): Int =
@@ -582,9 +434,9 @@ lazy val ns = for {
 } yield (x + y) * 33.33
 </code></pre>
 
-  <tr>
-      <th>Groovy</th>
-      <td class="groovy">
+    <tr>
+        <th>Groovy</th>
+        <td class="groovy">
 <pre><code>#!/usr/bin/env groovy
 package model
 
@@ -643,9 +495,9 @@ class Distribution implements Distributable {
 }
 </code></pre>
 
-  <tr>
-    <th>Go
-    <td class="go">
+    <tr>
+      <th>Go
+      <td class="go">
 <pre><code>package main
 
 import (
@@ -682,9 +534,9 @@ func main() {
 }
 </code></pre>
 
-  <tr>
-    <th>XML
-    <td class="xml">
+    <tr>
+      <th>XML
+      <td class="xml">
 <pre><code>&lt;?xml version="1.0"?&gt;
 &lt;response value="ok" xml:lang="en"&gt;
   &lt;text&gt;Ok&lt;/text&gt;
@@ -696,9 +548,9 @@ func main() {
 &lt;/response&gt;
 </code></pre>
 
-  <tr>
-    <th>HTML (with inline css and javascript)
-    <td class="xml">
+    <tr>
+      <th>HTML (with inline css and javascript)
+      <td class="xml">
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;title&gt;Title&lt;/title&gt;
 
@@ -714,9 +566,9 @@ func main() {
 &lt;/body&gt;
 </code></pre>
 
-  <tr>
-    <th>Lasso
-    <td class="lasso">
+    <tr>
+      <th>Lasso
+      <td class="lasso">
 <pre><code>&lt;?LassoScript
 /* Lasso 8 */
   local('query' = 'SELECT * FROM `'+var:'table'+'` WHERE `id` &gt; 10
@@ -766,11 +618,10 @@ func main() {
 ?&gt;
 </code></pre>
 
-	<tr>
-		<th>Markdown
-		<td class="markdown">
-<pre>
-<code># hello world
+  	<tr>
+  		<th>Markdown
+  		<td class="markdown">
+<pre><code># hello world
 
 you can write text [with links](http://example.com) inline or [link references][1].
 
@@ -795,11 +646,10 @@ hello world
 
 </code></pre>
 
-	<tr>
-		<th>AsciiDoc
-		<td class="asciidoc">
-<pre>
-<code>Hello, World!
+  	<tr>
+  		<th>AsciiDoc
+  		<td class="asciidoc">
+<pre><code>Hello, World!
 ============
 Author Name, &lt;author@domain.foo&gt;
 
@@ -863,11 +713,12 @@ I'll join that party, too.
 . one thing (yeah!)
 . two thing `i can write code`, and `more` wipee!
 
-NOTE: AsciiDoc is quite cool, you should try it.</code></pre>
+NOTE: AsciiDoc is quite cool, you should try it.
+</code></pre>
 
-  <tr>
-    <th>Django templates
-    <td class="django">
+    <tr>
+      <th>Django templates
+      <td class="django">
 <pre><code>{% if articles|length %}
 {% for article in articles %}
 
@@ -886,11 +737,10 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
 {% endcomment %}
 </code></pre>
 
-  <tr>
-    <th>Handlebars
-    <td class="handlebars">
-<pre>
-<code>&lt;h3&gt;Hours&lt;/h3&gt;
+    <tr>
+      <th>Handlebars
+      <td class="handlebars">
+<pre><code>&lt;h3&gt;Hours&lt;/h3&gt;
 
 &lt;ul&gt;
   {{#each content.users}}
@@ -899,11 +749,10 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
 &lt;/ul&gt;
 </code></pre>
 
-  <tr>
-    <th>Dust.js
-    <td class="dust">
-<pre>
-<code>&lt;h3&gt;Hours&lt;/h3&gt;
+    <tr>
+      <th>Dust.js
+      <td class="dust">
+<pre><code>&lt;h3&gt;Hours&lt;/h3&gt;
 
 &lt;ul&gt;
   {#users}
@@ -912,9 +761,9 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
 &lt;/ul&gt;
 </code></pre>
 
-  <tr>
-    <th>CSS
-    <td class="css">
+    <tr>
+      <th>CSS
+      <td class="css">
 <pre><code>@media screen and (-webkit-min-device-pixel-ratio: 0) {
   body:first-of-type pre::after {
     content: 'highlight: ' attr(class);
@@ -942,9 +791,9 @@ li[lang=ru] {
 }
 </code></pre>
 
-  <tr>
-    <th>SCSS
-    <td class="scss">
+    <tr>
+      <th>SCSS
+      <td class="scss">
 <pre><code>@import "compass/reset";
 
 // variables
@@ -1017,11 +866,12 @@ a {
   @media screen and (max-width : 600px) {
     @content;
   }
-}</code></pre>
+}
+</code></pre>
 
-  <tr>
-    <th>JSON
-    <td class="json">
+    <tr>
+      <th>JSON
+      <td class="json">
 <pre><code>[
   {
     "title": "apples",
@@ -1036,9 +886,9 @@ a {
 ]
 </code></pre>
 
-  <tr>
-    <th>JavaScript
-    <td class="javascript">
+    <tr>
+      <th>JavaScript
+      <td class="javascript">
 <pre><code>function $initHighlight(block, flags) {
   try {
     if (block.className.search(/\bno\-highlight\b/) != -1)
@@ -1056,9 +906,9 @@ a {
   console.log(Array.every(classes, Boolean));
 }</code></pre>
 
-  <tr>
-    <th>TypeScript
-    <td class="typescript">
+    <tr>
+      <th>TypeScript
+      <td class="typescript">
 <pre><code>class MyClass {
     public static myValue: string;
     constructor(init: string) {
@@ -1074,11 +924,12 @@ a {
   declare magicNumber number;
   myArray.forEach(() => {
     // fat arrow syntax
-  });</code></pre>
+  });
+</code></pre>
 
-  <tr>
-    <th>CoffeeScript
-    <td class="coffeescript">
+    <tr>
+      <th>CoffeeScript
+      <td class="coffeescript">
 <pre><code># Divisions
 x = 6/foo/i
 x = 6 /foo
@@ -1138,11 +989,12 @@ Released under the MIT License
 
 OPERATOR = /// ^ (
 ?: [-=]>             # function
-) ///</code></pre>
+) ///
+</code></pre>
 
-<tr>
-  <th>Dart</th>
-  <td class="dart">
+  <tr>
+    <th>Dart</th>
+    <td class="dart">
 <pre><code>library app;
 import 'dart:html';
 
@@ -1177,9 +1029,9 @@ Something ${2+3}
 """;
 </code></pre>
 
-<tr>
-    <th>ActionScript
-    <td class="actionscript">
+  <tr>
+      <th>ActionScript
+      <td class="actionscript">
 <pre><code>package org.example.dummy {
     import org.dummy.*;
 
@@ -1203,11 +1055,12 @@ Something ${2+3}
             return pairs;
         }
     }
-}</code></pre>
+}
+</code></pre>
 
-  <tr>
-     <th>Haxe</th>
-     <td class="haxe">
+    <tr>
+       <th>Haxe</th>
+       <td class="haxe">
 <pre><code>
 // quicksort example from http://haxe.org/doc/snip/quicksort
 class Quicksort {
@@ -1239,9 +1092,9 @@ class Quicksort {
 }
 </code></pre>
 
-  <tr>
-    <th>VBScript
-    <td class="vbscript">
+    <tr>
+      <th>VBScript
+      <td class="vbscript">
 <pre><code>' creating configuration storage and initializing with default values
 Set cfg = CreateObject("Scripting.Dictionary")
 
@@ -1270,11 +1123,12 @@ for i = 0 to ubound(ini_strings)
         end select
       end if
     end if
-next</code></pre>
+next
+</code></pre>
 
-  <tr>
-    <th>VB.NET
-    <td class="vbnet">
+    <tr>
+      <th>VB.NET
+      <td class="vbnet">
 <pre><code>Import System
 Import System.IO
 #Const DEBUG = True
@@ -1319,9 +1173,9 @@ Namespace Highlighter.Test
 End Namespace
 </code></pre>
 
-  <tr>
-    <th>Protocol Buffers
-    <td class="protobuf">
+    <tr>
+      <th>Protocol Buffers
+      <td class="protobuf">
 <pre><code>package languages.protobuf;
 
 option java_package = "org.highlightjs.languages.protobuf";
@@ -1344,11 +1198,12 @@ message Customer {
 service CustomerSearch {
   rpc FirstMatch(CustomerRequest) returns (CustomerResponse);
   rpc AllMatches(CustomerRequest) returns (CustomerResponse);
-}</code></pre>
+}
+</code></pre>
 
-  <tr>
-  <th>Cap’n Proto
-  <td class="capnproto">
+    <tr>
+    <th>Cap’n Proto
+    <td class="capnproto">
 <pre><code>@0xdbb9ad1f14bf0b36;  # unique file ID, generated by `capnp id`
 
 struct Person {
@@ -1403,11 +1258,12 @@ interface File extends(Node) {
 
   write @2 (startAt :UInt64, data :Data);
   truncate @3 (size :UInt64);
-}</code></pre>
+}
+</code></pre>
 
-  <tr>
-    <th>Thrift
-    <td class="thrift">
+    <tr>
+      <th>Thrift
+      <td class="thrift">
 <pre><code>namespace * thrift.test
 
 /**
@@ -1447,11 +1303,12 @@ service ThriftTest
   void        testVoid(),
   string      testString(1: string thing),
   oneway void testInit()
-}</code></pre>
+}
+</code></pre>
 
-  <tr>
-    <th>HTTP
-    <td class="http">
+    <tr>
+      <th>HTTP
+      <td class="http">
 <pre><code>POST /task?id=1 HTTP/1.1
 Host: example.org
 Content-Type: application/json; charset=utf-8
@@ -1460,9 +1317,9 @@ Content-Length: 19
 {"status": "ok", "extended": true}
 </code></pre>
 
-  <tr>
-    <th>Lua
-    <td class="lua">
+    <tr>
+      <th>Lua
+      <td class="lua">
 <pre><code>--[[
 Simple signal/slot implementation
 ]]
@@ -1497,9 +1354,9 @@ comment ]==]
 ]] ]=] ]==]
 </code></pre>
 
-  <tr>
-    <th>AppleScript
-    <td class="applescript">
+    <tr>
+      <th>AppleScript
+      <td class="applescript">
 <pre><code>repeat 5 times
     if foo is greater than bar then
         display dialog "Hello there"
@@ -1516,9 +1373,9 @@ end do_something
 do shell script "/bin/echo 'hello'"
 </code></pre>
 
-  <tr>
-    <th>Vim Script
-    <td class="vim">
+    <tr>
+      <th>Vim Script
+      <td class="vim">
 <pre><code>if foo &gt; 2 || has("gui_running")
   syntax on
   set hlsearch
@@ -1536,9 +1393,9 @@ function UnComment(fl, ll)
 endfunction
 </code></pre>
 
-  <tr>
-    <th>Delphi
-    <td class="delphi">
+    <tr>
+      <th>Delphi
+      <td class="delphi">
 <pre><code>TList = Class(TObject)
 Private
   Some: String;
@@ -1571,9 +1428,9 @@ Begin
 End;{CopyFile}
 </code></pre>
 
-  <tr>
-    <th>Oxygene
-    <td class="oxygene">
+    <tr>
+      <th>Oxygene
+      <td class="oxygene">
 <pre><code>namespace LinkedList;
 
 interface
@@ -1632,9 +1489,9 @@ end;
 end.
 </code></pre>
 
-  <tr>
-    <th>Java
-    <td class="java">
+    <tr>
+      <th>Java
+      <td class="java">
 <pre><code>/**
  * @author John Smith &lt;john.smith@example.com&gt;
  * @version 1.0
@@ -1672,9 +1529,9 @@ public abstract class L2Character extends L2Object {
 }
 </code></pre>
 
-  <tr>
-    <th>C++
-    <td class="cpp">
+    <tr>
+      <th>C++
+      <td class="cpp">
 <pre><code>#include &lt;iostream&gt;
 #define IABS(x) ((x) &lt; 0 ? -(x) : (x))
 
@@ -1692,11 +1549,10 @@ int main(int argc, char *argv[]) {
 }
 </code></pre>
 
-<tr>
-    <th>Objective C
-    <td class="objectivec">
-<pre>
-<code>#import &lt;UIKit/UIKit.h&gt;
+  <tr>
+      <th>Objective C
+      <td class="objectivec">
+<pre><code>#import &lt;UIKit/UIKit.h&gt;
 #import "Dependency.h"
 
 @protocol WorldDataSource
@@ -1741,9 +1597,9 @@ int main(int argc, char *argv[]) {
 @end
 </code></pre>
 
-  <tr>
-    <th>Vala
-    <td class="vala">
+    <tr>
+      <th>Vala
+      <td class="vala">
 <pre><code>using DBus;
 
 namespace Test {
@@ -1792,9 +1648,9 @@ void main () {
 }
 </code></pre>
 
-  <tr>
-    <th>C#
-    <td class="cs">
+    <tr>
+      <th>C#
+      <td class="cs">
 <pre><code>using System;
 
 #pragma warning disable 414, 3021
@@ -1822,9 +1678,9 @@ async Task&lt;int&gt; AccessTheWebAsync()
 }
 </code></pre>
 
-  <tr>
-    <th>F#
-    <td class="fsharp">
+    <tr>
+      <th>F#
+      <td class="fsharp">
 <pre><code>open System
 
 // Single line comment...
@@ -1875,11 +1731,10 @@ type DefaultMailbox&lt;'a&gt;() =
     let awaitMsg = new AutoResetEvent(false)
 </code></pre>
 
-  <tr>
-    <th>OCaml
-    <td class="ocaml">
-<pre>
-<code>(* This is a
+    <tr>
+      <th>OCaml
+      <td class="ocaml">
+<pre><code>(* This is a
 multiline, (* nested *) comment *)
 type point = { x: float; y: float };;
 let some_string = "this is a string";;
@@ -1904,9 +1759,9 @@ class point =
     end;;
 </code></pre>
 
-<tr>
-    <th>D
-    <td class="d">
+  <tr>
+      <th>D
+      <td class="d">
 <pre><code>#!/usr/bin/rdmd
 // Computes average line length for standard input.
 import std.stdio;
@@ -1953,9 +1808,9 @@ void main() pure nothrow @safe {
 }
 </code></pre>
 
-  <tr>
-    <th>RenderMan RSL
-    <td class="rsl">
+    <tr>
+      <th>RenderMan RSL
+      <td class="rsl">
 <pre><code>#define TEST_DEFINE 3.14
 /*  plastic surface shader
  *
@@ -1973,9 +1828,9 @@ surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
 }
 </code></pre>
 
-  <tr>
-    <th>RenderMan RIB
-    <td class="rib">
+    <tr>
+      <th>RenderMan RIB
+      <td class="rib">
 <pre><code>FrameBegin 0
 Display "Scene" "framebuffer" "rgb"
 Option "searchpath" "shader" "+&amp;:/home/kew"
@@ -2003,9 +1858,9 @@ WorldEnd
 FrameEnd
 </code></pre>
 
-  <tr>
-    <th>MEL (Maya Embedded Language)
-    <td class="mel">
+    <tr>
+      <th>MEL (Maya Embedded Language)
+      <td class="mel">
 <pre><code>proc string[] getSelectedLights()
 
 {
@@ -2033,9 +1888,9 @@ FrameEnd
 }
 </code></pre>
 
-  <tr>
-    <th>GLSL
-    <td class="glsl">
+    <tr>
+      <th>GLSL
+      <td class="glsl">
 <pre><code>// vertex shader
 #version 150
 in  vec2 in_Position;
@@ -2075,9 +1930,9 @@ void main(void) {
 }
 </code></pre>
 
-  <tr>
-    <th>SQL
-    <td class="sql">
+    <tr>
+      <th>SQL
+      <td class="sql">
 <pre><code>BEGIN;
 CREATE TABLE "topic" (
     -- This is the greatest table of all time
@@ -2096,11 +1951,12 @@ select /* comment */ count(*) from cicero_forum;
 /*
 but who cares?
 */
-COMMIT</code></pre>
+COMMIT
+</code></pre>
 
-  <tr>
-    <th>SmallTalk
-    <td class="smalltalk">
+    <tr>
+      <th>SmallTalk
+      <td class="smalltalk">
 <pre><code>Object&gt;&gt;method: num
     "comment 123"
     | var1 var2 |
@@ -2142,9 +1998,9 @@ heapExample
     Transcript cr; show: 'Time for SortedCollection: ' , time printString , ' msecs'
 </code></pre>
 
-  <tr>
-    <th>Lisp
-    <td class="lisp">
+    <tr>
+      <th>Lisp
+      <td class="lisp">
 <pre><code>#!/usr/bin/env csi
 
 (defun prompt-for-cd ()
@@ -2166,11 +2022,12 @@ heapExample
   (:use "aaaa")
   (let ((x 10) (y 20))
     (print (+ x y))
-  )</code></pre>
+  )
+</code></pre>
 
- <tr>
-    <th>Clojure
-    <td class="clojure">
+   <tr>
+      <th>Clojure
+      <td class="clojure">
 <pre><code>; Comment
 
 (def
@@ -2191,9 +2048,9 @@ heapExample
     (cons chunk (lazy-seq (chunk-seq rdr)))))
 </code></pre>
 
-  <tr>
-    <th>Ini file
-    <td class="ini">
+    <tr>
+      <th>Ini file
+      <td class="ini">
 <pre><code>;Settings relating to the location and loading of the database
 [Database]
 ProfileDir=.
@@ -2208,9 +2065,9 @@ Glob=autoexec_*.ini
 AskAboutIgnoredPlugins=0
 </code></pre>
 
-  <tr>
-    <th>Apache
-    <td class="apache">
+    <tr>
+      <th>Apache
+      <td class="apache">
 <pre><code># rewrite`s rules for wordpress pretty url
 LoadModule rewrite_module  modules/mod_rewrite.so
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -2232,9 +2089,9 @@ Allow from All
 &lt;/Location&gt;
 </code></pre>
 
-  <tr>
-    <th>nginx
-    <td class="nginx">
+    <tr>
+      <th>nginx
+      <td class="nginx">
 <pre><code>user  www www;
 worker_processes  2;
 pid /var/run/nginx.pid;
@@ -2289,9 +2146,9 @@ http {
 }
 </code></pre>
 
-  <tr>
-    <th>Diff
-    <td class="diff">
+    <tr>
+      <th>Diff
+      <td class="diff">
 <pre><code>Index: languages/ini.js
 ===================================================================
 --- languages/ini.js    (revision 199)
@@ -2324,9 +2181,9 @@ http {
   It is important to spell
 </code></pre>
 
-  <tr>
-    <th>DOS batch files
-    <td class="dos">
+    <tr>
+      <th>DOS batch files
+      <td class="dos">
 <pre><code>cd \
 copy a b
 ping 192.168.0.1
@@ -2353,9 +2210,9 @@ set path = test
 xcopy %1\*.* %2
 </code></pre>
 
-  <tr>
-    <th>Bash
-    <td class="bash">
+    <tr>
+      <th>Bash
+      <td class="bash">
 <pre><code>#!/bin/bash
 
 ###### BEGIN CONFIG
@@ -2388,9 +2245,9 @@ genApacheConf(){
 }
 </code></pre>
 
-  <tr>
-    <th>Makefile
-    <td class="makefile">
+    <tr>
+      <th>Makefile
+      <td class="makefile">
 <pre><code># Makefile
 
 BUILDDIR      = _build
@@ -2406,9 +2263,9 @@ clean:
 	rm -rf $(BUILDDIR)/*
 </code></pre>
 
-  <tr>
-    <th>CMake
-    <td class="cmake">
+    <tr>
+      <th>CMake
+      <td class="cmake">
 <pre><code>cmake_minimum_required(VERSION 2.8.8)
 project(cmake_example)
 
@@ -2430,9 +2287,9 @@ add_executable(myproject main.cpp mainwindow.cpp)
 qt5_use_modules(myproject Widgets)
 </code></pre>
 
-  <tr>
-    <th>NSIS
-    <td class="nsis">
+    <tr>
+      <th>NSIS
+      <td class="nsis">
 <pre><code>/*
   NSIS Scheme
   for highlight.js
@@ -2468,9 +2325,9 @@ Function .onInit
 FunctionEnd
 </code></pre>
 
-  <tr>
-    <th>Axapta
-    <td class="axapta">
+    <tr>
+      <th>Axapta
+      <td class="axapta">
 <pre><code>class ExchRateLoadBatch extends RunBaseBatch {
   ExchRateLoad rbc;
   container currencies;
@@ -2505,9 +2362,9 @@ public boolean unpack(container packedClass) {
 }
 </code></pre>
 
-<tr>
-  <th>Oracle Rules Language
-  <td class="ruleslanguage">
+  <tr>
+    <th>Oracle Rules Language
+    <td class="ruleslanguage">
 <pre><code>//This is a comment
 ABORT "You experienced an abort.";
 WARN "THIS IS A WARNING";
@@ -2546,9 +2403,9 @@ HNDL_1_ADD_VAL_MSG = INTDADDVMSG(HNDL_1,"Missing (Status Code 9) values found");
 EMPTY_HNDL = INTDCREATEHANDLE('05/03/2006 00:00:00', '05/03/2006 23:59:59', 3600, "Y", "0", " ");
 </code></pre>
 
-  <tr>
-    <th>1С
-    <td class="1c">
+    <tr>
+      <th>1С
+      <td class="1c">
 <pre><code>#Если Клиент Тогда
 Перем СимвольныйКодКаталога = "ля-ля-ля"; //комментарий
 Функция Сообщить(Знач ТекстСообщения, ТекстСообщения2) Экспорт //комментарий к функции
@@ -2567,9 +2424,9 @@ EMPTY_HNDL = INTDCREATEHANDLE('05/03/2006 00:00:00', '05/03/2006 23:59:59', 3600
 КонецПроцедуры
 </code></pre>
 
-  <tr>
-    <th>AVR Assembler
-    <td class="avrasm">
+    <tr>
+      <th>AVR Assembler
+      <td class="avrasm">
 <pre><code>;* Title:       Block Copy Routines
 ;* Version:     1.1
 
@@ -2591,9 +2448,9 @@ flash2ram:
 .def    ramsize =r16        ;size of block to be copied
 </code></pre>
 
-  <tr>
-    <th>VHDL
-    <td class="vhdl">
+    <tr>
+      <th>VHDL
+      <td class="vhdl">
 <pre><code>/*
  * RS-trigger with assynch. reset
  */
@@ -2637,9 +2494,9 @@ begin
 end architecture behaviour;
 </code></pre>
 
-  <tr>
-    <th>Parser 3
-    <td class="parser3">
+    <tr>
+      <th>Parser 3
+      <td class="parser3">
 <pre><code>@CLASS
 base
 
@@ -2676,9 +2533,9 @@ class
   $result[$.hash_item1[one] $.hash_item2[two]]
 </code></pre>
 
-  <tr>
-    <th>LiveCode Server
-    <td class="livecodeserver">
+    <tr>
+      <th>LiveCode Server
+      <td class="livecodeserver">
 <pre><code>&lt;?rev
 
 global gControllerHandlers, gData
@@ -2711,11 +2568,10 @@ end myFunction
 ----------------------------------------------------------------------
 </code></pre>
 
-  <tr>
-    <th>TeX
-    <td class="tex">
-<pre>
-<code>\documentclass{article}
+    <tr>
+      <th>TeX
+      <td class="tex">
+<pre><code>\documentclass{article}
 \usepackage[koi8-r]{inputenc}
 \hoffset=0pt
 \voffset=.3em
@@ -2734,9 +2590,9 @@ $$
 \end{document}
 </code></pre>
 
-  <tr>
-    <th>BrainFuck
-    <td class="brainfuck">
+    <tr>
+      <th>BrainFuck
+      <td class="brainfuck">
 <pre><code>++++++++++
 [ 3*10 and 10*10
   -&gt;+++&gt;++++++++++&lt;&lt;
@@ -2756,11 +2612,10 @@ rewind and output
 [&lt;]&gt;[.&gt;]
 </code></pre>
 
-  <tr>
-    <th>Haskell
-    <td class="haskell">
-<pre>
-<code>{-# LANGUAGE TypeSynonymInstances #-}
+    <tr>
+      <th>Haskell
+      <td class="haskell">
+<pre><code>{-# LANGUAGE TypeSynonymInstances #-}
 module Network.UDP
 ( DataPacket(..)
 , openBoundUDPPort
@@ -2806,9 +2661,9 @@ pingUDPPort :: Socket -&gt; SockAddr -&gt; IO ()
 pingUDPPort s a = sendTo s (Strict.singleton 0) a &gt;&gt; return ()
 </code></pre>
 
-  <tr>
-    <th>Erlang
-    <td class="erlang">
+    <tr>
+      <th>Erlang
+      <td class="erlang">
 <pre><code>-module(ssh_cli).
 
 -behaviour(ssh_channel).
@@ -2871,9 +2726,9 @@ union_dot_union({union, _}=U1, {union, _}=U2) -&gt;
         ))).
 </code></pre>
 
-  <tr>
-    <th>Erlang REPL
-    <td class="erlang-repl">
+    <tr>
+      <th>Erlang REPL
+      <td class="erlang-repl">
 <pre><code>1&gt; Str = "abcd".
 "abcd"
 2&gt; L = test:length(Str).
@@ -2903,9 +2758,9 @@ ok
 1850
 </code></pre>
 
-  <tr>
-    <th>Elixir</th>
-    <td class="elixir">
+    <tr>
+      <th>Elixir</th>
+      <td class="elixir">
 <pre><code>defrecord Person, first_name: nil, last_name: "Dudington" do
   def name record do # huh ?
     "#{record.first_name} #{record.last_name}"
@@ -2954,14 +2809,12 @@ pid &lt;- {:foo, "bar"}
 
 greeter = fn(x) -&gt; IO.puts "hey #{x}" end
 greeter.("Bob")
-
 </code></pre>
 
-  <tr>
-    <th>Rust
-    <td class="rust">
-<pre>
-<code>use std;
+    <tr>
+      <th>Rust
+      <td class="rust">
+<pre><code>use std;
 
 123;                               // type int
 123u;                              // type uint
@@ -3039,9 +2892,9 @@ struct Baz<'a> {
 }
 </code></pre>
 
-  <tr>
-    <th>Matlab
-    <td class="matlab">
+    <tr>
+      <th>Matlab
+      <td class="matlab">
 <pre><code>n = 20; % number of points
 points = [random('unid', 100, n, 1), random('unid', 100, n, 1)];
 len = zeros(1, n - 1);
@@ -3082,9 +2935,9 @@ foo_matrix = [1, 2, 3; 4, 5, 6]''';
 foo_cell = {1, 2, 3; 4, 5, 6}''.'.';
 </code></pre>
 
-  <tr>
-    <th>Scilab
-    <td class="scilab">
+    <tr>
+      <th>Scilab
+      <td class="scilab">
 <pre><code>// A comment
 function I = foo(dims, varargin)
   d=[1; matrix(dims(1:$-1),-1,1)]
@@ -3101,9 +2954,9 @@ bar_matrix = [ "Hello", "world" ];
 foo_matrix = [1, 2, 3; 4, 5, 6];
 </code></pre>
 
-  <tr>
-    <th>R
-    <td class="r">
+    <tr>
+      <th>R
+      <td class="r">
 <pre><code>library(ggplot2)
 
 centre &lt;- function(x, type, ...) {
@@ -3172,12 +3025,11 @@ For If In Else Next Break .. .... "NULL" `NULL` 'NULL'
 foo %union% bar
 %"test"%
 `"test"`
-
 </code></pre>
 
-  <tr>
-    <th>Mizar
-    <td class="mizar">
+    <tr>
+      <th>Mizar
+      <td class="mizar">
 <pre><code>::: ## Lambda calculus
 
 environ
@@ -3263,13 +3115,13 @@ then  v is_a_proper_prefix_of v^&lt;*x*&gt; by XBOOLE_0:def 8;
 then  y in ProperPrefixes v or y = v &amp; v in ProperPrefixes (v^&lt;*x*&gt;)
   by A3,TARSKI:def 1,TREES_1:def 2;
   hence thesis by A4;
-end;</code></pre>
+end;
+</code></pre>
 
-  <tr>
-    <th>Mathematica</th>
-    <td class="mathematica">
-<pre>
-<code>(* ::Package:: *)
+    <tr>
+      <th>Mathematica</th>
+      <td class="mathematica">
+<pre><code>(* ::Package:: *)
 
 (* Mathematica Package *)
 
@@ -3285,11 +3137,10 @@ End[] (* End Private Context *)
 EndPackage[]
 </code></pre>
 
-  <tr>
-    <th>AutoHotkey</th>
-    <td class="autohotkey">
-<pre>
-<code>; hotkeys and hotstrings
+    <tr>
+      <th>AutoHotkey</th>
+      <td class="autohotkey">
+<pre><code>; hotkeys and hotstrings
 #a::WinSet, AlwaysOnTop, Toggle, A
 #Space::
   MsgBox, Percent sign (`%) need to be escaped.
@@ -3315,20 +3166,19 @@ label1:
 return
 </code></pre>
 
-  <tr>
-    <th>FIX
-    <td class="fix">
-<pre>
-<code>8=FIX.4.2␁9=0␁35=8␁49=SENDERTEST␁56=TARGETTEST␁34=00000001526␁52=20120429-13:30:08.137␁1=ABC12345␁11=2012abc1234␁14=100␁17=201254321␁20=0␁30=NYSE␁31=108.20␁32=100␁38=100␁39=2␁40=1␁47=A␁54=5␁55=BRK␁59=2␁60=20120429-13:30:08.000␁65=B␁76=BROKER␁84=0␁100=NYSE␁111=100␁150=2␁151=0␁167=CS␁377=N␁10000=SampleCustomTag␁10=123␁
+    <tr>
+      <th>FIX
+      <td class="fix">
+<pre><code>8=FIX.4.2␁9=0␁35=8␁49=SENDERTEST␁56=TARGETTEST␁34=00000001526␁52=20120429-13:30:08.137␁1=ABC12345␁11=2012abc1234␁14=100␁17=201254321␁20=0␁30=NYSE␁31=108.20␁32=100␁38=100␁39=2␁40=1␁47=A␁54=5␁55=BRK␁59=2␁60=20120429-13:30:08.000␁65=B␁76=BROKER␁84=0␁100=NYSE␁111=100␁150=2␁151=0␁167=CS␁377=N␁10000=SampleCustomTag␁10=123␁
 
 8=FIX.4.29=035=849=SENDERTEST56=TARGETTEST34=0000000152652=20120429-13:30:08.1371=ABC1234511=2012abc123414=10017=20125432120=030=NYSE31=108.2032=10038=10039=240=147=A54=555=BRK59=260=20120429-13:30:08.00065=B76=BROKER84=0100=NYSE111=100150=2151=0167=CS377=N10000=SampleCustomTag10=123
-</code></pre>
+
+</code></pre>
 
-  <tr>
-    <th>x86asm</th>
-    <td class="x86asm">
-<pre>
-<code>section .text
+    <tr>
+      <th>x86asm</th>
+      <td class="x86asm">
+<pre><code>section .text
 extern  _MessageBoxA@16
 %if     __NASM_VERSION_ID__ >= 0x02030000
 safeseh handler         ; register handler as "safe handler"
@@ -3370,11 +3220,10 @@ section .drectve info
         db      '/defaultlib:user32.lib /defaultlib:msvcrt.lib '
 </code></pre>
 
-  <tr>
-  <th>Monkey
-      <td class="monkey">
-<pre>
-<code>#IMAGE_FILES="*.png|*.jpg"
+    <tr>
+    <th>Monkey
+        <td class="monkey">
+<pre><code>#IMAGE_FILES="*.png|*.jpg"
 #SOUND_FILES="*.wav|*.ogg"
 #MUSIC_FILES="*.wav|*.ogg"
 #BINARY_FILES="*.bin|*.dat"
@@ -3413,9 +3262,9 @@ Class GameApp Extends App
 End
 </code></pre>
 
-  <tr>
-    <th>Gherkin
-    <td class="gherkin">
+    <tr>
+      <th>Gherkin
+      <td class="gherkin">
 <pre><code># language: en
 Feature: Addition
   In order to avoid silly mistakes
@@ -3443,9 +3292,9 @@ Feature: Addition
     | 0       | 40      | add    | 40     |
 </code></pre>
 
-  <tr>
-    <th>Nimrod
-    <td class="nimrod">
+    <tr>
+      <th>Nimrod
+      <td class="nimrod">
 <pre><code>
 import module1, module2, module3
 from module4 import nil
@@ -3470,9 +3319,9 @@ var normalstring = "asdf"
 let a: uint32 = 0xFFaF'u32
 </code></pre>
 
-  <tr>
-    <th>Swift
-    <td class="swift">
+    <tr>
+      <th>Swift
+      <td class="swift">
 <pre><code>extension MyClass : Interface {
     class func unarchiveFromFile&lt;A&gt;(file : A, (Int,Int) -> B) -> SKNode? {
         let path: String = bundle.pathForResource(file, ofType: "file\(name + 5).txt")
@@ -3486,9 +3335,9 @@ let a: uint32 = 0xFFaF'u32
 }
 </code></pre>
 
-  <tr>
-    <th>Gradle
-    <td class="gradle">
+    <tr>
+      <th>Gradle
+      <td class="gradle">
 <pre><code>
 apply plugin: 'android'
 
@@ -3553,8 +3402,7 @@ if( propFile.canRead() ) {
 }
 </code></pre>
 
-</table>
-
+  </table>
 
 <h2>Special tests</h2>
 
@@ -3630,6 +3478,8 @@ if( propFile.canRead() ) {
 
 </table>
 
+</div>
+
 <h2>Highlighted code export</h2>
 
 <script type="text/javascript">
@@ -3662,7 +3512,6 @@ if( propFile.canRead() ) {
 <div id="export_view"></div>
 
 <address>
-    Stylesheet switcher: <a href="mailto:voldmar@voldmar.ru">Vladimir Epifanov</a><br>
     Test result detection: <a href="mailto:maniac@softwaremaniacs.org">Ivan Sagalaev</a><br>
     Export script: <a href="mailto:xonixx@gmail.com">Vladimir Gubarkov</a><br>
     Highlighting: <a href="https://highlightjs.org/">highlight.js</a>
