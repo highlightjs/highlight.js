@@ -36,4 +36,13 @@ describe('custom markup', function() {
 
     actual.should.equal(expected);
   });
+
+  it('should keep the same amount of <br>s', function() {
+    var filename = utility.buildPath('expect', 'brInPre.txt'),
+
+        expected = fs.readFileSync(filename, 'utf-8'),
+        actual   = blocks[7].innerHTML;
+
+    actual.should.equal(expected);
+  });
 });

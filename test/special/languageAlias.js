@@ -14,7 +14,7 @@ describe('language alias', function() {
     var filename = utility.buildPath('expect', 'languagealias.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
-        actual   = blocks[7].innerHTML;
+        actual   = blocks[8].innerHTML;
 
     actual.should.equal(expected);
   });
