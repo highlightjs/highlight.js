@@ -37,7 +37,7 @@ describe('custom markup', function() {
     actual.should.equal(expected);
   });
 
-  it('should keep the same amount of <br>s', function() {
+  it('should keep the same amount of void elements (<br>, <hr>, ...)', function() {
     var filename = utility.buildPath('expect', 'brInPre.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),

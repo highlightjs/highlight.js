@@ -51,9 +51,10 @@ function() {
             node: child
           });
           offset = _nodeStream(child, offset);
-          // Prevent br from having an end tag which actually doubles the
-          // amount br tags.
-          if(tag(child) !== 'br') {
+          // Prevent void elements from having an end tag that would actually
+          // double them in the output. There are more void elements in HTML
+          // but we list only those realistically expected in code display.
+          if (!tag(child).match(/br|hr|img|input/)) {
             result.push({
               event: 'stop',
               offset: offset,
