@@ -7,12 +7,14 @@ New languages:
 - *Dust* by [Michael Allen][]
 - *Scheme* by [JP Verkamp][]
 - *G-Code* by [Adam Joseph Cook][]
+- *Q* from Kx Systems by [Sergey Vidyuk][]
 
 [Guillaume Laforge]: https://github.com/glaforge
 [Maxim Dikun]: https://github.com/dikmax
 [Michael Allen]: https://github.com/bfui
 [JP Verkamp]: https://github.com/jpverkamp
 [Adam Joseph Cook]: https://github.com/adamjcook
+[Sergey Vidyuk]: https://github.com/sv
 
 Other improvements:
 
