@@ -1,12 +1,9 @@
 /*
 Language: Scheme
-Description: Generic scheme syntax
-Author: JP Verkamp (me@jverkamp.com)
-
-Keywords based on:
-Based on http://community.schemewiki.org/?scheme-keywords
-
-Based on Generic lisp syntax by Vasily Polovnyov <vast@whiteants.net>
+Description: Keywords based on http://community.schemewiki.org/?scheme-keywords
+Author: JP Verkamp <me@jverkamp.com>
+Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
+Origin: clojure.js
 */
 
 function(hljs) {
