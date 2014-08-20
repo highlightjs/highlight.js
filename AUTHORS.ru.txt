@@ -127,3 +127,4 @@ URL:   https://highlightjs.org/
 - Михаэль Аллен <Michael.Allen@benefitfocus.com>
 - Д.П. Веркамп <me@jverkamp.com>
 - Адам Джозеф Кук <adam.joseph.cook@gmail.com>
+- Сергей Видюк <svidyuk@gmail.com>
