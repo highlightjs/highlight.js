@@ -502,6 +502,7 @@ Java ("java", "jsp")
 * ``annotaion``:        annotation
 * ``javadoc``:          javadoc comment
 * ``class``:            class header from "class" till "{"
+* ``function``:         method header
 * ``title``:            class or method name
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "implements" inside class header
@@ -548,6 +549,8 @@ C# ("cs", "csharp")
 * ``string``:           string
 * ``comment``:          comment
 * ``xmlDocTag``:        xmldoc tag ("///", "<!--", "-->", "<..>")
+* ``class``:            class header from "class" till "{"
+* ``function``:         method header
 * ``title``:            title of namespace or class
 
 F# ("fsharp", "fs")
@@ -638,14 +641,13 @@ Smalltalk ("smalltalk", "st")
 Lisp ("lisp")
 -------------
 
-* ``keyword``:          keyword
 * ``number``:           number
 * ``string``:           string
 * ``comment``:          comment
 * ``variable``:         variable
 * ``literal``:          b, t and nil
 * ``list``:             non-quoted list
-* ``title``:            first symbol in a non-quoted list
+* ``keyword``:          first symbol in a non-quoted list
 * ``body``:             remainder of the non-quoted list
 * ``quoted``:           quoted list, both "(quote .. )" and "'(..)"
 
@@ -657,8 +659,23 @@ Clojure ("clojure", "clj")
 * ``number``:           number
 * ``collection``:       collections
 * ``attribute``:        :keyword
-* ``title``:            function name (built-in or user defined)
-* ``built_in``:         built-in function name
+* ``list``:             non-quoted list
+* ``keyword``:          first symbol in a list
+* ``built_in``:         built-in function name as the first symbol in a list
+
+Scheme ("scheme")
+--------------------------
+
+* ``shebang``:          script interpreter header
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``regexp``:           regexp
+* ``variable``:         single-quote 'identifier
+* ``list``:             non-quoted list
+* ``keyword``:          first symbol in a list
+* ``built_in``:         built-in function name as the first symbol in a list
+* ``literal``:          #t, #f, #\...\
 
 Ini ("ini")
 -----------
@@ -774,7 +791,6 @@ Axapta ("axapta")
 * ``class``:            class header from "class" till "{"
 * ``title``:            class name inside a header
 * ``params``:           everything in parentheses inside a class header
-* ``inheritance``:      keywords "extends" and "implements" inside class header
 * ``preprocessor``:     preprocessor directive
 
 Oracle Rules Language ("ruleslanguage")
@@ -1083,6 +1099,18 @@ Swift ("swift")
 * ``params``:           parameters of a function
 * ``type``:             a type
 * ``preprocessor``:     @attributes
+
+G-Code ("gcode", "nc")
+-------------------------------
+
+* ``keyword``:          G words, looping constructs and conditional operators
+* ``comment``:          comment
+* ``number``:           number
+* ``built_in``:         trigonometric and mathematical functions
+* ``title``:            M words and variable registers
+* ``preprocessor``:     program number and ending character
+* ``label``:            block number
+
 
 Q ("k", "kdb")
 -------------------

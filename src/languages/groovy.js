@@ -64,13 +64,8 @@ function(hljs) {
                 beginKeywords: 'class interface trait enum', end: '{',
                 illegal: ':',
                 contains: [
-                    {
-                        beginKeywords: 'extends implements'
-                    },
-                    {
-                        className: 'title',
-                        begin: hljs.UNDERSCORE_IDENT_RE
-                    }
+                    {beginKeywords: 'extends implements'},
+                    hljs.UNDERSCORE_TITLE_MODE,
                 ]
             },
             hljs.C_NUMBER_MODE,

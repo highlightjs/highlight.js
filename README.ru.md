@@ -47,7 +47,7 @@ $(document).ready(function() {
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });
-};)
+});
 ```
 
 Вы можете использовать любые теги разметки вместо `<pre><code>`. Если

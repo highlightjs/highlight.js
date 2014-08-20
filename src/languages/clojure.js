@@ -8,7 +8,7 @@ function(hljs) {
   var keywords = {
     built_in:
       // Clojure keywords
-      'def cond apply if-not if-let if not not= = &lt; < > &lt;= <= >= == + / * - rem '+
+      'def cond apply if-not if-let if not not= = < > <= >= == + / * - rem '+
       'quot neg? pos? delay? symbol? keyword? true? false? integer? empty? coll? list? '+
       'set? ifn? fn? associative? sequential? sorted? counted? reversible? number? decimal? '+
       'class? distinct? isa? float? rational? reduced? ratio? odd? even? char? seq? vector? '+
@@ -76,14 +76,14 @@ function(hljs) {
     keywords: {literal: 'true false nil'},
     relevance: 0
   };
-  var TITLE = {
+  var NAME = {
     keywords: keywords,
     lexemes: CLJ_IDENT_RE,
-    className: 'title', begin: CLJ_IDENT_RE,
+    className: 'keyword', begin: CLJ_IDENT_RE,
     starts: BODY
   };
 
-  LIST.contains = [{className: 'comment', begin: 'comment'}, TITLE, BODY];
+  LIST.contains = [{className: 'comment', begin: 'comment'}, NAME, BODY];
   BODY.contains = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER];
   COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER];
 
