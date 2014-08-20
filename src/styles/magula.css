@@ -16,9 +16,7 @@ Music: Aphex Twin / Xtal
 }
 
 .hljs,
-.hljs-subst,
-.lisp .hljs-title,
-.clojure .hljs-built_in {
+.hljs-subst {
   color: black;
 }
 

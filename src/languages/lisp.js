@@ -51,7 +51,7 @@ function(hljs) {
       },
       {
         begin: '\\(quote ', end: '\\)',
-        keywords: {title: 'quote'}
+        keywords: 'quote'
       }
     ]
   };
@@ -67,7 +67,7 @@ function(hljs) {
     endsWithParent: true,
     relevance: 0
   };
-  LIST.contains = [{className: 'title', begin: LISP_IDENT_RE}, BODY];
+  LIST.contains = [{className: 'keyword', begin: LISP_IDENT_RE}, BODY];
   BODY.contains = [QUOTED, QUOTED_ATOM, LIST, LITERAL, NUMBER, STRING, COMMENT, VARIABLE, KEYWORD];
 
   return {

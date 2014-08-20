@@ -75,7 +75,7 @@ function(hljs) {
     var STRING = hljs.QUOTE_STRING_MODE;
 
     var REGULAR_EXPRESSION = {
-        className: 'regex',
+        className: 'regexp',
         begin: '#[pr]x"',
         end: '[^\\\\]"'
     };
@@ -89,7 +89,6 @@ function(hljs) {
     };
 
     var IDENT = {
-        className: '',
         begin: SCHEME_IDENT_RE,
         relevance: 0
     };

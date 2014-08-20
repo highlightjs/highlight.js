@@ -6,8 +6,12 @@
   overflow-x: auto;
   padding: 0.5em;
   background: #eaeef3;
-  color: #00193a;
   -webkit-text-size-adjust: none;
+}
+
+.hljs,
+.hljs-list .hljs-built_in {
+  color: #00193a;
 }
 
 .hljs-keyword,
