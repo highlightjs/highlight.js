@@ -638,14 +638,13 @@ Smalltalk ("smalltalk", "st")
 Lisp ("lisp")
 -------------
 
-* ``keyword``:          keyword
 * ``number``:           number
 * ``string``:           string
 * ``comment``:          comment
 * ``variable``:         variable
 * ``literal``:          b, t and nil
 * ``list``:             non-quoted list
-* ``title``:            first symbol in a non-quoted list
+* ``keyword``:          first symbol in a non-quoted list
 * ``body``:             remainder of the non-quoted list
 * ``quoted``:           quoted list, both "(quote .. )" and "'(..)"
 
@@ -657,8 +656,23 @@ Clojure ("clojure", "clj")
 * ``number``:           number
 * ``collection``:       collections
 * ``attribute``:        :keyword
-* ``title``:            function name (built-in or user defined)
-* ``built_in``:         built-in function name
+* ``list``:             non-quoted list
+* ``keyword``:          first symbol in a list
+* ``built_in``:         built-in function name as the first symbol in a list
+
+Scheme ("scheme")
+--------------------------
+
+* ``shebang``:          script interpreter header
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``regexp``:           regexp
+* ``variable``:         single-quote 'identifier
+* ``list``:             non-quoted list
+* ``keyword``:          first symbol in a list
+* ``built_in``:         built-in function name as the first symbol in a list
+* ``literal``:          #t, #f, #\...\
 
 Ini ("ini")
 -----------

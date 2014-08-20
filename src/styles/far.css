@@ -35,7 +35,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .apache .hljs-tag,
 .apache .hljs-cbracket,
 .tex .hljs-command,
-.clojure .hljs-title,
 .coffeescript .hljs-attribute {
   color: #ff0;
 }
@@ -53,8 +52,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-change,
 .hljs-envvar,
 .bash .hljs-variable,
-.tex .hljs-special,
-.clojure .hljs-built_in {
+.tex .hljs-special {
   color: #fff;
 }
 

@@ -5,15 +5,20 @@ New languages:
 - *Groovy* by [Guillaume Laforge][]
 - *Dart* by [Maxim Dikun][]
 - *Dust* by [Michael Allen][]
+- *Scheme* by [JP Verkamp][]
 
 [Guillaume Laforge]: https://github.com/glaforge
 [Maxim Dikun]: https://github.com/dikmax
 [Michael Allen]: https://github.com/bfui
+[JP Verkamp]: https://github.com/jpverkamp
 
 Other improvements:
 
 - [Erik Osheim][] heavily reworked Scala definitions making it richer.
 - [Lucas Mazza][] fixed Ruby hashes highlighting
+- Lisp variants (Lisp, Clojure and Scheme) are unified in regard to naming
+  the first symbol in parentheses: it's "keyword" in general case and also
+  "built_in" for a built-in functions in Clojure and Scheme.
 
 [Erik Osheim]: https://github.com/non
 [Lucas Mazza]: https://github.com/lucasmazza

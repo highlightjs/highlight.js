@@ -17,8 +17,6 @@ Ported by Fabrício Tavares de Oliveira
 .hljs,
 .hljs-subst,
 .hljs-tag .hljs-title,
-.lisp .hljs-title,
-.clojure .hljs-built_in,
 .nginx .hljs-title {
   color: #000;
 }
@@ -99,6 +97,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-shebang,
 .apache .hljs-sqbracket,
 .nginx .hljs-built_in,
+.hljs-list .hljs-built_in,
 .tex .hljs-formula,
 .erlang_repl .hljs-reserved,
 .hljs-prompt,
