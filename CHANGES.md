@@ -1,6 +1,23 @@
-## master
+## Version 8.2
 
-New languages:
+We've finally got [real tests][test] and [continuous testing on Travis][ci]
+thanks to [Jeremy Hull][] and [Chris Eidhof][]. The tests designed to cover
+everything: language detection, correct parsing of individual language features
+and various special cases. This is a very important change that gives us
+confidence in extending language definitions and refactoring library core.
+
+We're going to redesign the old [demo/test suite][demo] into an interactive
+demo web app. If you're confident front-end developer or designer and want to
+help us with it, drop a comment into [the issue][#542] on GitHub.
+
+[test]: https://github.com/isagalaev/highlight.js/tree/master/test
+[demo]: https://highlightjs.org/static/test.html
+[#542]: https://github.com/isagalaev/highlight.js/issues/542
+[ci]: https://travis-ci.org/isagalaev/highlight.js
+[Jeremy Hull]: https://github.com/sourrust
+[Chris Eidhof]: https://github.com/chriseidhof
+
+As usually there's a handful of new languages in this release:
 
 - *Groovy* by [Guillaume Laforge][]
 - *Dart* by [Maxim Dikun][]
@@ -22,7 +39,7 @@ Other improvements:
 - [Lucas Mazza][] fixed Ruby hashes highlighting
 - Lisp variants (Lisp, Clojure and Scheme) are unified in regard to naming
   the first symbol in parentheses: it's "keyword" in general case and also
-  "built_in" for a built-in functions in Clojure and Scheme.
+  "built_in" for built-in functions in Clojure and Scheme.
 
 [Erik Osheim]: https://github.com/non
 [Lucas Mazza]: https://github.com/lucasmazza
