@@ -126,3 +126,4 @@ Contributors:
 - Anton Kochkov <anton.kochkov@gmail.com>
 - Michael Allen <Michael.Allen@benefitfocus.com>
 - JP Verkamp <me@jverkamp.com>
+- Adam Joseph Cook <adam.joseph.cook@gmail.com>

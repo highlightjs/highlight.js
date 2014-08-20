@@ -6,11 +6,13 @@ New languages:
 - *Dart* by [Maxim Dikun][]
 - *Dust* by [Michael Allen][]
 - *Scheme* by [JP Verkamp][]
+- *G-Code* by [Adam Joseph Cook][]
 
 [Guillaume Laforge]: https://github.com/glaforge
 [Maxim Dikun]: https://github.com/dikmax
 [Michael Allen]: https://github.com/bfui
 [JP Verkamp]: https://github.com/jpverkamp
+[Adam Joseph Cook]: https://github.com/adamjcook
 
 Other improvements:
 
