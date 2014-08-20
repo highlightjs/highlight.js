@@ -1100,7 +1100,7 @@ Swift ("swift")
 * ``type``:             a type
 * ``preprocessor``:     @attributes
 
-G-Code ("nc")
+G-Code ("gcode", "nc")
 -------------------------------
 
 * ``keyword``:          G words, looping constructs and conditional operators
