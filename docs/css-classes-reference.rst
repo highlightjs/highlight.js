@@ -1110,3 +1110,15 @@ G-Code ("gcode", "nc")
 * ``title``:            M words and variable registers
 * ``preprocessor``:     program number and ending character
 * ``label``:            block number
+
+
+Q ("k", "kdb")
+-------------------
+
+* ``comment``:          comment
+* ``string``:           string constant
+* ``number``:           number
+* ``keyword``:          language keywords
+* ``constant``:         0/1b
+* ``typename``:         built-in plain types (int, symbol etc.)
+* ``built_in``:         built-in function
