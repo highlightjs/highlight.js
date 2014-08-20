@@ -125,3 +125,4 @@ URL:   http://highlightjs.org/
 - Хенрик Фельдт <henrik@haf.se>
 - Антон Кочков <anton.kochkov@gmail.com>
 - Михаэль Аллен <Michael.Allen@benefitfocus.com>
+- Д.П. Веркамп <me@jverkamp.com>
