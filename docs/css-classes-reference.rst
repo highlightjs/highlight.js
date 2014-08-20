@@ -502,6 +502,7 @@ Java ("java", "jsp")
 * ``annotaion``:        annotation
 * ``javadoc``:          javadoc comment
 * ``class``:            class header from "class" till "{"
+* ``function``:         method header
 * ``title``:            class or method name
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "implements" inside class header
@@ -548,6 +549,8 @@ C# ("cs", "csharp")
 * ``string``:           string
 * ``comment``:          comment
 * ``xmlDocTag``:        xmldoc tag ("///", "<!--", "-->", "<..>")
+* ``class``:            class header from "class" till "{"
+* ``function``:         method header
 * ``title``:            title of namespace or class
 
 F# ("fsharp", "fs")
@@ -788,7 +791,6 @@ Axapta ("axapta")
 * ``class``:            class header from "class" till "{"
 * ``title``:            class name inside a header
 * ``params``:           everything in parentheses inside a class header
-* ``inheritance``:      keywords "extends" and "implements" inside class header
 * ``preprocessor``:     preprocessor directive
 
 Oracle Rules Language ("ruleslanguage")
