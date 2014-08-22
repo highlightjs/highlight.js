@@ -1,8 +1,8 @@
 /*
  Language: ERB (Embedded Ruby)
  Requires: xml.js, ruby.js
- Authors: Lucas Mazza <lucastmazza@gmail.com>
-          Kassio Borges <kassioborgesm@gmail.com>
+ Author: Lucas Mazza <lucastmazza@gmail.com>
+Contributors: Kassio Borges <kassioborgesm@gmail.com>
  */
 function(hljs) {
   return {
