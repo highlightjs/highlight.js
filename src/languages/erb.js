@@ -2,7 +2,7 @@
  Language: ERB (Embedded Ruby)
  Requires: xml.js, ruby.js
  Author: Lucas Mazza <lucastmazza@gmail.com>
-Contributors: Kassio Borges <kassioborgesm@gmail.com>
+ Contributors: Kassio Borges <kassioborgesm@gmail.com>
  */
 function(hljs) {
   return {
