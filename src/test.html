@@ -392,6 +392,21 @@ str =~ %r(\(foo|bar\)$)
 => "NO"
 </code></pre>
 
+<tr>
+  <th>ERB
+  <td class="erb">
+<pre><code>&lt;%# this is a comment %&gt;
+
+&lt;% @posts.each do |post| %&gt;
+  &lt;p&gt;&lt;%= link_to post.title, post %&gt;&lt;/p&gt;
+&lt;% end %&gt;
+
+&lt;%- available_things = things.select(&:available?) -%&gt;
+&lt;%%- x = 1 + 2 -%%&gt;
+&lt;%% value = 'real string' %%&gt;
+&lt;%%= available_things.inspect %%&gt;
+</code></pre>
+
   <tr>
     <th>Haml
     <td class="haml">
