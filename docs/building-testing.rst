@@ -8,23 +8,26 @@ where you're going to run it: a browser, the node.js server, etc.
 Building
 --------
 
-The build tool is written in Python, 3.x version. It also can use
-YUICompressor for the in-browser builds so make sure you have Java installed
-for that too.
+The build tool is written in JavaScript using node.js. Before running the
+script, make sure to have node installed and run ``npm install`` to get the
+dependencies.
 
-The tool is located in ``tools/build.py``. A few useful examples:
+The tool is located in ``tools/build.js``. A few useful examples:
 
 * Build for a browser using only common languages::
 
-    python3 tools/build.py :common
+    node tools/build.js :common
 
 * Build for node.js including all available languages::
 
-    python3 tools/build.py -t node
+    node tools/build.js -t node
 
 * Build two specific languages for debugging, skipping compression in this case::
 
-    python3 tools/build.py -n python ruby
+    node tools/build.js -n python ruby
+
+On some systems the node binary is named ``nodejs``; simply replace ``node``
+with ``nodejs`` in the examples above if that is the case.
 
 The full option reference is available with the usual ``--help`` option.
 
