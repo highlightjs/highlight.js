@@ -20,4 +20,5 @@ describe('special cases test', function() {
   require('./special/customMarkup');
   require('./special/languageAlias');
   require('./special/noHighlight');
+  require('./special/subLanguages')
 });
