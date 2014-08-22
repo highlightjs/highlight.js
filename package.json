@@ -33,8 +33,13 @@
     "node": "*"
   },
   "devDependencies": {
+    "commander": "^2.3.0",
+    "del": "^0.1.2",
+    "gear": "^0.9.4",
+    "gear-lib": "^0.9.1",
     "glob": "^4.0.5",
     "jsdom": "^0.11.1",
+    "lodash": "^2.4.1",
     "mocha": "^1.21.4",
     "should": "^4.0.4"
   }
