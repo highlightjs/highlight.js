@@ -58,3 +58,13 @@ place the snippet you used inside the browser in
 see if any tests fail. If your language breaks auto-detection, it should be
 fixed by :ref:`improving relevance <relevance>`, which is a black art in and
 of itself. When in doubt, please refer to the discussion group!
+
+Usage with Browserify
+---------------------
+
+highlight.js also works with `Browserify <http://browserify.org/>`, a Node.js tool for bundling browser-ready JavaScript files using npm packages. This technique gives you granular control over the bundled filesize, because you can pick only the languages you want to support. This is the programmatic equivalent of building a custom package at https://highlightjs.org/download/
+
+    var Highlight = require("highlight.js/lib/highlight");
+    var hl = new Highlight();
+    hl.registerLanguage('javascript',
+      require('highlight.js/lib/languages/javascript'));
