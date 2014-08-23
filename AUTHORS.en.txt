@@ -128,3 +128,4 @@ Contributors:
 - JP Verkamp <me@jverkamp.com>
 - Adam Joseph Cook <adam.joseph.cook@gmail.com>
 - Sergey Vidyuk <svidyuk@gmail.com>
+- Bryant Williams <b.n.williams@gmail.com>

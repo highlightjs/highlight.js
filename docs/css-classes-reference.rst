@@ -210,6 +210,22 @@ SCSS ("scss")
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     keywords after @
 
+Stylus ("styl")
+-------------
+
+* ``at_rule``:          @-rule till first "{" or ";"
+* ``attribute``:        property name inside a rule
+* ``class``:            .some_name in selectors
+* ``comment``:          comment
+* ``function``:         Stylus function
+* ``hexcolor``:         hex color (#FFFFFF) within a value
+* ``id``:               #some_name in selectors
+* ``number``:           number within a value
+* ``pseudo``:           pseudo classes and elements (:after, ::after etc.)
+* ``string``:           string within a value
+* ``tag``:              tag in selectors
+* ``variable``:         variable starting with "$"
+
 Markdown ("markdown", "md", "mkdown", "mkd")
 --------------------------------------------
 
