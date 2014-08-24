@@ -117,11 +117,12 @@ tasks.templateAll = function(template, blobs, done) {
 };
 tasks.templateAll.type = 'collect';
 
-tasks.dest = function(directory, blob, done) {
-  directory = directory || '';
+tasks.dest = function(options, blob, done) {
+  options = (typeof options === 'string') ? {dir: options} : options;
 
-  var basename = path.basename(blob.name),
-      output   = path.join(directory, basename);
+  var basename = options.base ? path.relative(options.base, blob.name)
+                              : path.basename(blob.name),
+      output   = path.join(options.dir, basename);
 
   blob.writeFile(output, blob, 'utf8', done);
 };
