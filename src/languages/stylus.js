@@ -121,7 +121,7 @@ function(hljs) {
     'video'
   ];
 
-  var TAG_SEPARATOR = '[\\.\\s\\n\\[\\:,]';
+  var TAG_END = '[\\.\\s\\n\\[\\:,]';
 
   var ATTRIBUTES = [
     'align-content',
@@ -334,15 +334,17 @@ function(hljs) {
     '\\{',
     '\\}',
     '\\?',
+    '(\\bReturn\\b)', // monkey
+    '(\\bEnd\\b)', // monkey
+    '(\\bend\\b)', // vbscript
     ';', // sql
-    '\\.\\s', // markdown
     '#\\s', // markdown
     '\\*\\s', // markdown
-    '===' // markdown/javascript
+    '===\\s' // markdown
   ];
 
   return {
-    aliases: ['styl'],
+    aliases: ['styl', 'stylus'],
     case_insensitive: false,
     illegal: '(' + ILLEGAL.join('|') + ')',
     keywords: 'if else for in',
@@ -361,7 +363,7 @@ function(hljs) {
 
       // class tag
       {
-        begin: '\\.[a-zA-Z][a-zA-Z0-9_-]*' + TAG_SEPARATOR,
+        begin: '\\.[a-zA-Z][a-zA-Z0-9_-]*' + TAG_END,
         returnBegin: true,
         contains: [
           {className: 'class', begin: '\\.[a-zA-Z][a-zA-Z0-9_-]*'}
@@ -370,7 +372,7 @@ function(hljs) {
 
       // id tag
       {
-        begin: '\\#[a-zA-Z][a-zA-Z0-9_-]*' + TAG_SEPARATOR,
+        begin: '\\#[a-zA-Z][a-zA-Z0-9_-]*' + TAG_END,
         returnBegin: true,
         contains: [
           {className: 'id', begin: '\\#[a-zA-Z][a-zA-Z0-9_-]*'}
@@ -379,7 +381,7 @@ function(hljs) {
 
       // tags
       {
-        begin: '\\b(' + TAGS.join('|') + ')' + TAG_SEPARATOR,
+        begin: '\\b(' + TAGS.join('|') + ')' + TAG_END,
         returnBegin: true,
         contains: [
           {className: 'tag', begin: '\\b[a-zA-Z][a-zA-Z0-9_-]*'}
@@ -389,30 +391,13 @@ function(hljs) {
       // psuedo selectors
       {
         className: 'pseudo',
-        begin: '&?:?:\\b(' + PSEUDO_SELECTORS.join('|') + ')' + TAG_SEPARATOR
+        begin: '&?:?:\\b(' + PSEUDO_SELECTORS.join('|') + ')' + TAG_END
       },
 
       // @ keywords
       {
         className: 'at_rule',
         begin: '\@(' + AT_KEYWORDS.join('|') + ')\\b'
-      },
-
-      // functions
-      //  - only from beginning of line + whitespace
-      {
-        className: 'function',
-        begin: '^\\s*' + hljs.IDENT_RE + '\\(',
-        end: '\\)',
-        returnBegin: true,
-        contains: [
-          VARIABLE,
-          hljs.APOS_STRING_MODE,
-          hljs.CSS_NUMBER_MODE,
-          hljs.NUMBER_MODE,
-          hljs.QUOTE_STRING_MODE,
-          {className: 'title', begin: '^[a-zA-Z][a-zA-Z0-9_]*'}
-        ]
       },
 
       // variables
@@ -424,13 +409,37 @@ function(hljs) {
       // number
       hljs.NUMBER_MODE,
 
+      // functions
+      //  - only from beginning of line + whitespace
+      {
+        className: 'function',
+        begin: '\\b[a-zA-Z][a-zA-Z0-9_\-]*\\(.*\\)',
+        illegal: '[\\n]',
+        returnBegin: true,
+        contains: [
+          {className: 'title', begin: '\\b[a-zA-Z][a-zA-Z0-9_\-]*'},
+          {
+            className: 'params',
+            begin: /\(/,
+            end: /\)/,
+            contains: [
+              HEX_COLOR,
+              VARIABLE,
+              hljs.APOS_STRING_MODE,
+              hljs.CSS_NUMBER_MODE,
+              hljs.NUMBER_MODE,
+              hljs.QUOTE_STRING_MODE
+            ]
+          }
+        ]
+      },
+
       // attributes
       //  - only from beginning of line + whitespace
       //  - must have whitespace after it
       {
         className: 'attribute',
-        begin: '^\\s*(' + ATTRIBUTES.reverse().join('|') + ')\\s',
-        illegal: '[^\\s]'
+        begin: '\\b(' + ATTRIBUTES.reverse().join('|') + ')\\b'
       }
     ]
   };
