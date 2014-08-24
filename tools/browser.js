@@ -5,6 +5,24 @@ var path = require('path');
 
 var utility  = require('./utility');
 
+function copyDocs() {
+  var input  = path.join(dir.root, 'docs', '*.rst'),
+      output = path.join(dir.build, 'docs');
+
+  return {
+    logDocs: { task: ['log', 'Copying documentation.'] },
+    readDocs: {
+      requires: 'logDocs',
+      task: ['glob', { pattern: input }]
+    },
+    writeDocsLog: {
+      requires: 'readDocs',
+      task: ['log', 'Writing documentation.']
+    },
+    writeDocs: { requires: 'writeDocsLog', task: ['dest', output] }
+  };
+}
+
 module.exports = function(commander) {
   var amdArgs, hljsExt, output, requiresTask, tasks,
       replace           = utility.replace,
@@ -75,7 +93,7 @@ module.exports = function(commander) {
   };
 
   if(commander.target === 'browser') {
-    tasks = _.merge(utility.copyDocs(), tasks);
+    tasks = _.merge(copyDocs(), tasks);
   }
 
   return tasks;

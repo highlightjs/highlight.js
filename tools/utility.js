@@ -102,26 +102,7 @@ function replaceClassNames(match) {
   return REPLACES[match];
 }
 
-function copyDocs() {
-  var input  = path.join(dir.root, 'docs', '*.rst'),
-      output = path.join(dir.build, 'docs');
-
-  return {
-    logDocs: { task: ['log', 'Copying documentation.'] },
-    readDocs: {
-      requires: 'logDocs',
-      task: ['glob', { pattern: input }]
-    },
-    writeDocsLog: {
-      requires: 'readDocs',
-      task: ['log', 'Writing documentation.']
-    },
-    writeDocs: { requires: 'writeDocsLog', task: ['dest', output] }
-  };
-}
-
 module.exports = {
-  copyDocs: copyDocs,
   languagesGlob: languagesGlob,
   regex: regex,
   replace: replace,
