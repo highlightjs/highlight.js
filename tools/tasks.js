@@ -3,14 +3,9 @@
 var _        = require('lodash');
 var del      = require('del');
 var Registry = require('gear').Registry;
-var gearlib  = require('gear-lib');
 var path     = require('path');
 
-var tasks = {};
-
-_.each(gearlib, function(task, key) {
-  tasks[key] = task;
-});
+var tasks = require('gear-lib');
 
 function parseHeader(header) {
   var object  = {},
