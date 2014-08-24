@@ -84,14 +84,15 @@ function buildIndex() {
 }
 
 function copyMetaFiles() {
-  var input  = [ path.join(dir.root, 'README.md')
-               , path.join(dir.root, 'LICENSE')
-               ],
-      output = dir.build;
+  var docs   = path.join('docs', '*.rst'),
+      glob   = '{README.md,LICENSE,' + docs + '}',
+
+      input  = { pattern: path.join(dir.root, glob) },
+      output = { dir: dir.build, base: '.' };
 
   return {
     logMeta: { task: ['log', 'Copying meta files.'] },
-    readMeta: { requires: 'logMeta', task: ['read', input] },
+    readMeta: { requires: 'logMeta', task: ['glob', input] },
     writeMetaLog: {
       requires: 'readMeta',
       task: ['log', 'Writing meta files.']
@@ -146,6 +147,5 @@ module.exports = function(commander) {
     buildIndex(),
     buildStyles(),
     copyMetaFiles(),
-    utility.copyDocs(),
     buildPackageFile());
 };
