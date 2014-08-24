@@ -59,14 +59,11 @@ function buildIndex() {
 
       template =
     [ 'var Highlight = require(\'./highlight\');'
-    , 'var hljs      = new Highlight(),'
-    , '    languages = [\'<%= names.join("\', \'") %>\'],'
-    , '    language, langName;\n'
-    , 'for(var i = 0, l = languages.length; i<l; i++) {'
-    , '  langName = languages[i];'
-    , '  language = require(\'./languages/\' + langName);'
-    , '  hljs.registerLanguage(langName, language);'
-    , '}\n'
+    , 'var hljs      = new Highlight();\n'
+    , '<% _.each(names, function(name) { %>' +
+      'hljs.registerLanguage(\'<%= name %>\', ' +
+      'require(\'./languages/<%= name %>\'));'
+    , '<% }); %>'
     , 'module.exports = hljs;'
     ];
 
