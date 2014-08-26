@@ -62,7 +62,7 @@ function(hljs) {
     contains: [hljs.BACKSLASH_ESCAPE],
     variants: [
       {begin: /'/, end: /'/},
-      {begin: /"/, end: /"/},
+      {begin: /"/, end: /"/}
     ]
   };
 
