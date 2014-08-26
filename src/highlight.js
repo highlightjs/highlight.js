@@ -679,7 +679,7 @@ function() {
   };
   this.REGEXP_MODE = {
     className: 'regexp',
-    begin: /\//, end: /\/[gim]*/,
+    begin: /\//, end: /\/[gimuy]*/,
     illegal: /\n/,
     contains: [
       this.BACKSLASH_ESCAPE,
