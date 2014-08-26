@@ -1122,3 +1122,12 @@ Q ("k", "kdb")
 * ``constant``:         0/1b
 * ``typename``:         built-in plain types (int, symbol etc.)
 * ``built_in``:         built-in function
+
+Puppet ("pp")
+-------------
+
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``keyword``:          classes and types
+* ``constant``:         dependencies
