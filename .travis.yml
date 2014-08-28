@@ -8,3 +8,5 @@ install:
   - npm install
 script:
   - npm test
+git:
+  depth: 10
