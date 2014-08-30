@@ -18,10 +18,12 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.HASH_COMMENT_MODE,
       {
-        begin: '--'
+        begin: '--',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
-        begin: '[^:]//'
+        begin: '[^:]//',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       }
     ]
   };

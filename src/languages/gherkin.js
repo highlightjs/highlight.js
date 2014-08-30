@@ -15,7 +15,8 @@ function (hljs) {
       },
       {
         className: 'comment',
-        begin: '@[^@\r\n\t ]+', end: '$'
+        begin: '@[^@\r\n\t ]+', end: '$',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
         className: 'string',

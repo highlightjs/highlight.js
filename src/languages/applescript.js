@@ -11,16 +11,19 @@ function(hljs) {
     begin: '\\(', end: '\\)',
     contains: ['self', hljs.C_NUMBER_MODE, STRING]
   };
+  var COMMENT_MODE_1 = {
+    className: 'comment',
+    begin: '--', end: '$',
+    contains: [hljs.PHRASAL_WORDS_MODE]
+  };
+  var COMMENT_MODE_2 = {
+    className: 'comment',
+    begin: '\\(\\*', end: '\\*\\)',
+    contains: ['self', COMMENT_MODE_1, hljs.PHRASAL_WORDS_MODE] //allow nesting
+  };
   var COMMENTS = [
-    {
-      className: 'comment',
-      begin: '--', end: '$'
-    },
-    {
-      className: 'comment',
-      begin: '\\(\\*', end: '\\*\\)',
-      contains: ['self', {begin: '--', end: '$'}] //allow nesting
-    },
+    COMMENT_MODE_1,
+    COMMENT_MODE_2,
     hljs.HASH_COMMENT_MODE
   ];
 

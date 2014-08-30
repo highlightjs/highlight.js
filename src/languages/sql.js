@@ -7,7 +7,8 @@
 function(hljs) {
   var COMMENT_MODE = {
     className: 'comment',
-    begin: '--', end: '$'
+    begin: '--', end: '$',
+    contains: [hljs.PHRASAL_WORDS_MODE]
   };
   return {
     case_insensitive: true,

@@ -13,6 +13,7 @@ function(hljs) {
   var COMMENTS = {
     className: 'comment',
     begin: ';', end: '$',
+    contains: [hljs.PHRASAL_WORDS_MODE],
     relevance: 0
   };
   var BUILT_IN = [

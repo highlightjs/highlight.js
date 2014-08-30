@@ -22,8 +22,14 @@ function(hljs) {
       {
         className: 'comment',
         variants: [
-          {begin: ';[ \\t]*#', end: '$'},
-          {begin: '^[ \\t]*#', end: '$'}
+          {
+            begin: ';[ \\t]*#', end: '$',
+            contains: [hljs.PHRASAL_WORDS_MODE]
+          },
+          {
+            begin: '^[ \\t]*#', end: '$',
+            contains: [hljs.PHRASAL_WORDS_MODE]
+          }
         ]
       },
       {

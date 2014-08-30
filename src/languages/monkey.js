@@ -29,11 +29,13 @@ function(hljs) {
     contains: [
       {
         className: 'comment',
-        begin: '#rem', end: '#end'
+        begin: '#rem', end: '#end',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
         className: 'comment',
         begin: "'", end: '$',
+        contains: [hljs.PHRASAL_WORDS_MODE],
         relevance: 0
       },
       {

@@ -24,15 +24,16 @@ function(hljs) {
     variants: [
       {
         begin: '#', end: '$',
-        contains: [YARDOCTAG]
+        contains: [YARDOCTAG, hljs.PHRASAL_WORDS_MODE]
       },
       {
         begin: '^\\=begin', end: '^\\=end',
-        contains: [YARDOCTAG],
+        contains: [YARDOCTAG, hljs.PHRASAL_WORDS_MODE],
         relevance: 10
       },
       {
-        begin: '^__END__', end: '\\n$'
+        begin: '^__END__', end: '\\n$',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       }
     ]
   };

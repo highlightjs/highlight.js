@@ -14,15 +14,16 @@ function(hljs) {
   var COMMENTS = [
     {
       className: 'comment',
-      begin: '--(?!' + OPENING_LONG_BRACKET + ')', end: '$'
+      begin: '--(?!' + OPENING_LONG_BRACKET + ')', end: '$',
+      contains: [hljs.PHRASAL_WORDS_MODE]
     },
     {
       className: 'comment',
       begin: '--' + OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
-      contains: [LONG_BRACKETS],
+      contains: [LONG_BRACKETS, hljs.PHRASAL_WORDS_MODE],
       relevance: 10
     }
-  ]
+  ];
   return {
     lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords: {

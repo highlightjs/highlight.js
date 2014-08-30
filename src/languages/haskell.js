@@ -10,9 +10,13 @@ function(hljs) {
   var COMMENT = {
     className: 'comment',
     variants: [
-      { begin: '--', end: '$' },
-      { begin: '{-', end: '-}'
-      , contains: ['self']
+      {
+        begin: '--', end: '$',
+        contains: [hljs.PHRASAL_WORDS_MODE]
+      },
+      {
+        begin: '{-', end: '-}',
+        contains: ['self', hljs.PHRASAL_WORDS_MODE]
       }
     ]
   };

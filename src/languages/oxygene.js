@@ -16,11 +16,13 @@ function(hljs) {
   var CURLY_COMMENT =  {
     className: 'comment',
     begin: '{', end: '}',
+    contains: [hljs.PHRASAL_WORDS_MODE],
     relevance: 0
   };
   var PAREN_COMMENT = {
     className: 'comment',
     begin: '\\(\\*', end: '\\*\\)',
+    contains: [hljs.PHRASAL_WORDS_MODE],
     relevance: 10
   };
   var STRING = {

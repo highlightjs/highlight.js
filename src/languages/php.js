@@ -50,7 +50,8 @@ function(hljs) {
             className: 'phpdoc',
             begin: '\\s@[A-Za-z]+'
           },
-          PREPROCESSOR
+          PREPROCESSOR,
+          hljs.PHRASAL_WORDS_MODE
         ]
       },
       {

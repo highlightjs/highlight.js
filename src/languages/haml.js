@@ -20,6 +20,7 @@ function(hljs) {
         className: 'comment',
         // FIXME these comments should be allowed to span indented lines
         begin: '^\\s*(!=#|=#|-#|/).*$',
+        contains: [hljs.PHRASAL_WORDS_MODE],
         relevance: 0
       },
       {

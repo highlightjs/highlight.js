@@ -15,8 +15,9 @@ function(hljs){
       {
         className: 'comment',
         begin: '[^\\[\\]\\.,\\+\\-<> \r\n]',
-        returnEnd: true,
         end: '[\\[\\]\\.,\\+\\-<> \r\n]',
+        returnEnd: true,
+        contains: [hljs.PHRASAL_WORDS_MODE],
         relevance: 0
       },
       {

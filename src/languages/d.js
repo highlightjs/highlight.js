@@ -236,8 +236,8 @@ function(hljs) {
   var D_NESTING_COMMENT_MODE = {
     className: 'comment',
     begin: '\\/\\+',
-    contains: ['self'],
     end: '\\+\\/',
+    contains: ['self', hljs.PHRASAL_WORDS_MODE],
     relevance: 10
   };
 

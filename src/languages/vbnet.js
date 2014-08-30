@@ -36,13 +36,15 @@ function(hljs) {
         contains: [
           {
             className: 'xmlDocTag',
-            begin: '\'\'\'|<!--|-->'
+            begin: '\'\'\'|<!--|-->',
+            contains: [hljs.PHRASAL_WORDS_MODE]
           },
           {
             className: 'xmlDocTag',
-            begin: '</?', end: '>'
+            begin: '</?', end: '>',
+            contains: [hljs.PHRASAL_WORDS_MODE]
           }
-          ]
+        ]
       },
       hljs.C_NUMBER_MODE,
       {

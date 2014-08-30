@@ -36,7 +36,8 @@ function(hljs) {
       },
       {
         className: 'comment',
-        begin: '\\(\\*', end: '\\*\\)'
+        begin: '\\(\\*', end: '\\*\\)',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
         className: 'class',

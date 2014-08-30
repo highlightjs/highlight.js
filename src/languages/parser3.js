@@ -11,7 +11,8 @@ function(hljs) {
     contains: [
       {
         className: 'comment',
-        begin: '^#', end: '$'
+        begin: '^#', end: '$',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
         className: 'comment',
@@ -20,8 +21,9 @@ function(hljs) {
         contains: [
           {
             begin: '{', end: '}',
-            contains: ['self']
-          }
+            contains: ['self', hljs.PHRASAL_WORDS_MODE]
+          },
+          hljs.PHRASAL_WORDS_MODE
         ]
       },
       {

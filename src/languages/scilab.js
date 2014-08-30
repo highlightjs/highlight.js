@@ -58,7 +58,8 @@ function(hljs) {
       },
       {
         className: 'comment',
-        begin: '//', end: '$'
+        begin: '//', end: '$',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       }
     ].concat(COMMON_CONTAINS)
   };

@@ -13,6 +13,7 @@ function(hljs) {
         className: 'comment',
         begin: '^/{4,}\\n',
         end: '\\n/{4,}$',
+        contains: [hljs.PHRASAL_WORDS_MODE],
         // can also be done as...
         //begin: '^/{4,}$',
         //end: '^/{4,}$',
@@ -23,6 +24,7 @@ function(hljs) {
         className: 'comment',
         begin: '^//',
         end: '$',
+        contains: [hljs.PHRASAL_WORDS_MODE],
         relevance: 0
       },
       // title

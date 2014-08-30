@@ -44,6 +44,7 @@ function(hljs) {
   var COMMENT = {
     className: 'comment',
     begin: '^(__END__|__DATA__)', end: '\\n$',
+    contains: [hljs.PHRASAL_WORDS_MODE],
     relevance: 5
   };
   var STRING_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST, VAR];
@@ -53,7 +54,8 @@ function(hljs) {
     COMMENT,
     {
       className: 'comment',
-      begin: '^\\=\\w', end: '\\=cut', endsWithParent: true
+      begin: '^\\=\\w', end: '\\=cut', endsWithParent: true,
+      contains: [hljs.PHRASAL_WORDS_MODE]
     },
     METHOD,
     {

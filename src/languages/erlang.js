@@ -18,7 +18,8 @@ function(hljs) {
 
   var COMMENT = {
     className: 'comment',
-    begin: '%', end: '$'
+    begin: '%', end: '$',
+    contains: [hljs.PHRASAL_WORDS_MODE]
   };
   var NUMBER = {
     className: 'number',

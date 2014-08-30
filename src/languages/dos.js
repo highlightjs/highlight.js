@@ -8,6 +8,7 @@ function(hljs) {
   var COMMENT = {
     className: 'comment',
     begin: /@?rem\b/, end: /$/,
+    contains: [hljs.PHRASAL_WORDS_MODE],
     relevance: 10
   };
   var LABEL = {

@@ -40,7 +40,8 @@ function(hljs) {
                 begin: '</?', end: '>'
               }
             ]
-          }
+          },
+          hljs.PHRASAL_WORDS_MODE
         ]
       },
       hljs.C_LINE_COMMENT_MODE,

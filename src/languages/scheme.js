@@ -81,8 +81,15 @@ function(hljs) {
   var COMMENT = {
     className: 'comment',
     variants: [
-      { begin: ';',  end: '$', relevance: 0 },
-      { begin: '#\\|', end: '\\|#' }
+      {
+        begin: ';',  end: '$',
+        contains: [hljs.PHRASAL_WORDS_MODE],
+        relevance: 0
+      },
+      {
+        begin: '#\\|', end: '\\|#',
+        contains: [hljs.PHRASAL_WORDS_MODE]
+      }
     ]
   };
 
