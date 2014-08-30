@@ -3,8 +3,10 @@
 New languages:
 
 - *Tcl* by [Radek Liska][]
+- *Puppet* by [Jose Molina Colmenero][]
 
 [Radek Liska]: https://github.com/Nindaleth
+[Jose Molina Colmenero]: https://github.com/Moliholy
 
 ## Version 8.2
 
