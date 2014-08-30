@@ -129,3 +129,4 @@ URL:   https://highlightjs.org/
 - Адам Джозеф Кук <adam.joseph.cook@gmail.com>
 - Сергей Видюк <svidyuk@gmail.com>
 - Радэк Лиска <radekliska@gmail.com>
+- Хосе Молина Колменеро <gaudy41@gmail.com>

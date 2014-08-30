@@ -1111,7 +1111,6 @@ G-Code ("gcode", "nc")
 * ``preprocessor``:     program number and ending character
 * ``label``:            block number
 
-
 Q ("k", "kdb")
 -------------------
 
@@ -1133,3 +1132,11 @@ Tcl ("tcl", "tk")
 * ``string``:           string
 * ``number``:           number
 
+Puppet ("pp")
+-------------
+
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``keyword``:          classes and types
+* ``constant``:         dependencies

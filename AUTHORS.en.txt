@@ -129,3 +129,4 @@ Contributors:
 - Adam Joseph Cook <adam.joseph.cook@gmail.com>
 - Sergey Vidyuk <svidyuk@gmail.com>
 - Radek Liska <radekliska@gmail.com>
+- Jose Molina Colmenero <gaudy41@gmail.com>
