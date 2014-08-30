@@ -1,3 +1,11 @@
+## master
+
+New languages:
+
+- *Tcl* by [Radek Liska][]
+
+[Radek Liska]: https://github.com/Nindaleth
+
 ## Version 8.2
 
 We've finally got [real tests][test] and [continuous testing on Travis][ci]
