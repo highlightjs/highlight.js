@@ -1122,3 +1122,14 @@ Q ("k", "kdb")
 * ``constant``:         0/1b
 * ``typename``:         built-in plain types (int, symbol etc.)
 * ``built_in``:         built-in function
+
+Tcl ("tcl", "tk")
+-----------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment
+* ``symbol``:           function (proc)
+* ``variable``:         variable
+* ``string``:           string
+* ``number``:           number
+
