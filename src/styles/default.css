@@ -42,8 +42,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .tex .hljs-command,
 .tex .hljs-special,
 .erlang_repl .hljs-function_or_atom,
-.asciidoc .hljs-header,
-.markdown .hljs-header,
+.hljs-header,
 .coffeescript .hljs-attribute {
   color: #800;
 }
@@ -54,8 +53,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-template_comment,
 .diff .hljs-header,
 .hljs-chunk,
-.asciidoc .hljs-blockquote,
-.markdown .hljs-blockquote {
+.hljs-blockquote {
   color: #888;
 }
 
@@ -70,10 +68,8 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-change,
 .lasso .hljs-variable,
 .makefile .hljs-variable,
-.asciidoc .hljs-bullet,
-.markdown .hljs-bullet,
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
+.hljs-bullet,
+.hljs-link_url {
   color: #080;
 }
 
@@ -98,8 +94,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .tex .hljs-formula,
 .erlang_repl .hljs-reserved,
 .hljs-prompt,
-.asciidoc .hljs-link_label,
-.markdown .hljs-link_label,
+.hljs-link_label,
 .vhdl .hljs-attribute,
 .clojure .hljs-attribute,
 .asciidoc .hljs-attribute,
@@ -125,15 +120,13 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-type,
 .hljs-typename,
 .tex .hljs-command,
-.asciidoc .hljs-strong,
-.markdown .hljs-strong,
+.hljs-strong,
 .hljs-request,
 .hljs-status {
   font-weight: bold;
 }
 
-.asciidoc .hljs-emphasis,
-.markdown .hljs-emphasis {
+.hljs-emphasis {
   font-style: italic;
 }
 
