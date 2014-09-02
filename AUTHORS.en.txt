@@ -130,3 +130,4 @@ Contributors:
 - Sergey Vidyuk <svidyuk@gmail.com>
 - Radek Liska <radekliska@gmail.com>
 - Jose Molina Colmenero <gaudy41@gmail.com>
+- Max Mikhailov <seven.phases.max@gmail.com>
