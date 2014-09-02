@@ -28,7 +28,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 }
 
 .hljs .hljs-constant,
-.asciidoc .hljs-code {
+.hljs-code {
 	color: #66d9ef;
 }
 
