@@ -27,6 +27,6 @@
     .end local v1           #customRate:Landroid/preference/Preference;
     .end local v2           #hideApp:Landroid/preference/Preference;
     :cond_56
-    
+
     return-void
 .end method

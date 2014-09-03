@@ -1148,6 +1148,6 @@ Smali ("smali")
 * ``comment``:          comment
 * ``keyword``:          smali keywords
 * ``instruction``:      instruction
-* ``class``:          	classtypes
+* ``class``:          	 classtypes
 * ``function``:         function (call or signature)
 * ``variable``:         variable or parameter
