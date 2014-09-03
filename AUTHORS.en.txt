@@ -130,3 +130,4 @@ Contributors:
 - Sergey Vidyuk <svidyuk@gmail.com>
 - Radek Liska <radekliska@gmail.com>
 - Jose Molina Colmenero <gaudy41@gmail.com>
+- Dennis Titze <dennis.titze@gmail.com>

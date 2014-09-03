@@ -1140,3 +1140,14 @@ Puppet ("pp")
 * ``number``:           number
 * ``keyword``:          classes and types
 * ``constant``:         dependencies
+
+Smali ("smali")
+-------------
+
+* ``string``:           string
+* ``comment``:          comment
+* ``keyword``:          smali keywords
+* ``instruction``:      instruction
+* ``class``:          	classtypes
+* ``function``:         function (call or signature)
+* ``variable``:         variable or parameter

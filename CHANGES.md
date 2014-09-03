@@ -4,6 +4,7 @@ New languages:
 
 - *Tcl* by [Radek Liska][]
 - *Puppet* by [Jose Molina Colmenero][]
+- *Smali* by [Dennis Titze][]
 
 [Radek Liska]: https://github.com/Nindaleth
 [Jose Molina Colmenero]: https://github.com/Moliholy
