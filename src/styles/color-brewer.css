@@ -44,8 +44,7 @@ Ported by Fabrício Tavares de Oliveira
 .tex .hljs-command,
 .tex .hljs-special,
 .erlang_repl .hljs-function_or_atom,
-.asciidoc .hljs-header,
-.markdown .hljs-header,
+hljs-header,
 .coffeescript .hljs-attribute {
   color: #756bb1;
 }
@@ -56,8 +55,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-template_comment,
 .diff .hljs-header,
 .hljs-chunk,
-.asciidoc .hljs-blockquote,
-.markdown .hljs-blockquote {
+.hljs-blockquote {
   color: #636363;
 }
 
@@ -72,10 +70,8 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-change,
 .lasso .hljs-variable,
 .makefile .hljs-variable,
-.asciidoc .hljs-bullet,
-.markdown .hljs-bullet,
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
+.hljs-bullet,
+.hljs-link_url {
   color: #31a354;
 }
 
@@ -101,8 +97,7 @@ Ported by Fabrício Tavares de Oliveira
 .tex .hljs-formula,
 .erlang_repl .hljs-reserved,
 .hljs-prompt,
-.asciidoc .hljs-link_label,
-.markdown .hljs-link_label,
+.hljs-link_label,
 .vhdl .hljs-attribute,
 .clojure .hljs-attribute,
 .asciidoc .hljs-attribute,
@@ -130,15 +125,13 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-type,
 .hljs-typename,
 .tex .hljs-command,
-.asciidoc .hljs-strong,
-.markdown .hljs-strong,
+.hljs-strong,
 .hljs-request,
 .hljs-status {
   color: #3182bd;
 }
 
-.asciidoc .hljs-emphasis,
-.markdown .hljs-emphasis {
+.hljs-emphasis {
   font-style: italic;
 }
 
