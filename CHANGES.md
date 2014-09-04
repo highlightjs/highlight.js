@@ -8,6 +8,7 @@ New languages:
 
 [Radek Liska]: https://github.com/Nindaleth
 [Jose Molina Colmenero]: https://github.com/Moliholy
+[Dennis Titze]: https://github.com/titze
 
 ## Version 8.2
 
