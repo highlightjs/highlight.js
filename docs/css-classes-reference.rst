@@ -1184,3 +1184,12 @@ Puppet ("pp")
 * ``number``:           number
 * ``keyword``:          classes and types
 * ``constant``:         dependencies
+
+Verilog ("verilog", "v")
+------------------------
+
+* ``keyword``:          keyword, operator
+* ``comment``:          comment
+* ``typename``:         types of data, register, and net
+* ``number``:           number literals (including X and Z)
+* ``value``:            parameters passed to instances

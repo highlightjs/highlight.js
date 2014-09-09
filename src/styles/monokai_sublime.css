@@ -58,7 +58,8 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .hljs-emphasis,
 .hljs-strongemphasis,
-.hljs-class .hljs-title:last-child {
+.hljs-class .hljs-title:last-child,
+.hljs-typename {
   font-style: italic;
 }
 
@@ -85,6 +86,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-function .hljs-keyword,
 .hljs-class .hljs-keyword:first-child,
 .hljs-constant,
+.hljs-typename,
 .css .hljs-attribute {
   color: #66d9ef;
 }
