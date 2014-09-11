@@ -28,7 +28,7 @@ function(hljs) {
   };
 
   var PARENS_MODE = {
-    // used only to properly balance nested parens inside mixin call/def. arg list
+    // used only to properly balance nested parens inside mixin call, def. arg list
     begin: '\\(', end: '\\)', contains: VALUE, relevance: 0
   };
 
@@ -48,7 +48,7 @@ function(hljs) {
     IDENT_MODE('variable', '@@?' + IDENT_RE, 10),
     IDENT_MODE('variable', '@{'  + IDENT_RE + '}'),
     IDENT_MODE('built_in', '~?`[^`]*?`'), // inline javascript (or whatever host language) *multiline* string
-    { // @media features (it's here to not duplicate things in AT_RULE_MODE with extra PARENS_MODE overriding):
+    { // @media features (it’s here to not duplicate things in AT_RULE_MODE with extra PARENS_MODE overriding):
       className: 'attribute', begin: IDENT_RE + '\\s*:', end: ':', returnBegin: true, excludeEnd: true
     }
   );
@@ -59,7 +59,7 @@ function(hljs) {
 
   var MIXIN_GUARD_MODE = {
     beginKeywords: 'when', endsWithParent: true,
-    contains: [{beginKeywords: 'and not'}].concat(VALUE) // using this form to override VALUE's 'function' match
+    contains: [{beginKeywords: 'and not'}].concat(VALUE) // using this form to override VALUE’s 'function' match
   };
 
   /* Rule-Level Modes */
@@ -81,7 +81,7 @@ function(hljs) {
     variants: [
       // using more strict pattern for higher relevance to increase chances of Less detection.
       // this is *the only* Less specific statement used in most of the sources, so...
-      // (we'll still often loose to the css-parser unless there's '//' comment,
+      // (we’ll still often loose to the css-parser unless there's '//' comment,
       // simply because 1 variable just can't beat 99 properties :)
       {begin: '@' + IDENT_RE + '\\s*:', relevance: 15},
       {begin: '@' + IDENT_RE}
@@ -113,7 +113,7 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       MIXIN_GUARD_MODE,
       IDENT_MODE('keyword',  'all\\b'),
-      IDENT_MODE('variable', '@{'  + IDENT_RE + '}'),     // otherwise it's identified as tag
+      IDENT_MODE('variable', '@{'  + IDENT_RE + '}'),     // otherwise it’s identified as tag
       IDENT_MODE('tag',       INTERP_IDENT_RE + '%?', 0), // '%' for more consistent coloring of @keyframes "tags"
       IDENT_MODE('id',       '#'   + INTERP_IDENT_RE),
       IDENT_MODE('class',    '\\.' + INTERP_IDENT_RE, 0),
