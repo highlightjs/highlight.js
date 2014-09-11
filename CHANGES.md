@@ -2,9 +2,11 @@
 
 New languages:
 
+- *Less* by [Max Mikhailov][]
 - *Tcl* by [Radek Liska][]
 - *Puppet* by [Jose Molina Colmenero][]
 
+[Max Mikhailov]: https://github.com/seven-phases-max
 [Radek Liska]: https://github.com/Nindaleth
 [Jose Molina Colmenero]: https://github.com/Moliholy
 
