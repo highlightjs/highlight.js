@@ -130,3 +130,4 @@ URL:   https://highlightjs.org/
 - Сергей Видюк <svidyuk@gmail.com>
 - Радэк Лиска <radekliska@gmail.com>
 - Хосе Молина Колменеро <gaudy41@gmail.com>
+- Макс Михайлов <seven.phases.max@gmail.com>
