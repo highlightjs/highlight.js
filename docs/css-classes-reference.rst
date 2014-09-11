@@ -229,7 +229,7 @@ Less ("less")
 * ``hexcolor``:         hex color (#FFF)
 * ``built_in``:         inline javascript (or whatever host language) string
 
-Stylus ("styl")
+Stylus ("stylus", "styl")
 -------------
 
 * ``at_rule``:          @-rule till first "{" or ";"

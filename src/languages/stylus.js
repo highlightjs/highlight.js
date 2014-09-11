@@ -344,7 +344,7 @@ function(hljs) {
   ];
 
   return {
-    aliases: ['styl', 'stylus'],
+    aliases: ['styl'],
     case_insensitive: false,
     illegal: '(' + ILLEGAL.join('|') + ')',
     keywords: 'if else for in',
