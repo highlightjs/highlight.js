@@ -210,6 +210,25 @@ SCSS ("scss")
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     keywords after @
 
+Less ("less")
+-------------
+
+* ``comment``:          comment
+* ``number``:           number
+* ``string``:           string
+* ``attribute``:        property name
+* ``variable``:         @var, @@var or @{var}
+* ``keyword``:          Less keywords (when, extend etc.)
+* ``function``:         Less and CSS functions (rgba, unit etc.)
+* ``tag``:              tag
+* ``id``:               #id
+* ``class``:            .class
+* ``at_rule``:          at-rule keyword (@media, @keyframes etc.)
+* ``attr_selector``:    attribute selector (e.g. [href^=http://])
+* ``pseudo``:           pseudo classes and elements (:hover, ::before etc.)
+* ``hexcolor``:         hex color (#FFF)
+* ``built_in``:         inline javascript (or whatever host language) string
+
 Markdown ("markdown", "md", "mkdown", "mkd")
 --------------------------------------------
 
@@ -1140,22 +1159,3 @@ Puppet ("pp")
 * ``number``:           number
 * ``keyword``:          classes and types
 * ``constant``:         dependencies
-
-Less ("less")
--------------
-
-* ``comment``:          comment
-* ``number``:           number
-* ``string``:           string
-* ``attribute``:        property name
-* ``variable``:         @var, @@var or @{var}
-* ``keyword``:          Less keywords (when, extend etc.)
-* ``function``:         Less and CSS functions (rgba, unit etc.)
-* ``tag``:              tag
-* ``id``:               #id
-* ``class``:            .class
-* ``at_rule``:          at-rule keyword (@media, @keyframes etc.)
-* ``attr_selector``:    attribute selector (e.g. [href^=http://])
-* ``pseudo``:           pseudo classes and elements (:hover, ::before etc.)
-* ``hexcolor``:         hex color (#FFF)
-* ``built_in``:         inline javascript (or whatever host language) string
