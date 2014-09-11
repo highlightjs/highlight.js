@@ -131,3 +131,4 @@ Contributors:
 - Radek Liska <radekliska@gmail.com>
 - Jose Molina Colmenero <gaudy41@gmail.com>
 - Max Mikhailov <seven.phases.max@gmail.com>
+- Bryant Williams <b.n.williams@gmail.com>
