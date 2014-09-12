@@ -501,7 +501,7 @@ function() {
   }
 
   function buildClassName(prevClassName, currentLang, resultLang) {
-    var language = currentLang ? aliases[currentLang] : resultLang;
+    var language = currentLang ? aliases[currentLang] : resultLang,
         result   = [prevClassName.trim(), 'hljs'];
 
     if(language) {
