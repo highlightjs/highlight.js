@@ -539,7 +539,7 @@ function() {
     result.value = fixMarkup(result.value);
 
     block.innerHTML = result.value;
-    block.className += ' hljs ' + (!language && result.language || '');
+    block.className = buildClassName(block.className, language, result.language);
     block.result = {
       language: result.language,
       re: result.relevance
