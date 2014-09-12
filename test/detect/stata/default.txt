@@ -1,0 +1,3 @@
+
+* Comment 1
+gen y = /*Comment 2*/ abs(-2) //Comment 3

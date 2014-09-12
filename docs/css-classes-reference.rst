@@ -1237,6 +1237,15 @@ Puppet ("puppet", "pp")
 * ``keyword``:          classes and types
 * ``constant``:         dependencies
 
+Stata ("stata")
+-------------
+
+* ``keyword``:          commands and control flow
+* ``label``:            macros (locals and globals)
+* ``string``:           string
+* ``comment``:          comment
+* ``literal``:          built-in functions
+
 XL ("xl", "tao")
 -----------
 

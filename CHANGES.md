@@ -21,6 +21,7 @@ New languages in this release:
 - *Stylus* by [Bryant Williams][]
 - *Tcl* by [Radek Liska][]
 - *Puppet* by [Jose Molina Colmenero][]
+- *Stata* by [Brian Quistorff][]
 - *Processing* by [Erik Paluka][]
 - *Twig* templates by [Luke Holder][]
 - *PowerShell* by [David Mohundro][], based on [the work of Nicholas
