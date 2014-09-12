@@ -500,6 +500,17 @@ function() {
     return value;
   }
 
+  function buildClassName(prevClassName, currentLang, resultLang) {
+    var language = currentLang ? aliases[currentLang] : resultLang;
+        result   = [prevClassName.trim(), 'hljs'];
+
+    if(language) {
+      result.push(language);
+    }
+
+    return result.join(' ').trim();
+  }
+
   /*
   Applies highlighting to a DOM node containing code. Accepts a DOM node and
   two optional parameters for fixMarkup.
