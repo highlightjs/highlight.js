@@ -38,13 +38,8 @@ function(hljs) {
         ]
       },
       {
-        // this prevents 'new Name(...)' from being recognized as a function definition
-        beginKeywords: 'new', end: /\s/,
-        relevance: 0
-      },
-      {
-        // this prevents 'throw ...' from being recognized as a function definition
-        beginKeywords: 'throw', end: /\s/,
+        // this prevents 'new Name(...), or throw ...' from being recognized as a function definition
+        beginKeywords: 'new throw', end: /\s/,
         relevance: 0
       },
       {
