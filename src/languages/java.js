@@ -43,6 +43,11 @@ function(hljs) {
         relevance: 0
       },
       {
+        // this prevents 'throw ...' from being recognized as a function definition
+        beginKeywords: 'throw', end: /\s/,
+        relevance: 0
+      },
+      {
         className: 'function',
         begin: '(' + GENERIC_IDENT_RE + '\\s+)+' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
         excludeEnd: true,
