@@ -37,9 +37,14 @@ function(hljs) {
       'lazy-seq spread list* str find-keyword keyword symbol gensym force rationalize'
    };
 
-  var CLJ_IDENT_RE = '[a-zA-Z_0-9\\!\\.\\?\\-\\+\\*\\/\\<\\=\\>\\&\\#\\$\';]+';
-  var SIMPLE_NUMBER_RE = '[\\s:\\(\\{]+\\d+(\\.\\d+)?';
+  var symbolstart = 'a-zA-Z_\\-!.?+*=<>&#\'';
+  var SYMBOL_RE = '[' + symbolstart + '][' + symbolstart + '0-9/;:]+';
+  var SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
 
+  var SYMBOL = {
+    begin: SYMBOL_RE,
+    relevance: 0
+  };
   var NUMBER = {
     className: 'number', begin: SIMPLE_NUMBER_RE,
     relevance: 0
@@ -56,7 +61,7 @@ function(hljs) {
   };
   var HINT = {
     className: 'comment',
-    begin: '\\^' + CLJ_IDENT_RE
+    begin: '\\^' + SYMBOL_RE
   };
   var HINT_COL = {
     className: 'comment',
@@ -65,7 +70,7 @@ function(hljs) {
   };
   var KEY = {
     className: 'attribute',
-    begin: '[:]' + CLJ_IDENT_RE
+    begin: '[:]' + SYMBOL_RE
   };
   var LIST = {
     className: 'list',
@@ -78,14 +83,14 @@ function(hljs) {
   };
   var NAME = {
     keywords: keywords,
-    lexemes: CLJ_IDENT_RE,
-    className: 'keyword', begin: CLJ_IDENT_RE,
+    lexemes: SYMBOL_RE,
+    className: 'keyword', begin: SYMBOL_RE,
     starts: BODY
   };
 
   LIST.contains = [{className: 'comment', begin: 'comment'}, NAME, BODY];
-  BODY.contains = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER];
-  COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER];
+  BODY.contains = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, SYMBOL];
+  COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER, SYMBOL];
 
   return {
     aliases: ['clj'],
