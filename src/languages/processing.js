@@ -8,13 +8,13 @@ function(hljs) {
   return {
     case_insensitive: false,
     keywords: {
-      constant: 'P2D P3D HALF_PI PI QUARTER_PI TAU TWO_PI', 
-      variable: 'displayHeight displayWidth mouseY mouseX mousePressed pmouseX pmouseY key ' + 
-        'keyCode pixels focused frameCount frameRate height width', 
+      constant: 'P2D P3D HALF_PI PI QUARTER_PI TAU TWO_PI',
+      variable: 'displayHeight displayWidth mouseY mouseX mousePressed pmouseX pmouseY key ' +
+        'keyCode pixels focused frameCount frameRate height width',
       keyword: 'BufferedReader PVector PFont PImage PGraphics HashMap boolean byte char color ' +
         'double float int long String Array FloatDict FloatList IntDict IntList JSONArray JSONObject ' +
-        'Object StringDict StringList Table TableRow XML', 
-      function: 'setup draw', 
+        'Object StringDict StringList Table TableRow XML',
+      title: 'setup draw',
       built_in: 'size createGraphics beginDraw createShape loadShape PShape arc ellipse line point ' +
         'quad rect triangle bezier bezierDetail bezierPoint bezierTangent curve curveDetail curvePoint ' +
         'curveTangent curveTightness shape shapeMode beginContour beginShape bezierVertex curveVertex ' +
