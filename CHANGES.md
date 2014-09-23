@@ -6,11 +6,13 @@ New languages:
 - *Stylus* by [Bryant Williams][]
 - *Tcl* by [Radek Liska][]
 - *Puppet* by [Jose Molina Colmenero][]
+- *Processing* by [Erik Paluka][]
 
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
 [Radek Liska]: https://github.com/Nindaleth
 [Jose Molina Colmenero]: https://github.com/Moliholy
+[Erik Paluka]: https://github.com/paluka
 
 ## Version 8.2
 
