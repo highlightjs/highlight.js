@@ -542,6 +542,15 @@ Java ("java", "jsp")
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "implements" inside class header
 
+Processing ("processing")
+-------------------------
+
+* ``constant``:         Processing constants
+* ``variable``:         Processing special variables
+* ``keyword``:          Variable types
+* ``function``:         Processing setup and draw functions
+* ``built_in``:         Processing built in functions
+
 C++ ("cpp", "c", "h", "c++", "h++")
 -----------------------------------
 

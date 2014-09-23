@@ -1,4 +1,4 @@
-Syntax highlighting with language autodetection.
+﻿Syntax highlighting with language autodetection.
 
 URL:   https://highlightjs.org/
 
@@ -10,6 +10,7 @@ Core developers (in order of appearance):
 
 Contributors:
 
+- Erik Paluka <erik.paluka@gmail.com>
 - Peter Leonov <gojpeg@gmail.com>
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
