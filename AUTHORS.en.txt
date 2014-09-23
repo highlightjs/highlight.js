@@ -10,7 +10,6 @@ Core developers (in order of appearance):
 
 Contributors:
 
-- Erik Paluka <erik.paluka@gmail.com>
 - Peter Leonov <gojpeg@gmail.com>
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
@@ -133,3 +132,4 @@ Contributors:
 - Jose Molina Colmenero <gaudy41@gmail.com>
 - Max Mikhailov <seven.phases.max@gmail.com>
 - Bryant Williams <b.n.williams@gmail.com>
+- Erik Paluka <erik.paluka@gmail.com>
