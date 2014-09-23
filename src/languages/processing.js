@@ -5,7 +5,6 @@ Author: Erik Paluka <erik.paluka@gmail.com>
 
 function(hljs) {
   return {
-    case_insensitive: false,
     keywords: {
       keyword: 'BufferedReader PVector PFont PImage PGraphics HashMap boolean byte char color ' +
         'double float int long String Array FloatDict FloatList IntDict IntList JSONArray JSONObject ' +
