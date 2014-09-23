@@ -678,8 +678,8 @@ Mizar ("mizar"):
 
 Processing ("processing"):
 
-  pConstant        Processing constants
-  pSpecial         Processing special variables
-  pVariable        Processing variables
-  pSetup           Processing setup functions
-  pFunction        Processing functions
+  constant         Processing constants
+  variable         Processing special variables
+  keyword          Variable types
+  function         Processing setup and draw functions
+  built_in         Processing built in functions
