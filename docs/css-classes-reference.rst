@@ -381,7 +381,7 @@ Dart ("dart")
 * ``string``:           string
 * ``subst``:            in-string substitution (${...})
 * ``comment``:          commment
-* ``annotaion``:        annotation
+* ``annotation``:       annotation
 * ``dartdoc``:          dartdoc comment
 * ``class``:            class header from "class" till "{"
 * ``title``:            class name
