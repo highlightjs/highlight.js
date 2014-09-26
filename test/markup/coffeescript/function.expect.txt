@@ -1,4 +1,4 @@
-<pre><code class="hljs coffeescript"><span class="hljs-function"><span class="hljs-title">returnNull</span> = -&gt;</span> <span class="hljs-literal">null</span>
+<span class="hljs-function"><span class="hljs-title">returnNull</span> = -&gt;</span> <span class="hljs-literal">null</span>
 <span class="hljs-function"><span class="hljs-title">returnTrue</span> = <span class="hljs-params">()</span> -&gt;</span> <span class="hljs-literal">true</span>
 <span class="hljs-function"><span class="hljs-title">square</span> = <span class="hljs-params">(x)</span> -&gt;</span> x * x
 
@@ -12,4 +12,3 @@ fs.readFile(<span class="hljs-string">"package.json"</span>, <span class="hljs-s
 
   data.version
 )
-</code></pre>
