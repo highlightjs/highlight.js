@@ -87,6 +87,10 @@ PHP ("php", "php3", "php4", "php5", "php6")
 * ``phpdoc``:           phpdoc params in comments
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     preprocessor marks: "<?php" and "?>"
+* ``class``:            class header
+* ``function``:         header of a function
+* ``title``:            name of a function inside a header
+* ``params``:           parentheses and everything inside them in a function's header
 
 Scala ("scala")
 ---------------
@@ -177,10 +181,12 @@ CSS ("css")
 * ``id``:               #some_name in selectors
 * ``class``:            .some_name in selectors
 * ``at_rule``:          @-rule till first "{" or ";"
+* ``keyword``:          name of @-rule after @ sign
 * ``attr_selector``:    attribute selector (square brackets in a[href^=http://])
 * ``pseudo``:           pseudo classes and elements (:after, ::after etc.)
 * ``comment``:          comment
 * ``rules``:            everything from "{" till "}"
+* ``rule``:             rule itself — everything inside "{" and "}"
 * ``attribute``:        property name inside a rule
 * ``value``:            property value inside a rule, from ":" till ";" or till the end of rule block
 * ``number``:           number within a value
@@ -333,6 +339,7 @@ JavaScript ("javascript", "js")
 * ``comment``:          comment
 * ``number``:           number
 * ``literal``:          special literal: "true", "false" and "null"
+* ``built_in``:         built-in objects and functions ("window", "console", "require", etc...)
 * ``string``:           string
 * ``regexp``:           regular expression
 * ``function``:         header of a function
@@ -347,6 +354,7 @@ TypeScript ("typescript", "ts")
 * ``comment``:          comment
 * ``number``:           number
 * ``literal``:          special literal: "true", "false" and "null"
+* ``built_in``:         built-in objects and functions ("window", "console", "require", etc...)
 * ``string``:           string
 * ``regexp``:           regular expression
 * ``function``:         header of a function
