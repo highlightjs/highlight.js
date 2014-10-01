@@ -7,12 +7,14 @@ New languages:
 - *Tcl* by [Radek Liska][]
 - *Puppet* by [Jose Molina Colmenero][]
 - *Processing* by [Erik Paluka][]
+- *PowerShell* by [David Mohundro][]
 
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
 [Radek Liska]: https://github.com/Nindaleth
 [Jose Molina Colmenero]: https://github.com/Moliholy
 [Erik Paluka]: https://github.com/paluka
+[David Mohundro]: https://github.com/drmohundro
 
 ## Version 8.2
 

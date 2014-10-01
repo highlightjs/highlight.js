@@ -133,3 +133,5 @@ Contributors:
 - Max Mikhailov <seven.phases.max@gmail.com>
 - Bryant Williams <b.n.williams@gmail.com>
 - Erik Paluka <erik.paluka@gmail.com>
+- David Mohundro <david@mohundro.com>
+- Nicholas Blumhardt <nblumhardt@nblumhardt.com>
