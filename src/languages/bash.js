@@ -36,7 +36,7 @@ function(hljs) {
     keywords: {
       keyword:
         'if then else elif fi for break continue while in do done exit return set '+
-        'declare case esac export exec',
+        'declare case esac export exec function',
       literal:
         'true false',
       built_in:
