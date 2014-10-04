@@ -158,7 +158,7 @@ function() {
 
     function compileMode(mode, parent) {
       if (mode.compiled)
-        return;
+        return mode;
       mode.compiled = true;
 
       mode.keywords = mode.keywords || mode.beginKeywords;
@@ -231,9 +231,11 @@ function() {
         .map(reStr)
         .filter(Boolean);
       mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : {exec: function(s) {return null;}};
+
+      return mode;
     }
 
-    compileMode(language);
+    return compileMode(language);
   }
 
   /*
@@ -398,7 +400,7 @@ function() {
       throw new Error('Unknown language: "' + name + '"');
     }
 
-    compileLanguage(language);
+    language = compileLanguage(language);
     var top = continuation || language;
     var continuations = {}; // keep continuations for sub-languages
     var result = '';
@@ -616,6 +618,7 @@ function() {
   this.registerLanguage = registerLanguage;
   this.listLanguages = listLanguages;
   this.getLanguage = getLanguage;
+  this.compileLanguage = compileLanguage;
   this.inherit = inherit;
 
   // Common regexps
