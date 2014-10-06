@@ -7,12 +7,14 @@ New languages:
 - *Tcl* by [Radek Liska][]
 - *Puppet* by [Jose Molina Colmenero][]
 - *Processing* by [Erik Paluka][]
+- *Julia* by [Kenta Sato][]
 
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
 [Radek Liska]: https://github.com/Nindaleth
 [Jose Molina Colmenero]: https://github.com/Moliholy
 [Erik Paluka]: https://github.com/paluka
+[Kenta Sato]: https://github.com/bicycle1885
 
 ## Version 8.2
 
