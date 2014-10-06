@@ -80,7 +80,7 @@ function(hljs) {
       "DevNull",
       "ENDIAN_BOM",
       "ENV",
-      "I",
+      "I|0",  // avoid confusion with the Gherkin language
       "Inf",
       "Inf16",
       "Inf32",

@@ -92,7 +92,8 @@ function(hljs) {
       },
       {
         className: 'comment',
-        begin: '\\%', end: '$'
+        begin: '\\%', end: '$',
+        relevance: 10
       }
     ].concat(COMMON_CONTAINS)
   };
