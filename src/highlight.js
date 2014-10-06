@@ -502,9 +502,13 @@ function() {
 
   function buildClassName(prevClassName, currentLang, resultLang) {
     var language = currentLang ? aliases[currentLang] : resultLang,
-        result   = [prevClassName.trim(), 'hljs'];
+        result   = [prevClassName.trim()];
 
-    if(language) {
+    if (!prevClassName.match(/(\s|^)hljs(\s|$)/)) {
+      result.push('hljs');
+    }
+
+    if (language) {
       result.push(language);
     }
 
