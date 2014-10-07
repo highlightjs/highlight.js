@@ -1192,3 +1192,24 @@ Puppet ("pp")
 * ``number``:           number
 * ``keyword``:          classes and types
 * ``constant``:         dependencies
+
+AspectJ ("aspectj")
+-------------
+
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``keyword``:          keyword
+* ``annotation``:       annotation
+* ``javadoc``:          javadoc comment
+* ``operation``:        method and intertype method header
+* ``title``:            aspect, method name or pointcut name inside an aspect header
+* ``params``:           everything in parentheses inside an aspect header
+* ``inheritance``:      keywords "extends" and "implements" inside aspect header and inner class header
+* ``shortkeys``:        refers to get, set, and args pointcut
+* ``aspect``:           aspect header from "aspect" till "{"
+* ``associations``:     aspect associations' keywords  "pertypewithin", "perthis", "percflowbelow", "percflow", and "issingleton" inside aspect header 
+* ``crosscutting``:     crosscutting constructs: pointcut and advice declarations namely after advice, before advice , after throwing, after returning, and around advice
+* ``signature``:        signature patterns of all kinded and non-kinded pointcuts, also for the body of declare statements 
+* ``declare``:          modifying structure "declare parents", declaring weave-time warnings "declare warning" and "declare error", softening checked exception "declare soft", and finally aspect precedence "delcare precedence"
+

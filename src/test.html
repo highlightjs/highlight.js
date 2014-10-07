@@ -3821,6 +3821,101 @@ proc isprime x {
 }
 </code></pre>
 
+<tr>
+    <th>AspectJ
+    <td class="aspectj">
+<pre><code>package com.aspectj.syntax;
+import org.aspectj.lang.annotation.AdviceName;
+/**
+ * @author John Smith <john.smith@example.com>
+ * @version 1.0
+*/
+privileged public aspect LoggingAspect issingleton() percflowbelow(ajia.services.*){
+	
+	private String name = "aspectj";
+	
+	static abstract aspect Tracing {
+		public abstract pointcut traced();
+	}	
+	pointcut converter(Temperature temp) : 
+		get(double Temperature.resultFah) && 
+		withincode(public double Temperature.getFahrenhite(..)) && 
+		this(temp);
+	
+	private pointcut constructCustomer() : call(Customer. new(String,String,int,int,int)) && if(circle.getRadius() < 5);
+	
+	private pointcut getResult() : call(* *(..) throws SQLException) && args(Account, .., int);
+
+	after() throwing(Exception ex): exceptionEmail(){
+		System.out.println(ex.getMessage());
+	}
+	
+	@AdviceName("CheckValidEmail")
+	after(Customer hu) : getResult(hu){		
+		if(counter < 1){
+			System.out.println("Your mail address is valid!");
+			counter += 1;
+		}
+	}
+	
+	Object around() throws InsufficientBalanceException: getResult() && 
+		call(Customer . new(String,String,int,int,int)){
+		return	proceed();
+	}
+	
+	pointcut publicOperation() : execution(public * *.*(..));
+	
+	@AdviceName("exception")
+	after() throwing(Exception ex): exceptionEmail(){
+		System.out.println(ex.getMessage() + thisJoinPoint.getType());
+	}
+
+	
+	public Cache getCache  () {
+		return this.cache;
+	}
+	public void setCache(Cache cache) {
+		this.cache = cache;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
+	pointcut beanPropertyChange(BeanSupport bean, Object newValue):   
+					execution(void BeanSupport+.set*(*))
+					&& args(newValue) && this(bean);
+	
+	declare parents: banking.entities.* implements BeanSupport;
+	
+	declare warning : call(void TestSoftening.perform()): "Please ensure you are not calling this from an AWT thread";
+	 
+	declare precedence : Auth*, PoolingAspect, AuthenticationAspect;	 
+	declare soft : RemoteException : call(void TestSoftening.perform());
+	 
+	public interface Identifiable {
+		public void setId(String id);
+		public String getId();
+		static aspect Impl pertypewithin(Account+) {
+			/* Intertype field declaration */
+			private String Identifiable.id;
+			/* Intertype method declaration */
+			public void Identifiable.setId(String id) {
+				this.id = id;
+			}
+			private pointcut getResult() : call(* *(..) throws SQLException) && args(Account, .., int);
+			@AdviceName("exception")
+			after() throwing(Exception ex): getResult(){
+				System.out.println(ex.getMessage());
+			}
+			/* Intertype method declaration */
+			public String Identifiable.getId() {
+				return this.id;
+			}
+		}
+	}
+}
+</code></pre>
+
 </table>
 
 
