@@ -32,7 +32,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .method,
 .hljs-addition,
 .css .hljs-tag,
-.clojure .hljs-title,
+.hljs-list .hljs-keyword,
 .nginx .hljs-title {
   color: #b64926;
 }
@@ -55,8 +55,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-chunk,
 .hljs-decorator,
 .hljs-built_in,
-.lisp .hljs-title,
-.clojure .hljs-built_in,
 .hljs-identifier,
 .hljs-id {
   color: #ffb03b;

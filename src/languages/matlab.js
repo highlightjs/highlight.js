@@ -13,6 +13,14 @@ function(hljs) {
       contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}]
     }
   ];
+  var TRANSPOSE = {
+    relevance: 0,
+    contains: [
+      {
+        className: 'operator', begin: /'['\.]*/
+      }
+    ]
+  };
 
   return {
     keywords: {
@@ -53,25 +61,34 @@ function(hljs) {
         ]
       },
       {
-        className: 'transposed_variable',
-        begin: '[a-zA-Z_][a-zA-Z_0-9]*(\'+[\\.\']*|[\\.\']+)', end: '',
-        relevance: 0
+        begin: /[a-zA-Z_][a-zA-Z_0-9]*'['\.]*/,
+        returnBegin: true,
+        relevance: 0,
+        contains: [
+          {begin: /[a-zA-Z_][a-zA-Z_0-9]*/, relevance: 0},
+          TRANSPOSE.contains[0]
+        ]
       },
       {
         className: 'matrix',
-        begin: '\\[', end: '\\]\'*[\\.\']*',
+        begin: '\\[', end: '\\]',
         contains: COMMON_CONTAINS,
-        relevance: 0
+        relevance: 0,
+        starts: TRANSPOSE
       },
       {
         className: 'cell',
-        begin: '\\{',
+        begin: '\\{', end: /\}/,
         contains: COMMON_CONTAINS,
+        relevance: 0,
         illegal: /:/,
-        variants: [
-          {end: /\}'[\.']*/},
-          {end: /\}/, relevance: 0}
-        ]
+        starts: TRANSPOSE
+      },
+      {
+        // transpose operators at the end of a function call
+        begin: /\)/,
+        relevance: 0,
+        starts: TRANSPOSE
       },
       {
         className: 'comment',

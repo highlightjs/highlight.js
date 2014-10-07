@@ -48,7 +48,7 @@ $(document).ready(function() {
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });
-};)
+});
 ```
 
 You can use any tags instead of `<pre><code>` to mark up your code. If you don't

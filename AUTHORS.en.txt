@@ -1,4 +1,4 @@
-Syntax highlighting with language autodetection.
+﻿Syntax highlighting with language autodetection.
 
 URL:   https://highlightjs.org/
 
@@ -125,3 +125,11 @@ Contributors:
 - Henrik Feldt <henrik@haf.se>
 - Anton Kochkov <anton.kochkov@gmail.com>
 - Michael Allen <Michael.Allen@benefitfocus.com>
+- JP Verkamp <me@jverkamp.com>
+- Adam Joseph Cook <adam.joseph.cook@gmail.com>
+- Sergey Vidyuk <svidyuk@gmail.com>
+- Radek Liska <radekliska@gmail.com>
+- Jose Molina Colmenero <gaudy41@gmail.com>
+- Max Mikhailov <seven.phases.max@gmail.com>
+- Bryant Williams <b.n.williams@gmail.com>
+- Erik Paluka <erik.paluka@gmail.com>

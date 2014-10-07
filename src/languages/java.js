@@ -4,11 +4,12 @@ Author: Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
 */
 
 function(hljs) {
+  var GENERIC_IDENT_RE = hljs.UNDERSCORE_IDENT_RE + '(<' + hljs.UNDERSCORE_IDENT_RE + '>)?';
   var KEYWORDS =
     'false synchronized int abstract float private char boolean static null if const ' +
     'for true while long throw strictfp finally protected import native final return void ' +
     'enum else break transient new catch instanceof byte super volatile case assert short ' +
-    'package default double public try this switch continue throws';
+    'package default double public try this switch continue throws protected public private';
   return {
     aliases: ['jsp'],
     keywords: KEYWORDS,
@@ -27,27 +28,43 @@ function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        beginKeywords: 'protected public private', end: /[{;=]/,
+        className: 'class',
+        beginKeywords: 'class interface', end: /[{;=]/, excludeEnd: true,
+        keywords: 'class interface',
+        illegal: /[:"\[\]]/,
+        contains: [
+          {beginKeywords: 'extends implements'},
+          hljs.UNDERSCORE_TITLE_MODE
+        ]
+      },
+      {
+        // this prevents 'new Name(...), or throw ...' from being recognized as a function definition
+        beginKeywords: 'new throw', end: /\s/,
+        relevance: 0
+      },
+      {
+        className: 'function',
+        begin: '(' + GENERIC_IDENT_RE + '\\s+)+' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
+        excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           {
-            className: 'class',
-            beginKeywords: 'class interface', endsWithParent: true, excludeEnd: true,
-            illegal: /[:"\[\]]/,
-            contains: [
-              {
-                beginKeywords: 'extends implements',
-                relevance: 10
-              },
-              hljs.UNDERSCORE_TITLE_MODE
-            ]
+            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true,
+            contains: [hljs.UNDERSCORE_TITLE_MODE]
           },
           {
-            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true,
+            className: 'params',
+            begin: /\(/, end: /\)/,
+            keywords: KEYWORDS,
             contains: [
-              hljs.UNDERSCORE_TITLE_MODE
+              hljs.APOS_STRING_MODE,
+              hljs.QUOTE_STRING_MODE,
+              hljs.C_NUMBER_MODE,
+              hljs.C_BLOCK_COMMENT_MODE
             ]
-          }
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
         ]
       },
       hljs.C_NUMBER_MODE,

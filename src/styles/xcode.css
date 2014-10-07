@@ -68,8 +68,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-symbol .hljs-string,
 .hljs-number,
 .css .hljs-function,
-.clojure .hljs-title,
-.clojure .hljs-built_in,
 .hljs-function .hljs-title,
 .coffeescript .hljs-attribute {
   color: #1c00cf;
