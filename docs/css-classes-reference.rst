@@ -1192,3 +1192,18 @@ Puppet ("pp")
 * ``number``:           number
 * ``keyword``:          classes and types
 * ``constant``:         dependencies
+
+AspectJ ("aspectj")
+-------------
+
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``keyword``:          keyword
+* ``annotation``:       annotation
+* ``javadoc``:          javadoc comment
+* ``operation``:        method and intertype method header
+* ``aspect``:           aspect header from "aspect" till "{"
+* ``params``:           everything in parentheses inside an aspect header
+* ``inheritance``:      keywords "extends" and "implements" inside an aspect header
+* ``title``:            aspect, method name or pointcut name inside an aspect header

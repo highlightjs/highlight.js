@@ -7,6 +7,7 @@ New languages:
 - *Tcl* by [Radek Liska][]
 - *Puppet* by [Jose Molina Colmenero][]
 - *Processing* by [Erik Paluka][]
+- *AspectJ* by [Hakan Özler][]
 
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
