@@ -105,7 +105,8 @@ function(hljs) {
     contains: EXPRESSIONS.concat([
       {
         className: 'comment',
-        begin: '###', end: '###'
+        begin: '###', end: '###',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       hljs.HASH_COMMENT_MODE,
       {
@@ -145,7 +146,7 @@ function(hljs) {
       {
         className: 'attribute',
         begin: JS_IDENT_RE + ':', end: ':',
-        returnBegin: true, excludeEnd: true,
+        returnBegin: true, returnEnd: true,
         relevance: 0
       }
     ])

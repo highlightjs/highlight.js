@@ -40,13 +40,9 @@ function(hljs) {
     hljs.BINARY_NUMBER_MODE,
     {
       className: 'number',
-      variants: [
-        {
-          begin: '(\\b0[xX][a-fA-F0-9_]+)|(\\b\\d(\\d|_\\d)*(\\.(\\d(\\d|_\\d)*)?)?(_*[eE]([-+]\\d(_\\d|\\d)*)?)?[_a-z]*)',
-          end: '(\\s*/)?', // a number tries to eat the following slash to prevent treating it as a regexp
-          relevance: 0
-        }
-      ]
+      begin: '(\\b0[xX][a-fA-F0-9_]+)|(\\b\\d(\\d|_\\d)*(\\.(\\d(\\d|_\\d)*)?)?(_*[eE]([-+]\\d(_\\d|\\d)*)?)?[_a-z]*)',
+      relevance: 0,
+      starts: {end: '(\\s*/)?', relevance: 0} // a number tries to eat the following slash to prevent treating it as a regexp
     },
     {
       className: 'string',
@@ -74,14 +70,16 @@ function(hljs) {
       ]
     },
     {
-      className: 'regexp',
+      className: 'pi',
       variants: [
         {
           begin: '//', end: '//[gim]*',
           contains: [SUBST, hljs.HASH_COMMENT_MODE]
         },
         {
-          begin: '/\\S(\\\\.|[^\\n])*?/[gim]*(?=\\s|\\W|$)' // \S is required to parse x / 2 / 3 as two divisions
+          // regex can't start with space to parse x / 2 / 3 as two divisions
+          // regex can't start with *, and it supports an "illegal" in the main mode
+          begin: /\/(?![ *])(\\\/|.)*?\/[gim]*(?=\W|$)/
         }
       ]
     },
@@ -114,6 +112,7 @@ function(hljs) {
   return {
     aliases: ['ls'],
     keywords: KEYWORDS,
+    illegal: /\/\*/,
     contains: EXPRESSIONS.concat([
       {
         className: 'comment',
@@ -154,7 +153,7 @@ function(hljs) {
       {
         className: 'attribute',
         begin: JS_IDENT_RE + ':', end: ':',
-        returnBegin: true, excludeEnd: true,
+        returnBegin: true, returnEnd: true,
         relevance: 0
       }
     ])
