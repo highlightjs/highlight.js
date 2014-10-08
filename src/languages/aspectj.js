@@ -7,8 +7,8 @@ function (hljs) {
   var KEYWORDS =
     'false synchronized int abstract float private char boolean static null if const ' +
     'for true while long throw strictfp finally protected import native final return void ' +
-    'enum else extends implements break transient new catch instanceof byte super volatile case '+
-    'assert short package default double public try this switch continue throws privileged '+
+    'enum else extends implements break transient new catch instanceof byte super volatile case ' +
+    'assert short package default double public try this switch continue throws privileged ' +
     'aspectOf adviceexecution proceed cflowbelow cflow initialization preinitialization ' +
     'staticinitialization withincode target within call execution getWithinTypeName handler ' +
     'thisJoinPoint thisJoinPointStaticPart thisEnclosingJoinPointStaticPart';
