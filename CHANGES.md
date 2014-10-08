@@ -8,6 +8,7 @@ New languages:
 - *Puppet* by [Jose Molina Colmenero][]
 - *Processing* by [Erik Paluka][]
 - *Twig* templates by [Luke Holder][]
+- *AspectJ* by [Hakan Özler][]
 
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
