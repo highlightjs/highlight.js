@@ -137,3 +137,5 @@ Contributors:
 - David Mohundro <david@mohundro.com>
 - Nicholas Blumhardt <nblumhardt@nblumhardt.com>
 - Christophe de Dinechin <christophe@taodyne.com>
+- Taneli Vatanen <taneli.vatanen@gmail.com>
+- Jen Evers-Corvina <jen@sevvie.net>

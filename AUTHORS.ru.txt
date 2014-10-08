@@ -137,3 +137,5 @@ URL:   https://highlightjs.org/
 - Дэвид Мохундро <david@mohundro.com>
 - Николас Блумхардт <nblumhardt@nblumhardt.com>
 - Кристоф де Денишен <christophe@taodyne.com>
+- Танели Ватанен <taneli.vatanen@gmail.com>
+- Джен Эверс-Корвина <jen@sevvie.net>
