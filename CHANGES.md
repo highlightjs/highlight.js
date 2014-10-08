@@ -8,7 +8,8 @@ New languages:
 - *Puppet* by [Jose Molina Colmenero][]
 - *Processing* by [Erik Paluka][]
 - *Twig* templates by [Luke Holder][]
-- *PowerShell* by [David Mohundro][]
+- *PowerShell* by [David Mohundro][], based on [the work of Nicholas
+  Blumhardt][ps]
 
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
@@ -17,6 +18,7 @@ New languages:
 [Erik Paluka]: https://github.com/paluka
 [Luke Holder]: https://github.com/lukeholder
 [David Mohundro]: https://github.com/drmohundro
+[ps]: https://github.com/OctopusDeploy/Library/blob/master/app/shared/presentation/highlighting/powershell.js
 
 ## Version 8.2
 
