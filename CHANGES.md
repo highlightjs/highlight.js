@@ -9,6 +9,9 @@ New languages:
 - *Processing* by [Erik Paluka][]
 - *Twig* templates by [Luke Holder][]
 - *AspectJ* by [Hakan Özler][]
+- *PowerShell* by [David Mohundro][], based on [the work of Nicholas
+  Blumhardt][ps]
+- *AspectJ* by [Hakan Özler][]
 
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
@@ -16,6 +19,8 @@ New languages:
 [Jose Molina Colmenero]: https://github.com/Moliholy
 [Erik Paluka]: https://github.com/paluka
 [Luke Holder]: https://github.com/lukeholder
+[David Mohundro]: https://github.com/drmohundro
+[ps]: https://github.com/OctopusDeploy/Library/blob/master/app/shared/presentation/highlighting/powershell.js
 
 ## Version 8.2
 

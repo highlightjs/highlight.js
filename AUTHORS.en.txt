@@ -135,3 +135,6 @@ Contributors:
 - Erik Paluka <erik.paluka@gmail.com>
 - Luke Holder <lukemh@gmail.com>
 - Hakan Özler <ozler.hakan@gmail.com>
+- David Mohundro <david@mohundro.com>
+- Nicholas Blumhardt <nblumhardt@nblumhardt.com>
+- Hakan Özler <ozler.hakan@gmail.com>
