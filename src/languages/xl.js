@@ -5,22 +5,15 @@ Description: An extensible programming language, based on parse tree rewriting (
 */
 
 function(hljs) {
+    var BUILTIN_MODULES = 'ObjectLoader Animate MovieCredits Slides Filters Shading Materials LensFlare Mapping VLCAudioVideo StereoDecoder PointCloud NetworkAccess RemoteControl RegExp ChromaKey Snowfall NodeJS Speech Charts';
+
     var XL_KEYWORDS = {
         keyword: 'if then else do while until for loop import with is as where when by data constant',
         literal: 'true false nil',
         type: 'integer real text name boolean symbol infix prefix postfix block tree',
-        built_in: 'in mod rem and or xor not abs sign floor ceil sqrt sin cos tan asin acos atan exp expm1 log log2 log10 log1p pi at '
-    };
-
-    var BUILTIN_MODULES = {
-        className: 'module',
-        begin: 'ObjectLoader|Animate|MovieCredits|Slides|Filters|Shading|Materials|LensFlare|Mapping|VLCAudioVideo|StereoDecoder|PointCloud|NetworkAccess|RemoteControl|RegExp|ChromaKey|Snowfall|NodeJS|Speech|Charts',
-        relevance: 10
-    };
-
-    var TAO_BUILTINS = {
-        className: 'id',
-        begin: 'text_length|text_range|text_find|text_replace|contains|page|slide|basic_slide|title_slide|title|subtitle|fade_in|fade_out|fade_at|clear_color|color|line_color|line_width|texture_wrap|texture_transform|texture|scale_?x|scale_?y|scale_?z?|translate_?x|translate_?y|translate_?z?|rotate_?x|rotate_?y|rotate_?z?|rectangle|circle|ellipse|sphere|path|line_to|move_to|quad_to|curve_to|theme|background|contents|locally|time|mouse_?x|mouse_?y|mouse_buttons'
+        built_in: 'in mod rem and or xor not abs sign floor ceil sqrt sin cos tan asin acos atan exp expm1 log log2 log10 log1p pi at',
+        module: BUILTIN_MODULES,
+        id: 'text_length text_range text_find text_replace contains page slide basic_slide title_slide title subtitle fade_in fade_out fade_at clear_color color line_color line_width texture_wrap texture_transform texture scale_?x scale_?y scale_?z? translate_?x translate_?y translate_?z? rotate_?x rotate_?y rotate_?z? rectangle circle ellipse sphere path line_to move_to quad_to curve_to theme background contents locally time mouse_?x mouse_?y mouse_buttons'
     };
 
     var XL_CONSTANT = {
@@ -49,8 +42,7 @@ function(hljs) {
     };
     var LONG_TEXT = {
         className: 'string',
-        begin: '<<', end: '>>',
-        relevance: 10
+        begin: '<<', end: '>>'
     };
     var BASED_NUMBER = {
         className: 'number',
@@ -59,10 +51,13 @@ function(hljs) {
     };
     var IMPORT = {
         className: 'import',
-        begin: '\\bimport\\b', end: '$',
-        keywords: 'import',
-        contains: [DOUBLE_QUOTE_TEXT, BUILTIN_MODULES],
-        relevance: 5
+        beginKeywords: 'import', end: '$',
+        keywords: {
+            keyword: 'import',
+            module: BUILTIN_MODULES
+        },
+        relevance: 0,
+        contains: [DOUBLE_QUOTE_TEXT]
     };
     var FUNCTION_DEFINITION = {
         className: 'function',
@@ -70,6 +65,7 @@ function(hljs) {
     };
     return {
         aliases: ['tao'],
+        lexemes: /[a-zA-Z][a-zA-Z0-9_?]*/,
         keywords: XL_KEYWORDS,
         contains: [
             hljs.C_LINE_COMMENT_MODE,
@@ -78,8 +74,7 @@ function(hljs) {
             SINGLE_QUOTE_TEXT,
             LONG_TEXT,
             FUNCTION_DEFINITION,
-            BUILTIN_MODULES,
-            TAO_BUILTINS,
+            IMPORT,
             XL_CONSTANT,
             XL_VARIABLE,
             XL_ID,
