@@ -11,6 +11,7 @@ New languages:
 - *PowerShell* by [David Mohundro][], based on [the work of Nicholas
   Blumhardt][ps]
 - *XL* by [Christophe de Dinechin][]
+- *LiveScript* by [Taneli Vatanen][] and [Jen Evers-Corvina][]
 
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
@@ -21,6 +22,9 @@ New languages:
 [David Mohundro]: https://github.com/drmohundro
 [ps]: https://github.com/OctopusDeploy/Library/blob/master/app/shared/presentation/highlighting/powershell.js
 [Christophe de Dinechin]: https://github.com/c3d
+[Taneli Vatanen]: https://github.com/Daiz-
+[Jen Evers-Corvina]: https://github.com/sevvie
+
 
 ## Version 8.2
 
@@ -146,6 +150,7 @@ Other improvements:
 [Roman Shmatov]: https://github.com/shmatov
 [Jeremy Hull]: https://github.com/sourrust
 [Matt Diephouse]: https://github.com/mdiep
+
 
 ## Version 8.0
 
