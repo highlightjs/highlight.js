@@ -134,3 +134,5 @@ Contributors:
 - Bryant Williams <b.n.williams@gmail.com>
 - Erik Paluka <erik.paluka@gmail.com>
 - Luke Holder <lukemh@gmail.com>
+- David Mohundro <david@mohundro.com>
+- Nicholas Blumhardt <nblumhardt@nblumhardt.com>
