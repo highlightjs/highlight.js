@@ -10,6 +10,7 @@ New languages:
 - *Twig* templates by [Luke Holder][]
 - *PowerShell* by [David Mohundro][], based on [the work of Nicholas
   Blumhardt][ps]
+- *XL* by [Christophe de Dinechin][]
 
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
@@ -19,6 +20,7 @@ New languages:
 [Luke Holder]: https://github.com/lukeholder
 [David Mohundro]: https://github.com/drmohundro
 [ps]: https://github.com/OctopusDeploy/Library/blob/master/app/shared/presentation/highlighting/powershell.js
+[Christophe de Dinechin]: https://github.com/c3d
 
 ## Version 8.2
 
@@ -211,7 +213,6 @@ New languages and styles:
 
 - *Oxygene* by [Carlo Kok][]
 - *Mathematica* by [Daniel Kvasnička][]
-- *XL* by [Christophe de Dinechin][]
 - *Autohotkey* by [Seongwon Lee][]
 - *Atelier* family of styles in 10 variants by [Bram de Haan][]
 - *Paraíso* styles by [Jan T. Sott][]
