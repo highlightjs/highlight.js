@@ -134,3 +134,5 @@ URL:   https://highlightjs.org/
 - Брайант Вильямс <b.n.williams@gmail.com>
 - Эрик Палука <erik.paluka@gmail.com>
 - Люк Холдер <lukemh@gmail.com>
+- Дэвид Мохундро <david@mohundro.com>
+- Николас Блумхардт <nblumhardt@nblumhardt.com>
