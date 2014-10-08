@@ -43,15 +43,15 @@ function (hljs) {
             beginKeywords : 'extends implements pertypewithin perthis percflowbelow percflow issingleton'
           },
           hljs.UNDERSCORE_TITLE_MODE,
-		  {
+          {
             begin : '\\(' + hljs.UNDERSCORE_IDENT_RE + '(\\()?',
             end : /[)]+/,
             keywords : KEYWORDS,
-	        excludeEnd : false
-	      }
+            excludeEnd : false
+          }
         ]
       },
-	  {
+      {
         className : 'class',
         beginKeywords : 'class interface',
         end : /[{;=]/,
@@ -60,7 +60,7 @@ function (hljs) {
         keywords : 'class interface',
         illegal : /[:"\[\]]/,
         contains : [
-		  {beginKeywords : 'extends implements'},
+          {beginKeywords : 'extends implements'},
           hljs.UNDERSCORE_TITLE_MODE
         ]
       }, 
