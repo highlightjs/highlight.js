@@ -8,7 +8,6 @@ New languages:
 - *Puppet* by [Jose Molina Colmenero][]
 - *Processing* by [Erik Paluka][]
 - *Twig* templates by [Luke Holder][]
-- *AspectJ* by [Hakan Özler][]
 - *PowerShell* by [David Mohundro][], based on [the work of Nicholas
   Blumhardt][ps]
 - *AspectJ* by [Hakan Özler][]
