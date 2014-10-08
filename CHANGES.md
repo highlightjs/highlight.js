@@ -7,12 +7,14 @@ New languages:
 - *Tcl* by [Radek Liska][]
 - *Puppet* by [Jose Molina Colmenero][]
 - *Processing* by [Erik Paluka][]
+- *Twig* templates by [Luke Holder][]
 
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
 [Radek Liska]: https://github.com/Nindaleth
 [Jose Molina Colmenero]: https://github.com/Moliholy
 [Erik Paluka]: https://github.com/paluka
+[Luke Holder]: https://github.com/lukeholder
 
 ## Version 8.2
 

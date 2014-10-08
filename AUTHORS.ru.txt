@@ -133,3 +133,4 @@ URL:   https://highlightjs.org/
 - Макс Михайлов <seven.phases.max@gmail.com>
 - Брайант Вильямс <b.n.williams@gmail.com>
 - Эрик Палука <erik.paluka@gmail.com>
+- Люк Холдер <lukemh@gmail.com>
