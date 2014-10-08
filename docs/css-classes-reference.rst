@@ -795,6 +795,16 @@ DOS ("dos", "bat", "cmd")
 * ``winutils``:         some commands (see dos.js specifically)
 * ``envvar``:           environment variables
 
+PowerShell ("powershell", "ps")
+--------------------------
+
+* ``keyword``:          keyword
+* ``string``:           string
+* ``number``:           number
+* ``comment``:          comment
+* ``literal``:          special literal: "true" and "false"
+* ``variable``:         variable
+
 Bash ("bash", "sh", "zsh")
 --------------------------
 
@@ -1209,13 +1219,3 @@ Puppet ("pp")
 * ``number``:           number
 * ``keyword``:          classes and types
 * ``constant``:         dependencies
-
-PowerShell ("powershell", "ps")
---------------------------
-
-* ``keyword``:          keyword
-* ``string``:           string
-* ``number``:           number
-* ``comment``:          comment
-* ``literal``:          special literal: "true" and "false"
-* ``variable``:         variable
