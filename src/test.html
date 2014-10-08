@@ -3512,8 +3512,7 @@ return
   <tr>
     <th>x86asm</th>
     <td class="x86asm">
-<pre>
-<code>section .text
+<pre><code>section .text
 extern  _MessageBoxA@16
 %if     __NASM_VERSION_ID__ >= 0x02030000
 safeseh handler         ; register handler as "safe handler"
@@ -3554,11 +3553,11 @@ caption:db      'SEGV',0
 section .drectve info
         db      '/defaultlib:user32.lib /defaultlib:msvcrt.lib '
 </code></pre>
+
 <tr>
     <th>Q/KDB+
     <td class="q">
-<pre><code>
-select time, price by date,stock from quote where price=(max;price)fby stock
+<pre><code>select time, price by date,stock from quote where price=(max;price)fby stock
 data:raze value flip trade
 select vwap:size wavg price by 5 xbar time.minute from aapl where date within (.z.d-10;.z.d)
 f1:{[x;y;z] show (x;y+z);sum 1 2 3}
@@ -3568,8 +3567,6 @@ nor:{$[x=2*n:x div 2;raze sqrt[-2*log n?1f]*/:(sin;cos)@\:(2*pi)*n?1f;-1_.z.s 1+
 
 mode:{where g=max g:count each group x}		// mode function
 </code></pre>
-
-
 
   <tr>
   <th>Monkey
@@ -3861,6 +3858,37 @@ proc isprime x {
     refreshonly => true,
   }
 }
+</code></pre>
+
+    <th>XL
+    <td class="xl">
+<pre><code>import SeasonsGreetingsTheme
+import "myhelper.xl"
+theme "SeasonsGreetings"
+function X:real -> sin(X*0.5) + 16#0.002
+page "A nice car",
+// --------------------------------------
+//    Display car model on a pedestal
+// --------------------------------------
+    clear_color 0, 0, 0, 1
+    hand_scale -> 0.3
+
+    // Display the background image
+    background -4000,
+        locally
+            disable_depth_test
+            corridor N:integer ->
+                locally
+                    rotatez 60 * N
+                    translatex 1000
+                    rotatey 90
+                    color "white"
+                    texture "stars.png"
+                    texture_wrap true, true
+                    texture_transform
+                        translate (time + N) * 0.02 mod 1, 0, 0
+                        scale 0.2, 0.3, 0.3
+                    rectangle 0, 0, 100000, 1154
 </code></pre>
 
 </table>

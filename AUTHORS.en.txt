@@ -136,3 +136,4 @@ Contributors:
 - Luke Holder <lukemh@gmail.com>
 - David Mohundro <david@mohundro.com>
 - Nicholas Blumhardt <nblumhardt@nblumhardt.com>
+- Christophe de Dinechin <christophe@taodyne.com>

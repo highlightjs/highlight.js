@@ -211,6 +211,7 @@ New languages and styles:
 
 - *Oxygene* by [Carlo Kok][]
 - *Mathematica* by [Daniel Kvasnička][]
+- *XL* by [Christophe de Dinechin][]
 - *Autohotkey* by [Seongwon Lee][]
 - *Atelier* family of styles in 10 variants by [Bram de Haan][]
 - *Paraíso* styles by [Jan T. Sott][]
