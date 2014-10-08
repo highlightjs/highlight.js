@@ -1211,7 +1211,7 @@ Tcl ("tcl", "tk")
 * ``string``:           string
 * ``number``:           number
 
-Puppet ("pp")
+Puppet ("puppet", "pp")
 -------------
 
 * ``comment``:          comment
