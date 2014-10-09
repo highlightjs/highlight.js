@@ -87,37 +87,35 @@ function parseHeader(header) {
   return object;
 }
 
-function filterByCategory(blob, category) {
-  var fileInfo, categories,
+function filterByQualifiers(blob, languages, categories) {
+  if(_.isEmpty(languages) && _.isEmpty(categories)) return true;
+
+  var language = path.basename(blob.name, '.js'),
+      fileInfo,
+      fileCategories,
       match = blob.result.match(headerRegex);
 
-  if(!match) {
-    return false;
-  }
-  fileInfo   = parseHeader(match[1]);
-  categories = fileInfo.Category ? fileInfo.Category.split(/\s*,\s*/) : [];
+  if(!match) return false;
+  fileInfo       = parseHeader(match[1]);
+  fileCategories = fileInfo.Category ? fileInfo.Category.split(/\s*,\s*/) : [];
 
-  return _.contains(categories, category);
+  return _.contains(languages, language) ||
+         _.any(fileCategories, function(fc) {return _.contains(categories, fc)});
 }
 
-function filterByLanguages(blob, languages) {
-  if(_.isEmpty(languages)) return true;
+function buildFilterCallback(qualifiers) {
 
-  var language = path.basename(blob.name, '.js');
+  function isCategory(qualifier) {return qualifier[0] === ':'}
 
-  return _.contains(languages, language);
-}
-
-function buildFilterCallback(languages) {
-  if(languages[0] && _.head(languages)[0] === ':') {
-    languages = _.head(languages).slice(1);
-  }
+  var languages  = _.reject(qualifiers, isCategory),
+      categories = _(qualifiers).filter(isCategory)
+                                .map(function(c) {return c.slice(1);})
+                                .value();
 
   return function(blob) {
-    var basename = path.basename(blob.name),
-        filterBy = _.isString(languages) ? filterByCategory
-                                         : filterByLanguages;
-    return filterBy(blob, languages) || basename === 'highlight.js';
+    var basename = path.basename(blob.name);
+    return filterByQualifiers(blob, languages, categories) ||
+           basename === 'highlight.js';
   };
 }
 
