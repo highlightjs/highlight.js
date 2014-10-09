@@ -118,7 +118,7 @@ tasks.templateAll = function(template, blobs, done) {
 tasks.templateAll.type = 'collect';
 
 tasks.dest = function(options, blob, done) {
-  options = (typeof options === 'string') ? {dir: options} : options;
+  options = _.isString(options) ? {dir: options} : options;
 
   var basename = options.base ? path.relative(options.base, blob.name)
                               : path.basename(blob.name),
