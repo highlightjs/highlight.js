@@ -403,7 +403,7 @@ str =~ %r(\(foo|bar\)$)
 
 &lt;%- available_things = things.select(&:available?) -%&gt;
 &lt;%%- x = 1 + 2 -%%&gt;
-&lt;%% value = 'real string' %%&gt;
+&lt;%% value = 'real string #{@value}' %%&gt;
 &lt;%%= available_things.inspect %%&gt;
 </code></pre>
 
@@ -1375,6 +1375,18 @@ for i = 0 to ubound(ini_strings)
       end if
     end if
 next</code></pre>
+
+  <tr>
+    <th>VBScript in HTML
+    <td class="vbscript-html">
+<pre><code>&lt;body&gt;
+&lt;%
+If i &lt;  10 Then
+  response.write("Good morning!")
+End If
+%&gt;
+&lt;/body&gt;
+</code></pre>
 
   <tr>
     <th>VB.NET
