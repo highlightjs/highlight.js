@@ -1,5 +1,6 @@
 /*
 Language: JavaScript
+Category: common
 */
 
 function(hljs) {

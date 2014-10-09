@@ -1,6 +1,7 @@
 /*
  Language: SQL
  Contributors: Nikolay Lisienko <info@neor.ru>, Heiko August <post@auge8472.de>, Travis Odom <travis.a.odom@gmail.com>
+ Category: common
  */
 
 function(hljs) {

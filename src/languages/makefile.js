@@ -1,6 +1,7 @@
 /*
 Language: Makefile
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
+Category: common
 */
 
 function(hljs) {

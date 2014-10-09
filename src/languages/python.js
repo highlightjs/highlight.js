@@ -1,5 +1,6 @@
 /*
 Language: Python
+Category: common
 */
 
 function(hljs) {
