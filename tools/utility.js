@@ -79,7 +79,7 @@ function parseHeader(header) {
     .each(function(h) {
       var keyVal = h.trim().split(': '),
           key    = keyVal[0],
-          value  = keyVal[1];
+          value  = (keyVal[1] || "").split(/\s*,\s*/);
 
       object[key] = value;
     });
@@ -97,7 +97,7 @@ function filterByQualifiers(blob, languages, categories) {
 
   if(!match) return false;
   fileInfo       = parseHeader(match[1]);
-  fileCategories = fileInfo.Category ? fileInfo.Category.split(/\s*,\s*/) : [];
+  fileCategories = fileInfo.Category ? fileInfo.Category : [];
 
   return _.contains(languages, language) ||
          _.any(fileCategories, function(fc) {return _.contains(categories, fc)});
