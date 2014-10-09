@@ -91,15 +91,13 @@ function filterByCategory(blob, category) {
   var fileInfo, categories,
       match = blob.result.match(headerRegex);
 
-  if(match) {
-    fileInfo     = parseHeader(match[1]);
-    categories   = fileInfo.Category;
-
-    categories = categories ? categories.split(/\s*,\s*/) : [];
-    return _.contains(categories, category);
-  } else {
+  if(!match) {
     return false;
   }
+  fileInfo   = parseHeader(match[1]);
+  categories = fileInfo.Category ? fileInfo.Category.split(/\s*,\s*/) : [];
+
+  return _.contains(categories, category);
 }
 
 function filterByLanguages(blob, languages) {

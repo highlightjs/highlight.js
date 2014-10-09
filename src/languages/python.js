@@ -1,6 +1,6 @@
 /*
 Language: Python
-Category: common
+Category: common, dynamic
 */
 
 function(hljs) {
