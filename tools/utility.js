@@ -5,7 +5,8 @@ var path = require('path');
 var util = require('util');
 
 var CATEGORIES, REPLACES,
-    regex = {};
+    regex       = {},
+    headerRegex = /^\s*\/\*((.|\r?\n)*?)\*/;
 
 REPLACES = {
   'case_insensitive': 'cI',
@@ -119,8 +120,44 @@ function parseHeader(header) {
   return object;
 }
 
+function filterByCategory(blob, category) {
+  var fileInfo, categoryName,
+      match = blob.result.match(headerRegex);
+
+  if(match) {
+    fileInfo     = parseHeader(match[1]);
+    categoryName = fileInfo.Category;
+
+    return categoryName ? categoryName === category : false;
+  } else {
+    return false;
+  }
+}
+
+function filterByLanguages(blob, languages) {
+  if(_.isEmpty(languages)) return true;
+
+  var language = path.basename(blob.name, '.js');
+
+  return _.contains(languages, language);
+}
+
+function buildFilterCallback(languages) {
+  if(languages[0] && _.head(languages)[0] === ':') {
+    languages = _.head(languages).slice(1);
+  }
+
+  return function(blob) {
+    var basename = path.basename(blob.name),
+        filterBy = _.isString(languages) ? filterByCategory
+                                         : filterByLanguages;
+    return filterBy(blob, languages) || basename === 'highlight.js';
+  };
+}
+
 module.exports = {
   languagesGlob: languagesGlob,
+  buildFilterCallback: buildFilterCallback,
   parseHeader: parseHeader,
   regex: regex,
   replace: replace,
