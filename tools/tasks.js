@@ -195,4 +195,33 @@ tasks.replaceSkippingStrings = function(params, blob, done) {
   return done(null, new blob.constructor(result.join(''), blob));
 };
 
+tasks.filter = function(callback, blobs, done) {
+  var filteredBlobs = _.filter(blobs, callback);
+
+  // Re-add in blobs required from header definition
+  _.each(filteredBlobs, function(blob) {
+    var fileInfo, filename, fileFound,
+        dirname  = path.dirname(blob.name),
+        content  = blob.result,
+        match    = content.match(headerRegex);
+
+    if(match) {
+      fileInfo = parseHeader(match[1]);
+
+      if(fileInfo.Requires) {
+        filename  = path.join(dirname, fileInfo.Requires);
+        fileFound = _.find(filteredBlobs, { name: filename });
+
+        if(!fileFound) {
+          filteredBlobs.push(
+            _.find(blobs, { name: filename }));
+        }
+      }
+    }
+  });
+
+  return done(null, filteredBlobs);
+};
+tasks.filter.type = 'collect';
+
 module.exports = new Registry({ tasks: tasks });
