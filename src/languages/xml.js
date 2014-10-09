@@ -83,10 +83,6 @@ function(hljs) {
           subLanguage: 'javascript'
         }
       },
-      {
-        begin: '<%', end: '%>',
-        subLanguage: 'vbscript'
-      },
       PHP,
       {
         className: 'pi',
