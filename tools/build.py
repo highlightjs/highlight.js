@@ -229,6 +229,9 @@ def build_browser(root, build_path, filenames, options, is_amd=False, need_copy_
     content = glue_files(os.path.join(src_path, 'highlight.js'), filenames, False)
     if is_amd:
         content = 'define(function() {\n%s\nreturn hljs;\n});' % content # AMD wrap
+    else:
+        content = ';(function(window, document, undefined) {\n%s\nwindow.hljs = hljs;\n})(window, document);' % content # AMD wrap
+
 
     print('Uncompressed size:', len(content.encode('utf-8')))
     if options.compress:
