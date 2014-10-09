@@ -79,7 +79,11 @@ function parseHeader(header) {
     .each(function(h) {
       var keyVal = h.trim().split(': '),
           key    = keyVal[0],
-          value  = (keyVal[1] || "").split(/\s*,\s*/);
+          value  = keyVal[1] || "";
+
+      if(key !== 'Description') {
+        value = value.split(/\s*,\s*/);
+      }
 
       object[key] = value;
     });
