@@ -1,3 +1,17 @@
+## master
+
+New languages:
+
+- *Less* by [Max Mikhailov][]
+- *Stylus* by [Bryant Williams][]
+- *Tcl* by [Radek Liska][]
+- *Puppet* by [Jose Molina Colmenero][]
+
+[Max Mikhailov]: https://github.com/seven-phases-max
+[Bryant Williams]: https://github.com/scien
+[Radek Liska]: https://github.com/Nindaleth
+[Jose Molina Colmenero]: https://github.com/Moliholy
+
 ## Version 8.2
 
 We've finally got [real tests][test] and [continuous testing on Travis][ci]
@@ -25,6 +39,7 @@ As usually there's a handful of new languages in this release:
 - *Scheme* by [JP Verkamp][]
 - *G-Code* by [Adam Joseph Cook][]
 - *Q* from Kx Systems by [Sergey Vidyuk][]
+- *Puppet* from CERN by [Jose Molina Colmenero][]
 
 [Guillaume Laforge]: https://github.com/glaforge
 [Maxim Dikun]: https://github.com/dikmax
@@ -32,6 +47,7 @@ As usually there's a handful of new languages in this release:
 [JP Verkamp]: https://github.com/jpverkamp
 [Adam Joseph Cook]: https://github.com/adamjcook
 [Sergey Vidyuk]: https://github.com/sv
+[Jose Molina Colmenero]: https://github.com/Moliholy
 
 Other improvements:
 

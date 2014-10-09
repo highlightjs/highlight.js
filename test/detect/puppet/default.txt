@@ -1,0 +1,103 @@
+class hg_punch::library {
+
+  firewall {'101 puppet library access':
+    proto       => 'tcp',
+    dport       => '80',
+    action      => 'accept',
+  }
+
+  package { 'git':
+    ensure => present,
+  }
+
+  vcsrepo { "puppet-library":
+    path => '/var/www/puppet-library/',
+    ensure => present,
+    owner => 'root',
+    group => 'root',
+    provider => git,
+    source => 'https://github.com/Moliholy/puppet-library.git',
+    revision => 'master',
+    require => Package['git'],
+  }
+
+  package { 'nfs-utils':
+    ensure => present,
+  }
+
+  package { 'bundler':
+    ensure => present,
+    provider => gem,
+  }
+
+  package { [ "ruby", "ruby-devel", "gcc", "make" ]:
+    ensure => present,
+  }
+
+  exec { 'bundler update':
+    command => "bundler update && bundler",
+    cwd => '/var/www/puppet-library',
+    path => ["/usr/bin", "/bin", "/usr/sbin"],
+    require => [ Package['ruby'], Package['ruby-devel'],
+                Package['gcc'], Package['make'],
+                Package['bundler'], Vcsrepo['puppet-library'] ]
+  }
+
+  package { 'mod_passenger':
+    ensure => present,
+  }
+
+  file { "/etc/httpd/conf.d/puppetlibrary.conf":
+    owner   => root,
+    group   => root,
+    mode    => 0644,
+    content => template('hg_punch/puppetlibrary.conf.erb'),
+    require => Package['mod_passenger'],
+    selinux_ignore_defaults => true,
+  }
+
+  file { "/var/www/puppet-library/config.ru":
+    owner   => root,
+    group   => root,
+    mode    => 0644,
+    content => template('hg_punch/config.ru.erb'),
+    require => Vcsrepo['puppet-library'],
+  }
+
+  file { [ '/var/www/puppet-library/public', '/var/www/puppet-library/tmp' ]:
+    ensure => directory,
+    owner   => root,
+    group   => root,
+    mode => 755,
+    require => Vcsrepo['puppet-library'],
+  }
+
+  # Disable SELinux
+  package { "augeas":
+    ensure => present,
+  }
+
+  augeas {'disable_selinux':
+    context => '/files/etc/sysconfig/selinux',
+    changes => 'set SELINUX disabled',
+    lens    => 'shellvars.lns',
+    incl     => '/etc/sysconfig/selinux'
+  } ~>
+  exec {'sudo disable_selinux':
+    command => '/bin/echo 0 > /selinux/enforce',
+    refreshonly => true,
+  }
+
+  service { "httpd":
+    enable => true,
+    ensure => running,
+    hasrestart => true,
+    require => [ Exec['bundler update'],
+                File['/etc/httpd/conf.d/puppetlibrary.conf'],
+                File['/var/www/puppet-library/public'],
+                File['/var/www/puppet-library/tmp'],
+                Vcsrepo['puppet-library'],
+                Package['mod_passenger'] ],
+  }
+
+}

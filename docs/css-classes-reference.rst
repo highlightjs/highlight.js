@@ -210,6 +210,41 @@ SCSS ("scss")
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     keywords after @
 
+Less ("less")
+-------------
+
+* ``comment``:          comment
+* ``number``:           number
+* ``string``:           string
+* ``attribute``:        property name
+* ``variable``:         @var, @@var or @{var}
+* ``keyword``:          Less keywords (when, extend etc.)
+* ``function``:         Less and CSS functions (rgba, unit etc.)
+* ``tag``:              tag
+* ``id``:               #id
+* ``class``:            .class
+* ``at_rule``:          at-rule keyword (@media, @keyframes etc.)
+* ``attr_selector``:    attribute selector (e.g. [href^=http://])
+* ``pseudo``:           pseudo classes and elements (:hover, ::before etc.)
+* ``hexcolor``:         hex color (#FFF)
+* ``built_in``:         inline javascript (or whatever host language) string
+
+Stylus ("stylus", "styl")
+-------------
+
+* ``at_rule``:          @-rule till first "{" or ";"
+* ``attribute``:        property name inside a rule
+* ``class``:            .some_name in selectors
+* ``comment``:          comment
+* ``function``:         Stylus function
+* ``hexcolor``:         hex color (#FFFFFF) within a value
+* ``id``:               #some_name in selectors
+* ``number``:           number within a value
+* ``pseudo``:           pseudo classes and elements (:after, ::after etc.)
+* ``string``:           string within a value
+* ``tag``:              tag in selectors
+* ``variable``:         variable starting with "$"
+
 Markdown ("markdown", "md", "mkdown", "mkd")
 --------------------------------------------
 
@@ -1111,7 +1146,6 @@ G-Code ("gcode", "nc")
 * ``preprocessor``:     program number and ending character
 * ``label``:            block number
 
-
 Q ("k", "kdb")
 -------------------
 
@@ -1122,3 +1156,22 @@ Q ("k", "kdb")
 * ``constant``:         0/1b
 * ``typename``:         built-in plain types (int, symbol etc.)
 * ``built_in``:         built-in function
+
+Tcl ("tcl", "tk")
+-----------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment
+* ``symbol``:           function (proc)
+* ``variable``:         variable
+* ``string``:           string
+* ``number``:           number
+
+Puppet ("pp")
+-------------
+
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``keyword``:          classes and types
+* ``constant``:         dependencies

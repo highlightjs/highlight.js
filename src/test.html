@@ -35,8 +35,8 @@
   <link rel="alternate stylesheet" title="Docco" href="styles/docco.css">
   <link rel="alternate stylesheet" title="Mono Blue" href="styles/mono-blue.css">
   <link rel="alternate stylesheet" title="Foundation" href="styles/foundation.css">
-  <link rel="alternate stylesheet" title="Atelier Dun - Dark" href="styles/atelier-dune.dark.css">
-  <link rel="alternate stylesheet" title="Atelier Dun - Light" href="styles/atelier-dune.light.css">
+  <link rel="alternate stylesheet" title="Atelier Dune - Dark" href="styles/atelier-dune.dark.css">
+  <link rel="alternate stylesheet" title="Atelier Dune - Light" href="styles/atelier-dune.light.css">
   <link rel="alternate stylesheet" title="Atelier Forest - Dark" href="styles/atelier-forest.dark.css">
   <link rel="alternate stylesheet" title="Atelier Forest - Light" href="styles/atelier-forest.light.css">
   <link rel="alternate stylesheet" title="Atelier Heath - Dark" href="styles/atelier-heath.dark.css">
@@ -1033,6 +1033,95 @@ a {
     @content;
   }
 }</code></pre>
+
+  <tr>
+    <th>Less
+    <td class="less">
+<pre><code>@import "fruits";
+
+@rhythm: 1.5em;
+
+@media screen and (min-resolution: 2dppx) {
+    body {font-size: 125%}
+}
+
+section > .foo + #bar:hover [href*="less"] {
+    margin:     @rhythm 0 0 @rhythm;
+    padding:    calc(5% + 20px);
+    background: #f00ba7 url(http://placehold.alpha-centauri/42.png) no-repeat;
+    background-image: linear-gradient(-135deg, wheat, fuchsia) !important ;
+    background-blend-mode: multiply;
+}
+
+@font-face {
+    font-family: /* ? */ 'Omega';
+    src: url('../fonts/omega-webfont.woff?v=2.0.2');
+}
+
+.icon-baz::before {
+    display:     inline-block;
+    font-family: "Omega", Alpha, sans-serif;
+    content:     "\f085";
+    color:       rgba(98, 76 /* or 54 */, 231, .75);
+}
+</code></pre>
+
+    <th>Stylus
+    <td class="stylus">
+<pre><code>@import "nib"
+
+// variables
+$green = #008000
+$green_dark = darken($green, 10)
+
+// mixin/function
+container()
+  max-width 980px
+
+// mixin/function with parameters
+buttonBG($color = green)
+  if $color == green
+    background-color #008000
+  else if $color == red
+    background-color #B22222
+
+button
+  buttonBG(red)
+
+div, .navbar, #header, input[type="input"]
+  display block
+  font-family "Helvetica Neue", Arial, sans-serif
+  margin 0 auto
+  width auto
+
+.row-12 > div
+  border-left 1px solid #B5C583
+
+// nested definitions
+ul
+  width 100%
+  padding-left 5px
+  padding-right 5px
+  li
+    float left
+    margin-right 10px
+    .home
+      background url('http://placehold.it/20') scroll no-repeat 0 0
+
+a
+  color $green
+  &amp;:hover
+    color $green_dark
+  &amp;:visited
+    color #c458cb
+
+body
+  for num in 1 2 3
+    top num
+
+@media screen and (max-width : 600px)
+  background blue
+</code></pre>
 
   <tr>
     <th>JSON
@@ -3650,6 +3739,79 @@ N26 #4=#5*COS[45]
 N27 #4=#5*SIN[45]
 N28 VZOFZ=652.9658
 %
+</code></pre>
+
+<tr>
+    <th>Tcl
+    <td class="tcl">
+<pre><code>package json
+
+source helper.tcl
+# randomness verified by a die throw
+set ::rand 4
+
+proc give::recursive::count {base p} { ; # 2 mandatory params
+    while {$p > 0} {
+        set result [expr $result * $base]; incr p -1
+    }
+    return $result
+}
+
+set a 'a'; set b "bcdef"; set lst [list "item"]
+puts [llength $a$b]
+
+set ::my::tid($id) $::my::tid(def)
+lappend lst $arr($idx) $::my::arr($idx) $ar(key)
+lreplace ::my::tid($id) 4 4
+puts $::rand ${::rand} ${::AWESOME::component::variable}
+
+puts "$x + $y is\t [expr $x + $y]"
+
+proc isprime x {
+    expr {$x>1 && ![regexp {^(oo+?)\1+$} [string repeat o $x]]}
+</code></pre>
+
+<tr>
+    <th>Puppet
+    <td class="puppet">
+<pre><code>class hg_punch::library {
+  firewall {'101 puppet library access':
+    proto       => 'tcp',
+    dport       => '80',
+    action      => 'accept',
+  }
+
+  package { 'git':
+    ensure => present,
+  }
+
+  vcsrepo { "puppet-library":
+    path => '/var/www/puppet-library/',
+    ensure => present,
+    owner => 'root',
+    group => 'root',
+    provider => git,
+    source => 'https://github.com/Moliholy/puppet-library.git',
+    revision => 'master',
+    require => Package['git'],
+  }
+
+  # Disable SELinux
+  package { "augeas":
+    ensure => present,
+  }
+
+  augeas {'disable_selinux':
+    context => '/files/etc/sysconfig/selinux',
+    changes => 'set SELINUX disabled',
+    lens    => 'shellvars.lns',
+    incl     => '/etc/sysconfig/selinux'
+  } ~>
+  exec {'sudo disable_selinux':
+    command => '/bin/echo 0 > /selinux/enforce',
+    refreshonly => true,
+  }
+}
 </code></pre>
 
 </table>
