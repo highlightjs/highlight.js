@@ -7,6 +7,7 @@ var path     = require('path');
 
 var parseHeader = require('./utility').parseHeader;
 var tasks       = require('gear-lib');
+var headerRegex = /^\s*\/\*((.|\r?\n)*?)\*/;
 
 tasks.clean = function(directories, blobs, done) {
   directories = _.isString(directories) ? [directories] : directories;
@@ -19,7 +20,6 @@ tasks.clean.type = 'collect';
 
 tasks.reorderDeps = function(options, blobs, done) {
   var buffer       = {},
-      headerRegex  = /^\s*\/\*((.|\r?\n)*?)\*/,
       newBlobOrder = [];
 
   _.each(blobs, function(blob) {
