@@ -6,8 +6,9 @@ var path = require('path');
 var packageJSON = require('../package');
 var utility     = require('./utility');
 
-var languages,
-    header = utility.regex.header;
+var filterCB,
+    languages = { pattern: path.join('src', 'languages', '*.js') },
+    header    = utility.regex.header;
 
 function buildLanguages() {
   var input  = languages,
@@ -19,7 +20,8 @@ function buildLanguages() {
   return {
     logjs: { task: ['log', 'Building language files.'] },
     readjs: { requires: 'logjs', task: ['glob', input] },
-    replacejs: { requires: 'readjs', task: ['replace', replaceArgs] },
+    filterjs: { requires: 'readjs', task: ['filter', filterCB] },
+    replacejs: { requires: 'filterjs', task: ['replace', replaceArgs] },
     templatejs: { requires: 'replacejs', task: ['template', template] },
     writejslog: {
       requires: 'templatejs',
@@ -70,7 +72,8 @@ function buildIndex() {
   return {
     logIndex: { task: ['log', 'Building index file.'] },
     readIndex: { requires: 'logIndex', task: ['glob', input] },
-    reorderIndex: { requires: 'readIndex', task: 'reorderDeps' },
+    filterIndex: { requires: 'readIndex', task: ['filter', filterCB] },
+    reorderIndex: { requires: 'filterIndex', task: 'reorderDeps' },
     templateIndex: {
       requires: 'reorderIndex',
       task: ['templateAll', template.join('\n')]
@@ -139,7 +142,7 @@ function buildPackageFile() {
 }
 
 module.exports = function(commander) {
-  languages = utility.languagesGlob(commander.args, true);
+  filterCB = utility.buildFilterCallback(commander.args);
 
   return _.merge(
     buildLanguages(),

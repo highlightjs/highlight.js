@@ -29,7 +29,8 @@ module.exports = function(commander) {
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
 
-      readArgs     = utility.languagesGlob(commander.args),
+      readArgs     = { pattern: path.join('src', '**', '*.js') },
+      filterCB     = utility.buildFilterCallback(commander.args),
       replaceArgs  = replace(regex.header, ''),
       templateArgs = { _: 'hljs.registerLanguage(\'<%= name %>\',' +
                           ' <%= content %>);\n'
@@ -39,7 +40,8 @@ module.exports = function(commander) {
   tasks = {
     startlog: { task: ['log', 'Building highlight.js pack file.'] },
     read: { requires: 'startlog', task: ['glob', readArgs] },
-    reorder: { requires: 'read', task: 'reorderDeps' },
+    filter: { requires: 'read', task: ['filter', filterCB] },
+    reorder: { requires: 'filter', task: 'reorderDeps' },
     replace: { requires: 'reorder', task: ['replace', replaceArgs] },
     template: { requires: 'replace', task: ['template', templateArgs] },
     concat: { requires: 'template', task: 'concat' }
