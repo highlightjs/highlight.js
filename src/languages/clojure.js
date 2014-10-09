@@ -37,8 +37,8 @@ function(hljs) {
       'lazy-seq spread list* str find-keyword keyword symbol gensym force rationalize'
    };
 
-  var symbolstart = 'a-zA-Z_\\-!.?+*=<>&#\'';
-  var SYMBOL_RE = '[' + symbolstart + '][' + symbolstart + '0-9/;:]+';
+  var SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&#\'';
+  var SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
   var SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
 
   var SYMBOL = {
