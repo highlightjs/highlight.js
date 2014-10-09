@@ -2,6 +2,7 @@
 Language: Bash
 Author: vah <vahtenberg@gmail.com>
 Contributrors: Benjamin Pannell <contact@sierrasoftworks.com>
+Category: common
 */
 
 function(hljs) {
