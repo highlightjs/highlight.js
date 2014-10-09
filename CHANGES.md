@@ -1,6 +1,21 @@
-## master
+## Version 8.3
 
-New languages:
+We streamlined our tool chain, it is now based entirely on node.js instead of
+being a mix of node.js, Python and Java. The build script options and arguments
+remained the same, and we've noted all the changes in the [documentation][b].
+Apart from reducing complexity, the new build script is also faster from not
+having to start Java machine repeatedly. The credits for the work go to [Jeremy
+Hull][].
+
+Some notable fixes:
+
+- PHP and JavaScript mixed in HTML now live happily with each other.
+- JavaScript regexes now understand ES6 flags "u" and "y".
+- `throw` keyword is no longer detected as a method name in Java.
+- Fixed parsing of numbers and symbols in Clojure thanks to [input from Ivan
+  Kleshnin][ik].
+
+New languages in this release:
 
 - *Less* by [Max Mikhailov][]
 - *Stylus* by [Bryant Williams][]
@@ -12,7 +27,11 @@ New languages:
   Blumhardt][ps]
 - *XL* by [Christophe de Dinechin][]
 - *LiveScript* by [Taneli Vatanen][] and [Jen Evers-Corvina][]
+- *ERB* (Ruby in HTML) by [Lucas Mazza][]
 
+[b]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
+[Jeremy Hull]: https://github.com/sourrust
+[ik]: https://twitter.com/IvanKleshnin/status/514041599484231680
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
 [Radek Liska]: https://github.com/Nindaleth
@@ -24,7 +43,7 @@ New languages:
 [Christophe de Dinechin]: https://github.com/c3d
 [Taneli Vatanen]: https://github.com/Daiz-
 [Jen Evers-Corvina]: https://github.com/sevvie
-
+[Lucas Mazza]: https://github.com/lucasmazza
 
 ## Version 8.2
 
