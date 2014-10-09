@@ -5,24 +5,8 @@ var del      = require('del');
 var Registry = require('gear').Registry;
 var path     = require('path');
 
-var tasks = require('gear-lib');
-
-function parseHeader(header) {
-  var object  = {},
-      headers = header.split('\n');
-
-  _(headers)
-    .compact()
-    .each(function(h) {
-      var keyVal = h.trim().split(': '),
-          key    = keyVal[0],
-          value  = keyVal[1];
-
-      object[key] = value;
-    });
-
-  return object;
-}
+var parseHeader = require('./utility').parseHeader;
+var tasks       = require('gear-lib');
 
 tasks.clean = function(directories, blobs, done) {
   directories = _.isString(directories) ? [directories] : directories;

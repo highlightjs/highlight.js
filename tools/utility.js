@@ -102,8 +102,26 @@ function replaceClassNames(match) {
   return REPLACES[match];
 }
 
+function parseHeader(header) {
+  var object  = {},
+      headers = header.split('\n');
+
+  _(headers)
+    .compact()
+    .each(function(h) {
+      var keyVal = h.trim().split(': '),
+          key    = keyVal[0],
+          value  = keyVal[1];
+
+      object[key] = value;
+    });
+
+  return object;
+}
+
 module.exports = {
   languagesGlob: languagesGlob,
+  parseHeader: parseHeader,
   regex: regex,
   replace: replace,
   replaceClassNames: replaceClassNames
