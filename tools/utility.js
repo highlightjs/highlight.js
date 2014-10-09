@@ -88,14 +88,15 @@ function parseHeader(header) {
 }
 
 function filterByCategory(blob, category) {
-  var fileInfo, categoryName,
+  var fileInfo, categories,
       match = blob.result.match(headerRegex);
 
   if(match) {
     fileInfo     = parseHeader(match[1]);
-    categoryName = fileInfo.Category;
+    categories   = fileInfo.Category;
 
-    return categoryName ? categoryName === category : false;
+    categories = categories ? categories.split(/\s*,\s*/) : [];
+    return _.contains(categories, category);
   } else {
     return false;
   }
