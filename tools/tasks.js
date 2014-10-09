@@ -54,8 +54,10 @@ tasks.reorderDeps = function(options, blobs, done) {
     var object;
 
     if(buf.Requires) {
-      object = buffer[buf.Requires];
-      pushInBlob(object);
+      _.each(buf.Requires, function(language) {
+        object = buffer[language];
+        pushInBlob(object);
+      });
     }
 
     pushInBlob(buf);
@@ -200,7 +202,7 @@ tasks.filter = function(callback, blobs, done) {
 
   // Re-add in blobs required from header definition
   _.each(filteredBlobs, function(blob) {
-    var fileInfo, filename, fileFound,
+    var fileInfo,
         dirname  = path.dirname(blob.name),
         content  = blob.result,
         match    = content.match(headerRegex);
@@ -209,13 +211,15 @@ tasks.filter = function(callback, blobs, done) {
       fileInfo = parseHeader(match[1]);
 
       if(fileInfo.Requires) {
-        filename  = path.join(dirname, fileInfo.Requires);
-        fileFound = _.find(filteredBlobs, { name: filename });
+        _.each(fileInfo.Requires, function(language) {
+          var filename  = path.join(dirname, language),
+              fileFound = _.find(filteredBlobs, { name: filename });
 
-        if(!fileFound) {
-          filteredBlobs.push(
-            _.find(blobs, { name: filename }));
-        }
+          if(!fileFound) {
+            filteredBlobs.push(
+              _.find(blobs, { name: filename }));
+          }
+        });
       }
     }
   });
