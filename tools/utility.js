@@ -2,9 +2,8 @@
 
 var _    = require('lodash');
 var path = require('path');
-var util = require('util');
 
-var CATEGORIES, REPLACES,
+var REPLACES,
     regex       = {},
     headerRegex = /^\s*\/\*((.|\r?\n)*?)\*/;
 
@@ -55,38 +54,6 @@ REPLACES = {
   'terminators': 't',
   'terminator_end': 'tE',
 };
-
-CATEGORIES = {
-  common: [
-    'apache', 'nginx',
-    'java', 'cs', 'cpp', 'objectivec',
-    'ini', 'diff', 'bash', 'makefile',
-    'sql', 'php', 'ruby', 'python', 'perl',
-    'css', 'xml', 'javascript', 'coffeescript', 'http', 'json',
-    'markdown',
-  ],
-};
-
-function languagesGlob(languages, isNode) {
-  if(languages[0] && _.head(languages)[0] === ':') {
-    languages = _.head(languages);
-    languages = CATEGORIES[languages.slice(1)];
-  }
-
-  var coreFile = path.join(dir.root, 'src', 'highlight.js'),
-      template = isNode ? '%s' : '{' + coreFile + ',%s}',
-      langGlob = '*';
-
-  if(languages.length === 1) {
-    langGlob = languages[0];
-  } else if(languages.length > 1) {
-    langGlob = '{' + languages.join(',') +'}';
-  }
-
-  langGlob = path.join(dir.root, 'src', 'languages', langGlob + '.js');
-
-  return { pattern: util.format(template, langGlob) };
-}
 
 regex.replaces = new RegExp(
   '\\b(' + Object.keys(REPLACES).join('|') + ')\\b', 'g');
@@ -156,7 +123,6 @@ function buildFilterCallback(languages) {
 }
 
 module.exports = {
-  languagesGlob: languagesGlob,
   buildFilterCallback: buildFilterCallback,
   parseHeader: parseHeader,
   regex: regex,
