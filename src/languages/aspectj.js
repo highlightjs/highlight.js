@@ -10,9 +10,9 @@ function (hljs) {
     'enum else extends implements break transient new catch instanceof byte super volatile case ' +
     'assert short package default double public try this switch continue throws privileged ' +
     'aspectOf adviceexecution proceed cflowbelow cflow initialization preinitialization ' +
-    'staticinitialization withincode target within call execution getWithinTypeName handler ' +
+    'staticinitialization withincode target within execution getWithinTypeName handler ' +
     'thisJoinPoint thisJoinPointStaticPart thisEnclosingJoinPointStaticPart';
-  var SHORTKEYS = 'get set args';
+  var SHORTKEYS = 'get set args call';
   return {
     keywords : KEYWORDS,
     illegal : /<\//,
@@ -40,7 +40,7 @@ function (hljs) {
         keywords : 'aspect',
         illegal : /[:;"\[\]]/,
         contains : [{
-            beginKeywords : 'extends implements pertypewithin perthis percflowbelow percflow issingleton'
+            beginKeywords : 'extends implements pertypewithin perthis pertarget percflowbelow percflow issingleton'
           },
           hljs.UNDERSCORE_TITLE_MODE,
           {
@@ -86,14 +86,13 @@ function (hljs) {
         end : /[{;]/,
         relevance: 0,
         excludeEnd : true,
-        keywords : KEYWORDS + ' ' + SHORTKEYS,
+        keywords : KEYWORDS,
         illegal : /["\[\]]/,
         contains : [
           {
-            className : 'params',
-            begin : /\(([\d\w\(.\s\*\.\+\@])+[^()]*[\)\s\w\d\w\<\>\=\+\*\.]+\)/,
-            keywords : KEYWORDS,
-            excludeBegin : false
+            begin : hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
+            excludeEnd : true,
+            keywords : KEYWORDS + ' ' + SHORTKEYS
           },
           {
             beginKeywords : 'extends implements'
