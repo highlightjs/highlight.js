@@ -91,7 +91,6 @@ function (hljs) {
         contains : [
           {
             begin : hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
-            excludeEnd : true,
             keywords : KEYWORDS + ' ' + SHORTKEYS
           },
           {
