@@ -149,6 +149,10 @@ function(hljs) {
   SUBST.contains = RUBY_DEFAULT_CONTAINS;
   PARAMS.contains = RUBY_DEFAULT_CONTAINS;
 
+  var simple_prompt = "[>?]>";
+  var default_prompt = "[\\w#]+\\(\\w+\\):\\d+:\\d+>";
+  var rvm_prompt = "(\\w+-)?\\d+\\.\\d+\\.\\d(p\\d+)?[^>]+>";
+
   var IRB_DEFAULT = [
     {
       begin: /^\s*=>/,
@@ -159,7 +163,7 @@ function(hljs) {
     },
     {
       className: 'prompt',
-      begin: /^\S[^=>\n]*>+/,
+      begin: new RegExp('^('+simple_prompt+"|"+default_prompt+'|'+rvm_prompt+')'),
       starts: {
         end: '$', contains: RUBY_DEFAULT_CONTAINS
       }
