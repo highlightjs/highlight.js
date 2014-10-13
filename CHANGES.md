@@ -28,6 +28,7 @@ New languages in this release:
 - *XL* by [Christophe de Dinechin][]
 - *LiveScript* by [Taneli Vatanen][] and [Jen Evers-Corvina][]
 - *ERB* (Ruby in HTML) by [Lucas Mazza][]
+- *Roboconf* by [Vincent Zurczak][]
 
 [b]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
 [Jeremy Hull]: https://github.com/sourrust
@@ -44,6 +45,7 @@ New languages in this release:
 [Taneli Vatanen]: https://github.com/Daiz-
 [Jen Evers-Corvina]: https://github.com/sevvie
 [Lucas Mazza]: https://github.com/lucasmazza
+[Vincent Zurczak]: https://github.com/vincent-zurczak
 
 ## Version 8.2
 
@@ -249,6 +251,8 @@ Miscellaneous improvements:
 - Objective C and C# now properly highlight titles in method definition.
 - Big overhaul of relevance counting for a number of languages. Please do report
   bugs about mis-detection of non-trivial code snippets!
+
+[API reference]: http://highlightjs.readthedocs.org/en/latest/api.html
 
 [cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 [api docs]: http://highlightjs.readthedocs.org/en/latest/api.html

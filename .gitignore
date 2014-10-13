@@ -5,3 +5,4 @@ docs/_build
 __pycache__
 *.swp
 node_modules
+.project

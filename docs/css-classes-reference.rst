@@ -1253,3 +1253,13 @@ XL ("xl", "tao")
 * ``number``:           Number values
 * ``function``:         Function or variable definition
 * ``import``:           Import clause
+
+Roboconf ("graph", "instances")
+------------------------------
+
+* ``keyword``:          keyword
+* ``string``:           names of imported variables
+* ``comment``:          comment
+* ``facet``:            a **facet** section
+* ``component``:        a **component** section
+* ``instance-of``:      an **instance** section
