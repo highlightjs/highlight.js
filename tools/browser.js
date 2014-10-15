@@ -24,7 +24,7 @@ function copyDocs() {
 }
 
 module.exports = function(commander) {
-  var amdArgs, hljsExt, output, requiresTask, tasks,
+  var hljsExt, output, requiresTask, tasks,
       replace           = utility.replace,
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
@@ -32,9 +32,9 @@ module.exports = function(commander) {
       readArgs     = { pattern: path.join('src', '**', '*.js') },
       filterCB     = utility.buildFilterCallback(commander.args),
       replaceArgs  = replace(regex.header, ''),
-      templateArgs = { _: 'hljs.registerLanguage(\'<%= name %>\',' +
-                          ' <%= content %>);\n'
-                     , highlight: 'var hljs = new <%= content %>();\n'
+      templateArgs = { template: 'hljs.registerLanguage(' +
+                          '\'<%= name %>\', <%= content %>);\n'
+                     , skip: 'highlight'
                      };
 
   tasks = {
@@ -47,17 +47,6 @@ module.exports = function(commander) {
     concat: { requires: 'template', task: 'concat' }
   };
   requiresTask = 'concat';
-
-  if(commander.target === 'amd') {
-    tasks.amdlog = {
-      requires: requiresTask,
-      task: ['log', 'Adding AMD wrapper.']
-    };
-
-    amdArgs = 'define(function() {\n<%= content %>\nreturn hljs;\n});';
-    tasks.amd = { requires: 'amdlog', task: ['template', amdArgs] };
-    requiresTask = 'amd';
-  }
 
   if(commander.compress || commander.target === 'cdn') {
     tasks.compresslog = {

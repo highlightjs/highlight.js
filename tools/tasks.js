@@ -73,21 +73,27 @@ tasks.template = function(options, blob, done) {
   var content  = blob.result.trim(),
       filename = path.basename(blob.name),
       basename = filename.replace(/\.js$/, ''),
-      data, hasTemplate, template;
+      data, hasTemplate, newBlob, template;
 
-  if(_.isString(options)) options = { _: options };
+  if(_.isString(options)) options = { template: options };
 
-  data = {
-    name: basename,
-    filename: filename,
-    content: content
-  };
+  if(basename !== options.skip) {
+    data = {
+      name: basename,
+      filename: filename,
+      content: content
+    };
 
-  hasTemplate = _.contains(_.keys(options), basename);
-  template    = hasTemplate ? options[basename] : options._;
-  content     = _.template(template, data);
+    hasTemplate = _.contains(_.keys(options), basename);
+    template    = hasTemplate ? options[basename] : options.template;
+    content     = _.template(template, data);
 
-  return done(null, new blob.constructor(content, blob));
+    newBlob = new blob.constructor(content, blob);
+  } else {
+    newBlob = blob;
+  }
+
+  return done(null, newBlob);
 };
 
 tasks.templateAll = function(template, blobs, done) {
