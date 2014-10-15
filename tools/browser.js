@@ -32,9 +32,9 @@ module.exports = function(commander) {
       readArgs     = { pattern: path.join('src', '**', '*.js') },
       filterCB     = utility.buildFilterCallback(commander.args),
       replaceArgs  = replace(regex.header, ''),
-      templateArgs = { _: 'hljs.registerLanguage(\'<%= name %>\',' +
-                          ' <%= content %>);\n'
-                     , highlight: 'var hljs = new <%= content %>();\n'
+      templateArgs = { template: 'hljs.registerLanguage(' +
+                          '\'<%= name %>\', <%= content %>);\n'
+                     , skip: 'highlight'
                      };
 
   tasks = {
