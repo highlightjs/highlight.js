@@ -51,8 +51,7 @@ function buildIndex() {
       output = path.join(dir.build, 'lib', 'index.js'),
 
       template =
-    [ 'var Highlight = require(\'./highlight\');'
-    , 'var hljs      = new Highlight();\n'
+    [ 'var hljs = require(\'./highlight\');\n'
     , '<% _.each(names, function(name) { %>' +
       'hljs.registerLanguage(\'<%= name %>\', ' +
       'require(\'./languages/<%= name %>\'));'
