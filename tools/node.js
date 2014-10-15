@@ -33,22 +33,13 @@ function buildLanguages() {
 
 function buildCore() {
   var input    = path.join(dir.root, 'src', 'highlight.js'),
-      output   = path.join(dir.build, 'lib'),
-
-      replaceArgs = utility.replace(header, ''),
-      template    = 'var Highlight = <%= content %>;' +
-                    '\nmodule.exports = Highlight;';
+      output   = path.join(dir.build, 'lib');
 
   return {
     logCore: { task: ['log', 'Building core file.'] },
     readCore: { requires: 'logCore',  task: ['read', input] },
-    replaceCore: { requires: 'readCore', task: ['replace', replaceArgs] },
-    templateCore: {
-      requires: 'replaceCore',
-      task: ['template', template]
-    },
     writeCoreLog: {
-      requires: 'templateCore',
+      requires: 'readCore',
       task: ['log', 'Writing core file.']
     },
     writeCore: { requires: 'writeCoreLog', task: ['dest', output] }
