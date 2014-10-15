@@ -24,7 +24,7 @@ function copyDocs() {
 }
 
 module.exports = function(commander) {
-  var amdArgs, hljsExt, output, requiresTask, tasks,
+  var hljsExt, output, requiresTask, tasks,
       replace           = utility.replace,
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
