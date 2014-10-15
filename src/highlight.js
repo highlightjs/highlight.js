@@ -613,7 +613,7 @@ https://highlightjs.org/
   var aliases = {};
 
   function registerLanguage(name, language) {
-    var lang = languages[name] = language(this);
+    var lang = languages[name] = language(hljs);
     if (lang.aliases) {
       lang.aliases.forEach(function(alias) {aliases[alias] = name;});
     }
