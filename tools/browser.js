@@ -48,17 +48,6 @@ module.exports = function(commander) {
   };
   requiresTask = 'concat';
 
-  if(commander.target === 'amd') {
-    tasks.amdlog = {
-      requires: requiresTask,
-      task: ['log', 'Adding AMD wrapper.']
-    };
-
-    amdArgs = 'define(function() {\n<%= content %>\nreturn hljs;\n});';
-    tasks.amd = { requires: 'amdlog', task: ['template', amdArgs] };
-    requiresTask = 'amd';
-  }
-
   if(commander.compress || commander.target === 'cdn') {
     tasks.compresslog = {
       requires: requiresTask,
