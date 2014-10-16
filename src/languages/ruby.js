@@ -1,7 +1,7 @@
 /*
 Language: Ruby
 Author: Anton Kovalyov <anton@kovalyov.net>
-Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.net>, Loren Segal <lsegal@soen.ca>, Pascal Hurni <phi@ruby-reactive.org>
+Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.net>, Loren Segal <lsegal@soen.ca>, Pascal Hurni <phi@ruby-reactive.org>, Cedric Sohrauer <sohrauer@googlemail.com>
 Category: common
 */
 
@@ -149,9 +149,9 @@ function(hljs) {
   SUBST.contains = RUBY_DEFAULT_CONTAINS;
   PARAMS.contains = RUBY_DEFAULT_CONTAINS;
 
-  var simple_prompt = "[>?]>";
-  var default_prompt = "[\\w#]+\\(\\w+\\):\\d+:\\d+>";
-  var rvm_prompt = "(\\w+-)?\\d+\\.\\d+\\.\\d(p\\d+)?[^>]+>";
+  var SIMPLE_PROMPT = "[>?]>";
+  var DEFAULT_PROMPT = "[\\w#]+\\(\\w+\\):\\d+:\\d+>";
+  var RVM_PROMPT = "(\\w+-)?\\d+\\.\\d+\\.\\d(p\\d+)?[^>]+>";
 
   var IRB_DEFAULT = [
     {
@@ -163,7 +163,7 @@ function(hljs) {
     },
     {
       className: 'prompt',
-      begin: new RegExp('^('+simple_prompt+"|"+default_prompt+'|'+rvm_prompt+')'),
+      begin: '^('+SIMPLE_PROMPT+"|"+DEFAULT_PROMPT+'|'+RVM_PROMPT+')',
       starts: {
         end: '$', contains: RUBY_DEFAULT_CONTAINS
       }
