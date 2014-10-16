@@ -2,6 +2,7 @@
 build
 docs/_build
 .idea/
+*.iml
 __pycache__
 *.swp
 node_modules
