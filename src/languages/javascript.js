@@ -73,6 +73,10 @@ function(hljs) {
       },
       {
         begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
+      },
+      {
+        className: "attribute",
+        begin: /([_a-zA-Z0-9]+|['"][^'"]*['"])\s*:/
       }
     ]
   };
