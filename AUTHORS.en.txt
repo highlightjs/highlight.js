@@ -140,3 +140,4 @@ Contributors:
 - Taneli Vatanen <taneli.vatanen@gmail.com>
 - Jen Evers-Corvina <jen@sevvie.net>
 - Kassio Borges <kassioborgesm@gmail.com>
+- Cedric Sohrauer <sohrauer@googlemail.com>

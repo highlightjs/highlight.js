@@ -140,3 +140,4 @@ URL:   https://highlightjs.org/
 - Танели Ватанен <taneli.vatanen@gmail.com>
 - Джен Эверс-Корвина <jen@sevvie.net>
 - Кассио Борхес <kassioborgesm@gmail.com>
+- Седрик Зорауер <sohrauer@googlemail.com>
