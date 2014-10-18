@@ -654,12 +654,15 @@ OCaml ("ocaml", "ml")
 ---------------------
 
 * ``keywords``:         keyword
+* ``literal``:          true false etc.
 * ``number``:           number
 * ``string``:           string
+* ``char``:             character
 * ``comment``:          comment
-* ``class``:            any custom OCaml type
-* ``title``:            the name of a custom OCaml type
-* ``annotation``:       any attribute
+* ``built_in``:         built-in type (int, list etc.)
+* ``type``:             variant constructor, module name
+* ``tag``:              polymorphic variant tag
+* ``symbol``:           type variable
 
 D ("d")
 -------
