@@ -11,7 +11,8 @@ function (hljs) {
     'assert short package default double public try this switch continue throws privileged ' +
     'aspectOf adviceexecution proceed cflowbelow cflow initialization preinitialization ' +
     'staticinitialization withincode target within execution getWithinTypeName handler ' +
-    'thisJoinPoint thisJoinPointStaticPart thisEnclosingJoinPointStaticPart';
+    'thisJoinPoint thisJoinPointStaticPart thisEnclosingJoinPointStaticPart declare parents '+
+    'warning error soft precedence';
   var SHORTKEYS = 'get set args call';
   return {
     keywords : KEYWORDS,
@@ -65,7 +66,7 @@ function (hljs) {
         ]
       }, 
       {
-        // AspectJ Constructs.
+        // AspectJ Constructs
         beginKeywords : 'pointcut after before around throwing returning',
         end : /[)]/,
         relevance: 10,
@@ -85,7 +86,7 @@ function (hljs) {
         returnBegin : true,
         end : /[{;]/,
         relevance: 0,
-        excludeEnd : true,
+        excludeEnd : false,
         keywords : KEYWORDS,
         illegal : /["\[\]]/,
         contains : [
@@ -93,18 +94,8 @@ function (hljs) {
             begin : hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
             keywords : KEYWORDS + ' ' + SHORTKEYS
           },
-          {
-            beginKeywords : 'extends implements'
-          },
           hljs.QUOTE_STRING_MODE
         ]
-      },
-      {
-        beginKeywords : 'declare',
-        end : /[:]/,
-        relevance: 10,
-        excludeEnd : true,
-        keywords : 'declare parents warning error soft precedence'
       },
       {
         // this prevents 'new Name(...), or throw ...' from being recognized as a function definition
@@ -113,9 +104,9 @@ function (hljs) {
         relevance : 0
       },
       {
-        // done some work in the beginning of the regex for AspectJ compared to the Java language
-        className : 'operation',
-        begin : /\w+ +\w+(\.)?\w+ *\([^\)]*\) *[\{\;]/,
+        // the function class is a bit different for AspectJ compared to the Java language
+        className : 'function',
+        begin : /\w+ +[\w ]+\w+(\.)?\w+ *\([^\)]*\) *[\{\;]/,
         returnBegin : true,
         end : /[{;=]/,
         keywords : KEYWORDS,
