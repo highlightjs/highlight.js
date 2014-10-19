@@ -45,9 +45,9 @@ function (hljs) {
           },
           hljs.UNDERSCORE_TITLE_MODE,
           {
-            begin : '\\(' + hljs.UNDERSCORE_IDENT_RE + '(\\()?',
+            begin : /\([^\)]*/,
             end : /[)]+/,
-            keywords : KEYWORDS,
+            keywords : KEYWORDS + ' ' + SHORTKEYS,
             excludeEnd : false
           }
         ]
@@ -106,9 +106,10 @@ function (hljs) {
       {
         // the function class is a bit different for AspectJ compared to the Java language
         className : 'function',
-        begin : /\w+ +[\w ]+\w+(\.)?\w+ *\([^\)]*\) *[\{\;]/,
+        begin : /\w+ +\w+(\.)?\w+\s*\([^\)]*\)\s*[\{\;]/,
         returnBegin : true,
         end : /[{;=]/,
+        relevance: 0,
         keywords : KEYWORDS,
         excludeEnd : true,
         contains : [
