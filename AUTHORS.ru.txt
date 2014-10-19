@@ -141,3 +141,4 @@ URL:   https://highlightjs.org/
 - Джен Эверс-Корвина <jen@sevvie.net>
 - Кассио Борхес <kassioborgesm@gmail.com>
 - Седрик Зорауер <sohrauer@googlemail.com>
+- Микаэль Делахэй <mickael.delahaye@gmail.com>
