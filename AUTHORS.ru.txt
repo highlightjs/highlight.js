@@ -136,3 +136,9 @@ URL:   https://highlightjs.org/
 - Люк Холдер <lukemh@gmail.com>
 - Дэвид Мохундро <david@mohundro.com>
 - Николас Блумхардт <nblumhardt@nblumhardt.com>
+- Кристоф де Денишен <christophe@taodyne.com>
+- Танели Ватанен <taneli.vatanen@gmail.com>
+- Джен Эверс-Корвина <jen@sevvie.net>
+- Кассио Борхес <kassioborgesm@gmail.com>
+- Седрик Зорауер <sohrauer@googlemail.com>
+- Микаэль Делахэй <mickael.delahaye@gmail.com>

@@ -1,5 +1,6 @@
 /*
 Language: JavaScript
+Category: common
 */
 
 function(hljs) {
@@ -24,8 +25,11 @@ function(hljs) {
     contains: [
       {
         className: 'pi',
-        begin: /^\s*('|")use strict('|")/,
-        relevance: 10
+        relevance: 10,
+        variants: [
+          {begin: /^\s*('|")use strict('|")/},
+          {begin: /^\s*('|")use asm('|")/}
+        ]
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,

@@ -411,6 +411,23 @@ Dart ("dart")
 * ``class``:            class header from "class" till "{"
 * ``title``:            class name
 
+LiveScript ("livescript", "ls")
+-------------------------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment
+* ``number``:           number
+* ``literal``:          special literal: "true", "false" and "null"
+* ``built_in``:         built-in objects and functions ("window", "console", "require", etc...)
+* ``string``:           string
+* ``subst``:            #{ ... } interpolation in double-quoted strings
+* ``regexp``:           regular expression
+* ``function``:         header of a function
+* ``class``:            header of a class
+* ``title``:            name of a function variable inside a header
+* ``params``:           parentheses and everything inside them in a function's header
+* ``property``:         @-property within class and functions
+
 ActionScript ("actionscript", "as")
 -----------------------------------
 
@@ -637,12 +654,15 @@ OCaml ("ocaml", "ml")
 ---------------------
 
 * ``keywords``:         keyword
+* ``literal``:          true false etc.
 * ``number``:           number
 * ``string``:           string
+* ``char``:             character
 * ``comment``:          comment
-* ``class``:            any custom OCaml type
-* ``title``:            the name of a custom OCaml type
-* ``annotation``:       any attribute
+* ``built_in``:         built-in type (int, list etc.)
+* ``type``:             variant constructor, module name
+* ``tag``:              polymorphic variant tag
+* ``symbol``:           type variable
 
 D ("d")
 -------
@@ -1219,6 +1239,23 @@ Puppet ("puppet", "pp")
 * ``number``:           number
 * ``keyword``:          classes and types
 * ``constant``:         dependencies
+
+XL ("xl", "tao")
+-----------
+
+* ``keyword``:          keywords defined in the default syntax file
+* ``literal``:          names entered in the compiler (true, false, nil)
+* ``type``:             basic types (integer, real, text, name, etc)
+* ``built_in``:         built-in functions (sin, exp, mod, etc)
+* ``module``:           names of frequently used Tao modules
+* ``id``:               names of frequently used Tao functions
+* ``constant``:         all-uppercase names such as HELLO
+* ``variable``:         Mixed-case names such as Hello (style convention)
+* ``id``:               Lower-case names such as hello
+* ``string``:           Text between single or double quote, long text << >>
+* ``number``:           Number values
+* ``function``:         Function or variable definition
+* ``import``:           Import clause
 
 AspectJ ("aspectj")
 -------------

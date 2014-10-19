@@ -2,6 +2,7 @@
 Language: Objective C
 Author: Valerii Hiora <valerii.hiora@gmail.com>
 Contributors: Angel G. Olloqui <angelgarcia.mail@gmail.com>, Matt Diephouse <matt@diephouse.com>
+Category: common
 */
 
 function(hljs) {

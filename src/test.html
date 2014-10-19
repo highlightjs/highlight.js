@@ -353,43 +353,29 @@ module ABC::DEF
 end
 
 class Car < ActiveRecord::Base
-  has_many :wheels, :class_name => 'Wheel', :foreign_key => 'car_id'
   has_many :wheels, class_name: 'Wheel', foreign_key: 'car_id'
   scope :available, -> { where(available: true) }
 end
-omega = -> { 'alpha' }
-alpha = ->(arg) { arg*2 }
+
 hash = {1 => 'one', 2 => 'two'}
-
-anIdentifier = an_identifier
-Constant = 1
-render action: :new
-
-str =~ /^(?:foo)$/
-str =~ %r{foo|bar|buz$}
-str =~ %r!foo|bar$!
-str =~ %r[foo|bar$]
-str =~ %r(\(foo|bar\)$)
 
 2.0.0p0 :001 > ['some']
  => ["some"]
-2.0.0p0 :002 > if true
-2.0.0p0 :003?>   "yop"
-2.0.0p0 :004?>   end
- => "yop"
+</code></pre>
 
->> obj = OpenStruct.new :integer => 987, :symbol => :so_great
-=> #&lt;OpenStruct integer=987, symbol=:so_great&gt;
->> [obj,obj,obj]
-=> [#&lt;OpenStruct integer=987, symbol=:so_great>, #&lt;OpenStruct integer=987, symbol=:so_great>, #&lt;OpenStruct integer=987, symbol=:so_great>]
->> {1 => obj, 2 => obj}
-=> {1=>#&lt;OpenStruct integer=987, symbol=:so_great>, 2=>#&lt;OpenStruct integer=987, symbol=:so_great>}
->> if 10 > 20
->> "YEAH"
->> else
-?> "NO"
->> end
-=> "NO"
+<tr>
+  <th>ERB
+  <td class="erb">
+<pre><code>&lt;%# this is a comment %&gt;
+
+&lt;% @posts.each do |post| %&gt;
+  &lt;p&gt;&lt;%= link_to post.title, post %&gt;&lt;/p&gt;
+&lt;% end %&gt;
+
+&lt;%- available_things = things.select(&:available?) -%&gt;
+&lt;%%- x = 1 + 2 -%%&gt;
+&lt;%% value = 'real string #{@value}' %%&gt;
+&lt;%%= available_things.inspect %%&gt;
 </code></pre>
 
   <tr>
@@ -1292,6 +1278,49 @@ Something ${2+3}
 """;
 </code></pre>
 
+  <tr>
+    <th>LiveScript
+    <td class="livescript">
+<pre><code># take the first n objects from a list
+take = (n, [x, ...xs]:list) -->
+  | n <= 0     => []
+  | empty list => []
+  | otherwise  => [x] ++ take n - 1, xs
+
+take 2, [1, 2, 3, 4, 5]
+
+# Curried functions
+take-three = take 3
+take-three [6, 7, 8, 9, 10]
+
+# Function composition
+last-three = reverse >> take-three >> reverse
+last-three [1 to 8]
+
+# List comprehensions and piping
+t1 =
+  * id: 1
+    name: 'george'
+  * id: 2
+    name: 'mike'
+  * id: 3
+    name: 'donald'
+
+t2 =
+  * id: 2
+    age: 21
+  * id: 1
+    age: 20
+  * id: 3
+    age: 26
+[{id:id1, name, age}
+  for {id:id1, name} in t1
+  for {id:id2, age} in t2
+  where id1 is id2]
+  |> sort-by \id
+  |> JSON.stringify
+</code></pre>
+
 <tr>
     <th>ActionScript
     <td class="actionscript">
@@ -1386,6 +1415,18 @@ for i = 0 to ubound(ini_strings)
       end if
     end if
 next</code></pre>
+
+  <tr>
+    <th>VBScript in HTML
+    <td class="vbscript-html">
+<pre><code>&lt;body&gt;
+&lt;%
+If i &lt;  10 Then
+  response.write("Good morning!")
+End If
+%&gt;
+&lt;/body&gt;
+</code></pre>
 
   <tr>
     <th>VB.NET
@@ -3512,8 +3553,7 @@ return
   <tr>
     <th>x86asm</th>
     <td class="x86asm">
-<pre>
-<code>section .text
+<pre><code>section .text
 extern  _MessageBoxA@16
 %if     __NASM_VERSION_ID__ >= 0x02030000
 safeseh handler         ; register handler as "safe handler"
@@ -3554,11 +3594,11 @@ caption:db      'SEGV',0
 section .drectve info
         db      '/defaultlib:user32.lib /defaultlib:msvcrt.lib '
 </code></pre>
+
 <tr>
     <th>Q/KDB+
     <td class="q">
-<pre><code>
-select time, price by date,stock from quote where price=(max;price)fby stock
+<pre><code>select time, price by date,stock from quote where price=(max;price)fby stock
 data:raze value flip trade
 select vwap:size wavg price by 5 xbar time.minute from aapl where date within (.z.d-10;.z.d)
 f1:{[x;y;z] show (x;y+z);sum 1 2 3}
@@ -3568,8 +3608,6 @@ nor:{$[x=2*n:x div 2;raze sqrt[-2*log n?1f]*/:(sin;cos)@\:(2*pi)*n?1f;-1_.z.s 1+
 
 mode:{where g=max g:count each group x}		// mode function
 </code></pre>
-
-
 
   <tr>
   <th>Monkey
@@ -3864,6 +3902,39 @@ proc isprime x {
 </code></pre>
 
 <tr>
+    <th>XL
+    <td class="xl">
+<pre><code>import Animate
+import SeasonsGreetingsTheme
+import "myhelper.xl"
+theme "SeasonsGreetings"
+function X:real -> sin(X*0.5) + 16#0.002
+page "A nice car",
+// --------------------------------------
+//    Display car model on a pedestal
+// --------------------------------------
+    clear_color 0, 0, 0, 1
+    hand_scale -> 0.3
+
+    // Display the background image
+    background -4000,
+        locally
+            disable_depth_test
+            corridor N:integer ->
+                locally
+                    rotatez 60 * N
+                    translatex 1000
+                    rotatey 90
+                    color "white"
+                    texture "stars.png"
+                    texture_wrap true, true
+                    texture_transform
+                        translate (time + N) * 0.02 mod 1, 0, 0
+                        scale 0.2, 0.3, 0.3
+                    rectangle 0, 0, 100000, 1154
+</code></pre>
+
+<tr>
     <th>AspectJ
     <td class="aspectj">
 <pre><code>package com.aspectj.syntax;
@@ -3872,11 +3943,11 @@ import org.aspectj.lang.annotation.AdviceName;
 privileged public aspect LoggingAspect issingleton() percflowbelow(ajia.services.*){
   private pointcut getResult() : call(* *(..) throws SQLException) && args(Account, .., int);
   @AdviceName("CheckValidEmail")
-  before (Customer hu) : getResult(hu){		
+  before (Customer hu) : getResult(hu){   
     System.out.println("Your mail address is valid!");
   }
   Object around() throws InsufficientBalanceException: getResult() && call(Customer.new(String,String,int,int,int)){
-    return	proceed();
+    return  proceed();
   }
   public Cache getCache() {
     return this.cache;

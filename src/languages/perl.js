@@ -1,6 +1,7 @@
 /*
 Language: Perl
 Author: Peter Leonov <gojpeg@yandex.ru>
+Category: common
 */
 
 function(hljs) {

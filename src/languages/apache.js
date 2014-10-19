@@ -4,6 +4,7 @@ Author: Ruslan Keba <rukeba@gmail.com>
 Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: http://rukeba.com/
 Description: language definition for Apache configuration files (httpd.conf & .htaccess)
+Category: common
 */
 
 function(hljs) {

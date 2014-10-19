@@ -14,7 +14,7 @@ function(hljs) {
     /* metaparameters */
       'alias audit before loglevel noop require subscribe tag ' +
     /* normal attributes */
-      'owner ensure group mode name changes context force incl lens load_path onlyif provider returns root show_diff type_check ' +
+      'owner ensure group mode name|0 changes context force incl lens load_path onlyif provider returns root show_diff type_check ' +
       'en_address ip_address realname command environment hour monute month monthday special target weekday '+
       'creates cwd ogoutput refresh refreshonly tries try_sleep umask backup checksum content ctime force ignore ' +
       'links mtime purge recurse recurselimit replace selinux_ignore_defaults selrange selrole seltype seluser source ' +
@@ -41,7 +41,7 @@ function(hljs) {
   built_in:
     /* core facts */
       'architecture augeasversion blockdevices boardmanufacturer boardproductname boardserialnumber cfkey dhcp_servers ' +
-      'domain ec2_ ec2_userdata facterversion filesystems ldom fqdn gid hardwareisa hardwaremodel hostname id interfaces '+
+      'domain ec2_ ec2_userdata facterversion filesystems ldom fqdn gid hardwareisa hardwaremodel hostname id|0 interfaces '+
       'ipaddress ipaddress_ ipaddress6 ipaddress6_ iphostnumber is_virtual kernel kernelmajversion kernelrelease kernelversion ' +
       'kernelrelease kernelversion lsbdistcodename lsbdistdescription lsbdistid lsbdistrelease lsbmajdistrelease lsbminordistrelease ' +
       'lsbrelease macaddress macaddress_ macosx_buildversion macosx_productname macosx_productversion macosx_productverson_major ' +
@@ -83,7 +83,7 @@ function(hljs) {
       className: 'keyword',
       begin: '([a-zA-Z_(::)]+ *\\{)',
       contains:[STRING, COMMENT],
-      relevance: 1
+      relevance: 0
     },
     {
       className: 'keyword',
@@ -92,8 +92,7 @@ function(hljs) {
     },
     {
       className: 'function',
-      begin:'[a-zA-Z_]+\\s*=>',
-      relevance: 2
+      begin:'[a-zA-Z_]+\\s*=>'
     },
     {
       className: 'constant',

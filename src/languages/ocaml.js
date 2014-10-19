@@ -1,49 +1,71 @@
 /*
 Language: OCaml
 Author: Mehdi Dogguy <mehdi@dogguy.org>
-Contributors: Nicolas Braud-Santoni <nicolas.braud-santoni@ens-cachan.fr>
+Contributors: Nicolas Braud-Santoni <nicolas.braud-santoni@ens-cachan.fr>, Mickael Delahaye <mickael.delahaye@gmail.com>
 Description: OCaml language definition.
 */
 function(hljs) {
+  /* missing support for heredoc-like string (OCaml 4.0.2+) */
   return {
     aliases: ['ml'],
     keywords: {
       keyword:
         'and as assert asr begin class constraint do done downto else end ' +
-        'exception external false for fun function functor if in include ' +
-        'inherit initializer land lazy let lor lsl lsr lxor match method ' +
-        'mod module mutable new object of open or private rec ref sig struct ' +
-        'then to true try type val virtual when while with parser value',
+        'exception external for fun function functor if in include ' +
+        'inherit! inherit initializer land lazy let lor lsl lsr lxor match method!|10 method ' +
+        'mod module|5 mutable|5 new object of open! open or private rec sig|5 struct ' +
+        'then to try type val! val virtual when while with ' +
+        /* camlp4 */
+        'parser value',
       built_in:
-        'bool char float int list unit array exn option int32 int64 nativeint ' +
-        'format4 format6 lazy_t in_channel out_channel string'
+        /* built-in types */
+        'array bool bytes char exn|5 float int int32 int64 list lazy_t|5 nativeint|5 string unit ' +
+        /* (some) types in Pervasives */
+        'in_channel out_channel ref',
+      literal:
+        'true false',
     },
     illegal: /\/\//,
+    lexemes: '[a-z_]\\w*!?',
     contains: [
       {
-        className: 'string',
-        begin: '"""', end: '"""'
+        className: 'literal',
+        begin: '\\[(\\|\\|)?\\]|\\(\\)'
       },
       {
         className: 'comment',
         begin: '\\(\\*', end: '\\*\\)',
-        contains: ['self']
+        contains: ['self'],
       },
-      {
-        className: 'class',
-        beginKeywords: 'type', end: '\\(|=|$', excludeEnd: true,
-        contains: [
-          hljs.UNDERSCORE_TITLE_MODE
-        ]
+      { /* type variable */
+        className: 'symbol',
+        begin: '\'[A-Za-z_](?!\')[\\w\']*',
+        /* the grammar is ambiguous on how 'a'b should be interpreted but not the compiler */
       },
-      {
-        className: 'annotation',
-        begin: '\\[<', end: '>\\]'
+      { /* polymorphic variant */
+        className: 'tag',
+        begin: '`[A-Z][\\w\']*',
       },
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
+      { /* module or constructor */
+        className: 'type',
+        begin: '\\b[A-Z][\\w\']*',
+        relevance: 0
+      },
+      { /* don't color identifiers, but safely catch all identifiers with '*/
+        begin: '[a-z_]\\w*\'[\\w\']*',
+        relevance: 0
+      },
+      hljs.inherit(hljs.APOS_STRING_MODE, {className: 'char', relevance: 0}),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
-      hljs.C_NUMBER_MODE
+      {
+        className: 'number',
+        begin:
+          '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
+          '0[oO][0-7_]+[Lln]?|' +
+          '0[bB][01_]+[Lln]?|' +
+          '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
+        relevance: 0
+      }
     ]
   }
 }
