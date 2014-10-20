@@ -93,7 +93,8 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .hljs-variable,
 .hljs-params,
-.hljs-class .hljs-title {
+.hljs-class .hljs-title,
+.hljs-aspect .hljs-title {
   color: #f8f8f2;
 }
 
