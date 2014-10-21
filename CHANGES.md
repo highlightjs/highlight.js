@@ -1,3 +1,12 @@
+## master
+
+New languages:
+
+- *AspectJ* by [Hakan Özler][]
+
+[Hakan Özler]: https://github.com/ozlerhakan
+
+
 ## Version 8.3
 
 We streamlined our tool chain, it is now based entirely on node.js instead of
@@ -28,7 +37,6 @@ New languages in this release:
 - *XL* by [Christophe de Dinechin][]
 - *LiveScript* by [Taneli Vatanen][] and [Jen Evers-Corvina][]
 - *ERB* (Ruby in HTML) by [Lucas Mazza][]
-- *AspectJ* by [Hakan Özler][]
 
 [b]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
 [Jeremy Hull]: https://github.com/sourrust
@@ -45,7 +53,6 @@ New languages in this release:
 [Taneli Vatanen]: https://github.com/Daiz-
 [Jen Evers-Corvina]: https://github.com/sevvie
 [Lucas Mazza]: https://github.com/lucasmazza
-[Hakan Özler]: https://github.com/ozlerhakan
 
 ## Version 8.2
 
