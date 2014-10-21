@@ -3,26 +3,26 @@ Syntax highlighting with language autodetection.
 https://highlightjs.org/
 */
 
-(function(global, factory) {
+(function(factory) {
 
   // Setup highlight.js for different environments. First is Node.js or
   // CommonJS.
   if(typeof exports !== 'undefined') {
-    factory(global, exports);
+    factory(exports);
   } else {
     // Export hljs globally even when using AMD for cases when this script
     // is loaded with others that may still expect a global hljs.
-    global.hljs = factory(global, {});
+    window.hljs = factory({});
 
     // Finally register the global hljs with AMD.
     if(typeof define === 'function' && define.amd) {
       define([], function() {
-        return global.hljs;
+        return window.hljs;
       });
     }
   }
 
-}(this, function(global, hljs) {
+}(function(hljs) {
 
   /* Utility functions */
 
