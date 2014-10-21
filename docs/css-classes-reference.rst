@@ -593,6 +593,21 @@ Processing ("processing")
 * ``function``:         Processing setup and draw functions
 * ``built_in``:         Processing built in functions
 
+AspectJ ("aspectj")
+-------------
+
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``keyword``:          keyword
+* ``annotation``:       annotation
+* ``javadoc``:          javadoc comment
+* ``operation``:        method and intertype method header
+* ``aspect``:           aspect header from "aspect" till "{"
+* ``params``:           everything in parentheses inside an aspect header
+* ``inheritance``:      keywords "extends" and "implements" inside an aspect header
+* ``title``:            aspect, method name or pointcut name inside an aspect header
+
 C++ ("cpp", "c", "h", "c++", "h++")
 -----------------------------------
 
@@ -1256,18 +1271,3 @@ XL ("xl", "tao")
 * ``number``:           Number values
 * ``function``:         Function or variable definition
 * ``import``:           Import clause
-
-AspectJ ("aspectj")
--------------
-
-* ``comment``:          comment
-* ``string``:           string
-* ``number``:           number
-* ``keyword``:          keyword
-* ``annotation``:       annotation
-* ``javadoc``:          javadoc comment
-* ``operation``:        method and intertype method header
-* ``aspect``:           aspect header from "aspect" till "{"
-* ``params``:           everything in parentheses inside an aspect header
-* ``inheritance``:      keywords "extends" and "implements" inside an aspect header
-* ``title``:            aspect, method name or pointcut name inside an aspect header
