@@ -218,7 +218,7 @@ tasks.filter = function(callback, blobs, done) {
 
       if(fileInfo.Requires) {
         _.each(fileInfo.Requires, function(language) {
-          var filename  = path.join(dirname, language),
+          var filename  = dirname + '/' + language,
               fileFound = _.find(filteredBlobs, { name: filename });
 
           if(!fileFound) {
