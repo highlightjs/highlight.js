@@ -2397,6 +2397,18 @@ heapExample
     (cons chunk (lazy-seq (chunk-seq rdr)))))
 </code></pre>
 
+ <tr>
+    <th>Clojure REPL
+    <td class="clojure-repl">
+<pre><code>user=> (defn f [x y]
+  #_=>   (+ x y))
+#'user/f
+user=> (f 5 7)
+12
+user=> nil
+nil
+</code></pre>
+
 <tr>
   <th>Scheme
   <td class="scheme">

@@ -766,6 +766,7 @@ Clojure ("clojure", "clj")
 * ``list``:             non-quoted list
 * ``keyword``:          first symbol in a list
 * ``built_in``:         built-in function name as the first symbol in a list
+* ``prompt``:           REPL prompt
 
 Scheme ("scheme")
 --------------------------
