@@ -36,9 +36,7 @@ function (hljs) {
         className : 'aspect',
         beginKeywords : 'aspect',
         end : /[{;=]/,
-        relevance: 10,
         excludeEnd : true,
-        keywords : 'aspect',
         illegal : /[:;"\[\]]/,
         contains : [{
             beginKeywords : 'extends implements pertypewithin perthis pertarget percflowbelow percflow issingleton'
@@ -64,14 +62,12 @@ function (hljs) {
           {beginKeywords : 'extends implements'},
           hljs.UNDERSCORE_TITLE_MODE
         ]
-      }, 
+      },
       {
         // AspectJ Constructs
         beginKeywords : 'pointcut after before around throwing returning',
         end : /[)]/,
-        relevance: 10,
         excludeEnd : false,
-        keywords : 'pointcut after before around throwing returning',
         illegal : /["\[\]]/,
         contains : [
           {
@@ -100,7 +96,6 @@ function (hljs) {
       {
         // this prevents 'new Name(...), or throw ...' from being recognized as a function definition
         beginKeywords : 'new throw',
-        end : /\s/,
         relevance : 0
       },
       {
