@@ -143,3 +143,4 @@ URL:   https://highlightjs.org/
 - Седрик Зорауер <sohrauer@googlemail.com>
 - Микаэль Делахэй <mickael.delahaye@gmail.com>
 - Хакан Озлер <ozler.hakan@gmail.com>
+- Трей Шугарт <treshugart@gmail.com>
