@@ -22,7 +22,7 @@ https://highlightjs.org/
     }
   }
 
-}(this, function(global, hljs) {
+}(window, function(global, hljs) {
 
   /* Utility functions */
 
