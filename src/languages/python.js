@@ -52,12 +52,6 @@ function(hljs) {
     begin: /\(/, end: /\)/,
     contains: ['self', PROMPT, NUMBER, STRING]
   };
-  var FUNC_CLASS_PROTO = {
-    end: /:/,
-    illegal: /[${=;\n]/,
-    contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
-  };
-
   return {
     aliases: ['py', 'gyp'],
     keywords: {
@@ -74,8 +68,15 @@ function(hljs) {
       NUMBER,
       STRING,
       hljs.HASH_COMMENT_MODE,
-      hljs.inherit(FUNC_CLASS_PROTO, {className: 'function', beginKeywords: 'def', relevance: 10}),
-      hljs.inherit(FUNC_CLASS_PROTO, {className: 'class', beginKeywords: 'class'}),
+      {
+        variants: [
+          {className: 'function', beginKeywords: 'def', relevance: 10},
+          {className: 'class', beginKeywords: 'class'}
+        ],
+        end: /:/,
+        illegal: /[${=;\n]/,
+        contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
+      },
       {
         className: 'decorator',
         begin: /@/, end: /$/
