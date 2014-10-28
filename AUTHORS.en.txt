@@ -144,3 +144,4 @@ Contributors:
 - Mickael Delahaye <mickael.delahaye@gmail.com>
 - Hakan Özler <ozler.hakan@gmail.com>
 - Trey Shugart <treshugart@gmail.com>
+- Vincent Zurczak <vzurczak@linagora.com>
