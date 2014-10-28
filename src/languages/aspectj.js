@@ -101,7 +101,7 @@ function (hljs) {
       {
         // the function class is a bit different for AspectJ compared to the Java language
         className : 'function',
-        begin : /\w+ +\w+(\.)?\w+\s*\([^\)]*\)\s*[\{\;]/,
+        begin : /\w+ +\w+(\.)?\w+\s*\([^\)]*\)\s*((throws)[\w\s\,]+)?[\{\;]/,
         returnBegin : true,
         end : /[{;=]/,
         relevance: 0,
