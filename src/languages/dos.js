@@ -8,12 +8,12 @@ function(hljs) {
   var COMMENT = {
     className: 'comment',
     begin: /@?rem\b/, end: /$/,
-	  relevance: 10
+    relevance: 10
   };
   var LABEL = {
-	  className: 'label',
-	  begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
-	  relevance: 0
+    className: 'label',
+    begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
+    relevance: 0
   };
   return {
     aliases: ['bat', 'cmd'],

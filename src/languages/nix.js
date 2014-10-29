@@ -46,7 +46,7 @@ function(hljs) {
     SINGLE_QUOTE,
     DOUBLE_QUOTE,
     ATTRS
-  ];  
+  ];
   ANTIQUOTE.contains = EXPRESSIONS;
   return {
     aliases: ["nixos"],

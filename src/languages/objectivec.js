@@ -18,7 +18,7 @@ function(hljs) {
       '@private @protected @public @try @property @end @throw @catch @finally ' +
       '@autoreleasepool @synthesize @dynamic @selector @optional @required',
     literal:
-    	'false true FALSE TRUE nil YES NO NULL',
+      'false true FALSE TRUE nil YES NO NULL',
     built_in:
       'NSString NSData NSDictionary CGRect CGPoint UIButton UILabel UITextView UIWebView MKMapView ' +
       'NSView NSViewController NSWindow NSWindowController NSSet NSUUID NSIndexSet ' +
