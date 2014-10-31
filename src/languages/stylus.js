@@ -340,7 +340,8 @@ function(hljs) {
     ';', // sql
     '#\\s', // markdown
     '\\*\\s', // markdown
-    '===\\s' // markdown
+    '===\\s', // markdown
+    '\\|'
   ];
 
   return {
