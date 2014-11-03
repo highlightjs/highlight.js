@@ -145,3 +145,4 @@ URL:   https://highlightjs.org/
 - Хакан Озлер <ozler.hakan@gmail.com>
 - Трей Шугарт <treshugart@gmail.com>
 - Винсен Зуржак <vzurczak@linagora.com>
+- Адам Жозеф Кук <adam.joseph.cook@gmail.com>
