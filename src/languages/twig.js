@@ -36,16 +36,10 @@ function(hljs) {
     ]
   };
 
-  var TEMPLATE_TAG_NAMES = 'autoescape block do embed extends filter flush for ' +
-    'if import include macro sandbox set spaceless use ' +
-    'verbatim';
+  var TAGS = 'autoescape block do embed extends filter flush for ' +
+    'if import include macro sandbox set spaceless use verbatim';
 
-  var TEMPLATE_TAG_KEYWORDS = [];
-  TEMPLATE_TAG_NAMES.split(' ').forEach(function(name) {
-    TEMPLATE_TAG_KEYWORDS.push(name);
-    TEMPLATE_TAG_KEYWORDS.push('end' + name);
-  });
-  TEMPLATE_TAG_KEYWORDS = TEMPLATE_TAG_KEYWORDS.join(' ');
+  TAGS = TAGS + ' ' + TAGS.split(' ').map(function(t){return 'end' + t}).join(' ');
 
   return {
     aliases: ['craftcms'],
@@ -59,7 +53,7 @@ function(hljs) {
       {
         className: 'template_tag',
         begin: /\{%/, end: /%}/,
-        keywords: TEMPLATE_TAG_KEYWORDS,
+        keywords: TAGS,
         contains: [FILTER, FUNCTIONS]
       },
       {
