@@ -6,12 +6,10 @@ Description: Twig is a templating language for PHP
 */
 
 function(hljs) {
-
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)'
   };
-
 
   var FUNCTION_NAMES = 'attribute block constant cycle date dump include ' +
                   'max min parent random range source template_from_string';
@@ -38,6 +36,10 @@ function(hljs) {
     ]
   };
 
+  var TAGS = 'autoescape block do embed extends filter flush for ' +
+    'if import include macro sandbox set spaceless use verbatim';
+
+  TAGS = TAGS + ' ' + TAGS.split(' ').map(function(t){return 'end' + t}).join(' ');
 
   return {
     aliases: ['craftcms'],
@@ -48,20 +50,16 @@ function(hljs) {
         className: 'template_comment',
         begin: /\{#/, end: /#}/
       },
-
       {
         className: 'template_tag',
         begin: /\{%/, end: /%}/,
-        keywords:
-          'autoescape block do embed extends filter flush for ' +
-          'if import include maro sandbox set spaceless use ' +
-          'verbatim',
-        contains: [FILTER,FUNCTIONS]
+        keywords: TAGS,
+        contains: [FILTER, FUNCTIONS]
       },
       {
         className: 'variable',
         begin: /\{\{/, end: /}}/,
-        contains: [FILTER,FUNCTIONS]
+        contains: [FILTER, FUNCTIONS]
       }
     ]
   };
