@@ -47,7 +47,7 @@ function(hljs) {
     subLanguage: 'xml', subLanguageMode: 'continuous',
     contains: [
       {
-        className: 'template_comment',
+        className: 'comment',
         begin: /\{#/, end: /#}/
       },
       {

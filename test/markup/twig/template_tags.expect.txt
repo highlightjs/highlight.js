@@ -3,7 +3,7 @@
   &amp;lt;div&amp;gt;
   </span><span class="hljs-variable">{{ article.title<span class="hljs-filter">|<span class="hljs-keyword">upper</span></span>() }}</span><span class="xml">
 
-  </span><span class="hljs-template_comment">{# outputs 'WELCOME' #}</span><span class="xml">
+  </span><span class="hljs-comment">{# outputs 'WELCOME' #}</span><span class="xml">
   &amp;lt;/div&amp;gt;
   </span><span class="hljs-template_tag">{% <span class="hljs-keyword">endfor</span> %}</span><span class="xml">
 </span><span class="hljs-template_tag">{% <span class="hljs-keyword">endif</span> %}</span><span class="xml">
@@ -15,7 +15,7 @@
 </span><span class="hljs-variable">{{ <span class="hljs-function"><span class="hljs-keyword">include</span><span class="hljs-params">(template_from_string("Hello {{ name }}")</span></span>) }}</span><span class="xml">
 
 
-</span><span class="hljs-template_comment">{#
+</span><span class="hljs-comment">{#
 Comments may be long and multiline.
 Markup is &amp;lt;em&amp;gt;not&amp;lt;/em&amp;gt; highlighted within comments.
 #}</span><span class="xml">

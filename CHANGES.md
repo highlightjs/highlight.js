@@ -1,5 +1,9 @@
 ## master
 
+Some notable changes:
+
+- The `template_comment` class is gone in favor of the more general `comment`.
+
 New languages:
 
 - *AspectJ* by [Hakan Özler][]

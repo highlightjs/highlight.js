@@ -30,11 +30,11 @@ function(hljs) {
     subLanguage: 'xml', subLanguageMode: 'continuous',
     contains: [
       {
-        className: 'template_comment',
+        className: 'comment',
         begin: /\{%\s*comment\s*%}/, end: /\{%\s*endcomment\s*%}/
       },
       {
-        className: 'template_comment',
+        className: 'comment',
         begin: /\{#/, end: /#}/
       },
       {
