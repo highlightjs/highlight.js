@@ -1282,3 +1282,13 @@ Roboconf ("graph", "instances")
 * ``facet``:            a **facet** section
 * ``component``:        a **component** section
 * ``instance-of``:      an **instance** section
+
+STEP Part 21 ("p21", "step", "stp")
+-----------------------------------
+
+* ``preprocessor``:     delimiters
+* ``comment``:          single- or multi-line comment
+* ``keyword``:          keyword
+* ``number``:           number
+* ``string``:           string
+* ``label``:            variable reference starting with "#"

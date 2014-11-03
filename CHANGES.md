@@ -3,8 +3,10 @@
 New languages:
 
 - *AspectJ* by [Hakan Özler][]
+- *STEP Part 21* by [Adam Joseph Cook][]
 
 [Hakan Özler]: https://github.com/ozlerhakan
+[Adam Joseph Cook]: https://github.com/adamjcook
 
 
 ## Version 8.3
