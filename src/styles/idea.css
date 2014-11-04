@@ -21,7 +21,6 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-comment,
-.hljs-template_comment,
 .hljs-javadoc,
 .diff .hljs-header {
   color: #808080;

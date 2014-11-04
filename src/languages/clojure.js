@@ -37,8 +37,8 @@ function(hljs) {
       'lazy-seq spread list* str find-keyword keyword symbol gensym force rationalize'
    };
 
-  var symbolstart = 'a-zA-Z_\\-!.?+*=<>&#\'';
-  var SYMBOL_RE = '[' + symbolstart + '][' + symbolstart + '0-9/;:]+';
+  var SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&#\'';
+  var SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
   var SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
 
   var SYMBOL = {
@@ -55,6 +55,10 @@ function(hljs) {
     begin: ';', end: '$',
     relevance: 0
   };
+  var LITERAL = {
+    className: 'literal',
+    begin: /\b(true|false|nil)\b/
+  }
   var COLLECTION = {
     className: 'collection',
     begin: '[\\[\\{]', end: '[\\]\\}]'
@@ -78,7 +82,6 @@ function(hljs) {
   };
   var BODY = {
     endsWithParent: true,
-    keywords: {literal: 'true false nil'},
     relevance: 0
   };
   var NAME = {
@@ -87,22 +90,15 @@ function(hljs) {
     className: 'keyword', begin: SYMBOL_RE,
     starts: BODY
   };
+  var DEFAULT_CONTAINS = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL, SYMBOL];
 
   LIST.contains = [{className: 'comment', begin: 'comment'}, NAME, BODY];
-  BODY.contains = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, SYMBOL];
-  COLLECTION.contains = [LIST, STRING, HINT, COMMENT, KEY, COLLECTION, NUMBER, SYMBOL];
+  BODY.contains = DEFAULT_CONTAINS;
+  COLLECTION.contains = DEFAULT_CONTAINS;
 
   return {
     aliases: ['clj'],
     illegal: /\S/,
-    contains: [
-      COMMENT,
-      LIST,
-      {
-        className: 'prompt',
-        begin: /^=> /,
-        starts: {end: /\n\n|\Z/} // eat up prompt output to not interfere with the illegal
-      }
-    ]
+    contains: [COMMENT, LIST, STRING, NUMBER, LITERAL]
   }
 }

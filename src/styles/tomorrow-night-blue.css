@@ -4,8 +4,7 @@
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
 /* Tomorrow Comment */
-.hljs-comment,
-.hljs-title {
+.hljs-comment {
   color: #7285b7;
 }
 
@@ -53,6 +52,7 @@
 }
 
 /* Tomorrow Aqua */
+.hljs-title,
 .css .hljs-hexcolor {
   color: #99ffff;
 }

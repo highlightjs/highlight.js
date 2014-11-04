@@ -27,7 +27,7 @@ function(hljs) {
         'times toInteger toList tokenize upto waitForOrKill withPrintWriter withReader ' +
         'withStream withWriter withWriterAppend write writeLine'
     },
-    contains: [    
+    contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.APOS_STRING_MODE,

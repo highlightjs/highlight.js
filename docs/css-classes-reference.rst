@@ -286,15 +286,30 @@ Django ("django", "jinja")
 
 * ``keyword``:          HTML tag in HTML, default tags and default filters in templates
 * ``tag``:              any tag from "<" till ">"
-* ``comment``:          comment
+* ``comment``:          template comment, both {# .. #} and {% comment %}
 * ``doctype``:          <!DOCTYPE ... > declaration
 * ``attribute``:        tag's attribute with or without value
 * ``value``:            attribute's value
 * ``template_tag``:     template tag {% .. %}
 * ``variable``:         template variable {{ .. }}
-* ``template_comment``: template comment, both {# .. #} and {% comment %}
 * ``filter``:           filter from "|" till the next filter or the end of tag
 * ``argument``:         filter argument
+
+
+Twig ("twig", "craftcms")
+--------------------------
+
+* ``keyword``:          HTML tag in HTML, default tags and default filters in templates
+* ``tag``:              any tag from "<" till ">"
+* ``comment``:          template comment {# .. #}
+* ``doctype``:          <!DOCTYPE ... > declaration
+* ``attribute``:        tag's attribute with or withou value
+* ``value``:            attribute's value
+* ``template_tag``:     template tag {% .. %}
+* ``variable``:         template variable {{ .. }}
+* ``filter``:           filter from "|" till the next filter or the end of tag
+* ``argument``:         filter argument
+
 
 Handlebars ("handlebars", "hbs", "html.hbs", "html.handlebars")
 ---------------------------------------------------------------
@@ -393,6 +408,23 @@ Dart ("dart")
 * ``dartdoc``:          dartdoc comment
 * ``class``:            class header from "class" till "{"
 * ``title``:            class name
+
+LiveScript ("livescript", "ls")
+-------------------------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment
+* ``number``:           number
+* ``literal``:          special literal: "true", "false" and "null"
+* ``built_in``:         built-in objects and functions ("window", "console", "require", etc...)
+* ``string``:           string
+* ``subst``:            #{ ... } interpolation in double-quoted strings
+* ``regexp``:           regular expression
+* ``function``:         header of a function
+* ``class``:            header of a class
+* ``title``:            name of a function variable inside a header
+* ``params``:           parentheses and everything inside them in a function's header
+* ``property``:         @-property within class and functions
 
 ActionScript ("actionscript", "as")
 -----------------------------------
@@ -559,6 +591,21 @@ Processing ("processing")
 * ``function``:         Processing setup and draw functions
 * ``built_in``:         Processing built in functions
 
+AspectJ ("aspectj")
+-------------
+
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``keyword``:          keyword
+* ``annotation``:       annotation
+* ``javadoc``:          javadoc comment
+* ``operation``:        method and intertype method header
+* ``aspect``:           aspect header from "aspect" till "{"
+* ``params``:           everything in parentheses inside an aspect header
+* ``inheritance``:      keywords "extends" and "implements" inside an aspect header
+* ``title``:            aspect, method name or pointcut name inside an aspect header
+
 C++ ("cpp", "c", "h", "c++", "h++")
 -----------------------------------
 
@@ -620,12 +667,15 @@ OCaml ("ocaml", "ml")
 ---------------------
 
 * ``keywords``:         keyword
+* ``literal``:          true false etc.
 * ``number``:           number
 * ``string``:           string
+* ``char``:             character
 * ``comment``:          comment
-* ``class``:            any custom OCaml type
-* ``title``:            the name of a custom OCaml type
-* ``annotation``:       any attribute
+* ``built_in``:         built-in type (int, list etc.)
+* ``type``:             variant constructor, module name
+* ``tag``:              polymorphic variant tag
+* ``symbol``:           type variable
 
 D ("d")
 -------
@@ -714,6 +764,7 @@ Clojure ("clojure", "clj")
 * ``list``:             non-quoted list
 * ``keyword``:          first symbol in a list
 * ``built_in``:         built-in function name as the first symbol in a list
+* ``prompt``:           REPL prompt
 
 Scheme ("scheme")
 --------------------------
@@ -777,6 +828,16 @@ DOS ("dos", "bat", "cmd")
 * ``stream``:           DOS special files ("con", "prn", ...)
 * ``winutils``:         some commands (see dos.js specifically)
 * ``envvar``:           environment variables
+
+PowerShell ("powershell", "ps")
+--------------------------
+
+* ``keyword``:          keyword
+* ``string``:           string
+* ``number``:           number
+* ``comment``:          comment
+* ``literal``:          special literal: "true" and "false"
+* ``variable``:         variable
 
 Bash ("bash", "sh", "zsh")
 --------------------------
@@ -1184,7 +1245,7 @@ Tcl ("tcl", "tk")
 * ``string``:           string
 * ``number``:           number
 
-Puppet ("pp")
+Puppet ("puppet", "pp")
 -------------
 
 * ``comment``:          comment
@@ -1192,3 +1253,40 @@ Puppet ("pp")
 * ``number``:           number
 * ``keyword``:          classes and types
 * ``constant``:         dependencies
+
+XL ("xl", "tao")
+-----------
+
+* ``keyword``:          keywords defined in the default syntax file
+* ``literal``:          names entered in the compiler (true, false, nil)
+* ``type``:             basic types (integer, real, text, name, etc)
+* ``built_in``:         built-in functions (sin, exp, mod, etc)
+* ``module``:           names of frequently used Tao modules
+* ``id``:               names of frequently used Tao functions
+* ``constant``:         all-uppercase names such as HELLO
+* ``variable``:         Mixed-case names such as Hello (style convention)
+* ``id``:               Lower-case names such as hello
+* ``string``:           Text between single or double quote, long text << >>
+* ``number``:           Number values
+* ``function``:         Function or variable definition
+* ``import``:           Import clause
+
+Roboconf ("graph", "instances")
+------------------------------
+
+* ``keyword``:          keyword
+* ``string``:           names of imported variables
+* ``comment``:          comment
+* ``facet``:            a **facet** section
+* ``component``:        a **component** section
+* ``instance-of``:      an **instance** section
+
+STEP Part 21 ("p21", "step", "stp")
+-----------------------------------
+
+* ``preprocessor``:     delimiters
+* ``comment``:          single- or multi-line comment
+* ``keyword``:          keyword
+* ``number``:           number
+* ``string``:           string
+* ``label``:            variable reference starting with "#"

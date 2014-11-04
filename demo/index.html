@@ -131,43 +131,29 @@ module ABC::DEF
 end
 
 class Car < ActiveRecord::Base
-  has_many :wheels, :class_name => 'Wheel', :foreign_key => 'car_id'
   has_many :wheels, class_name: 'Wheel', foreign_key: 'car_id'
   scope :available, -> { where(available: true) }
 end
-omega = -> { 'alpha' }
-alpha = ->(arg) { arg*2 }
+
 hash = {1 => 'one', 2 => 'two'}
-
-anIdentifier = an_identifier
-Constant = 1
-render action: :new
-
-str =~ /^(?:foo)$/
-str =~ %r{foo|bar|buz$}
-str =~ %r!foo|bar$!
-str =~ %r[foo|bar$]
-str =~ %r(\(foo|bar\)$)
 
 2.0.0p0 :001 > ['some']
  => ["some"]
-2.0.0p0 :002 > if true
-2.0.0p0 :003?>   "yop"
-2.0.0p0 :004?>   end
- => "yop"
+</code></pre>
 
->> obj = OpenStruct.new :integer => 987, :symbol => :so_great
-=> #&lt;OpenStruct integer=987, symbol=:so_great&gt;
->> [obj,obj,obj]
-=> [#&lt;OpenStruct integer=987, symbol=:so_great>, #&lt;OpenStruct integer=987, symbol=:so_great>, #&lt;OpenStruct integer=987, symbol=:so_great>]
->> {1 => obj, 2 => obj}
-=> {1=>#&lt;OpenStruct integer=987, symbol=:so_great>, 2=>#&lt;OpenStruct integer=987, symbol=:so_great>}
->> if 10 > 20
->> "YEAH"
->> else
-?> "NO"
->> end
-=> "NO"
+<tr>
+  <th>ERB
+  <td class="erb">
+<pre><code>&lt;%# this is a comment %&gt;
+
+&lt;% @posts.each do |post| %&gt;
+  &lt;p&gt;&lt;%= link_to post.title, post %&gt;&lt;/p&gt;
+&lt;% end %&gt;
+
+&lt;%- available_things = things.select(&:available?) -%&gt;
+&lt;%%- x = 1 + 2 -%%&gt;
+&lt;%% value = 'real string #{@value}' %%&gt;
+&lt;%%= available_things.inspect %%&gt;
 </code></pre>
   </div>
 
@@ -677,6 +663,32 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
 </code></pre>
   </div>
 
+  <div class="twig">
+    <p>Twig templates</p>
+<pre><code>{% if posts|length %}
+  {% for article in articles %}
+  &lt;div&gt;
+  {{ article.title|upper() }}
+
+  {# outputs 'WELCOME' #}
+  &lt;/div&gt;
+  {% endfor %}
+{% endif %}
+
+{% set user = json_encode(user) %}
+
+{{ random(['apple', 'orange', 'citrus']) }}
+
+{{ include(template_from_string("Hello {{ name }}")) }}
+
+
+{#
+Comments may be long and multiline.
+Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
+#}
+</code></pre>
+  </div>
+
   <div class="dust">
     <p>Dust.js</p>
 <pre><code>&lt;h3&gt;Hours&lt;/h3&gt;
@@ -986,6 +998,49 @@ Something ${2+3}
 </code></pre>
   </div>
 
+  <div class="livescript">
+    <p>LiveScript</p>
+<pre><code># take the first n objects from a list
+take = (n, [x, ...xs]:list) -->
+  | n <= 0     => []
+  | empty list => []
+  | otherwise  => [x] ++ take n - 1, xs
+
+take 2, [1, 2, 3, 4, 5]
+
+# Curried functions
+take-three = take 3
+take-three [6, 7, 8, 9, 10]
+
+# Function composition
+last-three = reverse >> take-three >> reverse
+last-three [1 to 8]
+
+# List comprehensions and piping
+t1 =
+  * id: 1
+    name: 'george'
+  * id: 2
+    name: 'mike'
+  * id: 3
+    name: 'donald'
+
+t2 =
+  * id: 2
+    age: 21
+  * id: 1
+    age: 20
+  * id: 3
+    age: 26
+[{id:id1, name, age}
+  for {id:id1, name} in t1
+  for {id:id2, age} in t2
+  where id1 is id2]
+  |> sort-by \id
+  |> JSON.stringify
+</code></pre>
+  </div>
+
   <div class="haxe">
     <p>Haxe</th></p>
 <pre><code>
@@ -1051,6 +1106,18 @@ for i = 0 to ubound(ini_strings)
       end if
     end if
 next
+</code></pre>
+  </div>
+
+  <div class="vbscript-html">
+    <p>VBScript in HTML</p>
+<pre><code>&lt;body&gt;
+&lt;%
+If i &lt;  10 Then
+  response.write("Good morning!")
+End If
+%&gt;
+&lt;/body&gt;
 </code></pre>
   </div>
 
@@ -1452,6 +1519,56 @@ public abstract class L2Character extends L2Object {
         t.printStackTrace();
       }
     }
+  }
+}
+</code></pre>
+  </div>
+
+  <div class="processing">
+    <p>Processing</p>
+<pre><code>import java.util.LinkedList;
+import java.awt.Point;
+
+PGraphics pg;
+String load;
+
+void setup() {
+  size(displayWidth, displayHeight, P3D);
+  pg = createGraphics(displayWidth*2,displayHeight,P2D);
+  pg.beginDraw();
+  pg.background(255,255,255);
+  //pg.smooth(8);
+  pg.endDraw();
+}
+void draw(){
+  background(255);
+}
+</code></pre>
+  </div>
+
+  <div class="aspectj">
+    <p>AspectJ</p>
+<pre><code>package com.aspectj.syntax;
+import org.aspectj.lang.annotation.AdviceName;
+
+privileged public aspect LoggingAspect issingleton() percflowbelow(ajia.services.*){
+  private pointcut getResult() : call(* *(..) throws SQLException) && args(Account, .., int);
+  @AdviceName("CheckValidEmail")
+  before (Customer hu) : getResult(hu){
+    System.out.println("Your mail address is valid!");
+  }
+  Object around() throws InsufficientBalanceException: getResult() && call(Customer.new(String,String,int,int,int)){
+    return  proceed();
+  }
+  public Cache getCache() {
+    return this.cache;
+  }
+  pointcut beanPropertyChange(BeanSupport bean, Object newValue): execution(void BeanSupport+.set*(*)) && args(newValue) && this(bean);
+  declare parents: banking.entities.* implements BeanSupport;
+  declare warning : call(void TestSoftening.perform()): "Please ensure you are not calling this from an AWT thread";
+  private String Identifiable.id;
+  public void Identifiable.setId(String id) {
+    this.id = id;
   }
 }
 </code></pre>
@@ -1976,6 +2093,51 @@ heapExample
 </code></pre>
   </div>
 
+  <div class="clojure-repl">
+    <p>Clojure REPL</p>
+<pre><code>user=> (defn f [x y]
+  #_=>   (+ x y))
+#'user/f
+user=> (f 5 7)
+12
+user=> nil
+nil
+</code></pre>
+  </div>
+
+  <div class="scheme">
+    <p>Scheme</p>
+<pre><code>;; Calculation of Hofstadter's male and female sequences as a list of pairs
+
+(define (hofstadter-male-female n)
+(letrec ((female (lambda (n)
+           (if (= n 0)
+           1
+           (- n (male (female (- n 1)))))))
+     (male (lambda (n)
+         (if (= n 0)
+             0
+             (- n (female (male (- n 1))))))))
+  (let loop ((i 0))
+    (if (> i n)
+    '()
+    (cons (cons (female i)
+            (male i))
+      (loop (+ i 1)))))))
+
+(hofstadter-male-female 8)
+
+(define (find-first func lst)
+(call-with-current-continuation
+ (lambda (return-immediately)
+   (for-each (lambda (x)
+       (if (func x)
+           (return-immediately x)))
+         lst)
+   #f)))
+</code></pre>
+  </div>
+
   <div class="ini">
     <p>Ini file</p>
 <pre><code>;Settings relating to the location and loading of the database
@@ -2137,6 +2299,22 @@ set path = test
 xcopy %1\*.* %2
 </code></pre>
   </div>
+
+  <div class="powershell">
+  <p>PowerShell</p>
+<pre><code>$initialDate = [datetime]'2013/1/8'
+
+$rollingDate = $initialDate
+
+do {
+    $client = New-Object System.Net.WebClient
+    $results = $client.DownloadString("http://not.a.real.url")
+    Write-Host "$rollingDate.ToShortDateString() - $results"
+    $rollingDate = $rollingDate.AddDays(21)
+    $username = [System.Environment]::UserName
+} until ($rollingDate -ge [datetime]'2013/12/31')
+</code></pre>
+  </div
 
   <div class="bash">
     <p>Bash</p>
@@ -2553,17 +2731,11 @@ module Network.UDP
 , recvUDPPacketFrom
 ) where
 
-{- this is a {- nested -} comment -}
-
 import qualified Data.ByteString as Strict (ByteString, concat, singleton)
 import qualified Data.ByteString.Lazy as Lazy (ByteString, toChunks, fromChunks)
 import Data.ByteString.Char8 (pack, unpack)
 import Network.Socket hiding (sendTo, recv, recvFrom)
 import Network.Socket.ByteString (sendTo, recv, recvFrom)
-
-infix 3 `foo`
-infixl 6 `bar`
-infixr 9 `baz`
 
 -- Type class for converting StringLike types to and from strict ByteStrings
 class DataPacket a where
@@ -2742,28 +2914,6 @@ greeter.("Bob")
   <div class="rust">
     <p>Rust</p>
 <pre><code>use std;
-
-123;                               // type int
-123u;                              // type uint
-123_u;                             // type uint
-0xff00;                            // type int
-0xff_u8;                           // type u8
-0b1111_1111_1001_0000_i32;         // type i32
-123.0;                             // type float
-0.1;                               // type float
-3f;                                // type float
-0.1f32;                            // type f32
-12E+99_f64;                        // type f64
-
-'a';
-'\n';
-'\x1A';
-'\u12AS';
-'\U1234ASDF';
-
-r"hello";
-r###"world"###;
-r##" "### "# "##;
 
 /* Factorial */
 fn fac(n: int) -&gt; int {
@@ -3104,7 +3254,7 @@ return
   </div>
 
   <div class="x86asm">
-    <p>x86asm</th></p>
+    <p>x86asm</p>
 <pre><code>section .text
 extern  _MessageBoxA@16
 %if     __NASM_VERSION_ID__ >= 0x02030000
@@ -3145,6 +3295,20 @@ caption:db      'SEGV',0
 
 section .drectve info
         db      '/defaultlib:user32.lib /defaultlib:msvcrt.lib '
+</code></pre>
+  </div>
+
+  <div class="q">
+    <p>Q/KDB+</p>
+<pre><code>select time, price by date,stock from quote where price=(max;price)fby stock
+data:raze value flip trade
+select vwap:size wavg price by 5 xbar time.minute from aapl where date within (.z.d-10;.z.d)
+f1:{[x;y;z] show (x;y+z);sum 1 2 3}
+.z.pc:{[handle] show -3!(`long$.z.p;"Closed";handle)}
+// random normal distribution, e.g. nor 10
+nor:{$[x=2*n:x div 2;raze sqrt[-2*log n?1f]*/:(sin;cos)@\:(2*pi)*n?1f;-1_.z.s 1+x]}
+
+mode:{where g=max g:count each group x}   // mode function
 </code></pre>
   </div>
 
@@ -3327,6 +3491,247 @@ if( propFile.canRead() ) {
     println "RELEASE_BUILD: signing.properties not found"
     android.buildTypes.release.signingProperties = null
 }
+</code></pre>
+  </div>
+
+  <div class="gcode">
+    <p>G-code</p>
+<pre><code>O003 (DIAMOND SQUARE)
+N2 G54 G90 G49 G80
+N3 M6 T1 (1.ENDMILL)
+N4 M3 S1800
+N5 G0 X-.6 Y2.050
+N6 G43  H1  Z.1
+N7 G1 Z-.3 F50.
+N8 G41 D1 Y1.45
+N9 G1 X0 F20.
+N10 G2 J-1.45
+(CUTTER COMP CANCEL)
+N11 G1 Z-.2 F50.
+N12 Y-.990
+N13 G40
+N14 G0 X-.6 Y1.590
+N15 G0 Z.1
+N16 M5 G49 G28 G91 Z0
+N17 CALL O9456
+N18 #500=0.004
+N19 #503=[#500+#501]
+N20 VC45=0.0006
+VS4=0.0007
+N21 G90 G10 L20 P3 X5.Y4. Z6.567
+N22 G0 X5000
+N23 IF [#1 LT 0.370] GOTO 49
+N24 X-0.678 Y+.990
+N25 G84.3 X-0.1
+N26 #4=#5*COS[45]
+N27 #4=#5*SIN[45]
+N28 VZOFZ=652.9658
+%
+</code></pre>
+  </div>
+
+  <div class="tcl">
+    <p>Tcl</p>
+<pre><code>package json
+
+source helper.tcl
+# randomness verified by a die throw
+set ::rand 4
+
+proc give::recursive::count {base p} { ; # 2 mandatory params
+    while {$p > 0} {
+        set result [expr $result * $base]; incr p -1
+    }
+    return $result
+}
+
+set a 'a'; set b "bcdef"; set lst [list "item"]
+puts [llength $a$b]
+
+set ::my::tid($id) $::my::tid(def)
+lappend lst $arr($idx) $::my::arr($idx) $ar(key)
+lreplace ::my::tid($id) 4 4
+puts $::rand ${::rand} ${::AWESOME::component::variable}
+
+puts "$x + $y is\t [expr $x + $y]"
+
+proc isprime x {
+    expr {$x>1 && ![regexp {^(oo+?)\1+$} [string repeat o $x]]}
+</code></pre>
+  </div>
+
+  <div class="puppet">
+    <p>Puppet</p>
+<pre><code>class hg_punch::library {
+  firewall {'101 puppet library access':
+    proto       => 'tcp',
+    dport       => '80',
+    action      => 'accept',
+  }
+
+  package { 'git':
+    ensure => present,
+  }
+
+  vcsrepo { "puppet-library":
+    path => '/var/www/puppet-library/',
+    ensure => present,
+    owner => 'root',
+    group => 'root',
+    provider => git,
+    source => 'https://github.com/Moliholy/puppet-library.git',
+    revision => 'master',
+    require => Package['git'],
+  }
+
+  # Disable SELinux
+  package { "augeas":
+    ensure => present,
+  }
+
+  augeas {'disable_selinux':
+    context => '/files/etc/sysconfig/selinux',
+    changes => 'set SELINUX disabled',
+    lens    => 'shellvars.lns',
+    incl     => '/etc/sysconfig/selinux'
+  } ~>
+  exec {'sudo disable_selinux':
+    command => '/bin/echo 0 > /selinux/enforce',
+    refreshonly => true,
+  }
+}
+</code></pre>
+  </div>
+
+  <div class="xl">
+    <p>XL</p>
+<pre><code>import Animate
+import SeasonsGreetingsTheme
+import "myhelper.xl"
+theme "SeasonsGreetings"
+function X:real -> sin(X*0.5) + 16#0.002
+page "A nice car",
+// --------------------------------------
+//    Display car model on a pedestal
+// --------------------------------------
+    clear_color 0, 0, 0, 1
+    hand_scale -> 0.3
+
+    // Display the background image
+    background -4000,
+        locally
+            disable_depth_test
+            corridor N:integer ->
+                locally
+                    rotatez 60 * N
+                    translatex 1000
+                    rotatey 90
+                    color "white"
+                    texture "stars.png"
+                    texture_wrap true, true
+                    texture_transform
+                        translate (time + N) * 0.02 mod 1, 0, 0
+                        scale 0.2, 0.3, 0.3
+                    rectangle 0, 0, 100000, 1154
+</code></pre>
+  </div>
+
+<div class="roboconf">
+  <p>Roboconf</p>
+<pre><code>
+# This is a comment
+import toto.graph;
+
+##
+# Facet
+##
+facet VM {
+  installer: iaas;
+}
+
+# Components
+VM_ec2 {
+  facets: VM;
+  children: cluster-node, mysql;
+}
+
+VM_openstack {
+  facets: VM;
+  children: cluster-node, mysql;
+}
+
+cluster-node {
+  alias: a cluster node;
+  installer: puppet;
+  exports: ip, port, optional-property1, optional_property2;
+  imports: cluster-node.ip (optional), cluster-node.port (optional), mysql.ip, mysql.port;
+}
+
+mysql {
+  alias: a MySQL database;
+  installer: puppet;
+  exports: ip, port;
+}
+
+##
+# Normally, instances are defined in another file...
+##
+instance of VM_ec2 {
+  name: VM_;
+  count: 3;
+  my-instance-property: whatever;
+
+  instance of cluster-node {
+    name: cluster node;   # An in-line comment
+  }
+}
+
+instance of VM_openstack {
+  name: VM_database;
+
+  instance of mysql {
+    name: mysql;
+  }
+}
+</code></pre>
+  </div>
+
+  <div class="step21">
+    <p>STEP Part 21</p>
+<pre><code>
+  ISO-10303-21;
+  HEADER;
+  FILE_DESCRIPTION((''),'2;1');
+  FILE_NAME('CUBE_4SQUARE','2013-11-29T',('acook'),(''),
+  'SOMETHINGCAD BY SOME CORPORATION, 2012130',
+  'SOMETHINGCAD BY SOME CORPORATION, 2012130','');
+  FILE_SCHEMA(('CONFIG_CONTROL_DESIGN'));
+  ENDSEC;
+  /* file written by SomethingCAD */
+  DATA;
+  #1=DIRECTION('',(1.E0,0.E0,0.E0));
+  #2=VECTOR('',#1,4.E0);
+  #3=CARTESIAN_POINT('',(-2.E0,-2.E0,-2.E0));
+  #4=LINE('',#3,#2);
+  #5=DIRECTION('',(0.E0,1.E0,0.E0));
+  #6=VECTOR('',#5,4.E0);
+  #7=CARTESIAN_POINT('',(2.E0,-2.E0,-2.E0));
+  #8=LINE('',#7,#6);
+  #9=DIRECTION('',(-1.E0,0.E0,0.E0));
+  #10=VECTOR('',#9,4.E0);
+  #11=CARTESIAN_POINT('',(2.E0,2.E0,-2.E0));
+  #12=LINE('',#11,#10);
+  #13=DIRECTION('',(0.E0,-1.E0,0.E0));
+  #14=VECTOR('',#13,4.E0);
+  #15=CARTESIAN_POINT('',(-2.E0,2.E0,-2.E0));
+  #16=LINE('',#15,#14);
+  #17=DIRECTION('',(0.E0,0.E0,1.E0));
+  #18=VECTOR('',#17,4.E0);
+  #19=CARTESIAN_POINT('',(-2.E0,-2.E0,-2.E0));
+  #20=LINE('',#19,#18);
+  #21=DIRECTION('',(0.E0,0.E0,1.E0));
+  ENDSEC;
+  END-ISO-10303-21;
 </code></pre>
   </div>
 

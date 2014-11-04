@@ -24,8 +24,7 @@
 }
 
 .hljs-comment,
-.hljs-chunk,
-.hljs-template_comment {
+.hljs-chunk {
   color: #738191;
 }
 
