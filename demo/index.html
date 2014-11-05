@@ -60,7 +60,6 @@
   <script src="../build/highlight.pack.js"></script>
   <script>
   hljs.configure({tabReplace: '    '});
-  $(document).ready(hljs.initHighlighting);
   </script>
   <script src="detection.js"></script>
   <script src="export.js"></script>
@@ -70,16 +69,22 @@
   <h1><a href="https://highlight.js.org/">highlight.js</a> demo</h1>
 </div>
 
-<div id="styleswitcher">
-  <h2>Styles</h2>
-  <ul id="styles"></ul>
+<div id="sidebar">
+  <div>
+    <h2>Language categories</h2>
+    <ul id="categories"></ul>
+  </div>
+
+  <div id="styleswitcher">
+    <h2>Styles</h2>
+    <ul id="styles"></ul>
+  </div>
 </div>
 
-<div id="languages">
-  <h2>Automatically detected languages</h2>
+<div id="content">
 
-<div id="autotest">
-  <div class="python">
+<div id="languages">
+  <div class="python" data-category="common dynamic">
     <p>Python</p>
 <pre><code>@requires_authorization
 def somefunc(param1='', param2=0):
@@ -109,7 +114,7 @@ class SomeClass:
 </code></pre>
   </div>
 
-  <div class="ruby">
+  <div class="ruby" data-category="common dynamic">
     <p>Ruby</p>
 <pre><code>class A &lt; B; def self.create(object = User) object end end
 class Zebra; def inspect; "X#{2 + self.object_id}" end end
@@ -140,6 +145,7 @@ hash = {1 => 'one', 2 => 'two'}
 2.0.0p0 :001 > ['some']
  => ["some"]
 </code></pre>
+  </div>
 
   <div class="erb">
     <p>ERB</p>
@@ -204,7 +210,7 @@ in stdenv.mkDerivation rec {
 </code></pre>
   </div>
 
-  <div class="perl">
+  <div class="perl" data-category="common dynamic">
     <p>Perl</p>
 <pre><code># loads object
 sub load
@@ -241,7 +247,7 @@ POD till the end of file
 </code></pre>
   </div>
 
-  <div class="php">
+  <div class="php" data-category="common dynamic">
     <p>PHP</p>
 <pre><code>require_once 'Zend/Uri/Http.php';
 
@@ -447,7 +453,7 @@ func main() {
 </code></pre>
   </div>
 
-  <div class="xml">
+  <div class="xml" data-category="common markup">
     <p>XML</p>
 <pre><code>&lt;?xml version="1.0"?&gt;
 &lt;response value="ok" xml:lang="en"&gt;
@@ -461,7 +467,7 @@ func main() {
 </code></pre>
   </div>
 
-  <div class="xml">
+  <div class="xml" data-category="common markup">
     <p>HTML (with inline css and javascript)</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;title&gt;Title&lt;/title&gt;
@@ -3733,9 +3739,9 @@ instance of VM_openstack {
   END-ISO-10303-21;
 </code></pre>
   </div>
-
 </div>
 
+</div>
 
 <h2>Highlighted code export</h2>
 

@@ -22,35 +22,40 @@ pre {
   font-size: medium;
 }
 
-#styleswitcher {
+#sidebar {
   float: left; width: 18em;
   clear: left;
 }
 
-#languages {
-  margin-left: 19em;
-}
-
-#styles,
-#styles li {
+#sidebar ul,
+#sidebar li {
   list-style: none;
   margin: 0; padding: 0;
 }
 
-#styles li a {
+#sidebar li a {
   color: black;
   text-decoration: none;
 }
 
-#autotest div {
+#content {
+  margin-left: 19em;
+}
+
+#languages {
+  position: relative;
+  padding-top: 1px;
+}
+
+#languages div {
   display: none;
 }
 
-#autotest p {
+#languages p {
   margin: 1.5em 0 0.5em 0;
 }
 
-#autotest .fail p::after {
+#languages .fail p::after {
   content: 'failed';
   float: right;
   color: red;
