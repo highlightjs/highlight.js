@@ -10,7 +10,7 @@ function(hljs) {
     aliases: ['ml'],
     keywords: {
       keyword:
-        'and as assert asr begin case class constraint do done downto else end ' +
+        'and as assert asr begin class constraint do done downto else end ' +
         'exception external for fun function functor if in include ' +
         'inherit! inherit initializer land lazy let lor lsl lsr lxor match method!|10 method ' +
         'mod module mutable new object of open! open or private rec sig struct ' +
