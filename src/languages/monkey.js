@@ -5,9 +5,9 @@ Author: Arthur Bikmullin <devolonter@gmail.com>
 
 function(hljs) {
   var NUMBER = {
+    className: 'number', relevance: 0,
     variants: [
       {
-        className: 'number',
         begin: '[$][a-fA-F0-9]+'
       },
       hljs.NUMBER_MODE
