@@ -37,10 +37,9 @@ function initCategories() {
   });
   var ul = $('#categories');
   Object.keys(categories).forEach(function(c) {
-    ul.append('<li><a href="#" data-category="' + c + '">' + c + ' (' + categories[c] +')</a></li>');
+    ul.append('<li data-category="' + c + '">' + c + ' (' + categories[c] +')</li>');
   });
-  $('#categories li a').click(function(e) {
-    e.preventDefault();
+  $('#categories li').click(function(e) {
     selectCategory($(this).data('category'));
   });
 }
@@ -57,10 +56,9 @@ function selectStyle(style) {
 function initStyleSwitcher() {
   var ul = $('#styles');
   $('link[title]').each(function(i, link) {
-    ul.append('<li><a href="#">' + link.title + '</a></li>');
+    ul.append('<li>' + link.title + '</li>');
   });
-  $('#styles li a').click(function(e) {
-    e.preventDefault();
+  $('#styles li').click(function(e) {
     selectStyle($(this).text());
   })
 }

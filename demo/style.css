@@ -31,11 +31,11 @@ pre {
 #sidebar li {
   list-style: none;
   margin: 0; padding: 0;
+  cursor: pointer;
 }
 
-#sidebar li a {
-  color: black;
-  text-decoration: none;
+#sidebar li:hover {
+  background: lightgray;
 }
 
 #content {
