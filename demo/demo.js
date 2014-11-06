@@ -41,8 +41,7 @@ function initCategories() {
   });
   $('#categories li a').click(function(e) {
     e.preventDefault();
-    var category = $(this).data('category');
-    selectCategory(category);
+    selectCategory($(this).data('category'));
   });
 }
 
