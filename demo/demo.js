@@ -10,6 +10,19 @@ function highlightDiv(div) {
   }
 }
 
+function selectCategory(category) {
+  $('#languages div').each(function(i, div) {
+    div = $(div);
+    var category_str = div.data('category');
+    if (category_str.split(' ').indexOf(category) != -1) {
+      highlightDiv(div);
+      div.show();
+    } else {
+      div.hide();
+    }
+  });
+}
+
 function initCategories() {
   var categories = {};
   $('#languages div').each(function(i, div) {
@@ -29,16 +42,7 @@ function initCategories() {
   $('#categories li a').click(function(e) {
     e.preventDefault();
     var category = $(this).data('category');
-    $('#languages div').each(function(i, div) {
-      div = $(div);
-      var category_str = div.data('category');
-      if (category_str.split(' ').indexOf(category) != -1) {
-        highlightDiv(div);
-        div.show();
-      } else {
-        div.hide();
-      }
-    });
+    selectCategory(category);
   });
 }
 
@@ -58,6 +62,7 @@ function initStyleSwitcher() {
 
 $(document).ready(function() {
   initCategories();
+  selectCategory('common');
   initStyleSwitcher();
 });
 
