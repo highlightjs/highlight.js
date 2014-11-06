@@ -1,4 +1,4 @@
-function initHighlighting(div) {
+function highlightDiv(div) {
   var code = div.find('code');
   if (code.hasClass('hljs')) {
     return;
@@ -10,8 +10,7 @@ function initHighlighting(div) {
   }
 }
 
-$(document).ready(function() {
-
+function initCategories() {
   var categories = {};
   $('#languages div').each(function(i, div) {
     var category_str = $(div).data('category');
@@ -32,11 +31,31 @@ $(document).ready(function() {
       div = $(div);
       var category_str = div.data('category');
       if (category_str && category_str.split(' ').indexOf(category) != -1) {
-        initHighlighting(div);
+        highlightDiv(div);
         div.show();
       } else {
         div.hide();
       }
     });
+  });
+}
+
+function initStyleSwitcher() {
+  var ul = $('#styles');
+  $('link[title]').each(function(i, link) {
+    ul.append('<li><a href="#">' + link.title + '</a></li>');
+  });
+  $('#styles li a').click(function(e) {
+    e.preventDefault();
+    var title = $(this).text();
+    $('link[title]').each(function(i, link) {
+      link.disabled = (link.title != title);
+    });
   })
+}
+
+$(document).ready(function() {
+  initCategories();
+  initStyleSwitcher();
 });
+
