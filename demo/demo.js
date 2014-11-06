@@ -57,6 +57,9 @@ function initStyleSwitcher() {
     $('link[title]').each(function(i, link) {
       link.disabled = (link.title != title);
     });
+    ['color', 'background-color'].forEach(function(value) {
+      $('#languages').css(value, $('#languages pre code').css(value));
+    });
   })
 }
 
