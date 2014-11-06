@@ -64,13 +64,8 @@ function(hljs) {
                 beginKeywords: 'class interface trait enum', end: '{',
                 illegal: ':',
                 contains: [
-                    {
-                        beginKeywords: 'extends implements'
-                    },
-                    {
-                        className: 'title',
-                        begin: hljs.UNDERSCORE_IDENT_RE
-                    }
+                    {beginKeywords: 'extends implements'},
+                    hljs.UNDERSCORE_TITLE_MODE,
                 ]
             },
             hljs.C_NUMBER_MODE,
@@ -88,7 +83,8 @@ function(hljs) {
             },
             {
                 // highlight labeled statements
-                className: 'label', begin: '^\\s*[A-Za-z0-9_$]+:'
+                className: 'label', begin: '^\\s*[A-Za-z0-9_$]+:',
+                relevance: 0
             },
         ]
     }

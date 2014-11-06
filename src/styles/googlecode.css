@@ -14,15 +14,13 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 }
 
 .hljs-comment,
-.hljs-template_comment,
 .hljs-javadoc {
   color: #800;
 }
 
 .hljs-keyword,
 .method,
-.hljs-list .hljs-title,
-.clojure .hljs-built_in,
+.hljs-list .hljs-keyword,
 .nginx .hljs-title,
 .hljs-tag .hljs-title,
 .setting .hljs-value,
@@ -84,8 +82,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 .hljs-built_in,
 .setting,
 .hljs-params,
-.hljs-variable,
-.clojure .hljs-title {
+.hljs-variable {
   color: #606;
 }
 

@@ -1,0 +1,16 @@
+namespace Foo // namespace
+{
+    public class Greet : Base // class
+    {
+        public Greet(string who) // function
+        {
+            Who = who;
+        }
+
+        Type<int> f(int val = 0)
+        {
+          return new Type<int>(val);
+        }
+    }
+
+}

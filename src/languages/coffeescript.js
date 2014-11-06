@@ -3,6 +3,7 @@ Language: CoffeeScript
 Author: Dmytrii Nagirniak <dnagir@gmail.com>
 Contributors: Oleg Efimov <efimovov@gmail.com>, Cédric Néhémie <cedric.nehemie@gmail.com>
 Description: CoffeeScript is a programming language that transcompiles to JavaScript. For info about language see http://coffeescript.org/
+Category: common
 */
 
 function(hljs) {
@@ -25,7 +26,6 @@ function(hljs) {
       'npm require console print module global window document'
   };
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
-  var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: JS_IDENT_RE});
   var SUBST = {
     className: 'subst',
     begin: /#\{/, end: /}/,
@@ -85,6 +85,20 @@ function(hljs) {
   ];
   SUBST.contains = EXPRESSIONS;
 
+  var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: JS_IDENT_RE});
+  var PARAMS_RE = '(\\(.*\\))?\\s*\\B[-=]>';
+  var PARAMS = {
+    className: 'params',
+    begin: '\\([^\\(]', returnBegin: true,
+    /* We need another contained nameless mode to not have every nested
+    pair of parens to be called "params" */
+    contains: [{
+      begin: /\(/, end: /\)/,
+      keywords: KEYWORDS,
+      contains: ['self'].concat(EXPRESSIONS)
+    }]
+  };
+
   return {
     aliases: ['coffee', 'cson', 'iced'],
     keywords: KEYWORDS,
@@ -92,25 +106,26 @@ function(hljs) {
     contains: EXPRESSIONS.concat([
       {
         className: 'comment',
-        begin: '###', end: '###'
+        begin: '###', end: '###',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       hljs.HASH_COMMENT_MODE,
       {
         className: 'function',
-        begin: '\\B\\s*(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*\\B[-=]>', end: '[-=]>',
+        begin: '^\\s*' + JS_IDENT_RE + '\\s*=\\s*' + PARAMS_RE, end: '[-=]>',
         returnBegin: true,
+        contains: [TITLE, PARAMS]
+      },
+      {
+        // anonymous function start
+        begin: /[:\(,=]\s*/,
+        relevance: 0,
         contains: [
-          TITLE,
           {
-            className: 'params',
-            begin: '\\([^\\(]', returnBegin: true,
-            /* We need another contained nameless mode to not have every nested
-            pair of parens to be called "params" */
-            contains: [{
-              begin: /\(/, end: /\)/,
-              keywords: KEYWORDS,
-              contains: ['self'].concat(EXPRESSIONS)
-            }]
+            className: 'function',
+            begin: PARAMS_RE, end: '[-=]>',
+            returnBegin: true,
+            contains: [PARAMS]
           }
         ]
       },
@@ -132,7 +147,7 @@ function(hljs) {
       {
         className: 'attribute',
         begin: JS_IDENT_RE + ':', end: ':',
-        returnBegin: true, excludeEnd: true,
+        returnBegin: true, returnEnd: true,
         relevance: 0
       }
     ])

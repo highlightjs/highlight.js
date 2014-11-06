@@ -87,6 +87,10 @@ PHP ("php", "php3", "php4", "php5", "php6")
 * ``phpdoc``:           phpdoc params in comments
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     preprocessor marks: "<?php" and "?>"
+* ``class``:            class header
+* ``function``:         header of a function
+* ``title``:            name of a function inside a header
+* ``params``:           parentheses and everything inside them in a function's header
 
 Scala ("scala")
 ---------------
@@ -177,10 +181,12 @@ CSS ("css")
 * ``id``:               #some_name in selectors
 * ``class``:            .some_name in selectors
 * ``at_rule``:          @-rule till first "{" or ";"
+* ``keyword``:          name of @-rule after @ sign
 * ``attr_selector``:    attribute selector (square brackets in a[href^=http://])
 * ``pseudo``:           pseudo classes and elements (:after, ::after etc.)
 * ``comment``:          comment
 * ``rules``:            everything from "{" till "}"
+* ``rule``:             rule itself — everything inside "{" and "}"
 * ``attribute``:        property name inside a rule
 * ``value``:            property value inside a rule, from ":" till ";" or till the end of rule block
 * ``number``:           number within a value
@@ -209,6 +215,41 @@ SCSS ("scss")
 * ``important``:        "!important" symbol
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     keywords after @
+
+Less ("less")
+-------------
+
+* ``comment``:          comment
+* ``number``:           number
+* ``string``:           string
+* ``attribute``:        property name
+* ``variable``:         @var, @@var or @{var}
+* ``keyword``:          Less keywords (when, extend etc.)
+* ``function``:         Less and CSS functions (rgba, unit etc.)
+* ``tag``:              tag
+* ``id``:               #id
+* ``class``:            .class
+* ``at_rule``:          at-rule keyword (@media, @keyframes etc.)
+* ``attr_selector``:    attribute selector (e.g. [href^=http://])
+* ``pseudo``:           pseudo classes and elements (:hover, ::before etc.)
+* ``hexcolor``:         hex color (#FFF)
+* ``built_in``:         inline javascript (or whatever host language) string
+
+Stylus ("stylus", "styl")
+-------------
+
+* ``at_rule``:          @-rule till first "{" or ";"
+* ``attribute``:        property name inside a rule
+* ``class``:            .some_name in selectors
+* ``comment``:          comment
+* ``function``:         Stylus function
+* ``hexcolor``:         hex color (#FFFFFF) within a value
+* ``id``:               #some_name in selectors
+* ``number``:           number within a value
+* ``pseudo``:           pseudo classes and elements (:after, ::after etc.)
+* ``string``:           string within a value
+* ``tag``:              tag in selectors
+* ``variable``:         variable starting with "$"
 
 Markdown ("markdown", "md", "mkdown", "mkd")
 --------------------------------------------
@@ -245,15 +286,30 @@ Django ("django", "jinja")
 
 * ``keyword``:          HTML tag in HTML, default tags and default filters in templates
 * ``tag``:              any tag from "<" till ">"
-* ``comment``:          comment
+* ``comment``:          template comment, both {# .. #} and {% comment %}
 * ``doctype``:          <!DOCTYPE ... > declaration
 * ``attribute``:        tag's attribute with or without value
 * ``value``:            attribute's value
 * ``template_tag``:     template tag {% .. %}
 * ``variable``:         template variable {{ .. }}
-* ``template_comment``: template comment, both {# .. #} and {% comment %}
 * ``filter``:           filter from "|" till the next filter or the end of tag
 * ``argument``:         filter argument
+
+
+Twig ("twig", "craftcms")
+--------------------------
+
+* ``keyword``:          HTML tag in HTML, default tags and default filters in templates
+* ``tag``:              any tag from "<" till ">"
+* ``comment``:          template comment {# .. #}
+* ``doctype``:          <!DOCTYPE ... > declaration
+* ``attribute``:        tag's attribute with or withou value
+* ``value``:            attribute's value
+* ``template_tag``:     template tag {% .. %}
+* ``variable``:         template variable {{ .. }}
+* ``filter``:           filter from "|" till the next filter or the end of tag
+* ``argument``:         filter argument
+
 
 Handlebars ("handlebars", "hbs", "html.hbs", "html.handlebars")
 ---------------------------------------------------------------
@@ -298,6 +354,7 @@ JavaScript ("javascript", "js")
 * ``comment``:          comment
 * ``number``:           number
 * ``literal``:          special literal: "true", "false" and "null"
+* ``built_in``:         built-in objects and functions ("window", "console", "require", etc...)
 * ``string``:           string
 * ``regexp``:           regular expression
 * ``function``:         header of a function
@@ -312,6 +369,7 @@ TypeScript ("typescript", "ts")
 * ``comment``:          comment
 * ``number``:           number
 * ``literal``:          special literal: "true", "false" and "null"
+* ``built_in``:         built-in objects and functions ("window", "console", "require", etc...)
 * ``string``:           string
 * ``regexp``:           regular expression
 * ``function``:         header of a function
@@ -346,10 +404,27 @@ Dart ("dart")
 * ``string``:           string
 * ``subst``:            in-string substitution (${...})
 * ``comment``:          commment
-* ``annotaion``:        annotation
+* ``annotation``:       annotation
 * ``dartdoc``:          dartdoc comment
 * ``class``:            class header from "class" till "{"
 * ``title``:            class name
+
+LiveScript ("livescript", "ls")
+-------------------------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment
+* ``number``:           number
+* ``literal``:          special literal: "true", "false" and "null"
+* ``built_in``:         built-in objects and functions ("window", "console", "require", etc...)
+* ``string``:           string
+* ``subst``:            #{ ... } interpolation in double-quoted strings
+* ``regexp``:           regular expression
+* ``function``:         header of a function
+* ``class``:            header of a class
+* ``title``:            name of a function variable inside a header
+* ``params``:           parentheses and everything inside them in a function's header
+* ``property``:         @-property within class and functions
 
 ActionScript ("actionscript", "as")
 -----------------------------------
@@ -502,9 +577,34 @@ Java ("java", "jsp")
 * ``annotaion``:        annotation
 * ``javadoc``:          javadoc comment
 * ``class``:            class header from "class" till "{"
+* ``function``:         method header
 * ``title``:            class or method name
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "implements" inside class header
+
+Processing ("processing")
+-------------------------
+
+* ``constant``:         Processing constants
+* ``variable``:         Processing special variables
+* ``keyword``:          Variable types
+* ``function``:         Processing setup and draw functions
+* ``built_in``:         Processing built in functions
+
+AspectJ ("aspectj")
+-------------
+
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``keyword``:          keyword
+* ``annotation``:       annotation
+* ``javadoc``:          javadoc comment
+* ``operation``:        method and intertype method header
+* ``aspect``:           aspect header from "aspect" till "{"
+* ``params``:           everything in parentheses inside an aspect header
+* ``inheritance``:      keywords "extends" and "implements" inside an aspect header
+* ``title``:            aspect, method name or pointcut name inside an aspect header
 
 C++ ("cpp", "c", "h", "c++", "h++")
 -----------------------------------
@@ -548,6 +648,8 @@ C# ("cs", "csharp")
 * ``string``:           string
 * ``comment``:          comment
 * ``xmlDocTag``:        xmldoc tag ("///", "<!--", "-->", "<..>")
+* ``class``:            class header from "class" till "{"
+* ``function``:         method header
 * ``title``:            title of namespace or class
 
 F# ("fsharp", "fs")
@@ -565,12 +667,15 @@ OCaml ("ocaml", "ml")
 ---------------------
 
 * ``keywords``:         keyword
+* ``literal``:          true false etc.
 * ``number``:           number
 * ``string``:           string
+* ``char``:             character
 * ``comment``:          comment
-* ``class``:            any custom OCaml type
-* ``title``:            the name of a custom OCaml type
-* ``annotation``:       any attribute
+* ``built_in``:         built-in type (int, list etc.)
+* ``type``:             variant constructor, module name
+* ``tag``:              polymorphic variant tag
+* ``symbol``:           type variable
 
 D ("d")
 -------
@@ -638,14 +743,13 @@ Smalltalk ("smalltalk", "st")
 Lisp ("lisp")
 -------------
 
-* ``keyword``:          keyword
 * ``number``:           number
 * ``string``:           string
 * ``comment``:          comment
 * ``variable``:         variable
 * ``literal``:          b, t and nil
 * ``list``:             non-quoted list
-* ``title``:            first symbol in a non-quoted list
+* ``keyword``:          first symbol in a non-quoted list
 * ``body``:             remainder of the non-quoted list
 * ``quoted``:           quoted list, both "(quote .. )" and "'(..)"
 
@@ -657,8 +761,24 @@ Clojure ("clojure", "clj")
 * ``number``:           number
 * ``collection``:       collections
 * ``attribute``:        :keyword
-* ``title``:            function name (built-in or user defined)
-* ``built_in``:         built-in function name
+* ``list``:             non-quoted list
+* ``keyword``:          first symbol in a list
+* ``built_in``:         built-in function name as the first symbol in a list
+* ``prompt``:           REPL prompt
+
+Scheme ("scheme")
+--------------------------
+
+* ``shebang``:          script interpreter header
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``regexp``:           regexp
+* ``variable``:         single-quote 'identifier
+* ``list``:             non-quoted list
+* ``keyword``:          first symbol in a list
+* ``built_in``:         built-in function name as the first symbol in a list
+* ``literal``:          #t, #f, #\...\
 
 Ini ("ini")
 -----------
@@ -708,6 +828,16 @@ DOS ("dos", "bat", "cmd")
 * ``stream``:           DOS special files ("con", "prn", ...)
 * ``winutils``:         some commands (see dos.js specifically)
 * ``envvar``:           environment variables
+
+PowerShell ("powershell", "ps")
+--------------------------
+
+* ``keyword``:          keyword
+* ``string``:           string
+* ``number``:           number
+* ``comment``:          comment
+* ``literal``:          special literal: "true" and "false"
+* ``variable``:         variable
 
 Bash ("bash", "sh", "zsh")
 --------------------------
@@ -774,7 +904,6 @@ Axapta ("axapta")
 * ``class``:            class header from "class" till "{"
 * ``title``:            class name inside a header
 * ``params``:           everything in parentheses inside a class header
-* ``inheritance``:      keywords "extends" and "implements" inside class header
 * ``preprocessor``:     preprocessor directive
 
 Oracle Rules Language ("ruleslanguage")
@@ -1083,3 +1212,81 @@ Swift ("swift")
 * ``params``:           parameters of a function
 * ``type``:             a type
 * ``preprocessor``:     @attributes
+
+G-Code ("gcode", "nc")
+-------------------------------
+
+* ``keyword``:          G words, looping constructs and conditional operators
+* ``comment``:          comment
+* ``number``:           number
+* ``built_in``:         trigonometric and mathematical functions
+* ``title``:            M words and variable registers
+* ``preprocessor``:     program number and ending character
+* ``label``:            block number
+
+Q ("k", "kdb")
+-------------------
+
+* ``comment``:          comment
+* ``string``:           string constant
+* ``number``:           number
+* ``keyword``:          language keywords
+* ``constant``:         0/1b
+* ``typename``:         built-in plain types (int, symbol etc.)
+* ``built_in``:         built-in function
+
+Tcl ("tcl", "tk")
+-----------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment
+* ``symbol``:           function (proc)
+* ``variable``:         variable
+* ``string``:           string
+* ``number``:           number
+
+Puppet ("puppet", "pp")
+-------------
+
+* ``comment``:          comment
+* ``string``:           string
+* ``number``:           number
+* ``keyword``:          classes and types
+* ``constant``:         dependencies
+
+XL ("xl", "tao")
+-----------
+
+* ``keyword``:          keywords defined in the default syntax file
+* ``literal``:          names entered in the compiler (true, false, nil)
+* ``type``:             basic types (integer, real, text, name, etc)
+* ``built_in``:         built-in functions (sin, exp, mod, etc)
+* ``module``:           names of frequently used Tao modules
+* ``id``:               names of frequently used Tao functions
+* ``constant``:         all-uppercase names such as HELLO
+* ``variable``:         Mixed-case names such as Hello (style convention)
+* ``id``:               Lower-case names such as hello
+* ``string``:           Text between single or double quote, long text << >>
+* ``number``:           Number values
+* ``function``:         Function or variable definition
+* ``import``:           Import clause
+
+Roboconf ("graph", "instances")
+------------------------------
+
+* ``keyword``:          keyword
+* ``string``:           names of imported variables
+* ``comment``:          comment
+* ``facet``:            a **facet** section
+* ``component``:        a **component** section
+* ``instance-of``:      an **instance** section
+
+STEP Part 21 ("p21", "step", "stp")
+-----------------------------------
+
+* ``preprocessor``:     delimiters
+* ``comment``:          single- or multi-line comment
+* ``keyword``:          keyword
+* ``number``:           number
+* ``string``:           string
+* ``label``:            variable reference starting with "#"

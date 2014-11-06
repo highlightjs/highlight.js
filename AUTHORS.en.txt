@@ -1,6 +1,6 @@
-Syntax highlighting with language autodetection.
+﻿Syntax highlighting with language autodetection.
 
-URL:   http://highlightjs.org/
+URL:   https://highlightjs.org/
 
 Core developers (in order of appearance):
 
@@ -125,3 +125,24 @@ Contributors:
 - Henrik Feldt <henrik@haf.se>
 - Anton Kochkov <anton.kochkov@gmail.com>
 - Michael Allen <Michael.Allen@benefitfocus.com>
+- JP Verkamp <me@jverkamp.com>
+- Adam Joseph Cook <adam.joseph.cook@gmail.com>
+- Sergey Vidyuk <svidyuk@gmail.com>
+- Radek Liska <radekliska@gmail.com>
+- Jose Molina Colmenero <gaudy41@gmail.com>
+- Max Mikhailov <seven.phases.max@gmail.com>
+- Bryant Williams <b.n.williams@gmail.com>
+- Erik Paluka <erik.paluka@gmail.com>
+- Luke Holder <lukemh@gmail.com>
+- David Mohundro <david@mohundro.com>
+- Nicholas Blumhardt <nblumhardt@nblumhardt.com>
+- Christophe de Dinechin <christophe@taodyne.com>
+- Taneli Vatanen <taneli.vatanen@gmail.com>
+- Jen Evers-Corvina <jen@sevvie.net>
+- Kassio Borges <kassioborgesm@gmail.com>
+- Cedric Sohrauer <sohrauer@googlemail.com>
+- Mickael Delahaye <mickael.delahaye@gmail.com>
+- Hakan Özler <ozler.hakan@gmail.com>
+- Trey Shugart <treshugart@gmail.com>
+- Vincent Zurczak <vzurczak@linagora.com>
+- Adam Joseph Cook <adam.joseph.cook@gmail.com>

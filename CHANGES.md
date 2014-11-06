@@ -1,19 +1,109 @@
 ## master
 
+Some notable changes:
+
+- The `template_comment` class is gone in favor of the more general `comment`.
+
 New languages:
+
+- *AspectJ* by [Hakan Özler][]
+- *STEP Part 21* by [Adam Joseph Cook][]
+
+[Hakan Özler]: https://github.com/ozlerhakan
+[Adam Joseph Cook]: https://github.com/adamjcook
+
+
+## Version 8.3
+
+We streamlined our tool chain, it is now based entirely on node.js instead of
+being a mix of node.js, Python and Java. The build script options and arguments
+remained the same, and we've noted all the changes in the [documentation][b].
+Apart from reducing complexity, the new build script is also faster from not
+having to start Java machine repeatedly. The credits for the work go to [Jeremy
+Hull][].
+
+Some notable fixes:
+
+- PHP and JavaScript mixed in HTML now live happily with each other.
+- JavaScript regexes now understand ES6 flags "u" and "y".
+- `throw` keyword is no longer detected as a method name in Java.
+- Fixed parsing of numbers and symbols in Clojure thanks to [input from Ivan
+  Kleshnin][ik].
+
+New languages in this release:
+
+- *Less* by [Max Mikhailov][]
+- *Stylus* by [Bryant Williams][]
+- *Tcl* by [Radek Liska][]
+- *Puppet* by [Jose Molina Colmenero][]
+- *Processing* by [Erik Paluka][]
+- *Twig* templates by [Luke Holder][]
+- *PowerShell* by [David Mohundro][], based on [the work of Nicholas
+  Blumhardt][ps]
+- *XL* by [Christophe de Dinechin][]
+- *LiveScript* by [Taneli Vatanen][] and [Jen Evers-Corvina][]
+- *ERB* (Ruby in HTML) by [Lucas Mazza][]
+- *Roboconf* by [Vincent Zurczak][]
+
+[b]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
+[Jeremy Hull]: https://github.com/sourrust
+[ik]: https://twitter.com/IvanKleshnin/status/514041599484231680
+[Max Mikhailov]: https://github.com/seven-phases-max
+[Bryant Williams]: https://github.com/scien
+[Radek Liska]: https://github.com/Nindaleth
+[Jose Molina Colmenero]: https://github.com/Moliholy
+[Erik Paluka]: https://github.com/paluka
+[Luke Holder]: https://github.com/lukeholder
+[David Mohundro]: https://github.com/drmohundro
+[ps]: https://github.com/OctopusDeploy/Library/blob/master/app/shared/presentation/highlighting/powershell.js
+[Christophe de Dinechin]: https://github.com/c3d
+[Taneli Vatanen]: https://github.com/Daiz-
+[Jen Evers-Corvina]: https://github.com/sevvie
+[Lucas Mazza]: https://github.com/lucasmazza
+[Vincent Zurczak]: https://github.com/vincent-zurczak
+
+## Version 8.2
+
+We've finally got [real tests][test] and [continuous testing on Travis][ci]
+thanks to [Jeremy Hull][] and [Chris Eidhof][]. The tests designed to cover
+everything: language detection, correct parsing of individual language features
+and various special cases. This is a very important change that gives us
+confidence in extending language definitions and refactoring library core.
+
+We're going to redesign the old [demo/test suite][demo] into an interactive
+demo web app. If you're confident front-end developer or designer and want to
+help us with it, drop a comment into [the issue][#542] on GitHub.
+
+[test]: https://github.com/isagalaev/highlight.js/tree/master/test
+[demo]: https://highlightjs.org/static/test.html
+[#542]: https://github.com/isagalaev/highlight.js/issues/542
+[ci]: https://travis-ci.org/isagalaev/highlight.js
+[Jeremy Hull]: https://github.com/sourrust
+[Chris Eidhof]: https://github.com/chriseidhof
+
+As usually there's a handful of new languages in this release:
 
 - *Groovy* by [Guillaume Laforge][]
 - *Dart* by [Maxim Dikun][]
 - *Dust* by [Michael Allen][]
+- *Scheme* by [JP Verkamp][]
+- *G-Code* by [Adam Joseph Cook][]
+- *Q* from Kx Systems by [Sergey Vidyuk][]
 
 [Guillaume Laforge]: https://github.com/glaforge
 [Maxim Dikun]: https://github.com/dikmax
 [Michael Allen]: https://github.com/bfui
+[JP Verkamp]: https://github.com/jpverkamp
+[Adam Joseph Cook]: https://github.com/adamjcook
+[Sergey Vidyuk]: https://github.com/sv
 
 Other improvements:
 
 - [Erik Osheim][] heavily reworked Scala definitions making it richer.
 - [Lucas Mazza][] fixed Ruby hashes highlighting
+- Lisp variants (Lisp, Clojure and Scheme) are unified in regard to naming
+  the first symbol in parentheses: it's "keyword" in general case and also
+  "built_in" for built-in functions in Clojure and Scheme.
 
 [Erik Osheim]: https://github.com/non
 [Lucas Mazza]: https://github.com/lucasmazza
@@ -97,6 +187,7 @@ Other improvements:
 [Jeremy Hull]: https://github.com/sourrust
 [Matt Diephouse]: https://github.com/mdiep
 
+
 ## Version 8.0
 
 This new major release is quite a big overhaul bringing both new features and
@@ -175,6 +266,8 @@ Miscellaneous improvements:
 - Objective C and C# now properly highlight titles in method definition.
 - Big overhaul of relevance counting for a number of languages. Please do report
   bugs about mis-detection of non-trivial code snippets!
+
+[API reference]: http://highlightjs.readthedocs.org/en/latest/api.html
 
 [cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 [api docs]: http://highlightjs.readthedocs.org/en/latest/api.html

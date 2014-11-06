@@ -1,5 +1,6 @@
 /*
 Language: HTML, XML
+Category: common
 */
 
 function(hljs) {
@@ -25,6 +26,7 @@ function(hljs) {
         contains: [
           {
             className: 'value',
+            contains: [PHP],
             variants: [
               {begin: /"/, end: /"/},
               {begin: /'/, end: /'/},
@@ -81,10 +83,6 @@ function(hljs) {
           end: '</script>', returnEnd: true,
           subLanguage: 'javascript'
         }
-      },
-      {
-        begin: '<%', end: '%>',
-        subLanguage: 'vbscript'
       },
       PHP,
       {

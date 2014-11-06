@@ -14,7 +14,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-comment,
-.hljs-template_comment,
 .hljs-javadoc {
   color: #aeaeae;
   font-style: italic;

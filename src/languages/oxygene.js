@@ -49,7 +49,7 @@ function(hljs) {
   return {
     case_insensitive: true,
     keywords: OXYGENE_KEYWORDS,
-    illegal: '("|\\$[G-Zg-z]|\\/\\*|</)',
+    illegal: '("|\\$[G-Zg-z]|\\/\\*|</|=>|->)',
     contains: [
       CURLY_COMMENT, PAREN_COMMENT, hljs.C_LINE_COMMENT_MODE,
       STRING, CHAR_STRING,

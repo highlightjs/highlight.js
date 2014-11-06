@@ -1,27 +1,5 @@
 use std;
 
-123;                               // type int
-123u;                              // type uint
-123_u;                             // type uint
-0xff00;                            // type int
-0xff_u8;                           // type u8
-0b1111_1111_1001_0000_i32;         // type i32
-123.0;                             // type float
-0.1;                               // type float
-3f;                                // type float
-0.1f32;                            // type f32
-12E+99_f64;                        // type f64
-
-'a';
-'\n';
-'\x1A';
-'\u12AS';
-'\U1234ASDF';
-
-r"hello";
-r###"world"###;
-r##" "### "# "##;
-
 /* Factorial */
 fn fac(n: int) -> int {
     let s: str = "This is

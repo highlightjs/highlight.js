@@ -12,7 +12,6 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-comment,
-.hljs-template_comment,
 .diff .hljs-header,
 .hljs-javadoc {
   color: #408080;
