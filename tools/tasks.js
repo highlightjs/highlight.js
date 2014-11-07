@@ -8,7 +8,6 @@ var fs       = require('fs');
 
 var parseHeader = require('./utility').parseHeader;
 var tasks       = require('gear-lib');
-var headerRegex = /^\s*\/\*((.|\r?\n)*?)\*/;
 
 tasks.clean = function(directories, blobs, done) {
   directories = _.isString(directories) ? [directories] : directories;
@@ -26,18 +25,15 @@ tasks.reorderDeps = function(options, blobs, done) {
   _.each(blobs, function(blob) {
     var basename = path.basename(blob.name),
         content  = blob.result,
-        fileInfo = {},
-        match    = content.match(headerRegex);
+        fileInfo = parseHeader(content);
 
-    if(!match || basename === 'highlight.js') {
-      fileInfo.blob      = blob;
-      fileInfo.processed = false;
-      buffer[basename]   = fileInfo;
+    if(!fileInfo || basename === 'highlight.js') {
+      fileInfo = {blob: blob, processed: false};
+      buffer[basename] = fileInfo;
 
       return;
     }
 
-    fileInfo = parseHeader(match[1]);
     fileInfo.processed = false;
     fileInfo.blob      = blob;
 
@@ -209,25 +205,24 @@ tasks.filter = function(callback, blobs, done) {
 
   // Re-add in blobs required from header definition
   _.each(filteredBlobs, function(blob) {
-    var fileInfo,
-        dirname  = path.dirname(blob.name),
+    var dirname  = path.dirname(blob.name),
         content  = blob.result,
-        match    = content.match(headerRegex);
+        fileInfo = parseHeader(content);
 
-    if(match) {
-      fileInfo = parseHeader(match[1]);
+    if(!fileInfo) {
+      return;
+    }
 
-      if(fileInfo.Requires) {
-        _.each(fileInfo.Requires, function(language) {
-          var filename  = dirname + '/' + language,
-              fileFound = _.find(filteredBlobs, { name: filename });
+    if(fileInfo.Requires) {
+      _.each(fileInfo.Requires, function(language) {
+        var filename  = dirname + '/' + language,
+            fileFound = _.find(filteredBlobs, { name: filename });
 
-          if(!fileFound) {
-            filteredBlobs.push(
-              _.find(blobs, { name: filename }));
-          }
-        });
-      }
+        if(!fileFound) {
+          filteredBlobs.push(
+            _.find(blobs, { name: filename }));
+        }
+      });
     }
   });
 
@@ -237,13 +232,16 @@ tasks.filter.type = 'collect';
 
 tasks.readSnippet = function(options, blob, done) {
   var name        = path.basename(blob.name, '.js'),
+      fileInfo    = parseHeader(blob.result),
       snippetName = path.join(dir.root, 'test', 'detect', name, 'default.txt');
 
-  function rename(options, blob) {
-    return done(null, new blob.constructor(blob.result, {name: name + '.js'}));
+  function addMeta(options, blob) {
+    var meta = {name: name + '.js', fileInfo: fileInfo},
+        blob = new blob.constructor(blob.result, meta);
+    return done(null, blob);
   }
 
-  blob.constructor.readFile(snippetName, 'utf8', rename, false);
+  blob.constructor.readFile(snippetName, 'utf8', addMeta, false);
 }
 
 tasks.templateDemo = function(options, blobs, done) {
