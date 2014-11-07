@@ -27,7 +27,7 @@ function generateDemo(commander) {
   var filterCB   = utility.buildFilterCallback(commander.args),
       readArgs   = { pattern: path.join('src', 'languages', '*.js') },
       staticArgs = { pattern: path.join('demo', '*.{js,css}') },
-      stylesArgs = { pattern: path.join('src', 'styles', '*.css') },
+      stylesArgs = {pattern: path.join('src', 'styles', '*'), encoding: 'bin' },
       demoRoot   = path.join(dir.build, 'demo');
 
   return {
