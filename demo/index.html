@@ -4,6 +4,7 @@
   <meta charset="utf-8">
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="perfect-scrollbar.min.css">
 
   <link rel="stylesheet" title="Default" href="styles/default.css">
   <link rel="alternate stylesheet" title="Dark" href="styles/dark.css">
@@ -57,14 +58,17 @@
 
   <script src="../highlight.pack.js"></script>
   <script src="jquery-2.1.1.min.js"></script>
+  <script src="perfect-scrollbar.min.js"></script>
   <script src="demo.js"></script>
 
 <body>
-<div id="header">
-  <h1><a href="https://highlightjs.org/">highlight.js</a> demo</h1>
-</div>
 
 <div id="sidebar">
+
+  <div id="header">
+    <h1><a href="https://highlightjs.org/">highlight.js</a> demo</h1>
+  </div>
+
   <div>
     <h2>Language categories</h2>
     <ul id="categories"></ul>
@@ -74,6 +78,7 @@
     <h2>Styles</h2>
     <ul id="styles"></ul>
   </div>
+
 </div>
 
 <div id="content">
@@ -81,7 +86,7 @@
 <div id="languages">
   <% _.each(blobs, function(blob) { %>
   <div class="<%- path.basename(blob.name, '.js') %>" data-category="<%- (blob.fileInfo.Category || []).join(' ') %>">
-    <p><%- blob.fileInfo.Language %></p>
+    <h2><%- blob.fileInfo.Language %></h2>
     <pre><code><%- blob.result %></code></pre>
   </div>
   <% }); %>

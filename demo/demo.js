@@ -54,17 +54,15 @@ function initCategories() {
     ul.append('<li data-category="' + c + '">' + c + ' (' + categories[c] +')</li>');
   });
   $('#categories li').click(function(e) {
+    $('#categories li').removeClass('current');
+    $(this).addClass('current');
     selectCategory($(this).data('category'));
   });
-  return category_names[0];
 }
 
 function selectStyle(style) {
   $('link[title]').each(function(i, link) {
     link.disabled = (link.title != style);
-  });
-  ['color', 'background-color'].forEach(function(value) {
-    $('#languages').css(value, $('#languages pre code').css(value));
   });
 }
 
@@ -74,15 +72,17 @@ function initStyleSwitcher() {
     ul.append('<li>' + link.title + '</li>');
   });
   $('#styles li').click(function(e) {
+    $('#styles li').removeClass('current');
+    $(this).addClass('current');
     selectStyle($(this).text());
   });
-  return 'Default';
 }
 
 $(document).ready(function() {
-  var defaultCategory = initCategories();
-  selectCategory(defaultCategory);
-  var defaultStyle = initStyleSwitcher();
-  selectStyle(defaultStyle);
+  initCategories();
+  $('#categories li:first-child').click();
+  initStyleSwitcher();
+  $('#styles li:first-child').click();
+  $('#styles').perfectScrollbar();
 });
 
