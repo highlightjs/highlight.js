@@ -87,7 +87,7 @@ function parseHeader(content) {
           key    = keyVal[0],
           value  = keyVal[1] || "";
 
-      if(key !== 'Description') {
+      if(key !== 'Description' && key !== 'Language') {
         value = value.split(/\s*,\s*/);
       }
 
