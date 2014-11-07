@@ -31,15 +31,24 @@ function generateDemo(commander) {
       demoRoot   = path.join(dir.build, 'demo');
 
   return {
-    readLanguages: { task: ['glob', readArgs] },
+    logDemoStart: { task: ['log', 'Generating demo.'] },
+
+    readLanguages: { requires: 'logDemoStart', task: ['glob', readArgs] },
     filterSnippets: { requires: 'readLanguages', task: ['filter', filterCB] },
     readSnippet: { requires: 'filterSnippets', task: 'readSnippet' },
     templateDemo: { requires: 'readSnippet', task: 'templateDemo' },
-    writeDemo: { requires: 'templateDemo', task: ['write', path.join(demoRoot, 'index.html')] },
-    readStatic: { task: ['glob', staticArgs] },
+    writeDemo: {
+      requires: 'templateDemo',
+      task: ['write', path.join(demoRoot, 'index.html')] },
+
+    readStatic: { requires: 'logDemoStart', task: ['glob', staticArgs] },
     writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
-    readStyles: { task: ['glob', stylesArgs] },
-    writeStyles: { requires: 'readStyles', task: ['dest', path.join(demoRoot, 'styles')] }
+
+    readStyles: { requires: 'logDemoStart', task: ['glob', stylesArgs] },
+    writeStyles: {
+      requires: 'readStyles',
+      task: ['dest', path.join(demoRoot, 'styles')]
+    }
   }
 }
 
