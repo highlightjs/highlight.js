@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+  <title>highlight.js developer</title>
+
+  <link rel="stylesheet" href="../src/styles/default.css">
+  <script src="export.js"></script>
+  <script src="../build/highlight.pack.js"></script>
+
+<h2>Highlighted code export</h2>
+
+<script type="text/javascript">
+    var langSelectorHtml = '<label>Language <select id="langSelector">';
+    langSelectorHtml += '<option value="">Auto</option>';
+    var languages = hljs.listLanguages();
+    for (var i in languages) {
+        langSelectorHtml += '<option value=\"' + languages[i] + '\">' + languages[i].charAt(0).toUpperCase() + languages[i].substr(1) + '</option>';
+    }
+    langSelectorHtml += '</select></label>';
+    document.write(langSelectorHtml);
+</script>
+
+<table>
+    <tr>
+        <td><textarea rows="20" cols="50" id="export_from"></textarea></td>
+        <td><textarea rows="20" cols="50" id="export_to"></textarea></td>
+    </tr>
+    <tr>
+        <td>Write a code snippet</td>
+        <td>Get HTML to paste anywhere (for actual styles and colors see sample.css)</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td><input type="button" value="Export &rarr;" onclick="ExportDoIt()"/></td>
+        <td align="right"><input type="button" value="Copy to buffer" onclick="ExportCopyToBuffer(document.getElementById('export_to').value);"/></td>
+    </tr>
+</table>
+<div id="export_view"></div>
