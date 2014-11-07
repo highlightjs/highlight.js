@@ -24,15 +24,22 @@ function copyDocs() {
 }
 
 function generateDemo(commander) {
-  var filterCB = utility.buildFilterCallback(commander.args),
-      readArgs = { pattern: path.join('src', 'languages', '*.js') };
+  var filterCB   = utility.buildFilterCallback(commander.args),
+      readArgs   = { pattern: path.join('src', 'languages', '*.js') },
+      staticArgs = { pattern: path.join('demo', '*.{js,css}') },
+      stylesArgs = { pattern: path.join('src', 'styles', '*.css') },
+      demoRoot   = path.join(dir.build, 'demo');
 
   return {
     readLanguages: { task: ['glob', readArgs] },
     filterSnippets: { requires: 'readLanguages', task: ['filter', filterCB] },
     readSnippet: { requires: 'filterSnippets', task: 'readSnippet' },
     templateDemo: { requires: 'readSnippet', task: 'templateDemo' },
-    writeDemo: { requires: 'templateDemo', task: ['write', path.join(dir.build, 'demo', 'index.html')] }
+    writeDemo: { requires: 'templateDemo', task: ['write', path.join(demoRoot, 'index.html')] },
+    readStatic: { task: ['glob', staticArgs] },
+    writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
+    readStyles: { task: ['glob', stylesArgs] },
+    writeStyles: { requires: 'readStyles', task: ['dest', path.join(demoRoot, 'styles')] }
   }
 }
 
