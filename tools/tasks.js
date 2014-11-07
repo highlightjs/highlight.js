@@ -4,6 +4,7 @@ var _        = require('lodash');
 var del      = require('del');
 var Registry = require('gear').Registry;
 var path     = require('path');
+var fs       = require('fs');
 
 var parseHeader = require('./utility').parseHeader;
 var tasks       = require('gear-lib');
@@ -233,5 +234,26 @@ tasks.filter = function(callback, blobs, done) {
   return done(null, filteredBlobs);
 };
 tasks.filter.type = 'collect';
+
+tasks.readSnippet = function(options, blob, done) {
+  var name        = path.basename(blob.name, '.js'),
+      snippetName = path.join(dir.root, 'test', 'detect', name, 'default.txt');
+
+  function rename(options, blob) {
+    return done(null, new blob.constructor(blob.result, {name: name + '.js'}));
+  }
+
+  blob.constructor.readFile(snippetName, 'utf8', rename, false);
+}
+
+tasks.templateDemo = function(options, blobs, done) {
+  var name = path.join(dir.root, 'demo', 'index.html'),
+      template = fs.readFileSync(name, 'utf8'),
+      content = _.template(template, { path: path, blobs: blobs });
+
+  return done(null, [new blobs[0].constructor(content)]);
+};
+tasks.templateDemo.type = 'collect';
+
 
 module.exports = new Registry({ tasks: tasks });

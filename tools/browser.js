@@ -23,6 +23,19 @@ function copyDocs() {
   };
 }
 
+function generateDemo(commander) {
+  var filterCB = utility.buildFilterCallback(commander.args),
+      readArgs = { pattern: path.join('src', 'languages', '*.js') };
+
+  return {
+    readLanguages: { task: ['glob', readArgs] },
+    filterSnippets: { requires: 'readLanguages', task: ['filter', filterCB] },
+    readSnippet: { requires: 'filterSnippets', task: 'readSnippet' },
+    templateDemo: { requires: 'readSnippet', task: 'templateDemo' },
+    writeDemo: { requires: 'templateDemo', task: ['write', path.join(dir.build, 'demo', 'index.html')] }
+  }
+}
+
 module.exports = function(commander) {
   var hljsExt, output, requiresTask, tasks,
       replace           = utility.replace,
@@ -84,7 +97,7 @@ module.exports = function(commander) {
   };
 
   if(commander.target === 'browser') {
-    tasks = _.merge(copyDocs(), tasks);
+    tasks = _.merge(copyDocs(), generateDemo(commander), tasks);
   }
 
   return tasks;
