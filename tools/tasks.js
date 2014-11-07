@@ -24,20 +24,10 @@ tasks.reorderDeps = function(options, blobs, done) {
 
   _.each(blobs, function(blob) {
     var basename = path.basename(blob.name),
-        content  = blob.result,
-        fileInfo = parseHeader(content);
+        fileInfo = parseHeader(blob.result),
+        extra = {blob: blob, processed: false};
 
-    if(!fileInfo || basename === 'highlight.js') {
-      fileInfo = {blob: blob, processed: false};
-      buffer[basename] = fileInfo;
-
-      return;
-    }
-
-    fileInfo.processed = false;
-    fileInfo.blob      = blob;
-
-    buffer[basename] = fileInfo;
+    buffer[basename] = _.merge(extra, fileInfo || {});
   });
 
   function pushInBlob(object) {
