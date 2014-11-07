@@ -23,9 +23,8 @@ function copyDocs() {
   };
 }
 
-function generateDemo(commander) {
-  var filterCB   = utility.buildFilterCallback(commander.args),
-      readArgs   = { pattern: path.join('src', 'languages', '*.js') },
+function generateDemo(filterCB) {
+  var readArgs   = { pattern: path.join('src', 'languages', '*.js') },
       staticArgs = { pattern: path.join('demo', '*.{js,css}') },
       stylesArgs = {pattern: path.join('src', 'styles', '*'), encoding: 'bin' },
       demoRoot   = path.join(dir.build, 'demo');
@@ -113,7 +112,7 @@ module.exports = function(commander) {
   };
 
   if(commander.target === 'browser') {
-    tasks = _.merge(copyDocs(), generateDemo(commander), tasks);
+    tasks = _.merge(copyDocs(), generateDemo(filterCB), tasks);
   }
 
   return tasks;
