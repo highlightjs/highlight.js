@@ -36,12 +36,27 @@ function initCategories() {
     });
   });
   var ul = $('#categories');
-  Object.keys(categories).forEach(function(c) {
+  var category_names = Object.keys(categories);
+  category_names.sort(function(a, b) {
+    if (a === 'common' || b === 'other') {
+      return -1;
+    } else if (b === 'common' || a === 'other') {
+      return 1;
+    } else if (a < b) {
+      return -1;
+    } else if (a > b) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  category_names.forEach(function(c) {
     ul.append('<li data-category="' + c + '">' + c + ' (' + categories[c] +')</li>');
   });
   $('#categories li').click(function(e) {
     selectCategory($(this).data('category'));
   });
+  return category_names[0];
 }
 
 function selectStyle(style) {
@@ -60,13 +75,14 @@ function initStyleSwitcher() {
   });
   $('#styles li').click(function(e) {
     selectStyle($(this).text());
-  })
+  });
+  return 'Default';
 }
 
 $(document).ready(function() {
-  initCategories();
-  selectCategory('common');
-  initStyleSwitcher();
-  selectStyle('Default');
+  var defaultCategory = initCategories();
+  selectCategory(defaultCategory);
+  var defaultStyle = initStyleSwitcher();
+  selectStyle(defaultStyle);
 });
 
