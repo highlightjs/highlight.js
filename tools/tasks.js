@@ -199,11 +199,7 @@ tasks.filter = function(callback, blobs, done) {
         content  = blob.result,
         fileInfo = parseHeader(content);
 
-    if(!fileInfo) {
-      return;
-    }
-
-    if(fileInfo.Requires) {
+    if(fileInfo && fileInfo.Requires) {
       _.each(fileInfo.Requires, function(language) {
         var filename  = dirname + '/' + language,
             fileFound = _.find(filteredBlobs, { name: filename });
