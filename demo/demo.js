@@ -58,12 +58,19 @@ function initCategories() {
     $(this).addClass('current');
     selectCategory($(this).data('category'));
   });
+  $('#categories li:first-child').click();
 }
 
 function selectStyle(style) {
   $('link[title]').each(function(i, link) {
     link.disabled = (link.title != style);
   });
+}
+
+function resizeStyleSwitcher() {
+  var ul = $('#styles');
+  ul.height($(window).height() - ul.position().top - 20);
+  ul.perfectScrollbar('update');
 }
 
 function initStyleSwitcher() {
@@ -76,13 +83,14 @@ function initStyleSwitcher() {
     $(this).addClass('current');
     selectStyle($(this).text());
   });
+  $('#styles li:first-child').click();
+  ul.perfectScrollbar();
+  $(window).resize(resizeStyleSwitcher);
+  resizeStyleSwitcher();
 }
 
 $(document).ready(function() {
   initCategories();
-  $('#categories li:first-child').click();
   initStyleSwitcher();
-  $('#styles li:first-child').click();
-  $('#styles').perfectScrollbar();
 });
 

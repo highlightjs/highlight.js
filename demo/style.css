@@ -40,7 +40,7 @@ pre {
 
 #sidebar ul {
   position: relative;
-  max-height: 16.5em; overflow-y: hidden;
+  overflow-y: hidden;
 }
 
 #sidebar li {
