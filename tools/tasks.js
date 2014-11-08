@@ -148,14 +148,14 @@ tasks.replaceSkippingStrings = function(params, blob, done) {
 
       replace = params.replace || '',
       regex   = params.regex,
-      quotes  = /['"\/]/,
+      starts  = /\/\/|['"\/]/,
 
       result  = [],
       chunk, end, match, start, terminator;
 
   while(offset < length) {
     chunk = content.slice(offset);
-    match = chunk.match(quotes);
+    match = chunk.match(starts);
     end   = match ? match.index : length;
 
     chunk = content.slice(offset, end + offset);
@@ -164,7 +164,10 @@ tasks.replaceSkippingStrings = function(params, blob, done) {
     offset += end;
 
     if(match) {
-      terminator = new RegExp('[' + match[0] + '\\\\]');
+      // We found a starter sequence: either a `//` or a "quote"
+      // In the case of `//` our terminator is the end of line.
+      // Otherwise it's either a matching quote or an escape symbol.
+      terminator = match[0] !== '//' ? new RegExp('[' + match[0] + '\\\\]') : /$/m;
       start      = offset;
       offset    += 1;
 
