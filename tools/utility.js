@@ -70,10 +70,16 @@ function replaceClassNames(match) {
   return REPLACES[match];
 }
 
-function parseHeader(header) {
+function parseHeader(content) {
   var object  = {},
-      headers = header.split('\n');
+      headers,
+      match = content.match(headerRegex);
 
+  if (!match) {
+    return null;
+  }
+
+  headers = match[1].split('\n');
   _(headers)
     .compact()
     .each(function(h) {
@@ -81,7 +87,7 @@ function parseHeader(header) {
           key    = keyVal[0],
           value  = keyVal[1] || "";
 
-      if(key !== 'Description') {
+      if(key !== 'Description' && key !== 'Language') {
         value = value.split(/\s*,\s*/);
       }
 
@@ -94,14 +100,11 @@ function parseHeader(header) {
 function filterByQualifiers(blob, languages, categories) {
   if(_.isEmpty(languages) && _.isEmpty(categories)) return true;
 
-  var language = path.basename(blob.name, '.js'),
-      fileInfo,
-      fileCategories,
-      match = blob.result.match(headerRegex);
+  var language       = path.basename(blob.name, '.js'),
+      fileInfo       = parseHeader(blob.result),
+      fileCategories = (fileInfo && fileInfo.Category) ? fileInfo.Category : [];
 
-  if(!match) return false;
-  fileInfo       = parseHeader(match[1]);
-  fileCategories = fileInfo.Category ? fileInfo.Category : [];
+  if(!fileInfo) return false;
 
   return _.contains(languages, language) ||
          _.any(fileCategories, function(fc) {return _.contains(categories, fc)});

@@ -1,6 +1,14 @@
 ## master
 
-Some notable changes:
+We've got the new [demo page][]. The obvious new feature is the new look, but
+apart from that it's got smarter: by presenting languages in groups it avoids
+running 10000 highlighting attempts after first load which was slowing it down
+and giving bad overall impression. It is now also being generated from test
+code snippets so the authors of new languages don't have to update both tests
+and the demo page with the same thing. The credits for the work go to
+[Ivan Sagalaev][].
+
+Other notable changes:
 
 - The `template_comment` class is gone in favor of the more general `comment`.
 
@@ -11,6 +19,8 @@ New languages:
 
 [Hakan Özler]: https://github.com/ozlerhakan
 [Adam Joseph Cook]: https://github.com/adamjcook
+[demo page]: https://highlightjs.org/static/demo/
+[Ivan Sagalaev]: https://github.com/isagalaev
 
 
 ## Version 8.3

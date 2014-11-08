@@ -23,6 +23,34 @@ function copyDocs() {
   };
 }
 
+function generateDemo(filterCB) {
+  var readArgs   = { pattern: path.join('src', 'languages', '*.js') },
+      staticArgs = { pattern: path.join('demo', '*.{js,css}') },
+      stylesArgs = {pattern: path.join('src', 'styles', '*'), encoding: 'bin' },
+      demoRoot   = path.join(dir.build, 'demo');
+
+  return {
+    logDemoStart: { task: ['log', 'Generating demo.'] },
+
+    readLanguages: { requires: 'logDemoStart', task: ['glob', readArgs] },
+    filterSnippets: { requires: 'readLanguages', task: ['filter', filterCB] },
+    readSnippet: { requires: 'filterSnippets', task: 'readSnippet' },
+    templateDemo: { requires: 'readSnippet', task: 'templateDemo' },
+    writeDemo: {
+      requires: 'templateDemo',
+      task: ['write', path.join(demoRoot, 'index.html')] },
+
+    readStatic: { requires: 'logDemoStart', task: ['glob', staticArgs] },
+    writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
+
+    readStyles: { requires: 'logDemoStart', task: ['glob', stylesArgs] },
+    writeStyles: {
+      requires: 'readStyles',
+      task: ['dest', path.join(demoRoot, 'styles')]
+    }
+  }
+}
+
 module.exports = function(commander) {
   var hljsExt, output, requiresTask, tasks,
       replace           = utility.replace,
@@ -84,7 +112,7 @@ module.exports = function(commander) {
   };
 
   if(commander.target === 'browser') {
-    tasks = _.merge(copyDocs(), tasks);
+    tasks = _.merge(copyDocs(), generateDemo(filterCB), tasks);
   }
 
   return tasks;
