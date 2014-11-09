@@ -19,7 +19,7 @@ function(hljs) {
         'str char bool',
       built_in:
         'assert! assert_eq! bitflags! bytes! cfg! col! concat! concat_idents! ' +
-        'debug_assert! debug_assert_eq! env! fail! file! format! format_args! ' +
+        'debug_assert! debug_assert_eq! env! panic! file! format! format_args! ' +
         'include_bin! include_str! line! local_data_key! module_path! ' +
         'option_env! print! println! select! stringify! try! unimplemented! ' +
         'unreachable! vec! write! writeln!'
