@@ -1,21 +1,12 @@
-function highlightDiv(div) {
-  var code = div.find('code');
-  if (code.hasClass('hljs')) {
-    return;
-  }
-  code = code.get(0);
-  hljs.highlightBlock(code);
-  if (!div.hasClass(code.result.language)) {
-    div.addClass('fail');
-  }
-}
-
 function selectCategory(category) {
   $('#languages div').each(function(i, div) {
     div = $(div);
     var category_str = div.data('category');
     if (category_str.split(' ').indexOf(category) != -1) {
-      highlightDiv(div);
+      var code = div.find('code');
+      if (!code.hasClass('hljs')) {
+        hljs.highlightBlock(code.get(0));
+      }
       div.show();
     } else {
       div.hide();
