@@ -5,6 +5,14 @@ Contributors: Roman Shmatov <romanshmatov@gmail.com>
 */
 
 function(hljs) {
+  var RUST_BLOCK_COMMENT_MODE = {
+    className: 'comment',
+    begin: '/\\*', end: '\\*/',
+  };
+  RUST_BLOCK_COMMENT_MODE.contains = [
+    RUST_BLOCK_COMMENT_MODE, 
+    hljs.PHRASAL_WORDS_MODE
+  ];
   return {
     aliases: ['rs'],
     keywords: {
@@ -28,7 +36,7 @@ function(hljs) {
     illegal: '</',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
+      RUST_BLOCK_COMMENT_MODE,
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       {
         className: 'string',
