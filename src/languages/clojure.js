@@ -2,6 +2,7 @@
 Language: Clojure
 Description: Clojure syntax (based on lisp.js)
 Author: mfornos
+Category: lisp
 */
 
 function(hljs) {

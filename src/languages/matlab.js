@@ -2,6 +2,7 @@
 Language: Matlab
 Author: Denis Bardadym <bardadymchik@gmail.com>
 Contributors: Eugene Nizhibitsky <nizhibitsky@ya.ru>
+Category: scientific
 */
 
 function(hljs) {

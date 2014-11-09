@@ -4,6 +4,7 @@ Description: Keywords based on http://community.schemewiki.org/?scheme-keywords
 Author: JP Verkamp <me@jverkamp.com>
 Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Origin: clojure.js
+Category: lisp
 */
 
 function(hljs) {

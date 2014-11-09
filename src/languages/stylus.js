@@ -2,6 +2,7 @@
 Language: Stylus
 Author: Bryant Williams <b.n.williams@gmail.com>
 Description: Stylus (https://github.com/LearnBoost/stylus/)
+Category: css
 */
 
 function(hljs) {

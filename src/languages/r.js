@@ -1,6 +1,7 @@
 /*
 Language: R
 Author: Joe Cheng <joe@rstudio.org>
+Category: scientific
 */
 
 function(hljs) {

@@ -1,6 +1,7 @@
 /*
 Language: Less
 Author:   Max Mikhailov <seven.phases.max@gmail.com>
+Category: css
 */
 
 function(hljs) {

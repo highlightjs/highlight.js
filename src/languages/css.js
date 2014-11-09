@@ -1,6 +1,6 @@
 /*
 Language: CSS
-Category: common
+Category: common, css
 */
 
 function(hljs) {

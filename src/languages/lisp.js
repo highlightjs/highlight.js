@@ -2,6 +2,7 @@
 Language: Lisp
 Description: Generic lisp syntax
 Author: Vasily Polovnyov <vast@whiteants.net>
+Category: lisp
 */
 
 function(hljs) {

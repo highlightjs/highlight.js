@@ -1,6 +1,7 @@
 /*
-  Language: Mizar
-  Author: Kelley van Evert <kelleyvanevert@gmail.com>
+Language: Mizar
+Author: Kelley van Evert <kelleyvanevert@gmail.com>
+Category: scientific
 */
 
 function(hljs) {

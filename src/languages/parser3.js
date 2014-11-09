@@ -2,6 +2,7 @@
 Language: Parser3
 Requires: xml.js
 Author: Oleg Volchkov <oleg@volchkov.net>
+Category: template
 */
 
 function(hljs) {
