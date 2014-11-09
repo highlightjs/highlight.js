@@ -1,8 +1,7 @@
 function selectCategory(category) {
   $('#languages div').each(function(i, div) {
     div = $(div);
-    var category_str = div.data('category');
-    if (category_str.split(' ').indexOf(category) != -1) {
+    if (div.hasClass(category)) {
       var code = div.find('code');
       if (!code.hasClass('hljs')) {
         hljs.highlightBlock(code.get(0));
@@ -17,12 +16,10 @@ function selectCategory(category) {
 function initCategories() {
   var categories = {};
   $('#languages div').each(function(i, div) {
-    var category_str = $(div).data('category');
-    if (!category_str) {
-      category_str = 'other';
-      $(div).data('category', category_str);
-    }
-    category_str.split(' ').forEach(function(c) {
+    if (!div.className) {
+      div.className = 'other';
+    };
+    div.className.split(' ').forEach(function(c) {
       categories[c] = (categories[c] || 0) + 1;
     });
   });
