@@ -2,6 +2,7 @@
 Language: GLSL
 Description: OpenGL Shading Language
 Author: Sergey Tikhomirov <me@stikhomirov.com>
+Category: graphics
 */
 
 function(hljs) {

@@ -1,6 +1,7 @@
 /*
 Language: Processing
 Author: Erik Paluka <erik.paluka@gmail.com>
+Category: graphics
 */
 
 function(hljs) {

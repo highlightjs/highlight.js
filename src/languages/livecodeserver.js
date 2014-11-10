@@ -4,6 +4,7 @@ Author: Ralf Bitter <rabit@revigniter.com>
 Description: Language definition for LiveCode server accounting for revIgniter (a web application framework) characteristics.
 Version: 1.0a
 Date: 2013-06-03
+Category: enterprise
 */
 
 function(hljs) {

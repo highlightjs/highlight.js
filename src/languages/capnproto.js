@@ -2,6 +2,7 @@
 Language: Cap’n Proto
 Author: Oleg Efimov <efimovov@gmail.com>
 Description: Cap’n Proto message definition format
+Category: protocols
 */
 
 function(hljs) {

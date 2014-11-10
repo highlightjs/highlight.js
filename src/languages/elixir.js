@@ -2,6 +2,7 @@
 Language: Elixir
 Author: Josh Adams <josh@isotope11.com>
 Description: language definition for Elixir source code files (.ex and .exs).  Based on ruby language support.
+Category: functional
 */
 
 function(hljs) {

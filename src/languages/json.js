@@ -1,7 +1,7 @@
 /*
 Language: JSON
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
-Category: common
+Category: common, protocols
 */
 
 function(hljs) {

@@ -1,7 +1,7 @@
 /*
 Language: Java
 Author: Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
-Category: common
+Category: common, enterprise
 */
 
 function(hljs) {
