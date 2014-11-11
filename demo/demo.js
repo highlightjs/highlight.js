@@ -1,3 +1,13 @@
+function resizeLists() {
+  var
+    categories = $('#categories'),
+    styles = $('#styles');
+  categories.css('max-height', $(window).height() / 4);
+  categories.perfectScrollbar('update');
+  styles.height($(window).height() - styles.position().top - 20);
+  styles.perfectScrollbar('update');
+}
+
 function selectCategory(category) {
   $('#languages div').each(function(i, div) {
     div = $(div);
@@ -45,6 +55,7 @@ function initCategories() {
     selectCategory($(this).data('category'));
   });
   $('#categories li:first-child').click();
+  ul.perfectScrollbar();
 }
 
 function selectStyle(style) {
@@ -53,13 +64,7 @@ function selectStyle(style) {
   });
 }
 
-function resizeStyleSwitcher() {
-  var ul = $('#styles');
-  ul.height($(window).height() - ul.position().top - 20);
-  ul.perfectScrollbar('update');
-}
-
-function initStyleSwitcher() {
+function initStyles() {
   var ul = $('#styles');
   $('link[title]').each(function(i, link) {
     ul.append('<li>' + link.title + '</li>');
@@ -71,12 +76,12 @@ function initStyleSwitcher() {
   });
   $('#styles li:first-child').click();
   ul.perfectScrollbar();
-  $(window).resize(resizeStyleSwitcher);
-  resizeStyleSwitcher();
 }
 
 $(document).ready(function() {
   initCategories();
-  initStyleSwitcher();
+  initStyles();
+  $(window).resize(resizeLists);
+  resizeLists();
 });
 
