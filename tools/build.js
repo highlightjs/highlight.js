@@ -13,7 +13,7 @@ commander
   .usage('[options] [<languages ...>]')
   .option('-n, --no-compress', 'Disable compression')
   .option('-t, --target <name>', 'Build for target <name> ' +
-                                 '[amd, browser, cdn, node]',
+                                 '[browser, cdn, node]',
                                  'browser')
   .parse(process.argv);
 
