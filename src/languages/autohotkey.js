@@ -2,6 +2,7 @@
 Language: AutoHotkey
 Author: Seongwon Lee <dlimpid@gmail.com>
 Description: AutoHotkey language definition
+Category: scripting
 */
 
 function(hljs) {

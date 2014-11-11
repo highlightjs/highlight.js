@@ -2,6 +2,7 @@
 Language: Rust
 Author: Andrey Vlasovskikh <andrey.vlasovskikh@gmail.com>
 Contributors: Roman Shmatov <romanshmatov@gmail.com>
+Category: system
 */
 
 function(hljs) {

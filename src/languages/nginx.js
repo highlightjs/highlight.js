@@ -2,7 +2,7 @@
 Language: Nginx
 Author: Peter Leonov <gojpeg@yandex.ru>
 Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
-Category: common
+Category: common, config
 */
 
 function(hljs) {

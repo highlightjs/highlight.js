@@ -2,6 +2,7 @@
 Language: Swift
 Author: Chris Eidhof <chris@eidhof.nl>
 Contributors: Nate Cook <natecook@gmail.com>
+Category: system
 */
 
 

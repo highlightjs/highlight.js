@@ -2,7 +2,7 @@
 Language: C++
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Zaven Muradyan <megalivoithos@gmail.com>
-Category: common
+Category: common, system
 */
 
 function(hljs) {

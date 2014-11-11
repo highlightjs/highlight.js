@@ -2,6 +2,7 @@
 Language: VBScript
 Author: Nikita Ledyaev <lenikita@yandex.ru>
 Contributors: Michal Gabrukiewicz <mgabru@gmail.com>
+Category: scripting
 */
 
 function(hljs) {
