@@ -9,17 +9,11 @@ module Network.UDP
 , recvUDPPacketFrom
 ) where
 
-{- this is a {- nested -} comment -}
-
 import qualified Data.ByteString as Strict (ByteString, concat, singleton)
 import qualified Data.ByteString.Lazy as Lazy (ByteString, toChunks, fromChunks)
 import Data.ByteString.Char8 (pack, unpack)
 import Network.Socket hiding (sendTo, recv, recvFrom)
 import Network.Socket.ByteString (sendTo, recv, recvFrom)
-
-infix 3 `foo`
-infixl 6 `bar`
-infixr 9 `baz`
 
 -- Type class for converting StringLike types to and from strict ByteStrings
 class DataPacket a where
