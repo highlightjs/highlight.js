@@ -51,7 +51,7 @@ even make practical sense.
 After you satisfied with the result you need to make sure that language
 detection still works with your language definition included in the whole suite.
 
-Testing is done using `mocha <https://visionmedia.github.io/mocha/>`_ and the
+Testing is done using `Mocha <http://mochajs.org/>`_ and the
 files are found in the ``test/`` directory. You can use the node build to
 run the tests in the command line with ``npm test`` after installing the
 dependencies with ``npm install``.
