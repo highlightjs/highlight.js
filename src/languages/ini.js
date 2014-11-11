@@ -1,6 +1,6 @@
 /*
 Language: Ini
-Category: common
+Category: common, config
 */
 
 function(hljs) {

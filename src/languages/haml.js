@@ -3,6 +3,7 @@ Language: Haml
 Requires: ruby.js
 Author: Dan Allen <dan.j.allen@gmail.com>
 Website: http://google.com/profiles/dan.j.allen
+Category: template
 */
 
 // TODO support filter tags like :javascript, support inline HTML

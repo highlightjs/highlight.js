@@ -1,6 +1,6 @@
 /*
 Language: JavaScript
-Category: common
+Category: common, scripting
 */
 
 function(hljs) {

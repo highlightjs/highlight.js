@@ -3,6 +3,7 @@ Language: Django
 Requires: xml.js
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Contributors: Ilya Baryshev <baryshev@gmail.com>
+Category: template
 */
 
 function(hljs) {

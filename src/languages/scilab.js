@@ -3,6 +3,7 @@ Language: Scilab
 Author: Sylvestre Ledru <sylvestre.ledru@scilab-enterprises.com>
 Origin: matlab.js
 Description: Scilab is a port from Matlab
+Category: scientific
 */
 
 function(hljs) {

@@ -2,6 +2,7 @@
 Language: Thrift
 Author: Oleg Efimov <efimovov@gmail.com>
 Description: Thrift message definition format
+Category: protocols
 */
 
 function(hljs) {

@@ -1,6 +1,7 @@
 /*
 Language: Axapta
 Author: Dmitri Roudakov <dmitri@roudakov.ru>
+Category: enterprise
 */
 
 function(hljs) {

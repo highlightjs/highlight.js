@@ -1,6 +1,7 @@
 /*
 Language: ActionScript
 Author: Alexander Myadzel <myadzel@gmail.com>
+Category: scripting
 */
 
 function(hljs) {

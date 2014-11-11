@@ -2,6 +2,7 @@
 Language: TypeScript
 Author: Panu Horsmalahti <panu.horsmalahti@iki.fi>
 Description: TypeScript is a strict superset of JavaScript
+Category: scripting
 */
 
 function(hljs) {

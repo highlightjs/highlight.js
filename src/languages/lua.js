@@ -1,6 +1,7 @@
 /*
 Language: Lua
 Author: Andrew Fedorov <dmmdrs@mail.ru>
+Category: scripting
 */
 
 function(hljs) {
