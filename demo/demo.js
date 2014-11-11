@@ -23,28 +23,27 @@ function selectCategory(category) {
   });
 }
 
+function categoryKey(c) {
+  return c === 'common' ? '' : c === 'misc' ? 'z' : c === 'all' ? 'zz' : c;
+}
+
 function initCategories() {
   var categories = {};
   $('#languages div').each(function(i, div) {
+    if (!div.className) {
+      div.className += 'misc';
+    }
     div.className += ' all';
-    div.className.split(' ').filter(Boolean).forEach(function(c) {
+    div.className.split(' ').forEach(function(c) {
       categories[c] = (categories[c] || 0) + 1;
     });
   });
   var ul = $('#categories');
   var category_names = Object.keys(categories);
   category_names.sort(function(a, b) {
-    if (a === 'common' || b === 'all') {
-      return -1;
-    } else if (b === 'common' || a === 'all') {
-      return 1;
-    } else if (a < b) {
-      return -1;
-    } else if (a > b) {
-      return 1;
-    } else {
-      return 0;
-    }
+    a = categoryKey(a);
+    b = categoryKey(b);
+    return a < b ? -1 : a > b ? 1 : 0;
   });
   category_names.forEach(function(c) {
     ul.append('<li data-category="' + c + '">' + c + ' (' + categories[c] +')</li>');
