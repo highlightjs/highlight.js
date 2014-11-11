@@ -1,11 +1,13 @@
 'use strict';
 
+var _         = require('lodash');
 var commander = require('commander');
 var path      = require('path');
 var Queue     = require('gear').Queue;
 var registry  = require('./tasks');
 
-var build;
+var build, hasTarget, target,
+    targets = ['browser', 'cdn', 'node'];
 
 commander
   .usage('[options] [<languages ...>]')
@@ -15,19 +17,11 @@ commander
                                  'browser')
   .parse(process.argv);
 
-switch(commander.target) {
-  case 'cdn':
-    build = require('./cdn');
-    break;
-  case 'node':
-    build = require('./node');
-    break;
-  case 'amd':
-  case 'browser':
-  default:
-    build = require('./browser');
-    break;
-}
+
+hasTarget = _.contains(targets, commander.target);
+
+target = './' + (hasTarget ? commander.target : 'browser');
+build  = require(target);
 
 global.dir       = {};
 global.dir.root  = path.dirname(__dirname);
