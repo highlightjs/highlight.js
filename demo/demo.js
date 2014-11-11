@@ -16,19 +16,17 @@ function selectCategory(category) {
 function initCategories() {
   var categories = {};
   $('#languages div').each(function(i, div) {
-    if (!div.className) {
-      div.className = 'other';
-    };
-    div.className.split(' ').forEach(function(c) {
+    div.className += ' all';
+    div.className.split(' ').filter(Boolean).forEach(function(c) {
       categories[c] = (categories[c] || 0) + 1;
     });
   });
   var ul = $('#categories');
   var category_names = Object.keys(categories);
   category_names.sort(function(a, b) {
-    if (a === 'common' || b === 'other') {
+    if (a === 'common' || b === 'all') {
       return -1;
-    } else if (b === 'common' || a === 'other') {
+    } else if (b === 'common' || a === 'all') {
       return 1;
     } else if (a < b) {
       return -1;
