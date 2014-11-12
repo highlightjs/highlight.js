@@ -146,3 +146,4 @@ Contributors:
 - Trey Shugart <treshugart@gmail.com>
 - Vincent Zurczak <vzurczak@linagora.com>
 - Adam Joseph Cook <adam.joseph.cook@gmail.com>
+- Edwin Dalorzo <edwin@dalorzo.org>

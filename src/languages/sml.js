@@ -1,8 +1,9 @@
 /*
 Language: SML
-Author: Mehdi Dogguy <mehdi@dogguy.org>
-Contributors: Nicolas Braud-Santoni <nicolas.braud-santoni@ens-cachan.fr>, Mickael Delahaye <mickael.delahaye@gmail.com>, Edwin Dalorzo <edwin@dalorzo.org>
+Author: Edwin Dalorzo <edwin@dalorzo.org>
 Description: SML language definition.
+Origin: ocaml.js
+Category: functional
 */
 function(hljs) {
   return {
@@ -13,10 +14,10 @@ function(hljs) {
         'abstype and andalso as case datatype do else end eqtype ' +
         'exception fn fun functor handle if in include infix infixr ' +
         'let local nonfix of op open orelse raise rec sharing sig ' +
-        'signature struct structure then type val with withtype where while', 
+        'signature struct structure then type val with withtype where while',
       built_in:
         /* built-in types according to basis library */
-        'array bool char exn int list option order real ref string substring vector unit word', 
+        'array bool char exn int list option order real ref string substring vector unit word',
       literal:
         'true false NONE SOME LESS EQUAL GREATER nil',
     },
