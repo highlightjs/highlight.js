@@ -96,16 +96,6 @@ tasks.templateAll = function(template, blobs, done) {
 };
 tasks.templateAll.type = 'collect';
 
-tasks.dest = function(options, blob, done) {
-  options = _.isString(options) ? {dir: options} : options;
-
-  var basename = options.base ? path.relative(options.base, blob.name)
-                              : path.basename(blob.name),
-      output   = path.join(options.dir, basename);
-
-  blob.writeFile(output, blob, 'utf8', done);
-};
-
 tasks.rename = function(options, blob, done) {
   options = options || {};
 
@@ -241,6 +231,5 @@ tasks.templateDemo = function(options, blobs, done) {
   return done(null, [new blobs[0].constructor(content)]);
 };
 tasks.templateDemo.type = 'collect';
-
 
 module.exports = new Registry({ tasks: tasks });
