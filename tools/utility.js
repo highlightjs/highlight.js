@@ -126,8 +126,15 @@ function buildFilterCallback(qualifiers) {
   };
 }
 
+function glob(pattern, encoding) {
+  encoding = encoding || 'utf8';
+
+  return { pattern: pattern, limit: 50, encoding: encoding };
+}
+
 module.exports = {
   buildFilterCallback: buildFilterCallback,
+  glob: glob,
   parseHeader: parseHeader,
   regex: regex,
   replace: replace,

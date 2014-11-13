@@ -7,7 +7,7 @@ var packageJSON = require('../package');
 var utility     = require('./utility');
 
 var filterCB,
-    languages = { pattern: path.join('src', 'languages', '*.js') },
+    languages = utility.glob(path.join('src', 'languages', '*.js')),
     header    = utility.regex.header;
 
 function buildLanguages() {
@@ -80,7 +80,7 @@ function copyMetaFiles() {
   var docs   = path.join('docs', '*.rst'),
       glob   = '{README.md,LICENSE,' + docs + '}',
 
-      input  = { pattern: path.join(dir.root, glob) },
+      input  = utility.glob(path.join(dir.root, glob)),
       output = { dir: dir.build, base: '.' };
 
   return {
@@ -102,7 +102,7 @@ function buildStyles() {
     logcss: { task: ['log', 'Building style files.'] },
     readcss: {
       requires: 'logcss',
-      task: ['glob', { pattern: input }]
+      task: ['glob', utility.glob(input)]
     },
     writecsslog: {
       requires: 'readcss',

@@ -20,7 +20,7 @@ function moveLanguages() {
     startlogjs: { task: ['log', 'Building language files.'] },
     readjs: {
       requires: 'startlogjs',
-      task: ['glob', { pattern: input }]
+      task: ['glob', utility.glob(input)]
     },
     replacejs: { requires: 'readjs', task: ['replace', replaceArgs] },
     templatejs: { requires: 'replacejs', task: ['template', template] },
@@ -59,7 +59,7 @@ function moveStyles() {
     startlogcss: { task: ['log', 'Building style files.'] },
     readcss: {
       requires: 'startlogcss',
-      task: ['glob', { pattern: input }]
+      task: ['glob', utility.glob(input)]
     },
     compresslogcss: {
       requires: 'readcss',
