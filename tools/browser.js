@@ -13,7 +13,7 @@ function copyDocs() {
     logDocs: { task: ['log', 'Copying documentation.'] },
     readDocs: {
       requires: 'logDocs',
-      task: ['glob', { pattern: input }]
+      task: ['glob', utility.glob(input)]
     },
     writeDocsLog: {
       requires: 'readDocs',
@@ -24,9 +24,9 @@ function copyDocs() {
 }
 
 function generateDemo(filterCB) {
-  var readArgs   = { pattern: path.join('src', 'languages', '*.js') },
-      staticArgs = { pattern: path.join('demo', '*.{js,css}') },
-      stylesArgs = {pattern: path.join('src', 'styles', '*'), encoding: 'bin' },
+  var readArgs   = utility.glob(path.join('src', 'languages', '*.js')),
+      staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
+      stylesArgs = utility.glob(path.join('src', 'styles', '*'), 'bin'),
       demoRoot   = path.join(dir.build, 'demo');
 
   return {
@@ -48,7 +48,7 @@ function generateDemo(filterCB) {
       requires: 'readStyles',
       task: ['dest', path.join(demoRoot, 'styles')]
     }
-  }
+  };
 }
 
 module.exports = function(commander) {
@@ -57,7 +57,7 @@ module.exports = function(commander) {
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
 
-      readArgs     = { pattern: path.join('src', '**', '*.js') },
+      readArgs     = utility.glob(path.join('src', '**', '*.js')),
       filterCB     = utility.buildFilterCallback(commander.args),
       replaceArgs  = replace(regex.header, ''),
       templateArgs = { template: 'hljs.registerLanguage(' +
