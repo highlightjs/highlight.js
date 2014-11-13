@@ -61,7 +61,11 @@ function(hljs) {
             begin: /\(/, end: /\)/,
             contains: [
               hljs.C_LINE_COMMENT_MODE,
-              hljs.C_BLOCK_COMMENT_MODE
+              hljs.C_BLOCK_COMMENT_MODE,
+              {
+                  className: 'param',
+                  begin: /[A-Za-z$_][0-9A-Za-z$_]*/, excludeEnd: true
+              }
             ],
             illegal: /["'\(]/
           }
