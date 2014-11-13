@@ -150,3 +150,4 @@ Contributors:
 - mucaho <mkucko@gmail.com>
 - Dennis Titze <dennis.titze@gmail.com>
 - Jon Evans <jon@craftyjon.com>
+- Raivo Laanemets <raivo@infdot.com>

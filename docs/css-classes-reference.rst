@@ -1323,3 +1323,12 @@ Verilog ("verilog", "v")
 * ``typename``:         types of data, register, and net
 * ``number``:           number literals (including X and Z)
 * ``value``:            parameters passed to instances
+=======
+Prolog ("prolog")
+-----------------
+
+* ``atom``:             non-quoted atoms and functor names
+* ``string``:           quoted atoms, strings, character code list literals, character code literals
+* ``number``:           numbers
+* ``variable``:         variables
+* ``comment``:          comments
