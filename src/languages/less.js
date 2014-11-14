@@ -98,7 +98,7 @@ function(hljs) {
       begin: '[\\.#:&\\[]', end: '[;{}]'  // mixin calls end with ';'
       }, {
       begin: '(?=' + INTERP_IDENT_RE + ')(' + [
-          '//.*',                         // line comment
+          '//(.*?)$',                     // line comment
           '/\\*(?:[^*]|\\*+[^*/])*\\*+/', // block comment
           '\\[[^\\]]*\\]',                // attribute selector (it may contain strings we need to skip too)
           '@{.*?}',                       // variable interpolation
