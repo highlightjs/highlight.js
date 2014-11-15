@@ -148,3 +148,4 @@ URL:   https://highlightjs.org/
 - Адам Жозеф Кук <adam.joseph.cook@gmail.com>
 - Эдвин Далорсо <edwin@dalorzo.org>
 - mucaho <mkucko@gmail.com>
+- Деннис Титце <dennis.titze@gmail.com>
