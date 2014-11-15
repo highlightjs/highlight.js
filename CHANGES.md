@@ -17,12 +17,14 @@ New languages:
 - *AspectJ* by [Hakan Özler][]
 - *STEP Part 21* by [Adam Joseph Cook][]
 - *SML* derived by [Edwin Dalorzo][] from OCaml definition
+- *Mercury* by [mucaho][]
 
 [Hakan Özler]: https://github.com/ozlerhakan
 [Adam Joseph Cook]: https://github.com/adamjcook
 [demo page]: https://highlightjs.org/static/demo/
 [Ivan Sagalaev]: https://github.com/isagalaev
 [Edwin Dalorzo]: https://github.com/edalorzo
+[mucaho]: https://github.com/mucaho
 
 
 ## Version 8.3
