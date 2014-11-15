@@ -148,3 +148,4 @@ Contributors:
 - Adam Joseph Cook <adam.joseph.cook@gmail.com>
 - Edwin Dalorzo <edwin@dalorzo.org>
 - mucaho <mkucko@gmail.com>
+- Dennis Titze <dennis.titze@gmail.com>

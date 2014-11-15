@@ -18,6 +18,7 @@ New languages:
 - *STEP Part 21* by [Adam Joseph Cook][]
 - *SML* derived by [Edwin Dalorzo][] from OCaml definition
 - *Mercury* by [mucaho][]
+- *Smali* by [Dennis Titze][]
 
 [Hakan Özler]: https://github.com/ozlerhakan
 [Adam Joseph Cook]: https://github.com/adamjcook
@@ -25,6 +26,7 @@ New languages:
 [Ivan Sagalaev]: https://github.com/isagalaev
 [Edwin Dalorzo]: https://github.com/edalorzo
 [mucaho]: https://github.com/mucaho
+[Dennis Titze]: https://github.com/titze
 
 
 ## Version 8.3

@@ -1303,3 +1303,14 @@ Mercury ("mercury")
 * ``label``:            TODO label inside comment
 * ``string``:           string
 * ``constant``:         string format
+
+Smali ("smali")
+-------------
+
+* ``string``:           string
+* ``comment``:          comment
+* ``keyword``:          smali keywords
+* ``instruction``:      instruction
+* ``class``:            classtypes
+* ``function``:         function (call or signature)
+* ``variable``:         variable or parameter
