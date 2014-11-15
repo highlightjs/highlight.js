@@ -1,7 +1,7 @@
 /*
 Language: Mercury
 Author: mucaho <mkucko@gmail.com>
-Description: Mercury is a logic/functional programming language which combines the clarity and expressiveness of declarative programming with advanced static analysis and error detection features. 
+Description: Mercury is a logic/functional programming language which combines the clarity and expressiveness of declarative programming with advanced static analysis and error detection features.
 */
 
 function(hljs) {
@@ -11,7 +11,7 @@ function(hljs) {
               'initialise mutable' + ' ' +
               'initialize finalize finalise' + ' ' +
               'interface implementation' + ' ' +
-              'pred|10 mode|10 func|10 type inst solver any_pred any_func' + ' ' +
+              'pred mode func type inst solver any_pred any_func' + ' ' +
               'is semidet det nondet multi erroneous failure' + ' ' +
               'cc_nondet cc_multi' + ' ' +
               'typeclass instance where' + ' ' +
@@ -48,7 +48,7 @@ function(hljs) {
     built_in: 'some all not if then else true fail false' + ' ' +
               'try catch catch_any' + ' ' +
               'semidet_true semidet_false semidet_fail' + ' ' +
-              'impure_true' + ' ' + 
+              'impure_true' + ' ' +
               'impure semipure'
   };
 
@@ -115,6 +115,7 @@ function(hljs) {
     keywords: KEYWORDS,
     aliases: ['m', 'moo'],
     className: 'mercury',
+    illegal: /::/,
     contains: [IMPLICATION, HEAD_BODY_CONJUNCTION, COMMENT, CCOMMENT, NUMCODE, NUMBER, ATOM, STRING] // add IDENT_MODE here if need be
   };
 

@@ -31,7 +31,7 @@ function(hljs) {
       {
         className: 'comment',
         begin: '\\(\\*', end: '\\*\\)',
-        contains: ['self'],
+        contains: ['self', hljs.PHRASAL_WORDS_MODE],
       },
       { /* type variable */
         className: 'symbol',
