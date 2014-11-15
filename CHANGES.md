@@ -19,6 +19,7 @@ New languages:
 - *SML* derived by [Edwin Dalorzo][] from OCaml definition
 - *Mercury* by [mucaho][]
 - *Smali* by [Dennis Titze][]
+- *Verilog* by [Jon Evans][]
 
 [Hakan Özler]: https://github.com/ozlerhakan
 [Adam Joseph Cook]: https://github.com/adamjcook
@@ -27,6 +28,7 @@ New languages:
 [Edwin Dalorzo]: https://github.com/edalorzo
 [mucaho]: https://github.com/mucaho
 [Dennis Titze]: https://github.com/titze
+[Jon Evans]: https://github.com/craftyjon
 
 
 ## Version 8.3

@@ -1314,3 +1314,12 @@ Smali ("smali")
 * ``class``:            classtypes
 * ``function``:         function (call or signature)
 * ``variable``:         variable or parameter
+
+Verilog ("verilog", "v")
+------------------------
+
+* ``keyword``:          keyword, operator
+* ``comment``:          comment
+* ``typename``:         types of data, register, and net
+* ``number``:           number literals (including X and Z)
+* ``value``:            parameters passed to instances

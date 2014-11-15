@@ -1,4 +1,4 @@
-﻿Syntax highlighting with language autodetection.
+Syntax highlighting with language autodetection.
 
 URL:   https://highlightjs.org/
 
@@ -149,3 +149,4 @@ Contributors:
 - Edwin Dalorzo <edwin@dalorzo.org>
 - mucaho <mkucko@gmail.com>
 - Dennis Titze <dennis.titze@gmail.com>
+- Jon Evans <jon@craftyjon.com>
