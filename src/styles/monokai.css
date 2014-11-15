@@ -12,31 +12,31 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 
 .hljs-tag,
 .hljs-tag .hljs-title,
-.hljs-keyword,
-.hljs-literal,
 .hljs-strong,
 .hljs-change,
 .hljs-winutils,
 .hljs-flow,
+.hljs-keyword,
 .nginx .hljs-title,
 .tex .hljs-special {
   color: #f92672;
 }
 
 .hljs {
-  color: #ddd;
+  color: #f8f8f2;
 }
 
-.hljs .hljs-constant,
 .asciidoc .hljs-code,
-.markdown .hljs-code {
+.markdown .hljs-code,
+.hljs-literal,
+.hljs-function .hljs-keyword {
 	color: #66d9ef;
 }
 
 .hljs-code,
 .hljs-class .hljs-title,
 .hljs-header {
-	color: white;
+  color: white;
 }
 
 .hljs-link_label,
@@ -44,13 +44,23 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-symbol,
 .hljs-symbol .hljs-string,
 .hljs-value,
+.hljs-constant,
+.hljs-number,
 .hljs-regexp {
-	color: #bf79db;
+  color: #ae81ff;
+}
+
+
+.hljs-string {
+  color: #e6db74;
+}
+
+.hljs-params {
+  color: #fd971f;
 }
 
 .hljs-link_url,
 .hljs-tag .hljs-value,
-.hljs-string,
 .hljs-bullet,
 .hljs-subst,
 .hljs-title,
