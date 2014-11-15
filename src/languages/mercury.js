@@ -98,25 +98,22 @@ function(hljs) {
     ]
   };
 
-  /* EXPERIMENTAL IDENTIFIER HIGHLIGHTING
-  var IDENT_MODE = {
-    keywords: KEYWORDS,
-    begin: '\\s*:-\\s*(pred|func|mode|inst|typeclass|instance)',
-    end: '[^a-zA-Z0-9_\\s]',
-    relevance: 5
-  };
-  var IDENT = hljs.inherit(hljs.TITLE_MODE);
-  IDENT_MODE.contains = [IDENT];
-  */
-
-
   var ROOT_MODE = {
     case_insensitive: false,
     keywords: KEYWORDS,
     aliases: ['m', 'moo'],
     className: 'mercury',
-    illegal: /::/,
-    contains: [IMPLICATION, HEAD_BODY_CONJUNCTION, COMMENT, CCOMMENT, NUMCODE, NUMBER, ATOM, STRING] // add IDENT_MODE here if need be
+    contains: [
+      IMPLICATION,
+      HEAD_BODY_CONJUNCTION,
+      COMMENT,
+      CCOMMENT,
+      NUMCODE,
+      NUMBER,
+      ATOM,
+      STRING,
+      {begin: /:-/} // relevance booster
+    ]
   };
 
   return ROOT_MODE;
