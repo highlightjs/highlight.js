@@ -1290,3 +1290,16 @@ STEP Part 21 ("p21", "step", "stp")
 * ``number``:           number
 * ``string``:           string
 * ``label``:            variable reference starting with "#"
+
+Mercury ("mercury")
+-------------------
+
+* ``keyword``:          keyword
+* ``pragma``:           compiler directive
+* ``preprocessor``:     foreign language interface
+* ``built_in``:         control flow, logical, implication, head-body conjunction, purity
+* ``number``:           number, numcode of character
+* ``comment``:          comment
+* ``label``:            TODO label inside comment
+* ``string``:           string
+* ``constant``:         string format

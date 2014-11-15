@@ -147,3 +147,4 @@ Contributors:
 - Vincent Zurczak <vzurczak@linagora.com>
 - Adam Joseph Cook <adam.joseph.cook@gmail.com>
 - Edwin Dalorzo <edwin@dalorzo.org>
+- mucaho <mkucko@gmail.com>
