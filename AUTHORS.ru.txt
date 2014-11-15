@@ -147,3 +147,4 @@ URL:   https://highlightjs.org/
 - Винсен Зуржак <vzurczak@linagora.com>
 - Адам Жозеф Кук <adam.joseph.cook@gmail.com>
 - Эдвин Далорсо <edwin@dalorzo.org>
+- mucaho <mkucko@gmail.com>
