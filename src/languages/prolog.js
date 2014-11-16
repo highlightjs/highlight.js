@@ -71,11 +71,6 @@ function(hljs) {
     relevance: 10 // boost for :- operator, makes difference from Erlang
   };
 
-  var END_DOT = {
-
-    begin: /\.$/ // boost for dots used at line ends
-  };
-
   var inner = [
 
     ATOM,
@@ -97,12 +92,9 @@ function(hljs) {
   PARENTED.contains = inner;
   LIST.contains = inner;
 
-  var top = inner.slice(0);
-
-  top.push(END_DOT);
-
   return {
-
-    contains: top
+    contains: inner.concat([
+      {begin: /\.$/} // relevance booster
+    ])
   };
 }
