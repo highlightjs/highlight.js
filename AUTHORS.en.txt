@@ -132,7 +132,6 @@ Contributors:
 - Jose Molina Colmenero <gaudy41@gmail.com>
 - Max Mikhailov <seven.phases.max@gmail.com>
 - Bryant Williams <b.n.williams@gmail.com>
-- Brian Quistorff <bquistorff@gmail.com>
 - Erik Paluka <erik.paluka@gmail.com>
 - Luke Holder <lukemh@gmail.com>
 - David Mohundro <david@mohundro.com>
@@ -151,3 +150,4 @@ Contributors:
 - mucaho <mkucko@gmail.com>
 - Dennis Titze <dennis.titze@gmail.com>
 - Jon Evans <jon@craftyjon.com>
+- Brian Quistorff <bquistorff@gmail.com>

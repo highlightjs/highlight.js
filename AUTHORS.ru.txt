@@ -149,3 +149,4 @@ URL:   https://highlightjs.org/
 - Эдвин Далорсо <edwin@dalorzo.org>
 - mucaho <mkucko@gmail.com>
 - Деннис Титце <dennis.titze@gmail.com>
+- Брайан Куисторф <bquistorff@gmail.com>

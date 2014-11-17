@@ -20,6 +20,7 @@ New languages:
 - *Mercury* by [mucaho][]
 - *Smali* by [Dennis Titze][]
 - *Verilog* by [Jon Evans][]
+- *Stata* by [Brian Quistorff][]
 
 [Hakan Özler]: https://github.com/ozlerhakan
 [Adam Joseph Cook]: https://github.com/adamjcook
@@ -29,6 +30,7 @@ New languages:
 [mucaho]: https://github.com/mucaho
 [Dennis Titze]: https://github.com/titze
 [Jon Evans]: https://github.com/craftyjon
+[Brian Quistorff]: https://github.com/bquistorff
 
 
 ## Version 8.3
@@ -54,7 +56,6 @@ New languages in this release:
 - *Stylus* by [Bryant Williams][]
 - *Tcl* by [Radek Liska][]
 - *Puppet* by [Jose Molina Colmenero][]
-- *Stata* by [Brian Quistorff][]
 - *Processing* by [Erik Paluka][]
 - *Twig* templates by [Luke Holder][]
 - *PowerShell* by [David Mohundro][], based on [the work of Nicholas
