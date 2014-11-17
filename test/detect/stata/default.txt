@@ -1,3 +1,12 @@
+program define gr_log
+version 6.0
 
-* Comment 1
-gen y = /*Comment 2*/ abs(-2) //Comment 3
+local or = `2'
+local xunits = `3'
+local b1 = ln(`or')
+
+* make summary of logistic data from equation
+set obs `xunits'
+generate pgty = 1 - 1/(1 + exp(score))
+
+end
