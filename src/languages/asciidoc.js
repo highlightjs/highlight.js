@@ -136,17 +136,13 @@ function(hljs) {
         end: '(\\n{2}|_)',
         relevance: 0
       },
-      // inline double smart quotes
+      // inline smart quotes
       {
         className: 'smartquote',
-        begin: "``.+?''",
-        relevance: 10
-      },
-      // inline single smart quotes
-      {
-        className: 'smartquote',
-        begin: "`.+?'",
-        relevance: 10
+        variants: [
+          {begin: "``.+?''"},
+          {begin: "`.+?'"}
+        ]
       },
       // inline code snippets (TODO should get same treatment as strong and emphasis)
       {
