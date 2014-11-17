@@ -100,6 +100,6 @@ function(hljs) {
   return {
     aliases: ['clj'],
     illegal: /\S/,
-    contains: [COMMENT, LIST, STRING, NUMBER, LITERAL]
+    contains: [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL]
   }
 }
