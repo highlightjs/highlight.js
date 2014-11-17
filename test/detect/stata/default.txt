@@ -8,5 +8,3 @@ local b1 = ln(`or')
 * make summary of logistic data from equation
 set obs `xunits'
 generate pgty = 1 - 1/(1 + exp(score))
-
-end
