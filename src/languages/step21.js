@@ -26,7 +26,7 @@ function(hljs) {
       contains: [hljs.PHRASAL_WORDS_MODE]
     },
     hljs.C_BLOCK_COMMENT_MODE,
-    hljs.inherit(hljs.C_NUMBER_MODE, {begin: '(\\-|\\+)?' + hljs.C_NUMBER_RE}),
+    hljs.C_NUMBER_MODE,
     hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
     hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
     {
