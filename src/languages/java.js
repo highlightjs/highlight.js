@@ -11,6 +11,15 @@ function(hljs) {
     'for true while long strictfp finally protected import native final void ' +
     'enum else break transient catch instanceof byte super volatile case assert short ' +
     'package default double public try this switch continue throws protected public private';
+
+  // https://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html
+  var JAVA_NUMBER_RE = '(\\b(0b[01_]+)|\\b0[xX][a-fA-F0-9_]+|(\\b[\\d_]+(\\.[\\d_]*)?|\\.[\\d_]+)([eE][-+]?\\d+)?)[lLfF]?'; // 0b..., 0x..., 0..., decimal, float
+  var JAVA_NUMBER_MODE = {
+    className: 'number',
+    begin: JAVA_NUMBER_RE,
+    relevance: 0
+  };
+
   return {
     aliases: ['jsp'],
     keywords: KEYWORDS,
@@ -71,7 +80,7 @@ function(hljs) {
           hljs.C_BLOCK_COMMENT_MODE
         ]
       },
-      hljs.C_NUMBER_MODE,
+      JAVA_NUMBER_MODE,
       {
         className: 'annotation', begin: '@[A-Za-z]+'
       }
