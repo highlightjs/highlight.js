@@ -1,16 +1,18 @@
 ## master
 
-We've got the new [demo page][]. The obvious new feature is the new look, but
+We've got the new [demo page][]! The obvious new feature is the new look, but
 apart from that it's got smarter: by presenting languages in groups it avoids
 running 10000 highlighting attempts after first load which was slowing it down
 and giving bad overall impression. It is now also being generated from test
 code snippets so the authors of new languages don't have to update both tests
-and the demo page with the same thing. The credits for the work go to
-[Ivan Sagalaev][].
+and the demo page with the same thing.
 
 Other notable changes:
 
 - The `template_comment` class is gone in favor of the more general `comment`.
+- Number parsing unified and improved across languages.
+- C++, Java and C# now use unified grammar to highlight titles in
+  function/method definitions.
 
 New languages:
 
