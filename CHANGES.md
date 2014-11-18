@@ -1,4 +1,4 @@
-## master
+## Version 8.4
 
 We've got the new [demo page][]! The obvious new feature is the new look, but
 apart from that it's got smarter: by presenting languages in groups it avoids
@@ -13,6 +13,11 @@ Other notable changes:
 - Number parsing unified and improved across languages.
 - C++, Java and C# now use unified grammar to highlight titles in
   function/method definitions.
+- The browser build is now usable as an AMD module, there's no separate build
+  target for that anymore.
+- OCaml has got a [comprehensive overhaul][ocaml] by [Mickaël Delahaye][].
+- Clojure's data structures and literals are now highlighted outside of lists
+  and we can now highlight Clojure's REPL sessions.
 
 New languages:
 
@@ -33,6 +38,8 @@ New languages:
 [Dennis Titze]: https://github.com/titze
 [Jon Evans]: https://github.com/craftyjon
 [Brian Quistorff]: https://github.com/bquistorff
+[ocaml]: https://github.com/isagalaev/highlight.js/pull/608#issue-46190207
+[Mickaël Delahaye]: https://github.com/polazarus
 
 
 ## Version 8.3
