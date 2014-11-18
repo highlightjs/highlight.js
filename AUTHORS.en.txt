@@ -141,7 +141,7 @@ Contributors:
 - Jen Evers-Corvina <jen@sevvie.net>
 - Kassio Borges <kassioborgesm@gmail.com>
 - Cedric Sohrauer <sohrauer@googlemail.com>
-- Mickael Delahaye <mickael.delahaye@gmail.com>
+- Mickaël Delahaye <mickael.delahaye@gmail.com>
 - Hakan Özler <ozler.hakan@gmail.com>
 - Trey Shugart <treshugart@gmail.com>
 - Vincent Zurczak <vzurczak@linagora.com>
