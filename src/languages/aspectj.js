@@ -104,19 +104,19 @@ function (hljs) {
         begin : /\w+ +\w+(\.)?\w+\s*\([^\)]*\)\s*((throws)[\w\s\,]+)?[\{\;]/,
         returnBegin : true,
         end : /[{;=]/,
-        relevance: 0,
         keywords : KEYWORDS,
         excludeEnd : true,
         contains : [
           {
             begin : hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
             returnBegin : true,
+            relevance: 0,
             contains : [hljs.UNDERSCORE_TITLE_MODE]
           },
           {
             className : 'params',
-            begin : /\(/,
-            end : /\)/,
+            begin : /\(/, end : /\)/,
+            relevance: 0,
             keywords : KEYWORDS,
             contains : [
               hljs.APOS_STRING_MODE,

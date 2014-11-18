@@ -24,9 +24,10 @@ function(hljs) {
             {
                 className: 'javadoc',
                 begin: '/\\*\\*', end: '\\*//*',
+                relevance: 0,
                 contains: [
                     {
-                        className: 'javadoctag', begin: '@[A-Za-z]+'
+                        className: 'javadoctag', begin: '(^|\\s)@[A-Za-z]+'
                     }
                 ]
             },

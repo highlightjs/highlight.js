@@ -8,8 +8,8 @@ function(hljs) {
   var GENERIC_IDENT_RE = hljs.UNDERSCORE_IDENT_RE + '(<' + hljs.UNDERSCORE_IDENT_RE + '>)?';
   var KEYWORDS =
     'false synchronized int abstract float private char boolean static null if const ' +
-    'for true while long throw strictfp finally protected import native final return void ' +
-    'enum else break transient new catch instanceof byte super volatile case assert short ' +
+    'for true while long strictfp finally protected import native final void ' +
+    'enum else break transient catch instanceof byte super volatile case assert short ' +
     'package default double public try this switch continue throws protected public private';
   return {
     aliases: ['jsp'],
@@ -39,8 +39,9 @@ function(hljs) {
         ]
       },
       {
-        // this prevents 'new Name(...), or throw ...' from being recognized as a function definition
-        beginKeywords: 'new throw', end: /\s/,
+        // Expression keywords prevent 'keyword Name(...)' from being
+        // recognized as a function definition
+        beginKeywords: 'new throw return',
         relevance: 0
       },
       {
@@ -51,12 +52,14 @@ function(hljs) {
         contains: [
           {
             begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true,
+            relevance: 0,
             contains: [hljs.UNDERSCORE_TITLE_MODE]
           },
           {
             className: 'params',
             begin: /\(/, end: /\)/,
             keywords: KEYWORDS,
+            relevance: 0,
             contains: [
               hljs.APOS_STRING_MODE,
               hljs.QUOTE_STRING_MODE,

@@ -7,9 +7,12 @@ namespace Foo // namespace
             Who = who;
         }
 
-        Type<int> f(int val = 0)
+        int f(int val = 0)
         {
-          return new Type<int>(val);
+            new Type();
+            return getType();
+            throw getError();
+            await Stuff();
         }
     }
 
