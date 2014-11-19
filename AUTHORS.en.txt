@@ -151,3 +151,4 @@ Contributors:
 - Dennis Titze <dennis.titze@gmail.com>
 - Jon Evans <jon@craftyjon.com>
 - Brian Quistorff <bquistorff@gmail.com>
+- Jonathan Suever <suever@gmail.com>

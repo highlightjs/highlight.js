@@ -36,3 +36,6 @@ end
 
 foo_matrix = [1, 2, 3; 4, 5, 6]''';
 foo_cell = {1, 2, 3; 4, 5, 6}''.'.';
+
+cell2flatten = {1,2,3,4,5};
+flattenedcell = cat(1, cell2flatten{:});
