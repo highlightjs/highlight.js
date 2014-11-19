@@ -523,7 +523,7 @@ https://highlightjs.org/
     var language = currentLang ? aliases[currentLang] : resultLang,
         result   = [prevClassName.trim()];
 
-    if (!prevClassName.match(/(\s|^)hljs(\s|$)/)) {
+    if (!prevClassName.match(/\bhljs\b/)) {
       result.push('hljs');
     }
 
