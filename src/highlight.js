@@ -203,7 +203,7 @@ https://highlightjs.org/
         }
         mode.keywords = compiled_keywords;
       }
-      mode.lexemesRe = langRe(mode.lexemes || /\b[A-Za-z0-9_]+\b/, true);
+      mode.lexemesRe = langRe(mode.lexemes || /\b\w+\b/, true);
 
       if (parent) {
         if (mode.beginKeywords) {
@@ -523,7 +523,7 @@ https://highlightjs.org/
     var language = currentLang ? aliases[currentLang] : resultLang,
         result   = [prevClassName.trim()];
 
-    if (!prevClassName.match(/(\s|^)hljs(\s|$)/)) {
+    if (!prevClassName.match(/\bhljs\b/)) {
       result.push('hljs');
     }
 
@@ -642,10 +642,10 @@ https://highlightjs.org/
   hljs.inherit = inherit;
 
   // Common regexps
-  hljs.IDENT_RE = '[a-zA-Z][a-zA-Z0-9_]*';
-  hljs.UNDERSCORE_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*';
+  hljs.IDENT_RE = '[a-zA-Z]\\w*';
+  hljs.UNDERSCORE_IDENT_RE = '[a-zA-Z_]\\w*';
   hljs.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
-  hljs.C_NUMBER_RE = '(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
+  hljs.C_NUMBER_RE = '\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
   hljs.BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
   hljs.RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
 
