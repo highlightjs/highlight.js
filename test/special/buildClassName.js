@@ -1,8 +1,5 @@
 'use strict';
 
-var fs      = require('fs');
-var utility = require('../utility');
-
 describe('block class names', function() {
   it('should add language class name to block', function() {
     var expected = 'some-class hljs xml',
