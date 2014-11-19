@@ -8,26 +8,24 @@ describe('block class names', function() {
     actual.should.equal(expected);
   });
 
-  describe('do not clutter block class name', function() {
-    it('first', function () {
-      var expected = 'hljs some-class xml',
-        actual = document.getElementById('with-hljs-class-first').className;
+  it('should not clutter block class (first)', function () {
+    var expected = 'hljs some-class xml',
+      actual = document.getElementById('with-hljs-class-first').className;
 
-      actual.should.equal(expected);
-    });
+    actual.should.equal(expected);
+  });
 
-    it('last', function () {
-      var expected = 'some-class hljs xml',
-        actual = document.getElementById('with-hljs-class-last').className;
+  it('should not clutter block class (last)', function () {
+    var expected = 'some-class hljs xml',
+      actual = document.getElementById('with-hljs-class-last').className;
 
-      actual.should.equal(expected);
-    });
+    actual.should.equal(expected);
+  });
 
-    it('spaces around', function () {
-      var expected = 'hljs some-class xml',
-        actual = document.getElementById('with-hljs-class-spaces-around').className;
+  it('should not clutter block class (spaces around)', function () {
+    var expected = 'hljs some-class xml',
+      actual = document.getElementById('with-hljs-class-spaces-around').className;
 
-      actual.should.equal(expected);
-    });
+    actual.should.equal(expected);
   });
 });
