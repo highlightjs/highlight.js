@@ -92,6 +92,11 @@ function(hljs) {
         starts: TRANSPOSE
       },
       {
+        // Block comment
+        className: 'comment',
+        begin: '^\\s*\\%\\{\\s*$', end: '^\\s*\\%\\}\\s*$'
+      },
+      {
         className: 'comment',
         begin: '\\%', end: '$'
       }

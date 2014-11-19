@@ -24,6 +24,10 @@ while(max(len) > 2 * min(len))
     points = [ points(1:i, :); [xm, ym]; points(i + 1:end, :)];
 end
 
+%{
+    This is a block comment. Please ignore me.
+%}
+
 function [net] = get_fit_network(inputs, targets)
     % Create Network
     numHiddenNeurons = 20;  % Adjust as desired
