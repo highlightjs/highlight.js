@@ -82,7 +82,6 @@ function(hljs) {
         begin: '\\{', end: /\}/,
         contains: COMMON_CONTAINS,
         relevance: 0,
-        illegal: /:/,
         starts: TRANSPOSE
       },
       {
