@@ -7,10 +7,11 @@ var blocks, expected;
 
 describe('explicit language class', function() {
   before(function() {
-    var filename = utility.buildPath('expect', 'explicit.txt');
+    var filename = utility.buildPath('expect', 'explicit.txt'),
+        testHTML = document.querySelector('#explicit-language');
 
     expected = fs.readFileSync(filename, 'utf-8');
-    blocks   = document.querySelectorAll('.hljs');
+    blocks   = testHTML.querySelectorAll('.hljs');
   });
 
   it('should highlight block with language in code tag', function() {

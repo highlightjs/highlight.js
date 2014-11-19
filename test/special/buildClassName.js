@@ -1,36 +1,39 @@
 'use strict';
 
-var fs      = require('fs');
-var utility = require('../utility');
+var blocks;
 
 describe('block class names', function() {
+  before(function() {
+    var testHTML = document.querySelector('#build-classname');
+
+    blocks = testHTML.querySelectorAll('.hljs');
+  });
+
   it('should add language class name to block', function() {
     var expected = 'some-class hljs xml',
-        actual   = document.getElementById('without-hljs-class').className;
+        actual   = blocks[0].className;
 
     actual.should.equal(expected);
   });
 
-  describe('do not clutter block class name', function() {
-    it('first', function () {
-      var expected = 'hljs some-class xml',
-        actual = document.getElementById('with-hljs-class-first').className;
+  it('should not clutter block class (first)', function () {
+    var expected = 'hljs some-class xml',
+      actual = blocks[1].className;
 
-      actual.should.equal(expected);
-    });
+    actual.should.equal(expected);
+  });
 
-    it('last', function () {
-      var expected = 'some-class hljs xml',
-        actual = document.getElementById('with-hljs-class-last').className;
+  it('should not clutter block class (last)', function () {
+    var expected = 'some-class hljs xml',
+      actual = blocks[2].className;
 
-      actual.should.equal(expected);
-    });
+    actual.should.equal(expected);
+  });
 
-    it('spaces around', function () {
-      var expected = 'hljs some-class xml',
-        actual = document.getElementById('with-hljs-class-spaces-around').className;
+  it('should not clutter block class (spaces around)', function () {
+    var expected = 'hljs some-class xml',
+      actual = blocks[3].className;
 
-      actual.should.equal(expected);
-    });
+    actual.should.equal(expected);
   });
 });

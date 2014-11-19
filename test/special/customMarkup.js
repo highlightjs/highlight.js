@@ -7,14 +7,16 @@ var blocks;
 
 describe('custom markup', function() {
   before(function() {
-    blocks = document.querySelectorAll('.hljs');
+    var testHTML = document.querySelector('#custom-markup');
+
+    blocks = testHTML.querySelectorAll('.hljs');
   });
 
   it('should replace tabs', function() {
     var filename = utility.buildPath('expect', 'tabreplace.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
-        actual   = blocks[4].innerHTML;
+        actual   = blocks[0].innerHTML;
 
     actual.should.equal(expected);
   });
@@ -23,7 +25,7 @@ describe('custom markup', function() {
     var filename = utility.buildPath('expect', 'custommarkup.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
-        actual   = blocks[5].innerHTML;
+        actual   = blocks[1].innerHTML;
 
     actual.should.equal(expected);
   });
@@ -32,7 +34,7 @@ describe('custom markup', function() {
     var filename = utility.buildPath('expect', 'customtabreplace.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
-        actual   = blocks[6].innerHTML;
+        actual   = blocks[2].innerHTML;
 
     actual.should.equal(expected);
   });
@@ -41,7 +43,7 @@ describe('custom markup', function() {
     var filename = utility.buildPath('expect', 'brInPre.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
-        actual   = blocks[7].innerHTML;
+        actual   = blocks[3].innerHTML;
 
     actual.should.equal(expected);
   });

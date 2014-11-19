@@ -2,7 +2,8 @@
 
 describe('no highlighting', function() {
   it('should keep block unchanged', function() {
-    var expected = '&lt;div id="contents"&gt;\n  &lt;p&gt;Hello, World!c\n&lt;/div&gt;',
+    var expected = '&lt;div id="contents"&gt;\n  ' +
+                   '&lt;p&gt;Hello, World!c\n&lt;/div&gt;',
         actual   = document.querySelector('.nohighlight').innerHTML;
 
     actual.should.equal(expected);
