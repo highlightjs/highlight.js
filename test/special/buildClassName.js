@@ -18,21 +18,21 @@ describe('block class names', function() {
 
   it('should not clutter block class (first)', function () {
     var expected = 'hljs some-class xml',
-      actual = blocks[1].className;
+        actual   = blocks[1].className;
 
     actual.should.equal(expected);
   });
 
   it('should not clutter block class (last)', function () {
     var expected = 'some-class hljs xml',
-      actual = blocks[2].className;
+        actual   = blocks[2].className;
 
     actual.should.equal(expected);
   });
 
   it('should not clutter block class (spaces around)', function () {
     var expected = 'hljs some-class xml',
-      actual = blocks[3].className;
+        actual   = blocks[3].className;
 
     actual.should.equal(expected);
   });
