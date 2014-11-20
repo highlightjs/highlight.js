@@ -15,16 +15,16 @@ function(hljs) {
       {
         className: 'label',
         variants: [
-          {begin: "\\$\\{?[a-zA-Z_]+\\}?"},
-          {begin: "`[a-zA-Z_]+'"}
+          {begin: "\\$\\{?[a-zA-Z0-9_]+\\}?"},
+          {begin: "`[a-zA-Z0-9_]+'"}
 
         ]
       },
       {
         className: 'string',
         variants: [
-          {begin: '`".*"\''},
-          {begin: '".*"'}
+          {begin: '`"[^\r\n]*?"\''},
+          {begin: '"[^\r\n"]*"'}
         ]
       },
 
