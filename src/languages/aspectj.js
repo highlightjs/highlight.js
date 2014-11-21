@@ -12,7 +12,7 @@ function (hljs) {
     'aspectOf adviceexecution proceed cflowbelow cflow initialization preinitialization ' +
     'staticinitialization withincode target within execution getWithinTypeName handler ' +
     'thisJoinPoint thisJoinPointStaticPart thisEnclosingJoinPointStaticPart declare parents '+
-    'warning error soft precedence';
+    'warning error soft precedence thisAspectInstance';
   var SHORTKEYS = 'get set args call';
   return {
     keywords : KEYWORDS,
