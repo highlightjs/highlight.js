@@ -108,7 +108,7 @@ Scala ("scala")
 * ``inheritance``:      keywords "extends" and "with" inside class header
 
 Groovy ("groovy")
-----------------
+-----------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -236,7 +236,7 @@ Less ("less")
 * ``built_in``:         inline javascript (or whatever host language) string
 
 Stylus ("stylus", "styl")
--------------
+-------------------------
 
 * ``at_rule``:          @-rule till first "{" or ";"
 * ``attribute``:        property name inside a rule
@@ -297,7 +297,7 @@ Django ("django", "jinja")
 
 
 Twig ("twig", "craftcms")
---------------------------
+-------------------------
 
 * ``keyword``:          HTML tag in HTML, default tags and default filters in templates
 * ``tag``:              any tag from "<" till ">"
@@ -395,7 +395,7 @@ CoffeeScript ("coffeescript", "coffee", "cson", "iced")
 * ``property``:         @-property within class and functions
 
 Dart ("dart")
---------------------
+-------------
 
 * ``keyword``:          keyword
 * ``literal``:          keyword that can be uses as identifier but have special meaning in some cases
@@ -445,7 +445,7 @@ ActionScript ("actionscript", "as")
 * ``rest_arg``:         rest argument of function
 
 Haxe ("haxe", "hx")
---------------------
+-------------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -592,7 +592,7 @@ Processing ("processing")
 * ``built_in``:         Processing built in functions
 
 AspectJ ("aspectj")
--------------
+-------------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -767,7 +767,7 @@ Clojure ("clojure", "clj")
 * ``prompt``:           REPL prompt
 
 Scheme ("scheme")
---------------------------
+-----------------
 
 * ``shebang``:          script interpreter header
 * ``comment``:          comment
@@ -1197,7 +1197,7 @@ Nimrod ("nimrod")
 * ``comment``           comment
 
 Swift ("swift")
--------------------------------
+---------------
 
 * ``keyword``:          keyword
 * ``comment``:          comment
@@ -1214,7 +1214,7 @@ Swift ("swift")
 * ``preprocessor``:     @attributes
 
 G-Code ("gcode", "nc")
--------------------------------
+----------------------
 
 * ``keyword``:          G words, looping constructs and conditional operators
 * ``comment``:          comment
@@ -1225,7 +1225,7 @@ G-Code ("gcode", "nc")
 * ``label``:            block number
 
 Q ("k", "kdb")
--------------------
+--------------
 
 * ``comment``:          comment
 * ``string``:           string constant
@@ -1246,7 +1246,7 @@ Tcl ("tcl", "tk")
 * ``number``:           number
 
 Puppet ("puppet", "pp")
--------------
+-----------------------
 
 * ``comment``:          comment
 * ``string``:           string
@@ -1255,7 +1255,7 @@ Puppet ("puppet", "pp")
 * ``constant``:         dependencies
 
 Stata ("stata")
--------------
+---------------
 
 * ``keyword``:          commands and control flow
 * ``label``:            macros (locals and globals)
@@ -1264,7 +1264,7 @@ Stata ("stata")
 * ``literal``:          built-in functions
 
 XL ("xl", "tao")
------------
+----------------
 
 * ``keyword``:          keywords defined in the default syntax file
 * ``literal``:          names entered in the compiler (true, false, nil)
@@ -1281,7 +1281,7 @@ XL ("xl", "tao")
 * ``import``:           Import clause
 
 Roboconf ("graph", "instances")
-------------------------------
+-------------------------------
 
 * ``keyword``:          keyword
 * ``string``:           names of imported variables
@@ -1314,7 +1314,7 @@ Mercury ("mercury")
 * ``constant``:         string format
 
 Smali ("smali")
--------------
+---------------
 
 * ``string``:           string
 * ``comment``:          comment
