@@ -107,7 +107,7 @@ Scala ("scala")
 * ``params``:           everything in parentheses inside a class header
 * ``inheritance``:      keywords "extends" and "with" inside class header
 
-Groovy ("groovy)
+Groovy ("groovy")
 ----------------
 
 * ``keyword``:          keyword
