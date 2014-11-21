@@ -600,7 +600,7 @@ AspectJ ("aspectj")
 * ``keyword``:          keyword
 * ``annotation``:       annotation
 * ``javadoc``:          javadoc comment
-* ``function``:			method and intertype method header
+* ``function``:         method and intertype method header
 * ``aspect``:           aspect header from "aspect" till "{"
 * ``params``:           everything in parentheses inside an aspect header
 * ``inheritance``:      keywords "extends" and "implements" inside an aspect header
