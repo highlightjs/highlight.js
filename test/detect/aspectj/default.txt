@@ -1,7 +1,7 @@
 package com.aspectj.syntax;
 import org.aspectj.lang.annotation.AdviceName;
 
-privileged public aspect LoggingAspect issingleton() percflowbelow(ajia.services.*){
+privileged public aspect LoggingAspect percflowbelow(ajia.services.*){
   private pointcut getResult() : call(* *(..) throws SQLException) && args(Account, .., int);
   @AdviceName("CheckValidEmail")
   before (Customer hu) : getResult(hu){		
