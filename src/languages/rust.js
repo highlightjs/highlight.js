@@ -56,7 +56,7 @@ function(hljs) {
       },
       {
         className: 'preprocessor',
-        begin: '#\\[', end: '\\]'
+        begin: '#\\!?\\[', end: '\\]'
       },
       {
         beginKeywords: 'type', end: '(=|<)',

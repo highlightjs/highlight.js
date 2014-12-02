@@ -1,5 +1,7 @@
 use std;
 
+#![warn(unstable)]
+
 /* Factorial */
 fn fac(n: int) -> int {
     let s: str = "This is
