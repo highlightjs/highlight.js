@@ -37,7 +37,7 @@ function(hljs) {
       {
         className: 'comment',
         variants: [
-          { begin: '^\\*.*$' },
+          { begin: '^[ \t]*\\*.*$' },
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
