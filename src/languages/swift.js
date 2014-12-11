@@ -97,7 +97,7 @@ function(hljs) {
       {
         className: 'class',
         keywords: 'struct protocol class extension enum',
-        begin: '(struct|protocol|class(?! (func|var))|extension|enum)',
+        begin: /(^|\W)(struct|protocol|class(?! (func|var))|extension|enum)(\W|$)/,
         end: '\\{',
         excludeEnd: true,
         contains: [
