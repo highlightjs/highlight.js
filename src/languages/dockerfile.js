@@ -39,25 +39,6 @@ function(hljs) {
           hljs.HASH_COMMENT_MODE
         ]
       }
-
-
-
-      /*,
-      {
-        className: 'keyword',
-        begin: /^(run|env)/, end: / /,
-        starts: {
-          end: /[^\\]\n/,
-          subLanguage: 'bash', subLanguageMode: 'continuous'
-        }
-      },
-      {
-        className: 'keyword',
-        begin: /^from|maintainer|cmd|expose|add|copy|entrypoint|volume|user|workdir|onbuild/, end: / /,
-        contains: [
-          hljs.NUMBER_MODE
-        ]
-      }*/
     ]
   }
 }
