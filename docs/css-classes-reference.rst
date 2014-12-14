@@ -830,7 +830,7 @@ DOS ("dos", "bat", "cmd")
 * ``envvar``:           environment variables
 
 PowerShell ("powershell", "ps")
---------------------------
+-------------------------------
 
 * ``keyword``:          keyword
 * ``string``:           string
@@ -1332,3 +1332,11 @@ Verilog ("verilog", "v")
 * ``typename``:         types of data, register, and net
 * ``number``:           number literals (including X and Z)
 * ``value``:            parameters passed to instances
+
+Dockerfile ("dockerfile", "docker")
+-----------------------------------
+
+* ``keyword``:          instruction keyword
+* ``comment``:          comment
+* ``number``:           number
+* ``string``:           string
