@@ -540,7 +540,7 @@ https://highlightjs.org/
   */
   function highlightBlock(block) {
     var language = blockLanguage(block);
-    if (/no(-?)highlight/.test(language))
+    if (/no(-?)highlight|plain|text/.test(language))
         return;
 
     var node;
