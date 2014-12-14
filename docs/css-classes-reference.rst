@@ -1340,5 +1340,3 @@ Dockerfile ("dockerfile", "docker")
 * ``comment``:          comment
 * ``number``:           number
 * ``string``:           string
-* ``bash-instruction``: instruction containing bash highlighting
-* ``instruction``:      other instruction
