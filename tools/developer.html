@@ -27,8 +27,34 @@
         }
         editor.find('.stats').text(stats);
         editor.find('output').text(result.value);
+        SourceStore.save(source, language);
       });
     })
+
+    var SourceStore;
+    (function(){
+      SourceStore = {
+        save: function(source, lang){
+          localStorage.setItem(key_SOURCE, source);
+          localStorage.setItem(key_LANG, lang);
+        },
+        resolve: function(){
+          return [
+            localStorage.getItem(key_SOURCE),
+            localStorage.getItem(key_LANG)
+          ];
+        }
+      };
+      var key_SOURCE = 'hljs-source';
+      var key_LANG = 'hljs-lang';
+      $(function(){
+        var data = SourceStore.resolve();
+        if (data == null) return;
+        $('.editor textarea').val(data[0]);
+        $('.editor .languages').val(data[1]);
+        $('.editor button').click();
+      });
+    }());
   </script>
 
   <style>
