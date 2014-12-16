@@ -16,7 +16,6 @@ function(hljs) {
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
-        className: 'bash-instruction',
         keywords : {
           built_in: 'run cmd entrypoint volume add copy workdir onbuild'
         },
@@ -27,7 +26,6 @@ function(hljs) {
         }
       },
       {
-        className: 'instruction',
         keywords: {
           built_in: 'from maintainer expose env user onbuild'
         },
