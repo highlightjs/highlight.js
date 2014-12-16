@@ -72,7 +72,8 @@ function(hljs) {
         contains: ['self']
       },
       {
-        begin: hljs.IDENT_RE + '::'
+        begin: hljs.IDENT_RE + '::',
+        keywords: CPP_KEYWORDS
       },
       {
         // Expression keywords prevent 'keyword Name(...)' from being
