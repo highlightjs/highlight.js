@@ -151,4 +151,4 @@ URL:   https://highlightjs.org/
 - Деннис Титце <dennis.titze@gmail.com>
 - Брайан Куисторф <bquistorff@gmail.com>
 - Жоначан Суевер <suever@gmail.com>
-- Alexis Hénaut <alexis@henaut.net>
+- Алексис Эно <alexis@henaut.net>
