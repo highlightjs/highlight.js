@@ -43,7 +43,8 @@ function(hljs) {
             className: 'xmlDocTag',
             begin: '</?', end: '>',
             contains: [hljs.PHRASAL_WORDS_MODE]
-          }
+          },
+          hljs.PHRASAL_WORDS_MODE
         ]
       },
       hljs.C_NUMBER_MODE,

@@ -20,7 +20,8 @@ function(hljs) {
     contains: [
       {
         className: 'comment',
-        begin: '::', end: '$'
+        begin: '::', end: '$',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       }
     ]
   };

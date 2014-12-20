@@ -93,7 +93,8 @@ function(hljs) {
       {
         // Block comment
         className: 'comment',
-        begin: '^\\s*\\%\\{\\s*$', end: '^\\s*\\%\\}\\s*$'
+        begin: '^\\s*\\%\\{\\s*$', end: '^\\s*\\%\\}\\s*$',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
         className: 'comment',

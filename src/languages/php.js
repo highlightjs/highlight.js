@@ -55,9 +55,10 @@ function(hljs) {
         ]
       },
       {
-          className: 'comment',
-          begin: '__halt_compiler.+?;', endsWithParent: true,
-          keywords: '__halt_compiler', lexemes: hljs.UNDERSCORE_IDENT_RE
+        className: 'comment',
+        begin: '__halt_compiler.+?;',endsWithParent: true,
+        keywords: '__halt_compiler', lexemes: hljs.UNDERSCORE_IDENT_RE,
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
         className: 'string',

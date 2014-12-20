@@ -32,11 +32,13 @@ function(hljs) {
     contains: [
       {
         className: 'comment',
-        begin: /\{%\s*comment\s*%}/, end: /\{%\s*endcomment\s*%}/
+        begin: /\{%\s*comment\s*%}/, end: /\{%\s*endcomment\s*%}/,
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
         className: 'comment',
-        begin: /\{#/, end: /#}/
+        begin: /\{#/, end: /#}/,
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
         className: 'template_tag',

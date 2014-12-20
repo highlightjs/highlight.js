@@ -14,6 +14,7 @@ function(hljs) {
       {
         className: 'comment',
         begin: '<%#', end: '%>',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
         begin: '<%[%=-]?', end: '[%-]?%>',
