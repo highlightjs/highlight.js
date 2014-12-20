@@ -23,7 +23,7 @@ function(hljs) {
         'TypeError URIError Number Math Date String RegExp Array Float32Array ' +
         'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
         'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
-        'module console window document any number boolean string void',
+        'module console window document any number boolean string void'
     },
     contains: [
       {
@@ -76,11 +76,11 @@ function(hljs) {
       },
       {
         className: 'module',
-        beginKeywords: 'module', end: /\{/, excludeEnd: true,
+        beginKeywords: 'module', end: /\{/, excludeEnd: true
       },
       {
         className: 'interface',
-        beginKeywords: 'interface', end: /\{/, excludeEnd: true,
+        beginKeywords: 'interface', end: /\{/, excludeEnd: true
       },
       {
         begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`

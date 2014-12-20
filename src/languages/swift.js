@@ -110,7 +110,7 @@ function(hljs) {
                   '@NSCopying|@NSManaged|@objc|@optional|@required|@auto_closure|' +
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
                   '@infix|@prefix|@postfix)'
-      },
+      }
     ]
   };
 }
