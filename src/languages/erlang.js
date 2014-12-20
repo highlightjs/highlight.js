@@ -16,11 +16,7 @@ function(hljs) {
       'false true'
   };
 
-  var COMMENT = {
-    className: 'comment',
-    begin: '%', end: '$',
-    contains: [hljs.PHRASAL_WORDS_MODE]
-  };
+  var COMMENT = hljs.COMMENT('%', '$');
   var NUMBER = {
     className: 'number',
     begin: '\\b(\\d+#[a-fA-F0-9]+|\\d+(\\.\\d+)?([eE][-+]?\\d+)?)',

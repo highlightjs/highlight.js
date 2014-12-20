@@ -28,11 +28,7 @@ function(hljs) {
     illegal: '{',
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,        // VHDL-2008 block commenting.
-      {
-        className: 'comment',
-        begin: '--', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
+      hljs.COMMENT('--', '$'),
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       {

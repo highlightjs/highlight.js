@@ -27,23 +27,20 @@ function(hljs) {
       literal: 'true false null and or shl shr mod'
     },
     contains: [
-      {
-        className: 'comment',
-        begin: '#rem', end: '#end',
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
-      {
-        className: 'comment',
-        begin: "'", end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE],
-        relevance: 0
-      },
+      hljs.COMMENT('#rem', '#end'),
+      hljs.COMMENT(
+        "'",
+        '$',
+        {
+          relevance: 0
+        }
+      ),
       {
         className: 'function',
         beginKeywords: 'function method', end: '[(=:]|$',
         illegal: /\n/,
         contains: [
-          hljs.UNDERSCORE_TITLE_MODE,
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       {

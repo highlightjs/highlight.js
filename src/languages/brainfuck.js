@@ -12,14 +12,14 @@ function(hljs){
   return {
     aliases: ['bf'],
     contains: [
-      {
-        className: 'comment',
-        begin: '[^\\[\\]\\.,\\+\\-<> \r\n]',
-        end: '[\\[\\]\\.,\\+\\-<> \r\n]',
-        returnEnd: true,
-        contains: [hljs.PHRASAL_WORDS_MODE],
-        relevance: 0
-      },
+      hljs.COMMENT(
+        '[^\\[\\]\\.,\\+\\-<> \r\n]',
+        '[\\[\\]\\.,\\+\\-<> \r\n]',
+        {
+          returnEnd: true,
+          relevance: 0
+        }
+      ),
       {
         className: 'title',
         begin: '[\\[\\]]',

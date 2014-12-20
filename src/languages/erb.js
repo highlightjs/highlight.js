@@ -11,11 +11,7 @@ function(hljs) {
   return {
     subLanguage: 'xml', subLanguageMode: 'continuous',
     contains: [
-      {
-        className: 'comment',
-        begin: '<%#', end: '%>',
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
+      hljs.COMMENT('<%#', '%>'),
       {
         begin: '<%[%=-]?', end: '[%-]?%>',
         subLanguage: 'ruby',

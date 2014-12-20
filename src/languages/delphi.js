@@ -11,23 +11,23 @@ function(hljs) {
     'destructor write message program with read initialization except default nil if case cdecl in ' +
     'downto threadvar of try pascal const external constructor type public then implementation ' +
     'finally published procedure';
-  var COMMENT =  {
-    className: 'comment',
-    variants: [
+  var COMMENT_MODES = [
+    hljs.C_LINE_COMMENT_MODE,
+    hljs.COMMENT(
+      /\{/,
+      /\}/,
       {
-        begin: /\{/,
-        end: /\}/,
-        contains: [hljs.PHRASAL_WORDS_MODE],
         relevance: 0
-      },
+      }
+    ),
+    hljs.COMMENT(
+      /\(\*/,
+      /\*\)/,
       {
-        begin: /\(\*/,
-        end: /\*\)/,
-        contains: [hljs.PHRASAL_WORDS_MODE],
         relevance: 10
       }
-    ]
-  };
+    )
+  ];
   var STRING = {
     className: 'string',
     begin: /'/, end: /'/,
@@ -53,20 +53,18 @@ function(hljs) {
         begin: /\(/, end: /\)/,
         keywords: KEYWORDS,
         contains: [STRING, CHAR_STRING]
-      },
-      COMMENT
-    ]
+      }
+    ].concat(COMMENT_MODES)
   };
   return {
     case_insensitive: true,
     keywords: KEYWORDS,
     illegal: /"|\$[G-Zg-z]|\/\*|<\/|\|/,
     contains: [
-      COMMENT, hljs.C_LINE_COMMENT_MODE,
       STRING, CHAR_STRING,
       hljs.NUMBER_MODE,
       CLASS,
       FUNCTION
-    ]
+    ].concat(COMMENT_MODES)
   };
 }

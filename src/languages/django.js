@@ -30,16 +30,8 @@ function(hljs) {
     case_insensitive: true,
     subLanguage: 'xml', subLanguageMode: 'continuous',
     contains: [
-      {
-        className: 'comment',
-        begin: /\{%\s*comment\s*%}/, end: /\{%\s*endcomment\s*%}/,
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
-      {
-        className: 'comment',
-        begin: /\{#/, end: /#}/,
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
+      hljs.COMMENT(/\{%\s*comment\s*%}/, /\{%\s*endcomment\s*%}/),
+      hljs.COMMENT(/\{#/, /#}/),
       {
         className: 'template_tag',
         begin: /\{%/, end: /%}/,

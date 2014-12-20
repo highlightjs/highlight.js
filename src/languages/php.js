@@ -42,24 +42,28 @@ function(hljs) {
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.HASH_COMMENT_MODE,
-      {
-        className: 'comment',
-        begin: '/\\*', end: '\\*/',
-        contains: [
-          {
-            className: 'phpdoc',
-            begin: '\\s@[A-Za-z]+'
-          },
-          PREPROCESSOR,
-          hljs.PHRASAL_WORDS_MODE
-        ]
-      },
-      {
-        className: 'comment',
-        begin: '__halt_compiler.+?;',endsWithParent: true,
-        keywords: '__halt_compiler', lexemes: hljs.UNDERSCORE_IDENT_RE,
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
+      hljs.COMMENT(
+        '/\\*',
+        '\\*/',
+        {
+          contains: [
+            {
+              className: 'phpdoc',
+              begin: '\\s@[A-Za-z]+'
+            },
+            PREPROCESSOR
+          ]
+        }
+      ),
+      hljs.COMMENT(
+        '__halt_compiler.+?;',
+        false,
+        {
+          endsWithParent: true,
+          keywords: '__halt_compiler',
+          lexemes: hljs.UNDERSCORE_IDENT_RE
+        }
+      ),
       {
         className: 'string',
         begin: '<<<[\'"]?\\w+[\'"]?$', end: '^\\w+;',

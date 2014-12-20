@@ -23,27 +23,29 @@ function(hljs) {
     keywords: KEYWORDS,
     illegal: /::/,
     contains: [
-      {
-        className: 'comment',
-        begin: '///', end: '$', returnBegin: true,
-        contains: [
-          {
-            className: 'xmlDocTag',
-            variants: [
-              {
-                begin: '///', relevance: 0
-              },
-              {
-                begin: '<!--|-->'
-              },
-              {
-                begin: '</?', end: '>'
-              }
-            ]
-          },
-          hljs.PHRASAL_WORDS_MODE
-        ]
-      },
+      hljs.COMMENT(
+        '///',
+        '$',
+        {
+          returnBegin: true,
+          contains: [
+            {
+              className: 'xmlDocTag',
+              variants: [
+                {
+                  begin: '///', relevance: 0
+                },
+                {
+                  begin: '<!--|-->'
+                },
+                {
+                  begin: '</?', end: '>'
+                }
+              ]
+            }
+          ]
+        }
+      ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {

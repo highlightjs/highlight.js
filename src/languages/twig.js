@@ -47,11 +47,7 @@ function(hljs) {
     case_insensitive: true,
     subLanguage: 'xml', subLanguageMode: 'continuous',
     contains: [
-      {
-        className: 'comment',
-        begin: /\{#/, end: /#}/,
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
+      hljs.COMMENT(/\{#/, /#}/),
       {
         className: 'template_tag',
         begin: /\{%/, end: /%}/,

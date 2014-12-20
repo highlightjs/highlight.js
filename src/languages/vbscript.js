@@ -32,12 +32,13 @@ function(hljs) {
     illegal: '//',
     contains: [
       hljs.inherit(hljs.QUOTE_STRING_MODE, {contains: [{begin: '""'}]}),
-      {
-        className: 'comment',
-        begin: /'/, end: /$/,
-        contains: [hljs.PHRASAL_WORDS_MODE],
-        relevance: 0
-      },
+      hljs.COMMENT(
+        /'/,
+        /$/,
+        {
+          relevance: 0
+        }
+      ),
       hljs.C_NUMBER_MODE
     ]
   };

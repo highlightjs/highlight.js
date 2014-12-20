@@ -33,11 +33,13 @@ function(hljs) {
         className: 'literal',
         begin: '\\[(\\|\\|)?\\]|\\(\\)'
       },
-      {
-        className: 'comment',
-        begin: '\\(\\*', end: '\\*\\)',
-        contains: ['self', hljs.PHRASAL_WORDS_MODE]
-      },
+      hljs.COMMENT(
+        '\\(\\*',
+        '\\*\\)',
+        {
+          contains: ['self']
+        }
+      ),
       { /* type variable */
         className: 'symbol',
         begin: '\'[A-Za-z_](?!\')[\\w\']*',

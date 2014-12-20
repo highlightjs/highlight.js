@@ -42,15 +42,17 @@ Here's an example:
         className: 'string',
         begin: '"', end: '"'
       },
-      {
-        className: 'comment',
-        begin: '/*', end: '*/',
-        contains: [
-          {
-            className: 'doc', begin: '@\\w+'
-          }
-        ]
-      }
+      hljs.COMMENT(
+        '/\\*', // begin
+        '\\*/', // end
+        {
+          contains: [
+            {
+              className: 'doc', begin: '@\\w+'
+            }
+          ]
+        }
+      )
     ]
   }
 

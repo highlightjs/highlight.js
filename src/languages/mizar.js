@@ -18,11 +18,7 @@ function(hljs) {
       'reflexivity irreflexivity connectedness uniqueness commutativity ' +
       'idempotence involutiveness projectivity',
     contains: [
-      {
-        className: 'comment',
-        begin: '::', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      }
+      hljs.COMMENT('::', '$')
     ]
   };
 }

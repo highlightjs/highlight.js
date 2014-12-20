@@ -18,11 +18,7 @@ function(hljs) {
         className: 'prompt', begin: '^[0-9]+> ',
         relevance: 10
       },
-      {
-        className: 'comment',
-        begin: '%', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
+      hljs.COMMENT('%', '$'),
       {
         className: 'number',
         begin: '\\b(\\d+#[a-fA-F0-9]+|\\d+(\\.\\d+)?([eE][-+]?\\d+)?)',

@@ -30,23 +30,25 @@ function(hljs) {
     illegal: '//|{|}|endif|gosub|variant|wend', /* reserved deprecated keywords */
     contains: [
       hljs.inherit(hljs.QUOTE_STRING_MODE, {contains: [{begin: '""'}]}),
-      {
-        className: 'comment',
-        begin: '\'', end: '$', returnBegin: true,
-        contains: [
-          {
-            className: 'xmlDocTag',
-            begin: '\'\'\'|<!--|-->',
-            contains: [hljs.PHRASAL_WORDS_MODE]
-          },
-          {
-            className: 'xmlDocTag',
-            begin: '</?', end: '>',
-            contains: [hljs.PHRASAL_WORDS_MODE]
-          },
-          hljs.PHRASAL_WORDS_MODE
-        ]
-      },
+      hljs.COMMENT(
+        '\'',
+        '$',
+        {
+          returnBegin: true,
+          contains: [
+            {
+              className: 'xmlDocTag',
+              begin: '\'\'\'|<!--|-->',
+              contains: [hljs.PHRASAL_WORDS_MODE]
+            },
+            {
+              className: 'xmlDocTag',
+              begin: '</?', end: '>',
+              contains: [hljs.PHRASAL_WORDS_MODE]
+            }
+          ]
+        }
+      ),
       hljs.C_NUMBER_MODE,
       {
         className: 'preprocessor',

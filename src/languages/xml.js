@@ -47,12 +47,13 @@ function(hljs) {
         relevance: 10,
         contains: [{begin: '\\[', end: '\\]'}]
       },
-      {
-        className: 'comment',
-        begin: '<!--', end: '-->',
-        contains: [hljs.PHRASAL_WORDS_MODE],
-        relevance: 10
-      },
+      hljs.COMMENT(
+        '<!--',
+        '-->',
+        {
+          relevance: 10
+        }
+      ),
       {
         className: 'cdata',
         begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',

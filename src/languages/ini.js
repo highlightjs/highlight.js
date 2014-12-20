@@ -8,11 +8,7 @@ function(hljs) {
     case_insensitive: true,
     illegal: /\S/,
     contains: [
-      {
-        className: 'comment',
-        begin: ';', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
+      hljs.COMMENT(';', '$'),
       {
         className: 'title',
         begin: '^\\[', end: '\\]'

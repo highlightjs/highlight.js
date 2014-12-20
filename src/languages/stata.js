@@ -36,17 +36,10 @@ function(hljs) {
           }
         ]
       },
-      {
-        className: 'comment',
-        variants: [
-          {
-            begin: '^[ \t]*\\*.*$',
-            contains: [hljs.PHRASAL_WORDS_MODE]
-          },
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
-        ]
-      }
+
+      hljs.COMMENT('^[ \t]*\\*.*$', false),
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE
     ]
   };
 }

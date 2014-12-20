@@ -90,17 +90,8 @@ function(hljs) {
         relevance: 0,
         starts: TRANSPOSE
       },
-      {
-        // Block comment
-        className: 'comment',
-        begin: '^\\s*\\%\\{\\s*$', end: '^\\s*\\%\\}\\s*$',
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
-      {
-        className: 'comment',
-        begin: '\\%', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      }
+      hljs.COMMENT('^\\s*\\%\\{\\s*$', '^\\s*\\%\\}\\s*$'),
+      hljs.COMMENT('\\%', '$')
     ].concat(COMMON_CONTAINS)
   };
 }

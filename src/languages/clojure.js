@@ -51,16 +51,17 @@ function(hljs) {
     relevance: 0
   };
   var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null});
-  var COMMENT = {
-    className: 'comment',
-    begin: ';', end: '$',
-    contains: [hljs.PHRASAL_WORDS_MODE],
-    relevance: 0
-  };
+  var COMMENT = hljs.COMMENT(
+    ';',
+    '$',
+    {
+      relevance: 0
+    }
+  );
   var LITERAL = {
     className: 'literal',
     begin: /\b(true|false|nil)\b/
-  }
+  };
   var COLLECTION = {
     className: 'collection',
     begin: '[\\[\\{]', end: '[\\]\\}]'

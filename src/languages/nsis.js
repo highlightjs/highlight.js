@@ -68,12 +68,13 @@ function(hljs) {
           LANGUAGES
         ]
       },
-      { // line comments
-        className: 'comment',
-        begin: ';', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE],
-        relevance: 0
-      },
+      hljs.COMMENT(
+        ';',
+        '$',
+        {
+          relevance: 0
+        }
+      ),
       {
         className: 'function',
         beginKeywords: 'Function PageEx Section SectionGroup SubSection', end: '$'

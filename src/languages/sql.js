@@ -5,11 +5,7 @@
  */
 
 function(hljs) {
-  var COMMENT_MODE = {
-    className: 'comment',
-    begin: '--', end: '$',
-    contains: [hljs.PHRASAL_WORDS_MODE]
-  };
+  var COMMENT_MODE = hljs.COMMENT('--', '$');
   return {
     case_insensitive: true,
     illegal: /[<>]/,

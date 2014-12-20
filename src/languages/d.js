@@ -233,13 +233,14 @@ function(hljs) {
    *
    * @type {Object}
    */
-  var D_NESTING_COMMENT_MODE = {
-    className: 'comment',
-    begin: '\\/\\+',
-    end: '\\+\\/',
-    contains: ['self', hljs.PHRASAL_WORDS_MODE],
-    relevance: 10
-  };
+  var D_NESTING_COMMENT_MODE = hljs.COMMENT(
+    '\\/\\+',
+    '\\+\\/',
+    {
+      contains: ['self'],
+      relevance: 10
+    }
+  );
 
   return {
     lexemes: hljs.UNDERSCORE_IDENT_RE,
