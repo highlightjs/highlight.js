@@ -75,8 +75,8 @@ function(hljs) {
           }),
           {
             className: 'generics',
-            begin: /\</, end: /\>/,
-            illegal: /\>/
+            begin: /</, end: />/,
+            illegal: />/
           },
           {
             className: 'params',

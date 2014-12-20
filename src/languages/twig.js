@@ -26,7 +26,7 @@ function(hljs) {
 
   var FILTER = {
     className: 'filter',
-    begin: /\|[A-Za-z]+\:?/,
+    begin: /\|[A-Za-z]+:?/,
     keywords:
       'abs batch capitalize convert_encoding date date_modify default ' +
       'escape first format join json_encode keys last length lower ' +

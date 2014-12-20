@@ -14,7 +14,7 @@ function(hljs) {
   var COMMENT =  {
     className: 'comment',
     variants: [
-      {begin: /\{/, end: /\}/, relevance: 0},
+      {begin: /\{/, end: /}/, relevance: 0},
       {begin: /\(\*/, end: /\*\)/, relevance: 10}
     ]
   };

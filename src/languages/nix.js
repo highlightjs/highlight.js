@@ -15,7 +15,7 @@ function(hljs) {
   var ANTIQUOTE = {
     className: 'subst',
     begin: /\$\{/,
-    end: /\}/,
+    end: /}/,
     keywords: NIX_KEYWORDS
   };
   var ATTRS = {
