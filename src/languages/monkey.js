@@ -12,7 +12,7 @@ function(hljs) {
       },
       hljs.NUMBER_MODE
     ]
-  }
+  };
 
   return {
     case_insensitive: true,

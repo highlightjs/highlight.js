@@ -45,5 +45,5 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE]
       }
     ]
-  }; // return
+  };
 }

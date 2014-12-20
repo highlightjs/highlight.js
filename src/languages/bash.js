@@ -10,7 +10,7 @@ function(hljs) {
     className: 'variable',
     variants: [
       {begin: /\$[\w\d#@][\w\d_]*/},
-      {begin: /\$\{(.*?)\}/}
+      {begin: /\$\{(.*?)}/}
     ]
   };
   var QUOTE_STRING = {

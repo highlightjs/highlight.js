@@ -24,7 +24,7 @@ function(hljs) {
         /* (some) types in Pervasives */
         'in_channel out_channel ref',
       literal:
-        'true false',
+        'true false'
     },
     illegal: /\/\/|>>/,
     lexemes: '[a-z_]\\w*!?',
@@ -40,12 +40,12 @@ function(hljs) {
       },
       { /* type variable */
         className: 'symbol',
-        begin: '\'[A-Za-z_](?!\')[\\w\']*',
+        begin: '\'[A-Za-z_](?!\')[\\w\']*'
         /* the grammar is ambiguous on how 'a'b should be interpreted but not the compiler */
       },
       { /* polymorphic variant */
         className: 'tag',
-        begin: '`[A-Z][\\w\']*',
+        begin: '`[A-Z][\\w\']*'
       },
       { /* module or constructor */
         className: 'type',

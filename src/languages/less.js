@@ -55,7 +55,7 @@ function(hljs) {
   );
 
   var VALUE_WITH_RULESETS = VALUE.concat({
-    begin: '{', end: '}', contains: RULES,
+    begin: '{', end: '}', contains: RULES
   });
 
   var MIXIN_GUARD_MODE = {

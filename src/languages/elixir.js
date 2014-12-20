@@ -49,7 +49,7 @@ function(hljs) {
   var CLASS = hljs.inherit(FUNCTION, {
     className: 'class',
     beginKeywords: 'defmodule defrecord', end: /\bdo\b|$|;/
-  })
+  });
   var ELIXIR_DEFAULT_CONTAINS = [
     STRING,
     hljs.HASH_COMMENT_MODE,
