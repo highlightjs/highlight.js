@@ -115,16 +115,13 @@ function(hljs) {
         illegal: /[^\s:,]/,
         contains: [
           {
-            className: 'generic-constraints',
             begin: 'where ' + hljs.IDENT_RE + '\\s*:\\s*' + GENERIC_CONSTRAINT_RE + '(,\\s*' + GENERIC_CONSTRAINT_RE + '\\s*)*',
             keywords: 'where new struct class'
           },
           {
-            className: 'inheritance',
             begin: ':', end: '$',
             contains: [
               {
-                className: 'parent',
                 begin: QUALIFIED_IDENT_RE
               }
             ]
@@ -189,7 +186,6 @@ function(hljs) {
         ]
       },
       {
-        className: 'property',
         begin: '(' + QUALIFIED_IDENT_RE + '\\s+)+' + GENERIC_IDENT_RE + '\\s*(\\[[^\\]]+\\])?\\s*{',
         returnBegin: true,
         keywords: KEYWORDS,
