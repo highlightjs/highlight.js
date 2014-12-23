@@ -643,12 +643,20 @@ C# ("cs", "csharp")
 
 * ``keyword``:          keyword
 * ``number``:           number
+* ``literal``:          literals ``true``, ``false`` and ``null``
 * ``string``:           string
 * ``comment``:          comment
-* ``xmlDocTag``:        xmldoc tag ("///", "<!--", "-->", "<..>")
-* ``class``:            class header from "class" till "{"
+* ``preprocessor``:     pre-processor directives, e.g. #if, #region, etc.
+* ``xmlDocTag``:        xmldoc tag ("///", "<!--", "-->", "<..>"). XML tags are marked up with the "xml" sub-language
+* ``class``:            class header from "class" till "{". Also applies to "interface", "enum" and "struct"
 * ``function``:         method header
-* ``title``:            title of namespace or class
+* ``property``:         property header
+* ``attribute``:        attribute usage
+* ``params``:           parameters to a method or indexed property
+* ``inheritance``:      wraps all of the inherited class and interfaces in a type declaration
+* ``parent``:           the name of the class or interfaces in a type declaration
+* ``generic-constraints``: wraps the generic constraints in a type definition
+* ``title``:            title of namespace, class, property, method or attribute
 
 F# ("fsharp", "fs")
 -------------------

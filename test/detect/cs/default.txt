@@ -2,17 +2,30 @@ using System;
 
 #pragma warning disable 414, 3021
 
+[Test("Something", typeof(int))]
 public class Program
 {
-    /// <summary>The entry point to the program.</summary>
+    public Program([In] int value)
+    {
+    }
+
+    [return: CanBeNull]
+    public int Value { get; private set; }
+
+    /// <summary>
+    /// The entry point to the program.
+    /// </summary>
+    [NotNull]
     public static int Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        string Console.WriteLine("Hello, World!");
         string s = @"This
 ""string""
 spans
 multiple
 lines!";
+        int[] values = new[] { 1, 2, 3};
+        Console.WriteLine(values[2]);
         return 0;
     }
 }
@@ -20,6 +33,16 @@ lines!";
 async Task<int> AccessTheWebAsync()
 {
     // ...
-    string urlContents = await getStringTask;
+    string urlContents = await getStringTask();
+    await GetStringTask();
     return urlContents.Length;
+}
+
+public interface IFoo<T, U> : IBar<T2, T3>, IBaz
+    where T : Quux, new()
+{
+    string Name { get; set; }
+    string this[int i] { get; set; }
+    string this[int i, string value] { get; set; }
+    void MyFunction<T, U>(int value, out retval);
 }
