@@ -38,15 +38,19 @@ function(hljs) {
   };
   var GENERIC_CONSTRAINT_RE = '(new\\(\\)|struct|class|(' + QUALIFIED_IDENT_RE + '))';
 
+  var ATTRIBUTE_TARGET_RE = '(\\s*(return|assembly|field|method|event|param)\\s*:)?\\s*';
+  var ATTRIBUTE_RE = ATTRIBUTE_TARGET_RE + QUALIFIED_IDENT_RE + '\\s*(\\(.+?\\))?\\s*';
   var ATTRIBUTES_MODE = {
     className: 'attribute',
-    begin: '\\[\\s*((return|assembly|field|method|event|param)\\s*:)?\\s*' + QUALIFIED_IDENT_RE + '\\s*(\\([^)]+\\))?\\]',
-    keywords: 'return assembly field method event param',
+    begin: '\\[' + ATTRIBUTE_RE + '(,' + ATTRIBUTE_RE + ')*\\]',
     returnBegin: true,
     contains: [
       {
-        begin: '\\[',
+        begin: '\\[', end: '\\]',
         contains: [
+          {
+            beginKeywords: 'return assembly field method event param',
+          },
           QUALIFIED_TITLE_MODE,
           {
             className: 'params',

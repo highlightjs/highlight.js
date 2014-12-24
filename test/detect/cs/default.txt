@@ -2,7 +2,7 @@ using System;
 
 #pragma warning disable 414, 3021
 
-[Test("Something", typeof(int))]
+[Test("Something", typeof(Foo))]
 public class Program
 {
     public Program([In] int value)
@@ -44,5 +44,7 @@ public interface IFoo<T, U> : IBar<T2, T3>, IBaz
     string Name { get; set; }
     string this[int i] { get; set; }
     string this[int i, string value] { get; set; }
+
+    [Trait("Foo", "Bar"), Test]
     void MyFunction<T, U>(int value, out retval);
 }
