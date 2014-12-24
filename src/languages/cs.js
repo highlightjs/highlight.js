@@ -114,7 +114,7 @@ function(hljs) {
       {
         className: 'class',
         begin: '(' + hljs.IDENT_RE + ')*\\s*(class|interface|struct)', end: /[{;=]/,
-        exludeEnd: true,
+        excludeEnd: true,
         keywords: KEYWORDS + ' class interface struct',
         illegal: /[^\s:,]/,
         contains: [
@@ -127,7 +127,9 @@ function(hljs) {
             contains: [
               {
                 begin: QUALIFIED_IDENT_RE
-              }
+              },
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE
             ]
           },
           GENERIC_TITLE_MODE,
