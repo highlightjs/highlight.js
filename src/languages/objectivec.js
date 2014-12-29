@@ -1,7 +1,7 @@
 /*
 Language: Objective C
 Author: Valerii Hiora <valerii.hiora@gmail.com>
-Contributors: Angel G. Olloqui <angelgarcia.mail@gmail.com>, Matt Diephouse <matt@diephouse.com>
+Contributors: Angel G. Olloqui <angelgarcia.mail@gmail.com>, Matt Diephouse <matt@diephouse.com>, Andrew Farmer <ahfarmer@gmail.com>
 Category: common
 */
 
