@@ -2,6 +2,7 @@
 Language: RenderMan RSL
 Author: Konstantin Evdokimenko <qewerty@gmail.com>
 Contributors: Shuen-Huei Guan <drake.guan@gmail.com>
+Category: graphics
 */
 
 function(hljs) {
@@ -31,13 +32,11 @@ function(hljs) {
       },
       {
         className: 'shader',
-        beginWithKeyword: true, end: '\\(',
-        keywords: 'surface displacement light volume imager'
+        beginKeywords: 'surface displacement light volume imager', end: '\\('
       },
       {
         className: 'shading',
-        beginWithKeyword: true, end: '\\(',
-        keywords: 'illuminate illuminance gather'
+        beginKeywords: 'illuminate illuminance gather', end: '\\('
       }
     ]
   };

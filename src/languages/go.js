@@ -3,6 +3,7 @@ Language: Go
 Author: Stephan Kountso aka StepLg <steplg@gmail.com>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>
 Description: Google go language (golang). For info about language see http://golang.org/
+Category: system
 */
 
 function(hljs) {
@@ -19,6 +20,7 @@ function(hljs) {
       'append cap close complex copy imag len make new panic print println real recover delete'
   };
   return {
+    aliases: ["golang"],
     keywords: GO_KEYWORDS,
     illegal: '</',
     contains: [
@@ -27,8 +29,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
-        begin: '\'', end: '[^\\\\]\'',
-        relevance: 0
+        begin: '\'', end: '[^\\\\]\''
       },
       {
         className: 'string',
@@ -36,7 +37,7 @@ function(hljs) {
       },
       {
         className: 'number',
-        begin: '[^a-zA-Z_0-9](\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?',
+        begin: hljs.C_NUMBER_RE + '[dflsi]?',
         relevance: 0
       },
       hljs.C_NUMBER_MODE

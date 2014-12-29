@@ -1,7 +1,8 @@
 /*
-  Language: HTTP
-  Description: HTTP request and response headers with automatic body highlighting
-  Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
+Language: HTTP
+Description: HTTP request and response headers with automatic body highlighting
+Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
+Category: common, protocols
 */
 
 function(hljs) {

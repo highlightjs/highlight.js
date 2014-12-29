@@ -2,6 +2,7 @@
 Language: 1C
 Author: Yuri Ivanov <ivanov@supersoft.ru>
 Contributors: Sergey Baranov <segyrn@yandex.ru>
+Category: enterprise
 */
 
 function(hljs){
@@ -38,8 +39,7 @@ function(hljs){
   var STR_START = {
       className: 'string',
       begin: '"', end: '"|$',
-      contains: [DQUOTE],
-      relevance: 0
+      contains: [DQUOTE]
     };
   var STR_CONT = {
     className: 'string',
@@ -49,7 +49,7 @@ function(hljs){
 
   return {
     case_insensitive: true,
-    lexems: IDENT_RE_RU,
+    lexemes: IDENT_RE_RU,
     keywords: {keyword: OneS_KEYWORDS, built_in: OneS_BUILT_IN},
     contains: [
       hljs.C_LINE_COMMENT_MODE,
@@ -58,10 +58,10 @@ function(hljs){
       {
         className: 'function',
         begin: '(процедура|функция)', end: '$',
-        lexems: IDENT_RE_RU,
+        lexemes: IDENT_RE_RU,
         keywords: 'процедура функция',
         contains: [
-          {className: 'title', begin: IDENT_RE_RU},
+          hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE_RU}),
           {
             className: 'tail',
             endsWithParent: true,
@@ -69,14 +69,14 @@ function(hljs){
               {
                 className: 'params',
                 begin: '\\(', end: '\\)',
-                lexems: IDENT_RE_RU,
+                lexemes: IDENT_RE_RU,
                 keywords: 'знач',
                 contains: [STR_START, STR_CONT]
               },
               {
                 className: 'export',
                 begin: 'экспорт', endsWithParent: true,
-                lexems: IDENT_RE_RU,
+                lexemes: IDENT_RE_RU,
                 keywords: 'экспорт',
                 contains: [hljs.C_LINE_COMMENT_MODE]
               }

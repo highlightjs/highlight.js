@@ -1,14 +1,11 @@
 /*
 Language: AppleScript
-Authors: Nathan Grigg <nathan@nathanamy.org>
-         Dr. Drang <drdrang@gmail.com>
+Authors: Nathan Grigg <nathan@nathanamy.org>, Dr. Drang <drdrang@gmail.com>
+Category: scripting
 */
 
 function(hljs) {
   var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: ''});
-  var TITLE = {
-    className: 'title', begin: hljs.UNDERSCORE_IDENT_RE
-  };
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)',
@@ -17,7 +14,7 @@ function(hljs) {
   var COMMENTS = [
     {
       className: 'comment',
-      begin: '--', end: '$',
+      begin: '--', end: '$'
     },
     {
       className: 'comment',
@@ -28,6 +25,7 @@ function(hljs) {
   ];
 
   return {
+    aliases: ['osascript'],
     keywords: {
       keyword:
         'about above after against and around as at back before beginning ' +
@@ -37,7 +35,7 @@ function(hljs) {
         'get given global if ignoring in into is it its last local me ' +
         'middle mod my ninth not of on onto or over prop property put ref ' +
         'reference repeat returning script second set seventh since ' +
-        'sixth some tell tenth that the then third through thru ' +
+        'sixth some tell tenth that the|0 then third through thru ' +
         'timeout times to transaction try until where while whose with ' +
         'without',
       constant:
@@ -93,12 +91,11 @@ function(hljs) {
       },
       {
         className: 'function_start',
-        beginWithKeyword: true,
-        keywords: 'on',
+        beginKeywords: 'on',
         illegal: '[${=;\\n]',
-        contains: [TITLE, PARAMS]
+        contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       }
     ].concat(COMMENTS),
-    illegal: '//'
+    illegal: '//|->|=>'
   };
 }

@@ -1,59 +1,76 @@
 /*
 Language: Scala
 Author: Jan Berkel <jan.berkel@gmail.com>
+Contributors: Erik Osheim <d_m@plastic-idolatry.com>
 */
 
 function(hljs) {
+
   var ANNOTATION = {
     className: 'annotation', begin: '@[A-Za-z]+'
   };
+
   var STRING = {
     className: 'string',
     begin: 'u?r?"""', end: '"""',
     relevance: 10
   };
+
+  var SYMBOL = {
+    className: 'symbol',
+    begin: '\'\\w[\\w\\d_]*(?!\')'
+  };
+
+  var TYPE = {
+    className: 'type',
+    begin: '\\b[A-Z][A-Za-z0-9_]*',
+    relevance: 0
+  };
+
+  var NAME = {
+    className: 'title',
+    begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/,
+    relevance: 0
+  };
+
+  var CLASS = {
+    className: 'class',
+    beginKeywords: 'class object trait type',
+    end: /[:={\[(\n;]/,
+    contains: [{className: 'keyword', beginKeywords: 'extends with', relevance: 10}, NAME]
+  };
+
+  var METHOD = {
+    className: 'function',
+    beginKeywords: 'def val',
+    end: /[:={\[(\n;]/,
+    contains: [NAME]
+  };
+
+  var JAVADOC = {
+    className: 'javadoc',
+    begin: '/\\*\\*', end: '\\*/',
+    contains: [{
+      className: 'javadoctag',
+      begin: '@[A-Za-z]+'
+    }],
+    relevance: 10
+  };
+
   return {
-    keywords:
-      'type yield lazy override def with val var false true sealed abstract private trait ' +
-      'object null if for while throw finally protected extends import final return else ' +
-      'break new catch super class case package default try this match continue throws',
+    keywords: {
+      literal: 'true false null',
+      keyword: 'type yield lazy override def with val var sealed abstract private trait object if forSome for while throw finally protected extends import final return else break new catch super class case package default try this match continue throws implicit'
+    },
     contains: [
-      {
-        className: 'javadoc',
-        begin: '/\\*\\*', end: '\\*/',
-        contains: [{
-          className: 'javadoctag',
-          begin: '@[A-Za-z]+'
-        }],
-        relevance: 10
-      },
-      hljs.C_LINE_COMMENT_MODE, hljs.C_BLOCK_COMMENT_MODE,
-      hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE, STRING,
-      {
-        className: 'class',
-        begin: '((case )?class |object |trait )', end: '({|$)', // beginWithKeyword won't work because a single "case" shouldn't start this mode
-        illegal: ':',
-        keywords: 'case class trait object',
-        contains: [
-          {
-            beginWithKeyword: true,
-            keywords: 'extends with',
-            relevance: 10
-          },
-          {
-            className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          },
-          {
-            className: 'params',
-            begin: '\\(', end: '\\)',
-            contains: [
-              hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE, STRING,
-              ANNOTATION
-            ]
-          }
-        ]
-      },
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      STRING,
+      hljs.QUOTE_STRING_MODE,
+      SYMBOL,
+      TYPE,
+      METHOD,
+      CLASS,
       hljs.C_NUMBER_MODE,
       ANNOTATION
     ]

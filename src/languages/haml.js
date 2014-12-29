@@ -3,6 +3,7 @@ Language: Haml
 Requires: ruby.js
 Author: Dan Allen <dan.j.allen@gmail.com>
 Website: http://google.com/profiles/dan.j.allen
+Category: template
 */
 
 // TODO support filter tags like :javascript, support inline HTML
@@ -18,16 +19,15 @@ function(hljs) {
       {
         className: 'comment',
         // FIXME these comments should be allowed to span indented lines
-        begin: '^\\s*(-#|/).*$',
+        begin: '^\\s*(!=#|=#|-#|/).*$',
         relevance: 0
       },
       {
-        begin: '^\\s*-(?!#)',
+        begin: '^\\s*(-|=|!=)(?!#)',
         starts: {
           end: '\\n',
           subLanguage: 'ruby'
-        },
-        relevance: 0
+        }
       },
       {
         className: 'tag',
@@ -35,13 +35,11 @@ function(hljs) {
         contains: [
           {
             className: 'title',
-            begin: '\\w+',
-            relevance: 0
+            begin: '\\w+'
           },
           {
             className: 'value',
-            begin: '[#\\.]\\w+',
-            relevance: 0
+            begin: '[#\\.]\\w+'
           },
           {
             begin: '{\\s*',
@@ -54,33 +52,28 @@ function(hljs) {
                 end: ',\\s+',
                 returnBegin: true,
                 endsWithParent: true,
-                relevance: 0,
                 contains: [
                   {
                     className: 'symbol',
-                    begin: ':\\w+',
-                    relevance: 0
+                    begin: ':\\w+'
                   },
                   {
                     className: 'string',
                     begin: '"',
-                    end: '"',
-                    relevance: 0
+                    end: '"'
                   },
                   {
                     className: 'string',
                     begin: '\'',
-                    end: '\'',
-                    relevance: 0
+                    end: '\''
                   },
                   {
                     begin: '\\w+',
                     relevance: 0
                   }
                 ]
-              },
-            ],
-            relevance: 0
+              }
+            ]
           },
           {
             begin: '\\(\\s*',
@@ -93,7 +86,6 @@ function(hljs) {
                 end: '\\s+',
                 returnBegin: true,
                 endsWithParent: true,
-                relevance: 0,
                 contains: [
                   {
                     className: 'attribute',
@@ -103,26 +95,22 @@ function(hljs) {
                   {
                     className: 'string',
                     begin: '"',
-                    end: '"',
-                    relevance: 0
+                    end: '"'
                   },
                   {
                     className: 'string',
                     begin: '\'',
-                    end: '\'',
-                    relevance: 0
+                    end: '\''
                   },
                   {
                     begin: '\\w+',
                     relevance: 0
                   }
                 ]
-              },
-            ],
-            relevance: 0
+              }
+            ]
           }
-        ],
-        relevance: 10
+        ]
       },
       {
         className: 'bullet',
@@ -134,8 +122,7 @@ function(hljs) {
         starts: {
           end: '}',
           subLanguage: 'ruby'
-        },
-        relevance: 0
+        }
       }
     ]
   };

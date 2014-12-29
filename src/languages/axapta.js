@@ -1,6 +1,7 @@
 /*
 Language: Axapta
 Author: Dmitri Roudakov <dmitri@roudakov.ru>
+Category: enterprise
 */
 
 function(hljs) {
@@ -23,20 +24,11 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginWithKeyword: true, end: '{',
+        beginKeywords: 'class interface', end: '{', excludeEnd: true,
         illegal: ':',
-        keywords: 'class interface',
         contains: [
-          {
-            className: 'inheritance',
-            beginWithKeyword: true,
-            keywords: 'extends implements',
-            relevance: 10
-          },
-          {
-            className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          }
+          {beginKeywords: 'extends implements'},
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       }
     ]

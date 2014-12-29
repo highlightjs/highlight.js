@@ -2,49 +2,32 @@
 Language: Diff
 Description: Unified and context diff
 Author: Vasily Polovnyov <vast@whiteants.net>
+Category: common
 */
 
 function(hljs) {
   return {
+    aliases: ['patch'],
     contains: [
       {
         className: 'chunk',
-        begin: '^\\@\\@ +\\-\\d+,\\d+ +\\+\\d+,\\d+ +\\@\\@$',
-        relevance: 10
-      },
-      {
-        className: 'chunk',
-        begin: '^\\*\\*\\* +\\d+,\\d+ +\\*\\*\\*\\*$',
-        relevance: 10
-      },
-      {
-        className: 'chunk',
-        begin: '^\\-\\-\\- +\\d+,\\d+ +\\-\\-\\-\\-$',
-        relevance: 10
+        relevance: 10,
+        variants: [
+          {begin: /^@@ +\-\d+,\d+ +\+\d+,\d+ +@@$/},
+          {begin: /^\*\*\* +\d+,\d+ +\*\*\*\*$/},
+          {begin: /^\-\-\- +\d+,\d+ +\-\-\-\-$/}
+        ]
       },
       {
         className: 'header',
-        begin: 'Index: ', end: '$'
-      },
-      {
-        className: 'header',
-        begin: '=====', end: '=====$'
-      },
-      {
-        className: 'header',
-        begin: '^\\-\\-\\-', end: '$'
-      },
-      {
-        className: 'header',
-        begin: '^\\*{3} ', end: '$'
-      },
-      {
-        className: 'header',
-        begin: '^\\+\\+\\+', end: '$'
-      },
-      {
-        className: 'header',
-        begin: '\\*{5}', end: '\\*{5}$'
+        variants: [
+          {begin: /Index: /, end: /$/},
+          {begin: /=====/, end: /=====$/},
+          {begin: /^\-\-\-/, end: /$/},
+          {begin: /^\*{3} /, end: /$/},
+          {begin: /^\+\+\+/, end: /$/},
+          {begin: /\*{5}/, end: /\*{5}$/}
+        ]
       },
       {
         className: 'addition',

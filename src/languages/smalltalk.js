@@ -14,12 +14,12 @@ function(hljs) {
     begin: '#' + hljs.UNDERSCORE_IDENT_RE
   };
   return {
+    aliases: ['st'],
     keywords: 'self super nil true false thisContext', // only 6
     contains: [
       {
         className: 'comment',
-        begin: '"', end: '"',
-        relevance: 0
+        begin: '"', end: '"'
       },
       hljs.APOS_STRING_MODE,
       {
@@ -29,7 +29,8 @@ function(hljs) {
       },
       {
         className: 'method',
-        begin: VAR_IDENT_RE + ':'
+        begin: VAR_IDENT_RE + ':',
+        relevance: 0
       },
       hljs.C_NUMBER_MODE,
       SYMBOL,
@@ -39,7 +40,10 @@ function(hljs) {
         // This looks more complicated than needed to avoid combinatorial
         // explosion under V8. It effectively means `| var1 var2 ... |` with
         // whitespace adjacent to `|` being optional.
-        begin: '\\|\\s*' + VAR_IDENT_RE + '(\\s+' + VAR_IDENT_RE + ')*\\s*\\|'
+        begin: '\\|[ ]*' + VAR_IDENT_RE + '([ ]+' + VAR_IDENT_RE + ')*[ ]*\\|',
+        returnBegin: true, end: /\|/,
+        illegal: /\S/,
+        contains: [{begin: '(\\|[ ]*)?' + VAR_IDENT_RE}]
       },
       {
         className: 'array',

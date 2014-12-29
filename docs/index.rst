@@ -14,9 +14,17 @@ Contents:
    api
    language-guide
    reference
+   css-classes-reference
    style-guide
-   contribution
    building-testing
+
+Contribution:
+
+.. toctree::
+   :maxdepth: 1
+
+   language-contribution
+   style-contribution
 
 Miscellaneous:
 
@@ -24,6 +32,7 @@ Miscellaneous:
    :maxdepth: 1
 
    line-numbers
+   language-requests
 
 Links:
 

@@ -2,47 +2,60 @@
 Language: Bash
 Author: vah <vahtenberg@gmail.com>
 Contributrors: Benjamin Pannell <contact@sierrasoftworks.com>
+Category: common
 */
 
 function(hljs) {
-  var VAR1 = {
-    className: 'variable', begin: /\$[\w\d#@][\w\d_]*/
-  };
-  var VAR2 = {
-    className: 'variable', begin: /\$\{(.*?)\}/
+  var VAR = {
+    className: 'variable',
+    variants: [
+      {begin: /\$[\w\d#@][\w\d_]*/},
+      {begin: /\$\{(.*?)}/}
+    ]
   };
   var QUOTE_STRING = {
     className: 'string',
     begin: /"/, end: /"/,
     contains: [
       hljs.BACKSLASH_ESCAPE,
-      VAR1,
-      VAR2,
+      VAR,
       {
         className: 'variable',
         begin: /\$\(/, end: /\)/,
-        contains: hljs.BACKSLASH_ESCAPE
+        contains: [hljs.BACKSLASH_ESCAPE]
       }
-    ],
-    relevance: 0
+    ]
   };
   var APOS_STRING = {
     className: 'string',
-    begin: /'/, end: /'/,
-    relevance: 0
+    begin: /'/, end: /'/
   };
 
   return {
-    lexems: /-?[a-z]+/,
+    aliases: ['sh', 'zsh'],
+    lexemes: /-?[a-z\.]+/,
     keywords: {
       keyword:
-        'if then else elif fi for break continue while in do done exit return set '+
-        'declare case esac export exec',
+        'if then else elif fi for while in do done case esac function',
       literal:
         'true false',
       built_in:
-        'printf echo read cd pwd pushd popd dirs let eval unset typeset readonly '+
-        'getopts source shopt caller type hash bind help sudo',
+        // Shell built-ins
+        // http://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html
+        'break cd continue eval exec exit export getopts hash pwd readonly return shift test times ' +
+        'trap umask unset ' +
+        // Bash built-ins
+        'alias bind builtin caller command declare echo enable help let local logout mapfile printf ' +
+        'read readarray source type typeset ulimit unalias ' +
+        // Shell modifiers
+        'set shopt ' +
+        // Zsh built-ins
+        'autoload bg bindkey bye cap chdir clone comparguments compcall compctl compdescribe compfiles ' +
+        'compgroups compquote comptags comptry compvalues dirs disable disown echotc echoti emulate ' +
+        'fc fg float functions getcap getln history integer jobs kill limit log noglob popd print ' +
+        'pushd pushln rehash sched setcap setopt stat suspend ttyctl unfunction unhash unlimit ' +
+        'unsetopt vared wait whence where which zcompile zformat zftp zle zmodload zparseopts zprof ' +
+        'zpty zregexparse zsocket zstyle ztcp',
       operator:
         '-ne -eq -lt -gt -f -d -e -s -l -a' // relevance booster
     },
@@ -56,15 +69,14 @@ function(hljs) {
         className: 'function',
         begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
         returnBegin: true,
-        contains: [{className: 'title', begin: /\w[\w\d_]*/}],
+        contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w\d_]*/})],
         relevance: 0
       },
       hljs.HASH_COMMENT_MODE,
       hljs.NUMBER_MODE,
       QUOTE_STRING,
       APOS_STRING,
-      VAR1,
-      VAR2
+      VAR
     ]
   };
 }

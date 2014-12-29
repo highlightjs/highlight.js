@@ -1,11 +1,23 @@
 /*
 Language: F#
 Author: Jonas Follesø <jonas@follesoe.no>
-Description: F# language definition.
+Contributors: Troy Kershaw <hello@troykershaw.com>, Henrik Feldt <henrik@haf.se>
+Category: functional
 */
 function(hljs) {
+  var TYPEPARAM = {
+    begin: '<', end: '>',
+    contains: [
+      hljs.inherit(hljs.TITLE_MODE, {begin: /'[a-zA-Z0-9_]+/})
+    ]
+  };
+
   return {
+    aliases: ['fs'],
     keywords:
+      // monad builder keywords (at top, matches before non-bang kws)
+      'yield! return! let! do!' +
+      // regular keywords
       'abstract and as assert base begin class default delegate do done ' +
       'downcast downto elif else end exception extern false finally for ' +
       'fun function global if in inherit inline interface internal lazy let ' +
@@ -13,7 +25,6 @@ function(hljs) {
       'override private public rec return sig static struct then to ' +
       'true try type upcast use val void when while with yield',
     contains: [
-
       {
         className: 'string',
         begin: '@"', end: '"',
@@ -25,32 +36,29 @@ function(hljs) {
       },
       {
         className: 'comment',
-        begin: '//', end: '$', returnBegin: true
-      },
-      {
-        className: 'comment',
         begin: '\\(\\*', end: '\\*\\)'
       },
       {
         className: 'class',
-        beginWithKeyword: true, end: '\\(|=|$',
-        keywords: 'type',
+        beginKeywords: 'type', end: '\\(|=|$', excludeEnd: true,
         contains: [
-          {
-            className: 'title',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          }
+          hljs.UNDERSCORE_TITLE_MODE,
+          TYPEPARAM
         ]
       },
       {
         className: 'annotation',
-        begin: '\\[<', end: '>\\]'
+        begin: '\\[<', end: '>\\]',
+        relevance: 10
+      },
+      {
+        className: 'attribute',
+        begin: '\\B(\'[A-Za-z])\\b',
+        contains: [hljs.BACKSLASH_ESCAPE]
       },
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       hljs.C_NUMBER_MODE
     ]
-  }
+  };
 }

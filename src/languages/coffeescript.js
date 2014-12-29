@@ -3,6 +3,7 @@ Language: CoffeeScript
 Author: Dmytrii Nagirniak <dnagir@gmail.com>
 Contributors: Oleg Efimov <efimovov@gmail.com>, Cédric Néhémie <cedric.nehemie@gmail.com>
 Description: CoffeeScript is a programming language that transcompiles to JavaScript. For info about language see http://coffeescript.org/
+Category: common, scripting
 */
 
 function(hljs) {
@@ -22,57 +23,56 @@ function(hljs) {
       'case default function var void with const let enum export import native ' +
       '__hasProp __extends __slice __bind __indexOf',
     built_in:
-      'npm require console print module exports global window document'
+      'npm require console print module global window document'
   };
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
-  var TITLE = {className: 'title', begin: JS_IDENT_RE};
   var SUBST = {
     className: 'subst',
-    begin: '#\\{', end: '}',
-    keywords: KEYWORDS,
+    begin: /#\{/, end: /}/,
+    keywords: KEYWORDS
   };
   var EXPRESSIONS = [
-    // Numbers
     hljs.BINARY_NUMBER_MODE,
     hljs.inherit(hljs.C_NUMBER_MODE, {starts: {end: '(\\s*/)?', relevance: 0}}), // a number tries to eat the following slash to prevent treating it as a regexp
-    // Strings
     {
       className: 'string',
-      begin: '\'\'\'', end: '\'\'\'',
-      contains: [hljs.BACKSLASH_ESCAPE]
-    },
-    {
-      className: 'string',
-      begin: '\'', end: '\'',
-      contains: [hljs.BACKSLASH_ESCAPE],
-      relevance: 0
-    },
-    {
-      className: 'string',
-      begin: '"""', end: '"""',
-      contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-    },
-    {
-      className: 'string',
-      begin: '"', end: '"',
-      contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-      relevance: 0
-    },
-    // RegExps
-    {
-      className: 'regexp',
-      begin: '///', end: '///',
-      contains: [hljs.HASH_COMMENT_MODE]
-    },
-    {
-      className: 'regexp', begin: '//[gim]*',
-      relevance: 0
+      variants: [
+        {
+          begin: /'''/, end: /'''/,
+          contains: [hljs.BACKSLASH_ESCAPE]
+        },
+        {
+          begin: /'/, end: /'/,
+          contains: [hljs.BACKSLASH_ESCAPE]
+        },
+        {
+          begin: /"""/, end: /"""/,
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        },
+        {
+          begin: /"/, end: /"/,
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        }
+      ]
     },
     {
       className: 'regexp',
-      begin: '/\\S(\\\\.|[^\\n])*?/[gim]*(?=\\s|\\W|$)' // \S is required to parse x / 2 / 3 as two divisions
+      variants: [
+        {
+          begin: '///', end: '///',
+          contains: [SUBST, hljs.HASH_COMMENT_MODE]
+        },
+        {
+          begin: '//[gim]*',
+          relevance: 0
+        },
+        {
+          // regex can't start with space to parse x / 2 / 3 as two divisions
+          // regex can't start with *, and it supports an "illegal" in the main mode
+          begin: /\/(?![ *])(\\\/|.)*?\/[gim]*(?=\W|$)/
+        }
+      ]
     },
-
     {
       className: 'property',
       begin: '@' + JS_IDENT_RE
@@ -85,43 +85,60 @@ function(hljs) {
   ];
   SUBST.contains = EXPRESSIONS;
 
+  var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: JS_IDENT_RE});
+  var PARAMS_RE = '(\\(.*\\))?\\s*\\B[-=]>';
+  var PARAMS = {
+    className: 'params',
+    begin: '\\([^\\(]', returnBegin: true,
+    /* We need another contained nameless mode to not have every nested
+    pair of parens to be called "params" */
+    contains: [{
+      begin: /\(/, end: /\)/,
+      keywords: KEYWORDS,
+      contains: ['self'].concat(EXPRESSIONS)
+    }]
+  };
+
   return {
+    aliases: ['coffee', 'cson', 'iced'],
     keywords: KEYWORDS,
+    illegal: /\/\*/,
     contains: EXPRESSIONS.concat([
       {
         className: 'comment',
-        begin: '###', end: '###'
+        begin: '###', end: '###',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       hljs.HASH_COMMENT_MODE,
       {
         className: 'function',
-        begin: '(' + JS_IDENT_RE + '\\s*=\\s*)?(\\(.*\\))?\\s*[-=]>', end: '[-=]>',
+        begin: '^\\s*' + JS_IDENT_RE + '\\s*=\\s*' + PARAMS_RE, end: '[-=]>',
         returnBegin: true,
+        contains: [TITLE, PARAMS]
+      },
+      {
+        // anonymous function start
+        begin: /[:\(,=]\s*/,
+        relevance: 0,
         contains: [
-          TITLE,
           {
-            className: 'params',
-            begin: '\\(', returnBegin: true,
-            /* We need another contained nameless mode to not have every nested
-            pair of parens to be called "params" */
-            contains: [{
-              begin: /\(/, end: /\)/,
-              keywords: KEYWORDS,
-              contains: ['self'].concat(EXPRESSIONS)
-            }]
+            className: 'function',
+            begin: PARAMS_RE, end: '[-=]>',
+            returnBegin: true,
+            contains: [PARAMS]
           }
         ]
       },
       {
         className: 'class',
-        beginWithKeyword: true, keywords: 'class',
+        beginKeywords: 'class',
         end: '$',
-        illegal: '[:\\[\\]]',
+        illegal: /[:="\[\]]/,
         contains: [
           {
-            beginWithKeyword: true, keywords: 'extends',
+            beginKeywords: 'extends',
             endsWithParent: true,
-            illegal: ':',
+            illegal: /[:="\[\]]/,
             contains: [TITLE]
           },
           TITLE
@@ -130,7 +147,8 @@ function(hljs) {
       {
         className: 'attribute',
         begin: JS_IDENT_RE + ':', end: ':',
-        returnBegin: true, excludeEnd: true
+        returnBegin: true, returnEnd: true,
+        relevance: 0
       }
     ])
   };
