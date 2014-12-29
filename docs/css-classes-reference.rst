@@ -265,8 +265,8 @@ Markdown ("markdown", "md", "mkdown", "mkd")
 * ``link_url``:          link url
 * ``link_reference``:    link reference
 
-AsciiDoc ("asciidoc", "adoc", "asc")
-------------------------------------
+AsciiDoc ("asciidoc", "adoc")
+-----------------------------
 
 * ``header``:            heading
 * ``bullet``:            list or labeled bullet

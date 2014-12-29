@@ -7,7 +7,7 @@ Description: A semantic, text-based document format that can be exported to HTML
 */
 function(hljs) {
   return {
-    aliases: ['adoc', 'asc'],
+    aliases: ['adoc'],
     contains: [
       // block comment
       {
