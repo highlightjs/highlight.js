@@ -162,6 +162,7 @@ New styles:
 - *Color brewer* by [Fabrício Tavares de Oliveira][]
 - *Codepen.io embed* by [Justin Perry][]
 - *Hybrid* by [Nic West][]
+- *Darkula* by [Jet Brains][]
 
 [Sam Pikesley]: https://github.com/pikesley
 [Sindre Sorhus]: https://github.com/sindresorhus
@@ -182,6 +183,7 @@ New styles:
 [Nic West]: https://github.com/nicwest
 [Chris Eidhof]: https://github.com/chriseidhof
 [Nate Cook]: https://github.com/natecook1000
+[Jet Brains]: https://www.jetbrains.com/
 
 Other improvements:
 
