@@ -153,3 +153,4 @@ Contributors:
 - Brian Quistorff <bquistorff@gmail.com>
 - Jonathan Suever <suever@gmail.com>
 - Alexis Hénaut <alexis@henaut.net>
+- Chris Kiehl <audionautic@gmail.com>
