@@ -113,7 +113,7 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'class',
-        begin: '(' + hljs.IDENT_RE + ')*\\s*(class|interface|struct)', end: /[{;=]/,
+        begin: '(' + hljs.IDENT_RE + '\\s+)?(class|interface|struct)', end: /[{;=]/,
         excludeEnd: true,
         keywords: KEYWORDS + ' class interface struct',
         illegal: /[^\s:,]/,
@@ -165,7 +165,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + QUALIFIED_IDENT_RE + '\\s+)+' + GENERIC_IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
+        begin: '(' + QUALIFIED_IDENT_RE + '\\s+)?' + GENERIC_IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
         excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
@@ -192,7 +192,7 @@ function(hljs) {
         ]
       },
       {
-        begin: '(' + QUALIFIED_IDENT_RE + '\\s+)+' + GENERIC_IDENT_RE + '\\s*(\\[[^\\]]+\\])?\\s*{',
+        begin: '(' + QUALIFIED_IDENT_RE + '\\s+)?' + GENERIC_IDENT_RE + '\\s*(\\[[^\\]]+\\])?\\s*{',
         returnBegin: true,
         keywords: KEYWORDS,
         contains: [
