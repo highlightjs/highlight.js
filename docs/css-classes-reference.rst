@@ -1338,3 +1338,14 @@ Dockerfile ("dockerfile", "docker")
 * ``comment``:          comment
 * ``number``:           number
 * ``string``:           string
+
+PF ("pf", "pf.conf")
+--------------------
+
+* ``built_in``:         top level action, e.g. block/match/pass
+* ``keyword``:          some parameter/modifier to an action (in, on, nat-to, most reserved words)
+* ``literal``:          words representing special values, e.g. all, egress
+* ``comment``:          comment
+* ``number``:           number
+* ``string``:           string
+* ``variable``:         used for both macros and tables
