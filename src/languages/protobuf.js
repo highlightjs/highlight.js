@@ -2,6 +2,7 @@
 Language: Protocol Buffers
 Author: Dan Tao <daniel.tao@gmail.com>
 Description: Protocol buffer message definition format
+Category: protocols
 */
 
 function(hljs) {

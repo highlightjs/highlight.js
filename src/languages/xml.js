@@ -1,5 +1,6 @@
 /*
 Language: HTML, XML
+Category: common
 */
 
 function(hljs) {
@@ -82,10 +83,6 @@ function(hljs) {
           end: '</script>', returnEnd: true,
           subLanguage: 'javascript'
         }
-      },
-      {
-        begin: '<%', end: '%>',
-        subLanguage: 'vbscript'
       },
       PHP,
       {

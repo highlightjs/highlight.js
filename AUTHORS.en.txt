@@ -1,4 +1,4 @@
-﻿Syntax highlighting with language autodetection.
+Syntax highlighting with language autodetection.
 
 URL:   https://highlightjs.org/
 
@@ -133,4 +133,26 @@ Contributors:
 - Max Mikhailov <seven.phases.max@gmail.com>
 - Bryant Williams <b.n.williams@gmail.com>
 - Erik Paluka <erik.paluka@gmail.com>
+- Luke Holder <lukemh@gmail.com>
+- David Mohundro <david@mohundro.com>
+- Nicholas Blumhardt <nblumhardt@nblumhardt.com>
+- Christophe de Dinechin <christophe@taodyne.com>
+- Taneli Vatanen <taneli.vatanen@gmail.com>
+- Jen Evers-Corvina <jen@sevvie.net>
+- Kassio Borges <kassioborgesm@gmail.com>
+- Cedric Sohrauer <sohrauer@googlemail.com>
+- Mickaël Delahaye <mickael.delahaye@gmail.com>
+- Hakan Özler <ozler.hakan@gmail.com>
+- Trey Shugart <treshugart@gmail.com>
+- Vincent Zurczak <vzurczak@linagora.com>
+- Adam Joseph Cook <adam.joseph.cook@gmail.com>
+- Edwin Dalorzo <edwin@dalorzo.org>
+- mucaho <mkucko@gmail.com>
+- Dennis Titze <dennis.titze@gmail.com>
+- Jon Evans <jon@craftyjon.com>
+- Brian Quistorff <bquistorff@gmail.com>
+- Jonathan Suever <suever@gmail.com>
+- Alexis Hénaut <alexis@henaut.net>
+- Chris Kiehl <audionautic@gmail.com>
+- Peter Piwowarski <oldlaptop654@aol.com>
 - Kenta Sato <bicycle1885@gmail.com>

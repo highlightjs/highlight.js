@@ -7,6 +7,7 @@ Description: A semantic, text-based document format that can be exported to HTML
 */
 function(hljs) {
   return {
+    aliases: ['adoc'],
     contains: [
       // block comment
       {
@@ -136,17 +137,13 @@ function(hljs) {
         end: '(\\n{2}|_)',
         relevance: 0
       },
-      // inline double smart quotes
+      // inline smart quotes
       {
         className: 'smartquote',
-        begin: "``.+?''",
-        relevance: 10
-      },
-      // inline single smart quotes
-      {
-        className: 'smartquote',
-        begin: "`.+?'",
-        relevance: 10
+        variants: [
+          {begin: "``.+?''"},
+          {begin: "`.+?'"}
+        ]
       },
       // inline code snippets (TODO should get same treatment as strong and emphasis)
       {

@@ -1,11 +1,12 @@
 /*
 Language: Less
 Author:   Max Mikhailov <seven.phases.max@gmail.com>
+Category: css
 */
 
 function(hljs) {
   var IDENT_RE        = '[\\w-]+'; // yes, Less identifiers may begin with a digit
-  var INTERP_IDENT_RE = '(' + IDENT_RE + '|@{' + IDENT_RE + '})+';
+  var INTERP_IDENT_RE = '(' + IDENT_RE + '|@{' + IDENT_RE + '})';
 
   /* Generic Modes */
 
@@ -54,7 +55,7 @@ function(hljs) {
   );
 
   var VALUE_WITH_RULESETS = VALUE.concat({
-    begin: '{', end: '}', contains: RULES,
+    begin: '{', end: '}', contains: RULES
   });
 
   var MIXIN_GUARD_MODE = {
@@ -65,7 +66,10 @@ function(hljs) {
   /* Rule-Level Modes */
 
   var RULE_MODE = {
-    className: 'attribute', begin: INTERP_IDENT_RE, relevance: 0,
+    className: 'attribute',
+    begin: INTERP_IDENT_RE, end: ':', excludeEnd: true,
+    contains: [hljs.C_LINE_COMMENT_MODE, hljs.C_BLOCK_COMMENT_MODE],
+    illegal: /\S/,
     starts: {end: '[;}]', returnEnd: true, contains: VALUE, illegal: '[<=$]'}
   };
 
@@ -96,13 +100,7 @@ function(hljs) {
     variants: [{
       begin: '[\\.#:&\\[]', end: '[;{}]'  // mixin calls end with ';'
       }, {
-      begin: '(?=' + INTERP_IDENT_RE + ')(' + [
-          '//.*',                         // line comment
-          '/\\*(?:[^*]|\\*+[^*/])*\\*+/', // block comment
-          '\\[[^\\]]*\\]',                // attribute selector (it may contain strings we need to skip too)
-          '@{.*?}',                       // variable interpolation
-          '[^;}\'"`]',                    // non-selector terminals
-        ].join('|') + ')*?[^@\'"`]{',     // at last
+      begin: INTERP_IDENT_RE + '[^;]*{',
       end: '{'
     }],
     returnBegin: true,

@@ -1,6 +1,7 @@
 /*
  Language: Erlang REPL
  Author: Sergey Ignatov <sergey@ignatov.spb.su>
+Category: functional
  */
 
 function(hljs) {

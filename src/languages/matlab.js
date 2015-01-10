@@ -2,6 +2,7 @@
 Language: Matlab
 Author: Denis Bardadym <bardadymchik@gmail.com>
 Contributors: Eugene Nizhibitsky <nizhibitsky@ya.ru>
+Category: scientific
 */
 
 function(hljs) {
@@ -78,10 +79,9 @@ function(hljs) {
       },
       {
         className: 'cell',
-        begin: '\\{', end: /\}/,
+        begin: '\\{', end: /}/,
         contains: COMMON_CONTAINS,
         relevance: 0,
-        illegal: /:/,
         starts: TRANSPOSE
       },
       {
@@ -89,6 +89,11 @@ function(hljs) {
         begin: /\)/,
         relevance: 0,
         starts: TRANSPOSE
+      },
+      {
+        // Block comment
+        className: 'comment',
+        begin: '^\\s*\\%\\{\\s*$', end: '^\\s*\\%\\}\\s*$'
       },
       {
         className: 'comment',

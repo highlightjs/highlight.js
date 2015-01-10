@@ -54,7 +54,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-output .hljs-value,
 .hljs-pi,
 .hljs-shebang,
-.hljs-template_comment,
 .hljs-doctype {
   color: #707880;
 }

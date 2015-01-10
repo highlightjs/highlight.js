@@ -2,6 +2,7 @@
 Language: F#
 Author: Jonas Follesø <jonas@follesoe.no>
 Contributors: Troy Kershaw <hello@troykershaw.com>, Henrik Feldt <henrik@haf.se>
+Category: functional
 */
 function(hljs) {
   var TYPEPARAM = {

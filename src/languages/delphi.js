@@ -14,7 +14,7 @@ function(hljs) {
   var COMMENT =  {
     className: 'comment',
     variants: [
-      {begin: /\{/, end: /\}/, relevance: 0},
+      {begin: /\{/, end: /}/, relevance: 0},
       {begin: /\(\*/, end: /\*\)/, relevance: 10}
     ]
   };
@@ -50,7 +50,7 @@ function(hljs) {
   return {
     case_insensitive: true,
     keywords: KEYWORDS,
-    illegal: /("|\$[G-Zg-z]|\/\*|<\/)/,
+    illegal: /"|\$[G-Zg-z]|\/\*|<\/|\|/,
     contains: [
       COMMENT, hljs.C_LINE_COMMENT_MODE,
       STRING, CHAR_STRING,

@@ -1,6 +1,7 @@
 /*
 Language: Mathematica
 Author: Daniel Kvasnicka <dkvasnicka@vendavo.com>
+Category: scientific
 */
 
 function(hljs) {

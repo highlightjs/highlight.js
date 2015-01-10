@@ -1,20 +1,109 @@
-## master
+# Master
+
+New Styles:
+
+- *Darkula* by [Jet Brains][]
+- *pf.conf* by [Peter Piwowarski][]
+- *Julia* by [Kenta Sato][]
+
+[Jet Brains]: https://www.jetbrains.com/
+[Peter Piwowarski]: https://github.com/oldlaptop
+[Kenta Sato]: https://github.com/bicycle1885
+
+
+## Version 8.4
+
+We've got the new [demo page][]! The obvious new feature is the new look, but
+apart from that it's got smarter: by presenting languages in groups it avoids
+running 10000 highlighting attempts after first load which was slowing it down
+and giving bad overall impression. It is now also being generated from test
+code snippets so the authors of new languages don't have to update both tests
+and the demo page with the same thing.
+
+Other notable changes:
+
+- The `template_comment` class is gone in favor of the more general `comment`.
+- Number parsing unified and improved across languages.
+- C++, Java and C# now use unified grammar to highlight titles in
+  function/method definitions.
+- The browser build is now usable as an AMD module, there's no separate build
+  target for that anymore.
+- OCaml has got a [comprehensive overhaul][ocaml] by [Mickaël Delahaye][].
+- Clojure's data structures and literals are now highlighted outside of lists
+  and we can now highlight Clojure's REPL sessions.
 
 New languages:
+
+- *AspectJ* by [Hakan Özler][]
+- *STEP Part 21* by [Adam Joseph Cook][]
+- *SML* derived by [Edwin Dalorzo][] from OCaml definition
+- *Mercury* by [mucaho][]
+- *Smali* by [Dennis Titze][]
+- *Verilog* by [Jon Evans][]
+- *Stata* by [Brian Quistorff][]
+
+[Hakan Özler]: https://github.com/ozlerhakan
+[Adam Joseph Cook]: https://github.com/adamjcook
+[demo page]: https://highlightjs.org/static/demo/
+[Ivan Sagalaev]: https://github.com/isagalaev
+[Edwin Dalorzo]: https://github.com/edalorzo
+[mucaho]: https://github.com/mucaho
+[Dennis Titze]: https://github.com/titze
+[Jon Evans]: https://github.com/craftyjon
+[Brian Quistorff]: https://github.com/bquistorff
+[ocaml]: https://github.com/isagalaev/highlight.js/pull/608#issue-46190207
+[Mickaël Delahaye]: https://github.com/polazarus
+
+
+## Version 8.3
+
+We streamlined our tool chain, it is now based entirely on node.js instead of
+being a mix of node.js, Python and Java. The build script options and arguments
+remained the same, and we've noted all the changes in the [documentation][b].
+Apart from reducing complexity, the new build script is also faster from not
+having to start Java machine repeatedly. The credits for the work go to [Jeremy
+Hull][].
+
+Some notable fixes:
+
+- PHP and JavaScript mixed in HTML now live happily with each other.
+- JavaScript regexes now understand ES6 flags "u" and "y".
+- `throw` keyword is no longer detected as a method name in Java.
+- Fixed parsing of numbers and symbols in Clojure thanks to [input from Ivan
+  Kleshnin][ik].
+
+New languages in this release:
 
 - *Less* by [Max Mikhailov][]
 - *Stylus* by [Bryant Williams][]
 - *Tcl* by [Radek Liska][]
 - *Puppet* by [Jose Molina Colmenero][]
 - *Processing* by [Erik Paluka][]
-- *Julia* by [Kenta Sato][]
+- *Twig* templates by [Luke Holder][]
+- *PowerShell* by [David Mohundro][], based on [the work of Nicholas
+  Blumhardt][ps]
+- *XL* by [Christophe de Dinechin][]
+- *LiveScript* by [Taneli Vatanen][] and [Jen Evers-Corvina][]
+- *ERB* (Ruby in HTML) by [Lucas Mazza][]
+- *Roboconf* by [Vincent Zurczak][]
 
+[b]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
+[Jeremy Hull]: https://github.com/sourrust
+[ik]: https://twitter.com/IvanKleshnin/status/514041599484231680
 [Max Mikhailov]: https://github.com/seven-phases-max
 [Bryant Williams]: https://github.com/scien
 [Radek Liska]: https://github.com/Nindaleth
 [Jose Molina Colmenero]: https://github.com/Moliholy
 [Erik Paluka]: https://github.com/paluka
-[Kenta Sato]: https://github.com/bicycle1885
+[Luke Holder]: https://github.com/lukeholder
+[David Mohundro]: https://github.com/drmohundro
+[ps]: https://github.com/OctopusDeploy/Library/blob/master/app/shared/presentation/highlighting/powershell.js
+[Christophe de Dinechin]: https://github.com/c3d
+[Taneli Vatanen]: https://github.com/Daiz-
+[Jen Evers-Corvina]: https://github.com/sevvie
+[Lucas Mazza]: https://github.com/lucasmazza
+[Vincent Zurczak]: https://github.com/vincent-zurczak
+
 
 ## Version 8.2
 
@@ -141,6 +230,7 @@ Other improvements:
 [Jeremy Hull]: https://github.com/sourrust
 [Matt Diephouse]: https://github.com/mdiep
 
+
 ## Version 8.0
 
 This new major release is quite a big overhaul bringing both new features and
@@ -219,6 +309,8 @@ Miscellaneous improvements:
 - Objective C and C# now properly highlight titles in method definition.
 - Big overhaul of relevance counting for a number of languages. Please do report
   bugs about mis-detection of non-trivial code snippets!
+
+[API reference]: http://highlightjs.readthedocs.org/en/latest/api.html
 
 [cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 [api docs]: http://highlightjs.readthedocs.org/en/latest/api.html

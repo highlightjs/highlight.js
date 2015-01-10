@@ -11,8 +11,8 @@ function(hljs) {
     aliases: ['hx'],
     keywords: {
       keyword: 'break callback case cast catch class continue default do dynamic else enum extends extern ' +
-		'for function here if implements import in inline interface never new override package private ' + 
-		'public return static super switch this throw trace try typedef untyped using var while',
+    'for function here if implements import in inline interface never new override package private ' +
+    'public return static super switch this throw trace try typedef untyped using var while',
       literal: 'true false null'
     },
     contains: [

@@ -1,6 +1,7 @@
 /*
 Language: SCSS
 Author: Kurt Emch <kurt@kurtemch.com>
+Category: css
 */
 function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
@@ -10,7 +11,7 @@ function(hljs) {
   };
   var FUNCTION = {
     className: 'function',
-    begin: IDENT_RE + '\\(', 
+    begin: IDENT_RE + '\\(',
     returnBegin: true,
     excludeEnd: true,
     end: '\\('

@@ -2,6 +2,7 @@
 Language: RenderMan RIB
 Author: Konstantin Evdokimenko <qewerty@gmail.com>
 Contributors: Shuen-Huei Guan <drake.guan@gmail.com>
+Category: graphics
 */
 
 function(hljs) {

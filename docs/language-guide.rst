@@ -242,4 +242,4 @@ at the end under "Common regexps" and "Common modes" titles. Use them when possi
 Contributing
 ------------
 
-Follow the :doc:`contributor checklist </contribution>`.
+Follow the :doc:`contributor checklist </language-contribution>`.

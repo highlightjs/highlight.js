@@ -2,6 +2,7 @@
 Language: PHP
 Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Ivan Sagalaev <maniac@softwaremaniacs.org>
+Category: common
 */
 
 function(hljs) {

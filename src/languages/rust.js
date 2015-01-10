@@ -2,9 +2,12 @@
 Language: Rust
 Author: Andrey Vlasovskikh <andrey.vlasovskikh@gmail.com>
 Contributors: Roman Shmatov <romanshmatov@gmail.com>
+Category: system
 */
 
 function(hljs) {
+  var BLOCK_COMMENT = hljs.inherit(hljs.C_BLOCK_COMMENT_MODE);
+  BLOCK_COMMENT.contains.push('self');
   return {
     aliases: ['rs'],
     keywords: {
@@ -19,7 +22,7 @@ function(hljs) {
         'str char bool',
       built_in:
         'assert! assert_eq! bitflags! bytes! cfg! col! concat! concat_idents! ' +
-        'debug_assert! debug_assert_eq! env! fail! file! format! format_args! ' +
+        'debug_assert! debug_assert_eq! env! panic! file! format! format_args! ' +
         'include_bin! include_str! line! local_data_key! module_path! ' +
         'option_env! print! println! select! stringify! try! unimplemented! ' +
         'unreachable! vec! write! writeln!'
@@ -28,7 +31,7 @@ function(hljs) {
     illegal: '</',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
+      BLOCK_COMMENT,
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       {
         className: 'string',
@@ -43,7 +46,7 @@ function(hljs) {
       },
       {
         className: 'number',
-        begin: '\\b(0[xb][A-Za-z0-9_]+|[0-9_]+(\\.[0-9_]+)?([uif](8|16|32|64)?)?)',
+        begin: /\b(0[xb][A-Za-z0-9_]+|[0-9_]+(\.[0-9_]+)?([eE][+-]?[0-9_]+)?)([uif](8|16|32|64)?)?/,
         relevance: 0
       },
       {
@@ -53,7 +56,7 @@ function(hljs) {
       },
       {
         className: 'preprocessor',
-        begin: '#\\[', end: '\\]'
+        begin: '#\\!?\\[', end: '\\]'
       },
       {
         beginKeywords: 'type', end: '(=|<)',

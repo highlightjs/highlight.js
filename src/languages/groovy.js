@@ -24,9 +24,10 @@ function(hljs) {
             {
                 className: 'javadoc',
                 begin: '/\\*\\*', end: '\\*//*',
+                relevance: 0,
                 contains: [
                     {
-                        className: 'javadoctag', begin: '@[A-Za-z]+'
+                        className: 'javadoctag', begin: '(^|\\s)@[A-Za-z]+'
                     }
                 ]
             },
@@ -83,7 +84,8 @@ function(hljs) {
             },
             {
                 // highlight labeled statements
-                className: 'label', begin: '^\\s*[A-Za-z0-9_$]+:'
+                className: 'label', begin: '^\\s*[A-Za-z0-9_$]+:',
+                relevance: 0
             },
         ]
     }

@@ -2,6 +2,7 @@
 Language: 1C
 Author: Yuri Ivanov <ivanov@supersoft.ru>
 Contributors: Sergey Baranov <segyrn@yandex.ru>
+Category: enterprise
 */
 
 function(hljs){

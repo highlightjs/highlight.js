@@ -1,12 +1,13 @@
 /*
 Language: CSS
+Category: common, css
 */
 
 function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   var FUNCTION = {
     className: 'function',
-    begin: IDENT_RE + '\\(', 
+    begin: IDENT_RE + '\\(',
     returnBegin: true,
     excludeEnd: true,
     end: '\\('

@@ -2,6 +2,7 @@
 Language: Thrift
 Author: Oleg Efimov <efimovov@gmail.com>
 Description: Thrift message definition format
+Category: protocols
 */
 
 function(hljs) {
@@ -31,7 +32,6 @@ function(hljs) {
         ]
       },
       {
-        className: 'stl_container',
         begin: '\\b(set|list|map)\\s*<', end: '>',
         keywords: BUILT_IN_TYPES,
         contains: ['self']

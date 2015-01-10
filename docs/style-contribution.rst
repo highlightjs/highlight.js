@@ -22,10 +22,10 @@ Add some information about style to file header. There may be style name, origin
   */
 
 
-3. Add it to test page
-----------------------
+3. Add it to the demo page
+--------------------------
 
-Add your style to the top of src/test.html page, as for other styles.
+Add your style at the top of src/demo/index.html page after the other styles.
 
 
 4. Add yourself to AUTHORS.*.txt and CHANGES.md

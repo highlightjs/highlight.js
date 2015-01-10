@@ -14,8 +14,8 @@ function(hljs) {
       'bw nbw ew new cn ncn lt lte gt gte eq neq rx nrx ft',
     built_in:
       'array date decimal duration integer map pair string tag xml null ' +
-      'bytes list queue set stack staticarray tie local var variable ' +
-      'global data self inherited',
+      'boolean bytes keyword list locale queue set stack staticarray ' +
+      'local var variable global data self inherited',
     keyword:
       'error_code error_msg error_pop error_push error_reset cache ' +
       'database_names database_schemanames database_tablenames define_tag ' +
@@ -67,7 +67,7 @@ function(hljs) {
       contains: [hljs.PHRASAL_WORDS_MODE]
     },
     hljs.C_BLOCK_COMMENT_MODE,
-    hljs.inherit(hljs.C_NUMBER_MODE, {begin: hljs.C_NUMBER_RE + '|-?(infinity|nan)\\b'}),
+    hljs.inherit(hljs.C_NUMBER_MODE, {begin: hljs.C_NUMBER_RE + '|(-?infinity|nan)\\b'}),
     hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
     hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
     {
@@ -118,7 +118,7 @@ function(hljs) {
     },
     {
       className: 'built_in',
-      begin: '\\.\\.?',
+      begin: '\\.\\.?\\s*',
       relevance: 0,
       contains: [LASSO_DATAMEMBER]
     },
@@ -165,7 +165,7 @@ function(hljs) {
               relevance: 0,
               starts: {
                 className: 'markup',
-                end: LASSO_ANGLE_RE,
+                end: '\\[noprocess\\]|' + LASSO_ANGLE_RE,
                 returnEnd: true,
                 contains: [HTML_COMMENT]
               }

@@ -1,7 +1,7 @@
 /*
 Language: AppleScript
-Authors: Nathan Grigg <nathan@nathanamy.org>
-         Dr. Drang <drdrang@gmail.com>
+Authors: Nathan Grigg <nathan@nathanamy.org>, Dr. Drang <drdrang@gmail.com>
+Category: scripting
 */
 
 function(hljs) {
@@ -96,6 +96,6 @@ function(hljs) {
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       }
     ].concat(COMMENTS),
-    illegal: '//'
+    illegal: '//|->|=>'
   };
 }

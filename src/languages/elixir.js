@@ -2,6 +2,7 @@
 Language: Elixir
 Author: Josh Adams <josh@isotope11.com>
 Description: language definition for Elixir source code files (.ex and .exs).  Based on ruby language support.
+Category: functional
 */
 
 function(hljs) {
@@ -48,7 +49,7 @@ function(hljs) {
   var CLASS = hljs.inherit(FUNCTION, {
     className: 'class',
     beginKeywords: 'defmodule defrecord', end: /\bdo\b|$|;/
-  })
+  });
   var ELIXIR_DEFAULT_CONTAINS = [
     STRING,
     hljs.HASH_COMMENT_MODE,

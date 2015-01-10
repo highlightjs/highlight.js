@@ -24,6 +24,10 @@ while(max(len) > 2 * min(len))
     points = [ points(1:i, :); [xm, ym]; points(i + 1:end, :)];
 end
 
+%{
+    This is a block comment. Please ignore me.
+%}
+
 function [net] = get_fit_network(inputs, targets)
     % Create Network
     numHiddenNeurons = 20;  % Adjust as desired
@@ -36,3 +40,6 @@ end
 
 foo_matrix = [1, 2, 3; 4, 5, 6]''';
 foo_cell = {1, 2, 3; 4, 5, 6}''.'.';
+
+cell2flatten = {1,2,3,4,5};
+flattenedcell = cat(1, cell2flatten{:});

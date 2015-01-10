@@ -1,10 +1,5 @@
-language: python
-python:
-  - "3.3"
-before_install:
-  - "python tools/build.py -t node"
-  - npm config set python python2.7
-install:
-  - npm install
+language: node_js
+node_js:
+  - "0.10"
 script:
-  - npm test
+  - "node tools/build.js -t node && npm test"

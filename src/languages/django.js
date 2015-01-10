@@ -3,12 +3,13 @@ Language: Django
 Requires: xml.js
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Contributors: Ilya Baryshev <baryshev@gmail.com>
+Category: template
 */
 
 function(hljs) {
   var FILTER = {
     className: 'filter',
-    begin: /\|[A-Za-z]+\:?/,
+    begin: /\|[A-Za-z]+:?/,
     keywords:
       'truncatewords removetags linebreaksbr yesno get_digit timesince random striptags ' +
       'filesizeformat escape linebreaks length_is ljust rjust cut urlize fix_ampersands ' +
@@ -30,11 +31,11 @@ function(hljs) {
     subLanguage: 'xml', subLanguageMode: 'continuous',
     contains: [
       {
-        className: 'template_comment',
+        className: 'comment',
         begin: /\{%\s*comment\s*%}/, end: /\{%\s*endcomment\s*%}/
       },
       {
-        className: 'template_comment',
+        className: 'comment',
         begin: /\{#/, end: /#}/
       },
       {

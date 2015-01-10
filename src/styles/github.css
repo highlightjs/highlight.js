@@ -14,7 +14,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-comment,
-.hljs-template_comment,
 .diff .hljs-header,
 .hljs-javadoc {
   color: #998;
@@ -24,7 +23,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-keyword,
 .css .rule .hljs-keyword,
 .hljs-winutils,
-.javascript .hljs-title,
 .nginx .hljs-title,
 .hljs-subst,
 .hljs-request,
@@ -54,7 +52,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   font-weight: bold;
 }
 
-.javascript .hljs-title,
 .hljs-list .hljs-keyword,
 .hljs-subst {
   font-weight: normal;
