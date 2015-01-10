@@ -155,3 +155,4 @@ Contributors:
 - Alexis Hénaut <alexis@henaut.net>
 - Chris Kiehl <audionautic@gmail.com>
 - Peter Piwowarski <oldlaptop654@aol.com>
+- Kenta Sato <bicycle1885@gmail.com>

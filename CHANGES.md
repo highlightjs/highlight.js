@@ -1,12 +1,17 @@
 # Master
 
+New languages:
+
+- *pf.conf* by [Peter Piwowarski][]
+- *Julia* by [Kenta Sato][]
+
 New Styles:
 
 - *Darkula* by [Jet Brains][]
-- *pf.conf* by [Peter Piwowarski][]
 
 [Jet Brains]: https://www.jetbrains.com/
 [Peter Piwowarski]: https://github.com/oldlaptop
+[Kenta Sato]: https://github.com/bicycle1885
 
 
 ## Version 8.4
@@ -101,6 +106,7 @@ New languages in this release:
 [Jen Evers-Corvina]: https://github.com/sevvie
 [Lucas Mazza]: https://github.com/lucasmazza
 [Vincent Zurczak]: https://github.com/vincent-zurczak
+
 
 ## Version 8.2
 
