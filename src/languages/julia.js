@@ -391,7 +391,6 @@ function(hljs) {
 
   var COMMENT = {
     className: "comment",
-    contains: [hljs.HASH_COMMENT_MODE],
     variants: [
       { begin: "#=", end: "=#", relevance: 10 },
       { begin: '#', end: '$' }
@@ -406,7 +405,8 @@ function(hljs) {
     STRING,
     COMMAND,
     MACROCALL,
-    COMMENT
+    COMMENT,
+    hljs.HASH_COMMENT_MODE
   ];
   INTERPOLATION.contains = DEFAULT.contains;
 
