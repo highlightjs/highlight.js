@@ -21,6 +21,9 @@ function selectCategory(category) {
       div.hide();
     }
   });
+
+  // Scroll to top
+  $('body').scrollTop(0);
 }
 
 function categoryKey(c) {
