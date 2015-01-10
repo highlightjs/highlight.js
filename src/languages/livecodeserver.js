@@ -57,7 +57,7 @@ function(hljs) {
         'div mod wrap and or bitAnd bitNot bitOr bitXor among not in a an within ' +
         'contains ends with begins the keys of keys',
       built_in:
-        'put|10 abs acos aliasReference annuity arrayDecode arrayEncode asin atan atan2 average avg avgDev base64Decode ' +
+        'put abs acos aliasReference annuity arrayDecode arrayEncode asin atan atan2 average avg avgDev base64Decode ' +
         'base64Encode baseConvert binaryDecode binaryEncode byteOffset byteToNum cachedURL cachedURLs charToNum ' +
         'cipherNames codepointOffset codepointProperty codepointToNum codeunitOffset commandNames compound compress ' +
         'constantNames cos date dateFormat decompress directories ' +
@@ -94,7 +94,7 @@ function(hljs) {
         'variance version waitDepth weekdayNames wordOffset xsltApplyStylesheet xsltApplyStylesheetFromFile xsltLoadStylesheet ' +
         'xsltLoadStylesheetFromFile add breakpoint cancel clear local variable file word line folder directory URL close socket process ' +
         'combine constant convert create new alias folder directory decrypt delete variable word line folder ' +
-        'directory URL dispatch divide do encrypt filter get|10 include intersect kill libURLDownloadToFile ' +
+        'directory URL dispatch divide do encrypt filter get include intersect kill libURLDownloadToFile ' +
         'libURLFollowHttpRedirects libURLftpUpload libURLftpUploadFile libURLresetAll libUrlSetAuthCallback ' +
         'libURLSetCustomHTTPHeaders libUrlSetExpect100 libURLSetFTPListCommand libURLSetFTPMode libURLSetFTPStopTime ' +
         'libURLSetStatusCallback load multiply socket prepare process post seek rel relative read from process rename ' +
