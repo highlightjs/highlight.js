@@ -3,8 +3,11 @@
 New Styles:
 
 - *Darkula* by [Jet Brains][]
+- *pf.conf* by [Peter Piwowarski][]
 
 [Jet Brains]: https://www.jetbrains.com/
+[Peter Piwowarski]: https://github.com/oldlaptop
+
 
 ## Version 8.4
 
