@@ -1,10 +1,13 @@
 # Master
 
+New languages:
+
+- *pf.conf* by [Peter Piwowarski][]
+- *Julia* by [Kenta Sato][]
+
 New Styles:
 
 - *Darkula* by [Jet Brains][]
-- *pf.conf* by [Peter Piwowarski][]
-- *Julia* by [Kenta Sato][]
 
 [Jet Brains]: https://www.jetbrains.com/
 [Peter Piwowarski]: https://github.com/oldlaptop
