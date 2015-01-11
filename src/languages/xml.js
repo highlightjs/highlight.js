@@ -81,7 +81,7 @@ function(hljs) {
         contains: [TAG_INTERNALS],
         starts: {
           end: '</script>', returnEnd: true,
-          subLanguage: 'javascript'
+          subLanguage: ''
         }
       },
       PHP,
