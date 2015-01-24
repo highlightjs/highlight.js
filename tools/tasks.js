@@ -75,7 +75,7 @@ tasks.template = function(options, blob, done) {
     template    = hasTemplate ? options[basename] : options.template;
     content     = _.template(template, data);
 
-    newBlob = new blob.constructor(content, blob);
+    newBlob = new gear.Blob(content, blob);
   } else {
     newBlob = blob;
   }
@@ -104,7 +104,7 @@ tasks.rename = function(options, blob, done) {
 
   name = name.replace(ext, options.extname);
 
-  return done(null, new blob.constructor(blob.result, {name: name}));
+  return done(null, new gear.Blob(blob.result, {name: name}));
 };
 
 tasks.buildPackage = function(json, blob, done) {
@@ -128,7 +128,7 @@ tasks.buildPackage = function(json, blob, done) {
   json.contributors = contributors;
   result = JSON.stringify(json, null, '  ');
 
-  return done(null, new blob.constructor(result, blob));
+  return done(null, new gear.Blob(result, blob));
 };
 
 tasks.replaceSkippingStrings = function(params, blob, done) {
@@ -180,7 +180,7 @@ tasks.replaceSkippingStrings = function(params, blob, done) {
     }
   }
 
-  return done(null, new blob.constructor(result.join(''), blob));
+  return done(null, new gear.Blob(result.join(''), blob));
 };
 
 tasks.filter = function(callback, blobs, done) {
@@ -217,11 +217,11 @@ tasks.readSnippet = function(options, blob, done) {
   function onRead(error, blob) {
     if (error !== null) return done(null, null); // ignore missing snippets
     var meta = {name: name + '.js', fileInfo: fileInfo};
-    blob = new blob.constructor(blob.result, meta);
+    blob = new gear.Blob(blob.result, meta);
     return done(error, blob);
   }
 
-  blob.constructor.readFile(snippetName, 'utf8', onRead, false);
+  gear.Blob.readFile(snippetName, 'utf8', onRead, false);
 }
 
 tasks.templateDemo = function(options, blobs, done) {
