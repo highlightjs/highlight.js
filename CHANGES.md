@@ -44,6 +44,7 @@ New languages:
 - *Smali* by [Dennis Titze][]
 - *Verilog* by [Jon Evans][]
 - *Stata* by [Brian Quistorff][]
+- *Golo* by [Philippe Charrière][]
 
 [Hakan Özler]: https://github.com/ozlerhakan
 [Adam Joseph Cook]: https://github.com/adamjcook
@@ -56,6 +57,7 @@ New languages:
 [Brian Quistorff]: https://github.com/bquistorff
 [ocaml]: https://github.com/isagalaev/highlight.js/pull/608#issue-46190207
 [Mickaël Delahaye]: https://github.com/polazarus
+[Philippe Charrière]: https://github.com/k33g
 
 
 ## Version 8.3
