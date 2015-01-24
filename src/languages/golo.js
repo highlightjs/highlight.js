@@ -6,27 +6,25 @@ Category: dynamic language for Java
 */
 
 function(hljs) {
-  var GOLO_KEYWORDS = {
-    keyword:
-      'function module import local return ' + 
-      'while for foreach times in case when match with break continue ' + 
-      'let var println print readln if then else otherwise ' +
-      'try catch finally raise throw orIfNull',
-    literal:
-       'true false null',
-    typename:
-      'DynamicObject DynamicVariable struct Observable augment augmentation',
-  };
-  return {
-    aliases: ["gololang"],
-    keywords: GOLO_KEYWORDS,
-    contains: [
-      hljs.HASH_COMMENT_MODE,
-      hljs.QUOTE_STRING_MODE,
-      hljs.C_NUMBER_MODE,
-      {
-        className: 'annotation', begin: '@[A-Za-z]+'
-      }
-    ]
-  };
+    return {
+      keywords: {
+          literal : 'true false null',
+          keyword: 'println readln print import module function local return let var ' +
+          'while for foreach times in case when match with break continue ' +
+          'augment augmentation each find filter reduce' + 
+          'if then else otherwise try catch finally raise throw orIfNull ',
+          typename:
+          'DynamicObject|10 DynamicVariable struct Observable map set vector list array'
+      },
+      contains: [
+        hljs.HASH_COMMENT_MODE,
+        hljs.QUOTE_STRING_MODE,
+        hljs.C_NUMBER_MODE,
+        {
+          className: 'annotation', begin: '@[A-Za-z]+'
+        }
+      ]
+    }
 }
+
+      

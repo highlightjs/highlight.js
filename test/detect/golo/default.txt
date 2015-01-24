@@ -1,33 +1,14 @@
-module tests
+module hello
 
-import gololang.Async
+function dyno = -> DynamicObject()
 
-struct human = {
-    firstName, lastName
-}
-augment human {
-    function initialize = |this| {
-        println("I'm an initializer")
-        return this
-    }
-    function hello = |this| {
-        println("hello")
-        var z = null orIfNull true
-    }
-}
+struct human = { name }
 
-augmentation = { 
-    function pouet = |arg| ->
-        """
-        hello
-        """
-}
-
-# this is a comment
 function main = |args| {
-    let bob = human("Bob", "Morane"): initialize()
-    foreach item in bob { println(item) }
-    let sam =DynamicObject(): name("sam")
-    var olivia = Observable("olivia")
-    let z = array[4,5,6,7]
+    let a = 1
+    var b = 2
+    
+    println("hello") 
+
+    let john = human("John Doe")
 }
