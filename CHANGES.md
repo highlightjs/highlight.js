@@ -4,6 +4,7 @@ New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
 - *Julia* by [Kenta Sato][]
+- *Mojolicious* by [Dotan Dimet][]
 
 New Styles:
 
@@ -12,6 +13,7 @@ New Styles:
 [Jet Brains]: https://www.jetbrains.com/
 [Peter Piwowarski]: https://github.com/oldlaptop
 [Kenta Sato]: https://github.com/bicycle1885
+[Dotan Dimet]: https://github.com/dotandimet
 
 
 ## Version 8.4
