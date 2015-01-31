@@ -134,6 +134,14 @@ Go ("go", "golang")
 * ``typename``:         built-in plain types (int, string etc.)
 * ``built_in``:         built-in functions
 
+Golo ("golo", "gololang")
+-------------------
+
+* ``keyword``:          language keywords
+* ``literal``:          true false null
+* ``typename``:         Golo type objects (DynamicObject, struct, ...)
+* ``annotation``:       decorator
+
 Gradle ("gradle")
 -----------------
 
