@@ -7,6 +7,7 @@ Category: common, protocols
 
 function(hljs) {
   return {
+    aliases: ['https'],
     illegal: '\\S',
     contains: [
       {
