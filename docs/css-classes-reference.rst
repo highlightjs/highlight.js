@@ -520,7 +520,7 @@ Thrift ("thrift")
 * ``class``:            struct, enum, service or exception definition header
 * ``title``:            struct, enum, service or exception identifier
 
-HTTP ("http")
+HTTP ("http", "https")
 -------------
 
 * ``request``:          first line of a request
