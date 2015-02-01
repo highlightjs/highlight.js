@@ -605,8 +605,8 @@ AspectJ ("aspectj")
 * ``inheritance``:      keywords "extends" and "implements" inside an aspect header
 * ``title``:            aspect, (intertype) method name or pointcut name inside an aspect header
 
-Fortran
--------
+Fortran ("fortran", "f77", "f90", "f95")
+----------------------------------------
 
 * ``comment``:          comment
 * ``string``:           string constant (single or double quote)
