@@ -1,9 +1,9 @@
 subroutine test_sub(k)
     implicit none
 
-!===============================
-!   This is a test subroutine
-!===============================
+  !===============================
+  !   This is a test subroutine
+  !===============================
 
     integer, intent(in)           :: k
     double precision, allocatable :: a(:)
