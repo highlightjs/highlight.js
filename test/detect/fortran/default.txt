@@ -16,6 +16,7 @@ subroutine test_sub(k)
       a(i) = dble(i)*5.d0
     enddo
 
-    print *, a(:)
+    print *, 'Hello world'
+    write (*,*) a(:)
 
 end subroutine test_sub

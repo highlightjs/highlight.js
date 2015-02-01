@@ -31,7 +31,7 @@ function(hljs) {
       'log10 max min nint sign sin sinh sqrt tan tanh print write dim lge lgt lle llt mod nullify allocate deallocate' +
       'adjustl adjustr all allocated any associated bit_size btest ceiling count cshift date_and_time digits dot_product' +
       'eoshift epsilon exponent floor fraction huge iand ibclr ibits ibset ieor ior ishft ishftc lbound len_trim matmul' +
-      'maxexponent maxloc maxval merge minexponent minloc minval modulo mvbits nearest pack precision present product' +
+      'maxexponent maxloc maxval merge minexponent minloc minval modulo mvbits nearest pack present product' +
       'radix random_number random_seed range repeat reshape rrspacing scale scan selected_int_kind selected_real_kind' +
       'set_exponent shape size spacing spread sum system_clock tiny transpose trim ubound unpack verify achar iachar transfer' +
       'dble entry dprod cpu_time command_argument_count get_command get_command_argument get_environment_variable is_iostat_end' +
@@ -45,72 +45,23 @@ function(hljs) {
   return {
     aliases: ['fortran', 'f77', 'f90', 'f95'],
     keywords: F_KEYWORDS,
-    illegal: '</',
+//    illegal: '</',
     contains: [
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.QUOTE_STRING_MODE,
+      hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE,{className: 'string', relevance: 0}),
       {
-        className: 'string',
-        begin: '\'\\\\?.', end: '\'',
-        illegal: '.'
+        className: 'comment',
+        begin: '!', end: '$',
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
+//    {
+//      className: 'comment',
+//      begin: '^[Cc*]', end: '$',
+//      contains: [hljs.PHRASAL_WORDS_MODE]
+//    },
       {
         className: 'number',
-        begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)'
-      },
-      hljs.C_NUMBER_MODE,
-      {
-        className: 'preprocessor',
-        begin: '#', end: '$',
-        keywords: 'if else elif endif define undef warning error line pragma',
-        contains: [
-          {
-            begin: 'include\\s*[<"]', end: '[>"]',
-            keywords: 'include',
-            illegal: '\\n'
-          },
-          hljs.C_LINE_COMMENT_MODE
-        ]
-      },
-      {
-        begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
-        keywords: F_KEYWORDS,
-        contains: ['self']
-      },
-      {
-        begin: hljs.IDENT_RE + '::',
-        keywords: F_KEYWORDS
-      },
-      {
-        // Expression keywords prevent 'keyword Name(...)' from being
-        // recognized as a function definition
-        beginKeywords: 'new throw return',
-        relevance: 0
-      },
-      {
-        className: 'function',
-        begin: '(' + hljs.IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
-        excludeEnd: true,
-        keywords: F_KEYWORDS,
-        contains: [
-          {
-            begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
-            contains: [hljs.TITLE_MODE],
-            relevance: 0
-          },
-          {
-            className: 'params',
-            begin: /\(/, end: /\)/,
-            keywords: F_KEYWORDS,
-            relevance: 0,
-            contains: [
-              hljs.C_BLOCK_COMMENT_MODE
-            ]
-          },
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
-        ]
+        begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)([DdEe][+-]?d+)?'
       }
     ]
   };
