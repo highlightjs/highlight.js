@@ -156,3 +156,4 @@ Contributors:
 - Chris Kiehl <audionautic@gmail.com>
 - Peter Piwowarski <oldlaptop654@aol.com>
 - Kenta Sato <bicycle1885@gmail.com>
+- Anthony Scemama <scemama@irsamc.ups-tlse.fr>
