@@ -5,13 +5,22 @@ Category: common, scientific
 */
 
 function(hljs) {
+  var PARAMS = {
+    className: 'params',
+    begin: '\\(', end: '\\)'
+  };
+
   var F_KEYWORDS = {
-    keyword: '.False. integer real kind do while private character call intrinsic where elsewhere' +
-      'type end enddo endif if forall endforall only contains default return stop then complex' +
-      'logical allocatable dimension public subroutine function program .and. .or. .not. .le. .eq. .ge. .gt. .lt.' +
-      'goto parameter save else external use implicit none .True. double precision module select case' +
+    constant: '.False. .True.',
+    type: 'integer real character complex logical dimension allocatable|10 parameter ' +
+      'external implicit|10 none double precision assign intent optional pointer' +
+      'target in out common equivalence data',
+    keyword: 'kind do while private call intrinsic where elsewhere' +
+      'type end enddo endif if forall endforall only contains default return stop then ' +
+      'public subroutine|10 function program .and. .or. .not. .le. .eq. .ge. .gt. .lt.' +
+      'goto save else use module select case' +
       'access blank direct exist file fmt form formatted iostat name named nextrec number opened rec recl sequential status unformatted unit' +
-      'continue format pause assign intent optional pointer target in out cycle exit common equivalence data' +
+      'continue format pause cycle exit' +
       'c_null_char c_alert c_backspace c_form_feed flush wait decimal round iomsg' +
       'synchronous nopass non_overridable pass protected volatile abstract extends import' +
       'non_intrinsic value deferred generic final enumerator class associate bind enum' +
@@ -43,25 +52,33 @@ function(hljs) {
       'num_images parity popcnt poppar shifta shiftl shiftr this_image' 
   };
   return {
+    case_insensitive: true,
     aliases: ['fortran', 'f77', 'f90', 'f95'],
-    keywords: F_KEYWORDS,
-//    illegal: '</',
+//  illegal: '</|' +
+//           '^repeat\\s+.*\\stimes|' +
+//           '^[#{}.]|' +
+//           '.def|' +
+//           '-module|' +
+//           'cd',
+    keywords: F_KEYWORDS, 
     contains: [
       hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
       hljs.inherit(hljs.QUOTE_STRING_MODE,{className: 'string', relevance: 0}),
       {
+        className: 'function_start',
+        beginKeywords: 'subroutine function program',
+        illegal: '[${=\\n]',
+        contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
+      },
+      {
         className: 'comment',
         begin: '!', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE]
+        contains: [hljs.PHRASAL_WORDS_MODE],
       },
-//    {
-//      className: 'comment',
-//      begin: '^[Cc*]', end: '$',
-//      contains: [hljs.PHRASAL_WORDS_MODE]
-//    },
       {
         className: 'number',
-        begin: '-?(\\d+(\\.\\d*)?|\\.\\d+)([DdEe][+-]?\\d+)?'
+        begin: '-?(\\d+(\\.\\d*)?|\\.\\d+)([DdEe][+-]?\\d+)?',
+        relevance: 0
       },
     ]
   };
