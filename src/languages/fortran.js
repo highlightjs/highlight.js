@@ -53,19 +53,13 @@ function(hljs) {
   };
   return {
     case_insensitive: true,
-    aliases: ['fortran', 'f77', 'f90', 'f95'],
-//  illegal: '</|' +
-//           '^repeat\\s+.*\\stimes|' +
-//           '^[#{}.]|' +
-//           '.def|' +
-//           '-module|' +
-//           'cd',
+    aliases: ['f90', 'f95'],
     keywords: F_KEYWORDS, 
     contains: [
       hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
       hljs.inherit(hljs.QUOTE_STRING_MODE,{className: 'string', relevance: 0}),
       {
-        className: 'function_start',
+        className: 'function',
         beginKeywords: 'subroutine function program',
         illegal: '[${=\\n]',
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
