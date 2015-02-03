@@ -13,7 +13,7 @@ function(hljs) {
         'in if for while finally var new function|0 do return void else break catch ' +
         'instanceof with throw case default try this switch continue typeof delete ' +
         'let yield const class public private get set super interface extends' +
-        'static constructor implements enum export import declare',
+        'static constructor implements enum export import declare type protected',
       literal:
         'true false null undefined NaN Infinity',
       built_in:
