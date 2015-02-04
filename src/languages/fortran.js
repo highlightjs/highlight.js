@@ -16,7 +16,7 @@ function(hljs) {
       'external implicit|10 none double precision assign intent optional pointer ' +
       'target in out common equivalence data',
     keyword: 'kind do while private call intrinsic where elsewhere ' +
-      'type end enddo endif if forall endforall only contains default return stop then ' +
+      'type endtype endmodule endselect endinterface end enddo endif if forall endforall only contains default return stop then ' +
       'public subroutine|10 function program .and. .or. .not. .le. .eq. .ge. .gt. .lt. ' +
       'goto save else use module select case ' +
       'access blank direct exist file fmt form formatted iostat name named nextrec number opened rec recl sequential status unformatted unit ' +
