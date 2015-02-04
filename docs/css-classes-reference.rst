@@ -609,9 +609,19 @@ Fortran ("fortran", "f90", "f95")
 ---------------------------------
 
 * ``comment``:          comment
-* ``string``:           string constant (single or double quote)
-* ``number``:           number
+* ``function``:         name of a function or a subroutine 
 * ``keyword``:          language keywords (function, if) 
+* ``number``:           number
+* ``string``:           string constant (single or double quote)
+
+IRPF90 ("irpf90")
+-----------------
+
+* ``comment``:          comment
+* ``function``:         name of a function or a subroutine
+* ``keyword``:          language keywords (function, if) 
+* ``number``:           number
+* ``string``:           string constant (single or double quote)
 
 C++ ("cpp", "c", "h", "c++", "h++")
 -----------------------------------
