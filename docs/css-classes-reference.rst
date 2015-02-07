@@ -1193,8 +1193,8 @@ Gherkin ("gherkin")
 * ``comment``:          comment
 * ``string``:           string
 
-Nimrod ("nimrod")
------------------
+Nimrod ("nimrod", "nim")
+------------------------
 
 * ``decorator``         pragma
 * ``string``            string literal
