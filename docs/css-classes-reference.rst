@@ -613,8 +613,8 @@ Fortran ("fortran", "f90", "f95")
 * ``number``:           number
 * ``keyword``:          language keywords (function, if) 
 
-C++ ("cpp", "c", "h", "c++", "h++")
------------------------------------
+C++ ("cpp", "c", "cc", "h", "c++", "h++", "hpp")
+------------------------------------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
