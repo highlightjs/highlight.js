@@ -80,6 +80,11 @@ function(hljs) {
         beginKeywords: 'new throw return',
         relevance: 0
       },
+      // https://github.com/isagalaev/highlight.js/issues/690
+      {
+        begin: /\belse\s+if\b/,
+        keywords: 'else if'
+      },
       {
         className: 'function',
         begin: '(' + hljs.IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
