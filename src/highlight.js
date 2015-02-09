@@ -348,7 +348,7 @@ https://highlightjs.org/
 
     function startNewMode(mode, lexeme) {
       var markup = mode.className? buildSpan(mode.className, '', true): '';
-      if (mode.returnBegin) {
+      if (mode.returnBegin || mode.hideBegin) {
         result += markup;
         mode_buffer = '';
       } else if (mode.excludeBegin) {
@@ -379,7 +379,7 @@ https://highlightjs.org/
       var end_mode = endOfMode(top, lexeme);
       if (end_mode) {
         var origin = top;
-        if (!(origin.returnEnd || origin.excludeEnd)) {
+        if (!(origin.returnEnd || origin.excludeEnd || origin.hideEnd)) {
           mode_buffer += lexeme;
         }
         result += processBuffer();
