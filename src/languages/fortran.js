@@ -71,7 +71,7 @@ function(hljs) {
       },
       {
         className: 'number',
-        begin: '-?(\\d+(\\.\\d*)?|\\.\\d+)([DdEe][+-]?\\d+)?',
+        begin: '(?:^|\\s)+[+-]?(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[eEdD][+-]?\\d+)?',
         relevance: 0
       },
     ]
