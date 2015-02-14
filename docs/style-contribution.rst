@@ -25,7 +25,7 @@ Add some information about style to file header. There may be style name, origin
 3. Add it to the demo page
 --------------------------
 
-Add your style at the top of src/demo/index.html page after the other styles.
+Add your style at the top of demo/index.html page after the other styles.
 
 
 4. Add yourself to AUTHORS.*.txt and CHANGES.md
