@@ -4,6 +4,7 @@ New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
 - *Julia* by [Kenta Sato][]
+- *Golo* by [Philippe Charrière][]
 
 New Styles:
 
@@ -12,6 +13,7 @@ New Styles:
 [Jet Brains]: https://www.jetbrains.com/
 [Peter Piwowarski]: https://github.com/oldlaptop
 [Kenta Sato]: https://github.com/bicycle1885
+[Philippe Charrière]: https://github.com/k33g
 
 
 ## Version 8.4
