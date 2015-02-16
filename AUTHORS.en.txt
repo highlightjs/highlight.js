@@ -157,3 +157,4 @@ Contributors:
 - Peter Piwowarski <oldlaptop654@aol.com>
 - Kenta Sato <bicycle1885@gmail.com>
 - Anthony Scemama <scemama@irsamc.ups-tlse.fr>
+- Pedro Oliveira <kanytu(at)gmail.com>
