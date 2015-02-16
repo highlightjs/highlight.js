@@ -1,0 +1,57 @@
+/*
+Date: 16 Fev 2015
+Author: kanytu <kanytu (at) gmail . com>
+*/
+
+.hljs
+{
+    background: #282b2e;
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    webkit-text-size-adjust: none;
+}
+.hljs
+{
+    color: #A9B7C6;
+}
+.java .hljs-number
+{
+    color: #6897BB;
+}
+.java .hljs-keyword
+{
+    color: #CC7832;
+}
+.java .hljs-javadoc
+{
+    color: #629755;
+}
+.hljs-comment
+{
+    color: #808080;
+}
+.java .hljs-annotation
+{
+    color: #BBB529;
+}
+.java .hljs-string
+{
+    color: #6A8759;
+}
+.java .hljs-function .hljs-title
+{
+    color: #FFC66D;
+}
+.xml .hljs-tag .hljs-title,.xml .hljs-doctype
+{
+    color: #E8BF6A;
+}
+.xml .hljs-tag .hljs-attribute
+{
+    color: #BABABA;
+}
+.xml .hljs-tag .hljs-value
+{
+    color: #A5C261;
+}
