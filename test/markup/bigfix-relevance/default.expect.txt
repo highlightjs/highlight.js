@@ -1,0 +1,20 @@
+<span class="hljs-number">1234</span>
+<span class="hljs-string">"Hello%20World"</span>
+<span class="hljs-comment">/* blah blah blah */</span>
+
+<span class="hljs-keyword">of</span>
+ofa
+
+<span class="hljs-keyword">items</span>
+
+<span class="hljs-keyword">exist</span>
+<span class="hljs-keyword">exist no</span>
+<span class="hljs-keyword">exists</span>
+<span class="hljs-keyword">exists no</span>
+
+<span class="hljs-keyword">starts with</span>
+<span class="hljs-keyword">starts  with</span>
+<span class="hljs-keyword">starts a an the with</span>
+
+<span class="hljs-keyword">is less than</span> <span class="hljs-keyword">or</span>
+<span class="hljs-keyword">is less than or equal to</span>

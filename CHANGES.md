@@ -4,6 +4,7 @@ New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
 - *Julia* by [Kenta Sato][]
+- *BigFix Relevance* by [Brian Green](https://github.com/briangreenery)
 
 New Styles:
 
