@@ -15,6 +15,10 @@ Author: kanytu <kanytu (at) gmail . com>
 {
     color: #A9B7C6;
 }
+.hljs span
+{
+    font: 5px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace
+}
 .java .hljs-number
 {
     color: #6897BB;
