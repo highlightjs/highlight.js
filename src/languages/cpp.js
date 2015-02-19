@@ -58,6 +58,9 @@ function(hljs) {
         keywords: 'if else elif endif define undef warning error line pragma',
         contains: [
           {
+            begin: /\\\n/, relevance: 0
+          },
+          {
             begin: 'include\\s*[<"]', end: '[>"]',
             keywords: 'include',
             illegal: '\\n'
