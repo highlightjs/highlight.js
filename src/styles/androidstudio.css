@@ -1,5 +1,5 @@
 /*
-Date: 16 Fev 2015
+Date: 24 Fev 2015
 Author: kanytu <kanytu (at) gmail . com>
 */
 
@@ -15,19 +15,16 @@ Author: kanytu <kanytu (at) gmail . com>
 {
     color: #A9B7C6;
 }
-.hljs span
-{
-    font: 5px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace
-}
-.java .hljs-number
+.hljs-number
 {
     color: #6897BB;
 }
-.java .hljs-keyword
+
+.hljs-keyword
 {
     color: #CC7832;
 }
-.java .hljs-javadoc
+.hljs-javadoc
 {
     color: #629755;
 }
@@ -35,27 +32,27 @@ Author: kanytu <kanytu (at) gmail . com>
 {
     color: #808080;
 }
-.java .hljs-annotation
+.hljs-annotation
 {
     color: #BBB529;
 }
-.java .hljs-string
+.hljs-string
 {
     color: #6A8759;
 }
-.java .hljs-function .hljs-title
+.hljs-function .hljs-title
 {
     color: #FFC66D;
 }
-.xml .hljs-tag .hljs-title,.xml .hljs-doctype
+.hljs-tag .hljs-title, .hljs-doctype
 {
     color: #E8BF6A;
 }
-.xml .hljs-tag .hljs-attribute
+.hljs-tag .hljs-attribute
 {
     color: #BABABA;
 }
-.xml .hljs-tag .hljs-value
+.hljs-tag .hljs-value
 {
     color: #A5C261;
 }
