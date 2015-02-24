@@ -158,3 +158,4 @@ Contributors:
 - Kenta Sato <bicycle1885@gmail.com>
 - Anthony Scemama <scemama@irsamc.ups-tlse.fr>
 - Taufik Nurrohman <latitudu.latitudu@gmail.com>
+- Pedro Oliveira <kanytu@gmail.com>

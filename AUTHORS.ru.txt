@@ -155,3 +155,4 @@ URL:   https://highlightjs.org/
 - Петер Пивоварски <oldlaptop654@aol.com>
 - Кента Сато <bicycle1885@gmail.com>
 - Тофик Нурроман <latitudu.latitudu@gmail.com>
+- Педро Оливейра <kanytu@gmail.com>
