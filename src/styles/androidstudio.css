@@ -17,7 +17,7 @@ Author: Pedro Oliveira <kanytu@gmail . com>
     color: #6897BB;
 }
 
-.hljs-keyword
+.hljs-keyword, .hljs-deletion
 {
     color: #CC7832;
 }
@@ -33,11 +33,11 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 {
     color: #BBB529;
 }
-.hljs-string
+.hljs-string, .hljs-addition
 {
     color: #6A8759;
 }
-.hljs-function .hljs-title
+.hljs-function .hljs-title, .hljs-change
 {
     color: #FFC66D;
 }
