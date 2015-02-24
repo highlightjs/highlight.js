@@ -1,7 +1,7 @@
 !!! XML
 %html
   %body
-    %h1.jumbo{:id=>"a", :style=>'font-weight: normal', :title=>title} highlight.js
+    %h1.jumbo.jumbo--large{:id=>"a", :style=>'font-weight: normal', :title=>title} highlight.js
     /html comment
     -# ignore this line
     %ul(style='margin: 0')
@@ -12,3 +12,5 @@
     ~ variable3
     ~variable4
     The current year is #{DataTime.now.year}.
+    .jumbo__content
+      Hello World

@@ -1,129 +1,89 @@
 /*
 Language: Haml
 Requires: ruby.js
-Author: Dan Allen <dan.j.allen@gmail.com>
+Author: Dan Allen <dan.j.allen@gmail.com>, Aaron Reisman <aaron@lifeiscontent.net>
 Website: http://google.com/profiles/dan.j.allen
 Category: template
 */
 
-// TODO support filter tags like :javascript, support inline HTML
 function(hljs) {
-  return {
-    case_insensitive: true,
-    contains: [
-      {
-        className: 'doctype',
-        begin: '^!!!( (5|1\\.1|Strict|Frameset|Basic|Mobile|RDFa|XML\\b.*))?$',
-        relevance: 10
-      },
-      {
-        className: 'comment',
-        // FIXME these comments should be allowed to span indented lines
-        begin: '^\\s*(!=#|=#|-#|/).*$',
-        relevance: 0
-      },
-      {
-        begin: '^\\s*(-|=|!=)(?!#)',
-        starts: {
-          end: '\\n',
-          subLanguage: 'ruby'
+  var HAML_IDENT_RE = '[A-Za-z][0-9A-Za-z_-]*';
+  var EXPRESSIONS = [
+    {
+      className: 'doctype',
+      begin: '!!!', end: '$'
+    },
+    {
+      className: 'comment',
+      begin: '/', end: '$',
+      contains: [hljs.PHRASAL_WORDS_MODE]
+    },
+    {
+      begin: '\\(',
+      end: '\\)',
+      excludeBegin: true,
+      excludeEnd: true,
+      className: 'attribute',
+      contains: [
+        {
+          begin: HAML_IDENT_RE,
+          end: '=',
+          excludeEnd: true,
+          className: 'attribute'
+        },
+        {
+          begin: '\'',
+          end: '\'',
+          excludeBegin: true,
+          excludeEnd: true,
+          className: 'string'
         }
-      },
-      {
-        className: 'tag',
-        begin: '^\\s*%',
-        contains: [
-          {
-            className: 'title',
-            begin: '\\w+'
-          },
-          {
-            className: 'value',
-            begin: '[#\\.]\\w+'
-          },
-          {
-            begin: '{\\s*',
-            end: '\\s*}',
-            excludeEnd: true,
-            contains: [
-              {
-                //className: 'attribute',
-                begin: ':\\w+\\s*=>',
-                end: ',\\s+',
-                returnBegin: true,
-                endsWithParent: true,
-                contains: [
-                  {
-                    className: 'symbol',
-                    begin: ':\\w+'
-                  },
-                  {
-                    className: 'string',
-                    begin: '"',
-                    end: '"'
-                  },
-                  {
-                    className: 'string',
-                    begin: '\'',
-                    end: '\''
-                  },
-                  {
-                    begin: '\\w+',
-                    relevance: 0
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            begin: '\\(\\s*',
-            end: '\\s*\\)',
-            excludeEnd: true,
-            contains: [
-              {
-                //className: 'attribute',
-                begin: '\\w+\\s*=',
-                end: '\\s+',
-                returnBegin: true,
-                endsWithParent: true,
-                contains: [
-                  {
-                    className: 'attribute',
-                    begin: '\\w+',
-                    relevance: 0
-                  },
-                  {
-                    className: 'string',
-                    begin: '"',
-                    end: '"'
-                  },
-                  {
-                    className: 'string',
-                    begin: '\'',
-                    end: '\''
-                  },
-                  {
-                    begin: '\\w+',
-                    relevance: 0
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        className: 'bullet',
-        begin: '^\\s*[=~]\\s*',
-        relevance: 0
-      },
-      {
-        begin: '#{',
-        starts: {
+      ]
+    },
+    {
+      variants: [
+        { begin: '^\\s*-|^\\s*=|^\\s*~', end: '$', excludeBegin: true },
+        { begin: '#{', end: '}', excludeBegin: true, excludeEnd: true }
+      ],
+      subLanguage: 'ruby'
+    },
+    {
+      begin: '^\\s*',
+      end: '$',
+      className: 'tag',
+      contains: [
+        {
+          variants: [
+            {
+              begin: '%' + HAML_IDENT_RE,
+              contains: [
+                {
+                  variants: [
+                    { begin: '#' + HAML_IDENT_RE, },
+                    { begin: '\\.' + HAML_IDENT_RE }
+                  ],
+                  className: 'value'
+                }
+              ]
+            },
+            { begin: '#' + HAML_IDENT_RE, },
+            { begin: '\\.' + HAML_IDENT_RE }
+          ],
+          className: 'title'
+        },
+        {
+          begin: '{',
           end: '}',
+          excludeBegin: true,
+          excludeEnd: true,
           subLanguage: 'ruby'
         }
-      }
-    ]
+      ]
+    }
+  ]
+
+  return {
+    aliases: ['haml'],
+    contains: EXPRESSIONS
   };
 }
