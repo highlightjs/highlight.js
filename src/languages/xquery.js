@@ -65,7 +65,8 @@ function(hljs) {
   return {
     aliases: ['xpath', 'xq'],
     case_insensitive: false,
-    lexemes: '[a-zA-Z\\$][a-zA-Z0-9_:\-]*',
+    lexemes: /[a-zA-Z\$][a-zA-Z0-9_:\-]*/,
+    illegal: /(proc)|(abstract)|(extends)|(until)|(#)/,
     keywords: {
       keyword: KEYWORDS,
       literal: LITERAL
