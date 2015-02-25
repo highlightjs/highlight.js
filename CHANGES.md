@@ -4,6 +4,7 @@ New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
 - *Julia* by [Kenta Sato][]
+- *XQuery* by [Dirk Kirsten][]
 
 New Styles:
 

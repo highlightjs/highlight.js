@@ -1357,3 +1357,15 @@ PF ("pf", "pf.conf")
 * ``number``:           number
 * ``string``:           string
 * ``variable``:         used for both macros and tables
+
+XQuery ("xpath", "xq")
+----------------------
+
+* ``keyword``:          instruction keyword
+* ``literal``:          words representing special values, e.g. all, egress
+* ``comment``:          comment
+* ``number``:           number
+* ``string``:           string
+* ``variable``:         variable
+* ``decorator``:        annotations
+* ``function``:         function

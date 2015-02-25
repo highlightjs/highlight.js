@@ -156,3 +156,4 @@ URL:   https://highlightjs.org/
 - Кента Сато <bicycle1885@gmail.com>
 - Тофик Нурроман <latitudu.latitudu@gmail.com>
 - Педро Оливейра <kanytu@gmail.com>
+- Дирк Кирстен <dk@basex.org>
