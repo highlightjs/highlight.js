@@ -528,7 +528,7 @@ https://highlightjs.org/
       result.push('hljs');
     }
 
-    if (language) {
+    if (prevClassName.indexOf(language) === -1) {
       result.push(language);
     }
 
