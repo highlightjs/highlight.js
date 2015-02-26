@@ -13,6 +13,10 @@ public class Program
 spans
 multiple
 lines!";
+
+        dynamic x = new ExpandoObject();
+        x.MyProperty = 2;
+
         return 0;
     }
 }
@@ -22,4 +26,13 @@ async Task<int> AccessTheWebAsync()
     // ...
     string urlContents = await getStringTask;
     return urlContents.Length;
+}
+
+internal static void ExceptionFilters()
+{
+  try 
+  {
+      throw new Exception();
+  }
+  catch (Exception e) when (e.Message == "My error") { }
 }
