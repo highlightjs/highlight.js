@@ -5,6 +5,13 @@ This is a full list of available classes corresponding to languages'
 syntactic structures. The parentheses after language name contain identifiers
 used as class names in ``<code>`` element.
 
+
+Gams ("gms", "gams")
+--------------------
+
+* ``keyword``:          keyword
+
+
 Python ("python", "py", "gyp")
 ------------------------------
 
