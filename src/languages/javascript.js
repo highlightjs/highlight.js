@@ -43,8 +43,8 @@ function(hljs) {
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
           hljs.REGEXP_MODE,
-          { // E4X
-            begin: /</, end: />;/,
+          { // E4X / JSX
+            begin: /</, end: />\s*[);\]]/,
             relevance: 0,
             subLanguage: 'xml'
           }
