@@ -10,7 +10,7 @@ function(hljs) {
       keyword:
         'in if for while finally var new function do return void else break catch ' +
         'instanceof with throw case default try this switch continue typeof delete ' +
-        'let yield const class import export',
+        'let yield const class export as',
       literal:
         'true false null undefined NaN Infinity',
       built_in:
@@ -73,6 +73,15 @@ function(hljs) {
       },
       {
         begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
+      },
+      // ECMAScript 6 modules import
+      {
+        beginKeywords: 'import', end: '[;$]',
+        keywords: 'import from as',
+        contains: [
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE
+        ]
       }
     ]
   };
