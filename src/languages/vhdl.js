@@ -1,11 +1,23 @@
 /*
 Language: VHDL
 Author: Igor Kalnitsky <igor@kalnitsky.org>
-Contributors: Daniel C.K. Kho <daniel.kho@gmail.com>
+Contributors: Daniel C.K. Kho <daniel.kho@gmail.com>, Guillaume Savaton <guillaume.savaton@eseo.fr>
 Description: VHDL is a hardware description language used in electronic design automation to describe digital and mixed-signal systems.
 */
 
 function(hljs) {
+  // Regular expression for VHDL numeric literals.
+
+  // Decimal literal:
+  var INTEGER_RE = '\\d(_|\\d)*';
+  var EXPONENT_RE = '[eE][-+]?' + INTEGER_RE;
+  var DECIMAL_LITERAL_RE = INTEGER_RE + '(\\.' + INTEGER_RE + ')?' + '(' + EXPONENT_RE + ')?';
+  // Based literal:
+  var BASED_INTEGER_RE = '\\w+';
+  var BASED_LITERAL_RE = INTEGER_RE + '#' + BASED_INTEGER_RE + '(\\.' + BASED_INTEGER_RE + ')?' + '#' + '(' + EXPONENT_RE + ')?';
+
+  var NUMBER_RE = '\\b(' + BASED_LITERAL_RE + '|' + DECIMAL_LITERAL_RE + ')';
+
   return {
     case_insensitive: true,
     keywords: {
@@ -33,7 +45,11 @@ function(hljs) {
         begin: '--', end: '$'
       },
       hljs.QUOTE_STRING_MODE,
-      hljs.C_NUMBER_MODE,
+      {
+        className: 'number',
+        begin: NUMBER_RE,
+        relevance: 0
+      },
       {
         className: 'literal',
         begin: '\'(U|X|0|1|Z|W|L|H|-)\'',
