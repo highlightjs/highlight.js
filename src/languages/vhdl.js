@@ -47,7 +47,8 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'number',
-        begin: NUMBER_RE
+        begin: NUMBER_RE,
+        relevance: 0
       },
       {
         className: 'literal',
