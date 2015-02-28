@@ -510,7 +510,6 @@ https://highlightjs.org/
   function fixMarkup(value) {
     if (options.tabReplace) {
       value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1 /*..., offset, s*/) {
-        console.log(arguments);
         return p1.replace(/\t/g, options.tabReplace);
       });
     }
