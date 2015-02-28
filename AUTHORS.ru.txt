@@ -152,3 +152,7 @@ URL:   https://highlightjs.org/
 - Брайан Куисторф <bquistorff@gmail.com>
 - Жоначан Суевер <suever@gmail.com>
 - Алексис Эно <alexis@henaut.net>
+- Петер Пивоварски <oldlaptop654@aol.com>
+- Кента Сато <bicycle1885@gmail.com>
+- Тофик Нурроман <latitudu.latitudu@gmail.com>
+- Педро Оливейра <kanytu@gmail.com>

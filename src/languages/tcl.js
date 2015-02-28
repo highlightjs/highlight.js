@@ -31,7 +31,7 @@ function(hljs) {
             begin: '[ \\t\\n\\r]+(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*',
             end: '[ \\t\\n\\r]',
             endsWithParent: true,
-            excludeEnd: true,
+            excludeEnd: true
           }
         ]
       },
@@ -41,12 +41,12 @@ function(hljs) {
         variants: [
           {
             begin: '\\$(\\{)?(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*\\(([a-zA-Z0-9_])*\\)',
-            end: '[^a-zA-Z0-9_\\}\\$]',
+            end: '[^a-zA-Z0-9_\\}\\$]'
           },
           {
             begin: '\\$(\\{)?(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*',
-            end: '(\\))?[^a-zA-Z0-9_\\}\\$]',
-          },
+            end: '(\\))?[^a-zA-Z0-9_\\}\\$]'
+          }
         ]
       },
       {
@@ -60,7 +60,7 @@ function(hljs) {
       {
         className: 'number',
         variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]
-      },
+      }
     ]
   }
 }

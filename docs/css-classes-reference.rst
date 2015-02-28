@@ -265,8 +265,8 @@ Markdown ("markdown", "md", "mkdown", "mkd")
 * ``link_url``:          link url
 * ``link_reference``:    link reference
 
-AsciiDoc ("asciidoc")
----------------------
+AsciiDoc ("asciidoc", "adoc")
+-----------------------------
 
 * ``header``:            heading
 * ``bullet``:            list or labeled bullet
@@ -520,7 +520,7 @@ Thrift ("thrift")
 * ``class``:            struct, enum, service or exception definition header
 * ``title``:            struct, enum, service or exception identifier
 
-HTTP ("http")
+HTTP ("http", "https")
 -------------
 
 * ``request``:          first line of a request
@@ -605,8 +605,16 @@ AspectJ ("aspectj")
 * ``inheritance``:      keywords "extends" and "implements" inside an aspect header
 * ``title``:            aspect, (intertype) method name or pointcut name inside an aspect header
 
-C++ ("cpp", "c", "h", "c++", "h++")
------------------------------------
+Fortran ("fortran", "f90", "f95")
+---------------------------------
+
+* ``comment``:          comment
+* ``string``:           string constant (single or double quote)
+* ``number``:           number
+* ``keyword``:          language keywords (function, if) 
+
+C++ ("cpp", "c", "cc", "h", "c++", "h++", "hpp")
+------------------------------------------------
 
 * ``keyword``:          keyword
 * ``number``:           number
@@ -1185,8 +1193,8 @@ Gherkin ("gherkin")
 * ``comment``:          comment
 * ``string``:           string
 
-Nimrod ("nimrod")
------------------
+Nimrod ("nimrod", "nim")
+------------------------
 
 * ``decorator``         pragma
 * ``string``            string literal
@@ -1338,3 +1346,14 @@ Dockerfile ("dockerfile", "docker")
 * ``comment``:          comment
 * ``number``:           number
 * ``string``:           string
+
+PF ("pf", "pf.conf")
+--------------------
+
+* ``built_in``:         top level action, e.g. block/match/pass
+* ``keyword``:          some parameter/modifier to an action (in, on, nat-to, most reserved words)
+* ``literal``:          words representing special values, e.g. all, egress
+* ``comment``:          comment
+* ``number``:           number
+* ``string``:           string
+* ``variable``:         used for both macros and tables

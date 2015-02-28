@@ -1,3 +1,21 @@
+# Master
+
+New languages:
+
+- *pf.conf* by [Peter Piwowarski][]
+- *Julia* by [Kenta Sato][]
+
+New Styles:
+
+- *Agate* by [Taufik Nurrohman][]
+- *Darkula* by [Jet Brains][]
+
+[Taufik Nurrohman]: https://github.com/tovic
+[Jet Brains]: https://www.jetbrains.com/
+[Peter Piwowarski]: https://github.com/oldlaptop
+[Kenta Sato]: https://github.com/bicycle1885
+
+
 ## Version 8.4
 
 We've got the new [demo page][]! The obvious new feature is the new look, but
@@ -90,6 +108,7 @@ New languages in this release:
 [Jen Evers-Corvina]: https://github.com/sevvie
 [Lucas Mazza]: https://github.com/lucasmazza
 [Vincent Zurczak]: https://github.com/vincent-zurczak
+
 
 ## Version 8.2
 

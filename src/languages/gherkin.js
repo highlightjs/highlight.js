@@ -20,7 +20,7 @@ function (hljs) {
       },
       {
         className: 'variable',
-        begin: '<', end: '>',
+        begin: '<', end: '>'
       },
       hljs.HASH_COMMENT_MODE,
       {

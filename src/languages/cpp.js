@@ -35,7 +35,7 @@ function(hljs) {
       'vfprintf vprintf vsprintf'
   };
   return {
-    aliases: ['c', 'h', 'c++', 'h++'],
+    aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp'],
     keywords: CPP_KEYWORDS,
     illegal: '</',
     contains: [
@@ -58,6 +58,9 @@ function(hljs) {
         keywords: 'if else elif endif define undef warning error line pragma',
         contains: [
           {
+            begin: /\\\n/, relevance: 0
+          },
+          {
             begin: 'include\\s*[<"]', end: '[>"]',
             keywords: 'include',
             illegal: '\\n'
@@ -75,9 +78,9 @@ function(hljs) {
         keywords: CPP_KEYWORDS
       },
       {
-        // Expression keywords prevent 'keyword Name(...)' from being
-        // recognized as a function definition
-        beginKeywords: 'new throw return',
+        // Expression keywords prevent 'keyword Name(...) or else if(...)' from
+        // being recognized as a function definition
+        beginKeywords: 'new throw return else',
         relevance: 0
       },
       {

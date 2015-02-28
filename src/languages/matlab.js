@@ -79,7 +79,7 @@ function(hljs) {
       },
       {
         className: 'cell',
-        begin: '\\{', end: /\}/,
+        begin: '\\{', end: /}/,
         contains: COMMON_CONTAINS,
         relevance: 0,
         starts: TRANSPOSE

@@ -2,7 +2,7 @@
 
 var _        = require('lodash');
 var del      = require('del');
-var Registry = require('gear').Registry;
+var gear     = require('gear');
 var path     = require('path');
 var fs       = require('fs');
 
@@ -75,7 +75,7 @@ tasks.template = function(options, blob, done) {
     template    = hasTemplate ? options[basename] : options.template;
     content     = _.template(template, data);
 
-    newBlob = new blob.constructor(content, blob);
+    newBlob = new gear.Blob(content, blob);
   } else {
     newBlob = blob;
   }
@@ -104,7 +104,7 @@ tasks.rename = function(options, blob, done) {
 
   name = name.replace(ext, options.extname);
 
-  return done(null, new blob.constructor(blob.result, {name: name}));
+  return done(null, new gear.Blob(blob.result, {name: name}));
 };
 
 tasks.buildPackage = function(json, blob, done) {
@@ -128,7 +128,7 @@ tasks.buildPackage = function(json, blob, done) {
   json.contributors = contributors;
   result = JSON.stringify(json, null, '  ');
 
-  return done(null, new blob.constructor(result, blob));
+  return done(null, new gear.Blob(result, blob));
 };
 
 tasks.replaceSkippingStrings = function(params, blob, done) {
@@ -180,7 +180,7 @@ tasks.replaceSkippingStrings = function(params, blob, done) {
     }
   }
 
-  return done(null, new blob.constructor(result.join(''), blob));
+  return done(null, new gear.Blob(result.join(''), blob));
 };
 
 tasks.filter = function(callback, blobs, done) {
@@ -214,22 +214,23 @@ tasks.readSnippet = function(options, blob, done) {
       fileInfo    = parseHeader(blob.result),
       snippetName = path.join(dir.root, 'test', 'detect', name, 'default.txt');
 
-  function addMeta(options, blob) {
-    var meta = {name: name + '.js', fileInfo: fileInfo},
-        blob = new blob.constructor(blob.result, meta);
-    return done(null, blob);
+  function onRead(error, blob) {
+    if (error !== null) return done(null, null); // ignore missing snippets
+    var meta = {name: name + '.js', fileInfo: fileInfo};
+    blob = new gear.Blob(blob.result, meta);
+    return done(error, blob);
   }
 
-  blob.constructor.readFile(snippetName, 'utf8', addMeta, false);
+  gear.Blob.readFile(snippetName, 'utf8', onRead, false);
 }
 
 tasks.templateDemo = function(options, blobs, done) {
   var name = path.join(dir.root, 'demo', 'index.html'),
       template = fs.readFileSync(name, 'utf8'),
+      blobs = _.filter(blobs, Boolean), // drop missing blobs
       content = _.template(template, { path: path, blobs: blobs });
-
-  return done(null, [new blobs[0].constructor(content)]);
+  return done(null, [new gear.Blob(content)]);
 };
 tasks.templateDemo.type = 'collect';
 
-module.exports = new Registry({ tasks: tasks });
+module.exports = new gear.Registry({ tasks: tasks });
