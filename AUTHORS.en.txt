@@ -159,3 +159,4 @@ Contributors:
 - Anthony Scemama <scemama@irsamc.ups-tlse.fr>
 - Taufik Nurrohman <latitudu.latitudu@gmail.com>
 - Pedro Oliveira <kanytu@gmail.com>
+- Stefan Bechert <stefan.bechert@gmx.net>
