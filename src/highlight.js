@@ -669,16 +669,14 @@ https://highlightjs.org/
     begin: /\b(a|an|the|are|I|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such)\b/
   };
   hljs.COMMENT = function (begin, end, inherits) {
-    var mode = {
-      className: 'comment',
-      begin: begin, end: end
-    };
-    if (inherits) {
-      mode = hljs.inherit(mode, inherits);
-    }
-    if (!mode.contains) {
-      mode.contains = [];
-    }
+    var mode = hljs.inherit(
+      {
+        className: 'comment',
+        begin: begin, end: end,
+        contains: []
+      },
+      inherits || {}
+    );
     mode.contains.push(hljs.PHRASAL_WORDS_MODE);
     return mode;
   };
