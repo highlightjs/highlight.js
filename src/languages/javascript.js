@@ -8,9 +8,9 @@ function(hljs) {
     aliases: ['js'],
     keywords: {
       keyword:
-        'in if for while finally var new function do return void else break catch ' +
+        'in of if for while finally var new function do return void else break catch ' +
         'instanceof with throw case default try this switch continue typeof delete ' +
-        'let yield const class export as',
+        'let yield const class export import as super extends debugger',
       literal:
         'true false null undefined NaN Infinity',
       built_in:
@@ -20,7 +20,8 @@ function(hljs) {
         'TypeError URIError Number Math Date String RegExp Array Float32Array ' +
         'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
         'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
-        'module console window document'
+        'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect ' +
+        'Promise'
     },
     contains: [
       {
@@ -33,9 +34,24 @@ function(hljs) {
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
+      { // template string
+        className: 'string',
+        begin: '`', end: '`',
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          {
+            className: 'expression',
+            begin: '\\$\\{', end: '\\}'
+          }
+        ]
+      },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.C_NUMBER_MODE,
+      {
+        className: 'number',
+        begin: '\\b(0[xXbBoO][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)', // 0x..., 0..., 0b..., 0o..., decimal, float
+        relevance: 0
+      },
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: 'return throw case',
@@ -81,6 +97,16 @@ function(hljs) {
         contains: [
           hljs.APOS_STRING_MODE,
           hljs.QUOTE_STRING_MODE
+        ]
+      },
+      { // ES6 class
+        className: 'class',
+        beginKeywords: 'class', end: /[{;=]/, excludeEnd: true,
+        keywords: 'class',
+        illegal: /[:"\[\]]/,
+        contains: [
+          {beginKeywords: 'extends'},
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       }
     ]
