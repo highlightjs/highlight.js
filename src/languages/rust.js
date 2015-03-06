@@ -46,7 +46,7 @@ function(hljs) {
       },
       {
         className: 'number',
-        begin: /\b(0[xb][A-Za-z0-9_]+|[0-9_]+(\.[0-9_]+)?([eE][+-]?[0-9_]+)?)([uif](8|16|32|64)?)?/,
+        begin: /\b(0[xbo][A-Fa-f0-9_]+|\d[\d_]*(\.[0-9_]+)?([eE][+-]?[0-9_]+)?)([uif](8|16|32|64|size))?/,
         relevance: 0
       },
       {

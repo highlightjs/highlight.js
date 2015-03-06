@@ -73,7 +73,7 @@ tasks.template = function(options, blob, done) {
 
     hasTemplate = _.contains(_.keys(options), basename);
     template    = hasTemplate ? options[basename] : options.template;
-    content     = _.template(template, data);
+    content     = _.template(template)(data);
 
     newBlob = new gear.Blob(content, blob);
   } else {
@@ -90,7 +90,7 @@ tasks.templateAll = function(template, blobs, done) {
     return path.basename(blob.name, '.js');
   });
 
-  content = _.template(template, { names: names });
+  content = _.template(template)({ names: names });
 
   return done(null, [new blobs[0].constructor(content, blobs)]);
 };
@@ -222,13 +222,13 @@ tasks.readSnippet = function(options, blob, done) {
   }
 
   gear.Blob.readFile(snippetName, 'utf8', onRead, false);
-}
+};
 
 tasks.templateDemo = function(options, blobs, done) {
   var name = path.join(dir.root, 'demo', 'index.html'),
       template = fs.readFileSync(name, 'utf8'),
       blobs = _.filter(blobs, Boolean), // drop missing blobs
-      content = _.template(template, { path: path, blobs: blobs });
+      content = _.template(template)({ path: path, blobs: blobs });
   return done(null, [new gear.Blob(content)]);
 };
 tasks.templateDemo.type = 'collect';
