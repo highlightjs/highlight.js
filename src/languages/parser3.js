@@ -6,24 +6,27 @@ Category: template
 */
 
 function(hljs) {
+  var CURLY_SUBCOMMENT = hljs.COMMENT(
+    '{',
+    '}',
+    {
+      contains: ['self']
+    }
+  );
   return {
     subLanguage: 'xml', relevance: 0,
     contains: [
-      {
-        className: 'comment',
-        begin: '^#', end: '$'
-      },
-      {
-        className: 'comment',
-        begin: '\\^rem{', end: '}',
-        relevance: 10,
-        contains: [
-          {
-            begin: '{', end: '}',
-            contains: ['self']
-          }
-        ]
-      },
+      hljs.COMMENT('^#', '$'),
+      hljs.COMMENT(
+        '\\^rem{',
+        '}',
+        {
+          relevance: 10,
+          contains: [
+            CURLY_SUBCOMMENT
+          ]
+        }
+      ),
       {
         className: 'preprocessor',
         begin: '^@(?:BASE|USE|CLASS|OPTIONS)$',

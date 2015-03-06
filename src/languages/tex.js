@@ -48,11 +48,13 @@ function(hljs) {
         contains: [COMMAND1, COMMAND2, SPECIAL],
         relevance: 0
       },
-      {
-        className: 'comment',
-        begin: '%', end: '$',
-        relevance: 0
-      }
+      hljs.COMMENT(
+        '%',
+        '$',
+        {
+          relevance: 0
+        }
+      )
     ]
   };
 }

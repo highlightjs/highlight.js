@@ -47,10 +47,7 @@ function(hljs) {
     case_insensitive: true,
     subLanguage: 'xml', subLanguageMode: 'continuous',
     contains: [
-      {
-        className: 'comment',
-        begin: /\{#/, end: /#}/
-      },
+      hljs.COMMENT(/\{#/, /#}/),
       {
         className: 'template_tag',
         begin: /\{%/, end: /%}/,

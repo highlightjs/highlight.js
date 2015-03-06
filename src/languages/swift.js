@@ -36,11 +36,13 @@ function(hljs) {
     begin: '\\b[A-Z][\\w\']*',
     relevance: 0
   };
-  var BLOCK_COMMENT = {
-    className: 'comment',
-    begin: '/\\*', end: '\\*/',
-    contains: [hljs.PHRASAL_WORDS_MODE, 'self']
-  };
+  var BLOCK_COMMENT = hljs.COMMENT(
+    '/\\*',
+    '\\*/',
+    {
+      contains: ['self']
+    }
+  );
   var SUBST = {
     className: 'subst',
     begin: /\\\(/, end: '\\)',

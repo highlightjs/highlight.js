@@ -18,10 +18,7 @@ function(hljs) {
         className: 'prompt', begin: '^[0-9]+> ',
         relevance: 10
       },
-      {
-        className: 'comment',
-        begin: '%', end: '$'
-      },
+      hljs.COMMENT('%', '$'),
       {
         className: 'number',
         begin: '\\b(\\d+#[a-fA-F0-9]+|\\d+(\\.\\d+)?([eE][-+]?\\d+)?)',

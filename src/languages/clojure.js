@@ -51,15 +51,17 @@ function(hljs) {
     relevance: 0
   };
   var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null});
-  var COMMENT = {
-    className: 'comment',
-    begin: ';', end: '$',
-    relevance: 0
-  };
+  var COMMENT = hljs.COMMENT(
+    ';',
+    '$',
+    {
+      relevance: 0
+    }
+  );
   var LITERAL = {
     className: 'literal',
     begin: /\b(true|false|nil)\b/
-  }
+  };
   var COLLECTION = {
     className: 'collection',
     begin: '[\\[\\{]', end: '[\\]\\}]'
@@ -68,11 +70,7 @@ function(hljs) {
     className: 'comment',
     begin: '\\^' + SYMBOL_RE
   };
-  var HINT_COL = {
-    className: 'comment',
-    begin: '\\^\\{', end: '\\}'
-
-  };
+  var HINT_COL = hljs.COMMENT('\\^\\{', '\\}');
   var KEY = {
     className: 'attribute',
     begin: '[:]' + SYMBOL_RE
@@ -93,7 +91,7 @@ function(hljs) {
   };
   var DEFAULT_CONTAINS = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL, SYMBOL];
 
-  LIST.contains = [{className: 'comment', begin: 'comment'}, NAME, BODY];
+  LIST.contains = [hljs.COMMENT('comment', ''), NAME, BODY];
   BODY.contains = DEFAULT_CONTAINS;
   COLLECTION.contains = DEFAULT_CONTAINS;
 

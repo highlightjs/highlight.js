@@ -19,23 +19,24 @@ function(hljs) {
     className: 'value',
     begin: '#<', end: '>'
   };
-  var COMMENT = {
-    className: 'comment',
-    variants: [
+  var COMMENT_MODES = [
+    hljs.COMMENT(
+      '#',
+      '$',
       {
-        begin: '#', end: '$',
         contains: [YARDOCTAG]
-      },
+      }
+    ),
+    hljs.COMMENT(
+      '^\\=begin',
+      '^\\=end',
       {
-        begin: '^\\=begin', end: '^\\=end',
         contains: [YARDOCTAG],
         relevance: 10
-      },
-      {
-        begin: '^__END__', end: '\\n$'
       }
-    ]
-  };
+    ),
+    hljs.COMMENT('^__END__', '\\n$')
+  ];
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
@@ -72,7 +73,6 @@ function(hljs) {
   var RUBY_DEFAULT_CONTAINS = [
     STRING,
     IRB_OBJECT,
-    COMMENT,
     {
       className: 'class',
       beginKeywords: 'class module', end: '$|;',
@@ -86,9 +86,8 @@ function(hljs) {
             className: 'parent',
             begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE
           }]
-        },
-        COMMENT
-      ]
+        }
+      ].concat(COMMENT_MODES)
     },
     {
       className: 'function',
@@ -96,9 +95,8 @@ function(hljs) {
       relevance: 0,
       contains: [
         hljs.inherit(hljs.TITLE_MODE, {begin: RUBY_METHOD_RE}),
-        PARAMS,
-        COMMENT
-      ]
+        PARAMS
+      ].concat(COMMENT_MODES)
     },
     {
       className: 'constant',
@@ -129,7 +127,6 @@ function(hljs) {
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
       contains: [
         IRB_OBJECT,
-        COMMENT,
         {
           className: 'regexp',
           contains: [hljs.BACKSLASH_ESCAPE, SUBST],
@@ -142,10 +139,11 @@ function(hljs) {
             {begin: '%r\\[', end: '\\][a-z]*'}
           ]
         }
-      ],
+      ].concat(COMMENT_MODES),
       relevance: 0
     }
-  ];
+  ].concat(COMMENT_MODES);
+
   SUBST.contains = RUBY_DEFAULT_CONTAINS;
   PARAMS.contains = RUBY_DEFAULT_CONTAINS;
 
@@ -173,6 +171,6 @@ function(hljs) {
   return {
     aliases: ['rb', 'gemspec', 'podspec', 'thor', 'irb'],
     keywords: RUBY_KEYWORDS,
-    contains: [COMMENT].concat(IRB_DEFAULT).concat(RUBY_DEFAULT_CONTAINS)
+    contains: COMMENT_MODES.concat(IRB_DEFAULT).concat(RUBY_DEFAULT_CONTAINS)
   };
 }

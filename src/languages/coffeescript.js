@@ -104,11 +104,7 @@ function(hljs) {
     keywords: KEYWORDS,
     illegal: /\/\*/,
     contains: EXPRESSIONS.concat([
-      {
-        className: 'comment',
-        begin: '###', end: '###',
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
+      hljs.COMMENT('###', '###'),
       hljs.HASH_COMMENT_MODE,
       {
         className: 'function',

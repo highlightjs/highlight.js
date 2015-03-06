@@ -668,21 +668,23 @@ https://highlightjs.org/
   hljs.PHRASAL_WORDS_MODE = {
     begin: /\b(a|an|the|are|I|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such)\b/
   };
-  hljs.C_LINE_COMMENT_MODE = {
-    className: 'comment',
-    begin: '//', end: '$',
-    contains: [hljs.PHRASAL_WORDS_MODE]
+  hljs.COMMENT = function (begin, end, inherits) {
+    var mode = {
+      className: 'comment',
+      begin: begin, end: end
+    };
+    if (inherits) {
+      mode = hljs.inherit(mode, inherits);
+    }
+    if (!mode.contains) {
+      mode.contains = [];
+    }
+    mode.contains.push(hljs.PHRASAL_WORDS_MODE);
+    return mode;
   };
-  hljs.C_BLOCK_COMMENT_MODE = {
-    className: 'comment',
-    begin: '/\\*', end: '\\*/',
-    contains: [hljs.PHRASAL_WORDS_MODE]
-  };
-  hljs.HASH_COMMENT_MODE = {
-    className: 'comment',
-    begin: '#', end: '$',
-    contains: [hljs.PHRASAL_WORDS_MODE]
-  };
+  hljs.C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$');
+  hljs.C_BLOCK_COMMENT_MODE = hljs.COMMENT('/\\*', '\\*/');
+  hljs.HASH_COMMENT_MODE = hljs.COMMENT('#', '$');
   hljs.NUMBER_MODE = {
     className: 'number',
     begin: hljs.NUMBER_RE,

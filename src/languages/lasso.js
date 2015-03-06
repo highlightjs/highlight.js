@@ -36,11 +36,13 @@ function(hljs) {
       'skip split_thread sum take thread to trait type where with ' +
       'yield yieldhome'
   };
-  var HTML_COMMENT = {
-    className: 'comment',
-    begin: '<!--', end: '-->',
-    relevance: 0
-  };
+  var HTML_COMMENT = hljs.COMMENT(
+    '<!--',
+    '-->',
+    {
+      relevance: 0
+    }
+  );
   var LASSO_NOPROCESS = {
     className: 'preprocessor',
     begin: '\\[noprocess\\]',

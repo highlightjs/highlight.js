@@ -12,19 +12,12 @@ function(hljs) {
     className: 'variable', begin: '\\b[gtps][A-Z]+[A-Za-z0-9_\\-]*\\b|\\$_[A-Z]+',
     relevance: 0
   };
-  var COMMENT = {
-    className: 'comment', end: '$',
-    variants: [
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.HASH_COMMENT_MODE,
-      {
-        begin: '--'
-      },
-      {
-        begin: '[^:]//'
-      }
-    ]
-  };
+  var COMMENT_MODES = [
+    hljs.C_BLOCK_COMMENT_MODE,
+    hljs.HASH_COMMENT_MODE,
+    hljs.COMMENT('--', '$'),
+    hljs.COMMENT('[^:]//', '$')
+  ];
   var TITLE1 = hljs.inherit(hljs.TITLE_MODE, {
     variants: [
       {begin: '\\b_*rig[A-Z]+[A-Za-z0-9_\\-]*'},
@@ -171,13 +164,12 @@ function(hljs) {
         className: 'preprocessor',
         begin: '\\?>'
       },
-      COMMENT,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       hljs.BINARY_NUMBER_MODE,
       hljs.C_NUMBER_MODE,
       TITLE1
-    ],
+    ].concat(COMMENT_MODES),
     illegal: ';$|^\\[|^='
   };
 }

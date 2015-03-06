@@ -64,16 +64,12 @@ function(hljs) {
         illegal: '[${=\\n]',
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       },
-      {
-        className: 'comment',
-        begin: '!', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE],
-      },
+      hljs.COMMENT('!', '$', {relevance: 0}),
       {
         className: 'number',
         begin: '-?(\\d+(\\.\\d*)?|\\.\\d+)([DdEe][+-]?\\d+)?',
         relevance: 0
-      },
+      }
     ]
   };
 }

@@ -40,10 +40,7 @@ function(hljs) {
     illegal: '{',
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,        // VHDL-2008 block commenting.
-      {
-        className: 'comment',
-        begin: '--', end: '$'
-      },
+      hljs.COMMENT('--', '$'),
       hljs.QUOTE_STRING_MODE,
       {
         className: 'number',

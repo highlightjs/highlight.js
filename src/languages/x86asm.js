@@ -73,12 +73,13 @@ function(hljs) {
         'float128l float128h __FLOAT_DAZ__ __FLOAT_ROUND__ __FLOAT__'
     },
     contains: [
-      {
-        className: 'comment',
-        begin: ';',
-        end: '$',
-        relevance: 0
-      },
+      hljs.COMMENT(
+        ';',
+        '$',
+        {
+          relevance: 0
+        }
+      ),
       // Float number and x87 BCD
       {
         className: 'number',
