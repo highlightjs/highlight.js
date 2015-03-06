@@ -1357,3 +1357,11 @@ PF ("pf", "pf.conf")
 * ``number``:           number
 * ``string``:           string
 * ``variable``:         used for both macros and tables
+
+BigFix Relevance ("bigfix-relevance")
+--------------------
+
+* ``comment``:          comment
+* ``keyword``:          keyword
+* ``number``:           number
+* ``string``:           string

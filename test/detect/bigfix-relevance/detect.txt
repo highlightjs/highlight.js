@@ -1,0 +1,1 @@
+if ("Win2012" = name of operating system or "Win2012R2" = name of operating system) then (exists value "Server-Gui-Mgmt" of key "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Server\ServerLevels" of native registry) else false
