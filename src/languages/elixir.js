@@ -38,7 +38,7 @@ function(hljs) {
   };
   var FUNCTION = {
     className: 'function',
-    beginKeywords: 'def defmacro', end: /\bdo\b/,
+    beginKeywords: 'def defp defmacro', end: /\bdo\b/,
     contains: [
       hljs.inherit(hljs.TITLE_MODE, {
         begin: ELIXIR_METHOD_RE,
