@@ -46,6 +46,7 @@ REPLACES = {
   'REGEXP_MODE': 'RM',
   'TITLE_MODE': 'TM',
   'UNDERSCORE_TITLE_MODE': 'UTM',
+  'COMMENT': 'C',
 
   'beginRe': 'bR',
   'endRe': 'eR',
