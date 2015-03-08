@@ -53,10 +53,7 @@ function(hljs) {
       'uptime_days uptime_hours uptime_seconds uuid virtual vlans xendomains zfs_version zonenae zones zpool_version'
   };
 
-  var COMMENT = {
-    className: 'comment',
-    begin: '#', end: '$'
-  };
+  var COMMENT = hljs.COMMENT('#', '$');
 
   var STRING = {
     className: 'string',

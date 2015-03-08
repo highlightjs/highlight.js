@@ -28,10 +28,12 @@ function(hljs) {
     ]
   };
   var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null});
-  var COMMENT = {
-    className: 'comment',
-    begin: ';', end: '$', relevance: 0
-  };
+  var COMMENT = hljs.COMMENT(
+    ';', '$',
+    {
+      relevance: 0
+    }
+  );
   var VARIABLE = {
     className: 'variable',
     begin: '\\*', end: '\\*'

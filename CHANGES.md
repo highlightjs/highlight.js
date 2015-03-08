@@ -7,12 +7,19 @@ New languages:
 
 New Styles:
 
+- *Agate* by [Taufik Nurrohman][]
 - *Darkula* by [Jet Brains][]
 
+[Taufik Nurrohman]: https://github.com/tovic
 [Jet Brains]: https://www.jetbrains.com/
 [Peter Piwowarski]: https://github.com/oldlaptop
 [Kenta Sato]: https://github.com/bicycle1885
 
+Other improvements:
+
+- ES6 features in JavaScript are better supported now by [Gu Yiling][]
+
+[Gu Yiling]: https://github.com/Justineo
 
 ## Version 8.4
 

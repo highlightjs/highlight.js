@@ -46,6 +46,7 @@ REPLACES = {
   'REGEXP_MODE': 'RM',
   'TITLE_MODE': 'TM',
   'UNDERSCORE_TITLE_MODE': 'UTM',
+  'COMMENT': 'C',
 
   'beginRe': 'bR',
   'endRe': 'eR',
@@ -71,30 +72,28 @@ function replaceClassNames(match) {
 }
 
 function parseHeader(content) {
-  var object  = {},
-      headers,
+  var headers,
       match = content.match(headerRegex);
 
   if (!match) {
     return null;
   }
 
-  headers = match[1].split('\n');
-  _(headers)
-    .compact()
-    .each(function(h) {
-      var keyVal = h.trim().split(': '),
-          key    = keyVal[0],
-          value  = keyVal[1] || "";
+  headers = _.compact(match[1].split('\n'));
 
-      if(key !== 'Description' && key !== 'Language') {
-        value = value.split(/\s*,\s*/);
-      }
+  return _.foldl(headers, function(result, header) {
+    var keyVal = header.trim().split(': '),
+        key    = keyVal[0],
+        value  = keyVal[1] || '';
 
-      object[key] = value;
-    });
+    if(key !== 'Description' && key !== 'Language') {
+      value = value.split(/\s*,\s*/);
+    }
 
-  return object;
+    result[key] = value;
+
+    return result;
+  }, {});
 }
 
 function filterByQualifiers(blob, languages, categories) {

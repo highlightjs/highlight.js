@@ -157,4 +157,7 @@ Contributors:
 - Peter Piwowarski <oldlaptop654@aol.com>
 - Kenta Sato <bicycle1885@gmail.com>
 - Anthony Scemama <scemama@irsamc.ups-tlse.fr>
+- Taufik Nurrohman <latitudu.latitudu@gmail.com>
+- Pedro Oliveira <kanytu@gmail.com>
+- Gu Yiling <justice360@gmail.com>
 - Thomas Applencourt <thomas.applencourt@irsamc.ups-tlse.fr>

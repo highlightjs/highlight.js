@@ -46,14 +46,14 @@ https://highlightjs.org/
   }
 
   function inherit(parent, obj) {
-    var result = {};
-    for (var key in parent)
+    var result = {}, key;
+    for (key in parent)
       result[key] = parent[key];
     if (obj)
-      for (var key in obj)
+      for (key in obj)
         result[key] = obj[key];
     return result;
-  };
+  }
 
   /* Stream merging */
 
@@ -169,7 +169,7 @@ https://highlightjs.org/
     }
 
     function langRe(value, global) {
-      return RegExp(
+      return new RegExp(
         reStr(value),
         'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
       );
@@ -249,7 +249,7 @@ https://highlightjs.org/
         .concat([mode.terminator_end, mode.illegal])
         .map(reStr)
         .filter(Boolean);
-      mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : {exec: function(s) {return null;}};
+      mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : {exec: function(/*s*/) {return null;}};
     }
 
     compileMode(language);
@@ -420,8 +420,8 @@ https://highlightjs.org/
     compileLanguage(language);
     var top = continuation || language;
     var continuations = {}; // keep continuations for sub-languages
-    var result = '';
-    for(var current = top; current != language; current = current.parent) {
+    var result = '', current;
+    for(current = top; current != language; current = current.parent) {
       if (current.className) {
         result = buildSpan(current.className, '', true) + result;
       }
@@ -439,11 +439,11 @@ https://highlightjs.org/
         index = match.index + count;
       }
       processLexeme(value.substr(index));
-      for(var current = top; current.parent; current = current.parent) { // close dangling modes
+      for(current = top; current.parent; current = current.parent) { // close dangling modes
         if (current.className) {
           result += '</span>';
         }
-      };
+      }
       return {
         relevance: relevance,
         value: result,
@@ -509,7 +509,7 @@ https://highlightjs.org/
   */
   function fixMarkup(value) {
     if (options.tabReplace) {
-      value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1, offset, s) {
+      value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1 /*..., offset, s*/) {
         return p1.replace(/\t/g, options.tabReplace);
       });
     }
@@ -527,7 +527,7 @@ https://highlightjs.org/
       result.push('hljs');
     }
 
-    if (language) {
+    if (prevClassName.indexOf(language) === -1) {
       result.push(language);
     }
 
@@ -668,21 +668,21 @@ https://highlightjs.org/
   hljs.PHRASAL_WORDS_MODE = {
     begin: /\b(a|an|the|are|I|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such)\b/
   };
-  hljs.C_LINE_COMMENT_MODE = {
-    className: 'comment',
-    begin: '//', end: '$',
-    contains: [hljs.PHRASAL_WORDS_MODE]
+  hljs.COMMENT = function (begin, end, inherits) {
+    var mode = hljs.inherit(
+      {
+        className: 'comment',
+        begin: begin, end: end,
+        contains: []
+      },
+      inherits || {}
+    );
+    mode.contains.push(hljs.PHRASAL_WORDS_MODE);
+    return mode;
   };
-  hljs.C_BLOCK_COMMENT_MODE = {
-    className: 'comment',
-    begin: '/\\*', end: '\\*/',
-    contains: [hljs.PHRASAL_WORDS_MODE]
-  };
-  hljs.HASH_COMMENT_MODE = {
-    className: 'comment',
-    begin: '#', end: '$',
-    contains: [hljs.PHRASAL_WORDS_MODE]
-  };
+  hljs.C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$');
+  hljs.C_BLOCK_COMMENT_MODE = hljs.COMMENT('/\\*', '\\*/');
+  hljs.HASH_COMMENT_MODE = hljs.COMMENT('#', '$');
   hljs.NUMBER_MODE = {
     className: 'number',
     begin: hljs.NUMBER_RE,

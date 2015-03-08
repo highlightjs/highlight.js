@@ -95,7 +95,7 @@ function copyMetaFiles() {
 }
 
 function buildStyles() {
-  var input  = path.join(dir.root, 'src', 'styles', '*.css'),
+  var input  = path.join(dir.root, 'src', 'styles', '*.{css,jpg,png}'),
       output = path.join(dir.build, 'styles');
 
   return {

@@ -94,15 +94,3 @@
 .javascript .function {
   color: #8f9c6c;
 }
-
-.coffeescript .javascript,
-.javascript,
-.javascript .xml,
-.tex .formula,
-.xml .javascript,
-.xml .vbscript,
-.xml .css,
-.xml .cdata {
-    background: transparent;
-    opacity: 1;
-}

@@ -23,13 +23,9 @@ function(hljs) {
         className: 'string',
         begin: /([a-zA-Z]\w*)?"""/,
         end: /"""/
-      }, {
-        className: 'string',
-        begin: /"/,
-        end: /"/,
-        illegal: /\n/,
-        contains: [{begin: /\\./}]
-      }, {
+      },
+      hljs.QUOTE_STRING_MODE,
+      {
         className: 'type',
         begin: /\b[A-Z]\w+\b/,
         relevance: 0
