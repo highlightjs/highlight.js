@@ -10,3 +10,6 @@
 1.E4
 1E4
 1D-4
+var1
+va1r
+mo_tot_8 = 1./(0.4*log(float(elec_num_tot_8+0.4)))

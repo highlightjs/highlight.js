@@ -67,7 +67,7 @@ function(hljs) {
       hljs.COMMENT('!', '$', {relevance: 0}),
       {
         className: 'number',
-        begin: '-?(\\d+(\\.\\d*)?|\\.\\d+)([DdEe][+-]?\\d+)?',
+        begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][+-]?\\d+)?\\b\\.?',
         relevance: 0
       }
     ]
