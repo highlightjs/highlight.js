@@ -158,3 +158,4 @@ URL:   https://highlightjs.org/
 - Педро Оливейра <kanytu@gmail.com>
 - Гу Илинь <justice360@gmail.com>
 - Томас Аппленкур <thomas.applencourt@irsamc.ups-tlse.fr>
+- Эндрю Фармер <ahfarmer@gmail.com>
