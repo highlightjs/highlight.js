@@ -10,7 +10,7 @@ function(hljs) {
       keyword:
         'in of if for while finally var new function do return void else break catch ' +
         'instanceof with throw case default try this switch continue typeof delete ' +
-        'let yield const class export super extends debugger',
+        'let yield const export super debugger',
       literal:
         'true false null undefined NaN Infinity',
       built_in:
@@ -102,7 +102,6 @@ function(hljs) {
       { // ES6 class
         className: 'class',
         beginKeywords: 'class', end: /[{;=]/, excludeEnd: true,
-        keywords: 'class',
         illegal: /[:"\[\]]/,
         contains: [
           {beginKeywords: 'extends'},
