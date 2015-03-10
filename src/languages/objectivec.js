@@ -10,10 +10,6 @@ function(hljs) {
     className: 'built_in',
     begin: '(AV|CA|CF|CG|CI|MK|MP|NS|UI)\\w+',
   };
-  var CUSTOM_CLASS = {
-    className: 'class',
-    begin: '[A-Z][A-Z]\\w+'
-  };
   var OBJC_KEYWORDS = {
     keyword:
       'int float while char export sizeof typedef const struct for union ' +
@@ -39,7 +35,6 @@ function(hljs) {
     illegal: '</',
     contains: [
       API_CLASS,
-      CUSTOM_CLASS,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
