@@ -40,7 +40,7 @@ function(hljs) {
         contains: [
           hljs.BACKSLASH_ESCAPE,
           {
-            className: 'expression',
+            className: 'subst',
             begin: '\\$\\{', end: '\\}'
           }
         ]
