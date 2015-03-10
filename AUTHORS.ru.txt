@@ -156,3 +156,5 @@ URL:   https://highlightjs.org/
 - Кента Сато <bicycle1885@gmail.com>
 - Тофик Нурроман <latitudu.latitudu@gmail.com>
 - Педро Оливейра <kanytu@gmail.com>
+- Гу Илинь <justice360@gmail.com>
+- Томас Аппленкур <thomas.applencourt@irsamc.ups-tlse.fr>
