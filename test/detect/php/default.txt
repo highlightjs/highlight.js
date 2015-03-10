@@ -35,7 +35,7 @@ line description';
         }
 
         $this->var = 0 - self::$st;
-        $this->list = list(Array("1"=> 2, 2=>self::ME));
+        $this->list = list(Array("1"=> 2, 2=>self::ME, 3 => \Location\Web\URI::class));
 
         return [
             'uri'   => $uri,
