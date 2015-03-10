@@ -1,11 +1,15 @@
 /*
 Language: Objective C
 Author: Valerii Hiora <valerii.hiora@gmail.com>
-Contributors: Angel G. Olloqui <angelgarcia.mail@gmail.com>, Matt Diephouse <matt@diephouse.com>
+Contributors: Angel G. Olloqui <angelgarcia.mail@gmail.com>, Matt Diephouse <matt@diephouse.com>, Andrew Farmer <ahfarmer@gmail.com>
 Category: common
 */
 
 function(hljs) {
+  var API_CLASS = {
+    className: 'built_in',
+    begin: '(AV|CA|CF|CG|CI|MK|MP|NS|UI)\\w+',
+  };
   var OBJC_KEYWORDS = {
     keyword:
       'int float while char export sizeof typedef const struct for union ' +
@@ -20,29 +24,17 @@ function(hljs) {
     literal:
       'false true FALSE TRUE nil YES NO NULL',
     built_in:
-      'NSString NSData NSDictionary CGRect CGPoint UIButton UILabel UITextView UIWebView MKMapView ' +
-      'NSView NSViewController NSWindow NSWindowController NSSet NSUUID NSIndexSet ' +
-      'UISegmentedControl NSObject UITableViewDelegate UITableViewDataSource NSThread ' +
-      'UIActivityIndicator UITabbar UIToolBar UIBarButtonItem UIImageView NSAutoreleasePool ' +
-      'UITableView BOOL NSInteger CGFloat NSException NSLog NSMutableString NSMutableArray ' +
-      'NSMutableDictionary NSURL NSIndexPath CGSize UITableViewCell UIView UIViewController ' +
-      'UINavigationBar UINavigationController UITabBarController UIPopoverController ' +
-      'UIPopoverControllerDelegate UIImage NSNumber UISearchBar NSFetchedResultsController ' +
-      'NSFetchedResultsChangeType UIScrollView UIScrollViewDelegate UIEdgeInsets UIColor ' +
-      'UIFont UIApplication NSNotFound NSNotificationCenter NSNotification ' +
-      'UILocalNotification NSBundle NSFileManager NSTimeInterval NSDate NSCalendar ' +
-      'NSUserDefaults UIWindow NSRange NSArray NSError NSURLRequest NSURLConnection ' +
-      'NSURLSession NSURLSessionDataTask NSURLSessionDownloadTask NSURLSessionUploadTask NSURLResponse' +
-      'UIInterfaceOrientation MPMoviePlayerController dispatch_once_t ' +
-      'dispatch_queue_t dispatch_sync dispatch_async dispatch_once'
+      'BOOL dispatch_once_t dispatch_queue_t dispatch_sync dispatch_async dispatch_once'
   };
   var LEXEMES = /[a-zA-Z@][a-zA-Z0-9_]*/;
   var CLASS_KEYWORDS = '@interface @class @protocol @implementation';
   return {
     aliases: ['m', 'mm', 'objc', 'obj-c'],
-    keywords: OBJC_KEYWORDS, lexemes: LEXEMES,
+    keywords: OBJC_KEYWORDS,
+    lexemes: LEXEMES,
     illegal: '</',
     contains: [
+      API_CLASS,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
