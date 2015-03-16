@@ -1,15 +1,20 @@
-/* Base16 Atelier Seaside Light - Theme */
-/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside/) */
-/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
-/* https://github.com/jmblog/color-themes-for-highlightjs */
+/*
 
-/* Atelier Seaside Light Comment */
+    Name:       Base16 Atelier Seaside Light
+    Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside/)
+
+    highlight.js v8.0 template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+
+/* Atelier Seaside Comment */
 .hljs-comment,
 .hljs-title {
   color: #687d68;
 }
 
-/* Atelier Seaside Light Red */
+/* Atelier Seaside Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
@@ -25,10 +30,9 @@
   color: #e6193c;
 }
 
-/* Atelier Seaside Light Orange */
+/* Atelier Seaside Orange */
 .hljs-number,
 .hljs-preprocessor,
-.hljs-pragma,
 .hljs-built_in,
 .hljs-literal,
 .hljs-params,
@@ -36,13 +40,13 @@
   color: #87711d;
 }
 
-/* Atelier Seaside Light Yellow */
-.hljs-ruby .hljs-class .hljs-title,
+/* Atelier Seaside Yellow */
+.ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
-  color: #c3c322;
+  color: #98981b;
 }
 
-/* Atelier Seaside Light Green */
+/* Atelier Seaside Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -52,12 +56,12 @@
   color: #29a329;
 }
 
-/* Atelier Seaside Light Aqua */
+/* Atelier Seaside Aqua */
 .css .hljs-hexcolor {
   color: #1999b3;
 }
 
-/* Atelier Seaside Light Blue */
+/* Atelier Seaside Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -69,7 +73,7 @@
   color: #3d62f5;
 }
 
-/* Atelier Seaside Light Purple */
+/* Atelier Seaside Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #ad2bee;
@@ -77,8 +81,7 @@
 
 .hljs {
   display: block;
-  overflow-x: auto;
-  background: #f0fff0;
+  background: #f4fbf4;
   color: #5e6e5e;
   padding: 0.5em;
   -webkit-text-size-adjust: none;
