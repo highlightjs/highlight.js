@@ -1,11 +1,6 @@
-/*
-
-    Name:       Base16 Atelier Lakeside Dark
-    Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/lakeside/)
-
-    highlight.js v8.0 template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
-    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-
+/* Name: Atelier Lakeside Dark
+   Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/lakeside/)
+   Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
 */
 
 /* Atelier Lakeside Comment */
@@ -81,6 +76,7 @@
 
 .hljs {
   display: block;
+  overflow-x: auto;
   background: #161b1d;
   color: #7ea2b4;
   padding: 0.5em;

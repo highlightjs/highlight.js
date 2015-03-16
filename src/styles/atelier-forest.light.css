@@ -1,11 +1,6 @@
-/*
-
-    Name:       Base16 Atelier Forest Light
-    Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/forest)
-
-    highlight.js v8.0 template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
-    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-
+/* Name: Atelier Forest Light
+   Author: Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/forest)
+   Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
 */
 
 /* Atelier Forest Comment */
@@ -81,6 +76,7 @@
 
 .hljs {
   display: block;
+  overflow-x: auto;
   background: #f1efee;
   color: #68615e;
   padding: 0.5em;

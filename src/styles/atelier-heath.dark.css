@@ -1,11 +1,6 @@
-/*
-
-    Name:       Base16 Atelier Heath Dark
-    Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/heath)
-
-    highlight.js v8.0 template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
-    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-
+/* Name: Atelier Heath Dark
+   Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/heath)
+   Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
 */
 
 /* Atelier Heath Comment */
@@ -81,6 +76,7 @@
 
 .hljs {
   display: block;
+  overflow-x: auto;
   background: #1b181b;
   color: #ab9bab;
   padding: 0.5em;

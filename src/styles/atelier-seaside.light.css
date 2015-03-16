@@ -1,11 +1,6 @@
-/*
-
-    Name:       Base16 Atelier Seaside Light
-    Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside/)
-
-    highlight.js v8.0 template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
-    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-
+/* Name: Atelier Seaside Light
+   Author: Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside/)
+   Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
 */
 
 /* Atelier Seaside Comment */
@@ -81,6 +76,7 @@
 
 .hljs {
   display: block;
+  overflow-x: auto;
   background: #f4fbf4;
   color: #5e6e5e;
   padding: 0.5em;
