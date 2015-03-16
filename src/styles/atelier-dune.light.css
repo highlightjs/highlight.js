@@ -1,15 +1,11 @@
-/* Name: Atelier Dune Light
-   Author: Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune)
-   Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-*/
+/* http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune */
 
-/* Atelier Dune Comment */
-.hljs-comment,
-.hljs-title {
+/* Atelier-Dune Comment */
+.hljs-comment {
   color: #7d7a68;
 }
 
-/* Atelier Dune Red */
+/* Atelier-Dune Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
@@ -25,7 +21,7 @@
   color: #d73737;
 }
 
-/* Atelier Dune Orange */
+/* Atelier-Dune Orange */
 .hljs-number,
 .hljs-preprocessor,
 .hljs-built_in,
@@ -35,13 +31,13 @@
   color: #b65611;
 }
 
-/* Atelier Dune Yellow */
+/* Atelier-Dune Yellow */
 .ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #ae9513;
 }
 
-/* Atelier Dune Green */
+/* Atelier-Dune Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -51,12 +47,13 @@
   color: #60ac39;
 }
 
-/* Atelier Dune Aqua */
+/* Atelier-Dune Aqua */
+.hljs-title,
 .css .hljs-hexcolor {
   color: #1fad83;
 }
 
-/* Atelier Dune Blue */
+/* Atelier-Dune Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -68,7 +65,7 @@
   color: #6684e1;
 }
 
-/* Atelier Dune Purple */
+/* Atelier-Dune Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #b854d4;

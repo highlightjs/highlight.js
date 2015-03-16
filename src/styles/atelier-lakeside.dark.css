@@ -1,15 +1,11 @@
-/* Name: Atelier Lakeside Dark
-   Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/lakeside/)
-   Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-*/
+/* http://atelierbram.github.io/syntax-highlighting/atelier-schemes/lakeside/ */
 
-/* Atelier Lakeside Comment */
-.hljs-comment,
-.hljs-title {
+/* Atelier-Lakeside Comment */
+.hljs-comment {
   color: #7195a8;
 }
 
-/* Atelier Lakeside Red */
+/* Atelier-Lakeside Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
@@ -25,7 +21,7 @@
   color: #d22d72;
 }
 
-/* Atelier Lakeside Orange */
+/* Atelier-Lakeside Orange */
 .hljs-number,
 .hljs-preprocessor,
 .hljs-built_in,
@@ -35,13 +31,13 @@
   color: #935c25;
 }
 
-/* Atelier Lakeside Yellow */
+/* Atelier-Lakeside Yellow */
 .ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #8a8a0f;
 }
 
-/* Atelier Lakeside Green */
+/* Atelier-Lakeside Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -51,12 +47,13 @@
   color: #568c3b;
 }
 
-/* Atelier Lakeside Aqua */
+/* Atelier-Lakeside Aqua */
+.hljs-title,
 .css .hljs-hexcolor {
   color: #2d8f6f;
 }
 
-/* Atelier Lakeside Blue */
+/* Atelier-Lakeside Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -68,7 +65,7 @@
   color: #257fad;
 }
 
-/* Atelier Lakeside Purple */
+/* Atelier-Lakeside Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #6b6bb8;

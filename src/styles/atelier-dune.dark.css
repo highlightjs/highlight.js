@@ -1,11 +1,7 @@
-/* Name: Atelier Dune Dark
-   Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune)
-   Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-*/
+/* http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune */
 
 /* Atelier Dune Comment */
-.hljs-comment,
-.hljs-title {
+.hljs-comment {
   color: #999580;
 }
 
@@ -52,6 +48,7 @@
 }
 
 /* Atelier Dune Aqua */
+.hljs-title,
 .css .hljs-hexcolor {
   color: #1fad83;
 }

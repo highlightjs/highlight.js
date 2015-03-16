@@ -1,15 +1,11 @@
-/* Name: Atelier Heath Light
-   Author: Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/heath)
-   Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-*/
+/* http://atelierbram.github.io/syntax-highlighting/atelier-schemes/heath */
 
-/* Atelier Heath Comment */
-.hljs-comment,
-.hljs-title {
+/* Atelier-Heath Comment */
+.hljs-comment {
   color: #776977;
 }
 
-/* Atelier Heath Red */
+/* Atelier-Heath Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
@@ -25,7 +21,7 @@
   color: #ca402b;
 }
 
-/* Atelier Heath Orange */
+/* Atelier-Heath Orange */
 .hljs-number,
 .hljs-preprocessor,
 .hljs-built_in,
@@ -35,13 +31,13 @@
   color: #a65926;
 }
 
-/* Atelier Heath Yellow */
+/* Atelier-Heath Yellow */
 .ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #bb8a35;
 }
 
-/* Atelier Heath Green */
+/* Atelier-Heath Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -51,12 +47,13 @@
   color: #918b3b;
 }
 
-/* Atelier Heath Aqua */
+/* Atelier-Heath Aqua */
+.hljs-title,
 .css .hljs-hexcolor {
   color: #159393;
 }
 
-/* Atelier Heath Blue */
+/* Atelier-Heath Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -68,7 +65,7 @@
   color: #516aec;
 }
 
-/* Atelier Heath Purple */
+/* Atelier-Heath Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #7b59c0;
