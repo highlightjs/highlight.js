@@ -9,7 +9,7 @@ New Styles:
 
 - *Agate* by [Taufik Nurrohman][]
 - *Darkula* by [Jet Brains][]
-- *Atelier Sulpherpool* by [Bram de Haan][]
+- *Atelier Sulphurpool* by [Bram de Haan][]
 
 [Taufik Nurrohman]: https://github.com/tovic
 [Jet Brains]: https://www.jetbrains.com/
