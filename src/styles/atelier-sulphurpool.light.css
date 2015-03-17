@@ -1,11 +1,11 @@
-/* http://atelierbram.github.io/syntax-highlighting/atelier-schemes/sulpherpool */
+/* http://atelierbram.github.io/syntax-highlighting/atelier-schemes/sulphurpool */
 
-/* Atelier-Sulpherpool Comment */
+/* Atelier-Sulphurpool Comment */
 .hljs-comment {
   color: #6b7394;
 }
 
-/* Atelier-Sulpherpool Red */
+/* Atelier-Sulphurpool Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
@@ -21,7 +21,7 @@
   color: #c94922;
 }
 
-/* Atelier-Sulpherpool Orange */
+/* Atelier-Sulphurpool Orange */
 .hljs-number,
 .hljs-preprocessor,
 .hljs-built_in,
@@ -31,13 +31,13 @@
   color: #c76b29;
 }
 
-/* Atelier-Sulpherpool Yellow */
+/* Atelier-Sulphurpool Yellow */
 .ruby .hljs-class .hljs-title,
 .css .hljs-rules .hljs-attribute {
   color: #c08b30;
 }
 
-/* Atelier-Sulpherpool Green */
+/* Atelier-Sulphurpool Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -47,13 +47,13 @@
   color: #ac9739;
 }
 
-/* Atelier-Sulpherpool Aqua */
+/* Atelier-Sulphurpool Aqua */
 .hljs-title,
 .css .hljs-hexcolor {
   color: #22a2c9;
 }
 
-/* Atelier-Sulpherpool Blue */
+/* Atelier-Sulphurpool Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -65,7 +65,7 @@
   color: #3d8fd1;
 }
 
-/* Atelier-Sulpherpool Purple */
+/* Atelier-Sulphurpool Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #6679cc;
