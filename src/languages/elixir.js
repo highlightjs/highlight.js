@@ -32,18 +32,24 @@ function(hljs) {
   };
   var PARAMS = {
     endsWithParent: true, returnEnd: true,
-    lexemes: ELIXIR_IDENT_RE,
-    keywords: ELIXIR_KEYWORDS,
     relevance: 0
   };
   var FUNCTION = {
     className: 'function',
-    beginKeywords: 'def defp defmacro', end: /\bdo\b/,
+    beginKeywords: 'def defp defmacro',
     contains: [
-      hljs.inherit(hljs.TITLE_MODE, {
-        begin: ELIXIR_METHOD_RE,
-        starts: PARAMS
-      })
+      hljs.inherit(hljs.TITLE_MODE, {begin: ELIXIR_IDENT_RE, starts: PARAMS})
+    ],
+    // This cannot be expresses simply as `end: /\bdo\b|,/` because the
+    // internal PARAMS mode has `endsWithParent: true, returnEnd: true` which
+    // leads to some bug with swallowing newlines. More investigation needed.
+    variants: [
+      {
+        end: /\bdo\b/
+      },
+      {
+        end: /,/
+      }
     ]
   };
   var CLASS = hljs.inherit(FUNCTION, {
@@ -104,8 +110,8 @@ function(hljs) {
       relevance: 0
     }
   ];
-  SUBST.contains = ELIXIR_DEFAULT_CONTAINS;
   PARAMS.contains = ELIXIR_DEFAULT_CONTAINS;
+  SUBST.contains = ELIXIR_DEFAULT_CONTAINS;
 
   return {
     lexemes: ELIXIR_IDENT_RE,
