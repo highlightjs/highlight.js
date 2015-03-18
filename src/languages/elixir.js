@@ -30,25 +30,15 @@ function(hljs) {
       }
     ]
   };
-  var PARAMS = {
-    endsWithParent: true, returnEnd: true,
-    relevance: 0
-  };
   var FUNCTION = {
     className: 'function',
     beginKeywords: 'def defp defmacro',
     contains: [
-      hljs.inherit(hljs.TITLE_MODE, {begin: ELIXIR_IDENT_RE, starts: PARAMS})
-    ],
-    // This cannot be expresses simply as `end: /\bdo\b|,/` because the
-    // internal PARAMS mode has `endsWithParent: true, returnEnd: true` which
-    // leads to some bug with swallowing newlines. More investigation needed.
-    variants: [
       {
-        end: /\bdo\b/
-      },
-      {
-        end: /,/
+        begin: /\s+/, relevance: 0,
+        starts: {
+          contains: [hljs.inherit(hljs.TITLE_MODE, {begin: ELIXIR_IDENT_RE})]
+        }
       }
     ]
   };
@@ -110,7 +100,6 @@ function(hljs) {
       relevance: 0
     }
   ];
-  PARAMS.contains = ELIXIR_DEFAULT_CONTAINS;
   SUBST.contains = ELIXIR_DEFAULT_CONTAINS;
 
   return {
