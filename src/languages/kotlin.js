@@ -8,7 +8,7 @@ Category: misc
 function (hljs) {
   var KEYWORDS = 'val var get set class trait object public open private protected ' +
 	'final enum if else do while for when break continue throw try catch finally ' +
-	'import package is as in return fun override default reified inline volatile transient native';
+	'import package is as in return fun override default companion reified inline volatile transient native';
   
   return {
     keywords: {
