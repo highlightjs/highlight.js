@@ -32,14 +32,12 @@ function(hljs) {
   };
   var FUNCTION = {
     className: 'function',
-    beginKeywords: 'def defp defmacro',
+    beginKeywords: 'def defp defmacro', end: /\B\b/, // the mode is ended by the title
     contains: [
-      {
-        begin: /\s+/, relevance: 0,
-        starts: {
-          contains: [hljs.inherit(hljs.TITLE_MODE, {begin: ELIXIR_IDENT_RE})]
-        }
-      }
+      hljs.inherit(hljs.TITLE_MODE, {
+        begin: ELIXIR_IDENT_RE,
+        endsParent: true
+      })
     ]
   };
   var CLASS = hljs.inherit(FUNCTION, {
