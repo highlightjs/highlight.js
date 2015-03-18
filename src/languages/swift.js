@@ -82,7 +82,7 @@ function(hljs) {
           },
           {
             className: 'params',
-            begin: /\(/, end: /\)/,
+            begin: /\(/, end: /\)/, endsParent: true,
             keywords: SWIFT_KEYWORDS,
             contains: [
               'self',
