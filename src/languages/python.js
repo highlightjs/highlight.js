@@ -74,7 +74,7 @@ function(hljs) {
           {className: 'class', beginKeywords: 'class'}
         ],
         end: /:/,
-        illegal: /[${=;\n]/,
+        illegal: /[${=;\n,]/,
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       },
       {
