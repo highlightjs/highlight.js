@@ -43,7 +43,6 @@ function(hljs) {
     begin: '[:&]' + LISP_IDENT_RE
   };
   var IDENT = {
-    className: 'identifier',
     begin: LISP_IDENT_RE,
     relevance: 0
   };
