@@ -1357,3 +1357,14 @@ PF ("pf", "pf.conf")
 * ``number``:           number
 * ``string``:           string
 * ``variable``:         used for both macros and tables
+
+Inform7 ("I7")
+--------------
+
+* ``string``:           string
+* ``comment``:          comment
+* ``title``:            a section header or table header
+* ``subst``:            a substitution inside a string
+* ``kind``:             a built-in kind (thing, room, person, etc), for relevance
+* ``characteristic``:   a commonly-used characteristic (open, closed, scenery, etc), for relevance
+* ``verb``:             a commonly-used verb (is, understand), for relevance.
