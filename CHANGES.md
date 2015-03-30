@@ -9,11 +9,13 @@ New Styles:
 
 - *Agate* by [Taufik Nurrohman][]
 - *Darkula* by [Jet Brains][]
+- *Atelier Sulphurpool* by [Bram de Haan][]
 
 [Taufik Nurrohman]: https://github.com/tovic
 [Jet Brains]: https://www.jetbrains.com/
 [Peter Piwowarski]: https://github.com/oldlaptop
 [Kenta Sato]: https://github.com/bicycle1885
+[Bram de Haan]: https://github.com/atelierbram
 
 Other improvements:
 
