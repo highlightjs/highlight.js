@@ -4,6 +4,7 @@ New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
 - *Julia* by [Kenta Sato][]
+- *C/AL* by [Kenneth Fuglsang][]
 
 New Styles:
 

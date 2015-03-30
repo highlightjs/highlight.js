@@ -34,7 +34,7 @@ function(hljs) {
   };
   var DATE = {
       className: 'date',
-      begin: '\\b\\d+(\\.\\d+)?D',
+      begin: '\\b\\d+(\\.\\d+)?(DT|D|T)',
       relevance: 0
   };
   var DBL_QUOTED_VARIABLE = {
@@ -42,13 +42,8 @@ function(hljs) {
       begin: '"',
       end: '"'
   };
-  var OBJECT = {
-    begin: hljs.IDENT_RE + '\\s*=\\s*class\\s*\\(', returnBegin: true,
-    contains: [
-      hljs.TITLE_MODE
-    ]
-  };
-  var FUNCTION = {
+
+  var PROCEDURE = {
     className: 'function',
     beginKeywords: 'procedure', end: /[:;]/,
     keywords: 'procedure|10',
@@ -62,6 +57,16 @@ function(hljs) {
       }
     ].concat(COMMENT_MODES)
   };
+
+  var OBJECT = {
+    begin: 'OBJECT (Table|Form|Report|Dataport|Codeunit|XMLport|MenuSuite|Page|Query) (\\d+) ([^\\r\\n]+)',
+    returnBegin: true,
+    contains: [
+      hljs.TITLE_MODE,
+        PROCEDURE
+    ]
+  };
+    
   return {
     case_insensitive: true,
     keywords: { keyword: KEYWORDS, literal: LITERALS },
@@ -71,7 +76,7 @@ function(hljs) {
       DATE, DBL_QUOTED_VARIABLE,
       hljs.NUMBER_MODE,
       OBJECT,
-      FUNCTION
-    ].concat(COMMENT_MODES)
+      PROCEDURE
+    ]
   };
 }
