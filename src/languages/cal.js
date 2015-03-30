@@ -1,5 +1,7 @@
 /*
 Language: C/AL
+Author: Kenneth Fuglsang Christensen <kfuglsang@gmail.com>
+Description: Provides highlighting of Microsoft Dynamics NAV C/AL code files
 */
 
 function(hljs) {
@@ -59,6 +61,7 @@ function(hljs) {
   };
 
   var OBJECT = {
+    className: 'class',
     begin: 'OBJECT (Table|Form|Report|Dataport|Codeunit|XMLport|MenuSuite|Page|Query) (\\d+) ([^\\r\\n]+)',
     returnBegin: true,
     contains: [
@@ -70,7 +73,6 @@ function(hljs) {
   return {
     case_insensitive: true,
     keywords: { keyword: KEYWORDS, literal: LITERALS },
-   // illegal: /"|\$[G-Zg-z]|\/\*|<\/|\|/,
     contains: [
       STRING, CHAR_STRING,
       DATE, DBL_QUOTED_VARIABLE,
