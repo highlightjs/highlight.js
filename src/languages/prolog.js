@@ -65,10 +65,8 @@ function(hljs) {
     begin: /0\'\\s/ // 0'\s
   };
 
-  var PRED_OP = {
-
-    begin: /:\-/,
-    relevance: 10 // boost for :- operator, makes difference from Erlang
+  var PRED_OP = { // relevance booster
+    begin: /:-/
   };
 
   var inner = [
