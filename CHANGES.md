@@ -4,6 +4,7 @@ New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
 - *Julia* by [Kenta Sato][]
+- *Prolog* by [Raivo Laanemets][]
 
 New Styles:
 
@@ -16,6 +17,7 @@ New Styles:
 [Peter Piwowarski]: https://github.com/oldlaptop
 [Kenta Sato]: https://github.com/bicycle1885
 [Bram de Haan]: https://github.com/atelierbram
+[Raivo Laanemets]: https://github.com/rla
 
 Other improvements:
 
