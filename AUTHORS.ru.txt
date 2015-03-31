@@ -160,3 +160,4 @@ URL:   https://highlightjs.org/
 - Томас Аппленкур <thomas.applencourt@irsamc.ups-tlse.fr>
 - Эндрю Фармер <ahfarmer@gmail.com>
 - Сергей Машков <cy6erGn0m@gmail.com>
+- Райво Ляэнеметс <raivo@infdot.com>
