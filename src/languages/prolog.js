@@ -30,7 +30,8 @@ function(hljs) {
   var PARENTED = {
 
     begin: /\(/,
-    end: /\)/
+    end: /\)/,
+    relevance: 0
   };
 
   var LIST = {
