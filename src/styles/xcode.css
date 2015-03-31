@@ -31,7 +31,8 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .tex .hljs-command,
 .http .hljs-title,
 .hljs-request,
-.hljs-status {
+.hljs-status,
+.hljs-name {
   color: #008;
 }
 

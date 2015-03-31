@@ -73,7 +73,8 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   text-decoration: none;
 }
 
-.hljs-constant {
+.hljs-constant,
+.hljs-name {
   color: #da4939;
 }
 

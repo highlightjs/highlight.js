@@ -55,6 +55,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-decorator,
 .hljs-built_in,
 .hljs-identifier,
+.hljs-name,
 .hljs-id {
   color: #ffb03b;
 }

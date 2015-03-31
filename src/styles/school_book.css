@@ -64,7 +64,8 @@ pre{
 .apache .hljs-cbracket,
 .nginx .hljs-built_in,
 .tex .hljs-command,
-.coffeescript .hljs-attribute {
+.coffeescript .hljs-attribute,
+.hljs-name {
   color: #2c009f;
 }
 

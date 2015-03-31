@@ -52,7 +52,8 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-change,
 .hljs-envvar,
 .bash .hljs-variable,
-.tex .hljs-special {
+.tex .hljs-special,
+.hljs-name {
   color: #fff;
 }
 

@@ -73,7 +73,8 @@
 .hljs-number,
 .hljs-variable,
 .vbscript,
-.hljs-literal {
+.hljs-literal,
+.hljs-name {
   color: #c6c5fe;
 }
 

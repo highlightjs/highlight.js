@@ -75,7 +75,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-attribute,
 .hljs-variable,
-.lisp .hljs-body {
+.lisp .hljs-body,
+.hljs-name {
   color: #008080;
 }
 

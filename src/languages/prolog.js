@@ -15,15 +15,11 @@ function(hljs) {
 
   var VAR = {
 
-    className: 'variable',
-    begin: /[A-Z][a-zA-Z0-9_]*/,
-    relevance: 0
-  };
-
-  var ANON_VAR = {
-
-    className: 'variable',
-    begin: /_[A-Za-z0-9_]*/,
+    className: 'name',
+    variants: [
+      {begin: /[A-Z][a-zA-Z0-9_]*/},
+      {begin: /_[A-Za-z0-9_]*/},
+    ],
     relevance: 0
   };
 
@@ -74,7 +70,6 @@ function(hljs) {
 
     ATOM,
     VAR,
-    ANON_VAR,
     PARENTED,
     PRED_OP,
     LIST,

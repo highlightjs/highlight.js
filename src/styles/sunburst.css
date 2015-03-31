@@ -42,7 +42,8 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .apache .hljs-cbracket,
 .hljs-date,
 .tex .hljs-command,
-.coffeescript .hljs-attribute {
+.coffeescript .hljs-attribute,
+.hljs-name {
   color: #65b042;
 }
 

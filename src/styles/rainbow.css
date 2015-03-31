@@ -70,7 +70,8 @@ Style with support for rainbow parens
 .hljs-class .hljs-title,
 .hljs-parent,
 .haskell .hljs-label,
-.hljs-id {
+.hljs-id,
+.hljs-name {
    color: #ffcc66;
 }
 

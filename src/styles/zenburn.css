@@ -40,7 +40,8 @@ based on dark.css by Ivan Sagalaev
 .dos .hljs-envvar,
 .dos .hljs-stream,
 .hljs-variable,
-.apache .hljs-sqbracket {
+.apache .hljs-sqbracket,
+.hljs-name {
   color: #efdcbc;
 }
 
