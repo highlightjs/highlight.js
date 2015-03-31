@@ -66,6 +66,19 @@ $('div.code').each(function(i, block) {
 For other options refer to the documentation for [`configure`][3].
 
 
+## Highlight with jBatch
+
+[jBatch][11] comes with a `highlight` command. To highlight code in `<pre><code>` tags with the Visual Studio style, use:
+
+```html
+<script type="text/jbatch">
+highlight --style vs pre>code
+</script>
+```
+
+See [CodePen][12] for this example in your browser.
+
+
 ## Getting the Library
 
 You can get highlight.js as a hosted or custom-build browser script or as a
@@ -99,3 +112,5 @@ Authors and contributors are listed in the [AUTHORS.en.txt][9] file.
 [8]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 [9]: https://github.com/isagalaev/highlight.js/blob/master/AUTHORS.en.txt
 [10]: https://github.com/isagalaev/highlight.js/blob/master/LICENSE
+[11]: http://iomash.com/
+[12]: http://codepen.io/iomash/pen/ZYjPBj
