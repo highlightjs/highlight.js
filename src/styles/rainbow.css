@@ -76,7 +76,7 @@ Style with support for rainbow parens
 }
 
 .hljs-tag .hljs-title,
-.hljs-rules .hljs-property,
+.hljs-rule .hljs-property,
 .django .hljs-tag .hljs-keyword {
   font-weight: bold;
 }

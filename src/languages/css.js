@@ -12,11 +12,40 @@ function(hljs) {
     excludeEnd: true,
     end: '\\('
   };
+  var RULE = {
+    className: 'rule',
+    begin: /[A-Z\_\.\-]+\s*:/, returnBegin: true, end: ';', endsWithParent: true,
+    contains: [
+      {
+        className: 'attribute',
+        begin: /\S/, end: ':', excludeEnd: true,
+        starts: {
+          className: 'value',
+          endsWithParent: true, excludeEnd: true,
+          contains: [
+            FUNCTION,
+            hljs.CSS_NUMBER_MODE,
+            hljs.QUOTE_STRING_MODE,
+            hljs.APOS_STRING_MODE,
+            hljs.C_BLOCK_COMMENT_MODE,
+            {
+              className: 'hexcolor', begin: '#[0-9A-Fa-f]+'
+            },
+            {
+              className: 'important', begin: '!important'
+            }
+          ]
+        }
+      }
+    ]
+  };
+
   return {
     case_insensitive: true,
     illegal: /[=\/|']/,
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
+      RULE,
       {
         className: 'id', begin: /\#[A-Za-z0-9_-]+/
       },
@@ -72,35 +101,7 @@ function(hljs) {
         relevance: 0,
         contains: [
           hljs.C_BLOCK_COMMENT_MODE,
-          {
-            className: 'rule',
-            begin: /\S/, returnBegin: true, end: ';', endsWithParent: true,
-            contains: [
-              {
-                className: 'attribute',
-                begin: /[A-Z\_\.\-]+/, end: ':',
-                excludeEnd: true,
-                illegal: /\S/,
-                starts: {
-                  className: 'value',
-                  endsWithParent: true, excludeEnd: true,
-                  contains: [
-                    FUNCTION,
-                    hljs.CSS_NUMBER_MODE,
-                    hljs.QUOTE_STRING_MODE,
-                    hljs.APOS_STRING_MODE,
-                    hljs.C_BLOCK_COMMENT_MODE,
-                    {
-                      className: 'hexcolor', begin: '#[0-9A-Fa-f]+'
-                    },
-                    {
-                      className: 'important', begin: '!important'
-                    }
-                  ]
-                }
-              }
-            ]
-          }
+          RULE,
         ]
       }
     ]
