@@ -47,8 +47,8 @@ function(hljs) {
       {
         // Rule definition
         // This is here for relevance.
-        begin: '^(Check|Carry out|Report|Instead of|To|This is the)',
-        end: ':$',
+        begin: '^\\b(Check|Carry out|Report|Instead of|To|This is the|When|Before|After)',
+        end: ':',
         relevance: 10
       },
       {
