@@ -4,6 +4,8 @@ New languages:
 
 - *Inform7* by [Bruno Dias][]
 
+[Bruno Dias]: https://github.com/sequitur
+
 ## Version 8.5
 
 New languages:
