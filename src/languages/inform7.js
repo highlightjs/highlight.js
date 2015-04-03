@@ -16,8 +16,9 @@ function(hljs) {
 
       kind: 'thing|10 room|10 person|10 man|10 woman|10 animal|10 container'
           + ' supporter|10 backdrop|10 door|10',
-      characteristic: 'scenery|10 open closed|10 locked|10 inside|10',
-      verb: 'is are understand|10'
+      characteristic: 'scenery|10 open closed|10 locked|10 inside|10 gender|10',
+      verb: 'is are say|10 understand|10',
+      misc_keyword: 'kind|10 of rule|10'
     },
 
     contains: [
@@ -47,8 +48,16 @@ function(hljs) {
       {
         // Rule definition
         // This is here for relevance.
-        begin: '^\\b(Check|Carry out|Report|Instead of|To|This is the|When|Before|After)',
+        begin: '^\\b(Check|Carry out|Report|Instead of|To|Rule|When|Before|After)',
         end: ':',
+        contains: [
+        {
+          //Rule name
+          begin: '\\b\\(This',
+          end: '\\)',
+          relevance: 10
+        }
+        ],
         relevance: 10
       },
       {
