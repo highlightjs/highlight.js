@@ -1368,6 +1368,7 @@ Inform7 ("I7")
 * ``kind``:             a built-in kind (thing, room, person, etc), for relevance
 * ``characteristic``:   a commonly-used characteristic (open, closed, scenery, etc), for relevance
 * ``verb``:             a commonly-used verb (is, understand), for relevance.
+* ``misc_keyword``:     a word with specific I7 meaning (kind, rule), for relevance.
 
 Prolog ("prolog")
 -----------------
