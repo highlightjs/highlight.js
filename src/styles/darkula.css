@@ -16,7 +16,7 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs,
 .hljs-tag,
 .hljs-title,
-.css .hljs-rules,
+.css .hljs-rule,
 .css .hljs-value,
 .aspectj .hljs-function,
 .css .hljs-function .hljs-preprocessor,
@@ -119,7 +119,8 @@ Darkula color scheme from the JetBrains family of IDEs
 .tex .hljs-command,
 .hljs-prompt,
 .hljs-link_label,
-.hljs-link_url {
+.hljs-link_url,
+.hljs-name {
   color: #e0c46c;
 }
 

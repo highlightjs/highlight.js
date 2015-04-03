@@ -40,7 +40,8 @@
 .hljs-argument,
 .hljs-link_label,
 .hljs-blockquote,
-.hljs-header {
+.hljs-header,
+.hljs-name {
   color: #0048ab;
 }
 

@@ -1,4 +1,4 @@
-﻿/*
+/*
 Description: Magula style for highligh.js
 Author: Ruslan Keba <rukeba@gmail.com>
 Website: http://rukeba.com/
@@ -24,7 +24,7 @@ Music: Aphex Twin / Xtal
 .hljs-title,
 .hljs-parent,
 .hljs-tag .hljs-value,
-.hljs-rules .hljs-value,
+.hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
 .ruby .hljs-symbol,
@@ -52,6 +52,7 @@ Music: Aphex Twin / Xtal
 .hljs-date,
 .hljs-regexp,
 .hljs-literal,
+.hljs-name,
 .smalltalk .hljs-symbol,
 .smalltalk .hljs-char,
 .hljs-change,

@@ -1,4 +1,4 @@
-﻿/*
+/*
 
 Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 
@@ -32,7 +32,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-type,
 .ini .hljs-title,
 .hljs-tag .hljs-value,
-.css .hljs-rules .hljs-value,
+.css .hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
 .ruby .hljs-symbol,
@@ -56,7 +56,8 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .apache .hljs-cbracket,
 .tex .hljs-command,
 .hljs-prompt,
-.coffeescript .hljs-attribute {
+.coffeescript .hljs-attribute,
+.hljs-name {
   color: #d88;
 }
 

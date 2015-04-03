@@ -26,7 +26,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-constant,
 .hljs-parent,
 .hljs-tag .hljs-value,
-.hljs-rules .hljs-value,
+.hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
 .haml .hljs-symbol,
@@ -46,7 +46,8 @@ Ported by Fabrício Tavares de Oliveira
 .erlang_repl .hljs-function_or_atom,
 .asciidoc .hljs-header,
 .markdown .hljs-header,
-.coffeescript .hljs-attribute {
+.coffeescript .hljs-attribute,
+.hljs-name {
   color: #756bb1;
 }
 

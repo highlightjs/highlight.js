@@ -38,7 +38,8 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 .hljs-tag .hljs-value,
 .hljs-phpdoc,
 .hljs-dartdoc,
-.tex .hljs-formula {
+.tex .hljs-formula,
+.hljs-name {
   color: #219161;
 }
 
@@ -65,7 +66,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-tag,
 .hljs-tag .hljs-title,
-.hljs-rules .hljs-property,
+.hljs-rule .hljs-property,
 .django .hljs-tag .hljs-keyword {
   color: #000080;
   font-weight: normal;

@@ -21,8 +21,8 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .ruby .hljs-string,
 .haskell .hljs-type,
 .hljs-tag .hljs-value,
-.hljs-rules .hljs-value,
-.hljs-rules .hljs-value .hljs-number,
+.hljs-rule .hljs-value,
+.hljs-rule .hljs-value .hljs-number,
 .hljs-preprocessor,
 .hljs-pragma,
 .ruby .hljs-symbol,
@@ -52,7 +52,8 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-change,
 .hljs-envvar,
 .bash .hljs-variable,
-.tex .hljs-special {
+.tex .hljs-special,
+.hljs-name {
   color: #fff;
 }
 

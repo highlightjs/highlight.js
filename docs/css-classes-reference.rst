@@ -611,7 +611,7 @@ Fortran ("fortran", "f90", "f95")
 * ``comment``:          comment
 * ``string``:           string constant (single or double quote)
 * ``number``:           number
-* ``keyword``:          language keywords (function, if) 
+* ``keyword``:          language keywords (function, if)
 
 C++ ("cpp", "c", "cc", "h", "c++", "h++", "hpp")
 ------------------------------------------------
@@ -1368,3 +1368,12 @@ Inform7 ("I7")
 * ``kind``:             a built-in kind (thing, room, person, etc), for relevance
 * ``characteristic``:   a commonly-used characteristic (open, closed, scenery, etc), for relevance
 * ``verb``:             a commonly-used verb (is, understand), for relevance.
+
+Prolog ("prolog")
+-----------------
+
+* ``atom``:             non-quoted atoms and functor names
+* ``string``:           quoted atoms, strings, character code list literals, character code literals
+* ``number``:           numbers
+* ``variable``:         variables
+* ``comment``:          comments

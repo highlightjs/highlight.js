@@ -42,7 +42,8 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .apache .hljs-cbracket,
 .hljs-date,
 .tex .hljs-command,
-.coffeescript .hljs-attribute {
+.coffeescript .hljs-attribute,
+.hljs-name {
   color: #65b042;
 }
 
@@ -88,7 +89,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .css .hljs-tag,
-.hljs-rules .hljs-property,
+.hljs-rule .hljs-property,
 .hljs-pseudo,
 .tex .hljs-special {
   color: #cda869;
@@ -98,11 +99,11 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #9b703f;
 }
 
-.hljs-rules .hljs-keyword {
+.hljs-rule .hljs-keyword {
   color: #c5af75;
 }
 
-.hljs-rules .hljs-value {
+.hljs-rule .hljs-value {
   color: #cf6a4c;
 }
 

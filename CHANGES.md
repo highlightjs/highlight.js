@@ -1,26 +1,44 @@
-# Master
+## Version 8.5
 
 New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
 - *Julia* by [Kenta Sato][]
 - *Inform7* by [Bruno Dias][]
+- *Prolog* by [Raivo Laanemets][]
+- *Docker* by [Alexis Hénaut][]
+- *Fortran* by [Anthony Scemama][] and [Thomas Applencourt][]
+- *Kotlin* by [Sergey Mashkov][]
 
 New Styles:
 
 - *Agate* by [Taufik Nurrohman][]
 - *Darkula* by [Jet Brains][]
+- *Atelier Sulpherpool* by [Bram de Haan][]
+- *Android Studio* by [Pedro Oliveira][]
+
+Notable fixes and improvements to existing languages:
+
+- ES6 features in JavaScript are better supported now by [Gu Yiling][].
+- Swift now recognizes body-less method definitions.
+- Single expression functions `def foo, do: ... ` now work in Elixir.
+- More uniform detection of built-in classes in Objective C.
+- Fixes for number literals and processor directives in Rust.
+- HTML `<script>` tag now allows any language, not just JavaScript.
+- Multi-line comments are supported now in MatLab.
 
 [Taufik Nurrohman]: https://github.com/tovic
 [Jet Brains]: https://www.jetbrains.com/
 [Peter Piwowarski]: https://github.com/oldlaptop
 [Kenta Sato]: https://github.com/bicycle1885
-
-Other improvements:
-
-- ES6 features in JavaScript are better supported now by [Gu Yiling][]
-
+[Bram de Haan]: https://github.com/atelierbram
+[Raivo Laanemets]: https://github.com/rla
+[Alexis Hénaut]: https://github.com/AlexisNo
+[Anthony Scemama]: https://github.com/scemama
+[Pedro Oliveira]: https://github.com/kanytu
 [Gu Yiling]: https://github.com/Justineo
+[Sergey Mashkov]: https://github.com/cy6erGn0m
+[Thomas Applencourt]: https://github.com/TApplencourt
 
 ## Version 8.4
 

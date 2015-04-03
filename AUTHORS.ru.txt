@@ -159,3 +159,5 @@ URL:   https://highlightjs.org/
 - Гу Илинь <justice360@gmail.com>
 - Томас Аппленкур <thomas.applencourt@irsamc.ups-tlse.fr>
 - Эндрю Фармер <ahfarmer@gmail.com>
+- Сергей Машков <cy6erGn0m@gmail.com>
+- Райво Ляэнеметс <raivo@infdot.com>
