@@ -74,7 +74,7 @@ function(hljs) {
           hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/}),
           {
             className: 'params',
-            begin: /\(/, end: /\)/,
+            begin: /\((?!\s*\))/, end: /\)/,
             excludeBegin: true,
             excludeEnd: true,
             contains: [
