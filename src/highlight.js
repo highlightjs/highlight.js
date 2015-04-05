@@ -487,6 +487,7 @@ https://highlightjs.org/
       if (!getLanguage(name)) {
         return;
       }
+      text = text.replace(/^\n/, '');
       var current = highlight(name, text, false);
       current.language = name;
       if (current.relevance > second_best.relevance) {
@@ -553,7 +554,7 @@ https://highlightjs.org/
     } else {
       node = block;
     }
-    var text = node.textContent;
+    var text = node.textContent.replace(/^\n/, '');
     var result = language ? highlight(language, text, true) : highlightAuto(text);
 
     var originalStream = nodeStream(node);
