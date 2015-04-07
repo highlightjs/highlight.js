@@ -89,7 +89,7 @@ function(hljs) {
           },
           {
             className: 'params',
-            begin: /\((?!\s*\))/, end: /\)/,
+            begin: /\(/, end: /\)/,
             excludeBegin: true,
             excludeEnd: true,
             keywords: KEYWORDS,
