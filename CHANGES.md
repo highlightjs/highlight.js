@@ -13,7 +13,7 @@ New Styles:
 
 - *Agate* by [Taufik Nurrohman][]
 - *Darkula* by [Jet Brains][]
-- *Atelier Sulpherpool* by [Bram de Haan][]
+- *Atelier Sulphurpool* by [Bram de Haan][]
 - *Android Studio* by [Pedro Oliveira][]
 
 Notable fixes and improvements to existing languages:
