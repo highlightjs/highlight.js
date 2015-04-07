@@ -82,7 +82,7 @@ function(hljs) {
         keywords: {title: 'script'},
         contains: [TAG_INTERNALS],
         starts: {
-          end: '</script>', returnEnd: true,
+          end: '\<\/script\>', returnEnd: true,
           subLanguage: ''
         }
       },
