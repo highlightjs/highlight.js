@@ -15,6 +15,7 @@ New Styles:
 - *Darkula* by [Jet Brains][]
 - *Atelier Sulphurpool* by [Bram de Haan][]
 - *Android Studio* by [Pedro Oliveira][]
+- *Atelier Plateau* by [Bram de Haan][]
 
 Notable fixes and improvements to existing languages:
 
