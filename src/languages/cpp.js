@@ -37,6 +37,7 @@ function(hljs) {
     keywords: CPP_KEYWORDS,
     illegal: '</',
     contains: [
+      CPP_PRIMATIVE_TYPES,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.QUOTE_STRING_MODE,
@@ -69,7 +70,7 @@ function(hljs) {
       {
         begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
         keywords: CPP_KEYWORDS,
-        contains: ['self']
+        contains: ['self', CPP_PRIMATIVE_TYPES]
       },
       {
         begin: hljs.IDENT_RE + '::',
