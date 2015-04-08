@@ -2,7 +2,7 @@
 
 New Styles:
 
-- *Atelier Plateau*, *Atelier Cave* and *Atelier Savanna* by [Bram de Haan][]
+- *Atelier Plateau*, *Atelier Cave*, *Atelier Savanna* and *Atelier Estuary* by [Bram de Haan][]
 
 [Bram de Haan]: https://github.com/atelierbram
 
