@@ -18,18 +18,20 @@
         var editor = $(this).parents('.editor');
         var language = editor.find('.languages').val();
         var source = editor.find('textarea').val();
+        var start_time = +new Date();
         var result = hljs.getLanguage(language) ? hljs.highlight(language, source) : hljs.highlightAuto(source);
+        var rendering_time = +new Date() - start_time;
         editor.find('.hljs').html(result.value);
-        var stats = result.language + ': ' + result.r;
+        var rendering_stats = result.language + ': ' + result.r;
         if (result.second_best) {
-          stats += ', ' +
-                   result.second_best.language + ': ' + result.second_best.r;
+            rendering_stats += ', ' + result.second_best.language + ': ' + result.second_best.r;
         }
-        editor.find('.stats').text(stats);
+        editor.find('.rendering_stats').text(rendering_stats);
+        editor.find('.rendering_time').text(rendering_time);
         editor.find('output').text(result.value);
         SourceStore.save(source, language);
       });
-    })
+    });
 
     var SourceStore;
     (function(){
@@ -88,7 +90,7 @@
     </p>
   </div>
   <div>
-    <p>Rendering [<span class="stats">...</span>]</p>
+    <p>Rendered in <span class="rendering_time">...</span> ms [<span class="rendering_stats">...</span>]</p>
     <pre><code class="hljs">...</code></pre>
   </div>
   <div>
