@@ -40,11 +40,18 @@ function(hljs) {
       CPP_PRIMATIVE_TYPES,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
-        begin: '\'\\\\?.', end: '\'',
-        illegal: '.'
+        variants: [
+          {
+            begin: '((u(8)?|U)?R?|L)?"', end: '"',
+            contains: [hljs.BACKSLASH_ESCAPE]
+          },
+          {
+            begin: '\'\\\\?.', end: '\'',
+            illegal: '.'
+          }
+        ]
       },
       {
         className: 'number',
