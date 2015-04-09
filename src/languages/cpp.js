@@ -43,8 +43,9 @@ function(hljs) {
       {
         className: 'string',
         variants: [
+          hljs.inherit(hljs.QUOTE_STRING_MODE, { begin: '((u8?|U)|L)?"' }),
           {
-            begin: '((u(8)?|U)?R?|L)?"', end: '"',
+            begin: '(u8?|U)?R"', end: '"',
             contains: [hljs.BACKSLASH_ESCAPE]
           },
           {
