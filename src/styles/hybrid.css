@@ -95,7 +95,8 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-id,
 .hljs-variable .hljs-filter,
 .hljs-variable .hljs-filter .hljs-keyword,
-.hljs-template_tag .hljs-filter .hljs-keyword {
+.hljs-template_tag .hljs-filter .hljs-keyword,
+.hljs-name {
  color: #b294bb;
 }
 

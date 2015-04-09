@@ -28,7 +28,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-pi,
 .hljs-doctype,
 .hljs-tag,
-.css .hljs-rules,
+.css .hljs-rule,
 .tex .hljs-special {
   color: #444;
 }
@@ -68,6 +68,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-important,
 .hljs-flow,
 .hljs-inheritance,
+.hljs-name,
 .parser3 .hljs-variable {
   color: #32aaee;
 }

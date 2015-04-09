@@ -66,7 +66,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-attribute,
-.hljs-rules .hljs-keyword,
+.hljs-rule .hljs-keyword,
 .hljs-number,
 .hljs-date,
 .hljs-regexp,
@@ -108,7 +108,8 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-variable,
 .hljs-envvar,
 .apache .hljs-sqbracket,
-.nginx .hljs-built_in {
+.nginx .hljs-built_in,
+.hljs-name {
   color: #660e7a;
 }
 

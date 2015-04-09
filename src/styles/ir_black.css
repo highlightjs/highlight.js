@@ -73,7 +73,8 @@
 .hljs-number,
 .hljs-variable,
 .vbscript,
-.hljs-literal {
+.hljs-literal,
+.hljs-name {
   color: #c6c5fe;
 }
 
@@ -81,7 +82,7 @@
   color: #96cbfe;
 }
 
-.css .hljs-rules .hljs-property,
+.css .hljs-rule .hljs-property,
 .css .hljs-id {
   color: #ffffb6;
 }

@@ -98,7 +98,8 @@
 .apache .hljs-tag,
 .apache .hljs-cbracket,
 .tex .hljs-command,
-.hljs-prompt {
+.hljs-prompt,
+.hljs-name {
   color: #8cbbad;
 }
 

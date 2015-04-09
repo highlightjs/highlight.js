@@ -70,12 +70,13 @@ Style with support for rainbow parens
 .hljs-class .hljs-title,
 .hljs-parent,
 .haskell .hljs-label,
-.hljs-id {
+.hljs-id,
+.hljs-name {
    color: #ffcc66;
 }
 
 .hljs-tag .hljs-title,
-.hljs-rules .hljs-property,
+.hljs-rule .hljs-property,
 .django .hljs-tag .hljs-keyword {
   font-weight: bold;
 }

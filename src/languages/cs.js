@@ -90,6 +90,8 @@ function(hljs) {
           {
             className: 'params',
             begin: /\(/, end: /\)/,
+            excludeBegin: true,
+            excludeEnd: true,
             keywords: KEYWORDS,
             relevance: 0,
             contains: [

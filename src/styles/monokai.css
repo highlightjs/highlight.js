@@ -75,7 +75,8 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .apache .hljs-tag,
 .apache .hljs-cbracket,
 .tex .hljs-command,
-.hljs-prompt {
+.hljs-prompt,
+.hljs-name {
   color: #a6e22e;
 }
 

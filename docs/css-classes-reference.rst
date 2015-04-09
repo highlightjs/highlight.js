@@ -611,7 +611,7 @@ Fortran ("fortran", "f90", "f95")
 * ``comment``:          comment
 * ``string``:           string constant (single or double quote)
 * ``number``:           number
-* ``keyword``:          language keywords (function, if) 
+* ``keyword``:          language keywords (function, if)
 
 C++ ("cpp", "c", "cc", "h", "c++", "h++", "hpp")
 ------------------------------------------------
@@ -1371,3 +1371,12 @@ C/AL ("cal")
 * ``params``:           everything inside parentheses in a function's header
 * ``class``:            objects body
 * ``variable``:         reference to variables
+
+Prolog ("prolog")
+-----------------
+
+* ``atom``:             non-quoted atoms and functor names
+* ``string``:           quoted atoms, strings, character code list literals, character code literals
+* ``number``:           numbers
+* ``variable``:         variables
+* ``comment``:          comments

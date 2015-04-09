@@ -39,7 +39,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-title,
 .hljs-parent,
 .hljs-tag .hljs-value,
-.hljs-rules .hljs-value,
+.hljs-rule .hljs-value,
 .ruby .hljs-symbol,
 .ruby .hljs-symbol .hljs-string,
 .hljs-template_tag,
@@ -50,7 +50,8 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .apache .hljs-tag,
 .hljs-date,
 .tex .hljs-formula,
-.coffeescript .hljs-attribute {
+.coffeescript .hljs-attribute,
+.hljs-name {
   color: #a31515;
 }
 

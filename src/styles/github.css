@@ -67,7 +67,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-tag,
 .hljs-tag .hljs-title,
-.hljs-rules .hljs-property,
+.hljs-rule .hljs-property,
 .django .hljs-tag .hljs-keyword {
   color: #000080;
   font-weight: normal;
@@ -75,7 +75,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-attribute,
 .hljs-variable,
-.lisp .hljs-body {
+.lisp .hljs-body,
+.hljs-name {
   color: #008080;
 }
 

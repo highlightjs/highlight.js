@@ -39,7 +39,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-command,
 .hljs-string,
 .hljs-tag .hljs-value,
-.hljs-rules .hljs-value,
+.hljs-rule .hljs-value,
 .hljs-phpdoc,
 .hljs-dartdoc,
 .tex .hljs-formula,
@@ -58,7 +58,8 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-identifier,
 .vhdl .hljs-literal,
 .hljs-id,
-.css .hljs-function {
+.css .hljs-function,
+.hljs-name {
   color: #268bd2;
 }
 

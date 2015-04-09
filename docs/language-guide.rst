@@ -19,7 +19,7 @@ Each mode consists of:
 * …exotic stuff like another language inside a language
 
 The parser's work is to look for modes and their keywords.
-Upon finding it wraps them into the markup ``<span class="...">...</span>``
+Upon finding, it wraps them into the markup ``<span class="...">...</span>``
 and puts the name of the mode ("string", "comment", "number")
 or a keyword group name ("keyword", "literal", "built-in") as the span's class name.
 
@@ -28,7 +28,7 @@ General syntax
 --------------
 
 A language definition is a JavaScript object describing the default parsing mode for the language.
-This default mode contain sub-modes which in turn contain other sub-modes effectively making the language definition a tree of modes.
+This default mode contains sub-modes which in turn contain other sub-modes, effectively making the language definition a tree of modes.
 
 Here's an example:
 
