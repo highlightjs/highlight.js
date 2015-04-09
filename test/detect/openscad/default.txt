@@ -1,5 +1,5 @@
-//use <write.scad>
-//include <../common/base.scad>
+use <write.scad>
+include <../common/base.scad>
 
 //draw a foobar
 module foobar(){
