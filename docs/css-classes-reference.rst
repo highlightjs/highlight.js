@@ -1366,3 +1366,17 @@ Prolog ("prolog")
 * ``number``:           numbers
 * ``variable``:         variables
 * ``comment``:          comments
+
+OpenSCAD ("openscad", "scad")
+-----------------
+
+* ``built_in``:          built-in functions (cube, sphere, translate, ...)
+* ``comment``:           comments
+* ``function``:          function or module definition
+* ``keyword``:           keywords
+* ``literal``:           words representing values (e.g. false, undef, PI)
+* ``number``:            numbers
+* ``params``:            parameters in function or module header or call
+* ``preprocessor``:      file includes (i.e. include, use)
+* ``string``:            quoted strings
+* ``title``:             names of function or module in a header

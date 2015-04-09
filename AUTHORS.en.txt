@@ -164,3 +164,4 @@ Contributors:
 - Andrew Farmer <ahfarmer@gmail.com>
 - Sergey Mashkov <cy6erGn0m@gmail.com>
 - Raivo Laanemets <raivo@infdot.com>
+- Dan Panzarella <alsoelp@gmail.com>

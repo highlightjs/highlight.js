@@ -161,3 +161,4 @@ URL:   https://highlightjs.org/
 - Эндрю Фармер <ahfarmer@gmail.com>
 - Сергей Машков <cy6erGn0m@gmail.com>
 - Райво Ляэнеметс <raivo@infdot.com>
+- Ден Панзарелла <alsoelp@gmail.com>

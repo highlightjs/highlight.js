@@ -1,10 +1,15 @@
 ## Master [UNPUBLISHED]
 
+New languages:
+
+- *OpenSCAD* by [Dan Panzarella][]
+
 New Styles:
 
 - *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* and  by [Bram de Haan][]
 
 [Bram de Haan]: https://github.com/atelierbram
+[Dan Panzarella]: https://github.com/pzl
 
 ## Version 8.5
 
