@@ -2,13 +2,15 @@
 
 New languages:
 
+- *C/AL* by [Kenneth Fuglsang][]
 - *OpenSCAD* by [Dan Panzarella][]
 
 New Styles:
 
-- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* and  by [Bram de Haan][]
+- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* by [Bram de Haan][]
 
 [Bram de Haan]: https://github.com/atelierbram
+[Kenneth Fuglsang]: https://github.com/kfuglsang
 [Dan Panzarella]: https://github.com/pzl
 
 ## Version 8.5

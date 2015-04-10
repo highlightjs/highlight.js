@@ -1358,6 +1358,20 @@ PF ("pf", "pf.conf")
 * ``string``:           string
 * ``variable``:         used for both macros and tables
 
+C/AL ("cal")
+-----------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment (of any type)
+* ``number``:           number
+* ``string``:           string
+* ``date``:             date, time, or datetime
+* ``function``:         header of a procedure
+* ``title``:            name of an object or procedure inside a header
+* ``params``:           everything inside parentheses in a function's header
+* ``class``:            objects body
+* ``variable``:         reference to variables
+
 Prolog ("prolog")
 -----------------
 
