@@ -1,10 +1,15 @@
 ## Master [UNPUBLISHED]
 
+New languages:
+
+- *C/AL* by [Kenneth Fuglsang][]
+
 New Styles:
 
 - *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* and  by [Bram de Haan][]
 
 [Bram de Haan]: https://github.com/atelierbram
+[Kenneth Fuglsang]: https://github.com/kfuglsang
 
 ## Version 8.5
 
@@ -12,7 +17,6 @@ New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
 - *Julia* by [Kenta Sato][]
-- *C/AL* by [Kenneth Fuglsang][]
 - *Prolog* by [Raivo Laanemets][]
 - *Docker* by [Alexis Hénaut][]
 - *Fortran* by [Anthony Scemama][] and [Thomas Applencourt][]
