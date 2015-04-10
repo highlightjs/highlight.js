@@ -41,7 +41,7 @@ function(hljs) {
           },
           {
             className: 'value',
-            begin: '[#\\.]\\w+'
+            begin: '[#\\.][\\w-]+'
           },
           {
             begin: '{\\s*',
