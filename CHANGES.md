@@ -12,6 +12,7 @@ New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
 - *Julia* by [Kenta Sato][]
+- *C/AL* by [Kenneth Fuglsang][]
 - *Prolog* by [Raivo Laanemets][]
 - *Docker* by [Alexis Hénaut][]
 - *Fortran* by [Anthony Scemama][] and [Thomas Applencourt][]

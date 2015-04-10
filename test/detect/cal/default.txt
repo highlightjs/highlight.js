@@ -1,0 +1,305 @@
+OBJECT Codeunit 11 Gen. Jnl.-Check Line
+{
+  OBJECT-PROPERTIES
+  {
+    Date=09-09-14;
+    Time=12:00:00;
+    Version List=NAVW18.00;
+  }
+  PROPERTIES
+  {
+    TableNo=81;
+    Permissions=TableData 252=rimd;
+    OnRun=BEGIN
+            GLSetup.GET;
+            RunCheck(Rec);
+          END;
+
+  }
+  CODE
+  {
+    VAR
+      Text000@1000 : TextConst 'ENU=can only be a closing date for G/L entries';
+      Text001@1001 : TextConst 'ENU=is not within your range of allowed posting dates';
+      Text002@1002 : TextConst 'ENU=%1 or %2 must be G/L Account or Bank Account.';
+      Text003@1003 : TextConst 'ENU=must have the same sign as %1';
+      Text004@1004 : TextConst 'ENU=You must not specify %1 when %2 is %3.';
+      Text005@1005 : TextConst 'ENU=%1 + %2 must be %3.';
+      Text006@1006 : TextConst 'ENU=%1 + %2 must be -%3.';
+      Text007@1007 : TextConst 'ENU=must be positive';
+      Text008@1008 : TextConst 'ENU=must be negative';
+      Text009@1009 : TextConst 'ENU=must have a different sign than %1';
+      Text010@1010 : TextConst 'ENU=%1 %2 and %3 %4 is not allowed.';
+      Text011@1011 : TextConst 'ENU=The combination of dimensions used in %1 %2, %3, %4 is blocked. %5';
+      Text012@1012 : TextConst 'ENU=A dimension used in %1 %2, %3, %4 has caused an error. %5';
+      AccountingPeriod@1013 : Record 50;
+      GLSetup@1014 : Record 98;
+      UserSetup@1015 : Record 91;
+      GenJnlTemplate@1020 : Record 80;
+      CostAccSetup@1024 : Record 1108;
+      DimMgt@1017 : Codeunit 408;
+      CostAccMgt@1023 : Codeunit 1100;
+      AllowPostingFrom@1018 : Date;
+      AllowPostingTo@1019 : Date;
+      GenJnlTemplateFound@1021 : Boolean;
+      OverrideDimErr@1022 : Boolean;
+      SalesDocAlreadyExistsErr@1026 : TextConst '@@@="%1 = Document Type; %2 = Document No.";ENU=Sales %1 %2 already exists.';
+      PurchDocAlreadyExistsErr@1025 : TextConst '@@@="%1 = Document Type; %2 = Document No.";ENU=Purchase %1 %2 already exists.';
+
+    PROCEDURE RunCheck@4(VAR GenJnlLine@1000 : Record 81);
+    VAR
+      PaymentTerms@1004 : Record 3;
+      Cust@1005 : Record 18;
+      Vendor@1006 : Record 23;
+      ICPartner@1007 : Record 413;
+      ICGLAcount@1008 : Record 410;
+      TableID@1002 : ARRAY [10] OF Integer;
+      No@1003 : ARRAY [10] OF Code[20];
+    BEGIN
+      WITH GenJnlLine DO BEGIN
+        IF EmptyLine THEN
+          EXIT;
+        IF NOT GenJnlTemplateFound THEN BEGIN
+          IF GenJnlTemplate.GET("Journal Template Name") THEN;
+          GenJnlTemplateFound := TRUE;
+        END;
+
+        TESTFIELD("Posting Date");
+        IF "Posting Date" <> NORMALDATE("Posting Date") THEN BEGIN
+          IF ("Account Type" <> "Account Type"::"G/L Account") OR
+             ("Bal. Account Type" <> "Bal. Account Type"::"G/L Account")
+          THEN
+            FIELDERROR("Posting Date",Text000);
+          AccountingPeriod.GET(NORMALDATE("Posting Date") + 1);
+          AccountingPeriod.TESTFIELD("New Fiscal Year",TRUE);
+          AccountingPeriod.TESTFIELD("Date Locked",TRUE);
+        END;
+
+        IF DateNotAllowed("Posting Date") THEN
+          FIELDERROR("Posting Date",Text001);
+
+        IF "Document Date" <> 0D THEN
+          IF ("Document Date" <> NORMALDATE("Document Date")) AND
+             (("Account Type" <> "Account Type"::"G/L Account") OR
+              ("Bal. Account Type" <> "Bal. Account Type"::"G/L Account"))
+          THEN
+            FIELDERROR("Document Date",Text000);
+
+        TESTFIELD("Document No.");
+
+        IF ("Account Type" IN
+            ["Account Type"::Customer,
+             "Account Type"::Vendor,
+             "Account Type"::"Fixed Asset",
+             "Account Type"::"IC Partner"]) AND
+           ("Bal. Account Type" IN
+            ["Bal. Account Type"::Customer,
+             "Bal. Account Type"::Vendor,
+             "Bal. Account Type"::"Fixed Asset",
+             "Bal. Account Type"::"IC Partner"])
+        THEN
+          ERROR(
+            Text002,
+            FIELDCAPTION("Account Type"),FIELDCAPTION("Bal. Account Type"));
+
+        IF "Bal. Account No." = '' THEN
+          TESTFIELD("Account No.");
+
+        IF ("Account No." <> '') AND
+           NOT "System-Created Entry" AND
+           ("Gen. Posting Type" = "Gen. Posting Type"::" ") AND
+           NOT "Allow Zero-Amount Posting" AND
+           ("Account Type" <> "Account Type"::"Fixed Asset")
+        THEN
+          TESTFIELD(Amount);
+
+        IF Amount * "Amount (LCY)" < 0 THEN
+          FIELDERROR("Amount (LCY)",STRSUBSTNO(Text003,FIELDCAPTION(Amount)));
+
+        IF ("Account Type" = "Account Type"::"G/L Account") AND
+           ("Bal. Account Type" = "Bal. Account Type"::"G/L Account")
+        THEN
+          TESTFIELD("Applies-to Doc. No.",'');
+
+        IF ("Recurring Method" IN
+            ["Recurring Method"::"B  Balance","Recurring Method"::"RB Reversing Balance"]) AND
+           ("Currency Code" <> '')
+        THEN
+          ERROR(
+            Text004,
+            FIELDCAPTION("Currency Code"),FIELDCAPTION("Recurring Method"),"Recurring Method");
+
+        IF "IC Partner G/L Acc. No." <> '' THEN
+          IF ICGLAcount.GET("IC Partner G/L Acc. No.") THEN
+            ICGLAcount.TESTFIELD(Blocked,FALSE);
+
+        IF NOT PaymentTerms.GET("Payment Terms Code") THEN
+          CLEAR(PaymentTerms);
+        IF (("Account Type" = "Account Type"::"G/L Account") AND
+            ("Bal. Account Type" = "Bal. Account Type"::"G/L Account")) OR
+           (("Document Type" <> "Document Type"::Invoice) AND
+            (NOT
+             (("Document Type" = "Document Type"::"Credit Memo") AND
+              PaymentTerms."Calc. Pmt. Disc. on Cr. Memos")))
+        THEN BEGIN
+          TESTFIELD("Pmt. Discount Date",0D);
+          TESTFIELD("Payment Discount %",0);
+        END;
+
+        IF (("Account Type" = "Account Type"::"G/L Account") AND
+            ("Bal. Account Type" = "Bal. Account Type"::"G/L Account")) OR
+           ("Applies-to Doc. No." <> '')
+        THEN
+          TESTFIELD("Applies-to ID",'');
+
+        IF ("Account Type" <> "Account Type"::"Bank Account") AND
+           ("Bal. Account Type" <> "Bal. Account Type"::"Bank Account")
+        THEN
+          TESTFIELD("Bank Payment Type","Bank Payment Type"::" ");
+
+        IF ("Account Type" = "Account Type"::"Fixed Asset") OR
+           ("Bal. Account Type" = "Bal. Account Type"::"Fixed Asset")
+        THEN
+          CODEUNIT.RUN(CODEUNIT::"FA Jnl.-Check Line",GenJnlLine);
+
+        IF ("Account Type" <> "Account Type"::"Fixed Asset") AND
+           ("Bal. Account Type" <> "Bal. Account Type"::"Fixed Asset")
+        THEN BEGIN
+          TESTFIELD("Depreciation Book Code",'');
+          TESTFIELD("FA Posting Type",0);
+        END;
+
+        IF OverrideDimErr THEN
+          EXIT;
+
+        IF NOT DimMgt.CheckDimIDComb("Dimension Set ID") THEN
+          ERROR(
+            Text011,
+            TABLECAPTION,"Journal Template Name","Journal Batch Name","Line No.",
+            DimMgt.GetDimCombErr);
+
+        TableID[1] := DimMgt.TypeToTableID1("Account Type");
+        No[1] := "Account No.";
+        TableID[2] := DimMgt.TypeToTableID1("Bal. Account Type");
+        No[2] := "Bal. Account No.";
+        TableID[3] := DATABASE::Job;
+        No[3] := "Job No.";
+        TableID[4] := DATABASE::"Salesperson/Purchaser";
+        No[4] := "Salespers./Purch. Code";
+        TableID[5] := DATABASE::Campaign;
+        No[5] := "Campaign No.";
+        IF NOT DimMgt.CheckDimValuePosting(TableID,No,"Dimension Set ID") THEN
+          IF "Line No." <> 0 THEN
+            ERROR(
+              Text012,
+              TABLECAPTION,"Journal Template Name","Journal Batch Name","Line No.",
+              DimMgt.GetDimValuePostingErr)
+          ELSE
+            ERROR(DimMgt.GetDimValuePostingErr);
+      END;
+
+      IF CostAccSetup.GET THEN
+        CostAccMgt.CheckValidCCAndCOInGLEntry(GenJnlLine."Dimension Set ID");
+    END;
+
+    PROCEDURE DateNotAllowed@1(PostingDate@1000 : Date) : Boolean;
+    BEGIN
+      IF (AllowPostingFrom = 0D) AND (AllowPostingTo = 0D) THEN BEGIN
+        IF USERID <> '' THEN
+          IF UserSetup.GET(USERID) THEN BEGIN
+            AllowPostingFrom := UserSetup."Allow Posting From";
+            AllowPostingTo := UserSetup."Allow Posting To";
+          END;
+        IF (AllowPostingFrom = 0D) AND (AllowPostingTo = 0D) THEN BEGIN
+          GLSetup.GET;
+          AllowPostingFrom := GLSetup."Allow Posting From";
+          AllowPostingTo := GLSetup."Allow Posting To";
+        END;
+        IF AllowPostingTo = 0D THEN
+          AllowPostingTo := 31129999D;
+      END;
+      EXIT((PostingDate < AllowPostingFrom) OR (PostingDate > AllowPostingTo));
+    END;
+
+    PROCEDURE ErrorIfPositiveAmt@2(GenJnlLine@1000 : Record 81);
+    BEGIN
+      IF GenJnlLine.Amount > 0 THEN
+        GenJnlLine.FIELDERROR(Amount,Text008);
+    END;
+
+    PROCEDURE ErrorIfNegativeAmt@3(GenJnlLine@1000 : Record 81);
+    BEGIN
+      IF GenJnlLine.Amount < 0 THEN
+        GenJnlLine.FIELDERROR(Amount,Text007);
+    END;
+
+    PROCEDURE SetOverDimErr@5();
+    BEGIN
+      OverrideDimErr := TRUE;
+    END;
+
+    PROCEDURE CheckSalesDocNoIsNotUsed@115(DocType@1000 : Option;DocNo@1001 : Code[20]);
+    VAR
+      OldCustLedgEntry@1002 : Record 21;
+    BEGIN
+      OldCustLedgEntry.SETRANGE("Document No.",DocNo);
+      OldCustLedgEntry.SETRANGE("Document Type",DocType);
+      IF OldCustLedgEntry.FINDFIRST THEN
+        ERROR(SalesDocAlreadyExistsErr,OldCustLedgEntry."Document Type",DocNo);
+    END;
+
+    PROCEDURE CheckPurchDocNoIsNotUsed@107(DocType@1000 : Option;DocNo@1002 : Code[20]);
+    VAR
+      OldVendLedgEntry@1001 : Record 25;
+    BEGIN
+      OldVendLedgEntry.SETRANGE("Document No.",DocNo);
+      OldVendLedgEntry.SETRANGE("Document Type",DocType);
+      IF OldVendLedgEntry.FINDFIRST THEN
+        ERROR(PurchDocAlreadyExistsErr,OldVendLedgEntry."Document Type",DocNo);
+    END;
+
+    LOCAL PROCEDURE CheckGenJnlLineDocType@7(GenJnlLine@1001 : Record 81);
+    BEGIN
+      WITH GenJnlLine DO
+        IF "Document Type" <> 0 THEN
+          IF "Account Type" = "Account Type"::Customer THEN
+            CASE "Document Type" OF
+              "Document Type"::"Credit Memo":
+                ErrorIfPositiveAmt(GenJnlLine);
+              "Document Type"::Payment:
+                IF ("Applies-to Doc. Type" = "Applies-to Doc. Type"::"Credit Memo") AND
+                   ("Applies-to Doc. No." <> '')
+                THEN
+                  ErrorIfNegativeAmt(GenJnlLine)
+                ELSE
+                  ErrorIfPositiveAmt(GenJnlLine);
+              "Document Type"::Refund:
+                IF NOT "System-Created Entry" THEN
+                  ErrorIfNegativeAmt(GenJnlLine)
+                ELSE
+                  ErrorIfPositiveAmt(GenJnlLine);
+              ELSE
+                ErrorIfNegativeAmt(GenJnlLine);
+            END
+          ELSE
+            CASE "Document Type" OF
+              "Document Type"::"Credit Memo":
+                ErrorIfNegativeAmt(GenJnlLine);
+              "Document Type"::Payment:
+                BEGIN
+                  IF ("Applies-to Doc. Type" = "Applies-to Doc. Type"::"Credit Memo") AND
+                     ("Applies-to Doc. No." <> '')
+                  THEN
+                    ErrorIfPositiveAmt(GenJnlLine)
+                  ELSE
+                    ErrorIfNegativeAmt(GenJnlLine);
+                END;
+              ELSE
+                ErrorIfPositiveAmt(GenJnlLine);
+            END;
+    END;
+
+    BEGIN
+    END.
+  }
+}

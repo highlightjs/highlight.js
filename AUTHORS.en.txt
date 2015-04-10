@@ -163,4 +163,5 @@ Contributors:
 - Thomas Applencourt <thomas.applencourt@irsamc.ups-tlse.fr>
 - Andrew Farmer <ahfarmer@gmail.com>
 - Sergey Mashkov <cy6erGn0m@gmail.com>
+- Kenneth Fuglsang <kfuglsang@gmail.com>
 - Raivo Laanemets <raivo@infdot.com>
