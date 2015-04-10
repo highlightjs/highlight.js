@@ -59,16 +59,8 @@ function(hljs) {
                     className: 'symbol',
                     begin: ':\\w+'
                   },
-                  {
-                    className: 'string',
-                    begin: '"',
-                    end: '"'
-                  },
-                  {
-                    className: 'string',
-                    begin: '\'',
-                    end: '\''
-                  },
+                  hljs.APOS_STRING_MODE,
+                  hljs.QUOTE_STRING_MODE,
                   {
                     begin: '\\w+',
                     relevance: 0
@@ -94,16 +86,8 @@ function(hljs) {
                     begin: '\\w+',
                     relevance: 0
                   },
-                  {
-                    className: 'string',
-                    begin: '"',
-                    end: '"'
-                  },
-                  {
-                    className: 'string',
-                    begin: '\'',
-                    end: '\''
-                  },
+                  hljs.APOS_STRING_MODE,
+                  hljs.QUOTE_STRING_MODE,
                   {
                     begin: '\\w+',
                     relevance: 0
