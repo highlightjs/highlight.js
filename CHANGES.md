@@ -6,7 +6,7 @@ New languages:
 
 New Styles:
 
-- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* and  by [Bram de Haan][]
+- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* by [Bram de Haan][]
 
 [Bram de Haan]: https://github.com/atelierbram
 [Kenneth Fuglsang]: https://github.com/kfuglsang
