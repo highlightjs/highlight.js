@@ -45,6 +45,12 @@ function(hljs) {
         begin: "'",
         end: "'",
         relevance: 0
+      },
+      {
+        // numeric literal
+        className: 'number',
+        begin: '#[0-9a-fA-F_]+|\\$[01_]+|[0-9_]+(?:\\.[0-9_](?:[eE][+-]?\\d+)?)?[kMGTPmunpf]?',
+        relevance: 0
       }
     ]
   };
