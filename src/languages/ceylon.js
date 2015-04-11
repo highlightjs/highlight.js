@@ -25,8 +25,27 @@ function(hljs) {
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.APOS_STRING_MODE, // TODO proper string literals with interpolation and unicode escapes
-      hljs.QUOTE_STRING_MODE
+      {
+        // verbatim string
+        className: 'string',
+        begin: '"""',
+        end: '"""',
+        relevance: 5
+      },
+      {
+        // string literal or template
+        className: 'string',
+        begin: '"|``',
+        end: '"|``',
+        relevance: 0
+      },
+      {
+        // character literal
+        className: 'string',
+        begin: "'",
+        end: "'",
+        relevance: 0
+      }
     ]
   };
 }
