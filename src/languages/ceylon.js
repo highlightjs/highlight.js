@@ -18,7 +18,10 @@ function(hljs) {
     'doc by license see throws tagged';
   var LANGUAGE_ANNOTATIONS = DECLARATION_MODIFIERS + ' ' + DOCUMENTATION;
   return {
-    keywords: KEYWORDS + ' ' + LANGUAGE_ANNOTATIONS,
+    keywords: {
+      keyword: KEYWORDS,
+      annotation: LANGUAGE_ANNOTATIONS
+    },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
