@@ -22,6 +22,7 @@ function(hljs) {
       keyword: KEYWORDS,
       annotation: LANGUAGE_ANNOTATIONS
     },
+    illegal: '\\$[^01]|#[^0-9a-fA-F]',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
