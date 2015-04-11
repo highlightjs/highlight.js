@@ -5,10 +5,10 @@ Author: Lucas Werkmeister <mail@lucaswerkmeister.de>
 function(hljs) {
   // 2.3. Identifiers and keywords
   var KEYWORDS =
-    'assembly module package import alias class interface object given value ' +
-    'assign void function new of extends satisfies|10 abstracts in out return ' +
-    'break continue throw assert dynamic if else switch case for while try ' +
-    'catch finally then let this outer super is exists|10 nonempty|10';
+    'assembly module package import|0 alias class|0 interface|0 object given value ' +
+    'assign void|0 function new|0 of extends|0 satisfies|10 abstracts in out return|0 ' +
+    'break|0 continue|0 throw|0 assert dynamic if|0 else|0 switch|0 case|0 for|0 while|0 try|0 ' +
+    'catch|0 finally|0 then let this|0 outer super|0 is exists|10 nonempty|10';
   // 7.4.1 Declaration Modifiers
   var DECLARATION_MODIFIERS =
     'shared|10 abstract formal|10 default|10 actual|10 variable late native deprecated' +
