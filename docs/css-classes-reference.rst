@@ -1380,3 +1380,12 @@ Prolog ("prolog")
 * ``number``:           numbers
 * ``variable``:         variables
 * ``comment``:          comments
+
+Ceylon ("ceylon")
+-----------------
+
+* ``keyword``:          keyword
+* ``annotation``:       language annotation or compiler annotation
+* ``string``:           string literal, part of string template, character literal
+* ``number``:           number
+* ``comment``:          comment
