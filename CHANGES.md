@@ -3,6 +3,7 @@
 New languages:
 
 - *C/AL* by [Kenneth Fuglsang][]
+- *Ceylon* by [Lucas Werkmeister][]
 
 New Styles:
 
@@ -10,6 +11,7 @@ New Styles:
 
 [Bram de Haan]: https://github.com/atelierbram
 [Kenneth Fuglsang]: https://github.com/kfuglsang
+[Lucas Werkmeister]: https://github.com/lucaswerkmeister
 
 ## Version 8.5
 
