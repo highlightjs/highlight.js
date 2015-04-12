@@ -25,14 +25,7 @@ function(hljs) {
     illegal: '\\$[^01]|#[^0-9a-fA-F]',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      {
-        // block comment (can be nested, so no hljs.C_BLOCK_COMMENT_MODE)
-        className: 'comment',
-        begin: '/\\*',
-        contains: ['self'],
-        end: '\\*/',
-        relevance: 0
-      },
+      hljs.COMMENT('/\\*', '\\*/', {contains: ['self']}),
       {
         // verbatim string
         className: 'string',
