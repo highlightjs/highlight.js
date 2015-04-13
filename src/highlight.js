@@ -46,7 +46,7 @@ https://highlightjs.org/
   function blockLanguage(block) {
     var classes = (block.className + ' ' + (block.parentNode ? block.parentNode.className : '')).split(/\s+/);
     classes = classes.map(function(c) {return c.replace(/^lang(uage)?-/, '');});
-    return classes.filter(function(c) {return getLanguage(c) || /no(-?)highlight|plain|text/.test(c);})[0];
+    return classes.filter(function(c) {return getLanguage(c) || isNotHighlighted(c);})[0];
   }
 
   function inherit(parent, obj) {
@@ -547,7 +547,7 @@ https://highlightjs.org/
   */
   function highlightBlock(block) {
     var language = blockLanguage(block);
-    if (/no(-?)highlight|plain|text/.test(language))
+    if (isNotHighlighted(language))
         return;
 
     var node;
