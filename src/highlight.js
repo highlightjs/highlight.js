@@ -39,6 +39,10 @@ https://highlightjs.org/
     return match && match.index == 0;
   }
 
+  function isNotHighlighted(language) {
+    return /no-?highlight|plain|text/.test(language);
+  }
+
   function blockLanguage(block) {
     var classes = (block.className + ' ' + (block.parentNode ? block.parentNode.className : '')).split(/\s+/);
     classes = classes.map(function(c) {return c.replace(/^lang(uage)?-/, '');});
