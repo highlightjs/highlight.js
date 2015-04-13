@@ -10,7 +10,7 @@ function(hljs) {
       keyword:
         'in of if for while finally var new function do return void else break catch ' +
         'instanceof with throw case default try this switch continue typeof delete ' +
-        'let yield const export super debugger as await',
+        'let yield const export super debugger as async await',
       literal:
         'true false null undefined NaN Infinity',
       built_in:
