@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - "0.12"
+  - "iojs"
 script:
   - "node tools/build.js -t node"
   - "npm test"
