@@ -80,12 +80,15 @@
   display: inline-block;
   width: 100%;
 }
+
 .diff .hljs-deletion {
   background-color: #be4678;
 }
+
 .diff .hljs-addition {
   background-color: #2a9292;
 }
+
 .diff .hljs-change {
   color: #576ddb;
 }
