@@ -18,6 +18,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs span::selection {
   background: #373b41;
 }
+
 .hljs::-moz-selection,
 .hljs span::-moz-selection {
   background: #373b41;
@@ -138,7 +139,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
   color: #8abeb7;
 }
 
-
 /*color: fg_orange*/
 .hljs-type,
 .hljs-typename,
@@ -156,16 +156,10 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
   color: #de935f;
 }
 
-.hljs-emphasis
-{
+.hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-strong
-{
+.hljs-strong {
   font-weight: bold;
 }
-
-
-
-
