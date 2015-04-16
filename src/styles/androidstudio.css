@@ -4,7 +4,7 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 */
 
 .hljs {
-  color: #A9B7C6;
+  color: #a9b7c6;
   background: #282b2e;
   display: block;
   overflow-x: auto;
@@ -18,7 +18,7 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 
 .hljs-keyword,
 .hljs-deletion {
-  color: #CC7832;
+  color: #cc7832;
 }
 
 .hljs-javadoc {
@@ -30,7 +30,7 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 }
 
 .hljs-annotation {
-  color: #BBB529;
+  color: #bbb529;
 }
 
 .hljs-string,
@@ -40,18 +40,18 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 
 .hljs-function .hljs-title,
 .hljs-change {
-  color: #FFC66D;
+  color: #ffc66d;
 }
 
 .hljs-tag .hljs-title,
 .hljs-doctype {
-  color: #E8BF6A;
+  color: #e8bf6a;
 }
 
 .hljs-tag .hljs-attribute {
-  color: #BABABA;
+  color: #bababa;
 }
 
 .hljs-tag .hljs-value {
-  color: #A5C261;
+  color: #a5c261;
 }
