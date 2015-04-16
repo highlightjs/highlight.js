@@ -9,7 +9,7 @@ Author: Pedro Oliveira <kanytu@gmail . com>
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  webkit-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-number {
