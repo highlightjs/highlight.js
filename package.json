@@ -34,13 +34,13 @@
   },
   "devDependencies": {
     "commander": "^2.3.0",
-    "del": "^0.1.2",
+    "del": "^1.1.1",
     "gear": "^0.9.4",
     "gear-lib": "^0.9.2",
-    "glob": "^4.0.5",
-    "jsdom": "^1.0.3",
+    "glob": "^5.0.5",
+    "jsdom": "3.1.2",
     "lodash": "^3.3.1",
     "mocha": "^2.0.1",
-    "should": "^4.0.4"
+    "should": "^6.0.1"
   }
 }
