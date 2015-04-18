@@ -2,7 +2,7 @@
 
 var _       = require('lodash');
 var hljs    = require('../../build');
-var utility = require('../utility')
+var utility = require('../utility');
 
 var pattern        = new RegExp(hljs.NUMBER_RE + '$');
 var numberToString = utility.numberToString;
