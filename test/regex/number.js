@@ -1,16 +1,14 @@
 'use strict';
 
-var _    = require('lodash');
-var hljs = require('../../build');
+var _       = require('lodash');
+var hljs    = require('../../build');
+var utility = require('../utility')
 
-var pattern = new RegExp(hljs.NUMBER_RE + '$');
+var pattern        = new RegExp(hljs.NUMBER_RE + '$');
+var numberToString = utility.numberToString;
 
 describe('.NUMBER_RE', function() {
   it('should match regular numbers and decimals', function() {
-    function numberToString(number) {
-      return number.toString();
-    }
-
     var number        = _.range(0, 1001).map(numberToString);
     var decimal       = _.range(0, 1.001, 0.001).map(numberToString);
     var noLeadingZero = ['.1234', '.5206', '.0002', '.9998'];
