@@ -5,4 +5,5 @@ describe('hljs', function() {
   require('./regex/underscoreIdent');
   require('./regex/number');
   require('./regex/cNumber');
+  require('./regex/binaryNumber');
 });
