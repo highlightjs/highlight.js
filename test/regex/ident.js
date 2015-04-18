@@ -15,7 +15,7 @@ describe('.IDENT_RE', function() {
     words.should.matchEach(pattern);
   });
 
-  it('should not match non-underscore starting words', function() {
+  it('should not match underscore starting words', function() {
     var words = [ '_foo' , '_bar' , '_baz'
                 , '_Foo' , '_Bar' , '_Baz'
                 , '_f_oo', '_ba_r', '_baz_'
@@ -24,4 +24,4 @@ describe('.IDENT_RE', function() {
 
     words.should.not.matchEach(pattern);
   });
-})
+});
