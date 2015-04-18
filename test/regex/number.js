@@ -25,6 +25,6 @@ describe('.NUMBER_RE', function() {
                   , '0b0101'  , '0b1100'  , '0b1001'
                   ];
 
-    numbers.should.not.match(pattern)
+    numbers.should.not.matchEach(pattern);
   });
 })
