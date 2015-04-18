@@ -22,7 +22,7 @@ describe('.NUMBER_RE', function() {
 
   it('should not match hex or binary numbers', function() {
     var numbers = [ '0xbada55', '0xfa1755', '0x45362e'
-                  , '0b0101'  , 'b1100'   , 'b1001'
+                  , '0b0101'  , '0b1100'  , '0b1001'
                   ];
 
     numbers.should.not.match(pattern)
