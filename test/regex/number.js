@@ -13,7 +13,7 @@ describe('.NUMBER_RE', function() {
 
     var number        = _.range(0, 1001).map(numberToString);
     var decimal       = _.range(0, 1.001, 0.001).map(numberToString);
-    var noLeadingZero = [ '.1234', '.5206', '.0002', '.9998'];
+    var noLeadingZero = ['.1234', '.5206', '.0002', '.9998'];
 
     var numbers = [].concat(number, decimal, noLeadingZero);
 
@@ -27,4 +27,4 @@ describe('.NUMBER_RE', function() {
 
     numbers.should.not.matchEach(pattern);
   });
-})
+});

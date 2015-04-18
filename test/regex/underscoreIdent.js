@@ -26,4 +26,4 @@ describe('.UNDERSCORE_IDENT_RE', function() {
 
     words.should.not.matchEach(pattern);
   });
-})
+});

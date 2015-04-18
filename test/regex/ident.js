@@ -24,4 +24,4 @@ describe('.IDENT_RE', function() {
 
     words.should.not.matchEach(pattern);
   });
-})
+});
