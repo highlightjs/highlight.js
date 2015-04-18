@@ -6,4 +6,5 @@ describe('hljs', function() {
   require('./regex/number');
   require('./regex/cNumber');
   require('./regex/binaryNumber');
+  require('./regex/starters');
 });
