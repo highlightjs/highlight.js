@@ -3,6 +3,7 @@
 New languages:
 
 - *C/AL* by [Kenneth Fuglsang][]
+- *DNS zone file* by [Tim Schumacher][]
 
 New Styles:
 
@@ -10,6 +11,7 @@ New Styles:
 
 [Bram de Haan]: https://github.com/atelierbram
 [Kenneth Fuglsang]: https://github.com/kfuglsang
+[Tim Schumacher]: https://github.com/enko
 
 ## Version 8.5
 
