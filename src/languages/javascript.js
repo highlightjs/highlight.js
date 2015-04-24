@@ -27,10 +27,7 @@ function(hljs) {
       {
         className: 'pi',
         relevance: 10,
-        variants: [
-          {begin: /^\s*('|")use strict('|")/},
-          {begin: /^\s*('|")use asm('|")/}
-        ]
+        begin: /^\s*['"]use (strict|asm)['"]/
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
