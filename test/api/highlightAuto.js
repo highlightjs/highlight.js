@@ -1,9 +1,9 @@
 'use strict';
 
 var fs      = require('fs');
-var hljs    = require('../build');
+var hljs    = require('../../build');
 var path    = require('path');
-var utility = require('./utility');
+var utility = require('../utility');
 
 function testAutoDetection(language) {
   var languagePath = utility.buildPath('detect', language);
@@ -29,10 +29,8 @@ function testAutoDetection(language) {
   });
 }
 
-describe('hljs', function() {
-  describe('.highlightAuto', function() {
-    var languages = hljs.listLanguages();
+describe('.highlightAuto', function() {
+  var languages = hljs.listLanguages();
 
-    languages.forEach(testAutoDetection);
-  });
+  languages.forEach(testAutoDetection);
 });
