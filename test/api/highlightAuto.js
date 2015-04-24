@@ -29,10 +29,8 @@ function testAutoDetection(language) {
   });
 }
 
-describe('hljs', function() {
-  describe('.highlightAuto', function() {
-    var languages = hljs.listLanguages();
+describe('.highlightAuto', function() {
+  var languages = hljs.listLanguages();
 
-    languages.forEach(testAutoDetection);
-  });
+  languages.forEach(testAutoDetection);
 });
