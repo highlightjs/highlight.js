@@ -1,10 +1,11 @@
 'use strict';
 
 describe('hljs', function() {
-  require('./regex/ident');
-  require('./regex/underscoreIdent');
-  require('./regex/number');
-  require('./regex/cNumber');
-  require('./regex/binaryNumber');
-  require('./regex/starters');
+  require('./api/highlightAuto');
+  require('./api/ident');
+  require('./api/underscoreIdent');
+  require('./api/number');
+  require('./api/cNumber');
+  require('./api/binaryNumber');
+  require('./api/starters');
 });
