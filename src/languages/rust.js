@@ -35,14 +35,11 @@ function(hljs) {
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       {
         className: 'string',
-        begin: /r(#*)".*?"\1(?!#)/
-      },
-      {
-        className: 'string',
-        begin: /'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/
-      },
-      {
-        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
+        variants: [
+           { begin: /r(#*)".*?"\1(?!#)/ },
+           { begin: /'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/ },
+           { begin: /'[a-zA-Z_][a-zA-Z0-9_]*/ }
+        ]
       },
       {
         className: 'number',
