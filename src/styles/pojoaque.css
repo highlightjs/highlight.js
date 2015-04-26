@@ -18,8 +18,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-comment,
 .diff .hljs-header,
 .hljs-doctype,
-.lisp .hljs-string,
-.hljs-javadoc {
+.lisp .hljs-string {
   color: #586e75;
   font-style: italic;
 }
@@ -40,8 +39,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-command,
 .hljs-string,
 .hljs-tag .hljs-value,
-.hljs-phpdoc,
-.hljs-dartdoc,
+.hljs-doctag,
 .tex .hljs-formula,
 .hljs-regexp,
 .hljs-hexcolor {

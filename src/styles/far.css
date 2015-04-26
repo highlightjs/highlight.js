@@ -58,9 +58,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 }
 
 .hljs-comment,
-.hljs-phpdoc,
-.hljs-dartdoc,
-.hljs-javadoc,
+.hljs-doctag,
 .hljs-annotation,
 .hljs-deletion,
 .apache .hljs-sqbracket,

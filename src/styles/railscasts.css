@@ -14,7 +14,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-comment,
-.hljs-javadoc,
 .hljs-shebang {
   color: #bc9458;
   font-style: italic;
@@ -66,10 +65,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-class .hljs-title,
 .hljs-type,
 .smalltalk .hljs-class,
-.hljs-javadoctag,
-.hljs-yardoctag,
-.hljs-phpdoc,
-.hljs-dartdoc {
+.hljs-doctag {
   text-decoration: none;
 }
 

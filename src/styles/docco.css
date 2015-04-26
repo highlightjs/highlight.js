@@ -12,8 +12,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-comment,
-.diff .hljs-header,
-.hljs-javadoc {
+.diff .hljs-header {
   color: #408080;
   font-style: italic;
 }
@@ -36,8 +35,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-string,
 .hljs-tag .hljs-value,
-.hljs-phpdoc,
-.hljs-dartdoc,
+.hljs-doctag,
 .tex .hljs-formula,
 .hljs-name {
   color: #219161;

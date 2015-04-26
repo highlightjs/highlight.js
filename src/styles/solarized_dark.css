@@ -17,8 +17,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .diff .hljs-header,
 .hljs-doctype,
 .hljs-pi,
-.lisp .hljs-string,
-.hljs-javadoc {
+.lisp .hljs-string {
   color: #586e75;
 }
 
@@ -40,8 +39,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-string,
 .hljs-tag .hljs-value,
 .hljs-rule .hljs-value,
-.hljs-phpdoc,
-.hljs-dartdoc,
+.hljs-doctag,
 .tex .hljs-formula,
 .hljs-regexp,
 .hljs-hexcolor,

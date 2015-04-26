@@ -47,16 +47,6 @@ function(hljs) {
     contains: [NAME]
   };
 
-  var JAVADOC = {
-    className: 'javadoc',
-    begin: '/\\*\\*', end: '\\*/',
-    contains: [{
-      className: 'javadoctag',
-      begin: '@[A-Za-z]+'
-    }],
-    relevance: 10
-  };
-
   return {
     keywords: {
       literal: 'true false null',
