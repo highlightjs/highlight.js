@@ -32,7 +32,7 @@ function(hljs) {
           relevance : 0,
           contains : [{
             className : 'doctag',
-            begin : '(^|\\s)@[A-Za-z]+'
+            begin : '@[A-Za-z]+'
           }]
         }
       ),

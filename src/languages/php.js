@@ -49,7 +49,7 @@ function(hljs) {
           contains: [
             {
               className: 'doctag',
-              begin: '\\s@[A-Za-z]+'
+              begin: '@[A-Za-z]+'
             },
             PREPROCESSOR
           ]
