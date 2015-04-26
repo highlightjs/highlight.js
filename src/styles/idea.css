@@ -97,7 +97,6 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
   font-style: italic;
 }
 
-.hljs-doctag,
 .hljs-doctag {
   text-decoration: underline;
 }
