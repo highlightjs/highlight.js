@@ -13,11 +13,10 @@ function(hljs) {
     },
     contains: [
       hljs.COMMENT(';', '$'),
-	  {
-		className: 'operator', 
-		begin: '\\$(TTL|GENERATE|INCLUDE|ORIGIN)',
-		relevance: 10
-	  },
+      {
+        className: 'operator',
+        beginKeywords: '$TTL $GENERATE $INCLUDE $ORIGIN'
+      },
       // IPv6
       {
         className: 'number',
