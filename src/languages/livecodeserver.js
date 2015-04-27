@@ -144,14 +144,6 @@ function(hljs) {
         ]
       },
       {
-        className: 'command',
-        beginKeywords: 'end', end: '$',
-        contains: [
-          TITLE2,
-          TITLE1
-        ]
-      },
-      {
         className: 'preprocessor',
         begin: '<\\?rev|<\\?lc|<\\?livecode',
         relevance: 10
