@@ -145,16 +145,14 @@ function(hljs) {
       },
       {
         className: 'preprocessor',
-        begin: '<\\?rev|<\\?lc|<\\?livecode',
-        relevance: 10
-      },
-      {
-        className: 'preprocessor',
-        begin: '<\\?'
-      },
-      {
-        className: 'preprocessor',
-        begin: '\\?>'
+        variants: [
+          {
+            begin: '<\\?rev|<\\?lc|<\\?livecode',
+            relevance: 10
+          },
+          { begin: '<\\?' },
+          { begin: '\\?>' }
+        ]
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
