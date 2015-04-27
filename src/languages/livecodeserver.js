@@ -147,7 +147,7 @@ function(hljs) {
         className: 'preprocessor',
         variants: [
           {
-            begin: '<\\?rev|<\\?lc|<\\?livecode',
+            begin: '<\\?(rev|lc|livecode)',
             relevance: 10
           },
           { begin: '<\\?' },
