@@ -125,6 +125,7 @@ function(hljs) {
       {
         className: 'function',
         begin: '\\bend\\s+', end: '$',
+        keywords: 'end',
         contains: [
           TITLE2,
           TITLE1
