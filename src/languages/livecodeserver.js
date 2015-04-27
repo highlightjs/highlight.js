@@ -124,7 +124,8 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'end', end: '$',
+        begin: '\\bend\\s+', end: '$',
+        keywords: 'end',
         contains: [
           TITLE2,
           TITLE1
@@ -144,25 +145,15 @@ function(hljs) {
         ]
       },
       {
-        className: 'command',
-        beginKeywords: 'end', end: '$',
-        contains: [
-          TITLE2,
-          TITLE1
+        className: 'preprocessor',
+        variants: [
+          {
+            begin: '<\\?(rev|lc|livecode)',
+            relevance: 10
+          },
+          { begin: '<\\?' },
+          { begin: '\\?>' }
         ]
-      },
-      {
-        className: 'preprocessor',
-        begin: '<\\?rev|<\\?lc|<\\?livecode',
-        relevance: 10
-      },
-      {
-        className: 'preprocessor',
-        begin: '<\\?'
-      },
-      {
-        className: 'preprocessor',
-        begin: '\\?>'
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
