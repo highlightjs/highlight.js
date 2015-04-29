@@ -28,7 +28,7 @@ function(hljs) {
     contains: [
       {
         className: 'pi',
-        begin: /^\s*('|")use strict('|")/,
+        begin: /^\s*['"]use strict['"]/,
         relevance: 0
       },
       hljs.APOS_STRING_MODE,
