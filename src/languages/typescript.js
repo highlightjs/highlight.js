@@ -83,7 +83,8 @@ function(hljs) {
       },
       {
         className: 'constructor',
-        beginKeywords: 'constructor', end: /\{/, excludeEnd: true,
+        begin: 'constructor', end: /\{/, excludeEnd: true,
+        keywords: KEYWORDS,
         relevance: 10
       },
       {
