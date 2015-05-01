@@ -63,7 +63,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: 'function', end: /\{/, excludeEnd: true,
+        begin: 'function', end: /[\{;]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           'self',
