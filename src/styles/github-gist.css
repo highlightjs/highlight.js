@@ -4,11 +4,11 @@
  */
 
 .hljs {
-  display:                  block;
-  background:               white;
-  padding:                  0.5em;
-  color:                    #333333;
-  overflow-x:               auto;
+  display: block;
+  background:white;
+  padding: 0.5em;
+  color: #333333;
+  overflow-x: auto;
   -webkit-text-size-adjust: none;
 }
 
@@ -197,12 +197,12 @@
 }
 
 .diff .hljs-addition {
-  color:            #55a532;
+  color: #55a532;
   background-color: #eaffea;
 }
 
 .diff .hljs-deletion {
-  color:            #bd2c00;
+  color: #bd2c00;
   background-color: #ffecec;
 }
 
