@@ -166,3 +166,4 @@ Contributors:
 - Kenneth Fuglsang <kfuglsang@gmail.com>
 - Raivo Laanemets <raivo@infdot.com>
 - David Anson <david@dlaa.me>
+- Louis Barranqueiro <louis.barranqueiro@gmail.com>
