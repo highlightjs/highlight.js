@@ -229,10 +229,10 @@ tasks.readSnippet = function(options, blob, done) {
 tasks.templateDemo = function(options, blobs, done) {
   var name     = path.join(dir.root, 'demo', 'index.html'),
       template = fs.readFileSync(name, 'utf8'),
-      blobs    = _.compact(blobs), // drop missing blobs
+      newBlobs = _.compact(blobs), // drop missing blobs
       content  = _.template(template)({
                    path: path,
-                   blobs: blobs,
+                   blobs: newBlobs,
                    styles: getStyleNames()
                  });
 
