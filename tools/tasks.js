@@ -1,13 +1,15 @@
 'use strict';
 
-var _        = require('lodash');
-var del      = require('del');
-var gear     = require('gear');
-var path     = require('path');
-var fs       = require('fs');
+var _       = require('lodash');
+var del     = require('del');
+var gear    = require('gear');
+var path    = require('path');
+var fs      = require('fs');
+var utility = require('./utility');
 
-var parseHeader = require('./utility').parseHeader;
-var tasks       = require('gear-lib');
+var parseHeader   = utility.parseHeader;
+var getStyleNames = utility.getStyleNames;
+var tasks         = require('gear-lib');
 
 tasks.clean = function(directories, blobs, done) {
   directories = _.isString(directories) ? [directories] : directories;
@@ -225,10 +227,15 @@ tasks.readSnippet = function(options, blob, done) {
 };
 
 tasks.templateDemo = function(options, blobs, done) {
-  var name = path.join(dir.root, 'demo', 'index.html'),
+  var name     = path.join(dir.root, 'demo', 'index.html'),
       template = fs.readFileSync(name, 'utf8'),
-      blobs = _.filter(blobs, Boolean), // drop missing blobs
-      content = _.template(template)({ path: path, blobs: blobs });
+      newBlobs = _.compact(blobs), // drop missing blobs
+      content  = _.template(template)({
+                   path: path,
+                   blobs: newBlobs,
+                   styles: getStyleNames()
+                 });
+
   return done(null, [new gear.Blob(content)]);
 };
 tasks.templateDemo.type = 'collect';

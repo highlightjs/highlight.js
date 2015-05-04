@@ -11,9 +11,9 @@ function(hljs) {
             typename: 'byte short char int long boolean float double void',
             literal : 'true false null',
             keyword:
-                // groovy specific keywords
+            // groovy specific keywords
             'def as in assert trait ' +
-                // common keywords with Java
+            // common keywords with Java
             'super this abstract static volatile transient public private protected synchronized final ' +
             'class interface enum if else for while switch case break default continue ' +
             'throw throws try catch finally implements extends new import package return instanceof'
