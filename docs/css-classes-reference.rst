@@ -622,8 +622,8 @@ C++ ("cpp", "c", "cc", "h", "c++", "h++", "hpp")
 * ``comment``:          comment
 * ``preprocessor``:     preprocessor directive
 
-Objective C ("objectivec", "m", "mm", "objc", "obj-c")
-------------------------------------------------------
+Objective C ("objectivec", "mm", "objc", "obj-c")
+-------------------------------------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         Cocoa/Cocoa Touch constants and classes
