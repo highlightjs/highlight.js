@@ -15,8 +15,13 @@ function (hljs) {
       },
       hljs.COMMENT('@[^@\r\n\t ]+', '$'),
       {
-        className: 'string',
-        begin: '\\|', end: '\\$'
+        begin: '\\|', end: '\\|\\w*$',
+        contains: [
+          {
+            className: 'string',
+            begin: '[^|]+'
+          }
+        ]
       },
       {
         className: 'variable',

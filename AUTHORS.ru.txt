@@ -162,3 +162,6 @@ URL:   https://highlightjs.org/
 - Сергей Машков <cy6erGn0m@gmail.com>
 - Кеннет Фаглсанг <kfuglsang@gmail.com>
 - Райво Ляэнеметс <raivo@infdot.com>
+- Дэвид Ансон <david@dlaa.me>
+- Льюис Барранкуэйро <louis.barranqueiro@gmail.com>
+- Тим Шумахер <tim@datenknoten.me>
