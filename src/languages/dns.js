@@ -1,15 +1,16 @@
 /*
 Language: DNS Zone file
 Author: Tim Schumacher <tim@datenknoten.me>
-Category: common, config
+Category: config
 */
 
 function(hljs) {
   return {
-    aliases: ['bind','zone'],
+    aliases: ['bind', 'zone'],
     keywords: {
       keyword:
-        'IN A AAAA AFSDB APL CAA CDNSKEY CDS CERT CNAME DHCID DLV DNAME DNSKEY DS HIP IPSECKEY KEY KX LOC MX NAPTR NS NSEC NSEC3 NSEC3PARAM PTR RRSIG RP SIG SOA SRV SSHFP TA TKEY TLSA TSIG TXT'
+        'IN A AAAA AFSDB APL CAA CDNSKEY CDS CERT CNAME DHCID DLV DNAME DNSKEY DS HIP IPSECKEY KEY KX ' +
+        'LOC MX NAPTR NS NSEC NSEC3 NSEC3PARAM PTR RRSIG RP SIG SOA SRV SSHFP TA TKEY TLSA TSIG TXT'
     },
     contains: [
       hljs.COMMENT(';', '$'),
