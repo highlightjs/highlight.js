@@ -589,6 +589,7 @@ AspectJ ("aspectj")
 -------------------
 
 * ``comment``:          comment
+* ``doctag``:           @-tag in javadoc comment
 * ``string``:           string
 * ``number``:           number
 * ``keyword``:          keyword
