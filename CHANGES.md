@@ -7,14 +7,15 @@ New languages:
 
 New Styles:
 
-- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* by [Bram de Haan][]
+- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* by
+  [Bram de Haan][]
 - Github Gist by [Louis Barranqueiro][]
 
 Notable fixes and improvements to existing languages:
 
-- Multiline raw strings from C++11 is now supported
+- Multiline raw strings from C++11 are now supported
 - Fix class names with dashes in HAML
-- The async keyword from ES6/7 is now supported
+- The `async` keyword from ES6/7 is now supported
 - TypeScipt functions handle type and parameter complexity better
 
 [Bram de Haan]: https://github.com/atelierbram
