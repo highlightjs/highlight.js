@@ -50,6 +50,7 @@
 
 .hljs-code,
 .hljs-class .hljs-title,
+.hljs-section,
 .hljs-header {
   color: white;
 }
@@ -64,7 +65,8 @@
 }
 
 .hljs-at_rule,
-.hljs-at_rule .hljs-keyword {
+.hljs-at_rule .hljs-keyword,
+.hljs-name {
   color: #a082bd;
 }
 
@@ -95,11 +97,9 @@
 .hljs-addition,
 .hljs-stream,
 .hljs-envvar,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
+.hljs-variable,
 .tex .hljs-command,
-.hljs-prompt,
-.hljs-name {
+.hljs-prompt {
   color: #8cbbad;
 }
 
@@ -115,7 +115,7 @@
 .hljs-pi,
 .hljs-deletion,
 .hljs-shebang,
-.apache .hljs-sqbracket,
+.hljs-meta,
 .tex .hljs-formula {
   color: #818e96;
 }
@@ -126,6 +126,7 @@
 .hljs-phpdoc,
 .hljs-dartdoc,
 .hljs-title,
+.hljs-section,
 .hljs-header,
 .hljs-type,
 .vbscript .hljs-built_in,
@@ -135,7 +136,6 @@
 .hljs-chunk,
 .hljs-winutils,
 .bash .hljs-variable,
-.apache .hljs-tag,
 .tex .hljs-special,
 .hljs-request,
 .hljs-at_rule .hljs-keyword,

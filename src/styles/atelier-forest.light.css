@@ -12,7 +12,6 @@
 .hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
-.hljs-name,
 .ruby .hljs-constant,
 .xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
@@ -27,6 +26,7 @@
 /* Atelier-Forest Orange */
 .hljs-number,
 .hljs-preprocessor,
+.hljs-meta,
 .hljs-built_in,
 .hljs-literal,
 .hljs-params,
@@ -52,12 +52,14 @@
 
 /* Atelier-Forest Aqua */
 .hljs-title,
+.hljs-section,
 .css .hljs-hexcolor {
   color: #3d97b8;
 }
 
 /* Atelier-Forest Blue */
 .hljs-function,
+.hljs-name,
 .python .hljs-decorator,
 .python .hljs-title,
 .ruby .hljs-function .hljs-title,

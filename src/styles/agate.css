@@ -39,12 +39,13 @@
 }
 
 .hljs-tag,
+.hljs-section,
 .ini .hljs-title {
   color: #62c8f3;
 }
 
 .hljs-id,
-.hljs-cbracket,
+.hljs-variable,
 .hljs-tag .hljs-value {
   color: #ade5fc;
 }
@@ -55,7 +56,6 @@
 }
 
 .hljs-type,
-.hljs-variable,
 .hljs-name,
 .actionscript .hljs-title,
 .aspectj .hljs-annotation,
@@ -91,7 +91,7 @@
 .hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
-.apache .hljs-sqbracket,
+.hljs-meta,
 .tex .hljs-formula,
 .hljs-header,
 .hljs-horizontal_rule,

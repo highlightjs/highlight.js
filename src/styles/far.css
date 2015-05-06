@@ -25,6 +25,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-rule .hljs-value .hljs-number,
 .hljs-preprocessor,
 .hljs-pragma,
+.hljs-name,
 .ruby .hljs-symbol,
 .ruby .hljs-symbol .hljs-string,
 .hljs-built_in,
@@ -32,8 +33,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .django .hljs-variable,
 .smalltalk .hljs-class,
 .hljs-addition,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
 .tex .hljs-command,
 .coffeescript .hljs-attribute {
   color: #ff0;
@@ -42,6 +41,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-keyword,
 .css .hljs-id,
 .hljs-title,
+.hljs-section,
 .hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
@@ -51,9 +51,9 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-flow,
 .hljs-change,
 .hljs-envvar,
+.hljs-variable,
 .bash .hljs-variable,
-.tex .hljs-special,
-.hljs-name {
+.tex .hljs-special {
   color: #fff;
 }
 
@@ -63,7 +63,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-javadoc,
 .hljs-annotation,
 .hljs-deletion,
-.apache .hljs-sqbracket,
 .tex .hljs-formula {
   color: #888;
 }
@@ -89,20 +88,21 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-chunk,
 .hljs-shebang,
 .nginx .hljs-built_in,
-.hljs-prompt {
+.hljs-prompt,
+.hljs-meta {
   color: #008080;
 }
 
 .hljs-keyword,
 .css .hljs-id,
 .hljs-title,
+.hljs-section,
 .hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,
 .hljs-winutils,
 .hljs-flow,
-.apache .hljs-tag,
 .nginx .hljs-built_in,
 .tex .hljs-command,
 .tex .hljs-special,

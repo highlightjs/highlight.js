@@ -16,6 +16,7 @@
 
 .hljs-keyword,
 .hljs-title,
+.hljs-section,
 .hljs-important,
 .hljs-request,
 .hljs-header,
@@ -30,6 +31,7 @@
 
 .hljs-string,
 .hljs-title,
+.hljs-section,
 .hljs-parent,
 .hljs-built_in,
 .hljs-literal,
@@ -45,6 +47,7 @@
   color: #0048ab;
 }
 
+.hljs-meta,
 .hljs-decorator,
 .hljs-prompt,
 .hljs-yardoctag,
@@ -61,10 +64,9 @@
 .hljs-xmlDocTag,
 .hljs-deletion,
 .hljs-shebang,
-.hljs-string .hljs-variable,
+.hljs-variable,
 .hljs-link_url,
 .hljs-bullet,
-.hljs-sqbracket,
 .hljs-phony {
   color: #4c81c9;
 }

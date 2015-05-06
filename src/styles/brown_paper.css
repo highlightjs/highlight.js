@@ -33,6 +33,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 
 .hljs-string,
 .hljs-title,
+.hljs-section,
 .hljs-type,
 .hljs-tag .hljs-value,
 .css .hljs-rule .hljs-value,
@@ -55,8 +56,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-addition,
 .hljs-stream,
 .hljs-envvar,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
+.hljs-variable,
 .tex .hljs-number,
 .hljs-name {
   color: #2c009f;
@@ -66,10 +66,10 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-annotation,
 .hljs-decorator,
 .hljs-pi,
+.hljs-meta,
 .hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
-.apache .hljs-sqbracket,
 .nginx .hljs-built_in,
 .tex .hljs-formula {
   color: #802022;
@@ -81,6 +81,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-phpdoc,
 .hljs-dartdoc,
 .hljs-title,
+.hljs-section,
 .hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
@@ -89,7 +90,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-chunk,
 .hljs-winutils,
 .bash .hljs-variable,
-.apache .hljs-tag,
 .tex .hljs-command {
   font-weight: bold;
 }

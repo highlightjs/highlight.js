@@ -18,7 +18,8 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-winutils,
 .hljs-flow,
 .nginx .hljs-title,
-.tex .hljs-special {
+.tex .hljs-special,
+.hljs-section {
   color: white;
 }
 
@@ -29,6 +30,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 
 .hljs-string,
 .hljs-title,
+.hljs-name,
 .hljs-type,
 .ini .hljs-title,
 .hljs-tag .hljs-value,
@@ -52,12 +54,10 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-addition,
 .hljs-stream,
 .hljs-envvar,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
+.hljs-variable,
 .tex .hljs-command,
 .hljs-prompt,
-.coffeescript .hljs-attribute,
-.hljs-name {
+.coffeescript .hljs-attribute {
   color: #d88;
 }
 
@@ -68,7 +68,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
-.apache .hljs-sqbracket,
+.hljs-meta,
 .tex .hljs-formula {
   color: #777;
 }
@@ -76,6 +76,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-keyword,
 .hljs-literal,
 .hljs-title,
+.hljs-section,
 .css .hljs-id,
 .hljs-phpdoc,
 .hljs-dartdoc,
@@ -87,7 +88,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-chunk,
 .hljs-winutils,
 .bash .hljs-variable,
-.apache .hljs-tag,
 .tex .hljs-special,
 .hljs-request,
 .hljs-status {

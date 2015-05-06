@@ -26,7 +26,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-status,
 .nginx .hljs-title,
 .method,
-.hljs-list .hljs-title {
+.hljs-name {
   color: #c26230;
 }
 
@@ -37,7 +37,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-cdata,
 .hljs-filter .hljs-argument,
 .hljs-attr_selector,
-.apache .hljs-cbracket,
+.hljs-variable,
 .hljs-date,
 .tex .hljs-command,
 .asciidoc .hljs-link_label,
@@ -97,7 +97,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 
 .hljs-params,
-.hljs-variable,
 .clojure .hljs-attribute {
   color: #d0d0ff;
 }
@@ -126,7 +125,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-annotation,
-.apache .hljs-sqbracket,
+.hljs-meta,
 .nginx .hljs-built_in {
   color: #9b859d;
 }
@@ -143,6 +142,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-title,
+.hljs-section,
 .hljs-decorator,
 .css .hljs-function {
   color: #ffc66d;

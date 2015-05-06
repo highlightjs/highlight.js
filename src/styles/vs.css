@@ -16,13 +16,14 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-annotation,
 .diff .hljs-header,
 .hljs-chunk,
-.apache .hljs-cbracket {
+.hljs-variable {
   color: #008000;
 }
 
 .hljs-keyword,
 .hljs-id,
 .hljs-built_in,
+.hljs-name,
 .smalltalk .hljs-class,
 .hljs-winutils,
 .bash .hljs-variable,
@@ -37,6 +38,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 
 .hljs-string,
 .hljs-title,
+.hljs-section,
 .hljs-parent,
 .hljs-tag .hljs-value,
 .hljs-rule .hljs-value,
@@ -47,11 +49,9 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-addition,
 .hljs-flow,
 .hljs-stream,
-.apache .hljs-tag,
 .hljs-date,
 .tex .hljs-formula,
-.coffeescript .hljs-attribute,
-.hljs-name {
+.coffeescript .hljs-attribute {
   color: #a31515;
 }
 
@@ -70,10 +70,10 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-preprocessor,
 .hljs-pragma,
 .userType,
-.apache .hljs-sqbracket,
 .nginx .hljs-built_in,
 .tex .hljs-special,
-.hljs-prompt {
+.hljs-prompt,
+.hljs-meta {
   color: #2b91af;
 }
 

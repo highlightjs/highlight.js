@@ -14,29 +14,30 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 }
 
 .hljs-string,
+.hljs-variable,
+.hljs-section,
 .hljs-tag .hljs-value,
 .hljs-filter .hljs-argument,
 .hljs-addition,
 .hljs-change,
-.hljs-name,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
 .nginx .hljs-built_in,
 .tex .hljs-formula {
   color: #888;
 }
 
 .hljs-comment,
+.hljs-meta,
 .hljs-shebang,
 .hljs-doctype,
 .hljs-pi,
 .hljs-javadoc,
-.hljs-deletion,
-.apache .hljs-sqbracket {
+.hljs-deletion {
   color: #ccc;
 }
 
 .hljs-keyword,
+.hljs-section,
+.hljs-name,
 .hljs-tag .hljs-title,
 .ini .hljs-title,
 .lisp .hljs-title,
@@ -45,7 +46,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .css .hljs-tag,
 .hljs-winutils,
 .hljs-flow,
-.apache .hljs-tag,
 .tex .hljs-command,
 .hljs-request,
 .hljs-status {

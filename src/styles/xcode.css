@@ -37,6 +37,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 .hljs-envvar,
+.hljs-variable,
 .tex .hljs-special {
   color: #660;
 }
@@ -48,7 +49,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-cdata,
 .hljs-filter .hljs-argument,
 .hljs-attr_selector,
-.apache .hljs-cbracket,
 .hljs-date,
 .hljs-regexp {
   color: #080;
@@ -67,12 +67,14 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-symbol,
 .hljs-symbol .hljs-string,
 .hljs-number,
+.hljs-meta,
 .css .hljs-function,
 .hljs-function .hljs-title,
 .coffeescript .hljs-attribute {
   color: #1c00cf;
 }
 
+.hljs-section,
 .hljs-class .hljs-title,
 .smalltalk .hljs-class,
 .hljs-javadoctag,
@@ -91,9 +93,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   color: #5c2699;
 }
 
-.hljs-variable {
- color: #3f6e74;
-}
 .css .hljs-tag,
 .hljs-rule .hljs-property,
 .hljs-pseudo,
@@ -116,7 +115,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 .hljs-annotation,
-.apache .hljs-sqbracket,
 .nginx .hljs-built_in {
   color: #9b859d;
 }

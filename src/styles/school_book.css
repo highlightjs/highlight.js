@@ -38,6 +38,7 @@ pre{
 
 .hljs-string,
 .hljs-title,
+.hljs-section,
 .hljs-type,
 .hljs-tag .hljs-value,
 .css .hljs-rule .hljs-value,
@@ -48,7 +49,6 @@ pre{
 .ruby .hljs-class .hljs-parent,
 .hljs-built_in,
 .django .hljs-template_tag,
-.django .hljs-variable,
 .smalltalk .hljs-class,
 .hljs-javadoc,
 .ruby .hljs-string,
@@ -60,8 +60,7 @@ pre{
 .hljs-addition,
 .hljs-stream,
 .hljs-envvar,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
+.hljs-variable,
 .nginx .hljs-built_in,
 .tex .hljs-command,
 .coffeescript .hljs-attribute,
@@ -76,7 +75,7 @@ pre{
 .hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
-.apache .hljs-sqbracket {
+.hljs-meta {
   color: #e60415;
 }
 
@@ -86,6 +85,7 @@ pre{
 .hljs-phpdoc,
 .hljs-dartdoc,
 .hljs-title,
+.hljs-section,
 .hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
@@ -95,7 +95,6 @@ pre{
 .hljs-chunk,
 .hljs-winutils,
 .bash .hljs-variable,
-.apache .hljs-tag,
 .tex .hljs-command,
 .hljs-request,
 .hljs-status {

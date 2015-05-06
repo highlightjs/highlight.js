@@ -12,7 +12,7 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .profile .hljs-header *,
-.ini .hljs-title,
+.hljs-section,
 .nginx .hljs-title {
   color: #fff;
 }
@@ -23,6 +23,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-preprocessor .hljs-title,
 .hljs-pragma,
 .hljs-shebang,
+.hljs-meta,
 .profile .hljs-summary,
 .diff,
 .hljs-pi,
@@ -88,6 +89,7 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs-title,
+.hljs-variable,
 .ruby .hljs-constant,
 .vala .hljs-constant,
 .hljs-parent,
@@ -97,7 +99,6 @@ Author: pumbur <pumbur@pumbur.net>
 .objectivec .hljs-class .hljs-id,
 .smalltalk .hljs-class,
 .lisp .hljs-keyword,
-.apache .hljs-tag,
 .nginx .hljs-variable,
 .hljs-envvar,
 .bash .hljs-variable,
@@ -112,12 +113,11 @@ Author: pumbur <pumbur@pumbur.net>
   color: #bb1166;
 }
 
+.hljs-section,
 .hljs-yardoctag,
 .hljs-phpdoc,
 .hljs-dartdoc,
 .profile .hljs-header,
-.ini .hljs-title,
-.apache .hljs-tag,
 .parser3 .hljs-title {
   font-weight: bold;
 }
@@ -133,7 +133,6 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs,
-.hljs-subst,
 .diff .hljs-chunk,
 .css .hljs-value,
 .css .hljs-attribute {

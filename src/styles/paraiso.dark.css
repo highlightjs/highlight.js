@@ -15,7 +15,7 @@
 .hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
-.hljs-name,
+.hljs-meta,
 .ruby .hljs-constant,
 .xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
@@ -38,6 +38,7 @@
 }
 
 /* Paraíso Yellow */
+.hljs-section,
 .ruby .hljs-class .hljs-title,
 .css .hljs-rule .hljs-attribute {
   color: #fec418;
@@ -72,6 +73,7 @@
 
 /* Paraíso Purple */
 .hljs-keyword,
+.hljs-name,
 .javascript .hljs-function {
   color: #815ba4;
 }

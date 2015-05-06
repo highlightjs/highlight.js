@@ -69,6 +69,7 @@ Darkula color scheme from the JetBrains family of IDEs
 .nginx .hljs-title,
 .tex .hljs-special,
 .hljs-header,
+.hljs-section,
 .hljs-attribute,
 .hljs-symbol,
 .hljs-symbol .hljs-string,
@@ -77,20 +78,17 @@ Darkula color scheme from the JetBrains family of IDEs
 .alias .hljs-keyword:first-child,
 .css .hljs-tag,
 .css .unit,
-.css .hljs-important {
-  color: #cb7832;
-}
-
+.css .hljs-important,
 .hljs-function .hljs-keyword,
 .hljs-class .hljs-keyword:first-child,
 .hljs-aspect .hljs-keyword:first-child,
 .hljs-constant,
 .hljs-typename,
+.hljs-variable,
 .css .hljs-attribute {
   color: #cb7832;
 }
 
-.hljs-variable,
 .hljs-params,
 .hljs-class .hljs-title,
 .hljs-aspect .hljs-title {
@@ -114,8 +112,6 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-addition,
 .hljs-stream,
 .hljs-envvar,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
 .tex .hljs-command,
 .hljs-prompt,
 .hljs-link_label,
@@ -131,7 +127,7 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
-.apache .hljs-sqbracket,
+.hljs-meta,
 .tex .hljs-formula {
   color: #7f7f7f;
 }

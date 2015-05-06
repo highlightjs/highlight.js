@@ -25,6 +25,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 }
 
 .hljs-keyword,
+.hljs-name,
 .css .rule .hljs-keyword,
 .hljs-winutils,
 .javascript .hljs-title,
@@ -49,13 +50,13 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 }
 
 .hljs-title,
+.hljs-section,
 .hljs-localvars,
 .hljs-function .hljs-title,
 .hljs-chunk,
 .hljs-decorator,
 .hljs-built_in,
 .hljs-identifier,
-.hljs-name,
 .hljs-id {
   color: #ffb03b;
 }
@@ -95,7 +96,8 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-attr_selector,
 .hljs-important,
 .hljs-subst,
-.hljs-cdata {
+.hljs-cdata,
+.hljs-meta {
   color: #cb4b16;
 }
 
