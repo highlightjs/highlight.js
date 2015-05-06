@@ -10,18 +10,27 @@ function(hljs) {
     contains: [
       hljs.COMMENT(';', '$'),
       {
-        className: 'title',
-        begin: '^\\[', end: '\\]'
+        className: 'section',
+        begin: /^\[/, end: /\]/
       },
       {
-        className: 'setting',
-        begin: '^[a-z0-9\\[\\]_-]+[ \\t]*=[ \\t]*', end: '$',
+        begin: /^[a-z0-9\[\]_-]+\s*=/, end: '$',
         contains: [
           {
-            className: 'value',
             endsWithParent: true,
-            keywords: 'on off true false yes no',
-            contains: [hljs.QUOTE_STRING_MODE, hljs.NUMBER_MODE],
+            contains: [
+              {
+                className: 'literal',
+                begin: /\bon|off|true|false|yes|no\b/
+              },
+              hljs.NUMBER_MODE,
+              hljs.QUOTE_STRING_MODE,
+              {
+                className: 'string',
+                begin: /\S+/,
+                relevance: 0
+              }
+            ],
             relevance: 0
           }
         ]

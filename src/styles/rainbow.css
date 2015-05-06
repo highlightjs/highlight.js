@@ -29,6 +29,7 @@ Style with support for rainbow parens
 }
 
 .hljs-keyword,
+.hljs-literal,
 .hljs-name,
 .clojure .hljs-attribute,
 .hljs-winutils,
