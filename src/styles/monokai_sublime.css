@@ -43,6 +43,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-tag .hljs-value,
 .hljs-code,
 .hljs-title,
+.hljs-section,
 .css .hljs-class,
 .hljs-class .hljs-title:last-child {
   color: #a6e22e;
@@ -96,7 +97,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   color: #66d9ef;
 }
 
-.hljs-variable,
 .hljs-params,
 .hljs-class .hljs-title,
 .hljs-aspect .hljs-title {
@@ -120,8 +120,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-addition,
 .hljs-stream,
 .hljs-envvar,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
+.hljs-variable,
 .tex .hljs-command,
 .hljs-prompt,
 .hljs-link_label,
@@ -137,7 +136,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
-.apache .hljs-sqbracket,
+.hljs-meta,
 .tex .hljs-formula {
   color: #75715e;
 }

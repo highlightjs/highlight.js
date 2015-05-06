@@ -22,13 +22,13 @@ Ported by Fabrício Tavares de Oliveira
 }
 
 .hljs-string,
-.hljs-title,
 .hljs-constant,
 .hljs-parent,
 .hljs-tag .hljs-value,
 .hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
+.hljs-meta,
 .haml .hljs-symbol,
 .ruby .hljs-symbol,
 .ruby .hljs-symbol .hljs-string,
@@ -39,15 +39,12 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-flow,
 .hljs-stream,
 .bash .hljs-variable,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
 .tex .hljs-command,
 .tex .hljs-special,
 .erlang_repl .hljs-function_or_atom,
 .asciidoc .hljs-header,
 .markdown .hljs-header,
-.coffeescript .hljs-attribute,
-.hljs-name {
+.coffeescript .hljs-attribute {
   color: #756bb1;
 }
 
@@ -94,8 +91,8 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-doctype,
 .hljs-deletion,
 .hljs-envvar,
+.hljs-variable,
 .hljs-shebang,
-.apache .hljs-sqbracket,
 .nginx .hljs-built_in,
 .hljs-list .hljs-built_in,
 .tex .hljs-formula,
@@ -108,7 +105,8 @@ Ported by Fabrício Tavares de Oliveira
 .asciidoc .hljs-attribute,
 .lasso .hljs-attribute,
 .coffeescript .hljs-property,
-.hljs-phony {
+.hljs-phony,
+.hljs-name {
   color: #88f;
 }
 
@@ -117,6 +115,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-keyword,
 .hljs-id,
 .hljs-title,
+.hljs-section,
 .hljs-built_in,
 .css .hljs-tag,
 .hljs-javadoctag,
@@ -126,7 +125,6 @@ Ported by Fabrício Tavares de Oliveira
 .smalltalk .hljs-class,
 .hljs-winutils,
 .bash .hljs-variable,
-.apache .hljs-tag,
 .hljs-type,
 .hljs-typename,
 .tex .hljs-command,

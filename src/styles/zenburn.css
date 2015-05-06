@@ -16,6 +16,7 @@ based on dark.css by Ivan Sagalaev
 
 .hljs-keyword,
 .hljs-tag,
+.hljs-name,
 .css .hljs-class,
 .css .hljs-id,
 .lisp .hljs-title,
@@ -39,9 +40,7 @@ based on dark.css by Ivan Sagalaev
 
 .dos .hljs-envvar,
 .dos .hljs-stream,
-.hljs-variable,
-.apache .hljs-sqbracket,
-.hljs-name {
+.hljs-variable {
   color: #efdcbc;
 }
 
@@ -62,10 +61,10 @@ based on dark.css by Ivan Sagalaev
 .dos .hljs-keyword,
 .hljs-decorator,
 .hljs-title,
+.hljs-section,
 .hljs-type,
 .diff .hljs-header,
 .ruby .hljs-class .hljs-parent,
-.apache .hljs-tag,
 .nginx .hljs-built_in,
 .tex .hljs-command,
 .hljs-prompt {
@@ -92,7 +91,6 @@ based on dark.css by Ivan Sagalaev
 .css .hljs-rule .hljs-value,
 .hljs-attr_selector,
 .hljs-pseudo,
-.apache .hljs-cbracket,
 .tex .hljs-formula,
 .coffeescript .hljs-attribute {
   color: #cc9393;
@@ -103,7 +101,8 @@ based on dark.css by Ivan Sagalaev
 .hljs-comment,
 .hljs-annotation,
 .hljs-pi,
-.hljs-doctype {
+.hljs-doctype,
+.hljs-meta {
   color: #7f9f7f;
 }
 

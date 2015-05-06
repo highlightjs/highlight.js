@@ -13,7 +13,8 @@
 
 .hljs-shebang,
 .hljs-comment,
-.hljs-javadoc {
+.hljs-javadoc,
+.hljs-meta {
   color: #7c7c7c;
 }
 
@@ -22,6 +23,7 @@
 .tex .hljs-command,
 .hljs-request,
 .hljs-status,
+.hljs-name,
 .clojure .hljs-attribute {
   color: #96cbfe;
 }
@@ -38,7 +40,6 @@
 .hljs-cdata,
 .hljs-filter .hljs-argument,
 .hljs-attr_selector,
-.apache .hljs-cbracket,
 .hljs-date,
 .coffeescript .hljs-attribute {
   color: #a8ff60;
@@ -53,6 +54,7 @@
 }
 
 .hljs-title,
+.hljs-section,
 .hljs-sub .hljs-identifier,
 .hljs-pi,
 .hljs-decorator,
@@ -73,8 +75,7 @@
 .hljs-number,
 .hljs-variable,
 .vbscript,
-.hljs-literal,
-.hljs-name {
+.hljs-literal {
   color: #c6c5fe;
 }
 

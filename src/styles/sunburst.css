@@ -20,6 +20,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-keyword,
+.hljs-name,
 .ruby .hljs-function .hljs-keyword,
 .hljs-request,
 .hljs-status,
@@ -39,11 +40,9 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-cdata,
 .hljs-filter .hljs-argument,
 .hljs-attr_selector,
-.apache .hljs-cbracket,
 .hljs-date,
 .tex .hljs-command,
-.coffeescript .hljs-attribute,
-.hljs-name {
+.coffeescript .hljs-attribute {
   color: #65b042;
 }
 
@@ -56,6 +55,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-title,
+.hljs-section,
 .hljs-sub .hljs-identifier,
 .hljs-pi,
 .hljs-tag,
@@ -112,13 +112,13 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-annotation,
-.apache .hljs-sqbracket,
 .nginx .hljs-built_in {
   color: #9b859d;
 }
 
 .hljs-preprocessor,
-.hljs-pragma {
+.hljs-pragma,
+.hljs-meta {
   color: #8996a8;
 }
 

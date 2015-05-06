@@ -44,7 +44,8 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-title,
-.hljs-id {
+.hljs-id,
+.hljs-section {
   color: #19469d;
 }
 .hljs-params {
@@ -110,7 +111,8 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 .hljs-pi,
 .hljs-doctype,
 .hljs-shebang,
-.hljs-cdata {
+.hljs-cdata,
+.hljs-meta {
   color: #999;
   font-weight: bold;
 }

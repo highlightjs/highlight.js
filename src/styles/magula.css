@@ -35,8 +35,7 @@ Music: Aphex Twin / Xtal
 .hljs-addition,
 .hljs-flow,
 .hljs-stream,
-.bash .hljs-variable,
-.apache .hljs-cbracket,
+.hljs-variable,
 .coffeescript .hljs-attribute {
   color: #050;
 }
@@ -74,7 +73,7 @@ Music: Aphex Twin / Xtal
 .hljs-deletion,
 .hljs-envvar,
 .hljs-shebang,
-.apache .hljs-sqbracket,
+.hljs-meta,
 .nginx .hljs-built_in,
 .tex .hljs-formula,
 .hljs-prompt,
@@ -87,11 +86,11 @@ Music: Aphex Twin / Xtal
 .hljs-phpdoc,
 .hljs-dartdoc,
 .hljs-title,
+.hljs-section,
 .hljs-built_in,
 .smalltalk .hljs-class,
 .hljs-winutils,
 .bash .hljs-variable,
-.apache .hljs-tag,
 .xml .hljs-tag,
 .tex .hljs-command,
 .hljs-request,
@@ -113,10 +112,3 @@ Music: Aphex Twin / Xtal
 .xml .hljs-cdata {
   opacity: 0.5;
 }
-
-/* --- */
-.apache .hljs-tag {
-  font-weight: bold;
-  color: blue;
-}
-

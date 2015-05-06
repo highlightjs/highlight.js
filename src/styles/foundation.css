@@ -10,7 +10,7 @@ Date: 2013-04-02
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #eee;
+  background: #eee; color: black;
   -webkit-text-size-adjust: none;
 }
 
@@ -49,11 +49,13 @@ Date: 2013-04-02
   font-style: italic;
 }
 
+.hljs-section,
 .asciidoc .hljs-title,
 .hljs-function .hljs-title {
   color: #900;
 }
 
+.hljs-name,
 .hljs-class {
   color: #458;
 }
@@ -75,12 +77,14 @@ Date: 2013-04-02
 }
 
 .hljs-pi,
-.hljs-doctype {
+.hljs-doctype,
+.hljs-meta {
   color: #3344bb;
 }
 
 .hljs-code,
-.hljs-number {
+.hljs-number,
+.hljs-literal {
   color: #099;
 }
 

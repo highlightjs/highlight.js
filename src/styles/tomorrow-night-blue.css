@@ -31,7 +31,8 @@
 .hljs-built_in,
 .hljs-literal,
 .hljs-params,
-.hljs-constant {
+.hljs-constant,
+.hljs-meta {
   color: #ffc58f;
 }
 
@@ -46,7 +47,6 @@
 .hljs-value,
 .hljs-inheritance,
 .hljs-header,
-.hljs-name,
 .ruby .hljs-symbol,
 .xml .hljs-cdata {
   color: #d1f1a9;
@@ -54,12 +54,14 @@
 
 /* Tomorrow Aqua */
 .hljs-title,
+.hljs-section,
 .css .hljs-hexcolor {
   color: #99ffff;
 }
 
 /* Tomorrow Blue */
 .hljs-function,
+.hljs-name,
 .python .hljs-decorator,
 .python .hljs-title,
 .ruby .hljs-function .hljs-title,

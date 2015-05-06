@@ -6,8 +6,28 @@ Stylable classes
 ----------------
 
 +--------------------------+---------------------------------------------------+
-| keyword                  | Keyword in a regular Algol-style language         |
+| keyword                  | Keyword in a regular Algol-style language.        |
 +--------------------------+---------------------------------------------------+
+| literal                  | Special identifier for a built-in value ("true",  |
+|                          | "false", "null").                                 |
++--------------------------+---------------------------------------------------+
+| meta                     | Flags, modifiers, annotations, processing         |
+|                          | instructions, preprocessor directive, etc.        |
++--------------------------+---------------------------------------------------+
+| name                     | Name of a directive in structured config file,    |
+|                          | first word in an s-expression.                    |
++--------------------------+---------------------------------------------------+
+| number                   | Number, including units and modifiers, if any.    |
++--------------------------+---------------------------------------------------+
+| section                  | Heading of a section in a config file.            |
++--------------------------+---------------------------------------------------+
+| subst                    | Parsed section inside a literal string.           |
++--------------------------+---------------------------------------------------+
+| variable                 | Variable in a config or a template file.          |
+|                          | Environment var expansion in a script.            |
++--------------------------+---------------------------------------------------+
+
+
 (...)
 
 

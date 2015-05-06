@@ -13,6 +13,7 @@
 }
 
 .hljs-comment,
+.hljs-meta,
 .bash .hljs-shebang,
 .java .hljs-javadoc,
 .javascript .hljs-javadoc {
@@ -20,7 +21,7 @@
 }
 
 .hljs-string,
-.apache .hljs-sqbracket,
+.hljs-variable,
 .coffeescript .hljs-subst,
 .coffeescript .hljs-regexp,
 .cpp .hljs-preprocessor,
@@ -67,9 +68,7 @@
   color: #a71d5d;
 }
 
-.apache .hljs-common,
-.apache .hljs-cbracket,
-.apache .hljs-keyword,
+.hljs-name,
 .bash .hljs-literal,
 .bash .hljs-built_in,
 .coffeescript .hljs-literal,
@@ -128,7 +127,7 @@
   color: #0086b3;
 }
 
-.apache .hljs-tag,
+.hljs-section,
 .cs .hljs-xmlDocTag,
 .css .hljs-tag,
 .xml .hljs-title,
@@ -136,7 +135,6 @@
   color: #63a35c;
 }
 
-.bash .hljs-variable,
 .cs .hljs-preprocessor,
 .cs .hljs-preprocessor .hljs-keyword,
 .css .hljs-attr_selector,

@@ -15,7 +15,8 @@
 }
 
 .hljs-comment,
-.hljs-title {
+.hljs-title,
+.hljs-section {
   color: #777;
 }
 
@@ -23,7 +24,13 @@
 .hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
-.hljs-name,
+.hljs-meta,
+.hljs-number,
+.hljs-preprocessor,
+.hljs-built_in,
+.hljs-literal,
+.hljs-params,
+.hljs-constant,
 .ruby .constant,
 .xml .tag .title,
 .xml .pi,
@@ -51,15 +58,6 @@
 .css .selector,
 .css .tag {
   color: #dfc48c;
-}
-
-.hljs-number,
-.hljs-preprocessor,
-.hljs-built_in,
-.hljs-literal,
-.hljs-params,
-.hljs-constant {
-  color: #ab875d;
 }
 
 .ruby .class .title,
@@ -92,6 +90,7 @@
 }
 
 .hljs-keyword,
+.hljs-name,
 .javascript .function {
   color: #8f9c6c;
 }

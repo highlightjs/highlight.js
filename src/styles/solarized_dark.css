@@ -24,6 +24,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 
 /* Solarized Green */
 .hljs-keyword,
+.hljs-name,
 .hljs-winutils,
 .method,
 .hljs-addition,
@@ -51,6 +52,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 
 /* Solarized Blue */
 .hljs-title,
+.hljs-section,
 .hljs-localvars,
 .hljs-chunk,
 .hljs-decorator,
@@ -58,8 +60,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-identifier,
 .vhdl .hljs-literal,
 .hljs-id,
-.css .hljs-function,
-.hljs-name {
+.css .hljs-function {
   color: #268bd2;
 }
 
@@ -88,6 +89,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-attr_selector,
 .hljs-subst,
 .hljs-cdata,
+.hljs-meta,
 .css .hljs-pseudo,
 .hljs-header {
   color: #cb4b16;

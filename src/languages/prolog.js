@@ -15,7 +15,7 @@ function(hljs) {
 
   var VAR = {
 
-    className: 'name',
+    className: 'old-name',
     variants: [
       {begin: /[A-Z][a-zA-Z0-9_]*/},
       {begin: /_[A-Za-z0-9_]*/},

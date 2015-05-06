@@ -12,16 +12,19 @@ Author: Pedro Oliveira <kanytu@gmail . com>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-number {
+.hljs-number,
+.hljs-literal {
   color: #6897BB;
 }
 
+.hljs-name,
 .hljs-keyword,
 .hljs-deletion {
   color: #cc7832;
 }
 
-.hljs-javadoc {
+.hljs-javadoc,
+.hljs-variable {
   color: #629755;
 }
 
@@ -29,6 +32,7 @@ Author: Pedro Oliveira <kanytu@gmail . com>
   color: #808080;
 }
 
+.hljs-meta,
 .hljs-annotation {
   color: #bbb529;
 }
@@ -38,6 +42,7 @@ Author: Pedro Oliveira <kanytu@gmail . com>
   color: #6A8759;
 }
 
+.hljs-section,
 .hljs-function .hljs-title,
 .hljs-change {
   color: #ffc66d;
