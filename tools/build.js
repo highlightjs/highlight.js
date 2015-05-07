@@ -14,7 +14,9 @@ commander
                                  /^(browser|cdn|node)$/i, 'browser')
   .parse(process.argv);
 
-target = './' + commander.target.toLowerCase();
+commander.target = commander.target.toLowerCase();
+
+target = './' + commander.target;
 build  = require(target);
 
 global.dir       = {};
