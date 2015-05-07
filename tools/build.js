@@ -19,7 +19,7 @@ commander
 
 hasTarget = _.contains(targets, commander.target);
 
-target = './' + (hasTarget ? commander.target : 'browser');
+target = './' + commander.target.toLowerCase();
 build  = require(target);
 
 global.dir       = {};
