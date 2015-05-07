@@ -1,13 +1,11 @@
 'use strict';
 
-var _         = require('lodash');
 var commander = require('commander');
 var path      = require('path');
 var Queue     = require('gear').Queue;
 var registry  = require('./tasks');
 
-var build, hasTarget, target,
-    targets = ['browser', 'cdn', 'node'];
+var build, target;
 
 commander
   .usage('[options] [<languages ...>]')
@@ -15,9 +13,6 @@ commander
   .option('-t, --target <name>', 'Build for target [browser, cdn, node]',
                                  /^(browser|cdn|node$)/i, 'browser')
   .parse(process.argv);
-
-
-hasTarget = _.contains(targets, commander.target);
 
 target = './' + commander.target.toLowerCase();
 build  = require(target);
