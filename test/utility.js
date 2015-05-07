@@ -9,3 +9,7 @@ exports.buildPath = function() {
 
   return path.join.apply(this, paths);
 };
+
+exports.numberToString = function(number) {
+  return number.toString();
+};

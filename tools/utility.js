@@ -1,6 +1,7 @@
 'use strict';
 
 var _    = require('lodash');
+var fs   = require('fs');
 var path = require('path');
 
 var REPLACES,
@@ -131,8 +132,26 @@ function glob(pattern, encoding) {
   return { pattern: pattern, limit: 50, encoding: encoding };
 }
 
+function getStyleNames() {
+  var stylesDir      = path.join('src', 'styles'),
+      stylesDirFiles = fs.readdirSync(stylesDir),
+      styles         = _.filter(stylesDirFiles, function(file) {
+                         return path.extname(file) === '.css' &&
+                                file !== 'default.css';
+                       });
+
+  return _.map(styles, function(style) {
+    var basename = path.basename(style, '.css'),
+        name     = _.startCase(basename),
+        pathName = path.join('styles', style);
+
+    return { path: pathName, name: name };
+  });
+}
+
 module.exports = {
   buildFilterCallback: buildFilterCallback,
+  getStyleNames: getStyleNames,
   glob: glob,
   parseHeader: parseHeader,
   regex: regex,

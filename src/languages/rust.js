@@ -6,6 +6,7 @@ Category: system
 */
 
 function(hljs) {
+  var NUM_SUFFIX = '([uif](8|16|32|64|size))\?';
   var BLOCK_COMMENT = hljs.inherit(hljs.C_BLOCK_COMMENT_MODE);
   BLOCK_COMMENT.contains.push('self');
   return {
@@ -35,18 +36,22 @@ function(hljs) {
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
       {
         className: 'string',
-        begin: /r(#*)".*?"\1(?!#)/
-      },
-      {
-        className: 'string',
-        begin: /'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/
-      },
-      {
-        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
+        variants: [
+           { begin: /r(#*)".*?"\1(?!#)/ },
+           { begin: /'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/ },
+           { begin: /'[a-zA-Z_][a-zA-Z0-9_]*/ }
+        ]
       },
       {
         className: 'number',
-        begin: /\b(0[xbo][A-Fa-f0-9_]+|\d[\d_]*(\.[0-9_]+)?([eE][+-]?[0-9_]+)?)([uif](8|16|32|64|size))?/,
+        variants: [
+          { begin: '\\b0b([01_]+)' + NUM_SUFFIX },
+          { begin: '\\b0o([0-7_]+)' + NUM_SUFFIX },
+          { begin: '\\b0x([A-Fa-f0-9_]+)' + NUM_SUFFIX },
+          { begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)' +
+                   NUM_SUFFIX
+          }
+        ],
         relevance: 0
       },
       {

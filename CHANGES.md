@@ -3,14 +3,26 @@
 New languages:
 
 - *C/AL* by [Kenneth Fuglsang][]
+- *DNS zone file* by [Tim Schumacher][]
 - *Ceylon* by [Lucas Werkmeister][]
 
 New Styles:
 
-- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* by [Bram de Haan][]
+- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* by
+  [Bram de Haan][]
+- Github Gist by [Louis Barranqueiro][]
+
+Notable fixes and improvements to existing languages:
+
+- Multiline raw strings from C++11 are now supported
+- Fix class names with dashes in HAML
+- The `async` keyword from ES6/7 is now supported
+- TypeScipt functions handle type and parameter complexity better
 
 [Bram de Haan]: https://github.com/atelierbram
 [Kenneth Fuglsang]: https://github.com/kfuglsang
+[Louis Barranqueiro]: https://github.com/LouisBarranqueiro
+[Tim Schumacher]: https://github.com/enko
 [Lucas Werkmeister]: https://github.com/lucaswerkmeister
 
 ## Version 8.5

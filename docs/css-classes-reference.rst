@@ -622,8 +622,8 @@ C++ ("cpp", "c", "cc", "h", "c++", "h++", "hpp")
 * ``comment``:          comment
 * ``preprocessor``:     preprocessor directive
 
-Objective C ("objectivec", "m", "mm", "objc", "obj-c")
-------------------------------------------------------
+Objective C ("objectivec", "mm", "objc", "obj-c")
+-------------------------------------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         Cocoa/Cocoa Touch constants and classes
@@ -1379,6 +1379,14 @@ Prolog ("prolog")
 * ``string``:           quoted atoms, strings, character code list literals, character code literals
 * ``number``:           numbers
 * ``variable``:         variables
+* ``comment``:          comments
+
+DNS Zone file ("dns", "zone", "bind")
+-----------------
+
+* ``keyword``:          DNS resource records as defined in various RFCs
+* ``operator``:         operator
+* ``number``:           IPv4 and IPv6 addresses
 * ``comment``:          comments
 
 Ceylon ("ceylon")

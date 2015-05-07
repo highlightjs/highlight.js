@@ -39,10 +39,24 @@ https://highlightjs.org/
     return match && match.index == 0;
   }
 
+  function isNotHighlighted(language) {
+    return /no-?highlight|plain|text/.test(language);
+  }
+
   function blockLanguage(block) {
-    var classes = (block.className + ' ' + (block.parentNode ? block.parentNode.className : '')).split(/\s+/);
-    classes = classes.map(function(c) {return c.replace(/^lang(uage)?-/, '');});
-    return classes.filter(function(c) {return getLanguage(c) || /no(-?)highlight|plain|text/.test(c);})[0];
+    var i, language, length,
+        classes = block.className + ' ';
+
+    classes += block.parentNode ? block.parentNode.className : '';
+    classes = classes.split(/\s+/);
+
+    for(i = 0, length = classes.length; i < length; i++) {
+      language = classes[i].replace(/^lang(uage)?-/, '');
+
+      if(getLanguage(language) || isNotHighlighted(language)) {
+        return language;
+      }
+    }
   }
 
   function inherit(parent, obj) {
@@ -543,7 +557,7 @@ https://highlightjs.org/
   */
   function highlightBlock(block) {
     var language = blockLanguage(block);
-    if (/no(-?)highlight|plain|text/.test(language))
+    if (isNotHighlighted(language))
         return;
 
     var node;
