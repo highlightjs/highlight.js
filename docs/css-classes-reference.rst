@@ -1388,3 +1388,12 @@ DNS Zone file ("dns", "zone", "bind")
 * ``operator``:         operator
 * ``number``:           IPv4 and IPv6 addresses
 * ``comment``:          comments
+
+Ceylon ("ceylon")
+-----------------
+
+* ``keyword``:          keyword
+* ``annotation``:       language annotation or compiler annotation
+* ``string``:           string literal, part of string template, character literal
+* ``number``:           number
+* ``comment``:          comment
