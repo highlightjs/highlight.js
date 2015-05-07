@@ -617,8 +617,8 @@ C++ ("cpp", "c", "cc", "h", "c++", "h++", "hpp")
 * ``comment``:          comment
 * ``preprocessor``:     preprocessor directive
 
-Objective C ("objectivec", "m", "mm", "objc", "obj-c")
-------------------------------------------------------
+Objective C ("objectivec", "mm", "objc", "obj-c")
+-------------------------------------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         Cocoa/Cocoa Touch constants and classes
@@ -1383,3 +1383,12 @@ DNS Zone file ("dns", "zone", "bind")
 * ``operator``:         operator
 * ``number``:           IPv4 and IPv6 addresses
 * ``comment``:          comments
+
+Ceylon ("ceylon")
+-----------------
+
+* ``keyword``:          keyword
+* ``annotation``:       language annotation or compiler annotation
+* ``string``:           string literal, part of string template, character literal
+* ``number``:           number
+* ``comment``:          comment

@@ -1,26 +1,22 @@
 'use strict';
 
-var _         = require('lodash');
 var commander = require('commander');
 var path      = require('path');
 var Queue     = require('gear').Queue;
 var registry  = require('./tasks');
 
-var build, hasTarget, target,
-    targets = ['browser', 'cdn', 'node'];
+var build, target;
 
 commander
   .usage('[options] [<languages ...>]')
   .option('-n, --no-compress', 'Disable compression')
-  .option('-t, --target <name>', 'Build for target <name> ' +
-                                 '[browser, cdn, node]',
-                                 'browser')
+  .option('-t, --target <name>', 'Build for target [browser, cdn, node]',
+                                 /^(browser|cdn|node)$/i, 'browser')
   .parse(process.argv);
 
+commander.target = commander.target.toLowerCase();
 
-hasTarget = _.contains(targets, commander.target);
-
-target = './' + (hasTarget ? commander.target : 'browser');
+target = './' + commander.target;
 build  = require(target);
 
 global.dir       = {};
