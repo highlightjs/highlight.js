@@ -11,7 +11,7 @@ commander
   .usage('[options] [<languages ...>]')
   .option('-n, --no-compress', 'Disable compression')
   .option('-t, --target <name>', 'Build for target [browser, cdn, node]',
-                                 /^(browser|cdn|node$)/i, 'browser')
+                                 /^(browser|cdn|node)$/i, 'browser')
   .parse(process.argv);
 
 target = './' + commander.target.toLowerCase();
