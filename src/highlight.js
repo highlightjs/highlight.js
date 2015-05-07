@@ -50,11 +50,19 @@ https://highlightjs.org/
     classes += block.parentNode ? block.parentNode.className : '';
     classes = classes.split(/\s+/);
 
+    // try to find a supported language or no-highlight class
     for(i = 0, length = classes.length; i < length; i++) {
       language = classes[i].replace(/^lang(uage)?-/, '');
 
       if(getLanguage(language) || isNotHighlighted(language)) {
         return language;
+      }
+    }
+
+    // return 'no-highlight' if there is an unsupported lang(uage)-prefixed class
+    for(i = 0, length = classes.length; i < length; i++) {
+      if (/^lang(uage)?-/.test(classes[i])) {
+        return 'no-highlight';
       }
     }
   }
