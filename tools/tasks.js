@@ -214,7 +214,7 @@ tasks.filter.type = 'collect';
 tasks.readSnippet = function(options, blob, done) {
   var name        = path.basename(blob.name, '.js'),
       fileInfo    = parseHeader(blob.result),
-      snippetName = path.join(dir.root, 'test', 'detect', name, 'default.txt');
+      snippetName = path.join('test', 'detect', name, 'default.txt');
 
   function onRead(error, blob) {
     if (error !== null) return done(null, null); // ignore missing snippets
@@ -227,7 +227,7 @@ tasks.readSnippet = function(options, blob, done) {
 };
 
 tasks.templateDemo = function(options, blobs, done) {
-  var name     = path.join(dir.root, 'demo', 'index.html'),
+  var name     = path.join('demo', 'index.html'),
       template = fs.readFileSync(name, 'utf8'),
       newBlobs = _.compact(blobs), // drop missing blobs
       content  = _.template(template)({
