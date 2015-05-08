@@ -5,9 +5,11 @@ var path = require('path');
 
 var utility  = require('./utility');
 
+var directory;
+
 function copyDocs() {
-  var input  = path.join(dir.root, 'docs', '*.rst'),
-      output = path.join(dir.build, 'docs');
+  var input  = path.join(directory.root, 'docs', '*.rst'),
+      output = path.join(directory.build, 'docs');
 
   return {
     logDocs: { task: ['log', 'Copying documentation.'] },
@@ -27,7 +29,7 @@ function generateDemo(filterCB) {
   var readArgs   = utility.glob(path.join('src', 'languages', '*.js')),
       staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
       stylesArgs = utility.glob(path.join('src', 'styles', '*'), 'bin'),
-      demoRoot   = path.join(dir.build, 'demo');
+      demoRoot   = path.join(directory.build, 'demo');
 
   return {
     logDemoStart: { task: ['log', 'Generating demo.'] },
@@ -51,7 +53,9 @@ function generateDemo(filterCB) {
   };
 }
 
-module.exports = function(commander) {
+module.exports = function(commander, dir) {
+  directory = dir;
+
   var hljsExt, output, requiresTask, tasks,
       replace           = utility.replace,
       regex             = utility.regex,
@@ -104,7 +108,7 @@ module.exports = function(commander) {
   };
 
   hljsExt = commander.target === 'cdn' ? 'min' : 'pack';
-  output  = path.join(dir.build, 'highlight.' + hljsExt + '.js');
+  output  = path.join(directory.build, 'highlight.' + hljsExt + '.js');
 
   tasks.write = {
     requires: 'writelog',
