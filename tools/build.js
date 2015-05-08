@@ -5,7 +5,7 @@ var path      = require('path');
 var Queue     = require('gear').Queue;
 var registry  = require('./tasks');
 
-var build, target;
+var build, dir = {};
 
 commander
   .usage('[options] [<languages ...>]')
@@ -16,16 +16,13 @@ commander
 
 commander.target = commander.target.toLowerCase();
 
-target = './' + commander.target;
-build  = require(target);
-
-global.dir       = {};
-global.dir.root  = path.dirname(__dirname);
-global.dir.build = path.join(dir.root, 'build');
+build     = require('./' + commander.target);
+dir.root  = path.dirname(__dirname);
+dir.build = path.join(dir.root, 'build');
 
 new Queue({ registry: registry })
   .clean(dir.build)
   .log('Starting build.')
-  .tasks(build(commander))
+  .tasks(build(commander, dir))
   .log('Finished build.')
   .run();
