@@ -6,9 +6,11 @@ var path = require('path');
 var utility      = require('./utility');
 var browserBuild = require('./browser');
 
+var directory;
+
 function moveLanguages() {
-  var input   = path.join(dir.root, 'src', 'languages', '*.js'),
-      output  = path.join(dir.build, 'languages'),
+  var input   = path.join(directory.root, 'src', 'languages', '*.js'),
+      output  = path.join(directory.build, 'languages'),
       regex   = utility.regex,
       replace = utility.replace,
 
@@ -52,8 +54,8 @@ function moveLanguages() {
 }
 
 function moveStyles() {
-  var input  = path.join(dir.root, 'src', 'styles', '*.css'),
-      output = path.join(dir.build, 'styles');
+  var input  = path.join(directory.root, 'src', 'styles', '*.css'),
+      output = path.join(directory.build, 'styles');
 
   return {
     startlogcss: { task: ['log', 'Building style files.'] },
@@ -78,9 +80,11 @@ function moveStyles() {
   };
 }
 
-module.exports = function(commander) {
+module.exports = function(commander, dir) {
+  directory = dir;
+
   return _.merge(
-    browserBuild(commander),
+    browserBuild(commander, dir),
     moveLanguages(),
     moveStyles());
 };

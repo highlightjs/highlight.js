@@ -23,6 +23,6 @@ dir.build = path.join(dir.root, 'build');
 new Queue({ registry: registry })
   .clean(dir.build)
   .log('Starting build.')
-  .tasks(build(commander))
+  .tasks(build(commander, dir))
   .log('Finished build.')
   .run();
