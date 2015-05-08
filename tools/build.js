@@ -5,7 +5,7 @@ var path      = require('path');
 var Queue     = require('gear').Queue;
 var registry  = require('./tasks');
 
-var build, target;
+var build;
 
 commander
   .usage('[options] [<languages ...>]')
@@ -16,8 +16,7 @@ commander
 
 commander.target = commander.target.toLowerCase();
 
-target = './' + commander.target;
-build  = require(target);
+build = require('./' + commander.target);
 
 global.dir       = {};
 global.dir.root  = path.dirname(__dirname);
