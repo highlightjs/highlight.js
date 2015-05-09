@@ -1,23 +1,53 @@
 /*
 Language: Scala
+Category: functional
 Author: Jan Berkel <jan.berkel@gmail.com>
 Contributors: Erik Osheim <d_m@plastic-idolatry.com>
 */
 
 function(hljs) {
 
-  var ANNOTATION = {
-    className: 'annotation', begin: '@[A-Za-z]+'
+  var ANNOTATION = { className: 'meta', begin: '@[A-Za-z]+' };
+
+  // used in strings for escaping/interpolation/substitution
+  var ESCAPES = { className: 'subst', begin: '\\\\.', relevance: 0 };
+  var INTERP = { className: 'subst', begin: '\\$[A-Za-z0-9_]+' };
+  var SUBST = { className: 'subst', begin: '\\${', end: '}' };
+
+  // STRING 1 and 3 support only traditional escapes
+
+  var STRING1 = {
+    className: 'string',
+    begin: '"', end: '"',
+    illegal: '\\n',
+    contains: [ESCAPES]
   };
 
-  var STRING = {
+  var STRING3 = {
     className: 'string',
-    begin: 'u?r?"""', end: '"""',
+    begin: '"""', end: '"""',
+    relevance: 10
+  };
+
+  // ISTRING 1 and 3 support interpolation/substitution
+  // most commonly seen in s"balance: $amt"
+
+  var ISTRING1 = {
+    className: 'string',
+    begin: '[a-z]+"', end: '"',
+    illegal: '\\n',
+    contains: [ESCAPES, INTERP, SUBST]
+  };
+
+  var ISTRING3 = {
+    className: 'string',
+    begin: '[a-z]+"""', end: '"""',
+    contains: [INTERP, SUBST],
     relevance: 10
   };
 
   var SYMBOL = {
-    className: 'symbol',
+    className: 'name',
     begin: '\'\\w[\\w\\d_]*(?!\')'
   };
 
@@ -55,8 +85,10 @@ function(hljs) {
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      STRING,
-      hljs.QUOTE_STRING_MODE,
+      ISTRING3,
+      ISTRING1,
+      STRING3,
+      STRING1,
       SYMBOL,
       TYPE,
       METHOD,

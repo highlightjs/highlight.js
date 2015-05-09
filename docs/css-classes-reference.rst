@@ -28,6 +28,15 @@ Stylable classes
 | variable                 | Variable in a config or a template file.          |
 |                          | Environment var expansion in a script.            |
 +--------------------------+---------------------------------------------------+
+| type                     | Type name used in a function signature, type      |
+|                          | parameter, generic template, etc.                 |
++--------------------------+---------------------------------------------------+
+| class                    | Class declaration                                 |
++--------------------------+---------------------------------------------------+
+| function                 | Function or method declaration                    |
++--------------------------+---------------------------------------------------+
+| title                    | Name defined within class or function declaration |
++--------------------------+---------------------------------------------------+
 
 
 (...)
