@@ -12,7 +12,7 @@ function(hljs) {
     'next until do begin unless END rescue nil else break undef not super class case ' +
     'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor';
   var YARDOCTAG = {
-    className: 'yardoctag',
+    className: 'doctag',
     begin: '@[A-Za-z]+'
   };
   var IRB_OBJECT = {

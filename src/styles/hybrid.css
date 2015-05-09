@@ -50,7 +50,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 
 /*color: fg_comment*/
 .hljs-comment,
-.hljs-javadoc,
 .hljs-output .hljs-value,
 .hljs-pi,
 .hljs-shebang,
@@ -76,7 +75,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 /*color: fg_green*/
 .hljs-string,
 .hljs-special,
-.hljs-javadoctag,
+.hljs-doctag,
 .hljs-addition,
 .hljs-important,
 .hljs-tag .hljs-value,

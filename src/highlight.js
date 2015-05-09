@@ -695,6 +695,11 @@ https://highlightjs.org/
       inherits || {}
     );
     mode.contains.push(hljs.PHRASAL_WORDS_MODE);
+    mode.contains.push({
+      className: 'doctag',
+      beginKeywords: "TODO FIXME NOTE BUG XXX",
+      relevance: 0
+    });
     return mode;
   };
   hljs.C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$');

@@ -95,8 +95,7 @@
 .tex .hljs-formula,
 .hljs-header,
 .hljs-horizontal_rule,
-.hljs-code,
-.hljs-javadoc {
+.hljs-code {
   color: #888;
 }
 

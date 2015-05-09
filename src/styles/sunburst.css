@@ -13,8 +13,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.hljs-javadoc {
+.hljs-comment {
   color: #aeaeae;
   font-style: italic;
 }
@@ -69,10 +68,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-class .hljs-title,
 .hljs-type,
 .smalltalk .hljs-class,
-.hljs-javadoctag,
-.hljs-yardoctag,
-.hljs-phpdoc,
-.hljs-dartdoc {
+.hljs-doctag {
   text-decoration: underline;
 }
 

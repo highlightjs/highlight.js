@@ -16,18 +16,19 @@ function (hljs) {
       literal: 'true false null',
       keyword: KEYWORDS
     },
-    contains: [
+    contains : [
+      hljs.COMMENT(
+        '/\\*\\*',
+        '\\*/',
+        {
+          relevance : 0,
+          contains : [{
+            className : 'doctag',
+            begin : '@[A-Za-z]+'
+          }]
+        }
+      ),
       hljs.C_LINE_COMMENT_MODE,
-      {
-        className: 'javadoc',
-        begin: '/\\*\\*', end: '\\*//*',
-        relevance: 0,
-        contains: [
-          {
-            className: 'javadoctag', begin: '(^|\\s)@[A-Za-z]+'
-          }
-        ]
-      },
       hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'type',

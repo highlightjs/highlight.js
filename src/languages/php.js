@@ -48,8 +48,8 @@ function(hljs) {
         {
           contains: [
             {
-              className: 'phpdoc',
-              begin: '\\s@[A-Za-z]+'
+              className: 'doctag',
+              begin: '@[A-Za-z]+'
             },
             PREPROCESSOR
           ]

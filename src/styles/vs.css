@@ -77,9 +77,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
   color: #2b91af;
 }
 
-.hljs-phpdoc,
-.hljs-dartdoc,
-.hljs-javadoc,
+.hljs-doctag,
 .hljs-xmlDocTag {
   color: #808080;
 }

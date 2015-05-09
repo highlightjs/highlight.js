@@ -60,7 +60,6 @@ Music: Aphex Twin / Xtal
 }
 
 .hljs-label,
-.hljs-javadoc,
 .ruby .hljs-string,
 .hljs-decorator,
 .hljs-filter .hljs-argument,
@@ -83,8 +82,7 @@ Music: Aphex Twin / Xtal
 
 .hljs-keyword,
 .hljs-id,
-.hljs-phpdoc,
-.hljs-dartdoc,
+.hljs-doctag,
 .hljs-title,
 .hljs-section,
 .hljs-built_in,

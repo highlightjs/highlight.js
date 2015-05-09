@@ -13,8 +13,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.hljs-javadoc {
+.hljs-comment {
   color: #006a00;
 }
 
@@ -77,10 +76,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-section,
 .hljs-class .hljs-title,
 .smalltalk .hljs-class,
-.hljs-javadoctag,
-.hljs-yardoctag,
-.hljs-phpdoc,
-.hljs-dartdoc,
 .hljs-type,
 .hljs-typename,
 .hljs-tag .hljs-attribute,
@@ -148,7 +143,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   background-color: #ffc8bd;
 }
 
-.hljs-comment .hljs-yardoctag {
+.hljs-comment .hljs-doctag {
   font-weight: bold;
 }
 
