@@ -19,6 +19,8 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | number                   | Number, including units and modifiers, if any.    |
 +--------------------------+---------------------------------------------------+
+| regexp                   | Literal regular expression                        |
++--------------------------+---------------------------------------------------+
 | section                  | Heading of a section in a config file.            |
 +--------------------------+---------------------------------------------------+
 | subst                    | Parsed section inside a literal string.           |
