@@ -1,5 +1,6 @@
 /*
 Language: Scala
+Category: functional
 Author: Jan Berkel <jan.berkel@gmail.com>
 Contributors: Erik Osheim <d_m@plastic-idolatry.com>
 */
