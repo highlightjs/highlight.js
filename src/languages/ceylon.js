@@ -20,7 +20,8 @@ function(hljs) {
   var SUBST = {
     className: 'subst', excludeBegin: true, excludeEnd: true,
     begin: /``/, end: /``/,
-    keywords: KEYWORDS
+    keywords: KEYWORDS,
+    relevance: 10
   };
   var EXPRESSIONS = [
     {
