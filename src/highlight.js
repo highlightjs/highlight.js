@@ -44,27 +44,24 @@ https://highlightjs.org/
   }
 
   function blockLanguage(block) {
-    var i, language, length,
+    var i, match, length,
         classes = block.className + ' ';
 
     classes += block.parentNode ? block.parentNode.className : '';
+
+    // language-* takes precedence over non-prefixed class names and
+    match = /\blang(?:uage)?-([\w-]+)\b/.exec(classes);
+    if (match) {
+      return getLanguage(match[1]) ? match[1] : 'no-highlight';
+    }
+
     classes = classes.split(/\s+/);
-
-    // try to find a supported language or no-highlight class
     for(i = 0, length = classes.length; i < length; i++) {
-      language = classes[i].replace(/^lang(uage)?-/, '');
-
-      if(getLanguage(language) || isNotHighlighted(language)) {
-        return language;
+      if(getLanguage(classes[i]) || isNotHighlighted(classes[i])) {
+        return classes[i];
       }
     }
 
-    // return 'no-highlight' if there is an unsupported lang(uage)-prefixed class
-    for(i = 0, length = classes.length; i < length; i++) {
-      if (/^lang(uage)?-/.test(classes[i])) {
-        return 'no-highlight';
-      }
-    }
   }
 
   function inherit(parent, obj) {
