@@ -10,40 +10,39 @@ function(hljs) {
   var ANNOTATION = { className: 'meta', begin: '@[A-Za-z]+' };
 
   // used in strings for escaping/interpolation/substitution
-  var ESCAPES = { className: 'subst', begin: '\\\\.', relevance: 0 };
-  var INTERP = { className: 'subst', begin: '\\$[A-Za-z0-9_]+' };
-  var SUBST = { className: 'subst', begin: '\\${', end: '}' };
-
-  // STRING 1 and 3 support only traditional escapes
-
-  var STRING1 = {
-    className: 'string',
-    begin: '"', end: '"',
-    illegal: '\\n',
-    contains: [ESCAPES]
+  var SUBST = {
+    className: 'subst',
+    variants: [
+      {begin: '\\$[A-Za-z0-9_]+'},
+      {begin: '\\${', end: '}'}
+    ]
   };
 
-  var STRING3 = {
+  var STRING = {
     className: 'string',
-    begin: '"""', end: '"""',
-    relevance: 10
-  };
+    variants: [
+      {
+        begin: '"', end: '"',
+        illegal: '\\n',
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
+        begin: '"""', end: '"""',
+        relevance: 10
+      },
+      {
+        begin: '[a-z]+"', end: '"',
+        illegal: '\\n',
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+      },
+      {
+        className: 'string',
+        begin: '[a-z]+"""', end: '"""',
+        contains: [SUBST],
+        relevance: 10
+      }
+    ]
 
-  // ISTRING 1 and 3 support interpolation/substitution
-  // most commonly seen in s"balance: $amt"
-
-  var ISTRING1 = {
-    className: 'string',
-    begin: '[a-z]+"', end: '"',
-    illegal: '\\n',
-    contains: [ESCAPES, INTERP, SUBST]
-  };
-
-  var ISTRING3 = {
-    className: 'string',
-    begin: '[a-z]+"""', end: '"""',
-    contains: [INTERP, SUBST],
-    relevance: 10
   };
 
   var SYMBOL = {
@@ -85,10 +84,7 @@ function(hljs) {
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      ISTRING3,
-      ISTRING1,
-      STRING3,
-      STRING1,
+      STRING,
       SYMBOL,
       TYPE,
       METHOD,
