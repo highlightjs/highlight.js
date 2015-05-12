@@ -6,6 +6,11 @@ Stylable classes
 ----------------
 
 +--------------------------+---------------------------------------------------+
+| class                    | Class or class-level declaration (interfaces,     |
+|                          | traits, modules, etc.)                            |
++--------------------------+---------------------------------------------------+
+| function                 | Function or method declaration                    |
++--------------------------+---------------------------------------------------+
 | keyword                  | Keyword in a regular Algol-style language.        |
 +--------------------------+---------------------------------------------------+
 | literal                  | Special identifier for a built-in value ("true",  |
@@ -25,17 +30,14 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | subst                    | Parsed section inside a literal string.           |
 +--------------------------+---------------------------------------------------+
-| variable                 | Variable in a config or a template file.          |
-|                          | Environment var expansion in a script.            |
+| title                    | Name of a class or a function at the place of     |
+|                          | declaration                                       |
 +--------------------------+---------------------------------------------------+
 | type                     | Type name used in a function signature, type      |
 |                          | parameter, generic template, etc.                 |
 +--------------------------+---------------------------------------------------+
-| class                    | Class declaration                                 |
-+--------------------------+---------------------------------------------------+
-| function                 | Function or method declaration                    |
-+--------------------------+---------------------------------------------------+
-| title                    | Name defined within class or function declaration |
+| variable                 | Variable in a config or a template file.          |
+|                          | Environment var expansion in a script.            |
 +--------------------------+---------------------------------------------------+
 
 
