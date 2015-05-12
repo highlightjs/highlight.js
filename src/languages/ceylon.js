@@ -17,6 +17,40 @@ function(hljs) {
   var DOCUMENTATION =
     'doc by license see throws tagged';
   var LANGUAGE_ANNOTATIONS = DECLARATION_MODIFIERS + ' ' + DOCUMENTATION;
+  var SUBST = {
+    className: 'subst', excludeBegin: true, excludeEnd: true,
+    begin: /``/, end: /``/,
+    keywords: KEYWORDS
+  };
+  var EXPRESSIONS = [
+    {
+      // verbatim string
+      className: 'string',
+      begin: '"""',
+      end: '"""',
+      relevance: 10
+    },
+    {
+      // string literal or template
+      className: 'string',
+      begin: '"', end: '"',
+      contains: [SUBST]
+    },
+    {
+      // character literal
+      className: 'string',
+      begin: "'",
+      end: "'",
+    },
+    {
+      // numeric literal
+      className: 'number',
+      begin: '#[0-9a-fA-F_]+|\\$[01_]+|[0-9_]+(?:\\.[0-9_](?:[eE][+-]?\\d+)?)?[kMGTPmunpf]?',
+      relevance: 0
+    }
+  ];
+  SUBST.contains = EXPRESSIONS;
+
   return {
     keywords: {
       keyword: KEYWORDS,
@@ -27,35 +61,10 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT('/\\*', '\\*/', {contains: ['self']}),
       {
-        // verbatim string
-        className: 'string',
-        begin: '"""',
-        end: '"""',
-        relevance: 10
-      },
-      {
-        // string literal or template
-        className: 'string',
-        begin: '"|``',
-        end: '"|``',
-      },
-      {
-        // character literal
-        className: 'string',
-        begin: "'",
-        end: "'",
-      },
-      {
-        // numeric literal
-        className: 'number',
-        begin: '#[0-9a-fA-F_]+|\\$[01_]+|[0-9_]+(?:\\.[0-9_](?:[eE][+-]?\\d+)?)?[kMGTPmunpf]?',
-        relevance: 0
-      },
-      {
         // compiler annotation
         className: 'annotation',
         begin: '@[a-z]\\w*(?:\\:\"[^\"]*\")?'
       }
-    ]
+    ].concat(EXPRESSIONS)
   };
 }
