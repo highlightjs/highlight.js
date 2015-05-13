@@ -16,6 +16,8 @@ Stylable classes
 | literal                  | Special identifier for a built-in value ("true",  |
 |                          | "false", "null").                                 |
 +--------------------------+---------------------------------------------------+
+| symbol                   | A symbolic constant or interned string.           |
++--------------------------+---------------------------------------------------+
 | meta                     | Flags, modifiers, annotations, processing         |
 |                          | instructions, preprocessor directive, etc.        |
 +--------------------------+---------------------------------------------------+

@@ -46,7 +46,7 @@ function(hljs) {
   };
 
   var SYMBOL = {
-    className: 'name',
+    className: 'symbol',
     begin: '\'\\w[\\w\\d_]*(?!\')'
   };
 

@@ -19,6 +19,9 @@ trait Hist { lhs =>
 def gsum[A: Ring](as: Seq[A]): A =
   as.foldLeft(Ring[A].zero)(_ + _)
 
+val actions: List[Symbol] =
+  'init :: 'read :: 'write :: 'close :: Nil
+
 trait Cake {
   type T;
   type Q
