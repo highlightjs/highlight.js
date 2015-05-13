@@ -54,7 +54,8 @@ function moveLanguages() {
 }
 
 function moveStyles() {
-  var input  = path.join(directory.root, 'src', 'styles', '*.css'),
+  var css    = path.join(directory.root, 'src', 'styles', '*.css'),
+      images = path.join(directory.root, 'src', 'styles', '*.{jpg,png}'),
       output = path.join(directory.build, 'styles');
 
   return {
