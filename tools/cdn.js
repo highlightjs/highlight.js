@@ -62,7 +62,11 @@ function moveStyles() {
     startlogcss: { task: ['log', 'Building style files.'] },
     readcss: {
       requires: 'startlogcss',
-      task: ['glob', utility.glob(input)]
+      task: ['glob', utility.glob(css)]
+    },
+    readcssimages: {
+      requires: 'startlogcss',
+      task: ['glob', utility.glob(images)]
     },
     compresslogcss: {
       requires: 'readcss',
@@ -74,7 +78,7 @@ function moveStyles() {
       task: ['rename', { extname: '.min.css' }]
     },
     writelogcss: {
-      requires: 'renamecss',
+      requires: ['renamecss', 'readcssimages'],
       task: ['log', 'Writing style files.']
     },
     writecss: { requires: 'writelogcss', task: ['dest', output] }
