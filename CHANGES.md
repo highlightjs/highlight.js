@@ -18,6 +18,8 @@ Notable fixes and improvements to existing languages:
 - Fix class names with dashes in HAML
 - The `async` keyword from ES6/7 is now supported
 - TypeScipt functions handle type and parameter complexity better
+- We unified phpdoc/javadoc/yardoc etc modes across all languages
+- CSS .class selectors relevance was dropped to prevent wrong language detection
 
 [Bram de Haan]: https://github.com/atelierbram
 [Kenneth Fuglsang]: https://github.com/kfuglsang
