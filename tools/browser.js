@@ -64,10 +64,8 @@ module.exports = function(commander, dir) {
       languages    = utility.glob(path.join('src', 'languages', '*.js')),
       filterCB     = utility.buildFilterCallback(commander.args),
       replaceArgs  = replace(regex.header, ''),
-      templateArgs = { template: 'hljs.registerLanguage(' +
-                          '\'<%= name %>\', <%= content %>);\n'
-                     , skip: 'highlight'
-                     };
+      templateArgs =
+        'hljs.registerLanguage(\'<%= name %>\', <%= content %>);\n';
 
   tasks = {
     startlog: { task: ['log', 'Building highlight.js pack file.'] },
