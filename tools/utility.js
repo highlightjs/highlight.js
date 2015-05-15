@@ -120,9 +120,7 @@ function buildFilterCallback(qualifiers) {
                                 .value();
 
   return function(blob) {
-    var basename = path.basename(blob.name);
-    return filterByQualifiers(blob, languages, categories) ||
-           basename === 'highlight.js';
+    return filterByQualifiers(blob, languages, categories);
   };
 }
 
