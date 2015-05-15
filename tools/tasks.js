@@ -56,33 +56,18 @@ tasks.reorderDeps = function(options, blobs, done) {
 };
 tasks.reorderDeps.type = 'collect';
 
-tasks.template = function(options, blob, done) {
-  options = options || {};
+tasks.template = function(template, blob, done) {
+  template = template || '';
 
-  var content  = blob.result.trim(),
-      filename = path.basename(blob.name),
-      basename = filename.replace(/\.js$/, ''),
-      data, hasTemplate, newBlob, template;
+  var filename = path.basename(blob.name),
+      basename = path.basename(filename, '.js'),
+      content  = _.template(template)({
+        name: basename,
+        filename: filename,
+        content: blob.result.trim()
+      });
 
-  if(_.isString(options)) options = { template: options };
-
-  if(basename !== options.skip) {
-    data = {
-      name: basename,
-      filename: filename,
-      content: content
-    };
-
-    hasTemplate = _.contains(_.keys(options), basename);
-    template    = hasTemplate ? options[basename] : options.template;
-    content     = _.template(template)(data);
-
-    newBlob = new gear.Blob(content, blob);
-  } else {
-    newBlob = blob;
-  }
-
-  return done(null, newBlob);
+  return done(null, new gear.Blob(content, blob));
 };
 
 tasks.templateAll = function(template, blobs, done) {
