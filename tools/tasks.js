@@ -240,4 +240,26 @@ tasks.templateDemo = function(options, blobs, done) {
 };
 tasks.templateDemo.type = 'collect';
 
+tasks.packageFiles = function(options, blobs, done) {
+  var content,
+      coreFile  = _.head(blobs),
+      languages = _.tail(blobs),
+
+      lines     = coreFile.result
+                    .replace(utility.regex.header, '')
+                    .split('\n\n'),
+      lastLine  = _.last(lines),
+      langStr   = _.foldl(languages, function(str, language) {
+                    return str + language.result + '\n';
+                  }, '');
+
+  lines[lines.length - 1] = langStr.trim();
+
+  lines   = lines.concat(lastLine);
+  content = lines.join('\n\n');
+
+  return done(null, [new gear.Blob(content)]);
+};
+tasks.packageFiles.type = 'collect';
+
 module.exports = new gear.Registry({ tasks: tasks });
