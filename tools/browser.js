@@ -25,9 +25,8 @@ function copyDocs() {
   };
 }
 
-function generateDemo(filterCB) {
-  var readArgs   = utility.glob(path.join('src', 'languages', '*.js')),
-      staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
+function generateDemo(filterCB, readArgs) {
+  var staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
       stylesArgs = utility.glob(path.join('src', 'styles', '*'), 'bin'),
       demoRoot   = path.join(directory.build, 'demo');
 
@@ -61,24 +60,27 @@ module.exports = function(commander, dir) {
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
 
-      readArgs     = utility.glob(path.join('src', '**', '*.js')),
+      coreFile     = path.join('src', 'highlight.js'),
+      languages    = utility.glob(path.join('src', 'languages', '*.js')),
       filterCB     = utility.buildFilterCallback(commander.args),
       replaceArgs  = replace(regex.header, ''),
-      templateArgs = { template: 'hljs.registerLanguage(' +
-                          '\'<%= name %>\', <%= content %>);\n'
-                     , skip: 'highlight'
-                     };
+      templateArgs =
+        'hljs.registerLanguage(\'<%= name %>\', <%= content %>);\n';
 
   tasks = {
     startlog: { task: ['log', 'Building highlight.js pack file.'] },
-    read: { requires: 'startlog', task: ['glob', readArgs] },
+    readCore: { requires: 'startlog', task: ['read', coreFile] },
+    read: { requires: 'startlog', task: ['glob', languages] },
     filter: { requires: 'read', task: ['filter', filterCB] },
     reorder: { requires: 'filter', task: 'reorderDeps' },
     replace: { requires: 'reorder', task: ['replace', replaceArgs] },
     template: { requires: 'replace', task: ['template', templateArgs] },
-    concat: { requires: 'template', task: 'concat' }
+    packageFiles: {
+      requires: ['readCore', 'template'],
+      task: 'packageFiles'
+    }
   };
-  requiresTask = 'concat';
+  requiresTask = 'packageFiles';
 
   if(commander.compress || commander.target === 'cdn') {
     tasks.compresslog = {
@@ -116,7 +118,7 @@ module.exports = function(commander, dir) {
   };
 
   if(commander.target === 'browser') {
-    tasks = _.merge(copyDocs(), generateDemo(filterCB), tasks);
+    tasks = _.merge(copyDocs(), generateDemo(filterCB, languages), tasks);
   }
 
   return tasks;
