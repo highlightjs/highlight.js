@@ -25,9 +25,8 @@ function copyDocs() {
   };
 }
 
-function generateDemo(filterCB) {
-  var readArgs   = utility.glob(path.join('src', 'languages', '*.js')),
-      staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
+function generateDemo(filterCB, readArgs) {
+  var staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
       stylesArgs = utility.glob(path.join('src', 'styles', '*'), 'bin'),
       demoRoot   = path.join(directory.build, 'demo');
 
@@ -121,7 +120,7 @@ module.exports = function(commander, dir) {
   };
 
   if(commander.target === 'browser') {
-    tasks = _.merge(copyDocs(), generateDemo(filterCB), tasks);
+    tasks = _.merge(copyDocs(), generateDemo(filterCB, languages), tasks);
   }
 
   return tasks;
