@@ -53,7 +53,7 @@ function(hljs) {
       {
         // Expression keywords prevent 'keyword Name(...)' from being
         // recognized as a function definition
-        beginKeywords: 'new throw return',
+        beginKeywords: 'new throw return else',
         relevance: 0
       },
       {
