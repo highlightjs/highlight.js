@@ -165,3 +165,4 @@ URL:   https://highlightjs.org/
 - Дэвид Ансон <david@dlaa.me>
 - Льюис Барранкуэйро <louis.barranqueiro@gmail.com>
 - Тим Шумахер <tim@datenknoten.me>
+- Ден Панзарелла <alsoelp@gmail.com>

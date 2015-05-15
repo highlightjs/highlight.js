@@ -169,3 +169,4 @@ Contributors:
 - Louis Barranqueiro <louis.barranqueiro@gmail.com>
 - Tim Schumacher <tim@datenknoten.me>
 - Lucas Werkmeister <mail@lucaswerkmeister.de>
+- Dan Panzarella <alsoelp@gmail.com>
