@@ -111,18 +111,14 @@ function filterByQualifiers(blob, languages, categories) {
 }
 
 function buildFilterCallback(qualifiers) {
-
-  function isCategory(qualifier) {return qualifier[0] === ':'}
-
-  var languages  = _.reject(qualifiers, isCategory),
+  var isCategory = _.matchesProperty(0, ':'),
+      languages  = _.reject(qualifiers, isCategory),
       categories = _(qualifiers).filter(isCategory)
                                 .map(function(c) {return c.slice(1);})
                                 .value();
 
   return function(blob) {
-    var basename = path.basename(blob.name);
-    return filterByQualifiers(blob, languages, categories) ||
-           basename === 'highlight.js';
+    return filterByQualifiers(blob, languages, categories);
   };
 }
 
