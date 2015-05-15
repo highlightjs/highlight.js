@@ -61,7 +61,8 @@ module.exports = function(commander, dir) {
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
 
-      readArgs     = utility.glob(path.join('src', '**', '*.js')),
+      coreFile     = path.join('src', 'highlight.js'),
+      languages    = utility.glob(path.join('src', 'languages', '*.js')),
       filterCB     = utility.buildFilterCallback(commander.args),
       replaceArgs  = replace(regex.header, ''),
       templateArgs = { template: 'hljs.registerLanguage(' +
@@ -71,14 +72,18 @@ module.exports = function(commander, dir) {
 
   tasks = {
     startlog: { task: ['log', 'Building highlight.js pack file.'] },
-    read: { requires: 'startlog', task: ['glob', readArgs] },
+    readCore: { requires: 'startlog', task: ['read', coreFile] },
+    read: { requires: 'startlog', task: ['glob', languages] },
     filter: { requires: 'read', task: ['filter', filterCB] },
     reorder: { requires: 'filter', task: 'reorderDeps' },
     replace: { requires: 'reorder', task: ['replace', replaceArgs] },
     template: { requires: 'replace', task: ['template', templateArgs] },
-    concat: { requires: 'template', task: 'concat' }
+    packageFiles: {
+      requires: ['readCore', 'template'],
+      task: 'packageFiles'
+    }
   };
-  requiresTask = 'concat';
+  requiresTask = 'packageFiles';
 
   if(commander.compress || commander.target === 'cdn') {
     tasks.compresslog = {
