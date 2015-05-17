@@ -13,8 +13,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.hljs-javadoc {
+.hljs-comment {
   color: #800;
 }
 
@@ -70,10 +69,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 
 .hljs-class .hljs-title,
 .smalltalk .hljs-class,
-.hljs-javadoctag,
-.hljs-yardoctag,
-.hljs-phpdoc,
-.hljs-dartdoc,
+.hljs-doctag,
 .hljs-type,
 .hljs-typename,
 .hljs-tag .hljs-attribute,
@@ -143,6 +139,6 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
   background-color: #ffc8bd;
 }
 
-.hljs-comment .hljs-yardoctag {
+.hljs-comment .hljs-doctag {
   font-weight: bold;
 }

@@ -42,7 +42,7 @@ function(hljs) {
 
   return {
     case_insensitive: true,
-    illegal: /[=\/|']/,
+    illegal: /[=\/|'\$]/,
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
       RULE,
@@ -50,8 +50,7 @@ function(hljs) {
         className: 'id', begin: /\#[A-Za-z0-9_-]+/
       },
       {
-        className: 'class', begin: /\.[A-Za-z0-9_-]+/,
-        relevance: 0
+        className: 'class', begin: /\.[A-Za-z0-9_-]+/
       },
       {
         className: 'attr_selector',
@@ -98,7 +97,6 @@ function(hljs) {
         className: 'rules',
         begin: '{', end: '}',
         illegal: /\S/,
-        relevance: 0,
         contains: [
           hljs.C_BLOCK_COMMENT_MODE,
           RULE,

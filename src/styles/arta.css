@@ -18,7 +18,6 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs-comment,
-.hljs-javadoc,
 .hljs-preprocessor,
 .hljs-preprocessor .hljs-title,
 .hljs-pragma,
@@ -112,9 +111,7 @@ Author: pumbur <pumbur@pumbur.net>
   color: #bb1166;
 }
 
-.hljs-yardoctag,
-.hljs-phpdoc,
-.hljs-dartdoc,
+.hljs-doctag,
 .profile .hljs-header,
 .ini .hljs-title,
 .apache .hljs-tag,

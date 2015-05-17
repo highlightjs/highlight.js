@@ -40,7 +40,7 @@ Ruby ("ruby", "rb", "gemspec", "podspec", "thor", "irb")
 * ``string``:           string
 * ``subst``:            in-string substitution (#{...})
 * ``comment``:          comment
-* ``yardoctag``:        YARD tag
+* ``doctag``:           YARD doctag
 * ``function``:         function header "def some_name(...):"
 * ``class``:            class header "class SomeName(...):"
 * ``title``:            name of a function or a class inside a header
@@ -84,7 +84,7 @@ PHP ("php", "php3", "php4", "php5", "php6")
 * ``number``:           number
 * ``string``:           string (of any type)
 * ``comment``:          comment
-* ``phpdoc``:           phpdoc params in comments
+* ``doctag``:           phpdoc params in comments
 * ``variable``:         variable starting with "$"
 * ``preprocessor``:     preprocessor marks: "<?php" and "?>"
 * ``class``:            class header
@@ -99,9 +99,8 @@ Scala ("scala")
 * ``number``:           number
 * ``string``:           string
 * ``comment``:          comment
+* ``doctag``:           @-tag in javadoc comment
 * ``annotation``:       annotation
-* ``javadoc``:          javadoc comment
-* ``javadoctag``:       @-tag in javadoc
 * ``class``:            class header
 * ``title``:            class name inside a header
 * ``params``:           everything in parentheses inside a class header
@@ -115,9 +114,8 @@ Groovy ("groovy")
 * ``string``:           string, map string keys and named argument labels
 * ``regex``:            regular expression
 * ``comment``:          comment
+* ``doctag``:           @-tag in javadoc comment
 * ``annotation``:       annotation
-* ``javadoc``:          javadoc comment
-* ``javadoctag``:       @-tag in javadoc
 * ``class``:            class header
 * ``title``:            class name inside a header
 * ``label``:            label
@@ -161,7 +159,6 @@ Lasso ("lasso", "ls", "lassoscript")
 * ``preprocessor``:     delimiters and interpreter flags
 * ``shebang``:          Lasso 9 shell script header
 * ``comment``:          single- or multi-line comment
-* ``javadoc``:          doc comment
 * ``keyword``:          keyword
 * ``literal``:          keyword representing a value
 * ``built_in``:         built-in types and variables
@@ -405,7 +402,6 @@ Dart ("dart")
 * ``subst``:            in-string substitution (${...})
 * ``comment``:          commment
 * ``annotation``:       annotation
-* ``dartdoc``:          dartdoc comment
 * ``class``:            class header from "class" till "{"
 * ``title``:            class name
 
@@ -521,7 +517,7 @@ Thrift ("thrift")
 * ``title``:            struct, enum, service or exception identifier
 
 HTTP ("http", "https")
--------------
+----------------------
 
 * ``request``:          first line of a request
 * ``status``:           first line of a response
@@ -574,7 +570,6 @@ Java ("java", "jsp")
 * ``string``:           string
 * ``comment``:          comment
 * ``annotaion``:        annotation
-* ``javadoc``:          javadoc comment
 * ``class``:            class header from "class" till "{"
 * ``function``:         method header
 * ``title``:            class or method name
@@ -594,11 +589,11 @@ AspectJ ("aspectj")
 -------------------
 
 * ``comment``:          comment
+* ``doctag``:           @-tag in javadoc comment
 * ``string``:           string
 * ``number``:           number
 * ``keyword``:          keyword
 * ``annotation``:       annotation
-* ``javadoc``:          javadoc comment
 * ``function``:         method and intertype method header
 * ``aspect``:           aspect header from "aspect" till "{"
 * ``params``:           everything in parentheses inside an aspect header
@@ -622,8 +617,8 @@ C++ ("cpp", "c", "cc", "h", "c++", "h++", "hpp")
 * ``comment``:          comment
 * ``preprocessor``:     preprocessor directive
 
-Objective C ("objectivec", "m", "mm", "objc", "obj-c")
-------------------------------------------------------
+Objective C ("objectivec", "mm", "objc", "obj-c")
+-------------------------------------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         Cocoa/Cocoa Touch constants and classes
@@ -1358,6 +1353,20 @@ PF ("pf", "pf.conf")
 * ``string``:           string
 * ``variable``:         used for both macros and tables
 
+C/AL ("cal")
+------------
+
+* ``keyword``:          keyword
+* ``comment``:          comment (of any type)
+* ``number``:           number
+* ``string``:           string
+* ``date``:             date, time, or datetime
+* ``function``:         header of a procedure
+* ``title``:            name of an object or procedure inside a header
+* ``params``:           everything inside parentheses in a function's header
+* ``class``:            objects body
+* ``variable``:         reference to variables
+
 Inform7 ("I7")
 --------------
 
@@ -1378,3 +1387,34 @@ Prolog ("prolog")
 * ``number``:           numbers
 * ``variable``:         variables
 * ``comment``:          comments
+
+DNS Zone file ("dns", "zone", "bind")
+-------------------------------------
+
+* ``keyword``:          DNS resource records as defined in various RFCs
+* ``operator``:         operator
+* ``number``:           IPv4 and IPv6 addresses
+* ``comment``:          comments
+
+Ceylon ("ceylon")
+-----------------
+
+* ``keyword``:          keyword
+* ``annotation``:       language annotation or compiler annotation
+* ``string``:           string literal, part of string template, character literal
+* ``number``:           number
+* ``comment``:          comment
+
+OpenSCAD ("openscad", "scad")
+-----------------------------
+
+* ``built_in``:          built-in functions (cube, sphere, translate, ...)
+* ``comment``:           comments
+* ``function``:          function or module definition
+* ``keyword``:           keywords
+* ``literal``:           words representing values (e.g. false, undef, PI)
+* ``number``:            numbers
+* ``params``:            parameters in function or module header or call
+* ``preprocessor``:      file includes (i.e. include, use)
+* ``string``:            quoted strings
+* ``title``:             names of function or module in a header

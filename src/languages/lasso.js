@@ -62,12 +62,11 @@ function(hljs) {
     begin: '\'' + LASSO_IDENT_RE + '\''
   };
   var LASSO_CODE = [
+    hljs.COMMENT(
+      '/\\*\\*!',
+      '\\*/'
+    ),
     hljs.C_LINE_COMMENT_MODE,
-    {
-      className: 'javadoc',
-      begin: '/\\*\\*!', end: '\\*/',
-      contains: [hljs.PHRASAL_WORDS_MODE]
-    },
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.inherit(hljs.C_NUMBER_MODE, {begin: hljs.C_NUMBER_RE + '|(-?infinity|nan)\\b'}),
     hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),

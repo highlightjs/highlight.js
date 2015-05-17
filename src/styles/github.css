@@ -14,8 +14,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-comment,
-.diff .hljs-header,
-.hljs-javadoc {
+.diff .hljs-header {
   color: #998;
   font-style: italic;
 }
@@ -39,8 +38,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-string,
 .hljs-tag .hljs-value,
-.hljs-phpdoc,
-.hljs-dartdoc,
+.hljs-doctag,
 .tex .hljs-formula {
   color: #d14;
 }

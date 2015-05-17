@@ -10,7 +10,7 @@ function(hljs) {
       keyword:
         'in of if for while finally var new function do return void else break catch ' +
         'instanceof with throw case default try this switch continue typeof delete ' +
-        'let yield const export super debugger as await',
+        'let yield const export super debugger as async await',
       literal:
         'true false null undefined NaN Infinity',
       built_in:
@@ -27,10 +27,7 @@ function(hljs) {
       {
         className: 'pi',
         relevance: 10,
-        variants: [
-          {begin: /^\s*('|")use strict('|")/},
-          {begin: /^\s*('|")use asm('|")/}
-        ]
+        begin: /^\s*['"]use (strict|asm)['"]/
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
@@ -49,7 +46,11 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'number',
-        begin: '\\b(0[xXbBoO][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)', // 0x..., 0..., 0b..., 0o..., decimal, float
+        variants: [
+          { begin: '\\b(0[bB][01]+)' },
+          { begin: '\\b(0[oO][0-7]+)' },
+          { begin: hljs.C_NUMBER_RE }
+        ],
         relevance: 0
       },
       { // "value" container
@@ -75,6 +76,8 @@ function(hljs) {
           {
             className: 'params',
             begin: /\(/, end: /\)/,
+            excludeBegin: true,
+            excludeEnd: true,
             contains: [
               hljs.C_LINE_COMMENT_MODE,
               hljs.C_BLOCK_COMMENT_MODE

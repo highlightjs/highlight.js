@@ -30,13 +30,13 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs .hljs-constant,
 .asciidoc .hljs-code,
 .markdown .hljs-code {
-	color: #66d9ef;
+  color: #66d9ef;
 }
 
 .hljs-code,
 .hljs-class .hljs-title,
 .hljs-header {
-	color: white;
+  color: white;
 }
 
 .hljs-link_label,
@@ -45,7 +45,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-symbol .hljs-string,
 .hljs-value,
 .hljs-regexp {
-	color: #bf79db;
+  color: #bf79db;
 }
 
 .hljs-link_url,
@@ -63,7 +63,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .django .hljs-template_tag,
 .django .hljs-variable,
 .smalltalk .hljs-class,
-.hljs-javadoc,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
@@ -98,8 +97,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-keyword,
 .hljs-literal,
 .css .hljs-id,
-.hljs-phpdoc,
-.hljs-dartdoc,
+.hljs-doctag,
 .hljs-title,
 .hljs-header,
 .hljs-type,

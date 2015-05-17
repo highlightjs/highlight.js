@@ -25,14 +25,17 @@ function(hljs) {
     keywords: KEYWORDS,
     illegal: /<\//,
     contains: [
-      {
-        className: 'javadoc',
-        begin: '/\\*\\*', end: '\\*/',
-        relevance: 0,
-        contains: [{
-          className: 'javadoctag', begin: '(^|\\s)@[A-Za-z]+'
-        }]
-      },
+      hljs.COMMENT(
+        '/\\*\\*',
+        '\\*/',
+        {
+          relevance : 0,
+          contains : [{
+            className : 'doctag',
+            begin : '@[A-Za-z]+'
+          }]
+        }
+      ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.APOS_STRING_MODE,
@@ -50,7 +53,7 @@ function(hljs) {
       {
         // Expression keywords prevent 'keyword Name(...)' from being
         // recognized as a function definition
-        beginKeywords: 'new throw return',
+        beginKeywords: 'new throw return else',
         relevance: 0
       },
       {

@@ -1,13 +1,15 @@
 'use strict';
 
-var _        = require('lodash');
-var del      = require('del');
-var gear     = require('gear');
-var path     = require('path');
-var fs       = require('fs');
+var _       = require('lodash');
+var del     = require('del');
+var gear    = require('gear');
+var path    = require('path');
+var fs      = require('fs');
+var utility = require('./utility');
 
-var parseHeader = require('./utility').parseHeader;
-var tasks       = require('gear-lib');
+var parseHeader   = utility.parseHeader;
+var getStyleNames = utility.getStyleNames;
+var tasks         = require('gear-lib');
 
 tasks.clean = function(directories, blobs, done) {
   directories = _.isString(directories) ? [directories] : directories;
@@ -54,33 +56,18 @@ tasks.reorderDeps = function(options, blobs, done) {
 };
 tasks.reorderDeps.type = 'collect';
 
-tasks.template = function(options, blob, done) {
-  options = options || {};
+tasks.template = function(template, blob, done) {
+  template = template || '';
 
-  var content  = blob.result.trim(),
-      filename = path.basename(blob.name),
-      basename = filename.replace(/\.js$/, ''),
-      data, hasTemplate, newBlob, template;
+  var filename = path.basename(blob.name),
+      basename = path.basename(filename, '.js'),
+      content  = _.template(template)({
+        name: basename,
+        filename: filename,
+        content: blob.result.trim()
+      });
 
-  if(_.isString(options)) options = { template: options };
-
-  if(basename !== options.skip) {
-    data = {
-      name: basename,
-      filename: filename,
-      content: content
-    };
-
-    hasTemplate = _.contains(_.keys(options), basename);
-    template    = hasTemplate ? options[basename] : options.template;
-    content     = _.template(template)(data);
-
-    newBlob = new gear.Blob(content, blob);
-  } else {
-    newBlob = blob;
-  }
-
-  return done(null, newBlob);
+  return done(null, new gear.Blob(content, blob));
 };
 
 tasks.templateAll = function(template, blobs, done) {
@@ -212,7 +199,7 @@ tasks.filter.type = 'collect';
 tasks.readSnippet = function(options, blob, done) {
   var name        = path.basename(blob.name, '.js'),
       fileInfo    = parseHeader(blob.result),
-      snippetName = path.join(dir.root, 'test', 'detect', name, 'default.txt');
+      snippetName = path.join('test', 'detect', name, 'default.txt');
 
   function onRead(error, blob) {
     if (error !== null) return done(null, null); // ignore missing snippets
@@ -225,12 +212,39 @@ tasks.readSnippet = function(options, blob, done) {
 };
 
 tasks.templateDemo = function(options, blobs, done) {
-  var name = path.join(dir.root, 'demo', 'index.html'),
+  var name     = path.join('demo', 'index.html'),
       template = fs.readFileSync(name, 'utf8'),
-      blobs = _.filter(blobs, Boolean), // drop missing blobs
-      content = _.template(template)({ path: path, blobs: blobs });
+      newBlobs = _.compact(blobs), // drop missing blobs
+      content  = _.template(template)({
+                   path: path,
+                   blobs: newBlobs,
+                   styles: getStyleNames()
+                 });
+
   return done(null, [new gear.Blob(content)]);
 };
 tasks.templateDemo.type = 'collect';
+
+tasks.packageFiles = function(options, blobs, done) {
+  var content,
+      coreFile  = _.head(blobs),
+      languages = _.tail(blobs),
+
+      lines     = coreFile.result
+                    .replace(utility.regex.header, '')
+                    .split('\n\n'),
+      lastLine  = _.last(lines),
+      langStr   = _.foldl(languages, function(str, language) {
+                    return str + language.result + '\n';
+                  }, '');
+
+  lines[lines.length - 1] = langStr.trim();
+
+  lines   = lines.concat(lastLine);
+  content = lines.join('\n\n');
+
+  return done(null, [new gear.Blob(content)]);
+};
+tasks.packageFiles.type = 'collect';
 
 module.exports = new gear.Registry({ tasks: tasks });

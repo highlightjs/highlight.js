@@ -19,7 +19,7 @@
 .hljs-important,
 .hljs-request,
 .hljs-header,
-.hljs-javadoctag {
+.hljs-doctag {
   font-weight: bold;
 }
 
@@ -47,7 +47,6 @@
 
 .hljs-decorator,
 .hljs-prompt,
-.hljs-yardoctag,
 .hljs-subst,
 .hljs-symbol,
 .hljs-doctype,
@@ -57,7 +56,6 @@
 .hljs-pi,
 .hljs-attribute,
 .hljs-attr_selector,
-.hljs-javadoc,
 .hljs-xmlDocTag,
 .hljs-deletion,
 .hljs-shebang,

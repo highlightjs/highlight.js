@@ -1,9 +1,34 @@
-## Master
+## Master [UNPUBLISHED]
 
 New languages:
 
+- *C/AL* by [Kenneth Fuglsang][]
+- *DNS zone file* by [Tim Schumacher][]
+- *Ceylon* by [Lucas Werkmeister][]
+- *OpenSCAD* by [Dan Panzarella][]
 - *Inform7* by [Bruno Dias][]
 
+New Styles:
+
+- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* by
+  [Bram de Haan][]
+- Github Gist by [Louis Barranqueiro][]
+
+Notable fixes and improvements to existing languages:
+
+- Multiline raw strings from C++11 are now supported
+- Fix class names with dashes in HAML
+- The `async` keyword from ES6/7 is now supported
+- TypeScipt functions handle type and parameter complexity better
+- We unified phpdoc/javadoc/yardoc etc modes across all languages
+- CSS .class selectors relevance was dropped to prevent wrong language detection
+
+[Bram de Haan]: https://github.com/atelierbram
+[Kenneth Fuglsang]: https://github.com/kfuglsang
+[Louis Barranqueiro]: https://github.com/LouisBarranqueiro
+[Tim Schumacher]: https://github.com/enko
+[Lucas Werkmeister]: https://github.com/lucaswerkmeister
+[Dan Panzarella]: https://github.com/pzl
 [Bruno Dias]: https://github.com/sequitur
 
 ## Version 8.5
@@ -21,7 +46,7 @@ New Styles:
 
 - *Agate* by [Taufik Nurrohman][]
 - *Darkula* by [Jet Brains][]
-- *Atelier Sulpherpool* by [Bram de Haan][]
+- *Atelier Sulphurpool* by [Bram de Haan][]
 - *Android Studio* by [Pedro Oliveira][]
 
 Notable fixes and improvements to existing languages:
