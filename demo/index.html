@@ -36,7 +36,8 @@
 
   <div id="languages">
     <% _.each(blobs, function(blob) { %>
-    <div class="<%- (blob.fileInfo.Category || []).join(' ') %>">
+    <% var categories = blob.fileInfo.Category; %>
+    <div <% if(categories) { %>class="<%= categories.join(' ') %>"<% } %>>
       <h2><%- blob.fileInfo.Language %></h2>
       <pre><code class="<%- path.basename(blob.name, '.js') %>"><%- blob.result %></code></pre>
     </div>
