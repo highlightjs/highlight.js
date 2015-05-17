@@ -23,6 +23,28 @@
       background: #F0F0F0;
     }
   </style>
+</head>
+<body>
+  <h1>highlight.js developer</h1>
+
+  <div class="editor">
+    <div>
+      <textarea>Put code here…</textarea>
+      <p>
+        <button>Update highlighting</button>
+        Language: <select class="languages"><option>(Auto)</option></select>
+      </p>
+    </div>
+    <div>
+      <p>Rendered in <span class="rendering_time">...</span> ms [<span class="rendering_stats">...</span>]</p>
+      <pre><code class="hljs">...</code></pre>
+    </div>
+    <div>
+      <p>Markup
+      <pre><output>...</output></pre>
+    </div>
+  </div>
+
   <script src="../build/highlight.pack.js"></script>
   <script src="../demo/jquery-2.1.1.min.js"></script>
 
@@ -77,25 +99,5 @@
       });
     }());
   </script>
-
-<h1>highlight.js developer</h1>
-
-<div class="editor">
-  <div>
-    <textarea>Put code here…</textarea>
-    <p>
-      <button>Update highlighting</button>
-      Language: <select class="languages"><option>(Auto)</option></select>
-    </p>
-  </div>
-  <div>
-    <p>Rendered in <span class="rendering_time">...</span> ms [<span class="rendering_stats">...</span>]</p>
-    <pre><code class="hljs">...</code></pre>
-  </div>
-  <div>
-    <p>Markup
-    <pre><output>...</output></pre>
-  </div>
-</div>
 </body>
 </html>
