@@ -100,14 +100,15 @@ function parseHeader(content) {
 function filterByQualifiers(blob, languages, categories) {
   if(_.isEmpty(languages) && _.isEmpty(categories)) return true;
 
-  var language       = path.basename(blob.name, '.js'),
-      fileInfo       = parseHeader(blob.result),
-      fileCategories = fileInfo.Category || [];
+  var language         = path.basename(blob.name, '.js'),
+      fileInfo         = parseHeader(blob.result),
+      fileCategories   = fileInfo.Category || [],
+      containsCategory = _.curry(_.contains)(categories);
 
   if(!fileInfo) return false;
 
   return _.contains(languages, language) ||
-         _.any(fileCategories, function(fc) {return _.contains(categories, fc)});
+         _.any(fileCategories, containsCategory);
 }
 
 function buildFilterCallback(qualifiers) {
