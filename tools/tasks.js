@@ -209,16 +209,21 @@ tasks.readSnippet = function(options, blob, done) {
 };
 
 tasks.templateDemo = function(options, blobs, done) {
-  var name     = path.join('demo', 'index.html'),
-      template = fs.readFileSync(name, 'utf8'),
-      newBlobs = _.compact(blobs), // drop missing blobs
-      content  = _.template(template)({
-                   path: path,
-                   blobs: newBlobs,
-                   styles: getStyleNames()
-                 });
+  var name = path.join('demo', 'index.html');
 
-  return done(null, [new gear.Blob(content)]);
+  fs.readFile(name, function(err, template) {
+    if(err) return done(err, null);
+
+    getStyleNames(function(err, styles) {
+      var content = _.template(template)({
+                      path: path,
+                      blobs: _.compact(blobs),
+                      styles: styles
+                    });
+
+      return done(err, [new gear.Blob(content)]);
+    });
+  });
 };
 tasks.templateDemo.type = 'collect';
 
