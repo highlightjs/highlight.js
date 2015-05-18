@@ -95,24 +95,21 @@ tasks.rename = function(options, blob, done) {
 };
 
 tasks.buildPackage = function(json, blob, done) {
-  var contributors = [],
-
+  var result,
       lines = blob.result.split(/\r?\n/),
-      regex = /^- (.*) <(.*)>$/,
-      result;
+      regex = /^- (.*) <(.*)>$/;
 
-  _.each(lines, function(line) {
+  json.contributors = _.transform(lines, function(result, line) {
     var matches = line.match(regex);
 
     if(matches) {
-      contributors.push({
+      result.push({
         name: matches[1],
         email: matches[2]
       });
     }
-  });
+  }, []);
 
-  json.contributors = contributors;
   result = JSON.stringify(json, null, '  ');
 
   return done(null, new gear.Blob(result, blob));
