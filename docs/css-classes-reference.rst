@@ -1420,7 +1420,7 @@ OpenSCAD ("openscad", "scad")
 * ``title``:             names of function or module in a header
 
 ARM assembler ("armasm", "arm")
-------------------------
+-------------------------------
 
 * ``keyword``:          keyword (instruction mnemonics)
 * ``literal``:          pre-defined register
