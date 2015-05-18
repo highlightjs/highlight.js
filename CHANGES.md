@@ -7,6 +7,7 @@ New languages:
 - *Ceylon* by [Lucas Werkmeister][]
 - *OpenSCAD* by [Dan Panzarella][]
 - *Inform7* by [Bruno Dias][]
+- *armasm* by [Dan Panzarella][]
 
 New Styles:
 

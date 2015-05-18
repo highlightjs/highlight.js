@@ -1418,3 +1418,16 @@ OpenSCAD ("openscad", "scad")
 * ``preprocessor``:      file includes (i.e. include, use)
 * ``string``:            quoted strings
 * ``title``:             names of function or module in a header
+
+ARM assembler ("armasm", "arm")
+------------------------
+
+* ``keyword``:          keyword (instruction mnemonics)
+* ``literal``:          pre-defined register
+* ``number``:           number
+* ``built_in``:         constants (true, false)
+* ``string``:           string
+* ``comment``:          comment
+* ``label``:            label
+* ``preprocessor``:     preprocessor directive
+* ``title``:            symbol versions
