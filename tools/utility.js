@@ -1,7 +1,7 @@
 'use strict';
 
 var _    = require('lodash');
-var fs   = require('fs');
+var glob = require('glob');
 var path = require('path');
 
 var REPLACES,
@@ -130,17 +130,14 @@ function glob(pattern, encoding) {
 }
 
 function getStyleNames() {
-  var stylesDir      = path.join('src', 'styles'),
-      stylesDirFiles = fs.readdirSync(stylesDir),
-      styles         = _.filter(stylesDirFiles, function(file) {
-                         return path.extname(file) === '.css' &&
-                                file !== 'default.css';
-                       });
+  var stylesDir = 'src/styles/',
+      options   = { ignore: stylesDir + 'default.css' },
+      styles    = glob.sync(stylesDir + '*.css', options);
 
   return _.map(styles, function(style) {
     var basename = path.basename(style, '.css'),
         name     = _.startCase(basename),
-        pathName = path.join('styles', style);
+        pathName = path.relative('src', style);
 
     return { path: pathName, name: name };
   });
