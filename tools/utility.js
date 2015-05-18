@@ -1,7 +1,7 @@
 'use strict';
 
 var _    = require('lodash');
-var fs   = require('fs');
+var glob = require('glob');
 var path = require('path');
 
 var REPLACES,
@@ -100,14 +100,15 @@ function parseHeader(content) {
 function filterByQualifiers(blob, languages, categories) {
   if(_.isEmpty(languages) && _.isEmpty(categories)) return true;
 
-  var language       = path.basename(blob.name, '.js'),
-      fileInfo       = parseHeader(blob.result),
-      fileCategories = (fileInfo && fileInfo.Category) ? fileInfo.Category : [];
+  var language         = path.basename(blob.name, '.js'),
+      fileInfo         = parseHeader(blob.result),
+      fileCategories   = fileInfo.Category || [],
+      containsCategory = _.curry(_.contains)(categories);
 
   if(!fileInfo) return false;
 
   return _.contains(languages, language) ||
-         _.any(fileCategories, function(fc) {return _.contains(categories, fc)});
+         _.any(fileCategories, containsCategory);
 }
 
 function buildFilterCallback(qualifiers) {
@@ -128,20 +129,18 @@ function glob(pattern, encoding) {
   return { pattern: pattern, limit: 50, encoding: encoding };
 }
 
-function getStyleNames() {
-  var stylesDir      = path.join('src', 'styles'),
-      stylesDirFiles = fs.readdirSync(stylesDir),
-      styles         = _.filter(stylesDirFiles, function(file) {
-                         return path.extname(file) === '.css' &&
-                                file !== 'default.css';
-                       });
+function getStyleNames(callback) {
+  var stylesDir = 'src/styles/',
+      options   = { ignore: stylesDir + 'default.css' };
 
-  return _.map(styles, function(style) {
-    var basename = path.basename(style, '.css'),
-        name     = _.startCase(basename),
-        pathName = path.join('styles', style);
+  glob(stylesDir + '*.css', options, function(err, styles) {
+    callback(err, _.map(styles, function(style) {
+      var basename = path.basename(style, '.css'),
+          name     = _.startCase(basename),
+          pathName = path.relative('src', style);
 
-    return { path: pathName, name: name };
+      return { path: pathName, name: name };
+    }));
   });
 }
 

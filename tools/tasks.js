@@ -95,24 +95,21 @@ tasks.rename = function(options, blob, done) {
 };
 
 tasks.buildPackage = function(json, blob, done) {
-  var contributors = [],
-
+  var result,
       lines = blob.result.split(/\r?\n/),
-      regex = /^- (.*) <(.*)>$/,
-      result;
+      regex = /^- (.*) <(.*)>$/;
 
-  _.each(lines, function(line) {
+  json.contributors = _.transform(lines, function(result, line) {
     var matches = line.match(regex);
 
     if(matches) {
-      contributors.push({
+      result.push({
         name: matches[1],
         email: matches[2]
       });
     }
-  });
+  }, []);
 
-  json.contributors = contributors;
   result = JSON.stringify(json, null, '  ');
 
   return done(null, new gear.Blob(result, blob));
@@ -212,16 +209,21 @@ tasks.readSnippet = function(options, blob, done) {
 };
 
 tasks.templateDemo = function(options, blobs, done) {
-  var name     = path.join('demo', 'index.html'),
-      template = fs.readFileSync(name, 'utf8'),
-      newBlobs = _.compact(blobs), // drop missing blobs
-      content  = _.template(template)({
-                   path: path,
-                   blobs: newBlobs,
-                   styles: getStyleNames()
-                 });
+  var name = path.join('demo', 'index.html');
 
-  return done(null, [new gear.Blob(content)]);
+  fs.readFile(name, function(err, template) {
+    if(err) return done(err, null);
+
+    getStyleNames(function(err, styles) {
+      var content = _.template(template)({
+                      path: path,
+                      blobs: _.compact(blobs),
+                      styles: styles
+                    });
+
+      return done(err, [new gear.Blob(content)]);
+    });
+  });
 };
 tasks.templateDemo.type = 'collect';
 
