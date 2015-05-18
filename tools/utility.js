@@ -129,17 +129,18 @@ function glob(pattern, encoding) {
   return { pattern: pattern, limit: 50, encoding: encoding };
 }
 
-function getStyleNames() {
+function getStyleNames(callback) {
   var stylesDir = 'src/styles/',
-      options   = { ignore: stylesDir + 'default.css' },
-      styles    = glob.sync(stylesDir + '*.css', options);
+      options   = { ignore: stylesDir + 'default.css' };
 
-  return _.map(styles, function(style) {
-    var basename = path.basename(style, '.css'),
-        name     = _.startCase(basename),
-        pathName = path.relative('src', style);
+  glob(stylesDir + '*.css', options, function(err, styles) {
+    callback(err, _.map(styles, function(style) {
+      var basename = path.basename(style, '.css'),
+          name     = _.startCase(basename),
+          pathName = path.relative('src', style);
 
-    return { path: pathName, name: name };
+      return { path: pathName, name: name };
+    }));
   });
 }
 
