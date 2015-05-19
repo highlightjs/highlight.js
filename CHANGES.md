@@ -8,6 +8,7 @@ New languages:
 - *OpenSCAD* by [Dan Panzarella][]
 - *Inform7* by [Bruno Dias][]
 - *armasm* by [Dan Panzarella][]
+- *TP* by [Jay Strybis][]
 
 New Styles:
 
@@ -31,6 +32,7 @@ Notable fixes and improvements to existing languages:
 [Lucas Werkmeister]: https://github.com/lucaswerkmeister
 [Dan Panzarella]: https://github.com/pzl
 [Bruno Dias]: https://github.com/sequitur
+[Jay Strybis]: https://github.com/unreal
 
 ## Version 8.5
 
