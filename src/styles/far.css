@@ -5,9 +5,11 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #000080;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs,
@@ -19,8 +21,8 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .ruby .hljs-string,
 .haskell .hljs-type,
 .hljs-tag .hljs-value,
-.hljs-rules .hljs-value,
-.hljs-rules .hljs-value .hljs-number,
+.hljs-rule .hljs-value,
+.hljs-rule .hljs-value .hljs-number,
 .hljs-preprocessor,
 .hljs-pragma,
 .ruby .hljs-symbol,
@@ -33,7 +35,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .apache .hljs-tag,
 .apache .hljs-cbracket,
 .tex .hljs-command,
-.clojure .hljs-title,
 .coffeescript .hljs-attribute {
   color: #ff0;
 }
@@ -41,7 +42,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-keyword,
 .css .hljs-id,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,
@@ -52,15 +53,13 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-envvar,
 .bash .hljs-variable,
 .tex .hljs-special,
-.clojure .hljs-built_in {
+.hljs-name {
   color: #fff;
 }
 
 .hljs-comment,
-.hljs-phpdoc,
-.hljs-javadoc,
-.java .hljs-annotation,
-.hljs-template_comment,
+.hljs-doctag,
+.hljs-annotation,
 .hljs-deletion,
 .apache .hljs-sqbracket,
 .tex .hljs-formula {
@@ -77,7 +76,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
   color: #0f0;
 }
 
-.python .hljs-decorator,
+.hljs-decorator,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
@@ -95,7 +94,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-keyword,
 .css .hljs-id,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,

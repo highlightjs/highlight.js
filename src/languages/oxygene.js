@@ -13,16 +13,20 @@ function(hljs) {
     'record reintroduce remove repeat require result reverse sealed select self sequence set shl shr skip static step soft take then to true try tuple '+
     'type union unit unsafe until uses using var virtual raises volatile where while with write xor yield await mapped deprecated stdcall cdecl pascal '+
     'register safecall overload library platform reference packed strict published autoreleasepool selector strong weak unretained';
-  var CURLY_COMMENT =  {
-    className: 'comment',
-    begin: '{', end: '}',
-    relevance: 0
-  };
-  var PAREN_COMMENT = {
-    className: 'comment',
-    begin: '\\(\\*', end: '\\*\\)',
-    relevance: 10
-  };
+  var CURLY_COMMENT =  hljs.COMMENT(
+    '{',
+    '}',
+    {
+      relevance: 0
+    }
+  );
+  var PAREN_COMMENT = hljs.COMMENT(
+    '\\(\\*',
+    '\\*\\)',
+    {
+      relevance: 10
+    }
+  );
   var STRING = {
     className: 'string',
     begin: '\'', end: '\'',
@@ -49,7 +53,7 @@ function(hljs) {
   return {
     case_insensitive: true,
     keywords: OXYGENE_KEYWORDS,
-    illegal: '("|\\$[G-Zg-z]|\\/\\*|</)',
+    illegal: '("|\\$[G-Zg-z]|\\/\\*|</|=>|->)',
     contains: [
       CURLY_COMMENT, PAREN_COMMENT, hljs.C_LINE_COMMENT_MODE,
       STRING, CHAR_STRING,

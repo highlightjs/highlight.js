@@ -1,14 +1,16 @@
-﻿/*
+/*
 
 Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: white;
   color: black;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-string,
@@ -16,6 +18,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-filter .hljs-argument,
 .hljs-addition,
 .hljs-change,
+.hljs-name,
 .apache .hljs-tag,
 .apache .hljs-cbracket,
 .nginx .hljs-built_in,
@@ -24,11 +27,9 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 }
 
 .hljs-comment,
-.hljs-template_comment,
 .hljs-shebang,
 .hljs-doctype,
 .hljs-pi,
-.hljs-javadoc,
 .hljs-deletion,
 .apache .hljs-sqbracket {
   color: #ccc;
@@ -38,7 +39,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-tag .hljs-title,
 .ini .hljs-title,
 .lisp .hljs-title,
-.clojure .hljs-title,
 .http .hljs-title,
 .nginx .hljs-title,
 .css .hljs-tag,

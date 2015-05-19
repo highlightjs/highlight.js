@@ -5,9 +5,11 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background:#b7a68e url(./brown_papersq.png);
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-keyword,
@@ -15,8 +17,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-change,
 .hljs-winutils,
 .hljs-flow,
-.lisp .hljs-title,
-.clojure .hljs-built_in,
 .nginx .hljs-title,
 .tex .hljs-special,
 .hljs-request,
@@ -33,9 +33,9 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 
 .hljs-string,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .hljs-tag .hljs-value,
-.css .hljs-rules .hljs-value,
+.css .hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
 .ruby .hljs-symbol,
@@ -45,7 +45,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .django .hljs-template_tag,
 .django .hljs-variable,
 .smalltalk .hljs-class,
-.hljs-javadoc,
 .ruby .hljs-string,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
@@ -57,14 +56,14 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-envvar,
 .apache .hljs-tag,
 .apache .hljs-cbracket,
-.tex .hljs-number {
+.tex .hljs-number,
+.hljs-name {
   color: #2c009f;
 }
 
 .hljs-comment,
-.java .hljs-annotation,
-.python .hljs-decorator,
-.hljs-template_comment,
+.hljs-annotation,
+.hljs-decorator,
 .hljs-pi,
 .hljs-doctype,
 .hljs-deletion,
@@ -78,9 +77,9 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-keyword,
 .hljs-literal,
 .css .hljs-id,
-.hljs-phpdoc,
+.hljs-doctag,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,

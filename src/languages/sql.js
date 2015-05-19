@@ -1,13 +1,11 @@
 /*
  Language: SQL
  Contributors: Nikolay Lisienko <info@neor.ru>, Heiko August <post@auge8472.de>, Travis Odom <travis.a.odom@gmail.com>
+ Category: common
  */
 
 function(hljs) {
-  var COMMENT_MODE = {
-    className: 'comment',
-    begin: '--', end: '$'
-  };
+  var COMMENT_MODE = hljs.COMMENT('--', '$');
   return {
     case_insensitive: true,
     illegal: /[<>]/,
@@ -19,7 +17,7 @@ function(hljs) {
           'delete do handler insert load replace select truncate update set show pragma grant '+
           'merge describe use explain help declare prepare execute deallocate savepoint release '+
           'unlock purge reset change stop analyze cache flush optimize repair kill '+
-          'install uninstall checksum restore check backup',
+          'install uninstall checksum restore check backup revoke',
         end: /;/, endsWithParent: true,
         keywords: {
           keyword:

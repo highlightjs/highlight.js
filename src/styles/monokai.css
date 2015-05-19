@@ -3,9 +3,11 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #272822;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-tag,
@@ -16,8 +18,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-change,
 .hljs-winutils,
 .hljs-flow,
-.lisp .hljs-title,
-.clojure .hljs-built_in,
 .nginx .hljs-title,
 .tex .hljs-special {
   color: #f92672;
@@ -28,14 +28,15 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 }
 
 .hljs .hljs-constant,
-.asciidoc .hljs-code {
-	color: #66d9ef;
+.asciidoc .hljs-code,
+.markdown .hljs-code {
+  color: #66d9ef;
 }
 
 .hljs-code,
 .hljs-class .hljs-title,
 .hljs-header {
-	color: white;
+  color: white;
 }
 
 .hljs-link_label,
@@ -44,7 +45,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-symbol .hljs-string,
 .hljs-value,
 .hljs-regexp {
-	color: #bf79db;
+  color: #bf79db;
 }
 
 .hljs-link_url,
@@ -54,7 +55,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-subst,
 .hljs-title,
 .hljs-emphasis,
-.haskell .hljs-type,
+.hljs-type,
 .hljs-preprocessor,
 .hljs-pragma,
 .ruby .hljs-class .hljs-parent,
@@ -62,7 +63,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .django .hljs-template_tag,
 .django .hljs-variable,
 .smalltalk .hljs-class,
-.hljs-javadoc,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
@@ -74,17 +74,17 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .apache .hljs-tag,
 .apache .hljs-cbracket,
 .tex .hljs-command,
-.hljs-prompt {
+.hljs-prompt,
+.hljs-name {
   color: #a6e22e;
 }
 
 .hljs-comment,
-.java .hljs-annotation,
+.hljs-annotation,
 .smartquote,
 .hljs-blockquote,
 .hljs-horizontal_rule,
-.python .hljs-decorator,
-.hljs-template_comment,
+.hljs-decorator,
 .hljs-pi,
 .hljs-doctype,
 .hljs-deletion,
@@ -97,10 +97,10 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-keyword,
 .hljs-literal,
 .css .hljs-id,
-.hljs-phpdoc,
+.hljs-doctag,
 .hljs-title,
 .hljs-header,
-.haskell .hljs-type,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,

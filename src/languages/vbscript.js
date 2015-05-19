@@ -2,6 +2,7 @@
 Language: VBScript
 Author: Nikita Ledyaev <lenikita@yandex.ru>
 Contributors: Michal Gabrukiewicz <mgabru@gmail.com>
+Category: scripting
 */
 
 function(hljs) {
@@ -31,11 +32,13 @@ function(hljs) {
     illegal: '//',
     contains: [
       hljs.inherit(hljs.QUOTE_STRING_MODE, {contains: [{begin: '""'}]}),
-      {
-        className: 'comment',
-        begin: /'/, end: /$/,
-        relevance: 0
-      },
+      hljs.COMMENT(
+        /'/,
+        /$/,
+        {
+          relevance: 0
+        }
+      ),
       hljs.C_NUMBER_MODE
     ]
   };

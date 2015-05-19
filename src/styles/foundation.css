@@ -7,9 +7,11 @@ Date: 2013-04-02
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #eee;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-header,
@@ -67,8 +69,7 @@ Date: 2013-04-02
   color: #336699;
 }
 
-.hljs-bullet,
-.hljs-javadoc {
+.hljs-bullet {
   color: #997700;
 }
 

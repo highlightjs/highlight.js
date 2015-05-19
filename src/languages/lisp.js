@@ -2,11 +2,13 @@
 Language: Lisp
 Description: Generic lisp syntax
 Author: Vasily Polovnyov <vast@whiteants.net>
+Category: lisp
 */
 
 function(hljs) {
   var LISP_IDENT_RE = '[a-zA-Z_\\-\\+\\*\\/\\<\\=\\>\\&\\#][a-zA-Z0-9_\\-\\+\\*\\/\\<\\=\\>\\&\\#!]*';
-  var LISP_SIMPLE_NUMBER_RE = '(\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?';
+  var MEC_RE = '\\|[^]*?\\|';
+  var LISP_SIMPLE_NUMBER_RE = '(\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s|D|E|F|L|S)(\\+|\\-)?\\d+)?';
   var SHEBANG = {
     className: 'shebang',
     begin: '^#!', end: '$'
@@ -19,17 +21,19 @@ function(hljs) {
     className: 'number',
     variants: [
       {begin: LISP_SIMPLE_NUMBER_RE, relevance: 0},
-      {begin: '#b[0-1]+(/[0-1]+)?'},
-      {begin: '#o[0-7]+(/[0-7]+)?'},
-      {begin: '#x[0-9a-f]+(/[0-9a-f]+)?'},
-      {begin: '#c\\(' + LISP_SIMPLE_NUMBER_RE + ' +' + LISP_SIMPLE_NUMBER_RE, end: '\\)'}
+      {begin: '#(b|B)[0-1]+(/[0-1]+)?'},
+      {begin: '#(o|O)[0-7]+(/[0-7]+)?'},
+      {begin: '#(x|X)[0-9a-fA-F]+(/[0-9a-fA-F]+)?'},
+      {begin: '#(c|C)\\(' + LISP_SIMPLE_NUMBER_RE + ' +' + LISP_SIMPLE_NUMBER_RE, end: '\\)'}
     ]
   };
   var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null});
-  var COMMENT = {
-    className: 'comment',
-    begin: ';', end: '$'
-  };
+  var COMMENT = hljs.COMMENT(
+    ';', '$',
+    {
+      relevance: 0
+    }
+  );
   var VARIABLE = {
     className: 'variable',
     begin: '\\*', end: '\\*'
@@ -38,37 +42,59 @@ function(hljs) {
     className: 'keyword',
     begin: '[:&]' + LISP_IDENT_RE
   };
+  var IDENT = {
+    begin: LISP_IDENT_RE,
+    relevance: 0
+  };
+  var MEC = {
+    begin: MEC_RE
+  };
   var QUOTED_LIST = {
     begin: '\\(', end: '\\)',
-    contains: ['self', LITERAL, STRING, NUMBER]
+    contains: ['self', LITERAL, STRING, NUMBER, IDENT]
   };
   var QUOTED = {
     className: 'quoted',
-    contains: [NUMBER, STRING, VARIABLE, KEYWORD, QUOTED_LIST],
+    contains: [NUMBER, STRING, VARIABLE, KEYWORD, QUOTED_LIST, IDENT],
     variants: [
       {
         begin: '[\'`]\\(', end: '\\)'
       },
       {
         begin: '\\(quote ', end: '\\)',
-        keywords: {title: 'quote'}
+        keywords: 'quote'
+      },
+      {
+        begin: '\'' + MEC_RE
       }
     ]
   };
   var QUOTED_ATOM = {
     className: 'quoted',
-    begin: '\'' + LISP_IDENT_RE
+    variants: [
+      {begin: '\'' + LISP_IDENT_RE},
+      {begin: '#\'' + LISP_IDENT_RE + '(::' + LISP_IDENT_RE + ')*'}
+    ]
   };
   var LIST = {
     className: 'list',
-    begin: '\\(', end: '\\)'
+    begin: '\\(\\s*', end: '\\)'
   };
   var BODY = {
     endsWithParent: true,
     relevance: 0
   };
-  LIST.contains = [{className: 'title', begin: LISP_IDENT_RE}, BODY];
-  BODY.contains = [QUOTED, QUOTED_ATOM, LIST, LITERAL, NUMBER, STRING, COMMENT, VARIABLE, KEYWORD];
+  LIST.contains = [
+    {
+      className: 'keyword',
+      variants: [
+        {begin: LISP_IDENT_RE},
+        {begin: MEC_RE}
+      ]
+    },
+    BODY
+  ];
+  BODY.contains = [QUOTED, QUOTED_ATOM, LIST, LITERAL, NUMBER, STRING, COMMENT, VARIABLE, KEYWORD, MEC, IDENT];
 
   return {
     illegal: /\S/,
@@ -80,7 +106,8 @@ function(hljs) {
       COMMENT,
       QUOTED,
       QUOTED_ATOM,
-      LIST
+      LIST,
+      IDENT
     ]
   };
 }

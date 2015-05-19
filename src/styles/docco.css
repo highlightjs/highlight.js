@@ -3,16 +3,16 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   color: #000;
   background: #f8f8ff;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,
-.hljs-template_comment,
-.diff .hljs-header,
-.hljs-javadoc {
+.diff .hljs-header {
   color: #408080;
   font-style: italic;
 }
@@ -35,8 +35,9 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-string,
 .hljs-tag .hljs-value,
-.hljs-phpdoc,
-.tex .hljs-formula {
+.hljs-doctag,
+.tex .hljs-formula,
+.hljs-name {
   color: #219161;
 }
 
@@ -63,7 +64,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-tag,
 .hljs-tag .hljs-title,
-.hljs-rules .hljs-property,
+.hljs-rule .hljs-property,
 .django .hljs-tag .hljs-keyword {
   color: #000080;
   font-weight: normal;

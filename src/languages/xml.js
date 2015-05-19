@@ -1,5 +1,6 @@
 /*
 Language: HTML, XML
+Category: common
 */
 
 function(hljs) {
@@ -25,6 +26,7 @@ function(hljs) {
         contains: [
           {
             className: 'value',
+            contains: [PHP],
             variants: [
               {begin: /"/, end: /"/},
               {begin: /'/, end: /'/},
@@ -45,11 +47,13 @@ function(hljs) {
         relevance: 10,
         contains: [{begin: '\\[', end: '\\]'}]
       },
-      {
-        className: 'comment',
-        begin: '<!--', end: '-->',
-        relevance: 10
-      },
+      hljs.COMMENT(
+        '<!--',
+        '-->',
+        {
+          relevance: 10
+        }
+      ),
       {
         className: 'cdata',
         begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
@@ -78,13 +82,9 @@ function(hljs) {
         keywords: {title: 'script'},
         contains: [TAG_INTERNALS],
         starts: {
-          end: '</script>', returnEnd: true,
-          subLanguage: 'javascript'
+          end: '\<\/script\>', returnEnd: true,
+          subLanguage: ''
         }
-      },
-      {
-        begin: '<%', end: '%>',
-        subLanguage: 'vbscript'
       },
       PHP,
       {
@@ -97,7 +97,7 @@ function(hljs) {
         begin: '</?', end: '/?>',
         contains: [
           {
-            className: 'title', begin: '[^ /><]+', relevance: 0
+            className: 'title', begin: /[^ \/><\n\t]+/, relevance: 0
           },
           TAG_INTERNALS
         ]

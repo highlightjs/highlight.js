@@ -1,6 +1,7 @@
 /*
 Language: Perl
 Author: Peter Leonov <gojpeg@yandex.ru>
+Category: common
 */
 
 function(hljs) {
@@ -36,24 +37,29 @@ function(hljs) {
     className: 'variable',
     variants: [
       {begin: /\$\d/},
-      {begin: /[\$\%\@](\^\w\b|#\w+(\:\:\w+)*|{\w+}|\w+(\:\:\w*)*)/},
-      {begin: /[\$\%\@][^\s\w{]/, relevance: 0}
+      {begin: /[\$%@](\^\w\b|#\w+(::\w+)*|{\w+}|\w+(::\w*)*)/},
+      {begin: /[\$%@][^\s\w{]/, relevance: 0}
     ]
   };
-  var COMMENT = {
-    className: 'comment',
-    begin: '^(__END__|__DATA__)', end: '\\n$',
-    relevance: 5
-  };
+  var COMMENT = hljs.COMMENT(
+    '^(__END__|__DATA__)',
+    '\\n$',
+    {
+      relevance: 5
+    }
+  );
   var STRING_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST, VAR];
   var PERL_DEFAULT_CONTAINS = [
     VAR,
     hljs.HASH_COMMENT_MODE,
     COMMENT,
-    {
-      className: 'comment',
-      begin: '^\\=\\w', end: '\\=cut', endsWithParent: true
-    },
+    hljs.COMMENT(
+      '^\\=\\w',
+      '\\=cut',
+      {
+        endsWithParent: true
+      }
+    ),
     METHOD,
     {
       className: 'string',

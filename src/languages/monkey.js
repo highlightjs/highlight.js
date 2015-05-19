@@ -5,14 +5,14 @@ Author: Arthur Bikmullin <devolonter@gmail.com>
 
 function(hljs) {
   var NUMBER = {
+    className: 'number', relevance: 0,
     variants: [
       {
-        className: 'number',
         begin: '[$][a-fA-F0-9]+'
       },
       hljs.NUMBER_MODE
     ]
-  }
+  };
 
   return {
     case_insensitive: true,
@@ -27,21 +27,20 @@ function(hljs) {
       literal: 'true false null and or shl shr mod'
     },
     contains: [
-      {
-        className: 'comment',
-        begin: '#rem', end: '#end'
-      },
-      {
-        className: 'comment',
-        begin: "'", end: '$',
-        relevance: 0
-      },
+      hljs.COMMENT('#rem', '#end'),
+      hljs.COMMENT(
+        "'",
+        '$',
+        {
+          relevance: 0
+        }
+      ),
       {
         className: 'function',
         beginKeywords: 'function method', end: '[(=:]|$',
         illegal: /\n/,
         contains: [
-          hljs.UNDERSCORE_TITLE_MODE,
+          hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       {

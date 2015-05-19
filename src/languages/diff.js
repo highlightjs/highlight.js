@@ -2,6 +2,7 @@
 Language: Diff
 Description: Unified and context diff
 Author: Vasily Polovnyov <vast@whiteants.net>
+Category: common
 */
 
 function(hljs) {
@@ -12,7 +13,7 @@ function(hljs) {
         className: 'chunk',
         relevance: 10,
         variants: [
-          {begin: /^\@\@ +\-\d+,\d+ +\+\d+,\d+ +\@\@$/},
+          {begin: /^@@ +\-\d+,\d+ +\+\d+,\d+ +@@$/},
           {begin: /^\*\*\* +\d+,\d+ +\*\*\*\*$/},
           {begin: /^\-\-\- +\d+,\d+ +\-\-\-\-$/}
         ]

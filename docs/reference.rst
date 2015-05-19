@@ -133,6 +133,47 @@ This is when ``endsWithParent`` comes into play:
     ]
   }
 
+.. _endsParent:
+
+endsParent
+^^^^^^^^^^^^^^
+
+**type**: boolean
+
+Forces closing of the parent mode right after the current mode is closed.
+
+This is used for modes that don't have an easily expressible ending lexeme but
+instead could be closed after the last interesting sub-mode is found.
+
+Here's an example with two ways of defining functions in Elixir, one using a
+keyword ``do`` and another using a comma:
+
+::
+
+  def foo :clear, list do
+    :ok
+  end
+
+  def foo, do: IO.puts "hello world"
+
+Note that in the first case the parameter list after the function title may also
+include a comma. And iIf we're only interested in highlighting a title we can
+tell it to end the function definition after itself:
+
+::
+
+  {
+    className: 'function',
+    beginKeywords: 'def', end: /\B\b/,
+    contains: [
+      {
+        className: 'title',
+        begin: hljs.IDENT_RE, endsParent: true
+      }
+    ]
+  }
+
+(The ``end: /\B\b/`` regex tells function to never end by itself.)
 
 .. _lexemes:
 
@@ -226,7 +267,7 @@ variants
 **type**: array
 
 Modification to the main definitions of the mode, effectively expanding it into several similar modes
-each having all the attributes from the main definition augmented or overriden by the variants::
+each having all the attributes from the main definition augmented or overridden by the variants::
 
   {
     className: 'string',
@@ -259,7 +300,7 @@ subLanguageMode
 
 **type**: identifier
 
-The only available value for this is ``'continuous'``. By default ``subLanguage`` highlights the contents of the mode as an isolated code snippet. In continuous mode every occurance of the mode is treated as a continuation of the previous one and highlighted from the point where it was interrupted before.
+The only available value for this is ``'continuous'``. By default ``subLanguage`` highlights the contents of the mode as an isolated code snippet. In continuous mode every occurrence of the mode is treated as a continuation of the previous one and highlighted from the point where it was interrupted before.
 
 This is best illustrated by an example. The following snippet consists of HTML markup intermixed with some templating language::
 

@@ -41,22 +41,20 @@ Meta data format is simply key-value pairs each occupying its own line:
 ``Requires`` — a list of other language files required for this language to work.
 This make it possible to describe languages that extend definitions of other ones.
 Required files aren't processed in any special way.
-The build system just makes sure that they will be in the final package in ``LANGUAGES`` object.
+The build system just makes sure that they will be in the final package in
+``LANGUAGES`` object.
 
 The meaning of the other headers is pretty obvious.
 
 
-3. Create a test fragment
--------------------------
+3. Create a code example
+------------------------
 
-The fragment should include various language features. This is used both as an example and a test case.
-It's usually better to create a synthetic fragment instead of just take a snippet of an existing code
-because real-world code rarely contains all language features in one place.
-This fragment is also absolutely *not* required to actually work or make sense :-).
-Good example are C++ and HTML fragments in ``test.html``.
+The code example is used both to test language detection and for the demo page
+on https://highlightjs.org/. Put it in ``test/detect/<language>/default.txt``.
 
-Then put the fragment into the ``test.html`` similar to other languages
-and test if it's properly detected and doesn't break detection of other languages.
+Take inspiration from other languages in ``test/detect/`` and read
+:ref:`testing instructions <basic-testing>` for more details.
 
 
 4. Write class reference
@@ -66,10 +64,12 @@ Class reference lives in the :doc:`CSS classes reference </css-classes-reference
 Describe shortly names of all meaningful modes used in your language definition.
 
 
-5. Add yourself to AUTHORS.*.txt
---------------------------------
+5. Add yourself to AUTHORS.*.txt and CHANGES.md
+-----------------------------------------------
 
-If you're a new contributor add yourself to the authors list. Feel free to use either English and/or Russian version.
+If you're a new contributor add yourself to the authors list. Feel free to use
+either English and/or Russian version.
+Also it will be good to update CHANGES.md.
 
 
 6. Create a pull request

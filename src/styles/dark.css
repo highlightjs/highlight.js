@@ -1,13 +1,15 @@
-﻿/*
+/*
 
 Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #444;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-keyword,
@@ -15,8 +17,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-change,
 .hljs-winutils,
 .hljs-flow,
-.lisp .hljs-title,
-.clojure .hljs-built_in,
 .nginx .hljs-title,
 .tex .hljs-special {
   color: white;
@@ -29,10 +29,10 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 
 .hljs-string,
 .hljs-title,
-.haskell .hljs-type,
+.hljs-type,
 .ini .hljs-title,
 .hljs-tag .hljs-value,
-.css .hljs-rules .hljs-value,
+.css .hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
 .ruby .hljs-symbol,
@@ -42,7 +42,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .django .hljs-template_tag,
 .django .hljs-variable,
 .smalltalk .hljs-class,
-.hljs-javadoc,
 .ruby .hljs-string,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
@@ -56,14 +55,14 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .apache .hljs-cbracket,
 .tex .hljs-command,
 .hljs-prompt,
-.coffeescript .hljs-attribute {
+.coffeescript .hljs-attribute,
+.hljs-name {
   color: #d88;
 }
 
 .hljs-comment,
-.java .hljs-annotation,
-.python .hljs-decorator,
-.hljs-template_comment,
+.hljs-annotation,
+.hljs-decorator,
 .hljs-pi,
 .hljs-doctype,
 .hljs-deletion,
@@ -77,8 +76,8 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-literal,
 .hljs-title,
 .css .hljs-id,
-.hljs-phpdoc,
-.haskell .hljs-type,
+.hljs-doctag,
+.hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .smalltalk .hljs-class,

@@ -1,6 +1,7 @@
 /*
 Language: R
 Author: Joe Cheng <joe@rstudio.org>
+Category: scientific
 */
 
 function(hljs) {
@@ -14,9 +15,9 @@ function(hljs) {
         lexemes: IDENT_RE,
         keywords: {
           keyword:
-            'function if in break next repeat else for return switch while try tryCatch|10 ' +
+            'function if in break next repeat else for return switch while try tryCatch ' +
             'stop warning require library attach detach source setMethod setGeneric ' +
-            'setGroupGeneric setClass ...|10',
+            'setGroupGeneric setClass ...',
           literal:
             'NULL NA TRUE FALSE T F Inf NaN NA_integer_|10 NA_real_|10 NA_character_|10 ' +
             'NA_complex_|10'

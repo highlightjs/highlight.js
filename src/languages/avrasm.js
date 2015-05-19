@@ -36,7 +36,13 @@ function(hljs) {
     },
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
-      {className: 'comment', begin: ';',  end: '$', relevance: 0},
+      hljs.COMMENT(
+        ';',
+        '$',
+        {
+          relevance: 0
+        }
+      ),
       hljs.C_NUMBER_MODE, // 0x..., decimal, float
       hljs.BINARY_NUMBER_MODE, // 0b...
       {

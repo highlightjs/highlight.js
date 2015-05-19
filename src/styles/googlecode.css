@@ -5,22 +5,21 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: white;
   color: black;
+  -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.hljs-template_comment,
-.hljs-javadoc {
+.hljs-comment {
   color: #800;
 }
 
 .hljs-keyword,
 .method,
-.hljs-list .hljs-title,
-.clojure .hljs-built_in,
+.hljs-list .hljs-keyword,
 .nginx .hljs-title,
 .hljs-tag .hljs-title,
 .setting .hljs-value,
@@ -58,7 +57,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 .hljs-shebang,
 .hljs-prompt,
 .hljs-hexcolor,
-.hljs-rules .hljs-value,
+.hljs-rule .hljs-value,
 .hljs-literal,
 .hljs-symbol,
 .ruby .hljs-symbol .hljs-string,
@@ -69,11 +68,9 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 }
 
 .hljs-class .hljs-title,
-.haskell .hljs-type,
 .smalltalk .hljs-class,
-.hljs-javadoctag,
-.hljs-yardoctag,
-.hljs-phpdoc,
+.hljs-doctag,
+.hljs-type,
 .hljs-typename,
 .hljs-tag .hljs-attribute,
 .hljs-doctype,
@@ -82,12 +79,12 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 .setting,
 .hljs-params,
 .hljs-variable,
-.clojure .hljs-title {
+.hljs-name {
   color: #606;
 }
 
 .css .hljs-tag,
-.hljs-rules .hljs-property,
+.hljs-rule .hljs-property,
 .hljs-pseudo,
 .hljs-subst {
   color: #000;
@@ -103,7 +100,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
   font-weight: bold;
 }
 
-.hljs-rules .hljs-keyword {
+.hljs-rule .hljs-keyword {
   color: #c5af75;
 }
 
@@ -142,6 +139,6 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
   background-color: #ffc8bd;
 }
 
-.hljs-comment .hljs-yardoctag {
+.hljs-comment .hljs-doctag {
   font-weight: bold;
 }

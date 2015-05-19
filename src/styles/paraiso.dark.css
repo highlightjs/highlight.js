@@ -15,6 +15,7 @@
 .hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
+.hljs-name,
 .ruby .hljs-constant,
 .xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
@@ -38,7 +39,7 @@
 
 /* Paraíso Yellow */
 .ruby .hljs-class .hljs-title,
-.css .hljs-rules .hljs-attribute {
+.css .hljs-rule .hljs-attribute {
   color: #fec418;
 }
 
@@ -76,10 +77,12 @@
 }
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   background: #2f1e2e;
   color: #a39e9b;
   padding: 0.5em;
+  -webkit-text-size-adjust: none;
 }
 
 .coffeescript .javascript,

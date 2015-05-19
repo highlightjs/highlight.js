@@ -22,16 +22,17 @@ Add some information about style to file header. There may be style name, origin
   */
 
 
-3. Add it to test page
-----------------------
+3. Add it to the demo page
+--------------------------
 
-Add your style to the top of src/test.html page, as for other styles.
+Add your style at the top of demo/index.html page after the other styles.
 
 
-4. Add yourself to AUTHORS.*.txt
---------------------------------
+4. Add yourself to AUTHORS.*.txt and CHANGES.md
+-----------------------------------------------
 
 If you're a new contributor add yourself to the authors list. Feel free to use either English and/or Russian version.
+Also it will be good to update CHANGES.md.
 
 
 5. Create a pull request

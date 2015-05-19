@@ -3,6 +3,7 @@ Language: Haml
 Requires: ruby.js
 Author: Dan Allen <dan.j.allen@gmail.com>
 Website: http://google.com/profiles/dan.j.allen
+Category: template
 */
 
 // TODO support filter tags like :javascript, support inline HTML
@@ -15,12 +16,14 @@ function(hljs) {
         begin: '^!!!( (5|1\\.1|Strict|Frameset|Basic|Mobile|RDFa|XML\\b.*))?$',
         relevance: 10
       },
-      {
-        className: 'comment',
-        // FIXME these comments should be allowed to span indented lines
-        begin: '^\\s*(!=#|=#|-#|/).*$',
-        relevance: 0
-      },
+      // FIXME these comments should be allowed to span indented lines
+      hljs.COMMENT(
+        '^\\s*(!=#|=#|-#|/).*$',
+        false,
+        {
+          relevance: 0
+        }
+      ),
       {
         begin: '^\\s*(-|=|!=)(?!#)',
         starts: {
@@ -38,7 +41,7 @@ function(hljs) {
           },
           {
             className: 'value',
-            begin: '[#\\.]\\w+'
+            begin: '[#\\.][\\w-]+'
           },
           {
             begin: '{\\s*',
@@ -56,16 +59,8 @@ function(hljs) {
                     className: 'symbol',
                     begin: ':\\w+'
                   },
-                  {
-                    className: 'string',
-                    begin: '"',
-                    end: '"'
-                  },
-                  {
-                    className: 'string',
-                    begin: '\'',
-                    end: '\''
-                  },
+                  hljs.APOS_STRING_MODE,
+                  hljs.QUOTE_STRING_MODE,
                   {
                     begin: '\\w+',
                     relevance: 0
@@ -91,16 +86,8 @@ function(hljs) {
                     begin: '\\w+',
                     relevance: 0
                   },
-                  {
-                    className: 'string',
-                    begin: '"',
-                    end: '"'
-                  },
-                  {
-                    className: 'string',
-                    begin: '\'',
-                    end: '\''
-                  },
+                  hljs.APOS_STRING_MODE,
+                  hljs.QUOTE_STRING_MODE,
                   {
                     begin: '\\w+',
                     relevance: 0

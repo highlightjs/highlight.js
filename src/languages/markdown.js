@@ -3,6 +3,7 @@ Language: Markdown
 Requires: xml.js
 Author: John Crepezzi <john.crepezzi@gmail.com>
 Website: http://seejohncode.com/
+Category: common
 */
 
 function(hljs) {
@@ -65,7 +66,7 @@ function(hljs) {
       },
       // using links - title and link
       {
-        begin: '\\[.+?\\][\\(\\[].+?[\\)\\]]',
+        begin: '\\[.+?\\][\\(\\[].*?[\\)\\]]',
         returnBegin: true,
         contains: [
           {
@@ -89,17 +90,17 @@ function(hljs) {
         relevance: 10
       },
       {
-        begin: '^\\[\.+\\]:', end: '$',
+        begin: '^\\[\.+\\]:',
         returnBegin: true,
         contains: [
           {
             className: 'link_reference',
-            begin: '\\[', end: '\\]',
-            excludeBegin: true, excludeEnd: true
-          },
-          {
-            className: 'link_url',
-            begin: '\\s', end: '$'
+            begin: '\\[', end: '\\]:',
+            excludeBegin: true, excludeEnd: true,
+            starts: {
+              className: 'link_url',
+              end: '$'
+            }
           }
         ]
       }

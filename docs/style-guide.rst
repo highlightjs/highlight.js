@@ -43,7 +43,7 @@ This means that language names in style definition should be avoided:
   }
 
 There are also unique syntax elements that languages don't share with each other:
-"javadoc" in Java, "attr_selector" in CSS, "doctype" in XML etc.
+"attr_selector" in CSS, "doctype" in XML etc.
 The best way to style them is by "packing" them into a group of selectors for a single CSS group of rules:
 
 ::

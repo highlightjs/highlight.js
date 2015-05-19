@@ -15,7 +15,7 @@ function(hljs) {
   var ANTIQUOTE = {
     className: 'subst',
     begin: /\$\{/,
-    end: /\}/,
+    end: /}/,
     keywords: NIX_KEYWORDS
   };
   var ATTRS = {
@@ -46,7 +46,7 @@ function(hljs) {
     SINGLE_QUOTE,
     DOUBLE_QUOTE,
     ATTRS
-  ];  
+  ];
   ANTIQUOTE.contains = EXPRESSIONS;
   return {
     aliases: ["nixos"],

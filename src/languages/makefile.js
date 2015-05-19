@@ -1,6 +1,7 @@
 /*
 Language: Makefile
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
+Category: common
 */
 
 function(hljs) {
@@ -39,6 +40,7 @@ function(hljs) {
       },
       {
         begin: /^\t+/, end: /$/,
+        relevance: 0,
         contains: [
           hljs.QUOTE_STRING_MODE,
           VARIABLE

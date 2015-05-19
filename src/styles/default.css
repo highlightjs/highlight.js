@@ -5,16 +5,16 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #f0f0f0;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs,
 .hljs-subst,
 .hljs-tag .hljs-title,
-.lisp .hljs-title,
-.clojure .hljs-built_in,
 .nginx .hljs-title {
   color: black;
 }
@@ -24,9 +24,10 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-constant,
 .hljs-parent,
 .hljs-tag .hljs-value,
-.hljs-rules .hljs-value,
+.hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
+.hljs-name,
 .haml .hljs-symbol,
 .ruby .hljs-symbol,
 .ruby .hljs-symbol .hljs-string,
@@ -37,6 +38,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-flow,
 .hljs-stream,
 .bash .hljs-variable,
+.pf .hljs-variable,
 .apache .hljs-tag,
 .apache .hljs-cbracket,
 .tex .hljs-command,
@@ -52,7 +54,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .smartquote,
 .hljs-comment,
 .hljs-annotation,
-.hljs-template_comment,
 .diff .hljs-header,
 .hljs-chunk,
 .asciidoc .hljs-blockquote,
@@ -79,7 +80,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 }
 
 .hljs-label,
-.hljs-javadoc,
 .ruby .hljs-string,
 .hljs-decorator,
 .hljs-filter .hljs-argument,
@@ -115,14 +115,14 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-title,
 .hljs-built_in,
 .css .hljs-tag,
-.hljs-javadoctag,
-.hljs-phpdoc,
-.hljs-yardoctag,
+.hljs-doctag,
 .smalltalk .hljs-class,
 .hljs-winutils,
 .bash .hljs-variable,
+.pf .hljs-variable,
 .apache .hljs-tag,
-.go .hljs-typename,
+.hljs-type,
+.hljs-typename,
 .tex .hljs-command,
 .asciidoc .hljs-strong,
 .markdown .hljs-strong,

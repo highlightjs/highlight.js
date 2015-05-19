@@ -1,6 +1,6 @@
 Syntax highlighting with language autodetection.
 
-URL:   http://highlightjs.org/
+URL:   https://highlightjs.org/
 
 Core developers (in order of appearance):
 
@@ -110,4 +110,66 @@ Contributors:
 - Arthur Bikmullin <devolonter@gmail.com>
 - Pascal Hurni <phi@ruby-reactive.org>
 - Roman Shmatov <romanshmatov@gmail.com>
+- Nic West <nic@letolab.com>
+- Panu Horsmalahti <panu.horsmalahti@iki.fi>
+- Flaviu Tamas <tamas.flaviu@gmail.com>
+- Damian Mee <mee.damian@gmail.com>
+- Christopher Kaster <ikasoki@gmail.com>
+- Chris Eidhof <chris@eidhof.nl>
+- Nate Cook <natecook@gmail.com>
+- Matt Diephouse <matt@diephouse.com>
+- Erik Osheim <d_m@plastic-idolatry.com>
+- Guillaume Laforge <glaforge@gmail.com>
+- Lucas Mazza <lucastmazza@gmail.com>
+- Maxim Dikun <dikmax@gmail.com>
+- Henrik Feldt <henrik@haf.se>
+- Anton Kochkov <anton.kochkov@gmail.com>
+- Michael Allen <Michael.Allen@benefitfocus.com>
+- JP Verkamp <me@jverkamp.com>
+- Adam Joseph Cook <adam.joseph.cook@gmail.com>
+- Sergey Vidyuk <svidyuk@gmail.com>
+- Radek Liska <radekliska@gmail.com>
+- Jose Molina Colmenero <gaudy41@gmail.com>
+- Max Mikhailov <seven.phases.max@gmail.com>
+- Bryant Williams <b.n.williams@gmail.com>
+- Erik Paluka <erik.paluka@gmail.com>
+- Luke Holder <lukemh@gmail.com>
+- David Mohundro <david@mohundro.com>
+- Nicholas Blumhardt <nblumhardt@nblumhardt.com>
+- Christophe de Dinechin <christophe@taodyne.com>
+- Taneli Vatanen <taneli.vatanen@gmail.com>
+- Jen Evers-Corvina <jen@sevvie.net>
+- Kassio Borges <kassioborgesm@gmail.com>
+- Cedric Sohrauer <sohrauer@googlemail.com>
+- Mickaël Delahaye <mickael.delahaye@gmail.com>
+- Hakan Özler <ozler.hakan@gmail.com>
+- Trey Shugart <treshugart@gmail.com>
+- Vincent Zurczak <vzurczak@linagora.com>
+- Adam Joseph Cook <adam.joseph.cook@gmail.com>
+- Edwin Dalorzo <edwin@dalorzo.org>
+- mucaho <mkucko@gmail.com>
+- Dennis Titze <dennis.titze@gmail.com>
+- Jon Evans <jon@craftyjon.com>
+- Brian Quistorff <bquistorff@gmail.com>
+- Jonathan Suever <suever@gmail.com>
+- Alexis Hénaut <alexis@henaut.net>
+- Chris Kiehl <audionautic@gmail.com>
+- Peter Piwowarski <oldlaptop654@aol.com>
+- Kenta Sato <bicycle1885@gmail.com>
+- Anthony Scemama <scemama@irsamc.ups-tlse.fr>
+- Taufik Nurrohman <latitudu.latitudu@gmail.com>
+- Pedro Oliveira <kanytu@gmail.com>
+- Gu Yiling <justice360@gmail.com>
+- Thomas Applencourt <thomas.applencourt@irsamc.ups-tlse.fr>
+- Andrew Farmer <ahfarmer@gmail.com>
+- Sergey Mashkov <cy6erGn0m@gmail.com>
+- Raivo Laanemets <raivo@infdot.com>
+- Kenneth Fuglsang <kfuglsang@gmail.com>
+- Raivo Laanemets <raivo@infdot.com>
+- David Anson <david@dlaa.me>
+- Louis Barranqueiro <louis.barranqueiro@gmail.com>
+- Tim Schumacher <tim@datenknoten.me>
+- Lucas Werkmeister <mail@lucaswerkmeister.de>
+- Dan Panzarella <alsoelp@gmail.com>
+- Bruno Dias <bruno.r.dias@gmail.com>
 - Jay Strybis <jay.strybis@gmail.com>

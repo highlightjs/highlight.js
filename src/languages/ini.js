@@ -1,5 +1,6 @@
 /*
 Language: Ini
+Category: common, config
 */
 
 function(hljs) {
@@ -7,10 +8,7 @@ function(hljs) {
     case_insensitive: true,
     illegal: /\S/,
     contains: [
-      {
-        className: 'comment',
-        begin: ';', end: '$'
-      },
+      hljs.COMMENT(';', '$'),
       {
         className: 'title',
         begin: '^\\[', end: '\\]'

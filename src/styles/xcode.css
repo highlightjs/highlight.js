@@ -5,15 +5,15 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #fff;
   color: black;
+  -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.hljs-template_comment,
-.hljs-javadoc {
+.hljs-comment {
   color: #006a00;
 }
 
@@ -30,7 +30,8 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .tex .hljs-command,
 .http .hljs-title,
 .hljs-request,
-.hljs-status {
+.hljs-status,
+.hljs-name {
   color: #008;
 }
 
@@ -61,24 +62,19 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-shebang,
 .hljs-prompt,
 .hljs-hexcolor,
-.hljs-rules .hljs-value,
+.hljs-rule .hljs-value,
 .hljs-symbol,
 .hljs-symbol .hljs-string,
 .hljs-number,
 .css .hljs-function,
-.clojure .hljs-title,
-.clojure .hljs-built_in,
 .hljs-function .hljs-title,
 .coffeescript .hljs-attribute {
   color: #1c00cf;
 }
 
 .hljs-class .hljs-title,
-.haskell .hljs-type,
 .smalltalk .hljs-class,
-.hljs-javadoctag,
-.hljs-yardoctag,
-.hljs-phpdoc,
+.hljs-type,
 .hljs-typename,
 .hljs-tag .hljs-attribute,
 .hljs-doctype,
@@ -94,7 +90,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
  color: #3f6e74;
 }
 .css .hljs-tag,
-.hljs-rules .hljs-property,
+.hljs-rule .hljs-property,
 .hljs-pseudo,
 .hljs-subst {
   color: #000;
@@ -110,7 +106,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   font-weight: bold;
 }
 
-.hljs-rules .hljs-keyword {
+.hljs-rule .hljs-keyword {
   color: #c5af75;
 }
 
@@ -149,7 +145,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   background-color: #ffc8bd;
 }
 
-.hljs-comment .hljs-yardoctag {
+.hljs-comment .hljs-doctag {
   font-weight: bold;
 }
 

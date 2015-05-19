@@ -1,36 +1,221 @@
-## Master
+## Master [UNPUBLISHED]
 
-New features:
+New languages:
 
-- Add `listLanguages()` API method.
-- export.html merged into test.html.
-- C/C++/C# detection improved.
-- Added a bunch of aliases for languages and document current ones.
-  Thanks to [Sindre Sorhus][] for background research.
-- Added phrasal English words to boost relevance in comments.
-- Include docs into the browser download and node.js package.
-- Many improvements to SQL definition made by [Heiko August][],
-  [Nikolay Lisienko][] and [Travis Odom][].
-- Add shorted `lang-` prefix for specifying what language will be
-  highlighted.
-  Thanks to [Jeff Escalante][].
-- Ruby's got support for interactive console sessions. Thanks to [Pascal Hurni][].
-- Deal with trailing commas errors. Thanks to [Jiyin Yiyong][].
-- Add built_in functions for R language. Thanks to [Artem A. Klevtsov][].
-- Rust got definitions for lifetime parameters and improved string syntax.
-  Thanks to [Roman Shmatov][].
+- *C/AL* by [Kenneth Fuglsang][]
+- *DNS zone file* by [Tim Schumacher][]
+- *Ceylon* by [Lucas Werkmeister][]
+- *OpenSCAD* by [Dan Panzarella][]
+- *Inform7* by [Bruno Dias][]
+- *armasm* by [Dan Panzarella][]
 
-[Sindre Sorhus]: https://github.com/sindresorhus
-[Heiko August]: https://github.com/auge8472
-[Nikolay Lisienko]: https://github.com/neor-ru
-[Travis Odom]: https://github.com/Burstaholic
-[Jeff Escalante]: https://github.com/jenius
-[Pascal Hurni]: https://github.com/phurni
-[Jiyin Yiyong]: https://github.com/jiyinyiyong
-[Artem A. Klevtsov]: https://github.com/unikum
-[Roman Shmatov]: https://github.com/shmatov
+New Styles:
 
-New languages and styles:
+- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* by
+  [Bram de Haan][]
+- Github Gist by [Louis Barranqueiro][]
+
+Notable fixes and improvements to existing languages:
+
+- Multiline raw strings from C++11 are now supported
+- Fix class names with dashes in HAML
+- The `async` keyword from ES6/7 is now supported
+- TypeScipt functions handle type and parameter complexity better
+- We unified phpdoc/javadoc/yardoc etc modes across all languages
+- CSS .class selectors relevance was dropped to prevent wrong language detection
+
+[Bram de Haan]: https://github.com/atelierbram
+[Kenneth Fuglsang]: https://github.com/kfuglsang
+[Louis Barranqueiro]: https://github.com/LouisBarranqueiro
+[Tim Schumacher]: https://github.com/enko
+[Lucas Werkmeister]: https://github.com/lucaswerkmeister
+[Dan Panzarella]: https://github.com/pzl
+[Bruno Dias]: https://github.com/sequitur
+
+## Version 8.5
+
+New languages:
+
+- *pf.conf* by [Peter Piwowarski][]
+- *Julia* by [Kenta Sato][]
+- *Prolog* by [Raivo Laanemets][]
+- *Docker* by [Alexis Hénaut][]
+- *Fortran* by [Anthony Scemama][] and [Thomas Applencourt][]
+- *Kotlin* by [Sergey Mashkov][]
+
+New Styles:
+
+- *Agate* by [Taufik Nurrohman][]
+- *Darkula* by [Jet Brains][]
+- *Atelier Sulphurpool* by [Bram de Haan][]
+- *Android Studio* by [Pedro Oliveira][]
+
+Notable fixes and improvements to existing languages:
+
+- ES6 features in JavaScript are better supported now by [Gu Yiling][].
+- Swift now recognizes body-less method definitions.
+- Single expression functions `def foo, do: ... ` now work in Elixir.
+- More uniform detection of built-in classes in Objective C.
+- Fixes for number literals and processor directives in Rust.
+- HTML `<script>` tag now allows any language, not just JavaScript.
+- Multi-line comments are supported now in MatLab.
+
+[Taufik Nurrohman]: https://github.com/tovic
+[Jet Brains]: https://www.jetbrains.com/
+[Peter Piwowarski]: https://github.com/oldlaptop
+[Kenta Sato]: https://github.com/bicycle1885
+[Bram de Haan]: https://github.com/atelierbram
+[Raivo Laanemets]: https://github.com/rla
+[Alexis Hénaut]: https://github.com/AlexisNo
+[Anthony Scemama]: https://github.com/scemama
+[Pedro Oliveira]: https://github.com/kanytu
+[Gu Yiling]: https://github.com/Justineo
+[Sergey Mashkov]: https://github.com/cy6erGn0m
+[Thomas Applencourt]: https://github.com/TApplencourt
+
+## Version 8.4
+
+We've got the new [demo page][]! The obvious new feature is the new look, but
+apart from that it's got smarter: by presenting languages in groups it avoids
+running 10000 highlighting attempts after first load which was slowing it down
+and giving bad overall impression. It is now also being generated from test
+code snippets so the authors of new languages don't have to update both tests
+and the demo page with the same thing.
+
+Other notable changes:
+
+- The `template_comment` class is gone in favor of the more general `comment`.
+- Number parsing unified and improved across languages.
+- C++, Java and C# now use unified grammar to highlight titles in
+  function/method definitions.
+- The browser build is now usable as an AMD module, there's no separate build
+  target for that anymore.
+- OCaml has got a [comprehensive overhaul][ocaml] by [Mickaël Delahaye][].
+- Clojure's data structures and literals are now highlighted outside of lists
+  and we can now highlight Clojure's REPL sessions.
+
+New languages:
+
+- *AspectJ* by [Hakan Özler][]
+- *STEP Part 21* by [Adam Joseph Cook][]
+- *SML* derived by [Edwin Dalorzo][] from OCaml definition
+- *Mercury* by [mucaho][]
+- *Smali* by [Dennis Titze][]
+- *Verilog* by [Jon Evans][]
+- *Stata* by [Brian Quistorff][]
+
+[Hakan Özler]: https://github.com/ozlerhakan
+[Adam Joseph Cook]: https://github.com/adamjcook
+[demo page]: https://highlightjs.org/static/demo/
+[Ivan Sagalaev]: https://github.com/isagalaev
+[Edwin Dalorzo]: https://github.com/edalorzo
+[mucaho]: https://github.com/mucaho
+[Dennis Titze]: https://github.com/titze
+[Jon Evans]: https://github.com/craftyjon
+[Brian Quistorff]: https://github.com/bquistorff
+[ocaml]: https://github.com/isagalaev/highlight.js/pull/608#issue-46190207
+[Mickaël Delahaye]: https://github.com/polazarus
+
+
+## Version 8.3
+
+We streamlined our tool chain, it is now based entirely on node.js instead of
+being a mix of node.js, Python and Java. The build script options and arguments
+remained the same, and we've noted all the changes in the [documentation][b].
+Apart from reducing complexity, the new build script is also faster from not
+having to start Java machine repeatedly. The credits for the work go to [Jeremy
+Hull][].
+
+Some notable fixes:
+
+- PHP and JavaScript mixed in HTML now live happily with each other.
+- JavaScript regexes now understand ES6 flags "u" and "y".
+- `throw` keyword is no longer detected as a method name in Java.
+- Fixed parsing of numbers and symbols in Clojure thanks to [input from Ivan
+  Kleshnin][ik].
+
+New languages in this release:
+
+- *Less* by [Max Mikhailov][]
+- *Stylus* by [Bryant Williams][]
+- *Tcl* by [Radek Liska][]
+- *Puppet* by [Jose Molina Colmenero][]
+- *Processing* by [Erik Paluka][]
+- *Twig* templates by [Luke Holder][]
+- *PowerShell* by [David Mohundro][], based on [the work of Nicholas
+  Blumhardt][ps]
+- *XL* by [Christophe de Dinechin][]
+- *LiveScript* by [Taneli Vatanen][] and [Jen Evers-Corvina][]
+- *ERB* (Ruby in HTML) by [Lucas Mazza][]
+- *Roboconf* by [Vincent Zurczak][]
+
+[b]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
+[Jeremy Hull]: https://github.com/sourrust
+[ik]: https://twitter.com/IvanKleshnin/status/514041599484231680
+[Max Mikhailov]: https://github.com/seven-phases-max
+[Bryant Williams]: https://github.com/scien
+[Radek Liska]: https://github.com/Nindaleth
+[Jose Molina Colmenero]: https://github.com/Moliholy
+[Erik Paluka]: https://github.com/paluka
+[Luke Holder]: https://github.com/lukeholder
+[David Mohundro]: https://github.com/drmohundro
+[ps]: https://github.com/OctopusDeploy/Library/blob/master/app/shared/presentation/highlighting/powershell.js
+[Christophe de Dinechin]: https://github.com/c3d
+[Taneli Vatanen]: https://github.com/Daiz-
+[Jen Evers-Corvina]: https://github.com/sevvie
+[Lucas Mazza]: https://github.com/lucasmazza
+[Vincent Zurczak]: https://github.com/vincent-zurczak
+
+
+## Version 8.2
+
+We've finally got [real tests][test] and [continuous testing on Travis][ci]
+thanks to [Jeremy Hull][] and [Chris Eidhof][]. The tests designed to cover
+everything: language detection, correct parsing of individual language features
+and various special cases. This is a very important change that gives us
+confidence in extending language definitions and refactoring library core.
+
+We're going to redesign the old [demo/test suite][demo] into an interactive
+demo web app. If you're confident front-end developer or designer and want to
+help us with it, drop a comment into [the issue][#542] on GitHub.
+
+[test]: https://github.com/isagalaev/highlight.js/tree/master/test
+[demo]: https://highlightjs.org/static/test.html
+[#542]: https://github.com/isagalaev/highlight.js/issues/542
+[ci]: https://travis-ci.org/isagalaev/highlight.js
+[Jeremy Hull]: https://github.com/sourrust
+[Chris Eidhof]: https://github.com/chriseidhof
+
+As usually there's a handful of new languages in this release:
+
+- *Groovy* by [Guillaume Laforge][]
+- *Dart* by [Maxim Dikun][]
+- *Dust* by [Michael Allen][]
+- *Scheme* by [JP Verkamp][]
+- *G-Code* by [Adam Joseph Cook][]
+- *Q* from Kx Systems by [Sergey Vidyuk][]
+
+[Guillaume Laforge]: https://github.com/glaforge
+[Maxim Dikun]: https://github.com/dikmax
+[Michael Allen]: https://github.com/bfui
+[JP Verkamp]: https://github.com/jpverkamp
+[Adam Joseph Cook]: https://github.com/adamjcook
+[Sergey Vidyuk]: https://github.com/sv
+
+Other improvements:
+
+- [Erik Osheim][] heavily reworked Scala definitions making it richer.
+- [Lucas Mazza][] fixed Ruby hashes highlighting
+- Lisp variants (Lisp, Clojure and Scheme) are unified in regard to naming
+  the first symbol in parentheses: it's "keyword" in general case and also
+  "built_in" for built-in functions in Clojure and Scheme.
+
+[Erik Osheim]: https://github.com/non
+[Lucas Mazza]: https://github.com/lucasmazza
+
+## Version 8.1
+
+New languages:
 
 - *Gherkin* by [Sam Pikesley][]
 - *Elixir* by [Josh Adams][]
@@ -41,11 +226,21 @@ New languages and styles:
 - *x86asm* by [innocenat][]
 - *Cap’n Proto* and *Thrift* by [Oleg Efimov][]
 - *Monkey* by [Arthur Bikmullin][]
-- *Kimbie* light and dark themes by [Jan T. Sott][]
-- *Color brewer* theme by [Fabrício Tavares de Oliveira][]
-- *Codepen.io embed* theme by [Justin Perry][]
+- *TypeScript* by [Panu Horsmalahti][]
+- *Nimrod* by [Flaviu Tamas][]
+- *Gradle* by [Damian Mee][]
+- *Haxe* by [Christopher Kaster][]
+- *Swift* by [Chris Eidhof][] and [Nate Cook][]
+
+New styles:
+
+- *Kimbie*, light and dark variants by [Jan T. Sott][]
+- *Color brewer* by [Fabrício Tavares de Oliveira][]
+- *Codepen.io embed* by [Justin Perry][]
+- *Hybrid* by [Nic West][]
 
 [Sam Pikesley]: https://github.com/pikesley
+[Sindre Sorhus]: https://github.com/sindresorhus
 [Josh Adams]: https://github.com/knewter
 [Jan T. Sott]: https://github.com/idleberg
 [Jun Yang]: https://github.com/harttle
@@ -54,8 +249,49 @@ New languages and styles:
 [innocenat]: https://github.com/innocenat
 [Oleg Efimov]: https://github.com/Sannis
 [Arthur Bikmullin]: https://github.com/devolonter
+[Panu Horsmalahti]: https://github.com/panuhorsmalahti
+[Flaviu Tamas]: https://github.com/flaviut
+[Damian Mee]: https://github.com/chester1000
+[Christopher Kaster]: http://christopher.kaster.ws
 [Fabrício Tavares de Oliveira]: https://github.com/fabriciotav
 [Justin Perry]: https://github.com/ourmaninamsterdam
+[Nic West]: https://github.com/nicwest
+[Chris Eidhof]: https://github.com/chriseidhof
+[Nate Cook]: https://github.com/natecook1000
+
+Other improvements:
+
+- The README is heavily reworked and brought up to date by [Jeremy Hull][].
+- Added [`listLanguages()`][ll] method in the API.
+- Improved C/C++/C# detection.
+- Added a bunch of new language aliases, documented the existing ones. Thanks to
+  [Sindre Sorhus][] for background research.
+- Added phrasal English words to boost relevance in comments.
+- Many improvements to SQL definition made by [Heiko August][],
+  [Nikolay Lisienko][] and [Travis Odom][].
+- The shorter `lang-` prefix for language names in HTML classes supported
+  alongside `language-`. Thanks to [Jeff Escalante][].
+- Ruby's got support for interactive console sessions. Thanks to
+  [Pascal Hurni][].
+- Added built-in functions for R language. Thanks to [Artem A. Klevtsov][].
+- Rust's got definition for lifetime parameters and improved string syntax.
+  Thanks to [Roman Shmatov][].
+- Various improvements to Objective-C definition by [Matt Diephouse][].
+- Fixed highlighting of generics in Java.
+
+[ll]: http://highlightjs.readthedocs.org/en/latest/api.html#listlanguages
+[Sindre Sorhus]: https://github.com/sindresorhus
+[Heiko August]: https://github.com/auge8472
+[Nikolay Lisienko]: https://github.com/neor-ru
+[Travis Odom]: https://github.com/Burstaholic
+[Jeff Escalante]: https://github.com/jenius
+[Pascal Hurni]: https://github.com/phurni
+[Jiyin Yiyong]: https://github.com/jiyinyiyong
+[Artem A. Klevtsov]: https://github.com/unikum
+[Roman Shmatov]: https://github.com/shmatov
+[Jeremy Hull]: https://github.com/sourrust
+[Matt Diephouse]: https://github.com/mdiep
+
 
 ## Version 8.0
 
@@ -127,7 +363,7 @@ New languages and styles:
 - *Atelier* family of styles in 10 variants by [Bram de Haan][]
 - *Paraíso* styles by [Jan T. Sott][]
 
-Miscelleanous improvements:
+Miscellaneous improvements:
 
 - Highlighting `=>` prompts in Clojure.
 - [Jeremy Hull][] fixed a lot of styles for consistency.
@@ -135,6 +371,8 @@ Miscelleanous improvements:
 - Objective C and C# now properly highlight titles in method definition.
 - Big overhaul of relevance counting for a number of languages. Please do report
   bugs about mis-detection of non-trivial code snippets!
+
+[API reference]: http://highlightjs.readthedocs.org/en/latest/api.html
 
 [cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 [api docs]: http://highlightjs.readthedocs.org/en/latest/api.html
@@ -177,7 +415,7 @@ Improvements:
 - Haskell's got new keywords and now recognizes more things like pragmas,
   preprocessors, modules, containers, FFIs etc. Thanks to [Zena Treep][treep]
   for the implementation and to [Jeremy Hull][sourrust] for guiding it.
-- Miscelleanous fixes in PHP, Brainfuck, SCSS, Asciidoc, CMake, Python and F#.
+- Miscellaneous fixes in PHP, Brainfuck, SCSS, Asciidoc, CMake, Python and F#.
 
 [mehdid]: https://github.com/mehdid
 [nbraud]: https://github.com/nbraud
@@ -215,7 +453,7 @@ This long overdue version is a snapshot of the current source tree with all the
 changes that happened during the past year. Sorry for taking so long!
 
 Along with the changes in code highlight.js has finally got its new home at
-<http://highlightjs.org/>, moving from its craddle on Software Maniacs which it
+<http://highlightjs.org/>, moving from its cradle on Software Maniacs which it
 outgrew a long time ago. Be sure to report any bugs about the site to
 <mailto:info@highlightjs.org>.
 
@@ -454,7 +692,7 @@ recent beta release][beta].
 
 [beta]: http://softwaremaniacs.org/blog/2011/04/25/highlight-js-60-beta/en/
 
-P.S. New version is not yet available on a Yandex' CDN, so for now you have to
+P.S. New version is not yet available on a Yandex CDN, so for now you have to
 download [your own copy][d].
 
 [d]: /soft/highlight/en/download/
@@ -481,7 +719,7 @@ developers.
 - Description of HTML has got new tags from [HTML 5][].
 - CSS-styles have been unified to use consistent padding and also have lost
   pop-outs with names of detected languages.
-- [Igor Kalnitsky][ik] has sent two new language descriptions: CMake и VHDL.
+- [Igor Kalnitsky][ik] has sent two new language descriptions: CMake & VHDL.
 
 This makes total number of languages supported by highlight.js to reach 35.
 
@@ -621,7 +859,8 @@ Also in this version:
 
 ## Version 5.2
 
-- at last it's possible to replace indentation TABs with something sensible (e.g. 2 or 4 spaces)
+- at last it's possible to replace indentation TABs with something sensible
+  (e.g. 2 or 4 spaces)
 - new keywords and built-ins for 1C by Sergey Baranov
 - a couple of small fixes to Apache highlighting
 

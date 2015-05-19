@@ -5,10 +5,12 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   color: #000;
   background: #fff;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-subst,
@@ -19,8 +21,6 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-comment,
-.hljs-template_comment,
-.hljs-javadoc,
 .diff .hljs-header {
   color: #808080;
   font-style: italic;
@@ -55,8 +55,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 .css .hljs-function,
 .ini .hljs-title,
 .css .hljs-class,
-.hljs-list .hljs-title,
-.clojure .hljs-title,
+.hljs-list .hljs-keyword,
 .nginx .hljs-title,
 .tex .hljs-command,
 .hljs-request,
@@ -66,7 +65,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-attribute,
-.hljs-rules .hljs-keyword,
+.hljs-rule .hljs-keyword,
 .hljs-number,
 .hljs-date,
 .hljs-regexp,
@@ -98,16 +97,15 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
   font-style: italic;
 }
 
-.hljs-phpdoc,
-.hljs-yardoctag,
-.hljs-javadoctag {
+.hljs-doctag {
   text-decoration: underline;
 }
 
 .hljs-variable,
 .hljs-envvar,
 .apache .hljs-sqbracket,
-.nginx .hljs-built_in {
+.nginx .hljs-built_in,
+.hljs-name {
   color: #660e7a;
 }
 

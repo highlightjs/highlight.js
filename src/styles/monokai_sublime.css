@@ -5,15 +5,18 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 */
 
 .hljs {
-  display: inline-block;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #23241f;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs,
 .hljs-tag,
-.css .hljs-rules,
+.css .hljs-rule,
 .css .hljs-value,
+.aspectj .hljs-function,
 .css .hljs-function
 .hljs-preprocessor,
 .hljs-pragma {
@@ -56,17 +59,18 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .hljs-emphasis,
 .hljs-strongemphasis,
-.hljs-class .hljs-title:last-child {
+.hljs-class .hljs-title:last-child,
+.hljs-typename {
   font-style: italic;
 }
 
 .hljs-keyword,
+.ruby .hljs-class .hljs-keyword:first-child,
+.ruby .hljs-function .hljs-keyword,
 .hljs-function,
 .hljs-change,
 .hljs-winutils,
 .hljs-flow,
-.lisp .hljs-title,
-.clojure .hljs-built_in,
 .nginx .hljs-title,
 .tex .hljs-special,
 .hljs-header,
@@ -84,21 +88,25 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .hljs-function .hljs-keyword,
 .hljs-class .hljs-keyword:first-child,
+.hljs-aspect .hljs-keyword:first-child,
 .hljs-constant,
+.hljs-typename,
+.hljs-name,
 .css .hljs-attribute {
   color: #66d9ef;
 }
 
 .hljs-variable,
 .hljs-params,
-.hljs-class .hljs-title {
+.hljs-class .hljs-title,
+.hljs-aspect .hljs-title {
   color: #f8f8f2;
 }
 
 .hljs-string,
 .css .hljs-id,
 .hljs-subst,
-.haskell .hljs-type,
+.hljs-type,
 .ruby .hljs-class .hljs-parent,
 .hljs-built_in,
 .django .hljs-template_tag,
@@ -122,10 +130,8 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 }
 
 .hljs-comment,
-.hljs-javadoc,
-.java .hljs-annotation,
-.python .hljs-decorator,
-.hljs-template_comment,
+.hljs-annotation,
+.hljs-decorator,
 .hljs-pi,
 .hljs-doctype,
 .hljs-deletion,
