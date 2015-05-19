@@ -72,15 +72,9 @@ function(hljs) {
         begin: '\\d+(sec|msec|mm/sec|cm/min|inch/min|deg/sec|mm|in|cm)?\\b',
         relevance: 0
       },
-      {
-        className: 'comment',
-        variants: [
-          { begin: '//', end: ';', excludeEnd: true },
-          { begin: '!', end: ';', excludeEnd: true },
-          { begin: '--eg:', end: ';', excludeEnd: true }
-        ],
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
+      hljs.COMMENT('//', '[;$]'),
+      hljs.COMMENT('!', '[;$]'),
+      hljs.COMMENT('--eg:', '$'),
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
