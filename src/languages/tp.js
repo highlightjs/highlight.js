@@ -8,17 +8,17 @@ Description: FANUC TP programming language (TPP).
 function(hljs) {
   var TPID = {
     className: 'number',
-    begin: '[1-9][0-9]*' /* no leading zeros */
+    begin: '[1-9][0-9]*', /* no leading zeros */
+    relevance: 0
   }
   var TPLABEL = {
-    className: 'label',
+    className: 'comment',
     begin: ':[^\\]]+'
   }
   var TPDATA = {
-    className: 'data',
+    className: 'built_in',
     begin: '(AR|P|PAYLOAD|PR|R|SR|RSR|LBL|VR|UALM|MESSAGE|UTOOL|UFRAME|TIMER|\
     TIMER_OVERFLOW|JOINT_MAX_SPEED|RESUME_PROG|DIAG_REC)\\[', end: '\\]',
-    relevance: 10,
     contains: [
       'self',
       TPID,
@@ -26,9 +26,8 @@ function(hljs) {
     ]
   };
   var TPIO = {
-    className: 'io',
+    className: 'built_in',
     begin: '(AI|AO|DI|DO|F|RI|RO|UI|UO|GI|GO|SI|SO)\\[', end: '\\]',
-    relevance: 10,
     contains: [
       'self',
       TPID,
@@ -54,33 +53,23 @@ function(hljs) {
       TPIO,
       {
         className: 'keyword',
-        lexemes: '/[A-Z]+',
         begin: '/(PROG|ATTR|MN|POS|END)\\b'
       },
       {
         /* this is for cases like ,CALL */
         className: 'keyword',
-        lexemes: '[A-Z]+',
         begin: '(CALL|RUN|POINT_LOGIC|LBL)\\b'
       },
       {
         /* this is for cases like CNT100 where the default lexemes do not
          * separate the keyword and the number */
         className: 'keyword',
-        lexemes: '[A-Z]+',
         begin: '\\b(ACC|CNT|Skip|Offset|PSPD|RT_LD|AP_LD|Tool_Offset)'
       },
       {
         /* to catch numbers that do not have a word boundary on the left */
         className: 'number',
-        lexemes: '[0-9]+',
-        begin: '\\d+\\b',
-        relevance: 0
-      },
-      {
-        className: 'units',
-        lexemes: '[a-z\\/]+',
-        begin: '(sec|msec|mm/sec|cm/min|inch/min|deg/sec|mm|in|cm)\\b',
+        begin: '\\d+(sec|msec|mm/sec|cm/min|inch/min|deg/sec|mm|in|cm)?\\b',
         relevance: 0
       },
       {
@@ -100,7 +89,6 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'variable',
-        lexemes: '[A-Za-z0-9_$]+',
         begin: '\\$[A-Za-z0-9_]+'
       }
     ]
