@@ -15,12 +15,7 @@
   "bugs": {
     "url": "https://github.com/isagalaev/highlight.js/issues"
   },
-  "licenses": [
-    {
-      "type": "BSD",
-      "url": "https://github.com/isagalaev/highlight.js/blob/master/LICENSE"
-    }
-  ],
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git://github.com/isagalaev/highlight.js.git"
