@@ -1,3 +1,9 @@
+// For the basic introductions on using this build script, see:
+//
+// <https://highlightjs.readthedocs.org/en/latest/building-testing.html>
+//
+// Otherwise, lets explain what each build target does in more detail, for
+// those that wish to know before running this script.
 'use strict';
 
 var commander = require('commander');
