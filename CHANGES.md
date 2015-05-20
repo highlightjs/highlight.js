@@ -12,18 +12,20 @@ New languages:
 
 New Styles:
 
-- *Atelier Cave*, *Atelier Estuary*, *Atelier Plateau* and *Atelier Savanna* by
-  [Bram de Haan][]
-- Github Gist by [Louis Barranqueiro][]
+- *Atelier Cave*, *Atelier Estuary*,
+  *Atelier Plateau* and *Atelier Savanna* by [Bram de Haan][]
+- *Github Gist* by [Louis Barranqueiro][]
 
 Notable fixes and improvements to existing languages:
 
-- Multiline raw strings from C++11 are now supported
+- Multi-line raw strings from C++11 are now supported
 - Fix class names with dashes in HAML
 - The `async` keyword from ES6/7 is now supported
-- TypeScipt functions handle type and parameter complexity better
+- TypeScript functions handle type and parameter complexity better
 - We unified phpdoc/javadoc/yardoc etc modes across all languages
 - CSS .class selectors relevance was dropped to prevent wrong language detection
+- Images is now included to CDN build
+- Release process is now automated
 
 [Bram de Haan]: https://github.com/atelierbram
 [Kenneth Fuglsang]: https://github.com/kfuglsang
@@ -144,8 +146,7 @@ New languages in this release:
 - *Puppet* by [Jose Molina Colmenero][]
 - *Processing* by [Erik Paluka][]
 - *Twig* templates by [Luke Holder][]
-- *PowerShell* by [David Mohundro][], based on [the work of Nicholas
-  Blumhardt][ps]
+- *PowerShell* by [David Mohundro][], based on [the work of Nicholas Blumhardt][ps]
 - *XL* by [Christophe de Dinechin][]
 - *LiveScript* by [Taneli Vatanen][] and [Jen Evers-Corvina][]
 - *ERB* (Ruby in HTML) by [Lucas Mazza][]
