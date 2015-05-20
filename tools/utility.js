@@ -72,6 +72,10 @@ function replaceClassNames(match) {
   return REPLACES[match];
 }
 
+// All meta data, for each language definition, it store within the headers
+// of each file in `src/languages`. `parseHeader` extracts that data and
+// turns it into a useful object -- mainly for categories and what language
+// this definition requires.
 function parseHeader(content) {
   var headers,
       match = content.match(headerRegex);
@@ -111,6 +115,8 @@ function filterByQualifiers(blob, languages, categories) {
          _.any(fileCategories, containsCategory);
 }
 
+// For the filter task in `tools/tasks.js`, this function will look for
+// categories and languages specificed from the CLI.
 function buildFilterCallback(qualifiers) {
   var isCategory = _.matchesProperty(0, ':'),
       languages  = _.reject(qualifiers, isCategory),
