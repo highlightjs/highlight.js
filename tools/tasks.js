@@ -20,6 +20,9 @@ tasks.clean = function(directories, blobs, done) {
 };
 tasks.clean.type = 'collect';
 
+// Depending on the languages required for the current language being
+// processed, this task reorders it's dependiences first then include the
+// language.
 tasks.reorderDeps = function(options, blobs, done) {
   var buffer       = {},
       newBlobOrder = [];
@@ -94,6 +97,8 @@ tasks.rename = function(options, blob, done) {
   return done(null, new gear.Blob(blob.result, {name: name}));
 };
 
+// Adds the contributors from `AUTHORS.en.txt` onto the `package.json` file
+// and moves the result into the `build` directory.
 tasks.buildPackage = function(json, blob, done) {
   var result,
       lines = blob.result.split(/\r?\n/),
@@ -115,6 +120,10 @@ tasks.buildPackage = function(json, blob, done) {
   return done(null, new gear.Blob(result, blob));
 };
 
+// Mainly for replacing the keys of `utility.REPLACES` for it's values while
+// skipping over strings, regular expressions, or comments. However, this is
+// pretty generic so long as you use the `utility.replace` function, you can
+// replace a regular expression with a string.
 tasks.replaceSkippingStrings = function(params, blob, done) {
   var content = blob.result,
       length  = content.length,
@@ -208,6 +217,8 @@ tasks.readSnippet = function(options, blob, done) {
   gear.Blob.readFile(snippetName, 'utf8', onRead, false);
 };
 
+// Translate the template for the demo in `demo/index.html` to a usable HTML
+// file.
 tasks.templateDemo = function(options, blobs, done) {
   var name = path.join('demo', 'index.html');
 
@@ -227,6 +238,8 @@ tasks.templateDemo = function(options, blobs, done) {
 };
 tasks.templateDemo.type = 'collect';
 
+// Packages up included languages into the core `highlight.js` and moves the
+// result into the `build` directory.
 tasks.packageFiles = function(options, blobs, done) {
   var content,
       coreFile  = _.head(blobs),
