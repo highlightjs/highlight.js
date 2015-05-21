@@ -34,13 +34,15 @@
 //          includes the generation of an `index.js` file that will be the
 //          main file imported for use with Node.js or browserify. Do note
 //          that this includes all languages by default and it might be too
-//          heavy to use for browserify. Luckily, you can easily use the
-//          browser or cdn builds and it will work like any CommonJS file.
-//          Also with the CommonJS module, it includes the documentation for
-//          our readthedocs page and the uncompressed styles. Getting this
-//          build is pretty easy as it is the one that gets published to npm
-//          with the standard `npm install highlight.js`, but you can also
-//          visit the package page at:
+//          heavy to use for browserify. Luckily, you can easily do two
+//          things to make the build smaller; either specify the specific
+//          language/category you need or you can use the browser or cdn
+//          builds and it will work like any CommonJS file. Also with the
+//          CommonJS module, it includes the documentation for our
+//          readthedocs page and the uncompressed styles. Getting this build
+//          is pretty easy as it is the one that gets published to npm with
+//          the standard `npm install highlight.js`, but you can also visit
+//          the package page at:
 //
 //          <https://www.npmjs.com/package/highlight.js>
 //
