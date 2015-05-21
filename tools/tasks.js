@@ -21,7 +21,7 @@ tasks.clean = function(directories, blobs, done) {
 tasks.clean.type = 'collect';
 
 // Depending on the languages required for the current language being
-// processed, this task reorders it's dependiences first then include the
+// processed, this task reorders it's dependencies first then include the
 // language.
 tasks.reorderDeps = function(options, blobs, done) {
   var buffer       = {},
