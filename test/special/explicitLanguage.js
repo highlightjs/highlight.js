@@ -40,10 +40,4 @@ describe('explicit language class', function() {
 
     actual.should.equal(expected);
   });
-
-  it('should highlight using html 5 style (language-*) plus unsupported language', function() {
-    var actual = blocks[2].innerHTML;
-
-    actual.should.equal(expected);
-  });
 });
