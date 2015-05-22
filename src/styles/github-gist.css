@@ -5,7 +5,7 @@
 
 .hljs {
   display: block;
-  background:white;
+  background: white;
   padding: 0.5em;
   color: #333333;
   overflow-x: auto;
@@ -15,7 +15,8 @@
 .hljs-comment,
 .bash .hljs-shebang,
 .java .hljs-javadoc,
-.javascript .hljs-javadoc {
+.javascript .hljs-javadoc,
+.rust .hljs-preprocessor {
   color: #969896;
 }
 
@@ -49,6 +50,7 @@
 .css .hljs-important,
 .http .hljs-request,
 .ini .hljs-setting,
+.haskell .hljs-type,
 .java .hljs-javadoctag,
 .javascript .hljs-tag,
 .javascript .hljs-javadoctag,
@@ -85,6 +87,7 @@
 .css .hljs-hexcolor,
 .css .hljs-number,
 .css .hljs-function,
+.haskell .hljs-number,
 .http .hljs-literal,
 .http .hljs-attribute,
 .java .hljs-number,
@@ -106,6 +109,7 @@
 .ruby .hljs-number,
 .ruby .hljs-subst .hljs-keyword,
 .ruby .hljs-symbol,
+.rust .hljs-number,
 .sql .hljs-number,
 .puppet .hljs-function,
 .less .hljs-number,
@@ -160,6 +164,8 @@
 .css .hljs-class,
 .css .hljs-pseudo,
 .ini .hljs-title,
+.haskell .hljs-title,
+.haskell .hljs-pragma,
 .java .hljs-title,
 .javascript .hljs-title,
 .makefile .hljs-title,
@@ -170,6 +176,7 @@
 .python .hljs-title,
 .ruby .hljs-parent,
 .ruby .hljs-title,
+.rust .hljs-title,
 .xml .hljs-attribute,
 .puppet .hljs-title,
 .less .hljs-id,
