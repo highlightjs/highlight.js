@@ -15,7 +15,8 @@
 .hljs-comment,
 .bash .hljs-shebang,
 .java .hljs-javadoc,
-.javascript .hljs-javadoc {
+.javascript .hljs-javadoc,
+.rust .hljs-preprocessor {
   color: #969896;
 }
 
@@ -108,6 +109,7 @@
 .ruby .hljs-number,
 .ruby .hljs-subst .hljs-keyword,
 .ruby .hljs-symbol,
+.rust .hljs-number,
 .sql .hljs-number,
 .puppet .hljs-function,
 .less .hljs-number,
@@ -174,6 +176,7 @@
 .python .hljs-title,
 .ruby .hljs-parent,
 .ruby .hljs-title,
+.rust .hljs-title,
 .xml .hljs-attribute,
 .puppet .hljs-title,
 .less .hljs-id,
