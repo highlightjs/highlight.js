@@ -124,9 +124,7 @@ function buildFilterCallback(qualifiers) {
                                 .map(function(c) {return c.slice(1);})
                                 .value();
 
-  return function(blob) {
-    return filterByQualifiers(blob, languages, categories);
-  };
+  return _.partial(filterByQualifiers, _, languages, categories);
 }
 
 function glob(pattern, encoding) {
