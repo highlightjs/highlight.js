@@ -47,10 +47,10 @@
 }
 
 .hljs-keyword,
+.hljs-name,
 .css .hljs-at_rule,
 .css .hljs-important,
 .http .hljs-request,
-.ini .hljs-setting,
 .haskell .hljs-type,
 .java .hljs-javadoctag,
 .javascript .hljs-tag,
@@ -70,7 +70,7 @@
   color: #a71d5d;
 }
 
-.hljs-name,
+.hljs-literal,
 .bash .hljs-literal,
 .bash .hljs-built_in,
 .coffeescript .hljs-literal,
@@ -143,8 +143,6 @@
 .cs .hljs-preprocessor .hljs-keyword,
 .css .hljs-attr_selector,
 .css .hljs-value,
-.ini .hljs-value,
-.ini .hljs-keyword,
 .javascript .hljs-tag .hljs-title,
 .makefile .hljs-constant,
 .nginx .hljs-variable,
@@ -161,7 +159,6 @@
 .css .hljs-id,
 .css .hljs-class,
 .css .hljs-pseudo,
-.ini .hljs-title,
 .haskell .hljs-title,
 .haskell .hljs-pragma,
 .java .hljs-title,

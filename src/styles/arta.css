@@ -40,7 +40,6 @@ Author: pumbur <pumbur@pumbur.net>
 .xml .hljs-attribute,
 .smalltalk .hljs-char,
 .xml .hljs-value,
-.ini .hljs-value,
 .clojure .hljs-attribute,
 .coffeescript .hljs-attribute {
   color: #ffcc33;
@@ -56,7 +55,6 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-type,
 .hljs-typename,
 .go .hljs-constant,
-.ini .hljs-keyword,
 .lua .hljs-title,
 .perl .hljs-variable,
 .php .hljs-variable,

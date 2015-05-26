@@ -39,8 +39,7 @@
 }
 
 .hljs-tag,
-.hljs-section,
-.ini .hljs-title {
+.hljs-section {
   color: #62c8f3;
 }
 
