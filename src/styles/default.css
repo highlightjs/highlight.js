@@ -14,8 +14,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 
 .hljs,
 .hljs-subst,
-.hljs-tag .hljs-title,
-.nginx .hljs-title {
+.hljs-tag .hljs-title {
   color: black;
 }
 
@@ -94,7 +93,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-envvar,
 .hljs-shebang,
 .hljs-meta,
-.nginx .hljs-built_in,
 .tex .hljs-formula,
 .erlang_repl .hljs-reserved,
 .hljs-prompt,
@@ -137,10 +135,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .markdown .hljs-emphasis,
 .tp .hljs-units {
   font-style: italic;
-}
-
-.nginx .hljs-built_in {
-  font-weight: normal;
 }
 
 .coffeescript .javascript,

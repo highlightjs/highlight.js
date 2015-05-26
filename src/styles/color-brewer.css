@@ -16,8 +16,7 @@ Ported by Fabrício Tavares de Oliveira
 
 .hljs,
 .hljs-subst,
-.hljs-tag .hljs-title,
-.nginx .hljs-title {
+.hljs-tag .hljs-title {
   color: #000;
 }
 
@@ -92,7 +91,6 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-envvar,
 .hljs-variable,
 .hljs-shebang,
-.nginx .hljs-built_in,
 .hljs-list .hljs-built_in,
 .tex .hljs-formula,
 .erlang_repl .hljs-reserved,
@@ -134,10 +132,6 @@ Ported by Fabrício Tavares de Oliveira
 .asciidoc .hljs-emphasis,
 .markdown .hljs-emphasis {
   font-style: italic;
-}
-
-.nginx .hljs-built_in {
-  font-weight: normal;
 }
 
 .coffeescript .javascript,

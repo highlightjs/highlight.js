@@ -12,8 +12,7 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .profile .hljs-header *,
-.hljs-section,
-.nginx .hljs-title {
+.hljs-section {
   color: #fff;
 }
 
@@ -96,7 +95,6 @@ Author: pumbur <pumbur@pumbur.net>
 .objectivec .hljs-class .hljs-id,
 .smalltalk .hljs-class,
 .lisp .hljs-keyword,
-.nginx .hljs-variable,
 .hljs-envvar,
 .bash .hljs-variable,
 .go .hljs-built_in,

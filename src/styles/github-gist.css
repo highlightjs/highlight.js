@@ -35,8 +35,6 @@
 .markdown .hljs-strong,
 .markdown .hljs-emphasis,
 .markdown .hljs-blockquote,
-.nginx .hljs-regexp,
-.nginx .hljs-number,
 .objectivec .hljs-preprocessor .hljs-title,
 .perl .hljs-regexp,
 .php .hljs-regexp,
@@ -55,7 +53,6 @@
 .java .hljs-javadoctag,
 .javascript .hljs-tag,
 .javascript .hljs-javadoctag,
-.nginx .hljs-title,
 .objectivec .hljs-preprocessor,
 .php .hljs-phpdoc,
 .sql .hljs-built_in,
@@ -96,7 +93,6 @@
 .json .hljs-number,
 .makefile .hljs-keyword,
 .markdown .hljs-link_reference,
-.nginx .hljs-built_in,
 .objectivec .hljs-literal,
 .objectivec .hljs-number,
 .objectivec .hljs-built_in,
@@ -145,7 +141,6 @@
 .css .hljs-value,
 .javascript .hljs-tag .hljs-title,
 .makefile .hljs-constant,
-.nginx .hljs-variable,
 .xml .hljs-tag,
 .scss .hljs-variable {
   color: #333333;

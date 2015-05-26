@@ -85,7 +85,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .diff .hljs-header,
 .hljs-chunk,
 .hljs-shebang,
-.nginx .hljs-built_in,
 .hljs-prompt,
 .hljs-meta {
   color: #008080;
@@ -101,7 +100,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .smalltalk .hljs-class,
 .hljs-winutils,
 .hljs-flow,
-.nginx .hljs-built_in,
 .tex .hljs-command,
 .tex .hljs-special,
 .hljs-request,

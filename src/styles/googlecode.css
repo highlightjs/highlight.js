@@ -21,7 +21,6 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 .hljs-section,
 .method,
 .hljs-list .hljs-keyword,
-.nginx .hljs-title,
 .hljs-tag .hljs-title,
 .setting .hljs-value,
 .hljs-winutils,
@@ -104,8 +103,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
   color: #c5af75;
 }
 
-.hljs-annotation,
-.nginx .hljs-built_in {
+.hljs-annotation {
   color: #9b859d;
 }
 

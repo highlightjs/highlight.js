@@ -17,7 +17,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-change,
 .hljs-winutils,
 .hljs-flow,
-.nginx .hljs-title,
 .tex .hljs-special,
 .hljs-request,
 .hljs-status {
@@ -69,7 +68,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
-.nginx .hljs-built_in,
 .tex .hljs-formula {
   color: #802022;
 }
