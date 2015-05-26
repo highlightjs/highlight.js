@@ -16,7 +16,7 @@ https://highlightjs.org/
 
     // Finally register the global hljs with AMD.
     if(typeof define === 'function' && define.amd) {
-      define([], function() {
+      define('hljs', [], function() {
         return window.hljs;
       });
     }
@@ -44,19 +44,24 @@ https://highlightjs.org/
   }
 
   function blockLanguage(block) {
-    var i, language, length,
+    var i, match, length,
         classes = block.className + ' ';
 
     classes += block.parentNode ? block.parentNode.className : '';
+
+    // language-* takes precedence over non-prefixed class names and
+    match = /\blang(?:uage)?-([\w-]+)\b/.exec(classes);
+    if (match) {
+      return getLanguage(match[1]) ? match[1] : 'no-highlight';
+    }
+
     classes = classes.split(/\s+/);
-
     for(i = 0, length = classes.length; i < length; i++) {
-      language = classes[i].replace(/^lang(uage)?-/, '');
-
-      if(getLanguage(language) || isNotHighlighted(language)) {
-        return language;
+      if(getLanguage(classes[i]) || isNotHighlighted(classes[i])) {
+        return classes[i];
       }
     }
+
   }
 
   function inherit(parent, obj) {

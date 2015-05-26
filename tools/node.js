@@ -133,7 +133,7 @@ function buildPackageFile() {
 }
 
 module.exports = function(commander, dir) {
-  directory = dir
+  directory = dir;
   filterCB  = utility.buildFilterCallback(commander.args);
 
   return _.merge(

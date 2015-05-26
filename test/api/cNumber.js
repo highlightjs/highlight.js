@@ -9,13 +9,13 @@ var numberToString = utility.numberToString;
 
 describe('.C_NUMBER_RE', function() {
   it('should match regular numbers', function() {
-    var numbers = _.range(0, 1001).map(numberToString);
+    var numbers = _.map(_.range(0, 1001), numberToString);
 
     numbers.should.matchEach(pattern);
   });
 
   it('should match decimals', function() {
-    var decimal       = _.range(0, 1.001, 0.001).map(numberToString);
+    var decimal       = _.map(_.range(0, 1.001, 0.001), numberToString);
     var noLeadingZero = ['.1234', '.5206', '.0002', '.9998'];
 
     var numbers = [].concat(decimal, noLeadingZero);

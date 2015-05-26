@@ -9,8 +9,8 @@ var numberToString = utility.numberToString;
 
 describe('.NUMBER_RE', function() {
   it('should match regular numbers and decimals', function() {
-    var number        = _.range(0, 1001).map(numberToString);
-    var decimal       = _.range(0, 1.001, 0.001).map(numberToString);
+    var number        = _.map(_.range(0, 1001), numberToString);
+    var decimal       = _.map(_.range(0, 1.001, 0.001), numberToString);
     var noLeadingZero = ['.1234', '.5206', '.0002', '.9998'];
 
     var numbers = [].concat(number, decimal, noLeadingZero);
