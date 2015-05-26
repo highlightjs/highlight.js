@@ -101,8 +101,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #8b98ab;
 }
 
-.hljs-annotation,
-.nginx .hljs-built_in {
+.hljs-annotation {
   color: #9b859d;
 }
 

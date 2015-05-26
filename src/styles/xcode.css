@@ -100,8 +100,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   color: #c5af75;
 }
 
-.hljs-annotation,
-.nginx .hljs-built_in {
+.hljs-annotation {
   color: #9b859d;
 }
 

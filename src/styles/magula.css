@@ -71,7 +71,6 @@ Music: Aphex Twin / Xtal
 .hljs-envvar,
 .hljs-shebang,
 .hljs-meta,
-.nginx .hljs-built_in,
 .tex .hljs-formula,
 .hljs-prompt,
 .clojure .hljs-attribute {
@@ -92,10 +91,6 @@ Music: Aphex Twin / Xtal
 .hljs-status {
   font-weight: bold;
   color: navy;
-}
-
-.nginx .hljs-built_in {
-  font-weight: normal;
 }
 
 .coffeescript .javascript,

@@ -110,8 +110,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-annotation,
-.hljs-meta,
-.nginx .hljs-built_in {
+.hljs-meta {
   color: #9b859d;
 }
 

@@ -58,8 +58,7 @@
 .tex .hljs-special,
 .hljs-type,
 .hljs-constant,
-.hljs-doctag,
-.nginx .hljs-built_in {
+.hljs-doctag {
   color: #ffffb6;
 }
 
