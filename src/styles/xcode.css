@@ -18,17 +18,13 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 .hljs-keyword,
-.hljs-literal,
-.nginx .hljs-title {
+.hljs-literal {
   color: #aa0d91;
 }
 .method,
-.hljs-list .hljs-title,
-.hljs-tag .hljs-title,
 .setting .hljs-value,
 .hljs-winutils,
 .tex .hljs-command,
-.http .hljs-title,
 .hljs-request,
 .hljs-status,
 .hljs-name {
@@ -53,6 +49,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   color: #080;
 }
 
+.hljs-title,
 .hljs-sub .hljs-identifier,
 .hljs-pi,
 .hljs-tag,
@@ -63,23 +60,18 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-hexcolor,
 .hljs-rule .hljs-value,
 .hljs-symbol,
-.hljs-symbol .hljs-string,
 .hljs-number,
 .hljs-meta,
 .css .hljs-function,
-.hljs-function .hljs-title,
 .coffeescript .hljs-attribute {
   color: #1c00cf;
 }
 
 .hljs-section,
 .hljs-class .hljs-title,
-.smalltalk .hljs-class,
 .hljs-type,
-.hljs-typename,
 .hljs-tag .hljs-attribute,
 .hljs-doctype,
-.hljs-class .hljs-id,
 .hljs-built_in,
 .setting,
 .hljs-params,

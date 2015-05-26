@@ -11,6 +11,14 @@ Author: pumbur <pumbur@pumbur.net>
   -webkit-text-size-adjust: none;
 }
 
+.hljs,
+.hljs-subst,
+.diff .hljs-chunk,
+.css .hljs-value,
+.css .hljs-attribute {
+  color: #aaa;
+}
+
 .profile .hljs-header *,
 .hljs-section {
   color: #fff;
@@ -18,7 +26,6 @@ Author: pumbur <pumbur@pumbur.net>
 
 .hljs-comment,
 .hljs-preprocessor,
-.hljs-preprocessor .hljs-title,
 .hljs-pragma,
 .hljs-shebang,
 .hljs-meta,
@@ -52,14 +59,12 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-built_in,
 .hljs-literal,
 .hljs-type,
-.hljs-typename,
 .go .hljs-constant,
-.lua .hljs-title,
 .perl .hljs-variable,
 .php .hljs-variable,
 .mel .hljs-variable,
 .django .hljs-variable,
-.css .funtion,
+.css .function,
 .smalltalk .method,
 .hljs-hexcolor,
 .hljs-important,
@@ -71,7 +76,7 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs-keyword,
-.hljs-tag .hljs-title,
+.hljs-tag .hljs-name,
 .css .hljs-tag,
 .css .hljs-class,
 .css .hljs-id,
@@ -110,8 +115,7 @@ Author: pumbur <pumbur@pumbur.net>
 
 .hljs-section,
 .hljs-doctag,
-.profile .hljs-header,
-.parser3 .hljs-title {
+.profile .hljs-header {
   font-weight: bold;
 }
 
@@ -123,11 +127,4 @@ Author: pumbur <pumbur@pumbur.net>
 .xml .css,
 .xml .hljs-cdata {
   opacity: 0.6;
-}
-
-.hljs,
-.diff .hljs-chunk,
-.css .hljs-value,
-.css .hljs-attribute {
-  color: #aaa;
 }

@@ -15,6 +15,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 
 .hljs-string,
 .hljs-variable,
+.hljs-symbol,
 .hljs-section,
 .hljs-tag .hljs-value,
 .hljs-filter .hljs-argument,
@@ -36,9 +37,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-keyword,
 .hljs-section,
 .hljs-name,
-.hljs-tag .hljs-title,
-.lisp .hljs-title,
-.http .hljs-title,
+.hljs-type,
 .css .hljs-tag,
 .hljs-winutils,
 .hljs-flow,

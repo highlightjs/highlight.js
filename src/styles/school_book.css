@@ -24,7 +24,6 @@ pre{
 .hljs-change,
 .hljs-winutils,
 .hljs-flow,
-.nginx .hljs-title,
 .tex .hljs-special {
   color:#005599;
   font-weight:bold;
@@ -44,12 +43,9 @@ pre{
 .css .hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
-.ruby .hljs-symbol,
-.ruby .hljs-symbol .hljs-string,
-.ruby .hljs-class .hljs-parent,
+.hljs-symbol,
 .hljs-built_in,
 .django .hljs-template_tag,
-.smalltalk .hljs-class,
 .ruby .hljs-string,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
@@ -87,8 +83,7 @@ pre{
 .hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
-.smalltalk .hljs-class,
-.xml .hljs-tag .hljs-title,
+.hljs-tag .hljs-name,
 .diff .hljs-header,
 .hljs-chunk,
 .hljs-winutils,

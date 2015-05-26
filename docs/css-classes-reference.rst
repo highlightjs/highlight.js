@@ -21,8 +21,8 @@ Stylable classes
 | meta                     | Flags, modifiers, annotations, processing         |
 |                          | instructions, preprocessor directive, etc.        |
 +--------------------------+---------------------------------------------------+
-| name                     | Name of a directive in structured config file,    |
-|                          | first word in an s-expression.                    |
+| name                     | Name of a directive in structured config file, of |
+|                          | an XML tag, the first word in an s-expression.    |
 +--------------------------+---------------------------------------------------+
 | number                   | Number, including units and modifiers, if any.    |
 +--------------------------+---------------------------------------------------+

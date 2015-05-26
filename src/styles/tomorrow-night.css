@@ -30,6 +30,7 @@
 .hljs-pragma,
 .hljs-built_in,
 .hljs-literal,
+.hljs-type,
 .hljs-params,
 .hljs-constant,
 .hljs-meta {
@@ -37,7 +38,6 @@
 }
 
 /* Tomorrow Yellow */
-.ruby .hljs-class .hljs-title,
 .css .hljs-rule .hljs-attribute {
   color: #f0c674;
 }
@@ -47,7 +47,7 @@
 .hljs-value,
 .hljs-inheritance,
 .hljs-header,
-.ruby .hljs-symbol,
+.hljs-symbol,
 .xml .hljs-cdata {
   color: #b5bd68;
 }
@@ -60,21 +60,14 @@
 }
 
 /* Tomorrow Blue */
-.hljs-function,
 .hljs-name,
 .python .hljs-decorator,
-.python .hljs-title,
-.ruby .hljs-function .hljs-title,
-.ruby .hljs-title .hljs-keyword,
-.perl .hljs-sub,
-.javascript .hljs-title,
-.coffeescript .hljs-title {
+.perl .hljs-sub {
   color: #81a2be;
 }
 
 /* Tomorrow Purple */
-.hljs-keyword,
-.javascript .hljs-function {
+.hljs-keyword {
   color: #b294bb;
 }
 

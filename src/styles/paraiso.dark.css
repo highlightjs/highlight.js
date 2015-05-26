@@ -5,8 +5,7 @@
 */
 
 /* Paraíso Comment */
-.hljs-comment,
-.hljs-title {
+.hljs-comment {
   color: #8d8687;
 }
 
@@ -17,7 +16,7 @@
 .hljs-regexp,
 .hljs-meta,
 .ruby .hljs-constant,
-.xml .hljs-tag .hljs-title,
+.hljs-tag .hljs-name,
 .xml .hljs-pi,
 .xml .hljs-doctype,
 .html .hljs-doctype,
@@ -32,14 +31,15 @@
 .hljs-preprocessor,
 .hljs-built_in,
 .hljs-literal,
+.hljs-type,
 .hljs-params,
 .hljs-constant {
   color: #f99b15;
 }
 
 /* Paraíso Yellow */
+.hljs-title,
 .hljs-section,
-.ruby .hljs-class .hljs-title,
 .css .hljs-rule .hljs-attribute {
   color: #fec418;
 }
@@ -49,7 +49,7 @@
 .hljs-value,
 .hljs-inheritance,
 .hljs-header,
-.ruby .hljs-symbol,
+.hljs-symbol,
 .xml .hljs-cdata {
   color: #48b685;
 }
@@ -60,21 +60,14 @@
 }
 
 /* Paraíso Blue */
-.hljs-function,
 .python .hljs-decorator,
-.python .hljs-title,
-.ruby .hljs-function .hljs-title,
-.ruby .hljs-title .hljs-keyword,
-.perl .hljs-sub,
-.javascript .hljs-title,
-.coffeescript .hljs-title {
+.perl .hljs-sub {
   color: #06b6ef;
 }
 
 /* Paraíso Purple */
 .hljs-keyword,
-.hljs-name,
-.javascript .hljs-function {
+.hljs-name {
   color: #815ba4;
 }
 

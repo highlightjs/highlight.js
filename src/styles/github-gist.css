@@ -35,7 +35,6 @@
 .markdown .hljs-strong,
 .markdown .hljs-emphasis,
 .markdown .hljs-blockquote,
-.objectivec .hljs-preprocessor .hljs-title,
 .perl .hljs-regexp,
 .php .hljs-regexp,
 .xml .hljs-value,
@@ -46,10 +45,10 @@
 
 .hljs-keyword,
 .hljs-name,
+.hljs-type,
 .css .hljs-at_rule,
 .css .hljs-important,
 .http .hljs-request,
-.haskell .hljs-type,
 .java .hljs-javadoctag,
 .javascript .hljs-tag,
 .javascript .hljs-javadoctag,
@@ -62,12 +61,12 @@
 .scss .hljs-at_rule,
 .scss .hljs-important,
 .stylus .hljs-at_rule,
-.go .hljs-typename,
 .swift .hljs-preprocessor {
   color: #a71d5d;
 }
 
 .hljs-literal,
+.hljs-symbol,
 .bash .hljs-literal,
 .bash .hljs-built_in,
 .coffeescript .hljs-literal,
@@ -103,18 +102,14 @@
 .ruby .hljs-constant,
 .ruby .hljs-number,
 .ruby .hljs-subst .hljs-keyword,
-.ruby .hljs-symbol,
 .rust .hljs-number,
 .sql .hljs-number,
-.puppet .hljs-function,
 .less .hljs-number,
 .less .hljs-hexcolor,
-.less .hljs-function,
 .less .hljs-attribute,
 .scss .hljs-preprocessor,
 .scss .hljs-number,
 .scss .hljs-hexcolor,
-.scss .hljs-function,
 .scss .hljs-attribute,
 .stylus .hljs-number,
 .stylus .hljs-hexcolor,
@@ -128,9 +123,9 @@
 }
 
 .hljs-section,
+.hljs-tag .hljs-name,
 .cs .hljs-xmlDocTag,
 .css .hljs-tag,
-.xml .hljs-title,
 .stylus .hljs-tag {
   color: #63a35c;
 }
@@ -139,47 +134,26 @@
 .cs .hljs-preprocessor .hljs-keyword,
 .css .hljs-attr_selector,
 .css .hljs-value,
-.javascript .hljs-tag .hljs-title,
 .makefile .hljs-constant,
 .xml .hljs-tag,
 .scss .hljs-variable {
   color: #333333;
 }
 
-.bash .hljs-title,
-.coffeescript .hljs-title,
-.cpp .hljs-title,
-.c .hljs-title,
-.cs .hljs-title,
+.hljs-title,
 .css .hljs-id,
-.css .hljs-class,
 .css .hljs-pseudo,
-.haskell .hljs-title,
 .haskell .hljs-pragma,
-.java .hljs-title,
-.javascript .hljs-title,
-.makefile .hljs-title,
-.objectivec .hljs-title,
 .perl .hljs-sub,
-.php .hljs-title,
 .python .hljs-decorator,
-.python .hljs-title,
 .ruby .hljs-parent,
-.ruby .hljs-title,
-.rust .hljs-title,
 .xml .hljs-attribute,
-.puppet .hljs-title,
 .less .hljs-id,
 .less .hljs-pseudo,
-.less .hljs-class,
 .scss .hljs-id,
 .scss .hljs-pseudo,
-.scss .hljs-class,
-.stylus .hljs-class,
 .stylus .hljs-id,
 .stylus .hljs-pseudo,
-.stylus .hljs-title,
-.swift .hljs-title,
 .diff .hljs-chunk {
   color: #795da3;
 }

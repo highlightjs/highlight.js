@@ -50,13 +50,13 @@ Date: 2013-04-02
 }
 
 .hljs-section,
-.asciidoc .hljs-title,
-.hljs-function .hljs-title {
+.hljs-title {
   color: #900;
 }
 
 .hljs-name,
-.hljs-class {
+.hljs-class .hljs-title,
+.hljs-type {
   color: #458;
 }
 
@@ -114,10 +114,6 @@ Date: 2013-04-02
 
 .hljs-symbol {
   color: #990073;
-}
-
-.hljs-symbol .hljs-string {
-  color: #a60;
 }
 
 .hljs-tag {

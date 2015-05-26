@@ -30,9 +30,9 @@ Style with support for rainbow parens
 .hljs-keyword,
 .hljs-literal,
 .hljs-name,
+.hljs-type,
 .clojure .hljs-attribute,
 .hljs-winutils,
-.javascript .hljs-title,
 .hljs-addition,
 .css .hljs-tag {
   color: #cc99cc;
@@ -60,10 +60,6 @@ Style with support for rainbow parens
   color: #b5bd68;
 }
 
-.hljs-class .hljs-keyword {
-  color: #f2777a;
-}
-
 .hljs-variable,
 .smalltalk .hljs-number,
 .hljs-constant,
@@ -75,7 +71,7 @@ Style with support for rainbow parens
 }
 
 .hljs-section,
-.hljs-tag .hljs-title,
+.hljs-tag .hljs-name,
 .hljs-rule .hljs-property,
 .django .hljs-tag .hljs-keyword {
   font-weight: bold;
@@ -90,7 +86,6 @@ Style with support for rainbow parens
 .hljs-pi,
 .hljs-shebang,
 .hljs-symbol,
-.hljs-symbol .hljs-string,
 .diff .hljs-change,
 .hljs-special,
 .hljs-attr_selector,

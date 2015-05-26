@@ -30,8 +30,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-addition,
 .css .hljs-tag,
 .hljs-request,
-.hljs-status,
-.nginx .hljs-title {
+.hljs-status {
   color: #859900;
 }
 
@@ -82,7 +81,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-pragma,
 .hljs-shebang,
 .hljs-symbol,
-.hljs-symbol .hljs-string,
 .diff .hljs-change,
 .hljs-special,
 .hljs-attr_selector,

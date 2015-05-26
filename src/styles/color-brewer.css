@@ -16,7 +16,7 @@ Ported by Fabrício Tavares de Oliveira
 
 .hljs,
 .hljs-subst,
-.hljs-tag .hljs-title {
+.hljs-tag .hljs-name {
   color: #000;
 }
 
@@ -28,12 +28,9 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-preprocessor,
 .hljs-pragma,
 .hljs-meta,
-.haml .hljs-symbol,
-.ruby .hljs-symbol,
-.ruby .hljs-symbol .hljs-string,
+.hljs-symbol,
 .hljs-template_tag,
 .django .hljs-variable,
-.smalltalk .hljs-class,
 .hljs-addition,
 .hljs-flow,
 .hljs-stream,
@@ -62,7 +59,6 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-regexp,
 .hljs-literal,
 .hljs-hexcolor,
-.smalltalk .hljs-symbol,
 .smalltalk .hljs-char,
 .go .hljs-constant,
 .hljs-change,
@@ -116,11 +112,9 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-built_in,
 .css .hljs-tag,
 .hljs-doctag,
-.smalltalk .hljs-class,
 .hljs-winutils,
 .bash .hljs-variable,
 .hljs-type,
-.hljs-typename,
 .tex .hljs-command,
 .asciidoc .hljs-strong,
 .markdown .hljs-strong,
@@ -151,7 +145,6 @@ Ported by Fabrício Tavares de Oliveira
 }
 
 .css .hljs-class,
-.html .hljs-tag,
-.html .hljs-title {
+.html .hljs-tag {
   color: #3182bd;
 }

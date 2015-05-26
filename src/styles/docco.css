@@ -22,8 +22,6 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 .hljs-literal,
 .css .rule .hljs-keyword,
 .hljs-winutils,
-.javascript .hljs-title,
-.lisp .hljs-title,
 .hljs-subst {
   color: #954121;
 }
@@ -41,22 +39,17 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
   color: #219161;
 }
 
-.hljs-title,
 .hljs-id,
-.hljs-section {
+.hljs-section,
+.hljs-type {
   color: #19469d;
 }
+
 .hljs-params {
   color: #00f;
 }
 
-.javascript .hljs-title,
-.lisp .hljs-title,
-.hljs-subst {
-  font-weight: normal;
-}
-
-.hljs-class .hljs-title,
+.hljs-title,
 .haskell .hljs-label,
 .tex .hljs-command {
   color: #458;
@@ -64,7 +57,6 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-tag,
-.hljs-tag .hljs-title,
 .hljs-rule .hljs-property,
 .django .hljs-tag .hljs-keyword {
   color: #000080;
@@ -82,15 +74,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
   color: #b68;
 }
 
-.hljs-class {
-  color: #458;
-  font-weight: bold;
-}
-
 .hljs-symbol,
-.ruby .hljs-symbol .hljs-string,
-.ruby .hljs-symbol .hljs-keyword,
-.ruby .hljs-symbol .keymethods,
 .lisp .hljs-keyword,
 .tex .hljs-special,
 .input_number {
@@ -99,8 +83,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .builtin,
 .constructor,
-.hljs-built_in,
-.lisp .hljs-title {
+.hljs-built_in {
   color: #0086b3;
 }
 

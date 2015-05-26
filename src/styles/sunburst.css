@@ -20,17 +20,14 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-keyword,
 .hljs-name,
-.ruby .hljs-function .hljs-keyword,
+.hljs-type,
 .hljs-request,
-.hljs-status,
-.nginx .hljs-title {
+.hljs-status {
   color: #e28964;
 }
 
-.hljs-function .hljs-keyword,
 .hljs-sub .hljs-keyword,
-.method,
-.hljs-list .hljs-title {
+.method {
   color: #99cf50;
 }
 
@@ -66,14 +63,11 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-class .hljs-title,
-.hljs-type,
-.smalltalk .hljs-class,
 .hljs-doctag {
   text-decoration: underline;
 }
 
 .hljs-symbol,
-.ruby .hljs-symbol .hljs-string,
 .hljs-number {
   color: #3387cc;
 }

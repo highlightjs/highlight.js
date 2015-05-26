@@ -19,8 +19,6 @@ based on dark.css by Ivan Sagalaev
 .hljs-name,
 .css .hljs-class,
 .css .hljs-id,
-.lisp .hljs-title,
-.nginx .hljs-title,
 .hljs-request,
 .hljs-status,
 .clojure .hljs-attribute {
@@ -64,7 +62,6 @@ based on dark.css by Ivan Sagalaev
 .hljs-section,
 .hljs-type,
 .diff .hljs-header,
-.ruby .hljs-class .hljs-parent,
 .nginx .hljs-built_in,
 .tex .hljs-command,
 .hljs-prompt {
@@ -72,8 +69,7 @@ based on dark.css by Ivan Sagalaev
 }
 
 .dos .hljs-winutils,
-.ruby .hljs-symbol,
-.ruby .hljs-symbol .hljs-string,
+.hljs-symbol,
 .ruby .hljs-string {
   color: #dca3a3;
 }
@@ -84,7 +80,6 @@ based on dark.css by Ivan Sagalaev
 .hljs-preprocessor,
 .hljs-pragma,
 .hljs-built_in,
-.smalltalk .hljs-class,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
 .css .hljs-rule .hljs-value,

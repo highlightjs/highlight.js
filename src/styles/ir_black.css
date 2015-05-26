@@ -28,9 +28,7 @@
 }
 
 .hljs-sub .hljs-keyword,
-.method,
-.hljs-list .hljs-title,
-.nginx .hljs-title {
+.method {
   color: #ffffb6;
 }
 
@@ -60,14 +58,12 @@
 .tex .hljs-special,
 .hljs-type,
 .hljs-constant,
-.smalltalk .hljs-class,
 .hljs-doctag,
 .nginx .hljs-built_in {
   color: #ffffb6;
 }
 
 .hljs-symbol,
-.ruby .hljs-symbol .hljs-string,
 .hljs-number,
 .hljs-variable,
 .vbscript,

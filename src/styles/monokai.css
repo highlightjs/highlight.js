@@ -18,7 +18,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-winutils,
 .hljs-flow,
 .hljs-name,
-.nginx .hljs-title,
 .tex .hljs-special {
   color: #f92672;
 }
@@ -38,7 +37,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-link_label,
 .hljs-attribute,
 .hljs-symbol,
-.hljs-symbol .hljs-string,
 .hljs-value,
 .hljs-regexp {
   color: #bf79db;
@@ -55,11 +53,9 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-type,
 .hljs-preprocessor,
 .hljs-pragma,
-.ruby .hljs-class .hljs-parent,
 .hljs-built_in,
 .django .hljs-template_tag,
 .django .hljs-variable,
-.smalltalk .hljs-class,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
@@ -99,7 +95,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
-.smalltalk .hljs-class,
 .diff .hljs-header,
 .hljs-chunk,
 .hljs-winutils,

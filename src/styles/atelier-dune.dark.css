@@ -13,7 +13,7 @@
 .hljs-tag,
 .hljs-regexp,
 .ruby .hljs-constant,
-.xml .hljs-tag .hljs-title,
+.hljs-tag .hljs-name,
 .xml .hljs-pi,
 .xml .hljs-doctype,
 .html .hljs-doctype,
@@ -29,13 +29,13 @@
 .hljs-meta,
 .hljs-built_in,
 .hljs-literal,
+.hljs-type,
 .hljs-params,
 .hljs-constant {
   color: #b65611;
 }
 
 /* Atelier-Dune Yellow */
-.ruby .hljs-class .hljs-title,
 .css .hljs-rule .hljs-attribute {
   color: #ae9513;
 }
@@ -45,7 +45,7 @@
 .hljs-value,
 .hljs-inheritance,
 .hljs-header,
-.ruby .hljs-symbol,
+.hljs-symbol,
 .xml .hljs-cdata {
   color: #60ac39;
 }
@@ -58,21 +58,14 @@
 }
 
 /* Atelier-Dune Blue */
-.hljs-function,
 .hljs-name,
 .python .hljs-decorator,
-.python .hljs-title,
-.ruby .hljs-function .hljs-title,
-.ruby .hljs-title .hljs-keyword,
-.perl .hljs-sub,
-.javascript .hljs-title,
-.coffeescript .hljs-title {
+.perl .hljs-sub {
   color: #6684e1;
 }
 
 /* Atelier-Dune Purple */
-.hljs-keyword,
-.javascript .hljs-function {
+.hljs-keyword {
   color: #b854d4;
 }
 

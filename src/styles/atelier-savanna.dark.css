@@ -13,7 +13,7 @@
 .hljs-tag,
 .hljs-regexp,
 .ruby .hljs-constant,
-.xml .hljs-tag .hljs-title,
+.hljs-tag .hljs-name,
 .xml .hljs-pi,
 .xml .hljs-doctype,
 .html .hljs-doctype,
@@ -29,13 +29,13 @@
 .hljs-meta,
 .hljs-built_in,
 .hljs-literal,
+.hljs-type,
 .hljs-params,
 .hljs-constant {
   color: #9f713c;
 }
 
 /* Atelier-Savanna Yellow */
-.ruby .hljs-class .hljs-title,
 .css .hljs-rule .hljs-attribute {
   color: #a07e3b;
 }
@@ -45,7 +45,7 @@
 .hljs-value,
 .hljs-inheritance,
 .hljs-header,
-.ruby .hljs-symbol,
+.hljs-symbol,
 .xml .hljs-cdata {
   color: #489963;
 }
@@ -58,21 +58,14 @@
 }
 
 /* Atelier-Savanna Blue */
-.hljs-function,
 .hljs-name,
 .python .hljs-decorator,
-.python .hljs-title,
-.ruby .hljs-function .hljs-title,
-.ruby .hljs-title .hljs-keyword,
-.perl .hljs-sub,
-.javascript .hljs-title,
-.coffeescript .hljs-title {
+.perl .hljs-sub {
   color: #478c90;
 }
 
 /* Atelier-Savanna Purple */
-.hljs-keyword,
-.javascript .hljs-function {
+.hljs-keyword {
   color: #55859b;
 }
 

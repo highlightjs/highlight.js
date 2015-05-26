@@ -14,11 +14,8 @@ Darkula color scheme from the JetBrains family of IDEs
 }
 
 .hljs,
-.hljs-tag,
-.hljs-title,
 .css .hljs-rule,
 .css .hljs-value,
-.aspectj .hljs-function,
 .css .hljs-function .hljs-preprocessor,
 .hljs-pragma {
   color: #bababa;
@@ -43,8 +40,7 @@ Darkula color scheme from the JetBrains family of IDEs
 
 .hljs-tag .hljs-value,
 .hljs-code,
-.css .hljs-class,
-.hljs-class .hljs-title:last-child {
+.css .hljs-class {
   color: #a6e22e;
 }
 
@@ -53,16 +49,11 @@ Darkula color scheme from the JetBrains family of IDEs
 }
 
 .hljs-emphasis,
-.hljs-strongemphasis,
-.hljs-class .hljs-title:last-child,
-.hljs-typename {
+.hljs-strongemphasis {
   font-style: italic;
 }
 
 .hljs-keyword,
-.ruby .hljs-class .hljs-keyword:first-child,
-.ruby .hljs-function .hljs-keyword,
-.hljs-function,
 .hljs-change,
 .hljs-winutils,
 .hljs-flow,
@@ -71,26 +62,19 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-section,
 .hljs-attribute,
 .hljs-symbol,
-.hljs-symbol .hljs-string,
-.hljs-tag .hljs-title,
+.hljs-tag .hljs-name,
 .hljs-value,
 .alias .hljs-keyword:first-child,
 .css .hljs-tag,
 .css .unit,
 .css .hljs-important,
-.hljs-function .hljs-keyword,
-.hljs-class .hljs-keyword:first-child,
-.hljs-aspect .hljs-keyword:first-child,
 .hljs-constant,
-.hljs-typename,
 .hljs-variable,
 .css .hljs-attribute {
   color: #cb7832;
 }
 
-.hljs-params,
-.hljs-class .hljs-title,
-.hljs-aspect .hljs-title {
+.hljs-params {
   color: #b9b9b9;
 }
 
@@ -98,11 +82,9 @@ Darkula color scheme from the JetBrains family of IDEs
 .css .hljs-id,
 .hljs-subst,
 .hljs-type,
-.ruby .hljs-class .hljs-parent,
 .hljs-built_in,
 .django .hljs-template_tag,
 .django .hljs-variable,
-.smalltalk .hljs-class,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,

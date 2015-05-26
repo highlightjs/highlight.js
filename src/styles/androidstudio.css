@@ -13,7 +13,8 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 }
 
 .hljs-number,
-.hljs-literal {
+.hljs-literal,
+.hljs-symbol {
   color: #6897BB;
 }
 
@@ -42,12 +43,13 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 }
 
 .hljs-section,
-.hljs-function .hljs-title,
+.hljs-title,
+.hljs-type,
 .hljs-change {
   color: #ffc66d;
 }
 
-.hljs-tag .hljs-title,
+.hljs-tag .hljs-name,
 .hljs-doctype {
   color: #e8bf6a;
 }

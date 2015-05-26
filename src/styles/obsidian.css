@@ -16,7 +16,6 @@
 .hljs-change,
 .hljs-winutils,
 .hljs-flow,
-.nginx .hljs-title,
 .css .hljs-id,
 .tex .hljs-special {
   color: #93c763;
@@ -55,7 +54,6 @@
   color: white;
 }
 
-.hljs-class,
 .hljs-hexcolor {
   color: #93c763;
 }
@@ -76,18 +74,15 @@
 
 .hljs-link_url,
 .hljs-tag,
-.hljs-tag .hljs-title,
 .hljs-bullet,
 .hljs-subst,
 .hljs-emphasis,
 .hljs-type,
 .hljs-preprocessor,
 .hljs-pragma,
-.ruby .hljs-class .hljs-parent,
 .hljs-built_in,
 .django .hljs-template_tag,
 .django .hljs-variable,
-.smalltalk .hljs-class,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
@@ -102,7 +97,8 @@
   color: #8cbbad;
 }
 
-.hljs-string {
+.hljs-string,
+.hljs-symbol {
   color: #ec7600;
 }
 
@@ -129,7 +125,6 @@
 .hljs-type,
 .vbscript .hljs-built_in,
 .rsl .hljs-built_in,
-.smalltalk .hljs-class,
 .diff .hljs-header,
 .hljs-chunk,
 .hljs-winutils,

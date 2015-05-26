@@ -20,10 +20,8 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-keyword,
-.ruby .hljs-function .hljs-keyword,
 .hljs-request,
 .hljs-status,
-.nginx .hljs-title,
 .method,
 .hljs-name {
   color: #c26230;
@@ -49,8 +47,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-tag,
-.hljs-tag .hljs-keyword,
-.hljs-tag .hljs-title,
+.hljs-tag .hljs-name,
 .hljs-doctype,
 .hljs-sub .hljs-identifier,
 .hljs-pi,
@@ -62,14 +59,8 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   color: #d0d0ff;
 }
 
-.hljs-class .hljs-title,
-.hljs-type,
-.smalltalk .hljs-class,
-.hljs-doctag {
-  text-decoration: none;
-}
-
 .hljs-constant,
+.hljs-type,
 .hljs-name {
   color: #da4939;
 }
@@ -77,8 +68,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 .hljs-symbol,
 .hljs-built_in,
-.ruby .hljs-symbol .hljs-string,
-.ruby .hljs-symbol .hljs-identifier,
 .asciidoc .hljs-link_url,
 .markdown .hljs-link_url,
 .hljs-attribute {
