@@ -2,6 +2,7 @@
 Language: Intel x86 Assembly
 Author: innocenat <innocenat@gmail.com>
 Description: x86 assembly language using Intel's mnemonic and NASM syntax
+Category: assembler
 */
 
 function(hljs) {

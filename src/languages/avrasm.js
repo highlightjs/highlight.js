@@ -1,6 +1,7 @@
 /*
 Language: AVR Assembler
 Author: Vladimir Ermakov <vooon341@gmail.com>
+Category: assembler
 */
 
 function(hljs) {

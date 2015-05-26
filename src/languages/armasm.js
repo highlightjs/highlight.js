@@ -2,6 +2,7 @@
 Language: ARM Assembly
 Author: Dan Panzarella <alsoelp@gmail.com>
 Description: ARM Assembly including Thumb and Thumb2 instructions
+Category: assembler
 */
 
 function(hljs) {
