@@ -54,9 +54,10 @@ function moveLanguages() {
 }
 
 function moveStyles() {
-  var css    = path.join(directory.root, 'src', 'styles', '*.css'),
-      images = path.join(directory.root, 'src', 'styles', '*.{jpg,png}'),
-      output = path.join(directory.build, 'styles');
+  var css     = path.join(directory.root, 'src', 'styles', '*.css'),
+      images  = path.join(directory.root, 'src', 'styles', '*.{jpg,png}'),
+      output  = path.join(directory.build, 'styles'),
+      options = { dir: output, encoding: 'binary' };
 
   return {
     startlogcss: { task: ['log', 'Building style files.'] },
@@ -66,7 +67,7 @@ function moveStyles() {
     },
     readcssimages: {
       requires: 'startlogcss',
-      task: ['glob', utility.glob(images)]
+      task: ['glob', utility.glob(images, 'binary')]
     },
     compresslogcss: {
       requires: 'readcss',
@@ -81,7 +82,7 @@ function moveStyles() {
       requires: ['renamecss', 'readcssimages'],
       task: ['log', 'Writing style files.']
     },
-    writecss: { requires: 'writelogcss', task: ['dest', output] }
+    writecss: { requires: 'writelogcss', task: ['dest', options] }
   };
 }
 
