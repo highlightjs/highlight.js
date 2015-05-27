@@ -75,7 +75,7 @@ function(hljs) {
         beginKeywords: 'define', end: /\{/,
         contains: [
           {
-            className: 'title', begin: hljs.IDENT_RE, endsParent: true
+            className: 'section', begin: hljs.IDENT_RE, endsParent: true
           }
         ]
       },
