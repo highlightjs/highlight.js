@@ -95,21 +95,21 @@ function copyMetaFiles() {
 }
 
 function buildStyles() {
-  var input  = path.join(directory.root, 'src', 'styles',
-                         '*.{css,jpg,png}'),
-      output = path.join(directory.build, 'styles');
+  var input   = path.join(directory.root, 'src', 'styles', '*'),
+      output  = path.join(directory.build, 'styles'),
+      options = { encoding: 'binary', dir: output };
 
   return {
     logcss: { task: ['log', 'Building style files.'] },
     readcss: {
       requires: 'logcss',
-      task: ['glob', utility.glob(input)]
+      task: ['glob', utility.glob(input, 'binary')]
     },
     writecsslog: {
       requires: 'readcss',
       task: ['log', 'Writing style files.']
     },
-    writecss: { requires: 'readcss', task: ['dest', output] }
+    writecss: { requires: 'writecsslog', task: ['dest', options] }
   };
 }
 

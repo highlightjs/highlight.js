@@ -127,7 +127,7 @@ function buildFilterCallback(qualifiers) {
   return _.partial(filterByQualifiers, _, languages, categories);
 }
 
-function glob(pattern, encoding) {
+function globDefaults(pattern, encoding) {
   encoding = encoding || 'utf8';
 
   // The limit option is a fix for issue #636 when the build script would
@@ -156,7 +156,7 @@ function getStyleNames(callback) {
 module.exports = {
   buildFilterCallback: buildFilterCallback,
   getStyleNames: getStyleNames,
-  glob: glob,
+  glob: globDefaults,
   parseHeader: parseHeader,
   regex: regex,
   replace: replace,

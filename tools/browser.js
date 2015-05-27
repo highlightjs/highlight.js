@@ -27,28 +27,24 @@ function copyDocs() {
 
 function generateDemo(filterCB, readArgs) {
   var staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
-      stylesArgs = utility.glob(path.join('src', 'styles', '*'), 'bin'),
-      demoRoot   = path.join(directory.build, 'demo');
+      stylesArgs = utility.glob(path.join('src', 'styles', '*'), 'binary'),
+      demoRoot   = path.join(directory.build, 'demo'),
+      destArgs   = { dir: path.join(demoRoot, 'styles'), encoding: 'binary' };
 
   return {
     logDemoStart: { task: ['log', 'Generating demo.'] },
-
     readLanguages: { requires: 'logDemoStart', task: ['glob', readArgs] },
     filterSnippets: { requires: 'readLanguages', task: ['filter', filterCB] },
     readSnippet: { requires: 'filterSnippets', task: 'readSnippet' },
     templateDemo: { requires: 'readSnippet', task: 'templateDemo' },
     writeDemo: {
       requires: 'templateDemo',
-      task: ['write', path.join(demoRoot, 'index.html')] },
-
+      task: ['write', path.join(demoRoot, 'index.html')]
+    },
     readStatic: { requires: 'logDemoStart', task: ['glob', staticArgs] },
     writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
-
     readStyles: { requires: 'logDemoStart', task: ['glob', stylesArgs] },
-    writeStyles: {
-      requires: 'readStyles',
-      task: ['dest', path.join(demoRoot, 'styles')]
-    }
+    writeStyles: { requires: 'readStyles', task: ['dest', destArgs] }
   };
 }
 
