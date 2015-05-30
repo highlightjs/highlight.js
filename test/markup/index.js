@@ -2,9 +2,9 @@
 
 var fs      = require('fs');
 var glob    = require('glob');
-var hljs    = require('../build');
+var hljs    = require('../../build');
 var path    = require('path');
-var utility = require('./utility');
+var utility = require('../utility');
 
 function testLanguage(language) {
   var filePath  = utility.buildPath('markup', language, '*.expect.txt'),
