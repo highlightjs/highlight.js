@@ -42,6 +42,13 @@ describe('no highlighting', function() {
     actual.should.equal(expected);
   });
 
+  it('should skip pre tags without a child code tag', function() {
+    var expected = 'Computer output',
+        actual   = this.blocks[4];
+
+    actual.should.equal(expected);
+  });
+
   it('should keep block unchanged (unsupported language)', function() {
     var expected = 'for x in [1, 2, 3]: count(x)',
         actual   = this.blocks[5];
@@ -59,13 +66,6 @@ describe('no highlighting', function() {
   it('should keep block unchanged (unsupported prefixed language)', function() {
     var expected = 'for x in [1, 2, 3]: count(x)',
         actual   = this.blocks[7];
-
-    actual.should.equal(expected);
-  });
-
-  it('should skip pre tags without a child code tag', function() {
-    var expected = 'Computer output',
-        actual   = this.blocks[4];
 
     actual.should.equal(expected);
   });
