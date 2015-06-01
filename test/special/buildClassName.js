@@ -4,10 +4,9 @@ var _ = require('lodash');
 
 describe('block class names', function() {
   before(function() {
-    var testHTML     = document.querySelectorAll('#build-classname .hljs'),
-        getClassName = _.property('className');
+    var testHTML = document.querySelectorAll('#build-classname .hljs');
 
-    this.blocks = _.map(testHTML, getClassName)
+    this.blocks = _.map(testHTML, 'className')
   });
 
   it('should add language class name to block', function() {

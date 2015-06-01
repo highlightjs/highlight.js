@@ -6,10 +6,9 @@ var utility = require('../utility');
 
 describe('language alias', function() {
   before(function() {
-    var testHTML = document.querySelectorAll('#language-alias .hljs'),
-        getHTML  = _.property('innerHTML');
+    var testHTML = document.querySelectorAll('#language-alias .hljs');
 
-    this.blocks = _.map(testHTML, getHTML);
+    this.blocks = _.map(testHTML, 'innerHTML');
   });
 
   it('should highlight as aliased language', function() {

@@ -4,10 +4,9 @@ var _ = require('lodash');
 
 describe('no highlighting', function() {
   before(function() {
-    var testHTML = document.querySelectorAll('#no-highlight pre'),
-        getHTML  = _.property('children[0].innerHTML');
+    var testHTML = document.querySelectorAll('#no-highlight pre');
 
-    this.blocks   = _.map(testHTML, getHTML);
+    this.blocks   = _.map(testHTML, 'children[0].innerHTML');
     this.expected = {
       html:   '&lt;div id="contents"&gt;\n  ' +
               '&lt;p&gt;Hello, World!\n&lt;/div&gt;',

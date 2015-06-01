@@ -6,10 +6,9 @@ var utility = require('../utility');
 
 describe('custom markup', function() {
   before(function() {
-    var testHTML = document.querySelectorAll('#custom-markup .hljs'),
-        getHTML  = _.property('innerHTML');
+    var testHTML = document.querySelectorAll('#custom-markup .hljs');
 
-    this.blocks = _.map(testHTML, getHTML);
+    this.blocks = _.map(testHTML, 'innerHTML');
   });
 
   it('should replace tabs', function() {

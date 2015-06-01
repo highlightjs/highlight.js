@@ -7,11 +7,10 @@ var utility = require('../utility');
 describe('use br', function() {
   before(function() {
     var filename = utility.buildPath('expect', 'useBr.txt'),
-        testHTML = document.querySelectorAll('#use-br .hljs'),
-        getHTML  = _.property('innerHTML');
+        testHTML = document.querySelectorAll('#use-br .hljs');
 
     this.expected = fs.readFileSync(filename, 'utf-8').trim();
-    this.blocks   = _.map(testHTML, getHTML);
+    this.blocks   = _.map(testHTML, 'innerHTML');
   });
 
   it('should replace literal newlines with <br>', function() {
