@@ -26,40 +26,40 @@ describe('no highlighting', function() {
   });
 
   it('should keep block unchanged (plain)', function() {
-      var expected = '&lt;div id="contents"&gt;\n  ' +
-                     '&lt;p&gt;Hello, World!\n&lt;/div&gt;',
-          actual   = this.blocks[2].innerHTML;
+    var expected = '&lt;div id="contents"&gt;\n  ' +
+                   '&lt;p&gt;Hello, World!\n&lt;/div&gt;',
+        actual   = this.blocks[2].innerHTML;
 
-      actual.should.equal(expected);
+    actual.should.equal(expected);
   });
 
   it('should keep block unchanged (text)', function() {
-      var expected = '&lt;div id="contents"&gt;\n  ' +
-                     '&lt;p&gt;Hello, World!\n&lt;/div&gt;',
-          actual   = this.blocks[3].innerHTML;
+    var expected = '&lt;div id="contents"&gt;\n  ' +
+                   '&lt;p&gt;Hello, World!\n&lt;/div&gt;',
+        actual   = this.blocks[3].innerHTML;
 
-      actual.should.equal(expected);
+    actual.should.equal(expected);
   });
 
   it('should keep block unchanged (unsupported language)', function() {
-      var expected = 'for x in [1, 2, 3]: count(x)',
-          actual   = this.blocks[5].innerHTML;
+    var expected = 'for x in [1, 2, 3]: count(x)',
+        actual   = this.blocks[5].innerHTML;
 
-      actual.should.equal(expected);
+    actual.should.equal(expected);
   });
 
   it('should keep block unchanged (unsupported lang)', function() {
-      var expected = 'for x in [1, 2, 3]: count(x)',
-          actual   = this.blocks[6].innerHTML;
+    var expected = 'for x in [1, 2, 3]: count(x)',
+        actual   = this.blocks[6].innerHTML;
 
-      actual.should.equal(expected);
+    actual.should.equal(expected);
   });
 
   it('should keep block unchanged (unsupported prefixed language)', function() {
-      var expected = 'for x in [1, 2, 3]: count(x)',
-          actual   = this.blocks[7].innerHTML;
+    var expected = 'for x in [1, 2, 3]: count(x)',
+        actual   = this.blocks[7].innerHTML;
 
-      actual.should.equal(expected);
+    actual.should.equal(expected);
   });
 
   it('should skip pre tags without a child code tag', function() {
