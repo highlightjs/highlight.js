@@ -9,7 +9,7 @@
 }
 
 <span class="hljs-comment">/**
- * <span class="hljs-doctag"><span class="hljs-keyword">TODO</span></span>: Rely on isEven
+ * <span class="hljs-doctag">TODO:</span> Rely on isEven, but do not highlight bug.
  *
  * <span class="hljs-doctag">@param</span> int $a
  * <span class="hljs-doctag">@return</span> bool
