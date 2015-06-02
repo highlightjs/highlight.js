@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // Tests specific to the API exposed inside the hljs object. Right now, that
 // only includes tests for auto detection of languages via `highlightAuto`
