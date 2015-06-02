@@ -23,6 +23,11 @@ function(hljs) {
 		begin: /\[[^\"]+\]/
 	};
 	return {
-		contains: [hljs.HASH_COMMENT_MODE, VARIABLE, STRING, PREPROC]
+		contains: [
+		  hljs.HASH_COMMENT_MODE,
+		  VARIABLE,
+		  STRING,
+		  PREPROC
+		]
 	};
 }
