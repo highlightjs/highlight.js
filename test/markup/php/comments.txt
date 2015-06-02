@@ -9,7 +9,7 @@ function isEven($a) {
 }
 
 /**
- * TODO: Rely on isEven
+ * TODO: Rely on isEven, but do not highlight bug.
  *
  * @param int $a
  * @return bool

@@ -1,20 +1,21 @@
 'use strict';
 
+var _       = require('lodash');
 var fs      = require('fs');
 var utility = require('../utility');
 
 describe('custom markup', function() {
   before(function() {
-    var testHTML = document.querySelector('#custom-markup');
+    var testHTML = document.querySelectorAll('#custom-markup .hljs');
 
-    this.blocks = testHTML.querySelectorAll('.hljs');
+    this.blocks = _.map(testHTML, 'innerHTML');
   });
 
   it('should replace tabs', function() {
     var filename = utility.buildPath('expect', 'tabreplace.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
-        actual   = this.blocks[0].innerHTML;
+        actual   = this.blocks[0];
 
     actual.should.equal(expected);
   });
@@ -23,7 +24,7 @@ describe('custom markup', function() {
     var filename = utility.buildPath('expect', 'custommarkup.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
-        actual   = this.blocks[1].innerHTML;
+        actual   = this.blocks[1];
 
     actual.should.equal(expected);
   });
@@ -32,7 +33,7 @@ describe('custom markup', function() {
     var filename = utility.buildPath('expect', 'customtabreplace.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
-        actual   = this.blocks[2].innerHTML;
+        actual   = this.blocks[2];
 
     actual.should.equal(expected);
   });
@@ -41,7 +42,7 @@ describe('custom markup', function() {
     var filename = utility.buildPath('expect', 'brInPre.txt'),
 
         expected = fs.readFileSync(filename, 'utf-8'),
-        actual   = this.blocks[3].innerHTML;
+        actual   = this.blocks[3];
 
     actual.should.equal(expected);
   });

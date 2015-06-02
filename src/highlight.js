@@ -702,7 +702,7 @@ https://highlightjs.org/
     mode.contains.push(hljs.PHRASAL_WORDS_MODE);
     mode.contains.push({
       className: 'doctag',
-      beginKeywords: "TODO FIXME NOTE BUG XXX",
+      begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
       relevance: 0
     });
     return mode;
