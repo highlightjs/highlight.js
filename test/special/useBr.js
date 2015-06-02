@@ -13,27 +13,22 @@ describe('use br', function() {
     this.blocks   = _.map(testHTML, 'innerHTML');
   });
 
-  it('should replace literal newlines with <br>', function() {
+  it('should respect <br> tags', function() {
     var actual = this.blocks[0];
 
     actual.should.equal(this.expected);
   });
 
-  it('should replace literal newlines with <br> (with <br>)', function() {
+  it('should ignore literal new lines', function() {
     var actual = this.blocks[1];
 
     actual.should.equal(this.expected);
   });
 
-  it('should replace literal newlines with <br> (with <br/>)', function() {
+  it('should recognize xml-style <br/>', function() {
     var actual = this.blocks[2];
 
     actual.should.equal(this.expected);
   });
 
-  it('should replace literal newlines with <br> (with <br />)', function() {
-    var actual = this.blocks[3];
-
-    actual.should.equal(this.expected);
-  });
 });
