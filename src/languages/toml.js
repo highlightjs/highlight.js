@@ -1,7 +1,7 @@
 /*
 Language: Toml
 Author: GuillaumeGomez <guillaume1.gomez@gmail.com>
-Category: common
+Category: config
 */
 
 function(hljs) {
