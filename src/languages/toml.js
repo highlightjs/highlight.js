@@ -33,7 +33,7 @@ function(hljs) {
     //begin: /("""|'''|"|')(?:[^"'\\]|\\.|\\\n)*("""|'''|"|')/
   };
   var TABLE = {
-    className: "table",
+    className: "preprocessor",
     begin: /^([\s]+)?[\[]+(.*?)[\]]+/
   };
   var NUMBER = {
