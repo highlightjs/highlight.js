@@ -26,7 +26,7 @@ specify the language in the `class` attribute:
 <pre><code class="html">...</code></pre>
 ```
 
-The list of supported language classes is available in the [class reference][8].
+The list of supported language classes is available in the [class reference][2].
 Classes can also be prefixed with either `language-` or `lang-`.
 
 To disable highlighting altogether use the `nohighlight` class:
@@ -38,7 +38,7 @@ To disable highlighting altogether use the `nohighlight` class:
 ## Custom Initialization
 
 When you need a bit more control over the initialization of
-highlight.js, you can use the [`highlightBlock`][2] and [`configure`][3]
+highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
 functions. This allows you to control *what* to highlight and *when*.
 
 Here’s an equivalent way to calling [`initHighlightingOnLoad`][1] using jQuery:
@@ -63,22 +63,22 @@ $('div.code').each(function(i, block) {
 });
 ```
 
-For other options refer to the documentation for [`configure`][3].
+For other options refer to the documentation for [`configure`][4].
 
 
 ## Getting the Library
 
 You can get highlight.js as a hosted or custom-build browser script or as a
-server module. Head over to the [download page][4] for all the options.
+server module. Head over to the [download page][5] for all the options.
 
 **Note:** the library is not supposed to work straight from the source on
 GitHub; it requires building. If none of the pre-packaged options work for you
-refer to the [building documentation][5].
+refer to the [building documentation][6].
 
 
 ## License
 
-Highlight.js is released under the BSD License. See [LICENSE][10] file for
+Highlight.js is released under the BSD License. See [LICENSE][7] file for
 details.
 
 
@@ -89,13 +89,13 @@ The official site for the library is at <https://highlightjs.org/>.
 Further in-depth documentation for the API and other topics is at
 <http://highlightjs.readthedocs.org/>.
 
-Authors and contributors are listed in the [AUTHORS.en.txt][9] file.
+Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
 
 [1]: http://highlightjs.readthedocs.org/en/latest/api.html#inithighlightingonload
-[2]: http://highlightjs.readthedocs.org/en/latest/api.html#highlightblock-block
-[3]: http://highlightjs.readthedocs.org/en/latest/api.html#configure-options
-[4]: https://highlightjs.org/download/
-[5]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
-[8]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
-[9]: https://github.com/isagalaev/highlight.js/blob/master/AUTHORS.en.txt
-[10]: https://github.com/isagalaev/highlight.js/blob/master/LICENSE
+[2]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
+[3]: http://highlightjs.readthedocs.org/en/latest/api.html#highlightblock-block
+[4]: http://highlightjs.readthedocs.org/en/latest/api.html#configure-options
+[5]: https://highlightjs.org/download/
+[6]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
+[7]: https://github.com/isagalaev/highlight.js/blob/master/LICENSE
+[8]: https://github.com/isagalaev/highlight.js/blob/master/AUTHORS.en.txt
