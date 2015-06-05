@@ -1,3 +1,11 @@
+## Master [Unpublished]
+
+Notable fixes and improvements to existing languages:
+
+- Fix encoding of images when copied over in certain builds
+- Fix incorrect highlighting of the word "bug" in comments
+- Treat decorators different from matrix multiplication in Python
+
 ## Version 8.6
 
 New languages:
