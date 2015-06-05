@@ -70,9 +70,13 @@ For other options refer to the documentation for [`configure`][4].
 
 ## Getting the Library
 
-You can get highlight.js as a hosted or custom-build browser script or
-as a server module. Head over to the [download page][5] for all the
-options.
+You can get highlight.js as a hosted, or custom-build, browser script or
+as a server module. Right out of the box the browser script supports
+both AMD and CommonJS, so if you wish you can use RequireJS or
+Browserify without having to build from source. The server module also
+works perfectly find with Browserify, but there is the option to use a
+build specific to browsers rather than something meant for a server.
+Head over to the [download page][5] for all the options.
 
 **Note:** the library is not supposed to work straight from the source
 on GitHub; it requires building. If none of the pre-packaged options
