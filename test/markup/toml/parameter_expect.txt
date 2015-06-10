@@ -1,2 +1,0 @@
-param_1 = <span class="hljs-string">"test1"</span>
-param_2 = [<span class="hljs-string">"test2"</span>, <span class="hljs-string">"test3"</span>]

@@ -173,3 +173,4 @@ Contributors:
 - Dan Panzarella <alsoelp@gmail.com>
 - Bruno Dias <bruno.r.dias@gmail.com>
 - Jay Strybis <jay.strybis@gmail.com>
+- Guillaume Gomez <guillaume1.gomez@gmail.com>

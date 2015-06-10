@@ -168,3 +168,4 @@ URL:   https://highlightjs.org/
 - Ден Панзарелла <alsoelp@gmail.com>
 - Бруно Диаз <bruno.r.dias@gmail.com>
 - Джей Стрибис <jay.strybis@gmail.com>
+- Гийом Гомес <guillaume1.gomez@gmail.com>
