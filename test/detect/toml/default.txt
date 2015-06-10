@@ -11,7 +11,7 @@ documentation = "https://documentation.com"
 
 keywords = ["keyword1", "keyword2", "keyword3"]
 some_value = "\"hoho\
-it continues !
+it continues !\
 "
 super_test= """ """
 super_number = 1_12000
