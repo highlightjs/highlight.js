@@ -15,25 +15,24 @@ function(hljs) {
   };
   var STRING = {
     className: "string",
+    contains: [hljs.BACKSLASH_ESCAPE],
     variants: [
       {
         begin: "'''", end: "'''",
-        contains: [hljs.BACKSLASH_ESCAPE]
+        relevance: 10
       }, {
         begin: '"""', end: '"""',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        relevance: 10
       }, {
-        begin: '"', end: '"',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        begin: '"', end: '"'
       }, {
-        begin: "'", end: "'",
-        contains: [hljs.BACKSLASH_ESCAPE]
+        begin: "'", end: "'"
       }
     ]
     //begin: /("""|'''|"|')(?:[^"'\\]|\\.|\\\n)*("""|'''|"|')/
   };
   var TABLE = {
-    className: "preprocessor",
+    className: "title",
     begin: /^([\s]+)?[\[]+(.*?)[\]]+/
   };
   var NUMBER = {
@@ -41,7 +40,7 @@ function(hljs) {
     begin: /([\+\-]+)?[\d]+_[\d_]+/
   };
   return {
-    keywords: ["true", "false"],
+    keywords: "true false",
     contains: [
       hljs.HASH_COMMENT_MODE,
       hljs.NUMBER_MODE,
