@@ -1,6 +1,6 @@
 'use strict';
 
-var _       = require('lodash')
+var _       = require('lodash');
 var fs      = require('fs');
 var utility = require('../utility');
 

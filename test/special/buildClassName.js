@@ -6,7 +6,7 @@ describe('block class names', function() {
   before(function() {
     var testHTML = document.querySelectorAll('#build-classname .hljs');
 
-    this.blocks = _.map(testHTML, 'className')
+    this.blocks = _.map(testHTML, 'className');
   });
 
   it('should add language class name to block', function() {
