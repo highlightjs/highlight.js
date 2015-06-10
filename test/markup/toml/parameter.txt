@@ -1,0 +1,2 @@
+param_1 = "test1"
+param_2 = ["test2", "test3"]
