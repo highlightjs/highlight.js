@@ -1,0 +1,2 @@
+fn sqr(i: i32) { i * i }
+trait Minimum : Copy {}
