@@ -1024,6 +1024,22 @@ Haskell ("haskell", "hs")
 * ``foreign``:          FFI declaration
 * ``shebang``:          shebang line
 
+Elm ("elm")
+-------------------------
+
+* ``comment``:          comment
+* ``keyword``:          keyword
+* ``number``:           number
+* ``string``:           string
+* ``title``:            function or variable name
+* ``type``:             value or type constructor name (i.e. capitalized)
+* ``container``:        (..., ...) or {...; ...} list in declaration or record
+* ``module``:           module declaration
+* ``import``:           import declaration
+* ``typedef``:          type declaration (type, type alias)
+* ``infix``:            infix declaration
+* ``foreign``:          javascript interop declaration
+
 Erlang ("erlang", "erl")
 ------------------------
 
