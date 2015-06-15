@@ -3,6 +3,7 @@
 New languages:
 
 - *Zephir* by [Oleg Efimov][]
+- *Elm* by [Janis Voigtländer][]
 
 Notable fixes and improvements to existing languages:
 
@@ -14,6 +15,7 @@ Notable fixes and improvements to existing languages:
 
 [Oleg Efimov]: https://github.com/Sannis
 [Guillaume Gomez]: https://github.com/GuillaumeGomez
+[Janis Voigtländer]: https://github.com/jvoigtlaender
 
 ## Version 8.6
 
