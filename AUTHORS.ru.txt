@@ -169,3 +169,4 @@ URL:   https://highlightjs.org/
 - Бруно Диаз <bruno.r.dias@gmail.com>
 - Джей Стрибис <jay.strybis@gmail.com>
 - Гийом Гомес <guillaume1.gomez@gmail.com>
+- Янис Воигтляндер <janis.voigtlaender@gmail.com>
