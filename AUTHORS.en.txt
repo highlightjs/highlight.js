@@ -165,7 +165,6 @@ Contributors:
 - Sergey Mashkov <cy6erGn0m@gmail.com>
 - Raivo Laanemets <raivo@infdot.com>
 - Kenneth Fuglsang <kfuglsang@gmail.com>
-- Raivo Laanemets <raivo@infdot.com>
 - David Anson <david@dlaa.me>
 - Louis Barranqueiro <louis.barranqueiro@gmail.com>
 - Tim Schumacher <tim@datenknoten.me>
