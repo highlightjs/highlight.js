@@ -6,6 +6,9 @@ Stylable classes
 ----------------
 
 +--------------------------+---------------------------------------------------+
+| built_in                 | Built-in or library object (constant, class,      |
+|                          | function)                                         |
++--------------------------+---------------------------------------------------+
 | class                    | Class or class-level declaration (interfaces,     |
 |                          | traits, modules, etc.)                            |
 +--------------------------+---------------------------------------------------+
@@ -29,6 +32,9 @@ Stylable classes
 |                          | an XML tag, the first word in an s-expression.    |
 +--------------------------+---------------------------------------------------+
 | number                   | Number, including units and modifiers, if any.    |
++--------------------------+---------------------------------------------------+
+| params                   | Block of function arguments (parameters) at the   |
+|                          | place of declaration.
 +--------------------------+---------------------------------------------------+
 | regexp                   | Literal regular expression                        |
 +--------------------------+---------------------------------------------------+
