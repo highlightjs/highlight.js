@@ -35,9 +35,15 @@ function(hljs) {
       },
       {
         begin: /^[a-z0-9\[\]_-]+\s*=\s*/, end: '$',
+        returnBegin: true,
         contains: [
           {
-            endsWithParent: true,
+            className: 'key',
+            begin: /[a-z0-9\[\]_-]+/
+          },
+          {
+            begin: /=/, endsWithParent: true,
+            relevance: 0,
             contains: [
               {
                 className: 'literal',
@@ -56,8 +62,7 @@ function(hljs) {
                 begin: /([\+\-]+)?[\d]+_[\d_]+/
               },
               hljs.NUMBER_MODE
-            ],
-            relevance: 0
+            ]
           }
         ]
       }

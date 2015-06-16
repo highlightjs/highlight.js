@@ -18,6 +18,10 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | symbol                   | A symbolic constant or interned string.           |
 +--------------------------+---------------------------------------------------+
+| key                      | Key in key-value pairs with no language defined   |
+|                          | semantics: keys in JSON, setting names in .Ini.   |
+|                          | Use "name" for semantically-rich keys.            |
++--------------------------+---------------------------------------------------+
 | meta                     | Flags, modifiers, annotations, processing         |
 |                          | instructions, preprocessor directive, etc.        |
 +--------------------------+---------------------------------------------------+

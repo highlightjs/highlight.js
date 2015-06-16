@@ -95,7 +95,14 @@ function(hljs) {
               STRING,
               COMMENT,
               {
-                begin:'[a-zA-Z_]+\\s*=>'
+                begin:'[a-zA-Z_]+\\s*=>',
+                returnBegin: true, end: '=>',
+                contains: [
+                  {
+                    className: 'key',
+                    begin: hljs.IDENT_RE,
+                  }
+                ]
               },
               {
                 className: 'number',
