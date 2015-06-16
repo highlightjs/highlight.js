@@ -53,10 +53,7 @@ function(hljs) {
             ]
           },
           {
-            className: 'type',
-            begin: ':',
-            end: IDENT_FUNC_RETURN_TYPE_RE,
-            relevance: 10
+            begin: ':\\s*' + IDENT_FUNC_RETURN_TYPE_RE
           }
         ]
       }
