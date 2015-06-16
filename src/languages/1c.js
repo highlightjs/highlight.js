@@ -35,7 +35,7 @@ function(hljs){
     'стрколичествострок стрполучитьстроку  стрчисловхождений сформироватьпозициюдокумента ' +
     'счетпокоду текущаядата текущеевремя типзначения типзначениястр удалитьобъекты ' +
     'установитьтана установитьтапо фиксшаблон формат цел шаблон';
-  var DQUOTE =  {className: 'dquote',  begin: '""'};
+  var DQUOTE =  {begin: '""'};
   var STR_START = {
       className: 'string',
       begin: '"', end: '"|$',
@@ -61,32 +61,25 @@ function(hljs){
         lexemes: IDENT_RE_RU,
         keywords: 'процедура функция',
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE_RU}),
           {
-            className: 'tail',
-            endsWithParent: true,
-            contains: [
-              {
-                className: 'params',
-                begin: '\\(', end: '\\)',
-                lexemes: IDENT_RE_RU,
-                keywords: 'знач',
-                contains: [STR_START, STR_CONT]
-              },
-              {
-                className: 'export',
-                begin: 'экспорт', endsWithParent: true,
-                lexemes: IDENT_RE_RU,
-                keywords: 'экспорт',
-                contains: [hljs.C_LINE_COMMENT_MODE]
-              }
-            ]
+            begin: 'экспорт', endsWithParent: true,
+            lexemes: IDENT_RE_RU,
+            keywords: 'экспорт',
+            contains: [hljs.C_LINE_COMMENT_MODE]
           },
-          hljs.C_LINE_COMMENT_MODE
+          {
+            className: 'params',
+            begin: '\\(', end: '\\)',
+            lexemes: IDENT_RE_RU,
+            keywords: 'знач',
+            contains: [STR_START, STR_CONT]
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE_RU})
         ]
       },
-      {className: 'preprocessor', begin: '#', end: '$'},
-      {className: 'date', begin: '\'\\d{2}\\.\\d{2}\\.(\\d{2}|\\d{4})\''}
+      {className: 'meta', begin: '#', end: '$'},
+      {className: 'number', begin: '\'\\d{2}\\.\\d{2}\\.(\\d{2}|\\d{4})\''} // date
     ]
   };
 }
