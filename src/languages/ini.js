@@ -1,20 +1,41 @@
 /*
 Language: Ini
+Contributors: Guillaume Gomez <guillaume1.gomez@gmail.com>
 Category: common, config
 */
 
 function(hljs) {
+  var STRING = {
+    className: "string",
+    contains: [hljs.BACKSLASH_ESCAPE],
+    variants: [
+      {
+        begin: "'''", end: "'''",
+        relevance: 10
+      }, {
+        begin: '"""', end: '"""',
+        relevance: 10
+      }, {
+        begin: '"', end: '"'
+      }, {
+        begin: "'", end: "'"
+      }
+    ]
+  };
   return {
+    aliases: ['toml'],
     case_insensitive: true,
     illegal: /\S/,
     contains: [
       hljs.COMMENT(';', '$'),
+      hljs.HASH_COMMENT_MODE,
       {
         className: 'section',
-        begin: /^\[/, end: /\]/
+        begin: /^\s*\[+/, end: /\]+/
       },
       {
-        begin: /^[a-z0-9\[\]_-]+\s*=/, end: '$',
+        className: 'setting',
+        begin: /^[a-z0-9\[\]_-]+\s*=\s*/, end: '$',
         contains: [
           {
             endsWithParent: true,
@@ -23,13 +44,19 @@ function(hljs) {
                 className: 'literal',
                 begin: /\bon|off|true|false|yes|no\b/
               },
-              hljs.NUMBER_MODE,
-              hljs.QUOTE_STRING_MODE,
               {
-                className: 'string',
-                begin: /\S+/,
-                relevance: 0
-              }
+                className: 'variable',
+                variants: [
+                  {begin: /\$[\w\d"][\w\d_]*/},
+                  {begin: /\$\{(.*?)}/}
+                ]
+              },
+              STRING,
+              {
+                className: 'number',
+                begin: /([\+\-]+)?[\d]+_[\d_]+/
+              },
+              hljs.NUMBER_MODE
             ],
             relevance: 0
           }
