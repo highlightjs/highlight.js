@@ -34,7 +34,7 @@ Stylable classes
 | number                   | Number, including units and modifiers, if any.    |
 +--------------------------+---------------------------------------------------+
 | params                   | Block of function arguments (parameters) at the   |
-|                          | place of declaration.
+|                          | place of declaration.                             |
 +--------------------------+---------------------------------------------------+
 | regexp                   | Literal regular expression                        |
 +--------------------------+---------------------------------------------------+
