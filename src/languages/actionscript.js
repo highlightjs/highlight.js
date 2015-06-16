@@ -31,7 +31,7 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       {
-        className: 'package',
+        className: 'class',
         beginKeywords: 'package', end: '{',
         contains: [hljs.TITLE_MODE]
       },
@@ -46,7 +46,7 @@ function(hljs) {
         ]
       },
       {
-        className: 'preprocessor',
+        className: 'meta',
         beginKeywords: 'import include', end: ';'
       },
       {
@@ -67,10 +67,7 @@ function(hljs) {
             ]
           },
           {
-            className: 'type',
-            begin: ':',
-            end: IDENT_FUNC_RETURN_TYPE_RE,
-            relevance: 10
+            begin: ':\\s*' + IDENT_FUNC_RETURN_TYPE_RE
           }
         ]
       }
