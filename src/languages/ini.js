@@ -34,7 +34,6 @@ function(hljs) {
         begin: /^\s*\[+/, end: /\]+/
       },
       {
-        className: 'setting',
         begin: /^[a-z0-9\[\]_-]+\s*=\s*/, end: '$',
         contains: [
           {
