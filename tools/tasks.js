@@ -1,11 +1,12 @@
 'use strict';
 
-var _       = require('lodash');
-var del     = require('del');
-var gear    = require('gear');
-var path    = require('path');
-var fs      = require('fs');
-var utility = require('./utility');
+var _        = require('lodash');
+var bluebird = require('bluebird');
+var del      = require('del');
+var fs       = bluebird.promisifyAll(require('fs'));
+var gear     = require('gear');
+var path     = require('path');
+var utility  = require('./utility');
 
 var parseHeader   = utility.parseHeader;
 var getStyleNames = utility.getStyleNames;
@@ -206,10 +207,11 @@ tasks.readSnippet = function(options, blob, done) {
       snippetName = path.join('test', 'detect', name, 'default.txt');
 
   function onRead(error, blob) {
-    if (error !== null) return done(null, null); // ignore missing snippets
+    if(error) return done(error); // ignore missing snippets
+
     var meta = {name: name + '.js', fileInfo: fileInfo};
-    blob = new gear.Blob(blob.result, meta);
-    return done(error, blob);
+
+    return done(null, new gear.Blob(blob.result, meta));
   }
 
   gear.Blob.readFile(snippetName, 'utf8', onRead, false);
@@ -218,21 +220,19 @@ tasks.readSnippet = function(options, blob, done) {
 // Translate the template for the demo in `demo/index.html` to a usable HTML
 // file.
 tasks.templateDemo = function(options, blobs, done) {
-  var name = path.join('demo', 'index.html');
+  var name        = path.join('demo', 'index.html'),
+      getTemplate = fs.readFileAsync(name);
 
-  fs.readFile(name, function(err, template) {
-    if(err) return done(err, null);
+  bluebird.join(getTemplate, getStyleNames(), function(template, styles) {
+    var content = _.template(template)({
+                    path: path,
+                    blobs: _.compact(blobs),
+                    styles: styles
+                  });
 
-    getStyleNames(function(err, styles) {
-      var content = _.template(template)({
-                      path: path,
-                      blobs: _.compact(blobs),
-                      styles: styles
-                    });
-
-      return done(err, [new gear.Blob(content)]);
-    });
-  });
+    return done(null, [new gear.Blob(content)]);
+  })
+  .catch(done);
 };
 tasks.templateDemo.type = 'collect';
 
