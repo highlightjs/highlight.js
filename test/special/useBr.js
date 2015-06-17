@@ -1,16 +1,15 @@
 'use strict';
 
-var _       = require('lodash');
 var fs      = require('fs');
 var utility = require('../utility');
 
 describe('use br', function() {
-  before(function() {
+  before(function(done) {
     var filename = utility.buildPath('expect', 'useBr.txt'),
         testHTML = document.querySelectorAll('#use-br .hljs');
 
-    this.expected = fs.readFileSync(filename, 'utf-8').trim();
-    this.blocks   = _.map(testHTML, 'innerHTML');
+    fs.readFile(filename, 'utf-8',
+                utility.handleSetup(this, testHTML, done));
   });
 
   it('should respect <br> tags', function() {
@@ -30,5 +29,4 @@ describe('use br', function() {
 
     actual.should.equal(this.expected);
   });
-
 });
