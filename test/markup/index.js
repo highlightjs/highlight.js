@@ -1,26 +1,31 @@
 'use strict';
 
-var fs      = require('fs');
-var glob    = require('glob');
-var hljs    = require('../../build');
-var path    = require('path');
-var utility = require('../utility');
+var bluebird = require('bluebird');
+var fs       = bluebird.promisifyAll(require('fs'));
+var glob     = require('glob');
+var hljs     = require('../../build');
+var path     = require('path');
+var utility  = require('../utility');
 
 function testLanguage(language) {
-  var filePath  = utility.buildPath('markup', language, '*.expect.txt'),
-      filenames = glob.sync(filePath);
-
   describe(language, function() {
+    var filePath  = utility.buildPath('markup', language, '*.expect.txt'),
+        filenames = glob.sync(filePath);
+
     filenames.forEach(function(filename) {
       var testName   = path.basename(filename, '.expect.txt'),
-          sourceName = filename.replace(/\.expect/, ''),
-          source     = fs.readFileSync(sourceName, 'utf-8');
+          sourceName = filename.replace(/\.expect/, '');
 
-      it('should markup ' + testName, function() {
-        var actual   = hljs.highlight(language, source).value,
-            expected = fs.readFileSync(filename, 'utf-8');
+      it('should markup ' + testName, function(done) {
+        var sourceFile   = fs.readFileAsync(sourceName, 'utf-8'),
+            expectedFile = fs.readFileAsync(filename, 'utf-8');
 
-        actual.should.equal(expected);
+        bluebird.join(sourceFile, expectedFile, function(source, expected) {
+          var actual = hljs.highlight(language, source).value;
+
+          actual.should.equal(expected);
+          done();
+        });
       });
     });
   });
