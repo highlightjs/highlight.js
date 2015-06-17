@@ -1,5 +1,6 @@
 'use strict';
 
+var _        = require('lodash');
 var bluebird = require('bluebird');
 var fs       = bluebird.promisifyAll(require('fs'));
 var glob     = require('glob');
@@ -12,7 +13,7 @@ function testLanguage(language) {
     var filePath  = utility.buildPath('markup', language, '*.expect.txt'),
         filenames = glob.sync(filePath);
 
-    filenames.forEach(function(filename) {
+    _.each(filenames, function(filename) {
       var testName   = path.basename(filename, '.expect.txt'),
           sourceName = filename.replace(/\.expect/, '');
 
@@ -34,5 +35,5 @@ function testLanguage(language) {
 describe('markup generation test', function() {
   var languages = fs.readdirSync(utility.buildPath('markup'));
 
-  languages.forEach(testLanguage);
+  _.each(languages, testLanguage, this);
 });
