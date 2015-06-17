@@ -207,10 +207,11 @@ tasks.readSnippet = function(options, blob, done) {
       snippetName = path.join('test', 'detect', name, 'default.txt');
 
   function onRead(error, blob) {
-    if (error !== null) return done(null, null); // ignore missing snippets
+    if(error) return done(error); // ignore missing snippets
+
     var meta = {name: name + '.js', fileInfo: fileInfo};
-    blob = new gear.Blob(blob.result, meta);
-    return done(error, blob);
+
+    return done(null, new gear.Blob(blob.result, meta));
   }
 
   gear.Blob.readFile(snippetName, 'utf8', onRead, false);
