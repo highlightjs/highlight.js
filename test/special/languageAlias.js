@@ -11,12 +11,11 @@ describe('language alias', function() {
     this.blocks = _.map(testHTML, 'innerHTML');
   });
 
-  it('should highlight as aliased language', function() {
+  it('should highlight as aliased language', function(done) {
     var filename = utility.buildPath('expect', 'languagealias.txt'),
-
-        expected = fs.readFileSync(filename, 'utf-8'),
         actual   = this.blocks[0];
 
-    actual.should.equal(expected);
+    fs.readFile(filename, 'utf-8',
+                utility.handleExpectedFile(actual, done));
   });
 });

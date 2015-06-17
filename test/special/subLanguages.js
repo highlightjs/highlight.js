@@ -8,12 +8,11 @@ describe('sub-languages', function() {
     this.block = document.querySelector('#sublanguages');
   });
 
-  it('should highlight XML with PHP and JavaScript', function() {
+  it('should highlight XML with PHP and JavaScript', function(done) {
     var filename = utility.buildPath('expect', 'sublanguages.txt'),
-
-        expected = fs.readFileSync(filename, 'utf-8'),
         actual   = this.block.innerHTML;
 
-    actual.should.equal(expected);
+    fs.readFile(filename, 'utf-8',
+                utility.handleExpectedFile(actual, done));
   });
 });
