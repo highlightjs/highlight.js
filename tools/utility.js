@@ -1,8 +1,9 @@
 'use strict';
 
-var _    = require('lodash');
-var glob = require('glob');
-var path = require('path');
+var _        = require('lodash');
+var bluebird = require('bluebird');
+var glob     = bluebird.promisifyAll(require('glob')).globAsync;
+var path     = require('path');
 
 var REPLACES,
     regex       = {},
@@ -138,19 +139,18 @@ function globDefaults(pattern, encoding) {
   return { pattern: pattern, limit: 50, encoding: encoding };
 }
 
-function getStyleNames(callback) {
+function getStyleNames() {
   var stylesDir = 'src/styles/',
       options   = { ignore: stylesDir + 'default.css' };
 
-  glob(stylesDir + '*.css', options, function(err, styles) {
-    callback(err, _.map(styles, function(style) {
+  return glob(stylesDir + '*.css', options)
+    .map(function(style) {
       var basename = path.basename(style, '.css'),
           name     = _.startCase(basename),
           pathName = path.relative('src', style);
 
       return { path: pathName, name: name };
-    }));
-  });
+    });
 }
 
 module.exports = {
