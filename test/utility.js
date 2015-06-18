@@ -1,6 +1,7 @@
 'use strict';
 
 var _    = require('lodash');
+var fs   = require('fs');
 var path = require('path');
 
 // Build a path relative to `test/`
@@ -20,11 +21,12 @@ exports.handleExpectedFile = _.curry(function(actual, done, err, expected) {
   done();
 }, 4);
 
-exports.handleSetup = _.curry(
-  function(that, testHTML, done, err, expected) {
-    if(err) return done(err);
+exports.setupFile = function(filename, encoding, that, testHTML, done) {
+  fs.readFile(filename, encoding, function(error, expected) {
+    if(error) return done(error);
 
     that.expected = expected.trim();
     that.blocks   = _.map(testHTML, 'innerHTML');
     done();
-  }, 5);
+  });
+};
