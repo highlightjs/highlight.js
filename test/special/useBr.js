@@ -8,8 +8,7 @@ describe('use br', function() {
     var filename = utility.buildPath('expect', 'useBr.txt'),
         testHTML = document.querySelectorAll('#use-br .hljs');
 
-    fs.readFile(filename, 'utf-8',
-                utility.handleSetup(this, testHTML, done));
+    utility.setupFile(filename, 'utf-8', this, testHTML, done);
   });
 
   it('should respect <br> tags', function() {

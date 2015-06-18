@@ -12,7 +12,6 @@ describe('sub-languages', function() {
     var filename = utility.buildPath('expect', 'sublanguages.txt'),
         actual   = this.block.innerHTML;
 
-    fs.readFile(filename, 'utf-8',
-                utility.handleExpectedFile(actual, done));
+    utility.expectedFile(filename, 'utf-8', actual, done);
   });
 });

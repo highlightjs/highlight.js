@@ -8,8 +8,7 @@ describe('explicit language class', function() {
     var filename = utility.buildPath('expect', 'explicit.txt'),
         testHTML = document.querySelectorAll('#explicit-language .hljs');
 
-    fs.readFile(filename, 'utf-8',
-                utility.handleSetup(this, testHTML, done));
+    utility.setupFile(filename, 'utf-8', this, testHTML, done);
   });
 
   it('should highlight block with language in code tag', function() {
@@ -34,7 +33,6 @@ describe('explicit language class', function() {
     var filename = utility.buildPath('expect', 'shortenedexplicit.txt'),
         actual   = this.blocks[3];
 
-    fs.readFile(filename, 'utf-8',
-                utility.handleExpectedFile(actual, done));
+    utility.expectedFile(filename, 'utf-8', actual, done);
   });
 });
