@@ -1,6 +1,5 @@
 'use strict';
 
-var fs      = require('fs');
 var utility = require('../utility');
 
 describe('explicit language class', function() {
