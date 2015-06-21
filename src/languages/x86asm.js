@@ -93,15 +93,15 @@ function(hljs) {
         begin: '\\$[0-9][0-9A-Fa-f]*',
         relevance: 0
       },
-      // Number in H,X,D,T,Q,O,B,Y suffix
+      // Number in H,D,T,Q,O,B,Y suffix
       {
         className: 'number',
-        begin: '\\b(?:[0-9A-Fa-f][0-9A-Fa-f_]*[HhXx]|[0-9][0-9_]*[DdTt]?|[0-7][0-7_]*[QqOo]|[0-1][0-1_]*[BbYy])\\b'
+        begin: '\\b(?:[0-9A-Fa-f][0-9A-Fa-f_]*[Hh]|[0-9][0-9_]*[DdTt]?|[0-7][0-7_]*[QqOo]|[0-1][0-1_]*[BbYy])\\b'
       },
-      // Number in H,X,D,T,Q,O,B,Y prefix
+      // Number in X,D,T,Q,O,B,Y prefix
       {
         className: 'number',
-        begin: '\\b(?:0[HhXx][0-9A-Fa-f_]+|0[DdTt][0-9_]+|0[QqOo][0-7_]+|0[BbYy][0-1_]+)\\b'
+        begin: '\\b(?:0[Xx][0-9A-Fa-f_]+|0[DdTt][0-9_]+|0[QqOo][0-7_]+|0[BbYy][0-1_]+)\\b'
       },
       // Double quote string
       hljs.QUOTE_STRING_MODE,
