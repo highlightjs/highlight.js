@@ -49,8 +49,7 @@ function(hljs) {
       },
       {
         // consecutive commas, not for highlighting but just for relevance
-        begin: ',\\s*,',
-        relevance: 10
+        begin: ',\\s*,'
       }
     ]
   }
