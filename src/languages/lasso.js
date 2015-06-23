@@ -10,12 +10,12 @@ function(hljs) {
   var LASSO_CLOSE_RE = '\\]|\\?>';
   var LASSO_KEYWORDS = {
     literal:
-      'true false none minimal full all void and or not ' +
+      'true false none minimal full all void ' +
       'bw nbw ew new cn ncn lt lte gt gte eq neq rx nrx ft',
     built_in:
       'array date decimal duration integer map pair string tag xml null ' +
       'boolean bytes keyword list locale queue set stack staticarray ' +
-      'local var variable global data self inherited',
+      'local var variable global data self inherited currentcapture givenblock',
     keyword:
       'error_code error_msg error_pop error_push error_reset cache ' +
       'database_names database_schemanames database_tablenames define_tag ' +
@@ -68,7 +68,7 @@ function(hljs) {
     ),
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
-    hljs.inherit(hljs.C_NUMBER_MODE, {begin: hljs.C_NUMBER_RE + '|(-?infinity|nan)\\b'}),
+    hljs.inherit(hljs.C_NUMBER_MODE, {begin: hljs.C_NUMBER_RE + '|(infinity|nan)\\b'}),
     hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
     hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
     {
@@ -96,7 +96,7 @@ function(hljs) {
       className: 'attribute',
       variants: [
         {
-          begin: '-' + hljs.UNDERSCORE_IDENT_RE,
+          begin: '-(?!infinity)' + hljs.UNDERSCORE_IDENT_RE,
           relevance: 0
         },
         {
@@ -112,7 +112,7 @@ function(hljs) {
           contains: [LASSO_DATAMEMBER]
         },
         {
-          begin: ':=|/(?!\\w)=?|[-+*%=<>&|!?\\\\]+',
+          begin: '->|\\\\|&&?|\\|\\||!(?!=|>)|(and|or|not)\\b',
           relevance: 0
         }
       ]

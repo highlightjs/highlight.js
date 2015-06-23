@@ -4,7 +4,7 @@
     ORDER BY `Name` LIMIT 30');
   Inline: -Username=$DBuser, -Password=$DBpass, -Database=$DBname, -sql=#query;
     var("class1.name" = (found_count != 0 ? "subtotal" | "nonefound"),
-        "total_amount" = found_count);
+        "total_amount" = found_count || "No results");
     records;
       output: "<tr>"loop_count"</tr>";
     /records;
@@ -16,7 +16,7 @@
 [
   define strings_combine(value::string, ...other)::string => {
     local(result = #value->append(#other->asString&trim))
-    return #result
+    return set(#result, not #other, \givenBlock)
   }
   /**! descriptive text */
   define person => type {
@@ -36,7 +36,7 @@
 <?=
   // query expression
   with n in array((:-12, 0xABCD, 3.14159e14), (:NaN, -infinity, .57721))
-  let swapped = pair(#n->second, #n->first)
+  let swapped = pair(#n->\second, #n->first)
   group #swapped by #n->first into t
   let key = #t->key
   order by #key
