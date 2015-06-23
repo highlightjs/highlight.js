@@ -115,10 +115,14 @@ function(hljs) {
         ],
         relevance: 0
       },
-      // Macro-local label
       {
         className: 'label',
-        begin: '^\\s*%%[A-Za-z0-9_$#@~.?]*:',
+        variants: [
+          // Global label and local label
+          { begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)' },
+          // Macro-local label
+          { begin: '^\\s*%%[A-Za-z0-9_$#@~.?]*:' }
+        ],
         relevance: 0
       },
       // Macro parameter
