@@ -7,16 +7,9 @@ Category: scripting
 
 function(hljs) {
   var BACKTICK_ESCAPE = {
-    className: 'escape',
-    begin: '`[\\s\\S]'
+    begin: /`[\s\S]/
   };
-  var COMMENTS = hljs.COMMENT(
-    ';',
-    '$',
-    {
-      relevance: 0
-    }
-  );
+  var COMMENTS = hljs.COMMENT(';', '$', {relevance: 0});
   var BUILT_IN = [
     {
       className: 'built_in',
@@ -44,13 +37,13 @@ function(hljs) {
         relevance: 0
       },
       {
-        className: 'var_expand', // FIXME
+        className: 'variable', // FIXME
         begin: '%', end: '%',
         illegal: '\\n',
         contains: [BACKTICK_ESCAPE]
       },
       {
-        className: 'label',
+        className: 'symbol',
         contains: [BACKTICK_ESCAPE],
         variants: [
           {begin: '^[^\\n";]+::(?!=)'},

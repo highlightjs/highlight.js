@@ -19,7 +19,7 @@ Stylable classes
 | literal                  | Special identifier for a built-in value ("true",  |
 |                          | "false", "null").                                 |
 +--------------------------+---------------------------------------------------+
-| symbol                   | A symbolic constant or interned string.           |
+| symbol                   | Symbolic constant, interned string, goto label.   |
 +--------------------------+---------------------------------------------------+
 | key                      | Key in key-value pairs with no language defined   |
 |                          | semantics: keys in JSON, setting names in .Ini.   |

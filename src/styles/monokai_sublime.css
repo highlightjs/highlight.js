@@ -69,7 +69,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .tex .hljs-special,
 .hljs-header,
 .hljs-attribute,
-.hljs-symbol,
 .hljs-tag .hljs-name,
 .hljs-value,
 .alias .hljs-keyword:first-child,
@@ -82,6 +81,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-aspect .hljs-keyword:first-child,
 .hljs-constant,
 .hljs-name,
+.hljs-symbol,
 .css .hljs-attribute {
   color: #66d9ef;
 }

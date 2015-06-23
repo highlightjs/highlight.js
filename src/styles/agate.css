@@ -66,6 +66,7 @@
 
 .hljs-number,
 .hljs-hexcolor,
+.hljs-symbol,
 .hljs-link_label,
 .hljs-link_reference {
   color: #d36363;
@@ -74,7 +75,6 @@
 .hljs-keyword,
 .hljs-literal,
 .hljs-constant,
-.hljs-symbol,
 .css .hljs-tag,
 .hljs-winutils {
   color: #fcc28c;

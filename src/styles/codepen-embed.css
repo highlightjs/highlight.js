@@ -32,6 +32,7 @@
 .hljs-literal,
 .hljs-params,
 .hljs-constant,
+.hljs-symbol,
 .ruby .constant,
 .hljs-tag .hljs-name,
 .xml .pi,
@@ -72,7 +73,8 @@
 .hljs-value,
 .hljs-inheritance,
 .hljs-header,
-.hljs-symbol,
+.hljs-keyword,
+.hljs-name,
 .xml .cdata {
   color: #8f9c6c;
 }
@@ -84,9 +86,4 @@
 .python .decorator,
 .perl .sub {
   color: #fff;
-}
-
-.hljs-keyword,
-.hljs-name {
-  color: #8f9c6c;
 }
