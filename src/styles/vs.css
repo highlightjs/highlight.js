@@ -24,7 +24,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-id,
 .hljs-built_in,
 .hljs-name,
-.hljs-winutils,
 .bash .hljs-variable,
 .tex .hljs-command,
 .hljs-request,
@@ -45,8 +44,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-template_tag,
 .django .hljs-variable,
 .hljs-addition,
-.hljs-flow,
-.hljs-stream,
 .hljs-date,
 .tex .hljs-formula,
 .coffeescript .hljs-attribute {

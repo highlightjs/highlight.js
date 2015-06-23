@@ -15,8 +15,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-keyword,
 .hljs-literal,
 .hljs-change,
-.hljs-winutils,
-.hljs-flow,
 .tex .hljs-special,
 .hljs-request,
 .hljs-status {
@@ -49,7 +47,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-attr_selector,
 .hljs-pseudo,
 .hljs-addition,
-.hljs-stream,
 .hljs-envvar,
 .hljs-variable,
 .tex .hljs-number,
@@ -80,7 +77,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .rsl .hljs-built_in,
 .diff .hljs-header,
 .hljs-chunk,
-.hljs-winutils,
 .bash .hljs-variable,
 .tex .hljs-command {
   font-weight: bold;

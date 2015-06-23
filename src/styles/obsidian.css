@@ -14,8 +14,6 @@
 .hljs-keyword,
 .hljs-literal,
 .hljs-change,
-.hljs-winutils,
-.hljs-flow,
 .css .hljs-id,
 .tex .hljs-special {
   color: #93c763;
@@ -89,7 +87,6 @@
 .hljs-attr_selector,
 .hljs-pseudo,
 .hljs-addition,
-.hljs-stream,
 .hljs-envvar,
 .hljs-variable,
 .tex .hljs-command,
@@ -127,7 +124,6 @@
 .rsl .hljs-built_in,
 .diff .hljs-header,
 .hljs-chunk,
-.hljs-winutils,
 .bash .hljs-variable,
 .tex .hljs-special,
 .hljs-request,

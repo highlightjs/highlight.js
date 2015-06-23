@@ -61,8 +61,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .hljs-keyword,
 .hljs-change,
-.hljs-winutils,
-.hljs-flow,
 .tex .hljs-special,
 .hljs-header,
 .hljs-attribute,
@@ -101,7 +99,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-attr_selector,
 .hljs-pseudo,
 .hljs-addition,
-.hljs-stream,
 .hljs-envvar,
 .hljs-variable,
 .tex .hljs-command,

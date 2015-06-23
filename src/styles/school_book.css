@@ -22,8 +22,6 @@ pre{
 .hljs-keyword,
 .hljs-literal,
 .hljs-change,
-.hljs-winutils,
-.hljs-flow,
 .tex .hljs-special {
   color:#005599;
   font-weight:bold;
@@ -53,7 +51,6 @@ pre{
 .hljs-attr_selector,
 .hljs-pseudo,
 .hljs-addition,
-.hljs-stream,
 .hljs-envvar,
 .hljs-variable,
 .tex .hljs-command,
@@ -85,7 +82,6 @@ pre{
 .hljs-tag .hljs-name,
 .diff .hljs-header,
 .hljs-chunk,
-.hljs-winutils,
 .bash .hljs-variable,
 .tex .hljs-command,
 .hljs-request,

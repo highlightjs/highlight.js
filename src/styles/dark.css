@@ -15,8 +15,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-keyword,
 .hljs-literal,
 .hljs-change,
-.hljs-winutils,
-.hljs-flow,
 .tex .hljs-special,
 .hljs-section {
   color: white;
@@ -46,7 +44,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-attr_selector,
 .hljs-pseudo,
 .hljs-addition,
-.hljs-stream,
 .hljs-envvar,
 .hljs-variable,
 .tex .hljs-command,
@@ -78,7 +75,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .rsl .hljs-built_in,
 .diff .hljs-header,
 .hljs-chunk,
-.hljs-winutils,
 .bash .hljs-variable,
 .tex .hljs-special,
 .hljs-request,

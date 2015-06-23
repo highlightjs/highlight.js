@@ -75,8 +75,7 @@
 .hljs-keyword,
 .hljs-literal,
 .hljs-constant,
-.css .hljs-tag,
-.hljs-winutils {
+.css .hljs-tag {
   color: #fcc28c;
 }
 
