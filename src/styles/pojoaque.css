@@ -52,14 +52,12 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-chunk,
 .hljs-decorator,
 .hljs-built_in,
-.hljs-identifier,
 .hljs-id {
   color: #ffb03b;
 }
 
 .hljs-attribute,
 .hljs-variable,
-.lisp .hljs-body,
 .smalltalk .hljs-number,
 .hljs-constant,
 .hljs-class .hljs-title,

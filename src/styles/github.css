@@ -34,8 +34,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-hexcolor,
 .ruby .hljs-constant,
 .hljs-attribute,
-.hljs-variable,
-.lisp .hljs-body {
+.hljs-variable {
   color: #008080;
 }
 

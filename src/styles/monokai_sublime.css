@@ -23,7 +23,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   color: #f8f8f2;
 }
 
-.hljs-strongemphasis,
 .hljs-strong,
 .hljs-emphasis {
   color: #a8a8a2;
@@ -52,13 +51,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   font-size: 80%;
 }
 
-.hljs-strong,
-.hljs-strongemphasis {
+.hljs-strong {
   font-weight: bold;
 }
 
-.hljs-emphasis,
-.hljs-strongemphasis {
+.hljs-emphasis {
   font-style: italic;
 }
 

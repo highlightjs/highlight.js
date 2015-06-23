@@ -21,7 +21,6 @@ Darkula color scheme from the JetBrains family of IDEs
   color: #bababa;
 }
 
-.hljs-strongemphasis,
 .hljs-strong,
 .hljs-emphasis {
   color: #a8a8a2;
@@ -48,8 +47,7 @@ Darkula color scheme from the JetBrains family of IDEs
   font-size: 80%;
 }
 
-.hljs-emphasis,
-.hljs-strongemphasis {
+.hljs-emphasis {
   font-style: italic;
 }
 

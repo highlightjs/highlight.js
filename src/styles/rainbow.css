@@ -14,7 +14,6 @@ Style with support for rainbow parens
 }
 
 
-.hljs-body,
 .hljs-collection {
    color: #d1d9e1;
 }
@@ -55,8 +54,7 @@ Style with support for rainbow parens
 .hljs-localvars,
 .hljs-chunk,
 .hljs-decorator,
-.hljs-built_in,
-.hljs-identifier {
+.hljs-built_in {
   color: #b5bd68;
 }
 

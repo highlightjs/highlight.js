@@ -119,15 +119,12 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .asciidoc .hljs-strong,
 .markdown .hljs-strong,
 .hljs-request,
-.hljs-status,
-.tp .hljs-data,
-.tp .hljs-io {
+.hljs-status {
   font-weight: bold;
 }
 
 .asciidoc .hljs-emphasis,
-.markdown .hljs-emphasis,
-.tp .hljs-units {
+.markdown .hljs-emphasis {
   font-style: italic;
 }
 

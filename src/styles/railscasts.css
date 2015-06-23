@@ -49,14 +49,9 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-tag,
 .hljs-tag .hljs-name,
 .hljs-doctype,
-.hljs-sub .hljs-identifier,
 .hljs-pi,
 .input_number {
   color: #e8bf6a;
-}
-
-.hljs-identifier {
-  color: #d0d0ff;
 }
 
 .hljs-constant,

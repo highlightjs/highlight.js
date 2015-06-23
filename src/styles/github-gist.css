@@ -15,8 +15,6 @@
 .hljs-comment,
 .hljs-meta,
 .bash .hljs-shebang,
-.java .hljs-javadoc,
-.javascript .hljs-javadoc,
 .rust .hljs-preprocessor {
   color: #969896;
 }
@@ -49,11 +47,8 @@
 .css .hljs-at_rule,
 .css .hljs-important,
 .http .hljs-request,
-.java .hljs-javadoctag,
 .javascript .hljs-tag,
-.javascript .hljs-javadoctag,
 .objectivec .hljs-preprocessor,
-.php .hljs-phpdoc,
 .sql .hljs-built_in,
 .less .hljs-tag,
 .less .hljs-at_rule,

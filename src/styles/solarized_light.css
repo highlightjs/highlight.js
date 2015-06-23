@@ -55,7 +55,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-chunk,
 .hljs-decorator,
 .hljs-built_in,
-.hljs-identifier,
 .vhdl .hljs-literal,
 .hljs-id,
 .css .hljs-function {
@@ -65,7 +64,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 /* Solarized Yellow */
 .hljs-attribute,
 .hljs-variable,
-.lisp .hljs-body,
 .smalltalk .hljs-number,
 .hljs-constant,
 .hljs-class .hljs-title,
