@@ -103,30 +103,16 @@ function(hljs) {
       },
       // Double quote string
       hljs.QUOTE_STRING_MODE,
-      // Single-quoted string
       {
         className: 'string',
-        begin: '\'',
-        end: '[^\\\\]\'',
-        relevance: 0
-      },
-      // Backquoted string
-      {
-        className: 'string',
-        begin: '`',
-        end: '[^\\\\]`',
-        relevance: 0
-      },
-      // Section name
-      {
-        className: 'string',
-        begin: '\\.[A-Za-z0-9]+',
-        relevance: 0
-      },
-      // Global label and local label
-      {
-        className: 'label',
-        begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
+        variants: [
+          // Single-quoted string
+          { begin: '\'', end: '[^\\\\]\'' },
+          // Backquoted string
+          { begin: '`', end: '[^\\\\]`' },
+          // Section name
+          { begin: '\\.[A-Za-z0-9]+' }
+        ],
         relevance: 0
       },
       // Macro-local label
