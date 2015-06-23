@@ -83,7 +83,8 @@ Date: 2013-04-02
 
 .hljs-code,
 .hljs-number,
-.hljs-literal {
+.hljs-literal,
+.hljs-keyword {
   color: #099;
 }
 
@@ -102,7 +103,6 @@ Date: 2013-04-02
 }
 
 .hljs-reserved,
-.hljs-keyword,
 .scss .hljs-value {
   color: #000;
 }
