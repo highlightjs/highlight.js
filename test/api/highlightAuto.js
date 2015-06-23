@@ -1,31 +1,35 @@
 'use strict';
 
-var fs      = require('fs');
-var hljs    = require('../../build');
-var path    = require('path');
-var utility = require('../utility');
+var bluebird = require('bluebird');
+var fs       = bluebird.promisifyAll(require('fs'));
+var hljs     = require('../../build');
+var path     = require('path');
+var utility  = require('../utility');
 
 function testAutoDetection(language) {
   var languagePath = utility.buildPath('detect', language);
 
-  it('should have test for ' + language, function() {
-    var testExistence = fs.existsSync(languagePath);
-
-    testExistence.should.be.true;
+  it('should have test for ' + language, function(done) {
+    fs.exists(languagePath, function(testExistence) {
+      testExistence.should.be.true;
+      done();
+    });
   });
 
-  it('should be detected as ' + language, function() {
-    var examples = fs.readdirSync(languagePath);
+  it('should be detected as ' + language, function(done) {
+    fs.readdirAsync(languagePath)
+      .map(function(example) {
+        var filename = path.join(languagePath, example);
 
-    examples.forEach(function(example) {
-      var filename = path.join(languagePath, example),
-          content  = fs.readFileSync(filename, 'utf-8'),
+        return fs.readFileAsync(filename, 'utf-8');
+      })
+      .each(function(content) {
+        var expected = language,
+            actual   = hljs.highlightAuto(content).language;
 
-          expected = language,
-          actual   = hljs.highlightAuto(content).language;
-
-      actual.should.equal(expected);
-    });
+        actual.should.equal(expected);
+      })
+      .finally(done);
   });
 }
 

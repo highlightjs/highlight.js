@@ -1,16 +1,13 @@
 'use strict';
 
-var _       = require('lodash');
-var fs      = require('fs');
 var utility = require('../utility');
 
 describe('explicit language class', function() {
-  before(function() {
+  before(function(done) {
     var filename = utility.buildPath('expect', 'explicit.txt'),
         testHTML = document.querySelectorAll('#explicit-language .hljs');
 
-    this.expected = fs.readFileSync(filename, 'utf-8');
-    this.blocks   = _.map(testHTML, 'innerHTML');
+    utility.setupFile(filename, 'utf-8', this, testHTML, done);
   });
 
   it('should highlight block with language in code tag', function() {
@@ -31,12 +28,10 @@ describe('explicit language class', function() {
     actual.should.equal(this.expected);
   });
 
-  it('should highlight with shortened prefix (lang-)', function() {
+  it('should highlight with shortened prefix (lang-)', function(done) {
     var filename = utility.buildPath('expect', 'shortenedexplicit.txt'),
-
-        expected = fs.readFileSync(filename, 'utf-8'),
         actual   = this.blocks[3];
 
-    actual.should.equal(expected);
+    utility.expectedFile(filename, 'utf-8', actual, done);
   });
 });
