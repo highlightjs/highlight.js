@@ -37,8 +37,7 @@ Ported by Fabrício Tavares de Oliveira
 .tex .hljs-special,
 .erlang_repl .hljs-function_or_atom,
 .asciidoc .hljs-header,
-.markdown .hljs-header,
-.coffeescript .hljs-attribute {
+.markdown .hljs-header {
   color: #756bb1;
 }
 
@@ -95,7 +94,6 @@ Ported by Fabrício Tavares de Oliveira
 .clojure .hljs-attribute,
 .asciidoc .hljs-attribute,
 .lasso .hljs-attribute,
-.coffeescript .hljs-property,
 .hljs-phony,
 .hljs-name {
   color: #88f;
@@ -125,7 +123,6 @@ Ported by Fabrício Tavares de Oliveira
   font-style: italic;
 }
 
-.coffeescript .javascript,
 .javascript .xml,
 .lasso .markup,
 .tex .hljs-formula,

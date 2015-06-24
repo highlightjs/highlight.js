@@ -46,8 +46,7 @@ Author: pumbur <pumbur@pumbur.net>
 .xml .hljs-attribute,
 .smalltalk .hljs-char,
 .xml .hljs-value,
-.clojure .hljs-attribute,
-.coffeescript .hljs-attribute {
+.clojure .hljs-attribute {
   color: #ffcc33;
 }
 
@@ -117,7 +116,6 @@ Author: pumbur <pumbur@pumbur.net>
   font-weight: bold;
 }
 
-.coffeescript .javascript,
 .javascript .xml,
 .tex .hljs-formula,
 .xml .javascript,

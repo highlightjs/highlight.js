@@ -37,8 +37,7 @@
 .hljs-cdata,
 .hljs-filter .hljs-argument,
 .hljs-attr_selector,
-.hljs-date,
-.coffeescript .hljs-attribute {
+.hljs-date {
   color: #a8ff60;
 }
 
@@ -90,7 +89,6 @@
   color:#ff73fd;
 }
 
-.coffeescript .javascript,
 .javascript .xml,
 .tex .hljs-formula,
 .xml .javascript,

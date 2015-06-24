@@ -54,7 +54,6 @@ pre{
 .hljs-envvar,
 .hljs-variable,
 .tex .hljs-command,
-.coffeescript .hljs-attribute,
 .hljs-name {
   color: #2c009f;
 }
@@ -89,7 +88,6 @@ pre{
   font-weight: bold;
 }
 
-.coffeescript .javascript,
 .javascript .xml,
 .tex .hljs-formula,
 .xml .javascript,

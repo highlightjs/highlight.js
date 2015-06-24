@@ -39,7 +39,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .erlang_repl .hljs-function_or_atom,
 .asciidoc .hljs-header,
 .markdown .hljs-header,
-.coffeescript .hljs-attribute,
 .tp .hljs-variable {
   color: #800;
 }
@@ -96,7 +95,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .clojure .hljs-attribute,
 .asciidoc .hljs-attribute,
 .lasso .hljs-attribute,
-.coffeescript .hljs-property,
 .hljs-phony {
   color: #88f;
 }
@@ -125,7 +123,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
   font-style: italic;
 }
 
-.coffeescript .javascript,
 .javascript .xml,
 .lasso .markup,
 .tex .hljs-formula,

@@ -79,8 +79,7 @@ based on dark.css by Ivan Sagalaev
 .css .hljs-rule .hljs-value,
 .hljs-attr_selector,
 .hljs-pseudo,
-.tex .hljs-formula,
-.coffeescript .hljs-attribute {
+.tex .hljs-formula {
   color: #cc9393;
 }
 
@@ -94,7 +93,6 @@ based on dark.css by Ivan Sagalaev
   color: #7f9f7f;
 }
 
-.coffeescript .javascript,
 .javascript .xml,
 .tex .hljs-formula,
 .xml .javascript,

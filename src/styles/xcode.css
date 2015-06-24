@@ -60,8 +60,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-symbol,
 .hljs-number,
 .hljs-meta,
-.css .hljs-function,
-.coffeescript .hljs-attribute {
+.css .hljs-function {
   color: #1c00cf;
 }
 

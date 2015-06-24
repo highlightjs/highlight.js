@@ -37,8 +37,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-filter .hljs-argument,
 .hljs-attr_selector,
 .hljs-date,
-.tex .hljs-command,
-.coffeescript .hljs-attribute {
+.tex .hljs-command {
   color: #65b042;
 }
 
@@ -142,7 +141,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #f8f8f8;
 }
 
-.coffeescript .javascript,
 .javascript .xml,
 .tex .hljs-formula,
 .xml .javascript,

@@ -31,8 +31,7 @@ Music: Aphex Twin / Xtal
 .hljs-template_tag,
 .django .hljs-variable,
 .hljs-addition,
-.hljs-variable,
-.coffeescript .hljs-attribute {
+.hljs-variable {
   color: #050;
 }
 
@@ -90,7 +89,6 @@ Music: Aphex Twin / Xtal
   color: navy;
 }
 
-.coffeescript .javascript,
 .javascript .xml,
 .tex .hljs-formula,
 .xml .javascript,

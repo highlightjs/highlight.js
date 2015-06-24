@@ -19,9 +19,6 @@ function(hljs) {
       'true false null undefined ' +
       // Coffee literals
       'yes no on off',
-    reserved:
-      'case default function var void with const let enum export import native ' +
-      '__hasProp __extends __slice __bind __indexOf',
     built_in:
       'npm require console print module global window document'
   };
@@ -74,8 +71,7 @@ function(hljs) {
       ]
     },
     {
-      className: 'property',
-      begin: '@' + JS_IDENT_RE
+      begin: '@' + JS_IDENT_RE // relevance booster
     },
     {
       begin: '`', end: '`',
@@ -141,7 +137,6 @@ function(hljs) {
         ]
       },
       {
-        className: 'attribute',
         begin: JS_IDENT_RE + ':', end: ':',
         returnBegin: true, returnEnd: true,
         relevance: 0

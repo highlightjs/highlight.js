@@ -30,8 +30,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .django .hljs-template_tag,
 .django .hljs-variable,
 .hljs-addition,
-.tex .hljs-command,
-.coffeescript .hljs-attribute {
+.tex .hljs-command {
   color: #ff0;
 }
 

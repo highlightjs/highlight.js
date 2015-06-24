@@ -47,8 +47,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-envvar,
 .hljs-variable,
 .tex .hljs-command,
-.hljs-prompt,
-.coffeescript .hljs-attribute {
+.hljs-prompt {
   color: #d88;
 }
 
@@ -82,7 +81,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
   font-weight: bold;
 }
 
-.coffeescript .javascript,
 .javascript .xml,
 .tex .hljs-formula,
 .xml .javascript,

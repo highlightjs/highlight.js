@@ -21,8 +21,6 @@
 
 .hljs-string,
 .hljs-variable,
-.coffeescript .hljs-subst,
-.coffeescript .hljs-regexp,
 .cpp .hljs-preprocessor,
 .c .hljs-preprocessor,
 .javascript .hljs-regexp,
@@ -64,9 +62,6 @@
 .hljs-symbol,
 .bash .hljs-literal,
 .bash .hljs-built_in,
-.coffeescript .hljs-literal,
-.coffeescript .hljs-built_in,
-.coffeescript .hljs-number,
 .cpp .hljs-number,
 .cpp .hljs-built_in,
 .c .hljs-number,
@@ -151,11 +146,6 @@
 .stylus .hljs-pseudo,
 .diff .hljs-chunk {
   color: #795da3;
-}
-
-.coffeescript .hljs-reserved,
-.coffeescript .hljs-attribute {
-  color: #1d3e81;
 }
 
 .diff .hljs-chunk {

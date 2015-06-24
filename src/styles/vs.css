@@ -45,8 +45,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .django .hljs-variable,
 .hljs-addition,
 .hljs-date,
-.tex .hljs-formula,
-.coffeescript .hljs-attribute {
+.tex .hljs-formula {
   color: #a31515;
 }
 
