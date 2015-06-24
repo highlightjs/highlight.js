@@ -74,7 +74,7 @@ You can get highlight.js as a hosted, or custom-build, browser script or
 as a server module. Right out of the box the browser script supports
 both AMD and CommonJS, so if you wish you can use RequireJS or
 Browserify without having to build from source. The server module also
-works perfectly find with Browserify, but there is the option to use a
+works perfectly fine with Browserify, but there is the option to use a
 build specific to browsers rather than something meant for a server.
 Head over to the [download page][5] for all the options.
 
