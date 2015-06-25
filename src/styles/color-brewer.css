@@ -123,10 +123,8 @@ Ported by Fabrício Tavares de Oliveira
   font-style: italic;
 }
 
-.javascript .xml,
 .lasso .markup,
 .tex .hljs-formula,
-.xml .javascript,
 .xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {

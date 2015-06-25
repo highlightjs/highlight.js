@@ -100,9 +100,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
   font-weight: bold;
 }
 
-.javascript .xml,
 .tex .hljs-formula,
-.xml .javascript,
 .xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {

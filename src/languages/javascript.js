@@ -25,7 +25,7 @@ function(hljs) {
     },
     contains: [
       {
-        className: 'pi',
+        className: 'meta',
         relevance: 10,
         begin: /^\s*['"]use (strict|asm)['"]/
       },

@@ -81,9 +81,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
   font-weight: bold;
 }
 
-.javascript .xml,
 .tex .hljs-formula,
-.xml .javascript,
 .xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {

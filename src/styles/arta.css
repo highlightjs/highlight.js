@@ -116,9 +116,7 @@ Author: pumbur <pumbur@pumbur.net>
   font-weight: bold;
 }
 
-.javascript .xml,
 .tex .hljs-formula,
-.xml .javascript,
 .xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {

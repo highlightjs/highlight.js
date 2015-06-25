@@ -141,9 +141,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #f8f8f8;
 }
 
-.javascript .xml,
 .tex .hljs-formula,
-.xml .javascript,
 .xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {
