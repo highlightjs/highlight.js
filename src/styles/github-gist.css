@@ -66,9 +66,6 @@
 .ruby .hljs-number,
 .ruby .hljs-subst .hljs-keyword,
 .sql .hljs-number,
-.stylus .hljs-number,
-.stylus .stylus .hljs-attribute,
-.stylus .hljs-params,
 .swift .hljs-built_in,
 .swift .hljs-number {
   color: #0086b3;
@@ -76,8 +73,7 @@
 
 .hljs-section,
 .hljs-tag .hljs-name,
-.cs .hljs-xmlDocTag,
-.stylus .hljs-tag {
+.cs .hljs-xmlDocTag {
   color: #63a35c;
 }
 
@@ -92,8 +88,7 @@
 .perl .hljs-sub,
 .python .hljs-decorator,
 .ruby .hljs-parent,
-.xml .hljs-attribute,
-.stylus .diff .hljs-chunk {
+.xml .hljs-attribute {
   color: #795da3;
 }
 

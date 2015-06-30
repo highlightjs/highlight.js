@@ -13,9 +13,8 @@ function(hljs) {
   };
 
   var HEX_COLOR = {
-    className: 'hexcolor',
-    begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})',
-    relevance: 10
+    className: 'number',
+    begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})'
   };
 
   var AT_KEYWORDS = [
@@ -369,7 +368,7 @@ function(hljs) {
         begin: '\\.[a-zA-Z][a-zA-Z0-9_-]*' + TAG_END,
         returnBegin: true,
         contains: [
-          {className: 'class', begin: '\\.[a-zA-Z][a-zA-Z0-9_-]*'}
+          {className: 'name', begin: '\\.[a-zA-Z][a-zA-Z0-9_-]*'}
         ]
       },
 
@@ -378,7 +377,7 @@ function(hljs) {
         begin: '\\#[a-zA-Z][a-zA-Z0-9_-]*' + TAG_END,
         returnBegin: true,
         contains: [
-          {className: 'id', begin: '\\#[a-zA-Z][a-zA-Z0-9_-]*'}
+          {className: 'name', begin: '\\#[a-zA-Z][a-zA-Z0-9_-]*'}
         ]
       },
 
@@ -387,19 +386,17 @@ function(hljs) {
         begin: '\\b(' + TAGS.join('|') + ')' + TAG_END,
         returnBegin: true,
         contains: [
-          {className: 'tag', begin: '\\b[a-zA-Z][a-zA-Z0-9_-]*'}
+          {className: 'keyword', begin: '\\b[a-zA-Z][a-zA-Z0-9_-]*'}
         ]
       },
 
       // psuedo selectors
       {
-        className: 'pseudo',
         begin: '&?:?:\\b(' + PSEUDO_SELECTORS.join('|') + ')' + TAG_END
       },
 
       // @ keywords
       {
-        className: 'at_rule',
         begin: '\@(' + AT_KEYWORDS.join('|') + ')\\b'
       },
 
@@ -416,7 +413,7 @@ function(hljs) {
       //  - only from beginning of line + whitespace
       {
         className: 'function',
-        begin: '\\b[a-zA-Z][a-zA-Z0-9_\-]*\\(.*\\)',
+        begin: '^[a-zA-Z][a-zA-Z0-9_\-]*\\(.*\\)',
         illegal: '[\\n]',
         returnBegin: true,
         contains: [
