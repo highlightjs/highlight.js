@@ -8,7 +8,7 @@ Category: scripting
 function(hljs) {
   var KEYWORDS = {
     keyword:
-      'in if for while finally var new function|0 do return void else break catch ' +
+      'in if for while finally var new function do return void else break catch ' +
       'instanceof with throw case default try this switch continue typeof delete ' +
       'let yield const class public private get set super interface extends' +
       'static constructor implements enum export import declare type protected',
@@ -29,9 +29,8 @@ function(hljs) {
     keywords: KEYWORDS,
     contains: [
       {
-        className: 'pi',
-        begin: /^\s*['"]use strict['"]/,
-        relevance: 0
+        className: 'meta',
+        begin: /^\s*['"]use strict['"]/
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
@@ -85,17 +84,14 @@ function(hljs) {
         relevance: 0 // () => {} is more typical in TypeScript
       },
       {
-        className: 'constructor',
         begin: 'constructor', end: /\{/, excludeEnd: true,
         keywords: KEYWORDS,
         relevance: 10
       },
       {
-        className: 'module',
         beginKeywords: 'module', end: /\{/, excludeEnd: true
       },
       {
-        className: 'interface',
         beginKeywords: 'interface', end: /\{/, excludeEnd: true
       },
       {
