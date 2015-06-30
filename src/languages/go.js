@@ -10,17 +10,16 @@ function(hljs) {
   var GO_KEYWORDS = {
     keyword:
       'break default func interface select case map struct chan else goto package switch ' +
-      'const fallthrough if range type continue for import return var go defer',
-    constant:
-       'true false iota nil',
-    typename:
+      'const fallthrough if range type continue for import return var go defer ' +
       'bool byte complex64 complex128 float32 float64 int8 int16 int32 int64 string uint8 ' +
       'uint16 uint32 uint64 int uint uintptr rune',
+    literal:
+       'true false iota nil',
     built_in:
       'append cap close complex copy imag len make new panic print println real recover delete'
   };
   return {
-    aliases: ["golang"],
+    aliases: ['golang'],
     keywords: GO_KEYWORDS,
     illegal: '</',
     contains: [

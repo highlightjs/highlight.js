@@ -94,8 +94,6 @@
 .stylus .hljs-hexcolor,
 .stylus .hljs-attribute,
 .stylus .hljs-params,
-.go .hljs-built_in,
-.go .hljs-constant,
 .swift .hljs-built_in,
 .swift .hljs-number {
   color: #0086b3;
