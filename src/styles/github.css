@@ -43,8 +43,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-title,
 .hljs-section,
-.hljs-id,
-.scss .hljs-preprocessor {
+.hljs-id {
   color: #900;
   font-weight: bold;
 }

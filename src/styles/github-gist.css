@@ -30,8 +30,7 @@
 .perl .hljs-regexp,
 .php .hljs-regexp,
 .xml .hljs-value,
-.less .hljs-built_in,
-.scss .hljs-built_in {
+.less .hljs-built_in {
   color: #df5000;
 }
 
@@ -40,9 +39,7 @@
 .hljs-type,
 .objectivec .hljs-preprocessor,
 .sql .hljs-built_in,
-.less .hljs-tag,
-.scss .hljs-tag,
-.scss .swift .hljs-preprocessor {
+.less .hljs-tag {
   color: #a71d5d;
 }
 
@@ -73,9 +70,6 @@
 .sql .hljs-number,
 .less .hljs-number,
 .less .less .hljs-attribute,
-.scss .hljs-preprocessor,
-.scss .hljs-number,
-.scss .scss .hljs-attribute,
 .stylus .hljs-number,
 .stylus .stylus .hljs-attribute,
 .stylus .hljs-params,
@@ -94,8 +88,7 @@
 .cs .hljs-preprocessor,
 .cs .hljs-preprocessor .hljs-keyword,
 .makefile .hljs-constant,
-.xml .hljs-tag,
-.scss .hljs-variable {
+.xml .hljs-tag {
   color: #333333;
 }
 
@@ -105,8 +98,6 @@
 .ruby .hljs-parent,
 .xml .hljs-attribute,
 .less .hljs-id,
-.less .scss .hljs-id,
-.scss .stylus .hljs-id,
 .stylus .diff .hljs-chunk {
   color: #795da3;
 }

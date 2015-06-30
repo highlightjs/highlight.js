@@ -34,8 +34,7 @@ Date: 2013-04-02
 .hljs-link_label,
 .hljs-strong,
 .hljs-value,
-.hljs-string,
-.scss .hljs-value .hljs-string {
+.hljs-string {
   color: #d14;
 }
 
@@ -96,8 +95,7 @@ Date: 2013-04-02
   color: #579;
 }
 
-.hljs-reserved,
-.scss .hljs-value {
+.hljs-reserved {
   color: #000;
 }
 
@@ -112,9 +110,4 @@ Date: 2013-04-02
 
 .hljs-tag {
   color: #007700;
-}
-
-.scss .hljs-tag,
-.scss .hljs-attribute {
-  color: #339;
 }
