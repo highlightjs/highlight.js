@@ -6,6 +6,9 @@ Stylable classes
 ----------------
 
 +--------------------------+---------------------------------------------------+
+| attribute                | Name of an attribute followed by a structured     |
+|                          | value part (css properties, HTTP headers)         |
++--------------------------+---------------------------------------------------+
 | built_in                 | Built-in or library object (constant, class,      |
 |                          | function)                                         |
 +--------------------------+---------------------------------------------------+

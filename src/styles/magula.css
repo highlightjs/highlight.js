@@ -24,10 +24,10 @@ Music: Aphex Twin / Xtal
 .hljs-title,
 .hljs-parent,
 .hljs-tag .hljs-value,
-.hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
 .hljs-symbol,
+.hljs-attribute,
 .hljs-template_tag,
 .django .hljs-variable,
 .hljs-addition,
@@ -60,8 +60,6 @@ Music: Aphex Twin / Xtal
 .hljs-filter .hljs-argument,
 .hljs-localvars,
 .hljs-array,
-.hljs-attr_selector,
-.hljs-pseudo,
 .hljs-pi,
 .hljs-doctype,
 .hljs-deletion,
@@ -90,7 +88,6 @@ Music: Aphex Twin / Xtal
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

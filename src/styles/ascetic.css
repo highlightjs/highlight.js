@@ -21,6 +21,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-filter .hljs-argument,
 .hljs-addition,
 .hljs-change,
+.hljs-attribute,
 .tex .hljs-formula {
   color: #888;
 }
@@ -38,7 +39,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-section,
 .hljs-name,
 .hljs-type,
-.css .hljs-tag,
 .tex .hljs-command,
 .hljs-request,
 .hljs-status {

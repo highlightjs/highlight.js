@@ -29,8 +29,8 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-title,
 .hljs-name,
 .hljs-type,
+.hljs-attribute,
 .hljs-tag .hljs-value,
-.css .hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
 .hljs-symbol,
@@ -41,8 +41,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
-.hljs-attr_selector,
-.hljs-pseudo,
 .hljs-addition,
 .hljs-envvar,
 .hljs-variable,
@@ -67,7 +65,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-literal,
 .hljs-title,
 .hljs-section,
-.css .hljs-id,
 .hljs-doctag,
 .hljs-type,
 .rsl .hljs-built_in,
@@ -81,7 +78,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

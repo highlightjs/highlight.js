@@ -27,6 +27,7 @@
   color: #96cbfe;
 }
 
+.hljs-attribute,
 .hljs-sub .hljs-keyword,
 .method {
   color: #ffffb6;
@@ -36,7 +37,6 @@
 .hljs-tag .hljs-value,
 .hljs-cdata,
 .hljs-filter .hljs-argument,
-.hljs-attr_selector,
 .hljs-date {
   color: #a8ff60;
 }
@@ -67,29 +67,11 @@
   color: #c6c5fe;
 }
 
-.css .hljs-tag {
-  color: #96cbfe;
-}
-
-.css .hljs-rule .hljs-property,
-.css .hljs-id {
-  color: #ffffb6;
-}
-
-.css .hljs-class {
-  color: #fff;
-}
-
-.hljs-hexcolor {
-  color: #c6c5fe;
-}
-
 .hljs-number {
   color:#ff73fd;
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.7;
 }

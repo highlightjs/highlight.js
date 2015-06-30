@@ -26,10 +26,8 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-keyword,
 .hljs-literal,
 .hljs-name,
-.css .rule .hljs-keyword,
 .method,
 .hljs-addition,
-.css .hljs-tag,
 .hljs-list .hljs-keyword {
   color: #b64926;
 }
@@ -40,8 +38,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-tag .hljs-value,
 .hljs-doctag,
 .tex .hljs-formula,
-.hljs-regexp,
-.hljs-hexcolor {
+.hljs-regexp {
   color: #468966;
 }
 
@@ -50,12 +47,10 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-localvars,
 .hljs-chunk,
 .hljs-decorator,
-.hljs-built_in,
-.hljs-id {
+.hljs-built_in {
   color: #ffb03b;
 }
 
-.hljs-attribute,
 .hljs-variable,
 .smalltalk .hljs-number,
 .hljs-constant,
@@ -65,17 +60,8 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
   color: #b58900;
 }
 
-.css .hljs-attribute {
+.hljs-attribute {
   color: #b89859;
-}
-
-.css .hljs-number,
-.css .hljs-hexcolor {
-  color: #dccf8f;
-}
-
-.css .hljs-class {
-  color: #d3a60c;
 }
 
 .hljs-preprocessor,
@@ -85,8 +71,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-symbol,
 .diff .hljs-change,
 .hljs-special,
-.hljs-attr_selector,
-.hljs-important,
 .hljs-subst,
 .hljs-cdata,
 .hljs-meta {

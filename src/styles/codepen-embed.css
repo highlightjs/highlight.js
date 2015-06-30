@@ -22,7 +22,6 @@
 }
 
 .hljs-variable,
-.hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
 .hljs-meta,
@@ -41,31 +40,10 @@
   color: #ab875d;
 }
 
-.css .value {
-  color: #cd6a51;
-}
-
-.css .value .function,
-.css .value .string {
-  color: #a67f59;
-}
-
-.css .value .number {
-  color: #9b869c;
-}
-
-.css .id,
-.css .class,
-.css-pseudo,
-.css .selector,
-.css .tag {
-  color: #dfc48c;
-}
-
 .hljs-section,
 .hljs-title,
 .hljs-type,
-.css .rules .attribute {
+.hljs-attribute {
   color: #9b869b;
 }
 
@@ -77,10 +55,6 @@
 .hljs-name,
 .xml .cdata {
   color: #8f9c6c;
-}
-
-.css .hexcolor {
-  color: #cd6a51;
 }
 
 .python .decorator,

@@ -32,8 +32,8 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-title,
 .hljs-section,
 .hljs-type,
+.hljs-attribute,
 .hljs-tag .hljs-value,
-.css .hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
 .hljs-symbol,
@@ -44,8 +44,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
-.hljs-attr_selector,
-.hljs-pseudo,
 .hljs-addition,
 .hljs-envvar,
 .hljs-variable,
@@ -68,7 +66,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 
 .hljs-keyword,
 .hljs-literal,
-.css .hljs-id,
 .hljs-doctag,
 .hljs-title,
 .hljs-section,
@@ -82,7 +79,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.8;
 }

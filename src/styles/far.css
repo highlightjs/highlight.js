@@ -18,10 +18,9 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 }
 
 .hljs-string,
+.hljs-attribute,
 .ruby .hljs-string,
 .hljs-tag .hljs-value,
-.hljs-rule .hljs-value,
-.hljs-rule .hljs-value .hljs-number,
 .hljs-preprocessor,
 .hljs-pragma,
 .hljs-name,
@@ -35,7 +34,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 }
 
 .hljs-keyword,
-.css .hljs-id,
 .hljs-section,
 .hljs-type,
 .rsl .hljs-built_in,
@@ -68,8 +66,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
-.hljs-attr_selector,
-.hljs-pseudo,
 .xml .hljs-pi,
 .diff .hljs-header,
 .hljs-chunk,
@@ -80,7 +76,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 }
 
 .hljs-keyword,
-.css .hljs-id,
 .hljs-title,
 .hljs-section,
 .rsl .hljs-built_in,

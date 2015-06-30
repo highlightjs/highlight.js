@@ -20,13 +20,11 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 .hljs-keyword,
 .assignment,
 .hljs-literal,
-.css .rule .hljs-keyword,
 .hljs-subst {
   color: #954121;
 }
 
-.hljs-number,
-.hljs-hexcolor {
+.hljs-number {
   color: #40a070;
 }
 
@@ -56,13 +54,12 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-tag,
-.hljs-rule .hljs-property,
+.hljs-attribute,
 .django .hljs-tag .hljs-keyword {
   color: #000080;
   font-weight: normal;
 }
 
-.hljs-attribute,
 .hljs-variable,
 .instancevar {
   color: #008080;

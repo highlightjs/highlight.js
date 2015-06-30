@@ -27,7 +27,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-name,
 .method,
 .hljs-addition,
-.css .hljs-tag,
 .hljs-request,
 .hljs-status {
   color: #859900;
@@ -38,11 +37,9 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-command,
 .hljs-string,
 .hljs-tag .hljs-value,
-.hljs-rule .hljs-value,
 .hljs-doctag,
 .tex .hljs-formula,
 .hljs-regexp,
-.hljs-hexcolor,
 .hljs-link_url {
   color: #2aa198;
 }
@@ -55,8 +52,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-decorator,
 .hljs-built_in,
 .vhdl .hljs-literal,
-.hljs-id,
-.css .hljs-function {
+.hljs-id {
   color: #268bd2;
 }
 
@@ -80,18 +76,14 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-symbol,
 .diff .hljs-change,
 .hljs-special,
-.hljs-attr_selector,
 .hljs-subst,
 .hljs-cdata,
-.hljs-meta,
-.css .hljs-pseudo,
-.hljs-header {
+.hljs-meta {
   color: #cb4b16;
 }
 
 /* Solarized Red */
-.hljs-deletion,
-.hljs-important {
+.hljs-deletion {
   color: #dc322f;
 }
 

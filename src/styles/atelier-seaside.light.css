@@ -16,10 +16,7 @@
 .hljs-tag .hljs-name,
 .xml .hljs-pi,
 .xml .hljs-doctype,
-.html .hljs-doctype,
-.css .hljs-id,
-.css .hljs-class,
-.css .hljs-pseudo {
+.html .hljs-doctype {
   color: #e6193c;
 }
 
@@ -35,11 +32,6 @@
   color: #87711d;
 }
 
-/* Atelier-Seaside Yellow */
-.css .hljs-rule .hljs-attribute {
-  color: #98981b;
-}
-
 /* Atelier-Seaside Green */
 .hljs-string,
 .hljs-value,
@@ -52,8 +44,7 @@
 
 /* Atelier-Seaside Aqua */
 .hljs-title,
-.hljs-section,
-.css .hljs-hexcolor {
+.hljs-section {
   color: #1999b3;
 }
 
@@ -79,7 +70,6 @@
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

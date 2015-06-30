@@ -10,17 +10,13 @@
 
 /* Tomorrow Red */
 .hljs-variable,
-.hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
 .ruby .hljs-constant,
 .xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
 .xml .hljs-doctype,
-.html .hljs-doctype,
-.css .hljs-id,
-.css .hljs-class,
-.css .hljs-pseudo {
+.html .hljs-doctype {
   color: #ff9da4;
 }
 
@@ -38,7 +34,7 @@
 }
 
 /* Tomorrow Yellow */
-.css .hljs-rule .hljs-attribute {
+.hljs-attribute {
   color: #ffeead;
 }
 
@@ -54,8 +50,7 @@
 
 /* Tomorrow Aqua */
 .hljs-title,
-.hljs-section,
-.css .hljs-hexcolor {
+.hljs-section {
   color: #99ffff;
 }
 
@@ -81,7 +76,6 @@
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

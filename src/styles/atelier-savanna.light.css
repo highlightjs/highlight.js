@@ -16,10 +16,7 @@
 .hljs-tag .hljs-name,
 .xml .hljs-pi,
 .xml .hljs-doctype,
-.html .hljs-doctype,
-.css .hljs-id,
-.css .hljs-class,
-.css .hljs-pseudo {
+.html .hljs-doctype {
   color: #b16139;
 }
 
@@ -35,11 +32,6 @@
   color: #9f713c;
 }
 
-/* Atelier-Savanna Yellow */
-.css .hljs-rule .hljs-attribute {
-  color: #a07e3b;
-}
-
 /* Atelier-Savanna Green */
 .hljs-string,
 .hljs-value,
@@ -52,8 +44,7 @@
 
 /* Atelier-Savanna Aqua */
 .hljs-title,
-.hljs-section,
-.css .hljs-hexcolor {
+.hljs-section {
   color: #1c9aa0;
 }
 
@@ -98,7 +89,6 @@
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

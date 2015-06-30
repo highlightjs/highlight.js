@@ -20,7 +20,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-keyword,
-.css .rule .hljs-keyword,
 .hljs-subst,
 .hljs-request,
 .hljs-status {
@@ -30,9 +29,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-number,
 .hljs-literal,
-.hljs-hexcolor,
 .ruby .hljs-constant,
-.hljs-attribute,
 .hljs-variable {
   color: #008080;
 }
@@ -67,7 +64,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-tag,
 .hljs-tag .hljs-name,
-.hljs-rule .hljs-property,
+.hljs-attribute,
 .django .hljs-tag .hljs-keyword {
   color: #000080;
   font-weight: normal;

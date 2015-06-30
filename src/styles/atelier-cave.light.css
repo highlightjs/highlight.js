@@ -17,10 +17,7 @@
 .hljs-tag .hljs-name,
 .xml .hljs-pi,
 .xml .hljs-doctype,
-.html .hljs-doctype,
-.css .hljs-id,
-.css .hljs-class,
-.css .hljs-pseudo {
+.html .hljs-doctype {
   color: #be4678;
 }
 
@@ -36,11 +33,6 @@
   color: #aa573c;
 }
 
-/* Atelier-Cave Yellow */
-.css .hljs-rule .hljs-attribute {
-  color: #a06e3b;
-}
-
 /* Atelier-Cave Green */
 .hljs-string,
 .hljs-value,
@@ -53,8 +45,7 @@
 
 /* Atelier-Cave Aqua */
 .hljs-title,
-.hljs-section,
-.css .hljs-hexcolor {
+.hljs-section {
   color: #398bc6;
 }
 
@@ -99,7 +90,6 @@
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

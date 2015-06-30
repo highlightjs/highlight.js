@@ -42,7 +42,6 @@
   color: #62c8f3;
 }
 
-.hljs-id,
 .hljs-variable,
 .hljs-tag .hljs-value {
   color: #ade5fc;
@@ -65,7 +64,6 @@
 }
 
 .hljs-number,
-.hljs-hexcolor,
 .hljs-symbol,
 .hljs-link_label,
 .hljs-link_reference {
@@ -74,8 +72,7 @@
 
 .hljs-keyword,
 .hljs-literal,
-.hljs-constant,
-.css .hljs-tag {
+.hljs-constant {
   color: #fcc28c;
 }
 
@@ -95,12 +92,10 @@
   color: #888;
 }
 
-.hljs-regexp,
-.hljs-attr_selector {
+.hljs-regexp {
   color: #c6b4f0;
 }
 
-.hljs-important,
 .hljs-doctype,
 .hljs-pi,
 .hljs-chunk,

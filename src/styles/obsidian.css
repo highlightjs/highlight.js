@@ -14,7 +14,6 @@
 .hljs-keyword,
 .hljs-literal,
 .hljs-change,
-.css .hljs-id,
 .tex .hljs-special {
   color: #93c763;
 }
@@ -25,11 +24,6 @@
 
 .hljs {
   color: #e0e2e4;
-}
-
-.css .hljs-tag,
-.css .hljs-pseudo {
-  color: #d0d2b5;
 }
 
 .hljs-attribute,
@@ -52,16 +46,10 @@
   color: white;
 }
 
-.hljs-hexcolor {
-  color: #93c763;
-}
-
 .hljs-regexp {
   color: #d39745;
 }
 
-.hljs-at_rule,
-.hljs-at_rule .hljs-keyword,
 .hljs-name {
   color: #a082bd;
 }
@@ -84,8 +72,6 @@
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
-.hljs-attr_selector,
-.hljs-pseudo,
 .hljs-addition,
 .hljs-envvar,
 .hljs-variable,
@@ -114,7 +100,6 @@
 
 .hljs-keyword,
 .hljs-literal,
-.css .hljs-id,
 .hljs-doctag,
 .hljs-title,
 .hljs-section,
@@ -126,13 +111,11 @@
 .bash .hljs-variable,
 .tex .hljs-special,
 .hljs-request,
-.hljs-at_rule .hljs-keyword,
 .hljs-status {
   font-weight: bold;
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

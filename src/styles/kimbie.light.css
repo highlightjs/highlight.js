@@ -12,7 +12,6 @@
 
 /* Kimbie Red */
 .hljs-variable,
-.hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
 .hljs-meta,
@@ -20,10 +19,7 @@
 .xml .hljs-tag .hljs-name,
 .xml .hljs-pi,
 .xml .hljs-doctype,
-.html .hljs-doctype,
-.css .hljs-id,
-.css .hljs-class,
-.css .hljs-pseudo {
+.html .hljs-doctype {
   color: #dc3958;
 }
 
@@ -41,7 +37,7 @@
 /* Kimbie Yellow */
 .hljs-title,
 .hljs-section,
-.css .hljs-rule .hljs-attribute {
+.hljs-attribute {
   color: #f06431;
 }
 
@@ -53,11 +49,6 @@
 .hljs-symbol,
 .xml .hljs-cdata {
   color: #889b4a;
-}
-
-/* Kimbie Aqua */
-.css .hljs-hexcolor {
-  color: #088649;
 }
 
 /* Kimbie Blue */
@@ -83,7 +74,6 @@
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

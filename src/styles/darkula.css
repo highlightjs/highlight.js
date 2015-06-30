@@ -14,9 +14,6 @@ Darkula color scheme from the JetBrains family of IDEs
 }
 
 .hljs,
-.css .hljs-rule,
-.css .hljs-value,
-.css .hljs-function .hljs-preprocessor,
 .hljs-pragma {
   color: #bababa;
 }
@@ -32,14 +29,12 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-number,
 .hljs-regexp,
 .alias .hljs-keyword,
-.hljs-literal,
-.hljs-hexcolor {
+.hljs-literal {
   color: #6896ba;
 }
 
 .hljs-tag .hljs-value,
-.hljs-code,
-.css .hljs-class {
+.hljs-code {
   color: #a6e22e;
 }
 
@@ -60,12 +55,7 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-tag .hljs-name,
 .hljs-value,
 .alias .hljs-keyword:first-child,
-.css .hljs-tag,
-.css .unit,
-.css .hljs-important,
-.hljs-constant,
-.hljs-variable,
-.css .hljs-attribute {
+.hljs-variable {
   color: #cb7832;
 }
 
@@ -74,7 +64,6 @@ Darkula color scheme from the JetBrains family of IDEs
 }
 
 .hljs-string,
-.css .hljs-id,
 .hljs-subst,
 .hljs-type,
 .hljs-built_in,
@@ -84,8 +73,6 @@ Darkula color scheme from the JetBrains family of IDEs
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
-.hljs-attr_selector,
-.hljs-pseudo,
 .hljs-addition,
 .hljs-envvar,
 .tex .hljs-command,
@@ -112,7 +99,6 @@ Darkula color scheme from the JetBrains family of IDEs
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata,
 .xml .php,
 .php .xml {

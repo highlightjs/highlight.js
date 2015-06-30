@@ -28,8 +28,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs,
 .hljs-expression .hljs-variable,
 .hljs-expression .hljs-begin-block,
-.hljs-expression .hljs-end-block,
-.hljs-at_rule .hljs-preprocessor {
+.hljs-expression .hljs-end-block {
   color: #c5c8c6;
 }
 
@@ -58,7 +57,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-deletion,
 .hljs-link_url,
 .hljs-argument,
-.hljs-hexcolor,
 .hljs-char {
  color: #cc6666
 }
@@ -68,17 +66,14 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-special,
 .hljs-doctag,
 .hljs-addition,
-.hljs-important,
 .hljs-tag .hljs-value,
-.hljs-at_rule .hljs-keyword,
-.hljs-regexp,
-.hljs-attr_selector {
+.hljs-regexp {
   color: #b5bd68;
 }
 
 /*color: fg_purple*/
 .hljs-variable,
-.hljs-property,
+.hljs-attribute,
 .hljs-envvar,
 .hljs-code,
 .hljs-expression,
@@ -108,7 +103,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 }
 
 /*color: fg_aqua*/
-.hljs-pseudo,
 .hljs-annotation,
 .hljs-subst,
 .hljs-change,
@@ -117,10 +111,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-preprocessor .hljs-keyword,
 .hljs-template_tag,
 .hljs-variable,
-.hljs-variable .hljs-filter .hljs-argument,
-.hljs-at_rule,
-.hljs-at_rule .hljs-string,
-.hljs-at_rule .hljs-keyword {
+.hljs-variable .hljs-filter .hljs-argument {
   color: #8abeb7;
 }
 
@@ -130,7 +121,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-constant,
 .hljs-built_in,
 .hljs-link_reference,
-.hljs-attribute,
 .hljs-blockquote,
 .hljs-quoted,
 .hljs-header,

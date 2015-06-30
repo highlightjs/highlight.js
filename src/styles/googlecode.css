@@ -40,7 +40,6 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 .hljs-tag .hljs-value,
 .hljs-cdata,
 .hljs-filter .hljs-argument,
-.hljs-attr_selector,
 .hljs-date,
 .hljs-regexp {
   color: #080;
@@ -52,13 +51,10 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 .hljs-decorator,
 .hljs-shebang,
 .hljs-prompt,
-.hljs-hexcolor,
-.hljs-rule .hljs-value,
 .hljs-literal,
 .hljs-symbol,
 .hljs-meta,
 .hljs-number,
-.css .hljs-function,
 .clojure .hljs-attribute {
   color: #066;
 }
@@ -75,25 +71,9 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
   color: #606;
 }
 
-.css .hljs-tag,
-.hljs-rule .hljs-property,
-.hljs-pseudo,
+.hljs-attribute,
 .hljs-subst {
   color: #000;
-}
-
-.css .hljs-class,
-.css .hljs-id {
-  color: #9b703f;
-}
-
-.hljs-value .hljs-important {
-  color: #ff7700;
-  font-weight: bold;
-}
-
-.hljs-rule .hljs-keyword {
-  color: #c5af75;
 }
 
 .hljs-annotation {

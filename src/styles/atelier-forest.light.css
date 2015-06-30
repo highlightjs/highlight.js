@@ -16,10 +16,7 @@
 .hljs-tag .hljs-name,
 .xml .hljs-pi,
 .xml .hljs-doctype,
-.html .hljs-doctype,
-.css .hljs-id,
-.css .hljs-class,
-.css .hljs-pseudo {
+.html .hljs-doctype {
   color: #f22c40;
 }
 
@@ -35,11 +32,6 @@
   color: #df5320;
 }
 
-/* Atelier-Forest Yellow */
-.css .hljs-rule .hljs-attribute {
-  color: #c38418;
-}
-
 /* Atelier-Forest Green */
 .hljs-string,
 .hljs-value,
@@ -52,8 +44,7 @@
 
 /* Atelier-Forest Aqua */
 .hljs-title,
-.hljs-section,
-.css .hljs-hexcolor {
+.hljs-section {
   color: #3d97b8;
 }
 
@@ -79,7 +70,6 @@
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

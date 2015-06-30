@@ -42,7 +42,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-tag .hljs-value,
 .hljs-cdata,
 .hljs-filter .hljs-argument,
-.hljs-attr_selector,
 .hljs-date,
 .hljs-regexp {
   color: #080;
@@ -55,12 +54,9 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-decorator,
 .hljs-shebang,
 .hljs-prompt,
-.hljs-hexcolor,
-.hljs-rule .hljs-value,
 .hljs-symbol,
 .hljs-number,
-.hljs-meta,
-.css .hljs-function {
+.hljs-meta {
   color: #1c00cf;
 }
 
@@ -76,25 +72,9 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   color: #5c2699;
 }
 
-.css .hljs-tag,
-.hljs-rule .hljs-property,
-.hljs-pseudo,
+.hljs-attribute,
 .hljs-subst {
   color: #000;
-}
-
-.css .hljs-class,
-.css .hljs-id {
-  color: #9b703f;
-}
-
-.hljs-value .hljs-important {
-  color: #ff7700;
-  font-weight: bold;
-}
-
-.hljs-rule .hljs-keyword {
-  color: #c5af75;
 }
 
 .hljs-annotation {

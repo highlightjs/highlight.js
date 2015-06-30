@@ -13,9 +13,7 @@ Author: pumbur <pumbur@pumbur.net>
 
 .hljs,
 .hljs-subst,
-.diff .hljs-chunk,
-.css .hljs-value,
-.css .hljs-attribute {
+.diff .hljs-chunk {
   color: #aaa;
 }
 
@@ -34,7 +32,6 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-pi,
 .hljs-doctype,
 .hljs-tag,
-.css .hljs-rule,
 .tex .hljs-special {
   color: #444;
 }
@@ -62,24 +59,16 @@ Author: pumbur <pumbur@pumbur.net>
 .php .hljs-variable,
 .mel .hljs-variable,
 .django .hljs-variable,
-.css .function,
 .smalltalk .method,
-.hljs-hexcolor,
-.hljs-important,
 .hljs-inheritance,
 .hljs-name,
+.hljs-attribute,
 .parser3 .hljs-variable {
   color: #32aaee;
 }
 
 .hljs-keyword,
 .hljs-tag .hljs-name,
-.css .hljs-tag,
-.css .hljs-class,
-.css .hljs-id,
-.css .hljs-pseudo,
-.css .hljs-attr_selector,
-.tex .hljs-command,
 .hljs-request,
 .hljs-status {
   color: #6644aa;
@@ -92,7 +81,6 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-parent,
 .hljs-deletion,
 .hljs-template_tag,
-.css .hljs-keyword,
 .objectivec .hljs-class .hljs-id,
 .smalltalk .hljs-class,
 .lisp .hljs-keyword,
@@ -113,7 +101,6 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.6;
 }

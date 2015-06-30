@@ -35,7 +35,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-tag .hljs-value,
 .hljs-cdata,
 .hljs-filter .hljs-argument,
-.hljs-attr_selector,
 .hljs-date,
 .tex .hljs-command {
   color: #65b042;
@@ -76,27 +75,9 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #3e87e3;
 }
 
-.css .hljs-tag,
-.hljs-rule .hljs-property,
-.hljs-pseudo,
+.hljs-attribute,
 .tex .hljs-special {
   color: #cda869;
-}
-
-.css .hljs-class {
-  color: #9b703f;
-}
-
-.hljs-rule .hljs-keyword {
-  color: #c5af75;
-}
-
-.hljs-rule .hljs-value {
-  color: #cf6a4c;
-}
-
-.css .hljs-id {
-  color: #8b98ab;
 }
 
 .hljs-annotation {
@@ -107,15 +88,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-pragma,
 .hljs-meta {
   color: #8996a8;
-}
-
-.hljs-hexcolor,
-.css .hljs-value .hljs-number {
-  color: #dd7b3b;
-}
-
-.css .hljs-function {
-  color: #dad085;
 }
 
 .diff .hljs-header,
@@ -142,7 +114,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

@@ -17,8 +17,6 @@ based on dark.css by Ivan Sagalaev
 .hljs-keyword,
 .hljs-tag,
 .hljs-name,
-.css .hljs-class,
-.css .hljs-id,
 .hljs-request,
 .hljs-status,
 .clojure .hljs-attribute {
@@ -36,7 +34,8 @@ based on dark.css by Ivan Sagalaev
   color: #8cd0d3;
 }
 
-.hljs-variable {
+.hljs-variable,
+.hljs-attribute {
   color: #efdcbc;
 }
 
@@ -76,9 +75,6 @@ based on dark.css by Ivan Sagalaev
 .hljs-built_in,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
-.css .hljs-rule .hljs-value,
-.hljs-attr_selector,
-.hljs-pseudo,
 .tex .hljs-formula {
   color: #cc9393;
 }
@@ -94,7 +90,6 @@ based on dark.css by Ivan Sagalaev
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }

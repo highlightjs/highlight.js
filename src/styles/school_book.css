@@ -38,18 +38,16 @@ pre{
 .hljs-section,
 .hljs-type,
 .hljs-tag .hljs-value,
-.css .hljs-rule .hljs-value,
 .hljs-preprocessor,
 .hljs-pragma,
 .hljs-symbol,
+.hljs-attribute,
 .hljs-built_in,
 .django .hljs-template_tag,
 .ruby .hljs-string,
 .django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
-.hljs-attr_selector,
-.hljs-pseudo,
 .hljs-addition,
 .hljs-envvar,
 .hljs-variable,
@@ -71,7 +69,6 @@ pre{
 
 .hljs-keyword,
 .hljs-literal,
-.css .hljs-id,
 .hljs-doctag,
 .hljs-title,
 .hljs-section,
@@ -88,7 +85,6 @@ pre{
 }
 
 .tex .hljs-formula,
-.xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
 }
