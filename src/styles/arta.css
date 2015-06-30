@@ -100,7 +100,6 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-envvar,
 .bash .hljs-variable,
 .go .hljs-built_in,
-.vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .tail,
 .avrasm .hljs-label,
@@ -116,7 +115,6 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .tex .hljs-formula,
-.xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {
   opacity: 0.6;

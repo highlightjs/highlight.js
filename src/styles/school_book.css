@@ -76,7 +76,6 @@ pre{
 .hljs-title,
 .hljs-section,
 .hljs-type,
-.vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .hljs-tag .hljs-name,
 .diff .hljs-header,
@@ -89,7 +88,6 @@ pre{
 }
 
 .tex .hljs-formula,
-.xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;

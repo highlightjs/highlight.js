@@ -142,7 +142,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .tex .hljs-formula,
-.xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;

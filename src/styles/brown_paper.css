@@ -73,7 +73,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-title,
 .hljs-section,
 .hljs-type,
-.vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .diff .hljs-header,
 .hljs-chunk,
@@ -83,7 +82,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 }
 
 .tex .hljs-formula,
-.xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {
   opacity: 0.8;

@@ -94,7 +94,6 @@ based on dark.css by Ivan Sagalaev
 }
 
 .tex .hljs-formula,
-.xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;

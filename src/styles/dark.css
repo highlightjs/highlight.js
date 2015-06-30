@@ -70,7 +70,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .css .hljs-id,
 .hljs-doctag,
 .hljs-type,
-.vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .diff .hljs-header,
 .hljs-chunk,
@@ -82,7 +81,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 }
 
 .tex .hljs-formula,
-.xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;

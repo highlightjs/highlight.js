@@ -120,7 +120,6 @@
 .hljs-section,
 .hljs-header,
 .hljs-type,
-.vbscript .hljs-built_in,
 .rsl .hljs-built_in,
 .diff .hljs-header,
 .hljs-chunk,
@@ -133,7 +132,6 @@
 }
 
 .tex .hljs-formula,
-.xml .vbscript,
 .xml .css,
 .xml .hljs-cdata {
   opacity: 0.5;
