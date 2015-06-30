@@ -60,7 +60,7 @@ function(hljs) {
       },
       hljs.C_NUMBER_MODE,
       {
-        className: 'preprocessor',
+        className: 'meta',
         begin: '#', end: '$',
         keywords: 'if else elif endif define undef warning error line pragma',
         contains: [
