@@ -10,8 +10,8 @@ function(hljs) {
     keyword:
       'in if for while finally var new function do return void else break catch ' +
       'instanceof with throw case default try this switch continue typeof delete ' +
-      'let yield const class public private get set super interface extends' +
-      'static constructor implements enum export import declare type protected',
+      'let yield const class public private get set super ' +
+      'static implements enum export import declare type protected',
     literal:
       'true false null undefined NaN Infinity',
     built_in:
@@ -84,15 +84,15 @@ function(hljs) {
         relevance: 0 // () => {} is more typical in TypeScript
       },
       {
-        begin: 'constructor', end: /\{/, excludeEnd: true,
-        keywords: KEYWORDS,
+        beginKeywords: 'constructor', end: /\{/, excludeEnd: true,
         relevance: 10
       },
       {
         beginKeywords: 'module', end: /\{/, excludeEnd: true
       },
       {
-        beginKeywords: 'interface', end: /\{/, excludeEnd: true
+        beginKeywords: 'interface', end: /\{/, excludeEnd: true,
+        keywords: 'interface extends'
       },
       {
         begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
