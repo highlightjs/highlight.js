@@ -29,8 +29,7 @@
 .markdown .hljs-blockquote,
 .perl .hljs-regexp,
 .php .hljs-regexp,
-.xml .hljs-value,
-.less .hljs-built_in {
+.xml .hljs-value {
   color: #df5000;
 }
 
@@ -38,8 +37,7 @@
 .hljs-name,
 .hljs-type,
 .objectivec .hljs-preprocessor,
-.sql .hljs-built_in,
-.less .hljs-tag {
+.sql .hljs-built_in {
   color: #a71d5d;
 }
 
@@ -68,8 +66,6 @@
 .ruby .hljs-number,
 .ruby .hljs-subst .hljs-keyword,
 .sql .hljs-number,
-.less .hljs-number,
-.less .less .hljs-attribute,
 .stylus .hljs-number,
 .stylus .stylus .hljs-attribute,
 .stylus .hljs-params,
@@ -97,7 +93,6 @@
 .python .hljs-decorator,
 .ruby .hljs-parent,
 .xml .hljs-attribute,
-.less .hljs-id,
 .stylus .diff .hljs-chunk {
   color: #795da3;
 }
