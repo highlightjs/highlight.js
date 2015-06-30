@@ -14,8 +14,7 @@
 
 .hljs-comment,
 .hljs-meta,
-.bash .hljs-shebang,
-.rust .hljs-preprocessor {
+.bash .hljs-shebang {
   color: #969896;
 }
 
@@ -81,7 +80,6 @@
 .ruby .hljs-constant,
 .ruby .hljs-number,
 .ruby .hljs-subst .hljs-keyword,
-.rust .hljs-number,
 .sql .hljs-number,
 .less .hljs-number,
 .less .hljs-hexcolor,

@@ -60,15 +60,17 @@ function(hljs) {
         contains: [hljs.UNDERSCORE_TITLE_MODE]
       },
       {
-        className: 'preprocessor',
+        className: 'meta',
         begin: '#\\!?\\[', end: '\\]'
       },
       {
+        className: 'class',
         beginKeywords: 'type', end: '(=|<)',
         contains: [hljs.UNDERSCORE_TITLE_MODE],
         illegal: '\\S'
       },
       {
+        className: 'class',
         beginKeywords: 'trait enum', end: '({|<)',
         contains: [hljs.UNDERSCORE_TITLE_MODE],
         illegal: '[\\w\\d]'
