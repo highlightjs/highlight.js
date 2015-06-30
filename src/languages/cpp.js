@@ -8,7 +8,7 @@ Category: common, system
 function(hljs) {
   var CPP_PRIMATIVE_TYPES = {
     className: 'keyword',
-    begin: '[a-z\\d_]*_t'
+    begin: '\\b[a-z\\d_]*_t\\b'
   };
 
   var CPP_KEYWORDS = {
