@@ -71,7 +71,7 @@ function(hljs) {
       ]
     },
     {
-      className: 'pi',
+      className: 'regexp',
       variants: [
         {
           begin: '//', end: '//[gim]*',
@@ -85,7 +85,6 @@ function(hljs) {
       ]
     },
     {
-      className: 'property',
       begin: '@' + JS_IDENT_RE
     },
     {
@@ -149,7 +148,6 @@ function(hljs) {
         ]
       },
       {
-        className: 'attribute',
         begin: JS_IDENT_RE + ':', end: ':',
         returnBegin: true, returnEnd: true,
         relevance: 0
