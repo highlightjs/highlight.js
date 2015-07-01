@@ -52,12 +52,7 @@ function(hljs) {
         contains: [
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
-          hljs.REGEXP_MODE,
-          { // E4X
-            begin: /</, end: />;/,
-            relevance: 0,
-            subLanguage: 'xml'
-          }
+          hljs.REGEXP_MODE
         ],
         relevance: 0
       },
