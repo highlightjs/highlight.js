@@ -88,7 +88,6 @@ Author: pumbur <pumbur@pumbur.net>
 .bash .hljs-variable,
 .rsl .hljs-built_in,
 .tail,
-.avrasm .hljs-label,
 .tex .hljs-formula,
 .tex .hljs-formula * {
   color: #bb1166;
