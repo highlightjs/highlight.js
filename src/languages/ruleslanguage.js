@@ -55,7 +55,7 @@ function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
-      { className: 'array',
+      { className: 'literal',
         begin: '\#[a-zA-Z\ \.]+'
       }
     ]
