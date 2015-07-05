@@ -9,7 +9,6 @@
 .hljs-variable,
 .hljs-tag,
 .hljs-regexp,
-.ruby .hljs-constant,
 .xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
 .xml .hljs-doctype,
@@ -25,7 +24,6 @@
 .hljs-literal,
 .hljs-type,
 .hljs-params,
-.hljs-constant,
 .hljs-meta {
   color: #f5871f;
 }

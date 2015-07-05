@@ -20,7 +20,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
   color: #f92672;
 }
 
-.hljs .hljs-constant,
 .asciidoc .hljs-code,
 .markdown .hljs-code {
   color: #66d9ef;

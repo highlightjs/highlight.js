@@ -14,7 +14,6 @@
 .hljs-tag,
 .hljs-regexp,
 .hljs-meta,
-.ruby .hljs-constant,
 .hljs-tag .hljs-name,
 .xml .hljs-pi,
 .xml .hljs-doctype,
@@ -28,8 +27,7 @@
 .hljs-built_in,
 .hljs-literal,
 .hljs-type,
-.hljs-params,
-.hljs-constant {
+.hljs-params {
   color: #f99b15;
 }
 

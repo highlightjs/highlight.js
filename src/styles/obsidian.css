@@ -26,8 +26,7 @@
   color: #e0e2e4;
 }
 
-.hljs-attribute,
-.hljs .hljs-constant {
+.hljs-attribute {
   color: #668bb0;
 }
 

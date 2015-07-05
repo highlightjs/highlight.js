@@ -61,7 +61,6 @@
 .php .hljs-number,
 .python .hljs-number,
 .ruby .hljs-prompt,
-.ruby .hljs-constant,
 .ruby .hljs-number,
 .ruby .hljs-subst .hljs-keyword,
 .sql .hljs-number,
@@ -78,7 +77,6 @@
 
 .cs .hljs-preprocessor,
 .cs .hljs-preprocessor .hljs-keyword,
-.makefile .hljs-constant,
 .xml .hljs-tag {
   color: #333333;
 }

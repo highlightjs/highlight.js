@@ -29,7 +29,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-number,
 .hljs-literal,
-.ruby .hljs-constant,
 .hljs-variable {
   color: #008080;
 }
