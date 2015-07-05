@@ -29,7 +29,7 @@ function(hljs) {
         's16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 '+
         'd0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 '+
         'd16 d17 d18 d19 d20 d21 d22 d23 d24 d25 d26 d27 d28 d29 d30 d31 ',
-    preprocessor:
+    meta:
         //GNU preprocs
         '.2byte .4byte .align .ascii .asciz .balign .byte .code .data .else .end .endif .endm .endr .equ .err .exitm .extern .global .hword .if .ifdef .ifndef .include .irp .long .macro .rept .req .section .set .skip .space .text .word .arm .thumb .code16 .code32 .force_thumb .thumb_func .ltorg '+
         //ARM directives
@@ -85,7 +85,7 @@ function(hljs) {
         relevance: 0
       },
       {
-        className: 'label',
+        className: 'symbol',
         variants: [
             {begin: '^[a-z_\\.\\$][a-z0-9_\\.\\$]+'}, //ARM syntax
             {begin: '^\\s*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'}, //GNU ARM syntax
