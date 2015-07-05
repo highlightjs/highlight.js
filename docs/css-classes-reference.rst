@@ -15,6 +15,8 @@ Stylable classes
 | class                    | Class or class-level declaration (interfaces,     |
 |                          | traits, modules, etc.)                            |
 +--------------------------+---------------------------------------------------+
+| doctag                   | documentation markup within comments              |
++--------------------------+---------------------------------------------------+
 | function                 | Function or method declaration                    |
 +--------------------------+---------------------------------------------------+
 | keyword                  | Keyword in a regular Algol-style language.        |
