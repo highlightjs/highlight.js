@@ -5,16 +5,18 @@ Category: functional
 */
 
 function(hljs) {
-  var COMMENT_MODES = [
-    hljs.COMMENT('--', '$'),
-    hljs.COMMENT(
-      '{-',
-      '-}',
-      {
-        contains: ['self']
-      }
-    )
-  ];
+  var COMMENT = {
+    variants: [
+      hljs.COMMENT('--', '$'),
+      hljs.COMMENT(
+        '{-',
+        '-}',
+        {
+          contains: ['self']
+        }
+      )
+    ]
+  };
 
   var CONSTRUCTOR = {
     className: 'type',
@@ -27,8 +29,9 @@ function(hljs) {
     illegal: '"',
     contains: [
       {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
-      hljs.inherit(hljs.TITLE_MODE, {begin: '[_a-z][\\w\']*'})
-    ].concat(COMMENT_MODES)
+      hljs.inherit(hljs.TITLE_MODE, {begin: '[_a-z][\\w\']*'}),
+      COMMENT
+    ]
   };
 
   var RECORD = {
@@ -47,28 +50,28 @@ function(hljs) {
       {
         beginKeywords: 'module', end: 'where',
         keywords: 'module where',
-        contains: [LIST].concat(COMMENT_MODES),
+        contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
       {
         begin: 'import', end: '$',
         keywords: 'import as exposing',
-        contains: [LIST].concat(COMMENT_MODES),
+        contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
       {
         begin: 'type', end: '$',
         keywords: 'type alias',
-        contains: [CONSTRUCTOR, LIST, RECORD].concat(COMMENT_MODES)
+        contains: [CONSTRUCTOR, LIST, RECORD, COMMENT]
       },
       {
         beginKeywords: 'infix infixl infixr', end: '$',
-        contains: [hljs.C_NUMBER_MODE].concat(COMMENT_MODES)
+        contains: [hljs.C_NUMBER_MODE, COMMENT]
       },
       {
         begin: 'port', end: '$',
         keywords: 'port',
-        contains: COMMENT_MODES
+        contains: [COMMENT]
       },
 
       // Literals and names.
@@ -78,8 +81,9 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
       hljs.inherit(hljs.TITLE_MODE, {begin: '^[_a-z][\\w\']*'}),
+      COMMENT,
 
       {begin: '->|<-'} // No markup, relevance booster
-    ].concat(COMMENT_MODES)
+    ]
   };
 }
