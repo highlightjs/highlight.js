@@ -39,8 +39,11 @@ function(hljs) {
         variants: [
            { begin: /r(#*)".*?"\1(?!#)/ },
            { begin: /'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/ },
-           { begin: /'[a-zA-Z_][a-zA-Z0-9_]*/ }
         ]
+      },
+      {
+        className: 'symbol',
+        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
       },
       {
         className: 'number',
