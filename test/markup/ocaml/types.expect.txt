@@ -3,7 +3,7 @@
 <span class="hljs-keyword">let</span> f (a : <span class="hljs-symbol">'a</span> <span class="hljs-built_in">list</span>) : <span class="hljs-symbol">'a</span> = <span class="hljs-type">List</span>.hd a
 
 <span class="hljs-comment">(* polymorphic variants *)</span>
-<span class="hljs-keyword">type</span> t = [ <span class="hljs-tag">`A</span> | <span class="hljs-tag">`B</span> ]
+<span class="hljs-keyword">type</span> t = [ <span class="hljs-type">`A</span> | <span class="hljs-type">`B</span> ]
 
 <span class="hljs-comment">(* variants *)</span>
 <span class="hljs-keyword">type</span> result = <span class="hljs-type">Sat</span> | <span class="hljs-type">Unsat</span> | <span class="hljs-type">Unknown</span>
