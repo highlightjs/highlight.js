@@ -81,8 +81,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 }
 
 .hljs-preprocessor,
-.hljs-preprocessor *,
-.hljs-pragma {
+.hljs-preprocessor * {
   color: #444;
 }
 

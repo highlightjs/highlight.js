@@ -90,8 +90,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-preprocessor,
-.hljs-preprocessor *,
-.hljs-pragma {
+.hljs-preprocessor * {
   color: #8996a8 !important;
 }
 

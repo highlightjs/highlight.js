@@ -15,8 +15,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs,
 .hljs-tag,
 .hljs-subst,
-.hljs-preprocessor,
-.hljs-pragma {
+.hljs-preprocessor {
   color: #f8f8f2;
 }
 

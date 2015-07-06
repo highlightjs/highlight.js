@@ -82,8 +82,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 .hljs-preprocessor,
-.hljs-preprocessor *,
-.hljs-pragma {
+.hljs-preprocessor * {
   color: #643820;
 }
 

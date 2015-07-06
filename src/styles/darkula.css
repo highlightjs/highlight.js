@@ -13,8 +13,7 @@ Darkula color scheme from the JetBrains family of IDEs
   -webkit-text-size-adjust: none;
 }
 
-.hljs,
-.hljs-pragma {
+.hljs {
   color: #bababa;
 }
 
