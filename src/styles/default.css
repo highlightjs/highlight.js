@@ -35,7 +35,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .pf .hljs-variable,
 .tex .hljs-command,
 .tex .hljs-special,
-.erlang_repl .hljs-function_or_atom,
 .asciidoc .hljs-header,
 .markdown .hljs-header,
 .tp .hljs-variable {
@@ -81,7 +80,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-shebang,
 .hljs-meta,
 .tex .hljs-formula,
-.erlang_repl .hljs-reserved,
 .hljs-prompt,
 .asciidoc .hljs-link_label,
 .markdown .hljs-link_label,

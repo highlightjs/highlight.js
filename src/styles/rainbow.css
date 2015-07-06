@@ -58,8 +58,7 @@ Style with support for rainbow parens
 .hljs-variable,
 .smalltalk .hljs-number,
 .hljs-class .hljs-title,
-.hljs-parent,
-.haskell .hljs-label {
+.hljs-parent {
    color: #ffcc66;
 }
 
