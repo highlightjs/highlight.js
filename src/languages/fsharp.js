@@ -24,6 +24,7 @@ function(hljs) {
       'match member module mutable namespace new null of open or ' +
       'override private public rec return sig static struct then to ' +
       'true try type upcast use val void when while with yield',
+    lexemes: /\w+!?/,
     contains: [
       {
         className: 'string',
@@ -44,12 +45,12 @@ function(hljs) {
         ]
       },
       {
-        className: 'annotation',
+        className: 'meta',
         begin: '\\[<', end: '>\\]',
         relevance: 10
       },
       {
-        className: 'attribute',
+        className: 'symbol',
         begin: '\\B(\'[A-Za-z])\\b',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
