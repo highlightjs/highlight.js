@@ -6,16 +6,18 @@ Category: functional
 */
 
 function(hljs) {
-  var COMMENT_MODES = [
-    hljs.COMMENT('--', '$'),
-    hljs.COMMENT(
-      '{-',
-      '-}',
-      {
-        contains: ['self']
-      }
-    )
-  ];
+  var COMMENT = {
+    variants: [
+      hljs.COMMENT('--', '$'),
+      hljs.COMMENT(
+        '{-',
+        '-}',
+        {
+          contains: ['self']
+        }
+      )
+    ]
+  };
 
   var PRAGMA = {
     className: 'meta',
@@ -40,8 +42,9 @@ function(hljs) {
       PRAGMA,
       PREPROCESSOR,
       {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
-      hljs.inherit(hljs.TITLE_MODE, {begin: '[_a-z][\\w\']*'})
-    ].concat(COMMENT_MODES)
+      hljs.inherit(hljs.TITLE_MODE, {begin: '[_a-z][\\w\']*'}),
+      COMMENT
+    ]
   };
 
   var RECORD = {
@@ -63,13 +66,13 @@ function(hljs) {
       {
         begin: '\\bmodule\\b', end: 'where',
         keywords: 'module where',
-        contains: [LIST].concat(COMMENT_MODES),
+        contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
       {
         begin: '\\bimport\\b', end: '$',
         keywords: 'import|0 qualified as hiding',
-        contains: [LIST].concat(COMMENT_MODES),
+        contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
 
@@ -77,27 +80,27 @@ function(hljs) {
         className: 'class',
         begin: '^(\\s*)?(class|instance)\\b', end: 'where',
         keywords: 'class family instance where',
-        contains: [CONSTRUCTOR, LIST].concat(COMMENT_MODES)
+        contains: [CONSTRUCTOR, LIST, COMMENT]
       },
       {
         className: 'class',
         begin: '\\b(data|(new)?type)\\b', end: '$',
         keywords: 'data family type newtype deriving',
-        contains: [PRAGMA, CONSTRUCTOR, LIST, RECORD].concat(COMMENT_MODES)
+        contains: [PRAGMA, CONSTRUCTOR, LIST, RECORD, COMMENT]
       },
       {
         beginKeywords: 'default', end: '$',
-        contains: [CONSTRUCTOR, LIST].concat(COMMENT_MODES)
+        contains: [CONSTRUCTOR, LIST, COMMENT]
       },
       {
         beginKeywords: 'infix infixl infixr', end: '$',
-        contains: [hljs.C_NUMBER_MODE].concat(COMMENT_MODES)
+        contains: [hljs.C_NUMBER_MODE, COMMENT]
       },
       {
         begin: '\\bforeign\\b', end: '$',
         keywords: 'foreign import export ccall stdcall cplusplus jvm ' +
                   'dotnet safe unsafe',
-        contains: [CONSTRUCTOR, hljs.QUOTE_STRING_MODE].concat(COMMENT_MODES)
+        contains: [CONSTRUCTOR, hljs.QUOTE_STRING_MODE, COMMENT]
       },
       {
         className: 'meta',
@@ -117,7 +120,9 @@ function(hljs) {
       CONSTRUCTOR,
       hljs.inherit(hljs.TITLE_MODE, {begin: '^[_a-z][\\w\']*'}),
 
+      COMMENT,
+
       {begin: '->|<-'} // No markup, relevance booster
-    ].concat(COMMENT_MODES)
+    ]
   };
 }
