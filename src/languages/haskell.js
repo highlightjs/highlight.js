@@ -18,12 +18,12 @@ function(hljs) {
   ];
 
   var PRAGMA = {
-    className: 'pragma',
+    className: 'meta',
     begin: '{-#', end: '#-}'
   };
 
   var PREPROCESSOR = {
-    className: 'preprocessor',
+    className: 'meta',
     begin: '^#', end: '$'
   };
 
@@ -34,7 +34,6 @@ function(hljs) {
   };
 
   var LIST = {
-    className: 'container',
     begin: '\\(', end: '\\)',
     illegal: '"',
     contains: [
@@ -46,7 +45,6 @@ function(hljs) {
   };
 
   var RECORD = {
-    className: 'container',
     begin: '{', end: '}',
     contains: LIST.contains
   };
@@ -63,14 +61,12 @@ function(hljs) {
       // Top-level constructions.
 
       {
-        className: 'module',
         begin: '\\bmodule\\b', end: 'where',
         keywords: 'module where',
         contains: [LIST].concat(COMMENT_MODES),
         illegal: '\\W\\.|;'
       },
       {
-        className: 'import',
         begin: '\\bimport\\b', end: '$',
         keywords: 'import|0 qualified as hiding',
         contains: [LIST].concat(COMMENT_MODES),
@@ -84,30 +80,27 @@ function(hljs) {
         contains: [CONSTRUCTOR, LIST].concat(COMMENT_MODES)
       },
       {
-        className: 'typedef',
+        className: 'class',
         begin: '\\b(data|(new)?type)\\b', end: '$',
         keywords: 'data family type newtype deriving',
         contains: [PRAGMA, CONSTRUCTOR, LIST, RECORD].concat(COMMENT_MODES)
       },
       {
-        className: 'default',
         beginKeywords: 'default', end: '$',
         contains: [CONSTRUCTOR, LIST].concat(COMMENT_MODES)
       },
       {
-        className: 'infix',
         beginKeywords: 'infix infixl infixr', end: '$',
         contains: [hljs.C_NUMBER_MODE].concat(COMMENT_MODES)
       },
       {
-        className: 'foreign',
         begin: '\\bforeign\\b', end: '$',
         keywords: 'foreign import export ccall stdcall cplusplus jvm ' +
                   'dotnet safe unsafe',
         contains: [CONSTRUCTOR, hljs.QUOTE_STRING_MODE].concat(COMMENT_MODES)
       },
       {
-        className: 'shebang',
+        className: 'meta',
         begin: '#!\\/usr\\/bin\\/env\ runhaskell', end: '$'
       },
 
