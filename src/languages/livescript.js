@@ -115,10 +115,7 @@ function(hljs) {
     keywords: KEYWORDS,
     illegal: /\/\*/,
     contains: EXPRESSIONS.concat([
-      {
-        className: 'comment',
-        begin: '\\/\\*', end: '\\*\\/'
-      },
+      hljs.COMMENT('\\/\\*', '\\*\\/'),
       hljs.HASH_COMMENT_MODE,
       {
         className: 'function',

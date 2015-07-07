@@ -11,16 +11,17 @@ function(hljs) {
     begin: '\\(', end: '\\)',
     contains: ['self', hljs.C_NUMBER_MODE, STRING]
   };
+  var COMMENT_MODE_1 = hljs.COMMENT('--', '$');
+  var COMMENT_MODE_2 = hljs.COMMENT(
+    '\\(\\*',
+    '\\*\\)',
+    {
+      contains: ['self', COMMENT_MODE_1] //allow nesting
+    }
+  );
   var COMMENTS = [
-    {
-      className: 'comment',
-      begin: '--', end: '$'
-    },
-    {
-      className: 'comment',
-      begin: '\\(\\*', end: '\\*\\)',
-      contains: ['self', {begin: '--', end: '$'}] //allow nesting
-    },
+    COMMENT_MODE_1,
+    COMMENT_MODE_2,
     hljs.HASH_COMMENT_MODE
   ];
 
@@ -96,6 +97,6 @@ function(hljs) {
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       }
     ].concat(COMMENTS),
-    illegal: '//|->|=>'
+    illegal: '//|->|=>|\\[\\['
   };
 }

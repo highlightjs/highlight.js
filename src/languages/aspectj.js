@@ -18,16 +18,17 @@ function (hljs) {
     keywords : KEYWORDS,
     illegal : /<\//,
     contains : [
-      {
-        className : 'javadoc',
-        begin : '/\\*\\*',
-        end : '\\*/',
-        relevance : 0,
-        contains : [{
-          className : 'javadoctag',
-          begin : '(^|\\s)@[A-Za-z]+'
-        }]
-      },
+      hljs.COMMENT(
+        '/\\*\\*',
+        '\\*/',
+        {
+          relevance : 0,
+          contains : [{
+            className : 'doctag',
+            begin : '@[A-Za-z]+'
+          }]
+        }
+      ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.APOS_STRING_MODE,
@@ -38,7 +39,8 @@ function (hljs) {
         end : /[{;=]/,
         excludeEnd : true,
         illegal : /[:;"\[\]]/,
-        contains : [{
+        contains : [
+          {
             beginKeywords : 'extends implements pertypewithin perthis pertarget percflowbelow percflow issingleton'
           },
           hljs.UNDERSCORE_TITLE_MODE,

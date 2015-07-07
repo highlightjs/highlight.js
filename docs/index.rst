@@ -17,6 +17,7 @@ Contents:
    css-classes-reference
    style-guide
    building-testing
+   release-process
 
 Contribution:
 

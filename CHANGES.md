@@ -1,21 +1,107 @@
-# Master
+## Master [Unpublished]
+
+New languages:
+
+- *Zephir* by [Oleg Efimov][]
+- *Elm* by [Janis Voigtländer][]
+- *XQuery* by [Dirk Kirsten][]
+
+New Styles:
+
+- *Hopscotch* by [Jan T. Sott][]
+
+Notable fixes and improvements to existing languages:
+
+- [Guillaume Gomez][] updated .ini syntax to support .toml extensions
+- Fix encoding of images when copied over in certain builds
+- Fix incorrect highlighting of the word "bug" in comments
+- Treat decorators different from matrix multiplication in Python
+- Fix traits inheritance highlighting in Rust
+
+[Oleg Efimov]: https://github.com/Sannis
+[Guillaume Gomez]: https://github.com/GuillaumeGomez
+[Janis Voigtländer]: https://github.com/jvoigtlaender
+[Jan T. Sott]: https://github.com/idleberg
+[Dirk Kirsten]: https://github.com/dirkk
+
+## Version 8.6
+
+New languages:
+
+- *C/AL* by [Kenneth Fuglsang][]
+- *DNS zone file* by [Tim Schumacher][]
+- *Ceylon* by [Lucas Werkmeister][]
+- *OpenSCAD* by [Dan Panzarella][]
+- *Inform7* by [Bruno Dias][]
+- *armasm* by [Dan Panzarella][]
+- *TP* by [Jay Strybis][]
+
+New Styles:
+
+- *Atelier Cave*, *Atelier Estuary*,
+  *Atelier Plateau* and *Atelier Savanna* by [Bram de Haan][]
+- *Github Gist* by [Louis Barranqueiro][]
+
+Notable fixes and improvements to existing languages:
+
+- Multi-line raw strings from C++11 are now supported
+- Fix class names with dashes in HAML
+- The `async` keyword from ES6/7 is now supported
+- TypeScript functions handle type and parameter complexity better
+- We unified phpdoc/javadoc/yardoc etc modes across all languages
+- CSS .class selectors relevance was dropped to prevent wrong language detection
+- Images is now included to CDN build
+- Release process is now automated
+
+[Bram de Haan]: https://github.com/atelierbram
+[Kenneth Fuglsang]: https://github.com/kfuglsang
+[Louis Barranqueiro]: https://github.com/LouisBarranqueiro
+[Tim Schumacher]: https://github.com/enko
+[Lucas Werkmeister]: https://github.com/lucaswerkmeister
+[Dan Panzarella]: https://github.com/pzl
+[Bruno Dias]: https://github.com/sequitur
+[Jay Strybis]: https://github.com/unreal
+
+## Version 8.5
 
 New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
 - *Julia* by [Kenta Sato][]
-- *XQuery* by [Dirk Kirsten][]
+- *Prolog* by [Raivo Laanemets][]
+- *Docker* by [Alexis Hénaut][]
+- *Fortran* by [Anthony Scemama][] and [Thomas Applencourt][]
+- *Kotlin* by [Sergey Mashkov][]
 
 New Styles:
 
 - *Agate* by [Taufik Nurrohman][]
 - *Darkula* by [Jet Brains][]
+- *Atelier Sulphurpool* by [Bram de Haan][]
+- *Android Studio* by [Pedro Oliveira][]
+
+Notable fixes and improvements to existing languages:
+
+- ES6 features in JavaScript are better supported now by [Gu Yiling][].
+- Swift now recognizes body-less method definitions.
+- Single expression functions `def foo, do: ... ` now work in Elixir.
+- More uniform detection of built-in classes in Objective C.
+- Fixes for number literals and processor directives in Rust.
+- HTML `<script>` tag now allows any language, not just JavaScript.
+- Multi-line comments are supported now in MatLab.
 
 [Taufik Nurrohman]: https://github.com/tovic
 [Jet Brains]: https://www.jetbrains.com/
 [Peter Piwowarski]: https://github.com/oldlaptop
 [Kenta Sato]: https://github.com/bicycle1885
-
+[Bram de Haan]: https://github.com/atelierbram
+[Raivo Laanemets]: https://github.com/rla
+[Alexis Hénaut]: https://github.com/AlexisNo
+[Anthony Scemama]: https://github.com/scemama
+[Pedro Oliveira]: https://github.com/kanytu
+[Gu Yiling]: https://github.com/Justineo
+[Sergey Mashkov]: https://github.com/cy6erGn0m
+[Thomas Applencourt]: https://github.com/TApplencourt
 
 ## Version 8.4
 
@@ -86,8 +172,7 @@ New languages in this release:
 - *Puppet* by [Jose Molina Colmenero][]
 - *Processing* by [Erik Paluka][]
 - *Twig* templates by [Luke Holder][]
-- *PowerShell* by [David Mohundro][], based on [the work of Nicholas
-  Blumhardt][ps]
+- *PowerShell* by [David Mohundro][], based on [the work of Nicholas Blumhardt][ps]
 - *XL* by [Christophe de Dinechin][]
 - *LiveScript* by [Taneli Vatanen][] and [Jen Evers-Corvina][]
 - *ERB* (Ruby in HTML) by [Lucas Mazza][]

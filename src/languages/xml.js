@@ -47,11 +47,13 @@ function(hljs) {
         relevance: 10,
         contains: [{begin: '\\[', end: '\\]'}]
       },
-      {
-        className: 'comment',
-        begin: '<!--', end: '-->',
-        relevance: 10
-      },
+      hljs.COMMENT(
+        '<!--',
+        '-->',
+        {
+          relevance: 10
+        }
+      ),
       {
         className: 'cdata',
         begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
@@ -80,7 +82,7 @@ function(hljs) {
         keywords: {title: 'script'},
         contains: [TAG_INTERNALS],
         starts: {
-          end: '</script>', returnEnd: true,
+          end: '\<\/script\>', returnEnd: true,
           subLanguage: ''
         }
       },

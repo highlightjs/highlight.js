@@ -133,6 +133,47 @@ This is when ``endsWithParent`` comes into play:
     ]
   }
 
+.. _endsParent:
+
+endsParent
+^^^^^^^^^^^^^^
+
+**type**: boolean
+
+Forces closing of the parent mode right after the current mode is closed.
+
+This is used for modes that don't have an easily expressible ending lexeme but
+instead could be closed after the last interesting sub-mode is found.
+
+Here's an example with two ways of defining functions in Elixir, one using a
+keyword ``do`` and another using a comma:
+
+::
+
+  def foo :clear, list do
+    :ok
+  end
+
+  def foo, do: IO.puts "hello world"
+
+Note that in the first case the parameter list after the function title may also
+include a comma. And iIf we're only interested in highlighting a title we can
+tell it to end the function definition after itself:
+
+::
+
+  {
+    className: 'function',
+    beginKeywords: 'def', end: /\B\b/,
+    contains: [
+      {
+        className: 'title',
+        begin: hljs.IDENT_RE, endsParent: true
+      }
+    ]
+  }
+
+(The ``end: /\B\b/`` regex tells function to never end by itself.)
 
 .. _lexemes:
 

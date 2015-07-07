@@ -1,0 +1,2 @@
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">sqr</span></span>(i: <span class="hljs-keyword">i32</span>) { i * i }
+<span class="hljs-keyword">trait</span> <span class="hljs-title">Minimum</span> : <span class="hljs-title">Copy</span> {}

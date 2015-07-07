@@ -5,10 +5,7 @@
  */
 
 function(hljs) {
-  var COMMENT_MODE = {
-    className: 'comment',
-    begin: '--', end: '$'
-  };
+  var COMMENT_MODE = hljs.COMMENT('--', '$');
   return {
     case_insensitive: true,
     illegal: /[<>]/,
