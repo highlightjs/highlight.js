@@ -7,7 +7,7 @@ function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
   var PHP = {
     begin: /<\?(php)?(?!\w)/, end: /\?>/,
-    subLanguage: 'php', subLanguageMode: 'continuous'
+    subLanguage: 'php'
   };
   var TAG_INTERNALS = {
     endsWithParent: true,

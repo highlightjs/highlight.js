@@ -28,7 +28,7 @@ function(hljs) {
   return {
     aliases: ['jinja'],
     case_insensitive: true,
-    subLanguage: 'xml', subLanguageMode: 'continuous',
+    subLanguage: 'xml',
     contains: [
       hljs.COMMENT(/\{%\s*comment\s*%}/, /\{%\s*endcomment\s*%}/),
       hljs.COMMENT(/\{#/, /#}/),
