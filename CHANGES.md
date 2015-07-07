@@ -5,6 +5,10 @@ New languages:
 - *Zephir* by [Oleg Efimov][]
 - *Elm* by [Janis Voigtländer][]
 
+New Styles:
+
+- *Hopscotch* by [Jan T. Sott][]
+
 Notable fixes and improvements to existing languages:
 
 - [Guillaume Gomez][] updated .ini syntax to support .toml extensions
@@ -16,6 +20,7 @@ Notable fixes and improvements to existing languages:
 [Oleg Efimov]: https://github.com/Sannis
 [Guillaume Gomez]: https://github.com/GuillaumeGomez
 [Janis Voigtländer]: https://github.com/jvoigtlaender
+[Jan T. Sott]: https://github.com/idleberg
 
 ## Version 8.6
 
