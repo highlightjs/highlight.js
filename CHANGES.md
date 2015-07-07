@@ -4,6 +4,7 @@ New languages:
 
 - *Zephir* by [Oleg Efimov][]
 - *Elm* by [Janis Voigtländer][]
+- *XQuery* by [Dirk Kirsten][]
 
 New Styles:
 
@@ -21,6 +22,7 @@ Notable fixes and improvements to existing languages:
 [Guillaume Gomez]: https://github.com/GuillaumeGomez
 [Janis Voigtländer]: https://github.com/jvoigtlaender
 [Jan T. Sott]: https://github.com/idleberg
+[Dirk Kirsten]: https://github.com/dirkk
 
 ## Version 8.6
 
