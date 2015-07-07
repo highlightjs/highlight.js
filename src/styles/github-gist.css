@@ -55,7 +55,6 @@
 .objectivec .hljs-built_in,
 .php .hljs-literal,
 .php .hljs-number,
-.python .hljs-number,
 .ruby .hljs-prompt,
 .ruby .hljs-number,
 .ruby .hljs-subst .hljs-keyword,
@@ -79,7 +78,6 @@
 
 .hljs-title,
 .perl .hljs-sub,
-.python .hljs-decorator,
 .ruby .hljs-parent,
 .xml .hljs-attribute {
   color: #795da3;

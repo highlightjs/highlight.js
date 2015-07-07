@@ -40,8 +40,6 @@ based on dark.css by Ivan Sagalaev
 }
 
 .diff .hljs-change,
-.python .exception,
-.python .hljs-built_in,
 .hljs-literal,
 .tex .hljs-special {
   color: #efefaf;
