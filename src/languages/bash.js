@@ -56,12 +56,12 @@ function(hljs) {
         'pushd pushln rehash sched setcap setopt stat suspend ttyctl unfunction unhash unlimit ' +
         'unsetopt vared wait whence where which zcompile zformat zftp zle zmodload zparseopts zprof ' +
         'zpty zregexparse zsocket zstyle ztcp',
-      operator:
+      _:
         '-ne -eq -lt -gt -f -d -e -s -l -a' // relevance booster
     },
     contains: [
       {
-        className: 'shebang',
+        className: 'meta',
         begin: /^#![^\n]+sh\s*$/,
         relevance: 10
       },
