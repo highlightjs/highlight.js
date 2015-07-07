@@ -13,8 +13,7 @@
 }
 
 .hljs-comment,
-.hljs-meta,
-.bash .hljs-shebang {
+.hljs-meta {
   color: #969896;
 }
 
@@ -44,8 +43,6 @@
 .hljs-literal,
 .hljs-symbol,
 .hljs-attribute,
-.bash .hljs-literal,
-.bash .hljs-built_in,
 .cs .hljs-number,
 .cs .hljs-built_in,
 .http .hljs-literal,

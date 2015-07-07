@@ -72,7 +72,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .rsl .hljs-built_in,
 .diff .hljs-header,
 .hljs-chunk,
-.bash .hljs-variable,
 .tex .hljs-command {
   font-weight: bold;
 }
