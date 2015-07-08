@@ -285,7 +285,7 @@ each having all the attributes from the main definition augmented or overridden 
 subLanguage
 ^^^^^^^^^^^
 
-**type**: string
+**type**: string or array
 
 Highlights the entire contents of the mode with another language.
 
@@ -293,6 +293,6 @@ When using this attribute there's no point to define internal parsing rules like
 
 The value of the attribute controls which language or languages will be used for highlighting:
 
-* single language name: explicit highlighting with the specified language
-* empty string: auto detection with all the languages available
-* comma-separated list of languages: auto detection constrained to the specified set
+* language name: explicit highlighting with the specified language
+* empty array: auto detection with all the languages available
+* array of language names: auto detection constrained to the specified set

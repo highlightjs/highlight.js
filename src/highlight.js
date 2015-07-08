@@ -347,19 +347,14 @@ https://highlightjs.org/
     }
 
     function processSubLanguage() {
-      var subLanguages = top.subLanguage.split(',');
-
-      // ['lang']: language set explicitly
-      // ['']: language not set, free auto detection
-      // ['lang1', 'lang2']: auto detection constrained to a set
-      var explicit = subLanguages.length == 1 && subLanguages[0];
-      if (explicit && !languages[explicit]) {
+      var explicit = typeof top.subLanguage == 'string';
+      if (explicit && !languages[top.subLanguage]) {
         return escape(mode_buffer);
       }
 
       var result = explicit ?
-                   highlight(explicit, mode_buffer, true, continuations[explicit]) :
-                   highlightAuto(mode_buffer, subLanguages[0] ? subLanguages : undefined);
+                   highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) :
+                   highlightAuto(mode_buffer, top.subLanguage.length ? top.subLanguage : undefined);
 
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Usecase in point is Markdown that
@@ -369,7 +364,7 @@ https://highlightjs.org/
         relevance += result.relevance;
       }
       if (explicit) {
-        continuations[explicit] = result.top;
+        continuations[top.subLanguage] = result.top;
       }
       return buildSpan(result.language, result.value, false, true);
     }
