@@ -7,7 +7,7 @@ Stylable classes
 
 +--------------------------+---------------------------------------------------+
 | attribute                | Name of an attribute followed by a structured     |
-|                          | value part (css properties, HTTP headers)         |
+|                          | value part, like css properties. See also, "key". |
 +--------------------------+---------------------------------------------------+
 | built_in                 | Built-in or library object (constant, class,      |
 |                          | function)                                         |
@@ -28,7 +28,7 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | key                      | Key in key-value pairs with no language defined   |
 |                          | semantics: keys in JSON, setting names in .Ini.   |
-|                          | Use "name" for semantically-rich keys.            |
+|                          | See also, "attribute".                            |
 +--------------------------+---------------------------------------------------+
 | meta                     | Flags, modifiers, annotations, processing         |
 |                          | instructions, preprocessor directive, etc.        |
