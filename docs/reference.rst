@@ -285,12 +285,14 @@ each having all the attributes from the main definition augmented or overridden 
 subLanguage
 ^^^^^^^^^^^
 
-**type**: identifier
+**type**: string
 
-The name of another language used to parse the contents of the mode.
-When using this attribute there's no point to define internal parsing rules like :ref:`lexemes` or :ref:`keywords`.
-Also it is recommended to skip ``className`` attribute since the sublanguage will wrap the text in its own ``<span class="language-name">``
+Highlights the entire contents of the mode with another language.
 
-If the attribute is set to an empty string highlight.js will highlight the mode contents with language detection.
+When using this attribute there's no point to define internal parsing rules like :ref:`lexemes` or :ref:`keywords`. Also it is recommended to skip ``className`` attribute since the sublanguage will wrap the text in its own ``<span class="language-name">``.
 
-Note that for this to work the language should be included in the package (obviously).
+The value of the attribute controls which language or languages will be used for highlighting:
+
+* single language name: explicit highlighting with the specified language
+* empty string: auto detection with all the languages available
+* comma-separated list of languages: auto detection constrained to the specified set
