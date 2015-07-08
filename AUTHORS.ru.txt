@@ -174,3 +174,4 @@ URL:   https://highlightjs.org/
 - Джей Стрибис <jay.strybis@gmail.com>
 - Гийом Гомес <guillaume1.gomez@gmail.com>
 - Янис Фойгтлэндер <janis.voigtlaender@gmail.com>
+- Дирк Кирстен <dk@basex.org>
