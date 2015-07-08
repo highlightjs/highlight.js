@@ -68,7 +68,7 @@ function(hljs) {
       TYPE,
       NUMBERS,
       {
-        className: 'func',
+        className: 'function',
         beginKeywords: 'func', end: '{', excludeEnd: true,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
@@ -76,7 +76,6 @@ function(hljs) {
             illegal: /\(/
           }),
           {
-            className: 'generics',
             begin: /</, end: />/,
             illegal: />/
           },
@@ -107,7 +106,7 @@ function(hljs) {
         ]
       },
       {
-        className: 'preprocessor', // @attributes
+        className: 'meta', // @attributes
         begin: '(@assignment|@class_protocol|@exported|@final|@lazy|@noreturn|' +
                   '@NSCopying|@NSManaged|@objc|@optional|@required|@auto_closure|' +
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
