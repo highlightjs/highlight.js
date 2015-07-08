@@ -174,3 +174,4 @@ Contributors:
 - Jay Strybis <jay.strybis@gmail.com>
 - Guillaume Gomez <guillaume1.gomez@gmail.com>
 - Janis Voigtländer <janis.voigtlaender@gmail.com>
+- Dirk Kirsten <dk@basex.org>

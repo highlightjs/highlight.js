@@ -9,7 +9,7 @@ Category: template
 
 function(hljs) {
   return {
-    subLanguage: 'xml', subLanguageMode: 'continuous',
+    subLanguage: 'xml',
     contains: [
       hljs.COMMENT('<%#', '%>'),
       {

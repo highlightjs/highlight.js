@@ -14,7 +14,7 @@ function(hljs) {
         begin: /^([\w.-]+|\s*#_)=>/,
         starts: {
           end: /$/,
-          subLanguage: 'clojure', subLanguageMode: 'continuous'
+          subLanguage: 'clojure'
         }
       }
     ]

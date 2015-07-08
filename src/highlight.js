@@ -347,10 +347,15 @@ https://highlightjs.org/
     }
 
     function processSubLanguage() {
-      if (top.subLanguage && !languages[top.subLanguage]) {
+      var explicit = typeof top.subLanguage == 'string';
+      if (explicit && !languages[top.subLanguage]) {
         return escape(mode_buffer);
       }
-      var result = top.subLanguage ? highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) : highlightAuto(mode_buffer);
+
+      var result = explicit ?
+                   highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) :
+                   highlightAuto(mode_buffer, top.subLanguage.length ? top.subLanguage : undefined);
+
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Usecase in point is Markdown that
       // allows XML everywhere and makes every XML snippet to have a much larger Markdown
@@ -358,7 +363,7 @@ https://highlightjs.org/
       if (top.relevance > 0) {
         relevance += result.relevance;
       }
-      if (top.subLanguageMode == 'continuous') {
+      if (explicit) {
         continuations[top.subLanguage] = result.top;
       }
       return buildSpan(result.language, result.value, false, true);

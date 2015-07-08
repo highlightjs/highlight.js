@@ -18,7 +18,7 @@ function(hljs) {
         begin: /^ *(onbuild +)?(run|cmd|entrypoint|volume|add|copy|workdir) +/,
         starts: {
           end: /[^\\]\n/,
-          subLanguage: 'bash', subLanguageMode: 'continuous'
+          subLanguage: 'bash'
         }
       },
       {

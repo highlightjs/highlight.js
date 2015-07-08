@@ -45,7 +45,7 @@ function(hljs) {
   return {
     aliases: ['craftcms'],
     case_insensitive: true,
-    subLanguage: 'xml', subLanguageMode: 'continuous',
+    subLanguage: 'xml',
     contains: [
       hljs.COMMENT(/\{#/, /#}/),
       {

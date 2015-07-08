@@ -74,16 +74,14 @@ function (hljs) {
         '/\\*\\*',
         '\\*/',
         {
-          subLanguage: 'markdown',
-          subLanguageMode: 'continuous'
+          subLanguage: 'markdown'
         }
       ),
       hljs.COMMENT(
         '///',
         '$',
         {
-          subLanguage: 'markdown',
-          subLanguageMode: 'continuous'
+          subLanguage: 'markdown'
         }
       ),
       hljs.C_LINE_COMMENT_MODE,
