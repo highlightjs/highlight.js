@@ -47,8 +47,7 @@
 }
 
 /* Atelier-Savanna Blue */
-.hljs-name,
-.perl .hljs-sub {
+.hljs-name {
   color: #478c90;
 }
 

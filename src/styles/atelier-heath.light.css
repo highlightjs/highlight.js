@@ -47,8 +47,7 @@
 }
 
 /* Atelier-Heath Blue */
-.hljs-name,
-.perl .hljs-sub {
+.hljs-name {
   color: #516aec;
 }
 

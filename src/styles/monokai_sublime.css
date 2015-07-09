@@ -104,10 +104,3 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .tex .hljs-formula {
   color: #75715e;
 }
-
-.tex .hljs-formula,
-.xml .hljs-cdata,
-.xml .php,
-.php .xml {
-  opacity: 0.5;
-}

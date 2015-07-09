@@ -47,8 +47,7 @@
 }
 
 /* Atelier-Sulphurpool Blue */
-.hljs-name,
-.perl .hljs-sub {
+.hljs-name {
   color: #3d8fd1;
 }
 

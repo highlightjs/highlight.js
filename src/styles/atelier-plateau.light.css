@@ -47,8 +47,7 @@
 }
 
 /* Atelier-Plateau Blue */
-.hljs-name,
-.perl .hljs-sub {
+.hljs-name {
   color: #7272ca;
 }
 

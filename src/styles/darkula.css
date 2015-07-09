@@ -95,10 +95,3 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-decorator {
   color: #bab429;
 }
-
-.tex .hljs-formula,
-.xml .hljs-cdata,
-.xml .php,
-.php .xml {
-  opacity: 0.5;
-}

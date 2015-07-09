@@ -47,8 +47,7 @@
 }
 
 /* Atelier-Dune Blue */
-.hljs-name,
-.perl .hljs-sub {
+.hljs-name {
   color: #6684e1;
 }
 

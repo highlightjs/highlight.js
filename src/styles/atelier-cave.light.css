@@ -48,8 +48,7 @@
 }
 
 /* Atelier-Cave Blue */
-.hljs-name,
-.perl .hljs-sub {
+.hljs-name {
   color: #576ddb;
 }
 

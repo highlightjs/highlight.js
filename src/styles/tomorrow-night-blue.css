@@ -54,8 +54,7 @@
 }
 
 /* Tomorrow Blue */
-.hljs-name,
-.perl .hljs-sub {
+.hljs-name {
   color: #bbdaff;
 }
 

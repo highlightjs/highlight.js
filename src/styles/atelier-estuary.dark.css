@@ -47,8 +47,7 @@
 }
 
 /* Atelier-Estuary Blue */
-.hljs-name,
-.perl .hljs-sub {
+.hljs-name {
   color: #36a166;
 }
 
