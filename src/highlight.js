@@ -76,15 +76,6 @@ https://highlightjs.org/
 
   /* Stream merging */
 
-  function open(node) {
-    function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
-    return '<' + tag(node) + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
-  }
-
-  function close(node) {
-    return '</' + tag(node) + '>';
-  }
-
   function nodeStream(node) {
     var result = [];
     (function _nodeStream(node, offset) {
@@ -93,7 +84,7 @@ https://highlightjs.org/
           offset += child.nodeValue.length;
         else if (child.nodeType == 1) {
           result.push({
-            event: open,
+            event: 'start',
             offset: offset,
             node: child
           });
@@ -103,7 +94,7 @@ https://highlightjs.org/
           // but we list only those realistically expected in code display.
           if (!tag(child).match(/br|hr|img|input/)) {
             result.push({
-              event: close,
+              event: 'stop',
               offset: offset,
               node: child
             });
@@ -143,11 +134,20 @@ https://highlightjs.org/
 
       ... which is collapsed to:
       */
-      return highlighted[0].event === open ? original : highlighted;
+      return highlighted[0].event == 'start' ? original : highlighted;
+    }
+
+    function open(node) {
+      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
+      result += '<' + tag(node) + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
+    }
+
+    function close(node) {
+      result += '</' + tag(node) + '>';
     }
 
     function render(event) {
-      result += event.event(event.node);
+      (event.event == 'start' ? open : close)(event.node);
     }
 
     while (original.length || highlighted.length) {
