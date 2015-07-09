@@ -26,12 +26,15 @@ function(hljs) {
     relevance: 0
   };
 
-  var STRING = { 
+  var STRING = {
     className: 'string',
-    begin: '"', end: '"'
+    variants: [
+      {begin: /"/, end: /"/, contains: [{begin: /""/, relevance: 0}]},
+      {begin: /'/, end: /'/, contains: [{begin: /''/, relevance: 0}]}
+    ]
   };
 
-  var ANNOTATION = { 
+  var ANNOTATION = {
     className: 'decorator',
     begin: '%\\w+'
   };
