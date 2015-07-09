@@ -19,7 +19,6 @@ Style with support for rainbow parens
 }
 
 .hljs-comment,
-.diff .hljs-header,
 .hljs-doctype,
 .lisp .hljs-string {
   color: #969896;
@@ -49,7 +48,6 @@ Style with support for rainbow parens
 .hljs-title,
 .hljs-section,
 .hljs-localvars,
-.hljs-chunk,
 .hljs-decorator,
 .hljs-built_in {
   color: #b5bd68;
@@ -73,7 +71,6 @@ Style with support for rainbow parens
 .hljs-pi,
 .hljs-shebang,
 .hljs-symbol,
-.diff .hljs-change,
 .hljs-special,
 .hljs-subst,
 .hljs-cdata,

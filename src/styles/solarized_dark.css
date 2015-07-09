@@ -14,7 +14,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 }
 
 .hljs-comment,
-.diff .hljs-header,
 .hljs-doctype,
 .hljs-pi,
 .lisp .hljs-string {
@@ -48,7 +47,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-title,
 .hljs-section,
 .hljs-localvars,
-.hljs-chunk,
 .hljs-decorator,
 .hljs-built_in,
 .vhdl .hljs-literal,
@@ -72,7 +70,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-preprocessor .hljs-keyword,
 .hljs-shebang,
 .hljs-symbol,
-.diff .hljs-change,
 .hljs-special,
 .hljs-subst,
 .hljs-cdata,

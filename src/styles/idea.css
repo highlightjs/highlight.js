@@ -20,8 +20,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
   color: #000;
 }
 
-.hljs-comment,
-.diff .hljs-header {
+.hljs-comment {
   color: #808080;
   font-style: italic;
 }
@@ -31,7 +30,6 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-preprocessor,
 .hljs-doctype,
 .hljs-pi,
-.hljs-chunk,
 .hljs-shebang,
 .hljs-meta,
 .hljs-prompt {
@@ -102,8 +100,4 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-deletion {
   background: #ffc8bd;
-}
-
-.diff .hljs-change {
-  background: #bccff9;
 }

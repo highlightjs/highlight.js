@@ -13,8 +13,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.diff .hljs-header {
+.hljs-comment {
   color: #998;
   font-style: italic;
 }
@@ -102,12 +101,4 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-addition {
   background: #dfd;
-}
-
-.diff .hljs-change {
-  background: #0086b3;
-}
-
-.hljs-chunk {
-  color: #aaa;
 }

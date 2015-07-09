@@ -21,7 +21,6 @@ pre{
 
 .hljs-keyword,
 .hljs-literal,
-.hljs-change,
 .tex .hljs-special {
   color:#005599;
   font-weight:bold;
@@ -74,8 +73,6 @@ pre{
 .hljs-type,
 .rsl .hljs-built_in,
 .hljs-tag .hljs-name,
-.diff .hljs-header,
-.hljs-chunk,
 .tex .hljs-command,
 .hljs-request,
 .hljs-status {

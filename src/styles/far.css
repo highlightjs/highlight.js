@@ -36,7 +36,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-section,
 .hljs-type,
 .rsl .hljs-built_in,
-.hljs-change,
 .hljs-envvar,
 .hljs-variable,
 .tex .hljs-special {
@@ -65,8 +64,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
 .xml .hljs-pi,
-.diff .hljs-header,
-.hljs-chunk,
 .hljs-shebang,
 .hljs-prompt,
 .hljs-meta {

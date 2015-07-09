@@ -39,8 +39,6 @@ Ported by Fabrício Tavares de Oliveira
 .smartquote,
 .hljs-comment,
 .hljs-annotation,
-.diff .hljs-header,
-.hljs-chunk,
 .asciidoc .hljs-blockquote,
 .markdown .hljs-blockquote {
   color: #636363;
@@ -51,7 +49,6 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-regexp,
 .hljs-literal,
 .smalltalk .hljs-char,
-.hljs-change,
 .lasso .hljs-variable,
 .makefile .hljs-variable,
 .asciidoc .hljs-bullet,

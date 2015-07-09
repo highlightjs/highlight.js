@@ -12,6 +12,7 @@
 .hljs-variable,
 .hljs-tag,
 .hljs-regexp,
+.hljs-deletion,
 .xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
 .xml .hljs-doctype,
@@ -41,6 +42,7 @@
 .hljs-inheritance,
 .hljs-header,
 .hljs-symbol,
+.hljs-addition,
 .xml .hljs-cdata {
   color: #b5bd68;
 }

@@ -90,7 +90,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-label,
 .hljs-keyword,
 .hljs-xmlDocTag,
-.hljs-chunk,
 .hljs-cdata,
 .hljs-link_label,
 .hljs-bullet,
@@ -105,7 +104,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 /*color: fg_aqua*/
 .hljs-annotation,
 .hljs-subst,
-.hljs-change,
 .hljs-operator,
 .hljs-horizontal_rule,
 .hljs-preprocessor .hljs-keyword,

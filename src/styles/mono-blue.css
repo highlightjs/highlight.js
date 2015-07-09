@@ -23,8 +23,7 @@
   font-weight: bold;
 }
 
-.hljs-comment,
-.hljs-chunk {
+.hljs-comment {
   color: #738191;
 }
 

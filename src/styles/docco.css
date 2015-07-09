@@ -11,8 +11,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.diff .hljs-header {
+.hljs-comment {
   color: #408080;
   font-style: italic;
 }
@@ -97,14 +96,6 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-addition {
   background: #dfd;
-}
-
-.diff .hljs-change {
-  background: #0086b3;
-}
-
-.hljs-chunk {
-  color: #aaa;
 }
 
 .tex .hljs-formula {

@@ -16,7 +16,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 }
 
 .hljs-comment,
-.diff .hljs-header,
 .hljs-doctype,
 .lisp .hljs-string {
   color: #586e75;
@@ -45,7 +44,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-title,
 .hljs-section,
 .hljs-localvars,
-.hljs-chunk,
 .hljs-decorator,
 .hljs-built_in {
   color: #ffb03b;
@@ -67,7 +65,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-pi,
 .hljs-shebang,
 .hljs-symbol,
-.diff .hljs-change,
 .hljs-special,
 .hljs-subst,
 .hljs-cdata,

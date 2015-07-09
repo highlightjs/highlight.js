@@ -13,7 +13,6 @@
 
 .hljs-keyword,
 .hljs-literal,
-.hljs-change,
 .tex .hljs-special {
   color: #93c763;
 }
@@ -104,8 +103,6 @@
 .hljs-header,
 .hljs-type,
 .rsl .hljs-built_in,
-.diff .hljs-header,
-.hljs-chunk,
 .tex .hljs-special,
 .hljs-request,
 .hljs-status {

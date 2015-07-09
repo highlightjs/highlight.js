@@ -32,7 +32,6 @@
   font-weight: bold;
 }
 
-.hljs-change,
 .hljs-code {
   font-style: italic;
 }
@@ -57,7 +56,6 @@
 .hljs-section,
 .aspectj .hljs-annotation,
 .hljs-attribute,
-.hljs-change,
 .hljs-blockquote,
 .hljs-built_in {
   color: #ffa;
@@ -97,7 +95,6 @@
 
 .hljs-doctype,
 .hljs-pi,
-.hljs-chunk,
 .hljs-shebang,
 .http .hljs-attribute {
   color: #fc9b9b;

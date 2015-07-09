@@ -91,16 +91,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   font-style: italic;
 }
 
-.diff .hljs-header,
-.hljs-chunk {
-  color: #808080;
-  font-weight: bold;
-}
-
-.diff .hljs-change {
-  background-color: #bccff9;
-}
-
 .hljs-addition {
   background-color: #baeeba;
 }

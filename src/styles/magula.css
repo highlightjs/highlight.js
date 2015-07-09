@@ -35,9 +35,7 @@ Music: Aphex Twin / Xtal
 }
 
 .hljs-comment,
-.hljs-annotation,
-.diff .hljs-header,
-.hljs-chunk {
+.hljs-annotation {
   color: #777;
 }
 
@@ -48,7 +46,6 @@ Music: Aphex Twin / Xtal
 .hljs-type,
 .hljs-name,
 .smalltalk .hljs-char,
-.hljs-change,
 .tex .hljs-special {
   color: #800;
 }

@@ -28,6 +28,7 @@
 .hljs-literal,
 .hljs-params,
 .hljs-symbol,
+.hljs-deletion,
 .ruby .constant,
 .hljs-tag .hljs-name,
 .xml .pi,
@@ -49,6 +50,7 @@
 .hljs-header,
 .hljs-keyword,
 .hljs-name,
+.hljs-addition,
 .xml .cdata {
   color: #8f9c6c;
 }

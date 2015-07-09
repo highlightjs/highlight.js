@@ -12,8 +12,7 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs,
-.hljs-subst,
-.diff .hljs-chunk {
+.hljs-subst {
   color: #aaa;
 }
 
@@ -27,7 +26,6 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-shebang,
 .hljs-meta,
 .profile .hljs-summary,
-.diff,
 .hljs-pi,
 .hljs-doctype,
 .hljs-tag,
@@ -37,7 +35,6 @@ Author: pumbur <pumbur@pumbur.net>
 
 .hljs-string,
 .hljs-symbol,
-.diff .hljs-change,
 .hljs-regexp,
 .xml .hljs-attribute,
 .smalltalk .hljs-char,

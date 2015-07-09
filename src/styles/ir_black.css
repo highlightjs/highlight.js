@@ -37,7 +37,8 @@
 .hljs-tag .hljs-value,
 .hljs-cdata,
 .hljs-filter .hljs-argument,
-.hljs-date {
+.hljs-date,
+.hljs-addition {
   color: #a8ff60;
 }
 
@@ -60,13 +61,13 @@
 }
 
 .hljs-symbol,
-.hljs-number,
 .hljs-variable,
 .hljs-literal {
   color: #c6c5fe;
 }
 
-.hljs-number {
+.hljs-number,
+.hljs-deletion {
   color:#ff73fd;
 }
 

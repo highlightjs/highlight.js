@@ -23,7 +23,8 @@ Date: 2013-04-02
 .hljs-horizontal_rule,
 .hljs-link_url,
 .hljs-emphasis,
-.hljs-attribute {
+.hljs-attribute,
+.hljs-addition {
   color: #070;
 }
 
@@ -34,7 +35,8 @@ Date: 2013-04-02
 .hljs-link_label,
 .hljs-strong,
 .hljs-value,
-.hljs-string {
+.hljs-string,
+.hljs-deletion {
   color: #d14;
 }
 

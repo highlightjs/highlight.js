@@ -39,13 +39,11 @@ based on dark.css by Ivan Sagalaev
   color: #efdcbc;
 }
 
-.diff .hljs-change,
 .hljs-literal,
 .tex .hljs-special {
   color: #efefaf;
 }
 
-.diff .hljs-chunk,
 .hljs-subst {
   color: #8f8f8f;
 }
@@ -54,7 +52,6 @@ based on dark.css by Ivan Sagalaev
 .hljs-title,
 .hljs-section,
 .hljs-type,
-.diff .hljs-header,
 .tex .hljs-command,
 .hljs-prompt {
   color: #efef8f;
@@ -65,7 +62,7 @@ based on dark.css by Ivan Sagalaev
   color: #dca3a3;
 }
 
-.diff .hljs-deletion,
+.hljs-deletion,
 .hljs-string,
 .hljs-tag .hljs-value,
 .hljs-preprocessor,
@@ -77,7 +74,7 @@ based on dark.css by Ivan Sagalaev
 }
 
 .hljs-shebang,
-.diff .hljs-addition,
+.hljs-addition,
 .hljs-comment,
 .hljs-annotation,
 .hljs-pi,

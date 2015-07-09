@@ -83,16 +83,12 @@
   color: #795da3;
 }
 
-.diff .hljs-chunk {
-  font-weight: bold;
-}
-
-.diff .hljs-addition {
+.hljs-addition {
   color: #55a532;
   background-color: #eaffea;
 }
 
-.diff .hljs-deletion {
+.hljs-deletion {
   color: #bd2c00;
   background-color: #ffecec;
 }

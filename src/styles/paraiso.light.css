@@ -27,7 +27,8 @@
 .hljs-built_in,
 .hljs-literal,
 .hljs-type,
-.hljs-params {
+.hljs-params,
+.hljs-deletion {
   color: #f99b15;
 }
 
@@ -44,6 +45,7 @@
 .hljs-inheritance,
 .hljs-header,
 .hljs-symbol,
+.hljs-addition,
 .xml .hljs-cdata {
   color: #48b685;
 }
