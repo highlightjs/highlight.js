@@ -27,7 +27,10 @@ function(hljs) {
 
   var STRING = {
     className: 'string',
-    begin: '"', end: '"'
+    variants: [
+      {begin: /"/, end: /"/, contains: [{begin: /""/, relevance: 0}]},
+      {begin: /'/, end: /'/, contains: [{begin: /''/, relevance: 0}]}
+    ]
   };
 
   var ANNOTATION = {
