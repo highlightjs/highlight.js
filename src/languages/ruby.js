@@ -91,7 +91,7 @@ function(hljs) {
     },
     {
       className: 'function',
-      beginKeywords: 'def', end: ' |$|;',
+      beginKeywords: 'def', end: '$|;',
       relevance: 0,
       contains: [
         hljs.inherit(hljs.TITLE_MODE, {begin: RUBY_METHOD_RE}),
