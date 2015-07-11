@@ -175,3 +175,4 @@ URL:   https://highlightjs.org/
 - Гийом Гомес <guillaume1.gomez@gmail.com>
 - Янис Фойгтлэндер <janis.voigtlaender@gmail.com>
 - Дирк Кирстен <dk@basex.org>
+- MY Sun <simonmysun@gmail.com>
