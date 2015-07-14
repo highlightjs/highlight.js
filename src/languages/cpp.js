@@ -76,15 +76,17 @@ function(hljs) {
             begin: /\\\n/, relevance: 0
           },
           {
-            beginKeywords: 'include',
-            illegal: '\\n'
+            beginKeywords: 'include', end: '$',
+            contains: [
+              STRINGS,
+              {
+                className: 'string',
+                begin: '<', end: '>',
+                illegal: '\\n',
+              }
+            ]
           },
           STRINGS,
-          {
-            className: 'string',
-            begin: '<', end: '>',
-            illegal: '\\n'
-          },
           NUMBERS,
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
