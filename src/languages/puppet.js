@@ -84,7 +84,7 @@ function(hljs) {
         end: /\S/,
         contains: [
           {
-            className: 'name',
+            className: 'keyword',
             begin: hljs.IDENT_RE
           },
           {

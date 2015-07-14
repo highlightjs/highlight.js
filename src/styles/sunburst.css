@@ -19,7 +19,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-keyword,
-.hljs-name,
 .hljs-type,
 .hljs-request,
 .hljs-status {
@@ -45,7 +44,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-section,
 .hljs-pi,
 .hljs-tag,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-decorator,
 .hljs-shebang,
 .hljs-prompt {

@@ -12,7 +12,7 @@
 .hljs-attribute,
 .hljs-regexp,
 .hljs-tag,
-.hljs-tag .hljs-name {
+.hljs-name {
   color: #be4678;
 }
 
@@ -36,14 +36,9 @@
   color: #2a9292;
 }
 
-/* Atelier-Cave Aqua */
+/* Atelier-Cave Blue */
 .hljs-title,
 .hljs-section {
-  color: #398bc6;
-}
-
-/* Atelier-Cave Blue */
-.hljs-name {
   color: #576ddb;
 }
 

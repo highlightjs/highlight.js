@@ -40,17 +40,13 @@
   color: #d39745;
 }
 
-.hljs-name {
-  color: #a082bd;
-}
-
 .hljs-doctype {
   color: #557182;
 }
 
 .hljs-link_url,
 .hljs-tag,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-bullet,
 .hljs-subst,
 .hljs-emphasis,
@@ -95,7 +91,7 @@
 .hljs-section,
 .hljs-header,
 .hljs-type,
-.hljs-tag .hljs-name,
+.hljs-name,
 .rsl .hljs-built_in,
 .tex .hljs-special,
 .hljs-request,

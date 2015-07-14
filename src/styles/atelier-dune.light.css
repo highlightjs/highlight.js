@@ -11,8 +11,9 @@
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
+.hljs-name,
 .hljs-regexp,
-.hljs-tag .hljs-name {
+.hljs-name {
   color: #d73737;
 }
 
@@ -36,14 +37,9 @@
   color: #60ac39;
 }
 
-/* Atelier-Dune Aqua */
+/* Atelier-Dune Blue */
 .hljs-title,
 .hljs-section {
-  color: #1fad83;
-}
-
-/* Atelier-Dune Blue */
-.hljs-name {
   color: #6684e1;
 }
 

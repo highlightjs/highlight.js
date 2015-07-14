@@ -22,8 +22,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-keyword,
 .hljs-request,
 .hljs-status,
-.method,
-.hljs-name {
+.method {
   color: #c26230;
 }
 
@@ -44,15 +43,14 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-tag,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-doctype,
 .hljs-pi,
 .input_number {
   color: #e8bf6a;
 }
 
-.hljs-type,
-.hljs-name {
+.hljs-type {
   color: #da4939;
 }
 

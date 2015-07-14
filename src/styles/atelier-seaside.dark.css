@@ -11,8 +11,9 @@
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
+.hljs-name,
 .hljs-regexp,
-.hljs-tag .hljs-name {
+.hljs-name {
   color: #e6193c;
 }
 
@@ -36,14 +37,9 @@
   color: #29a329;
 }
 
-/* Atelier-Seaside Aqua */
+/* Atelier-Seaside Blue */
 .hljs-title,
 .hljs-section {
-  color: #1999b3;
-}
-
-/* Atelier-Seaside Blue */
-.hljs-name {
   color: #3d62f5;
 }
 

@@ -24,7 +24,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 
 .hljs-keyword,
 .hljs-literal,
-.hljs-name,
 .method,
 .hljs-addition,
 .hljs-list .hljs-keyword {
@@ -45,7 +44,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-localvars,
 .hljs-decorator,
 .hljs-built_in,
-.hljs-tag .hljs-name {
+.hljs-name {
   color: #ffb03b;
 }
 

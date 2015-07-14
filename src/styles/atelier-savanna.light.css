@@ -11,8 +11,9 @@
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
+.hljs-name,
 .hljs-regexp,
-.hljs-tag .hljs-name {
+.hljs-name {
   color: #b16139;
 }
 
@@ -36,14 +37,9 @@
   color: #489963;
 }
 
-/* Atelier-Savanna Aqua */
+/* Atelier-Savanna Blue */
 .hljs-title,
 .hljs-section {
-  color: #1c9aa0;
-}
-
-/* Atelier-Savanna Blue */
-.hljs-name {
   color: #478c90;
 }
 

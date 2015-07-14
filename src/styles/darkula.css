@@ -49,7 +49,7 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-header,
 .hljs-section,
 .hljs-attribute,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-value,
 .alias .hljs-keyword:first-child,
 .hljs-variable {
@@ -75,8 +75,7 @@ Darkula color scheme from the JetBrains family of IDEs
 .tex .hljs-command,
 .hljs-prompt,
 .hljs-link_label,
-.hljs-link_url,
-.hljs-name {
+.hljs-link_url {
   color: #e0c46c;
 }
 

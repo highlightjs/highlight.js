@@ -15,7 +15,7 @@
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-regexp,
 .hljs-deletion,
 .ruby .hljs-constant {
@@ -43,7 +43,6 @@
 .hljs-inheritance,
 .hljs-header,
 .hljs-symbol,
-.hljs-name,
 .hljs-addition {
   color: #8fc13e;
 }

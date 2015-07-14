@@ -34,7 +34,7 @@
 
 .hljs-section,
 .hljs-title,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-type,
 .hljs-attribute {
   color: #9b869b;
@@ -45,7 +45,6 @@
 .hljs-inheritance,
 .hljs-header,
 .hljs-keyword,
-.hljs-name,
 .hljs-addition {
   color: #8f9c6c;
 }

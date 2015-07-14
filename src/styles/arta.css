@@ -52,14 +52,13 @@ Author: pumbur <pumbur@pumbur.net>
 .django .hljs-variable,
 .smalltalk .method,
 .hljs-inheritance,
-.hljs-name,
 .hljs-attribute,
 .parser3 .hljs-variable {
   color: #32aaee;
 }
 
 .hljs-keyword,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-request,
 .hljs-status {
   color: #6644aa;

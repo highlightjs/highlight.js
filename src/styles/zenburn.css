@@ -16,7 +16,6 @@ based on dark.css by Ivan Sagalaev
 
 .hljs-keyword,
 .hljs-tag,
-.hljs-name,
 .hljs-request,
 .hljs-status,
 .clojure .hljs-attribute {
@@ -50,7 +49,7 @@ based on dark.css by Ivan Sagalaev
 
 .hljs-decorator,
 .hljs-title,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-section,
 .hljs-type,
 .tex .hljs-command,

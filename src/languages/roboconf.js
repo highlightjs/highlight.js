@@ -10,7 +10,7 @@ function(hljs) {
   var IDENTIFIER = '[a-zA-Z-_][^\\n{]+\\{';
 
   var PROPERTY = {
-    className: 'name',
+    className: 'attribute',
     begin: /[a-zA-Z-_]+/, end: /\s*:/, excludeEnd: true,
     starts: {
       end: ';',

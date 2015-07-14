@@ -10,7 +10,7 @@
 /* Tomorrow Red */
 .hljs-variable,
 .hljs-tag,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-regexp,
 .hljs-deletion {
   color: #d54e53;
@@ -42,14 +42,9 @@
   color: #b9ca4a;
 }
 
-/* Tomorrow Aqua */
+/* Tomorrow Blue */
 .hljs-title,
 .hljs-section {
-  color: #70c0b1;
-}
-
-/* Tomorrow Blue */
-.hljs-name {
   color: #7aa6da;
 }
 

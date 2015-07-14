@@ -47,8 +47,7 @@ pre{
 .hljs-addition,
 .hljs-envvar,
 .hljs-variable,
-.tex .hljs-command,
-.hljs-name {
+.tex .hljs-command {
   color: #2c009f;
 }
 
@@ -69,8 +68,8 @@ pre{
 .hljs-title,
 .hljs-section,
 .hljs-type,
+.hljs-name,
 .rsl .hljs-built_in,
-.hljs-tag .hljs-name,
 .tex .hljs-command,
 .hljs-request,
 .hljs-status {

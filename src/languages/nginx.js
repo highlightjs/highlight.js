@@ -72,10 +72,21 @@ function(hljs) {
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
+        begin: hljs.UNDERSCORE_IDENT_RE + '\\s+{', returnBegin: true,
+        end: '{',
+        contains: [
+          {
+            className: 'section',
+            begin: hljs.UNDERSCORE_IDENT_RE
+          }
+        ],
+        relevance: 0
+      },
+      {
         begin: hljs.UNDERSCORE_IDENT_RE + '\\s', end: ';|{', returnBegin: true,
         contains: [
           {
-            className: 'name',
+            className: 'attribute',
             begin: hljs.UNDERSCORE_IDENT_RE,
             starts: DEFAULT
           }

@@ -42,7 +42,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-section,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-id,
 .hljs-literal,
 .hljs-keyword,
@@ -89,8 +89,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-variable,
-.hljs-envvar,
-.hljs-name {
+.hljs-envvar {
   color: #660e7a;
 }
 

@@ -12,7 +12,7 @@
 /* Paraíso Red */
 .hljs-variable,
 .hljs-tag,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-regexp,
 .hljs-meta {
   color: #ef6155;
@@ -47,8 +47,7 @@
 }
 
 /* Paraíso Purple */
-.hljs-keyword,
-.hljs-name {
+.hljs-keyword {
   color: #815ba4;
 }
 

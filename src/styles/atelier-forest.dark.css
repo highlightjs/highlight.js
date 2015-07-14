@@ -11,8 +11,9 @@
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
+.hljs-name,
 .hljs-regexp,
-.hljs-tag .hljs-name {
+.hljs-name {
   color: #f22c40;
 }
 
@@ -36,14 +37,9 @@
   color: #7b9726;
 }
 
-/* Atelier-Forest Aqua */
+/* Atelier-Forest Blue */
 .hljs-title,
 .hljs-section {
-  color: #3d97b8;
-}
-
-/* Atelier-Forest Blue */
-.hljs-name {
   color: #407ee7;
 }
 

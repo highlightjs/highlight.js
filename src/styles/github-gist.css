@@ -29,7 +29,6 @@
 }
 
 .hljs-keyword,
-.hljs-name,
 .hljs-type,
 .objectivec .hljs-preprocessor,
 .sql .hljs-built_in {
@@ -57,7 +56,7 @@
 }
 
 .hljs-section,
-.hljs-tag .hljs-name {
+.hljs-name {
   color: #63a35c;
 }
 

@@ -27,7 +27,6 @@ Style with support for rainbow parens
 
 .hljs-keyword,
 .hljs-literal,
-.hljs-name,
 .hljs-type,
 .clojure .hljs-attribute,
 .hljs-addition {
@@ -45,7 +44,7 @@ Style with support for rainbow parens
 }
 
 .hljs-title,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-section,
 .hljs-localvars,
 .hljs-decorator,
@@ -62,7 +61,7 @@ Style with support for rainbow parens
 
 .hljs-section,
 .hljs-attribute,
-.hljs-tag .hljs-name,
+.hljs-name,
 .django .hljs-tag .hljs-keyword {
   font-weight: bold;
 }

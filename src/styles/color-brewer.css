@@ -78,8 +78,7 @@ Ported by Fabrício Tavares de Oliveira
 .clojure .hljs-attribute,
 .asciidoc .hljs-attribute,
 .lasso .hljs-attribute,
-.hljs-phony,
-.hljs-name {
+.hljs-phony {
   color: #88f;
 }
 
@@ -93,7 +92,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-doctag,
 .hljs-type,
 .hljs-tag,
-.hljs-tag .hljs-name,
+.hljs-name,
 .tex .hljs-command,
 .asciidoc .hljs-strong,
 .markdown .hljs-strong,

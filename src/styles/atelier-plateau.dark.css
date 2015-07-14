@@ -11,8 +11,9 @@
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
+.hljs-name,
 .hljs-regexp,
-.hljs-tag .hljs-name {
+.hljs-name {
   color: #ca4949;
 }
 
@@ -36,14 +37,9 @@
   color: #4b8b8b;
 }
 
-/* Atelier-Plateau Aqua */
+/* Atelier-Plateau Blue */
 .hljs-title,
 .hljs-section {
-  color: #5485b6;
-}
-
-/* Atelier-Plateau Blue */
-.hljs-name {
   color: #7272ca;
 }
 

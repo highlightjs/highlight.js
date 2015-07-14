@@ -11,8 +11,9 @@
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
+.hljs-name,
 .hljs-regexp,
-.hljs-tag .hljs-name {
+.hljs-name {
   color: #c94922;
 }
 
@@ -36,14 +37,9 @@
   color: #ac9739;
 }
 
-/* Atelier-Sulphurpool Aqua */
+/* Atelier-Sulphurpool Blue */
 .hljs-title,
 .hljs-section {
-  color: #22a2c9;
-}
-
-/* Atelier-Sulphurpool Blue */
-.hljs-name {
   color: #3d8fd1;
 }
 

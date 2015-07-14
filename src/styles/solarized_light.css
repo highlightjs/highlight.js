@@ -23,7 +23,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 /* Solarized Green */
 .hljs-keyword,
 .hljs-literal,
-.hljs-name,
 .method,
 .hljs-addition,
 .hljs-request,
@@ -49,7 +48,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-localvars,
 .hljs-decorator,
 .hljs-built_in,
-.hljs-tag .hljs-name,
+.hljs-name,
 .vhdl .hljs-literal,
 .hljs-id {
   color: #268bd2;

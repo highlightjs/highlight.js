@@ -10,9 +10,11 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | attr                     | Name of an attribute with no language defined     |
 |                          | semantics: keys in JSON, setting names in .Ini.   |
+|                          | Also sub-attribute within another highlighted     |
+|                          | object, like XML tag.                             |
 +--------------------------+---------------------------------------------------+
 | attribute                | Name of an attribute followed by a structured     |
-|                          | value part, like css properties.                  |
+|                          | value part, like CSS properties.                  |
 +--------------------------+---------------------------------------------------+
 | built_in                 | Built-in or library object (constant, class,      |
 |                          | function)                                         |
@@ -34,8 +36,9 @@ Stylable classes
 | meta                     | Flags, modifiers, annotations, processing         |
 |                          | instructions, preprocessor directive, etc.        |
 +--------------------------+---------------------------------------------------+
-| name                     | Name of a directive in structured config file, of |
-|                          | an XML tag, the first word in an s-expression.    |
+| name                     | Name of an XML tag, the first word in an          |
+|                          | s-expression. Also, #id and .class selectors in   |
+|                          | CSS.                                              |
 +--------------------------+---------------------------------------------------+
 | number                   | Number, including units and modifiers, if any.    |
 +--------------------------+---------------------------------------------------+

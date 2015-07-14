@@ -55,7 +55,6 @@ Date: 2013-04-02
   color: #900;
 }
 
-.hljs-name,
 .hljs-class .hljs-title,
 .hljs-type {
   color: #458;
@@ -105,6 +104,6 @@ Date: 2013-04-02
 }
 
 .hljs-tag,
-.hljs-tag .hljs-name {
+.hljs-name {
   color: #007700;
 }

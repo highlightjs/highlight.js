@@ -16,7 +16,7 @@ function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {className: 'section', begin: '</?', end: '>'},
       {
-        className: 'name',
+        className: 'attribute',
         begin: /\w+/,
         relevance: 0,
         // keywords aren’t needed for highlighting per se, they only boost relevance

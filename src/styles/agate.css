@@ -26,7 +26,7 @@
 }
 
 .hljs-label,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-prompt,
 .http .hljs-request {
   font-weight: bold;
@@ -36,8 +36,7 @@
   font-style: italic;
 }
 
-.hljs-tag,
-.hljs-name {
+.hljs-tag {
   color: #62c8f3;
 }
 

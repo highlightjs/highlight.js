@@ -13,7 +13,7 @@
 /* Kimbie Red */
 .hljs-variable,
 .hljs-tag,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-regexp,
 .hljs-meta {
   color: #dc3958;
@@ -49,7 +49,6 @@
 
 /* Kimbie Purple */
 .hljs-keyword,
-.hljs-name,
 .hljs-function {
   color: #98676a;
 }

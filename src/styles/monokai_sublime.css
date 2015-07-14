@@ -54,7 +54,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .hljs-keyword,
 .hljs-header,
-.hljs-tag .hljs-name,
+.hljs-name,
 .hljs-attr,
 .hljs-value,
 .tex .hljs-special,
@@ -63,7 +63,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 }
 
 .hljs-aspect .hljs-keyword:first-child,
-.hljs-name,
 .hljs-symbol,
 .hljs-attribute {
   color: #66d9ef;
