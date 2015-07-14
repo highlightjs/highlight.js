@@ -29,7 +29,11 @@ function testAutoDetection(language) {
 
         actual.should.equal(expected);
       })
-      .finally(done);
+      .done(function () {
+        done();
+      }, function (error) {
+        done(error);
+      });
   });
 }
 

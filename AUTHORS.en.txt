@@ -175,3 +175,6 @@ Contributors:
 - Guillaume Gomez <guillaume1.gomez@gmail.com>
 - Janis Voigtländer <janis.voigtlaender@gmail.com>
 - Dirk Kirsten <dk@basex.org>
+- MY Sun <simonmysun@gmail.com>
+- Vadimtro <vadimtro@yahoo.com>
+- Benjamin Auder <benjamin.auder@gmail.com>
