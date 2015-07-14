@@ -11,6 +11,30 @@ function(hljs) {
     begin: '\\b[a-z\\d_]*_t\\b'
   };
 
+  var STRINGS = {
+    className: 'string',
+    variants: [
+      hljs.inherit(hljs.QUOTE_STRING_MODE, { begin: '((u8?|U)|L)?"' }),
+      {
+        begin: '(u8?|U)?R"', end: '"',
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
+        begin: '\'\\\\?.', end: '\'',
+        illegal: '.'
+      }
+    ]
+  };
+
+
+  var NUMBERS = {
+    className: 'number',
+    variants: [
+      { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)' },
+      { begin: hljs.C_NUMBER_RE }
+    ]
+  };
+
   var CPP_KEYWORDS = {
     keyword: 'false int float while private char catch export virtual operator sizeof ' +
       'dynamic_cast|10 typedef const_cast|10 const struct for static_cast|10 union namespace ' +
@@ -40,25 +64,8 @@ function(hljs) {
       CPP_PRIMATIVE_TYPES,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      {
-        className: 'string',
-        variants: [
-          hljs.inherit(hljs.QUOTE_STRING_MODE, { begin: '((u8?|U)|L)?"' }),
-          {
-            begin: '(u8?|U)?R"', end: '"',
-            contains: [hljs.BACKSLASH_ESCAPE]
-          },
-          {
-            begin: '\'\\\\?.', end: '\'',
-            illegal: '.'
-          }
-        ]
-      },
-      {
-        className: 'number',
-        begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)'
-      },
-      hljs.C_NUMBER_MODE,
+      NUMBERS,
+      STRINGS,
       {
         className: 'preprocessor',
         begin: '#', end: '$',
