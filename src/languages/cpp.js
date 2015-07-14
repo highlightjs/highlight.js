@@ -76,8 +76,7 @@ function(hljs) {
             begin: /\\\n/, relevance: 0
           },
           {
-            begin: 'include\\s*[<"]', end: '[>"]',
-            keywords: 'include',
+            beginKeywords: 'include',
             illegal: '\\n'
           },
           STRINGS,
