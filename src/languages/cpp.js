@@ -80,6 +80,11 @@ function(hljs) {
             illegal: '\\n'
           },
           STRINGS,
+          {
+            className: 'string',
+            begin: '<', end: '>',
+            illegal: '\\n'
+          },
           NUMBERS,
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
