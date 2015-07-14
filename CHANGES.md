@@ -18,7 +18,8 @@ Notable fixes and improvements to existing languages:
 - Fix incorrect highlighting of the word "bug" in comments
 - Treat decorators different from matrix multiplication in Python
 - Fix traits inheritance highlighting in Rust
-- Fix incorrect document. 
+- Fix incorrect document
+- Oracle keywords added to SQL languange definition by [Vadimtro][]
 
 [Oleg Efimov]: https://github.com/Sannis
 [Guillaume Gomez]: https://github.com/GuillaumeGomez
@@ -26,6 +27,7 @@ Notable fixes and improvements to existing languages:
 [Jan T. Sott]: https://github.com/idleberg
 [Dirk Kirsten]: https://github.com/dirkk
 [MY Sun]: https://github.com/simonmysun
+[Vadimtro]: https://github.com/Vadimtro
 
 ## Version 8.6
 

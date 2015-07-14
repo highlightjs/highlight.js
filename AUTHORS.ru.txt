@@ -176,3 +176,4 @@ URL:   https://highlightjs.org/
 - Янис Фойгтлэндер <janis.voigtlaender@gmail.com>
 - Дирк Кирстен <dk@basex.org>
 - MY Sun <simonmysun@gmail.com>
+- Vadimtro <vadimtro@yahoo.com>
