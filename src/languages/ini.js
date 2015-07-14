@@ -38,7 +38,7 @@ function(hljs) {
         returnBegin: true,
         contains: [
           {
-            className: 'key',
+            className: 'attr',
             begin: /[a-z0-9\[\]_-]+/
           },
           {

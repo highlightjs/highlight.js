@@ -19,6 +19,7 @@ function(hljs) {
     begin: '{', end: '}',
     contains: [
       {
+        className: 'attr',
         begin: '\\s*"', end: '"\\s*:\\s*', excludeBegin: true, excludeEnd: true,
         contains: [hljs.BACKSLASH_ESCAPE],
         illegal: '\\n',

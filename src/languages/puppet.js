@@ -99,7 +99,7 @@ function(hljs) {
                 returnBegin: true, end: '=>',
                 contains: [
                   {
-                    className: 'key',
+                    className: 'attr',
                     begin: hljs.IDENT_RE,
                   }
                 ]

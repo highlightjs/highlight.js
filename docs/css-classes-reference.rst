@@ -8,8 +8,11 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | addition                 | Added or changed line in a diff                   |
 +--------------------------+---------------------------------------------------+
+| attr                     | Name of an attribute with no language defined     |
+|                          | semantics: keys in JSON, setting names in .Ini.   |
++--------------------------+---------------------------------------------------+
 | attribute                | Name of an attribute followed by a structured     |
-|                          | value part, like css properties. See also, "key". |
+|                          | value part, like css properties.                  |
 +--------------------------+---------------------------------------------------+
 | built_in                 | Built-in or library object (constant, class,      |
 |                          | function)                                         |
@@ -29,10 +32,6 @@ Stylable classes
 |                          | "false", "null").                                 |
 +--------------------------+---------------------------------------------------+
 | symbol                   | Symbolic constant, interned string, goto label.   |
-+--------------------------+---------------------------------------------------+
-| key                      | Key in key-value pairs with no language defined   |
-|                          | semantics: keys in JSON, setting names in .Ini.   |
-|                          | See also, "attribute".                            |
 +--------------------------+---------------------------------------------------+
 | meta                     | Flags, modifiers, annotations, processing         |
 |                          | instructions, preprocessor directive, etc.        |
