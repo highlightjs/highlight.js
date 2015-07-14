@@ -80,7 +80,10 @@ function(hljs) {
             keywords: 'include',
             illegal: '\\n'
           },
-          hljs.C_LINE_COMMENT_MODE
+          STRINGS,
+          NUMBERS,
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
         ]
       },
       {
