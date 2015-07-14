@@ -22,7 +22,7 @@ function(hljs) {
       'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
       'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
       'module console window document any number boolean string void'
-  }
+  };
 
   return {
     aliases: ['ts'],
