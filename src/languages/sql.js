@@ -15,7 +15,7 @@ function(hljs) {
         beginKeywords:
           'begin end start commit rollback savepoint lock alter create drop rename call ' +
           'delete do handler insert load replace select truncate update set show pragma grant ' +
-          'merge describe use explain help declare prepare execute deallocate savepoint release ' +
+          'merge describe use explain help declare prepare execute deallocate savepoint release|0 ' +
           'unlock purge reset change stop analyze cache flush optimize repair kill ' +
           'install uninstall checksum restore check backup revoke',
         end: /;/, endsWithParent: true,
@@ -67,11 +67,11 @@ function(hljs) {
             'initial initialized initially initrans inmemory inner innodb input insert install instance instantiable ' +
             'instr interface interleaved intersect into invalidate invisible is is_free_lock is_ipv4 is_ipv4_compat ' +
             'is_not is_not_null is_used_lock isdate isnull isolation iterate java join json json_exists ' +
-            'k keep keep_duplicates key keys kill l language large last last_day last_insert_id last_value lax lcase ' +
+            'k keep keep_duplicates key keys kill l language large last|0 last_day last_insert_id last_value lax lcase ' +
             'lead leading least leaves left len lenght length less level levels library like like2 like4 likec limit ' +
-            'lines link list listagg little ln load load_file lob lobs local localtime localtimestamp locate ' +
-            'locator lock locked log log10 log2 logfile logfiles logging logical logical_reads_per_call ' +
-            'logoff logon logs long loop low low_priority lower lpad lrtrim ltrim m main make_set makedate maketime ' +
+            'lines link|0 list|0 listagg little ln load load_file lob lobs local localtime localtimestamp locate ' +
+            'locator lock|0 locked log log10 log2 logfile logfiles logging logical logical_reads_per_call ' +
+            'logoff logon logs long loop|0 low low_priority lower lpad lrtrim ltrim m main make_set makedate maketime ' +
             'managed management manual map mapping mask master master_pos_wait match matched materialized max ' +
             'maxextents maximize maxinstances maxlen maxlogfiles maxloghistory maxlogmembers maxsize maxtrans ' +
             'md5 measures median medium member memcompress memory merge microsecond mid migration min minextents ' +
@@ -95,10 +95,10 @@ function(hljs) {
             'prediction_cost prediction_details prediction_probability prediction_set prepare present preserve ' +
             'prior priority private private_sga privileges procedural procedure procedure_analyze processlist ' +
             'profiles project prompt protection public publishingservername purge quarter query quick quiesce quota ' +
-            'quotename radians raise rand range rank raw read reads readsize rebuild record records ' +
+            'quotename radians raise|0 rand range rank raw read reads readsize rebuild record records ' +
             'recover recovery recursive recycle redo reduced ref reference referenced references referencing refresh ' +
             'regexp_like register regr_avgx regr_avgy regr_count regr_intercept regr_r2 regr_slope regr_sxx regr_sxy ' +
-            'reject rekey relational relative relaylog release release_lock relies_on relocate rely rem remainder ' +
+            'reject rekey relational relative relaylog release|0 release_lock relies_on relocate rely rem remainder ' +
             'repair repeat replace replicate replication required reset resetlogs resize resource respect restore ' +
             'restricted result result_cache resumable resume retention return returning returns reuse reverse revoke ' +
             'right rlike role roles rollback rolling rollup round row row_count rowdependencies rowid rownum rows ' +
