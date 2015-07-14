@@ -62,7 +62,8 @@ function(hljs) {
       {
         className: 'preprocessor',
         begin: '#', end: '$',
-        keywords: 'if else elif endif define undef warning error line pragma',
+        keywords: 'if else elif endif define undef warning error line ' +
+                  'pragma ifdef ifndef',
         contains: [
           {
             begin: /\\\n/, relevance: 0
