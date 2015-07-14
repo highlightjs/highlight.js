@@ -31,8 +31,6 @@ Stylable classes
 | literal                  | Special identifier for a built-in value ("true",  |
 |                          | "false", "null").                                 |
 +--------------------------+---------------------------------------------------+
-| symbol                   | Symbolic constant, interned string, goto label.   |
-+--------------------------+---------------------------------------------------+
 | meta                     | Flags, modifiers, annotations, processing         |
 |                          | instructions, preprocessor directive, etc.        |
 +--------------------------+---------------------------------------------------+
@@ -49,6 +47,8 @@ Stylable classes
 | section                  | Heading of a section in a config file.            |
 +--------------------------+---------------------------------------------------+
 | subst                    | Parsed section inside a literal string.           |
++--------------------------+---------------------------------------------------+
+| symbol                   | Symbolic constant, interned string, goto label.   |
 +--------------------------+---------------------------------------------------+
 | title                    | Name of a class or a function at the place of     |
 |                          | declaration                                       |
