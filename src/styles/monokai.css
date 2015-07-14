@@ -39,7 +39,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 }
 
 .hljs-link_url,
-.hljs-tag .hljs-value,
 .hljs-string,
 .hljs-bullet,
 .hljs-subst,
@@ -91,7 +90,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
   font-weight: bold;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.5;
 }

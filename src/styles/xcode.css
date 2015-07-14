@@ -39,8 +39,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-string {
   color: #c41a16;
 }
-.hljs-tag .hljs-value,
-.hljs-cdata,
+
 .hljs-filter .hljs-argument,
 .hljs-date,
 .hljs-regexp {
@@ -50,7 +49,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-title,
 .hljs-pi,
 .hljs-tag,
-.hljs-tag .hljs-keyword,
 .hljs-decorator,
 .hljs-shebang,
 .hljs-prompt,
@@ -63,7 +61,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-section,
 .hljs-class .hljs-title,
 .hljs-type,
-.hljs-tag .hljs-attribute,
+.hljs-attr,
 .hljs-doctype,
 .hljs-built_in,
 .setting,

@@ -50,6 +50,7 @@ based on dark.css by Ivan Sagalaev
 
 .hljs-decorator,
 .hljs-title,
+.hljs-tag .hljs-name,
 .hljs-section,
 .hljs-type,
 .tex .hljs-command,
@@ -64,7 +65,6 @@ based on dark.css by Ivan Sagalaev
 
 .hljs-deletion,
 .hljs-string,
-.hljs-tag .hljs-value,
 .hljs-preprocessor,
 .hljs-built_in,
 .smalltalk .hljs-localvars,
@@ -83,8 +83,7 @@ based on dark.css by Ivan Sagalaev
   color: #7f9f7f;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.5;
 }
 

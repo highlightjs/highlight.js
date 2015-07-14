@@ -23,7 +23,6 @@ Music: Aphex Twin / Xtal
 .hljs-string,
 .hljs-title,
 .hljs-parent,
-.hljs-tag .hljs-value,
 .hljs-preprocessor,
 .hljs-symbol,
 .hljs-attribute,
@@ -74,7 +73,8 @@ Music: Aphex Twin / Xtal
 .hljs-title,
 .hljs-section,
 .hljs-built_in,
-.xml .hljs-tag,
+.hljs-tag,
+.hljs-tag .hljs-name,
 .tex .hljs-command,
 .hljs-request,
 .hljs-status {
@@ -82,7 +82,6 @@ Music: Aphex Twin / Xtal
   color: navy;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.5;
 }

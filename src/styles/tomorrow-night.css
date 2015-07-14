@@ -11,12 +11,9 @@
 /* Tomorrow Red */
 .hljs-variable,
 .hljs-tag,
+.hljs-tag .hljs-name,
 .hljs-regexp,
-.hljs-deletion,
-.xml .hljs-tag .hljs-title,
-.xml .hljs-pi,
-.xml .hljs-doctype,
-.html .hljs-doctype {
+.hljs-deletion {
   color: #cc6666;
 }
 
@@ -42,8 +39,7 @@
 .hljs-inheritance,
 .hljs-header,
 .hljs-symbol,
-.hljs-addition,
-.xml .hljs-cdata {
+.hljs-addition {
   color: #b5bd68;
 }
 
@@ -72,7 +68,6 @@
   -webkit-text-size-adjust: none;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.5;
 }

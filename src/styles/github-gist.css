@@ -19,14 +19,12 @@
 
 .hljs-string,
 .hljs-variable,
-.json .hljs-attribute,
 .makefile .hljs-variable,
 .markdown .hljs-value,
 .markdown .hljs-link_label,
 .markdown .hljs-strong,
 .markdown .hljs-emphasis,
-.markdown .hljs-blockquote,
-.xml .hljs-value {
+.markdown .hljs-blockquote {
   color: #df5000;
 }
 
@@ -59,20 +57,19 @@
 }
 
 .hljs-section,
-.hljs-tag .hljs-name,
-.cs .hljs-xmlDocTag {
+.hljs-tag .hljs-name {
   color: #63a35c;
 }
 
 .cs .hljs-preprocessor,
 .cs .hljs-preprocessor .hljs-keyword,
-.xml .hljs-tag {
+.hljs-tag {
   color: #333333;
 }
 
 .hljs-title,
 .ruby .hljs-parent,
-.xml .hljs-attribute {
+.hljs-attr {
   color: #795da3;
 }
 

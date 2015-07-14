@@ -37,17 +37,12 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 }
 
 .hljs-string,
-.hljs-tag .hljs-value,
-.hljs-cdata,
 .hljs-filter .hljs-argument,
 .hljs-date,
 .hljs-regexp {
   color: #080;
 }
 
-.hljs-pi,
-.hljs-tag,
-.hljs-tag .hljs-keyword,
 .hljs-decorator,
 .hljs-shebang,
 .hljs-prompt,
@@ -62,7 +57,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 .hljs-title,
 .hljs-doctag,
 .hljs-type,
-.hljs-tag .hljs-attribute,
+.hljs-attr,
 .hljs-doctype,
 .hljs-built_in,
 .setting,

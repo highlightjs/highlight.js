@@ -14,8 +14,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 }
 
 .hljs-comment,
-.hljs-doctype,
-.hljs-pi,
 .lisp .hljs-string {
   color: #586e75;
 }
@@ -35,7 +33,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-number,
 .hljs-command,
 .hljs-string,
-.hljs-tag .hljs-value,
 .hljs-doctag,
 .tex .hljs-formula,
 .hljs-regexp,
@@ -49,6 +46,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-localvars,
 .hljs-decorator,
 .hljs-built_in,
+.hljs-tag .hljs-name,
 .vhdl .hljs-literal,
 .hljs-id {
   color: #268bd2;
@@ -56,6 +54,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 
 /* Solarized Yellow */
 .hljs-attribute,
+.hljs-attr,
 .hljs-variable,
 .smalltalk .hljs-number,
 .hljs-class .hljs-title,
@@ -72,7 +71,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-symbol,
 .hljs-special,
 .hljs-subst,
-.hljs-cdata,
 .hljs-meta {
   color: #cb4b16;
 }

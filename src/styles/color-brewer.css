@@ -15,14 +15,12 @@ Ported by Fabrício Tavares de Oliveira
 }
 
 .hljs,
-.hljs-subst,
-.hljs-tag .hljs-name {
+.hljs-subst {
   color: #000;
 }
 
 .hljs-string,
 .hljs-parent,
-.hljs-tag .hljs-value,
 .hljs-preprocessor,
 .hljs-meta,
 .hljs-symbol,
@@ -94,6 +92,8 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-built_in,
 .hljs-doctag,
 .hljs-type,
+.hljs-tag,
+.hljs-tag .hljs-name,
 .tex .hljs-command,
 .asciidoc .hljs-strong,
 .markdown .hljs-strong,
@@ -108,16 +108,10 @@ Ported by Fabrício Tavares de Oliveira
 }
 
 .lasso .markup,
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.5;
 }
 
-.hljs-attribute,
-.html .hljs-attribute {
+.hljs-attribute {
   color: #e6550d;
-}
-
-.html .hljs-tag {
-  color: #3182bd;
 }

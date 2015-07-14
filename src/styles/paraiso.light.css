@@ -12,12 +12,9 @@
 /* Paraíso Red */
 .hljs-variable,
 .hljs-tag,
-.hljs-regexp,
-.hljs-meta,
 .hljs-tag .hljs-name,
-.xml .hljs-pi,
-.xml .hljs-doctype,
-.html .hljs-doctype {
+.hljs-regexp,
+.hljs-meta {
   color: #ef6155;
 }
 
@@ -45,8 +42,7 @@
 .hljs-inheritance,
 .hljs-header,
 .hljs-symbol,
-.hljs-addition,
-.xml .hljs-cdata {
+.hljs-addition {
   color: #48b685;
 }
 
@@ -65,7 +61,6 @@
   -webkit-text-size-adjust: none;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.5;
 }

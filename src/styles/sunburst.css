@@ -27,8 +27,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-string,
-.hljs-tag .hljs-value,
-.hljs-cdata,
 .hljs-filter .hljs-argument,
 .hljs-date,
 .tex .hljs-command {
@@ -47,7 +45,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-section,
 .hljs-pi,
 .hljs-tag,
-.hljs-tag .hljs-keyword,
+.hljs-tag .hljs-name,
 .hljs-decorator,
 .hljs-shebang,
 .hljs-prompt {
@@ -100,7 +98,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #f8f8f8;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.5;
 }

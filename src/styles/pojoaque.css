@@ -34,7 +34,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-number,
 .hljs-command,
 .hljs-string,
-.hljs-tag .hljs-value,
 .hljs-doctag,
 .tex .hljs-formula,
 .hljs-regexp {
@@ -45,7 +44,8 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-section,
 .hljs-localvars,
 .hljs-decorator,
-.hljs-built_in {
+.hljs-built_in,
+.hljs-tag .hljs-name {
   color: #ffb03b;
 }
 
@@ -53,7 +53,8 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .smalltalk .hljs-number,
 .hljs-class .hljs-title,
 .hljs-parent,
-.hljs-type {
+.hljs-type,
+.hljs-tag {
   color: #b58900;
 }
 
@@ -67,7 +68,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-symbol,
 .hljs-special,
 .hljs-subst,
-.hljs-cdata,
 .hljs-meta {
   color: #cb4b16;
 }

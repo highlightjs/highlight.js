@@ -29,14 +29,6 @@
   color: #668bb0;
 }
 
-.xml .hljs-attribute {
-  color: #b3b689;
-}
-
-.xml .hljs-tag .hljs-value {
-  color: #e8e2b7;
-}
-
 .hljs-code,
 .hljs-class .hljs-title,
 .hljs-section,
@@ -58,6 +50,7 @@
 
 .hljs-link_url,
 .hljs-tag,
+.hljs-tag .hljs-name,
 .hljs-bullet,
 .hljs-subst,
 .hljs-emphasis,
@@ -102,6 +95,7 @@
 .hljs-section,
 .hljs-header,
 .hljs-type,
+.hljs-tag .hljs-name,
 .rsl .hljs-built_in,
 .tex .hljs-special,
 .hljs-request,
@@ -109,7 +103,6 @@
   font-weight: bold;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.5;
 }

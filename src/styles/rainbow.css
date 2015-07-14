@@ -38,7 +38,6 @@ Style with support for rainbow parens
 
 .hljs-command,
 .hljs-string,
-.hljs-tag .hljs-value,
 .hljs-doctag,
 .tex .hljs-formula,
 .hljs-regexp {
@@ -46,6 +45,7 @@ Style with support for rainbow parens
 }
 
 .hljs-title,
+.hljs-tag .hljs-name,
 .hljs-section,
 .hljs-localvars,
 .hljs-decorator,
@@ -73,7 +73,6 @@ Style with support for rainbow parens
 .hljs-symbol,
 .hljs-special,
 .hljs-subst,
-.hljs-cdata,
 .hljs-meta {
   color: #f99157;
 }
@@ -84,4 +83,8 @@ Style with support for rainbow parens
 
 .tex .hljs-formula {
   background: #eee8d5;
+}
+
+.hljs-attr {
+  color: #81a2be;
 }

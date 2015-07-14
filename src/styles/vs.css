@@ -25,8 +25,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .tex .hljs-command,
 .hljs-request,
 .hljs-status,
-.xml .hljs-tag,
-.xml .hljs-tag .hljs-value {
+.hljs-tag {
   color: #00f;
 }
 
@@ -68,8 +67,11 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
   color: #808080;
 }
 
+.hljs-attr {
+  color: #f00;
+}
+
 .vhdl .hljs-string { color: #666666; }
 
 .vhdl .hljs-attribute { color: #00b0e8; }
 
-.xml .hljs-attribute { color: #f00; }

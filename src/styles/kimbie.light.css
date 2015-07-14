@@ -13,12 +13,9 @@
 /* Kimbie Red */
 .hljs-variable,
 .hljs-tag,
+.hljs-tag .hljs-name,
 .hljs-regexp,
-.hljs-meta,
-.xml .hljs-tag .hljs-name,
-.xml .hljs-pi,
-.xml .hljs-doctype,
-.html .hljs-doctype {
+.hljs-meta {
   color: #dc3958;
 }
 
@@ -46,8 +43,7 @@
 .hljs-inheritance,
 .hljs-header,
 .hljs-symbol,
-.hljs-addition,
-.xml .hljs-cdata {
+.hljs-addition {
   color: #889b4a;
 }
 
@@ -67,7 +63,6 @@
   -webkit-text-size-adjust: none;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.5;
 }

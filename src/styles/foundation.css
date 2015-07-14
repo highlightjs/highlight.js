@@ -104,6 +104,7 @@ Date: 2013-04-02
   color: #990073;
 }
 
-.hljs-tag {
+.hljs-tag,
+.hljs-tag .hljs-name {
   color: #007700;
 }

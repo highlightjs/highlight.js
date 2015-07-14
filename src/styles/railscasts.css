@@ -30,8 +30,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-string,
 .hljs-number,
 .hljs-regexp,
-.hljs-tag .hljs-value,
-.hljs-cdata,
 .hljs-filter .hljs-argument,
 .hljs-variable,
 .hljs-date,
@@ -61,6 +59,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 .hljs-symbol,
 .hljs-built_in,
+.hljs-attr,
 .asciidoc .hljs-link_url,
 .markdown .hljs-link_url {
   color: #6d9cbe;
@@ -114,7 +113,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   width: 100%;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.7;
 }

@@ -41,8 +41,7 @@
   color: #62c8f3;
 }
 
-.hljs-variable,
-.hljs-tag .hljs-value {
+.hljs-variable {
   color: #ade5fc;
 }
 
@@ -74,14 +73,12 @@
 }
 
 .hljs-comment,
-.hljs-cdata,
 .hljs-preprocessor,
 .hljs-annotation,
 .hljs-decorator,
 .hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
-.hljs-meta,
 .tex .hljs-formula,
 .hljs-header,
 .hljs-horizontal_rule,
@@ -93,8 +90,7 @@
   color: #c6b4f0;
 }
 
-.hljs-doctype,
-.hljs-pi,
+.hljs-meta,
 .hljs-shebang,
 .http .hljs-attribute {
   color: #fc9b9b;
@@ -110,8 +106,7 @@
   color: #333;
 }
 
-.hljs a,
-.hljs-tag .hljs-attribute {
+.hljs a {
   color: inherit;
 }
 

@@ -33,8 +33,6 @@
 }
 
 .hljs-string,
-.hljs-tag .hljs-value,
-.hljs-cdata,
 .hljs-filter .hljs-argument,
 .hljs-date,
 .hljs-addition {
@@ -70,7 +68,6 @@
   color:#ff73fd;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.7;
 }

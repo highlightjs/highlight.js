@@ -12,10 +12,7 @@
 .hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
-.hljs-tag .hljs-name,
-.xml .hljs-pi,
-.xml .hljs-doctype,
-.html .hljs-doctype {
+.hljs-tag .hljs-name {
   color: #ba6236;
 }
 
@@ -35,8 +32,7 @@
 .hljs-value,
 .hljs-inheritance,
 .hljs-header,
-.hljs-symbol,
-.xml .hljs-cdata {
+.hljs-symbol {
   color: #7d9726;
 }
 
@@ -80,7 +76,6 @@
   -webkit-text-size-adjust: none;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.5;
 }

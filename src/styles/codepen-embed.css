@@ -28,16 +28,13 @@
 .hljs-params,
 .hljs-symbol,
 .hljs-deletion,
-.ruby .constant,
-.hljs-tag .hljs-name,
-.xml .pi,
-.xml .doctype,
-.html .doctype {
+.ruby .constant {
   color: #ab875d;
 }
 
 .hljs-section,
 .hljs-title,
+.hljs-tag .hljs-name,
 .hljs-type,
 .hljs-attribute {
   color: #9b869b;
@@ -49,7 +46,6 @@
 .hljs-header,
 .hljs-keyword,
 .hljs-name,
-.hljs-addition,
-.xml .cdata {
+.hljs-addition {
   color: #8f9c6c;
 }

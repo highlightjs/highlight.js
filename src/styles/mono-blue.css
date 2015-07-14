@@ -19,7 +19,8 @@
 .hljs-section,
 .hljs-request,
 .hljs-header,
-.hljs-doctag {
+.hljs-doctag,
+.hljs-tag .hljs-name {
   font-weight: bold;
 }
 

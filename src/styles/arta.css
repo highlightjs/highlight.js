@@ -28,7 +28,6 @@ Author: pumbur <pumbur@pumbur.net>
 .profile .hljs-summary,
 .hljs-pi,
 .hljs-doctype,
-.hljs-tag,
 .tex .hljs-special {
   color: #444;
 }
@@ -36,9 +35,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-string,
 .hljs-symbol,
 .hljs-regexp,
-.xml .hljs-attribute,
 .smalltalk .hljs-char,
-.xml .hljs-value,
 .clojure .hljs-attribute {
   color: #ffcc33;
 }
@@ -90,7 +87,6 @@ Author: pumbur <pumbur@pumbur.net>
   font-weight: bold;
 }
 
-.tex .hljs-formula,
-.xml .hljs-cdata {
+.tex .hljs-formula {
   opacity: 0.6;
 }
