@@ -47,7 +47,6 @@ Style with support for rainbow parens
 .hljs-name,
 .hljs-section,
 .hljs-localvars,
-.hljs-decorator,
 .hljs-built_in {
   color: #b5bd68;
 }
