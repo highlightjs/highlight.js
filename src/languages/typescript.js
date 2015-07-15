@@ -79,8 +79,7 @@ function(hljs) {
         relevance: 0 // () => {} is more typical in TypeScript
       },
       {
-        beginKeywords: 'constructor', end: /\{/, excludeEnd: true,
-        relevance: 10
+        beginKeywords: 'constructor', end: /\{/, excludeEnd: true
       },
       {
         beginKeywords: 'module', end: /\{/, excludeEnd: true
