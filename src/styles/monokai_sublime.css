@@ -62,15 +62,13 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   color: #f92672;
 }
 
-.hljs-aspect .hljs-keyword:first-child,
 .hljs-symbol,
 .hljs-attribute {
   color: #66d9ef;
 }
 
 .hljs-params,
-.hljs-class .hljs-title,
-.hljs-aspect .hljs-title {
+.hljs-class .hljs-title {
   color: #f8f8f2;
 }
 

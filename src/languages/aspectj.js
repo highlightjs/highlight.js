@@ -40,7 +40,7 @@ function (hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        className : 'aspect',
+        className : 'class',
         beginKeywords : 'aspect',
         end : /[{;=]/,
         excludeEnd : true,
@@ -140,7 +140,7 @@ function (hljs) {
       hljs.C_NUMBER_MODE,
       {
         // annotation is also used in this language
-        className : 'annotation',
+        className : 'meta',
         begin : '@[A-Za-z]+'
       }
     ]
