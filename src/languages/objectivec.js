@@ -54,12 +54,12 @@ function(hljs) {
         ]
       },
       {
-        className: 'preprocessor',
+        className: 'meta',
         begin: '#',
         end: '$',
         contains: [
           {
-            className: 'title',
+            className: 'string',
             variants: [
               { begin: '\"', end: '\"' },
               { begin: '<', end: '>' }
@@ -76,7 +76,6 @@ function(hljs) {
         ]
       },
       {
-        className: 'variable',
         begin: '\\.'+hljs.UNDERSCORE_IDENT_RE,
         relevance: 0
       }
