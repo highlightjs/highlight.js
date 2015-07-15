@@ -34,7 +34,6 @@ function(hljs) {
         keywords: 'rpc returns'
       },
       {
-        className: 'constant',
         begin: /^\s*[A-Z_]+/,
         end: /\s*=/, excludeEnd: true
       }
