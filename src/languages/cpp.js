@@ -32,7 +32,8 @@ function(hljs) {
     variants: [
       { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)' },
       { begin: hljs.C_NUMBER_RE }
-    ]
+    ],
+    relevance: 0
   };
 
   var CPP_KEYWORDS = {
