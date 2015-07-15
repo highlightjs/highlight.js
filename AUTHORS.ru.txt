@@ -178,3 +178,4 @@ URL:   https://highlightjs.org/
 - MY Sun <simonmysun@gmail.com>
 - Vadimtro <vadimtro@yahoo.com>
 - Бенджамин Одер <benjamin.auder@gmail.com>
+- Дотан Димет <dotan@corky.net>

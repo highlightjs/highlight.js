@@ -5,6 +5,7 @@ New languages:
 - *Zephir* by [Oleg Efimov][]
 - *Elm* by [Janis Voigtländer][]
 - *XQuery* by [Dirk Kirsten][]
+- *Mojolicious* by [Dotan Dimet][]
 
 New Styles:
 
@@ -30,6 +31,7 @@ Notable fixes and improvements to existing languages:
 [MY Sun]: https://github.com/simonmysun
 [Vadimtro]: https://github.com/Vadimtro
 [Benjamin Auder]: https://github.com/ghost
+[Dotan Dimet]: https://github.com/dotandimet
 
 ## Version 8.6
 
