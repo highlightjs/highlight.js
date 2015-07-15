@@ -32,7 +32,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-string,
 .hljs-title,
 .hljs-section,
-.hljs-parent,
 .hljs-tag .hljs-value,
 .hljs-symbol,
 .hljs-attribute,
@@ -45,7 +44,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
   color: #a31515;
 }
 
-.ruby .hljs-string,
 .hljs-decorator,
 .hljs-filter .hljs-argument,
 .hljs-localvars,

@@ -27,8 +27,7 @@
 .hljs-literal,
 .hljs-params,
 .hljs-symbol,
-.hljs-deletion,
-.ruby .constant {
+.hljs-deletion {
   color: #ab875d;
 }
 
@@ -42,7 +41,6 @@
 
 .hljs-string,
 .hljs-value,
-.hljs-inheritance,
 .hljs-header,
 .hljs-keyword,
 .hljs-addition {

@@ -57,8 +57,7 @@ based on dark.css by Ivan Sagalaev
   color: #efef8f;
 }
 
-.hljs-symbol,
-.ruby .hljs-string {
+.hljs-symbol {
   color: #dca3a3;
 }
 

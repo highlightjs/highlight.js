@@ -17,8 +17,7 @@
 .hljs-tag,
 .hljs-name,
 .hljs-regexp,
-.hljs-deletion,
-.ruby .hljs-constant {
+.hljs-deletion {
   color: #dd464c;
 }
 
@@ -33,14 +32,13 @@
 }
 
 /* Yellow */
-.ruby .hljs-class .hljs-title {
+.hljs-class .hljs-title {
   color: #fdcc59;
 }
 
 /* Green */
 .hljs-string,
 .hljs-value,
-.hljs-inheritance,
 .hljs-header,
 .hljs-symbol,
 .hljs-addition {
@@ -55,9 +53,7 @@
 /* Blue */
 .hljs-function,
 .hljs-section,
-.hljs-title,
-.ruby .hljs-function .hljs-title,
-.ruby .hljs-title .hljs-keyword {
+.hljs-title {
   color: #1290bf;
 }
 

@@ -20,7 +20,6 @@ Ported by Fabrício Tavares de Oliveira
 }
 
 .hljs-string,
-.hljs-parent,
 .hljs-preprocessor,
 .hljs-meta,
 .hljs-symbol,
@@ -57,7 +56,6 @@ Ported by Fabrício Tavares de Oliveira
 }
 
 .hljs-label,
-.ruby .hljs-string,
 .hljs-decorator,
 .hljs-filter .hljs-argument,
 .hljs-localvars,

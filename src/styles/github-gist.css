@@ -48,9 +48,6 @@
 .objectivec .hljs-literal,
 .objectivec .hljs-number,
 .objectivec .hljs-built_in,
-.ruby .hljs-prompt,
-.ruby .hljs-number,
-.ruby .hljs-subst .hljs-keyword,
 .sql .hljs-number {
   color: #0086b3;
 }
@@ -67,7 +64,6 @@
 }
 
 .hljs-title,
-.ruby .hljs-parent,
 .hljs-attr {
   color: #795da3;
 }

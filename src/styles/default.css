@@ -22,7 +22,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-title,
 .hljs-section,
 .hljs-attribute,
-.hljs-parent,
 .hljs-tag .hljs-value,
 .hljs-preprocessor,
 .hljs-variable,
@@ -63,7 +62,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 }
 
 .hljs-label,
-.ruby .hljs-string,
 .hljs-decorator,
 .hljs-filter .hljs-argument,
 .hljs-localvars,

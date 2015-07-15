@@ -50,7 +50,6 @@ Author: pumbur <pumbur@pumbur.net>
 .mel .hljs-variable,
 .django .hljs-variable,
 .smalltalk .method,
-.hljs-inheritance,
 .hljs-attribute,
 .parser3 .hljs-variable {
   color: #32aaee;
@@ -65,7 +64,6 @@ Author: pumbur <pumbur@pumbur.net>
 
 .hljs-title,
 .hljs-variable,
-.hljs-parent,
 .hljs-deletion,
 .hljs-template_tag,
 .objectivec .hljs-class .hljs-id,
