@@ -12,19 +12,12 @@ function(hljs) {
     className: 'variable', begin: '\\b[gtps][A-Z]+[A-Za-z0-9_\\-]*\\b|\\$_[A-Z]+',
     relevance: 0
   };
-  var COMMENT = {
-    className: 'comment', end: '$',
-    variants: [
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.HASH_COMMENT_MODE,
-      {
-        begin: '--'
-      },
-      {
-        begin: '[^:]//'
-      }
-    ]
-  };
+  var COMMENT_MODES = [
+    hljs.C_BLOCK_COMMENT_MODE,
+    hljs.HASH_COMMENT_MODE,
+    hljs.COMMENT('--', '$'),
+    hljs.COMMENT('[^:]//', '$')
+  ];
   var TITLE1 = hljs.inherit(hljs.TITLE_MODE, {
     variants: [
       {begin: '\\b_*rig[A-Z]+[A-Za-z0-9_\\-]*'},
@@ -131,7 +124,8 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'end', end: '$',
+        begin: '\\bend\\s+', end: '$',
+        keywords: 'end',
         contains: [
           TITLE2,
           TITLE1
@@ -151,33 +145,22 @@ function(hljs) {
         ]
       },
       {
-        className: 'command',
-        beginKeywords: 'end', end: '$',
-        contains: [
-          TITLE2,
-          TITLE1
+        className: 'preprocessor',
+        variants: [
+          {
+            begin: '<\\?(rev|lc|livecode)',
+            relevance: 10
+          },
+          { begin: '<\\?' },
+          { begin: '\\?>' }
         ]
       },
-      {
-        className: 'preprocessor',
-        begin: '<\\?rev|<\\?lc|<\\?livecode',
-        relevance: 10
-      },
-      {
-        className: 'preprocessor',
-        begin: '<\\?'
-      },
-      {
-        className: 'preprocessor',
-        begin: '\\?>'
-      },
-      COMMENT,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       hljs.BINARY_NUMBER_MODE,
       hljs.C_NUMBER_MODE,
       TITLE1
-    ],
+    ].concat(COMMENT_MODES),
     illegal: ';$|^\\[|^='
   };
 }

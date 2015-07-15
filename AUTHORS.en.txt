@@ -156,4 +156,26 @@ Contributors:
 - Chris Kiehl <audionautic@gmail.com>
 - Peter Piwowarski <oldlaptop654@aol.com>
 - Kenta Sato <bicycle1885@gmail.com>
+- Anthony Scemama <scemama@irsamc.ups-tlse.fr>
+- Taufik Nurrohman <latitudu.latitudu@gmail.com>
+- Pedro Oliveira <kanytu@gmail.com>
+- Gu Yiling <justice360@gmail.com>
+- Thomas Applencourt <thomas.applencourt@irsamc.ups-tlse.fr>
+- Andrew Farmer <ahfarmer@gmail.com>
+- Sergey Mashkov <cy6erGn0m@gmail.com>
+- Raivo Laanemets <raivo@infdot.com>
+- Kenneth Fuglsang <kfuglsang@gmail.com>
+- David Anson <david@dlaa.me>
+- Louis Barranqueiro <louis.barranqueiro@gmail.com>
+- Tim Schumacher <tim@datenknoten.me>
+- Lucas Werkmeister <mail@lucaswerkmeister.de>
+- Dan Panzarella <alsoelp@gmail.com>
+- Bruno Dias <bruno.r.dias@gmail.com>
+- Jay Strybis <jay.strybis@gmail.com>
+- Guillaume Gomez <guillaume1.gomez@gmail.com>
+- Janis Voigtländer <janis.voigtlaender@gmail.com>
+- Dirk Kirsten <dk@basex.org>
+- MY Sun <simonmysun@gmail.com>
+- Vadimtro <vadimtro@yahoo.com>
+- Benjamin Auder <benjamin.auder@gmail.com>
 - Dotan Dimet <dotan@corky.net>

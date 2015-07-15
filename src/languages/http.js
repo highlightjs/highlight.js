@@ -7,6 +7,7 @@ Category: common, protocols
 
 function(hljs) {
   return {
+    aliases: ['https'],
     illegal: '\\S',
     contains: [
       {
@@ -33,7 +34,7 @@ function(hljs) {
       },
       {
         begin: '\\n\\n',
-        starts: {subLanguage: '', endsWithParent: true}
+        starts: {subLanguage: [], endsWithParent: true}
       }
     ]
   };

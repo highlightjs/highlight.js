@@ -6,3 +6,4 @@
 <span class="hljs-keyword">long</span> maxLong = <span class="hljs-number">0x7fff_ffff_ffff_ffffL</span>;
 <span class="hljs-keyword">byte</span> nybbles = <span class="hljs-number">0b0010_0101</span>;
 <span class="hljs-keyword">long</span> bytes = <span class="hljs-number">0b11010010_01101001_10010100_10010010</span>;
+<span class="hljs-keyword">int</span> n = <span class="hljs-number">1234</span> + Contacts._ID;

@@ -70,18 +70,20 @@ function (hljs) {
     keywords: KEYWORDS,
     contains: [
       STRING,
-      {
-        className: 'dartdoc',
-        begin: '/\\*\\*', end: '\\*/',
-        subLanguage: 'markdown',
-        subLanguageMode: 'continuous'
-      },
-      {
-        className: 'dartdoc',
-        begin: '///', end: '$',
-        subLanguage: 'markdown',
-        subLanguageMode: 'continuous'
-      },
+      hljs.COMMENT(
+        '/\\*\\*',
+        '\\*/',
+        {
+          subLanguage: 'markdown'
+        }
+      ),
+      hljs.COMMENT(
+        '///',
+        '$',
+        {
+          subLanguage: 'markdown'
+        }
+      ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {

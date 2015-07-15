@@ -5,13 +5,12 @@ Category: config
 */
 
 function(hljs) {
-  var PUPPET_TYPE_REFERENCE =
-      'augeas computer cron exec file filebucket host interface k5login macauthorization mailalias maillist mcx mount nagios_command ' +
-      'nagios_contact nagios_contactgroup nagios_host nagios_hostdependency nagios_hostescalation nagios_hostextinfo nagios_hostgroup nagios_service firewall ' +
-      'nagios_servicedependency nagios_serviceescalation nagios_serviceextinfo nagios_servicegroup nagios_timeperiod notify package resources ' +
-      'router schedule scheduled_task selboolean selmodule service ssh_authorized_key sshkey stage tidy user vlan yumrepo zfs zone zpool';
 
-  var PUPPET_ATTRIBUTES =
+  var PUPPET_KEYWORDS = {
+    keyword:
+    /* language keywords */
+      'and case default else elsif false if in import enherits node or true undef unless main settings $string ',
+    literal:
     /* metaparameters */
       'alias audit before loglevel noop require subscribe tag ' +
     /* normal attributes */
@@ -29,17 +28,8 @@ function(hljs) {
       'password_min_age profile_membership profiles project purge_ssh_keys role_membership roles salt shell uid baseurl cost descr enabled ' +
       'enablegroups exclude failovermethod gpgcheck gpgkey http_caching include includepkgs keepalive metadata_expire metalink mirrorlist ' +
       'priority protect proxy proxy_password proxy_username repo_gpgcheck s3_enabled skip_if_unavailable sslcacert sslclientcert sslclientkey ' +
-      'sslverify mounted';
-
-  var PUPPET_KEYWORDS =
-  {
-  keyword:
-    /* language keywords */
-      'and case class default define else elsif false if in import enherits node or true undef unless main settings $string ' + PUPPET_TYPE_REFERENCE,
-  literal:
-      PUPPET_ATTRIBUTES,
-
-  built_in:
+      'sslverify mounted',
+    built_in:
     /* core facts */
       'architecture augeasversion blockdevices boardmanufacturer boardproductname boardserialnumber cfkey dhcp_servers ' +
       'domain ec2_ ec2_userdata facterversion filesystems ldom fqdn gid hardwareisa hardwaremodel hostname id|0 interfaces '+
@@ -53,63 +43,71 @@ function(hljs) {
       'uptime_days uptime_hours uptime_seconds uuid virtual vlans xendomains zfs_version zonenae zones zpool_version'
   };
 
-  var COMMENT = {
-    className: 'comment',
-    begin: '#', end: '$'
-  };
+  var COMMENT = hljs.COMMENT('#', '$');
+
+  var IDENT_RE = '([A-Za-z_]|::)(\\w|::)*';
+
+  var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE});
+
+  var VARIABLE = {className: 'variable', begin: '\\$' + IDENT_RE};
 
   var STRING = {
     className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE],
+    contains: [hljs.BACKSLASH_ESCAPE, VARIABLE],
     variants: [
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/}
     ]
   };
 
-  var PUPPET_DEFAULT_CONTAINS = [
-    STRING,
-    COMMENT,
-    {
-      className: 'keyword',
-      beginKeywords: 'class', end: '$|;',
-      illegal: /=/,
-      contains: [
-        hljs.inherit(hljs.TITLE_MODE, {begin: '(::)?[A-Za-z_]\\w*(::\\w+)*'}),
-        COMMENT,
-        STRING
-      ]
-    },
-    {
-      className: 'keyword',
-      begin: '([a-zA-Z_(::)]+ *\\{)',
-      contains:[STRING, COMMENT],
-      relevance: 0
-    },
-    {
-      className: 'keyword',
-      begin: '(\\}|\\{)',
-      relevance: 0
-    },
-    {
-      className: 'function',
-      begin:'[a-zA-Z_]+\\s*=>'
-    },
-    {
-      className: 'constant',
-      begin: '(::)?(\\b[A-Z][a-z_]*(::)?)+',
-      relevance: 0
-    },
-    {
-      className: 'number',
-      begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
-      relevance: 0
-    }
-  ];
-
   return {
     aliases: ['pp'],
-    keywords: PUPPET_KEYWORDS,
-    contains: PUPPET_DEFAULT_CONTAINS
+    contains: [
+      COMMENT,
+      VARIABLE,
+      STRING,
+      {
+        beginKeywords: 'class', end: '\\{|;',
+        illegal: /=/,
+        contains: [TITLE, COMMENT]
+      },
+      {
+        beginKeywords: 'define', end: /\{/,
+        contains: [
+          {
+            className: 'title', begin: hljs.IDENT_RE, endsParent: true
+          }
+        ]
+      },
+      {
+        begin: hljs.IDENT_RE + '\\s+\\{', returnBegin: true,
+        end: /\S/,
+        contains: [
+          {
+            className: 'name',
+            begin: hljs.IDENT_RE
+          },
+          {
+            begin: /\{/, end: /\}/,
+            keywords: PUPPET_KEYWORDS,
+            relevance: 0,
+            contains: [
+              STRING,
+              COMMENT,
+              {
+                begin:'[a-zA-Z_]+\\s*=>'
+              },
+              {
+                className: 'number',
+                begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
+                relevance: 0
+              },
+              VARIABLE
+            ]
+          }
+        ],
+        relevance: 0
+      }
+    ]
   }
 }

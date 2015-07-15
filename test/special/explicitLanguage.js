@@ -1,43 +1,37 @@
 'use strict';
 
-var fs      = require('fs');
 var utility = require('../utility');
 
-var blocks, expected;
-
 describe('explicit language class', function() {
-  before(function() {
+  before(function(done) {
     var filename = utility.buildPath('expect', 'explicit.txt'),
-        testHTML = document.querySelector('#explicit-language');
+        testHTML = document.querySelectorAll('#explicit-language .hljs');
 
-    expected = fs.readFileSync(filename, 'utf-8');
-    blocks   = testHTML.querySelectorAll('.hljs');
+    utility.setupFile(filename, 'utf-8', this, testHTML, done);
   });
 
   it('should highlight block with language in code tag', function() {
-    var actual = blocks[0].innerHTML;
+    var actual = this.blocks[0];
 
-    actual.should.equal(expected);
+    actual.should.equal(this.expected);
   });
 
   it('should highlight block with language in pre tag', function() {
-    var actual = blocks[1].innerHTML;
+    var actual = this.blocks[1];
 
-    actual.should.equal(expected);
+    actual.should.equal(this.expected);
   });
 
   it('should highlight using html 5 style (language-*)', function() {
-    var actual = blocks[2].innerHTML;
+    var actual = this.blocks[2];
 
-    actual.should.equal(expected);
+    actual.should.equal(this.expected);
   });
 
-  it('should highlight with shortened prefix (lang-)', function() {
+  it('should highlight with shortened prefix (lang-)', function(done) {
     var filename = utility.buildPath('expect', 'shortenedexplicit.txt'),
+        actual   = this.blocks[3];
 
-        expected = fs.readFileSync(filename, 'utf-8'),
-        actual   = blocks[3].innerHTML;
-
-    actual.should.equal(expected);
+    utility.expectedFile(filename, 'utf-8', actual, done);
   });
 });
