@@ -29,15 +29,13 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-decorator,
 .hljs-preprocessor,
 .hljs-doctype,
-.hljs-pi,
 .hljs-shebang,
 .hljs-meta,
 .hljs-prompt {
   color: #808000;
 }
 
-.hljs-tag,
-.hljs-pi {
+.hljs-tag {
   background: #efefef;
 }
 
