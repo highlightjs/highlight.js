@@ -53,7 +53,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-type,
 .hljs-class .hljs-title,
-.vhdl .hljs-literal,
 .tex .hljs-command {
   color: #458;
   font-weight: bold;

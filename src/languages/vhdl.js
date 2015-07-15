@@ -31,7 +31,7 @@ function(hljs) {
         'release rem report restrict restrict_guarantee return rol ror select sequence ' +
         'severity shared signal sla sll sra srl strong subtype then to transport type ' +
         'unaffected units until use variable vmode vprop vunit wait when while with xnor xor',
-      typename:
+      built_in:
         'boolean bit character severity_level integer time delay_length natural positive ' +
         'string bit_vector file_open_kind file_open_status std_ulogic std_ulogic_vector ' +
         'std_logic std_logic_vector unsigned signed boolean_vector integer_vector ' +
@@ -53,7 +53,7 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
-        className: 'attribute',
+        className: 'symbol',
         begin: '\'[A-Za-z](_?[A-Za-z0-9])*',
         contains: [hljs.BACKSLASH_ESCAPE]
       }

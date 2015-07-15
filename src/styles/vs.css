@@ -33,7 +33,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-title,
 .hljs-section,
 .hljs-tag .hljs-value,
-.hljs-symbol,
 .hljs-attribute,
 .hljs-literal,
 .hljs-template_tag,
@@ -66,7 +65,5 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
   color: #f00;
 }
 
-.vhdl .hljs-string { color: #666666; }
-
-.vhdl .hljs-attribute { color: #00b0e8; }
+.hljs-symbol { color: #00b0e8; }
 
