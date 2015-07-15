@@ -22,7 +22,7 @@ function(hljs) {
       hljs.NUMBER_MODE,
       hljs.HASH_COMMENT_MODE,
       {
-        className: 'shebang',
+        className: 'meta',
         begin: /@0x[\w\d]{16};/,
         illegal: /\n/
       },
