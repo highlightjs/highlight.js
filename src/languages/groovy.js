@@ -25,10 +25,16 @@ function(hljs) {
                 '\\*/',
                 {
                     relevance : 0,
-                    contains : [{
-                        className : 'doctag',
-                        begin : '@[A-Za-z]+'
-                    }]
+                    contains : [
+                      {
+                          // eat up @'s in emails to prevent them to be recognized as doctags
+                          begin: /\w+@/, relevance: 0
+                      },
+                      {
+                          className : 'doctag',
+                          begin : '@[A-Za-z]+'
+                      }
+                    ]
                 }
             ),
             hljs.C_LINE_COMMENT_MODE,
