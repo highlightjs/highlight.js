@@ -13,16 +13,12 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.diff .hljs-header {
+.hljs-comment {
   color: #777;
   font-style: italic;
 }
 
 .hljs-keyword,
-.css .rule .hljs-keyword,
-.hljs-winutils,
-.nginx .hljs-title,
 .hljs-subst,
 .hljs-request,
 .hljs-status {
@@ -31,13 +27,11 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 }
 
 .hljs-number,
-.hljs-hexcolor,
-.ruby .hljs-constant {
+.hljs-literal {
   color: #777;
 }
 
 .hljs-string,
-.hljs-tag .hljs-value,
 .hljs-doctag,
 .tex .hljs-formula {
   color: #333;
@@ -45,8 +39,8 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 }
 
 .hljs-title,
-.hljs-id,
-.scss .hljs-preprocessor {
+.hljs-section,
+.hljs-id {
   color: #000;
   font-weight: bold;
 }
@@ -58,24 +52,15 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 
 .hljs-class .hljs-title,
 .hljs-type,
-.vhdl .hljs-literal,
+.hljs-name,
 .tex .hljs-command {
   color: #333;
   font-weight: bold;
 }
 
 .hljs-tag,
-.hljs-tag .hljs-title,
-.hljs-rule .hljs-property,
 .django .hljs-tag .hljs-keyword {
   color: #333;
-}
-
-.hljs-attribute,
-.hljs-variable,
-.lisp .hljs-body,
-.hljs-name {
-  color: #000;
 }
 
 .hljs-regexp {
@@ -99,12 +84,7 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
   text-decoration: underline;
 }
 
-.hljs-preprocessor,
-.hljs-pragma,
-.hljs-pi,
-.hljs-doctype,
-.hljs-shebang,
-.hljs-cdata {
+.hljs-meta {
   color: #999;
   font-weight: bold;
 }
@@ -117,12 +97,4 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 .hljs-addition {
   color: #000;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAALUlEQVQYV2N89+7dfwYk8P79ewZBQUFkIQZGOiu6e/cuiptQHAPl0NtNxAQBAM97Oejj3Dg7AAAAAElFTkSuQmCC) repeat;
-}
-
-.diff .hljs-change {
-  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAHUlEQVQIW2NkgILdu3f/ZwSxQQxXV1dGRhgDJAgAzGcLNGkoJrsAAAAASUVORK5CYII=) repeat;
-}
-
-.hljs-chunk {
-  color: #aaa;
 }
