@@ -47,7 +47,6 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-literal,
 .smalltalk .hljs-char,
 .lasso .hljs-variable,
-.makefile .hljs-variable,
 .asciidoc .hljs-bullet,
 .markdown .hljs-bullet,
 .asciidoc .hljs-link_url,
@@ -74,8 +73,7 @@ Ported by Fabrício Tavares de Oliveira
 .vhdl .hljs-attribute,
 .clojure .hljs-attribute,
 .asciidoc .hljs-attribute,
-.lasso .hljs-attribute,
-.hljs-phony {
+.lasso .hljs-attribute {
   color: #88f;
 }
 

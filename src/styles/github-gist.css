@@ -19,7 +19,6 @@
 
 .hljs-string,
 .hljs-variable,
-.makefile .hljs-variable,
 .markdown .hljs-value,
 .markdown .hljs-link_label,
 .markdown .hljs-strong,
@@ -43,7 +42,6 @@
 .http .hljs-literal,
 .http .hljs-attribute,
 .json .hljs-number,
-.makefile .hljs-keyword,
 .markdown .hljs-link_reference,
 .objectivec .hljs-literal,
 .objectivec .hljs-number,

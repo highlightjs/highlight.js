@@ -53,7 +53,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-addition,
 .smalltalk .hljs-char,
 .lasso .hljs-variable,
-.makefile .hljs-variable,
 .asciidoc .hljs-bullet,
 .markdown .hljs-bullet,
 .asciidoc .hljs-link_url,
@@ -74,8 +73,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .tex .hljs-formula,
 .hljs-prompt,
 .asciidoc .hljs-link_label,
-.markdown .hljs-link_label,
-.hljs-phony {
+.markdown .hljs-link_label {
   color: #88f;
 }
 

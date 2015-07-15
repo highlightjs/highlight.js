@@ -60,7 +60,6 @@
 .hljs-shebang,
 .hljs-variable,
 .hljs-link_url,
-.hljs-bullet,
-.hljs-phony {
+.hljs-bullet {
   color: #4c81c9;
 }
