@@ -64,14 +64,14 @@ function(hljs) {
       // Top-level constructions.
 
       {
-        begin: '\\bmodule\\b', end: 'where',
+        beginKeywords: 'module', end: 'where',
         keywords: 'module where',
         contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
       {
         begin: '\\bimport\\b', end: '$',
-        keywords: 'import|0 qualified as hiding',
+        keywords: 'import qualified as hiding',
         contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
