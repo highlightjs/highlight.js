@@ -11,7 +11,6 @@ function(hljs) {
     illegal: /[<>]/,
     contains: [
       {
-        className: 'operator',
         beginKeywords:
           'begin end start commit rollback savepoint lock alter create drop rename call ' +
           'delete do handler insert load replace select truncate update set show pragma grant ' +
