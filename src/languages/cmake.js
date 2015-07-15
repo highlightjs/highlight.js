@@ -28,13 +28,12 @@ function(hljs) {
         'while build_name exec_program export_library_dependencies install_files ' +
         'install_programs install_targets link_libraries make_directory remove subdir_depends ' +
         'subdirs use_mangled_mesa utility_source variable_requires write_file ' +
-        'qt5_use_modules qt5_use_package qt5_wrap_cpp on off true false and or',
-      operator:
+        'qt5_use_modules qt5_use_package qt5_wrap_cpp on off true false and or ' +
         'equal less greater strless strgreater strequal matches'
     },
     contains: [
       {
-        className: 'envvar',
+        className: 'variable',
         begin: '\\${', end: '}'
       },
       hljs.HASH_COMMENT_MODE,
