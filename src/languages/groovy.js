@@ -88,6 +88,7 @@ function(hljs) {
                 className: 'label', begin: '^\\s*[A-Za-z0-9_$]+:',
                 relevance: 0
             },
-        ]
+        ],
+        illegal: /#/
     }
 }
