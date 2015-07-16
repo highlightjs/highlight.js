@@ -55,7 +55,7 @@ function(hljs) {
       'printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp ' +
       'strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan ' +
       'vfprintf vprintf vsprintf',
-    literal: 'true false nullptr'
+    literal: 'true false nullptr NULL'
   };
   return {
     aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp'],
