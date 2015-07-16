@@ -1,28 +1,31 @@
 /*
-Language: Perl (Mojolicious)
-Requires: perl.js, xml.js, mojo-ep.js
+Language: Mojolicious
+Requires: xml.js, perl.js
 Author: Dotan Dimet <dotan@corky.net>
-Description: Perl code with Mojolicious .ep templates embedded in __DATA__ section
-Category: common
+Description: Mojolicious .ep (Embedded Perl) templates
+Category: template
 */
-
 function(hljs) {
   return {
-  subLanguage: 'perl',
-  contains: [
+    subLanguage: 'xml',
+    contains: [
       {
-        begin: "^__DATA__$",
-        end: "^__END__$",
-        endsWithParent: true,
-        subLanguage: 'mojo-ep',
-        contains: [
-          {
-              begin: "^@@.*",
-              end: "$",
-              className: "comment"
-          }
-        ]
+        className: 'preprocessor',
+        begin: '^__(END|DATA)__$'
+      },
+    // mojolicious line
+      {
+        begin: "^\\s*%{1,2}={0,2}", end: '$',
+        subLanguage: 'perl'
+      },
+    // mojolicious block
+      {
+        begin: "<%{1,2}={0,2}",
+        end: "={0,1}%>",
+        subLanguage: 'perl',
+        excludeBegin: true,
+        excludeEnd: true
       }
-   ]
+    ]
   };
 }
