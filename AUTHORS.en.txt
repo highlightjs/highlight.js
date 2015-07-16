@@ -178,3 +178,4 @@ Contributors:
 - MY Sun <simonmysun@gmail.com>
 - Vadimtro <vadimtro@yahoo.com>
 - Benjamin Auder <benjamin.auder@gmail.com>
+- Dotan Dimet <dotan@corky.net>
