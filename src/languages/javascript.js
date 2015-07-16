@@ -111,6 +111,7 @@ function(hljs) {
           hljs.UNDERSCORE_TITLE_MODE
         ]
       }
-    ]
+    ],
+    illegal: /#/
   };
 }

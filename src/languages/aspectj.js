@@ -16,7 +16,7 @@ function (hljs) {
   var SHORTKEYS = 'get set args call';
   return {
     keywords : KEYWORDS,
-    illegal : /<\//,
+    illegal : /<\/|#/,
     contains : [
       hljs.COMMENT(
         '/\\*\\*',

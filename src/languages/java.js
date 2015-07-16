@@ -36,7 +36,7 @@ function(hljs) {
   return {
     aliases: ['jsp'],
     keywords: KEYWORDS,
-    illegal: /<\//,
+    illegal: /<\/|#/,
     contains: [
       hljs.COMMENT(
         '/\\*\\*',

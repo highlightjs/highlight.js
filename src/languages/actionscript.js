@@ -71,6 +71,7 @@ function(hljs) {
           }
         ]
       }
-    ]
+    ],
+    illegal: /#/
   };
 }
