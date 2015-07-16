@@ -3,7 +3,6 @@ Language: Perl (Mojolicious)
 Requires: perl.js, xml.js, mojo-ep.js
 Author: Dotan Dimet <dotan@corky.net>
 Description: Perl code with Mojolicious .ep templates embedded in __DATA__ section
-Category: common
 */
 
 function(hljs) {
