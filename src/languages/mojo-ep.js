@@ -8,7 +8,6 @@ Category: template
 function(hljs) {
   return {
     subLanguage: 'xml',
-    subLanguageMode: 'continuous',
     contains: [
     // mojolicious line
       {
