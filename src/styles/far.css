@@ -71,8 +71,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-name,
 .rsl .hljs-built_in,
 .tex .hljs-command,
-.tex .hljs-special,
-.hljs-request,
-.hljs-status {
+.tex .hljs-special {
   font-weight: bold;
 }

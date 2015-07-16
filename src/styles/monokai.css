@@ -81,9 +81,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-section,
 .hljs-type,
 .rsl .hljs-built_in,
-.tex .hljs-special,
-.hljs-request,
-.hljs-status {
+.tex .hljs-special {
   font-weight: bold;
 }
 

@@ -90,9 +90,7 @@
 .hljs-type,
 .hljs-name,
 .rsl .hljs-built_in,
-.tex .hljs-special,
-.hljs-request,
-.hljs-status {
+.tex .hljs-special {
   font-weight: bold;
 }
 

@@ -36,8 +36,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-section,
 .hljs-name,
 .hljs-type,
-.tex .hljs-command,
-.hljs-request,
-.hljs-status {
+.tex .hljs-command {
   font-weight: bold;
 }

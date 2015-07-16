@@ -19,9 +19,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-keyword,
-.hljs-subst,
-.hljs-request,
-.hljs-status {
+.hljs-subst {
   color: #333;
   font-weight: bold;
 }

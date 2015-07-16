@@ -24,8 +24,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .method,
 .setting .hljs-value,
 .tex .hljs-command,
-.hljs-request,
-.hljs-status,
 .hljs-name {
   color: #008;
 }

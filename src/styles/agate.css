@@ -27,8 +27,7 @@
 
 .hljs-label,
 .hljs-name,
-.hljs-prompt,
-.http .hljs-request {
+.hljs-prompt {
   font-weight: bold;
 }
 

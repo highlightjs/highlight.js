@@ -87,9 +87,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-name,
 .tex .hljs-command,
 .asciidoc .hljs-strong,
-.markdown .hljs-strong,
-.hljs-request,
-.hljs-status {
+.markdown .hljs-strong {
   color: #3182bd;
 }
 

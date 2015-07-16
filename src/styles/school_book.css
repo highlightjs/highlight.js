@@ -66,9 +66,7 @@ pre{
 .hljs-type,
 .hljs-name,
 .rsl .hljs-built_in,
-.tex .hljs-command,
-.hljs-request,
-.hljs-status {
+.tex .hljs-command {
   font-weight: bold;
 }
 

@@ -23,8 +23,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-built_in,
 .hljs-name,
 .tex .hljs-command,
-.hljs-request,
-.hljs-status,
 .hljs-tag {
   color: #00f;
 }

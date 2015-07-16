@@ -19,9 +19,7 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 }
 
 .hljs-keyword,
-.hljs-subst,
-.hljs-request,
-.hljs-status {
+.hljs-subst {
   color: #333;
   font-weight: bold;
 }

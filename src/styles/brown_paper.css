@@ -14,9 +14,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 
 .hljs-keyword,
 .hljs-literal,
-.tex .hljs-special,
-.hljs-request,
-.hljs-status {
+.tex .hljs-special {
   color:#005599;
   font-weight:bold;
 }

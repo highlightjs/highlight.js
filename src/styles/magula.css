@@ -69,9 +69,7 @@ Music: Aphex Twin / Xtal
 .hljs-built_in,
 .hljs-tag,
 .hljs-name,
-.tex .hljs-command,
-.hljs-request,
-.hljs-status {
+.tex .hljs-command {
   font-weight: bold;
   color: navy;
 }

@@ -19,9 +19,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-keyword,
-.hljs-type,
-.hljs-request,
-.hljs-status {
+.hljs-type {
   color: #e28964;
 }
 
