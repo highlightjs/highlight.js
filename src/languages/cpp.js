@@ -110,7 +110,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + hljs.IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
+        begin: '(' + hljs.IDENT_RE + '[\\*&\\s]*\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
         excludeEnd: true,
         keywords: CPP_KEYWORDS,
         contains: [
