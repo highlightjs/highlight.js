@@ -26,7 +26,6 @@ function(hljs) {
     ]
   };
 
-
   var NUMBERS = {
     className: 'number',
     variants: [
@@ -34,6 +33,8 @@ function(hljs) {
       { begin: hljs.C_NUMBER_RE }
     ]
   };
+
+  var FUNCTION_TITLE = hljs.IDENT_RE + '\\s*\\(';
 
   var CPP_KEYWORDS = {
     keyword: 'int float while private char catch export virtual operator sizeof ' +
@@ -110,12 +111,13 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + hljs.IDENT_RE + '[\\*&\\s]*\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
+        begin: '(' + hljs.IDENT_RE + '[\\*&\\s]*\\s+)+' + FUNCTION_TITLE,
+        returnBegin: true, end: /[{;=]/,
         excludeEnd: true,
         keywords: CPP_KEYWORDS,
         contains: [
           {
-            begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
+            begin: FUNCTION_TITLE, returnBegin: true,
             contains: [hljs.TITLE_MODE],
             relevance: 0
           },
