@@ -22,6 +22,10 @@ Notable fixes and improvements to existing languages:
 - Fix incorrect document
 - Oracle keywords added to SQL language definition by [Vadimtro][]
 - Postgres keywords added to SQL language definition by [Benjamin Auder][]
+- Fix registers in x86asm being highlighted as a hex number
+- Fix highlighting for numbers with a leading decimal point
+- Correctly highlight numbers and strings inside of C/C++ macros
+- C/C++ functions now support pointer, reference, and move returns
 
 [Oleg Efimov]: https://github.com/Sannis
 [Guillaume Gomez]: https://github.com/GuillaumeGomez
