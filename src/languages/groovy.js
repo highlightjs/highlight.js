@@ -8,9 +8,9 @@
 function(hljs) {
     return {
         keywords: {
-            typename: 'byte short char int long boolean float double void',
             literal : 'true false null',
             keyword:
+            'byte short char int long boolean float double void ' +
             // groovy specific keywords
             'def as in assert trait ' +
             // common keywords with Java
@@ -62,7 +62,7 @@ function(hljs) {
             },
             hljs.QUOTE_STRING_MODE,
             {
-                className: 'shebang',
+                className: 'meta',
                 begin: "^#!/usr/bin/env", end: '$',
                 illegal: '\n'
             },
@@ -78,7 +78,7 @@ function(hljs) {
             },
             hljs.C_NUMBER_MODE,
             {
-                className: 'annotation', begin: '@[A-Za-z]+'
+                className: 'meta', begin: '@[A-Za-z]+'
             },
             {
                 // highlight map keys and named parameters as strings
@@ -91,7 +91,7 @@ function(hljs) {
             },
             {
                 // highlight labeled statements
-                className: 'label', begin: '^\\s*[A-Za-z0-9_$]+:',
+                className: 'symbol', begin: '^\\s*[A-Za-z0-9_$]+:',
                 relevance: 0
             },
         ],
