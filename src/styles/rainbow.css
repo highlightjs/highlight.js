@@ -52,6 +52,7 @@ Style with support for rainbow parens
 }
 
 .hljs-variable,
+.hljs-identifier,
 .smalltalk .hljs-number,
 .hljs-class .hljs-title {
    color: #ffcc66;

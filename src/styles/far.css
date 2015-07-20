@@ -35,6 +35,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-name,
 .rsl .hljs-built_in,
 .hljs-variable,
+.hljs-identifier,
 .tex .hljs-special {
   color: #fff;
 }

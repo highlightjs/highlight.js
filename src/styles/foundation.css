@@ -63,7 +63,8 @@ Date: 2013-04-02
   color: teal;
 }
 
-.hljs-variable {
+.hljs-variable,
+.hljs-identifier {
   color: #336699;
 }
 

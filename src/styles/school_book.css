@@ -45,6 +45,7 @@ pre{
 .smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
+.hljs-identifier,
 .tex .hljs-command {
   color: #2c009f;
 }

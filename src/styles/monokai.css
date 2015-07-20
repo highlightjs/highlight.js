@@ -55,6 +55,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
+.hljs-identifier,
 .tex .hljs-command,
 .hljs-prompt {
   color: #a6e22e;

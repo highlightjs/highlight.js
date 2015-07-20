@@ -49,6 +49,7 @@ based on dark.css by Ivan Sagalaev
 .hljs-name,
 .hljs-section,
 .hljs-type,
+.hljs-identifier,
 .tex .hljs-command,
 .hljs-prompt {
   color: #efef8f;

@@ -13,7 +13,7 @@
 
 /* Red */
 .hljs-variable,
-.hljs-attribute,
+.hljs-identifier,
 .hljs-tag,
 .hljs-name,
 .hljs-regexp,
@@ -32,6 +32,7 @@
 }
 
 /* Yellow */
+.hljs-attribute,
 .hljs-class .hljs-title {
   color: #fdcc59;
 }

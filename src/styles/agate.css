@@ -39,7 +39,8 @@
   color: #62c8f3;
 }
 
-.hljs-variable {
+.hljs-variable,
+.hljs-identifier {
   color: #ade5fc;
 }
 

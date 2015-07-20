@@ -52,7 +52,8 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-name,
 .hljs-value,
 .alias .hljs-keyword:first-child,
-.hljs-variable {
+.hljs-variable,
+.hljs-identifier {
   color: #cb7832;
 }
 

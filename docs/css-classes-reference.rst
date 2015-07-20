@@ -28,6 +28,10 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | function                 | Function or method declaration                    |
 +--------------------------+---------------------------------------------------+
+| identifier               | Syntactically significant user-defined name.      |
+|                          | CSS .class and #id, Prolog variables. But not     |
+|                          | regular variables in an Algol-style language.     |
++--------------------------+---------------------------------------------------+
 | keyword                  | Keyword in a regular Algol-style language.        |
 +--------------------------+---------------------------------------------------+
 | literal                  | Special identifier for a built-in value ("true",  |
