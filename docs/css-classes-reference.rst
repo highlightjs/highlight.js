@@ -1473,3 +1473,16 @@ ARM assembler ("armasm", "arm")
 * ``label``:            label
 * ``preprocessor``:     preprocessor directive
 * ``title``:            symbol versions
+
+AutoIt ("autoit")
+-------------------------
+
+* ``keyword``:          keyword
+* ``literal``:          True, False, And, Null, Not, Or
+* ``built_in``:         built-in functions and UDF
+* ``constant``:     	constant, macros
+* ``variable``:         variables
+* ``string``:           string
+* ``comment``:          comment
+* ``number``:           number
+* ``preprocessor``:     AutoIt3Wrapper directives section

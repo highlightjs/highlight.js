@@ -6,6 +6,7 @@ New languages:
 - *Elm* by [Janis Voigtländer][]
 - *XQuery* by [Dirk Kirsten][]
 - *Mojolicious* by [Dotan Dimet][]
+- *AutoIt* by Manh Tuan from [J2TeaM][]
 
 New Styles:
 
@@ -36,6 +37,7 @@ Notable fixes and improvements to existing languages:
 [Vadimtro]: https://github.com/Vadimtro
 [Benjamin Auder]: https://github.com/ghost
 [Dotan Dimet]: https://github.com/dotandimet
+[J2TeaM]: https://github.com/J2TeaM
 
 ## Version 8.6
 
