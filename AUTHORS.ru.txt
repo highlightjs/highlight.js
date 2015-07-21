@@ -179,3 +179,4 @@ URL:   https://highlightjs.org/
 - Vadimtro <vadimtro@yahoo.com>
 - Бенджамин Одер <benjamin.auder@gmail.com>
 - Дотан Димет <dotan@corky.net>
+- Ман Туан <junookyo@gmail.com>
