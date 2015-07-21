@@ -49,7 +49,7 @@ function(hljs) {
   };
 
   var SHEBANG = {
-    className: 'shebang',
+    className: 'meta',
     begin: '^#!',
     end: '$'
   };
@@ -95,7 +95,7 @@ function(hljs) {
   };
 
   var QUOTED_IDENT = {
-    className: 'variable',
+    className: 'symbol',
     begin: '\'' + SCHEME_IDENT_RE
   };
 
@@ -105,14 +105,13 @@ function(hljs) {
   };
 
   var LIST = {
-    className: 'list',
     variants: [
       { begin: '\\(', end: '\\)' },
       { begin: '\\[', end: '\\]' }
     ],
     contains: [
       {
-        className: 'keyword',
+        className: 'name',
         begin: SCHEME_IDENT_RE,
         lexemes: SCHEME_IDENT_RE,
         keywords: BUILTINS
