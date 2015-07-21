@@ -23,8 +23,7 @@ Author: Pedro Oliveira <kanytu@gmail . com>
   color: #cc7832;
 }
 
-.hljs-variable,
-.hljs-identifier {
+.hljs-variable {
   color: #629755;
 }
 

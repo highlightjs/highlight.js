@@ -37,7 +37,7 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       RULE,
       {
-        className: 'identifier', begin: /[#.][A-Za-z0-9_-]+/
+        className: 'name', begin: /[#.][A-Za-z0-9_-]+/
       },
       {
         // attribute selector

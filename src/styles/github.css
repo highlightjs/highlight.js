@@ -27,7 +27,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-number,
 .hljs-literal,
 .hljs-variable,
-.hljs-identifier,
 .hljs-tag .hljs-attr {
   color: #008080;
 }

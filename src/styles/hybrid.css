@@ -35,7 +35,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 /*color: fg_yellow*/
 .hljs-title,
 .hljs-name,
-.hljs-identifier,
 .hljs-header {
   color: #f0c674;
 }
@@ -69,6 +68,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 }
 
 /*color: fg_purple*/
+.hljs-variable,
 .hljs-attribute,
 .hljs-code,
 .hljs-expression,

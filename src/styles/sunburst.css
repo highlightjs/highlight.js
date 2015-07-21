@@ -59,7 +59,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-params,
 .hljs-variable,
-.hljs-identifier,
 .clojure .hljs-attribute {
   color: #3e87e3;
 }

@@ -25,6 +25,11 @@
   color: #96cbfe;
 }
 
+.hljs-attribute,
+.method {
+  color: #ffffb6;
+}
+
 .hljs-string,
 .hljs-filter .hljs-argument,
 .hljs-date,
@@ -42,7 +47,6 @@
 
 .hljs-title,
 .hljs-section,
-.hljs-attribute,
 .tex .hljs-special,
 .hljs-type,
 .hljs-doctag {
@@ -51,7 +55,6 @@
 
 .hljs-symbol,
 .hljs-variable,
-.hljs-identifier,
 .hljs-literal {
   color: #c6c5fe;
 }
