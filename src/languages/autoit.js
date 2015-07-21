@@ -1606,17 +1606,11 @@ function(hljs) {
         'Word_DocTableWrite Word_Quit',
 
         COMMENT = {
-            className: 'comment',
-            variants: [{
-                begin: ';',
-                end: '$'
-            }, {
-                begin: '#cs',
-                end: '#ce'
-            }, {
-                begin: '#comments-start',
-                end: '#comments-end'
-            }]
+            variants: [
+              hljs.COMMENT(';', '$'),
+              hljs.COMMENT('#cs', '#ce'),
+              hljs.COMMENT('#comments-start', '#comments-end')
+            ]
         },
 
         VARIABLE = {
