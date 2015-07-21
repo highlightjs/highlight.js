@@ -69,7 +69,7 @@ function(hljs) {
         PROCEDURE
     ]
   };
-    
+
   return {
     case_insensitive: true,
     keywords: { keyword: KEYWORDS, literal: LITERALS },
