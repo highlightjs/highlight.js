@@ -32,7 +32,7 @@ function(hljs) {
         ]
       },
       {
-        className: 'preprocessor',
+        className: 'meta',
         begin: '#', end: '$',
         keywords: 'if else elseif end error'
       },
