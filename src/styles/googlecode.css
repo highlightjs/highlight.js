@@ -35,13 +35,11 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 
 .hljs-string,
 .hljs-filter .hljs-argument,
-.hljs-date,
 .hljs-regexp {
   color: #080;
 }
 
 .hljs-shebang,
-.hljs-prompt,
 .hljs-literal,
 .hljs-symbol,
 .hljs-meta,

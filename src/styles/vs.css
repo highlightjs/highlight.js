@@ -36,7 +36,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-template_tag,
 .django .hljs-variable,
 .hljs-addition,
-.hljs-date,
 .tex .hljs-formula {
   color: #a31515;
 }
@@ -49,7 +48,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-shebang,
 .hljs-preprocessor,
 .tex .hljs-special,
-.hljs-prompt,
 .hljs-meta {
   color: #2b91af;
 }

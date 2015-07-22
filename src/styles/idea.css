@@ -29,8 +29,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-preprocessor,
 .hljs-doctype,
 .hljs-shebang,
-.hljs-meta,
-.hljs-prompt {
+.hljs-meta {
   color: #808000;
 }
 
@@ -52,7 +51,6 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-attribute,
 .hljs-number,
-.hljs-date,
 .hljs-regexp,
 .tex .hljs-special {
   font-weight: bold;

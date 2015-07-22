@@ -72,8 +72,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .lisp .hljs-keyword,
 .clojure .hljs-keyword,
 .scheme .hljs-keyword,
-.tex .hljs-special,
-.hljs-prompt {
+.tex .hljs-special {
   color: #990073;
 }
 

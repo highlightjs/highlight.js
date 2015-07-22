@@ -14,10 +14,6 @@ Style with support for rainbow parens
 }
 
 
-.hljs-collection {
-   color: #d1d9e1;
-}
-
 .hljs-comment,
 .hljs-doctype,
 .lisp .hljs-string {

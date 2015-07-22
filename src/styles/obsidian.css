@@ -60,8 +60,7 @@
 .smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
-.tex .hljs-command,
-.hljs-prompt {
+.tex .hljs-command {
   color: #8cbbad;
 }
 

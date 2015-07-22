@@ -26,8 +26,7 @@ based on dark.css by Ivan Sagalaev
   color: #dcdcdc;
 }
 
-.hljs-number,
-.hljs-date {
+.hljs-number {
   color: #8cd0d3;
 }
 
@@ -49,8 +48,7 @@ based on dark.css by Ivan Sagalaev
 .hljs-name,
 .hljs-section,
 .hljs-type,
-.tex .hljs-command,
-.hljs-prompt {
+.tex .hljs-command {
   color: #efef8f;
 }
 
