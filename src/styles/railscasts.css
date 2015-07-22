@@ -66,8 +66,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 
 
-.hljs-params,
-.clojure .hljs-attribute {
+.hljs-params {
   color: #d0d0ff;
 }
 

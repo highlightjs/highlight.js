@@ -20,8 +20,7 @@
 .hljs-keyword,
 .hljs-tag,
 .tex .hljs-command,
-.hljs-name,
-.clojure .hljs-attribute {
+.hljs-name {
   color: #96cbfe;
 }
 

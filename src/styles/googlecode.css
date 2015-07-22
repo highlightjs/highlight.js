@@ -43,8 +43,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 .hljs-literal,
 .hljs-symbol,
 .hljs-meta,
-.hljs-number,
-.clojure .hljs-attribute {
+.hljs-number {
   color: #066;
 }
 

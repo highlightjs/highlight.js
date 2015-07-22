@@ -58,8 +58,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-doctype,
 .hljs-built_in,
 .setting,
-.hljs-params,
-.clojure .hljs-attribute {
+.hljs-params {
   color: #5c2699;
 }
 

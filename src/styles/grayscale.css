@@ -67,9 +67,6 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 }
 
 .hljs-symbol,
-.lisp .hljs-keyword,
-.clojure .hljs-keyword,
-.scheme .hljs-keyword,
 .tex .hljs-special {
   color: #000;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAO7d+/+z4gsBhJwdXVlhAvCBECKwIIwAbhKZBUwBQA6hBpm5efZsgAAAABJRU5ErkJggg==) repeat;

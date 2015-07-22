@@ -15,8 +15,7 @@ Style with support for rainbow parens
 
 
 .hljs-comment,
-.hljs-doctype,
-.lisp .hljs-string {
+.hljs-doctype {
   color: #969896;
   font-style: italic;
 }
@@ -24,7 +23,6 @@ Style with support for rainbow parens
 .hljs-keyword,
 .hljs-literal,
 .hljs-type,
-.clojure .hljs-attribute,
 .hljs-addition {
   color: #cc99cc;
 }

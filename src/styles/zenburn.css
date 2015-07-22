@@ -15,8 +15,7 @@ based on dark.css by Ivan Sagalaev
 }
 
 .hljs-keyword,
-.hljs-tag,
-.clojure .hljs-attribute {
+.hljs-tag {
   color: #e3ceab;
 }
 

@@ -69,9 +69,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-symbol,
-.lisp .hljs-keyword,
-.clojure .hljs-keyword,
-.scheme .hljs-keyword,
 .tex .hljs-special {
   color: #990073;
 }

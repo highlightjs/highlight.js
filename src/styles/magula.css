@@ -54,8 +54,7 @@ Music: Aphex Twin / Xtal
 .hljs-deletion,
 .hljs-shebang,
 .hljs-meta,
-.tex .hljs-formula,
-.clojure .hljs-attribute {
+.tex .hljs-formula {
   color: #00e;
 }
 

@@ -66,7 +66,6 @@ Ported by Fabrício Tavares de Oliveira
 .tex .hljs-formula,
 .asciidoc .hljs-link_label,
 .markdown .hljs-link_label,
-.clojure .hljs-attribute,
 .asciidoc .hljs-attribute,
 .lasso .hljs-attribute {
   color: #88f;

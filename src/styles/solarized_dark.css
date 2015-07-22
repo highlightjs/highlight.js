@@ -13,8 +13,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.lisp .hljs-string {
+.hljs-comment {
   color: #586e75;
 }
 

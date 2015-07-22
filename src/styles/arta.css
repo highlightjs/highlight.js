@@ -34,8 +34,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-string,
 .hljs-symbol,
 .hljs-regexp,
-.smalltalk .hljs-char,
-.clojure .hljs-attribute {
+.smalltalk .hljs-char {
   color: #ffcc33;
 }
 
@@ -66,7 +65,6 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-template_tag,
 .objectivec .hljs-class .hljs-id,
 .smalltalk .hljs-class,
-.lisp .hljs-keyword,
 .rsl .hljs-built_in,
 .tail,
 .tex .hljs-formula,
