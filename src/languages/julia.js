@@ -80,12 +80,12 @@ function(hljs) {
   var DEFAULT = { lexemes: VARIABLE_NAME_RE, keywords: KEYWORDS };
 
   var TYPE_ANNOTATION = {
-    className: "type-annotation",
+    className: "type",
     begin: /::/
   };
 
   var SUBTYPE = {
-    className: "subtype",
+    className: "type",
     begin: /<:/
   };
 
@@ -104,7 +104,7 @@ function(hljs) {
   };
 
   var CHAR = {
-    className: "char",
+    className: "string",
     begin: /'(.|\\[xXuU][a-zA-Z0-9]+)'/
   };
 
@@ -136,7 +136,7 @@ function(hljs) {
   };
 
   var MACROCALL = {
-    className: "macrocall",
+    className: "meta",
     begin: "@" + VARIABLE_NAME_RE
   };
 
