@@ -127,7 +127,10 @@ function(hljs) {
             keywords: CPP_KEYWORDS,
             relevance: 0,
             contains: [
-              hljs.C_BLOCK_COMMENT_MODE
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
+              STRINGS,
+              NUMBERS
             ]
           },
           hljs.C_LINE_COMMENT_MODE,
