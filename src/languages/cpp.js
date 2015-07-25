@@ -112,7 +112,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + hljs.IDENT_RE + '[\\*&\\s]*\\s+)+' + FUNCTION_TITLE,
+        begin: '(' + hljs.IDENT_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
         returnBegin: true, end: /[{;=]/,
         excludeEnd: true,
         keywords: CPP_KEYWORDS,
@@ -128,7 +128,10 @@ function(hljs) {
             keywords: CPP_KEYWORDS,
             relevance: 0,
             contains: [
-              hljs.C_BLOCK_COMMENT_MODE
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
+              STRINGS,
+              NUMBERS
             ]
           },
           hljs.C_LINE_COMMENT_MODE,
