@@ -28,7 +28,7 @@ function(hljs) {
         }
       ),
       {
-        className: 'preprocessor',
+        className: 'meta',
         begin: '^@(?:BASE|USE|CLASS|OPTIONS)$',
         relevance: 10
       },
