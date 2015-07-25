@@ -9,8 +9,7 @@
   -webkit-text-size-adjust: none;
 }
 
-.hljs,
-.hljs-list .hljs-built_in {
+.hljs {
   color: #00193a;
 }
 

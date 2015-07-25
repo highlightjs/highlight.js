@@ -87,7 +87,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-bullet,
 .hljs-smartquote,
 .hljs-method,
-.hljs-list .hljs-title,
 .hljs-tag {
  color: #81a2be;
 }

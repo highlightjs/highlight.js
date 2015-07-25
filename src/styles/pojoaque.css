@@ -24,8 +24,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-keyword,
 .hljs-literal,
 .method,
-.hljs-addition,
-.hljs-list .hljs-keyword {
+.hljs-addition {
   color: #b64926;
 }
 
