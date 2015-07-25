@@ -15,11 +15,11 @@ function(hljs) {
         'for true while long throw strictfp finally protected import native final return void ' +
         'enum else break transient new catch instanceof byte super volatile case assert short ' +
         'package default double public try this switch continue throws protected public private',
-      constant: 'P2D P3D HALF_PI PI QUARTER_PI TAU TWO_PI',
-      variable: 'displayHeight displayWidth mouseY mouseX mousePressed pmouseX pmouseY key ' +
-        'keyCode pixels focused frameCount frameRate height width',
+      literal: 'P2D P3D HALF_PI PI QUARTER_PI TAU TWO_PI',
       title: 'setup draw',
-      built_in: 'size createGraphics beginDraw createShape loadShape PShape arc ellipse line point ' +
+      built_in: 'displayHeight displayWidth mouseY mouseX mousePressed pmouseX pmouseY key ' +
+        'keyCode pixels focused frameCount frameRate height width ' +
+        'size createGraphics beginDraw createShape loadShape PShape arc ellipse line point ' +
         'quad rect triangle bezier bezierDetail bezierPoint bezierTangent curve curveDetail curvePoint ' +
         'curveTangent curveTightness shape shapeMode beginContour beginShape bezierVertex curveVertex ' +
         'endContour endShape quadraticVertex vertex ellipseMode noSmooth rectMode smooth strokeCap ' +
