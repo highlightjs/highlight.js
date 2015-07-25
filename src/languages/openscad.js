@@ -21,7 +21,7 @@ function(hljs) {
 	},
 	STRING = hljs.inherit(hljs.QUOTE_STRING_MODE,{illegal: null}),
 	PREPRO = {
-		className: 'preprocessor',
+		className: 'meta',
 		keywords: 'include use',
 		begin: 'include|use <',
 		end: '>'
@@ -32,7 +32,6 @@ function(hljs) {
 		contains: ['self', NUMBERS, STRING, SPECIAL_VARS, LITERALS]
 	},
 	MODIFIERS = {
-		className: 'built_in',
 		begin: '[*!#%]',
 		relevance: 0
 	},
