@@ -47,7 +47,6 @@ function(hljs) {
         ]
       },
       {
-        className: 'symbol',
         begin: '[a-zA-Z_][a-zA-Z_0-9]*(\'+[\\.\']*|[\\.\']+)', end: '',
         relevance: 0
       },
