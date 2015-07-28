@@ -7,6 +7,7 @@ New languages:
 - *XQuery* by [Dirk Kirsten][]
 - *Mojolicious* by [Dotan Dimet][]
 - *AutoIt* by Manh Tuan from [J2TeaM][]
+- *Toml* (ini extension) by [Guillaume Gomez][]
 
 New Styles:
 
@@ -15,7 +16,6 @@ New Styles:
 
 Notable fixes and improvements to existing languages:
 
-- [Guillaume Gomez][] updated .ini syntax to support .toml extensions
 - Fix encoding of images when copied over in certain builds
 - Fix incorrect highlighting of the word "bug" in comments
 - Treat decorators different from matrix multiplication in Python
