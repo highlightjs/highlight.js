@@ -14,14 +14,14 @@ function(hljs) {
       // Some keywords more or less unique to I7, for relevance.
       keyword:
         // kind:
-        'thing|10 room|10 person|10 man|10 woman|10 animal|10 container ' +
-        'supporter|10 backdrop|10 door|10 ' +
+        'thing room person man woman animal container ' +
+        'supporter backdrop door ' +
         // characteristic:
-        'scenery|10 open closed|10 locked|10 inside|10 gender|10 ' +
+        'scenery open closed locked inside gender ' +
         // verb:
-        'is are say|10 understand|10 ' +
+        'is are say understand ' +
         // misc keyword:
-        'kind|10 of rule|10'
+        'kind of rule'
     },
     contains: [
       {
@@ -37,31 +37,21 @@ function(hljs) {
       },
       {
         className: 'title',
-        beginKeywords: '^Volume ^Book ^Part ^Chapter ^Section',
-        end: '$',
-        relevance: 10
-      },
-      {
-        // Table
-        className: 'title',
-        beginKeywords: '^Table',
-        end: '$',
-        relevance: 10
+        begin: /^(Volume|Book|Part|Chapter|Section|Table)\b/,
+        end: '$'
       },
       {
         // Rule definition
         // This is here for relevance.
-        begin: '^\\b(Check|Carry out|Report|Instead of|To|Rule|When|Before|After)',
+        begin: /^(Check|Carry out|Report|Instead of|To|Rule|When|Before|After)\b/,
         end: ':',
         contains: [
           {
             //Rule name
             begin: '\\b\\(This',
-            end: '\\)',
-            relevance: 10
+            end: '\\)'
           }
-        ],
-        relevance: 10
+        ]
       },
       {
         className: 'comment',
