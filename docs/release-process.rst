@@ -17,4 +17,4 @@ Note: this is intended for core committers.
 
 Pushing the tag triggers the update process which can be monitored at http://highlightjs.org/api/release/
 
-When something didn't work //and// it's fixable in code (version numbers mismatch, last minute patches, etc), simply make another release incrementing the third (revision) part of the version number.
+When something didn't work *and* it's fixable in code (version numbers mismatch, last minute patches, etc), simply make another release incrementing the third (revision) part of the version number.
