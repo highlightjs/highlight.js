@@ -1,4 +1,4 @@
-## Master [Unpublished]
+## Version 8.7
 
 New languages:
 
