@@ -1,3 +1,11 @@
+## Maser [UNRELEASED]
+
+New languages:
+
+- *Golo* by [Philippe Charrière][]
+
+[Philippe Charrière]: https://github.com/k33g
+
 ## Version 8.7
 
 New languages:
@@ -82,7 +90,6 @@ Notable fixes and improvements to existing languages:
 New languages:
 
 - *pf.conf* by [Peter Piwowarski][]
-- *Julia* by [Kenta Sato][]
 - *Prolog* by [Raivo Laanemets][]
 - *Docker* by [Alexis Hénaut][]
 - *Fortran* by [Anthony Scemama][] and [Thomas Applencourt][]

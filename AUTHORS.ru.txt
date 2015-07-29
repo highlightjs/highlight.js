@@ -180,3 +180,4 @@ URL:   https://highlightjs.org/
 - Бенджамин Одер <benjamin.auder@gmail.com>
 - Дотан Димет <dotan@corky.net>
 - Ман Туан <junookyo@gmail.com>
+- Филипп Шарьер <ph.charriere@gmail.com>
