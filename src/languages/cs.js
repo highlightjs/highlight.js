@@ -23,26 +23,29 @@ function(hljs) {
     keywords: KEYWORDS,
     illegal: /::/,
     contains: [
-      {
-        className: 'comment',
-        begin: '///', end: '$', returnBegin: true,
-        contains: [
-          {
-            className: 'xmlDocTag',
-            variants: [
-              {
-                begin: '///', relevance: 0
-              },
-              {
-                begin: '<!--|-->'
-              },
-              {
-                begin: '</?', end: '>'
-              }
-            ]
-          }
-        ]
-      },
+      hljs.COMMENT(
+        '///',
+        '$',
+        {
+          returnBegin: true,
+          contains: [
+            {
+              className: 'xmlDocTag',
+              variants: [
+                {
+                  begin: '///', relevance: 0
+                },
+                {
+                  begin: '<!--|-->'
+                },
+                {
+                  begin: '</?', end: '>'
+                }
+              ]
+            }
+          ]
+        }
+      ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
@@ -59,10 +62,24 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       {
-        beginKeywords: 'class namespace interface', end: /[{;=]/,
+        beginKeywords: 'class interface', end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
           hljs.TITLE_MODE,
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
+      },
+      {
+        beginKeywords: 'namespace', end: /[{;=]/,
+        illegal: /[^\s:]/,
+        contains: [
+          {
+            // Customization of hljs.TITLE_MODE that allows '.'
+            className: 'title',
+            begin: '[a-zA-Z](\\.?\\w)*',
+            relevance: 0
+          },
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
@@ -87,6 +104,8 @@ function(hljs) {
           {
             className: 'params',
             begin: /\(/, end: /\)/,
+            excludeBegin: true,
+            excludeEnd: true,
             keywords: KEYWORDS,
             relevance: 0,
             contains: [

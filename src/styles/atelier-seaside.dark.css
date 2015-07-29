@@ -1,19 +1,18 @@
 /* Base16 Atelier Seaside Dark - Theme */
-/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside/) */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside) */
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
-/* https://github.com/jmblog/color-themes-for-highlightjs */
 
-/* Atelier Seaside Dark Comment */
-.hljs-comment,
-.hljs-title {
+/* Atelier-Seaside Comment */
+.hljs-comment {
   color: #809980;
 }
 
-/* Atelier Seaside Dark Red */
+/* Atelier-Seaside Red */
 .hljs-variable,
 .hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
+.hljs-name,
 .ruby .hljs-constant,
 .xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
@@ -25,10 +24,9 @@
   color: #e6193c;
 }
 
-/* Atelier Seaside Dark Orange */
+/* Atelier-Seaside Orange */
 .hljs-number,
 .hljs-preprocessor,
-.hljs-pragma,
 .hljs-built_in,
 .hljs-literal,
 .hljs-params,
@@ -36,13 +34,13 @@
   color: #87711d;
 }
 
-/* Atelier Seaside Dark Yellow */
-.hljs-ruby .hljs-class .hljs-title,
-.css .hljs-rules .hljs-attribute {
-  color: #c3c322;
+/* Atelier-Seaside Yellow */
+.ruby .hljs-class .hljs-title,
+.css .hljs-rule .hljs-attribute {
+  color: #98981b;
 }
 
-/* Atelier Seaside Dark Green */
+/* Atelier-Seaside Green */
 .hljs-string,
 .hljs-value,
 .hljs-inheritance,
@@ -52,12 +50,13 @@
   color: #29a329;
 }
 
-/* Atelier Seaside Dark Aqua */
+/* Atelier-Seaside Aqua */
+.hljs-title,
 .css .hljs-hexcolor {
   color: #1999b3;
 }
 
-/* Atelier Seaside Dark Blue */
+/* Atelier-Seaside Blue */
 .hljs-function,
 .python .hljs-decorator,
 .python .hljs-title,
@@ -69,7 +68,7 @@
   color: #3d62f5;
 }
 
-/* Atelier Seaside Dark Purple */
+/* Atelier-Seaside Purple */
 .hljs-keyword,
 .javascript .hljs-function {
   color: #ad2bee;
@@ -78,7 +77,7 @@
 .hljs {
   display: block;
   overflow-x: auto;
-  background: #242924;
+  background: #131513;
   color: #8ca68c;
   padding: 0.5em;
   -webkit-text-size-adjust: none;

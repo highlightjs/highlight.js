@@ -22,8 +22,7 @@ function selectCategory(category) {
     }
   });
 
-  // Scroll to top
-  $('body').scrollTop(0);
+  $(document).scrollTop(0);
 }
 
 function categoryKey(c) {

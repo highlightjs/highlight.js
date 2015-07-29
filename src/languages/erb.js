@@ -9,12 +9,9 @@ Category: template
 
 function(hljs) {
   return {
-    subLanguage: 'xml', subLanguageMode: 'continuous',
+    subLanguage: 'xml',
     contains: [
-      {
-        className: 'comment',
-        begin: '<%#', end: '%>',
-      },
+      hljs.COMMENT('<%#', '%>'),
       {
         begin: '<%[%=-]?', end: '[%-]?%>',
         subLanguage: 'ruby',

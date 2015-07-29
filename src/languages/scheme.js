@@ -78,13 +78,16 @@ function(hljs) {
     end: '[^\\\\]"'
   };
 
-  var COMMENT = {
-    className: 'comment',
-    variants: [
-      { begin: ';',  end: '$', relevance: 0 },
-      { begin: '#\\|', end: '\\|#' }
-    ]
-  };
+  var COMMENT_MODES = [
+    hljs.COMMENT(
+      ';',
+      '$',
+      {
+        relevance: 0
+      }
+    ),
+    hljs.COMMENT('#\\|', '\\|#')
+  ];
 
   var IDENT = {
     begin: SCHEME_IDENT_RE,
@@ -118,10 +121,10 @@ function(hljs) {
     ]
   };
 
-  BODY.contains = [LITERAL, NUMBER, STRING, COMMENT, IDENT, QUOTED_IDENT, LIST];
+  BODY.contains = [LITERAL, NUMBER, STRING, IDENT, QUOTED_IDENT, LIST].concat(COMMENT_MODES);
 
   return {
     illegal: /\S/,
-    contains: [SHEBANG, NUMBER, STRING, COMMENT, QUOTED_IDENT, LIST]
+    contains: [SHEBANG, NUMBER, STRING, QUOTED_IDENT, LIST].concat(COMMENT_MODES)
   };
 }

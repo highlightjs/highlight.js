@@ -149,10 +149,36 @@ URL:   https://highlightjs.org/
 - Эдвин Далорсо <edwin@dalorzo.org>
 - mucaho <mkucko@gmail.com>
 - Деннис Титце <dennis.titze@gmail.com>
+- Джон Эванс <jon@craftyjon.com>
 - Брайан Куисторф <bquistorff@gmail.com>
 - Жоначан Суевер <suever@gmail.com>
 - Алексис Эно <alexis@henaut.net>
+- Крис Кихл <audionautic@gmail.com>
 - Петер Пивоварски <oldlaptop654@aol.com>
 - Кента Сато <bicycle1885@gmail.com>
+- Энтони Скемама <scemama@irsamc.ups-tlse.fr>
 - Тофик Нурроман <latitudu.latitudu@gmail.com>
 - Педро Оливейра <kanytu@gmail.com>
+- Гу Илинь <justice360@gmail.com>
+- Томас Аппленкур <thomas.applencourt@irsamc.ups-tlse.fr>
+- Эндрю Фармер <ahfarmer@gmail.com>
+- Сергей Машков <cy6erGn0m@gmail.com>
+- Райво Ляэнеметс <raivo@infdot.com>
+- Кеннет Фаглсанг <kfuglsang@gmail.com>
+- Дэвид Ансон <david@dlaa.me>
+- Льюис Барранкуэйро <louis.barranqueiro@gmail.com>
+- Тим Шумахер <tim@datenknoten.me>
+- Лукас Веркмайстер <mail@lucaswerkmeister.de>
+- Ден Панзарелла <alsoelp@gmail.com>
+- Бруно Диаз <bruno.r.dias@gmail.com>
+- Джей Стрибис <jay.strybis@gmail.com>
+- Гийом Гомес <guillaume1.gomez@gmail.com>
+- Янис Фойгтлэндер <janis.voigtlaender@gmail.com>
+- Дирк Кирстен <dk@basex.org>
+- MY Sun <simonmysun@gmail.com>
+- Vadimtro <vadimtro@yahoo.com>
+- Бенджамин Одер <benjamin.auder@gmail.com>
+- Дотан Димет <dotan@corky.net>
+- Ман Туан <junookyo@gmail.com>
+- Филипп Шарьер <ph.charriere@gmail.com>
+- Стефан Бечерт <stefan.bechert@gmx.net>

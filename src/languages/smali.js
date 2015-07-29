@@ -16,11 +16,13 @@ function(hljs) {
         begin: '"', end: '"',
         relevance: 0
       },
-      {
-        className: 'comment',
-        begin: '#', end: '$',
-        relevance: 0
-      },
+      hljs.COMMENT(
+        '#',
+        '$',
+        {
+          relevance: 0
+        }
+      ),
       {
         className: 'keyword',
         begin: '\\s*\\.end\\s[a-zA-Z0-9]*',
