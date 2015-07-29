@@ -20,13 +20,13 @@ function(hljs) {
         'bridgeFromObjectiveCUnconditional bridgeToObjectiveC ' +
         'bridgeToObjectiveCUnconditional c contains count countElements ' +
         'countLeadingZeros debugPrint debugPrintln distance dropFirst dropLast dump ' +
-        'encodeBitsAsWords enumerate equal false filter find getBridgedObjectiveCType ' +
+        'encodeBitsAsWords enumerate equal filter find getBridgedObjectiveCType ' +
         'getVaList indices insertionSort isBridgedToObjectiveC ' +
         'isBridgedVerbatimToObjectiveC isUniquelyReferenced join ' +
-        'lexicographicalCompare map max maxElement min minElement nil numericCast ' +
+        'lexicographicalCompare map max maxElement min minElement numericCast ' +
         'partition posix print println quickSort reduce reflect reinterpretCast ' +
         'reverse roundUpToAlignment sizeof sizeofValue sort split startsWith strideof ' +
-        'strideofValue swap swift toString transcode true underestimateCount ' +
+        'strideofValue swap swift toString transcode underestimateCount ' +
         'unsafeReflect withExtendedLifetime withObjectAtPlusZero withUnsafePointer ' +
         'withUnsafePointerToObject withUnsafePointers withVaList'
     };
@@ -36,11 +36,13 @@ function(hljs) {
     begin: '\\b[A-Z][\\w\']*',
     relevance: 0
   };
-  var BLOCK_COMMENT = {
-    className: 'comment',
-    begin: '/\\*', end: '\\*/',
-    contains: [hljs.PHRASAL_WORDS_MODE, 'self']
-  };
+  var BLOCK_COMMENT = hljs.COMMENT(
+    '/\\*',
+    '\\*/',
+    {
+      contains: ['self']
+    }
+  );
   var SUBST = {
     className: 'subst',
     begin: /\\\(/, end: '\\)',
@@ -80,7 +82,7 @@ function(hljs) {
           },
           {
             className: 'params',
-            begin: /\(/, end: /\)/,
+            begin: /\(/, end: /\)/, endsParent: true,
             keywords: SWIFT_KEYWORDS,
             contains: [
               'self',

@@ -34,7 +34,7 @@ function(hljs) {
       },
       {
         begin: '\\n\\n',
-        starts: {subLanguage: '', endsWithParent: true}
+        starts: {subLanguage: [], endsWithParent: true}
       }
     ]
   };

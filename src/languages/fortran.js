@@ -1,7 +1,7 @@
 /*
 Language: Fortran
 Author: Anthony Scemama <scemama@irsamc.ups-tlse.fr>
-Category: common, scientific
+Category: scientific
 */
 
 function(hljs) {
@@ -49,12 +49,12 @@ function(hljs) {
       'acosh asinh atanh bessel_j0 bessel_j1 bessel_jn bessel_y0 bessel_y1 bessel_yn erf erfc erfc_scaled gamma log_gamma hypot norm2 ' +
       'atomic_define atomic_ref execute_command_line leadz trailz storage_size merge_bits ' +
       'bge bgt ble blt dshiftl dshiftr findloc iall iany iparity image_index lcobound ucobound maskl maskr ' +
-      'num_images parity popcnt poppar shifta shiftl shiftr this_image' 
+      'num_images parity popcnt poppar shifta shiftl shiftr this_image'
   };
   return {
     case_insensitive: true,
     aliases: ['f90', 'f95'],
-    keywords: F_KEYWORDS, 
+    keywords: F_KEYWORDS,
     contains: [
       hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
       hljs.inherit(hljs.QUOTE_STRING_MODE,{className: 'string', relevance: 0}),
@@ -64,16 +64,12 @@ function(hljs) {
         illegal: '[${=\\n]',
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       },
-      {
-        className: 'comment',
-        begin: '!', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE],
-      },
+      hljs.COMMENT('!', '$', {relevance: 0}),
       {
         className: 'number',
-        begin: '-?(\\d+(\\.\\d*)?|\\.\\d+)([DdEe][+-]?\\d+)?',
+        begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][+-]?\\d+)?\\b\\.?',
         relevance: 0
-      },
+      }
     ]
   };
 }

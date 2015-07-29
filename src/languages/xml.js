@@ -7,7 +7,7 @@ function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
   var PHP = {
     begin: /<\?(php)?(?!\w)/, end: /\?>/,
-    subLanguage: 'php', subLanguageMode: 'continuous'
+    subLanguage: 'php'
   };
   var TAG_INTERNALS = {
     endsWithParent: true,
@@ -47,11 +47,13 @@ function(hljs) {
         relevance: 10,
         contains: [{begin: '\\[', end: '\\]'}]
       },
-      {
-        className: 'comment',
-        begin: '<!--', end: '-->',
-        relevance: 10
-      },
+      hljs.COMMENT(
+        '<!--',
+        '-->',
+        {
+          relevance: 10
+        }
+      ),
       {
         className: 'cdata',
         begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
@@ -80,8 +82,8 @@ function(hljs) {
         keywords: {title: 'script'},
         contains: [TAG_INTERNALS],
         starts: {
-          end: '</script>', returnEnd: true,
-          subLanguage: 'javascript'
+          end: '\<\/script\>', returnEnd: true,
+          subLanguage: ['actionscript', 'javascript', 'handlebars']
         }
       },
       PHP,

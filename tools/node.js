@@ -6,13 +6,13 @@ var path = require('path');
 var packageJSON = require('../package');
 var utility     = require('./utility');
 
-var filterCB,
+var directory, filterCB,
     languages = utility.glob(path.join('src', 'languages', '*.js')),
     header    = utility.regex.header;
 
 function buildLanguages() {
   var input  = languages,
-      output = path.join(dir.build, 'lib', 'languages'),
+      output = path.join(directory.build, 'lib', 'languages'),
 
       replaceArgs = utility.replace(header, ''),
       template    = 'module.exports = <%= content %>;';
@@ -32,8 +32,8 @@ function buildLanguages() {
 }
 
 function buildCore() {
-  var input    = path.join(dir.root, 'src', 'highlight.js'),
-      output   = path.join(dir.build, 'lib');
+  var input    = path.join(directory.root, 'src', 'highlight.js'),
+      output   = path.join(directory.build, 'lib');
 
   return {
     logCore: { task: ['log', 'Building core file.'] },
@@ -48,7 +48,7 @@ function buildCore() {
 
 function buildIndex() {
   var input  = languages,
-      output = path.join(dir.build, 'lib', 'index.js'),
+      output = path.join(directory.build, 'lib', 'index.js'),
 
       template =
     [ 'var hljs = require(\'./highlight\');\n'
@@ -80,8 +80,8 @@ function copyMetaFiles() {
   var docs   = path.join('docs', '*.rst'),
       glob   = '{README.md,LICENSE,' + docs + '}',
 
-      input  = utility.glob(path.join(dir.root, glob)),
-      output = { dir: dir.build, base: '.' };
+      input  = utility.glob(path.join(directory.root, glob)),
+      output = { dir: directory.build, base: '.' };
 
   return {
     logMeta: { task: ['log', 'Copying meta files.'] },
@@ -95,26 +95,27 @@ function copyMetaFiles() {
 }
 
 function buildStyles() {
-  var input  = path.join(dir.root, 'src', 'styles', '*.css'),
-      output = path.join(dir.build, 'styles');
+  var input   = path.join(directory.root, 'src', 'styles', '*'),
+      output  = path.join(directory.build, 'styles'),
+      options = { encoding: 'binary', dir: output };
 
   return {
     logcss: { task: ['log', 'Building style files.'] },
     readcss: {
       requires: 'logcss',
-      task: ['glob', utility.glob(input)]
+      task: ['glob', utility.glob(input, 'binary')]
     },
     writecsslog: {
       requires: 'readcss',
       task: ['log', 'Writing style files.']
     },
-    writecss: { requires: 'readcss', task: ['dest', output] }
+    writecss: { requires: 'writecsslog', task: ['dest', options] }
   };
 }
 
 function buildPackageFile() {
-  var input  = path.join(dir.root, 'AUTHORS.en.txt'),
-      output = path.join(dir.build, 'package.json');
+  var input  = path.join(directory.root, 'AUTHORS.en.txt'),
+      output = path.join(directory.build, 'package.json');
 
   return {
     logpkg: { task: ['log', 'Building package.json file.'] },
@@ -131,8 +132,9 @@ function buildPackageFile() {
   };
 }
 
-module.exports = function(commander) {
-  filterCB = utility.buildFilterCallback(commander.args);
+module.exports = function(commander, dir) {
+  directory = dir;
+  filterCB  = utility.buildFilterCallback(commander.args);
 
   return _.merge(
     buildLanguages(),

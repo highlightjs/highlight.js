@@ -56,10 +56,7 @@ function(hljs) {
         relevance: 0,
         contains: COMMON_CONTAINS
       },
-      {
-        className: 'comment',
-        begin: '//', end: '$'
-      }
+      hljs.COMMENT('//', '$')
     ].concat(COMMON_CONTAINS)
   };
 }

@@ -5,9 +5,11 @@ var path = require('path');
 
 var utility  = require('./utility');
 
+var directory;
+
 function copyDocs() {
-  var input  = path.join(dir.root, 'docs', '*.rst'),
-      output = path.join(dir.build, 'docs');
+  var input  = path.join(directory.root, 'docs', '*.rst'),
+      output = path.join(directory.build, 'docs');
 
   return {
     logDocs: { task: ['log', 'Copying documentation.'] },
@@ -23,58 +25,58 @@ function copyDocs() {
   };
 }
 
-function generateDemo(filterCB) {
-  var readArgs   = utility.glob(path.join('src', 'languages', '*.js')),
-      staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
-      stylesArgs = utility.glob(path.join('src', 'styles', '*'), 'bin'),
-      demoRoot   = path.join(dir.build, 'demo');
+function generateDemo(filterCB, readArgs) {
+  var staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
+      stylesArgs = utility.glob(path.join('src', 'styles', '*'), 'binary'),
+      demoRoot   = path.join(directory.build, 'demo'),
+      destArgs   = { dir: path.join(demoRoot, 'styles'), encoding: 'binary' };
 
   return {
     logDemoStart: { task: ['log', 'Generating demo.'] },
-
     readLanguages: { requires: 'logDemoStart', task: ['glob', readArgs] },
     filterSnippets: { requires: 'readLanguages', task: ['filter', filterCB] },
     readSnippet: { requires: 'filterSnippets', task: 'readSnippet' },
     templateDemo: { requires: 'readSnippet', task: 'templateDemo' },
     writeDemo: {
       requires: 'templateDemo',
-      task: ['write', path.join(demoRoot, 'index.html')] },
-
+      task: ['write', path.join(demoRoot, 'index.html')]
+    },
     readStatic: { requires: 'logDemoStart', task: ['glob', staticArgs] },
     writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
-
     readStyles: { requires: 'logDemoStart', task: ['glob', stylesArgs] },
-    writeStyles: {
-      requires: 'readStyles',
-      task: ['dest', path.join(demoRoot, 'styles')]
-    }
+    writeStyles: { requires: 'readStyles', task: ['dest', destArgs] }
   };
 }
 
-module.exports = function(commander) {
+module.exports = function(commander, dir) {
+  directory = dir;
+
   var hljsExt, output, requiresTask, tasks,
       replace           = utility.replace,
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
 
-      readArgs     = utility.glob(path.join('src', '**', '*.js')),
+      coreFile     = path.join('src', 'highlight.js'),
+      languages    = utility.glob(path.join('src', 'languages', '*.js')),
       filterCB     = utility.buildFilterCallback(commander.args),
       replaceArgs  = replace(regex.header, ''),
-      templateArgs = { template: 'hljs.registerLanguage(' +
-                          '\'<%= name %>\', <%= content %>);\n'
-                     , skip: 'highlight'
-                     };
+      templateArgs =
+        'hljs.registerLanguage(\'<%= name %>\', <%= content %>);\n';
 
   tasks = {
     startlog: { task: ['log', 'Building highlight.js pack file.'] },
-    read: { requires: 'startlog', task: ['glob', readArgs] },
+    readCore: { requires: 'startlog', task: ['read', coreFile] },
+    read: { requires: 'startlog', task: ['glob', languages] },
     filter: { requires: 'read', task: ['filter', filterCB] },
     reorder: { requires: 'filter', task: 'reorderDeps' },
     replace: { requires: 'reorder', task: ['replace', replaceArgs] },
     template: { requires: 'replace', task: ['template', templateArgs] },
-    concat: { requires: 'template', task: 'concat' }
+    packageFiles: {
+      requires: ['readCore', 'template'],
+      task: 'packageFiles'
+    }
   };
-  requiresTask = 'concat';
+  requiresTask = 'packageFiles';
 
   if(commander.compress || commander.target === 'cdn') {
     tasks.compresslog = {
@@ -104,7 +106,7 @@ module.exports = function(commander) {
   };
 
   hljsExt = commander.target === 'cdn' ? 'min' : 'pack';
-  output  = path.join(dir.build, 'highlight.' + hljsExt + '.js');
+  output  = path.join(directory.build, 'highlight.' + hljsExt + '.js');
 
   tasks.write = {
     requires: 'writelog',
@@ -112,7 +114,7 @@ module.exports = function(commander) {
   };
 
   if(commander.target === 'browser') {
-    tasks = _.merge(copyDocs(), generateDemo(filterCB), tasks);
+    tasks = _.merge(copyDocs(), generateDemo(filterCB, languages), tasks);
   }
 
   return tasks;

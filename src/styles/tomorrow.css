@@ -34,7 +34,7 @@
 
 /* Tomorrow Yellow */
 .ruby .hljs-class .hljs-title,
-.css .hljs-rules .hljs-attribute {
+.css .hljs-rule .hljs-attribute {
   color: #eab700;
 }
 
@@ -43,6 +43,7 @@
 .hljs-value,
 .hljs-inheritance,
 .hljs-header,
+.hljs-name,
 .ruby .hljs-symbol,
 .xml .hljs-cdata {
   color: #718c00;
