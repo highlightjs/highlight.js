@@ -28,5 +28,14 @@ sub load
   return $o;
 }
 
+__DATA__
+@@ layouts/default.html.ep
+<!DOCTYPE html>
+<html>
+  <head><title><%= title %></title></head>
+  <body><%= content %></body>
+</html>
+__END__
+
 =head1 NAME
 POD till the end of file

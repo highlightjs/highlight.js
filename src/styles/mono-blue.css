@@ -19,7 +19,7 @@
 .hljs-important,
 .hljs-request,
 .hljs-header,
-.hljs-javadoctag {
+.hljs-doctag {
   font-weight: bold;
 }
 
@@ -40,13 +40,13 @@
 .hljs-argument,
 .hljs-link_label,
 .hljs-blockquote,
-.hljs-header {
+.hljs-header,
+.hljs-name {
   color: #0048ab;
 }
 
 .hljs-decorator,
 .hljs-prompt,
-.hljs-yardoctag,
 .hljs-subst,
 .hljs-symbol,
 .hljs-doctype,
@@ -56,7 +56,6 @@
 .hljs-pi,
 .hljs-attribute,
 .hljs-attr_selector,
-.hljs-javadoc,
 .hljs-xmlDocTag,
 .hljs-deletion,
 .hljs-shebang,

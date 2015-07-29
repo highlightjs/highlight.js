@@ -1,8 +1,8 @@
 /*
 Language: IRPF90
 Author: Anthony Scemama <scemama@irsamc.ups-tlse.fr>
-Category: common, scientific
 Description: IRPF90 is an open-source Fortran code generator : http://irpf90.ups-tlse.fr
+Category: scientific
 */
 
 function(hljs) {
@@ -62,7 +62,7 @@ function(hljs) {
     keywords: F_KEYWORDS, 
     contains: [
       hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE,{className: 'string', relevance: 0}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'string', relevance: 0}),
       {
         className: 'function',
         beginKeywords: 'subroutine function program',
@@ -72,7 +72,7 @@ function(hljs) {
       {
         className: 'comment',
         begin: '!', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE],
+        contains: [hljs.PHRASAL_WORDS_MODE]
       },
       {
         className: 'comment',
@@ -84,7 +84,7 @@ function(hljs) {
         className: 'number',
         begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][\\+\\-]?\\d+)?\\b\\.?',
         relevance: 0
-      },
+      }
     ]
   };
 }

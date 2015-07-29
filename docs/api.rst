@@ -1,7 +1,7 @@
 Library API
 ===========
 
-Highilght.js exports a few functions as methods of the ``hljs`` object.
+Highlight.js exports a few functions as methods of the ``hljs`` object.
 
 
 ``highlight(name, value, ignore_illegals, continuation)``

@@ -90,15 +90,8 @@ function(hljs) {
         relevance: 0,
         starts: TRANSPOSE
       },
-      {
-        // Block comment
-        className: 'comment',
-        begin: '^\\s*\\%\\{\\s*$', end: '^\\s*\\%\\}\\s*$'
-      },
-      {
-        className: 'comment',
-        begin: '\\%', end: '$'
-      }
+      hljs.COMMENT('^\\s*\\%\\{\\s*$', '^\\s*\\%\\}\\s*$'),
+      hljs.COMMENT('\\%', '$')
     ].concat(COMMON_CONTAINS)
   };
 }

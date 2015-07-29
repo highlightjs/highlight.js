@@ -11,7 +11,7 @@ function(hljs) {
   return {
     aliases: ['dst'],
     case_insensitive: true,
-    subLanguage: 'xml', subLanguageMode: 'continuous',
+    subLanguage: 'xml',
     contains: [
       {
         className: 'expression',

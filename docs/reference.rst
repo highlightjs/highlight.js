@@ -133,6 +133,47 @@ This is when ``endsWithParent`` comes into play:
     ]
   }
 
+.. _endsParent:
+
+endsParent
+^^^^^^^^^^^^^^
+
+**type**: boolean
+
+Forces closing of the parent mode right after the current mode is closed.
+
+This is used for modes that don't have an easily expressible ending lexeme but
+instead could be closed after the last interesting sub-mode is found.
+
+Here's an example with two ways of defining functions in Elixir, one using a
+keyword ``do`` and another using a comma:
+
+::
+
+  def foo :clear, list do
+    :ok
+  end
+
+  def foo, do: IO.puts "hello world"
+
+Note that in the first case the parameter list after the function title may also
+include a comma. And iIf we're only interested in highlighting a title we can
+tell it to end the function definition after itself:
+
+::
+
+  {
+    className: 'function',
+    beginKeywords: 'def', end: /\B\b/,
+    contains: [
+      {
+        className: 'title',
+        begin: hljs.IDENT_RE, endsParent: true
+      }
+    ]
+  }
+
+(The ``end: /\B\b/`` regex tells function to never end by itself.)
 
 .. _lexemes:
 
@@ -244,32 +285,14 @@ each having all the attributes from the main definition augmented or overridden 
 subLanguage
 ^^^^^^^^^^^
 
-**type**: identifier
+**type**: string or array
 
-The name of another language used to parse the contents of the mode.
-When using this attribute there's no point to define internal parsing rules like :ref:`lexemes` or :ref:`keywords`.
-Also it is recommended to skip ``className`` attribute since the sublanguage will wrap the text in its own ``<span class="language-name">``
+Highlights the entire contents of the mode with another language.
 
-If the attribute is set to an empty string highlight.js will highlight the mode contents with language detection.
+When using this attribute there's no point to define internal parsing rules like :ref:`lexemes` or :ref:`keywords`. Also it is recommended to skip ``className`` attribute since the sublanguage will wrap the text in its own ``<span class="language-name">``.
 
-Note that for this to work the language should be included in the package (obviously).
+The value of the attribute controls which language or languages will be used for highlighting:
 
-subLanguageMode
-^^^^^^^^^^^^^^^
-
-**type**: identifier
-
-The only available value for this is ``'continuous'``. By default ``subLanguage`` highlights the contents of the mode as an isolated code snippet. In continuous mode every occurrence of the mode is treated as a continuation of the previous one and highlighted from the point where it was interrupted before.
-
-This is best illustrated by an example. The following snippet consists of HTML markup intermixed with some templating language::
-
-    <link href="<% url 'style.css' absolute %>" rel="stylesheet">
-
-To highlight HTML markup outside templating tags the language can be defined like this::
-
-    {
-      subLanguage: 'xml', subLanguageMode: 'continuous',
-      contains: [ ... templating tags ... ]
-    }
-
-The outside contents will be highlighted as 'xml' up to the first double quote. Then the templating tag will be highlighted according to the rules of the templating language. And after that 'xml' will restart from the previous parsing state — inside the value of a tag — and will correctly process the closing double quote and highlight the next HTML attribute.
+* language name: explicit highlighting with the specified language
+* empty array: auto detection with all the languages available
+* array of language names: auto detection constrained to the specified set

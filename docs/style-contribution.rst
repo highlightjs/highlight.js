@@ -22,20 +22,14 @@ Add some information about style to file header. There may be style name, origin
   */
 
 
-3. Add it to the demo page
---------------------------
-
-Add your style at the top of demo/index.html page after the other styles.
-
-
-4. Add yourself to AUTHORS.*.txt and CHANGES.md
+3. Add yourself to AUTHORS.*.txt and CHANGES.md
 -----------------------------------------------
 
 If you're a new contributor add yourself to the authors list. Feel free to use either English and/or Russian version.
 Also it will be good to update CHANGES.md.
 
 
-5. Create a pull request
+4. Create a pull request
 ------------------------
 
 Send your contribution as a pull request on GitHub.

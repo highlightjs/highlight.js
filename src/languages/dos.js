@@ -5,11 +5,12 @@ Contributors: Anton Kochkov <anton.kochkov@gmail.com>
 */
 
 function(hljs) {
-  var COMMENT = {
-    className: 'comment',
-    begin: /@?rem\b/, end: /$/,
-    relevance: 10
-  };
+  var COMMENT = hljs.COMMENT(
+    /@?rem\b/, /$/,
+    {
+      relevance: 10
+    }
+  );
   var LABEL = {
     className: 'label',
     begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',

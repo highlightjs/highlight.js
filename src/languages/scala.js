@@ -1,5 +1,6 @@
 /*
 Language: Scala
+Category: functional
 Author: Jan Berkel <jan.berkel@gmail.com>
 Contributors: Erik Osheim <d_m@plastic-idolatry.com>
 */
@@ -45,16 +46,6 @@ function(hljs) {
     beginKeywords: 'def val',
     end: /[:={\[(\n;]/,
     contains: [NAME]
-  };
-
-  var JAVADOC = {
-    className: 'javadoc',
-    begin: '/\\*\\*', end: '\\*/',
-    contains: [{
-      className: 'javadoctag',
-      begin: '@[A-Za-z]+'
-    }],
-    relevance: 10
   };
 
   return {

@@ -57,23 +57,19 @@ function(hljs) {
     keywords: F_KEYWORDS,
     contains: [
       hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE,{className: 'string', relevance: 0}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'string', relevance: 0}),
       {
         className: 'function',
         beginKeywords: 'subroutine function program',
         illegal: '[${=\\n]',
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       },
-      {
-        className: 'comment',
-        begin: '!', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE],
-      },
+      hljs.COMMENT('!', '$', {relevance: 0}),
       {
         className: 'number',
-        begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][\\+\\-]?\\d+)?\\b\\.?',
+        begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][+-]?\\d+)?\\b\\.?',
         relevance: 0
-      },
+      }
     ]
   };
 }

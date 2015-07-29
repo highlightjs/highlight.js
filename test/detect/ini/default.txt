@@ -1,12 +1,12 @@
-;Settings relating to the location and loading of the database
-[Database]
-ProfileDir=.
-ShowProfileMgr=smart
-Profile1_Name[] = "\|/_-=MegaDestoyer=-_\|/"
-DefaultProfile=True
-AutoCreate = no
+; boilerplate
+[package]
+name = "some_name"
+authors = ["Author"]
+description = "This is \
+a description"
 
-[AutoExec]
-use-prompt="prompt"
-Glob=autoexec_*.ini
-AskAboutIgnoredPlugins=0
+[[lib]]
+name = ${NAME}
+default = True
+auto = no
+counter = 1_000

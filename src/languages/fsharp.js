@@ -34,10 +34,7 @@ function(hljs) {
         className: 'string',
         begin: '"""', end: '"""'
       },
-      {
-        className: 'comment',
-        begin: '\\(\\*', end: '\\*\\)'
-      },
+      hljs.COMMENT('\\(\\*', '\\*\\)'),
       {
         className: 'class',
         beginKeywords: 'type', end: '\\(|=|$', excludeEnd: true,

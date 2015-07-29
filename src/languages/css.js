@@ -12,26 +12,54 @@ function(hljs) {
     excludeEnd: true,
     end: '\\('
   };
+  var RULE = {
+    className: 'rule',
+    begin: /[A-Z\_\.\-]+\s*:/, returnBegin: true, end: ';', endsWithParent: true,
+    contains: [
+      {
+        className: 'attribute',
+        begin: /\S/, end: ':', excludeEnd: true,
+        starts: {
+          className: 'value',
+          endsWithParent: true, excludeEnd: true,
+          contains: [
+            FUNCTION,
+            hljs.CSS_NUMBER_MODE,
+            hljs.QUOTE_STRING_MODE,
+            hljs.APOS_STRING_MODE,
+            hljs.C_BLOCK_COMMENT_MODE,
+            {
+              className: 'hexcolor', begin: '#[0-9A-Fa-f]+'
+            },
+            {
+              className: 'important', begin: '!important'
+            }
+          ]
+        }
+      }
+    ]
+  };
+
   return {
     case_insensitive: true,
-    illegal: '[=/|\']',
+    illegal: /[=\/|'\$]/,
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
+      RULE,
       {
-        className: 'id', begin: '\\#[A-Za-z0-9_-]+'
+        className: 'id', begin: /\#[A-Za-z0-9_-]+/
       },
       {
-        className: 'class', begin: '\\.[A-Za-z0-9_-]+',
-        relevance: 0
+        className: 'class', begin: /\.[A-Za-z0-9_-]+/
       },
       {
         className: 'attr_selector',
-        begin: '\\[', end: '\\]',
+        begin: /\[/, end: /\]/,
         illegal: '$'
       },
       {
         className: 'pseudo',
-        begin: ':(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\\"\\\']+'
+        begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)"']+/
       },
       {
         className: 'at_rule',
@@ -68,39 +96,10 @@ function(hljs) {
       {
         className: 'rules',
         begin: '{', end: '}',
-        illegal: '[^\\s]',
-        relevance: 0,
+        illegal: /\S/,
         contains: [
           hljs.C_BLOCK_COMMENT_MODE,
-          {
-            className: 'rule',
-            begin: '[^\\s]', returnBegin: true, end: ';', endsWithParent: true,
-            contains: [
-              {
-                className: 'attribute',
-                begin: '[A-Z\\_\\.\\-]+', end: ':',
-                excludeEnd: true,
-                illegal: '[^\\s]',
-                starts: {
-                  className: 'value',
-                  endsWithParent: true, excludeEnd: true,
-                  contains: [
-                    FUNCTION,
-                    hljs.CSS_NUMBER_MODE,
-                    hljs.QUOTE_STRING_MODE,
-                    hljs.APOS_STRING_MODE,
-                    hljs.C_BLOCK_COMMENT_MODE,
-                    {
-                      className: 'hexcolor', begin: '#[0-9A-Fa-f]+'
-                    },
-                    {
-                      className: 'important', begin: '!important'
-                    }
-                  ]
-                }
-              }
-            ]
-          }
+          RULE,
         ]
       }
     ]
