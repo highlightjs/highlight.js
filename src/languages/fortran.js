@@ -30,7 +30,7 @@ function(hljs) {
       'c_new_line c_carriage_return c_horizontal_tab c_vertical_tab iso_c_binding c_loc c_funloc c_associated  c_f_pointer ' +
       'c_ptr c_funptr iso_fortran_env character_storage_size error_unit file_storage_size input_unit iostat_end iostat_eor ' +
       'numeric_storage_size output_unit c_f_procpointer ieee_arithmetic ieee_support_underflow_control ' +
-      'ieee_get_underflow_mode ieee_set_underflow_mode newunit contiguous ' +
+      'ieee_get_underflow_mode ieee_set_underflow_mode newunit contiguous recursive ' +
       'pad position action delim readwrite eor advance nml interface procedure namelist include sequence elemental pure',
     built_in: 'alog alog10 amax0 amax1 amin0 amin1 amod cabs ccos cexp clog csin csqrt dabs dacos dasin datan datan2 dcos dcosh ddim dexp dint ' +
       'dlog dlog10 dmax1 dmin1 dmod dnint dsign dsin dsinh dsqrt dtan dtanh float iabs idim idint idnint ifix isign max0 max1 min0 min1 sngl ' +

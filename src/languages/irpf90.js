@@ -69,20 +69,11 @@ function(hljs) {
         illegal: '[${=\\n]',
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       },
-      {
-        className: 'comment',
-        begin: '!', end: '$',
-        contains: [hljs.PHRASAL_WORDS_MODE]
-      },
-      {
-        className: 'comment',
-        begin: 'begin_doc', end: 'end_doc',
-        contains: [hljs.PHRASAL_WORDS_MODE],
-        relevance: 10
-      },
+      hljs.COMMENT('!', '$', {relevance: 0}),
+      hljs.COMMENT('begin_doc', 'end_doc', {relevance: 10}),
       {
         className: 'number',
-        begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][\\+\\-]?\\d+)?\\b\\.?',
+        begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][+-]?\\d+)?\\b\\.?',
         relevance: 0
       }
     ]
