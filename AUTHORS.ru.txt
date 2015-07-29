@@ -181,3 +181,4 @@ URL:   https://highlightjs.org/
 - Дотан Димет <dotan@corky.net>
 - Ман Туан <junookyo@gmail.com>
 - Филипп Шарьер <ph.charriere@gmail.com>
+- Стефан Бечерт <stefan.bechert@gmx.net>
