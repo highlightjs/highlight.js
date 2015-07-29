@@ -3,7 +3,7 @@
 New languages:
 
 - *Golo* by [Philippe Charrière][]
-- *Gams* by [Stefan Bechert][]
+- *GAMS* by [Stefan Bechert][]
 
 [Philippe Charrière]: https://github.com/k33g
 [Stefan Bechert]: https://github.com/b-pos465

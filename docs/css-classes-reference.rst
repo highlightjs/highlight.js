@@ -9,7 +9,10 @@ used as class names in ``<code>`` element.
 Gams ("gms", "gams")
 --------------------
 
+* ``section``:          section
 * ``keyword``:          keyword
+* ``number``:           number
+* ``string``:           string
 
 
 Python ("python", "py", "gyp")
