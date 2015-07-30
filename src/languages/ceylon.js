@@ -41,7 +41,7 @@ function(hljs) {
       // character literal
       className: 'string',
       begin: "'",
-      end: "'",
+      end: "'"
     },
     {
       // numeric literal
