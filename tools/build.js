@@ -62,8 +62,9 @@ var build, dir = {};
 commander
   .usage('[options] [<language>...]')
   .option('-n, --no-compress', 'Disable compression')
-  .option('-t, --target <name>', 'Build for target [browser, cdn, node]',
-                                 /^(browser|cdn|node)$/i, 'browser')
+  .option('-t, --target <name>', 'Build for target ' +
+                                 '[all, browser, cdn, node]',
+                                 /^(browser|cdn|node|all)$/i, 'browser')
   .parse(process.argv);
 
 commander.target = commander.target.toLowerCase();
