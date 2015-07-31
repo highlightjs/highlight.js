@@ -49,6 +49,13 @@
 //
 //   <https://www.npmjs.com/package/highlight.js>
 //
+// * all
+//
+//   Builds every target and places the results into a sub-directory based
+//   off of the target name relative to the `build` directory; for example,
+//   "node" with go into `build/node`, "cdn" will go into `build/cdn`,
+//   "browser" will go into `build/browser` and so forth.
+//
 // All build targets will end up in the `build` directory.
 'use strict';
 
@@ -62,8 +69,9 @@ var build, dir = {};
 commander
   .usage('[options] [<language>...]')
   .option('-n, --no-compress', 'Disable compression')
-  .option('-t, --target <name>', 'Build for target [browser, cdn, node]',
-                                 /^(browser|cdn|node)$/i, 'browser')
+  .option('-t, --target <name>', 'Build for target ' +
+                                 '[all, browser, cdn, node]',
+                                 /^(browser|cdn|node|all)$/i, 'browser')
   .parse(process.argv);
 
 commander.target = commander.target.toLowerCase();
@@ -75,6 +83,6 @@ dir.build = path.join(dir.root, 'build');
 new Queue({ registry: registry })
   .clean(dir.build)
   .log('Starting build.')
-  .tasks(build(commander, dir))
+  .series(build(commander, dir))
   .log('Finished build.')
   .run();
