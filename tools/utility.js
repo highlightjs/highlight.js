@@ -5,6 +5,8 @@ var bluebird = require('bluebird');
 var glob     = bluebird.promisifyAll(require('glob')).globAsync;
 var path     = require('path');
 
+var Queue = require('gear').Queue;
+
 var REPLACES,
     regex       = {},
     headerRegex = /^\s*\/\*((.|\r?\n)*?)\*/;
@@ -153,6 +155,13 @@ function getStyleNames() {
     });
 }
 
+function toQueue(tasks, registry) {
+  return _.map(tasks, function(task) {
+    return new Queue({ registry: registry })
+      .tasks(task);
+  });
+}
+
 module.exports = {
   buildFilterCallback: buildFilterCallback,
   getStyleNames: getStyleNames,
@@ -160,5 +169,6 @@ module.exports = {
   parseHeader: parseHeader,
   regex: regex,
   replace: replace,
-  replaceClassNames: replaceClassNames
+  replaceClassNames: replaceClassNames,
+  toQueue: toQueue
 };
