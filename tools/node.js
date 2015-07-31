@@ -4,6 +4,7 @@ var _    = require('lodash');
 var path = require('path');
 
 var packageJSON = require('../package');
+var registry    = require('./tasks');
 var utility     = require('./utility');
 
 var directory, filterCB,
@@ -136,11 +137,14 @@ module.exports = function(commander, dir) {
   directory = dir;
   filterCB  = utility.buildFilterCallback(commander.args);
 
-  return _.merge(
+  var tasks = [
     buildLanguages(),
     buildCore(),
     buildIndex(),
     buildStyles(),
     copyMetaFiles(),
-    buildPackageFile());
+    buildPackageFile()
+  ];
+
+  return utility.toQueue(tasks, registry);
 };

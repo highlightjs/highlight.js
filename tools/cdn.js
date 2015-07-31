@@ -3,8 +3,9 @@
 var _    = require('lodash');
 var path = require('path');
 
-var utility      = require('./utility');
 var browserBuild = require('./browser');
+var registry     = require('./tasks');
+var utility      = require('./utility');
 
 var directory;
 
@@ -89,8 +90,6 @@ function moveStyles() {
 module.exports = function(commander, dir) {
   directory = dir;
 
-  return _.merge(
-    browserBuild(commander, dir),
-    moveLanguages(),
-    moveStyles());
+  return utility.toQueue([moveLanguages(), moveStyles()], registry)
+    .concat(browserBuild(commander, dir));
 };

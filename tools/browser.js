@@ -3,6 +3,7 @@
 var _    = require('lodash');
 var path = require('path');
 
+var registry = require('./tasks');
 var utility  = require('./utility');
 
 var directory;
@@ -113,9 +114,9 @@ module.exports = function(commander, dir) {
     task: ['write', output]
   };
 
-  if(commander.target === 'browser') {
-    tasks = _.merge(copyDocs(), generateDemo(filterCB, languages), tasks);
-  }
+  tasks = (commander.target === 'browser')
+        ? [copyDocs(), generateDemo(filterCB, languages), tasks]
+        : [tasks];
 
-  return tasks;
+  return utility.toQueue(tasks, registry);
 };
