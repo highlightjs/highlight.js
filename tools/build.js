@@ -49,6 +49,13 @@
 //
 //   <https://www.npmjs.com/package/highlight.js>
 //
+// * all
+//
+//   Builds every target and places the results into a sub-directory based
+//   off of the target name relative to the `build` directory; for example,
+//   "node" with go into `build/node`, "cdn" will go into `build/cdn`,
+//   "browser" will go into `build/browser` and so forth.
+//
 // All build targets will end up in the `build` directory.
 'use strict';
 
