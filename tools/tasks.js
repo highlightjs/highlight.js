@@ -6,9 +6,8 @@ var gear     = require('gear');
 var path     = require('path');
 var utility  = require('./utility');
 
-var parseHeader   = utility.parseHeader;
-var getStyleNames = utility.getStyleNames;
-var tasks         = require('gear-lib');
+var parseHeader = utility.parseHeader;
+var tasks       = require('gear-lib');
 
 tasks.clean = function(directories, blobs, done) {
   directories = _.isString(directories) ? [directories] : directories;
