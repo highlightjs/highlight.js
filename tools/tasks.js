@@ -1,9 +1,7 @@
 'use strict';
 
 var _        = require('lodash');
-var bluebird = require('bluebird');
 var del      = require('del');
-var fs       = bluebird.promisifyAll(require('fs'));
 var gear     = require('gear');
 var path     = require('path');
 var utility  = require('./utility');
