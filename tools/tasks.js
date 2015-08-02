@@ -72,16 +72,15 @@ tasks.template = function(template, blob, done) {
   return done(null, new gear.Blob(content, blob));
 };
 
-tasks.templateAll = function(template, blobs, done) {
-  var names, content;
+tasks.templateAll = function(options, blobs, done) {
+  return options.callback(blobs)
+    .then(function(data) {
+      var template = options.template || data.template,
+          content  = _.template(template)(data);
 
-  names = _.map(blobs, function(blob) {
-    return path.basename(blob.name, '.js');
-  });
-
-  content = _.template(template)({ names: names });
-
-  return done(null, [new blobs[0].constructor(content, blobs)]);
+      return done(null, [new gear.Blob(content)]);
+    })
+    .catch(done);
 };
 tasks.templateAll.type = 'collect';
 
