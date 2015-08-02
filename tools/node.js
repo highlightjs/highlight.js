@@ -1,7 +1,8 @@
 'use strict';
 
-var _    = require('lodash');
-var path = require('path');
+var _        = require('lodash');
+var bluebird = require('bluebird');
+var path     = require('path');
 
 var packageJSON = require('../package');
 var registry    = require('./tasks');
@@ -10,6 +11,17 @@ var utility     = require('./utility');
 var directory, filterCB,
     languages = utility.glob(path.join('src', 'languages', '*.js')),
     header    = utility.regex.header;
+
+function templateAllFunc(blobs) {
+  var names = _.map(blobs, function(blob) {
+    return path.basename(blob.name, '.js');
+  });
+
+  return bluebird.resolve()
+    .then(function() {
+      return { names: names };
+    });
+}
 
 function buildLanguages() {
   var input  = languages,
@@ -51,14 +63,16 @@ function buildIndex() {
   var input  = languages,
       output = path.join(directory.build, 'lib', 'index.js'),
 
-      template =
-    [ 'var hljs = require(\'./highlight\');\n'
-    , '<% _.each(names, function(name) { %>' +
-      'hljs.registerLanguage(\'<%= name %>\', ' +
-      'require(\'./languages/<%= name %>\'));'
-    , '<% }); %>'
-    , 'module.exports = hljs;'
-    ];
+      templateArgs = {
+        template: [ 'var hljs = require(\'./highlight\');\n'
+                  , '<% _.each(names, function(name) { %>' +
+                    'hljs.registerLanguage(\'<%= name %>\', ' +
+                    'require(\'./languages/<%= name %>\'));'
+                  , '<% }); %>'
+                  , 'module.exports = hljs;'
+                  ].join('\n'),
+        callback: templateAllFunc
+      };
 
   return {
     logIndex: { task: ['log', 'Building index file.'] },
@@ -67,7 +81,7 @@ function buildIndex() {
     reorderIndex: { requires: 'filterIndex', task: 'reorderDeps' },
     templateIndex: {
       requires: 'reorderIndex',
-      task: ['templateAll', template.join('\n')]
+      task: ['templateAll', templateArgs]
     },
     writeIndexLog: {
       requires: 'templateIndex',
