@@ -1,12 +1,30 @@
 'use strict';
 
-var _    = require('lodash');
-var path = require('path');
+var _        = require('lodash');
+var bluebird = require('bluebird');
+var fs       = bluebird.promisifyAll(require('fs'));
+var path     = require('path');
 
 var registry = require('./tasks');
 var utility  = require('./utility');
 
 var directory;
+
+function templateAllFunc(blobs) {
+  var name = path.join('demo', 'index.html');
+
+  return bluebird.join(
+    fs.readFileAsync(name),
+    utility.getStyleNames(),
+    function(template, styles) {
+      return {
+        template: template,
+        path: path,
+        blobs: _.compact(blobs),
+        styles: styles
+      };
+    });
+}
 
 function copyDocs() {
   var input  = path.join(directory.root, 'docs', '*.rst'),
@@ -27,17 +45,24 @@ function copyDocs() {
 }
 
 function generateDemo(filterCB, readArgs) {
-  var staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
-      stylesArgs = utility.glob(path.join('src', 'styles', '*'), 'binary'),
-      demoRoot   = path.join(directory.build, 'demo'),
-      destArgs   = { dir: path.join(demoRoot, 'styles'), encoding: 'binary' };
+  var staticArgs   = utility.glob(path.join('demo', '*.{js,css}')),
+      stylesArgs   = utility.glob(path.join('src', 'styles', '*'), 'binary'),
+      demoRoot     = path.join(directory.build, 'demo'),
+      templateArgs = { callback: templateAllFunc },
+      destArgs     = {
+        dir: path.join(demoRoot, 'styles'),
+        encoding: 'binary'
+      };
 
   return {
     logDemoStart: { task: ['log', 'Generating demo.'] },
     readLanguages: { requires: 'logDemoStart', task: ['glob', readArgs] },
     filterSnippets: { requires: 'readLanguages', task: ['filter', filterCB] },
     readSnippet: { requires: 'filterSnippets', task: 'readSnippet' },
-    templateDemo: { requires: 'readSnippet', task: 'templateDemo' },
+    templateDemo: {
+      requires: 'readSnippet',
+      task: ['templateAll', templateArgs]
+    },
     writeDemo: {
       requires: 'templateDemo',
       task: ['write', path.join(demoRoot, 'index.html')]
