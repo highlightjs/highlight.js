@@ -216,25 +216,6 @@ tasks.readSnippet = function(options, blob, done) {
   gear.Blob.readFile(snippetName, 'utf8', onRead, false);
 };
 
-// Translate the template for the demo in `demo/index.html` to a usable HTML
-// file.
-tasks.templateDemo = function(options, blobs, done) {
-  var name        = path.join('demo', 'index.html'),
-      getTemplate = fs.readFileAsync(name);
-
-  bluebird.join(getTemplate, getStyleNames(), function(template, styles) {
-    var content = _.template(template)({
-                    path: path,
-                    blobs: _.compact(blobs),
-                    styles: styles
-                  });
-
-    return done(null, [new gear.Blob(content)]);
-  })
-  .catch(done);
-};
-tasks.templateDemo.type = 'collect';
-
 // Packages up included languages into the core `highlight.js` and moves the
 // result into the `build` directory.
 tasks.packageFiles = function(options, blobs, done) {
