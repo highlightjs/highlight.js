@@ -49,21 +49,21 @@ function generateDemo(filterCB, readArgs) {
       };
 
   return {
-    logDemoStart: { task: ['log', 'Generating demo.'] },
-    readLanguages: { requires: 'logDemoStart', task: ['glob', readArgs] },
+    logStart: { task: ['log', 'Generating demo.'] },
+    readLanguages: { requires: 'logStart', task: ['glob', readArgs] },
     filterSnippets: { requires: 'readLanguages', task: ['filter', filterCB] },
     readSnippet: { requires: 'filterSnippets', task: 'readSnippet' },
-    templateDemo: {
+    template: {
       requires: 'readSnippet',
       task: ['templateAll', templateArgs]
     },
-    writeDemo: {
-      requires: 'templateDemo',
+    write: {
+      requires: 'template',
       task: ['write', path.join(demoRoot, 'index.html')]
     },
-    readStatic: { requires: 'logDemoStart', task: ['glob', staticArgs] },
+    readStatic: { requires: 'logStart', task: ['glob', staticArgs] },
     writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
-    readStyles: { requires: 'logDemoStart', task: ['glob', stylesArgs] },
+    readStyles: { requires: 'logStart', task: ['glob', stylesArgs] },
     writeStyles: { requires: 'readStyles', task: ['dest', destArgs] }
   };
 }
