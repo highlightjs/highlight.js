@@ -31,16 +31,16 @@ function buildLanguages() {
       template    = 'module.exports = <%= content %>;';
 
   return {
-    logjs: { task: ['log', 'Building language files.'] },
-    readjs: { requires: 'logjs', task: ['glob', input] },
-    filterjs: { requires: 'readjs', task: ['filter', filterCB] },
-    replacejs: { requires: 'filterjs', task: ['replace', replaceArgs] },
-    templatejs: { requires: 'replacejs', task: ['template', template] },
-    writejslog: {
-      requires: 'templatejs',
+    logStart: { task: ['log', 'Building language files.'] },
+    read: { requires: 'logStart', task: ['glob', input] },
+    filter: { requires: 'read', task: ['filter', filterCB] },
+    replace: { requires: 'filter', task: ['replace', replaceArgs] },
+    template: { requires: 'replace', task: ['template', template] },
+    writeLog: {
+      requires: 'template',
       task: ['log', 'Writing language files.']
     },
-    writejs: { requires: 'writejslog', task: ['dest', output] }
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
