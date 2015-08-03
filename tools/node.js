@@ -90,13 +90,10 @@ function copyMetaFiles() {
       output = { dir: directory.build, base: '.' };
 
   return {
-    logMeta: { task: ['log', 'Copying meta files.'] },
-    readMeta: { requires: 'logMeta', task: ['glob', input] },
-    writeMetaLog: {
-      requires: 'readMeta',
-      task: ['log', 'Writing meta files.']
-    },
-    writeMeta: { requires: 'writeMetaLog', task: ['dest', output] }
+    startLog: { task: ['log', 'Copying meta files.'] },
+    read: { requires: 'startLog', task: ['glob', input] },
+    writeLog: { requires: 'read', task: ['log', 'Writing meta files.'] },
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
