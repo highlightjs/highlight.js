@@ -84,9 +84,9 @@ module.exports = function(commander, dir) {
         'hljs.registerLanguage(\'<%= name %>\', <%= content %>);\n';
 
   tasks = {
-    startlog: { task: ['log', 'Building highlight.js pack file.'] },
-    readCore: { requires: 'startlog', task: ['read', coreFile] },
-    read: { requires: 'startlog', task: ['glob', languages] },
+    startLog: { task: ['log', 'Building highlight.js pack file.'] },
+    readCore: { requires: 'startLog', task: ['read', coreFile] },
+    read: { requires: 'startLog', task: ['glob', languages] },
     filter: { requires: 'read', task: ['filter', filterCB] },
     reorder: { requires: 'filter', task: 'reorderDeps' },
     replace: { requires: 'reorder', task: ['replace', replaceArgs] },
