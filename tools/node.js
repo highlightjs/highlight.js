@@ -118,17 +118,14 @@ function buildPackageFile() {
       output = path.join(directory.build, 'package.json');
 
   return {
-    logpkg: { task: ['log', 'Building package.json file.'] },
-    readpkg: { requires: 'logpkg', task: ['read', input] },
-    buildpkg: {
-      requires: 'readpkg',
-      task: ['buildPackage', packageJSON]
-    },
-    writepkglog: {
-      requires: 'buildpkg',
+    startLog: { task: ['log', 'Building package.json file.'] },
+    read: { requires: 'startLog', task: ['read', input] },
+    build: { requires: 'read', task: ['buildPackage', packageJSON] },
+    writeLog: {
+      requires: 'build',
       task: ['log', 'Writing package.json file.']
     },
-    writepkg: { requires: 'writepkglog', task: ['write', output] }
+    write: { requires: 'writeLog', task: ['write', output] }
   };
 }
 
