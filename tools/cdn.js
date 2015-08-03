@@ -57,29 +57,26 @@ function moveStyles() {
       options = { dir: output, encoding: 'binary' };
 
   return {
-    startlogcss: { task: ['log', 'Building style files.'] },
-    readcss: {
-      requires: 'startlogcss',
-      task: ['glob', utility.glob(css)]
-    },
-    readcssimages: {
-      requires: 'startlogcss',
+    startLog: { task: ['log', 'Building style files.'] },
+    readCSS: { requires: 'startLog', task: ['glob', utility.glob(css)] },
+    readImages: {
+      requires: 'startLog',
       task: ['glob', utility.glob(images, 'binary')]
     },
-    compresslogcss: {
-      requires: 'readcss',
+    compressLog: {
+      requires: 'readCSS',
       task: ['log', 'Compressing style files.']
     },
-    minifycss: { requires: 'readcss', task: 'cssminify' },
-    renamecss: {
-      requires: 'minifycss',
+    minify: { requires: 'compressLog', task: 'cssminify' },
+    rename: {
+      requires: 'minify',
       task: ['rename', { extname: '.min.css' }]
     },
-    writelogcss: {
-      requires: ['renamecss', 'readcssimages'],
+    writeLog: {
+      requires: ['rename', 'readImages'],
       task: ['log', 'Writing style files.']
     },
-    writecss: { requires: 'writelogcss', task: ['dest', options] }
+    write: { requires: 'writeLog', task: ['dest', options] }
   };
 }
 
