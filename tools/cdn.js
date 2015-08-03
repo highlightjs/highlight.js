@@ -19,37 +19,34 @@ function moveLanguages() {
                     ' <%= content %>);\n';
 
   return {
-    startlogjs: { task: ['log', 'Building language files.'] },
-    readjs: {
-      requires: 'startlogjs',
+    startLog: { task: ['log', 'Building language files.'] },
+    read: {
+      requires: 'startLog',
       task: ['glob', utility.glob(input)]
     },
-    replacejs: { requires: 'readjs', task: ['replace', replaceArgs] },
-    templatejs: { requires: 'replacejs', task: ['template', template] },
-    replacejs2: {
-      requires: 'templatejs',
+    replace: { requires: 'read', task: ['replace', replaceArgs] },
+    template: { requires: 'replace', task: ['template', template] },
+    replace2: {
+      requires: 'template',
       task: [ 'replaceSkippingStrings'
             , replace(regex.replaces, utility.replaceClassNames)
             ]
     },
-    replacejs3: {
-      requires: 'replacejs2',
+    replace3: {
+      requires: 'replace2',
       task: ['replace', replace(regex.classname, '$1.className')]
     },
-    compresslogjs: {
-      requires: 'replacejs3',
+    compressLog: {
+      requires: 'replace3',
       task: ['log', 'Compressing languages files.']
     },
-    minifyjs: { requires: 'compresslogjs', task: 'jsminify' },
-    renamejs: {
-      requires: 'minifyjs',
-      task: ['rename', { extname: '.min.js' }]
-    },
-    writelogjs: {
-      requires: 'renamejs',
+    minify: { requires: 'compressLog', task: 'jsminify' },
+    rename: { requires: 'minify', task: ['rename', { extname: '.min.js' }] },
+    writeLog: {
+      requires: 'rename',
       task: ['log', 'Writing language files.']
     },
-    writejs: { requires: 'writelogjs', task: ['dest', output] }
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
