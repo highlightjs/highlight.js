@@ -31,16 +31,10 @@ function copyDocs() {
       output = path.join(directory.build, 'docs');
 
   return {
-    logDocs: { task: ['log', 'Copying documentation.'] },
-    readDocs: {
-      requires: 'logDocs',
-      task: ['glob', utility.glob(input)]
-    },
-    writeDocsLog: {
-      requires: 'readDocs',
-      task: ['log', 'Writing documentation.']
-    },
-    writeDocs: { requires: 'writeDocsLog', task: ['dest', output] }
+    startLog: { task: ['log', 'Copying documentation.'] },
+    read: { requires: 'startLog', task: ['glob', utility.glob(input)] },
+    writeLog: { requires: 'read', task: ['log', 'Writing documentation.'] },
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
