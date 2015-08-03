@@ -72,19 +72,13 @@ function buildIndex() {
       };
 
   return {
-    logIndex: { task: ['log', 'Building index file.'] },
-    readIndex: { requires: 'logIndex', task: ['glob', input] },
-    filterIndex: { requires: 'readIndex', task: ['filter', filterCB] },
-    reorderIndex: { requires: 'filterIndex', task: 'reorderDeps' },
-    templateIndex: {
-      requires: 'reorderIndex',
-      task: ['templateAll', templateArgs]
-    },
-    writeIndexLog: {
-      requires: 'templateIndex',
-      task: ['log', 'Writing index file.']
-    },
-    writeIndex: { requires: 'writeIndexLog', task: ['write', output] }
+    startLog: { task: ['log', 'Building index file.'] },
+    read: { requires: 'startLog', task: ['glob', input] },
+    filter: { requires: 'read', task: ['filter', filterCB] },
+    reorder: { requires: 'filter', task: 'reorderDeps' },
+    template: { requires: 'reorder', task: ['templateAll', templateArgs] },
+    writeLog: { requires: 'template', task: ['log', 'Writing index file.'] },
+    write: { requires: 'writeLog', task: ['write', output] }
   };
 }
 
