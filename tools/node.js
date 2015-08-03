@@ -31,16 +31,16 @@ function buildLanguages() {
       template    = 'module.exports = <%= content %>;';
 
   return {
-    logjs: { task: ['log', 'Building language files.'] },
-    readjs: { requires: 'logjs', task: ['glob', input] },
-    filterjs: { requires: 'readjs', task: ['filter', filterCB] },
-    replacejs: { requires: 'filterjs', task: ['replace', replaceArgs] },
-    templatejs: { requires: 'replacejs', task: ['template', template] },
-    writejslog: {
-      requires: 'templatejs',
+    logStart: { task: ['log', 'Building language files.'] },
+    read: { requires: 'logStart', task: ['glob', input] },
+    filter: { requires: 'read', task: ['filter', filterCB] },
+    replace: { requires: 'filter', task: ['replace', replaceArgs] },
+    template: { requires: 'replace', task: ['template', template] },
+    writeLog: {
+      requires: 'template',
       task: ['log', 'Writing language files.']
     },
-    writejs: { requires: 'writejslog', task: ['dest', output] }
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
@@ -49,13 +49,10 @@ function buildCore() {
       output   = path.join(directory.build, 'lib');
 
   return {
-    logCore: { task: ['log', 'Building core file.'] },
-    readCore: { requires: 'logCore',  task: ['read', input] },
-    writeCoreLog: {
-      requires: 'readCore',
-      task: ['log', 'Writing core file.']
-    },
-    writeCore: { requires: 'writeCoreLog', task: ['dest', output] }
+    startLog: { task: ['log', 'Building core file.'] },
+    read: { requires: 'startLog',  task: ['read', input] },
+    writeLog: { requires: 'read', task: ['log', 'Writing core file.'] },
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
@@ -75,19 +72,13 @@ function buildIndex() {
       };
 
   return {
-    logIndex: { task: ['log', 'Building index file.'] },
-    readIndex: { requires: 'logIndex', task: ['glob', input] },
-    filterIndex: { requires: 'readIndex', task: ['filter', filterCB] },
-    reorderIndex: { requires: 'filterIndex', task: 'reorderDeps' },
-    templateIndex: {
-      requires: 'reorderIndex',
-      task: ['templateAll', templateArgs]
-    },
-    writeIndexLog: {
-      requires: 'templateIndex',
-      task: ['log', 'Writing index file.']
-    },
-    writeIndex: { requires: 'writeIndexLog', task: ['write', output] }
+    startLog: { task: ['log', 'Building index file.'] },
+    read: { requires: 'startLog', task: ['glob', input] },
+    filter: { requires: 'read', task: ['filter', filterCB] },
+    reorder: { requires: 'filter', task: 'reorderDeps' },
+    template: { requires: 'reorder', task: ['templateAll', templateArgs] },
+    writeLog: { requires: 'template', task: ['log', 'Writing index file.'] },
+    write: { requires: 'writeLog', task: ['write', output] }
   };
 }
 
@@ -99,13 +90,10 @@ function copyMetaFiles() {
       output = { dir: directory.build, base: '.' };
 
   return {
-    logMeta: { task: ['log', 'Copying meta files.'] },
-    readMeta: { requires: 'logMeta', task: ['glob', input] },
-    writeMetaLog: {
-      requires: 'readMeta',
-      task: ['log', 'Writing meta files.']
-    },
-    writeMeta: { requires: 'writeMetaLog', task: ['dest', output] }
+    startLog: { task: ['log', 'Copying meta files.'] },
+    read: { requires: 'startLog', task: ['glob', input] },
+    writeLog: { requires: 'read', task: ['log', 'Writing meta files.'] },
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
@@ -115,16 +103,13 @@ function buildStyles() {
       options = { encoding: 'binary', dir: output };
 
   return {
-    logcss: { task: ['log', 'Building style files.'] },
-    readcss: {
-      requires: 'logcss',
+    startLog: { task: ['log', 'Building style files.'] },
+    read: {
+      requires: 'startLog',
       task: ['glob', utility.glob(input, 'binary')]
     },
-    writecsslog: {
-      requires: 'readcss',
-      task: ['log', 'Writing style files.']
-    },
-    writecss: { requires: 'writecsslog', task: ['dest', options] }
+    writeLog: { requires: 'read', task: ['log', 'Writing style files.'] },
+    write: { requires: 'writeLog', task: ['dest', options] }
   };
 }
 
@@ -133,17 +118,14 @@ function buildPackageFile() {
       output = path.join(directory.build, 'package.json');
 
   return {
-    logpkg: { task: ['log', 'Building package.json file.'] },
-    readpkg: { requires: 'logpkg', task: ['read', input] },
-    buildpkg: {
-      requires: 'readpkg',
-      task: ['buildPackage', packageJSON]
-    },
-    writepkglog: {
-      requires: 'buildpkg',
+    startLog: { task: ['log', 'Building package.json file.'] },
+    read: { requires: 'startLog', task: ['read', input] },
+    build: { requires: 'read', task: ['buildPackage', packageJSON] },
+    writeLog: {
+      requires: 'build',
       task: ['log', 'Writing package.json file.']
     },
-    writepkg: { requires: 'writepkglog', task: ['write', output] }
+    write: { requires: 'writeLog', task: ['write', output] }
   };
 }
 

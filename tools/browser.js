@@ -31,16 +31,10 @@ function copyDocs() {
       output = path.join(directory.build, 'docs');
 
   return {
-    logDocs: { task: ['log', 'Copying documentation.'] },
-    readDocs: {
-      requires: 'logDocs',
-      task: ['glob', utility.glob(input)]
-    },
-    writeDocsLog: {
-      requires: 'readDocs',
-      task: ['log', 'Writing documentation.']
-    },
-    writeDocs: { requires: 'writeDocsLog', task: ['dest', output] }
+    startLog: { task: ['log', 'Copying documentation.'] },
+    read: { requires: 'startLog', task: ['glob', utility.glob(input)] },
+    writeLog: { requires: 'read', task: ['log', 'Writing documentation.'] },
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
@@ -55,21 +49,21 @@ function generateDemo(filterCB, readArgs) {
       };
 
   return {
-    logDemoStart: { task: ['log', 'Generating demo.'] },
-    readLanguages: { requires: 'logDemoStart', task: ['glob', readArgs] },
+    logStart: { task: ['log', 'Generating demo.'] },
+    readLanguages: { requires: 'logStart', task: ['glob', readArgs] },
     filterSnippets: { requires: 'readLanguages', task: ['filter', filterCB] },
     readSnippet: { requires: 'filterSnippets', task: 'readSnippet' },
-    templateDemo: {
+    template: {
       requires: 'readSnippet',
       task: ['templateAll', templateArgs]
     },
-    writeDemo: {
-      requires: 'templateDemo',
+    write: {
+      requires: 'template',
       task: ['write', path.join(demoRoot, 'index.html')]
     },
-    readStatic: { requires: 'logDemoStart', task: ['glob', staticArgs] },
+    readStatic: { requires: 'logStart', task: ['glob', staticArgs] },
     writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
-    readStyles: { requires: 'logDemoStart', task: ['glob', stylesArgs] },
+    readStyles: { requires: 'logStart', task: ['glob', stylesArgs] },
     writeStyles: { requires: 'readStyles', task: ['dest', destArgs] }
   };
 }
@@ -90,9 +84,9 @@ module.exports = function(commander, dir) {
         'hljs.registerLanguage(\'<%= name %>\', <%= content %>);\n';
 
   tasks = {
-    startlog: { task: ['log', 'Building highlight.js pack file.'] },
-    readCore: { requires: 'startlog', task: ['read', coreFile] },
-    read: { requires: 'startlog', task: ['glob', languages] },
+    startLog: { task: ['log', 'Building highlight.js pack file.'] },
+    readCore: { requires: 'startLog', task: ['read', coreFile] },
+    read: { requires: 'startLog', task: ['glob', languages] },
     filter: { requires: 'read', task: ['filter', filterCB] },
     reorder: { requires: 'filter', task: 'reorderDeps' },
     replace: { requires: 'reorder', task: ['replace', replaceArgs] },

@@ -19,37 +19,34 @@ function moveLanguages() {
                     ' <%= content %>);\n';
 
   return {
-    startlogjs: { task: ['log', 'Building language files.'] },
-    readjs: {
-      requires: 'startlogjs',
+    startLog: { task: ['log', 'Building language files.'] },
+    read: {
+      requires: 'startLog',
       task: ['glob', utility.glob(input)]
     },
-    replacejs: { requires: 'readjs', task: ['replace', replaceArgs] },
-    templatejs: { requires: 'replacejs', task: ['template', template] },
-    replacejs2: {
-      requires: 'templatejs',
+    replace: { requires: 'read', task: ['replace', replaceArgs] },
+    template: { requires: 'replace', task: ['template', template] },
+    replace2: {
+      requires: 'template',
       task: [ 'replaceSkippingStrings'
             , replace(regex.replaces, utility.replaceClassNames)
             ]
     },
-    replacejs3: {
-      requires: 'replacejs2',
+    replace3: {
+      requires: 'replace2',
       task: ['replace', replace(regex.classname, '$1.className')]
     },
-    compresslogjs: {
-      requires: 'replacejs3',
+    compressLog: {
+      requires: 'replace3',
       task: ['log', 'Compressing languages files.']
     },
-    minifyjs: { requires: 'compresslogjs', task: 'jsminify' },
-    renamejs: {
-      requires: 'minifyjs',
-      task: ['rename', { extname: '.min.js' }]
-    },
-    writelogjs: {
-      requires: 'renamejs',
+    minify: { requires: 'compressLog', task: 'jsminify' },
+    rename: { requires: 'minify', task: ['rename', { extname: '.min.js' }] },
+    writeLog: {
+      requires: 'rename',
       task: ['log', 'Writing language files.']
     },
-    writejs: { requires: 'writelogjs', task: ['dest', output] }
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
@@ -60,29 +57,26 @@ function moveStyles() {
       options = { dir: output, encoding: 'binary' };
 
   return {
-    startlogcss: { task: ['log', 'Building style files.'] },
-    readcss: {
-      requires: 'startlogcss',
-      task: ['glob', utility.glob(css)]
-    },
-    readcssimages: {
-      requires: 'startlogcss',
+    startLog: { task: ['log', 'Building style files.'] },
+    readCSS: { requires: 'startLog', task: ['glob', utility.glob(css)] },
+    readImages: {
+      requires: 'startLog',
       task: ['glob', utility.glob(images, 'binary')]
     },
-    compresslogcss: {
-      requires: 'readcss',
+    compressLog: {
+      requires: 'readCSS',
       task: ['log', 'Compressing style files.']
     },
-    minifycss: { requires: 'readcss', task: 'cssminify' },
-    renamecss: {
-      requires: 'minifycss',
+    minify: { requires: 'compressLog', task: 'cssminify' },
+    rename: {
+      requires: 'minify',
       task: ['rename', { extname: '.min.css' }]
     },
-    writelogcss: {
-      requires: ['renamecss', 'readcssimages'],
+    writeLog: {
+      requires: ['rename', 'readImages'],
       task: ['log', 'Writing style files.']
     },
-    writecss: { requires: 'writelogcss', task: ['dest', options] }
+    write: { requires: 'writeLog', task: ['dest', options] }
   };
 }
 
