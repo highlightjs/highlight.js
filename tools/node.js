@@ -49,13 +49,10 @@ function buildCore() {
       output   = path.join(directory.build, 'lib');
 
   return {
-    logCore: { task: ['log', 'Building core file.'] },
-    readCore: { requires: 'logCore',  task: ['read', input] },
-    writeCoreLog: {
-      requires: 'readCore',
-      task: ['log', 'Writing core file.']
-    },
-    writeCore: { requires: 'writeCoreLog', task: ['dest', output] }
+    startLog: { task: ['log', 'Building core file.'] },
+    read: { requires: 'startLog',  task: ['read', input] },
+    writeLog: { requires: 'read', task: ['log', 'Writing core file.'] },
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
