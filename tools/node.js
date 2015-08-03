@@ -103,16 +103,13 @@ function buildStyles() {
       options = { encoding: 'binary', dir: output };
 
   return {
-    logcss: { task: ['log', 'Building style files.'] },
-    readcss: {
-      requires: 'logcss',
+    startLog: { task: ['log', 'Building style files.'] },
+    read: {
+      requires: 'startLog',
       task: ['glob', utility.glob(input, 'binary')]
     },
-    writecsslog: {
-      requires: 'readcss',
-      task: ['log', 'Writing style files.']
-    },
-    writecss: { requires: 'writecsslog', task: ['dest', options] }
+    writeLog: { requires: 'read', task: ['log', 'Writing style files.'] },
+    write: { requires: 'writeLog', task: ['dest', options] }
   };
 }
 
