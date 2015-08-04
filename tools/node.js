@@ -45,8 +45,8 @@ function buildLanguages() {
 }
 
 function buildCore() {
-  var input    = path.join(directory.root, 'src', 'highlight.js'),
-      output   = path.join(directory.build, 'lib');
+  var input  = path.join(directory.root, 'src', 'highlight.js'),
+      output = path.join(directory.build, 'lib');
 
   return {
     startLog: { task: ['log', 'Building core file.'] },
