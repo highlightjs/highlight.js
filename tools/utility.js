@@ -121,11 +121,11 @@ function filterByQualifiers(blob, languages, categories) {
 // For the filter task in `tools/tasks.js`, this function will look for
 // categories and languages specificed from the CLI.
 function buildFilterCallback(qualifiers) {
-  var isCategory = _.matchesProperty(0, ':'),
-      languages  = _.reject(qualifiers, isCategory),
-      categories = _(qualifiers).filter(isCategory)
-                                .map(function(c) {return c.slice(1);})
-                                .value();
+  var result     = _.partition(qualifiers, { 0: ':' }),
+      languages  = result[1],
+      categories = _.map(result[0], function(category) {
+                     return category.slice(1)
+                   });
 
   return _.partial(filterByQualifiers, _, languages, categories);
 }
