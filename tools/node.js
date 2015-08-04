@@ -17,10 +17,7 @@ function templateAllFunc(blobs) {
     return path.basename(blob.name, '.js');
   });
 
-  return bluebird.resolve()
-    .then(function() {
-      return { names: names };
-    });
+  return bluebird.resolve({ names: names });
 }
 
 function buildLanguages() {
