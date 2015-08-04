@@ -1,49 +1,69 @@
 'use strict';
 
-var _    = require('lodash');
-var path = require('path');
+var _        = require('lodash');
+var bluebird = require('bluebird');
+var fs       = bluebird.promisifyAll(require('fs'));
+var path     = require('path');
 
+var registry = require('./tasks');
 var utility  = require('./utility');
 
 var directory;
+
+function templateAllFunc(blobs) {
+  var name = path.join('demo', 'index.html');
+
+  return bluebird.join(
+    fs.readFileAsync(name),
+    utility.getStyleNames(),
+    function(template, styles) {
+      return {
+        template: template,
+        path: path,
+        blobs: _.compact(blobs),
+        styles: styles
+      };
+    });
+}
 
 function copyDocs() {
   var input  = path.join(directory.root, 'docs', '*.rst'),
       output = path.join(directory.build, 'docs');
 
   return {
-    logDocs: { task: ['log', 'Copying documentation.'] },
-    readDocs: {
-      requires: 'logDocs',
-      task: ['glob', utility.glob(input)]
-    },
-    writeDocsLog: {
-      requires: 'readDocs',
-      task: ['log', 'Writing documentation.']
-    },
-    writeDocs: { requires: 'writeDocsLog', task: ['dest', output] }
+    startLog: { task: ['log', 'Copying documentation.'] },
+    read: { requires: 'startLog', task: ['glob', utility.glob(input)] },
+    writeLog: { requires: 'read', task: ['log', 'Writing documentation.'] },
+    write: { requires: 'writeLog', task: ['dest', output] }
   };
 }
 
 function generateDemo(filterCB, readArgs) {
-  var staticArgs = utility.glob(path.join('demo', '*.{js,css}')),
-      stylesArgs = utility.glob(path.join('src', 'styles', '*'), 'binary'),
-      demoRoot   = path.join(directory.build, 'demo'),
-      destArgs   = { dir: path.join(demoRoot, 'styles'), encoding: 'binary' };
+  var staticArgs   = utility.glob(path.join('demo', '*.{js,css}')),
+      stylesArgs   = utility.glob(path.join('src', 'styles', '*'), 'binary'),
+      demoRoot     = path.join(directory.build, 'demo'),
+      templateArgs = { callback: templateAllFunc },
+      destArgs     = {
+        dir: path.join(demoRoot, 'styles'),
+        encoding: 'binary'
+      };
 
   return {
-    logDemoStart: { task: ['log', 'Generating demo.'] },
-    readLanguages: { requires: 'logDemoStart', task: ['glob', readArgs] },
+    logStart: { task: ['log', 'Generating demo.'] },
+    readLanguages: { requires: 'logStart', task: ['glob', readArgs] },
     filterSnippets: { requires: 'readLanguages', task: ['filter', filterCB] },
     readSnippet: { requires: 'filterSnippets', task: 'readSnippet' },
-    templateDemo: { requires: 'readSnippet', task: 'templateDemo' },
-    writeDemo: {
-      requires: 'templateDemo',
+    template: {
+      requires: 'readSnippet',
+      task: ['templateAll', templateArgs]
+    },
+    write: {
+      requires: 'template',
       task: ['write', path.join(demoRoot, 'index.html')]
     },
-    readStatic: { requires: 'logDemoStart', task: ['glob', staticArgs] },
+    readStatic: { requires: 'logStart', task: ['glob', staticArgs] },
     writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
-    readStyles: { requires: 'logDemoStart', task: ['glob', stylesArgs] },
+    readStyles: { requires: 'logStart', task: ['glob', stylesArgs] },
     writeStyles: { requires: 'readStyles', task: ['dest', destArgs] }
   };
 }
@@ -64,9 +84,9 @@ module.exports = function(commander, dir) {
         'hljs.registerLanguage(\'<%= name %>\', <%= content %>);\n';
 
   tasks = {
-    startlog: { task: ['log', 'Building highlight.js pack file.'] },
-    readCore: { requires: 'startlog', task: ['read', coreFile] },
-    read: { requires: 'startlog', task: ['glob', languages] },
+    startLog: { task: ['log', 'Building highlight.js pack file.'] },
+    readCore: { requires: 'startLog', task: ['read', coreFile] },
+    read: { requires: 'startLog', task: ['glob', languages] },
     filter: { requires: 'read', task: ['filter', filterCB] },
     reorder: { requires: 'filter', task: 'reorderDeps' },
     replace: { requires: 'reorder', task: ['replace', replaceArgs] },
@@ -113,9 +133,9 @@ module.exports = function(commander, dir) {
     task: ['write', output]
   };
 
-  if(commander.target === 'browser') {
-    tasks = _.merge(copyDocs(), generateDemo(filterCB, languages), tasks);
-  }
+  tasks = (commander.target === 'browser')
+        ? [copyDocs(), generateDemo(filterCB, languages), tasks]
+        : [tasks];
 
-  return tasks;
+  return utility.toQueue(tasks, registry);
 };

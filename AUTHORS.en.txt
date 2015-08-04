@@ -180,3 +180,6 @@ Contributors:
 - Benjamin Auder <benjamin.auder@gmail.com>
 - Dotan Dimet <dotan@corky.net>
 - Manh Tuan <junookyo@gmail.com>
+- Philippe Charrière <ph.charriere@gmail.com>
+- Stefan Bechert <stefan.bechert@gmx.net>
+- Samuel Reed <sam@bitmex.com>

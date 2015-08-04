@@ -10,11 +10,11 @@ function(hljs) {
     className: 'number',
     begin: '[1-9][0-9]*', /* no leading zeros */
     relevance: 0
-  }
+  };
   var TPLABEL = {
     className: 'comment',
     begin: ':[^\\]]+'
-  }
+  };
   var TPDATA = {
     className: 'built_in',
     begin: '(AR|P|PAYLOAD|PR|R|SR|RSR|LBL|VR|UALM|MESSAGE|UTOOL|UFRAME|TIMER|\
@@ -46,7 +46,7 @@ function(hljs) {
         'Tool_Offset UF UT UFRAME_NUM UTOOL_NUM UNLOCK WAIT X Y Z W P R STRLEN ' +
         'SUBSTR FINDSTR VOFFSET',
       constant:
-        'ON OFF max_speed LPOS JPOS ENABLE DISABLE START STOP RESET',
+        'ON OFF max_speed LPOS JPOS ENABLE DISABLE START STOP RESET'
     },
     contains: [
       TPDATA,
