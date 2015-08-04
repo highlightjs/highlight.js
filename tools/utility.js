@@ -5,6 +5,8 @@ var bluebird = require('bluebird');
 var glob     = bluebird.promisifyAll(require('glob')).globAsync;
 var path     = require('path');
 
+var Queue = require('gear').Queue;
+
 var REPLACES,
     regex       = {},
     headerRegex = /^\s*\/\*((.|\r?\n)*?)\*/;
@@ -119,11 +121,11 @@ function filterByQualifiers(blob, languages, categories) {
 // For the filter task in `tools/tasks.js`, this function will look for
 // categories and languages specificed from the CLI.
 function buildFilterCallback(qualifiers) {
-  var isCategory = _.matchesProperty(0, ':'),
-      languages  = _.reject(qualifiers, isCategory),
-      categories = _(qualifiers).filter(isCategory)
-                                .map(function(c) {return c.slice(1);})
-                                .value();
+  var result     = _.partition(qualifiers, { 0: ':' }),
+      languages  = result[1],
+      categories = _.map(result[0], function(category) {
+                     return category.slice(1)
+                   });
 
   return _.partial(filterByQualifiers, _, languages, categories);
 }
@@ -153,6 +155,13 @@ function getStyleNames() {
     });
 }
 
+function toQueue(tasks, registry) {
+  return _.map(tasks, function(task) {
+    return new Queue({ registry: registry })
+      .tasks(task);
+  });
+}
+
 module.exports = {
   buildFilterCallback: buildFilterCallback,
   getStyleNames: getStyleNames,
@@ -160,5 +169,6 @@ module.exports = {
   parseHeader: parseHeader,
   regex: regex,
   replace: replace,
-  replaceClassNames: replaceClassNames
+  replaceClassNames: replaceClassNames,
+  toQueue: toQueue
 };

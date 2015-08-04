@@ -45,14 +45,14 @@ function(hljs) {
         'max-src-conn-rate overload flush' +
         'scrub|5 max-mss min-ttl no-df|10 random-id',
       literal:
-        'all any no-route self urpf-failed egress|5 unknown',
+        'all any no-route self urpf-failed egress|5 unknown'
     },
     contains: [
       hljs.HASH_COMMENT_MODE,
       hljs.NUMBER_MODE,
       hljs.QUOTE_STRING_MODE,
       MACRO,
-      TABLE,
+      TABLE
     ]
   };
 }

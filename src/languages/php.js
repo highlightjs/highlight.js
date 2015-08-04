@@ -66,8 +66,17 @@ function(hljs) {
       ),
       {
         className: 'string',
-        begin: '<<<[\'"]?\\w+[\'"]?$', end: '^\\w+;',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        begin: /<<<['"]?\w+['"]?$/, end: /^\w+;?$/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          {
+            className: 'subst',
+            variants: [
+              {begin: /\$\w+/},
+              {begin: /\{\$/, end: /\}/}
+            ]
+          }
+        ]
       },
       PREPROCESSOR,
       VARIABLE,

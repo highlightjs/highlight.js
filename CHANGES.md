@@ -1,3 +1,19 @@
+## Master [UNRELEASED]
+
+New languages:
+
+- *Golo* by [Philippe Charrière][]
+- *GAMS* by [Stefan Bechert][]
+- *IRPF90* by [Anthony Scemama][]
+
+Notable fixes and improvements to existing languages:
+
+- JavaScript highlighting no longer fails with ES6 default parameters
+
+[Philippe Charrière]: https://github.com/k33g
+[Stefan Bechert]: https://github.com/b-pos465
+[Anthony Scemama]: https://github.com/scemama
+
 ## Version 8.7
 
 New languages:

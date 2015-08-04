@@ -1,16 +1,13 @@
 'use strict';
 
 var _        = require('lodash');
-var bluebird = require('bluebird');
 var del      = require('del');
-var fs       = bluebird.promisifyAll(require('fs'));
 var gear     = require('gear');
 var path     = require('path');
 var utility  = require('./utility');
 
-var parseHeader   = utility.parseHeader;
-var getStyleNames = utility.getStyleNames;
-var tasks         = require('gear-lib');
+var parseHeader = utility.parseHeader;
+var tasks       = require('gear-lib');
 
 tasks.clean = function(directories, blobs, done) {
   directories = _.isString(directories) ? [directories] : directories;
@@ -72,16 +69,15 @@ tasks.template = function(template, blob, done) {
   return done(null, new gear.Blob(content, blob));
 };
 
-tasks.templateAll = function(template, blobs, done) {
-  var names, content;
+tasks.templateAll = function(options, blobs, done) {
+  return options.callback(blobs)
+    .then(function(data) {
+      var template = options.template || data.template,
+          content  = _.template(template)(data);
 
-  names = _.map(blobs, function(blob) {
-    return path.basename(blob.name, '.js');
-  });
-
-  content = _.template(template)({ names: names });
-
-  return done(null, [new blobs[0].constructor(content, blobs)]);
+      return done(null, [new gear.Blob(content)]);
+    })
+    .catch(done);
 };
 tasks.templateAll.type = 'collect';
 
@@ -216,25 +212,6 @@ tasks.readSnippet = function(options, blob, done) {
 
   gear.Blob.readFile(snippetName, 'utf8', onRead, false);
 };
-
-// Translate the template for the demo in `demo/index.html` to a usable HTML
-// file.
-tasks.templateDemo = function(options, blobs, done) {
-  var name        = path.join('demo', 'index.html'),
-      getTemplate = fs.readFileAsync(name);
-
-  bluebird.join(getTemplate, getStyleNames(), function(template, styles) {
-    var content = _.template(template)({
-                    path: path,
-                    blobs: _.compact(blobs),
-                    styles: styles
-                  });
-
-    return done(null, [new gear.Blob(content)]);
-  })
-  .catch(done);
-};
-tasks.templateDemo.type = 'collect';
 
 // Packages up included languages into the core `highlight.js` and moves the
 // result into the `build` directory.

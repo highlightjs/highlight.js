@@ -5,7 +5,9 @@ Description: An extensible programming language, based on parse tree rewriting (
 */
 
 function(hljs) {
-  var BUILTIN_MODULES = 'ObjectLoader Animate MovieCredits Slides Filters Shading Materials LensFlare Mapping VLCAudioVideo StereoDecoder PointCloud NetworkAccess RemoteControl RegExp ChromaKey Snowfall NodeJS Speech Charts';
+  var BUILTIN_MODULES =
+    'ObjectLoader Animate MovieCredits Slides Filters Shading Materials LensFlare Mapping VLCAudioVideo ' +
+    'StereoDecoder PointCloud NetworkAccess RemoteControl RegExp ChromaKey Snowfall NodeJS Speech Charts';
 
   var XL_KEYWORDS = {
     keyword:
@@ -14,8 +16,15 @@ function(hljs) {
     literal:
       'true false nil',
     built_in:
-      'in mod rem and or xor not abs sign floor ceil sqrt sin cos tan asin acos atan exp expm1 log log2 log10 log1p pi at ' +
-      'text_length text_range text_find text_replace contains page slide basic_slide title_slide title subtitle fade_in fade_out fade_at clear_color color line_color line_width texture_wrap texture_transform texture scale_?x scale_?y scale_?z? translate_?x translate_?y translate_?z? rotate_?x rotate_?y rotate_?z? rectangle circle ellipse sphere path line_to move_to quad_to curve_to theme background contents locally time mouse_?x mouse_?y mouse_buttons ' +
+      'in mod rem and or xor not abs sign floor ceil sqrt sin cos tan asin ' +
+      'acos atan exp expm1 log log2 log10 log1p pi at text_length text_range ' +
+      'text_find text_replace contains page slide basic_slide title_slide ' +
+      'title subtitle fade_in fade_out fade_at clear_color color line_color ' +
+      'line_width texture_wrap texture_transform texture scale_?x scale_?y ' +
+      'scale_?z? translate_?x translate_?y translate_?z? rotate_?x rotate_?y ' +
+      'rotate_?z? rectangle circle ellipse sphere path line_to move_to ' +
+      'quad_to curve_to theme background contents locally time mouse_?x ' +
+      'mouse_?y mouse_buttons ' +
       BUILTIN_MODULES
   };
 
