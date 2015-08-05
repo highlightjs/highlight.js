@@ -62,7 +62,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 
 .hljs-comment,
 .hljs-annotation,
-.smartquote,
 .hljs-blockquote,
 .hljs-horizontal_rule,
 .hljs-doctype,
@@ -81,7 +80,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-section,
 .hljs-type,
 .hljs-selector-id,
-.rsl .hljs-built_in,
 .tex .hljs-special {
   font-weight: bold;
 }

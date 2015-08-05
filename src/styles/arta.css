@@ -16,7 +16,6 @@ Author: pumbur <pumbur@pumbur.net>
   color: #aaa;
 }
 
-.profile .hljs-header *,
 .hljs-section {
   color: #fff;
 }
@@ -45,11 +44,9 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-built_in,
 .hljs-literal,
 .hljs-type,
-.mel .hljs-variable,
 .django .hljs-variable,
 .smalltalk .method,
-.hljs-attribute,
-.parser3 .hljs-variable {
+.hljs-attribute {
   color: #32aaee;
 }
 
@@ -65,16 +62,13 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-deletion,
 .hljs-template_tag,
 .smalltalk .hljs-class,
-.rsl .hljs-built_in,
-.tail,
 .tex .hljs-formula,
 .tex .hljs-formula * {
   color: #bb1166;
 }
 
 .hljs-section,
-.hljs-doctag,
-.profile .hljs-header {
+.hljs-doctag {
   font-weight: bold;
 }
 

@@ -35,7 +35,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-name,
 .hljs-selector-id,
 .hljs-selector-class,
-.rsl .hljs-built_in,
 .hljs-variable,
 .tex .hljs-special {
   color: #fff;
@@ -68,7 +67,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-title,
 .hljs-section,
 .hljs-name,
-.rsl .hljs-built_in,
 .tex .hljs-command,
 .tex .hljs-special {
   font-weight: bold;

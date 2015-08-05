@@ -21,8 +21,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-literal {
   color: #aa0d91;
 }
-.method,
-.setting .hljs-value,
+
 .tex .hljs-command,
 .hljs-name {
   color: #008;
@@ -57,7 +56,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-attr,
 .hljs-doctype,
 .hljs-built_in,
-.setting,
 .hljs-params {
   color: #5c2699;
 }

@@ -14,8 +14,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-subst,
-.hljs-title,
-.json .hljs-value {
+.hljs-title {
   font-weight: normal;
   color: #000;
 }

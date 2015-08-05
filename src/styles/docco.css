@@ -17,7 +17,6 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-keyword,
-.assignment,
 .hljs-literal,
 .hljs-subst {
   color: #954121;
@@ -73,8 +72,6 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
   color: #990073;
 }
 
-.builtin,
-.constructor,
 .hljs-built_in {
   color: #0086b3;
 }

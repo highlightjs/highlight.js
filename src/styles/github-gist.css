@@ -28,25 +28,17 @@
 }
 
 .hljs-keyword,
-.hljs-type,
-.objectivec .hljs-preprocessor,
-.sql .hljs-built_in {
+.hljs-type {
   color: #a71d5d;
 }
 
 .hljs-literal,
 .hljs-symbol,
 .hljs-attribute,
-.cs .hljs-number,
-.cs .hljs-built_in,
-.http .hljs-literal,
-.http .hljs-attribute,
-.json .hljs-number,
 .markdown .hljs-link_reference,
 .objectivec .hljs-literal,
 .objectivec .hljs-number,
-.objectivec .hljs-built_in,
-.sql .hljs-number {
+.objectivec .hljs-built_in {
   color: #0086b3;
 }
 
@@ -55,8 +47,6 @@
   color: #63a35c;
 }
 
-.cs .hljs-preprocessor,
-.cs .hljs-preprocessor .hljs-keyword,
 .hljs-tag {
   color: #333333;
 }
