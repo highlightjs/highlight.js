@@ -93,10 +93,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   font-weight: bold;
 }
 
-.method .hljs-id {
-  color: #000;
-}
-
 .hljs-selector-id,
 .hljs-selector-class {
   color: #9b703f;
