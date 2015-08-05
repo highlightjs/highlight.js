@@ -14,7 +14,9 @@
 .hljs-name,
 .hljs-regexp,
 .hljs-name,
-.hljs-name {
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
   color: #be4678;
 }
 

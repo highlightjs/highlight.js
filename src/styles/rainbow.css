@@ -27,7 +27,10 @@ Style with support for rainbow parens
   color: #cc99cc;
 }
 
-.hljs-number { color: #f99157; }
+.hljs-number,
+.hljs-selector-attr {
+  color: #f99157;
+}
 
 .hljs-command,
 .hljs-string,
@@ -46,13 +49,13 @@ Style with support for rainbow parens
 }
 
 .hljs-variable,
+.hljs-selector-id,
 .smalltalk .hljs-number,
 .hljs-class .hljs-title {
    color: #ffcc66;
 }
 
 .hljs-section,
-.hljs-attribute,
 .hljs-name,
 .django .hljs-tag .hljs-keyword {
   font-weight: bold;
@@ -75,6 +78,7 @@ Style with support for rainbow parens
   background: #eee8d5;
 }
 
-.hljs-attr {
+.hljs-attr,
+.hljs-attribute {
   color: #81a2be;
 }

@@ -25,11 +25,13 @@
 }
 
 .hljs-attribute,
+.hljs-selector-id,
 .method {
   color: #ffffb6;
 }
 
 .hljs-string,
+.hljs-selector-attr,
 .hljs-filter .hljs-argument,
 .hljs-addition {
   color: #a8ff60;

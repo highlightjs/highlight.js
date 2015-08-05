@@ -368,7 +368,7 @@ function(hljs) {
         begin: '\\.[a-zA-Z][a-zA-Z0-9_-]*' + TAG_END,
         returnBegin: true,
         contains: [
-          {className: 'name', begin: '\\.[a-zA-Z][a-zA-Z0-9_-]*'}
+          {className: 'selector-class', begin: '\\.[a-zA-Z][a-zA-Z0-9_-]*'}
         ]
       },
 
@@ -377,7 +377,7 @@ function(hljs) {
         begin: '\\#[a-zA-Z][a-zA-Z0-9_-]*' + TAG_END,
         returnBegin: true,
         contains: [
-          {className: 'name', begin: '\\#[a-zA-Z][a-zA-Z0-9_-]*'}
+          {className: 'selector-id', begin: '\\#[a-zA-Z][a-zA-Z0-9_-]*'}
         ]
       },
 

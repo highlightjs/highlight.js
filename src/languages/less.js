@@ -110,10 +110,10 @@ function(hljs) {
       IDENT_MODE('keyword',  'all\\b'),
       IDENT_MODE('variable', '@{'  + IDENT_RE + '}'),     // otherwise it’s identified as tag
       IDENT_MODE('keyword',  INTERP_IDENT_RE + '%?', 0), // '%' for more consistent coloring of @keyframes "tags"
-      IDENT_MODE('name',     '#'   + INTERP_IDENT_RE),
-      IDENT_MODE('name',     '\\.' + INTERP_IDENT_RE, 0),
+      IDENT_MODE('selector-id', '#' + INTERP_IDENT_RE),
+      IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),
       IDENT_MODE('keyword',  '&', 0),
-      {begin: '\\[', end: '\\]'},
+      {className: 'selector-attr', begin: '\\[', end: '\\]'},
       {begin: '\\(', end: '\\)', contains: VALUE_WITH_RULESETS}, // argument list of parametric mixins
       {begin: '!important'} // eat !important after mixin call or it will be colored as tag
     ]

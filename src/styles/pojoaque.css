@@ -70,6 +70,11 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
   color: #dc322f;
 }
 
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #d3a60c;
+}
+
 .tex .hljs-formula {
   background: #073642;
 }

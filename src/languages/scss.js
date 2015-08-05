@@ -38,15 +38,15 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
-        className: 'name', begin: '\\#[A-Za-z0-9_-]+',
+        className: 'selector-id', begin: '\\#[A-Za-z0-9_-]+',
         relevance: 0
       },
       {
-        className: 'name', begin: '\\.[A-Za-z0-9_-]+',
+        className: 'selector-class', begin: '\\.[A-Za-z0-9_-]+',
         relevance: 0
       },
       {
-        begin: '\\[', end: '\\]',
+        className: 'selector-attr', begin: '\\[', end: '\\]',
         illegal: '$'
       },
       {

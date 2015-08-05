@@ -45,6 +45,8 @@ based on dark.css by Ivan Sagalaev
 
 .hljs-title,
 .hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
 .hljs-section,
 .hljs-type,
 .tex .hljs-command {

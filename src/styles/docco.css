@@ -33,7 +33,8 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
   color: #219161;
 }
 
-.hljs-id,
+.hljs-selector-id,
+.hljs-selector-class,
 .hljs-section,
 .hljs-type {
   color: #19469d;

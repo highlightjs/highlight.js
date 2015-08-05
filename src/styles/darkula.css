@@ -32,7 +32,8 @@ Darkula color scheme from the JetBrains family of IDEs
   color: #6896ba;
 }
 
-.hljs-code {
+.hljs-code,
+.hljs-selector-class {
   color: #a6e22e;
 }
 
@@ -65,6 +66,8 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-type,
 .hljs-built_in,
 .hljs-symbol,
+.hljs-selector-id,
+.hljs-selector-attr,
 .django .hljs-template_tag,
 .django .hljs-variable,
 .django .hljs-filter .hljs-argument,

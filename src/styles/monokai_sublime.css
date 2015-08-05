@@ -36,7 +36,8 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .hljs-code,
 .hljs-title,
-.hljs-section {
+.hljs-section,
+.hljs-selector-class {
   color: #a6e22e;
 }
 
@@ -75,6 +76,8 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-string,
 .hljs-type,
 .hljs-built_in,
+.hljs-selector-id,
+.hljs-selector-attr,
 .django .hljs-template_tag,
 .django .hljs-variable,
 .django .hljs-filter .hljs-argument,

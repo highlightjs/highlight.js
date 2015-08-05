@@ -38,7 +38,9 @@
   color: #62c8f3;
 }
 
-.hljs-variable {
+.hljs-variable,
+.hljs-selector-id,
+.hljs-selector-class {
   color: #ade5fc;
 }
 

@@ -102,6 +102,8 @@ Date: 2013-04-02
 }
 
 .hljs-tag,
-.hljs-name {
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
   color: #007700;
 }

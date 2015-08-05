@@ -63,7 +63,8 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-special,
 .hljs-doctag,
 .hljs-addition,
-.hljs-regexp {
+.hljs-regexp,
+.hljs-selector-attr {
   color: #b5bd68;
 }
 
@@ -73,7 +74,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-code,
 .hljs-expression,
 .hljs-localvars,
-.hljs-id,
+.hljs-selector-id,
 .hljs-variable .hljs-filter,
 .hljs-variable .hljs-filter .hljs-keyword,
 .hljs-template_tag .hljs-filter .hljs-keyword {
@@ -108,7 +109,8 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-link_reference,
 .hljs-blockquote,
 .hljs-header,
-.hljs-section {
+.hljs-section,
+.hljs-selector-class {
   color: #de935f;
 }
 

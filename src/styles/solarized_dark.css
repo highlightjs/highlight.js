@@ -42,7 +42,8 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-localvars,
 .hljs-built_in,
 .hljs-name,
-.hljs-id {
+.hljs-selector-id,
+.hljs-selector-class {
   color: #268bd2;
 }
 
@@ -64,7 +65,8 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-symbol,
 .hljs-special,
 .hljs-subst,
-.hljs-meta {
+.hljs-meta,
+.hljs-selector-attr {
   color: #cb4b16;
 }
 

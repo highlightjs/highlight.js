@@ -64,13 +64,10 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   text-decoration: underline;
 }
 
-
-
 .hljs-params {
   color: #d0d0ff;
 }
 
-,
 .hljs-attribute,
 .tex .hljs-special {
   color: #cda869;
@@ -103,6 +100,14 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   color: #e6e1dc;
   display: inline-block;
   width: 100%;
+}
+
+.hljs-selector-class {
+  color: #9b703f;
+}
+
+.hljs-selector-id {
+  color: #8b98ab;
 }
 
 .tex .hljs-formula {

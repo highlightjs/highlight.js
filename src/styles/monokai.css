@@ -48,6 +48,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-type,
 .hljs-preprocessor,
 .hljs-built_in,
+.hljs-selector-attr,
 .django .hljs-template_tag,
 .django .hljs-variable,
 .django .hljs-filter .hljs-argument,
@@ -79,6 +80,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-header,
 .hljs-section,
 .hljs-type,
+.hljs-selector-id,
 .rsl .hljs-built_in,
 .tex .hljs-special {
   font-weight: bold;

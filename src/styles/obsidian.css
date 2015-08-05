@@ -13,6 +13,7 @@
 
 .hljs-keyword,
 .hljs-literal,
+.hljs-selector-id,
 .tex .hljs-special {
   color: #93c763;
 }
@@ -53,6 +54,7 @@
 .hljs-type,
 .hljs-preprocessor,
 .hljs-built_in,
+.hljs-selector-attr,
 .django .hljs-template_tag,
 .django .hljs-variable,
 .django .hljs-filter .hljs-argument,
@@ -78,6 +80,10 @@
 .hljs-meta,
 .tex .hljs-formula {
   color: #818e96;
+}
+
+.hljs-selector-class {
+  color: #A082BD
 }
 
 .hljs-keyword,

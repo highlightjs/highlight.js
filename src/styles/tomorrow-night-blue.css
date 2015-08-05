@@ -12,6 +12,8 @@
 .hljs-variable,
 .hljs-tag,
 .hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
 .hljs-regexp,
 .hljs-deletion {
   color: #ff9da4;

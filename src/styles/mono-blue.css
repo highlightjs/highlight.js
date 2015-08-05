@@ -39,7 +39,9 @@
 .hljs-link_label,
 .hljs-blockquote,
 .hljs-header,
-.hljs-name {
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
   color: #0048ab;
 }
 

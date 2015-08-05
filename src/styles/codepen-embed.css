@@ -34,6 +34,8 @@
 .hljs-section,
 .hljs-title,
 .hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
 .hljs-type,
 .hljs-attribute {
   color: #9b869b;

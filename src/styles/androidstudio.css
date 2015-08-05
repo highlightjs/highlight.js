@@ -49,6 +49,8 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 }
 
 .hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
 .hljs-doctype {
   color: #e8bf6a;
 }

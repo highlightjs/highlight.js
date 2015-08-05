@@ -54,7 +54,9 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs-keyword,
-.hljs-name {
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
   color: #6644aa;
 }
 
