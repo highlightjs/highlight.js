@@ -26,7 +26,7 @@ tasks.reorderDeps = function(options, blobs, done) {
   _.each(blobs, function(blob) {
     var basename = path.basename(blob.name),
         fileInfo = parseHeader(blob.result),
-        extra = {blob: blob, processed: false};
+        extra = { blob: blob, processed: false };
 
     buffer[basename] = _.merge(extra, fileInfo || {});
   });
@@ -89,7 +89,7 @@ tasks.rename = function(options, blob, done) {
 
   name = name.replace(ext, options.extname);
 
-  return done(null, new gear.Blob(blob.result, {name: name}));
+  return done(null, new gear.Blob(blob.result, { name: name }));
 };
 
 // Adds the contributors from `AUTHORS.en.txt` onto the `package.json` file
@@ -205,7 +205,7 @@ tasks.readSnippet = function(options, blob, done) {
   function onRead(error, blob) {
     if(error) return done(error); // ignore missing snippets
 
-    var meta = {name: name + '.js', fileInfo: fileInfo};
+    var meta = { name: name + '.js', fileInfo: fileInfo };
 
     return done(null, new gear.Blob(blob.result, meta));
   }
