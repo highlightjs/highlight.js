@@ -57,7 +57,7 @@ REPLACES = {
   'illegalRe': 'iR',
   'lexemesRe': 'lR',
   'terminators': 't',
-  'terminator_end': 'tE',
+  'terminator_end': 'tE'
 };
 
 regex.replaces = new RegExp(
