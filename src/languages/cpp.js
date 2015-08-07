@@ -34,6 +34,33 @@ function(hljs) {
     ]
   };
 
+  var PREPROCESSOR =       {
+    className: 'preprocessor',
+    begin: '#', end: '$',
+    keywords: 'if else elif endif define undef warning error line ' +
+              'pragma ifdef ifndef',
+    contains: [
+      {
+        begin: /\\\n/, relevance: 0
+      },
+      {
+        beginKeywords: 'include', end: '$',
+        contains: [
+          STRINGS,
+          {
+            className: 'string',
+            begin: '<', end: '>',
+            illegal: '\\n',
+          }
+        ]
+      },
+      STRINGS,
+      NUMBERS,
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE
+    ]
+  };
+
   var FUNCTION_TITLE = hljs.IDENT_RE + '\\s*\\(';
 
   var CPP_KEYWORDS = {
@@ -58,6 +85,7 @@ function(hljs) {
       'vfprintf vprintf vsprintf',
     literal: 'true false nullptr NULL'
   };
+
   return {
     aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp'],
     keywords: CPP_KEYWORDS,
@@ -68,32 +96,7 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       NUMBERS,
       STRINGS,
-      {
-        className: 'preprocessor',
-        begin: '#', end: '$',
-        keywords: 'if else elif endif define undef warning error line ' +
-                  'pragma ifdef ifndef',
-        contains: [
-          {
-            begin: /\\\n/, relevance: 0
-          },
-          {
-            beginKeywords: 'include', end: '$',
-            contains: [
-              STRINGS,
-              {
-                className: 'string',
-                begin: '<', end: '>',
-                illegal: '\\n',
-              }
-            ]
-          },
-          STRINGS,
-          NUMBERS,
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
-        ]
-      },
+      PREPROCESSOR,
       {
         begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
         keywords: CPP_KEYWORDS,
@@ -115,6 +118,7 @@ function(hljs) {
         returnBegin: true, end: /[{;=]/,
         excludeEnd: true,
         keywords: CPP_KEYWORDS,
+        illegal: /[^\w\s\*&]/,
         contains: [
           {
             begin: FUNCTION_TITLE, returnBegin: true,
@@ -134,7 +138,8 @@ function(hljs) {
             ]
           },
           hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
+          hljs.C_BLOCK_COMMENT_MODE,
+          PREPROCESSOR
         ]
       }
     ]
