@@ -25,7 +25,8 @@ function (hljs) {
         contains: [
           {
             begin: '/',
-            end: '/'
+            end: '/',
+            contains: [hljs.NUMBER_MODE]
           }
         ]
       },
@@ -33,6 +34,7 @@ function (hljs) {
         className: 'string',
         begin: '\\*{3}', end: '\\*{3}'
       },
+      hljs.NUMBER_MODE,
       {
         className: 'number',
         begin: '\\$[a-zA-Z0-9]+'
