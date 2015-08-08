@@ -26,7 +26,7 @@ tasks.reorderDeps = function(options, blobs, done) {
   _.each(blobs, function(blob) {
     var basename = path.basename(blob.name),
         fileInfo = parseHeader(blob.result),
-        extra = {blob: blob, processed: false};
+        extra = { blob: blob, processed: false };
 
     buffer[basename] = _.merge(extra, fileInfo || {});
   });
@@ -89,7 +89,7 @@ tasks.rename = function(options, blob, done) {
 
   name = name.replace(ext, options.extname);
 
-  return done(null, new gear.Blob(blob.result, {name: name}));
+  return done(null, new gear.Blob(blob.result, { name: name }));
 };
 
 // Adds the contributors from `AUTHORS.en.txt` onto the `package.json` file
@@ -145,7 +145,8 @@ tasks.replaceSkippingStrings = function(params, blob, done) {
       // We found a starter sequence: either a `//` or a "quote"
       // In the case of `//` our terminator is the end of line.
       // Otherwise it's either a matching quote or an escape symbol.
-      terminator = match[0] !== '//' ? new RegExp('[' + match[0] + '\\\\]') : /$/m;
+      terminator = match[0] !== '//' ? new RegExp('[' + match[0] + '\\\\]')
+                                     : /$/m;
       start      = offset;
       offset    += 1;
 
@@ -205,7 +206,7 @@ tasks.readSnippet = function(options, blob, done) {
   function onRead(error, blob) {
     if(error) return done(error); // ignore missing snippets
 
-    var meta = {name: name + '.js', fileInfo: fileInfo};
+    var meta = { name: name + '.js', fileInfo: fileInfo };
 
     return done(null, new gear.Blob(blob.result, meta));
   }
