@@ -37,8 +37,7 @@ Stylable classes
 |                          | instructions, preprocessor directive, etc.        |
 +--------------------------+---------------------------------------------------+
 | name                     | Name of an XML tag, the first word in an          |
-|                          | s-expression. Also, #id and .class selectors in   |
-|                          | CSS.                                              |
+|                          | s-expression.                                     |
 +--------------------------+---------------------------------------------------+
 | number                   | Number, including units and modifiers, if any.    |
 +--------------------------+---------------------------------------------------+
