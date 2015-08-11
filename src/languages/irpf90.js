@@ -12,7 +12,7 @@ function(hljs) {
   };
 
   var F_KEYWORDS = {
-    constant: '.False. .True.',
+    literal: '.False. .True.',
     type: 'integer real character complex logical dimension allocatable|10 parameter ' +
       'external implicit|10 none double precision assign intent optional pointer ' +
       'target in out common equivalence data',
