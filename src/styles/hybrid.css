@@ -25,10 +25,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 }
 
 /*foreground color*/
-.hljs,
-.hljs-expression .hljs-variable,
-.hljs-expression .hljs-begin-block,
-.hljs-expression .hljs-end-block {
+.hljs {
   color: #c5c8c6;
 }
 
@@ -69,15 +66,11 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 }
 
 /*color: fg_purple*/
-.hljs-variable,
 .hljs-attribute,
 .hljs-code,
 .hljs-expression,
 .hljs-localvars,
-.hljs-selector-id,
-.hljs-variable .hljs-filter,
-.hljs-variable .hljs-filter .hljs-keyword,
-.hljs-template_tag .hljs-filter .hljs-keyword {
+.hljs-selector-id {
  color: #b294bb;
 }
 
@@ -97,9 +90,9 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-subst,
 .hljs-horizontal_rule,
 .hljs-preprocessor .hljs-keyword,
-.hljs-template_tag,
 .hljs-variable,
-.hljs-variable .hljs-filter .hljs-argument {
+.hljs-template-tag,
+.hljs-template-variable {
   color: #8abeb7;
 }
 

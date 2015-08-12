@@ -51,13 +51,13 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-tag,
 .hljs-name,
-.hljs-attribute,
-.django .hljs-tag .hljs-keyword {
+.hljs-attribute {
   color: #000080;
   font-weight: normal;
 }
 
 .hljs-variable,
+.hljs-template-variable,
 .instancevar {
   color: #008080;
 }

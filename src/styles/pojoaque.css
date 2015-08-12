@@ -45,6 +45,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 }
 
 .hljs-variable,
+.hljs-template-variable,
 .smalltalk .hljs-number,
 .hljs-class .hljs-title,
 .hljs-type,

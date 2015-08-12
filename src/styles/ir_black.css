@@ -54,6 +54,7 @@
 
 .hljs-symbol,
 .hljs-variable,
+.hljs-template-variable,
 .hljs-literal {
   color: #c6c5fe;
 }

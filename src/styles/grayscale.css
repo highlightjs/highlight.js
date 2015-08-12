@@ -55,8 +55,7 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
   font-weight: bold;
 }
 
-.hljs-tag,
-.django .hljs-tag .hljs-keyword {
+.hljs-tag {
   color: #333;
 }
 

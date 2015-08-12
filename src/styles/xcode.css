@@ -28,6 +28,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 .hljs-variable,
+.hljs-template-variable,
 .tex .hljs-special {
   color: #660;
 }
