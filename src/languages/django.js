@@ -8,7 +8,6 @@ Category: template
 
 function(hljs) {
   var FILTER = {
-    className: 'filter',
     begin: /\|[A-Za-z]+:?/,
     keywords:
       'truncatewords removetags linebreaksbr yesno get_digit timesince random striptags ' +
@@ -20,8 +19,8 @@ function(hljs) {
       'escapejs force_escape iriencode last safe safeseq truncatechars localize unlocalize ' +
       'localtime utc timezone',
     contains: [
-      {className: 'argument', begin: /"/, end: /"/},
-      {className: 'argument', begin: /'/, end: /'/}
+      hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE
     ]
   };
 
@@ -33,22 +32,32 @@ function(hljs) {
       hljs.COMMENT(/\{%\s*comment\s*%}/, /\{%\s*endcomment\s*%}/),
       hljs.COMMENT(/\{#/, /#}/),
       {
-        className: 'template_tag',
+        className: 'template-tag',
         begin: /\{%/, end: /%}/,
-        keywords:
-          'comment endcomment load templatetag ifchanged endifchanged if endif firstof for ' +
-          'endfor in ifnotequal endifnotequal widthratio extends include spaceless ' +
-          'endspaceless regroup by as ifequal endifequal ssi now with cycle url filter ' +
-          'endfilter debug block endblock else autoescape endautoescape csrf_token empty elif ' +
-          'endwith static trans blocktrans endblocktrans get_static_prefix get_media_prefix ' +
-          'plural get_current_language language get_available_languages ' +
-          'get_current_language_bidi get_language_info get_language_info_list localize ' +
-          'endlocalize localtime endlocaltime timezone endtimezone get_current_timezone ' +
-          'verbatim',
-        contains: [FILTER]
+        contains: [
+          {
+            className: 'name',
+            begin: /\w+/,
+            keywords:
+              'comment endcomment load templatetag ifchanged endifchanged if endif firstof for ' +
+              'endfor ifnotequal endifnotequal widthratio extends include spaceless ' +
+              'endspaceless regroup ifequal endifequal ssi now with cycle url filter ' +
+              'endfilter debug block endblock else autoescape endautoescape csrf_token empty elif ' +
+              'endwith static trans blocktrans endblocktrans get_static_prefix get_media_prefix ' +
+              'plural get_current_language language get_available_languages ' +
+              'get_current_language_bidi get_language_info get_language_info_list localize ' +
+              'endlocalize localtime endlocaltime timezone endtimezone get_current_timezone ' +
+              'verbatim',
+            starts: {
+              endsWithParent: true,
+              keywords: 'in by as',
+              contains: [FILTER]
+            }
+          }
+        ]
       },
       {
-        className: 'variable',
+        className: 'template-variable',
         begin: /\{\{/, end: /}}/,
         contains: [FILTER]
       }
