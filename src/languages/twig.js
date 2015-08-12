@@ -51,13 +51,23 @@ function(hljs) {
       {
         className: 'template_tag',
         begin: /\{%/, end: /%}/,
-        keywords: TAGS,
-        contains: [FILTER, FUNCTIONS]
+        contains: [
+          {
+            className: 'name',
+            begin: /\w+/,
+            keywords: TAGS,
+            starts: {
+              endsWithParent: true,
+              contains: [FILTER, FUNCTIONS],
+              relevance: 0
+            }
+          }
+        ]
       },
       {
         className: 'variable',
         begin: /\{\{/, end: /}}/,
-        contains: [FILTER, FUNCTIONS]
+        contains: ['self', FILTER, FUNCTIONS]
       }
     ]
   };

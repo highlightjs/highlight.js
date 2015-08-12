@@ -51,7 +51,8 @@ function(hljs) {
             starts: {
               endsWithParent: true,
               keywords: 'in by as',
-              contains: [FILTER]
+              contains: [FILTER],
+              relevance: 0
             }
           }
         ]
