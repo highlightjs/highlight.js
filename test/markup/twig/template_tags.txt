@@ -9,13 +9,3 @@
 {% endif %}
 
 {% set user = json_encode(user) %}
-
-{{ random(['apple', 'orange', 'citrus']) }}
-
-{{ include(template_from_string("Hello {{ name }}")) }}
-
-
-{#
-Comments may be long and multiline.
-Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
-#}
