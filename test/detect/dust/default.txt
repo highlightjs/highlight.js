@@ -2,6 +2,6 @@
 
 <ul>
   {#users}
-  <li {hello}}>{firstName}</li>{~n}
+  <li {hello}>{firstName}</li>{~n}
   {/users}
 </ul>
