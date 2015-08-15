@@ -72,14 +72,14 @@ describe('no highlighting', function() {
     actual.should.equal(expected);
   });
 
-  it('should highlight class names contenting text at the start', function() {
+  it('should highlight class names containing text at the start', function() {
     var expected = this.expected.javascript,
         actual   = this.blocks[8];
 
     actual.should.equal(expected);
   });
 
-  it('should highlight class names contenting text at the end', function() {
+  it('should highlight class names containing text at the end', function() {
     var expected = this.expected.javascript,
         actual   = this.blocks[9];
 
