@@ -40,7 +40,7 @@ https://highlightjs.org/
   }
 
   function isNotHighlighted(language) {
-    return /no-?highlight|plain|text/.test(language);
+    return /^(no-?highlight|plain|text)$/.test(language);
   }
 
   function blockLanguage(block) {
