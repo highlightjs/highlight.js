@@ -10,7 +10,9 @@ describe('no highlighting', function() {
     this.expected = {
       html:   '&lt;div id="contents"&gt;\n  ' +
               '&lt;p&gt;Hello, World!\n&lt;/div&gt;',
-      python: 'for x in [1, 2, 3]: count(x)'
+      python: 'for x in [1, 2, 3]: count(x)',
+      javascript: '<span class="hljs-keyword">var</span> x = ' +
+                  '<span class="hljs-string">\'foo\'</span>;'
     };
   });
 
@@ -66,6 +68,20 @@ describe('no highlighting', function() {
   it('should keep block unchanged (unsupported prefixed language)', function() {
     var expected = this.expected.python,
         actual   = this.blocks[7];
+
+    actual.should.equal(expected);
+  });
+
+  it('should highlight class names containing text at the start', function() {
+    var expected = this.expected.javascript,
+        actual   = this.blocks[8];
+
+    actual.should.equal(expected);
+  });
+
+  it('should highlight class names containing text at the end', function() {
+    var expected = this.expected.javascript,
+        actual   = this.blocks[9];
 
     actual.should.equal(expected);
   });
