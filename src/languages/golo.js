@@ -22,7 +22,7 @@ function(hljs) {
         hljs.QUOTE_STRING_MODE,
         hljs.C_NUMBER_MODE,
         {
-          className: 'annotation', begin: '@[A-Za-z]+'
+          className: 'meta', begin: '@[A-Za-z]+'
         }
       ]
     }
