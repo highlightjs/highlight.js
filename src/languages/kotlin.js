@@ -6,7 +6,7 @@
 
 
 function (hljs) {
-  var KEYWORDS = 'val var get set class trait object up open private protected public ' +
+  var KEYWORDS = 'val var get set class trait object open private protected public ' +
     'final enum if else do while for when break continue throw try catch finally ' +
     'import package is as in return fun override default companion reified inline volatile transient native';
 
