@@ -33,7 +33,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-link_label,
 .hljs-attribute,
 .hljs-symbol,
-.hljs-value,
 .hljs-regexp {
   color: #bf79db;
 }
@@ -63,7 +62,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-annotation,
 .hljs-blockquote,
 .hljs-horizontal_rule,
-.hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
 .hljs-meta,

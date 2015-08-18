@@ -14,8 +14,7 @@ Style with support for rainbow parens
 }
 
 
-.hljs-comment,
-.hljs-doctype {
+.hljs-comment {
   color: #969896;
   font-style: italic;
 }

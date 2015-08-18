@@ -37,7 +37,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   color: #c41a16;
 }
 
-.hljs-filter .hljs-argument,
 .hljs-regexp {
   color: #080;
 }
@@ -55,7 +54,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-class .hljs-title,
 .hljs-type,
 .hljs-attr,
-.hljs-doctype,
 .hljs-built_in,
 .hljs-params {
   color: #5c2699;

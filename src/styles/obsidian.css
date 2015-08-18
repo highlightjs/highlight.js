@@ -41,7 +41,7 @@
   color: #d39745;
 }
 
-.hljs-doctype {
+.hljs-meta {
   color: #557182;
 }
 
@@ -76,7 +76,6 @@
 .hljs-horizontal_rule,
 .hljs-deletion,
 .hljs-shebang,
-.hljs-meta,
 .tex .hljs-formula {
   color: #818e96;
 }

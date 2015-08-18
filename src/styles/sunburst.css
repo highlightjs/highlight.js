@@ -24,7 +24,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-string,
-.hljs-filter .hljs-argument,
 .tex .hljs-command {
   color: #65b042;
 }

@@ -18,7 +18,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-template-variable,
 .hljs-symbol,
 .hljs-section,
-.hljs-filter .hljs-argument,
 .hljs-addition,
 .hljs-attribute,
 .tex .hljs-formula {
@@ -28,7 +27,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-comment,
 .hljs-meta,
 .hljs-shebang,
-.hljs-doctype,
 .hljs-deletion {
   color: #ccc;
 }

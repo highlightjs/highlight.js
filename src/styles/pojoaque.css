@@ -15,8 +15,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.hljs-doctype {
+.hljs-comment {
   color: #586e75;
   font-style: italic;
 }

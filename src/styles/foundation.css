@@ -33,7 +33,6 @@ Date: 2013-04-02
 
 .hljs-link_label,
 .hljs-strong,
-.hljs-value,
 .hljs-string,
 .hljs-deletion {
   color: #d14;
@@ -68,7 +67,6 @@ Date: 2013-04-02
   color: #997700;
 }
 
-.hljs-doctype,
 .hljs-meta {
   color: #3344bb;
 }

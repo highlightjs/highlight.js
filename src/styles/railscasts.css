@@ -27,7 +27,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-string,
 .hljs-number,
 .hljs-regexp,
-.hljs-filter .hljs-argument,
 .hljs-variable,
 .hljs-template-variable,
 .tex .hljs-command,
@@ -42,7 +41,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 .hljs-tag,
 .hljs-name,
-.hljs-doctype,
 .input_number {
   color: #e8bf6a;
 }

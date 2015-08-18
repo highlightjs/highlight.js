@@ -33,7 +33,6 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 
 .hljs-string,
 .hljs-selector-attr,
-.hljs-filter .hljs-argument,
 .hljs-regexp {
   color: #080;
 }
@@ -50,7 +49,6 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 .hljs-doctag,
 .hljs-type,
 .hljs-attr,
-.hljs-doctype,
 .hljs-built_in,
 .setting,
 .hljs-params {

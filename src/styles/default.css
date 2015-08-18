@@ -24,7 +24,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-attribute,
 .hljs-selector-id,
 .hljs-selector-class,
-.hljs-tag .hljs-value,
 .hljs-preprocessor,
 .hljs-variable,
 .hljs-template-variable,
@@ -60,11 +59,9 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 }
 
 .hljs-label,
-.hljs-filter .hljs-argument,
 .hljs-localvars,
 .hljs-array,
 .haml .hljs-bullet,
-.hljs-doctype,
 .hljs-shebang,
 .hljs-meta,
 .tex .hljs-formula,

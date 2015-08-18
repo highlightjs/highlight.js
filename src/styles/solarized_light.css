@@ -13,8 +13,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment,
-.hljs-doctype {
+.hljs-comment {
   color: #93a1a1;
 }
 
@@ -30,7 +29,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-number,
 .hljs-command,
 .hljs-string,
-.hljs-tag .hljs-value,
 .hljs-doctag,
 .tex .hljs-formula,
 .hljs-regexp,

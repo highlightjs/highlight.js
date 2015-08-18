@@ -51,15 +51,6 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 
 .hljs-name,
 .hljs-selector-id,
-.hljs-selector-class,
-.hljs-doctype {
+.hljs-selector-class {
   color: #e8bf6a;
-}
-
-.hljs-tag .hljs-attribute {
-  color: #bababa;
-}
-
-.hljs-tag .hljs-value {
-  color: #a5c261;
 }
