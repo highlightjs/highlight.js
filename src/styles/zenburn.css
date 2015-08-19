@@ -19,9 +19,7 @@ based on dark.css by Ivan Sagalaev
   color: #e3ceab;
 }
 
-.django .hljs-template_tag,
-.django .hljs-variable,
-.django .hljs-filter .hljs-argument {
+.hljs-template-tag {
   color: #dcdcdc;
 }
 
@@ -30,6 +28,7 @@ based on dark.css by Ivan Sagalaev
 }
 
 .hljs-variable,
+.hljs-template-variable,
 .hljs-attribute {
   color: #efdcbc;
 }

@@ -56,7 +56,8 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-params,
-.hljs-variable {
+.hljs-variable,
+.hljs-template-variable {
   color: #3e87e3;
 }
 

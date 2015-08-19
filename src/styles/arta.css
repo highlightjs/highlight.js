@@ -44,7 +44,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-built_in,
 .hljs-literal,
 .hljs-type,
-.django .hljs-variable,
+.hljs-template-variable,
 .smalltalk .method,
 .hljs-attribute {
   color: #32aaee;
@@ -60,7 +60,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-title,
 .hljs-variable,
 .hljs-deletion,
-.hljs-template_tag,
+.hljs-template-tag,
 .smalltalk .hljs-class,
 .tex .hljs-formula,
 .tex .hljs-formula * {

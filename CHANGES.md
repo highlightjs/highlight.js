@@ -9,6 +9,7 @@ New languages:
 Notable fixes and improvements to existing languages:
 
 - JavaScript highlighting no longer fails with ES6 default parameters
+- Added keywords `async` and `await` to Python
 
 [Philippe Charrière]: https://github.com/k33g
 [Stefan Bechert]: https://github.com/b-pos465

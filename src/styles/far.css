@@ -22,8 +22,8 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-preprocessor,
 .hljs-symbol,
 .hljs-built_in,
-.django .hljs-template_tag,
-.django .hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable,
 .hljs-addition,
 .tex .hljs-command {
   color: #ff0;
@@ -55,7 +55,6 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
   color: #0f0;
 }
 
-.django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
 .hljs-shebang,

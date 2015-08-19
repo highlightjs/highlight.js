@@ -32,13 +32,12 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-preprocessor,
 .hljs-symbol,
 .hljs-built_in,
-.django .hljs-template_tag,
-.django .hljs-variable,
-.django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable,
 .tex .hljs-number,
 .hljs-name {
   color: #2c009f;

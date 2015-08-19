@@ -183,3 +183,4 @@ Contributors:
 - Philippe Charrière <ph.charriere@gmail.com>
 - Stefan Bechert <stefan.bechert@gmx.net>
 - Samuel Reed <sam@bitmex.com>
+- Yury Selivanov <yselivanov@gmail.com>

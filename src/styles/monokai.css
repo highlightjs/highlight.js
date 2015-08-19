@@ -49,13 +49,12 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-preprocessor,
 .hljs-built_in,
 .hljs-selector-attr,
-.django .hljs-template_tag,
-.django .hljs-variable,
-.django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable,
 .tex .hljs-command {
   color: #a6e22e;
 }

@@ -59,7 +59,8 @@ Date: 2013-04-02
   color: #458;
 }
 
-.hljs-variable {
+.hljs-variable,
+.hljs-template-variable {
   color: #336699;
 }
 

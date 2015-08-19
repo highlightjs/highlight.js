@@ -33,13 +33,12 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-preprocessor,
 .hljs-symbol,
 .hljs-built_in,
-.django .hljs-template_tag,
-.django .hljs-variable,
-.django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable,
 .tex .hljs-command {
   color: #d88;
 }

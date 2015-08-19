@@ -39,12 +39,12 @@ pre{
 .hljs-symbol,
 .hljs-attribute,
 .hljs-built_in,
-.django .hljs-template_tag,
-.django .hljs-filter .hljs-argument,
 .smalltalk .hljs-localvars,
 .smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable,
 .tex .hljs-command {
   color: #2c009f;
 }

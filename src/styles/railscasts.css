@@ -29,6 +29,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-regexp,
 .hljs-filter .hljs-argument,
 .hljs-variable,
+.hljs-template-variable,
 .tex .hljs-command,
 .asciidoc .hljs-link_label,
 .markdown .hljs-link_label {

@@ -25,10 +25,10 @@ Music: Aphex Twin / Xtal
 .hljs-preprocessor,
 .hljs-symbol,
 .hljs-attribute,
-.hljs-template_tag,
-.django .hljs-variable,
 .hljs-addition,
-.hljs-variable {
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
   color: #050;
 }
 

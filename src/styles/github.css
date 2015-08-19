@@ -27,6 +27,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-number,
 .hljs-literal,
 .hljs-variable,
+.hljs-template-variable,
 .hljs-tag .hljs-attr {
   color: #008080;
 }
@@ -57,8 +58,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-tag,
 .hljs-name,
-.hljs-attribute,
-.django .hljs-tag .hljs-keyword {
+.hljs-attribute {
   color: #000080;
   font-weight: normal;
 }

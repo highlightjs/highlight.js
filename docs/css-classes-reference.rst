@@ -37,8 +37,7 @@ Stylable classes
 |                          | instructions, preprocessor directive, etc.        |
 +--------------------------+---------------------------------------------------+
 | name                     | Name of an XML tag, the first word in an          |
-|                          | s-expression. Also, #id and .class selectors in   |
-|                          | CSS.                                              |
+|                          | s-expression.                                     |
 +--------------------------+---------------------------------------------------+
 | number                   | Number, including units and modifiers, if any.    |
 +--------------------------+---------------------------------------------------+
@@ -60,6 +59,10 @@ Stylable classes
 | symbol                   | Symbolic constant, interned string, goto label.   |
 +--------------------------+---------------------------------------------------+
 | tag                      | XML/HTML tag.                                     |
++--------------------------+---------------------------------------------------+
+| template-tag             | Tag of a template language                        |
++--------------------------+---------------------------------------------------+
+| template-variable        | Variable in a template language                   |
 +--------------------------+---------------------------------------------------+
 | title                    | Name of a class or a function at the place of     |
 |                          | declaration                                       |
