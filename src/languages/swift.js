@@ -8,7 +8,7 @@ Category: system
 
 function(hljs) {
   var SWIFT_KEYWORDS = {
-      keyword: 'class deinit enum extension func import init let protocol static ' +
+      keyword: 'class deinit enum extension func init let protocol static ' +
         'struct subscript typealias var break case continue default do ' +
         'else fallthrough if in for return switch where while as dynamicType ' +
         'is new super self Self Type __COLUMN__ __FILE__ __FUNCTION__ ' +
@@ -111,6 +111,10 @@ function(hljs) {
                   '@NSCopying|@NSManaged|@objc|@optional|@required|@auto_closure|' +
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
                   '@infix|@prefix|@postfix)'
+      },
+      {
+        beginKeywords: 'import', end: /$/,
+        contains: [hljs.C_LINE_COMMENT_MODE, BLOCK_COMMENT]
       }
     ]
   };
