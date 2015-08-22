@@ -48,8 +48,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-symbol,
 .hljs-literal,
 .hljs-deletion,
-.hljs-link_url,
-.hljs-char {
+.hljs-link_url {
  color: #cc6666
 }
 
@@ -66,7 +65,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 /*color: fg_purple*/
 .hljs-attribute,
 .hljs-code,
-.hljs-localvars,
 .hljs-selector-id {
  color: #b294bb;
 }
@@ -78,7 +76,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-link_label,
 .hljs-bullet,
 .hljs-smartquote,
-.hljs-method,
 .hljs-tag {
  color: #81a2be;
 }

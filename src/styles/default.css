@@ -49,7 +49,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-regexp,
 .hljs-literal,
 .hljs-addition,
-.smalltalk .hljs-char,
 .lasso .hljs-variable,
 .asciidoc .hljs-bullet,
 .markdown .hljs-bullet,
@@ -59,8 +58,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 }
 
 .hljs-label,
-.hljs-localvars,
-.hljs-array,
 .hljs-shebang,
 .hljs-meta,
 .tex .hljs-formula,

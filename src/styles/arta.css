@@ -30,8 +30,7 @@ Author: pumbur <pumbur@pumbur.net>
 
 .hljs-string,
 .hljs-symbol,
-.hljs-regexp,
-.smalltalk .hljs-char {
+.hljs-regexp {
   color: #ffcc33;
 }
 

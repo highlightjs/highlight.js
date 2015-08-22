@@ -41,14 +41,11 @@ Music: Aphex Twin / Xtal
 .hljs-regexp,
 .hljs-literal,
 .hljs-type,
-.smalltalk .hljs-char,
 .tex .hljs-special {
   color: #800;
 }
 
 .hljs-label,
-.hljs-localvars,
-.hljs-array,
 .hljs-deletion,
 .hljs-shebang,
 .hljs-meta,

@@ -67,7 +67,6 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-symbol,
-.hljs-char,
 .tex .hljs-formula {
   color: #000;
   background: #d0eded;

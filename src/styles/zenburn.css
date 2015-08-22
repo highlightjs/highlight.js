@@ -61,8 +61,6 @@ based on dark.css by Ivan Sagalaev
 .hljs-string,
 .hljs-preprocessor,
 .hljs-built_in,
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
 .tex .hljs-formula {
   color: #cc9393;
 }

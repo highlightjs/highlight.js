@@ -51,13 +51,10 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 
 .hljs-number,
 .hljs-regexp,
-.hljs-literal,
-.smalltalk .hljs-char {
+.hljs-literal {
   color: #0f0;
 }
 
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
 .hljs-shebang,
 .hljs-meta {
   color: #008080;

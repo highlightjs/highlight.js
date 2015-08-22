@@ -43,7 +43,6 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-number,
 .hljs-regexp,
 .hljs-literal,
-.smalltalk .hljs-char,
 .lasso .hljs-variable,
 .asciidoc .hljs-bullet,
 .markdown .hljs-bullet,
@@ -53,8 +52,6 @@ Ported by Fabrício Tavares de Oliveira
 }
 
 .hljs-label,
-.hljs-localvars,
-.hljs-array,
 .hljs-deletion,
 .hljs-variable,
 .hljs-shebang,
