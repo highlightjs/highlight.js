@@ -45,7 +45,8 @@
 }
 
 /* Atelier-Estuary Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #5f9182;
 }
 

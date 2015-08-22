@@ -45,7 +45,8 @@
 }
 
 /* Atelier-Plateau Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #8464c4;
 }
 

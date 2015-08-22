@@ -44,7 +44,8 @@
 }
 
 /* Atelier-Cave Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #955ae7;
 }
 

@@ -67,6 +67,7 @@
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal {
   color: #fcc28c;
 }

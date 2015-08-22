@@ -45,7 +45,8 @@
 }
 
 /* Atelier-Lakeside Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #6b6bb8;
 }
 

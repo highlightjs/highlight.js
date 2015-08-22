@@ -45,7 +45,8 @@
 }
 
 /* Atelier-Seaside Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #ad2bee;
 }
 

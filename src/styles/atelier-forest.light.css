@@ -45,7 +45,8 @@
 }
 
 /* Atelier-Forest Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #6666ea;
 }
 

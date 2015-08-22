@@ -20,6 +20,7 @@ Style with support for rainbow parens
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-type,
 .hljs-addition {

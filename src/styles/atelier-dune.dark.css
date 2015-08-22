@@ -45,7 +45,8 @@
 }
 
 /* Atelier-Dune Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #b854d4;
 }
 

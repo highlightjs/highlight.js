@@ -13,6 +13,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .tex .hljs-special {
   color:#005599;
@@ -53,6 +54,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-doctag,
 .hljs-title,

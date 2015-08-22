@@ -45,7 +45,8 @@
 }
 
 /* Atelier-Sulphurpool Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #6679cc;
 }
 

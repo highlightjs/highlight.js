@@ -12,6 +12,7 @@
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-selector-id,
 .tex .hljs-special {
@@ -85,6 +86,7 @@
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-doctag,
 .hljs-title,

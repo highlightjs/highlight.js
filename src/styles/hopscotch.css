@@ -60,7 +60,8 @@
 }
 
 /* Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #c85e7c;
 }
 

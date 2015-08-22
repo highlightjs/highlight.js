@@ -19,6 +19,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 
 /* Solarized Green */
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .method,
 .hljs-addition {

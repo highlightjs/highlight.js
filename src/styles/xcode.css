@@ -18,6 +18,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal {
   color: #aa0d91;
 }

@@ -15,6 +15,7 @@ based on dark.css by Ivan Sagalaev
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-tag {
   color: #e3ceab;
 }

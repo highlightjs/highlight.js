@@ -45,7 +45,8 @@
 }
 
 /* Atelier-Heath Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #7b59c0;
 }
 

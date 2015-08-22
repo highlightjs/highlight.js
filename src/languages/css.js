@@ -77,7 +77,7 @@ function(hljs) {
         ]
       },
       {
-        className: 'keyword', begin: IDENT_RE,
+        className: 'selector-tag', begin: IDENT_RE,
         relevance: 0
       },
       {

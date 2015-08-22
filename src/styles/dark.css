@@ -13,6 +13,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .tex .hljs-special,
 .hljs-section {
@@ -52,6 +53,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-title,
 .hljs-section,

@@ -28,6 +28,7 @@
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-type {
   color: #a71d5d;
 }

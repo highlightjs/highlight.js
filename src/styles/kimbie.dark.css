@@ -50,6 +50,7 @@
 
 /* Kimbie Purple */
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-function {
   color: #98676a;
 }

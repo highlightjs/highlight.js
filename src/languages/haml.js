@@ -36,7 +36,7 @@ function(hljs) {
         begin: '^\\s*%',
         contains: [
           {
-            className: 'name',
+            className: 'selector-tag',
             begin: '\\w+'
           },
           {

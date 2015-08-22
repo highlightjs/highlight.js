@@ -48,7 +48,8 @@
 }
 
 /* Paraíso Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #815ba4;
 }
 

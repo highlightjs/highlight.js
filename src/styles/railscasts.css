@@ -20,6 +20,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .method {
   color: #c26230;
 }

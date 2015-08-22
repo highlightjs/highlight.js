@@ -45,7 +45,8 @@
 }
 
 /* Atelier-Savanna Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #55859b;
 }
 

@@ -74,7 +74,8 @@ Date: 2013-04-02
 .hljs-code,
 .hljs-number,
 .hljs-literal,
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #099;
 }
 

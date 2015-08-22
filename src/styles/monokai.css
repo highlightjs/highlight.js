@@ -12,6 +12,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 
 .hljs-tag,
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-strong,
 .hljs-name,
@@ -70,6 +71,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-doctag,
 .hljs-title,

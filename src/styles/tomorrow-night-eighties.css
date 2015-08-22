@@ -50,7 +50,8 @@
 }
 
 /* Tomorrow Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #cc99cc;
 }
 

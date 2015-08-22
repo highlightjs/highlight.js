@@ -20,6 +20,7 @@ pre{
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .tex .hljs-special {
   color:#005599;
@@ -58,6 +59,7 @@ pre{
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-doctag,
 .hljs-title,
