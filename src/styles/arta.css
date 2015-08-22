@@ -43,7 +43,6 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-literal,
 .hljs-type,
 .hljs-template-variable,
-.smalltalk .method,
 .hljs-attribute {
   color: #32aaee;
 }
@@ -60,7 +59,6 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-variable,
 .hljs-deletion,
 .hljs-template-tag,
-.smalltalk .hljs-class,
 .tex .hljs-formula,
 .tex .hljs-formula * {
   color: #bb1166;
