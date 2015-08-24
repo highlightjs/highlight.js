@@ -1,5 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Fira+Mono);
+
 /*
- * Hopscotch
+ * Hopscotch v1.0.1
  * by Jan T. Sott
  * https://github.com/idleberg/Hopscotch
  *
@@ -82,6 +84,12 @@
   background: #322931;
   color: #b9b5b8;
   padding: 0.5em;
+  font-family: "Fira Mono", Menlo, Monaco, "Lucida Console","Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  word-spacing: normal;
 }
 
 .coffeescript .javascript,
