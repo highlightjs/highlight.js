@@ -11,6 +11,7 @@ Notable fixes and improvements to existing languages:
 - JavaScript highlighting no longer fails with ES6 default parameters
 - Added keywords `async` and `await` to Python
 - Change versions to X.Y.Z SemVer-compatible format
+- Hopscotch style updated to version 1.0.1
 
 [Philippe Charrière]: https://github.com/k33g
 [Stefan Bechert]: https://github.com/b-pos465
