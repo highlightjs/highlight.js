@@ -41,9 +41,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-regexp,
 .hljs-literal,
 .lasso .hljs-variable,
-.hljs-bullet,
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
+.hljs-bullet {
   color: #31a354;
 }
 
@@ -51,11 +49,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-deletion,
 .hljs-variable,
 .hljs-shebang,
-.tex .hljs-formula,
-.asciidoc .hljs-link_label,
-.markdown .hljs-link_label,
-.asciidoc .hljs-attribute,
-.lasso .hljs-attribute {
+.tex .hljs-formula {
   color: #88f;
 }
 

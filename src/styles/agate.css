@@ -64,8 +64,8 @@
 .hljs-number,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-link_label,
-.hljs-link_reference {
+,
+ {
   color: #d36363;
 }
 

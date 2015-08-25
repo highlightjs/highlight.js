@@ -31,9 +31,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-regexp,
 .hljs-variable,
 .hljs-template-variable,
-.tex .hljs-command,
-.asciidoc .hljs-link_label,
-.markdown .hljs-link_label {
+.tex .hljs-command {
   color: #a5c261;
 }
 
@@ -55,15 +53,8 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-symbol,
 .hljs-bullet,
 .hljs-built_in,
-.hljs-attr,
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
+.hljs-attr {
   color: #6d9cbe;
-}
-
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
-  text-decoration: underline;
 }
 
 .hljs-params {

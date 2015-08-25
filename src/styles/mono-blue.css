@@ -35,7 +35,7 @@
 .hljs-type,
 .hljs-addition,
 .hljs-tag,
-.hljs-link_label,
+,
 .hljs-quote,
 .hljs-name,
 .hljs-selector-id,
@@ -53,7 +53,7 @@
 .hljs-shebang,
 .hljs-variable,
 .hljs-template-variable,
-.hljs-link_url,
+,
 .hljs-bullet {
   color: #4c81c9;
 }

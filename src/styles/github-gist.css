@@ -20,7 +20,6 @@
 .hljs-string,
 .hljs-variable,
 .hljs-template-variable,
-.markdown .hljs-link_label,
 .hljs-strong,
 .hljs-emphasis,
 .hljs-quote {
@@ -37,7 +36,6 @@
 .hljs-symbol,
 .hljs-bullet,
 .hljs-attribute,
-.markdown .hljs-link_reference,
 .objectivec .hljs-literal,
 .objectivec .hljs-number,
 .objectivec .hljs-built_in {
@@ -69,8 +67,4 @@
 .hljs-deletion {
   color: #bd2c00;
   background-color: #ffecec;
-}
-
-.markdown .hljs-link_url {
-  text-decoration: underline;
 }

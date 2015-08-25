@@ -28,14 +28,14 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
   color: white;
 }
 
-.hljs-link_label,
+,
 .hljs-attribute,
 .hljs-symbol,
 .hljs-regexp {
   color: #bf79db;
 }
 
-.hljs-link_url,
+,
 .hljs-string,
 .hljs-bullet,
 .hljs-subst,
@@ -57,7 +57,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-comment,
 .hljs-annotation,
 .hljs-quote,
-.hljs-horizontal_rule,
+,
 .hljs-deletion,
 .hljs-shebang,
 .hljs-meta,

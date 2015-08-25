@@ -46,18 +46,14 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-literal,
 .hljs-addition,
 .lasso .hljs-variable,
-.hljs-bullet,
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
+.hljs-bullet {
   color: #080;
 }
 
 .hljs-label,
 .hljs-shebang,
 .hljs-meta,
-.tex .hljs-formula,
-.asciidoc .hljs-link_label,
-.markdown .hljs-link_label {
+.tex .hljs-formula {
   color: #88f;
 }
 

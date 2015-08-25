@@ -34,7 +34,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-doctag,
 .tex .hljs-formula,
 .hljs-regexp,
-.hljs-link_url {
+ {
   color: #2aa198;
 }
 
@@ -55,7 +55,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-template-variable,
 .hljs-class .hljs-title,
 .hljs-type,
-.hljs-link_reference {
+ {
   color: #b58900;
 }
 
@@ -78,7 +78,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 }
 
 /* Solarized Violet */
-.hljs-link_label {
+ {
   color: #6c71c4;
 }
 
