@@ -15,7 +15,8 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #586e75;
   font-style: italic;
 }
@@ -58,6 +59,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-preprocessor,
 .hljs-shebang,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-special,
 .hljs-subst,
 .hljs-meta {
@@ -75,4 +77,12 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 
 .tex .hljs-formula {
   background: #073642;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
 }

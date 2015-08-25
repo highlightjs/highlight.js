@@ -13,6 +13,7 @@
 
 .hljs-shebang,
 .hljs-comment,
+.hljs-quote,
 .hljs-meta {
   color: #7c7c7c;
 }
@@ -53,6 +54,7 @@
 }
 
 .hljs-symbol,
+.hljs-bullet,
 .hljs-variable,
 .hljs-template-variable,
 .hljs-literal {
@@ -66,4 +68,12 @@
 
 .tex .hljs-formula {
   opacity: 0.7;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
 }

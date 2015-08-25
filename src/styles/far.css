@@ -21,6 +21,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-attribute,
 .hljs-preprocessor,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-built_in,
 .hljs-template-tag,
 .hljs-template-variable,
@@ -42,6 +43,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-doctag,
 .hljs-annotation,
 .hljs-deletion,
@@ -65,7 +67,12 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-title,
 .hljs-section,
 .hljs-name,
+.hljs-strong,
 .tex .hljs-command,
 .tex .hljs-special {
   font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

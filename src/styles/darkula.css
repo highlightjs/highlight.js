@@ -23,7 +23,7 @@ Darkula color scheme from the JetBrains family of IDEs
 }
 
 .hljs-bullet,
-.hljs-blockquote,
+.hljs-quote,
 .hljs-horizontal_rule,
 .hljs-number,
 .hljs-regexp,
@@ -47,7 +47,6 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-keyword,
 .hljs-selector-tag,
 .tex .hljs-special,
-.hljs-header,
 .hljs-section,
 .hljs-attribute,
 .hljs-name,

@@ -13,7 +13,8 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #aeaeae;
   font-style: italic;
 }
@@ -51,6 +52,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-symbol,
+.hljs-bullet,
 .hljs-number {
   color: #3387cc;
 }
@@ -101,4 +103,12 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
 }

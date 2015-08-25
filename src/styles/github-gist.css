@@ -21,9 +21,9 @@
 .hljs-variable,
 .hljs-template-variable,
 .markdown .hljs-link_label,
-.markdown .hljs-strong,
-.markdown .hljs-emphasis,
-.markdown .hljs-blockquote {
+.hljs-strong,
+.hljs-emphasis,
+.hljs-quote {
   color: #df5000;
 }
 
@@ -35,6 +35,7 @@
 
 .hljs-literal,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-attribute,
 .markdown .hljs-link_reference,
 .objectivec .hljs-literal,

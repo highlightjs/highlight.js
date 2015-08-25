@@ -25,7 +25,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 }
 
 .hljs-bullet,
-.hljs-blockquote,
+.hljs-quote,
 .hljs-horizontal_rule,
 .hljs-number,
 .hljs-regexp,
@@ -54,7 +54,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-header,
 .hljs-name,
 .hljs-attr,
 .tex .hljs-special {

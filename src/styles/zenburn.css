@@ -53,7 +53,8 @@ based on dark.css by Ivan Sagalaev
   color: #efef8f;
 }
 
-.hljs-symbol {
+.hljs-symbol,
+.hljs-bullet {
   color: #dca3a3;
 }
 
@@ -68,6 +69,7 @@ based on dark.css by Ivan Sagalaev
 .hljs-shebang,
 .hljs-addition,
 .hljs-comment,
+.hljs-quote,
 .hljs-annotation,
 .hljs-meta {
   color: #7f9f7f;
@@ -77,3 +79,11 @@ based on dark.css by Ivan Sagalaev
   opacity: 0.5;
 }
 
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
+}

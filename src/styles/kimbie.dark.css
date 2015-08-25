@@ -6,7 +6,8 @@
 */
 
 /* Kimbie Comment */
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #d6baad;
 }
 
@@ -42,8 +43,8 @@
 
 /* Kimbie Green */
 .hljs-string,
-.hljs-header,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-addition {
   color: #889b4a;
 }
@@ -66,4 +67,12 @@
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
 }

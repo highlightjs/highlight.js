@@ -33,8 +33,7 @@
 
 .hljs-code,
 .hljs-class .hljs-title,
-.hljs-section,
-.hljs-header {
+.hljs-section {
   color: white;
 }
 
@@ -71,7 +70,7 @@
 
 .hljs-comment,
 .hljs-annotation,
-.hljs-blockquote,
+.hljs-quote,
 .hljs-horizontal_rule,
 .hljs-deletion,
 .hljs-shebang,
@@ -89,9 +88,9 @@
 .hljs-doctag,
 .hljs-title,
 .hljs-section,
-.hljs-header,
 .hljs-type,
 .hljs-name,
+.hljs-strong,
 .tex .hljs-special {
   font-weight: bold;
 }

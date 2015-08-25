@@ -3,7 +3,8 @@
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 
 /* Atelier-Forest Comment */
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #766e6b;
 }
 
@@ -33,8 +34,8 @@
 
 /* Atelier-Forest Green */
 .hljs-string,
-.hljs-header,
-.hljs-symbol {
+.hljs-symbol,
+.hljs-bullet {
   color: #7b9726;
 }
 
@@ -61,4 +62,12 @@
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
 }

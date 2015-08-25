@@ -14,7 +14,6 @@ Date: 2013-04-02
   -webkit-text-size-adjust: none;
 }
 
-.hljs-header,
 .hljs-annotation {
   color: #000077;
 }
@@ -42,7 +41,7 @@ Date: 2013-04-02
   font-weight: bold;
 }
 
-.hljs-blockquote,
+.hljs-quote,
 .hljs-comment {
   color: #998;
   font-style: italic;

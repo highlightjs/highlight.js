@@ -19,7 +19,8 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
   color: #000;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #808080;
   font-style: italic;
 }
@@ -67,6 +68,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-symbol,
+.hljs-bullet,
 .tex .hljs-formula {
   color: #000;
   background: #d0eded;
@@ -88,4 +90,12 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-deletion {
   background: #ffc8bd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

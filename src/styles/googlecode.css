@@ -13,7 +13,8 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #800;
 }
 
@@ -41,6 +42,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 .hljs-shebang,
 .hljs-literal,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-meta,
 .hljs-number {
   color: #066;
@@ -88,6 +90,11 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
   background-color: #ffc8bd;
 }
 
-.hljs-doctag {
+.hljs-doctag,
+.hljs-strong {
   font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

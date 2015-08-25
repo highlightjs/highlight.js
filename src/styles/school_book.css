@@ -38,6 +38,7 @@ pre{
 .hljs-type,
 .hljs-preprocessor,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-attribute,
 .hljs-built_in,
 .hljs-addition,
@@ -49,6 +50,7 @@ pre{
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-annotation,
 .hljs-deletion,
 .hljs-shebang,
@@ -65,10 +67,15 @@ pre{
 .hljs-type,
 .hljs-name,
 .hljs-selector-id,
+.hljs-strong,
 .tex .hljs-command {
   font-weight: bold;
 }
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

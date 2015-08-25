@@ -31,8 +31,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 
 /*color: fg_yellow*/
 .hljs-title,
-.hljs-name,
-.hljs-header {
+.hljs-name {
   color: #f0c674;
 }
 
@@ -75,7 +74,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-selector-tag,
 .hljs-link_label,
 .hljs-bullet,
-.hljs-smartquote,
 .hljs-tag {
  color: #81a2be;
 }
@@ -95,8 +93,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-type,
 .hljs-built_in,
 .hljs-link_reference,
-.hljs-blockquote,
-.hljs-header,
+.hljs-quote,
 .hljs-section,
 .hljs-selector-class {
   color: #de935f;

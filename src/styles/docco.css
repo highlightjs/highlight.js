@@ -11,7 +11,8 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #408080;
   font-style: italic;
 }
@@ -68,6 +69,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-symbol,
+.hljs-bullet,
 .tex .hljs-special,
 .input_number {
   color: #990073;
@@ -94,4 +96,12 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

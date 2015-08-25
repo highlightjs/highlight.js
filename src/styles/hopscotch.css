@@ -7,7 +7,8 @@
  */
 
 /* Comment */
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #989498;
 }
 
@@ -41,8 +42,8 @@
 
 /* Green */
 .hljs-string,
-.hljs-header,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-addition {
   color: #8fc13e;
 }
@@ -70,4 +71,12 @@
   background: #322931;
   color: #b9b5b8;
   padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
 }

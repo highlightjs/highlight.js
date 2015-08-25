@@ -14,7 +14,8 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 
 .hljs-number,
 .hljs-literal,
-.hljs-symbol {
+.hljs-symbol,
+.hljs-bullet {
   color: #6897BB;
 }
 
@@ -29,7 +30,8 @@ Author: Pedro Oliveira <kanytu@gmail . com>
   color: #629755;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #808080;
 }
 
@@ -54,4 +56,12 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 .hljs-selector-id,
 .hljs-selector-class {
   color: #e8bf6a;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
 }

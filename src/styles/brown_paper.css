@@ -32,6 +32,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-attribute,
 .hljs-preprocessor,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-built_in,
 .hljs-addition,
 .hljs-variable,
@@ -43,6 +44,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-annotation,
 .hljs-meta,
 .hljs-deletion,
@@ -59,10 +61,15 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-section,
 .hljs-type,
 .hljs-name,
+.hljs-strong,
 .tex .hljs-command {
   font-weight: bold;
 }
 
 .tex .hljs-formula {
   opacity: 0.8;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

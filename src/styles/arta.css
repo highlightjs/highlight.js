@@ -21,6 +21,7 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-preprocessor,
 .hljs-shebang,
 .hljs-meta,
@@ -30,6 +31,7 @@ Author: pumbur <pumbur@pumbur.net>
 
 .hljs-string,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-regexp {
   color: #ffcc33;
 }
@@ -65,10 +67,15 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs-section,
-.hljs-doctag {
+.hljs-doctag,
+.hljs-strong {
   font-weight: bold;
 }
 
 .tex .hljs-formula {
   opacity: 0.6;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

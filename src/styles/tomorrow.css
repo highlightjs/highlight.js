@@ -1,7 +1,8 @@
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
 /* Tomorrow Comment */
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #8e908c;
 }
 
@@ -35,8 +36,8 @@
 
 /* Tomorrow Green */
 .hljs-string,
-.hljs-header,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-addition {
   color: #718c00;
 }
@@ -64,4 +65,12 @@
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
 }

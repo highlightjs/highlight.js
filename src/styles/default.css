@@ -31,17 +31,13 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-deletion,
 .tex .hljs-command,
 .tex .hljs-special,
-.asciidoc .hljs-header,
-.markdown .hljs-header,
 .tp .hljs-variable {
   color: #800;
 }
 
-.smartquote,
 .hljs-comment,
 .hljs-annotation,
-.asciidoc .hljs-blockquote,
-.markdown .hljs-blockquote {
+.hljs-quote {
   color: #888;
 }
 
@@ -50,8 +46,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-literal,
 .hljs-addition,
 .lasso .hljs-variable,
-.asciidoc .hljs-bullet,
-.markdown .hljs-bullet,
+.hljs-bullet,
 .asciidoc .hljs-link_url,
 .markdown .hljs-link_url {
   color: #080;
@@ -75,13 +70,11 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-doctag,
 .hljs-type,
 .tex .hljs-command,
-.asciidoc .hljs-strong,
-.markdown .hljs-strong {
+.hljs-strong {
   font-weight: bold;
 }
 
-.asciidoc .hljs-emphasis,
-.markdown .hljs-emphasis {
+.hljs-emphasis {
   font-style: italic;
 }
 

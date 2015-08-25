@@ -20,14 +20,11 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
   color: #f92672;
 }
 
-.asciidoc .hljs-code,
-.markdown .hljs-code {
+.hljs-code {
   color: #66d9ef;
 }
 
-.hljs-code,
-.hljs-class .hljs-title,
-.hljs-header {
+.hljs-class .hljs-title {
   color: white;
 }
 
@@ -59,7 +56,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 
 .hljs-comment,
 .hljs-annotation,
-.hljs-blockquote,
+.hljs-quote,
 .hljs-horizontal_rule,
 .hljs-deletion,
 .hljs-shebang,
@@ -73,7 +70,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-literal,
 .hljs-doctag,
 .hljs-title,
-.hljs-header,
 .hljs-section,
 .hljs-type,
 .hljs-selector-id,

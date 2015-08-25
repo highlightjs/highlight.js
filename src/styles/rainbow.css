@@ -14,7 +14,8 @@ Style with support for rainbow parens
 }
 
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #969896;
   font-style: italic;
 }
@@ -55,13 +56,15 @@ Style with support for rainbow parens
 }
 
 .hljs-section,
-.hljs-name {
+.hljs-name,
+.hljs-strong {
   font-weight: bold;
 }
 
 .hljs-preprocessor,
 .hljs-shebang,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-special,
 .hljs-subst,
 .hljs-meta {
@@ -79,4 +82,8 @@ Style with support for rainbow parens
 .hljs-attr,
 .hljs-attribute {
   color: #81a2be;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

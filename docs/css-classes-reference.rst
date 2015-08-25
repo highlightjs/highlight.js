@@ -19,12 +19,18 @@ Stylable classes
 | built_in                 | Built-in or library object (constant, class,      |
 |                          | function)                                         |
 +--------------------------+---------------------------------------------------+
+| bullet                   | List item bullet in text markup                   |
++--------------------------+---------------------------------------------------+
 | class                    | Class or class-level declaration (interfaces,     |
 |                          | traits, modules, etc.)                            |
++--------------------------+---------------------------------------------------+
+| code                     | Code block in text markup                         |
 +--------------------------+---------------------------------------------------+
 | deletion                 | Deleted line in a diff
 +--------------------------+---------------------------------------------------+
 | doctag                   | documentation markup within comments              |
++--------------------------+---------------------------------------------------+
+| emphasis                 | Emphasis in text markup                           |
 +--------------------------+---------------------------------------------------+
 | function                 | Function or method declaration                    |
 +--------------------------+---------------------------------------------------+
@@ -44,9 +50,12 @@ Stylable classes
 | params                   | Block of function arguments (parameters) at the   |
 |                          | place of declaration.                             |
 +--------------------------+---------------------------------------------------+
+| quote                    | Quotation in text markup                          |
++--------------------------+---------------------------------------------------+
 | regexp                   | Literal regular expression                        |
 +--------------------------+---------------------------------------------------+
-| section                  | Heading of a section in a config file.            |
+| section                  | Heading of a section in a config file, heading in |
+|                          | text markup                                       |
 +--------------------------+---------------------------------------------------+
 | selector-tag             | tag selector in CSS                               |
 +--------------------------+---------------------------------------------------+
@@ -55,6 +64,8 @@ Stylable classes
 | selector-class           | .class selector in CSS                            |
 +--------------------------+---------------------------------------------------+
 | selector-attribute       | [attr] selector in CSS                            |
++--------------------------+---------------------------------------------------+
+| strong                   | Strong emphasis in text markup                    |
 +--------------------------+---------------------------------------------------+
 | subst                    | Parsed section inside a literal string.           |
 +--------------------------+---------------------------------------------------+

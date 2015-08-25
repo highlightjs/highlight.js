@@ -5,7 +5,8 @@
 */
 
 /* Paraíso Comment */
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #8d8687;
 }
 
@@ -41,8 +42,8 @@
 
 /* Paraíso Green */
 .hljs-string,
-.hljs-header,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-addition {
   color: #48b685;
 }
@@ -64,4 +65,12 @@
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
 }

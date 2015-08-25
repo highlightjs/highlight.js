@@ -13,6 +13,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-annotation,
 .hljs-variable {
   color: #008000;
@@ -56,5 +57,14 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
   color: #f00;
 }
 
-.hljs-symbol { color: #00b0e8; }
+.hljs-symbol,
+.hljs-bullet { color: #00b0e8; }
 
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
+}

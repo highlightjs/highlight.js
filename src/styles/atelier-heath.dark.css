@@ -3,7 +3,8 @@
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 
 /* Atelier-Heath Comment */
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #9e8f9e;
 }
 
@@ -33,8 +34,8 @@
 
 /* Atelier-Heath Green */
 .hljs-string,
-.hljs-header,
-.hljs-symbol {
+.hljs-symbol,
+.hljs-bullet {
   color: #918b3b;
 }
 
@@ -61,4 +62,12 @@
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-style: bold;
 }

@@ -27,16 +27,13 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-template-variable,
 .hljs-addition,
 .tex .hljs-command,
-.tex .hljs-special,
-.asciidoc .hljs-header,
-.markdown .hljs-header {
+.tex .hljs-special {
   color: #756bb1;
 }
 
 .hljs-comment,
 .hljs-annotation,
-.asciidoc .hljs-blockquote,
-.markdown .hljs-blockquote {
+.hljs-quote {
   color: #636363;
 }
 
@@ -44,8 +41,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-regexp,
 .hljs-literal,
 .lasso .hljs-variable,
-.asciidoc .hljs-bullet,
-.markdown .hljs-bullet,
+.hljs-bullet,
 .asciidoc .hljs-link_url,
 .markdown .hljs-link_url {
   color: #31a354;
@@ -77,13 +73,11 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-selector-id,
 .hljs-selector-class,
 .tex .hljs-command,
-.asciidoc .hljs-strong,
-.markdown .hljs-strong {
+.hljs-strong {
   color: #3182bd;
 }
 
-.asciidoc .hljs-emphasis,
-.markdown .hljs-emphasis {
+.hljs-emphasis {
   font-style: italic;
 }
 

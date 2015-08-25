@@ -32,6 +32,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-attribute,
 .hljs-preprocessor,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-built_in,
 .hljs-addition,
 .hljs-variable,
@@ -42,6 +43,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-annotation,
 .hljs-deletion,
 .hljs-shebang,
@@ -58,10 +60,15 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-doctag,
 .hljs-type,
 .hljs-name,
+.hljs-strong,
 .tex .hljs-special {
   font-weight: bold;
 }
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

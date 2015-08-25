@@ -17,9 +17,9 @@
 .hljs-selector-tag,
 .hljs-title,
 .hljs-section,
-.hljs-header,
 .hljs-doctag,
-.hljs-name {
+.hljs-name,
+.hljs-strong {
   font-weight: bold;
 }
 
@@ -36,8 +36,7 @@
 .hljs-addition,
 .hljs-tag,
 .hljs-link_label,
-.hljs-blockquote,
-.hljs-header,
+.hljs-quote,
 .hljs-name,
 .hljs-selector-id,
 .hljs-selector-class {
@@ -57,4 +56,8 @@
 .hljs-link_url,
 .hljs-bullet {
   color: #4c81c9;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }
