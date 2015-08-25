@@ -5,6 +5,7 @@ New languages:
 - *Golo* by [Philippe Charrière][]
 - *GAMS* by [Stefan Bechert][]
 - *IRPF90* by [Anthony Scemama][]
+- *Access logs* by [Oleg Efimov][]
 
 Notable fixes and improvements to existing languages:
 
@@ -16,6 +17,7 @@ Notable fixes and improvements to existing languages:
 [Philippe Charrière]: https://github.com/k33g
 [Stefan Bechert]: https://github.com/b-pos465
 [Anthony Scemama]: https://github.com/scemama
+[Oleg Efimov]: https://github.com/Sannis
 
 ## Version 8.7
 

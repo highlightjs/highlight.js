@@ -1503,7 +1503,7 @@ ARM assembler ("armasm", "arm")
 * ``title``:            symbol versions
 
 AutoIt ("autoit")
--------------------------
+-----------------
 
 * ``keyword``:          keyword
 * ``literal``:          True, False, And, Null, Not, Or
@@ -1514,3 +1514,10 @@ AutoIt ("autoit")
 * ``comment``:          comment
 * ``number``:           number
 * ``preprocessor``:     AutoIt3Wrapper directives section
+
+Access log ("accesslog")
+------------------------
+
+* ``keyword``:          HTTP method name
+* ``string``:           date, request string, user-agent etc
+* ``number``:           IP-address, numbers
