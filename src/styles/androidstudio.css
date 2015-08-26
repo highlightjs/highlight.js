@@ -26,7 +26,8 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 }
 
 .hljs-variable,
-.hljs-template-variable {
+.hljs-template-variable,
+.hljs-link {
   color: #629755;
 }
 

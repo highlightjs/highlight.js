@@ -54,7 +54,8 @@ based on dark.css by Ivan Sagalaev
 }
 
 .hljs-symbol,
-.hljs-bullet {
+.hljs-bullet,
+.hljs-link {
   color: #dca3a3;
 }
 

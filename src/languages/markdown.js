@@ -76,7 +76,7 @@ function(hljs) {
             relevance: 0
           },
           {
-            className: 'string',
+            className: 'link',
             begin: '\\]\\(', end: '\\)',
             excludeBegin: true, excludeEnd: true
           },
@@ -97,7 +97,7 @@ function(hljs) {
             begin: '\\[', end: '\\]:',
             excludeBegin: true, excludeEnd: true,
             starts: {
-              className: 'string',
+              className: 'link',
               end: '$'
             }
           }

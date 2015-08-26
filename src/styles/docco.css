@@ -64,7 +64,8 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
   color: #008080;
 }
 
-.hljs-regexp {
+.hljs-regexp,
+.hljs-link {
   color: #b68;
 }
 

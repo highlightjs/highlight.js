@@ -68,3 +68,7 @@
   color: #bd2c00;
   background-color: #ffecec;
 }
+
+.hljs-link {
+  text-decoration: underline;
+}

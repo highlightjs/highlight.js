@@ -30,7 +30,8 @@
 .hljs-literal,
 .hljs-type,
 .hljs-params,
-.hljs-deletion {
+.hljs-deletion,
+.hljs-link {
   color: #f79a32;
 }
 

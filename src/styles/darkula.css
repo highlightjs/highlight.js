@@ -24,7 +24,7 @@ Darkula color scheme from the JetBrains family of IDEs
 
 .hljs-bullet,
 .hljs-quote,
-,
+.hljs-link,
 .hljs-number,
 .hljs-regexp,
 .hljs-literal {
@@ -69,9 +69,7 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-template-tag,
 .hljs-template-variable,
 .hljs-addition,
-.tex .hljs-command,
-,
- {
+.tex .hljs-command{
   color: #e0c46c;
 }
 

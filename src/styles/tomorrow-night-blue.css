@@ -28,7 +28,8 @@
 .hljs-literal,
 .hljs-type,
 .hljs-params,
-.hljs-meta {
+.hljs-meta,
+.hljs-link {
   color: #ffc58f;
 }
 

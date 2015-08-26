@@ -26,10 +26,10 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .hljs-bullet,
 .hljs-quote,
-,
 .hljs-number,
 .hljs-regexp,
-.hljs-literal {
+.hljs-literal,
+.hljs-link {
   color: #ae81ff;
 }
 
@@ -38,10 +38,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-section,
 .hljs-selector-class {
   color: #a6e22e;
-}
-
- {
-  font-size: 80%;
 }
 
 .hljs-strong {
@@ -78,9 +74,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-addition,
 .hljs-variable,
 .hljs-template-variable,
-.tex .hljs-command,
-,
- {
+.tex .hljs-command {
   color: #e6db74;
 }
 

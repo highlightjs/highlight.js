@@ -68,6 +68,7 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 
 .hljs-symbol,
 .hljs-bullet,
+.hljs-link,
 .tex .hljs-special {
   color: #000;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAO7d+/+z4gsBhJwdXVlhAvCBECKwIIwAbhKZBUwBQA6hBpm5efZsgAAAABJRU5ErkJggg==) repeat;

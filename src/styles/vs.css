@@ -58,7 +58,10 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 }
 
 .hljs-symbol,
-.hljs-bullet { color: #00b0e8; }
+.hljs-bullet,
+.hljs-link {
+  color: #00b0e8;
+}
 
 
 .hljs-emphasis {

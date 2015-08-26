@@ -41,7 +41,8 @@
   color: #daefa3;
 }
 
-.hljs-regexp {
+.hljs-regexp,
+.hljs-link {
   color: #e9c062;
 }
 

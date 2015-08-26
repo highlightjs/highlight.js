@@ -34,7 +34,8 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #daefa3;
 }
 
-.hljs-regexp {
+.hljs-regexp,
+.hljs-link {
   color: #e9c062;
 }
 

@@ -18,8 +18,7 @@ Date: 2013-04-02
   color: #000077;
 }
 
-,
-,
+.hljs-link,
 .hljs-emphasis,
 .hljs-attribute,
 .hljs-addition {
@@ -30,7 +29,6 @@ Date: 2013-04-02
   font-style: italic;
 }
 
-,
 .hljs-strong,
 .hljs-string,
 .hljs-deletion {

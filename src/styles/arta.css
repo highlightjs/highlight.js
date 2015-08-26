@@ -45,7 +45,8 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-literal,
 .hljs-type,
 .hljs-template-variable,
-.hljs-attribute {
+.hljs-attribute,
+.hljs-link {
   color: #32aaee;
 }
 

@@ -45,6 +45,7 @@ pre{
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable,
+.hljs-link,
 .tex .hljs-command {
   color: #2c009f;
 }

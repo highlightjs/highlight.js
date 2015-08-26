@@ -67,7 +67,8 @@ Style with support for rainbow parens
 .hljs-bullet,
 .hljs-special,
 .hljs-subst,
-.hljs-meta {
+.hljs-meta,
+.hljs-link {
   color: #f99157;
 }
 

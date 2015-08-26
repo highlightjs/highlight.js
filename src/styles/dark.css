@@ -16,7 +16,8 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-selector-tag,
 .hljs-literal,
 .tex .hljs-special,
-.hljs-section {
+.hljs-section,
+.hljs-link {
   color: white;
 }
 

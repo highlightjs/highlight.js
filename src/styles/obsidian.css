@@ -37,7 +37,8 @@
   color: white;
 }
 
-.hljs-regexp {
+.hljs-regexp,
+.hljs-link {
   color: #d39745;
 }
 

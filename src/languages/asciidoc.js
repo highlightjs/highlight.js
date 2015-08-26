@@ -173,13 +173,13 @@ function(hljs) {
             relevance: 0
           },
           {
-            className: 'string',
+            className: 'link',
             begin: '\\w',
             end: '[^\\[]+',
             relevance: 0
           },
           {
-            className: 'symbol',
+            className: 'string',
             begin: '\\[',
             end: '\\]',
             excludeBegin: true,

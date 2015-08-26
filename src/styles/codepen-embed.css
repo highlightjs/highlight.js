@@ -30,6 +30,7 @@
 .hljs-params,
 .hljs-symbol,
 .hljs-bullet,
+.hljs-link,
 .hljs-deletion {
   color: #ab875d;
 }
@@ -42,6 +43,7 @@
 .hljs-type,
 .hljs-attribute {
   color: #9b869b;
+}
 }
 
 .hljs-string,

@@ -39,7 +39,8 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   color: #c41a16;
 }
 
-.hljs-regexp {
+.hljs-regexp,
+.hljs-link {
   color: #080;
 }
 

@@ -46,7 +46,8 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-literal,
 .hljs-addition,
 .lasso .hljs-variable,
-.hljs-bullet {
+.hljs-bullet,
+.hljs-link {
   color: #080;
 }
 

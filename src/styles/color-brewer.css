@@ -41,7 +41,8 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-regexp,
 .hljs-literal,
 .lasso .hljs-variable,
-.hljs-bullet {
+.hljs-bullet,
+.hljs-link {
   color: #31a354;
 }
 

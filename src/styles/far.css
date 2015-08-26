@@ -53,7 +53,8 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 
 .hljs-number,
 .hljs-regexp,
-.hljs-literal {
+.hljs-literal,
+.hljs-link {
   color: #0f0;
 }
 

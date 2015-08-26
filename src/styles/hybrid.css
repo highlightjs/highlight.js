@@ -47,7 +47,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-symbol,
 .hljs-literal,
 .hljs-deletion,
- {
+.hljs-link {
  color: #cc6666
 }
 
