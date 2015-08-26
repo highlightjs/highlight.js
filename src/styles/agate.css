@@ -63,9 +63,7 @@
 
 .hljs-number,
 .hljs-symbol,
-.hljs-bullet,
-,
- {
+.hljs-bullet {
   color: #d36363;
 }
 
