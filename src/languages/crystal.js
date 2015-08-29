@@ -139,6 +139,7 @@ function(hljs) {
   EXPANSION.contains = CRYSTAL_DEFAULT_CONTAINS.slice(1); // without EXPANSION
 
   return {
+    aliases: ['cr'],
     lexemes: CRYSTAL_IDENT_RE,
     keywords: CRYSTAL_KEYWORDS,
     contains: CRYSTAL_DEFAULT_CONTAINS
