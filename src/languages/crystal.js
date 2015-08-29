@@ -8,11 +8,14 @@ function(hljs) {
   var NUM_SUFFIX = '(_[uif](8|16|32|64))?';
   var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\][=?]?';
-  var CRYSTAL_KEYWORDS =
-    'abstract alias asm begin break case class def do else elsif end ensure enum extend false for fun if ifdef ' +
-    'include instance_sizeof is_a? lib macro module next nil of out pointerof private protected rescue responds_to? ' +
-    'return require self sizeof struct super then true type undef union unless until when while with yield ' +
-    '__DIR__ __FILE__ __LINE__';
+  var CRYSTAL_KEYWORDS = {
+    keyword:
+      'abstract alias asm begin break case class def do else elsif end ensure enum extend for fun if ifdef ' +
+      'include instance_sizeof is_a? lib macro module next of out pointerof private protected rescue responds_to? ' +
+      'return require self sizeof struct super then type undef union unless until when while with yield ' +
+      '__DIR__ __FILE__ __LINE__',
+    literal: 'false nil true'
+  };
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
