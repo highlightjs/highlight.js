@@ -23,9 +23,12 @@ function(hljs) {
   };
   var EXPANSION = {
     className: 'expansion',
-    begin: '\\{[{%]', end: '[%}]\\}',
+    variants: [
+      {begin: '\\{\\{', end: '\\}\\}'},
+      {begin: '\\{%', end: '%\\}'}
+    ],
     keywords: CRYSTAL_KEYWORDS,
-    relevance: 10,
+    relevance: 10
   };
   var
   STRING = {
@@ -91,7 +94,6 @@ function(hljs) {
       className: 'function',
       beginKeywords: 'fun macro', end: /\B\b/,
       contains: [
-        hljs.HASH_COMMENT_MODE,
         hljs.inherit(hljs.TITLE_MODE, {
           begin: CRYSTAL_METHOD_RE,
           endsParent: true
