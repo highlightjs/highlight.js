@@ -22,7 +22,7 @@ greet #=> Hello
 
 module Hello
   def hello
-    "world"
+    true
   end
 end
 
@@ -30,5 +30,5 @@ class World
   include Hello
 end
 
-World.new.hello #=> "world"
+World.new.hello #=> true
 p instance_sizeof(Hello) #=> 4
