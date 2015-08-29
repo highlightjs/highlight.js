@@ -5,7 +5,8 @@ Category: common
 */
 
 function(hljs) {
-  var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?]?';
+  var NUM_SUFFIX = '(_[uif](8|16|32|64))?';
+  var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\][=?]?';
   var CRYSTAL_KEYWORDS =
     'abstract alias asm begin break case class def do else elsif end ensure enum extend false for fun if ifdef ' +
@@ -113,7 +114,12 @@ function(hljs) {
     },
     {
       className: 'number',
-      begin: '((\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+([eE]-?[0-9]+))?))(_[fui](8|16|32|64))?',
+      variants: [
+        { begin: '\\b0b([01_]+)' + NUM_SUFFIX },
+        { begin: '\\b0o([0-7_]+)' + NUM_SUFFIX },
+        { begin: '\\b0x([A-Fa-f0-9_]+)' + NUM_SUFFIX },
+        { begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)' + NUM_SUFFIX}
+      ],
       relevance: 0
     },
     {
