@@ -1521,3 +1521,20 @@ Access log ("accesslog")
 * ``keyword``:          HTTP method name
 * ``string``:           date, request string, user-agent etc
 * ``number``:           IP-address, numbers
+
+Crystal ("crystal", "cr")
+-------------------------
+
+* ``keyword``:        keyword
+* ``string``:         string
+* ``number``:         number
+* ``symbol``:         symbol
+* ``regexp``:         regexp
+* ``constant``:       constant
+* ``variable``:       global, instance, class or normal variable
+* ``subst``:          in-string substitution (#{...})
+* ``expansion`:       macro expansion ({{...}}, {%...%})
+* ``class``:          class, module, struct, enum, union or lib header
+* ``function``:       method or function header
+* ``title``:          a method name or class name
+* ``parent``:           name of a parent class
