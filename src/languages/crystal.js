@@ -1,7 +1,6 @@
 /*
 Language: Crystal
 Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
-Category: common
 */
 
 function(hljs) {
