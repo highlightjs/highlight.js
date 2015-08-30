@@ -6,6 +6,7 @@ New languages:
 - *GAMS* by [Stefan Bechert][]
 - *IRPF90* by [Anthony Scemama][]
 - *Access logs* by [Oleg Efimov][]
+- *Crystal* by [Tsuyusato Kitsune][]
 
 Notable fixes and improvements to existing languages:
 
@@ -18,6 +19,7 @@ Notable fixes and improvements to existing languages:
 [Stefan Bechert]: https://github.com/b-pos465
 [Anthony Scemama]: https://github.com/scemama
 [Oleg Efimov]: https://github.com/Sannis
+[Tsuyusato Kitsune]: https://github.com/MakeNowJust
 
 ## Version 8.7
 

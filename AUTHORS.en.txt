@@ -184,3 +184,4 @@ Contributors:
 - Stefan Bechert <stefan.bechert@gmx.net>
 - Samuel Reed <sam@bitmex.com>
 - Yury Selivanov <yselivanov@gmail.com>
+- Tsuyusato Kitsune <make.just.on@gmail.com>
