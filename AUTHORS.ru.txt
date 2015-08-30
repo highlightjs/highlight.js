@@ -182,4 +182,6 @@ URL:   https://highlightjs.org/
 - Ман Туан <junookyo@gmail.com>
 - Филипп Шарьер <ph.charriere@gmail.com>
 - Стефан Бечерт <stefan.bechert@gmx.net>
+- Сэмюел Рид <sam@bitmex.com>
+- Юрий Селиванов <yselivanov@gmail.com>
 - Цуюсато Кицуне <make.just.on@gmail.com>
