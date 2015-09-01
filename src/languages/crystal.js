@@ -21,7 +21,7 @@ function(hljs) {
     keywords: CRYSTAL_KEYWORDS
   };
   var EXPANSION = {
-    className: 'expansion',
+    className: 'template-variable',
     variants: [
       {begin: '\\{\\{', end: '\\}\\}'},
       {begin: '\\{%', end: '%\\}'}
@@ -59,14 +59,7 @@ function(hljs) {
       contains: [
         hljs.HASH_COMMENT_MODE,
         hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
-        {
-          className: 'inheritance',
-          begin: '<\\s*',
-          contains: [{
-            className: 'parent',
-            begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE
-          }]
-        }
+        {begin: '<'} // relevance booster for inheritance
       ]
     },
     {
@@ -101,11 +94,6 @@ function(hljs) {
       relevance: 5
     },
     {
-      className: 'constant',
-      begin: '(::)?(\\b[A-Z]\\w*(::)?)+',
-      relevance: 0
-    },
-    {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(\\!|\\?)?:',
       relevance: 0
@@ -125,10 +113,6 @@ function(hljs) {
         { begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)' + NUM_SUFFIX}
       ],
       relevance: 0
-    },
-    {
-      className: 'variable',
-      begin: '(\\$\\W)|((\\$|\\@\\@?|%)(\\w+))'
     },
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
