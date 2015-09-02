@@ -29,7 +29,6 @@ function(hljs) {
     illegal: '"',
     contains: [
       {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
-      hljs.inherit(hljs.TITLE_MODE, {begin: '[_a-z][\\w\']*'}),
       COMMENT
     ]
   };
