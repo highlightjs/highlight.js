@@ -64,7 +64,7 @@
         var language = editor.find('.languages').val();
         var source = editor.find('textarea').val();
         var start_time = +new Date();
-        var result = hljs.getLanguage(language) ? hljs.highlight(language, source) : hljs.highlightAuto(source);
+        var result = hljs.getLanguage(language) ? hljs.highlight(language, source, true) : hljs.highlightAuto(source);
         var rendering_time = +new Date() - start_time;
         editor.find('.hljs').html(result.value);
         var rendering_stats = result.language + ': ' + result.r;
