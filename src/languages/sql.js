@@ -15,7 +15,7 @@ function(hljs) {
         beginKeywords:
           'begin end start commit rollback savepoint lock alter create drop rename call ' +
           'delete do handler insert load replace select truncate update set show pragma grant ' +
-          'merge describe use explain help declare prepare execute deallocate savepoint release|0 ' +
+          'merge describe use explain help declare prepare execute deallocate release|0 ' +
           'unlock purge reset change stop analyze cache flush optimize repair kill ' +
           'install uninstall checksum restore check backup revoke',
         end: /;/, endsWithParent: true,
@@ -98,12 +98,12 @@ function(hljs) {
             'quotename radians raise|0 rand range rank raw read reads readsize rebuild record records ' +
             'recover recovery recursive recycle redo reduced ref reference referenced references referencing refresh ' +
             'regexp_like register regr_avgx regr_avgy regr_count regr_intercept regr_r2 regr_slope regr_sxx regr_sxy ' +
-            'reject rekey relational relative relaylog release|0 release_lock relies_on relocate rely rem remainder ' +
+            'reject rekey relational relative relaylog release|0 release_lock relies_on relocate rely rem remainder rename ' +
             'repair repeat replace replicate replication required reset resetlogs resize resource respect restore ' +
             'restricted result result_cache resumable resume retention return returning returns reuse reverse revoke ' +
             'right rlike role roles rollback rolling rollup round row row_count rowdependencies rowid rownum rows ' +
             'rtrim rules safe salt sample save savepoint sb1 sb2 sb4 scan schema schemacheck scn scope scroll ' +
-            'sdo_georaster sdo_topo_geometry search sec_to_time second section securefile security seed segment ' +
+            'sdo_georaster sdo_topo_geometry search sec_to_time second section securefile security seed segment select ' +
             'self sequence sequential serializable server servererror session session_user sessions_per_user set ' +
             'sets settings sha sha1 sha2 share shared shared_pool short show shrink shutdown si_averagecolor ' +
             'si_colorhistogram si_featurelist si_positionalcolor si_stillimage si_texture siblings sid sign sin ' +
