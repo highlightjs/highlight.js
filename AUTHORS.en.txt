@@ -186,3 +186,4 @@ Contributors:
 - Yury Selivanov <yselivanov@gmail.com>
 - Tsuyusato Kitsune <make.just.on@gmail.com>
 - Mick MacCallum <micksmaccallum@gmail.com>
+- Kristoffer Gronlund <kgronlund@suse.com>

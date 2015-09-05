@@ -7,6 +7,7 @@ New languages:
 - *IRPF90* by [Anthony Scemama][]
 - *Access logs* by [Oleg Efimov][]
 - *Crystal* by [Tsuyusato Kitsune][]
+- *crmsh* by [Kristoffer Gronlund][]
 
 Notable fixes and improvements to existing languages:
 
@@ -25,6 +26,7 @@ Other notable changes:
 [Anthony Scemama]: https://github.com/scemama
 [Oleg Efimov]: https://github.com/Sannis
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Kristoffer Gronlund]: https://github.com/krig
 
 ## Version 8.7
 
