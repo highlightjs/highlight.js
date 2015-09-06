@@ -15,9 +15,6 @@ function(hljs) {
   return {
     aliases: ['fs'],
     keywords:
-      // monad builder keywords (at top, matches before non-bang kws)
-      'yield! return! let! do!' +
-      // regular keywords
       'abstract and as assert base begin class default delegate do done ' +
       'downcast downto elif else end exception extern false finally for ' +
       'fun function global if in inherit inline interface internal lazy let ' +
@@ -25,6 +22,11 @@ function(hljs) {
       'override private public rec return sig static struct then to ' +
       'true try type upcast use val void when while with yield',
     contains: [
+      {
+        // monad builder keywords (matches before non-bang kws)
+        className: 'keyword',
+        begin: /\b(yield|return|let|do)!/
+      },
       {
         className: 'string',
         begin: '@"', end: '"',

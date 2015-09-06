@@ -1,0 +1,34 @@
+macro define_method(name, content)
+  def {{name}}
+    {{content}}
+  end
+end
+
+define_method foo, 1
+
+foo #=> 1
+
+lib C
+  fun cos(value : Float64) : Float64
+end
+
+C.cos 1.5 #=> 0.0707372
+
+private def greet
+  puts "Hello"
+end
+
+greet #=> Hello
+
+module Hello
+  def hello
+    true
+  end
+end
+
+class World
+  include Hello
+end
+
+World.new.hello #=> true
+p instance_sizeof(Hello) #=> 4

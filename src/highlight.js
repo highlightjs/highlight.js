@@ -40,7 +40,7 @@ https://highlightjs.org/
   }
 
   function isNotHighlighted(language) {
-    return /no-?highlight|plain|text/.test(language);
+    return (/^(no-?highlight|plain|text)$/i).test(language);
   }
 
   function blockLanguage(block) {
@@ -49,19 +49,18 @@ https://highlightjs.org/
 
     classes += block.parentNode ? block.parentNode.className : '';
 
-    // language-* takes precedence over non-prefixed class names and
-    match = /\blang(?:uage)?-([\w-]+)\b/.exec(classes);
+    // language-* takes precedence over non-prefixed class names
+    match = (/\blang(?:uage)?-([\w-]+)\b/i).exec(classes);
     if (match) {
       return getLanguage(match[1]) ? match[1] : 'no-highlight';
     }
 
     classes = classes.split(/\s+/);
-    for(i = 0, length = classes.length; i < length; i++) {
-      if(getLanguage(classes[i]) || isNotHighlighted(classes[i])) {
+    for (i = 0, length = classes.length; i < length; i++) {
+      if (getLanguage(classes[i]) || isNotHighlighted(classes[i])) {
         return classes[i];
       }
     }
-
   }
 
   function inherit(parent, obj) {
@@ -651,6 +650,7 @@ https://highlightjs.org/
   }
 
   function getLanguage(name) {
+    name = name.toLowerCase();
     return languages[name] || languages[aliases[name]];
   }
 

@@ -1503,7 +1503,7 @@ ARM assembler ("armasm", "arm")
 * ``title``:            symbol versions
 
 AutoIt ("autoit")
--------------------------
+-----------------
 
 * ``keyword``:          keyword
 * ``literal``:          True, False, And, Null, Not, Or
@@ -1514,3 +1514,28 @@ AutoIt ("autoit")
 * ``comment``:          comment
 * ``number``:           number
 * ``preprocessor``:     AutoIt3Wrapper directives section
+
+Access log ("accesslog")
+------------------------
+
+* ``keyword``:          HTTP method name
+* ``string``:           date, request string, user-agent etc
+* ``number``:           IP-address, numbers
+
+Crystal ("crystal", "cr")
+-------------------------
+
+* ``keyword``:          keyword
+* ``string``:           string
+* ``number``:           number
+* ``symbol``:           symbol
+* ``regexp``:           regexp
+* ``literal``:          true, false or nil
+* ``constant``:         constant
+* ``variable``:         global, instance, class and fresh variables
+* ``subst``:            in-string substitution (#{...})
+* ``expansion``:        macro expansion ({{...}}, {%...%})
+* ``class``:            class, module, struct, enum, union or lib header
+* ``function``:         method or function header
+* ``title``:            a method name or class name
+* ``parent``:           name of a parent class

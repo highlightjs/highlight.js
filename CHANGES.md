@@ -1,19 +1,30 @@
-## Master [UNRELEASED]
+## Master (8.8.0) [UNRELEASED]
 
 New languages:
 
 - *Golo* by [Philippe Charrière][]
 - *GAMS* by [Stefan Bechert][]
 - *IRPF90* by [Anthony Scemama][]
+- *Access logs* by [Oleg Efimov][]
+- *Crystal* by [Tsuyusato Kitsune][]
 
 Notable fixes and improvements to existing languages:
 
 - JavaScript highlighting no longer fails with ES6 default parameters
 - Added keywords `async` and `await` to Python
+- PHP heredoc support improved
+- Allow preprocessor directives within C++ functions
+
+Other notable changes:
+
+- Change versions to X.Y.Z SemVer-compatible format
+- Added ability to build all targets at once
 
 [Philippe Charrière]: https://github.com/k33g
 [Stefan Bechert]: https://github.com/b-pos465
 [Anthony Scemama]: https://github.com/scemama
+[Oleg Efimov]: https://github.com/Sannis
+[Tsuyusato Kitsune]: https://github.com/MakeNowJust
 
 ## Version 8.7
 
