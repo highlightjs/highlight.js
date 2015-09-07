@@ -63,9 +63,9 @@
         var result = hljs.getLanguage(language) ? hljs.highlight(language, source, true) : hljs.highlightAuto(source);
         var rendering_time = +new Date() - start_time;
         editor.find('.hljs').html(result.value);
-        var rendering_stats = result.language + ': ' + result.r;
+        var rendering_stats = result.language + ': ' + (result.relevance || result.r);
         if (result.second_best) {
-            rendering_stats += ', ' + result.second_best.language + ': ' + result.second_best.r;
+            rendering_stats += ', ' + result.second_best.language + ': ' + (result.second_best.relevance || result.second_best.r);
         }
         editor.find('.rendering_stats').text(rendering_stats);
         editor.find('.rendering_time').text(rendering_time);
