@@ -185,3 +185,4 @@ Contributors:
 - Samuel Reed <sam@bitmex.com>
 - Yury Selivanov <yselivanov@gmail.com>
 - Tsuyusato Kitsune <make.just.on@gmail.com>
+- Mick MacCallum <micksmaccallum@gmail.com>
