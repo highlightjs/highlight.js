@@ -1,0 +1,2 @@
+~R<span class="hljs-string">'this + i\s "a" regex too'</span>
+~S<span class="hljs-string">"Some spaces \s\t\n and <span class="hljs-subst">#{interpolation}</span>"</span>

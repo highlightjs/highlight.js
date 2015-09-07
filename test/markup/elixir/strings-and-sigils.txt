@@ -1,0 +1,2 @@
+~R'this + i\s "a" regex too'
+~S"Some spaces \s\t\n and #{interpolation}"
