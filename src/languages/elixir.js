@@ -44,33 +44,64 @@ function(hljs) {
     className: 'class',
     beginKeywords: 'defmodule defrecord', end: /\bdo\b|$|;/
   });
-  var ELIXIR_DEFAULT_CONTAINS = [
-    STRING,
-    hljs.HASH_COMMENT_MODE,
-    CLASS,
-    FUNCTION,
-    {
-      className: 'symbol',
-      begin: ':',
-      contains: [STRING, {begin: ELIXIR_METHOD_RE}],
-      relevance: 0
-    },
+
+  var ELIXIR_NUMBER = {
+    className: 'number',
+    begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
+    relevance: 0
+  };
+
+  var ELIXIR_SYMBOL_MODES = [
     {
       className: 'symbol',
       begin: ELIXIR_IDENT_RE + ':',
       relevance: 0
     },
     {
-      className: 'number',
-      begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
+      className: 'symbol',
+      begin: ':' + ELIXIR_IDENT_RE,
       relevance: 0
     },
+    {
+      className: 'symbol',
+      begin: ':',
+      contains: [STRING, {begin: ELIXIR_METHOD_RE}],
+      relevance: 0
+    }
+  ];
+
+  var ELIXIR_DEFAULT_CONTAINS = [
+    STRING,
+    hljs.HASH_COMMENT_MODE,
+    CLASS,
+    FUNCTION
+  ].concat(ELIXIR_SYMBOL_MODES).concat([
+    ELIXIR_NUMBER,
     {
       className: 'variable',
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))'
     },
     {
       begin: '->'
+    },
+    // import
+    {
+      beginKeywords: 'import', end: '$',
+      contains: ELIXIR_SYMBOL_MODES.concat([
+        {
+          begin: ELIXIR_IDENT_RE,
+          relevance: 0
+        },
+        // functions list
+        {
+          begin: '\\[', end: '\\]',
+          contains: [
+            ELIXIR_NUMBER
+          ],
+          relevance: 0
+        }
+      ]),
+      relevance: 0
     },
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
@@ -92,7 +123,7 @@ function(hljs) {
       ],
       relevance: 0
     }
-  ];
+  ]);
   SUBST.contains = ELIXIR_DEFAULT_CONTAINS;
 
   return {

@@ -1,3 +1,5 @@
+import Kernel, except: [spawn: 1, +: 2, /: 2, Unless: 2]
+
 defrecord Person, first_name: nil, last_name: "Dudington" do
   def name record do # huh ?
     "#{record.first_name} #{record.last_name}"

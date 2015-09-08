@@ -71,8 +71,8 @@ function(hljs) {
       },
       {
         className: 'import',
-        begin: '\\bimport\\b', end: '$',
-        keywords: 'import|0 qualified as hiding',
+        beginKeywords: 'import', end: '$',
+        keywords: 'qualified as hiding',
         contains: [LIST].concat(COMMENT_MODES),
         illegal: '\\W\\.|;'
       },
