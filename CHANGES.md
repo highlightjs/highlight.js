@@ -1,4 +1,12 @@
-## Master (8.8.0) [UNRELEASED]
+-## Master (8.9.0) [UNRELEASED]
+
+New languages:
+
+- *crmsh* by [Kristoffer Gronlund][]
+
+[Kristoffer Gronlund]: https://github.com/krig
+
+## Version 8.8.0
 
 New languages:
 
@@ -12,8 +20,13 @@ Notable fixes and improvements to existing languages:
 
 - JavaScript highlighting no longer fails with ES6 default parameters
 - Added keywords `async` and `await` to Python
+- PHP heredoc support improved
+- Allow preprocessor directives within C++ functions
+
+Other notable changes:
+
 - Change versions to X.Y.Z SemVer-compatible format
-- Hopscotch style updated to version 1.0.1
+- Added ability to build all targets at once
 
 [Philippe Charrière]: https://github.com/k33g
 [Stefan Bechert]: https://github.com/b-pos465

@@ -11,24 +11,27 @@ function(hljs) {
       keyword: 'class deinit enum extension func init let protocol static ' +
         'struct subscript typealias var break case continue default do ' +
         'else fallthrough if in for return switch where while as dynamicType ' +
-        'is new super self Self Type __COLUMN__ __FILE__ __FUNCTION__ ' +
+        'is super self Self Type __COLUMN__ __FILE__ __FUNCTION__ ' +
         '__LINE__ associativity didSet get infix inout left mutating none ' +
-        'nonmutating operator override postfix precedence prefix right set '+
-        'unowned unowned safe unsafe weak willSet',
+        'nonmutating operator override postfix precedence prefix right set ' +
+        'unowned weak willSet defer repeat guard catch ' +
+        'throw throws rethrows try try! try? indirect convenience _ optional',
       literal: 'true false nil',
-      built_in: 'abs advance alignof alignofValue assert bridgeFromObjectiveC ' +
-        'bridgeFromObjectiveCUnconditional bridgeToObjectiveC ' +
-        'bridgeToObjectiveCUnconditional c contains count countElements ' +
-        'countLeadingZeros debugPrint debugPrintln distance dropFirst dropLast dump ' +
-        'encodeBitsAsWords enumerate equal filter find getBridgedObjectiveCType ' +
-        'getVaList indices insertionSort isBridgedToObjectiveC ' +
-        'isBridgedVerbatimToObjectiveC isUniquelyReferenced join ' +
-        'lexicographicalCompare map max maxElement min minElement numericCast ' +
-        'partition posix print println quickSort reduce reflect reinterpretCast ' +
-        'reverse roundUpToAlignment sizeof sizeofValue sort split startsWith strideof ' +
-        'strideofValue swap swift toString transcode underestimateCount ' +
+      built_in: 'abs advance alignof alignofValue anyGenerator assert assertionFailure ' +
+        'bridgeFromObjectiveC bridgeFromObjectiveCUnconditional bridgeToObjectiveC ' +
+        'bridgeToObjectiveCUnconditional c contains count countElements countLeadingZeros ' +
+        'debugPrint debugPrintln distance dropFirst dropLast dump encodeBitsAsWords ' +
+        'enumerate equal fatalError filter find getBridgedObjectiveCType getVaList ' +
+        'indices insertionSort isBridgedToObjectiveC isBridgedVerbatimToObjectiveC ' +
+        'isUniquelyReferenced isUniquelyReferencedNonObjC join lazy lexicographicalCompare ' +
+        'map max maxElement min minElement numericCast overlaps partition posix ' +
+        'precondition preconditionFailure print println quickSort readLine reduce reflect ' +
+        'reinterpretCast reverse roundUpToAlignment sizeof sizeofValue sort split ' +
+        'startsWith stride strideof strideofValue swap toString transcode ' +
+        'underestimateCount unsafeAddressOf unsafeBitCast unsafeDowncast unsafeUnwrap ' +
         'unsafeReflect withExtendedLifetime withObjectAtPlusZero withUnsafePointer ' +
-        'withUnsafePointerToObject withUnsafePointers withVaList'
+        'withUnsafePointerToObject withUnsafeMutablePointer withUnsafeMutablePointers ' +
+        'withUnsafePointer withUnsafePointers withVaList zip'
     };
 
   var TYPE = {
@@ -107,10 +110,12 @@ function(hljs) {
       },
       {
         className: 'meta', // @attributes
-        begin: '(@assignment|@class_protocol|@exported|@final|@lazy|@noreturn|' +
-                  '@NSCopying|@NSManaged|@objc|@optional|@required|@auto_closure|' +
+        begin: '(@warn_unused_result|@exported|@lazy|@noescape|' +
+                  '@NSCopying|@NSManaged|@objc|@convention|@required|' +
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
-                  '@infix|@prefix|@postfix)'
+                  '@infix|@prefix|@postfix|@autoclosure|@testable|@available|' +
+                  '@nonobjc|@NSApplicationMain|@UIApplicationMain)'
+
       },
       {
         beginKeywords: 'import', end: /$/,

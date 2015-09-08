@@ -185,3 +185,5 @@ URL:   https://highlightjs.org/
 - Сэмюел Рид <sam@bitmex.com>
 - Юрий Селиванов <yselivanov@gmail.com>
 - Цуюсато Кицуне <make.just.on@gmail.com>
+- Мик МаКаллум <micksmaccallum@gmail.com>
+- Кристофер Гронлунд <kgronlund@suse.com>
