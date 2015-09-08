@@ -1,0 +1,17 @@
+<span class="hljs-class"><span class="hljs-keyword">defmodule</span> <span class="hljs-title">Long</span></span>.Module.Name <span class="hljs-keyword">do</span>
+  <span class="hljs-variable">@doc</span> ~S<span class="hljs-string">''</span><span class="hljs-string">'
+  No <span class="hljs-subst">#{interpolation}</span> of any kind.
+  \000 \x{ff}
+
+  \n <span class="hljs-subst">#{\x{ff}</span>}
+  '</span><span class="hljs-string">''</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span></span>(a, b \\ []), <span class="hljs-symbol">do:</span> <span class="hljs-symbol">:ok</span>
+
+  <span class="hljs-variable">@doc</span> ~S<span class="hljs-string">""</span><span class="hljs-string">"
+  No <span class="hljs-subst">#{interpolation}</span> of any kind.
+  \000 \x{ff}
+
+  \n <span class="hljs-subst">#{\x{ff}</span>}
+  "</span><span class="hljs-string">""</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span></span>(a, b \\ []), <span class="hljs-symbol">do:</span> <span class="hljs-symbol">:ok</span>
+<span class="hljs-keyword">end</span>
