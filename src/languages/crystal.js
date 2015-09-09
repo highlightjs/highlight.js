@@ -29,8 +29,7 @@ function(hljs) {
     keywords: CRYSTAL_KEYWORDS,
     relevance: 10
   };
-  var
-  STRING = {
+  var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, SUBST],
     variants: [
