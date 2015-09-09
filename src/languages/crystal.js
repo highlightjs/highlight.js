@@ -17,7 +17,7 @@ function(hljs) {
   };
   var SUBST = {
     className: 'subst',
-    begin: '#\\{', end: '}',
+    begin: '#{', end: '}',
     keywords: CRYSTAL_KEYWORDS
   };
   var EXPANSION = {
