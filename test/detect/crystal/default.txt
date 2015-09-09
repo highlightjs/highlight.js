@@ -11,7 +11,8 @@ class Employee < Person
 end
 
 employee = Employee.new "John"
-employee.greet # "Hi, I'm John"
+employee.greet #=> "Hi, I'm John"
+employee.is_a?(Person) #=> true
 
 @[Link("m")]
 lib C
