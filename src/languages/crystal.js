@@ -6,6 +6,8 @@ Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
 function(hljs) {
   var NUM_SUFFIX = '(_[uif](8|16|32|64))?';
   var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
+  var RE_STARTER = '!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
+    '>>|>|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\][=?]?';
   var CRYSTAL_KEYWORDS = {
     keyword:
@@ -29,6 +31,7 @@ function(hljs) {
     keywords: CRYSTAL_KEYWORDS,
     relevance: 10
   };
+
   function recursiveParen(begin, end) {
     var
     contains = [{begin: begin, end: end}];
@@ -53,6 +56,42 @@ function(hljs) {
     ],
     relevance: 0,
   };
+  var REGEXP = {
+    begin: '(' + RE_STARTER + ')\\s*',
+    contains: [
+      {
+        className: 'regexp',
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+        variants: [
+          {begin: '/', end: '/[a-z]*'},
+          {begin: '%r\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
+          {begin: '%r\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
+          {begin: '%r{', end: '}', contains: recursiveParen('{', '}')},
+          {begin: '%r<', end: '>', contains: recursiveParen('<', '>')},
+          {begin: '%r/', end: '/'},
+          {begin: '%r%', end: '%'},
+          {begin: '%r-', end: '-'},
+          {begin: '%r\\|', end: '\\|'},
+        ]
+      }
+    ],
+    relevance: 0
+  };
+  var REGEXP2 = {
+    className: 'regexp',
+    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+    variants: [
+      {begin: '%r\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
+      {begin: '%r\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
+      {begin: '%r{', end: '}', contains: recursiveParen('{', '}')},
+      {begin: '%r<', end: '>', contains: recursiveParen('<', '>')},
+      {begin: '%r/', end: '/'},
+      {begin: '%r%', end: '%'},
+      {begin: '%r-', end: '-'},
+      {begin: '%r\\|', end: '\\|'},
+    ],
+    relevance: 0
+  };
   var ATTRIBUTE = {
     className: 'annotation',
     begin: '@\\[', end: '\\]',
@@ -61,6 +100,8 @@ function(hljs) {
   var CRYSTAL_DEFAULT_CONTAINS = [
     EXPANSION,
     STRING,
+    REGEXP,
+    REGEXP2,
     ATTRIBUTE,
     hljs.HASH_COMMENT_MODE,
     {
@@ -140,20 +181,6 @@ function(hljs) {
     {
       className: 'variable',
       begin: '(\\$\\W)|((\\$|\\@\\@?|%)(\\w+))'
-    },
-    { // regexp container
-      begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
-      contains: [
-        hljs.HASH_COMMENT_MODE,
-        {
-          className: 'regexp',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-          variants: [
-            {begin: '/', end: '/[a-z]*'},
-          ]
-        }
-      ],
-      relevance: 0
     }
   ];
   SUBST.contains = CRYSTAL_DEFAULT_CONTAINS;
