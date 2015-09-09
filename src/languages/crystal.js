@@ -29,6 +29,12 @@ function(hljs) {
     keywords: CRYSTAL_KEYWORDS,
     relevance: 10
   };
+  function recursiveParen(begin, end) {
+    var
+    contains = [{begin: begin, end: end}];
+    contains[0].contains = contains;
+    return contains;
+  }
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, SUBST],
@@ -36,10 +42,10 @@ function(hljs) {
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/},
       {begin: /`/, end: /`/},
-      {begin: '%w?\\(', end: '\\)'},
-      {begin: '%w?\\[', end: '\\]'},
-      {begin: '%w?{', end: '}'},
-      {begin: '%w?<', end: '>'},
+      {begin: '%w?\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
+      {begin: '%w?\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
+      {begin: '%w?{', end: '}', contains: recursiveParen('{', '}')},
+      {begin: '%w?<', end: '>', contains: recursiveParen('<', '>')},
       {begin: '%w?/', end: '/'},
       {begin: '%w?%', end: '%'},
       {begin: '%w?-', end: '-'},
