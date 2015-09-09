@@ -118,10 +118,10 @@ function(hljs) {
     {
       className: 'number',
       variants: [
-        { begin: '\\b0b([01_]+)' + NUM_SUFFIX },
-        { begin: '\\b0o([0-7_]+)' + NUM_SUFFIX },
-        { begin: '\\b0x([A-Fa-f0-9_]+)' + NUM_SUFFIX },
-        { begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)' + NUM_SUFFIX}
+        { begin: '\\b0b([01_]*[01])' + NUM_SUFFIX },
+        { begin: '\\b0o([0-7_]*[0-7])' + NUM_SUFFIX },
+        { begin: '\\b0x([A-Fa-f0-9_]*[A-Fa-f0-9])' + NUM_SUFFIX },
+        { begin: '\\b(([0-9][0-9_]*[0-9]|[0-9])(\\.[0-9_]*[0-9])?([eE][+-]?[0-9_]*[0-9])?)' + NUM_SUFFIX}
       ],
       relevance: 0
     },
