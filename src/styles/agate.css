@@ -26,11 +26,13 @@
 }
 
 .hljs-label,
-.hljs-name {
+.hljs-name,
+.hljs-strong {
   font-weight: bold;
 }
 
-.hljs-code {
+.hljs-code,
+.hljs-emphasis {
   font-style: italic;
 }
 
@@ -54,19 +56,19 @@
 .hljs-title,
 .hljs-section,
 .hljs-attribute,
-.hljs-blockquote,
+.hljs-quote,
 .hljs-built_in {
   color: #ffa;
 }
 
 .hljs-number,
 .hljs-symbol,
-.hljs-link_label,
-.hljs-link_reference {
+.hljs-bullet {
   color: #d36363;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal {
   color: #fcc28c;
 }
@@ -74,17 +76,15 @@
 .hljs-comment,
 .hljs-preprocessor,
 .hljs-annotation,
-.hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
 .tex .hljs-formula,
-.hljs-header,
-.hljs-horizontal_rule,
 .hljs-code {
   color: #888;
 }
 
-.hljs-regexp {
+.hljs-regexp,
+.hljs-link {
   color: #c6b4f0;
 }
 

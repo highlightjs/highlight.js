@@ -1,0 +1,7 @@
+<span class="hljs-keyword">POST</span> <span class="hljs-string">/task?id=1</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: example.org
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">Content-Length</span>: 19
+
+<span class="json">{"<span class="hljs-attr">status</span>": <span class="hljs-string">"ok"</span>, "<span class="hljs-attr">extended</span>": <span class="hljs-literal">true</span>}
+</span>

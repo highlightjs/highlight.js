@@ -386,7 +386,7 @@ function(hljs) {
         begin: '\\b(' + TAGS.join('|') + ')' + TAG_END,
         returnBegin: true,
         contains: [
-          {className: 'keyword', begin: '\\b[a-zA-Z][a-zA-Z0-9_-]*'}
+          {className: 'selector-tag', begin: '\\b[a-zA-Z][a-zA-Z0-9_-]*'}
         ]
       },
 

@@ -21,18 +21,18 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-preprocessor,
 .hljs-shebang,
 .hljs-meta,
-.hljs-doctype,
 .tex .hljs-special {
   color: #444;
 }
 
 .hljs-string,
 .hljs-symbol,
-.hljs-regexp,
-.smalltalk .hljs-char {
+.hljs-bullet,
+.hljs-regexp {
   color: #ffcc33;
 }
 
@@ -45,12 +45,13 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-literal,
 .hljs-type,
 .hljs-template-variable,
-.smalltalk .method,
-.hljs-attribute {
+.hljs-attribute,
+.hljs-link {
   color: #32aaee;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-name,
 .hljs-selector-id,
 .hljs-selector-class {
@@ -61,17 +62,21 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-variable,
 .hljs-deletion,
 .hljs-template-tag,
-.smalltalk .hljs-class,
 .tex .hljs-formula,
 .tex .hljs-formula * {
   color: #bb1166;
 }
 
 .hljs-section,
-.hljs-doctag {
+.hljs-doctag,
+.hljs-strong {
   font-weight: bold;
 }
 
 .tex .hljs-formula {
   opacity: 0.6;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

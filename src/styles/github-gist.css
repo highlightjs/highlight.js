@@ -20,23 +20,22 @@
 .hljs-string,
 .hljs-variable,
 .hljs-template-variable,
-.markdown .hljs-value,
-.markdown .hljs-link_label,
-.markdown .hljs-strong,
-.markdown .hljs-emphasis,
-.markdown .hljs-blockquote {
+.hljs-strong,
+.hljs-emphasis,
+.hljs-quote {
   color: #df5000;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-type {
   color: #a71d5d;
 }
 
 .hljs-literal,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-attribute,
-.markdown .hljs-link_reference,
 .objectivec .hljs-literal,
 .objectivec .hljs-number,
 .objectivec .hljs-built_in {
@@ -70,6 +69,6 @@
   background-color: #ffecec;
 }
 
-.markdown .hljs-link_url {
+.hljs-link {
   text-decoration: underline;
 }

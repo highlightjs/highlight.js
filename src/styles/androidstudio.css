@@ -14,21 +14,25 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 
 .hljs-number,
 .hljs-literal,
-.hljs-symbol {
+.hljs-symbol,
+.hljs-bullet {
   color: #6897BB;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-deletion {
   color: #cc7832;
 }
 
 .hljs-variable,
-.hljs-template-variable {
+.hljs-template-variable,
+.hljs-link {
   color: #629755;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #808080;
 }
 
@@ -51,15 +55,14 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 
 .hljs-name,
 .hljs-selector-id,
-.hljs-selector-class,
-.hljs-doctype {
+.hljs-selector-class {
   color: #e8bf6a;
 }
 
-.hljs-tag .hljs-attribute {
-  color: #bababa;
+.hljs-emphasis {
+  font-style: italic;
 }
 
-.hljs-tag .hljs-value {
-  color: #a5c261;
+.hljs-strong {
+  font-weight: bold;
 }

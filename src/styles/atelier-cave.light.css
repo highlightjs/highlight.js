@@ -3,7 +3,8 @@
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 
 /* Atelier-Cave Comment */
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #655f6d;
 }
 
@@ -14,6 +15,7 @@
 .hljs-tag,
 .hljs-name,
 .hljs-regexp,
+.hljs-link,
 .hljs-name,
 .hljs-name,
 .hljs-selector-id,
@@ -34,9 +36,8 @@
 
 /* Atelier-Cave Green */
 .hljs-string,
-.hljs-value,
-.hljs-header,
-.hljs-symbol {
+.hljs-symbol,
+.hljs-bullet {
   color: #2a9292;
 }
 
@@ -47,7 +48,8 @@
 }
 
 /* Atelier-Cave Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #955ae7;
 }
 
@@ -77,4 +79,12 @@
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

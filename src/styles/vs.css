@@ -13,12 +13,14 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-annotation,
 .hljs-variable {
   color: #008000;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-built_in,
 .hljs-name,
 .tex .hljs-command,
@@ -29,7 +31,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-string,
 .hljs-title,
 .hljs-section,
-.hljs-tag .hljs-value,
 .hljs-attribute,
 .hljs-literal,
 .hljs-template-tag,
@@ -39,10 +40,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
   color: #a31515;
 }
 
-.hljs-filter .hljs-argument,
-.hljs-localvars,
-.hljs-array,
-.hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
 .hljs-preprocessor,
@@ -60,5 +57,17 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
   color: #f00;
 }
 
-.hljs-symbol { color: #00b0e8; }
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
+  color: #00b0e8;
+}
 
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

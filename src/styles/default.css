@@ -24,7 +24,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-attribute,
 .hljs-selector-id,
 .hljs-selector-class,
-.hljs-tag .hljs-value,
 .hljs-preprocessor,
 .hljs-variable,
 .hljs-template-variable,
@@ -32,17 +31,13 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-deletion,
 .tex .hljs-command,
 .tex .hljs-special,
-.asciidoc .hljs-header,
-.markdown .hljs-header,
 .tp .hljs-variable {
   color: #800;
 }
 
-.smartquote,
 .hljs-comment,
 .hljs-annotation,
-.asciidoc .hljs-blockquote,
-.markdown .hljs-blockquote {
+.hljs-quote {
   color: #888;
 }
 
@@ -50,30 +45,21 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-regexp,
 .hljs-literal,
 .hljs-addition,
-.smalltalk .hljs-char,
 .lasso .hljs-variable,
-.asciidoc .hljs-bullet,
-.markdown .hljs-bullet,
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
+.hljs-bullet,
+.hljs-link {
   color: #080;
 }
 
 .hljs-label,
-.hljs-filter .hljs-argument,
-.hljs-localvars,
-.hljs-array,
-.haml .hljs-bullet,
-.hljs-doctype,
 .hljs-shebang,
 .hljs-meta,
-.tex .hljs-formula,
-.asciidoc .hljs-link_label,
-.markdown .hljs-link_label {
+.tex .hljs-formula {
   color: #88f;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-title,
 .hljs-name,
 .hljs-section,
@@ -81,13 +67,11 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-doctag,
 .hljs-type,
 .tex .hljs-command,
-.asciidoc .hljs-strong,
-.markdown .hljs-strong {
+.hljs-strong {
   font-weight: bold;
 }
 
-.asciidoc .hljs-emphasis,
-.markdown .hljs-emphasis {
+.hljs-emphasis {
   font-style: italic;
 }
 

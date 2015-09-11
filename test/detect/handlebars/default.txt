@@ -1,7 +1,6 @@
-<h3>Hours</h3>
-
-<ul>
-  {{#each content.users}}
-  <li {{bindAttr hello="world"}}>{{firstName}}</li>
-  {{/each}}
-</ul>
+<div class="entry">
+  {{!-- only output this author names if an author exists --}}
+  {{#if author}}
+    <h1>{{firstName}} {{lastName}}</h1>
+  {{/if}}
+</div>

@@ -23,8 +23,8 @@ Darkula color scheme from the JetBrains family of IDEs
 }
 
 .hljs-bullet,
-.hljs-blockquote,
-.hljs-horizontal_rule,
+.hljs-quote,
+.hljs-link,
 .hljs-number,
 .hljs-regexp,
 .hljs-literal {
@@ -36,21 +36,16 @@ Darkula color scheme from the JetBrains family of IDEs
   color: #a6e22e;
 }
 
-.hljs-link_url {
-  font-size: 80%;
-}
-
 .hljs-emphasis {
   font-style: italic;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .tex .hljs-special,
-.hljs-header,
 .hljs-section,
 .hljs-attribute,
 .hljs-name,
-.hljs-value,
 .alias .hljs-keyword:first-child,
 .hljs-variable {
   color: #cb7832;
@@ -69,18 +64,13 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-selector-attr,
 .hljs-template-tag,
 .hljs-template-variable,
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
 .hljs-addition,
-.tex .hljs-command,
-.hljs-link_label,
-.hljs-link_url {
+.tex .hljs-command{
   color: #e0c46c;
 }
 
 .hljs-comment,
 .hljs-annotation,
-.hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
 .hljs-meta,

@@ -15,12 +15,13 @@ Style with support for rainbow parens
 
 
 .hljs-comment,
-.hljs-doctype {
+.hljs-quote {
   color: #969896;
   font-style: italic;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-type,
 .hljs-addition {
@@ -43,7 +44,6 @@ Style with support for rainbow parens
 .hljs-title,
 .hljs-name,
 .hljs-section,
-.hljs-localvars,
 .hljs-built_in {
   color: #b5bd68;
 }
@@ -51,22 +51,24 @@ Style with support for rainbow parens
 .hljs-variable,
 .hljs-template-variable,
 .hljs-selector-id,
-.smalltalk .hljs-number,
 .hljs-class .hljs-title {
    color: #ffcc66;
 }
 
 .hljs-section,
-.hljs-name {
+.hljs-name,
+.hljs-strong {
   font-weight: bold;
 }
 
 .hljs-preprocessor,
 .hljs-shebang,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-special,
 .hljs-subst,
-.hljs-meta {
+.hljs-meta,
+.hljs-link {
   color: #f99157;
 }
 
@@ -81,4 +83,8 @@ Style with support for rainbow parens
 .hljs-attr,
 .hljs-attribute {
   color: #81a2be;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

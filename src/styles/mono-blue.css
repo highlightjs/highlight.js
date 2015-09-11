@@ -14,11 +14,12 @@
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-title,
 .hljs-section,
-.hljs-header,
 .hljs-doctag,
-.hljs-name {
+.hljs-name,
+.hljs-strong {
   font-weight: bold;
 }
 
@@ -32,13 +33,9 @@
 .hljs-built_in,
 .hljs-literal,
 .hljs-type,
-.hljs-value,
 .hljs-addition,
 .hljs-tag,
-.hljs-argument,
-.hljs-link_label,
-.hljs-blockquote,
-.hljs-header,
+.hljs-quote,
 .hljs-name,
 .hljs-selector-id,
 .hljs-selector-class {
@@ -48,7 +45,6 @@
 .hljs-meta,
 .hljs-subst,
 .hljs-symbol,
-.hljs-doctype,
 .hljs-regexp,
 .hljs-preprocessor,
 .hljs-attribute,
@@ -56,7 +52,11 @@
 .hljs-shebang,
 .hljs-variable,
 .hljs-template-variable,
-.hljs-link_url,
+.hljs-link,
 .hljs-bullet {
   color: #4c81c9;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

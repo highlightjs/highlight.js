@@ -13,7 +13,8 @@
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #777;
 }
 
@@ -28,6 +29,8 @@
 .hljs-literal,
 .hljs-params,
 .hljs-symbol,
+.hljs-bullet,
+.hljs-link,
 .hljs-deletion {
   color: #ab875d;
 }
@@ -43,9 +46,16 @@
 }
 
 .hljs-string,
-.hljs-value,
-.hljs-header,
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-addition {
   color: #8f9c6c;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

@@ -31,15 +31,13 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 
 /*color: fg_yellow*/
 .hljs-title,
-.hljs-name,
-.hljs-header {
+.hljs-name {
   color: #f0c674;
 }
 
 /*color: fg_comment*/
 .hljs-comment,
 .hljs-shebang,
-.hljs-doctype,
 .hljs-meta {
   color: #707880;
 }
@@ -49,9 +47,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs-symbol,
 .hljs-literal,
 .hljs-deletion,
-.hljs-link_url,
-.hljs-argument,
-.hljs-char {
+.hljs-link {
  color: #cc6666
 }
 
@@ -68,8 +64,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 /*color: fg_purple*/
 .hljs-attribute,
 .hljs-code,
-.hljs-expression,
-.hljs-localvars,
 .hljs-selector-id {
  color: #b294bb;
 }
@@ -77,10 +71,8 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 /*color: fg_blue*/
 .hljs-label,
 .hljs-keyword,
-.hljs-link_label,
+.hljs-selector-tag,
 .hljs-bullet,
-.hljs-smartquote,
-.hljs-method,
 .hljs-tag {
  color: #81a2be;
 }
@@ -88,7 +80,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 /*color: fg_aqua*/
 .hljs-annotation,
 .hljs-subst,
-.hljs-horizontal_rule,
 .hljs-preprocessor .hljs-keyword,
 .hljs-variable,
 .hljs-template-tag,
@@ -99,9 +90,7 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 /*color: fg_orange*/
 .hljs-type,
 .hljs-built_in,
-.hljs-link_reference,
-.hljs-blockquote,
-.hljs-header,
+.hljs-quote,
 .hljs-section,
 .hljs-selector-class {
   color: #de935f;

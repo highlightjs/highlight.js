@@ -27,51 +27,37 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-template-variable,
 .hljs-addition,
 .tex .hljs-command,
-.tex .hljs-special,
-.asciidoc .hljs-header,
-.markdown .hljs-header {
+.tex .hljs-special {
   color: #756bb1;
 }
 
 .hljs-comment,
 .hljs-annotation,
-.asciidoc .hljs-blockquote,
-.markdown .hljs-blockquote {
+.hljs-quote {
   color: #636363;
 }
 
 .hljs-number,
 .hljs-regexp,
 .hljs-literal,
-.smalltalk .hljs-char,
 .lasso .hljs-variable,
-.asciidoc .hljs-bullet,
-.markdown .hljs-bullet,
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
+.hljs-bullet,
+.hljs-link {
   color: #31a354;
 }
 
 .hljs-label,
-.hljs-filter .hljs-argument,
-.hljs-localvars,
-.hljs-array,
-.haml .hljs-bullet,
-.hljs-doctype,
 .hljs-deletion,
 .hljs-variable,
 .hljs-shebang,
-.tex .hljs-formula,
-.asciidoc .hljs-link_label,
-.markdown .hljs-link_label,
-.asciidoc .hljs-attribute,
-.lasso .hljs-attribute {
+.tex .hljs-formula {
   color: #88f;
 }
 
 
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-title,
 .hljs-section,
 .hljs-built_in,
@@ -82,13 +68,11 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-selector-id,
 .hljs-selector-class,
 .tex .hljs-command,
-.asciidoc .hljs-strong,
-.markdown .hljs-strong {
+.hljs-strong {
   color: #3182bd;
 }
 
-.asciidoc .hljs-emphasis,
-.markdown .hljs-emphasis {
+.hljs-emphasis {
   font-style: italic;
 }
 

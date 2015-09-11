@@ -13,9 +13,11 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .tex .hljs-special,
-.hljs-section {
+.hljs-section,
+.hljs-link {
   color: white;
 }
 
@@ -29,12 +31,10 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-name,
 .hljs-type,
 .hljs-attribute,
-.hljs-tag .hljs-value,
 .hljs-preprocessor,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-built_in,
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
 .hljs-template-tag,
@@ -44,8 +44,8 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-annotation,
-.hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
 .hljs-meta,
@@ -54,16 +54,22 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-title,
 .hljs-section,
 .hljs-doctag,
 .hljs-type,
 .hljs-name,
+.hljs-strong,
 .tex .hljs-special {
   font-weight: bold;
 }
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

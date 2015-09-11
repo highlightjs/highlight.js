@@ -15,6 +15,7 @@ based on dark.css by Ivan Sagalaev
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-tag {
   color: #e3ceab;
 }
@@ -52,7 +53,9 @@ based on dark.css by Ivan Sagalaev
   color: #efef8f;
 }
 
-.hljs-symbol {
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
   color: #dca3a3;
 }
 
@@ -60,8 +63,6 @@ based on dark.css by Ivan Sagalaev
 .hljs-string,
 .hljs-preprocessor,
 .hljs-built_in,
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
 .tex .hljs-formula {
   color: #cc9393;
 }
@@ -69,8 +70,8 @@ based on dark.css by Ivan Sagalaev
 .hljs-shebang,
 .hljs-addition,
 .hljs-comment,
+.hljs-quote,
 .hljs-annotation,
-.hljs-doctype,
 .hljs-meta {
   color: #7f9f7f;
 }
@@ -79,3 +80,11 @@ based on dark.css by Ivan Sagalaev
   opacity: 0.5;
 }
 
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

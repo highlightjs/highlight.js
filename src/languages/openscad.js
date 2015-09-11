@@ -55,7 +55,6 @@ function(hljs) {
 			NUMBERS,
 			PREPRO,
 			STRING,
-			PARAMS,
 			SPECIAL_VARS,
 			MODIFIERS,
 			FUNCTIONS

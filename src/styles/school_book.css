@@ -8,8 +8,8 @@ School Book style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
   display: block;
   overflow-x: auto;
   padding: 15px 0.5em 0.5em 30px;
-  font-size: 11px !important;
-  line-height:16px !important;
+  font-size: 11px;
+  line-height:16px;
   -webkit-text-size-adjust: none;
 }
 
@@ -20,6 +20,7 @@ pre{
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .tex .hljs-special {
   color:#005599;
@@ -37,21 +38,21 @@ pre{
 .hljs-type,
 .hljs-preprocessor,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-attribute,
 .hljs-built_in,
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable,
+.hljs-link,
 .tex .hljs-command {
   color: #2c009f;
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-annotation,
-.hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
 .hljs-meta {
@@ -59,6 +60,7 @@ pre{
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-doctag,
 .hljs-title,
@@ -66,10 +68,15 @@ pre{
 .hljs-type,
 .hljs-name,
 .hljs-selector-id,
+.hljs-strong,
 .tex .hljs-command {
   font-weight: bold;
 }
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

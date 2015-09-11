@@ -13,12 +13,14 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #777;
   font-style: italic;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-subst {
   color: #333;
   font-weight: bold;
@@ -65,6 +67,8 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 }
 
 .hljs-symbol,
+.hljs-bullet,
+.hljs-link,
 .tex .hljs-special {
   color: #000;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAO7d+/+z4gsBhJwdXVlhAvCBECKwIIwAbhKZBUwBQA6hBpm5efZsgAAAABJRU5ErkJggg==) repeat;
@@ -88,4 +92,12 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 .hljs-addition {
   color: #000;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAALUlEQVQYV2N89+7dfwYk8P79ewZBQUFkIQZGOiu6e/cuiptQHAPl0NtNxAQBAM97Oejj3Dg7AAAAAElFTkSuQmCC) repeat;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

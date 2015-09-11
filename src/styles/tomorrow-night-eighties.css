@@ -3,7 +3,8 @@
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
 /* Tomorrow Comment */
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #999999;
 }
 
@@ -26,7 +27,8 @@
 .hljs-literal,
 .hljs-type,
 .hljs-params,
-.hljs-meta {
+.hljs-meta,
+.hljs-link {
   color: #f99157;
 }
 
@@ -37,9 +39,8 @@
 
 /* Tomorrow Green */
 .hljs-string,
-.hljs-value,
-.hljs-header,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-addition {
   color: #99cc99;
 }
@@ -51,7 +52,8 @@
 }
 
 /* Tomorrow Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #cc99cc;
 }
 
@@ -66,4 +68,12 @@
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

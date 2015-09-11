@@ -7,7 +7,8 @@
  */
 
 /* Comment */
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #989498;
 }
 
@@ -20,6 +21,7 @@
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-regexp,
+.hljs-link,
 .hljs-deletion {
   color: #dd464c;
 }
@@ -41,9 +43,8 @@
 
 /* Green */
 .hljs-string,
-.hljs-value,
-.hljs-header,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-addition {
   color: #8fc13e;
 }
@@ -61,7 +62,8 @@
 }
 
 /* Purple */
-.hljs-keyword {
+.hljs-keyword,
+.hljs-selector-tag {
   color: #c85e7c;
 }
 
@@ -70,4 +72,12 @@
   background: #322931;
   color: #b9b5b8;
   padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

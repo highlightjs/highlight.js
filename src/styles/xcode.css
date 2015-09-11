@@ -13,11 +13,13 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #006a00;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal {
   color: #aa0d91;
 }
@@ -37,8 +39,8 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   color: #c41a16;
 }
 
-.hljs-filter .hljs-argument,
-.hljs-regexp {
+.hljs-regexp,
+.hljs-link {
   color: #080;
 }
 
@@ -46,6 +48,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-tag,
 .hljs-shebang,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-number,
 .hljs-meta {
   color: #1c00cf;
@@ -55,7 +58,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-class .hljs-title,
 .hljs-type,
 .hljs-attr,
-.hljs-doctype,
 .hljs-built_in,
 .hljs-params {
   color: #5c2699;
@@ -88,11 +90,16 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   background-color: #ffc8bd;
 }
 
-.hljs-comment .hljs-doctag {
-  font-weight: bold;
-}
-
 .hljs-selector-id,
 .hljs-selector-class {
   color: #9b703f;
+}
+
+.hljs-doctag,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

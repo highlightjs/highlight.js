@@ -13,12 +13,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   -webkit-text-size-adjust: none;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #998;
   font-style: italic;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-subst {
   color: #333;
   font-weight: bold;
@@ -63,11 +65,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   font-weight: normal;
 }
 
-.hljs-regexp {
+.hljs-regexp,
+.hljs-link {
   color: #009926;
 }
 
 .hljs-symbol,
+.hljs-bullet,
 .tex .hljs-special {
   color: #990073;
 }
@@ -77,7 +81,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-preprocessor,
-.hljs-doctype,
 .hljs-shebang,
 .hljs-meta {
   color: #999;
@@ -90,4 +93,12 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-addition {
   background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

@@ -17,26 +17,33 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-variable,
 .hljs-template-variable,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-section,
-.hljs-filter .hljs-argument,
 .hljs-addition,
 .hljs-attribute,
+.hljs-link,
 .tex .hljs-formula {
   color: #888;
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-meta,
 .hljs-shebang,
-.hljs-doctype,
 .hljs-deletion {
   color: #ccc;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-section,
 .hljs-name,
 .hljs-type,
+.hljs-strong,
 .tex .hljs-command {
   font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

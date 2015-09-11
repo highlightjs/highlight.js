@@ -25,11 +25,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 }
 
 .hljs-bullet,
-.hljs-blockquote,
-.hljs-horizontal_rule,
+.hljs-quote,
 .hljs-number,
 .hljs-regexp,
-.hljs-literal {
+.hljs-literal,
+.hljs-link {
   color: #ae81ff;
 }
 
@@ -38,10 +38,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-section,
 .hljs-selector-class {
   color: #a6e22e;
-}
-
-.hljs-link_url {
-  font-size: 80%;
 }
 
 .hljs-strong {
@@ -53,10 +49,9 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 }
 
 .hljs-keyword,
-.hljs-header,
+.hljs-selector-tag,
 .hljs-name,
 .hljs-attr,
-.hljs-value,
 .tex .hljs-special {
   color: #f92672;
 }
@@ -76,20 +71,15 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-built_in,
 .hljs-selector-id,
 .hljs-selector-attr,
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
 .hljs-template-variable,
-.tex .hljs-command,
-.hljs-link_label,
-.hljs-link_url {
+.tex .hljs-command {
   color: #e6db74;
 }
 
 .hljs-comment,
 .hljs-annotation,
-.hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
 .hljs-meta,

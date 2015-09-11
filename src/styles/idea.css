@@ -19,14 +19,14 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
   color: #000;
 }
 
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #808080;
   font-style: italic;
 }
 
 .hljs-annotation,
 .hljs-preprocessor,
-.hljs-doctype,
 .hljs-shebang,
 .hljs-meta {
   color: #808000;
@@ -40,6 +40,7 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-name,
 .hljs-literal,
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-type,
 .hljs-selector-id,
 .hljs-selector-class,
@@ -51,25 +52,25 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-attribute,
 .hljs-number,
 .hljs-regexp,
+.hljs-link,
 .tex .hljs-special {
   font-weight: bold;
   color: #0000ff;
 }
 
 .hljs-number,
-.hljs-regexp {
+.hljs-regexp,
+.hljs-link {
   font-weight: normal;
 }
 
-.hljs-string,
-.hljs-value,
-.hljs-filter .hljs-argument {
+.hljs-string {
   color: #008000;
   font-weight: bold;
 }
 
 .hljs-symbol,
-.hljs-char,
+.hljs-bullet,
 .tex .hljs-formula {
   color: #000;
   background: #d0eded;
@@ -91,4 +92,12 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-deletion {
   background: #ffc8bd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

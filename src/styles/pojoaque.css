@@ -16,12 +16,13 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 }
 
 .hljs-comment,
-.hljs-doctype {
+.hljs-quote {
   color: #586e75;
   font-style: italic;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-addition {
   color: #b64926;
@@ -38,7 +39,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 
 .hljs-title,
 .hljs-section,
-.hljs-localvars,
 .hljs-built_in,
 .hljs-name {
   color: #ffb03b;
@@ -46,7 +46,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 
 .hljs-variable,
 .hljs-template-variable,
-.smalltalk .hljs-number,
 .hljs-class .hljs-title,
 .hljs-type,
 .hljs-tag {
@@ -60,6 +59,8 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-preprocessor,
 .hljs-shebang,
 .hljs-symbol,
+.hljs-bullet,
+.hljs-link,
 .hljs-special,
 .hljs-subst,
 .hljs-meta {
@@ -77,4 +78,12 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 
 .tex .hljs-formula {
   background: #073642;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

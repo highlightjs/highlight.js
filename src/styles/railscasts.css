@@ -14,12 +14,14 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-shebang {
   color: #bc9458;
   font-style: italic;
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .method {
   color: #c26230;
 }
@@ -27,12 +29,9 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-string,
 .hljs-number,
 .hljs-regexp,
-.hljs-filter .hljs-argument,
 .hljs-variable,
 .hljs-template-variable,
-.tex .hljs-command,
-.asciidoc .hljs-link_label,
-.markdown .hljs-link_label {
+.tex .hljs-command {
   color: #a5c261;
 }
 
@@ -42,7 +41,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 .hljs-tag,
 .hljs-name,
-.hljs-doctype,
 .input_number {
   color: #e8bf6a;
 }
@@ -53,16 +51,11 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 
 .hljs-symbol,
+.hljs-bullet,
 .hljs-built_in,
 .hljs-attr,
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
+.hljs-link {
   color: #6d9cbe;
-}
-
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
-  text-decoration: underline;
 }
 
 .hljs-params {
@@ -81,7 +74,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 .hljs-preprocessor,
 .hljs-preprocessor * {
-  color: #8996a8 !important;
+  color: #8996a8;
 }
 
 .hljs-title,
@@ -113,4 +106,16 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 .tex .hljs-formula {
   opacity: 0.7;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
 }

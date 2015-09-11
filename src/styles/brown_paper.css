@@ -13,6 +13,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .tex .hljs-special {
   color:#005599;
@@ -31,22 +32,22 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-attribute,
 .hljs-preprocessor,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-built_in,
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
 .hljs-addition,
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable,
+.hljs-link,
 .tex .hljs-number,
 .hljs-name {
   color: #2c009f;
 }
 
 .hljs-comment,
+.hljs-quote,
 .hljs-annotation,
 .hljs-meta,
-.hljs-doctype,
 .hljs-deletion,
 .hljs-shebang,
 .tex .hljs-formula {
@@ -54,16 +55,22 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-literal,
 .hljs-doctag,
 .hljs-title,
 .hljs-section,
 .hljs-type,
 .hljs-name,
+.hljs-strong,
 .tex .hljs-command {
   font-weight: bold;
 }
 
 .tex .hljs-formula {
   opacity: 0.8;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

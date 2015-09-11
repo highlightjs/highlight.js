@@ -6,7 +6,8 @@
 */
 
 /* Kimbie Comment */
-.hljs-comment {
+.hljs-comment,
+.hljs-quote {
   color: #d6baad;
 }
 
@@ -29,7 +30,8 @@
 .hljs-literal,
 .hljs-type,
 .hljs-params,
-.hljs-deletion {
+.hljs-deletion,
+.hljs-link {
   color: #f79a32;
 }
 
@@ -42,15 +44,15 @@
 
 /* Kimbie Green */
 .hljs-string,
-.hljs-value,
-.hljs-header,
 .hljs-symbol,
+.hljs-bullet,
 .hljs-addition {
   color: #889b4a;
 }
 
 /* Kimbie Purple */
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-function {
   color: #98676a;
 }
@@ -66,4 +68,12 @@
 
 .tex .hljs-formula {
   opacity: 0.5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }
