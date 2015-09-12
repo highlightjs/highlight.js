@@ -1539,6 +1539,7 @@ Crystal ("crystal", "cr")
 * ``function``:         method or function header
 * ``title``:            a method name or class name
 * ``parent``:           name of a parent class
+* ``annotation``:       any attribute
 
 Crmsh ("crmsh", "crm", "pcmk")
 ------------------------------
