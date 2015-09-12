@@ -1,8 +1,8 @@
 <span class="hljs-keyword">module</span> hello
 
-<span class="hljs-keyword">function</span> dyno = -&gt; <span class="hljs-typename">DynamicObject</span>()
+<span class="hljs-keyword">function</span> dyno = -&gt; <span class="hljs-keyword">DynamicObject</span>()
 
-<span class="hljs-typename">struct</span> human = { name }
+<span class="hljs-keyword">struct</span> human = { name }
 
 <span class="hljs-meta">@annotated</span>
 <span class="hljs-keyword">function</span> main = |args| {

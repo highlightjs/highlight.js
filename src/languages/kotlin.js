@@ -8,13 +8,13 @@
 function (hljs) {
   var KEYWORDS = 'val var get set class trait object open private protected public ' +
     'final enum if else do while for when break continue throw try catch finally ' +
-    'import package is as in return fun override default companion reified inline volatile transient native';
+    'import package is as in return fun override default companion reified inline volatile transient native ' +
+    'Byte Short Char Int Long Boolean Float Double Void Unit Nothing';
 
   return {
     keywords: {
       keyword: KEYWORDS,
-      literal: 'true false null',
-      type: 'Byte Short Char Int Long Boolean Float Double Void Unit Nothing'
+      literal: 'true false null'
     },
     contains : [
       hljs.COMMENT(
