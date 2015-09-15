@@ -47,8 +47,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-quote,
 .hljs-annotation,
 .hljs-deletion,
-.hljs-meta,
-.tex .hljs-formula {
+.hljs-meta {
   color: #777;
 }
 
@@ -63,10 +62,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-strong,
 .tex .hljs-special {
   font-weight: bold;
-}
-
-.tex .hljs-formula {
-  opacity: 0.5;
 }
 
 .hljs-emphasis {

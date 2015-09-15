@@ -57,8 +57,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-annotation,
 .hljs-quote,
 .hljs-deletion,
-.hljs-meta,
-.tex .hljs-formula {
+.hljs-meta {
   color: #75715e;
 }
 
@@ -72,8 +71,4 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-selector-id,
 .tex .hljs-special {
   font-weight: bold;
-}
-
-.tex .hljs-formula {
-  opacity: 0.5;
 }

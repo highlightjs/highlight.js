@@ -77,7 +77,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #8996a8;
 }
 
-.tex .hljs-formula {
+.hljs-formula {
   background-color: #0e2231;
   color: #f8f8f8;
   font-style: italic;
@@ -99,10 +99,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-selector-id {
   color: #8b98ab;
-}
-
-.tex .hljs-formula {
-  opacity: 0.5;
 }
 
 .hljs-emphasis {

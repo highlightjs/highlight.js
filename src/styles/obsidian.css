@@ -71,8 +71,7 @@
 .hljs-comment,
 .hljs-annotation,
 .hljs-quote,
-.hljs-deletion,
-.tex .hljs-formula {
+.hljs-deletion {
   color: #818e96;
 }
 
@@ -88,11 +87,6 @@
 .hljs-section,
 .hljs-type,
 .hljs-name,
-.hljs-strong,
-.tex .hljs-special {
+.hljs-strong {
   font-weight: bold;
-}
-
-.tex .hljs-formula {
-  opacity: 0.5;
 }

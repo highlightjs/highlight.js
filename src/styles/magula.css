@@ -50,8 +50,7 @@ Music: Aphex Twin / Xtal
 
 .hljs-label,
 .hljs-deletion,
-.hljs-meta,
-.tex .hljs-formula {
+.hljs-meta {
   color: #00e;
 }
 
@@ -66,10 +65,6 @@ Music: Aphex Twin / Xtal
 .tex .hljs-command {
   font-weight: bold;
   color: navy;
-}
-
-.tex .hljs-formula {
-  opacity: 0.5;
 }
 
 .hljs-emphasis {

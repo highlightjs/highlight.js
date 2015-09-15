@@ -103,10 +103,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   color: #8b98ab;
 }
 
-.tex .hljs-formula {
-  opacity: 0.7;
-}
-
 .hljs-emphasis {
   font-style: italic;
 }

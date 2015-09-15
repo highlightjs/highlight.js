@@ -35,8 +35,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-string,
-.hljs-doctag,
-.tex .hljs-formula {
+.hljs-doctag {
   color: #d14;
 }
 

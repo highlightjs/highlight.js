@@ -72,10 +72,6 @@ pre{
   font-weight: bold;
 }
 
-.tex .hljs-formula {
-  opacity: 0.5;
-}
-
 .hljs-emphasis {
   font-style: italic;
 }

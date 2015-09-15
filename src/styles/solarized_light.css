@@ -32,7 +32,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-command,
 .hljs-string,
 .hljs-doctag,
-.tex .hljs-formula,
 .hljs-regexp {
   color: #2aa198;
 }
@@ -75,7 +74,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
   color: #dc322f;
 }
 
-.tex .hljs-formula {
+.hljs-formula {
   background: #eee8d5;
 }
 

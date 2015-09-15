@@ -48,8 +48,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-quote,
 .hljs-annotation,
 .hljs-meta,
-.hljs-deletion,
-.tex .hljs-formula {
+.hljs-deletion {
   color: #802022;
 }
 
@@ -64,10 +63,6 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-strong,
 .tex .hljs-command {
   font-weight: bold;
-}
-
-.tex .hljs-formula {
-  opacity: 0.8;
 }
 
 .hljs-emphasis {

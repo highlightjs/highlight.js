@@ -33,7 +33,7 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 
 .hljs-string,
 .hljs-doctag,
-.tex .hljs-formula {
+.hljs-formula {
   color: #333;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAJ0lEQVQIW2O8e/fufwYGBgZBQUEQxcCIIfDu3Tuwivfv30NUoAsAALHpFMMLqZlPAAAAAElFTkSuQmCC) repeat;
 }

@@ -60,9 +60,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-title,
 .hljs-variable,
 .hljs-deletion,
-.hljs-template-tag,
-.tex .hljs-formula,
-.tex .hljs-formula * {
+.hljs-template-tag {
   color: #bb1166;
 }
 
@@ -70,10 +68,6 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-doctag,
 .hljs-strong {
   font-weight: bold;
-}
-
-.tex .hljs-formula {
-  opacity: 0.6;
 }
 
 .hljs-emphasis {

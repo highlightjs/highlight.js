@@ -46,8 +46,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-quote,
 .hljs-doctag,
 .hljs-annotation,
-.hljs-deletion,
-.tex .hljs-formula {
+.hljs-deletion {
   color: #888;
 }
 

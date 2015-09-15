@@ -76,10 +76,6 @@
   -webkit-text-size-adjust: none;
 }
 
-.tex .hljs-formula {
-  opacity: 0.5;
-}
-
 .hljs-emphasis {
   font-style: italic;
 }

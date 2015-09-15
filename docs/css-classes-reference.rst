@@ -32,6 +32,8 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | emphasis                 | Emphasis in text markup                           |
 +--------------------------+---------------------------------------------------+
+| formula                  | Mathematical formula in text markup               |
++--------------------------+---------------------------------------------------+
 | function                 | Function or method declaration                    |
 +--------------------------+---------------------------------------------------+
 | keyword                  | Keyword in a regular Algol-style language.        |

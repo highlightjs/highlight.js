@@ -48,8 +48,7 @@ Ported by Fabrício Tavares de Oliveira
 
 .hljs-label,
 .hljs-deletion,
-.hljs-variable,
-.tex .hljs-formula {
+.hljs-variable {
   color: #88f;
 }
 
@@ -76,10 +75,6 @@ Ported by Fabrício Tavares de Oliveira
 }
 
 .lasso .markup,
-.tex .hljs-formula {
-  opacity: 0.5;
-}
-
 .hljs-attribute {
   color: #e6550d;
 }

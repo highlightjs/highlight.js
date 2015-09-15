@@ -36,7 +36,6 @@ Style with support for rainbow parens
 .hljs-command,
 .hljs-string,
 .hljs-doctag,
-.tex .hljs-formula,
 .hljs-regexp {
   color: #8abeb7;
 }
@@ -75,7 +74,7 @@ Style with support for rainbow parens
   color: #dc322f;
 }
 
-.tex .hljs-formula {
+.hljs-formula {
   background: #eee8d5;
 }
 

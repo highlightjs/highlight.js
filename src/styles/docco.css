@@ -29,8 +29,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-string,
-.hljs-doctag,
-.tex .hljs-formula {
+.hljs-doctag {
   color: #219161;
 }
 
@@ -92,10 +91,6 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-addition {
   background: #dfd;
-}
-
-.tex .hljs-formula {
-  opacity: 0.5;
 }
 
 .hljs-emphasis {

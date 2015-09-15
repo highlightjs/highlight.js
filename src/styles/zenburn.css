@@ -62,8 +62,7 @@ based on dark.css by Ivan Sagalaev
 .hljs-deletion,
 .hljs-string,
 .hljs-preprocessor,
-.hljs-built_in,
-.tex .hljs-formula {
+.hljs-built_in {
   color: #cc9393;
 }
 
@@ -73,10 +72,6 @@ based on dark.css by Ivan Sagalaev
 .hljs-annotation,
 .hljs-meta {
   color: #7f9f7f;
-}
-
-.tex .hljs-formula {
-  opacity: 0.5;
 }
 
 

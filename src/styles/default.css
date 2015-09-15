@@ -52,8 +52,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 }
 
 .hljs-label,
-.hljs-meta,
-.tex .hljs-formula {
+.hljs-meta {
   color: #88f;
 }
 
@@ -72,9 +71,4 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 
 .hljs-emphasis {
   font-style: italic;
-}
-
-.lasso .markup,
-.tex .hljs-formula {
-  opacity: 0.5;
 }
