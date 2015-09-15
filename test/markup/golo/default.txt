@@ -8,8 +8,8 @@ struct human = { name }
 function main = |args| {
     let a = 1
     var b = 2
-    
-    println("hello") 
+
+    println("hello")
 
     let john = human("John Doe")
 }

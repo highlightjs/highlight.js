@@ -1,0 +1,15 @@
+<span class="hljs-keyword">module</span> hello
+
+<span class="hljs-keyword">function</span> dyno = -&gt; <span class="hljs-keyword">DynamicObject</span>()
+
+<span class="hljs-keyword">struct</span> human = { name }
+
+<span class="hljs-meta">@annotated</span>
+<span class="hljs-keyword">function</span> main = |args| {
+    <span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">var</span> b = <span class="hljs-number">2</span>
+
+    <span class="hljs-keyword">println</span>(<span class="hljs-string">"hello"</span>)
+
+    <span class="hljs-keyword">let</span> john = human(<span class="hljs-string">"John Doe"</span>)
+}

@@ -6,15 +6,15 @@
 
 
 function (hljs) {
-  var KEYWORDS = 'val var get set class trait object public open private protected ' +
+  var KEYWORDS = 'val var get set class trait object open private protected public ' +
     'final enum if else do while for when break continue throw try catch finally ' +
-    'import package is as in return fun override default companion reified inline volatile transient native';
+    'import package is as in return fun override default companion reified inline volatile transient native ' +
+    'Byte Short Char Int Long Boolean Float Double Void Unit Nothing';
 
   return {
     keywords: {
-      typename: 'Byte Short Char Int Long Boolean Float Double Void Unit Nothing',
-      literal: 'true false null',
-      keyword: KEYWORDS
+      keyword: KEYWORDS,
+      literal: 'true false null'
     },
     contains : [
       hljs.COMMENT(
@@ -64,7 +64,7 @@ function (hljs) {
             illegal: /\([^\(,\s:]+,/,
             contains: [
               {
-                className: 'typename',
+                className: 'type',
                 begin: /:\s*/, end: /\s*[=\)]/, excludeBegin: true, returnEnd: true,
                 relevance: 0
               }
@@ -87,7 +87,7 @@ function (hljs) {
             relevance: 0
           },
           {
-            className: 'typename',
+            className: 'type',
             begin: /[,:]\s*/, end: /[<\(,]|$/, excludeBegin: true, returnEnd: true
           }
         ]
@@ -97,7 +97,7 @@ function (hljs) {
       },
       hljs.QUOTE_STRING_MODE,
       {
-        className: 'shebang',
+        className: 'meta',
         begin: "^#!/usr/bin/env", end: '$',
         illegal: '\n'
       },

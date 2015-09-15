@@ -7,13 +7,13 @@ Website: http://github.com/idleberg
 
 function(hljs) {
   var CONSTANTS = {
-    className: 'symbol',
+    className: 'variable',
     begin: '\\$(ADMINTOOLS|APPDATA|CDBURN_AREA|CMDLINE|COMMONFILES32|COMMONFILES64|COMMONFILES|COOKIES|DESKTOP|DOCUMENTS|EXEDIR|EXEFILE|EXEPATH|FAVORITES|FONTS|HISTORY|HWNDPARENT|INSTDIR|INTERNET_CACHE|LANGUAGE|LOCALAPPDATA|MUSIC|NETHOOD|OUTDIR|PICTURES|PLUGINSDIR|PRINTHOOD|PROFILE|PROGRAMFILES32|PROGRAMFILES64|PROGRAMFILES|QUICKLAUNCH|RECENT|RESOURCES_LOCALIZED|RESOURCES|SENDTO|SMPROGRAMS|SMSTARTUP|STARTMENU|SYSDIR|TEMP|TEMPLATES|VIDEOS|WINDIR)'
   };
 
   var DEFINES = {
     // ${defines}
-    className: 'constant',
+    className: 'variable',
     begin: '\\$+{[a-zA-Z0-9_]+}'
   };
 
@@ -26,7 +26,7 @@ function(hljs) {
 
   var LANGUAGES = {
     // $(language_strings)
-    className: 'constant',
+    className: 'variable',
     begin: '\\$+\\([a-zA-Z0-9_]+\\)'
   };
 
@@ -38,7 +38,7 @@ function(hljs) {
 
   var COMPILER ={
     // !compiler_flags
-    className: 'constant',
+    className: 'keyword',
     begin: '\\!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversionsystem|ifdef|ifmacrodef|ifmacrondef|ifndef|if|include|insertmacro|macroend|macro|makensis|packhdr|searchparse|searchreplace|tempfile|undef|verbose|warning)'
   };
 
@@ -86,7 +86,7 @@ function(hljs) {
       PARAMETERS,
       hljs.NUMBER_MODE,
       { // plug::ins
-        className: 'literal',
+        className: 'symbol',
         begin: hljs.IDENT_RE + '::' + hljs.IDENT_RE
       }
     ]
