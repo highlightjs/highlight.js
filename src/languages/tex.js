@@ -5,48 +5,55 @@ Website: http://fulc.ru/
 */
 
 function(hljs) {
-  var COMMAND1 = {
-    className: 'command',
-    begin: '\\\\[a-zA-Zа-яА-я]+[\\*]?'
-  };
-  var COMMAND2 = {
-    className: 'command',
-    begin: '\\\\[^a-zA-Zа-яА-я0-9]'
-  };
-  var SPECIAL = {
-    className: 'special',
-    begin: '[{}\\[\\]\\&#~]',
-    relevance: 0
+  var COMMAND = {
+    className: 'tag',
+    begin: /\\/,
+    relevance: 0,
+    contains: [
+      {
+        className: 'name',
+        variants: [
+          {begin: /[a-zA-Zа-яА-я]+[*]?/},
+          {begin: /[^a-zA-Zа-яА-я0-9]/}
+        ],
+        starts: {
+          endsWithParent: true,
+          relevance: 0,
+          contains: [
+            {
+              className: 'string', // because it looks like attributes in HTML tags
+              variants: [
+                {begin: /\[/, end: /\]/},
+                {begin: /\{/, end: /\}/}
+              ]
+            },
+            {
+              begin: /\s*=\s*/, endsWithParent: true,
+              relevance: 0,
+              contains: [
+                {
+                  className: 'number',
+                  begin: /-?\d*\.?\d+(pt|pc|mm|cm|in|dd|cc|ex|em)?/
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
   };
 
   return {
     contains: [
-      { // parameter
-        begin: '\\\\[a-zA-Zа-яА-я]+[\\*]? *= *-?\\d*\\.?\\d+(pt|pc|mm|cm|in|dd|cc|ex|em)?',
-        returnBegin: true,
-        contains: [
-          COMMAND1, COMMAND2,
-          {
-            className: 'number',
-            begin: ' *=', end: '-?\\d*\\.?\\d+(pt|pc|mm|cm|in|dd|cc|ex|em)?',
-            excludeBegin: true
-          }
-        ],
-        relevance: 10
-      },
-      COMMAND1, COMMAND2,
-      SPECIAL,
+      COMMAND,
       {
         className: 'formula',
-        begin: '\\$\\$', end: '\\$\\$',
-        contains: [COMMAND1, COMMAND2, SPECIAL],
-        relevance: 0
-      },
-      {
-        className: 'formula',
-        begin: '\\$', end: '\\$',
-        contains: [COMMAND1, COMMAND2, SPECIAL],
-        relevance: 0
+        contains: [COMMAND],
+        relevance: 0,
+        variants: [
+          {begin: /\$\$/, end: /\$\$/},
+          {begin: /\$/, end: /\$/}
+        ]
       },
       hljs.COMMENT(
         '%',

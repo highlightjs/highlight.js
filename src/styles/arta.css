@@ -23,8 +23,7 @@ Author: pumbur <pumbur@pumbur.net>
 .hljs-comment,
 .hljs-quote,
 .hljs-preprocessor,
-.hljs-meta,
-.tex .hljs-special {
+.hljs-meta {
   color: #444;
 }
 

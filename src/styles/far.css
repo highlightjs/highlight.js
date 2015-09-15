@@ -25,8 +25,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-built_in,
 .hljs-template-tag,
 .hljs-template-variable,
-.hljs-addition,
-.tex .hljs-command {
+.hljs-addition {
   color: #ff0;
 }
 
@@ -37,8 +36,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-name,
 .hljs-selector-id,
 .hljs-selector-class,
-.hljs-variable,
-.tex .hljs-special {
+.hljs-variable {
   color: #fff;
 }
 
@@ -66,9 +64,7 @@ FAR Style (c) MajestiC <majestic2k@gmail.com>
 .hljs-title,
 .hljs-section,
 .hljs-name,
-.hljs-strong,
-.tex .hljs-command,
-.tex .hljs-special {
+.hljs-strong {
   font-weight: bold;
 }
 

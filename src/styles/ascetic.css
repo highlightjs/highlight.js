@@ -37,8 +37,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-section,
 .hljs-name,
 .hljs-type,
-.hljs-strong,
-.tex .hljs-command {
+.hljs-strong {
   font-weight: bold;
 }
 

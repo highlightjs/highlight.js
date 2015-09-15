@@ -29,8 +29,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-template-variable,
 .hljs-symbol,
 .hljs-deletion,
-.tex .hljs-command,
-.tex .hljs-special,
 .tp .hljs-variable {
   color: #800;
 }
@@ -64,7 +62,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-built_in,
 .hljs-doctag,
 .hljs-type,
-.tex .hljs-command,
 .hljs-strong {
   font-weight: bold;
 }

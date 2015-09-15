@@ -15,7 +15,6 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal,
-.tex .hljs-special,
 .hljs-section,
 .hljs-link {
   color: white;
@@ -38,8 +37,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-addition,
 .hljs-variable,
 .hljs-template-tag,
-.hljs-template-variable,
-.tex .hljs-command {
+.hljs-template-variable {
   color: #d88;
 }
 
@@ -59,8 +57,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-doctag,
 .hljs-type,
 .hljs-name,
-.hljs-strong,
-.tex .hljs-special {
+.hljs-strong {
   font-weight: bold;
 }
 

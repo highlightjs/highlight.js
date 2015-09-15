@@ -25,9 +25,7 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-symbol,
 .hljs-template-tag,
 .hljs-template-variable,
-.hljs-addition,
-.tex .hljs-command,
-.tex .hljs-special {
+.hljs-addition {
   color: #756bb1;
 }
 
@@ -65,7 +63,6 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-name,
 .hljs-selector-id,
 .hljs-selector-class,
-.tex .hljs-command,
 .hljs-strong {
   color: #3182bd;
 }

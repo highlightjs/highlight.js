@@ -43,8 +43,7 @@ Music: Aphex Twin / Xtal
 .hljs-regexp,
 .hljs-literal,
 .hljs-type,
-.hljs-link,
-.tex .hljs-special {
+.hljs-link {
   color: #800;
 }
 
@@ -61,8 +60,7 @@ Music: Aphex Twin / Xtal
 .hljs-section,
 .hljs-built_in,
 .hljs-tag,
-.hljs-name,
-.tex .hljs-command {
+.hljs-name {
   font-weight: bold;
   color: navy;
 }

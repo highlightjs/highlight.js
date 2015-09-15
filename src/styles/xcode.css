@@ -24,14 +24,12 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   color: #aa0d91;
 }
 
-.tex .hljs-command,
 .hljs-name {
   color: #008;
 }
 
 .hljs-variable,
-.hljs-template-variable,
-.tex .hljs-special {
+.hljs-template-variable {
   color: #660;
 }
 

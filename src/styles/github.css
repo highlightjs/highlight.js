@@ -51,8 +51,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-type,
-.hljs-class .hljs-title,
-.tex .hljs-command {
+.hljs-class .hljs-title {
   color: #458;
   font-weight: bold;
 }
@@ -70,8 +69,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-symbol,
-.hljs-bullet,
-.tex .hljs-special {
+.hljs-bullet {
   color: #990073;
 }
 

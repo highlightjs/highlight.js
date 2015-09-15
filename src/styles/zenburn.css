@@ -34,8 +34,7 @@ based on dark.css by Ivan Sagalaev
   color: #efdcbc;
 }
 
-.hljs-literal,
-.tex .hljs-special {
+.hljs-literal {
   color: #efefaf;
 }
 
@@ -48,8 +47,7 @@ based on dark.css by Ivan Sagalaev
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-section,
-.hljs-type,
-.tex .hljs-command {
+.hljs-type {
   color: #efef8f;
 }
 

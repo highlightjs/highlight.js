@@ -51,8 +51,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-name,
-.hljs-attr,
-.tex .hljs-special {
+.hljs-attr {
   color: #f92672;
 }
 
@@ -73,8 +72,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-selector-attr,
 .hljs-addition,
 .hljs-variable,
-.hljs-template-variable,
-.tex .hljs-command {
+.hljs-template-variable {
   color: #e6db74;
 }
 

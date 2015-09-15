@@ -21,8 +21,7 @@ pre{
 
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-literal,
-.tex .hljs-special {
+.hljs-literal {
   color:#005599;
   font-weight:bold;
 }
@@ -45,8 +44,7 @@ pre{
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable,
-.hljs-link,
-.tex .hljs-command {
+.hljs-link {
   color: #2c009f;
 }
 
@@ -67,8 +65,7 @@ pre{
 .hljs-type,
 .hljs-name,
 .hljs-selector-id,
-.hljs-strong,
-.tex .hljs-command {
+.hljs-strong {
   font-weight: bold;
 }
 

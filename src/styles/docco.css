@@ -44,8 +44,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
   color: #00f;
 }
 
-.hljs-title,
-.tex .hljs-command {
+.hljs-title {
   color: #458;
   font-weight: bold;
 }
@@ -70,7 +69,6 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs-symbol,
 .hljs-bullet,
-.tex .hljs-special,
 .input_number {
   color: #990073;
 }

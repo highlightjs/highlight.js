@@ -42,7 +42,6 @@ Darkula color scheme from the JetBrains family of IDEs
 
 .hljs-keyword,
 .hljs-selector-tag,
-.tex .hljs-special,
 .hljs-section,
 .hljs-attribute,
 .hljs-name,
@@ -64,15 +63,13 @@ Darkula color scheme from the JetBrains family of IDEs
 .hljs-selector-attr,
 .hljs-template-tag,
 .hljs-template-variable,
-.hljs-addition,
-.tex .hljs-command{
+.hljs-addition {
   color: #e0c46c;
 }
 
 .hljs-comment,
 .hljs-annotation,
 .hljs-deletion,
-.hljs-meta,
-.tex .hljs-formula {
+.hljs-meta {
   color: #7f7f7f;
 }

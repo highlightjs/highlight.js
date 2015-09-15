@@ -51,8 +51,7 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 
 .hljs-class .hljs-title,
 .hljs-type,
-.hljs-name,
-.tex .hljs-command {
+.hljs-name {
   color: #333;
   font-weight: bold;
 }
@@ -68,8 +67,7 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 
 .hljs-symbol,
 .hljs-bullet,
-.hljs-link,
-.tex .hljs-special {
+.hljs-link {
   color: #000;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAO7d+/+z4gsBhJwdXVlhAvCBECKwIIwAbhKZBUwBQA6hBpm5efZsgAAAABJRU5ErkJggg==) repeat;
 }

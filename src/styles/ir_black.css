@@ -20,7 +20,6 @@
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-tag,
-.tex .hljs-command,
 .hljs-name {
   color: #96cbfe;
 }
@@ -47,7 +46,6 @@
 
 .hljs-title,
 .hljs-section,
-.tex .hljs-special,
 .hljs-type,
 .hljs-doctag {
   color: #ffffb6;

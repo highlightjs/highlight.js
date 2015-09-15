@@ -14,8 +14,7 @@
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal,
-.hljs-selector-id,
-.tex .hljs-special {
+.hljs-selector-id {
   color: #93c763;
 }
 
@@ -58,8 +57,7 @@
 .hljs-addition,
 .hljs-variable,
 .hljs-template-tag,
-.hljs-template-variable,
-.tex .hljs-command {
+.hljs-template-variable {
   color: #8cbbad;
 }
 

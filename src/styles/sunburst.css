@@ -25,8 +25,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #e28964;
 }
 
-.hljs-string,
-.tex .hljs-command {
+.hljs-string {
   color: #65b042;
 }
 
@@ -63,8 +62,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #3e87e3;
 }
 
-.hljs-attribute,
-.tex .hljs-special {
+.hljs-attribute {
   color: #cda869;
 }
 

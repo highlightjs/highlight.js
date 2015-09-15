@@ -29,8 +29,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-number,
 .hljs-regexp,
 .hljs-variable,
-.hljs-template-variable,
-.tex .hljs-command {
+.hljs-template-variable {
   color: #a5c261;
 }
 
@@ -61,8 +60,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   color: #d0d0ff;
 }
 
-.hljs-attribute,
-.tex .hljs-special {
+.hljs-attribute {
   color: #cda869;
 }
 
