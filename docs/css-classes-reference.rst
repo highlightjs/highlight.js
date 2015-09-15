@@ -755,6 +755,7 @@ SQL ("sql")
 * ``number``:           number
 * ``string``:           string (of any type: "..", '..', \`..\`)
 * ``comment``:          comment
+* ``varible``:          Mixed-case names
 
 Smalltalk ("smalltalk", "st")
 -----------------------------
