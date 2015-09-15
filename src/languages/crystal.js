@@ -6,18 +6,20 @@ Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
 function(hljs) {
   var NUM_SUFFIX = '(_[uif](8|16|32|64))?';
   var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
+  var RE_STARTER = '!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
+    '>>|>|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\][=?]?';
   var CRYSTAL_KEYWORDS = {
     keyword:
-      'abstract alias asm begin break case class def do else elsif end ensure enum extend for fun if ifdef ' +
+      'abstract alias as asm begin break case class def do else elsif end ensure enum extend for fun if ifdef ' +
       'include instance_sizeof is_a? lib macro module next of out pointerof private protected rescue responds_to? ' +
-      'return require self sizeof struct super then type undef union unless until when while with yield ' +
+      'return require self sizeof struct super then type typeof undef union unless until when while with yield ' +
       '__DIR__ __FILE__ __LINE__',
     literal: 'false nil true'
   };
   var SUBST = {
     className: 'subst',
-    begin: '#\\{', end: '}',
+    begin: '#{', end: '}',
     keywords: CRYSTAL_KEYWORDS
   };
   var EXPANSION = {
@@ -29,18 +31,24 @@ function(hljs) {
     keywords: CRYSTAL_KEYWORDS,
     relevance: 10
   };
-  var
-  STRING = {
+
+  function recursiveParen(begin, end) {
+    var
+    contains = [{begin: begin, end: end}];
+    contains[0].contains = contains;
+    return contains;
+  }
+  var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, SUBST],
     variants: [
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/},
       {begin: /`/, end: /`/},
-      {begin: '%w?\\(', end: '\\)'},
-      {begin: '%w?\\[', end: '\\]'},
-      {begin: '%w?{', end: '}'},
-      {begin: '%w?<', end: '>'},
+      {begin: '%w?\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
+      {begin: '%w?\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
+      {begin: '%w?{', end: '}', contains: recursiveParen('{', '}')},
+      {begin: '%w?<', end: '>', contains: recursiveParen('<', '>')},
       {begin: '%w?/', end: '/'},
       {begin: '%w?%', end: '%'},
       {begin: '%w?-', end: '-'},
@@ -48,9 +56,53 @@ function(hljs) {
     ],
     relevance: 0,
   };
+  var REGEXP = {
+    begin: '(' + RE_STARTER + ')\\s*',
+    contains: [
+      {
+        className: 'regexp',
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+        variants: [
+          {begin: '/', end: '/[a-z]*'},
+          {begin: '%r\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
+          {begin: '%r\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
+          {begin: '%r{', end: '}', contains: recursiveParen('{', '}')},
+          {begin: '%r<', end: '>', contains: recursiveParen('<', '>')},
+          {begin: '%r/', end: '/'},
+          {begin: '%r%', end: '%'},
+          {begin: '%r-', end: '-'},
+          {begin: '%r\\|', end: '\\|'},
+        ]
+      }
+    ],
+    relevance: 0
+  };
+  var REGEXP2 = {
+    className: 'regexp',
+    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+    variants: [
+      {begin: '%r\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
+      {begin: '%r\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
+      {begin: '%r{', end: '}', contains: recursiveParen('{', '}')},
+      {begin: '%r<', end: '>', contains: recursiveParen('<', '>')},
+      {begin: '%r/', end: '/'},
+      {begin: '%r%', end: '%'},
+      {begin: '%r-', end: '-'},
+      {begin: '%r\\|', end: '\\|'},
+    ],
+    relevance: 0
+  };
+  var ATTRIBUTE = {
+    className: 'meta',
+    begin: '@\\[', end: '\\]',
+    relevance: 5
+  };
   var CRYSTAL_DEFAULT_CONTAINS = [
     EXPANSION,
     STRING,
+    REGEXP,
+    REGEXP2,
+    ATTRIBUTE,
     hljs.HASH_COMMENT_MODE,
     {
       className: 'class',
@@ -107,29 +159,16 @@ function(hljs) {
     {
       className: 'number',
       variants: [
-        { begin: '\\b0b([01_]+)' + NUM_SUFFIX },
-        { begin: '\\b0o([0-7_]+)' + NUM_SUFFIX },
-        { begin: '\\b0x([A-Fa-f0-9_]+)' + NUM_SUFFIX },
-        { begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)' + NUM_SUFFIX}
-      ],
-      relevance: 0
-    },
-    { // regexp container
-      begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
-      contains: [
-        hljs.HASH_COMMENT_MODE,
-        {
-          className: 'regexp',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-          variants: [
-            {begin: '/', end: '/[a-z]*'},
-          ]
-        }
+        { begin: '\\b0b([01_]*[01])' + NUM_SUFFIX },
+        { begin: '\\b0o([0-7_]*[0-7])' + NUM_SUFFIX },
+        { begin: '\\b0x([A-Fa-f0-9_]*[A-Fa-f0-9])' + NUM_SUFFIX },
+        { begin: '\\b(([0-9][0-9_]*[0-9]|[0-9])(\\.[0-9_]*[0-9])?([eE][+-]?[0-9_]*[0-9])?)' + NUM_SUFFIX}
       ],
       relevance: 0
     }
   ];
   SUBST.contains = CRYSTAL_DEFAULT_CONTAINS;
+  ATTRIBUTE.contains = CRYSTAL_DEFAULT_CONTAINS;
   EXPANSION.contains = CRYSTAL_DEFAULT_CONTAINS.slice(1); // without EXPANSION
 
   return {

@@ -1,0 +1,27 @@
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initialize</span></span>(@name)
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>
+    puts <span class="hljs-string">"Hi, I'm <span class="hljs-subst">#{@name}</span>"</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Employee</span> &lt; <span class="hljs-title">Person</span></span>
+<span class="hljs-keyword">end</span>
+
+employee = Employee.new <span class="hljs-string">"John"</span>
+employee.greet <span class="hljs-comment">#=&gt; "Hi, I'm John"</span>
+employee.<span class="hljs-keyword">is_a?</span>(Person) <span class="hljs-comment">#=&gt; true</span>
+
+<span class="hljs-meta">@[Link(<span class="hljs-string">"m"</span>)]</span>
+<span class="hljs-class"><span class="hljs-keyword">lib</span> <span class="hljs-title">C</span></span>
+  <span class="hljs-comment"># In C: double cos(double x)</span>
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">cos</span></span>(value : Float64) : Float64
+<span class="hljs-keyword">end</span>
+
+C.cos(<span class="hljs-number">1.5_f64</span>) <span class="hljs-comment">#=&gt; 0.0707372</span>
+
+<span class="hljs-keyword">if</span> <span class="hljs-string">"Hello"</span> =~ <span class="hljs-regexp">/hello/i</span>
+  p <span class="hljs-string">%&lt;world&lt;["hello"&gt;&gt;</span>
+<span class="hljs-keyword">end</span>

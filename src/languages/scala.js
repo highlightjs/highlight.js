@@ -71,7 +71,7 @@ function(hljs) {
 
   var METHOD = {
     className: 'function',
-    beginKeywords: 'def val',
+    beginKeywords: 'def',
     end: /[:={\[(\n;]/,
     contains: [NAME]
   };
