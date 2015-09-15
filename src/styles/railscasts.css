@@ -14,8 +14,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-comment,
-.hljs-quote,
-.hljs-shebang {
+.hljs-quote {
   color: #bc9458;
   font-style: italic;
 }

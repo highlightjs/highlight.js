@@ -77,7 +77,6 @@
 .hljs-preprocessor,
 .hljs-annotation,
 .hljs-deletion,
-.hljs-shebang,
 .tex .hljs-formula,
 .hljs-code {
   color: #888;
@@ -89,7 +88,6 @@
 }
 
 .hljs-meta,
-.hljs-shebang,
 .http .hljs-attribute {
   color: #fc9b9b;
 }

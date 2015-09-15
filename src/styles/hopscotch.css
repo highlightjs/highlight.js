@@ -31,8 +31,7 @@
 .hljs-preprocessor,
 .hljs-built_in,
 .hljs-literal,
-.hljs-params,
-.hljs-constant {
+.hljs-params {
   color: #fd8b19;
 }
 

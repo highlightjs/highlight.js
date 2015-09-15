@@ -81,7 +81,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-preprocessor,
-.hljs-shebang,
 .hljs-meta {
   color: #999;
   font-weight: bold;

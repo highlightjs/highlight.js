@@ -27,7 +27,6 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-annotation,
 .hljs-preprocessor,
-.hljs-shebang,
 .hljs-meta {
   color: #808000;
 }
