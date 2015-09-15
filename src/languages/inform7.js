@@ -36,7 +36,7 @@ function(hljs) {
         ]
       },
       {
-        className: 'title',
+        className: 'section',
         begin: /^(Volume|Book|Part|Chapter|Section|Table)\b/,
         end: '$'
       },
@@ -48,8 +48,7 @@ function(hljs) {
         contains: [
           {
             //Rule name
-            begin: '\\b\\(This',
-            end: '\\)'
+            begin: '\\(This', end: '\\)'
           }
         ]
       },
