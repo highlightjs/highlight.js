@@ -21,6 +21,7 @@ function(hljs) {
       'match member module mutable namespace new null of open or ' +
       'override private public rec return sig static struct then to ' +
       'true try type upcast use val void when while with yield',
+    illegal: /\/\*/,
     contains: [
       {
         // monad builder keywords (matches before non-bang kws)

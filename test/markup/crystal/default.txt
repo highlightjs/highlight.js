@@ -21,3 +21,7 @@ lib C
 end
 
 C.cos(1.5_f64) #=> 0.0707372
+
+if "Hello" =~ /hello/i
+  p %<world<["hello">>
+end

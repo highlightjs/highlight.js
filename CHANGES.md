@@ -1,3 +1,11 @@
+-## Master (8.9.0) [UNRELEASED]
+
+New languages:
+
+- *crmsh* by [Kristoffer Gronlund][]
+
+[Kristoffer Gronlund]: https://github.com/krig
+
 ## Version 8.8.0
 
 New languages:

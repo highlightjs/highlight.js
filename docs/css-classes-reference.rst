@@ -755,6 +755,7 @@ SQL ("sql")
 * ``number``:           number
 * ``string``:           string (of any type: "..", '..', \`..\`)
 * ``comment``:          comment
+* ``variable``:         mixed-case names
 
 Smalltalk ("smalltalk", "st")
 -----------------------------
@@ -1539,3 +1540,19 @@ Crystal ("crystal", "cr")
 * ``function``:         method or function header
 * ``title``:            a method name or class name
 * ``parent``:           name of a parent class
+* ``annotation``:       any attribute
+
+Crmsh ("crmsh", "crm", "pcmk")
+------------------------------
+
+* ``keyword``:          command name
+* ``title``:            resource id
+* ``identifier``:       node or property set identifier
+* ``pragma``:           resource agent
+* ``string``:           string
+* ``number``:           number
+* ``literal``:          literal
+* ``type``:             data type
+* ``variable``:         name-value pair variable name
+* ``comment``:          comment
+* ``tag``:              XML tag
