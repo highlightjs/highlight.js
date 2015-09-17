@@ -1742,6 +1742,7 @@ function(hljs) {
 
     return {
         case_insensitive: true,
+        illegal: /\/\*/,
         keywords: {
             keyword: KEYWORDS,
             built_in: BUILT_IN,
