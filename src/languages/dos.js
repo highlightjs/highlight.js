@@ -19,6 +19,7 @@ function(hljs) {
   return {
     aliases: ['bat', 'cmd'],
     case_insensitive: true,
+    illegal: /\/\*/,
     keywords: {
       keyword:
         'if else goto for in do call exit not exist errorlevel defined ' +

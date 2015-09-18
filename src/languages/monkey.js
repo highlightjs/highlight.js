@@ -27,6 +27,7 @@ function(hljs) {
 
       literal: 'true false null and or shl shr mod'
     },
+    illegal: /\/\*/,
     contains: [
       hljs.COMMENT('#rem', '#end'),
       hljs.COMMENT(

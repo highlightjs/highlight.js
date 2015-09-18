@@ -55,6 +55,7 @@ function(hljs) {
     case_insensitive: true,
     aliases: ['f90', 'f95'],
     keywords: F_KEYWORDS,
+    illegal: /\/\*/,
     contains: [
       hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'string', relevance: 0}),

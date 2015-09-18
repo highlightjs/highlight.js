@@ -73,6 +73,7 @@ function(hljs) {
   return {
     case_insensitive: true,
     keywords: { keyword: KEYWORDS, literal: LITERALS },
+    illegal: /\/\*/,
     contains: [
       STRING, CHAR_STRING,
       DATE, DBL_QUOTED_VARIABLE,
