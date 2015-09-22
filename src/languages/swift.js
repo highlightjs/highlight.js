@@ -8,14 +8,14 @@ Category: system
 
 function(hljs) {
   var SWIFT_KEYWORDS = {
-      keyword: 'class deinit enum extension func init let protocol static ' +
-        'struct subscript typealias var break case continue default do ' +
-        'else fallthrough if in for return switch where while as dynamicType ' +
-        'is super self Self Type __COLUMN__ __FILE__ __FUNCTION__ ' +
-        '__LINE__ associativity didSet get infix inout left mutating none ' +
-        'nonmutating operator override postfix precedence prefix right set ' +
-        'unowned weak willSet defer repeat guard catch ' +
-        'throw throws rethrows try try! try? indirect convenience _ optional',
+      keyword: '__COLUMN__ __FILE__ __FUNCTION__ __LINE__ as as! as? associativity ' +
+        'break case catch class continue convenience default defer deinit didSet do ' +
+        'dynamic dynamicType else enum extension fallthrough false final for func ' +
+        'get guard if import in indirect infix init inout internal is lazy left let ' +
+        'mutating nil none nonmutating operator optional override postfix precedence ' +
+        'prefix private protocol Protocol public repeat required rethrows return ' +
+        'right self Self set static struct subscript super switch throw throws true ' +
+        'try try! try? Type typealias unowned var weak where while willSet',
       literal: 'true false nil',
       built_in: 'abs advance alignof alignofValue anyGenerator assert assertionFailure ' +
         'bridgeFromObjectiveC bridgeFromObjectiveCUnconditional bridgeToObjectiveC ' +
