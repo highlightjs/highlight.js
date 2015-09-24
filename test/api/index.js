@@ -8,4 +8,5 @@ describe('hljs', function() {
   require('./cNumber');
   require('./binaryNumber');
   require('./starters');
+  require('./getLanguage');
 });
