@@ -59,16 +59,17 @@ function(hljs) {
         }
       },
       {
-        beginKeywords: COMMANDS,
+        begin: '\\b(' + COMMANDS.split(' ').join('|') + ')\\s+',
+        keywords: COMMANDS,
         starts: {
           className: 'title',
-          end: '\\s*[\\$\\w_][\\w_-]*',
+          end: '[\\$\\w_][\\w_-]*',
         }
       },
       {
         beginKeywords: PROPERTY_SETS,
         starts: {
-          className: 'identifier',
+          className: 'title',
           end: '\\s*([\\w_-]+:)?'
         }
       },
@@ -85,7 +86,7 @@ function(hljs) {
       },
       {
         className: 'number',
-        begin: '[-]?(inf|infinity)',
+        begin: '[-]?(infinity|inf)',
         relevance: 0
       },
       {
