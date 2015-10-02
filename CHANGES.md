@@ -4,6 +4,10 @@ New languages:
 
 - *crmsh* by [Kristoffer Gronlund][]
 
+Notable fixes and improvements to existing languages:
+
+- Added `abstract` and `namespace` keywords to TypeScript.
+
 [Kristoffer Gronlund]: https://github.com/krig
 
 ## Version 8.8.0
