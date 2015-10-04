@@ -187,3 +187,4 @@ Contributors:
 - Tsuyusato Kitsune <make.just.on@gmail.com>
 - Mick MacCallum <micksmaccallum@gmail.com>
 - Kristoffer Gronlund <kgronlund@suse.com>
+- Søren Enevoldsen <senevoldsen90@gmail.com>

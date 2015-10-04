@@ -3,8 +3,10 @@
 New languages:
 
 - *crmsh* by [Kristoffer Gronlund][]
+- *SQF* by [Soren Enevoldsen][]
 
 [Kristoffer Gronlund]: https://github.com/krig
+[Soren Enevoldsen]: https://github.com/senevoldsen90
 
 ## Version 8.8.0
 

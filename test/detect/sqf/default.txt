@@ -1,0 +1,15 @@
+/***
+	Arma Scripting File
+	Edition: 0.13
+***/
+
+// Enable eating to improve health.
+_unit addAction ["Eat Energy Bar", {
+    if (_this getVariable ["EB_NumActivation", 0] > 0) then {
+        _this setDamage (0 max (damage _this - 0.25));
+    } else {
+        hint "You have eaten it all";
+    };
+    // 4 - means something...
+    ["EB_Eaten", _this, 4] call events_notify;
+}];
