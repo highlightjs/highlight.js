@@ -38,6 +38,11 @@
 </span>
 <span class="hljs-built_in">USER</span> daemon
 
+<span class="hljs-built_in">LABEL</span> <span class="bash">com.example.key-with-value=<span class="hljs-string">"foo"</span>
+</span><span class="hljs-built_in">LABEL</span> <span class="bash">version=<span class="hljs-string">"1.0"</span>
+</span><span class="hljs-built_in">LABEL</span> <span class="bash">description=<span class="hljs-string">"This text illustrates \
+that label-values can span multiple lines."</span>
+</span>
 <span class="hljs-built_in">WORKDIR</span> <span class="bash">/path/to/workdir
 </span>
 <span class="hljs-built_in">ONBUILD</span> <span class="hljs-built_in">ADD</span> <span class="bash">. /app/src

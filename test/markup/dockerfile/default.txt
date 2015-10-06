@@ -38,6 +38,11 @@ VOLUME ["/data"]
 
 USER daemon
 
+LABEL com.example.key-with-value="foo"
+LABEL version="1.0"
+LABEL description="This text illustrates \
+that label-values can span multiple lines."
+
 WORKDIR /path/to/workdir
 
 ONBUILD ADD . /app/src
