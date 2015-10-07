@@ -12,7 +12,7 @@ var tasks       = require('gear-lib');
 tasks.clean = function(directories, blobs, done) {
   directories = _.isString(directories) ? [directories] : directories;
 
-  return del(directories, _.partial(done, _, blobs));
+  return del(directories).then(() => done(null, blobs));
 };
 tasks.clean.type = 'collect';
 
