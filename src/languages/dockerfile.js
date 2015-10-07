@@ -11,15 +11,15 @@ function(hljs) {
     aliases: ['docker'],
     case_insensitive: true,
     keywords: {
-      built_ins: 'from maintainer cmd expose add copy entrypoint volume user workdir onbuild run env'
+      built_ins: 'from maintainer cmd expose add copy entrypoint volume user workdir onbuild run env label'
     },
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
         keywords : {
-          built_in: 'run cmd entrypoint volume add copy workdir onbuild'
+          built_in: 'run cmd entrypoint volume add copy workdir onbuild label'
         },
-        begin: /^ *(onbuild +)?(run|cmd|entrypoint|volume|add|copy|workdir) +/,
+        begin: /^ *(onbuild +)?(run|cmd|entrypoint|volume|add|copy|workdir|label) +/,
         starts: {
           end: /[^\\]\n/,
           subLanguage: 'bash'
