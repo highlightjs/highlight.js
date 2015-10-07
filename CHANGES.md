@@ -3,10 +3,14 @@
 New languages:
 
 - *crmsh* by [Kristoffer Gronlund][]
-- *SQF* by [Soren Enevoldsen][]
+- *SQF* by [Søren Enevoldsen][]
+
+Notable fixes and improvements to existing languages:
+
+- Added `abstract` and `namespace` keywords to TypeScript.
 
 [Kristoffer Gronlund]: https://github.com/krig
-[Soren Enevoldsen]: https://github.com/senevoldsen90
+[Søren Enevoldsen]: https://github.com/senevoldsen90
 
 ## Version 8.8.0
 

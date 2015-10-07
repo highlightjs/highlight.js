@@ -188,3 +188,4 @@ Contributors:
 - Mick MacCallum <micksmaccallum@gmail.com>
 - Kristoffer Gronlund <kgronlund@suse.com>
 - Søren Enevoldsen <senevoldsen90@gmail.com>
+- Daniel Rosenwasser <DanielRosenwasser@users.noreply.github.com>
