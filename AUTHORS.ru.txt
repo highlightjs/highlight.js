@@ -189,3 +189,4 @@ URL:   https://highlightjs.org/
 - Кристофер Гронлунд <kgronlund@suse.com>
 - Сорен Эневолдсен <senevoldsen90@gmail.com>
 - Даниэль Розенвассен <DanielRosenwasser@users.noreply.github.com>
+- Ладислав Пршкавеч <ladislav@prskavec.net>

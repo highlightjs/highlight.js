@@ -189,3 +189,4 @@ Contributors:
 - Kristoffer Gronlund <kgronlund@suse.com>
 - Søren Enevoldsen <senevoldsen90@gmail.com>
 - Daniel Rosenwasser <DanielRosenwasser@users.noreply.github.com>
+- Ladislav Prskavec: <ladislav@prskavec.net>
