@@ -9,6 +9,10 @@ Notable fixes and improvements to existing languages:
 
 - Added `abstract` and `namespace` keywords to TypeScript.
 
+Other notable changes:
+
+- License added to not minified browser build
+
 [Kristoffer Gronlund]: https://github.com/krig
 [Søren Enevoldsen]: https://github.com/senevoldsen90
 

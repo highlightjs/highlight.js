@@ -64,6 +64,7 @@ function buildIndex() {
                     'require(\'./languages/<%= name %>\'));'
                   , '<% }); %>'
                   , 'module.exports = hljs;'
+                  , ''
                   ].join('\n'),
         callback: templateAllFunc
       };

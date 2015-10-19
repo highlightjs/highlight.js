@@ -76,6 +76,7 @@ module.exports = function(commander, dir) {
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
 
+      licenseFile  = path.join('LICENSE'),
       coreFile     = path.join('src', 'highlight.js'),
       languages    = utility.glob(path.join('src', 'languages', '*.js')),
       filterCB     = utility.buildFilterCallback(commander.args),
@@ -85,6 +86,7 @@ module.exports = function(commander, dir) {
 
   tasks = {
     startLog: { task: ['log', 'Building highlight.js pack file.'] },
+    readLicense: { requires: 'startLog', task: ['read', licenseFile] },
     readCore: { requires: 'startLog', task: ['read', coreFile] },
     read: { requires: 'startLog', task: ['glob', languages] },
     filter: { requires: 'read', task: ['filter', filterCB] },
@@ -92,7 +94,7 @@ module.exports = function(commander, dir) {
     replace: { requires: 'reorder', task: ['replace', replaceArgs] },
     template: { requires: 'replace', task: ['template', templateArgs] },
     packageFiles: {
-      requires: ['readCore', 'template'],
+      requires: ['readLicense', 'readCore', 'template'],
       task: 'packageFiles'
     }
   };
