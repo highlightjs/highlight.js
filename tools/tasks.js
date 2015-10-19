@@ -218,23 +218,20 @@ tasks.readSnippet = function(options, blob, done) {
 // result into the `build` directory.
 tasks.packageFiles = function(options, blobs, done) {
   var content,
-      licenseFile = blobs[0],
-      coreFile    = blobs[1],
-      languages   = _.drop(blobs, 2),
+      coreFile  = _.head(blobs),
+      languages = _.tail(blobs),
 
-      lines     = coreFile.result.split('\n\n'),
+      lines     = coreFile.result
+                    .replace(utility.regex.header, '')
+                    .split('\n\n'),
       lastLine  = _.last(lines),
       langStr   = _.foldl(languages, function(str, language) {
                     return str + language.result + '\n';
                   }, '');
 
-  // Add license
-  lines.unshift("/*\n" + licenseFile.result + "*/");
-
-  // Kind of hack
   lines[lines.length - 1] = langStr.trim();
-  lines                   = lines.concat(lastLine);
 
+  lines   = lines.concat(lastLine);
   content = lines.join('\n\n');
 
   return done(null, [new gear.Blob(content)]);
