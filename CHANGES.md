@@ -12,7 +12,6 @@ Notable fixes and improvements to existing languages:
 - Crystal highlighting improved by [Tsuyusato Kitsune][]
 - Missing Swift keywords added by [Nate Cook][]
 - Improve detection of C block comments
-- Scala case classes params highlight fixed
 
 [Kristoffer Gronlund]: https://github.com/krig
 [Søren Enevoldsen]: https://github.com/senevoldsen90

@@ -37,21 +37,8 @@ function(hljs) {
   var CLASS = {
     className: 'class',
     beginKeywords: 'class object trait type',
-    end: /[:={\[\n;]/,
-    excludeEnd: true,
-    contains: [
-      {
-        beginKeywords: 'extends with',
-        relevance: 10
-      },
-      {
-        'className': 'params',
-        'begin': /\(/,
-        'end': /\)/,
-        relevance: 0
-      },
-      NAME
-    ]
+    end: /[:={\[(\n;]/,
+    contains: [{className: 'keyword', beginKeywords: 'extends with', relevance: 10}, NAME]
   };
 
   var METHOD = {
