@@ -7,8 +7,10 @@ New languages:
 
 Notable fixes and improvements to existing languages:
 
-- Added `abstract` and `namespace` keywords to TypeScript.
+- Added `abstract` and `namespace` keywords to TypeScript
 - Scala case classes params highlight fixed
+- ECMAScript 6 modules import now do not require closing semicolon
+- ECMAScript 6 classes constructors now highlighted
 
 Other notable changes:
 
