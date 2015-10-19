@@ -1,4 +1,4 @@
--## Master (8.9.0) [UNRELEASED]
+## Version 8.9.0
 
 New languages:
 
