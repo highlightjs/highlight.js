@@ -8,6 +8,7 @@ New languages:
 Notable fixes and improvements to existing languages:
 
 - Added `abstract` and `namespace` keywords to TypeScript.
+- Scala case classes params highlight fixed
 
 Other notable changes:
 
