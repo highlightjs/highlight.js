@@ -17,10 +17,6 @@ Notable fixes and improvements to existing languages:
 - ECMAScript 6 classes constructors now highlighted
 - Template string support for Typescript, as for ECMAScript 6
 
-Other notable changes:
-
-- License added to not minified browser build
-
 [Kristoffer Gronlund]: https://github.com/krig
 [Søren Enevoldsen]: https://github.com/senevoldsen90
 [Daniel Rosenwasser]: https://github.com/DanielRosenwasser
