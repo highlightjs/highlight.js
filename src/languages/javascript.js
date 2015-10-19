@@ -10,10 +10,7 @@ function(hljs) {
       keyword:
         'in of if for while finally var new function do return void else break catch ' +
         'instanceof with throw case default try this switch continue typeof delete ' +
-        'let yield const export super debugger as async await ' +
-        // ECMAScript 6 modules import
-        'import from as'
-      ,
+        'let yield const export super debugger as async await',
       literal:
         'true false null undefined NaN Infinity',
       built_in:
@@ -95,6 +92,15 @@ function(hljs) {
       {
         begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
       },
+      // ECMAScript 6 modules import
+      {
+        beginKeywords: 'import', end: '[;$]',
+        keywords: 'import from as',
+        contains: [
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE
+        ]
+      },
       { // ES6 class
         className: 'class',
         beginKeywords: 'class', end: /[{;=]/, excludeEnd: true,
@@ -103,10 +109,6 @@ function(hljs) {
           {beginKeywords: 'extends'},
           hljs.UNDERSCORE_TITLE_MODE
         ]
-      },
-      {
-        beginKeywords: 'constructor', end: /\{/, excludeEnd: true,
-        relevance: 10
       }
     ],
     illegal: /#/

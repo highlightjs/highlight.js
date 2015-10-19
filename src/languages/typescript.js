@@ -80,6 +80,7 @@ function(hljs) {
         relevance: 0 // () => {} is more typical in TypeScript
       },
       {
+        className: 'constructor',
         beginKeywords: 'constructor', end: /\{/, excludeEnd: true,
         relevance: 10
       },

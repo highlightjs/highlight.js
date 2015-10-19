@@ -13,8 +13,6 @@ Notable fixes and improvements to existing languages:
 - Missing Swift keywords added by [Nate Cook][]
 - Improve detection of C block comments
 - Scala case classes params highlight fixed
-- ECMAScript 6 modules import now do not require closing semicolon
-- ECMAScript 6 classes constructors now highlighted
 
 [Kristoffer Gronlund]: https://github.com/krig
 [Søren Enevoldsen]: https://github.com/senevoldsen90
