@@ -56,7 +56,7 @@ function(hljs) {
   };
 
   var PREPROCESSOR =       {
-    className: 'preprocessor',
+    className: 'meta',
     begin: '#', end: '$',
     keywords: 'if else elif endif define undef warning error line ' +
               'pragma ifdef ifndef',
