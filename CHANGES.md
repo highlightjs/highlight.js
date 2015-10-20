@@ -1,5 +1,10 @@
 ## MASTER (UNRELEASED)
 
+Notable fixes and improvements to existing languages:
+
+- ECMAScript 6 modules import now do not require closing semicolon
+- ECMAScript 6 classes constructors now highlighted
+
 Other notable changes:
 
 - License added to not minified browser build
