@@ -63,7 +63,7 @@ function(hljs) {
       hljs.COMMENT('/\\*', '\\*/', {contains: ['self']}),
       {
         // compiler annotation
-        className: 'annotation',
+        className: 'meta',
         begin: '@[a-z]\\w*(?:\\:\"[^\"]*\")?'
       }
     ].concat(EXPRESSIONS)
