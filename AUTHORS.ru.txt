@@ -187,3 +187,6 @@ URL:   https://highlightjs.org/
 - Цуюсато Кицуне <make.just.on@gmail.com>
 - Мик МаКаллум <micksmaccallum@gmail.com>
 - Кристофер Гронлунд <kgronlund@suse.com>
+- Сорен Эневолдсен <senevoldsen90@gmail.com>
+- Даниэль Розенвассен <DanielRosenwasser@users.noreply.github.com>
+- Ладислав Пршкавеч <ladislav@prskavec.net>
