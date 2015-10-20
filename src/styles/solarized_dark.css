@@ -29,7 +29,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 
 /* Solarized Cyan */
 .hljs-number,
-.hljs-command,
 .hljs-string,
 .hljs-doctag,
 .hljs-regexp {
@@ -61,7 +60,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-preprocessor .hljs-keyword,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-special,
 .hljs-subst,
 .hljs-meta,
 .hljs-selector-attr,

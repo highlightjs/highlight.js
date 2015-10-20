@@ -33,7 +33,6 @@ Style with support for rainbow parens
   color: #f99157;
 }
 
-.hljs-command,
 .hljs-string,
 .hljs-doctag,
 .hljs-regexp {
@@ -63,7 +62,6 @@ Style with support for rainbow parens
 .hljs-preprocessor,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-special,
 .hljs-subst,
 .hljs-meta,
 .hljs-link {

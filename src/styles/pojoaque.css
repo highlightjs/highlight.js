@@ -29,7 +29,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 }
 
 .hljs-number,
-.hljs-command,
 .hljs-string,
 .hljs-doctag,
 .hljs-regexp {
@@ -59,7 +58,6 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 .hljs-symbol,
 .hljs-bullet,
 .hljs-link,
-.hljs-special,
 .hljs-subst,
 .hljs-meta {
   color: #cb4b16;

@@ -52,7 +52,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 
 /*color: fg_green*/
 .hljs-string,
-.hljs-special,
 .hljs-doctag,
 .hljs-addition,
 .hljs-regexp,
@@ -68,7 +67,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 }
 
 /*color: fg_blue*/
-.hljs-label,
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-bullet,
