@@ -19,7 +19,7 @@
 .hljs {
   display: block;
   overflow-x: auto;
-  padding: .5em;
+  padding: 0.5em;
   background: #333;
   color: white;
   -webkit-text-size-adjust: none;
@@ -83,8 +83,7 @@
   color: #c6b4f0;
 }
 
-.hljs-meta,
-.http .hljs-attribute {
+.hljs-meta {
   color: #fc9b9b;
 }
 

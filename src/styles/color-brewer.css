@@ -36,7 +36,6 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-number,
 .hljs-regexp,
 .hljs-literal,
-.lasso .hljs-variable,
 .hljs-bullet,
 .hljs-link {
   color: #31a354;
@@ -68,7 +67,6 @@ Ported by Fabrício Tavares de Oliveira
   font-style: italic;
 }
 
-.lasso .markup,
 .hljs-attribute {
   color: #e6550d;
 }

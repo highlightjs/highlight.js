@@ -35,10 +35,7 @@
 .hljs-literal,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-attribute,
-.objectivec .hljs-literal,
-.objectivec .hljs-number,
-.objectivec .hljs-built_in {
+.hljs-attribute {
   color: #0086b3;
 }
 

@@ -57,8 +57,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-variable,
-.hljs-template-variable,
-.instancevar {
+.hljs-template-variable {
   color: #008080;
 }
 
@@ -68,8 +67,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-symbol,
-.hljs-bullet,
-.input_number {
+.hljs-bullet {
   color: #990073;
 }
 

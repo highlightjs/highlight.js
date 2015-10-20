@@ -27,8 +27,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-variable,
 .hljs-template-variable,
 .hljs-symbol,
-.hljs-deletion,
-.tp .hljs-variable {
+.hljs-deletion {
   color: #800;
 }
 
@@ -41,7 +40,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs-regexp,
 .hljs-literal,
 .hljs-addition,
-.lasso .hljs-variable,
 .hljs-bullet,
 .hljs-link {
   color: #080;
