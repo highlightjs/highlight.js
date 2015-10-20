@@ -10,7 +10,6 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
   padding: 0.5em;
   color: #333;
   background: #fff;
-  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,

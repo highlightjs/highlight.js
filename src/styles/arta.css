@@ -8,7 +8,6 @@ Author: pumbur <pumbur@pumbur.net>
   overflow-x: auto;
   padding: 0.5em;
   background: #222;
-  -webkit-text-size-adjust: none;
 }
 
 .hljs,

@@ -9,7 +9,6 @@
   padding: 0.5em;
   color: #333333;
   overflow-x: auto;
-  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,

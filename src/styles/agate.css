@@ -22,7 +22,6 @@
   padding: 0.5em;
   background: #333;
   color: white;
-  -webkit-text-size-adjust: none;
 }
 
 .hljs-name,

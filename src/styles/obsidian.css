@@ -8,7 +8,6 @@
   overflow-x: auto;
   padding: 0.5em;
   background: #282b2e;
-  -webkit-text-size-adjust: none;
 }
 
 .hljs-keyword,
