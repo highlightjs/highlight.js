@@ -47,7 +47,8 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-symbol,
 .hljs-bullet,
 .hljs-number,
-.hljs-meta {
+.hljs-meta,
+.hljs-meta * {
   color: #1c00cf;
 }
 
@@ -67,11 +68,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 
 .hljs-annotation {
   color: #9b859d;
-}
-
-.hljs-preprocessor,
-.hljs-preprocessor * {
-  color: #643820;
 }
 
 .hljs-formula {

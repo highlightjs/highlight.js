@@ -37,7 +37,8 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 
 /*color: fg_comment*/
 .hljs-comment,
-.hljs-meta {
+.hljs-meta,
+.hljs-meta .hljs-keyword {
   color: #707880;
 }
 
@@ -77,7 +78,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 /*color: fg_aqua*/
 .hljs-annotation,
 .hljs-subst,
-.hljs-preprocessor .hljs-keyword,
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable {
