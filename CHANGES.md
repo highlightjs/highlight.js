@@ -1,3 +1,9 @@
+## MASTER (UNRELEASED)
+
+Other notable changes:
+
+- License added to not minified browser build
+
 ## Version 8.9.1
 
 Some last-minute changes reverted due to strange bug with minified browser build:
@@ -22,14 +28,14 @@ Notable fixes and improvements to existing languages:
 - Crystal highlighting improved by [Tsuyusato Kitsune][]
 - Missing Swift keywords added by [Nate Cook][]
 - Improve detection of C block comments
-- Scala case classes params highlight fixed
-- ECMAScript 6 modules import now do not require closing semicolon
-- ECMAScript 6 classes constructors now highlighted
-- Template string support for Typescript, as for ECMAScript 6
+- ~~Scala case classes params highlight fixed~~
+- ~~ECMAScript 6 modules import now do not require closing semicolon~~
+- ~~ECMAScript 6 classes constructors now highlighted~~
+- ~~Template string support for Typescript, as for ECMAScript 6~~
 
 Other notable changes:
 
-- License added to not minified browser build
+- ~~License added to not minified browser build~~
 
 [Kristoffer Gronlund]: https://github.com/krig
 [Søren Enevoldsen]: https://github.com/senevoldsen90
