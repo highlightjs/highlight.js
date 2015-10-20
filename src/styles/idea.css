@@ -25,7 +25,6 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
   font-style: italic;
 }
 
-.hljs-annotation,
 .hljs-meta {
   color: #808000;
 }

@@ -14,7 +14,6 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 
 .hljs-comment,
 .hljs-quote,
-.hljs-annotation,
 .hljs-variable {
   color: #008000;
 }
