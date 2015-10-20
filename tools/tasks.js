@@ -214,6 +214,14 @@ tasks.readSnippet = function(options, blob, done) {
   gear.Blob.readFile(snippetName, 'utf8', onRead, false);
 };
 
+tasks.insertLicenseTag = function(options, blob, done) {
+  var hljsVersion = require('../package').version,
+      licenseTag  = '/*! highlight.js v' + hljsVersion + ' | ' +
+                    'BSD3 License | git.io/hljslicense */\n';
+
+  return done(null, new gear.Blob(licenseTag + blob.result, blob));
+};
+
 // Packages up included languages into the core `highlight.js` and moves the
 // result into the `build` directory.
 tasks.packageFiles = function(options, blobs, done) {
