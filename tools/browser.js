@@ -120,8 +120,13 @@ module.exports = function(commander, dir) {
     requiresTask  = 'minify';
   }
 
-  tasks.writelog = {
+  tasks.insertLicenseTag = {
     requires: requiresTask,
+    task: 'insertLicenseTag'
+  };
+
+  tasks.writelog = {
+    requires: 'insertLicenseTag',
     task: ['log', 'Writing highlight.js pack file.']
   };
 
