@@ -4,6 +4,7 @@ Notable fixes and improvements to existing languages:
 
 - ECMAScript 6 modules import now do not require closing semicolon
 - ECMAScript 6 classes constructors now highlighted
+- Template string support for Typescript, as for ECMAScript 6
 
 Other notable changes:
 
