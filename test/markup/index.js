@@ -32,7 +32,7 @@ function testLanguage(language) {
   });
 }
 
-describe('markup generation test', function() {
+describe('hljs.highlight()', function() {
   var languages = fs.readdirSync(utility.buildPath('markup'));
 
   _.each(languages, testLanguage, this);
