@@ -9,6 +9,7 @@ Notable fixes and improvements to existing languages:
 
 Other notable changes:
 
+- We now have tests for both browser builds
 - License added to not minified browser build
 
 ## Version 8.9.1
