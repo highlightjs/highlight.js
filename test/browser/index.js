@@ -13,7 +13,9 @@ describe('browser build', function() {
     var that     = this;
 
     jsdom.env(
-      '<pre><code class="language-javascript">var say = "Hello";' +
+      '<pre><code>' +
+      'var say = "Hello";' +
+      'class Car {}' +
       '</code></pre>',
       [hljsPath[0]],
       function(error, window) {
@@ -30,7 +32,9 @@ describe('browser build', function() {
 
     var actual = this.block.innerHTML;
 
-    actual.should.equal('<span class="hljs-keyword">var</span> say = ' +
-                        '<span class="hljs-string">"Hello"</span>;');
+    actual.should.equal(
+      '<span class="hljs-variable"><span class="hljs-keyword">var</span> say</span> = <span class="hljs-string">"Hello"</span>;' +
+      '<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span> </span>{}'
+    );
   });
 });
