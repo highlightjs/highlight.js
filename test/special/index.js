@@ -7,7 +7,7 @@ var jsdom   = require('jsdom').jsdom;
 var utility = require('../utility');
 
 var blocks,
-    filename = utility.buildPath('fixtures/index.html'),
+    filename = utility.buildPath('fixtures', 'index.html'),
     page     = fs.readFileSync(filename, 'utf-8');
 
 // Allows hljs to use document

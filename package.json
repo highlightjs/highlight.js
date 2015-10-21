@@ -23,7 +23,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha test/",
-    "test-minified": "./node_modules/.bin/mocha test/minification/"
+    "test-browser": "./node_modules/.bin/mocha test/browser/"
   },
   "engines": {
     "node": "*"
