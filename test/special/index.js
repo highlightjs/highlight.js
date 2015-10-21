@@ -7,7 +7,7 @@ var jsdom   = require('jsdom').jsdom;
 var utility = require('../utility');
 
 var blocks,
-    filename = utility.buildPath('index.html'),
+    filename = utility.buildPath('fixtures/index.html'),
     page     = fs.readFileSync(filename, 'utf-8');
 
 // Allows hljs to use document
@@ -23,7 +23,7 @@ hljs.configure({ useBR: true });
 blocks = document.querySelectorAll('.code');
 _.each(blocks, hljs.highlightBlock);
 
-describe('special cases test', function() {
+describe('special cases tests', function() {
   require('./explicitLanguage');
   require('./customMarkup');
   require('./languageAlias');
