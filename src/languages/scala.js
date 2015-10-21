@@ -45,9 +45,9 @@ function(hljs) {
         relevance: 10
       },
       {
-        'className': 'params',
-        'begin': /\(/,
-        'end': /\)/,
+        className: 'params',
+        begin: /\(/,
+        end: /\)/,
         relevance: 0
       },
       NAME
