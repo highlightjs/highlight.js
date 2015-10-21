@@ -1,12 +1,12 @@
 'use strict';
 
-var fs    = require('fs');
-var path  = require('path');
-var jsdom = require('jsdom').jsdom;
+var fs      = require('fs');
+var path    = require('path');
+var jsdom   = require('jsdom').jsdom;
 var utility = require('../utility');
-var glob  = require('glob');
+var glob    = require('glob');
 
-describe('minification build', function() {
+describe('browser build', function() {
   before(function(done) {
     // Will match both `highlight.pack.js` and `highlight.min.js`
     var hljsPath = glob.sync(utility.buildPath('..', 'build', 'highlight.*.js'));
