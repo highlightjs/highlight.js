@@ -37,7 +37,7 @@ function testAutoDetection(language) {
   });
 }
 
-describe('.highlightAuto', function() {
+describe('hljs.highlightAuto()', function() {
   var languages = hljs.listLanguages();
 
   languages.forEach(testAutoDetection);

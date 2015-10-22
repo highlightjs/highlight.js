@@ -1,7 +1,6 @@
 'use strict';
 
 describe('hljs', function() {
-  require('./highlightAuto');
   require('./ident');
   require('./underscoreIdent');
   require('./number');
