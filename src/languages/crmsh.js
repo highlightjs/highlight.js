@@ -54,7 +54,7 @@ function(hljs) {
           end: '\\s*[\\$\\w_][\\w_-]*',
           starts: {
             className: 'pragma',
-            end: '\\s*@?[\\w_][\\w_\\.:-]*',
+            end: '\\s*@?[\\w_][\\w_\\.:-]*'
           }
         }
       },
@@ -63,7 +63,7 @@ function(hljs) {
         keywords: COMMANDS,
         starts: {
           className: 'title',
-          end: '[\\$\\w_][\\w_-]*',
+          end: '[\\$\\w_][\\w_-]*'
         }
       },
       {
