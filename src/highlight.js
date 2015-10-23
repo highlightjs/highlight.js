@@ -9,7 +9,7 @@ https://highlightjs.org/
   // CommonJS.
   if(typeof exports !== 'undefined') {
     factory(exports);
-  } else {
+  } else if (typeof window !== 'undefined') {
     // Export hljs globally even when using AMD for cases when this script
     // is loaded with others that may still expect a global hljs.
     window.hljs = factory({});
@@ -20,6 +20,11 @@ https://highlightjs.org/
         return window.hljs;
       });
     }
+  } else if (typeof self !== 'undefined') {
+    // Export hljs to web worker.
+    self.hljs = factory({});
+  } else {
+    throw new Error('No global object found to bind hljs variable to.');
   }
 
 }(function(hljs) {
