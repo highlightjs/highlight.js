@@ -1,30 +1,32 @@
 'use strict';
 
-var fs      = require('fs');
-var path    = require('path');
-var jsdom   = require('jsdom').jsdom;
-var utility = require('../utility');
-var glob    = require('glob');
+var bluebird = require('bluebird');
+var fs       = require('fs');
+var path     = require('path');
+var jsdom    = require('jsdom');
+var utility  = require('../utility');
+var glob     = bluebird.promisify(require('glob'));
 
 describe('browser build', function() {
   before(function(done) {
-    // Will match both `highlight.pack.js` and `highlight.min.js`
-    var hljsPath = glob.sync(utility.buildPath('..', 'build', 'highlight.*.js'));
-    var that     = this;
+    var that = this;
+    var html = '<pre><code>var say = "Hello";class Car {}</code></pre>';
 
-    jsdom.env(
-      '<pre><code>' +
-      'var say = "Hello";' +
-      'class Car {}' +
-      '</code></pre>',
-      [hljsPath[0]],
-      function(error, window) {
+    // Will match both `highlight.pack.js` and `highlight.min.js`
+    var filepath = utility.buildPath('..', 'build', 'highlight.*.js');
+
+    glob(filepath)
+      .then(function(hljsPath) {
+        return bluebird.fromNode(function(callback) {
+          jsdom.env(html, [hljsPath[0]], callback);
+        });
+      })
+      .then(function(window) {
         that.block = window.document.querySelector('pre code');
         that.hljs  = window.hljs;
-
-        done(error);
-      }
-    );
+      })
+      .then(function() { done(); },
+            function(error) { done(error); });
   });
 
   it('should highlight block', function() {
