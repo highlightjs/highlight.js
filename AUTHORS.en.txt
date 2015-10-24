@@ -59,7 +59,7 @@ Contributors:
 - Joe Cheng <joe@rstudio.org>
 - Angel G. Olloqui <angelgarcia.mail@gmail.com>
 - Jason Tate <adminz@web-cms-designs.com>
-- Sergey Tikhomirov <me@stikhomirov.com>
+- Sergey Tikhomirov <sergey@tikhomirov.io>
 - Marc Fornos <marc.fornos@gmail.com>
 - Yoshihide Jimbo <yjimbo@gmail.com>
 - Casey Duncan <casey.duncan@gmail.com>
