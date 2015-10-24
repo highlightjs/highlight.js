@@ -4,7 +4,7 @@ var Worker  = require('webworker-threads').Worker;
 var utility = require('../utility');
 var glob    = require('glob');
 
-describe('worker', function() {
+describe('in worker', function() {
   before(function(done) {
     // Will match both `highlight.pack.js` and `highlight.min.js`
     var hljsPath = glob.sync(utility.buildPath('..', 'build', 'highlight.*.js'));
@@ -31,7 +31,7 @@ describe('worker', function() {
     });
   });
 
-  it('should highlight code', function(done) {
+  it('should works', function(done) {
     this.worker.onmessage = function (event) {
       var actual = event.data;
       actual.should.equal(

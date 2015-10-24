@@ -7,7 +7,7 @@ var jsdom    = require('jsdom');
 var utility  = require('../utility');
 var glob     = bluebird.promisify(require('glob'));
 
-describe('browser build', function() {
+describe('in plain browser', function() {
   before(function(done) {
     var that = this;
     var html = '<pre><code>var say = "Hello";class Car {}</code></pre>';
@@ -29,7 +29,7 @@ describe('browser build', function() {
             function(error) { done(error); });
   });
 
-  it('should highlight block', function() {
+  it('should works', function() {
     this.hljs.highlightBlock(this.block);
 
     var actual = this.block.innerHTML;
