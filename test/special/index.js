@@ -7,23 +7,27 @@ var jsdom   = require('jsdom').jsdom;
 var utility = require('../utility');
 
 describe('special cases tests', function() {
-  before(function() {
-    var blocks,
-        filename = utility.buildPath('fixtures', 'index.html'),
-        page     = fs.readFileSync(filename, 'utf-8');
+  before(function(done) {
+    var filename = utility.buildPath('fixtures', 'index.html');
 
-    // Allows hljs to use document
-    global.document = jsdom(page);
+    fs.readFile(filename, 'utf-8', function(err, page) {
+      var blocks;
 
-    // Setup hljs environment
-    hljs.configure({ tabReplace: '    ' });
-    hljs.initHighlighting();
+      // Allows hljs to use document
+      global.document = jsdom(page);
 
-    // Setup hljs for non-`<pre><code>` tests
-    hljs.configure({ useBR: true });
+      // Setup hljs environment
+      hljs.configure({ tabReplace: '    ' });
+      hljs.initHighlighting();
 
-    blocks = document.querySelectorAll('.code');
-    _.each(blocks, hljs.highlightBlock);
+      // Setup hljs for non-`<pre><code>` tests
+      hljs.configure({ useBR: true });
+
+      blocks = document.querySelectorAll('.code');
+      _.each(blocks, hljs.highlightBlock);
+
+      done(err);
+    });
   });
 
   require('./explicitLanguage');
