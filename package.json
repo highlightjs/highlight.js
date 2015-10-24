@@ -38,6 +38,7 @@
     "jsdom": "3.1.2",
     "lodash": "^3.3.1",
     "mocha": "^2.0.1",
-    "should": "^7.0.1"
+    "should": "^7.0.1",
+    "webworker-threads": "^0.6.2"
   }
 }
