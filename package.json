@@ -22,7 +22,8 @@
   },
   "main": "./lib/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/"
+    "test": "./node_modules/.bin/mocha test/",
+    "test-browser": "./node_modules/.bin/mocha test/browser/"
   },
   "engines": {
     "node": "*"

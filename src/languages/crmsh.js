@@ -50,7 +50,7 @@ function(hljs) {
           className: 'title',
           end: '\\s*[\\$\\w_][\\w_-]*',
           starts: {
-            end: '\\s*@?[\\w_][\\w_\\.:-]*',
+            end: '\\s*@?[\\w_][\\w_\\.:-]*'
           }
         }
       },
@@ -59,7 +59,7 @@ function(hljs) {
         keywords: COMMANDS,
         starts: {
           className: 'title',
-          end: '[\\$\\w_][\\w_-]*',
+          end: '[\\$\\w_][\\w_-]*'
         }
       },
       {

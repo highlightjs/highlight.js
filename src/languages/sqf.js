@@ -71,7 +71,7 @@ function(hljs) {
           {
             className: 'string',
             begin: '<', end: '>',
-            illegal: '\\n',
+            illegal: '\\n'
           }
         ]
       },

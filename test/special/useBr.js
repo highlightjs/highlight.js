@@ -4,7 +4,7 @@ var utility = require('../utility');
 
 describe('use br', function() {
   before(function(done) {
-    var filename = utility.buildPath('expect', 'useBr.txt'),
+    var filename = utility.buildPath('fixtures', 'expect', 'useBr.txt'),
         testHTML = document.querySelectorAll('#use-br .hljs');
 
     utility.setupFile(filename, 'utf-8', this, testHTML, done);
