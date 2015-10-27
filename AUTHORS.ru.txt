@@ -59,7 +59,7 @@ URL:   https://highlightjs.org/
 - Джо Ченг <joe@rstudio.org>
 - Анхель Ойоки <angelgarcia.mail@gmail.com>
 - Джейсон Тейт <adminz@web-cms-designs.com>
-- Сергей Тихомиров <me@stikhomirov.com>
+- Сергей Тихомиров <sergey@tikhomirov.io>
 - Марк Форнос <marc.fornos@gmail.com>
 - Йошихиде Джимбо <yjimbo@gmail.com>
 - Кейси Данкан <casey.duncan@gmail.com>
@@ -190,3 +190,4 @@ URL:   https://highlightjs.org/
 - Сорен Эневолдсен <senevoldsen90@gmail.com>
 - Даниэль Розенвассен <DanielRosenwasser@users.noreply.github.com>
 - Ладислав Пршкавеч <ladislav@prskavec.net>
+- Ян Кюхле <jkuehle90@gmail.com>

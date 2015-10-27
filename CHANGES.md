@@ -9,8 +9,11 @@ Notable fixes and improvements to existing languages:
 
 Other notable changes:
 
+- WebWorkers support added bu [Jan Kühle][]
 - We now have tests for both browser builds
 - License added to not minified browser build
+
+[Jan Kühle]: https://github.com/frigus02
 
 ## Version 8.9.1
 
