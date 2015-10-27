@@ -26,7 +26,7 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | code                     | Code block in text markup                         |
 +--------------------------+---------------------------------------------------+
-| deletion                 | Deleted line in a diff
+| deletion                 | Deleted line in a diff                            |
 +--------------------------+---------------------------------------------------+
 | doctag                   | documentation markup within comments              |
 +--------------------------+---------------------------------------------------+
@@ -90,9 +90,6 @@ Stylable classes
 | variable                 | Variable in a config or a template file.          |
 |                          | Environment var expansion in a script.            |
 +--------------------------+---------------------------------------------------+
-
-
-(...)
 
 
 Language names and aliases
