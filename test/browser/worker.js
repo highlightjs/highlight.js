@@ -1,6 +1,6 @@
 'use strict';
 
-var Worker  = require('webworker-threads').Worker;
+var Worker  = require('tiny-worker');
 var utility = require('../utility');
 var glob    = require('glob');
 
@@ -15,7 +15,7 @@ describe('in worker', function() {
           importScripts(event.data.script);
           postMessage(1);
         } else {
-          var result = hljs.highlightAuto(event.data);
+          var result = self.hljs.highlightAuto(event.data);
           postMessage(result.value);
         }
       };
