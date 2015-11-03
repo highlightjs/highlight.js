@@ -13,6 +13,9 @@ Stylable classes
 | built_in                 | Built-in or library object (constant, class,      |
 |                          | function)                                         |
 +--------------------------+---------------------------------------------------+
+| type                     | Type name used in a function signature, type      |
+|                          | parameter, generic template, etc.                 |
++--------------------------+---------------------------------------------------+
 | literal                  | Special identifier for a built-in value ("true",  |
 |                          | "false", "null").                                 |
 +--------------------------+---------------------------------------------------+
@@ -20,12 +23,11 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | regexp                   | Literal regular expression                        |
 +--------------------------+---------------------------------------------------+
-| symbol                   | Symbolic constant, interned string, goto label.   |
-+--------------------------+---------------------------------------------------+
-| type                     | Type name used in a function signature, type      |
-|                          | parameter, generic template, etc.                 |
+| string                   | Literal string, character                         |
 +--------------------------+---------------------------------------------------+
 | subst                    | Parsed section inside a literal string.           |
++--------------------------+---------------------------------------------------+
+| symbol                   | Symbolic constant, interned string, goto label.   |
 +--------------------------+---------------------------------------------------+
 | class                    | Class or class-level declaration (interfaces,     |
 |                          | traits, modules, etc.)                            |
