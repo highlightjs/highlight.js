@@ -15,3 +15,27 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-subst {
   color: #444;
 }
+
+.hljs-keyword {
+  font-weight: bold;
+}
+
+.hljs-built_in,
+.hljs-literal {
+  color: #006D00;
+}
+
+.hljs-regexp,
+.hljs-symbol {
+  color: #884E00;
+}
+
+.hljs-type,
+.hljs-string {
+  color: #880000;
+}
+
+.hljs-title {
+  color: #880000;
+  font-weight: bold;
+}
