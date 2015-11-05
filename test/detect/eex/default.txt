@@ -1,0 +1,9 @@
+<%# this is a comment %>
+
+<%= for post <- @posts do %>
+  <p><%= link post.title, to: post_path(@conn, :show, post) %></p>
+<% end %>
+
+<% available_things = Enum.filter(things, fn(thing) -> thing.available? end) %>
+<%% x = 1 + 2 %>
+<%%= available_things.inspect %>
