@@ -6,6 +6,7 @@ Notable fixes and improvements to existing languages:
 - ECMAScript 6 classes constructors now highlighted
 - Template string support for Typescript, as for ECMAScript 6
 - Scala case classes params highlight fixed
+- YAML syntax added by [Stefan Wienert][]
 
 Other notable changes:
 
@@ -14,6 +15,8 @@ Other notable changes:
 - License added to not minified browser build
 
 [Jan Kühle]: https://github.com/frigus02
+[Stefan Wienert]: https://github.com/zealot128
+
 
 ## Version 8.9.1
 
