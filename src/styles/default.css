@@ -1,6 +1,6 @@
 /*
 
-Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 */
 
@@ -8,58 +8,34 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #f0f0f0;
+  background: #F0F0F0;
 }
 
 .hljs,
-.hljs-subst,
-.hljs-tag .hljs-title {
-  color: black;
+.hljs-subst {
+  color: #444;
 }
 
-.hljs-string,
-.hljs-title,
-.hljs-section,
-.hljs-attribute,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-symbol,
-.hljs-deletion {
-  color: #800;
-}
-
-.hljs-comment,
-.hljs-quote {
-  color: #888;
-}
-
-.hljs-number,
-.hljs-regexp,
-.hljs-literal,
-.hljs-addition,
-.hljs-bullet,
-.hljs-link {
-  color: #080;
-}
-
-.hljs-meta {
-  color: #88f;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-title,
-.hljs-name,
-.hljs-section,
-.hljs-built_in,
-.hljs-doctag,
-.hljs-type,
-.hljs-strong {
+.hljs-keyword {
   font-weight: bold;
 }
 
-.hljs-emphasis {
-  font-style: italic;
+.hljs-built_in,
+.hljs-literal {
+  color: #006D00;
+}
+
+.hljs-regexp,
+.hljs-symbol {
+  color: #884E00;
+}
+
+.hljs-type,
+.hljs-string {
+  color: #880000;
+}
+
+.hljs-title {
+  color: #880000;
+  font-weight: bold;
 }
