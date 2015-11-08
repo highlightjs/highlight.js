@@ -3,7 +3,7 @@ Language: YAML
 Author: Stefan Wienert <stwienert@gmail.com>
 Requires: ruby.js
 Description: YAML (Yet Another Markdown Language)
-Category: common, protocols
+Category: common, config
 */
 function(hljs) {
   var LITERALS = {literal: '{ } true false yes no Yes No True False null'};
