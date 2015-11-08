@@ -191,3 +191,4 @@ Contributors:
 - Daniel Rosenwasser <DanielRosenwasser@users.noreply.github.com>
 - Ladislav Prskavec <ladislav@prskavec.net>
 - Jan Kühle <jkuehle90@gmail.com>
+- Stefan Wienert <stwienert@gmail.com>
