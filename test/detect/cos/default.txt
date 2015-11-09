@@ -1,0 +1,3 @@
+set a = 1;
+write a; // this is a comment
+/* multiline comment */
