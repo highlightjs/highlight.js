@@ -16,7 +16,8 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   color: #444;
 }
 
-.hljs-keyword {
+.hljs-keyword,
+.hljs-doctag {
   font-weight: bold;
 }
 
@@ -38,4 +39,12 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-title {
   color: #880000;
   font-weight: bold;
+}
+
+.hljs-comment {
+  color: #888;
+}
+
+.hljs-meta {
+  color: #3B6F97;
 }
