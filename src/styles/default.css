@@ -23,19 +23,23 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 }
 
 .hljs-built_in,
-.hljs-literal {
+.hljs-literal,
+.hljs-bullet,
+.hljs-code {
   color: #006D00;
 }
 
 .hljs-regexp,
 .hljs-symbol,
-.hljs-variable {
+.hljs-variable,
+.hljs-link {
   color: #BA761C;
 }
 
 .hljs-type,
 .hljs-string,
-.hljs-attribute {
+.hljs-attribute,
+.hljs-quote {
   color: #880000;
 }
 
@@ -51,4 +55,12 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 .hljs-meta {
   color: #3B6F97;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }
