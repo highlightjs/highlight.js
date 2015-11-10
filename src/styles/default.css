@@ -32,7 +32,8 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-regexp,
 .hljs-symbol,
 .hljs-variable,
-.hljs-link {
+.hljs-link,
+.hljs-selector-attr {
   color: #BA761C;
 }
 
@@ -44,7 +45,10 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 }
 
 .hljs-title,
-.hljs-section {
+.hljs-section,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-class {
   color: #880000;
   font-weight: bold;
 }
