@@ -7,6 +7,7 @@ Notable fixes and improvements to existing languages:
 - Template string support for Typescript, as for ECMAScript 6
 - Scala case classes params highlight fixed
 - YAML syntax added by [Stefan Wienert][]
+- Built-in names introduced in Julia v0.4 added by [Kenta Sato][]
 
 Other notable changes:
 
@@ -16,7 +17,7 @@ Other notable changes:
 
 [Jan Kühle]: https://github.com/frigus02
 [Stefan Wienert]: https://github.com/zealot128
-
+[Kenta Sato]: https://github.com/bicycle1885
 
 ## Version 8.9.1
 
