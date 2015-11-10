@@ -40,7 +40,9 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-type,
 .hljs-string,
 .hljs-attribute,
-.hljs-quote {
+.hljs-quote,
+.hljs-template-tag,
+.hljs-template-variable {
   color: #880000;
 }
 
