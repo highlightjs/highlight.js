@@ -25,7 +25,8 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-built_in,
 .hljs-literal,
 .hljs-bullet,
-.hljs-code {
+.hljs-code,
+.hljs-addition {
   color: #006D00;
 }
 
@@ -42,7 +43,8 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-attribute,
 .hljs-quote,
 .hljs-template-tag,
-.hljs-template-variable {
+.hljs-template-variable,
+.hljs-deletion {
   color: #880000;
 }
 
