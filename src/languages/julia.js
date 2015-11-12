@@ -54,7 +54,7 @@ function(hljs) {
     // for name in Base.REPLCompletions.completions("", 0)[1]
     //     try
     //         v = eval(symbol(name))
-    //         if isa(v, DataType) || isa(v, TypeVar)
+    //         if isa(v, DataType) || isa(v, TypeConstructor) || isa(v, TypeVar)
     //             println(name)
     //         end
     //     end
@@ -85,7 +85,9 @@ function(hljs) {
       'LowerTriangular NullException Nullable OutOfMemoryError Pair PartialQuickSort Pipe RandomDevice ' +
       'ReadOnlyMemoryError ReentrantLock Ref RemoteException SegmentationFault SerializationState SimpleVector ' +
       'TCPSocket Text Tuple UDPSocket UInt UInt128 UInt16 UInt32 UInt64 UInt8 UnicodeError Union UpperTriangular ' +
-      'Val Void WorkerConfig '
+      'Val Void WorkerConfig AbstractMatrix AbstractSparseMatrix AbstractSparseVector AbstractVecOrMat AbstractVector ' +
+      'DenseMatrix DenseVecOrMat DenseVector Matrix SharedMatrix SharedVector StridedArray StridedMatrix ' +
+      'StridedVecOrMat StridedVector VecOrMat Vector '
   };
 
   // ref: http://julia.readthedocs.org/en/latest/manual/variables/#allowed-variable-names
