@@ -1,0 +1,2 @@
+# Build script *require* LF line endings in JavaScript files
+*.js    eol=lf
