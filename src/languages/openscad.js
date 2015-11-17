@@ -22,7 +22,7 @@ function(hljs) {
 	STRING = hljs.inherit(hljs.QUOTE_STRING_MODE,{illegal: null}),
 	PREPRO = {
 		className: 'meta',
-		keywords: 'include use',
+		keywords: {'meta-keyword': 'include use'},
 		begin: 'include|use <',
 		end: '>'
 	},

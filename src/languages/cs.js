@@ -51,7 +51,7 @@ function(hljs) {
       {
         className: 'meta',
         begin: '#', end: '$',
-        keywords: 'if else elif endif define undef warning error line region endregion pragma checksum'
+        keywords: {'meta-keyword': 'if else elif endif define undef warning error line region endregion pragma checksum'}
       },
       {
         className: 'string',

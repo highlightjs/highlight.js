@@ -62,7 +62,7 @@ function(hljs) {
       {
         className: 'meta',
         begin: '\\s*#', end: '$',
-        keywords: 'if else elseif endif end then'
+        keywords: {'meta-keyword': 'if else elseif endif end then'}
       },
       {
         className: 'meta',

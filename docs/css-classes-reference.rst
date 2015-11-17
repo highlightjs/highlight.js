@@ -49,6 +49,10 @@ Stylable classes
 | meta                     | flags, modifiers, annotations, processing         |
 |                          | instructions, preprocessor directive, etc         |
 +--------------------------+---------------------------------------------------+
+| meta-keyword             | keyword or built-in within meta construct         |
++--------------------------+---------------------------------------------------+
+| meta-string              | string within meta construct                      |
++--------------------------+---------------------------------------------------+
 | **Tags, attributes, configs**                                                |
 +--------------------------+---------------------------------------------------+
 | section                  | heading of a section in a config file, heading in |
