@@ -56,6 +56,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-type,
 .hljs-attr,
 .hljs-built_in,
+.hljs-builtin-name,
 .hljs-params {
   color: #5c2699;
 }

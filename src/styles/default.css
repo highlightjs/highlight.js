@@ -52,7 +52,8 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-section,
 .hljs-selector-tag,
 .hljs-selector-id,
-.hljs-selector-class {
+.hljs-selector-class,
+.hljs-builtin-name {
   color: #880000;
   font-weight: bold;
 }
