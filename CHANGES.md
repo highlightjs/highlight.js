@@ -2,7 +2,7 @@
 
 New languages:
 
-- *Caché Object Script* by [Nikita Savchenko](https://github.com/ZitRos)
+- *Caché Object Script* by [Nikita Savchenko][]
 
 Notable fixes and improvements to existing languages:
 
@@ -22,6 +22,7 @@ Other notable changes:
 [Jan Kühle]: https://github.com/frigus02
 [Stefan Wienert]: https://github.com/zealot128
 [Kenta Sato]: https://github.com/bicycle1885
+[Nikita Savchenko]: https://github.com/ZitRos
 
 ## Version 8.9.1
 
