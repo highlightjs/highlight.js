@@ -8,83 +8,83 @@ Stylable classes
 +------------------------------------------------------------------------------+
 | **General-purpose**                                                          |
 +--------------------------+---------------------------------------------------+
-| keyword                  | Keyword in a regular Algol-style language.        |
+| keyword                  | keyword in a regular Algol-style language         |
 +--------------------------+---------------------------------------------------+
-| built_in                 | Built-in or library object (constant, class,      |
+| built_in                 | built-in or library object (constant, class,      |
 |                          | function)                                         |
 +--------------------------+---------------------------------------------------+
-| type                     | Type name used in a function signature, type      |
-|                          | parameter, generic template, etc.                 |
+| type                     | type name used in a function signature, type      |
+|                          | parameter, generic template, etc                  |
 +--------------------------+---------------------------------------------------+
-| literal                  | Special identifier for a built-in value ("true",  |
-|                          | "false", "null").                                 |
+| literal                  | special identifier for a built-in value ("true",  |
+|                          | "false", "null")                                  |
 +--------------------------+---------------------------------------------------+
-| number                   | Number, including units and modifiers, if any.    |
+| number                   | number, including units and modifiers, if any.    |
 +--------------------------+---------------------------------------------------+
-| regexp                   | Literal regular expression                        |
+| regexp                   | literal regular expression                        |
 +--------------------------+---------------------------------------------------+
-| string                   | Literal string, character                         |
+| string                   | literal string, character                         |
 +--------------------------+---------------------------------------------------+
-| subst                    | Parsed section inside a literal string.           |
+| subst                    | parsed section inside a literal string            |
 +--------------------------+---------------------------------------------------+
-| symbol                   | Symbolic constant, interned string, goto label.   |
+| symbol                   | symbolic constant, interned string, goto label    |
 +--------------------------+---------------------------------------------------+
-| class                    | Class or class-level declaration (interfaces,     |
-|                          | traits, modules, etc.)                            |
+| class                    | class or class-level declaration (interfaces,     |
+|                          | traits, modules, etc)                             |
 +--------------------------+---------------------------------------------------+
-| function                 | Function or method declaration                    |
+| function                 | function or method declaration                    |
 +--------------------------+---------------------------------------------------+
-| title                    | Name of a class or a function at the place of     |
+| title                    | name of a class or a function at the place of     |
 |                          | declaration                                       |
 +--------------------------+---------------------------------------------------+
-| params                   | Block of function arguments (parameters) at the   |
-|                          | place of declaration.                             |
+| params                   | block of function arguments (parameters) at the   |
+|                          | place of declaration                              |
 +--------------------------+---------------------------------------------------+
 | **Meta**                                                                     |
 +--------------------------+---------------------------------------------------+
-| comment                  | Comment                                           |
+| comment                  | comment                                           |
 +--------------------------+---------------------------------------------------+
 | doctag                   | documentation markup within comments              |
 +--------------------------+---------------------------------------------------+
-| meta                     | Flags, modifiers, annotations, processing         |
-|                          | instructions, preprocessor directive, etc.        |
+| meta                     | flags, modifiers, annotations, processing         |
+|                          | instructions, preprocessor directive, etc         |
 +--------------------------+---------------------------------------------------+
 | **Tags, attributes, configs**                                                |
 +--------------------------+---------------------------------------------------+
-| section                  | Heading of a section in a config file, heading in |
+| section                  | heading of a section in a config file, heading in |
 |                          | text markup                                       |
 +--------------------------+---------------------------------------------------+
-| tag                      | XML/HTML tag.                                     |
+| tag                      | XML/HTML tag                                      |
 +--------------------------+---------------------------------------------------+
-| name                     | Name of an XML tag, the first word in an          |
-|                          | s-expression.                                     |
+| name                     | name of an XML tag, the first word in an          |
+|                          | s-expression                                      |
 +--------------------------+---------------------------------------------------+
-| attr                     | Name of an attribute with no language defined     |
-|                          | semantics: keys in JSON, setting names in .Ini.   |
-|                          | Also sub-attribute within another highlighted     |
-|                          | object, like XML tag.                             |
+| attr                     | name of an attribute with no language defined     |
+|                          | semantics (keys in JSON, setting names in .ini),  |
+|                          | also sub-attribute within another highlighted     |
+|                          | object, like XML tag                              |
 +--------------------------+---------------------------------------------------+
-| attribute                | Name of an attribute followed by a structured     |
-|                          | value part, like CSS properties.                  |
+| attribute                | name of an attribute followed by a structured     |
+|                          | value part, like CSS properties                   |
 +--------------------------+---------------------------------------------------+
-| variable                 | Variable in a config or a template file.          |
-|                          | Environment var expansion in a script.            |
+| variable                 | variable in a config or a template file,          |
+|                          | environment var expansion in a script             |
 +--------------------------+---------------------------------------------------+
 | **Markup**                                                                   |
 +--------------------------+---------------------------------------------------+
-| bullet                   | List item bullet in text markup                   |
+| bullet                   | list item bullet in text markup                   |
 +--------------------------+---------------------------------------------------+
-| code                     | Code block in text markup                         |
+| code                     | code block in text markup                         |
 +--------------------------+---------------------------------------------------+
-| emphasis                 | Emphasis in text markup                           |
+| emphasis                 | emphasis in text markup                           |
 +--------------------------+---------------------------------------------------+
-| strong                   | Strong emphasis in text markup                    |
+| strong                   | strong emphasis in text markup                    |
 +--------------------------+---------------------------------------------------+
-| formula                  | Mathematical formula in text markup               |
+| formula                  | mathematical formula in text markup               |
 +--------------------------+---------------------------------------------------+
-| link                     | Hyperlink in text markup                          |
+| link                     | hyperlink in text markup                          |
 +--------------------------+---------------------------------------------------+
-| quote                    | Quotation in text markup                          |
+| quote                    | quotation in text markup                          |
 +--------------------------+---------------------------------------------------+
 | **CSS**                                                                      |
 +--------------------------+---------------------------------------------------+
@@ -98,15 +98,15 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | **Templates**                                                                |
 +--------------------------+---------------------------------------------------+
-| template-tag             | Tag of a template language                        |
+| template-tag             | tag of a template language                        |
 +--------------------------+---------------------------------------------------+
-| template-variable        | Variable in a template language                   |
+| template-variable        | variable in a template language                   |
 +--------------------------+---------------------------------------------------+
 | **diff**                                                                     |
 +--------------------------+---------------------------------------------------+
-| addition                 | Added or changed line in a diff                   |
+| addition                 | added or changed line in a diff                   |
 +--------------------------+---------------------------------------------------+
-| deletion                 | Deleted line in a diff                            |
+| deletion                 | deleted line in a diff                            |
 +--------------------------+---------------------------------------------------+
 
 
