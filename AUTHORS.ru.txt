@@ -192,3 +192,4 @@ URL:   https://highlightjs.org/
 - Ладислав Пршкавеч <ladislav@prskavec.net>
 - Ян Кюхле <jkuehle90@gmail.com>
 - Стефан Вайнерт <stwienert@gmail.com>
+- Никита Савченко <zitros.lab@gmail.com>

@@ -1,5 +1,9 @@
 ## MASTER (UNRELEASED)
 
+New languages:
+
+- *Caché Object Script* by [Nikita Savchenko](https://github.com/ZitRos)
+
 Notable fixes and improvements to existing languages:
 
 - ECMAScript 6 modules import now do not require closing semicolon

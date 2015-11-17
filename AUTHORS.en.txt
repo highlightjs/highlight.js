@@ -192,3 +192,4 @@ Contributors:
 - Ladislav Prskavec <ladislav@prskavec.net>
 - Jan Kühle <jkuehle90@gmail.com>
 - Stefan Wienert <stwienert@gmail.com>
+- Nikita Savchenko <zitros.lab@gmail.com>

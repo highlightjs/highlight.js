@@ -1,0 +1,7 @@
+SET test = 1
+set ^global = 2
+Write "Current date """, $ztimestamp, """, result: ", test + ^global = 3
+if (^global = 2) {
+  do ##class(Cinema.Utils).AddShow("test") // line comment
+}
+d:(^global = 2) ..thisClassMethod(1, 2, "test")
