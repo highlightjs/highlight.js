@@ -77,7 +77,7 @@ function cos (hljs) {
       //"$zpos", "$zreference", "$zstorage", "$ztimestamp", "$ztimezone",
       //"$ztrap", "$zversion"
 
-    ].join("|0 ") + "|0"
+    ].join(" ")
   };
 
   return {
@@ -95,15 +95,13 @@ function cos (hljs) {
       },
       { // macro
         className: "keyword",
-        begin: /\$\$\$[a-zA-Z]+/,
-        relevance: 5
+        begin: /\$\$\$[a-zA-Z]+/
       },
       { // globals
         className: "title",
         begin: /\^%?[a-zA-Z][\w]*/
       },
       { // static class reference constructions
-        className: "keyword",
         begin: /##class\(/, end: /\)/,
         contains: [
           {
@@ -111,7 +109,6 @@ function cos (hljs) {
             begin: /%?[a-zA-Z][\w\.]+/
           }
         ],
-        relevance: 8
       },
 
       // sub-languages: are not fully supported by hljs by 11/15/2015
@@ -119,20 +116,17 @@ function cos (hljs) {
       {
         begin: /&sql\(/,    end: /\)/,
         excludeBegin: true, excludeEnd: true,
-        subLanguage: "sql",
-        relevance: 10
+        subLanguage: "sql"
       },
       {
         begin: /&(js|jscript|javascript)</, end: />/,
         excludeBegin: true,                 excludeEnd: true,
-        subLanguage: "javascript",
-        relevance: 10
+        subLanguage: "javascript"
       },
       {
         begin: /&html<\s*</, end: />\s*>/, // brakes first tag, but the only way to embed valid html
         //excludeBegin: true, excludeEnd: true,
-        subLanguage: "xml", // no html?
-        relevance: 10
+        subLanguage: "xml" // no html?
       }
     ]
   };
