@@ -76,7 +76,7 @@ commander
 
 commander.target = commander.target.toLowerCase();
 
-build     = require('./' + commander.target);
+build     = require(`./${commander.target}`);
 dir.root  = path.dirname(__dirname);
 dir.build = path.join(dir.root, 'build');
 

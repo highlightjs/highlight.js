@@ -81,7 +81,7 @@ function buildIndex() {
 
 function copyMetaFiles() {
   var docs   = path.join('docs', '*.rst'),
-      glob   = '{README.md,LICENSE,' + docs + '}',
+      glob   = `{README.md,LICENSE,${docs}}`,
 
       input  = utility.glob(path.join(directory.root, glob)),
       output = { dir: directory.build, base: '.' };

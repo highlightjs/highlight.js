@@ -61,7 +61,7 @@ REPLACES = {
 };
 
 regex.replaces = new RegExp(
-  '\\b(' + Object.keys(REPLACES).join('|') + ')\\b', 'g');
+  `\\b(${Object.keys(REPLACES).join('|')})\\b`, 'g');
 
 regex.classname = /(block|parentNode)\.cN/g;
 
@@ -143,9 +143,9 @@ function globDefaults(pattern, encoding) {
 
 function getStyleNames() {
   var stylesDir = 'src/styles/',
-      options   = { ignore: stylesDir + 'default.css' };
+      options   = { ignore: `${stylesDir}default.css` };
 
-  return glob(stylesDir + '*.css', options)
+  return glob(`${stylesDir}*.css`, options)
     .map(function(style) {
       var basename = path.basename(style, '.css'),
           name     = _.startCase(basename),

@@ -26,7 +26,7 @@ tasks.reorderDeps = function(options, blobs, done) {
   _.each(blobs, function(blob) {
     var basename = path.basename(blob.name),
         fileInfo = parseHeader(blob.result),
-        extra = { blob: blob, processed: false };
+        extra    = { blob: blob, processed: false };
 
     buffer[basename] = _.merge(extra, fileInfo || {});
   });
@@ -145,7 +145,7 @@ tasks.replaceSkippingStrings = function(params, blob, done) {
       // We found a starter sequence: either a `//` or a "quote"
       // In the case of `//` our terminator is the end of line.
       // Otherwise it's either a matching quote or an escape symbol.
-      terminator = match[0] !== '//' ? new RegExp('[' + match[0] + '\\\\]')
+      terminator = match[0] !== '//' ? new RegExp(`[${match[0]}\\\\]`)
                                      : /$/m;
       start      = offset;
       offset    += 1;
@@ -183,7 +183,7 @@ tasks.filter = function(callback, blobs, done) {
 
     if(fileInfo && fileInfo.Requires) {
       _.each(fileInfo.Requires, function(language) {
-        var filename  = dirname + '/' + language,
+        var filename  = `${dirname}/${language}`,
             fileFound = _.find(filteredBlobs, { name: filename });
 
         if(!fileFound) {
@@ -206,7 +206,7 @@ tasks.readSnippet = function(options, blob, done) {
   function onRead(error, blob) {
     if(error) return done(error); // ignore missing snippets
 
-    var meta = { name: name + '.js', fileInfo: fileInfo };
+    var meta = { name: `${name}.js`, fileInfo: fileInfo };
 
     return done(null, new gear.Blob(blob.result, meta));
   }
@@ -234,7 +234,7 @@ tasks.packageFiles = function(options, blobs, done) {
                     .split('\n\n'),
       lastLine  = _.last(lines),
       langStr   = _.foldl(languages, function(str, language) {
-                    return str + language.result + '\n';
+                    return `${str + language.result}\n`;
                   }, '');
 
   lines[lines.length - 1] = langStr.trim();
