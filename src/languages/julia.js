@@ -141,7 +141,7 @@ function(hljs) {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, INTERPOLATION, INTERPOLATED_VARIABLE],
     variants: [
-      { begin: /\w*"""/, end: /"""\w*/ },
+      { begin: /\w*"""/, end: /"""\w*/, relevance: 10 },
       { begin: /\w*"/, end: /"\w*/ }
     ]
   };
