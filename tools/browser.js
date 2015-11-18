@@ -13,17 +13,13 @@ var directory;
 function templateAllFunc(blobs) {
   var name = path.join('demo', 'index.html');
 
+  blobs = _.compact(blobs);
+
   return bluebird.join(
     fs.readFileAsync(name),
     utility.getStyleNames(),
-    function(template, styles) {
-      return {
-        template: template,
-        path: path,
-        blobs: _.compact(blobs),
-        styles: styles
-      };
-    });
+    (template, styles) => ({ template, path, blobs, styles })
+  );
 }
 
 function copyDocs() {
