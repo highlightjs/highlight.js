@@ -34,6 +34,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-regexp,
 .hljs-symbol,
 .hljs-variable,
+.hljs-template-variable,
 .hljs-link,
 .hljs-selector-attr {
   color: #BA761C;
@@ -44,7 +45,6 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-attribute,
 .hljs-quote,
 .hljs-template-tag,
-.hljs-template-variable,
 .hljs-deletion {
   color: #880000;
 }
