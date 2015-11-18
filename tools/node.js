@@ -13,9 +13,7 @@ var directory, filterCB,
     header    = utility.regex.header;
 
 function templateAllFunc(blobs) {
-  var names = _.map(blobs, function(blob) {
-    return path.basename(blob.name, '.js');
-  });
+  var names = _.map(blobs, blob => path.basename(blob.name, '.js'));
 
   return bluebird.resolve({ names: names });
 }

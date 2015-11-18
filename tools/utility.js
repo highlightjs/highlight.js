@@ -123,9 +123,7 @@ function filterByQualifiers(blob, languages, categories) {
 function buildFilterCallback(qualifiers) {
   var result     = _.partition(qualifiers, { 0: ':' }),
       languages  = result[1],
-      categories = _.map(result[0], function(category) {
-                     return category.slice(1);
-                   });
+      categories = _.map(result[0], category => category.slice(1));
 
   return _.partial(filterByQualifiers, _, languages, categories);
 }

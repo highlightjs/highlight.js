@@ -233,9 +233,8 @@ tasks.packageFiles = function(options, blobs, done) {
                     .replace(utility.regex.header, '')
                     .split('\n\n'),
       lastLine  = _.last(lines),
-      langStr   = _.foldl(languages, function(str, language) {
-                    return `${str + language.result}\n`;
-                  }, '');
+      langStr   = _.foldl(languages, (str, language) =>
+                          `${str + language.result}\n`, '');
 
   lines[lines.length - 1] = langStr.trim();
 
