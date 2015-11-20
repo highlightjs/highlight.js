@@ -17,7 +17,7 @@ function testLanguage(language) {
       var testName   = path.basename(filename, '.expect.txt'),
           sourceName = filename.replace(/\.expect/, '');
 
-      it('should markup ' + testName, function(done) {
+      it(`should markup ${testName}`, function(done) {
         var sourceFile   = fs.readFileAsync(sourceName, 'utf-8'),
             expectedFile = fs.readFileAsync(filename, 'utf-8');
 
@@ -33,7 +33,7 @@ function testLanguage(language) {
 }
 
 describe('hljs.highlight()', function() {
-  var languages = fs.readdirSync(utility.buildPath('markup'));
+  var markupPath = utility.buildPath('markup');
 
-  _.each(languages, testLanguage, this);
+  return fs.readdirAsync(markupPath).each(testLanguage);
 });

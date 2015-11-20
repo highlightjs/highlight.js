@@ -2,7 +2,7 @@
 
 var hljs = require('../../build');
 
-var pattern = new RegExp('^' + hljs.IDENT_RE + '$');
+var pattern = new RegExp(`^${hljs.IDENT_RE}$`);
 
 describe('.IDENT_RE', function() {
   it('should match non-underscore starting words', function() {
