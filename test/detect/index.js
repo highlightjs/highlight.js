@@ -9,11 +9,9 @@ var utility  = require('../utility');
 function testAutoDetection(language) {
   var languagePath = utility.buildPath('detect', language);
 
-  it('should have test for ' + language, function(done) {
-    fs.exists(languagePath, function(testExistence) {
-      testExistence.should.be.true;
-      done();
-    });
+  it('should have test for ' + language, function() {
+    return fs.statAsync(languagePath)
+      .then(path => path.isDirectory().should.be.true);
   });
 
   it(`should be detected as ${language}`, function() {
