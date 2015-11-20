@@ -11,7 +11,7 @@ describe('in worker', function() {
     var filepath = utility.buildPath('..', 'build', 'highlight.*.js');
 
     return glob(filepath).then((hljsPath) => {
-      this.worker = new Worker(function () {
+      this.worker = new Worker(function() {
         self.onmessage = function (event) {
           if (event.data.action === 'importScript') {
             importScripts(event.data.script);
@@ -31,11 +31,11 @@ describe('in worker', function() {
         action: 'importScript',
         script: hljsPath[0]
       });
-    })
+    });
   });
 
   it('should works', function(done) {
-    this.worker.onmessage = function (event) {
+    this.worker.onmessage = function(event) {
       var actual = event.data;
       actual.should.equal(
         '<span class="hljs-variable"><span class="hljs-keyword">var</span> say</span> = <span class="hljs-string">"Hello"</span>;' +
@@ -50,7 +50,7 @@ describe('in worker', function() {
     );
   });
 
-  after(function () {
+  after(function() {
     this.worker.terminate();
   });
 });
