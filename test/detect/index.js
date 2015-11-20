@@ -16,8 +16,8 @@ function testAutoDetection(language) {
     });
   });
 
-  it('should be detected as ' + language, function(done) {
-    fs.readdirAsync(languagePath)
+  it('should be detected as ' + language, function() {
+    return fs.readdirAsync(languagePath)
       .map(function(example) {
         var filename = path.join(languagePath, example);
 
@@ -28,11 +28,6 @@ function testAutoDetection(language) {
             actual   = hljs.highlightAuto(content).language;
 
         actual.should.equal(expected);
-      })
-      .done(function () {
-        done();
-      }, function (error) {
-        done(error);
       });
   });
 }
