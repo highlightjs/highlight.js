@@ -9,7 +9,7 @@ var utility  = require('../utility');
 function testAutoDetection(language) {
   var languagePath = utility.buildPath('detect', language);
 
-  it('should have test for ' + language, function() {
+  it(`should have test for ${language}`, function() {
     return fs.statAsync(languagePath)
       .then(path => path.isDirectory().should.be.true);
   });

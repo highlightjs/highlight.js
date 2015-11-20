@@ -10,9 +10,9 @@ describe('in worker', function() {
     // Will match both `highlight.pack.js` and `highlight.min.js`
     var filepath = utility.buildPath('..', 'build', 'highlight.*.js');
 
-    return glob(filepath).then((hljsPath) => {
+    return glob(filepath).then(hljsPath => {
       this.worker = new Worker(function() {
-        self.onmessage = function (event) {
+        self.onmessage = function(event) {
           if (event.data.action === 'importScript') {
             importScripts(event.data.script);
             postMessage(1);
