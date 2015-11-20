@@ -31,7 +31,7 @@ function(hljs) {
   };
   var TAG = {
     className: 'string',
-    begin: '<[^\\s\\n\\t<]+', end: '>',
+    begin: '<[^\\s\\n\\t<=]+', end: '>',
     illegal: '\\n',
   };
   var FILE = {
