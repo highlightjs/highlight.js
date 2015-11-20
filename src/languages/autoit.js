@@ -1614,7 +1614,6 @@ function(hljs) {
         },
 
         VARIABLE = {
-            className: 'variable',
             begin: '\\$[A-z0-9_]+'
         },
 
@@ -1642,7 +1641,7 @@ function(hljs) {
         },
 
         PREPROCESSOR = {
-            className: 'preprocessor',
+            className: 'meta',
             begin: '#',
             end: '$',
             keywords: 'include include-once NoTrayIcon OnAutoItStartRegister RequireAdmin pragma ' +
@@ -1712,7 +1711,7 @@ function(hljs) {
         },
 
         CONSTANT = {
-            className: 'constant',
+            className: 'symbol',
             // begin: '@',
             // end: '$',
             // keywords: 'AppDataCommonDir AppDataDir AutoItExe AutoItPID AutoItVersion AutoItX64 COM_EventObj CommonFilesDir Compiled ComputerName ComSpec CPUArch CR CRLF DesktopCommonDir DesktopDepth DesktopDir DesktopHeight DesktopRefresh DesktopWidth DocumentsCommonDir error exitCode exitMethod extended FavoritesCommonDir FavoritesDir GUI_CtrlHandle GUI_CtrlId GUI_DragFile GUI_DragId GUI_DropId GUI_WinHandle HomeDrive HomePath HomeShare HotKeyPressed HOUR IPAddress1 IPAddress2 IPAddress3 IPAddress4 KBLayout LF LocalAppDataDir LogonDNSDomain LogonDomain LogonServer MDAY MIN MON MSEC MUILang MyDocumentsDir NumParams OSArch OSBuild OSLang OSServicePack OSType OSVersion ProgramFilesDir ProgramsCommonDir ProgramsDir ScriptDir ScriptFullPath ScriptLineNumber ScriptName SEC StartMenuCommonDir StartMenuDir StartupCommonDir StartupDir SW_DISABLE SW_ENABLE SW_HIDE SW_LOCK SW_MAXIMIZE SW_MINIMIZE SW_RESTORE SW_SHOW SW_SHOWDEFAULT SW_SHOWMAXIMIZED SW_SHOWMINIMIZED SW_SHOWMINNOACTIVE SW_SHOWNA SW_SHOWNOACTIVATE SW_SHOWNORMAL SW_UNLOCK SystemDir TAB TempDir TRAY_ID TrayIconFlashing TrayIconVisible UserName UserProfileDir WDAY WindowsDir WorkingDir YDAY YEAR',
@@ -1724,7 +1723,6 @@ function(hljs) {
             className: 'function',
             beginKeywords: 'Func',
             end: '$',
-            excludeEnd: true,
             illegal: '\\$|\\[|%',
             contains: [
                 hljs.UNDERSCORE_TITLE_MODE, {

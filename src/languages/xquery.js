@@ -1,8 +1,8 @@
 /*
 Language: XQuery
 Author: Dirk Kirsten <dk@basex.org>
-Category: functional
 Description: Supports XQuery 3.1 including XQuery Update 3, so also XPath (as it is a superset)
+Category: functional
 */
 
 function(hljs) {
@@ -15,7 +15,6 @@ function(hljs) {
     'replace value rename copy modify update';
   var LITERAL = 'false true xs:string xs:integer element item xs:date xs:datetime xs:float xs:double xs:decimal QName xs:anyURI xs:long xs:int xs:short xs:byte attribute';
   var VAR = {
-    className: 'variable',
     begin: /\$[a-zA-Z0-9\-]+/,
     relevance: 5
   };
@@ -35,7 +34,7 @@ function(hljs) {
   };
 
   var ANNOTATION = {
-    className: 'decorator',
+    className: 'meta',
     begin: '%\\w+'
   };
 
@@ -45,7 +44,7 @@ function(hljs) {
     relevance: 10,
     contains: [
       {
-        className: 'doc', begin: '@\\w+'
+        className: 'doctag', begin: '@\\w+'
       }
     ]
   };

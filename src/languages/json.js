@@ -11,7 +11,6 @@ function(hljs) {
     hljs.C_NUMBER_MODE
   ];
   var VALUE_CONTAINER = {
-    className: 'value',
     end: ',', endsWithParent: true, excludeEnd: true,
     contains: TYPES,
     keywords: LITERALS
@@ -20,7 +19,7 @@ function(hljs) {
     begin: '{', end: '}',
     contains: [
       {
-        className: 'attribute',
+        className: 'attr',
         begin: '\\s*"', end: '"\\s*:\\s*', excludeBegin: true, excludeEnd: true,
         contains: [hljs.BACKSLASH_ESCAPE],
         illegal: '\\n',
@@ -31,7 +30,7 @@ function(hljs) {
   };
   var ARRAY = {
     begin: '\\[', end: '\\]',
-    contains: [hljs.inherit(VALUE_CONTAINER, {className: null})], // inherit is also a workaround for a bug that makes shared modes with endsWithParent compile only the ending of one of the parents
+    contains: [hljs.inherit(VALUE_CONTAINER)], // inherit is a workaround for a bug that makes shared modes with endsWithParent compile only the ending of one of the parents
     illegal: '\\S'
   };
   TYPES.splice(TYPES.length, 0, OBJECT, ARRAY);

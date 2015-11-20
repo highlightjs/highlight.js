@@ -50,11 +50,6 @@ function(hljs) {
     CLASS,
     FUNCTION,
     {
-      className: 'constant',
-      begin: '(\\b[A-Z_]\\w*(.)?)+',
-      relevance: 0
-    },
-    {
       className: 'symbol',
       begin: ':',
       contains: [STRING, {begin: ELIXIR_METHOD_RE}],

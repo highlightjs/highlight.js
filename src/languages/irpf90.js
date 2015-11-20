@@ -12,10 +12,7 @@ function(hljs) {
   };
 
   var F_KEYWORDS = {
-    constant: '.False. .True.',
-    type: 'integer real character complex logical dimension allocatable|10 parameter ' +
-      'external implicit|10 none double precision assign intent optional pointer ' +
-      'target in out common equivalence data',
+    literal: '.False. .True.',
     keyword: 'kind do while private call intrinsic where elsewhere ' +
       'type endtype endmodule endselect endinterface end enddo endif if forall endforall only contains default return stop then ' +
       'public subroutine|10 function program .and. .or. .not. .le. .eq. .ge. .gt. .lt. ' +
@@ -33,6 +30,9 @@ function(hljs) {
       'numeric_storage_size output_unit c_f_procpointer ieee_arithmetic ieee_support_underflow_control ' +
       'ieee_get_underflow_mode ieee_set_underflow_mode newunit contiguous recursive ' +
       'pad position action delim readwrite eor advance nml interface procedure namelist include sequence elemental pure ' +
+      'integer real character complex logical dimension allocatable|10 parameter ' +
+      'external implicit|10 none double precision assign intent optional pointer ' +
+      'target in out common equivalence data ' +
       // IRPF90 special keywords
       'begin_provider &begin_provider end_provider begin_shell end_shell begin_template end_template subst assert touch ' +
       'soft_touch provide no_dep free irp_if irp_else irp_endif irp_write irp_read',

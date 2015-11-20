@@ -41,18 +41,16 @@ function(hljs) {
       },
       // headings
       {
-        className: 'header',
-        begin: '^(={1,5}) .+?( \\1)?$',
-        relevance: 10
-      },
-      {
-        className: 'header',
-        begin: '^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$',
-        relevance: 10
+        className: 'section',
+        relevance: 10,
+        variants: [
+          {begin: '^(={1,5}) .+?( \\1)?$'},
+          {begin: '^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$'},
+        ]
       },
       // document attributes
       {
-        className: 'attribute',
+        className: 'meta',
         begin: '^:.+?:',
         end: '\\s',
         excludeEnd: true,
@@ -60,13 +58,13 @@ function(hljs) {
       },
       // block attributes
       {
-        className: 'attribute',
+        className: 'meta',
         begin: '^\\[.+?\\]$',
         relevance: 0
       },
       // quoteblocks
       {
-        className: 'blockquote',
+        className: 'quote',
         begin: '^_{4,}\\n',
         end: '\\n_{4,}$',
         relevance: 10
@@ -98,7 +96,7 @@ function(hljs) {
       },
       // admonition
       {
-        className: 'label',
+        className: 'symbol',
         begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+',
         relevance: 10
       },
@@ -141,7 +139,7 @@ function(hljs) {
       },
       // inline smart quotes
       {
-        className: 'smartquote',
+        className: 'string',
         variants: [
           {begin: "``.+?''"},
           {begin: "`.+?'"}
@@ -162,7 +160,6 @@ function(hljs) {
       },
       // horizontal rules
       {
-        className: 'horizontal_rule',
         begin: '^\'{3,}[ \\t]*$',
         relevance: 10
       },
@@ -172,18 +169,17 @@ function(hljs) {
         returnBegin: true,
         contains: [
           {
-            //className: 'macro',
             begin: '(link|image:?):',
             relevance: 0
           },
           {
-            className: 'link_url',
+            className: 'link',
             begin: '\\w',
             end: '[^\\[]+',
             relevance: 0
           },
           {
-            className: 'link_label',
+            className: 'string',
             begin: '\\[',
             end: '\\]',
             excludeBegin: true,

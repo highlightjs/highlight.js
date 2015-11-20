@@ -11,10 +11,7 @@ function(hljs) {
   };
 
   var F_KEYWORDS = {
-    constant: '.False. .True.',
-    type: 'integer real character complex logical dimension allocatable|10 parameter ' +
-      'external implicit|10 none double precision assign intent optional pointer ' +
-      'target in out common equivalence data',
+    literal: '.False. .True.',
     keyword: 'kind do while private call intrinsic where elsewhere ' +
       'type endtype endmodule endselect endinterface end enddo endif if forall endforall only contains default return stop then ' +
       'public subroutine|10 function program .and. .or. .not. .le. .eq. .ge. .gt. .lt. ' +
@@ -31,7 +28,10 @@ function(hljs) {
       'c_ptr c_funptr iso_fortran_env character_storage_size error_unit file_storage_size input_unit iostat_end iostat_eor ' +
       'numeric_storage_size output_unit c_f_procpointer ieee_arithmetic ieee_support_underflow_control ' +
       'ieee_get_underflow_mode ieee_set_underflow_mode newunit contiguous recursive ' +
-      'pad position action delim readwrite eor advance nml interface procedure namelist include sequence elemental pure',
+      'pad position action delim readwrite eor advance nml interface procedure namelist include sequence elemental pure ' +
+      'integer real character complex logical dimension allocatable|10 parameter ' +
+      'external implicit|10 none double precision assign intent optional pointer ' +
+      'target in out common equivalence data',
     built_in: 'alog alog10 amax0 amax1 amin0 amin1 amod cabs ccos cexp clog csin csqrt dabs dacos dasin datan datan2 dcos dcosh ddim dexp dint ' +
       'dlog dlog10 dmax1 dmin1 dmod dnint dsign dsin dsinh dsqrt dtan dtanh float iabs idim idint idnint ifix isign max0 max1 min0 min1 sngl ' +
       'algama cdabs cdcos cdexp cdlog cdsin cdsqrt cqabs cqcos cqexp cqlog cqsin cqsqrt dcmplx dconjg derf derfc dfloat dgamma dimag dlgama ' +

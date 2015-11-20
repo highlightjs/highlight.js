@@ -23,10 +23,16 @@ function (hljs) {
         '\\*/',
         {
           relevance : 0,
-          contains : [{
-            className : 'doctag',
-            begin : '@[A-Za-z]+'
-          }]
+          contains : [
+            {
+              // eat up @'s in emails to prevent them to be recognized as doctags
+              begin: /\w+@/, relevance: 0
+            },
+            {
+              className : 'doctag',
+              begin : '@[A-Za-z]+'
+            }
+          ]
         }
       ),
       hljs.C_LINE_COMMENT_MODE,
@@ -34,7 +40,7 @@ function (hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        className : 'aspect',
+        className : 'class',
         beginKeywords : 'aspect',
         end : /[{;=]/,
         excludeEnd : true,
@@ -134,7 +140,7 @@ function (hljs) {
       hljs.C_NUMBER_MODE,
       {
         // annotation is also used in this language
-        className : 'annotation',
+        className : 'meta',
         begin : '@[A-Za-z]+'
       }
     ]

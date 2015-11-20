@@ -17,14 +17,14 @@ function testLanguage(language) {
       var testName   = path.basename(filename, '.expect.txt'),
           sourceName = filename.replace(/\.expect/, '');
 
-      it('should markup ' + testName, function(done) {
+      it(`should markup ${testName}`, function(done) {
         var sourceFile   = fs.readFileAsync(sourceName, 'utf-8'),
             expectedFile = fs.readFileAsync(filename, 'utf-8');
 
         bluebird.join(sourceFile, expectedFile, function(source, expected) {
           var actual = hljs.highlight(language, source).value;
 
-          actual.should.equal(expected);
+          actual.trim().should.equal(expected.trim());
           done();
         });
       });
@@ -32,8 +32,8 @@ function testLanguage(language) {
   });
 }
 
-describe('markup generation test', function() {
-  var languages = fs.readdirSync(utility.buildPath('markup'));
+describe('hljs.highlight()', function() {
+  var markupPath = utility.buildPath('markup');
 
-  _.each(languages, testLanguage, this);
+  return fs.readdirAsync(markupPath).each(testLanguage);
 });

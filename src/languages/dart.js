@@ -56,8 +56,8 @@ function (hljs) {
 
   var KEYWORDS = {
     keyword: 'assert break case catch class const continue default do else enum extends false final finally for if ' +
-      'in is new null rethrow return super switch this throw true try var void while with',
-    literal: 'abstract as dynamic export external factory get implements import library operator part set static typedef',
+      'in is new null rethrow return super switch this throw true try var void while with ' +
+      'abstract as dynamic export external factory get implements import library operator part set static typedef',
     built_in:
       // dart:core
       'print Comparable DateTime Duration Function Iterable Iterator List Map Match Null Object Pattern RegExp Set ' +
@@ -98,7 +98,7 @@ function (hljs) {
       },
       hljs.C_NUMBER_MODE,
       {
-        className: 'annotation', begin: '@[A-Za-z]+'
+        className: 'meta', begin: '@[A-Za-z]+'
       },
       {
         begin: '=>' // No markup, just a relevance booster

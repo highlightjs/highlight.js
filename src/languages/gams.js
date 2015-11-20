@@ -19,7 +19,6 @@ function (hljs) {
     keywords: KEYWORDS,
     contains: [
       {
-        className: 'section',
         beginKeywords: 'sets parameters variables equations',
         end: ';',
         contains: [

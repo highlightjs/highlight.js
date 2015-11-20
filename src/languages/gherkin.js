@@ -13,7 +13,10 @@ function (hljs) {
         className: 'keyword',
         begin: '\\*'
       },
-      hljs.COMMENT('@[^@\r\n\t ]+', '$'),
+      {
+        className: 'meta',
+        begin: '@[^@\\s]+'
+      },
       {
         begin: '\\|', end: '\\|\\w*$',
         contains: [

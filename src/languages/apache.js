@@ -14,15 +14,15 @@ function(hljs) {
     case_insensitive: true,
     contains: [
       hljs.HASH_COMMENT_MODE,
-      {className: 'tag', begin: '</?', end: '>'},
+      {className: 'section', begin: '</?', end: '>'},
       {
-        className: 'keyword',
+        className: 'attribute',
         begin: /\w+/,
         relevance: 0,
         // keywords aren’t needed for highlighting per se, they only boost relevance
         // for a very generally defined mode (starts with a word, ends with line-end
         keywords: {
-          common:
+          nomarkup:
             'order deny allow setenv rewriterule rewriteengine rewritecond documentroot ' +
             'sethandler errordocument loadmodule options header listen serverroot ' +
             'servername'
@@ -35,11 +35,11 @@ function(hljs) {
           },
           contains: [
             {
-              className: 'sqbracket',
+              className: 'meta',
               begin: '\\s\\[', end: '\\]$'
             },
             {
-              className: 'cbracket',
+              className: 'variable',
               begin: '[\\$%]\\{', end: '\\}',
               contains: ['self', NUMBER]
             },

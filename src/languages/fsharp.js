@@ -47,12 +47,12 @@ function(hljs) {
         ]
       },
       {
-        className: 'annotation',
+        className: 'meta',
         begin: '\\[<', end: '>\\]',
         relevance: 10
       },
       {
-        className: 'attribute',
+        className: 'symbol',
         begin: '\\B(\'[A-Za-z])\\b',
         contains: [hljs.BACKSLASH_ESCAPE]
       },

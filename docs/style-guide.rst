@@ -1,112 +1,107 @@
 Style guide
 ===========
 
-Overview
---------
 
-Highlighted code is a single ``<code>`` element containing ``<span>``'s with pre-defined classes.
-Its appearance is controlled by a normal CSS file that can use all the features of CSS.
+Key principle
+-------------
 
-There are however a couple of specific requirements for highlight.js styles:
+Highlight.js themes are language agnostic.
 
-* Simplicity
-* Consistency
-* Portability
+Instead of trying to make a *rich* set of highlightable classes look good in a
+handful of languages we have a *limited* set of classes that work for all
+languages.
+
+Hence, there are two important implications:
+
+* Highlight.js styles tend to be minimalistic.
+* It's not possible to exactly emulate themes from other highlighting engines.
 
 
-Simplicity
+Defining a theme
+----------------
+
+A theme is a single CSS defining styles for class names linsted in the
+:doc:`class reference </css-classes-reference>`. The general guideline is to
+style all available classes, however an author may deliberately choose to
+exclude some (for example, ``.attr`` is usually left unstyled).
+
+You are not required to invent a separate styling for every group of class
+names, it's perfectly okay to group them:
+
+::
+
+  .hljs-string,
+  .hljs-section,
+  .hljs-selector-class,
+  .hljs-template-variable,
+  .hljs-deletion {
+    color: #800;
+  }
+
+Use as few or as many unique style combinations as you want.
+
+
+Typography and layout dos and don'ts
+------------------------------------
+
+Don't use:
+
+* non-standard borders/margin/paddings for the root container ``.hljs``
+* specific font faces
+* font size, line height and anything that affects posistion and size of
+  characters within the container
+
+Okay to use:
+
+* colors (obviously!)
+* italic, bold, underlining, etc.
+* image backgrounds
+
+These may seem arbitrary at first but it's what has shown to make sense in
+practice.
+
+There's also a common set of rules that *has* to be defined for the root
+container verbatim:
+
+::
+
+  .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+  }
+
+
+``.subst``
 ----------
 
-Overall style of highlight.js is minimalist, usable and generally not very bright.
-It's discouraged to use individual styling for small elements such as parentheses, commas, quotes etc.
-The ultimate goal of styling is to help people to actually read the code.
-
-
-Consistency
------------
-
-Highlight.js uses consistent class names across all the supported languages:
-strings are always "string", comments are always "comment", numbers are always "number".
-This allows to define a style that will work for all languages, not just one.
-This means that language names in style definition should be avoided:
+One important caveat: don't forget to style ``.subst``. It's used for parsed
+sections within strings and almost always should be reset to the default color:
 
 ::
 
-  /* wrong! */
-  .html .tag {
-    font-weight: bold;
-  }
-  
-  /* right, works for tags in HTML and XML */ 
-  .tag {
-    font-weight: bold;
-  }
-
-There are also unique syntax elements that languages don't share with each other:
-"attr_selector" in CSS, "doctype" in XML etc.
-The best way to style them is by "packing" them into a group of selectors for a single CSS group of rules:
-
-::
-
-  .javadoc,
-  .decorator,
-  .filter .argument,
-  .localvars,
-  .array,
-  .attr_selector,
-  .pi,
-  .doctype {
-    color: #88F;
-  }
-
-This pattern helps keeping the number of different style rules to a minimum.
-It's also easier to maintain: when a programmer adds definition of a new language it's easier
-to stack its unique elements to existing groups instead of trying to define its style from scratch
-(something that programmers are known to be not very good at).
-
-The only case where you *should* include a language class name is when its commonly named element should not adhere to general rules.
-For example a class ``title`` serves in most languages as a title of a function or class definition and has a unique color.
-If we want it in, say, HTML to be black as the general text we should specify a language for this rule:
-
-::
-
-  .html .tag. .title {
+  .hljs,
+  .hljs-subst {
     color: black;
   }
-
-
-Portability
------------
-
-CSS for syntax highlighting should not interfere with the main site styling.
-To achieve this all style rules are defined within ``pre`` element:
-
-::
-
-  pre .string {
-    color: red;
-  }
-  
-  pre .number {
-    color: green;
-  }
-
-
-CSS file header
----------------
-
-A good idea is to include a comment at the top of your contributed CSS file that properly attributes your work:
-
-::
-
-  /*
-  
-  Mean-and-clean style (c) John Smith <email@domain.com>
-  
-  */
 
 
 Contributing
 ------------
 
-Follow the :doc:`style contributor checklist </style-contribution>`.
+You should include a comment at the top of the CSS file with attribution and
+other meta data if necessary. The format is free:
+
+::
+
+  /*
+
+  Fancy style (c) John Smith <email@domain.com>
+
+  */
+
+If you're a new contributor add yourself to the authors list in AUTHORS.*.txt
+(use either English and/or Russian version). Also update CHANGES.md with your
+contribution.
+
+Send your contribution as a pull request on GitHub.

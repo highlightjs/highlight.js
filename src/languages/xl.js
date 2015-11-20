@@ -10,33 +10,22 @@ function(hljs) {
     'StereoDecoder PointCloud NetworkAccess RemoteControl RegExp ChromaKey Snowfall NodeJS Speech Charts';
 
   var XL_KEYWORDS = {
-    keyword: 'if then else do while until for loop import with is as where when by data constant',
-    literal: 'true false nil',
-    type: 'integer real text name boolean symbol infix prefix postfix block tree',
-    built_in: 'in mod rem and or xor not abs sign floor ceil sqrt sin cos tan asin acos atan exp expm1 log log2 log10 log1p pi at',
-    module: BUILTIN_MODULES,
-    id:
-      'text_length text_range text_find text_replace contains page slide basic_slide title_slide title subtitle ' +
-      'fade_in fade_out fade_at clear_color color line_color line_width texture_wrap texture_transform texture ' +
-      'scale_?x scale_?y scale_?z? translate_?x translate_?y translate_?z? rotate_?x rotate_?y rotate_?z? rectangle ' +
-      'circle ellipse sphere path line_to move_to quad_to curve_to theme background contents locally time mouse_?x ' +
-      'mouse_?y mouse_buttons'
-  };
-
-  var XL_CONSTANT = {
-    className: 'constant',
-    begin: '[A-Z][A-Z_0-9]+',
-    relevance: 0
-  };
-  var XL_VARIABLE = {
-    className: 'variable',
-    begin: '([A-Z][a-z_0-9]+)+',
-    relevance: 0
-  };
-  var XL_ID = {
-    className: 'id',
-    begin: '[a-z][a-z_0-9]+',
-    relevance: 0
+    keyword:
+      'if then else do while until for loop import with is as where when by data constant ' +
+      'integer real text name boolean symbol infix prefix postfix block tree',
+    literal:
+      'true false nil',
+    built_in:
+      'in mod rem and or xor not abs sign floor ceil sqrt sin cos tan asin ' +
+      'acos atan exp expm1 log log2 log10 log1p pi at text_length text_range ' +
+      'text_find text_replace contains page slide basic_slide title_slide ' +
+      'title subtitle fade_in fade_out fade_at clear_color color line_color ' +
+      'line_width texture_wrap texture_transform texture scale_?x scale_?y ' +
+      'scale_?z? translate_?x translate_?y translate_?z? rotate_?x rotate_?y ' +
+      'rotate_?z? rectangle circle ellipse sphere path line_to move_to ' +
+      'quad_to curve_to theme background contents locally time mouse_?x ' +
+      'mouse_?y mouse_buttons ' +
+      BUILTIN_MODULES
   };
 
   var DOUBLE_QUOTE_TEXT = {
@@ -53,22 +42,22 @@ function(hljs) {
   };
   var BASED_NUMBER = {
     className: 'number',
-    begin: '[0-9]+#[0-9A-Z_]+(\\.[0-9-A-Z_]+)?#?([Ee][+-]?[0-9]+)?',
-    relevance: 10
+    begin: '[0-9]+#[0-9A-Z_]+(\\.[0-9-A-Z_]+)?#?([Ee][+-]?[0-9]+)?'
   };
   var IMPORT = {
-    className: 'import',
     beginKeywords: 'import', end: '$',
-    keywords: {
-      keyword: 'import',
-      module: BUILTIN_MODULES
-    },
-    relevance: 0,
+    keywords: XL_KEYWORDS,
     contains: [DOUBLE_QUOTE_TEXT]
   };
   var FUNCTION_DEFINITION = {
     className: 'function',
-    begin: '[a-z].*->'
+    begin: /[a-z][^\n]*->/, returnBegin: true, end: /->/,
+    contains: [
+      hljs.inherit(hljs.TITLE_MODE, {starts: {
+        endsWithParent: true,
+        keywords: XL_KEYWORDS
+      }})
+    ]
   };
   return {
     aliases: ['tao'],
@@ -82,9 +71,6 @@ function(hljs) {
     LONG_TEXT,
     FUNCTION_DEFINITION,
     IMPORT,
-    XL_CONSTANT,
-    XL_VARIABLE,
-    XL_ID,
     BASED_NUMBER,
     hljs.NUMBER_MODE
     ]

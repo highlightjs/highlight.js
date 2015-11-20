@@ -1,0 +1,15 @@
+module hello
+
+function dyno = -> DynamicObject()
+
+struct human = { name }
+
+@annotated
+function main = |args| {
+    let a = 1
+    var b = 2
+
+    println("hello")
+
+    let john = human("John Doe")
+}

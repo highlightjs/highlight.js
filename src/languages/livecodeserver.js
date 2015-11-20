@@ -9,7 +9,7 @@ Category: enterprise
 
 function(hljs) {
   var VARIABLE = {
-    className: 'variable', begin: '\\b[gtps][A-Z]+[A-Za-z0-9_\\-]*\\b|\\$_[A-Z]+',
+    begin: '\\b[gtps][A-Z]+[A-Za-z0-9_\\-]*\\b|\\$_[A-Z]+',
     relevance: 0
   };
   var COMMENT_MODES = [
@@ -38,17 +38,16 @@ function(hljs) {
         'int4s internet int2 int2s normal text item last long detailed effective uInt4 uInt4s repeat ' +
         'end repeat URL in try into switch to words https token binfile each tenth as ticks tick ' +
         'system real4 by dateItems without char character ascending eighth whole dateTime numeric short ' +
-        'first ftp integer abbreviated abbr abbrev private case while if',
-      constant:
+        'first ftp integer abbreviated abbr abbrev private case while if ' +
+        'div mod wrap and or bitAnd bitNot bitOr bitXor among not in a an within ' +
+        'contains ends with begins the keys of keys',
+      literal:
         'SIX TEN FORMFEED NINE ZERO NONE SPACE FOUR FALSE COLON CRLF PI COMMA ENDOFFILE EOF EIGHT FIVE ' +
         'QUOTE EMPTY ONE TRUE RETURN CR LINEFEED RIGHT BACKSLASH NULL SEVEN TAB THREE TWO ' +
         'six ten formfeed nine zero none space four false colon crlf pi comma endoffile eof eight five ' +
         'quote empty one true return cr linefeed right backslash null seven tab three two ' +
         'RIVERSION RISTATE FILE_READ_MODE FILE_WRITE_MODE FILE_WRITE_MODE DIR_WRITE_MODE FILE_READ_UMASK ' +
         'FILE_WRITE_UMASK DIR_READ_UMASK DIR_WRITE_UMASK',
-      operator:
-        'div mod wrap and or bitAnd bitNot bitOr bitXor among not in a an within ' +
-        'contains ends with begins the keys of keys',
       built_in:
         'put abs acos aliasReference annuity arrayDecode arrayEncode asin atan atan2 average avg avgDev base64Decode ' +
         'base64Encode baseConvert binaryDecode binaryEncode byteOffset byteToNum cachedURL cachedURLs charToNum ' +
@@ -132,7 +131,6 @@ function(hljs) {
         ]
       },
       {
-        className: 'command',
         beginKeywords: 'command on', end: '$',
         contains: [
           VARIABLE,
@@ -145,7 +143,7 @@ function(hljs) {
         ]
       },
       {
-        className: 'preprocessor',
+        className: 'meta',
         variants: [
           {
             begin: '<\\?(rev|lc|livecode)',

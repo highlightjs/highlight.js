@@ -18,7 +18,7 @@ function(hljs) {
         end: /=([^\u2401\u0001=]+)/,
         returnEnd: true,
         returnBegin: false,
-        className: 'attribute'
+        className: 'attr'
       },
       {
         begin: /=/,

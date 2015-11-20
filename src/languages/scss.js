@@ -9,15 +9,8 @@ function(hljs) {
     className: 'variable',
     begin: '(\\$' + IDENT_RE + ')\\b'
   };
-  var FUNCTION = {
-    className: 'function',
-    begin: IDENT_RE + '\\(',
-    returnBegin: true,
-    excludeEnd: true,
-    end: '\\('
-  };
   var HEXCOLOR = {
-    className: 'hexcolor', begin: '#[0-9A-Fa-f]+'
+    className: 'number', begin: '#[0-9A-Fa-f]+'
   };
   var DEF_INTERNALS = {
     className: 'attribute',
@@ -25,17 +18,15 @@ function(hljs) {
     excludeEnd: true,
     illegal: '[^\\s]',
     starts: {
-      className: 'value',
       endsWithParent: true, excludeEnd: true,
       contains: [
-        FUNCTION,
         HEXCOLOR,
         hljs.CSS_NUMBER_MODE,
         hljs.QUOTE_STRING_MODE,
         hljs.APOS_STRING_MODE,
         hljs.C_BLOCK_COMMENT_MODE,
         {
-          className: 'important', begin: '!important'
+          className: 'meta', begin: '!important'
         }
       ]
     }
@@ -46,31 +37,27 @@ function(hljs) {
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      FUNCTION,
       {
-        className: 'id', begin: '\\#[A-Za-z0-9_-]+',
+        className: 'selector-id', begin: '\\#[A-Za-z0-9_-]+',
         relevance: 0
       },
       {
-        className: 'class', begin: '\\.[A-Za-z0-9_-]+',
+        className: 'selector-class', begin: '\\.[A-Za-z0-9_-]+',
         relevance: 0
       },
       {
-        className: 'attr_selector',
-        begin: '\\[', end: '\\]',
+        className: 'selector-attr', begin: '\\[', end: '\\]',
         illegal: '$'
       },
       {
-        className: 'tag', // begin: IDENT_RE, end: '[,|\\s]'
+        className: 'selector-tag', // begin: IDENT_RE, end: '[,|\\s]'
         begin: '\\b(a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|command|datalist|dd|del|details|dfn|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|keygen|label|legend|li|link|map|mark|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|rp|rt|ruby|samp|script|section|select|small|span|strike|strong|style|sub|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video)\\b',
         relevance: 0
       },
       {
-        className: 'pseudo',
         begin: ':(visited|valid|root|right|required|read-write|read-only|out-range|optional|only-of-type|only-child|nth-of-type|nth-last-of-type|nth-last-child|nth-child|not|link|left|last-of-type|last-child|lang|invalid|indeterminate|in-range|hover|focus|first-of-type|first-line|first-letter|first-child|first|enabled|empty|disabled|default|checked|before|after|active)'
       },
       {
-        className: 'pseudo',
         begin: '::(after|before|choices|first-letter|first-line|repeat-index|repeat-item|selection|value)'
       },
       VARIABLE,
@@ -80,37 +67,31 @@ function(hljs) {
         illegal: '[^\\s]'
       },
       {
-        className: 'value',
         begin: '\\b(whitespace|wait|w-resize|visible|vertical-text|vertical-ideographic|uppercase|upper-roman|upper-alpha|underline|transparent|top|thin|thick|text|text-top|text-bottom|tb-rl|table-header-group|table-footer-group|sw-resize|super|strict|static|square|solid|small-caps|separate|se-resize|scroll|s-resize|rtl|row-resize|ridge|right|repeat|repeat-y|repeat-x|relative|progress|pointer|overline|outside|outset|oblique|nowrap|not-allowed|normal|none|nw-resize|no-repeat|no-drop|newspaper|ne-resize|n-resize|move|middle|medium|ltr|lr-tb|lowercase|lower-roman|lower-alpha|loose|list-item|line|line-through|line-edge|lighter|left|keep-all|justify|italic|inter-word|inter-ideograph|inside|inset|inline|inline-block|inherit|inactive|ideograph-space|ideograph-parenthesis|ideograph-numeric|ideograph-alpha|horizontal|hidden|help|hand|groove|fixed|ellipsis|e-resize|double|dotted|distribute|distribute-space|distribute-letter|distribute-all-lines|disc|disabled|default|decimal|dashed|crosshair|collapse|col-resize|circle|char|center|capitalize|break-word|break-all|bottom|both|bolder|bold|block|bidi-override|below|baseline|auto|always|all-scroll|absolute|table|table-cell)\\b'
       },
       {
-        className: 'value',
         begin: ':', end: ';',
         contains: [
-          FUNCTION,
           VARIABLE,
           HEXCOLOR,
           hljs.CSS_NUMBER_MODE,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           {
-            className: 'important', begin: '!important'
+            className: 'meta', begin: '!important'
           }
         ]
       },
       {
-        className: 'at_rule',
         begin: '@', end: '[{;]',
         keywords: 'mixin include extend for if else each while charset import debug media page content font-face namespace warn',
         contains: [
-          FUNCTION,
           VARIABLE,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           HEXCOLOR,
           hljs.CSS_NUMBER_MODE,
           {
-            className: 'preprocessor',
             begin: '\\s[A-Za-z0-9_.-]+',
             relevance: 0
           }

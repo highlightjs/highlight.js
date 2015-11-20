@@ -71,8 +71,7 @@ function(hljs) {
       ]
     },
     {
-      className: 'property',
-      begin: '@' + JS_IDENT_RE
+      begin: '@' + JS_IDENT_RE // relevance booster
     },
     {
       begin: '`', end: '`',
@@ -138,7 +137,6 @@ function(hljs) {
         ]
       },
       {
-        className: 'attribute',
         begin: JS_IDENT_RE + ':', end: ':',
         returnBegin: true, returnEnd: true,
         relevance: 0

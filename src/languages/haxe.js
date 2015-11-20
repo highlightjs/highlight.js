@@ -32,7 +32,7 @@ function(hljs) {
         ]
       },
       {
-        className: 'preprocessor',
+        className: 'meta',
         begin: '#', end: '$',
         keywords: 'if else elseif end error'
       },
@@ -53,10 +53,7 @@ function(hljs) {
             ]
           },
           {
-            className: 'type',
-            begin: ':',
-            end: IDENT_FUNC_RETURN_TYPE_RE,
-            relevance: 10
+            begin: ':\\s*' + IDENT_FUNC_RETURN_TYPE_RE
           }
         ]
       }

@@ -1,0 +1,11 @@
+SET test = 1
+set ^global = 2
+Write "Current date """, $ztimestamp, """, result: ", test + ^global = 3
+do ##class(Cinema.Utils).AddShow("test") // line comment
+d:(^global = 2) ..thisClassMethod(1, 2, "test")
+/*
+ * Multiline comment
+ */
+&sql(SELECT * FROM Cinema.Film WHERE Length > 2)
+&js<for (var i = 0; i < String("test").split("").length); ++i) { console.log(i); }>
+&html<<!DOCTYPE html><html><head><meta name="test"/></head><body>test</body></html>>

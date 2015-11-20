@@ -12,7 +12,7 @@ function(hljs) {
     contains: [
       // highlight headers
       {
-        className: 'header',
+        className: 'section',
         variants: [
           { begin: '^#{1,6}', end: '$' },
           { begin: '^.+?\\n[=-]{2,}$' }
@@ -46,7 +46,7 @@ function(hljs) {
       },
       // blockquotes
       {
-        className: 'blockquote',
+        className: 'quote',
         begin: '^>\\s+', end: '$'
       },
       // code snippets
@@ -61,7 +61,6 @@ function(hljs) {
       },
       // horizontal rules
       {
-        className: 'horizontal_rule',
         begin: '^[-\\*]{3,}', end: '$'
       },
       // using links - title and link
@@ -70,19 +69,19 @@ function(hljs) {
         returnBegin: true,
         contains: [
           {
-            className: 'link_label',
+            className: 'string',
             begin: '\\[', end: '\\]',
             excludeBegin: true,
             returnEnd: true,
             relevance: 0
           },
           {
-            className: 'link_url',
+            className: 'link',
             begin: '\\]\\(', end: '\\)',
             excludeBegin: true, excludeEnd: true
           },
           {
-            className: 'link_reference',
+            className: 'symbol',
             begin: '\\]\\[', end: '\\]',
             excludeBegin: true, excludeEnd: true
           }
@@ -94,11 +93,11 @@ function(hljs) {
         returnBegin: true,
         contains: [
           {
-            className: 'link_reference',
+            className: 'symbol',
             begin: '\\[', end: '\\]:',
             excludeBegin: true, excludeEnd: true,
             starts: {
-              className: 'link_url',
+              className: 'link',
               end: '$'
             }
           }

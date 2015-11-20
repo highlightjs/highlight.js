@@ -1,14 +1,74 @@
--## Master (8.9.0) [UNRELEASED]
+## MASTER (UNRELEASED)
+
+New languages:
+
+- *Caché Object Script* by [Nikita Savchenko][]
+- *QML* by [John Foster][] 
+
+[John Foster]: https://github.com/jf990
+
+Notable fixes and improvements to existing languages:
+
+- ECMAScript 6 modules import now do not require closing semicolon
+- ECMAScript 6 classes constructors now highlighted
+- Template string support for Typescript, as for ECMAScript 6
+- Scala case classes params highlight fixed
+- YAML syntax added by [Stefan Wienert][]
+- Built-in names introduced in Julia v0.4 added by [Kenta Sato][]
+
+Other notable changes:
+
+- WebWorkers support added bu [Jan Kühle][]
+- We now have tests for both browser builds
+- License added to not minified browser build
+
+[Jan Kühle]: https://github.com/frigus02
+[Stefan Wienert]: https://github.com/zealot128
+[Kenta Sato]: https://github.com/bicycle1885
+[Nikita Savchenko]: https://github.com/ZitRos
+
+## Version 8.9.1
+
+Some last-minute changes reverted due to strange bug with minified browser build:
+
+- Scala case classes params highlight fixed
+- ECMAScript 6 modules import now do not require closing semicolon
+- ECMAScript 6 classes constructors now highlighted
+- Template string support for Typescript, as for ECMAScript 6
+- License added to not minified browser build
+
+## Version 8.9.0
 
 New languages:
 
 - *crmsh* by [Kristoffer Gronlund][]
 - *SQF* by [Soren Enevoldsen][] 
-- *QML* by [John Foster][] 
 
 [Kristoffer Gronlund]: https://github.com/krig
 [Soren Enevoldsen]: https://github.com/senevoldsen90
-[John Foster]: https://github.com/jf990
+
+Notable fixes and improvements to existing languages:
+
+- Added `abstract` and `namespace` keywords to TypeScript by [Daniel Rosenwasser][]
+- Added `label` support to Dockerfile by [Ladislav Prskavec][]
+- Crystal highlighting improved by [Tsuyusato Kitsune][]
+- Missing Swift keywords added by [Nate Cook][]
+- Improve detection of C block comments
+- ~~Scala case classes params highlight fixed~~
+- ~~ECMAScript 6 modules import now do not require closing semicolon~~
+- ~~ECMAScript 6 classes constructors now highlighted~~
+- ~~Template string support for Typescript, as for ECMAScript 6~~
+
+Other notable changes:
+
+- ~~License added to not minified browser build~~
+
+[Kristoffer Gronlund]: https://github.com/krig
+[Søren Enevoldsen]: https://github.com/senevoldsen90
+[Daniel Rosenwasser]: https://github.com/DanielRosenwasser
+[Ladislav Prskavec]: https://github.com/abtris
+[Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Nate Cook]: https://github.com/natecook1000
 
 ## Version 8.8.0
 

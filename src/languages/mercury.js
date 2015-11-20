@@ -14,11 +14,12 @@ function(hljs) {
       'pragma promise external trace atomic or_else require_complete_switch ' +
       'require_det require_semidet require_multi require_nondet ' +
       'require_cc_multi require_cc_nondet require_erroneous require_failure',
-    pragma:
+    meta:
+      // pragma
       'inline no_inline type_spec source_file fact_table obsolete memo ' +
       'loop_check minimal_model terminates does_not_terminate ' +
-      'check_termination promise_equivalent_clauses',
-    preprocessor:
+      'check_termination promise_equivalent_clauses ' +
+      // preprocessor
       'foreign_proc foreign_decl foreign_code foreign_type ' +
       'foreign_import_module foreign_export_enum foreign_export ' +
       'foreign_enum may_call_mercury will_not_call_mercury thread_safe ' +
@@ -33,15 +34,7 @@ function(hljs) {
       'semidet_true semidet_false semidet_fail impure_true impure semipure'
   };
 
-  var TODO = {
-    className: 'label',
-    begin: 'XXX', end: '$', endsWithParent: true,
-    relevance: 0
-  };
-  var COMMENT = hljs.inherit(hljs.C_LINE_COMMENT_MODE, {begin: '%'});
-  var CCOMMENT = hljs.inherit(hljs.C_BLOCK_COMMENT_MODE, {relevance: 0});
-  COMMENT.contains.push(TODO);
-  CCOMMENT.contains.push(TODO);
+  var COMMENT = hljs.COMMENT('%', '$');
 
   var NUMCODE = {
     className: 'number',
@@ -51,7 +44,7 @@ function(hljs) {
   var ATOM = hljs.inherit(hljs.APOS_STRING_MODE, {relevance: 0});
   var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {relevance: 0});
   var STRING_FMT = {
-    className: 'constant',
+    className: 'subst',
     begin: '\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]',
     relevance: 0
   };
@@ -83,7 +76,7 @@ function(hljs) {
       IMPLICATION,
       HEAD_BODY_CONJUNCTION,
       COMMENT,
-      CCOMMENT,
+      hljs.C_BLOCK_COMMENT_MODE,
       NUMCODE,
       hljs.NUMBER_MODE,
       ATOM,

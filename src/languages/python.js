@@ -5,7 +5,7 @@ Category: common
 
 function(hljs) {
   var PROMPT = {
-    className: 'prompt',  begin: /^(>>>|\.\.\.) /
+    className: 'meta',  begin: /^(>>>|\.\.\.) /
   };
   var STRING = {
     className: 'string',
@@ -78,7 +78,7 @@ function(hljs) {
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       },
       {
-        className: 'decorator',
+        className: 'meta',
         begin: /^[\t ]*@/, end: /$/
       },
       {

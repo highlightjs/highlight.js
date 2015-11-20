@@ -16,7 +16,7 @@ function(hljs) {
     contains: [
       PHP,
       {
-        className: 'attribute',
+        className: 'attr',
         begin: XML_IDENT_RE,
         relevance: 0
       },
@@ -25,7 +25,7 @@ function(hljs) {
         relevance: 0,
         contains: [
           {
-            className: 'value',
+            className: 'string',
             contains: [PHP],
             variants: [
               {begin: /"/, end: /"/},
@@ -42,7 +42,7 @@ function(hljs) {
     case_insensitive: true,
     contains: [
       {
-        className: 'doctype',
+        className: 'meta',
         begin: '<!DOCTYPE', end: '>',
         relevance: 10,
         contains: [{begin: '\\[', end: '\\]'}]
@@ -55,7 +55,6 @@ function(hljs) {
         }
       ),
       {
-        className: 'cdata',
         begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
         relevance: 10
       },
@@ -68,7 +67,7 @@ function(hljs) {
         by hljs.subMode() that tests lexemes outside the stream.
         */
         begin: '<style(?=\\s|>|$)', end: '>',
-        keywords: {title: 'style'},
+        keywords: {name: 'style'},
         contains: [TAG_INTERNALS],
         starts: {
           end: '</style>', returnEnd: true,
@@ -79,7 +78,7 @@ function(hljs) {
         className: 'tag',
         // See the comment in the <style tag about the lookahead pattern
         begin: '<script(?=\\s|>|$)', end: '>',
-        keywords: {title: 'script'},
+        keywords: {name: 'script'},
         contains: [TAG_INTERNALS],
         starts: {
           end: '\<\/script\>', returnEnd: true,
@@ -88,7 +87,7 @@ function(hljs) {
       },
       PHP,
       {
-        className: 'pi',
+        className: 'meta',
         begin: /<\?\w+/, end: /\?>/,
         relevance: 10
       },
@@ -97,7 +96,7 @@ function(hljs) {
         begin: '</?', end: '/?>',
         contains: [
           {
-            className: 'title', begin: /[^ \/><\n\t]+/, relevance: 0
+            className: 'name', begin: /[^\/><\s]+/, relevance: 0
           },
           TAG_INTERNALS
         ]

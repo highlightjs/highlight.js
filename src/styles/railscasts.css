@@ -10,37 +10,24 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   padding: 0.5em;
   background: #232323;
   color: #e6e1dc;
-  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,
-.hljs-shebang {
+.hljs-quote {
   color: #bc9458;
   font-style: italic;
 }
 
 .hljs-keyword,
-.ruby .hljs-function .hljs-keyword,
-.hljs-request,
-.hljs-status,
-.nginx .hljs-title,
-.method,
-.hljs-list .hljs-title {
+.hljs-selector-tag {
   color: #c26230;
 }
 
 .hljs-string,
 .hljs-number,
 .hljs-regexp,
-.hljs-tag .hljs-value,
-.hljs-cdata,
-.hljs-filter .hljs-argument,
-.hljs-attr_selector,
-.apache .hljs-cbracket,
-.hljs-date,
-.tex .hljs-command,
-.asciidoc .hljs-link_label,
-.markdown .hljs-link_label {
+.hljs-variable,
+.hljs-template-variable {
   color: #a5c261;
 }
 
@@ -49,114 +36,39 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 .hljs-tag,
-.hljs-tag .hljs-keyword,
-.hljs-tag .hljs-title,
-.hljs-doctype,
-.hljs-sub .hljs-identifier,
-.hljs-pi,
-.input_number {
+.hljs-name {
   color: #e8bf6a;
 }
 
-.hljs-identifier {
-  color: #d0d0ff;
-}
-
-.hljs-class .hljs-title,
-.hljs-type,
-.smalltalk .hljs-class,
-.hljs-doctag {
-  text-decoration: none;
-}
-
-.hljs-constant,
-.hljs-name {
+.hljs-type {
   color: #da4939;
 }
 
 
 .hljs-symbol,
+.hljs-bullet,
 .hljs-built_in,
-.ruby .hljs-symbol .hljs-string,
-.ruby .hljs-symbol .hljs-identifier,
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url,
-.hljs-attribute {
+.hljs-attr,
+.hljs-link {
   color: #6d9cbe;
 }
 
-.asciidoc .hljs-link_url,
-.markdown .hljs-link_url {
-  text-decoration: underline;
-}
-
-
-
-.hljs-params,
-.hljs-variable,
-.clojure .hljs-attribute {
+.hljs-params {
   color: #d0d0ff;
 }
 
-.css .hljs-tag,
-.hljs-rule .hljs-property,
-.hljs-pseudo,
-.tex .hljs-special {
+.hljs-attribute {
   color: #cda869;
 }
 
-.css .hljs-class {
-  color: #9b703f;
-}
-
-.hljs-rule .hljs-keyword {
-  color: #c5af75;
-}
-
-.hljs-rule .hljs-value {
-  color: #cf6a4c;
-}
-
-.css .hljs-id {
-  color: #8b98ab;
-}
-
-.hljs-annotation,
-.apache .hljs-sqbracket,
-.nginx .hljs-built_in {
+.hljs-meta,
+.hljs-meta * {
   color: #9b859d;
 }
 
-.hljs-preprocessor,
-.hljs-preprocessor *,
-.hljs-pragma {
-  color: #8996a8 !important;
-}
-
-.hljs-hexcolor,
-.css .hljs-value .hljs-number {
-  color: #a5c261;
-}
-
 .hljs-title,
-.hljs-decorator,
-.css .hljs-function {
+.hljs-section {
   color: #ffc66d;
-}
-
-.diff .hljs-header,
-.hljs-chunk {
-  background-color: #2f33ab;
-  color: #e6e1dc;
-  display: inline-block;
-  width: 100%;
-}
-
-.diff .hljs-change {
-  background-color: #4a410d;
-  color: #f8f8f8;
-  display: inline-block;
-  width: 100%;
 }
 
 .hljs-addition {
@@ -173,12 +85,22 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   width: 100%;
 }
 
-.coffeescript .javascript,
-.javascript .xml,
-.tex .hljs-formula,
-.xml .javascript,
-.xml .vbscript,
-.xml .css,
-.xml .hljs-cdata {
-  opacity: 0.7;
+.hljs-selector-class {
+  color: #9b703f;
+}
+
+.hljs-selector-id {
+  color: #8b98ab;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
 }

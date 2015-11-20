@@ -30,7 +30,7 @@ function(hljs) {
           returnBegin: true,
           contains: [
             {
-              className: 'xmlDocTag',
+              className: 'doctag',
               variants: [
                 {
                   begin: '///', relevance: 0
@@ -49,7 +49,7 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
-        className: 'preprocessor',
+        className: 'meta',
         begin: '#', end: '$',
         keywords: 'if else elif endif define undef warning error line region endregion pragma checksum'
       },
@@ -74,12 +74,7 @@ function(hljs) {
         beginKeywords: 'namespace', end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
-          {
-            // Customization of hljs.TITLE_MODE that allows '.'
-            className: 'title',
-            begin: '[a-zA-Z](\\.?\\w)*',
-            relevance: 0
-          },
+          hljs.inherit(hljs.TITLE_MODE, {begin: '[a-zA-Z](\\.?\\w)*'}),
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]

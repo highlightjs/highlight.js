@@ -34,7 +34,6 @@ function(hljs) {
     // contains defined later
   };
   var VAR = {
-    className: 'variable',
     variants: [
       {begin: /\$\d/},
       {begin: /[\$%@](\^\w\b|#\w+(::\w+)*|{\w+}|\w+(::\w*)*)/},
@@ -129,12 +128,12 @@ function(hljs) {
       ]
     },
     {
-      className: 'sub',
-      beginKeywords: 'sub', end: '(\\s*\\(.*?\\))?[;{]',
-      relevance: 5
+      className: 'function',
+      beginKeywords: 'sub', end: '(\\s*\\(.*?\\))?[;{]', excludeEnd: true,
+      relevance: 5,
+      contains: [hljs.TITLE_MODE]
     },
     {
-      className: 'operator',
       begin: '-\\w\\b',
       relevance: 0
     },

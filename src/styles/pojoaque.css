@@ -12,88 +12,52 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
   padding: 0.5em;
   color: #dccf8f;
   background: url(./pojoaque.jpg) repeat scroll left top #181914;
-  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,
-.diff .hljs-header,
-.hljs-doctype,
-.lisp .hljs-string {
+.hljs-quote {
   color: #586e75;
   font-style: italic;
 }
 
 .hljs-keyword,
-.css .rule .hljs-keyword,
-.hljs-winutils,
-.javascript .hljs-title,
-.method,
-.hljs-addition,
-.css .hljs-tag,
-.hljs-list .hljs-keyword,
-.nginx .hljs-title {
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-addition {
   color: #b64926;
 }
 
 .hljs-number,
-.hljs-command,
 .hljs-string,
-.hljs-tag .hljs-value,
 .hljs-doctag,
-.tex .hljs-formula,
-.hljs-regexp,
-.hljs-hexcolor {
+.hljs-regexp {
   color: #468966;
 }
 
 .hljs-title,
-.hljs-localvars,
-.hljs-function .hljs-title,
-.hljs-chunk,
-.hljs-decorator,
+.hljs-section,
 .hljs-built_in,
-.hljs-identifier,
-.hljs-name,
-.hljs-id {
+.hljs-name {
   color: #ffb03b;
 }
 
-.hljs-attribute,
 .hljs-variable,
-.lisp .hljs-body,
-.smalltalk .hljs-number,
-.hljs-constant,
+.hljs-template-variable,
 .hljs-class .hljs-title,
-.hljs-parent,
-.hljs-type {
+.hljs-type,
+.hljs-tag {
   color: #b58900;
 }
 
-.css .hljs-attribute {
+.hljs-attribute {
   color: #b89859;
 }
 
-.css .hljs-number,
-.css .hljs-hexcolor {
-  color: #dccf8f;
-}
-
-.css .hljs-class {
-  color: #d3a60c;
-}
-
-.hljs-preprocessor,
-.hljs-pragma,
-.hljs-pi,
-.hljs-shebang,
 .hljs-symbol,
-.hljs-symbol .hljs-string,
-.diff .hljs-change,
-.hljs-special,
-.hljs-attr_selector,
-.hljs-important,
+.hljs-bullet,
+.hljs-link,
 .hljs-subst,
-.hljs-cdata {
+.hljs-meta {
   color: #cb4b16;
 }
 
@@ -101,6 +65,19 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
   color: #dc322f;
 }
 
-.tex .hljs-formula {
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #d3a60c;
+}
+
+.hljs-formula {
   background: #073642;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }

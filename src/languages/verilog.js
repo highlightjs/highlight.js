@@ -17,8 +17,8 @@ function(hljs) {
         'negedge nmos nor not notif0 notif1 or output parameter pmos posedge ' +
         'primitive pulldown pullup rcmos release repeat rnmos rpmos rtran ' +
         'rtranif0 rtranif1 specify specparam table task timescale tran ' +
-        'tranif0 tranif1 wait while xnor xor',
-      typename:
+        'tranif0 tranif1 wait while xnor xor ' +
+        // types
         'highz0 highz1 integer large medium pull0 pull1 real realtime reg ' +
         'scalared signed small strong0 strong1 supply0 supply0 supply1 supply1 ' +
         'time tri tri0 tri1 triand trior trireg vectored wand weak0 weak1 wire wor'
@@ -33,22 +33,10 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE],
         relevance: 0
       },
-      /* ports in instances */
-      {
-        className: 'typename',
-        begin: '\\.\\w+',
-        relevance: 0
-      },
       /* parameters to instances */
       {
-        className: 'value',
+        className: 'variable',
         begin: '#\\((?!parameter).+\\)'
-      },
-      /* operators */
-      {
-        className: 'keyword',
-        begin: '\\+|-|\\*|/|%|<|>|=|#|`|\\!|&|\\||@|:|\\^|~|\\{|\\}',
-        relevance: 0
       }
     ]
   }; // return

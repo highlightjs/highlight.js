@@ -1,4 +1,4 @@
-# These will all work:
+// These will all work:
 char** foo_bar();
 char ** foo_bar();
 char **foo_bar();

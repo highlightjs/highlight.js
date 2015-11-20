@@ -8,14 +8,13 @@ function(hljs) {
 
   var ATOM = {
 
-    className: 'atom',
     begin: /[a-z][A-Za-z0-9_]*/,
     relevance: 0
   };
 
   var VAR = {
 
-    className: 'name',
+    className: 'symbol',
     variants: [
       {begin: /[A-Z][a-zA-Z0-9_]*/},
       {begin: /_[A-Za-z0-9_]*/},

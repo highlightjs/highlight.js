@@ -2,7 +2,7 @@
 
 var _        = require('lodash');
 var bluebird = require('bluebird');
-var fs       = bluebird.promisifyAll(require('fs'));
+var readFile = bluebird.promisify(require('fs').readFile);
 var path     = require('path');
 
 var registry = require('./tasks');
@@ -13,17 +13,13 @@ var directory;
 function templateAllFunc(blobs) {
   var name = path.join('demo', 'index.html');
 
+  blobs = _.compact(blobs);
+
   return bluebird.join(
-    fs.readFileAsync(name),
+    readFile(name),
     utility.getStyleNames(),
-    function(template, styles) {
-      return {
-        template: template,
-        path: path,
-        blobs: _.compact(blobs),
-        styles: styles
-      };
-    });
+    (template, styles) => ({ template, path, blobs, styles })
+  );
 }
 
 function copyDocs() {
@@ -120,8 +116,13 @@ module.exports = function(commander, dir) {
     requiresTask  = 'minify';
   }
 
-  tasks.writelog = {
+  tasks.insertLicenseTag = {
     requires: requiresTask,
+    task: 'insertLicenseTag'
+  };
+
+  tasks.writelog = {
+    requires: 'insertLicenseTag',
     task: ['log', 'Writing highlight.js pack file.']
   };
 

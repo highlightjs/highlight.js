@@ -35,12 +35,12 @@ function(hljs) {
     className: 'string', begin: /(#\d+)+/
   };
   var DATE = {
-      className: 'date',
+      className: 'number',
       begin: '\\b\\d+(\\.\\d+)?(DT|D|T)',
       relevance: 0
   };
   var DBL_QUOTED_VARIABLE = {
-      className: 'variable',
+      className: 'string', // not a string technically but makes sense to be highlighted in the same style
       begin: '"',
       end: '"'
   };

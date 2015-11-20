@@ -63,7 +63,6 @@ function(hljs) {
     begin: /\b(true|false|nil)\b/
   };
   var COLLECTION = {
-    className: 'collection',
     begin: '[\\[\\{]', end: '[\\]\\}]'
   };
   var HINT = {
@@ -72,11 +71,10 @@ function(hljs) {
   };
   var HINT_COL = hljs.COMMENT('\\^\\{', '\\}');
   var KEY = {
-    className: 'attribute',
+    className: 'symbol',
     begin: '[:]' + SYMBOL_RE
   };
   var LIST = {
-    className: 'list',
     begin: '\\(', end: '\\)'
   };
   var BODY = {
@@ -86,7 +84,7 @@ function(hljs) {
   var NAME = {
     keywords: keywords,
     lexemes: SYMBOL_RE,
-    className: 'keyword', begin: SYMBOL_RE,
+    className: 'name', begin: SYMBOL_RE,
     starts: BODY
   };
   var DEFAULT_CONTAINS = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL, SYMBOL];

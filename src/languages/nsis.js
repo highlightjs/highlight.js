@@ -7,13 +7,13 @@ Website: http://github.com/idleberg
 
 function(hljs) {
   var CONSTANTS = {
-    className: 'symbol',
+    className: 'variable',
     begin: '\\$(ADMINTOOLS|APPDATA|CDBURN_AREA|CMDLINE|COMMONFILES32|COMMONFILES64|COMMONFILES|COOKIES|DESKTOP|DOCUMENTS|EXEDIR|EXEFILE|EXEPATH|FAVORITES|FONTS|HISTORY|HWNDPARENT|INSTDIR|INTERNET_CACHE|LANGUAGE|LOCALAPPDATA|MUSIC|NETHOOD|OUTDIR|PICTURES|PLUGINSDIR|PRINTHOOD|PROFILE|PROGRAMFILES32|PROGRAMFILES64|PROGRAMFILES|QUICKLAUNCH|RECENT|RESOURCES_LOCALIZED|RESOURCES|SENDTO|SMPROGRAMS|SMSTARTUP|STARTMENU|SYSDIR|TEMP|TEMPLATES|VIDEOS|WINDIR)'
   };
 
   var DEFINES = {
     // ${defines}
-    className: 'constant',
+    className: 'variable',
     begin: '\\$+{[a-zA-Z0-9_]+}'
   };
 
@@ -26,19 +26,19 @@ function(hljs) {
 
   var LANGUAGES = {
     // $(language_strings)
-    className: 'constant',
+    className: 'variable',
     begin: '\\$+\\([a-zA-Z0-9_]+\\)'
   };
 
   var PARAMETERS = {
     // command parameters
-    className: 'params',
+    className: 'built_in',
     begin: '(ARCHIVE|FILE_ATTRIBUTE_ARCHIVE|FILE_ATTRIBUTE_NORMAL|FILE_ATTRIBUTE_OFFLINE|FILE_ATTRIBUTE_READONLY|FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_TEMPORARY|HKCR|HKCU|HKDD|HKEY_CLASSES_ROOT|HKEY_CURRENT_CONFIG|HKEY_CURRENT_USER|HKEY_DYN_DATA|HKEY_LOCAL_MACHINE|HKEY_PERFORMANCE_DATA|HKEY_USERS|HKLM|HKPD|HKU|IDABORT|IDCANCEL|IDIGNORE|IDNO|IDOK|IDRETRY|IDYES|MB_ABORTRETRYIGNORE|MB_DEFBUTTON1|MB_DEFBUTTON2|MB_DEFBUTTON3|MB_DEFBUTTON4|MB_ICONEXCLAMATION|MB_ICONINFORMATION|MB_ICONQUESTION|MB_ICONSTOP|MB_OK|MB_OKCANCEL|MB_RETRYCANCEL|MB_RIGHT|MB_RTLREADING|MB_SETFOREGROUND|MB_TOPMOST|MB_USERICON|MB_YESNO|NORMAL|OFFLINE|READONLY|SHCTX|SHELL_CONTEXT|SYSTEM|TEMPORARY)'
   };
 
   var COMPILER ={
     // !compiler_flags
-    className: 'constant',
+    className: 'keyword',
     begin: '\\!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversionsystem|ifdef|ifmacrodef|ifmacrondef|ifndef|if|include|insertmacro|macroend|macro|makensis|packhdr|searchparse|searchreplace|tempfile|undef|verbose|warning)'
   };
 
@@ -59,7 +59,6 @@ function(hljs) {
         illegal: '\\n',
         contains: [
           { // $\n, $\r, $\t, $$
-            className: 'symbol',
             begin: '\\$(\\\\(n|r|t)|\\$)'
           },
           CONSTANTS,
@@ -86,7 +85,6 @@ function(hljs) {
       PARAMETERS,
       hljs.NUMBER_MODE,
       { // plug::ins
-        className: 'literal',
         begin: hljs.IDENT_RE + '::' + hljs.IDENT_RE
       }
     ]
