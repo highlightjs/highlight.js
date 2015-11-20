@@ -1,0 +1,128 @@
+/****************************************************************************
+** Test highlighting QML with Highlight.js
+**
+****************************************************************************/
+import QtQuick 2.5
+import QtQuick.Dialogs 1.0 // with comment
+import "QtQuick.Window.2.1"
+
+Window {
+    id: root
+    visible: true
+    width: 1024; height: 600
+    color: "black"
+    property int highestZ: 0 // 0 is lowest, +infinity is highest
+    property real defaultSize = 200.1
+    property var currentFrame: undefined
+    signal activated(real xPosition, real yPosition)
+
+    // show the file picker
+    FileDialog {
+        id:fileDialog // an id in a comment should not be detected
+        title: "Choose a folder with some images"
+        selectFolder: true
+        onAccepted: folderModel.folder = fileUrl + "/" // if this is on property
+    }
+    Flickable {
+        id: flickableproperty
+        anchors.fill:parent
+        contentWidth: width * surfaceViewportRatio
+        contentHeight: height * surfaceViewportRatio
+        Repeater {
+            model: FolderListModel {
+                id: folderModel
+                objectName: "folderModel"
+                showDirs: false
+                nameFilters: ["*.png", "*.jpg", "*.gif"]
+            }
+            Rectangle {
+                id: photoFrame
+                width: image.width * (1 + 0.10 * image.height / image.width)
+                height: image.height * 1.10
+                scale: defaultSize / Math.max(image.sourceSize.width, image.sourceSize.height)
+                Behavior on scale { NumberAnimation { duration: 200 } }
+                Behavior on x { NumberAnimation { duration: 200 } }
+                Component.onCompleted: {
+                    x = Math.random() * root.width - width / 2
+                    y = Math.random() * root.height - height / 2
+                    rotation = Math.random() * 13 - 6
+                }
+                PinchArea {
+                    anchors.fill: parent
+                    pinch.target: photoFrame
+                    onPinchStarted: setFrameColor();
+                    property real zRestore: 0
+                    onSmartZoom: {
+                        if (pinch.scale > 0) {
+                            photoFrame.rotation = 0;
+                            photoFrame.scale = Math.min(root.width, root.height) / Math.max(image.sourceSize.width, image.sourceSize.height) * 0.85
+                            photoFrame.x = flick.contentX + (flick.width - photoFrame.width) / 2
+                            photoFrame.y = flick.contentY + (flick.height - photoFrame.height) / 2
+                            zRestore = photoFrame.z
+                            photoFrame.z = ++root.highestZ;
+                        } else {
+                            photoFrame.rotation = pinch.previousAngle
+                            photoFrame.scale = pinch.previousScale
+                            photoFrame.x = pinch.previousCenter.x - photoFrame.width / 2
+                            photoFrame.y = pinch.previousCenter.y - photoFrame.height / 2
+                            photoFrame.z = zRestore
+                            --root.highestZ
+                        }
+                    }
+
+                    MouseArea {
+                        id: dragArea
+                        hoverEnabled: true
+                        anchors.fill: parent
+                        drag.target: photoFrame
+                        scrollGestureEnabled: false  // 2-finger-flick gesture should pass through to the Flickable
+                        onPressed: {
+                            photoFrame.z = ++root.highestZ;
+                            parent.setFrameColor();
+                        }
+                        onEntered: parent.setFrameColor();
+                        onWheel: {
+                            if (wheel.modifiers & Qt.ControlModifier) {
+                                photoFrame.rotation += wheel.angleDelta.y / 120 * 5;
+                                if (Math.abs(photoFrame.rotation) < 4)
+                                    photoFrame.rotation = 0;
+                            } else {
+                                photoFrame.rotation += wheel.angleDelta.x / 120;
+                                if (Math.abs(photoFrame.rotation) < 0.6)
+                                    photoFrame.rotation = 0;
+                                var scaleBefore = photoFrame.scale;
+                                photoFrame.scale += photoFrame.scale * wheel.angleDelta.y / 120 / 10;
+                            }
+                        }
+                    }
+                    function setFrameColor() {
+                        if (currentFrame)
+                            currentFrame.border.color = "black";
+                        currentFrame = photoFrame;
+                        currentFrame.border.color = "red";
+                    }
+                }
+            }
+        }
+    }
+
+    Rectangle {
+        id: verticalScrollDecorator
+        NumberAnimation on opacity { id: vfade; to: 0; duration: 500 }
+        onYChanged: { opacity = 1.0; fadeTimer.restart() }
+    }
+
+    Timer { id: fadeTimer; interval: 1000; onTriggered: { hfade.start(); vfade.start() } }
+
+    Text {
+        anchors.bottom: parent.bottom
+        anchors.margins: 10
+        color: "darkgrey"
+        wrapMode: Text.WordWrap
+        font.pointSize: 8
+        text: "On a touchscreen: use two fingers to zoom and rotate, one finger to drag\n" +
+              "With a mouse: drag normally, use the vertical wheel to zoom, horizontal wheel to rotate, or hold Ctrl while using the vertical wheel to rotate"
+    }
+
+    Component.onCompleted: fileDialog.open()
+}

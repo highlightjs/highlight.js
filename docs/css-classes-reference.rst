@@ -1556,3 +1556,17 @@ Crmsh ("crmsh", "crm", "pcmk")
 * ``variable``:         name-value pair variable name
 * ``comment``:          comment
 * ``tag``:              XML tag
+
+QML ("qml")
+------------------------------
+
+* ``keyword``:          language keywords
+* ``title``:            function names
+* ``params``:           function parameters
+* ``string``:           string
+* ``number``:           number
+* ``literal``:          literal
+* ``decorator``:        object names
+* ``attribute``:        object properties
+* ``comment``:          comments
+* ``emphasis``:         object id
