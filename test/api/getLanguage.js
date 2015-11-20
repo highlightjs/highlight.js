@@ -1,6 +1,7 @@
 'use strict';
 
-var hljs = require('../../build');
+var hljs   = require('../../build');
+var should = require('should');
 
 describe('.getLanguage', function() {
   it('should get an existing language', function() {
@@ -18,14 +19,12 @@ describe('.getLanguage', function() {
   it('should return undefined', function() {
     var result = hljs.getLanguage('-impossible-');
 
-    (result === undefined).should.be.true;
+    should.strictEqual(result, undefined);
   });
 
   it('should not break on undefined', function() {
     var result = hljs.getLanguage(undefined);
 
-    (result === undefined).should.be.true;
+    should.strictEqual(result, undefined);
   });
-
-
 });
