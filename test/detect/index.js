@@ -16,7 +16,7 @@ function testAutoDetection(language) {
     });
   });
 
-  it('should be detected as ' + language, function() {
+  it(`should be detected as ${language}`, function() {
     return fs.readdirAsync(languagePath)
       .map(function(example) {
         var filename = path.join(languagePath, example);
