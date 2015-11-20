@@ -31,7 +31,7 @@ function(hljs) {
   };
   var TAG = {
     className: 'string',
-    begin: '<(?:\\/|%\\=?\\ )?(?:([-_a-zA-Z0-9]+):)?([-_a-zA-Z0-9:]+)', end: '(?:\\s/|\\ %)?>',
+    begin: '<[^\\s\\n\\t<]+', end: '>',
     illegal: '\\n',
   };
   var FILE = {
