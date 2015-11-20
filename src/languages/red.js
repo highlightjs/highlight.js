@@ -1,7 +1,7 @@
 /*
 Language: Red language
 Author: Oldes <oldes.huhuman@gmail.com>
-Category: common, scripting
+Category: scripting
 */
 
 function(hljs) {
@@ -153,7 +153,7 @@ function(hljs) {
         'random absolute add divide multiply negate remainder subtract pick reverse '+
         'select find'
     },
-    illegal: /(\/\*|\/\/|%{|[a-zA-Z],|\$\()/,
+    illegal: /(\/\*|\/\/|%{|[a-zA-Z\&],|\$\()/,
     contains: [
       STRING, STRING_MULTILINE, FILE, URL, EMAIL, TAG, REFINEMENT, DATATYPE, LIT_WORD,
       BINARY2, BINARY16, BINARY64, 
