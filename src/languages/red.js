@@ -36,7 +36,7 @@ function red(hljs) {
   };
   var EMAIL = {
     className: 'string',
-    begin: '[^\\s\\n:/\\[\\]\\(\\)]+@[^\\s\\n:/\\[\\]\\(\\)]+'
+    begin: '[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+'
   };
   var URL = {
     className: 'string',
@@ -44,7 +44,7 @@ function red(hljs) {
   }
   var COMMENT1 = {
     className: 'doctag',
-    begin: ';-.*',
+    begin: ';(-|@@).*',
     illegal: '\\n'
   };
   var COMMENT2 = {
@@ -105,11 +105,11 @@ function red(hljs) {
   };
   var SET_WORD = {
     className: 'section',
-    begin: /[a-zA-Z_\-]+[a-zA-Z0-9_\-]*:/
+    begin: /[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*:/
   };
   var GET_WORD = {
     className: 'section',
-    begin: /:[a-zA-Z_\-]+[a-zA-Z0-9_\-]*/
+    begin: /:[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*/
   };
   var REFINEMENT = {
     className: 'variable',
@@ -117,7 +117,7 @@ function red(hljs) {
   }
   var LIT_WORD = {
     className: 'literal',
-    begin: /\'[a-zA-Z_]+[a-zA-Z0-9_\-\!]*/    //not complete, but should be fine so far
+    begin: /\'[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*/    //not complete, but should be fine so far
   };
   var ISSUE = {
     className: 'string',
@@ -125,7 +125,7 @@ function red(hljs) {
   };
   var DATATYPE = {
     className: 'literal',
-    begin: /[a-zA-Z]+[a-zA-Z0-9_\-\!]*\!/    //just simple case to cover words like: integer! float! and such
+    begin: /[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*\!/ //cases like: any-integer! float! etc..
   };
   var OPERATOR = {
     className: 'built_in',
@@ -138,7 +138,8 @@ function red(hljs) {
   return {
     aliases: ['red', 'red/system', 'rebol'],
     keywords: {
-      lexemes: '[a-zA-Z_][a-zA-Z0-9_\\-\\!]*',
+      //REBOL like languages are very easy-going with possible chars in words, but this lexeme setting does not work probably anyway:
+      lexemes: '[a-zA-Z_\\-\\!\\?\\`\\*&\\|\\=\\~\\^]+[a-zA-Z0-9_\\-\\!\\?\\`\\*&\\|\\=\\~\\^\\+\\-\\.\\\']',
       keyword:
         'make set print probe|10 func function does has do while until unless|10 if either|10 else '+
         'for foreach|10 forall|10 forskip|10 remove-each until while case loop repeat|10 switch '+
@@ -153,7 +154,7 @@ function red(hljs) {
     },
     illegal: /(\/\*|\/\/)/,
     contains: [
-      STRING, STRING_MULTILINE, FILE, URL, TAG, EMAIL, REFINEMENT, DATATYPE, LIT_WORD,
+      STRING, STRING_MULTILINE, FILE, URL, EMAIL, TAG, REFINEMENT, DATATYPE, LIT_WORD,
       BINARY2, BINARY16, BINARY64, 
       COMMENT1, COMMENT2, COMMENT_SPECIAL, COMMENT_SPECIAL2, COMMENT_ERROR,
       PAIR, DATE, TIME, TUPLE,
