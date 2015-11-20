@@ -37,6 +37,7 @@ function(hljs) {
       },
       {
         className: 'section',
+        relevance: 10,
         begin: /^(Volume|Book|Part|Chapter|Section|Table)\b/,
         end: '$'
       },
