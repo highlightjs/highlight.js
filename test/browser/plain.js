@@ -1,8 +1,6 @@
 'use strict';
 
 var bluebird = require('bluebird');
-var fs       = require('fs');
-var path     = require('path');
 var jsdomEnv = bluebird.promisify(require('jsdom').env);
 var utility  = require('../utility');
 var glob     = bluebird.promisify(require('glob'));
