@@ -23,9 +23,7 @@ describe('in worker', function() {
         };
       });
 
-      this.worker.onmessage = function () {
-        done();
-      };
+      this.worker.onmessage = () => done();
 
       this.worker.postMessage({
         action: 'importScript',
