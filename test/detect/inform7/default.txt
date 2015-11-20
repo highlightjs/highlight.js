@@ -22,3 +22,5 @@ language  utility
 ruby      "Web back-end development"
 lua       "Embedded scripting"
 erlang    "High-concurrency server applications"
+
+To be Red, or not to be Red?
