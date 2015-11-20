@@ -8,20 +8,18 @@ var utility  = require('../utility');
 var glob     = bluebird.promisify(require('glob'));
 
 describe('in plain browser', function() {
-  before(function(done) {
+  before(function() {
     var html = '<pre><code>var say = "Hello";class Car {}</code></pre>';
 
     // Will match both `highlight.pack.js` and `highlight.min.js`
     var filepath = utility.buildPath('..', 'build', 'highlight.*.js');
 
-    glob(filepath)
+    return glob(filepath)
       .then(hljsPath => jsdom.envAsync(html, hljsPath))
       .then((window) => {
         this.block = window.document.querySelector('pre code');
         this.hljs  = window.hljs;
-      })
-      .then(function() { done(); },
-            function(error) { done(error); });
+      });
   });
 
   it('should works', function() {
