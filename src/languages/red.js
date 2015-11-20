@@ -4,7 +4,7 @@ Author: Oldes <oldes.huhuman@gmail.com>
 Category: common, scripting
 */
 
-function red(hljs) {
+function(hljs) {
   var CHAR_INLINE = {
     className: 'string',
     begin: '\\^(\\(([0-9a-fA-F]+|del)\\)|.)',
@@ -137,6 +137,7 @@ function red(hljs) {
   };
   return {
     aliases: ['red', 'red/system', 'rebol'],
+    case_insensitive: true,
     keywords: {
       //REBOL like languages are very easy-going with possible chars in words, but this lexeme setting does not work probably anyway:
       lexemes: '[a-zA-Z_\\-\\!\\?\\`\\*&\\|\\=\\~\\^]+[a-zA-Z0-9_\\-\\!\\?\\`\\*&\\|\\=\\~\\^\\+\\-\\.\\\']',
@@ -152,7 +153,7 @@ function red(hljs) {
         'random absolute add divide multiply negate remainder subtract pick reverse '+
         'select find'
     },
-    illegal: /(\/\*|\/\/|%{|[a-zA-Z],)/,
+    illegal: /(\/\*|\/\/|%{|[a-zA-Z],|\$\()/,
     contains: [
       STRING, STRING_MULTILINE, FILE, URL, EMAIL, TAG, REFINEMENT, DATATYPE, LIT_WORD,
       BINARY2, BINARY16, BINARY64, 
