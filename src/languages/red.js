@@ -147,7 +147,7 @@ function(hljs) {
       lexemes: '[a-zA-Z_\\-\\!\\?\\`\\*&\\|\\=\\~\\^]+[a-zA-Z0-9_\\-\\!\\?\\`\\*&\\|\\=\\~\\^\\+\\-\\.\\\']',
       keyword:
         'make set print probe|10 func function does has do while until unless|10 if either|10 else '+
-        'for foreach|10 forall|10 forskip|10 remove-each until while case loop repeat|10 switch '+
+        'foreach|10 forall|10 forskip|10 for remove-each until while case loop repeat|10 switch '+
         'at insert append tail head back repend next to thru collect keep return throw catch continue break '+
         'open close load reduce|10 rejoin|10 insert bind parse|10 '+
         'union intersect unique charset extend object context',
