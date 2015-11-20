@@ -27,7 +27,7 @@ function(hljs) {
   }
   var CHAR = {
     className: 'string',
-    begin: '#\"(\\^(\\(([0-9a-fA-F]+|del)\\)|.)|[^\\^\\\"])\"'
+    begin: '#\"(\\^(\\(([0-9a-fA-F]+|del|null|page|back|line|tab|esc)\\)|.)|[^\\^\\\"@/-])\"'
   };
   var TAG = {
     className: 'string',
