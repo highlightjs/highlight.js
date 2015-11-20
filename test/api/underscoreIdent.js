@@ -2,7 +2,7 @@
 
 var hljs = require('../../build');
 
-var pattern = new RegExp('^' + hljs.UNDERSCORE_IDENT_RE + '$');
+var pattern = new RegExp(`^${hljs.UNDERSCORE_IDENT_RE}$`);
 
 describe('.UNDERSCORE_IDENT_RE', function() {
   it('should match any word starting without numbers', function() {

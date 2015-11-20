@@ -2,7 +2,7 @@
 
 var hljs = require('../../build');
 
-var pattern = new RegExp('^' + hljs.RE_STARTERS_RE + '$');
+var pattern = new RegExp(`^${hljs.RE_STARTERS_RE}$`);
 
 describe('.RE_STARTERS_RE', function() {
   it('should match boolean operators', function() {

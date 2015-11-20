@@ -4,7 +4,7 @@ var _       = require('lodash');
 var hljs    = require('../../build');
 var utility = require('../utility');
 
-var pattern        = new RegExp(hljs.C_NUMBER_RE + '$');
+var pattern        = new RegExp(`${hljs.C_NUMBER_RE}$`);
 var numberToString = utility.numberToString;
 
 describe('.C_NUMBER_RE', function() {

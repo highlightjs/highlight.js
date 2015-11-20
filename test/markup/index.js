@@ -17,7 +17,7 @@ function testLanguage(language) {
       var testName   = path.basename(filename, '.expect.txt'),
           sourceName = filename.replace(/\.expect/, '');
 
-      it('should markup ' + testName, function(done) {
+      it(`should markup ${testName}`, function(done) {
         var sourceFile   = fs.readFileAsync(sourceName, 'utf-8'),
             expectedFile = fs.readFileAsync(filename, 'utf-8');
 

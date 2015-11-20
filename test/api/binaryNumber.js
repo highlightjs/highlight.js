@@ -2,7 +2,7 @@
 
 var hljs = require('../../build');
 
-var pattern = new RegExp(hljs.BINARY_NUMBER_RE + '$');
+var pattern = new RegExp(`${hljs.BINARY_NUMBER_RE}$`);
 
 describe('.BINARY_NUMBER_RE', function() {
   it('should match binary numbers', function() {
