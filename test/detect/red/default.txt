@@ -1,0 +1,58 @@
+Red/System [
+    Title:      "Red/System example file"
+    Purpose:    "Just some code for testing Highlightjs"
+    Language:   http://www.red-lang.org/
+]
+
+#include %../common/FPU-configuration.reds
+
+; C types
+
+#define time!                   long!
+#define clock!                  long!
+
+#either OS = 'Windows [
+    #define clocks-per-second   1000
+][
+    ; CLOCKS_PER_SEC value for Syllable, Linux (XSI-conformant systems)
+    ; TODO: check for other systems
+    #define clocks-per-second   1000'000
+] 
+
+ JVM!: alias struct! [
+    reserved0                   [int-ptr!]
+    reserved1                   [int-ptr!]
+    reserved2                   [int-ptr!]
+    
+    DestroyJavaVM               [function! [[JNICALL] vm [JVM-ptr!] return: [jint!]]]
+    AttachCurrentThread         [function! [[JNICALL] vm [JVM-ptr!] penv [struct! [p [int-ptr!]]] args [byte-ptr!] return: [jint!]]]
+    DetachCurrentThread         [function! [[JNICALL] vm [JVM-ptr!] return: [jint!]]]
+    GetEnv                      [function! [[JNICALL] vm [JVM-ptr!] penv [struct! [p [int-ptr!]]] version [integer!] return: [jint!]]]
+    AttachCurrentThreadAsDaemon [function! [[JNICALL] vm [JVM-ptr!] penv [struct! [p [int-ptr!]]] args [byte-ptr!] return: [jint!]]]
+]
+
+ ;just some datatypes for testing:
+ 
+ #some-hash
+ 10-1-2013
+ quit
+ 
+ ;binary:
+ #{00FF0000}
+ #{00FF0000 FF000000}
+ #{00FF0000	FF000000} ;with tab instead of space
+ 2#{00001111}
+ 64#{/wAAAA==}
+ 64#{/wAAA A==} ;with space	 inside
+ 64#{/wAAA	A==} ;with tab inside
+ 
+ 
+ ;string with char
+ {bla ^(ff) foo}
+ {bla ^(( foo}
+ ;some numbers:
+ 12
+ 1'000
+ 1.2
+ FF00FF00h
+ 
