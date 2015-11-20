@@ -2,7 +2,7 @@
 
 var _        = require('lodash');
 var bluebird = require('bluebird');
-var fs       = bluebird.promisifyAll(require('fs'));
+var readFile = bluebird.promisify(require('fs').readFile);
 var path     = require('path');
 
 var registry = require('./tasks');
@@ -16,7 +16,7 @@ function templateAllFunc(blobs) {
   blobs = _.compact(blobs);
 
   return bluebird.join(
-    fs.readFileAsync(name),
+    readFile(name),
     utility.getStyleNames(),
     (template, styles) => ({ template, path, blobs, styles })
   );

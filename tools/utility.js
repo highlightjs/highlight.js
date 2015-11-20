@@ -2,7 +2,7 @@
 
 var _        = require('lodash');
 var bluebird = require('bluebird');
-var glob     = bluebird.promisifyAll(require('glob')).globAsync;
+var glob     = bluebird.promisify(require('glob'));
 var path     = require('path');
 
 var Queue = require('gear').Queue;

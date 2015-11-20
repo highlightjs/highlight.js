@@ -3,7 +3,7 @@
 var bluebird = require('bluebird');
 var fs       = require('fs');
 var path     = require('path');
-var jsdom    = bluebird.promisifyAll(require('jsdom'));
+var jsdomEnv = bluebird.promisify(require('jsdom').env);
 var utility  = require('../utility');
 var glob     = bluebird.promisify(require('glob'));
 
@@ -15,7 +15,7 @@ describe('in plain browser', function() {
     var filepath = utility.buildPath('..', 'build', 'highlight.*.js');
 
     return glob(filepath)
-      .then(hljsPath => jsdom.envAsync(html, hljsPath))
+      .then(hljsPath => jsdomEnv(html, hljsPath))
       .then((window) => {
         this.block = window.document.querySelector('pre code');
         this.hljs  = window.hljs;
