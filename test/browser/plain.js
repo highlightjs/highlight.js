@@ -9,7 +9,6 @@ var glob     = bluebird.promisify(require('glob'));
 
 describe('in plain browser', function() {
   before(function(done) {
-    var that = this;
     var html = '<pre><code>var say = "Hello";class Car {}</code></pre>';
 
     // Will match both `highlight.pack.js` and `highlight.min.js`
@@ -17,9 +16,9 @@ describe('in plain browser', function() {
 
     glob(filepath)
       .then(hljsPath => jsdom.envAsync(html, hljsPath))
-      .then(function(window) {
-        that.block = window.document.querySelector('pre code');
-        that.hljs  = window.hljs;
+      .then((window) => {
+        this.block = window.document.querySelector('pre code');
+        this.hljs  = window.hljs;
       })
       .then(function() { done(); },
             function(error) { done(error); });
