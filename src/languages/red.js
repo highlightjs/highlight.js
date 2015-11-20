@@ -25,9 +25,13 @@ function(hljs) {
     begin: '{', end: '}',
     contains: [CHAR_INLINE]
   }
+  var CHAR = {
+    className: 'string',
+    begin: '#\"(\\^(\\(([0-9a-fA-F]+|del)\\)|.)|[^\\^\\\"])\"'
+  };
   var TAG = {
     className: 'string',
-    begin: '<', end: '>',
+    begin: '<(?:\\/|%\\=?\\ )?(?:([-_a-zA-Z0-9]+):)?([-_a-zA-Z0-9:]+)', end: '(?:\\s/|\\ %)?>',
     illegal: '\\n',
   };
   var FILE = {
@@ -129,7 +133,7 @@ function(hljs) {
   };
   var OPERATOR = {
     className: 'built_in',
-    begin: /(\s|\t)+(==|!=|<=|>=|<>|<|>|>>|>>>|<<|\+|-|=|\*|%|\/|\b(and|or|xor))(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/
+    begin: /(==|!=|<=|>=|<>|<|>|>>|>>>|<<|\+|-|=|\*|%|\/|\b(and|or|xor))(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/
   };
   var BRACKET = {
     className: 'regexp',
@@ -155,7 +159,7 @@ function(hljs) {
     },
     illegal: /\/\*|\/\/|%{|[a-zA-Z\&],|\$[a-zA-Z_\(]|\'\s/,
     contains: [
-      STRING, STRING_MULTILINE, FILE, URL, EMAIL, TAG, REFINEMENT, DATATYPE, LIT_WORD,
+      STRING, STRING_MULTILINE, CHAR, FILE, URL, EMAIL, TAG, REFINEMENT, DATATYPE, LIT_WORD,
       BINARY2, BINARY16, BINARY64, 
       COMMENT1, COMMENT2, COMMENT_SPECIAL, COMMENT_SPECIAL2, COMMENT_ERROR,
       PAIR, DATE, TIME, TUPLE,
