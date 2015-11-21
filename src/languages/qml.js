@@ -63,7 +63,7 @@ function(hljs) {
         end: '(:|=|;|,|//|/\\*|$)', 
         returnEnd: true
       },
-      relevance: 1
+      relevance: 10
   };
   
   // Isolate signal statements. Ends at a ) a comment or end of line.
@@ -76,7 +76,7 @@ function(hljs) {
         end: '(\\(|:|=|;|,|//|/\\*|$)', 
         returnEnd: true
       },
-      relevance: 1
+      relevance: 10
   };
   
   // id: is special in QML. When we see id: we want to mark the id: as attribute and
@@ -89,7 +89,7 @@ function(hljs) {
         end: QML_IDENT_RE, 
         returnEnd: false
       },
-      relevance: 1
+      relevance: 10
   };
 
   // Find QML object attribute. An attribute is a QML identifier followed by :. 
@@ -134,7 +134,6 @@ function(hljs) {
     contains: [
       {
         className: 'pi',
-        relevance: 10,
         begin: /^\s*['"]use (strict|asm)['"]/
       },
       hljs.APOS_STRING_MODE,
@@ -196,9 +195,6 @@ function(hljs) {
           }
         ],
         illegal: /\[|%/
-      },
-      {
-        begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
       },
       {
         begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
