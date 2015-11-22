@@ -164,7 +164,7 @@ function(hljs) {
         'random absolute add divide multiply negate remainder subtract pick reverse '+
         'select find'
     },
-    illegal: /\/\*|\/\/|%{|[a-zA-Z\&],|\$[a-zA-Z_\(]|\'\s/,
+    illegal: /\/\*|\/\/|%{|[a-zA-Z\&],|\$[a-zA-Z_\(]|\'\s|@\d/,
     contains: [
       STRING, STRING_MULTILINE, CHAR, FILE, URL, EMAIL, TAG, REFINEMENT, DATATYPE, LIT_WORD,
       BINARY2, BINARY16, BINARY64, 
