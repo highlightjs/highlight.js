@@ -2,6 +2,7 @@
 Language: Red language
 Author: Oldes <oldes.huhuman@gmail.com>
 Category: scripting
+Description: Red is both an imperative and functional programming language, which syntax and general usage directly overlaps with that of the interpreted Rebol language.
 */
 
 function(hljs) {
@@ -114,12 +115,12 @@ function(hljs) {
   var SET_WORD = {
     className: 'section',
     begin: /[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*:/,
-    relevance: 10
+    relevance: 1
   };
   var GET_WORD = {
     className: 'section',
     begin: /:[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*/,
-    relevance: 10
+    relevance: 5
   };
   var REFINEMENT = {
     className: 'variable',
@@ -132,7 +133,7 @@ function(hljs) {
   };
   var ISSUE = {
     className: 'string',
-    begin: /\#[^\s\n\[\]\(\)\/]*/    //not exact, but should be fine so far
+    begin: /#[^\s\n\[\]\(\)\/]+/
   };
   var DATATYPE = {
     className: 'literal',
@@ -144,7 +145,7 @@ function(hljs) {
   };
   var BRACKET = {
     className: 'regexp',
-    begin: /(\[|\]|\(|\))+|\#\(|\#\[/   //colors also start of serialized values and maps
+    begin: /(\[|\]|\(|\))+|#\(|#\[/   //colors also start of serialized values and maps
   };
   return {
     aliases: ['red', 'red/system', 'rebol'],
@@ -157,14 +158,14 @@ function(hljs) {
         'foreach|10 forall|10 forskip|10 for remove-each until while case loop repeat|10 switch '+
         'at insert append tail head back repend|10 next to thru collect keep return throw catch continue break '+
         'open close load|10 reduce|10 rejoin|10 insert bind parse|10 '+
-        'union intersect unique charset extend object context',
+        'union intersect unique charset extend object context view|10',
       literal:
         'off on yes no true false null none not all any end integer!',
       built_in:
         'random absolute add divide multiply negate remainder subtract pick reverse '+
         'select find'
     },
-    illegal: /\/\*|\/\/|%{|[a-zA-Z\&],|\$[a-zA-Z_\(]|\'\s|@\d/,
+    illegal: /\/\*|\/\/|%{|[a-zA-Z\&],|\$[a-zA-Z_\(]|[\'#]\s|@\d|\^[:{|:']/,
     contains: [
       STRING, STRING_MULTILINE, CHAR, FILE, URL, EMAIL, TAG, REFINEMENT, DATATYPE, LIT_WORD,
       BINARY2, BINARY16, BINARY64, 
