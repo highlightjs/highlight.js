@@ -64,6 +64,7 @@ function(hljs) {
   var COMMENT_SPECIAL2 = {
     className: 'doctag',
     begin: /^(>>|red>>)/,
+    relevance: 10
     //contains: [hljs.C_NUMBER_MODE]
   };
   var COMMENT_ERROR = {
@@ -73,15 +74,18 @@ function(hljs) {
   };
   var BINARY64 = {
     className: 'string',
-    begin: '64#\\{[0-9a-zA-Z+/=\\s]*\\}'
+    begin: '64#\\{[0-9a-zA-Z+/=\\s]*\\}',
+    relevance: 10
   };
   var BINARY16 = {
     className: 'string',
-    begin: '(16)?#\\{\\s*([0-9a-fA-F]{2,2}\\s*)*\\}'
+    begin: '(16)?#\\{\\s*([0-9a-fA-F]{2,2}\\s*)*\\}',
+    relevance: 10
   };
   var BINARY2 = {
     className: 'string',
-    begin: '2#\\{(([01]\\s*){8})*\\}'
+    begin: '2#\\{(([01]\\s*){8})*\\}',
+    relevance: 10
   };
   var PAIR = {
     className: 'number',
@@ -109,11 +113,13 @@ function(hljs) {
   };
   var SET_WORD = {
     className: 'section',
-    begin: /[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*:/
+    begin: /[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*:/,
+    relevance: 10
   };
   var GET_WORD = {
     className: 'section',
-    begin: /:[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*/
+    begin: /:[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*/,
+    relevance: 10
   };
   var REFINEMENT = {
     className: 'variable',
@@ -121,7 +127,8 @@ function(hljs) {
   }
   var LIT_WORD = {
     className: 'literal',
-    begin: /\'[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*/    //not complete, but should be fine so far
+    begin: /\'[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*/,
+    relevance: 10
   };
   var ISSUE = {
     className: 'string',
@@ -146,10 +153,10 @@ function(hljs) {
       //REBOL like languages are very easy-going with possible chars in words, but this lexeme setting does not work probably anyway:
       lexemes: '[a-zA-Z_\\-\\!\\?\\`\\*&\\|\\=\\~\\^]+[a-zA-Z0-9_\\-\\!\\?\\`\\*&\\|\\=\\~\\^\\+\\-\\.\\\']',
       keyword:
-        'make set print probe|10 func function does has do while until unless|10 if either|10 else '+
+        'make set print probe|10 func function does|10 has do while until unless|10 if either|10 else '+
         'foreach|10 forall|10 forskip|10 for remove-each until while case loop repeat|10 switch '+
-        'at insert append tail head back repend next to thru collect keep return throw catch continue break '+
-        'open close load reduce|10 rejoin|10 insert bind parse|10 '+
+        'at insert append tail head back repend|10 next to thru collect keep return throw catch continue break '+
+        'open close load|10 reduce|10 rejoin|10 insert bind parse|10 '+
         'union intersect unique charset extend object context',
       literal:
         'off on yes no true false null none not all any end integer!',
