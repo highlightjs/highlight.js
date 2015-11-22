@@ -31,6 +31,7 @@ Red/System [
     AttachCurrentThreadAsDaemon [function! [[JNICALL] vm [JVM-ptr!] penv [struct! [p [int-ptr!]]] args [byte-ptr!] return: [jint!]]]
 ]
 
+if 1 <> 2 [print [<b> true </b>]]
 ;just some datatypes for testing:
 
 #some-hash

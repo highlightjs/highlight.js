@@ -32,7 +32,7 @@ function(hljs) {
   };
   var TAG = {
     className: 'string',
-    begin: '<[^\\s\\n\\t<=]+', end: '>',
+    begin: '<[^\\s\\n\\t<=>]+', end: '>', //TODO: must be improved!
     illegal: '\\n',
   };
   var FILE = {
