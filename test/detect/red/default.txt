@@ -31,28 +31,31 @@ Red/System [
     AttachCurrentThreadAsDaemon [function! [[JNICALL] vm [JVM-ptr!] penv [struct! [p [int-ptr!]]] args [byte-ptr!] return: [jint!]]]
 ]
 
- ;just some datatypes for testing:
- 
- #some-hash
- 10-1-2013
- quit
- 
- ;binary:
- #{00FF0000}
- #{00FF0000 FF000000}
- #{00FF0000	FF000000} ;with tab instead of space
- 2#{00001111}
- 64#{/wAAAA==}
- 64#{/wAAA A==} ;with space	 inside
- 64#{/wAAA	A==} ;with tab inside
- 
- 
- ;string with char
- {bla ^(ff) foo}
- {bla ^(( foo}
- ;some numbers:
- 12
- 1'000
- 1.2
- FF00FF00h
+;just some datatypes for testing:
+
+#some-hash
+10-1-2013
+quit
+
+;binary:
+#{00FF0000}
+#{00FF0000 FF000000}
+#{00FF0000	FF000000} ;with tab instead of space
+2#{00001111}
+64#{/wAAAA==}
+64#{/wAAA A==} ;with space	 inside
+64#{/wAAA	A==} ;with tab inside
+
+{nested 
+    {multiline}
+    string with escaped ^{ bracket}
+
+;string with char
+{bla ^(ff) foo}
+{bla ^(( foo}
+;some numbers:
+12
+1'000
+1.2
+FF00FF00h
  

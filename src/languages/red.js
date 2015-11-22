@@ -24,7 +24,7 @@ function(hljs) {
   var STRING_MULTILINE = {
     className: 'string',
     begin: '{', end: '}',
-    contains: [CHAR_INLINE]
+    contains: [CHAR_INLINE, 'self']
   }
   var CHAR = {
     className: 'string',
