@@ -76,7 +76,7 @@ function(hljs) {
         end: '(\\(|:|=|;|,|//|/\\*|$)', 
         returnEnd: true
       },
-      relevance: 0
+      relevance: 10
   };
   
   // id: is special in QML. When we see id: we want to mark the id: as attribute and
@@ -89,7 +89,7 @@ function(hljs) {
         end: QML_IDENT_RE, 
         returnEnd: false
       },
-      relevance: 0
+      relevance: 10
   };
 
   // Find QML object attribute. An attribute is a QML identifier followed by :. 
@@ -107,7 +107,8 @@ function(hljs) {
         end: '\\s*:', 
         excludeEnd: true
       }
-    ]
+    ],
+    relevance: 0
   };
 
   // Find QML object. A QML object is a QML identifier followed by { and ends at the matching }.
@@ -124,7 +125,8 @@ function(hljs) {
         end: '\\s*{', 
         excludeEnd: true
       }
-    ]
+    ],
+    relevance: 0
   };
 
   return {
