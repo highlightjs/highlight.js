@@ -71,7 +71,7 @@ function(hljs) {
         contains: [TAG_INTERNALS],
         starts: {
           end: '</style>', returnEnd: true,
-          subLanguage: 'css'
+          subLanguage: ['css', 'xml']
         }
       },
       {
@@ -82,7 +82,7 @@ function(hljs) {
         contains: [TAG_INTERNALS],
         starts: {
           end: '\<\/script\>', returnEnd: true,
-          subLanguage: ['actionscript', 'javascript', 'handlebars']
+          subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
         }
       },
       PHP,
