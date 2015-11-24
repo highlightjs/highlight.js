@@ -98,17 +98,12 @@ function cos (hljs) {
         begin: /\$\$\$[a-zA-Z]+/
       },
       { // globals
-        className: "title",
+        className: "symbol",
         begin: /\^%?[a-zA-Z][\w]*/
       },
       { // static class reference constructions
-        begin: /##class\(/, end: /\)/,
-        contains: [
-          {
-            className: "built_in",
-            begin: /%?[a-zA-Z][\w\.]+/
-          }
-        ],
+        className: 'keyword',
+        begin: /##class/
       },
 
       // sub-languages: are not fully supported by hljs by 11/15/2015
