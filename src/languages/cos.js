@@ -115,12 +115,11 @@ function cos (hljs) {
       },
       {
         begin: /&(js|jscript|javascript)</, end: />/,
-        excludeBegin: true,                 excludeEnd: true,
+        excludeBegin: true, excludeEnd: true,
         subLanguage: "javascript"
       },
       {
         begin: /&html<\s*</, end: />\s*>/, // brakes first tag, but the only way to embed valid html
-        //excludeBegin: true, excludeEnd: true,
         subLanguage: "xml" // no html?
       }
     ]
