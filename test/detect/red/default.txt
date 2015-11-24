@@ -3,6 +3,14 @@ Red/System [
     Purpose:    "Just some code for testing Highlightjs"
     Language:   http://www.red-lang.org/
 ]
+;-- issues to solve:
+;    these should be just 2 ordinary words in default color:
+the'end
+foreach
+
+;this should be keyword:
+remove-each
+;--------------------
 
 #include %../common/FPU-configuration.reds
 
@@ -33,6 +41,19 @@ Red/System [
 
 if 1 <> 2 [print [<b> true </b>]]
 ;just some datatypes for testing:
+
+the'a no-place: no-place
+
+strange-but-valid-set-words: [
+   ěšč: 1 道德經: 2 .: 3 .': 4 .!: 5 +.: 6 +a'b: 7 +道-德.經: 8
+]
+strange-but-valid-get-words: [
+   :ěšč :道德經 :. :.' :.! :+. 
+]
+strange-but-valid-lit-words: [
+   'ěšč '道德經 '. '.' '.! '+. 
+]
+make 道德經! []
 
 #some-hash
 10-1-2013

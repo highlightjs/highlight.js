@@ -112,14 +112,18 @@ function(hljs) {
     className: 'number',
     begin: '-?[a-zA-Z]*\\$\\d+(\\.\\d*)?'
   };
+  var NUMBER = {
+    className: 'number',
+    begin: /\b[-+]?(?:[.,]\d+|\d+['\d]*(?:[.,]\d*)?)(?:e[-+]?\d+)?%?/
+  };
   var SET_WORD = {
     className: 'section',
-    begin: /[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*:/,
+    begin: /(([+-]+(\.\'?)?)|[a-zA-Z\u00A1-\uFFFF?!.*&|=_~])+[a-zA-Z\u00A1-\uFFFF0-9?!.*&|=_~+\-\\']*:(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/,
     relevance: 1
   };
   var GET_WORD = {
     className: 'section',
-    begin: /:[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*/,
+    begin: /:(([+-]+(\.\'?)?)|[a-zA-Z\u00A1-\uFFFF?!.*&|=_~])+[a-zA-Z\u00A1-\uFFFF0-9?!.*&|=_~+\-\\']*(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/,
     relevance: 5
   };
   var REFINEMENT = {
@@ -128,7 +132,7 @@ function(hljs) {
   }
   var LIT_WORD = {
     className: 'literal',
-    begin: /\'[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*/,
+    begin: /\'(([+-]+(\.\'?)?)|[a-zA-Z\u00A1-\uFFFF?!.*&|=_~])+[a-zA-Z\u00A1-\uFFFF0-9?!.*&|=_~+\-\\']*(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/,
     relevance: 10
   };
   var ISSUE = {
@@ -137,7 +141,7 @@ function(hljs) {
   };
   var DATATYPE = {
     className: 'literal',
-    begin: /[a-zA-Z_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*\!/ //cases like: any-integer! float! etc..
+    begin: /[a-zA-Z\u00A1-\uFFFF_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z\u00A1-\uFFFF0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*\!(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/ //cases like: any-integer! float! etc..
   };
   var OPERATOR = {
     className: 'built_in',
@@ -150,9 +154,10 @@ function(hljs) {
   return {
     aliases: ['red', 'red/system', 'rebol'],
     case_insensitive: true,
+    lexemes:  /[a-zA-Z?!\'\-\u00A1-\uFFFF]+[a-zA-Z0-9?!\'\-\u00A1-\uFFFF]*/, 
+    //lexemes: '([+-]?(\\.\\\'?)?)?[a-zA-Z\\u00A1-\\uFFFF?!.*&|=_~]?[a-zA-Z\\u00A1-\\uFFFF0-9?!.*&|=_~+\\-\\\']*',
+      
     keywords: {
-      //REBOL like languages are very easy-going with possible chars in words, but this lexeme setting does not work probably anyway:
-      lexemes: '[a-zA-Z_\\-\\!\\?\\`\\*&\\|\\=\\~\\^]+[a-zA-Z0-9_\\-\\!\\?\\`\\*&\\|\\=\\~\\^\\+\\-\\.\\\']',
       keyword:
         'make set print probe|10 func function does|10 has do while until unless|10 if either|10 else '+
         'foreach|10 forall|10 forskip|10 for remove-each until while case loop repeat|10 switch '+
@@ -160,12 +165,12 @@ function(hljs) {
         'open close load|10 reduce|10 rejoin|10 insert bind parse|10 '+
         'union intersect unique charset extend object context view|10',
       literal:
-        'off on yes no true false null none not all any end integer!',
+        'off on yes no true false null none not all any opt end',
       built_in:
-        'random absolute add divide multiply negate remainder subtract pick reverse '+
+        'random absolute add divide multiply negate remainder subtract pick poke reverse '+
         'select find'
     },
-    illegal: /\/\*|\/\/|%{|[a-zA-Z\&],|\$[a-zA-Z_\(]|[\'#]\s|@\d|\^[:{|:']/,
+    illegal: /,|:|\/\*|\/\/|%{|[a-zA-Z\&],|\$[a-zA-Z_\(]|[\'#]\s|@\d|\^[:{|:']|@.+/,
     contains: [
       STRING, STRING_MULTILINE, CHAR, FILE, URL, EMAIL, TAG, REFINEMENT, DATATYPE, LIT_WORD,
       BINARY2, BINARY16, BINARY64, 
@@ -174,7 +179,7 @@ function(hljs) {
       OPERATOR,
       SET_WORD, GET_WORD, BRACKET, ISSUE,
       NUMBER_HEX, NUMBER_MONEY, 
-      hljs.C_NUMBER_MODE
+      NUMBER
     ]
   };
 }
