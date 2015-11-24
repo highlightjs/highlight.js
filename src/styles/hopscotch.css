@@ -30,6 +30,7 @@
 .hljs-number,
 .hljs-built_in,
 .hljs-literal,
+.hljs-type,
 .hljs-params {
   color: #fd8b19;
 }
