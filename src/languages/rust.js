@@ -9,6 +9,18 @@ function(hljs) {
   var NUM_SUFFIX = '([uif](8|16|32|64|size))\?';
   var BLOCK_COMMENT = hljs.inherit(hljs.C_BLOCK_COMMENT_MODE);
   BLOCK_COMMENT.contains.push('self');
+  var BUILTINS =
+    // prelude
+    'Copy Send Sized Sync Drop Fn FnMut FnOnce drop Box ToOwned Clone ' +
+    'PartialEq PartialOrd Eq Ord AsRef AsMut Into From Default Iterator ' +
+    'Extend IntoIterator DoubleEndedIterator ExactSizeIterator Option ' +
+    'Some None Result Ok Err SliceConcatExt String ToString Vec ' +
+    // macros
+    'assert! assert_eq! bitflags! bytes! cfg! col! concat! concat_idents! ' +
+    'debug_assert! debug_assert_eq! env! panic! file! format! format_args! ' +
+    'include_bin! include_str! line! local_data_key! module_path! ' +
+    'option_env! print! println! select! stringify! try! unimplemented! ' +
+    'unreachable! vec! write! writeln!';
   return {
     aliases: ['rs'],
     keywords: {
@@ -22,17 +34,7 @@ function(hljs) {
         'float f32 f64 ' +
         'str char bool',
       built_in:
-        // prelude
-        'Copy Send Sized Sync Drop Fn FnMut FnOnce drop Box ToOwned Clone ' +
-        'PartialEq PartialOrd Eq Ord AsRef AsMut Into From Default Iterator ' +
-        'Extend IntoIterator DoubleEndedIterator ExactSizeIterator Option ' +
-        'Some None Result Ok Err SliceConcatExt String ToString Vec ' +
-        // macros
-        'assert! assert_eq! bitflags! bytes! cfg! col! concat! concat_idents! ' +
-        'debug_assert! debug_assert_eq! env! panic! file! format! format_args! ' +
-        'include_bin! include_str! line! local_data_key! module_path! ' +
-        'option_env! print! println! select! stringify! try! unimplemented! ' +
-        'unreachable! vec! write! writeln!'
+        BUILTINS
     },
     lexemes: hljs.IDENT_RE + '!?',
     illegal: '</',
@@ -87,7 +89,8 @@ function(hljs) {
         illegal: '[\\w\\d]'
       },
       {
-        begin: hljs.IDENT_RE + '::'
+        begin: hljs.IDENT_RE + '::',
+        keywords: {built_in: BUILTINS}
       },
       {
         begin: '->'
