@@ -17,6 +17,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 }
 
 .hljs-keyword,
+.hljs-attribute,
 .hljs-meta-keyword,
 .hljs-doctag,
 .hljs-name {
@@ -28,7 +29,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-bullet,
 .hljs-code,
 .hljs-addition {
-  color: #006D00;
+  color: #1F811F;
 }
 
 .hljs-regexp,
@@ -37,12 +38,11 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-template-variable,
 .hljs-link,
 .hljs-selector-attr {
-  color: #BA761C;
+  color: #BC6060;
 }
 
 .hljs-type,
 .hljs-string,
-.hljs-attribute,
 .hljs-quote,
 .hljs-template-tag,
 .hljs-deletion {
@@ -63,7 +63,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 }
 
 .hljs-meta {
-  color: #3B6F97;
+  color: #307BB5;
 }
 
 .hljs-emphasis {
