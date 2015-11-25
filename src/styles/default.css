@@ -37,7 +37,8 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-variable,
 .hljs-template-variable,
 .hljs-link,
-.hljs-selector-attr {
+.hljs-selector-attr,
+.hljs-selector-pseudo {
   color: #BC6060;
 }
 

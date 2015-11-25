@@ -30,6 +30,7 @@
 
 .hljs-string,
 .hljs-selector-attr,
+.hljs-selector-pseudo,
 .hljs-addition {
   color: #a8ff60;
 }

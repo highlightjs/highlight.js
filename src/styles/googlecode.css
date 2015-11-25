@@ -32,6 +32,7 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 
 .hljs-string,
 .hljs-selector-attr,
+.hljs-selector-pseudo,
 .hljs-regexp {
   color: #080;
 }

@@ -28,7 +28,8 @@ Style with support for rainbow parens
 }
 
 .hljs-number,
-.hljs-selector-attr {
+.hljs-selector-attr,
+.hljs-selector-pseudo {
   color: #f99157;
 }
 
