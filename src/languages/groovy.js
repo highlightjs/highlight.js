@@ -95,6 +95,6 @@ function(hljs) {
                 relevance: 0
             },
         ],
-        illegal: /#/
+        illegal: /#|<\//
     }
 }
