@@ -18,6 +18,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 .hljs-keyword,
 .hljs-attribute,
+.hljs-selector-tag,
 .hljs-meta-keyword,
 .hljs-doctag,
 .hljs-name {
@@ -44,6 +45,8 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 .hljs-type,
 .hljs-string,
+.hljs-selector-id,
+.hljs-selector-class,
 .hljs-quote,
 .hljs-template-tag,
 .hljs-deletion {
@@ -51,10 +54,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 }
 
 .hljs-title,
-.hljs-section,
-.hljs-selector-tag,
-.hljs-selector-id,
-.hljs-selector-class {
+.hljs-section {
   color: #880000;
   font-weight: bold;
 }
