@@ -72,7 +72,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #990073;
 }
 
-.hljs-built_in {
+.hljs-built_in,
+.hljs-builtin-name {
   color: #0086b3;
 }
 

@@ -53,7 +53,7 @@ function(hljs) {
       {
         className: 'meta',
         begin: '#', end: '$',
-        keywords: 'if else elseif end region externalsource'
+        keywords: {'meta-keyword': 'if else elseif end region externalsource'}
       }
     ]
   };

@@ -7,7 +7,7 @@ Category: template
 */
 
 function(hljs) {
-  var BUILT_INS = 'each in with if else unless bindattr action collection debugger log outlet template unbound view yield';
+  var BUILT_INS = {'builtin-name': 'each in with if else unless bindattr action collection debugger log outlet template unbound view yield'};
   return {
     aliases: ['hbs', 'html.hbs', 'html.handlebars'],
     case_insensitive: true,
@@ -21,7 +21,7 @@ function(hljs) {
           {
             className: 'name',
             begin: /[a-zA-Z\.-]+/,
-            keywords: {built_in: BUILT_INS},
+            keywords: BUILT_INS,
             starts: {
               endsWithParent: true, relevance: 0,
               contains: [
@@ -34,7 +34,7 @@ function(hljs) {
       {
         className: 'template-variable',
         begin: /\{\{/, end: /\}\}/,
-        keywords: {built_in: BUILT_INS}
+        keywords: BUILT_INS
       }
     ]
   };

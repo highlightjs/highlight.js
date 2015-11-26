@@ -59,7 +59,7 @@ function(hljs) {
         end: '$',
         contains: [
           {
-            className: 'string',
+            className: 'meta-string',
             variants: [
               { begin: '\"', end: '\"' },
               { begin: '<', end: '>' }

@@ -12,7 +12,7 @@ function(hljs) {
   var SCHEME_SIMPLE_NUMBER_RE = '(\\-|\\+)?\\d+([./]\\d+)?';
   var SCHEME_COMPLEX_NUMBER_RE = SCHEME_SIMPLE_NUMBER_RE + '[+\\-]' + SCHEME_SIMPLE_NUMBER_RE + 'i';
   var BUILTINS = {
-    built_in:
+    'builtin-name':
       'case-lambda call/cc class define-class exit-handler field import ' +
       'inherit init-field interface let*-values let-values let/ec mixin ' +
       'opt-lambda override protect provide public rename require ' +

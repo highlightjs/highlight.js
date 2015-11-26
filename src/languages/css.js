@@ -47,7 +47,7 @@ function(hljs) {
         illegal: '$'
       },
       {
-        // pseudo element
+        className: 'selector-pseudo',
         begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)"']+/
       },
       {
