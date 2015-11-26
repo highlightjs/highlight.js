@@ -3,7 +3,7 @@ Language: Markdown
 Requires: xml.js
 Author: John Crepezzi <john.crepezzi@gmail.com>
 Website: http://seejohncode.com/
-Category: common
+Category: common, markup
 */
 
 function(hljs) {
