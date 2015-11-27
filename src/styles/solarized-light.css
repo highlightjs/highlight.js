@@ -28,6 +28,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 /* Solarized Cyan */
 .hljs-number,
 .hljs-string,
+.hljs-meta .hljs-meta-string,
 .hljs-doctag,
 .hljs-regexp {
   color: #2aa198;
