@@ -20,7 +20,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 /* Solarized Green */
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-literal,
 .hljs-addition {
   color: #859900;
 }
@@ -29,6 +28,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-number,
 .hljs-string,
 .hljs-meta .hljs-meta-string,
+.hljs-literal,
 .hljs-doctag,
 .hljs-regexp {
   color: #2aa198;
