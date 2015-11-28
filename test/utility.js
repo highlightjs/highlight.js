@@ -1,8 +1,9 @@
 'use strict';
 
-var _    = require('lodash');
-var fs   = require('fs');
-var path = require('path');
+var _        = require('lodash');
+var bluebird = require('bluebird');
+var readFile = bluebird.promisify(require('fs').readFile);
+var path     = require('path');
 
 // Build a path relative to `test/`
 exports.buildPath = function() {
@@ -14,13 +15,9 @@ exports.buildPath = function() {
 
 exports.numberToString = _.method('toString');
 
-exports.expectedFile = function(filename, encoding, actual, done) {
-  fs.readFile(filename, encoding, function(error, expected) {
-    if(error) return done(error);
-
-    actual.should.equal(expected);
-    done();
-  });
+exports.expectedFile = function(filename, encoding, actual) {
+  return readFile(filename, encoding)
+    .then(expected => actual.should.equal(expected));
 };
 
 exports.setupFile = function(filename, encoding, that, testHTML, done) {
