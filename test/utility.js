@@ -20,12 +20,10 @@ exports.expectedFile = function(filename, encoding, actual) {
     .then(expected => actual.should.equal(expected));
 };
 
-exports.setupFile = function(filename, encoding, that, testHTML, done) {
-  fs.readFile(filename, encoding, function(error, expected) {
-    if(error) return done(error);
-
-    that.expected = expected.trim();
-    that.blocks   = _.map(testHTML, 'innerHTML');
-    done();
-  });
+exports.setupFile = function(filename, encoding, that, testHTML) {
+  return readFile(filename, encoding)
+    .then(expected => {
+      that.expected = expected.trim();
+      that.blocks   = _.map(testHTML, 'innerHTML');
+    })
 };
