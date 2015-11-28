@@ -3,11 +3,11 @@
 var utility = require('../utility');
 
 describe('explicit language class', function() {
-  before(function(done) {
+  before(function() {
     var filename = utility.buildPath('fixtures', 'expect', 'explicit1.txt'),
         testHTML = document.querySelectorAll('#explicit-language .hljs');
 
-    utility.setupFile(filename, 'utf-8', this, testHTML, done);
+    return utility.setupFile(filename, 'utf-8', this, testHTML);
   });
 
   it('should highlight block with language in code tag', function() {
