@@ -3,11 +3,11 @@
 var utility = require('../utility');
 
 describe('explicit language class', function() {
-  before(function(done) {
+  before(function() {
     var filename = utility.buildPath('fixtures', 'expect', 'explicit1.txt'),
         testHTML = document.querySelectorAll('#explicit-language .hljs');
 
-    utility.setupFile(filename, 'utf-8', this, testHTML, done);
+    return utility.setupFile(filename, 'utf-8', this, testHTML);
   });
 
   it('should highlight block with language in code tag', function() {
@@ -28,17 +28,17 @@ describe('explicit language class', function() {
     actual.should.equal(this.expected);
   });
 
-  it('should highlight with shortened prefix (lang-)', function(done) {
+  it('should highlight with shortened prefix (lang-)', function() {
     var filename = utility.buildPath('fixtures', 'expect', 'explicit2.txt'),
         actual   = this.blocks[3];
 
-    utility.expectedFile(filename, 'utf-8', actual, done);
+    return utility.expectedFile(filename, 'utf-8', actual);
   });
 
-  it('should highlight if classname contains uppercase symbols', function(done) {
+  it('should highlight if classname contains uppercase symbols', function() {
     var filename = utility.buildPath('fixtures', 'expect', 'explicit2.txt'),
       actual     = this.blocks[4];
 
-    utility.expectedFile(filename, 'utf-8', actual, done);
+    return utility.expectedFile(filename, 'utf-8', actual);
   });
 });
