@@ -5,7 +5,7 @@ var Worker   = require('tiny-worker');
 var utility  = require('../utility');
 var glob     = bluebird.promisify(require('glob'));
 
-describe('in worker', function() {
+describe('web worker', function() {
   before(function(done) {
     // Will match both `highlight.pack.js` and `highlight.min.js`
     var filepath = utility.buildPath('..', 'build', 'highlight.*.js');
@@ -32,7 +32,7 @@ describe('in worker', function() {
     });
   });
 
-  it('should works', function(done) {
+  it('should highlight text', function(done) {
     this.worker.onmessage = event => {
       var actual = event.data;
 

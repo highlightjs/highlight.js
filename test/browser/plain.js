@@ -5,7 +5,7 @@ var jsdomEnv = bluebird.promisify(require('jsdom').env);
 var utility  = require('../utility');
 var glob     = bluebird.promisify(require('glob'));
 
-describe('in plain browser', function() {
+describe('plain browser', function() {
   before(function() {
     // Will match both `highlight.pack.js` and `highlight.min.js`
     var filepath = utility.buildPath('..', 'build', 'highlight.*.js');
@@ -18,7 +18,7 @@ describe('in plain browser', function() {
       });
   });
 
-  it('should works', function() {
+  it('should highlight block', function() {
     this.hljs.highlightBlock(this.block);
 
     var actual = this.block.innerHTML;
