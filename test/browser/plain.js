@@ -12,7 +12,7 @@ describe('plain browser', function() {
 
     return glob(filepath)
       .then(hljsPath => jsdomEnv(this.html, hljsPath))
-      .then((window) => {
+      .then(window => {
         this.block = window.document.querySelector('pre code');
         this.hljs  = window.hljs;
       });
