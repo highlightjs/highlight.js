@@ -61,11 +61,10 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 }
 
 .hljs-comment {
-  color: #888;
+  color: #888888;
 }
 
 .hljs-meta {
-  color: #307BB5;
   color: #2B6EA1;
 }
 
