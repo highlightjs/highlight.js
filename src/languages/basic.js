@@ -10,7 +10,7 @@ function(hljs) {
     lexemes: '[a-zA-Z][a-zA-Z0-9_\$\%\!\#]*',
     keywords: {
         keyword:
-          'ABS ASC AND ATN AUTO BEEP BLOAD|10 BSAVE|10 CALL CALLS CDBL CHAIN CHDIR CHR$ CINT CIRCLE ' +
+          'ABS ASC AND ATN AUTO|0 BEEP BLOAD|10 BSAVE|10 CALL CALLS CDBL CHAIN CHDIR CHR$ CINT CIRCLE ' +
           'CLEAR CLOSE CLS COLOR COM COMMON CONT COS CSNG CSRLIN CVD CVI CVS DATA DATE$ ' +
           'DEFDBL DEFINT DEFSNG DEFSTR DEF SEG USR DELETE DIM DRAW EDIT END ENVIRON ENVIRON$ ' +
           'EOF EQV ERASE ERDEV ERDEV$ ERL ERR ERROR EXP FIELD FILES FIX FOR FRE GET GOSUB GOTO ' +
@@ -30,12 +30,14 @@ function(hljs) {
       {
         // Match line numbers
         className: 'symbol',
-        begin: '^[0-9]+\ '
+        begin: '^[0-9]+\ ',
+		relevance: 0
       },
       {
         // Match typed numeric constants (1000, 12.34!, 1.2e5, 1.5#, 1.2D2)
         className: 'number',
-        begin: '\\b([0-9]+[0-9edED\.]*[#\!]?)'
+        begin: '\\b([0-9]+[0-9edED\.]*[#\!]?)',
+		relevance: 0
       },
       {
         // Match hexadecimal numbers (&Hxxxx)
