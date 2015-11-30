@@ -27,7 +27,7 @@ function(hljs) {
         illegal: /\n/
       },
       {
-        className: 'number',
+        className: 'symbol',
         begin: /@\d+\b/
       },
       {
