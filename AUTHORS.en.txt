@@ -193,3 +193,4 @@ Contributors:
 - Jan Kühle <jkuehle90@gmail.com>
 - Stefan Wienert <stwienert@gmail.com>
 - Nikita Savchenko <zitros.lab@gmail.com>
+- Raphaël Assénat <raph@raphnet.net>
