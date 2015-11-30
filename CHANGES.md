@@ -3,6 +3,7 @@
 New languages:
 
 - *Caché Object Script* by [Nikita Savchenko][]
+- *BASIC* by [Raphaël Assénat][]
 
 Notable fixes and improvements to existing languages:
 
