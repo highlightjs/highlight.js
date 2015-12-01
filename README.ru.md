@@ -65,6 +65,33 @@ $('div.code').each(function(i, block) {
 Другие опции можно найти в документации функции [`configure`][3].
 
 
+## Web Workers
+
+Подсветку можно запустить внутри web worker'а, чтобы не подвешивать окно
+браузера при работе с большими кусками кода.
+
+В основном скрипте:
+
+```javascript
+addEventListener('load', function() {
+  var code = document.querySelector('#code');
+  var worker = new Worker('worker.js');
+  worker.onmessage = function(event) { code.innerHTML = event.data; }
+  worker.postMessage(code.textContent);
+})
+```
+
+В worker.js:
+
+```javascript
+onmessage = function(event) {
+  importScripts('<path>/highlight.pack.js');
+  var result = self.hljs.highlightAuto(event.data);
+  postMessage(result.value);
+}
+```
+
+
 ## Установка библиотеки
 
 Highlight.js можно использовать в браузере прямо с CDN хостинга или скачать
