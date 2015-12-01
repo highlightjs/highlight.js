@@ -190,6 +190,6 @@ URL:   https://highlightjs.org/
 - Сорен Эневолдсен <senevoldsen90@gmail.com>
 - Даниэль Розенвассен <DanielRosenwasser@users.noreply.github.com>
 - Ладислав Пршкавеч <ladislav@prskavec.net>
-- Ян Кюхле <jkuehle90@gmail.com>
-- Стефан Вайнерт <stwienert@gmail.com>
+- Ян Кюле <jkuehle90@gmail.com>
+- Стефан Винерт <stwienert@gmail.com>
 - Никита Савченко <zitros.lab@gmail.com>
