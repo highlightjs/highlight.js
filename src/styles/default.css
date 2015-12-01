@@ -35,7 +35,6 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 .hljs-regexp,
 .hljs-symbol,
-.hljs-number,
 .hljs-variable,
 .hljs-template-variable,
 .hljs-link,
@@ -46,6 +45,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 .hljs-type,
 .hljs-string,
+.hljs-number,
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-quote,
