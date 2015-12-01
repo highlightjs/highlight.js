@@ -9,22 +9,17 @@ https://highlightjs.org/
   // CommonJS.
   if(typeof exports !== 'undefined') {
     factory(exports);
-  } else if (typeof window !== 'undefined') {
+  } else {
     // Export hljs globally even when using AMD for cases when this script
     // is loaded with others that may still expect a global hljs.
-    window.hljs = factory({});
+    self.hljs = factory({});
 
     // Finally register the global hljs with AMD.
     if(typeof define === 'function' && define.amd) {
       define('hljs', [], function() {
-        return window.hljs;
+        return self.hljs;
       });
     }
-  } else if (typeof self !== 'undefined') {
-    // Export hljs to web worker.
-    self.hljs = factory({});
-  } else {
-    throw new Error('No global object found to bind hljs variable to.');
   }
 
 }(function(hljs) {
