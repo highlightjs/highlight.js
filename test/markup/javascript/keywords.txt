@@ -1,7 +1,7 @@
 function $initHighlight(block, cls) {
   try {
     if (cls.search(/\bno\-highlight\b/) != -1)
-      return process(block, true, 0x0F) + 
+      return process(block, true, 0x0F) +
              ' class=""';
   } catch (e) {
     /* handle exception */
