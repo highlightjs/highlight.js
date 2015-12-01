@@ -1,28 +1,52 @@
-## MASTER (UNRELEASED)
+## Version 9.0
 
-New languages:
+The new major version brings a reworked styling system. Highlight.js now defines
+a limited set of highlightable classes giving a consistent result across all the
+styles and languages. You can read a more detailed explanation and background in
+the [tracking issue][#348] that started this long process back in May.
+
+This change is backwards incompatible for those who uses highlight.js with a
+custom stylesheet. The [new style guide][sg] explains how to write styles
+in this new world.
+
+Bundled themes have also suffered a significant amount of improvements and may
+look different in places, but all the things now consistent and make more sense.
+Among others, the Default style has got a refresh and will probably be tweaked
+some more in next releases. Please do give your feedback in our
+[issue tracker][issues].
+
+New languages in this release:
 
 - *Caché Object Script* by [Nikita Savchenko][]
+- *YAML* by [Stefan Wienert][]
 
-Notable fixes and improvements to existing languages:
+Improvements to existing languages and styles:
 
-- ECMAScript 6 modules import now do not require closing semicolon
-- ECMAScript 6 classes constructors now highlighted
-- Template string support for Typescript, as for ECMAScript 6
-- Scala case classes params highlight fixed
-- YAML syntax added by [Stefan Wienert][]
-- Built-in names introduced in Julia v0.4 added by [Kenta Sato][]
+- ECMAScript 6 modules import now do not require closing semicolon.
+- ECMAScript 6 classes constructors now highlighted.
+- Template string support for Typescript, as for ECMAScript 6.
+- Scala case classes params highlight fixed.
+- Built-in names introduced in Julia v0.4 added by [Kenta Sato][].
+- Refreshed Default style.
 
 Other notable changes:
 
-- WebWorkers support added bu [Jan Kühle][]
-- We now have tests for both browser builds
-- License added to not minified browser build
+- [Web workers support][webworkers] added bu [Jan Kühle][].
+- We now have tests for compressed browser builds as well.
+- The building tool chain has been switched to node.js 4.x. and is now
+  shamelessly uses ES6 features all over the place, courtesy of [Jeremy Hull][].
+- License added to non-compressed browser build.
 
 [Jan Kühle]: https://github.com/frigus02
 [Stefan Wienert]: https://github.com/zealot128
 [Kenta Sato]: https://github.com/bicycle1885
 [Nikita Savchenko]: https://github.com/ZitRos
+[webworkers]: https://github.com/isagalaev/highlight.js#web-workers
+[Jeremy Hull]: https://github.com/sourrust
+[#348]: https://github.com/isagalaev/highlight.js/issues/348
+[sg]: http://highlightjs.readthedocs.org/en/latest/style-guide.html
+[issues]: https://github.com/isagalaev/highlight.js/issues
+
 
 ## Version 8.9.1
 
