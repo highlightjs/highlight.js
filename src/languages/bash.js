@@ -73,7 +73,6 @@ function(hljs) {
         relevance: 0
       },
       hljs.HASH_COMMENT_MODE,
-      hljs.NUMBER_MODE,
       QUOTE_STRING,
       APOS_STRING,
       VAR

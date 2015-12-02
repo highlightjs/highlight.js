@@ -125,7 +125,7 @@ function buildFilterCallback(qualifiers) {
       languages  = result[1],
       categories = _.map(result[0], category => category.slice(1));
 
-  return _.partial(filterByQualifiers, _, languages, categories);
+  return blob => filterByQualifiers(blob, languages, categories);
 }
 
 function globDefaults(pattern, encoding) {
