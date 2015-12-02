@@ -1,4 +1,4 @@
-## Version 9.0
+## Version 9.0.0
 
 The new major version brings a reworked styling system. Highlight.js now defines
 a limited set of highlightable classes giving a consistent result across all the
