@@ -20,6 +20,7 @@ New languages in this release:
 - *Caché Object Script* by [Nikita Savchenko][]
 - *YAML* by [Stefan Wienert][]
 - *MIPS Assembler* by [Nebuleon Fumika][]
+- *HSP* by [prince][]
 
 Improvements to existing languages and styles:
 
@@ -48,7 +49,7 @@ Other notable changes:
 [sg]: http://highlightjs.readthedocs.org/en/latest/style-guide.html
 [issues]: https://github.com/isagalaev/highlight.js/issues
 [Nebuleon Fumika]: https://github.com/Nebuleon
-
+[prince]: https://github.com/prince-0203
 
 ## Version 8.9.1
 
