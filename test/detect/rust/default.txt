@@ -12,7 +12,7 @@ impl From<&'a str> for State {
     fn from(s: &'a str) -> Self {
         match s {
             "start" => State::Start,
-            "closed" => State::Transient,
+            "closed" => State::Closed,
             _ => unreachable!(),
         }
     }
