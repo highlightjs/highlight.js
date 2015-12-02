@@ -14,36 +14,36 @@ function(hljs) {
 			hljs.C_BLOCK_COMMENT_MODE,
 			hljs.QUOTE_STRING_MODE,
 			hljs.APOS_STRING_MODE,
-			
+
 			{
 				// multi-line string
 				className: 'string',
 				begin: '{"', end: '"}',
 				contains: [hljs.BACKSLASH_ESCAPE]
 			},
-			
+
 			hljs.COMMENT(';', '$'),
-			
+
 			{
 				// pre-processor
 				className: 'meta',
 				begin: '#', end: '$',
-				keywords: 'addion cfunc cmd cmpopt comfunc const defcfunc deffunc define else endif enum epack func global if ifdef ifndef include modcfunc modfunc modinit modterm module pack packopt regcmd runtime undef usecom uselib',
+				keywords: {'meta-keyword': 'addion cfunc cmd cmpopt comfunc const defcfunc deffunc define else endif enum epack func global if ifdef ifndef include modcfunc modfunc modinit modterm module pack packopt regcmd runtime undef usecom uselib'},
 				contains: [
-					hljs.QUOTE_STRING_MODE,
+					hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'}),
 					hljs.NUMBER_MODE,
 					hljs.C_NUMBER_MODE,
 					hljs.C_LINE_COMMENT_MODE,
 					hljs.C_BLOCK_COMMENT_MODE
 				]
 			},
-			
+
 			{
 				// label
 				className: 'symbol',
 				begin: '^\\*(\\w+|@)'
 			},
-			
+
 			hljs.NUMBER_MODE,
 			hljs.C_NUMBER_MODE
 		]
