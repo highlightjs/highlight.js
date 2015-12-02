@@ -54,7 +54,7 @@ function(hljs) {
         ')',
         end: '\\s'
       },
-      hljs.COMMENT('[;#]', {relevance: 0}),
+      hljs.COMMENT('[;#]', '$'),
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.QUOTE_STRING_MODE,
       {
@@ -86,6 +86,7 @@ function(hljs) {
         ],
         relevance: 0
       }
-    ]
+    ],
+    illegal: '\/'
   };
 }
