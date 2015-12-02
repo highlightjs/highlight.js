@@ -73,7 +73,6 @@ function(hljs) {
         relevance: 10
       },
       {
-        className: 'typeParams',
         begin: /\[/,
         end: /\]/,
         excludeBegin: true,
