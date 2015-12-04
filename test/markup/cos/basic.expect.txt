@@ -4,5 +4,4 @@
 <span class="hljs-keyword">if</span> (<span class="hljs-symbol">^global</span> = <span class="hljs-number">2</span>) {
   <span class="hljs-keyword">do</span> <span class="hljs-keyword">##class</span>(Cinema.Utils).AddShow(<span class="hljs-string">"test"</span>) <span class="hljs-comment">// line comment</span>
 }
-<span class="hljs-keyword">d</span>:(<span class="hljs-symbol">^global</span> = <span class="hljs-number">2</span>) ..thisClassMethod(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-string">"test"</span>)
-
+<span class="hljs-keyword">d</span>:(<span class="hljs-symbol">^global</span> = <span class="hljs-number">2</span>) <span class="hljs-built_in">..thisClassMethod</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-string">"test"</span>)
