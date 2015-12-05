@@ -14,7 +14,7 @@ function(hljs) {
     case_insensitive: true,
     keywords: {
       keyword: 'Break Continue Else Gosub If Loop Return While',
-      literal: 'A true false NOT AND OR',
+      literal: 'A|0 true false NOT AND OR',
       built_in: 'ComSpec Clipboard ClipboardAll ErrorLevel',
     },
     contains: [
