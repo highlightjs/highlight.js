@@ -1,7 +1,7 @@
 /*
 Language: Caché Object Script
 Author: Nikita Savchenko <zitros.lab@gmail.com>
-Category: common
+Category: enterprise, scripting
 */
 function cos (hljs) {
 
