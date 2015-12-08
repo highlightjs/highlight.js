@@ -2,7 +2,7 @@
 Language: Stan
 Author: Brendan Rocks <rocks.brendan@gmail.com>
 Category: scientific
-Description: The Stan probabalistic programming language (http://mc-stan.org/).
+Description: The Stan probabilistic programming language (http://mc-stan.org/).
 */
 
 function(hljs) {
