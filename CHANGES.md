@@ -1,3 +1,11 @@
+## Version 9.1
+
+New languages:
+
+- *Stan* by [Brendan Rocks][]
+
+[Brendan Rocks]: http://brendanrocks.com
+
 ## Version 9.0.0
 
 The new major version brings a reworked styling system. Highlight.js now defines
