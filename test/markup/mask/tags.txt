@@ -1,0 +1,14 @@
+section #main {
+    header > '~title'
+    
+    .container {
+        .card >
+            'Numbers: ~[ _.random() * number + 42 ]'        
+    }
+
+    Dialog title='Foo' {
+        @body {
+            .card > 'Bazzinga!'
+        }
+    }
+}

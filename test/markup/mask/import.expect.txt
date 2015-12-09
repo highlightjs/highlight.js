@@ -1,0 +1,13 @@
+<span class="hljs-built_in hljs-strong">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">'./foo'</span>;
+<span class="hljs-built_in hljs-strong">import</span> * <span class="hljs-keyword">as</span> Users <span class="hljs-keyword">from</span> <span class="hljs-string">'/api/v1/users'</span> <span class="hljs-keyword">is</span> json;
+<span class="hljs-built_in hljs-strong">import</span> <span class="hljs-keyword">async</span> Baz <span class="hljs-keyword">from</span> <span class="hljs-string">'baz'</span>;
+
+<span class="hljs-variable hljs-strong">await</span> <span class="hljs-attr">Baz</span> {
+    <span class="hljs-variable hljs-emphasis">@progress</span> {
+        <span class="hljs-selector-tag hljs-emphasis">div</span><span class="hljs-string">.spinner</span> &gt; <span class="hljs-string">'Loading'</span>;
+    }
+}
+
+<span class="hljs-built_in hljs-strong">for</span> <span class="hljs-subst"><span class="hljs-meta">(</span>user of Users<span class="hljs-meta">)</span></span> {
+    <span class="hljs-variable hljs-strong">Foo</span> <span class="hljs-subst"><span class="hljs-meta">(</span>user<span class="hljs-meta">)</span></span>;
+}

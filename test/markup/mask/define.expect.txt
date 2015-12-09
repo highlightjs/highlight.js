@@ -1,0 +1,27 @@
+<span class="hljs-meta hljs-strong">define</span> <span class="hljs-title">Dialog</span> <span class="hljs-keyword">as</span> <span class="hljs-emphasis"><span class="hljs-meta">(</span>div<span class="hljs-meta">)</span></span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Panel</span> <span class="hljs-meta">{</span>
+
+    <span class="hljs-built_in hljs-strong">function</span> <span class="hljs-title">onRenderStart</span> (<span class="hljs-params">model</span>) <span class="hljs-meta">{</span>
+        console.log(<span class="hljs-string">'Model:'</span>, model);
+    <span class="hljs-meta"></span><span class="hljs-meta">}</span>
+
+    <span class="hljs-built_in hljs-strong">slot</span> <span class="hljs-title">hide</span> (<span class="hljs-params"></span>) <span class="hljs-meta">{</span>
+        this.hide();
+    <span class="hljs-meta"></span><span class="hljs-meta">}</span>
+
+    <span class="hljs-built_in hljs-strong">function</span> <span class="hljs-title">hide</span> (<span class="hljs-params"></span>) <span class="hljs-meta">{</span>
+        this.$.fadeOut(<span class="hljs-string">'fast'</span>);
+    <span class="hljs-meta"></span><span class="hljs-meta">}</span>
+
+    <span class="hljs-selector-tag hljs-emphasis">h4</span> &gt; <span class="hljs-variable hljs-emphasis">@title</span>;
+    <span class="hljs-selector-tag hljs-emphasis">section</span> &gt; <span class="hljs-variable hljs-emphasis">@body</span>;
+
+    <span class="hljs-selector-tag hljs-emphasis">div</span> {
+        <span class="hljs-selector-tag hljs-emphasis">p</span> &gt; <span class="hljs-selector-tag hljs-emphasis">i</span> &gt; <span class="hljs-string">'Actions'</span>
+        <span class="hljs-variable hljs-strong">Buttons</span>;
+    <span class="hljs-meta"></span><span class="hljs-meta">}</span>
+
+    <span class="hljs-meta hljs-strong">let</span> <span class="hljs-title">Buttons</span> <span class="hljs-meta">{</span>
+        <span class="hljs-selector-tag hljs-emphasis">button</span><span class="hljs-string">.btn</span><span class="hljs-string">.btn-success</span> &gt; <span class="hljs-string">'OK'</span>
+        <span class="hljs-selector-tag hljs-emphasis">button</span><span class="hljs-string">.btn</span><span class="hljs-string">.btn-warning</span> &gt; <span class="hljs-string">'Cancel'</span>
+    <span class="hljs-meta"></span><span class="hljs-meta">}</span>
+}

@@ -1,0 +1,27 @@
+define Dialog as (div) extends Panel {
+
+    function onRenderStart (model) {
+        console.log('Model:', model);
+    }
+
+    slot hide () {
+        this.hide();
+    }
+
+    function hide () {
+        this.$.fadeOut('fast');
+    }
+
+    h4 > @title;
+    section > @body;
+
+    div {
+        p > i > 'Actions'
+        Buttons;
+    }
+
+    let Buttons {
+        button.btn.btn-success > 'OK'
+        button.btn.btn-warning > 'Cancel'
+    }
+}
