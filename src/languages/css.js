@@ -57,7 +57,7 @@ function(hljs) {
       },
       {
         className: 'selector-pseudo',
-        begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)"']+/
+        begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)"'.]+/
       },
       {
         begin: '@(font-face|page)',
