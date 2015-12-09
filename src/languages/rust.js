@@ -33,6 +33,8 @@ function(hljs) {
         'uint u8 u32 u64 ' +
         'float f32 f64 ' +
         'str char bool',
+      literal:
+        'true false',
       built_in:
         BUILTINS
     },

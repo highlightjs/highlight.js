@@ -14,15 +14,13 @@ function(hljs) {
     case_insensitive: true,
     keywords: {
       keyword: 'Break Continue Else Gosub If Loop Return While',
-      literal: 'A true false NOT AND OR'
+      literal: 'A|0 true false NOT AND OR',
+      built_in: 'ComSpec Clipboard ClipboardAll ErrorLevel',
     },
     contains: [
       {
         className: 'built_in',
-        variants: [
-          {begin: 'A_[a-zA-Z0-9]+'},
-          {beginKeywords: 'ComSpec Clipboard ClipboardAll ErrorLevel'}
-        ]
+        begin: 'A_[a-zA-Z0-9]+'
       },
       BACKTICK_ESCAPE,
       hljs.inherit(hljs.QUOTE_STRING_MODE, {contains: [BACKTICK_ESCAPE]}),

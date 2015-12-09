@@ -4,7 +4,9 @@ Requires: xml.js
 Author: Dan Allen <dan.j.allen@gmail.com>
 Website: http://google.com/profiles/dan.j.allen
 Description: A semantic, text-based document format that can be exported to HTML, DocBook and other backends.
+Category: markup
 */
+
 function(hljs) {
   return {
     aliases: ['adoc'],
