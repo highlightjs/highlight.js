@@ -25,5 +25,5 @@ exports.setupFile = function(filename, encoding, that, testHTML) {
     .then(expected => {
       that.expected = expected.trim();
       that.blocks   = _.map(testHTML, 'innerHTML');
-    })
+    });
 };
