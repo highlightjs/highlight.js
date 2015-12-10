@@ -14,7 +14,7 @@ function(hljs) {
     'Copy Send Sized Sync Drop Fn FnMut FnOnce drop Box ToOwned Clone ' +
     'PartialEq PartialOrd Eq Ord AsRef AsMut Into From Default Iterator ' +
     'Extend IntoIterator DoubleEndedIterator ExactSizeIterator Option ' +
-    'Some None Result Ok Err SliceConcatExt String ToString Vec ' +
+    'Result SliceConcatExt String ToString Vec ' +
     // macros
     'assert! assert_eq! bitflags! bytes! cfg! col! concat! concat_idents! ' +
     'debug_assert! debug_assert_eq! env! panic! file! format! format_args! ' +
@@ -34,7 +34,7 @@ function(hljs) {
         'float f32 f64 ' +
         'str char bool',
       literal:
-        'true false',
+        'true false Some None Ok Err',
       built_in:
         BUILTINS
     },
