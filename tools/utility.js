@@ -154,10 +154,7 @@ function getStyleNames() {
 }
 
 function toQueue(tasks, registry) {
-  return _.map(tasks, function(task) {
-    return new Queue({ registry: registry })
-      .tasks(task);
-  });
+  return _.map(tasks, task => new Queue({ registry }).tasks(task));
 }
 
 module.exports = {
