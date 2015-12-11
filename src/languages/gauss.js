@@ -148,7 +148,7 @@ function(hljs) {
     aliases: ['gss'],
     case_insensitive: true, // language is case-insensitive
     keywords: KEYWORDS,
-    illegal: '(\\{[%#]|\\}[%#]|`)',
+    illegal: '(\\{[%#]|[%#]\\})',
     contains: [
       hljs.C_NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
