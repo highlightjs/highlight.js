@@ -195,3 +195,4 @@ URL:   https://highlightjs.org/
 - Никита Савченко <zitros.lab@gmail.com>
 - Небулеон Фумика <nebuleon.fumika@gmail.com>
 - prince <MC.prince.0203@gmail.com>
+- Брэндан Рокс <rocks.brendan@gmail.com>

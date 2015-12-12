@@ -1,13 +1,12 @@
 /*
 Language: Stan
 Author: Brendan Rocks <rocks.brendan@gmail.com>
-Category: scientific
+ Category: scientific
 Description: The Stan probabilistic programming language (http://mc-stan.org/).
 */
 
 function(hljs) {
   return {
-    aliases: ['stan', 'Stan'],
     contains: [
       hljs.HASH_COMMENT_MODE,
       hljs.C_LINE_COMMENT_MODE,
@@ -84,7 +83,7 @@ function(hljs) {
         className: 'number',
         begin: "\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",
         relevance: 0
-      },
+      }
     ]
   };
 }
