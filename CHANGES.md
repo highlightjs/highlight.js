@@ -29,6 +29,7 @@ New languages in this release:
 - *YAML* by [Stefan Wienert][]
 - *MIPS Assembler* by [Nebuleon Fumika][]
 - *HSP* by [prince][]
+- *BASIC* by [Raphaël Assénat][]
 
 Improvements to existing languages and styles:
 
