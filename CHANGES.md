@@ -3,8 +3,10 @@
 New languages:
 
 - *Stan* by [Brendan Rocks][]
+- *BASIC* by [Raphaël Assénat][]
 
 [Brendan Rocks]: http://brendanrocks.com
+[Raphaël Assénat]: https://github.com/raphnet
 
 ## Version 9.0.0
 
@@ -29,7 +31,6 @@ New languages in this release:
 - *YAML* by [Stefan Wienert][]
 - *MIPS Assembler* by [Nebuleon Fumika][]
 - *HSP* by [prince][]
-- *BASIC* by [Raphaël Assénat][]
 
 Improvements to existing languages and styles:
 

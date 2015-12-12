@@ -6,6 +6,7 @@ Description: Based on the BASIC reference from the Tandy 1000 guide
 function(hljs) {
   return {
     case_insensitive: true,
+    illegal: '^\.',
     // Support explicitely typed variables that end with $%! or #.
     lexemes: '[a-zA-Z][a-zA-Z0-9_\$\%\!\#]*',
     keywords: {
@@ -21,36 +22,34 @@ function(hljs) {
           'PUT RANDOMIZE READ REM RENUM RESET|0 RESTORE RESUME RETURN|0 RIGHT$ RMDIR RND RSET ' +
           'RUN SAVE SCREEN SGN SHELL SIN SOUND SPACE$ SPC SQR STEP STICK STOP STR$ STRING$ SWAP ' +
           'SYSTEM TAB TAN TIME$ TIMER TROFF TRON TO USR VAL VARPTR VARPTR$ VIEW WAIT WHILE ' +
-          'WEND WIDTH WINDOW WRITE XOR',
+          'WEND WIDTH WINDOW WRITE XOR'
     },
     contains: [
       hljs.QUOTE_STRING_MODE,
-      hljs.COMMENT('REM','$',{relevance:10}),
-      hljs.COMMENT('\'','$',{relevance:0}),
+      hljs.COMMENT('REM', '$', {relevance: 10}),
+      hljs.COMMENT('\'', '$', {relevance: 0}),
       {
         // Match line numbers
         className: 'symbol',
         begin: '^[0-9]+\ ',
-		relevance: 10,
+        relevance: 10
       },
       {
         // Match typed numeric constants (1000, 12.34!, 1.2e5, 1.5#, 1.2D2)
         className: 'number',
         begin: '\\b([0-9]+[0-9edED\.]*[#\!]?)',
-		relevance: 0
+        relevance: 0
       },
       {
         // Match hexadecimal numbers (&Hxxxx)
         className: 'number',
-        begin: '(\&[hH][0-9a-fA-F]{1,4})',
+        begin: '(\&[hH][0-9a-fA-F]{1,4})'
       },
       {
         // Match octal numbers (&Oxxxxxx)
         className: 'number',
-        begin: '(\&[oO][0-7]{1,6})',
-      },
-    ],
-	//
-	illegal: '^\.',
+        begin: '(\&[oO][0-7]{1,6})'
+      }
+    ]
   };
 }

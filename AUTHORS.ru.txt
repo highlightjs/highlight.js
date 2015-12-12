@@ -196,3 +196,4 @@ URL:   https://highlightjs.org/
 - Небулеон Фумика <nebuleon.fumika@gmail.com>
 - prince <MC.prince.0203@gmail.com>
 - Брэндан Рокс <rocks.brendan@gmail.com>
+- Рафаэль Ассенат <raph@raphnet.net>
