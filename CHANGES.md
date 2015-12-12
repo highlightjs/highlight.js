@@ -3,8 +3,10 @@
 New languages:
 
 - *Stan* by [Brendan Rocks][]
+- *BASIC* by [Raphaël Assénat][]
 
 [Brendan Rocks]: http://brendanrocks.com
+[Raphaël Assénat]: https://github.com/raphnet
 
 ## Version 9.0.0
 
