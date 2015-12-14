@@ -4,6 +4,7 @@ New languages:
 
 - *Stan* by [Brendan Rocks][]
 - *BASIC* by [Raphaël Assénat][]
+- *Smarty* by [Arnold Stoba][]
 
 [Brendan Rocks]: http://brendanrocks.com
 [Raphaël Assénat]: https://github.com/raphnet
