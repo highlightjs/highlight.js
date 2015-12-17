@@ -1,0 +1,21 @@
+{block name="frontend_index_articles"}
+    {foreach $articles as $article}
+        {if $article.length > 10}
+            {$article|truncate:'10'}
+            {$article|trim|strip}
+        {/if}
+    {/foreach}
+{/block}
+
+{block name="frontend_index_articles"}
+    <h1>This is xml/html markup</h1>
+    <p>lorem ipsum dolor sit amet</p>
+{/block}
+
+{$example = 'lorem'}
+
+{$smarty.version}
+
+{include file='header.tpl'}
+
+{* this is a comment *}
