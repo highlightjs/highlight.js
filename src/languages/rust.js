@@ -43,12 +43,12 @@ function(hljs) {
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       BLOCK_COMMENT,
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {begin: /b?"/, illegal: null}),
       {
         className: 'string',
         variants: [
            { begin: /r(#*)".*?"\1(?!#)/ },
-           { begin: /'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/ },
+           { begin: /b?'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/ }
         ]
       },
       {
@@ -84,7 +84,7 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'trait enum', end: '{',
+        beginKeywords: 'trait enum struct', end: '{',
         contains: [
           hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {endsParent: true})
         ],

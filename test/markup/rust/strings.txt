@@ -3,6 +3,10 @@
 '\x1A';
 '\u12AS';
 '\U1234ASDF';
+b'a';
+
+"hello";
+b"hello";
 
 r"hello";
 r###"world"###;
