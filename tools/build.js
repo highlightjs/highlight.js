@@ -57,6 +57,7 @@
 //   "browser" will go into `build/browser` and so forth.
 //
 // All build targets will end up in the `build` directory.
+
 'use strict';
 
 var commander = require('commander');
