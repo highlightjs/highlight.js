@@ -4,9 +4,11 @@ New languages:
 
 - *Stan* by [Brendan Rocks][]
 - *BASIC* by [Raphaël Assénat][]
+- *GAUSS* by [Matt Evans][]
 
 [Brendan Rocks]: http://brendanrocks.com
 [Raphaël Assénat]: https://github.com/raphnet
+[Matt Evans]: https://github.com/matthewevans
 
 ## Version 9.0.0
 
