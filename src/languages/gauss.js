@@ -129,7 +129,7 @@ function(hljs) {
     ]
   };
 
-  var FUNCTION_TITLE = hljs.UNDERSCORE_IDENT_RE +'\\s*\\(?';
+  var FUNCTION_TITLE = hljs.UNDERSCORE_IDENT_RE + '\\s*\\(?';
   var PARSE_PARAMS = [
     {
       className: 'params',
@@ -142,7 +142,7 @@ function(hljs) {
         hljs.C_BLOCK_COMMENT_MODE
       ]
     }
-    ];
+  ];
 
   return {
     aliases: ['gss'],
@@ -186,7 +186,7 @@ function(hljs) {
         keywords: KEYWORDS,
         contains: [
           {
-            begin: FUNCTION_TITLE +hljs.IDENT_RE +'\\)?\\s*\\=\\s*', returnBegin: true,
+            begin: FUNCTION_TITLE + hljs.IDENT_RE + '\\)?\\s*\\=\\s*', returnBegin: true,
             contains: [hljs.UNDERSCORE_TITLE_MODE],
             relevance: 0
           },
@@ -213,7 +213,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: '\\bexternal (matrix|string|array|sparse matrix|struct ' +hljs.IDENT_RE +')\\s+',
+        begin: '\\bexternal (matrix|string|array|sparse matrix|struct ' + hljs.IDENT_RE + ')\\s+',
         end: ';',
         excludeEnd: true,
         keywords: KEYWORDS,
