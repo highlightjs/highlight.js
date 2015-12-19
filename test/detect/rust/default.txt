@@ -1,6 +1,7 @@
+#![crate_name = "foo"]
+
 use std::fs::File;
 
-#[derive(Debug)]
 pub enum State {
     Start,
     Transient,

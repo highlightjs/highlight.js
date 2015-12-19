@@ -74,7 +74,13 @@ function(hljs) {
       },
       {
         className: 'meta',
-        begin: '#\\!?\\[', end: '\\]'
+        begin: '#\\!?\\[', end: '\\]',
+        contains: [
+          {
+            className: 'meta-string',
+            begin: /"/, end: /"/
+          }
+        ]
       },
       {
         className: 'class',
