@@ -48,7 +48,7 @@ Don't use:
 
 * non-standard borders/margin/paddings for the root container ``.hljs``
 * specific font faces
-* font size, line height and anything that affects posistion and size of
+* font size, line height and anything that affects position and size of
   characters within the container
 
 Okay to use:
