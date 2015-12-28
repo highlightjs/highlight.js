@@ -1,0 +1,13 @@
+/* example of a Maxima program */
+
+foo (x, y, z) := block ([bar : 1.2345b0, baz : -0.5432e0, quux : 9876543210, mumble : 123.456],
+  if bar > 1 + baz
+    then atan2 (bar, baz) + log(quux)*exp(mumble)
+    elseif baz <= 100!
+    then [bar^2, baz/2, sqrt(quux)]
+    else [true, false, unknown]);
+
+display2d : false;
+foo(%pi, %e, bessel_j(1, u));
+is (% > 0);
+(sin(1) - 1, 2*%%, 1 - %%);
