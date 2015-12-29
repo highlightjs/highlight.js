@@ -4,10 +4,17 @@ foo (x, y, z) := block ([bar : 1.2345b0, baz : -0.5432e0, quux : 9876543210, mum
   if bar > 1 + baz
     then atan2 (bar, baz) + log(quux)*exp(mumble)
     elseif baz <= 100!
-    then [bar^2, baz/2, sqrt(quux)]
-    else [true, false, unknown]);
+    then ['bar^2, 'baz/2, sqrt('quux)]
+    else '[true, false, unknown]);
 
-display2d : false;
+display2d : false $
 foo(%pi, %e, bessel_j(1, u));
 is (% > 0);
 (sin(1) - 1, 2*%%, 1 - %%);
+print ("most recent output is", %);
+
+blurf[foo](a) := a^foo - foo^a $
+blurf[2];
+is (blurf[2] = lambda([a], a^2 - 2^a));
+
+blurf[%pi](%e) - matrix([%phi])^^2;
