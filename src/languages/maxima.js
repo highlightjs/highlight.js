@@ -6,6 +6,7 @@ Category: scientific
 
 function(hljs) {
   var KEYWORDS = 'if then else elseif for thru do while until step in and or not';
+  var LITERALS = 'true false unknown inf minf ind und';
   var BUILTIN_FUNCTIONS =
         ' abasep abs absint absolute_real_time acos acosh acot acoth acsc acsch activate'
       + ' addcol add_edge add_edges addmatrices addrow add_vertex add_vertices adjacency_matrix'
@@ -365,8 +366,9 @@ function(hljs) {
   return {
     keywords: {
       keyword: KEYWORDS,
-      literal: 'true false unknown inf minf ind und',
-      built_in: BUILTIN_FUNCTIONS + BUILTIN_VARIABLES
+      literal: LITERALS,
+      built_in: BUILTIN_FUNCTIONS,
+      symbol: BUILTIN_VARIABLES
     },
     contains: [ hljs.C_NUMBER_MODE, hljs.C_BLOCK_COMMENT_MODE, hljs.QUOTE_STRING_MODE ]
   }
