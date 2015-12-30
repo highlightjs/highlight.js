@@ -3,7 +3,7 @@
 /* symbolic constants */
 
 [true, false, unknown, inf, minf, ind,
- und, %e, %pi, %phi, %gamma];
+ und, %e, %i, %pi, %phi, %gamma];
 
 /* programming keywords */
 
@@ -14,9 +14,10 @@ for m:0 unless m > 10 do print(m);
 for x in [1, 2, 3] do print(x);
 foo and bar or not baz;
 
-/* built-in flags */
+/* built-in variables */
 
-[display2d, simp, dispflag, stringdisp, lispdisp];
+[_, __, %, %%, linel, simp, dispflag,
+ stringdisp, lispdisp, %edispflag];
 
 /* built-in functions */
 
@@ -33,7 +34,15 @@ foo and bar or not baz;
 
 /* floats and bigfloats */
 
-[0.0, 123.45, 123e45, 123.45e67, 1234b5, 12.345b67];
+[0.0, 123.45, .54321,
+ 0e0, .32e10, 123e45, 12.34e56, 123e-4, 234e+5,
+      543.32e1, 4.32e-1, 3.21e+0,
+ 0E0, .32E10, 123E45, 12.34E56, 123E-4, 234E+5,
+      543.32E1, 4.32E-1, 3.21E+0,
+ 0b0, .32b10, 123b45, 12.34b56, 123b-4, 234b+5,
+      543.32b1, 4.32b-1, 3.21b+0,
+ 0B0, .32B10, 123B45, 12.34B56, 123B-4, 234B+5,
+      543.32B1, 4.32B-1, 3.21B+0];
 
 /* strings */
 
