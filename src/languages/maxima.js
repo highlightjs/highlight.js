@@ -6,7 +6,7 @@ Category: scientific
 
 function(hljs) {
   var KEYWORDS = 'if then else elseif for thru do while unless step in and or not';
-  var LITERALS = 'true false unknown inf minf ind und %e %pi %phi %gamma';
+  var LITERALS = 'true false unknown inf minf ind und %e %i %pi %phi %gamma';
   var BUILTIN_FUNCTIONS =
         ' abasep abs absint absolute_real_time acos acosh acot acoth acsc acsch activate'
       + ' addcol add_edge add_edges addmatrices addrow add_vertex add_vertices adjacency_matrix'
@@ -299,7 +299,7 @@ function(hljs) {
       + ' gnuplot_pm3d gnuplot_png_term_command gnuplot_postamble gnuplot_preamble'
       + ' gnuplot_ps_term_command gnuplot_svg_term_command gnuplot_term gnuplot_view_args'
       + ' Gosper_in_Zeilberger gradefs grid grid2d grind halfangles head_angle head_both'
-      + ' head_length head_type height hypergeometric_representation %i %iargs ibase'
+      + ' head_length head_type height hypergeometric_representation %iargs ibase'
       + ' icc1 icc2 icounter idummyx ieqnprint ifb ifc1 ifc2 ifg ifgi ifr iframe_bracket_form'
       + ' ifri igeowedge_flag ikt1 ikt2 imaginary inchar increasing infeval'
       + ' infinity inflag infolists inm inmc1 inmc2 intanalysis integer integervalued'
