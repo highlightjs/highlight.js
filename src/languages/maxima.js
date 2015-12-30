@@ -374,7 +374,22 @@ function(hljs) {
     contains: [
       hljs.C_NUMBER_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.QUOTE_STRING_MODE
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'number',
+        variants: [
+          {
+            // integer in base up to 36
+            begin: '0[0-9A-Za-z]+\\b',
+            relevance: 1
+          },
+          {
+            // bigfloat number
+            begin: '[0-9]+[Bb][-+]?[0-9]+\\b',
+            relevance: 2
+          }
+        ]
+      }
     ]
   }
 }
