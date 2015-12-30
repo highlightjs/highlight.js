@@ -2,7 +2,17 @@
 
 /* symbolic constants */
 
-[true, false, %pi, %e, %phi, inf, minf, unknown];
+[true, false, unknown, inf, minf, ind,
+ und, %e, %pi, %phi, %gamma];
+
+/* programming keywords */
+
+if a then b elseif c then d else f;
+for x:1 thru 10 step 2 do print(x);
+for z:-2 while z < 0 do print(z);
+for m:0 unless m > 10 do print(m);
+for x in [1, 2, 3] do print(x);
+foo and bar or not baz;
 
 /* built-in flags */
 
@@ -10,7 +20,8 @@
 
 /* built-in functions */
 
-[sin, cosh, exp, atan2, sqrt, log, struve_h, sublist_indices, read_array];
+[sin, cosh, exp, atan2, sqrt, log, struve_h,
+ sublist_indices, read_array];
 
 /* user-defined symbols */
 
@@ -26,9 +37,12 @@
 
 /* strings */
 
-["now is", "the \"time\" for all", "'good' men", "to
+s1 : "now is";
+s2 : sconcat ("the \"time\" for all ",
+              sconcat ("'good' men ",
+                       "to
  come to the
- aid of their country"];
+ aid of their country"));
 
 /* expressions */
 
