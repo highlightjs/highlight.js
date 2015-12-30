@@ -32,6 +32,10 @@ function(hljs) {
         relevance: 10,
         begin: /^\s*['"]use (strict|asm)['"]/
       },
+      {
+        className: 'meta',
+        begin: /^#!/, end: /$/
+      },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       { // template string
@@ -108,6 +112,6 @@ function(hljs) {
         beginKeywords: 'constructor', end: /\{/, excludeEnd: true
       }
     ],
-    illegal: /#/
+    illegal: /#(?!!)/
   };
 }
