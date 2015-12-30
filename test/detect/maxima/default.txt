@@ -1,11 +1,43 @@
-/* example of a Maxima program */
+/* Maxima computer algebra system */
 
-foo (x, y, z) := block ([bar : 1.2345b0, baz : -0.5432e0, quux : 9876543210, mumble : 123.456],
-  if bar > 1 + baz
-    then atan2 (bar, baz) + log(quux)*exp(mumble)
-    elseif baz <= 100!
-    then ['bar^2, 'baz/2, sqrt('quux)]
-    else '[true, false, unknown]);
+/* symbolic constants */
+
+[true, false, %pi, %e, %phi, inf, minf, unknown];
+
+/* built-in flags */
+
+[display2d, simp, dispflag, stringdisp, lispdisp];
+
+/* built-in functions */
+
+[sin, cosh, exp, atan2, sqrt, log, struve_h, sublist_indices, read_array];
+
+/* user-defined symbols */
+
+[foo, ?bar, baz%, quux_mumble_blurf];
+
+/* different kinds of integers */
+
+[0, 1234, 1234., 0abcdefgh];
+
+/* floats and bigfloats */
+
+[0.0, 123.45, 123e45, 123.45e67, 1234b5, 12.345b67];
+
+/* strings */
+
+["now is", "the \"time\" for all", "'good' men", "to
+ come to the
+ aid of their country"];
+
+/* expressions */
+
+foo (x, y, z) :=
+  if x > 1 + y
+    then z - x*y
+  elseif y <= 100!
+    then x/(y + z)^2
+  else z - y . x . y;
 
 display2d : false $
 foo(%pi, %e, bessel_j(1, u));
