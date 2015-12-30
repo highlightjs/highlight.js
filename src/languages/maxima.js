@@ -370,7 +370,11 @@ function(hljs) {
       built_in: BUILTIN_FUNCTIONS,
       symbol: BUILTIN_VARIABLES
     },
-    contains: [ hljs.C_NUMBER_MODE, hljs.C_BLOCK_COMMENT_MODE, hljs.QUOTE_STRING_MODE ]
+    contains: [
+      hljs.C_NUMBER_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.QUOTE_STRING_MODE
+    ]
   }
 }
 
