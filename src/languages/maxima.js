@@ -372,21 +372,31 @@ function(hljs) {
       symbol: BUILTIN_VARIABLES
     },
     contains: [
-      hljs.C_NUMBER_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.QUOTE_STRING_MODE,
       {
         className: 'number',
         variants: [
           {
-            // integer in base up to 36
-            begin: '0[0-9A-Za-z]+\\b',
-            relevance: 1
+            // float number w/ exponent
+            // hmm, I wonder if we ought to include other exponent markers?
+            begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Ee][-+]?\\d+\\b',
+            relevance: 0
           },
           {
             // bigfloat number
-            begin: '[0-9]+[Bb][-+]?[0-9]+\\b',
+            begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Bb][-+]?\\d+\\b',
             relevance: 2
+          },
+          {
+            // float number w/out exponent
+            begin: '\\b(\\.\\d+|\\d+\\.\\d+)\\b',
+            relevance: 0
+          },
+          {
+            // integer in base up to 36
+            begin: '\\b(\\d+|0[0-9A-Za-z]+)\\b',
+            relevance: 1
           }
         ]
       }
