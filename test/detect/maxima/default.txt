@@ -28,9 +28,15 @@ foo and bar or not baz;
 
 [foo, ?bar, baz%, quux_mumble_blurf];
 
+/* symbols using Unicode characters */
+
+[Љ, Щ, щ, Ӄ, ЩЩЩ, ӃӃЉЉщ];
+
 /* different kinds of integers */
 
+ibase : 18 $
 [0, 1234, 1234., 0abcdefgh];
+reset (ibase) $
 
 /* floats and bigfloats */
 
