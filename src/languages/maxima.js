@@ -364,7 +364,7 @@ function(hljs) {
       + ' zerobern zeta%pi zlabel zlabel_rotate zlength zmin zn_primroot_limit zn_primroot_pretest';
 
   return {
-    lexemes: '[?]?[A-Za-z_%][0-9A-Za-z_%]*\\b',
+    lexemes: '[A-Za-z_%][0-9A-Za-z_%]*',
     keywords: {
       keyword: KEYWORDS,
       literal: LITERALS,
