@@ -372,7 +372,14 @@ function(hljs) {
       symbol: BUILTIN_VARIABLES
     },
     contains: [
-      hljs.C_BLOCK_COMMENT_MODE,
+      {
+        // C-style comments, with nonstandard color.
+        // Dunno if this recognizes nested comments.
+        // I wonder, should we try to recognize quoted strings in comments?
+        className: 'meta',
+        begin: '/\\*',
+        end: '\\*/'
+      },
       hljs.QUOTE_STRING_MODE,
       {
         className: 'number',
@@ -390,12 +397,14 @@ function(hljs) {
           },
           {
             // float number w/out exponent
+            // Doesn't seem to recognize floats which start with '.'
             begin: '\\b(\\.\\d+|\\d+\\.\\d+)\\b',
             relevance: 0
           },
           {
             // integer in base up to 36
-            begin: '\\b(\\d+|0[0-9A-Za-z]+)\\b',
+            // Doesn't seem to recognize integers which end with '.'
+            begin: '\\b(\\d+|0[0-9A-Za-z]+)\\.?\\b',
             relevance: 1
           }
         ]
