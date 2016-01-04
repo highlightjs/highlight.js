@@ -5,7 +5,7 @@ Category: common, scripting
 
 function(hljs) {
   return {
-    aliases: ['js'],
+    aliases: ['js', 'jsx'],
     keywords: {
       keyword:
         'in of if for while finally var new function do return void else break catch ' +
