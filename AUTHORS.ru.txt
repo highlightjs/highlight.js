@@ -198,3 +198,4 @@ URL:   https://highlightjs.org/
 - Брэндан Рокс <rocks.brendan@gmail.com>
 - Рафаэль Ассенат <raph@raphnet.net>
 - Мэт Эванс <matt@aptech.com>
+- Мартин Браун <martin.braun@ettus.com>
