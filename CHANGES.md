@@ -5,10 +5,12 @@ New languages:
 - *Stan* by [Brendan Rocks][]
 - *BASIC* by [Raphaël Assénat][]
 - *GAUSS* by [Matt Evans][]
+- *DTS* by [Martin Braun][]
 
 [Brendan Rocks]: http://brendanrocks.com
 [Raphaël Assénat]: https://github.com/raphnet
 [Matt Evans]: https://github.com/matthewevans
+[Martin Braun]: https://github.com/mbr0wn
 
 ## Version 9.0.0
 
