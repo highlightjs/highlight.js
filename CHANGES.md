@@ -1,4 +1,4 @@
-## Version 9.1.0 [UNRELEASED]
+## Version 9.1.0
 
 New languages:
 
@@ -11,6 +11,15 @@ New languages:
 New Styles:
 
 - *Arduino Light* by [Stefania Mellai][]
+
+Improvements to existing languages and styles:
+
+- Handle return type annotations in Python
+- Allow shebang headers in Javascript
+- Support strings in Rust meta
+- Recognize `struct` as a class-level definition in Rust
+- Recognize b-prefixed chars and strings in Rust
+- Better numbers handling in Verilog
 
 [Brendan Rocks]: http://brendanrocks.com
 [Raphaël Assénat]: https://github.com/raphnet
