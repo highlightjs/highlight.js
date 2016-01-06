@@ -3,7 +3,7 @@
 var hljs   = require('../../build');
 var should = require('should');
 
-describe('.getLanguage', function() {
+describe('.getLanguage()', function() {
   it('should get an existing language', function() {
     var result = hljs.getLanguage('python');
 
