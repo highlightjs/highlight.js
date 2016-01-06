@@ -193,6 +193,7 @@ URL:   https://highlightjs.org/
 - Ян Кюле <jkuehle90@gmail.com>
 - Стефан Винерт <stwienert@gmail.com>
 - Никита Савченко <zitros.lab@gmail.com>
+- Стефания Мелай <s.mellai@arduino.cc>
 - Небулеон Фумика <nebuleon.fumika@gmail.com>
 - prince <MC.prince.0203@gmail.com>
 - Брэндан Рокс <rocks.brendan@gmail.com>

@@ -6,11 +6,17 @@ New languages:
 - *BASIC* by [Raphaël Assénat][]
 - *GAUSS* by [Matt Evans][]
 - *DTS* by [Martin Braun][]
+- *Arduino* by [Stefania Mellai][]
+
+New Styles:
+
+- *Arduino Light* by [Stefania Mellai][]
 
 [Brendan Rocks]: http://brendanrocks.com
 [Raphaël Assénat]: https://github.com/raphnet
 [Matt Evans]: https://github.com/matthewevans
 [Martin Braun]: https://github.com/mbr0wn
+[Stefania Mellai]: https://github.com/smellai
 
 ## Version 9.0.0
 
@@ -144,7 +150,7 @@ New languages:
 - *AutoIt* by Manh Tuan from [J2TeaM][]
 - *Toml* (ini extension) by [Guillaume Gomez][]
 
-New Styles:
+New styles:
 
 - *Hopscotch* by [Jan T. Sott][]
 - *Grayscale* by [MY Sun][]
@@ -186,7 +192,7 @@ New languages:
 - *armasm* by [Dan Panzarella][]
 - *TP* by [Jay Strybis][]
 
-New Styles:
+New styles:
 
 - *Atelier Cave*, *Atelier Estuary*,
   *Atelier Plateau* and *Atelier Savanna* by [Bram de Haan][]
@@ -223,7 +229,7 @@ New languages:
 - *Fortran* by [Anthony Scemama][] and [Thomas Applencourt][]
 - *Kotlin* by [Sergey Mashkov][]
 
-New Styles:
+New styles:
 
 - *Agate* by [Taufik Nurrohman][]
 - *Darkula* by [Jet Brains][]
