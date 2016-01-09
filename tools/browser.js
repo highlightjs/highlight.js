@@ -1,17 +1,17 @@
 'use strict';
 
-var _        = require('lodash');
-var bluebird = require('bluebird');
-var readFile = bluebird.promisify(require('fs').readFile);
-var path     = require('path');
+let _        = require('lodash');
+let bluebird = require('bluebird');
+let readFile = bluebird.promisify(require('fs').readFile);
+let path     = require('path');
 
-var registry = require('./tasks');
-var utility  = require('./utility');
+let registry = require('./tasks');
+let utility  = require('./utility');
 
-var directory;
+let directory;
 
 function templateAllFunc(blobs) {
-  var name = path.join('demo', 'index.html');
+  let name = path.join('demo', 'index.html');
 
   blobs = _.compact(blobs);
 
@@ -23,7 +23,7 @@ function templateAllFunc(blobs) {
 }
 
 function copyDocs() {
-  var input  = path.join(directory.root, 'docs', '*.rst'),
+  let input  = path.join(directory.root, 'docs', '*.rst'),
       output = path.join(directory.build, 'docs');
 
   return {
@@ -35,7 +35,7 @@ function copyDocs() {
 }
 
 function generateDemo(filterCB, readArgs) {
-  var staticArgs   = utility.glob(path.join('demo', '*.{js,css}')),
+  let staticArgs   = utility.glob(path.join('demo', '*.{js,css}')),
       stylesArgs   = utility.glob(path.join('src', 'styles', '*'), 'binary'),
       demoRoot     = path.join(directory.build, 'demo'),
       templateArgs = { callback: templateAllFunc },
@@ -67,7 +67,7 @@ function generateDemo(filterCB, readArgs) {
 module.exports = function(commander, dir) {
   directory = dir;
 
-  var hljsExt, output, requiresTask, tasks,
+  let hljsExt, output, requiresTask, tasks,
       replace           = utility.replace,
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
