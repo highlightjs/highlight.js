@@ -1,15 +1,15 @@
 'use strict';
 
-var path = require('path');
+let path = require('path');
 
-var browserBuild = require('./browser');
-var registry     = require('./tasks');
-var utility      = require('./utility');
+let browserBuild = require('./browser');
+let registry     = require('./tasks');
+let utility      = require('./utility');
 
-var directory;
+let directory;
 
 function moveLanguages() {
-  var input   = path.join(directory.root, 'src', 'languages', '*.js'),
+  let input   = path.join(directory.root, 'src', 'languages', '*.js'),
       output  = path.join(directory.build, 'languages'),
       regex   = utility.regex,
       replace = utility.replace,
@@ -51,7 +51,7 @@ function moveLanguages() {
 }
 
 function moveStyles() {
-  var css     = path.join(directory.root, 'src', 'styles', '*.css'),
+  let css     = path.join(directory.root, 'src', 'styles', '*.css'),
       images  = path.join(directory.root, 'src', 'styles', '*.{jpg,png}'),
       output  = path.join(directory.build, 'styles'),
       options = { dir: output, encoding: 'binary' };
