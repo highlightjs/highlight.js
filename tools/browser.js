@@ -11,7 +11,7 @@ let utility  = require('./utility');
 let directory;
 
 function templateAllFunc(blobs) {
-  let name = path.join('demo', 'index.html');
+  const name = path.join('demo', 'index.html');
 
   blobs = _.compact(blobs);
 
@@ -23,8 +23,8 @@ function templateAllFunc(blobs) {
 }
 
 function copyDocs() {
-  let input  = path.join(directory.root, 'docs', '*.rst'),
-      output = path.join(directory.build, 'docs');
+  const input  = path.join(directory.root, 'docs', '*.rst'),
+        output = path.join(directory.build, 'docs');
 
   return {
     startLog: { task: ['log', 'Copying documentation.'] },
