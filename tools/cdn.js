@@ -51,10 +51,10 @@ function moveLanguages() {
 }
 
 function moveStyles() {
-  let css     = path.join(directory.root, 'src', 'styles', '*.css'),
-      images  = path.join(directory.root, 'src', 'styles', '*.{jpg,png}'),
-      output  = path.join(directory.build, 'styles'),
-      options = { dir: output, encoding: 'binary' };
+  const css     = path.join(directory.root, 'src', 'styles', '*.css'),
+        images  = path.join(directory.root, 'src', 'styles', '*.{jpg,png}'),
+        output  = path.join(directory.build, 'styles'),
+        options = { dir: output, encoding: 'binary' };
 
   return {
     startLog: { task: ['log', 'Building style files.'] },
