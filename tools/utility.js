@@ -7,11 +7,10 @@ let path     = require('path');
 
 let Queue = require('gear').Queue;
 
-let REPLACES,
-    regex       = {},
+let regex       = {},
     headerRegex = /^\s*\/\*((.|\r?\n)*?)\*/;
 
-REPLACES = {
+const REPLACES = {
   'case_insensitive': 'cI',
   'lexemes': 'l',
   'contains': 'c',
@@ -121,9 +120,9 @@ function filterByQualifiers(blob, languages, categories) {
 // For the filter task in `tools/tasks.js`, this function will look for
 // categories and languages specificed from the CLI.
 function buildFilterCallback(qualifiers) {
-  let result     = _.partition(qualifiers, { 0: ':' }),
-      languages  = result[1],
-      categories = _.map(result[0], category => category.slice(1));
+  const result     = _.partition(qualifiers, { 0: ':' }),
+        languages  = result[1],
+        categories = _.map(result[0], category => category.slice(1));
 
   return blob => filterByQualifiers(blob, languages, categories);
 }
