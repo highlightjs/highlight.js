@@ -13,7 +13,7 @@ let directory, filterCB,
     header    = utility.regex.header;
 
 function templateAllFunc(blobs) {
-  let names = _.map(blobs, blob => path.basename(blob.name, '.js'));
+  const names = _.map(blobs, blob => path.basename(blob.name, '.js'));
 
   return bluebird.resolve({ names: names });
 }
@@ -40,8 +40,8 @@ function buildLanguages() {
 }
 
 function buildCore() {
-  let input  = path.join(directory.root, 'src', 'highlight.js'),
-      output = path.join(directory.build, 'lib');
+  const input  = path.join(directory.root, 'src', 'highlight.js'),
+        output = path.join(directory.build, 'lib');
 
   return {
     startLog: { task: ['log', 'Building core file.'] },
@@ -109,8 +109,8 @@ function buildStyles() {
 }
 
 function buildPackageFile() {
-  let input  = path.join(directory.root, 'AUTHORS.en.txt'),
-      output = path.join(directory.build, 'package.json');
+  const input  = path.join(directory.root, 'AUTHORS.en.txt'),
+        output = path.join(directory.build, 'package.json');
 
   return {
     startLog: { task: ['log', 'Building package.json file.'] },
