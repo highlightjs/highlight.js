@@ -200,3 +200,4 @@ URL:   https://highlightjs.org/
 - Рафаэль Ассенат <raph@raphnet.net>
 - Мэт Эванс <matt@aptech.com>
 - Мартин Браун <martin.braun@ettus.com>
+- Боря черный <boris@performancejs.com>
