@@ -1,12 +1,12 @@
 'use strict';
 
-var hljs   = require('../../build');
-var should = require('should');
+let hljs   = require('../../build');
+let should = require('should');
+
 describe('.highlight()', function() {
   it('should works without continuation', function() {
-    var code = "public void moveTo(int x, int y, int z);";
-
-    var result = hljs.highlight('java', code, false, false);
+    const code   = "public void moveTo(int x, int y, int z);";
+    const result = hljs.highlight('java', code, false, false);
 
     result.value.should.equal(
       '<span class="hljs-function"><span class="hljs-keyword">public</span> ' +

@@ -1,20 +1,20 @@
 'use strict';
 
-var _        = require('lodash');
-var bluebird = require('bluebird');
-var hljs     = require('../../build');
-var jsdomEnv = bluebird.promisify(require('jsdom').env);
-var readFile = bluebird.promisify(require('fs').readFile);
-var utility  = require('../utility');
+let _        = require('lodash');
+let bluebird = require('bluebird');
+let hljs     = require('../../build');
+let jsdomEnv = bluebird.promisify(require('jsdom').env);
+let readFile = bluebird.promisify(require('fs').readFile);
+let utility  = require('../utility');
 
 describe('special cases tests', function() {
   before(function() {
-    var filename = utility.buildPath('fixtures', 'index.html');
+    const filename = utility.buildPath('fixtures', 'index.html');
 
     return readFile(filename, 'utf-8')
       .then(page => jsdomEnv(page))
       .then(window => {
-        var blocks;
+        let blocks;
 
         // Allows hljs to use document
         global.document = window.document;

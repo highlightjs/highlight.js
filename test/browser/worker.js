@@ -1,14 +1,14 @@
 'use strict';
 
-var bluebird = require('bluebird');
-var Worker   = require('tiny-worker');
-var utility  = require('../utility');
-var glob     = bluebird.promisify(require('glob'));
+let bluebird = require('bluebird');
+let Worker   = require('tiny-worker');
+let utility  = require('../utility');
+let glob     = bluebird.promisify(require('glob'));
 
 describe('web worker', function() {
   before(function(done) {
     // Will match both `highlight.pack.js` and `highlight.min.js`
-    var filepath = utility.buildPath('..', 'build', 'highlight.*.js');
+    const filepath = utility.buildPath('..', 'build', 'highlight.*.js');
 
     return glob(filepath).then(hljsPath => {
       this.worker = new Worker(function() {
@@ -34,7 +34,7 @@ describe('web worker', function() {
 
   it('should highlight text', function(done) {
     this.worker.onmessage = event => {
-      var actual = event.data;
+      const actual = event.data;
 
       actual.should.equal(this.expect);
 
