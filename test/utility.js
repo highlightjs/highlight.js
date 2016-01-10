@@ -7,8 +7,8 @@ let path     = require('path');
 
 // Build a path relative to `test/`
 exports.buildPath = function() {
-  let args  = _.slice(arguments, 0),
-      paths = [__dirname].concat(args);
+  const args  = _.slice(arguments, 0),
+        paths = [__dirname].concat(args);
 
   return path.join.apply(this, paths);
 };
