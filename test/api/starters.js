@@ -1,12 +1,12 @@
 'use strict';
 
-var hljs = require('../../build');
+let hljs = require('../../build');
 
-var pattern = new RegExp(`^${hljs.RE_STARTERS_RE}$`);
+let pattern = new RegExp(`^${hljs.RE_STARTERS_RE}$`);
 
 describe('.RE_STARTERS_RE', function() {
   it('should match boolean operators', function() {
-    var operators = [ '!', '!=', '!==', '==', '===',  '<=', '>='
+    let operators = [ '!', '!=', '!==', '==', '===',  '<=', '>='
                     , '<', '>', '||', '&&', '?'
                     ];
 
@@ -14,7 +14,7 @@ describe('.RE_STARTERS_RE', function() {
   });
 
   it('should match arithmetic operators', function() {
-    var operators = [ '*', '*=', '+', '+=', '-', '-=', '/', '/='
+    let operators = [ '*', '*=', '+', '+=', '-', '-=', '/', '/='
                     , '%', '%='
                     ];
 
@@ -22,7 +22,7 @@ describe('.RE_STARTERS_RE', function() {
   });
 
   it('should match binary operators', function() {
-    var operators = [ '&', '&=', '|', '|=', '<<', '<<=', '>>', '>>='
+    let operators = [ '&', '&=', '|', '|=', '<<', '<<=', '>>', '>>='
                     , '>>>', '>>>=', '^', '^=', '~'
                     ];
 
@@ -30,7 +30,7 @@ describe('.RE_STARTERS_RE', function() {
   });
 
   it('should match miscellaneous operators', function() {
-    var operators = [',', '=', ':', ';', '[', '{', '('];
+    let operators = [',', '=', ':', ';', '[', '{', '('];
 
     operators.should.matchEach(pattern);
   });
