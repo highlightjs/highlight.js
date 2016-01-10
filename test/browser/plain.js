@@ -8,7 +8,7 @@ let glob     = bluebird.promisify(require('glob'));
 describe('plain browser', function() {
   before(function() {
     // Will match both `highlight.pack.js` and `highlight.min.js`
-    let filepath = utility.buildPath('..', 'build', 'highlight.*.js');
+    const filepath = utility.buildPath('..', 'build', 'highlight.*.js');
 
     return glob(filepath)
       .then(hljsPath => jsdomEnv(this.html, hljsPath))
@@ -21,7 +21,7 @@ describe('plain browser', function() {
   it('should highlight block', function() {
     this.hljs.highlightBlock(this.block);
 
-    let actual = this.block.innerHTML;
+    const actual = this.block.innerHTML;
 
     actual.should.equal(this.expect);
   });

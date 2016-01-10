@@ -8,7 +8,7 @@ let glob     = bluebird.promisify(require('glob'));
 describe('web worker', function() {
   before(function(done) {
     // Will match both `highlight.pack.js` and `highlight.min.js`
-    let filepath = utility.buildPath('..', 'build', 'highlight.*.js');
+    const filepath = utility.buildPath('..', 'build', 'highlight.*.js');
 
     return glob(filepath).then(hljsPath => {
       this.worker = new Worker(function() {
@@ -34,7 +34,7 @@ describe('web worker', function() {
 
   it('should highlight text', function(done) {
     this.worker.onmessage = event => {
-      let actual = event.data;
+      const actual = event.data;
 
       actual.should.equal(this.expect);
 
