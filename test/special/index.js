@@ -9,7 +9,7 @@ let utility  = require('../utility');
 
 describe('special cases tests', function() {
   before(function() {
-    let filename = utility.buildPath('fixtures', 'index.html');
+    const filename = utility.buildPath('fixtures', 'index.html');
 
     return readFile(filename, 'utf-8')
       .then(page => jsdomEnv(page))
