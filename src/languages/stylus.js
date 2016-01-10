@@ -331,13 +331,12 @@ function(hljs) {
 
   // illegals
   var ILLEGAL = [
-    '\\{',
-    '\\}',
     '\\?',
     '(\\bReturn\\b)', // monkey
     '(\\bEnd\\b)', // monkey
     '(\\bend\\b)', // vbscript
-    ';', // sql
+    '(\\bdef\\b)', // gradle
+    ';', // a whole lot of languages
     '#\\s', // markdown
     '\\*\\s', // markdown
     '===\\s', // markdown
@@ -348,8 +347,8 @@ function(hljs) {
   return {
     aliases: ['styl'],
     case_insensitive: false,
-    illegal: '(' + ILLEGAL.join('|') + ')',
     keywords: 'if else for in',
+    illegal: '(' + ILLEGAL.join('|') + ')',
     contains: [
 
       // strings
@@ -439,7 +438,22 @@ function(hljs) {
       //  - must have whitespace after it
       {
         className: 'attribute',
-        begin: '\\b(' + ATTRIBUTES.reverse().join('|') + ')\\b'
+        begin: '\\b(' + ATTRIBUTES.reverse().join('|') + ')\\b',
+        starts: {
+          // value container
+          end: /;|$/,
+          contains: [
+            HEX_COLOR,
+            VARIABLE,
+            hljs.APOS_STRING_MODE,
+            hljs.QUOTE_STRING_MODE,
+            hljs.CSS_NUMBER_MODE,
+            hljs.NUMBER_MODE,
+            hljs.C_BLOCK_COMMENT_MODE
+          ],
+          illegal: /\./,
+          relevance: 0
+        }
       }
     ]
   };
