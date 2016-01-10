@@ -1,6 +1,6 @@
 'use strict';
 
-var utility = require('../utility');
+let utility = require('../utility');
 
 describe('sub-languages', function() {
   before(function() {
@@ -8,7 +8,7 @@ describe('sub-languages', function() {
   });
 
   it('should highlight XML with PHP and JavaScript', function() {
-    var filename = utility.buildPath('fixtures', 'expect',
+    let filename = utility.buildPath('fixtures', 'expect',
                                      'sublanguages.txt'),
         actual   = this.block.innerHTML;
 
