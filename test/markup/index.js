@@ -10,19 +10,19 @@ let utility  = require('../utility');
 
 function testLanguage(language) {
   describe(language, function() {
-    let filePath  = utility.buildPath('markup', language, '*.expect.txt'),
-        filenames = glob.sync(filePath);
+    const filePath  = utility.buildPath('markup', language, '*.expect.txt'),
+          filenames = glob.sync(filePath);
 
     _.each(filenames, function(filename) {
-      let testName   = path.basename(filename, '.expect.txt'),
-          sourceName = filename.replace(/\.expect/, '');
+      const testName   = path.basename(filename, '.expect.txt'),
+            sourceName = filename.replace(/\.expect/, '');
 
       it(`should markup ${testName}`, function(done) {
-        let sourceFile   = fs.readFileAsync(sourceName, 'utf-8'),
-            expectedFile = fs.readFileAsync(filename, 'utf-8');
+        const sourceFile   = fs.readFileAsync(sourceName, 'utf-8'),
+              expectedFile = fs.readFileAsync(filename, 'utf-8');
 
         bluebird.join(sourceFile, expectedFile, function(source, expected) {
-          let actual = hljs.highlight(language, source).value;
+          const actual = hljs.highlight(language, source).value;
 
           actual.trim().should.equal(expected.trim());
           done();
