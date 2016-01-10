@@ -7,7 +7,7 @@ let path     = require('path');
 let utility  = require('../utility');
 
 function testAutoDetection(language) {
-  let languagePath = utility.buildPath('detect', language);
+  const languagePath = utility.buildPath('detect', language);
 
   it(`should have test for ${language}`, function() {
     return fs.statAsync(languagePath)
@@ -17,13 +17,13 @@ function testAutoDetection(language) {
   it(`should be detected as ${language}`, function() {
     return fs.readdirAsync(languagePath)
       .map(function(example) {
-        let filename = path.join(languagePath, example);
+        const filename = path.join(languagePath, example);
 
         return fs.readFileAsync(filename, 'utf-8');
       })
       .each(function(content) {
-        let expected = language,
-            actual   = hljs.highlightAuto(content).language;
+        const expected = language,
+              actual   = hljs.highlightAuto(content).language;
 
         actual.should.equal(expected);
       });
@@ -31,7 +31,7 @@ function testAutoDetection(language) {
 }
 
 describe('hljs.highlightAuto()', function() {
-  let languages = hljs.listLanguages();
+  const languages = hljs.listLanguages();
 
   languages.forEach(testAutoDetection);
 });
