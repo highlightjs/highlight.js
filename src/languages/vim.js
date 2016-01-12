@@ -63,6 +63,10 @@ function(hljs) {
             begin: '\\(', end: '\\)'
           }
         ]
+      },
+      {
+        className: 'symbol',
+        begin: /<[\w-]+>/
       }
     ]
   };
