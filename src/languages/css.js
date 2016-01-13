@@ -15,21 +15,18 @@ function(hljs) {
           endsWithParent: true, excludeEnd: true,
           contains: [
             {
-              begin: /[\d\w-]*\(/, end: /\)/, className: 'function',
-              contains: [
-                {
-                  className: 'string',
-                  begin: /[\s\w-\/=:;,"'\.]+/,
-                  relevance: -1
-                }
-              ]
-            },
-            {
-              begin: /[\w-]+\s*/, returnBegin: true,
+              begin: /[\w-]+\(/, returnBegin: true,
               contains: [
                 {
                   className: 'built_in',
                   begin: /[\w-]+/
+                },
+                {
+                  begin: /\(/, end: /\)/,
+                  contains: [
+                    hljs.APOS_STRING_MODE,
+                    hljs.QUOTE_STRING_MODE
+                  ]
                 }
               ]
             },
