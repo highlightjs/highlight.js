@@ -84,8 +84,10 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'type', end: '(=|<)',
-        contains: [hljs.UNDERSCORE_TITLE_MODE],
+        beginKeywords: 'type', end: ';',
+        contains: [
+          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {endsParent: true})
+        ],
         illegal: '\\S'
       },
       {
