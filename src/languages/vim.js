@@ -43,11 +43,23 @@ function(hljs) {
     contains: [
       hljs.NUMBER_MODE,
       hljs.APOS_STRING_MODE,
+
+      /*
+      A double quote can start either a string or a line comment. Strings are
+      ended before the end of a line by another double quote and can contain
+      escaped double-quotes and post-escaped line breaks.
+
+      Also, any double quote at the beginning of a line is a comment but we
+      don't handle that properly at the moment: any double quote inside will
+      turn them into a string. Handling it properly will require a smarter
+      parser.
+      */
       {
         className: 'string',
-        // quote with escape, comment as quote
-        begin: /"((\\")|[^"\n])*("|\n)/
+        begin: /"(\\"|\n\\|[^"\n])*"/
       },
+      hljs.COMMENT('"', '$'),
+
       {
         className: 'variable',
         begin: /[bwtglsav]:[\w\d_]*/
