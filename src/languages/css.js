@@ -15,7 +15,17 @@ function(hljs) {
           endsWithParent: true, excludeEnd: true,
           contains: [
             {
-              begin: /[\w-]+\s*\(/, returnBegin: true,
+              begin: /[\d\w-]*\(/, end: /\)/, className: 'function',
+              contains: [
+                {
+                  className: 'string',
+                  begin: /[\s\w-\/=:;,"'\.]+/,
+                  relevance: -1
+                }
+              ]
+            },
+            {
+              begin: /[\w-]+\s*/, returnBegin: true,
               contains: [
                 {
                   className: 'built_in',

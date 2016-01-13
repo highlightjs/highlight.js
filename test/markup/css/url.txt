@@ -1,0 +1,6 @@
+div { background: url("foo/bar/baz.jpg") }
+div { background: url('foo/bar/baz.jpg') }
+div { background: url(foo/bar/baz.jpg) }
+div { background-image: url(data:image/png;base64,TWFuIGlzIGRpc3=) }
+div { background-image: url("data:image/png;base64,TWFuIGlzIGRpc3=") }
+div { background-image: url('data:image/png;base64,TWFuIGlzIGRpc3=') }
