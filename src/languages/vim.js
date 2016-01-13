@@ -30,14 +30,41 @@ function(hljs) {
         'startinsert stopinsert stjump stselect sunhide sunmap sunmenu suspend sview swapname syntax syntime syncbind tNext tabNext tabclose tabedit tabfind tabfirst tablast tabmove tabnext tabonly tabprevious tabrewind tag tcl tcldo tclfile tearoff tfirst throw tjump tlast tmenu tnext topleft tprevious '+'trewind tselect tunmenu undo undojoin undolist unabbreviate unhide unlet unlockvar unmap unmenu unsilent update vglobal version verbose vertical vimgrep vimgrepadd visual viusage view vmap vmapclear vmenu vnew '+
         'vnoremap vnoremenu vsplit vunmap vunmenu write wNext wall while winsize wincmd winpos wnext wprevious wqall wsverb wundo wviminfo xit xall xmapclear xmap xmenu xnoremap xnoremenu xunmap xunmenu yank',
       built_in: //built in func
-        'abs acos add and append argc argidx argv asin atan atan2 browse browsedir bufexists buflisted bufloaded bufname bufnr bufwinnr byte2line byteidx call ceil changenr char2nr cindent clearmatches col complete complete_add complete_check confirm copy cos cosh count cscope_connection cursor '+
-        'deepcopy delete did_filetype diff_filler diff_hlID empty escape eval eventhandler executable exists exp expand extend feedkeys filereadable filewritable filter finddir findfile float2nr floor fmod fnameescape fnamemodify foldclosed foldclosedend foldlevel foldtext foldtextresult foreground function '+
-        'garbagecollect get getbufline getbufvar getchar getcharmod getcmdline getcmdpos getcmdtype getcwd getfontname getfperm getfsize getftime getftype getline getloclist getmatches getpid getpos getqflist getreg getregtype gettabvar gettabwinvar getwinposx getwinposy getwinvar glob globpath has has_key '+
-        'haslocaldir hasmapto histadd histdel histget histnr hlexists hlID hostname iconv indent index input inputdialog inputlist inputrestore inputsave inputsecret insert invert isdirectory islocked items join keys len libcall libcallnr line line2byte lispindent localtime log log10 luaeval map maparg mapcheck '+
-        'match matchadd matcharg matchdelete matchend matchlist matchstr max min mkdir mode mzeval nextnonblank nr2char or pathshorten pow prevnonblank printf pumvisible py3eval pyeval range readfile reltime reltimestr remote_expr remote_foreground remote_peek remote_read remote_send remove rename repeat '+
-        'resolve reverse round screenattr screenchar screencol screenrow search searchdecl searchpair searchpairpos searchpos server2client serverlist setbufvar setcmdpos setline setloclist setmatches setpos setqflist setreg settabvar settabwinvar setwinvar sha256 shellescape shiftwidth simplify sin '+
-        'sinh sort soundfold spellbadword spellsuggest split sqrt str2float str2nr strchars strdisplaywidth strftime stridx string strlen strpart strridx strtrans strwidth submatch substitute synconcealed synID synIDattr '+
-        'synIDtrans synstack system tabpagebuflist tabpagenr tabpagewinnr tagfiles taglist tan tanh tempname tolower toupper tr trunc type undofile undotree values virtcol visualmode wildmenumode winbufnr wincol winheight winline winnr winrestcmd winrestview winsaveview winwidth writefile xor'
+        'synIDtrans atan2 range matcharg did_filetype asin feedkeys xor argv ' +
+        'complete_check add getwinposx getqflist getwinposy screencol ' +
+        'clearmatches empty extend getcmdpos mzeval garbagecollect setreg ' +
+        'ceil sqrt diff_hlID inputsecret get getfperm getpid filewritable ' +
+        'shiftwidth max sinh isdirectory synID system inputrestore winline ' +
+        'atan visualmode inputlist tabpagewinnr round getregtype mapcheck ' +
+        'hasmapto histdel argidx findfile sha256 exists toupper getcmdline ' +
+        'taglist string getmatches bufnr strftime winwidth bufexists ' +
+        'strtrans tabpagebuflist setcmdpos remote_read printf setloclist ' +
+        'getpos getline bufwinnr float2nr len getcmdtype diff_filler luaeval ' +
+        'resolve libcallnr foldclosedend reverse filter has_key bufname ' +
+        'str2float strlen setline getcharmod setbufvar index searchpos ' +
+        'shellescape undofile foldclosed setqflist buflisted strchars str2nr ' +
+        'virtcol floor remove undotree remote_expr winheight gettabwinvar ' +
+        'reltime cursor tabpagenr finddir localtime acos getloclist search ' +
+        'tanh matchend rename gettabvar strdisplaywidth type abs py3eval ' +
+        'setwinvar tolower wildmenumode log10 spellsuggest bufloaded ' +
+        'synconcealed nextnonblank server2client complete settabwinvar ' +
+        'executable input wincol setmatches getftype hlID inputsave ' +
+        'searchpair or screenrow line settabvar histadd deepcopy strpart ' +
+        'remote_peek and eval getftime submatch screenchar winsaveview ' +
+        'matchadd mkdir screenattr getfontname libcall reltimestr getfsize ' +
+        'winnr invert pow getbufline byte2line soundfold repeat fnameescape ' +
+        'tagfiles sin strwidth spellbadword trunc maparg log lispindent ' +
+        'hostname setpos globpath remote_foreground getchar synIDattr ' +
+        'fnamemodify cscope_connection stridx winbufnr indent min ' +
+        'complete_add nr2char searchpairpos inputdialog values matchlist ' +
+        'items hlexists strridx browsedir expand fmod pathshorten line2byte ' +
+        'argc count getwinvar glob foldtextresult getreg foreground cosh ' +
+        'matchdelete has char2nr simplify histget searchdecl iconv ' +
+        'winrestcmd pumvisible writefile foldlevel haslocaldir keys cos ' +
+        'matchstr foldtext histnr tan tempname getcwd byteidx getbufvar ' +
+        'islocked escape eventhandler remote_send serverlist winrestview ' +
+        'synstack pyeval prevnonblank readfile cindent filereadable changenr ' +
+        'exp'
     },
     illegal: /[{:]/,
     contains: [
