@@ -68,6 +68,10 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   color: #2B6EA1;
 }
 
+.hljs-meta-string {
+  color: #6CA8D6;
+}
+
 .hljs-emphasis {
   font-style: italic;
 }
