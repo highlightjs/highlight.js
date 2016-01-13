@@ -190,6 +190,14 @@ URL:   https://highlightjs.org/
 - Сорен Эневолдсен <senevoldsen90@gmail.com>
 - Даниэль Розенвассен <DanielRosenwasser@users.noreply.github.com>
 - Ладислав Пршкавеч <ladislav@prskavec.net>
-- Ян Кюхле <jkuehle90@gmail.com>
-- Стефан Вайнерт <stwienert@gmail.com>
+- Ян Кюле <jkuehle90@gmail.com>
+- Стефан Винерт <stwienert@gmail.com>
 - Никита Савченко <zitros.lab@gmail.com>
+- Стефания Мелай <s.mellai@arduino.cc>
+- Небулеон Фумика <nebuleon.fumika@gmail.com>
+- prince <MC.prince.0203@gmail.com>
+- Брэндан Рокс <rocks.brendan@gmail.com>
+- Рафаэль Ассенат <raph@raphnet.net>
+- Мэт Эванс <matt@aptech.com>
+- Мартин Браун <martin.braun@ettus.com>
+- Боря Черный <boris@performancejs.com>

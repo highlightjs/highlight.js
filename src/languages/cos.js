@@ -1,7 +1,7 @@
 /*
 Language: Caché Object Script
 Author: Nikita Savchenko <zitros.lab@gmail.com>
-Category: common
+Category: enterprise, scripting
 */
 function cos (hljs) {
 
@@ -25,12 +25,11 @@ function cos (hljs) {
     relevance: 0
   };
 
-  var METHOD_TITLE = hljs.IDENT_RE + "\\s*\\(";
-
   var COS_KEYWORDS = {
     keyword: [
 
-      "break", "catch", "close", "continue", "do", "d", "else",
+      "property", "parameter", "class", "classmethod", "clientmethod", "extends",
+      "as", "break", "catch", "close", "continue", "do", "d", "else",
       "elseif", "for", "goto", "halt", "hang", "h", "if", "job",
       "j", "kill", "k", "lock", "l", "merge", "new", "open", "quit",
       "q", "read", "r", "return", "set", "s", "tcommit", "throw",
@@ -89,26 +88,30 @@ function cos (hljs) {
       STRINGS,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      { // functions
-        className: "built_in",
-        begin: /\$\$?[a-zA-Z]+/
+      {
+        className: "comment",
+        begin: /;/, end: "$",
+        relevance: 0
       },
-      { // macro
-        className: "keyword",
+      { // Functions and user-defined functions: write $ztime(60*60*3), $$myFunc(10), $$^Val(1)
+        className: "built_in",
+        begin: /(?:\$\$?|\.\.)\^?[a-zA-Z]+/
+      },
+      { // Macro command: quit $$$OK
+        className: "built_in",
         begin: /\$\$\$[a-zA-Z]+/
       },
-      { // globals
-        className: "title",
+      { // Special (global) variables: write %request.Content; Built-in classes: %Library.Integer
+        className: "built_in",
+        begin: /%[a-z]+(?:\.[a-z]+)*/
+      },
+      { // Global variable: set ^globalName = 12 write ^globalName
+        className: "symbol",
         begin: /\^%?[a-zA-Z][\w]*/
       },
-      { // static class reference constructions
-        begin: /##class\(/, end: /\)/,
-        contains: [
-          {
-            className: "built_in",
-            begin: /%?[a-zA-Z][\w\.]+/
-          }
-        ],
+      { // Some control constructions: do ##class(Package.ClassName).Method(), ##super()
+        className: "keyword",
+        begin: /##class|##super|#define|#dim/
       },
 
       // sub-languages: are not fully supported by hljs by 11/15/2015
@@ -120,13 +123,13 @@ function cos (hljs) {
       },
       {
         begin: /&(js|jscript|javascript)</, end: />/,
-        excludeBegin: true,                 excludeEnd: true,
+        excludeBegin: true, excludeEnd: true,
         subLanguage: "javascript"
       },
       {
-        begin: /&html<\s*</, end: />\s*>/, // brakes first tag, but the only way to embed valid html
-        //excludeBegin: true, excludeEnd: true,
-        subLanguage: "xml" // no html?
+        // this brakes first and last tag, but this is the only way to embed a valid html
+        begin: /&html<\s*</, end: />\s*>/,
+        subLanguage: "xml"
       }
     ]
   };

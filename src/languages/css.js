@@ -14,6 +14,22 @@ function(hljs) {
         starts: {
           endsWithParent: true, excludeEnd: true,
           contains: [
+            {
+              begin: /[\w-]+\(/, returnBegin: true,
+              contains: [
+                {
+                  className: 'built_in',
+                  begin: /[\w-]+/
+                },
+                {
+                  begin: /\(/, end: /\)/,
+                  contains: [
+                    hljs.APOS_STRING_MODE,
+                    hljs.QUOTE_STRING_MODE
+                  ]
+                }
+              ]
+            },
             hljs.CSS_NUMBER_MODE,
             hljs.QUOTE_STRING_MODE,
             hljs.APOS_STRING_MODE,
@@ -47,8 +63,8 @@ function(hljs) {
         illegal: '$'
       },
       {
-        // pseudo element
-        begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)"']+/
+        className: 'selector-pseudo',
+        begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)"'.]+/
       },
       {
         begin: '@(font-face|page)',

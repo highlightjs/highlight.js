@@ -1644,7 +1644,7 @@ function(hljs) {
             className: 'meta',
             begin: '#',
             end: '$',
-            keywords: 'include include-once NoTrayIcon OnAutoItStartRegister RequireAdmin pragma ' +
+            keywords: {'meta-keyword': 'include include-once NoTrayIcon OnAutoItStartRegister RequireAdmin pragma ' +
                 'Au3Stripper_Ignore_Funcs Au3Stripper_Ignore_Variables ' +
                 'Au3Stripper_Off Au3Stripper_On Au3Stripper_Parameters ' +
                 'AutoIt3Wrapper_Add_Constants AutoIt3Wrapper_Au3Check_Parameters ' +
@@ -1674,16 +1674,17 @@ function(hljs) {
                 'AutoIt3Wrapper_UPX_Parameters AutoIt3Wrapper_UseUPX ' +
                 'AutoIt3Wrapper_UseX64 AutoIt3Wrapper_Version ' +
                 'AutoIt3Wrapper_Versioning AutoIt3Wrapper_Versioning_Parameters ' +
-                'Tidy_Off Tidy_On Tidy_Parameters EndRegion Region',
+                'Tidy_Off Tidy_On Tidy_Parameters EndRegion Region'},
             contains: [{
                     begin: /\\\n/,
                     relevance: 0
                 }, {
                     beginKeywords: 'include',
+                    keywords: {'meta-keyword': 'include'},
                     end: '$',
                     contains: [
                         STRING, {
-                            className: 'string',
+                            className: 'meta-string',
                             variants: [{
                                 begin: '<',
                                 end: '>'

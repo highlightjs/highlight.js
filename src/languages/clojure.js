@@ -7,7 +7,7 @@ Category: lisp
 
 function(hljs) {
   var keywords = {
-    built_in:
+    'builtin-name':
       // Clojure keywords
       'def defonce cond apply if-not if-let if not not= = < > <= >= == + / * - rem '+
       'quot neg? pos? delay? symbol? keyword? true? false? integer? empty? coll? list? '+

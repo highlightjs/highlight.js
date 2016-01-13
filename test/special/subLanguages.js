@@ -1,16 +1,17 @@
 'use strict';
 
-var utility = require('../utility');
+let utility = require('../utility');
 
 describe('sub-languages', function() {
   before(function() {
     this.block = document.querySelector('#sublanguages');
   });
 
-  it('should highlight XML with PHP and JavaScript', function(done) {
-    var filename = utility.buildPath('fixtures', 'expect', 'sublanguages.txt'),
-        actual   = this.block.innerHTML;
+  it('should highlight XML with PHP and JavaScript', function() {
+    const filename = utility.buildPath('fixtures', 'expect',
+                                     'sublanguages.txt'),
+          actual   = this.block.innerHTML;
 
-    utility.expectedFile(filename, 'utf-8', actual, done);
+    return utility.expectedFile(filename, 'utf-8', actual);
   });
 });

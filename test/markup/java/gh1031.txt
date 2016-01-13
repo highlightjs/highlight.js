@@ -1,0 +1,7 @@
+public class DefaultDataDaoImpl {
+  private List<AbstractCmrDataProcessor> cmrDataProcessors;
+}
+
+public class DefaultDataDaoImpl {
+  private List<AbstractCmrDataProcessor, AbstractCmrDataProcessor> cmrDataProcessors;
+}

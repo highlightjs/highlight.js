@@ -55,7 +55,8 @@
 .hljs-section,
 .hljs-attribute,
 .hljs-quote,
-.hljs-built_in {
+.hljs-built_in,
+.hljs-builtin-name {
   color: #ffa;
 }
 

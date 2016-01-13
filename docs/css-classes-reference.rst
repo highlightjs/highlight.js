@@ -5,61 +5,95 @@ CSS classes reference
 Stylable classes
 ----------------
 
++------------------------------------------------------------------------------+
+| **General-purpose**                                                          |
 +--------------------------+---------------------------------------------------+
-| addition                 | Added or changed line in a diff                   |
+| keyword                  | keyword in a regular Algol-style language         |
 +--------------------------+---------------------------------------------------+
-| attr                     | Name of an attribute with no language defined     |
-|                          | semantics: keys in JSON, setting names in .Ini.   |
-|                          | Also sub-attribute within another highlighted     |
-|                          | object, like XML tag.                             |
-+--------------------------+---------------------------------------------------+
-| attribute                | Name of an attribute followed by a structured     |
-|                          | value part, like CSS properties.                  |
-+--------------------------+---------------------------------------------------+
-| built_in                 | Built-in or library object (constant, class,      |
+| built_in                 | built-in or library object (constant, class,      |
 |                          | function)                                         |
 +--------------------------+---------------------------------------------------+
-| bullet                   | List item bullet in text markup                   |
+| type                     | type name used in a function signature, type      |
+|                          | parameter, generic template, etc                  |
 +--------------------------+---------------------------------------------------+
-| class                    | Class or class-level declaration (interfaces,     |
-|                          | traits, modules, etc.)                            |
+| literal                  | special identifier for a built-in value ("true",  |
+|                          | "false", "null")                                  |
 +--------------------------+---------------------------------------------------+
-| code                     | Code block in text markup                         |
+| number                   | number, including units and modifiers, if any.    |
 +--------------------------+---------------------------------------------------+
-| deletion                 | Deleted line in a diff                            |
+| regexp                   | literal regular expression                        |
++--------------------------+---------------------------------------------------+
+| string                   | literal string, character                         |
++--------------------------+---------------------------------------------------+
+| subst                    | parsed section inside a literal string            |
++--------------------------+---------------------------------------------------+
+| symbol                   | symbolic constant, interned string, goto label    |
++--------------------------+---------------------------------------------------+
+| class                    | class or class-level declaration (interfaces,     |
+|                          | traits, modules, etc)                             |
++--------------------------+---------------------------------------------------+
+| function                 | function or method declaration                    |
++--------------------------+---------------------------------------------------+
+| title                    | name of a class or a function at the place of     |
+|                          | declaration                                       |
++--------------------------+---------------------------------------------------+
+| params                   | block of function arguments (parameters) at the   |
+|                          | place of declaration                              |
++--------------------------+---------------------------------------------------+
+| **Meta**                                                                     |
++--------------------------+---------------------------------------------------+
+| comment                  | comment                                           |
 +--------------------------+---------------------------------------------------+
 | doctag                   | documentation markup within comments              |
 +--------------------------+---------------------------------------------------+
-| emphasis                 | Emphasis in text markup                           |
+| meta                     | flags, modifiers, annotations, processing         |
+|                          | instructions, preprocessor directive, etc         |
 +--------------------------+---------------------------------------------------+
-| formula                  | Mathematical formula in text markup               |
+| meta-keyword             | keyword or built-in within meta construct         |
 +--------------------------+---------------------------------------------------+
-| function                 | Function or method declaration                    |
+| meta-string              | string within meta construct                      |
 +--------------------------+---------------------------------------------------+
-| keyword                  | Keyword in a regular Algol-style language.        |
+| **Tags, attributes, configs**                                                |
 +--------------------------+---------------------------------------------------+
-| link                     | Hyperlink in text markup                          |
-+--------------------------+---------------------------------------------------+
-| literal                  | Special identifier for a built-in value ("true",  |
-|                          | "false", "null").                                 |
-+--------------------------+---------------------------------------------------+
-| meta                     | Flags, modifiers, annotations, processing         |
-|                          | instructions, preprocessor directive, etc.        |
-+--------------------------+---------------------------------------------------+
-| name                     | Name of an XML tag, the first word in an          |
-|                          | s-expression.                                     |
-+--------------------------+---------------------------------------------------+
-| number                   | Number, including units and modifiers, if any.    |
-+--------------------------+---------------------------------------------------+
-| params                   | Block of function arguments (parameters) at the   |
-|                          | place of declaration.                             |
-+--------------------------+---------------------------------------------------+
-| quote                    | Quotation in text markup                          |
-+--------------------------+---------------------------------------------------+
-| regexp                   | Literal regular expression                        |
-+--------------------------+---------------------------------------------------+
-| section                  | Heading of a section in a config file, heading in |
+| section                  | heading of a section in a config file, heading in |
 |                          | text markup                                       |
++--------------------------+---------------------------------------------------+
+| tag                      | XML/HTML tag                                      |
++--------------------------+---------------------------------------------------+
+| name                     | name of an XML tag, the first word in an          |
+|                          | s-expression                                      |
++--------------------------+---------------------------------------------------+
+| builtin-name             | s-expression name from the language standard      |
+|                          | library                                           |
++--------------------------+---------------------------------------------------+
+| attr                     | name of an attribute with no language defined     |
+|                          | semantics (keys in JSON, setting names in .ini),  |
+|                          | also sub-attribute within another highlighted     |
+|                          | object, like XML tag                              |
++--------------------------+---------------------------------------------------+
+| attribute                | name of an attribute followed by a structured     |
+|                          | value part, like CSS properties                   |
++--------------------------+---------------------------------------------------+
+| variable                 | variable in a config or a template file,          |
+|                          | environment var expansion in a script             |
++--------------------------+---------------------------------------------------+
+| **Markup**                                                                   |
++--------------------------+---------------------------------------------------+
+| bullet                   | list item bullet in text markup                   |
++--------------------------+---------------------------------------------------+
+| code                     | code block in text markup                         |
++--------------------------+---------------------------------------------------+
+| emphasis                 | emphasis in text markup                           |
++--------------------------+---------------------------------------------------+
+| strong                   | strong emphasis in text markup                    |
++--------------------------+---------------------------------------------------+
+| formula                  | mathematical formula in text markup               |
++--------------------------+---------------------------------------------------+
+| link                     | hyperlink in text markup                          |
++--------------------------+---------------------------------------------------+
+| quote                    | quotation in text markup                          |
++--------------------------+---------------------------------------------------+
+| **CSS**                                                                      |
 +--------------------------+---------------------------------------------------+
 | selector-tag             | tag selector in CSS                               |
 +--------------------------+---------------------------------------------------+
@@ -67,28 +101,21 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | selector-class           | .class selector in CSS                            |
 +--------------------------+---------------------------------------------------+
-| selector-attribute       | [attr] selector in CSS                            |
+| selector-attr            | [attr] selector in CSS                            |
 +--------------------------+---------------------------------------------------+
-| strong                   | Strong emphasis in text markup                    |
+| selector-pseudo          | :pseudo selector in CSS                           |
 +--------------------------+---------------------------------------------------+
-| subst                    | Parsed section inside a literal string.           |
+| **Templates**                                                                |
 +--------------------------+---------------------------------------------------+
-| symbol                   | Symbolic constant, interned string, goto label.   |
+| template-tag             | tag of a template language                        |
 +--------------------------+---------------------------------------------------+
-| tag                      | XML/HTML tag.                                     |
+| template-variable        | variable in a template language                   |
 +--------------------------+---------------------------------------------------+
-| template-tag             | Tag of a template language                        |
+| **diff**                                                                     |
 +--------------------------+---------------------------------------------------+
-| template-variable        | Variable in a template language                   |
+| addition                 | added or changed line in a diff                   |
 +--------------------------+---------------------------------------------------+
-| title                    | Name of a class or a function at the place of     |
-|                          | declaration                                       |
-+--------------------------+---------------------------------------------------+
-| type                     | Type name used in a function signature, type      |
-|                          | parameter, generic template, etc.                 |
-+--------------------------+---------------------------------------------------+
-| variable                 | Variable in a config or a template file.          |
-|                          | Environment var expansion in a script.            |
+| deletion                 | deleted line in a diff                            |
 +--------------------------+---------------------------------------------------+
 
 
@@ -121,6 +148,8 @@ Language names and aliases
 | Axapta                  | axapta                                            |
 +-------------------------+---------------------------------------------------+
 | Bash                    | bash, sh, zsh                                     |
++-------------------------+---------------------------------------------------+
+| Basic                   | basic                                             |
 +-------------------------+---------------------------------------------------+
 | Brainfuck               | brainfuck, bf                                     |
 +-------------------------+---------------------------------------------------+
@@ -162,6 +191,8 @@ Language names and aliases
 +-------------------------+---------------------------------------------------+
 | Dockerfile              | dockerfile, docker                                |
 +-------------------------+---------------------------------------------------+
+| DTS (Device Tree)       | dts                                               |
++-------------------------+---------------------------------------------------+
 | Dust                    | dust, dst                                         |
 +-------------------------+---------------------------------------------------+
 | Elixir                  | elixir                                            |
@@ -179,6 +210,8 @@ Language names and aliases
 | G-Code                  | gcode, nc                                         |
 +-------------------------+---------------------------------------------------+
 | Gams                    | gams, gms                                         |
++-------------------------+---------------------------------------------------+
+| GAUSS                   | gauss, gss                                        |
 +-------------------------+---------------------------------------------------+
 | Gherkin                 | gherkin                                           |
 +-------------------------+---------------------------------------------------+
@@ -212,7 +245,7 @@ Language names and aliases
 +-------------------------+---------------------------------------------------+
 | Java                    | java, jsp                                         |
 +-------------------------+---------------------------------------------------+
-| JavaScript              | javascript, js                                    |
+| JavaScript              | javascript, js, jsx                               |
 +-------------------------+---------------------------------------------------+
 | Lasso                   | lasso, ls, lassoscript                            |
 +-------------------------+---------------------------------------------------+
@@ -317,6 +350,8 @@ Language names and aliases
 | Smali                   | smali                                             |
 +-------------------------+---------------------------------------------------+
 | Smalltalk               | smalltalk, st                                     |
++-------------------------+---------------------------------------------------+
+| Stan                    | stan                                              |
 +-------------------------+---------------------------------------------------+
 | Stata                   | stata                                             |
 +-------------------------+---------------------------------------------------+

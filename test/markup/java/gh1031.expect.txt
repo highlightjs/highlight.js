@@ -1,0 +1,7 @@
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DefaultDataDaoImpl</span> </span>{
+  <span class="hljs-keyword">private</span> List&lt;AbstractCmrDataProcessor&gt; cmrDataProcessors;
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DefaultDataDaoImpl</span> </span>{
+  <span class="hljs-keyword">private</span> List&lt;AbstractCmrDataProcessor, AbstractCmrDataProcessor&gt; cmrDataProcessors;
+}

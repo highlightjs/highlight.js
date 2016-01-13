@@ -7,7 +7,7 @@ Description: Verilog is a hardware description language used in electronic desig
 function(hljs) {
   return {
     aliases: ['v'],
-    case_insensitive: true,
+    case_insensitive: false,
     keywords: {
       keyword:
         'always and assign begin buf bufif0 bufif1 case casex casez cmos deassign ' +
@@ -29,7 +29,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'number',
-        begin: '\\b(\\d+\'(b|h|o|d|B|H|O|D))?[0-9xzXZ]+',
+        begin: '(\\b((\\d\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F\_]+))|(\\B((\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F\_]+))|(\\b([0-9xzXZ\_])+)',
         contains: [hljs.BACKSLASH_ESCAPE],
         relevance: 0
       },

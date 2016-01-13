@@ -57,14 +57,15 @@
 //   "browser" will go into `build/browser` and so forth.
 //
 // All build targets will end up in the `build` directory.
+
 'use strict';
 
-var commander = require('commander');
-var path      = require('path');
-var Queue     = require('gear').Queue;
-var registry  = require('./tasks');
+let commander = require('commander');
+let path      = require('path');
+let Queue     = require('gear').Queue;
+let registry  = require('./tasks');
 
-var build, dir = {};
+let build, dir = {};
 
 commander
   .usage('[options] [<language>...]')

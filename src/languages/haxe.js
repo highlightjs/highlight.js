@@ -34,7 +34,7 @@ function(hljs) {
       {
         className: 'meta',
         begin: '#', end: '$',
-        keywords: 'if else elseif end error'
+        keywords: {'meta-keyword': 'if else elseif end error'}
       },
       {
         className: 'function',

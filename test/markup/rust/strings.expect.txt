@@ -3,6 +3,10 @@
 <span class="hljs-string">'\x1A'</span>;
 <span class="hljs-string">'\u12AS'</span>;
 <span class="hljs-string">'\U1234ASDF'</span>;
+<span class="hljs-string">b'a'</span>;
+
+<span class="hljs-string">"hello"</span>;
+<span class="hljs-string">b"hello"</span>;
 
 <span class="hljs-string">r"hello"</span>;
 <span class="hljs-string">r###"world"###</span>;

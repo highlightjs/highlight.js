@@ -38,25 +38,25 @@ function(hljs) {
   var PREPROCESSOR =       {
     className: 'meta',
     begin: '#', end: '$',
-    keywords: 'if else elif endif define undef warning error line ' +
-              'pragma ifdef ifndef',
+    keywords: {'meta-keyword': 'if else elif endif define undef warning error line ' +
+                  'pragma ifdef ifndef'},
     contains: [
       {
         begin: /\\\n/, relevance: 0
       },
       {
         beginKeywords: 'include', end: '$',
+        keywords: {'meta-keyword': 'include'},
         contains: [
-          STRINGS,
+          hljs.inherit(STRINGS, {className: 'meta-string'}),
           {
-            className: 'string',
+            className: 'meta-string',
             begin: '<', end: '>',
             illegal: '\\n',
           }
         ]
       },
       STRINGS,
-      NUMBERS,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
     ]
@@ -83,7 +83,7 @@ function(hljs) {
       'isxdigit tolower toupper labs ldexp log10 log malloc realloc memchr memcmp memcpy memset modf pow ' +
       'printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp ' +
       'strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan ' +
-      'vfprintf vprintf vsprintf',
+      'vfprintf vprintf vsprintf endl initializer_list unique_ptr',
     literal: 'true false nullptr NULL'
   };
 

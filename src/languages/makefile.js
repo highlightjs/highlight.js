@@ -35,7 +35,7 @@ function(hljs) {
       {
         className: 'meta',
         begin: /^\.PHONY:/, end: /$/,
-        keywords: '.PHONY', lexemes: /[\.\w]+/
+        keywords: {'meta-keyword': '.PHONY'}, lexemes: /[\.\w]+/
       },
       {
         begin: /^\t+/, end: /$/,
