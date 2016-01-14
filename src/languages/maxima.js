@@ -6,7 +6,7 @@ Category: scientific
 
 function(hljs) {
   var KEYWORDS = 'if then else elseif for thru do while unless step in and or not';
-  var LITERALS = 'true false unknown inf minf ind und %e %i %pi %phi %gamma';
+  var LITERALS = 'true false unknown inf minf|2 ind und %e|2 %i|2 %pi|2 %phi|3 %gamma|3';
   var BUILTIN_FUNCTIONS =
         ' abasep abs absint absolute_real_time acos acosh acot acoth acsc acsch activate'
       + ' addcol add_edge add_edges addmatrices addrow add_vertex add_vertices adjacency_matrix'
@@ -24,7 +24,7 @@ function(hljs) {
       + ' bezout bfallroots bffac bf_find_root bf_fmin_cobyla bfhzeta bfloat bfloatp'
       + ' bfpsi bfpsi0 bfzeta biconnected_components bimetric binomial bipartition'
       + ' block blockmatrixp bode_gain bode_phase bothcoef box boxplot boxplot_description'
-      + ' break bug_report build_info buildq build_sample burn cabs canform canten'
+      + ' break bug_report build_info|2 buildq build_sample burn cabs canform canten'
       + ' cardinality carg cartan cartesian_product catch cauchy_matrix cbffac cdf_bernoulli'
       + ' cdf_beta cdf_binomial cdf_cauchy cdf_chi2 cdf_continuous_uniform cdf_discrete_uniform'
       + ' cdf_exp cdf_f cdf_gamma cdf_general_finite_discrete cdf_geometric cdf_gumbel'
@@ -267,7 +267,7 @@ function(hljs) {
       + ' zgeev zheev zlange zn_add_table zn_carmichael_lambda zn_characteristic_factors'
       + ' zn_determinant zn_factor_generators zn_invert_by_lu zn_log zn_mult_table';
   var BUILTIN_VARIABLES =
-        ' _ __ % %% absboxchar activecontexts adapt_depth additive adim aform algebraic'
+        ' _|1 __|1 %|0 %%|0 absboxchar activecontexts adapt_depth additive adim aform algebraic'
       + ' algepsilon algexact aliases allbut all_dotsimp_denoms allocation allsym alphabetic'
       + ' animation antisymmetric arrays askexp assume_pos assume_pos_pred assumescalar'
       + ' asymbol atomgrad atrig1 axes axis_3d axis_bottom axis_left axis_right axis_top'
@@ -279,7 +279,7 @@ function(hljs) {
       + ' cosnpiflag ctaypov ctaypt ctayswitch ctayvar ct_coords ctorsion_flag ctrgsimp'
       + ' cube current_let_rule_package cylinder data_file_name debugmode decreasing'
       + ' default_let_rule_package delay dependencies derivabbrev derivsubst detout'
-      + ' diagmetric diff dim dimensions dispflag display2d display_format_internal'
+      + ' diagmetric diff dim dimensions dispflag display2d|10 display_format_internal'
       + ' distribute_over doallmxops domain domxexpt domxmxops domxnctimes dontfactor'
       + ' doscmxops doscmxplus dot0nscsimp dot0simp dot1simp dotassoc dotconstrules'
       + ' dotdistrib dotexptsimp dotident dotscrules draw_graph_program draw_realpart'
@@ -289,8 +289,8 @@ function(hljs) {
       + ' %e_to_numlog eval even evenfun evflag evfun ev_point expandwrt_denom expintexpand'
       + ' expintrep expon expop exptdispflag exptisolate exptsubst facexpand facsum_combine'
       + ' factlim factorflag factorial_expand factors_only fb feature features'
-      + ' file_name file_output_append file_search_demo file_search_lisp file_search_maxima'
-      + ' file_search_tests file_search_usage file_type_lisp file_type_maxima fill_color'
+      + ' file_name file_output_append file_search_demo file_search_lisp file_search_maxima|10'
+      + ' file_search_tests file_search_usage file_type_lisp file_type_maxima|10 fill_color'
       + ' fill_density filled_func fixed_vertices flipflag float2bf font font_size'
       + ' fortindent fortspaces fpprec fpprintprec functions gamma_expand gammalim'
       + ' gdet genindex gensumnum GGFCFMAX GGFINFINITY globalsolve gnuplot_command'
@@ -308,12 +308,12 @@ function(hljs) {
       + ' julia_parameter %k1 %k2 keepfloat key key_pos kinvariant kt label label_alignment'
       + ' label_orientation labels lassociative lbfgs_ncorrections lbfgs_nfeval_max'
       + ' leftjust legend letrat let_rule_packages lfg lg lhospitallim limsubst linear'
-      + ' linear_solver linechar linel linenum line_type linewidth line_width linsolve_params'
+      + ' linear_solver linechar linel|10 linenum line_type linewidth line_width linsolve_params'
       + ' linsolvewarn lispdisp listarith listconstvars listdummyvars lmxchar load_pathname'
       + ' loadprint logabs logarc logcb logconcoeffp logexpand lognegint logsimp logx'
       + ' logx_secondary logy logy_secondary logz lriem m1pbranch macroexpansion macros'
       + ' mainvar manual_demo maperror mapprint matrix_element_add matrix_element_mult'
-      + ' matrix_element_transpose maxapplydepth maxapplyheight maxima_tempdir maxima_userdir'
+      + ' matrix_element_transpose maxapplydepth maxapplyheight maxima_tempdir|10 maxima_userdir|10'
       + ' maxnegex MAX_ORD maxposex maxpsifracdenom maxpsifracnum maxpsinegint maxpsiposint'
       + ' maxtayorder mesh_lines_color method mod_big_prime mode_check_errorp'
       + ' mode_checkp mode_check_warnp mod_test mod_threshold modular_linear_solver'
@@ -388,7 +388,7 @@ function(hljs) {
             // float number w/ exponent
             // hmm, I wonder if we ought to include other exponent markers?
             begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Ee][-+]?\\d+\\b',
-            relevance: 0
+            relevance: 1
           },
           {
             // bigfloat number
@@ -405,7 +405,7 @@ function(hljs) {
             // integer in base up to 36
             // Doesn't seem to recognize integers which end with '.'
             begin: '\\b(\\d+|0[0-9A-Za-z]+)\\.?\\b',
-            relevance: 1
+            relevance: 0
           }
         ]
       }
