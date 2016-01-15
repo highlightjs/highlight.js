@@ -26,11 +26,14 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 }
 
 .hljs-built_in,
-.hljs-literal,
 .hljs-bullet,
 .hljs-code,
 .hljs-addition {
   color: #2C6F2C;
+}
+
+.hljs-literal {
+  color: #4D974D;
 }
 
 .hljs-regexp,
