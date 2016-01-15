@@ -95,7 +95,10 @@ Some last-minute changes reverted due to strange bug with minified browser build
 New languages:
 
 - *crmsh* by [Kristoffer Gronlund][]
-- *SQF* by [Søren Enevoldsen][]
+- *SQF* by [Soren Enevoldsen][] 
+
+[Kristoffer Gronlund]: https://github.com/krig
+[Soren Enevoldsen]: https://github.com/senevoldsen90
 
 Notable fixes and improvements to existing languages:
 
