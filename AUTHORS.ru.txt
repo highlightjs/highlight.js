@@ -201,3 +201,4 @@ URL:   https://highlightjs.org/
 - Мэт Эванс <matt@aptech.com>
 - Мартин Браун <martin.braun@ettus.com>
 - Боря Черный <boris@performancejs.com>
+- Джон Фостер <jfoster@esri.com>

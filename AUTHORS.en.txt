@@ -201,3 +201,4 @@ Contributors:
 - Matt Evans <matt@aptech.com>
 - Martin Braun <martin.braun@ettus.com>
 - Boris Cherny <boris@performancejs.com>
+- John Foster <jfoster@esri.com>

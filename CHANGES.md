@@ -1,3 +1,11 @@
+## Version 9.2.0 [NOT YET RELEASED]
+
+New languages:
+
+- *QML* by [John Foster][]
+
+[John Foster]: https://github.com/jf990
+
 ## Version 9.1.0
 
 New languages:
