@@ -55,8 +55,8 @@ function (hljs) {
   ];
 
   var KEYWORDS = {
-    keyword: 'assert break case catch class const continue default do else enum extends false final finally for if ' +
-      'in is new null rethrow return super switch this throw true try var void while with ' +
+    keyword: 'assert async await break case catch class const continue default do else enum extends false final ' +
+      'finally for if in is new null rethrow return super switch sync this throw true try var void while with yield ' +
       'abstract as dynamic export external factory get implements import library operator part set static typedef',
     built_in:
       // dart:core
