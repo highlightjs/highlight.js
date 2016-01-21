@@ -387,12 +387,12 @@ function(hljs) {
             // float number w/ exponent
             // hmm, I wonder if we ought to include other exponent markers?
             begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Ee][-+]?\\d+\\b',
-            relevance: 1
+            relevance: 0
           },
           {
             // bigfloat number
             begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Bb][-+]?\\d+\\b',
-            relevance: 2
+            relevance: 10
           },
           {
             // float number w/out exponent
