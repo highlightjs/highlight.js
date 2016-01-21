@@ -1,5 +1,15 @@
 /* Maxima computer algebra system */
 
+print ("mumble");
+
+/* this
+  /* this is
+    /* this is a nested comment */ nested comment
+   */ comment
+ */
+
+sin(%pi); /* should be highlighted again */
+
 /* symbolic constants */
 
 [true, false, unknown, inf, minf, ind,

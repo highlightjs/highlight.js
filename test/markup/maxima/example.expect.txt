@@ -1,5 +1,15 @@
 <span class="hljs-meta">/* Maxima computer algebra system */</span>
 
+<span class="hljs-built_in">print</span> (<span class="hljs-string">"mumble"</span>);
+
+<span class="hljs-meta">/* this
+  <span class="hljs-meta">/* this is
+    <span class="hljs-meta">/* this is a nested comment */</span> nested comment
+   */</span> comment
+ */</span>
+
+<span class="hljs-built_in">sin</span>(<span class="hljs-literal">%pi</span>); <span class="hljs-meta">/* should be highlighted again */</span>
+
 <span class="hljs-meta">/* symbolic constants */</span>
 
 [<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">unknown</span>, <span class="hljs-literal">inf</span>, <span class="hljs-literal">minf</span>, <span class="hljs-literal">ind</span>,

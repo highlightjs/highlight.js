@@ -378,7 +378,8 @@ function(hljs) {
         // I wonder, should we try to recognize quoted strings in comments?
         className: 'meta',
         begin: '/\\*',
-        end: '\\*/'
+        end: '\\*/',
+        contains: ['self']
       },
       hljs.QUOTE_STRING_MODE,
       {
