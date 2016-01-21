@@ -75,15 +75,3 @@ foo (x, y, z) :=
   <span class="hljs-keyword">elseif</span> y &lt;= <span class="hljs-number">100</span>!
     <span class="hljs-keyword">then</span> x/(y + z)^<span class="hljs-number">2</span>
   <span class="hljs-keyword">else</span> z - y . x . y;
-
-<span class="hljs-symbol">display2d</span> : <span class="hljs-literal">false</span> $
-foo(<span class="hljs-literal">%pi</span>, <span class="hljs-literal">%e</span>, <span class="hljs-built_in">bessel_j</span>(<span class="hljs-number">1</span>, u));
-<span class="hljs-built_in">is</span> (<span class="hljs-symbol">%</span> &gt; <span class="hljs-number">0</span>);
-(<span class="hljs-built_in">sin</span>(<span class="hljs-number">1</span>) - <span class="hljs-number">1</span>, <span class="hljs-number">2</span>*<span class="hljs-symbol">%%</span>, <span class="hljs-number">1</span> - <span class="hljs-symbol">%%</span>);
-<span class="hljs-built_in">print</span> (<span class="hljs-string">"most recent output is"</span>, <span class="hljs-symbol">%</span>);
-
-blurf[foo](a) := a^foo - foo^a $
-blurf[<span class="hljs-number">2</span>];
-<span class="hljs-built_in">is</span> (blurf[<span class="hljs-number">2</span>] = <span class="hljs-built_in">lambda</span>([a], a^<span class="hljs-number">2</span> - <span class="hljs-number">2</span>^a));
-
-blurf[<span class="hljs-literal">%pi</span>](<span class="hljs-literal">%e</span>) - <span class="hljs-built_in">matrix</span>([<span class="hljs-literal">%phi</span>])^^<span class="hljs-number">2</span>;
