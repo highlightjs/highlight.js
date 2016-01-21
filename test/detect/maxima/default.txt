@@ -66,14 +66,3 @@ foo (x, y, z) :=
     then x/(y + z)^2
   else z - y . x . y;
 
-display2d : false $
-foo(%pi, %e, bessel_j(1, u));
-is (% > 0);
-(sin(1) - 1, 2*%%, 1 - %%);
-print ("most recent output is", %);
-
-blurf[foo](a) := a^foo - foo^a $
-blurf[2];
-is (blurf[2] = lambda([a], a^2 - 2^a));
-
-blurf[%pi](%e) - matrix([%phi])^^2;
