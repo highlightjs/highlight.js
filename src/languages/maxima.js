@@ -24,7 +24,7 @@ function(hljs) {
       + ' bezout bfallroots bffac bf_find_root bf_fmin_cobyla bfhzeta bfloat bfloatp'
       + ' bfpsi bfpsi0 bfzeta biconnected_components bimetric binomial bipartition'
       + ' block blockmatrixp bode_gain bode_phase bothcoef box boxplot boxplot_description'
-      + ' break bug_report build_info|2 buildq build_sample burn cabs canform canten'
+      + ' break bug_report build_info|10 buildq build_sample burn cabs canform canten'
       + ' cardinality carg cartan cartesian_product catch cauchy_matrix cbffac cdf_bernoulli'
       + ' cdf_beta cdf_binomial cdf_cauchy cdf_chi2 cdf_continuous_uniform cdf_discrete_uniform'
       + ' cdf_exp cdf_f cdf_gamma cdf_general_finite_discrete cdf_geometric cdf_gumbel'
@@ -267,7 +267,7 @@ function(hljs) {
       + ' zgeev zheev zlange zn_add_table zn_carmichael_lambda zn_characteristic_factors'
       + ' zn_determinant zn_factor_generators zn_invert_by_lu zn_log zn_mult_table';
   var BUILTIN_VARIABLES =
-        ' _|1 __|1 %|0 %%|0 absboxchar activecontexts adapt_depth additive adim aform algebraic'
+        ' _ __|10 %|0 %%|0 absboxchar activecontexts adapt_depth additive adim aform algebraic'
       + ' algepsilon algexact aliases allbut all_dotsimp_denoms allocation allsym alphabetic'
       + ' animation antisymmetric arrays askexp assume_pos assume_pos_pred assumescalar'
       + ' asymbol atomgrad atrig1 axes axis_3d axis_bottom axis_left axis_right axis_top'
