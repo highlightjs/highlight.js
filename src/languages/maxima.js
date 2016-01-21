@@ -374,8 +374,6 @@ function(hljs) {
     contains: [
       {
         // C-style comments, with nonstandard color.
-        // Dunno if this recognizes nested comments.
-        // I wonder, should we try to recognize quoted strings in comments?
         className: 'meta',
         begin: '/\\*',
         end: '\\*/',
