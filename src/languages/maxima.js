@@ -6,7 +6,7 @@ Category: scientific
 
 function(hljs) {
   var KEYWORDS = 'if then else elseif for thru do while unless step in and or not';
-  var LITERALS = 'true false unknown inf minf|2 ind und %e|2 %i|2 %pi|2 %phi|3 %gamma|3';
+  var LITERALS = 'true false unknown inf minf ind und %e %i %pi %phi %gamma';
   var BUILTIN_FUNCTIONS =
         ' abasep abs absint absolute_real_time acos acosh acot acoth acsc acsch activate'
       + ' addcol add_edge add_edges addmatrices addrow add_vertex add_vertices adjacency_matrix'
