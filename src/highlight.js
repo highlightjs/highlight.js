@@ -16,7 +16,7 @@ https://highlightjs.org/
 
     // Finally register the global hljs with AMD.
     if(typeof define === 'function' && define.amd) {
-      define('hljs', [], function() {
+      define([], function() {
         return self.hljs;
       });
     }
