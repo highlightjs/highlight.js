@@ -1,15 +1,30 @@
 language: node_js
 node_js:
-  - "4.1"
-  - "4.0"
+  - "4"
+  - "5"
 env:
   -
   - BROWSER=1
   - BROWSER=1 NOCOMPRESS=1
 script:
-  - export BUILD_PARAMS=""
-  - if [ "x$BROWSER" = "x1" ]; then export BUILD_PARAMS="$BUILD_PARAMS -t browser"; else export BUILD_PARAMS="$BUILD_PARAMS -t node"; fi
-  - if [ "x$NOCOMPRESS" = "x1" ]; then export BUILD_PARAMS="$BUILD_PARAMS -n"; fi
-  - node tools/build.js $BUILD_PARAMS
-  - if [ "x$BROWSER" = "x1" ]; then npm run test-browser; else npm run test; fi
+  - |
+    export BUILD_PARAMS=""
+
+    if [ "x$BROWSER" = "x1" ]; then
+      export BUILD_PARAMS="$BUILD_PARAMS -t browser"
+    else
+      export BUILD_PARAMS="$BUILD_PARAMS -t node"
+    fi
+
+    if [ "x$NOCOMPRESS" = "x1" ]; then
+      export BUILD_PARAMS="$BUILD_PARAMS -n"
+    fi
+
+    node tools/build.js $BUILD_PARAMS
+
+    if [ "x$BROWSER" = "x1" ]; then
+      npm run test-browser
+    else
+      npm run test
+    fi
 sudo: false  # Use container-based architecture
