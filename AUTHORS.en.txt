@@ -202,3 +202,4 @@ Contributors:
 - Martin Braun <martin.braun@ettus.com>
 - Boris Cherny <boris@performancejs.com>
 - John Foster <jfoster@esri.com>
+- Anthony Dugois <dev.anthonydugois@gmail.com>
