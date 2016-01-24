@@ -88,7 +88,7 @@ function parseHeader(content) {
 
   headers = _.compact(match[1].split('\n'));
 
-  return _.foldl(headers, function(result, header) {
+  return _.reduce(headers, function(result, header) {
     let keyVal = header.trim().split(': '),
         key    = keyVal[0],
         value  = keyVal[1] || '';
@@ -109,12 +109,12 @@ function filterByQualifiers(blob, languages, categories) {
   let language         = path.basename(blob.name, '.js'),
       fileInfo         = parseHeader(blob.result),
       fileCategories   = fileInfo.Category || [],
-      containsCategory = _.partial(_.contains, categories);
+      containsCategory = _.partial(_.includes, categories);
 
   if(!fileInfo) return false;
 
-  return _.contains(languages, language) ||
-         _.any(fileCategories, containsCategory);
+  return _.includes(languages, language) ||
+         _.some(fileCategories, containsCategory);
 }
 
 // For the filter task in `tools/tasks.js`, this function will look for
