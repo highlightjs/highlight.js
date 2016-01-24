@@ -114,7 +114,7 @@ function filterByQualifiers(blob, languages, categories) {
   if(!fileInfo) return false;
 
   return _.includes(languages, language) ||
-         _.any(fileCategories, containsCategory);
+         _.some(fileCategories, containsCategory);
 }
 
 // For the filter task in `tools/tasks.js`, this function will look for
