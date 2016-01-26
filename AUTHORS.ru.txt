@@ -203,3 +203,4 @@ URL:   https://highlightjs.org/
 - Боря Черный <boris@performancejs.com>
 - Джон Фостер <jfoster@esri.com>
 - Робер Додье <robert.dodier@gmail.com>
+- Антони Дюгуа <dev.anthonydugois@gmail.com>
