@@ -1,0 +1,77 @@
+<span class="hljs-meta">/* Maxima computer algebra system */</span>
+
+<span class="hljs-built_in">print</span> (<span class="hljs-string">"mumble"</span>);
+
+<span class="hljs-meta">/* this
+  <span class="hljs-meta">/* this is
+    <span class="hljs-meta">/* this is a nested comment */</span> nested comment
+   */</span> comment
+ */</span>
+
+<span class="hljs-built_in">sin</span>(<span class="hljs-literal">%pi</span>); <span class="hljs-meta">/* should be highlighted again */</span>
+
+<span class="hljs-meta">/* symbolic constants */</span>
+
+[<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">unknown</span>, <span class="hljs-literal">inf</span>, <span class="hljs-literal">minf</span>, <span class="hljs-literal">ind</span>,
+ <span class="hljs-literal">und</span>, <span class="hljs-literal">%e</span>, <span class="hljs-literal">%i</span>, <span class="hljs-literal">%pi</span>, <span class="hljs-literal">%phi</span>, <span class="hljs-literal">%gamma</span>];
+
+<span class="hljs-meta">/* programming keywords */</span>
+
+<span class="hljs-keyword">if</span> a <span class="hljs-keyword">then</span> b <span class="hljs-keyword">elseif</span> c <span class="hljs-keyword">then</span> d <span class="hljs-keyword">else</span> f;
+<span class="hljs-keyword">for</span> x:<span class="hljs-number">1</span> <span class="hljs-keyword">thru</span> <span class="hljs-number">10</span> <span class="hljs-keyword">step</span> <span class="hljs-number">2</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">print</span>(x);
+<span class="hljs-keyword">for</span> z:-<span class="hljs-number">2</span> <span class="hljs-keyword">while</span> z &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">print</span>(z);
+<span class="hljs-keyword">for</span> m:<span class="hljs-number">0</span> <span class="hljs-keyword">unless</span> m &gt; <span class="hljs-number">10</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">print</span>(m);
+<span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>] <span class="hljs-keyword">do</span> <span class="hljs-built_in">print</span>(x);
+foo <span class="hljs-keyword">and</span> bar <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> baz;
+
+<span class="hljs-meta">/* built-in variables */</span>
+
+[<span class="hljs-symbol">_</span>, <span class="hljs-symbol">__</span>, <span class="hljs-symbol">%</span>, <span class="hljs-symbol">%%</span>, <span class="hljs-symbol">linel</span>, <span class="hljs-symbol">simp</span>, <span class="hljs-symbol">dispflag</span>,
+ <span class="hljs-symbol">stringdisp</span>, <span class="hljs-symbol">lispdisp</span>, <span class="hljs-symbol">%edispflag</span>];
+
+<span class="hljs-meta">/* built-in functions */</span>
+
+[<span class="hljs-built_in">sin</span>, <span class="hljs-built_in">cosh</span>, <span class="hljs-built_in">exp</span>, <span class="hljs-built_in">atan2</span>, <span class="hljs-built_in">sqrt</span>, <span class="hljs-built_in">log</span>, <span class="hljs-built_in">struve_h</span>,
+ <span class="hljs-built_in">sublist_indices</span>, <span class="hljs-built_in">read_array</span>];
+
+<span class="hljs-meta">/* user-defined symbols */</span>
+
+[foo, ?bar, baz%, quux_mumble_blurf];
+
+<span class="hljs-meta">/* symbols using Unicode characters */</span>
+
+[Љ, Щ, щ, Ӄ, ЩЩЩ, ӃӃЉЉщ];
+
+<span class="hljs-meta">/* different kinds of integers */</span>
+
+<span class="hljs-symbol">ibase</span> : <span class="hljs-number">18</span> $
+[<span class="hljs-number">0</span>, <span class="hljs-number">1234</span>, <span class="hljs-number">1234</span>., <span class="hljs-number">0abcdefgh</span>];
+<span class="hljs-built_in">reset</span> (<span class="hljs-symbol">ibase</span>) $
+
+<span class="hljs-meta">/* floats and bigfloats */</span>
+
+[<span class="hljs-number">0.0</span>, <span class="hljs-number">123.45</span>, .<span class="hljs-number">54321</span>,
+ <span class="hljs-number">0e0</span>, .<span class="hljs-number">32e10</span>, <span class="hljs-number">123e45</span>, <span class="hljs-number">12.34e56</span>, <span class="hljs-number">123e-4</span>, <span class="hljs-number">234e+5</span>,
+      <span class="hljs-number">543.32e1</span>, <span class="hljs-number">4.32e-1</span>, <span class="hljs-number">3.21e+0</span>,
+ <span class="hljs-number">0E0</span>, .<span class="hljs-number">32E10</span>, <span class="hljs-number">123E45</span>, <span class="hljs-number">12.34E56</span>, <span class="hljs-number">123E-4</span>, <span class="hljs-number">234E+5</span>,
+      <span class="hljs-number">543.32E1</span>, <span class="hljs-number">4.32E-1</span>, <span class="hljs-number">3.21E+0</span>,
+ <span class="hljs-number">0b0</span>, .<span class="hljs-number">32b10</span>, <span class="hljs-number">123b45</span>, <span class="hljs-number">12.34b56</span>, <span class="hljs-number">123b-4</span>, <span class="hljs-number">234b+5</span>,
+      <span class="hljs-number">543.32b1</span>, <span class="hljs-number">4.32b-1</span>, <span class="hljs-number">3.21b+0</span>,
+ <span class="hljs-number">0B0</span>, .<span class="hljs-number">32B10</span>, <span class="hljs-number">123B45</span>, <span class="hljs-number">12.34B56</span>, <span class="hljs-number">123B-4</span>, <span class="hljs-number">234B+5</span>,
+      <span class="hljs-number">543.32B1</span>, <span class="hljs-number">4.32B-1</span>, <span class="hljs-number">3.21B+0</span>];
+
+<span class="hljs-meta">/* strings */</span>
+
+s1 : <span class="hljs-string">"\"now\" is"</span>;
+s2 : <span class="hljs-string">"the 'time' for all good men"</span>;
+<span class="hljs-built_in">print</span> (s1, s2, <span class="hljs-string">"to come to the aid"</span>,
+  <span class="hljs-string">"of their country"</span>);
+
+<span class="hljs-meta">/* expressions */</span>
+
+foo (x, y, z) :=
+  <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">1</span> + y
+    <span class="hljs-keyword">then</span> z - x*y
+  <span class="hljs-keyword">elseif</span> y &lt;= <span class="hljs-number">100</span>!
+    <span class="hljs-keyword">then</span> x/(y + z)^<span class="hljs-number">2</span>
+  <span class="hljs-keyword">else</span> z - y . x . y;
