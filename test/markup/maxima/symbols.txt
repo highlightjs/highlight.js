@@ -1,0 +1,18 @@
+/* symbolic constants */
+
+[true, false, unknown, inf, minf, ind,
+ und, %e, %i, %pi, %phi, %gamma];
+
+/* built-in variables */
+
+[_, __, %, %%, linel, simp, dispflag,
+ stringdisp, lispdisp, %edispflag];
+
+/* built-in functions */
+
+[sin, cosh, exp, atan2, sqrt, log, struve_h,
+ sublist_indices, read_array];
+
+/* user-defined symbols */
+
+[foo, ?bar, baz%, quux_mumble_blurf];
