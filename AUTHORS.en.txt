@@ -203,3 +203,4 @@ Contributors:
 - Boris Cherny <boris@performancejs.com>
 - John Foster <jfoster@esri.com>
 - Robert Dodier <robert.dodier@gmail.com>
+- Anthony Dugois <dev.anthonydugois@gmail.com>
