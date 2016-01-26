@@ -373,8 +373,7 @@ function(hljs) {
     },
     contains: [
       {
-        // C-style comments, with nonstandard color.
-        className: 'meta',
+        className: 'comment',
         begin: '/\\*',
         end: '\\*/',
         contains: ['self']
