@@ -265,9 +265,8 @@ function(hljs) {
       + ' wigner_9j with_stdout write_binary_data writebyte write_data writefile wronskian'
       + ' xreduce xthru %y Zeilberger zeroequiv zerofor zeromatrix zeromatrixp zeta'
       + ' zgeev zheev zlange zn_add_table zn_carmichael_lambda zn_characteristic_factors'
-      + ' zn_determinant zn_factor_generators zn_invert_by_lu zn_log zn_mult_table';
-  var BUILTIN_VARIABLES =
-        ' _ __|10 %|0 %%|0 absboxchar activecontexts adapt_depth additive adim aform algebraic'
+      + ' zn_determinant zn_factor_generators zn_invert_by_lu zn_log zn_mult_table'
+      + ' absboxchar activecontexts adapt_depth additive adim aform algebraic'
       + ' algepsilon algexact aliases allbut all_dotsimp_denoms allocation allsym alphabetic'
       + ' animation antisymmetric arrays askexp assume_pos assume_pos_pred assumescalar'
       + ' asymbol atomgrad atrig1 axes axis_3d axis_bottom axis_left axis_right axis_top'
@@ -369,7 +368,6 @@ function(hljs) {
       keyword: KEYWORDS,
       literal: LITERALS,
       built_in: BUILTIN_FUNCTIONS,
-      symbol: BUILTIN_VARIABLES
     },
     contains: [
       {
@@ -406,6 +404,10 @@ function(hljs) {
             relevance: 0
           }
         ]
+      },
+      {
+        className: 'symbol',
+        begin: /_|__|%|%%/
       }
     ]
   }
