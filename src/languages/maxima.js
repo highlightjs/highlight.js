@@ -361,6 +361,7 @@ function(hljs) {
       + ' ytics_rotate ytics_rotate_secondary ytics_secondary ytics_secondary_axis'
       + ' yv_grid y_voxel yx_ratio zaxis zaxis_color zaxis_type zaxis_width zeroa zerob'
       + ' zerobern zeta%pi zlabel zlabel_rotate zlength zmin zn_primroot_limit zn_primroot_pretest';
+  var SYMBOLS = '_ __ %|0 %%|0';
 
   return {
     lexemes: '[A-Za-z_%][0-9A-Za-z_%]*',
@@ -368,6 +369,7 @@ function(hljs) {
       keyword: KEYWORDS,
       literal: LITERALS,
       built_in: BUILTIN_FUNCTIONS,
+      symbol: SYMBOLS,
     },
     contains: [
       {
@@ -402,11 +404,6 @@ function(hljs) {
             begin: '\\b(\\d+|0[0-9A-Za-z]+)\\.?\\b',
           }
         ]
-      },
-      {
-        className: 'symbol',
-        begin: /_|__|%|%%/,
-        relevance: 0
       }
     ]
   }
