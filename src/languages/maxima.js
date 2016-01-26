@@ -379,12 +379,12 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'number',
+        relevance: 0,
         variants: [
           {
             // float number w/ exponent
             // hmm, I wonder if we ought to include other exponent markers?
             begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Ee][-+]?\\d+\\b',
-            relevance: 0
           },
           {
             // bigfloat number
@@ -395,13 +395,11 @@ function(hljs) {
             // float number w/out exponent
             // Doesn't seem to recognize floats which start with '.'
             begin: '\\b(\\.\\d+|\\d+\\.\\d+)\\b',
-            relevance: 0
           },
           {
             // integer in base up to 36
             // Doesn't seem to recognize integers which end with '.'
             begin: '\\b(\\d+|0[0-9A-Za-z]+)\\.?\\b',
-            relevance: 0
           }
         ]
       },
