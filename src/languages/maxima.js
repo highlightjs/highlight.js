@@ -405,7 +405,8 @@ function(hljs) {
       },
       {
         className: 'symbol',
-        begin: /_|__|%|%%/
+        begin: /_|__|%|%%/,
+        relevance: 0
       }
     ]
   }
