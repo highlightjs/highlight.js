@@ -32,7 +32,6 @@ Contributors:
 - Ruslan Keba <rukeba@gmail.com>
 - Sergey Baranov <segyrn@yandex.ru>
 - Zaripov Yura <yur4ik7@ukr.net>
-- Robert Dodier <robert.dodier@gmail.com>
 - Oleg Volchkov <oleg@volchkov.net>
 - Vasily Mikhailitchenko <vaskas@programica.ru>
 - Jan Berkel <jan.berkel@gmail.com>
@@ -203,3 +202,4 @@ Contributors:
 - Martin Braun <martin.braun@ettus.com>
 - Boris Cherny <boris@performancejs.com>
 - John Foster <jfoster@esri.com>
+- Robert Dodier <robert.dodier@gmail.com>
