@@ -4,6 +4,7 @@ Qt Creator dark color scheme
 
 */
 
+
 .hljs {
   display: block;
   overflow-x: auto;
@@ -12,6 +13,7 @@ Qt Creator dark color scheme
 }
 
 .hljs,
+.hljs-subst,
 .hljs-tag,
 .hljs-title {
   color: #aaaaaa;
@@ -30,7 +32,8 @@ Qt Creator dark color scheme
   color: #ff55ff;
 }
 
-.hljs-code {
+.hljs-code
+.hljs-selector-class {
   color: #aaaaff;
 }
 
@@ -41,11 +44,11 @@ Qt Creator dark color scheme
 }
 
 .hljs-keyword,
+.hljs-selector-tag,
 .hljs-function,
 .hljs-section,
 .hljs-symbol,
-.hljs-name,
-.hljs-selector-tag {
+.hljs-name {
   color: #ffff55;
 }
 
@@ -62,9 +65,10 @@ Qt Creator dark color scheme
 .hljs-string,
 .hljs-selector-id,
 .hljs-selector-attr,
-.hljs-subst,
+.hljs-selector-pseudo,
 .hljs-type,
 .hljs-built_in,
+.hljs-builtin-name,
 .hljs-template-tag,
 .hljs-template-variable,
 .hljs-addition,
