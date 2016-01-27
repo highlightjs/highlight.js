@@ -20,7 +20,7 @@ function(hljs) {
     'debug_assert! debug_assert_eq! env! panic! file! format! format_args! ' +
     'include_bin! include_str! line! local_data_key! module_path! ' +
     'option_env! print! println! select! stringify! try! unimplemented! ' +
-    'unreachable! vec! write! writeln!';
+    'unreachable! vec! write! writeln! macro_rules!';
   return {
     aliases: ['rs'],
     keywords: {
