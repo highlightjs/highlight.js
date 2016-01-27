@@ -16,7 +16,7 @@ function(hljs) {
         // Modifiers
         'async signal static abstract interface override virtual delegate ' +
         // Control Structures
-        'while do for foreach else switch case break default return try catch ' +
+        'if while do for foreach else switch case break default return try catch ' +
         // Visibility
         'public private protected internal ' +
         // Other
