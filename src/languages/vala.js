@@ -14,7 +14,7 @@ function(hljs) {
         // Reference types
         'weak unowned owned ' +
         // Modifiers
-        'async signal static abstract interface override ' +
+        'async signal static abstract interface override virtual delegate ' +
         // Control Structures
         'while do for foreach else switch case break default return try catch ' +
         // Visibility
@@ -29,7 +29,7 @@ function(hljs) {
     contains: [
       {
         className: 'class',
-        beginKeywords: 'class interface delegate namespace', end: '{', excludeEnd: true,
+        beginKeywords: 'class interface namespace', end: '{', excludeEnd: true,
         illegal: '[^,:\\n\\s\\.]',
         contains: [
           hljs.UNDERSCORE_TITLE_MODE
