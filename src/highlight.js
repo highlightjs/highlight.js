@@ -5,6 +5,9 @@ https://highlightjs.org/
 
 (function(factory) {
 
+  var globalObject = typeof window == 'object' && window ||
+                     typeof self == 'object' && self;
+
   // Setup highlight.js for different environments. First is Node.js or
   // CommonJS.
   if(typeof exports !== 'undefined') {
