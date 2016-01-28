@@ -15,12 +15,12 @@ https://highlightjs.org/
   } else {
     // Export hljs globally even when using AMD for cases when this script
     // is loaded with others that may still expect a global hljs.
-    self.hljs = factory({});
+    globalObject.hljs = factory({});
 
     // Finally register the global hljs with AMD.
     if(typeof define === 'function' && define.amd) {
       define('hljs', [], function() {
-        return self.hljs;
+        return globalObject.hljs;
       });
     }
   }
