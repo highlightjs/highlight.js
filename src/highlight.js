@@ -5,6 +5,10 @@ https://highlightjs.org/
 
 (function(factory) {
 
+  // Find the global object for export to both the browser and web workers.
+  var globalObject = typeof window == 'object' && window ||
+                     typeof self == 'object' && self;
+
   // Setup highlight.js for different environments. First is Node.js or
   // CommonJS.
   if(typeof exports !== 'undefined') {
@@ -12,12 +16,12 @@ https://highlightjs.org/
   } else {
     // Export hljs globally even when using AMD for cases when this script
     // is loaded with others that may still expect a global hljs.
-    self.hljs = factory({});
+    globalObject.hljs = factory({});
 
     // Finally register the global hljs with AMD.
     if(typeof define === 'function' && define.amd) {
       define('hljs', [], function() {
-        return self.hljs;
+        return globalObject.hljs;
       });
     }
   }
