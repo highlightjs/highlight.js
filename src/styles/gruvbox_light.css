@@ -1,0 +1,107 @@
+/*
+Original style from Pavel Pertsev (morhetz/gruvbox)
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #fbf1c7;
+  color: #3c3836;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs-comment,
+.diff .hljs-header,
+.hljs-doctype,
+.hljs-pi,
+.lisp .hljs-string {
+  color: #928374;
+}
+
+/* Gruvbox Green */
+.hljs-winutils,
+.hljs-string,
+.method,
+.hljs-addition,
+.css .hljs-tag,
+.hljs-request,
+.hljs-status,
+.nginx .hljs-title {
+  color: #79740e;
+}
+
+/* Gruvbox Aqua */
+.hljs-command,
+.hljs-function .hljs-keyword,
+.hljs-tag .hljs-value,
+.hljs-rule .hljs-value,
+.hljs-doctag,
+.tex .hljs-formula,
+.hljs-regexp,
+.hljs-hexcolor,
+.hljs-link_url {
+  color: #427b58;
+}
+
+/* Gruvbox Blue */
+.hljs-title,
+.hljs-localvars,
+.hljs-chunk,
+.hljs-decorator,
+.hljs-built_in,
+.vhdl .hljs-literal,
+.hljs-id,
+.css .hljs-function,
+.hljs-name {
+  color: #076678;
+}
+
+/* Gruvbox Yellow */
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body,
+.smalltalk .hljs-number,
+.hljs-constant,
+.hljs-class .hljs-title,
+.hljs-parent,
+.hljs-type,
+.hljs-link_reference {
+  color: #b57614;
+}
+
+/* Gruvbox Orange */
+.hljs-preprocessor,
+.hljs-preprocessor .hljs-keyword,
+.hljs-pragma,
+.hljs-shebang,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.diff .hljs-change,
+.hljs-special,
+.hljs-attr_selector,
+.hljs-subst,
+.hljs-cdata,
+.css .hljs-pseudo,
+.hljs-header {
+  color: #af3a03;
+}
+
+/* Gruvbox Red */
+.hljs-keyword,
+.hljs-deletion,
+.hljs-identifier,
+.hljs-important {
+  color: #9d0006;
+}
+
+/* Gruvbox Purple */
+.hljs-number,
+.hljs-literal,
+.hljs-link_label {
+  color: #8f3f71;
+}
+
+.tex .hljs-formula {
+  background: #d5c4a1;
+}
