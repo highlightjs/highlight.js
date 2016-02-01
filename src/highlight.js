@@ -419,7 +419,7 @@ https://highlightjs.org/
           top = top.parent;
         } while (top != end_mode.parent);
         if (origin.excludeEnd) {
-          result += escape(lexeme);
+          mode_buffer = lexeme;
         }
         if (end_mode.starts) {
           startNewMode(end_mode.starts, '');
