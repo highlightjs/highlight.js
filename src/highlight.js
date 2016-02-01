@@ -383,7 +383,7 @@ https://highlightjs.org/
       if (mode.returnBegin) {
         result += markup;
       } else if (mode.excludeBegin) {
-        result += escape(lexeme) + markup;
+        result += markup;
       } else {
         result += markup;
         mode_buffer = lexeme;
@@ -402,6 +402,9 @@ https://highlightjs.org/
 
       var new_mode = subMode(lexeme, top);
       if (new_mode) {
+        if (new_mode.excludeBegin) {
+          mode_buffer += lexeme;
+        }
         result += processBuffer();
         startNewMode(new_mode, lexeme);
         return new_mode.returnBegin ? 0 : lexeme.length;
