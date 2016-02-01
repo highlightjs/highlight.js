@@ -373,9 +373,8 @@ https://highlightjs.org/
     }
 
     function processBuffer() {
-      var result = top.subLanguage !== undefined ? processSubLanguage() : processKeywords();
+      result += (top.subLanguage !== undefined ? processSubLanguage() : processKeywords());
       mode_buffer = '';
-      return result;
     }
 
     function startNewMode(mode, lexeme) {
@@ -388,7 +387,7 @@ https://highlightjs.org/
       mode_buffer += buffer;
 
       if (lexeme === undefined) {
-        result += processBuffer();
+        processBuffer();
         return 0;
       }
 
@@ -397,7 +396,7 @@ https://highlightjs.org/
         if (new_mode.excludeBegin) {
           mode_buffer += lexeme;
         }
-        result += processBuffer();
+        processBuffer();
         startNewMode(new_mode, lexeme);
         if (!new_mode.returnBegin && !new_mode.excludeBegin) {
           mode_buffer = lexeme;
@@ -411,7 +410,7 @@ https://highlightjs.org/
         if (!(origin.returnEnd || origin.excludeEnd)) {
           mode_buffer += lexeme;
         }
-        result += processBuffer();
+        processBuffer();
         do {
           if (top.className) {
             result += '</span>';
