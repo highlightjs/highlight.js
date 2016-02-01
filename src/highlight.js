@@ -373,17 +373,17 @@ https://highlightjs.org/
     }
 
     function processBuffer() {
-      return top.subLanguage !== undefined ? processSubLanguage() : processKeywords();
+      var result = top.subLanguage !== undefined ? processSubLanguage() : processKeywords();
+      mode_buffer = '';
+      return result;
     }
 
     function startNewMode(mode, lexeme) {
       var markup = mode.className? buildSpan(mode.className, '', true): '';
       if (mode.returnBegin) {
         result += markup;
-        mode_buffer = '';
       } else if (mode.excludeBegin) {
         result += escape(lexeme) + markup;
-        mode_buffer = '';
       } else {
         result += markup;
         mode_buffer = lexeme;
@@ -394,6 +394,7 @@ https://highlightjs.org/
     function processLexeme(buffer, lexeme) {
 
       mode_buffer += buffer;
+
       if (lexeme === undefined) {
         result += processBuffer();
         return 0;
@@ -423,7 +424,6 @@ https://highlightjs.org/
         if (origin.excludeEnd) {
           result += escape(lexeme);
         }
-        mode_buffer = '';
         if (end_mode.starts) {
           startNewMode(end_mode.starts, '');
         }
