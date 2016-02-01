@@ -204,3 +204,4 @@ Contributors:
 - John Foster <jfoster@esri.com>
 - Robert Dodier <robert.dodier@gmail.com>
 - Anthony Dugois <dev.anthonydugois@gmail.com>
+- Qeole <qeole@outlook.com>

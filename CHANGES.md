@@ -4,7 +4,12 @@ New languages:
 
 - *QML* by [John Foster][]
 
+New styles:
+
+- *Gruvbox* by [Qeole][]
+
 [John Foster]: https://github.com/jf990
+[Qeole]: https://github.com/Qeole
 
 ## Version 9.1.0
 
