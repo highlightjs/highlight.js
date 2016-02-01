@@ -379,15 +379,7 @@ https://highlightjs.org/
     }
 
     function startNewMode(mode, lexeme) {
-      var markup = mode.className? buildSpan(mode.className, '', true): '';
-      if (mode.returnBegin) {
-        result += markup;
-      } else if (mode.excludeBegin) {
-        result += markup;
-      } else {
-        result += markup;
-        mode_buffer = lexeme;
-      }
+      result += mode.className? buildSpan(mode.className, '', true): '';
       top = Object.create(mode, {parent: {value: top}});
     }
 
@@ -407,6 +399,9 @@ https://highlightjs.org/
         }
         result += processBuffer();
         startNewMode(new_mode, lexeme);
+        if (!new_mode.returnBegin && !new_mode.excludeBegin) {
+          mode_buffer = lexeme;
+        }
         return new_mode.returnBegin ? 0 : lexeme.length;
       }
 
