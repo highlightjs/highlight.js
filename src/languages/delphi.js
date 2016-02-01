@@ -57,6 +57,7 @@ function(hljs) {
     ].concat(COMMENT_MODES)
   };
   return {
+    aliases: ['dpr', 'dfm', 'pas', 'pascal', 'freepascal', 'lazarus', 'lpr', 'lfm'],
     case_insensitive: true,
     keywords: KEYWORDS,
     illegal: /"|\$[G-Zg-z]|\/\*|<\/|\|/,
