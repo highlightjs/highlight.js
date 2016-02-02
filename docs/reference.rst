@@ -296,3 +296,32 @@ The value of the attribute controls which language or languages will be used for
 * language name: explicit highlighting with the specified language
 * empty array: auto detection with all the languages available
 * array of language names: auto detection constrained to the specified set
+
+skip
+^^^^
+
+**type**: boolean
+
+Skips any markup processing for the mode ensuring that it remains a part of its
+parent buffer along with the starting and the ending lexemes. This works in
+conjunction with the parent's :ref:`subLanguage` when it requires complex
+parsing.
+
+Consider parsing JSX inside JavaScript::
+
+  var x = <node> text <child/> text </node>;
+
+You have to correctly balance opening and ending angle brackets to make sure
+that the entire XML node is parsed out before it can be highlighted with a
+sub-language::
+
+  {
+    begin: /</, end: />/,
+    subLanguague: 'xml',
+    contains: [
+      {begin: /</, end: />/, skip: true, contains: ['self']}
+    ]
+  }
+
+Without ``skip: true`` every angle bracket within the root node would cause the
+parser to drop out back into JavaScript.

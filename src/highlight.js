@@ -393,12 +393,16 @@ https://highlightjs.org/
 
       var new_mode = subMode(lexeme, top);
       if (new_mode) {
-        if (new_mode.excludeBegin) {
+        if (new_mode.skip) {
           mode_buffer += lexeme;
-        }
-        processBuffer();
-        if (!new_mode.returnBegin && !new_mode.excludeBegin) {
-          mode_buffer = lexeme;
+        } else {
+          if (new_mode.excludeBegin) {
+            mode_buffer += lexeme;
+          }
+          processBuffer();
+          if (!new_mode.returnBegin && !new_mode.excludeBegin) {
+            mode_buffer = lexeme;
+          }
         }
         startNewMode(new_mode, lexeme);
         return new_mode.returnBegin ? 0 : lexeme.length;
@@ -407,18 +411,24 @@ https://highlightjs.org/
       var end_mode = endOfMode(top, lexeme);
       if (end_mode) {
         var origin = top;
-        if (!(origin.returnEnd || origin.excludeEnd)) {
+        if (origin.skip) {
           mode_buffer += lexeme;
-        }
-        processBuffer();
-        if (origin.excludeEnd) {
-          mode_buffer = lexeme;
+        } else {
+          if (!(origin.returnEnd || origin.excludeEnd)) {
+            mode_buffer += lexeme;
+          }
+          processBuffer();
+          if (origin.excludeEnd) {
+            mode_buffer = lexeme;
+          }
         }
         do {
           if (top.className) {
             result += '</span>';
           }
-          relevance += top.relevance;
+          if (!top.skip) {
+            relevance += top.relevance;
+          }
           top = top.parent;
         } while (top != end_mode.parent);
         if (end_mode.starts) {
