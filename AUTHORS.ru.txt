@@ -204,3 +204,4 @@ URL:   https://highlightjs.org/
 - Джон Фостер <jfoster@esri.com>
 - Робер Додье <robert.dodier@gmail.com>
 - Антони Дюгуа <dev.anthonydugois@gmail.com>
+- Qeole <qeole@outlook.com>
