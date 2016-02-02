@@ -4,11 +4,16 @@ New languages:
 
 - *QML* by [John Foster][]
 
+New styles:
+
+- *Gruvbox* by [Qeole][]
+
 Improvements to existing languages and styles:
 
 - We now correctly handle JSX with arbitrary node tree depth
 
 [John Foster]: https://github.com/jf990
+[Qeole]: https://github.com/Qeole
 
 ## Version 9.1.0
 
