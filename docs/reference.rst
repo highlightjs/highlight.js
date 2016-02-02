@@ -296,3 +296,29 @@ The value of the attribute controls which language or languages will be used for
 * language name: explicit highlighting with the specified language
 * empty array: auto detection with all the languages available
 * array of language names: auto detection constrained to the specified set
+
+skip
+^^^^
+
+**type**: boolean
+
+Skips any markup processing for the mode ensuring that it remains a part of its
+parent buffer along with the starting and the ending lexemes. This works in
+conjunction with the parent's :ref:`subLanguage` when it requires complex
+parsing.
+
+Consider parsing PHP inside HTML::
+
+  <p><? echo 'PHP'; /* ?> */ ?></p>
+
+The ``?>`` inside the comment should **not** end the PHP part, so we have to
+handle pairs of ``/* .. */`` to correctly find the ending ``?>``::
+
+  {
+    begin: /<\?/, end: /\?>/,
+    subLanguage: 'php',
+    contains: [{begin: '/\\*', end: '\\*/', skip: true}]
+  }
+
+Without ``skip: true`` every comment would cause the parser to drop out back
+into the HTML mode.
