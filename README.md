@@ -110,6 +110,13 @@ Head over to the [download page][5] for all the options.
 on GitHub; it requires building. If none of the pre-packaged options
 work for you refer to the [building documentation][6].
 
+Also, if you are using something like almond, you need to use the
+optimizer to give the module a name. The basic example would be:
+
+```
+r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
+```
+
 ## License
 
 Highlight.js is released under the BSD License. See [LICENSE][7] file
