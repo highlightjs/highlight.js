@@ -7,6 +7,7 @@ New languages:
 New styles:
 
 - *Gruvbox* by [Qeole][]
+- *Dracula* by [Denis Ciccale][]
 
 Improvements to existing languages and styles:
 
@@ -14,6 +15,7 @@ Improvements to existing languages and styles:
 
 [John Foster]: https://github.com/jf990
 [Qeole]: https://github.com/Qeole
+[Denis Ciccale]: https://github.com/dciccale
 
 ## Version 9.1.0
 

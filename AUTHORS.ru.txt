@@ -205,3 +205,4 @@ URL:   https://highlightjs.org/
 - Робер Додье <robert.dodier@gmail.com>
 - Антони Дюгуа <dev.anthonydugois@gmail.com>
 - Qeole <qeole@outlook.com>
+- Денис Сиккале <dciccale@gmail.com>
