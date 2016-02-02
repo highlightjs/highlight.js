@@ -17,7 +17,7 @@ exports.numberToString = _.method('toString');
 
 exports.expectedFile = function(filename, encoding, actual) {
   return readFile(filename, encoding)
-    .then(expected => actual.should.equal(expected));
+    .then(expected => actual.trim().should.equal(expected.trim()));
 };
 
 exports.setupFile = function(filename, encoding, that, testHTML) {

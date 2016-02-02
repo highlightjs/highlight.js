@@ -1,0 +1,3 @@
+<p>HTML</p>
+<?php echo 'PHP' ?>
+<hr>

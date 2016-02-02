@@ -5,16 +5,11 @@ Category: common
 
 function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
-  var PHP = {
-    begin: /<\?(php)?(?!\w)/, end: /\?>/,
-    subLanguage: 'php'
-  };
   var TAG_INTERNALS = {
     endsWithParent: true,
     illegal: /</,
     relevance: 0,
     contains: [
-      PHP,
       {
         className: 'attr',
         begin: XML_IDENT_RE,
@@ -26,7 +21,6 @@ function(hljs) {
         contains: [
           {
             className: 'string',
-            contains: [PHP],
             variants: [
               {begin: /"/, end: /"/},
               {begin: /'/, end: /'/},
@@ -85,11 +79,12 @@ function(hljs) {
           subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
         }
       },
-      PHP,
       {
         className: 'meta',
-        begin: /<\?\w+/, end: /\?>/,
-        relevance: 10
+        variants: [
+          {begin: /<\?xml/, end: /\?>/, relevance: 10},
+          {begin: /<\?\w+/, end: /\?>/}
+        ]
       },
       {
         className: 'tag',
