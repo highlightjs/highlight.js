@@ -4,6 +4,10 @@ New languages:
 
 - *QML* by [John Foster][]
 
+Improvements to existing languages and styles:
+
+- We now correctly handle JSX with arbitrary node tree depth
+
 [John Foster]: https://github.com/jf990
 
 ## Version 9.1.0
@@ -103,7 +107,7 @@ Some last-minute changes reverted due to strange bug with minified browser build
 New languages:
 
 - *crmsh* by [Kristoffer Gronlund][]
-- *SQF* by [Soren Enevoldsen][] 
+- *SQF* by [Soren Enevoldsen][]
 
 [Kristoffer Gronlund]: https://github.com/krig
 [Soren Enevoldsen]: https://github.com/senevoldsen90
