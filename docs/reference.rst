@@ -307,21 +307,18 @@ parent buffer along with the starting and the ending lexemes. This works in
 conjunction with the parent's :ref:`subLanguage` when it requires complex
 parsing.
 
-Consider parsing JSX inside JavaScript::
+Consider parsing PHP inside HTML::
 
-  var x = <node> text <child/> text </node>;
+  <p><? echo 'PHP'; /* ?> */ ?></p>
 
-You have to correctly balance opening and ending angle brackets to make sure
-that the entire XML node is parsed out before it can be highlighted with a
-sub-language::
+The ``?>`` inside the comment should **not** end the PHP part, so we have to
+handle pairs of ``/* .. */`` to correctly find the ending ``?>``::
 
   {
-    begin: /</, end: />/,
-    subLanguague: 'xml',
-    contains: [
-      {begin: /</, end: />/, skip: true, contains: ['self']}
-    ]
+    begin: /<\?/, end: /\?>/,
+    subLanguage: 'php',
+    contains: [{begin: '/\\*', end: '\\*/', skip: true}]
   }
 
-Without ``skip: true`` every angle bracket within the root node would cause the
-parser to drop out back into JavaScript.
+Without ``skip: true`` every comment would cause the parser to drop out back
+into the HTML mode.

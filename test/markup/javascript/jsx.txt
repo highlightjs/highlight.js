@@ -1,21 +1,5 @@
-var X = React.createClass({
-  render: function() {
-    var c = this.map(c => <Comment comment={c} key={c.id} />);
-    return (
-      <div className='comments'>
-        {c}
-      </div>
-    );
-  },
-  foo: function() {}
-});
-
-var Comment = React.createClass({
-  render: function() {
-    var comment = this.props.comment;
-    return (
-        <li>{comment}</li>
-    );
-  }
-  foo: function() {}
-});
+var jsx = <node/>;
+var jsx = <node><child/></node>;
+var jsx = <node>...<child>...</child></node>;
+var x = 5;
+return (<node attr="value"></node>);

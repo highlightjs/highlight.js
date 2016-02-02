@@ -68,9 +68,12 @@ function(hljs) {
           hljs.C_BLOCK_COMMENT_MODE,
           hljs.REGEXP_MODE,
           { // E4X / JSX
-            begin: /</, end: />\s*[);\]]/,
-            relevance: 0,
-            subLanguage: 'xml'
+            begin: /</, end: /(\/\w+|\w+\/)>/,
+            subLanguage: 'xml',
+            contains: [
+              {begin: /<\w+\/>/, skip: true},
+              {begin: /<\w+/, end: /(\/\w+|\w+\/)>/, skip: true, contains: ['self']}
+            ]
           }
         ],
         relevance: 0
