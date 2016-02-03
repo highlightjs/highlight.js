@@ -20,11 +20,11 @@ function(hljs) {
     contains: [
       {
         className: 'attr',
-        begin: '\\s*"', end: '"\\s*:\\s*', excludeBegin: true, excludeEnd: true,
+        begin: /"/, end: /"/,
         contains: [hljs.BACKSLASH_ESCAPE],
         illegal: '\\n',
-        starts: VALUE_CONTAINER
-      }
+      },
+      hljs.inherit(VALUE_CONTAINER, {begin: /:/})
     ],
     illegal: '\\S'
   };
