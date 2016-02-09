@@ -34,27 +34,20 @@ function(hljs) {
           endsWithParent: true, relevance: 0,
           contains: [
             hljs.QUOTE_STRING_MODE,
-            VARIABLE
           ]
         }
       }
     ]
   };
 
-  var VARIABLE = {
-    className: 'variable', begin: /[a-zA-Z_][a-zA-Z_0-9\.]+/,
-    illegal: /\}\}/,
-    keywords: {keyword: 'as', built_in: BUILT_INS}
-  };
-
   var TAG_INNARDS = {
     endsWithParent: true, relevance: 0,
+    keywords: {keyword: 'as', built_in: BUILT_INS},
     contains: [
       hljs.QUOTE_STRING_MODE,
       BUILT_IN_HELPERS,
       ATTR_ASSIGNMENT,
-      hljs.NUMBER_MODE,
-      VARIABLE,
+      hljs.NUMBER_MODE
     ]
   };
 
@@ -78,29 +71,10 @@ function(hljs) {
       },
       {
         className: 'template-variable',
-        begin: /\{\{yield/, end: /\}\}/,
-        keywords: {built_in: 'yield'},
-        contains: [
-          hljs.QUOTE_STRING_MODE,
-          VARIABLE
-        ]
-      },
-      {
-        className: 'template-tag',
         begin: /\{\{[a-zA-Z][a-zA-Z\-]+/, end: /\}\}/,
-        returnBegin: true,
+        keywords: {keyword: 'as', built_in: BUILT_INS},
         contains: [
-          {
-            className: 'name',
-            begin: /[a-zA-Z]+[\-][a-zA-Z.\-]+/,
-            starts: TAG_INNARDS
-          },
-          {
-            beginKeywords: BUILT_INS,
-            keywords: {built_in: BUILT_INS},
-            starts: TAG_INNARDS
-          },
-          VARIABLE
+          hljs.QUOTE_STRING_MODE
         ]
       }
     ]
