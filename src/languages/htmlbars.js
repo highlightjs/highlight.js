@@ -64,7 +64,7 @@ function(hljs) {
           {
             className: 'name',
             begin: /[a-zA-Z\.\-]+/,
-            keywords: {built_in: BUILT_INS},
+            keywords: {'builtin-name': BUILT_INS},
             starts: TAG_INNARDS
           }
         ]
