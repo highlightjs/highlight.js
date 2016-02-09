@@ -8,10 +8,7 @@ Category: template
 
 function(hljs) {
   var BUILT_INS = 'action collection component concat debugger each each-in else get hash if input link-to loc log mut outlet partial query-params render textarea unbound unless with yield view';
-  var BUILT_IN_HELPERS = {
-    beginKeywords: BUILT_INS,
-    keywords: {built_in: BUILT_INS}
-  };
+
   var ATTR_ASSIGNMENT = {
     illegal: /\}\}/,
     begin: /[a-zA-Z0-9_]+=/,
@@ -23,6 +20,7 @@ function(hljs) {
       }
     ]
   };
+
   var SUB_EXPR = {
     illegal: /\}\}/,
     begin: /\)/, end: /\)/,
@@ -45,7 +43,6 @@ function(hljs) {
     keywords: {keyword: 'as', built_in: BUILT_INS},
     contains: [
       hljs.QUOTE_STRING_MODE,
-      BUILT_IN_HELPERS,
       ATTR_ASSIGNMENT,
       hljs.NUMBER_MODE
     ]
