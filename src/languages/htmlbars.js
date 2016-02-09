@@ -8,7 +8,6 @@ Category: template
 
 function(hljs) {
   var BUILT_INS = 'action collection component concat debugger each each-in else get hash if input link-to loc log mut outlet partial query-params render textarea unbound unless with yield view';
-  var EXPRESSION_KEYWORDS = 'as';
   var BUILT_IN_HELPERS = {
     beginKeywords: BUILT_INS,
     keywords: {built_in: BUILT_INS}
@@ -45,7 +44,7 @@ function(hljs) {
   var VARIABLE = {
     className: 'variable', begin: /[a-zA-Z_][a-zA-Z_0-9\.]+/,
     illegal: /\}\}/,
-    keywords: {keyword: EXPRESSION_KEYWORDS, built_in: BUILT_INS}
+    keywords: {keyword: 'as', built_in: BUILT_INS}
   };
 
   var TAG_INNARDS = {
