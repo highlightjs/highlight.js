@@ -206,3 +206,4 @@ Contributors:
 - Anthony Dugois <dev.anthonydugois@gmail.com>
 - Qeole <qeole@outlook.com>
 - Denis Ciccale <dciccale@gmail.com>
+- Michael Johnston <lastobelus@gmail.com>

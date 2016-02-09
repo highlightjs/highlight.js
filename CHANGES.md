@@ -3,6 +3,7 @@
 New languages:
 
 - *QML* by [John Foster][]
+- *HTMLBars* by [Michael Johnston][]
 
 New styles:
 
@@ -16,6 +17,8 @@ Improvements to existing languages and styles:
 [John Foster]: https://github.com/jf990
 [Qeole]: https://github.com/Qeole
 [Denis Ciccale]: https://github.com/dciccale
+[Michael Johnston]: https://github.com/lastobelus
+
 
 ## Version 9.1.0
 

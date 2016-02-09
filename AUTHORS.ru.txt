@@ -206,3 +206,4 @@ URL:   https://highlightjs.org/
 - Антони Дюгуа <dev.anthonydugois@gmail.com>
 - Qeole <qeole@outlook.com>
 - Денис Сиккале <dciccale@gmail.com>
+- Майкл Джонстон <lastobelus@gmail.com>
