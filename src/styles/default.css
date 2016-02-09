@@ -63,17 +63,17 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 }
 
 
-/* Language color: hue: 120; */
+/* Language color: hue: 90; */
 
 .hljs-literal {
-  color: #4D974D;
+  color: #63A521;
 }
 
 .hljs-built_in,
 .hljs-bullet,
 .hljs-code,
 .hljs-addition {
-  color: #2C6F2C;
+  color: #538026;
 }
 
 
