@@ -1,5 +1,5 @@
 /*
-Language: Handlebars
+Language: HTMLBars
 Requires: xml.js
 Author: Michael Johnston <lastobelus@gmail.com>
 Description: Matcher for HTMLBars
