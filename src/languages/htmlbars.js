@@ -77,21 +77,12 @@ function(hljs) {
         ]
       },
       {
-        className: 'template-yield',
+        className: 'template-variable',
         begin: /\{\{yield/, end: /\}\}/,
-        returnBegin: true,
+        keywords: {built_in: 'yield'},
         contains: [
-          {
-            beginKeywords: 'yield',
-            keywords: {built_in: 'yield'},
-            starts: {
-              endsWithParent: true, relevance: 0,
-              contains: [
-                hljs.QUOTE_STRING_MODE,
-                VARIABLE
-              ]
-            }
-          }
+          hljs.QUOTE_STRING_MODE,
+          VARIABLE
         ]
       },
       {
