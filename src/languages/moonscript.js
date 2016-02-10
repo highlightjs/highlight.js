@@ -38,6 +38,10 @@ function(hljs) {
           contains: [hljs.BACKSLASH_ESCAPE, SUBST]
         }
       ]
+    },
+    {
+      className: 'variable',
+      begin: '@' + hljs.IDENT_RE
     }
   ];
   SUBST.contains = EXPRESSIONS;
