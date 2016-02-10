@@ -77,14 +77,14 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 }
 
 
-/* Meta color: hue: 206 */
+/* Meta color: hue: 200 */
 
 .hljs-meta {
-  color: #2B6EA1;
+  color: #1f7199;
 }
 
 .hljs-meta-string {
-  color: #6CA8D6;
+  color: #4d99bf;
 }
 
 
