@@ -40,8 +40,16 @@ function(hljs) {
       ]
     },
     {
+      className: 'builtin',
+      begin: '@__' + hljs.IDENT_RE
+    },
+    {
       className: 'variable',
       begin: '@' + hljs.IDENT_RE
+    },
+    {
+      className: 'variable',  // inst\method
+      begin: hljs.IDENT_RE + '\\\\' + hljs.IDENT_RE
     }
   ];
   SUBST.contains = EXPRESSIONS;
