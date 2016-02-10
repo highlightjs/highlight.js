@@ -4,6 +4,7 @@ New languages:
 
 - *QML* by [John Foster][]
 - *HTMLBars* by [Michael Johnston][]
+- *MoonScript* by [Billy Quith][]
 
 New styles:
 
@@ -18,6 +19,7 @@ Improvements to existing languages and styles:
 [Qeole]: https://github.com/Qeole
 [Denis Ciccale]: https://github.com/dciccale
 [Michael Johnston]: https://github.com/lastobelus
+[Billy Quith]: https://github.com/billyquith
 
 
 ## Version 9.1.0
