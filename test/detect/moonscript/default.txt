@@ -85,6 +85,10 @@ import
   assert_csrf
   require_login
   from require "helpers"
-
+  
+my_func = (add using k,i) ->
+  tmp = tmp + add   -- a new local tmp is created
+  i += tmp          -- using external i
+  k += tmp          -- using external k
 
 -- single line comment

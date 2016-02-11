@@ -11,7 +11,7 @@ function(hljs) {
     keyword:
       // Moonscript keywords
       'if then not for in while do return else break continue switch and or ' +
-      'unless when|5 class extends super local import export from',
+      'unless when|5 class extends super local import export from using',
     literal:
       'true false nil',
     built_in:
