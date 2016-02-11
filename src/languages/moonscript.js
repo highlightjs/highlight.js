@@ -11,11 +11,11 @@ function(hljs) {
     keyword:
       // Moonscript keywords
       'if then not for in while do return else break continue switch and or ' +
-      'unless when|5 class extends super local import export',
+      'unless when|5 class extends super local import export from',
     literal:
       'true false nil',
     built_in:
-      'print pairs ipairs'
+      'print pairs ipairs require'
   };
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var SUBST = {

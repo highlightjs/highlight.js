@@ -81,4 +81,10 @@ class Shelf
 a = Animal('Snail')
 a\move 10
 
+import
+  assert_csrf
+  require_login
+  from require "helpers"
+
+
 -- single line comment
