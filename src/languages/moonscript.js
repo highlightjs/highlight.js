@@ -10,12 +10,15 @@ function(hljs) {
   var KEYWORDS = {
     keyword:
       // Moonscript keywords
-      'if then not for in while do return else break continue switch and or ' +
+      'if then not for in while do return else elseif break continue switch and or ' +
       'unless when|5 class extends super local import export from using',
     literal:
       'true false nil',
     built_in:
-      'print pairs ipairs require'
+      '_G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load ' +
+      'loadfile loadstring module next pairs pcall print rawequal rawget rawset require ' +
+      'select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug ' +
+      'io math os package string table'
   };
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var SUBST = {
