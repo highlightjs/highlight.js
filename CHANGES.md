@@ -4,6 +4,7 @@ New languages:
 
 - *QML* by [John Foster][]
 - *HTMLBars* by [Michael Johnston][]
+- *CSP* by [Taras][]
 
 New styles:
 
