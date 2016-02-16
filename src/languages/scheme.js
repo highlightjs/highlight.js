@@ -104,6 +104,16 @@ function(hljs) {
     relevance: 0
   };
 
+  var QUOTED_LIST = {
+    begin: /'/,
+    contains: [
+      {
+        begin: '\\(', end: '\\)',
+        contains: ['self', LITERAL, STRING, NUMBER, IDENT, QUOTED_IDENT]
+      }
+    ]
+  };
+
   var NAME = {
     className: 'name',
     begin: SCHEME_IDENT_RE,
@@ -130,10 +140,10 @@ function(hljs) {
     contains: [LAMBDA, NAME, BODY]
   };
 
-  BODY.contains = [LITERAL, NUMBER, STRING, IDENT, QUOTED_IDENT, LIST].concat(COMMENT_MODES);
+  BODY.contains = [LITERAL, NUMBER, STRING, IDENT, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES);
 
   return {
     illegal: /\S/,
-    contains: [SHEBANG, NUMBER, STRING, QUOTED_IDENT, LIST].concat(COMMENT_MODES)
+    contains: [SHEBANG, NUMBER, STRING, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES)
   };
 }
