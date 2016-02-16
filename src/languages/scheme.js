@@ -104,20 +104,30 @@ function(hljs) {
     relevance: 0
   };
 
+  var NAME = {
+    className: 'name',
+    begin: SCHEME_IDENT_RE,
+    lexemes: SCHEME_IDENT_RE,
+    keywords: BUILTINS
+  };
+
+  var LAMBDA = {
+    begin: /lambda/, endsWithParent: true, returnBegin: true,
+    contains: [
+      NAME,
+      {
+        begin: /\(/, end: /\)/, endsParent: true,
+        contains: [IDENT],
+      }
+    ]
+  };
+
   var LIST = {
     variants: [
       { begin: '\\(', end: '\\)' },
       { begin: '\\[', end: '\\]' }
     ],
-    contains: [
-      {
-        className: 'name',
-        begin: SCHEME_IDENT_RE,
-        lexemes: SCHEME_IDENT_RE,
-        keywords: BUILTINS
-      },
-      BODY
-    ]
+    contains: [LAMBDA, NAME, BODY]
   };
 
   BODY.contains = [LITERAL, NUMBER, STRING, IDENT, QUOTED_IDENT, LIST].concat(COMMENT_MODES);

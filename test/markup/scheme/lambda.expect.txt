@@ -1,0 +1,1 @@
+(<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (x y z) (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> y z))
