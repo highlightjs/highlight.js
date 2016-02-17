@@ -12,7 +12,9 @@ New styles:
 
 Improvements to existing languages and styles:
 
-- We now correctly handle JSX with arbitrary node tree depth
+- We now correctly handle JSX with arbitrary node tree depth.
+- Argument list for `(lambda)` in Scheme is no longer highlighted as a function
+  call.
 
 [John Foster]: https://github.com/jf990
 [Qeole]: https://github.com/Qeole
