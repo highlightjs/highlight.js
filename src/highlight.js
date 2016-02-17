@@ -777,6 +777,11 @@ https://highlightjs.org/
     begin: hljs.UNDERSCORE_IDENT_RE,
     relevance: 0
   };
+  hljs.METHOD_GUARD = {
+    // excludes method names from keyword processing
+    begin: '\\.\\s*' + hljs.UNDERSCORE_IDENT_RE,
+    relevance: 0
+  };
 
   return hljs;
 }));

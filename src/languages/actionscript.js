@@ -71,7 +71,8 @@ function(hljs) {
             begin: ':\\s*' + IDENT_FUNC_RETURN_TYPE_RE
           }
         ]
-      }
+      },
+      hljs.METHOD_GUARD
     ],
     illegal: /#/
   };
