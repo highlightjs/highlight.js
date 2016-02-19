@@ -19,7 +19,7 @@ Improvements to existing languages and styles:
 [Qeole]: https://github.com/Qeole
 [Denis Ciccale]: https://github.com/dciccale
 [Michael Johnston]: https://github.com/lastobelus
-
+[Taras]: https://github.com/oxdef
 
 ## Version 9.1.0
 
