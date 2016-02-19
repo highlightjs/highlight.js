@@ -1,0 +1,5 @@
+Content-Security-Policy:
+    default-src 'self';
+    style-src 'self' css.example.com;
+    img-src *.example.com;
+    script-src 'unsafe-eval' 'self' js.example.com 'nonce-Nc3n83cnSAd3wc3Sasdfn939hc3'

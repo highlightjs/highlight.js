@@ -207,3 +207,4 @@ URL:   https://highlightjs.org/
 - Qeole <qeole@outlook.com>
 - Денис Сиккале <dciccale@gmail.com>
 - Майкл Джонстон <lastobelus@gmail.com>
+- Тарас <oxdef@oxdef.info>
