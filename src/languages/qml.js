@@ -61,7 +61,7 @@ function(hljs) {
       className: 'attribute',
       begin: '\\bid\\s*:',
       starts: {
-        className: 'title',
+        className: 'string',
         end: QML_IDENT_RE,
         returnEnd: false
       }
