@@ -2,7 +2,7 @@
 Language: Device Tree
 Description: *.dts files used in the Linux kernel
 Author: Martin Braun <martin.braun@ettus.com>, Moritz Fischer <moritz.fischer@ettus.com>
-Category: common, system
+Category: config
 */
 
 function(hljs) {
