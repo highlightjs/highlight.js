@@ -53,6 +53,11 @@ function(hljs) {
         relevance: 10
       },
       {
+        begin: /<\?(php)?/, end: /\?>/,
+        subLanguage: 'php',
+        contains: [{begin: '/\\*', end: '\\*/', skip: true}]
+      },
+      {
         className: 'tag',
         /*
         The lookahead pattern (?=...) ensures that 'begin' only matches
