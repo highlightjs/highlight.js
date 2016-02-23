@@ -31,13 +31,6 @@ function (hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
-        className: 'type',
-        begin: /</, end: />/,
-        returnBegin: true,
-        excludeEnd: false,
-        relevance: 0
-      },
-      {
         className: 'function',
         beginKeywords: 'fun', end: '[(]|$',
         returnBegin: true,
