@@ -1,10 +1,11 @@
-## Version 9.2.0 [NOT YET RELEASED]
+## Version 9.2.0
 
 New languages:
 
 - *QML* by [John Foster][]
 - *HTMLBars* by [Michael Johnston][]
 - *CSP* by [Taras][]
+- *Maxima* by [Robert Dodier][]
 
 New styles:
 
@@ -16,12 +17,19 @@ Improvements to existing languages and styles:
 - We now correctly handle JSX with arbitrary node tree depth.
 - Argument list for `(lambda)` in Scheme is no longer highlighted as a function
   call.
+- Stylus syntax doesn't break on valid CSS.
+- More correct handling of comments and strings and other improvements for
+  VimScript.
+- More subtle work on the default style.
+- We now use anonymous modules for AMD.
+- `macro_rules!` is now recognized as a built-in in Rust.
 
 [John Foster]: https://github.com/jf990
 [Qeole]: https://github.com/Qeole
 [Denis Ciccale]: https://github.com/dciccale
 [Michael Johnston]: https://github.com/lastobelus
 [Taras]: https://github.com/oxdef
+[Robert Dodier]: https://github.com/robert-dodier
 
 ## Version 9.1.0
 
