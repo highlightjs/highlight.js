@@ -62,8 +62,7 @@ function(hljs) {
         className: 'string',
         end: '(:|=|;|,|//|/\\*|$)',
         returnEnd: true
-      },
-      relevance: 0
+      }
   };
 
   // Isolate signal statements. Ends at a ) a comment or end of line.
@@ -75,8 +74,7 @@ function(hljs) {
         className: 'string',
         end: '(\\(|:|=|;|,|//|/\\*|$)',
         returnEnd: true
-      },
-      relevance: 10
+      }
   };
 
   // id: is special in QML. When we see id: we want to mark the id: as attribute and
@@ -88,8 +86,7 @@ function(hljs) {
         className: 'title',
         end: QML_IDENT_RE,
         returnEnd: false
-      },
-      relevance: 10
+      }
   };
 
   // Find QML object attribute. An attribute is a QML identifier followed by :.
@@ -105,7 +102,8 @@ function(hljs) {
         begin: QML_IDENT_RE,
         includeBegin: true,
         end: '\\s*:',
-        excludeEnd: true
+        excludeEnd: true,
+        relevance: 0
       }
     ],
     relevance: 0
