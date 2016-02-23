@@ -92,9 +92,6 @@ function (hljs) {
           }
         ]
       },
-      {
-        className: 'variable', beginKeywords: 'var val', end: /\s*[=:$]/, excludeEnd: true
-      },
       hljs.QUOTE_STRING_MODE,
       {
         className: 'meta',
