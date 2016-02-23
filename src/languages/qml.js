@@ -30,7 +30,7 @@ function(hljs) {
     };
 
   var QML_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9\\._]*';
-  
+
   var END_OF_LINE_MODE = {
     className: 'string',
     begin: '(\\b|"|\')',
@@ -45,40 +45,40 @@ function(hljs) {
       beginKeywords: 'import', end: '$',
       starts: {
         className: 'string',
-        end: '(//|/\\*|$)', 
+        end: '(//|/\\*|$)',
         returnEnd: true
       },
       contains: [
         END_OF_LINE_MODE
       ]
   };
-  
+
   // Isolate property statements. Ends at a :, =, ;, ,, a comment or end of line.
   // Use property class.
   var PROPERTY = {
       className: 'keyword',
-      begin: '\\bproperty\\b', 
+      begin: '\\bproperty\\b',
       starts: {
         className: 'string',
-        end: '(:|=|;|,|//|/\\*|$)', 
+        end: '(:|=|;|,|//|/\\*|$)',
         returnEnd: true
       },
       relevance: 0
   };
-  
+
   // Isolate signal statements. Ends at a ) a comment or end of line.
   // Use property class.
   var SIGNAL = {
       className: 'keyword',
-      begin: '\\bsignal\\b', 
+      begin: '\\bsignal\\b',
       starts: {
         className: 'string',
-        end: '(\\(|:|=|;|,|//|/\\*|$)', 
+        end: '(\\(|:|=|;|,|//|/\\*|$)',
         returnEnd: true
       },
       relevance: 10
   };
-  
+
   // id: is special in QML. When we see id: we want to mark the id: as attribute and
   // emphasize the token following.
   var ID_ID = {
@@ -86,13 +86,13 @@ function(hljs) {
       begin: '\\bid\\s*:',
       starts: {
         className: 'emphasis',
-        end: QML_IDENT_RE, 
+        end: QML_IDENT_RE,
         returnEnd: false
       },
       relevance: 10
   };
 
-  // Find QML object attribute. An attribute is a QML identifier followed by :. 
+  // Find QML object attribute. An attribute is a QML identifier followed by :.
   // Unfortunately it's hard to know where it ends, as it may contain scalars,
   // objects, object definitions, or javascript. The true end is either when the parent
   // ends or the next attribute is detected.
@@ -102,9 +102,9 @@ function(hljs) {
     contains: [
       {
         className: 'attribute',
-        begin: QML_IDENT_RE, 
+        begin: QML_IDENT_RE,
         includeBegin: true,
-        end: '\\s*:', 
+        end: '\\s*:',
         excludeEnd: true
       }
     ],
@@ -120,9 +120,9 @@ function(hljs) {
       {
         className: 'decorator',
         keywords: KEYWORDS,
-        begin: QML_IDENT_RE, 
+        begin: QML_IDENT_RE,
         includeBegin: true,
-        end: '\\s*{', 
+        end: '\\s*{',
         excludeEnd: true
       }
     ],
