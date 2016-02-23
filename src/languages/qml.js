@@ -12,7 +12,7 @@ function(hljs) {
       keyword:
         'in of on if for while finally var new function do return void else break catch ' +
         'instanceof with throw case default try this switch continue typeof delete ' +
-        'let yield const export super debugger as async await',
+        'let yield const export super debugger as async await import',
       literal:
         'true false null undefined NaN Infinity',
       built_in:
@@ -30,28 +30,6 @@ function(hljs) {
     };
 
   var QML_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9\\._]*';
-
-  var END_OF_LINE_MODE = {
-    className: 'string',
-    begin: '(\\b|"|\')',
-    end: '(//|/\\*|$)',
-    illegal: '\\n',
-    contains: [hljs.BACKSLASH_ESCAPE]
-  };
-
-  // Isolate import statements. Ends at a comment or end of line.
-  // Use keyword class.
-  var IMPORT = {
-      beginKeywords: 'import', end: '$',
-      starts: {
-        className: 'string',
-        end: '(//|/\\*|$)',
-        returnEnd: true
-      },
-      contains: [
-        END_OF_LINE_MODE
-      ]
-  };
 
   // Isolate property statements. Ends at a :, =, ;, ,, a comment or end of line.
   // Use property class.
@@ -175,7 +153,6 @@ function(hljs) {
         ],
         relevance: 0
       },
-      IMPORT,
       SIGNAL,
       PROPERTY,
       {
