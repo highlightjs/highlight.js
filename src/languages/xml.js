@@ -16,7 +16,7 @@ function(hljs) {
         relevance: 0
       },
       {
-        begin: '=',
+        begin: /=\s*/,
         relevance: 0,
         contains: [
           {

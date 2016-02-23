@@ -1,0 +1,3 @@
+<img src ="/pics/foo.jpg">
+<img src= "/pics/foo.jpg">
+<img src = "/pics/foo.jpg">
