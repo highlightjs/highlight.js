@@ -2,13 +2,11 @@
 
 describe('browser build', function() {
   before(function() {
-    this.text   = 'var say = "Hello";class Car {}';
-    this.html   = `<pre><code>${this.text}</code></pre>`;
-    this.expect = '<span class="hljs-variable"><span class="hljs-keyword">' +
-                  'var</span> say</span> = <span class="hljs-string">' +
-                  '"Hello"</span>;<span class="hljs-class">' +
-                  '<span class="hljs-keyword">class</span> ' +
-                  '<span class="hljs-title">Car</span> </span>{}';
+    this.text   = 'var say = "Hello";';
+    this.html   = `<pre><code class="javascript">${this.text}</code></pre>`;
+    this.expect = '<span class="hljs-keyword">' +
+                  'var</span> say = <span class="hljs-string">' +
+                  '"Hello"</span>;';
   });
 
   require('./plain');
