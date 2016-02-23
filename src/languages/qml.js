@@ -116,7 +116,7 @@ function(hljs) {
     returnBegin: true,
     contains: [
       {
-        className: 'decorator',
+        className: 'title',
         keywords: KEYWORDS,
         begin: QML_IDENT_RE,
         includeBegin: true,
@@ -133,7 +133,7 @@ function(hljs) {
     keywords: KEYWORDS,
     contains: [
       {
-        className: 'pi',
+        className: 'meta',
         begin: /^\s*['"]use (strict|asm)['"]/
       },
       hljs.APOS_STRING_MODE,
