@@ -21,6 +21,7 @@ function(hljs) {
         contains: [
           {
             className: 'string',
+            endsParent: true,
             variants: [
               {begin: /"/, end: /"/},
               {begin: /'/, end: /'/},
