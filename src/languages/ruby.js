@@ -7,10 +7,14 @@ Category: common
 
 function(hljs) {
   var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
-  var RUBY_KEYWORDS =
-    'and false then defined module in return redo if BEGIN retry end for true self when ' +
-    'next until do begin unless END rescue nil else break undef not super class case ' +
-    'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor';
+  var RUBY_KEYWORDS = {
+    keyword:
+      'and then defined module in return redo if BEGIN retry end for self when ' +
+      'next until do begin unless END rescue else break undef not super class case ' +
+      'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor',
+    literal:
+      'true false nil'
+  };
   var YARDOCTAG = {
     className: 'doctag',
     begin: '@[A-Za-z]+'
