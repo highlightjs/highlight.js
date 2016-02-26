@@ -30,20 +30,11 @@ https://highlightjs.org/
 
   /* Utility functions */
 
-  function getClassNameForMode(mode) {
-    return mode.className ? options.classPrefix + mode.className : null;
-  }
-
-  function getClassNameForLanguage(language) {
-    return language ? language : null;
-  }
-
-  function getClassNameForKeyword(keyword) {
-    return options.classPrefix + keyword;
-  }
-
-  function getClassNameDefault() {
-    return 'hljs';
+  function getClassName(existing, type) {
+    if (type === 'mode' || type === 'keyword') {
+      return options.classPrefix + existing;
+    }
+    return existing;
   }
 
   function escape(value) {
@@ -355,7 +346,7 @@ https://highlightjs.org/
         var className;
         if (keyword_match) {
           relevance += keyword_match[1];
-          className = options.className.keyword(keyword_match[0], keyword_match[1]);
+          className = options.className(keyword_match[0], 'keyword', keyword_match[1]);
           if (className) {
             result += buildSpan(className, escape(match[0]));
           } else {
@@ -399,7 +390,7 @@ https://highlightjs.org/
     }
 
     function startNewMode(mode, lexeme) {
-      var className = options.className.mode(mode);
+      var className = mode.className && options.className(mode.className, 'mode', mode);
       result += className? buildSpan(className, '', true): '';
       top = Object.create(mode, {parent: {value: top}});
     }
@@ -445,7 +436,7 @@ https://highlightjs.org/
           }
         }
         do {
-          if (options.className.mode(top)) {
+          if (top.className && options.className(top.className, 'mode', top)) {
             result += '</span>';
           }
           if (!top.skip) {
@@ -482,7 +473,7 @@ https://highlightjs.org/
     var result = '', current;
     var className;
     for(current = top; current != language; current = current.parent) {
-      className = options.className.language(current.name, current);
+      className = options.className(current.name, 'language', current);
       if (className) {
         result = buildSpan(className, '', true) + result;
       }
@@ -501,7 +492,7 @@ https://highlightjs.org/
       }
       processLexeme(value.substr(index));
       for(current = top; current.parent; current = current.parent) { // close dangling modes
-        className = options.className.language(current.name, current);
+        className = options.className(current.name, 'language', current);
         if (className) {
           result += '</span>';
         }
@@ -586,12 +577,12 @@ https://highlightjs.org/
         result   = [prevClassName.trim()],
         className;
 
-    className = options.className.default();
+    className = options.className('hljs', 'default');
     if (className && prevClassName.indexOf(className) === -1) {
       result.push(className);
     }
 
-    className = options.className.language(language, getLanguage(language));
+    className = options.className(language, 'language', getLanguage(language));
     if (className && prevClassName.indexOf(className) === -1) {
       result.push(className);
     }
@@ -645,12 +636,7 @@ https://highlightjs.org/
     tabReplace: null,
     useBR: false,
     languages: undefined,
-    className: {
-      default: getClassNameDefault,
-      language: getClassNameForLanguage,
-      mode: getClassNameForMode,
-      keyword: getClassNameForKeyword
-    }
+    className: getClassName
   };
 
   /*
