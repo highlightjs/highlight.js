@@ -445,7 +445,7 @@ https://highlightjs.org/
           }
         }
         do {
-          if (top.className) {
+          if (options.className.mode(top)) {
             result += '</span>';
           }
           if (!top.skip) {
