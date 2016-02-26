@@ -1,3 +1,9 @@
+## Version 9.3.0 [NOT YET RELEASED]
+
+Improvements to existing languages and styles:
+
+- Improve GAMS language parsing
+
 ## Version 9.2.0
 
 New languages:
@@ -30,6 +36,7 @@ Improvements to existing languages and styles:
 [Michael Johnston]: https://github.com/lastobelus
 [Taras]: https://github.com/oxdef
 [Robert Dodier]: https://github.com/robert-dodier
+
 
 ## Version 9.1.0
 
