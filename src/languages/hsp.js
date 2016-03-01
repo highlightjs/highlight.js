@@ -22,7 +22,7 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE]
       },
 
-      hljs.COMMENT(';', '$'),
+      hljs.COMMENT(';', '$', {relevance: 0}),
 
       {
         // pre-processor
