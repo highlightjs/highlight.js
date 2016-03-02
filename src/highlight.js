@@ -30,6 +30,13 @@ https://highlightjs.org/
 
   /* Utility functions */
 
+  function getClassName(existing, type) {
+    if (type === 'mode' || type === 'keyword') {
+      return options.classPrefix + existing;
+    }
+    return existing;
+  }
+
   function escape(value) {
     return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
   }
@@ -317,9 +324,8 @@ https://highlightjs.org/
       return mode.keywords.hasOwnProperty(match_str) && mode.keywords[match_str];
     }
 
-    function buildSpan(classname, insideSpan, leaveOpen, noPrefix) {
-      var classPrefix = noPrefix ? '' : options.classPrefix,
-          openSpan    = '<span class="' + classPrefix,
+    function buildSpan(classname, insideSpan, leaveOpen) {
+      var openSpan    = '<span class="',
           closeSpan   = leaveOpen ? '' : '</span>';
 
       openSpan += classname + '">';
@@ -337,9 +343,15 @@ https://highlightjs.org/
       while (match) {
         result += escape(mode_buffer.substr(last_index, match.index - last_index));
         var keyword_match = keywordMatch(top, match);
+        var className;
         if (keyword_match) {
           relevance += keyword_match[1];
-          result += buildSpan(keyword_match[0], escape(match[0]));
+          className = options.className(keyword_match[0], 'keyword', keyword_match[1]);
+          if (className) {
+            result += buildSpan(className, escape(match[0]));
+          } else {
+            result += escape(match[0]);
+          }
         } else {
           result += escape(match[0]);
         }
@@ -369,7 +381,7 @@ https://highlightjs.org/
       if (explicit) {
         continuations[top.subLanguage] = result.top;
       }
-      return buildSpan(result.language, result.value, false, true);
+      return buildSpan(result.language, result.value);
     }
 
     function processBuffer() {
@@ -378,7 +390,8 @@ https://highlightjs.org/
     }
 
     function startNewMode(mode, lexeme) {
-      result += mode.className? buildSpan(mode.className, '', true): '';
+      var className = mode.className && options.className(mode.className, 'mode', mode);
+      result += className? buildSpan(className, '', true): '';
       top = Object.create(mode, {parent: {value: top}});
     }
 
@@ -423,7 +436,7 @@ https://highlightjs.org/
           }
         }
         do {
-          if (top.className) {
+          if (top.className && options.className(top.className, 'mode', top)) {
             result += '</span>';
           }
           if (!top.skip) {
@@ -458,9 +471,11 @@ https://highlightjs.org/
     var top = continuation || language;
     var continuations = {}; // keep continuations for sub-languages
     var result = '', current;
+    var className;
     for(current = top; current != language; current = current.parent) {
-      if (current.className) {
-        result = buildSpan(current.className, '', true) + result;
+      className = options.className(current.name, 'language', current);
+      if (className) {
+        result = buildSpan(className, '', true) + result;
       }
     }
     var mode_buffer = '';
@@ -477,7 +492,8 @@ https://highlightjs.org/
       }
       processLexeme(value.substr(index));
       for(current = top; current.parent; current = current.parent) { // close dangling modes
-        if (current.className) {
+        className = options.className(current.name, 'language', current);
+        if (className) {
           result += '</span>';
         }
       }
@@ -558,14 +574,17 @@ https://highlightjs.org/
 
   function buildClassName(prevClassName, currentLang, resultLang) {
     var language = currentLang ? aliases[currentLang] : resultLang,
-        result   = [prevClassName.trim()];
+        result   = [prevClassName.trim()],
+        className;
 
-    if (!prevClassName.match(/\bhljs\b/)) {
-      result.push('hljs');
+    className = options.className('hljs', 'default');
+    if (className && prevClassName.indexOf(className) === -1) {
+      result.push(className);
     }
 
-    if (prevClassName.indexOf(language) === -1) {
-      result.push(language);
+    className = options.className(language, 'language', getLanguage(language));
+    if (className && prevClassName.indexOf(className) === -1) {
+      result.push(className);
     }
 
     return result.join(' ').trim();
@@ -616,7 +635,8 @@ https://highlightjs.org/
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
-    languages: undefined
+    languages: undefined,
+    className: getClassName
   };
 
   /*
@@ -651,6 +671,7 @@ https://highlightjs.org/
 
   function registerLanguage(name, language) {
     var lang = languages[name] = language(hljs);
+    lang.name = name;
     if (lang.aliases) {
       lang.aliases.forEach(function(alias) {aliases[alias] = name;});
     }
