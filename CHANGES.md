@@ -1,3 +1,11 @@
+## Version 9.3.0 [NOT YET RELEASED]
+
+New languages:
+
+- *Tagger Script* by [Philipp Wolfer][]
+
+[Philipp Wolfer]: https://github.com/phw
+
 ## Version 9.2.0
 
 New languages:
