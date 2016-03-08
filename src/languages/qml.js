@@ -78,7 +78,6 @@ function(hljs) {
       {
         className: 'attribute',
         begin: QML_IDENT_RE,
-        includeBegin: true,
         end: '\\s*:',
         excludeEnd: true,
         relevance: 0
@@ -90,19 +89,12 @@ function(hljs) {
   // Find QML object. A QML object is a QML identifier followed by { and ends at the matching }.
   // All we really care about is finding IDENT followed by { and just mark up the IDENT and ignore the {.
   var QML_OBJECT = {
-    begin: QML_IDENT_RE + '\\s*{',
+    begin: QML_IDENT_RE + '\\s*{', end: '{',
     returnBegin: true,
+    relevance: 0,
     contains: [
-      {
-        className: 'title',
-        keywords: KEYWORDS,
-        begin: QML_IDENT_RE,
-        includeBegin: true,
-        end: '\\s*{',
-        excludeEnd: true
-      }
-    ],
-    relevance: 0
+      hljs.inherit(hljs.TITLE_MODE, {begin: QML_IDENT_RE})
+    ]
   };
 
   return {
