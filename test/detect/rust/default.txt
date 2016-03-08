@@ -1,14 +1,10 @@
-#![crate_name = "foo"]
-
-use std::fs::File;
-
+#[derive(Debug)]
 pub enum State {
     Start,
     Transient,
     Closed,
 }
 
-// no reason, just showing off
 impl From<&'a str> for State {
     fn from(s: &'a str) -> Self {
         match s {
@@ -17,12 +13,4 @@ impl From<&'a str> for State {
             _ => unreachable!(),
         }
     }
-}
-
-fn main() {
-    let mut f = File::open("foo.txt").unwrap();
-    let mut s = String::new();
-    f.read_to_string(&mut s);
-    let state: State = From::from(&s[..6]);
-    println!("{:?}", state);
 }
