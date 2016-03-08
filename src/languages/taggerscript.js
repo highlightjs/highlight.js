@@ -20,7 +20,7 @@ function(hljs) {
   };
 
   var FUNCTION = {
-    className: 'title',
+    className: 'keyword',
     begin: /\$(?!noop)[a-zA-Z][_a-zA-Z0-9]*/,
     end: /\(/,
     excludeEnd: true,
@@ -28,7 +28,7 @@ function(hljs) {
   };
 
   var VARIABLE = {
-    className: 'keyword',
+    className: 'variable',
     begin: /%[_a-zA-Z0-9:]*/,
     end: '%'
   };
