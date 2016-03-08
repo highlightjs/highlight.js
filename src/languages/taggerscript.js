@@ -23,8 +23,7 @@ function(hljs) {
     className: 'keyword',
     begin: /\$(?!noop)[a-zA-Z][_a-zA-Z0-9]*/,
     end: /\(/,
-    excludeEnd: true,
-    relevance: 5
+    excludeEnd: true
   };
 
   var VARIABLE = {
