@@ -4,7 +4,12 @@ New languages:
 
 - *Tagger Script* by [Philipp Wolfer][]
 
+Improvements to existing languages and styles:
+
+- Improve GAMS language parsing
+
 [Philipp Wolfer]: https://github.com/phw
+
 
 ## Version 9.2.0
 
@@ -38,6 +43,7 @@ Improvements to existing languages and styles:
 [Michael Johnston]: https://github.com/lastobelus
 [Taras]: https://github.com/oxdef
 [Robert Dodier]: https://github.com/robert-dodier
+
 
 ## Version 9.1.0
 
