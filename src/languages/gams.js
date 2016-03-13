@@ -8,11 +8,30 @@
  */
 
 function (hljs) {
-  var KEYWORDS =
-    'abort acronym acronyms alias all and assign binary card diag display else eps eq equation equations file files ' +
-    'for free ge gt if inf integer le loop lt maximizing minimizing model models na ne negative no not option ' +
-    'options or ord parameter parameters positive prod putpage puttl repeat sameas scalar scalars semicont semiint ' +
-    'set sets smax smin solve sos1 sos2 sum system table then until using variable variables while xor yes';
+  var KEYWORDS = {
+    'keyword':
+      'abort acronym acronyms alias all and assign binary card diag display ' +
+      'else eq file files for free ge gt if integer le loop lt maximizing ' +
+      'minimizing model models ne negative no not option options or ord ' +
+      'positive prod put putpage puttl repeat sameas semicont semiint smax ' +
+      'smin solve sos1 sos2 sum system table then until using while xor yes',
+    'literal': 'eps inf na',
+    'built-in':
+      'abs arccos arcsin arctan arctan2 Beta betaReg binomial ceil centropy ' +
+      'cos cosh cvPower div div0 eDist entropy errorf execSeed exp fact ' +
+      'floor frac gamma gammaReg log logBeta logGamma log10 log2 mapVal max ' +
+      'min mod ncpCM ncpF ncpVUpow ncpVUsin normal pi poly power ' +
+      'randBinomial randLinear randTriangle round rPower sigmoid sign ' +
+      'signPower sin sinh slexp sllog10 slrec sqexp sqlog10 sqr sqrec sqrt ' +
+      'tan tanh trunc uniform uniformInt vcPower bool_and bool_eqv bool_imp ' +
+      'bool_not bool_or bool_xor ifThen rel_eq rel_ge rel_gt rel_le rel_lt ' +
+      'rel_ne gday gdow ghour gleap gmillisec gminute gmonth gsecond gyear ' +
+      'jdate jnow jstart jtime errorLevel execError gamsRelease gamsVersion ' +
+      'handleCollect handleDelete handleStatus handleSubmit heapFree ' +
+      'heapLimit heapSize jobHandle jobKill jobStatus jobTerminate ' +
+      'licenseLevel licenseStatus maxExecError sleep timeClose timeComp ' +
+      'timeElapsed timeExec timeStart'
+  };
   var PARAMS = {
     className: 'params',
     begin: /\(/, end: /\)/,
@@ -26,7 +45,7 @@ function (hljs) {
       {begin: /\$/},
     ]
   };
-  var COMMSTR = {
+  var QSTR = { // One-line quoted comment string
     className: 'comment',
     variants: [
       {begin: '\'', end: '\''},
@@ -36,10 +55,17 @@ function (hljs) {
     contains: [hljs.BACKSLASH_ESCAPE]
   };
   var ASSIGNMENT = {
-    className: 'number',
     begin: '/',
     end: '/',
-    // contains: [COMMSTR],
+    keywords: KEYWORDS,
+    contains: [
+      QSTR,
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.C_NUMBER_MODE,
+    ],
   };
   var DESCTEXT = { // Parameter/set/variable description text
     begin: /[a-z][a-z0-9_]*(\([a-z0-9_, ]*\))?[ \t]+/,
@@ -47,13 +73,11 @@ function (hljs) {
     end: '$',
     endsWithParent: true,
     contains: [
-      COMMSTR,
+      QSTR,
       ASSIGNMENT,
       {
         className: 'comment',
-        variants: [
-          {begin: /([ ]*[a-z0-9&#*=?@>\\<:\-,()$\[\]_.{}!+%^]+)+/},
-        ],
+        begin: /([ ]*[a-z0-9&#*=?@>\\<:\-,()$\[\]_.{}!+%^]+)+/,
       },
     ],
   };
@@ -88,6 +112,9 @@ function (hljs) {
           'scalar scalars equation equations',
         end: ';',
         contains: [
+          hljs.COMMENT('^\\*', '$'),
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           ASSIGNMENT,
@@ -102,62 +129,33 @@ function (hljs) {
           { // table header row
             beginKeywords: 'table',
             end: '$',
-            contains: [
-              hljs.QUOTE_STRING_MODE,
-              hljs.APOS_STRING_MODE,
-              DESCTEXT,
-            ],
+            contains: [DESCTEXT],
           },
+          hljs.COMMENT('^\\*', '$'),
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
+          hljs.QUOTE_STRING_MODE,
+          hljs.APOS_STRING_MODE,
           hljs.C_NUMBER_MODE,
+          // Table does not contain DESCTEXT or ASSIGNMENT
         ]
       },
       // Function definitions
       {
         className: 'function',
-        begin: /^[a-z][a-z0-9_, ()$]+\.{2}/,
-        end: ';',
-        keywords: KEYWORDS,
+        begin: /^[a-z][a-z0-9_,\-+' ()$]+\.{2}/,
         returnBegin: true,
         contains: [
-          { // Function headline
-            begin: /^[a-z][a-z0-9_]*/,
-            returnBegin: true,
-            returnEnd: true,
-            end: /\.{2}/,
-            contains: [
               { // Function title
                 className: 'title',
-                begin: /[a-z][a-z0-9_]+(?![^(]*\))/,
+                begin: /^[a-z][a-z0-9_]+/,
               },
               PARAMS,
               SYMBOLS,
             ],
-          },
-          SYMBOLS,
-          hljs.C_NUMBER_MODE,
-        ],
-      },
-      {
-        beginKeywords: 'model',
-        end: ';',
-        contains: [
-          COMMSTR,
-          {
-            className: 'number',
-            begin: '/',
-            end: '/',
-            keywords: 'all',
-          },
-        ],
       },
       hljs.C_NUMBER_MODE,
-      // ASSIGNMENT,
       SYMBOLS,
-      {
-        className: 'meta',
-        begin: /\.(lo|up|fx|l|m|scale|prior)/,
-      },
     ]
   };
 }
-
