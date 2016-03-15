@@ -100,7 +100,7 @@ function(hljs) {
     },
     {
       // swallow namespace qualifiers before symbols
-      begin: hljs.IDENT_RE + '::', relevance: 0
+      begin: hljs.IDENT_RE + '::'
     },
     {
       className: 'symbol',
