@@ -1,0 +1,8 @@
+#foo {
+    tag #bar {}
+    > #bar {}
+    #bar {}
+    &#bar {}
+    &:hover {}
+    height: ~"@{height}px";
+}

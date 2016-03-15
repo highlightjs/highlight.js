@@ -44,7 +44,6 @@ Improvements to existing languages and styles:
 [Taras]: https://github.com/oxdef
 [Robert Dodier]: https://github.com/robert-dodier
 
-
 ## Version 9.1.0
 
 New languages:
