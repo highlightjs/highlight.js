@@ -52,6 +52,7 @@ function(hljs) {
   };
   return {
     case_insensitive: true,
+    lexemes: /\.?\w+/,
     keywords: OXYGENE_KEYWORDS,
     illegal: '("|\\$[G-Zg-z]|\\/\\*|</|=>|->)',
     contains: [

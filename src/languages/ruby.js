@@ -99,13 +99,17 @@ function(hljs) {
       ].concat(COMMENT_MODES)
     },
     {
+      // swallow namespace qualifiers before symbols
+      begin: hljs.IDENT_RE + '::'
+    },
+    {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(\\!|\\?)?:',
       relevance: 0
     },
     {
       className: 'symbol',
-      begin: ':',
+      begin: ':(?!\\s)',
       contains: [STRING, {begin: RUBY_METHOD_RE}],
       relevance: 0
     },
@@ -116,6 +120,11 @@ function(hljs) {
     },
     {
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))' // variables
+    },
+    {
+      className: 'params',
+      begin: /\|/, end: /\|/,
+      keywords: RUBY_KEYWORDS
     },
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
