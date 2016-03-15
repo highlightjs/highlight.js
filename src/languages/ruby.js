@@ -109,7 +109,7 @@ function(hljs) {
     },
     {
       className: 'symbol',
-      begin: ':',
+      begin: ':(?!\\s)',
       contains: [STRING, {begin: RUBY_METHOD_RE}],
       relevance: 0
     },
