@@ -121,6 +121,11 @@ function(hljs) {
     {
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))' // variables
     },
+    {
+      className: 'params',
+      begin: /\|/, end: /\|/,
+      keywords: RUBY_KEYWORDS
+    },
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
       contains: [

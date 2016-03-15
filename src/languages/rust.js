@@ -9,6 +9,15 @@ function(hljs) {
   var NUM_SUFFIX = '([uif](8|16|32|64|size))\?';
   var BLOCK_COMMENT = hljs.inherit(hljs.C_BLOCK_COMMENT_MODE);
   BLOCK_COMMENT.contains.push('self');
+  var KEYWORDS =
+    'alignof as be box break const continue crate do else enum extern ' +
+    'false fn for if impl in let loop match mod mut offsetof once priv ' +
+    'proc pub pure ref return self Self sizeof static struct super trait true ' +
+    'type typeof unsafe unsized use virtual while where yield move ' +
+    'int i8 i16 i32 i64 ' +
+    'uint u8 u32 u64 ' +
+    'float f32 f64 ' +
+    'str char bool'
   var BUILTINS =
     // prelude
     'Copy Send Sized Sync Drop Fn FnMut FnOnce drop Box ToOwned Clone ' +
@@ -25,14 +34,7 @@ function(hljs) {
     aliases: ['rs'],
     keywords: {
       keyword:
-        'alignof as be box break const continue crate do else enum extern ' +
-        'false fn for if impl in let loop match mod mut offsetof once priv ' +
-        'proc pub pure ref return self Self sizeof static struct super trait true ' +
-        'type typeof unsafe unsized use virtual while where yield move ' +
-        'int i8 i16 i32 i64 ' +
-        'uint u8 u32 u64 ' +
-        'float f32 f64 ' +
-        'str char bool',
+        KEYWORDS,
       literal:
         'true false Some None Ok Err',
       built_in:
@@ -101,6 +103,11 @@ function(hljs) {
       {
         begin: hljs.IDENT_RE + '::',
         keywords: {built_in: BUILTINS}
+      },
+      {
+        className: 'params',
+        begin: /\|/, end: /\|/,
+        keywords: KEYWORDS
       },
       {
         begin: '->'
