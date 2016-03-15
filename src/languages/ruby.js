@@ -99,6 +99,10 @@ function(hljs) {
       ].concat(COMMENT_MODES)
     },
     {
+      // swallow namespace qualifiers before symbols
+      begin: hljs.IDENT_RE + '::', relevance: 0
+    },
+    {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(\\!|\\?)?:',
       relevance: 0
