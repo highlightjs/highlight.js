@@ -58,7 +58,7 @@ function (hljs) {
             contains: [
               {
                 className: 'type',
-                begin: /:\s*/, end: /\s*[=\)]/, excludeBegin: true, returnEnd: true,
+                begin: /:\s*/, end: /\s*[=\),]/, excludeBegin: true, returnEnd: true,
                 relevance: 0
               }
             ]
