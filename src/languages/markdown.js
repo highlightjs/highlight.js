@@ -53,9 +53,15 @@ function(hljs) {
       {
         className: 'code',
         variants: [
-          { begin: '`.+?`' },
-          { begin: '^( {4}|\t)', end: '$'
-          , relevance: 0
+          {
+            begin: '^```\w*\s*$', end: '^```\s*$'
+          },
+          {
+            begin: '`.+?`', end: '$'
+          },
+          {
+            begin: '^( {4}|\t)', end: '$',
+            relevance: 0
           }
         ]
       },

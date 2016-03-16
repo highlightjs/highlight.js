@@ -1,0 +1,6 @@
+<span class="hljs-code">    var code = true;</span>
+
+
+<span class="hljs-code">```javascript
+var code = true;
+```</span>
