@@ -8,6 +8,7 @@ Improvements to existing languages and styles:
 
 - Improve GAMS language parsing
 - Annotations added to Kotlin language
+- Keywords updated for Kotlin language
 
 [Philipp Wolfer]: https://github.com/phw
 
