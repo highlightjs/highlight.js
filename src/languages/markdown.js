@@ -57,7 +57,7 @@ function(hljs) {
             begin: '^```\w*\s*$', end: '^```\s*$'
           },
           {
-            begin: '`.+?`', end: '$'
+            begin: '`.+?`'
           },
           {
             begin: '^( {4}|\t)', end: '$',
