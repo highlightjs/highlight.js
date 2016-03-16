@@ -11,6 +11,10 @@ function (hljs) {
     'import package is as in return fun override default companion reified inline volatile transient native ' +
     'Byte Short Char Int Long Boolean Float Double Void Unit Nothing';
 
+  var ANNOTATION = {
+    className: 'meta', begin: '@[A-Za-z]+'
+  };
+
   return {
     keywords: {
       keyword: KEYWORDS,
@@ -30,6 +34,7 @@ function (hljs) {
       ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
+      ANNOTATION,
       {
         className: 'function',
         beginKeywords: 'fun', end: '[(]|$',
@@ -60,7 +65,8 @@ function (hljs) {
                 className: 'type',
                 begin: /:\s*/, end: /\s*[=\),]/, excludeBegin: true, returnEnd: true,
                 relevance: 0
-              }
+              },
+              ANNOTATION
             ]
           },
           hljs.C_LINE_COMMENT_MODE,
