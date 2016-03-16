@@ -73,7 +73,7 @@ function(hljs) {
                 illegal: ':',
                 contains: [
                     {beginKeywords: 'extends implements'},
-                    hljs.UNDERSCORE_TITLE_MODE,
+                    hljs.UNDERSCORE_TITLE_MODE
                 ]
             },
             hljs.C_NUMBER_MODE,
@@ -93,7 +93,7 @@ function(hljs) {
                 // highlight labeled statements
                 className: 'symbol', begin: '^\\s*[A-Za-z0-9_$]+:',
                 relevance: 0
-            },
+            }
         ],
         illegal: /#|<\//
     }
