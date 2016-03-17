@@ -4,6 +4,10 @@ New languages:
 
 - *Tagger Script* by [Philipp Wolfer][]
 
+New styles:
+
+- *xt256* by [Hebrert Shin][]
+
 Improvements to existing languages and styles:
 
 - Improve GAMS language parsing
@@ -11,7 +15,7 @@ Improvements to existing languages and styles:
 - Keywords updated for Kotlin language
 
 [Philipp Wolfer]: https://github.com/phw
-
+[Herbert Shin]: https://github.com/initbar
 
 ## Version 9.2.0
 
