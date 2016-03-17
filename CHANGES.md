@@ -6,7 +6,7 @@ New languages:
 
 New styles:
 
-- *xt256* by [Hebrert Shin][]
+- *xt256* by [Herbert Shin][]
 
 Improvements to existing languages and styles:
 
