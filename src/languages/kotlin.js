@@ -20,8 +20,11 @@ function (hljs) {
       'true false null'
   };
 
+  var ANNOTATION_USE_SITE = {
+    className: 'meta', begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
+  };
   var ANNOTATION = {
-    className: 'meta', begin: '@[A-Za-z]+'
+    className: 'meta', begin: '@' + hljs.UNDERSCORE_IDENT_RE
   };
 
   return {
@@ -40,6 +43,7 @@ function (hljs) {
       ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
+      ANNOTATION_USE_SITE,
       ANNOTATION,
       {
         className: 'function',
@@ -62,7 +66,7 @@ function (hljs) {
           },
           {
             className: 'params',
-            begin: /\(/, end: /\)/,
+            begin: /\(/, end: /\)\s*(?:[=:{]|$)/,
             keywords: KEYWORDS,
             relevance: 0,
             illegal: /\([^\(,\s:]+,/,
@@ -72,11 +76,16 @@ function (hljs) {
                 begin: /:\s*/, end: /\s*[=\),]/, excludeBegin: true, returnEnd: true,
                 relevance: 0
               },
-              ANNOTATION
+              ANNOTATION_USE_SITE,
+              ANNOTATION,
+              hljs.QUOTE_STRING_MODE,
+              hljs.C_NUMBER_MODE
             ]
           },
           hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
+          hljs.C_BLOCK_COMMENT_MODE,
+          hljs.QUOTE_STRING_MODE,
+          hljs.C_NUMBER_MODE
         ]
       },
       {
@@ -95,7 +104,9 @@ function (hljs) {
           {
             className: 'type',
             begin: /[,:]\s*/, end: /[<\(,]|$/, excludeBegin: true, returnEnd: true
-          }
+          },
+          ANNOTATION_USE_SITE,
+          ANNOTATION
         ]
       },
       hljs.QUOTE_STRING_MODE,
