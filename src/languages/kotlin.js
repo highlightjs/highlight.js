@@ -81,10 +81,11 @@ function (hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class trait', end: /[:\{(]|$/,
+        beginKeywords: 'class interface trait', end: /[:\{(]|$/, // remove 'trait' when removed from KEYWORDS
         excludeEnd: true,
         illegal: 'extends implements',
         contains: [
+          {beginKeywords: 'public protected internal private constructor'},
           hljs.UNDERSCORE_TITLE_MODE,
           {
             className: 'type',
