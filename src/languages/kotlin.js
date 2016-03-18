@@ -10,7 +10,7 @@ function (hljs) {
     keyword:
       'abstract as val var vararg get set class object open private protected public this noinline ' +
       'crossinline dynamic final enum if else do while for when break continue throw try catch finally ' +
-      'import package is in return fun override default companion reified inline ' +
+      'import package is in return fun override companion reified inline ' +
       'interface annotation data sealed internal infix operator out by constructor super ' +
       // to be deleted soon
       'trait volatile transient native default',
