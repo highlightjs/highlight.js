@@ -13,3 +13,5 @@ function UnComment(fl, ll)
     call setline(idx, dstlines)
   endwhile
 endfunction
+
+let conf = {'command': 'git'}
