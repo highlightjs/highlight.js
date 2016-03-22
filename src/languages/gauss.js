@@ -6,15 +6,15 @@ Description: GAUSS Mathematical and Statistical language
 */
 function(hljs) {
   var KEYWORDS = {
-    keyword: 'and bool break|0 call callexe checkinterrupt clear clearg closeall cls comlog compile ' +
-              'continue create debug declare delete disable dlibrary|10 dllcall do|0 dos ed edit else|0 ' +
-              'elseif enable end endfor|10 endif|10 endp|10 endo|10 errorlog|10 errorlogat expr external fn ' +
-              'for|0 format goto gosub|0 graph if|0 keyword let lib library line load loadarray loadexe ' +
-              'loadf|10 loadk|10 loadm|10 loadp loads loadx local locate loopnextindex lprint lpwidth lshow ' +
+    keyword: 'and bool break call callexe checkinterrupt clear clearg closeall cls comlog compile ' +
+              'continue create debug declare delete disable dlibrary dllcall do dos ed edit else ' +
+              'elseif enable end endfor endif endp endo errorlog errorlogat expr external fn ' +
+              'for format goto gosub graph if keyword let lib library line load loadarray loadexe ' +
+              'loadf loadk loadm loadp loads loadx local locate loopnextindex lprint lpwidth lshow ' +
               'matrix msym ndpclex new not open or output outwidth plot plotsym pop prcsn print ' +
-              'printdos proc|10 push retp|10 return|0 rndcon rndmod rndmult rndseed run save saveall screen ' +
-              'scroll setarray show sparse stop string struct system trace trap|10 threadfor|10 ' +
-              'threadendfor|10 threadbegin|10 threadjoin|10 threadstat|10 threadend|10 until use while winprint',
+              'printdos proc push retp return rndcon rndmod rndmult rndseed run save saveall screen ' +
+              'scroll setarray show sparse stop string struct system trace trap threadfor ' +
+              'threadendfor threadbegin threadjoin threadstat threadend until use while winprint',
     built_in: 'abs acf aconcat aeye amax amean AmericanBinomCall AmericanBinomCall_Greeks AmericanBinomCall_ImpVol ' +
               'AmericanBinomPut AmericanBinomPut_Greeks AmericanBinomPut_ImpVol AmericanBSCall AmericanBSCall_Greeks ' +
               'AmericanBSCall_ImpVol AmericanBSPut AmericanBSPut_Greeks AmericanBSPut_ImpVol amin amult annotationGetDefaults ' +
@@ -30,16 +30,16 @@ function(hljs) {
               'complex con cond conj cons ConScore contour conv convertsatostr convertstrtosa corrm corrms corrvc corrx corrxs ' +
               'cos cosh counts countwts crossprd crout croutp csrcol csrlin csvReadM csvReadSA cumprodc cumsumc curve cvtos ' +
               'datacreate datacreatecomplex datalist dataload dataloop dataopen datasave date datestr datestring datestrymd ' +
-              'dayinyr dayofweek dbAddDatabase|10 dbClose|10 dbCommit|10 dbCreateQuery|10 dbExecQuery|10 dbGetConnectOptions|10 dbGetDatabaseName|10 ' +
-              'dbGetDriverName|10 dbGetDrivers|10 dbGetHostName|10 dbGetLastErrorNum|10 dbGetLastErrorText|10 dbGetNumericalPrecPolicy|10 ' +
-              'dbGetPassword|10 dbGetPort|10 dbGetTableHeaders|10 dbGetTables|10 dbGetUserName|10 dbHasFeature|10 dbIsDriverAvailable|10 dbIsOpen|10 ' +
-              'dbIsOpenError|10 dbOpen|10 dbQueryBindValue|10 dbQueryClear|10 dbQueryCols|10 dbQueryExecPrepared|10 dbQueryFetchAllM|10 dbQueryFetchAllSA|10 ' +
-              'dbQueryFetchOneM|10 dbQueryFetchOneSA|10 dbQueryFinish|10 dbQueryGetBoundValue|10 dbQueryGetBoundValues|10 dbQueryGetField|10 ' +
-              'dbQueryGetLastErrorNum|10 dbQueryGetLastErrorText|10 dbQueryGetLastInsertID|10 dbQueryGetLastQuery|10 dbQueryGetPosition|10 ' +
-              'dbQueryIsActive|10 dbQueryIsForwardOnly|10 dbQueryIsNull|10 dbQueryIsSelect|10 dbQueryIsValid|10 dbQueryPrepare|10 dbQueryRows|10 ' +
-              'dbQuerySeek|10 dbQuerySeekFirst|10 dbQuerySeekLast|10 dbQuerySeekNext|10 dbQuerySeekPrevious|10 dbQuerySetForwardOnly|10 ' +
-              'dbRemoveDatabase|10 dbRollback|10 dbSetConnectOptions|10 dbSetDatabaseName|10 dbSetHostName|10 dbSetNumericalPrecPolicy|10 ' +
-              'dbSetPort|10 dbSetUserName|10 dbTransaction|10 DeleteFile delif delrows denseToSp denseToSpRE denToZero design det detl ' +
+              'dayinyr dayofweek dbAddDatabase dbClose dbCommit dbCreateQuery dbExecQuery dbGetConnectOptions dbGetDatabaseName ' +
+              'dbGetDriverName dbGetDrivers dbGetHostName dbGetLastErrorNum dbGetLastErrorText dbGetNumericalPrecPolicy ' +
+              'dbGetPassword dbGetPort dbGetTableHeaders dbGetTables dbGetUserName dbHasFeature dbIsDriverAvailable dbIsOpen ' +
+              'dbIsOpenError dbOpen dbQueryBindValue dbQueryClear dbQueryCols dbQueryExecPrepared dbQueryFetchAllM dbQueryFetchAllSA ' +
+              'dbQueryFetchOneM dbQueryFetchOneSA dbQueryFinish dbQueryGetBoundValue dbQueryGetBoundValues dbQueryGetField ' +
+              'dbQueryGetLastErrorNum dbQueryGetLastErrorText dbQueryGetLastInsertID dbQueryGetLastQuery dbQueryGetPosition ' +
+              'dbQueryIsActive dbQueryIsForwardOnly dbQueryIsNull dbQueryIsSelect dbQueryIsValid dbQueryPrepare dbQueryRows ' +
+              'dbQuerySeek dbQuerySeekFirst dbQuerySeekLast dbQuerySeekNext dbQuerySeekPrevious dbQuerySetForwardOnly ' +
+              'dbRemoveDatabase dbRollback dbSetConnectOptions dbSetDatabaseName dbSetHostName dbSetNumericalPrecPolicy ' +
+              'dbSetPort dbSetUserName dbTransaction DeleteFile delif delrows denseToSp denseToSpRE denToZero design det detl ' +
               'dfft dffti diag diagrv digamma doswin DOSWinCloseall DOSWinOpen dotfeq dotfeqmt dotfge dotfgemt dotfgt dotfgtmt ' +
               'dotfle dotflemt dotflt dotfltmt dotfne dotfnemt draw drop dsCreate dstat dstatmt dstatmtControlCreate dtdate dtday ' +
               'dttime dttodtv dttostr dttoutc dtvnormal dtvtodt dtvtoutc dummy dummybr dummydn eig eigh eighv eigv elapsedTradingDays ' +
