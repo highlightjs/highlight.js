@@ -1,5 +1,5 @@
 <div class="entry">
-  {{!-- only output this author names if an author exists --}}
+  {{!-- only show if author exists --}}
   {{#if author}}
     <h1>{{firstName}} {{lastName}}</h1>
   {{/if}}
