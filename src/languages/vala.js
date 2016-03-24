@@ -22,7 +22,7 @@ function(hljs) {
         // Other
         'using new this get set const stdout stdin stderr var',
       built_in:
-        'DBus GLib CCode Gee Object Gtk',
+        'DBus GLib CCode Gee Object Gtk Posix',
       literal:
         'false true null'
     },
