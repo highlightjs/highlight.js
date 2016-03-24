@@ -574,8 +574,10 @@ https://highlightjs.org/
   */
   function highlightBlock(block) {
     var language = blockLanguage(block);
-    if (isNotHighlighted(language))
+    if (isNotHighlighted(language)) {
+        block.className = buildClassName(block.className, null, null);
         return;
+    }
 
     var node;
     if (options.useBR) {
