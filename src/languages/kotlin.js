@@ -6,16 +6,26 @@
 
 
 function (hljs) {
-  var KEYWORDS = 'val var get set class trait object open private protected public ' +
-    'final enum if else do while for when break continue throw try catch finally ' +
-    'import package is as in return fun override default companion reified inline volatile transient native ' +
-    'Byte Short Char Int Long Boolean Float Double Void Unit Nothing';
+  var KEYWORDS = {
+    keyword:
+      'abstract as val var vararg get set class object open private protected public this noinline ' +
+      'crossinline dynamic final enum if else do while for when break continue throw try catch finally ' +
+      'import package is in return fun override default companion reified inline ' +
+      'interface annotation data sealed internal infix operator out by constructor super ' +
+      // to be deleted soon
+      'trait volatile transient native default',
+    built_in:
+      'Byte Short Char Int Long Boolean Float Double Void Unit Nothing',
+    literal:
+      'true false null'
+  };
+
+  var ANNOTATION = {
+    className: 'meta', begin: '@[A-Za-z]+'
+  };
 
   return {
-    keywords: {
-      keyword: KEYWORDS,
-      literal: 'true false null'
-    },
+    keywords: KEYWORDS,
     contains : [
       hljs.COMMENT(
         '/\\*\\*',
@@ -30,6 +40,7 @@ function (hljs) {
       ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
+      ANNOTATION,
       {
         className: 'function',
         beginKeywords: 'fun', end: '[(]|$',
@@ -58,9 +69,10 @@ function (hljs) {
             contains: [
               {
                 className: 'type',
-                begin: /:\s*/, end: /\s*[=\)]/, excludeBegin: true, returnEnd: true,
+                begin: /:\s*/, end: /\s*[=\),]/, excludeBegin: true, returnEnd: true,
                 relevance: 0
-              }
+              },
+              ANNOTATION
             ]
           },
           hljs.C_LINE_COMMENT_MODE,

@@ -8,7 +8,7 @@ function(hljs) {
   var COMMENT_MODE = hljs.COMMENT('--', '$');
   return {
     case_insensitive: true,
-    illegal: /[<>{}*]/,
+    illegal: /[<>{}*#]/,
     contains: [
       {
         beginKeywords:
@@ -18,6 +18,7 @@ function(hljs) {
           'unlock purge reset change stop analyze cache flush optimize repair kill ' +
           'install uninstall checksum restore check backup revoke',
         end: /;/, endsWithParent: true,
+        lexemes: /[\w\.]+/,
         keywords: {
           keyword:
             'abort abs absolute acc acce accep accept access accessed accessible account acos action activate add ' +

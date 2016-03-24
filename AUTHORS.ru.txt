@@ -208,3 +208,5 @@ URL:   https://highlightjs.org/
 - Денис Сиккале <dciccale@gmail.com>
 - Майкл Джонстон <lastobelus@gmail.com>
 - Тарас <oxdef@oxdef.info>
+- Филипп Вольфер <ph.wolfer@gmail.com>
+- Микко Коухиа <mikko.kouhia@iki.fi>

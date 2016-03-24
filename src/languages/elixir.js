@@ -51,7 +51,7 @@ function(hljs) {
     FUNCTION,
     {
       className: 'symbol',
-      begin: ':',
+      begin: ':(?!\\s)',
       contains: [STRING, {begin: ELIXIR_METHOD_RE}],
       relevance: 0
     },

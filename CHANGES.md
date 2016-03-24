@@ -1,3 +1,18 @@
+## Version 9.3.0 [NOT YET RELEASED]
+
+New languages:
+
+- *Tagger Script* by [Philipp Wolfer][]
+
+Improvements to existing languages and styles:
+
+- Improve GAMS language parsing
+- Annotations added to Kotlin language
+- Keywords updated for Kotlin language
+
+[Philipp Wolfer]: https://github.com/phw
+
+
 ## Version 9.2.0
 
 New languages:

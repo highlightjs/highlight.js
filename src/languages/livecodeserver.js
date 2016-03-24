@@ -128,7 +128,8 @@ function(hljs) {
         contains: [
           TITLE2,
           TITLE1
-        ]
+        ],
+        relevance: 0
       },
       {
         beginKeywords: 'command on', end: '$',
@@ -159,6 +160,6 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       TITLE1
     ].concat(COMMENT_MODES),
-    illegal: ';$|^\\[|^='
+    illegal: ';$|^\\[|^=|&|{'
   };
 }

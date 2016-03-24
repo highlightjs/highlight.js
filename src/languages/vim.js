@@ -66,7 +66,7 @@ function(hljs) {
         'synstack pyeval prevnonblank readfile cindent filereadable changenr ' +
         'exp'
     },
-    illegal: /[{:]/,
+    illegal: /;/,
     contains: [
       hljs.NUMBER_MODE,
       hljs.APOS_STRING_MODE,

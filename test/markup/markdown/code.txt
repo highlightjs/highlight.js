@@ -1,0 +1,8 @@
+    var code = true;
+
+
+```javascript
+var code = true;
+```
+
+Inline `code`, and `more code`.

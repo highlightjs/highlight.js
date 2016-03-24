@@ -15,8 +15,7 @@ function(hljs) {
     'replace value rename copy modify update';
   var LITERAL = 'false true xs:string xs:integer element item xs:date xs:datetime xs:float xs:double xs:decimal QName xs:anyURI xs:long xs:int xs:short xs:byte attribute';
   var VAR = {
-    begin: /\$[a-zA-Z0-9\-]+/,
-    relevance: 5
+    begin: /\$[a-zA-Z0-9\-]+/
   };
 
   var NUMBER = {
