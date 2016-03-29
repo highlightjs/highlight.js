@@ -8,9 +8,9 @@
 function (hljs) {
   var KEYWORDS = {
     keyword:
-      'abstract as val var vararg get set class object open private protected public this noinline ' +
-      'crossinline dynamic final enum if else do while for when break continue throw try catch finally ' +
-      'import package is in return fun override companion reified inline ' +
+      'abstract as val var vararg get set class object open private protected public noinline ' +
+      'crossinline dynamic final enum if else do while for when throw try catch finally ' +
+      'import package is in fun override companion reified inline ' +
       'interface annotation data sealed internal infix operator out by constructor super ' +
       // to be deleted soon
       'trait volatile transient native default',
@@ -18,6 +18,17 @@ function (hljs) {
       'Byte Short Char Int Long Boolean Float Double Void Unit Nothing',
     literal:
       'true false null'
+  };
+  var KEYWORDS_WITH_LABEL = {
+    className: 'keyword',
+    begin: 'break|continue|return|this',
+    starts: {
+      className: 'symbol',
+      end: /[^\w@]/, excludeEnd: true
+    }
+  };
+  var LABEL = {
+    className: 'symbol', begin: hljs.UNDERSCORE_IDENT_RE + '@'
   };
 
   var ANNOTATION_USE_SITE = {
@@ -43,6 +54,8 @@ function (hljs) {
       ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
+      KEYWORDS_WITH_LABEL,
+      LABEL,
       ANNOTATION_USE_SITE,
       ANNOTATION,
       {
@@ -66,26 +79,26 @@ function (hljs) {
           },
           {
             className: 'params',
-            begin: /\(/, end: /\)\s*(?:[=:{]|$)/,
+            begin: /\(/, end: /\)(?=\s*[=:{\/]|\s*$)/,
+            endsParent: true,
             keywords: KEYWORDS,
             relevance: 0,
             illegal: /\([^\(,\s:]+,/,
             contains: [
               {
                 className: 'type',
-                begin: /:\s*/, end: /\s*[=\),]/, excludeBegin: true, returnEnd: true,
+                begin: /:\s*/, end: /\s*[=\),\/]/, excludeBegin: true, returnEnd: true,
                 relevance: 0
               },
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
               ANNOTATION_USE_SITE,
               ANNOTATION,
               hljs.QUOTE_STRING_MODE,
               hljs.C_NUMBER_MODE
             ]
           },
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE,
-          hljs.QUOTE_STRING_MODE,
-          hljs.C_NUMBER_MODE
+          hljs.C_BLOCK_COMMENT_MODE
         ]
       },
       {
