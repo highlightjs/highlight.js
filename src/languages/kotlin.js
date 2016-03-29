@@ -21,7 +21,7 @@ function (hljs) {
   };
   var KEYWORDS_WITH_LABEL = {
     className: 'keyword',
-    begin: 'break|continue|return|this',
+    begin: /\b(?:break|continue|return|this)\b/,
     starts: {
       className: 'symbol',
       end: /[^\w@]/, excludeEnd: true
