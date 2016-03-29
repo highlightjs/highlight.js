@@ -94,6 +94,7 @@ function (hljs) {
               hljs.C_BLOCK_COMMENT_MODE,
               ANNOTATION_USE_SITE,
               ANNOTATION,
+              hljs.APOS_STRING_MODE,
               hljs.QUOTE_STRING_MODE,
               hljs.C_NUMBER_MODE
             ]
@@ -122,6 +123,7 @@ function (hljs) {
           ANNOTATION
         ]
       },
+      hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
         className: 'meta',
