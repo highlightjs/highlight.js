@@ -155,6 +155,7 @@ function(hljs) {
 
   return {
     aliases: ['pl'],
+    lexemes: /[\w\.]+/,
     keywords: PERL_KEYWORDS,
     contains: PERL_DEFAULT_CONTAINS
   };
