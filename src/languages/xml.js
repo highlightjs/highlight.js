@@ -33,7 +33,7 @@ function(hljs) {
     ]
   };
   return {
-    aliases: ['html', 'xhtml', 'rss', 'atom', 'xsl', 'plist'],
+    aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist'],
     case_insensitive: true,
     contains: [
       {
