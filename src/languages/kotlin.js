@@ -31,6 +31,29 @@ function (hljs) {
     className: 'symbol', begin: hljs.UNDERSCORE_IDENT_RE + '@'
   };
 
+  // for string templates
+  var SUBST = {
+    className: 'subst',
+    variants: [
+      {begin: '\\$' + hljs.UNDERSCORE_IDENT_RE},
+      {begin: '\\${', end: '}', contains: [hljs.APOS_STRING_MODE, hljs.C_NUMBER_MODE]}
+    ]
+  };
+  var STRING = {
+    variants: [
+      {
+        className: 'string',
+        begin: '"""', end: '"""',
+        contains: [SUBST]
+      },
+      hljs.APOS_STRING_MODE,
+      hljs.inherit(
+        hljs.QUOTE_STRING_MODE,
+        {contains: [hljs.BACKSLASH_ESCAPE, SUBST]}
+      )
+    ]
+  };
+
   var ANNOTATION_USE_SITE = {
     className: 'meta', begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
   };
@@ -94,8 +117,7 @@ function (hljs) {
               hljs.C_BLOCK_COMMENT_MODE,
               ANNOTATION_USE_SITE,
               ANNOTATION,
-              hljs.APOS_STRING_MODE,
-              hljs.QUOTE_STRING_MODE,
+              STRING,
               hljs.C_NUMBER_MODE
             ]
           },
@@ -123,8 +145,7 @@ function (hljs) {
           ANNOTATION
         ]
       },
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE,
+      STRING,
       {
         className: 'meta',
         begin: "^#!/usr/bin/env", end: '$',
