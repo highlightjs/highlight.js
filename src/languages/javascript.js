@@ -71,7 +71,7 @@ function(hljs) {
             begin: /</, end: /(\/\w+|\w+\/)>/,
             subLanguage: 'xml',
             contains: [
-              {begin: /<\w+\/>/, skip: true},
+              {begin: /<\w+\s*\/>/, skip: true},
               {begin: /<\w+/, end: /(\/\w+|\w+\/)>/, skip: true, contains: ['self']}
             ]
           }
