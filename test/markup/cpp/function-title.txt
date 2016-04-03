@@ -1,5 +1,6 @@
 int main() {
   A a = new A();
+  int b = b * sum(1, 2);
   if (a->check1())
     return 3;
   else if (a->check2())

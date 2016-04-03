@@ -87,16 +87,19 @@ function(hljs) {
     literal: 'true false nullptr NULL'
   };
 
+  var EXPRESSION_CONTAINS = [
+    CPP_PRIMATIVE_TYPES,
+    hljs.C_LINE_COMMENT_MODE,
+    hljs.C_BLOCK_COMMENT_MODE,
+    NUMBERS,
+    STRINGS
+  ];
+
   return {
     aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp'],
     keywords: CPP_KEYWORDS,
     illegal: '</',
-    contains: [
-      CPP_PRIMATIVE_TYPES,
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      NUMBERS,
-      STRINGS,
+    contains: EXPRESSION_CONTAINS.concat([
       PREPROCESSOR,
       {
         begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
@@ -108,9 +111,22 @@ function(hljs) {
         keywords: CPP_KEYWORDS
       },
       {
-        // Expression keywords prevent 'keyword Name(...) or else if(...)' from
-        // being recognized as a function definition
-        beginKeywords: 'new throw return else',
+        // This mode covers expression context where we can't expect a function
+        // definition and shouldn't highlight anything that looks like one:
+        // `return some()`, `else if()`, `(x*sum(1, 2))`
+        variants: [
+          {begin: /=/, end: /;/},
+          {begin: /\(/, end: /\)/},
+          {beginKeywords: 'new throw return else', end: /;/}
+        ],
+        keywords: CPP_KEYWORDS,
+        contains: EXPRESSION_CONTAINS.concat([
+          {
+            begin: /\(/, end: /\)/,
+            contains: EXPRESSION_CONTAINS.concat(['self']),
+            relevance: 0
+          }
+        ]),
         relevance: 0
       },
       {
@@ -143,6 +159,6 @@ function(hljs) {
           PREPROCESSOR
         ]
       }
-    ]
+    ])
   };
 }
