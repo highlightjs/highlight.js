@@ -154,7 +154,7 @@ function(hljs) {
   METHOD.contains = PERL_DEFAULT_CONTAINS;
 
   return {
-    aliases: ['pl'],
+    aliases: ['pl', 'pm'],
     lexemes: /[\w\.]+/,
     keywords: PERL_KEYWORDS,
     contains: PERL_DEFAULT_CONTAINS
