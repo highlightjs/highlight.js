@@ -1,4 +1,4 @@
-## Version 9.3.0 [NOT YET RELEASED]
+## Version 9.3.0
 
 New languages:
 
