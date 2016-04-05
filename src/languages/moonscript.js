@@ -1,8 +1,8 @@
 /*
 Language: MoonScript
 Author: Billy Quith <chinbillybilbo@gmail.com>
-Contributors: Dmytrii Nagirniak <dnagir@gmail.com>, Oleg Efimov <efimovov@gmail.com>, Cédric Néhémie <cedric.nehemie@gmail.com>
 Description: MoonScript is a programming language that transcompiles to Lua. For info about language see http://moonscript.org/
+Origin: coffeescript.js
 Category: scripting
 */
 
