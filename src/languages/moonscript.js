@@ -43,16 +43,14 @@ function(hljs) {
       ]
     },
     {
-      className: 'builtin',
+      className: 'built_in',
       begin: '@__' + hljs.IDENT_RE
     },
     {
-      className: 'variable',
-      begin: '@' + hljs.IDENT_RE
+      begin: '@' + hljs.IDENT_RE // relevance booster on par with CoffeeScript
     },
     {
-      className: 'variable',  // inst\method
-      begin: hljs.IDENT_RE + '\\\\' + hljs.IDENT_RE
+      begin: hljs.IDENT_RE + '\\\\' + hljs.IDENT_RE // inst\method
     }
   ];
   SUBST.contains = EXPRESSIONS;
