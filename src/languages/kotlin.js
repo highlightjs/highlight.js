@@ -130,7 +130,9 @@ function (hljs) {
               {
                 begin: /:/, end: /[=,\/]/, endsWithParent: true,
                 contains: [
-                  {className: 'type', begin: hljs.UNDERSCORE_IDENT_RE}
+                  {className: 'type', begin: hljs.UNDERSCORE_IDENT_RE},
+                  hljs.C_LINE_COMMENT_MODE,
+                  hljs.C_BLOCK_COMMENT_MODE
                 ],
                 relevance: 0
               },
