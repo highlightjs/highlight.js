@@ -210,3 +210,4 @@ URL:   https://highlightjs.org/
 - Тарас <oxdef@oxdef.info>
 - Филипп Вольфер <ph.wolfer@gmail.com>
 - Микко Коухиа <mikko.kouhia@iki.fi>
+- Билли Куит <chinbillybilbo@gmail.com>
