@@ -122,15 +122,16 @@ function (hljs) {
           },
           {
             className: 'params',
-            begin: /\(/, end: /\)(?=\s*[=:{\/]|\s*$)/,
+            begin: /\(/, end: /\)/,
             endsParent: true,
             keywords: KEYWORDS,
             relevance: 0,
-            illegal: /\([^\(,\s:]+,/,
             contains: [
               {
-                className: 'type',
-                begin: /:\s*/, end: /\s*[=\),\/]/, excludeBegin: true, returnEnd: true,
+                begin: /:/, end: /[=,\/]/, endsWithParent: true,
+                contains: [
+                  {className: 'type', begin: hljs.UNDERSCORE_IDENT_RE}
+                ],
                 relevance: 0
               },
               hljs.C_LINE_COMMENT_MODE,
