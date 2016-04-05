@@ -211,3 +211,4 @@ URL:   https://highlightjs.org/
 - Филипп Вольфер <ph.wolfer@gmail.com>
 - Микко Коухиа <mikko.kouhia@iki.fi>
 - Билли Куит <chinbillybilbo@gmail.com>
+- Герберт Шин <initbar@protonmail.ch>

@@ -5,6 +5,10 @@ New languages:
 - *Tagger Script* by [Philipp Wolfer][]
 - *MoonScript* by [Billy Quith][]
 
+New styles:
+
+- *xt256* by [Herbert Shin][]
+
 Improvements to existing languages and styles:
 
 - Improve GAMS language parsing
@@ -12,6 +16,7 @@ Improvements to existing languages and styles:
 
 [Philipp Wolfer]: https://github.com/phw
 [Billy Quith]: https://github.com/billyquith
+[Herbert Shin]: https://github.com/initbar
 
 
 ## Version 9.2.0

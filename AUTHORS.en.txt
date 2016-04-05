@@ -211,3 +211,4 @@ Contributors:
 - Philipp Wolfer <ph.wolfer@gmail.com>
 - Mikko Kouhia <mikko.kouhia@iki.fi>
 - Billy Quith <chinbillybilbo@gmail.com>
+- Herbert Shin <initbar@protonmail.ch>
