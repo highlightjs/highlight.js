@@ -44,17 +44,25 @@ function (hljs) {
     ]
   };
   var STRING = {
+    className: 'string',
     variants: [
       {
-        className: 'string',
         begin: '"""', end: '"""',
         contains: [SUBST]
       },
-      hljs.APOS_STRING_MODE,
-      hljs.inherit(
-        hljs.QUOTE_STRING_MODE,
-        {contains: [hljs.BACKSLASH_ESCAPE, SUBST]}
-      )
+      // Can't use built-in modes easily, as we want to use STRING in the meta
+      // context as 'meta-string' and there's no syntax to remove explicitly set
+      // classNames in built-in modes.
+      {
+        begin: '\'', end: '\'',
+        illegal: /\n/,
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
+        begin: '"', end: '"',
+        illegal: /\n/,
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+      }
     ]
   };
 
@@ -62,7 +70,15 @@ function (hljs) {
     className: 'meta', begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
   };
   var ANNOTATION = {
-    className: 'meta', begin: '@' + hljs.UNDERSCORE_IDENT_RE
+    className: 'meta', begin: '@' + hljs.UNDERSCORE_IDENT_RE,
+    contains: [
+      {
+        begin: /\(/, end: /\)/,
+        contains: [
+          hljs.inherit(STRING, {className: 'meta-string'})
+        ]
+      }
+    ]
   };
 
   return {
