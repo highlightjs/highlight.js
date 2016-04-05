@@ -3,6 +3,7 @@
 New languages:
 
 - *Tagger Script* by [Philipp Wolfer][]
+- *MoonScript* by [Billy Quith][]
 
 Improvements to existing languages and styles:
 
@@ -10,6 +11,7 @@ Improvements to existing languages and styles:
 - Kotlin's got a new definition for annotations and updated keywords
 
 [Philipp Wolfer]: https://github.com/phw
+[Billy Quith]: https://github.com/billyquith
 
 
 ## Version 9.2.0
@@ -44,6 +46,8 @@ Improvements to existing languages and styles:
 [Michael Johnston]: https://github.com/lastobelus
 [Taras]: https://github.com/oxdef
 [Robert Dodier]: https://github.com/robert-dodier
+
+>>>>>>> 15e8c9860c67b3ade7c9d3cc6f924b0c7945e9cb
 
 ## Version 9.1.0
 
