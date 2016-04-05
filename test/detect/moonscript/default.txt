@@ -1,36 +1,13 @@
-hello = "world"
-a,b,c = 1, 2, 3
-hello = 123 -- uses the existing variable
-some_string = "Here is a string
-  that has a line break in it."
 print "I am #{math.random! * 100}% sure."
-
-square = (x) -> x * x       -- comment
-
-sum = (x, y) -> print "sum", x + y
-
-two = -> 2
 
 my_function = (name="something", height=100) ->
   print "Hello I am", name
   print "My height is", height
 
-local s = square 2
-s = two! * two()
-print "x:", sum(10, 20), "y:", sum(30, 40)
-
 my_function dance: "Tango", partner: "none"
 
 my_func 5,4,3,      -- multi-line arguments
   8,9,10
-    
-x = {
-  1,2,3,4, a_func 4,5,
-    5,6,
-  8,9,10
-}
-
-t = {}
 
 table = {
   name: "Bill",
@@ -39,20 +16,6 @@ table = {
   :keyvalue,
   [1+7]: 'eight'
 }
-
-math =
-  root:   Math.sqrt
-  square: square
-  cube:   (x) -> x * square,
-  favorite_foods: {"ice cream", "donuts"}
-  :keyvalue,
-  [3+7]: 'ten'
-
-doubled = [item * 2 for i, item in ipairs items]
-
-slice = [item for i, item in iter when i > 1 and i < 3]
-
-no_color = {k,v for k,v in pairs thing when k != "color"}
 
 class Inventory
   new: =>
@@ -68,27 +31,7 @@ inv = Inventory!
 inv\add_item "t-shirt"
 inv\add_item "pants"
 
-class Animal extends Being
-  new: (@name) ->
-
-  move: (meters) ->
-    alert @name + " moved #{meters}m."
-    
-class Shelf
-  @__inherited: (child) =>
-    print @__name, "was inherited by", child.__name
-    
-a = Animal('Snail')
-a\move 10
-
 import
   assert_csrf
   require_login
   from require "helpers"
-  
-my_func = (add using k,i) ->
-  tmp = tmp + add   -- a new local tmp is created
-  i += tmp          -- using external i
-  k += tmp          -- using external k
-
--- single line comment
