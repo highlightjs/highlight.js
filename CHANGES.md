@@ -11,8 +11,16 @@ New styles:
 
 Improvements to existing languages and styles:
 
+- More robust handling of unquoted HTML tag attributes
+- Relevance tuning for QML which was unnecessary eager at seizing other
+  languages' code
 - Improve GAMS language parsing
-- Kotlin's got a new definition for annotations and updated keywords
+- Fixed a bunch of bugs around selectors in Less
+- Kotlin's got a new definition for annotations, updated keywords and other
+  minor improvements
+- Added `move` to Rust keywords
+- Markdown now recognizes \`\`\`-fenced code blocks
+- Improved detection of function declarations in C++ and C#
 
 [Philipp Wolfer]: https://github.com/phw
 [Billy Quith]: https://github.com/billyquith
