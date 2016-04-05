@@ -7,7 +7,7 @@ namespace Foo // namespace
             Who = who;
         }
 
-        int f(int val = 0)
+        int[] f(int val = 0)
         {
             new Type();
             return getType();
