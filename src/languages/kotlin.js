@@ -1,7 +1,6 @@
 /*
  Language: Kotlin
  Author: Sergey Mashkov <cy6erGn0m@gmail.com>
- Category: misc
  */
 
 
