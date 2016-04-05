@@ -21,10 +21,14 @@ function (hljs) {
   };
   var KEYWORDS_WITH_LABEL = {
     className: 'keyword',
-    begin: /\b(?:break|continue|return|this)\b/,
+    begin: /\b(break|continue|return|this)\b/,
     starts: {
-      className: 'symbol',
-      end: /[^\w@]/, excludeEnd: true
+      contains: [
+        {
+          className: 'symbol',
+          begin: /@\w+/
+        }
+      ]
     }
   };
   var LABEL = {
