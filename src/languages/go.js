@@ -36,10 +36,11 @@ function(hljs) {
       },
       {
         className: 'number',
-        begin: hljs.C_NUMBER_RE + '[dflsi]?',
-        relevance: 0
+        variants: [
+          {begin: hljs.C_NUMBER_RE + '[dflsi]', relevance: 1},
+          hljs.C_NUMBER_MODE
+        ]
       },
-      hljs.C_NUMBER_MODE,
       {
         begin: /:=/ // relevance booster
       }
