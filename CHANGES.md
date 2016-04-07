@@ -1,3 +1,11 @@
+New languages:
+
+- *PureBASIC* by [Tristano Ajmone][]
+
+New styles:
+
+- *PureBASIC* by [Tristano Ajmone][]
+
 ## Version 9.3.0
 
 New languages:
