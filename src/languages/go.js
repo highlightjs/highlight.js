@@ -39,7 +39,10 @@ function(hljs) {
         begin: hljs.C_NUMBER_RE + '[dflsi]?',
         relevance: 0
       },
-      hljs.C_NUMBER_MODE
+      hljs.C_NUMBER_MODE,
+      {
+        begin: /:=/ // relevance booster
+      }
     ]
   };
 }
