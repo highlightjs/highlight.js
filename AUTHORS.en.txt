@@ -212,3 +212,4 @@ Contributors:
 - Mikko Kouhia <mikko.kouhia@iki.fi>
 - Billy Quith <chinbillybilbo@gmail.com>
 - Herbert Shin <initbar@protonmail.ch>
+- Tristano Ajmone <tajmone@gmail.com>
