@@ -75,12 +75,10 @@ function(hljs) {
         beginKeywords: 'func', end: '{', excludeEnd: true,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
-            begin: /[A-Za-z$_][0-9A-Za-z$_]*/,
-            illegal: /\(/
+            begin: /[A-Za-z$_][0-9A-Za-z$_]*/
           }),
           {
-            begin: /</, end: />/,
-            illegal: />/
+            begin: /</, end: />/
           },
           {
             className: 'params',
