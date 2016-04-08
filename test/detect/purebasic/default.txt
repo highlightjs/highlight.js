@@ -22,46 +22,8 @@ StrangeProcedureCall ("This command is split " +
 
 If B > 3 : X$ = "Concatenation of commands" : Else : X$ = "Using colons" : EndIf
 
-; Procedure Example 1
-
-Declare Maximum(Value1, Value2)
-
-Procedure Operate(Value)
-  Maximum(10, 2)      ; At this time, Maximum() is unknown.
-EndProcedure
-
-; Procedure Example 2 (returning)
-
 Declare.s Attach(String1$, String2$)
 
 Procedure.s Attach(String1$, String2$)
   ProcedureReturn String1$+" "+String2$
 EndProcedure 
-
-Result$ = Attach("PureBasic", "Coder")
-
-;   Example ProcedureC
-DeclareC.s MyFunctionC(var.s)
-
-ProcedureC.s MyFunctionC(var.s)
-  ReturnString$ = var + " test"
-  ProcedureReturn ReturnString$
-EndProcedure
-
-
-;   Example ProcedureDLL
-DeclareDLL.s MyFunctionDLL(var.s)
-
-ProcedureDLL.s MyFunctionDLL(var.s)
-  ReturnString$ = var + " test"
-  ProcedureReturn ReturnString$
-EndProcedure
-
-;   Example ProcedureCDLL
-
-DeclareCDLL.s MyFunctionCDLL(var.s)
-
-ProcedureCDLL.s MyFunctionCDLL(var.s)
-  ReturnString$ = var + " test"
-  ProcedureReturn ReturnString$
-EndProcedure
