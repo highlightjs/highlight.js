@@ -13,13 +13,11 @@ function(hljs) {
 		className: 'string',
 		begin: '(~)?"', end: '"',
 		illegal: '\\n',
-		relevance: 0
 	};
 	var CONSTANTS = { // PB IDE color: #924B72 (Cannon Pink)
 		//  "#" + a letter or underscore + letters, digits or underscores + (optional) "$"
 			className: 'symbol',
 			begin: '#[a-zA-Z_]\\w*\\$?',
-			relevance: 0
 	};
 	var PROCEDURES_RHS = { // PB IDE color: #006666 (Blue Stone)
 		// ")"
