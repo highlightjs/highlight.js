@@ -32,6 +32,8 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 }
 
 .hljs, /* --- used for PureBASIC base color --- */
+.hljs-type,  /* --- used for PureBASIC Procedures return type --- */
+.hljs-function, /* --- used for wrapping PureBASIC Procedures definitions --- */
 .hljs-name,
 .hljs-plain,
 .hljs-number,
@@ -50,7 +52,7 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 	color: #00AAAA; /* Persian Green (approx.) */
 }
 
-.hljs-function, /* --- used for PureBASIC Procedures --- */
+.hljs-title, .hljs-function_call, /* --- used for PureBASIC Procedures Names --- */
 .hljs-tag,
 .hljs-variable,
 .hljs-code  {
@@ -58,7 +60,6 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 }
 
 .hljs-keyword, /* --- used for PureBASIC Keywords --- */
-.hljs-type,
 .hljs-class,
 .hljs-meta-keyword,
 .hljs-selector-class,
@@ -71,11 +72,6 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 .hljs-string, /* --- used for PureBASIC Strings --- */
 .hljs-selector-attr {
 	color: #0080FF; /* Azure Radiance (approx.) */
-}
-
-.hljs-title {
-	color: #0080FF; /* Azure Radiance (approx.) */
-	font-weight: bold;
 }
 
 .hljs-symbol, /* --- used for PureBASIC Constants --- */
