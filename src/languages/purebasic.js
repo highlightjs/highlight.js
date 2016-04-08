@@ -12,12 +12,12 @@ function(hljs) {
 	var STRINGS = { // PB IDE color: #0080FF (Azure Radiance)
 		className: 'string',
 		begin: '(~)?"', end: '"',
-		illegal: '\\n',
+		illegal: '\\n'
 	};
 	var CONSTANTS = { // PB IDE color: #924B72 (Cannon Pink)
 		//  "#" + a letter or underscore + letters, digits or underscores + (optional) "$"
 			className: 'symbol',
-			begin: '#[a-zA-Z_]\\w*\\$?',
+			begin: '#[a-zA-Z_]\\w*\\$?'
 	};
 	var PROCEDURES_RHS = { // PB IDE color: #006666 (Blue Stone)
 		// ")"
@@ -42,6 +42,9 @@ function(hljs) {
 				'Swap To Wend While With XIncludeFile XOr'
 		},
 		contains: [
+			// COMMENTS | PB IDE color: #00AAAA (Persian Green)			
+			hljs.COMMENT(';', '$', {relevance: 0}),
+			
 			// PROCEDURES_LHS | PB IDE color: #006666 (Blue Stone)
 			{
 				className: 'function',
@@ -50,13 +53,7 @@ function(hljs) {
 			},
 			STRINGS,
 			CONSTANTS,
-			PROCEDURES_RHS,
-			
-			{	// COMMENTS | PB IDE color: #00AAAA (Persian Green)
-				className: 'comment',
-				begin: ';', end: '$',
-				relevance: 10
-			}
+			PROCEDURES_RHS
 		]
 	};
 }
