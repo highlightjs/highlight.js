@@ -3,7 +3,7 @@ Language: PureBASIC
 Author: Tristano Ajmone <tajmone@gmail.com>
 Description: Syntax highlighting for PureBASIC (v.5). No inline ASM highlighting. First release (v.1.0), April 2016.
 Credits: I've taken inspiration from the PureBasic language file for GeSHi, created by Gustavo Julio Fiorenza (GuShH).
-Category: misc aaa
+Category: misc
 */
 
 // Base deafult colors in PB IDE: background: #FFFFDF; foreground: #000000;
@@ -40,7 +40,7 @@ function(hljs) {
 			// COMMENTS | PB IDE color: #00AAAA (Persian Green)			
 			hljs.COMMENT(';', '$', {relevance: 0}),
 			
-			{ // PROCEDURES DEFINITIONS | PB IDE color: #006666 (Blue Stone)
+			{ // PROCEDURES DEFINITIONS 
 				className: 'function',
 				begin: '\\b(Procedure|Declare)(C|CDLL|DLL)?\\b',
 				end: '\\(',
@@ -58,8 +58,18 @@ function(hljs) {
 						begin: '\\.\\w*',
 						// end: ' ',
 					},
-					hljs.UNDERSCORE_TITLE_MODE,
+					hljs.UNDERSCORE_TITLE_MODE, // PROCEDURE NAME | PB IDE color: #006666 (Blue Stone)
 				],
+			},
+			{ // PROCEDURE CALLS
+				begin: '[a-zA-Z_]\\w*(\\s*)?\\(',
+	            returnBegin: true,
+				contains: [
+					{	// PROCEDURE NAME | PB IDE color: #006666 (Blue Stone)
+						className: 'function_call',
+						begin: '[a-zA-Z_]\\w*',
+					}
+				]
 			},
 			STRINGS,
 			CONSTANTS
