@@ -1,5 +1,13 @@
 ## Version 9.4.0 (unreleased)
 
+New languages:
+
+- *PureBASIC* by [Tristano Ajmone][]
+
+New styles:
+
+- *PureBASIC* by [Tristano Ajmone][]
+
 Improvements:
 
 - We now highlight function declarations in Go
