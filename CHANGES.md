@@ -1,8 +1,14 @@
 ## Version 9.4.0 (unreleased)
 
+New languages:
+
+- *BNF* by [Oleg Efimov][]
+
 Improvements:
 
 - We now highlight function declarations in Go
+
+[Oleg Efimov]: https://github.com/Sannis
 
 
 ## Version 9.3.0
