@@ -212,3 +212,4 @@ URL:   https://highlightjs.org/
 - Микко Коухиа <mikko.kouhia@iki.fi>
 - Билли Куит <chinbillybilbo@gmail.com>
 - Герберт Шин <initbar@protonmail.ch>
+- Тристано Аймоне <tajmone@gmail.com>

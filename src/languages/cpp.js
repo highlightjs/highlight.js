@@ -6,7 +6,7 @@ Category: common, system
 */
 
 function(hljs) {
-  var CPP_PRIMATIVE_TYPES = {
+  var CPP_PRIMITIVE_TYPES = {
     className: 'keyword',
     begin: '\\b[a-z\\d_]*_t\\b'
   };
@@ -88,7 +88,7 @@ function(hljs) {
   };
 
   var EXPRESSION_CONTAINS = [
-    CPP_PRIMATIVE_TYPES,
+    CPP_PRIMITIVE_TYPES,
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     NUMBERS,
@@ -104,7 +104,7 @@ function(hljs) {
       {
         begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
         keywords: CPP_KEYWORDS,
-        contains: ['self', CPP_PRIMATIVE_TYPES]
+        contains: ['self', CPP_PRIMITIVE_TYPES]
       },
       {
         begin: hljs.IDENT_RE + '::',
@@ -123,6 +123,7 @@ function(hljs) {
         contains: EXPRESSION_CONTAINS.concat([
           {
             begin: /\(/, end: /\)/,
+            keywords: CPP_KEYWORDS,
             contains: EXPRESSION_CONTAINS.concat(['self']),
             relevance: 0
           }
@@ -151,7 +152,8 @@ function(hljs) {
               hljs.C_LINE_COMMENT_MODE,
               hljs.C_BLOCK_COMMENT_MODE,
               STRINGS,
-              NUMBERS
+              NUMBERS,
+              CPP_PRIMITIVE_TYPES
             ]
           },
           hljs.C_LINE_COMMENT_MODE,
