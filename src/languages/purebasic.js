@@ -45,7 +45,6 @@ function(hljs) {
         end: '\\(',
         excludeEnd: true,
         returnBegin: true,
-        relevance: 10,
         contains: [
           { // PROCEDURE KEYWORDS | PB IDE color: #006666 (Blue Stone) + Bold
             className: 'keyword',
