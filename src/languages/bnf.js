@@ -16,13 +16,10 @@ function(hljs){
       {
         begin: /::=/
       },
-      {
-        className: 'string',
-        begin: /'"'/
-      },
       // Common
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
+      hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE
     ]
   };
