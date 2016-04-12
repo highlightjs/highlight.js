@@ -18,7 +18,7 @@ NOTE_1:	PureBASIC code syntax highlighting only applies the following classes:
 		a "--- used for PureBASIC ... ---" comment on same line.
 
 NOTE_2:	Color names provided in comments were derived using "Name that Color" online tool:
-			http://chir.ag/projects/name-that-color	
+			http://chir.ag/projects/name-that-color
 */
 
 .hljs { /* Common set of rules required by highlight.js (don'r remove!) */
@@ -35,9 +35,7 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 .hljs-type,  /* --- used for PureBASIC Procedures return type --- */
 .hljs-function, /* --- used for wrapping PureBASIC Procedures definitions --- */
 .hljs-name,
-.hljs-plain,
 .hljs-number,
-.hljs-attribute,
 .hljs-attr,
 .hljs-params,
 .hljs-subst {
@@ -52,7 +50,7 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 	color: #00AAAA; /* Persian Green (approx.) */
 }
 
-.hljs-title, .hljs-function_call, /* --- used for PureBASIC Procedures Names --- */
+.hljs-title, /* --- used for PureBASIC Procedures Names --- */
 .hljs-tag,
 .hljs-variable,
 .hljs-code  {
@@ -76,7 +74,8 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 
 .hljs-symbol, /* --- used for PureBASIC Constants --- */
 .hljs-link,
-.hljs-deletion {
+.hljs-deletion,
+.hljs-attribute {
 	color: #924B72; /* Cannon Pink (approx.) */
 }
 
@@ -87,7 +86,8 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 	font-weight: bold;
 }
 
-.hljs-strong {
+.hljs-strong,
+.hljs-name {
 	font-weight: bold;
 }
 
