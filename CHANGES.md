@@ -67,7 +67,6 @@ Improvements to existing languages and styles:
 [Taras]: https://github.com/oxdef
 [Robert Dodier]: https://github.com/robert-dodier
 
->>>>>>> 15e8c9860c67b3ade7c9d3cc6f924b0c7945e9cb
 
 ## Version 9.1.0
 
@@ -97,6 +96,7 @@ Improvements to existing languages and styles:
 [Matt Evans]: https://github.com/matthewevans
 [Martin Braun]: https://github.com/mbr0wn
 [Stefania Mellai]: https://github.com/smellai
+
 
 ## Version 9.0.0
 
@@ -151,6 +151,7 @@ Other notable changes:
 [Nebuleon Fumika]: https://github.com/Nebuleon
 [prince]: https://github.com/prince-0203
 
+
 ## Version 8.9.1
 
 Some last-minute changes reverted due to strange bug with minified browser build:
@@ -160,6 +161,7 @@ Some last-minute changes reverted due to strange bug with minified browser build
 - ECMAScript 6 classes constructors now highlighted
 - Template string support for Typescript, as for ECMAScript 6
 - License added to not minified browser build
+
 
 ## Version 8.9.0
 
@@ -194,6 +196,7 @@ Other notable changes:
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Nate Cook]: https://github.com/natecook1000
 
+
 ## Version 8.8.0
 
 New languages:
@@ -221,6 +224,7 @@ Other notable changes:
 [Anthony Scemama]: https://github.com/scemama
 [Oleg Efimov]: https://github.com/Sannis
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
+
 
 ## Version 8.7
 
@@ -263,6 +267,7 @@ Notable fixes and improvements to existing languages:
 [Dotan Dimet]: https://github.com/dotandimet
 [J2TeaM]: https://github.com/J2TeaM
 
+
 ## Version 8.6
 
 New languages:
@@ -300,6 +305,7 @@ Notable fixes and improvements to existing languages:
 [Dan Panzarella]: https://github.com/pzl
 [Bruno Dias]: https://github.com/sequitur
 [Jay Strybis]: https://github.com/unreal
+
 
 ## Version 8.5
 
@@ -341,6 +347,7 @@ Notable fixes and improvements to existing languages:
 [Gu Yiling]: https://github.com/Justineo
 [Sergey Mashkov]: https://github.com/cy6erGn0m
 [Thomas Applencourt]: https://github.com/TApplencourt
+
 
 ## Version 8.4
 
@@ -480,6 +487,7 @@ Other improvements:
 
 [Erik Osheim]: https://github.com/non
 [Lucas Mazza]: https://github.com/lucasmazza
+
 
 ## Version 8.1
 
