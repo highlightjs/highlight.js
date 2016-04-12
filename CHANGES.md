@@ -1,3 +1,10 @@
+## Version 9.4.0 (unreleased)
+
+Improvements:
+
+- We now highlight function declarations in Go
+
+
 ## Version 9.3.0
 
 New languages:
