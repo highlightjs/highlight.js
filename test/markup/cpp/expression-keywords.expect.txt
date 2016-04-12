@@ -1,0 +1,1 @@
+<span class="hljs-keyword">double</span> x = <span class="hljs-built_in">exp</span>(<span class="hljs-built_in">log</span>(<span class="hljs-number">2</span>));

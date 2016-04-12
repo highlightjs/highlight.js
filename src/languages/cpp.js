@@ -123,6 +123,7 @@ function(hljs) {
         contains: EXPRESSION_CONTAINS.concat([
           {
             begin: /\(/, end: /\)/,
+            keywords: CPP_KEYWORDS,
             contains: EXPRESSION_CONTAINS.concat(['self']),
             relevance: 0
           }
