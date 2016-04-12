@@ -3,7 +3,6 @@ Language: PureBASIC
 Author: Tristano Ajmone <tajmone@gmail.com>
 Description: Syntax highlighting for PureBASIC (v.5). No inline ASM highlighting. First release (v.1.0), April 2016.
 Credits: I've taken inspiration from the PureBasic language file for GeSHi, created by Gustavo Julio Fiorenza (GuShH).
-Category: misc
 */
 
 // Base deafult colors in PB IDE: background: #FFFFDF; foreground: #000000;
