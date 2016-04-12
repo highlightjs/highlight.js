@@ -405,7 +405,8 @@ function(hljs) {
           }
         ]
       }
-    ]
+    ],
+    illegal: /@/
   }
 }
 

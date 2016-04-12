@@ -13,7 +13,7 @@ function(hljs) {
         'LOC MX NAPTR NS NSEC NSEC3 NSEC3PARAM PTR RRSIG RP SIG SOA SRV SSHFP TA TKEY TLSA TSIG TXT'
     },
     contains: [
-      hljs.COMMENT(';', '$'),
+      hljs.COMMENT(';', '$', {relevance: 0}),
       {
         className: 'meta',
         begin: /^\$(TTL|GENERATE|INCLUDE|ORIGIN)\b/
