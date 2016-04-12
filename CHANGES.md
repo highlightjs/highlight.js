@@ -13,6 +13,7 @@ Improvements:
 
 - We now highlight function declarations in Go
 
+[Tristano Ajmone]: https://github.com/tajmone
 [Oleg Efimov]: https://github.com/Sannis
 
 
