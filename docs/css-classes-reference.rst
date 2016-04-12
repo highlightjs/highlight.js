@@ -13,9 +13,8 @@ Stylable classes
 | built_in                 | built-in or library object (constant, class,      |
 |                          | function)                                         |
 +--------------------------+---------------------------------------------------+
-| type                     | type name used in a function signature, type      |
-|                          | parameter, generic template, etc                  |
-+--------------------------+---------------------------------------------------+
+| type                     | user-defined type in a language with first-class  |
+|                          | syntactically significant types, like Haskell     | +--------------------------+---------------------------------------------------+
 | literal                  | special identifier for a built-in value ("true",  |
 |                          | "false", "null")                                  |
 +--------------------------+---------------------------------------------------+
