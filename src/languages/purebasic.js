@@ -60,16 +60,6 @@ function(hljs) {
           hljs.UNDERSCORE_TITLE_MODE // PROCEDURE NAME | PB IDE color: #006666 (Blue Stone)
         ]
       },
-      { // PROCEDURE CALLS
-        begin: '[a-zA-Z_]\\w*(\\s*)?\\(',
-        returnBegin: true,
-        contains: [
-          {  // PROCEDURE NAME | PB IDE color: #006666 (Blue Stone)
-            className: 'function_call',
-            begin: '[a-zA-Z_]\\w*'
-          }
-        ]
-      },
       STRINGS,
       CONSTANTS
     ]
