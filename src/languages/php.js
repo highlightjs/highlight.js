@@ -78,6 +78,9 @@ function(hljs) {
         ]
       },
       PREPROCESSOR,
+      {
+        className: 'keyword', begin: /\$this\b/
+      },
       VARIABLE,
       {
         // swallow composed identifiers to avoid parsing them as keywords
