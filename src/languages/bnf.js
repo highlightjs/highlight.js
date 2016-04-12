@@ -8,9 +8,11 @@ function(hljs){
     contains: [
       // Attribute
       {
-        className: 'attr',
+        className: 'attribute',
         begin: /</,
-        end: />/
+        end: />/,
+        excludeBegin: true,
+        excludeEnd: true
       },
       // Specific
       {
