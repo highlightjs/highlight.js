@@ -12,6 +12,8 @@ Improvements:
 
 - We now highlight function declarations in Go
 
+[Tristano Ajmone]: https://github.com/tajmone
+
 
 ## Version 9.3.0
 
