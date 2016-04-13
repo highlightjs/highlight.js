@@ -14,7 +14,7 @@ Stylable classes
 |                          | function)                                         |
 +--------------------------+---------------------------------------------------+
 | type                     | user-defined type in a language with first-class  |
-|                          | syntactically significant types, like Haskel      |
+|                          | syntactically significant types, like Haskell     |
 +--------------------------+---------------------------------------------------+
 | literal                  | special identifier for a built-in value ("true",  |
 |                          | "false", "null")                                  |
