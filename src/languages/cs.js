@@ -14,7 +14,7 @@ function(hljs) {
       'object operator out override params private protected public readonly ref sbyte ' +
       'sealed short sizeof stackalloc static string struct switch this try typeof ' +
       'uint ulong unchecked unsafe ushort using virtual volatile void while async ' +
-      'protected public private internal ' +
+      'protected public private internal nameof ' +
       // Contextual keywords.
       'ascending descending from get group into join let orderby partial select set value var ' +
       'where yield',
