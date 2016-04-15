@@ -120,7 +120,7 @@ function(hljs) {
                 // function/procedure declaration/definition
                 // maybe inside generic
                 begin: '(\\b(with|overriding)\\s+)?\\b(function|procedure)\\s+', end: '(\\bis|\\bwith|\\brenames|\\)\\s*;)',
-                keywords: 'overriding function procedure with is return',
+                keywords: 'overriding function procedure with is renames return',
                 // we need to re-match the 'function' keyword, so that
                 // the title mode below matches only exactly once
                 returnBegin: true,
