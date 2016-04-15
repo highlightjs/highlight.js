@@ -11,8 +11,11 @@ New styles:
 Improvements:
 
 - We now highlight function declarations in Go
+- [Taisuke Fujimoto][] contributed a very convoluted rules for raw and
+  interpolated strings in C#.
 
 [Tristano Ajmone]: https://github.com/tajmone
+[Taisuke Fujimoto]: https://github.com/temp-impl
 
 
 ## Version 9.3.0
