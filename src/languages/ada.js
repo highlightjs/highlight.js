@@ -16,6 +16,7 @@
 //
 // Languages causing problems for language detection:
 // xml (broken by Foo : Bar type), elm (broken by Foo : Bar type), vbscript-html (broken by body keyword)
+// sql (ada default.txt has a lot of sql keywords)
 
 function(hljs) {
     // Regular expression for Ada numeric literals.
@@ -45,16 +46,19 @@ function(hljs) {
     // Foo : Bar := Baz;
     // where only Bar will be highlighted
     var VAR_DECLS = {
-        // var decls
-        begin: ':[^=]\\s*', end: '\\s*(:=|;|\\)|=>|$)',
+        // TODO: These spaces are not required by the Ada syntax
+        // however, I have yet to see handwritten Ada code where
+        // someone does not put spaces around :
+        begin: '\\s+:\\s+', end: '\\s*(:=|;|\\)|=>|$)',
         // endsWithParent: true,
-        returnEnd: true,
+        // returnBegin: true,
+        ignore: BAD_CHARS,
         contains: [
             {
                 // workaround to avoid highlighting
                 // named loops and declare blocks
                 beginKeywords: 'loop for declare others',
-                endsParent: true
+                endsParent: true,
             },
             {
                 // properly highlight all modifiers
@@ -64,6 +68,7 @@ function(hljs) {
             {
                 className: 'type',
                 begin: ID_REGEX,
+                endsParent: true,
                 relevance: 0,
             }
         ]
@@ -105,9 +110,14 @@ function(hljs) {
             },
             {
                 // number literals
-                className: 'literal',
+                classname: 'literal',
                 begin: NUMBER_RE,
                 relevance: 0
+            },
+            {
+                // Attributes
+                className: 'built_in',
+                begin: "'" + ID_REGEX,
             },
             {
                 // package definition, maybe inside generic
@@ -158,7 +168,7 @@ function(hljs) {
             {
                 // new type declarations
                 // maybe inside generic
-                className: 'title',
+                className: 'type',
                 begin: '\\b(sub)?type\\s+', end: '\\s+',
                 keywords: 'type',
                 excludeBegin: true,
@@ -172,7 +182,7 @@ function(hljs) {
             // relevance boosters for small snippets
             // {begin: '\\s*=>\\s*'},
             // {begin: '\\s*:=\\s*'},
-            // {begin: '\\s*:[^=]\\s*'},
+            // {begin: '\\s+:=\\s+'},
         ]
     };
 }

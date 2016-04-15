@@ -6,7 +6,7 @@
    begin
 
       Named : for Index in Foo..Bar loop
-          Put ("Hi");
+          Put ("Hi[]{}");
       end loop Named;
 
       Foo := Bar;
