@@ -43,18 +43,20 @@ function(hljs) {
     // where only Bar will be highlighted
     var VAR_DECLS = {
         // var decls
-        begin: ':[^=]\\s*', end: '\\s*(:=|;|\\))',
+        begin: ':[^=]\\s*', end: '\\s*(:=|;|\\)|=>)',
+        // endsWithParent: true,
+        returnEnd: true,
         contains: [
             {
                 // workaround to avoid highlighting
                 // named loops and declare blocks
-                beginKeywords: 'loop for declare',
+                beginKeywords: 'loop for declare others',
                 endsParent: true
             },
             {
                 // properly highlight all modifiers
                 className: 'keyword',
-                beginKeywords: 'constant access in out aliased'
+                beginKeywords: 'not null constant access function procedure in out aliased exception'
             },
             {
                 className: 'type',
@@ -117,8 +119,8 @@ function(hljs) {
             {
                 // function/procedure declaration/definition
                 // maybe inside generic
-                begin: '(\\bwith\\s+)?\\b(function|procedure)\\s+', end: '(\\bis|\\bwith)',
-                keywords: 'function procedure with is return',
+                begin: '(\\b(with|overriding)\\s+)?\\b(function|procedure)\\s+', end: '(\\bis|\\bwith|\\brenames|\\)\\s*;)',
+                keywords: 'overriding function procedure with is return',
                 // we need to re-match the 'function' keyword, so that
                 // the title mode below matches only exactly once
                 returnBegin: true,
@@ -133,12 +135,13 @@ function(hljs) {
                         excludeEnd: true,
                         illegal: BAD_CHARS
                     },
-                    // parameter types
+                    // 'self'
+                    // // parameter types
                     VAR_DECLS,
                     {
                         // return type
                         className: 'type',
-                        begin: '\\breturn\\s+', end: '(is|;|$)',
+                        begin: '\\breturn\\s+', end: '(\\s+|;|$)',
                         keywords: 'return',
                         excludeBegin: true,
                         excludeEnd: true,
@@ -152,8 +155,8 @@ function(hljs) {
             {
                 // new type declarations
                 // maybe inside generic
-                className: 'type',
-                begin: '\\btype\\s+', end: '\\s+',
+                className: 'title',
+                begin: '\\b(sub)?type\\s+', end: '\\s+',
                 keywords: 'type',
                 excludeBegin: true,
                 illegal: BAD_CHARS
