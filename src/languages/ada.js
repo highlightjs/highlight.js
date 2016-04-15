@@ -38,12 +38,15 @@ function(hljs) {
     // bad chars, only allowed in literals
     var BAD_CHARS = '[]{}%#\'\"'
 
+    // Ada doesn't have block comments, only line comments
+    var COMMENTS = hljs.COMMENT('--', '$');
+
     // variable declarations of the form
     // Foo : Bar := Baz;
     // where only Bar will be highlighted
     var VAR_DECLS = {
         // var decls
-        begin: ':[^=]\\s*', end: '\\s*(:=|;|\\)|=>)',
+        begin: ':[^=]\\s*', end: '\\s*(:=|;|\\)|=>|$)',
         // endsWithParent: true,
         returnEnd: true,
         contains: [
@@ -81,8 +84,7 @@ function(hljs) {
                 'True False',
         },
         contains: [
-            // Ada doesn't have block comments, only line comments
-            hljs.COMMENT('--', '$'),
+            COMMENTS,
             // strings "foobar"
             {
                 // like C# @"", a literal " is quoted as ""
@@ -126,6 +128,7 @@ function(hljs) {
                 returnBegin: true,
                 contains:
                 [
+                    COMMENTS,
                     {
                         // name of the function/procedure
                         className: 'title',
