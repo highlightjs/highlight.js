@@ -8,7 +8,7 @@ Category: common
 function(hljs) {
   var API_CLASS = {
     className: 'built_in',
-    begin: '(AV|CA|CF|CG|CI|MK|MP|NS|UI|XC)\\w+',
+    begin: '\\b(AV|CA|CF|CG|CI|MK|MP|NS|UI|XC)\\w+',
   };
   var OBJC_KEYWORDS = {
     keyword:
