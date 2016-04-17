@@ -3,6 +3,7 @@
 New languages:
 
 - *PureBASIC* by [Tristano Ajmone][]
+- *BNF* by [Oleg Efimov][]
 
 New styles:
 
@@ -11,11 +12,12 @@ New styles:
 Improvements:
 
 - We now highlight function declarations in Go
-- [Taisuke Fujimoto][] contributed a very convoluted rules for raw and
-  interpolated strings in C#.
+- [Taisuke Fujimoto][] contributed a very convoluted rules for raw
+  and interpolated strings in C#.
 
 [Tristano Ajmone]: https://github.com/tajmone
 [Taisuke Fujimoto]: https://github.com/temp-impl
+[Oleg Efimov]: https://github.com/Sannis
 
 
 ## Version 9.3.0
