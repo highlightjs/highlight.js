@@ -72,7 +72,7 @@ function(hljs) {
   var HINT_COL = hljs.COMMENT('\\^\\{', '\\}');
   var KEY = {
     className: 'symbol',
-    begin: '[:]' + SYMBOL_RE
+    begin: '[:]{1,2}' + SYMBOL_RE
   };
   var LIST = {
     begin: '\\(', end: '\\)'
