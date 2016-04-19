@@ -14,7 +14,7 @@ Improvements:
 - We now highlight function declarations in Go
 - [Taisuke Fujimoto][] contributed a very convoluted rules for raw
   and interpolated strings in C#.
-- Improved comment rules for PowerShell files by [Victor Zhou][]
+- Improved comment and string rules for PowerShell files by [Victor Zhou][]
 
 [Tristano Ajmone]: https://github.com/tajmone
 [Taisuke Fujimoto]: https://github.com/temp-impl
