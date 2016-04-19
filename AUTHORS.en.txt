@@ -214,4 +214,4 @@ Contributors:
 - Herbert Shin <initbar@protonmail.ch>
 - Tristano Ajmone <tajmone@gmail.com>
 - Taisuke Fujimoto <temp-impl@users.noreply.github.com>
-- V. Zhou <OiCMudkips@users.noreply.github.com>
+- Victor Zhou <OiCMudkips@users.noreply.github.com>
