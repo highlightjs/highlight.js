@@ -14,10 +14,12 @@ Improvements:
 - We now highlight function declarations in Go
 - [Taisuke Fujimoto][] contributed a very convoluted rules for raw
   and interpolated strings in C#.
+- [Boone Severson][] updated Verilog to comply with IEEE 1800-2012 SystemVerilog
 
 [Tristano Ajmone]: https://github.com/tajmone
 [Taisuke Fujimoto]: https://github.com/temp-impl
 [Oleg Efimov]: https://github.com/Sannis
+[Boone Severson]: https://github.com/BooneJS
 
 
 ## Version 9.3.0
