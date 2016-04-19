@@ -5,7 +5,7 @@ Contributors: Nicholas Blumhardt <nblumhardt@nblumhardt.com>, Victor Zhou <OiCMu
 */
 
 function(hljs) {
-  var backtickEscape = {
+  var BACKTICK_ESCAPE = {
     begin: '`[\\s\\S]',
     relevance: 0
   };
@@ -26,7 +26,7 @@ function(hljs) {
       { begin: /@"/, end: /^"@/ }
     ],
     contains: [
-      backtickEscape,
+      BACKTICK_ESCAPE,
       VAR,
       {
         className: 'variable',
@@ -75,6 +75,7 @@ function(hljs) {
       nomarkup: '-ne -eq -lt -gt -ge -le -not -like -notlike -match -notmatch -contains -notcontains -in -notin -replace'
     },
     contains: [
+      BACKTICK_ESCAPE,
       hljs.NUMBER_MODE,
       QUOTE_STRING,
       APOS_STRING,
