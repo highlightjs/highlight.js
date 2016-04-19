@@ -15,7 +15,7 @@ Improvements:
 - [Taisuke Fujimoto][] contributed a very convoluted rules for raw
   and interpolated strings in C#.
 - [Boone Severson][] updated Verilog to comply with IEEE 1800-2012 SystemVerilog
-- Markup multi-line comments in PowerShell
+- Better markup for PowerShell comments including help-based comments
 
 [Tristano Ajmone]: https://github.com/tajmone
 [Taisuke Fujimoto]: https://github.com/temp-impl
