@@ -67,7 +67,7 @@ function(hljs) {
         className: 'number',
         contains: [hljs.BACKSLASH_ESCAPE],
         variants: [
-          {begin: '(\\b((\\d+\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+))|(\\B((\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+))|(\\b([0-9_])+)'},
+          {begin: '(\\b((\\d+\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+))|(\\B((\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+))'},
           {begin: '(\\b([0-9_])+)', relevance: 0}
         ]
       },
