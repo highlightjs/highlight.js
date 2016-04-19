@@ -1,7 +1,7 @@
 /*
 Language: PowerShell
 Author: David Mohundro <david@mohundro.com>
-Contributors: Nicholas Blumhardt <nblumhardt@nblumhardt.com>
+Contributors: Nicholas Blumhardt <nblumhardt@nblumhardt.com>, V. Zhou <OiCMudkips@users.noreply.github.com>
 */
 
 function(hljs) {
@@ -35,6 +35,11 @@ function(hljs) {
     className: 'string',
     begin: /'/, end: /'/
   };
+  
+  var MULTILINE_COMMENT = {
+    className: 'comment',  
+    begin: /<#/, end: /#>/
+  }
 
   return {
     aliases: ['ps'],
@@ -51,7 +56,8 @@ function(hljs) {
       QUOTE_STRING,
       APOS_STRING,
       LITERAL,
-      VAR
+      VAR,
+	  MULTILINE_COMMENT
     ]
   };
 }
