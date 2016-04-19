@@ -46,7 +46,7 @@ function(hljs) {
           {
             className: 'meta-string',
             begin: '<', end: '>',
-            illegal: '\\n',
+            illegal: '\\n'
           }
         ]
       },
@@ -68,7 +68,7 @@ function(hljs) {
 
   var DTS_LABEL = {
     className: 'symbol',
-    begin: '^\\s*[a-zA-Z_][a-zA-Z\\d_]*:',
+    begin: '^\\s*[a-zA-Z_][a-zA-Z\\d_]*:'
   };
 
   var DTS_CELL_PROPERTY = {
@@ -77,8 +77,8 @@ function(hljs) {
     end: '>',
     contains: [
       NUMBERS,
-      DTS_REFERENCE,
-    ],
+      DTS_REFERENCE
+    ]
   };
 
   var DTS_NODE = {
@@ -86,7 +86,7 @@ function(hljs) {
     begin: /[a-zA-Z_][a-zA-Z\d_@]*\s{/,
     end: /[{;=]/,
     returnBegin: true,
-    excludeEnd: true,
+    excludeEnd: true
   };
 
   var DTS_ROOT_NODE = {
@@ -103,8 +103,8 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       NUMBERS,
-      STRINGS,
-    ],
+      STRINGS
+    ]
   };
 
   return {
@@ -123,8 +123,8 @@ function(hljs) {
       PREPROCESSOR,
       {
         begin: hljs.IDENT_RE + '::',
-        keywords: "",
-      },
+        keywords: ""
+      }
     ]
   };
 }
