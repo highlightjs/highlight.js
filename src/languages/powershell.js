@@ -48,7 +48,7 @@ function(hljs) {
       /* no paramater help tags */ 
       { begin: '\\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)' },
       /* one parameter help tags */
-      { begin: '\\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp) \\S+' }
+      { begin: '\\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp)\\w+\\S+' }
     ]
   };
   
