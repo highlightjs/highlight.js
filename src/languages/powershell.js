@@ -1,7 +1,7 @@
 /*
 Language: PowerShell
 Author: David Mohundro <david@mohundro.com>
-Contributors: Nicholas Blumhardt <nblumhardt@nblumhardt.com>, V. Zhou <OiCMudkips@users.noreply.github.com>
+Contributors: Nicholas Blumhardt <nblumhardt@nblumhardt.com>, Victor Zhou <OiCMudkips@users.noreply.github.com>
 */
 
 function(hljs) {
