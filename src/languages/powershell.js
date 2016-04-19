@@ -21,7 +21,10 @@ function(hljs) {
   };
   var QUOTE_STRING = {
     className: 'string',
-    begin: /"/, end: /"/,
+    variants: [
+      { begin: /"/, end: /"/ },
+      { begin: /@"/, end: /^"@/ }
+    ],
     contains: [
       backtickEscape,
       VAR,
@@ -33,7 +36,10 @@ function(hljs) {
   };
   var APOS_STRING = {
     className: 'string',
-    begin: /'/, end: /'/
+    variants: [
+      { begin: /'/, end: /'/ },
+      { begin: /@'/, end: /^'@/ }
+    ]
   };
   
   var PS_HELPTAGS = {
