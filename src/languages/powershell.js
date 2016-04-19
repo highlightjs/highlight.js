@@ -36,10 +36,38 @@ function(hljs) {
     begin: /'/, end: /'/
   };
   
-  var MULTILINE_COMMENT = {
-    className: 'comment',  
-    begin: /<#/, end: /#>/
-  }
+  var PS_HELPTAGS = {
+    className: 'doctag',
+    variants: [
+      /* no paramater help tags */ 
+      {
+        begin: '\\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)'
+      },
+      /* one parameter help tags */
+      {
+        begin: '\\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp) \\S+'
+      }
+    ]
+  };
+  
+  var PS_SINGLELINE_COMMENT = hljs.COMMENT(
+    /#/ /* begin */,
+    /$/ /* end */,
+    {
+      contains: [
+        PS_HELPTAGS
+      ]
+    }
+  );
+  var PS_MULTILINE_COMMENT = hljs.COMMENT(
+    /<#/ /* begin */,
+    /#>/ /* end */,
+    {
+      contains: [
+        PS_HELPTAGS
+      ]
+    }
+  );
 
   return {
     aliases: ['ps'],
@@ -51,13 +79,13 @@ function(hljs) {
       nomarkup: '-ne -eq -lt -gt -ge -le -not -like -notlike -match -notmatch -contains -notcontains -in -notin -replace'
     },
     contains: [
-      hljs.HASH_COMMENT_MODE,
       hljs.NUMBER_MODE,
       QUOTE_STRING,
       APOS_STRING,
       LITERAL,
       VAR,
-      MULTILINE_COMMENT
+      PS_SINGLELINE_COMMENT,
+      PS_MULTILINE_COMMENT
     ]
   };
 }
