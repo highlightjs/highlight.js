@@ -40,32 +40,22 @@ function(hljs) {
     className: 'doctag',
     variants: [
       /* no paramater help tags */ 
-      {
-        begin: '\\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)'
-      },
+      { begin: '\\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)' },
       /* one parameter help tags */
-      {
-        begin: '\\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp) \\S+'
-      }
+      { begin: '\\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp) \\S+' }
     ]
   };
   
-  var PS_SINGLELINE_COMMENT = hljs.COMMENT(
-    /#/ /* begin */,
-    /$/ /* end */,
+  var PS_COMMENT = hljs.inherit(
+    hljs.COMMENT(null, null),
     {
-      contains: [
-        PS_HELPTAGS
-      ]
-    }
-  );
-  var PS_MULTILINE_COMMENT = hljs.COMMENT(
-    /<#/ /* begin */,
-    /#>/ /* end */,
-    {
-      contains: [
-        PS_HELPTAGS
-      ]
+      variants: [
+        /* single-line comment */
+        { begin: /#/, end: /$/ },
+        /* multi-line comment */
+        { begin: /<#/, end: /#>/ }
+      ],
+      contains: [PS_HELPTAGS]
     }
   );
 
@@ -84,8 +74,7 @@ function(hljs) {
       APOS_STRING,
       LITERAL,
       VAR,
-      PS_SINGLELINE_COMMENT,
-      PS_MULTILINE_COMMENT
+      PS_COMMENT
     ]
   };
 }
