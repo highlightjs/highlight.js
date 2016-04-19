@@ -59,6 +59,7 @@ function(hljs) {
     aliases: ['v', 'sv', 'svh'],
     case_insensitive: false,
     keywords: SV_KEYWORDS,
+    lexemes: /[\w\$]+/,
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_LINE_COMMENT_MODE,
@@ -69,19 +70,25 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE],
         relevance: 0
       },
+      {
+        className: 'number',
+        begin: '(\\b([0-9_])+)',
+        contains: [hljs.BACKSLASH_ESCAPE],
+        relevance: 0
+      },
       /* parameters to instances */
       {
         className: 'variable',
-        begin: '#\\((?!parameter).+\\)'
-      },
-      {
-        className: 'variable',
-        begin: '\\.\\w+'
+        variants: [
+          {begin: '#\\((?!parameter).+\\)'},
+          {begin: '\\.\\w+', relevance: 0},
+        ]
       },
       {
         className: 'meta',
         begin: '`', end: '$',
         keywords: {'meta-keyword': 'ifdef ifndef endif'},
+        relevance: 0
       }
     ]
   }; // return
