@@ -1,7 +1,7 @@
 /*
 Language: Verilog
 Author: Jon Evans <jon@craftyjon.com>
-Controbutors: Boone Severson <boone.severson@gmail.com>
+Contributors: Boone Severson <boone.severson@gmail.com>
 Description: Verilog is a hardware description language used in electronic design automation to describe digital and mixed-signal systems. This highlighter supports Verilog and SystemVerilog through IEEE 1800-2012.
 */
 
@@ -58,8 +58,7 @@ function(hljs) {
   return {
     aliases: ['v', 'sv', 'svh'],
     case_insensitive: false,
-    keywords: SV_KEYWORDS,
-    lexemes: /[\w\$]+/,
+    keywords: SV_KEYWORDS, lexemes: /[\w\$]+/,
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_LINE_COMMENT_MODE,
