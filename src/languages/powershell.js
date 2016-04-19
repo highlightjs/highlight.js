@@ -57,7 +57,7 @@ function(hljs) {
       APOS_STRING,
       LITERAL,
       VAR,
-	  MULTILINE_COMMENT
+      MULTILINE_COMMENT
     ]
   };
 }
