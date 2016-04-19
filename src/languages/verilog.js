@@ -65,15 +65,11 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'number',
-        begin: '(\\b((\\d+\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+))|(\\B((\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+))|(\\b([0-9_])+)',
         contains: [hljs.BACKSLASH_ESCAPE],
-        relevance: 0
-      },
-      {
-        className: 'number',
-        begin: '(\\b([0-9_])+)',
-        contains: [hljs.BACKSLASH_ESCAPE],
-        relevance: 0
+        variants: [
+          {begin: '(\\b((\\d+\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+))|(\\B((\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+))|(\\b([0-9_])+)'},
+          {begin: '(\\b([0-9_])+)', relevance: 0}
+        ]
       },
       /* parameters to instances */
       {
