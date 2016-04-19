@@ -67,7 +67,7 @@ function(hljs) {
         className: 'number',
         begin: '(\\b((\\d+\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+))|(\\B((\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+))|(\\b([0-9_])+)',
         contains: [hljs.BACKSLASH_ESCAPE],
-        relevance: 10
+        relevance: 0
       },
       /* parameters to instances */
       {
