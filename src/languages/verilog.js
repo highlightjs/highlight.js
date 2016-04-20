@@ -53,7 +53,17 @@ function(hljs) {
       '$async$nand$array $async$or$array $async$nor$array $sync$and$array ' +
       '$sync$nand$array $sync$or$array $sync$nor$array $q_add $q_full $psprintf ' +
       '$async$and$plane $async$nand$plane $async$or$plane $async$nor$plane ' +
-      '$sync$and$plane $sync$nand$plane $sync$or$plane $sync$nor$plane $system'
+      '$sync$and$plane $sync$nand$plane $sync$or$plane $sync$nor$plane $system ' +
+      '$display $displayb $displayh $displayo $strobe $strobeb $strobeh $strobeo ' +
+      '$write $readmemb $readmemh $writememh $value$plusargs ' +
+      '$dumpvars $dumpon $dumplimit $dumpports $dumpportson $dumpportslimit ' +
+      '$writeb $writeh $writeo $monitor $monitorb $monitorh $monitoro $writememb ' +
+      '$dumpfile $dumpoff $dumpall $dumpflush $dumpportsoff $dumpportsall ' +
+      '$dumpportsflush $fclose $fdisplay $fdisplayb $fdisplayh $fdisplayo ' +
+      '$fstrobe $fstrobeb $fstrobeh $fstrobeo $swrite $swriteb $swriteh ' +
+      '$swriteo $fscanf $fread $fseek $fflush $feof $fopen $fwrite $fwriteb ' +
+      '$fwriteh $fwriteo $fmonitor $fmonitorb $fmonitorh $fmonitoro $sformat ' +
+      '$sformatf $fgetc $ungetc $fgets $sscanf $rewind $ftell $ferror'
     };
   return {
     aliases: ['v', 'sv', 'svh'],
