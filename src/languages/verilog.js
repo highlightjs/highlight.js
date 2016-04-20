@@ -93,11 +93,11 @@ function(hljs) {
       {
         className: 'meta',
         begin: '`', end: '$',
-        keywords: 'define __FILE__ ' +
+        keywords: {'meta-keyword': 'define __FILE__ ' +
           '__LINE__ begin_keywords celldefine default_nettype define ' +
           'else elsif end_keywords endcelldefine endif ifdef ifndef ' +
           'include line nounconnected_drive pragma resetall timescale ' +
-          'unconnected_drive undef undefineall',
+          'unconnected_drive undef undefineall'},
         relevance: 0
       }
     ]
