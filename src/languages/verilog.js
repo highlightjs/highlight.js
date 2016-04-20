@@ -42,7 +42,7 @@ function(hljs) {
       '$assertfailoff $assertvacuousoff $isunbounded $sampled $fell $changed $past_gclk ' +
       '$fell_gclk $changed_gclk $rising_gclk $steady_gclk $coverage_control ' +
       '$coverage_get $coverage_save $set_coverage_db_name $rose $stable $past ' +
-      '$rose_gclk $stable_gclk $future_gclk $falling_gclk $changing_gclk ' +
+      '$rose_gclk $stable_gclk $future_gclk $falling_gclk $changing_gclk $display ' +
       '$coverage_get_max $coverage_merge $get_coverage $load_coverage_db $typename ' +
       '$unpacked_dimensions $left $low $increment $clog2 $ln $log10 $exp $sqrt $pow ' +
       '$floor $ceil $sin $cos $tan $countbits $onehot $isunknown $fatal $warning ' +
@@ -51,7 +51,7 @@ function(hljs) {
       '$dist_chi_square $dist_erlang $dist_exponential $dist_normal $dist_poisson ' +
       '$dist_t $dist_uniform $q_initialize $q_remove $q_exam $async$and$array ' +
       '$async$nand$array $async$or$array $async$nor$array $sync$and$array ' +
-      '$sync$nand$array $sync$or$array $sync$nor$array $q_add $q_full ' +
+      '$sync$nand$array $sync$or$array $sync$nor$array $q_add $q_full $psprintf ' +
       '$async$and$plane $async$nand$plane $async$or$plane $async$nor$plane ' +
       '$sync$and$plane $sync$nand$plane $sync$or$plane $sync$nor$plane $system'
     };
@@ -83,7 +83,11 @@ function(hljs) {
       {
         className: 'meta',
         begin: '`', end: '$',
-        keywords: {'meta-keyword': 'ifdef ifndef endif'},
+        keywords: 'define __FILE__ ' +
+          '__LINE__ begin_keywords celldefine default_nettype define ' +
+          'else elsif end_keywords endcelldefine endif ifdef ifndef ' +
+          'include line nounconnected_drive pragma resetall timescale ' +
+          'unconnected_drive undef undefineall',
         relevance: 0
       }
     ]
