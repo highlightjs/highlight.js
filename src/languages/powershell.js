@@ -41,7 +41,7 @@ function(hljs) {
       { begin: /@'/, end: /^'@/ }
     ]
   };
-  
+
   var PS_HELPTAGS = {
     className: 'doctag',
     variants: [
@@ -63,13 +63,11 @@ function(hljs) {
       contains: [PS_HELPTAGS]
     }
   );
-  
+
   var PS_FUNCTION_DECLR = {
     className: 'function',
-    begin: /function/,
-    excludeBegin: true,
+    beginKeywords: 'function',
     end: /\w*\{/,
-    excludeEnd: true,
     contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w-]*/})],
     relevance: 0
   };
