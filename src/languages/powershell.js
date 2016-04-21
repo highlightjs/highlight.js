@@ -73,11 +73,6 @@ function(hljs) {
     contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w-]*/})],
     relevance: 0
   };
-  var PS_FUNCTION_PARAM = {
-    className: 'params',
-    begin: /param\s*\(/, end: /\)/,
-    excludeBegin: true
-  };
 
   return {
     aliases: ['ps'],
@@ -96,8 +91,7 @@ function(hljs) {
       LITERAL,
       VAR,
       PS_COMMENT,
-      PS_FUNCTION_DECLR,
-      PS_FUNCTION_PARAM
+      PS_FUNCTION_DECLR
     ]
   };
 }
