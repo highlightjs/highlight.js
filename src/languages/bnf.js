@@ -9,10 +9,7 @@ function(hljs){
       // Attribute
       {
         className: 'attribute',
-        begin: /</,
-        end: />/,
-        excludeBegin: true,
-        excludeEnd: true
+        begin: /</, end: />/
       },
       // Specific
       {
