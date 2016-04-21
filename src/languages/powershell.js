@@ -64,14 +64,6 @@ function(hljs) {
     }
   );
 
-  var PS_FUNCTION_DECLR = {
-    className: 'function',
-    beginKeywords: 'function',
-    end: /\w*\{/,
-    contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w-]*/})],
-    relevance: 0
-  };
-
   return {
     aliases: ['ps'],
     lexemes: /-?[A-z\.\-]+/,
@@ -88,8 +80,7 @@ function(hljs) {
       APOS_STRING,
       LITERAL,
       VAR,
-      PS_COMMENT,
-      PS_FUNCTION_DECLR
+      PS_COMMENT
     ]
   };
 }
