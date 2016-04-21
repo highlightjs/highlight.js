@@ -46,12 +46,11 @@ function(hljs) {
     className: 'doctag',
     variants: [
       /* no paramater help tags */ 
-      { begin: '\\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)' },
+      { begin: /\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)/ },
       /* one parameter help tags */
-      { begin: '\\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp)\\s+\\S+' }
+      { begin: /\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp)\s+\S+/ }
     ]
   };
-  
   var PS_COMMENT = hljs.inherit(
     hljs.COMMENT(null, null),
     {
