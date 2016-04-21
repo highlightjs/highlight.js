@@ -63,6 +63,16 @@ function(hljs) {
       contains: [PS_HELPTAGS]
     }
   );
+  
+  var PS_FUNCTION_DECLR = {
+    className: 'function',
+    begin: /function/,
+    excludeBegin: true,
+    end: /\w*\{/,
+    excludeEnd: true,
+    contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w-]*/})],
+    relevance: 0
+  };
 
   return {
     aliases: ['ps'],
@@ -80,7 +90,8 @@ function(hljs) {
       APOS_STRING,
       LITERAL,
       VAR,
-      PS_COMMENT
+      PS_COMMENT,
+      PS_FUNCTION_DECLR
     ]
   };
 }
