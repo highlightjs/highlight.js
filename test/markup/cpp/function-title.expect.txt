@@ -6,6 +6,4 @@
   <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a-&gt;check2())
     <span class="hljs-keyword">return</span> <span class="hljs-number">4</span>;
   <span class="hljs-keyword">return</span> a-&gt;result();
-    return <span class="hljs-number">4</span>;
-  return a-&gt;result();
 }
