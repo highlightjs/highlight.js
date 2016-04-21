@@ -1,7 +1,7 @@
 /*
- Language: Backus–Naur Form
- Author: Oleg Efimov <efimovov@gmail.com>
- */
+Language: Backus–Naur Form
+Author: Oleg Efimov <efimovov@gmail.com>
+*/
 
 function(hljs){
   return {
