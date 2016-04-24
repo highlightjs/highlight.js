@@ -160,7 +160,8 @@ function(hljs) {
     ]),
     exports: {
       preprocessor: PREPROCESSOR,
-      strings: STRINGS
+      strings: STRINGS,
+      keywords: CPP_KEYWORDS
     }
   };
 }

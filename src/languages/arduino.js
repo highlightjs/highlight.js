@@ -6,22 +6,11 @@ Requires: cpp.js
 */
 
 function(hljs) {
+  var CPP = hljs.getLanguage('cpp').exports;
 	return {
     keywords: {
       keyword:
-        'boolean byte word string String array ' +
-        // CPP keywords
-        'int float private char export virtual operator sizeof uint8_t uint16_t ' +
-        'uint32_t uint64_t int8_t int16_t int32_t int64_t ' +
-        'dynamic_cast typedef const_cast const struct static_cast union namespace ' +
-        'unsigned long volatile static protected bool template mutable public friend ' +
-        'auto void enum extern using class asm typeid ' +
-        'short reinterpret_cast double register explicit signed typename this ' +
-        'inline delete alignof constexpr decltype ' +
-        'noexcept static_assert thread_local restrict _Bool complex _Complex _Imaginary ' +
-        'atomic_bool atomic_char atomic_schar ' +
-        'atomic_uchar atomic_short atomic_ushort atomic_int atomic_uint atomic_long atomic_ulong atomic_llong ' +
-        'atomic_ullong',
+        'boolean byte word string String array ' + CPP.keywords.keyword,
       built_in:
         'setup loop while catch for if do goto try switch case else ' +
         'default break continue return ' +
@@ -106,7 +95,7 @@ function(hljs) {
         'DEFAULT OUTPUT INPUT HIGH LOW'
     },
     contains: [
-      hljs.getLanguage('cpp').exports.preprocessor,
+      CPP.preprocessor,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.APOS_STRING_MODE,
