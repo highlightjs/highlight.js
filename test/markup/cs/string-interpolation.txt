@@ -1,0 +1,9 @@
+var istr = $"{{Hello}},\n{$"\"{nested}\"" + @" and " + $@"""{nested}""" /*comments*/ }";
+var ivstr = $@"{{Hello}},
+{
+$"\"{nested}\"" + @"
+and
+" + $@"
+""{nested}""
+"
+/*comments*/ }";

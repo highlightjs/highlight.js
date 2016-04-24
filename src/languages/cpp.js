@@ -37,26 +37,22 @@ function(hljs) {
 
   var PREPROCESSOR =       {
     className: 'meta',
-    begin: '#', end: '$',
-    keywords: {'meta-keyword': 'if else elif endif define undef warning error line ' +
-                  'pragma ifdef ifndef'},
+    begin: /#[a-z]+\b/, end: /$/,
+    keywords: {
+      'meta-keyword':
+        'if else elif endif define undef warning error line ' +
+        'pragma ifdef ifndef include'
+    },
     contains: [
       {
         begin: /\\\n/, relevance: 0
       },
+      hljs.inherit(STRINGS, {className: 'meta-string'}),
       {
-        beginKeywords: 'include', end: '$',
-        keywords: {'meta-keyword': 'include'},
-        contains: [
-          hljs.inherit(STRINGS, {className: 'meta-string'}),
-          {
-            className: 'meta-string',
-            begin: '<', end: '>',
-            illegal: '\\n',
-          }
-        ]
+        className: 'meta-string',
+        begin: '<', end: '>',
+        illegal: '\\n',
       },
-      STRINGS,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
     ]
@@ -74,7 +70,7 @@ function(hljs) {
       'noexcept static_assert thread_local restrict _Bool complex _Complex _Imaginary ' +
       'atomic_bool atomic_char atomic_schar ' +
       'atomic_uchar atomic_short atomic_ushort atomic_int atomic_uint atomic_long atomic_ulong atomic_llong ' +
-      'atomic_ullong',
+      'atomic_ullong new throw return',
     built_in: 'std string cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream ' +
       'auto_ptr deque list queue stack vector map set bitset multiset multimap unordered_set ' +
       'unordered_map unordered_multiset unordered_multimap array shared_ptr abort abs acos ' +
@@ -161,6 +157,11 @@ function(hljs) {
           PREPROCESSOR
         ]
       }
-    ])
+    ]),
+    exports: {
+      preprocessor: PREPROCESSOR,
+      strings: STRINGS,
+      keywords: CPP_KEYWORDS
+    }
   };
 }

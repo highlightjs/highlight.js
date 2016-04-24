@@ -213,4 +213,6 @@ Contributors:
 - Billy Quith <chinbillybilbo@gmail.com>
 - Herbert Shin <initbar@protonmail.ch>
 - Tristano Ajmone <tajmone@gmail.com>
+- Taisuke Fujimoto <temp-impl@users.noreply.github.com>
+- Boone Severson <boone.severson@gmail.com>
 - Lars Schulna <kartoffelbrei.mit.muskatnuss@gmail.org>
