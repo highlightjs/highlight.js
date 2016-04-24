@@ -157,6 +157,9 @@ function(hljs) {
           PREPROCESSOR
         ]
       }
-    ])
+    ]),
+    exports: {
+      preprocessor: PREPROCESSOR
+    }
   };
 }
