@@ -37,26 +37,22 @@ function(hljs) {
 
   var PREPROCESSOR =       {
     className: 'meta',
-    begin: '#', end: '$',
-    keywords: {'meta-keyword': 'if else elif endif define undef warning error line ' +
-                  'pragma ifdef ifndef'},
+    begin: /#[a-z]+\b/, end: /$/,
+    keywords: {
+      'meta-keyword':
+        'if else elif endif define undef warning error line ' +
+        'pragma ifdef ifndef include'
+    },
     contains: [
       {
         begin: /\\\n/, relevance: 0
       },
+      hljs.inherit(STRINGS, {className: 'meta-string'}),
       {
-        beginKeywords: 'include', end: '$',
-        keywords: {'meta-keyword': 'include'},
-        contains: [
-          hljs.inherit(STRINGS, {className: 'meta-string'}),
-          {
-            className: 'meta-string',
-            begin: '<', end: '>',
-            illegal: '\\n',
-          }
-        ]
+        className: 'meta-string',
+        begin: '<', end: '>',
+        illegal: '\\n',
       },
-      STRINGS,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
     ]
