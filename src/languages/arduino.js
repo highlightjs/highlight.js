@@ -7,25 +7,6 @@ Requires: cpp.js
 
 function(hljs) {
 
-	// CPP Strings
-	var STRINGS = {
-	    className: 'string',
-	    variants: [
-	      hljs.inherit(hljs.QUOTE_STRING_MODE, { begin: '((u8?|U)|L)?"' }),
-	      {
-	        begin: '(u8?|U)?R"', end: '"',
-	        contains: [hljs.BACKSLASH_ESCAPE]
-	      },
-	      {
-	        begin: '\'\\\\?.', end: '\'',
-	        illegal: '.'
-	      }
-	    ]
-	  };
-
-	// CPP preprocessor
-	var PREPROCESSOR = hljs.getLanguage('cpp').exports.preprocessor;
-
   	return {
 	    keywords: {
 	      keyword: 'boolean byte word string String array ' +
@@ -124,7 +105,7 @@ function(hljs) {
 	            'DEFAULT OUTPUT INPUT HIGH LOW'
 	    },
 	    contains: [
-	      PREPROCESSOR,
+	      hljs.getLanguage('cpp').exports.preprocessor,
 	      hljs.C_LINE_COMMENT_MODE,
 	      hljs.C_BLOCK_COMMENT_MODE,
 	      hljs.APOS_STRING_MODE,
