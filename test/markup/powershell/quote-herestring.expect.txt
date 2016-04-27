@@ -1,0 +1,11 @@
+<span class="hljs-string">@" The wild cat jumped over the <span class="hljs-variable">$height</span>-tall fence.
+   He did so with grace.
+"@</span>
+
+This SHOULDNT be a part of the above strings span.
+
+<span class="hljs-string">@" The wild cat jumped over the <span class="hljs-variable">$height</span>-tall fence.
+   He did so with grace.
+break-end-of-string"@
+
+This SHOULD be a part of the above strings span.</span>
