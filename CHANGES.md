@@ -4,6 +4,7 @@ New languages:
 
 - *PureBASIC* by [Tristano Ajmone][]
 - *BNF* by [Oleg Efimov][]
+- *SAS* by [Mauricio Caceres][]
 
 New styles:
 
