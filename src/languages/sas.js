@@ -83,7 +83,7 @@ function(hijs) {
     var SAS_MACRO_USR = {
         className: 'tag',
         begin: /%/,  // begin: /%[a-zA-Z0-9_]+/
-        relevance: 0,
+        relevance: 1,
         contains: [
             {
                 className: 'name',
@@ -93,11 +93,11 @@ function(hijs) {
                 ],
                 starts: {
                     endsWithParent: true,
-                    relevance: 0,
+                    relevance: 1,
                     contains: [
                         {
                             begin: /\s*=\s*/, endsWithParent: true,
-                            relevance: 0
+                            relevance: 1
                         }
                     ]
                 }
@@ -118,7 +118,8 @@ function(hijs) {
             {
                 // Distinct highlight for proc <proc>, data, run, quit
                 className: 'keyword',
-                begin: /^\s*(proc [\w\d_]+|data|run|quit) /
+                begin: /^\s*(proc [\w\d_]+|data|run|quit)[\s\;]/,
+                relevance: 5
             },
             {
                 className: 'string',
@@ -130,18 +131,19 @@ function(hijs) {
             {
                 // Macro variables (not nested)
                 className: 'variable',
-                begin: /\&[a-zA-Z0-9_]+/
+                begin: /\&[a-zA-Z0-9_]+/,
+                relevance: 5
             },
             {
                 className: 'built_in',
                 begin: '%(' + SAS_MACRO_FUN + ')',
-                relevance: 0
+                relevance: 5
             },
             {
                 // Special emphasis for datalines|cards
                 className: 'emphasis',
                 begin: /^\s*datalines|cards.*;/,
-                end: /^\s*;\s*$/,
+                end: /^\s*;\s*$/
             },
             SAS_MACRO_USR,
             hljs.COMMENT('\\*', ';'),
