@@ -4,6 +4,7 @@ New languages:
 
 - *PureBASIC* by [Tristano Ajmone][]
 - *BNF* by [Oleg Efimov][]
+- *Hakaru* by [Rob Zinkov][]
 
 New styles:
 
