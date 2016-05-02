@@ -15,7 +15,7 @@ Improvements:
 - [Taisuke Fujimoto][] contributed a very convoluted rules for raw
   and interpolated strings in C#.
 - [Boone Severson][] updated Verilog to comply with IEEE 1800-2012 SystemVerilog
-- Improved rules for comments and strings inPowerShell files [Victor Zhou][]
+- [Victor Zhou][] improved rules for comments and strings in PowerShell files
 
 [Tristano Ajmone]: https://github.com/tajmone
 [Taisuke Fujimoto]: https://github.com/temp-impl
