@@ -5,13 +5,18 @@
  */
 
 module counter
-    #(parameter WIDTH=64)
+    #(parameter WIDTH=64, NAME="world")
     (
         input clk,
         input ce,
         input arst_n,
         output reg [WIDTH-1:0] q
     );
+    
+    string name = "counter";
+    localparam val0 = 12'ha1f;
+    localparam val1 = 12'h1fa;
+    localparam val2 = 12'hfa1;
 
     // some child
     clock_buffer #(WIDTH) buffer_inst (
@@ -34,4 +39,20 @@ module counter
         end
     end
 
-endmodule
+    function int add_one(int x);
+      return x + 1;
+    endfunction : add_one
+
+`ifdef SIMULATION
+initial $display("Hello %s", NAME);
+`endif
+endmodule : counter
+
+class my_data extends uvm_data;
+  int x, y;
+
+  function add_one();
+    x++;
+    y++;
+  endfunction : add_one
+endclass : my_data

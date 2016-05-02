@@ -1,4 +1,4 @@
-`<span class="hljs-keyword">timescale</span> <span class="hljs-number">1</span>ns / <span class="hljs-number">1</span>ps
+<span class="hljs-meta">`<span class="hljs-meta-keyword">timescale</span> 1ns / 1ps</span>
 
 <span class="hljs-comment">/**
  * counter: a generic clearable up-counter
@@ -15,9 +15,9 @@
 
     <span class="hljs-comment">// some child</span>
     clock_buffer <span class="hljs-variable">#(WIDTH)</span> buffer_inst (
-      .clk(clk),
-      .ce(ce),
-      .reset(arst_n)
+      <span class="hljs-variable">.clk</span>(clk),
+      <span class="hljs-variable">.ce</span>(ce),
+      <span class="hljs-variable">.reset</span>(arst_n)
     );
 
     <span class="hljs-comment">// Simple gated up-counter with async clear</span>
