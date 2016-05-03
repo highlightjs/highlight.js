@@ -14,11 +14,13 @@ Improvements:
 - We now highlight function declarations in Go
 - [Taisuke Fujimoto][] contributed a very convoluted rules for raw
   and interpolated strings in C#.
-- Improved rules for comments and strings inPowerShell files [Victor Zhou][]
+- [Boone Severson][] updated Verilog to comply with IEEE 1800-2012 SystemVerilog
+- [Victor Zhou][] improved rules for comments and strings in PowerShell files
 
 [Tristano Ajmone]: https://github.com/tajmone
 [Taisuke Fujimoto]: https://github.com/temp-impl
 [Oleg Efimov]: https://github.com/Sannis
+[Boone Severson]: https://github.com/BooneJS
 [Victor Zhou]: https://github.com/OiCMudkips
 
 

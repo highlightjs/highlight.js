@@ -214,3 +214,4 @@ URL:   https://highlightjs.org/
 - Герберт Шин <initbar@protonmail.ch>
 - Тристано Аймоне <tajmone@gmail.com>
 - Тайсуке Фудзимото <temp-impl@users.noreply.github.com>
+- Бооне Северсон <boone.severson@gmail.com>
