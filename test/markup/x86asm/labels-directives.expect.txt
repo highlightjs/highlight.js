@@ -1,0 +1,6 @@
+<span class="hljs-meta">    .cfi_startproc</span>
+<span class="hljs-symbol">_ZN3lib13is_whitespace17h28afa23272bf056bE:</span>
+<span class="hljs-meta">    .align</span>  <span class="hljs-number">16</span>, <span class="hljs-number">0x90</span>
+    <span class="hljs-keyword">ja</span>  .Lfunc_end0
+<span class="hljs-symbol">.Lfunc_end0:</span>
+    <span class="hljs-keyword">ret</span>
