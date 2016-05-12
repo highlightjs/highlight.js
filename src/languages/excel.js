@@ -36,7 +36,11 @@ function(hljs) {
       },
       hljs.BACKSLASH_ESCAPE,
       hljs.QUOTE_STRING_MODE,
-      hljs.NUMBER_MODE,
+      {
+        className: 'number',
+        begin: hljs.NUMBER_RE + '(%)?',
+        relevance: 0
+      },
       /* Excel formula comments are done by putting the comment in a function call to N() */
       hljs.COMMENT(/N\(/,/\)/,
         {
