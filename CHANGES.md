@@ -14,8 +14,6 @@ New languages:
 - *PureBASIC* by [Tristano Ajmone][]
 - *BNF* by [Oleg Efimov][]
 - *Ada* by [Lars Schulna][]
-- *Excel* by [Victor Zhou][]
-
 
 New styles:
 
