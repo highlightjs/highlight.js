@@ -16,6 +16,7 @@ function(hljs) {
       /* matches a beginning equal sign found in Excel formula examples */ 
       {
         begin: /^=/,
+        end: /[^=]/, returnEnd: true, illegal: /=/,
         relevance: 10
       },
       hljs.BACKSLASH_ESCAPE,
