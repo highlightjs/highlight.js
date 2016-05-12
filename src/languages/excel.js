@@ -17,7 +17,7 @@ function(hljs) {
       /* matches a beginning equal sign found in Excel formula examples */ 
       {
         begin: /^=/,
-        end: /[^=]/, returnEnd: true, illegal: /=/,
+        end: /[^=]/, returnEnd: true, illegal: /=/, /* only allow single equal sign at front of line */
         relevance: 10
       },
       /* technically, there can be more than 2 letters in column names, but this prevents conflict with some keywords */
