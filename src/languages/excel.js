@@ -24,7 +24,7 @@ function(hljs) {
       {
         /* matches a reference to a single cell */
         className: 'symbol',
-        begin: /[A-Z]{1,2}\d+/,
+        begin: /\b[A-Z]{1,2}\d+\b/,
         end: /[^\d]/, excludeEnd: true,
         relevance: 0
       },
