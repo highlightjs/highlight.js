@@ -47,8 +47,8 @@ function(hljs) {
       // Top-level constructions.
 
       {
-        beginKeywords: 'effect module', end: 'exposing',
-        keywords: 'effect module where command exposing',
+        beginKeywords: 'port effect module', end: 'exposing',
+        keywords: 'port effect module where command exposing',
         contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
