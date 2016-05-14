@@ -1,7 +1,7 @@
 ## Version 9.4.0 (unreleased)
 
 New languages:
-
+- *GDScript* by [Geequlim][]
 - *PureBASIC* by [Tristano Ajmone][]
 - *BNF* by [Oleg Efimov][]
 
@@ -17,6 +17,7 @@ Improvements:
 - [Boone Severson][] updated Verilog to comply with IEEE 1800-2012 SystemVerilog
 - [Victor Zhou][] improved rules for comments and strings in PowerShell files
 
+[Geequlim]: https://github.com/Geequlim
 [Tristano Ajmone]: https://github.com/tajmone
 [Taisuke Fujimoto]: https://github.com/temp-impl
 [Oleg Efimov]: https://github.com/Sannis

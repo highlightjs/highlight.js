@@ -1,0 +1,71 @@
+# a file is a class!
+# inheritance
+
+tool
+extends BaseClass
+
+# member variables
+var a = 5
+var s = "Hello"
+# built-in types
+var v2 = Vector2(1, 2)
+var v3 = Vector3(1, 2, 3)
+var rect = Rect2(0, 0, 20, 20)
+var node = Sprite.new()
+
+# constants
+const a = 5
+const f = sin(20)  # sin() is a built-in function
+
+# static function
+static func sum2(a, b):
+    return a + b
+
+# Cache the enemy class
+const enemy_class = preload("enemy.gd")
+
+# export variables
+export var text
+export(int, FLAGS) var spell_elements = ELEMENT_WIND | ELEMENT_WATER
+export(String, FILE, GLOBAL, "*.png") var tool_image
+
+# setters/getters
+var variable = value setget setterfunc, getterfunc
+
+# signals
+signal your_signal_name
+signal your_signal_name_with_args(a,b)
+
+# function
+func some_function(param1, param2):
+    var local_var = 5
+
+    if param1 < local_var:
+        print(param1)
+    elif param2 > 5:
+        print(param2)
+    else:
+        print("fail!")
+
+    for i in range(20):
+        print(i)
+
+    while(param2 != 0):
+        param2 -= 1
+
+    var local_var2 = param1+3
+    return local_var2
+
+
+# An inner class in this class file
+class SomeInnerClass:
+    var a = 5
+    func print_value_of_a():
+        print(a)
+
+# This is the constructor of the class file's main class
+func _init():
+    var c = SomeInnerClass.new()
+    c.print_value_of_a()
+    # instance a resource
+    var enermy = enemy_class.instance()
