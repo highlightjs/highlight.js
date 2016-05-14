@@ -43,13 +43,11 @@ function(hljs) {
       },
       /* Excel formula comments are done by putting the comment in a function call to N() */
       hljs.COMMENT(/\bN\(/,/\)/,
-
-        {
-          excludeBegin: true,
-          excludeEnd: true,
-          illegal: /\n/
-        }
-      )
+      {
+        excludeBegin: true,
+        excludeEnd: true,
+        illegal: /\n/
+      })
     ]
   };
 }
