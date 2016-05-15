@@ -41,14 +41,14 @@ function(hljs) {
   return {
     keywords:
       'let in if then else case of where module import exposing ' +
-      'type alias as infix infixl infixr port',
+      'type alias as infix infixl infixr port effect command',
     contains: [
 
       // Top-level constructions.
 
       {
-        beginKeywords: 'module', end: 'where',
-        keywords: 'module where',
+        beginKeywords: 'port effect module', end: 'exposing',
+        keywords: 'port effect module where command exposing',
         contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
