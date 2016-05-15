@@ -57,4 +57,4 @@ function(hljs) {
       hljs.NUMBER_MODE
     ]
   }
-};
+}
