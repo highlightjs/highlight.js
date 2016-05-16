@@ -1,4 +1,8 @@
-module Examples.Hello (main, Point, Tree(..)) where
+module Examples.Hello exposing
+  ( main
+  , Point
+  , Tree(..)
+  )
 
 import Html exposing (Html, span, text)
 import Html.Attributes exposing (..)
