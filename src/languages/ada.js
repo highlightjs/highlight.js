@@ -79,12 +79,12 @@ function(hljs) {
         keywords: {
             keyword:
                 'abort else new return abs elsif not reverse abstract end ' +
-                'accept entry|5 select|5 access exception of separate|10 aliased exit or some ' +
-                'all others subtype and for out synchronized|5 array function overriding ' +
-                'at tagged generic|5 package task|5 begin goto pragma terminate ' +
+                'accept entry select access exception of separate aliased exit or some ' +
+                'all others subtype and for out synchronized array function overriding ' +
+                'at tagged generic package task begin goto pragma terminate ' +
                 'body private then if procedure type case in protected constant interface ' +
-                'is raise use declare range delay|5 limited|10 record when delta|5 loop rem while ' +
-                'digits|5 renames|5 with do mod requeue|5 xor',
+                'is raise use declare range delay limited record when delta loop rem while ' +
+                'digits renames with do mod requeue xor',
             literal:
                 'True False',
         },
