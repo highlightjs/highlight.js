@@ -1,3 +1,5 @@
+package body Sqlite.Simple is
+
       Foo : int := int'Size;
       Bar : int := long'Size;
 
