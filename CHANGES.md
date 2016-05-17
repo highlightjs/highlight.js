@@ -22,7 +22,7 @@ Improvements to existing languages and styles:
   languages. Elm is now featured on the front page of <https://highlightjs.org>.
 - Special variable `$this` is highlighted as a keyword in PHP.
 - `usize` and `isize` are now highlighted in Rust.
-- Fixed labels and meta declarations in x86 assembler.
+- Fixed labels and directives in x86 assembler.
 
 [Tristano Ajmone]: https://github.com/tajmone
 [Taisuke Fujimoto]: https://github.com/temp-impl
