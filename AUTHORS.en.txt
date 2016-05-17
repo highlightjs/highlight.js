@@ -216,3 +216,4 @@ Contributors:
 - Taisuke Fujimoto <temp-impl@users.noreply.github.com>
 - Boone Severson <boone.severson@gmail.com>
 - Victor Zhou <OiCMudkips@users.noreply.github.com>
+- Lars Schulna <kartoffelbrei.mit.muskatnuss@gmail.org>
