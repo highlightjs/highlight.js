@@ -1,11 +1,11 @@
 /*
-  Language: Ada
-  Author: Igor Kalnitsky <igor@kalnitsky.org>
-  Contributors: Lars Schulna <kartoffelbrei.mit.muskatnuss@gmail.org>
-  Description: Ada is a general-purpose programming language that has great support for saftey critical and real-time applications.
-               It has been developed by the DoD and thus has been used in military and safety-critical applications (like civil aviation).
-               The first version appeared in the 80s, but it's still actively developed today with
-               the newest standard being Ada2012.
+Language: Ada
+Author: Igor Kalnitsky <igor@kalnitsky.org>
+Contributors: Lars Schulna <kartoffelbrei.mit.muskatnuss@gmail.org>
+Description: Ada is a general-purpose programming language that has great support for saftey critical and real-time applications.
+             It has been developed by the DoD and thus has been used in military and safety-critical applications (like civil aviation).
+             The first version appeared in the 80s, but it's still actively developed today with
+             the newest standard being Ada2012.
 */
 
 // We try to support full Ada2012
