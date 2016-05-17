@@ -215,4 +215,5 @@ URL:   https://highlightjs.org/
 - Тристано Аймоне <tajmone@gmail.com>
 - Тайсуке Фудзимото <temp-impl@users.noreply.github.com>
 - Бооне Северсон <boone.severson@gmail.com>
+- Виктор Жоу <OiCMudkips@users.noreply.github.com>
 - Ларс Шульна <kartoffelbrei.mit.muskatnuss@gmail.org>
