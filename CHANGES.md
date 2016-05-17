@@ -10,13 +10,19 @@ New styles:
 
 - *PureBASIC* by [Tristano Ajmone][]
 
-Improvements:
+Improvements to existing languages and styles:
 
-- We now highlight function declarations in Go
-- [Taisuke Fujimoto][] contributed a very convoluted rules for raw
-  and interpolated strings in C#.
-- [Boone Severson][] updated Verilog to comply with IEEE 1800-2012 SystemVerilog
-- [Victor Zhou][] improved rules for comments and strings in PowerShell files
+- We now highlight function declarations in Go.
+- [Taisuke Fujimoto][] contributed very convoluted rules for raw and
+  interpolated strings in C#.
+- [Boone Severson][] updated Verilog to comply with IEEE 1800-2012
+  SystemVerilog.
+- [Victor Zhou][] improved rules for comments and strings in PowerShell files.
+- [Janis Voigtländer][] updated the definition of Elm to version 0.17 of the
+  languages. Elm is now featured on the front page of <https://highlightjs.org>.
+- Special variable `$this` is highlighted as a keyword in PHP.
+- `usize` and `isize` are now highlighted in Rust.
+- Fixed labels and meta declarations in x86 assembler.
 
 [Tristano Ajmone]: https://github.com/tajmone
 [Taisuke Fujimoto]: https://github.com/temp-impl
@@ -24,6 +30,7 @@ Improvements:
 [Boone Severson]: https://github.com/BooneJS
 [Victor Zhou]: https://github.com/OiCMudkips
 [Lars Schulna]: https://github.com/captain-hanuta
+[Janis Voigtländer]: https://github.com/jvoigtlaender
 
 
 ## Version 9.3.0
