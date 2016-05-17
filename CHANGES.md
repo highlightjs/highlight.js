@@ -1,4 +1,4 @@
-## Version 9.4.0 (unreleased)
+## Version 9.4.0
 
 New languages:
 
