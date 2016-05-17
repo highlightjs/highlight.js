@@ -4,6 +4,7 @@ New languages:
 
 - *PureBASIC* by [Tristano Ajmone][]
 - *BNF* by [Oleg Efimov][]
+- *Ada* by [Lars Schulna][]
 
 New styles:
 
@@ -22,6 +23,7 @@ Improvements:
 [Oleg Efimov]: https://github.com/Sannis
 [Boone Severson]: https://github.com/BooneJS
 [Victor Zhou]: https://github.com/OiCMudkips
+[Lars Schulna]: https://github.com/captain-hanuta
 
 
 ## Version 9.3.0
