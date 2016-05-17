@@ -52,7 +52,7 @@ function(hljs) {
         begin: '\\s+:\\s+', end: '\\s*(:=|;|\\)|=>|$)',
         // endsWithParent: true,
         // returnBegin: true,
-        ignore: BAD_CHARS,
+        illegal: BAD_CHARS,
         contains: [
             {
                 // workaround to avoid highlighting
@@ -92,31 +92,25 @@ function(hljs) {
             COMMENTS,
             // strings "foobar"
             {
-                // like C# @"", a literal " is quoted as ""
-                //
-                // TODO: it's not working perfectly,
-                // as "f""oo" will be marked up as <lit>f</lit><lit>oo</lit>
-                // but this difference is not visible
-                className: 'literal',
+                className: 'string',
                 begin: /"/, end: /"/,
-                relevance: 0
+                contains: [{begin: /""/, relevance: 0}]
             },
             // characters ''
             {
                 // character literals always contain one char
-                className: 'literal',
-                begin: /'.'/,
-                relevance: 0
+                className: 'string',
+                begin: /'.'/
             },
             {
                 // number literals
-                classname: 'literal',
+                className: 'number',
                 begin: NUMBER_RE,
                 relevance: 0
             },
             {
                 // Attributes
-                className: 'built_in',
+                className: 'symbol',
                 begin: "'" + ID_REGEX,
             },
             {
