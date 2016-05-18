@@ -105,11 +105,6 @@ function(hljs) {
         keywords: {built_in: BUILTINS}
       },
       {
-        className: 'params',
-        begin: /\|/, end: /\|/,
-        keywords: KEYWORDS
-      },
-      {
         begin: '->'
       }
     ]
