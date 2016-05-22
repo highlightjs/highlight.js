@@ -5,11 +5,11 @@ Style with support for rainbow parens
 */
 
 .hljs {
+  background-color: #474949;
+  color: #d1d9e1;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #474949;
-  color: #d1d9e1;
 }
 
 

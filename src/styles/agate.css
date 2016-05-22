@@ -17,11 +17,11 @@
  */
 
 .hljs {
+  background-color: #333;
+  color: white;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #333;
-  color: white;
 }
 
 .hljs-name,

@@ -8,10 +8,10 @@ Music: Aphex Twin / Xtal
 */
 
 .hljs {
+  background-color: #f4f4f4;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background-color: #f4f4f4;
 }
 
 .hljs,
@@ -57,8 +57,8 @@ Music: Aphex Twin / Xtal
 .hljs-built_in,
 .hljs-tag,
 .hljs-name {
-  font-weight: bold;
   color: navy;
+  font-weight: bold;
 }
 
 .hljs-emphasis {

@@ -6,22 +6,22 @@ Qt Creator light color scheme
 
 
 .hljs {
+  background-color: #fff;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #ffffff;
 }
 
 .hljs,
 .hljs-subst,
 .hljs-tag,
 .hljs-title {
-  color: #000000;
+  color: #000;
 }
 
 .hljs-strong,
 .hljs-emphasis {
-  color: #000000;
+  color: #000;
 }
 
 .hljs-bullet,
@@ -59,7 +59,7 @@ Qt Creator light color scheme
 .hljs-variable,
 .hljs-params,
 .hljs-class .hljs-title {
-  color: #0055AF;
+  color: #0055af;
 }
 
 .hljs-string,

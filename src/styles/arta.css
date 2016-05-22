@@ -4,10 +4,10 @@ Author: pumbur <pumbur@pumbur.net>
 */
 
 .hljs {
+  background-color: #222;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #222;
 }
 
 .hljs,

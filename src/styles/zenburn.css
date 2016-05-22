@@ -6,11 +6,11 @@ based on dark.css by Ivan Sagalaev
 */
 
 .hljs {
+  background-color: #3f3f3f;
+  color: #dcdcdc;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #3f3f3f;
-  color: #dcdcdc;
 }
 
 .hljs-keyword,

@@ -3,11 +3,11 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 */
 
 .hljs {
+  background-color: #f8f8ff;
+  color: #000;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  color: #000;
-  background: #f8f8ff;
 }
 
 .hljs-comment,

@@ -5,11 +5,11 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 */
 
 .hljs {
+  background-color: #fdf6e3;
+  color: #657b83;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #fdf6e3;
-  color: #657b83;
 }
 
 .hljs-comment,
@@ -72,7 +72,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 }
 
 .hljs-formula {
-  background: #eee8d5;
+  background-color: #eee8d5;
 }
 
 .hljs-emphasis {

@@ -7,10 +7,10 @@ Ported by Fabrício Tavares de Oliveira
 */
 
 .hljs {
+  background-color: #fff;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #fff;
 }
 
 .hljs,
@@ -44,8 +44,6 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-variable {
   color: #88f;
 }
-
-
 
 .hljs-keyword,
 .hljs-selector-tag,

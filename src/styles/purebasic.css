@@ -6,28 +6,28 @@ by Tristano Ajmone <tajmone@gmail.com>
 
 Public Domain
 
-NOTE_1:	PureBASIC code syntax highlighting only applies the following classes:
-			.hljs-comment
-			.hljs-function
-			.hljs-keywords
-			.hljs-string
-			.hljs-symbol
+NOTE_1: PureBASIC code syntax highlighting only applies the following classes:
+      .hljs-comment
+      .hljs-function
+      .hljs-keywords
+      .hljs-string
+      .hljs-symbol
 
-		Other classes are added here for the benefit of styling other languages with the look and feel of PureBASIC native IDE style.
-		If you need to customize a stylesheet for PureBASIC only, remove all non-relevant classes -- PureBASIC-related classes are followed by
-		a "--- used for PureBASIC ... ---" comment on same line.
+    Other classes are added here for the benefit of styling other languages with the look and feel of PureBASIC native IDE style.
+    If you need to customize a stylesheet for PureBASIC only, remove all non-relevant classes -- PureBASIC-related classes are followed by
+    a "--- used for PureBASIC ... ---" comment on same line.
 
-NOTE_2:	Color names provided in comments were derived using "Name that Color" online tool:
-			http://chir.ag/projects/name-that-color
+NOTE_2: Color names provided in comments were derived using "Name that Color" online tool:
+      http://chir.ag/projects/name-that-color
 */
 
 .hljs { /* Common set of rules required by highlight.js (don'r remove!) */
-	display: block;
-	overflow-x: auto;
-	padding: 0.5em;
-	background: #FFFFDF; /* Half and Half (approx.) */
+  background-color: #ffffdf; /* Half and Half (approx.) */
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
 /* --- Uncomment to add PureBASIC native IDE styled font!
-	font-family: Consolas;
+  font-family: Consolas;
 */
 }
 
@@ -39,7 +39,7 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 .hljs-attr,
 .hljs-params,
 .hljs-subst {
-	color: #000000; /* Black */
+  color: #000; /* Black */
 }
 
 .hljs-comment, /* --- used for PureBASIC Comments --- */
@@ -47,14 +47,14 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 .hljs-section,
 .hljs-selector-pseudo,
 .hljs-addition {
-	color: #00AAAA; /* Persian Green (approx.) */
+  color: #00aaaa; /* Persian Green (approx.) */
 }
 
 .hljs-title, /* --- used for PureBASIC Procedures Names --- */
 .hljs-tag,
 .hljs-variable,
 .hljs-code  {
-	color: #006666; /* Blue Stone (approx.) */
+  color: #066; /* Blue Stone (approx.) */
 }
 
 .hljs-keyword, /* --- used for PureBASIC Keywords --- */
@@ -63,34 +63,34 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 .hljs-selector-class,
 .hljs-built_in,
 .hljs-builtin-name {
-	color: #006666; /* Blue Stone (approx.) */
-	font-weight: bold;
+  color: #066; /* Blue Stone (approx.) */
+  font-weight: bold;
 }
 
 .hljs-string, /* --- used for PureBASIC Strings --- */
 .hljs-selector-attr {
-	color: #0080FF; /* Azure Radiance (approx.) */
+  color: #0080ff; /* Azure Radiance (approx.) */
 }
 
 .hljs-symbol, /* --- used for PureBASIC Constants --- */
 .hljs-link,
 .hljs-deletion,
 .hljs-attribute {
-	color: #924B72; /* Cannon Pink (approx.) */
+  color: #924b72; /* Cannon Pink (approx.) */
 }
 
 .hljs-meta,
 .hljs-literal,
 .hljs-selector-id {
-	color: #924B72; /* Cannon Pink (approx.) */
-	font-weight: bold;
+  color: #924B72; /* Cannon Pink (approx.) */
+  font-weight: bold;
 }
 
 .hljs-strong,
 .hljs-name {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .hljs-emphasis {
-	font-style: italic;
+  font-style: italic;
 }

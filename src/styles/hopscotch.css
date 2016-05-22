@@ -68,9 +68,9 @@
 }
 
 .hljs {
-  display: block;
-  background: #322931;
+  background-color: #322931;
   color: #b9b5b8;
+  display: block;
   padding: 0.5em;
 }
 
