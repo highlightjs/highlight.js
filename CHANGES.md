@@ -1,3 +1,12 @@
+## Version 9.5.0
+
+New styles:
+
+- *Ocean Dark* by [Gavin Siu][]
+
+[Gavin Siu]: https://github.com/gavsiu
+
+
 ## Version 9.4.0
 
 New languages:
