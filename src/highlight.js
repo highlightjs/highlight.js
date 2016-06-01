@@ -488,7 +488,7 @@ https://highlightjs.org/
         top: top
       };
     } catch (e) {
-      if (e.message.indexOf('Illegal') != -1) {
+      if (e.message && e.message.indexOf('Illegal') != -1) {
         return {
           relevance: 0,
           value: escape(value)
