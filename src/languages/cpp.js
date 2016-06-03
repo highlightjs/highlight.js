@@ -41,7 +41,7 @@ function(hljs) {
 
   var PREPROCESSOR =       {
     className: 'meta',
-    begin: /#[a-z]+\b/, end: /$/,
+    begin: /#\s*[a-z]+\b/, end: /$/,
     keywords: {
       'meta-keyword':
         'if else elif endif define undef warning error line ' +
