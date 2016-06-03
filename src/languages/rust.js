@@ -13,7 +13,7 @@ function(hljs) {
     'alignof as be box break const continue crate do else enum extern ' +
     'false fn for if impl in let loop match mod mut offsetof once priv ' +
     'proc pub pure ref return self Self sizeof static struct super trait true ' +
-    'type typeof unsafe unsized use virtual while where yield move ' +
+    'type typeof unsafe unsized use virtual while where yield move default ' +
     'int i8 i16 i32 i64 isize ' +
     'uint u8 u32 u64 usize ' +
     'float f32 f64 ' +
