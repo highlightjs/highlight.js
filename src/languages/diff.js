@@ -22,7 +22,7 @@ function(hljs) {
         className: 'comment',
         variants: [
           {begin: /Index: /, end: /$/},
-          {begin: /=====/, end: /=====$/},
+          {begin: /={3,}/, end: /$/},
           {begin: /^\-\-\-/, end: /$/},
           {begin: /^\*{3} /, end: /$/},
           {begin: /^\+\+\+/, end: /$/},
