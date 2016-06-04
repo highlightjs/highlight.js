@@ -23,9 +23,9 @@ function(hljs) {
         variants: [
           {begin: /Index: /, end: /$/},
           {begin: /={3,}/, end: /$/},
-          {begin: /^\-\-\-/, end: /$/},
+          {begin: /^\-{3}/, end: /$/},
           {begin: /^\*{3} /, end: /$/},
-          {begin: /^\+\+\+/, end: /$/},
+          {begin: /^\+{3}/, end: /$/},
           {begin: /\*{5}/, end: /\*{5}$/}
         ]
       },
