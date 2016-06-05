@@ -33,7 +33,7 @@ function(hljs) {
   var NUMBERS = {
     className: 'number',
     variants: [
-      { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)' },
+      { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F|b|B)' },
       { begin: hljs.C_NUMBER_RE }
     ],
     relevance: 0
