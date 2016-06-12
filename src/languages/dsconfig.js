@@ -29,18 +29,18 @@ function(hljs) {
     contains: [
       {
         className: 'keyword',
-        begin: '^dsconfig', end: ' ', excludeEnd: true,
+        begin: '^dsconfig', end: '\\s', excludeEnd: true,
         relevance: 10
       },
       {
         className: 'built_in',
-        begin: '(list|create|get|set|delete)-(\\w+)', end: ' ', excludeEnd: true,
+        begin: '(list|create|get|set|delete)-(\\w+)', end: '\\s', excludeEnd: true,
         illegal: '!@#$%^&*()',
         relevance: 10
       },
       {
         className: 'built_in',
-        begin: '--(\\w+)', end: ' ', excludeEnd: true
+        begin: '--(\\w+)', end: '\\s', excludeEnd: true
       },
       QUOTED_PROPERTY,
       APOS_PROPERTY,
