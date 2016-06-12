@@ -1,0 +1,14 @@
+@Component({
+  selector: 'my-example',
+  directives: [SomeDirective],
+  templateUrl: './my-example.component.html',
+  moduleId: module.id,
+  styles: [`
+    .my-example {
+      padding: 5px;
+    }
+  `]
+})
+export class MyExampleComponent {
+  someProp: string = "blah";
+}
