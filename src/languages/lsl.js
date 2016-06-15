@@ -98,7 +98,7 @@ function(hljs) {
             },
             {
                 className: 'constant.float',
-                bginKeywords: 'DEG_TO_RAD ' +
+                beginKeywords: 'DEG_TO_RAD ' +
                     'PI PI_BY_TWO ' +
                     'RAD_TO_DEG ' +
                     'SQRT2 ' +
