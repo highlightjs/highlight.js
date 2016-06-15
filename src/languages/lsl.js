@@ -1,6 +1,5 @@
 /*
     Language: Linden Scripting Language
-    Requires: json.js, xml.js
     Description: The Linden Scripting Language is used in Second Life by Linden Labs.
     Author: Builder's Brewery <buildersbrewery@gmail.com>
     Category: common, scripting
@@ -17,9 +16,7 @@ function(hljs) {
                 begin: '"',
                 end: '"',
                 contains: [
-                    { begin: '\\[\\\\nt"\\]' },
-                    { subLanguage: 'json' },
-                    { subLanguage: 'xml' }
+                    { begin: '\\[\\\\nt"\\]' }
                 ]
             },
             {
