@@ -364,7 +364,7 @@ https://highlightjs.org/
       // allows XML everywhere and makes every XML snippet to have a much larger Markdown
       // score.
       if (top.relevance > 0) {
-        relevance += result.relevance;
+        relevance += result['relevance'];
       }
       if (explicit) {
         continuations[top.subLanguage] = result.top;
@@ -482,16 +482,16 @@ https://highlightjs.org/
         }
       }
       return {
-        relevance: relevance,
-        value: result,
-        language: name,
-        top: top
+        'relevance': relevance,
+        'value': result,
+        'language': name,
+        'top': top
       };
     } catch (e) {
       if (e.message && e.message.indexOf('Illegal') != -1) {
         return {
-          relevance: 0,
-          value: escape(value)
+          'relevance': 0,
+          'value': escape(value)
         };
       } else {
         throw e;
@@ -513,17 +513,17 @@ https://highlightjs.org/
   function highlightAuto(text, languageSubset) {
     languageSubset = languageSubset || options.languages || Object.keys(languages);
     var result = {
-      relevance: 0,
-      value: escape(text)
+      'relevance': 0,
+      'value': escape(text)
     };
     var second_best = result;
     languageSubset.filter(getLanguage).forEach(function(name) {
       var current = highlight(name, text, false);
       current.language = name;
-      if (current.relevance > second_best.relevance) {
+      if (current['relevance'] > second_best['relevance']) {
         second_best = current;
       }
-      if (current.relevance > result.relevance) {
+      if (current['relevance'] > result['relevance']) {
         second_best = result;
         result = current;
       }
@@ -599,12 +599,12 @@ https://highlightjs.org/
     block.className = buildClassName(block.className, language, result.language);
     block.result = {
       language: result.language,
-      re: result.relevance
+      re: result['relevance']
     };
     if (result.second_best) {
       block.second_best = {
         language: result.second_best.language,
-        re: result.second_best.relevance
+        re: result.second_best['relevance']
       };
     }
   }
