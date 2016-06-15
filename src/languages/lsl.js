@@ -14,31 +14,37 @@ function(hljs) {
         contains: [
             {
                 className: 'string',
-                begin: '"',
-                end: '"',
+                begin: '"', end: '"',
                 contains: [
                     { begin: '\\[\\\\nt"\\]' },
                     { subLanguage: 'json' },
                     { subLanguage: 'xml' }
                 ]
             },
-            hljs.C_LINE_COMMENT_MODE,
-            hljs.C_BLOCK_COMMENT_MODE,
+            {
+                className: 'comment',
+                begin: '//', end: '$',
+                contains: []
+            },
+            {
+                className: 'comment',
+                begin: '/\\*', end: '\\*/',
+                contains: []
+            },
             {
                 className: 'number',
                 begin: '(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'
             },
-            hljs.C_NUMBER_MODE,
             {
                 className: 'state',
                 keywords: {
-                    'state': 'state default'
+                    built_in: 'state default'
                 }
             },
             {
                 className: 'event',
                 keywords: {
-                    'event': 'at_rot_target at_target attach ' +
+                    built_in: 'at_rot_target at_target attach ' +
                         'changed collision collision_end collision_start control ' +
                         'dataserver ' +
                         'email experience_permissions experience_permissions_denied ' +
@@ -57,7 +63,7 @@ function(hljs) {
             {
                 className: 'function',
                 beginKeywords: {
-                    'function': 'llAbs llAcos llAddToLandBanList llAddToLandPassList llAdjustSoundVolume llAgentInExperience llAllowInventoryDrop llAngleBetween llApplyImpulse llApplyRotationalImpulse llAsin llAtan2 llAttachToAvatar llAttachToAvatarTemp llAvatarOnLinkSitTarget llAvatarOnSitTarget llAxes2Rot llAxisAngle2Rot ' +
+                    built_in: 'llAbs llAcos llAddToLandBanList llAddToLandPassList llAdjustSoundVolume llAgentInExperience llAllowInventoryDrop llAngleBetween llApplyImpulse llApplyRotationalImpulse llAsin llAtan2 llAttachToAvatar llAttachToAvatarTemp llAvatarOnLinkSitTarget llAvatarOnSitTarget llAxes2Rot llAxisAngle2Rot ' +
                         'llBase64ToInteger llBase64ToString llBreakAllLinks llBreakLink ' +
                         'llCSV2List llCastRay llCeil llClearCameraParams llClearLinkMedia llClearPrimMedia llCloseRemoteDataChannel llCollisionFilter llCollisionSound llCos llCreateCharacter llCreateKeyValue llCreateLink ' +
                         'llDataSizeKeyValue llDeleteCharacter llDeleteKeyValue llDeleteSubList llDeleteSubString llDetachFromAvatar llDetectedGrab llDetectedGroup llDetectedKey llDetectedLinkNumber llDetectedName llDetectedOwner llDetectedPos llDetectedRot llDetectedTouchBinormal llDetectedTouchFace llDetectedTouchNormal llDetectedTouchPos llDetectedTouchST llDetectedTouchUV llDetectedType llDetectedVel llDialog llDie llDumpList2String ' +
@@ -87,8 +93,7 @@ function(hljs) {
                 contains: [
                     {
                         className: 'params',
-                        begin: '\\(',
-                        end: '\\)',
+                        begin: '\\(', end: '\\)',
                         contains: [
                           'self',
                           'constant.float',
@@ -105,7 +110,7 @@ function(hljs) {
             {
                 className: 'constant.float',
                 keywords: {
-                    'constant.float': 'DEG_TO_RAD ' +
+                    built_in: 'DEG_TO_RAD ' +
                         'PI PI_BY_TWO ' +
                         'RAD_TO_DEG ' +
                         'SQRT2 ' +
@@ -116,7 +121,7 @@ function(hljs) {
             {
                 className: 'constant.integer',
                 keywords: {
-                    'constant.integer': 'ACTIVE AGENT AGENT_ALWAYS_RUN AGENT_ATTACHMENTS AGENT_AUTOPILOT AGENT_AWAY AGENT_BUSY AGENT_BY_LEGACY_NAME AGENT_BY_USERNAME AGENT_CROUCHING AGENT_FLYING AGENT_IN_AIR AGENT_LIST_PARCEL AGENT_LIST_PARCEL_OWNER AGENT_LIST_REGION AGENT_MOUSELOOK AGENT_ON_OBJECT AGENT_SCRIPTED AGENT_SITTING AGENT_TYPING AGENT_WALKING ALL_SIDES ANIM_ON ATTACH_AVATAR_CENTER ATTACH_BACK ATTACH_BELLY ATTACH_CHEST ATTACH_CHIN ATTACH_FACE_JAW ATTACH_FACE_LEAR ATTACH_FACE_LEYE ATTACH_FACE_REAR ATTACH_FACE_REYE ATTACH_FACE_TOUNGE ATTACH_GROIN ATTACH_HEAD ATTACH_HIND_LFOOT ATTACH_HIND_RFOOT ATTACH_HUD_BOTTOM ATTACH_HUD_BOTTOM_LEFT ATTACH_HUD_BOTTOM_RIGHT ATTACH_HUD_CENTER_1 ATTACH_HUD_CENTER_2 ATTACH_HUD_TOP_CENTER ATTACH_HUD_TOP_LEFT ATTACH_HUD_TOP_RIGHT ATTACH_LEAR ATTACH_LEFT_PEC ATTACH_LEYE ATTACH_LFOOT ATTACH_LHAND ATTACH_LHAND_RING1 ATTACH_LHIP ATTACH_LLARM ATTACH_LLLEG ATTACH_LSHOULDER ATTACH_LUARM ATTACH_LULEG ATTACH_LWING ATTACH_MOUTH ATTACH_NECK ATTACH_NOSE ATTACH_PELVIS ATTACH_REAR ATTACH_REYE ATTACH_RFOOT ATTACH_RHAND ATTACH_RHAND_RING1 ATTACH_RHIP ATTACH_RIGHT_PEC ATTACH_RLARM ATTACH_RLLEG ATTACH_RSHOULDER ATTACH_RUARM ATTACH_RULEG ATTACH_RWING ATTACH_TAIL_BASE ATTACH_TAIL_TIP AVOID_CHARACTERS AVOID_DYNAMIC_OBSTACLES AVOID_NONE ' +
+                    built_in: 'ACTIVE AGENT AGENT_ALWAYS_RUN AGENT_ATTACHMENTS AGENT_AUTOPILOT AGENT_AWAY AGENT_BUSY AGENT_BY_LEGACY_NAME AGENT_BY_USERNAME AGENT_CROUCHING AGENT_FLYING AGENT_IN_AIR AGENT_LIST_PARCEL AGENT_LIST_PARCEL_OWNER AGENT_LIST_REGION AGENT_MOUSELOOK AGENT_ON_OBJECT AGENT_SCRIPTED AGENT_SITTING AGENT_TYPING AGENT_WALKING ALL_SIDES ANIM_ON ATTACH_AVATAR_CENTER ATTACH_BACK ATTACH_BELLY ATTACH_CHEST ATTACH_CHIN ATTACH_FACE_JAW ATTACH_FACE_LEAR ATTACH_FACE_LEYE ATTACH_FACE_REAR ATTACH_FACE_REYE ATTACH_FACE_TOUNGE ATTACH_GROIN ATTACH_HEAD ATTACH_HIND_LFOOT ATTACH_HIND_RFOOT ATTACH_HUD_BOTTOM ATTACH_HUD_BOTTOM_LEFT ATTACH_HUD_BOTTOM_RIGHT ATTACH_HUD_CENTER_1 ATTACH_HUD_CENTER_2 ATTACH_HUD_TOP_CENTER ATTACH_HUD_TOP_LEFT ATTACH_HUD_TOP_RIGHT ATTACH_LEAR ATTACH_LEFT_PEC ATTACH_LEYE ATTACH_LFOOT ATTACH_LHAND ATTACH_LHAND_RING1 ATTACH_LHIP ATTACH_LLARM ATTACH_LLLEG ATTACH_LSHOULDER ATTACH_LUARM ATTACH_LULEG ATTACH_LWING ATTACH_MOUTH ATTACH_NECK ATTACH_NOSE ATTACH_PELVIS ATTACH_REAR ATTACH_REYE ATTACH_RFOOT ATTACH_RHAND ATTACH_RHAND_RING1 ATTACH_RHIP ATTACH_RIGHT_PEC ATTACH_RLARM ATTACH_RLLEG ATTACH_RSHOULDER ATTACH_RUARM ATTACH_RULEG ATTACH_RWING ATTACH_TAIL_BASE ATTACH_TAIL_TIP AVOID_CHARACTERS AVOID_DYNAMIC_OBSTACLES AVOID_NONE ' +
                         'CAMERA_ACTIVE CAMERA_BEHINDNESS_ANGLE CAMERA_BEHINDNESS_LAG CAMERA_DISTANCE CAMERA_FOCUS CAMERA_FOCUS_LAG CAMERA_FOCUS_LOCKED CAMERA_FOCUS_OFFSET CAMERA_FOCUS_THRESHOLD CAMERA_PITCH CAMERA_POSITION CAMERA_POSITION_LAG CAMERA_POSITION_LOCKED CAMERA_POSITION_THRESHOLD CHANGED_ALLOWED_DROP CHANGED_COLOR CHANGED_INVENTORY CHANGED_LINK CHANGED_MEDIA CHANGED_OWNER CHANGED_REGION CHANGED_REGION_START CHANGED_SCALE CHANGED_SHAPE CHANGED_TELEPORT CHANGED_TEXTURE CHARACTER_ACCOUNT_FOR_SKIPPED_FRAMES CHARACTER_AVOIDANCE_MODE CHARACTER_CMD_JUMP CHARACTER_CMD_SMOOTH_STOP CHARACTER_CMD_STOP CHARACTER_DESIRED_SPEED CHARACTER_DESIRED_TURN_SPEED CHARACTER_LENGTH CHARACTER_MAX_ACCEL CHARACTER_MAX_DECEL CHARACTER_MAX_SPEED CHARACTER_MAX_TURN_RADIUS CHARACTER_ORIENTATION CHARACTER_RADIUS CHARACTER_STAY_WITHIN_PARCEL CHARACTER_TYPE CHARACTER_TYPE_A CHARACTER_TYPE_B CHARACTER_TYPE_C CHARACTER_TYPE_D CHARACTER_TYPE_NONE CLICK_ACTION_BUY CLICK_ACTION_NONE CLICK_ACTION_OPEN CLICK_ACTION_OPEN_MEDIA CLICK_ACTION_PAY CLICK_ACTION_PLAY CLICK_ACTION_SIT CLICK_ACTION_TOUCH CONTENT_TYPE_ATOM CONTENT_TYPE_FORM CONTENT_TYPE_HTML CONTENT_TYPE_JSON CONTENT_TYPE_LLSD CONTENT_TYPE_RSS CONTENT_TYPE_TEXT CONTENT_TYPE_XHTML CONTENT_TYPE_XML CONTROL_BACK CONTROL_DOWN CONTROL_FWD CONTROL_LBUTTON CONTROL_LEFT CONTROL_ML_LBUTTON CONTROL_RIGHT CONTROL_ROT_LEFT CONTROL_ROT_RIGHT CONTROL_UP ' +
                         'DATA_BORN DATA_NAME DATA_ONLINE DATA_PAYINFO DATA_SIM_POS DATA_SIM_RATING DATA_SIM_STATUS DEBUG_CHANNEL DENSITY ' +
                         'ERR_GENERIC ERR_MALFORMED_PARAMS ERR_PARCEL_PERMISSIONS ERR_RUNTIME_PERMISSIONS ERR_THROTTLED ESTATE_ACCESS_ALLOWED_AGENT_ADD ESTATE_ACCESS_ALLOWED_AGENT_REMOVE ESTATE_ACCESS_ALLOWED_GROUP_ADD ESTATE_ACCESS_ALLOWED_GROUP_REMOVE ESTATE_ACCESS_BANNED_AGENT_ADD ESTATE_ACCESS_BANNED_AGENT_REMOVE ' +
@@ -142,20 +147,20 @@ function(hljs) {
             {
                 className: 'constant.integer.boolean',
                 keywords: {
-                    'constant.integer.boolean': 'FALSE TRUE'
+                    built_in: 'FALSE TRUE'
                 }
             },
             {
                 className: 'constant.quaternion',
                 keywords: {
-                    'constant.quaternion': 'ZERO_ROTATION'
+                    built_in: 'ZERO_ROTATION'
                 },
                 relevance: 10
             },
             {
                 className: 'constant.string',
                 keywords: {
-                    'constant.string': 'EOF ' +
+                    built_in: 'EOF ' +
                         'JSON_ARRAY JSON_DELETE JSON_FALSE JSON_INVALID JSON_NULL JSON_NUMBER JSON_OBJECT JSON_STRING JSON_TRUE ' +
                         'NULL_KEY ' +
                         'TEXTURE_BLANK TEXTURE_DEFAULT TEXTURE_MEDIA TEXTURE_PLYWOOD TEXTURE_TRANSPARENT ' +
@@ -166,7 +171,7 @@ function(hljs) {
             {
                 className: 'constant.vector',
                 keywords: {
-                    'constant.vector': 'TOUCH_INVALID_TEXCOORD TOUCH_INVALID_VECTOR ' +
+                    built_in: 'TOUCH_INVALID_TEXCOORD TOUCH_INVALID_VECTOR ' +
                         'ZERO_VECTOR'
                 },
                 relevance: 10
@@ -174,14 +179,14 @@ function(hljs) {
             {
                 className: 'constant.broken',
                 keywords: {
-                    'constant.broken': 'LAND_LARGE_BRUSH LAND_MEDIUM_BRUSH LAND_SMALL_BRUSH'
+                    illegal: 'LAND_LARGE_BRUSH LAND_MEDIUM_BRUSH LAND_SMALL_BRUSH'
                 },
                 relevance: 10
             },
             {
                 className: 'constant.deprecated',
                 keywords: {
-                    'constant.deprecated': 'ATTACH_LPEC ATTACH_RPEC ' +
+                    illegal: 'ATTACH_LPEC ATTACH_RPEC ' +
                         'DATA_RATING ' +
                         'OBJECT_ATTACHMENT_GEOMETRY_BYTES OBJECT_ATTACHMENT_SURFACE_AREA ' +
                         'PRIM_CAST_SHADOWS PRIM_MATERIAL_LIGHT PRIM_TYPE_LEGACY PSYS_SRC_INNERANGLE PSYS_SRC_OUTERANGLE ' +
@@ -198,7 +203,7 @@ function(hljs) {
             {
                 className: 'reserved.function.god-mode',
                 keywords: {
-                    'reserved.function.god-mode': 'llGodLikeRezObject ' +
+                    illegal: 'llGodLikeRezObject ' +
                         'llSetInventoryPermMask llSetObjectPermMask'
                 },
                 relevance: 10
@@ -206,13 +211,13 @@ function(hljs) {
             {
                 className: 'reserved.function.log',
                 keywords: {
-                    'reserved.function.log': 'print'
+                    illegal: 'print'
                 }
             },
             {
                 className: 'constant.unimplemented',
                 keywords: {
-                    'constant.unimplemented': 'CHARACTER_MAX_ANGULAR_ACCEL CHARACTER_MAX_ANGULAR_SPEED CHARACTER_TURN_SPEED_MULTIPLIER ' +
+                    illegal: 'CHARACTER_MAX_ANGULAR_ACCEL CHARACTER_MAX_ANGULAR_SPEED CHARACTER_TURN_SPEED_MULTIPLIER ' +
                         'KFM_CMD_SET_MODE ' +
                         'PERMISSION_CHANGE_JOINTS PERMISSION_CHANGE_PERMISSIONS PERMISSION_EXPERIENCE PERMISSION_RELEASE_OWNERSHIP PERMISSION_REMAP_CONTROLS PRIM_PHYSICS_MATERIAL PSYS_SRC_OBJ_REL_MASK ' +
                         'XP_ERROR_REQUEST_PERM_TIMEOUT ' +
@@ -228,7 +233,7 @@ function(hljs) {
             {
                 className: 'type',
                 keywords: {
-                    'type': 'float ' +
+                    type: 'float ' +
                         'integer ' +
                         'key ' +
                         'list ' +
