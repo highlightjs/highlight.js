@@ -244,8 +244,8 @@ https://highlightjs.org/
       }
       if (mode.illegal)
         mode.illegalRe = langRe(mode.illegal);
-      if (mode['relevance'] === undefined)
-        mode['relevance'] = 1;
+      if (mode.relevance === undefined)
+        mode.relevance = 1;
       if (!mode.contains) {
         mode.contains = [];
       }
