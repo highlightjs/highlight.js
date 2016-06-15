@@ -14,10 +14,7 @@ function(hljs) {
             {
                 className: 'string',
                 begin: '"',
-                end: '"',
-                contains: [
-                    { begin: '\\[\\\\nt"\\]' }
-                ]
+                end: '"'
             },
             {
                 className: 'comment',
