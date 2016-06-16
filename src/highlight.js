@@ -28,6 +28,7 @@ https://highlightjs.org/
 
 }(function(hljs) {
   var ArrayProto = [],
+      objectKeys = Object.keys,
       languages  = {},
       aliases    = {},
       options    = {
@@ -228,7 +229,7 @@ https://highlightjs.org/
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords);
         } else {
-          Object.keys(mode.keywords).forEach(function (className) {
+          objectKeys(mode.keywords).forEach(function (className) {
             flatten(className, mode.keywords[className]);
           });
         }
@@ -520,7 +521,7 @@ https://highlightjs.org/
 
   */
   function highlightAuto(text, languageSubset) {
-    languageSubset = languageSubset || options.languages || Object.keys(languages);
+    languageSubset = languageSubset || options.languages || objectKeys(languages);
     var result = {
       'relevance': 0,
       'value': escape(text)
@@ -653,7 +654,7 @@ https://highlightjs.org/
   }
 
   function listLanguages() {
-    return Object.keys(languages);
+    return objectKeys(languages);
   }
 
   function getLanguage(name) {
