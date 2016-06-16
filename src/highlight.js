@@ -27,6 +27,19 @@ https://highlightjs.org/
   }
 
 }(function(hljs) {
+  // Convenience variables for build-in objects
+  var ArrayProto = [],
+      objectKeys = Object.keys;
+
+  // Global internal variables used within the highlight.js library
+  var languages  = {},
+      aliases    = {},
+      options    = {
+        classPrefix: 'hljs-',
+        tabReplace: null,
+        useBR: false,
+        languages: undefined
+      };
 
   /* Utility functions */
 
@@ -142,7 +155,7 @@ https://highlightjs.org/
 
     function open(node) {
       function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
-      result += '<' + tag(node) + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
+      result += '<' + tag(node) + ArrayProto.map.call(node.attributes, attr_str).join('') + '>';
     }
 
     function close(node) {
@@ -219,7 +232,7 @@ https://highlightjs.org/
         if (typeof mode.keywords == 'string') { // string
           flatten('keyword', mode.keywords);
         } else {
-          Object.keys(mode.keywords).forEach(function (className) {
+          objectKeys(mode.keywords).forEach(function (className) {
             flatten(className, mode.keywords[className]);
           });
         }
@@ -511,7 +524,7 @@ https://highlightjs.org/
 
   */
   function highlightAuto(text, languageSubset) {
-    languageSubset = languageSubset || options.languages || Object.keys(languages);
+    languageSubset = languageSubset || options.languages || objectKeys(languages);
     var result = {
       'relevance': 0,
       'value': escape(text)
@@ -609,13 +622,6 @@ https://highlightjs.org/
     }
   }
 
-  var options = {
-    classPrefix: 'hljs-',
-    tabReplace: null,
-    useBR: false,
-    languages: undefined
-  };
-
   /*
   Updates highlight.js global options with values passed in the form of an object.
   */
@@ -632,7 +638,7 @@ https://highlightjs.org/
     initHighlighting.called = true;
 
     var blocks = document.querySelectorAll('pre code');
-    Array.prototype.forEach.call(blocks, highlightBlock);
+    ArrayProto.forEach.call(blocks, highlightBlock);
   }
 
   /*
@@ -643,9 +649,6 @@ https://highlightjs.org/
     addEventListener('load', initHighlighting, false);
   }
 
-  var languages = {};
-  var aliases = {};
-
   function registerLanguage(name, language) {
     var lang = languages[name] = language(hljs);
     if (lang.aliases) {
@@ -654,7 +657,7 @@ https://highlightjs.org/
   }
 
   function listLanguages() {
-    return Object.keys(languages);
+    return objectKeys(languages);
   }
 
   function getLanguage(name) {
