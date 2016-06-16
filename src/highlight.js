@@ -27,6 +27,7 @@ https://highlightjs.org/
   }
 
 }(function(hljs) {
+  var ArrayProto = [];
 
   /* Utility functions */
 
@@ -142,7 +143,7 @@ https://highlightjs.org/
 
     function open(node) {
       function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
-      result += '<' + tag(node) + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
+      result += '<' + tag(node) + ArrayProto.map.call(node.attributes, attr_str).join('') + '>';
     }
 
     function close(node) {
@@ -632,7 +633,7 @@ https://highlightjs.org/
     initHighlighting.called = true;
 
     var blocks = document.querySelectorAll('pre code');
-    Array.prototype.forEach.call(blocks, highlightBlock);
+    ArrayProto.forEach.call(blocks, highlightBlock);
   }
 
   /*
