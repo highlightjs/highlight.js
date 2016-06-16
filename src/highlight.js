@@ -27,7 +27,15 @@ https://highlightjs.org/
   }
 
 }(function(hljs) {
-  var ArrayProto = [];
+  var ArrayProto = [],
+      languages  = {},
+      aliases    = {},
+      options    = {
+        classPrefix: 'hljs-',
+        tabReplace: null,
+        useBR: false,
+        languages: undefined
+      };
 
   /* Utility functions */
 
@@ -610,13 +618,6 @@ https://highlightjs.org/
     }
   }
 
-  var options = {
-    classPrefix: 'hljs-',
-    tabReplace: null,
-    useBR: false,
-    languages: undefined
-  };
-
   /*
   Updates highlight.js global options with values passed in the form of an object.
   */
@@ -643,9 +644,6 @@ https://highlightjs.org/
     addEventListener('DOMContentLoaded', initHighlighting, false);
     addEventListener('load', initHighlighting, false);
   }
-
-  var languages = {};
-  var aliases = {};
 
   function registerLanguage(name, language) {
     var lang = languages[name] = language(hljs);
