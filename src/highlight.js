@@ -27,9 +27,12 @@ https://highlightjs.org/
   }
 
 }(function(hljs) {
+  // Convenience variables for build-in objects
   var ArrayProto = [],
-      objectKeys = Object.keys,
-      languages  = {},
+      objectKeys = Object.keys;
+
+  // Global internal variables used within the highlight.js library
+  var languages  = {},
       aliases    = {},
       options    = {
         classPrefix: 'hljs-',
