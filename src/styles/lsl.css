@@ -1,0 +1,52 @@
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color:#2d2d2d;
+  background: #f2f0ec;
+}
+
+.hljs-comment,
+.hljs-string-escape {
+  color:#cd4d26;
+  font-style:italic;
+}
+
+.hljs-keyword {
+  color:#0000cd;
+}
+
+.hljs-string,
+.hljs-type {
+  color:#006600;
+}
+
+.hljs-built_in {
+  color:#820124;
+}
+
+.hljs-name {
+  color:#801a4d;
+}
+
+.hljs-constant-float {
+  color:#4c1a80;
+}
+
+.hljs-constant-integer {
+  color:#242687;
+}
+
+.hljs-constant-string {
+  color:#336699;
+}
+
+.hljs-constant-rotation,
+.hljs-constant-vector {
+  color:#774477;
+}
+
+.hljs-invalid {
+  color:#f2f0ec;
+  background:#820124;
+}
