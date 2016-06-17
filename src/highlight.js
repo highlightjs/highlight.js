@@ -257,7 +257,7 @@ https://highlightjs.org/
       }
       if (mode.illegal)
         mode.illegalRe = langRe(mode.illegal);
-      if (mode.relevance === undefined)
+      if (mode.relevance == null)
         mode.relevance = 1;
       if (!mode.contains) {
         mode.contains = [];
@@ -386,7 +386,7 @@ https://highlightjs.org/
     }
 
     function processBuffer() {
-      result += (top.subLanguage !== undefined ? processSubLanguage() : processKeywords());
+      result += (top.subLanguage != null ? processSubLanguage() : processKeywords());
       mode_buffer = '';
     }
 
@@ -399,7 +399,7 @@ https://highlightjs.org/
 
       mode_buffer += buffer;
 
-      if (lexeme === undefined) {
+      if (lexeme == null) {
         processBuffer();
         return 0;
       }
