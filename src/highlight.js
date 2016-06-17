@@ -390,7 +390,7 @@ https://highlightjs.org/
       mode_buffer = '';
     }
 
-    function startNewMode(mode, lexeme) {
+    function startNewMode(mode) {
       result += mode.className? buildSpan(mode.className, '', true): '';
       top = Object.create(mode, {parent: {value: top}});
     }
