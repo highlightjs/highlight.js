@@ -117,6 +117,14 @@ optimizer to give the module a name. The basic example would be:
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
+### Hosted Libraries Caveat
+
+Please note that hosted libraries may only contain the most common languages, to keep the file size down.  If you find that your syntax is not highlighting, you can include the langauge manually, e.g:
+
+```html
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
+```
+
 ## License
 
 Highlight.js is released under the BSD License. See [LICENSE][7] file
