@@ -39,12 +39,19 @@ https://highlightjs.org/
         tabReplace: null,
         useBR: false,
         languages: undefined
+      },
+      escapeRegexMap = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;'
       };
 
   /* Utility functions */
 
   function escape(value) {
-    return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
+    return value.replace(/[&<>]/gm, function(character) {
+      return escapeRegexMap[character];
+    });
   }
 
   function tag(node) {
