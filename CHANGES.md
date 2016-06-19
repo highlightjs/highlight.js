@@ -1,3 +1,12 @@
+## Master [UNRELEASED]
+
+New styles:
+
+- *Ocean Dark* by [Gavin Siu][]
+
+[Gavin Siu]: https://github.com/gavsiu
+
+
 ## Version 9.4.0
 
 New languages:
