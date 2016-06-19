@@ -92,6 +92,11 @@ function(hljs) {
       {
         beginKeywords: 'constructor', end: /\{/, excludeEnd: true
       },
+      { // prevent references like module.id from being higlighted as module definitions
+        begin: /module\./,
+        keywords: {built_in: 'module'},
+        relevance: 0
+      },
       {
         beginKeywords: 'module', end: /\{/, excludeEnd: true
       },
