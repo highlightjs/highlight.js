@@ -86,7 +86,7 @@ function(hljs) {
             illegal: /["'\(]/
           }
         ],
-        illegal: /\[|%/,
+        illegal: /%/,
         relevance: 0 // () => {} is more typical in TypeScript
       },
       {
