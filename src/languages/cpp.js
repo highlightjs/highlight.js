@@ -33,9 +33,9 @@ function(hljs) {
   var NUMBERS = {
     className: 'number',
     variants: [
-      { begin: hljs.BINARY_NUMBER_RE },
+      { begin: '\\b(0b[01\']+)' },
       { begin: '\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)(u|U|l|L|ul|UL|f|F|b|B)' },
-      { begin: hljs.C_NUMBER_RE }
+      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
     ],
     relevance: 0
   };
