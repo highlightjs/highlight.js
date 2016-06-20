@@ -1,11 +1,15 @@
 ## Master [UNRELEASED]
 
+New languages:
+
+- *Excel* by [Victor Zhou][]
+
 New styles:
 
 - *Ocean Dark* by [Gavin Siu][]
-- *Excel* by [Victor Zhou][]
 
 [Gavin Siu]: https://github.com/gavsiu
+
 
 ## Version 9.4.0
 
