@@ -1,5 +1,9 @@
 ## Master [UNRELEASED]
 
+New languages:
+
+- *Excel* by [Victor Zhou][]
+
 New styles:
 
 - *Ocean Dark* by [Gavin Siu][]
