@@ -32,19 +32,21 @@ https://highlightjs.org/
       objectKeys = Object.keys;
 
   // Global internal variables used within the highlight.js library
-  var languages  = {},
-      aliases    = {},
-      options    = {
-        classPrefix: 'hljs-',
-        tabReplace: null,
-        useBR: false,
-        languages: undefined
-      },
-      escapeRegexMap = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;'
-      };
+  var languages = {},
+      aliases   = {};
+
+  var options = {
+    classPrefix: 'hljs-',
+    tabReplace: null,
+    useBR: false,
+    languages: undefined
+  };
+
+  var escapeRegexMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;'
+  };
 
   /* Utility functions */
 
