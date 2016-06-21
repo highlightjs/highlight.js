@@ -35,6 +35,8 @@ https://highlightjs.org/
   var languages = {},
       aliases   = {};
 
+  // Global options used when within external APIs. This is modified when
+  // calling the `hljs.configure` function.
   var options = {
     classPrefix: 'hljs-',
     tabReplace: null,
@@ -42,6 +44,7 @@ https://highlightjs.org/
     languages: undefined
   };
 
+  // Object map that is used to escape some common HTML characters.
   var escapeRegexMap = {
     '&': '&amp;',
     '<': '&lt;',
