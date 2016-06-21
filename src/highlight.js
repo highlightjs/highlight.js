@@ -31,10 +31,11 @@ https://highlightjs.org/
   var ArrayProto = [],
       objectKeys = Object.keys;
 
-  // Global internal variables used within the highlight.js library
+  // Global internal variables used within the highlight.js library.
   var languages = {},
       aliases   = {};
 
+  // Regular expressions used throughout the highlight.js library.
   var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
       languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i;
 
