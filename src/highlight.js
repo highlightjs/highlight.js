@@ -31,20 +31,29 @@ https://highlightjs.org/
   var ArrayProto = [],
       objectKeys = Object.keys;
 
-  // Global internal variables used within the highlight.js library
-  var languages  = {},
-      aliases    = {},
-      options    = {
-        classPrefix: 'hljs-',
-        tabReplace: null,
-        useBR: false,
-        languages: undefined
-      },
-      escapeRegexMap = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;'
-      };
+  // Global internal variables used within the highlight.js library.
+  var languages = {},
+      aliases   = {};
+
+  // Regular expressions used throughout the highlight.js library.
+  var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
+      languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i;
+
+  // Global options used when within external APIs. This is modified when
+  // calling the `hljs.configure` function.
+  var options = {
+    classPrefix: 'hljs-',
+    tabReplace: null,
+    useBR: false,
+    languages: undefined
+  };
+
+  // Object map that is used to escape some common HTML characters.
+  var escapeRegexMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;'
+  };
 
   /* Utility functions */
 
@@ -64,7 +73,7 @@ https://highlightjs.org/
   }
 
   function isNotHighlighted(language) {
-    return (/^(no-?highlight|plain|text)$/i).test(language);
+    return noHighlightRe.test(language);
   }
 
   function blockLanguage(block) {
@@ -74,7 +83,7 @@ https://highlightjs.org/
     classes += block.parentNode ? block.parentNode.className : '';
 
     // language-* takes precedence over non-prefixed class names.
-    match = (/\blang(?:uage)?-([\w-]+)\b/i).exec(classes);
+    match = languagePrefixRe.exec(classes);
     if (match) {
       return getLanguage(match[1]) ? match[1] : 'no-highlight';
     }
