@@ -35,6 +35,9 @@ https://highlightjs.org/
   var languages = {},
       aliases   = {};
 
+  var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
+      languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i;
+
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.
   var options = {
@@ -69,7 +72,7 @@ https://highlightjs.org/
   }
 
   function isNotHighlighted(language) {
-    return (/^(no-?highlight|plain|text)$/i).test(language);
+    return noHighlightRe.test(language);
   }
 
   function blockLanguage(block) {
@@ -79,7 +82,7 @@ https://highlightjs.org/
     classes += block.parentNode ? block.parentNode.className : '';
 
     // language-* takes precedence over non-prefixed class names.
-    match = (/\blang(?:uage)?-([\w-]+)\b/i).exec(classes);
+    match = languagePrefixRe.exec(classes);
     if (match) {
       return getLanguage(match[1]) ? match[1] : 'no-highlight';
     }
