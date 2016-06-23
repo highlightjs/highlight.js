@@ -39,6 +39,8 @@ https://highlightjs.org/
   var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
       languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i;
 
+  var spanEndTag = '</span>';
+
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.
   var options = {
@@ -351,7 +353,7 @@ https://highlightjs.org/
     function buildSpan(classname, insideSpan, leaveOpen, noPrefix) {
       var classPrefix = noPrefix ? '' : options.classPrefix,
           openSpan    = '<span class="' + classPrefix,
-          closeSpan   = leaveOpen ? '' : '</span>';
+          closeSpan   = leaveOpen ? '' : spanEndTag
 
       openSpan += classname + '">';
 
@@ -459,7 +461,7 @@ https://highlightjs.org/
         }
         do {
           if (top.className) {
-            result += '</span>';
+            result += spanEndTag;
           }
           if (!top.skip) {
             relevance += top.relevance;
@@ -513,7 +515,7 @@ https://highlightjs.org/
       processLexeme(value.substr(index));
       for(current = top; current.parent; current = current.parent) { // close dangling modes
         if (current.className) {
-          result += '</span>';
+          result += spanEndTag;
         }
       }
       return {
