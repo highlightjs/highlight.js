@@ -95,7 +95,7 @@ https://highlightjs.org/
       for (i = 0, length = classes.length; i < length; i++) {
         _class = classes[i]
 
-        if (getLanguage(_class) || isNotHighlighted(_class)) {
+        if (isNotHighlighted(_class) || getLanguage(_class)) {
           return _class;
         }
       }
