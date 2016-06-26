@@ -80,8 +80,8 @@ https://highlightjs.org/
   }
 
   function blockLanguage(block) {
-    var i, match, length,
-        classes = block.className + ' ';
+    var i, match, length, _class;
+    var classes = block.className + ' ';
 
     classes += block.parentNode ? block.parentNode.className : '';
 
@@ -89,12 +89,15 @@ https://highlightjs.org/
     match = languagePrefixRe.exec(classes);
     if (match) {
       return getLanguage(match[1]) ? match[1] : 'no-highlight';
-    }
+    } else {
+      classes = classes.split(/\s+/);
 
-    classes = classes.split(/\s+/);
-    for (i = 0, length = classes.length; i < length; i++) {
-      if (getLanguage(classes[i]) || isNotHighlighted(classes[i])) {
-        return classes[i];
+      for (i = 0, length = classes.length; i < length; i++) {
+        _class = classes[i]
+
+        if (isNotHighlighted(_class) || getLanguage(_class)) {
+          return _class;
+        }
       }
     }
   }
