@@ -80,8 +80,8 @@ https://highlightjs.org/
   }
 
   function blockLanguage(block) {
-    var i, match, length,
-        classes = block.className + ' ';
+    var i, match, length, _class;
+    var classes = block.className + ' ';
 
     classes += block.parentNode ? block.parentNode.className : '';
 
@@ -93,8 +93,10 @@ https://highlightjs.org/
 
     classes = classes.split(/\s+/);
     for (i = 0, length = classes.length; i < length; i++) {
-      if (getLanguage(classes[i]) || isNotHighlighted(classes[i])) {
-        return classes[i];
+      _class = classes[i]
+
+      if (getLanguage(_class) || isNotHighlighted(_class)) {
+        return _class;
       }
     }
   }
