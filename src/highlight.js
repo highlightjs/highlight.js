@@ -89,14 +89,15 @@ https://highlightjs.org/
     match = languagePrefixRe.exec(classes);
     if (match) {
       return getLanguage(match[1]) ? match[1] : 'no-highlight';
-    }
+    } else {
+      classes = classes.split(/\s+/);
 
-    classes = classes.split(/\s+/);
-    for (i = 0, length = classes.length; i < length; i++) {
-      _class = classes[i]
+      for (i = 0, length = classes.length; i < length; i++) {
+        _class = classes[i]
 
-      if (getLanguage(_class) || isNotHighlighted(_class)) {
-        return _class;
+        if (getLanguage(_class) || isNotHighlighted(_class)) {
+          return _class;
+        }
       }
     }
   }
