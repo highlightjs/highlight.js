@@ -9,7 +9,7 @@ function(hljs) {
 
     var LSL_STRING_ESCAPE_CHARS = {
         className: 'subst',
-        begin: '\\[tn"\\]'
+        begin: /\\[tn"\\]/
     };
 
     var LSL_STRINGS = {
