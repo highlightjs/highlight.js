@@ -35,7 +35,7 @@ function copyDocs() {
 }
 
 function generateDemo(filterCB, readArgs) {
-  let staticArgs   = utility.glob(path.join('demo', '*.{js,css}')),
+  let staticArgs   = utility.glob(path.join('demo', '*.min.{js,css}')),
       stylesArgs   = utility.glob(path.join('src', 'styles', '*'), 'binary'),
       demoRoot     = path.join(directory.build, 'demo'),
       templateArgs = { callback: templateAllFunc },
@@ -60,7 +60,13 @@ function generateDemo(filterCB, readArgs) {
     readStatic: { requires: 'logStart', task: ['glob', staticArgs] },
     writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
     readStyles: { requires: 'logStart', task: ['glob', stylesArgs] },
-    writeStyles: { requires: 'readStyles', task: ['dest', destArgs] }
+    writeStyles: { requires: 'readStyles', task: ['dest', destArgs] },
+    readDemoCSS: {
+      requires: 'logStart',
+      task: ['read', path.join('demo', 'style.css')]
+    },
+    minifyDemoCSS: { requires: 'readDemoCSS', task: 'cssminify' },
+    writeDemoCSS: { requires: 'minifyDemoCSS', task: ['dest', demoRoot] }
   };
 }
 
