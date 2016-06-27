@@ -61,6 +61,12 @@ function generateDemo(filterCB, readArgs) {
     writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
     readStyles: { requires: 'logStart', task: ['glob', stylesArgs] },
     writeStyles: { requires: 'readStyles', task: ['dest', destArgs] },
+    readDemoJS: {
+      requires: 'logStart',
+      task: ['read', path.join('demo', 'demo.js')]
+    },
+    minifyDemoJS: { requires: 'readDemoJS', task: 'jsminify' },
+    writeDemoJS: { requires: 'minifyDemoJS', task: ['dest', demoRoot] },
     readDemoCSS: {
       requires: 'logStart',
       task: ['read', path.join('demo', 'style.css')]
