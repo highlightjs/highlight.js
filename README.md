@@ -119,7 +119,7 @@ r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 
 ### Hosted Libraries Caveat
 
-Please note that hosted libraries may only contain the most common languages, to keep the file size down.  If you find that your syntax is not highlighting, you can include the langauge manually, e.g:
+Please note that hosted libraries may only contain the most common languages, to keep the file size down.  If you find that your syntax is not highlighting, you can include the language manually, e.g:
 
 ```html
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
