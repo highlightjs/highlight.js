@@ -1,0 +1,2 @@
+<span class="hljs-keyword">new</span> create(name': <span class="hljs-type">String</span>) =&gt;
+  name = name' + <span class="hljs-string">'a'</span>

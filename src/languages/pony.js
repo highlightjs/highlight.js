@@ -33,7 +33,7 @@ function(hljs) {
   };
 
   var SINGLE_QUOTE_CHAR_MODE = {
-    className: 'literal',
+    className: 'string',
     begin: '\'', end: '\'',
     contains: [hljs.BACKSLASH_ESCAPE],
     relevance: 0
@@ -45,6 +45,10 @@ function(hljs) {
     relevance: 0
   };
 
+  var PRIMED_NAME = {
+    begin: hljs.IDENT_RE + '\'', relevance: 0
+  };
+
   return {
     keywords: KEYWORDS,
     contains: [
@@ -52,6 +56,7 @@ function(hljs) {
       TRIPLE_QUOTE_STRING_MODE,
       QUOTE_STRING_MODE,
       SINGLE_QUOTE_CHAR_MODE,
+      PRIMED_NAME,
       hljs.C_NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
