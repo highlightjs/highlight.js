@@ -32,7 +32,7 @@ function(hljs) {
       },
 	  // testcase status and description
       {
-        className: 'variable',
+        className: 'symbol',
         variants: [
           { begin: '^ok' },
           { begin: '^not ok' }
