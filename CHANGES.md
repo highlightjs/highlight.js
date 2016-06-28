@@ -7,11 +7,18 @@ New languages:
 - *TAP* (Test Anything Protocol) by [Sergey Bronnikov][]
 - *Pony* by [Joe Eli McIlvain][]
 - *Coq* by [Stephan Boyer][]
-- *dsconfig* by [Jacob Childress][]
+- *dsconfig* and *LDIF* by [Jacob Childress][]
 
 New styles:
 
 - *Ocean Dark* by [Gavin Siu][]
+
+Notable changes:
+
+- [Minh Nguyễn][] added more built-ins to Objective C.
+- [Jeremy Hull][] fixed corner cases in C++ preprocessor directives and Diff
+  comments.
+- [Victor Zhou][] added support for digit separators in C++ numbers.
 
 [Gavin Siu]: https://github.com/gavsiu
 [Builder's Brewery]: https://github.com/buildersbrewery
@@ -20,6 +27,8 @@ New styles:
 [Joe Eli McIlvain]: https://github.com/jemc
 [Stephan Boyer]: https://github.com/boyers
 [Jacob Childress]: https://github.com/braveulysses
+[Minh Nguyễn]: https://github.com/1ec5
+[Jeremy Hull]: https://github.com/sourrust
 
 
 ## Version 9.4.0
