@@ -221,3 +221,4 @@ Contributors:
 - Gavin Siu <gavsiu@gmail.com>
 - Builder's Brewery <buildersbrewery@gmail.com>
 - Sergey Bronnikov <sergeyb@bronevichok.ru>
+- Joe Eli McIlvain <joe.eli.mac@gmail.org>
