@@ -220,3 +220,4 @@ URL:   https://highlightjs.org/
 - Гавин Сиу <gavsiu@gmail.com>
 - Builder's Brewery <buildersbrewery@gmail.com>
 - Сергей Бронников <sergeyb@bronevichok.ru>
+- Джо Эли Макилвейн <joe.eli.mac@gmail.com>
