@@ -222,3 +222,4 @@ Contributors:
 - Builder's Brewery <buildersbrewery@gmail.com>
 - Sergey Bronnikov <sergeyb@bronevichok.ru>
 - Joe Eli McIlvain <joe.eli.mac@gmail.org>
+- Stephan Boyer <stephan@stephanboyer.com>

@@ -221,3 +221,4 @@ URL:   https://highlightjs.org/
 - Builder's Brewery <buildersbrewery@gmail.com>
 - Сергей Бронников <sergeyb@bronevichok.ru>
 - Джо Эли Макилвейн <joe.eli.mac@gmail.com>
+- Стефан Боер <stephan@stephanboyer.com>
