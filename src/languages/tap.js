@@ -8,7 +8,7 @@ Category: common, testing
 
 function(hljs) {
   return {
-    aliases: ['tap', 'TAP'],
+    aliases: ['TAP'],
     case_insensitive: true,
     contains: [
       hljs.COMMENT('#.*', '$'),
