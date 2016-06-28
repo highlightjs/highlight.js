@@ -59,7 +59,7 @@ function(hljs) {
     },
     contains: [
       hljs.QUOTE_STRING_MODE,
-      hljs.COMMENT('\\(\\*', '\\*\\)', { relevance: 2 }),
+      hljs.COMMENT('\\(\\*', '\\*\\)'),
       hljs.C_NUMBER_MODE,
       {
         className: 'type',
