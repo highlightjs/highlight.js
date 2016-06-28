@@ -10,7 +10,7 @@ function(hljs) {
     aliases: ['TAP'],
     case_insensitive: true,
     contains: [
-      hljs.COMMENT('#.*', '$'),
+      hljs.HASH_COMMENT_MODE,
       // version of format and total amount of testcases
       {
         className: 'meta',
