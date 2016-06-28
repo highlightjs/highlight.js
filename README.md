@@ -136,15 +136,15 @@ for details.
 The official site for the library is at <https://highlightjs.org/>.
 
 Further in-depth documentation for the API and other topics is at
-<http://highlightjs.readthedocs.org/>.
+<http://highlightjs.readthedocs.io/>.
 
 Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
 
-[1]: http://highlightjs.readthedocs.org/en/latest/api.html#inithighlightingonload
-[2]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
-[3]: http://highlightjs.readthedocs.org/en/latest/api.html#highlightblock-block
-[4]: http://highlightjs.readthedocs.org/en/latest/api.html#configure-options
+[1]: http://highlightjs.readthedocs.io/en/latest/api.html#inithighlightingonload
+[2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
+[3]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightblock-block
+[4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure-options
 [5]: https://highlightjs.org/download/
-[6]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
+[6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
 [7]: https://github.com/isagalaev/highlight.js/blob/master/LICENSE
 [8]: https://github.com/isagalaev/highlight.js/blob/master/AUTHORS.en.txt
