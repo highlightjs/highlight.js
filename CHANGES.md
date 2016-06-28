@@ -1,4 +1,4 @@
-## Master [UNRELEASED]
+## Version 9.5.0
 
 New languages:
 
