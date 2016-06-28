@@ -1,7 +1,7 @@
 /*
 Language: LDIF
 Contributors: Jacob Childress <jacobc@gmail.com>
-Category: enterprise
+Category: enterprise, config
 */
 function(hljs) {
   return {
