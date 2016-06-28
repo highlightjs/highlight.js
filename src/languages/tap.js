@@ -3,7 +3,6 @@ Language: Test Anything Protocol
 Requires: yaml.js
 Author: Sergey Bronnikov <sergeyb@bronevichok.ru>
 Website: https://bronevichok.ru/
-Category: common, testing
 */
 
 function(hljs) {
