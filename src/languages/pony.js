@@ -48,9 +48,42 @@ function(hljs) {
     begin: hljs.IDENT_RE + '\'', relevance: 0
   };
 
+  var CLASS = {
+    className: 'class',
+    beginKeywords: 'class actor', end: '$',
+    contains: [
+      hljs.TITLE_MODE,
+      hljs.C_LINE_COMMENT_MODE
+    ]
+  }
+
+  var FUNCTION = {
+    className: 'function',
+    beginKeywords: 'new fun', end: '=>',
+    contains: [
+      hljs.TITLE_MODE,
+      {
+        begin: /\(/, end: /\)/,
+        contains: [
+          TYPE_NAME,
+          PRIMED_NAME,
+          hljs.C_NUMBER_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
+      },
+      {
+        begin: /:/, endsWithParent: true,
+        contains: [TYPE_NAME]
+      },
+      hljs.C_LINE_COMMENT_MODE
+    ]
+  }
+
   return {
     keywords: KEYWORDS,
     contains: [
+      CLASS,
+      FUNCTION,
       TYPE_NAME,
       TRIPLE_QUOTE_STRING_MODE,
       QUOTE_STRING_MODE,
