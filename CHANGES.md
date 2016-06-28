@@ -7,6 +7,7 @@ New languages:
 - *TAP* (Test Anything Protocol) by [Sergey Bronnikov][]
 - *Pony* by [Joe Eli McIlvain][]
 - *Coq* by [Stephan Boyer][]
+- *dsconfig* by [Jacob Childress][]
 
 New styles:
 
@@ -18,6 +19,7 @@ New styles:
 [Sergey Bronnikov]: https://github.com/ligurio
 [Joe Eli McIlvain]: https://github.com/jemc
 [Stephan Boyer]: https://github.com/boyers
+[Jacob Childress]: https://github.com/braveulysses
 
 
 ## Version 9.4.0
