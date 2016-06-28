@@ -6,6 +6,7 @@ New languages:
 - *Linden Scripting Language* by [Builder's Brewery][]
 - *TAP* (Test Anything Protocol) by [Sergey Bronnikov][]
 - *Pony* by [Joe Eli McIlvain][]
+- *Coq* by [Stephan Boyer][]
 
 New styles:
 
@@ -16,6 +17,7 @@ New styles:
 [Victor Zhou]: https://github.com/OiCMudkips
 [Sergey Bronnikov]: https://github.com/ligurio
 [Joe Eli McIlvain]: https://github.com/jemc
+[Stephan Boyer]: https://github.com/boyers
 
 
 ## Version 9.4.0
