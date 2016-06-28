@@ -5,6 +5,7 @@ New languages:
 - *Excel* by [Victor Zhou][]
 - *Linden Scripting Language* by [Builder's Brewery][]
 - *TAP* (Test Anything Protocol) by [Sergey Bronnikov][]
+- *Pony* by [Joe Eli McIlvain][]
 
 New styles:
 
@@ -14,6 +15,7 @@ New styles:
 [Builder's Brewery]: https://github.com/buildersbrewery
 [Victor Zhou]: https://github.com/OiCMudkips
 [Sergey Bronnikov]: https://github.com/ligurio
+[Joe Eli McIlvain]: https://github.com/jemc
 
 
 ## Version 9.4.0
