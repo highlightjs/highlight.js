@@ -3,12 +3,14 @@
 New languages:
 
 - *Excel* by [Victor Zhou][]
+- *Linden Scripting Language* by [Builder's Brewery][]
 
 New styles:
 
 - *Ocean Dark* by [Gavin Siu][]
 
 [Gavin Siu]: https://github.com/gavsiu
+[Builder's Brewery]: https://github.com/buildersbrewery
 
 
 ## Version 9.4.0
