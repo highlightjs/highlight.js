@@ -217,3 +217,4 @@ URL:   https://highlightjs.org/
 - Бооне Северсон <boone.severson@gmail.com>
 - Виктор Жоу <OiCMudkips@users.noreply.github.com>
 - Ларс Шульна <kartoffelbrei.mit.muskatnuss@gmail.org>
+- Builder's Brewery <buildersbrewery@gmail.com>

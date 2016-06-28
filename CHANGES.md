@@ -1,3 +1,11 @@
+## Version 9.5.0
+
+New languages:
+
+- *Linden Scripting Language* by [Builder's Brewery][]
+
+[Builder's Brewery]: https://github.com/buildersbrewery
+
 ## Version 9.4.0
 
 New languages:

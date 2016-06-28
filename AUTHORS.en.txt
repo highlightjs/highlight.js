@@ -218,3 +218,4 @@ Contributors:
 - Victor Zhou <OiCMudkips@users.noreply.github.com>
 - Lars Schulna <kartoffelbrei.mit.muskatnuss@gmail.org>
 - Jacob Childress <jacobc@gmail.com>
+- Builder's Brewery <buildersbrewery@gmail.com>
