@@ -9,30 +9,7 @@ function(hljs) {
     keywords: {
       keyword:
         '_ as at cofix else end exists exists2 fix for forall fun if IF in let ' +
-        'match mod Prop return Set then Type using where with',
-      built_in:
-        'abstract absurd admit after apply as assert assumption at auto autorewrite ' +
-        'autounfold before bottom btauto by case case_eq cbn cbv change ' +
-        'classical_left classical_right clear clearbody cofix compare compute ' +
-        'congruence constr_eq constructor contradict contradiction cut cutrewrite ' +
-        'cycle decide decompose dependent destruct destruction dintuition ' +
-        'discriminate discrR do double dtauto eapply eassumption eauto ecase ' +
-        'econstructor edestruct ediscriminate eelim eexact eexists einduction ' +
-        'einjection eleft elim elimtype enough equality erewrite eright ' +
-        'esimplify_eq esplit evar exact exactly_once exfalso exists f_equal fail ' +
-        'field field_simplify field_simplify_eq first firstorder fix fold fourier ' +
-        'functional generalize generalizing gfail give_up has_evar hnf idtac in ' +
-        'induction injection instantiate intro intro_pattern intros intuition ' +
-        'inversion inversion_clear is_evar is_var lapply lazy left lia lra move ' +
-        'native_compute nia nsatz omega once pattern pose progress proof psatz quote ' +
-        'record red refine reflexivity remember rename repeat replace revert ' +
-        'revgoals rewrite rewrite_strat right ring ring_simplify rtauto set ' +
-        'setoid_reflexivity setoid_replace setoid_rewrite setoid_symmetry ' +
-        'setoid_transitivity shelve shelve_unifiable simpl simple simplify_eq solve ' +
-        'specialize split split_Rabs split_Rmult stepl stepr subst sum swap ' +
-        'symmetry tactic tauto time timeout top transitivity trivial try tryif ' +
-        'unfold unify until using vm_compute with',
-      meta:
+        'match mod Prop return Set then Type using where with ' +
         'Abort About Add Admit Admitted All Arguments Assumptions Axiom Back BackTo ' +
         'Backtrack Bind Blacklist Canonical Cd Check Class Classes Close Coercion ' +
         'Coercions CoFixpoint CoInductive Collection Combined Compute Conjecture ' +
@@ -55,7 +32,29 @@ function(hljs) {
         'Strategy Structure SubClass Table Tables Tactic Term Test Theorem Time ' +
         'Timeout Transparent Type Typeclasses Types Undelimit Undo Unfocus Unfocused ' +
         'Unfold Universe Universes Unset Unshelve using Variable Variables Variant ' +
-        'Verbose Visibility where with'
+        'Verbose Visibility where with',
+      built_in:
+        'abstract absurd admit after apply as assert assumption at auto autorewrite ' +
+        'autounfold before bottom btauto by case case_eq cbn cbv change ' +
+        'classical_left classical_right clear clearbody cofix compare compute ' +
+        'congruence constr_eq constructor contradict contradiction cut cutrewrite ' +
+        'cycle decide decompose dependent destruct destruction dintuition ' +
+        'discriminate discrR do double dtauto eapply eassumption eauto ecase ' +
+        'econstructor edestruct ediscriminate eelim eexact eexists einduction ' +
+        'einjection eleft elim elimtype enough equality erewrite eright ' +
+        'esimplify_eq esplit evar exact exactly_once exfalso exists f_equal fail ' +
+        'field field_simplify field_simplify_eq first firstorder fix fold fourier ' +
+        'functional generalize generalizing gfail give_up has_evar hnf idtac in ' +
+        'induction injection instantiate intro intro_pattern intros intuition ' +
+        'inversion inversion_clear is_evar is_var lapply lazy left lia lra move ' +
+        'native_compute nia nsatz omega once pattern pose progress proof psatz quote ' +
+        'record red refine reflexivity remember rename repeat replace revert ' +
+        'revgoals rewrite rewrite_strat right ring ring_simplify rtauto set ' +
+        'setoid_reflexivity setoid_replace setoid_rewrite setoid_symmetry ' +
+        'setoid_transitivity shelve shelve_unifiable simpl simple simplify_eq solve ' +
+        'specialize split split_Rabs split_Rmult stepl stepr subst sum swap ' +
+        'symmetry tactic tauto time timeout top transitivity trivial try tryif ' +
+        'unfold unify until using vm_compute with'
     },
     contains: [
       hljs.QUOTE_STRING_MODE,
@@ -64,14 +63,10 @@ function(hljs) {
       {
         className: 'type',
         excludeBegin: true,
-        begin: '\\|',
+        begin: '\\|\\s*',
         end: '\\w+'
       },
-      {
-        className: 'symbol',
-        begin: '\\!|\\%|\\&|\\&\\&|\\(|\\(\\)|\\)|\\*|\\+|\\+\\+|\\,|\\-|\\-\\>|\\.|\\.\\(|\\.\\.|\\/|\\/\\\|\\:|\\:\\:|\\:\\<|\\:\\=|\\:\\>|\\;|\\<|\\<\\-|\\<\\-\\>|\\<\\:|\\<\\=|\\<\\>|\\=|\\=\\>|\\=\\_\\D|\\>|\\>\\-\\>|\\>\\=|\\?|\\?\\=|\\@|\\[|\\\\\/|\\]|\\^|\\{|\\||\\|\\-|\\|\\||\\}|\\~',
-        relevance: 0
-      }
+      {begin: /[-=]>/} // relevance booster
     ]
   };
 }
