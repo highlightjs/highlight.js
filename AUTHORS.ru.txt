@@ -10,6 +10,7 @@ URL:   https://highlightjs.org/
 
 Внесли свой вклад:
 
+- Сергей Бронников <sergeyb@bronevichok.ru>
 - Петр Леонов <gojpeg@gmail.com>
 - Виктор Карамзин <Victor.Karamzin@enterra-inc.com>
 - Всеволод Соловьёв <vsevolod.solovyov@gmail.com>

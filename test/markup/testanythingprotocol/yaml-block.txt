@@ -1,0 +1,26 @@
+TAP version 13
+ok - created Board
+ok
+ok
+ok
+ok
+ok
+ok
+ok
+  ---
+  message: "Board layout"
+  severity: comment
+  dump:
+     board:
+       - '      16G         05C        '
+       - '      G N C       C C G      '
+       - '        G           C  +     '
+       - '10C   01G         03C        '
+       - 'R N G G A G       C C C      '
+       - '  R     G           C  +     '
+       - '      01G   17C   00C        '
+       - '      G A G G N R R N R      '
+       - '        G     R     G        '
+  ...
+ok - board has 7 tiles + starter tile
+1..9

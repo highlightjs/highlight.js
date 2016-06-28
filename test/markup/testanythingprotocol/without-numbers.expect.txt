@@ -1,0 +1,6 @@
+<span class="hljs-meta">1..6</span>
+<span class="hljs-variable">not ok</span>
+<span class="hljs-variable">ok</span>
+<span class="hljs-variable">not ok</span>
+<span class="hljs-variable">ok</span>
+<span class="hljs-variable">ok</span>
