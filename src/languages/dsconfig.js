@@ -2,7 +2,7 @@
  Language: dsconfig
  Description: dsconfig batch configuration language for LDAP directory servers
  Contributors: Jacob Childress <jacobc@gmail.com>
- Category: enterprise
+ Category: enterprise, config
  */
 function(hljs) {
   var QUOTED_PROPERTY = {
