@@ -11,6 +11,7 @@ New styles:
 
 [Gavin Siu]: https://github.com/gavsiu
 [Builder's Brewery]: https://github.com/buildersbrewery
+[Victor Zhou]: https://github.com/OiCMudkips
 
 
 ## Version 9.4.0
