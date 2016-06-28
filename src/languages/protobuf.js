@@ -8,10 +8,9 @@ Category: protocols
 function(hljs) {
   return {
     keywords: {
-      keyword: 'package import option optional required ' +
-        'repeated group oneof reserved',
+      keyword: 'package import option optional required repeated group',
       built_in: 'double float int32 int64 uint32 uint64 sint32 sint64 ' +
-        'fixed32 fixed64 sfixed32 sfixed64 bool string bytes map',
+        'fixed32 fixed64 sfixed32 sfixed64 bool string bytes',
       literal: 'true false'
     },
     contains: [
@@ -20,7 +19,7 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       {
         className: 'class',
-        begin: /(^|})\s*(message)|(enum)|(service)'/, end: /\{/,
+        beginKeywords: 'message enum service', end: /\{/,
         illegal: /\n/,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
