@@ -7,7 +7,6 @@ Website: https://bronevichok.ru/
 
 function(hljs) {
   return {
-    aliases: ['TAP'],
     case_insensitive: true,
     contains: [
       hljs.HASH_COMMENT_MODE,
