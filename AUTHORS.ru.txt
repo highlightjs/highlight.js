@@ -10,7 +10,6 @@ URL:   https://highlightjs.org/
 
 Внесли свой вклад:
 
-- Сергей Бронников <sergeyb@bronevichok.ru>
 - Петр Леонов <gojpeg@gmail.com>
 - Виктор Карамзин <Victor.Karamzin@enterra-inc.com>
 - Всеволод Соловьёв <vsevolod.solovyov@gmail.com>
@@ -220,3 +219,4 @@ URL:   https://highlightjs.org/
 - Ларс Шульна <kartoffelbrei.mit.muskatnuss@gmail.org>
 - Гавин Сиу <gavsiu@gmail.com>
 - Builder's Brewery <buildersbrewery@gmail.com>
+- Сергей Бронников <sergeyb@bronevichok.ru>
