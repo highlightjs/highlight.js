@@ -106,24 +106,25 @@ works perfectly fine with Browserify, but there is the option to use a
 build specific to browsers rather than something meant for a server.
 Head over to the [download page][5] for all the options.
 
-**Note:** the library is not supposed to work straight from the source
-on GitHub; it requires building. If none of the pre-packaged options
+**Don't link to GitHub directly.** The library is not supposed to work straight
+from the source, it requires building. If none of the pre-packaged options
 work for you refer to the [building documentation][6].
 
-Also, if you are using something like almond, you need to use the
-optimizer to give the module a name. The basic example would be:
+**The CDN-hosted package doesn't have all the languages.** Otherwise it'd be
+too big. If you don't see the language you need in the ["Common" section][5],
+it can be added manually:
+
+```html
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
+```
+
+**On Almond.** You need to use the optimizer to give the module a name. For
+example:
 
 ```
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
-### Hosted Libraries Caveat
-
-Please note that hosted libraries may only contain the most common languages, to keep the file size down.  If you find that your syntax is not highlighting, you can include the language manually, e.g:
-
-```html
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
-```
 
 ## License
 
