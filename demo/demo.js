@@ -72,16 +72,23 @@
   }
 
   function initStyles() {
+    var $styles;
     var $styleContainer = $('#styles');
+
     $('link[title]').each(function(i, link) {
       $styleContainer.append('<li>' + link.title + '</li>');
     });
-    $('#styles li').click(function(e) {
-      $('#styles li').removeClass('current');
-      $(this).addClass('current');
-      selectStyle($(this).text());
+
+    $styles = $styleContainer.find('li');
+
+    $styles.click(function(e) {
+      var $style = $(this);
+
+      $styles.removeClass('current');
+      $style.addClass('current');
+      selectStyle($style.text());
     });
-    $('#styles li:first-child').click();
+    $styles.first().click();
     $styleContainer.perfectScrollbar();
   }
 
