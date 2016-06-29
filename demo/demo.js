@@ -1,13 +1,15 @@
 (function() {
   'use strict';
 
+  var $window = $(window);
+
   function resizeLists() {
     var $categories = $('#categories'),
         $styles     = $('#styles');
 
-    $categories.css('max-height', $(window).height() / 4);
+    $categories.css('max-height', $window.height() / 4);
     $categories.perfectScrollbar('update');
-    $styles.height($(window).height() - $styles.position().top - 20);
+    $styles.height($window.height() - $styles.position().top - 20);
     $styles.perfectScrollbar('update');
   }
 
@@ -86,7 +88,7 @@
   $(document).ready(function() {
     initCategories();
     initStyles();
-    $(window).resize(resizeLists);
+    $window.resize(resizeLists);
     resizeLists();
   });
 }).call(this);
