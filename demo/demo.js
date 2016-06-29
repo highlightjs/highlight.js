@@ -85,7 +85,7 @@
     $styleContainer.perfectScrollbar();
   }
 
-  $(document).ready(function() {
+  $(function() {
     initCategories();
     initStyles();
     $window.resize(resizeLists);
