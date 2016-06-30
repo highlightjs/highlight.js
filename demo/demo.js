@@ -80,7 +80,7 @@
 
   function selectStyle(style) {
     $('link[title]').each(function(i, link) {
-      link.disabled = (link.title != style);
+      link.disabled = (link.title !== style);
     });
   }
 
@@ -94,7 +94,7 @@
 
     $styles = $styleContainer.find('li');
 
-    $styles.click(function(e) {
+    $styles.click(function() {
       var $style = $(this);
 
       $styles.removeClass('current');
