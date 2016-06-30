@@ -35,6 +35,7 @@
   }
 
   function initCategories() {
+    var $categories, categoryNames;
     var categories         = {},
         $categoryContainer = $('#categories');
 
@@ -47,21 +48,32 @@
         categories[c] = (categories[c] || 0) + 1;
       });
     });
-    var category_names = Object.keys(categories);
-    category_names.sort(function(a, b) {
+
+    categoryNames = Object.keys(categories);
+
+    categoryNames.sort(function(a, b) {
       a = categoryKey(a);
       b = categoryKey(b);
       return a < b ? -1 : a > b ? 1 : 0;
     });
-    category_names.forEach(function(c) {
-      $categoryContainer.append('<li data-category="' + c + '">' + c + ' (' + categories[c] +')</li>');
+
+    categoryNames.forEach(function(c) {
+      $categoryContainer.append(
+        '<li data-category="' + c + '">' + c + ' (' + categories[c] +')</li>'
+      );
     });
-    $('#categories li').click(function(e) {
-      $('#categories li').removeClass('current');
-      $(this).addClass('current');
-      selectCategory($(this).data('category'));
+
+    $categories = $categoryContainer.find('li');
+
+    $categories.click(function() {
+      var $category = $(this);
+
+      $categories.removeClass('current');
+      $category.addClass('current');
+      selectCategory($category.data('category'));
     });
-    $('#categories li:first-child').click();
+
+    $categories.first().click();
     $categoryContainer.perfectScrollbar();
   }
 
