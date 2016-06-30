@@ -1,7 +1,8 @@
 (function() {
   'use strict';
 
-  var $window = $(window);
+  var $window    = $(window),
+      $languages = $('#languages div');
 
   function resizeLists() {
     var $categories = $('#categories'),
@@ -14,7 +15,7 @@
   }
 
   function selectCategory(category) {
-    $('#languages div').each(function(i, div) {
+    $languages.each(function(i, div) {
       var $div = $(div);
       if ($div.hasClass(category)) {
         var code = $div.find('code');
@@ -39,7 +40,7 @@
     var categories         = {},
         $categoryContainer = $('#categories');
 
-    $('#languages div').each(function(i, div) {
+    $languages.each(function(i, div) {
       if (!div.className) {
         div.className += 'misc';
       }
