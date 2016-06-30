@@ -15,16 +15,19 @@
   }
 
   function selectCategory(category) {
-    $languages.each(function(i, div) {
-      var $div = $(div);
-      if ($div.hasClass(category)) {
-        var code = $div.find('code');
+    $languages.each(function(i, language) {
+      var $language = $(language);
+
+      if ($language.hasClass(category)) {
+        var code = $language.find('code');
+
         if (!code.hasClass('hljs')) {
           hljs.highlightBlock(code.get(0));
         }
-        $div.show();
+
+        $language.show();
       } else {
-        $div.hide();
+        $language.hide();
       }
     });
 
