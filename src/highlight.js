@@ -48,7 +48,8 @@ https://highlightjs.org/
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
-    languages: undefined
+    languages: undefined,
+    classNames: {}
   };
 
   // Object map that is used to escape some common HTML characters.
@@ -356,10 +357,11 @@ https://highlightjs.org/
 
     function buildSpan(classname, insideSpan, leaveOpen, noPrefix) {
       var classPrefix = noPrefix ? '' : options.classPrefix,
-          openSpan    = '<span class="' + classPrefix,
+          cName = (options.classNames || {})[classPrefix + classname] || classPrefix + classname || '',
+          openSpan    = '<span class="',
           closeSpan   = leaveOpen ? '' : spanEndTag
 
-      openSpan += classname + '">';
+      openSpan += cName + '">';
 
       return openSpan + insideSpan + closeSpan;
     }
