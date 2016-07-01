@@ -1,17 +1,21 @@
 (function() {
   'use strict';
 
-  var $window    = $(window),
-      $languages = $('#languages div');
+  var $window            = $(window),
+      $languages         = $('#languages div'),
+      $linkTitle         = $('link[title]'),
+      $categoryContainer = $('#categories'),
+      $styleContainer    = $('#styles');
 
   function resizeLists() {
-    var $categories = $('#categories'),
-        $styles     = $('#styles');
+    var screenHeight = $window.height()
 
-    $categories.css('max-height', $window.height() / 4);
-    $categories.perfectScrollbar('update');
-    $styles.height($window.height() - $styles.position().top - 20);
-    $styles.perfectScrollbar('update');
+    $categoryContainer.css('max-height', screenHeight / 4);
+    $categoryContainer.perfectScrollbar('update');
+    $styleContainer.height(
+      screenHeight - $styleContainer.position().top - 20
+    );
+    $styleContainer.perfectScrollbar('update');
   }
 
   function selectCategory(category) {
@@ -40,8 +44,7 @@
 
   function initCategories() {
     var $categories, categoryNames;
-    var categories         = {},
-        $categoryContainer = $('#categories');
+    var categories = {};
 
     $languages.each(function(i, div) {
       if (!div.className) {
@@ -82,16 +85,15 @@
   }
 
   function selectStyle(style) {
-    $('link[title]').each(function(i, link) {
+    $linkTitle.each(function(i, link) {
       link.disabled = (link.title !== style);
     });
   }
 
   function initStyles() {
     var $styles;
-    var $styleContainer = $('#styles');
 
-    $('link[title]').each(function(i, link) {
+    $linkTitle.each(function(i, link) {
       $styleContainer.append('<li>' + link.title + '</li>');
     });
 
