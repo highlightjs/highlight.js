@@ -1,16 +1,16 @@
 (function() {
   'use strict';
 
-  var $window    = $(window),
-      $languages = $('#languages div'),
-      $linkTitle = $('link[title]');
+  var $window            = $(window),
+      $languages         = $('#languages div'),
+      $linkTitle         = $('link[title]'),
+      $categoryContainer = $('#categories');
 
   function resizeLists() {
-    var $categories = $('#categories'),
-        $styles     = $('#styles');
+    var $styles = $('#styles');
 
-    $categories.css('max-height', $window.height() / 4);
-    $categories.perfectScrollbar('update');
+    $categoryContainer.css('max-height', $window.height) / 4);
+    $categoryContainer.perfectScrollbar('update');
     $styles.height($window.height() - $styles.position().top - 20);
     $styles.perfectScrollbar('update');
   }
@@ -41,8 +41,7 @@
 
   function initCategories() {
     var $categories, categoryNames;
-    var categories         = {},
-        $categoryContainer = $('#categories');
+    var categories = {};
 
     $languages.each(function(i, div) {
       if (!div.className) {
