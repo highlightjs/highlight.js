@@ -4,15 +4,16 @@
   var $window            = $(window),
       $languages         = $('#languages div'),
       $linkTitle         = $('link[title]'),
-      $categoryContainer = $('#categories');
+      $categoryContainer = $('#categories'),
+      $styleContainer    = $('#styles');
 
   function resizeLists() {
-    var $styles = $('#styles');
-
     $categoryContainer.css('max-height', $window.height) / 4);
     $categoryContainer.perfectScrollbar('update');
-    $styles.height($window.height() - $styles.position().top - 20);
-    $styles.perfectScrollbar('update');
+    $styleContainer.height(
+      $window.height() - $styleContainer.position().top - 20
+    );
+    $styleContainer.perfectScrollbar('update');
   }
 
   function selectCategory(category) {
@@ -89,7 +90,6 @@
 
   function initStyles() {
     var $styles;
-    var $styleContainer = $('#styles');
 
     $linkTitle.each(function(i, link) {
       $styleContainer.append('<li>' + link.title + '</li>');
