@@ -2,7 +2,8 @@
   'use strict';
 
   var $window    = $(window),
-      $languages = $('#languages div');
+      $languages = $('#languages div'),
+      $linkTitle = $('link[title]');
 
   function resizeLists() {
     var $categories = $('#categories'),
@@ -82,7 +83,7 @@
   }
 
   function selectStyle(style) {
-    $('link[title]').each(function(i, link) {
+    $linkTitle.each(function(i, link) {
       link.disabled = (link.title !== style);
     });
   }
@@ -91,7 +92,7 @@
     var $styles;
     var $styleContainer = $('#styles');
 
-    $('link[title]').each(function(i, link) {
+    $linkTitle.each(function(i, link) {
       $styleContainer.append('<li>' + link.title + '</li>');
     });
 
