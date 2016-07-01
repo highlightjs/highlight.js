@@ -8,10 +8,12 @@
       $styleContainer    = $('#styles');
 
   function resizeLists() {
-    $categoryContainer.css('max-height', $window.height) / 4);
+    var screenHeight = $window.height()
+
+    $categoryContainer.css('max-height', screenHeight / 4);
     $categoryContainer.perfectScrollbar('update');
     $styleContainer.height(
-      $window.height() - $styleContainer.position().top - 20
+      screenHeight - $styleContainer.position().top - 20
     );
     $styleContainer.perfectScrollbar('update');
   }
