@@ -1,0 +1,18 @@
+progress: 28704
+time: 2016-07-05 12:17:02.290433Z
+test: bzrlib.doc.api.DocFileTest(/usr/lib64/python2.7/site-packages/bzrlib/doc/api/branch.txt)
+time: 2016-07-05 12:17:02.314892Z
+successful: bzrlib.doc.api.DocFileTest(/usr/lib64/python2.7/site-packages/bzrlib/doc/api/branch.txt)
+time: 2016-07-05 12:17:02.314939Z
+time: 2016-07-05 12:17:02.314991Z
+test: bzrlib.doc.api.DocFileTest(/usr/lib64/python2.7/site-packages/bzrlib/doc/api/transport.txt)
+time: 2016-07-05 12:17:02.315665Z
+successful: bzrlib.doc.api.DocFileTest(/usr/lib64/python2.7/site-packages/bzrlib/doc/api/transport.txt)
+time: 2016-07-05 12:17:02.315691Z
+time: 2016-07-05 12:17:02.315770Z
+test: bzrlib.tests.blackbox.test_add.TestAdd.test_add_control_dir(pre-views)
+time: 2016-07-05 12:17:02.368936Z
+successful: bzrlib.tests.blackbox.test_add.TestAdd.test_add_control_dir(pre-views) [ multipart
+]
+time: 2016-07-05 12:17:02.368993Z
+time: 2016-07-05 12:17:02.369079Z
