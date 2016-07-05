@@ -8,7 +8,7 @@ Note: this is intended for core committers.
 * Update version numbers using the three-part x.y.z notation everywhere:
 
   * The header in CHANGES.md (this is where the site looks for the latest version number)
-  * ``"version"`` attribute in tools/package.template.json
+  * ``"version"`` attribute in package.json
   * Two places in docs/conf.py (``version`` and ``release``)
 
 * Commit the version changes and tag the commit with the plain version number (no "v." or anything like that)

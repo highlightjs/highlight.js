@@ -215,7 +215,7 @@ tasks.readSnippet = function(options, blob, done) {
 };
 
 tasks.insertLicenseTag = function(options, blob, done) {
-  let hljsVersion = utility.packageJSON.version,
+  let hljsVersion = require('../package').version,
       licenseTag  = `/*! highlight.js v${hljsVersion} | ` +
                     `BSD3 License | git.io/hljslicense */\n`;
 
