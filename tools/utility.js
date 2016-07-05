@@ -5,6 +5,9 @@ let bluebird = require('bluebird');
 let glob     = bluebird.promisify(require('glob'));
 let path     = require('path');
 
+let packageJSON = require('./package.template');
+
+
 let Queue = require('gear').Queue;
 
 let regex       = {},
@@ -164,5 +167,6 @@ module.exports = {
   regex: regex,
   replace: replace,
   replaceClassNames: replaceClassNames,
-  toQueue: toQueue
+  toQueue: toQueue,
+  packageJSON: packageJSON
 };

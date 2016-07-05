@@ -4,9 +4,8 @@ let _        = require('lodash');
 let bluebird = require('bluebird');
 let path     = require('path');
 
-let packageJSON = require('../package');
-let registry    = require('./tasks');
-let utility     = require('./utility');
+let registry = require('./tasks');
+let utility  = require('./utility');
 
 let directory, filterCB,
     languages = utility.glob(path.join('src', 'languages', '*.js')),
@@ -115,7 +114,7 @@ function buildPackageFile() {
   return {
     startLog: { task: ['log', 'Building package.json file.'] },
     read: { requires: 'startLog', task: ['read', input] },
-    build: { requires: 'read', task: ['buildPackage', packageJSON] },
+    build: { requires: 'read', task: ['buildPackage', utility.packageJSON] },
     writeLog: {
       requires: 'build',
       task: ['log', 'Writing package.json file.']
