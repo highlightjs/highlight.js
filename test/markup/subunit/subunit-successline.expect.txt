@@ -1,0 +1,8 @@
+<span class="hljs-keyword">success test</span> simplename1
+<span class="hljs-keyword">success: test</span> simplename2
+<span class="hljs-keyword">successful test</span> simplename3
+<span class="hljs-keyword">successful: test</span> simplename4
+<span class="hljs-keyword">success test</span> simple name1
+<span class="hljs-keyword">success: test</span> simple name2
+<span class="hljs-keyword">successful test</span> simple name3
+<span class="hljs-keyword">successful: test</span> simple name4
