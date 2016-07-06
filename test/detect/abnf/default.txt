@@ -1,18 +1,22 @@
-; Core rules as defined in RFC 5234
+; Post Address Definition
 
-ALPHA   =   %x41-5A / %x61-7A
-BIT     =   "0" / "1"
-CHAR    =   %x01-7F
-CR      =   %x0D
-CRLF    =   CR LF
-CTL     =   %x00-1F / %x7F
-DIGIT   =   %x30-39
-DQUOTE  =   %x22
-HEXDIG  =   DIGIT / "A" / "B" / "C" / "D" / "E" / "F"
-HTAB    =   %x09
-LF      =   %x0A
-LWSP    =   *(WSP / CRLF WSP)
-OCTET   =   %x00-FF
-SP      =   %x20
-VCHAR   =   %x21-7E
-WSP     =   SP / HTAB
+postal-address   = name-part street zip-part
+
+name-part        = *(personal-part SP) last-name [SP suffix] CRLF
+name-part        =/ personal-part CRLF
+
+personal-part    = first-name / (initial ".")
+first-name       = *ALPHA
+initial          = ALPHA
+last-name        = *ALPHA
+suffix           = ("Jr." / "Sr." / 1*("I" / "V" / "X"))
+
+street           = [apt SP] house-num SP street-name CRLF
+apt              = 1*4DIGIT
+house-num        = 1*8(DIGIT / ALPHA)
+street-name      = 1*VCHAR
+
+zip-part         = town-name "," SP state 1*2SP zip-code CRLF
+town-name        = 1*(ALPHA / SP)
+state            = 2ALPHA
+zip-code         = 5DIGIT ["-" 4DIGIT]
