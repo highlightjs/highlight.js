@@ -1,0 +1,35 @@
+Heron(v[..])=
+{
+	my([a,b,c]=v);
+	sqrt((a+b+c)*(-a+b+c)*(a-b+c)*(a+b-c)/16);
+}
+addhelp(Heron, "Heron(a,b,c): Returns the area of a triangle with legs of length a, b, and c.");
+
+Farey(n)=
+{
+	if(type(n) != "t_INT", error("Must be an integer in Farey"));
+	my(v=List());
+	for(k=1,n,
+		for(i=0,k,
+			listput(v,i/k)
+		)
+	);
+	vecsort(Set(v));
+}
+addhelp(Farey, "Farey(n): Returns the Farey sequence of order n.");
+
+default(realprecision, 29);
+
+fib=n -> if(n<2,n,my(s=self());s(n-2)+s(n-1));	\\ Using recursion
+fib(n:int)=imag(quadgen(5)^n);	/* Using complex arithmetic */
+addhelp(fib, "fib(n): Returns the n-th Fibonacci number. Identical (except in speed) to fibonacci(n).");
+
+iferr(1/n,E,if(errname(E)=="e_INV", "n does not have an inverse", "unknown error"))
+Pi + Catalan + Euler + 1 + 1e6 + I \\ constants
+Str("Embedded \"quotes\" and "a_variable" in the middle") \\ string context
+"This is a single backslash \\, not the start of a comment"
+'this \\ literal variable = monomial, not a quote
+(x^2+1)'+1 \\ derivative of x^2+1, plus one -- nothing funny should happen to the +1
+Mod(3,9).mod; quadgen(5).disc \\ member functions
+Fibonacci=7 \\ should not be highlighted
+my(lexical); local(dynamic); global(obsolete); inline(parallel);
