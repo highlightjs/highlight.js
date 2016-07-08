@@ -1,0 +1,87 @@
+/*
+
+Styling for PARI/GP by Charles R Greathouse IV <charles@crg4.com>
+Nested styles are needed for the way gp2c types and error codes are handled.
+
+*/
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: white;
+  color: #101015;
+}
+
+.hljs-literal,
+.hljs-number {
+  color: #620;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-variable {
+  color: #008000;
+}
+
+.hljs-string .hljs-type,
+.hljs-type {
+  color: #b80;
+}
+
+.hljs-string .hljs-meta-keyword {
+  color: #20c;
+}
+
+.hljs-keyword,
+.hljs-meta-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name,
+.hljs-tag {
+  color: #00e;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-attribute,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition {
+  color: #823;
+}
+
+.hljs-doctag {
+  color: #709070;
+}
+
+/* For use with other languages */
+
+.hljs-deletion {
+  color: #39a;
+  text-decoration: line-through;
+}
+
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-meta {
+  color: #39a;
+}
+
+.hljs-attr {
+  color: #e00;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
+  color: #0be;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
