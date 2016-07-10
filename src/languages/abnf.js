@@ -46,15 +46,18 @@ function(hljs) {
         begin: "\\b(?!\\b" + keywords.join("|") + "\\b)[a-zA-Z][a-zA-Z0-9-]+\\b"
     };
 
+    var ruleNameRegex = /^[a-zA-Z][a-zA-Z0-9-]+/;
+
     var ruleNameDeclarationMode = {
         className: "type",
-        begin: /[a-zA-Z][a-zA-Z0-9-]+/,
+        begin: ruleNameRegex,
         starts: {
             end: /=/,
             excludeEnd: true,
             illegal: /\S/,
             starts: {
-                end: /$/,
+                end: ruleNameRegex, 
+                returnEnd: true,
                 keywords: keywords.join(" "),
                 contains: [
                     commentMode,
