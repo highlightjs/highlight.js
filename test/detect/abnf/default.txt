@@ -1,22 +1,22 @@
-; Post Address Definition
+; line comment
 
-postal-address   = name-part street zip-part
+ruleset     =   [optional] *(group1 / group2 / SP) CRLF ; trailing comment
 
-name-part        = *(personal-part SP) last-name [SP suffix] CRLF
-name-part        =/ personal-part CRLF
+group1      =   alt1
+group1      =/  alt2
 
-personal-part    = first-name / (initial ".")
-first-name       = *ALPHA
-initial          = ALPHA
-last-name        = *ALPHA
-suffix           = ("Jr." / "Sr." / 1*("I" / "V" / "X"))
+alt1        =   %x41-4D / %d78-90
 
-street           = [apt SP] house-num SP street-name CRLF
-apt              = 1*4DIGIT
-house-num        = 1*8(DIGIT / ALPHA)
-street-name      = 1*VCHAR
+alt2        =   %b00100001
 
-zip-part         = town-name "," SP state 1*2SP zip-code CRLF
-town-name        = 1*(ALPHA / SP)
-state            = 2ALPHA
-zip-code         = 5DIGIT ["-" 4DIGIT]
+group2      =   *1DIGIT / 2*HEXDIG / 3*4OCTET
+
+optional    =   hex-codes
+                / literal
+                / sensitive
+                / insensitive
+
+hex-codes   =   %x68.65.6C.6C.6F
+literal     =   "saluton"
+sensitive   =   %s"hi"
+insensitive =   %i"hey"
