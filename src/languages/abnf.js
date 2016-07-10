@@ -26,27 +26,27 @@ function(hljs) {
 
     var terminalBinaryMode = {
         className: "built_in",
-        begin: /%b[0-1]+-{0,1}[0-1]*/
+        begin: /%b[0-1]+(-[0-1]+|(\.[0-1]+)+){0,1}/
     };
 
     var terminalDecimalMode = {
         className: "built_in",
-        begin: /%d[0-9]+-{0,1}[0-9]*/
+        begin: /%d[0-9]+(-[0-9]+|(\.[0-9]+)+){0,1}/
     };
 
     var terminalHexadecimalMode = {
         className: "built_in",
-        begin: /%x[0-9A-F]+-{0,1}[0-9A-F]*/
+        begin: /%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+){0,1}/,
     };
 
     var commentMode = hljs.COMMENT(";", "$");
 
-    var ruleNameMode = {
+    var ruleNameRegex = /^[a-zA-Z][a-zA-Z0-9-]+/;
+
+    var ruleReferenceMode = {
         className: "type",
         begin: "\\b(?!\\b" + keywords.join("|") + "\\b)[a-zA-Z][a-zA-Z0-9-]+\\b"
     };
-
-    var ruleNameRegex = /^[a-zA-Z][a-zA-Z0-9-]+/;
 
     var ruleNameDeclarationMode = {
         className: "type",
@@ -56,12 +56,12 @@ function(hljs) {
             excludeEnd: true,
             illegal: /\S/,
             starts: {
-                end: ruleNameRegex, 
+                end: ruleNameRegex,
                 returnEnd: true,
                 keywords: keywords.join(" "),
                 contains: [
                     commentMode,
-                    ruleNameMode,
+                    ruleReferenceMode,
                     terminalBinaryMode,
                     terminalDecimalMode,
                     terminalHexadecimalMode,
