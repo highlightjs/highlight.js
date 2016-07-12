@@ -7,21 +7,21 @@ Author: Alex McKibben <alex@nullscope.net>
 function(hljs) {
     var keywords = [
         "ALPHA",
-        "DIGIT",
-        "HEXDIG",
-        "DQUOTE",
-        "SP",
-        "HTAB",
-        "WSP",
-        "LWSP",
-        "VCHAR",
+        "BIT",
         "CHAR",
-        "OCTET",
-        "CTL",
         "CR",
-        "LF",
         "CRLF",
-        "BIT"
+        "CTL",
+        "DIGIT",
+        "DQUOTE",
+        "HEXDIG",
+        "HTAB",
+        "LF",
+        "LWSP",
+        "OCTET",
+        "SP",
+        "VCHAR",
+        "WSP"
     ];
 
     var terminalBinaryMode = {
@@ -39,14 +39,14 @@ function(hljs) {
         begin: /%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+){0,1}/,
     };
 
-    var commentMode = hljs.COMMENT(";", "$");
-
     var ruleNameRegex = /^[a-zA-Z][a-zA-Z0-9-]+/;
 
     var ruleReferenceMode = {
         className: "type",
         begin: "\\b(?!\\b" + keywords.join("|") + "\\b)[a-zA-Z][a-zA-Z0-9-]+\\b"
     };
+
+    var commentMode = hljs.COMMENT(";", "$");
 
     var ruleNameDeclarationMode = {
         className: "type",
