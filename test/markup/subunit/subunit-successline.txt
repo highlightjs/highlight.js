@@ -1,0 +1,8 @@
+success test simplename1
+success: test simplename2
+successful test simplename3
+successful: test simplename4
+success test simple name1
+success: test simple name2
+successful test simple name3
+successful: test simple name4
