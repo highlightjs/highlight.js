@@ -5,7 +5,7 @@ Description: Lasso is a language and server platform for database-driven web app
 */
 
 function(hljs) {
-  var LASSO_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*';
+  var LASSO_IDENT_RE = '[a-zA-Z_][\\w.]*';
   var LASSO_ANGLE_RE = '<\\?(lasso(script)?|=)';
   var LASSO_CLOSE_RE = '\\]|\\?>';
   var LASSO_KEYWORDS = {
@@ -60,10 +60,6 @@ function(hljs) {
     begin: '\'' + LASSO_IDENT_RE + '\''
   };
   var LASSO_CODE = [
-    hljs.COMMENT(
-      '/\\*\\*!',
-      '\\*/'
-    ),
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.inherit(hljs.C_NUMBER_MODE, {begin: hljs.C_NUMBER_RE + '|(-?infinity|NaN)\\b'}),
@@ -102,7 +98,7 @@ function(hljs) {
       ]
     },
     {
-      begin: /(->|\.\.?)\s*/,
+      begin: /(->|\.)\s*/,
       relevance: 0,
       contains: [LASSO_DATAMEMBER]
     },
@@ -164,7 +160,7 @@ function(hljs) {
       },
       {
         className: 'meta',
-        begin: '^#!.+lasso9\\b',
+        begin: '^#!', end:'lasso9$',
         relevance: 10
       }
     ].concat(LASSO_CODE)
