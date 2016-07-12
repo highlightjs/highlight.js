@@ -28,7 +28,6 @@ function(hljs) {
     ],
   };
   return {
-    aliases: ['subunit'],
     case_insensitive: true,
     contains: [
       DETAILS,
