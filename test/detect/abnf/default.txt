@@ -17,6 +17,6 @@ optional    =   hex-codes
                 / insensitive
 
 hex-codes   =   %x68.65.6C.6C.6F
-literal     =   "saluton"
-sensitive   =   %s"hi"
-insensitive =   %i"hey"
+literal     =   "string literal"
+sensitive   =   %s"case-sensitive string"
+insensitive =   %i"case-insensitive string"
