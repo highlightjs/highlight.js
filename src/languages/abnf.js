@@ -5,7 +5,6 @@ Author: Alex McKibben <alex@nullscope.net>
 */
 
 function(hljs) {
-    // reusable regular expressions
     var regexes = {
         ruleDeclaration: /^[a-zA-Z][a-zA-Z0-9-]*/,
         ruleReference: /[a-zA-Z][a-zA-Z0-9-]*/,
@@ -38,22 +37,22 @@ function(hljs) {
     var commentMode = hljs.COMMENT(";", "$");
 
     var terminalBinaryMode = {
-        className: "built_in",
+        className: "symbol",
         begin: /%b[0-1]+(-[0-1]+|(\.[0-1]+)+){0,1}/
     };
 
     var terminalDecimalMode = {
-        className: "built_in",
+        className: "symbol",
         begin: /%d[0-9]+(-[0-9]+|(\.[0-9]+)+){0,1}/
     };
 
     var terminalHexadecimalMode = {
-        className: "built_in",
+        className: "symbol",
         begin: /%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+){0,1}/,
     };
 
     var caseSensitivityIndicatorMode = {
-        className: "built_in",
+        className: "symbol",
         begin: /%[si]/
     };
 
