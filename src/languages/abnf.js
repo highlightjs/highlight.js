@@ -5,6 +5,13 @@ Author: Alex McKibben <alex@nullscope.net>
 */
 
 function(hljs) {
+    // reusable regular expressions
+    var regexes = {
+        ruleDeclaration: /^[a-zA-Z][a-zA-Z0-9-]*/,
+        ruleReference: /[a-zA-Z][a-zA-Z0-9-]*/,
+        unexpectedChars: /[!@#$^&',?+~`|:]/
+    };
+
     var keywords = [
         "ALPHA",
         "BIT",
@@ -24,6 +31,12 @@ function(hljs) {
         "WSP"
     ];
 
+    var keywordMode = {
+        beginKeywords: keywords.join(" ")
+    };
+
+    var commentMode = hljs.COMMENT(";", "$");
+
     var terminalBinaryMode = {
         className: "built_in",
         begin: /%b[0-1]+(-[0-1]+|(\.[0-1]+)+){0,1}/
@@ -39,28 +52,25 @@ function(hljs) {
         begin: /%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+){0,1}/,
     };
 
-    var ruleNameRegex = /^[a-zA-Z][a-zA-Z0-9-]+/;
-
     var ruleReferenceMode = {
         className: "type",
-        begin: "\\b(?!\\b" + keywords.join("|") + "\\b)[a-zA-Z][a-zA-Z0-9-]+\\b"
+        begin: regexes.ruleReference
     };
 
-    var commentMode = hljs.COMMENT(";", "$");
-
-    var ruleNameDeclarationMode = {
+    var ruleDeclarationMode = {
         className: "type",
-        begin: ruleNameRegex,
+        begin: regexes.ruleDeclaration,
         starts: {
             end: /=/,
             excludeEnd: true,
             illegal: /\S/,
             starts: {
-                end: ruleNameRegex,
+                end: regexes.ruleDeclaration,
                 returnEnd: true,
-                keywords: keywords.join(" "),
+                illegal: regexes.unexpectedChars,
                 contains: [
                     commentMode,
+                    keywordMode,
                     ruleReferenceMode,
                     terminalBinaryMode,
                     terminalDecimalMode,
@@ -75,7 +85,7 @@ function(hljs) {
     return {
         contains: [
             commentMode,
-            ruleNameDeclarationMode
+            ruleDeclarationMode
         ]
     };
 }
