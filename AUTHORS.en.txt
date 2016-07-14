@@ -223,3 +223,4 @@ Contributors:
 - Sergey Bronnikov <sergeyb@bronevichok.ru>
 - Joe Eli McIlvain <joe.eli.mac@gmail.org>
 - Stephan Boyer <stephan@stephanboyer.com>
+- Alex McKibben <alex@nullscope.net>
