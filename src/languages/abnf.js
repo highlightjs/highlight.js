@@ -52,6 +52,11 @@ function(hljs) {
         begin: /%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+){0,1}/,
     };
 
+    var caseSensitivityIndicatorMode = {
+        className: "built_in",
+        begin: /%[si]/
+    };
+
     var ruleReferenceMode = {
         className: "type",
         begin: regexes.ruleReference
@@ -75,6 +80,7 @@ function(hljs) {
                     terminalBinaryMode,
                     terminalDecimalMode,
                     terminalHexadecimalMode,
+                    caseSensitivityIndicatorMode,
                     hljs.QUOTE_STRING_MODE,
                     hljs.NUMBER_MODE
                 ]
