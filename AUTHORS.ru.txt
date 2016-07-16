@@ -223,3 +223,4 @@ URL:   https://highlightjs.org/
 - Сергей Бронников <sergeyb@bronevichok.ru>
 - Джо Эли Макилвейн <joe.eli.mac@gmail.com>
 - Стефан Боер <stephan@stephanboyer.com>
+- Алекс МакКиббен <alex@nullscope.net>
