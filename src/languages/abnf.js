@@ -5,9 +5,9 @@ Author: Alex McKibben <alex@nullscope.net>
 
 function(hljs) {
     var regexes = {
-        ruleDeclaration: /^[a-zA-Z][a-zA-Z0-9-]*/,
-        ruleReference: /[a-zA-Z][a-zA-Z0-9-]*/,
-        unexpectedChars: /[!@#$^&',?+~`|:]/
+        ruleDeclaration: "^[a-zA-Z][a-zA-Z0-9-]*",
+        ruleReference: "[a-zA-Z][a-zA-Z0-9-]*",
+        unexpectedChars: "[!@#$^&',?+~`|:]"
     };
 
     var keywords = [
@@ -61,35 +61,26 @@ function(hljs) {
     };
 
     var ruleDeclarationMode = {
-        className: "type",
-        begin: regexes.ruleDeclaration,
-        starts: {
-            end: /=/,
-            excludeEnd: true,
-            illegal: /\S/,
-            starts: {
-                end: regexes.ruleDeclaration,
-                returnEnd: true,
-                illegal: regexes.unexpectedChars,
-                contains: [
-                    commentMode,
-                    keywordMode,
-                    ruleReferenceMode,
-                    terminalBinaryMode,
-                    terminalDecimalMode,
-                    terminalHexadecimalMode,
-                    caseSensitivityIndicatorMode,
-                    hljs.QUOTE_STRING_MODE,
-                    hljs.NUMBER_MODE
-                ]
-            }
-        }
+        begin: regexes.ruleDeclaration + '\\s*=',
+        returnBegin: true,
+        end: /=/,
+        relevance: 0,
+        contains: [{className: "attribute", begin: regexes.ruleDeclaration}]
     };
 
     return {
-        contains: [
-            commentMode,
-            ruleDeclarationMode
-        ]
+      illegal: regexes.unexpectedChars,
+      contains: [
+          ruleDeclarationMode,
+          commentMode,
+          keywordMode,
+          ruleReferenceMode,
+          terminalBinaryMode,
+          terminalDecimalMode,
+          terminalHexadecimalMode,
+          caseSensitivityIndicatorMode,
+          hljs.QUOTE_STRING_MODE,
+          hljs.NUMBER_MODE
+      ]
     };
 }
