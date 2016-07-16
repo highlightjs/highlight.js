@@ -6,7 +6,6 @@ Author: Alex McKibben <alex@nullscope.net>
 function(hljs) {
     var regexes = {
         ruleDeclaration: "^[a-zA-Z][a-zA-Z0-9-]*",
-        ruleReference: "[a-zA-Z][a-zA-Z0-9-]*",
         unexpectedChars: "[!@#$^&',?+~`|:]"
     };
 
@@ -55,11 +54,6 @@ function(hljs) {
         begin: /%[si]/
     };
 
-    var ruleReferenceMode = {
-        className: "type",
-        begin: regexes.ruleReference
-    };
-
     var ruleDeclarationMode = {
         begin: regexes.ruleDeclaration + '\\s*=',
         returnBegin: true,
@@ -74,7 +68,6 @@ function(hljs) {
           ruleDeclarationMode,
           commentMode,
           keywordMode,
-          ruleReferenceMode,
           terminalBinaryMode,
           terminalDecimalMode,
           terminalHexadecimalMode,
