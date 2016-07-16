@@ -1,6 +1,5 @@
 /*
 Language: Augmented Backus-Naur Form
-Category: Meta
 Author: Alex McKibben <alex@nullscope.net>
 */
 
