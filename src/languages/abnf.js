@@ -28,10 +28,6 @@ function(hljs) {
         "WSP"
     ];
 
-    var keywordMode = {
-        beginKeywords: keywords.join(" ")
-    };
-
     var commentMode = hljs.COMMENT(";", "$");
 
     var terminalBinaryMode = {
@@ -64,10 +60,10 @@ function(hljs) {
 
     return {
       illegal: regexes.unexpectedChars,
+      keywords: keywords.join(" "),
       contains: [
           ruleDeclarationMode,
           commentMode,
-          keywordMode,
           terminalBinaryMode,
           terminalDecimalMode,
           terminalHexadecimalMode,
