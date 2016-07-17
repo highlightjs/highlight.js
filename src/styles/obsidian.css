@@ -4,10 +4,10 @@
  */
 
 .hljs {
+  background-color: #282b2e;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #282b2e;
 }
 
 .hljs-keyword,

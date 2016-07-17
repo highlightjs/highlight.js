@@ -5,10 +5,10 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 */
 
 .hljs {
+  background-color: #fff;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #FFFFFF;
 }
 
 .hljs,
@@ -21,7 +21,7 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 .hljs-selector-tag,
 .hljs-doctag,
 .hljs-name {
-  color: #00979D;
+  color: #00979d;
 }
 
 .hljs-built_in,
@@ -29,7 +29,7 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 .hljs-bullet,
 .hljs-code,
 .hljs-addition {
-  color: #D35400;
+  color: #d35400;
 }
 
 .hljs-regexp,
@@ -39,7 +39,7 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 .hljs-link,
 .hljs-selector-attr,
 .hljs-selector-pseudo {
-  color: #00979D;
+  color: #00979d;
 }
 
 .hljs-type,
@@ -49,7 +49,7 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 .hljs-quote,
 .hljs-template-tag,
 .hljs-deletion {
-  color: #005C5F;
+  color: #005c5f;
 }
 
 .hljs-title,
@@ -59,7 +59,7 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 }
 
 .hljs-comment {
-  color: rgba(149,165,166,.8);
+  color: rgba(149, 165, 166, 0.8);
 }
 
 .hljs-meta-keyword {
@@ -84,5 +84,5 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 }
 
 .hljs-number {
-  color: #8A7B52;  
+  color: #8a7b52;
 }

@@ -59,10 +59,10 @@
 }
 
 .hljs {
+  background-color: #002451;
+  color: #fff;
   display: block;
   overflow-x: auto;
-  background: #002451;
-  color: white;
   padding: 0.5em;
 }
 

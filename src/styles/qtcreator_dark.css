@@ -6,10 +6,10 @@ Qt Creator dark color scheme
 
 
 .hljs {
+  background-color: #000;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #000000;
 }
 
 .hljs,
@@ -49,17 +49,17 @@ Qt Creator dark color scheme
 .hljs-section,
 .hljs-symbol,
 .hljs-name {
-  color: #ffff55;
+  color: #ff5;
 }
 
 .hljs-attribute {
-  color: #ff5555;
+  color: #ff5;
 }
 
 .hljs-variable,
 .hljs-params,
 .hljs-class .hljs-title {
-  color: #8888ff;
+  color: #88f;
 }
 
 .hljs-string,
@@ -73,11 +73,11 @@ Qt Creator dark color scheme
 .hljs-template-variable,
 .hljs-addition,
 .hljs-link {
-  color: #ff55ff;
+  color: #f5f;
 }
 
 .hljs-comment,
 .hljs-meta,
 .hljs-deletion {
-  color: #55ffff;
+  color: #5ff;
 }

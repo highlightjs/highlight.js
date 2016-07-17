@@ -5,11 +5,11 @@
 */
 
 .hljs {
+  background-color: #222;
+  color: #fff;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #222;
-  color: #fff;
 }
 
 .hljs-comment,

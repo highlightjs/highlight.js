@@ -4,11 +4,11 @@
  */
 
 .hljs {
+  background-color: #fff;
+  color: #333;
   display: block;
-  background: white;
-  padding: 0.5em;
-  color: #333333;
   overflow-x: auto;
+  padding: 0.5em;
 }
 
 .hljs-comment,
@@ -44,7 +44,7 @@
 }
 
 .hljs-tag {
-  color: #333333;
+  color: #333;
 }
 
 .hljs-title,
@@ -57,13 +57,13 @@
 }
 
 .hljs-addition {
-  color: #55a532;
   background-color: #eaffea;
+  color: #55a532;
 }
 
 .hljs-deletion {
-  color: #bd2c00;
   background-color: #ffecec;
+  color: #bd2c00;
 }
 
 .hljs-link {

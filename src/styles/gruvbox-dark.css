@@ -5,10 +5,10 @@ Gruvbox style (dark) (c) Pavel Pertsev (original style at https://github.com/mor
 */
 
 .hljs {
+  background-color: #282828;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #282828;
 }
 
 .hljs,

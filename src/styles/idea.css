@@ -5,17 +5,17 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 */
 
 .hljs {
+  background-color: #fff;
+  color: #000;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  color: #000;
-  background: #fff;
 }
 
 .hljs-subst,
 .hljs-title {
-  font-weight: normal;
   color: #000;
+  font-weight: normal;
 }
 
 .hljs-comment,
@@ -40,16 +40,16 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-type,
 .hljs-selector-id,
 .hljs-selector-class {
-  font-weight: bold;
   color: #000080;
+  font-weight: bold;
 }
 
 .hljs-attribute,
 .hljs-number,
 .hljs-regexp,
 .hljs-link {
-  font-weight: bold;
   color: #0000ff;
+  font-weight: bold;
 }
 
 .hljs-number,
@@ -66,8 +66,8 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-symbol,
 .hljs-bullet,
 .hljs-formula {
+  background-color: #d0eded;
   color: #000;
-  background: #d0eded;
   font-style: italic;
 }
 
@@ -81,11 +81,11 @@ Intellij Idea-like styling (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 .hljs-addition {
-  background: #baeeba;
+  background-color: #baeeba;
 }
 
 .hljs-deletion {
-  background: #ffc8bd;
+  background-color: #ffc8bd;
 }
 
 .hljs-emphasis {

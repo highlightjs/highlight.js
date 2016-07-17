@@ -7,11 +7,14 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 */
 
 .hljs {
+  background-attachment: scroll;
+  background-color: #181914;
+  background-image: url('./pojoaque.jpg');
+  background-repeat: repeat;
+  color: #dccf8f;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  color: #dccf8f;
-  background: url(./pojoaque.jpg) repeat scroll left top #181914;
 }
 
 .hljs-comment,

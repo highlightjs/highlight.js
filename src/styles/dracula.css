@@ -15,10 +15,10 @@ http://zenorocha.mit-license.org
 */
 
 .hljs {
+  background-color: #282a36;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #282a36;
 }
 
 .hljs-keyword,

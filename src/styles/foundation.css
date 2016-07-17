@@ -7,10 +7,11 @@ Date: 2013-04-02
 */
 
 .hljs {
+  background-color: #eee;
+  color: #000;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #eee; color: black;
 }
 
 .hljs-link,
@@ -52,15 +53,15 @@ Date: 2013-04-02
 
 .hljs-variable,
 .hljs-template-variable {
-  color: #336699;
+  color: #369;
 }
 
 .hljs-bullet {
-  color: #997700;
+  color: #970;
 }
 
 .hljs-meta {
-  color: #3344bb;
+  color: #34b;
 }
 
 .hljs-code,

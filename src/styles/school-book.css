@@ -6,22 +6,23 @@ School Book style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 
 .hljs {
   display: block;
+  font-size: 11px;
+  line-height: 16px;
   overflow-x: auto;
   padding: 15px 0.5em 0.5em 30px;
-  font-size: 11px;
-  line-height:16px;
 }
 
-pre{
-  background:#f6f6ae url(./school-book.png);
-  border-top: solid 2px #d2e8b9;
+pre {
+  background-color: #f6f6ae;
+  background-image: url('./school-book.png');
   border-bottom: solid 1px #d2e8b9;
+  border-top: solid 2px #d2e8b9;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal {
-  color:#005599;
+  color: #005599;
   font-weight:bold;
 }
 

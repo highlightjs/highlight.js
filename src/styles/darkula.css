@@ -6,10 +6,10 @@ Darkula color scheme from the JetBrains family of IDEs
 
 
 .hljs {
+  background-color: #2b2b2b;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #2b2b2b;
 }
 
 .hljs {

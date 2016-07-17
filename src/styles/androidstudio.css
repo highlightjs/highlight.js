@@ -4,8 +4,8 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 */
 
 .hljs {
+  background-color: #282b2e;
   color: #a9b7c6;
-  background: #282b2e;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -15,7 +15,7 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 .hljs-literal,
 .hljs-symbol,
 .hljs-bullet {
-  color: #6897BB;
+  color: #6897bb;
 }
 
 .hljs-keyword,
@@ -42,7 +42,7 @@ Author: Pedro Oliveira <kanytu@gmail . com>
 .hljs-string,
 .hljs-attribute,
 .hljs-addition {
-  color: #6A8759;
+  color: #6a8759;
 }
 
 .hljs-section,

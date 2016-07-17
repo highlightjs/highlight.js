@@ -5,11 +5,11 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 */
 
 .hljs {
+  background-color: white;
+  color: black;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: white;
-  color: black;
 }
 
 .hljs-string,
