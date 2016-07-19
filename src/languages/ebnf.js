@@ -1,9 +1,13 @@
 /*
 Language: Extended Backus-Naur Form
-Category: Meta
 Author: Alex McKibben <alex@nullscope.net>
 */
 
 function(hljs) {
-    return {};
+    return {
+        contains: [
+            // terminals
+            hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE
+        ]
+    };
 }
