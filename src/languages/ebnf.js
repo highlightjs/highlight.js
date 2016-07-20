@@ -4,6 +4,8 @@ Author: Alex McKibben <alex@nullscope.net>
 */
 
 function(hljs) {
+    var unexpectedChars = /[:!@#%&+/$^.*]/;
+
     var nonTerminalMode = {
         className: "attribute",
         begin: /^[ ]*[a-zA-Z][a-zA-Z-]*([\s-]+[a-zA-Z][a-zA-Z]*)*/,
@@ -15,6 +17,7 @@ function(hljs) {
     };
 
     return {
+        illegal: unexpectedChars,
         contains: [
             nonTerminalMode,
             specialSequenceMode,
