@@ -1,3 +1,12 @@
+## Version 9.6.0 (not released)
+
+New languages:
+
+- *ENBF* by [Alex McKibben][]
+
+[Alex McKibben]: https://github.com/mckibbenta
+
+
 ## Version 9.5.0
 
 New languages:
