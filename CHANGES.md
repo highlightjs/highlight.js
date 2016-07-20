@@ -2,7 +2,8 @@
 
 New languages:
 
-- *ENBF* by [Alex McKibben][]
+- *ABNF* by [Alex McKibben][]
+- *EBNF* by [Alex McKibben][]
 
 [Alex McKibben]: https://github.com/mckibbenta
 
