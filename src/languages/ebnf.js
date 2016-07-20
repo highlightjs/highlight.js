@@ -6,7 +6,7 @@ Author: Alex McKibben <alex@nullscope.net>
 function(hljs) {
     var nonTerminalMode = {
         className: "attribute",
-        begin: /[a-zA-Z][a-zA-Z-]*([\s-]+[a-zA-Z][a-zA-Z]*)*/
+        begin: /^[ ]*[a-zA-Z][a-zA-Z-]*([\s-]+[a-zA-Z][a-zA-Z]*)*/,
     };
 
     var specialSequenceMode = {
