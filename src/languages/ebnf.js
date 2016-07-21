@@ -4,8 +4,6 @@ Author: Alex McKibben <alex@nullscope.net>
 */
 
 function(hljs) {
-    var unexpectedChars = /[:!@#%&+/$^.*]/;
-
     var commentMode = hljs.COMMENT(/\(\*/, /\*\)/);
 
     var nonTerminalMode = {
@@ -29,7 +27,7 @@ function(hljs) {
     };
 
     return {
-        illegal: unexpectedChars,
+        illegal: /\S/,
         contains: [
             commentMode,
             nonTerminalMode,
