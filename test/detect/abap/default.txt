@@ -15,5 +15,12 @@
     IF space EQ abap_true.
       RETURN.
     ENDIF.
+    
+    TRY.
+      CALL FUNCTION z_test DESTINATION lc_rfc_dest
+        EXPORTING iv_test_var = lv_test_var
+        IMPORTING ev_test = lv_test.
+    CATCH lx_exception.
+    ENDTRY.
 
   ENDMETHOD.
