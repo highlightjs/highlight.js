@@ -1,6 +1,6 @@
 /*
 Language: ABAP
-Author: Cassio Binkowski <cassioiks@gmail.com>
+Author: Cassio Binkowski <cassioiks@live.com>
 Description: SAP ABAP language description
 */
 
