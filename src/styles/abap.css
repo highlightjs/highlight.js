@@ -1,0 +1,33 @@
+/*
+ABAP styles by Cassio Binkowski <cassioiks@gmail.com>
+*/
+
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+}
+.hljs-keyword{
+	color: #0005fb;
+	}
+.hljs-string{
+	color: #4da31e;
+	}
+.hljs-comment{
+	color: #7c7879;
+	font-style: italic;
+	}
+.hljs-built_in{
+	color: #000007;
+	font-weight: bold;
+}
+.hljs-literal{
+	color: #000007;
+}
+.hljs-subst {
+  color: black;
+}
+.hljs-number{
+	color: #5aceff;
+}
