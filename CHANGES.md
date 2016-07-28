@@ -3,9 +3,10 @@
 New languages:
 
 - *ABNF* by [Alex McKibben][]
+- *ABAP* by [Cassio Binkowski][]
 
 [Alex McKibben]: https://github.com/mckibbenta
-
+[Cassio Binkowski]: https://github.com/cassioiks
 
 ## Version 9.5.0
 

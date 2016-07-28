@@ -224,3 +224,4 @@ Contributors:
 - Joe Eli McIlvain <joe.eli.mac@gmail.org>
 - Stephan Boyer <stephan@stephanboyer.com>
 - Alex McKibben <alex@nullscope.net>
+- Cassio Binkowski <cassioiks@gmail.com>
