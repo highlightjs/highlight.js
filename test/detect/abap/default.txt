@@ -1,0 +1,19 @@
+  METHOD read_flight_schedules.
+
+    SELECT * FROM zgw_spfli INTO TABLE rt_spfli
+      WHERE carrid IN it_carrid_selopt
+      AND connid IN it_connid_selopt.
+
+    IF 1 GT 2.
+    ENDIF.
+
+*this is a commentary
+    "this is also a commentary
+
+    DATA: lc_string TYPE string VALUE 'This is a string'.
+
+    IF space EQ abap_true.
+      RETURN.
+    ENDIF.
+
+  ENDMETHOD.
