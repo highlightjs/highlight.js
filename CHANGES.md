@@ -391,7 +391,7 @@ New languages:
 New styles:
 
 - *Agate* by [Taufik Nurrohman][]
-- *Darkula* by [Jet Brains][]
+- *Darcula* by [JetBrains][]
 - *Atelier Sulphurpool* by [Bram de Haan][]
 - *Android Studio* by [Pedro Oliveira][]
 
