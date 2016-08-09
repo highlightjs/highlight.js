@@ -4,7 +4,13 @@ New languages:
 
 - *ABNF* and *EBNF* by [Alex McKibben][]
 
+New styles:
+
+- *Atom One Dark* by [Daniel Gamage][]
+- *Atom One Light* by [Daniel Gamage][]
+
 [Alex McKibben]: https://github.com/mckibbenta
+[Daniel Gamage]: https://github.com/danielgamage
 
 
 ## Version 9.5.0
