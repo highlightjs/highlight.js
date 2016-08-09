@@ -34,53 +34,39 @@ function(hljs) {
   var LEXEMES = /\b[':.]?[a-zA-Z0-9_]+\b/;
   var GP_NUMBER_REGEX = /\b-?((([0-9]*\.[0-9]+)|([0-9]+(\.[0-9]*)?[Ee]-?[0-9]+)|-?(\.[0-9]+[Ee]-?[0-9]+)|([0-9]+\.))|[0-9]+|0[xX][0-9a-fA-F]*|0[bB][01]*)/;
   var GP_MONOMIAL_REGEX = /'[a-zA-Z][a-zA-Z0-9_]*\b/;
-  var GP_TYPE_REGEX = /\bt_(INT|REAL|INTMOD|FRAC|FFELT|COMPLEX|PADIC|QUAD|POLMOD|POL|SER|RFRAC|QFR|QFI|VEC|COL|MAT|LIST|STR|VECSMALL|CLOSURE)/;
-  var GP_ERROR_REGEX = /\be_(SYNTAX|BUG|ALARM|FILE|MISC|FLAG|IMPL|ARCH|PACKAGE|NOTFUNC|PREC|TYPE|DIM|VAR|PRIORITY|USER|STACK|OVERFLOW|DOMAIN|COMPONENT|MAXPRIME|CONSTPOL|IRREDPOL|COPRIME|PRIME|MODULUS|ROOTS0|OP|TYPE2|INV|MEM|SQRTN|NONE)\b/;
+  var GP_TYPE_REGEX = /\b"t_(INT|REAL|INTMOD|FRAC|FFELT|COMPLEX|PADIC|QUAD|POLMOD|POL|SER|RFRAC|QFR|QFI|VEC|COL|MAT|LIST|STR|VECSMALL|CLOSURE)/;
+  var GP_ERROR_REGEX = /\b"e_(SYNTAX|BUG|ALARM|FILE|MISC|FLAG|IMPL|ARCH|PACKAGE|NOTFUNC|PREC|TYPE|DIM|VAR|PRIORITY|USER|STACK|OVERFLOW|DOMAIN|COMPONENT|MAXPRIME|CONSTPOL|IRREDPOL|COPRIME|PRIME|MODULUS|ROOTS0|OP|TYPE2|INV|MEM|SQRTN|NONE)\b/;
   var GP_DEFAULT_REGEX = /(breakloop|colors|compatible|datadir|debug|debugfiles|debugmem|echo|factor_add_primes|factor_proven|format|graphcolormap|graphcolors|help|histfile|histsize|lines|linewrap|log|logfile|nbthreads|new_galois_format|output|parisize|parisizemax|path|prettyprinter|primelimit|prompt|prompt_cont|psfile|readline|realbitprecision|realprecision|recover|secure|seriesprecision|simplify|sopath|strictargs|strictmatch|TeXstyle|threadsize|threadsizemax|timer)/;
   var GP_MEMBER_FUNCTION_REGEX = /\.(a[1-6]|b[2-8]|c[4-6]|area|bid|bnf|clgp|cyc|diff|codiff|disc|e|f|fu|gen|group|index|j|mod|nf|no|omega|eta|orders|p|pol|polabs|reg|roots|sign|r[12]|t2|tate|tu|zk|zkst)/;
   
   var GP_NUMBER = {className: 'number', begin: GP_NUMBER_REGEX, relevance: 0};
   var GP_MONOMIAL = {className: 'literal', begin: GP_MONOMIAL_REGEX, relevance: 0};
   var GP2C_TYPE = {className: 'type', begin: /:(void|bool|negbool|small|int|real|mp|var|pol|vecsmall|vec|list|str|genstr|gen|lg|typ|nf|bnf|bnr|ell|gal|prid)/, relevance: 5};
-  var GP_TYPE = {className: 'type', begin: GP_TYPE_REGEX, relevance: 10}
-  var GP_ERROR = {className: 'meta-keyword', begin: GP_ERROR_REGEX, relevance: 10};
+  var GP_TYPE = {className: 'type', begin: GP_TYPE_REGEX, end: /"/, relevance: 10}
+  var GP_ERROR = {className: 'meta-keyword', begin: GP_ERROR_REGEX, end: /"/, relevance: 10};
   var GP_MEMBER_FUNCTION = {className: 'keyword', begin: GP_MEMBER_FUNCTION_REGEX, relevance: 0};
   var GP_DEFAULT = {className: 'keyword', begin: GP_DEFAULT_REGEX};
-  var GP_LINE_COMMENT = {
-    className: 'comment',
-    begin: /\\\\/, end: /$/,
-    relevance: 5,
-    contains: [
-      hljs.PHRASAL_WORDS_MODE,
-      {
-        className: 'doctag',
-        begin: /\b(?:TODO|FIXME|NOTE|BUG|XXX)\b/
-      }
-    ]
-  };
-  var GP_STRING = {
-    className: 'string',
-    begin: '"', end: '"',
-    illegal: /\n/,
-    contains: [
-      GP_TYPE,
-      GP_ERROR,
-      hljs.BACKSLASH_ESCAPE
-    ]
-  };
+  var GP_LINE_COMMENT = hljs.COMMENT(/\\\\/, /$/, {relevance: 5});
+
+  var GP_BUILT_IN = {
+    className: 'built_in',
+    begin: /"[te]_(INT|REAL| ... )"/
+  }
   
   return {
     aliases: ['gp', 'gpi'],
     lexemes: LEXEMES,
     keywords: GP_KEYWORDS,
     contains: [
+	  GP_TYPE,
+	  GP_ERROR,
       GP_NUMBER,
       GP_MONOMIAL,
       GP2C_TYPE,
       GP_LINE_COMMENT,
-      GP_STRING,
       GP_MEMBER_FUNCTION,
       GP_DEFAULT,
+      hljs.QUOTED_STRING_MODE,
       hljs.C_BLOCK_COMMENT_MODE
     ]
   };
