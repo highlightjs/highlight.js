@@ -6,8 +6,7 @@ New languages:
 
 New styles:
 
-- *Atom One Dark* by [Daniel Gamage][]
-- *Atom One Light* by [Daniel Gamage][]
+- *Atom One* in both Dark and Light variants  by [Daniel Gamage][]
 
 [Alex McKibben]: https://github.com/mckibbenta
 [Daniel Gamage]: https://github.com/danielgamage
