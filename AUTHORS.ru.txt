@@ -224,3 +224,4 @@ URL:   https://highlightjs.org/
 - Джо Эли Макилвейн <joe.eli.mac@gmail.com>
 - Стефан Боер <stephan@stephanboyer.com>
 - Алекс МакКиббен <alex@nullscope.net>
+- Дэниел Гэмадж <hellodanielgamage@gmail.com>
