@@ -3,6 +3,7 @@
 New languages:
 
 - *ABNF* by [Alex McKibben][]
+- *EBNF* by [Alex McKibben][]
 
 [Alex McKibben]: https://github.com/mckibbenta
 
