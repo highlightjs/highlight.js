@@ -47,19 +47,14 @@ function(hljs) {
   var GP_MEMBER_FUNCTION = {className: 'keyword', begin: GP_MEMBER_FUNCTION_REGEX, relevance: 0};
   var GP_DEFAULT = {className: 'keyword', begin: GP_DEFAULT_REGEX};
   var GP_LINE_COMMENT = hljs.COMMENT(/\\\\/, /$/, {relevance: 5});
-
-  var GP_BUILT_IN = {
-    className: 'built_in',
-    begin: /"[te]_(INT|REAL| ... )"/
-  }
   
   return {
     aliases: ['gp', 'gpi'],
     lexemes: LEXEMES,
     keywords: GP_KEYWORDS,
     contains: [
-	  GP_TYPE,
-	  GP_ERROR,
+      GP_TYPE,
+      GP_ERROR,
       GP_NUMBER,
       GP_MONOMIAL,
       GP2C_TYPE,
