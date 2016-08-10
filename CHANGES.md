@@ -3,6 +3,7 @@
 New languages:
 
 - *ABNF* and *EBNF* by [Alex McKibben][]
+- *Awk* by [Matthew Daly][]
 
 New styles:
 
@@ -10,6 +11,7 @@ New styles:
 
 [Alex McKibben]: https://github.com/mckibbenta
 [Daniel Gamage]: https://github.com/danielgamage
+[Matthew Daly]: https://github.com/matthewbdaly
 
 
 ## Version 9.5.0
