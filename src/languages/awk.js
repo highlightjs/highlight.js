@@ -3,7 +3,6 @@ Language: Awk
 Author: Matthew Daly <matthewbdaly@gmail.com>
 Website: http://matthewdaly.co.uk/
 Description: language definition for Awk scripts
-Category: common
 */
 
 function(hljs) {
