@@ -225,3 +225,4 @@ URL:   https://highlightjs.org/
 - Стефан Боер <stephan@stephanboyer.com>
 - Алекс МакКиббен <alex@nullscope.net>
 - Дэниел Гэмадж <hellodanielgamage@gmail.com>
+- Мэттью Дэли <matthewbdaly@gmail.com>
