@@ -16,7 +16,7 @@ function(hljs) {
           'delete do handler insert load replace select truncate update set show pragma grant ' +
           'merge describe use explain help declare prepare execute deallocate release ' +
           'unlock purge reset change stop analyze cache flush optimize repair kill ' +
-          'install uninstall checksum restore check backup revoke',
+          'install uninstall checksum restore check backup revoke comment',
         end: /;/, endsWithParent: true,
         lexemes: /[\w\.]+/,
         keywords: {
