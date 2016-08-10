@@ -1,17 +1,21 @@
-## Version 9.6.0 (not released)
+## Version 9.6.0
 
 New languages:
 
 - *ABNF* and *EBNF* by [Alex McKibben][]
 - *Awk* by [Matthew Daly][]
+- *SubUnit* by [Sergey Bronnikov][]
 
 New styles:
 
 - *Atom One* in both Dark and Light variants  by [Daniel Gamage][]
 
+Plus, a few smaller updates for *Lasso*, *Elixir*, *C++* and *SQL*.
+
 [Alex McKibben]: https://github.com/mckibbenta
 [Daniel Gamage]: https://github.com/danielgamage
 [Matthew Daly]: https://github.com/matthewbdaly
+[Sergey Bronnikov]: https://github.com/ligurio
 
 
 ## Version 9.5.0
