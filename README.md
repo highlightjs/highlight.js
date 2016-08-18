@@ -9,6 +9,47 @@ detection.
 
 ## Getting Started
 
+### Use Tedjs Library
+
+you can use Highlight.js with tedjs library. to do this first add [`tedjs`](https://tedjs.org) library with your css style:
+```html
+<link rel="stylesheet" title="Default" href="https://highlightjs.org/static/demo/styles/default.css">
+<script src="https://cdn.tedjs.org/tedjs/1.0.0/js/2ed.min.js"></script>
+```
+then you can use this library like this:
+```js
+var highlightjs = include("system.highlight.core").hljs;
+```
+after includeing library you can write `<highlight/>` element to write your codes like this:
+```html
+<highlight lang="javascript">
+     function test(){}
+</highlight>
+
+
+<highlight lang="c">
+    int a = 2;
+</highlight>
+
+
+<highlight lang="x86asm">
+    push    ebp       ; save calling function's stack frame (ebp)
+    mov     ebp, esp  ; make a new stack frame on top of our caller's stack
+    sub     esp, 4    ; allocate 4 bytes of stack space for this function's local variables
+</highlight>
+```
+
+all functions are avilabe in variable `highlightjs`;
+```javascript
+highlightjs.configure({
+    useBR: false
+});
+...
+```
+
+
+### Download
+
 The bare minimum for using highlight.js on a web page is linking to the
 library along with one of the styles and calling
 [`initHighlightingOnLoad`][1]:
