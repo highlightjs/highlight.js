@@ -56,6 +56,13 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
+        className: 'literal',
+        begin:		'\\bfalse\\b|\\btrue\\b|' +
+					'\\bnote\\b|\\bwarning\\b|\\berror\\b|\\bfailure\\b' +		// severity_level
+					'\\bline\\b|\\btext\\b|\\bside\\b|\\bwidth\\b',				// textio
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
         className: 'symbol',
         begin: '\'[A-Za-z](_?[A-Za-z0-9])*',
         contains: [hljs.BACKSLASH_ESCAPE]
