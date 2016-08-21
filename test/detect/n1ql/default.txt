@@ -1,0 +1,2 @@
+SELECT name FROM `beer-sample` WHERE  brewery_id ="mishawaka_brewing";
+SELECT * FROM `beer-sample` WHERE brewery_id IS NOT MISSING AND type="beer" LIMIT 1;
