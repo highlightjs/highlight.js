@@ -5,6 +5,7 @@ New languages:
 - *ABNF* and *EBNF* by [Alex McKibben][]
 - *Awk* by [Matthew Daly][]
 - *SubUnit* by [Sergey Bronnikov][]
+- *SuperCollider* by [Greg Weisbrod][]
 
 New styles:
 
