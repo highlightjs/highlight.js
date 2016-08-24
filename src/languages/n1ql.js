@@ -60,7 +60,7 @@ function(hljs) {
             relevance: 0
           },
           {
-            className: 'string',
+            className: 'symbol',
             begin: '`', end: '`',
             contains: [hljs.BACKSLASH_ESCAPE],
             relevance: 2
