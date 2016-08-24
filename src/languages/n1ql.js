@@ -19,14 +19,14 @@ function(hljs) {
             'all alter analyze and any array as asc begin between binary boolean break bucket build by call ' +
             'case cast cluster collate collection commit connect continue correlate cover create database ' +
             'dataset datastore declare decrement delete derived desc describe distinct do drop each element ' +
-            'else end every except exclude execute exists explain false fetch first flatten for force from ' +
+            'else end every except exclude execute exists explain fetch first flatten for force from ' +
             'function grant group gsi having if ignore ilike in include increment index infer inline inner ' +
             'insert intersect into is join key keys keyspace known last left let letting like limit lsm map ' +
-            'mapping matched materialized merge minus missing namespace nest not null number object offset on ' +
+            'mapping matched materialized merge minus namespace nest not number object offset on ' +
             'option or order outer over parse partition password path pool prepare primary private privilege ' +
             'procedure public raw realm reduce rename return returning revoke right role rollback satisfies ' +
             'schema select self semi set show some start statistics string system then to transaction trigger ' +
-            'true truncate under union unique unknown unnest unset update upsert use user using validate value ' +
+            'truncate under union unique unknown unnest unset update upsert use user using validate value ' +
             'valued values via view when where while with within work xor',
           // Taken from http://developer.couchbase.com/documentation/server/4.5/n1ql/n1ql-language-reference/literals.html
           literal:
