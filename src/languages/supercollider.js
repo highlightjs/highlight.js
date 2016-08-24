@@ -12,9 +12,7 @@ function(hljs) {
 		relevance: 0,
 		variants: [
 			{
-				begin: /\\[a-z]/,
-				end: /\s/,
-				excludeEnd: true,
+				begin: /\\\w+/,
 				relevance: 2
 			},
 			{
@@ -41,14 +39,15 @@ function(hljs) {
 						begin: /\\"/
 					},
 					{
-						// multiline strings in SC are allowed
+						// multiline strings in SC are allowed, but boost their relevance
 						begin: /\n/,
 						relevance: 2
 					}
 				]
 			},
 			{
-				begin: /\$[^$]/,
+				// char
+				begin: /\$\\?[^$]/,
 				relevance: 2
 			}
 		]
@@ -56,63 +55,60 @@ function(hljs) {
 
 	var SC_GLOBAL = {
 		className: "variable", 
-		begin: /(\s|^)~[a-z]\w*/,
+		begin: /(\s|^)~\w+/,
 		relevance: 2
 	};
+
+	var SC_FLOAT_RE = "(-|\\b)\\d+(\\.\\d+)?([eE][-+]?\\d+)?";
 
 	var SC_NUMBER = {
 		className: "number",
 		relevance: 0,
 		variants: [
 			{
-				begin: /\b-?\d+[eE]-?\d+\b/
+				// float
+				begin: new RegExp(SC_FLOAT_RE + "\\b")
 			},
 			{
-				begin: /\b-?\d+(\.\d+)?\b/
-			},
-			{
-				begin: /\b-?(\d+[eE]-?\d+|\d+(\.\d+)?)?pi\b/,
+				// float with "pi" constant - high relevance
+				begin: new RegExp("(" + SC_FLOAT_RE + "pi|(-|\\b)pi\\b)"),
 				relevance: 8,
 			},
 			{
-				begin: /\b\d+r[a-zA-Z0-9]*\b/,
+				// radix float
+				begin: /(-|\b)\d+r[0-9a-zA-Z]*(\.[0-9A-Z]*)?/,
 				relevance: 2
+			},
+			{
+				// hex int
+				begin: /\b0[xX][\da-fA-F]+/
 			}
 		]
 	};
 
-	var SC_BUILT_IN = {
-		className: "built_in",
-		begin: /\b[A-Z]\w+\b/,
+	var SC_PARAM = {
+		className: "params",
+		variants: [
+			{
+				begin: /\{\s*\|/,
+				end: /\|/,
+				excludeBegin: true,
+				excludeEnd: true,
+				relevance: 3,
+			},
+			{
+				beginKeywords: "arg",
+				end: /;/,
+				excludeEnd: true,
+				relevance: 5,
+			}
+		]
+	};
+
+	var SC_TYPE = {
+		className: "type",
+		begin: /\b[A-Z]\w*\b/,
 		relevance: 0
-	};
-
-	var SC_KEYWORD = {
-		className: "keyword",
-		relevance: 0,
-		variants: [
-			{
-				begin: /\b(var|if|while|for|do|switch|case|this)\b/
-			},
-			{
-				begin: /\b(classvar|arg|forBy|repeat)\b/,
-				relevance: 4
-			}
-		]
-	};
-
-	var SC_LITERAL = {
-		className: "literal",
-		relevance: 0,
-		variants: [
-			{
-				begin: /\b(nil|true|false)\b/
-			},
-			{
-				begin: /\binf\b/,
-				relevance: 3
-			}
-		]
 	};
 
 	var SC_RELEVANCE_BOOSTER = {
@@ -120,49 +116,25 @@ function(hljs) {
 		relevance: 5
 	};
 
-	var SC_NESTED_LANG_CONSTRUCTS = [
+	var SC_LANG_CONSTRUCTS = [
 		hljs.C_LINE_COMMENT_MODE,
 		hljs.C_BLOCK_COMMENT_MODE,
 		SC_SYMBOL,
 		SC_STRING,
 		SC_GLOBAL,
 		SC_NUMBER,
-		SC_BUILT_IN,
-		SC_KEYWORD,
-		SC_LITERAL,
+		SC_TYPE,
+		SC_PARAM,
 		SC_RELEVANCE_BOOSTER
 	];
 
 	return {
 		aliases: ["sclang", "scd"],
-		contains: [
-			{
-				className: "function",
-				begin: /\{/,
-				end: /\}/,
-				relevance: 0,
-				contains: [
-					"self",
-					{
-						className: "params",
-						variants: [
-							{
-								begin: /\|/,
-								end: /\|/,
-								relevance: 3
-							},
-							{
-								beginKeywords: "arg",
-								end: /;/,
-								excludeEnd: true,
-								relevance: 3
-							}
-						]
-					}
-				].concat(SC_NESTED_LANG_CONSTRUCTS)
-			},
-			hljs.METHOD_GUARD
-		].concat(SC_NESTED_LANG_CONSTRUCTS)
+		keywords: {
+			keyword: "var this super const classvar arg",
+			literal: "nil true false inf thisFunction thisFunctionDef thisMethod thisProcess thisThread currentEnvironment topEnvironment"
+		},
+		contains: SC_LANG_CONSTRUCTS
 	};
 
 }
