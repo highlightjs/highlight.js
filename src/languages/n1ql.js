@@ -7,7 +7,6 @@
 function(hljs) {
   return {
     case_insensitive: true,
-    illegal: /[]/,
     contains: [
       {
         beginKeywords:
