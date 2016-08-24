@@ -10,10 +10,8 @@ function(hljs) {
     illegal: /[]/,
     contains: [
       {
-        // Some might be missing
         beginKeywords:
-          'begin build end explain commit rollback alter create drop delete insert select truncate update set grant ' +
-          'merge use declare execute revoke infer|10 prepare upsert|10',
+          'build create index delete drop explain infer|10 insert merge prepare select update upsert|10',
         end: /;/, endsWithParent: true,
         keywords: {
           // Taken from http://developer.couchbase.com/documentation/server/current/n1ql/n1ql-language-reference/reservedwords.html
