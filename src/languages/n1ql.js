@@ -5,8 +5,6 @@
  */
 
 function(hljs) {
-  var COMMENT_MODE = hljs.COMMENT('--', '$');
-
   return {
     case_insensitive: true,
     illegal: /[]/,
@@ -67,12 +65,10 @@ function(hljs) {
             contains: [hljs.BACKSLASH_ESCAPE]
           },
           hljs.C_NUMBER_MODE,
-          hljs.C_BLOCK_COMMENT_MODE,
-          COMMENT_MODE
+          hljs.C_BLOCK_COMMENT_MODE
         ]
       },
-      hljs.C_BLOCK_COMMENT_MODE,
-      COMMENT_MODE
+      hljs.C_BLOCK_COMMENT_MODE
     ]
   };
 }
