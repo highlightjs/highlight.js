@@ -1,4 +1,10 @@
-module.exports = function(hljs) {
+/*
+ Language: N1QL
+ Contributors: Andres Täht <andres.taht@gmail.com>, Rene Saarsoo <nene@triin.net>
+ Description: Couchbase query language
+ */
+
+function(hljs) {
   var COMMENT_MODE = hljs.COMMENT('--', '$');
 
   return {
@@ -69,4 +75,4 @@ module.exports = function(hljs) {
       COMMENT_MODE
     ]
   };
-};
+}
