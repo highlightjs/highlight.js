@@ -226,3 +226,5 @@ Contributors:
 - Alex McKibben <alex@nullscope.net>
 - Daniel Gamage <hellodanielgamage@gmail.com>
 - Matthew Daly <matthewbdaly@gmail.com>
+- Andres Täht <andres.taht@gmail.com>
+- Rene Saarsoo <nene@triin.net>
