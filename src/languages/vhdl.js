@@ -37,7 +37,7 @@ function(hljs) {
         'string bit_vector file_open_kind file_open_status ' +
         'std_logic std_logic_vector unsigned signed boolean_vector integer_vector ' +
         'std_ulogic std_ulogic_vector unresolved_unsigned u_unsigned unresolved_signed u_signed' +
-        'real_vector time_vector'
+        'real_vector time_vector',
       literal:
         'false true note warning error failure ' +  // severity_level
         'line text side width'                      // textio
