@@ -38,6 +38,9 @@ function(hljs) {
         'std_logic std_logic_vector unsigned signed boolean_vector integer_vector ' +
         'std_ulogic std_ulogic_vector unresolved_unsigned u_unsigned unresolved_signed u_signed' +
         'real_vector time_vector'
+      literal:
+        'false true note warning error failure ' +  // severity_level
+        'line text side width'                      // textio
     },
     illegal: '{',
     contains: [
@@ -50,19 +53,12 @@ function(hljs) {
         relevance: 0
       },
       {
-        className: 'literal',
+        className: 'string',
         begin: '\'(U|X|0|1|Z|W|L|H|-)\'',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
         className: 'symbol',
-        begin:  '\\bfalse\\b|\\btrue\\b|' +
-            '\\bnote\\b|\\bwarning\\b|\\berror\\b|\\bfailure\\b|' +   // severity_level
-            '\\bline\\b|\\btext\\b|\\bside\\b|\\bwidth\\b',       // textio
-        contains: [hljs.BACKSLASH_ESCAPE]
-      },
-      {
-        className: 'attribute',
         begin: '\'[A-Za-z](_?[A-Za-z0-9])*',
         contains: [hljs.BACKSLASH_ESCAPE]
       }
