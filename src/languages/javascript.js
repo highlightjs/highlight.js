@@ -34,6 +34,14 @@ function(hljs) {
     ],
     relevance: 0
   };
+  PARAMS_CONTAINS = [
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE,
+    NUMBER,
+    hljs.REGEXP_MODE,
+    hljs.C_BLOCK_COMMENT_MODE,
+    hljs.C_LINE_COMMENT_MODE
+  ];
   return {
     aliases: ['js', 'jsx'],
     keywords: KEYWORDS,
@@ -92,15 +100,13 @@ function(hljs) {
                     begin: IDENT_RE
                   },
                   {
+                    begin: /\(\s*\)/,
+                  },
+                  {
                     begin: /\(/, end: /\)/,
+                    excludeBegin: true, excludeEnd: true,
                     keywords: KEYWORDS,
-                    contains: [
-                      hljs.APOS_STRING_MODE,
-                      hljs.QUOTE_STRING_MODE,
-                      NUMBER,
-                      hljs.REGEXP_MODE,
-                      hljs.C_BLOCK_COMMENT_MODE,
-                    ]
+                    contains: PARAMS_CONTAINS
                   }
                 ]
               }
@@ -127,10 +133,7 @@ function(hljs) {
             begin: /\(/, end: /\)/,
             excludeBegin: true,
             excludeEnd: true,
-            contains: [
-              hljs.C_LINE_COMMENT_MODE,
-              hljs.C_BLOCK_COMMENT_MODE
-            ]
+            contains: PARAMS_CONTAINS
           }
         ],
         illegal: /\[|%/
