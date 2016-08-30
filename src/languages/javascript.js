@@ -117,7 +117,13 @@ function(hljs) {
             subLanguage: 'xml',
             contains: [
               {begin: /<\w+\s*\/>/, skip: true},
-              {begin: /<\w+/, end: /(\/\w+|\w+\/)>/, skip: true, contains: ['self']}
+              {
+                begin: /<\w+/, end: /(\/\w+|\w+\/)>/, skip: true,
+                contains: [
+                  {begin: /<\w+\s*\/>/, skip: true},
+                  'self'
+                ]
+              }
             ]
           }
         ],
