@@ -1,3 +1,10 @@
+## Master
+
+Improvements:
+
+- JavaScript now highlights object attributes and `=>` functions.
+
+
 ## Version 9.6.0
 
 New languages:
