@@ -63,6 +63,16 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       NUMBER,
+      { // object attr container
+        begin: /[{,]\s*/, relevance: 0,
+        contains: [
+          {
+            begin: IDENT_RE + '\\s*:', returnBegin: true,
+            relevance: 0,
+            contains: [{className: 'attr', begin: IDENT_RE, relevance: 0}]
+          }
+        ]
+      },
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: 'return throw case',
