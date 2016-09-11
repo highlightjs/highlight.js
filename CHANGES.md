@@ -1,3 +1,13 @@
+## Master (UNRELEASED)
+
+New languages:
+
+- *Igor Pro* by [Thomas Braun][]
+
+New styles:
+
+- *Igor Pro* by [Thomas Braun][]
+
 ## Version 9.12.0
 
 New language:

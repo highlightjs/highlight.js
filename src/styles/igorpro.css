@@ -1,0 +1,105 @@
+/*
+ * Igor Pro highlight.js style
+ * (c) Adam Light <adam@wavemetrics.com>
+ * (c) Thomas Braun <thomas.braun.byte-physics.de>
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #eeeeee;
+  color: #000000;
+}
+
+/* Base color: saturation 0; */
+.hljs,
+.hljs-subst {
+  color: black;
+}
+
+/* Igor Comments */
+.hljs-comment {
+  color: #FF0000;
+}
+
+/* Igor Keywords */
+.hljs-keyword {
+  color: #0000FF;
+}
+
+/* Igor Operations */
+.hljs-class {
+  color: #007575;
+}
+
+/* Igor Built-in Functions */
+.hljs-built_in {
+  color: #C34E00;
+}
+
+.hljs-string {
+  color: #009C00;
+}
+
+/* Igor #[pragma|include|etc.] */
+.hljs-meta {
+  color: #CC00A3;
+}
+
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-doctag,
+.hljs-name {
+  font-weight: bold;
+}
+
+/* User color: hue: 0 */
+
+.hljs-type,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #880000;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #880000;
+  font-weight: bold;
+}
+
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #BC6060;
+}
+
+/* Language color: hue: 90; */
+
+.hljs-literal {
+  color: #78A960;
+}
+
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+  color: #397300;
+}
+
+/* Misc effects */
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
