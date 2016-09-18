@@ -1,5 +1,9 @@
 ## Master
 
+New languages:
+
+- *IRC* by [Svante Bengtson][]
+
 Improvements:
 
 - JavaScript now highlights object attributes and `=>` functions.
