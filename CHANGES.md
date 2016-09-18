@@ -5,6 +5,14 @@ Improvements:
 - JavaScript now highlights object attributes and `=>` functions.
 
 
+## Version 9.7.0
+
+New languages:
+
+- *MAXScript* by [imaoki][]
+
+[imaoki]: https://github.com/imaoki
+
 ## Version 9.6.0
 
 New languages:
