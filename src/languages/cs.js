@@ -8,16 +8,16 @@ function(hljs) {
   var KEYWORDS = {
     keyword:
       // Normal keywords.
-      'abstract as base bool break byte case catch char checked const continue decimal dynamic ' +
+      'abstract as base bool break byte case catch char checked const continue decimal ' +
       'default delegate do double else enum event explicit extern finally fixed float ' +
-      'for foreach goto if implicit in int interface internal is lock long when ' +
+      'for foreach goto if implicit in int interface internal is lock long ' +
       'object operator out override params private protected public readonly ref sbyte ' +
       'sealed short sizeof stackalloc static string struct switch this try typeof ' +
-      'uint ulong unchecked unsafe ushort using virtual volatile void while async ' +
+      'uint ulong unchecked unsafe ushort using virtual void volatile while ' +
       'nameof ' +
       // Contextual keywords.
-      'ascending descending from get group into join let orderby partial select set value var ' +
-      'where yield',
+      'add alias ascending async await by descending dynamic equals from get global group into join ' +
+      'let on orderby partial remove select set value var where yield',
     literal:
       'null false true'
   };
