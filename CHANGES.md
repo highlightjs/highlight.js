@@ -16,6 +16,14 @@ highlight.js: even boring things keep getting better (even if slow).
 - Fixed another slow regex in Less.
 
 
+## Version 9.7.0
+
+New languages:
+
+- *MAXScript* by [imaoki][]
+
+[imaoki]: https://github.com/imaoki
+
 ## Version 9.6.0
 
 New languages:
