@@ -8,8 +8,7 @@ function (hljs) {
 
     var CHAR = {
         className: 'string',
-        begin: /'(.|\\[xXuU][a-zA-Z0-9]+)'/,
-        relevance: 0
+        begin: /'(.|\\[xXuU][a-zA-Z0-9]+)'/
     };
 
     var STRING = {
@@ -18,14 +17,12 @@ function (hljs) {
             {
                 begin: '"', end: '"'
             }
-        ],
-        relevance: 0
+        ]
     };
 
     var NAME = {
         className: 'title',
-        begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/,
-        relevance: 0
+        begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/
     };
 
     var METHOD = {
@@ -33,14 +30,13 @@ function (hljs) {
         beginKeywords: 'def',
         end: /[:={\[(\n;]/,
         excludeEnd: true,
-        contains: [NAME],
-        relevance: 0
+        contains: [NAME]
     };
 
     return {
         keywords: {
             literal: 'true false',
-            keyword: 'case|10 class def|0 else|0 enum|0 if|0 impl import|0 in|0 lat|10 rel|10 index|10 let|0 match|0 namespace|10 switch|0 type|0 yield|0 with|0'
+            keyword: 'case class def else enum if impl import in lat rel index let match namespace switch type yield with'
         },
         contains: [
             hljs.C_LINE_COMMENT_MODE,
