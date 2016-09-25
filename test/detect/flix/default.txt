@@ -20,6 +20,9 @@ namespace a.b.c {
     // Here is a lattice.
     lat LocalVar(k: Str, v: Constant)
 
+    // Here is an index.
+    index LitStm{{r}, {r, c}}
+
     // Here is an enum.
     enum Constant {
           case Top,

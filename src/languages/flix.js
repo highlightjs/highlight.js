@@ -40,7 +40,7 @@ function (hljs) {
     return {
         keywords: {
             literal: 'true false',
-            keyword: 'case|0 class|0 def|0 else|0 enum|0 if|0 impl|0 import|0 in|0 lat|5 rel|5 index|5 let|0 match|0 namespace|0 switch|0 type|0 yield|0 with|0'
+            keyword: 'case|10 class def|0 else|0 enum|0 if|0 impl import|0 in|0 lat|10 rel|10 index|10 let|0 match|0 namespace|10 switch|0 type|0 yield|0 with|0'
         },
         contains: [
             hljs.C_LINE_COMMENT_MODE,
