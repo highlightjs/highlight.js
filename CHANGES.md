@@ -1,3 +1,12 @@
+## master
+
+New languages:
+
+- *Flix* by [Magnus Madsen][]
+
+[Magnus Madsen]: https://github.com/magnus-madsen
+
+
 ## Version 9.7.0
 
 A comprehensive bugfix release. This is one of the best things about
