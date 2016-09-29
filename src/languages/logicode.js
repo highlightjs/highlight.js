@@ -1,7 +1,7 @@
 function(hljs) {
   var KEYWORDS = {
     keyword: "cond circ var out",
-    built-in: "! | & < > @"
+    built_in: "! | & < > @"
   },
   var NUMBER = {
     className: "number",
