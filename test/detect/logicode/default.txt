@@ -1,0 +1,7 @@
+circ test(arg) -> [
+    cond !(arg) -> var testout = 0 / var testout = 1
+    testout&1100
+]
+circ othertest(arg) -> arg&testout(arg)
+var check = 11001
+out othertest(check)
