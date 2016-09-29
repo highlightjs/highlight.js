@@ -7,7 +7,8 @@ function(hljs) {
     className: "number",
     begin: "[01]+"
   };
-  var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: JS_IDENT_RE});
+  var TITLE_NAME = '[A-Za-z]*';
+  var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: TITLE_NAME});
   var PARAMS = {
     className: 'params',
     begin: '\\([^\\(]', returnBegin: true,
