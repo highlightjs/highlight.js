@@ -24,9 +24,8 @@ function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
-      hljs.inherit(hljs.TITLE_MODE, {begin: '^[_a-zA-Z][\\w`]*'}),
 
-      {begin: '->|<-|::|#!|>>=|\\{\\||\\|\\}'} // No markup, relevance booster
+      {begin: '->|<-[|:]?|::|#!?|>>=|\\{\\||\\|\\}|:==|=:|\\.\\.|<>|`'} // relevance booster
     ]
   };
 }
