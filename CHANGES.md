@@ -2,8 +2,10 @@
 
 New languages:
 
+- *Clean* by [Camil Staps][]
 - *Flix* by [Magnus Madsen][]
 
+[Camil Staps]: https://github.com/camilstaps
 [Magnus Madsen]: https://github.com/magnus-madsen
 
 

@@ -227,3 +227,4 @@ URL:   https://highlightjs.org/
 - Дэниел Гэмадж <hellodanielgamage@gmail.com>
 - Мэттью Дэли <matthewbdaly@gmail.com>
 - Магнус Мэдсен <mmadsen@uwaterloo.ca>
+- Камил Стапс <info@camilstaps.nl>
