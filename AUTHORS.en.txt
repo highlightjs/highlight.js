@@ -227,3 +227,4 @@ Contributors:
 - Daniel Gamage <hellodanielgamage@gmail.com>
 - Matthew Daly <matthewbdaly@gmail.com>
 - Magnus Madsen <mmadsen@uwaterloo.ca>
+- Camil Staps <info@camilstaps.nl>
