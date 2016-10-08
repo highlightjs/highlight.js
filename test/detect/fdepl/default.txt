@@ -1,0 +1,19 @@
+// import the actual Franca interfaces we want to deploy 
+import "classpath:/org/example/idl/SimpleInterface.fidl"
+
+/**
+ * One example deployment of SimpleInterface according to specification SimpleSpec.
+ */
+define org.example.spec.SimpleSpec for interface org.example.idl.SimpleInterface
+{
+	method m1 {
+		in {
+			arg1 { Encoding = utf8 }
+		}
+	}
+
+	struct SomeStruct {
+		f1 { Encoding = utf8 }
+		f2 { Encoding = utf8 }
+	}
+}

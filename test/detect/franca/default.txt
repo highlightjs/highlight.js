@@ -1,0 +1,41 @@
+/**
+ * @author John Smith <john.smith@example.com>
+*/
+interface MediaPlayer {
+	version { major 4 minor 2 }
+
+	<** @description: Playlist which is currently active. **>
+	attribute Playlist currentPlaylist
+
+	<** @description: Append another track to the playlist. **>
+	method appendTrack {
+		in {
+			TrackId trackId
+		}
+	}
+	
+	<** @description: Indicate end of playlist. **>
+	broadcast endOfPlaylist { }	
+
+	<** @description : Repeat modes for playback. **>
+	enumeration RepeatMode {
+		MODE_REPEAT_NONE   = 0
+		MODE_REPEAT_SINGLE = 1
+		MODE_REPEAT_ALL    = 2
+	}
+
+	<** @description: Track metadata. **>
+	struct TrackInfo {
+		String title
+		String album
+		String interpret
+		String composer
+		String genre
+		Year year
+		Duration trackLength
+	}
+
+	<** @description: Simple playlist (as an array of track ids). **>
+	array Playlist of TrackId
+
+}
