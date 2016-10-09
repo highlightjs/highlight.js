@@ -20,7 +20,7 @@ function(hljs) {
   var VARIABLES = {
     // $variables
     className: 'variable',
-    begin: /\$+[\w]+/,
+    begin: /\$+\w+/,
     illegal: /\(\){}/
   };
 
