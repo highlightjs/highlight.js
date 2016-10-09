@@ -14,7 +14,7 @@ function(hljs) {
   var DEFINES = {
     // ${defines}
     className: 'variable',
-    begin: /\$+{[[\w\.:-]+]+}/
+    begin: /\$+{[\w\.:-]+}/
   };
 
   var VARIABLES = {
