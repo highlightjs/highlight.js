@@ -1,0 +1,85 @@
+/*
+
+VS15 Light by Aaron Dandy <aaron.dandy@live.com>
+
+*/
+
+.hljs-comment,
+.hljs-quote,
+.hljs-variable {
+    color: #008000;
+}
+
+.hljs-keyword,
+.hljs-built_in,
+.hljs-literal,
+.hljs-meta-keyword,
+.hljs-tag,
+.hljs-tag .hljs-string,
+.hljs-builtin-name,
+.css .hljs-number,
+.hljs-link {
+    color: #00f;
+}
+
+.hljs-number,
+.hljs-subst,
+.hljs-symbol,
+.hljs-function,
+.hljs-function .hljs-title,
+.hljs-section,
+.hljs-meta {
+    color: #000;
+}
+
+.hljs-string,
+.hljs-meta-string,
+.hljs-name,
+.hljs-attr,
+.hljs-attribute {
+    color: #a31515;
+}
+
+.hljs-type,
+.hljs-class,
+.hljs-title {
+    color: #2b91af;
+}
+
+.hljs-doctag {
+    color: #a9a9a9;
+}
+
+.hljs-tag .hljs-attr,
+.hljs-attribute {
+    color: #f00;
+}
+
+.hljs-regexp,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+    color: #800000;
+}
+
+.css .hljs-keyword {
+    color: #800080;
+}
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #fff;
+    color: #000;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: bold;
+}

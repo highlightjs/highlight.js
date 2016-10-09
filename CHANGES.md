@@ -24,6 +24,11 @@ Improvements:
 [Jan T. Sott]: https://github.com/idleberg
 [Alexander Lichter]: https://github.com/manniL
 
+New styles:
+
+- *VS 15* in both Dark and Light variants by [Aaron Dandy][]
+
+[Aaron Dandy]: https://github.com/aarondandy
 
 ## Version 9.7.0
 

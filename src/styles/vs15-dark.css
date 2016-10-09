@@ -1,0 +1,98 @@
+/*
+
+VS15 Dark by Aaron Dandy <aaron.dandy@live.com>
+
+*/
+
+.hljs-comment,
+.hljs-quote,
+.hljs-variable,
+.hljs-doctag {
+    color: #57a64a;
+}
+
+.hljs-keyword,
+.hljs-built_in,
+.hljs-literal,
+.hljs-builtin-name,
+.hljs-link {
+    color: #569cd6;
+}
+
+.hljs-tag .hljs-string,
+.css .hljs-number,
+.css .hljs-string,
+.css .hljs-built_in {
+    color: #c8c8c8;
+}
+
+.hljs-number {
+    color: #b5cea8;
+}
+
+.hljs-subst,
+.hljs-symbol,
+.hljs-function,
+.hljs-function .hljs-title,
+.hljs-section,
+.hljs-meta {
+    color: #dcdcdc;
+}
+
+.hljs-string,
+.hljs-regexp {
+    color: #d69d85;
+}
+
+.hljs-tag {
+    color: #808080;
+}
+
+.xml .hljs-meta,
+.hljs-meta-string,
+.hljs-name,
+.hljs-attr,
+.hljs-attribute,
+.css .hljs-keyword {
+    color: #569cd6;
+}
+
+.hljs-type,
+.hljs-class,
+.hljs-title {
+    color: #4ec9b0;
+}
+
+.hljs-tag .hljs-attr,
+.hljs-attribute {
+    color: #92caf4;
+}
+
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+    color: #d7ba7d;
+}
+
+
+.hljs-meta-keyword {
+    color: #9b9b9b;
+}
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #1e1e1e;
+    color: #dcdcdc;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: bold;
+}
