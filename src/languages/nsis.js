@@ -27,7 +27,7 @@ function(hljs) {
   var LANGUAGES = {
     // $(language_strings)
     className: 'variable',
-    begin: /\$+{[[\w\.:-]+]+}/
+    begin: /\$+{[\w\.:-]+}/
   };
 
   var PARAMETERS = {
