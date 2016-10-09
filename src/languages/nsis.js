@@ -14,7 +14,7 @@ function(hljs) {
   var DEFINES = {
     // ${defines}
     className: 'variable',
-    begin: '\\$+{[a-zA-Z0-9_-\\.:]+}'
+    begin: '\\$+{[a-zA-Z0-9_-\\.\\:]+}'
   };
 
   var VARIABLES = {
@@ -27,7 +27,7 @@ function(hljs) {
   var LANGUAGES = {
     // $(language_strings)
     className: 'variable',
-    begin: '\\$+\\([a-zA-Z0-9_-\\.:]+\\)'
+    begin: '\\$+\\([a-zA-Z0-9_-\\.\\:]+\\)'
   };
 
   var PARAMETERS = {
