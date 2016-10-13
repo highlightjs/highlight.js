@@ -36,22 +36,43 @@ function(hljs) {
     begin: '(ARCHIVE|FILE_ATTRIBUTE_ARCHIVE|FILE_ATTRIBUTE_NORMAL|FILE_ATTRIBUTE_OFFLINE|FILE_ATTRIBUTE_READONLY|FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_TEMPORARY|HKCR|HKCU|HKDD|HKEY_CLASSES_ROOT|HKEY_CURRENT_CONFIG|HKEY_CURRENT_USER|HKEY_DYN_DATA|HKEY_LOCAL_MACHINE|HKEY_PERFORMANCE_DATA|HKEY_USERS|HKLM|HKPD|HKU|IDABORT|IDCANCEL|IDIGNORE|IDNO|IDOK|IDRETRY|IDYES|MB_ABORTRETRYIGNORE|MB_DEFBUTTON1|MB_DEFBUTTON2|MB_DEFBUTTON3|MB_DEFBUTTON4|MB_ICONEXCLAMATION|MB_ICONINFORMATION|MB_ICONQUESTION|MB_ICONSTOP|MB_OK|MB_OKCANCEL|MB_RETRYCANCEL|MB_RIGHT|MB_RTLREADING|MB_SETFOREGROUND|MB_TOPMOST|MB_USERICON|MB_YESNO|NORMAL|OFFLINE|READONLY|SHCTX|SHELL_CONTEXT|SYSTEM|TEMPORARY)'
   };
 
-  var COMPILER ={
+  var COMPILER = {
     // !compiler_flags
     className: 'keyword',
     begin: /\!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversionsystem|ifdef|ifmacrodef|ifmacrondef|ifndef|if|include|insertmacro|macroend|macro|makensis|packhdr|searchparse|searchreplace|tempfile|undef|verbose|warning)/
   };
 
-  var METACHARS ={
+  var METACHARS = {
     // $\n, $\r, $\t, $$
     className: 'subst',
     begin: /\$(\\[nrt]|\$)/
   };
 
-  var PLUGINS ={
+  var PLUGINS = {
     // plug::ins
     className: 'class',
     begin: /\w+\:\:\w+/
+  };
+
+    var STRING = {
+      className: 'string',
+      variants: [{
+        begin: '"', end: '"'
+      },
+      {
+        begin: '\'', end: '\''
+      },
+      {
+        begin: '`', end: '`'
+      }],
+      illegal: /\n/,
+        contains: [
+          METACHARS,
+          CONSTANTS,
+          DEFINES,
+          VARIABLES,
+          LANGUAGES
+        ]
   };
 
   return {
@@ -65,18 +86,6 @@ function(hljs) {
     contains: [
       hljs.HASH_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      {
-        className: 'string',
-        begin: '"', end: '"',
-        illegal: /\n/,
-        contains: [
-          METACHARS,
-          CONSTANTS,
-          DEFINES,
-          VARIABLES,
-          LANGUAGES
-        ]
-      },
       hljs.COMMENT(
         ';',
         '$',
@@ -88,6 +97,7 @@ function(hljs) {
         className: 'function',
         beginKeywords: 'Function PageEx Section SectionGroup SubSection', end: '$'
       },
+      STRING,
       COMPILER,
       DEFINES,
       VARIABLES,
