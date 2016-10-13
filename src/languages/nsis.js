@@ -56,23 +56,25 @@ function(hljs) {
 
     var STRING = {
       className: 'string',
-      variants: [{
-        begin: '"', end: '"'
-      },
-      {
-        begin: '\'', end: '\''
-      },
-      {
-        begin: '`', end: '`'
-      }],
+      variants: [
+        {
+          begin: '"', end: '"'
+        },
+        {
+          begin: '\'', end: '\''
+        },
+        {
+          begin: '`', end: '`'
+        }
+      ],
       illegal: /\n/,
-        contains: [
-          METACHARS,
-          CONSTANTS,
-          DEFINES,
-          VARIABLES,
-          LANGUAGES
-        ]
+      contains: [
+        METACHARS,
+        CONSTANTS,
+        DEFINES,
+        VARIABLES,
+        LANGUAGES
+      ]
   };
 
   return {
@@ -105,7 +107,6 @@ function(hljs) {
       PARAMETERS,
       PLUGINS,
       hljs.NUMBER_MODE,
-      
     ]
   };
 }
