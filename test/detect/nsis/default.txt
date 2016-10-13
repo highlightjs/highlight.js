@@ -32,5 +32,6 @@ SectionEnd
 ; Functions
 Function .onInit
   DetailPrint "The install button reads $(^InstallBtn)"
-  DetailPrint "Here comes a$\n$\rline-break!"
+  DetailPrint 'Here comes a$\n$\rline-break!'
+  DetailPrint `Escape the dollar-sign: $$`
 FunctionEnd
