@@ -10,10 +10,16 @@ function(hljs) {
   return {
     aliases: ['hx'],
     keywords: {
-      keyword: 'break callback case cast catch class continue default do dynamic else enum extends extern ' +
-    'for function here if implements import in inline interface never new override package private ' +
-    'public return static super switch this throw trace try typedef untyped using var while',
-      literal: 'true false null'
+      keyword:
+        'break callback case cast catch class continue default do dynamic else enum extends extern ' +
+        'for function here if implements import in inline interface never new override package private ' +
+        'public return static super switch this throw trace try typedef untyped using var while',
+      literal:
+        'true false null',
+      built_in:
+        'Array ArrayAccess Bool Class Date DateTools Dynamic EReg Enum EnumValue Float Int IntIterator ' +
+        'Iterable Iterator Lambda List Map Math Null Reflect Single Std String StringBuf StringTools Sys ' +
+        'Type UInt ValueType Void Xml XmlType'
     },
     contains: [
       hljs.APOS_STRING_MODE,
