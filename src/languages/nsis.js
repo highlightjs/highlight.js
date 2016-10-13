@@ -51,7 +51,7 @@ function(hljs) {
   var PLUGINS ={
     // plug::ins
     className: 'class',
-     begin: hljs.IDENT_RE + '::' + hljs.IDENT_RE
+     begin: /\w+::\w/
   };
 
   return {
