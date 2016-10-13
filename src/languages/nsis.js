@@ -51,7 +51,7 @@ function(hljs) {
   var PLUGINS ={
     // plug::ins
     className: 'class',
-     begin: /\w+::\w/
+    begin: /\w+\:\:\w+/
   };
 
   return {
@@ -93,6 +93,7 @@ function(hljs) {
       VARIABLES,
       LANGUAGES,
       PARAMETERS,
+      PLUGINS,
       hljs.NUMBER_MODE,
       
     ]
