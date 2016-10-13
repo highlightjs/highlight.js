@@ -27,12 +27,12 @@ function(hljs) {
   var LANGUAGES = {
     // $(language_strings)
     className: 'variable',
-    begin: /\$+{[\w\.:-]+}/
+    begin: /\$+\([\w\^\.:-]+\)/
   };
 
   var PARAMETERS = {
     // command parameters
-    className: 'built_in',
+    className: 'params',
     begin: '(ARCHIVE|FILE_ATTRIBUTE_ARCHIVE|FILE_ATTRIBUTE_NORMAL|FILE_ATTRIBUTE_OFFLINE|FILE_ATTRIBUTE_READONLY|FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_TEMPORARY|HKCR|HKCU|HKDD|HKEY_CLASSES_ROOT|HKEY_CURRENT_CONFIG|HKEY_CURRENT_USER|HKEY_DYN_DATA|HKEY_LOCAL_MACHINE|HKEY_PERFORMANCE_DATA|HKEY_USERS|HKLM|HKPD|HKU|IDABORT|IDCANCEL|IDIGNORE|IDNO|IDOK|IDRETRY|IDYES|MB_ABORTRETRYIGNORE|MB_DEFBUTTON1|MB_DEFBUTTON2|MB_DEFBUTTON3|MB_DEFBUTTON4|MB_ICONEXCLAMATION|MB_ICONINFORMATION|MB_ICONQUESTION|MB_ICONSTOP|MB_OK|MB_OKCANCEL|MB_RETRYCANCEL|MB_RIGHT|MB_RTLREADING|MB_SETFOREGROUND|MB_TOPMOST|MB_USERICON|MB_YESNO|NORMAL|OFFLINE|READONLY|SHCTX|SHELL_CONTEXT|SYSTEM|TEMPORARY)'
   };
 
@@ -40,6 +40,18 @@ function(hljs) {
     // !compiler_flags
     className: 'keyword',
     begin: /\!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversionsystem|ifdef|ifmacrodef|ifmacrondef|ifndef|if|include|insertmacro|macroend|macro|makensis|packhdr|searchparse|searchreplace|tempfile|undef|verbose|warning)/
+  };
+
+  var METACHARS ={
+    // $\n, $\r, $\t, $$
+    className: 'subst',
+    begin: /\$(\\[nrt]|\$)/
+  };
+
+  var PLUGINS ={
+    // plug::ins
+    className: 'class',
+     begin: hljs.IDENT_RE + '::' + hljs.IDENT_RE
   };
 
   return {
@@ -58,9 +70,7 @@ function(hljs) {
         begin: '"', end: '"',
         illegal: /\n/,
         contains: [
-          { // $\n, $\r, $\t, $$
-            begin: /\$(\\(n|r|t)|\$)/
-          },
+          METACHARS,
           CONSTANTS,
           DEFINES,
           VARIABLES,
@@ -84,9 +94,7 @@ function(hljs) {
       LANGUAGES,
       PARAMETERS,
       hljs.NUMBER_MODE,
-      { // plug::ins
-        begin: hljs.IDENT_RE + '::' + hljs.IDENT_RE
-      }
+      
     ]
   };
 }
