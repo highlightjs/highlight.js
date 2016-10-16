@@ -711,8 +711,8 @@ https://highlightjs.org/
   hljs.inherit = inherit;
 
   // Common regexps
-  hljs.IDENT_RE = '[a-zA-Z]\\w*';
-  hljs.UNDERSCORE_IDENT_RE = '[a-zA-Z_]\\w*';
+  hljs.IDENT_RE = '[a-zA-Z\u00C0-\u017F]\\w*';
+  hljs.UNDERSCORE_IDENT_RE = '[a-zA-Z\u00C0-\u017F_]\\w*';
   hljs.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
   hljs.C_NUMBER_RE = '(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
   hljs.BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
