@@ -20,7 +20,7 @@ Hence, there are two important implications:
 Defining a theme
 ----------------
 
-A theme is a single CSS defining styles for class names linsted in the
+A theme is a single CSS defining styles for class names listed in the
 :doc:`class reference </css-classes-reference>`. The general guideline is to
 style all available classes, however an author may deliberately choose to
 exclude some (for example, ``.attr`` is usually left unstyled).

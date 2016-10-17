@@ -1,8 +1,5 @@
-/* digit seperators */
-int number = 2'555'555'555; // digit seperators
-float exponentFloat = .123'456e3'000; // digit seperators in floats
-float suffixed = 3.000'001'234f // digit seperators in suffixed numbers
-int number = 2_555_555_555; // digit seperators
-float exponentFloat = .123_456e3_000; // digit seperators in floats
-float suffixed = 3.000_001_234f // digit seperators in suffixed numbers
-char word[] = { '3', '\0' }; // make sure digit seperators don't mess up chars
+/* digit separators */
+int number = 2'555'555'555; // digit separators
+float exponentFloat = .123'456e3'000; // digit separators in floats
+float suffixed = 3.000'001'234f // digit separators in suffixed numbers
+char word[] = { '3', '\0' }; // make sure digit separators don't mess up chars

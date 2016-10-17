@@ -1,0 +1,1 @@
+<span class="hljs-string">`string <span class="hljs-subst">${foo + <span class="hljs-string">`str<span class="hljs-subst">${<span class="hljs-literal">undefined</span>}</span>ing`</span>}</span>`</span>;

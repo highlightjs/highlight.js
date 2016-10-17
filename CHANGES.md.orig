@@ -2,13 +2,18 @@
 
 New languages:
 
+<<<<<<< HEAD
+- *ABNF* by [Alex McKibben][]
+- *ABAP* by [Cassio Binkowski][]
+
+[Alex McKibben]: https://github.com/mckibbenta
+[Cassio Binkowski]: https://github.com/cassioiks
+=======
 - *Clean* by [Camil Staps][]
 - *Flix* by [Magnus Madsen][]
-- *ABAP* by [Cassio Binkowski][]
 
 [Camil Staps]: https://github.com/camilstaps
 [Magnus Madsen]: https://github.com/magnus-madsen
-[Cassio Binkowski]: https://github.com/cassioiks
 
 
 ## Version 9.7.0
@@ -44,7 +49,11 @@ New styles:
 Plus, a few smaller updates for *Lasso*, *Elixir*, *C++* and *SQL*.
 
 [Alex McKibben]: https://github.com/mckibbenta
+[Daniel Gamage]: https://github.com/danielgamage
+[Matthew Daly]: https://github.com/matthewbdaly
+[Sergey Bronnikov]: https://github.com/ligurio
 
+>>>>>>> master
 
 ## Version 9.5.0
 
