@@ -228,3 +228,4 @@ URL:   https://highlightjs.org/
 - Мэттью Дэли <matthewbdaly@gmail.com>
 - Магнус Мэдсен <mmadsen@uwaterloo.ca>
 - Камил Стапс <info@camilstaps.nl>
+- Александер Лихтер <manniL@gmx.net>
