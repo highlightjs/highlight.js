@@ -21,7 +21,18 @@ function(hljs) {
         'true false null',
     },
     contains: [
-      hljs.APOS_STRING_MODE,
+      { className: 'string', // interpolate-able strings
+        begin: '\'', end: '\'',
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          { className: 'subst', // interpolation
+            begin: '\\$\\{', end: '\\}'
+          },
+          { className: 'subst', // interpolation
+            begin: '\\$', end: '\\W}'
+          }
+        ]
+      },
       hljs.QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
