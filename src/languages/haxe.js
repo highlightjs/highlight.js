@@ -12,10 +12,11 @@ function(hljs) {
   return {
     aliases: ['hx'],
     keywords: {
-      keyword:
-        'package import using extern',
+      keyword: 'break callback case cast catch continue default do dynamic else enum extern ' +
+               'for function here if import in inline never new override package private ' +
+               'public return static super switch this throw trace try typedef untyped using var while',
       built_in:
-        'trace',
+        'trace this',
       literal:
         'true false null',
     },
@@ -48,7 +49,7 @@ function(hljs) {
       { className: 'class',
         beginKeywords: 'class interface', end: '{', excludeEnd: true,
         keywords: {
-          keyword: 'extends implements'
+          keyword: 'class interface extends implements'
         }
       }
     ]
