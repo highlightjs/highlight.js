@@ -58,10 +58,13 @@ function(hljs) {
         excludeBegin: true, excludeEnd: true,
       },
       { className: 'class', // enums
-        beginKeywords: 'enum', end: '\\{'
+        beginKeywords: 'enum', end: '\\{',
+        contains: [
+          hljs.TITLE_MODE
+        ]
       },
       { className: 'class', // abstracts
-        begin: 'abstract', end: '[\\{$]',
+        beginKeywords: 'abstract', end: '[\\{$]',
         contains: [
           { className: 'type',
             begin: '\\(', end: '\\)',
@@ -74,7 +77,8 @@ function(hljs) {
           { className: 'type',
             begin: 'to *', end: '\\W',
             excludeBegin: true, excludeEnd: true,
-          }
+          },
+          hljs.TITLE_MODE
         ],
         keywords: {
           keyword: 'abstract from to'
