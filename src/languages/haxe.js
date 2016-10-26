@@ -49,15 +49,29 @@ function(hljs) {
         excludeBegin: true, excludeEnd: true,
       },
       { className: 'class', // enums
-        beginKeywords: 'enum', end: '{'
+        beginKeywords: 'enum', end: '\\{'
       },
       { className: 'class', // abstracts
-        beginKeywords: 'abstract', end: '{',
+        begin: 'abstract', end: '[\\{$]',
+        contains: [
+          { className: 'type',
+            begin: '\\(', end: '\\)',
+            excludeBegin: true, excludeEnd: true,
+          },
+          { className: 'type',
+            begin: 'from *', end: '\\W',
+            excludeBegin: true, excludeEnd: true,
+          },
+          { className: 'type',
+            begin: 'to *', end: '\\W',
+            excludeBegin: true, excludeEnd: true,
+          }
+        ],
         keywords: {
           keyword: 'abstract from to'
         }
       },
-      { className: 'class',
+      { className: 'class', // classes
         beginKeywords: 'class interface', end: '{', excludeEnd: true,
         keywords: {
           keyword: 'class interface extends implements'
