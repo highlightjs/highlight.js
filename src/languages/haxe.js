@@ -13,12 +13,13 @@ function(hljs) {
     aliases: ['hx'],
     keywords: {
       keyword: 'break callback case cast catch continue default do dynamic else enum extern ' +
-               'for function here if import in inline never new override package private ' +
-               'public return static super switch this throw trace try typedef untyped using var while',
+               'for function here if import in inline never new override package private get set ' +
+               'public return static super switch this throw trace try typedef untyped using var while ',
+               HAXE_BASIC_TYPES,
       built_in:
         'trace this',
       literal:
-        'true false null',
+        'true false null _',
     },
     contains: [
       { className: 'string', // interpolate-able strings
@@ -44,12 +45,20 @@ function(hljs) {
         begin: '#', end: '$',
         keywords: {'meta-keyword': 'if else elseif end error'}
       },
+      { className: 'type', // generic types
+        begin: '<', end: '>',
+        excludeBegin: true, excludeEnd: true,
+      },
       { className: 'type', // function types
         begin: ':[ \t]*', end: '[^A-Za-z0-9_ \t(\\->)]',
         excludeBegin: true, excludeEnd: true,
       },
       { className: 'type', // types
         begin: ':[ \t]*', end: '\\W',
+        excludeBegin: true, excludeEnd: true,
+      },
+      { className: 'type', // instantiation
+        begin: 'new *', end: '\\W',
         excludeBegin: true, excludeEnd: true,
       },
       { className: 'class', // enums
