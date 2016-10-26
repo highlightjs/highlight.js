@@ -13,11 +13,7 @@ function(hljs) {
     aliases: ['hx'],
     keywords: {
       keyword:
-        'package import using extern class',
-      type:
-        'Array ArrayAccess Class Date DateTools EReg Enum EnumValue IntIterator ' +
-        'Iterable Iterator Lambda List Map Math Null Reflect Single Std StringBuf StringTools Sys ' +
-        'Type UInt ValueType Xml XmlType' + HAXE_BASIC_TYPES,
+        'package import using extern',
       built_in:
         'trace',
       literal:
@@ -29,14 +25,21 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
-      { className: 'meta',
+      { className: 'meta', // compiler meta
+        begin: '@:', end: '$'
+      },
+      { className: 'meta', // compiler conditionals
         begin: '#', end: '$',
         keywords: {'meta-keyword': 'if else elseif end error'}
       },
-      { className: 'enum',
+      { className: 'type', // types
+        begin: ':[ \t]*', end: '\\W',
+        excludeBegin: true, excludeEnd: true,
+      },
+      { className: 'class', // enums
         beginKeywords: 'enum', end: '{'
       },
-      { className: 'abstract',
+      { className: 'class', // abstracts
         beginKeywords: 'abstract', end: '{',
         keywords: {
           keyword: 'abstract from to'
