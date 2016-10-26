@@ -45,10 +45,6 @@ function(hljs) {
         begin: '#', end: '$',
         keywords: {'meta-keyword': 'if else elseif end error'}
       },
-      { className: 'type', // generic types
-        begin: '<', end: '>',
-        excludeBegin: true, excludeEnd: true,
-      },
       { className: 'type', // function types
         begin: ':[ \t]*', end: '[^A-Za-z0-9_ \t(\\->)]',
         excludeBegin: true, excludeEnd: true,
