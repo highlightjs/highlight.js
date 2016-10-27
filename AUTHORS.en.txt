@@ -228,4 +228,5 @@ Contributors:
 - Matthew Daly <matthewbdaly@gmail.com>
 - Magnus Madsen <mmadsen@uwaterloo.ca>
 - Camil Staps <info@camilstaps.nl>
+- Alexander Lichter <manniL@gmx.net>
 - Kenton Hamaluik <kentonh@gmail.com>
