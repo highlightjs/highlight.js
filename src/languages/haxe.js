@@ -1,6 +1,7 @@
 /*
 Language: Haxe
 Author: Christopher Kaster <ikasoki@gmail.com> (Based on the actionscript.js language file by Alexander Myadzel)
+Contributors: Kenton Hamaluik <kentonh@gmail.com>
 */
 
 function(hljs) {
