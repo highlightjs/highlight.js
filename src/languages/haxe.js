@@ -71,11 +71,11 @@ function(hljs) {
             excludeBegin: true, excludeEnd: true,
           },
           { className: 'type',
-            begin: 'from *', end: '\\W',
+            begin: 'from +', end: '\\W',
             excludeBegin: true, excludeEnd: true,
           },
           { className: 'type',
-            begin: 'to *', end: '\\W',
+            begin: 'to +', end: '\\W',
             excludeBegin: true, excludeEnd: true,
           },
           hljs.TITLE_MODE
@@ -85,10 +85,29 @@ function(hljs) {
         }
       },
       { className: 'class', // classes
-        beginKeywords: 'class interface', end: '{', excludeEnd: true,
-        keywords: {
-          keyword: 'class interface extends implements'
-        }
+        begin: '\\b(class|interface) +', end: '[\\{$]',  excludeEnd: true,
+        keywords: 'class interface',
+        contains: [
+          { className: 'keyword',
+            begin: '\\b(extends|implements) +',
+            keywords: 'extends implements',
+            contains: [
+              {
+                className: 'type',
+                begin: hljs.IDENT_RE,
+                relevance: 0
+              }
+            ]
+          },
+          hljs.TITLE_MODE
+        ]
+      },
+      { className: 'function',
+        beginKeywords: 'function', end: '\\(', excludeEnd: true,
+        illegal: '\\S',
+        contains: [
+          hljs.TITLE_MODE
+        ]
       }
     ]
   };
