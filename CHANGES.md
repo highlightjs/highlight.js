@@ -4,9 +4,11 @@ New languages:
 
 - *Clean* by [Camil Staps][]
 - *Flix* by [Magnus Madsen][]
+- *Jawa* by [Fengguo (Hugo) Wei][]
 
 [Camil Staps]: https://github.com/camilstaps
 [Magnus Madsen]: https://github.com/magnus-madsen
+[Fengguo (Hugo) Wei]: https://github.com/fgwei
 
 
 ## Version 9.7.0

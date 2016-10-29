@@ -1,0 +1,29 @@
+/* Block comment */
+
+/**
+ * This is a doc comment.
+ * @author fgwei
+ */
+record `com.fgwei.Test`  @kind class @AccessFlag PUBLIC {
+  `int` `com.fgwei.Test.i1` @AccessFlag PRIVATE;
+}
+global `java.lang.String` `@@com.fgwei.Test.str1` @AccessFlag STATIC;
+procedure `int` `com.fgwei.Test.main` (`int` v3, `int` v4)
+       @owner ^`com.fgwei.Test`
+       @signature `Lcom/fgwei/Test;.main:()I`
+       @AccessFlag PUBLIC_STATIC {
+  `int` v0;
+  `int`[] v1;
+  `com.fgwei.Test` test;
+
+  #L027040. test:= new `com.fgwei.Test`; // This is a line comment
+  #L027041. call `com.fgwei.Test.<init>`(test)
+         @signature `Lcom/fgwei/Test;.<init>:()V`
+         @classDescriptor ^`com.fgwei.Test`
+         @kind direct;
+  #L027044. v0:= 1I;
+  #L027046. v0:= test.`com.fgwei.Test.i1` @kind int @type ^`int`;
+  #L027048. `@@com.fgwei.Test.str1`:= "String" ;
+  #L02705a. return v0;
+
+}
