@@ -229,3 +229,4 @@ Contributors:
 - Magnus Madsen <mmadsen@uwaterloo.ca>
 - Camil Staps <info@camilstaps.nl>
 - Alexander Lichter <manniL@gmx.net>
+- Michael Roder <contact@f0rki.at>

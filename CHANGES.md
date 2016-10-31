@@ -4,9 +4,11 @@ New languages:
 
 - *Clean* by [Camil Staps][]
 - *Flix* by [Magnus Madsen][]
+- *LLVM* by [Michael Rodler][]
 
 [Camil Staps]: https://github.com/camilstaps
 [Magnus Madsen]: https://github.com/magnus-madsen
+[Michael Rodler]: https://github.com/f0rki
 
 
 ## Version 9.7.0
