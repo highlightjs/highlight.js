@@ -15,12 +15,12 @@ function(hljs) {
     keywords: {
       keyword: 'break callback case cast catch continue default do dynamic else enum extern ' +
                'for function here if import in inline never new override package private get set ' +
-               'public return static super switch this throw trace try typedef untyped using var while ',
+               'public return static super switch this throw trace try typedef untyped using var while ' +
                HAXE_BASIC_TYPES,
       built_in:
         'trace this',
       literal:
-        'true false null _',
+        'true false null _'
     },
     contains: [
       { className: 'string', // interpolate-able strings
@@ -49,14 +49,15 @@ function(hljs) {
       { className: 'type', // function types
         begin: ':[ \t]*', end: '[^A-Za-z0-9_ \t\\->]',
         excludeBegin: true, excludeEnd: true,
+        relevance: 0
       },
       { className: 'type', // types
         begin: ':[ \t]*', end: '\\W',
-        excludeBegin: true, excludeEnd: true,
+        excludeBegin: true, excludeEnd: true
       },
       { className: 'type', // instantiation
         begin: 'new *', end: '\\W',
-        excludeBegin: true, excludeEnd: true,
+        excludeBegin: true, excludeEnd: true
       },
       { className: 'class', // enums
         beginKeywords: 'enum', end: '\\{',
@@ -69,15 +70,15 @@ function(hljs) {
         contains: [
           { className: 'type',
             begin: '\\(', end: '\\)',
-            excludeBegin: true, excludeEnd: true,
+            excludeBegin: true, excludeEnd: true
           },
           { className: 'type',
             begin: 'from +', end: '\\W',
-            excludeBegin: true, excludeEnd: true,
+            excludeBegin: true, excludeEnd: true
           },
           { className: 'type',
             begin: 'to +', end: '\\W',
-            excludeBegin: true, excludeEnd: true,
+            excludeBegin: true, excludeEnd: true
           },
           hljs.TITLE_MODE
         ],
@@ -110,6 +111,7 @@ function(hljs) {
           hljs.TITLE_MODE
         ]
       }
-    ]
+    ],
+    illegal: /<\//
   };
 }
