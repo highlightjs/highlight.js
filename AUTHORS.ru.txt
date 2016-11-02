@@ -230,3 +230,4 @@ URL:   https://highlightjs.org/
 - Камил Стапс <info@camilstaps.nl>
 - Александер Лихтер <manniL@gmx.net>
 - Николя Ле Галль <contact@nlegall.fr>
+- Кентон Хамалуик <kentonh@gmail.com>
