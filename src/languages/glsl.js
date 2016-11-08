@@ -10,7 +10,7 @@ function(hljs) {
     keywords: {
       keyword:
         // Statements
-        'break continue discard do else for if return while' +
+        'break continue discard do else for if return while switch case default ' +
         // Qualifiers
         'attribute binding buffer ccw centroid centroid varying coherent column_major const cw ' +
         'depth_any depth_greater depth_less depth_unchanged early_fragment_tests equal_spacing ' +

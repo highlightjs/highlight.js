@@ -1,7 +1,7 @@
 /*
 Language: Swift
 Author: Chris Eidhof <chris@eidhof.nl>
-Contributors: Nate Cook <natecook@gmail.com>
+Contributors: Nate Cook <natecook@gmail.com>, Alexander Lichter <manniL@gmx.net>
 Category: system
 */
 
@@ -36,7 +36,7 @@ function(hljs) {
 
   var TYPE = {
     className: 'type',
-    begin: '\\b[A-Z][\\w\']*',
+    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*',
     relevance: 0
   };
   var BLOCK_COMMENT = hljs.COMMENT(
@@ -103,7 +103,7 @@ function(hljs) {
         end: '\\{',
         excludeEnd: true,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/})
+          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/})
         ]
       },
       {

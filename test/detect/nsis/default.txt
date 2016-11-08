@@ -6,12 +6,16 @@
 ; Includes
 !include MUI2.nsh
 
+; Defines
+!define x64 "true"
+
 ; Settings
 Name "installer_name"
 OutFile "installer_name.exe"
 RequestExecutionLevel user
 CRCCheck on
-!ifdef x64
+
+!ifdef ${x64}
   InstallDir "$PROGRAMFILES64\installer_name"
 !else
   InstallDir "$PROGRAMFILES\installer_name"
@@ -22,12 +26,12 @@ CRCCheck on
 
 ; Sections
 Section "section_name" section_index
-  # your code here
+  nsExec::ExecToLog "calc.exe"
 SectionEnd
 
 ; Functions
 Function .onInit
-
-  MessageBox MB_OK "Here comes a$\n$\rline-break!"
-
+  DetailPrint "The install button reads $(^InstallBtn)"
+  DetailPrint 'Here comes a$\n$\rline-break!'
+  DetailPrint `Escape the dollar-sign: $$`
 FunctionEnd

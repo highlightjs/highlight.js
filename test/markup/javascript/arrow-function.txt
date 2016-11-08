@@ -1,0 +1,3 @@
+var f = x => x;
+f(x => x + (y=2, z=undefined, ...rest) => y);
+() => null;

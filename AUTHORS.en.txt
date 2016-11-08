@@ -226,3 +226,8 @@ Contributors:
 - Alex McKibben <alex@nullscope.net>
 - Daniel Gamage <hellodanielgamage@gmail.com>
 - Matthew Daly <matthewbdaly@gmail.com>
+- Magnus Madsen <mmadsen@uwaterloo.ca>
+- Camil Staps <info@camilstaps.nl>
+- Alexander Lichter <manniL@gmx.net>
+- Nicolas Le Gall <contact@nlegall.fr>
+- Kenton Hamaluik <kentonh@gmail.com>

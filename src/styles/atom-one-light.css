@@ -63,6 +63,7 @@ hue-6-2: #c18401
   color: #c18401;
 }
 
+.hljs-attr,
 .hljs-variable,
 .hljs-template-variable,
 .hljs-type,

@@ -226,3 +226,8 @@ URL:   https://highlightjs.org/
 - Алекс МакКиббен <alex@nullscope.net>
 - Дэниел Гэмадж <hellodanielgamage@gmail.com>
 - Мэттью Дэли <matthewbdaly@gmail.com>
+- Магнус Мэдсен <mmadsen@uwaterloo.ca>
+- Камил Стапс <info@camilstaps.nl>
+- Александер Лихтер <manniL@gmx.net>
+- Николя Ле Галль <contact@nlegall.fr>
+- Кентон Хамалуик <kentonh@gmail.com>
