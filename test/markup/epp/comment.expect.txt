@@ -1,0 +1,4 @@
+<span class="language-pgsql"><span class="hljs-keyword">Before</span> <span class="hljs-keyword">comment</span>
+</span><span class="hljs-comment">&lt;%# this is a comment %&gt;</span><span class="language-pgsql">
+<span class="hljs-keyword">After</span> <span class="hljs-keyword">comment</span>
+</span>

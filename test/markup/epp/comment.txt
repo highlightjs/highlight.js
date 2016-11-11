@@ -1,0 +1,3 @@
+Before comment
+<%# this is a comment %>
+After comment

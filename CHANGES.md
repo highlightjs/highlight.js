@@ -4,6 +4,7 @@ Parser:
 
 - (enh) prevent rehighlighting of an element [joshgoebel][]
 - added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
+- Add support for Embedded Puppet (epp) [Ben Ford][], [Antoine Musso][] [Wikimedia Foundation][]
 
 Core Grammars:
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
@@ -15,7 +16,7 @@ Core Grammars:
 - enh(swift) support parameter pack keywords [Bradley Mackey][]
 - enh(swift) regex literal support [Bradley Mackey][]
 
-Dev tool: 
+Dev tool:
 
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
@@ -25,7 +26,9 @@ Dev tool:
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
 [Bradley Mackey]: https://github.com/bradleymackey
-
+[Ben Ford]: https://github.com/binford2k
+[Antoine Musso]: https://github.com/hashar
+[Wikimedia Foundation]: https://wikimediafoundation.org
 
 ## Version 11.8.0
 

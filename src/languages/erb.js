@@ -12,7 +12,7 @@ Category: template
 export default function(hljs) {
   return {
     name: 'ERB',
-    subLanguage: 'xml',
+    subLanguage: 'xml',  // TODO: it can be any language
     contains: [
       hljs.COMMENT('<%#', '%>'),
       {

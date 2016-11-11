@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<!-- XML is reliably detected -->
+<ec2>
+<% if $ec2_metadata { -%>
+  <metadata>
+    <ami-id><%= $ec2_metadata["ami-id"] %></ami-id>
+    <instance-id><%= $ec2_metadata["instance-id"] %></instance-id>
+    <public-hostname><%= $ec2_metadata["public-hostname"] %></public-hostname>
+  </metadata>
+<% } -%>
+</ec2>

@@ -1,0 +1,9 @@
+<span class="language-erlang-repl">&lt;<span class="hljs-comment">%</span></span><span class="language-puppet">
+<span class="hljs-comment"># A dummy Puppet class</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title">highlighter</span> {
+    <span class="hljs-keyword">file</span> { <span class="hljs-string">&#x27;/etc/foo.conf&#x27;</span>:
+        <span class="hljs-attr">ensure</span> =&gt; <span class="hljs-literal">present</span>,
+    }
+}
+</span><span class="language-diff"><span class="hljs-deletion">-%&gt;</span>
+</span>

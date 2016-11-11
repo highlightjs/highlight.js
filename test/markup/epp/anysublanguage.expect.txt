@@ -1,0 +1,12 @@
+<span class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> ?&gt;</span>
+<span class="hljs-comment">&lt;!-- XML is reliably detected --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ec2</span>&gt;</span>
+&lt;%</span><span class="language-puppet"> if <span class="hljs-variable">$ec2_metadata</span> { </span><span class="language-xml">-%&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">metadata</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ami-id</span>&gt;</span>&lt;%=</span><span class="language-puppet"> <span class="hljs-variable">$ec2_metadata</span>[<span class="hljs-string">&quot;ami-id&quot;</span>] </span><span class="language-mercury"><span class="hljs-comment">%&gt;&lt;/ami-id&gt;</span>
+    &lt;<span class="hljs-keyword">instance</span>-id&gt;&lt;<span class="hljs-comment">%=</span></span><span class="language-puppet"> <span class="hljs-variable">$ec2_metadata</span>[<span class="hljs-string">&quot;instance-id&quot;</span>] </span><span class="language-xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">instance-id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">public-hostname</span>&gt;</span>&lt;%=</span><span class="language-puppet"> <span class="hljs-variable">$ec2_metadata</span>[<span class="hljs-string">&quot;public-hostname&quot;</span>] </span><span class="language-xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">public-hostname</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">metadata</span>&gt;</span>
+&lt;%</span><span class="language-puppet"> } </span><span class="language-xml">-%&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">ec2</span>&gt;</span>
+</span>

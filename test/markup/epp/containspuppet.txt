@@ -1,0 +1,8 @@
+<%
+# A dummy Puppet class
+class highlighter {
+    file { '/etc/foo.conf':
+        ensure => present,
+    }
+}
+-%>
