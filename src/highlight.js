@@ -270,11 +270,24 @@ https://highlightjs.org/
         }
         if (!mode.begin)
           mode.begin = /\B|\b/;
-        mode.beginRe = langRe(mode.begin);
+        if (mode.afterBegin) {
+          var rsb = reStr(mode.begin), rsab = reStr(mode.afterBegin);
+          mode.beginRe = langRe(rsb + '(?=' + rsab + ')');
+          mode.begin = rsb + '(' + rsab + ')';
+        } else {
+          mode.beginRe = langRe(mode.begin);
+        }
         if (!mode.end && !mode.endsWithParent)
           mode.end = /\B|\b/;
-        if (mode.end)
-          mode.endRe = langRe(mode.end);
+        if (mode.end) {
+          if (mode.afterEnd) {
+            var rse = reStr(mode.end), rsae = reStr(mode.afterEnd);
+            mode.endRe = langRe(rse + '(?=' + rsae + ')');
+            mode.end = rse + '(' + rsae + ')';
+          } else {
+            mode.endRe = langRe(mode.end);
+          }
+        }
         mode.terminator_end = reStr(mode.end) || '';
         if (mode.endsWithParent && parent.terminator_end)
           mode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
@@ -436,6 +449,9 @@ https://highlightjs.org/
 
       var new_mode = subMode(lexeme, top);
       if (new_mode) {
+        if (new_mode.afterBegin) {
+          lexeme = lexeme.match(new_mode.beginRe)[0];
+        }
         if (new_mode.skip) {
           mode_buffer += lexeme;
         } else {
@@ -454,6 +470,9 @@ https://highlightjs.org/
       var end_mode = endOfMode(top, lexeme);
       if (end_mode) {
         var origin = top;
+        if (origin.afterEnd) {
+          lexeme = lexeme.match(origin.endRe)[0];
+        }
         if (origin.skip) {
           mode_buffer += lexeme;
         } else {
