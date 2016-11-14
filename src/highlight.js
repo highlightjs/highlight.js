@@ -615,7 +615,7 @@ https://highlightjs.org/
   Applies highlighting to a DOM node containing code. Accepts a DOM node and
   two optional parameters for fixMarkup.
   */
-  function highlightBlock(block) {
+  function highlightBlock(block, callback) {
     var node, originalStream, result, resultNode, text;
     var language = blockLanguage(block);
 
@@ -651,6 +651,7 @@ https://highlightjs.org/
         re: result.second_best.relevance
       };
     }
+    if (typeof(callback) === 'function') callback(block);
   }
 
   /*
