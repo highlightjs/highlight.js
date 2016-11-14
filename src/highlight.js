@@ -298,6 +298,8 @@ https://highlightjs.org/
       mode.contains.forEach(function(c) {compileMode(c, mode);});
 
       if (mode.starts) {
+        if (mode.starts === 'self')
+          mode.starts = mode;
         compileMode(mode.starts, parent);
       }
 
