@@ -1,0 +1,23 @@
+fn foo a b
+    if $a == $a
+      echo true $a == $a
+      if $b != $b
+        echo true $b != $b
+      else
+        echo false $b != $b
+        if 3 > 2
+          echo "true 3 > 2"
+        else
+          echo "false 3 > 2"
+        end
+      end
+    else
+      echo false $a == $a
+    end
+end
+
+for i in 1 2 3 4 5
+    for u in 5 4 3 2 1
+        foo $i $u
+    end
+end
