@@ -9,10 +9,15 @@ function (hljs) {
     contains: [
       {
         className: 'function',
-        begin: '#',
+        begin: '#+' + '[A-Za-z_0-9]*' + '\\(',
         end:' {',
+        returnBegin: true,
         excludeEnd: true,
         contains : [
+          {
+            className: 'keyword',
+            begin: '#+'
+          },
           {
             className: 'title',
             begin: '[A-Za-z_][A-Za-z_0-9]*'
