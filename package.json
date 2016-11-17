@@ -41,5 +41,16 @@
     "should": "^9.0.2",
     "tiny-worker": "^1.1.1",
     "js-beautify": "^1.5.10"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "commander": "^2.9.0",
+    "del": "^2.2.2",
+    "gear": "^0.9.7",
+    "gear-lib": "^0.9.2",
+    "jsdom": "^9.8.3",
+    "lodash": "^4.17.2",
+    "mocha": "^2.5.3",
+    "should": "^9.0.2"
   }
 }

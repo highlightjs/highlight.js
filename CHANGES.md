@@ -1,3 +1,15 @@
+## Version 9.8.0-addriscv
+
+This is named like this because is just an add to riscvasm. I needed a highlight
+for an online-demo that I'm developing right know.
+Works so far as the main specification. You can find it at https://riscv.org/
+
+New languages:
+- *riscvasm* by [Ckristian Duran][] at [OnChipUIS][]
+
+[Ckristian Duran]: https://github.com/ckdur
+[OnChipUIS]: https://github.com/onchipuis
+
 ## Version 9.8.0 "New York"
 
 This version is the second one that deserved a name. Because I'm in New York,

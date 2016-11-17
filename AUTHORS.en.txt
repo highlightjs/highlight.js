@@ -231,3 +231,4 @@ Contributors:
 - Alexander Lichter <manniL@gmx.net>
 - Nicolas Le Gall <contact@nlegall.fr>
 - Kenton Hamaluik <kentonh@gmail.com>
+- Ckristian Duran <ckristian_duran@hotmail.com>
