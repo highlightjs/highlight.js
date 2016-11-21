@@ -25,59 +25,51 @@ function cos (hljs) {
     relevance: 0
   };
 
-  var COS_KEYWORDS = {
-    keyword: [
+  var COS_KEYWORDS =
+    'property parameter class classmethod clientmethod extends as break ' +
+    'catch close continue do d|0 else elseif for goto halt hang h|0 if job ' +
+    'j|0 kill k|0 lock l|0 merge new open quit q|0 read r|0 return set s|0 ' +
+    'tcommit throw trollback try tstart use view while write w|0 xecute x|0 ' +
+    'zkill znspace zn ztrap zwrite zw zzdump zzwrite print zbreak zinsert ' +
+    'zload zprint zremove zsave zzprint mv mvcall mvcrt mvdim mvprint zquit ' +
+    'zsync ascii';
 
-      "property", "parameter", "class", "classmethod", "clientmethod", "extends",
-      "as", "break", "catch", "close", "continue", "do", "d", "else",
-      "elseif", "for", "goto", "halt", "hang", "h", "if", "job",
-      "j", "kill", "k", "lock", "l", "merge", "new", "open", "quit",
-      "q", "read", "r", "return", "set", "s", "tcommit", "throw",
-      "trollback", "try", "tstart", "use", "view", "while", "write",
-      "w", "xecute", "x", "zkill", "znspace", "zn", "ztrap", "zwrite",
-      "zw", "zzdump", "zzwrite", "print", "zbreak", "zinsert", "zload",
-      "zprint", "zremove", "zsave", "zzprint", "mv", "mvcall", "mvcrt",
-      "mvdim", "mvprint", "zquit", "zsync", "ascii"
+    // registered function - no need in them due to all functions are highlighted,
+    // but I'll just leave this here.
 
-      // registered function - no need in them due to all functions are highlighted,
-      // but I'll just leave this here.
-
-      //"$bit", "$bitcount",
-      //"$bitfind", "$bitlogic", "$case", "$char", "$classmethod", "$classname",
-      //"$compile", "$data", "$decimal", "$double", "$extract", "$factor",
-      //"$find", "$fnumber", "$get", "$increment", "$inumber", "$isobject",
-      //"$isvaliddouble", "$isvalidnum", "$justify", "$length", "$list",
-      //"$listbuild", "$listdata", "$listfind", "$listfromstring", "$listget",
-      //"$listlength", "$listnext", "$listsame", "$listtostring", "$listvalid",
-      //"$locate", "$match", "$method", "$name", "$nconvert", "$next",
-      //"$normalize", "$now", "$number", "$order", "$parameter", "$piece",
-      //"$prefetchoff", "$prefetchon", "$property", "$qlength", "$qsubscript",
-      //"$query", "$random", "$replace", "$reverse", "$sconvert", "$select",
-      //"$sortbegin", "$sortend", "$stack", "$text", "$translate", "$view",
-      //"$wascii", "$wchar", "$wextract", "$wfind", "$wiswide", "$wlength",
-      //"$wreverse", "$xecute", "$zabs", "$zarccos", "$zarcsin", "$zarctan",
-      //"$zcos", "$zcot", "$zcsc", "$zdate", "$zdateh", "$zdatetime",
-      //"$zdatetimeh", "$zexp", "$zhex", "$zln", "$zlog", "$zpower", "$zsec",
-      //"$zsin", "$zsqr", "$ztan", "$ztime", "$ztimeh", "$zboolean",
-      //"$zconvert", "$zcrc", "$zcyc", "$zdascii", "$zdchar", "$zf",
-      //"$ziswide", "$zlascii", "$zlchar", "$zname", "$zposition", "$zqascii",
-      //"$zqchar", "$zsearch", "$zseek", "$zstrip", "$zwascii", "$zwchar",
-      //"$zwidth", "$zwpack", "$zwbpack", "$zwunpack", "$zwbunpack", "$zzenkaku",
-      //"$change", "$mv", "$mvat", "$mvfmt", "$mvfmts", "$mviconv",
-      //"$mviconvs", "$mvinmat", "$mvlover", "$mvoconv", "$mvoconvs", "$mvraise",
-      //"$mvtrans", "$mvv", "$mvname", "$zbitand", "$zbitcount", "$zbitfind",
-      //"$zbitget", "$zbitlen", "$zbitnot", "$zbitor", "$zbitset", "$zbitstr",
-      //"$zbitxor", "$zincrement", "$znext", "$zorder", "$zprevious", "$zsort",
-      //"device", "$ecode", "$estack", "$etrap", "$halt", "$horolog",
-      //"$io", "$job", "$key", "$namespace", "$principal", "$quit", "$roles",
-      //"$storage", "$system", "$test", "$this", "$tlevel", "$username",
-      //"$x", "$y", "$za", "$zb", "$zchild", "$zeof", "$zeos", "$zerror",
-      //"$zhorolog", "$zio", "$zjob", "$zmode", "$znspace", "$zparent", "$zpi",
-      //"$zpos", "$zreference", "$zstorage", "$ztimestamp", "$ztimezone",
-      //"$ztrap", "$zversion"
-
-    ].join(" ")
-  };
+    //"$bit", "$bitcount",
+    //"$bitfind", "$bitlogic", "$case", "$char", "$classmethod", "$classname",
+    //"$compile", "$data", "$decimal", "$double", "$extract", "$factor",
+    //"$find", "$fnumber", "$get", "$increment", "$inumber", "$isobject",
+    //"$isvaliddouble", "$isvalidnum", "$justify", "$length", "$list",
+    //"$listbuild", "$listdata", "$listfind", "$listfromstring", "$listget",
+    //"$listlength", "$listnext", "$listsame", "$listtostring", "$listvalid",
+    //"$locate", "$match", "$method", "$name", "$nconvert", "$next",
+    //"$normalize", "$now", "$number", "$order", "$parameter", "$piece",
+    //"$prefetchoff", "$prefetchon", "$property", "$qlength", "$qsubscript",
+    //"$query", "$random", "$replace", "$reverse", "$sconvert", "$select",
+    //"$sortbegin", "$sortend", "$stack", "$text", "$translate", "$view",
+    //"$wascii", "$wchar", "$wextract", "$wfind", "$wiswide", "$wlength",
+    //"$wreverse", "$xecute", "$zabs", "$zarccos", "$zarcsin", "$zarctan",
+    //"$zcos", "$zcot", "$zcsc", "$zdate", "$zdateh", "$zdatetime",
+    //"$zdatetimeh", "$zexp", "$zhex", "$zln", "$zlog", "$zpower", "$zsec",
+    //"$zsin", "$zsqr", "$ztan", "$ztime", "$ztimeh", "$zboolean",
+    //"$zconvert", "$zcrc", "$zcyc", "$zdascii", "$zdchar", "$zf",
+    //"$ziswide", "$zlascii", "$zlchar", "$zname", "$zposition", "$zqascii",
+    //"$zqchar", "$zsearch", "$zseek", "$zstrip", "$zwascii", "$zwchar",
+    //"$zwidth", "$zwpack", "$zwbpack", "$zwunpack", "$zwbunpack", "$zzenkaku",
+    //"$change", "$mv", "$mvat", "$mvfmt", "$mvfmts", "$mviconv",
+    //"$mviconvs", "$mvinmat", "$mvlover", "$mvoconv", "$mvoconvs", "$mvraise",
+    //"$mvtrans", "$mvv", "$mvname", "$zbitand", "$zbitcount", "$zbitfind",
+    //"$zbitget", "$zbitlen", "$zbitnot", "$zbitor", "$zbitset", "$zbitstr",
+    //"$zbitxor", "$zincrement", "$znext", "$zorder", "$zprevious", "$zsort",
+    //"device", "$ecode", "$estack", "$etrap", "$halt", "$horolog",
+    //"$io", "$job", "$key", "$namespace", "$principal", "$quit", "$roles",
+    //"$storage", "$system", "$test", "$this", "$tlevel", "$username",
+    //"$x", "$y", "$za", "$zb", "$zchild", "$zeof", "$zeos", "$zerror",
+    //"$zhorolog", "$zio", "$zjob", "$zmode", "$znspace", "$zparent", "$zpi",
+    //"$zpos", "$zreference", "$zstorage", "$ztimestamp", "$ztimezone",
+    //"$ztrap", "$zversion"
 
   return {
     case_insensitive: true,

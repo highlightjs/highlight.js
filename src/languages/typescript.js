@@ -86,11 +86,16 @@ function(hljs) {
             illegal: /["'\(]/
           }
         ],
-        illegal: /\[|%/,
+        illegal: /%/,
         relevance: 0 // () => {} is more typical in TypeScript
       },
       {
         beginKeywords: 'constructor', end: /\{/, excludeEnd: true
+      },
+      { // prevent references like module.id from being higlighted as module definitions
+        begin: /module\./,
+        keywords: {built_in: 'module'},
+        relevance: 0
       },
       {
         beginKeywords: 'module', end: /\{/, excludeEnd: true

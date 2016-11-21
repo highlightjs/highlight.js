@@ -4,3 +4,7 @@
 <span class="hljs-keyword">int</span> <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 </span>{ }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> x(v) ((v))</span>
+<span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> x(v) ((v))</span>
+<span class="hljs-meta">#  <span class="hljs-meta-keyword">define</span> x(v) ((v))</span>

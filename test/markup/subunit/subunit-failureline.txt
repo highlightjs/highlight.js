@@ -1,0 +1,4 @@
+failure: test simplename1
+failure test simplename1
+failure: test simple name1
+failure test simple name1

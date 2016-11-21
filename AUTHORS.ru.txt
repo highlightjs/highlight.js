@@ -213,3 +213,21 @@ URL:   https://highlightjs.org/
 - Билли Куит <chinbillybilbo@gmail.com>
 - Герберт Шин <initbar@protonmail.ch>
 - Тристано Аймоне <tajmone@gmail.com>
+- Тайсуке Фудзимото <temp-impl@users.noreply.github.com>
+- Бооне Северсон <boone.severson@gmail.com>
+- Виктор Жоу <OiCMudkips@users.noreply.github.com>
+- Ларс Шульна <kartoffelbrei.mit.muskatnuss@gmail.org>
+- Джейкоб Чайлдресс <jacobc@gmail.com>
+- Гавин Сиу <gavsiu@gmail.com>
+- Builder's Brewery <buildersbrewery@gmail.com>
+- Сергей Бронников <sergeyb@bronevichok.ru>
+- Джо Эли Макилвейн <joe.eli.mac@gmail.com>
+- Стефан Боер <stephan@stephanboyer.com>
+- Алекс МакКиббен <alex@nullscope.net>
+- Дэниел Гэмадж <hellodanielgamage@gmail.com>
+- Мэттью Дэли <matthewbdaly@gmail.com>
+- Магнус Мэдсен <mmadsen@uwaterloo.ca>
+- Камил Стапс <info@camilstaps.nl>
+- Александер Лихтер <manniL@gmx.net>
+- Николя Ле Галль <contact@nlegall.fr>
+- Кентон Хамалуик <kentonh@gmail.com>

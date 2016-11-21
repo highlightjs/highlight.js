@@ -1,0 +1,1 @@
+=IF(C10 <= 275.5, "Unprofitable", "Profitable")

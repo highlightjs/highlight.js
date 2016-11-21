@@ -5,3 +5,7 @@
 };
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">println</span>(<span class="hljs-params">value: <span class="hljs-built_in">string</span></span>)</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArray</span>(<span class="hljs-params"></span>): <span class="hljs-title">number</span>[] </span>{
+  <span class="hljs-keyword">return</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
+}

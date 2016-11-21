@@ -1,0 +1,24 @@
+# Example LDAP user
+dn: uid=user.0,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+givenName: Morris
+sn: Day
+cn: Morris Day
+initials: MD
+employeeNumber: 0
+uid: user.0
+mail: user.0@example.com
+userPassword: password
+telephoneNumber: +1 042 100 3866
+homePhone: +1 039 680 4135
+pager: +1 284 199 0966
+mobile: +1 793 707 0251
+street: 90280 Spruce Street
+l: Minneapolis
+st: MN
+postalCode: 50401
+postalAddress: Morris Day$90280 Spruce Street$Minneapolis, MN  50401
+description: This is the description for Morris Day.

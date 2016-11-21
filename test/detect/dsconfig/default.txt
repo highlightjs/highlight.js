@@ -1,0 +1,22 @@
+# Create client connection policies
+dsconfig create-client-connection-policy \
+  --policy-name "Restrictive Client Connection Policy" \
+  --set "description:Restrictive Client Connection Policy" \
+  --set enabled:true --set evaluation-order-index:1000 \
+  --set "connection-criteria:User.0 Connection Criteria" \
+  --set maximum-concurrent-connections:2 \
+  --set "maximum-connection-duration:1 s" \
+  --set "maximum-idle-connection-duration:1 s" \
+  --set maximum-operation-count-per-connection:1000
+create-client-connection-policy \
+  --policy-name "Another Client Connection Policy" \
+  --set enabled:true --set evaluation-order-index:100 \
+  --set 'connection-criteria:User.1 Connection Criteria' \
+  --reset maximum-concurrent-connections
+# Configure global ACIs
+dsconfig set-access-control-handler-prop \
+ --add global-aci:'(target="ldap:///cn=config")(targetattr="*")(version 3.0; acl "Allow access to the config tree by cn=admin,c=us"; allow(all) groupdn="ldap:///cn=directory administrators,ou=groups,c=us";)' \
+ --add global-aci:'(target="ldap:///cn=monitor")(targetattr="*")(version 3.0; acl "Allow access to the monitor tree by cn=admin,c=us"; allow(all) groupdn="ldap:///cn=directory administrators,ou=groups,c=us";)' \
+ --remove global-aci:'(target="ldap:///cn=alerts")(targetattr="*")(version 3.0; acl "Allow access to the alerts tree by cn=admin,c=us"; allow(all) groupdn="ldap:///cn=directory administrators,ou=groups,c=us";)'
+# Delete error logger
+dsconfig delete-log-publisher --publisher-name "File-Based Error Logger"

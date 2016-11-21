@@ -78,6 +78,7 @@ function (hljs) {
       {
         className: 'comment',
         begin: /([ ]*[a-z0-9&#*=?@>\\<:\-,()$\[\]_.{}!+%^]+)+/,
+        relevance: 0
       },
     ],
   };

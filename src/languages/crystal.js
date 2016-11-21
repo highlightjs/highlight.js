@@ -28,8 +28,7 @@ function(hljs) {
       {begin: '\\{\\{', end: '\\}\\}'},
       {begin: '\\{%', end: '%\\}'}
     ],
-    keywords: CRYSTAL_KEYWORDS,
-    relevance: 10
+    keywords: CRYSTAL_KEYWORDS
   };
 
   function recursiveParen(begin, end) {
