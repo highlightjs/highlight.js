@@ -17,20 +17,8 @@ function(hljs) {
     'specialize strict unaligned varargs ';
   var COMMENT_MODES = [
     hljs.C_LINE_COMMENT_MODE,
-    hljs.COMMENT(
-      /\{/,
-      /\}/,
-      {
-        relevance: 0
-      }
-    ),
-    hljs.COMMENT(
-      /\(\*/,
-      /\*\)/,
-      {
-        relevance: 10
-      }
-    )
+    hljs.COMMENT(/\{/, /\}/, {relevance: 0}),
+    hljs.COMMENT(/\(\*/, /\*\)/, {relevance: 10})
   ];
   var STRING = {
     className: 'string',
