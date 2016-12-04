@@ -19,7 +19,7 @@ function(hljs) {
   // https://community.bistudio.com/wiki/Functions_Library_(Arma_3)#Adding_a_Function
   var FUNCTION = {
     className: 'title',
-    begin: /[a-zA-Z_]\w+_fnc_\w*/
+    begin: /[a-zA-Z_][a-zA-Z0-9_]+_fnc_\w*/
   };
 
   // In SQF strings, quotes matching the start are escaped by adding a consecutive.
