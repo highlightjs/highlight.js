@@ -12,7 +12,7 @@ function(hljs) {
   // In SQF, a variable start with _
   var VARIABLE = {
     className: 'variable',
-    begin: '\\_+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
+    begin: /\b_+[a-zA-Z_]\w*/
   };
 
   // In SQF strings, quotes matching the start are escaped by adding a consecutive.
