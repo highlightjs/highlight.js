@@ -8,6 +8,12 @@ Requires: cpp.js
 function(hljs) {
   var CPP = hljs.getLanguage('cpp').exports;
 
+  // In SQF, a variable start with _
+  var VARIABLE = {
+    className: 'variable',
+    begin: '\\_+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
+  };
+
   // In SQF strings, quotes matching the start are escaped by adding a consecutive.
   // Example of single escaped quotes: " "" " and  ' '' '.
   var STRINGS = {
@@ -450,8 +456,7 @@ function(hljs) {
         'weaponAccessories weaponCargo weaponDirection weaponLowered ' +
         'weapons weaponsItems weaponsItemsCargo weaponState weaponsTurret ' +
         'weightRTD west WFSideText wind windDir windStr wingsForcesRTD ' +
-        'worldName worldSize worldToModel worldToModelVisual worldToScreen ' +
-        '_forEachIndex _this _x',
+        'worldName worldSize worldToModel worldToModelVisual worldToScreen',
       literal:
         'true false nil'
     },
@@ -459,6 +464,7 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.NUMBER_MODE,
+      VARIABLE,
       STRINGS,
       CPP.preprocessor
     ],
