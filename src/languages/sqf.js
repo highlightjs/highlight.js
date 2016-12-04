@@ -135,7 +135,7 @@ function(hljs) {
         'disableNVGEquipment disableRemoteSensors disableSerialization disableTIEquipment ' +
         'disableUAVConnectability disableUserInput displayAddEventHandler displayCtrl displayNull ' +
         'displayParent displayRemoveAllEventHandlers displayRemoveEventHandler displaySetEventHandler ' +
-        'dissolveTeam distance distance2D distanceSqr distributionRegion do do3DENAction doArtilleryFire ' +
+        'dissolveTeam distance distance2D distanceSqr distributionRegion do3DENAction doArtilleryFire ' +
         'doFire doFollow doFSM doGetOut doMove doorPhase doStop doSuppressiveFire doTarget doWatch ' +
         'drawArrow drawEllipse drawIcon drawIcon3D drawLine drawLine3D drawLink drawLocation drawPolygon ' +
         'drawRectangle driver drop east echo edit3DENMissionAttributes editObject editorSetEventHandler ' +
