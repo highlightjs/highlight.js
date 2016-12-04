@@ -15,6 +15,13 @@ function(hljs) {
     begin: /\b_+[a-zA-Z_]\w*/
   };
 
+  // In SQF, a function should fit myTag_fnc_myFunction pattern
+  // https://community.bistudio.com/wiki/Functions_Library_(Arma_3)#Adding_a_Function
+  var FUNCTION = {
+    className: 'title',
+    begin: /[a-zA-Z_][a-zA-Z0-9_]+_fnc_\w*/
+  };
+
   // In SQF strings, quotes matching the start are escaped by adding a consecutive.
   // Example of single escaped quotes: " "" " and  ' '' '.
   var STRINGS = {
@@ -362,6 +369,7 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.NUMBER_MODE,
       VARIABLE,
+      FUNCTION,
       STRINGS,
       CPP.preprocessor
     ],
