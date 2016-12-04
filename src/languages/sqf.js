@@ -1,6 +1,7 @@
 /*
 Language: SQF
 Author: Søren Enevoldsen <senevoldsen90@gmail.com>
+Contributors: Marvin Saignat <contact@zgmrvn.com>
 Description: Scripting language for the Arma game series
 Requires: cpp.js
 */
