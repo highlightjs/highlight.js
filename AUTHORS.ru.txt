@@ -231,3 +231,4 @@ URL:   https://highlightjs.org/
 - Александер Лихтер <manniL@gmx.net>
 - Николя Ле Галль <contact@nlegall.fr>
 - Кентон Хамалуик <kentonh@gmail.com>
+- Марвин Сайнат <contact@zgmrvn.com>

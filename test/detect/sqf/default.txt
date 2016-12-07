@@ -1,6 +1,6 @@
 /***
 	Arma Scripting File
-	Edition: 0.13
+	Edition: 1.66
 ***/
 
 // Enable eating to improve health.
@@ -11,5 +11,6 @@ _unit addAction ["Eat Energy Bar", {
         hint "You have eaten it all";
     };
     // 4 - means something...
-    ["EB_Eaten", _this, 4] call events_notify;
+    Z_obj_vip = nil;
+    [_boat, ["Black", 1], true] call BIS_fnc_initVehicle;
 }];
