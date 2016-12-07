@@ -126,7 +126,7 @@ function(hljs) {
         illegal: /\[|%/
       },
       {
-        begin: /\$[(.]/ 
+        begin: /\$[(.]/
       }
     ],
     illegal: /#(?!!)/
