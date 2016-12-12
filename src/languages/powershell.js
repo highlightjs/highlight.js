@@ -1,5 +1,7 @@
 module.exports = function(hljs) {
 
+  // var IDENT_RE = '[a-zA-Z-_]\\w*';
+
   // https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx
   var VALID_VERBS =
     'Add|Clear|Close|Copy|Enter|Exit|Find|Format|Get|Hide|Join|Lock|' +
@@ -14,31 +16,39 @@ module.exports = function(hljs) {
     'Disconnect|Read|Receive|Send|Write|Block|Grant|Protect|Revoke|Unblock|' +
     'Unprotect|Use|ForEach|Sort|Tee|Where'
 
+  var COMPARISON_OPERATORS =
+    '-and|-as|-band|-bnot|-bor|-bxor|-casesensitive|-ccontains|-ceq|-cge|-cgt|' +
+    '-cle|-clike|-clt|-cmatch|-cne|-cnotcontains|-cnotlike|-cnotmatch|-contains|' +
+    '-creplace|-csplit|-eq|-exact|-f|-file|-ge|-gt|-icontains|-ieq|-ige|-igt|' +
+    '-ile|-ilike|-ilt|-imatch|-in|-ine|-inotcontains|-inotlike|-inotmatch|' +
+    '-ireplace|-is|-isnot|-isplit|-join|-le|-like|-lt|-match|-ne|-not|' +
+    '-notcontains|-notin|-notlike|-notmatch|-or|-regex|-replace|-shl|-shr|' +
+    '-split|-wildcard|-xor'
+
   var KEYWORDS = {
     keyword:
       'if else foreach return do while until elseif begin for trap data dynamicparam ' +
       'end break throw param continue finally in switch exit filter try process catch ' +
-      'hidden static',
-
-    name:
-      '-ne -eq -lt -gt -ge -le -not -like -notlike -match -notmatch -contains '+
-      '-notcontains -in -notin -replace -split -join'
+      'hidden static'
   }
 
   var BACKTICK_ESCAPE = {
     begin: '`[\\s\\S]',
     relevance: 0
   }
+
   var VAR = {
     className: 'variable',
     variants: [
       {begin: /\$[\w\d][\w\d_:]*/}
     ]
   }
+
   var LITERAL = {
     className: 'literal',
     begin: /\$(null|true|false)\b/
   }
+
   var QUOTE_STRING = {
     className: 'string',
     variants: [
@@ -54,6 +64,7 @@ module.exports = function(hljs) {
       }
     ]
   }
+
   var APOS_STRING = {
     className: 'string',
     variants: [
@@ -71,6 +82,7 @@ module.exports = function(hljs) {
       { begin: /\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp)\s+\S+/ }
     ]
   }
+
   var PS_COMMENT = hljs.inherit(
     hljs.COMMENT(null, null),
     {
@@ -91,6 +103,7 @@ module.exports = function(hljs) {
       { className: 'name', begin: /[\w\d]+(-)[\w\d]+/ }
     ]
   }
+
   var PS_CLASS = {
     className: 'class',
     beginKeywords: 'class enum', end: /[{]/, excludeEnd: true,
@@ -100,11 +113,9 @@ module.exports = function(hljs) {
     ]
   }
 
-  var IDENT_RE = '[a-zA-Z-_]\\w*';
-
   var PS_FUNCTION =  {
     className: 'keyword',
-    begin: /function\s/, end: /(\s|[^A-Z0-9-])/,
+    begin: /function\s+/, end: /([^A-Z0-9-])/,
     excludeEnd: true,
     contains: [
       CMDLETS,
@@ -124,31 +135,91 @@ module.exports = function(hljs) {
   }
 
   var PS_ARGUMENTS =  {
-    className: 'literal hljs-strong',
+    className: 'name',
     variants: [
-      { begin: '(-)[\\w\\d]+' },
+      { begin: '('.concat( COMPARISON_OPERATORS, ')\\b') },
+      { className: 'literal hljs-strong', begin: /(-)[\w\d]+/ },
     ]
   }
+
+  var STATIC_DELIMITER = { className: 'section', begin: /::/ }
+
+  var PS_NEW_OBJECT_TYPE = {
+    className: 'built_in',
+    begin: /New-Object\s+\w/, end: /$/,
+    returnBegin: true,
+    contains: [
+      {
+        className: 'name', begin: /$/, endsParent: true,
+      },
+      {
+        className: 'meta hljs-strong',
+        begin: /\s([\w\.])+/,
+        endsParent: true,
+
+
+      }
+    ],
+
+
+  }
+
+  var PS_CLASS_CONSTRUCTOR = {
+    className: 'name',
+    begin: /^\s+[A-Z]+\s*?\(.*?\)/, end: /{/,
+    returnBegin: true,
+
+    contains: [
+      {
+        className: 'name', begin: /[\Z]{0,1}/, endsParent: true,
+      },
+      {
+        className: 'name', begin: /[\w]+\b/,
+        endsParent: true,
+      }
+    ]
+  }
+
+  var GENTLEMANS_SET =[
+    STATIC_DELIMITER,
+    PS_CLASS_CONSTRUCTOR,
+    PS_COMMENT,
+    BACKTICK_ESCAPE,
+    hljs.NUMBER_MODE,
+    QUOTE_STRING,
+    APOS_STRING,
+    PS_NEW_OBJECT_TYPE,
+    CMDLETS,
+    VAR,
+    LITERAL
+  ]
+
+  var PS_TYPE =  {
+    className: 'no-markup',
+    begin: /\[/, end: /\]/,
+    excludeBegin: true,
+    excludeEnd: true,
+    contains: GENTLEMANS_SET.concat(
+      'self',
+      { className: 'meta hljs-strong', begin: /[\.\w\d]+/ },
+    )
+  }
+
+
+
 
   return {
     aliases: ['ps'],
     lexemes: /-?[A-z\.\-]+/,
     case_insensitive: true,
     keywords: KEYWORDS,
-    contains: [
-      CMDLETS,
-      BACKTICK_ESCAPE,
-      hljs.NUMBER_MODE,
-      QUOTE_STRING,
-      APOS_STRING,
-      LITERAL,
-      VAR,
-      PS_COMMENT,
+    contains: GENTLEMANS_SET.concat(
       PS_CLASS,
       PS_FUNCTION,
       PS_USING,
-      PS_ARGUMENTS
+      PS_ARGUMENTS,
+      PS_TYPE,
 
-    ]
+    )
   }
 }
