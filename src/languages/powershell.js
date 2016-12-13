@@ -107,7 +107,7 @@ function(hljs){
     className: 'built_in',
     variants: [
       { begin: '('.concat( VALID_VERBS, ')+(-)[\\w\\d]+') },
-      { className: 'name', begin: /[\w\d]+(-)[\w\d]+/ }
+      { className: 'deletion', begin: /[\w\d]+(-)[\w\d]+/ }
     ]
   }
 
@@ -126,62 +126,52 @@ function(hljs){
     excludeEnd: true,
     contains: [
       CMDLETS,
-      { className: 'name', begin: /[\w\d]+/ }
+      { className: 'deletion', begin: /[\w\d]+/ }
     ]
   }
 
   var PS_USING =  {
-    className: 'keyword hljs-strong',
+    className: 'keyword',
     begin: /using\s/, end: /$/,
     contains: [
       QUOTE_STRING,
       APOS_STRING,
       { className: 'type', begin: /(assembly|command|module|namespace|type)/ },
-      { className: 'meta', begin: /\S+/ }
+      { className: 'symbol', begin: /\S+/ }
     ]
   }
 
   var PS_ARGUMENTS =  {
-    className: 'name',
     variants: [
       { begin: '('.concat( COMPARISON_OPERATORS, ')\\b') },
-      { className: 'literal hljs-strong', begin: /(-)[\w\d]+/ },
+      { className: 'literal', begin: /(-)[\w\d]+/ },
     ]
   }
 
-  var STATIC_DELIMITER = { className: 'section', begin: /::/ }
+  var STATIC_DELIMITER = { className: 'deletion', begin: /::/ }
 
   var PS_NEW_OBJECT_TYPE = {
     className: 'built_in',
     begin: /New-Object\s+\w/, end: /$/,
     returnBegin: true,
     contains: [
-      {
-        className: 'name', begin: /$/, endsParent: true,
-      },
-      {
-        className: 'meta hljs-strong',
-        begin: /\s([\w\.])+/,
-        endsParent: true,
-
-
-      }
-    ],
-
-
+      { begin: /$/, endsParent: true },
+      { className: 'symbol', begin: /\s([\w\.])+/, endsParent: true }
+    ]
   }
 
   var PS_CLASS_CONSTRUCTOR = {
-    className: 'name',
-    begin: /^\s+[A-Z]+\s*?\(.*?\)/, end: /{/,
+    className: 'keyword',
+    //begin: /^\s+[A-Z]+\s*?\([\s\S][\s]*?.*?[^]*?\)\s\{/gm, end: /{/,
+    //begin: /^[ ]+[A-Z]+[ ]+\(.*?\)\s*?\{/, end: /{/,
+    //begin: /(^[ ]*?|\.)[A-Z]+\s*?\([\s\S]*?\)/, end: /$/,
+    //begin: /(^[ ]*?)[A-Z]+\s*?\([\s\S]*?\)/, end: /$/,
+    begin: /[A-Z]+\s*?\([\s\S]*?\)/, end: /$/,
     returnBegin: true,
 
     contains: [
       {
-        className: 'name', begin: /[\Z]{0,1}/, endsParent: true,
-      },
-      {
-        className: 'name', begin: /[\w]+\b/,
+        className: 'built_in', begin: /[\w]+\b/,
         endsParent: true,
       }
     ]
@@ -189,7 +179,7 @@ function(hljs){
 
   var GENTLEMANS_SET =[
     STATIC_DELIMITER,
-    PS_CLASS_CONSTRUCTOR,
+   // PS_CLASS_CONSTRUCTOR,
     PS_COMMENT,
     BACKTICK_ESCAPE,
     hljs.NUMBER_MODE,
@@ -208,7 +198,7 @@ function(hljs){
     excludeEnd: true,
     contains: GENTLEMANS_SET.concat(
       'self',
-      { className: 'meta hljs-strong', begin: /[\.\w\d]+/ },
+      { className: 'symbol', begin: /[\.\w\d]+/ },
     )
   }
 
