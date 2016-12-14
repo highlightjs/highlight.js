@@ -1,4 +1,4 @@
-@Component({
+<span class="hljs-meta">@Component</span>({
   selector: <span class="hljs-string">'my-example'</span>,
   directives: [SomeDirective],
   templateUrl: <span class="hljs-string">'./my-example.component.html'</span>,
