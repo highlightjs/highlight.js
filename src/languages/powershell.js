@@ -1,6 +1,10 @@
-module.exports = function(hljs) {
+/*
+ Language: PowerShell
+ Author: David Mohundro <david@mohundro.com>
+ Contributors: Nicholas Blumhardt <nblumhardt@nblumhardt.com>, Victor Zhou <OiCMudkips@users.noreply.github.com>, Nicolas Le Gall <contact@nlegall.fr>, G8t Guy <g8tguy@g8tguy.com>
+ */
 
-  // var IDENT_RE = '[a-zA-Z-_]\\w*';
+module.exports = function (hljs) {
 
   // https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx
   var VALID_VERBS =
@@ -26,10 +30,9 @@ module.exports = function(hljs) {
     '-split|-wildcard|-xor'
 
   var KEYWORDS = {
-    keyword:
-      'if else foreach return do while until elseif begin for trap data dynamicparam ' +
-      'end break throw param continue finally in switch exit filter try process catch ' +
-      'hidden static'
+    keyword: 'if else foreach return do while until elseif begin for trap data dynamicparam ' +
+    'end break throw param continue finally in switch exit filter try process catch ' +
+    'hidden static parameter validate[A-Z]+'
   }
 
   var BACKTICK_ESCAPE = {
@@ -40,7 +43,9 @@ module.exports = function(hljs) {
   var VAR = {
     className: 'variable',
     variants: [
-      {begin: /\$[\w\d][\w\d_:]*/}
+      { begin: /\$\B/ },
+      { className: 'keyword', begin: /\$this/ },
+      { begin: /\$[\w\d][\w\d_:]*/ }
     ]
   }
 
@@ -99,49 +104,65 @@ module.exports = function(hljs) {
   var CMDLETS = {
     className: 'built_in',
     variants: [
-      { begin: '('.concat( VALID_VERBS, ')+(-)[\\w\\d]+') },
-      { className: 'deletion', begin: /[\w\d]+(-)[\w\d]+/ }
+      { begin: '('.concat(VALID_VERBS, ')+(-)[\\w\\d]+') },
+      // Invalid cmdlets!
+      { className: 'subst', begin: /[\w\d]+(-)[\w\d]+/ }
     ]
   }
 
   var PS_CLASS = {
     className: 'class',
     beginKeywords: 'class enum', end: /[{]/, excludeEnd: true,
-    contains: [
-      { beginKeywords: ':' },
-      hljs.TITLE_MODE
-    ]
+    contains: [hljs.TITLE_MODE]
   }
 
-  var PS_FUNCTION =  {
+  var PS_FUNCTION = {
     className: 'keyword',
     begin: /function\s+/, end: /([^A-Z0-9-])/,
     excludeEnd: true,
     contains: [
       CMDLETS,
-      { className: 'deletion', begin: /[\w\d]+/ }
+      // Invalid function names!
+      { className: 'subst', begin: /[\w\d]+/ }
     ]
   }
 
-  var PS_USING =  {
+  // Using statment, plus type, plus assembly name.
+  var PS_USING = {
     className: 'keyword',
     begin: /using\s/, end: /$/,
     contains: [
       QUOTE_STRING,
       APOS_STRING,
       { className: 'type', begin: /(assembly|command|module|namespace|type)/ },
-      { className: 'symbol', begin: /\S+/ }
+      { className: 'meta', begin: /\S+/ }
     ]
   }
 
-  var PS_ARGUMENTS =  {
+  // Comperison operators & function named parameters.
+  var PS_ARGUMENTS = {
     variants: [
-      { begin: '('.concat( COMPARISON_OPERATORS, ')\\b') },
-      { className: 'literal', begin: /(-)[\w\d]+/ },
+      // PS literals are pretty verbose so it's a good idea to accent them a bit.
+      { className: 'subst', begin: '('.concat(COMPARISON_OPERATORS, ')\\b') },
+      { className: 'literal', begin: /(-)[\w\d]+/ }
     ]
   }
 
-  var STATIC_DELIMITER = { className: 'deletion', begin: /::/ }
+  var STATIC_MEMBER = {
+    className: 'selector-tag',
+    begin: /::\w+\b/, end: /$/,
+    returnBegin: true,
+    contains: [
+      { className: 'attribute', begin: /\w+/, endsParent: true }
+    ]
+  }
+
+  var HASH_SIGNS = {
+    className: 'selector-tag',
+    begin: /\@\B/
+
+  }
+
 
   var PS_NEW_OBJECT_TYPE = {
     className: 'built_in',
@@ -149,30 +170,33 @@ module.exports = function(hljs) {
     returnBegin: true,
     contains: [
       { begin: /$/, endsParent: true },
-      { className: 'symbol', begin: /\s([\w\.])+/, endsParent: true }
+      { className: 'meta', begin: /\s([\w\.])+/, endsParent: true }
     ]
   }
 
-  var PS_CLASS_CONSTRUCTOR = {
-    className: 'keyword',
-    //begin: /^\s+[A-Z]+\s*?\([\s\S][\s]*?.*?[^]*?\)\s\{/gm, end: /{/,
-    //begin: /^[ ]+[A-Z]+[ ]+\(.*?\)\s*?\{/, end: /{/,
-    //begin: /(^[ ]*?|\.)[A-Z]+\s*?\([\s\S]*?\)/, end: /$/,
-    //begin: /(^[ ]*?)[A-Z]+\s*?\([\s\S]*?\)/, end: /$/,
-    begin: /[A-Z]+\s*?\([\s\S]*?\)/, end: /$/,
+  // It's a very general rule so I'll narrow it a bit with some strict boundaries
+  // to avoid any possible false-positive collisions!
+  var PS_METHODS = {
+    className: 'name',
+    begin: /[\w]+[ ]??\(/, end: /$/,
     returnBegin: true,
-
     contains: [
       {
+        className: 'keyword', begin: '('.concat(
+        KEYWORDS.keyword.toString().replace(/\s/g, '|'
+        ), ')\\b'),
+        endsParent: true
+      },
+      {
         className: 'built_in', begin: /[\w]+\b/,
-        endsParent: true,
+        endsParent: true
       }
     ]
   }
 
-  var GENTLEMANS_SET =[
-    STATIC_DELIMITER,
-   // PS_CLASS_CONSTRUCTOR,
+  var GENTLEMANS_SET = [
+    STATIC_MEMBER,
+    PS_METHODS,
     PS_COMMENT,
     BACKTICK_ESCAPE,
     hljs.NUMBER_MODE,
@@ -181,22 +205,20 @@ module.exports = function(hljs) {
     PS_NEW_OBJECT_TYPE,
     CMDLETS,
     VAR,
-    LITERAL
+    LITERAL,
+    HASH_SIGNS
   ]
 
-  var PS_TYPE =  {
+  var PS_TYPE = {
     className: 'no-markup',
     begin: /\[/, end: /\]/,
     excludeBegin: true,
     excludeEnd: true,
     contains: GENTLEMANS_SET.concat(
       'self',
-      { className: 'symbol', begin: /[\.\w\d]+/ },
+      { className: 'meta', begin: /[\.\w\d]+/ }
     )
   }
-
-
-
 
   return {
     aliases: ['ps'],
@@ -208,8 +230,7 @@ module.exports = function(hljs) {
       PS_FUNCTION,
       PS_USING,
       PS_ARGUMENTS,
-      PS_TYPE,
-
+      PS_TYPE
     )
   }
 }
