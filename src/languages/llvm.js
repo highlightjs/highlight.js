@@ -46,8 +46,12 @@ function(hljs) {
       'malloc alloca free load store getelementptr ' +
       'extractelement insertelement shufflevector getresult ' +
       'extractvalue insertvalue atomicrmw cmpxchg fence ' +
-      'argmemonly',
+      'argmemonly double',
     contains: [
+      {
+        className: 'keyword',
+        begin: 'i\\d+'
+      },
       hljs.COMMENT(
         ';', '\\n', {relevance: 0}
       ),
@@ -58,14 +62,6 @@ function(hljs) {
         variants: [
           // Double-quoted string
           { begin: '"', end: '[^\\\\]"' },
-        ],
-        relevance: 0
-      },
-      {
-        className: 'type',
-        variants: [
-          { begin: 'i\\d+' },
-          { begin: 'double' }
         ],
         relevance: 0
       },
