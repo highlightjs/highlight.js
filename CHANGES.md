@@ -6,11 +6,15 @@ New languages
 
 Improvements:
 
-- TypeScript updated with annotations and param lists inside constructors, by
-  [Raphael Parree][]
+- *TypeScript* updated with annotations and param lists inside constructors, by
+  [Raphael Parree][].
+- *CoffeeScript* updated with new keywords and fixed to recognize JavaScript
+  in \`\`\`, thanks to thanks to [Geoffrey Booth][].
+- Compiler directives in *Delphi* are now correctly highlighted as "meta".
 
 [Raphael Parree]: https://github.com/rparree
 [Michael Rodler]: https://github.com/f0rki
+[Geoffrey Booth]: https://github.com/GeoffreyBooth
 
 
 ## Version 9.8.0 "New York"
