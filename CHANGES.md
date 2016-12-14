@@ -1,11 +1,16 @@
 ## Version 9.9.0
 
+New languages
+
+- *LLVM* by [Michael Rodler][]
+
 Improvements:
 
 - TypeScript updated with annotations and param lists inside constructors, by
   [Raphael Parree][]
 
 [Raphael Parree]: https://github.com/rparree
+[Michael Rodler]: https://github.com/f0rki
 
 
 ## Version 9.8.0 "New York"
