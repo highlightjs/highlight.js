@@ -1,3 +1,13 @@
+## Version 9.9.0
+
+Improvements:
+
+- TypeScript updated with annotations and param lists inside constructors, by
+  [Raphael Parree][]
+
+[Raphael Parree]: https://github.com/rparree
+
+
 ## Version 9.8.0 "New York"
 
 This version is the second one that deserved a name. Because I'm in New York,
