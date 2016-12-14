@@ -74,9 +74,16 @@ function(hljs) {
       begin: '@' + JS_IDENT_RE // relevance booster
     },
     {
-      begin: '`', end: '`',
+      subLanguage: 'javascript',
       excludeBegin: true, excludeEnd: true,
-      subLanguage: 'javascript'
+      variants: [
+        {
+          begin: '```', end: '```',
+        },
+        {
+          begin: '`', end: '`',
+        }
+      ]
     }
   ];
   SUBST.contains = EXPRESSIONS;
