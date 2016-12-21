@@ -4,12 +4,12 @@
  */
 
 
-function (hljs) {
+function(hljs) {
   var KEYWORDS = {
     keyword:
       'abstract as val var vararg get set class object open private protected public noinline ' +
       'crossinline dynamic final enum if else do while for when throw try catch finally ' +
-      'import package is in fun override companion reified inline ' +
+      'import package is in fun override companion reified inline lateinit init' +
       'interface annotation data sealed internal infix operator out by constructor super ' +
       // to be deleted soon
       'trait volatile transient native default',
