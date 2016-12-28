@@ -1,0 +1,27 @@
+// kitchen sink highlighting
+
+/*
+ * none of this makes much sense, but that's OK
+ */
+
+bool      = true
+seventy   = 70
+pi        = 3.14159
+terraform = "interpolate ${x.y.z}"       // Terraform interpolation syntax
+converge  = "render {{param `kittens`}}" // Converge interpolation syntax
+
+multi line string = <<EOF
+a
+${interpolation}
+b
+{{param `something`}}
+c
+EOF
+
+object {
+  key = "value"
+}
+
+multi "key" object {
+  key = false
+}
