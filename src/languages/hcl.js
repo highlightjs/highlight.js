@@ -60,7 +60,7 @@ function(hljs) {
         ],
         variants: [
           { begin: /"/, end: /"/ },
-          { begin: "<<EOF", end: "EOF" }
+          { begin: "<<EOF", end: "EOF" } // TODO: "EOF" should be any string, but I'm not sure how to do this?
         ]
       }
     ]
