@@ -1,0 +1,6 @@
+key: value
+key: 'some value'
+key: "some value"
+key: |
+  multi-string
+  value

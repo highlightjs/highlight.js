@@ -31,7 +31,8 @@ function(hljs) {
     relevance: 0,
     variants: [
       {begin: /'/, end: /'/},
-      {begin: /"/, end: /"/}
+      {begin: /"/, end: /"/},
+      {begin: /\S+/}
     ],
     contains: [
       hljs.BACKSLASH_ESCAPE,
@@ -81,9 +82,9 @@ function(hljs) {
         begin: '^ *-',
         relevance: 0
       },
-      STRING,
       hljs.HASH_COMMENT_MODE,
-      hljs.C_NUMBER_MODE
+      hljs.C_NUMBER_MODE,
+      STRING
     ],
     keywords: LITERALS
   };
