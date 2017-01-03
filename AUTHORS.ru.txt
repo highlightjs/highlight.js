@@ -233,3 +233,4 @@ URL:   https://highlightjs.org/
 - Кентон Хамалуик <kentonh@gmail.com>
 - Марвин Сайнат <contact@zgmrvn.com>
 - Михаель Родлер <contact@f0rki.at>
+- Грейт Гай <g8tguy@g8tguy.com>
