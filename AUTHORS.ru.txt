@@ -234,3 +234,4 @@ URL:   https://highlightjs.org/
 - Марвин Сайнат <contact@zgmrvn.com>
 - Михаель Родлер <contact@f0rki.at>
 - Сергей Собко <s.sobko@profitware.ru>
+- Хейл Чан <halechan@qq.com>
