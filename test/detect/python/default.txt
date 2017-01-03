@@ -8,5 +8,6 @@ def somefunc(param1='', param2=0):
 class SomeClass:
     pass
 
->>> message = '''interpreter
-... prompt'''
+>>> message = f'''interpreter
+... prompt
+... {flit['eral']!r:>04.2x}'''
