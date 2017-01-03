@@ -1,3 +1,11 @@
+## Version ???
+
+New Languages
+
+- *HCL* by [Brian Hicks][].
+
+[Brian Hicks]: https://github.com/BrianHicks
+
 ## Version 9.9.0
 
 New languages
