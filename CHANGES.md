@@ -7,14 +7,16 @@ New languages
 
 Improvements:
 
-- *Python* updated with f-literals, by [Philipp A][].
+- *Python* updated with f-literals by [Philipp A][].
 - Some keywords added to *Kotlin* by [Philipp Hauer][].
 - *YAML* updated with unquoted strings support.
+- *Gauss* updated with new keywords by [Matt Evans][].
 
 [Philipp A]: https://github.com/flying-sheep
 [Philipp Hauer]: https://github.com/phauer
 [Sergey Sobko]: https://github.com/profitware
 [Hale Chan]: https://github.com/halechan
+[Matt Evans]: https://github.com/matthewevans
 
 
 ## Version 9.9.0
