@@ -1,3 +1,15 @@
+## Master (UNRELEASED)
+
+Improvements:
+
+- *Python* updated with f-literals, by [Philipp A][].
+- Some keywords added to *Kotlin* by [Philipp Hauer][].
+- *YAML* updated with unquoted strings support.
+
+[Philipp A]: https://github.com/flying-sheep
+[Philipp Hauer]: https://github.com/phauer
+
+
 ## Version 9.9.0
 
 New languages
