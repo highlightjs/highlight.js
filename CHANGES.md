@@ -3,6 +3,7 @@
 New languages
 
 - *Hy* by [Sergey Sobko][]
+- *Leaf* by [Hale Chan][]
 
 Improvements:
 
@@ -13,6 +14,7 @@ Improvements:
 [Philipp A]: https://github.com/flying-sheep
 [Philipp Hauer]: https://github.com/phauer
 [Sergey Sobko]: https://github.com/profitware
+[Hale Chan]: https://github.com/halechan
 
 
 ## Version 9.9.0
