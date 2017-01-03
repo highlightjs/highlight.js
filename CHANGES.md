@@ -1,5 +1,9 @@
 ## Master (UNRELEASED)
 
+New languages
+
+- *Hy* by [Sergey Sobko][]
+
 Improvements:
 
 - *Python* updated with f-literals, by [Philipp A][].
@@ -8,6 +12,7 @@ Improvements:
 
 [Philipp A]: https://github.com/flying-sheep
 [Philipp Hauer]: https://github.com/phauer
+[Sergey Sobko]: https://github.com/profitware
 
 
 ## Version 9.9.0
