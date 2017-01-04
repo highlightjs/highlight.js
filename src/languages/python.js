@@ -4,22 +4,8 @@ Category: common
 */
 
 function(hljs) {
-  var KEYWORDS = {
-    keyword:
-      'and elif is global as in if from raise for except finally print import pass return ' +
-      'exec else break not with class assert yield try while continue del or def lambda ' +
-      'async await nonlocal|10 None True False',
-    built_in:
-      'Ellipsis NotImplemented'
-  };
   var PROMPT = {
     className: 'meta',  begin: /^(>>>|\.\.\.) /
-  };
-  var SUBST = {
-    className: 'subst',
-    begin: /\{/, end: /(![rs])?(:([^}]?[<>=^])?[ +-]?#?0?[0-9]*(\.[0-9]+)?[bcdeEfFgGnosxX%]?)?\}/,
-    keywords: KEYWORDS,
-    contains: [],  // defined later
   };
   var STRING = {
     className: 'string',
@@ -36,31 +22,11 @@ function(hljs) {
         relevance: 10
       },
       {
-        begin: /fr?'''/, end: /'''/,
-        contains: [PROMPT, SUBST],
-        relevance: 10
-      },
-      {
-        begin: /fr?"""/, end: /"""/,
-        contains: [PROMPT, SUBST],
-        relevance: 10
-      },
-      {
         begin: /(u|r|ur)'/, end: /'/,
         relevance: 10
       },
       {
         begin: /(u|r|ur)"/, end: /"/,
-        relevance: 10
-      },
-      {
-        begin: /fr?'/, end: /'/,
-        contains: [SUBST],
-        relevance: 10
-      },
-      {
-        begin: /fr?"/, end: /"/,
-        contains: [SUBST],
         relevance: 10
       },
       {
@@ -81,7 +47,6 @@ function(hljs) {
       {begin: hljs.C_NUMBER_RE + '[lLjJ]?'}
     ]
   };
-  SUBST.contains = [STRING, NUMBER];
   var PARAMS = {
     className: 'params',
     begin: /\(/, end: /\)/,
@@ -89,7 +54,14 @@ function(hljs) {
   };
   return {
     aliases: ['py', 'gyp'],
-    keywords: KEYWORDS,
+    keywords: {
+      keyword:
+        'and elif is global as in if from raise for except finally print import pass return ' +
+        'exec else break not with class assert yield try while continue del or def lambda ' +
+        'async await nonlocal|10 None True False',
+      built_in:
+        'Ellipsis NotImplemented'
+    },
     illegal: /(<\/|->|\?)|=>/,
     contains: [
       PROMPT,
