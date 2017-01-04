@@ -68,6 +68,18 @@ $('div.code').each(function(i, block) {
 
 For other options refer to the documentation for [`configure`][4].
 
+### Additional initialization when utilising TurboLinks.
+
+If you are using highlight.js with the [TurboLinks](https://github.com/turbolinks/turbolinks) library you will need to ALSO include the following initilization:
+
+```
+document.addEventListener('turbolinks:load', function () {
+    hljs.initHighlighting.called = false;
+    hljs.initHighlighting();
+});
+```
+
+This will ensure that your code is highlighted when TurboLinks loads the page.
 
 ## Web Workers
 
