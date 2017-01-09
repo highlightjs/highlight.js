@@ -25,15 +25,20 @@ function(hljs) {
   return {
     lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords: {
-      keyword:
-        'and break do else elseif end false for if in local nil not or repeat return then ' +
-        'true until while',
+      literal: 'true false nil',
+      keyword: 'and break do else elseif end for if in local not or repeat return then until while',
       built_in:
-        '_G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load ' +
-        'loadfile loadstring module next pairs pcall print rawequal rawget rawset require ' +
-        'select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug ' +
-        'io math os package string table'
-    },
+        '_G _ENV _VERSION __index __newindex __mode __call __metatable __tostring __len' +
+        '__gc __add __sub __mul __div __mod __pow __concat __unm __eq __lt __le assert' + 
+        'collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring' +
+        'module next pairs pcall print rawequal rawlen rawget rawset require select self' +
+        'setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io' +
+        'math abs acos asin atan ceil cos deg exp floor fmod huge max maxinteger min' +
+        'mininteger modf pi rad random randomseed sin sqrt tan tointeger ult os clock' +
+        'date difftime execute exit getenv remove rename setlocale time tmpname string' +
+        'byte char dump find format gfind gmatch gsub len lower match rep reverse sub' +
+        'upper table concat insert maxn pack remove sort unpack'
+    }, //TODO: Add the remaining libraries: IO, debug, coroutine and package.
     contains: COMMENTS.concat([
       {
         className: 'function',
