@@ -11,12 +11,14 @@ Improvements:
 - Some keywords added to *Kotlin* by [Philipp Hauer][].
 - *YAML* updated with unquoted strings support.
 - *Gauss* updated with new keywords by [Matt Evans][].
+- *Lua* updated with new keywords by [Joe Blow][].
 
 [Philipp A]: https://github.com/flying-sheep
 [Philipp Hauer]: https://github.com/phauer
 [Sergey Sobko]: https://github.com/profitware
 [Hale Chan]: https://github.com/halechan
 [Matt Evans]: https://github.com/matthewevans
+[Joe Blow]: https://github.com/mossarelli
 
 
 ## Version 9.9.0
