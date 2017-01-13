@@ -1,0 +1,86 @@
+/*
+Language: Lua
+Author: Mossarelli <mossarelli@gmail.com>
+Based on: lua.js by Andrew Fedorov <dmmdrs@mail.ru>
+Category: scripting
+*/
+
+function(hljs) {
+  var OPENING_LONG_BRACKET = '\\[=*\\[';
+  var CLOSING_LONG_BRACKET = '\\]=*\\]';
+  var LONG_BRACKETS = {
+    begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
+    contains: ['self']
+  };
+  var COMMENTS = [
+    hljs.COMMENT('--(?!' + OPENING_LONG_BRACKET + ')', '$'),
+    hljs.COMMENT(
+      '--' + OPENING_LONG_BRACKET,
+      CLOSING_LONG_BRACKET,
+      {
+        contains: [LONG_BRACKETS],
+        relevance: 10
+      }
+    )
+  ];
+  return {
+    lexemes: hljs.UNDERSCORE_IDENT_RE,
+    keywords: {
+      keyword:
+        //Metatags and globals:
+        '_G _ENV _VERSION __index __newindex __mode __call __metatable __tostring __len ' +
+        '__gc __add __sub __mul __div __mod __pow __concat __unm __eq __lt __le assert ' +
+        //Standard methods and properties:
+        'collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring ' +
+        'module next pairs pcall print rawequal rawget rawset require select setfenv ' +
+        'setmetatable tonumber tostring type unpack xpcall arg self ' +
+        //Library methods and properties (one line per library):
+        'coroutine resume yield status wrap create running debug getupvalue ' +
+        'debug sethook getmetatable gethook setmetatable setlocal traceback setfenv getinfo setupvalue getlocal getregistry getfenv ' +
+        'io lines write close flush open output type read stderr stdin input stdout popen tmpfile ' +
+        'math log max acos huge ldexp pi cos tanh pow deg tan cosh sinh random randomseed frexp ceil floor rad abs sqrt modf asin min mod fmod log10 atan2 exp sin atan ' +
+        'os exit setlocale date getenv difftime remove time clock tmpname rename execute package preload loadlib loaded loaders cpath config path seeall ' +
+        'string sub upper len gfind rep find match char dump gmatch reverse byte format gsub lower ' +
+        'table setn insert getn foreachi maxn foreach concat sort remove ' +
+        //Vera standard methods:
+        'luup attr_get attr_set call_action call_delay call_timer create_device device_supports_service ' +
+        'devices_by_service ip_set is_night is_ready job_watch mac_set register_handler ' +
+        'reload set_failure sleep sunrise sunset task variable_get variable_set variable_watch ' +
+        //Vera properties:
+        'city rooms scenes devices event_server event_server_backup hw_key latitude longitude ' +
+        'pk_accesspoint ra_server ra_server_backup timezone version version_branch version_major version_minor ' +
+        //Vera library methods and properties (one line per library):
+        'chdev append sync start ' +
+        'inet wget ' +
+        'is_connected intercept ' + //io (omitted from string because of doubles)
+        'ir pronto_to_gc100 ' +
+        'job setting set ' +
+        'xj xml_node_text'
+    },
+    contains: COMMENTS.concat([
+      {
+        className: 'function',
+        beginKeywords: 'function', end: '\\)',
+        contains: [
+          hljs.inherit(hljs.TITLE_MODE, {begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'}),
+          {
+            className: 'params',
+            begin: '\\(', endsWithParent: true,
+            contains: COMMENTS
+          }
+        ].concat(COMMENTS)
+      },
+      hljs.C_NUMBER_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'string',
+        begin: OPENING_LONG_BRACKET, end: CLOSING_LONG_BRACKET,
+        contains: [LONG_BRACKETS],
+        relevance: 5
+      }
+    ])
+  };
+}
+
+0
