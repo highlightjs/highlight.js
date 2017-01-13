@@ -26,7 +26,9 @@ function(hljs) {
   return {
     lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords: {
-      keyword:
+      literal: "true false nil",
+      keyword: "and break do else elseif end for goto if in local not or repeat return then until while",
+      built_in:
         //Metatags and globals:
         '_G _ENV _VERSION __index __newindex __mode __call __metatable __tostring __len ' +
         '__gc __add __sub __mul __div __mod __pow __concat __unm __eq __lt __le assert ' +
@@ -52,7 +54,8 @@ function(hljs) {
         //Vera library methods and properties (one line per library):
         'chdev append sync start ' +
         'inet wget ' +
-        'is_connected intercept ' + //io (omitted from string because of doubles)
+        //io (omitted from string because of doubles)
+        'is_connected intercept ' +
         'ir pronto_to_gc100 ' +
         'job setting set ' +
         'xj xml_node_text'
