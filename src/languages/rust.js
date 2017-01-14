@@ -6,14 +6,14 @@ Category: system
 */
 
 function(hljs) {
-  var NUM_SUFFIX = '([uif](8|16|32|64|size))\?';
+  var NUM_SUFFIX = '([uif](8|16|32|64|128|size))\?';
   var KEYWORDS =
     'alignof as be box break const continue crate do else enum extern ' +
     'false fn for if impl in let loop match mod mut offsetof once priv ' +
     'proc pub pure ref return self Self sizeof static struct super trait true ' +
     'type typeof unsafe unsized use virtual while where yield move default ' +
-    'int i8 i16 i32 i64 isize ' +
-    'uint u8 u32 u64 usize ' +
+    'int i8 i16 i32 i64 i128 isize ' +
+    'uint u8 u32 u64 u128 usize ' +
     'float f32 f64 ' +
     'str char bool'
   var BUILTINS =
