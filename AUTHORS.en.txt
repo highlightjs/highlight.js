@@ -236,3 +236,4 @@ Contributors:
 - Sergey Sobko <s.sobko@profitware.ru>
 - Hale Chan <halechan@qq.com>
 - Matt Evans <syrius3@gmail.com>
+- Kasper Andersen <kma_untrusted@protonmail.com>
