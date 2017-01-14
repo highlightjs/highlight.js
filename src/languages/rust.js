@@ -18,7 +18,7 @@ function(hljs) {
     'str char bool'
   var BUILTINS =
     // prelude
-    'Copy Send Sized Sync Drop Fn FnMut FnOnce drop Box ToOwned Clone ' +
+    'Copy Send Sized Sync Drop Fn FnMut FnOnce drop Box ToOwned Clone Debug ' +
     'PartialEq PartialOrd Eq Ord AsRef AsMut Into From Default Iterator ' +
     'Extend IntoIterator DoubleEndedIterator ExactSizeIterator Option ' +
     'Result SliceConcatExt String ToString Vec ' +
@@ -27,7 +27,7 @@ function(hljs) {
     'debug_assert! debug_assert_eq! env! panic! file! format! format_args! ' +
     'include_bin! include_str! line! local_data_key! module_path! ' +
     'option_env! print! println! select! stringify! try! unimplemented! ' +
-    'unreachable! vec! write! writeln! macro_rules!';
+    'unreachable! vec! write! writeln! macro_rules! assert_ne! debug_assert_ne!';
   return {
     aliases: ['rs'],
     keywords: {
