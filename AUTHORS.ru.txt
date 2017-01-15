@@ -236,3 +236,4 @@ URL:   https://highlightjs.org/
 - Сергей Собко <s.sobko@profitware.ru>
 - Хейл Чан <halechan@qq.com>
 - Мэт Эванс <syrius3@gmail.com>
+- Каспер Андерсен <kma_untrusted@protonmail.com>
