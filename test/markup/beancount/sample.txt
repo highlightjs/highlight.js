@@ -10,14 +10,14 @@ option "operating_currency" "BRL"
 1792-01-01 commodity USD
     name: "US Dollar"
 
-2017-01-01 open Assets:Cash
+2017-01-01 open Assets:My:Cash
 2017-01-01 open Expenses:Taxes
 2017-01-01 open Income:Sales
 
 2017-01-02 * "Payee" "Narration" ^txn-link
-    Income:Sales                                   180.00 BRL #xmas
-    Assets:Cash                                    -90.00 USD @ 0.50 BRL
+    Income:Sales                              180.00 BRL #xmas
+    Assets:My:Cash                            -90.00 USD @ 0.50 BRL
 
 2017-01-03 ! "" "Exchanging"
-    Assets:Cash                                    300.00 BRL ; trip to US.
-    Assets:Cash                                   -100.00 USD {300.00 BRL, "ref-001"}
+    Assets:My:Cash                            300.00 BRL ; trip to US.
+    Assets:My:Cash                           -100.00 USD {300.00 BRL, "ref-001"}

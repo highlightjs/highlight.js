@@ -1,8 +1,8 @@
 <span class="hljs-comment">;; -*- mode: org; mode: beancount; -*-</span>
 <span class="hljs-section">* Options</span>
 
-<span class="hljs-keyword">option</span> <span class="hljs-string">"title"</span> <span class="hljs-string">"My Book"</span>
-<span class="hljs-keyword">option</span> <span class="hljs-string">"operating_currency"</span> <span class="hljs-string">"BRL"</span>
+<span class="hljs-built_in">option</span> <span class="hljs-string">"title"</span> <span class="hljs-string">"My Book"</span>
+<span class="hljs-built_in">option</span> <span class="hljs-string">"operating_currency"</span> <span class="hljs-string">"BRL"</span>
 
 <span class="hljs-type">1994-07-01</span> <span class="hljs-keyword">commodity</span> BRL
 <span class="hljs-meta">    name:</span> <span class="hljs-string">"Real"</span>
@@ -10,14 +10,14 @@
 <span class="hljs-type">1792-01-01</span> <span class="hljs-keyword">commodity</span> USD
 <span class="hljs-meta">    name:</span> <span class="hljs-string">"US Dollar"</span>
 
-<span class="hljs-type">2017-01-01</span> <span class="hljs-keyword">open</span> <span class="hljs-type">Assets:<span class="hljs-subst">Cash</span></span>
+<span class="hljs-type">2017-01-01</span> <span class="hljs-keyword">open</span> <span class="hljs-type">Assets:<span class="hljs-subst">My:Cash</span></span>
 <span class="hljs-type">2017-01-01</span> <span class="hljs-keyword">open</span> <span class="hljs-type">Expenses:<span class="hljs-subst">Taxes</span></span>
 <span class="hljs-type">2017-01-01</span> <span class="hljs-keyword">open</span> <span class="hljs-type">Income:<span class="hljs-subst">Sales</span></span>
 
-<span class="hljs-type">2017-01-02</span> * <span class="hljs-string">"Payee"</span> <span class="hljs-string">"Narration"</span> <span class="hljs-link">^txn-link</span>
-    <span class="hljs-type">Income:<span class="hljs-subst">Sales</span></span>                                   <span class="hljs-literal">180.00</span> BRL <span class="hljs-emphasis">#xmas</span>
-    <span class="hljs-type">Assets:<span class="hljs-subst">Cash</span></span>                                    <span class="hljs-literal">-90.00</span> USD <span class="hljs-name">@</span> <span class="hljs-literal">0.50</span> BRL
+<span class="hljs-type">2017-01-02</span> <span class="hljs-variable">*</span> <span class="hljs-string">"Payee"</span> <span class="hljs-string">"Narration"</span> <span class="hljs-link">^txn-link</span>
+    <span class="hljs-type">Income:<span class="hljs-subst">Sales</span></span>                              <span class="hljs-literal">180.00</span> BRL <span class="hljs-emphasis">#xmas</span>
+    <span class="hljs-type">Assets:<span class="hljs-subst">My:Cash</span></span>                            <span class="hljs-literal">-90.00</span> USD <span class="hljs-name">@</span> <span class="hljs-literal">0.50</span> BRL
 
-<span class="hljs-type">2017-01-03</span> ! <span class="hljs-string">""</span> <span class="hljs-string">"Exchanging"</span>
-    <span class="hljs-type">Assets:<span class="hljs-subst">Cash</span></span>                                    <span class="hljs-literal">300.00</span> BRL <span class="hljs-comment">; trip to US.</span>
-    <span class="hljs-type">Assets:<span class="hljs-subst">Cash</span></span>                                   <span class="hljs-literal">-100.00</span> USD <span class="hljs-name">{<span class="hljs-literal">300.00</span> <span class="hljs-subst">BRL</span>, <span class="hljs-string">"ref-001"</span>}</span>
+<span class="hljs-type">2017-01-03</span> <span class="hljs-variable">!</span> <span class="hljs-string">""</span> <span class="hljs-string">"Exchanging"</span>
+    <span class="hljs-type">Assets:<span class="hljs-subst">My:Cash</span></span>                            <span class="hljs-literal">300.00</span> BRL <span class="hljs-comment">; trip to US.</span>
+    <span class="hljs-type">Assets:<span class="hljs-subst">My:Cash</span></span>                           <span class="hljs-literal">-100.00</span> USD <span class="hljs-name">{<span class="hljs-literal">300.00</span> <span class="hljs-subst">BRL</span>, <span class="hljs-string">"ref-001"</span>}</span>
