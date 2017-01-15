@@ -4,6 +4,7 @@ New languages
 
 - *Hy* by [Sergey Sobko][]
 - *Leaf* by [Hale Chan][]
+- *Beancount* by [Henrique Bastos][]
 
 Improvements:
 
@@ -19,6 +20,7 @@ Improvements:
 [Hale Chan]: https://github.com/halechan
 [Matt Evans]: https://github.com/matthewevans
 [Joe Blow]: https://github.com/mossarelli
+[Henrique Bastos]: https://github.com/henriquebastos
 
 
 ## Version 9.9.0
