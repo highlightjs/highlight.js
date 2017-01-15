@@ -12,6 +12,7 @@ Improvements:
 - *YAML* updated with unquoted strings support.
 - *Gauss* updated with new keywords by [Matt Evans][].
 - *Lua* updated with new keywords by [Joe Blow][].
+- *Rust* updated with new keywords by [Kasper Andersen][].
 
 [Philipp A]: https://github.com/flying-sheep
 [Philipp Hauer]: https://github.com/phauer
@@ -19,6 +20,7 @@ Improvements:
 [Hale Chan]: https://github.com/halechan
 [Matt Evans]: https://github.com/matthewevans
 [Joe Blow]: https://github.com/mossarelli
+[Kasper Andersen]: https://github.com/kasma1990
 
 
 ## Version 9.9.0

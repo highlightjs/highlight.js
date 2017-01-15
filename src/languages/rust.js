@@ -1,24 +1,24 @@
 /*
 Language: Rust
 Author: Andrey Vlasovskikh <andrey.vlasovskikh@gmail.com>
-Contributors: Roman Shmatov <romanshmatov@gmail.com>
+Contributors: Roman Shmatov <romanshmatov@gmail.com>, Kasper Andersen <kma_untrusted@protonmail.com>
 Category: system
 */
 
 function(hljs) {
-  var NUM_SUFFIX = '([uif](8|16|32|64|size))\?';
+  var NUM_SUFFIX = '([uif](8|16|32|64|128|size))\?';
   var KEYWORDS =
     'alignof as be box break const continue crate do else enum extern ' +
     'false fn for if impl in let loop match mod mut offsetof once priv ' +
     'proc pub pure ref return self Self sizeof static struct super trait true ' +
     'type typeof unsafe unsized use virtual while where yield move default ' +
-    'int i8 i16 i32 i64 isize ' +
-    'uint u8 u32 u64 usize ' +
+    'int i8 i16 i32 i64 i128 isize ' +
+    'uint u8 u32 u64 u128 usize ' +
     'float f32 f64 ' +
     'str char bool'
   var BUILTINS =
     // prelude
-    'Copy Send Sized Sync Drop Fn FnMut FnOnce drop Box ToOwned Clone ' +
+    'Copy Send Sized Sync Drop Fn FnMut FnOnce drop Box ToOwned Clone Debug ' +
     'PartialEq PartialOrd Eq Ord AsRef AsMut Into From Default Iterator ' +
     'Extend IntoIterator DoubleEndedIterator ExactSizeIterator Option ' +
     'Result SliceConcatExt String ToString Vec ' +
@@ -27,7 +27,7 @@ function(hljs) {
     'debug_assert! debug_assert_eq! env! panic! file! format! format_args! ' +
     'include_bin! include_str! line! local_data_key! module_path! ' +
     'option_env! print! println! select! stringify! try! unimplemented! ' +
-    'unreachable! vec! write! writeln! macro_rules!';
+    'unreachable! vec! write! writeln! macro_rules! assert_ne! debug_assert_ne!';
   return {
     aliases: ['rs'],
     keywords: {
