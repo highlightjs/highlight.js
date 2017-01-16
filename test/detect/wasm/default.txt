@@ -1,0 +1,210 @@
+get_local 0    // push parameter #0 on stack.
+i64.const 0    // push contant int64 "0" on stack.
+i64.eq         // execute "eq" which pops two operands from stack
+               //  and pushes int32 "1" or "0" on stack.
+if i64         // pops one int32 from stack; if its not "0":
+  i64.const 1  //   push contant int64 "0" on stack.
+else           // else (if operand was "0"):
+  get_local 0  //   push parameter #0 on stack. $1
+  get_local 0  //   push parameter #0 on stack.
+  i64.const 1  //   push contant int64 "0" on stack.
+  i64.sub      //   execute "sub[tract]" which pops two operands
+               //    from stack (parameter #0 and constant int64 "1")
+               //    and finally pushes the result int64 on stack.
+  call 0       //   call function #0 ("factorial") which pops one
+               //    int64 from the stack and when it returns an
+               //    int64 has been pushed on stack
+  i64.mul      //   execute "sub[tract]" which pops two operands
+               //    from stack ($1 and result from function call)
+               //    and finally pushes the resulting int64 on stack
+end            // ends function, returning one int64 result (on stack.)
+               // Stack now contains one int64 value that's the result from one of
+               // the two branches above.
+
+unreachable
+nop
+block
+loop
+if
+else
+end
+br
+br_if
+br_table
+return
+call
+call_indirect
+drop
+select
+
+get_local
+set_local
+tee_local
+get_global
+set_global
+
+current_memory
+grow_memory 3
+
+i32.load
+i64.load
+f32.load
+f64.load
+i32.load8_s
+i32.load8_u
+i32.load16_s
+i32.load16_u
+i64.load8_s
+i64.load8_u
+i64.load16_s
+i64.load16_u
+i64.load32_s
+i64.load32_u
+
+i32.store
+i64.store
+f32.store
+f64.store
+i32.store8
+i32.store16
+i64.store8
+i64.store16
+i64.store32
+
+i32.const 3
+i64.const 3
+f32.const 3
+f64.const 3
+
+i32.eqz 3
+i32.eq 3 4
+i32.ne 3 4
+i32.lt_s -3 4
+i32.lt_u 3 4
+i32.gt_s -3 4
+i32.gt_u 3 4
+i32.le_s -3 4
+i32.le_u 3 4
+i32.ge_s -3 4
+i32.ge_u 3 4
+
+i64.eqz 3
+i64.eq 3 4
+i64.ne 3 4
+i64.lt_s -3 4
+i64.lt_u 3 4
+i64.gt_s -3 4
+i64.gt_u 3 4
+i64.le_s -3 4
+i64.le_u 3 4
+i64.ge_s -3 4
+i64.ge_u 3 4
+
+f32.eq 3 4
+f32.ne 3 4
+f32.lt 3 4
+f32.gt 3 4
+f32.le 3 4
+f32.ge 3 4
+
+f64.eq 3 4
+f64.ne 3 4
+f64.lt 3 4
+f64.gt 3 4
+f64.le 3 4
+f64.ge 3 4
+
+i32.clz 3
+i32.ctz 3
+i32.popcnt 3
+i32.add 3 4
+i32.sub 3 4
+i32.mul 3 4
+i32.div_s 3 4
+i32.div_u 3 4
+i32.rem_s 3 4
+i32.rem_u 3 4
+i32.and 3 4
+i32.or 3 4
+i32.xor 3 4
+i32.shl 3 4
+i32.shr_s 3 4
+i32.shr_u 3 4
+i32.rotl 3 4
+i32.rotr 3 4
+
+i64.clz 3
+i64.ctz 3
+i64.popcnt 3
+i64.add 3 4
+i64.sub 3 4
+i64.mul 3 4
+i64.div_s 3 4
+i64.div_u 3 4
+i64.rem_s 3 4
+i64.rem_u 3 4
+i64.and 3 4
+i64.or 3 4
+i64.xor 3 4
+i64.shl 3 4
+i64.shr_s 3 4
+i64.shr_u 3 4
+i64.rotl 3 4
+i64.rotr 3 4
+
+f32.abs 3 4
+f32.neg 3 4
+f32.ceil 3 4
+f32.floor 3 4
+f32.trunc 3 4
+f32.nearest 3 4
+f32.sqrt 3 4
+f32.add 3 4
+f32.sub 3 4
+f32.mul 3 4
+f32.div 3 4
+f32.min 3 4
+f32.max 3 4
+f32.copysign 3 4
+
+f64.abs 3 4
+f64.neg 3 4
+f64.ceil 3 4
+f64.floor 3 4
+f64.trunc 3 4
+f64.nearest 3 4
+f64.sqrt 3 4
+f64.add 3 4
+f64.sub 3 4
+f64.mul 3 4
+f64.div 3 4
+f64.min 3 4
+f64.max 3 4
+f64.copysign 3 4
+
+i32.wrap_i64 3
+i32.trunc_s_f32 3
+i32.trunc_u_f32 3
+i32.trunc_s_f64 3
+i32.trunc_u_f64 3
+i64.extend_s_i32 3
+i64.extend_u_i32 3
+i64.trunc_s_f32 3
+i64.trunc_u_f32 3
+i64.trunc_s_f64 3
+i64.trunc_u_f64 3
+
+f32.convert_s_i32 3
+f32.convert_u_i32 3
+f32.convert_s_i64 3
+f32.convert_u_i64 3
+f32.demote_f64 3
+f64.convert_s_i32 3
+f64.convert_u_i32 3
+f64.convert_s_i64 3
+f64.convert_u_i64 3
+f64.promote_f32 3
+i32.reinterpret_f32 3
+i64.reinterpret_f64 3
+f32.reinterpret_i32 3
+f64.reinterpret_i64 3
