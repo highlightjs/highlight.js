@@ -152,7 +152,7 @@ function(hljs) {
     },
     {
       className: 'built_in',
-      begin: /\bp\d+/
+      begin: /\bp\d+\b/
     },
     {
       className: 'built_in',
