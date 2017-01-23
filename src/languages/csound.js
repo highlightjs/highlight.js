@@ -101,7 +101,7 @@ function(hljs) {
     {
       className: 'symbol',
       begin: /^[ \t]*\w+:/
-    },
+    }
   ]).concat(
     Csound.PREPROCESSOR_MODES
   ).concat([
