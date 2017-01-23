@@ -17,7 +17,7 @@ function(hljs) {
     ).concat([
       {
         className: 'keyword',
-        // This avoids ABNF as Csound scores.
+        // This avoids detecting ABNF as Csound scores.
         relevance: 0,
         begin: /(?:[nN]|[pP])[pP]|[abCefimnqstvwxyz]/
       },
