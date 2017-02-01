@@ -19,7 +19,7 @@ function(hljs) {
         className: 'keyword',
         // This avoids detecting ABNF as Csound scores.
         relevance: 0,
-        begin: /(?:[nN]|[pP])[pP]|[abCefimnqstvxyz]/
+        begin: /[nNpP][pP]|[abCefimnqstvxyz]/
         // There is also a w statement that is generated internally and should
         // not be used; see https://github.com/csound/csound/issues/750.
       },
