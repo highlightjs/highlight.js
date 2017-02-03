@@ -1,0 +1,15 @@
+pi=3.141
+
+! I am a comment
+# Me too!
+
+propertyA = I am a property
+property-B=1337
+propertyC:ABC
+propertyD : Just another string
+
+multiline=\
+        This is a multiline property. The following line is no property!\
+        multiline=this is no property
+
+lastProperty = bye :)
