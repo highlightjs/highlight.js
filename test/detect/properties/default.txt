@@ -1,15 +1,18 @@
 pi=3.141
+time=01.01.1900
+integer=1337
+float=12.34
 
 ! I am a comment
 # Me too!
 
 propertyA = I am a property
-property-B=1337
-propertyC:ABC
+property_C:ABC
 propertyD : Just another string
 
 multiline=\
         This is a multiline property. The following line is no property!\
         multiline=this is no property
 
+! Last Comment
 lastProperty = bye :)

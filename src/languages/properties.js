@@ -14,13 +14,16 @@ function(hljs) {
 			),
 			{
 				className: 'variable',
-				begin: /^[^:=]+/m
+				begin: /^[^:=]+/m,
+				illegal: ".*\\S\\s\\S.*",
+				relevance: 1
 			},
 			{
 				className: 'string',
 				begin: /[=:]\s*/,
 				end: /[^\\]$/,
 				excludeBegin: true,
+				relevance: 0,
 				contains: [
 					{
 						className: 'symbol',
@@ -28,7 +31,8 @@ function(hljs) {
 					},
 					{
 						className: 'meta',
-						begin: /\\$/
+						begin: /\\$/,
+						relevance: 1
 					},
 					"self"
 				]
