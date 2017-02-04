@@ -1,0 +1,2 @@
+$ echo "hello"
+user# cat default.txt | wc -l
