@@ -4,6 +4,7 @@ New languages
 
 - *Hy* by [Sergey Sobko][]
 - *Leaf* by [Hale Chan][]
+- *Properties* by [Michael Gerbig][]
 
 Improvements:
 
