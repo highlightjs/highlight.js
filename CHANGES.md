@@ -1,3 +1,11 @@
+## Master (UNRELEASED)
+
+Improvements:
+
+- *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
+
+[Tsuyusato Kitsune]: https://github.com/MakeNowJust
+
 ## Version 9.11.0
 
 New languages:
