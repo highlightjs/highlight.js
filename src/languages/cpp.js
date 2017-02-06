@@ -55,7 +55,7 @@ function(hljs) {
       hljs.inherit(STRINGS, {className: 'meta-string'}),
       {
         className: 'meta-string',
-        begin: '<', end: '>',
+        begin: /<[^\n>]*>/, end: /$/,
         illegal: '\\n',
       },
       hljs.C_LINE_COMMENT_MODE,
