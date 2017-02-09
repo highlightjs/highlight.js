@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "9.3.0",
+  "version": "9.9.0",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -35,10 +35,10 @@
     "gear": "^0.9.4",
     "gear-lib": "^0.9.2",
     "glob": "^7.0.3",
-    "jsdom": "^8.1.0",
+    "jsdom": "^9.2.1",
     "lodash": "^4.0.0",
     "mocha": "^2.0.1",
-    "should": "^8.1.1",
+    "should": "^9.0.2",
     "tiny-worker": "^1.1.1",
     "js-beautify": "^1.5.10"
   }

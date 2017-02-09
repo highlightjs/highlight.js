@@ -1,0 +1,10 @@
+test: test basicsuite1
+testing: test basicsuite1
+test test basicsuite1
+testing test basicsuite1
+test: test basic suite1
+testing: test basic suite1
+test test basic suite1
+testing test basic suite1
+testing test basic
+test test 222

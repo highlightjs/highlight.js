@@ -105,12 +105,12 @@ function(hljs) {
     variants: [{
       begin: '[\\.#:&\\[>]', end: '[;{}]'  // mixin calls end with ';'
       }, {
-      begin: INTERP_IDENT_RE + '[^;]*{',
-      end: '{'
+      begin: INTERP_IDENT_RE, end: '{'
     }],
     returnBegin: true,
     returnEnd:   true,
     illegal: '[<=\'$"]',
+    relevance: 0,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,

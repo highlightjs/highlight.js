@@ -1,0 +1,6 @@
+    .cfi_startproc
+_ZN3lib13is_whitespace17h28afa23272bf056bE:
+    .align  16, 0x90
+    ja  .Lfunc_end0
+.Lfunc_end0:
+    ret

@@ -1,0 +1,5 @@
+<span class="hljs-comment">/* digit separators */</span>
+<span class="hljs-keyword">int</span> number = <span class="hljs-number">2'555'555'555</span>; <span class="hljs-comment">// digit separators</span>
+<span class="hljs-keyword">float</span> exponentFloat = <span class="hljs-number">.123'456e3'000</span>; <span class="hljs-comment">// digit separators in floats</span>
+<span class="hljs-keyword">float</span> suffixed = <span class="hljs-number">3.000'001'234f</span> <span class="hljs-comment">// digit separators in suffixed numbers</span>
+<span class="hljs-keyword">char</span> word[] = { <span class="hljs-string">'3'</span>, <span class="hljs-string">'\0'</span> }; <span class="hljs-comment">// make sure digit separators don't mess up chars</span>

@@ -1,0 +1,15 @@
+<span class="hljs-attribute">dn</span>: cn=schema
+<span class="hljs-attribute">objectClass</span>: top
+<span class="hljs-attribute">objectClass</span>: ldapSubentry
+<span class="hljs-attribute">objectClass</span>: subschema
+<span class="hljs-comment"># Single-valued JSON attribute</span>
+<span class="hljs-attribute">attributeTypes</span>: ( example-json1-oid NAME 'json1'
+  EQUALITY jsonObjectExactMatch SYNTAX 1.3.6.1.4.1.30221.2.3.4
+  SINGLE-VALUE X-ORIGIN 'custom attribute' )
+<span class="hljs-comment"># Multi-valued JSON attribute</span>
+<span class="hljs-attribute">attributeTypes</span>: ( example-mjson1-oid NAME 'mjson1'
+  EQUALITY jsonObjectExactMatch SYNTAX 1.3.6.1.4.1.30221.2.3.4
+  X-ORIGIN 'custom attribute' )
+<span class="hljs-attribute">objectClasses</span>: ( example-application-oc-oid NAME 'example-application-oc'
+  SUP top AUXILIARY MAY ( json1 $ mjson1 )
+  X-ORIGIN 'custom auxiliary object class' )

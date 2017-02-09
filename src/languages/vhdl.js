@@ -1,7 +1,7 @@
 /*
 Language: VHDL
 Author: Igor Kalnitsky <igor@kalnitsky.org>
-Contributors: Daniel C.K. Kho <daniel.kho@gmail.com>, Guillaume Savaton <guillaume.savaton@eseo.fr>
+Contributors: Daniel C.K. Kho <daniel.kho@tauhop.com>, Guillaume Savaton <guillaume.savaton@eseo.fr>
 Description: VHDL is a hardware description language used in electronic design automation to describe digital and mixed-signal systems.
 */
 
@@ -22,8 +22,8 @@ function(hljs) {
     case_insensitive: true,
     keywords: {
       keyword:
-        'abs access after alias all and architecture array assert attribute begin block ' +
-        'body buffer bus case component configuration constant context cover disconnect ' +
+        'abs access after alias all and architecture array assert assume assume_guarantee attribute ' +
+        'begin block body buffer bus case component configuration constant context cover disconnect ' +
         'downto default else elsif end entity exit fairness file for force function generate ' +
         'generic group guarded if impure in inertial inout is label library linkage literal ' +
         'loop map mod nand new next nor not null of on open or others out package port ' +
@@ -32,14 +32,19 @@ function(hljs) {
         'severity shared signal sla sll sra srl strong subtype then to transport type ' +
         'unaffected units until use variable vmode vprop vunit wait when while with xnor xor',
       built_in:
-        'boolean bit character severity_level integer time delay_length natural positive ' +
-        'string bit_vector file_open_kind file_open_status std_ulogic std_ulogic_vector ' +
+        'boolean bit character ' +
+        'integer time delay_length natural positive ' +
+        'string bit_vector file_open_kind file_open_status ' +
         'std_logic std_logic_vector unsigned signed boolean_vector integer_vector ' +
-        'real_vector time_vector'
+        'std_ulogic std_ulogic_vector unresolved_unsigned u_unsigned unresolved_signed u_signed' +
+        'real_vector time_vector',
+      literal:
+        'false true note warning error failure ' +  // severity_level
+        'line text side width'                      // textio
     },
     illegal: '{',
     contains: [
-      hljs.C_BLOCK_COMMENT_MODE,        // VHDL-2008 block commenting.
+      hljs.C_BLOCK_COMMENT_MODE,      // VHDL-2008 block commenting.
       hljs.COMMENT('--', '$'),
       hljs.QUOTE_STRING_MODE,
       {
@@ -48,7 +53,7 @@ function(hljs) {
         relevance: 0
       },
       {
-        className: 'literal',
+        className: 'string',
         begin: '\'(U|X|0|1|Z|W|L|H|-)\'',
         contains: [hljs.BACKSLASH_ESCAPE]
       },

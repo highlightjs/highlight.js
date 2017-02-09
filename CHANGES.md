@@ -1,26 +1,178 @@
-## Version 9.4.0 (unreleased)
+## Master (UNRELEASED)
+
+New languages
+
+- *Hy* by [Sergey Sobko][]
+- *Leaf* by [Hale Chan][]
+
+Improvements:
+
+- *Python* updated with f-literals by [Philipp A][].
+- Some keywords added to *Kotlin* by [Philipp Hauer][].
+- *YAML* updated with unquoted strings support.
+- *Gauss* updated with new keywords by [Matt Evans][].
+- *Lua* updated with new keywords by [Joe Blow][].
+- *Rust* updated with new keywords by [Kasper Andersen][].
+
+[Philipp A]: https://github.com/flying-sheep
+[Philipp Hauer]: https://github.com/phauer
+[Sergey Sobko]: https://github.com/profitware
+[Hale Chan]: https://github.com/halechan
+[Matt Evans]: https://github.com/matthewevans
+[Joe Blow]: https://github.com/mossarelli
+[Kasper Andersen]: https://github.com/kasma1990
+
+
+## Version 9.9.0
+
+New languages
+
+- *LLVM* by [Michael Rodler][]
+
+Improvements:
+
+- *TypeScript* updated with annotations and param lists inside constructors, by
+  [Raphael Parree][].
+- *CoffeeScript* updated with new keywords and fixed to recognize JavaScript
+  in \`\`\`, thanks to thanks to [Geoffrey Booth][].
+- Compiler directives in *Delphi* are now correctly highlighted as "meta".
+
+[Raphael Parree]: https://github.com/rparree
+[Michael Rodler]: https://github.com/f0rki
+[Geoffrey Booth]: https://github.com/GeoffreyBooth
+
+
+## Version 9.8.0 "New York"
+
+This version is the second one that deserved a name. Because I'm in New York,
+and the release isn't missing the deadline only because it's still Tuesday on
+West Coast.
+
+New languages:
+
+- *Clean* by [Camil Staps][]
+- *Flix* by [Magnus Madsen][]
+
+Improvements:
+
+- [Kenton Hamaluik][] did a comprehensive update for *Haxe*.
+- New commands for *PowerShell* from [Nicolas Le Gall][].
+- [Jan T. Sott][] updated *NSIS*.
+- *Java* and *Swift* support unicode characters in identifiers thanks to
+  [Alexander Lichter][].
+
+[Camil Staps]: https://github.com/camilstaps
+[Magnus Madsen]: https://github.com/magnus-madsen
+[Kenton Hamaluik]: https://github.com/FuzzyWuzzie
+[Nicolas Le Gall]: https://github.com/darkitty
+[Jan T. Sott]: https://github.com/idleberg
+[Alexander Lichter]: https://github.com/manniL
+
+
+## Version 9.7.0
+
+A comprehensive bugfix release. This is one of the best things about
+highlight.js: even boring things keep getting better (even if slow).
+
+- VHDL updated with PSL keywords and uses more consistent styling.
+- Nested C-style comments no longer break highlighting in many languages.
+- JavaScript updated with `=>` functions, highlighted object attributes and
+  parsing within template string substitution blocks (`${...}`).
+- Fixed another corner case with self-closing `<tag/>` in JSX.
+- Added `HEALTHCHECK` directive in Docker.
+- Delphi updated with new Free Pascal keywords.
+- Fixed digit separator parsing in C++.
+- C# updated with new keywords and fixed to allow multiple identifiers within
+  generics `<...>`.
+- Fixed another slow regex in Less.
+
+
+## Version 9.6.0
+
+New languages:
+
+- *ABNF* and *EBNF* by [Alex McKibben][]
+- *Awk* by [Matthew Daly][]
+- *SubUnit* by [Sergey Bronnikov][]
+
+New styles:
+
+- *Atom One* in both Dark and Light variants  by [Daniel Gamage][]
+
+Plus, a few smaller updates for *Lasso*, *Elixir*, *C++* and *SQL*.
+
+[Alex McKibben]: https://github.com/mckibbenta
+[Daniel Gamage]: https://github.com/danielgamage
+[Matthew Daly]: https://github.com/matthewbdaly
+[Sergey Bronnikov]: https://github.com/ligurio
+
+
+## Version 9.5.0
+
+New languages:
+
+- *Excel* by [Victor Zhou][]
+- *Linden Scripting Language* by [Builder's Brewery][]
+- *TAP* (Test Anything Protocol) by [Sergey Bronnikov][]
+- *Pony* by [Joe Eli McIlvain][]
+- *Coq* by [Stephan Boyer][]
+- *dsconfig* and *LDIF* by [Jacob Childress][]
+
+New styles:
+
+- *Ocean Dark* by [Gavin Siu][]
+
+Notable changes:
+
+- [Minh Nguyễn][] added more built-ins to Objective C.
+- [Jeremy Hull][] fixed corner cases in C++ preprocessor directives and Diff
+  comments.
+- [Victor Zhou][] added support for digit separators in C++ numbers.
+
+[Gavin Siu]: https://github.com/gavsiu
+[Builder's Brewery]: https://github.com/buildersbrewery
+[Victor Zhou]: https://github.com/OiCMudkips
+[Sergey Bronnikov]: https://github.com/ligurio
+[Joe Eli McIlvain]: https://github.com/jemc
+[Stephan Boyer]: https://github.com/boyers
+[Jacob Childress]: https://github.com/braveulysses
+[Minh Nguyễn]: https://github.com/1ec5
+[Jeremy Hull]: https://github.com/sourrust
+
+
+## Version 9.4.0
 
 New languages:
 
 - *PureBASIC* by [Tristano Ajmone][]
 - *BNF* by [Oleg Efimov][]
-- *SAS* by [Mauricio Caceres][]
+- *Ada* by [Lars Schulna][]
 
 New styles:
 
 - *PureBASIC* by [Tristano Ajmone][]
 
-Improvements:
+Improvements to existing languages and styles:
 
-- We now highlight function declarations in Go
-- [Taisuke Fujimoto][] contributed a very convoluted rules for raw
-  and interpolated strings in C#.
-- Improved rules for comments and strings inPowerShell files [Victor Zhou][]
+- We now highlight function declarations in Go.
+- [Taisuke Fujimoto][] contributed very convoluted rules for raw and
+  interpolated strings in C#.
+- [Boone Severson][] updated Verilog to comply with IEEE 1800-2012
+  SystemVerilog.
+- [Victor Zhou][] improved rules for comments and strings in PowerShell files.
+- [Janis Voigtländer][] updated the definition of Elm to version 0.17 of the
+  languages. Elm is now featured on the front page of <https://highlightjs.org>.
+- Special variable `$this` is highlighted as a keyword in PHP.
+- `usize` and `isize` are now highlighted in Rust.
+- Fixed labels and directives in x86 assembler.
 
 [Tristano Ajmone]: https://github.com/tajmone
 [Taisuke Fujimoto]: https://github.com/temp-impl
 [Oleg Efimov]: https://github.com/Sannis
+[Boone Severson]: https://github.com/BooneJS
 [Victor Zhou]: https://github.com/OiCMudkips
+[Lars Schulna]: https://github.com/captain-hanuta
+[Janis Voigtländer]: https://github.com/jvoigtlaender
 
 
 ## Version 9.3.0
@@ -339,7 +491,7 @@ New languages:
 New styles:
 
 - *Agate* by [Taufik Nurrohman][]
-- *Darkula* by [Jet Brains][]
+- *Darcula* by [JetBrains][]
 - *Atelier Sulphurpool* by [Bram de Haan][]
 - *Android Studio* by [Pedro Oliveira][]
 

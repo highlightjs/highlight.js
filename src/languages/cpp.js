@@ -14,7 +14,11 @@ function(hljs) {
   var STRINGS = {
     className: 'string',
     variants: [
-      hljs.inherit(hljs.QUOTE_STRING_MODE, { begin: '((u8?|U)|L)?"' }),
+      {
+        begin: '(u8?|U)?L?"', end: '"',
+        illegal: '\\n',
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
       {
         begin: '(u8?|U)?R"', end: '"',
         contains: [hljs.BACKSLASH_ESCAPE]
@@ -29,15 +33,16 @@ function(hljs) {
   var NUMBERS = {
     className: 'number',
     variants: [
-      { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)' },
-      { begin: hljs.C_NUMBER_RE }
+      { begin: '\\b(0b[01\']+)' },
+      { begin: '\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)(u|U|l|L|ul|UL|f|F|b|B)' },
+      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
     ],
     relevance: 0
   };
 
   var PREPROCESSOR =       {
     className: 'meta',
-    begin: /#[a-z]+\b/, end: /$/,
+    begin: /#\s*[a-z]+\b/, end: /$/,
     keywords: {
       'meta-keyword':
         'if else elif endif define undef warning error line ' +
@@ -61,7 +66,7 @@ function(hljs) {
   var FUNCTION_TITLE = hljs.IDENT_RE + '\\s*\\(';
 
   var CPP_KEYWORDS = {
-    keyword: 'int float while private char catch export virtual operator sizeof ' +
+    keyword: 'int float while private char catch import module export virtual operator sizeof ' +
       'dynamic_cast|10 typedef const_cast|10 const struct for static_cast|10 union namespace ' +
       'unsigned long volatile static protected bool template mutable if public friend ' +
       'do goto auto void enum else break extern using class asm case typeid ' +

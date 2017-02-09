@@ -1,0 +1,178 @@
+; ModuleID = 'test.c'
+target datalayout = "e-m:e-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct._IO_FILE = type { i32, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, i8*, %struct._IO_marker*, %struct._IO_FILE*, i32, i32, i64, i16, i8, [1 x i8], i8*, i64, i8*, i8*, i8*, i8*, i64, i32, [20 x i8] }
+%struct._IO_marker = type { %struct._IO_marker*, %struct._IO_FILE*, i32 }
+%struct.what = type { i8, i16 }
+
+@.str = private unnamed_addr constant [6 x i8] c"foo()\00", align 1
+@e_long = common global i64 0, align 8
+@g_double = common global double 0.000000e+00, align 8
+@.str.1 = private unnamed_addr constant [7 x i8] c"oooooh\00", align 1
+@func_ptr = common global i32 (...)* null, align 8
+@.str.2 = private unnamed_addr constant [8 x i8] c"success\00", align 1
+@.str.3 = private unnamed_addr constant [9 x i8] c"FizzBuzz\00", align 1
+@.str.4 = private unnamed_addr constant [5 x i8] c"Fizz\00", align 1
+@.str.5 = private unnamed_addr constant [5 x i8] c"Buzz\00", align 1
+@.str.6 = private unnamed_addr constant [4 x i8] c"%zd\00", align 1
+@.str.7 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
+@.str.8 = private unnamed_addr constant [12 x i8] c"%d, %c, %d\0A\00", align 1
+@.str.9 = private unnamed_addr constant [11 x i8] c"need args!\00", align 1
+@stderr = external global %struct._IO_FILE*, align 8
+
+; Function Attrs: nounwind uwtable
+define i32 @foo() #0 {
+  %1 = call i32 @puts(i8* getelementptr inbounds ([6 x i8], [6 x i8]* @.str, i32 0, i32 0))
+  ret i32 0
+}
+
+declare i32 @puts(i8*) #1
+
+; Function Attrs: nounwind uwtable
+define i32 @main(i32 %argc, i8** %argv) #0 {
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i8**, align 8
+  %b_char = alloca i8, align 1
+  %d_int = alloca i32, align 4
+  %cp_char_ptr = alloca i8*, align 8
+  %X = alloca %struct.what, align 2
+  %i = alloca i64, align 8
+  store i32 0, i32* %1, align 4
+  store i32 %argc, i32* %2, align 4
+  store i8** %argv, i8*** %3, align 8
+  %4 = load i8**, i8*** %3, align 8
+  %5 = load i32, i32* %2, align 4
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %7, label %11
+
+; <label>:7                                       ; preds = %0
+  %8 = getelementptr inbounds %struct.what, %struct.what* %X, i32 0, i32 0
+  store i8 1, i8* %8, align 2
+  store i8 49, i8* %b_char, align 1
+  %9 = getelementptr inbounds %struct.what, %struct.what* %X, i32 0, i32 1
+  store i16 128, i16* %9, align 2
+  store i32 65536, i32* %d_int, align 4
+  store i64 2147483648, i64* @e_long, align 8
+  store double 1.000000e+01, double* @g_double, align 8
+  store i8* getelementptr inbounds ([7 x i8], [7 x i8]* @.str.1, i32 0, i32 0), i8** %cp_char_ptr, align 8
+  store i32 (...)* bitcast (i32 ()* @foo to i32 (...)*), i32 (...)** @func_ptr, align 8
+  %10 = call i32 @puts(i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str.2, i32 0, i32 0))
+  store i32 10, i32* %1, align 4
+  br label %66
+
+; <label>:11                                      ; preds = %0
+  %12 = load i32, i32* %2, align 4
+  %13 = icmp eq i32 %12, 2
+  br i1 %13, label %14, label %63
+
+; <label>:14                                      ; preds = %11
+  store i64 0, i64* %i, align 8
+  br label %15
+
+; <label>:15                                      ; preds = %43, %14
+  %16 = load i64, i64* %i, align 8
+  %17 = icmp ult i64 %16, 100
+  br i1 %17, label %18, label %46
+
+; <label>:18                                      ; preds = %15
+  %19 = load i64, i64* %i, align 8
+  %20 = urem i64 %19, 15
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %24, label %22
+
+; <label>:22                                      ; preds = %18
+  %23 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str.3, i32 0, i32 0))
+  br label %41
+
+; <label>:24                                      ; preds = %18
+  %25 = load i64, i64* %i, align 8
+  %26 = urem i64 %25, 3
+  %27 = icmp ne i64 %26, 0
+  br i1 %27, label %30, label %28
+
+; <label>:28                                      ; preds = %24
+  %29 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @.str.4, i32 0, i32 0))
+  br label %40
+
+; <label>:30                                      ; preds = %24
+  %31 = load i64, i64* %i, align 8
+  %32 = urem i64 %31, 5
+  %33 = icmp ne i64 %32, 0
+  br i1 %33, label %36, label %34
+
+; <label>:34                                      ; preds = %30
+  %35 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @.str.5, i32 0, i32 0))
+  br label %39
+
+; <label>:36                                      ; preds = %30
+  %37 = load i64, i64* %i, align 8
+  %38 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.6, i32 0, i32 0), i64 %37)
+  br label %39
+
+; <label>:39                                      ; preds = %36, %34
+  br label %40
+
+; <label>:40                                      ; preds = %39, %28
+  br label %41
+
+; <label>:41                                      ; preds = %40, %22
+  %42 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.7, i32 0, i32 0))
+  br label %43
+
+; <label>:43                                      ; preds = %41
+  %44 = load i64, i64* %i, align 8
+  %45 = add i64 %44, 1
+  store i64 %45, i64* %i, align 8
+  br label %15
+
+; <label>:46                                      ; preds = %15
+  %47 = getelementptr inbounds %struct.what, %struct.what* %X, i32 0, i32 0
+  store i8 1, i8* %47, align 2
+  store i8 49, i8* %b_char, align 1
+  %48 = getelementptr inbounds %struct.what, %struct.what* %X, i32 0, i32 1
+  store i16 128, i16* %48, align 2
+  store i32 65536, i32* %d_int, align 4
+  store i64 2147483648, i64* @e_long, align 8
+  store double 1.000000e+01, double* @g_double, align 8
+  store i8* getelementptr inbounds ([7 x i8], [7 x i8]* @.str.1, i32 0, i32 0), i8** %cp_char_ptr, align 8
+  store i32 (...)* bitcast (i32 ()* @foo to i32 (...)*), i32 (...)** @func_ptr, align 8
+  %49 = getelementptr inbounds %struct.what, %struct.what* %X, i32 0, i32 0
+  %50 = load i8, i8* %49, align 2
+  %51 = trunc i8 %50 to i1
+  %52 = zext i1 %51 to i32
+  %53 = load i8, i8* %b_char, align 1
+  %54 = sext i8 %53 to i32
+  %55 = getelementptr inbounds %struct.what, %struct.what* %X, i32 0, i32 1
+  %56 = load i16, i16* %55, align 2
+  %57 = sext i16 %56 to i32
+  %58 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([12 x i8], [12 x i8]* @.str.8, i32 0, i32 0), i32 %52, i32 %54, i32 %57)
+  %59 = getelementptr inbounds %struct.what, %struct.what* %X, i32 0, i32 0
+  %60 = load i8, i8* %59, align 2
+  %61 = trunc i8 %60 to i1
+  %62 = zext i1 %61 to i32
+  store i32 %62, i32* %1, align 4
+  br label %66
+
+; <label>:63                                      ; preds = %11
+  %64 = load %struct._IO_FILE*, %struct._IO_FILE** @stderr, align 8
+  %65 = call i32 @fputs(i8* getelementptr inbounds ([11 x i8], [11 x i8]* @.str.9, i32 0, i32 0), %struct._IO_FILE* %64)
+  store i32 -1, i32* %1, align 4
+  br label %66
+
+; <label>:66                                      ; preds = %63, %46, %7
+  %67 = load i32, i32* %1, align 4
+  ret i32 %67
+}
+
+declare i32 @printf(i8*, ...) #1
+
+declare i32 @fputs(i8*, %struct._IO_FILE*) #1
+
+attributes #0 = { nounwind uwtable "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+fxsr,+mmx,+sse,+sse2" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #1 = { "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+fxsr,+mmx,+sse,+sse2" "unsafe-fp-math"="false" "use-soft-float"="false" }
+
+!llvm.ident = !{!0}
+
+!0 = !{!"clang version 3.8.0 (tags/RELEASE_380/final)"}

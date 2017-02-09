@@ -24,3 +24,7 @@ auto utf32_multi = UR"(Hello
 utf-32
 muliline
 string)";
+
+// Meta strings
+#include <stdio>
+#include "lib.h"

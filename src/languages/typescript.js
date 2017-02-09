@@ -11,7 +11,8 @@ function(hljs) {
       'in if for while finally var new function do return void else break catch ' +
       'instanceof with throw case default try this switch continue typeof delete ' +
       'let yield const class public private protected get set super ' +
-      'static implements enum export import declare type namespace abstract',
+      'static implements enum export import declare type namespace abstract ' +
+      'as from extends async await',
     literal:
       'true false null undefined NaN Infinity',
     built_in:
@@ -86,11 +87,31 @@ function(hljs) {
             illegal: /["'\(]/
           }
         ],
-        illegal: /\[|%/,
+        illegal: /%/,
         relevance: 0 // () => {} is more typical in TypeScript
       },
       {
-        beginKeywords: 'constructor', end: /\{/, excludeEnd: true
+        beginKeywords: 'constructor', end: /\{/, excludeEnd: true,
+        contains: [
+          'self',
+          {
+            className: 'params',
+            begin: /\(/, end: /\)/,
+            excludeBegin: true,
+            excludeEnd: true,
+            keywords: KEYWORDS,
+            contains: [
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE
+            ],
+            illegal: /["'\(]/
+          }
+        ]
+      },
+      { // prevent references like module.id from being higlighted as module definitions
+        begin: /module\./,
+        keywords: {built_in: 'module'},
+        relevance: 0
       },
       {
         beginKeywords: 'module', end: /\{/, excludeEnd: true
@@ -104,6 +125,9 @@ function(hljs) {
       },
       {
         begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
+      },
+      {
+        className: 'meta', begin: '@[A-Za-z]+'
       }
     ]
   };

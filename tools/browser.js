@@ -35,8 +35,11 @@ function copyDocs() {
 }
 
 function generateDemo(filterCB, readArgs) {
-  let staticArgs   = utility.glob(path.join('demo', '*.{js,css}')),
-      stylesArgs   = utility.glob(path.join('src', 'styles', '*'), 'binary'),
+  let styleDir     = path.join('src', 'styles'),
+      staticArgs   = utility.glob(path.join('demo', '*.min.{js,css}')),
+      imageArgs    = utility.glob(path.join(styleDir,  '*.{png,jpg}'),
+                                  'binary'),
+      stylesArgs   = utility.glob(path.join(styleDir,  '*.css')),
       demoRoot     = path.join(directory.build, 'demo'),
       templateArgs = { callback: templateAllFunc },
       destArgs     = {
@@ -60,7 +63,22 @@ function generateDemo(filterCB, readArgs) {
     readStatic: { requires: 'logStart', task: ['glob', staticArgs] },
     writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
     readStyles: { requires: 'logStart', task: ['glob', stylesArgs] },
-    writeStyles: { requires: 'readStyles', task: ['dest', destArgs] }
+    compressStyles: { requires: 'readStyles', task: 'cssminify' },
+    writeStyles: { requires: 'compressStyles', task: ['dest', destArgs] },
+    readImages: { requires: 'logStart', task: ['glob', imageArgs] },
+    writeImages: { requires:'readImages', task: ['dest', destArgs] },
+    readDemoJS: {
+      requires: 'logStart',
+      task: ['read', path.join('demo', 'demo.js')]
+    },
+    minifyDemoJS: { requires: 'readDemoJS', task: 'jsminify' },
+    writeDemoJS: { requires: 'minifyDemoJS', task: ['dest', demoRoot] },
+    readDemoCSS: {
+      requires: 'logStart',
+      task: ['read', path.join('demo', 'style.css')]
+    },
+    minifyDemoCSS: { requires: 'readDemoCSS', task: 'cssminify' },
+    writeDemoCSS: { requires: 'minifyDemoCSS', task: ['dest', demoRoot] }
   };
 }
 

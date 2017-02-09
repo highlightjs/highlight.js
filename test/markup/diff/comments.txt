@@ -1,0 +1,10 @@
+Index: languages/demo.js
+===================================================================
+--- languages/demo.js    (revision 199)
++++ languages/demo.js    (revision 200)
+@@ -1,8 +1,7 @@
++ Here we highlight correctly
+====
++ Here too
+=====
++ Here we don't anymore after five '=' next to each other

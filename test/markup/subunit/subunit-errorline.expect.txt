@@ -1,0 +1,2 @@
+<span class="hljs-keyword">error: test</span> simplename
+<span class="hljs-keyword">error: test</span> simple name

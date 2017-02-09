@@ -24,3 +24,7 @@ string)"</span>;
 utf-32
 muliline
 string)"</span>;
+
+<span class="hljs-comment">// Meta strings</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"lib.h"</span></span>
