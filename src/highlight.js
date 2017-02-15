@@ -300,11 +300,9 @@ https://highlightjs.org/
       if (!mode.contains) {
         mode.contains = [];
       }
-      var contains = [];
-      mode.contains.forEach(function(c) {
-        Array.prototype.push.apply(contains, expand_variants(c === 'self' ? mode : c));
-      });
-      mode.contains = contains;
+      mode.contains = Array.prototype.concat.apply([], mode.contains.map(function(c) {
+        return expand_variants(c === 'self' ? mode : c)
+      }));
       mode.contains.forEach(function(c) {compileMode(c, mode);});
 
       if (mode.starts) {
