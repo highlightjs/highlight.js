@@ -6,8 +6,17 @@ env:
   -
   - BROWSER=1
   - BROWSER=1 NOCOMPRESS=1
+matrix:
+  include:
+    - node_js: "6"
+    - env: ESLINT=1
 script:
   - |
+    if [ "x$ESLINT" = "x1" ] ; then
+      # specific environment for just linting
+      eslint src/ && exit 0
+      exit 1
+    fi
     export BUILD_PARAMS=""
 
     if [ "x$BROWSER" = "x1" ]; then
@@ -27,4 +36,5 @@ script:
     else
       npm run test
     fi
+
 sudo: false  # Use container-based architecture
