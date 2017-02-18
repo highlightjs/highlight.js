@@ -9,7 +9,7 @@ env:
 matrix:
   include:
     - node_js: "6"
-    - env: ESLINT=1
+      env: ESLINT=1
 script:
   - |
     if [ "x$ESLINT" = "x1" ] ; then
