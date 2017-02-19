@@ -102,15 +102,17 @@ https://highlightjs.org/
     }
   }
 
-  function inherit(parent, obj) {
+  function inherit(parent) {  // inherit(parent, override_obj, override_obj, ...)
     var key;
     var result = {};
+    var objects = Array.prototype.slice.call(arguments, 1);
 
     for (key in parent)
       result[key] = parent[key];
-    if (obj)
+    objects.forEach(function(obj) {
       for (key in obj)
         result[key] = obj[key];
+    });
     return result;
   }
 
@@ -221,6 +223,15 @@ https://highlightjs.org/
 
   /* Initialization */
 
+  function expand_mode(mode) {
+    if (mode.variants && !mode.cached_variants) {
+      mode.cached_variants = mode.variants.map(function(variant) {
+        return inherit(mode, {variants: null}, variant);
+      });
+    }
+    return mode.cached_variants || (mode.endsWithParent && [inherit(mode)]) || [mode];
+  }
+
   function compileLanguage(language) {
 
     function reStr(re) {
@@ -286,15 +297,9 @@ https://highlightjs.org/
       if (!mode.contains) {
         mode.contains = [];
       }
-      var expanded_contains = [];
-      mode.contains.forEach(function(c) {
-        if (c.variants) {
-          c.variants.forEach(function(v) {expanded_contains.push(inherit(c, v));});
-        } else {
-          expanded_contains.push(c === 'self' ? mode : c);
-        }
-      });
-      mode.contains = expanded_contains;
+      mode.contains = Array.prototype.concat.apply([], mode.contains.map(function(c) {
+        return expand_mode(c === 'self' ? mode : c)
+      }));
       mode.contains.forEach(function(c) {compileMode(c, mode);});
 
       if (mode.starts) {
