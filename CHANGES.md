@@ -2,6 +2,7 @@
 
 New languages
 
+- *Csound* by [Nathan Whetsell][]
 - *Hy* by [Sergey Sobko][]
 - *Leaf* by [Hale Chan][]
 
@@ -21,6 +22,7 @@ Improvements:
 [Matt Evans]: https://github.com/matthewevans
 [Joe Blow]: https://github.com/mossarelli
 [Kasper Andersen]: https://github.com/kasma1990
+[Nathan Whetsell]: https://github.com/nwhetsell
 
 
 ## Version 9.9.0

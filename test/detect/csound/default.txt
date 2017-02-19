@@ -1,0 +1,30 @@
+; https://csound.github.io/docs/manual/OrchTop.html
+/* comment */
+
+nchnls = 1
+nchnls_i = 1
+sr = 44100
+0dbfs = 1
+ksmps = 10
+A4 = 440
+
+instr 1
+  prints "hello, world\n"
+
+  kNote = p3
+  if kNote == 0 then
+    kFrequency = 220
+  elseif kNote == 1 then
+    kFrequency = 440
+  endif
+
+  iIndex = 0
+  while iIndex < 5 do
+    print iIndex
+    iIndex += 1
+  od
+
+  aSignal oscil 0dbfs, kFrequency, 1
+
+  outc aSignal
+endin
