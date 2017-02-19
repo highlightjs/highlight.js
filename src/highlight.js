@@ -223,16 +223,13 @@ https://highlightjs.org/
 
   /* Initialization */
 
-  function expand_variants(mode) {
-
-    function expand(variant) {
-      return inherit(mode, {variants: null}, variant);
+  function expand_mode(mode) {
+    if (mode.variants && !mode.cached_variants) {
+      mode.cached_variants = mode.variants.map(function(variant) {
+        return inherit(mode, {variants: null}, variant);
+      });
     }
-
-    if (!mode.expanded_variants) {
-      mode.expanded_variants = mode.variants ? mode.variants.map(expand) : [mode];
-    }
-    return mode.expanded_variants;
+    return mode.cached_variants || (mode.endsWithParent && [inherit(mode)]) || [mode];
   }
 
   function compileLanguage(language) {
@@ -301,7 +298,7 @@ https://highlightjs.org/
         mode.contains = [];
       }
       mode.contains = Array.prototype.concat.apply([], mode.contains.map(function(c) {
-        return expand_variants(c === 'self' ? mode : c)
+        return expand_mode(c === 'self' ? mode : c)
       }));
       mode.contains.forEach(function(c) {compileMode(c, mode);});
 
