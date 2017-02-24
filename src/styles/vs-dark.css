@@ -1,0 +1,55 @@
+/*
+
+Visual Studio-like style based on original C# coloring by Mamoru Kondo <etherealgarden@msn.com>
+
+*/
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #1e1e1e;
+  color: #dcdcdc;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.hljs-tag {
+  color: #569cd6;
+}
+
+.hljs-string {
+  color: #d69d85;
+}
+
+/* custom type color
+  color: #4ec9b0;
+*/
+
+.hljs-comment {
+  color: #57a64a;
+}
+
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #b8d7a3;
+}
+
+.hljs-meta {
+  color: #9b9b9b;
+}
+
+.hljs-doctag {
+  color: #608b4e;
+}
+
+.hljs-link {
+  color: #00b0e8;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
