@@ -4,6 +4,7 @@ New languages
 
 - *Hy* by [Sergey Sobko][]
 - *Leaf* by [Hale Chan][]
+- *Robot Framework* by [Harri Paavola][]
 
 Improvements:
 
@@ -21,6 +22,7 @@ Improvements:
 [Matt Evans]: https://github.com/matthewevans
 [Joe Blow]: https://github.com/mossarelli
 [Kasper Andersen]: https://github.com/kasma1990
+[Harri Paavola]: https://github.com/Harri
 
 
 ## Version 9.9.0

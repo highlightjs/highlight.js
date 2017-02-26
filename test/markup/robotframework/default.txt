@@ -1,0 +1,40 @@
+*** Settings ***
+Documentation    Simple example demonstrating syntax highlighting.
+...              Multiple lines.
+Library          ExampleLibrary
+Test Setup       Keyword    argument   argument with ${VARIABLE}
+
+*** Variables ***
+${VARIABLE}      Variable value
+@{LIST}          List    variable    here
+&{DICT}          Key1=Value1    Key2=Value2
+
+*** Test Cases ***
+Keyword-driven example
+    [Documentation]    Most amazing
+    Initialize System
+    Do Something
+    Result Should Be    ${42}
+    [Teardown]    Cleanup System    # Being a good citizen
+
+Data-driven example
+    [Template]    Keyword
+    argument1   argument2
+    argument    ${VARIABLE}
+    @{LIST}
+
+Gherkin
+    [Tags]    tag1    tag2
+    Given system is initialized
+    When something is done
+    And things are ok
+    Then result should be "42"
+
+*** Keywords ***
+Result Should Be
+    [Arguments]    ${expected}
+    ${actual} =    Get Value
+    Should be Equal    ${actual}    ${expected}
+
+Then result should be "${expected}"
+    Result Should Be    ${expected}
