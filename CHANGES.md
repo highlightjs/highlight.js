@@ -1,14 +1,47 @@
-## Version 9.8.0-addriscv
+## Master (UNRELEASED)
 
-This is named like this because is just an add to riscvasm. I needed a highlight
-for an online-demo that I'm developing right know.
-Works so far as the main specification. You can find it at https://riscv.org/
+New languages
 
-New languages:
 - *riscvasm* by [Ckristian Duran][] at [OnChipUIS][]
+- *Hy* by [Sergey Sobko][]
+- *Leaf* by [Hale Chan][]
 
+Improvements:
+
+- *Python* updated with f-literals by [Philipp A][].
+- Some keywords added to *Kotlin* by [Philipp Hauer][].
+- *YAML* updated with unquoted strings support.
+- *Gauss* updated with new keywords by [Matt Evans][].
+- *Lua* updated with new keywords by [Joe Blow][].
+- *Rust* updated with new keywords by [Kasper Andersen][].
+
+[Philipp A]: https://github.com/flying-sheep
+[Philipp Hauer]: https://github.com/phauer
+[Sergey Sobko]: https://github.com/profitware
+[Hale Chan]: https://github.com/halechan
+[Matt Evans]: https://github.com/matthewevans
+[Joe Blow]: https://github.com/mossarelli
+[Kasper Andersen]: https://github.com/kasma1990
 [Ckristian Duran]: https://github.com/ckdur
 [OnChipUIS]: https://github.com/onchipuis
+
+## Version 9.9.0
+
+New languages
+
+- *LLVM* by [Michael Rodler][]
+
+Improvements:
+
+- *TypeScript* updated with annotations and param lists inside constructors, by
+  [Raphael Parree][].
+- *CoffeeScript* updated with new keywords and fixed to recognize JavaScript
+  in \`\`\`, thanks to thanks to [Geoffrey Booth][].
+- Compiler directives in *Delphi* are now correctly highlighted as "meta".
+
+[Raphael Parree]: https://github.com/rparree
+[Michael Rodler]: https://github.com/f0rki
+[Geoffrey Booth]: https://github.com/GeoffreyBooth
 
 ## Version 9.8.0 "New York"
 
