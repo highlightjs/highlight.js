@@ -241,3 +241,5 @@ URL:   https://highlightjs.org/
 - Гуаннан Вей <guannanwei@outlook.com>
 - Сэм Ву <samsam2310@gmail.com>
 - Айк Ку <dempfi@yahoo.com>
+- Андрес Тахт <andres.taht@gmail.com>
+- Рене Саарсо <nene@triin.net>
