@@ -1,3 +1,6 @@
+#include <iostream>
+#define foo 1<<16
+
 #ifdef DEBUG
 TYPE1 foo(void)
 #else

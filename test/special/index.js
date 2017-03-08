@@ -19,6 +19,9 @@ describe('special cases tests', function() {
         // Allows hljs to use document
         global.document = window.document;
 
+        // Special language to test endsWithParentVariants
+        hljs.registerLanguage('nested', require('../fixtures/nested.js'));
+
         // Setup hljs environment
         hljs.configure({ tabReplace: '    ' });
         hljs.initHighlighting();
@@ -38,4 +41,5 @@ describe('special cases tests', function() {
   require('./subLanguages');
   require('./buildClassName');
   require('./useBr');
+  require('./endsWithParentVariants')
 });
