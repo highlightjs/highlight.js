@@ -1,6 +1,7 @@
 /*
  Language: N1QL
- Contributors: Andres Täht <andres.taht@gmail.com>, Rene Saarsoo <nene@triin.net>
+ Author: Andres Täht <andres.taht@gmail.com>
+ Contributors: Rene Saarsoo <nene@triin.net>
  Description: Couchbase query language
  */
 
