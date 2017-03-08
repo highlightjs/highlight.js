@@ -1,5 +1,4 @@
 #include <iostream>
-#define foo 1<<16
 
 int main(int argc, char *argv[]) {
 
