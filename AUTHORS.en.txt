@@ -239,3 +239,4 @@ Contributors:
 - Kasper Andersen <kma_untrusted@protonmail.com>
 - Philipp A. <flying-sheep@web.de>
 - Guannan Wei <guannanwei@outlook.com>
+- Sam Wu <samsam2310@gmail.com>
