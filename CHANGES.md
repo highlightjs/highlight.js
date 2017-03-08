@@ -1,18 +1,28 @@
-## Master (UNRELEASED)
+## Version 9.10.0
 
-New languages
+Apologies for missing the previous release cycle. Some thing just can't be
+automated… Anyway, we're back!
+
+New languages:
 
 - *Hy* by [Sergey Sobko][]
 - *Leaf* by [Hale Chan][]
+- *N1QL* by [Andres Täht][] and [Rene Saarsoo][]
 
 Improvements:
 
+- *Rust* got updated with new keywords by [Kasper Andersen][] and then
+  significantly modernized even more by [Eduard-Mihai Burtescu][] (yes, @eddyb,
+  Rust core team member!)
 - *Python* updated with f-literals by [Philipp A][].
-- Some keywords added to *Kotlin* by [Philipp Hauer][].
 - *YAML* updated with unquoted strings support.
 - *Gauss* updated with new keywords by [Matt Evans][].
 - *Lua* updated with new keywords by [Joe Blow][].
-- *Rust* updated with new keywords by [Kasper Andersen][].
+- *Kotlin* updated with new keywords by [Philipp Hauer][].
+- *TypeScript* got highlighting of function params and updated keywords by
+  [Ike Ku][].
+- *Scheme* now correctly handles \`-quoted lists thanks to [Guannan Wei].
+- [Sam Wu][] fixed handling of `<<` in *C++* defines.
 
 [Philipp A]: https://github.com/flying-sheep
 [Philipp Hauer]: https://github.com/phauer
@@ -21,6 +31,13 @@ Improvements:
 [Matt Evans]: https://github.com/matthewevans
 [Joe Blow]: https://github.com/mossarelli
 [Kasper Andersen]: https://github.com/kasma1990
+[Eduard-Mihai Burtescu]: https://github.com/eddyb
+[Andres Täht]: https://github.com/andrestaht
+[Rene Saarsoo]: https://github.com/nene
+[Philipp Hauer]: https://github.com/phauer
+[Ike Ku]: https://github.com/dempfi
+[Guannan Wei]: https://github.com/Kraks
+[Sam Wu]: https://github.com/samsam2310
 
 
 ## Version 9.9.0
