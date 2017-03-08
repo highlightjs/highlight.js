@@ -237,3 +237,4 @@ URL:   https://highlightjs.org/
 - Хейл Чан <halechan@qq.com>
 - Мэт Эванс <syrius3@gmail.com>
 - Каспер Андерсен <kma_untrusted@protonmail.com>
+- Филипп А. <flying-sheep@web.de>
