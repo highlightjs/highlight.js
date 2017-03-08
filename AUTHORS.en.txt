@@ -241,3 +241,5 @@ Contributors:
 - Guannan Wei <guannanwei@outlook.com>
 - Sam Wu <samsam2310@gmail.com>
 - Ike Ku <dempfi@yahoo.com>
+- Andres Täht <andres.taht@gmail.com>
+- Rene Saarsoo <nene@triin.net>
