@@ -239,3 +239,4 @@ URL:   https://highlightjs.org/
 - Каспер Андерсен <kma_untrusted@protonmail.com>
 - Филипп А. <flying-sheep@web.de>
 - Гуаннан Вей <guannanwei@outlook.com>
+- Сэм Ву <samsam2310@gmail.com>
