@@ -1,6 +1,7 @@
 /*
 Language: TypeScript
 Author: Panu Horsmalahti <panu.horsmalahti@iki.fi>
+Contributors: Ike Ku <dempfi@yahoo.com>
 Description: TypeScript is a strict superset of JavaScript
 Category: scripting
 */

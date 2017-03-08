@@ -240,3 +240,4 @@ URL:   https://highlightjs.org/
 - Филипп А. <flying-sheep@web.de>
 - Гуаннан Вей <guannanwei@outlook.com>
 - Сэм Ву <samsam2310@gmail.com>
+- Айк Ку <dempfi@yahoo.com>
