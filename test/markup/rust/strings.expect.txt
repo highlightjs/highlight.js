@@ -5,9 +5,9 @@
 <span class="hljs-string">'\U1234ASDF'</span>;
 <span class="hljs-string">b'a'</span>;
 
-<span class="hljs-string">"hello"</span>;
-<span class="hljs-string">b"hello"</span>;
+<span class="hljs-string">&quot;hello&quot;</span>;
+<span class="hljs-string">b&quot;hello&quot;</span>;
 
-<span class="hljs-string">r"hello"</span>;
-<span class="hljs-string">r###"world"###</span>;
-<span class="hljs-string">r##" "### "# "##</span>;
+<span class="hljs-string">r&quot;hello&quot;</span>;
+<span class="hljs-string">r###&quot;world&quot;###</span>;
+<span class="hljs-string">r##&quot; &quot;### &quot;# &quot;##</span>;
