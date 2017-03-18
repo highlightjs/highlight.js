@@ -619,9 +619,11 @@ https://highlightjs.org/
 
   /*
   Applies highlighting to a DOM node containing code. Accepts a DOM node and
-  two optional parameters for fixMarkup.
+  two optional parameters for fixMarkup. If a callback function is passed,
+  that function will be executed with the block as an argument when highlighting
+  is complete.
   */
-  function highlightBlock(block) {
+  function highlightBlock(block, callback) {
     var node, originalStream, result, resultNode, text;
     var language = blockLanguage(block);
 
@@ -656,6 +658,9 @@ https://highlightjs.org/
         language: result.second_best.language,
         re: result.second_best.relevance
       };
+    }
+    if (typeof(callback) == "function") {
+      callback(block);
     }
   }
 

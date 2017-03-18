@@ -44,7 +44,7 @@ Post-processing of the highlighted markup. Currently consists of replacing inden
 Accepts a string with the highlighted markup.
 
 
-``highlightBlock(block)``
+``highlightBlock(block, [callback])``
 -------------------------
 
 Applies highlighting to a DOM node containing code.
@@ -55,6 +55,9 @@ or within initialization code of third-party Javascript frameworks.
 The function uses language detection by default but you can specify the language
 in the ``class`` attribute of the DOM node. See the :doc:`class reference
 </css-classes-reference>` for all available language names and aliases.
+
+If a callback function is passed, that function will be executed with the block
+as an argument when highlighting is complete.
 
 
 ``configure(options)``
