@@ -1,6 +1,6 @@
 <span class="hljs-attr">key:</span> <span class="hljs-string">value</span>
 <span class="hljs-attr">key:</span> <span class="hljs-string">'some value'</span>
-<span class="hljs-attr">key:</span> <span class="hljs-string">"some value"</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">&quot;some value&quot;</span>
 <span class="hljs-attr">key:</span> <span class="hljs-string">|
   multi-string
   value

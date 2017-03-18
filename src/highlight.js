@@ -55,13 +55,14 @@ https://highlightjs.org/
   var escapeRegexMap = {
     '&': '&amp;',
     '<': '&lt;',
-    '>': '&gt;'
+    '>': '&gt;',
+    '"': '&quot;'
   };
 
   /* Utility functions */
 
   function escape(value) {
-    return value.replace(/[&<>]/gm, function(character) {
+    return value.replace(/[&<>"]/gm, function(character) {
       return escapeRegexMap[character];
     });
   }

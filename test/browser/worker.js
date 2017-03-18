@@ -5,6 +5,11 @@ let Worker   = require('tiny-worker');
 let utility  = require('../utility');
 let glob     = bluebird.promisify(require('glob'));
 
+const text   = 'var say = "Hello";';
+const expect = '<span class="hljs-keyword">' +
+  'var</span> say = <span class="hljs-string">' +
+  '&quot;Hello&quot;</span>;';
+
 describe('web worker', function() {
   before(function(done) {
     // Will match both `highlight.pack.js` and `highlight.min.js`
@@ -36,12 +41,12 @@ describe('web worker', function() {
     this.worker.onmessage = event => {
       const actual = event.data;
 
-      actual.should.equal(this.expect);
+      actual.should.equal(expect);
 
       done();
     };
 
-    this.worker.postMessage(this.text);
+    this.worker.postMessage(text);
   });
 
   after(function() {
