@@ -243,3 +243,4 @@ Contributors:
 - Ike Ku <dempfi@yahoo.com>
 - Andres Täht <andres.taht@gmail.com>
 - Rene Saarsoo <nene@triin.net>
+- Jordi Petit <jordi.petit@gmail.com>
