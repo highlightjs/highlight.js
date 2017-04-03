@@ -131,6 +131,7 @@ function(hljs) {
     },
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + '|unless)\\s*',
+      keywords: 'unless',
       contains: [
         IRB_OBJECT,
         {
