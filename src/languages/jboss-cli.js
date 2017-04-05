@@ -20,6 +20,7 @@ function (hljs) {
   return {
     aliases: ['wildfly-cli'],
     case_insensitive: false,
+    lexemes: '[a-z\-]+',
     keywords: {
       keyword: 'alias batch cd clear command connect connection-factory connection-info data-source deploy ' +
       'deployment-info deployment-overlay echo echo-dmr help history if jdbc-driver-info jms-queue|20 jms-topic|20 ls ' +
