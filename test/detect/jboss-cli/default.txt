@@ -1,0 +1,18 @@
+# some comment
+
+deploy /path/to/DEPLOYMENT.war --all-server-groups
+
+/subsystem=security/security-domain=demo-realm:add()
+
+/subsystem=security/security-domain=demo-realm/authentication=classic:add
+
+/subsystem=security/security-domain=demo-realm/authentication=classic/login-module=UsersRoles:add( \
+    code=UsersRoles, \
+    flag=required, \
+    module-options=  { \
+         usersProperties=auth/demo-users.properties, \
+         rolesProperties =auth/demo-roles.properties,  \
+         hashAlgorithm= MD5, \
+         hashCharset="UTF-8"  \
+    } \
+)
