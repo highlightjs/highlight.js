@@ -5,7 +5,7 @@
  Category: config
  */
 
-function(hljs) {
+function (hljs) {
   var PARAMS = [{
     className: "attribute",
     begin: /[\w-]+\s?=/,
@@ -45,9 +45,8 @@ function(hljs) {
       },
       {
         className: 'symbol',
-        begin: /\B(\/[\w-/=]+)+/,
+        begin: /\B(\/[\w\-\/=]+)+/,
         relevance: 1
-
       },
       {
         className: 'params',
