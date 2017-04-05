@@ -13,7 +13,8 @@ function(hljs) {
 
       ends: /$/,
       className: "string"
-    }
+    },
+    relevance: 1
   }];
 
   return {
@@ -21,8 +22,8 @@ function(hljs) {
     case_insensitive: false,
     keywords: {
       keyword: 'alias batch cd clear command connect connection-factory connection-info data-source deploy ' +
-      'deployment-info deployment-overlay echo echo-dmr help history if jdbc-driver-info jms-queue jms-topic ls ' +
-      ' patch pwd quit read-attribute read-operation reload rollout-plan run-batch set shutdown try unalias ' +
+      'deployment-info deployment-overlay echo echo-dmr help history if jdbc-driver-info jms-queue|20 jms-topic|20 ls ' +
+      'patch pwd quit read-attribute read-operation reload rollout-plan run-batch set shutdown try unalias ' +
       'undeploy unset version xa-data-source', // module
       literal: 'true false'
     },
@@ -32,17 +33,20 @@ function(hljs) {
       {
         className: 'params',
         begin: "--",
-        end: "$"
+        end: "$",
+        relevance: 1
 
       },
       {
         className: 'function',
-        begin: /:\w+/
+        begin: /:\w+/,
+        relevance: 0
 
       },
       {
         className: 'symbol',
-        begin: /\B(\/[\w-/=]+)+/
+        begin: /\B(\/[\w-/=]+)+/,
+        relevance: 1
 
       },
       {
@@ -51,7 +55,8 @@ function(hljs) {
         end: /\)/,
         excludeBegin: true,
         excludeEnd: true,
-        contains: PARAMS
+        contains: PARAMS,
+        relevance: 0
       }
 
     ]

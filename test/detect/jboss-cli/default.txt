@@ -1,6 +1,8 @@
-# some comment
+jms-queue add --queue-address=myQueue --entries=queue/myQueue
 
-deploy /path/to/DEPLOYMENT.war --all-server-groups
+deploy /path/to/file.war
+
+/system-property=prop1:add(value=value1)
 
 /subsystem=security/security-domain=demo-realm:add()
 
