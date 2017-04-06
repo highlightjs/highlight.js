@@ -245,3 +245,4 @@ Contributors:
 - Rene Saarsoo <nene@triin.net>
 - Jordi Petit <jordi.petit@gmail.com>
 - Raphaël Parrëe <rparree@edc4it.com>
+- Joël Porquet <joel@porquet.org>
