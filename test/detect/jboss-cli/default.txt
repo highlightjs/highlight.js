@@ -8,6 +8,8 @@ deploy /path/to/file.war
 
 /extension=org.jboss.as.modcluster:add
 
+./foo=bar:remove
+
 /subsystem=security/security-domain=demo-realm/authentication=classic:add
 
 /subsystem=security/security-domain=demo-realm/authentication=classic/login-module=UsersRoles:add( \

@@ -25,7 +25,7 @@ function (hljs) {
   };
   var PATH = {
     className: 'symbol',
-    begin: /\B(\/[\w\-.\/=]+)+/,
+    begin: /\B(([\/.])[\w\-.\/=]+)+/,
     relevance: 1
   };
   var PARAMSBLOCK = {
