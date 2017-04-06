@@ -6,6 +6,8 @@ deploy /path/to/file.war
 
 /subsystem=security/security-domain=demo-realm:add()
 
+/extension=org.jboss.as.modcluster:add
+
 /subsystem=security/security-domain=demo-realm/authentication=classic:add
 
 /subsystem=security/security-domain=demo-realm/authentication=classic/login-module=UsersRoles:add( \

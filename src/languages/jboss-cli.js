@@ -17,6 +17,33 @@ function (hljs) {
     relevance: 1
   }];
 
+  var OPERATION = {
+    className: 'function',
+    begin: /:\w+/,
+    relevance: 0
+
+  };
+  var PATH = {
+    className: 'symbol',
+    begin: /\B(\/[\w\-.\/=]+)+/,
+    relevance: 1
+  };
+  var PARAMS = {
+    className: 'params',
+    begin: /\(/,
+    end: /\)/,
+    excludeBegin: true,
+    excludeEnd: true,
+    contains: PARAMS,
+    relevance: 0
+  };
+  var COMMAND_PARAMS = {
+    className: 'params',
+    begin: "--",
+    end: "$",
+    relevance: 1
+
+  };
   return {
     aliases: ['wildfly-cli'],
     case_insensitive: false,
@@ -31,34 +58,10 @@ function (hljs) {
     contains: [
       hljs.HASH_COMMENT_MODE,
       hljs.QUOTE_STRING_MODE,
-      {
-        className: 'params',
-        begin: "--",
-        end: "$",
-        relevance: 1
-
-      },
-      {
-        className: 'function',
-        begin: /:\w+/,
-        relevance: 0
-
-      },
-      {
-        className: 'symbol',
-        begin: /\B(\/[\w\-\/=]+)+/,
-        relevance: 1
-      },
-      {
-        className: 'params',
-        begin: /\(/,
-        end: /\)/,
-        excludeBegin: true,
-        excludeEnd: true,
-        contains: PARAMS,
-        relevance: 0
-      }
-
+      COMMAND_PARAMS,
+      OPERATION,
+      PATH,
+      PARAMS
     ]
   }
 }
