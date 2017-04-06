@@ -28,7 +28,7 @@ function (hljs) {
     begin: /\B(\/[\w\-.\/=]+)+/,
     relevance: 1
   };
-  var PARAMS = {
+  var PARAMSBLOCK = {
     className: 'params',
     begin: /\(/,
     end: /\)/,
@@ -61,7 +61,7 @@ function (hljs) {
       COMMAND_PARAMS,
       OPERATION,
       PATH,
-      PARAMS
+      PARAMSBLOCK
     ]
   }
 }
