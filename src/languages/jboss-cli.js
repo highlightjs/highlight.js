@@ -22,12 +22,11 @@ function (hljs) {
   var OPERATION = {
     className: 'function',
     begin: /:[\w\-.]+/,
-    relevance: 0
+    : 0
   };
   var PATH = {
     className: 'symbol',
     begin: /\B(([\/.])[\w\-.\/=]+)+/,
-    relevance: 1
   };
   var COMMAND_PARAMS = {
     className: 'params',
