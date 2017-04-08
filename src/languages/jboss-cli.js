@@ -8,18 +8,19 @@
 function (hljs) {
   var PARAMS = [{
     className: "attribute",
-    begin: /[\w-]+\s?=/,
+    begin: /[\w-]+\s?/,
+    ends: "=",
+    excludeEnd: true,
     starts: {
-
       ends: /$/,
       className: "string"
     },
-    relevance: 1
+    relevance: -1
   }];
 
   var OPERATION = {
     className: 'function',
-    begin: /:\w+/,
+    begin: /:[\w\-.]+/,
     relevance: 0
 
   };
