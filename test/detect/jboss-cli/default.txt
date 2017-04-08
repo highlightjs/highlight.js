@@ -4,7 +4,7 @@ deploy /path/to/file.war
 
 /system-property=prop1:add(value=value1)
 
-/subsystem=security/security-domain=demo-realm:add()
+
 
 /extension=org.jboss.as.modcluster:add
 

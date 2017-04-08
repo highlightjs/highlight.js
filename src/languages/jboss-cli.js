@@ -9,10 +9,10 @@ function (hljs) {
   var PARAMS = [{
     className: "attribute",
     begin: /[\w-]+\s?/,
-    ends: "=",
+    end: "=",
     excludeEnd: true,
     starts: {
-      ends: /$/,
+      end: /$/,
       className: "string"
     },
     relevance: -1
@@ -33,21 +33,15 @@ function (hljs) {
     className: 'params',
     begin: /\(/,
     end: /\)/,
-    excludeBegin: true,
-    excludeEnd: true,
     contains: PARAMS,
     relevance: 0
   };
   var COMMAND_PARAMS = {
     className: 'params',
-    begin: "--",
-    end: "$",
-    relevance: 1
-
+    begin: /--[\w\-=\/]+/,
   };
   return {
     aliases: ['wildfly-cli'],
-    case_insensitive: false,
     lexemes: '[a-z\-]+',
     keywords: {
       keyword: 'alias batch cd clear command connect connection-factory connection-info data-source deploy ' +
