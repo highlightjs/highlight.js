@@ -6,35 +6,28 @@
  */
 
 function (hljs) {
-  var PARAMS = [{
+  var PARAM = {
     className: "attribute",
-    begin: /[\w-]+\s?/,
-    end: "=",
+    begin: /[\w-]+ *=/,
     excludeEnd: true,
-    starts: {
-      end: /$/,
-      className: "string"
-    },
     relevance: -1
-  }];
-
-  var OPERATION = {
-    className: 'function',
-    begin: /:[\w\-.]+/,
-    relevance: 0
-
-  };
-  var PATH = {
-    className: 'symbol',
-    begin: /\B(([\/.])[\w\-.\/=]+)+/,
-    relevance: 1
   };
   var PARAMSBLOCK = {
     className: 'params',
     begin: /\(/,
     end: /\)/,
-    contains: PARAMS,
+    contains: [PARAM],
+    relevance : 0
+  };
+  var OPERATION = {
+    className: 'function',
+    begin: /:[\w\-.]+/,
     relevance: 0
+  };
+  var PATH = {
+    className: 'symbol',
+    begin: /\B(([\/.])[\w\-.\/=]+)+/,
+    relevance: 1
   };
   var COMMAND_PARAMS = {
     className: 'params',
