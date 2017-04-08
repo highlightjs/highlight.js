@@ -22,7 +22,7 @@ function (hljs) {
   var OPERATION = {
     className: 'function',
     begin: /:[\w\-.]+/,
-    : 0
+    relevance: 0
   };
   var PATH = {
     className: 'symbol',
