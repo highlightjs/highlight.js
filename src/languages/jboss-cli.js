@@ -7,10 +7,9 @@
 
 function (hljs) {
   var PARAM = {
-    className: "attribute",
-    begin: /[\w-]+ *=/,
-    excludeEnd: true,
-    relevance: -1
+    begin: /[\w-]+ *=/, returnBegin: true,
+    relevance: 0,
+    contains: [{className: 'attr', begin: /[\w-]+/}]
   };
   var PARAMSBLOCK = {
     className: 'params',
@@ -25,7 +24,7 @@ function (hljs) {
     relevance: 0
   };
   var PATH = {
-    className: 'symbol',
+    className: 'string',
     begin: /\B(([\/.])[\w\-.\/=]+)+/,
   };
   var COMMAND_PARAMS = {
