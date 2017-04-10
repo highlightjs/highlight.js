@@ -244,3 +244,4 @@ Contributors:
 - Andres Täht <andres.taht@gmail.com>
 - Rene Saarsoo <nene@triin.net>
 - Jordi Petit <jordi.petit@gmail.com>
+- Raphaël Parrëe <rparree@edc4it.com>
