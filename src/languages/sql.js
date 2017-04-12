@@ -15,7 +15,7 @@ function(hljs) {
           'begin end start commit rollback savepoint lock alter create drop rename call ' +
           'delete do handler insert load replace select truncate update set show pragma grant ' +
           'merge describe use explain help declare prepare execute deallocate release ' +
-          'unlock purge reset change stop analyze cache flush optimize repair kill ' +
+          'exec unlock purge reset change stop analyze cache flush optimize repair kill ' +
           'install uninstall checksum restore check backup revoke comment',
         end: /;/, endsWithParent: true,
         lexemes: /[\w\.]+/,
@@ -53,7 +53,7 @@ function(hljs) {
             'editions element ellipsis else elsif elt empty enable enable_all enclosed encode encoding encrypt ' +
             'end end-exec endian enforced engine engines enqueue enterprise entityescaping eomonth error errors ' +
             'escaped evalname evaluate event eventdata events except exception exceptions exchange exclude excluding ' +
-            'execu execut execute exempt exists exit exp expire explain export export_set extended extent external ' +
+            'exec execu execut execute exempt exists exit exp expire explain export export_set extended extent external ' +
             'external_1 external_2 externally extract failed failed_login_attempts failover failure far fast ' +
             'feature_set feature_value fetch field fields file file_name_convert filesystem_like_logging final ' +
             'finish first first_value fixed flash_cache flashback floor flush following follows for forall force ' +
