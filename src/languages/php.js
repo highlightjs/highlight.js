@@ -87,6 +87,11 @@ function(hljs) {
         begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/
       },
       {
+        className: 'title',
+        keywords: 'class',
+        begin: '\\b[\\w\\\\]+\\b::class', end: '\\W', excludeEnd: true
+      },
+      {
         className: 'function',
         beginKeywords: 'function', end: /[;{]/, excludeEnd: true,
         illegal: '\\$|\\[|%',
