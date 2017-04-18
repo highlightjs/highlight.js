@@ -7,6 +7,7 @@ ENV foo /bar
 WORKDIR ${foo}   # WORKDIR /bar
 ADD . $foo       # ADD . /bar
 COPY \$foo /quux # COPY $foo /quux
+ARG   VAR=FOO
 
 RUN apt-get update && apt-get install -y software-properties-common\
     zsh curl wget git htop\
@@ -30,6 +31,7 @@ ADD hom?.txt /mydir/    # ? is replaced with any single character
 
 COPY hom* /mydir/        # adds all files starting with "hom"
 COPY hom?.txt /mydir/    # ? is replaced with any single character
+COPY --from=foo / .
 
 ENTRYPOINT ["executable", "param1", "param2"]
 ENTRYPOINT command param1 param2
@@ -46,3 +48,9 @@ that label-values can span multiple lines."
 WORKDIR /path/to/workdir
 
 ONBUILD ADD . /app/src
+
+STOPSIGNAL SIGKILL
+
+HEALTHCHECK --retries=3 cat /health
+
+SHELL ["/bin/bash", "-c"]
