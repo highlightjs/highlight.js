@@ -1,3 +1,13 @@
+## Version 9.12.0
+
+New languages:
+
+- *1cv8* by [Stanislav Belov][]
+
+
+[Stanislav Belov]: https://github.com/4ppl
+
+
 ## Version 9.11.0
 
 New languages:
