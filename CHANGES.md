@@ -3,8 +3,21 @@
 New languages:
 
 - *Shell* by [Tsuyusato Kitsune][]
+- *jboss-cli* by [Raphaël Parrëe][]
+
+Improvements:
+
+- [Joël Porquet] has [greatly improved the definition of *makefile*][5b3e0e6].
+- *C++* class titles are now highlighted as in other languages with classes.
+- [Jordi Petit][] added rarely used `or`, `and` and `not` keywords to *C++*.
+- [Pieter Vantorre][] fixed highlighting of negative floating point values.
+
 
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Jordi Petit]: https://github.com/jordi-petit
+[Raphaël Parrëe]: https://github.com/rparree
+[Pieter Vantorre]: https://github.com/NuclearCookie
+[5b3e0e6]: https://github.com/isagalaev/highlight.js/commit/5b3e0e68bfaae282faff6697d6a490567fa9d44b
 
 
 ## Version 9.10.0
