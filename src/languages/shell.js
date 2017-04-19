@@ -2,13 +2,12 @@
 Language: Shell Session
 Requires: bash.js
 Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
-Description: shell session
 Category: common
 */
 
 function(hljs) {
   return {
-    aliases: ['console', 'sh-session'],
+    aliases: ['console'],
     contains: [
       {
         className: 'meta',
