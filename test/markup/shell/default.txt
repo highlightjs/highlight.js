@@ -1,7 +1,0 @@
-$ # comment
-$ echo "hello world"
-hello world
-$ ls
-default.txt default.expect.txt
-$ echo $PATH
-...

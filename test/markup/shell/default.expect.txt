@@ -1,7 +1,0 @@
-<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-comment"># comment</span></span>
-<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">"hello world"</span></span>
-hello world
-<span class="hljs-meta">$</span><span class="bash"> ls</span>
-default.txt default.expect.txt
-<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PATH</span></span>
-...
