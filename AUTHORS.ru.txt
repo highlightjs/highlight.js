@@ -245,3 +245,4 @@ URL:   https://highlightjs.org/
 - Рене Саарсо <nene@triin.net>
 - Джорди Петит <jordi.petit@gmail.com>
 - Рафаэль Паре <rparree@edc4it.com>
+- Джоель Порке <joel@porquet.org>
