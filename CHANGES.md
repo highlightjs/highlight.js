@@ -1,3 +1,12 @@
+## Master
+
+New languages:
+
+- *Shell* by [Tsuyusato Kitsune][]
+
+[Tsuyusato Kitsune]: https://github.com/MakeNowJust
+
+
 ## Version 9.10.0
 
 Apologies for missing the previous release cycle. Some thing just can't be
