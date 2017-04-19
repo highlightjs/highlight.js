@@ -13,8 +13,7 @@ function(hljs) {
         className: 'meta',
         begin: '^\\s{0,3}[\\w\\d\\[\\]()@-]*[>%$#]',
         starts: {
-          end: '$', subLanguage: 'bash',
-          relevance: 1,
+          end: '$', subLanguage: 'bash'
         }
       },
     ]
