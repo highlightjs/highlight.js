@@ -8,6 +8,7 @@ New languages:
 - *Hy* by [Sergey Sobko][]
 - *Leaf* by [Hale Chan][]
 - *N1QL* by [Andres Täht][] and [Rene Saarsoo][]
+- *Shell Session* by [Tsuyusato Kitsune][]
 
 Improvements:
 
