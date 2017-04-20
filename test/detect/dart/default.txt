@@ -30,3 +30,7 @@ Something ${2+3}
 var str = r"""
 Something ${2+3}
 """;
+
+checkVersion() async {
+  var version = await lookUpVersion();
+}

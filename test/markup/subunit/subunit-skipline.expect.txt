@@ -1,0 +1,3 @@
+<span class="hljs-keyword">skip test</span> simplename
+<span class="hljs-keyword">skip: test</span> simple name
+<span class="hljs-keyword">skip test</span> simple name

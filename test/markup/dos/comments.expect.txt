@@ -1,0 +1,3 @@
+<span class="hljs-comment">rem comment</span>
+<span class="hljs-comment">  rem comment</span>
+<span class="hljs-built_in">copy</span> a.txt b.txt &gt; <span class="hljs-built_in">rem</span> not_a_comment

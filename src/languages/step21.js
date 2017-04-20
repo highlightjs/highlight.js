@@ -1,5 +1,5 @@
 /*
-Language: STEP Part 21 (ISO 10303-21)
+Language: STEP Part 21
 Contributors: Adam Joseph Cook <adam.joseph.cook@gmail.com>
 Description: Syntax highlighter for STEP Part 21 files (ISO 10303-21).
 */

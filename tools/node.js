@@ -1,25 +1,25 @@
 'use strict';
 
-var _        = require('lodash');
-var bluebird = require('bluebird');
-var path     = require('path');
+let _        = require('lodash');
+let bluebird = require('bluebird');
+let path     = require('path');
 
-var packageJSON = require('../package');
-var registry    = require('./tasks');
-var utility     = require('./utility');
+let packageJSON = require('../package');
+let registry    = require('./tasks');
+let utility     = require('./utility');
 
-var directory, filterCB,
+let directory, filterCB,
     languages = utility.glob(path.join('src', 'languages', '*.js')),
     header    = utility.regex.header;
 
 function templateAllFunc(blobs) {
-  var names = _.map(blobs, blob => path.basename(blob.name, '.js'));
+  const names = _.map(blobs, blob => path.basename(blob.name, '.js'));
 
   return bluebird.resolve({ names: names });
 }
 
 function buildLanguages() {
-  var input  = languages,
+  let input  = languages,
       output = path.join(directory.build, 'lib', 'languages'),
 
       replaceArgs = utility.replace(header, ''),
@@ -40,8 +40,8 @@ function buildLanguages() {
 }
 
 function buildCore() {
-  var input  = path.join(directory.root, 'src', 'highlight.js'),
-      output = path.join(directory.build, 'lib');
+  const input  = path.join(directory.root, 'src', 'highlight.js'),
+        output = path.join(directory.build, 'lib');
 
   return {
     startLog: { task: ['log', 'Building core file.'] },
@@ -52,7 +52,7 @@ function buildCore() {
 }
 
 function buildIndex() {
-  var input  = languages,
+  let input  = languages,
       output = path.join(directory.build, 'lib', 'index.js'),
 
       templateArgs = {
@@ -78,7 +78,7 @@ function buildIndex() {
 }
 
 function copyMetaFiles() {
-  var docs   = path.join('docs', '*.rst'),
+  let docs   = path.join('docs', '*.rst'),
       glob   = `{README.md,LICENSE,${docs}}`,
 
       input  = utility.glob(path.join(directory.root, glob)),
@@ -93,7 +93,7 @@ function copyMetaFiles() {
 }
 
 function buildStyles() {
-  var input   = path.join(directory.root, 'src', 'styles', '*'),
+  let input   = path.join(directory.root, 'src', 'styles', '*'),
       output  = path.join(directory.build, 'styles'),
       options = { encoding: 'binary', dir: output };
 
@@ -109,8 +109,8 @@ function buildStyles() {
 }
 
 function buildPackageFile() {
-  var input  = path.join(directory.root, 'AUTHORS.en.txt'),
-      output = path.join(directory.build, 'package.json');
+  const input  = path.join(directory.root, 'AUTHORS.en.txt'),
+        output = path.join(directory.build, 'package.json');
 
   return {
     startLog: { task: ['log', 'Building package.json file.'] },
@@ -128,7 +128,7 @@ module.exports = function(commander, dir) {
   directory = dir;
   filterCB  = utility.buildFilterCallback(commander.args);
 
-  var tasks = [
+  let tasks = [
     buildLanguages(),
     buildCore(),
     buildIndex(),

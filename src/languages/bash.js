@@ -33,7 +33,7 @@ function(hljs) {
 
   return {
     aliases: ['sh', 'zsh'],
-    lexemes: /-?[a-z\.]+/,
+    lexemes: /\b-?[a-z\._]+\b/,
     keywords: {
       keyword:
         'if then else elif fi for while in do done case esac function',
@@ -73,7 +73,6 @@ function(hljs) {
         relevance: 0
       },
       hljs.HASH_COMMENT_MODE,
-      hljs.NUMBER_MODE,
       QUOTE_STRING,
       APOS_STRING,
       VAR

@@ -1,6 +1,13 @@
 fun a() = 1
-fun b(a : Int) = a
+fun /* b1 */ b(/*b2*/ a : Int /*b3*/) /*b4*/ = a // b5
 
 
-fun <T> c() = 1
-inline fun <reified T> d() = 1
+fun <T> c() : String = "1"
+inline fun <reified T> d() { return }
+
+
+fun e(
+    a : Int, /*a*/
+    b : String //b
+)
+{}

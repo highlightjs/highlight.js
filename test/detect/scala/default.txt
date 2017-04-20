@@ -3,6 +3,19 @@
  */
 case class Person(name: String, age: Int)
 
+abstract class Vertical extends CaseJeu
+case class Haut(a: Int) extends Vertical
+case class Bas(name: String, b: Double) extends Vertical
+
+sealed trait Ior[+A, +B]
+case class Left[A](a: A) extends Ior[A, Nothing]
+case class Right[B](b: B) extends Ior[Nothing, B]
+case class Both[A, B](a: A, b: B) extends Ior[A, B]
+
+trait Functor[F[_]] {
+  def map[A, B](fa: F[A], f: A => B): F[B]
+}
+
 // beware Int.MinValue
 def absoluteValue(n: Int): Int =
   if (n < 0) -n else n

@@ -40,8 +40,8 @@ function(hljs) {
       'trait goto instanceof insteadof __DIR__ __NAMESPACE__ ' +
       'yield finally',
     contains: [
-      hljs.C_LINE_COMMENT_MODE,
       hljs.HASH_COMMENT_MODE,
+      hljs.COMMENT('//', '$', {contains: [PREPROCESSOR]}),
       hljs.COMMENT(
         '/\\*',
         '\\*/',
@@ -50,8 +50,7 @@ function(hljs) {
             {
               className: 'doctag',
               begin: '@[A-Za-z]+'
-            },
-            PREPROCESSOR
+            }
           ]
         }
       ),
@@ -79,6 +78,9 @@ function(hljs) {
         ]
       },
       PREPROCESSOR,
+      {
+        className: 'keyword', begin: /\$this\b/
+      },
       VARIABLE,
       {
         // swallow composed identifiers to avoid parsing them as keywords

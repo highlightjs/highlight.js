@@ -11,10 +11,10 @@ function(hljs) {
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\][=?]?';
   var CRYSTAL_KEYWORDS = {
     keyword:
-      'abstract alias as asm begin break case class def do else elsif end ensure enum extend for fun if ifdef ' +
-      'include instance_sizeof is_a? lib macro module next of out pointerof private protected rescue responds_to? ' +
-      'return require self sizeof struct super then type typeof union unless until when while with yield ' +
-      '__DIR__ __FILE__ __LINE__',
+      'abstract alias as as? asm begin break case class def do else elsif end ensure enum extend for fun if ' +
+      'include instance_sizeof is_a? lib macro module next nil? of out pointerof private protected rescue responds_to? ' +
+      'return require select self sizeof struct super then type typeof union uninitialized unless until when while with yield ' +
+      '__DIR__ __END_LINE__ __FILE__ __LINE__',
     literal: 'false nil true'
   };
   var SUBST = {
@@ -28,8 +28,7 @@ function(hljs) {
       {begin: '\\{\\{', end: '\\}\\}'},
       {begin: '\\{%', end: '%\\}'}
     ],
-    keywords: CRYSTAL_KEYWORDS,
-    relevance: 10
+    keywords: CRYSTAL_KEYWORDS
   };
 
   function recursiveParen(begin, end) {
@@ -53,6 +52,22 @@ function(hljs) {
       {begin: '%w?%', end: '%'},
       {begin: '%w?-', end: '-'},
       {begin: '%w?\\|', end: '\\|'},
+      {begin: /<<-\w+$/, end: /^\s*\w+$/},
+    ],
+    relevance: 0,
+  };
+  var Q_STRING = {
+    className: 'string',
+    variants: [
+      {begin: '%q\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
+      {begin: '%q\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
+      {begin: '%q{', end: '}', contains: recursiveParen('{', '}')},
+      {begin: '%q<', end: '>', contains: recursiveParen('<', '>')},
+      {begin: '%q/', end: '/'},
+      {begin: '%q%', end: '%'},
+      {begin: '%q-', end: '-'},
+      {begin: '%q\\|', end: '\\|'},
+      {begin: /<<-'\w+'$/, end: /^\s*\w+$/},
     ],
     relevance: 0,
   };
@@ -63,6 +78,7 @@ function(hljs) {
         className: 'regexp',
         contains: [hljs.BACKSLASH_ESCAPE, SUBST],
         variants: [
+          {begin: '//[a-z]*', relevance: 0},
           {begin: '/', end: '/[a-z]*'},
           {begin: '%r\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
           {begin: '%r\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
@@ -95,11 +111,14 @@ function(hljs) {
   var ATTRIBUTE = {
     className: 'meta',
     begin: '@\\[', end: '\\]',
-    relevance: 5
+    contains: [
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'})
+    ]
   };
   var CRYSTAL_DEFAULT_CONTAINS = [
     EXPANSION,
     STRING,
+    Q_STRING,
     REGEXP,
     REGEXP2,
     ATTRIBUTE,
@@ -168,7 +187,6 @@ function(hljs) {
     }
   ];
   SUBST.contains = CRYSTAL_DEFAULT_CONTAINS;
-  ATTRIBUTE.contains = CRYSTAL_DEFAULT_CONTAINS;
   EXPANSION.contains = CRYSTAL_DEFAULT_CONTAINS.slice(1); // without EXPANSION
 
   return {

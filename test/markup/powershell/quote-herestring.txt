@@ -1,0 +1,11 @@
+@" The wild cat jumped over the $height-tall fence.
+   He did so with grace.
+"@
+
+This SHOULDNT be a part of the above strings span.
+
+@" The wild cat jumped over the $height-tall fence.
+   He did so with grace.
+break-end-of-string"@
+
+This SHOULD be a part of the above strings span.

@@ -1,23 +1,15 @@
-module Examples.Hello (main, Point, Tree(..)) where
+import Html exposing (div, button, text)
+import Html.App exposing (beginnerProgram)
+import Html.Events exposing (onClick)
 
-import Html exposing (Html, span, text)
-import Html.Attributes exposing (..)
-import Time
+type Msg
+    = Increment
 
-main : Html
 main =
-  span [class "welcome-message"] [text "Hello, World!"]
+    beginnerProgram
+        { model = 0, view = view
+        , update = \Increment model -> model + 1 }
 
-type alias Point = { x : Int, y : Int }
-
-type Tree a = Leaf a | Node (Tree a) a (Tree a)
-
-flatten : Tree a -> List a
-flatten t =
-  case t of
-    Leaf a -> [a]
-    Node l a r -> flatten l ++ a :: flatten r
-
--- outgoing values
-port time : Signal Float
-port time = Time.every 1000
+view model =
+    div [] [ div [] [ text (toString model) ]
+           , button [ onClick Increment ] [ text "+" ] ]

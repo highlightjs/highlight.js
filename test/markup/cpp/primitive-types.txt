@@ -1,0 +1,3 @@
+const uint64_t MAX_INT_64;
+
+struct position_tag;

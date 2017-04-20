@@ -1,0 +1,42 @@
+<span class="hljs-comment">/* Maxima computer algebra system */</span>
+
+<span class="hljs-built_in">print</span> (<span class="hljs-string">"mumble"</span>);
+
+<span class="hljs-comment">/* this
+  <span class="hljs-comment">/* this is
+    <span class="hljs-comment">/* this is a nested comment */</span> nested comment
+   */</span> comment
+ */</span>
+
+<span class="hljs-built_in">sin</span>(<span class="hljs-literal">%pi</span>); <span class="hljs-comment">/* should be highlighted again */</span>
+
+<span class="hljs-comment">/* programming keywords */</span>
+
+<span class="hljs-keyword">if</span> a <span class="hljs-keyword">then</span> b <span class="hljs-keyword">elseif</span> c <span class="hljs-keyword">then</span> d <span class="hljs-keyword">else</span> f;
+<span class="hljs-keyword">for</span> x:<span class="hljs-number">1</span> <span class="hljs-keyword">thru</span> <span class="hljs-number">10</span> <span class="hljs-keyword">step</span> <span class="hljs-number">2</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">print</span>(x);
+<span class="hljs-keyword">for</span> z:-<span class="hljs-number">2</span> <span class="hljs-keyword">while</span> z &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">print</span>(z);
+<span class="hljs-keyword">for</span> m:<span class="hljs-number">0</span> <span class="hljs-keyword">unless</span> m &gt; <span class="hljs-number">10</span> <span class="hljs-keyword">do</span> <span class="hljs-built_in">print</span>(m);
+<span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>] <span class="hljs-keyword">do</span> <span class="hljs-built_in">print</span>(x);
+foo <span class="hljs-keyword">and</span> bar <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> baz;
+
+<span class="hljs-comment">/* different kinds of integers */</span>
+
+<span class="hljs-built_in">ibase</span> : <span class="hljs-number">18</span> $
+[<span class="hljs-number">0</span>, <span class="hljs-number">1234</span>, <span class="hljs-number">1234</span>., <span class="hljs-number">0abcdefgh</span>];
+<span class="hljs-built_in">reset</span> (<span class="hljs-built_in">ibase</span>) $
+
+<span class="hljs-comment">/* strings */</span>
+
+s1 : <span class="hljs-string">"\"now\" is"</span>;
+s2 : <span class="hljs-string">"the 'time' for all good men"</span>;
+<span class="hljs-built_in">print</span> (s1, s2, <span class="hljs-string">"to come to the aid"</span>,
+  <span class="hljs-string">"of their country"</span>);
+
+<span class="hljs-comment">/* expressions */</span>
+
+foo (x, y, z) :=
+  <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">1</span> + y
+    <span class="hljs-keyword">then</span> z - x*y
+  <span class="hljs-keyword">elseif</span> y &lt;= <span class="hljs-number">100</span>!
+    <span class="hljs-keyword">then</span> x/(y + z)^<span class="hljs-number">2</span>
+  <span class="hljs-keyword">else</span> z - y . x . y;

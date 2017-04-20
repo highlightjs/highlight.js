@@ -190,6 +190,59 @@ URL:   https://highlightjs.org/
 - Сорен Эневолдсен <senevoldsen90@gmail.com>
 - Даниэль Розенвассен <DanielRosenwasser@users.noreply.github.com>
 - Ладислав Пршкавеч <ladislav@prskavec.net>
-- Ян Кюхле <jkuehle90@gmail.com>
-- Стефан Вайнерт <stwienert@gmail.com>
+- Ян Кюле <jkuehle90@gmail.com>
+- Стефан Винерт <stwienert@gmail.com>
 - Никита Савченко <zitros.lab@gmail.com>
+- Стефания Мелай <s.mellai@arduino.cc>
+- Небулеон Фумика <nebuleon.fumika@gmail.com>
+- prince <MC.prince.0203@gmail.com>
+- Брэндан Рокс <rocks.brendan@gmail.com>
+- Рафаэль Ассенат <raph@raphnet.net>
+- Мэт Эванс <matt@aptech.com>
+- Мартин Браун <martin.braun@ettus.com>
+- Боря Черный <boris@performancejs.com>
+- Джон Фостер <jfoster@esri.com>
+- Робер Додье <robert.dodier@gmail.com>
+- Антони Дюгуа <dev.anthonydugois@gmail.com>
+- Qeole <qeole@outlook.com>
+- Денис Сиккале <dciccale@gmail.com>
+- Майкл Джонстон <lastobelus@gmail.com>
+- Тарас <oxdef@oxdef.info>
+- Филипп Вольфер <ph.wolfer@gmail.com>
+- Микко Коухиа <mikko.kouhia@iki.fi>
+- Билли Куит <chinbillybilbo@gmail.com>
+- Герберт Шин <initbar@protonmail.ch>
+- Тристано Аймоне <tajmone@gmail.com>
+- Тайсуке Фудзимото <temp-impl@users.noreply.github.com>
+- Бооне Северсон <boone.severson@gmail.com>
+- Виктор Жоу <OiCMudkips@users.noreply.github.com>
+- Ларс Шульна <kartoffelbrei.mit.muskatnuss@gmail.org>
+- Джейкоб Чайлдресс <jacobc@gmail.com>
+- Гавин Сиу <gavsiu@gmail.com>
+- Builder's Brewery <buildersbrewery@gmail.com>
+- Сергей Бронников <sergeyb@bronevichok.ru>
+- Джо Эли Макилвейн <joe.eli.mac@gmail.com>
+- Стефан Боер <stephan@stephanboyer.com>
+- Алекс МакКиббен <alex@nullscope.net>
+- Дэниел Гэмадж <hellodanielgamage@gmail.com>
+- Мэттью Дэли <matthewbdaly@gmail.com>
+- Магнус Мэдсен <mmadsen@uwaterloo.ca>
+- Камил Стапс <info@camilstaps.nl>
+- Александер Лихтер <manniL@gmx.net>
+- Николя Ле Галль <contact@nlegall.fr>
+- Кентон Хамалуик <kentonh@gmail.com>
+- Марвин Сайнат <contact@zgmrvn.com>
+- Михаель Родлер <contact@f0rki.at>
+- Сергей Собко <s.sobko@profitware.ru>
+- Хейл Чан <halechan@qq.com>
+- Мэт Эванс <syrius3@gmail.com>
+- Каспер Андерсен <kma_untrusted@protonmail.com>
+- Филипп А. <flying-sheep@web.de>
+- Гуаннан Вей <guannanwei@outlook.com>
+- Сэм Ву <samsam2310@gmail.com>
+- Айк Ку <dempfi@yahoo.com>
+- Андрес Тахт <andres.taht@gmail.com>
+- Рене Саарсо <nene@triin.net>
+- Джорди Петит <jordi.petit@gmail.com>
+- Рафаэль Паре <rparree@edc4it.com>
+- Джоель Порке <joel@porquet.org>

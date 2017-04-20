@@ -14,22 +14,22 @@ function(hljs) {
         // Reference types
         'weak unowned owned ' +
         // Modifiers
-        'async signal static abstract interface override ' +
+        'async signal static abstract interface override virtual delegate ' +
         // Control Structures
-        'while do for foreach else switch case break default return try catch ' +
+        'if while do for foreach else switch case break default return try catch ' +
         // Visibility
         'public private protected internal ' +
         // Other
         'using new this get set const stdout stdin stderr var',
       built_in:
-        'DBus GLib CCode Gee Object',
+        'DBus GLib CCode Gee Object Gtk Posix',
       literal:
         'false true null'
     },
     contains: [
       {
         className: 'class',
-        beginKeywords: 'class interface delegate namespace', end: '{', excludeEnd: true,
+        beginKeywords: 'class interface namespace', end: '{', excludeEnd: true,
         illegal: '[^,:\\n\\s\\.]',
         contains: [
           hljs.UNDERSCORE_TITLE_MODE

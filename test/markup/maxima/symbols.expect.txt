@@ -1,0 +1,18 @@
+<span class="hljs-comment">/* symbolic constants */</span>
+
+[<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">unknown</span>, <span class="hljs-literal">inf</span>, <span class="hljs-literal">minf</span>, <span class="hljs-literal">ind</span>,
+ <span class="hljs-literal">und</span>, <span class="hljs-literal">%e</span>, <span class="hljs-literal">%i</span>, <span class="hljs-literal">%pi</span>, <span class="hljs-literal">%phi</span>, <span class="hljs-literal">%gamma</span>];
+
+<span class="hljs-comment">/* built-in variables */</span>
+
+[<span class="hljs-symbol">_</span>, <span class="hljs-symbol">__</span>, <span class="hljs-symbol">%</span>, <span class="hljs-symbol">%%</span>, <span class="hljs-built_in">linel</span>, <span class="hljs-built_in">simp</span>, <span class="hljs-built_in">dispflag</span>,
+ <span class="hljs-built_in">stringdisp</span>, <span class="hljs-built_in">lispdisp</span>, <span class="hljs-built_in">%edispflag</span>];
+
+<span class="hljs-comment">/* built-in functions */</span>
+
+[<span class="hljs-built_in">sin</span>, <span class="hljs-built_in">cosh</span>, <span class="hljs-built_in">exp</span>, <span class="hljs-built_in">atan2</span>, <span class="hljs-built_in">sqrt</span>, <span class="hljs-built_in">log</span>, <span class="hljs-built_in">struve_h</span>,
+ <span class="hljs-built_in">sublist_indices</span>, <span class="hljs-built_in">read_array</span>];
+
+<span class="hljs-comment">/* user-defined symbols */</span>
+
+[foo, ?bar, baz%, quux_mumble_blurf];

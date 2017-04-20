@@ -8,7 +8,7 @@ function(hljs) {
   var COMMENT_MODE = hljs.COMMENT('--', '$');
   return {
     case_insensitive: true,
-    illegal: /[<>{}*]/,
+    illegal: /[<>{}*#]/,
     contains: [
       {
         beginKeywords:
@@ -16,8 +16,9 @@ function(hljs) {
           'delete do handler insert load replace select truncate update set show pragma grant ' +
           'merge describe use explain help declare prepare execute deallocate release ' +
           'unlock purge reset change stop analyze cache flush optimize repair kill ' +
-          'install uninstall checksum restore check backup revoke',
+          'install uninstall checksum restore check backup revoke comment',
         end: /;/, endsWithParent: true,
+        lexemes: /[\w\.]+/,
         keywords: {
           keyword:
             'abort abs absolute acc acce accep accept access accessed accessible account acos action activate add ' +
@@ -28,7 +29,7 @@ function(hljs) {
             'authors auto autoallocate autodblink autoextend automatic availability avg backup badfile basicfile ' +
             'before begin beginning benchmark between bfile bfile_base big bigfile bin binary_double binary_float ' +
             'binlog bit_and bit_count bit_length bit_or bit_xor bitmap blob_base block blocksize body both bound ' +
-            'buffer_cache buffer_pool build bulk by byte byteordermark bytes c cache caching call calling cancel ' +
+            'buffer_cache buffer_pool build bulk by byte byteordermark bytes cache caching call calling cancel ' +
             'capacity cascade cascaded case cast catalog category ceil ceiling chain change changed char_base ' +
             'char_length character_length characters characterset charindex charset charsetform charsetid check ' +
             'checksum checksum_agg child choose chr chunk class cleanup clear client clob clob_base clone close ' +
@@ -40,7 +41,7 @@ function(hljs) {
             'contributors controlfile conv convert convert_tz corr corr_k corr_s corresponding corruption cos cost ' +
             'count count_big counted covar_pop covar_samp cpu_per_call cpu_per_session crc32 create creation ' +
             'critical cross cube cume_dist curdate current current_date current_time current_timestamp current_user ' +
-            'cursor curtime customdatum cycle d data database databases datafile datafiles datalength date_add ' +
+            'cursor curtime customdatum cycle data database databases datafile datafiles datalength date_add ' +
             'date_cache date_format date_sub dateadd datediff datefromparts datename datepart datetime2fromparts ' +
             'day day_to_second dayname dayofmonth dayofweek dayofyear days db_role_change dbtimezone ddl deallocate ' +
             'declare decode decompose decrement decrypt deduplicate def defa defau defaul default defaults ' +
@@ -48,34 +49,34 @@ function(hljs) {
             'depth dequeue des_decrypt des_encrypt des_key_file desc descr descri describ describe descriptor ' +
             'deterministic diagnostics difference dimension direct_load directory disable disable_all ' +
             'disallow disassociate discardfile disconnect diskgroup distinct distinctrow distribute distributed div ' +
-            'do document domain dotnet double downgrade drop dumpfile duplicate duration e each edition editionable ' +
+            'do document domain dotnet double downgrade drop dumpfile duplicate duration each edition editionable ' +
             'editions element ellipsis else elsif elt empty enable enable_all enclosed encode encoding encrypt ' +
             'end end-exec endian enforced engine engines enqueue enterprise entityescaping eomonth error errors ' +
             'escaped evalname evaluate event eventdata events except exception exceptions exchange exclude excluding ' +
             'execu execut execute exempt exists exit exp expire explain export export_set extended extent external ' +
-            'external_1 external_2 externally extract f failed failed_login_attempts failover failure far fast ' +
+            'external_1 external_2 externally extract failed failed_login_attempts failover failure far fast ' +
             'feature_set feature_value fetch field fields file file_name_convert filesystem_like_logging final ' +
             'finish first first_value fixed flash_cache flashback floor flush following follows for forall force ' +
             'form forma format found found_rows freelist freelists freepools fresh from from_base64 from_days ' +
-            'ftp full function g general generated get get_format get_lock getdate getutcdate global global_name ' +
+            'ftp full function general generated get get_format get_lock getdate getutcdate global global_name ' +
             'globally go goto grant grants greatest group group_concat group_id grouping grouping_id groups ' +
             'gtid_subtract guarantee guard handler hash hashkeys having hea head headi headin heading heap help hex ' +
-            'hierarchy high high_priority hosts hour http i id ident_current ident_incr ident_seed identified ' +
+            'hierarchy high high_priority hosts hour http id ident_current ident_incr ident_seed identified ' +
             'identity idle_time if ifnull ignore iif ilike ilm immediate import in include including increment ' +
             'index indexes indexing indextype indicator indices inet6_aton inet6_ntoa inet_aton inet_ntoa infile ' +
             'initial initialized initially initrans inmemory inner innodb input insert install instance instantiable ' +
             'instr interface interleaved intersect into invalidate invisible is is_free_lock is_ipv4 is_ipv4_compat ' +
             'is_not is_not_null is_used_lock isdate isnull isolation iterate java join json json_exists ' +
-            'k keep keep_duplicates key keys kill l language large last last_day last_insert_id last_value lax lcase ' +
+            'keep keep_duplicates key keys kill language large last last_day last_insert_id last_value lax lcase ' +
             'lead leading least leaves left len lenght length less level levels library like like2 like4 likec limit ' +
             'lines link list listagg little ln load load_file lob lobs local localtime localtimestamp locate ' +
             'locator lock locked log log10 log2 logfile logfiles logging logical logical_reads_per_call ' +
-            'logoff logon logs long loop low low_priority lower lpad lrtrim ltrim m main make_set makedate maketime ' +
+            'logoff logon logs long loop low low_priority lower lpad lrtrim ltrim main make_set makedate maketime ' +
             'managed management manual map mapping mask master master_pos_wait match matched materialized max ' +
             'maxextents maximize maxinstances maxlen maxlogfiles maxloghistory maxlogmembers maxsize maxtrans ' +
             'md5 measures median medium member memcompress memory merge microsecond mid migration min minextents ' +
             'minimum mining minus minute minvalue missing mod mode model modification modify module monitoring month ' +
-            'months mount move movement multiset mutex n name name_const names nan national native natural nav nchar ' +
+            'months mount move movement multiset mutex name name_const names nan national native natural nav nchar ' +
             'nclob nested never new newline next nextval no no_write_to_binlog noarchivelog noaudit nobadfile ' +
             'nocheck nocompress nocopy nocycle nodelay nodiscardfile noentityescaping noguarantee nokeep nologfile ' +
             'nomapping nomaxvalue nominimize nominvalue nomonitoring none noneditionable nonschema noorder ' +
@@ -85,7 +86,7 @@ function(hljs) {
             'ociref ocirefcursor ocirowid ocistring ocitype oct octet_length of off offline offset oid oidindex old ' +
             'on online only opaque open operations operator optimal optimize option optionally or oracle oracle_date ' +
             'oradata ord ordaudio orddicom orddoc order ordimage ordinality ordvideo organization orlany orlvary ' +
-            'out outer outfile outline output over overflow overriding p package pad parallel parallel_enable ' +
+            'out outer outfile outline output over overflow overriding package pad parallel parallel_enable ' +
             'parameters parent parse partial partition partitions pascal passing password password_grace_time ' +
             'password_lock_time password_reuse_max password_reuse_time password_verify_function patch path patindex ' +
             'pctincrease pctthreshold pctused pctversion percent percent_rank percentile_cont percentile_disc ' +
@@ -115,7 +116,7 @@ function(hljs) {
             'stop storage store stored str str_to_date straight_join strcmp strict string struct stuff style subdate ' +
             'subpartition subpartitions substitutable substr substring subtime subtring_index subtype success sum ' +
             'suspend switch switchoffset switchover sync synchronous synonym sys sys_xmlagg sysasm sysaux sysdate ' +
-            'sysdatetimeoffset sysdba sysoper system system_user sysutcdatetime t table tables tablespace tan tdo ' +
+            'sysdatetimeoffset sysdba sysoper system system_user sysutcdatetime table tables tablespace tan tdo ' +
             'template temporary terminated tertiary_weights test than then thread through tier ties time time_format ' +
             'time_zone timediff timefromparts timeout timestamp timestampadd timestampdiff timezone_abbr ' +
             'timezone_minute timezone_region to to_base64 to_date to_days to_seconds todatetimeoffset trace tracking ' +

@@ -5,32 +5,27 @@ Category: common
 
 function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
-  var PHP = {
-    begin: /<\?(php)?(?!\w)/, end: /\?>/,
-    subLanguage: 'php'
-  };
   var TAG_INTERNALS = {
     endsWithParent: true,
     illegal: /</,
     relevance: 0,
     contains: [
-      PHP,
       {
         className: 'attr',
         begin: XML_IDENT_RE,
         relevance: 0
       },
       {
-        begin: '=',
+        begin: /=\s*/,
         relevance: 0,
         contains: [
           {
             className: 'string',
-            contains: [PHP],
+            endsParent: true,
             variants: [
               {begin: /"/, end: /"/},
               {begin: /'/, end: /'/},
-              {begin: /[^\s\/>]+/}
+              {begin: /[^\s"'=<>`]+/}
             ]
           }
         ]
@@ -38,7 +33,7 @@ function(hljs) {
     ]
   };
   return {
-    aliases: ['html', 'xhtml', 'rss', 'atom', 'xsl', 'plist'],
+    aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist'],
     case_insensitive: true,
     contains: [
       {
@@ -59,6 +54,11 @@ function(hljs) {
         relevance: 10
       },
       {
+        begin: /<\?(php)?/, end: /\?>/,
+        subLanguage: 'php',
+        contains: [{begin: '/\\*', end: '\\*/', skip: true}]
+      },
+      {
         className: 'tag',
         /*
         The lookahead pattern (?=...) ensures that 'begin' only matches
@@ -71,7 +71,7 @@ function(hljs) {
         contains: [TAG_INTERNALS],
         starts: {
           end: '</style>', returnEnd: true,
-          subLanguage: 'css'
+          subLanguage: ['css', 'xml']
         }
       },
       {
@@ -82,21 +82,22 @@ function(hljs) {
         contains: [TAG_INTERNALS],
         starts: {
           end: '\<\/script\>', returnEnd: true,
-          subLanguage: ['actionscript', 'javascript', 'handlebars']
+          subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
         }
       },
-      PHP,
       {
         className: 'meta',
-        begin: /<\?\w+/, end: /\?>/,
-        relevance: 10
+        variants: [
+          {begin: /<\?xml/, end: /\?>/, relevance: 10},
+          {begin: /<\?\w+/, end: /\?>/}
+        ]
       },
       {
         className: 'tag',
         begin: '</?', end: '/?>',
         contains: [
           {
-            className: 'name', begin: /[^ \/><\n\t]+/, relevance: 0
+            className: 'name', begin: /[^\/><\s]+/, relevance: 0
           },
           TAG_INTERNALS
         ]

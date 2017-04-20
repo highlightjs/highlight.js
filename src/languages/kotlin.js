@@ -1,21 +1,87 @@
 /*
  Language: Kotlin
  Author: Sergey Mashkov <cy6erGn0m@gmail.com>
- Category: misc
  */
 
 
-function (hljs) {
-  var KEYWORDS = 'val var get set class trait object open private protected public ' +
-    'final enum if else do while for when break continue throw try catch finally ' +
-    'import package is as in return fun override default companion reified inline volatile transient native ' +
-    'Byte Short Char Int Long Boolean Float Double Void Unit Nothing';
+function(hljs) {
+  var KEYWORDS = {
+    keyword:
+      'abstract as val var vararg get set class object open private protected public noinline ' +
+      'crossinline dynamic final enum if else do while for when throw try catch finally ' +
+      'import package is in fun override companion reified inline lateinit init' +
+      'interface annotation data sealed internal infix operator out by constructor super ' +
+      // to be deleted soon
+      'trait volatile transient native default',
+    built_in:
+      'Byte Short Char Int Long Boolean Float Double Void Unit Nothing',
+    literal:
+      'true false null'
+  };
+  var KEYWORDS_WITH_LABEL = {
+    className: 'keyword',
+    begin: /\b(break|continue|return|this)\b/,
+    starts: {
+      contains: [
+        {
+          className: 'symbol',
+          begin: /@\w+/
+        }
+      ]
+    }
+  };
+  var LABEL = {
+    className: 'symbol', begin: hljs.UNDERSCORE_IDENT_RE + '@'
+  };
+
+  // for string templates
+  var SUBST = {
+    className: 'subst',
+    variants: [
+      {begin: '\\$' + hljs.UNDERSCORE_IDENT_RE},
+      {begin: '\\${', end: '}', contains: [hljs.APOS_STRING_MODE, hljs.C_NUMBER_MODE]}
+    ]
+  };
+  var STRING = {
+    className: 'string',
+    variants: [
+      {
+        begin: '"""', end: '"""',
+        contains: [SUBST]
+      },
+      // Can't use built-in modes easily, as we want to use STRING in the meta
+      // context as 'meta-string' and there's no syntax to remove explicitly set
+      // classNames in built-in modes.
+      {
+        begin: '\'', end: '\'',
+        illegal: /\n/,
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
+        begin: '"', end: '"',
+        illegal: /\n/,
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+      }
+    ]
+  };
+
+  var ANNOTATION_USE_SITE = {
+    className: 'meta', begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
+  };
+  var ANNOTATION = {
+    className: 'meta', begin: '@' + hljs.UNDERSCORE_IDENT_RE,
+    contains: [
+      {
+        begin: /\(/, end: /\)/,
+        contains: [
+          hljs.inherit(STRING, {className: 'meta-string'})
+        ]
+      }
+    ]
+  };
 
   return {
-    keywords: {
-      keyword: KEYWORDS,
-      literal: 'true false null'
-    },
+    keywords: KEYWORDS,
     contains : [
       hljs.COMMENT(
         '/\\*\\*',
@@ -30,13 +96,10 @@ function (hljs) {
       ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      {
-        className: 'type',
-        begin: /</, end: />/,
-        returnBegin: true,
-        excludeEnd: false,
-        relevance: 0
-      },
+      KEYWORDS_WITH_LABEL,
+      LABEL,
+      ANNOTATION_USE_SITE,
+      ANNOTATION,
       {
         className: 'function',
         beginKeywords: 'fun', end: '[(]|$',
@@ -59,27 +122,37 @@ function (hljs) {
           {
             className: 'params',
             begin: /\(/, end: /\)/,
+            endsParent: true,
             keywords: KEYWORDS,
             relevance: 0,
-            illegal: /\([^\(,\s:]+,/,
             contains: [
               {
-                className: 'type',
-                begin: /:\s*/, end: /\s*[=\)]/, excludeBegin: true, returnEnd: true,
+                begin: /:/, end: /[=,\/]/, endsWithParent: true,
+                contains: [
+                  {className: 'type', begin: hljs.UNDERSCORE_IDENT_RE},
+                  hljs.C_LINE_COMMENT_MODE,
+                  hljs.C_BLOCK_COMMENT_MODE
+                ],
                 relevance: 0
-              }
+              },
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
+              ANNOTATION_USE_SITE,
+              ANNOTATION,
+              STRING,
+              hljs.C_NUMBER_MODE
             ]
           },
-          hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
       },
       {
         className: 'class',
-        beginKeywords: 'class trait', end: /[:\{(]|$/,
+        beginKeywords: 'class interface trait', end: /[:\{(]|$/, // remove 'trait' when removed from KEYWORDS
         excludeEnd: true,
         illegal: 'extends implements',
         contains: [
+          {beginKeywords: 'public protected internal private constructor'},
           hljs.UNDERSCORE_TITLE_MODE,
           {
             className: 'type',
@@ -89,13 +162,12 @@ function (hljs) {
           {
             className: 'type',
             begin: /[,:]\s*/, end: /[<\(,]|$/, excludeBegin: true, returnEnd: true
-          }
+          },
+          ANNOTATION_USE_SITE,
+          ANNOTATION
         ]
       },
-      {
-        className: 'variable', beginKeywords: 'var val', end: /\s*[=:$]/, excludeEnd: true
-      },
-      hljs.QUOTE_STRING_MODE,
+      STRING,
       {
         className: 'meta',
         begin: "^#!/usr/bin/env", end: '$',

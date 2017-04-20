@@ -1,3 +1,4 @@
 # The build script and some tests use `\n` as markers, so we need to make sure
 # that all javascript files are checked out using UNIX line endings (not `\r\n`)
 *.js    eol=lf
+*.txt   eol=lf

@@ -26,7 +26,8 @@ function(hljs) {
     contains: [
       {
         className: 'literal',
-        begin: '\\[(\\|\\|)?\\]|\\(\\)'
+        begin: /\[(\|\|)?\]|\(\)/,
+        relevance: 0
       },
       hljs.COMMENT(
         '\\(\\*',

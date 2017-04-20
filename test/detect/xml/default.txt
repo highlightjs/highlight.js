@@ -1,14 +1,3 @@
-<?xml version="1.0"?>
-<response value="ok" xml:lang="en">
-  <text>Ok</text>
-  <comment html_allowed="true"/>
-  <ns1:description><![CDATA[
-  CDATA is <not> magical.
-  ]]></ns1:description>
-  <a></a> <a/>
-</response>
-
-
 <!DOCTYPE html>
 <title>Title</title>
 

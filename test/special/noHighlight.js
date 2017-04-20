@@ -1,10 +1,10 @@
 'use strict';
 
-var _ = require('lodash');
+let _ = require('lodash');
 
 describe('no highlighting', function() {
   before(function() {
-    var testHTML = document.querySelectorAll('#no-highlight pre');
+    const testHTML = document.querySelectorAll('#no-highlight pre');
 
     this.blocks   = _.map(testHTML, 'children[0].innerHTML');
     this.expected = {
@@ -17,71 +17,71 @@ describe('no highlighting', function() {
   });
 
   it('should keep block unchanged (nohighlight)', function() {
-    var expected = this.expected.html,
-        actual   = this.blocks[0];
+    const expected = this.expected.html,
+          actual   = this.blocks[0];
 
     actual.should.equal(expected);
   });
 
   it('should keep block unchanged (no-highlight)', function() {
-    var expected = this.expected.html,
-        actual   = this.blocks[1];
+    const expected = this.expected.html,
+          actual   = this.blocks[1];
 
     actual.should.equal(expected);
   });
 
   it('should keep block unchanged (plain)', function() {
-    var expected = this.expected.html,
-        actual   = this.blocks[2];
+    const expected = this.expected.html,
+          actual   = this.blocks[2];
 
     actual.should.equal(expected);
   });
 
   it('should keep block unchanged (text)', function() {
-    var expected = this.expected.html,
-        actual   = this.blocks[3];
+    const expected = this.expected.html,
+          actual   = this.blocks[3];
 
     actual.should.equal(expected);
   });
 
   it('should skip pre tags without a child code tag', function() {
-    var expected = 'Computer output',
-        actual   = this.blocks[4];
+    const expected = 'Computer output',
+          actual   = this.blocks[4];
 
     actual.should.equal(expected);
   });
 
   it('should keep block unchanged (unsupported language)', function() {
-    var expected = this.expected.python,
-        actual   = this.blocks[5];
+    const expected = this.expected.python,
+          actual   = this.blocks[5];
 
     actual.should.equal(expected);
   });
 
   it('should keep block unchanged (unsupported lang)', function() {
-    var expected = this.expected.python,
-        actual   = this.blocks[6];
+    const expected = this.expected.python,
+          actual   = this.blocks[6];
 
     actual.should.equal(expected);
   });
 
   it('should keep block unchanged (unsupported prefixed language)', function() {
-    var expected = this.expected.python,
-        actual   = this.blocks[7];
+    const expected = this.expected.python,
+          actual   = this.blocks[7];
 
     actual.should.equal(expected);
   });
 
   it('should highlight class names containing text at the start', function() {
-    var expected = this.expected.javascript,
-        actual   = this.blocks[8];
+    const expected = this.expected.javascript,
+          actual   = this.blocks[8];
 
     actual.should.equal(expected);
   });
 
   it('should highlight class names containing text at the end', function() {
-    var expected = this.expected.javascript,
-        actual   = this.blocks[9];
+    const expected = this.expected.javascript,
+          actual   = this.blocks[9];
 
     actual.should.equal(expected);
   });

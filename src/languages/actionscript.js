@@ -47,7 +47,8 @@ function(hljs) {
       },
       {
         className: 'meta',
-        beginKeywords: 'import include', end: ';'
+        beginKeywords: 'import include', end: ';',
+        keywords: {'meta-keyword': 'import include'}
       },
       {
         className: 'function',
@@ -70,7 +71,8 @@ function(hljs) {
             begin: ':\\s*' + IDENT_FUNC_RETURN_TYPE_RE
           }
         ]
-      }
+      },
+      hljs.METHOD_GUARD
     ],
     illegal: /#/
   };

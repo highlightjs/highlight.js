@@ -127,6 +127,23 @@ This is commonly used to define nested modes:
   }
 
 
+Comments
+--------
+
+To define custom comments it is recommended to use a built-in helper function ``hljs.COMMENT`` instead of describing the mode directly, as it also defines a few default sub-modes that improve language detection and do other nice things.
+
+Parameters for the function are:
+
+::
+
+  hljs.COMMENT(
+    begin,      // begin regex
+    end,        // end regex
+    extra       // optional object with extra attributes to override defaults
+                // (for example {relevance: 0})
+  )
+
+
 Markup generation
 -----------------
 

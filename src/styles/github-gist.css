@@ -51,7 +51,8 @@
 .hljs-attr,
 .hljs-selector-id,
 .hljs-selector-class,
-.hljs-selector-attr {
+.hljs-selector-attr,
+.hljs-selector-pseudo {
   color: #795da3;
 }
 

@@ -14,7 +14,7 @@
 /* Lasso 9 */ ?>
 [noprocess] causes [delimiters] to be <?=skipped?> until the next [/noprocess]
 [
-  define strings_combine(value::string, ...other)::string => {
+  define strings.combine(value::string, ...other)::string => {
     local(result = #value->append(#other->asString&trim))
     return set(#result, not #other, \givenBlock)
   }
@@ -23,7 +23,7 @@
     parent entity
     data name::string, protected nickname, birthdate :: date
     data private ssn = null
-    private showAge() => { return ..age }
+    private showAge() => frozen { return ..age }
     protected fullName() => `"` + .nickname + `"` + .'name'
     public ssnListed::boolean => .ssn() ? true | false
   }
@@ -31,6 +31,7 @@
     .'name' = #value
     return self->'name'
   }
+  define bytes->+(rhs::bytes) => bytes(self)->append(#rhs)&
 ] <!-- an HTML comment <?=disables delimiters?> as well -->
 [no_square_brackets] disables [square brackets] for the rest of the file
 <?=

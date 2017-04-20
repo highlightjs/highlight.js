@@ -1,15 +1,15 @@
 'use strict';
 
-var bluebird = require('bluebird');
-var fs       = bluebird.promisifyAll(require('fs'));
-var hljs     = require('../../build');
-var path     = require('path');
-var utility  = require('../utility');
+let bluebird = require('bluebird');
+let fs       = bluebird.promisifyAll(require('fs'));
+let hljs     = require('../../build');
+let path     = require('path');
+let utility  = require('../utility');
 
 function testAutoDetection(language) {
-  var languagePath = utility.buildPath('detect', language);
+  const languagePath = utility.buildPath('detect', language);
 
-  it('should have test for ' + language, function() {
+  it(`should have test for ${language}`, function() {
     return fs.statAsync(languagePath)
       .then(path => path.isDirectory().should.be.true);
   });
@@ -17,13 +17,13 @@ function testAutoDetection(language) {
   it(`should be detected as ${language}`, function() {
     return fs.readdirAsync(languagePath)
       .map(function(example) {
-        var filename = path.join(languagePath, example);
+        const filename = path.join(languagePath, example);
 
         return fs.readFileAsync(filename, 'utf-8');
       })
       .each(function(content) {
-        var expected = language,
-            actual   = hljs.highlightAuto(content).language;
+        const expected = language,
+              actual   = hljs.highlightAuto(content).language;
 
         actual.should.equal(expected);
       });
@@ -31,7 +31,7 @@ function testAutoDetection(language) {
 }
 
 describe('hljs.highlightAuto()', function() {
-  var languages = hljs.listLanguages();
+  const languages = hljs.listLanguages();
 
   languages.forEach(testAutoDetection);
 });

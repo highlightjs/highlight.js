@@ -32,12 +32,14 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-literal,
 .hljs-template-tag,
 .hljs-template-variable,
+.hljs-type,
 .hljs-addition {
   color: #a31515;
 }
 
 .hljs-deletion,
 .hljs-selector-attr,
+.hljs-selector-pseudo,
 .hljs-meta {
   color: #2b91af;
 }

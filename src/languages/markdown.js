@@ -3,7 +3,7 @@ Language: Markdown
 Requires: xml.js
 Author: John Crepezzi <john.crepezzi@gmail.com>
 Website: http://seejohncode.com/
-Category: common
+Category: common, markup
 */
 
 function(hljs) {
@@ -53,9 +53,15 @@ function(hljs) {
       {
         className: 'code',
         variants: [
-          { begin: '`.+?`' },
-          { begin: '^( {4}|\t)', end: '$'
-          , relevance: 0
+          {
+            begin: '^```\w*\s*$', end: '^```\s*$'
+          },
+          {
+            begin: '`.+?`'
+          },
+          {
+            begin: '^( {4}|\t)', end: '$',
+            relevance: 0
           }
         ]
       },
@@ -89,17 +95,18 @@ function(hljs) {
         relevance: 10
       },
       {
-        begin: '^\\[\.+\\]:',
+        begin: /^\[[^\n]+\]:/,
         returnBegin: true,
         contains: [
           {
             className: 'symbol',
-            begin: '\\[', end: '\\]:',
-            excludeBegin: true, excludeEnd: true,
-            starts: {
-              className: 'link',
-              end: '$'
-            }
+            begin: /\[/, end: /\]/,
+            excludeBegin: true, excludeEnd: true
+          },
+          {
+            className: 'link',
+            begin: /:\s*/, end: /$/,
+            excludeBegin: true
           }
         ]
       }

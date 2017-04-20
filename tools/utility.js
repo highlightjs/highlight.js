@@ -1,17 +1,16 @@
 'use strict';
 
-var _        = require('lodash');
-var bluebird = require('bluebird');
-var glob     = bluebird.promisifyAll(require('glob')).globAsync;
-var path     = require('path');
+let _        = require('lodash');
+let bluebird = require('bluebird');
+let glob     = bluebird.promisify(require('glob'));
+let path     = require('path');
 
-var Queue = require('gear').Queue;
+let Queue = require('gear').Queue;
 
-var REPLACES,
-    regex       = {},
+let regex       = {},
     headerRegex = /^\s*\/\*((.|\r?\n)*?)\*/;
 
-REPLACES = {
+const REPLACES = {
   'case_insensitive': 'cI',
   'lexemes': 'l',
   'contains': 'c',
@@ -80,7 +79,7 @@ function replaceClassNames(match) {
 // turns it into a useful object -- mainly for categories and what language
 // this definition requires.
 function parseHeader(content) {
-  var headers,
+  let headers,
       match = content.match(headerRegex);
 
   if (!match) {
@@ -89,8 +88,8 @@ function parseHeader(content) {
 
   headers = _.compact(match[1].split('\n'));
 
-  return _.foldl(headers, function(result, header) {
-    var keyVal = header.trim().split(': '),
+  return _.reduce(headers, function(result, header) {
+    let keyVal = header.trim().split(': '),
         key    = keyVal[0],
         value  = keyVal[1] || '';
 
@@ -107,25 +106,25 @@ function parseHeader(content) {
 function filterByQualifiers(blob, languages, categories) {
   if(_.isEmpty(languages) && _.isEmpty(categories)) return true;
 
-  var language         = path.basename(blob.name, '.js'),
+  let language         = path.basename(blob.name, '.js'),
       fileInfo         = parseHeader(blob.result),
       fileCategories   = fileInfo.Category || [],
-      containsCategory = _.partial(_.contains, categories);
+      containsCategory = _.partial(_.includes, categories);
 
   if(!fileInfo) return false;
 
-  return _.contains(languages, language) ||
-         _.any(fileCategories, containsCategory);
+  return _.includes(languages, language) ||
+         _.some(fileCategories, containsCategory);
 }
 
 // For the filter task in `tools/tasks.js`, this function will look for
 // categories and languages specificed from the CLI.
 function buildFilterCallback(qualifiers) {
-  var result     = _.partition(qualifiers, { 0: ':' }),
-      languages  = result[1],
-      categories = _.map(result[0], category => category.slice(1));
+  const result     = _.partition(qualifiers, { 0: ':' }),
+        languages  = result[1],
+        categories = _.map(result[0], category => category.slice(1));
 
-  return _.partial(filterByQualifiers, _, languages, categories);
+  return blob => filterByQualifiers(blob, languages, categories);
 }
 
 function globDefaults(pattern, encoding) {
@@ -140,12 +139,12 @@ function globDefaults(pattern, encoding) {
 }
 
 function getStyleNames() {
-  var stylesDir = 'src/styles/',
+  let stylesDir = 'src/styles/',
       options   = { ignore: `${stylesDir}default.css` };
 
   return glob(`${stylesDir}*.css`, options)
     .map(function(style) {
-      var basename = path.basename(style, '.css'),
+      let basename = path.basename(style, '.css'),
           name     = _.startCase(basename),
           pathName = path.relative('src', style);
 
@@ -154,10 +153,7 @@ function getStyleNames() {
 }
 
 function toQueue(tasks, registry) {
-  return _.map(tasks, function(task) {
-    return new Queue({ registry: registry })
-      .tasks(task);
-  });
+  return _.map(tasks, task => new Queue({ registry }).tasks(task));
 }
 
 module.exports = {

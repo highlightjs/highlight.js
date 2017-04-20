@@ -1,0 +1,7 @@
+message Container {
+  message Message {
+    required int64 id = 1;
+  }
+  repeated Message messages = 1;
+  optional int32 number = 2;
+}

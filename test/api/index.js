@@ -8,4 +8,6 @@ describe('hljs', function() {
   require('./binaryNumber');
   require('./starters');
   require('./getLanguage');
+  require('./highlight');
+  require('./fixmarkup');
 });

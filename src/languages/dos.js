@@ -6,7 +6,7 @@ Contributors: Anton Kochkov <anton.kochkov@gmail.com>
 
 function(hljs) {
   var COMMENT = hljs.COMMENT(
-    /@?rem\b/, /$/,
+    /^\s*@?rem\b/, /$/,
     {
       relevance: 10
     }

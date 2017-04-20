@@ -1,0 +1,5 @@
+1..4
+ok 1 - Input file opened
+not ok 2 - First line of the input valid
+ok 3 - Read the rest of the file
+not ok 4 - Summarized correctly # TODO Not written yet

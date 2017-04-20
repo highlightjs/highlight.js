@@ -17,7 +17,7 @@ function(hljs) {
 
   var FUNCTIONS = {
     beginKeywords: FUNCTION_NAMES,
-    keywords: {built_in: FUNCTION_NAMES},
+    keywords: {name: FUNCTION_NAMES},
     relevance: 0,
     contains: [
       PARAMS

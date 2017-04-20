@@ -107,9 +107,7 @@ function(hljs) {
           // Single-quoted string
           { begin: '\'', end: '[^\\\\]\'' },
           // Backquoted string
-          { begin: '`', end: '[^\\\\]`' },
-          // Section name
-          { begin: '\\.[A-Za-z0-9]+' }
+          { begin: '`', end: '[^\\\\]`' }
         ],
         relevance: 0
       },
@@ -134,6 +132,10 @@ function(hljs) {
         className: 'subst',
         begin: '%!\S+',
         relevance: 0
+      },
+      {
+        className: 'meta',
+        begin: /^\s*\.[\w_-]+/
       }
     ]
   };

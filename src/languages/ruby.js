@@ -7,10 +7,14 @@ Category: common
 
 function(hljs) {
   var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
-  var RUBY_KEYWORDS =
-    'and false then defined module in return redo if BEGIN retry end for true self when ' +
-    'next until do begin unless END rescue nil else break undef not super class case ' +
-    'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor';
+  var RUBY_KEYWORDS = {
+    keyword:
+      'and then defined module in return redo if BEGIN retry end for self when ' +
+      'next until do begin unless END rescue else break undef not super class case ' +
+      'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor',
+    literal:
+      'true false nil'
+  };
   var YARDOCTAG = {
     className: 'doctag',
     begin: '@[A-Za-z]+'
@@ -60,6 +64,9 @@ function(hljs) {
         // \B in the beginning suppresses recognition of ?-sequences where ?
         // is the last character of a preceding identifier, as in: `func?4`
         begin: /\B\?(\\\d{1,3}|\\x[A-Fa-f0-9]{1,2}|\\u[A-Fa-f0-9]{4}|\\?\S)\b/
+      },
+      {
+        begin: /<<(-?)\w+$/, end: /^\s*\w+$/,
       }
     ]
   };
@@ -95,13 +102,17 @@ function(hljs) {
       ].concat(COMMENT_MODES)
     },
     {
+      // swallow namespace qualifiers before symbols
+      begin: hljs.IDENT_RE + '::'
+    },
+    {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(\\!|\\?)?:',
       relevance: 0
     },
     {
       className: 'symbol',
-      begin: ':',
+      begin: ':(?!\\s)',
       contains: [STRING, {begin: RUBY_METHOD_RE}],
       relevance: 0
     },
@@ -113,8 +124,14 @@ function(hljs) {
     {
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))' // variables
     },
+    {
+      className: 'params',
+      begin: /\|/, end: /\|/,
+      keywords: RUBY_KEYWORDS
+    },
     { // regexp container
-      begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
+      begin: '(' + hljs.RE_STARTERS_RE + '|unless)\\s*',
+      keywords: 'unless',
       contains: [
         IRB_OBJECT,
         {

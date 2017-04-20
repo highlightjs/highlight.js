@@ -7,7 +7,7 @@ Category: lisp
 
 function(hljs) {
   var keywords = {
-    built_in:
+    'builtin-name':
       // Clojure keywords
       'def defonce cond apply if-not if-let if not not= = < > <= >= == + / * - rem '+
       'quot neg? pos? delay? symbol? keyword? true? false? integer? empty? coll? list? '+
@@ -72,7 +72,7 @@ function(hljs) {
   var HINT_COL = hljs.COMMENT('\\^\\{', '\\}');
   var KEY = {
     className: 'symbol',
-    begin: '[:]' + SYMBOL_RE
+    begin: '[:]{1,2}' + SYMBOL_RE
   };
   var LIST = {
     begin: '\\(', end: '\\)'

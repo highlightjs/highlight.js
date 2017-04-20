@@ -2,6 +2,7 @@
 Language: TeX
 Author: Vladimir Moskva <vladmos@gmail.com>
 Website: http://fulc.ru/
+Category: markup
 */
 
 function(hljs) {

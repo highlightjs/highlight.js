@@ -5,19 +5,79 @@ Category: common
 */
 
 function(hljs) {
-  var KEYWORDS =
-    // Normal keywords.
-    'abstract as base bool break byte case catch char checked const continue decimal dynamic ' +
-    'default delegate do double else enum event explicit extern false finally fixed float ' +
-    'for foreach goto if implicit in int interface internal is lock long null when ' +
-    'object operator out override params private protected public readonly ref sbyte ' +
-    'sealed short sizeof stackalloc static string struct switch this true try typeof ' +
-    'uint ulong unchecked unsafe ushort using virtual volatile void while async ' +
-    'protected public private internal ' +
-    // Contextual keywords.
-    'ascending descending from get group into join let orderby partial select set value var ' +
-    'where yield';
-  var GENERIC_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '>)?';
+  var KEYWORDS = {
+    keyword:
+      // Normal keywords.
+      'abstract as base bool break byte case catch char checked const continue decimal ' +
+      'default delegate do double else enum event explicit extern finally fixed float ' +
+      'for foreach goto if implicit in int interface internal is lock long ' +
+      'object operator out override params private protected public readonly ref sbyte ' +
+      'sealed short sizeof stackalloc static string struct switch this try typeof ' +
+      'uint ulong unchecked unsafe ushort using virtual void volatile while ' +
+      'nameof ' +
+      // Contextual keywords.
+      'add alias ascending async await by descending dynamic equals from get global group into join ' +
+      'let on orderby partial remove select set value var where yield',
+    literal:
+      'null false true'
+  };
+
+  var VERBATIM_STRING = {
+    className: 'string',
+    begin: '@"', end: '"',
+    contains: [{begin: '""'}]
+  };
+  var VERBATIM_STRING_NO_LF = hljs.inherit(VERBATIM_STRING, {illegal: /\n/});
+  var SUBST = {
+    className: 'subst',
+    begin: '{', end: '}',
+    keywords: KEYWORDS
+  };
+  var SUBST_NO_LF = hljs.inherit(SUBST, {illegal: /\n/});
+  var INTERPOLATED_STRING = {
+    className: 'string',
+    begin: /\$"/, end: '"',
+    illegal: /\n/,
+    contains: [{begin: '{{'}, {begin: '}}'}, hljs.BACKSLASH_ESCAPE, SUBST_NO_LF]
+  };
+  var INTERPOLATED_VERBATIM_STRING = {
+    className: 'string',
+    begin: /\$@"/, end: '"',
+    contains: [{begin: '{{'}, {begin: '}}'}, {begin: '""'}, SUBST]
+  };
+  var INTERPOLATED_VERBATIM_STRING_NO_LF = hljs.inherit(INTERPOLATED_VERBATIM_STRING, {
+    illegal: /\n/,
+    contains: [{begin: '{{'}, {begin: '}}'}, {begin: '""'}, SUBST_NO_LF]
+  });
+  SUBST.contains = [
+    INTERPOLATED_VERBATIM_STRING,
+    INTERPOLATED_STRING,
+    VERBATIM_STRING,
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE,
+    hljs.C_NUMBER_MODE,
+    hljs.C_BLOCK_COMMENT_MODE
+  ];
+  SUBST_NO_LF.contains = [
+    INTERPOLATED_VERBATIM_STRING_NO_LF,
+    INTERPOLATED_STRING,
+    VERBATIM_STRING_NO_LF,
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE,
+    hljs.C_NUMBER_MODE,
+    hljs.inherit(hljs.C_BLOCK_COMMENT_MODE, {illegal: /\n/})
+  ];
+  var STRING = {
+    variants: [
+      INTERPOLATED_VERBATIM_STRING,
+      INTERPOLATED_STRING,
+      VERBATIM_STRING,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  };
+
+  var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
   return {
     aliases: ['csharp'],
     keywords: KEYWORDS,
@@ -51,15 +111,9 @@ function(hljs) {
       {
         className: 'meta',
         begin: '#', end: '$',
-        keywords: 'if else elif endif define undef warning error line region endregion pragma checksum'
+        keywords: {'meta-keyword': 'if else elif endif define undef warning error line region endregion pragma checksum'}
       },
-      {
-        className: 'string',
-        begin: '@"', end: '"',
-        contains: [{begin: '""'}]
-      },
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE,
+      STRING,
       hljs.C_NUMBER_MODE,
       {
         beginKeywords: 'class interface', end: /[{;=]/,
@@ -87,7 +141,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + GENERIC_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
+        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
         excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
@@ -104,8 +158,7 @@ function(hljs) {
             keywords: KEYWORDS,
             relevance: 0,
             contains: [
-              hljs.APOS_STRING_MODE,
-              hljs.QUOTE_STRING_MODE,
+              STRING,
               hljs.C_NUMBER_MODE,
               hljs.C_BLOCK_COMMENT_MODE
             ]

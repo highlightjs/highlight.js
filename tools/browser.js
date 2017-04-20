@@ -1,30 +1,30 @@
 'use strict';
 
-var _        = require('lodash');
-var bluebird = require('bluebird');
-var fs       = bluebird.promisifyAll(require('fs'));
-var path     = require('path');
+let _        = require('lodash');
+let bluebird = require('bluebird');
+let readFile = bluebird.promisify(require('fs').readFile);
+let path     = require('path');
 
-var registry = require('./tasks');
-var utility  = require('./utility');
+let registry = require('./tasks');
+let utility  = require('./utility');
 
-var directory;
+let directory;
 
 function templateAllFunc(blobs) {
-  var name = path.join('demo', 'index.html');
+  const name = path.join('demo', 'index.html');
 
   blobs = _.compact(blobs);
 
   return bluebird.join(
-    fs.readFileAsync(name),
+    readFile(name),
     utility.getStyleNames(),
     (template, styles) => ({ template, path, blobs, styles })
   );
 }
 
 function copyDocs() {
-  var input  = path.join(directory.root, 'docs', '*.rst'),
-      output = path.join(directory.build, 'docs');
+  const input  = path.join(directory.root, 'docs', '*.rst'),
+        output = path.join(directory.build, 'docs');
 
   return {
     startLog: { task: ['log', 'Copying documentation.'] },
@@ -35,8 +35,11 @@ function copyDocs() {
 }
 
 function generateDemo(filterCB, readArgs) {
-  var staticArgs   = utility.glob(path.join('demo', '*.{js,css}')),
-      stylesArgs   = utility.glob(path.join('src', 'styles', '*'), 'binary'),
+  let styleDir     = path.join('src', 'styles'),
+      staticArgs   = utility.glob(path.join('demo', '*.min.{js,css}')),
+      imageArgs    = utility.glob(path.join(styleDir,  '*.{png,jpg}'),
+                                  'binary'),
+      stylesArgs   = utility.glob(path.join(styleDir,  '*.css')),
       demoRoot     = path.join(directory.build, 'demo'),
       templateArgs = { callback: templateAllFunc },
       destArgs     = {
@@ -60,14 +63,29 @@ function generateDemo(filterCB, readArgs) {
     readStatic: { requires: 'logStart', task: ['glob', staticArgs] },
     writeStatic: { requires: 'readStatic', task: ['dest', demoRoot] },
     readStyles: { requires: 'logStart', task: ['glob', stylesArgs] },
-    writeStyles: { requires: 'readStyles', task: ['dest', destArgs] }
+    compressStyles: { requires: 'readStyles', task: 'cssminify' },
+    writeStyles: { requires: 'compressStyles', task: ['dest', destArgs] },
+    readImages: { requires: 'logStart', task: ['glob', imageArgs] },
+    writeImages: { requires:'readImages', task: ['dest', destArgs] },
+    readDemoJS: {
+      requires: 'logStart',
+      task: ['read', path.join('demo', 'demo.js')]
+    },
+    minifyDemoJS: { requires: 'readDemoJS', task: 'jsminify' },
+    writeDemoJS: { requires: 'minifyDemoJS', task: ['dest', demoRoot] },
+    readDemoCSS: {
+      requires: 'logStart',
+      task: ['read', path.join('demo', 'style.css')]
+    },
+    minifyDemoCSS: { requires: 'readDemoCSS', task: 'cssminify' },
+    writeDemoCSS: { requires: 'minifyDemoCSS', task: ['dest', demoRoot] }
   };
 }
 
 module.exports = function(commander, dir) {
   directory = dir;
 
-  var hljsExt, output, requiresTask, tasks,
+  let hljsExt, output, requiresTask, tasks,
       replace           = utility.replace,
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
@@ -127,7 +145,7 @@ module.exports = function(commander, dir) {
   };
 
   hljsExt = commander.target === 'cdn' ? 'min' : 'pack';
-  output  = path.join(directory.build, 'highlight.' + hljsExt + '.js');
+  output  = path.join(directory.build, `highlight.${hljsExt}.js`);
 
   tasks.write = {
     requires: 'writelog',

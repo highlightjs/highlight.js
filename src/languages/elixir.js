@@ -42,7 +42,7 @@ function(hljs) {
   };
   var CLASS = hljs.inherit(FUNCTION, {
     className: 'class',
-    beginKeywords: 'defmodule defrecord', end: /\bdo\b|$|;/
+    beginKeywords: 'defimpl defmodule defprotocol defrecord', end: /\bdo\b|$|;/
   });
   var ELIXIR_DEFAULT_CONTAINS = [
     STRING,
@@ -51,7 +51,7 @@ function(hljs) {
     FUNCTION,
     {
       className: 'symbol',
-      begin: ':',
+      begin: ':(?!\\s)',
       contains: [STRING, {begin: ELIXIR_METHOD_RE}],
       relevance: 0
     },

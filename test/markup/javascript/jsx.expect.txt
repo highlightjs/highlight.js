@@ -1,21 +1,6 @@
-<span class="hljs-keyword">var</span> X = React.createClass({
-  render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">var</span> c = <span class="hljs-keyword">this</span>.map(c =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Comment</span> <span class="hljs-attr">comment</span>=<span class="hljs-string">{c}</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{c.id}</span> /&gt;</span>)</span>;
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">'comments'</span>&gt;</span>
-        {c}
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    )</span>;
-  },
-  foo: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{}
-});
-
-<span class="hljs-keyword">var</span> Comment = React.createClass({
-  render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">var</span> comment = <span class="hljs-keyword">this</span>.props.comment;
-    <span class="hljs-keyword">return</span> (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{comment}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    )</span>;
-  }
-  foo: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{}
-});
+<span class="hljs-keyword">var</span> jsx = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">node</span>/&gt;</span></span>;
+<span class="hljs-keyword">var</span> jsx = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">node</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">child</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span></span>;
+<span class="hljs-keyword">var</span> jsx = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">node</span>&gt;</span>...<span class="hljs-tag">&lt;<span class="hljs-name">child</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">child</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span></span>;
+<span class="hljs-keyword">var</span> jsx = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+<span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">return</span> (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">attr</span>=<span class="hljs-string">"value"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span></span>);

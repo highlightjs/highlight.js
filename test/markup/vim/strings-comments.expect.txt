@@ -1,0 +1,4 @@
+<span class="hljs-comment">" comment</span>
+<span class="hljs-keyword">let</span> one = <span class="hljs-string">"string"</span> <span class="hljs-comment">" comment</span>
+<span class="hljs-keyword">let</span> two = <span class="hljs-string">"crazy
+\ string with a \" quote"</span>

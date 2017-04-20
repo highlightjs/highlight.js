@@ -73,10 +73,21 @@ function(hljs) {
         relevance: 10
       },
       {
+        begin: /\[/,
+        end: /\]/,
+        excludeBegin: true,
+        excludeEnd: true,
+        relevance: 0,
+        contains: [TYPE]
+      },
+      {
         className: 'params',
         begin: /\(/,
         end: /\)/,
-        relevance: 0
+        excludeBegin: true,
+        excludeEnd: true,
+        relevance: 0,
+        contains: [TYPE]
       },
       NAME
     ]
@@ -86,6 +97,7 @@ function(hljs) {
     className: 'function',
     beginKeywords: 'def',
     end: /[:={\[(\n;]/,
+    excludeEnd: true,
     contains: [NAME]
   };
 

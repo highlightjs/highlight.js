@@ -1,0 +1,42 @@
+/* Maxima computer algebra system */
+
+print ("mumble");
+
+/* this
+  /* this is
+    /* this is a nested comment */ nested comment
+   */ comment
+ */
+
+sin(%pi); /* should be highlighted again */
+
+/* programming keywords */
+
+if a then b elseif c then d else f;
+for x:1 thru 10 step 2 do print(x);
+for z:-2 while z < 0 do print(z);
+for m:0 unless m > 10 do print(m);
+for x in [1, 2, 3] do print(x);
+foo and bar or not baz;
+
+/* different kinds of integers */
+
+ibase : 18 $
+[0, 1234, 1234., 0abcdefgh];
+reset (ibase) $
+
+/* strings */
+
+s1 : "\"now\" is";
+s2 : "the 'time' for all good men";
+print (s1, s2, "to come to the aid",
+  "of their country");
+
+/* expressions */
+
+foo (x, y, z) :=
+  if x > 1 + y
+    then z - x*y
+  elseif y <= 100!
+    then x/(y + z)^2
+  else z - y . x . y;
