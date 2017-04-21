@@ -27,16 +27,39 @@ remove-each
     #define clocks-per-second   1000'000
 ] 
 
- JVM!: alias struct! [
-    reserved0                   [int-ptr!]
-    reserved1                   [int-ptr!]
-    reserved2                   [int-ptr!]
-    
-    DestroyJavaVM               [function! [[JNICALL] vm [JVM-ptr!] return: [jint!]]]
-    AttachCurrentThread         [function! [[JNICALL] vm [JVM-ptr!] penv [struct! [p [int-ptr!]]] args [byte-ptr!] return: [jint!]]]
-    DetachCurrentThread         [function! [[JNICALL] vm [JVM-ptr!] return: [jint!]]]
-    GetEnv                      [function! [[JNICALL] vm [JVM-ptr!] penv [struct! [p [int-ptr!]]] version [integer!] return: [jint!]]]
-    AttachCurrentThreadAsDaemon [function! [[JNICALL] vm [JVM-ptr!] penv [struct! [p [int-ptr!]]] args [byte-ptr!] return: [jint!]]]
+bass/init ;Initializes a sound output device using default values
+
+bass/do [
+    sound:   load  %jaguar.wav         ;sound can be loaded from file
+    music:   music %feroness_-_sun.mod ;loads MOD file
+    channel: play music                ;channel can be stored for later use
+    play sound                         ;or not if not needed
+]
+wait 3
+bass/do [pause :channel play :sound]  ;handles can be passed also as get-words
+wait 1
+bass/do [resume channel]
+
+effects: [
+    chorus
+    compressor
+    distortion
+    echo
+    flanger
+    gargle
+    parameq
+    reverb
+]
+
+foreach effect effects [
+    print ["Enabling effect:" effect]
+    bass/do compose [
+        fx: (effect) channel
+    ]
+    wait 6
+    print ["Disabling effect:" effect]
+    bass/do [stop fx]
+    wait 4
 ]
 
 if 1 <> 2 [print [<b> true </b>]]

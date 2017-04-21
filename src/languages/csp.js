@@ -18,7 +18,8 @@ function(hljs) {
     contains: [
     {
       className: 'string',
-      begin: "'", end: "'"
+      begin: "'", end: "'",
+      relevance: 2   //this value solves autodetection conflict with Red language
     },
     {
       className: 'attribute',

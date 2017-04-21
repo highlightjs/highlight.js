@@ -1,7 +1,7 @@
 /*
 Language: Red language
 Author: Oldes <oldes.huhuman@gmail.com>
-Category: scripting
+Category: functional, scripting
 Description: Red is both an imperative and functional programming language, which syntax and general usage directly overlaps with that of the interpreted Rebol language.
 */
 
@@ -94,7 +94,7 @@ function(hljs) {
   };
   var DATE = {
     className: 'number',
-    begin: '\\d{1,2}\\-([A-Za-z]{3}|January|Febuary|March|April|May|June|July|August|September|October|November|December)\\-\\d{4}(/\\d{1,2}[:]\\d{1,2}([:]\\d{1,2}(\\.\\d{1,5})?)?([+-]\\d{1,2}[:]\\d{1,2})?)?'
+    begin: '\\d{1,2}\\-(\\d{1,2}|[A-Za-z]{3}|January|Febuary|March|April|May|June|July|August|September|October|November|December)\\-\\d{4}(/\\d{1,2}[:]\\d{1,2}([:]\\d{1,2}(\\.\\d{1,5})?)?([+-]\\d{1,2}[:]\\d{1,2})?)?'
   }
   var TIME = {
     className: 'number',
@@ -124,7 +124,7 @@ function(hljs) {
   var GET_WORD = {
     className: 'section',
     begin: /:(([+-]+(\.\'?)?)|[a-zA-Z\u00A1-\uFFFF?!.*&|=_~])+[a-zA-Z\u00A1-\uFFFF0-9?!.*&|=_~+\-\\']*(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/,
-    relevance: 5
+    relevance: 2
   };
   var REFINEMENT = {
     className: 'variable',
@@ -133,7 +133,7 @@ function(hljs) {
   var LIT_WORD = {
     className: 'literal',
     begin: /\'(([+-]+(\.\'?)?)|[a-zA-Z\u00A1-\uFFFF?!.*&|=_~])+[a-zA-Z\u00A1-\uFFFF0-9?!.*&|=_~+\-\\']*(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/,
-    relevance: 10
+    relevance: 2
   };
   var ISSUE = {
     className: 'string',
@@ -151,26 +151,32 @@ function(hljs) {
     className: 'regexp',
     begin: /(\[|\]|\(|\))+|#\(|#\[/   //colors also start of serialized values and maps
   };
+  var WORD_KEY = {
+     className: 'keyword',
+     begin: '(make|set|print|probe|func|function|does|has|do|while|until|unless|if|either|else|'+
+            'foreach|forall|forskip|for|remove-each|until|while|case|loop|repeat|switch|'+
+            'at|insert|append|tail|head|back|repend|next|to|thru|collect|keep|return|throw|catch|continue|break|'+
+            'open|close|load|reduce|rejoin|insert|bind|parse|union|intersect|unique|charset|extend|object|context|view)'+
+            '(?=\\s|\\(|\\[|\\)|\\]|\\/|;|\\"|{|$)'
+  };
+  var WORD_LITERAR = {
+     className: 'literal',
+     begin: /(off|on|yes|no|true|false|null|none|not|all|any|opt|end)(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/
+  };
+  var WORD_BUILT_IN = {
+     className: 'built_in',
+     begin: /(random|absolute|add|divide|multiply|negate|remainder|subtract|pick|poke|reverse|select|find)(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/
+  };
+  var WORD = {
+    begin: /[a-zA-Z\u00A1-\uFFFF_\-\!\?\`\*&\|\=\~\^]+[a-zA-Z\u00A1-\uFFFF0-9_\-\!\?\`\*&\|\=\~\^\+\-\.\']*(?=\s|\(|\[|\)|\]|\/|;|\"|{|$)/,
+    relevance: 0
+  };
   return {
     aliases: ['red', 'red/system', 'rebol'],
     case_insensitive: true,
-    lexemes:  /[a-zA-Z?!\'\-\u00A1-\uFFFF]+[a-zA-Z0-9?!\'\-\u00A1-\uFFFF]*/, 
-    //lexemes: '([+-]?(\\.\\\'?)?)?[a-zA-Z\\u00A1-\\uFFFF?!.*&|=_~]?[a-zA-Z\\u00A1-\\uFFFF0-9?!.*&|=_~+\\-\\\']*',
+    lexemes: /[a-zA-Z][a-zA-Z0-9_\-']*/,
       
-    keywords: {
-      keyword:
-        'make set print probe|10 func function does|10 has do while until unless|10 if either|10 else '+
-        'foreach|10 forall|10 forskip|10 for remove-each until while case loop repeat|10 switch '+
-        'at insert append tail head back repend|10 next to thru collect keep return throw catch continue break '+
-        'open close load|10 reduce|10 rejoin|10 insert bind parse|10 '+
-        'union intersect unique charset extend object context view|10',
-      literal:
-        'off on yes no true false null none not all any opt end',
-      built_in:
-        'random absolute add divide multiply negate remainder subtract pick poke reverse '+
-        'select find'
-    },
-    illegal: /,|:|\/\*|\/\/|%{|[a-zA-Z\&],|\$[a-zA-Z_\(]|[\'#]\s|@\d|\^[:{|:']|@.+/,
+    illegal: /,|:|\/\*|\/\/|\/\\|%{|[a-zA-Z\&],|\$[a-zA-Z_\(]|[\'#]\s|@\d|\^[:{|:']|@.+/,
     contains: [
       STRING, STRING_MULTILINE, CHAR, FILE, URL, EMAIL, TAG, REFINEMENT, DATATYPE, LIT_WORD,
       BINARY2, BINARY16, BINARY64, 
@@ -179,7 +185,8 @@ function(hljs) {
       OPERATOR,
       SET_WORD, GET_WORD, BRACKET, ISSUE,
       NUMBER_HEX, NUMBER_MONEY, 
-      NUMBER
+      NUMBER,
+      WORD_KEY, WORD_LITERAR, WORD_BUILT_IN, WORD
     ]
   };
 }
