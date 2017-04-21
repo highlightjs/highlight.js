@@ -2,13 +2,7 @@ New languages:
 
 - *1cv8* by [Stanislav Belov][]
 
-Improvements:
-  
-- *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
-- *Julia* updated to the modern definitions by [Alex Arslan][].
-  
-[Tsuyusato Kitsune]: https://github.com/MakeNowJust
-[Alex Arslan]: https://github.com/ararslan
+
 [Stanislav Belov]: https://github.com/4ppl
 
  
