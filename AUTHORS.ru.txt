@@ -246,3 +246,4 @@ URL:   https://highlightjs.org/
 - Джорди Петит <jordi.petit@gmail.com>
 - Рафаэль Паре <rparree@edc4it.com>
 - Джоель Порке <joel@porquet.org>
+- Иван Дементьев <ivan_div@mail.ru>
