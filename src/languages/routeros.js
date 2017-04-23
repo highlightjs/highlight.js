@@ -14,7 +14,7 @@ URL: https://wiki.mikrotik.com/wiki/Manual:Scripting
 
 function(hljs) {
 
-  var STATEMENTS = 'do while for foreach if from to step in do else on-error';
+  var STATEMENTS = 'foreach do while for if from to step else on-error and or not in';
 
   // Global commands: Every global command should start with ":" token, otherwise it will be treated as variable.
   var GLOBAL_COMMANDS = 'global local beep delay put len typeof pick log time set find environment terminal error execute parse resolve toarray tobool toid toip toip6 tonum tostr totime';
@@ -24,7 +24,7 @@ function(hljs) {
 
   var LITERALS = 'true false yes no nothing nil null';
 
-  var OBJECTS = 'traffic-flow traffic-generator firewall scheduler aaa accounting address-list address align area bandwidth-server bfd bgp bridge client clock community config connection console customer default dhcp-client dhcp-server discovery dns e-mail ethernet filter firewall firmware gps graphing group hardware health hotspot identity igmp-proxy incoming instance interface ip ipsec ipv6 irq l2tp-server lcd ldp logging mac-server mac-winbox mangle manual mirror mme mpls nat nd neighbor network note ntp ospf ospf-v3 ovpn-server page peer pim ping policy pool port ppp pppoe-client pptp-server prefix profile proposal proxy queue radius resource rip ripng route routing screen script security-profiles server service service-port settings shares smb sms sniffer snmp snooper socks sstp-server system tool tracking type upgrade upnp user-manager users user vlan vrrp watchdog web-access wireless pptp pppoe lan wan layer7-protocol lease simple';
+  var OBJECTS = 'traffic-flow traffic-generator firewall scheduler aaa accounting address-list address align area bandwidth-server bfd bgp bridge client clock community config connection console customer default dhcp-client dhcp-server discovery dns e-mail ethernet filter firewall firmware gps graphing group hardware health hotspot identity igmp-proxy incoming instance interface ip ipsec ipv6 irq l2tp-server lcd ldp logging mac-server mac-winbox mangle manual mirror mme mpls nat nd neighbor network note ntp ospf ospf-v3 ovpn-server page peer pim ping policy pool port ppp pppoe-client pptp-server prefix profile proposal proxy queue radius resource rip ripng route routing screen script security-profiles server service service-port settings shares smb sms sniffer snmp snooper socks sstp-server system tool tracking type upgrade upnp user-manager users user vlan secret vrrp watchdog web-access wireless pptp pppoe lan wan layer7-protocol lease simple';
 
   // print parameters
   // Several parameters are available for print command:
@@ -69,14 +69,34 @@ function(hljs) {
     aliases: ['routeros', 'mikrotik'],
     case_insensitive: true,
     contains: [
-      hljs.HASH_COMMENT_MODE,
+      { // недопустимые конструкции
+        variants: [
+          { begin: /^@/, end: /$/, },               // dns
+          { begin: /\/\*/, end: /\*\//, },          // -- comment
+          { begin: /%%/, end: /$/, },               // -- comment
+          { begin: /^'/, end: /$/, },               // Monkey one line comment
+          { begin: /^\s*\/[\w-]+=/, end: /$/, },    // jboss-cli
+          { begin: /\/\//, end: /$/, },             // Stan comment
+          { begin: /^\[\</, end: /\>\]$/, },        // F# class declaration?
+          { begin: /<\//, end: />/, },              // HTML tags
+          { begin: /^facet /, end: /\}/, },         // roboconf - лютый костыль )))
+          { begin: '^1\\.\\.(\\d+)$', end: /$/, },  // tap  
+        ],
+        illegal: /./,
+      },
+      
+      hljs.COMMENT('^#', '$'),
       QUOTE_STRING,
       APOS_STRING,
       VAR,
 
       { 
         className: 'keyword',
-        begin: /:[\w\d#@][\w\d_-]*/,
+        relevance: 10,
+        variants: [
+          { begin: ':(' + STATEMENTS.split(' ').join('|') + ')',},
+          { begin: ':(' + GLOBAL_COMMANDS.split(' ').join('|') + ')',},
+        ],
       },
 
       { 
@@ -86,21 +106,25 @@ function(hljs) {
           {
             className: 'keyword',
             begin: /[\w-]+\=/,
+            illegal: ' ',
+            relevance: 10,
           },
         ], 
-      },  
+      },  //*/
 
-      { // asd=zxc
-        begin: /[^\s\{\}\[\]\(\)]+\=("[^"]*"|[^\s\{\}\[\]]+)/,
+      { // attribute=value
+        begin: /[\w-]+\=([^\s\{\}\[\]\(\)]+)/, 
+        relevance: 0,
         returnBegin: true,
         contains: [
           {
             className: 'attribute',
-            begin: /\b[^=]+/
+            begin: /[^=]+/
           },
           {
             begin: /=/, 
             endsWithParent:  true,
+            relevance: 0,
             contains: [
               QUOTE_STRING,
               APOS_STRING,
@@ -129,10 +153,10 @@ function(hljs) {
                 begin: /("[^"]*"|[^\s\{\}\[\]]+)/,
               }, //*/
             ]
-          }
+          } //*/
         ]
-      },
-      /*{
+      },//*/
+      {
         // HEX values
         className: 'number',
         begin: /\*[0-9a-fA-F]+/,
@@ -150,8 +174,11 @@ function(hljs) {
       },
       
       { 
-        className: 'built_in',  
-        begin: '[\/\\s]((' + OBJECTS.split(' ').join('|') + ');?\\s)+',
+        className: 'built_in',
+        variants: [
+          {begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+',relevance: 10,},
+          {begin: /\.\./,},
+        ],
       },//*/
     ]
   };
