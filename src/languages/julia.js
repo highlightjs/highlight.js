@@ -85,16 +85,6 @@ function(hljs) {
   // placeholder for recursive self-reference
   var DEFAULT = { lexemes: VARIABLE_NAME_RE, keywords: KEYWORDS, illegal: /<\// };
 
-  var TYPE_ANNOTATION = {
-    className: 'type',
-    begin: /::/
-  };
-
-  var SUBTYPE = {
-    className: 'type',
-    begin: /<:/
-  };
-
   // ref: http://julia.readthedocs.org/en/latest/manual/integers-and-floating-point-numbers/
   var NUMBER = {
     className: 'number',
@@ -157,8 +147,6 @@ function(hljs) {
   DEFAULT.contains = [
     NUMBER,
     CHAR,
-    TYPE_ANNOTATION,
-    SUBTYPE,
     STRING,
     COMMAND,
     MACROCALL,
@@ -168,7 +156,8 @@ function(hljs) {
       className: 'keyword',
       begin:
         '\\b(((abstract|primitive)\\s+)type|(mutable\\s+)?struct)\\b'
-    }
+    },
+    {begin: /<:/}  // relevance booster
   ];
   INTERPOLATION.contains = DEFAULT.contains;
 
