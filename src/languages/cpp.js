@@ -169,7 +169,7 @@ function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class struct', end: /[{;:]/,
+        beginKeywords: 'class struct using', end: /[{;:=]/,
         contains: [
           {begin: /</, end: />/, contains: ['self']}, // skip generic stuff
           hljs.TITLE_MODE
