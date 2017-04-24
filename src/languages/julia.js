@@ -1,6 +1,7 @@
 /*
 Language: Julia
 Author: Kenta Sato <bicycle1885@gmail.com>
+Contributors: Alex Arslan <ararslan@comcast.net>
 */
 
 function(hljs) {
