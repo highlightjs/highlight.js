@@ -6,6 +6,9 @@ Category: common, system
 */
 
 function(hljs) {
+
+  var IDENT_RE = '[a-zA-Z][<>\\w]*';
+
   var CPP_PRIMITIVE_TYPES = {
     className: 'keyword',
     begin: '\\b[a-z\\d_]*_t\\b'
@@ -100,6 +103,7 @@ function(hljs) {
   return {
     aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp'],
     keywords: CPP_KEYWORDS,
+    lexemes: IDENT_RE,
     illegal: '</',
     contains: EXPRESSION_CONTAINS.concat([
       PREPROCESSOR,
@@ -109,7 +113,7 @@ function(hljs) {
         contains: ['self', CPP_PRIMITIVE_TYPES]
       },
       {
-        begin: hljs.IDENT_RE + '::',
+        begin: IDENT_RE + '::',
         keywords: CPP_KEYWORDS
       },
       {
@@ -134,7 +138,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + hljs.IDENT_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
+        begin: '(' + IDENT_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
         returnBegin: true, end: /[{;=]/,
         excludeEnd: true,
         keywords: CPP_KEYWORDS,
