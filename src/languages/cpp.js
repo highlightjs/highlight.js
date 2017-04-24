@@ -108,41 +108,12 @@ function(hljs) {
     contains: EXPRESSION_CONTAINS.concat([
       PREPROCESSOR,
       {
-        begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
-        keywords: CPP_KEYWORDS,
-        contains: ['self', CPP_PRIMITIVE_TYPES]
-      },
-      {
-        begin: IDENT_RE + '::',
-        keywords: CPP_KEYWORDS
-      },
-      {
-        // This mode covers expression context where we can't expect a function
-        // definition and shouldn't highlight anything that looks like one:
-        // `return some()`, `else if()`, `(x*sum(1, 2))`
-        variants: [
-          {begin: /=/, end: /;/},
-          {begin: /\(/, end: /\)/},
-          {beginKeywords: 'new throw return else', end: /;/}
-        ],
-        keywords: CPP_KEYWORDS,
-        contains: EXPRESSION_CONTAINS.concat([
-          {
-            begin: /\(/, end: /\)/,
-            keywords: CPP_KEYWORDS,
-            contains: EXPRESSION_CONTAINS.concat(['self']),
-            relevance: 0
-          }
-        ]),
-        relevance: 0
-      },
-      {
         className: 'function',
         begin: '(' + IDENT_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
         returnBegin: true, end: /[{;=]/,
         excludeEnd: true,
         keywords: CPP_KEYWORDS,
-        illegal: /[^\w\s\*&]/,
+        illegal: /[^<>\w\s\*&]/,
         contains: [
           {
             begin: FUNCTION_TITLE, returnBegin: true,
@@ -174,7 +145,37 @@ function(hljs) {
           {begin: /</, end: />/, contains: ['self']}, // skip generic stuff
           hljs.TITLE_MODE
         ]
-      }
+      },
+      {
+        begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
+        keywords: CPP_KEYWORDS,
+        contains: ['self', CPP_PRIMITIVE_TYPES]
+      },
+      {
+        begin: IDENT_RE + '::',
+        keywords: CPP_KEYWORDS
+      },
+      {
+        // This mode covers expression context where we can't expect a function
+        // definition and shouldn't highlight anything that looks like one:
+        // `return some()`, `else if()`, `(x*sum(1, 2))`
+        variants: [
+          {begin: /=/, end: /;/},
+          {begin: /\(/, end: /\)/},
+          {beginKeywords: 'new throw return else', end: /;/}
+        ],
+        keywords: CPP_KEYWORDS,
+        contains: EXPRESSION_CONTAINS.concat([
+          {
+            begin: /\(/, end: /\)/,
+            keywords: CPP_KEYWORDS,
+            contains: EXPRESSION_CONTAINS.concat(['self']),
+            relevance: 0
+          }
+        ]),
+        relevance: 0
+      },
+
     ]),
     exports: {
       preprocessor: PREPROCESSOR,
