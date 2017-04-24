@@ -7,9 +7,13 @@ New languages:
 Improvements:
 
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
+- *Julia* updated to the modern definitions by [Alex Arslan][].
 
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Alex Arslan]: https://github.com/ararslan
 [Ivan Dementev]: https://github.com/DiVAN1x
+
+
 ## Version 9.11.0
 
 New languages:
