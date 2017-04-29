@@ -247,3 +247,4 @@ URL:   https://highlightjs.org/
 - Рафаэль Паре <rparree@edc4it.com>
 - Джоель Порке <joel@porquet.org>
 - Алекс Арслан <ararslan@comcast.net>
+- Станислав Белов <stbelov@gmail.com>

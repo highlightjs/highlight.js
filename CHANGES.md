@@ -4,9 +4,13 @@ Improvements:
 
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
 - *Julia* updated to the modern definitions by [Alex Arslan][].
+- [Stanislav Belov][] wrote a new definition for *1C*, replacing the one that
+  been updated for more than 8 years. The new version supports syntax for
+  versions 7.7 and 8.
 
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Alex Arslan]: https://github.com/ararslan
+[Stanislav Belov]: https://github.com/4ppl
 
 ## Version 9.11.0
 

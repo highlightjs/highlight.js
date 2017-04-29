@@ -247,3 +247,4 @@ Contributors:
 - Raphaël Parrëe <rparree@edc4it.com>
 - Joël Porquet <joel@porquet.org>
 - Alex Arslan <ararslan@comcast.net>
+- Stanislav Belov <stbelov@gmail.com>
