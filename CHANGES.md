@@ -4,8 +4,9 @@ Improvements:
 
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
 - *Julia* updated to the modern definitions by [Alex Arslan][].
-- *1c* replaced definitions of language 1c. The new version is developed
-  from scratch and includes the syntax of v7.7 and v8. [Stanislav Belov][]
+- [Stanislav Belov][] wrote a new definition for *1C*, replacing the one that
+  been updated for more than 8 years. The new version supports syntax for
+  versions 7.7 and 8.
 
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Alex Arslan]: https://github.com/ararslan
