@@ -1,4 +1,4 @@
-<span class="hljs-keyword">class</span> Car extends Vehicle {
+<span class="hljs-keyword">class</span> Car <span class="hljs-keyword">extends</span> Vehicle {
   <span class="hljs-keyword">constructor</span>(<span class="hljs-params">speed, cost</span>) {
     <span class="hljs-keyword">super</span>(speed);
 
