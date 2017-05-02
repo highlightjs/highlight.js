@@ -1,0 +1,5 @@
+-!- list channels
+/list
+
+-!- join mychannel
+/j #mychannel
