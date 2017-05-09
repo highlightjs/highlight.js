@@ -68,6 +68,11 @@ function(hljs) {
   return {
     aliases: ['routeros', 'mikrotik'],
     case_insensitive: true,
+    lexemes: /:?[\w-]+/,
+    keywords: {
+      literal: LITERALS,
+      keyword: STATEMENTS + ' :' + STATEMENTS.split(' ').join(' :') + ' :' + GLOBAL_COMMANDS.split(' ').join(' :'),
+    },
     contains: [
       { // недопустимые конструкции
         variants: [
@@ -84,34 +89,10 @@ function(hljs) {
         ],
         illegal: /./,
       },
-      
       hljs.COMMENT('^#', '$'),
       QUOTE_STRING,
       APOS_STRING,
       VAR,
-
-      { 
-        className: 'keyword',
-        relevance: 10,
-        variants: [
-          { begin: ':(' + STATEMENTS.split(' ').join('|') + ')\\s',},
-          { begin: ':(' + GLOBAL_COMMANDS.split(' ').join('|') + ')\\s',},
-        ],
-      },
-
-      { 
-        begin: '\\b(' + STATEMENTS.split(' ').join('|') + ')=[\{\(\<\[]',
-        returnBegin: true,
-        contains: [
-          {
-            className: 'keyword',
-            begin: /[\w-]+\=/,
-            illegal: ' ',
-            relevance: 10,
-          },
-        ], 
-      },  //*/
-
       { // attribute=value
         begin: /[\w-]+\=([^\s\{\}\[\]\(\)]+)/, 
         relevance: 0,
