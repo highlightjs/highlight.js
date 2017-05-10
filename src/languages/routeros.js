@@ -1,7 +1,6 @@
 /*
 Language: Microtik RouterOS script
 Author: Ivan Dementev <ivan_div@mail.ru>
-Category: common
 Description: Scripting host provides a way to automate some router maintenance tasks by means of executing user-defined scripts bounded to some event occurrence
 URL: https://wiki.mikrotik.com/wiki/Manual:Scripting
 */
