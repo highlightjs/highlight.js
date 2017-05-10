@@ -248,3 +248,4 @@ URL:   https://highlightjs.org/
 - Джоель Порке <joel@porquet.org>
 - Алекс Арслан <ararslan@comcast.net>
 - Станислав Белов <stbelov@gmail.com>
+- Иван Дементьев <ivan_div@mail.ru>

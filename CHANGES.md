@@ -1,5 +1,9 @@
 ## Master (UNRELEASED)
 
+New languages:
+
+- *MikroTik* RouterOS Scripting language by [Ivan Dementev][].
+
 Improvements:
 
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
@@ -11,6 +15,8 @@ Improvements:
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Alex Arslan]: https://github.com/ararslan
 [Stanislav Belov]: https://github.com/4ppl
+[Ivan Dementev]: https://github.com/DiVAN1x
+
 
 ## Version 9.11.0
 

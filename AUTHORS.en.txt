@@ -248,3 +248,4 @@ Contributors:
 - Joël Porquet <joel@porquet.org>
 - Alex Arslan <ararslan@comcast.net>
 - Stanislav Belov <stbelov@gmail.com>
+- Ivan Dementev <ivan_div@mail.ru>
