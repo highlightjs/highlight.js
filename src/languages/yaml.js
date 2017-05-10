@@ -6,7 +6,7 @@ Description: YAML (Yet Another Markdown Language)
 Category: config
 */
 function(hljs) {
-  var LITERALS = {literal: '{ } true false yes no Yes No True False null'};
+  var LITERALS = 'true false yes no null';
 
   var keyPrefix = '^[ \\-]*';
   var keyName =  '[a-zA-Z_][\\w\\-]*';
@@ -83,9 +83,12 @@ function(hljs) {
         relevance: 0
       },
       hljs.HASH_COMMENT_MODE,
+      {
+        beginKeywords: LITERALS,
+        keywords: {literal: LITERALS}
+      },
       hljs.C_NUMBER_MODE,
       STRING
-    ],
-    keywords: LITERALS
+    ]
   };
 }

@@ -4,3 +4,4 @@ key: "some value"
 key: |
   multi-string
   value
+key: true
