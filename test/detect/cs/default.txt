@@ -2,10 +2,28 @@ using System;
 
 #pragma warning disable 414, 3021
 
-/// <summary>Main task</summary>
-async Task<int, int> AccessTheWebAsync()
+namespace MyApplication
 {
-    Console.WriteLine("Hello, World!");
-    string urlContents = await getStringTask;
-    return urlContents.Length;
+    class Program
+    {
+        /// <summary>
+        /// Main method
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main(string[] args)
+        {
+            // comment
+            /* multi-lines
+             * comment
+             */
+            Console.WriteLine("Hello, World!");
+        }
+
+        List<int> MyMethod(Dictionary<int, string> dico, MaClasse myObject)
+        {
+            var v = new MaClasse();
+            MaClasse mc = new MaClasse();
+            return new List<int>();
+        }
+    }
 }
