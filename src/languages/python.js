@@ -10,7 +10,24 @@ function(hljs) {
       'exec else break not with class assert yield try while continue del or def lambda ' +
       'async await nonlocal|10 None True False',
     built_in:
-      'Ellipsis NotImplemented'
+      'BaseException SystemExit KeyboardInterrupt GeneratorExit Exception StopIteration ' +
+      'StopAsyncIteration ArithmeticError FloatingPointError OverflowError ZeroDivisionError ' +
+      'AssertionError AttributeError BufferError EOFError ImportError ModuleNotFoundError ' +
+      'LookupError IndexError KeyError MemoryError NameError UnboundLocalError OSError ' +
+      'BlockingIOError ChildProcessError ConnectionError BrokenPipeError ConnectionAbortedError ' +
+      'ConnectionRefusedError ConnectionResetError FileExistsError FileNotFoundError ' +
+      'InterruptedError IsADirectoryError NotADirectoryError PermissionError ProcessLookupError ' +
+      'TimeoutError ReferenceError RuntimeError NotImplementedError RecursionError SyntaxError ' +
+      'IndentationError TabError SystemError TypeError ValueError UnicodeError UnicodeDecodeError ' +
+      'UnicodeEncodeError UnicodeTranslateError Warning DeprecationWarning ' +
+      'PendingDeprecationWarning RuntimeWarning SyntaxWarning UserWarning FutureWarning ' +
+      'ImportWarning UnicodeWarning BytesWarning ResourceWarning' +
+      'dir getattr setattr eval callable abs dict help ' + 
+      'min setattr all dir hex next slice any divmod id object sorted ascii enumerate input ' +
+      'oct staticmethod bin eval int open str bool exec isinstance ord sum bytearray filter ' +
+      'issubclass pow super bytes float iter tuple callable format len property type ' +
+      'chr frozenset list range vars classmethod getattr locals repr zip compile globals map ' +
+      'reversed __import__ complex hasattr max round delattr hash memoryview set'
   };
   var PROMPT = {
     className: 'meta',  begin: /^(>>>|\.\.\.) /
