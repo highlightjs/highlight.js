@@ -154,20 +154,25 @@ function(hljs) {
             begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
             contains: [hljs.TITLE_MODE],
             relevance: 0
-          },
+          },*/
           {
-            className: 'params',
+            //className: 'params',
             begin: /\(/, end: /\)/,
             excludeBegin: true,
             excludeEnd: true,
             keywords: KEYWORDS,
             relevance: 0,
             contains: [
-              STRING,
+              //STRING,
+              {
+                // params' types
+                className: 'title',
+                begin: '\\b[A-Z]', end: '[ <]', excludeEnd: true
+              },
               hljs.C_NUMBER_MODE,
               hljs.C_BLOCK_COMMENT_MODE
             ]
-          },*/
+          },
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
