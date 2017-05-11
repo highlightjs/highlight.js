@@ -131,7 +131,7 @@ function(hljs) {
       },
       {
         className: 'type',
-        begin: /([a-zA-Z_]+)=["a-zA-Z\.0-9 ,]+\n|([a-zA-Z_]+)=["a-zA-Z\. ,]+[)]/
+        begin: /([\w]+)=[\w"'\.\x20]+[,)]/
       },
       {
         className: 'symbol',
