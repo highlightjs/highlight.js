@@ -128,10 +128,27 @@ function(hljs) {
       STRING,
       hljs.C_NUMBER_MODE,
       {
-        beginKeywords: 'class interface', end: /[{;=]/,
+        beginKeywords: 'class', end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
-          hljs.TITLE_MODE,
+          {
+            className: 'type',
+            begin: hljs.IDENT_RE,
+            relevance: 0
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
+      },
+      {
+        beginKeywords: 'interface', end: /[{;=]/,
+        illegal: /[^\s:]/,
+        contains: [
+          {
+            className: 'class',
+            begin: hljs.IDENT_RE,
+            relevance: 0
+          },
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
