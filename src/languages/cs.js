@@ -142,7 +142,7 @@ function(hljs) {
       {
         // new MaClasse();
         className: 'title',
-        beginKeywords: 'new', end: '\\(', excludeEnd: true
+        beginKeywords: 'new', end: '[\\(<]', excludeEnd: true
       },
       {
         className: 'function',
@@ -176,14 +176,6 @@ function(hljs) {
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
-      },
-      {
-        // generics
-        // keywords are no well colored
-        // < > shouldn't be colored
-        className: 'title',
-        begin: '[A-Z]\\w+<', end: '>',
-        keywords: KEYWORDS
       },
     ]
   };
