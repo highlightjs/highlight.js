@@ -173,7 +173,7 @@ function(hljs) {
       {
         // new MaClasse();
         className: 'type',
-        beginKeywords: 'new', end: '[\\(<]', excludeEnd: true
+        beginKeywords: 'new', end: '[\\(<\\[]', excludeEnd: true
       },
       /*{
         className: 'function',
