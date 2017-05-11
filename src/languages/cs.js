@@ -136,8 +136,13 @@ function(hljs) {
       {
         // Expression keywords prevent 'keyword Name(...)' from being
         // recognized as a function definition
-        beginKeywords: 'new return throw await',
+        beginKeywords: 'return throw await',
         relevance: 0
+      },
+      {
+        // new MaClasse();
+        className: 'title',
+        beginKeywords: 'new', end: '\\(', excludeEnd: true
       },
       {
         className: 'function',
