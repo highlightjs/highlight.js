@@ -1,6 +1,7 @@
 /*
 Language: C#
 Author: Jason Diamond <jason@diamond.name>
+Contributor: Nicolas LLOBERA <nllobera at gmail.com>
 Category: common
 */
 
