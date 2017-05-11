@@ -175,13 +175,13 @@ function(hljs) {
         className: 'type',
         beginKeywords: 'new', end: '[\\(<]', excludeEnd: true
       },
-      {
+      /*{
         className: 'function',
         begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
         end: /[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
-          /*{
+          {
             begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
             contains: [hljs.TITLE_MODE],
             relevance: 0
@@ -198,11 +198,11 @@ function(hljs) {
               hljs.C_NUMBER_MODE,
               hljs.C_BLOCK_COMMENT_MODE
             ]
-          },*/
+          },
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
-      },
+      },*/
     ]
   };
 }
