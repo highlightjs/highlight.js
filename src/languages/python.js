@@ -24,7 +24,7 @@ function(hljs) {
       'ImportWarning UnicodeWarning BytesWarning ResourceWarning' +
       'dir getattr setattr eval callable abs dict help ' + 
       'min setattr all dir hex next slice any divmod id object sorted ascii enumerate input ' +
-      'oct staticmethod bin eval int open str bool exec isinstance ord sum bytearray filter ' +
+      'oct staticmethod bin eval int open str bool isinstance ord sum bytearray filter ' +
       'issubclass pow super bytes float iter tuple callable format len property type ' +
       'chr frozenset list range vars classmethod getattr locals repr zip compile globals map ' +
       'reversed __import__ complex hasattr max round delattr hash memoryview set'
@@ -128,6 +128,14 @@ function(hljs) {
       {
         className: 'meta',
         begin: /^[\t ]*@/, end: /$/
+      },
+      {
+        className: 'type',
+        begin: /([a-zA-Z_]+)=["a-zA-Z\.0-9 ,]+\n|([a-zA-Z_]+)=["a-zA-Z\. ,]+[)]/
+      },
+      {
+        className: 'symbol',
+        begin: /\.([A-Z0-9_]+)/
       },
       {
         begin: /\b(print|exec)\(/ // don’t highlight keywords-turned-functions in Python 3
