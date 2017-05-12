@@ -1,7 +1,7 @@
 /*
 Language: PureBASIC
 Author: Tristano Ajmone <tajmone@gmail.com>
-Description: Syntax highlighting for PureBASIC (v.5.00-5.60). No inline ASM highlighting. (v.1.1, April 2017)
+Description: Syntax highlighting for PureBASIC (v.5.00-5.60). No inline ASM highlighting. (v.1.2, May 2017)
 Credits: I've taken inspiration from the PureBasic language file for GeSHi, created by Gustavo Julio Fiorenza (GuShH).
 */
 
@@ -23,21 +23,21 @@ function(hljs) {
     aliases: ['pb', 'pbi'],
     keywords: // PB IDE color: #006666 (Blue Stone) + Bold
       // Keywords from all version of PureBASIC 5.00 upward ...
-      'Align And Array As Break CallDebugger Case CompilerCase CompilerDefault '+
-      'CompilerElse CompilerElseIf CompilerEndIfCompilerEndSelect CompilerEndSelect CompilerError '+
-      'CompilerIf CompilerSelect CompilerWarning Continue Data DataSection Debug '+
-      'DebugLevel Declare DeclareC DeclareCDLL DeclareDLL DeclareModule Default Define '+
-      'Dim DisableASM DisableDebugger DisableExplicit Else ElseIf EnableASM EnableDebugger '+
-      'EnableExplicit End EndDataSectionEndEnumeration EndDeclareModule EndEnumeration '+
-      'EndIfEndImport EndImportEndInterface EndInterface EndMacroEndProcedure EndModule '+
-      'EndProcedure EndProcedureEndProcedure EndSelectEndStructure EndStructure '+
-      'EndStructureUnionEndWith EndWith Enumeration EnumerationBinary Extends FakeReturn '+
-      'For ForEach ForEver Global Gosub Goto If Import ImportC IncludeBinary '+
-      'IncludeFile IncludePath Interface List Macro MacroExpandedCount Map Module '+
-      'NewList NewMap NextNext Not Or Procedure ProcedureC ProcedureCDLL ProcedureDLL '+
-      'ProcedureReturn Protected Prototype PrototypeC Read ReDim Repeat Restore '+
-      'Return Select Shared Static Step Structure StructureUnion Swap Threaded To '+
-      'Until  Until WendWhile With XIncludeFile XOr',
+      'Align And Array As Break CallDebugger Case CompilerCase CompilerDefault ' +
+      'CompilerElse CompilerElseIf CompilerEndIf CompilerEndSelect CompilerError ' +
+      'CompilerIf CompilerSelect CompilerWarning Continue Data DataSection Debug ' +
+      'DebugLevel Declare DeclareC DeclareCDLL DeclareDLL DeclareModule Default ' +
+      'Define Dim DisableASM DisableDebugger DisableExplicit Else ElseIf EnableASM ' +
+      'EnableDebugger EnableExplicit End EndDataSection EndDeclareModule EndEnumeration ' +
+      'EndIf EndImport EndInterface EndMacro EndModule EndProcedure EndSelect ' +
+      'EndStructure EndStructureUnion EndWith Enumeration EnumerationBinary Extends ' +
+      'FakeReturn For ForEach ForEver Global Gosub Goto If Import ImportC ' +
+      'IncludeBinary IncludeFile IncludePath Interface List Macro MacroExpandedCount ' +
+      'Map Module NewList NewMap Next Not Or Procedure ProcedureC ' +
+      'ProcedureCDLL ProcedureDLL ProcedureReturn Protected Prototype PrototypeC ReDim ' +
+      'Read Repeat Restore Return Runtime Select Shared Static Step Structure ' +
+      'StructureUnion Swap Threaded To UndefineMacro Until Until  UnuseModule ' +
+      'UseModule Wend While With XIncludeFile XOr',
     contains: [
       // COMMENTS | PB IDE color: #00AAAA (Persian Green)
       hljs.COMMENT(';', '$', {relevance: 0}),
@@ -71,6 +71,8 @@ function(hljs) {
 /*  ==============================================================================
                                       CHANGELOG                                   
     ==============================================================================
+    - v.1.2 (2017-05-12)
+        -- BUG-FIX: Some keywords were accidentally joyned together. Now fixed.
     - v.1.1 (2017-04-30)
         -- Updated to PureBASIC 5.60.
         -- Keywords list now built by extracting them from the PureBASIC SDK's
