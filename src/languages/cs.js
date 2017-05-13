@@ -173,12 +173,6 @@ function(hljs) {
         ]
       },
       {
-        // Expression keywords prevent 'keyword Name(...)' from being
-        // recognized as a function definition
-        beginKeywords: 'return throw await',
-        relevance: 0
-      },
-      {
         // Type in new declaration. Ex: new MaClasse();
         // FIXME in 'new object();' object should be considered as keyword
         className: 'type',
@@ -242,6 +236,12 @@ function(hljs) {
         ]
       },
       /* FIXME 'else if()' taken as a function
+      {
+        // Expression keywords prevent 'keyword Name(...)' from being
+        // recognized as a function definition
+        beginKeywords: 'return throw await',
+        relevance: 0
+      },
       {
         className: 'function',
         begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
