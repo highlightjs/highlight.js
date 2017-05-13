@@ -173,10 +173,44 @@ function(hljs) {
       },
       {
         // new MaClasse();
+        // FIXME new object should be taken as keyword
         className: 'type',
         beginKeywords: 'new', end: '[\\(<\\[]', excludeEnd: true
       },
-      /*{
+      {
+        // [Attributes]
+        className: 'type',
+        begin: '^\\s*\\[', excludeBegin: true, end: '[\\(\\]]', excludeEnd: true,
+        contains: [
+          STRING
+        ]
+      },
+      {
+        // typeof
+        className: 'type',
+        begin: 'typeof\\(', excludeBegin: true, end: '\\)', excludeEnd: true,
+      },
+      {
+        // private void MyMethod(Dictionary<int, string> dico, MaClasse myObject)
+        className: 'params',
+        begin: '^\\s*([a-z]+\\s)*(' + TYPE_IDENT_RE + '\\s)?[A-Z]\\w*\\s*\\(', excludeBegin: true,
+        end: '\\)\\s*{|;', excludeEnd: true,
+        keywords: KEYWORDS,
+        contains: [
+          {
+            className: 'type',
+            begin: '\\b[A-Z]\\w*'
+          }
+        ]
+      },
+      {
+        // MaClasse mc;
+        // Console.Write("");
+        className: 'type',
+        begin: '^\\s*[A-Z]\\w*',
+      },
+      /* FIXME 'else if()' taken as a function
+      {
         className: 'function',
         begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
         end: /[{;=]/, excludeEnd: true,
