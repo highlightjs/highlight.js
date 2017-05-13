@@ -209,10 +209,31 @@ function(hljs) {
         ]
       },
       {
-        // MaClasse mc;
-        // Console.Write("");
+        // highlights the first type in using block. Ex: using (GZipStream decompressionStream =
         className: 'type',
-        begin: '^\\s*[A-Z]\\w*',
+        begin: '^\\s*using\\s*\\(\\s*', excludeBegin: true, end: '\\s\\w+\\s=', excludeEnd: true
+      },
+      {
+        // highlights the first type in foreach block. Ex: foreach (MyClass<int> mc in mcList)
+        className: 'type',
+        begin: '^\\s*foreach\\s*\\(\\s*', excludeBegin: true, end: '<|\\s[a-z]', excludeEnd: true,
+        keywords: KEYWORDS,
+      },
+      {
+        // highlights the first type in assignation. Ex: MyClass mc =
+        begin: '^\\s*' + TYPE_IDENT_RE + '\\s[a-z]\\w*\\s*=', returnBegin: true,
+        end: ';|\\n',
+        keywords: KEYWORDS,
+        contains: [
+          STRING,
+          {
+            className: 'type',
+            begin: '((\\s[A-Z])|(^[A-Z]))\\w*',
+            keywords: KEYWORDS,
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
       },
       /* FIXME 'else if()' taken as a function
       {
