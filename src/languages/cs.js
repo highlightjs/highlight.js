@@ -202,10 +202,13 @@ function(hljs) {
         end: '\\)\\s*{|;', excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
+          STRING,
           {
             className: 'type',
             begin: '\\b[A-Z]\\w*'
-          }
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
         ]
       },
       {
