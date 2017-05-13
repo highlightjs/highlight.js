@@ -180,7 +180,7 @@ function(hljs) {
         // new MaClasse();
         // FIXME new object should be taken as keyword
         className: 'type',
-        beginKeywords: 'new', end: '[\\(<\\[]', excludeEnd: true
+        beginKeywords: 'new', end: '[\\(<\\[\\{]', excludeEnd: true,
       },
       {
         // [Attributes]
