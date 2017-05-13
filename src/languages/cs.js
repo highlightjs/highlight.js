@@ -198,7 +198,7 @@ function(hljs) {
       {
         // private void MyMethod(Dictionary<int, string> dico, MaClasse myObject)
         className: 'params',
-        begin: '^\\s*([a-z]+\\s)*(' + TYPE_IDENT_RE + '\\s)?[A-Z]\\w*\\s*\\(', excludeBegin: true,
+        begin: '^\\s*([a-z]+\\s)+(' + TYPE_IDENT_RE + '\\s)?[A-Z]\\w*\\s*\\(', excludeBegin: true,
         end: '\\)\\s*{|;', excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
