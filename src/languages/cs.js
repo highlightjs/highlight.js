@@ -135,6 +135,11 @@ function(hljs) {
         illegal: /[^\s:]/,
         contains: [
           {
+            className: 'class',
+            begin: 'I[A-Z]\\w*',
+            relevance: 0
+          },
+          {
             className: 'type',
             begin: hljs.IDENT_RE,
             relevance: 0
