@@ -38,7 +38,8 @@
   color: #D69D85;
 }
 
-.hljs-regexp {
+.hljs-regexp,
+.hljs-template-tag {
   color: #9A5334;
 }
 
@@ -71,7 +72,8 @@
   font-style: italic;
 }
 
-.hljs-variable {
+.hljs-variable,
+.hljs-template-variable {
   color: #BD63C5;
 }
 
