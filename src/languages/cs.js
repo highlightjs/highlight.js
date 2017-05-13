@@ -91,6 +91,7 @@ function(hljs) {
   };
 
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
+
   return {
     aliases: ['csharp'],
     keywords: KEYWORDS,
@@ -135,6 +136,7 @@ function(hljs) {
         illegal: /[^\s:]/,
         contains: [
           {
+            // for inherited interface in class declaration
             className: 'class',
             begin: 'I[A-Z]\\w*',
             relevance: 0
@@ -177,13 +179,13 @@ function(hljs) {
         relevance: 0
       },
       {
-        // new MaClasse();
-        // FIXME new object should be taken as keyword
+        // Type in new declaration. Ex: new MaClasse();
+        // FIXME in 'new object();' object should be considered as keyword
         className: 'type',
         beginKeywords: 'new', end: '[\\(<\\[\\{]', excludeEnd: true,
       },
       {
-        // [Attributes]
+        // [Attributes("")]
         className: 'type',
         begin: '^\\s*\\[', excludeBegin: true, end: '[\\(\\]]', excludeEnd: true,
         contains: [
@@ -191,12 +193,13 @@ function(hljs) {
         ]
       },
       {
-        // typeof
+        // highlights type in typeof()
         className: 'type',
         begin: 'typeof\\(', excludeBegin: true, end: '\\)', excludeEnd: true,
       },
       {
-        // private void MyMethod(Dictionary<int, string> dico, MaClasse myObject)
+        // highlights types of parameters in methods declarations
+        // Ex: private void MyMethod(Dictionary<int, string> dico, MyClass myObject) {}
         className: 'params',
         begin: '^\\s*([a-z]+\\s)+(' + TYPE_IDENT_RE + '\\s)?[A-Z]\\w*\\s*\\(', excludeBegin: true,
         end: '\\)\\s*{|;', excludeEnd: true,
