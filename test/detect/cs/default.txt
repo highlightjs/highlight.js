@@ -1,10 +1,10 @@
-using System;
+using System.IO.Compression;
 
 #pragma warning disable 414, 3021
 
 namespace MyApplication
 {
-    class Program
+    class Program : IInterface
     {
         /// <summary>
         /// Main method
@@ -16,14 +16,39 @@ namespace MyApplication
             /* multi-lines
              * comment
              */
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine($"Hello {Name}!");
+
+            if (b == true)
+            {
+              // FIXME
+              MyClass mc;
+              MyClass mc = new MyClass(myVariable, MyProperty, myVariable.MyProperty);
+              IMyInterface mi = MyClass<IMyInterface>.Create(new MyClass("test"));
+              MyClass.MyStaticMethod(myVariable, MyProperty, myVariable.MyProperty);
+            }
+            else if (b == false)
+            {
+              var query = from p in entities.Persons
+                          select new { First = p.FirstName, Last = p.LastName };
+            }
+            else
+            {
+              MyProperty = "value";
+              MyMethod(myVariable, MyProperty, myVariable.MyProperty);
+            }
+
+            foreach (MyClass<int> mc in mcList)
+            {
+            }
+
+            using (GZipStream s = new GZipStream(fs, CompressionMode.Decompress))
+            {
+            }
         }
 
-        List<int> MyMethod(Dictionary<int, string> dico, MaClasse myObject)
+        [DataMember("")]
+        private List<int> MyMethod(MaClasse mc, MaClasse<int> mci)
         {
-            var v = new MaClasse();
-            MaClasse mc = new MaClasse();
-            return new List<int>();
         }
     }
 }
