@@ -19,11 +19,10 @@ function(hljs) {
       // Normal keywords.
       'abstract as base bool break byte case catch char checked const continue decimal ' +
       'default delegate do double else enum event explicit extern finally fixed float ' +
-      'for foreach goto if implicit in int interface internal is lock long ' +
+      'for foreach goto if implicit in int interface internal is lock long nameof new ' +
       'object operator out override params private protected public readonly ref sbyte ' +
       'sealed short sizeof stackalloc static string struct switch this try typeof ' +
       'uint ulong unchecked unsafe ushort using virtual void volatile while ' +
-      'nameof ' +
       // Contextual keywords.
       'add alias ascending async await by descending dynamic equals from get global group into join ' +
       'let on orderby partial remove select set value var where yield',
