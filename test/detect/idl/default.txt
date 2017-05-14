@@ -1,0 +1,26 @@
+#ifndef main_IDL
+#define main_IDL
+
+#include "common.idl"
+
+/// Finance module.
+module Finance {
+      interface Account : Object {
+        void create(in short id) raises (common::Request_exception);
+        oneway void destroy();
+      };
+
+      struct LimitedAccounts {
+        string bankSortCode<10>;
+        // Maximum length of sequence is 50.
+        sequence<Account, 50> accounts;
+      };
+
+      struct UnlimitedAccounts {
+        string bankSortCode<10>;
+        // No maximum length of sequence.
+        sequence<Account> accounts;
+      };
+};
+
+#endif

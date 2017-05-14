@@ -3,6 +3,7 @@
 New languages:
 
 - *MikroTik* RouterOS Scripting language by [Ivan Dementev][].
+  *OMG IDL* OMG Interface Description Language by [Brahim Djoudi][].
 
 Improvements:
 
@@ -16,6 +17,7 @@ Improvements:
 [Alex Arslan]: https://github.com/ararslan
 [Stanislav Belov]: https://github.com/4ppl
 [Ivan Dementev]: https://github.com/DiVAN1x
+[Brahim Djoudi]: https://github.com/jolkdarr
 
 
 ## Version 9.11.0
