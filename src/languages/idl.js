@@ -68,15 +68,10 @@ function(hljs) {
     aliases: ['idl'],
     keywords: IDL_KEYWORDS,
     contains: EXPRESSION_CONTAINS.concat([
-      PREPROCESSOR,
-      {
-        className: 'module',
-        beginKeywords: 'module', end: /[{;]/,
-        contains: [ hljs.TITLE_MODE ]
-    },
+    PREPROCESSOR,
     {
-        className: 'entity',
-        beginKeywords: 'interface struct union exception enum', end: /[{;:]/,
+        className: 'class',
+        beginKeywords: 'module interface struct union exception enum', end: /[{;:]/,
         contains: [ hljs.TITLE_MODE ]
     }
     ]),
