@@ -1,0 +1,30 @@
+#pragma once
+
+#include <SliceDefs/Clock.ice>
+
+/* Demo module.
+ */
+["cpp:type:wstring"]
+module demo {
+    exception IO_error {};
+
+    // Printer interface.
+    interface Printer {
+        void print(string filename) throws IO_error;
+    };
+
+    interface LaserPrinter extends Printer {
+        idempotent short resolution();
+    };
+
+    // Factory interface.
+    class Factory {
+        idempotent optional(1) bool createG(out Object o);
+        idempotent optional(1) bool createL(out LocalObject lo);
+    };
+
+    struct \dictionary {
+        bool empty = true;
+        dictionary<int, string> d;
+    };
+};
