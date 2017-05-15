@@ -57,28 +57,23 @@ function(hljs) {
     literal: 'TRUE FALSE'
   };
 
-  var EXPRESSION_CONTAINS = [
+  var EXPRESSION = [
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     NUMBERS,
-    STRINGS
-  ];
-
-  return {
-    aliases: ['idl'],
-    keywords: IDL_KEYWORDS,
-    contains: EXPRESSION_CONTAINS.concat([
+    STRINGS,
     PREPROCESSOR,
     {
         className: 'class',
         beginKeywords: 'module interface struct union exception enum', end: /[{;:]/,
         contains: [ hljs.TITLE_MODE ]
     }
-    ]),
-    exports: {
-      preprocessor: PREPROCESSOR,
-      strings: STRINGS,
-      keywords: IDL_KEYWORDS
-    }
+  ];
+
+  return {
+    aliases: ['idl'],
+    case_insensitive: false,
+    keywords: IDL_KEYWORDS,
+    contains: EXPRESSION
   };
 }

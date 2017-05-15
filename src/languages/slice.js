@@ -82,11 +82,6 @@ function(hljs) {
     aliases: ['slice'],
     case_insensitive: false,
     keywords: SLICE_KEYWORDS,
-    contains: SLICE_EXPRESSION,
-    exports: {
-        preprocessor: PREPROCESSOR,
-        strings: STRINGS,
-        keywords: SLICE_KEYWORDS
-    }
+    contains: SLICE_EXPRESSION
   };
 }
