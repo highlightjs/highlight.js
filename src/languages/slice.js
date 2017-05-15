@@ -6,25 +6,6 @@ Category: protocols
 
 function(hljs) {
 
-  var STRINGS = {
-    className: 'string',
-    variants: [
-      {
-        begin: '"', end: '"',
-        illegal: '\\n',
-        contains: [hljs.BACKSLASH_ESCAPE]
-      }
-    ]
-  };
-
-  var NUMBERS = {
-    className: 'number',
-    variants: [
-      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
-    ],
-    relevance: 0
-  };
-
   var PREPROCESSOR =       {
     className: 'meta',
     begin: /#\s*[a-z]+\b/, end: /$/,
@@ -36,7 +17,7 @@ function(hljs) {
       {
         begin: /\\\n/, relevance: 0
       },
-      hljs.inherit(STRINGS, {className: 'meta-string'}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'}),
       {
         className: 'meta-string',
         begin: /<[^\n>]*>/, end: /$/,
@@ -72,8 +53,8 @@ function(hljs) {
   var SLICE_EXPRESSION = [
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
-    NUMBERS,
-    STRINGS,
+    hljs.C_NUMBER_MODE,
+    hljs.QUOTE_STRING_MODE,
     PREPROCESSOR,
     SLICE_CLASS
   ];

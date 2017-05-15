@@ -6,25 +6,6 @@ Category: protocols
 
 function(hljs) {
 
-  var STRINGS = {
-    className: 'string',
-    variants: [
-      {
-        begin: '"', end: '"',
-        illegal: '\\n',
-        contains: [hljs.BACKSLASH_ESCAPE]
-      }
-    ]
-  };
-
-  var NUMBERS = {
-    className: 'number',
-    variants: [
-      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
-    ],
-    relevance: 0
-  };
-
   var PREPROCESSOR =       {
     className: 'meta',
     begin: /#\s*[a-z]+\b/, end: /$/,
@@ -36,7 +17,7 @@ function(hljs) {
       {
         begin: /\\\n/, relevance: 0
       },
-      hljs.inherit(STRINGS, {className: 'meta-string'}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'}),
       {
         className: 'meta-string',
         begin: /<[^\n>]*>/, end: /$/,
@@ -48,20 +29,18 @@ function(hljs) {
   };
 
   var IDL_KEYWORDS = {
-    keyword: 'any attribute boolean case char const context ' +
-      'default double enum exception float in ' +
-      'inout interface long module octet oneway ' +
-      'out raises readonly sequence short string struct ' +
+    keyword: 'any attribute boolean case char const context default double enum exception float in ' +
+      'inout interface long module octet oneway out raises readonly sequence short string struct ' +
       'switch typedef unsigned union void ',
     built_in: 'Object',
     literal: 'TRUE FALSE'
   };
 
-  var EXPRESSION = [
+  var IDL_EXPRESSION = [
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
-    NUMBERS,
-    STRINGS,
+    hljs.C_NUMBER_MODE,
+    hljs.QUOTE_STRING_MODE,
     PREPROCESSOR,
     {
         className: 'class',
@@ -74,6 +53,6 @@ function(hljs) {
     aliases: ['idl'],
     case_insensitive: false,
     keywords: IDL_KEYWORDS,
-    contains: EXPRESSION
+    contains: IDL_EXPRESSION
   };
 }
