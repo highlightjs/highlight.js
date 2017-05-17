@@ -249,6 +249,8 @@ Contributors:
 - Alex Arslan <ararslan@comcast.net>
 - Stanislav Belov <stbelov@gmail.com>
 - Ivan Dementev <ivan_div@mail.ru>
+- David Simner <david.simner@red-gate.com>
+- Grzegorz Smulko <greg.smulko@red-gate.com>
 - Nicolas LLOBERA <nllobera@gmail.com>
 - Morten Piibeleht <morten.piibeleht@gmail.com>
 - Martin Clausen <martin.clausene@gmail.com>

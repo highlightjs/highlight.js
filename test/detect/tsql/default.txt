@@ -1,0 +1,15 @@
+/*
+    Hello World  /* nested comment ftw */
+*/
+
+:setvar Type "TABLE"
+
+SET XACT_ABORT ON
+
+EXEC sp_help 'foo '' bar'
+
+SELECT COUNT(*) AS counted
+    FROM sys.objects
+    CROSS JOIN sys.schemas
+    WHERE [type] = N'$(Type)'
+      AND UPPER("create_date") > 4

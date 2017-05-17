@@ -1,3 +1,13 @@
+## Version 9.13.0
+
+New language:
+
+- *Transact-SQL (T-SQL)* by [David Simner][] and [Grzegorz Smulko][].
+
+[David Simner]: https://github.com/davidsimner
+[Grzegorz Smulko]: https://github.com/greg-smulko
+
+
 ## Version 9.12.0
 
 New language:

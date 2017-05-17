@@ -1,0 +1,15 @@
+<span class="hljs-comment">/*
+    Hello World  <span class="hljs-comment">/* nested comment ftw */</span>
+*/</span>
+<span class="hljs-meta">
+:setvar Type "TABLE"</span>
+
+<span class="hljs-keyword">SET</span> <span class="hljs-keyword">XACT_ABORT</span> <span class="hljs-keyword">ON</span>
+
+<span class="hljs-keyword">EXEC</span> <span class="hljs-function">sp_help</span> <span class="hljs-string">'foo '' bar'</span>
+
+<span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">COUNT</span>(*) <span class="hljs-keyword">AS</span> <span class="hljs-symbol">counted</span>
+    <span class="hljs-keyword">FROM</span> <span class="hljs-type">sys</span>.<span class="hljs-type">objects</span>
+    <span class="hljs-literal">CROSS</span> <span class="hljs-literal">JOIN</span> <span class="hljs-type">sys</span>.<span class="hljs-type">schemas</span>
+    <span class="hljs-keyword">WHERE</span> <span class="hljs-symbol">[type]</span> = <span class="hljs-string">N'$(Type)'</span>
+      <span class="hljs-literal">AND</span> <span class="hljs-built_in">UPPER</span>(<span class="hljs-symbol">"create_date"</span>) &gt; <span class="hljs-number">4</span>
