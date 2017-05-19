@@ -1,0 +1,28 @@
+{namespace Modal}
+
+/**
+ * This renders the component's whole content.
+ * Note: has to be called ".render".
+ * @param body
+ * @param header
+ */
+{template .render}
+	<div class="modal show">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<header class="modal-header">
+					<button type="button" class="close">
+						<span>×</span>
+					</button>
+					<h4>{$header}</h4>
+				</header>
+				<section class="modal-body">
+					{$body}
+				</section>
+				<footer class="modal-footer">
+					<button type="button" class="btn btn-primary">OK</button>
+				</footer>
+			</div>
+		</div>
+	</div>
+{/template}
