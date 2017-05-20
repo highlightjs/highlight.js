@@ -4,6 +4,7 @@ New languages:
 
 - *MikroTik* RouterOS Scripting language by [Ivan Dementev][].
   *OMG IDL* OMG Interface Description Language by [Brahim Djoudi][].
+  *WebIDL* Web IDL by [Brahim Djoudi][].
   *Slice* Zeroc specification language for ICE framework by [Brahim Djoudi][].
 
 Improvements:

@@ -50,12 +50,20 @@ function(hljs) {
     ]
   };
 
+  var ANNOTATION = {
+    className: 'meta', begin: '\\[', end: '\\]',
+    contains: [
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'})
+    ]
+  };
+
   var SLICE_EXPRESSION = [
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.C_NUMBER_MODE,
     hljs.QUOTE_STRING_MODE,
     PREPROCESSOR,
+    ANNOTATION,
     SLICE_CLASS
   ];
 

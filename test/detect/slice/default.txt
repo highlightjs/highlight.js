@@ -11,6 +11,8 @@ module demo {
     // Printer interface.
     interface Printer {
         void print(string filename) throws IO_error;
+
+        const string FormFeed = "\f";
     };
 
     interface LaserPrinter extends Printer {

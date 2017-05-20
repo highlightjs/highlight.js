@@ -1,0 +1,24 @@
+/// Main namespace.
+namespace Namespace {
+    interface interface_identifier { /* interface_members... */ };
+    partial interface interface_identifier { /* interface_members... */ };
+    namespace namespace_identifier { /* namespace_members... */ };
+    partial namespace namespace_identifier { /* namespace_members... */ };
+    dictionary dictionary_identifier { /* dictionary_members... */ };
+    partial dictionary dictionary_identifier { /* dictionary_members... */ };
+    enum enumeration_identifier { "enum", "values" /* , ... */ };
+    callback callback_identifier = return_type (/* arguments... */);
+
+    [Constructor]
+    interface Dictionary {
+      serializer = [ getter ];
+
+      readonly attribute unsigned long propertyCount;
+
+      double getProperty(DOMString propertyName);
+      void setProperty(DOMString propertyName, double propertyValue);
+
+      getter double (DOMString propertyName);
+      setter void (DOMString propertyName, double propertyValue);
+    };
+};
