@@ -249,3 +249,4 @@ URL:   https://highlightjs.org/
 - Алекс Арслан <ararslan@comcast.net>
 - Станислав Белов <stbelov@gmail.com>
 - Иван Дементьев <ivan_div@mail.ru>
+- Мортен Пибелехт <morten.piibeleht@gmail.com>
