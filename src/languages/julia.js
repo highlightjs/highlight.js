@@ -84,7 +84,6 @@ function(hljs) {
 
   // placeholder for recursive self-reference
   var DEFAULT = {
-    aliases: ['jldoctest'],
     lexemes: VARIABLE_NAME_RE, keywords: KEYWORDS, illegal: /<\//
   };
 
