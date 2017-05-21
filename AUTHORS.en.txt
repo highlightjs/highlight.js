@@ -249,3 +249,4 @@ Contributors:
 - Alex Arslan <ararslan@comcast.net>
 - Stanislav Belov <stbelov@gmail.com>
 - Ivan Dementev <ivan_div@mail.ru>
+- Morten Piibeleht <morten.piibeleht@gmail.com>
