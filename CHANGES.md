@@ -10,8 +10,8 @@ Improvements:
 - *Julia* updated to the modern definitions by [Alex Arslan][].
 - *julia-repl* added by [Morten Piibeleht][].
 - [Stanislav Belov][] wrote a new definition for *1C*, replacing the one that
-  been updated for more than 8 years. The new version supports syntax for
-  versions 7.7 and 8.
+  has not been updated for more than 8 years. The new version supports syntax
+  for versions 7.7 and 8.
 
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Alex Arslan]: https://github.com/ararslan
