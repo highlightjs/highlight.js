@@ -16,39 +16,33 @@ namespace MyApplication
             /* multi-lines
              * comment
              */
-            Console.WriteLine($"Hello {Name}!");
 
             if (b == true)
             {
-              // FIXME
-              MyClass mc;
-              MyClass mc = new MyClass(myVariable, MyProperty, myVariable.MyProperty);
-              IMyInterface mi = MyClass<IMyInterface>.Create(new MyClass("test"));
-              MyClass.MyStaticMethod(myVariable, MyProperty, myVariable.MyProperty);
+                Console.WriteLine($"Hello {Name}!");
             }
             else if (b == false)
             {
-              var query = from p in entities.Persons
-                          select new { First = p.FirstName, Last = p.LastName };
-            }
-            else
-            {
-              MyProperty = "value";
-              MyMethod(myVariable, MyProperty, myVariable.MyProperty);
-            }
-
-            foreach (MyClass<int> mc in mcList)
-            {
-            }
-
-            using (GZipStream s = new GZipStream(fs, CompressionMode.Decompress))
-            {
+                var query = from p in entities.Persons
+                            select new { First = p.FirstName, Last = p.LastName };
             }
         }
 
-        [DataMember("")]
-        private List<int> MyMethod(MaClasse mc, MaClasse<int> mci)
+        private List<int> _myList;
+
+        [DataMember(Name = "mylist")]
+        public List<int> MyList
         {
+            get
+            {
+                return _myList;
+            }
+        }
+
+        private async Task<int, int> AccessTheWebAsync()
+        {
+            string urlContents = await getStringTask;
+            return urlContents.Length;
         }
     }
 }
