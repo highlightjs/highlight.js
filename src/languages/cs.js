@@ -152,7 +152,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
+        begin: '(' + TYPE_IDENT_RE + '\\s+)+[A-Z]\\w*\\s*\\(', returnBegin: true,
         end: /[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
