@@ -8,13 +8,15 @@ Improvements:
 
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
 - *Julia* updated to the modern definitions by [Alex Arslan][].
+- *julia-repl* added by [Morten Piibeleht][].
 - [Stanislav Belov][] wrote a new definition for *1C*, replacing the one that
-  been updated for more than 8 years. The new version supports syntax for
-  versions 7.7 and 8.
+  has not been updated for more than 8 years. The new version supports syntax
+  for versions 7.7 and 8.
 - new style: VisualStudio 2015 Dark by [Nicolas LLOBERA][]
 
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Alex Arslan]: https://github.com/ararslan
+[Morten Piibeleht]: https://github.com/mortenpi
 [Stanislav Belov]: https://github.com/4ppl
 [Ivan Dementev]: https://github.com/DiVAN1x
 [Nicolas LLOBERA]: https://github.com/Nicolas01

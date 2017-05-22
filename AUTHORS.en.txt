@@ -250,3 +250,4 @@ Contributors:
 - Stanislav Belov <stbelov@gmail.com>
 - Ivan Dementev <ivan_div@mail.ru>
 - Nicolas LLOBERA <nllobera@gmail.com>
+- Morten Piibeleht <morten.piibeleht@gmail.com>
