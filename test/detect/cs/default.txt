@@ -4,45 +4,13 @@ using System.IO.Compression;
 
 namespace MyApplication
 {
+    [DataContract]
     class Program : IInterface
     {
-        /// <summary>
-        /// Main method
-        /// </summary>
-        /// <param name="args"></param>
-        static void Main(string[] args)
+        public static Dictionary<int, string> JustDoIt(int parameter1, string parameter2)
         {
-            // comment
-            /* multi-lines
-             * comment
-             */
-
-            if (b == true)
-            {
-                Console.WriteLine($"Hello {Name}!");
-            }
-            else if (b == false)
-            {
-                var query = from p in entities.Persons
-                            select new { First = p.FirstName, Last = p.LastName };
-            }
-        }
-
-        private List<int> _myList;
-
-        [DataMember(Name = "mylist")]
-        public List<int> MyList
-        {
-            get
-            {
-                return _myList;
-            }
-        }
-
-        private async Task<int, int> AccessTheWebAsync()
-        {
-            string urlContents = await getStringTask;
-            return urlContents.Length;
+            Console.WriteLine($"Hello {Name}!");
+            return new Dictionay<int, string>() { [1] = "a", [2] = "b" };
         }
     }
 }
