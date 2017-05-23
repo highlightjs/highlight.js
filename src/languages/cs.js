@@ -10,7 +10,7 @@ function(hljs) {
     keyword:
       // Normal keywords.
       'abstract as base bool break byte case catch char checked const continue decimal ' +
-      'default delegate do double else enum event explicit extern finally fixed float ' +
+      'default delegate do double enum event explicit extern finally fixed float ' +
       'for foreach goto if implicit in int interface internal is lock long nameof ' +
       'object operator out override params private protected public readonly ref sbyte ' +
       'sealed short sizeof stackalloc static string struct switch this try typeof ' +
@@ -147,12 +147,12 @@ function(hljs) {
       {
         // Expression keywords prevent 'keyword Name(...)' from being
         // recognized as a function definition
-        beginKeywords: 'new return throw await',
+        beginKeywords: 'new return throw await else',
         relevance: 0
       },
       {
         className: 'function',
-        begin: '(' + TYPE_IDENT_RE + '\\s+)+[A-Z]\\w*\\s*\\(', returnBegin: true,
+        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
         end: /[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
