@@ -21,6 +21,7 @@ Improvements:
 [Morten Piibeleht]: https://github.com/mortenpi
 [Stanislav Belov]: https://github.com/4ppl
 [Ivan Dementev]: https://github.com/DiVAN1x
+[Nicolas LLOBERA]: https://github.com/Nicolas01
 [Brahim Djoudi]: https://github.com/jolkdarr
 
 
