@@ -251,3 +251,4 @@ URL:   https://highlightjs.org/
 - Иван Дементьев <ivan_div@mail.ru>
 - Николя Ллобера <nllobera@gmail.com>
 - Мортен Пибелехт <morten.piibeleht@gmail.com>
+- Мартин Клаузен <martin.clausene@gmail.com>
