@@ -251,3 +251,4 @@ Contributors:
 - Ivan Dementev <ivan_div@mail.ru>
 - Nicolas LLOBERA <nllobera@gmail.com>
 - Morten Piibeleht <morten.piibeleht@gmail.com>
+- Martin Clausen <martin.clausene@gmail.com>
