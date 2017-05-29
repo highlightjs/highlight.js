@@ -712,7 +712,7 @@ https://highlightjs.org/
   hljs.IDENT_RE = '[a-zA-Z]\\w*';
   hljs.UNDERSCORE_IDENT_RE = '[a-zA-Z_]\\w*';
   hljs.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
-  hljs.C_NUMBER_RE = '(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
+  hljs.C_NUMBER_RE = '(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?f?)'; // 0x..., 0..., decimal, float
   hljs.BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
   hljs.RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
 
