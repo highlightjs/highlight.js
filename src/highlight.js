@@ -660,22 +660,27 @@ https://highlightjs.org/
 
   /*
   Applies highlighting to all <pre><code>..</code></pre> blocks on a page.
+  If elements parameter is specified, highlight those blocks instead.
   */
-  function initHighlighting() {
+  function initHighlighting(elements) {
     if (initHighlighting.called)
       return;
     initHighlighting.called = true;
 
-    var blocks = document.querySelectorAll('pre code');
+    var blocks;
+    if(typeof elements === 'string')
+      blocks = document.querySelectorAll(elements);
+    else
+      blocks = document.querySelectorAll('pre code');
     ArrayProto.forEach.call(blocks, highlightBlock);
   }
 
   /*
   Attaches highlighting to the page load event.
   */
-  function initHighlightingOnLoad() {
-    addEventListener('DOMContentLoaded', initHighlighting, false);
-    addEventListener('load', initHighlighting, false);
+  function initHighlightingOnLoad(elements) {
+    addEventListener('DOMContentLoaded', function() {initHighlighting(elements)}, false);
+    addEventListener('load', function() {initHighlighting(elements)}, false);
   }
 
   function registerLanguage(name, language) {
