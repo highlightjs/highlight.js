@@ -22,3 +22,19 @@ sfc /SCANNOW
 set path = test
 
 xcopy %1\*.* %2
+
+set "say=call :logit "
+
+rem Usage %say% "Message"
+goto :continue
+
+:logit
+echo %~1
+echo %date% %time% - %~1 >>%logfile%
+goto:eof
+
+:unquote var
+set quote="
+if "!%1:~0,1!" equ "!quote!" set %1=!%1:~1,-1!
+if "!%1:~0,1!" equ "'" set %1=!%1:~1,-1!
+exit /B
