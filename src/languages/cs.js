@@ -138,10 +138,10 @@ function(hljs) {
       },
       {
         // [Attributes("")]
-        className: 'title',
-        begin: '^\\s*\\[', excludeBegin: true, end: '[\\(\\]]', excludeEnd: true,
+        className: 'meta',
+        begin: '^\\s*\\[', excludeBegin: true, end: '\\]', excludeEnd: true,
         contains: [
-          STRING
+          {className: 'meta-string', begin: /"/, end: /"/}
         ]
       },
       {
