@@ -1,11 +1,16 @@
-using System;
+using System.IO.Compression;
 
 #pragma warning disable 414, 3021
 
-/// <summary>Main task</summary>
-async Task<int, int> AccessTheWebAsync()
+namespace MyApplication
 {
-    Console.WriteLine("Hello, World!");
-    string urlContents = await getStringTask;
-    return urlContents.Length;
+    [DataContract]
+    class Program : IInterface
+    {
+        public static Dictionary<int, string> JustDoIt(int parameter1, string parameter2)
+        {
+            Console.WriteLine($"Hello {Name}!");
+            return new Dictionay<int, string>() { [1] = "a", [2] = "b" };
+        }
+    }
 }
