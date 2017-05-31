@@ -7,10 +7,10 @@ namespace MyApplication
     [Obsolete("...")]
     class Program : IInterface
     {
-        public static Dictionary<int, string> JustDoIt(int parameter1, string parameter2)
+        public static List<int> JustDoIt(int count)
         {
             Console.WriteLine($"Hello {Name}!");
-            return new Dictionay<int, string>() { [1] = "a", [2] = "b" };
+            return new List<int>(new int[] { 1, 2, 3 })
         }
     }
 }
