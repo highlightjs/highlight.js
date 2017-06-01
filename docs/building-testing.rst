@@ -8,7 +8,7 @@ where you're going to run it: a browser, the node.js server, etc.
 Building
 --------
 
-The build tool is written in JavaScript using node.js. Before running the
+The build tool is written in JavaScript (ECMAScript 6) using node.js. Before running the
 script, make sure to have node installed and run ``npm install`` to get the
 dependencies.
 
@@ -25,6 +25,10 @@ The tool is located in ``tools/build.js``. A few useful examples:
 * Build two specific languages for debugging, skipping compression in this case::
 
     node tools/build.js -n python ruby
+
+In case you got a syntax error during a prject build, try replacing
+``node rest_arguments`` command with ``node --harmony rest_arguments``. This will
+enable ECMAScript 6 support, which is used for project build.
 
 On some systems the node binary is named ``nodejs``; simply replace ``node``
 with ``nodejs`` in the examples above if that is the case.
