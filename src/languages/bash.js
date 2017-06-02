@@ -55,7 +55,30 @@ function(hljs) {
         'fc fg float functions getcap getln history integer jobs kill limit log noglob popd print ' +
         'pushd pushln rehash sched setcap setopt stat suspend ttyctl unfunction unhash unlimit ' +
         'unsetopt vared wait whence where which zcompile zformat zftp zle zmodload zparseopts zprof ' +
-        'zpty zregexparse zsocket zstyle ztcp',
+        'zpty zregexparse zsocket zstyle ztcp ' +
+        // Common shell commands
+        // http://ss64.com/bash/
+        //  most used in script
+        'awk basename bash bc cat clear cp csplit cut date dc dd df diff dir dirname dirs egrep env ' +
+        'expand expr fgrep file find fmt fold gawk grep hash head history hostname join ln logname ' +
+        'ls mv nl paste pgrep printenv rcp rev sed select seq sort source split tail tee touch tr tsort ' +
+        'unexpand uniq until watch wc whereis who whoami xargs yes ' +
+        //  admin
+        'cfdisk chgrp chmod chown chroot curl dig dmesg du fdisk fg format free fsck fuser groupadd ' +
+        'groupdel groupmod groupps ifconfig ifdown ifup ip kill killall killproc link lsblk lsof ' +
+        'man mkdir more most mount nc netstat nice nohup nslookup passwd ping pkill ps pv quota reboot ' +
+        'restart rm rmdir rsync scp sdiff shutdown sleep ss ssh start status stop strace su sudo sync ' +
+        'reload time top traceroute umount uname uptime useradd userdel usermod wget users ' +
+        //  archive
+        'bzip2 gzip rar tar unrar xz zip ' +
+        //  package management
+        'apk apt aptitude apt-get deb dnf dpkg rpm yum ' +
+        //  others
+        'cal chkconfig cksum cmp comm complete cron crontab ddrescue diff3 dircolors eject ethtool ' +
+        'expect fdformat ftp help htop iconv import install jobs less locate look lpc lpr lprint ' +
+        'lprintd lprintq lprm mkfifo mkisofs mknod mtools mtr mmv notify-send op pathchk pr printcap ' +
+        'quotacheck ram rename renice remsync screen sftp slocate strip sum timeout times tput tty ' +
+        'units unshar uuencode uudecode vdir vi vmstat write xdg-open',
       _:
         '-ne -eq -lt -gt -f -d -e -s -l -a' // relevance booster
     },
