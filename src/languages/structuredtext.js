@@ -18,7 +18,7 @@ function(hljs) {
 
     aliases: ['structuredtext', 'iec-st', 'iec-61131'],
 
-    illegal: '[${|]',
+    illegal: /[$|{|#]/,
 
     keywords: {
       keyword: KEYWORDS,
