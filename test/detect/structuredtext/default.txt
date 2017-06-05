@@ -1,0 +1,62 @@
+case iStep of
+0:
+	if not udtData.DNS.xRequest then
+		udtData.DNS.strHostname := 'www.google.com';
+		udtData.DNS.xRequest := true;
+		iStep := 10;
+	end_if;
+10:
+	if not udtData.DNS.xRequest then
+		if udtData.DNS.xError then
+			; (* Error occured *)
+		elsif udtData.DNS.xDone then
+			strIP := udtData.DNS.strIP_Response;
+		end_if;
+	end_if;
+end_case;
+
+xBool := STRING_TO_BOOL (strValue);
+
+xBool := STRING_TO_BOOL(strValue);
+
+FunctionBlockCall1(xActivate := true, iPara1:=value);
+value := FunctionBlockCall1.out;
+
+Function_Block_Call_2(
+    iIndex := 1,
+    wPD_In := wPD_In_AI_1
+);
+wPD_Out_AI_1 := Function_Block_Call_2.wPD_Out;
+
+IF (foo AND bar)
+AND ((baz or fooBar) or bar) THEN
+    abcd := abcd;
+END_IF;
+
+bByte := BYTE#16#0A;
+bByte := BYTE#61;
+wWord := WORD#16#0AB1;
+wWord := WORD#0879;
+dwWord := DWORD#16#0AB1CD3;
+dwWord := DWORD#78879;
+siInt := SINT#16#B;
+siInt := SINT#28;
+iInt := INT#145;
+iInt := INT#16#A165;
+iInt := 145;
+rReal := REAL#1.879;
+rReal := REAL#1.2e4;
+rReal := 1.23512;
+strString := '';
+strString := 'Hello World';
+strString := STRING#'Hello World';
+
+if (xVar1 or xVar2 and xVar3 xor xVar4 or not xVar5 and ((iVar3 mod 5) = 0)) then
+    ; (* nothing *)
+end_if;
+
+(* This is a 
+multiline comment ... *)
+udtData.xVar1 := udtData.Parameter.xVar2
+	(* or udtData.xVar3 *)
+	or false;
