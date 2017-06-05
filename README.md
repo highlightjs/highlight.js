@@ -78,20 +78,46 @@ In your main script:
 
 ```javascript
 addEventListener('load', function() {
-  var code = document.querySelector('#code');
+  var codes = document.querySelectorAll('pre code');
+  if (codes.length == 0) {
+    return;
+  }
+
   var worker = new Worker('worker.js');
-  worker.onmessage = function(event) { code.innerHTML = event.data; }
-  worker.postMessage(code.textContent);
+
+  // called from the worker
+  worker.onmessage = function (event) {
+    // event.data = [ codes idx, formated text ]
+    codes[event.data[0]].innerHTML = event.data[1];
+  };
+
+  for(var i=0; i < codes.length; i++) {
+    var code = codes[i];
+    // call the worker
+    worker.postMessage([i, code.className, code.textContent]);
+  }
 })
 ```
 
 In worker.js:
 
 ```javascript
+importScripts('<path>/highlight.pack.js');
+
+// called from the main thread
 onmessage = function(event) {
-  importScripts('<path>/highlight.pack.js');
-  var result = self.hljs.highlightAuto(event.data);
-  postMessage(result.value);
+  // event.data = [ codes idx, className, raw text ]
+
+  var match = /\blang(?:uage)?-([\w-]+)\b/i.exec(event.data[1]);
+
+  if (!match)
+    return;
+  if (!self.hljs.getLanguage(match[1]))
+    return;
+
+  var result = self.hljs.highlight(match[1], event.data[2]);
+  // call the main thread
+  postMessage([event.data[0], result.value]);
 }
 ```
 
