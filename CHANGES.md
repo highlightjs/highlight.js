@@ -1,11 +1,15 @@
-## Master (UNRELEASED)
+## Version 9.12.0
 
-New languages:
+New language:
 
 - *MikroTik* RouterOS Scripting language by [Ivan Dementev][].
   *OMG IDL* OMG Interface Description Language by [Brahim Djoudi][].
   *WebIDL* Web IDL by [Brahim Djoudi][].
   *Slice* Zeroc specification language for ICE framework by [Brahim Djoudi][].
+
+New style:
+
+- *VisualStudio 2015 Dark* by [Nicolas LLOBERA][]
 
 Improvements:
 
@@ -15,7 +19,12 @@ Improvements:
 - [Stanislav Belov][] wrote a new definition for *1C*, replacing the one that
   has not been updated for more than 8 years. The new version supports syntax
   for versions 7.7 and 8.
-- new style: VisualStudio 2015 Dark by [Nicolas LLOBERA][]
+- [Nicolas LLOBERA][] improved C# definition fixing edge cases with function
+  titles detection and added highlighting of `[Attributes]`.
+- [nnnik][] provided a few correctness fixes for *Autohotkey*.
+- [Martin Clausen][] made annotation collections in *Clojure* to look
+  consistently with other kinds.
+- [Alejandro Alonso][] updated *Swift* keywords.
 
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Alex Arslan]: https://github.com/ararslan
@@ -23,6 +32,9 @@ Improvements:
 [Stanislav Belov]: https://github.com/4ppl
 [Ivan Dementev]: https://github.com/DiVAN1x
 [Nicolas LLOBERA]: https://github.com/Nicolas01
+[nnnik]: https://github.com/nnnik
+[Martin Clausen]: https://github.com/maacl
+[Alejandro Alonso]: https://github.com/Azoy
 [Brahim Djoudi]: https://github.com/jolkdarr
 
 ## Version 9.11.0
