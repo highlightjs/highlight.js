@@ -9,3 +9,5 @@ do {
     $rollingDate = $rollingDate.AddDays(21)
     $username = [System.Environment]::UserName
 } until ($rollingDate -ge [datetime]'2013/12/31')
+
+$test = New-CommandCreatedByThirdPartyModule -DummyParameter $rollingDate
