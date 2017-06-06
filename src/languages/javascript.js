@@ -14,7 +14,7 @@ function(hljs) {
       'import from as'
     ,
     literal:
-      'true false null undefined NaN Infinity',
+      'true false null undefined NaN Infinity -Infinity',
     built_in:
       'eval isFinite isNaN parseFloat parseInt decodeURI decodeURIComponent ' +
       'encodeURI encodeURIComponent escape unescape Object Function Boolean Error ' +
