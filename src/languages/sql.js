@@ -5,10 +5,10 @@
  */
 
 function(hljs) {
-  var COMMENT_MODE = hljs.COMMENT('--', '$');
+  var COMMENT_MODE = hljs.COMMENT('--', '$', '#');
   return {
     case_insensitive: true,
-    illegal: /[<>{}*#]/,
+    illegal: /[<>{}*]/,
     contains: [
       {
         beginKeywords:
