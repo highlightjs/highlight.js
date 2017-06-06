@@ -5,7 +5,8 @@
  */
 
 function(hljs) {
-  var COMMENT_MODE = hljs.COMMENT('--', '$', '#');
+  var MYSQL_COMMENT_MODE = hljs.COMMENT('#', '$');
+  var COMMENT_MODE = hljs.COMMENT('--', '$', MYSQL_COMMENT_MODE);
   return {
     case_insensitive: true,
     illegal: /[<>{}*]/,
