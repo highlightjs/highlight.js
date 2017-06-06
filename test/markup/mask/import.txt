@@ -1,0 +1,13 @@
+import Foo from './foo';
+import * as Users from '/api/v1/users' is json;
+import async Baz from 'baz';
+
+await Baz {
+    @progress {
+        div.spinner > 'Loading';
+    }
+}
+
+for (user of Users) {
+    Foo (user);
+}

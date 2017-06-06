@@ -1,0 +1,4 @@
+define Foo as (div) {
+  
+  span > 'Hello ~[name]'
+}
