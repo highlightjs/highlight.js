@@ -8,9 +8,6 @@ function(hljs) {
   return {
     keywords: {
       keyword:
-        // Value types
-        'char uchar unichar int uint long ulong short ushort int8 int16 int32 int64 uint8 ' +
-        'uint16 uint32 uint64 float double bool struct enum string void ' +
         // Reference types
         'weak unowned owned ' +
         // Modifiers
@@ -21,6 +18,9 @@ function(hljs) {
         'public private protected internal ' +
         // Other
         'using new this get set const stdout stdin stderr var',
+      type:
+        'char uchar unichar int uint long ulong short ushort int8 int16 int32 int64 uint8 ' +
+        'uint16 uint32 uint64 float double bool struct enum string void',
       built_in:
         'DBus GLib CCode Gee Object Gtk Posix',
       literal:
