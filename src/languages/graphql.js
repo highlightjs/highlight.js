@@ -8,7 +8,7 @@ function(hljs) {
   return {
     aliases: ['gql'],
     keywords: {
-      keyword: 'query mutation subscription type interface union scalar fragment enum on ...',
+      keyword: 'query mutation subscription|10 type interface union scalar fragment|10 enum on ...',
       literal: 'true false null'
     },
     contains: [
@@ -36,6 +36,7 @@ function(hljs) {
         begin: '@', end: '\\W',
         excludeEnd: true
       }
-    ]
+    ],
+    illegal: /([;<']|BEGIN)/
   }
 }
