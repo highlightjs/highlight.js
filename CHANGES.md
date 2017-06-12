@@ -1,3 +1,9 @@
+## Version 9.13.0
+
+New language:
+
+- *GraphQL* graph query language by [David Peek][].
+
 ## Version 9.12.0
 
 New language:
