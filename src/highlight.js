@@ -466,7 +466,7 @@ https://highlightjs.org/
           if (top.className) {
             result += spanEndTag;
           }
-          if (!top.skip) {
+          if (!top.skip && !top.subLanguage) {
             relevance += top.relevance;
           }
           top = top.parent;
