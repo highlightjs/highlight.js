@@ -1,0 +1,1 @@
+To view this demo in browser, please follow the [build instructions](http://highlightjs.readthedocs.io/en/latest/building-testing.html#building) with browser as the target, and then open the generated build/demo/index.html.
