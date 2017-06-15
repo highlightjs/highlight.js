@@ -48,7 +48,8 @@ https://highlightjs.org/
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
-    languages: undefined
+    languages: undefined,
+    selector: 'pre code'
   };
 
 
@@ -666,7 +667,7 @@ https://highlightjs.org/
       return;
     initHighlighting.called = true;
 
-    var blocks = document.querySelectorAll('pre code');
+    var blocks = document.querySelectorAll(options.selector);
     ArrayProto.forEach.call(blocks, highlightBlock);
   }
 
