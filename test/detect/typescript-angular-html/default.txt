@@ -1,0 +1,24 @@
+  @Component({
+        selector : "test-component",
+        template : "<h1></h1>"
+    })  class MyComponent {
+
+    } 
+
+    @Component({
+        selector : "test-component",
+        template : '<h1></h1>''
+    })  class MyComponent {
+
+    } 
+
+
+    @Component({
+        selector : "test-component",
+        template : `<h1>
+            
+                <H2>TOEIJOIJ O</H2>
+            </h1>`
+    })  class MyComponent {
+
+    } 

@@ -1,3 +1,12 @@
+## Version 9.13.0
+
+Improvements:
+
+- [Carlo Bonamico][] added support for *inline HTML templates* in *Typescript* Angular component definitions.
+
+[Carlo Bonamico]: https://github.com/carlo.bonamico
+
+
 ## Version 9.12.0
 
 New language:
