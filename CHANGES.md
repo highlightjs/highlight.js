@@ -1,3 +1,12 @@
+## Version 9.13.0
+
+Improvements:
+
+- [Mark Ellis][] wrote a CLI tool to quickly check for relevance conflicts when
+developing new language support.
+
+[Mark Ellis]: https://github.com/ellismarkf
+
 ## Version 9.12.0
 
 New language:
