@@ -5,6 +5,10 @@ New language:
 - *SPARQL* RDF Query language by [Mark Ellis][]
 - *Turtle* RDF language by [Mark Ellis][]
 
+Improvements:
+
+- *Livescript* boosted relevance to better score language by [Mark Ellis][].
+
 [Mark Ellis]: https://github.com/ellismark
 
 ## Version 9.12.0
