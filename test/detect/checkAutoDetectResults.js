@@ -2,7 +2,7 @@
 
 let bluebird = require('bluebird');
 let fs       = bluebird.promisifyAll(require('fs'));
-let hljs     = require('../../build/highlight.pack');
+let hljs     = require('../../build');
 let path     = require('path');
 let utility  = require('../utility');
 let Table    = require('cli-table');
