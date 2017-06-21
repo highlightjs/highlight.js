@@ -1,0 +1,43 @@
+#TEST of SPARQL syntax highlighting comment
+
+PREFIX data: <http://example.com/foaf/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+prefix:relatedTo :Thing
+prefix:relatedTo [ a :Thing];
+
+SELECT ?mbox ?nick ?ppd
+FROM NAMED <http://example.org/foaf/aliceFoaf>
+FROM NAMED <http://example.org/foaf/bobFoaf>
+WHERE
+{
+  GRAPH data:aliceFoaf
+  {
+    ?alice  foaf:mbox <mailto:alice@work.example>;
+            foaf:knows ?whom .
+    ?whom   foaf:mbox ?mbox ;
+            rdfs:seeAlso ?ppd .
+    ?ppd    a foaf:PersonaProfileDocument .
+  } .
+  GRAPH ?ppd
+  {
+    ?w  foaf:mbox ?mbox ;
+        foaf:nick ?nick
+  }
+}
+
+SELECT ?test
+FROM NAMED <http://something.com/rdf/thing>;
+
+'''The librarian said, "Perhaps you would enjoy 'War and Peace'."'''
+'chat'@fr
+1.0e6
+true
+false
+"1.300"^^xsd:decimal
+
+SELECT ?P (COUNT(?O) AS ?C)
+WHERE { ?S ?P ?O }
+GROUP BY ?P
+HAVING (COUNT(?O) > 2 )

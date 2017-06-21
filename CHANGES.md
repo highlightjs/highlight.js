@@ -1,3 +1,12 @@
+## Version 9.13.0
+
+New language:
+
+- *SPARQL* RDF Query language by [Mark Ellis][]
+- *Turtle* RDF language by [Mark Ellis][]
+
+[Mark Ellis]: https://github.com/ellismark
+
 ## Version 9.12.0
 
 New language:
