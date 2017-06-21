@@ -151,6 +151,10 @@ function(hljs) {
         begin: JS_IDENT_RE + ':', end: ':',
         returnBegin: true, returnEnd: true,
         relevance: 0
+      },
+      {
+        begin: '\\|>',
+        relevance: 10,
       }
     ])
   };
