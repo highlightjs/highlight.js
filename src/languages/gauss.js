@@ -91,24 +91,27 @@ function(hljs) {
               'spTScalar spZeros sqpSolve sqpSolveMT sqpSolveMTControlCreate sqpSolveMTlagrangeCreate sqpSolveMToutCreate sqpSolveSet ' +
               'sqrt statements stdc stdsc stocv stof strcombine strindx strlen strput strrindx strsect strsplit strsplitPad strtodt ' +
               'strtof strtofcplx strtriml strtrimr strtrunc strtruncl strtruncpad strtruncr submat subscat substute subvec sumc sumr ' +
-              'surface svd svd1 svd2 svdcusv svds svdusv sysstate tab tan tanh tempname threadBegin threadEnd threadEndFor threadFor ' +
-              'threadJoin threadStat time timedt timestr timeutc title tkf2eps tkf2ps tocart todaydt toeplitz token topolar trapchk ' +
+              'surface svd svd1 svd2 svdcusv svds svdusv sysstate tab tan tanh tempname ' +
+              'time timedt timestr timeutc title tkf2eps tkf2ps tocart todaydt toeplitz token topolar trapchk ' +
               'trigamma trimr trunc type typecv typef union unionsa uniqindx uniqindxsa unique uniquesa upmat upmat1 upper utctodt ' +
               'utctodtv utrisol vals varCovMS varCovXS varget vargetl varmall varmares varput varputl vartypef vcm vcms vcx vcxs ' +
               'vec vech vecr vector vget view viewxyz vlist vnamecv volume vput vread vtypecv wait waitc walkindex where window ' +
               'writer xlabel xlsGetSheetCount xlsGetSheetSize xlsGetSheetTypes xlsMakeRange xlsReadM xlsReadSA xlsWrite xlsWriteM ' +
               'xlsWriteSA xpnd xtics xy xyz ylabel ytics zeros zeta zlabel ztics cdfEmpirical dot h5create h5open h5read h5readAttribute ' +
               'h5write h5writeAttribute ldl plotAddErrorBar plotAddSurface plotCDFEmpirical plotSetColormap plotSetContourLabels ' +
-              'plotSetLegendFont plotSetTextInterpreter plotSetXTicCount plotSetYTicCount plotSetZLevels powerm strjoin strtrim sylvester' +
+              'plotSetLegendFont plotSetTextInterpreter plotSetXTicCount plotSetYTicCount plotSetZLevels powerm strjoin sylvester ' +
               'strtrim',
     literal: 'DB_AFTER_LAST_ROW DB_ALL_TABLES DB_BATCH_OPERATIONS DB_BEFORE_FIRST_ROW DB_BLOB DB_EVENT_NOTIFICATIONS ' +
              'DB_FINISH_QUERY DB_HIGH_PRECISION DB_LAST_INSERT_ID DB_LOW_PRECISION_DOUBLE DB_LOW_PRECISION_INT32 ' +
              'DB_LOW_PRECISION_INT64 DB_LOW_PRECISION_NUMBERS DB_MULTIPLE_RESULT_SETS DB_NAMED_PLACEHOLDERS ' +
              'DB_POSITIONAL_PLACEHOLDERS DB_PREPARED_QUERIES DB_QUERY_SIZE DB_SIMPLE_LOCKING DB_SYSTEM_TABLES DB_TABLES ' +
-             'DB_TRANSACTIONS DB_UNICODE DB_VIEWS'
+             'DB_TRANSACTIONS DB_UNICODE DB_VIEWS __STDIN __STDOUT __STDERR'
   };
 
-  var PREPROCESSOR =
+
+  AT_COMMENT_MODE = hljs.COMMENT('@', '@');
+
+  PREPROCESSOR =
   {
     className: 'meta',
     begin: '#', end: '$',
@@ -129,7 +132,8 @@ function(hljs) {
         ]
       },
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE
+      hljs.C_BLOCK_COMMENT_MODE,
+      AT_COMMENT_MODE,
     ]
   };
 
@@ -163,6 +167,7 @@ function(hljs) {
         },
         hljs.C_NUMBER_MODE,
         hljs.C_BLOCK_COMMENT_MODE,
+        AT_COMMENT_MODE,
         STRUCT_TYPE,
       ]
     }
@@ -189,11 +194,27 @@ function(hljs) {
     mode.contains.push(FUNCTION_DEF);
     mode.contains.push(hljs.C_NUMBER_MODE);
     mode.contains.push(hljs.C_BLOCK_COMMENT_MODE);
+    mode.contains.push(AT_COMMENT_MODE);
     return mode;
   };
 
+  BUILT_IN_REF = 
+  { // these are explicitly named internal function calls
+    className: 'built_in',
+    begin: '\\b(' + KEYWORDS.built_in.split(' ').join('|') + ')\\b',
+  };
+
+  STRING_REF =
+  {
+    className: 'string',
+    begin: '"', end: '"',
+    contains: [hljs.BACKSLASH_ESCAPE],
+    relevance: 0,
+  },
+
   FUNCTION_REF = 
   {
+    //className: "fn_ref",
     begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
     returnBegin: true,
     keywords: KEYWORDS,
@@ -202,10 +223,7 @@ function(hljs) {
       { 
         beginKeywords: KEYWORDS.keyword,
       },
-      { // these are explicitly named internal function calls
-        className: 'built_in',
-        begin: '\\b(' + KEYWORDS.built_in.split(' ').join('|') + ')\\b',
-      },
+      BUILT_IN_REF,
       { // ambiguously named function calls get a relevance of 0
         className: 'built_in',
         begin: hljs.UNDERSCORE_IDENT_RE,
@@ -213,6 +231,26 @@ function(hljs) {
       },
     ],
   };
+
+  FUNCTION_REF_PARAMS = 
+  {
+    //className: "fn_ref_params",
+    begin: /\(/,
+    end: /\)/,
+    relevance: 0,
+    keywords: { built_in: KEYWORDS.built_in, literal: KEYWORDS.literal },
+    contains: [
+      hljs.C_NUMBER_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      AT_COMMENT_MODE,
+      BUILT_IN_REF,
+      FUNCTION_REF,
+      STRING_REF,
+      'self',
+    ],
+  };
+
+  FUNCTION_REF.contains.push(FUNCTION_REF_PARAMS);
 
   return {
     aliases: ['gss'],
@@ -223,14 +261,9 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.COMMENT('@', '@'),
+      AT_COMMENT_MODE,
+      STRING_REF,
       PREPROCESSOR,
-      {
-        className: 'string',
-        begin: '"', end: '"',
-        contains: [hljs.BACKSLASH_ESCAPE],
-        relevance: 0,
-      },
       {
         className: 'keyword',
         begin: /\bexternal (matrix|string|array|sparse matrix|struct|proc|keyword|fn)/,
@@ -239,12 +272,21 @@ function(hljs) {
       DEFINITION('fn', '='),
       {
         beginKeywords: 'for threadfor',
-        end: /\(/,
+        end: /;/,
+        //end: /\(/,
         relevance: 0,
+        contains: [
+          hljs.C_BLOCK_COMMENT_MODE,
+          AT_COMMENT_MODE,
+          FUNCTION_REF_PARAMS,
+        ],
       },
       { // custom method guard
         // excludes method names from keyword processing
-        begin: hljs.UNDERSCORE_IDENT_RE + '\\.' + hljs.UNDERSCORE_IDENT_RE,
+        variants: [
+          { begin: hljs.UNDERSCORE_IDENT_RE + '\\.' + hljs.UNDERSCORE_IDENT_RE, },
+          { begin: hljs.UNDERSCORE_IDENT_RE + '\\s*=', },
+        ],
         relevance: 0,
       },
       FUNCTION_REF,
