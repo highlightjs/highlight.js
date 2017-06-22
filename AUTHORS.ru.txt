@@ -235,7 +235,6 @@ URL:   https://highlightjs.org/
 - Михаель Родлер <contact@f0rki.at>
 - Сергей Собко <s.sobko@profitware.ru>
 - Хейл Чан <halechan@qq.com>
-- Мэт Эванс <syrius3@gmail.com>
 - Каспер Андерсен <kma_untrusted@protonmail.com>
 - Филипп А. <flying-sheep@web.de>
 - Гуаннан Вей <guannanwei@outlook.com>
