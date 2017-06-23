@@ -1,25 +1,32 @@
 /*
 Language: Expression 2
 Author: Simen Wiik <simenwiik@hotmail.com>
+Contributors: Coming Soon™?
 Description: A language used in the Wiremod extension for Garry's Mod
 */
 
 function(hljs) {
   return {
     alias: ["e2", "wire_e2", "gmod_wire_e2", "expression2", "exp2", "expr2"],
+    illegal: /[;'\\]/,
     keywords: 'if elseif else for foreach while break continue local switch case default function return',
     contains: [
       {
         className: 'string',
         begin: /"(\\[\s\S]|(?!")[^\\])*"/g,
-        relevance: 0
+        relevance: 10
       },
       {
         className: 'ppcommand',
         begin: /#(include|ifdef|ifndef|else|endif)/,
         relevance: 10
       },
-      hljs.COMMENT('#\\[', ']#'),
+      hljs.COMMENT(
+        '#\\[', ']#',
+        {
+          relevance: 10
+        }
+      ),
       hljs.HASH_COMMENT_MODE,
       {
         className: 'directive',
@@ -36,7 +43,6 @@ function(hljs) {
         relevance: 10
       },
       {
-        //
         className: 'operator',
         begin: /[\?\s]+:|[\?%^~$]|[-+]{2}|<<|>>|->|[-+*/!<>=][=]?|[&|][&|]?/
       },
@@ -48,7 +54,7 @@ function(hljs) {
         // (angle|array|bone|complex|entity|matrix[24]?|number|quaternion|ranger|string|table|vector[24]?|void|wirelink)
         className: 'type',
         begin: /\b(angle|array|bone|complex|effect|entity|gtable|matrix[24]?|normal|number|quaternion|ranger|string|table|vector[24]?|void|wirelink)(?!\()\b/g,
-        relevance: 0
+        relevance: 10
       },
       {
         className: 'number',
