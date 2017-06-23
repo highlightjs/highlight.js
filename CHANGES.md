@@ -3,6 +3,7 @@
 New language:
 
 - *MikroTik* RouterOS Scripting language by [Ivan Dementev][].
+- *Expression 2* by [Simen Wiik][].
 
 New style:
 
@@ -32,6 +33,7 @@ Improvements:
 [nnnik]: https://github.com/nnnik
 [Martin Clausen]: https://github.com/maacl
 [Alejandro Alonso]: https://github.com/Azoy
+[Simen Wiik]: https://github.com/revosw
 
 
 ## Version 9.11.0
