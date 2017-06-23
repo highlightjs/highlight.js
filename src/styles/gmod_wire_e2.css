@@ -1,0 +1,44 @@
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: rgb(160,160,240);
+	background: #323232;
+}
+
+.hljs-ppcommand {
+	color: rgb(240, 96, 240);
+}
+.hljs-constant {
+	color: rgb(240,160,240);
+}
+.hljs-directive {
+	color: rgb(240,240,160);
+}
+.hljs-kek {
+	color: rgb(240,240,160);
+}
+.hljs-comment {
+	color: rgb(128,128,128);
+}
+.hljs-keyword {
+	color: rgb(160,240,240);
+}
+.hljs-variable {
+	color: rgb(160,240,160);
+}
+.hljs-string {
+	color: rgb(128,128,128);
+}
+.hljs-number {
+	color: rgb(240,160,160)
+}
+.hljs-type {
+	color: rgb(240,160,96);
+}
+.hljs-operator {
+	color: rgb(217, 252, 234)
+}
+.hljs-symbol {
+	color: #DDD;
+}
