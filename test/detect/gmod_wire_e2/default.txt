@@ -1,0 +1,24 @@
+@name Hello World
+@inputs A B
+@outputs Add Sub Mul Div
+@outputs GreaterThan Highest Lowest
+@outputs Vector:vector
+@persist D
+@trigger all
+
+Add = A + B
+Sub = A - B
+Mul = A * B
+Div = A / B
+
+GreaterThan = A > B
+
+if(A > B) {
+    Highest = A, Lowest = B
+} else {
+    Highest = B, Lowest = A
+}
+
+Vector = vec(A, B, 0)
+Vector = Vector + vec(0, 0, A + B)
+Vector = Vector:normalized()
