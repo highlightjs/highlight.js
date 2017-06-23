@@ -1,7 +1,6 @@
 /*
 Language: Expression 2
 Author: Simen Wiik <simenwiik@hotmail.com>
-Contributors: Coming Soon™?
 Description: A language used in the Wiremod extension for Garry's Mod
 */
 
