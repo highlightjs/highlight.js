@@ -1,7 +1,6 @@
 /*
 Language: Expression 2
 Author: Simen Wiik <simenwiik@hotmail.com>
-Contributors: Coming Soon™?
 Description: A language used in the Wiremod extension for Garry's Mod
 */
 
@@ -13,25 +12,20 @@ function(hljs) {
     contains: [
       {
         className: 'string',
-        begin: /"(\\[\s\S]|(?!")[^\\])*"/g,
-        relevance: 10
+        begin: /"(\\[\s\S]|(?!")[^\\])*"/g
       },
       {
         className: 'ppcommand',
-        begin: /#(include|ifdef|ifndef|else|endif)/,
-        relevance: 10
+        begin: /#(include|ifdef|ifndef|else|endif)/
       },
-      hljs.COMMENT(
-        '#\\[', ']#',
-        {
-          relevance: 10
-        }
-      ),
+      hljs.COMMENT('#\\[', ']#'),
       hljs.HASH_COMMENT_MODE,
       {
         className: 'directive',
-        begin: /@(name[^#]*|model.*|inputs|outputs|persist|trigger( +(all|none))?|autoupdate.*)/,
-        relevance: 10
+        variants:[{
+          begin: '@name[^#]*'
+        }
+      ]
       },
       {
         className: 'constant',
@@ -39,8 +33,7 @@ function(hljs) {
       },
       {
         className: 'variable',
-        begin: /\b[A-Z]\w*/,
-        relevance: 10
+        begin: /\b[A-Z]\w*/
       },
       {
         className: 'operator',
@@ -53,13 +46,11 @@ function(hljs) {
       {
         // (angle|array|bone|complex|entity|matrix[24]?|number|quaternion|ranger|string|table|vector[24]?|void|wirelink)
         className: 'type',
-        begin: /\b(angle|array|bone|complex|effect|entity|gtable|matrix[24]?|normal|number|quaternion|ranger|string|table|vector[24]?|void|wirelink)(?!\()\b/g,
-        relevance: 10
+        begin: /\b(angle|array|bone|complex|effect|entity|gtable|matrix[24]?|normal|number|quaternion|ranger|string|table|vector[24]?|void|wirelink)(?!\()\b/g
       },
       {
         className: 'number',
-        begin: /(-?)(\b0x[A-F0-9]+|\b0b[01]+|(\b\d+(\.\d*)?|\.\d+)(e[-+]?\d+)?)/,
-        relevance: 0
+        begin: /(-?)(\b0x[A-F0-9]+|\b0b[01]+|(\b\d+(\.\d*)?|\.\d+)(e[-+]?\d+)?)/
       }
     ]
   }
