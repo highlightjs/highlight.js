@@ -8,17 +8,16 @@ Description: A language used in the Wiremod extension for Garry's Mod
 function(hljs) {
   return {
     alias: ["e2", "wire_e2", "gmod_wire_e2", "expression2", "exp2", "expr2"],
-    keywords: 'if|10 elseif|10 else|10 for|10 foreach|10 while|10 break|10 continue|10 local|10 switch|10 case|10 default|10 function|10 return|10',
+    keywords: 'if|0 elseif|0 else|0 for|0 foreach|0 while|0 break|0 continue|0 local|0 switch|0 case|0 default|0 function|0 return|0',
     contains: [
       {
         className: 'string',
         begin: /"(\\[\s\S]|(?!")[^\\])*"/,
-        relevance: 10
       },
       {
         className: 'ppcommand',
         begin: /#(include|ifdef|ifndef|else|endif)/,
-        relevance: 10
+        relevance: 0
       },
       hljs.COMMENT(/#\[/, /]#/),
       hljs.HASH_COMMENT_MODE,
@@ -36,23 +35,23 @@ function(hljs) {
       {
         className: 'constant',
         begin: /\b_[A-Z0-9_]+/,
-        relevance: 10
+        relevance: 0
       },
       {
         className: 'variable',
         begin: /\b[A-Z]\w*/,
-        relevance: 10
+        relevance: 0
       },
       {
         //
         className: 'operator',
         begin: /[\?%^~$]|[\?\s]+:|[-+]{2}|<<|>>|->|[-+*/!<>=][=]?|[&|][&|]?/,
-        relevance: 10
+        relevance: 0
       },
       {
         className: 'symbol',
         begin: /[[\](),:{}\\]+/,
-        relevance: 10
+        relevance: 0
       },
       //{
       //  className: 'function',
@@ -63,7 +62,7 @@ function(hljs) {
         // (angle|array|bone|complex|entity|matrix[24]?|number|quaternion|ranger|string|table|vector[24]?|void|wirelink)
         className: 'type',
         begin: /\b(angle|array|bone|complex|effect|entity|gtable|matrix[24]?|normal|number|quaternion|ranger|string|table|vector[24]?|void|wirelink)(?!\()\b/g,
-        relevance: 10
+        relevance: 0
       },
       {
         className: 'number',
@@ -72,7 +71,7 @@ function(hljs) {
           {begin: /\b0b[01]+/},                         //Binary literal
           {begin: /(\b\d+(\.\d*)?|\.\d+)(e[-+]?\d+)?/}, //Regular number
         ],
-        relevance: 10
+        relevance: 0
       }
     ]
   }
