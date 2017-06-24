@@ -1,5 +1,4 @@
 @name SyntaxTest
-@invalid Table:entity
 @persist Array:table Num:number
 @model models/suckers/punched_001.mdl
 #[ This E2 is to test Syntax highlighting for my E2 Editor
