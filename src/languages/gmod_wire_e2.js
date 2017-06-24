@@ -17,7 +17,7 @@ function(hljs) {
       {
         className: 'ppcommand',
         begin: /#(include|ifdef|ifndef|else|endif)/,
-        relevance: 0
+        relevance: 10
       },
       hljs.COMMENT(/#\[/, /]#/),
       hljs.HASH_COMMENT_MODE,
