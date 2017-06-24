@@ -23,10 +23,11 @@ function(hljs) {
       {
         className: 'directive',
         variants: [
-          {begin: /@name[^#]*/},
+          {begin: /@name[^#\n]*/},
           {begin: /@model.*/},
           {begin: /@(inputs|outputs)/},
-          {begin: /@trigger/, end: /none|all|$/}
+          {begin: /@persist/},
+          {begin: /@trigger( +(all|none))?/}
         ],
         relevance: 10
         //begin: /@(name[^#]*|model.*|inputs|outputs|persist|trigger( +(all|none))?|autoupdate.*)/
