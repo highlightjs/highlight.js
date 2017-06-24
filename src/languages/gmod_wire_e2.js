@@ -7,7 +7,6 @@ Description: A language used in the Wiremod extension for Garry's Mod
 
 function(hljs) {
   return {
-    alias: ["e2", "wire_e2", "gmod_wire_e2", "expression2", "exp2", "expr2"],
     keywords: 'if|0 elseif|0 else|0 for|0 foreach|0 while|0 break|0 continue|0 local|0 switch|0 case|0 default|0 function|0 return|0',
     contains: [
       {
