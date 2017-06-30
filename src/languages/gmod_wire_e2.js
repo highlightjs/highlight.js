@@ -25,12 +25,10 @@ function(hljs) {
         variants: [
           {begin: /@name[^#\n]*/},
           {begin: /@model.*/},
-          {begin: /@(inputs|outputs)/},
-          {begin: /@persist/},
+          {begin: /@(inputs|outputs|persist|autoupdate)/},
           {begin: /@trigger( +(all|none))?/}
         ],
         relevance: 10
-        //begin: /@(name[^#]*|model.*|inputs|outputs|persist|trigger( +(all|none))?|autoupdate.*)/
       },
       {
         className: 'constant',
@@ -55,11 +53,9 @@ function(hljs) {
       },
       //{
       //  className: 'function',
-      //  begin: /[a-z]\w*/,  end: /\(/,
-      //  returnEnd: true
+      //  begin: /[a-z]\w*(?=\()/
       //},
       {
-        // (angle|array|bone|complex|entity|matrix[24]?|number|quaternion|ranger|string|table|vector[24]?|void|wirelink)
         className: 'type',
         begin: /\b(angle|array|bone|complex|effect|entity|gtable|matrix[24]?|normal|number|quaternion|ranger|string|table|vector[24]?|void|wirelink)(?!\()\b/g,
         relevance: 0
