@@ -1,3 +1,11 @@
+## Version 9.13.0
+
+New languages:
+
+- *DAX* by [Stanislaw Swierc][]
+
+[Stanislaw Swierc]: https://github.com/StanislawSwierc
+
 ## Version 9.12.0
 
 New language:

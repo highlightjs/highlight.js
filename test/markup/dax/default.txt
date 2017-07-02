@@ -1,0 +1,12 @@
+/* block comment */
+
+// line comment
+
+VAR String1 = " "
+VAR String2 = " "" "
+
+VAR Number1 = 1
+VAR Number2 = 1.0
+VAR Number3 = 1.
+VAR Number4 = .0
+VAR Number5 = 1.0e10

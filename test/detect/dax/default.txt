@@ -1,0 +1,30 @@
+Table =
+/* block comment */
+// line comment
+VAR String1 = " "
+VAR String2 = " "" "
+
+VAR Number1 = 1
+VAR Number2 = 1.0
+VAR Number3 = 1.
+VAR Number4 = .0
+VAR Number5 = 1.0e10
+
+RETURN
+    SUMMARIZE (
+        ADDCOLUMNS (
+            FILTER (
+                CROSSJOIN (
+                    ADDCOLUMNS (
+                        'Work Items - Today',
+                        "TagsCount", 1 + ( LEN ( [Tags] ) - LEN ( SUBSTITUTE ( [Tags], Separator, "" ) ) ) / LEN ( Separator )
+                    ),
+                    Indexes
+                ),
+                [Index] <= [TagsCount]
+            ),
+            "Tag", PATHITEM ( SUBSTITUTE ( [Tags], Separator, "|" ), [Index] )
+        ),
+        [Work Item Id],
+        [Tag]
+    )

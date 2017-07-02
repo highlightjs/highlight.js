@@ -1,0 +1,12 @@
+<span class="hljs-comment">/* block comment */</span>
+
+<span class="hljs-comment">// line comment</span>
+
+<span class="hljs-keyword">VAR</span> String1 = <span class="hljs-string">" "</span>
+<span class="hljs-keyword">VAR</span> String2 = <span class="hljs-string">" "" "</span>
+
+<span class="hljs-keyword">VAR</span> Number1 = <span class="hljs-number">1</span>
+<span class="hljs-keyword">VAR</span> Number2 = <span class="hljs-number">1.0</span>
+<span class="hljs-keyword">VAR</span> Number3 = <span class="hljs-number">1.</span>
+<span class="hljs-keyword">VAR</span> Number4 = <span class="hljs-number">.0</span>
+<span class="hljs-keyword">VAR</span> Number5 = <span class="hljs-number">1.0e10</span>
