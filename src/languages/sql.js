@@ -56,7 +56,7 @@ function(hljs) {
             'execu execut execute exempt exists exit exp expire explain export export_set extended extent external ' +
             'external_1 external_2 externally extract failed failed_login_attempts failover failure far fast ' +
             'feature_set feature_value fetch field fields file file_name_convert filesystem_like_logging final ' +
-            'finish first first_value fixed flash_cache flashback floor flush following follows for forall force ' +
+            'finish first first_value fixed flash_cache flashback floor flush following follows for forall force foreign ' +
             'form forma format found found_rows freelist freelists freepools fresh from from_base64 from_days ' +
             'ftp full function general generated get get_format get_lock getdate getutcdate global global_name ' +
             'globally go goto grant grants greatest group group_concat group_id grouping grouping_id groups ' +
