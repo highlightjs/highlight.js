@@ -1,0 +1,3 @@
+input
+    : input_section?
+    ;
