@@ -6,8 +6,6 @@ Description: Language definition for grammar described using ANTLR
 */
 
 function(hljs) {
-    var ruleDeclarationRegEx = "^[a-z][a-z_]*";
-
   return {
     keywords: ['parser', 'grammar', 'options'],
     aliases: ['antlr'],
