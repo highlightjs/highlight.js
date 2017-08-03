@@ -1,0 +1,21 @@
+/*
+    Demo yara rule to test syntax highlighting
+*/
+
+rule DemoRule {
+    meta:
+        Author = "Kiran Tambe <kiran.tambe08@gmail.xom>"
+        Description = "Demo yara rule to test syntax highlighting"
+
+    strings:
+        $test01 = "Test Yara01"
+        $test02 = "Test Yara02"
+        $test03 = "Test Yara03"
+
+        $test11 = "Test Yara11"
+        $test12 = "Test Yara12"
+        $test13 = "Test Yara13"
+    condition:
+        all of ($test0*) and
+        any of ($test1*)
+}
