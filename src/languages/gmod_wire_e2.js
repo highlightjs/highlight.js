@@ -1,7 +1,7 @@
 /*
 Language: Expression 2
 Author: Simen Wiik <simenwiik@hotmail.com>
-Description: A language used in the Wiremod extension for Garry's Mod
+Description: A language used in the Wiremod add-on for Garry's Mod
 */
 
 function(hljs) {
