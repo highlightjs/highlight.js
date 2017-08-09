@@ -1,31 +1,24 @@
-@name SyntaxTest
-@persist Array:table Num:number
-@model models/suckers/punched_001.mdl
-#[ This E2 is to test Syntax highlighting for my E2 Editor
-   This is block comment]# Test=array(vec4(0b101,
-    0xDEADBEEF,-2.075,3e12):toString())
-#include "test.rofl"
-function array string:booo_m(Number:string,Rub_bish:wirelink){
-    local I=0
-    while(1){
-        if(I==1){
-            continue,I++}
-        elseif(I==2){
-            break}
-        else{
-            print(_HUD_PRINTTALK,"Multiline string:
-            bla bla\\\" bla
-            blub\\\\\"  This is still a string
-            Pi=\\\\"+_PI),I++ # This isn't
-        }
-    },return This:explode(Number)
+@name Hello World
+@inputs A B
+@outputs Add Sub Mul Div
+@outputs GreaterThan Highest Lowest
+@outputs Vector:vector
+@persist D
+@trigger all
+
+Add = A + B
+Sub = A - B
+Mul = A * B
+Div = A / B
+
+GreaterThan = A > B
+
+if(A > B) {
+    Highest = A, Lowest = B
+} else {
+    Highest = B, Lowest = A
 }
-Test:merge(array("lol,rofl substrings \"lol\" \\",
-    "wtf?\\\"triple,escapes?\\\" What a mad lad it's 4 \\\\"))
-foreach(N,String:string=Test){
-    Test[N,string]=String:booo_m(",",entity():wirelink())[1,string]
-}#lol #[rofl]#]#Nope, still comment, not a blockcomment here :D
-#ifdef need:toFill(Lines:here)
-   toTest(Text,overflow())
-#endif
-#that ^ is off screen first
+
+Vector = vec(A, B, 0)
+Vector = Vector + vec(0, 0, A + B)
+Vector = Vector:normalized()
