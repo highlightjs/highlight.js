@@ -36,8 +36,9 @@ function(hljs) {
       'interface invariant is lazy macro mixin module new nothrow out override package ' +
       'pragma private protected public pure ref return scope shared static struct ' +
       'super switch synchronized template this throw try typedef typeid typeof union ' +
-      'unittest version void volatile while with __FILE__ __LINE__ __gshared|10 ' +
-      '__thread __traits __DATE__ __EOF__ __TIME__ __TIMESTAMP__ __VENDOR__ __VERSION__',
+      'unittest version void volatile while with __FILE__ __FILE_FULL_PAH__ __LINE__ ' +
+      '__gshared|10 __thread __traits __DATE__ __EOF__ __TIME__ __TIMESTAMP__ __VENDOR__' + 
+      '__VERSION__',
     built_in:
       'bool cdouble cent cfloat char creal dchar delegate double dstring float function ' +
       'idouble ifloat ireal long real short string ubyte ucent uint ulong ushort wchar ' +
@@ -191,7 +192,7 @@ function(hljs) {
   var D_TOKEN_STRING_MODE = {
     className: 'string',
     begin: 'q"\\{',
-    end: '\\}"'
+    end: '\\}"[cwd]?'
   };
 
   /**
