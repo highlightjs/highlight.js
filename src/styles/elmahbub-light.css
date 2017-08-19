@@ -1,0 +1,115 @@
+/* 
+  
+  El-Mahbub light style from Indoesian people (c) Habib mahbub <elmahbub14021993@gmail.com>   
+
+*/
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: transparent;
+  color: #f44336;
+  font-family: sans-serif;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #808080;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #0000ff;
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-variable,
+.hljs-template-variable {
+  color: #800080;
+}
+.hljs-template-tag {
+  color: #0ab2f7;
+}
+.hljs-subst {
+  color: #ddd;
+}
+.hljs-doctag,
+.hljs-tag,
+.hljs-name {
+  color: #2196F3;
+}
+.hljs-selector-attr {
+  color: #ff0;
+}
+.hljs-type {
+  color: #ff0000;
+}
+.hljs-code {
+  color: #ccc;
+}
+.hljs-literal{
+  color: #f44336;
+}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-attr,
+.hljs-link {
+  color: #FF8C00;
+}
+.hljs-selector-pseudo {
+  color: #ff0;
+}
+.hljs-params {
+  color: #0b7dda;
+}
+
+.hljs-attribute {
+  color: #ffa500;
+}
+
+.hljs-meta {
+  color: #e7e7e7;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #00e90e;
+}
+
+.hljs-addition {
+  color: #46a049;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: transparent;
+  color: #f44336;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-selector-class {
+  color: #da190b;
+}
+
+.hljs-selector-id {
+  color: #0ab2f7;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
