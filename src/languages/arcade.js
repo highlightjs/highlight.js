@@ -5,22 +5,24 @@
  Description: ArcGIS Arcade is an expression language used in many Esri ArcGIS products such as Pro, Online, Server, Runtime, JavaScript, and Python
 */
 function(hljs) {
-  var IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
+  var IDENT_RE = '[A-Za-z_][0-9A-Za-z_]*';
   var KEYWORDS = {
     keyword:
-      'if for while var new function do return void else break'
-    ,
+      'if for while var new function do return void else break',
     literal:
       'true false null undefined NaN Infinity PI BackSlash DoubleQuote ForwardSlash NewLine SingleQuote Tab',
     built_in:
-      'Dictionary DomainCode DomainName Feature First HasKey IndexOf Reverse Sort TypeOf ' +
-      'Date DateAdd DateDiff Millisecond Second Minute Hour Month Weekday Year Day Now Today ' +
-      'Geometry Multipoint Extent Point Polyline Polygon Line ' +
-      'IsEmpty DefaultValue When Decode IIf Boolean ' +
-      'Abs Acos Asin Atan Atan2 Average Ceil Cos Count Exp Floor Log Min Max Number Pow Random Round Sin Sqrt Stdev Sum Tan Variance ' +
-      'Concatenate Console Find Lower Left Mid Proper Replace Right Split Text Trim Upper TextFormatting'
+      'Abs Acos Asin Atan Atan2 Average Boolean Ceil Concatenate Console Constrain Cos Count Day Date DateAdd DateDiff Decode ' +
+      'DefaultValue Dictionary Distinct DomainCode DomainName Exp Extent Feature Find First Floor Geometry HasKey ' +
+      'Hour IIf IndexOf IsEmpty Left Line Log Lower Max Mean Mid Millisecond Minute Min Month Multipoint Now Number ' +
+      'Point Polyline Polygon Pow Proper Random Replace Reverse Right Round Second Sin Sort Split Sqrt Stdev Sum ' +
+      'Tan Text TextFormatting Timestamp Today ToLocal ToUTC Trim TypeOf Upper Variance Weekday When Year'
   };
   var EXPRESSIONS;
+  var SYMBOL = {
+    className: 'symbol',
+    begin: '\\$[feature|view|value]+'
+  };
   var NUMBER = {
     className: 'number',
     variants: [
@@ -65,6 +67,7 @@ function(hljs) {
       TEMPLATE_STRING,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
+      SYMBOL,
       NUMBER,
       { // object attr container
         begin: /[{,]\s*/, relevance: 0,
