@@ -26,6 +26,7 @@ Window {
                 nameFilters: ["*.png", "*.jpg", "*.gif"]
             }
             Component.onCompleted: {
+                var x;
                 x = Math.random() * root.width - width / 2
                 rotation = Math.random() * 13 - 6
                 if (pinch.scale > 0) {

@@ -96,7 +96,8 @@ function (hljs) {
         contains : [
           {
             begin : hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
-            keywords : KEYWORDS + ' ' + SHORTKEYS
+            keywords : KEYWORDS + ' ' + SHORTKEYS,
+            relevance: 0
           },
           hljs.QUOTE_STRING_MODE
         ]
