@@ -21,10 +21,6 @@ Visual Studio-like style based on original C# coloring by Mamoru Kondo <ethereal
   color: #d69d85;
 }
 
-/* custom type color
-  color: #4ec9b0;
-*/
-
 .hljs-comment {
   color: #57a64a;
 }
@@ -52,4 +48,15 @@ Visual Studio-like style based on original C# coloring by Mamoru Kondo <ethereal
 
 .hljs-strong {
   font-weight: bold;
+}
+
+/*
+This affects not only class define but function & namespace define.
+.hljs-title {
+    color: #4ec9b0;
+}
+*/
+
+.hljs-number {
+  color: #b8d7a3;
 }
