@@ -1,3 +1,12 @@
+## Version 9.13.0
+
+New language:
+
+- *[Botlang][]* Scripting language for conversational chat bots by [Mathias Schilling][].
+
+[Botlang]: https://botlang.org/
+[Mathias Schilling]: https://github.com/matchilling
+
 ## Version 9.12.0
 
 New language:

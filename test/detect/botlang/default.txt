@@ -1,0 +1,56 @@
+# ELIZA inspired chat transcript written in botlang
+# -----------------------------------------------------------------------
+# ELIZA was an early natural language processing computer program created
+# from 1964 to 1966 at the MIT Artificial Intelligence Laboratory by
+# Joseph Weizenbaum. C.f. https://en.wikipedia.org/wiki/ELIZA
+
++ "*"
+- "I'm not sure I understand you fully."
+- "Please go on."
+- "That is interesting. Please continue."
+- "Tell me more about that."
+- "Does talking about this bother you?"
+- "I see."
+
++ "I $ you"
+- "Perhaps in your fantasies we $ each other."
+- "Do you wish to $ me?"
+- "You seem to need to $ me."
+- "Do you $ anyone else?"
+- "What makes you think I $ you?"
+
++ "(Hi|Hello|Hey) *"
+- "Hi, how are you?"
+- "Hey, how are you?"
+- "Hi, how is it going?"
+
++ "(I'm|I am|Im) $"
+- "Glad to hear that you are $."
+
++ "* (sorry|apologize|apology) *"
+- "Apologies are not necessary."
+- "Please don't apologise."
+- "It did not bother me. Please continue."
+- "I've told you that apologies are not required."
+
++ "* think about $"
+- "I think $ is great!"
+- "I think $ is the coolest thing on Earth!"
+
++ "* (bye|goodbye|done|exit|quit) *"
+- "Goodbye. It was nice talking to you. Press CTRL+C to exit ..."
+- "Goodbye. This was really a nice talk. Press CTRL+C to exit ..."
+
++ "* (what|which|who|whom|whose) *"
+- "Why do you ask?"
+- "Is that an important question?"
+- "Why does this bother you?"
+
++ "* I remember $"
+- "Does thinking of $ bring anything else to mind ?"
+- "Do you often think of $?"
+- "What else do you recollect?"
+- "Why do you remember $ just now?"
+
++ "* I forget $"
+- "Can you think of why you might forget $?"
