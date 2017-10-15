@@ -1,0 +1,13 @@
+%abc-2.2
+
+%%papersize A4
+
+X: 1
+T: Misirlou    % comment
+C: N.Roubanis
+   1934
+O: Greece
+
+|: "D"D3 E ^F2 G2 [r: comment]| A3B ^c2BA | A8- !trill! | A8 |
+w: 1.~Mi-sir-lou mou i gli-kia sou ma-tia
++: 2.~Mav-ro ma-ta Mi-sir-lou mou tre-lli
