@@ -1,0 +1,13 @@
+msf auxiliary(http_version) > rerun
+[*] Reloading module...
+
+[*] This is status!
+[+] This is good!
+[-] This is bad!
+[-] This is error!
+[!] This is warning!
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+msf auxiliary(http_version) > use exploit/windows/smb/ms08_067_netapi 
+msf exploit(ms08_067_netapi) > 
+
