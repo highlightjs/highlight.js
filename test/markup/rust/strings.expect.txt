@@ -10,4 +10,5 @@
 
 <span class="hljs-string">r"hello"</span>;
 <span class="hljs-string">r###"world"###</span>;
-<span class="hljs-string">r##" "### "# "##</span>;
+<span class="hljs-string">r##" "###
+"# "##</span>;

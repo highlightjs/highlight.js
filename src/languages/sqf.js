@@ -373,6 +373,6 @@ function(hljs) {
       STRINGS,
       CPP.preprocessor
     ],
-    illegal: /#/
+    illegal: /#|^\$ /
   };
 }

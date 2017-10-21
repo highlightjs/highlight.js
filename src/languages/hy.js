@@ -7,7 +7,7 @@ Category: lisp
 
 function(hljs) {
   var keywords = {
-    built_in:
+    'builtin-name':
       // keywords
       '!= % %= & &= * ** **= *= *map ' +
       '+ += , --build-class-- --import-- -= . / // //= ' +

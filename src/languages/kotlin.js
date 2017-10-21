@@ -37,17 +37,17 @@ function(hljs) {
   // for string templates
   var SUBST = {
     className: 'subst',
-    variants: [
-      {begin: '\\$' + hljs.UNDERSCORE_IDENT_RE},
-      {begin: '\\${', end: '}', contains: [hljs.APOS_STRING_MODE, hljs.C_NUMBER_MODE]}
-    ]
+    begin: '\\${', end: '}', contains: [hljs.APOS_STRING_MODE, hljs.C_NUMBER_MODE]
+  };
+  var VARIABLE = {
+    className: 'variable', begin: '\\$' + hljs.UNDERSCORE_IDENT_RE
   };
   var STRING = {
     className: 'string',
     variants: [
       {
         begin: '"""', end: '"""',
-        contains: [SUBST]
+        contains: [VARIABLE, SUBST]
       },
       // Can't use built-in modes easily, as we want to use STRING in the meta
       // context as 'meta-string' and there's no syntax to remove explicitly set
@@ -60,7 +60,7 @@ function(hljs) {
       {
         begin: '"', end: '"',
         illegal: /\n/,
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, VARIABLE, SUBST]
       }
     ]
   };
