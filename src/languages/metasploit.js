@@ -10,15 +10,25 @@ function(hljs) {
     aliases: ['msf'],
     case_insensitive: false,
     keywords: {
-      keyword: 'msf|10 auxiliary|10 encoder exploit|10 nop payload post|5'
-    }
+      keyword: 'msf|10',
+      nomarkup: 'exploit auxiliary post nop encoder' // Helps classification
+    },
     contains: [
       {
-        className: 'print_status',
-        begin: '^\\[\\*\\]',
-	end:   ' ',
+        className: 'strong',
+        begin: '^\\[\\*\\]', end: ' ',
         relevance: 10
-      }
+      },
+      {
+        className: 'literal',
+        begin: '^\\[\\+\\]', end: ' ',
+        relevance: 10
+      },
+      {
+        className: 'number',
+        begin: '^\\[[-!]\\]', end: ' ',
+        relevance: 10
+      },
     ]
   }
 }
