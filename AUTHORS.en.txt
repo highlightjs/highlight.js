@@ -252,6 +252,7 @@ Contributors:
 - Nicolas LLOBERA <nllobera@gmail.com>
 - Morten Piibeleht <morten.piibeleht@gmail.com>
 - Martin Clausen <martin.clausene@gmail.com>
+- Arctic Ice Studio <development@arcticicestudio.com>
 - Google Inc. (David Benjamin) <davidben@google.com>
 - Ahmad Awais <me@AhmadAwais.com>
 - Tristian Kelly <tristian.kelly560@gmail.com>
