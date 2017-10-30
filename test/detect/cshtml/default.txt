@@ -1,0 +1,31 @@
+@model Person
+
+@{
+    ViewData["Title"] = "Bootstrap Editors";
+}
+<div class="overview-form">
+    @if(ViewData["Message"] != null) {
+        <h3 class="text-success">@ViewData["Message"] </h3>
+    }
+    else {
+        @using(Html.BeginForm(FormMethod.Post)) {
+            <div class="form-group">
+                @(Html.DevExpress()
+                    .BootstrapTextBoxFor(m => m.UserName))
+            </div>
+            <div class="form-group">
+                @(Html.DevExpress()
+                    .BootstrapTextBoxFor(m => m.Password)
+                    .Password(true))
+            </div>
+            <div class="form-group">
+                @(Html.DevExpress()
+                    .BootstrapButton("Register")
+                    .Text("Register")
+                    .UseSubmitBehavior(true)
+                    .SettingsBootstrap(settings => settings.RenderOption(BootstrapRenderOption.Primary))
+                    .CssClasses(classes => classes.Control("form-control")))
+            </div>
+        }
+    }
+</div>
