@@ -1,0 +1,17 @@
+#pragma rtGlobals=3
+
+Function TEST_BEGIN(name)
+  string name
+
+  // we have to remember the state of debugging
+  variable reEnableDebugOutput=EnabledDebug()
+
+  if(reEnableDebugOutput)
+    EnableDebugOutput()
+  endif
+
+  Wave A = $"my wave"
+  DFREF dfr = GetFolder()
+
+  printf "Start of test \"%s\"\r", name
+End
