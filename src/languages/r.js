@@ -54,6 +54,25 @@ function(hljs) {
         begin: "\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",
         relevance: 0
       },
+      {
+        // higher relevance for unusual operator
+        className: 'built_in',
+        begin: "\\->|<\\-",
+        relevance: 1
+      },
+      {
+        // infix operator
+        className: 'operator',
+        begin: '%',
+        end: '%',
+        illegal: '\\n',
+        relevance: 1
+      },
+      {
+        className: 'built_in',
+        begin: "%%|~|>=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",
+        relevance: 0
+      },
 
       {
         // escaped identifier
