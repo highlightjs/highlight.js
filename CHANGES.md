@@ -9,6 +9,7 @@ New languages:
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
 - *ReasonML* by [Gidi Meir Morris][]
 - *SAS* by [Mauricio Caceres Bravo][]
+- *CSHTML* by [Roman Resh][]
 
 New styles:
 - *a11y-dark theme* by [Eric Bailey][]
@@ -47,6 +48,7 @@ Improvements:
 [David Benjamin]: https://github.com/davidben
 [Berk Çebi]: https://github.com/berkcebi
 [Mauricio Caceres Bravo]: https://github.com/mcaceresb
+[Roman Resh]: https://github.com/romanresh
 
 ## Version 9.12.0
 
