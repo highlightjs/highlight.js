@@ -13,7 +13,7 @@ function(hljs) {
         returnBegin: true,  
         end: "</text>",
         returnEnd: true,
-        subLanguage: "xml",
+        subLanguage: "cshtml",
         contains: [
             {
                 begin: "<text>",
@@ -115,6 +115,7 @@ function(hljs) {
             {
                 begin: "\\(",
                 end: "\\)",
+                subLanguage: 'cs',
                 contains: [hljs.QUOTE_STRING_MODE, BLOCK_TEXT, 'self']
             },
             BLOCK_TEXT,
@@ -187,7 +188,7 @@ function(hljs) {
         variants: BUILT_IN_CODE_BLOCKS_VARIANTS,
         returnBegin: true,
         returnEnd: true,
-        subLanguage: "xml",
+        subLanguage: "cshtml",
         contains: [
             {
                 variants: BUILT_IN_CODE_BLOCKS_VARIANTS.map(function(v) {
@@ -345,7 +346,7 @@ function(hljs) {
         begin: "@section[\\s]+[a-zA-Z0-9]+[\\s]*{",
         returnBegin: true,
         returnEnd: true,
-        subLanguage: "xml",
+        subLanguage: "cshtml",
         end: "}",
         contains: [
             {
