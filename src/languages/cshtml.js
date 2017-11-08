@@ -23,7 +23,6 @@ function(hljs) {
                 begin: "</text>",
                 className: SPECIAL_SYMBOL_CLASSNAME,
                 endsParent: true,
-                endsWithParent: true
             }
         ]
     };
@@ -66,7 +65,7 @@ function(hljs) {
     var ONE_LINE_EXPRESSION = {
         begin: "@[a-zA-Z]+",
         returnBegin: true,
-        end: "($|<|\\s)",
+        end: "(\\r|\\n|<|\\s)",
         subLanguage: 'cs',
         contains: [
             {
@@ -89,7 +88,7 @@ function(hljs) {
         begin: "@await ",
         returnBegin: true,
         subLanguage: 'cs',
-        end: "($|<|\\s)",
+        end: "(\\r|\\n|<|\\s)",
         contains: [
             {
                 begin: "@await ",
@@ -116,8 +115,9 @@ function(hljs) {
             {
                 begin: "\\(",
                 end: "\\)",
-                contains: [hljs.QUOTE_STRING_MODE, 'self']
+                contains: [hljs.QUOTE_STRING_MODE, BLOCK_TEXT, 'self']
             },
+            BLOCK_TEXT,
             {
                 begin: "\\)",
                 className: SPECIAL_SYMBOL_CLASSNAME,
@@ -140,7 +140,7 @@ function(hljs) {
             {
                 begin: "{",
                 end: "}",
-                contains: [hljs.QUOTE_STRING_MODE, 'self']
+                contains: [hljs.QUOTE_STRING_MODE, BLOCK_TEXT, 'self']
             },
             BLOCK_TEXT,
             {

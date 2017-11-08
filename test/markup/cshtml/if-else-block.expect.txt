@@ -1,0 +1,7 @@
+<span class="xml">before
+</span><span class="xml"></span><span class="hljs-built_in">@</span><span class="cs"><span class="hljs-keyword">if</span>(<span class="hljs-literal">true</span>) </span><span class="hljs-built_in">{</span><span class="xml">
+    block
+</span><span class="hljs-built_in">}</span><span class="cs"> <span class="hljs-keyword">else</span> </span><span class="hljs-built_in">{</span><span class="xml">
+    block
+</span><span class="hljs-built_in">}</span><span class="xml">
+after</span>

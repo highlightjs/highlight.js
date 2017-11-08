@@ -1,0 +1,10 @@
+before
+@{
+    var inCSharp = true;
+    <text>xml</text>
+}
+after
+@{
+    var inCSharp = true;
+    <text>xml</text>
+}

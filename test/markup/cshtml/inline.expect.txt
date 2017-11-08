@@ -1,0 +1,8 @@
+<span class="xml">Hello </span><span class="cs"></span><span class="hljs-built_in">@</span><span class="cs">owner</span><span class="xml"> from html
+Hello </span><span class="cs"></span><span class="hljs-built_in">@</span><span class="cs">owner[<span class="hljs-string">"test"</span>]</span><span class="xml"> from html
+Hello </span><span class="cs"></span><span class="hljs-built_in">@</span><span class="cs">owner.test</span><span class="xml"> from html
+Hello </span><span class="cs"></span><span class="hljs-built_in">@</span><span class="cs">owner</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>from html<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+Hello </span><span class="cs"></span><span class="hljs-built_in">@</span><span class="cs">owner</span><span class="xml">
+from html
+sample@email.com
+@@escapedat</span>

@@ -1,0 +1,7 @@
+before
+@if(true) {
+    block
+} else {
+    block
+}
+after
