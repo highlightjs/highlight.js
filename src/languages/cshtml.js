@@ -9,14 +9,14 @@ function(hljs) {
     var SPECIAL_SYMBOL_CLASSNAME = "built_in";
 
     var BLOCK_TEXT = {
-        begin: "<text>",
+        begin: "[@]{0,1}<text>",
         returnBegin: true,  
         end: "</text>",
         returnEnd: true,
         subLanguage: "cshtml",
         contains: [
             {
-                begin: "<text>",
+                begin: "[@]{0,1}<text>",
                 className: SPECIAL_SYMBOL_CLASSNAME
             },
             {
