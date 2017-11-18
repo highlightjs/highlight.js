@@ -1,6 +1,6 @@
 # Highlight.js
 
-[![Build Status](https://travis-ci.org/isagalaev/highlight.js.svg?branch=master)](https://travis-ci.org/isagalaev/highlight.js)
+[![Build Status](https://travis-ci.org/isagalaev/highlight.js.svg?branch=master)](https://travis-ci.org/isagalaev/highlight.js) [![GitHub issues](https://img.shields.io/github/issues/isagalaev/highlight.js.svg)](https://github.com/isagalaev/highlight.js/issues) [![GitHub forks](https://img.shields.io/github/forks/isagalaev/highlight.js.svg)](https://github.com/isagalaev/highlight.js/network) [![GitHub stars](https://img.shields.io/github/stars/isagalaev/highlight.js.svg)](https://github.com/isagalaev/highlight.js/stargazers) [![GitHub license](https://img.shields.io/github/license/isagalaev/highlight.js.svg)](https://github.com/isagalaev/highlight.js/blob/master/LICENSE) [![GitHub (pre-)release](https://img.shields.io/github/release/qubyte/rubidium/all.svg)](https://github.com/isagalaev/highlight.js/releases)
 
 Highlight.js is a syntax highlighter written in JavaScript. It works in
 the browser as well as on the server. It works with pretty much any
