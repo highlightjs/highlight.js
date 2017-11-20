@@ -1,0 +1,12 @@
+<span class="hljs-keyword">declare</span> <span class="hljs-keyword">function</span> local:test ($node <span class="hljs-keyword">as</span> <span class="hljs-literal">node</span>()) <span class="hljs-keyword">as</span> <span class="hljs-literal">element</span>(div) {
+<span class="hljs-keyword">for</span> $n <span class="hljs-keyword">in</span> $node
+<span class="hljs-keyword">return</span>
+  <span class="hljs-literal">element</span> div { <span class="hljs-keyword">switch</span>($n)
+    <span class="hljs-keyword">case</span> <span class="hljs-string">'abc'</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'OK'</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">'def'</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'Nope'</span>
+  <span class="hljs-keyword">default</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'meh'</span>
+  }
+};
+<span class="hljs-keyword">for</span> $x <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> <span class="hljs-number">3</span>
+<span class="hljs-keyword">return</span>
+  local:test(&lt;root&gt;abc&lt;/root&gt;)

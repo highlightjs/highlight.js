@@ -1,0 +1,12 @@
+declare function local:test ($node as node()) as element(div) {
+for $n in $node
+return
+  element div { switch($n)
+    case 'abc' return 'OK'
+    case 'def' return 'Nope'
+  default return 'meh'
+  }
+};
+for $x in 1 to 3
+return
+  local:test(<root>abc</root>)
