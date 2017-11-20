@@ -13,7 +13,9 @@ function(hljs) {
     'descending empty greatest least some every satisfies switch case typeswitch try catch and' +
     'or to union intersect instance of treat as castable cast map array delete insert into' +
     'replace value rename copy modify update';
-  var LITERAL = 'attribute element false item node QName true xs:anyURI xs:base64Binary xs:boolean xs:byte xs:date  xs:dateTime xs:decimal xs:double xs:duration xs:float xs:gDay xs:gMonth xs:gMonthDay xs:gYear xs:gYearMonth xs:hexBinary xs:int xs:integer xs:long xs:short xs:string xs:time';
+  var LITERAL = 'attribute element false item node QName true';
+
+  var SCHEMA = 'xs:anyAtomicType xs:anyURI xs:base64Binary xs:boolean xs:byte xs:date  xs:dateTime xs:decimal xs:double xs:duration xs:float xs:gDay xs:gMonth xs:gMonthDay xs:gYear xs:gYearMonth xs:hexBinary xs:int xs:integer xs:long xs:short xs:string xs:time';
   var VAR = {
     begin: '^\\$',
     end: '\\s'
