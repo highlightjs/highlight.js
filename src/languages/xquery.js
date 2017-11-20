@@ -15,8 +15,8 @@ function(hljs) {
     'replace value rename copy modify update';
   var LITERAL = 'attribute element false item node QName true xs:anyURI xs:base64Binary xs:boolean xs:byte xs:date  xs:dateTime xs:decimal xs:double xs:duration xs:float xs:gDay xs:gMonth xs:gMonthDay xs:gYear xs:gYearMonth xs:hexBinary xs:int xs:integer xs:long xs:short xs:string xs:time';
   var VAR = {
-    begin: /\$[a-zA-Z0-9\-]+/
-    end: /\s/
+    begin: '^\\$',
+    end: '\\s'
   };
 
   var NUMBER = {
@@ -49,19 +49,21 @@ function(hljs) {
     ]
   };
 
-  var METHOD = {
-    begin: '{', end: '}'
-  };
+// var FUNC = {
+//   begin: '\*{', end: '}\*;'
+// }
+  // var METHOD = {
+  //   begin: 'x{', end: '}x',
+  // };
 
   var CONTAINS = [
     VAR,
     STRING,
     NUMBER,
     COMMENT,
-    ANNOTATION,
-    METHOD
+    ANNOTATION
   ];
-  METHOD.contains = CONTAINS;
+  // METHOD.contains = CONTAINS;
 
 
   return {
