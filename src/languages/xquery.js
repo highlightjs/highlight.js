@@ -15,7 +15,10 @@ function(hljs) {
     'replace value rename copy modify update';
   var LITERAL = 'attribute element false item node QName true';
 
-  var SCHEMA = 'xs:anyAtomicType xs:anyURI xs:base64Binary xs:boolean xs:byte xs:date  xs:dateTime xs:decimal xs:double xs:duration xs:float xs:gDay xs:gMonth xs:gMonthDay xs:gYear xs:gYearMonth xs:hexBinary xs:int xs:integer xs:long xs:short xs:string xs:time';
+  var SCHEMA = 'xs:anyAtomicType xs:anyURI xs:base64Binary xs:boolean xs:byte xs:date  xs:dateTime xs:decimal xs:double xs:duration xs:float xs:gDay xs:gMonth xs:gMonthDay xs:gYear xs:gYearMonth xs:hexBinary xs:int xs:integer xs:long xs:NOTATION xs:QName xs:short xs:string xs:time';
+
+  var FUNCTION ='fn:accumulator-after fn:accumulator-before fn:available-system-properties fn:collation-key fn:copy-of fn:current fn:current-group fn:current-grouping-key fn:current-merge-group fn:current-merge-key fn:current-output-uri fn:document fn:element-available fn:format-date fn:format-dateTime fn:format-number fn:format-time fn:function-available fn:generate-id fn:json-to-xml fn:key fn:regex-group fn:snapshot fn:stream-available fn:system-property fn:type-available fn:unparsed-entity-public-id fn:unparsed-entity-uri fn:unparsed-text fn:xml-to-json map:contains map:entry map:find map:for-each map:get map:keys map:merge map:put map:remove map:size';
+
   var VAR = {
     begin: '^\\$',
     end: '\\s'
