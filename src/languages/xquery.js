@@ -13,7 +13,7 @@ function(hljs) {
     'descending empty greatest least some every satisfies switch case typeswitch try catch and' +
     'or to union intersect instance of treat as castable cast map array delete insert into' +
     'replace value rename copy modify update';
-  var LITERAL = 'false true xs:string xs:integer element item xs:date xs:datetime xs:float xs:double xs:decimal QName xs:anyURI xs:long xs:int xs:short xs:byte attribute';
+  var LITERAL = 'false true xs:string xs:integer element item node xs:boolean xs:date xs:datetime xs:float xs:double xs:decimal QName xs:anyURI xs:long xs:int xs:short xs:byte attribute';
   var VAR = {
     begin: /\$[a-zA-Z0-9\-]+/
   };
