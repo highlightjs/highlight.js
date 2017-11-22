@@ -1,4 +1,7 @@
-declare option output:method 'json';
+xquery version "3.1";
+(:~
+ : @author Duncan Paterson
+ : @version 0.7:)
 
 (
 let $map := map { 'R': 'red', 'G': 'green', 'B': 'blue' }
