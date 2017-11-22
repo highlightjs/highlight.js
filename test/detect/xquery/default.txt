@@ -13,11 +13,14 @@ return (
 
 ('A', 'B', 'C') => count(),
 
+declare function local:city($country as node()*) as element (country) {
 for $country in db:open('factbook')//country
 where $country/@population > 100000000
 let $name := $country/name[1]
 for $city in $country//city[population > 1000000]
 group by $name
-return <country name='{ $name }'>{ $city/name }</country>
-
-)
+return
+   element country { attribute name { $name },
+    $city/name }
+};
+<root>

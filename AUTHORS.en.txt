@@ -254,3 +254,4 @@ Contributors:
 - Morten Piibeleht <morten.piibeleht@gmail.com>
 - Martin Clausen <martin.clausene@gmail.com>
 - Ahmad Awais <me@AhmadAwais.com>
+- Duncan Paterson <duncan@exist-db.org>
