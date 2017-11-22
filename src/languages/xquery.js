@@ -45,6 +45,10 @@ function(hljs) {
       begin: /\bfn\:/,
       end: /\(/,
       excludeEnd: true
+    }, {
+      begin: /\blocal\:/,
+      end: /\(/,
+      excludeEnd: true
     }
   ]
   };
