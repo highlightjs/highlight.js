@@ -1,0 +1,22 @@
+<span class="hljs-title">xquery version "3.1";</span>
+<span class="hljs-comment">(:~
+ : <span class="hljs-doctag">@author</span> Duncan Paterson
+ : <span class="hljs-doctag">@version</span> 0.7:)</span>
+
+<span class="hljs-title">module namespace app="http://none";</span>
+
+<span class="hljs-title">import module namespace config="http://config" at "config.xqm";</span> <span class="hljs-comment">(: schema :)</span>
+
+
+<span class="hljs-title">declare copy-namespaces no-preserve, inherit;</span>
+<span class="hljs-comment">(:preserve, no-inherit:)</span>
+
+<span class="hljs-title">declare variable $maxItems := 12;</span>
+<span class="hljs-title">declare context item := doc("catalog.xml");</span>
+
+<span class="hljs-keyword">declare</span> <span class="hljs-keyword">function</span> app:helloworld($node <span class="hljs-keyword">as</span> <span class="hljs-literal">node</span>(), $model <span class="hljs-keyword">as</span> map(*), $name <span class="hljs-keyword">as</span> <span class="hljs-literal">xs:string</span>?) {
+    <span class="hljs-keyword">if</span> ($name) <span class="hljs-keyword">then</span>
+        &lt;p&gt;Hello {$name}!&lt;/p&gt;
+    <span class="hljs-keyword">else</span>
+        ()
+};
