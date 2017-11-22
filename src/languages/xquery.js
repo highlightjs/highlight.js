@@ -13,7 +13,7 @@ function(hljs) {
     'copy-namespaces order declare import schema namespace option function in allowing empty' +
     'at tumbling window sliding window start when only end when previous next stable ascending' +
     'descending empty greatest least some every satisfies switch case typeswitch try catch and' +
-    'or to union intersect instance of treat as castable cast delete insert into' +
+    'or to union intersect instance of treat as castable cast map array delete insert into' +
     'replace value rename copy modify update';
 
   // Node Types (sorted by inheritance)

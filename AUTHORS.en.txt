@@ -252,4 +252,4 @@ Contributors:
 - Nicolas LLOBERA <nllobera@gmail.com>
 - Morten Piibeleht <morten.piibeleht@gmail.com>
 - Martin Clausen <martin.clausene@gmail.com>
-- Duncan Paterson
+- Duncan Paterson <duncdrum@users.noreply.github.com>
