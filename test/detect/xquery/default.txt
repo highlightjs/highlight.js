@@ -17,10 +17,10 @@ declare function local:city($country as node()*) as element (country) {
 for $country in db:open('factbook')//country
 where $country/@population > 100000000
 let $name := $country/name[1]
-for $city in $country//city[population > 1000000]
+for $city in $country//city[population gt 1000000]
 group by $name
 return
-   element country { attribute name { $name },
+   element country { attribute type { $name },
     $city/name }
 };
 <root>
