@@ -10,7 +10,7 @@ Category: functional
 function(hljs) {
   var KEYWORDS = 'for let if while then else return where group by xquery encoding version' +
     'module namespace boundary-space preserve strip default collation base-uri ordering' +
-    'copy-namespaces order declare import schema namespace option in allowing empty' +
+    'copy-namespaces order declare import schema namespace option function in allowing empty' +
     'at tumbling window sliding window start when only end when previous next stable ascending' +
     'descending empty greatest least some every satisfies switch case typeswitch try catch and' +
     'or to union intersect instance of treat as castable cast delete insert into' +
@@ -24,7 +24,7 @@ function(hljs) {
     'xs:integer xs:nonPositiveInteger xs:negativeInteger xs:long xs:int xs:short  xs:byte xs:nonNegativeInteger xs:unisignedLong xs:unsignedInt xs:unsignedShort xs:unsignedByte xs:positiveInteger' +
     'xs:yearMonthDuration xs:dayTimeDuration';
 
-  // functions
+  // functions (TODO: find regex for op: and Fn: that don't break on build)
   var BUILT_IN = {
     className: 'built_in',
     variants: [
@@ -36,7 +36,7 @@ function(hljs) {
       end: /(?:contains|entry|find|for\-each|get|keys|merge|put|remove|size)\b/
     }, {
       begin: /\bmath\:/,
-      end: /(?:a(?:cos|sin|tan[2]?)|cos|exp[10]*|log[10]*|pi|pow|sin|sqrt|tan)\b/
+      end: /(?:a(?:cos|sin|tan[2]?)|cos|exp(?:10)?|log(?:10)?|pi|pow|sin|sqrt|tan)\b/
     }, {
       begin: /\bop\:/,
       end: /\(/,
@@ -52,12 +52,37 @@ function(hljs) {
     }
   ]
   };
-
-  var VAR = {
-    begin: /\b\$[A-Za-z0-9_\-]+\b/
+  var TITLE = {
+    className: 'title',
+    variants: [
+      {
+        begin: /\bxquery version "[13]\.[01]"\s?(?:encoding ".+")?/,
+        end: /;/
+      }, {
+        begin: /\bdeclare\s+(?!function)(?:default)?\s*(?:ordering|copy\-namespaces|construction|decimal\-format|variable|boundary-space|base-uri|collation|namespace|option|context)?/,
+        end: /;/
+      }, {
+        begin: /\b(?:import)?\s?(module|schema)? namespace/,
+        end: /;/
+      }
+    ]
   };
 
-  var SYMBOL = 'le gt eq => div idiv';
+  var VAR = {
+    className: 'params',
+    begin: /\b\$[A-Za-z0-9_\-]+/
+  };
+
+  var SYMBOL = {
+    className: 'symbol',
+    variants: [{
+      begin: ':= = != < <= > >= eq ne lt le gt ge is << >> =>'
+
+    }, {
+    begin: 'self:: child:: descendant:: descendant-or-self:: attribute:: following:: following-sibling:: parent:: ancestor:: ancestor-or-self:: preceding:: preceding-sibling:: @'
+    }]
+
+  };
 
   var NUMBER = {
     className: 'number',
@@ -108,7 +133,8 @@ function(hljs) {
     STRING,
     NUMBER,
     COMMENT,
-    ANNOTATION
+    ANNOTATION,
+    TITLE
   ];
 
   var METHOD = {
