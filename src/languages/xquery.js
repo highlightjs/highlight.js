@@ -24,11 +24,10 @@ function(hljs) {
     'xs:integer xs:nonPositiveInteger xs:negativeInteger xs:long xs:int xs:short  xs:byte xs:nonNegativeInteger xs:unisignedLong xs:unsignedInt xs:unsignedShort xs:unsignedByte xs:positiveInteger' +
     'xs:yearMonthDuration xs:dayTimeDuration';
 
-  // functions (TODO: find regex for op: and Fn: that don't break on build)
+  // functions (TODO: find regex for op: that doesn't break on build)
   var BUILT_IN = {
     className: 'built_in',
-    variants: [
-    {
+    variants: [{
       begin: /\barray\:/,
       end: /(?:append|filter|flatten|fold\-(?:left|right)|for-each(?:\-pair)?|get|head|insert\-before|join|put|remove|reverse|size|sort|subarray|tail)\b/
     }, {
@@ -46,42 +45,41 @@ function(hljs) {
       end: /\(/,
       excludeEnd: true
     }, {
+      begin: /[^</](?:abs|accumulator\-(?:after|before)|adjust\-(?:date(?:Time)*|time)\-to\-timezone|analyze\-string|apply|available\-(?:environment\-variables|system\-properties)|avg|base\-uri|boolean|ceiling|codepoint[s]*\-(?:equal|to\-string)|collation\-key|collection|compare|concat|contains(?:\-token)*|copy\-of|count|current(?:\-date(?:Time)*|\-time|\-grou(?:ping\-key)*|\-output\-uri|\-merge\-(?:group|key))*|data|dateTime|day[s]*\-from\-(?:date(?:Time)*|duration)|deep\-equal|default\-(?:collation|language)|distinct\-values|document(?:\-uri)*|doc(?:\-available)*|element\-(?:available|with\-id)|empty|encode\-for\-uri|ends\-with|environment\-variable|error|escape\-html\-uri|exactly\-one|exists|false|filter|floor|fold\-(?:left|right)|for\-each(?:\-pair)*|format\-(?:date(?:Time)*|time|integer|number)|function\-(?:arity|available|lookup|name)|generate\-id|has\-children|head|hours\-from\-(?:dateTime|duration|time)|id(?:ref)*|implicit\-timezone|in\-scope\-prefixes|inde[x]\-of|innermost|insert\-before|iri\-to\-uri|json\-(?:doc|to\-xml)|key|lang|last|load\-xquery\-module|local\-name(?:\-from\-QName)*|(?:lower|upper)\-case|matches|max|minutes\-from\-(?:dateTime|duration|time)|min|month[s]*\-from\-(?:date(?:Time)*|duration)|name(?:space\-uri(?:\-for\-prefix|\-from\-QName)*)*|nilled|node\-name|normalize\-(?:space|unicode)|not|number|one\-or\-more|outermost|parse\-(?:ietf\-date|json)|path|position|(?:prefix\-from\-)*QName|random\-number\-generator|regex\-group|remove|replace|resolve\-(?:QName|uri)|reverse|root|round(?:\-half\-to\-even)*|seconds\-from\-(?:dateTime|duration|time)|snapshot|sort|starts\-with|static\-base\-uri|stream\-available|string(?:\-join|\-length|\-to\-codepoints)*|subsequence|substring(?:\-after|\-before)*|sum|system\-property|tail|timezone\-from\-(?:date(?:Time)*|time)|tokenize|trace|transform|translate|true|type\-available|unordered|unparsed\-(?:entity|text)*(?:\-(?:public\-id|uri|available|lines))*|uri\-collection|xml\-to\-json|year[s]*\-from\-(?:date(?:Time)*|duration)|zero\-or\-one)\b/
+    }, {
       begin: /\blocal\:/,
       end: /\(/,
       excludeEnd: true
-    }
-  ]
+    }]
   };
   var TITLE = {
     className: 'title',
-    variants: [
-      {
-        begin: /\bxquery version "[13]\.[01]"\s?(?:encoding ".+")?/,
-        end: /;/
-      }, {
-        begin: /\bdeclare\s+(?!function)(?:default)?\s*(?:ordering|copy\-namespaces|construction|decimal\-format|variable|boundary-space|base-uri|collation|namespace|option|context)?/,
-        end: /;/
-      }, {
-        begin: /\b(?:import)?\s?(module|schema)? namespace/,
-        end: /;/
-      }
-    ]
+    variants: [{
+      begin: /\bxquery version "[13]\.[01]"\s?(?:encoding ".+")?/,
+      end: /;/
+    }, {
+      begin: /\bdeclare\s+(?!function)(?:default)?\s*(?:ordering|copy\-namespaces|construction|decimal\-format|variable|boundary-space|base-uri|collation|namespace|option|context)?/,
+      end: /;/
+    }, {
+      begin: /\b(?:import)?\s?(module|schema)? namespace/,
+      end: /;/
+    }]
   };
 
+// TODO: Get variable highlighting to work
   var VAR = {
     className: 'params',
     begin: /\b\$[A-Za-z0-9_\-]+/
   };
-
+// TODO: comparison and path symbols not yet hooked up
   var SYMBOL = {
     className: 'symbol',
     variants: [{
-      begin: ':= = != < <= > >= eq ne lt le gt ge is << >> =>'
+      begin: ':= = != < <= > >= eq ne lt le gt ge is << >> => ||'
 
     }, {
-    begin: 'self:: child:: descendant:: descendant-or-self:: attribute:: following:: following-sibling:: parent:: ancestor:: ancestor-or-self:: preceding:: preceding-sibling:: @'
+      begin: 'self:: child:: descendant:: descendant-or-self:: attribute:: following:: following-sibling:: parent:: ancestor:: ancestor-or-self:: preceding:: preceding-sibling:: @'
     }]
-
   };
 
   var NUMBER = {
