@@ -34,21 +34,25 @@ function(hljs) {
   'replace value rename copy modify update';
 
   // Node Types (sorted by inheritance)
-  var LITERAL = 'item node attribute document element comment namespace processing-instruction text' +
   // atomic types (sorted by inheritance)
+  var LITERAL = 'item document-node node attribute document element comment namespace processing-instruction text' +
   'xs:anyAtomicType xs:untypedAtomic xs:duration xs:time xs:decimal xs:float xs:double xs:gYearMonth xs:gYear xs:gMonthDay xs:gMonth xs:gDay xs:boolean xs:base64Binary xs:hexBinary xs:anyURI xs:QName xs:NOTATION' +
   'xs:dateTime xs:dateTimeStamp xs:date xs:string xs:normalizedString xs:token xs:language xs:NMTOKEN xs:Name xs:NCName xs:ID xs:IDREF xs:ENTITY' +
   'xs:integer xs:nonPositiveInteger xs:negativeInteger xs:long xs:int xs:short  xs:byte xs:nonNegativeInteger xs:unisignedLong xs:unsignedInt xs:unsignedShort xs:unsignedByte xs:positiveInteger' +
   'xs:yearMonthDuration xs:dayTimeDuration';
 
   // functions
-  var BUILT_IN =  /array\:(?:append|filter|flatten|fold\-left|fold\-right|for-each|for\-each\-pair|get|head|insert\-before|join|put|remove|reverse|size|sort|subarray|tail)/g;
-
-  var VAR = {
-    begin: /\$[A-Za-z0-9_\-]+/
+  var BUILT_IN = {
+    className: 'built_in',
+    begin: /\barray\:/,
+    end: /(?:append|filter|flatten|fold\-(?:left|right)|for-each(?:\-pair)?|get|head|insert\-before|join|put|remove|reverse|size|sort|subarray|tail)\b/
   };
 
-  var SYMBOL = 'le gt eq =>';
+  var VAR = {
+    begin: '\\b\\$[A-Za-z0-9_\-]+'
+  };
+
+  var SYMBOL = 'le gt eq => div idiv';
 
   var NUMBER = {
     className: 'number',
@@ -93,18 +97,19 @@ function(hljs) {
     }]
   };
 
-  // var METHOD = {
-  //   begin: 'x{', end: '}x',
-  // };
-
   var CONTAINS = [
-    // VAR,
+    VAR,
+    BUILT_IN,
     STRING,
     NUMBER,
     COMMENT,
     ANNOTATION
   ];
-  // METHOD.contains = CONTAINS;
+
+  var METHOD = {
+    begin: '{', end: '}',
+    contains: CONTAINS
+  };
 
 
   return {
@@ -115,8 +120,6 @@ function(hljs) {
     keywords: {
       keyword: KEYWORDS,
       literal: LITERAL,
-      built_in: BUILT_IN,
-      variable: VAR
     },
     contains: CONTAINS
   };
