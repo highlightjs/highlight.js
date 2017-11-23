@@ -14,7 +14,7 @@ return (
 ('A', 'B', 'C') => count(),
 
 declare function local:city($country as node()*) as element (country) {
-for $country in db:open('factbook')//country
+for $country in doc('factbook')//country
 where $country/@population > 100000000
 let $name := $country/name[1]
 for $city in $country//city[population gt 1000000]
