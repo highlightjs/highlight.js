@@ -8,25 +8,27 @@ Category: functional
 */
 
 function(hljs) {
-  var KEYWORDS = 'for let if while then else return where group by xquery encoding version' +
-    'module namespace boundary-space preserve strip default collation base-uri ordering' +
-    'copy-namespaces order declare import schema namespace option function in allowing empty' +
-    'at tumbling window sliding window start when only end when previous next stable ascending' +
-    'descending empty greatest least some every satisfies switch case typeswitch try catch and' +
-    'or to union intersect instance of treat as castable cast map array delete insert into' +
-    'replace value rename copy modify update';
+  // see https://www.w3.org/TR/xquery/#id-terminal-delimitation
+  var KEYWORDS = 'module schema namespace boundary-space preserve no-preserve strip default collation base-uri ordering context decimal-format decimal-separator copy-namespaces empty-sequence except exponent-separator external grouping-separator inherit no-inherit lax minus-sign per-mille percent schema-attribute schema-element strict unordered zero-digit ' +
+    'declare import option function validate variable ' +
+    'for at in let where order group by return if then else ' +
+    'tumbling sliding window start when only end previous next stable ' +
+    'ascending descending allowing empty greatest least some every satisfies switch case typeswitch try catch ' +
+    'and or to union intersect instance of treat as castable cast map array ' +
+    'delete insert into replace value rename copy modify update';
 
   // Node Types (sorted by inheritance)
   // atomic types (sorted by inheritance)
-  var TYPE = 'item document-node node attribute document element comment namespace processing-instruction text' +
-    'xs:anyAtomicType xs:untypedAtomic xs:duration xs:time xs:decimal xs:float xs:double xs:gYearMonth xs:gYear xs:gMonthDay xs:gMonth xs:gDay xs:boolean xs:base64Binary xs:hexBinary xs:anyURI xs:QName xs:NOTATION' +
-    'xs:dateTime xs:dateTimeStamp xs:date xs:string xs:normalizedString xs:token xs:language xs:NMTOKEN xs:Name xs:NCName xs:ID xs:IDREF xs:ENTITY' +
-    'xs:integer xs:nonPositiveInteger xs:negativeInteger xs:long xs:int xs:short  xs:byte xs:nonNegativeInteger xs:unisignedLong xs:unsignedInt xs:unsignedShort xs:unsignedByte xs:positiveInteger' +
+  var TYPE = 'item document-node node attribute document element comment namespace namespace-node processing-instruction text construction ' +
+    'xs:anyAtomicType xs:untypedAtomic xs:duration xs:time xs:decimal xs:float xs:double xs:gYearMonth xs:gYear xs:gMonthDay xs:gMonth xs:gDay xs:boolean xs:base64Binary xs:hexBinary xs:anyURI xs:QName xs:NOTATION ' +
+    'xs:dateTime xs:dateTimeStamp xs:date xs:string xs:normalizedString xs:token xs:language xs:NMTOKEN xs:Name xs:NCName xs:ID xs:IDREF xs:ENTITY ' +
+    'xs:integer xs:nonPositiveInteger xs:negativeInteger xs:long xs:int xs:short  xs:byte xs:nonNegativeInteger xs:unisignedLong xs:unsignedInt xs:unsignedShort xs:unsignedByte xs:positiveInteger ' +
     'xs:yearMonthDuration xs:dayTimeDuration';
 
   // TODO: Fix Xpath path-expressions
-  var LITERAL = 'eq ne lt le gt ge is' +
-  'self:: child:: descendant:: descendant-or-self:: attribute:: following:: following-sibling:: parent:: ancestor:: ancestor-or-self:: preceding:: preceding-sibling::';
+  var LITERAL = 'eq ne lt le gt ge is ' +
+    'self:: child:: descendant:: descendant-or-self:: attribute:: following:: following-sibling:: parent:: ancestor:: ancestor-or-self:: preceding:: preceding-sibling:: ' +
+    'NaN';
 
   // functions (TODO: find regex for op: that doesn't break on build)
   var BUILT_IN = {
@@ -49,28 +51,32 @@ function(hljs) {
       end: /\(/,
       excludeEnd: true
     }, {
-      begin: /[^</\$]\b(?:abs|accumulator\-(?:after|before)|adjust\-(?:date(?:Time)*|time)\-to\-timezone|analyze\-string|apply|available\-(?:environment\-variables|system\-properties)|avg|base\-uri|boolean|ceiling|codepoint[s]*\-(?:equal|to\-string)|collation\-key|collection|compare|concat|contains(?:\-token)*|copy\-of|count|current(?:\-date(?:Time)*|\-time|\-grou(?:ping\-key)*|\-output\-uri|\-merge\-(?:group|key))*|data|dateTime|day[s]*\-from\-(?:date(?:Time)*|duration)|deep\-equal|default\-(?:collation|language)|distinct\-values|document(?:\-uri)*|doc(?:\-available)*|element\-(?:available|with\-id)|empty|encode\-for\-uri|ends\-with|environment\-variable|error|escape\-html\-uri|exactly\-one|exists|false|filter|floor|fold\-(?:left|right)|for\-each(?:\-pair)*|format\-(?:date(?:Time)*|time|integer|number)|function\-(?:arity|available|lookup|name)|generate\-id|has\-children|head|hours\-from\-(?:dateTime|duration|time)|id(?:ref)*|implicit\-timezone|in\-scope\-prefixes|inde[x]\-of|innermost|insert\-before|iri\-to\-uri|json\-(?:doc|to\-xml)|key|lang|last|load\-xquery\-module|local\-name(?:\-from\-QName)*|(?:lower|upper)\-case|matches|max|minutes\-from\-(?:dateTime|duration|time)|min|month[s]*\-from\-(?:date(?:Time)*|duration)|name(?:space\-uri(?:\-for\-prefix|\-from\-QName)*)*|nilled|node\-name|normalize\-(?:space|unicode)|not|number|one\-or\-more|outermost|parse\-(?:ietf\-date|json)|path|position|(?:prefix\-from\-)*QName|random\-number\-generator|regex\-group|remove|replace|resolve\-(?:QName|uri)|reverse|root|round(?:\-half\-to\-even)*|seconds\-from\-(?:dateTime|duration|time)|snapshot|sort|starts\-with|static\-base\-uri|stream\-available|string(?:\-join|\-length|\-to\-codepoints)*|subsequence|substring(?:\-after|\-before)*|sum|system\-property|tail|timezone\-from\-(?:date(?:Time)*|time)|tokenize|trace|transform|translate|true|type\-available|unordered|unparsed\-(?:entity|text)*(?:\-(?:public\-id|uri|available|lines))*|uri\-collection|xml\-to\-json|year[s]*\-from\-(?:date(?:Time)*|duration)|zero\-or\-one)\b/,
+      // don't highlight inbuilts as variable or xml element names
+      begin: /[^</\$\:]\b(?:abs|accumulator\-(?:after|before)|adjust\-(?:date(?:Time)*|time)\-to\-timezone|analyze\-string|apply|available\-(?:environment\-variables|system\-properties)|avg|base\-uri|boolean|ceiling|codepoint[s]*\-(?:equal|to\-string)|collation\-key|collection|compare|concat|contains(?:\-token)*|copy\-of|count|current(?:\-date(?:Time)*|\-time|\-grou(?:ping\-key)*|\-output\-uri|\-merge\-(?:group|key))*|data|dateTime|day[s]*\-from\-(?:date(?:Time)*|duration)|deep\-equal|default\-(?:collation|language)|distinct\-values|document(?:\-uri)*|doc(?:\-available)*|element\-(?:available|with\-id)|empty|encode\-for\-uri|ends\-with|environment\-variable|error|escape\-html\-uri|exactly\-one|exists|false|filter|floor|fold\-(?:left|right)|for\-each(?:\-pair)*|format\-(?:date(?:Time)*|time|integer|number)|function\-(?:arity|available|lookup|name)|generate\-id|has\-children|head|hours\-from\-(?:dateTime|duration|time)|id(?:ref)*|implicit\-timezone|in\-scope\-prefixes|inde[x]\-of|innermost|insert\-before|iri\-to\-uri|json\-(?:doc|to\-xml)|key|lang|last|load\-xquery\-module|local\-name(?:\-from\-QName)*|(?:lower|upper)\-case|matches|max|minutes\-from\-(?:dateTime|duration|time)|min|month[s]*\-from\-(?:date(?:Time)*|duration)|name(?:space\-uri(?:\-for\-prefix|\-from\-QName)*)*|nilled|node\-name|normalize\-(?:space|unicode)|not|number|one\-or\-more|outermost|parse\-(?:ietf\-date|json)|path|position|(?:prefix\-from\-)*QName|random\-number\-generator|regex\-group|remove|replace|resolve\-(?:QName|uri)|reverse|root|round(?:\-half\-to\-even)*|seconds\-from\-(?:dateTime|duration|time)|snapshot|sort|starts\-with|static\-base\-uri|stream\-available|string(?:\-join|\-length|\-to\-codepoints)*|subsequence|substring(?:\-after|\-before)*|sum|system\-property|tail|timezone\-from\-(?:date(?:Time)*|time)|tokenize|trace|transform|translate|true|type\-available|unordered|unparsed\-(?:entity|text)*(?:\-(?:public\-id|uri|available|lines))*|uri\-collection|xml\-to\-json|year[s]*\-from\-(?:date(?:Time)*|duration)|zero\-or\-one)\b/,
     }, {
       begin: /\blocal\:/,
       end: /\(/,
       excludeEnd: true
-    }]
-  };
-  var TITLE = {
-    className: 'title',
-    variants: [{
-      begin: /\bxquery version "[13]\.[01]"\s?(?:encoding ".+")?/,
-      end: /;/
     }, {
-      begin: /\bdeclare\s+(?!function)(?:default)?\s*(?:ordering|copy\-namespaces|construction|decimal\-format|variable|boundary-space|base-uri|collation|namespace|option|context)?/,
-      end: /;/
-    }, {
-      begin: /\b(?:import)?\s?(module|schema)? namespace/,
-      end: /;/
-    }]
+      begin: /\bzip\:/,
+      end: /(?:zip\-file|(?:xml|html|text|binary)\-entry| (?:update\-)?entries)\b/
+    },
+// Vendor and unoffical
+    {
+      begin: /\b(?:util|db|functx|app|xdmp|xmldb)\:/,
+      end: /\(/,
+      excludeEnd: true
+    }
+  ]
   };
 
-// TODO: Get variable highlighting to work
+  var TITLE = {
+    className: 'title',
+    begin: /\bxquery version "[13]\.[01]"\s?(?:encoding ".+")?/,
+    end: /;/
+  };
+
+  // TODO: Get variable highlighting to work
   var VAR = {
     className: 'params',
     // begin: /\b\$[A-Za-z0-9_\-]+/
