@@ -60,9 +60,7 @@ function(hljs) {
     }, {
       begin: /\bzip\:/,
       end: /(?:zip\-file|(?:xml|html|text|binary)\-entry| (?:update\-)?entries)\b/
-    },
-// Vendor and unoffical
-    {
+    }, {
       begin: /\b(?:util|db|functx|app|xdmp|xmldb)\:/,
       end: /\(/,
       excludeEnd: true
@@ -76,23 +74,10 @@ function(hljs) {
     end: /;/
   };
 
-  // TODO: Get variable highlighting to work
   var VAR = {
-    className: 'params',
-    // begin: /\b\$[A-Za-z0-9_\-]+/
-    begin: /[\$%][\w-:]+/gm
+    className: 'variable',
+    begin: /[\$][\w-:]+/
   };
-  // TODO: add comparison, string, and function symbols
-  // var SYMBOL = {
-  //   className: 'symbol',
-  //   variants: [{
-  //     begin: ':= = != < <= > >= << >> => ||',
-  //     end: /\b/
-  //   }, {
-  //     begin: 'self:: child:: descendant:: descendant-or-self:: attribute:: following:: following-sibling:: parent:: ancestor:: ancestor-or-self:: preceding:: preceding-sibling:: @',
-  //     end: /\b/
-  //   }]
-  // };
 
   var NUMBER = {
     className: 'number',
