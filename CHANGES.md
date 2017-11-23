@@ -1,3 +1,9 @@
+Improvements:
+
+- [Duncan Paterson][] added *XQuery* built-ins, prolog, missing keywords, and fixed parsing of function bodies by 
+
+[Duncan Paterson]: https://github.com/duncdrum
+
 ## Version 9.12.0
 
 New language:
