@@ -1,4 +1,4 @@
-declare function local:test ($node as node()) as element(div) {
+declare %public function local:test ($node as node()) as element(div) {
 for $n in $node
 return
   element div { switch($n)
