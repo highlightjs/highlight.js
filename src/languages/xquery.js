@@ -25,7 +25,6 @@ function(hljs) {
     'xs:integer xs:nonPositiveInteger xs:negativeInteger xs:long xs:int xs:short  xs:byte xs:nonNegativeInteger xs:unisignedLong xs:unsignedInt xs:unsignedShort xs:unsignedByte xs:positiveInteger ' +
     'xs:yearMonthDuration xs:dayTimeDuration';
 
-  // TODO: Fix Xpath path-expressions
   var LITERAL = 'eq ne lt le gt ge is ' +
     'self:: child:: descendant:: descendant-or-self:: attribute:: following:: following-sibling:: parent:: ancestor:: ancestor-or-self:: preceding:: preceding-sibling:: ' +
     'NaN';
