@@ -1,0 +1,140 @@
+<span class="hljs-keyword">pragma</span> solidity ^<span class="hljs-number">0.4</span><span class="hljs-number">.11</span>;
+
+<span class="hljs-keyword">contract</span> BlindAuction {
+    <span class="hljs-keyword">struct</span> Bid {
+        <span class="hljs-built_in">bytes32</span> blindedBid;
+        <span class="hljs-built_in">uint</span> deposit;
+    }
+
+    <span class="hljs-built_in">address</span> <span class="hljs-keyword">public</span> beneficiary;
+    <span class="hljs-built_in">uint</span> <span class="hljs-keyword">public</span> biddingEnd;
+    <span class="hljs-built_in">uint</span> <span class="hljs-keyword">public</span> revealEnd;
+    <span class="hljs-built_in">bool</span> <span class="hljs-keyword">public</span> ended;
+
+    <span class="hljs-keyword">mapping</span>(<span class="hljs-built_in">address</span> =&gt; Bid[]) <span class="hljs-keyword">public</span> bids;
+
+    <span class="hljs-built_in">address</span> <span class="hljs-keyword">public</span> highestBidder;
+    <span class="hljs-built_in">uint</span> <span class="hljs-keyword">public</span> highestBid;
+
+    <span class="hljs-comment">// Allowed withdrawals of previous bids</span>
+    <span class="hljs-keyword">mapping</span>(<span class="hljs-built_in">address</span> =&gt; <span class="hljs-built_in">uint</span>) pendingReturns;
+
+    <span class="hljs-keyword">event</span> AuctionEnded(<span class="hljs-built_in">address</span> winner, <span class="hljs-built_in">uint</span> highestBid);
+
+    <span class="hljs-comment">/// Modifiers are a convenient way to validate inputs to</span>
+    <span class="hljs-comment">/// functions. `onlyBefore` is applied to `bid` below:</span>
+    <span class="hljs-comment">/// The new function body is the modifier's body where</span>
+    <span class="hljs-comment">/// `_` is replaced by the old function body.</span>
+    <span class="hljs-keyword">modifier</span> onlyBefore(<span class="hljs-built_in">uint</span> _time) { <span class="hljs-built_in">require</span>(<span class="hljs-built_in">now</span> &lt; _time); _; }
+    <span class="hljs-keyword">modifier</span> onlyAfter(<span class="hljs-built_in">uint</span> _time) { <span class="hljs-built_in">require</span>(<span class="hljs-built_in">now</span> &gt; _time); _; }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">BlindAuction</span>(<span class="hljs-params">
+        uint _biddingTime,
+        uint _revealTime,
+        address _beneficiary
+    </span>) </span>{
+        beneficiary = _beneficiary;
+        biddingEnd = <span class="hljs-built_in">now</span> + _biddingTime;
+        revealEnd = biddingEnd + _revealTime;
+    }
+
+    <span class="hljs-comment">/// Place a blinded bid with `_blindedBid` = keccak256(value,</span>
+    <span class="hljs-comment">/// fake, secret).</span>
+    <span class="hljs-comment">/// The sent ether is only refunded if the bid is correctly</span>
+    <span class="hljs-comment">/// revealed in the revealing phase. The bid is valid if the</span>
+    <span class="hljs-comment">/// ether sent together with the bid is at least "value" and</span>
+    <span class="hljs-comment">/// "fake" is not true. Setting "fake" to true and sending</span>
+    <span class="hljs-comment">/// not the exact amount are ways to hide the real bid but</span>
+    <span class="hljs-comment">/// still make the required deposit. The same address can</span>
+    <span class="hljs-comment">/// place multiple bids.</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bid</span>(<span class="hljs-params">bytes32 _blindedBid</span>)
+        <span class="hljs-title">payable</span>
+        <span class="hljs-title">onlyBefore</span>(<span class="hljs-params">biddingEnd</span>)
+    </span>{
+        bids[<span class="hljs-built_in">msg</span>.sender].push(Bid({
+            blindedBid: _blindedBid,
+            deposit: <span class="hljs-built_in">msg</span>.value
+        }));
+    }
+
+    <span class="hljs-comment">/// Reveal your blinded bids. You will get a refund for all</span>
+    <span class="hljs-comment">/// correctly blinded invalid bids and for all bids except for</span>
+    <span class="hljs-comment">/// the totally highest.</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reveal</span>(<span class="hljs-params">
+        uint[] _values,
+        bool[] _fake,
+        bytes32[] _secret
+    </span>)
+        <span class="hljs-title">onlyAfter</span>(<span class="hljs-params">biddingEnd</span>)
+        <span class="hljs-title">onlyBefore</span>(<span class="hljs-params">revealEnd</span>)
+    </span>{
+        <span class="hljs-built_in">uint</span> length = bids[<span class="hljs-built_in">msg</span>.sender].length;
+        <span class="hljs-built_in">require</span>(_values.length == length);
+        <span class="hljs-built_in">require</span>(_fake.length == length);
+        <span class="hljs-built_in">require</span>(_secret.length == length);
+
+        <span class="hljs-built_in">uint</span> refund;
+        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">uint</span> i = <span class="hljs-number">0</span>; i &lt; length; i++) {
+            var bid = bids[<span class="hljs-built_in">msg</span>.sender][i];
+            var (value, fake, secret) =
+                    (_values[i], _fake[i], _secret[i]);
+            <span class="hljs-keyword">if</span> (bid.blindedBid != <span class="hljs-built_in">keccak256</span>(value, fake, secret)) {
+                <span class="hljs-comment">// Bid was not actually revealed.</span>
+                <span class="hljs-comment">// Do not refund deposit.</span>
+                <span class="hljs-keyword">continue</span>;
+            }
+            refund += bid.deposit;
+            <span class="hljs-keyword">if</span> (!fake &amp;&amp; bid.deposit &gt;= value) {
+                <span class="hljs-keyword">if</span> (placeBid(<span class="hljs-built_in">msg</span>.sender, value))
+                    refund -= value;
+            }
+            <span class="hljs-comment">// Make it impossible for the sender to re-claim</span>
+            <span class="hljs-comment">// the same deposit.</span>
+            bid.blindedBid = <span class="hljs-built_in">bytes32</span>(<span class="hljs-number">0</span>);
+        }
+        <span class="hljs-built_in">msg</span>.sender.transfer(refund);
+    }
+
+    <span class="hljs-comment">// This is an "internal" function which means that it</span>
+    <span class="hljs-comment">// can only be called from the contract itself (or from</span>
+    <span class="hljs-comment">// derived contracts).</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">placeBid</span>(<span class="hljs-params">address bidder, uint value</span>) <span class="hljs-title">internal</span>
+            <span class="hljs-title">returns</span> (<span class="hljs-params">bool success</span>)
+    </span>{
+        <span class="hljs-keyword">if</span> (value &lt;= highestBid) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+        <span class="hljs-keyword">if</span> (highestBidder != <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// Refund the previously highest bidder.</span>
+            pendingReturns[highestBidder] += highestBid;
+        }
+        highestBid = value;
+        highestBidder = bidder;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-comment">/// Withdraw a bid that was overbid.</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">withdraw</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">uint</span> amount = pendingReturns[<span class="hljs-built_in">msg</span>.sender];
+        <span class="hljs-keyword">if</span> (amount &gt; <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// It is important to set this to zero because the recipient</span>
+            <span class="hljs-comment">// can call this function again as part of the receiving call</span>
+            <span class="hljs-comment">// before `transfer` returns (see the remark above about</span>
+            <span class="hljs-comment">// conditions -&gt; effects -&gt; interaction).</span>
+            pendingReturns[<span class="hljs-built_in">msg</span>.sender] = <span class="hljs-number">0</span>;
+
+            <span class="hljs-built_in">msg</span>.sender.transfer(amount);
+        }
+    }
+
+    <span class="hljs-comment">/// End the auction and send the highest bid</span>
+    <span class="hljs-comment">/// to the beneficiary.</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">auctionEnd</span>(<span class="hljs-params"></span>)
+        <span class="hljs-title">onlyAfter</span>(<span class="hljs-params">revealEnd</span>)
+    </span>{
+        <span class="hljs-built_in">require</span>(!ended);
+        AuctionEnded(highestBidder, highestBid);
+        ended = <span class="hljs-literal">true</span>;
+        beneficiary.transfer(highestBid);
+    }
+}
