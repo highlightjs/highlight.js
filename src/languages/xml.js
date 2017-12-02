@@ -32,20 +32,6 @@ function(hljs) {
       }
     ]
   };
-  var PHP_STRING = {
-    contains: [hljs.BACKSLASH_ESCAPE, {begin: /<\?(php)?|\?>/}],
-    variants: [
-      {
-        begin: 'b"', end: '"'
-      },
-      {
-        begin: 'b\'', end: '\''
-      },
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null, className: null}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null, className: null})
-    ],
-    skip: true
-  };
   return {
     aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist'],
     case_insensitive: true,
@@ -70,11 +56,16 @@ function(hljs) {
       {
         className: 'meta',
         begin: /<\?xml/, end: /\?>/, relevance: 10
-      },
-      {
+      }, {
         begin: /<\?(php)?/, end: /\?>/,
         subLanguage: 'php',
-        contains: [{begin: '/\\*', end: '\\*/', skip: true}, PHP_STRING]
+        contains: [
+          {begin: '/\\*', end: '\\*/', skip: true},
+          {begin: 'b"', end: '"', skip: true},
+          {begin: 'b\'', end: '\'', skip: true},
+          hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null, className: null, skip: true}),
+          hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null, className: null, skip: true})
+        ]
       },
       {
         className: 'tag',
