@@ -32,6 +32,20 @@ function(hljs) {
       }
     ]
   };
+  var PHP_STRING = {
+    className: 'string',
+    contains: [hljs.BACKSLASH_ESCAPE, {begin: /<\?(php)?|\?>/}],
+    variants: [
+      {
+        begin: 'b"', end: '"'
+      },
+      {
+        begin: 'b\'', end: '\''
+      },
+      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
+    ]
+  };
   return {
     aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist'],
     case_insensitive: true,
@@ -60,7 +74,7 @@ function(hljs) {
       {
         begin: /<\?(php)?/, end: /\?>/,
         subLanguage: 'php',
-        contains: [{begin: '/\\*', end: '\\*/', skip: true}]
+        contains: [{begin: '/\\*', end: '\\*/', skip: true}, PHP_STRING]
       },
       {
         className: 'tag',
