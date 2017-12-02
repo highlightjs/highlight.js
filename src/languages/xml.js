@@ -33,7 +33,6 @@ function(hljs) {
     ]
   };
   var PHP_STRING = {
-    className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, {begin: /<\?(php)?|\?>/}],
     variants: [
       {
@@ -44,7 +43,8 @@ function(hljs) {
       },
       hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
-    ]
+    ],
+    skip: true
   };
   return {
     aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist'],
