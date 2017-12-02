@@ -41,8 +41,8 @@ function(hljs) {
       {
         begin: 'b\'', end: '\''
       },
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
+      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null, className: null}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null, className: null})
     ],
     skip: true
   };
