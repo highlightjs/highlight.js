@@ -1,0 +1,43 @@
+------------------------------- MODULE Euclid -------------------------------
+
+EXTENDS Integers, GCD, TLAPS
+
+CONSTANTS M, N
+
+ASSUME /\ M \in Nat \ {0}
+       /\ N \in Nat \ {0}
+
+VARIABLES x, y, pc
+
+vars == << x, y, pc >>
+
+\* Global variables
+Init == /\ x = M
+        /\ y = N
+        /\ pc = "Running"
+
+Step == /\ pc = "Running"
+        /\ IF x # y
+              THEN /\ IF x < y
+                         THEN /\ y' = y - x
+                              /\ x' = x
+                         ELSE /\ x' = x - y
+                              /\ y' = y
+                   /\ pc' = "Running"
+              ELSE /\ pc' = "Done"
+                   /\ UNCHANGED << x, y >>
+
+Next == \/ Step
+        \/ (* Disjunct to prevent deadlock on termination *)
+           (pc = "Done" /\ UNCHANGED vars)
+
+Spec == Init /\ [][Next]_vars
+
+Termination == <>(pc = "Done")
+
+Inv == /\ GCD(x, y) = GCD(M, N)
+       /\ (pc = "done") => (x = y)
+TypeOK == /\ x \in Nat \ {0}
+          /\ y \in Nat \ {0}
+
+=============================================================================
