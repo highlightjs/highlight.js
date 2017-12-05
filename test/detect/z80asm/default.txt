@@ -1,0 +1,32 @@
+
+#include    "ti83plus.inc"
+
+lineHeight  .equ 10
+
+#define     progStart   $9D95
+.org        progStart-2
+.db         $BB,$6D
+
+    call _ClrLCDFull
+    ld   de, 0
+    ld   hl, Message
+_displayLoop
+    ld   (CurRow), de
+	
+	push de
+    call _PutS         ; Displays the string
+	
+	pop  de
+	ld   a, e
+	add  a, lineHeight
+	ld   e, a
+	
+	ld   a, [hl]
+	and  a
+	jr   nz, _displayLoop
+    ret
+	
+Message:
+.db         "Hello world!",0
+.db         "How do you do?",0
+.db         0
