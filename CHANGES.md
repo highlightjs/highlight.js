@@ -1,3 +1,11 @@
+## Version 9.13.0
+
+Improvements:
+
+- Added tsx support to *TypeScript* via [Drew Devault][]
+
+[Drew DeVault]: https://github.com/SirCmpwn
+
 ## Version 9.12.0
 
 New language:

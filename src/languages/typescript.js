@@ -27,7 +27,7 @@ function(hljs) {
   };
 
   return {
-    aliases: ['ts'],
+    aliases: ['ts', 'tsx'],
     keywords: KEYWORDS,
     contains: [
       {
@@ -89,6 +89,20 @@ function(hljs) {
                       hljs.C_BLOCK_COMMENT_MODE
                     ]
                   }
+                ]
+              }
+            ]
+          },
+          { // E4X / JSX
+            begin: /</, end: /(\/\w+|\w+\/)>/,
+            subLanguage: 'xml',
+            contains: [
+              {begin: /<\w+\s*\/>/, skip: true},
+              {
+                begin: /<\w+/, end: /(\/\w+|\w+\/)>/, skip: true,
+                contains: [
+                  {begin: /<\w+\s*\/>/, skip: true},
+                  'self'
                 ]
               }
             ]

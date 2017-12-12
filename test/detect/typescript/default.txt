@@ -2,6 +2,7 @@ class MyClass {
   public static myValue: string;
   constructor(init: string) {
     this.myValue = init;
+    return <div className="test">jsx syntax</div>;
   }
 }
 import fs = require("fs");
