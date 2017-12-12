@@ -6,6 +6,14 @@ New styles:
 
 Improvements:
 
+## Version 9.14.2
+
+Improvements:
+
+- Added tsx support to *TypeScript* via [Drew Devault][]
+
+[Drew DeVault]: https://github.com/SirCmpwn
+
 ## Version 9.14.1
 
 New languages:
@@ -64,7 +72,7 @@ Improvements:
 [Antoine Boisier-Michaud]: https://github.com/Aboisier
 [Alejandro Isaza]: https://github.com/alejandro-isaza
 
-## Version 9.13.0
+## Version 9.14.2
 
 New languages:
 
