@@ -6,6 +6,14 @@ New styles:
 
 Improvements:
 
+## Version 9.14.2
+
+Improvements:
+
+- Added tsx support to *TypeScript* via [Drew Devault][]
+
+[Drew DeVault]: https://github.com/SirCmpwn
+
 ## Version 9.14.1
 
 New languages:
