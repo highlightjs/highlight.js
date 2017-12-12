@@ -33,9 +33,10 @@
         <span class="hljs-keyword">return</span> state;
     }
     <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (node.kind === SyntaxKind.ModuleDeclaration) {
-        <span class="hljs-keyword">return</span> getModuleInstanceState((&lt;ModuleDeclaration&gt;node).body);
+        <span class="hljs-keyword">return</span> getModuleInstanceState((<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ModuleDeclaration</span>&gt;</span>node).body);
     }
-    <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">return</span> ModuleInstanceState.Instantiated;
+    else {
+        return ModuleInstanceState.Instantiated;
     }
 }
+</span>
