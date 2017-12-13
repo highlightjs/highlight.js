@@ -1,10 +1,9 @@
-declare %public function local:test ($node as node()) as element(div) {
+declare function local:test ($node as node()) as element(div) {
 for $n in $node
 return
   element div { switch($n)
     case 'abc' return 'OK'
-    case 'def' return 'Nope'
-  default return 'meh'
+  default return 2
   }
 };
 for $x in 1 to 3

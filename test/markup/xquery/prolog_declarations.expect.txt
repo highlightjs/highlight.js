@@ -11,10 +11,10 @@
 <span class="hljs-keyword">declare</span> <span class="hljs-keyword">copy-namespaces</span> <span class="hljs-keyword">no-preserve</span>, <span class="hljs-keyword">inherit</span>;
 <span class="hljs-comment">(: switch to preserve, no-inherit:)</span>
 
-<span class="hljs-keyword">declare</span> <span class="hljs-keyword">variable</span> <span class="hljs-variable">$maxItems</span> := <span class="hljs-number">12</span>;
+<span class="hljs-keyword">declare</span> <span class="hljs-meta">%private</span> <span class="hljs-keyword">variable</span> <span class="hljs-variable">$app:maxItems</span> := <span class="hljs-number">12</span>;
 <span class="hljs-keyword">declare</span> <span class="hljs-keyword">context</span> <span class="hljs-type">item</span> :=<span class="hljs-built_in"> doc</span>(<span class="hljs-string">"catalog.xml"</span>);
 
-<span class="hljs-keyword">declare</span> <span class="hljs-keyword">function</span> <span class="hljs-built_in">app:helloworld</span>(<span class="hljs-variable">$node</span> <span class="hljs-keyword">as</span> <span class="hljs-type">node</span>(), <span class="hljs-variable">$model</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">map</span>(*), <span class="hljs-variable">$name</span> <span class="hljs-keyword">as</span> <span class="hljs-type">xs:string</span>?) {
+<span class="hljs-keyword">declare</span> <span class="hljs-meta">%templates:wrap-all</span> <span class="hljs-keyword">function</span> <span class="hljs-built_in">app:helloworld</span>(<span class="hljs-variable">$node</span> <span class="hljs-keyword">as</span> <span class="hljs-type">node</span>(), <span class="hljs-variable">$model</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">map</span>(*), <span class="hljs-variable">$name</span> <span class="hljs-keyword">as</span> <span class="hljs-type">xs:string</span>?) {
     <span class="hljs-keyword">if</span> (<span class="hljs-variable">$name</span>) <span class="hljs-keyword">then</span>
         &lt;p&gt;Hello {<span class="hljs-variable">$name</span>}!&lt;/p&gt;
     <span class="hljs-keyword">else</span>

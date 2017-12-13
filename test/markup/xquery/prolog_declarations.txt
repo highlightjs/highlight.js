@@ -11,10 +11,10 @@ import module namespace config="http://config" at "config.xqm"; (: schema :)
 declare copy-namespaces no-preserve, inherit;
 (: switch to preserve, no-inherit:)
 
-declare variable $maxItems := 12;
+declare %private variable $app:maxItems := 12;
 declare context item := doc("catalog.xml");
 
-declare function app:helloworld($node as node(), $model as map(*), $name as xs:string?) {
+declare %templates:wrap-all function app:helloworld($node as node(), $model as map(*), $name as xs:string?) {
     if ($name) then
         <p>Hello {$name}!</p>
     else
