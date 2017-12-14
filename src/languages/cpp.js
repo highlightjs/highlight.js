@@ -15,13 +15,16 @@ function(hljs) {
     className: 'string',
     variants: [
       {
-        begin: '(u8?|U)?L?"', end: '"',
+        begin: '(u8?|U|L)?"', end: '"',
         illegal: '\\n',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
-        begin: '(u8?|U)?R"', end: '"',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        // TODO: This does not handle raw string literals with prefixes. Using
+        // a single regex with backreferences would work (note to use *?
+        // instead of * to make it non-greedy), but the mode.terminators
+        // computation in highlight.js breaks the counting.
+        begin: '(u8?|U|L)?R"\\(', end: '\\)"',
       },
       {
         begin: '\'\\\\?.', end: '\'',
