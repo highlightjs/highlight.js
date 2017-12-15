@@ -121,11 +121,25 @@ function(hljs) {
 
   // see https://www.w3.org/TR/xquery/#id-computedConstructors
   // mocha: computed_inbuilt
+  // see https://www.regexpal.com/?fam=99749
   var COMPUTED = {
     beginKeywords: 'element attribute comment document processing-instruction',
     end: '{',
     excludeEnd: true
   };
+
+  // mocha: direct_method
+    var DIRECT = {
+      begin: /<([\w\._:\-]+)((\s*.*)=('|").*('|"))?>/,
+      end: /(\/[\w\._:\-]+>)/,
+      subLanguage: 'xml',
+      contains: [{
+        begin: '{',
+        end: '}',
+        subLanguage: 'xquery'
+      }, 'self']
+    };
+
 
   var CONTAINS = [
     VAR,
@@ -135,22 +149,18 @@ function(hljs) {
     COMMENT,
     ANNOTATION,
     TITLE,
-    COMPUTED
+    COMPUTED,
+    DIRECT
   ];
 
-  // see https://www.regexpal.com/?fam=99749
+
+
     var METHOD = {
       begin: '{',
       end: '}',
       contains: CONTAINS
     };
 
-    var DIRECT = {
-      begin: /<\w+>/,
-      end: /<\/\w+>/,
-      contains: METHOD,
-      skip: true
-    };
 
 
   return {

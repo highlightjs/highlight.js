@@ -8,4 +8,4 @@ return
 };
 for $x in 1 to 3
 return
-  local:test(<root>abc</root>)
+  local:test(<test>abc</test>)
