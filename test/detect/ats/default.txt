@@ -1,0 +1,15 @@
+(* ****** ****** *)
+//
+// This is a comment
+//
+(* ****** ****** *)
+local
+  val a = 5
+  val b = c
+  fun myadd(x: int, y: int): int = x + y
+in
+  implement main0() = () where {
+    val c = myadd(a, b)
+    val _ = println!("Hello, World! ", c)
+  }
+end
