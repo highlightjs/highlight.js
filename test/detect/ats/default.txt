@@ -1,0 +1,3 @@
+implement main0() = () where {
+    val _ = print("Hello, World!")
+}
