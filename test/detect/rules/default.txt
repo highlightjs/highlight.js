@@ -1,0 +1,1 @@
+new does not exist and card_brand = visa
