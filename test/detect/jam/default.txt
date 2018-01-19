@@ -1,5 +1,11 @@
 # Jam file
 
+ECHO "Hello world." ;
+
+#|
+Long comment
+|#
+
 import test ;
 
 project
@@ -17,11 +23,15 @@ rule create-file-from-another ( targets * : sources * : properties * )
    }
 }
 
-actions create-file-from-another
+actions quietly create-file-from-another
 {
     create-file-from-another $(OPTIONS) $(<) $(>)
 }
 
 class project-target : abstract-target {
     rule find ( id : no-error ? ) { }
+}
+
+module X {
+  local rule r { ECHO X.r ; }
 }
