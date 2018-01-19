@@ -1,0 +1,27 @@
+# Jam file
+
+import test ;
+
+project
+    : requirements <include>includes <threading>multi
+    ;
+
+lib foo : foo.cpp ;
+exe hello : hello.cpp foo ;
+
+rule create-file-from-another ( targets * : sources * : properties * )
+{
+   if <variant>debug in $(properties)
+   {
+       OPTIONS on $(targets) = --debug ;
+   }
+}
+
+actions create-file-from-another
+{
+    create-file-from-another $(OPTIONS) $(<) $(>)
+}
+
+class project-target : abstract-target {
+    rule find ( id : no-error ? ) { }
+}

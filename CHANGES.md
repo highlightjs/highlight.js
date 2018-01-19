@@ -1,3 +1,12 @@
+## Version 9.13.0
+
+New language:
+
+- *Jam* Jam/BJam/B2 build language by [Rene Rivera][].
+
+[Rene Rivera]: https://github.com/grafikrobot
+
+
 ## Version 9.12.0
 
 New language:
