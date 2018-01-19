@@ -35,12 +35,14 @@ function(hljs) {
 	var SIMPLE_VALUE_MODE = {
 		begin: '\\S+',
 		end: '\\s',
-		excludeEnd: true
+		excludeEnd: true,
+		relevance: 0
 	};
 	var QUOTED_VALUE_MODE = {
 		className: 'string',
 		begin: '"', end: '"',
-		contains: [hljs.BACKSLASH_ESCAPE]
+		contains: [hljs.BACKSLASH_ESCAPE],
+		relevance: 0
 	};
 	var VARIABLE_MODE = {
 		className: 'variable',
@@ -72,7 +74,8 @@ function(hljs) {
 			},
 			{
 				begin: '[{]',
-				endsParent: true
+				endsParent: true,
+				relevance: 0
 			},
 			TITLE_MODE
 		]
@@ -88,7 +91,8 @@ function(hljs) {
 		endsParent: true,
 		excludeBegin: true,
 		excludeEnd: true,
-		contains: [VARIABLE_MODE]
+		contains: [VARIABLE_MODE],
+		relevance: 0
 	};
 	var ACTIONS_MODE = {
 		className: 'function',
@@ -107,7 +111,7 @@ function(hljs) {
 		illegal: '[:{]',
 		excludeEnd: true,
 		contains: [
-			{ begin: '[:{]', endsParent: true, returnBegin: true },
+			{ begin: '[:{]', endsParent: true, returnBegin: true, relevance: 0 },
 			TITLE_MODE
 		]
 	};
@@ -118,7 +122,7 @@ function(hljs) {
 		illegal: '[:{]',
 		excludeEnd: true,
 		contains: [
-			{ begin: '[{]', endsParent: true, returnBegin: true },
+			{ begin: '[{]', endsParent: true, returnBegin: true, relevance: 0 },
 			TITLE_MODE
 		]
 	};
