@@ -1,0 +1,39 @@
+#example mission box1.flo
+
+house box1
+
+  framer vehiclesim be active first vehicle_run
+    frame vehicle_run
+    do simulator motion uuv
+
+  framer mission be active first northleg
+    frame northleg
+      set elapsed with 20.0
+      set goal.heading with 0.0
+      set goal.depth with 5.0
+      set goal.speed with 2.5
+      go next if elapsed >= goal
+
+    frame eastleg
+      set goal.heading with 90.0
+      go next if elapsed >= goal
+
+    frame southleg
+      set goal.heading with 180.0
+      go next if elapsed >= goal
+
+    frame westleg
+      set goal.heading with 270.0
+      go next if elapsed >= goal
+
+    frame mission_stop
+      bid stop vehiclesim
+      bid stop autopilot
+      bid stop me
+
+  framer autopilot be active first autopilot_run
+    frame autopilot_run
+      do controller pid speed
+      do controller pid heading
+      do controller pid depth
+      do controller pid pitch
