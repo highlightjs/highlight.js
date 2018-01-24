@@ -1,0 +1,17 @@
+declare
+proc {Test}   %% lazy functions
+   fun lazy {Next X} X+1 end
+   A = {Next 42}
+in
+   thread `A` = 43 end
+end
+{Browse "This is "#'okay'}
+
+/* Take the head of each list */
+fun {Heads LL}
+   case LL of nil then nil
+   [] nil|Ls then {Heads Ls}
+   [] (H|_)|Ls then H|{Heads Ls}
+   end
+end
+{Browse {Heads [ [a aa aaa] [b] nil [d dd] ]}}

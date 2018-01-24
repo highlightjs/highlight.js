@@ -1,3 +1,11 @@
+## Master (UNRELEASED)
+
+New languages:
+
+- *Oz* Esoteric general-purpose language by [Guillaume Maudoux][].
+
+[Guillaume Maudoux]: https://github.com/layus
+
 ## Version 9.12.0
 
 New language:
