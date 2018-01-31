@@ -3,7 +3,7 @@ Language: FloScript
 Author: Rostyslav Golda <tx_hv@ukr.net>
 Category: configuration
 Contributors: Rostyslav Golda <tx_hv@ukr.net>
-Description: Floscript is the the configuration language for the ioflo runtime engine. 
+Description: Floscript is the the configuration language for the ioflo runtime engine.
 */
 
 function(hljs) {
@@ -16,9 +16,11 @@ function(hljs) {
     case_insensitive: false,
     keywords: {
       keyword:
-	'load init server logger loggee first over under next' + 
+	'load init server logger loggee first over under next ' + 
 	'done timeout repeat native benter enter recur exit precur renter rexit print' +
-	' put inc copy set aux rear raze go let do bid ready start stop run abort use flo give take',
+	' put inc copy set aux rear raze go let do bid ready start stop run abort use flo give take' 
+//	'frame house framer '
+	,
       literal:
         'false true',
       built_in:
@@ -28,23 +30,21 @@ function(hljs) {
       STRING,
       hljs.C_NUMBER_MODE,
       {
-        className: 'class',
-        beginKeywords: 'house|10 framer|10'
+	    className: 'symbol',
+	    begin: '(house|framer|frame)',
+	    excludeBegin: false,
+	
+		
       },
       {
-        className: 'function',
-        beginKeywords: 'frame|10 log|10',
+	className: 'title',
+	//keyword: 'frame house framer ',
+	begin: '(^\\s|^)\\b(house|framer|frame)\\b\\s+',
+	end: '(\\s+|$)',
+	excludeBegin: true,
+	excludeEnd: true,
+
       },
-      {
-        className: 'title',
-        begin: '\\b(house|framer|frame)\\s+',
-        end: '(\\s+|$)',
-        excludeBegin: true,
-        excludeEnd: true,
-
-      }
-
-      ,
     ].concat(COMMENTS),
   };
 }
