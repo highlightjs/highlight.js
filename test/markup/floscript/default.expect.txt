@@ -1,0 +1,66 @@
+<span class="hljs-comment">#example mission box2.flo</span>
+<span class="hljs-comment"># with max depth protection</span>
+
+<span class="hljs-symbol">house</span> box2
+
+<span class="hljs-keyword">init</span> max.depth <span class="hljs-built_in">with</span> <span class="hljs-number">50.0</span>
+
+<span class="hljs-symbol">framer</span> vehiclesim <span class="hljs-built_in">be</span> active <span class="hljs-keyword">first</span> vehicle_run
+
+<span class="hljs-symbol">frame</span> vehicle_run
+   <span class="hljs-keyword">do</span> simulator motion uuv
+
+<span class="hljs-symbol">framer</span> mission <span class="hljs-built_in">be</span> active <span class="hljs-keyword">first</span> northleg
+
+<span class="hljs-symbol">frame</span> depthmax
+   <span class="hljs-keyword">go</span> <span class="hljs-keyword">abort</span> <span class="hljs-built_in">if</span> state.depth &gt;= .max.depth
+
+<span class="hljs-symbol">frame</span> northleg <span class="hljs-built_in">in</span> depthmax
+   <span class="hljs-keyword">set</span> elapsed <span class="hljs-built_in">with</span> <span class="hljs-number">20.0</span>
+   <span class="hljs-keyword">set</span> goal.heading <span class="hljs-built_in">with</span> <span class="hljs-number">0.0</span>
+   <span class="hljs-keyword">set</span> goal.depth <span class="hljs-built_in">with</span> <span class="hljs-number">5.0</span>
+   <span class="hljs-keyword">set</span> goal.speed <span class="hljs-built_in">with</span> <span class="hljs-number">2.5</span>
+   <span class="hljs-keyword">go</span> <span class="hljs-keyword">next</span> <span class="hljs-built_in">if</span> elapsed &gt;= goal
+
+<span class="hljs-symbol">frame</span> eastleg <span class="hljs-built_in">in</span> depthmax
+   <span class="hljs-keyword">set</span> goal.heading <span class="hljs-built_in">with</span> <span class="hljs-number">90.0</span>
+   <span class="hljs-keyword">go</span> <span class="hljs-keyword">next</span> <span class="hljs-built_in">if</span> elapsed &gt;= goal
+
+<span class="hljs-symbol">frame</span> southleg <span class="hljs-built_in">in</span> depthmax
+   <span class="hljs-keyword">set</span> goal.heading <span class="hljs-built_in">with</span> <span class="hljs-number">180.0</span>
+   <span class="hljs-keyword">go</span> <span class="hljs-keyword">next</span> <span class="hljs-built_in">if</span> elapsed &gt;= goal
+
+<span class="hljs-symbol">frame</span> westleg <span class="hljs-built_in">in</span> depthmax
+   <span class="hljs-keyword">set</span> goal.heading <span class="hljs-built_in">with</span> <span class="hljs-number">270.0</span>
+   <span class="hljs-keyword">go</span> <span class="hljs-keyword">next</span> <span class="hljs-built_in">if</span> elapsed &gt;= goal
+
+<span class="hljs-symbol">frame</span> mission_stop
+   <span class="hljs-keyword">bid</span> <span class="hljs-keyword">stop</span> vehiclesim
+   <span class="hljs-keyword">bid</span> <span class="hljs-keyword">stop</span> autopilot
+   <span class="hljs-keyword">bid</span> <span class="hljs-keyword">stop</span> <span class="hljs-keyword">logger</span>
+   <span class="hljs-keyword">bid</span> <span class="hljs-keyword">stop</span> me
+
+<span class="hljs-symbol">frame</span> <span class="hljs-keyword">abort</span>
+   <span class="hljs-keyword">set</span> goal.depth <span class="hljs-built_in">with</span> <span class="hljs-number">0.0</span>
+   <span class="hljs-keyword">set</span> goal.speed <span class="hljs-built_in">with</span> <span class="hljs-number">2.5</span>
+   <span class="hljs-keyword">go</span> mission_stop <span class="hljs-built_in">if</span> state.depth == <span class="hljs-number">0.0</span> +- <span class="hljs-number">0.25</span>
+
+<span class="hljs-symbol">framer</span> autopilot <span class="hljs-built_in">be</span> active <span class="hljs-keyword">first</span> autopilot_run
+
+<span class="hljs-symbol">frame</span> autopilot_run
+   <span class="hljs-keyword">do</span> controller pid speed
+   <span class="hljs-keyword">do</span> controller pid heading
+   <span class="hljs-keyword">do</span> controller pid depth
+   <span class="hljs-keyword">do</span> controller pid pitch
+
+
+<span class="hljs-keyword">logger</span> <span class="hljs-keyword">logger</span> <span class="hljs-built_in">to</span> /tmp/log/ioflo/  <span class="hljs-comment"># /tmp deleted on reboot but /var/tmp not</span>
+  log state <span class="hljs-built_in">on</span> update
+    <span class="hljs-keyword">loggee</span> state.position <span class="hljs-built_in">as</span> position state.heading <span class="hljs-built_in">as</span> heading \
+           state.depth <span class="hljs-built_in">as</span> depth state.speed <span class="hljs-built_in">as</span>  speed
+
+  log goal <span class="hljs-built_in">on</span> update
+    <span class="hljs-keyword">loggee</span> goal.heading <span class="hljs-built_in">as</span> heading goal.depth <span class="hljs-built_in">as</span> depth goal.speed <span class="hljs-built_in">as</span> speed
+
+  log <span class="hljs-symbol">frame</span> <span class="hljs-built_in">on</span> update
+    <span class="hljs-keyword">loggee</span> <span class="hljs-symbol">framer</span>.mission.state.active <span class="hljs-built_in">as</span> active <span class="hljs-symbol">framer</span>.mission.state.human <span class="hljs-built_in">as</span> human
