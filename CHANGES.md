@@ -1,3 +1,7 @@
+New language:
+
+- *FloScript* is the configuration langiage for the ioflo funtime engine, by [Rostyslav Golda]
+
 ## Version 9.12.0
 
 New language:

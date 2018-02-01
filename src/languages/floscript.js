@@ -4,6 +4,7 @@ Author: Rostyslav Golda <tx_hv@ukr.net>
 Category: configuration
 Contributors: Rostyslav Golda <tx_hv@ukr.net>
 Description: Floscript is the the configuration language for the ioflo runtime engine.
+Requires: Python
 */
 
 function(hljs) {
