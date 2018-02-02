@@ -70,7 +70,8 @@ function(hljs) {
 		contains: [
 			{
 				className: 'params',
-				begin: '[(]', end: '[)]'
+				begin: '[(]', end: '[)]',
+				endsParent: true,
 			},
 			{
 				begin: '[{]',
