@@ -1,3 +1,9 @@
+## Master (UNRELEASED)
+
+New language:
+
+- *Lean* theorem prover by [Patrick Massot][].
+
 ## Version 9.12.0
 
 New language:

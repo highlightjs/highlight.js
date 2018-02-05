@@ -1,0 +1,32 @@
+import data.real.basic analysis.topology.topological_structures
+open lattice set filter classical
+noncomputable theory
+
+universes u v w
+variables {α : Type u} {β : Type v} {γ : Type w}
+
+@[simp]
+lemma tauto : tt = tt := rfl
+
+attribute [simp] zero_eq_zero
+
+/-- Metric space
+Each metric space induces a canonical `uniform_space` and hence a
+canonical `topological_space`.  -/
+class metric_space (α : Type u) extends uniform_space α : Type u :=
+(dist : α → α → ℝ)
+(dist_self : ∀ x : α, dist x x = 0)
+(eq_of_dist_eq_zero : ∀ {x y : α}, dist x y = 0 → x = y)
+(dist_comm : ∀ x y : α, dist x y = dist y x)
+(dist_triangle : ∀ x y z : α, dist x z ≤ dist x y + dist y z)
+(uniformity_dist : uniformity = ⨅ ε>0, principal {p:α×α | dist p.1 p.2 < ε} . control_laws_tac)
+(to_uniform_space := metric_space.uniform_space_of_dist dist dist_self dist_comm dist_triangle)
+
+
+theorem tendsto_nhds_of_metric [metric_space β] {f : α → β} {a b} :
+  tendsto f (nhds a) (nhds b) ↔ ∀ ε > 0,
+    ∃ δ > 0, ∀{x:α}, dist x a < δ → dist (f x) b < ε :=
+⟨λ H ε ε0, mem_nhds_iff_metric.1 (H (ball_mem_nhds _ ε0)),
+ λ H s hs,
+  let ⟨ε, ε0, hε⟩ := mem_nhds_iff_metric.1 hs, ⟨δ, δ0, hδ⟩ := H _ ε0 in
+mem_nhds_iff_metric.2 ⟨δ, δ0, λ x h, hε (hδ h)⟩⟩ -- dash comment
