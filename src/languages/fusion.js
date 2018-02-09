@@ -17,7 +17,7 @@ function (hljs) {
     ],
     relevance: 0
   };
-  let STRING = {
+  var STRING = {
     className: 'string',
     variants: [
       hljs.QUOTE_STRING_MODE,
@@ -26,7 +26,7 @@ function (hljs) {
     ]
   };
 
-  let EEL = {
+  var EEL = {
     className: 'variable',
     begin: '\\$\\{', end: '\\}',
     keywords: KEYWORDS,
@@ -36,7 +36,7 @@ function (hljs) {
     ]
   };
 
-  let FUSION_NAMESPACE = {
+  var FUSION_NAMESPACE = {
     className: 'built_in',
     begin: '[a-zA-Z]*\\.[a-zA-Z]*\\:[a-zA-Z]*\\.?[a-zA-Z]*'
   };
