@@ -1,0 +1,40 @@
+myCollection = Neos.Fusion:Collection {
+        collection = ${[1, 2, 3]}
+        itemName = 'element'
+        itemRenderer = Neos.Fusion:Template {
+                templatePath = 'resource://...'
+                element = ${element}
+                # I am a line-comment!
+        }
+}
+
+# Line comment
+// Another line comment
+/*
+* Multi-line comment
+*/
+
+book = "The guide"
+author = 'Networkteam'
+answer = 42
+enableImprobabilityDrive = true
+
+prototype(Acme.Demo:Book) < prototype(Template) {
+  templatePath = 'Book.html'
+}
+
+output = TYPO3.TypoScript:Array {
+  hello = 'Hello'
+  world = 'world!'
+}
+
+output.world = "world!"
+output {
+  hello = "Hello"
+}
+
+prototype(Acme.Demo:Book).book = ${book}
+
+prototype(Acme.Demo:Book) < prototype(Template) {
+  templatePath = 'Book.html'
+}
