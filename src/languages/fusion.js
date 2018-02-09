@@ -5,7 +5,7 @@ TODO: add categories
 
 function (hljs) {
   var KEYWORDS = {
-    keyword: 'prototype include namespace',
+    keyword: 'prototype include namespace @process @position @ignoreProperties @context @allowEmpty @if',
     literal: 'true false null'
   };
   var NUMBER = {
