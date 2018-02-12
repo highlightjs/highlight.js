@@ -24,6 +24,7 @@ Improvements:
   consistently with other kinds.
 - [Alejandro Alonso][] updated *Swift* keywords.
 
+[Tristian Kelly]: https://github.com/TristianK3604
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Alex Arslan]: https://github.com/ararslan
 [Morten Piibeleht]: https://github.com/mortenpi
