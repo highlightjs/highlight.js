@@ -7,6 +7,7 @@ New language:
 New style:
 
 - *VisualStudio 2015 Dark* by [Nicolas LLOBERA][]
+- *Lightfair* by [Tristian Kelly][]
 
 Improvements:
 
