@@ -38,7 +38,7 @@ function (hljs) {
 
   var FUSION_NAMESPACE = {
     className: 'built_in',
-    begin: '[a-zA-Z]*\\.[a-zA-Z]*\\:[a-zA-Z]*\\.?[a-zA-Z]*'
+    begin: '\\w*\\.\\w*\\:(\\w*\\.?[a-zA-Z]*)*'
   };
 
   return {
