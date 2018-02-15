@@ -12,6 +12,11 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
   color: black;
 }
 
+/* Gray DOCTYPE selectors like WebKit */
+.xml .hljs-meta {
+  color: #c0c0c0;
+}
+
 .hljs-comment,
 .hljs-quote {
   color: #007400;
