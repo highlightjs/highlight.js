@@ -1,3 +1,17 @@
+## Version 9.13.0
+
+New language:
+
+- *isbl* built-in language DIRECTUM by [Dmitriy Tarasov][].
+
+New style:
+
+- *isbl editor light* by [Dmitriy Tarasov][]
+- *isbl editor dark* by [Dmitriy Tarasov][]
+
+[Dmitriy Tarasov]: https://github.com/MedvedTMN
+
+
 ## Version 9.12.0
 
 New language:
