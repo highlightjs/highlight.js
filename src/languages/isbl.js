@@ -2465,7 +2465,7 @@ function(hljs) {
   'FormatString ' +
   'FreeException ' +
   'GetComponent ' +
-	'GetComponentLaunchParam ' +
+  'GetComponentLaunchParam ' +
   'GetConstant ' +
   'GetLastException ' +
   'GetReferenceRecord ' +
@@ -2842,135 +2842,395 @@ function(hljs) {
   'ИмяОтчета ' +
   'РеквЗнач ';
   
+  // Интерфейсы ==> type
+  var interfaces = 
+  'IApplication ' +
+  'IAccessRights ' +
+  'IAccountRepository ' +
+  'IAccountSelectionRestrictions ' +
+  'IAction ' +
+  'IActionList ' +
+  'IAdministrationHistoryDescription ' +
+  'IAnchors ' +
+  'IApplication ' +
+  'IArchiveInfo ' +
+  'IAttachment ' +
+  'IAttachmentList ' +
+  'ICheckListBox ' +
+  'ICheckPointedList ' +
+  'IColumn ' +
+  'IComponent ' +
+  'IComponentDescription ' +
+  'IComponentToken ' +
+  'IComponentTokenFactory ' +
+  'IComponentTokenInfo ' +
+  'ICompRecordInfo ' +
+  'IConnection ' +
+  'IContents ' +
+  'IControl ' +
+  'IControlJob ' +
+  'IControlJobInfo ' +
+  'IControlList ' +
+  'ICrypto ' +
+  'ICrypto2 ' +
+  'ICustomJob ' +
+  'ICustomJobInfo ' +
+  'ICustomListBox ' +
+  'ICustomObjectWizardStep ' +
+  'ICustomWork ' +
+  'ICustomWorkInfo ' +
+  'IDataSet ' +
+  'IDataSetAccessInfo ' +
+  'IDataSigner ' +
+  'IDateCriterion ' +
+  'IDateRequisite ' +
+  'IDateRequisiteDescription ' +
+  'IDateValue ' +
+  'IDeaAccessRights ' +
+  'IDeaObjectInfo ' +
+  'IDevelopmentComponentLock ' +
+  'IDialog ' +
+  'IDialogFactory ' +
+  'IDialogPickRequisiteItems ' +
+  'IDialogsFactory ' +
+  'IDICSFactory ' +
+  'IDocRequisite ' +
+  'IDocumentInfo ' +
+  'IDualListDialog ' +
+  'IECertificate ' +
+  'IECertificateInfo ' +
+  'IECertificates ' +
+  'IEditControl ' +
+  'IEditorForm ' +
+  'IEdmsExplorer ' +
+  'IEdmsObject ' +
+  'IEdmsObjectDescription ' +
+  'IEdmsObjectFactory ' +
+  'IEdmsObjectInfo ' +
+  'IEDocument ' +
+  'IEDocumentAccessRights ' +
+  'IEDocumentDescription ' +
+  'IEDocumentEditor ' +
+  'IEDocumentFactory ' +
+  'IEDocumentInfo ' +
+  'IEDocumentStorage ' +
+  'IEDocumentVersion ' +
+  'IEDocumentVersionListDialog ' +
+  'IEDocumentVersionSource ' +
+  'IEDocumentWizardStep ' +
+  'IEDocVerSignature ' +
+  'IEDocVersionState ' +
+  'IEnabledMode ' +
+  'IEncodeProvider ' +
+  'IEncrypter ' +
+  'IEvent ' +
+  'IEventList ' +
+  'IException ' +
+  'IExternalEvents ' +
+  'IExternalHandler ' +
+  'IFactory ' +
+  'IField ' +
+  'IFileDialog ' +
+  'IFolder ' +
+  'IFolderDescription ' +
+  'IFolderDialog ' +
+  'IFolderFactory ' +
+  'IFolderInfo ' +
+  'IForEach ' +
+  'IForm ' +
+  'IFormTitle ' +
+  'IFormWizardStep ' +
+  'IGlobalIDFactory ' +
+  'IGlobalIDInfo ' +
+  'IGrid ' +
+  'IHasher ' +
+  'IHistoryDescription ' +
+  'IHyperLinkControl ' +
+  'IImageButton ' +
+  'IImageControl ' +
+  'IInnerPanel ' +
+  'IInplaceHint ' +
+  'IIntegerCriterion ' +
+  'IIntegerList ' +
+  'IIntegerRequisite ' +
+  'IIntegerValue ' +
+  'IISBLEditorForm ' +
+  'IJob ' +
+  'IJobDescription ' +
+  'IJobFactory ' +
+  'IJobForm ' +
+  'IJobInfo ' +
+  'ILabelControl ' +
+  'ILargeIntegerCriterion ' +
+  'ILargeIntegerRequisite ' +
+  'ILargeIntegerValue ' +
+  'ILicenseInfo ' +
+  'ILifeCycleStage ' +
+  'IList ' +
+  'IListBox ' +
+  'ILocalIDInfo ' +
+  'ILocalization ' +
+  'ILock ' +
+  'IMemoryDataSet ' +
+  'IMessagingFactory ' +
+  'IMetadataRepository ' +
+  'INotice ' +
+  'INoticeInfo ' +
+  'INumericCriterion ' +
+  'INumericRequisite ' +
+  'INumericValue ' +
+  'IObject ' +
+  'IObjectDescription ' +
+  'IObjectImporter ' +
+  'IObjectInfo ' +
+  'IObserver ' +
+  'IPanelGroup ' +
+  'IPickCriterion ' +
+  'IPickProperty ' +
+  'IPickRequisite ' +
+  'IPickRequisiteDescription ' +
+  'IPickRequisiteItem ' +
+  'IPickRequisiteItems ' +
+  'IPickValue ' +
+  'IPrivilege ' +
+  'IPrivilegeList ' +
+  'IProcess ' +
+  'IProcessFactory ' +
+  'IProcessMessage ' +
+  'IProgress ' +
+  'IProperty ' +
+  'IPropertyChangeEvent ' +
+  'IQuery ' +
+  'IReference ' +
+  'IReferenceCriterion ' +
+  'IReferenceEnabledMode ' +
+  'IReferenceFactory ' +
+  'IReferenceHistoryDescription ' +
+  'IReferenceInfo ' +
+  'IReferenceRecordCardWizardStep ' +
+  'IReferenceRequisiteDescription ' +
+  'IReferencesFactory ' +
+  'IReferenceValue ' +
+  'IRefRequisite ' +
+  'IReport ' +
+  'IReportFactory ' +
+  'IRequisite ' +
+  'IRequisiteDescription ' +
+  'IRequisiteDescriptionList ' +
+  'IRequisiteFactory ' +
+  'IRichEdit ' +
+  'IRouteStep ' +
+  'IRule ' +
+  'IRuleList ' +
+  'ISchemeBlock ' +
+  'IScript ' +
+  'IScriptFactory ' +
+  'ISearchCriteria ' +
+  'ISearchCriterion ' +
+  'ISearchDescription ' +
+  'ISearchFactory ' +
+  'ISearchFolderInfo ' +
+  'ISearchForObjectDescription ' +
+  'ISearchResultRestrictions ' +
+  'ISecuredContext ' +
+  'ISelectDialog ' +
+  'IServerEvent ' +
+  'IServerEventFactory ' +
+  'IServiceDialog ' +
+  'IServiceFactory ' +
+  'ISignature ' +
+  'ISignProvider ' +
+  'ISignProvider2 ' +
+  'ISignProvider3 ' +
+  'ISimpleCriterion ' +
+  'IStringCriterion ' +
+  'IStringList ' +
+  'IStringRequisite ' +
+  'IStringRequisiteDescription ' +
+  'IStringValue ' +
+  'ISystemDialogsFactory ' +
+  'ISystemInfo ' +
+  'ITabSheet ' +
+  'ITask ' +
+  'ITaskAbortReasonInfo ' +
+  'ITaskCardWizardStep ' +
+  'ITaskDescription ' +
+  'ITaskFactory ' +
+  'ITaskInfo ' +
+  'ITaskRoute ' +
+  'ITextCriterion ' +
+  'ITextRequisite ' +
+  'ITextValue ' +
+  'ITreeListSelectDialog ' +
+  'IUser ' +
+  'IUserList ' +
+  'IValue ' +
+  'IView ' +
+  'IWebBrowserControl ' +
+  'IWizard ' +
+  'IWizardAction ' +
+  'IWizardFactory ' +
+  'IWizardFormElement ' +
+  'IWizardParam ' +
+  'IWizardPickParam ' +
+  'IWizardReferenceParam ' +
+  'IWizardStep ' +
+  'IWorkAccessRights ' +
+  'IWorkDescription ' +
+  'IWorkflowAskableParam ' +
+  'IWorkflowAskableParams ' +
+  'IWorkflowBlock ' +
+  'IWorkflowBlockResult ' +
+  'IWorkflowEnabledMode ' +
+  'IWorkflowParam ' +
+  'IWorkflowPickParam ' +
+  'IWorkflowReferenceParam ' +
+  'IWorkState ' +
+  'IWorkTreeCustomNode ' +
+  'IWorkTreeJobNode ' +
+  'IWorkTreeTaskNode ' +
+  'IXMLEditorForm ' +
+  'SBCrypto ';
+  
   // built_in : встроенные или библиотечные объекты (константы, перечисления)
   var BUILTIN =
-  CONSTANTS + ENUMS; // + system_functions;
+  CONSTANTS + ENUMS; 
   
   // class: встроенные наборы значений, системные объекты, фабрики
   var CLASS =
   predefined_variables;
 
   // literal : примитивные типы
-  var LITERAL = 'null true false nil';
+  var LITERAL = 'null true false nil ';
   
   // number : числа
   var NUMBERS = hljs.inherit(hljs.NUMBER_MODE);
 
-  // string : строки
-	var STRINGS = {
-		className: 'string',
-		variants: [
-			{begin: '"', end: '"'},
-			{begin: '\'', end: '\''}
-		]
-	}
+  // type : встроенные типы
+  var TYPES = {
+    className: 'type',
+    begin: '(' + interfaces.trim().replace(/\s/g, '|') + ')',
+    returnBegin: true, end: '[ \\t]*=',
+    excludeEnd: true
+  }; 
 
-	// Токены
-	var DOCTAGS = {
-		className: 'doctag',
-		begin: '\\b(?:TODO|DONE|BEGIN|END|STUB|CHG|FIXME|NOTE|BUG|XXX)\\b',
-		relevance: 0
-	};
-	
-	// Однострочный комментарий
-	var ISBL_LINE_COMMENT_MODE = {
-		className: 'comment',
-		begin: '//', 
-		end: '$',
-		relevance: 0,
-		contains: [
-			hljs.PHRASAL_WORDS_MODE,
-			DOCTAGS
-		]
-	}
-	
-	// Многострочный комментарий
-	var ISBL_BLOCK_COMMENT_MODE = {
-		className: 'comment',
-		begin: '/\\*', 
-		end: '\\*/',
-		relevance: 0,
-		contains: [
-			hljs.PHRASAL_WORDS_MODE,
-			DOCTAGS
-		]
-	}
+  // string : строки
+  var STRINGS = {
+    className: 'string',
+    variants: [
+      {begin: '"', end: '"'},
+      {begin: '\'', end: '\''}
+    ]
+  }
+
+  // Токены
+  var DOCTAGS = {
+    className: 'doctag',
+    begin: '\\b(?:TODO|DONE|BEGIN|END|STUB|CHG|FIXME|NOTE|BUG|XXX)\\b',
+    relevance: 0
+  };
+  
+  // Однострочный комментарий
+  var ISBL_LINE_COMMENT_MODE = {
+    className: 'comment',
+    begin: '//', 
+    end: '$',
+    relevance: 0,
+    contains: [
+      hljs.PHRASAL_WORDS_MODE,
+      DOCTAGS
+    ]
+  }
+  
+  // Многострочный комментарий
+  var ISBL_BLOCK_COMMENT_MODE = {
+    className: 'comment',
+    begin: '/\\*', 
+    end: '\\*/',
+    relevance: 0,
+    contains: [
+      hljs.PHRASAL_WORDS_MODE,
+      DOCTAGS
+    ]
+  }
 
   // comment : комментарии
   var COMMENTS = {
     variants: [
-			ISBL_LINE_COMMENT_MODE,
-			ISBL_BLOCK_COMMENT_MODE
+      ISBL_LINE_COMMENT_MODE,
+      ISBL_BLOCK_COMMENT_MODE
     ]
   }; 
-	
+  
   // keywords : ключевые слова
   var KEYWORDS = {
-		keyword: KEYWORD,
-		built_in: BUILTIN,
-		class: CLASS,
-		literal: LITERAL
-	};
+    keyword: KEYWORD,
+    built_in: BUILTIN,
+    class: CLASS,
+    literal: LITERAL
+  };
  
   // variables : переменные
   var VARIABLES = {
     className: 'variable',
     keywords: KEYWORDS,
-		begin: UNDERSCORE_IDENT_RE
+    begin: UNDERSCORE_IDENT_RE
   };
 
-	// Имена функций
-	var FUNCTION_TITLE = FUNCTION_NAME_IDENT_RE + '[ \\t]*\\(';
-	
-	// Имена системных функций
-	var SYSFUNCTION_TITLE = '(' + system_functions.trim().replace(/\s/g, '|') + ')[ \\t]*\\(';
+  // Имена функций
+  var FUNCTION_TITLE = FUNCTION_NAME_IDENT_RE + '[ \\t]*\\(';
+  
+  // Имена системных функций
+  var SYSFUNCTION_TITLE = '(' + system_functions.trim().replace(/\s/g, '|') + ')[ \\t]*\\(';
 
-	// sysfunction : системные функции
+  // sysfunction : системные функции
   var SYSFUNCTIONS = {
-		className: 'function',
-		begin: SYSFUNCTION_TITLE,
-		returnBegin: true, end: '[ \\t]*\\(',
-		excludeEnd: true,
-		keywords: KEYWORDS,
-		relevance: 10
+    className: 'function',
+    begin: SYSFUNCTION_TITLE,
+    returnBegin: true, end: '[ \\t]*\\(',
+    excludeEnd: true,
+    keywords: KEYWORDS,
+    relevance: 10
   };
 
-	// appfunction : прикладные функции
+  // appfunction : прикладные функции
   var APPFUNCTIONS = {
-		className: 'appfunction',
-		begin: FUNCTION_TITLE,
-		returnBegin: true, end: '[ \\t]*\\(',
-		excludeEnd: true,
-		keywords: KEYWORDS
+    className: 'appfunction',
+    begin: FUNCTION_TITLE,
+    returnBegin: true, end: '[ \\t]*\\(',
+    excludeEnd: true,
+    keywords: KEYWORDS
   };
 
-	// function : функции
+  // function : функции
   var FUNCTIONS = {
     variants: [
-			SYSFUNCTIONS,
-			APPFUNCTIONS
+      SYSFUNCTIONS,
+      APPFUNCTIONS
     ]
   };
-	
-	// methods : методы
-	var METHODS = {
+  
+  // methods : методы
+  var METHODS = {
     begin: '\\.\\s*' + hljs.UNDERSCORE_IDENT_RE,
-		keywords: KEYWORDS,
+    keywords: KEYWORDS,
     relevance: 0
-	}
-	
+  }
+  
   return {
-		aliases: ['isbl'],
+    aliases: ['isbl'],
     case_insensitive: true,
     lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
+    illegal: '~',
     contains: [
-			FUNCTIONS,
-			VARIABLES,
+      FUNCTIONS,
+      TYPES,
+      VARIABLES,
       STRINGS,
       NUMBERS,
       COMMENTS,
-			METHODS
+      METHODS
     ]  
   }
 }

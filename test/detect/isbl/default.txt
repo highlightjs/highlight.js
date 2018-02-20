@@ -1,11 +1,11 @@
-  // Описание констант
+﻿  // Описание констант
   ADD_EQUAL_NUMBER_TEMPLATE = "%s.%s = %s"
   EMPLOYEES_REFERENCE = "РАБ"
   /********************************************* 
    *  Получить список кодов или ИД работников, *
    *  соответствующих текущему пользователю    *
    *********************************************/
-  Employees = CreateReference(EMPLOYEES_REFERENCE; 
+  Employees: IReference.РАБ = CreateReference(EMPLOYEES_REFERENCE; 
     ArrayOf("Пользователь"; SYSREQ_STATE); FALSE)
   Employees.Events.DisableAll
   EmployeesTableName = Employees.TableName
