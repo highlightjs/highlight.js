@@ -3110,6 +3110,14 @@ function(hljs) {
     relevance: 0
   };
 
+  // type : встроенные типы
+  var TYPES = {
+    className: 'type',
+    begin: '(' + interfaces.trim().replace(/\s/g, '|') + ')',
+    returnBegin: true, end: '[ \\t]*=',
+    excludeEnd: true
+  }; 
+
   // string : строки
   var STRINGS = {
     className: 'string',
