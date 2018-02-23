@@ -19,9 +19,9 @@ function(hljs) {
       'eval isFinite isNaN parseFloat parseInt decodeURI decodeURIComponent ' +
       'encodeURI encodeURIComponent escape unescape Object Function Boolean Error ' +
       'EvalError InternalError RangeError ReferenceError StopIteration SyntaxError ' +
-      'TypeError URIError Number Math Date String RegExp Array Float32Array ' +
+      'TypeError URIError RegExp Float32Array ' +
       'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
-      'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
+      'Uint8Array Uint8ClampedArray ArrayBuffer DataView Intl arguments require ' +
       'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect ' +
       'Promise'
   };
@@ -73,6 +73,10 @@ function(hljs) {
       {
         className: 'meta',
         begin: /^#!/, end: /$/
+      },
+      {
+        begin: '\\${|\\}',
+        className: 'built_in'
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,

@@ -31,6 +31,8 @@ output = TYPO3.TypoScript:Array {
 output.world = "world!"
 output {
   hello = "Hello"
+  chars = ${Array.charAt("abcdefg", 5) == "f"}
+  caching = ${String.Node.nodeTag("abcdefg")}
 }
 
 prototype(Acme.Demo:Book).book = ${book}

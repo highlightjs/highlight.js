@@ -8,6 +8,12 @@ function (hljs) {
     keyword: 'prototype include namespace @process @position @ignoreProperties @context @allowEmpty @if',
     literal: 'true false null'
   };
+  // Already added for future implementation, does not work atm
+
+  var EEL_KEYWORDS = {
+    keyword: 'Array Configuration Date Json Math Neos Caching Link Node Rendering Security String Translation Type',
+    literal: 'true false null'
+  }
   var NUMBER = {
     className: 'number',
     variants: [
@@ -27,13 +33,8 @@ function (hljs) {
   };
 
   var EEL = {
-    className: 'variable',
     begin: '\\$\\{', end: '\\}',
-    keywords: KEYWORDS,
-    contains: [
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE,
-    ]
+    subLanguage: 'javascript'
   };
 
   var FUSION_NAMESPACE = {
