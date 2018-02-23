@@ -75,7 +75,11 @@ function(hljs) {
         begin: /^#!/, end: /$/
       },
       {
-        begin: '\\${|\\}',
+        begin: '\\${',
+        className: 'built_in'
+      },
+      {
+        begin: '\\}$',
         className: 'built_in'
       },
       hljs.APOS_STRING_MODE,

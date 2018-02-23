@@ -5,7 +5,7 @@ TODO: add categories
 
 function (hljs) {
   var KEYWORDS = {
-    keyword: 'prototype include namespace @process @position @ignoreProperties @context @allowEmpty @if',
+    keyword: 'prototype include namespace @process @position @ignoreProperties @context @allowEmpty @if @cache',
     literal: 'true false null'
   };
   // Already added for future implementation, does not work atm
@@ -33,7 +33,8 @@ function (hljs) {
   };
 
   var EEL = {
-    begin: '\\$\\{', end: '\\}',
+    begin: '\\$\\{', 
+    end: '}(?!.)',
     subLanguage: 'javascript'
   };
 
