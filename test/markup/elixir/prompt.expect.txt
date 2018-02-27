@@ -1,11 +1,11 @@
-<span class="hljs-prompt">iex(1)&gt;</span> handle_result = <span class="hljs-keyword">fn</span>
-<span class="hljs-prompt">...(1)&gt;</span>   {<span class="hljs-symbol">:ok</span>, result} -&gt; IO.puts <span class="hljs-string">"Handling result..."</span>
-<span class="hljs-prompt">...(1)&gt;</span>   {<span class="hljs-symbol">:error</span>} -&gt; IO.puts <span class="hljs-string">"An error has occurred!"</span>
-<span class="hljs-prompt">...(1)&gt;</span> <span class="hljs-keyword">end</span>
+<span class="hljs-prompt">iex(1)&gt; </span>handle_result = <span class="hljs-keyword">fn</span>
+<span class="hljs-prompt">...(1)&gt; </span>  {<span class="hljs-symbol">:ok</span>, result} -&gt; IO.puts <span class="hljs-string">"Handling result..."</span>
+<span class="hljs-prompt">...(1)&gt; </span>  {<span class="hljs-symbol">:error</span>} -&gt; IO.puts <span class="hljs-string">"An error has occurred!"</span>
+<span class="hljs-prompt">...(1)&gt; </span><span class="hljs-keyword">end</span>
 
-<span class="hljs-prompt">iex(2)&gt;</span> some_result = <span class="hljs-number">1</span>
-<span class="hljs-prompt">iex(nonode@nohost)&gt;</span> handle_result.({<span class="hljs-symbol">:ok</span>, some_result})
+<span class="hljs-prompt">iex(2)&gt; </span>some_result = <span class="hljs-number">1</span>
+<span class="hljs-prompt">iex(nonode@nohost)&gt; </span>handle_result.({<span class="hljs-symbol">:ok</span>, some_result})
 Handling result...
 
-<span class="hljs-prompt">iex&gt;</span> handle_result.({<span class="hljs-symbol">:error</span>})
+<span class="hljs-prompt">iex&gt; </span>handle_result.({<span class="hljs-symbol">:error</span>})
 An error has occurred!

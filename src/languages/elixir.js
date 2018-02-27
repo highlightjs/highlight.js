@@ -94,7 +94,7 @@ function(hljs) {
     },
     {
       className: 'prompt',
-      begin: /^(iex|\.\.\.)(\([^)>]+\))?>/,
+      begin: /^(iex|\.\.\.)(\([^)>]+\))?>\s?/,
       relevance: 10
     }
   ];
