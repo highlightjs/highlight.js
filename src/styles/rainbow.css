@@ -83,3 +83,10 @@ Style with support for rainbow parens
 .hljs-emphasis {
   font-style: italic;
 }
+
+.hljs-prompt {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

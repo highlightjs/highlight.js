@@ -75,3 +75,10 @@ Darcula color scheme from the JetBrains family of IDEs
 .hljs-meta {
   color: #7f7f7f;
 }
+
+.hljs-prompt {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

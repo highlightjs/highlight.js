@@ -15,7 +15,7 @@ function(hljs) {
     },
     contains: [
       {
-        className: 'meta', begin: '^[0-9]+> ',
+        className: 'prompt', begin: '^[0-9]+> ',
         relevance: 10
       },
       hljs.COMMENT('%', '$'),

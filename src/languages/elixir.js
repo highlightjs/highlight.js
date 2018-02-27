@@ -91,6 +91,11 @@ function(hljs) {
         }
       ],
       relevance: 0
+    },
+    {
+      className: 'prompt',
+      begin: /^(iex|\.\.\.)(\([^)>]+\))?>/,
+      relevance: 10
     }
   ];
   SUBST.contains = ELIXIR_DEFAULT_CONTAINS;

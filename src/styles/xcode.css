@@ -91,3 +91,10 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-emphasis {
   font-style: italic;
 }
+
+.hljs-prompt {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
