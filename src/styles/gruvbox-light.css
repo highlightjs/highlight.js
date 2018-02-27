@@ -106,3 +106,10 @@ Gruvbox style (light) (c) Pavel Pertsev (original style at https://github.com/mo
 .hljs-tag {
   font-weight: bold;
 }
+
+.hljs-prompt {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

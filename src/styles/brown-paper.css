@@ -62,3 +62,10 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 .hljs-emphasis {
   font-style: italic;
 }
+
+.hljs-prompt {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

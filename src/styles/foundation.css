@@ -86,3 +86,10 @@ Date: 2013-04-02
 .hljs-selector-class {
   color: #007700;
 }
+
+.hljs-prompt {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

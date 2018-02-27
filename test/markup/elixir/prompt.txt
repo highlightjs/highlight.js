@@ -1,0 +1,11 @@
+iex(1)> handle_result = fn
+...(1)>   {:ok, result} -> IO.puts "Handling result..."
+...(1)>   {:error} -> IO.puts "An error has occurred!"
+...(1)> end
+
+iex(2)> some_result = 1
+iex(nonode@nohost)> handle_result.({:ok, some_result})
+Handling result...
+
+iex> handle_result.({:error})
+An error has occurred!

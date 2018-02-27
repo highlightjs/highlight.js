@@ -81,3 +81,10 @@ Qt Creator dark color scheme
 .hljs-deletion {
   color: #55ffff;
 }
+
+.hljs-prompt {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

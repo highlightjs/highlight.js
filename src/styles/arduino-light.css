@@ -67,7 +67,6 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 }
 
 .hljs-meta {
-  color: #728E00;
   color: #434f54;
 }
 
@@ -85,4 +84,11 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 
 .hljs-number {
   color: #8A7B52;  
+}
+
+.hljs-prompt {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }

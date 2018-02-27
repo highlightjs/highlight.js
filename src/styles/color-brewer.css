@@ -69,3 +69,10 @@ Ported by Fabrício Tavares de Oliveira
 .hljs-attribute {
   color: #e6550d;
 }
+
+.hljs-prompt {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

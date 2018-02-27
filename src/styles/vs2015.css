@@ -113,3 +113,10 @@
   display: inline-block;
   width: 100%;
 }
+
+.hljs-prompt {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
