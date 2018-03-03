@@ -1,0 +1,37 @@
+* hello world
+
+you can write text [[http://example.com][with links]] inline or [[http://example.com]].
+
+- one /thing/ has /em/phasis
+- two *things* are *bold*
+- two +things+ are +deleted+
+- two _things_ are _underlined_
+ 
+* hello world again
+
+#+BEGIN_SRC html
+<script type="text/javascript" src="org.js"></script>
+#+END_SRC
+
+because org-mode is cool
+
+#+NAME: Table
+|---------+--------+------------|
+|         | Symbol | Author     |
+|---------+--------+------------|
+| *Emacs* | ~M-x~  | /RMS/      |
+|---------+--------+------------|
+| *Vi*    | ~:~    | /Bill Joy/ |
+|---------+--------+------------|
+
+#+BEGIN_SRC
+    so are code segments
+#+END_SRC
+
+1. one thing (yeah!)
+2. two thing ~i can write code~, and =more= wipee!
+
+#+BEGIN_QUOTE
+To be or not to be, that is the question.
+#+END_QUOTE
+

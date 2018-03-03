@@ -1,0 +1,36 @@
+<span class="hljs-section">* hello world</span>
+
+you can write text [[<span class="hljs-link">http://example.com</span>][<span class="hljs-symbol">with links</span>]] inline or [[<span class="hljs-link">http://example.com</span>]].
+
+<span class="hljs-bullet">- </span>one <span class="hljs-emphasis">/thing/</span> has <span class="hljs-emphasis">/em/</span>phasis
+<span class="hljs-bullet">- </span>two <span class="hljs-strong">*things*</span> are <span class="hljs-strong">*bold*</span>
+<span class="hljs-bullet">- </span>two <span class="hljs-deletion">+things+</span> are <span class="hljs-deletion">+deleted+</span>
+<span class="hljs-bullet">- </span>two <span class="hljs-underline">_things_</span> are <span class="hljs-underline">_underlined_</span>
+<span class="hljs-section"> </span>
+<span class="hljs-section">* hello world again</span>
+<span class="hljs-attribute">
+#+BEGIN_SRC html</span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"org.js"</span>&gt;</span><span class="undefined"></span></span><span class="xml"><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+<span class="hljs-attribute">#+END_SRC</span>
+
+because org-mode is cool
+<span class="hljs-attribute">
+#+NAME: Table</span>
+<span class="hljs-table">|---------+--------+------------|</span>
+<span class="hljs-table">|</span>         <span class="hljs-table">|</span> Symbol <span class="hljs-table">|</span> Author     <span class="hljs-table">|</span>
+<span class="hljs-table">|---------+--------+------------|</span>
+<span class="hljs-table">|</span> <span class="hljs-strong">*Emacs*</span> <span class="hljs-table">|</span> <span class="hljs-code">~M-x~</span>  <span class="hljs-table">|</span> <span class="hljs-emphasis">/RMS/</span>      <span class="hljs-table">|</span>
+<span class="hljs-table">|---------+--------+------------|</span>
+<span class="hljs-table">|</span> <span class="hljs-strong">*Vi*</span>    <span class="hljs-table">|</span> <span class="hljs-code">~:~</span>    <span class="hljs-table">|</span> <span class="hljs-emphasis">/Bill Joy/</span> <span class="hljs-table">|</span>
+<span class="hljs-table">|---------+--------+------------|</span>
+<span class="hljs-attribute">
+#+BEGIN_SRC</span>
+<span class="hljs-section">    so are code segments</span>
+<span class="hljs-attribute">#+END_SRC</span>
+
+<span class="hljs-bullet">1. </span>one thing (yeah!)
+<span class="hljs-bullet">2. </span>two thing <span class="hljs-code">~i can write code~</span>, and <span class="hljs-code">=more=</span> wipee!
+<span class="hljs-attribute">
+#+BEGIN_QUOTE</span>
+To be or not to be, that is the question.
+<span class="hljs-attribute">#+END_QUOTE</span>
