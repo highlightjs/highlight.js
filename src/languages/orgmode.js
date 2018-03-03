@@ -13,9 +13,10 @@ function(hljs) {
       {
         className: 'section',
         begin: /^\*{0,6} /,
-        end: /$/
+        end: /$/,
+        relevance:0
       },
-      // inline html - TODO
+      // inline html
       {
         begin: '<', end: '>',
         subLanguage: 'xml',
@@ -24,27 +25,33 @@ function(hljs) {
       // lists (indicators only)
       {
         className: 'bullet',
-        begin: /^([+-]|(\d+\.))\s+/
+        begin: /^([+-]|(\d+\.))\s+/,
+        relevance:0
       },
       // strong segments
       {
         className: 'strong',
-        begin: /\*((\S.*?\S)|(\S))\*/
+          begin: /\*((\S.*?\S)|(\S))\*/,
+          relevance:0
+
       },
       // deleted segments
       {
         className: 'deletion',
-        begin: /\+((\S.*?\S)|(\S))\+/,
-        relevance: 0
+          begin: /\+((\S.*?\S)|(\S))\+/,
+          relevance:0
+
       },
       // underline segments
       {
         className: 'underline',
-        begin: /_((\S.*?\S)|(\S))_/
+        begin: /_((\S.*?\S)|(\S))_/,
+        relevance:0
       },
       // emphasis segments
       {
         className: 'emphasis',
+        relevance:0,
         variants: [
           { begin: /\/((\S.*?\S)|(\S))\// },
         ]
@@ -53,7 +60,7 @@ function(hljs) {
       {
         className: 'table',
         begin: /\|-*\+-*/, end: /\|/ ,
-        relevance:1
+        relevance:10
         },
       {
         className: 'table',
@@ -65,7 +72,6 @@ function(hljs) {
         returnBegin: true,
         contians: [
           {
-             //className: 'link',
              begin: /\|/, end: /\|/,
              excludeBegin: true, excludeEnd: true,
              subLanguage: 'orgmode'
@@ -76,7 +82,8 @@ function(hljs) {
       {
         className: 'quote',
         keywords: 'BEGIN_QUOTE END_QUOTE ',
-        begin: /^#\+BEGIN_QUOTE.*$/, end: /^#\+END_QUOTE.*$/
+        begin: /^#\+BEGIN_QUOTE.*$/, end: /^#\+END_QUOTE.*$/,
+        relevance: 10
       },
       // code snippets
       {
@@ -84,13 +91,16 @@ function(hljs) {
         keywords: 'BEGIN_SRC END_SRC BEGIN_EXAMPLE END_EXAMPLE',
         variants: [
           {
-            begin: /^#\+BEGIN_SRC.*$/, end: /^#\+END_SRC.*$/
+            begin: /^#\+BEGIN_SRC.*$/, end: /^#\+END_SRC.*$/,
+            relevance: 10
           },
           {
-            begin: /^#\+BEGIN_EXAMPLE.*$/, end: /^#\+END_EXAMPLE.*$/
+            begin: /^#\+BEGIN_EXAMPLE.*$/, end: /^#\+END_EXAMPLE.*$/,
+            relevance: 10
           },
           {
-            begin: /~((\S.*?\S)|(\S))~/
+            begin: /~((\S.*?\S)|(\S))~/,
+            relevance: 10
           },
           {
             begin: /=((\S.*?\S)|(\S))=/
@@ -102,7 +112,8 @@ function(hljs) {
         className: 'attribute',
         variants: [
         {
-          begin: /^\s*#\+.*$/
+          begin: /^\s*#\+.*$/,
+          relevance: 10
         }
       ]
       },
@@ -127,6 +138,7 @@ function(hljs) {
       // using links - title and link
       {
         begin: /\[\[.+?\][\[\[].*?[\]\]]\]/,
+        relevance:10,
         returnBegin: true,
         contains: [
           {
@@ -139,11 +151,11 @@ function(hljs) {
             begin: /\[/, end: /\]\]/,
             excludeBegin: true, excludeEnd: true
           }
-        ],
-        relevance: 10
+        ]
       },
       {
         begin: /\[\[[^\n]+\]\]/,
+        relevance:0,
         returnBegin: true,
         contains: [
           {

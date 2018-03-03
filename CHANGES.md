@@ -1,6 +1,7 @@
 ## Master
 
 New languages:
+- *emacs org-mode* A markup language see [https://orgmode.org]
 
 New styles:
 
