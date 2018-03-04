@@ -12,7 +12,7 @@ function(hljs) {
       // highlight headers
       {
         className: 'section',
-        begin: /^\*{0,6} /,
+        begin: /^\*{1,6} /,
         end: /$/,
         relevance:0
       },
