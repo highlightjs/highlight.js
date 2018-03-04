@@ -25,7 +25,7 @@ function(hljs) {
       // lists (indicators only)
       {
         className: 'bullet',
-        begin: /^([+-]|(\d+\.))\s+/,
+        begin: /^\s*([+-]|(\d+\.)|[a-zA-Z]\.)\s+/,
         relevance:0
       },
       // strong segments
