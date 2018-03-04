@@ -2,10 +2,10 @@
 
 you can write text [[http://example.com][with links]] inline or [[http://example.com]].
 
-- one /thing/ has /em/phasis
-- two *things* are *bold*
-- two +things+ are +deleted+
-- two _things_ are _underlined_
+- one/ /thing/ has /em/phasis.
+- two* *things* are *bold.*
+- two+ +things+ are +deleted.+
+- two_ _things_ are _underlined._
  
 * hello world again
 
