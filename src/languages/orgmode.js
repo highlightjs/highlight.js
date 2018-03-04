@@ -31,21 +31,21 @@ function(hljs) {
       // strong segments
       {
         className: 'strong',
-          begin: /\*((\S.*?\S)|(\S))\*/,
+          begin: /\s\*((\S.*?\S)|(\S))\*\s/,
           relevance:0
 
       },
       // deleted segments
       {
         className: 'deletion',
-          begin: /\+((\S.*?\S)|(\S))\+/,
+          begin: /\s\+((\S.*?\S)|(\S))\+\s/,
           relevance:0
 
       },
       // underline segments
       {
         className: 'underline',
-        begin: /_((\S.*?\S)|(\S))_/,
+        begin: /\s_((\S.*?\S)|(\S))_\s/,
         relevance:0
       },
       // emphasis segments
@@ -53,7 +53,7 @@ function(hljs) {
         className: 'emphasis',
         relevance:0,
         variants: [
-          { begin: /\/((\S.*?\S)|(\S))\// },
+          { begin: /\s\/((\S.*?\S)|(\S))\/\s/ },
         ]
       },
       // table rows
