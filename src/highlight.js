@@ -48,7 +48,8 @@ https://highlightjs.org/
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
-    languages: undefined
+    languages: undefined,
+    langAttribute: true
   };
 
 
@@ -639,6 +640,8 @@ https://highlightjs.org/
 
     block.innerHTML = result.value;
     block.className = buildClassName(block.className, language, result.language);
+    if(options.langAttribute)
+       block.setAttribute('data-lang',result.language);
     block.result = {
       language: result.language,
       re: result.relevance
