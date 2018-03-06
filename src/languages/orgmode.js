@@ -1,10 +1,9 @@
 /*
 Language: emacs org-mode
-Requires: xml.js
+Requires: lisp.js
 Author: Jörn Reimerdes <joern.reimerdes@gmail.com>
 Category: common, markup
 */
-
 function(hljs) {
   return {
     aliases: ['org', 'org-mode'],
@@ -31,16 +30,14 @@ function(hljs) {
       // strong segments
       {
         className: 'strong',
-          begin: /\s\*((\S.*?\S)|(\S))\*\s/,
-          relevance:0
-
+        begin: /\s\*((\S.*?\S)|(\S))\*\s/,
+        relevance:0
       },
       // deleted segments
       {
         className: 'deletion',
-          begin: /\s\+((\S.*?\S)|(\S))\+\s/,
-          relevance:0
-
+        begin: /\s\+((\S.*?\S)|(\S))\+\s/,
+        relevance:0
       },
       // underline segments
       {
@@ -91,7 +88,7 @@ function(hljs) {
         keywords: 'BEGIN_SRC END_SRC BEGIN_EXAMPLE END_EXAMPLE',
         variants: [
           {
-            begin: /^#\+BEGIN_SRC.*$/, end: /^#\+END_SRC.*$/,
+            begin: /^#\+BEGIN_SRC/, end: /^#\+END_SRC$/,
             relevance: 10
           },
           {
@@ -111,10 +108,31 @@ function(hljs) {
       {
         className: 'attribute',
         variants: [
-        {
-          begin: /^\s*#\+.*$/,
-          relevance: 10
-        }
+            {
+                begin: /^\s*#\+NAME.*$/,
+                relevance: 10
+            },
+            {
+                begin: /^\s*#\+STARTUP.*$/,
+                relevance: 10
+            },
+            {
+                begin: /^\s*#\+ATTR_ORG.*$/,
+                relevance: 10
+            },
+            {
+                begin: /^\s*#\+RESULTS.*$/,
+                relevance: 10
+            },
+            {
+                begin: /^\s*#\+TBLFM.*$/,
+                relevance: 10
+            },
+     // conflicts with code environment
+     //   {
+     //    begin: /^\s*#\+.*$/,
+     //    relevance: 10
+     //   }
       ]
       },
       // Tags

@@ -8,10 +8,10 @@ you can write text [[<span class="hljs-link">http://example.com</span>][<span cl
 </span><span class="hljs-bullet">- </span>two_<span class="hljs-underline"> _things_ </span>are<span class="hljs-underline"> _underlined._
 </span> 
 <span class="hljs-section">* hello world again</span>
-<span class="hljs-attribute">
-#+BEGIN_SRC html</span>
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"org.js"</span>&gt;</span><span class="undefined"></span></span><span class="xml"><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
-<span class="hljs-attribute">#+END_SRC</span>
+
+<span class="hljs-code">#+<span class="hljs-keyword">BEGIN_SRC</span> html
+&lt;script type="text/javascript" src="org.js"&gt;&lt;/script&gt;
+#+<span class="hljs-keyword">END_SRC</span></span>
 
 because org-mode is cool
 <span class="hljs-attribute">
@@ -23,14 +23,15 @@ because org-mode is cool
 <span class="hljs-table">|---------+--------+------------|</span>
 <span class="hljs-table">|</span><span class="hljs-strong"> *Vi* </span>   <span class="hljs-table">|</span> <span class="hljs-code">~:~</span>    <span class="hljs-table">|</span><span class="hljs-emphasis"> /Bill Joy/ </span><span class="hljs-table">|</span>
 <span class="hljs-table">|---------+--------+------------|</span>
-<span class="hljs-attribute">
-#+BEGIN_SRC</span>
+
+<span class="hljs-code">#+<span class="hljs-keyword">BEGIN_SRC</span>
     so are code segments
-<span class="hljs-attribute">#+END_SRC</span>
+#+<span class="hljs-keyword">END_SRC</span></span>
 <span class="hljs-bullet">
 1. </span>one thing (yeah!)
 <span class="hljs-bullet">2. </span>two thing <span class="hljs-code">~i can write code~</span>, and <span class="hljs-code">=more=</span> wipee!
-<span class="hljs-attribute">
-#+BEGIN_QUOTE</span>
+
+<span class="hljs-quote">#+<span class="hljs-keyword">BEGIN_QUOTE</span>
 To be or not to be, that is the question.
-<span class="hljs-attribute">#+END_QUOTE</span>
+#+<span class="hljs-keyword">END_QUOTE</span></span>
+
