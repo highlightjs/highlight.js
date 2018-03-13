@@ -1,0 +1,57 @@
+.* Help for the Display Record Format command.
+
+:pnlgrp.
+
+:help name=dsprcdfmt.Display Record Format (DSPRCDFMT)
+:p.DSPRCDFMT displays the record format (list of field names and attributes) of a
+logical or physical file.
+:p.Display Record Format shows the following information about a file&colon. file
+name and library, file text, record format name, record length and number of
+fields.
+:p.The following file field information is shown&colon. field name, field type,
+field size, key number if a key field, beginning and ending positions of the
+field, and field text.
+:ehelp.
+
+:help name='dsprcdfmt/file'.File (FILE) parameter
+:xh3.File (FILE) parameter
+:p.Specifies the name and library of the file to be used by the Display Record
+Format command.
+:p.This is a required parameter.
+:p.The possible values are&colon.
+:p.:parml.:pt.file-name
+:pd.Specify the name of the file to be processed.
+:eparml.
+:p.The possible library values are&colon.
+:p.:parml.:pt.:pk def.*libl:epk.
+:pd.All libraries in the job's library list are searched.
+:pt.library-name
+:pd.Specify the name of the library to be searched.
+:eparml.
+:ehelp.
+
+:help name='dsprcdfmt/rcdfmt'.Record format (RCDFMT) parameter
+:xh3.Record format (RCDFMT) parameter
+:p.Specify the name of the record format to be used.
+:p.The possible values are&colon.
+:p.:parml.:pt.:pk def.*FIRST:epk.
+:pd.The first record format found will be processed.
+:pt.format-name
+:pd.Specify the name of a record format to be processed.
+:eparml.
+:ehelp.
+
+:help name='dsprcdfmt/output'.Output (OUTPUT) parameter
+:xh3.Output (OUTPUT) parameter
+:p.Specifies whether the output from the command is displayed at the requesting
+work station or printed with the job's spooled output.
+:p.The possible parameters are&colon.
+:p.:parml.:pt.:pk def.*:epk.
+:pd.The output is displayed (if requested by an interactive job) or printed with
+the job's spooled output (if requested by a batch job).
+:pt.*PRINT
+:pd.The output is printed with the job's spooled output.
+:eparml.
+:ehelp.
+
+:epnlgrp.
