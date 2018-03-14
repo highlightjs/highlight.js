@@ -16,12 +16,12 @@ function(hljs) {
           'delete do handler insert load replace select truncate update set show pragma grant ' +
           'merge describe use explain help declare prepare execute deallocate release ' +
           'unlock purge reset change stop analyze cache flush optimize repair kill ' +
-          'install uninstall checksum restore check backup revoke comment',
+          'install uninstall checksum restore check backup revoke comment with',
         end: /;/, endsWithParent: true,
         lexemes: /[\w\.]+/,
         keywords: {
           keyword:
-            'abort abs absolute acc acce accep accept access accessed accessible account acos action activate add ' +
+            'as abort abs absolute acc acce accep accept access accessed accessible account acos action activate add ' +
             'addtime admin administer advanced advise aes_decrypt aes_encrypt after agent aggregate ali alia alias ' +
             'allocate allow alter always analyze ancillary and any anydata anydataset anyschema anytype apply ' +
             'archive archived archivelog are as asc ascii asin assembly assertion associate asynchronous at atan ' +
@@ -81,7 +81,7 @@ function(hljs) {
             'nocheck nocompress nocopy nocycle nodelay nodiscardfile noentityescaping noguarantee nokeep nologfile ' +
             'nomapping nomaxvalue nominimize nominvalue nomonitoring none noneditionable nonschema noorder ' +
             'nopr nopro noprom nopromp noprompt norely noresetlogs noreverse normal norowdependencies noschemacheck ' +
-            'noswitch not nothing notice notrim novalidate now nowait nth_value nullif nulls num numb numbe ' +
+            'noswitch not nothing notice notnull notrim novalidate now nowait nth_value nullif nulls num numb numbe ' +
             'nvarchar nvarchar2 object ocicoll ocidate ocidatetime ociduration ociinterval ociloblocator ocinumber ' +
             'ociref ocirefcursor ocirowid ocistring ocitype oct octet_length of off offline offset oid oidindex old ' +
             'on online only opaque open operations operator optimal optimize option optionally or oracle oracle_date ' +
@@ -132,10 +132,10 @@ function(hljs) {
             'xdb xml xmlagg xmlattributes xmlcast xmlcolattval xmlelement xmlexists xmlforest xmlindex xmlnamespaces ' +
             'xmlpi xmlquery xmlroot xmlschema xmlserialize xmltable xmltype xor year year_to_month years yearweek',
           literal:
-            'true false null',
+            'true false null unknown',
           built_in:
-            'array bigint binary bit blob boolean char character date dec decimal float int int8 integer interval number ' +
-            'numeric real record serial serial8 smallint text varchar varying void'
+            'array bigint binary bit blob bool boolean char character date dec decimal float int int8 integer interval number ' +
+            'numeric real record serial serial8 smallint text time timestamp varchar varying void'
         },
         contains: [
           {
