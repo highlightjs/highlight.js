@@ -122,7 +122,7 @@ function(hljs) {
             'timezone_minute timezone_region to to_base64 to_date to_days to_seconds todatetimeoffset trace tracking ' +
             'transaction transactional translate translation treat trigger trigger_nestlevel triggers trim truncate ' +
             'try_cast try_convert try_parse type ub1 ub2 ub4 ucase unarchived unbounded uncompress ' +
-            'under undo unhex unicode uniform uninstall union unique unix_timestamp unknown unlimited unlock unpivot ' +
+            'under undo unhex unicode uniform uninstall union unique unix_timestamp unknown unlimited unlock unnest unpivot ' +
             'unrecoverable unsafe unsigned until untrusted unusable unused update updated upgrade upped upper upsert ' +
             'url urowid usable usage use use_stored_outlines user user_data user_resources users using utc_date ' +
             'utc_timestamp uuid uuid_short validate validate_password_strength validation valist value values var ' +
