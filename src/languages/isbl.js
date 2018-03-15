@@ -3104,15 +3104,11 @@ function(hljs) {
   var LITERAL = 'null true false nil ';
   
   // number : числа
-  var NUMBERS = hljs.inherit(hljs.NUMBER_MODE);
-
-  // type : встроенные типы
-  var TYPES = {
-    className: 'type',
-    begin: '(' + interfaces.trim().replace(/\s/g, '|') + ')',
-    returnBegin: true, end: '[ \\t]*=',
-    excludeEnd: true
-  }; 
+  var NUMBERS = {
+    className: 'number',
+    begin: hljs.NUMBER_RE,
+    relevance: 0
+  };
 
   // string : строки
   var STRINGS = {
@@ -3170,46 +3166,6 @@ function(hljs) {
     literal: LITERAL
   };
  
-  // variables : переменные
-  var VARIABLES = {
-    className: 'variable',
-    keywords: KEYWORDS,
-    begin: UNDERSCORE_IDENT_RE
-  };
-
-  // Имена функций
-  var FUNCTION_TITLE = FUNCTION_NAME_IDENT_RE + '[ \\t]*\\(';
-  
-  // Имена системных функций
-  var SYSFUNCTION_TITLE = '(' + system_functions.trim().replace(/\s/g, '|') + ')[ \\t]*\\(';
-
-  // sysfunction : системные функции
-  var SYSFUNCTIONS = {
-    className: 'function',
-    begin: SYSFUNCTION_TITLE,
-    returnBegin: true, end: '[ \\t]*\\(',
-    excludeEnd: true,
-    keywords: KEYWORDS,
-    relevance: 10
-  };
-
-  // appfunction : прикладные функции
-  var APPFUNCTIONS = {
-    className: 'appfunction',
-    begin: FUNCTION_TITLE,
-    returnBegin: true, end: '[ \\t]*\\(',
-    excludeEnd: true,
-    keywords: KEYWORDS
-  };
-
-  // function : функции
-  var FUNCTIONS = {
-    variants: [
-      SYSFUNCTIONS,
-      APPFUNCTIONS
-    ]
-  };
-  
   // methods : методы
   var METHODS = {
     begin: '\\.\\s*' + hljs.UNDERSCORE_IDENT_RE,
@@ -3217,20 +3173,72 @@ function(hljs) {
     relevance: 0
   }
   
+  // type : встроенные типы
+  var TYPES = {
+    className: 'type',
+    begin: ':[ \\t]*(' + interfaces.trim().replace(/\s/g, '|') + ')',
+    end: '[ \\t]*=',
+    excludeEnd: true,
+  }; 
+
+  // variables : переменные
+  var VARIABLES = {
+    className: 'variable',
+    keywords: KEYWORDS,
+    begin: UNDERSCORE_IDENT_RE,
+    relevance: 0,
+    containts: [
+      TYPES,
+      METHODS
+    ]
+  };
+
+  // Имена функций
+  var FUNCTION_TITLE = FUNCTION_NAME_IDENT_RE + '\\(';
+  
+  var TITLE_MODE = {
+    className: 'title',
+    keywords: {
+      built_in: system_functions
+    },
+    begin: FUNCTION_TITLE,
+    end: '\\(',
+    returnBegin: true,
+    excludeEnd: true
+  };
+
+  // function : функции
+  var FUNCTIONS = {
+    className: 'function',
+    begin: FUNCTION_TITLE,
+    end: '\\)$',
+    returnBegin: true,
+    keywords: KEYWORDS,
+    illegal: '[\\[\\]\\|\\$\\?%,~#@]',
+    contains: [
+      TITLE_MODE,
+      METHODS,
+      VARIABLES,
+      STRINGS,
+      NUMBERS,
+      COMMENTS
+    ] 
+  }; 
+
   return {
     aliases: ['isbl'],
     case_insensitive: true,
     lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
-    illegal: '~',
+    illegal: '\\$|\\?|%|,|;$|~|#|@|</',
     contains: [
       FUNCTIONS,
       TYPES,
+      METHODS,
       VARIABLES,
       STRINGS,
       NUMBERS,
-      COMMENTS,
-      METHODS
+      COMMENTS
     ]  
   }
 }

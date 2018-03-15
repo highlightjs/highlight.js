@@ -21,7 +21,7 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
 
 .hljs-comment {
   color: #b5b5b5;
-	font-style: italic;
+  font-style: italic;
 }
 
 .hljs-keyword,
@@ -31,7 +31,7 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
 .hljs-doctag,
 .hljs-name {
   color: #f0f0f0;
-	font-weight: bold;
+  font-weight: bold;
 }
 
 
@@ -53,8 +53,12 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
 
 .hljs-title,
 .hljs-section {
-  color: #880000;
-  font-weight: bold;
+  color: #df471e;
+}
+
+.hljs-title>.hljs-built_in {
+  color: #81bce9;
+  font-weight: normal;
 }
 
 .hljs-regexp,
@@ -67,20 +71,12 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
   color: #e2c696;
 }
 
-.hljs-function {
-  color: #81bce9;
-}
-
-.hljs-appfunction {
-  color: #df471e;
-}
-
 /* Language color: hue: 90; */
 
 .hljs-built_in,
 .hljs-literal {
   color: #97bf0d;
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .hljs-bullet,
@@ -91,7 +87,7 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
 
 .hljs-class  {
   color: #ce9d4d;
-	font-weight: bold;
+  font-weight: bold;
 }
 
 /* Meta color: hue: 200 */
