@@ -3198,6 +3198,7 @@ function(hljs) {
   
   var TITLE_MODE = {
     className: 'title',
+		lexemes: UNDERSCORE_IDENT_RE,
     keywords: {
       built_in: system_functions
     },
@@ -3213,6 +3214,7 @@ function(hljs) {
     begin: FUNCTION_TITLE,
     end: '\\)$',
     returnBegin: true,
+		lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     illegal: '[\\[\\]\\|\\$\\?%,~#@]',
     contains: [
