@@ -6,7 +6,7 @@
    *  соответствующих текущему пользователю    *
    *********************************************/
   Employees: IReference.РАБ = CreateReference(EMPLOYEES_REFERENCE; 
-    ArrayOf("Пользователь"; SYSREQ_STATE); FALSE)
+    ArrayOf("Пользователь"; SYSREQ_STATE); MyFunction(FALSE; MyParam * 0.05))
   Employees.Events.DisableAll
   EmployeesTableName = Employees.TableName
   EmployeesUserWhereID = Employees.AddWhere(Format(ADD_EQUAL_NUMBER_TEMPLATE; 
