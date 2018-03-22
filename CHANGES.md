@@ -1,3 +1,9 @@
+
+New language:
+
+- *GML* Game Markup Language by [Meseta][]
+
+
 ## Version 9.12.0
 
 New language:
