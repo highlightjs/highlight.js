@@ -1,7 +1,8 @@
 /*
 Language: GML
 Author: Meseta <meseta@gmail.com>
-Description: Game Markup Language 2 for GameMaker Studio 2
+Description: Game Markup Language for GameMaker Studio 2
+Category: scripting
 */
 
 function(hljs) {
