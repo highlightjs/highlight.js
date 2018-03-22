@@ -18,3 +18,5 @@ if(place_meeting(x, y+vspd, collide_obj)) {
 	vspd = 0;
 }
 y += vspd;
+
+show_debug_message("This is a test");
