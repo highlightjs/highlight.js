@@ -1,0 +1,6 @@
+# Test
+dot.property=test value
+
+# Module properties
+brooklyn.location.named.nova1 = openstack-nova
+brooklyn.location.named.nova1.displayName=Nova 1
