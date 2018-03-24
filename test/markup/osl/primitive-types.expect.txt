@@ -1,0 +1,3 @@
+<span class="hljs-built_in">color</span> test = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">struct</span> RGBA;

@@ -1,0 +1,13 @@
+#include <iostream>
+#define foo 1<<16
+
+#ifdef DEBUG
+surface matte1()
+#else
+surface matte2()
+#endif
+{ }
+
+#define x(v) ((v))
+# define x(v) ((v))
+#  define x(v) ((v))

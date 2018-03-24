@@ -1,3 +1,13 @@
+
+## Version 9.13.0
+
+New language:
+
+- *OSL* Open Shading Language originally developed by Sony Pictures Imageworks added by [Renan Lavarec][].
+- *RSL* Added a type and update detect file "default.txt" to enable OSL to be detected  [Renan Lavarec][].
+
+[Renan LAVAREC]: https://github.com/Ti-R
+
 ## Version 9.12.0
 
 New language:

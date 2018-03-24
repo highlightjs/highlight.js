@@ -1,0 +1,14 @@
+#define TEST_DEFINE 3.14
+/*  displacement shader
+ *
+ */
+
+displacement shader_name [[ string description = "description of the shader" ]]
+(
+    float test1 = 1
+        [[  string description = "test1",
+            float UImin = 0, float UImax = 1 ]]
+  )
+{
+    Ci = henyey_greenstein (test1 * M_2PI) + blackbody(4500);
+}
