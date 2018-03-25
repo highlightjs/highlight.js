@@ -8,8 +8,10 @@ Category: system
 
 function(hljs) {
   var SWIFT_KEYWORDS = {
-      keyword: '__COLUMN__ __FILE__ __FUNCTION__ __LINE__ as as! as? associativity ' +
-        'break case catch class continue convenience default defer deinit didSet do ' +
+      keyword: '#available #colorLiteral #column #else #elseif #endif #file ' +
+        '#fileLiteral #function #if #imageLiteral #line #selector #sourceLocation ' +
+        '_ __COLUMN__ __FILE__ __FUNCTION__ __LINE__ Any as as! as? associatedtype ' +
+        'associativity break case catch class continue convenience default defer deinit didSet do ' +
         'dynamic dynamicType else enum extension fallthrough false fileprivate final for func ' +
         'get guard if import in indirect infix init inout internal is lazy left let ' +
         'mutating nil none nonmutating open operator optional override postfix precedence ' +
