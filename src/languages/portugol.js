@@ -28,19 +28,9 @@ function(hljs) {
         },
         {
           className: 'string',
-          begin: '\'', end: '\'',
-          contains: [hljs.BACKSLASH_ESCAPE, {begin: '\'\''}]
+          begin: '\'', end: '\''
         },
         hljs.NUMBER_MODE,
-        {
-          className: 'title',
-          begin: '[\\{\\[\\(\\])}]',
-          relevance: 0
-        },
-        {
-          className: 'tag',
-          begin: '[\\/\\.\\,\\-\\+\\*\\%\\>\\<\\=\\!]'
-        },
         hljs.C_LINE_COMMENT_MODE,
         hljs.C_BLOCK_COMMENT_MODE
       ]
