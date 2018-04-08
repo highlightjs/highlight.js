@@ -1,0 +1,101 @@
+/*
+
+Portugol Studio Light by Marco Antonio Augusto de Andrade <https://marcoandra.de>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: white;
+  color: black;
+}
+  
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-code,
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-tag {
+  color: #be633f;
+}
+  
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #008080;
+  font-weight: bold;
+}
+
+.hljs-string,
+.hljs-bullet {
+  color: #dc009c;
+}
+
+.hljs-type,
+.hljs-section,
+.hljs-attribute,
+.hljs-quote,
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #c77f00;
+}
+
+.hljs-title{
+  color: #ff0038;
+}
+
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet {
+  color: #6400c8;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal {
+  color: #0038fc;
+  font-weight: bold;
+}
+    
+.hljs-comment,
+.hljs-deletion,
+.hljs-code {
+  color: #888;
+}
+  
+.hljs-regexp,
+.hljs-link {
+  color: #c6b4f0;
+}
+
+.hljs-meta {
+  color: #fc9b9b;
+}
+
+.hljs-deletion {
+  background-color: #fc9b9b;
+  color: #333;
+}
+
+.hljs-addition {
+  background-color: #a2fca2;
+  color: #333;
+}
+  
+.hljs a {
+  color: inherit;
+}
+
+.hljs a:focus,
+.hljs a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
