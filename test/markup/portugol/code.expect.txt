@@ -1,0 +1,56 @@
+<span class="hljs-keyword">programa</span>
+<span class="hljs-title">{</span>
+
+  <span class="hljs-keyword">inclua</span> <span class="hljs-keyword">biblioteca</span> Matematica <span class="hljs-tag">-</span><span class="hljs-tag">-</span><span class="hljs-tag">&gt;</span> m
+
+  <span class="hljs-keyword">funcao</span> inicio<span class="hljs-title">(</span><span class="hljs-title">)</span>
+  <span class="hljs-title">{</span>
+
+    <span class="hljs-variable">inteiro</span> age <span class="hljs-tag">=</span> <span class="hljs-number">12</span><span class="hljs-tag">,</span> number <span class="hljs-tag">=</span> <span class="hljs-number">0</span>
+    <span class="hljs-variable">real</span> salary <span class="hljs-tag">=</span> <span class="hljs-number">1200.22</span>
+    <span class="hljs-variable">cadeia</span> name <span class="hljs-tag">=</span> <span class="hljs-string">"Maria da Silva"</span>
+    <span class="hljs-variable">caracter</span> sex <span class="hljs-tag">=</span> <span class="hljs-string">'F'</span>
+    <span class="hljs-variable">logico</span> paid_out <span class="hljs-tag">=</span> <span class="hljs-variable">verdadeiro</span>
+    paid_out <span class="hljs-tag">=</span> <span class="hljs-variable">falso</span>
+
+    <span class="hljs-keyword">const</span> <span class="hljs-variable">real</span> pi <span class="hljs-tag">=</span> <span class="hljs-number">3.1415</span>
+
+    <span class="hljs-built_in">escreva</span><span class="hljs-title">(</span><span class="hljs-string">"Enter name: "</span><span class="hljs-title">)</span>
+    <span class="hljs-built_in">leia</span><span class="hljs-title">(</span>name<span class="hljs-title">)</span>
+    <span class="hljs-built_in">limpa</span><span class="hljs-title">(</span><span class="hljs-title">)</span>
+    <span class="hljs-built_in">escreva</span><span class="hljs-title">(</span><span class="hljs-string">"Name: "</span><span class="hljs-tag">,</span> name<span class="hljs-title">)</span>
+
+    <span class="hljs-keyword">se</span> <span class="hljs-title">(</span>age <span class="hljs-tag">&gt;</span> <span class="hljs-number">18</span> <span class="hljs-keyword">ou</span> age <span class="hljs-tag">=</span><span class="hljs-tag">=</span> <span class="hljs-number">18</span><span class="hljs-title">)</span><span class="hljs-title">{</span>
+      <span class="hljs-built_in">escreva</span><span class="hljs-title">(</span><span class="hljs-string">"Of age"</span><span class="hljs-title">)</span>
+    <span class="hljs-title">}</span> <span class="hljs-keyword">senao</span> <span class="hljs-keyword">se</span> <span class="hljs-title">(</span>numero <span class="hljs-tag">&lt;</span> <span class="hljs-number">18</span><span class="hljs-title">)</span><span class="hljs-title">{</span>
+      <span class="hljs-built_in">escreva</span><span class="hljs-title">(</span><span class="hljs-string">"Minor"</span><span class="hljs-title">)</span>
+    <span class="hljs-title">}</span>
+
+    <span class="hljs-keyword">escolha</span> <span class="hljs-title">(</span>sex<span class="hljs-title">)</span><span class="hljs-title">{</span>
+      <span class="hljs-keyword">caso</span> <span class="hljs-string">'F'</span>:
+        <span class="hljs-built_in">escreva</span><span class="hljs-title">(</span><span class="hljs-string">"Female"</span><span class="hljs-title">)</span>
+      <span class="hljs-keyword">pare</span>	
+      <span class="hljs-keyword">caso</span> <span class="hljs-string">'M'</span>:
+        <span class="hljs-built_in">escreva</span><span class="hljs-title">(</span><span class="hljs-string">"Male"</span><span class="hljs-title">)</span>
+      <span class="hljs-keyword">pare</span>
+      <span class="hljs-keyword">caso</span> <span class="hljs-keyword">contrario</span>:
+        <span class="hljs-built_in">escreva</span><span class="hljs-title">(</span><span class="hljs-string">"Not defined"</span><span class="hljs-title">)</span>
+      <span class="hljs-keyword">pare</span>
+    <span class="hljs-title">}</span>
+	
+    <span class="hljs-keyword">enquanto</span> <span class="hljs-title">(</span>number <span class="hljs-tag">&lt;</span> <span class="hljs-number">10</span><span class="hljs-title">)</span><span class="hljs-title">{</span>
+      <span class="hljs-built_in">escreva</span><span class="hljs-title">(</span>number<span class="hljs-title">)</span>
+      number<span class="hljs-tag">+</span><span class="hljs-tag">+</span>
+    <span class="hljs-title">}</span>
+
+    <span class="hljs-keyword">faca</span> <span class="hljs-title">{</span>
+      <span class="hljs-built_in">escreva</span><span class="hljs-title">(</span>number<span class="hljs-title">)</span>
+      number<span class="hljs-tag">-</span><span class="hljs-tag">-</span>
+    <span class="hljs-title">}</span> <span class="hljs-keyword">enquanto</span> <span class="hljs-title">(</span>number <span class="hljs-tag">&gt;</span> <span class="hljs-number">0</span><span class="hljs-title">)</span>
+
+    <span class="hljs-variable">inteiro</span> numbers<span class="hljs-title">[</span><span class="hljs-number">10</span><span class="hljs-title">]</span>
+    <span class="hljs-keyword">para</span> <span class="hljs-title">(</span><span class="hljs-variable">inteiro</span> x <span class="hljs-tag">=</span> <span class="hljs-number">0</span>; x <span class="hljs-tag">&lt;</span> <span class="hljs-number">10</span>; x<span class="hljs-tag">+</span><span class="hljs-tag">+</span><span class="hljs-title">)</span><span class="hljs-title">{</span>
+      numbers<span class="hljs-title">[</span>x<span class="hljs-title">]</span> <span class="hljs-tag">=</span> x
+    <span class="hljs-title">}</span>
+  <span class="hljs-title">}</span>
+<span class="hljs-title">}</span>
