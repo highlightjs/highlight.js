@@ -1,3 +1,9 @@
+## Version 9.13.0
+
+New languages:
+
+- *Portugol* by [Marco Antonio Augusto de Andrade][]
+
 ## Version 9.12.0
 
 New language:
