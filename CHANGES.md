@@ -1,3 +1,15 @@
+## Version 9.13.0
+
+New language:
+
+- *ST* Structured Text language of IEC-61131 standard by [Sehioromano][].
+
+New style:
+
+Improvements:
+
+[Serhioromano]: https://github.com/serhioromano
+
 ## Version 9.12.0
 
 New language:

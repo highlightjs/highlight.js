@@ -252,3 +252,4 @@ URL:   https://highlightjs.org/
 - Николя Ллобера <nllobera@gmail.com>
 - Мортен Пибелехт <morten.piibeleht@gmail.com>
 - Мартин Клаузен <martin.clausene@gmail.com>
+- Сергей Романов <serg4172@mail.ru>
