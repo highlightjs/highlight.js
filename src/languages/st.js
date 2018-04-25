@@ -1,6 +1,8 @@
-/**
+/*
  * Language: ST
  * Author: Sergey Romanov <serg4172@mail.ru>
+ * Category: misc
+ * Home page: http://www.plcopen.org/pages/tc1_standards/
  * Description: Structured Text - one of the 5 languages of IEC-61131 standard for PLC program development.
  */
 
