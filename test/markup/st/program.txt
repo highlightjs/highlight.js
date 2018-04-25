@@ -1,0 +1,5 @@
+CONFIGURATION DefaultCfg
+  VAR_GLOBAL
+    Start_Stop AT %IX0.0: BOOL; (* This is comment *)
+  END_VAR
+END_CONFIGURATION
