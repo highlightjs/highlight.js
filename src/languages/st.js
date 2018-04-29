@@ -12,9 +12,9 @@ function(hljs) {
         case_insensitive: true,
         keywords: {
             keyword: 'if then end_if elsif else case of end_case ' +
-            'to do by while repeat end_while end_repeat for end_for ' + 
+            'to do by while repeat end_while end_repeat for end_for from ' + 
             'or and not xor constant return exit at retain non_retain task with until',
-            title: 'program end_program function end_function function_block end_function_block configuration end_configuration action end_action transition end_transition type end_type struct end_struct ' +
+            title: 'program end_program function end_function function_block end_function_block configuration end_configuration action end_action transition end_transition type end_type struct end_struct step end_step initial_step' +
             'var var_global end_var var_input var_out var_output var_in_out var_temp var_interval var_external ',
             literal: 'false true null ',
             built_in: 'array pointer int sint dint lint usint uint udint ulint real lreal time date time_of_day date_and_time dt tod string bool byte world dworld lworld',
