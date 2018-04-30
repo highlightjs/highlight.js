@@ -46,6 +46,16 @@ function(hljs) {
                 begin: '[a-zA-Z_]*#[a-zA-Z_]*',
                 relevance: 0
             },
+            {
+                className: 'symbol',
+                begin: '\%(I|Q|M)(X|B|W|D|L)[0-9\.]*',
+                relevance: 0
+            },
+            {
+                className: 'symbol',
+                begin: '\%(I|Q|M)[0-9\.]*',
+                relevance: 0
+            },
             hljs.C_NUMBER_MODE,
             hljs.COMMENT('//', '$'),
             hljs.C_BLOCK_COMMENT_MODE,
