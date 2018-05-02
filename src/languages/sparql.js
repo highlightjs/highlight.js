@@ -1,7 +1,7 @@
 /*
 Language: SPARQL
-Requires: ttl.js
-Author: Mark Ellis <mark.ellis@stardog.com>
+Requires: sparql.js
+Author: Mark Ellis <mark.ellis@stardog.com>, <vladimir.alexiev@ontotext.com>
 Category: common
 */
 
@@ -15,18 +15,28 @@ function(hljs) {
     built_in: 'a|0'
   };
 
+  var VARIABLE = {
+    className: 'variable',
+    begin: '[?$]' + hljs.IDENT_RE,
+    relevance: 0,
+  };
+
   return {
     case_insensitive: true,
     keywords: KEYWORDS,
-    aliases: ['rql'],
+    aliases: ['rql', 'rq', 'ru'],
     contains: [
       ttl.PNAME,
-      ttl.VARIABLE,
+      ttl.BLANK_NODE,
+      VARIABLE,
       ttl.IRI_LITERAL,
+      ttl.TRIPLE_QUOTE_STRING,
       ttl.TRIPLE_APOS_STRING,
       ttl.QUOTE_STRING_LITERAL,
       ttl.APOS_STRING_LITERAL,
       ttl.NUMBER,
+      ttl.LANGTAG,
+      ttl.DATATYPE,
       hljs.HASH_COMMENT_MODE,
     ]
   };

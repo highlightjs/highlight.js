@@ -1,6 +1,6 @@
 /*
 Language: Turtle
-Author: Mark Ellis <mark.ellis@stardog.com>
+Author: Mark Ellis <mark.ellis@stardog.com>, <vladimir.alexiev@ontotext.com>
 Category: common
 */
 
@@ -11,47 +11,64 @@ function(hljs) {
     built_in: 'a|0'
   };
 
-  var VARIABLE = {
-    className: 'type',
-    begin: '\\?' + hljs.IDENT_RE + '|\\$' + hljs.IDENT_RE,
-    relevance: 0,
-  };
-
   var IRI_LITERAL = {
     className: 'literal',
     relevance: 0,
     begin: /</,
     end: />/,
-  }
-
-  var TRIPLE_APOS_STRING = {
-    begin: /\'\'\'|"""/,
-    end: /\'\'\'|"""/,
-    className: 'string',
-    relevance: 0,
-  }
-
+  };
+  
+  // https://www.w3.org/TR/turtle/#terminals
+  var PN_CHARS_BASE    = 'A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\u10000-\uEFFFF';
+  var PN_CHARS_U       = PN_CHARS_BASE+'_';
+  var PN_CHARS         = '-'+PN_CHARS_U+'0-9\u00B7\u0300-\u036F\u203F-\u2040';
+  var BLANK_NODE_LABEL = '_:['+PN_CHARS_U+'0-9](['+PN_CHARS+'.]*['+PN_CHARS+'])?';
+  var PN_PREFIX        = '['+PN_CHARS_BASE+'](['+PN_CHARS+'.]*['+PN_CHARS+'])?';
+  var PERCENT          = '%[0-9A-Fa-f][0-9A-Fa-f]';
+  var PN_LOCAL_ESC     = '\\\\[_~.!$&\'()*+,;=/?#@%-]';
+  var PLX              = PERCENT+'|'+PN_LOCAL_ESC;
+  var PNAME_NS         = '('+PN_PREFIX+')?:';
+  var PN_LOCAL         = '(['+PN_CHARS_U+':0-9]|'+PLX+')(['+PN_CHARS+'.:]|'+PLX+')*(['+PN_CHARS+':]|'+PLX+')?';
+  var PNAME_LN         = PNAME_NS+PN_LOCAL;
+  
   var PNAME = {
-    begin: '\\s*\\w*?:',
-    returnBegin: true,
+    begin: PNAME_LN,
     relevance: 0,
-    contains: [
-      {
-        className: 'symbol',
-        begin: '\\s*?|\\S',
-        end: /:/,
-        relevance: 0,
-        starts: {
-          endsWithParent: true,
-          contains: [
-            IRI_LITERAL,
-            TRIPLE_APOS_STRING,
-          ]
-        }
-      }
-    ]
+    className: 'symbol',
   };
 
+  var BLANK_NODE = {
+    begin: BLANK_NODE_LABEL,
+    relevance: 0,
+    className: 'template-variable',
+  };
+
+  var LANGTAG = {
+    begin: /@[a-zA-Z]+([a-zA-Z0-9-]+)*/,
+    className: 'type',
+    relevance: 0,
+  };
+
+  var DATATYPE =  {
+    begin: '\\\\^\\\\^'+PNAME_LN, // simpler but incomplete:  /\^\^\w+:\w+/
+    className: 'type',
+    relevance: 0,
+  };
+
+  var TRIPLE_APOS_STRING = {
+    begin: /\'\'\'/,
+    end: /\'\'\'/,
+    className: 'string',
+    relevance: 0,
+  };
+
+  var TRIPLE_QUOTE_STRING = {
+    begin: /"""/,
+    end: /"""/,
+    className: 'string',
+    relevance: 0,
+  };
+  
   var APOS_STRING_LITERAL = JSON.parse(JSON.stringify(hljs.APOS_STRING_MODE));
   APOS_STRING_LITERAL.relevance = 0;
 
@@ -64,26 +81,30 @@ function(hljs) {
   return {
     case_insensitive: true,
     keywords: KEYWORDS,
-    aliases: ['turtle'],
+    aliases: ['turtle', 'n3'],
     contains: [
       PNAME,
-      VARIABLE,
+      BLANK_NODE,
       IRI_LITERAL,
-      TRIPLE_APOS_STRING, // order matters
-      QUOTE_STRING_LITERAL,
-      APOS_STRING_LITERAL,
+      TRIPLE_APOS_STRING, TRIPLE_QUOTE_STRING, // order matters
+      APOS_STRING_LITERAL, QUOTE_STRING_LITERAL,
       NUMBER,
+      LANGTAG,
+      DATATYPE,
       hljs.HASH_COMMENT_MODE,
     ],
     exports: {
       KEYWORDS: KEYWORDS,
       PNAME: PNAME,
-      VARIABLE: VARIABLE,
+      BLANK_NODE: BLANK_NODE,
       IRI_LITERAL: IRI_LITERAL,
       TRIPLE_APOS_STRING: TRIPLE_APOS_STRING,
+      TRIPLE_QUOTE_STRING: TRIPLE_QUOTE_STRING,
       APOS_STRING_LITERAL: APOS_STRING_LITERAL,
       QUOTE_STRING_LITERAL: QUOTE_STRING_LITERAL,
       NUMBER: NUMBER,
+      LANGTAG: LANGTAG,
+      DATATYPE: DATATYPE,
     }
   };
 }
