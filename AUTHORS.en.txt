@@ -253,3 +253,4 @@ Contributors:
 - Morten Piibeleht <morten.piibeleht@gmail.com>
 - Martin Clausen <martin.clausene@gmail.com>
 - Mark Ellis <ellismarkf@gmail.com>
+- Vladimir Alexiev <vladimir.alexiev@ontotext.com>
