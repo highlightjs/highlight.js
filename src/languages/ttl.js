@@ -11,11 +11,12 @@ function(hljs) {
     built_in: 'a|0'
   };
 
-  var IRI_LITERAL = {
+  var IRI_LITERAL = {// https://www.w3.org/TR/turtle/#grammar-production-IRIREF
     className: 'literal',
-    relevance: 10,
+    relevance: 1, // XML tags look also like relative IRIs
     begin: /</,
     end: />/,
+    illegal: /[^\x00-\x20<>"{}|^`]/, // TODO: https://www.w3.org/TR/turtle/#grammar-production-UCHAR
   };
   
   // https://www.w3.org/TR/turtle/#terminals
@@ -40,20 +41,20 @@ function(hljs) {
 
   var BLANK_NODE = {
     begin: BLANK_NODE_LABEL,
-    relevance: 0,
+    relevance: 10,
     className: 'template-variable',
   };
 
   var LANGTAG = {
     begin: /@[a-zA-Z]+([a-zA-Z0-9-]+)*/,
     className: 'type',
-    relevance: 0,
+    relevance: 10,
   };
 
   var DATATYPE =  {
     begin: '\\^\\^'+PNAME_LN,
     className: 'type',
-    relevance: 0,
+    relevance: 10,
   };
 
   var TRIPLE_APOS_STRING = {
