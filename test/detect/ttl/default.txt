@@ -7,20 +7,20 @@
 @prefix ff-map:  <http://factforge.net/ff2016-mapping/>.
 
 <#green-goblin>
-    rel:enemyOf <#spiderman> ;
-    a foaf:Person ; # in the context of the Marvel universe
-    foaf:description """ This is
-a long TRIPLE_QUOTE_STRING with ''' embedded
-apostrophes ''' """.
+  rel:enemyOf <#spiderman> ;
+  a foaf:Person ; # in the context of the Marvel universe
+  foaf:description """Long TRIPLE_QUOTE_STRING with ''' embedded
+apostrophes '''""",
+    '''The librarian said, "Perhaps you would enjoy 'War and Peace'."'''.
 
 <#spiderman> rel:enemyOf <#green-goblin> ;
-    foaf:name "Spiderman"@en, "Человек-паук"@ru ;
-    foaf:age "23"^^xsd:integer, 23; # literal^^datatype, number
-    foaf:height 1.68. # trailing dot not part of number
+  foaf:name "Spiderman"@en, "Человек-паук"@ru ;
+  foaf:age "23"^^xsd:integer, 23;
+  foaf:height 1.68, 0.168e1, "1.68"^^xsd:decimal, true, false;
+  foaf:mbox  <mailto:alice@example.org>;
+  rdfs:label 'chat'@fr, 
 
 _:blank1 fb:object.type fb:object.type.car. # trailing dot not part of symbol
-: rel:weird :bar, rel:; rel:weird rel:.
-
-foaf:mbox  <mailto:alice@example.org>.
+: rel:weird :bar, rel: ; rel:weird rel:.
 
 </doc#char=10,20> ff-map:mentionsEntity </entity>.

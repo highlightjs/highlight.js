@@ -6,14 +6,14 @@ Category: common
 
 function(hljs) {
   var KEYWORDS = {
-    meta: 'base|10 prefix|10 @base|10 @prefix|10',
+    keyword: 'base|10 prefix|10 @base|10 @prefix|10',
     literal: 'true|0 false|0',
     built_in: 'a|0'
   };
 
   var IRI_LITERAL = {
     className: 'literal',
-    relevance: 0,
+    relevance: 10,
     begin: /</,
     end: />/,
   };
@@ -30,9 +30,10 @@ function(hljs) {
   var PNAME_NS         = '('+PN_PREFIX+')?:';
   var PN_LOCAL         = '(['+PN_CHARS_U+':0-9]|'+PLX+')(['+PN_CHARS+'.:]|'+PLX+')*(['+PN_CHARS+':]|'+PLX+')?';
   var PNAME_LN         = PNAME_NS+PN_LOCAL;
+  var PNAME_NS_or_LN   = PNAME_NS+'('+PN_LOCAL+')?';
   
   var PNAME = {
-    begin: PNAME_LN,
+    begin: PNAME_NS_or_LN,
     relevance: 0,
     className: 'symbol',
   };
@@ -50,14 +51,14 @@ function(hljs) {
   };
 
   var DATATYPE =  {
-    begin: '\\\\^\\\\^'+PNAME_LN, // simpler but incomplete:  /\^\^\w+:\w+/
+    begin: '\\^\\^'+PNAME_LN,
     className: 'type',
     relevance: 0,
   };
 
   var TRIPLE_APOS_STRING = {
-    begin: /\'\'\'/,
-    end: /\'\'\'/,
+    begin: /'''/,
+    end: /'''/,
     className: 'string',
     relevance: 0,
   };
@@ -83,28 +84,28 @@ function(hljs) {
     keywords: KEYWORDS,
     aliases: ['turtle', 'n3'],
     contains: [
-      PNAME,
-      BLANK_NODE,
+      LANGTAG,
+      DATATYPE,
       IRI_LITERAL,
+      BLANK_NODE,
+      PNAME,
       TRIPLE_APOS_STRING, TRIPLE_QUOTE_STRING, // order matters
       APOS_STRING_LITERAL, QUOTE_STRING_LITERAL,
       NUMBER,
-      LANGTAG,
-      DATATYPE,
       hljs.HASH_COMMENT_MODE,
     ],
     exports: {
-      KEYWORDS: KEYWORDS,
-      PNAME: PNAME,
-      BLANK_NODE: BLANK_NODE,
+      LANGTAG: LANGTAG,
+      DATATYPE: DATATYPE,
       IRI_LITERAL: IRI_LITERAL,
+      BLANK_NODE: BLANK_NODE,
+      PNAME: PNAME,
       TRIPLE_APOS_STRING: TRIPLE_APOS_STRING,
       TRIPLE_QUOTE_STRING: TRIPLE_QUOTE_STRING,
       APOS_STRING_LITERAL: APOS_STRING_LITERAL,
       QUOTE_STRING_LITERAL: QUOTE_STRING_LITERAL,
       NUMBER: NUMBER,
-      LANGTAG: LANGTAG,
-      DATATYPE: DATATYPE,
+      KEYWORDS: KEYWORDS,
     }
   };
 }

@@ -1,27 +1,20 @@
-#TEST of SPARQL syntax highlighting comment
-
+# SPARQL comment
 PREFIX data: <http://example.com/foaf/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-prefix:relatedTo :Thing
-prefix:relatedTo [ a :Thing];
-
 SELECT ?mbox ?nick ?ppd
 FROM NAMED <http://example.org/foaf/aliceFoaf>
 FROM NAMED <http://example.org/foaf/bobFoaf>
-WHERE
-{
-  GRAPH data:aliceFoaf
-  {
+WHERE {
+  GRAPH data:aliceFoaf {
     ?alice  foaf:mbox <mailto:alice@work.example>;
             foaf:knows ?whom .
     ?whom   foaf:mbox ?mbox ;
             rdfs:seeAlso ?ppd .
     ?ppd    a foaf:PersonaProfileDocument .
-  } .
-  GRAPH ?ppd
-  {
+  }
+  GRAPH ?ppd {
     ?w  foaf:mbox ?mbox ;
         foaf:nick ?nick
   }
@@ -30,14 +23,31 @@ WHERE
 SELECT ?test
 FROM NAMED <http://something.com/rdf/thing>;
 
-'''The librarian said, "Perhaps you would enjoy 'War and Peace'."'''
-'chat'@fr
-1.0e6
-true
-false
-"1.300"^^xsd:decimal
-
 SELECT ?P (COUNT(?O) AS ?C)
 WHERE { ?S ?P ?O }
 GROUP BY ?P
 HAVING (COUNT(?O) > 2 )
+
+prefix es:   <http://www.ontotext.com/connectors/elasticsearch#>
+prefix inst: <http://www.ontotext.com/connectors/elasticsearch/instance#>
+insert data {
+  inst:entity-person es:createConnector """ {
+    "elasticsearchNode": "localhost:9300",
+    "types": ["http://www.ontotext.com/example#Document"],
+    "fields": [{
+      "fieldName": "person",
+      "propertyChain": ["http://factforge.net/ff2016-mapping/mentionsEntity", "http://www.w3.org/2000/01/rdf-schema#label"]
+    }],
+    "entityFilter": "bound(parent(?person) -> type) && parent(?person) -> type in (<http://dbpedia.org/ontology/Person>)"
+  } """
+}
+
+prefix inst: <http://www.ontotext.com/connectors/elasticsearch/instance#>
+select ?name ?key ?count {
+  ?search a inst:date-connector;
+    :query ''' {"aggs": {"weekly bucket": {"date_histogram" : {
+        "field" : "date",
+        "interval" : "week",
+        "format" : "yyyy-MM-dd"
+    }}}} '''
+}
