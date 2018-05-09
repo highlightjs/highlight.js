@@ -19,9 +19,9 @@ function(hljs) {
       'readwrite self @synchronized id typeof ' +
       'nonatomic super unichar IBOutlet IBAction strong weak copy ' +
       'in out inout bycopy byref oneway __strong __weak __block __autoreleasing ' +
-      '@private @protected @public @try @property @end @throw @catch @finally ' +
-      '@autoreleasepool @synthesize @dynamic @selector @optional @required ' +
-      '@encode @package @import @defs @compatibility_alias ' +
+      '@private|10 @protected|10 @public|10 @try|10 @property|10 @end|10 @throw|10 @catch|10 @finally|10 ' +
+      '@autoreleasepool|10 @synthesize|10 @dynamic|10 @selector|10 @optional|10 @required|10 ' +
+      '@encode|10 @package|10 @import|10 @defs|10 @compatibility_alias|10 ' +
       '__bridge __bridge_transfer __bridge_retained __bridge_retain ' +
       '__covariant __contravariant __kindof ' +
       '_Nonnull _Nullable _Null_unspecified ' +
@@ -84,6 +84,7 @@ function(hljs) {
         className: 'class',
         begin: '(' + CLASS_KEYWORDS.split(' ').join('|') + ')\\b', end: '({|$)', excludeEnd: true,
         keywords: CLASS_KEYWORDS, lexemes: LEXEMES,
+        relevance: 10,
         contains: [
           hljs.UNDERSCORE_TITLE_MODE
         ]

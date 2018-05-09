@@ -48,7 +48,7 @@ function(hljs) {
   var LANGTAG = {
     begin: /@[a-zA-Z]+([a-zA-Z0-9-]+)*/,
     className: 'type',
-    relevance: 10,
+    relevance: 5, // also catches objectivec keywords like: @protocol, @optional
   };
 
   var DATATYPE =  {
