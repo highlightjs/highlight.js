@@ -1549,10 +1549,10 @@ function(hljs) {
 
   // enum TActionEnabledMode
   var TActionEnabledMode = 
-  'aemEnabledAlways' + 
-  'aemDisabledAlways' + 
-  'aemEnabledOnBrowse' + 
-  'aemEnabledOnEdit' + 
+  'aemEnabledAlways ' + 
+  'aemDisabledAlways ' + 
+  'aemEnabledOnBrowse ' + 
+  'aemEnabledOnEdit ' + 
   'aemDisabledOnBrowseEmpty ';
 
   // enum TAddPosition
@@ -1913,7 +1913,7 @@ function(hljs) {
   'icBlockQueryParamsEventHandler ' +
   'icChangeSearchResultEventHandler ' +
   'icBlockEventHandler ' +
-  'icSubTaskInitEventHandler = 18 ' +
+  'icSubTaskInitEventHandler ' +
   'icEDocDataSetEventHandler ' +
   'icEDocLookUpEventHandler ' +
   'icEDocActionHandler ' +
@@ -3184,6 +3184,7 @@ function(hljs) {
   // variables : переменные
   var VARIABLES = {
     className: 'variable',
+    lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     begin: UNDERSCORE_IDENT_RE,
     relevance: 0,
