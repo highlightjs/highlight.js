@@ -1,0 +1,34 @@
+Prefices
+{ /* useful */
+    rdf  :  http://www.w3.org/1999/02/22-rdf-syntax-ns#
+}
+
+Axioms
+{ // builtin facts
+    <rdf:first>     <rdf:type> <rdf:Property>
+}
+
+Rules {
+  Id: owl_FunctProp
+    p  <rdf:type>  <owl:FunctionalProperty>
+    x  p  y       [Constraint y != z, p != <rdf:type>]
+    x  p  z       [Constraint z != y] [Cut]
+    -------------------------------
+    y  <owl:sameAs>  z
+
+  Id: ruleWithLiterals
+    x <ex:priority> "100"^^xsd:decimal
+    ----------------------------------
+    x <ex:important> "true"^^xsd:boolean
+    
+  Consistency: sameAs_with_differentFrom_is_forbidden
+    x owl:sameAs y
+    x owl:differentFrom y
+    ---------------------
+
+  Consistency: checkDomain
+    x  p  y
+    p  <rdfs:domain>  c
+    -----------------
+    x  <rdf:type>  c
+}
