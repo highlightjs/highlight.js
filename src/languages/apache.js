@@ -10,7 +10,7 @@ Category: common, config
 function(hljs) {
   var NUMBER = {className: 'number', begin: '[\\$%]\\d+'};
   return {
-    aliases: ['apacheconf'],
+    aliases: ['apacheconf', 'apache'],
     case_insensitive: true,
     contains: [
       hljs.HASH_COMMENT_MODE,
