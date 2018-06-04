@@ -12,11 +12,15 @@ function(hljs) {
     literal:
       'true false null undefined NaN Infinity PI BackSlash DoubleQuote ForwardSlash NewLine SingleQuote Tab',
     built_in:
-      'Abs Acos Asin Atan Atan2 Average Boolean Ceil Concatenate Console Constrain Cos Count Day Date DateAdd DateDiff Decode ' +
-      'DefaultValue Dictionary Distinct DomainCode DomainName Exp Extent Feature Find First Floor Geometry HasKey ' +
-      'Hour IIf IndexOf IsEmpty Left Line Log Lower Max Mean Mid Millisecond Minute Min Month Multipoint Now Number ' +
-      'Point Polyline Polygon Pow Proper Random Replace Reverse Right Round Second Sin Sort Split Sqrt Stdev Sum ' +
-      'Tan Text TextFormatting Timestamp Today ToLocal ToUTC Trim TypeOf Upper Variance Weekday When Year'
+      'Abs Acos Area AreaGeodetic Asin Atan Atan2 Average Boolean Buffer BufferGeodetic ' +
+      'Ceil Centroid Clip Console Constrain Contains Cos Count Crosses Cut Date DateAdd ' +
+      'DateDiff Day Decode DefaultValue Dictionary Difference Disjoint Distance Distinct ' +
+      'DomainCode DomainName Equals Exp Extent Feature First Floor Geometry Guid HasKey ' +
+      'Hour IIf IndexOf Intersection Intersects IsEmpty Length LengthGeodetic Log Max ' +
+      'Mean Millisecond Min Minute Month MultiPartToSinglePart Multipoint NextSequenceValue ' +
+      'Now Number Overlaps Point Polygon Polyline Pow Random Relate Reverse Round Second ' +
+      'SetGeometry Sin Sort Sqrt Stdev Sum SymmetricDifference Tan Text Timestamp Today ' +
+      'ToLocal Top Touches ToUTC TypeOf Union Variance Weekday When Within Year '
   };
   var EXPRESSIONS;
   var SYMBOL = {
