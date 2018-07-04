@@ -41,9 +41,7 @@ function(hljs) {
           // Stan's model blocks
           title:
             'functions model data parameters quantities transformed '          +
-            'generated',
-          literal:
-            'true false'
+            'generated'
         },
         relevance: 0
       },
