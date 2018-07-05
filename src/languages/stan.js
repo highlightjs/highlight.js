@@ -6,82 +6,75 @@ Description: The Stan probabilistic programming language (http://mc-stan.org/).
 */
 
 function(hljs) {
+  // variable names cannot conflict with block identifiers
+  const BLOCKS = ['functions', 'model', 'data', 'parameters', 'quantities',
+                  'transformed', 'generated'];
+  const STATEMENTS = ['for', 'in', 'if', 'else', 'while', 'break', 'continue', 'return'];
+  const SPEC_FUNCS = ['print', 'reject',
+                      'increment_log_prob|10',
+                      'integrate_ode|10', 'integrate_ode_rk45|10', 'integrate_ode_bdf|10', 'algebra_solver'];
+  const VAR_TYPES = ['int', 'real',
+                    'vector', 'ordered', 'positive_ordered', 'simplex', 'unit_vector', 'row_vector',
+                    'matrix', 'cholesky_factor_corr|10', 'cholesky_factor_cov|10', 'corr_matrix|10', 'cov_matrix|10',
+                    'void'];
+  const OTHER_KEYWORDS = ['lower', 'upper'];
+
   return {
+    aliases: ['stanfuncs'],
+    keywords: {
+      'title': BLOCKS.join(' '),
+      'keyword': STATEMENTS.concat(VAR_TYPES).concat(OTHER_KEYWORDS).join(' '),
+      'built_in': SPEC_FUNCS.join(' '),
+    },
+    // could use hljs.IDENT_RE, but be explicit
+    lexemes: '[A-Za-z][A-Za-z0-9_]*',
     contains: [
-      hljs.HASH_COMMENT_MODE,
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      {
-        begin: hljs.UNDERSCORE_IDENT_RE,
-        lexemes: hljs.UNDERSCORE_IDENT_RE,
-        keywords: {
-          // Stan's keywords
-          name:
-            'for in while repeat until if then else',
-          // Stan's probablity distributions (less beta and gamma, as commonly
-          // used for parameter names). So far, _log and _rng variants are not
-          // included
-          symbol:
-            'bernoulli bernoulli_logit binomial binomial_logit '               +
-            'beta_binomial hypergeometric categorical categorical_logit '      +
-            'ordered_logistic neg_binomial neg_binomial_2 '                    +
-            'neg_binomial_2_log poisson poisson_log multinomial normal '       +
-            'exp_mod_normal skew_normal student_t cauchy double_exponential '  +
-            'logistic gumbel lognormal chi_square inv_chi_square '             +
-            'scaled_inv_chi_square exponential inv_gamma weibull frechet '     +
-            'rayleigh wiener pareto pareto_type_2 von_mises uniform '          +
-            'multi_normal multi_normal_prec multi_normal_cholesky multi_gp '   +
-            'multi_gp_cholesky multi_student_t gaussian_dlm_obs dirichlet '    +
-            'lkj_corr lkj_corr_cholesky wishart inv_wishart',
-          // Stan's data types
-          'selector-tag':
-            'int real vector simplex unit_vector ordered positive_ordered '    +
-            'row_vector matrix cholesky_factor_corr cholesky_factor_cov '      +
-            'corr_matrix cov_matrix',
-          // Stan's model blocks
-          title:
-            'functions model data parameters quantities transformed '          +
-            'generated'
+      hljs.COMMENT(
+        /#/,
+        /$/,
+        {
+          relevance: 0,
+          keywords: {'meta-keyword': 'include'},
         },
-        relevance: 0
-      },
-      // The below is all taken from the R language definition
+      ),
+      hljs.COMMENT(
+        /\/\*/,
+        /\*\//,
+        {
+          relevance: 0,
+          // highlight doc strings mentioned in Stan reference
+          contains: [
+            {
+              className: 'doctag',
+              begin: /@(return|param)/,
+            },
+          ],
+        },
+      ),
       {
-        // hex value
-        className: 'number',
-        begin: "0[xX][0-9a-fA-F]+[Li]?\\b",
-        relevance: 0
-      },
-      {
-        // hex value
-        className: 'number',
-        begin: "0[xX][0-9a-fA-F]+[Li]?\\b",
-        relevance: 0
-      },
-      {
-        // explicit integer
-        className: 'number',
-        begin: "\\d+(?:[eE][+\\-]?\\d*)?L\\b",
-        relevance: 0
-      },
-      {
-        // number with trailing decimal
-        className: 'number',
-        begin: "\\d+\\.(?!\\d)(?:i\\b)?",
-        relevance: 0
+        className: 'keyword',
+        begin: /\btarget\s*\+=/,
+        relevance: 10
       },
       {
-        // number
         className: 'number',
-        begin: "\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",
-        relevance: 0
+        variants: [
+          {
+            begin: /\b\d+(?:\.\d*)?(?:[eE][+-]?\d+)?/,
+          },
+          {
+            begin: /\.\d+(?:[eE][+-]?\d+)?\b/,
+          },
+        ],
+        relevance: 0,
       },
       {
-        // number with leading decimal
-        className: 'number',
-        begin: "\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",
-        relevance: 0
-      }
-    ]
+        className: 'string',
+        begin: '"',
+        end: '"',
+        relevance: 0,
+      },
+    ],
   };
 }
