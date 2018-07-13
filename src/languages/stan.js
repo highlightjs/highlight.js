@@ -6,7 +6,7 @@ Category: scientific
 Description: The Stan probabilistic programming language (http://mc-stan.org/).
 */
 
-function(hljs) {
+function (hljs) {
   // variable names cannot conflict with block identifiers
   const BLOCKS = [
     'functions',
@@ -15,8 +15,8 @@ function(hljs) {
     'parameters',
     'quantities',
     'transformed',
-    'generated',
-  ];
+    'generated'
+  ]
   const STATEMENTS = [
     'for',
     'in',
@@ -25,8 +25,8 @@ function(hljs) {
     'while',
     'break',
     'continue',
-    'return',
-  ];
+    'return'
+  ]
   const SPECIAL_FUNCTIONS = [
     'print',
     'reject',
@@ -34,8 +34,8 @@ function(hljs) {
     'integrate_ode|10',
     'integrate_ode_rk45|10',
     'integrate_ode_bdf|10',
-    'algebra_solver',
-  ];
+    'algebra_solver'
+  ]
   const VAR_TYPES = [
     'int',
     'real',
@@ -50,8 +50,8 @@ function(hljs) {
     'cholesky_factor_cov|10',
     'corr_matrix|10',
     'cov_matrix|10',
-    'void',
-  ];
+    'void'
+  ]
   const FUNCTIONS = [
     'Phi', 'Phi_approx', 'abs', 'acos', 'acosh', 'algebra_solver', 'append_array',
     'append_col', 'append_row', 'asin', 'asinh', 'atan', 'atan2', 'atanh',
@@ -134,8 +134,8 @@ function(hljs) {
     'uniform_lccdf', 'uniform_lcdf', 'uniform_lpdf', 'uniform_rng', 'variance',
     'von_mises_lpdf', 'von_mises_rng', 'weibull_cdf', 'weibull_lccdf',
     'weibull_lcdf', 'weibull_lpdf', 'weibull_rng', 'wiener_lpdf', 'wishart_lpdf',
-    'wishart_rng',
-  ];
+    'wishart_rng'
+  ]
   const DISTRIBUTIONS = [
     'bernoulli', 'bernoulli_logit', 'beta', 'beta_binomial', 'binomial',
     'binomial_logit', 'categorical', 'categorical_logit', 'cauchy', 'chi_square',
@@ -147,76 +147,81 @@ function(hljs) {
     'neg_binomial', 'neg_binomial_2', 'neg_binomial_2_log', 'normal',
     'ordered_logistic', 'pareto', 'pareto_type_2', 'poisson', 'poisson_log',
     'rayleigh', 'scaled_inv_chi_square', 'skew_normal', 'student_t', 'uniform',
-    'von_mises', 'weibull', 'wiener', 'wishart',
-  ];
+    'von_mises', 'weibull', 'wiener', 'wishart'
+  ]
 
   return {
     aliases: ['stanfuncs'],
     keywords: {
       'title': BLOCKS.join(' '),
       'keyword': STATEMENTS.concat(VAR_TYPES).concat(SPECIAL_FUNCTIONS).join(' '),
-      'built_in': FUNCTIONS.join(' '),
+      'built_in': FUNCTIONS.join(' ')
     },
     lexemes: hljs.IDENT_RE,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(
         /#/,
-        /$/, {
+        /$/,
+        {
           relevance: 0,
           keywords: {
             'meta-keyword': 'include'
-          },
-        },
+          }
+        }
       ),
       hljs.COMMENT(
         /\/\*/,
-        /\*\//, {
+        /\*\//,
+        {
           relevance: 0,
           // highlight doc strings mentioned in Stan reference
-          contains: [{
-            className: 'doctag',
-            begin: /@(return|param)/,
-          }, ],
-        },
+          contains: [
+            {
+              className: 'doctag',
+              begin: /@(return|param)/
+            }
+          ]
+        }
       ),
       {
         // hack: in range constraints, lower must follow "<"
         begin: /<\s*lower\s*=/,
-        keywords: 'lower',
+        keywords: 'lower'
       },
       {
         // hack: in range constraints, upper must follow either , or <
         // <lower = ..., upper = ...> or <upper = ...>
         begin: /[<,]*upper\s*=/,
-        keywords: 'upper',
+        keywords: 'upper'
       },
       {
         className: 'keyword',
         begin: /\btarget\s*\+=/,
-        relevance: 10,
+        relevance: 10
       },
       {
         begin: '~\\s*(' + hljs.IDENT_RE + ')\\s*\\(',
-        keywords: DISTRIBUTIONS.join(' '),
+        keywords: DISTRIBUTIONS.join(' ')
       },
       {
         className: 'number',
-        variants: [{
-            begin: /\b\d+(?:\.\d*)?(?:[eE][+-]?\d+)?/,
+        variants: [
+          {
+            begin: /\b\d+(?:\.\d*)?(?:[eE][+-]?\d+)?/
           },
           {
-            begin: /\.\d+(?:[eE][+-]?\d+)?\b/,
-          },
+            begin: /\.\d+(?:[eE][+-]?\d+)?\b/
+          }
         ],
-        relevance: 0,
+        relevance: 0
       },
       {
         className: 'string',
         begin: '"',
         end: '"',
-        relevance: 0,
-      },
-    ],
-  };
+        relevance: 0
+      }
+    ]
+  }
 }
