@@ -33,6 +33,11 @@ function(hljs) {
         relevance: 0
       },
       {
+        className: 'operator',
+        begin: '\\s+(\\|\\||\\&\\&|\\+\\+)\\s+',
+        relevance: 0
+      },
+      {
         className: 'number',
         begin:
           '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +

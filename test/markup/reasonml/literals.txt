@@ -22,3 +22,5 @@ let b = true || false;
 let l = [];
 let a = [||];
 let () = ignore(b);
+
+let str = "a" ++ "b";
