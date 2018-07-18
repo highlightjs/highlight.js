@@ -17,3 +17,8 @@ let f = 1e1;
 let f = 1e-1;
 let f = 1024e12;
 let f = 1L;
+
+let b = true || false;
+let l = [];
+let a = [||];
+let () = ignore(b);

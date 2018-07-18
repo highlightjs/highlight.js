@@ -17,3 +17,8 @@
 <span class="hljs-keyword">let</span> f = <span class="hljs-number">1e-1</span>;
 <span class="hljs-keyword">let</span> f = <span class="hljs-number">1024e12</span>;
 <span class="hljs-keyword">let</span> f = <span class="hljs-number">1L</span>;
+
+<span class="hljs-keyword">let</span> b = <span class="hljs-literal">true</span> || <span class="hljs-literal">false</span>;
+<span class="hljs-keyword">let</span> l = <span class="hljs-literal">[]</span>;
+<span class="hljs-keyword">let</span> a = <span class="hljs-literal">[||]</span>;
+<span class="hljs-keyword">let</span> <span class="hljs-literal">()</span> = ignore(b);

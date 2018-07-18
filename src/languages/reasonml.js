@@ -28,6 +28,11 @@ function(hljs) {
     contains: [
       hljs.QUOTE_STRING_MODE,
       {
+        className: 'literal',
+        begin: '\\[(\\|\\|)?\\]|\\(\\)',
+        relevance: 0
+      },
+      {
         className: 'number',
         begin:
           '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
