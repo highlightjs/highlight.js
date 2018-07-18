@@ -1,0 +1,1 @@
+let greet = (name) => "Hello World";

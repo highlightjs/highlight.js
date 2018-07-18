@@ -1,0 +1,1 @@
+<span class="hljs-keyword">let</span> greet = <span class="hljs-function">(<span class="hljs-params">name</span>) =&gt;</span> <span class="hljs-string">"Hello World"</span>;
