@@ -26,6 +26,11 @@ function(hljs) {
     aliases: ['re'],
     keywords: KEYWORDS,
     contains: [
+      {
+        className: 'character',
+        begin: '\'(\\\\[^\']+|[^\'])\'',
+        illegal: '\\n'
+      },
       hljs.QUOTE_STRING_MODE,
       {
         className: 'literal',

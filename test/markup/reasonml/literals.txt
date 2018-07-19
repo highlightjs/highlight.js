@@ -24,3 +24,8 @@ let a = [||];
 let () = ignore(b);
 
 let str = "a" ++ "b";
+
+let c = 'a';
+let c = '\xFF';
+let c = '\128';
+let c = '\n';

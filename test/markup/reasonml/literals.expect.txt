@@ -24,3 +24,8 @@
 <span class="hljs-keyword">let</span> <span class="hljs-literal">()</span> = ignore(b);
 
 <span class="hljs-keyword">let</span> str = <span class="hljs-string">"a"</span><span class="hljs-operator"> ++ </span><span class="hljs-string">"b"</span>;
+
+<span class="hljs-keyword">let</span> c = <span class="hljs-character">'a'</span>;
+<span class="hljs-keyword">let</span> c = <span class="hljs-character">'\xFF'</span>;
+<span class="hljs-keyword">let</span> c = <span class="hljs-character">'\128'</span>;
+<span class="hljs-keyword">let</span> c = <span class="hljs-character">'\n'</span>;
