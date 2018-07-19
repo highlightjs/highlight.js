@@ -26,6 +26,7 @@ function(hljs) {
     aliases: ['re'],
     keywords: KEYWORDS,
     contains: [
+      hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'character',
         begin: '\'(\\\\[^\']+|[^\'])\'',
