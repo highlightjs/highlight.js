@@ -18,6 +18,14 @@
 <span class="hljs-keyword">let</span> f = <span class="hljs-number">1024e12</span>;
 <span class="hljs-keyword">let</span> f = <span class="hljs-number">1L</span>;
 
+<span class="hljs-keyword">let</span> f = <span class="hljs-number">23.0</span><span class="hljs-operator"> +. </span><span class="hljs-number">1.0</span>;
+<span class="hljs-keyword">let</span> f = <span class="hljs-number">2</span><span class="hljs-operator"> / </span><span class="hljs-number">23</span><span class="hljs-operator"> * </span><span class="hljs-number">1</span>;
+<span class="hljs-keyword">let</span> f = <span class="hljs-number">2.0</span><span class="hljs-operator"> /. </span><span class="hljs-number">23.0</span><span class="hljs-operator"> *. </span><span class="hljs-number">1.0</span>;
+<span class="hljs-keyword">let</span> exp = <span class="hljs-number">2.0</span><span class="hljs-operator"> ** </span><span class="hljs-number">2.0</span>;
+
+<span class="hljs-keyword">let</span> structual = <span class="hljs-literal">true</span><span class="hljs-operator"> == </span><span class="hljs-literal">false</span>;
+<span class="hljs-keyword">let</span> reference = <span class="hljs-literal">true</span><span class="hljs-operator"> === </span><span class="hljs-literal">false</span>;
+
 <span class="hljs-keyword">let</span> b = <span class="hljs-literal">true</span><span class="hljs-operator"> || </span><span class="hljs-literal">false</span>;
 <span class="hljs-keyword">let</span> l = <span class="hljs-literal">[]</span>;
 <span class="hljs-keyword">let</span> a = <span class="hljs-literal">[||]</span>;

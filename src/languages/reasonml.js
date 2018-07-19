@@ -4,11 +4,21 @@ Author: Gidi Meir Morris <oss@gidi.io>
 Category: functional
 */
 function(hljs) {
+  function orReValues(ops){
+    return ops
+    .map(op => op
+      .split('')
+      .map(char => '\\' + char)
+      .join(''))
+    .join('|');
+  }
+
   var IDENT_RE = '~?[a-z$_][0-9a-z$_]*';
   
   var PARAM_TYPEPARAM_RE = '\'?[a-z$_][0-9a-z$_]*';
   var PARAM_TYPE_RE = '\s*:\s*[a-z$_][0-9a-z$_]*(\(\s*(' + PARAM_TYPEPARAM_RE + '\s*(,' + PARAM_TYPEPARAM_RE + ')*)?\s*\))?';
   var PARAM_RE = IDENT_RE + '(' + PARAM_TYPE_RE + ')?(' + PARAM_TYPE_RE + ')?';
+  var RE_OPERATOR = `\\s+(${orReValues(['||', '&&', '++', '**', '+.', '*', '/', '*.', '/.'])}|==|===)\\s+`;
 
   var KEYWORDS = {
     keyword:
@@ -40,7 +50,7 @@ function(hljs) {
       },
       {
         className: 'operator',
-        begin: '\\s+(\\|\\||\\&\\&|\\+\\+)\\s+',
+        begin: RE_OPERATOR,
         relevance: 0
       },
       {

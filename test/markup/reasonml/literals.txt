@@ -18,6 +18,14 @@ let f = 1e-1;
 let f = 1024e12;
 let f = 1L;
 
+let f = 23.0 +. 1.0;
+let f = 2 / 23 * 1;
+let f = 2.0 /. 23.0 *. 1.0;
+let exp = 2.0 ** 2.0;
+
+let structual = true == false;
+let reference = true === false;
+
 let b = true || false;
 let l = [];
 let a = [||];
