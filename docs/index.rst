@@ -18,7 +18,7 @@ Contents:
    style-guide
    language-contribution
    building-testing
-   release-process
+   maintainers-guide
 
 Miscellaneous:
 
