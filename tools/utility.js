@@ -134,7 +134,7 @@ function globDefaults(pattern, encoding) {
   // EMFILE error for those systems who had a limit of open files per
   // process.
   //
-  // <https://github.com/isagalaev/highlight.js/issues/636>
+  // <https://github.com/highlightjs/highlight.js/issues/636>
   return { pattern: pattern, limit: 50, encoding: encoding };
 }
 

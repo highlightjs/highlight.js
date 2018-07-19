@@ -30,9 +30,9 @@ Miscellaneous:
 
 Links:
 
-- Code: https://github.com/isagalaev/highlight.js
+- Code: https://github.com/highlightjs/highlight.js
 - Discussion: http://groups.google.com/group/highlightjs
-- Bug tracking: https://github.com/isagalaev/highlight.js/issues
+- Bug tracking: https://github.com/highlightjs/highlight.js/issues
 
 
 Indices and tables

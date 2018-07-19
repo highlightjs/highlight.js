@@ -13,12 +13,12 @@
   },
   "contributors": [],
   "bugs": {
-    "url": "https://github.com/isagalaev/highlight.js/issues"
+    "url": "https://github.com/highlightjs/highlight.js/issues"
   },
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "git://github.com/isagalaev/highlight.js.git"
+    "url": "git://github.com/highlightjs/highlight.js.git"
   },
   "main": "./lib/index.js",
   "scripts": {
