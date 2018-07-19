@@ -1,45 +1,53 @@
-/* Shades of Purple Theme for Highlightjs */
-/* Highlightjs → https://github.com/highlightjs/highlight.js */
+/**
+ * Shades of Purple Theme — for Highlightjs.
+ *
+ * @author (c) Ahmad Awais <https://twitter.com/mrahmadawais/>
+ * @link GitHub Repo → https://github.com/ahmadawais/Shades-of-Purple-HighlightJS
+ * @version 1.5.0
+ */
 
 .hljs {
-	display: block;
-	overflow-x: auto;
-	/* Custom font is optional */
-	/* font-family: 'Operator Mono', 'Fira Code', 'Menlo', 'Monaco', 'Courier New', 'monospace' !important; */
-	line-height: 1.45 !important;
-	padding: 2rem !important;
-	background: #2d2b57 !important;
-	font-weight: normal !important;
+  display: block;
+  overflow-x: auto;
+  /* Custom font is optional */
+  /* font-family: 'Operator Mono', 'Fira Code', 'Menlo', 'Monaco', 'Courier New', 'monospace';  */
+  line-height: 1.45;
+  padding: 2rem;
+  background: #2d2b57;
+  font-weight: normal;
 }
 
 .hljs-title {
-	color: #fad000 !important;
-	font-weight: normal !important;
+  color: #fad000;
+  font-weight: normal;
 }
 
 .hljs-name {
-	color: #a1feff !important;
+  color: #a1feff;
 }
+
 .hljs-tag {
-	color: #ffffff !important;
+  color: #ffffff;
 }
+
 .hljs-attr {
-	color: #f8d000 !important;
-	font-style: italic !important;
+  color: #f8d000;
+  font-style: italic;
 }
+
 .hljs-built_in,
 .hljs-selector-tag,
 .hljs-section {
-	color: #fb9e00 !important;
+  color: #fb9e00;
 }
 
 .hljs-keyword {
-	color: #fb9e00 !important;
+  color: #fb9e00;
 }
 
 .hljs,
 .hljs-subst {
-	color: #e3dfff !important;
+  color: #e3dfff;
 }
 
 .hljs-string,
@@ -55,16 +63,16 @@
 .hljs-template-tag,
 .hljs-quote,
 .hljs-deletion {
-	color: #4cd213 !important;
+  color: #4cd213;
 }
 
 .hljs-meta,
 .hljs-meta-string {
-	color: #fb9e00 !important;
+  color: #fb9e00;
 }
 
 .hljs-comment {
-	color: #ac65ff !important;
+  color: #ac65ff;
 }
 
 .hljs-keyword,
@@ -72,18 +80,18 @@
 .hljs-literal,
 .hljs-name,
 .hljs-strong {
-	font-weight: normal !important;
+  font-weight: normal;
 }
 
 .hljs-literal,
 .hljs-number {
-	color: #fa658d !important;
+  color: #fa658d;
 }
 
 .hljs-emphasis {
-	font-style: italic !important;
+  font-style: italic;
 }
 
 .hljs-strong {
-	font-weight: bold !important;
+  font-weight: bold;
 }
