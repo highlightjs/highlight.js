@@ -29,6 +29,8 @@ let reference = true === false;
 let b = true || false;
 let l = [];
 let a = [||];
+let arr = [|1, 2, 3|];
+let b = [item1, item2, ...theRest];
 let () = ignore(b);
 
 let str = "a" ++ "b";

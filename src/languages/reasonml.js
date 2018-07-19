@@ -6,19 +6,24 @@ Category: functional
 function(hljs) {
   function orReValues(ops){
     return ops
-    .map(op => op
-      .split('')
-      .map(char => '\\' + char)
-      .join(''))
+    .map(function(op) {
+      return op
+        .split('')
+        .map(function(char) {
+          return '\\' + char;
+        })
+        .join('');
+    })
     .join('|');
   }
 
-  var IDENT_RE = '~?[a-z$_][0-9a-z$_]*';
+  var IDENT_RE = '~?[a-z$_][0-9a-zA-Z$_]*';
   
   var PARAM_TYPEPARAM_RE = '\'?[a-z$_][0-9a-z$_]*';
   var PARAM_TYPE_RE = '\s*:\s*[a-z$_][0-9a-z$_]*(\(\s*(' + PARAM_TYPEPARAM_RE + '\s*(,' + PARAM_TYPEPARAM_RE + ')*)?\s*\))?';
   var PARAM_RE = IDENT_RE + '(' + PARAM_TYPE_RE + ')?(' + PARAM_TYPE_RE + ')?';
-  var RE_OPERATOR = `\\s+(${orReValues(['||', '&&', '++', '**', '+.', '*', '/', '*.', '/.'])}|==|===)\\s+`;
+  var RE_OPERATOR = `(${orReValues(['||', '&&', '++', '**', '+.', '*', '/', '*.', '/.', '...'])}|==|===)`;
+  var RE_OPERATOR_SPACED = `\\s+${RE_OPERATOR}\\s+`;
 
   var KEYWORDS = {
     keyword:
@@ -32,6 +37,27 @@ function(hljs) {
       'true false'
   };
 
+  const NUMBER_MODE = {
+    className: 'number',
+    begin: '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
+      '0[oO][0-7_]+[Lln]?|' +
+      '0[bB][01_]+[Lln]?|' +
+      '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
+    relevance: 0
+  };
+
+  const LIST_CONTENTS_MODES = [
+    {
+      className: 'identifier',
+      begin: IDENT_RE
+    },
+    {
+      className: 'operator',
+      begin: RE_OPERATOR
+    },
+    NUMBER_MODE
+  ];
+  
   return {
     aliases: ['re'],
     keywords: KEYWORDS,
@@ -45,23 +71,29 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'literal',
-        begin: '\\[(\\|\\|)?\\]|\\(\\)',
+        begin: '\\(\\)',
         relevance: 0
+      },
+      {
+        className: 'literal',
+        begin: '\\[\\|',
+        end: '\\|\\]',
+        relevance: 0,
+        contains: LIST_CONTENTS_MODES
+      },
+      {
+        className: 'literal',
+        begin: '\\[',
+        end: '\\]',
+        relevance: 0,
+        contains: LIST_CONTENTS_MODES
       },
       {
         className: 'operator',
-        begin: RE_OPERATOR,
+        begin: RE_OPERATOR_SPACED,
         relevance: 0
       },
-      {
-        className: 'number',
-        begin:
-          '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
-          '0[oO][0-7_]+[Lln]?|' +
-          '0[bB][01_]+[Lln]?|' +
-          '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
-        relevance: 0
-      },
+      NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
       {
         className: 'function',
