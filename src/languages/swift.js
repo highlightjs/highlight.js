@@ -8,8 +8,10 @@ Category: system
 
 function(hljs) {
   var SWIFT_KEYWORDS = {
-      keyword: '__COLUMN__ __FILE__ __FUNCTION__ __LINE__ as as! as? associatedtype associativity ' +
-        'break case catch class continue convenience default defer deinit didSet do ' +
+      keyword: '#available #colorLiteral #column #else #elseif #endif #file ' +
+        '#fileLiteral #function #if #imageLiteral #line #selector #sourceLocation ' +
+        '_ __COLUMN__ __FILE__ __FUNCTION__ __LINE__ Any as as! as? associatedtype ' +
+        'associativity break case catch class continue convenience default defer deinit didSet do ' +
         'dynamic dynamicType else enum extension fallthrough false fileprivate final for func ' +
         'get guard if import in indirect infix init inout internal is lazy left let ' +
         'mutating nil none nonmutating open operator optional override postfix precedence ' +
@@ -52,20 +54,25 @@ function(hljs) {
     keywords: SWIFT_KEYWORDS,
     contains: [] // assigned later
   };
+  var STRING = {
+    className: 'string',
+    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+    variants: [
+      {begin: /"""/, end: /"""/},
+      {begin: /"/, end: /"/},
+    ]
+  };
   var NUMBERS = {
       className: 'number',
       begin: '\\b([\\d_]+(\\.[\\deE_]+)?|0x[a-fA-F0-9_]+(\\.[a-fA-F0-9p_]+)?|0b[01_]+|0o[0-7_]+)\\b',
       relevance: 0
   };
-  var QUOTE_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
-    contains: [SUBST, hljs.BACKSLASH_ESCAPE]
-  });
   SUBST.contains = [NUMBERS];
 
   return {
     keywords: SWIFT_KEYWORDS,
     contains: [
-      QUOTE_STRING_MODE,
+      STRING,
       hljs.C_LINE_COMMENT_MODE,
       BLOCK_COMMENT,
       TYPE,
@@ -87,7 +94,7 @@ function(hljs) {
             contains: [
               'self',
               NUMBERS,
-              QUOTE_STRING_MODE,
+              STRING,
               hljs.C_BLOCK_COMMENT_MODE,
               {begin: ':'} // relevance booster
             ],
