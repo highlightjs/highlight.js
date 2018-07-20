@@ -49,10 +49,12 @@ function(hljs) {
   const LIST_CONTENTS_MODES = [
     {
       className: 'identifier',
+      relevance: 0,
       begin: IDENT_RE
     },
     {
       className: 'operator',
+      relevance: 0,
       begin: RE_OPERATOR
     },
     NUMBER_MODE
@@ -62,11 +64,12 @@ function(hljs) {
     aliases: ['re'],
     keywords: KEYWORDS,
     contains: [
-      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.COMMENT('/\\*', '\\*/', { illegal: '^\\#' }),
       {
         className: 'character',
         begin: '\'(\\\\[^\']+|[^\'])\'',
-        illegal: '\\n'
+        illegal: '\\n',
+        relevance: 0
       },
       hljs.QUOTE_STRING_MODE,
       {
@@ -78,7 +81,7 @@ function(hljs) {
         className: 'literal',
         begin: '\\[\\|',
         end: '\\|\\]',
-        relevance: 0,
+        relevance:  0,
         contains: LIST_CONTENTS_MODES
       },
       {
@@ -91,6 +94,7 @@ function(hljs) {
       {
         className: 'operator',
         begin: RE_OPERATOR_SPACED,
+        illegal: '\\-\\->',
         relevance: 0
       },
       NUMBER_MODE,
@@ -99,6 +103,7 @@ function(hljs) {
         className: 'function',
         begin: '(\\(.*?\\)|' + IDENT_RE + ')\\s*=>', returnBegin: true,
         end: '\\s*=>',
+        relevance: 0,
         contains: [
           {
             className: 'params',
