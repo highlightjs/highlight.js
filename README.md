@@ -146,5 +146,5 @@ Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
 [4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure-options
 [5]: https://highlightjs.org/download/
 [6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
-[7]: https://github.com/isagalaev/highlight.js/blob/master/LICENSE
-[8]: https://github.com/isagalaev/highlight.js/blob/master/AUTHORS.en.txt
+[7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
+[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.en.txt
