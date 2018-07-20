@@ -1,2 +1,10 @@
 /* This is a simple function */
 let greet = (name) => "Hello World";
+
+let decode = json =>
+  Json.Decode.{
+    query: json |> field("query", string),
+    cacheKey: json |> field("cacheKey", string),
+    desc: json |> field("desc", string),
+    lambda: json |> field("lambda", string),
+  };

@@ -17,13 +17,14 @@ function(hljs) {
     .join('|');
   }
 
-  var IDENT_RE = '~?[a-z$_][0-9a-zA-Z$_]*';
+  var RE_IDENT = '~?[a-z$_][0-9a-zA-Z$_]*';
+  var RE_MODULE_IDENT = '[A-Z$_][0-9a-zA-Z$_]*';
   
-  var PARAM_TYPEPARAM_RE = '\'?[a-z$_][0-9a-z$_]*';
-  var PARAM_TYPE_RE = '\s*:\s*[a-z$_][0-9a-z$_]*(\(\s*(' + PARAM_TYPEPARAM_RE + '\s*(,' + PARAM_TYPEPARAM_RE + ')*)?\s*\))?';
-  var PARAM_RE = IDENT_RE + '(' + PARAM_TYPE_RE + ')?(' + PARAM_TYPE_RE + ')?';
-  var RE_OPERATOR = `(${orReValues(['||', '&&', '++', '**', '+.', '*', '/', '*.', '/.', '...'])}|==|===)`;
-  var RE_OPERATOR_SPACED = `\\s+${RE_OPERATOR}\\s+`;
+  var RE_PARAM_TYPEPARAM = '\'?[a-z$_][0-9a-z$_]*';
+  var RE_PARAM_TYPE = '\s*:\s*[a-z$_][0-9a-z$_]*(\(\s*(' + RE_PARAM_TYPEPARAM + '\s*(,' + RE_PARAM_TYPEPARAM + ')*)?\s*\))?';
+  var RE_PARAM = RE_IDENT + '(' + RE_PARAM_TYPE + ')?(' + RE_PARAM_TYPE + ')?';
+  var RE_OPERATOR = "(" + orReValues(['||', '&&', '++', '**', '+.', '*', '/', '*.', '/.', '...', '|>']) + "|==|===)";
+  var RE_OPERATOR_SPACED = "\\s+" + RE_OPERATOR + "\\s+";
 
   var KEYWORDS = {
     keyword:
@@ -50,7 +51,7 @@ function(hljs) {
     {
       className: 'identifier',
       relevance: 0,
-      begin: IDENT_RE
+      begin: RE_IDENT
     },
     {
       className: 'operator',
@@ -101,7 +102,7 @@ function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       {
         className: 'function',
-        begin: '(\\(.*?\\)|' + IDENT_RE + ')\\s*=>', returnBegin: true,
+        begin: '(\\(.*?\\)|' + RE_IDENT + ')\\s*=>', returnBegin: true,
         end: '\\s*=>',
         relevance: 0,
         contains: [
@@ -109,15 +110,27 @@ function(hljs) {
             className: 'params',
             variants: [
               {
-                begin: IDENT_RE
+                begin: RE_IDENT
               },
               {
-                begin: PARAM_RE
+                begin: RE_PARAM
               },
               {
                 begin: /\(\s*\)/,
               }
             ]
+          }
+        ]
+      },
+      {
+        className: 'module',
+        begin: "\\b" + RE_MODULE_IDENT, returnBegin: true,
+        end: "\.",
+        contains: [
+          {
+            className: 'identifier',
+            begin: RE_MODULE_IDENT,
+            relevance: 0
           }
         ]
       }
