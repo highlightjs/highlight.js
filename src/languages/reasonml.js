@@ -123,16 +123,23 @@ function(hljs) {
         ]
       },
       {
-        className: 'module',
-        begin: "\\b" + RE_MODULE_IDENT, returnBegin: true,
-        end: "\.",
+        className: 'module-access',
+        begin: "\\b(" + RE_MODULE_IDENT + "\\.)+", returnBegin: true,
+        end: "(" + RE_IDENT +"|\\(|{)",
         contains: [
           {
-            className: 'identifier',
-            begin: RE_MODULE_IDENT,
-            relevance: 0
+            className: 'module',
+            begin: "\\b" + RE_MODULE_IDENT, returnBegin: true,
+            end: "\.",
+            contains: [
+              {
+                className: 'identifier',
+                begin: RE_MODULE_IDENT,
+                relevance: 0
+              }
+            ]
           }
-        ]
+        ]        
       }
     ]
   };
