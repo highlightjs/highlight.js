@@ -67,8 +67,7 @@ Describe shortly names of all meaningful modes used in your language definition.
 5. Add yourself to AUTHORS.*.txt and CHANGES.md
 -----------------------------------------------
 
-If you're a new contributor add yourself to the authors list. Feel free to use
-either English and/or Russian version.
+If you're a new contributor add yourself to the authors list.
 Also it will be good to update CHANGES.md.
 
 
