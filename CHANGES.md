@@ -1,3 +1,12 @@
+## Version 9.13.0
+
+Improvements
+
+- [Jeffrey Arnold][] updated *Stan* definitions with improved coverage
+  of language keywords and patterns.
+
+[Jeffrey Arnold]: https://jrnold.me
+
 ## Version 9.12.0
 
 New language:
