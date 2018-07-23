@@ -6,19 +6,19 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "9.9.0",
+  "version": "9.12.0",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
   },
   "contributors": [],
   "bugs": {
-    "url": "https://github.com/isagalaev/highlight.js/issues"
+    "url": "https://github.com/highlightjs/highlight.js/issues"
   },
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "git://github.com/isagalaev/highlight.js.git"
+    "url": "git://github.com/highlightjs/highlight.js.git"
   },
   "main": "./lib/index.js",
   "scripts": {

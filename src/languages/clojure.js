@@ -2,6 +2,7 @@
 Language: Clojure
 Description: Clojure syntax (based on lisp.js)
 Author: mfornos
+Contributors: Martin Clausen <martin.clausene@gmail.com>
 Category: lisp
 */
 
@@ -92,6 +93,7 @@ function(hljs) {
   LIST.contains = [hljs.COMMENT('comment', ''), NAME, BODY];
   BODY.contains = DEFAULT_CONTAINS;
   COLLECTION.contains = DEFAULT_CONTAINS;
+  HINT_COL.contains = [COLLECTION];
 
   return {
     aliases: ['clj'],

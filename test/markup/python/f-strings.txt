@@ -1,0 +1,10 @@
+f'{name}'
+f"{name + 5}"
+>>> f"""
+... {
+...    name
+... }
+... """
+rf"{name}"
+fr"{name}"
+f"{name + f'{name}'}"
