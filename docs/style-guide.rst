@@ -100,8 +100,7 @@ other meta data if necessary. The format is free:
 
   */
 
-If you're a new contributor add yourself to the authors list in AUTHORS.*.txt
-(use either English and/or Russian version). Also update CHANGES.md with your
-contribution.
+If you're a new contributor add yourself to the authors list in AUTHORS.en.txt
+Also update CHANGES.md with your contribution.
 
 Send your contribution as a pull request on GitHub.
