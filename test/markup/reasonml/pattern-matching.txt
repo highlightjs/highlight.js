@@ -1,0 +1,13 @@
+let message =
+  switch (person1) {
+    | School.Teacher => "Hello teacher!"
+    | School.Director => "Hello director!"
+  };
+
+let message =
+  School.(
+    switch (person1) {
+    | Teacher => "Hello teacher!"
+    | Director => "Hello director!"
+    }
+  );

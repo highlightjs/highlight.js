@@ -1,0 +1,13 @@
+<span class="hljs-keyword">let</span> message =
+  <span class="hljs-pattern-match">switch (<span class="hljs-params">person1</span>) {
+    | <span class="hljs-module"><span class="hljs-identifier">School</span>.</span><span class="hljs-module"><span class="hljs-identifier">Teacher</span> </span>=&gt; <span class="hljs-string">"Hello teacher!"</span>
+    | <span class="hljs-module"><span class="hljs-identifier">School</span>.</span><span class="hljs-module"><span class="hljs-identifier">Director</span> </span>=&gt; <span class="hljs-string">"Hello director!"</span>
+  }</span>;
+
+<span class="hljs-keyword">let</span> message =
+  <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">School</span>.</span>(
+    switch (person1) {
+    | <span class="hljs-module"><span class="hljs-identifier">Teacher</span> </span>=&gt; <span class="hljs-string">"Hello teacher!"</span>
+    | <span class="hljs-module"><span class="hljs-identifier">Director</span> </span>=&gt; <span class="hljs-string">"Hello director!"</span>
+    }
+  )</span>;

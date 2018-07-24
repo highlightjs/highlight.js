@@ -78,6 +78,86 @@ function(hljs) {
       ]
     }
   ];
+
+  const FUNCTION_BLOCK_MODE = {
+    className: 'function',
+    begin: '(\\(.*?\\)|' + RE_IDENT + ')\\s*=>', returnBegin: true,
+    end: '\\s*=>',
+    relevance: 0,
+    contains: [
+      {
+        className: 'params',
+        variants: [
+          {
+            begin: RE_IDENT
+          },
+          {
+            begin: RE_PARAM
+          },
+          {
+            begin: /\(\s*\)/,
+          }
+        ]
+      }
+    ]
+  };
+  MODULE_ACCESS_CONTENTS.push(FUNCTION_BLOCK_MODE);
+
+  const PATTERN_MATCH_BLOCK_MODE = {
+    className: 'pattern-match',
+    begin: 'switch\\s*\\(\\s*' + RE_IDENT + '\\s*\\)\\s*{',
+    returnBegin: true,
+    keywords: KEYWORDS,
+    end: '}',
+    relevance: 0,
+    contains: [
+      {
+        begin: '\\(',
+        end: '\\)',
+        contains: [
+          {
+            className: 'params',
+            begin: RE_IDENT
+          }
+        ]
+      },
+      {
+        begin: '\\|',
+        end: '\\n',
+        contains: MODULE_ACCESS_CONTENTS
+      }
+    ]
+  };
+
+  const MODULE_ACCESS_MODE = {
+    className: 'module-access',
+    keywords: KEYWORDS,
+    returnBegin: true,
+    variants: [
+      {
+        begin: "\\b(" + RE_MODULE_IDENT + "\\.)+" + RE_IDENT
+      },
+      {
+        begin: "\\b(" + RE_MODULE_IDENT + "\\.)+\\(",
+        end: "\\)",
+        returnBegin: true,
+        contains: [
+          PATTERN_MATCH_BLOCK_MODE,
+          FUNCTION_BLOCK_MODE,
+          {
+            begin: '\\(',
+            end: '\\)',
+            skip: true
+          }
+        ].concat(MODULE_ACCESS_CONTENTS)
+      },
+      {
+        begin: "\\b(" + RE_MODULE_IDENT + "\\.)+{",
+        end: "}"
+      }
+    ],
+    contains: MODULE_ACCESS_CONTENTS
+  };
   
   return {
     aliases: ['re'],
@@ -118,28 +198,8 @@ function(hljs) {
       },
       NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
-      {
-        className: 'function',
-        begin: '(\\(.*?\\)|' + RE_IDENT + ')\\s*=>', returnBegin: true,
-        end: '\\s*=>',
-        relevance: 0,
-        contains: [
-          {
-            className: 'params',
-            variants: [
-              {
-                begin: RE_IDENT
-              },
-              {
-                begin: RE_PARAM
-              },
-              {
-                begin: /\(\s*\)/,
-              }
-            ]
-          }
-        ]
-      },
+      FUNCTION_BLOCK_MODE,
+      PATTERN_MATCH_BLOCK_MODE,
       {
         className: 'module-def',
         begin: "\\bmodule\\s+" + RE_IDENT + "\\s+" + RE_MODULE_IDENT + "\\s+=\\s+{",
@@ -158,34 +218,9 @@ function(hljs) {
             end: '}',
             skip: true
           }
-        ]
+        ].concat(MODULE_ACCESS_CONTENTS)
       },
-      {
-        className: 'module-access',
-        keywords: KEYWORDS,
-        returnBegin: true,
-        variants: [
-          {
-            begin: "\\b(" + RE_MODULE_IDENT + "\\.)+" + RE_IDENT
-          },
-          {
-            begin: "\\b(" + RE_MODULE_IDENT + "\\.)+\\(",
-            end: "\\)",
-            contains: [
-              {
-                begin: '\\(',
-                end: '\\)',
-                skip: true
-              }
-            ].concat(MODULE_ACCESS_CONTENTS)
-          },
-          {
-            begin: "\\b(" + RE_MODULE_IDENT + "\\.)+{",
-            end: "}"
-          }
-        ],
-        contains: MODULE_ACCESS_CONTENTS
-      }
+      MODULE_ACCESS_MODE
     ]
   };
 }
