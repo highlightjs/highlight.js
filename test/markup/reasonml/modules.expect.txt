@@ -11,3 +11,7 @@
 );
 
 <span class="hljs-keyword">let</span> value = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Some</span>.</span><span class="hljs-module"><span class="hljs-identifier">Bucket</span>.</span><span class="hljs-module"><span class="hljs-identifier">Of</span>.</span>stuff</span><span class="hljs-literal">()</span>;
+
+<span class="hljs-module-def"><span class="hljs-keyword">module</span> <span class="hljs-keyword">type</span> <span class="hljs-module">RewiredModule</span> = {
+  <span class="hljs-keyword">type</span> t;
+};</span>
