@@ -13,5 +13,7 @@ Some.Bucket.Of.(
 let value = Some.Bucket.Of.stuff();
 
 module type RewiredModule = {
-  type t;
+  type t = {
+    name: string
+  };
 };

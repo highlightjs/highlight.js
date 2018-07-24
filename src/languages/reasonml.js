@@ -47,18 +47,36 @@ function(hljs) {
     relevance: 0
   };
 
+  const OPERATOR_MODE = {
+    className: 'operator',
+    relevance: 0,
+    begin: RE_OPERATOR
+  };
   const LIST_CONTENTS_MODES = [
     {
       className: 'identifier',
       relevance: 0,
       begin: RE_IDENT
     },
-    {
-      className: 'operator',
-      relevance: 0,
-      begin: RE_OPERATOR
-    },
+    OPERATOR_MODE,
     NUMBER_MODE
+  ];
+
+  const MODULE_ACCESS_CONTENTS = [
+    hljs.QUOTE_STRING_MODE,
+    OPERATOR_MODE,
+    {
+      className: 'module',
+      begin: "\\b" + RE_MODULE_IDENT, returnBegin: true,
+      end: "\.",
+      contains: [
+        {
+          className: 'identifier',
+          begin: RE_MODULE_IDENT,
+          relevance: 0
+        }
+      ]
+    }
   ];
   
   return {
@@ -124,8 +142,8 @@ function(hljs) {
       },
       {
         className: 'module-def',
-        begin: "\\bmodule\\b",
-        end: RE_MODULE_IDENT + "\\s+=\\s+{",
+        begin: "\\bmodule\\s+" + RE_IDENT + "\\s+" + RE_MODULE_IDENT + "\\s+=\\s+{",
+        end: "}",
         returnBegin: true,
         keywords: KEYWORDS,
         relevance: 0,
@@ -134,27 +152,39 @@ function(hljs) {
             className: 'module',
             relevance: 0,
             begin: RE_MODULE_IDENT
+          },
+          {
+            begin: '{',
+            end: '}',
+            skip: true
           }
         ]
       },
       {
         className: 'module-access',
-        begin: "\\b(" + RE_MODULE_IDENT + "\\.)+", returnBegin: true,
-        end: "(" + RE_IDENT +"|\\(|{)",
-        contains: [
+        keywords: KEYWORDS,
+        returnBegin: true,
+        variants: [
           {
-            className: 'module',
-            begin: "\\b" + RE_MODULE_IDENT, returnBegin: true,
-            end: "\.",
+            begin: "\\b(" + RE_MODULE_IDENT + "\\.)+" + RE_IDENT
+          },
+          {
+            begin: "\\b(" + RE_MODULE_IDENT + "\\.)+\\(",
+            end: "\\)",
             contains: [
               {
-                className: 'identifier',
-                begin: RE_MODULE_IDENT,
-                relevance: 0
+                begin: '\\(',
+                end: '\\)',
+                skip: true
               }
-            ]
+            ].concat(MODULE_ACCESS_CONTENTS)
+          },
+          {
+            begin: "\\b(" + RE_MODULE_IDENT + "\\.)+{",
+            end: "}"
           }
-        ]        
+        ],
+        contains: MODULE_ACCESS_CONTENTS
       }
     ]
   };
