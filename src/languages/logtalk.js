@@ -52,7 +52,8 @@ function(hljs) {
 
   var LINE_COMMENTS = {
     className: 'comment',
-    begin: /%/, end: /$/
+    begin: /%/, end: /$/,
+    relevance: 2
   };
 
   var BLOCK_COMMENTS = hljs.C_BLOCK_COMMENT_MODE;
@@ -66,19 +67,19 @@ function(hljs) {
   var HEAD_BODY_CONJUNCTION = {
     className: 'built_in',
     begin: /:-|-->/,
-    relevance: 0
+    relevance: 2
   };
 
   var MESSAGE_SENDING = {
     className: 'built_in',
     begin: /::/,
-    relevance: 0
+    relevance: 2
   };
 
   var SUPER_CALL = {
     className: 'built_in',
     begin: /\^\^/,
-    relevance: 0
+    relevance: 2
   };
 
   var ARGUMENTS = {
@@ -96,15 +97,11 @@ function(hljs) {
   var DIRECTIVES = {
     className: 'keyword',
     begin: /^\s*:-\s/, end: '\\.',
-    relevance: 0,
+    relevance: 5,
     excludeBegin: false,
     excludeEnd: false,
     returnBegin: false,
     contains: [PARAMETERS]
-  };
-
-  var PRED_OP = { // relevance booster
-    begin: /:-/
   };
 
   var inner = [
@@ -118,7 +115,6 @@ function(hljs) {
     hljs.BACKSLASH_ESCAPE,
     NUMBERS,
     PARENTED,
-    PRED_OP,
     LISTS,
     CURLY_BRACKTED_TERMS,
     LINE_COMMENTS,
