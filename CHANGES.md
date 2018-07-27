@@ -1,3 +1,9 @@
+
+New language:
+
+- *Logtalk* by [Paulo Moura][].
+
+
 ## Version 9.12.0
 
 New language:
