@@ -103,6 +103,10 @@ function(hljs) {
     contains: [PARAMETERS]
   };
 
+  var PRED_OP = { // relevance booster
+    begin: /:-/
+  };
+
   var inner = [
     DIRECTIVES,
     MESSAGE_SENDING,
@@ -114,6 +118,7 @@ function(hljs) {
     hljs.BACKSLASH_ESCAPE,
     NUMBERS,
     PARENTED,
+    PRED_OP,
     LISTS,
     CURLY_BRACKTED_TERMS,
     LINE_COMMENTS,
