@@ -2,7 +2,7 @@
 
 New styles:
 
-- An Old Hope (Star Wars stylr) by [Gustavo Costa[]
+- An Old Hope (Star Wars style) by [Gustavo Costa][]
 - *Lightfair* by [Tristian Kelly][]
 - *Shades of Purple* by [Ahmad Awais][]
 
@@ -20,7 +20,7 @@ Improvements:
 [Daniel Kho]: https://github.com/danielkho
 [Dedmen Miller]: https://github.com/dedmen
 [Enzo]: https://github.com/Dorumin
-[Gustavo Costa]: gttps://github.com/gusbemacbe
+[Gustavo Costa]: https://github.com/gusbemacbe
 [Liu]: https://github.com/lc-soft
 [Luca Zambarda]: https://github.com/lzambarda
 [nullpixel]: https://github.com/nullpixel
