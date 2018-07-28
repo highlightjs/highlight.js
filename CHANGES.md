@@ -9,7 +9,7 @@ New styles:
 Improvements:
 - *Java* updated added missing keyboard `var` by [Liu][].
 - *MATLAB* updated with added and inclided built-ins by [Vassilis Kehayas][].
-- *SQL* updated with added following keywords: `WITH, AS, NOTNULL, UNKNOWN, BOOL,TIME,TIMESTAMPandUNNEST` by [Luca Zambarda][]
+- *SQL* updated with added following keywords: `WITH, AS, NOTNULL, UNKNOWN, BOOL,TIME,TIMESTAMP` and `UNNEST` by [Luca Zambarda][]
 - *Swift* updated with new attributes by [nullpixel][].
 - *VHDL* updated with added optional keyword 'parameter' by [Daniel Kho][].
 - [Dedmen Miller][] improved *SQF Language* and updating to Arma 3 v1.82.
