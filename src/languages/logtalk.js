@@ -36,7 +36,7 @@ function(hljs) {
   };
 
   var CURLY_BRACKTED_TERMS = {
-    begin: /\{/, end: /\}/,
+    begin: /(?!#)\{/, end: /\}/,
     relevance: 0
   };
 
@@ -61,7 +61,7 @@ function(hljs) {
   var LINE_COMMENTS = {
     className: 'comment',
     begin: /%/, end: /$/,
-    relevance: 2
+    relevance: 0
   };
 
   var BLOCK_COMMENTS = hljs.C_BLOCK_COMMENT_MODE;
@@ -74,14 +74,14 @@ function(hljs) {
 
   var MESSAGE_SENDING = {
     className: 'built_in',
-    begin: /::/,
-    relevance: 2
+    begin: /\b::(?!=)\b/,
+    relevance: 10
   };
 
   var SUPER_CALL = {
     className: 'built_in',
-    begin: /\^\^/,
-    relevance: 2
+    begin: /\b\^\^\b/,
+    relevance: 10
   };
 
   var BASIC_TERMS = [
@@ -98,14 +98,13 @@ function(hljs) {
 
   var PARAMETERS = {
     className: 'params',
-    begin: /\(/, end: /\)/,
-    relevance: 0
+    begin: /\(/, end: /\)/
   };
 
   var DIRECTIVES = {
     className: 'keyword',
-    begin: /^\s*:-\s/, end: '\\.',
-    relevance: 2,
+    begin: /^\s*:-\s+[a-z][a-z_]+\b/, end: '\\.',
+    relevance: 5,
     excludeBegin: false,
     excludeEnd: false,
     returnBegin: false,
@@ -136,10 +135,10 @@ function(hljs) {
   PARAMETERS.contains = BASIC_TERMS;
 
   return {
-    aliases: ['logtalk', 'lgt'],
+    aliases: ['lgt'],
     case_insensitive: false,
     contains: inner.concat([
-      {begin: /\.$|:-/} // relevance booster
+      {begin: /:-/} // relevance booster
     ])
   };
 }
