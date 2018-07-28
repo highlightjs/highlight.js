@@ -1,13 +1,22 @@
+## Version 9.13.0
+
+New style:
+
+- *Lightfair* by [Tristian Kelly][]
+
+
+[Tristian Kelly]: https://github.com/TristianK3604
+
 ## Version 9.12.0
 
 New language:
 
 - *MikroTik* RouterOS Scripting language by [Ivan Dementev][].
 
-New styles:
+New style:
 
 - *VisualStudio 2015 Dark* by [Nicolas LLOBERA][]
-- *Lightfair* by [Tristian Kelly][]
+
 
 Improvements:
 
@@ -24,7 +33,7 @@ Improvements:
   consistently with other kinds.
 - [Alejandro Alonso][] updated *Swift* keywords.
 
-[Tristian Kelly]: https://github.com/TristianK3604
+
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Alex Arslan]: https://github.com/ararslan
 [Morten Piibeleht]: https://github.com/mortenpi
