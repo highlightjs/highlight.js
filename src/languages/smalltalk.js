@@ -14,7 +14,7 @@ function(hljs) {
     begin: '#' + hljs.UNDERSCORE_IDENT_RE
   };
   return {
-    aliases: ['st'],
+    aliases: ['smt'],
     keywords: 'self super nil true false thisContext', // only 6
     contains: [
       hljs.COMMENT('"', '"'),
