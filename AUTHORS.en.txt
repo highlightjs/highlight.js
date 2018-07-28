@@ -252,4 +252,5 @@ Contributors:
 - Nicolas LLOBERA <nllobera@gmail.com>
 - Morten Piibeleht <morten.piibeleht@gmail.com>
 - Martin Clausen <martin.clausene@gmail.com>
+- Meseta <meseta@gmail.com>
 - Ahmad Awais <me@AhmadAwais.com>
