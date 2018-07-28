@@ -17,7 +17,6 @@ New style:
 
 - *VisualStudio 2015 Dark* by [Nicolas LLOBERA][]
 
-
 Improvements:
 
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
