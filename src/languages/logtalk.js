@@ -74,14 +74,14 @@ function(hljs) {
 
   var MESSAGE_SENDING = {
     className: 'built_in',
-    begin: /\b::(?!=)\b/,
-    relevance: 10
+    begin: /::(?!=)/,
+    relevance: 2
   };
 
   var SUPER_CALL = {
     className: 'built_in',
-    begin: /\b\^\^\b/,
-    relevance: 10
+    begin: /\^\^/,
+    relevance: 2
   };
 
   var BASIC_TERMS = [
@@ -92,6 +92,7 @@ function(hljs) {
     CURLY_BRACKTED_TERMS,
     DOUBLE_QUOTE_STRINGS,
     BACKTICK_STRINGS,
+    MESSAGE_SENDING,
     PARENTED,
     LISTS
   ];
@@ -103,7 +104,7 @@ function(hljs) {
 
   var DIRECTIVES = {
     className: 'keyword',
-    begin: /^\s*:-\s+[a-z][a-z_]+\b/, end: '\\.',
+    begin: /^\s*:-\s+[a-z][a-z_]+\b/, end: /\.$/,
     relevance: 5,
     excludeBegin: false,
     excludeEnd: false,
@@ -138,7 +139,8 @@ function(hljs) {
     aliases: ['lgt'],
     case_insensitive: false,
     contains: inner.concat([
-      {begin: /:-/} // relevance booster
-    ])
+      {begin: /:-$|\.$/} // relevance booster
+    ]),
+    illegal: /^:-\s(interface|implementation)\.$/
   };
 }
