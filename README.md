@@ -126,6 +126,29 @@ r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
 
+### CommonJS
+
+You can import Highlight.js as a CommonJS-module:
+
+```bash
+npm install highlight.js --save
+```
+
+In your application:
+
+```javascript
+import hljs from 'highlight.js';
+```
+
+The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
+
+```javascript
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
+```
+
+
 ## License
 
 Highlight.js is released under the BSD License. See [LICENSE][7] file
