@@ -18,7 +18,7 @@ function(hljs) {
   }
 
   var RE_IDENT = '~?[a-z$_][0-9a-zA-Z$_]*';
-  var RE_MODULE_IDENT = '[A-Z$_][0-9a-zA-Z$_]*';
+  var RE_MODULE_IDENT = '`?[A-Z$_][0-9a-zA-Z$_]*';
   
   var RE_PARAM_TYPEPARAM = '\'?[a-z$_][0-9a-z$_]*';
   var RE_PARAM_TYPE = '\s*:\s*[a-z$_][0-9a-z$_]*(\(\s*(' + RE_PARAM_TYPEPARAM + '\s*(,' + RE_PARAM_TYPEPARAM + ')*)?\s*\))?';
@@ -109,7 +109,12 @@ function(hljs) {
     end: '\\)',
     illegal: '\\n',
     contains: [
-      hljs.QUOTE_STRING_MODE
+      hljs.QUOTE_STRING_MODE,
+      OPERATOR_MODE,
+      {
+        className: 'params',
+        begin: '\\b' + RE_IDENT
+      }
     ]
   };
 

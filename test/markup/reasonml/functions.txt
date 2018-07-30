@@ -1,6 +1,8 @@
 /* This is a simple function */
 let greet = (name) => "Hello World";
 
+let body = `Plain("uploaded " ++ cacheServiceConfig.desc ++ "configuration data into cache on S3");
+
 let getCacheConfigByEnv =
     (
       environment: environment,
