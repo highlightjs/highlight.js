@@ -1,4 +1,4 @@
-<span class="hljs-keyword">let</span> decode = <span class="hljs-function"><span class="hljs-params">json</span> =&gt;</span>
+<span class="hljs-keyword">let</span> decode =<span class="hljs-function"> <span class="hljs-params">json</span> =&gt;</span>
   <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Json</span>.</span><span class="hljs-module"><span class="hljs-identifier">Decode</span>.</span>{
     query: json <span class="hljs-operator">|&gt;</span> field(<span class="hljs-string">"query"</span>, <span class="hljs-built_in">string</span>),
     cacheKey: json <span class="hljs-operator">|&gt;</span> field(<span class="hljs-string">"cacheKey"</span>, <span class="hljs-built_in">string</span>),

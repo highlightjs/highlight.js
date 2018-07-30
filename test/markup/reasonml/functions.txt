@@ -6,7 +6,7 @@ let body = `Plain("uploaded " ++ cacheServiceConfig.desc ++ "configuration data 
 let getCacheConfigByEnv =
     (
       environment: environment,
-      cacheServiceConfig: Js.Dict.t(cachingServiceConfig),
+      cacheServiceConfig: Js.Dict.t(cachingServiceConfig)
     ) =>
   switch (cacheServiceConfig) {
   | Some(config) => config

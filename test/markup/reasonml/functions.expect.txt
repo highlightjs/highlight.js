@@ -1,13 +1,13 @@
 <span class="hljs-comment">/* This is a simple function */</span>
-<span class="hljs-keyword">let</span> greet = <span class="hljs-function">(<span class="hljs-params">name</span>) =&gt;</span> <span class="hljs-string">"Hello World"</span>;
+<span class="hljs-keyword">let</span> greet =<span class="hljs-function"> (<span class="hljs-params">name</span>) =&gt;</span> <span class="hljs-string">"Hello World"</span>;
 
 <span class="hljs-keyword">let</span> body = <span class="hljs-constructor">`Plain(<span class="hljs-string">"uploaded "</span> <span class="hljs-operator">++</span> <span class="hljs-params">cacheServiceConfig</span>.<span class="hljs-params">desc</span> <span class="hljs-operator">++</span> <span class="hljs-string">"configuration data into cache on S3"</span>)</span>;
 
 <span class="hljs-keyword">let</span> getCacheConfigByEnv =
-    (
-      environment: environment,
-      cacheServiceConfig: <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Dict</span>.</span></span>t(cachingServiceConfig),
-    ) =&gt;
+   <span class="hljs-function"> (
+      <span class="hljs-params">environment<span class="hljs-typing">: environment,</span>
+</span>      <span class="hljs-params">cacheServiceConfig<span class="hljs-typing">: <span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Dict</span>.</span>t(cachingServiceConfig)
+</span>    )</span> =&gt;</span>
   <span class="hljs-pattern-match">switch (<span class="hljs-params">cacheServiceConfig</span>) {
   | <span class="hljs-module"><span class="hljs-identifier">Some</span>(</span>config) =&gt; config
   | <span class="hljs-module"><span class="hljs-identifier">None</span> </span>=&gt;

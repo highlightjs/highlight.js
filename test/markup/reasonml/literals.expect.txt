@@ -1,5 +1,5 @@
 <span class="hljs-keyword">let</span> i = <span class="hljs-number">14</span>;
-<span class="hljs-keyword">let</span> i = (-<span class="hljs-number">14</span>);
+<span class="hljs-keyword">let</span> i = <span class="hljs-number">(-14)</span>;
 <span class="hljs-keyword">let</span> i = <span class="hljs-number">1000</span>;
 <span class="hljs-keyword">let</span> i = <span class="hljs-number">0b100</span>;
 <span class="hljs-keyword">let</span> i = <span class="hljs-number">0x1FF</span>;

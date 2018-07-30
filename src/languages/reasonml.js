@@ -38,13 +38,22 @@ function(hljs) {
       'true false'
   };
 
+  const RE_NUMBER = '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
+    '0[oO][0-7_]+[Lln]?|' +
+    '0[bB][01_]+[Lln]?|' +
+    '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)';
+
   const NUMBER_MODE = {
-    className: 'number',
-    begin: '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
-      '0[oO][0-7_]+[Lln]?|' +
-      '0[bB][01_]+[Lln]?|' +
-      '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
-    relevance: 0
+    className: 'number',    
+    relevance: 0,
+    variants: [
+      {
+        begin: RE_NUMBER
+      },
+      {
+        begin: '\\(\\-' + RE_NUMBER + '\\)'
+      }
+    ]
   };
 
   const OPERATOR_MODE = {
@@ -79,23 +88,71 @@ function(hljs) {
     }
   ];
 
-  const FUNCTION_BLOCK_MODE = {
-    className: 'function',
-    begin: '(\\(.*?\\)|' + RE_IDENT + ')\\s*=>', returnBegin: true,
-    end: '\\s*=>',
-    relevance: 0,
+  const PARAMS_CONTENTS = [
+    {
+      className: 'module',
+      begin: "\\b" + RE_MODULE_IDENT, returnBegin: true,
+      end: "\.",
+      contains: [
+        {
+          className: 'identifier',
+          begin: RE_MODULE_IDENT,
+          relevance: 0
+        }
+      ]
+    }
+  ];
+
+  const PARAMS_MODE = {
+    begin: RE_IDENT,
+    end: '(,|\\n|\\))',
     contains: [
       {
-        className: 'params',
-        variants: [
+        className: 'typing',
+        begin: ':',
+        end: '(,|\\n)',
+        returnBegin: true,
+        contains: PARAMS_CONTENTS
+      }
+    ]
+  };
+
+  const FUNCTION_BLOCK_MODE = {
+    className: 'function',
+    variants: [
+      {
+        begin: '\\s(\\(.*?\\)|' + RE_IDENT + ')\\s*=>',
+        end: '\\s*=>',
+        returnBegin: true,
+        relevance: 0,
+        contains: [
           {
-            begin: RE_IDENT
-          },
+            className: 'params',
+            variants: [
+              {
+                begin: RE_IDENT
+              },
+              {
+                begin: RE_PARAM
+              },
+              {
+                begin: /\(\s*\)/,
+              }
+            ]
+          }
+        ]
+      },
+      {
+        begin: '\\s\\([^;]*\\)\\s*=>',
+        end: '\\s=>',
+        returnBegin: true,
+        relevance: 0,
+        contains: [
           {
-            begin: RE_PARAM
-          },
-          {
-            begin: /\(\s*\)/,
+            className: 'params',
+            variants: [
+              PARAMS_MODE
+            ]
           }
         ]
       }
@@ -176,6 +233,8 @@ function(hljs) {
     ],
     contains: MODULE_ACCESS_CONTENTS
   };
+
+  PARAMS_CONTENTS.push(MODULE_ACCESS_MODE);
   
   return {
     aliases: ['re'],
