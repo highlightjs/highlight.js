@@ -103,6 +103,16 @@ function(hljs) {
   };
   MODULE_ACCESS_CONTENTS.push(FUNCTION_BLOCK_MODE);
 
+  const CONSTRUCTOR_MODE = {
+    className: 'constructor',
+    begin: RE_MODULE_IDENT + '\\(',
+    end: '\\)',
+    illegal: '\\n',
+    contains: [
+      hljs.QUOTE_STRING_MODE
+    ]
+  };
+
   const PATTERN_MATCH_BLOCK_MODE = {
     className: 'pattern-match',
     begin: 'switch\\s*\\(\\s*' + RE_IDENT + '\\s*\\)\\s*{',
@@ -111,13 +121,16 @@ function(hljs) {
     end: '}',
     relevance: 0,
     contains: [
+      CONSTRUCTOR_MODE,
+      hljs.QUOTE_STRING_MODE,
+      OPERATOR_MODE,    
       {
-        begin: '\\(',
+        begin: 'switch\\s*\\(',
         end: '\\)',
         contains: [
           {
             className: 'params',
-            begin: RE_IDENT
+            begin: '\\b' + RE_IDENT
           }
         ]
       },
@@ -190,6 +203,7 @@ function(hljs) {
         relevance: 0,
         contains: LIST_CONTENTS_MODES
       },
+      CONSTRUCTOR_MODE,
       {
         className: 'operator',
         begin: RE_OPERATOR_SPACED,

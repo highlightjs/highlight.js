@@ -1,2 +1,13 @@
 /* This is a simple function */
 let greet = (name) => "Hello World";
+
+let getCacheConfigByEnv =
+    (
+      environment: environment,
+      cacheServiceConfig: Js.Dict.t(cachingServiceConfig),
+    ) =>
+  switch (cacheServiceConfig) {
+  | Some(config) => config
+  | None =>
+    raise(InvalidEnvironment("Caching Service Coinfiguration is missing"))
+  };
