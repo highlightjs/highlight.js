@@ -38,12 +38,8 @@
     "js-beautify": "^1.5.10",
     "jsdom": "^9.2.1",
     "lodash": "^4.0.0",
-    "mocha": "^2.5.3",
+    "mocha": "^2.0.1",
     "should": "^9.0.2",
     "tiny-worker": "^1.1.1"
-  },
-  "dependencies": {
-    "nmp": "^1.0.3",
-    "npm": "^5.7.1"
   }
 }
