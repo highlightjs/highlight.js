@@ -7,7 +7,7 @@ Description: One of the 5 languages of IEC 61131-3 standard to program PLCs.
 
 function(hljs) {
     return {
-        aliases: ['iecst', 'scl', 'stl', 'structured-text'],
+        aliases: ['scl', 'stl', 'structured-text'],
         case_insensitive: true,
         keywords: {
             keyword: 'if then end_if elsif else case of end_case ' +
