@@ -13,3 +13,10 @@ let getCacheConfigByEnv =
   | None =>
     raise(InvalidEnvironment("Caching Service Coinfiguration is missing"))
   };
+
+let readCacheServiceConfigAndDecode = (configJson) =>
+  switch (configJson |> Js.Json.decodeObject) {
+  | None => raise(Json.Decode.DecodeError("Invalid Cache Config"))
+  | Some(data) =>
+    data |> Js.Dict.map((. json) => CachingServiceConfig.decode(json))
+  };

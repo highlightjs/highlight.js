@@ -109,6 +109,7 @@ function(hljs) {
     end: '(,|\\n|\\))',
     relevance: 0,
     contains: [
+      OPERATOR_MODE,
       {
         className: 'typing',
         begin: ':',
