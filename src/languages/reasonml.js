@@ -93,6 +93,7 @@ function(hljs) {
       className: 'module',
       begin: "\\b" + RE_MODULE_IDENT, returnBegin: true,
       end: "\.",
+      relevance: 0,
       contains: [
         {
           className: 'identifier',
@@ -106,12 +107,14 @@ function(hljs) {
   const PARAMS_MODE = {
     begin: RE_IDENT,
     end: '(,|\\n|\\))',
+    relevance: 0,
     contains: [
       {
         className: 'typing',
         begin: ':',
         end: '(,|\\n)',
         returnBegin: true,
+        relevance: 0,
         contains: PARAMS_CONTENTS
       }
     ]
@@ -119,6 +122,8 @@ function(hljs) {
 
   const FUNCTION_BLOCK_MODE = {
     className: 'function',
+    relevance: 0,
+    keywords: KEYWORDS,
     variants: [
       {
         begin: '\\s(\\(.*?\\)|' + RE_IDENT + ')\\s*=>',
@@ -150,6 +155,7 @@ function(hljs) {
         contains: [
           {
             className: 'params',
+            relevance: 0,
             variants: [
               PARAMS_MODE
             ]
@@ -165,6 +171,7 @@ function(hljs) {
     begin: RE_MODULE_IDENT + '\\(',
     end: '\\)',
     illegal: '\\n',
+    keywords: KEYWORDS,
     contains: [
       hljs.QUOTE_STRING_MODE,
       OPERATOR_MODE,
@@ -239,8 +246,9 @@ function(hljs) {
   return {
     aliases: ['re'],
     keywords: KEYWORDS,
+    illegal: '(:\\-|:=|\\${|\\+=)',
     contains: [
-      hljs.COMMENT('/\\*', '\\*/', { illegal: '^\\#' }),
+      hljs.COMMENT('/\\*', '\\*/', { illegal: '^(\\#,\\/\\/)' }),
       {
         className: 'character',
         begin: '\'(\\\\[^\']+|[^\'])\'',
