@@ -18,5 +18,5 @@
   switch<span class="hljs-function"> (<span class="hljs-params">configJson <span class="hljs-operator">|&gt;</span> Js.Json.decodeObject)</span> {
   | N<span class="hljs-params">one =&gt; raise(Json.Decode.DecodeError("Invalid Cache Config")</span>)
   | S<span class="hljs-params">ome(data)</span> =&gt;</span>
-    data<span class="hljs-operator"> |&gt; </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Dict</span>.</span></span>map((. json) =&gt; <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">CachingServiceConfig</span>.</span></span>decode(json))
+    data<span class="hljs-operator"> |&gt; </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Dict</span>.</span></span>map(<span class="hljs-function">(. json) =&gt;</span> <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">CachingServiceConfig</span>.</span></span>decode(json))
   };

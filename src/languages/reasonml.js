@@ -127,7 +127,7 @@ function(hljs) {
     keywords: KEYWORDS,
     variants: [
       {
-        begin: '\\s(\\(.*?\\)|' + RE_IDENT + ')\\s*=>',
+        begin: '\\s(\\(\\.?.*?\\)|' + RE_IDENT + ')\\s*=>',
         end: '\\s*=>',
         returnBegin: true,
         relevance: 0,
@@ -149,7 +149,7 @@ function(hljs) {
         ]
       },
       {
-        begin: '\\s\\([^;]*\\)\\s*=>',
+        begin: '\\s\\(\\.?[^;]*\\)\\s*=>',
         end: '\\s=>',
         returnBegin: true,
         relevance: 0,
@@ -162,6 +162,9 @@ function(hljs) {
             ]
           }
         ]
+      },
+      {
+        begin: '\\(\\.\\s' + RE_IDENT + '\\)\\s*=>'
       }
     ]
   };
