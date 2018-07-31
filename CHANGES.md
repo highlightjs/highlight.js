@@ -1,4 +1,17 @@
 ## Master
+New language:
+
+- *isbl* built-in language DIRECTUM by [Dmitriy Tarasov][].
+
+New style:
+
+- *isbl editor light* by [Dmitriy Tarasov][]
+- *isbl editor dark* by [Dmitriy Tarasov][]
+
+[Dmitriy Tarasov]: https://github.com/MedvedTMN
+
+
+## Master
 
 New style:
 
