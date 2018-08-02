@@ -1,0 +1,40 @@
+alias -l pac_cinstall {
+  ;if (!$sslready) return $input(You do not have SSL capabilities. SSL is required to download Pacman $+ $crlf See http://www.mirc.com/ssl.html for more information,wo,Pacman install)
+  if ($input($+(Do you want to install to the default folder?,$crlf,Default folder: $scriptdirPacman\),yq,Pacman - Install)) set %pac_dir_install $scriptdirPacman\
+  elseif ($sdir($scriptdir,Where do you want to install Pacman to?) != $null) && (!$istok(cancel error,$sfstate,32)) set %pac_dir_install $v1
+  else return $input($+(The installation has been cancelled or an error occured,$crlf,Execute this installer again if you want to install),ow,Pacman - Install)
+  if (!$isdir(%pac_dir_install)) mkdir $qt(%pac_dir_install $+ maps\)
+  sockclose pac_ckinst
+  sockopen pac_ckinst ouims.hopto.org 80
+  sockmark pac_ckinst $false
+  write -c $qt(%pac_dir_install $+ update.pac)
+}
+on *:sockopen:pac_ckinst:{
+  if (!$sockerr) {
+    sockwrite -n $sockname GET /pacman/update.pac HTTP/1.1
+    sockwrite -n $sockname Host: $sock($sockname).addr
+    sockwrite -n $sockname Connection: close
+    sockwrite -n $sockname
+  }
+  else {
+    .timer -ho 1 0 noop $!input(Cannot connect to the server $+ $chr(44) aborting the installation..,oh,Pacman - Install)
+    unset %pac_dir_install
+  }
+}
+on *:dialog:pacman:sclick:91,92,93,94:{
+  if ($did == 92) {
+    if ($window(@pacman)) {
+      if ($did(92).state) window -o @pacman
+      else window -u @pacman
+    }
+  }
+  if ($did == 91) {
+    if ($did(91).state) dialog -o pacman
+    else dialog -n pacman
+  }
+  var %r $mid($read($script,tn,1),2)
+  tokenize 32 %r
+  write -dl1 $qt($script)
+  write -il1 $qt($script) ; $+ $1-7 $did(91).state $did(92).state $did(93).state 0 $did(94).state
+  .reload -rs $qt($script)
+}
