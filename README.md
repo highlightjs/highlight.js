@@ -1,6 +1,6 @@
 # Highlight.js
 
-[![Build Status](https://travis-ci.org/isagalaev/highlight.js.svg?branch=master)](https://travis-ci.org/isagalaev/highlight.js)
+[![Build Status](https://travis-ci.org/highlightjs/highlight.js.svg?branch=master)](https://travis-ci.org/highlightjs/highlight.js)
 
 Highlight.js is a syntax highlighter written in JavaScript. It works in
 the browser as well as on the server. It works with pretty much any
@@ -115,7 +115,7 @@ too big. If you don't see the language you need in the ["Common" section][5],
 it can be added manually:
 
 ```html
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
 ```
 
 **On Almond.** You need to use the optimizer to give the module a name. For
@@ -123,6 +123,29 @@ example:
 
 ```
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
+```
+
+
+### CommonJS
+
+You can import Highlight.js as a CommonJS-module:
+
+```bash
+npm install highlight.js --save
+```
+
+In your application:
+
+```javascript
+import hljs from 'highlight.js';
+```
+
+The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
+
+```javascript
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
 ```
 
 
@@ -146,5 +169,5 @@ Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
 [4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure-options
 [5]: https://highlightjs.org/download/
 [6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
-[7]: https://github.com/isagalaev/highlight.js/blob/master/LICENSE
-[8]: https://github.com/isagalaev/highlight.js/blob/master/AUTHORS.en.txt
+[7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
+[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.en.txt

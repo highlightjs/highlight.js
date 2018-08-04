@@ -1,3 +1,12 @@
+## Master
+
+New style:
+
+- *Lightfair* by [Tristian Kelly][]
+
+
+[Tristian Kelly]: https://github.com/TristianK3604
+
 ## Version 9.12.0
 
 New language:
