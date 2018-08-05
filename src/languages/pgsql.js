@@ -487,7 +487,7 @@ function(hljs) {
             variants: [
               {begin: '%(ROW)?TYPE', relevance: 10}, // %TYPE, %ROWTYPE
               {begin: '\\$\\d+'},                    // $n
-              {begin: '^#\\w+\\s+\\w+', end: '$'}    // #compiler option
+              {begin: '^#\\w', end: '$'}             // #compiler option
             ]
           },
           // <<labeles>>
