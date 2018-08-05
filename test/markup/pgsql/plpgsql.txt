@@ -22,7 +22,7 @@ BEGIN
 
     IF NOT FOUND THEN
         EXIT <<outer_block>>;
-    ELSEIF quantity < 0 THEN
+    ELSIF quantity < 0 THEN
         ASSERT a > b, 'Bad luck';
     END IF;
 

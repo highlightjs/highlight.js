@@ -22,7 +22,7 @@
 
     <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-built_in">FOUND</span> <span class="hljs-keyword">THEN</span>
         <span class="hljs-keyword">EXIT</span> <span class="hljs-symbol">&lt;&lt;outer_block&gt;&gt;</span>;
-    <span class="hljs-keyword">ELSEIF</span> quantity &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">THEN</span>
+    <span class="hljs-keyword">ELSIF</span> quantity &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">THEN</span>
         <span class="hljs-keyword">ASSERT</span> a &gt; b, <span class="hljs-string">'Bad luck'</span>;
     <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;
 
