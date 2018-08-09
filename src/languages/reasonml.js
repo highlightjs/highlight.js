@@ -186,6 +186,23 @@ function(hljs) {
     ]
   };
 
+  const PATTERN_MATCH_BLOCK_MODE = {
+    className: 'pattern-match',
+    begin: '\\|',
+    returnBegin: true,
+    keywords: KEYWORDS,
+    end: '=>',
+    relevance: 0,
+    contains: [
+      CONSTRUCTOR_MODE,
+      OPERATOR_MODE,    
+      {
+        className: 'constructor',
+        begin: RE_MODULE_IDENT
+      }
+    ]
+  };
+
   const MODULE_ACCESS_MODE = {
     className: 'module-access',
     keywords: KEYWORDS,
@@ -258,6 +275,7 @@ function(hljs) {
       },
       NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
+      PATTERN_MATCH_BLOCK_MODE,
       FUNCTION_BLOCK_MODE,
       {
         className: 'module-def',
