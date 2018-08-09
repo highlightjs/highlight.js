@@ -197,6 +197,7 @@ function(hljs) {
       CONSTRUCTOR_MODE,
       OPERATOR_MODE,    
       {
+        relevance: 0,
         className: 'constructor',
         begin: RE_MODULE_IDENT
       }
