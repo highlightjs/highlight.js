@@ -1,3 +1,15 @@
+## Version 9.13.0
+
+New language:
+
+- *ReasonML* by [Gidi Meir Morris][]
+
+New style:
+
+- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
+
+[Gidi Meir Morris]: https://github.com/gmmorris
+
 ## Version 9.12.0
 
 New language:
@@ -32,7 +44,6 @@ Improvements:
 [nnnik]: https://github.com/nnnik
 [Martin Clausen]: https://github.com/maacl
 [Alejandro Alonso]: https://github.com/Azoy
-
 
 ## Version 9.11.0
 
