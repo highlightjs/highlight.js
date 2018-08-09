@@ -1,8 +1,8 @@
 <span class="hljs-keyword">let</span> message =
-  <span class="hljs-pattern-match">switch (<span class="hljs-params">person1</span>) {
-    | <span class="hljs-module"><span class="hljs-identifier">School</span>.</span><span class="hljs-module"><span class="hljs-identifier">Teacher</span> </span>=&gt; <span class="hljs-string">"Hello teacher!"</span>
-    | <span class="hljs-module"><span class="hljs-identifier">School</span>.</span><span class="hljs-module"><span class="hljs-identifier">Director</span> </span>=&gt; <span class="hljs-string">"Hello director!"</span>
-  }</span>;
+  switch (person1) {
+    | School.Teacher =&gt; <span class="hljs-string">"Hello teacher!"</span>
+    | School.Director =&gt; <span class="hljs-string">"Hello director!"</span>
+  };
 
 <span class="hljs-keyword">let</span> message =
   <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">School</span>.</span>(
@@ -11,3 +11,10 @@
     | <span class="hljs-module"><span class="hljs-identifier">Director</span> </span>=&gt; <span class="hljs-string">"Hello director!"</span>
     }
   )</span>;
+
+<span class="hljs-keyword">let</span> readCacheServiceConfigAndDecode =<span class="hljs-function"> (<span class="hljs-params">configJson</span>) =&gt;</span>
+  switch (configJson<span class="hljs-operator"> |&gt; </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Json</span>.</span></span>decodeObject) {
+  | None =&gt; raise(Json.Decode.<span class="hljs-constructor">DecodeError(<span class="hljs-string">"Invalid Cache Config"</span>)</span>)
+  | <span class="hljs-constructor">Some(<span class="hljs-params">data</span>)</span> =&gt;
+    data<span class="hljs-operator"> |&gt; </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Dict</span>.</span></span>map(<span class="hljs-function">(. json) =&gt;</span> <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">CachingServiceConfig</span>.</span></span>decode(json))
+  };
