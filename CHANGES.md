@@ -1,4 +1,4 @@
-## Version 9.13.0
+## Master
 
 New language:
 
@@ -6,8 +6,11 @@ New language:
 
 New style:
 
+- *Lightfair* by [Tristian Kelly][]
 - *Atom One Dark Reasonable* by [Gidi Meir Morris][]
 
+
+[Tristian Kelly]: https://github.com/TristianK3604
 [Gidi Meir Morris]: https://github.com/gmmorris
 
 ## Version 9.12.0
