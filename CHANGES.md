@@ -1,5 +1,9 @@
 ## Master
 
+New language:
+
+- *AngelScript* by [Melissa Geels][]
+
 New style:
 
 - *Lightfair* by [Tristian Kelly][]
