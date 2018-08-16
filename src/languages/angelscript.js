@@ -13,6 +13,7 @@ function(hljs) {
   var objectHandleMode = {
     className: 'symbol',
     begin: '[a-zA-Z0-9_]+@',
+    illegal: '@[a-zA-Z0-9_]',
     relevance: 10
   };
 
