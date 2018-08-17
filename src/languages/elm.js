@@ -20,7 +20,7 @@ function(hljs) {
 
   var CONSTRUCTOR = {
     className: 'type',
-    begin: '\\b[A-Z][\\w\']*', // TODO: other constructors (built-in, infix).
+    begin: '\\b[A-Z][\\w]*', // TODO: other constructors (built-in, infix).
     relevance: 0
   };
 
@@ -79,7 +79,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
-      hljs.inherit(hljs.TITLE_MODE, {begin: '^[_a-z][\\w\']*'}),
+      hljs.inherit(hljs.TITLE_MODE, {begin: '^[_a-z][\\w]*'}),
       COMMENT,
 
       {begin: '->|<-'} // No markup, relevance booster
