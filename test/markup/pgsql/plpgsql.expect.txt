@@ -14,7 +14,7 @@
         myrow tablename<span class="hljs-meta">%ROWTYPE</span>;
         myfield tablename.columnname<span class="hljs-meta">%TYPE</span>;
     <span class="hljs-keyword">BEGIN</span>
-        <span class="hljs-keyword">PERFORM</span> <span class="hljs-built_in">pg_sleep</span>(<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">PERFORM</span> pg_sleep(<span class="hljs-number">1</span>);
         <span class="hljs-keyword">RAISE</span> <span class="hljs-keyword">NOTICE</span> <span class="hljs-string">'Quantity here is %'</span>, quantity;
     <span class="hljs-keyword">END</span>;
 

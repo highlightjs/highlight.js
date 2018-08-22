@@ -10,6 +10,9 @@ Description:
       they are keywords in some contexts and ordinary identifiers in others. Only some
       of such cases are handled; you still can get some of your identifiers highlighted
       wrong way.
+    - Function names deliberately are not highlighted. There is no way to tell function
+      call from other constructs, hence we can't highlight _all_ function names. And
+      some names highlighted while others not looks ugly.
 */
 
 function(hljs) {
@@ -294,7 +297,7 @@ function(hljs) {
         },
         // Forbid some cunstructs from other languages to improve autodetect. In fact
         // "[a-z]:" is legal (as part of array slice), but improbabal.
-        illegal: /:==|\(\*|(^|\s)\$[a-z]|{{|[a-z]:\s*$|\.\.\.|TO:|DO:/,
+        illegal: /:==|\W\s*\(\*|(^|\s)\$[a-z]|{{|[a-z]:\s*$|\.\.\.|TO:|DO:/,
         contains: [
           // special handling of some words, which are reserved only in some contexts
           {
@@ -344,10 +347,10 @@ function(hljs) {
               { begin: /\bAS\s+(ASSIGNMENT|IMPLICIT|PERMISSIVE|RESTRICTIVE|ENUM|RANGE)\b/ }
             ]
           },
-          // functions named as keywords, highlight as built-ins when followed by '('
+          // functions named as keywords, followed by '('
           {
             begin: /\b(FORMAT|FAMILY|VERSION)\s*\(/,
-            keywords: { built_in: 'FORMAT FAMILY VERSION' }
+            //keywords: { built_in: 'FORMAT FAMILY VERSION' }
           },
           // INCLUDE ( ... ) in index_parameters in CREATE TABLE
           {
@@ -365,7 +368,7 @@ function(hljs) {
           },
           // PG_smth; HAS_some_PRIVILEGE
           {
-            className: 'built_in',
+            //className: 'built_in',
             begin: /\b(PG_\w+?|HAS_[A-Z_]+_PRIVILEGE)\b/,
             relevance: 10
           },
@@ -375,7 +378,7 @@ function(hljs) {
             end: /\bFROM\b/,
             returnEnd: true,
             keywords: {
-              built_in: 'EXTRACT',
+              //built_in: 'EXTRACT',
               type:     'CENTURY DAY DECADE DOW DOY EPOCH HOUR ISODOW ISOYEAR MICROSECONDS ' +
                         'MILLENNIUM MILLISECONDS MINUTE MONTH QUARTER SECOND TIMEZONE TIMEZONE_HOUR ' +
                         'TIMEZONE_MINUTE WEEK YEAR'
@@ -385,7 +388,7 @@ function(hljs) {
           {
             begin: /\b(XMLELEMENT|XMLPI)\s*\(\s*NAME/,
             keywords: {
-              built_in: 'XMLELEMENT XMLPI',
+              //built_in: 'XMLELEMENT XMLPI',
               keyword:  'NAME'
             }
           },
@@ -393,13 +396,13 @@ function(hljs) {
           {
             begin: /\b(XMLPARSE|XMLSERIALIZE)\s*\(\s*(DOCUMENT|CONTENT)/,
             keywords: {
-              built_in: 'XMLPARSE XMLSERIALIZE',
+              //built_in: 'XMLPARSE XMLSERIALIZE',
               keyword:  'DOCUMENT CONTENT'
             }
           },
           // Sequences. We actually skip everything between CACHE|INCREMENT|MAXVALUE|MINVALUE and
           // nearest following numeric constant. Without with trick we find a lot of "keywords"
-          // in avrasm autodetection test...
+          // in 'avrasm' autodetection test...
           {
             beginKeywords: 'CACHE INCREMENT MAXVALUE MINVALUE',
             end: hljs.C_NUMBER_RE,
@@ -424,12 +427,10 @@ function(hljs) {
               type: 'LANGUAGE_HANDLER TRIGGER EVENT_TRIGGER FDW_HANDLER INDEX_AM_HANDLER TSM_HANDLER'
             }
           },
-          // Known functions - highlight only when followed by '('
+          // Known functions - only when followed by '('
           {
-            begin: '\\b(' + FUNCTIONS_RE + ')\\s*\\(',
-            keywords: {
-              built_in: FUNCTIONS
-            }
+            begin: '\\b(' + FUNCTIONS_RE + ')\\s*\\('
+            //keywords: { built_in: FUNCTIONS }
           },
           // Types
           {
