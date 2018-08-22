@@ -91,7 +91,9 @@ function(hljs) {
     'NAME ' +
     // OID-types
     'OID REGPROC|10 REGPROCEDURE|10 REGOPER|10 REGOPERATOR|10 REGCLASS|10 REGTYPE|10 REGROLE|10 ' +
-    'REGNAMESPACE|10 REGCONFIG|10 REGDICTIONARY|10 ';
+    'REGNAMESPACE|10 REGCONFIG|10 REGDICTIONARY|10 ';// +
+    // some types from standard extensions
+    'HSTORE|10 LO LTREE|10 ';
     
   var TYPES_RE = 
     TYPES.trim()
