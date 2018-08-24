@@ -4,8 +4,12 @@ New style:
 
 - *Lightfair* by [Tristian Kelly][]
 
+Improvements:
+
+- *Python* highlighting of escaped quotes fixed by [Harmon][].
 
 [Tristian Kelly]: https://github.com/TristianK3604
+[Harmon]: https://github.com/Harmon758
 
 ## Version 9.12.0
 
