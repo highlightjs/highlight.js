@@ -11,8 +11,8 @@ function (hljs) {
     keyword: 'prototype include namespace @process @position @ignoreProperties @context @allowEmpty @if @cache',
     literal: 'true false null'
   };
-  // Already added for future implementation, does not work atm
 
+  // Already added for future implementation. The recognition of Eel keywords does not work right now.
   var EEL_KEYWORDS = {
     keyword: 'Array Configuration Date Json Math Neos Caching Link Node Rendering Security String Translation Type',
     literal: 'true false null'
