@@ -505,7 +505,7 @@ function(hljs) {
       'steam_ugc_query_set_return_long_description ' +
       'steam_ugc_query_set_return_total_only ' +
       'steam_ugc_query_set_allow_cached_response steam_ugc_send_query ' +
-      'shader_set shader_get_name shader_reset shader_current '
+      'shader_set shader_get_name shader_reset shader_current ' +
       'shader_is_compiled shader_get_sampler_index shader_get_uniform ' +
       'shader_set_uniform_i shader_set_uniform_i_array shader_set_uniform_f ' +
       'shader_set_uniform_f_array shader_set_uniform_matrix ' +
