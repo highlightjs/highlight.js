@@ -1,0 +1,42 @@
+myCollection = <span class="hljs-built_in">Neos.Fusion:Collection</span> {
+        collection = <span class="javascript"><span class="hljs-built_in">${</span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<span class="hljs-built_in">}</span></span>
+        itemName = <span class="hljs-string">'element'</span>
+        itemRenderer = <span class="hljs-built_in">Neos.Fusion:Template</span> {
+                templatePath = <span class="hljs-string">'resource://...'</span>
+                element = <span class="javascript"><span class="hljs-built_in">${</span>element<span class="hljs-built_in">}</span></span>
+                <span class="hljs-comment"># I am a line-comment!</span>
+        }
+}
+
+<span class="hljs-comment"># Line comment</span>
+<span class="hljs-comment">// Another line comment</span>
+<span class="hljs-comment">/*
+* Multi-line comment
+*/</span>
+
+book = <span class="hljs-string">"The guide"</span>
+author = <span class="hljs-string">'Networkteam'</span>
+answer = <span class="hljs-number">42</span>
+enableImprobabilityDrive = <span class="hljs-literal">true</span>
+
+<span class="hljs-keyword">prototype</span>(<span class="hljs-built_in">Acme.Demo:Book</span>) &lt; <span class="hljs-keyword">prototype</span>(Template) {
+  templatePath = <span class="hljs-string">'Book.html'</span>
+}
+
+output = <span class="hljs-built_in">TYPO3.TypoScript:Array</span> {
+  hello = <span class="hljs-string">'Hello'</span>
+  world = <span class="hljs-string">'world!'</span>
+}
+
+output.world = <span class="hljs-string">"world!"</span>
+output {
+  hello = <span class="hljs-string">"Hello"</span>
+  chars = <span class="javascript"><span class="hljs-built_in">${</span>Array.charAt(<span class="hljs-string">"abcdefg"</span>, <span class="hljs-number">5</span>) == <span class="hljs-string">"f"</span><span class="hljs-built_in">}</span></span>
+  caching = <span class="javascript"><span class="hljs-built_in">${</span>String.Node.nodeTag(<span class="hljs-string">"abcdefg"</span>)<span class="hljs-built_in">}</span></span>
+}
+
+<span class="hljs-keyword">prototype</span>(<span class="hljs-built_in">Acme.Demo:Book</span>).book = <span class="javascript"><span class="hljs-built_in">${</span>book<span class="hljs-built_in">}</span></span>
+
+<span class="hljs-keyword">prototype</span>(<span class="hljs-built_in">Acme.Demo:Book</span>) &lt; <span class="hljs-keyword">prototype</span>(Template) {
+  templatePath = <span class="hljs-string">'Book.html'</span>
+}
