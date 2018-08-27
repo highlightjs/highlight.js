@@ -1,9 +1,3 @@
-# Building fusion highlighting
-
-```
-node tools/build.js fusion javascript
-```
-
 # Highlight.js
 
 [![Build Status](https://travis-ci.org/isagalaev/highlight.js.svg?branch=master)](https://travis-ci.org/isagalaev/highlight.js)
