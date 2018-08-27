@@ -1,7 +1,20 @@
-Release process
-===============
+Maintainer's guide
+==================
 
-Note: this is intended for core committers.
+
+Commit policy
+-------------
+
+* Pull requests from outside contributors require a review from a maintainer.
+
+* Maintainers should avoid working on a master branch directly and create branches for everything. A code review from another maintainer is recommended but not required, use your best judgment.
+
+
+
+Release process
+---------------
+
+Releases happen on a 6-week schedule. Currently due to a long break the date of the next release is not set.
 
 * Update CHANGES.md with everything interesting since the last update.
 
