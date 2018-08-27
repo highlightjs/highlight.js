@@ -1,7 +1,10 @@
 /*
 Language: Fusion
-TODO: add categories
- */
+Requires: javascript.js
+Author: Marcel Tams <marcel.tams@networkteam.com>
+Contributors: suffle
+Description: Highlighting for Fusion which is part of Neos CMS (https://neos.io)
+*/
 
 function (hljs) {
   var KEYWORDS = {
@@ -33,7 +36,7 @@ function (hljs) {
   };
 
   var EEL = {
-    begin: '\\$\\{', 
+    begin: '\\$\\{',
     end: '}(?!.)',
     subLanguage: 'javascript'
   };
