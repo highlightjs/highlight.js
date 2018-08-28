@@ -23,7 +23,7 @@ prototype(Acme.Demo:Book) < prototype(Template) {
   templatePath = 'Book.html'
 }
 
-output = TYPO3.TypoScript:Array {
+output = Neos:Fusion:Array {
   hello = 'Hello'
   world = 'world!'
 }

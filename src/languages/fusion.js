@@ -16,15 +16,14 @@ function (hljs) {
   var EEL_KEYWORDS = {
     keyword: 'Array Configuration Date Json Math Neos Caching Link Node Rendering Security String Translation Type',
     literal: 'true false null'
-  }
+  };
   var NUMBER = {
     className: 'number',
     variants: [
       {begin: '\\b(0[bB][01]+)'},
       {begin: '\\b(0[oO][0-7]+)'},
       {begin: hljs.C_NUMBER_RE}
-    ],
-    relevance: 0
+    ]
   };
   var STRING = {
     className: 'string',
@@ -38,12 +37,27 @@ function (hljs) {
   var EEL = {
     begin: '\\$\\{',
     end: '}(?!.)',
-    subLanguage: 'javascript'
+    subLanguage: 'javascript',
+      keywords: EEL_KEYWORDS
   };
 
   var FUSION_NAMESPACE = {
     className: 'built_in',
-    begin: '\\w*\\.\\w*\\:(\\w*\\.?[a-zA-Z]*)*'
+    begin: '\\w*\\.\\w*\\:(\\w*\\.?[a-zA-Z]*)*',
+      relevance: 16
+  };
+
+  var NEOS_FUSION_NAMESPACE = {
+    className: 'built_in',
+    begin: 'Neos\\.(Fusion||Neos)\\:(\\w*\\.?[a-zA-Z]*)*',
+      relevance: 5,
+  };
+
+  var PROTOTYPE_INHERITANCE = {
+	  className: 'built_in',
+	  begin: 'prototype\\((\\w*\\.\\w*\\:(\\w*\\.?[a-zA-Z]*)*)\\) \\< prototype\\((\\w*\\.\\w*\\:(\\w*\\.?[a-zA-Z]*)*)\\)',
+      relevance: 10,
+      keywords: EEL_KEYWORDS
   };
 
   return {
@@ -55,6 +69,8 @@ function (hljs) {
       NUMBER,
       STRING,
       FUSION_NAMESPACE,
+      NEOS_FUSION_NAMESPACE,
+      PROTOTYPE_INHERITANCE,
       EEL
     ]
   };
