@@ -12,9 +12,7 @@ function(hljs) {
 
   var objectHandleMode = {
     className: 'symbol',
-    begin: '[a-zA-Z0-9_]+@',
-    illegal: '@[a-zA-Z0-9_]',
-    relevance: 10
+    begin: '[a-zA-Z0-9_]+@'
   };
 
   var genericMode = {
@@ -33,6 +31,9 @@ function(hljs) {
       'for in break continue while do return if else case switch namespace is cast ' +
       'or and xor not get in inout out override set private public const default ' +
       'final shared external mixin enum typedef funcdef this super import from interface',
+
+    // avoid close detection with C#
+    illegal: '^using\\s+[A-Za-z0-9_\\.]+;$',
 
     contains: [
       hljs.QUOTE_STRING_MODE, // "strings"
