@@ -32,12 +32,25 @@ function(hljs) {
       'or and xor not get|0 in inout|10 out override set|0 private public const default|0 ' +
       'final shared external mixin|10 enum typedef funcdef this super import from interface',
 
-    // avoid close detection with C# and COS
-    illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|^&[a-z]+[\\(<])',
+    // avoid close detection with C# and JS
+    illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|\\bfunction\s*[^\\(])',
 
     contains: [
-      hljs.QUOTE_STRING_MODE, // "strings"
-      hljs.APOS_STRING_MODE, // 'strings'
+      { // 'strings'
+        className: 'string',
+        begin: '\'', end: '\'',
+        illegal: '\\n',
+        contains: [ hljs.BACKSLASH_ESCAPE ],
+        relevance: 0
+      },
+
+      { // "strings"
+        className: 'string',
+        begin: '"', end: '"',
+        illegal: '\\n',
+        contains: [ hljs.BACKSLASH_ESCAPE ],
+        relevance: 0
+      },
 
       // """heredoc strings"""
       {
@@ -50,7 +63,7 @@ function(hljs) {
 
       { // interface or namespace declaration
         beginKeywords: 'interface namespace', end: '{',
-        illegal: ';',
+        illegal: '[;.\\-]',
         contains: [
           { // interface or namespace name
             className: 'symbol',
@@ -61,7 +74,7 @@ function(hljs) {
 
       { // class declaration
         beginKeywords: 'class', end: '{',
-        illegal: ';',
+        illegal: '[;.\\-]',
         contains: [
           { // class name
             className: 'symbol',
