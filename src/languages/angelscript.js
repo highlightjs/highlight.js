@@ -28,12 +28,12 @@ function(hljs) {
     aliases: [ 'asc' ],
 
     keywords:
-      'for in break continue while do return if else case switch namespace is cast ' +
-      'or and xor not get in inout out override set private public const default ' +
-      'final shared external mixin enum typedef funcdef this super import from interface',
+      'for in break continue while do|0 return if else case switch namespace is cast ' +
+      'or and xor not get|0 in inout|10 out override set|0 private public const default ' +
+      'final shared external mixin|10 enum typedef funcdef this super import from interface',
 
-    // avoid close detection with C#
-    illegal: '^using\\s+[A-Za-z0-9_\\.]+;$',
+    // avoid close detection with C# and COS
+    illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|^&[a-z]+[\\(<])',
 
     contains: [
       hljs.QUOTE_STRING_MODE, // "strings"
