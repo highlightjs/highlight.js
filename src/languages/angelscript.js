@@ -28,8 +28,8 @@ function(hljs) {
     aliases: [ 'asc' ],
 
     keywords:
-      'for in break continue while do|0 return if else case switch namespace is cast ' +
-      'or and xor not get|0 in inout|10 out override set|0 private public const default ' +
+      'for in|0 break continue while do|0 return if else case switch namespace is cast ' +
+      'or and xor not get|0 in inout|10 out override set|0 private public const default|0 ' +
       'final shared external mixin|10 enum typedef funcdef this super import from interface',
 
     // avoid close detection with C# and COS
@@ -50,6 +50,7 @@ function(hljs) {
 
       { // interface or namespace declaration
         beginKeywords: 'interface namespace', end: '{',
+        illegal: ';',
         contains: [
           { // interface or namespace name
             className: 'symbol',
@@ -60,6 +61,7 @@ function(hljs) {
 
       { // class declaration
         beginKeywords: 'class', end: '{',
+        illegal: ';',
         contains: [
           { // class name
             className: 'symbol',
