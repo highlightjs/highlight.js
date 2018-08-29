@@ -1,0 +1,58 @@
+<span class="hljs-comment">/**
+ * A person has a name and an age.
+ */</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name: <span class="hljs-type">String</span>, age: <span class="hljs-type">Int</span></span>)</span>
+
+<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vertical</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CaseJeu</span></span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Haut</span>(<span class="hljs-params">a: <span class="hljs-type">Int</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Vertical</span></span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bas</span>(<span class="hljs-params">name: <span class="hljs-type">String</span>, b: <span class="hljs-type">Double</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Vertical</span></span>
+
+<span class="hljs-keyword">sealed</span> <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Ior</span>[+<span class="hljs-type">A</span>, +<span class="hljs-type">B</span>]</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Left</span>[<span class="hljs-type">A</span>](<span class="hljs-params">a: <span class="hljs-type">A</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Ior</span>[<span class="hljs-type">A</span>, <span class="hljs-type">Nothing</span>]</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Right</span>[<span class="hljs-type">B</span>](<span class="hljs-params">b: <span class="hljs-type">B</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Ior</span>[<span class="hljs-type">Nothing</span>, <span class="hljs-type">B</span>]</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Both</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](<span class="hljs-params">a: <span class="hljs-type">A</span>, b: <span class="hljs-type">B</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Ior</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>]</span>
+
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>[_]] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">map</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]
+}
+
+<span class="hljs-comment">// beware Int.MinValue</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">absoluteValue</span></span>(n: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> =
+  <span class="hljs-keyword">if</span> (n &lt; <span class="hljs-number">0</span>) -n <span class="hljs-keyword">else</span> n
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">interp</span></span>(n: <span class="hljs-type">Int</span>): <span class="hljs-type">String</span> =
+  <span class="hljs-string">s"there are <span class="hljs-subst">$n</span> <span class="hljs-subst">${color}</span> balloons.\n"</span>
+
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">ξ</span>[<span class="hljs-type">A</span>] </span>= (<span class="hljs-type">A</span>, <span class="hljs-type">A</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Hist</span> </span>{ lhs =&gt;
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">⊕</span></span>(rhs: <span class="hljs-type">Hist</span>): <span class="hljs-type">Hist</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gsum</span></span>[<span class="hljs-type">A</span>: <span class="hljs-type">Ring</span>](as: <span class="hljs-type">Seq</span>[<span class="hljs-type">A</span>]): <span class="hljs-type">A</span> =
+  as.foldLeft(<span class="hljs-type">Ring</span>[<span class="hljs-type">A</span>].zero)(_ + _)
+
+<span class="hljs-keyword">val</span> actions: <span class="hljs-type">List</span>[<span class="hljs-type">Symbol</span>] =
+  <span class="hljs-symbol">'init</span> :: <span class="hljs-symbol">'read</span> :: <span class="hljs-symbol">'write</span> :: <span class="hljs-symbol">'close</span> :: <span class="hljs-type">Nil</span>
+
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Cake</span> </span>{
+  <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">T</span></span>;
+  <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Q</span></span>
+  <span class="hljs-keyword">val</span> things: <span class="hljs-type">Seq</span>[<span class="hljs-type">T</span>]
+
+  <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Spindler</span></span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spindle</span></span>(s: <span class="hljs-type">Spindler</span>, ts: <span class="hljs-type">Seq</span>[<span class="hljs-type">T</span>], reversed: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>): <span class="hljs-type">Seq</span>[<span class="hljs-type">Q</span>]
+}
+
+<span class="hljs-keyword">val</span> colors = <span class="hljs-type">Map</span>(
+  <span class="hljs-string">"red"</span>       -&gt; <span class="hljs-number">0xFF0000</span>,
+  <span class="hljs-string">"turquoise"</span> -&gt; <span class="hljs-number">0x00FFFF</span>,
+  <span class="hljs-string">"black"</span>     -&gt; <span class="hljs-number">0x000000</span>,
+  <span class="hljs-string">"orange"</span>    -&gt; <span class="hljs-number">0xFF8040</span>,
+  <span class="hljs-string">"brown"</span>     -&gt; <span class="hljs-number">0x804000</span>)
+
+<span class="hljs-keyword">lazy</span> <span class="hljs-keyword">val</span> ns = <span class="hljs-keyword">for</span> {
+  x &lt;- <span class="hljs-number">0</span> until <span class="hljs-number">100</span>
+  y &lt;- <span class="hljs-number">0</span> until <span class="hljs-number">100</span>
+} <span class="hljs-keyword">yield</span> (x + y) * <span class="hljs-number">33.33</span>

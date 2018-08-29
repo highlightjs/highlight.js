@@ -8,7 +8,8 @@ Description: Highlighting for Fusion which is part of Neos CMS (https://neos.io)
 
 function (hljs) {
   var KEYWORDS = {
-    keyword: 'prototype include namespace @process @position @ignoreProperties @context @allowEmpty @if @cache',
+    keyword: 'prototype include namespace @process @position @ignoreProperties @context @allowEmpty @if @cache ' +
+        '@exceptionHandler ',
     literal: 'true false null'
   };
 
@@ -38,40 +39,51 @@ function (hljs) {
     begin: '\\$\\{',
     end: '}(?!.)',
     subLanguage: 'javascript',
-      keywords: EEL_KEYWORDS
+      keywords: EEL_KEYWORDS,
+      relevance: 1
   };
 
   var FUSION_NAMESPACE = {
     className: 'built_in',
     begin: '\\w*\\.\\w*\\:(\\w*\\.?[a-zA-Z]*)*',
-      relevance: 16
+      relevance: 20
   };
 
   var NEOS_FUSION_NAMESPACE = {
     className: 'built_in',
     begin: 'Neos\\.(Fusion||Neos)\\:(\\w*\\.?[a-zA-Z]*)*',
-      relevance: 5,
+      relevance: 100,
   };
 
   var PROTOTYPE_INHERITANCE = {
 	  className: 'built_in',
 	  begin: 'prototype\\((\\w*\\.\\w*\\:(\\w*\\.?[a-zA-Z]*)*)\\) \\< prototype\\((\\w*\\.\\w*\\:(\\w*\\.?[a-zA-Z]*)*)\\)',
-      relevance: 10,
+      relevance: 20,
       keywords: EEL_KEYWORDS
+  };
+
+  var PROTOTYPE_DECLARATION = {
+    className: 'built_in',
+      begin: 'prototype\\(',
+      end: '\\)\\s\\{',
+      contains: [FUSION_NAMESPACE, NEOS_FUSION_NAMESPACE],
+      relevance: 10
   };
 
   return {
     keywords: KEYWORDS,
+    case_insensitive: false,
     contains: [
       hljs.HASH_COMMENT_MODE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      NUMBER,
-      STRING,
       FUSION_NAMESPACE,
       NEOS_FUSION_NAMESPACE,
       PROTOTYPE_INHERITANCE,
-      EEL
+      PROTOTYPE_DECLARATION,
+      EEL,
+      NUMBER,
+      STRING,
     ]
   };
 }

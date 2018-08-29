@@ -1,42 +1,213 @@
-myCollection = Neos.Fusion:Collection {
-        collection = ${[1, 2, 3]}
-        itemName = 'element'
-        itemRenderer = Neos.Fusion:Template {
-                templatePath = 'resource://...'
-                element = ${element}
-                # I am a line-comment!
-        }
-}
+# Neos.Neos:Page is the default object used for rendering in most sites
+#
+prototype(Neos.Neos:Page) >
+prototype(Neos.Neos:Page) < prototype(Neos.Fusion:Http.Message) {
 
-# Line comment
-// Another line comment
-/*
-* Multi-line comment
-*/
+	doctype = '<!DOCTYPE html>'
+	doctype.@position = 'start 100'
 
-book = "The guide"
-author = 'Networkteam'
-answer = 42
-enableImprobabilityDrive = true
+	# Only the opening html tag for the page. This is done to avoid deep nesting of Fusion paths for integrators.
+	htmlTag = Neos.Fusion:Tag {
+		@position = 'start'
+		tagName = 'html'
+		omitClosingTag = true
 
-prototype(Acme.Demo:Book) < prototype(Template) {
-  templatePath = 'Book.html'
-}
+		attributes {
+			version = 'HTML+RDFa 1.1'
+			version.@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+			xmlns = 'http://www.w3.org/1999/xhtml'
+			xmlns.@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+			xmlns:typo3 = 'http://www.typo3.org/ns/2012/Flow/Packages/Neos/Content/'
+			xmlns:typo3.@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+			xmlns:xsd = 'http://www.w3.org/2001/XMLSchema#'
+			xmlns:xsd.@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+		}
+	}
 
-output = Neos:Fusion:Array {
-  hello = 'Hello'
-  world = 'world!'
-}
+	headerComment = Neos.Fusion:Template {
+		@position = 'before headTag'
+		templatePath = 'resource://Neos.Neos/Private/Templates/FusionObjects/NeosLicenseHeader.html'
+	}
 
-output.world = "world!"
-output {
-  hello = "Hello"
-  chars = ${Array.charAt("abcdefg", 5) == "f"}
-  caching = ${String.Node.nodeTag("abcdefg")}
-}
+	# The opening head tag for the page. This is done to avoid deep nesting of Fusion paths for integrators.
+	headTag = Neos.Fusion:Tag {
+		@position = 'after htmlTag'
+		tagName = 'head'
+		omitClosingTag = true
+	}
 
-prototype(Acme.Demo:Book).book = ${book}
+	# The content of the head tag, integrators can add their own head content in this array.
+	head = Neos.Fusion:Array {
+		@position = 'after headTag'
 
-prototype(Acme.Demo:Book) < prototype(Template) {
-  templatePath = 'Book.html'
+		characterSetMetaTag = Neos.Fusion:Tag {
+			@position = 'start 10'
+			tagName = 'meta'
+			attributes {
+				charset = 'UTF-8'
+			}
+		}
+
+		titleTag = Neos.Fusion:Tag {
+			tagName = 'title'
+			content = ${q(node).property('title')}
+		}
+
+		neosBackendHeader = Neos.Fusion:Value {
+			@position = 'end 10000'
+			value = Neos.Fusion:Template {
+				templatePath = 'resource://Neos.Neos/Private/Templates/FusionObjects/NeosBackendHeaderData.html'
+				node = ${documentNode}
+
+				@cache {
+					mode = 'uncached'
+					context {
+						1 = 'documentNode'
+					}
+				}
+			}
+
+			@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+		}
+
+
+		neosBackendEndpoints = Neos.Fusion:Value {
+			@position = 'end 10001'
+			value = Neos.Fusion:Template {
+				templatePath = 'resource://Neos.Neos/Private/Templates/FusionObjects/NeosBackendEndpoints.html'
+				node = ${documentNode}
+				account = ${Security.getAccount()}
+
+				@cache {
+					mode = 'uncached'
+					context {
+						1 = 'documentNode'
+					}
+				}
+			}
+
+			@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+		}
+
+		# Link tags for stylesheets in the head should go here
+		stylesheets = Neos.Fusion:Array
+
+		# Script includes in the head should go here
+		javascripts = Neos.Fusion:Array {
+			@position = 'after stylesheets'
+		}
+	}
+
+	closingHeadTag = '</head>'
+	closingHeadTag.@position = 'after head'
+
+	# The opening body tag for the page. This is done to avoid deep nesting of Fusion paths for integrators.
+	bodyTag = Neos.Fusion:Tag {
+		@position = '20'
+		tagName = 'body'
+		omitClosingTag = true
+		attributes.class.@process.addNeosBackendClass = Neos.Fusion:Case {
+			@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+
+			classIsString {
+				condition = ${Type.isString(value)}
+				renderer = ${String.trim(value + ' neos-backend')}
+			}
+
+			classIsArray {
+				condition = ${Type.isArray(value)}
+				renderer = ${Array.push(value, 'neos-backend')}
+			}
+		}
+	}
+
+	# Required for the backend to work.
+	neosBackendDocumentNodeData = Neos.Neos:DocumentMetadata {
+		@position = 'before body'
+		@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+	}
+
+	neosBackendMetaData = Neos.Fusion:Tag {
+		tagName = 'div'
+		@position = 'after neosBackendDocumentNodeData'
+		attributes = Neos.Fusion:Attributes {
+			data-preview-uri = Neos.Neos:NodeUri {
+				node = ${q(documentNode).context({'workspaceName': documentNode.context.workspace.baseWorkspace.name}).get(0)}
+			}
+		}
+		@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+	}
+
+	# Content of the body tag. To be defined by the integrator.
+	body = Neos.Fusion:Template {
+		@position = 'after bodyTag'
+		node = ${node}
+		site = ${site}
+
+		# Script includes before the closing body tag should go here
+		javascripts = Neos.Fusion:Array
+		# This processor appends the rendered javascripts Array to the rendered template
+		@process.appendJavaScripts = ${value + this.javascripts}
+	}
+
+	# Required for the backend to work.
+	neosBackendContainer = Neos.Fusion:Value {
+		@position = 'before closingBodyTag'
+		value = Neos.Fusion:Template {
+			templatePath = 'resource://Neos.Neos/Private/Templates/FusionObjects/NeosBackendContainer.html'
+			node = ${documentNode}
+
+			@cache {
+				mode = 'uncached'
+				context {
+					1 = 'documentNode'
+				}
+			}
+		}
+
+		@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+	}
+
+
+	# This enables redirecting to the last visited page after login
+	lastVisitedNodeScript = Neos.Fusion:Tag {
+		@position = 'before closingBodyTag'
+
+		tagName = 'script'
+		attributes {
+			data-neos-node = ${node.contextPath}
+			src = Neos.Fusion:ResourceUri {
+				path = 'resource://Neos.Neos/Public/JavaScript/LastVisitedNode.js'
+			}
+			async = true
+		}
+	}
+
+	neosBackendFooter = Neos.Fusion:Template {
+		@position = 'after lastVisitedNodeScript 10000'
+		templatePath = 'resource://Neos.Neos/Private/Templates/FusionObjects/NeosBackendFooterData.html'
+		node = ${node}
+		@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+	}
+
+	closingBodyTag = '</body>'
+	closingBodyTag.@position = 'end 100'
+
+	closingHtmlTag = '</html>'
+	closingHtmlTag.@position = 'end 200'
+
+
+	@cache {
+		mode = 'cached'
+		entryIdentifier {
+			documentNode = ${node}
+		}
+		entryTags {
+			1 = ${Neos.Caching.nodeTag(node)}
+		}
+	}
+
+  @process.debugDump = Neos.Fusion:DebugDump
+
+	@exceptionHandler = 'Neos\\Neos\\Fusion\\ExceptionHandlers\\PageHandler'
 }
