@@ -85,5 +85,5 @@ function (hljs) {
       NUMBER,
       STRING,
     ]
-  };
+  }
 }
