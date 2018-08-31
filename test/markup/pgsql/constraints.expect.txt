@@ -1,0 +1,21 @@
+<span class="hljs-comment">-- column_constraint, table_constraint:</span>
+
+<span class="hljs-keyword">CONSTRAINT</span>,
+<span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>, <span class="hljs-keyword">NULL</span>,
+<span class="hljs-keyword">CHECK</span> ( .. ) <span class="hljs-keyword">NO</span> <span class="hljs-keyword">INHERIT</span>,
+<span class="hljs-keyword">DEFAULT</span> ..,
+<span class="hljs-keyword">EXCLUDE</span> <span class="hljs-keyword">USING</span> .. ( .. <span class="hljs-keyword">WITH</span> .. ) .. <span class="hljs-keyword">WHERE</span> ( ..  ),
+<span class="hljs-keyword">GENERATED</span> <span class="hljs-keyword">ALWAYS</span> <span class="hljs-keyword">AS</span> <span class="hljs-keyword">IDENTITY</span>,
+<span class="hljs-keyword">GENERATED</span> <span class="hljs-keyword">ALWAYS</span> <span class="hljs-keyword">AS</span> <span class="hljs-keyword">IDENTITY</span> ( .. ),
+<span class="hljs-keyword">GENERATED</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">AS</span> <span class="hljs-keyword">IDENTITY</span>,
+<span class="hljs-keyword">UNIQUE</span> .., <span class="hljs-keyword">UNIQUE</span> ( .. ),
+<span class="hljs-keyword">PRIMARY KEY</span> .., <span class="hljs-keyword">PRIMARY KEY</span> ( .. ),
+<span class="hljs-keyword">REFERENCES</span>, <span class="hljs-keyword">REFERENCES</span> .. ( .. ),
+<span class="hljs-keyword">MATCH FULL</span>, <span class="hljs-keyword">MATCH PARTIAL</span>, <span class="hljs-keyword">MATCH SIMPLE</span>,
+<span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> .., <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> ..,
+<span class="hljs-keyword">DEFERRABLE</span>, <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">DEFERRABLE</span>, <span class="hljs-keyword">INITIALLY</span> <span class="hljs-keyword">DEFERRED</span>, <span class="hljs-keyword">INITIALLY</span> <span class="hljs-keyword">IMMEDIATE</span>,
+<span class="hljs-keyword">FOREIGN KEY</span> ( .. ) <span class="hljs-keyword">REFERENCES</span>,
+<span class="hljs-keyword">USING</span> <span class="hljs-keyword">INDEX</span> bar,
+<span class="hljs-keyword">INCLUDE</span> ( .. ),
+<span class="hljs-keyword">WITH</span> ( .. ),
+<span class="hljs-keyword">USING</span> <span class="hljs-keyword">INDEX</span> <span class="hljs-keyword">TABLESPACE</span>;

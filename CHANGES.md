@@ -1,12 +1,18 @@
 ## Master
 
-New styles:
+
+New language:
+
+- *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
+
+New style:
 
 - An Old Hope (Star Wars style) by [Gustavo Costa][]
 - *Lightfair* by [Tristian Kelly][]
 - *Shades of Purple* by [Ahmad Awais][]
 
 Improvements:
+
 - *Java* updated added missing keyboard `var` by [Liu][].
 - *MATLAB* updated with added and inclided built-ins by [Vassilis Kehayas][].
 - *SQL* updated with added following keywords: `WITH, AS, NOTNULL, UNKNOWN, BOOL,TIME,TIMESTAMP` and `UNNEST` by [Luca Zambarda][]
@@ -15,10 +21,13 @@ Improvements:
 - [Dedmen Miller][] improved *SQF Language* and updating to Arma 3 v1.82.
 - [Enzo][] added support for string interpolation without curly braces for the *Dart* language.
 - [Pieter Vantorre][] fixed syntax highlighting for floating points in *C#*.
-
+- New attribute endSameAsBegin for nested constructs with variable names
+  by [Egor Rogov][].
+  
 [Ahmad Awais]: https://github.com/ahmadawais
 [Daniel Kho]: https://github.com/danielkho
 [Dedmen Miller]: https://github.com/dedmen
+[Egor Rogov]: https://github.com/egor-rogov
 [Enzo]: https://github.com/Dorumin
 [Gustavo Costa]: https://github.com/gusbemacbe
 [Liu]: https://github.com/lc-soft
@@ -27,6 +36,7 @@ Improvements:
 [Pieter Vantorre]: https://github.com/NuclearCookie
 [Tristian Kelly]: https://github.com/TristianK3604
 [Vassilis Kehayas]: https://github.com/vkehayas
+
 
 ## Version 9.12.0
 

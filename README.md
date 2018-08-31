@@ -4,7 +4,7 @@
 
 Highlight.js is a syntax highlighter written in JavaScript. It works in
 the browser as well as on the server. It works with pretty much any
-markup, doesn’t depend on any framework and has automatic language
+markup, doesn’t depend on any framework, and has automatic language
 detection.
 
 ## Getting Started
@@ -123,6 +123,29 @@ example:
 
 ```
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
+```
+
+
+### CommonJS
+
+You can import Highlight.js as a CommonJS-module:
+
+```bash
+npm install highlight.js --save
+```
+
+In your application:
+
+```javascript
+import hljs from 'highlight.js';
+```
+
+The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
+
+```javascript
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
 ```
 
 
