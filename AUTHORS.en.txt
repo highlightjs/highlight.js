@@ -255,3 +255,5 @@ Contributors:
 - Morten Piibeleht <morten.piibeleht@gmail.com>
 - Martin Clausen <martin.clausene@gmail.com>
 - Ahmad Awais <me@AhmadAwais.com>
+- Dmitriy Tarasov <dimatar@gmail.com>
+- Egor Rogov <e.rogov@postgrespro.ru>
