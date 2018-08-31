@@ -108,7 +108,7 @@ function(hljs) {
       },
       {
         className: 'meta', // @attributes
-        begin: '(@warn_unused_result|@exported|@lazy|@noescape|' +
+        begin: '(@discardableResult|@warn_unused_result|@exported|@lazy|@noescape|' +
                   '@NSCopying|@NSManaged|@objc|@convention|@required|' +
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
                   '@infix|@prefix|@postfix|@autoclosure|@testable|@available|' +
