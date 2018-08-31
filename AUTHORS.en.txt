@@ -10,6 +10,7 @@ Core developers (in order of appearance):
 
 Contributors:
 
+- Tristian Kelly <tristian.kelly560@gmail.com>
 - Peter Leonov <gojpeg@gmail.com>
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
@@ -253,4 +254,6 @@ Contributors:
 - Morten Piibeleht <morten.piibeleht@gmail.com>
 - Martin Clausen <martin.clausene@gmail.com>
 - Ahmad Awais <me@AhmadAwais.com>
+- Dmitriy Tarasov <dimatar@gmail.com>
+- Egor Rogov <e.rogov@postgrespro.ru>
 - Brahim Djoudi <br.djoudi@gmail.com>

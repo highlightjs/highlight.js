@@ -1,11 +1,27 @@
-## Version #.#.#
+## Master
 
 New language:
 
-  *OMG IDL* OMG Interface Description Language by [Brahim Djoudi][].
-  *WebIDL* Web IDL by [Brahim Djoudi][].
-  *Slice* Zeroc specification language for ICE framework by [Brahim Djoudi][].
+- *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
+- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
+- *OMG IDL* OMG Interface Description Language by [Brahim Djoudi][].
+- *WebIDL* Web IDL by [Brahim Djoudi][].
+- *Slice* Zeroc specification language for ICE framework by [Brahim Djoudi][].
 
+New style:
+
+- *Lightfair* by [Tristian Kelly][]
+- *isbl editor light* by [Dmitriy Tarasov][]
+- *isbl editor dark* by [Dmitriy Tarasov][]
+
+Improvements:
+
+- New attribute endSameAsBegin for nested constructs with variable names
+  by [Egor Rogov][].
+
+[Tristian Kelly]: https://github.com/TristianK3604
+[Egor Rogov]: https://github.com/egor-rogov
+[Dmitriy Tarasov]: https://github.com/MedvedTMN
 [Brahim Djoudi]: https://github.com/jolkdarr
 
 ## Version 9.12.0

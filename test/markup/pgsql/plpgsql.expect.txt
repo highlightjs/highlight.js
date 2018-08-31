@@ -1,0 +1,61 @@
+<span class="hljs-comment">-- PL/pgSQL</span>
+
+<span class="hljs-symbol">&lt;&lt; outerblock &gt;&gt;</span>
+<span class="hljs-keyword">DECLARE</span>
+    quantity <span class="hljs-type">integer</span> := <span class="hljs-number">30</span>;
+    subtotal <span class="hljs-keyword">ALIAS</span> <span class="hljs-keyword">FOR</span> <span class="hljs-meta">$1</span>;
+    prior <span class="hljs-keyword">ALIAS</span> <span class="hljs-keyword">FOR</span> <span class="hljs-built_in">old</span>;
+    arow <span class="hljs-type">record</span>;
+    curs1 <span class="hljs-type">refcursor</span>;
+    curs2 <span class="hljs-keyword">CURSOR</span> <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> tenk1;
+<span class="hljs-keyword">BEGIN</span>
+    <span class="hljs-keyword">DECLARE</span>
+        quantity <span class="hljs-keyword">CONSTANT</span> <span class="hljs-type">integer</span> := <span class="hljs-number">80</span>;
+        myrow tablename<span class="hljs-meta">%ROWTYPE</span>;
+        myfield tablename.columnname<span class="hljs-meta">%TYPE</span>;
+    <span class="hljs-keyword">BEGIN</span>
+        <span class="hljs-keyword">PERFORM</span> pg_sleep(<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">RAISE</span> <span class="hljs-keyword">NOTICE</span> <span class="hljs-string">'Quantity here is %'</span>, quantity;
+    <span class="hljs-keyword">END</span>;
+
+    <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">INTO</span> myrec <span class="hljs-keyword">FROM</span> emp <span class="hljs-keyword">WHERE</span> empname = myname;
+
+    <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-built_in">FOUND</span> <span class="hljs-keyword">THEN</span>
+        <span class="hljs-keyword">EXIT</span> <span class="hljs-symbol">&lt;&lt;outer_block&gt;&gt;</span>;
+    <span class="hljs-keyword">ELSIF</span> quantity &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">THEN</span>
+        <span class="hljs-keyword">ASSERT</span> a &gt; b, <span class="hljs-string">'Bad luck'</span>;
+    <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;
+
+    <span class="hljs-keyword">FOR</span> r <span class="hljs-keyword">IN</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> foo <span class="hljs-keyword">LOOP</span>
+        <span class="hljs-keyword">CONTINUE</span> <span class="hljs-keyword">WHEN</span> count &lt; <span class="hljs-number">50</span>;
+    <span class="hljs-keyword">END</span> <span class="hljs-keyword">LOOP</span>;
+
+    <span class="hljs-keyword">FOR</span> i <span class="hljs-keyword">IN</span> <span class="hljs-keyword">REVERSE</span> <span class="hljs-number">10.</span><span class="hljs-number">.1</span> <span class="hljs-keyword">LOOP</span>
+        <span class="hljs-keyword">FOREACH</span> x <span class="hljs-keyword">IN</span> <span class="hljs-keyword">ARRAY</span> <span class="hljs-meta">$1</span>
+        <span class="hljs-keyword">LOOP</span>
+            s := s + x;
+        <span class="hljs-keyword">END</span> <span class="hljs-keyword">LOOP</span>;
+    <span class="hljs-keyword">END</span> <span class="hljs-keyword">LOOP</span>;
+
+    <span class="hljs-keyword">WHILE</span> <span class="hljs-keyword">NOT</span> done <span class="hljs-keyword">LOOP</span>
+        <span class="hljs-keyword">CASE</span> x
+            <span class="hljs-keyword">WHEN</span> <span class="hljs-number">1</span>, <span class="hljs-number">2</span> <span class="hljs-keyword">THEN</span> <span class="hljs-keyword">RETURN NEXT</span> r;
+            <span class="hljs-keyword">ELSE</span> <span class="hljs-keyword">RETURN QUERY</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> sales;
+        <span class="hljs-keyword">END</span> <span class="hljs-keyword">CASE</span>;
+    <span class="hljs-keyword">END</span> <span class="hljs-keyword">LOOP</span>;
+
+    <span class="hljs-keyword">EXECUTE</span> <span class="hljs-string">'SELECT count(*) FROM mytable WHERE inserted_by = $1'</span> <span class="hljs-keyword">INTO</span> c <span class="hljs-keyword">USING</span> checked_user;
+
+    <span class="hljs-keyword">OPEN</span> curs1 <span class="hljs-keyword">SCROLL FOR</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> foo <span class="hljs-keyword">WHERE</span> key = mykey;
+    <span class="hljs-keyword">FETCH LAST</span> <span class="hljs-keyword">FROM</span> curs1 <span class="hljs-keyword">INTO</span> x, y;
+    <span class="hljs-keyword">MOVE RELATIVE</span> <span class="hljs-number">-2</span> <span class="hljs-keyword">FROM</span> curs1;
+    <span class="hljs-keyword">UPDATE</span> foo <span class="hljs-keyword">SET</span> dataval = myval <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">CURRENT</span> <span class="hljs-keyword">OF</span> curs1;
+    <span class="hljs-keyword">CLOSE</span> curs1;
+
+    <span class="hljs-keyword">RETURN</span> quantity;
+<span class="hljs-keyword">EXCEPTION</span>
+    <span class="hljs-keyword">WHEN</span> <span class="hljs-built_in">NO_DATA_FOUND</span> <span class="hljs-keyword">THEN</span>
+        <span class="hljs-keyword">GET</span> <span class="hljs-keyword">DIAGNOSTICS</span> integer_var = <span class="hljs-built_in">ROW_COUNT</span>;
+    <span class="hljs-keyword">WHEN</span> <span class="hljs-built_in">SQLSTATE</span> <span class="hljs-string">'22012'</span> <span class="hljs-keyword">THEN</span>
+        <span class="hljs-keyword">NULL</span>;
+<span class="hljs-keyword">END</span>;
