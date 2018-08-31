@@ -274,6 +274,8 @@ https://highlightjs.org/
         if (!mode.begin)
           mode.begin = /\B|\b/;
         mode.beginRe = langRe(mode.begin);
+        if (mode.endSameAsBegin)
+          mode.end = mode.begin;
         if (!mode.end && !mode.endsWithParent)
           mode.end = /\B|\b/;
         if (mode.end)
@@ -322,11 +324,18 @@ https://highlightjs.org/
   */
   function highlight(name, value, ignore_illegals, continuation) {
 
+    function escapeRe(value) {
+      return new RegExp(value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
+    }
+
     function subMode(lexeme, mode) {
       var i, length;
 
       for (i = 0, length = mode.contains.length; i < length; i++) {
         if (testRe(mode.contains[i].beginRe, lexeme)) {
+          if (mode.contains[i].endSameAsBegin) {
+            mode.contains[i].endRe = escapeRe( mode.contains[i].beginRe.exec(lexeme)[0] );
+          }
           return mode.contains[i];
         }
       }
@@ -472,6 +481,9 @@ https://highlightjs.org/
           top = top.parent;
         } while (top !== end_mode.parent);
         if (end_mode.starts) {
+          if (end_mode.endSameAsBegin) {
+            end_mode.starts.endRe = end_mode.endRe;
+          }
           startNewMode(end_mode.starts, '');
         }
         return origin.returnEnd ? 0 : lexeme.length;

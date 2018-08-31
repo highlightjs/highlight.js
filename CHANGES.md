@@ -11,12 +11,21 @@ New style:
 
 ## Master
 
+New language:
+
+- *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
+
 New style:
 
 - *Lightfair* by [Tristian Kelly][]
 
+Improvements:
+
+- New attribute endSameAsBegin for nested constructs with variable names
+  by [Egor Rogov][].
 
 [Tristian Kelly]: https://github.com/TristianK3604
+[Egor Rogov]: https://github.com/egor-rogov
 
 ## Version 9.12.0
 
