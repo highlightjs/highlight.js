@@ -49,7 +49,7 @@ https://highlightjs.org/
     tabReplace: null,
     useBR: false,
     languages: undefined,
-    langAttribute: true
+    langAttribute: false
   };
 
 
