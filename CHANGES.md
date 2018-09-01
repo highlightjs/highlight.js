@@ -13,6 +13,7 @@ New style:
 
 New language:
 
+- *GML* by [meseta][]
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
 
 New style:
@@ -25,6 +26,7 @@ Improvements:
   by [Egor Rogov][].
 
 [Tristian Kelly]: https://github.com/TristianK3604
+[meseta]: https://github.com/meseta
 [Egor Rogov]: https://github.com/egor-rogov
 
 ## Version 9.12.0
