@@ -1,15 +1,34 @@
+New language:
+
+- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
+
+New style:
+
+- *isbl editor light* by [Dmitriy Tarasov][]
+- *isbl editor dark* by [Dmitriy Tarasov][]
+
+[Dmitriy Tarasov]: https://github.com/MedvedTMN
+
 ## Master
 
 New language:
 
 - *AngelScript* by [Melissa Geels][]
+- *GML* by [meseta][]
+- *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
 
 New style:
 
 - *Lightfair* by [Tristian Kelly][]
 
+Improvements:
+
+- New attribute endSameAsBegin for nested constructs with variable names
+  by [Egor Rogov][].
 
 [Tristian Kelly]: https://github.com/TristianK3604
+[meseta]: https://github.com/meseta
+[Egor Rogov]: https://github.com/egor-rogov
 
 ## Version 9.12.0
 

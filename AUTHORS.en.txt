@@ -10,6 +10,7 @@ Core developers (in order of appearance):
 
 Contributors:
 
+- Meseta <meseta@gmail.com>
 - Tristian Kelly <tristian.kelly560@gmail.com>
 - Peter Leonov <gojpeg@gmail.com>
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
@@ -255,3 +256,5 @@ Contributors:
 - Martin Clausen <martin.clausene@gmail.com>
 - Ahmad Awais <me@AhmadAwais.com>
 - Melissa Geels <melissa@nimble.tools>
+- Dmitriy Tarasov <dimatar@gmail.com>
+- Egor Rogov <e.rogov@postgrespro.ru>

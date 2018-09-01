@@ -1,0 +1,47 @@
+<span class="hljs-comment">-- xml</span>
+
+XMLPARSE (<span class="hljs-keyword">DOCUMENT</span> <span class="hljs-string">'...'</span> <span class="hljs-keyword">PRESERVE WHITESPACE</span>)
+XMLPARSE (<span class="hljs-keyword">CONTENT</span> <span class="hljs-string">'...'</span> <span class="hljs-keyword">STRIP WHITESPACE</span>)
+XMLSERIALIZE ( <span class="hljs-keyword">DOCUMENT</span> <span class="hljs-string">'...'</span> <span class="hljs-keyword">AS</span> <span class="hljs-type">text</span> )
+XMLSERIALIZE ( <span class="hljs-keyword">CONTENT</span> <span class="hljs-string">'...'</span> <span class="hljs-keyword">AS</span> <span class="hljs-type">text</span> )
+
+<span class="hljs-keyword">SET</span> <span class="hljs-keyword">XML OPTION DOCUMENT</span>;
+<span class="hljs-keyword">SET</span> <span class="hljs-keyword">XML OPTION CONTENT</span>;
+
+<span class="hljs-keyword">SELECT</span> xmlcomment(<span class="hljs-string">'...'</span>);
+<span class="hljs-keyword">SELECT</span> xmlconcat(<span class="hljs-string">'...'</span>, <span class="hljs-string">'...'</span>);
+<span class="hljs-keyword">SELECT</span> xmlelement(<span class="hljs-keyword">name</span> foo, xmlattributes(<span class="hljs-string">'...'</span> <span class="hljs-keyword">as</span> bar));
+<span class="hljs-keyword">SELECT</span> xmlforest(<span class="hljs-string">'...'</span> <span class="hljs-keyword">AS</span> foo, <span class="hljs-number">123</span> <span class="hljs-keyword">AS</span> bar);
+<span class="hljs-keyword">SELECT</span> xmlpi(<span class="hljs-keyword">name</span> php, <span class="hljs-string">'...'</span>);
+<span class="hljs-keyword">SELECT</span> xmlroot(xmlparse(<span class="hljs-keyword">document</span> <span class="hljs-string">'...'</span>), <span class="hljs-keyword">version</span> <span class="hljs-string">'...'</span>, <span class="hljs-keyword">standalone yes</span>);
+<span class="hljs-keyword">SELECT</span> xmlagg(x <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> y <span class="hljs-keyword">DESC</span>) <span class="hljs-keyword">FROM</span> test;
+
+<span class="hljs-keyword">SELECT</span> xmlexists(<span class="hljs-string">'...'</span> <span class="hljs-keyword">PASSING</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">REF</span> <span class="hljs-string">'...'</span>);
+
+<span class="hljs-keyword">SELECT</span> xpath(<span class="hljs-string">'...'</span>, <span class="hljs-string">'...'</span>, <span class="hljs-keyword">ARRAY</span>[<span class="hljs-keyword">ARRAY</span>[<span class="hljs-string">'...'</span>, <span class="hljs-string">'...'</span>]]);
+<span class="hljs-keyword">SELECT</span> xpath_exists(<span class="hljs-string">'...'</span>, <span class="hljs-string">'...'</span>, <span class="hljs-keyword">ARRAY</span>[<span class="hljs-keyword">ARRAY</span>[<span class="hljs-string">'...'</span>, <span class="hljs-string">'...'</span>]]);
+
+<span class="hljs-keyword">SELECT</span> XMLTABLE(<span class="hljs-string">'...'</span> <span class="hljs-keyword">PASSING</span> data <span class="hljs-keyword">COLUMNS</span> id <span class="hljs-type">int</span> <span class="hljs-keyword">PATH</span> <span class="hljs-string">'...'</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">'...'</span>, ordinality <span class="hljs-keyword">FOR ORDINALITY</span>) ;
+
+<span class="hljs-keyword">SELECT</span> XMLTABLE(XMLNAMESPACES(<span class="hljs-string">'...'</span> <span class="hljs-keyword">AS</span> x, <span class="hljs-string">'...'</span> <span class="hljs-keyword">AS</span> "B"), <span class="hljs-string">'...'</span> <span class="hljs-keyword">PASSING</span> (<span class="hljs-keyword">SELECT</span> data <span class="hljs-keyword">FROM</span> xmldata) <span class="hljs-keyword">COLUMNS</span> foo <span class="hljs-type">int</span> <span class="hljs-keyword">PATH</span> <span class="hljs-string">'...'</span>);
+
+foo <span class="hljs-keyword">IS DOCUMENT</span>
+foo <span class="hljs-keyword">IS NOT DOCUMENT</span>
+
+xml_is_well_formed(..)
+xml_is_well_formed_document(..)
+xml_is_well_formed_content(..)
+table_to_xml(..)
+query_to_xml(..)
+cursor_to_xml(..)
+table_to_xmlschema(..)
+query_to_xmlschema(..)
+cursor_to_xmlschema(..)
+table_to_xml_and_xmlschema(..)
+query_to_xml_and_xmlschema(..)
+schema_to_xml(..)
+schema_to_xmlschema(..)
+schema_to_xml_and_xmlschema(..)
+database_to_xml(..)
+database_to_xmlschema(..)
+database_to_xml_and_xmlschema(..)
