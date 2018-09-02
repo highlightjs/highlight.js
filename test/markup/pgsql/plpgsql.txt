@@ -1,0 +1,61 @@
+-- PL/pgSQL
+
+<< outerblock >>
+DECLARE
+    quantity integer := 30;
+    subtotal ALIAS FOR $1;
+    prior ALIAS FOR old;
+    arow record;
+    curs1 refcursor;
+    curs2 CURSOR FOR SELECT * FROM tenk1;
+BEGIN
+    DECLARE
+        quantity CONSTANT integer := 80;
+        myrow tablename%ROWTYPE;
+        myfield tablename.columnname%TYPE;
+    BEGIN
+        PERFORM pg_sleep(1);
+        RAISE NOTICE 'Quantity here is %', quantity;
+    END;
+
+    SELECT * INTO myrec FROM emp WHERE empname = myname;
+
+    IF NOT FOUND THEN
+        EXIT <<outer_block>>;
+    ELSIF quantity < 0 THEN
+        ASSERT a > b, 'Bad luck';
+    END IF;
+
+    FOR r IN SELECT * FROM foo LOOP
+        CONTINUE WHEN count < 50;
+    END LOOP;
+
+    FOR i IN REVERSE 10..1 LOOP
+        FOREACH x IN ARRAY $1
+        LOOP
+            s := s + x;
+        END LOOP;
+    END LOOP;
+
+    WHILE NOT done LOOP
+        CASE x
+            WHEN 1, 2 THEN RETURN NEXT r;
+            ELSE RETURN QUERY SELECT * FROM sales;
+        END CASE;
+    END LOOP;
+
+    EXECUTE 'SELECT count(*) FROM mytable WHERE inserted_by = $1' INTO c USING checked_user;
+
+    OPEN curs1 SCROLL FOR SELECT * FROM foo WHERE key = mykey;
+    FETCH LAST FROM curs1 INTO x, y;
+    MOVE RELATIVE -2 FROM curs1;
+    UPDATE foo SET dataval = myval WHERE CURRENT OF curs1;
+    CLOSE curs1;
+
+    RETURN quantity;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        GET DIAGNOSTICS integer_var = ROW_COUNT;
+    WHEN SQLSTATE '22012' THEN
+        NULL;
+END;
