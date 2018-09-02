@@ -25,7 +25,6 @@ function(hljs) {
       'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect ' +
       'Promise'
   };
-  var EXPRESSIONS;
   var NUMBER = {
     className: 'number',
     variants: [
