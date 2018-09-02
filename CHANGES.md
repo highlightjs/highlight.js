@@ -25,6 +25,7 @@ Improvements:
 [Dmitriy Tarasov]: https://github.com/MedvedTMN
 [Tristian Kelly]: https://github.com/TristianK3604
 [Gidi Meir Morris]: https://github.com/gmmorris
+[Melissa Geels]: https://github.com/codecat
 [meseta]: https://github.com/meseta
 [Egor Rogov]: https://github.com/egor-rogov
 [Harmon]: https://github.com/Harmon758
