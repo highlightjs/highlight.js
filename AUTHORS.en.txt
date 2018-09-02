@@ -262,3 +262,4 @@ Contributors:
 - Egor Rogov <e.rogov@postgrespro.ru>
 - Meseta <meseta@gmail.com>
 - Harmon <Harmon.Public@gmail.com>
+- Eric Bailey <eric.w.bailey@gmail.com>
