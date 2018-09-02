@@ -3,6 +3,7 @@
 New language:
 
 - *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
+- *ReasonML* by [Gidi Meir Morris][]
 - *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
@@ -13,6 +14,7 @@ New style:
 - *isbl editor dark* by [Dmitriy Tarasov][]
 - *Lightfair* by [Tristian Kelly][]
 - [*Nord*][nord-highlightjs] by [Arctic Ice Studio][]
+- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
 
 Improvements:
 
@@ -22,6 +24,7 @@ Improvements:
 
 [Dmitriy Tarasov]: https://github.com/MedvedTMN
 [Tristian Kelly]: https://github.com/TristianK3604
+[Gidi Meir Morris]: https://github.com/gmmorris
 [meseta]: https://github.com/meseta
 [Egor Rogov]: https://github.com/egor-rogov
 [Harmon]: https://github.com/Harmon758
@@ -62,7 +65,6 @@ Improvements:
 [nnnik]: https://github.com/nnnik
 [Martin Clausen]: https://github.com/maacl
 [Alejandro Alonso]: https://github.com/Azoy
-
 
 ## Version 9.11.0
 
