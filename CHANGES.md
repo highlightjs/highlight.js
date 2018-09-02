@@ -25,10 +25,12 @@ Improvements:
 
 - New attribute endSameAsBegin for nested constructs with variable names
   by [Egor Rogov][].
+- *Python* highlighting of escaped quotes fixed by [Harmon][].
 
 [Tristian Kelly]: https://github.com/TristianK3604
 [meseta]: https://github.com/meseta
 [Egor Rogov]: https://github.com/egor-rogov
+[Harmon]: https://github.com/Harmon758
 
 ## Version 9.12.0
 
