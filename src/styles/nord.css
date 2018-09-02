@@ -1,18 +1,15 @@
 /*
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-title      Nord highlight.js                                   +
-project    nord-highlightjs                                    +
-version    0.1.0                                               +
-repository https://github.com/arcticicestudio/nord-highlightjs +
-author     Arctic Ice Studio                                   +
-email      development@arcticicestudio.com                     +
-copyright  Copyright (C) 2017                                  +
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ * Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
+ * Copyright (c) 2017-present Sven Greb <development@svengreb.de>
+ *
+ * Project:    Nord highlight.js
+ * Version:    0.1.0
+ * Repository: https://github.com/arcticicestudio/nord-highlightjs
+ * License:    MIT
+ * References:
+ *   https://github.com/arcticicestudio/nord
+ */
 
-[References]
-Nord
-  https://github.com/arcticicestudio/nord
-*/
 .hljs {
   display: block;
   overflow-x: auto;
