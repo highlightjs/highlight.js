@@ -13,6 +13,7 @@ New style:
 
 New language:
 
+- *ReasonML* by [Gidi Meir Morris][]
 - *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
@@ -20,6 +21,7 @@ New language:
 New style:
 
 - *Lightfair* by [Tristian Kelly][]
+- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
 
 Improvements:
 
@@ -28,6 +30,7 @@ Improvements:
 - *Python* highlighting of escaped quotes fixed by [Harmon][].
 
 [Tristian Kelly]: https://github.com/TristianK3604
+[Gidi Meir Morris]: https://github.com/gmmorris
 [meseta]: https://github.com/meseta
 [Egor Rogov]: https://github.com/egor-rogov
 [Harmon]: https://github.com/Harmon758
@@ -66,7 +69,6 @@ Improvements:
 [nnnik]: https://github.com/nnnik
 [Martin Clausen]: https://github.com/maacl
 [Alejandro Alonso]: https://github.com/Azoy
-
 
 ## Version 9.11.0
 

@@ -254,6 +254,7 @@ Contributors:
 - Martin Clausen <martin.clausene@gmail.com>
 - Google Inc. (David Benjamin) <davidben@google.com>
 - Ahmad Awais <me@AhmadAwais.com>
+- Gidi Meir Morris <gidi@gidi.io>
 - Tristian Kelly <tristian.kelly560@gmail.com>
 - Melissa Geels <melissa@nimble.tools>
 - Dmitriy Tarasov <dimatar@gmail.com>
