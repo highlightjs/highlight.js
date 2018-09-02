@@ -13,6 +13,7 @@ New style:
 
 New language:
 
+- *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
 
