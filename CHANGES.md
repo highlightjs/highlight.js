@@ -1,18 +1,8 @@
-New language:
-
-- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
-
-New style:
-
-- *isbl editor light* by [Dmitriy Tarasov][]
-- *isbl editor dark* by [Dmitriy Tarasov][]
-
-[Dmitriy Tarasov]: https://github.com/MedvedTMN
-
 ## Master
 
 New language:
 
+- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
 - *ReasonML* by [Gidi Meir Morris][]
 - *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
@@ -20,7 +10,10 @@ New language:
 
 New style:
 
+- *isbl editor light* by [Dmitriy Tarasov][]
+- *isbl editor dark* by [Dmitriy Tarasov][]
 - *Lightfair* by [Tristian Kelly][]
+- [*Nord*][nord-highlightjs] by [Arctic Ice Studio][]
 - *Atom One Dark Reasonable* by [Gidi Meir Morris][]
 
 Improvements:
@@ -29,11 +22,14 @@ Improvements:
   by [Egor Rogov][].
 - *Python* highlighting of escaped quotes fixed by [Harmon][].
 
+[Dmitriy Tarasov]: https://github.com/MedvedTMN
 [Tristian Kelly]: https://github.com/TristianK3604
 [Gidi Meir Morris]: https://github.com/gmmorris
 [meseta]: https://github.com/meseta
 [Egor Rogov]: https://github.com/egor-rogov
 [Harmon]: https://github.com/Harmon758
+[Arctic Ice Studio]: https://github.com/arcticicestudio
+[nord-highlightjs]: https://github.com/arcticicestudio/nord-highlightjs
 
 ## Version 9.12.0
 
