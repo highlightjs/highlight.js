@@ -1,31 +1,40 @@
-New language:
-
-- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
-
-New style:
-
-- *isbl editor light* by [Dmitriy Tarasov][]
-- *isbl editor dark* by [Dmitriy Tarasov][]
-
-[Dmitriy Tarasov]: https://github.com/MedvedTMN
-
 ## Master
 
-New language:
+New languages:
 
+- *AngelScript* by [Melissa Geels][]
+- *GML* by [meseta][]
+- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
+- *ReasonML* by [Gidi Meir Morris][]
 
-New style:
-
+New styles:
+- *An Old Hope* by [Gustavo Costa][]
+- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
+- *isbl editor dark* by [Dmitriy Tarasov][]
+- *isbl editor light* by [Dmitriy Tarasov][]
 - *Lightfair* by [Tristian Kelly][]
+- [*Nord*][nord-highlightjs] by [Arctic Ice Studio][]
+- *[🦄 Shades of Purple](https://github.com/ahmadawais/Shades-of-Purple-HighlightJS)* by [Ahmad Awais][]
 
 Improvements:
 
 - New attribute endSameAsBegin for nested constructs with variable names
   by [Egor Rogov][].
+- *Python* highlighting of escaped quotes fixed by [Harmon][].
 
-[Tristian Kelly]: https://github.com/TristianK3604
+
+[Ahmad Awais]: https://github.com/ahmadawais
+[Arctic Ice Studio]: https://github.com/arcticicestudio
+[Dmitriy Tarasov]: https://github.com/MedvedTMN
 [Egor Rogov]: https://github.com/egor-rogov
+[Gidi Meir Morris]: https://github.com/gmmorris
+[Gustavo Costa]: https://github.com/gusbemacbe
+[Harmon]: https://github.com/Harmon758
+[Melissa Geels]: https://github.com/codecat
+[meseta]: https://github.com/meseta
+[nord-highlightjs]: https://github.com/arcticicestudio/nord-highlightjs
+[Tristian Kelly]: https://github.com/TristianK3604
 
 ## Version 9.12.0
 
@@ -61,7 +70,6 @@ Improvements:
 [nnnik]: https://github.com/nnnik
 [Martin Clausen]: https://github.com/maacl
 [Alejandro Alonso]: https://github.com/Azoy
-
 
 ## Version 9.11.0
 
