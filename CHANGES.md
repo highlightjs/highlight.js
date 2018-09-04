@@ -1,21 +1,23 @@
 ## Master
 
-New language:
+New languages:
 
-- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
-- *ReasonML* by [Gidi Meir Morris][]
 - *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
+- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
+- *ReasonML* by [Gidi Meir Morris][]
 
-New style:
+New styles:
 - *a11y-dark theme* by [Eric Bailey][]
 - *a11y-light theme* by [Eric Bailey][]
-- *isbl editor light* by [Dmitriy Tarasov][]
+- *An Old Hope* by [Gustavo Costa][]
+- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
 - *isbl editor dark* by [Dmitriy Tarasov][]
+- *isbl editor light* by [Dmitriy Tarasov][]
 - *Lightfair* by [Tristian Kelly][]
 - [*Nord*][nord-highlightjs] by [Arctic Ice Studio][]
-- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
+- *Shades of Purple* by [Ahmad Awais][]
 
 Improvements:
 
@@ -24,16 +26,18 @@ Improvements:
 - *Python* highlighting of escaped quotes fixed by [Harmon][].
 - *PHP*: Added alias for php7, by [Vijaya Chandran Mani][]
 
+[Ahmad Awais]: https://github.com/ahmadawais
+[Arctic Ice Studio]: https://github.com/arcticicestudio
 [Dmitriy Tarasov]: https://github.com/MedvedTMN
-[Tristian Kelly]: https://github.com/TristianK3604
+[Egor Rogov]: https://github.com/egor-rogov
+[Eric Bailey]: https://github.com/ericwbailey
 [Gidi Meir Morris]: https://github.com/gmmorris
+[Gustavo Costa]: https://github.com/gusbemacbe
+[Harmon]: https://github.com/Harmon758
 [Melissa Geels]: https://github.com/codecat
 [meseta]: https://github.com/meseta
-[Egor Rogov]: https://github.com/egor-rogov
-[Harmon]: https://github.com/Harmon758
-[Arctic Ice Studio]: https://github.com/arcticicestudio
 [nord-highlightjs]: https://github.com/arcticicestudio/nord-highlightjs
-[Eric Bailey]: https://github.com/ericwbailey
+[Tristian Kelly]: https://github.com/TristianK3604
 [Vijaya Chandran Mani]: https://github.com/vijaycs85
 
 ## Version 9.12.0
