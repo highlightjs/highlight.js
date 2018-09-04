@@ -15,17 +15,18 @@ function(hljs) {
       'Abs Acos Area AreaGeodetic Asin Atan Atan2 Average Boolean Buffer BufferGeodetic ' +
       'Ceil Centroid Clip Console Constrain Contains Cos Count Crosses Cut Date DateAdd ' +
       'DateDiff Day Decode DefaultValue Dictionary Difference Disjoint Distance Distinct ' +
-      'DomainCode DomainName Equals Exp Extent Feature First Floor Geometry Guid HasKey ' +
-      'Hour IIf IndexOf Intersection Intersects IsEmpty Length LengthGeodetic Log Max ' +
-      'Mean Millisecond Min Minute Month MultiPartToSinglePart Multipoint NextSequenceValue ' +
-      'Now Number Overlaps Point Polygon Polyline Pow Random Relate Reverse Round Second ' +
-      'SetGeometry Sin Sort Sqrt Stdev Sum SymmetricDifference Tan Text Timestamp Today ' +
-      'ToLocal Top Touches ToUTC TypeOf Union Variance Weekday When Within Year '
+      'DomainCode DomainName Equals Exp Extent Feature FeatureSet FeatureSetById FeatureSetByTitle ' +
+      'FeatureSetByUrl Filter First Floor Geometry Guid HasKey Hour IIf IndexOf Intersection ' +
+      'Intersects IsEmpty Length LengthGeodetic Log Max Mean Millisecond Min Minute Month ' +
+      'MultiPartToSinglePart Multipoint NextSequenceValue Now Number OrderBy Overlaps Point Polygon ' +
+      'Polyline Pow Random Relate Reverse Round Second SetGeometry Sin Sort Sqrt Stdev Sum ' +
+      'SymmetricDifference Tan Text Timestamp Today ToLocal Top Touches ToUTC TypeOf Union Variance ' +
+      'Weekday When Within Year '
   };
   var EXPRESSIONS;
   var SYMBOL = {
     className: 'symbol',
-    begin: '\\$[feature|view|value]+'
+    begin: '\\$[feature|layer|map|value|view]+'
   };
   var NUMBER = {
     className: 'number',
