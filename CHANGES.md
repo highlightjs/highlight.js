@@ -1,20 +1,21 @@
 ## Master
 
-New language:
+New languages:
 
-- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
-- *ReasonML* by [Gidi Meir Morris][]
 - *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
+- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
+- *ReasonML* by [Gidi Meir Morris][]
 
-New style:
-
-- *isbl editor light* by [Dmitriy Tarasov][]
+New styles:
+- *An Old Hope by [Gustavo Costa][]
+- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
 - *isbl editor dark* by [Dmitriy Tarasov][]
+- *isbl editor light* by [Dmitriy Tarasov][]
 - *Lightfair* by [Tristian Kelly][]
 - [*Nord*][nord-highlightjs] by [Arctic Ice Studio][]
-- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
+- *Shades of Purples* by [Ahmad Awais][]
 
 Improvements:
 
@@ -22,15 +23,18 @@ Improvements:
   by [Egor Rogov][].
 - *Python* highlighting of escaped quotes fixed by [Harmon][].
 
+
+[Ahmad Awais]: https://github.com/ahmadawais
+[Arctic Ice Studio]: https://github.com/arcticicestudio
 [Dmitriy Tarasov]: https://github.com/MedvedTMN
-[Tristian Kelly]: https://github.com/TristianK3604
+[Egor Rogov]: https://github.com/egor-rogov
 [Gidi Meir Morris]: https://github.com/gmmorris
+[Gustavo Costa]: https://github.com/gusbemacbe
+[Harmon]: https://github.com/Harmon758
 [Melissa Geels]: https://github.com/codecat
 [meseta]: https://github.com/meseta
-[Egor Rogov]: https://github.com/egor-rogov
-[Harmon]: https://github.com/Harmon758
-[Arctic Ice Studio]: https://github.com/arcticicestudio
 [nord-highlightjs]: https://github.com/arcticicestudio/nord-highlightjs
+[Tristian Kelly]: https://github.com/TristianK3604
 
 ## Version 9.12.0
 
