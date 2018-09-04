@@ -9,7 +9,7 @@ New languages:
 - *ReasonML* by [Gidi Meir Morris][]
 
 New styles:
-- *An Old Hope by [Gustavo Costa][]
+- *An Old Hope* by [Gustavo Costa][]
 - *Atom One Dark Reasonable* by [Gidi Meir Morris][]
 - *isbl editor dark* by [Dmitriy Tarasov][]
 - *isbl editor light* by [Dmitriy Tarasov][]
