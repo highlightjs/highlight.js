@@ -15,7 +15,7 @@ New styles:
 - *isbl editor light* by [Dmitriy Tarasov][]
 - *Lightfair* by [Tristian Kelly][]
 - [*Nord*][nord-highlightjs] by [Arctic Ice Studio][]
-- *Shades of Purple* by [Ahmad Awais][]
+- *[🦄 Shades of Purple](https://github.com/ahmadawais/Shades-of-Purple-HighlightJS)* by [Ahmad Awais][https://github.com/AhmadAwais]
 
 Improvements:
 
