@@ -9,19 +9,19 @@
 
 <span class="hljs-comment">// Raw string literals (multiline)</span>
 <span class="hljs-keyword">auto</span> char_multi  = <span class="hljs-string">R"(Hello
-normal
+"normal"
 muliline
 string.)"</span>;
 <span class="hljs-keyword">auto</span> utf8_multi  = <span class="hljs-string">u8R"(Hello
-utf-8
+"utf-8"
 muliline
 string)"</span>;
 <span class="hljs-keyword">auto</span> utf16_multi = <span class="hljs-string">uR"(Hello
-utf-16
+"utf-16"
 muliline
 string)"</span>;
 <span class="hljs-keyword">auto</span> utf32_multi = <span class="hljs-string">UR"(Hello
-utf-32
+"utf-32"
 muliline
 string)"</span>;
 
