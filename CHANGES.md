@@ -470,7 +470,7 @@ Notable fixes and improvements to existing languages:
 - Added `abstract` and `namespace` keywords to TypeScript by [Daniel Rosenwasser][]
 - Added `label` support to Dockerfile by [Ladislav Prskavec][]
 - Crystal highlighting improved by [Tsuyusato Kitsune][]
-- Missing Swift keywords added by []
+- Missing Swift keywords added by [Nate Cook][]
 - Improve detection of C block comments
 - ~~Scala case classes params highlight fixed~~
 - ~~ECMAScript 6 modules import now do not require closing semicolon~~
