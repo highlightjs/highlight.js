@@ -2,6 +2,7 @@
 
 New languages:
 
+- *ArcGIS Arcade* by @jf990.
 - *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
 - *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
@@ -25,6 +26,8 @@ Improvements:
   by [Egor Rogov][].
 - *Python* highlighting of escaped quotes fixed by [Harmon][].
 - *PHP*: Added alias for php7, by [Vijaya Chandran Mani][]
+- Fix C++ string handling, by @davidben.
+- Swift: Add @objcMembers to @attributes, by @berkcebi
 
 [Ahmad Awais]: https://github.com/ahmadawais
 [Arctic Ice Studio]: https://github.com/arcticicestudio
