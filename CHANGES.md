@@ -2,7 +2,7 @@
 
 New languages:
 
-- *ArcGIS Arcade* by @jf990.
+- *ArcGIS Arcade* by [John Foster][]
 - *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
 - *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
@@ -42,6 +42,7 @@ Improvements:
 [nord-highlightjs]: https://github.com/arcticicestudio/nord-highlightjs
 [Tristian Kelly]: https://github.com/TristianK3604
 [Vijaya Chandran Mani]: https://github.com/vijaycs85
+[John Foster]: https://github.com/jf990
 
 ## Version 9.12.0
 
