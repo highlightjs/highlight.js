@@ -2,6 +2,7 @@
 
 New languages:
 
+- *ArcGIS Arcade* by [John Foster][]
 - *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
 - *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
@@ -9,6 +10,8 @@ New languages:
 - *ReasonML* by [Gidi Meir Morris][]
 
 New styles:
+- *a11y-dark theme* by [Eric Bailey][]
+- *a11y-light theme* by [Eric Bailey][]
 - *An Old Hope* by [Gustavo Costa][]
 - *Atom One Dark Reasonable* by [Gidi Meir Morris][]
 - *isbl editor dark* by [Dmitriy Tarasov][]
@@ -21,13 +24,16 @@ Improvements:
 
 - New attribute endSameAsBegin for nested constructs with variable names
   by [Egor Rogov][].
-- *Python* highlighting of escaped quotes fixed by [Harmon][].
-
+- *Python* highlighting of escaped quotes fixed by [Harmon][]
+- *PHP*: Added alias for php7, by [Vijaya Chandran Mani][]
+- *C++* string handling, by [David Benjamin][]
+- *Swift* Add `@objcMembers` to `@attributes`, by [Berk Çebi][]
 
 [Ahmad Awais]: https://github.com/ahmadawais
 [Arctic Ice Studio]: https://github.com/arcticicestudio
 [Dmitriy Tarasov]: https://github.com/MedvedTMN
 [Egor Rogov]: https://github.com/egor-rogov
+[Eric Bailey]: https://github.com/ericwbailey
 [Gidi Meir Morris]: https://github.com/gmmorris
 [Gustavo Costa]: https://github.com/gusbemacbe
 [Harmon]: https://github.com/Harmon758
@@ -35,6 +41,10 @@ Improvements:
 [meseta]: https://github.com/meseta
 [nord-highlightjs]: https://github.com/arcticicestudio/nord-highlightjs
 [Tristian Kelly]: https://github.com/TristianK3604
+[Vijaya Chandran Mani]: https://github.com/vijaycs85
+[John Foster]: https://github.com/jf990
+[David Benjamin]: https://github.com/davidben
+[Berk Çebi]: https://github.com/berkcebi
 
 ## Version 9.12.0
 
