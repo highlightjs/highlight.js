@@ -24,10 +24,10 @@ Improvements:
 
 - New attribute endSameAsBegin for nested constructs with variable names
   by [Egor Rogov][].
-- *Python* highlighting of escaped quotes fixed by [Harmon][].
+- *Python* highlighting of escaped quotes fixed by [Harmon][]
 - *PHP*: Added alias for php7, by [Vijaya Chandran Mani][]
-- Fix C++ string handling, by @davidben.
-- Swift: Add @objcMembers to @attributes, by @berkcebi
+- *C++* string handling, by [David Benjamin][]
+- *Swift* Add `@objcMembers` to `@attributes`, by [Berk Çebi][]
 
 [Ahmad Awais]: https://github.com/ahmadawais
 [Arctic Ice Studio]: https://github.com/arcticicestudio
@@ -43,6 +43,8 @@ Improvements:
 [Tristian Kelly]: https://github.com/TristianK3604
 [Vijaya Chandran Mani]: https://github.com/vijaycs85
 [John Foster]: https://github.com/jf990
+[David Benjamin]: https://github.com/davidben
+[Berk Çebi]: https://github.com/berkcebi
 
 ## Version 9.12.0
 
