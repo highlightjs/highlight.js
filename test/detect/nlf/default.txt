@@ -1,0 +1,16 @@
+# Header, don't edit
+NLF v6
+# Start editing here
+# Language ID
+1033
+# Translation by ..... (any credits should go here)
+# ^Branding
+Nullsoft Install System %s
+# ^SetupCaption
+$(^Name) Setup
+# ^BrowseBtn
+B&rowse...
+# ^UninstallingText
+$(^NameDA) will be uninstalled from the following folder. $_CLICK
+# ^FileError
+Error opening file for writing: \r\n\r\n$0\r\n\r\nClick Abort to stop the installation,\r\nRetry to try again, or\r\nIgnore to skip this file.
