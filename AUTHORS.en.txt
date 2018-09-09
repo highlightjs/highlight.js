@@ -264,3 +264,4 @@ Contributors:
 - Harmon <Harmon.Public@gmail.com>
 - Eric Bailey <eric.w.bailey@gmail.com>
 - Gustavo Costa <gusbemacbe@gmail.com>
+- Jeffrey Arnold <jeffrey.arnold@gmail.com>

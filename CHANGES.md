@@ -28,6 +28,7 @@ Improvements:
 - *PHP*: Added alias for php7, by [Vijaya Chandran Mani][]
 - *C++* string handling, by [David Benjamin][]
 - *Swift* Add `@objcMembers` to `@attributes`, by [Berk Çebi][]
+- *Stan* updated with improved coverage of language keywords and patterns.
 
 [Ahmad Awais]: https://github.com/ahmadawais
 [Arctic Ice Studio]: https://github.com/arcticicestudio
@@ -45,6 +46,7 @@ Improvements:
 [John Foster]: https://github.com/jf990
 [David Benjamin]: https://github.com/davidben
 [Berk Çebi]: https://github.com/berkcebi
+[Jeffrey Arnold]: https://github.com/jrnold
 
 ## Version 9.12.0
 
