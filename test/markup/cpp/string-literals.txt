@@ -9,19 +9,19 @@ auto wide_char = L"Hello wchar_t string";
 
 // Raw string literals (multiline)
 auto char_multi  = R"(Hello
-normal
+"normal"
 muliline
 string.)";
 auto utf8_multi  = u8R"(Hello
-utf-8
+"utf-8"
 muliline
 string)";
 auto utf16_multi = uR"(Hello
-utf-16
+"utf-16"
 muliline
 string)";
 auto utf32_multi = UR"(Hello
-utf-32
+"utf-32"
 muliline
 string)";
 

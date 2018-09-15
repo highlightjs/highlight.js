@@ -1,0 +1,19 @@
+let decode = json =>
+  Json.Decode.{
+    query: json |> field("query", string),
+    cacheKey: json |> field("cacheKey", string),
+    desc: json |> field("desc", string),
+    lambda: json |> field("lambda", string),
+  };
+
+Some.Bucket.Of.(
+  let value = stuff();
+);
+
+let value = Some.Bucket.Of.stuff();
+
+module type RewiredModule = {
+  type t = {
+    name: string
+  };
+};

@@ -44,6 +44,7 @@ function(hljs) {
 
   var METACHARS = {
     // $\n, $\r, $\t, $$
+    className: 'meta',
     begin: /\$(\\[nrt]|\$)/
   };
 
