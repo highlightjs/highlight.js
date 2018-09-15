@@ -1,0 +1,13 @@
+/*
+Language: plain
+Author: Egor Rogov (e.rogov@postgrespro.ru)
+Description:
+    Plain text without any highlighting.
+*/
+
+function(hljs) {
+    return {
+        aliases: ['text'],
+        disableAutodetect: true
+    };
+}
