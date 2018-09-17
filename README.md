@@ -32,10 +32,10 @@ reference][2].  Classes can also be prefixed with either `language-` or
 `lang-`.
 
 To make arbitrary text look like code, but without highlighting, use the
-`plain` class:
+`plaintext` class:
 
 ```html
-<pre><code class="plain">...</code></pre>
+<pre><code class="plaintext">...</code></pre>
 ```
 
 To disable highlighting altogether use the `nohighlight` class:

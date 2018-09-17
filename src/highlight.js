@@ -36,7 +36,7 @@ https://highlightjs.org/
       aliases   = {};
 
   // Regular expressions used throughout the highlight.js library.
-  var noHighlightRe    = /^no-?highlight$/i,
+  var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
       languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
       fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
 

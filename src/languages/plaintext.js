@@ -1,5 +1,5 @@
 /*
-Language: plain
+Language: plaintext
 Author: Egor Rogov (e.rogov@postgrespro.ru)
 Description:
     Plain text without any highlighting.
@@ -7,7 +7,6 @@ Description:
 
 function(hljs) {
     return {
-        aliases: ['text'],
         disableAutodetect: true
     };
 }
