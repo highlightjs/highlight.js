@@ -3,7 +3,7 @@ Language: ReasonML
 Author: Gidi Meir Morris <oss@gidi.io>, Cheng Lou
 Category: functional
 */
-module.exports = function(hljs) {
+function(hljs) {
   function orReValues(ops){
     return ops
     .map(function(op) {
@@ -50,6 +50,7 @@ module.exports = function(hljs) {
 
   const STRING_MODE = {
     className: 'string',
+    relevance: 0,
     variants: [
       {
         begin: '"',
@@ -93,6 +94,7 @@ module.exports = function(hljs) {
   // as in variant constructor
   const CONSTRUCTOR_MODE = {
     className: 'constructor',
+    relevance: 0,
     begin: '\\b' + RE_CONSTRUCTOR,
     illegal: '\\n',
     keywords: KEYWORDS,
@@ -112,6 +114,7 @@ module.exports = function(hljs) {
 
   const LIST_MODES = {
     className: 'literal',
+    relevance: 0,
     variants: [
       {
         begin: '\\[',
@@ -124,6 +127,7 @@ module.exports = function(hljs) {
 
   const MODULE_ACCESS_MODE = {
     begin: "\\b" + RE_MODULE_IDENT + "\\.",
+    relevance: 0,
     returnBegin: true,
     contains: [
       {
@@ -134,6 +138,7 @@ module.exports = function(hljs) {
   };
 
   const JSX_MODE = {
+    relevance: 0,
     variants: [
       {
         begin: "<>",
@@ -228,14 +233,14 @@ module.exports = function(hljs) {
   };
 
   // all the modes below are mutually recursive
-  let OPEN_OR_INCLUDE_MODULE_MODE = {
+  const OPEN_OR_INCLUDE_MODULE_MODE = {
     begin: "\\b(open|include)\\s*",
     keywords: KEYWORDS,
     contains: [
       MODULE_ACCESS_ENDS_WITH_MODULE,
     ]
   };
-  let MODULE_MODE = {
+  const MODULE_MODE = {
     begin: "\\s*\\{\\s*",
     end: "\\s*\\}\\s*",
     keywords: KEYWORDS,

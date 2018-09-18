@@ -1,20 +1,20 @@
 <span class="hljs-keyword">let</span> message =
-  switch (person1) {
-    <span class="hljs-pattern-match">| <span class="hljs-constructor">School</span>.<span class="hljs-constructor">Teacher</span> =&gt;</span> <span class="hljs-string">"Hello teacher!"</span>
-    <span class="hljs-pattern-match">| <span class="hljs-constructor">School</span>.<span class="hljs-constructor">Director</span> =&gt;</span> <span class="hljs-string">"Hello director!"</span>
+  <span class="hljs-keyword">switch</span> (person1) {
+    | <span class="hljs-module-identifier">School</span>.<span class="hljs-constructor">Teacher</span> =&gt; <span class="hljs-string">"Hello teacher!"</span>
+    | <span class="hljs-module-identifier">School</span>.<span class="hljs-constructor">Director</span> =&gt; <span class="hljs-string">"Hello director!"</span>
   };
 
 <span class="hljs-keyword">let</span> message =
-  <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">School</span>.</span>(
-    switch (person1) {
-    | <span class="hljs-module"><span class="hljs-identifier">Teacher</span> </span>=&gt; <span class="hljs-string">"Hello teacher!"</span>
-    | <span class="hljs-module"><span class="hljs-identifier">Director</span> </span>=&gt; <span class="hljs-string">"Hello director!"</span>
+  <span class="hljs-module-identifier">School</span>.(
+    <span class="hljs-keyword">switch</span> (person1) {
+    | <span class="hljs-constructor">Teacher</span> =&gt; <span class="hljs-string">"Hello teacher!"</span>
+    | <span class="hljs-constructor">Director</span> =&gt; <span class="hljs-string">"Hello director!"</span>
     }
-  )</span>;
+  );
 
-<span class="hljs-keyword">let</span> readCacheServiceConfigAndDecode =<span class="hljs-function"> (<span class="hljs-params">configJson</span>) =&gt;</span>
-  switch (configJson<span class="hljs-operator"> |&gt; </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Json</span>.</span></span>decodeObject) {
-  <span class="hljs-pattern-match">| <span class="hljs-constructor">None</span> =&gt;</span> raise(Json.Decode.<span class="hljs-constructor">DecodeError(<span class="hljs-string">"Invalid Cache Config"</span>)</span>)
-  <span class="hljs-pattern-match">| <span class="hljs-constructor">Some(<span class="hljs-params">data</span>)</span> =&gt;</span>
-    data<span class="hljs-operator"> |&gt; </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Dict</span>.</span></span>map(<span class="hljs-function">(. json) =&gt;</span> <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">CachingServiceConfig</span>.</span></span>decode(json))
+<span class="hljs-keyword">let</span> readCacheServiceConfigAndDecode = (configJson) =&gt;
+  <span class="hljs-keyword">switch</span> (configJson <span class="hljs-operator">|&gt;</span> <span class="hljs-module-identifier">Js</span>.<span class="hljs-module-identifier">Json</span>.decodeObject) {
+  | <span class="hljs-constructor">None</span> =&gt; <span class="hljs-keyword">raise</span>(<span class="hljs-module-identifier">Json</span>.<span class="hljs-module-identifier">Decode</span>.<span class="hljs-constructor">DecodeError</span>(<span class="hljs-string">"Invalid Cache Config"</span>))
+  | <span class="hljs-constructor">Some</span>(data) =&gt;
+    data <span class="hljs-operator">|&gt;</span> <span class="hljs-module-identifier">Js</span>.<span class="hljs-module-identifier">Dict</span>.map((. json) =&gt; <span class="hljs-module-identifier">CachingServiceConfig</span>.decode(json))
   };
