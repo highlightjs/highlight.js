@@ -11,7 +11,7 @@ function(hljs) {
   var ELIXIR_KEYWORDS =
     'and false then defined module in return redo retry end for true self when ' +
     'next until do begin unless nil break not case cond alias while ensure or ' +
-    'include use alias fn quote require import with';
+    'include use alias fn quote require import with|0';
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
