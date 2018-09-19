@@ -224,7 +224,7 @@ https://highlightjs.org/
     return mode.cached_variants || (mode.endsWithParent && [inherit(mode)]) || [mode];
   }
 
-  function compileLanguage(language) {
+  function compileLanguage(language, soft_illegals) {
 
     function reStr(re) {
         return (re && re.source) || re;
@@ -278,7 +278,9 @@ https://highlightjs.org/
           mode.end = mode.begin;
         if (!mode.end && !mode.endsWithParent)
           mode.end = /\B|\b/;
-        if (mode.end)
+        if (mode.end && soft_illegals && mode.illegal)
+          mode.endRe = langRe('(' + mode.end + '|' + mode.illegal + ')');
+        else if (mode.end)
           mode.endRe = langRe(mode.end);
         mode.terminator_end = reStr(mode.end) || '';
         if (mode.endsWithParent && parent.terminator_end)
@@ -314,15 +316,19 @@ https://highlightjs.org/
   }
 
   /*
-  Core highlighting function. Accepts a language name, or an alias, and a
-  string with the code to highlight. Returns an object with the following
-  properties:
+  Core highlighting function. Accepts:
+
+  - name: a language name, or an alias
+  - value: a string with the code to highlight
+  - soft_illegals: if false will use strict parsing where illegals stop processing, if true will use illegals as an alternate end regex
+  - continuation:
+
+  Returns an object with the following properties:
 
   - relevance (int)
   - value (an HTML string with highlighting markup)
-
   */
-  function highlight(name, value, ignore_illegals, continuation) {
+  function highlight(name, value, soft_illegals, continuation) {
 
     function escapeRe(value) {
       return new RegExp(value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
@@ -354,7 +360,7 @@ https://highlightjs.org/
     }
 
     function isIllegal(lexeme, mode) {
-      return !ignore_illegals && testRe(mode.illegalRe, lexeme);
+      return !soft_illegals && testRe(mode.illegalRe, lexeme);
     }
 
     function keywordMatch(mode, match) {
@@ -506,7 +512,7 @@ https://highlightjs.org/
       throw new Error('Unknown language: "' + name + '"');
     }
 
-    compileLanguage(language);
+    compileLanguage(language, soft_illegals);
     var top = continuation || language;
     var continuations = {}; // keep continuations for sub-languages
     var result = '', current;
