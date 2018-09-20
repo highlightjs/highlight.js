@@ -278,8 +278,11 @@ https://highlightjs.org/
           mode.end = mode.begin;
         if (!mode.end && !mode.endsWithParent)
           mode.end = /\B|\b/;
-        if (mode.end && soft_illegals && mode.illegal)
-          mode.endRe = langRe('(' + mode.end + '|' + mode.illegal + ')');
+        if (soft_illegals && mode.end && mode.illegal) {
+          var endSource = (mode.end instanceof RegExp ? mode.end.source : mode.end);
+          var illegalSource = (mode.illegal instanceof RegExp ? mode.illegal.source : mode.illegal);
+          mode.endRe = langRe(endSource + '|' + illegalSource);
+        }
         else if (mode.end)
           mode.endRe = langRe(mode.end);
         mode.terminator_end = reStr(mode.end) || '';
