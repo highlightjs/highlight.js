@@ -8,6 +8,7 @@ New languages:
 - *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
 - *ReasonML* by [Gidi Meir Morris][]
+- *SAS* by [Mauricio Caceres Bravo][]
 
 New styles:
 - *a11y-dark theme* by [Eric Bailey][]
@@ -45,6 +46,7 @@ Improvements:
 [John Foster]: https://github.com/jf990
 [David Benjamin]: https://github.com/davidben
 [Berk Çebi]: https://github.com/berkcebi
+[Mauricio Caceres Bravo]: https://github.com/mcaceresb
 
 ## Version 9.12.0
 
