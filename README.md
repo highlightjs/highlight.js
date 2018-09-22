@@ -31,6 +31,13 @@ The list of supported language classes is available in the [class
 reference][2].  Classes can also be prefixed with either `language-` or
 `lang-`.
 
+To make arbitrary text look like code, but without highlighting, use the
+`plaintext` class:
+
+```html
+<pre><code class="plaintext">...</code></pre>
+```
+
 To disable highlighting altogether use the `nohighlight` class:
 
 ```html
