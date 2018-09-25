@@ -1,0 +1,44 @@
+<span class="hljs-comment">-- options of some commands</span>
+
+<span class="hljs-keyword">WITH</span>, <span class="hljs-keyword">WITH</span> ( .. ), (),
+    <span class="hljs-comment">-- alter/create role</span>
+    <span class="hljs-keyword">SUPERUSER</span>, <span class="hljs-keyword">NOSUPERUSER</span>, <span class="hljs-keyword">CREATEDB</span>, <span class="hljs-keyword">NOCREATEDB</span>, <span class="hljs-keyword">CREATEROLE</span>, <span class="hljs-keyword">NOCREATEROLE</span>, <span class="hljs-keyword">INHERIT</span>, <span class="hljs-keyword">NOINHERIT</span>,
+    <span class="hljs-keyword">LOGIN</span>, <span class="hljs-keyword">NOLOGIN</span>, <span class="hljs-keyword">REPLICATION</span>, <span class="hljs-keyword">NOREPLICATION</span>, <span class="hljs-keyword">BYPASSRLS</span>, <span class="hljs-keyword">NOBYPASSRLS</span>, <span class="hljs-keyword">CONNECTION</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">100</span>,
+    <span class="hljs-keyword">ENCRYPTED</span> <span class="hljs-keyword">PASSWORD</span>, <span class="hljs-keyword">UNENCRYPTED</span> <span class="hljs-keyword">PASSWORD</span>, <span class="hljs-keyword">VALID</span> <span class="hljs-keyword">UNTIL</span> <span class="hljs-string">'2020-01-01'</span>,
+    <span class="hljs-keyword">IN</span> <span class="hljs-keyword">ROLE</span>, <span class="hljs-keyword">IN</span> <span class="hljs-keyword">GROUP</span>, <span class="hljs-keyword">ROLE</span>, <span class="hljs-keyword">ADMIN</span>, <span class="hljs-keyword">USER</span>, <span class="hljs-keyword">SYSID</span>;
+    <span class="hljs-comment">-- copy</span>
+    <span class="hljs-keyword">FORMAT</span>, <span class="hljs-keyword">OIDS</span>, <span class="hljs-keyword">FREEZE</span>, <span class="hljs-keyword">DELIMITER</span>, <span class="hljs-keyword">NULL</span> <span class="hljs-string">'..'</span>, <span class="hljs-keyword">HEADER</span>, <span class="hljs-keyword">QUOTE</span>, <span class="hljs-keyword">ESCAPE</span>, <span class="hljs-keyword">FORCE_QUOTE</span>,
+    <span class="hljs-keyword">FORCE_NOT_NULL</span>, <span class="hljs-keyword">FORCE_NULL</span>, <span class="hljs-keyword">ENCODING</span>;
+    <span class="hljs-comment">-- create aggregate</span>
+    BASETYPE=, SFUNC=, STYPE=, SSPACE=, FINALFUNC=, FINALFUNC_EXTRA=,
+    FINALFUNC_MODIFY=, COMBINEFUNC=, SERIALFUNC=, DESERIALFUNC=,
+    INITCOND=, MSFUNC=, MINVFUNC=, MSTYPE=, MSSPACE=, MFINALFUNC=, MFINALFUNC_EXTRA=,
+    MFINALFUNC_MODIFY=, MINITCOND=, SORTOP=, PARALLEL=;
+    <span class="hljs-comment">-- create collation</span>
+    LOCALE=, LC_COLLATE=, LC_CTYPE=, PROVIDER=, VERSION=;
+    <span class="hljs-comment">-- create dataase</span>
+    OWNER=, TEMPLATE=, ENCODING=, LC_COLLATE=, LC_CTYPE=, TABLESPACE=, ALLOW_CONNECTIONS=,
+    CONNECTION LIMIT=, IS_TEMPLATE=;
+    <span class="hljs-comment">-- create extension</span>
+    <span class="hljs-keyword">SCHEMA</span>, <span class="hljs-keyword">VERSION</span>, <span class="hljs-keyword">FROM</span>, <span class="hljs-keyword">CASCADE</span>;
+    <span class="hljs-comment">-- create operator</span>
+    PROCEDURE=, LEFTARG=, RIGHTARG=, COMMUTATOR=, NEGATOR=, RESTRICT=, JOIN=, HASHES=, MERGES=
+    <span class="hljs-comment">-- create text search configuration</span>
+    PARSER=, COPY=;
+    <span class="hljs-comment">-- create text search dictionary</span>
+    TEMPLATE=;
+    <span class="hljs-comment">-- create text search parser</span>
+    START=, GETTOKEN=, END=, LEXTYPES=, HEADLINE=;
+    <span class="hljs-comment">-- create text search template</span>
+    INIT=, LEXIZE=;
+    <span class="hljs-comment">-- create type</span>
+    SUBTYPE=, SUBTYPE_OPCLASS=, COLLATION=, CANONICAL=, SUBTYPE_DIFF=,
+    INPUT=, OUTPUT=, RECEIVE=, SEND=, TYPMOD_IN=, TYPMOD_OUT=, ANALYZE=, INTERNALLENGTH=, PASSEDBYVALUE=, 
+    ALIGNMENT=, STORAGE=, LIKE=, CATEGORY=, PREFERRED=, DEFAULT=, ELEMENT=, DELIMITER=, COLLATABLE=;
+    <span class="hljs-comment">-- analyze/explain/vacuum</span>
+    <span class="hljs-keyword">ANALYZE</span>, <span class="hljs-keyword">VERBOSE</span>, <span class="hljs-keyword">COSTS</span>, <span class="hljs-keyword">BUFFERS</span>, <span class="hljs-keyword">TIMING</span>, <span class="hljs-keyword">SUMMARY</span>, <span class="hljs-keyword">FORMAT TEXT</span>, <span class="hljs-keyword">FORMAT XML</span>, <span class="hljs-keyword">FORMAT JSON</span>, 
+    <span class="hljs-keyword">FORMAT YAML</span>, <span class="hljs-keyword">FREEZE</span>, <span class="hljs-keyword">FULL</span>, <span class="hljs-keyword">DISABLE_PAGE_SKIPPING</span>;
+
+<span class="hljs-comment">-- table like options</span>
+
+<span class="hljs-keyword">TABLE</span> t1(<span class="hljs-keyword">LIKE</span> t1 <span class="hljs-keyword">INCLUDING COMMENTS</span> <span class="hljs-keyword">INCLUDING CONSTRAINTS</span> <span class="hljs-keyword">EXCLUDING DEFAULTS</span> <span class="hljs-keyword">INCLUDING IDENTITY</span> <span class="hljs-keyword">INCLUDING INDEXES</span> <span class="hljs-keyword">INCLUDING STATISTICS</span> <span class="hljs-keyword">INCLUDING STORAGE</span> <span class="hljs-keyword">EXCLUDING ALL</span>);
