@@ -1,0 +1,43 @@
+<span class="hljs-string">'''text \''' text'''</span>
+<span class="hljs-string">u'''text \''' text'''</span>
+<span class="hljs-string">b'''text \''' text'''</span>
+<span class="hljs-string">r'''text \''' text'''</span>
+<span class="hljs-string">ur'''text \''' text'''</span>
+<span class="hljs-string">br'''text \''' text'''</span>
+
+<span class="hljs-string">"""text \""" text"""</span>
+<span class="hljs-string">u"""text \""" text"""</span>
+<span class="hljs-string">b"""text \""" text"""</span>
+<span class="hljs-string">r"""text \""" text"""</span>
+<span class="hljs-string">ur"""text \""" text"""</span>
+<span class="hljs-string">br"""text \""" text"""</span>
+
+<span class="hljs-string">f'''text \''' text'''</span>
+<span class="hljs-string">fr'''text \''' text'''</span>
+<span class="hljs-string">rf'''text \''' text'''</span>
+
+<span class="hljs-string">f"""text \""" text"""</span>
+<span class="hljs-string">fr"""text \""" text"""</span>
+<span class="hljs-string">rf"""text \""" text"""</span>
+
+<span class="hljs-string">u'text \' text'</span>
+<span class="hljs-string">r'text \' text'</span>
+<span class="hljs-string">ur'text \' text'</span>
+
+<span class="hljs-string">u"text \" text"</span>
+<span class="hljs-string">r"text \" text"</span>
+<span class="hljs-string">ur"text \" text"</span>
+
+<span class="hljs-string">b'text \' text'</span>
+<span class="hljs-string">br'text \' text'</span>
+
+<span class="hljs-string">b"text \" text"</span>
+<span class="hljs-string">br"text \" text"</span>
+
+<span class="hljs-string">f'text \' text'</span>
+<span class="hljs-string">fr'text \' text'</span>
+<span class="hljs-string">rf'text \' text'</span>
+
+<span class="hljs-string">f"text \" text"</span>
+<span class="hljs-string">fr"text \" text"</span>
+<span class="hljs-string">rf"text \" text"</span>

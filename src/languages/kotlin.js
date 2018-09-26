@@ -105,6 +105,7 @@ function(hljs) {
   };
 
   return {
+    aliases: ['kt'],
     keywords: KEYWORDS,
     contains : [
       hljs.COMMENT(

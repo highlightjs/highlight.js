@@ -1,27 +1,56 @@
 ## Master
 
-New language:
+New languages:
 
-- *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
+- *ArcGIS Arcade* by [John Foster][]
+- *AngelScript* by [Melissa Geels][]
+- *GML* by [meseta][]
 - *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
+- *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
+- *ReasonML* by [Gidi Meir Morris][]
+- *SAS* by [Mauricio Caceres Bravo][]
 - *OMG IDL* OMG Interface Description Language by [Brahim Djoudi][].
 - *WebIDL* Web IDL by [Brahim Djoudi][].
 - *Slice* Zeroc specification language for ICE framework by [Brahim Djoudi][].
 
-New style:
+New styles:
 
-- *Lightfair* by [Tristian Kelly][]
-- *isbl editor light* by [Dmitriy Tarasov][]
+- *a11y-dark theme* by [Eric Bailey][]
+- *a11y-light theme* by [Eric Bailey][]
+- *An Old Hope* by [Gustavo Costa][]
+- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
 - *isbl editor dark* by [Dmitriy Tarasov][]
+- *isbl editor light* by [Dmitriy Tarasov][]
+- *Lightfair* by [Tristian Kelly][]
+- [*Nord*][nord-highlightjs] by [Arctic Ice Studio][]
+- *[🦄 Shades of Purple](https://github.com/ahmadawais/Shades-of-Purple-HighlightJS)* by [Ahmad Awais][]
 
 Improvements:
 
 - New attribute endSameAsBegin for nested constructs with variable names
   by [Egor Rogov][].
+- *Python* highlighting of escaped quotes fixed by [Harmon][]
+- *PHP*: Added alias for php7, by [Vijaya Chandran Mani][]
+- *C++* string handling, by [David Benjamin][]
+- *Swift* Add `@objcMembers` to `@attributes`, by [Berk Çebi][]
 
-[Tristian Kelly]: https://github.com/TristianK3604
-[Egor Rogov]: https://github.com/egor-rogov
+[Ahmad Awais]: https://github.com/ahmadawais
+[Arctic Ice Studio]: https://github.com/arcticicestudio
 [Dmitriy Tarasov]: https://github.com/MedvedTMN
+[Egor Rogov]: https://github.com/egor-rogov
+[Eric Bailey]: https://github.com/ericwbailey
+[Gidi Meir Morris]: https://github.com/gmmorris
+[Gustavo Costa]: https://github.com/gusbemacbe
+[Harmon]: https://github.com/Harmon758
+[Melissa Geels]: https://github.com/codecat
+[meseta]: https://github.com/meseta
+[nord-highlightjs]: https://github.com/arcticicestudio/nord-highlightjs
+[Tristian Kelly]: https://github.com/TristianK3604
+[Vijaya Chandran Mani]: https://github.com/vijaycs85
+[John Foster]: https://github.com/jf990
+[David Benjamin]: https://github.com/davidben
+[Berk Çebi]: https://github.com/berkcebi
+[Mauricio Caceres Bravo]: https://github.com/mcaceresb
 [Brahim Djoudi]: https://github.com/jolkdarr
 
 ## Version 9.12.0
