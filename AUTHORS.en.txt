@@ -248,3 +248,19 @@ Contributors:
 - Joël Porquet <joel@porquet.org>
 - Alex Arslan <ararslan@comcast.net>
 - Stanislav Belov <stbelov@gmail.com>
+- Ivan Dementev <ivan_div@mail.ru>
+- Nicolas LLOBERA <nllobera@gmail.com>
+- Morten Piibeleht <morten.piibeleht@gmail.com>
+- Martin Clausen <martin.clausene@gmail.com>
+- Arctic Ice Studio <development@arcticicestudio.com>
+- Google Inc. (David Benjamin) <davidben@google.com>
+- Ahmad Awais <me@AhmadAwais.com>
+- Gidi Meir Morris <gidi@gidi.io>
+- Tristian Kelly <tristian.kelly560@gmail.com>
+- Melissa Geels <melissa@nimble.tools>
+- Dmitriy Tarasov <dimatar@gmail.com>
+- Egor Rogov <e.rogov@postgrespro.ru>
+- Meseta <meseta@gmail.com>
+- Harmon <Harmon.Public@gmail.com>
+- Eric Bailey <eric.w.bailey@gmail.com>
+- Gustavo Costa <gusbemacbe@gmail.com>
