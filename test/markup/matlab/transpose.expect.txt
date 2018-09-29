@@ -1,0 +1,3 @@
+v'        <span class="hljs-comment">% conjugate transpose</span>
+v.'       <span class="hljs-comment">% transpose</span>
+v.''.'.'' <span class="hljs-comment">% several times</span>
