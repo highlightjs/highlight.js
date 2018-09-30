@@ -1,0 +1,33 @@
+--+============================================================================+
+--|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ www.AlanIF.se ///////////////////////////////|
+--++--------------------------------------------------------------------------++
+--||                                                                          ||
+--||                    Alan Interactive Fiction Language                     ||
+--||                                                                          ||
+--++--------------------------------------------------------------------------++
+--|/////////////////////////////////// hljs \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|
+--+============================================================================+
+--|"Barracks Example" by Tristano Ajmone                                       |
+--+============================================================================+
+The canteen IsA LOCATION
+  Name 'The Barrack''s Mess Hall'.
+END The canteen.
+
+The trolley IsA object At canteen
+  Container Taking object.
+    Limits
+      Count 5 Else "The trolley is full!"
+    Has Not been_examined.
+  VERB examine
+    DOES
+      If This Has Not been_examined
+        Then "This old trolley has surely seen better days. $nIt seems barely
+              capable of carrying its own weight without collapsing, let alone 
+              endure its daily use!"
+          Make This been_examined.
+        Else "It's just an old trolley."
+      End If.     
+  END VERB examine.
+End The trolley.
+
+Start at canteen.

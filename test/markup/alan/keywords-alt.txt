@@ -1,0 +1,8 @@
+WHEN hero AT restaurant
+  => SCHEDULE greet_hero AT hero AFTER 0.
+END WHEN.
+
+EVENT greet_hero
+  "Hello"
+  SAY hero:nickname.
+END EVENT.

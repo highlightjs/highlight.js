@@ -1,0 +1,8 @@
+<span class="hljs-keyword">WHEN</span> hero <span class="hljs-keyword">AT</span> restaurant
+  <span class="hljs-keyword">=&gt;</span> <span class="hljs-keyword">SCHEDULE</span> greet_hero <span class="hljs-keyword">AT</span> hero <span class="hljs-keyword">AFTER</span> <span class="hljs-number">0</span><span class="hljs-keyword">.</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">WHEN</span><span class="hljs-keyword">.</span>
+
+<span class="hljs-keyword">EVENT</span> greet_hero
+  <span class="hljs-string">"Hello"</span>
+  <span class="hljs-keyword">SAY</span> hero<span class="hljs-keyword">:</span>nickname<span class="hljs-keyword">.</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">EVENT</span><span class="hljs-keyword">.</span>

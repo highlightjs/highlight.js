@@ -1,0 +1,3 @@
+<span class="hljs-keyword">ADD</span> <span class="hljs-keyword">TO</span> 'add to the'
+  <span class="hljs-keyword">HAS</span> 'the string' <span class="hljs-string">"this is the string"</span><span class="hljs-keyword">.</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">ADD</span><span class="hljs-keyword">.</span>

@@ -1,0 +1,3 @@
+ADD TO 'add to the'
+  HAS 'the string' "this is the string".
+END ADD.

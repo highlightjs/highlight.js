@@ -1,0 +1,22 @@
+<span class="hljs-keyword">THE</span> basement <span class="hljs-keyword">IsA</span> <span class="hljs-built_in">locATion</span><span class="hljs-keyword">.</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">THE</span><span class="hljs-keyword">.</span>
+
+<span class="hljs-keyword">THE</span> vampire <span class="hljs-keyword">IsA</span> <span class="hljs-built_in">actor</span> <span class="hljs-keyword">AT</span> basement<span class="hljs-keyword">.</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">THE</span><span class="hljs-keyword">.</span>
+
+<span class="hljs-keyword">THE</span> coffin <span class="hljs-keyword">IsA</span> <span class="hljs-built_in">object</span> <span class="hljs-keyword">AT</span> basement<span class="hljs-keyword">.</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">THE</span><span class="hljs-keyword">.</span>
+
+<span class="hljs-keyword">ADD</span> <span class="hljs-keyword">TO</span> <span class="hljs-keyword">EVERY</span> <span class="hljs-built_in">thing</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">TO</span><span class="hljs-keyword">.</span>
+
+<span class="hljs-keyword">ADD</span> <span class="hljs-keyword">TO</span> <span class="hljs-keyword">EVERY</span> <span class="hljs-built_in">string</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">TO</span><span class="hljs-keyword">.</span>
+
+<span class="hljs-keyword">ADD</span> <span class="hljs-keyword">TO</span> <span class="hljs-keyword">EVERY</span> <span class="hljs-built_in">integer</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">TO</span><span class="hljs-keyword">.</span>
+
+<span class="hljs-keyword">ADD</span> <span class="hljs-keyword">TO</span> <span class="hljs-keyword">EVERY</span> <span class="hljs-built_in">literal</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">TO</span><span class="hljs-keyword">.</span>
+
+<span class="hljs-keyword">START</span> <span class="hljs-keyword">AT</span> basement<span class="hljs-keyword">.</span>

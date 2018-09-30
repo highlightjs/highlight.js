@@ -1,0 +1,22 @@
+THE basement IsA locATion.
+END THE.
+
+THE vampire IsA actor AT basement.
+END THE.
+
+THE coffin IsA object AT basement.
+END THE.
+
+ADD TO EVERY thing
+END ADD TO.
+
+ADD TO EVERY string
+END ADD TO.
+
+ADD TO EVERY integer
+END ADD TO.
+
+ADD TO EVERY literal
+END ADD TO.
+
+START AT basement.
