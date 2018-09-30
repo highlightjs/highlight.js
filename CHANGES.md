@@ -2,6 +2,7 @@
 
 New languages:
 
+- *Alan IF* by [Tristano Ajmone][]
 - *ArcGIS Arcade* by [John Foster][]
 - *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
