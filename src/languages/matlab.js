@@ -18,7 +18,7 @@ function(hljs) {
     relevance: 0,
     contains: [
       {
-        begin: /'['\.]*/
+        begin: /('|\.')+/
       }
     ]
   };
@@ -63,7 +63,7 @@ function(hljs) {
         ]
       },
       {
-        begin: /[a-zA-Z_][a-zA-Z_0-9]*'['\.]*/,
+        begin: /[a-zA-Z_][a-zA-Z_0-9]*('|\.')+/,
         returnBegin: true,
         relevance: 0,
         contains: [
