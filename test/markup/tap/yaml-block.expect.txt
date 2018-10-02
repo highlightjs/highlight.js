@@ -9,7 +9,7 @@
 <span class="hljs-symbol">ok</span>
   <span class="yaml"><span class="hljs-meta">---</span>
 <span class="hljs-attr">  message:</span> <span class="hljs-string">"Board layout"</span>
-<span class="hljs-attr">  severity:</span> comment
+<span class="hljs-attr">  severity:</span> <span class="hljs-string">comment</span>
 <span class="hljs-attr">  dump:</span>
 <span class="hljs-attr">     board:</span>
 <span class="hljs-bullet">       -</span> <span class="hljs-string">'      16G         05C        '</span>
@@ -21,6 +21,6 @@
 <span class="hljs-bullet">       -</span> <span class="hljs-string">'      01G   17C   00C        '</span>
 <span class="hljs-bullet">       -</span> <span class="hljs-string">'      G A G G N R R N R      '</span>
 <span class="hljs-bullet">       -</span> <span class="hljs-string">'        G     R     G        '</span>
-  ...</span>
+  <span class="hljs-string">...</span></span>
 <span class="hljs-symbol">ok</span> - board has<span class="hljs-number"> 7 </span>tiles + starter tile
 <span class="hljs-meta">1..9</span>

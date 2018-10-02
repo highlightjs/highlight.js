@@ -1,0 +1,4 @@
+{ Compiler directives }
+{$I} (*$I*)
+procedure A(x: {$IFDEF Debug}Integer{$ELSE}Word{$ENDIF});
+begin end;

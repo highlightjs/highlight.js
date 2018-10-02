@@ -1,0 +1,4 @@
+<span class="hljs-attr">key:</span> <span class="hljs-type">!!builtintagname</span> <span class="hljs-string">test</span>
+<span class="hljs-attr">key:</span> <span class="hljs-type">!localtagname</span> <span class="hljs-string">test</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">"!notatag"</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">'!!notatageither'</span>

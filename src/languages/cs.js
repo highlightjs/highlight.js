@@ -1,6 +1,7 @@
 /*
 Language: C#
 Author: Jason Diamond <jason@diamond.name>
+Contributor: Nicolas LLOBERA <nllobera@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>
 Category: common
 */
 
@@ -9,19 +10,26 @@ function(hljs) {
     keyword:
       // Normal keywords.
       'abstract as base bool break byte case catch char checked const continue decimal ' +
-      'default delegate do double else enum event explicit extern finally fixed float ' +
-      'for foreach goto if implicit in int interface internal is lock long ' +
+      'default delegate do double enum event explicit extern finally fixed float ' +
+      'for foreach goto if implicit in int interface internal is lock long nameof ' +
       'object operator out override params private protected public readonly ref sbyte ' +
       'sealed short sizeof stackalloc static string struct switch this try typeof ' +
       'uint ulong unchecked unsafe ushort using virtual void volatile while ' +
-      'nameof ' +
       // Contextual keywords.
       'add alias ascending async await by descending dynamic equals from get global group into join ' +
       'let on orderby partial remove select set value var where yield',
     literal:
       'null false true'
   };
-
+  var NUMBERS = {
+    className: 'number',
+    variants: [
+      { begin: '\\b(0b[01\']+)' },
+      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)(u|U|l|L|ul|UL|f|F|b|B)' },
+      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
+    ],
+    relevance: 0
+  };
   var VERBATIM_STRING = {
     className: 'string',
     begin: '@"', end: '"',
@@ -55,7 +63,7 @@ function(hljs) {
     VERBATIM_STRING,
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
-    hljs.C_NUMBER_MODE,
+    NUMBERS,
     hljs.C_BLOCK_COMMENT_MODE
   ];
   SUBST_NO_LF.contains = [
@@ -64,7 +72,7 @@ function(hljs) {
     VERBATIM_STRING_NO_LF,
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
-    hljs.C_NUMBER_MODE,
+    NUMBERS,
     hljs.inherit(hljs.C_BLOCK_COMMENT_MODE, {illegal: /\n/})
   ];
   var STRING = {
@@ -78,6 +86,7 @@ function(hljs) {
   };
 
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
+
   return {
     aliases: ['csharp'],
     keywords: KEYWORDS,
@@ -111,13 +120,15 @@ function(hljs) {
       {
         className: 'meta',
         begin: '#', end: '$',
-        keywords: {'meta-keyword': 'if else elif endif define undef warning error line region endregion pragma checksum'}
+        keywords: {
+          'meta-keyword': 'if else elif endif define undef warning error line region endregion pragma checksum'
+        }
       },
       STRING,
-      hljs.C_NUMBER_MODE,
+      NUMBERS,
       {
         beginKeywords: 'class interface', end: /[{;=]/,
-        illegal: /[^\s:]/,
+        illegal: /[^\s:,]/,
         contains: [
           hljs.TITLE_MODE,
           hljs.C_LINE_COMMENT_MODE,
@@ -134,15 +145,23 @@ function(hljs) {
         ]
       },
       {
+        // [Attributes("")]
+        className: 'meta',
+        begin: '^\\s*\\[', excludeBegin: true, end: '\\]', excludeEnd: true,
+        contains: [
+          {className: 'meta-string', begin: /"/, end: /"/}
+        ]
+      },
+      {
         // Expression keywords prevent 'keyword Name(...)' from being
         // recognized as a function definition
-        beginKeywords: 'new return throw await',
+        beginKeywords: 'new return throw await else',
         relevance: 0
       },
       {
         className: 'function',
-        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
-        excludeEnd: true,
+        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
+        end: /[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           {
@@ -159,7 +178,7 @@ function(hljs) {
             relevance: 0,
             contains: [
               STRING,
-              hljs.C_NUMBER_MODE,
+              NUMBERS,
               hljs.C_BLOCK_COMMENT_MODE
             ]
           },

@@ -18,7 +18,7 @@ function(hljs) {
     relevance: 0,
     contains: [
       {
-        begin: /'['\.]*/
+        begin: /('|\.')+/
       }
     ]
   };
@@ -42,7 +42,9 @@ function(hljs) {
         'triu fliplr flipud flipdim rot90 find sub2ind ind2sub bsxfun ndgrid permute ipermute ' +
         'shiftdim circshift squeeze isscalar isvector ans eps realmax realmin pi i inf nan ' +
         'isnan isinf isfinite j why compan gallery hadamard hankel hilb invhilb magic pascal ' +
-        'rosser toeplitz vander wilkinson'
+        'rosser toeplitz vander wilkinson max min nanmax nanmin mean nanmean type table ' +
+        'readtable writetable sortrows sort figure plot plot3 scatter scatter3 cellfun ' +
+        'legend intersect ismember procrustes hold num2cell '
     },
     illegal: '(//|"|#|/\\*|\\s+/\\w+)',
     contains: [
@@ -61,7 +63,7 @@ function(hljs) {
         ]
       },
       {
-        begin: /[a-zA-Z_][a-zA-Z_0-9]*'['\.]*/,
+        begin: /[a-zA-Z_][a-zA-Z_0-9]*('|\.')+/,
         returnBegin: true,
         relevance: 0,
         contains: [

@@ -1,0 +1,4 @@
+float test = 1.0f;
+float test2 = 1.f;
+float test3 = 1.0;
+float test4 = 1;

@@ -230,3 +230,38 @@ Contributors:
 - Camil Staps <info@camilstaps.nl>
 - Alexander Lichter <manniL@gmx.net>
 - Cassio Binkowski <cassioiks@live.com>
+- Nicolas Le Gall <contact@nlegall.fr>
+- Kenton Hamaluik <kentonh@gmail.com>
+- Marvin Saignat <contact@zgmrvn.com>
+- Michael Rodler <contact@f0rki.at>
+- Sergey Sobko <s.sobko@profitware.ru>
+- Hale Chan <halechan@qq.com>
+- Matt Evans <syrius3@gmail.com>
+- Kasper Andersen <kma_untrusted@protonmail.com>
+- Philipp A. <flying-sheep@web.de>
+- Guannan Wei <guannanwei@outlook.com>
+- Sam Wu <samsam2310@gmail.com>
+- Ike Ku <dempfi@yahoo.com>
+- Andres Täht <andres.taht@gmail.com>
+- Rene Saarsoo <nene@triin.net>
+- Jordi Petit <jordi.petit@gmail.com>
+- Raphaël Parrëe <rparree@edc4it.com>
+- Joël Porquet <joel@porquet.org>
+- Alex Arslan <ararslan@comcast.net>
+- Stanislav Belov <stbelov@gmail.com>
+- Ivan Dementev <ivan_div@mail.ru>
+- Nicolas LLOBERA <nllobera@gmail.com>
+- Morten Piibeleht <morten.piibeleht@gmail.com>
+- Martin Clausen <martin.clausene@gmail.com>
+- Arctic Ice Studio <development@arcticicestudio.com>
+- Google Inc. (David Benjamin) <davidben@google.com>
+- Ahmad Awais <me@AhmadAwais.com>
+- Gidi Meir Morris <gidi@gidi.io>
+- Tristian Kelly <tristian.kelly560@gmail.com>
+- Melissa Geels <melissa@nimble.tools>
+- Dmitriy Tarasov <dimatar@gmail.com>
+- Egor Rogov <e.rogov@postgrespro.ru>
+- Meseta <meseta@gmail.com>
+- Harmon <Harmon.Public@gmail.com>
+- Eric Bailey <eric.w.bailey@gmail.com>
+- Gustavo Costa <gusbemacbe@gmail.com>
