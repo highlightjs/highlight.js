@@ -1,3 +1,40 @@
-v'        % conjugate transpose
-v.'       % transpose
-v.''.'.'' % several times
+% This use of ' is for transpose:
+mat2x2 = [1 2; 3 4]';  % transpose of a matrix
+cell2x2 = {1 2; 3 4}'; % transpose of a cell
+v=mat2x2';             % transpose of a variable
+v2 = (v')';            % two transpose operations
+foo = 1.';             % transpose of scalar 1.
+
+% Nonconjugate transpose uses .'
+mat2x2 = [1 2; 3 4].';  % of a matrix
+cell2x2 = {1 2; 3 4}.'; % of a cell
+v=mat2x2.';             % of a variable
+v2 = (v.').';           % two operations
+foo = 1..';             % of scalar 1.
+bar = v.''.'.'';        % mix of transpose operations
+
+% single quote strings:
+sq1 = 'a single quote string';
+sq2 = ...
+' abcd ';         % single quote string starting at column 1
+sq3 = ['a','bc']; % array of single quote strings
+sq4 = {'a','bc'}; % cell of single quote strings
+
+% double quote strings
+dq1 = "a double string";
+dq2 = ...
+" abcd ";         % double quote string starting at column 1
+dq3 = ["a","bc"]; % array of double quote strings
+
+% Mixture of strings and transpose
+c2 = {'a','bc'}'; % transpose of a cell of strings
+s = ['a','bc']';  % you can transpose vectors of strings (they are really 'char' arrays)
+s = s';           % and transpose back
+% (s')' is a double transpose of a string
+x = [(s')', ' xyz ', 'a single quote in a string'', escape \', two quotes in a string'''''];  
+
+s2 = "abc\"def""ghi";      % newer versions of MATLAB support double quoted strings
+s3 = (["abc", "defg"]')';  % transpose a vectors of quoted string twice
+s4 = "abc"!;               % transpose a quoted string
+
+b = true' + false';        % boolean constants
