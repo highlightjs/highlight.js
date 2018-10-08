@@ -350,3 +350,11 @@ handle pairs of ``/* .. */`` to correctly find the ending ``?>``::
 
 Without ``skip: true`` every comment would cause the parser to drop out back
 into the HTML mode.
+
+disableAutodetect
+^^^^^^^^^^^^^^^^^
+
+**type**: boolean
+
+Disables autodetection for this language.
+
