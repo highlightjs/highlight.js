@@ -9,8 +9,11 @@ New languages:
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
 - *ReasonML* by [Gidi Meir Morris][]
 - *SAS* by [Mauricio Caceres Bravo][]
+- *Plaintext* by [Egor Rogov][]
+- *.properties* by [bostko][] and [Egor Rogov][]
 
 New styles:
+
 - *a11y-dark theme* by [Eric Bailey][]
 - *a11y-light theme* by [Eric Bailey][]
 - *An Old Hope* by [Gustavo Costa][]
@@ -23,12 +26,20 @@ New styles:
 
 Improvements:
 
-- New attribute endSameAsBegin for nested constructs with variable names
+- New attribute `endSameAsBegin` for nested constructs with variable names
   by [Egor Rogov][].
 - *Python* highlighting of escaped quotes fixed by [Harmon][]
 - *PHP*: Added alias for php7, by [Vijaya Chandran Mani][]
 - *C++* string handling, by [David Benjamin][]
 - *Swift* Add `@objcMembers` to `@attributes`, by [Berk Çebi][]
+- Infrastructural changes by [Marcos Cáceres][]
+- Fixed metachars highighting for *NSIS* by [Jan T. Sott][]
+- *Yaml* highlight local tags as types by [Léo Lam][]
+- Improved highlighting for *Elixir* by [Piotr Kaminski][]
+- New attribute `disableAutodetect` for preventing autodetection by [Egor Rogov][]
+- *Matlab*: transpose operators and double quote strings, by [JohnC32][] and [Egor Rogov][]
+- Various documentation typos and improvemets by [Jimmy Wärting][], [Lutz Büch][], [bcleland][]
+- *Cmake* updated with new keywords and commands by [Deniz Bahadir][]
 
 [Ahmad Awais]: https://github.com/ahmadawais
 [Arctic Ice Studio]: https://github.com/arcticicestudio
@@ -47,6 +58,16 @@ Improvements:
 [David Benjamin]: https://github.com/davidben
 [Berk Çebi]: https://github.com/berkcebi
 [Mauricio Caceres Bravo]: https://github.com/mcaceresb
+[bostko]: https://github.com/bostko
+[Deniz Bahadir]: https://github.com/Bagira80
+[bcleland]: https://github.com/bcleland
+[JohnC32]: https://github.com/JohnC32
+[Lutz Büch]: https://github.com/lutz-100worte
+[Piotr Kaminski]: https://github.com/pkaminski
+[Léo Lam]: https://github.com/leoetlino
+[Jan T. Sott]: https://github.com/idleberg
+[Jimmy Wärting]: https://github.com/jimmywarting
+[Marcos Cáceres]: https://github.com/marcoscaceres
 
 ## Version 9.12.0
 
