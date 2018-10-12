@@ -155,6 +155,12 @@ import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 ```
 
+To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can import the stylesheet directly into your CommonJS-module:
+
+```javascript
+import hljs from 'highlight.js/lib/highlight';
+import 'highlight.js/styles/github.css'
+```
 
 ## License
 
