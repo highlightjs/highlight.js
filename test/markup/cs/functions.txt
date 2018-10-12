@@ -1,0 +1,8 @@
+public void ExampleFunction()
+{
+}
+
+public void ExampleFunctionWithMultilineDeclaration(string arg1,
+    string arg2)
+{
+}
