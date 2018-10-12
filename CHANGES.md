@@ -1,5 +1,7 @@
 ## Master
 
+## Version 9.13.0
+
 New languages:
 
 - *ArcGIS Arcade* by [John Foster][]
