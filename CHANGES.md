@@ -2,6 +2,16 @@
 
 New languages:
 
+- *OMG IDL* OMG Interface Description Language by [Brahim Djoudi][].
+- *WebIDL* Web IDL by [Brahim Djoudi][].
+- *Slice* Zeroc specification language for ICE framework by [Brahim Djoudi][].
+
+[Brahim Djoudi]: https://github.com/jolkdarr
+
+## Version 9.13.0
+
+New languages:
+
 - *ArcGIS Arcade* by [John Foster][]
 - *AngelScript* by [Melissa Geels][]
 - *GML* by [meseta][]
@@ -9,9 +19,8 @@ New languages:
 - *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
 - *ReasonML* by [Gidi Meir Morris][]
 - *SAS* by [Mauricio Caceres Bravo][]
-- *OMG IDL* OMG Interface Description Language by [Brahim Djoudi][].
-- *WebIDL* Web IDL by [Brahim Djoudi][].
-- *Slice* Zeroc specification language for ICE framework by [Brahim Djoudi][].
+- *Plaintext* by [Egor Rogov][]
+- *.properties* by [bostko][] and [Egor Rogov][]
 
 New styles:
 
@@ -27,12 +36,20 @@ New styles:
 
 Improvements:
 
-- New attribute endSameAsBegin for nested constructs with variable names
+- New attribute `endSameAsBegin` for nested constructs with variable names
   by [Egor Rogov][].
 - *Python* highlighting of escaped quotes fixed by [Harmon][]
 - *PHP*: Added alias for php7, by [Vijaya Chandran Mani][]
 - *C++* string handling, by [David Benjamin][]
 - *Swift* Add `@objcMembers` to `@attributes`, by [Berk Çebi][]
+- Infrastructural changes by [Marcos Cáceres][]
+- Fixed metachars highighting for *NSIS* by [Jan T. Sott][]
+- *Yaml* highlight local tags as types by [Léo Lam][]
+- Improved highlighting for *Elixir* by [Piotr Kaminski][]
+- New attribute `disableAutodetect` for preventing autodetection by [Egor Rogov][]
+- *Matlab*: transpose operators and double quote strings, by [JohnC32][] and [Egor Rogov][]
+- Various documentation typos and improvemets by [Jimmy Wärting][], [Lutz Büch][], [bcleland][]
+- *Cmake* updated with new keywords and commands by [Deniz Bahadir][]
 
 [Ahmad Awais]: https://github.com/ahmadawais
 [Arctic Ice Studio]: https://github.com/arcticicestudio
@@ -51,7 +68,16 @@ Improvements:
 [David Benjamin]: https://github.com/davidben
 [Berk Çebi]: https://github.com/berkcebi
 [Mauricio Caceres Bravo]: https://github.com/mcaceresb
-[Brahim Djoudi]: https://github.com/jolkdarr
+[bostko]: https://github.com/bostko
+[Deniz Bahadir]: https://github.com/Bagira80
+[bcleland]: https://github.com/bcleland
+[JohnC32]: https://github.com/JohnC32
+[Lutz Büch]: https://github.com/lutz-100worte
+[Piotr Kaminski]: https://github.com/pkaminski
+[Léo Lam]: https://github.com/leoetlino
+[Jan T. Sott]: https://github.com/idleberg
+[Jimmy Wärting]: https://github.com/jimmywarting
+[Marcos Cáceres]: https://github.com/marcoscaceres
 
 ## Version 9.12.0
 

@@ -2,7 +2,15 @@ Syntax highlighting with language autodetection.
 
 URL:   https://highlightjs.org/
 
-Core developers (in order of appearance):
+Current core developers (alphabetical):
+
+- Gidi Meir Morris <gidi@gidi.io>
+- Jan T. Sott <git@idleberg.com>
+- Li Xuanji <xuanji@gmail.com>
+- Marcos Cáceres <marcos@marcosc.com>
+- Sang Dang <sang.dang@polku.io>
+
+Former maintainers:
 
 - Ivan Sagalaev (original author) <maniac@softwaremaniacs.org>
 - Jeremy Hull <sourdrums@gmail.com>
@@ -94,7 +102,6 @@ Contributors:
 - Bram de Haan <info@atelierbramdehaan.nl>
 - Seongwon Lee <dlimpid@gmail.com>
 - Zaven Muradyan <megalivoithos@gmail.com>
-- Jan T. Sott <git@idleberg.com>
 - Brent Bradbury <brent@brentium.com>
 - Martin Dilling-Hansen <martindlling@gmail.com>
 - Ilya Vassilevsky <vassilevsky@gmail.com>
@@ -255,7 +262,6 @@ Contributors:
 - Arctic Ice Studio <development@arcticicestudio.com>
 - Google Inc. (David Benjamin) <davidben@google.com>
 - Ahmad Awais <me@AhmadAwais.com>
-- Gidi Meir Morris <gidi@gidi.io>
 - Tristian Kelly <tristian.kelly560@gmail.com>
 - Melissa Geels <melissa@nimble.tools>
 - Dmitriy Tarasov <dimatar@gmail.com>
