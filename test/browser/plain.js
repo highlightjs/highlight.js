@@ -6,11 +6,11 @@ const glob = util.promisify(require('glob'));
 const readFile = util.promisify(require('fs').readFile);
 
 describe('plain browser', function () {
-  
-  before(async function() {
+
+  before(async function () {
     // Will match both `highlight.pack.js` and `highlight.min.js`
     const filepath = utility.buildPath('..', 'build', 'highlight.*.js');
-    const [ hljsPath ] = await glob(filepath);
+    const [hljsPath] = await glob(filepath);
     const file = await readFile(hljsPath, 'utf-8');
     const html = `<script>${file}</script>` + this.html;
     const { window } = new JSDOM(html, {
