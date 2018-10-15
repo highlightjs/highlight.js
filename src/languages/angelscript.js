@@ -30,7 +30,8 @@ function(hljs) {
     keywords:
       'for in|0 break continue while do|0 return if else case switch namespace is cast ' +
       'or and xor not get|0 in inout|10 out override set|0 private public const default|0 ' +
-      'final shared external mixin|10 enum typedef funcdef this super import from interface',
+      'final shared external mixin|10 enum typedef funcdef this super import from interface ' +
+      'abstract|0 try catch protected explicit',
 
     // avoid close detection with C# and JS
     illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|\\bfunction\s*[^\\(])',
