@@ -1,5 +1,17 @@
 ## Master
 
+New languages:
+
+New styles:
+
+Improvements:
+
+- *C#* function declarations no longer include trailing whitespace, by [JeremyTCD][]
+- Added new and missing keywords to *AngelScript*, by [Melissa Geels][]
+
+[JeremyTCD]: https://github.com/JeremyTCD
+[Melissa Geels]: https://github.com/codecat
+
 ## Version 9.13.0
 
 New languages:

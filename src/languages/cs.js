@@ -161,7 +161,7 @@ function(hljs) {
       {
         className: 'function',
         begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
-        end: /[{;=]/, excludeEnd: true,
+        end: /\s*[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           {
