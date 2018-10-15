@@ -9,10 +9,12 @@ Improvements:
 - *C#* function declarations no longer include trailing whitespace, by [JeremyTCD][]
 - Added new and missing keywords to *AngelScript*, by [Melissa Geels][]
 - *TypeScript* decorator factories highlighting fix, by [Antoine Boisier-Michaud][]
+- Added support for multiline strings to *Swift*, by [Alejandro Isaza][]
 
 [JeremyTCD]: https://github.com/JeremyTCD
 [Melissa Geels]: https://github.com/codecat
 [Antoine Boisier-Michaud]: https://github.com/Aboisier
+[Alejandro Isaza]: https://github.com/alejandro-isaza
 
 ## Version 9.13.0
 

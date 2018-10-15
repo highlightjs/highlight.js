@@ -271,3 +271,4 @@ Contributors:
 - Eric Bailey <eric.w.bailey@gmail.com>
 - Gustavo Costa <gusbemacbe@gmail.com>
 - Antoine Boisier-Michaud <aboisiermichaud@gmail.com>
+- Alejandro Isaza <al@isaza.ca>
