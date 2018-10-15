@@ -6,6 +6,9 @@ New styles:
 
 Improvements:
 
+- *C#* function declarations no longer include trailing whitespace, by [JeremyTCD][]
+
+[JeremyTCD]: https://github.com/JeremyTCD
 
 ## Version 9.13.0
 
@@ -49,7 +52,6 @@ Improvements:
 - *Matlab*: transpose operators and double quote strings, by [JohnC32][] and [Egor Rogov][]
 - Various documentation typos and improvemets by [Jimmy Wärting][], [Lutz Büch][], [bcleland][]
 - *Cmake* updated with new keywords and commands by [Deniz Bahadir][]
-- *C#* function declarations no longer include trailing whitespace, by [JeremyTCD][]
 
 [Ahmad Awais]: https://github.com/ahmadawais
 [Arctic Ice Studio]: https://github.com/arcticicestudio
@@ -78,7 +80,6 @@ Improvements:
 [Jan T. Sott]: https://github.com/idleberg
 [Jimmy Wärting]: https://github.com/jimmywarting
 [Marcos Cáceres]: https://github.com/marcoscaceres
-[JeremyTCD]: https://github.com/JeremyTCD
 
 ## Version 9.12.0
 
