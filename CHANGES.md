@@ -6,6 +6,9 @@ New styles:
 
 Improvements:
 
+- *C#* function declarations no longer include trailing whitespace, by [JeremyTCD][]
+
+[JeremyTCD]: https://github.com/JeremyTCD
 
 ## Version 9.13.0
 
