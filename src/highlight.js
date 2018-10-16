@@ -707,7 +707,7 @@ https://highlightjs.org/
   }
 
   function autoDetection(name) {
-    lang = getLanguage(name);
+    var lang = getLanguage(name);
     return lang && !lang.disableAutodetect;
   }
 
