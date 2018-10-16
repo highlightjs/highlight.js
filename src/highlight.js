@@ -707,8 +707,8 @@ https://highlightjs.org/
   }
 
   function autoDetection(name) {
-    name = (name || '').toLowerCase();
-    return !languages[name].disableAutodetect;
+    lang = getLanguage(name);
+    return lang && !lang.disableAutodetect;
   }
 
   /* Interface definition */
