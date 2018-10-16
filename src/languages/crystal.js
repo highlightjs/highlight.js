@@ -11,9 +11,9 @@ function(hljs) {
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\][=?]?';
   var CRYSTAL_KEYWORDS = {
     keyword:
-      'abstract alias as as? asm begin break case class def do else elsif end ensure enum extend for fun if ' +
+      'abstract alias annotation as as? asm begin break case class def do else elsif end ensure enum extend for fun if ' +
       'include instance_sizeof is_a? lib macro module next nil? of out pointerof private protected rescue responds_to? ' +
-      'return require select self sizeof struct super then type typeof union uninitialized unless until when while with yield ' +
+      'return require select self sizeof struct super then typeof union uninitialized unless until when while with yield ' +
       '__DIR__ __END_LINE__ __FILE__ __LINE__',
     literal: 'false nil true'
   };
