@@ -22,7 +22,7 @@ Releases happen on a 6-week schedule. Currently due to a long break the date of 
 
   * The header in CHANGES.md (this is where the site looks for the latest version number)
   * ``"version"`` attribute in package.json
-  * ``"version"`` attribute in package-lock.json
+  * ``"version"`` attribute in package-lock.json (run `npm install`)
   * Two places in docs/conf.py (``version`` and ``release``)
 
 * Commit the version changes and tag the commit with the plain version number (no "v." or anything like that)
