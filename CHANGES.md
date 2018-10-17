@@ -9,6 +9,7 @@ Improvements:
 ## Version 9.13.1
 
 Improvements:
+
 - *C#* function declarations no longer include trailing whitespace, by [JeremyTCD][]
 - Added new and missing keywords to *AngelScript*, by [Melissa Geels][]
 - *TypeScript* decorator factories highlighting fix, by [Antoine Boisier-Michaud][]
