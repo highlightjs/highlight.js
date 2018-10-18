@@ -9,6 +9,7 @@ function(hljs) {
   var RE_STARTER = '!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
     '>>|>|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\][=?]?';
+  var CRYSTAL_PATH_RE = '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?';
   var CRYSTAL_KEYWORDS = {
     keyword:
       'abstract alias annotation as as? asm begin break case class def do else elsif end ensure enum extend for fun if ' +
@@ -129,7 +130,7 @@ function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
+        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
         {begin: '<'} // relevance booster for inheritance
       ]
     },
@@ -139,7 +140,7 @@ function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
+        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
       ],
       relevance: 10
     },
@@ -148,7 +149,7 @@ function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
+        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
       ],
       relevance: 10
     },
