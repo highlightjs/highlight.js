@@ -16,11 +16,13 @@ Improvements:
 - Added support for multiline strings to *Swift*, by [Alejandro Isaza][]
 - Fixed issue that was causing some minifiers to fail.
 - Fixed `autoDetection` to accept language aliases.
+- Fixed Dockerfile definition when using highlight continuation parameter, by [Laurent Voullemier][]
 
 [JeremyTCD]: https://github.com/JeremyTCD
 [Melissa Geels]: https://github.com/codecat
 [Antoine Boisier-Michaud]: https://github.com/Aboisier
 [Alejandro Isaza]: https://github.com/alejandro-isaza
+[Laurent Voullemier]: https://github.com/l-vo
 
 ## Version 9.13.0
 
