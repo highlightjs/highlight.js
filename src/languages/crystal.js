@@ -144,6 +144,15 @@ function(hljs) {
       relevance: 10
     },
     {
+      beginKeywords: 'annotation', end: '$|;',
+      illegal: /=/,
+      contains: [
+        hljs.HASH_COMMENT_MODE,
+        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
+      ],
+      relevance: 10
+    },
+    {
       className: 'function',
       beginKeywords: 'def', end: /\B\b/,
       contains: [
