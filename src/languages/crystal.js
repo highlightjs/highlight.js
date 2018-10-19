@@ -6,14 +6,15 @@ Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
 function(hljs) {
   var NUM_SUFFIX = '(_[uif](8|16|32|64))?';
   var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
-  var RE_STARTER = '!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
+  var RE_STARTER = '!=|!==|%(?!})|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
     '>>|>|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\][=?]?';
+  var CRYSTAL_PATH_RE = '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?';
   var CRYSTAL_KEYWORDS = {
     keyword:
-      'abstract alias as as? asm begin break case class def do else elsif end ensure enum extend for fun if ' +
+      'abstract alias annotation as as? asm begin break case class def do else elsif end ensure enum extend for fun if ' +
       'include instance_sizeof is_a? lib macro module next nil? of out pointerof private protected rescue responds_to? ' +
-      'return require select self sizeof struct super then type typeof union uninitialized unless until when while with yield ' +
+      'return require select self sizeof struct super then type typeof union uninitialized unless until verbatim when while with yield ' +
       '__DIR__ __END_LINE__ __FILE__ __LINE__',
     literal: 'false nil true'
   };
@@ -48,9 +49,6 @@ function(hljs) {
       {begin: '%w?\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
       {begin: '%w?{', end: '}', contains: recursiveParen('{', '}')},
       {begin: '%w?<', end: '>', contains: recursiveParen('<', '>')},
-      {begin: '%w?/', end: '/'},
-      {begin: '%w?%', end: '%'},
-      {begin: '%w?-', end: '-'},
       {begin: '%w?\\|', end: '\\|'},
       {begin: /<<-\w+$/, end: /^\s*\w+$/},
     ],
@@ -80,14 +78,6 @@ function(hljs) {
         variants: [
           {begin: '//[a-z]*', relevance: 0},
           {begin: '/', end: '/[a-z]*'},
-          {begin: '%r\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
-          {begin: '%r\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
-          {begin: '%r{', end: '}', contains: recursiveParen('{', '}')},
-          {begin: '%r<', end: '>', contains: recursiveParen('<', '>')},
-          {begin: '%r/', end: '/'},
-          {begin: '%r%', end: '%'},
-          {begin: '%r-', end: '-'},
-          {begin: '%r\\|', end: '\\|'},
         ]
       }
     ],
@@ -101,9 +91,6 @@ function(hljs) {
       {begin: '%r\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
       {begin: '%r{', end: '}', contains: recursiveParen('{', '}')},
       {begin: '%r<', end: '>', contains: recursiveParen('<', '>')},
-      {begin: '%r/', end: '/'},
-      {begin: '%r%', end: '%'},
-      {begin: '%r-', end: '-'},
       {begin: '%r\\|', end: '\\|'},
     ],
     relevance: 0
@@ -129,7 +116,7 @@ function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
+        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
         {begin: '<'} // relevance booster for inheritance
       ]
     },
@@ -139,7 +126,16 @@ function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
+        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
+      ],
+      relevance: 10
+    },
+    {
+      beginKeywords: 'annotation', end: '$|;',
+      illegal: /=/,
+      contains: [
+        hljs.HASH_COMMENT_MODE,
+        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
       ],
       relevance: 10
     },
