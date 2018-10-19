@@ -4,7 +4,8 @@ Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
 */
 
 function(hljs) {
-  var NUM_SUFFIX = '(_[uif](8|16|32|64))?';
+  var INT_SUFFIX = '(_*[ui](8|16|32|64|128))?';
+  var FLOAT_SUFFIX = '(_*f(32|64))?';
   var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
   var RE_STARTER = '!=|!==|%(?!})|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
     '>>|>|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
@@ -174,10 +175,11 @@ function(hljs) {
     {
       className: 'number',
       variants: [
-        { begin: '\\b0b([01_]*[01])' + NUM_SUFFIX },
-        { begin: '\\b0o([0-7_]*[0-7])' + NUM_SUFFIX },
-        { begin: '\\b0x([A-Fa-f0-9_]*[A-Fa-f0-9])' + NUM_SUFFIX },
-        { begin: '\\b(([0-9][0-9_]*[0-9]|[0-9])(\\.[0-9_]*[0-9])?([eE][+-]?[0-9_]*[0-9])?)' + NUM_SUFFIX}
+        { begin: '\\b0b([01_]+)' + INT_SUFFIX },
+        { begin: '\\b0o([0-7_]+)' + INT_SUFFIX },
+        { begin: '\\b0x([A-Fa-f0-9_]+)' + INT_SUFFIX },
+        { begin: '\\b([1-9][0-9_]*[0-9]|[0-9])(\\.[0-9][0-9_]*)?([eE]_*[-+]?[0-9_]*)?' + FLOAT_SUFFIX },
+        { begin: '\\b([1-9][0-9_]*|0)' + INT_SUFFIX }
       ],
       relevance: 0
     }
