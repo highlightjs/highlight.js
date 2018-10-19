@@ -6,7 +6,7 @@ Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
 function(hljs) {
   var NUM_SUFFIX = '(_[uif](8|16|32|64))?';
   var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
-  var RE_STARTER = '!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
+  var RE_STARTER = '!=|!==|%(?!})|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
     '>>|>|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\][=?]?';
   var CRYSTAL_PATH_RE = '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?';
@@ -49,9 +49,6 @@ function(hljs) {
       {begin: '%w?\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
       {begin: '%w?{', end: '}', contains: recursiveParen('{', '}')},
       {begin: '%w?<', end: '>', contains: recursiveParen('<', '>')},
-      {begin: '%w?/', end: '/'},
-      {begin: '%w?%', end: '%'},
-      {begin: '%w?-', end: '-'},
       {begin: '%w?\\|', end: '\\|'},
       {begin: /<<-\w+$/, end: /^\s*\w+$/},
     ],
@@ -81,14 +78,6 @@ function(hljs) {
         variants: [
           {begin: '//[a-z]*', relevance: 0},
           {begin: '/', end: '/[a-z]*'},
-          {begin: '%r\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
-          {begin: '%r\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
-          {begin: '%r{', end: '}', contains: recursiveParen('{', '}')},
-          {begin: '%r<', end: '>', contains: recursiveParen('<', '>')},
-          {begin: '%r/', end: '/'},
-          {begin: '%r%', end: '%'},
-          {begin: '%r-', end: '-'},
-          {begin: '%r\\|', end: '\\|'},
         ]
       }
     ],
@@ -102,9 +91,6 @@ function(hljs) {
       {begin: '%r\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
       {begin: '%r{', end: '}', contains: recursiveParen('{', '}')},
       {begin: '%r<', end: '>', contains: recursiveParen('<', '>')},
-      {begin: '%r/', end: '/'},
-      {begin: '%r%', end: '%'},
-      {begin: '%r-', end: '-'},
       {begin: '%r\\|', end: '\\|'},
     ],
     relevance: 0
