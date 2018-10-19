@@ -60,7 +60,7 @@ const REPLACES = {
 };
 
 regex.replaces = new RegExp(
-  `\\b(${Object.keys(REPLACES).join('|')})\\b`, 'g');
+  `(?:([\\w\\d]+)\\.(${Object.keys(REPLACES).filter(r => r.toUpperCase() === r).join('|')})\\s*=(?!=)|\\b(${Object.keys(REPLACES).join('|')})\\b)`, 'g');
 
 regex.classname = /(block|parentNode)\.cN/g;
 
@@ -70,8 +70,15 @@ function replace(from, to) {
   return { regex: from, replace: to };
 }
 
-function replaceClassNames(match) {
-  return REPLACES[match];
+function replaceClassNames(match, gDeclObj, gDeclKey) {
+  if(gDeclObj)
+    return replaceAndSaveClassNames(gDeclObj, gDeclKey);
+  else
+    return REPLACES[match];
+}
+
+function replaceAndSaveClassNames(obj, key) {
+  return `${obj}.${REPLACES[key]} = ${obj}.${key} =`;
 }
 
 // All meta data, for each language definition, it store within the headers
