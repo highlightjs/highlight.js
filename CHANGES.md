@@ -6,6 +6,10 @@ New styles:
 
 Improvements:
 
+- Added tests & new `annotation` and `verbatim` keywords to *Crystal*, by [Benoit de Chezelles][]
+
+[Benoit de Chezelles]: https://github.com/bew
+
 ## Version 9.13.1
 
 Improvements:
