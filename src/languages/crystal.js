@@ -7,8 +7,8 @@ function(hljs) {
   var INT_SUFFIX = '(_*[ui](8|16|32|64|128))?';
   var FLOAT_SUFFIX = '(_*f(32|64))?';
   var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
-  var RE_STARTER = '!=|!==|%(?!})|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
-    '>>|>|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
+  var RE_STARTER = '!=|!==|%(?!})|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
+    '>>|>|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~|//=|\\n';
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~|]|//|//=|&[-+*]=?|&\\*\\*|\\[\\][=?]?';
   var CRYSTAL_PATH_RE = '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?';
   var CRYSTAL_KEYWORDS = {
@@ -75,7 +75,7 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE, SUBST],
         variants: [
           {begin: '//[a-z]*', relevance: 0},
-          {begin: '/', end: '/[a-z]*'},
+          {begin: '/(?!\\/)', end: '/[a-z]*'},
         ]
       }
     ],
@@ -104,8 +104,8 @@ function(hljs) {
     EXPANSION,
     STRING,
     Q_STRING,
-    REGEXP,
     REGEXP2,
+    REGEXP,
     ATTRIBUTE,
     hljs.HASH_COMMENT_MODE,
     {
