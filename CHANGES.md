@@ -9,6 +9,7 @@ Improvements:
 - Fixed Dockerfile definition when using highlight continuation parameter, by [Laurent Voullemier][]
 - Added tests & new `annotation` and `verbatim` keywords to *Crystal*, by [Benoit de Chezelles][]
 - Added missing dockerfile markup tests, by [Laurent Voullemier][]
+  Allow empty prompt text in clojure-repl, by [Egor Rogov][]
 
 [Laurent Voullemier]: https://github.com/l-vo
 [Benoit de Chezelles]: https://github.com/bew
