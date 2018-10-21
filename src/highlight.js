@@ -40,9 +40,9 @@ https://highlightjs.org/
       languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
       fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
 
-  // The object will be set with the build tool. It used to synchronize API 
+  // The object will be assigned by the build tool. It used to synchronize API 
   // of external language files with minified version of the highlight.js library.
-  var API_REPLACES = {};
+  var API_REPLACES;
 
   var spanEndTag = '</span>';
 
@@ -229,7 +229,7 @@ https://highlightjs.org/
   }
 
   function restoreLanguageApi(obj) {
-    if(!obj.langApiRestored) {
+    if(API_REPLACES && !obj.langApiRestored) {
       obj.langApiRestored = true;
       for(var key in API_REPLACES)
         obj[key] && (obj[API_REPLACES[key]] = obj[key]);

@@ -1,6 +1,9 @@
 'use strict';
 
-let utility = require('../tools/utility');
+let utility = require('../tools/utility'),
+    bluebird = require('bluebird'),
+    path = require('path'),
+    readFile = bluebird.promisify(require('fs').readFile);
 
 describe("minification tools", () => {
     it("should replace API calls with minified names", () => {
@@ -22,5 +25,16 @@ describe("minification tools", () => {
         content.replace(utility.regex.replaces, utility.replaceClassNames).should.equal(
             "hljs.eR = 3;"
         );
+    });
+
+    it("should assign API_REPLACES to the REPLACES dictionary in the highlight.js code", (done) => {
+        readFile(path.join(__dirname, "../src/highlight.js"), 'utf-8').then(function(content) {
+            "abc".should.containEql("bc");
+            content.should.not.containEql("var API_REPLACES = " + JSON.stringify(utility.REPLACES));
+            content.replace(utility.regex.apiReplacesFrom, utility.regex.apiReplacesTo)
+                .should
+                .containEql("var API_REPLACES = " + JSON.stringify(utility.REPLACES));
+            done();
+        });
     });
 });
