@@ -66,6 +66,9 @@ regex.classname = /(block|parentNode)\.cN/g;
 
 regex.header = /^\s*(\/\*((.|\r?\n)*?)\*\/)?\s*/;
 
+regex.apiReplacesFrom = /\bAPI_REPLACES\s*=\s\{\s*\}/;
+regex.apiReplacesTo = `API_REPLACES = ${JSON.stringify(REPLACES)}`;
+
 function replace(from, to) {
   return { regex: from, replace: to };
 }
