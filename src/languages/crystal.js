@@ -4,11 +4,10 @@ Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
 */
 
 function(hljs) {
-  var NUM_SUFFIX = '(_[uif](8|16|32|64))?';
+  var INT_SUFFIX = '(_*[ui](8|16|32|64|128))?';
+  var FLOAT_SUFFIX = '(_*f(32|64))?';
   var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
-  var RE_STARTER = '!=|!==|%(?!})|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|' +
-    '>>|>|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
-  var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\][=?]?';
+  var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~|]|//|//=|&[-+*]=?|&\\*\\*|\\[\\][=?]?';
   var CRYSTAL_PATH_RE = '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?';
   var CRYSTAL_KEYWORDS = {
     keyword:
@@ -45,11 +44,11 @@ function(hljs) {
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/},
       {begin: /`/, end: /`/},
-      {begin: '%w?\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
-      {begin: '%w?\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
-      {begin: '%w?{', end: '}', contains: recursiveParen('{', '}')},
-      {begin: '%w?<', end: '>', contains: recursiveParen('<', '>')},
-      {begin: '%w?\\|', end: '\\|'},
+      {begin: '%[Qwi]?\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
+      {begin: '%[Qwi]?\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
+      {begin: '%[Qwi]?{', end: '}', contains: recursiveParen('{', '}')},
+      {begin: '%[Qwi]?<', end: '>', contains: recursiveParen('<', '>')},
+      {begin: '%[Qwi]?\\|', end: '\\|'},
       {begin: /<<-\w+$/, end: /^\s*\w+$/},
     ],
     relevance: 0,
@@ -61,23 +60,20 @@ function(hljs) {
       {begin: '%q\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
       {begin: '%q{', end: '}', contains: recursiveParen('{', '}')},
       {begin: '%q<', end: '>', contains: recursiveParen('<', '>')},
-      {begin: '%q/', end: '/'},
-      {begin: '%q%', end: '%'},
-      {begin: '%q-', end: '-'},
       {begin: '%q\\|', end: '\\|'},
       {begin: /<<-'\w+'$/, end: /^\s*\w+$/},
     ],
     relevance: 0,
   };
   var REGEXP = {
-    begin: '(' + RE_STARTER + ')\\s*',
+    begin: '(?!%})(' + hljs.RE_STARTERS_RE + '|\\n)\\s*',
     contains: [
       {
         className: 'regexp',
         contains: [hljs.BACKSLASH_ESCAPE, SUBST],
         variants: [
           {begin: '//[a-z]*', relevance: 0},
-          {begin: '/', end: '/[a-z]*'},
+          {begin: '/(?!\\/)', end: '/[a-z]*'},
         ]
       }
     ],
@@ -106,8 +102,8 @@ function(hljs) {
     EXPANSION,
     STRING,
     Q_STRING,
-    REGEXP,
     REGEXP2,
+    REGEXP,
     ATTRIBUTE,
     hljs.HASH_COMMENT_MODE,
     {
@@ -174,10 +170,11 @@ function(hljs) {
     {
       className: 'number',
       variants: [
-        { begin: '\\b0b([01_]*[01])' + NUM_SUFFIX },
-        { begin: '\\b0o([0-7_]*[0-7])' + NUM_SUFFIX },
-        { begin: '\\b0x([A-Fa-f0-9_]*[A-Fa-f0-9])' + NUM_SUFFIX },
-        { begin: '\\b(([0-9][0-9_]*[0-9]|[0-9])(\\.[0-9_]*[0-9])?([eE][+-]?[0-9_]*[0-9])?)' + NUM_SUFFIX}
+        { begin: '\\b0b([01_]+)' + INT_SUFFIX },
+        { begin: '\\b0o([0-7_]+)' + INT_SUFFIX },
+        { begin: '\\b0x([A-Fa-f0-9_]+)' + INT_SUFFIX },
+        { begin: '\\b([1-9][0-9_]*[0-9]|[0-9])(\\.[0-9][0-9_]*)?([eE]_*[-+]?[0-9_]*)?' + FLOAT_SUFFIX + '(?!_)' },
+        { begin: '\\b([1-9][0-9_]*|0)' + INT_SUFFIX }
       ],
       relevance: 0
     }
