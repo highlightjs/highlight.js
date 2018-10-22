@@ -10,6 +10,12 @@ describe('.getLanguage()', function() {
     result.should.be.instanceOf(Object);
   });
 
+  it('should get an existing language by alias', function() {
+    const result = hljs.getLanguage('py');
+
+    result.should.be.instanceOf(Object);
+  });
+
   it('should be case insensitive', function() {
     const result = hljs.getLanguage('pYTHOn');
 

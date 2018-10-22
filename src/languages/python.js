@@ -27,21 +27,21 @@ function(hljs) {
     variants: [
       {
         begin: /(u|b)?r?'''/, end: /'''/,
-        contains: [PROMPT],
+        contains: [hljs.BACKSLASH_ESCAPE, PROMPT],
         relevance: 10
       },
       {
         begin: /(u|b)?r?"""/, end: /"""/,
-        contains: [PROMPT],
+        contains: [hljs.BACKSLASH_ESCAPE, PROMPT],
         relevance: 10
       },
       {
         begin: /(fr|rf|f)'''/, end: /'''/,
-        contains: [PROMPT, SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, PROMPT, SUBST]
       },
       {
         begin: /(fr|rf|f)"""/, end: /"""/,
-        contains: [PROMPT, SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, PROMPT, SUBST]
       },
       {
         begin: /(u|r|ur)'/, end: /'/,
@@ -59,11 +59,11 @@ function(hljs) {
       },
       {
         begin: /(fr|rf|f)'/, end: /'/,
-        contains: [SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
       },
       {
         begin: /(fr|rf|f)"/, end: /"/,
-        contains: [SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE

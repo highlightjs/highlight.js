@@ -1,5 +1,5 @@
 /*
-Language: Ini
+Language: Ini, TOML
 Contributors: Guillaume Gomez <guillaume1.gomez@gmail.com>
 Category: common, config
 */
