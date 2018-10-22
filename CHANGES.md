@@ -11,10 +11,12 @@ Improvements:
 - Added missing dockerfile markup tests, by [Laurent Voullemier][]
   Allow empty prompt text in clojure-repl, by [Egor Rogov][]
 - Fixed several issues with *Crystal* language definition, by [Johannes Müller][]
+- Added generic user-defined proc support, new compiler define, refactor to re-use rules, and add tests to *GAUSS*, by [Matthew Evans][]
 
 [Laurent Voullemier]: https://github.com/l-vo
 [Benoit de Chezelles]: https://github.com/bew
 [Johannes Müller]: https://github.com/straight-shoota
+[Matthew Evans]: https://github.com/matthewevans
 
 ## Version 9.13.1
 
