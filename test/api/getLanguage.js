@@ -33,4 +33,11 @@ describe('.getLanguage()', function() {
 
     should.strictEqual(result, undefined);
   });
+
+  it('should get the csharp language by c# alias', function() {
+    const result = hljs.getLanguage('c#');
+
+    result.should.be.instanceOf(Object);
+    result.should.have.property('aliases').with.containEql('csharp');
+  });
 });
