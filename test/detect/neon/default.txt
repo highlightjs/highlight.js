@@ -1,0 +1,39 @@
+# comment
+entity_1: Ns1\Ns2\Class
+entity_2: Ns1\Ns2\Class(attr1: value, attr2: value)
+entity_3: @service
+entity_4: @service::method(arg1: value, arg2: value)
+string_1: "Bar"
+string_2: 'bar'
+string_3: bar
+inline_keys_ignored: some_path/name/file.jpg
+keywords_in_neon:
+  - true
+  - false
+  - TRUE
+  - FALSE
+  - on
+  - off
+  - 21
+  - 21.0
+
+"quoted_key":
+  bar: foo
+  foo:
+  "foo": bar
+
+multiline_1: '''
+  Multiline
+  String
+  '''
+multiline_2: """
+  Multiline
+  String
+  """
+
+array_nested:
+- a
+- b: 1
+  c: 2
+- b
+- comment

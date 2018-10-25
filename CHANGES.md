@@ -1,6 +1,7 @@
 ## Master
 
 New languages:
+- *NEON* by [Dan Kadera][]
 
 New styles:
 
@@ -19,6 +20,7 @@ Improvements:
 [Johannes Müller]: https://github.com/straight-shoota
 [Ahmed Atito]: https://github.com/atitoa93
 [Matthew Evans]: https://github.com/matthewevans
+[Dan Kadera]: https://github.com/jahudka
 
 ## Version 9.13.1
 
