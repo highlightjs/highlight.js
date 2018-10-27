@@ -66,7 +66,8 @@ function(hljs) {
     relevance: 0,
   };
   var REGEXP = {
-    begin: '(?!%})(' + hljs.RE_STARTERS_RE + '|\\n)\\s*',
+    begin: '(?!%})(' + hljs.RE_STARTERS_RE + '|\\n|\\b(case|if|select|unless|until|when|while)\\b)\\s*',
+    keywords: 'case if select unless until when while',
     contains: [
       {
         className: 'regexp',
