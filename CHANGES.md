@@ -2,6 +2,8 @@
 
 New languages:
 
+- *xtlang* by [Yuya Chiba][]
+
 New styles:
 
 Improvements:
@@ -22,6 +24,7 @@ Improvements:
 [Ahmed Atito]: https://github.com/atitoa93
 [Matthew Evans]: https://github.com/matthewevans
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Yuya Chiba]: https://github.com/cyblue9
 
 ## Version 9.13.1
 

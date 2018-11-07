@@ -1,0 +1,7 @@
+(<span class="hljs-keyword">bind-func <span class="hljs-title">xtlang_closure</span></span>
+  (<span class="hljs-keyword">lambda</span> (<span class="hljs-variable">c</span><span class="hljs-type">:double</span> <span class="hljs-variable">d</span><span class="hljs-type">:i64</span>)
+    (<span class="hljs-keyword">let</span> ((<span class="hljs-variable">result</span> (<span class="hljs-funciton">*</span> <span class="hljs-variable">c</span> (<span class="hljs-funciton">i64tod</span> <span class="hljs-variable">d</span>))))
+      (<span class="hljs-funciton">printf</span> <span class="hljs-string">"result = %f\n"</span> <span class="hljs-variable">result</span>)
+      <span class="hljs-variable">result</span>)))
+
+(<span class="hljs-variable">xtlang_closure</span> <span class="hljs-number">4.5</span> <span class="hljs-number">2</span>) <span class="hljs-comment">;; prints "result = 9.000000", returns 9.0</span>

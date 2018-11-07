@@ -1,0 +1,8 @@
+(<span class="hljs-keyword">define <span class="hljs-title">scheme-closure</span></span>
+  (<span class="hljs-keyword">lambda</span> (<span class="hljs-variable">a</span> <span class="hljs-variable">b</span>)
+    (<span class="hljs-keyword">let</span> ((<span class="hljs-variable">result</span> (<span class="hljs-funciton">*</span> <span class="hljs-variable">a</span> <span class="hljs-variable">b</span>)))
+      (<span class="hljs-variable">print</span> <span class="hljs-string">"result = "</span> <span class="hljs-variable">result</span>)
+      <span class="hljs-variable">result</span>)))
+
+(<span class="hljs-variable">scheme-closure</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>) <span class="hljs-comment">;; prints "result = 20", returns 20</span>
+(<span class="hljs-variable">scheme-closure</span> <span class="hljs-number">2.4</span> <span class="hljs-number">2</span>) <span class="hljs-comment">;; prints "result = 4.8", returns 4.8</span>

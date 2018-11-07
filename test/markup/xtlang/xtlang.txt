@@ -1,0 +1,7 @@
+(bind-func xtlang_closure
+  (lambda (c:double d:i64)
+    (let ((result (* c (i64tod d))))
+      (printf "result = %f\n" result)
+      result)))
+
+(xtlang_closure 4.5 2) ;; prints "result = 9.000000", returns 9.0

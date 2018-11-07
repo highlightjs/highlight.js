@@ -1,0 +1,8 @@
+(define scheme-closure
+  (lambda (a b)
+    (let ((result (* a b)))
+      (print "result = " result)
+      result)))
+
+(scheme-closure 4 5) ;; prints "result = 20", returns 20
+(scheme-closure 2.4 2) ;; prints "result = 4.8", returns 4.8
