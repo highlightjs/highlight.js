@@ -1,0 +1,92 @@
+// integers - decimal
+123456789
+-123456789
+
+// integers - hex
+0x12345
+0xABCDE
+0xabcde
+-0x12345
+-0xABCDE
+-0xabcde
+0Xabcde // should not be highlighted like the others -- 0X not allowed as prefix
+
+// integers - radix
+2r10101
+10r12345
+36rABCDE
+36rabcde
+36raZr8g
+36rAzR8G
+-2r10101
+-10r12345
+-36rABCDE
+-36rabcde
+-36raZr8g
+-36rAzR8G
+
+// floats - decimal
+12345.67890
+-12345.67890
+
+// floats - hex (not supported, failing cases)
+0x12345.67890
+0xabcde.abcde
+0xABCDE.ABCDE
+-0x12345.67890
+-0xabcde.abcde
+-0xABCDE.ABCDE
+
+// floats - radix
+2r10101.10101
+10r12345.67890
+36rABCDE.FGHIZ
+36rzyxwv.ABCDE
+36rabcde.fghij // second half should not highlight
+-2r10101.10101
+-10r12345.67890
+-36rABCDE.FGHIZ
+-36rzyxwv.ABCDE
+-36rabcde.fghij // second half should not highlight
+
+// Scale degrees
+2s
+2b
+2ss
+2bb
+-2s
+-2b
+-2ss
+-2bb
+2b50
+2s204
+
+// Characters
+$a
+$ 
+$.
+$$
+$\t
+$\f
+$\v
+$\n
+$\r
+$\\
+
+// Symbols
+'x'
+'aiff'
+'BigSwiftyAndAssoc'
+'nowhere here'
+'somewhere there'
+'.+o*o+.'
+'\'symbol_within_a_symbol\''
+
+\x
+\aiff
+\Big_Swifty_And_Assoc
+\not really a symbol  // illegal
+
+// Strings
+"a string"
+"string \"with escapes\""

@@ -1,0 +1,92 @@
+<span class="hljs-comment">// integers - decimal</span>
+<span class="hljs-number">123456789</span>
+-<span class="hljs-number">123456789</span>
+
+<span class="hljs-comment">// integers - hex</span>
+<span class="hljs-number">0x12345</span>
+<span class="hljs-number">0xABCDE</span>
+<span class="hljs-number">0xabcde</span>
+-<span class="hljs-number">0x12345</span>
+-<span class="hljs-number">0xABCDE</span>
+-<span class="hljs-number">0xabcde</span>
+0Xabcde <span class="hljs-comment">// should not be highlighted like the others -- 0X not allowed as prefix</span>
+
+<span class="hljs-comment">// integers - radix</span>
+<span class="hljs-number">2r10101</span>
+<span class="hljs-number">10r12345</span>
+<span class="hljs-number">36rABCDE</span>
+<span class="hljs-number">36rabcde</span>
+<span class="hljs-number">36raZr8g</span>
+<span class="hljs-number">36rAzR8G</span>
+-<span class="hljs-number">2r10101</span>
+-<span class="hljs-number">10r12345</span>
+-<span class="hljs-number">36rABCDE</span>
+-<span class="hljs-number">36rabcde</span>
+-<span class="hljs-number">36raZr8g</span>
+-<span class="hljs-number">36rAzR8G</span>
+
+<span class="hljs-comment">// floats - decimal</span>
+<span class="hljs-number">12345.67890</span>
+-<span class="hljs-number">12345.67890</span>
+
+<span class="hljs-comment">// floats - hex (not supported, failing cases)</span>
+<span class="hljs-number">0x12345</span>.<span class="hljs-number">67890</span>
+<span class="hljs-number">0xabcde</span>.abcde
+<span class="hljs-number">0xABCDE</span>.<span class="hljs-type">ABCDE</span>
+-<span class="hljs-number">0x12345</span>.<span class="hljs-number">67890</span>
+-<span class="hljs-number">0xabcde</span>.abcde
+-<span class="hljs-number">0xABCDE</span>.<span class="hljs-type">ABCDE</span>
+
+<span class="hljs-comment">// floats - radix</span>
+<span class="hljs-number">2r10101.10101</span>
+<span class="hljs-number">10r12345.67890</span>
+<span class="hljs-number">36rABCDE.FGHIZ</span>
+<span class="hljs-number">36rzyxwv.ABCDE</span>
+<span class="hljs-number">36rabcde.</span>fghij <span class="hljs-comment">// second half should not highlight</span>
+-<span class="hljs-number">2r10101.10101</span>
+-<span class="hljs-number">10r12345.67890</span>
+-<span class="hljs-number">36rABCDE.FGHIZ</span>
+-<span class="hljs-number">36rzyxwv.ABCDE</span>
+-<span class="hljs-number">36rabcde.</span>fghij <span class="hljs-comment">// second half should not highlight</span>
+
+<span class="hljs-comment">// Scale degrees</span>
+<span class="hljs-number">2s</span>
+<span class="hljs-number">2b</span>
+<span class="hljs-number">2ss</span>
+<span class="hljs-number">2bb</span>
+-<span class="hljs-number">2s</span>
+-<span class="hljs-number">2b</span>
+-<span class="hljs-number">2ss</span>
+-<span class="hljs-number">2bb</span>
+<span class="hljs-number">2b50</span>
+<span class="hljs-number">2s204</span>
+
+<span class="hljs-comment">// Characters</span>
+<span class="hljs-literal">$a</span>
+<span class="hljs-literal">$ </span>
+<span class="hljs-literal">$.</span>
+<span class="hljs-literal">$$</span>
+<span class="hljs-literal">$\t</span>
+<span class="hljs-literal">$\f</span>
+<span class="hljs-literal">$\v</span>
+<span class="hljs-literal">$\n</span>
+<span class="hljs-literal">$\r</span>
+<span class="hljs-literal">$\\</span>
+
+<span class="hljs-comment">// Symbols</span>
+<span class="hljs-string">'x'</span>
+<span class="hljs-string">'aiff'</span>
+<span class="hljs-string">'BigSwiftyAndAssoc'</span>
+<span class="hljs-string">'nowhere here'</span>
+<span class="hljs-string">'somewhere there'</span>
+<span class="hljs-string">'.+o*o+.'</span>
+<span class="hljs-string">'\'symbol_within_a_symbol\''</span>
+
+<span class="hljs-symbol">\x</span>
+<span class="hljs-symbol">\aiff</span>
+<span class="hljs-symbol">\Big_Swifty_And_Assoc</span>
+<span class="hljs-symbol">\not</span> really a symbol  <span class="hljs-comment">// illegal</span>
+
+<span class="hljs-comment">// Strings</span>
+<span class="hljs-string">"a string"</span>
+<span class="hljs-string">"string \"with escapes\""</span>
