@@ -4,15 +4,15 @@
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #FFF;
+  background: #fff;
   font-family: "Courier New", monospace;
-  font-size:13px;
+  font-size: 13px;
 }
 
 .hljs,
 .hljs-tag,
 .hljs-subst {
-  color: #06F;
+  color: #06f;
 }
 
 .hljs-strong,
@@ -71,16 +71,15 @@
 .hljs-addition,
 .hljs-variable,
 .hljs-template-variable {
-  color: #DD0000;
+  color: #dd0000;
 }
-
 
 .hljs-deletion {
-  color: #FF8000;
+  color: #ff8000;
 }
-.hljs-comment{
-	color: #777;
+.hljs-comment {
+  color: #777;
 }
-.hljs-meta{
-  color: #FF0000;
+.hljs-meta {
+  color: #ff0000;
 }
