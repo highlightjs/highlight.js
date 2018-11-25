@@ -41,6 +41,11 @@ function(hljs) {
     begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*',
     relevance: 0
   };
+  // slightly more special to swift
+  var OPTIONAL_USING_TYPE = {
+    className: 'type',
+    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]'
+  }
   var BLOCK_COMMENT = hljs.COMMENT(
     '/\\*',
     '\\*/',
@@ -75,6 +80,7 @@ function(hljs) {
       STRING,
       hljs.C_LINE_COMMENT_MODE,
       BLOCK_COMMENT,
+      OPTIONAL_USING_TYPE,
       TYPE,
       NUMBERS,
       {
