@@ -2,6 +2,10 @@
 
 New languages:
 
+- *Dream Maker* by [Pieter-Jan Briers][]
+
+[Pieter-Jan Briers]: https://github.com/PJB3005
+
 New styles:
 
 Improvements:

@@ -1,0 +1,16 @@
+#define FOO_NAME "Bar" // indeed
+
+/obj/foo
+    name = FOO_NAME
+    icon = 'foo.dmi'
+    dir = NORTH
+    pixel_x = 3
+
+/obj/foo/proc/speak()
+    world.log << "Hello from [src]"
+
+/proc/delete_foo()
+    // Bye
+    for (var/obj/foo in world)
+        del(foo)
+
