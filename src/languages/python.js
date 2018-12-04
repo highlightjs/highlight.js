@@ -11,7 +11,7 @@ function(hljs) {
       'async await nonlocal|10',
     built_in:
       'Ellipsis NotImplemented',
-    literl: 'False None True'
+    literal: 'False None True'
   };
   var PROMPT = {
     className: 'meta',  begin: /^(>>>|\.\.\.) /
