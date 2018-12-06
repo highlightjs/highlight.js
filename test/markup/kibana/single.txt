@@ -1,0 +1,1 @@
+GET _search?q=some text
