@@ -25,6 +25,10 @@ Improvements:
 
 ## Version 9.13.1
 
+New languages:
+
+- *Kibana* by [Thiago Souza][]
+
 Improvements:
 
 - *C#* function declarations no longer include trailing whitespace, by [JeremyTCD][]
@@ -38,6 +42,7 @@ Improvements:
 [Melissa Geels]: https://github.com/codecat
 [Antoine Boisier-Michaud]: https://github.com/Aboisier
 [Alejandro Isaza]: https://github.com/alejandro-isaza
+[Thiago Souza]: https://github.com/tsouza
 
 ## Version 9.13.0
 

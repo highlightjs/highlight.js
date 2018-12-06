@@ -1,0 +1,12 @@
+GET _search?q=some text
+
+POST /logstash-*/_search
+{
+    "size": 100,
+    "query": { "match_all": {} },
+    "aggs": {
+        "price_avg": { 
+            "avg": { "field": "price" }
+        }
+    }
+}
