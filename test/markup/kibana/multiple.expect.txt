@@ -1,6 +1,6 @@
-<span class="hljs-keyword">GET</span><span class="hljs-string"> _search?q=some text</span>
+<span class="hljs-keyword">GET</span><span class="hljs-title"> _search?q=some text</span>
 
-<span class="hljs-keyword">POST</span><span class="hljs-string"> /logstash-*/_search</span>
+<span class="hljs-keyword">POST</span><span class="hljs-title"> /logstash-*/_search</span>
 <span class="json">{
     <span class="hljs-attr">"size"</span>: <span class="hljs-number">100</span>,
     <span class="hljs-attr">"query"</span>: { <span class="hljs-attr">"match_all"</span>: {} },

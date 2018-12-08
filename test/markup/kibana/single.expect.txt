@@ -1,1 +1,1 @@
-<span class="hljs-keyword">GET</span><span class="hljs-string"> _search?q=some text</span>
+<span class="hljs-keyword">GET</span><span class="hljs-title"> _search?q=some text</span>
