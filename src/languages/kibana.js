@@ -15,7 +15,7 @@ function(hljs) {
                 beginKeywords: 'GET HEAD PUT POST DELETE PATCH', end: '$',
                 contains: [
                     {
-                        className: 'string', 
+                        className: 'title', 
                         begin: '/?.+'
                     }
                 ]
