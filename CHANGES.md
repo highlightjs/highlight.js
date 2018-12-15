@@ -2,6 +2,8 @@
 
 New languages:
 
+ - *Robot Framework* by [Harri Paavola][]
+
 New styles:
 
 Improvements:
@@ -22,6 +24,7 @@ Improvements:
 [Ahmed Atito]: https://github.com/atitoa93
 [Matthew Evans]: https://github.com/matthewevans
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Harri Paavola]: https://github.com/Harri
 
 ## Version 9.13.1
 
