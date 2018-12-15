@@ -1,0 +1,40 @@
+<span class="hljs-section">*** Settings ***</span>
+<span class="hljs-comment">Documentation    Simple example demonstrating syntax highlighting.</span>
+<span class="hljs-comment">...              Multiple lines.</span>
+<span class="hljs-attribute">Library          </span>ExampleLibrary
+<span class="hljs-attribute">Test Setup       </span>Keyword    argument   argument with <span class="hljs-variable">${VARIABLE}</span>
+
+<span class="hljs-section">*** Variables ***</span>
+<span class="hljs-variable">${VARIABLE}</span>      Variable value
+<span class="hljs-variable">@{LIST}</span>          List    variable    here
+<span class="hljs-variable">&amp;{DICT}</span>          Key1=Value1    Key2=Value2
+
+<span class="hljs-section">*** Test Cases ***</span>
+<span class="hljs-name">Keyword-driven example</span>
+<span class="hljs-comment">    [Documentation]    Most amazing</span>
+    Initialize System
+    Do Something
+    Result Should Be    <span class="hljs-number">${42}</span>
+<span class="hljs-built_in">    [Teardown]    </span>Cleanup System<span class="hljs-comment">    # Being a good citizen</span>
+
+<span class="hljs-name">Data-driven example</span>
+<span class="hljs-built_in">    [Template]    </span>Keyword
+    argument1   argument2
+    argument    <span class="hljs-variable">${VARIABLE}</span>
+    <span class="hljs-variable">@{LIST}</span>
+
+<span class="hljs-name">Gherkin</span>
+<span class="hljs-built_in">    [Tags]    </span>tag1    tag2
+<span class="hljs-comment">    Given </span>system is initialized
+<span class="hljs-comment">    When </span>something is done
+<span class="hljs-comment">    And </span>things are ok
+<span class="hljs-comment">    Then </span>result should be "42"
+
+<span class="hljs-section">*** Keywords ***</span>
+<span class="hljs-name">Result Should Be</span>
+<span class="hljs-built_in">    [Arguments]    </span><span class="hljs-variable">${expected}</span>
+    <span class="hljs-variable">${actual}</span> =    Get Value
+    Should be Equal    <span class="hljs-variable">${actual}</span>    <span class="hljs-variable">${expected}</span>
+
+<span class="hljs-name">Then result should be "<span class="hljs-variable">${expected}</span>"</span>
+    Result Should Be    <span class="hljs-variable">${expected}</span>

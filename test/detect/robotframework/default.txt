@@ -1,0 +1,13 @@
+*** Settings ***
+Library          ExampleLibrary
+
+*** Variables ***
+${VARIABLE}      Variable value
+
+*** Test Cases ***
+Test
+    Keyword
+
+*** Keywords ***
+Keyword
+    No Operation
