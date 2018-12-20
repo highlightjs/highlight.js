@@ -1,0 +1,82 @@
+<!--
+Things to verify:
+- comments (this block) are properly highlighted
+- expressions are highlighted as JS
+- <script> highlights ES2015 syntax
+- <style> highlights as CSS
+-->
+
+<template>
+  <div>
+    {{ foo * 10 + 'hi' }}
+    <span
+      v-text="foo * 10 + 'hi'"
+      :id="foo + 'baz'"
+      @click="onClick('hello')"
+      @click.prevent="onClick('hello')">
+      Hello
+    </span>
+  </div>
+</template>
+
+<template lang="pug">
+  <div>
+    {{ foo * 10 + 'hi' }}
+    <span
+      v-text="foo * 10 + 'hi'"
+      :id="foo + 'baz'"
+      @click="onClick('hello')"
+      @click.prevent="onClick('hello')">
+      Hello
+    </span>
+  </div>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    foo: 'bar'
+  })
+}
+</script>
+
+<script lang="ts">
+export default {
+  data: () => ({
+    foo: 'bar'
+  })
+}
+</script>
+
+<style scoped>
+div {
+  color: red;
+}
+</style>
+
+<style>
+div {
+  color: red;
+}
+</style>
+
+<style lang="sass">
+@import '~foo'
+a
+  color: red
+</style>
+
+<style lang="scss">
+@import '~foo';
+a {
+  color: red;
+}
+</style>
+
+<style lang="stylus">
+font-stack = Helvetica, sans-serif
+primary-color = #999
+body
+  font 100% font-stack
+  color primary-color
+</style>
