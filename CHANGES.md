@@ -2,6 +2,8 @@
 
 New languages:
 
+- *Vue.js* by [Sara Lissette][]
+
 New styles:
 
 Improvements:
@@ -22,6 +24,7 @@ Improvements:
 [Ahmed Atito]: https://github.com/atitoa93
 [Matthew Evans]: https://github.com/matthewevans
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Sara Lissette]: https://github.com/LissetteIbnz
 
 ## Version 9.13.1
 
