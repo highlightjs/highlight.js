@@ -66,9 +66,9 @@ function(hljs) {
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       },
       hljs.COMMENT('!', '$', {relevance: 0}),
-      {
+{
         className: 'number',
-        begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][+-]?\\d+)?\\b\\.?',
+        begin: '(?=\\b|\\+|\\-|\\.)[+-]?(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z\\d]+)?\\b',
         relevance: 0
       }
     ]
