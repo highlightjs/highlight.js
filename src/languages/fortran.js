@@ -66,10 +66,10 @@ function(hljs) {
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       },
       hljs.COMMENT('!', '$', {relevance: 0}),
- {
-    cN:"number",
-    b:"(?=\\b|\\+|\\-|\\.)[-]?(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z\\d]+)?\\b\\.?",
-    r:0
+      {
+        cN:"number",
+        b:"(?=\\b|\\+|\\-|\\.)(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z\\d]+)?\\b\\.?",
+        r:0
       }
     ]
   };
