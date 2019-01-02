@@ -1,0 +1,5 @@
+k = <span class="hljs-built_in">colsf</span>(fin);
+nr = <span class="hljs-built_in">floor</span>(<span class="hljs-built_in">minc</span>(<span class="hljs-built_in">maxbytes</span>/(k*<span class="hljs-number">8</span>*<span class="hljs-number">3.5</span>)|<span class="hljs-built_in">maxvec</span>/(k+<span class="hljs-number">1</span>)));
+<span class="hljs-keyword">call</span> <span class="hljs-built_in">random_user_function_2</span>(<span class="hljs-number">-10.0</span>, <span class="hljs-string">"hey"</span>, <span class="hljs-comment">/* blah */</span> x[<span class="hljs-number">0x2F</span>]);
+<span class="hljs-built_in">ols</span>(<span class="hljs-string">""</span>, <span class="hljs-built_in">csvReadM</span>(<span class="hljs-string">"test.csv"</span>));
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">myfn</span>(<span class="hljs-number">10</span>) == <span class="hljs-number">20</span>;

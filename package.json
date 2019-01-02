@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "9.12.1",
+  "version": "9.13.1",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -22,14 +22,15 @@
   },
   "main": "./lib/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/",
-    "test-browser": "./node_modules/.bin/mocha test/browser/"
+    "mocha": "mocha",
+    "test": "mocha --globals document test",
+    "test-browser": "mocha --globals document test/browser"
   },
   "engines": {
     "node": "*"
   },
   "devDependencies": {
-    "bluebird": "^3.0.1",
+    "bluebird": "^3.5.1",
     "commander": "^2.3.0",
     "del": "^3.0.0",
     "gear": "^0.9.4",
@@ -38,11 +39,8 @@
     "js-beautify": "^1.5.10",
     "jsdom": "^9.12.0",
     "lodash": "^4.0.0",
-    "mocha": "^2.5.3",
-    "should": "^13.1.3",
-    "tiny-worker": "^2.1.1",
-    "@segment/to-iso-string": "^1.0.1",
-    "minimatch": "^3.0.4",
-    "pug": "^2.0.0-rc.4"
+    "mocha": "^5.2.0",
+    "should": "^13.2.3",
+    "tiny-worker": "^2.1.2"
   }
 }

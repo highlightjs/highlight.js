@@ -14,6 +14,8 @@ function(hljs) {
         'implementation definition system module from import qualified as ' +
         'special code inline foreign export ccall stdcall generic derive ' +
         'infix infixl infixr',
+      built_in:
+        'Int Real Char Bool',
       literal:
         'True False'
     },
@@ -25,7 +27,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
 
-      {begin: '->|<-[|:]?|::|#!?|>>=|\\{\\||\\|\\}|:==|=:|\\.\\.|<>|`'} // relevance booster
+      {begin: '->|<-[|:]?|#!?|>>=|\\{\\||\\|\\}|:==|=:|<>'} // relevance booster
     ]
   };
 }
