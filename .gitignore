@@ -7,5 +7,3 @@ __pycache__
 node_modules
 .project
 yarn.lock
-
-package-lock.json
