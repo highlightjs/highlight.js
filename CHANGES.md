@@ -124,7 +124,7 @@ New style:
 - *VisualStudio 2015 Dark* by [Nicolas LLOBERA][]
 
 Improvements:
-
+- [Duncan Paterson][] added *XQuery* built-in functions, prolog declarations, as well as parsing of function bodies, computed and direct constructors.
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
 - *Julia* updated to the modern definitions by [Alex Arslan][].
 - *julia-repl* added by [Morten Piibeleht][].
@@ -147,6 +147,7 @@ Improvements:
 [nnnik]: https://github.com/nnnik
 [Martin Clausen]: https://github.com/maacl
 [Alejandro Alonso]: https://github.com/Azoy
+[Duncan Paterson]: https://github.com/duncdrum
 
 ## Version 9.11.0
 
