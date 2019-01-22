@@ -15,6 +15,7 @@ Improvements:
 - Added generic user-defined proc support, new compiler define, refactor to re-use rules, and add tests to *GAUSS*, by [Matthew Evans][]
 - Improve *Crystal* language to highlight regexes after some keywords, by [Tsuyusato Kitsune][]
 - Fix filterByQualifiers: fileInfo can be null
+- Fixed String interpolation in Dart, by [Scott Hyndman][].
 
 [Laurent Voullemier]: https://github.com/l-vo
 [Benoit de Chezelles]: https://github.com/bew
@@ -22,6 +23,7 @@ Improvements:
 [Ahmed Atito]: https://github.com/atitoa93
 [Matthew Evans]: https://github.com/matthewevans
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Scott Hyndman]: https://github.com/shyndman
 
 ## Version 9.13.1
 
