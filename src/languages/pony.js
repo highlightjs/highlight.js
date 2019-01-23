@@ -59,7 +59,7 @@ function(hljs) {
 
   var FUNCTION = {
     className: 'function',
-    beginKeywords: 'new fun', end: '=>',
+    beginKeywords: 'new fun be', end: '=>',
     contains: [
       hljs.TITLE_MODE,
       {
