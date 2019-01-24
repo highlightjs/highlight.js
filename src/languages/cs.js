@@ -88,7 +88,7 @@ function(hljs) {
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
 
   return {
-    aliases: ['csharp'],
+    aliases: ['csharp', 'c#'],
     keywords: KEYWORDS,
     illegal: /::/,
     contains: [
@@ -161,7 +161,7 @@ function(hljs) {
       {
         className: 'function',
         begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
-        end: /[{;=]/, excludeEnd: true,
+        end: /\s*[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           {

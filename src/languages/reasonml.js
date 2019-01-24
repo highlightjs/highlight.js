@@ -19,7 +19,7 @@ function(hljs) {
 
   var RE_IDENT = '~?[a-z$_][0-9a-zA-Z$_]*';
   var RE_MODULE_IDENT = '`?[A-Z$_][0-9a-zA-Z$_]*';
-  
+
   var RE_PARAM_TYPEPARAM = '\'?[a-z$_][0-9a-z$_]*';
   var RE_PARAM_TYPE = '\s*:\s*[a-z$_][0-9a-z$_]*(\(\s*(' + RE_PARAM_TYPEPARAM + '\s*(,' + RE_PARAM_TYPEPARAM + ')*)?\s*\))?';
   var RE_PARAM = RE_IDENT + '(' + RE_PARAM_TYPE + ')?(' + RE_PARAM_TYPE + ')?';
@@ -38,13 +38,13 @@ function(hljs) {
       'true false'
   };
 
-  const RE_NUMBER = '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
+  var RE_NUMBER = '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
     '0[oO][0-7_]+[Lln]?|' +
     '0[bB][01_]+[Lln]?|' +
     '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)';
 
-  const NUMBER_MODE = {
-    className: 'number',    
+  var NUMBER_MODE = {
+    className: 'number',
     relevance: 0,
     variants: [
       {
@@ -56,12 +56,12 @@ function(hljs) {
     ]
   };
 
-  const OPERATOR_MODE = {
+  var OPERATOR_MODE = {
     className: 'operator',
     relevance: 0,
     begin: RE_OPERATOR
   };
-  const LIST_CONTENTS_MODES = [
+  var LIST_CONTENTS_MODES = [
     {
       className: 'identifier',
       relevance: 0,
@@ -71,7 +71,7 @@ function(hljs) {
     NUMBER_MODE
   ];
 
-  const MODULE_ACCESS_CONTENTS = [
+  var MODULE_ACCESS_CONTENTS = [
     hljs.QUOTE_STRING_MODE,
     OPERATOR_MODE,
     {
@@ -88,7 +88,7 @@ function(hljs) {
     }
   ];
 
-  const PARAMS_CONTENTS = [
+  var PARAMS_CONTENTS = [
     {
       className: 'module',
       begin: "\\b" + RE_MODULE_IDENT, returnBegin: true,
@@ -104,7 +104,7 @@ function(hljs) {
     }
   ];
 
-  const PARAMS_MODE = {
+  var PARAMS_MODE = {
     begin: RE_IDENT,
     end: '(,|\\n|\\))',
     relevance: 0,
@@ -121,7 +121,7 @@ function(hljs) {
     ]
   };
 
-  const FUNCTION_BLOCK_MODE = {
+  var FUNCTION_BLOCK_MODE = {
     className: 'function',
     relevance: 0,
     keywords: KEYWORDS,
@@ -170,7 +170,7 @@ function(hljs) {
   };
   MODULE_ACCESS_CONTENTS.push(FUNCTION_BLOCK_MODE);
 
-  const CONSTRUCTOR_MODE = {
+  var CONSTRUCTOR_MODE = {
     className: 'constructor',
     begin: RE_MODULE_IDENT + '\\(',
     end: '\\)',
@@ -186,7 +186,7 @@ function(hljs) {
     ]
   };
 
-  const PATTERN_MATCH_BLOCK_MODE = {
+  var PATTERN_MATCH_BLOCK_MODE = {
     className: 'pattern-match',
     begin: '\\|',
     returnBegin: true,
@@ -195,7 +195,7 @@ function(hljs) {
     relevance: 0,
     contains: [
       CONSTRUCTOR_MODE,
-      OPERATOR_MODE,    
+      OPERATOR_MODE,
       {
         relevance: 0,
         className: 'constructor',
@@ -204,7 +204,7 @@ function(hljs) {
     ]
   };
 
-  const MODULE_ACCESS_MODE = {
+  var MODULE_ACCESS_MODE = {
     className: 'module-access',
     keywords: KEYWORDS,
     returnBegin: true,
@@ -234,7 +234,7 @@ function(hljs) {
   };
 
   PARAMS_CONTENTS.push(MODULE_ACCESS_MODE);
-  
+
   return {
     aliases: ['re'],
     keywords: KEYWORDS,

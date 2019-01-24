@@ -122,7 +122,9 @@ too big. If you don't see the language you need in the ["Common" section][5],
 it can be added manually:
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+<script
+ charset="UTF-8"
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
 ```
 
 **On Almond.** You need to use the optimizer to give the module a name. For
@@ -155,6 +157,12 @@ import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 ```
 
+To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can import the stylesheet directly into your CommonJS-module:
+
+```javascript
+import hljs from 'highlight.js/lib/highlight';
+import 'highlight.js/styles/github.css'
+```
 
 ## License
 
