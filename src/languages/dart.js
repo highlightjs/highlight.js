@@ -2,7 +2,7 @@
 Language: Dart
 Requires: markdown.js
 Author: Maxim Dikun <dikmax@gmail.com>
-Description: Dart is a JavaScript replacement language developed by Google. For more information see http://dartlang.org/
+Description: Dart a modern, object-oriented language developed by Google. For more information see https://www.dartlang.org/
 Category: scripting
 */
 
