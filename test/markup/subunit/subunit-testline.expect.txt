@@ -1,0 +1,10 @@
+<span class="hljs-keyword">test: test</span> basicsuite1
+<span class="hljs-keyword">testing: test</span> basicsuite1
+<span class="hljs-keyword">test test</span> basicsuite1
+<span class="hljs-keyword">testing test</span> basicsuite1
+<span class="hljs-keyword">test: test</span> basic suite1
+<span class="hljs-keyword">testing: test</span> basic suite1
+<span class="hljs-keyword">test test</span> basic suite1
+<span class="hljs-keyword">testing test</span> basic suite1
+<span class="hljs-keyword">testing test</span> basic
+<span class="hljs-keyword">test test</span> 222

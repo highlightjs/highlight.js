@@ -1,10 +1,10 @@
 # Highlight.js
 
-[![Build Status](https://travis-ci.org/isagalaev/highlight.js.svg?branch=master)](https://travis-ci.org/isagalaev/highlight.js)
+[![Build Status](https://travis-ci.org/highlightjs/highlight.js.svg?branch=master)](https://travis-ci.org/highlightjs/highlight.js)
 
 Highlight.js is a syntax highlighter written in JavaScript. It works in
 the browser as well as on the server. It works with pretty much any
-markup, doesn’t depend on any framework and has automatic language
+markup, doesn’t depend on any framework, and has automatic language
 detection.
 
 ## Getting Started
@@ -31,6 +31,13 @@ The list of supported language classes is available in the [class
 reference][2].  Classes can also be prefixed with either `language-` or
 `lang-`.
 
+To make arbitrary text look like code, but without highlighting, use the
+`plaintext` class:
+
+```html
+<pre><code class="plaintext">...</code></pre>
+```
+
 To disable highlighting altogether use the `nohighlight` class:
 
 ```html
@@ -55,7 +62,7 @@ $(document).ready(function() {
 ```
 
 You can use any tags instead of `<pre><code>` to mark up your code. If
-you don't use a container that preserve line breaks you will need to
+you don't use a container that preserves line breaks you will need to
 configure highlight.js to use the `<br>` tag:
 
 ```javascript
@@ -106,15 +113,55 @@ works perfectly fine with Browserify, but there is the option to use a
 build specific to browsers rather than something meant for a server.
 Head over to the [download page][5] for all the options.
 
-**Note:** the library is not supposed to work straight from the source
-on GitHub; it requires building. If none of the pre-packaged options
+**Don't link to GitHub directly.** The library is not supposed to work straight
+from the source, it requires building. If none of the pre-packaged options
 work for you refer to the [building documentation][6].
 
-Also, if you are using something like almond, you need to use the
-optimizer to give the module a name. The basic example would be:
+**The CDN-hosted package doesn't have all the languages.** Otherwise it'd be
+too big. If you don't see the language you need in the ["Common" section][5],
+it can be added manually:
+
+```html
+<script
+ charset="UTF-8"
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+```
+
+**On Almond.** You need to use the optimizer to give the module a name. For
+example:
 
 ```
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
+```
+
+
+### CommonJS
+
+You can import Highlight.js as a CommonJS-module:
+
+```bash
+npm install highlight.js --save
+```
+
+In your application:
+
+```javascript
+import hljs from 'highlight.js';
+```
+
+The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
+
+```javascript
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
+```
+
+To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can import the stylesheet directly into your CommonJS-module:
+
+```javascript
+import hljs from 'highlight.js/lib/highlight';
+import 'highlight.js/styles/github.css'
 ```
 
 ## License
@@ -127,15 +174,15 @@ for details.
 The official site for the library is at <https://highlightjs.org/>.
 
 Further in-depth documentation for the API and other topics is at
-<http://highlightjs.readthedocs.org/>.
+<http://highlightjs.readthedocs.io/>.
 
 Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
 
-[1]: http://highlightjs.readthedocs.org/en/latest/api.html#inithighlightingonload
-[2]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
-[3]: http://highlightjs.readthedocs.org/en/latest/api.html#highlightblock-block
-[4]: http://highlightjs.readthedocs.org/en/latest/api.html#configure-options
+[1]: http://highlightjs.readthedocs.io/en/latest/api.html#inithighlightingonload
+[2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
+[3]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightblock-block
+[4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure-options
 [5]: https://highlightjs.org/download/
-[6]: http://highlightjs.readthedocs.org/en/latest/building-testing.html
-[7]: https://github.com/isagalaev/highlight.js/blob/master/LICENSE
-[8]: https://github.com/isagalaev/highlight.js/blob/master/AUTHORS.en.txt
+[6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
+[7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
+[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.en.txt

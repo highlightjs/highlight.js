@@ -1,5 +1,5 @@
 class Person
-  def initialize(@name)
+  def initialize(@name : String)
   end
 
   def greet
@@ -11,8 +11,8 @@ class Employee < Person
 end
 
 employee = Employee.new "John"
-employee.greet #=> "Hi, I'm John"
-employee.is_a?(Person) #=> true
+employee.greet         # => "Hi, I'm John"
+employee.is_a?(Person) # => true
 
 @[Link("m")]
 lib C
@@ -20,4 +20,10 @@ lib C
   fun cos(value : Float64) : Float64
 end
 
-C.cos(1.5_f64) #=> 0.0707372
+C.cos(1.5_f64) # => 0.0707372
+
+s = uninitialized String
+s = <<-'STR'
+\hello\world
+\hello\world
+STR

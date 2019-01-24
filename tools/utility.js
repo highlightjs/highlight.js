@@ -108,10 +108,11 @@ function filterByQualifiers(blob, languages, categories) {
 
   let language         = path.basename(blob.name, '.js'),
       fileInfo         = parseHeader(blob.result),
-      fileCategories   = fileInfo.Category || [],
       containsCategory = _.partial(_.includes, categories);
 
   if(!fileInfo) return false;
+
+  let fileCategories = fileInfo.Category || [];
 
   return _.includes(languages, language) ||
          _.some(fileCategories, containsCategory);
@@ -134,7 +135,7 @@ function globDefaults(pattern, encoding) {
   // EMFILE error for those systems who had a limit of open files per
   // process.
   //
-  // <https://github.com/isagalaev/highlight.js/issues/636>
+  // <https://github.com/highlightjs/highlight.js/issues/636>
   return { pattern: pattern, limit: 50, encoding: encoding };
 }
 

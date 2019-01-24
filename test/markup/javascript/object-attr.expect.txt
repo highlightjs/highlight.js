@@ -1,0 +1,6 @@
+{
+  <span class="hljs-attr">key</span>: value,
+  <span class="hljs-attr">key2</span>: value,
+  <span class="hljs-string">'key-3'</span>: value,
+  <span class="hljs-attr">key4</span>: <span class="hljs-literal">false</span> ? <span class="hljs-literal">undefined</span> : <span class="hljs-literal">true</span>
+}

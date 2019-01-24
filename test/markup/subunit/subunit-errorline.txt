@@ -1,0 +1,2 @@
+error: test simplename
+error: test simple name

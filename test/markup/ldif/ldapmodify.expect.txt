@@ -1,0 +1,7 @@
+<span class="hljs-attribute">dn</span>: uid=user.0,ou=People,dc=example,dc=com
+<span class="hljs-attribute">changeType</span>: modify
+<span class="hljs-attribute">add</span>: cn
+<span class="hljs-attribute">cn</span>: Morris Day
+<span class="hljs-literal">-</span>
+<span class="hljs-attribute">add</span>: mobile
+<span class="hljs-attribute">mobile</span>: (408) 555-7844

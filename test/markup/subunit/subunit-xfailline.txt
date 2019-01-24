@@ -1,0 +1,3 @@
+xfail test simplename
+xfail: test simple name
+xfail test simple name

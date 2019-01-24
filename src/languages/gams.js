@@ -78,6 +78,7 @@ function (hljs) {
       {
         className: 'comment',
         begin: /([ ]*[a-z0-9&#*=?@>\\<:\-,()$\[\]_.{}!+%^]+)+/,
+        relevance: 0
       },
     ],
   };
@@ -148,7 +149,7 @@ function (hljs) {
         contains: [
               { // Function title
                 className: 'title',
-                begin: /^[a-z][a-z0-9_]+/,
+                begin: /^[a-z0-9_]+/,
               },
               PARAMS,
               SYMBOLS,

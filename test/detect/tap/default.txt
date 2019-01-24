@@ -1,0 +1,24 @@
+# Hardware architecture: x86_64
+# Timestamp: 2016-06-16 06:23 (GMT+1)
+# 
+TAP version 13
+1..19
+ok 1 - zdtm/static/conntracks # SKIP manual run only
+ok 2 - zdtm/static/maps03 # SKIP manual run only
+ok 3 - zdtm/static/mlock_setuid
+ok 4 - zdtm/static/groups
+ok 5 - zdtm/static/maps05
+ok 6 - zdtm/static/pdeath_sig
+ok 7 - zdtm/static/xids00
+ok 8 - zdtm/static/proc-self
+ok 9 - zdtm/static/file_fown
+ok 10 - zdtm/static/eventfs00
+ok 11 - zdtm/static/uptime_grow # SKIP manual run only
+ok 12 - zdtm/static/signalfd00
+ok 13 - zdtm/static/inotify_irmap
+ok 14 - zdtm/static/fanotify00
+ok 15 - zdtm/static/session00
+ok 16 - zdtm/static/rlimits00
+ok 17 - zdtm/static/maps04
+ok 18 - zdtm/static/pty03
+ok 19 - zdtm/static/pty02

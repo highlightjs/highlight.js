@@ -1,6 +1,6 @@
 namespace Foo // namespace
 {
-    public class Greet : Base // class
+    public class Greet : Base, Other // class
     {
         public Greet(string who) // function
         {

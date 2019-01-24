@@ -1,3 +1,334 @@
+## Master
+
+New languages:
+
+New styles:
+
+Improvements:
+
+- Fixed Dockerfile definition when using highlight continuation parameter, by [Laurent Voullemier][]
+- Added tests & new `annotation` and `verbatim` keywords to *Crystal*, by [Benoit de Chezelles][]
+- Added missing dockerfile markup tests, by [Laurent Voullemier][]
+  Allow empty prompt text in clojure-repl, by [Egor Rogov][]
+- Fixed several issues with *Crystal* language definition, by [Johannes Müller][]
+- Added `C#` as an alias for *CSharp* language, by [Ahmed Atito][]
+- Added generic user-defined proc support, new compiler define, refactor to re-use rules, and add tests to *GAUSS*, by [Matthew Evans][]
+- Improve *Crystal* language to highlight regexes after some keywords, by [Tsuyusato Kitsune][]
+- Fix filterByQualifiers: fileInfo can be null
+- Fixed String interpolation in Dart, by [Scott Hyndman][].
+
+[Laurent Voullemier]: https://github.com/l-vo
+[Benoit de Chezelles]: https://github.com/bew
+[Johannes Müller]: https://github.com/straight-shoota
+[Ahmed Atito]: https://github.com/atitoa93
+[Matthew Evans]: https://github.com/matthewevans
+[Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Scott Hyndman]: https://github.com/shyndman
+
+## Version 9.13.1
+
+Improvements:
+
+- *C#* function declarations no longer include trailing whitespace, by [JeremyTCD][]
+- Added new and missing keywords to *AngelScript*, by [Melissa Geels][]
+- *TypeScript* decorator factories highlighting fix, by [Antoine Boisier-Michaud][]
+- Added support for multiline strings to *Swift*, by [Alejandro Isaza][]
+- Fixed issue that was causing some minifiers to fail.
+- Fixed `autoDetection` to accept language aliases.
+
+[JeremyTCD]: https://github.com/JeremyTCD
+[Melissa Geels]: https://github.com/codecat
+[Antoine Boisier-Michaud]: https://github.com/Aboisier
+[Alejandro Isaza]: https://github.com/alejandro-isaza
+
+## Version 9.13.0
+
+New languages:
+
+- *ArcGIS Arcade* by [John Foster][]
+- *AngelScript* by [Melissa Geels][]
+- *GML* by [meseta][]
+- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
+- *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
+- *ReasonML* by [Gidi Meir Morris][]
+- *SAS* by [Mauricio Caceres Bravo][]
+- *Plaintext* by [Egor Rogov][]
+- *.properties* by [bostko][] and [Egor Rogov][]
+
+New styles:
+
+- *a11y-dark theme* by [Eric Bailey][]
+- *a11y-light theme* by [Eric Bailey][]
+- *An Old Hope* by [Gustavo Costa][]
+- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
+- *isbl editor dark* by [Dmitriy Tarasov][]
+- *isbl editor light* by [Dmitriy Tarasov][]
+- *Lightfair* by [Tristian Kelly][]
+- [*Nord*][nord-highlightjs] by [Arctic Ice Studio][]
+- *[🦄 Shades of Purple](https://github.com/ahmadawais/Shades-of-Purple-HighlightJS)* by [Ahmad Awais][]
+
+Improvements:
+
+- New attribute `endSameAsBegin` for nested constructs with variable names
+  by [Egor Rogov][].
+- *Python* highlighting of escaped quotes fixed by [Harmon][]
+- *PHP*: Added alias for php7, by [Vijaya Chandran Mani][]
+- *C++* string handling, by [David Benjamin][]
+- *Swift* Add `@objcMembers` to `@attributes`, by [Berk Çebi][]
+- Infrastructural changes by [Marcos Cáceres][]
+- Fixed metachars highighting for *NSIS* by [Jan T. Sott][]
+- *Yaml* highlight local tags as types by [Léo Lam][]
+- Improved highlighting for *Elixir* by [Piotr Kaminski][]
+- New attribute `disableAutodetect` for preventing autodetection by [Egor Rogov][]
+- *Matlab*: transpose operators and double quote strings, by [JohnC32][] and [Egor Rogov][]
+- Various documentation typos and improvemets by [Jimmy Wärting][], [Lutz Büch][], [bcleland][]
+- *Cmake* updated with new keywords and commands by [Deniz Bahadir][]
+
+[Ahmad Awais]: https://github.com/ahmadawais
+[Arctic Ice Studio]: https://github.com/arcticicestudio
+[Dmitriy Tarasov]: https://github.com/MedvedTMN
+[Egor Rogov]: https://github.com/egor-rogov
+[Eric Bailey]: https://github.com/ericwbailey
+[Gidi Meir Morris]: https://github.com/gmmorris
+[Gustavo Costa]: https://github.com/gusbemacbe
+[Harmon]: https://github.com/Harmon758
+[Melissa Geels]: https://github.com/codecat
+[meseta]: https://github.com/meseta
+[nord-highlightjs]: https://github.com/arcticicestudio/nord-highlightjs
+[Tristian Kelly]: https://github.com/TristianK3604
+[Vijaya Chandran Mani]: https://github.com/vijaycs85
+[John Foster]: https://github.com/jf990
+[David Benjamin]: https://github.com/davidben
+[Berk Çebi]: https://github.com/berkcebi
+[Mauricio Caceres Bravo]: https://github.com/mcaceresb
+[bostko]: https://github.com/bostko
+[Deniz Bahadir]: https://github.com/Bagira80
+[bcleland]: https://github.com/bcleland
+[JohnC32]: https://github.com/JohnC32
+[Lutz Büch]: https://github.com/lutz-100worte
+[Piotr Kaminski]: https://github.com/pkaminski
+[Léo Lam]: https://github.com/leoetlino
+[Jan T. Sott]: https://github.com/idleberg
+[Jimmy Wärting]: https://github.com/jimmywarting
+[Marcos Cáceres]: https://github.com/marcoscaceres
+
+## Version 9.12.0
+
+New language:
+
+- *MikroTik* RouterOS Scripting language by [Ivan Dementev][].
+
+New style:
+
+- *VisualStudio 2015 Dark* by [Nicolas LLOBERA][]
+
+Improvements:
+- [Duncan Paterson][] added *XQuery* built-in functions, prolog declarations, as well as parsing of function bodies, computed and direct constructors.
+- *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
+- *Julia* updated to the modern definitions by [Alex Arslan][].
+- *julia-repl* added by [Morten Piibeleht][].
+- [Stanislav Belov][] wrote a new definition for *1C*, replacing the one that
+  has not been updated for more than 8 years. The new version supports syntax
+  for versions 7.7 and 8.
+- [Nicolas LLOBERA][] improved C# definition fixing edge cases with function
+  titles detection and added highlighting of `[Attributes]`.
+- [nnnik][] provided a few correctness fixes for *Autohotkey*.
+- [Martin Clausen][] made annotation collections in *Clojure* to look
+  consistently with other kinds.
+- [Alejandro Alonso][] updated *Swift* keywords.
+
+[Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Alex Arslan]: https://github.com/ararslan
+[Morten Piibeleht]: https://github.com/mortenpi
+[Stanislav Belov]: https://github.com/4ppl
+[Ivan Dementev]: https://github.com/DiVAN1x
+[Nicolas LLOBERA]: https://github.com/Nicolas01
+[nnnik]: https://github.com/nnnik
+[Martin Clausen]: https://github.com/maacl
+[Alejandro Alonso]: https://github.com/Azoy
+[Duncan Paterson]: https://github.com/duncdrum
+
+## Version 9.11.0
+
+New languages:
+
+- *Shell* by [Tsuyusato Kitsune][]
+- *jboss-cli* by [Raphaël Parrëe][]
+
+Improvements:
+
+- [Joël Porquet] has [greatly improved the definition of *makefile*][5b3e0e6].
+- *C++* class titles are now highlighted as in other languages with classes.
+- [Jordi Petit][] added rarely used `or`, `and` and `not` keywords to *C++*.
+- [Pieter Vantorre][] fixed highlighting of negative floating point values.
+
+
+[Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Jordi Petit]: https://github.com/jordi-petit
+[Raphaël Parrëe]: https://github.com/rparree
+[Pieter Vantorre]: https://github.com/NuclearCookie
+[5b3e0e6]: https://github.com/isagalaev/highlight.js/commit/5b3e0e68bfaae282faff6697d6a490567fa9d44b
+
+
+## Version 9.10.0
+
+Apologies for missing the previous release cycle. Some thing just can't be
+automated… Anyway, we're back!
+
+New languages:
+
+- *Hy* by [Sergey Sobko][]
+- *Leaf* by [Hale Chan][]
+- *N1QL* by [Andres Täht][] and [Rene Saarsoo][]
+
+Improvements:
+
+- *Rust* got updated with new keywords by [Kasper Andersen][] and then
+  significantly modernized even more by [Eduard-Mihai Burtescu][] (yes, @eddyb,
+  Rust core team member!)
+- *Python* updated with f-literals by [Philipp A][].
+- *YAML* updated with unquoted strings support.
+- *Gauss* updated with new keywords by [Matt Evans][].
+- *Lua* updated with new keywords by [Joe Blow][].
+- *Kotlin* updated with new keywords by [Philipp Hauer][].
+- *TypeScript* got highlighting of function params and updated keywords by
+  [Ike Ku][].
+- *Scheme* now correctly handles \`-quoted lists thanks to [Guannan Wei].
+- [Sam Wu][] fixed handling of `<<` in *C++* defines.
+
+[Philipp A]: https://github.com/flying-sheep
+[Philipp Hauer]: https://github.com/phauer
+[Sergey Sobko]: https://github.com/profitware
+[Hale Chan]: https://github.com/halechan
+[Matt Evans]: https://github.com/matthewevans
+[Joe Blow]: https://github.com/mossarelli
+[Kasper Andersen]: https://github.com/kasma1990
+[Eduard-Mihai Burtescu]: https://github.com/eddyb
+[Andres Täht]: https://github.com/andrestaht
+[Rene Saarsoo]: https://github.com/nene
+[Philipp Hauer]: https://github.com/phauer
+[Ike Ku]: https://github.com/dempfi
+[Guannan Wei]: https://github.com/Kraks
+[Sam Wu]: https://github.com/samsam2310
+
+
+## Version 9.9.0
+
+New languages
+
+- *LLVM* by [Michael Rodler][]
+
+Improvements:
+
+- *TypeScript* updated with annotations and param lists inside constructors, by
+  [Raphael Parree][].
+- *CoffeeScript* updated with new keywords and fixed to recognize JavaScript
+  in \`\`\`, thanks to thanks to [Geoffrey Booth][].
+- Compiler directives in *Delphi* are now correctly highlighted as "meta".
+
+[Raphael Parree]: https://github.com/rparree
+[Michael Rodler]: https://github.com/f0rki
+[Geoffrey Booth]: https://github.com/GeoffreyBooth
+
+
+## Version 9.8.0 "New York"
+
+This version is the second one that deserved a name. Because I'm in New York,
+and the release isn't missing the deadline only because it's still Tuesday on
+West Coast.
+
+New languages:
+
+- *Clean* by [Camil Staps][]
+- *Flix* by [Magnus Madsen][]
+
+Improvements:
+
+- [Kenton Hamaluik][] did a comprehensive update for *Haxe*.
+- New commands for *PowerShell* from [Nicolas Le Gall][].
+- [Jan T. Sott][] updated *NSIS*.
+- *Java* and *Swift* support unicode characters in identifiers thanks to
+  [Alexander Lichter][].
+
+[Camil Staps]: https://github.com/camilstaps
+[Magnus Madsen]: https://github.com/magnus-madsen
+[Kenton Hamaluik]: https://github.com/FuzzyWuzzie
+[Nicolas Le Gall]: https://github.com/darkitty
+[Jan T. Sott]: https://github.com/idleberg
+[Alexander Lichter]: https://github.com/manniL
+
+
+## Version 9.7.0
+
+A comprehensive bugfix release. This is one of the best things about
+highlight.js: even boring things keep getting better (even if slow).
+
+- VHDL updated with PSL keywords and uses more consistent styling.
+- Nested C-style comments no longer break highlighting in many languages.
+- JavaScript updated with `=>` functions, highlighted object attributes and
+  parsing within template string substitution blocks (`${...}`).
+- Fixed another corner case with self-closing `<tag/>` in JSX.
+- Added `HEALTHCHECK` directive in Docker.
+- Delphi updated with new Free Pascal keywords.
+- Fixed digit separator parsing in C++.
+- C# updated with new keywords and fixed to allow multiple identifiers within
+  generics `<...>`.
+- Fixed another slow regex in Less.
+
+
+## Version 9.6.0
+
+New languages:
+
+- *ABNF* and *EBNF* by [Alex McKibben][]
+- *Awk* by [Matthew Daly][]
+- *SubUnit* by [Sergey Bronnikov][]
+
+New styles:
+
+- *Atom One* in both Dark and Light variants  by [Daniel Gamage][]
+
+Plus, a few smaller updates for *Lasso*, *Elixir*, *C++* and *SQL*.
+
+[Alex McKibben]: https://github.com/mckibbenta
+[Daniel Gamage]: https://github.com/danielgamage
+[Matthew Daly]: https://github.com/matthewbdaly
+[Sergey Bronnikov]: https://github.com/ligurio
+
+
+## Version 9.5.0
+
+New languages:
+
+- *Excel* by [Victor Zhou][]
+- *Linden Scripting Language* by [Builder's Brewery][]
+- *TAP* (Test Anything Protocol) by [Sergey Bronnikov][]
+- *Pony* by [Joe Eli McIlvain][]
+- *Coq* by [Stephan Boyer][]
+- *dsconfig* and *LDIF* by [Jacob Childress][]
+
+New styles:
+
+- *Ocean Dark* by [Gavin Siu][]
+
+Notable changes:
+
+- [Minh Nguyễn][] added more built-ins to Objective C.
+- [Jeremy Hull][] fixed corner cases in C++ preprocessor directives and Diff
+  comments.
+- [Victor Zhou][] added support for digit separators in C++ numbers.
+
+[Gavin Siu]: https://github.com/gavsiu
+[Builder's Brewery]: https://github.com/buildersbrewery
+[Victor Zhou]: https://github.com/OiCMudkips
+[Sergey Bronnikov]: https://github.com/ligurio
+[Joe Eli McIlvain]: https://github.com/jemc
+[Stephan Boyer]: https://github.com/boyers
+[Jacob Childress]: https://github.com/braveulysses
+[Minh Nguyễn]: https://github.com/1ec5
+[Jeremy Hull]: https://github.com/sourrust
+
+
 ## Version 9.4.0
 
 New languages:
@@ -349,7 +680,7 @@ New languages:
 New styles:
 
 - *Agate* by [Taufik Nurrohman][]
-- *Darkula* by [Jet Brains][]
+- *Darcula* by [JetBrains][]
 - *Atelier Sulphurpool* by [Bram de Haan][]
 - *Android Studio* by [Pedro Oliveira][]
 

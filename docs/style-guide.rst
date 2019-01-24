@@ -20,7 +20,7 @@ Hence, there are two important implications:
 Defining a theme
 ----------------
 
-A theme is a single CSS defining styles for class names linsted in the
+A theme is a single CSS defining styles for class names listed in the
 :doc:`class reference </css-classes-reference>`. The general guideline is to
 style all available classes, however an author may deliberately choose to
 exclude some (for example, ``.attr`` is usually left unstyled).
@@ -100,8 +100,7 @@ other meta data if necessary. The format is free:
 
   */
 
-If you're a new contributor add yourself to the authors list in AUTHORS.*.txt
-(use either English and/or Russian version). Also update CHANGES.md with your
-contribution.
+If you're a new contributor add yourself to the authors list in AUTHORS.en.txt
+Also update CHANGES.md with your contribution.
 
 Send your contribution as a pull request on GitHub.

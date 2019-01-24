@@ -1,0 +1,5 @@
+<span class="hljs-meta">1..4</span>
+<span class="hljs-symbol">ok</span><span class="hljs-number"> 1 </span>- Input file opened
+<span class="hljs-symbol">not ok</span><span class="hljs-number"> 2 </span>- First line of the input valid
+<span class="hljs-symbol">ok</span><span class="hljs-number"> 3 </span>- Read the rest of the file
+<span class="hljs-symbol">not ok</span><span class="hljs-number"> 4 </span>- Summarized correctly <span class="hljs-comment"># TODO Not written yet</span>

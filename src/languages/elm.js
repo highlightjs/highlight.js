@@ -38,17 +38,23 @@ function(hljs) {
     contains: LIST.contains
   };
 
+  var CHARACTER = {
+    className: 'string',
+    begin: '\'\\\\?.', end: '\'',
+    illegal: '.'
+  };
+
   return {
     keywords:
       'let in if then else case of where module import exposing ' +
-      'type alias as infix infixl infixr port effect command',
+      'type alias as infix infixl infixr port effect command subscription',
     contains: [
 
       // Top-level constructions.
 
       {
         beginKeywords: 'port effect module', end: 'exposing',
-        keywords: 'port effect module where command exposing',
+        keywords: 'port effect module where command subscription exposing',
         contains: [LIST, COMMENT],
         illegal: '\\W\\.|;'
       },
@@ -75,7 +81,7 @@ function(hljs) {
 
       // Literals and names.
 
-      // TODO: characters.
+      CHARACTER,
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
@@ -83,6 +89,7 @@ function(hljs) {
       COMMENT,
 
       {begin: '->|<-'} // No markup, relevance booster
-    ]
+    ],
+    illegal: /;/
   };
 }

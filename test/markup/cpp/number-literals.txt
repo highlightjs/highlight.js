@@ -1,0 +1,6 @@
+/* digit separators */
+int number = 2'555'555'555; // digit separators
+float exponentFloat = .123'456e3'000; // digit separators in floats
+float suffixed = 3.000'001'234f // digit separators in suffixed numbers
+char word[] = { '3', '\0' }; // make sure digit separators don't mess up chars
+float negative = -123.0f; // negative floating point numbers
