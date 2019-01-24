@@ -54,8 +54,8 @@ Here’s an equivalent way to calling [`initHighlightingOnLoad`][1] using
 jQuery:
 
 ```javascript
-$(document).ready(function() {
-  $('pre code').each(function(i, block) {
+$(document).ready(() => {
+  $('pre code').each((i, block) => {
     hljs.highlightBlock(block);
   });
 });
@@ -68,7 +68,7 @@ configure highlight.js to use the `<br>` tag:
 ```javascript
 hljs.configure({useBR: true});
 
-$('div.code').each(function(i, block) {
+$('div.code').each((i, block) => {
   hljs.highlightBlock(block);
 });
 ```
@@ -84,10 +84,10 @@ window while dealing with very big chunks of code.
 In your main script:
 
 ```javascript
-addEventListener('load', function() {
-  var code = document.querySelector('#code');
-  var worker = new Worker('worker.js');
-  worker.onmessage = function(event) { code.innerHTML = event.data; }
+addEventListener('load', () => {
+  const code = document.querySelector('#code');
+  const worker = new Worker('worker.js');
+  worker.onmessage = (event) => { code.innerHTML = event.data; }
   worker.postMessage(code.textContent);
 })
 ```
@@ -95,9 +95,9 @@ addEventListener('load', function() {
 In worker.js:
 
 ```javascript
-onmessage = function(event) {
+onmessage = (event) => {
   importScripts('<path>/highlight.pack.js');
-  var result = self.hljs.highlightAuto(event.data);
+  const result = self.hljs.highlightAuto(event.data);
   postMessage(result.value);
 }
 ```
@@ -130,7 +130,7 @@ it can be added manually:
 **On Almond.** You need to use the optimizer to give the module a name. For
 example:
 
-```
+```bash
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
