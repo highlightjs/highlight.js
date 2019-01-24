@@ -1,0 +1,98 @@
+<span class="hljs-literal">nil</span>
+<span class="hljs-literal">true</span>
+<span class="hljs-literal">false</span>
+
+<span class="hljs-number">1</span>
+
+<span class="hljs-number">1_i8</span>
+<span class="hljs-number">1_i16</span>
+<span class="hljs-number">1_i32</span>
+<span class="hljs-number">1_i64</span>
+<span class="hljs-number">1_i128</span>
+
+<span class="hljs-number">1_u8</span>
+<span class="hljs-number">1_u16</span>
+<span class="hljs-number">1_u32</span>
+<span class="hljs-number">1_u64</span>
+
++<span class="hljs-number">10</span>
+-<span class="hljs-number">20</span>
+
+<span class="hljs-number">2147483648</span>
+<span class="hljs-number">9223372036854775808</span>
+
+<span class="hljs-number">1_000_000</span>
+
+<span class="hljs-number">0b1101</span>
+
+<span class="hljs-number">0o123</span>
+
+<span class="hljs-number">0xFE012D</span>
+<span class="hljs-number">0xfe012d</span>
+
+<span class="hljs-number">1_f64</span>
+<span class="hljs-number">1.0</span>
+<span class="hljs-number">1.0_f32</span>
+<span class="hljs-number">1_f32</span>
+
+<span class="hljs-number">1e10</span>
+<span class="hljs-number">1e10_f64</span>
+<span class="hljs-number">1.5e10</span>
+<span class="hljs-number">1.5e-7</span>
+
++<span class="hljs-number">1.3</span>
+-<span class="hljs-number">0.5</span>
+
+<span class="hljs-number">1_000_000.111_111</span>
+<span class="hljs-number">1_000_000.111_111e12</span>
+
+<span class="hljs-string">'c'</span>
+<span class="hljs-string">'\\'</span>
+<span class="hljs-string">'\u{ABCD}'</span>
+
+<span class="hljs-string">"string"</span>
+<span class="hljs-string">"\u{48 45 4C 4C 4F}"</span>
+<span class="hljs-string">"interpolated <span class="hljs-subst">#{string}</span>"</span>
+<span class="hljs-string">"interpolated <span class="hljs-subst">#{<span class="hljs-string">"string"</span>}</span>"</span>
+<span class="hljs-string">%(string)</span>
+<span class="hljs-string">%q(string)</span>
+<span class="hljs-string">%Q(string)</span>
+<span class="hljs-string">%(hello ("world"))</span>
+<span class="hljs-string">%[hello ["world"]]</span>
+<span class="hljs-string">%{hello {"world"}}</span>
+<span class="hljs-string">%&lt;hello &lt;"world"&gt;&gt;</span>
+<span class="hljs-string">%|hello "world"|</span>
+<span class="hljs-string">"hello
+      world"</span>
+<span class="hljs-string">"hello \
+     world, \
+     no newlines"</span>
+<span class="hljs-string">&lt;&lt;-STRING
+  Hello world
+  STRING</span>
+
+<span class="hljs-string">&lt;&lt;-'HERE'
+  hello \n
+  HERE</span>
+
+:unquoted_symbol
+:<span class="hljs-string">"quoted symbol"</span>
+:question?
+:exclamation!
+:+
+
+<span class="hljs-string">%i(foo(bar) baz)</span>
+<span class="hljs-string">%w(one two three)</span>
+
+<span class="hljs-regexp">/foo|bar/</span>
+<span class="hljs-regexp">/h(e+)llo/</span>
+<span class="hljs-regexp">/\d+/</span>
+<span class="hljs-regexp">/あ/</span>
+
+<span class="hljs-regexp">%r((/))</span>
+<span class="hljs-regexp">%r[[/]]</span>
+<span class="hljs-regexp">%r{{/}}</span>
+<span class="hljs-regexp">%r&lt;&lt;/&gt;&gt;</span>
+<span class="hljs-regexp">%r|/|</span>
+
+<span class="hljs-string">`echo foo &gt; foo.txt`</span>

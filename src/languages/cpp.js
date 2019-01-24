@@ -1,7 +1,7 @@
 /*
 Language: C++
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
-Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Zaven Muradyan <megalivoithos@gmail.com>, Roel Deckers <admin@codingcat.nl>, Sam Wu <samsam2310@gmail.com>, Jordi Petit <jordi.petit@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>
+Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Zaven Muradyan <megalivoithos@gmail.com>, Roel Deckers <admin@codingcat.nl>, Sam Wu <samsam2310@gmail.com>, Jordi Petit <jordi.petit@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>, Google Inc. (David Benjamin) <davidben@google.com>
 Category: common, system
 */
 
@@ -15,13 +15,16 @@ function(hljs) {
     className: 'string',
     variants: [
       {
-        begin: '(u8?|U)?L?"', end: '"',
+        begin: '(u8?|U|L)?"', end: '"',
         illegal: '\\n',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
-        begin: '(u8?|U)?R"', end: '"',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        // TODO: This does not handle raw string literals with prefixes. Using
+        // a single regex with backreferences would work (note to use *?
+        // instead of * to make it non-greedy), but the mode.terminators
+        // computation in highlight.js breaks the counting.
+        begin: '(u8?|U|L)?R"\\(', end: '\\)"',
       },
       {
         begin: '\'\\\\?.', end: '\'',
@@ -155,7 +158,21 @@ function(hljs) {
               hljs.C_BLOCK_COMMENT_MODE,
               STRINGS,
               NUMBERS,
-              CPP_PRIMITIVE_TYPES
+              CPP_PRIMITIVE_TYPES,
+              // Count matching parentheses.
+              {
+                begin: /\(/, end: /\)/,
+                keywords: CPP_KEYWORDS,
+                relevance: 0,
+                contains: [
+                  'self',
+                  hljs.C_LINE_COMMENT_MODE,
+                  hljs.C_BLOCK_COMMENT_MODE,
+                  STRINGS,
+                  NUMBERS,
+                  CPP_PRIMITIVE_TYPES
+                ]
+              }
             ]
           },
           hljs.C_LINE_COMMENT_MODE,

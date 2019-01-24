@@ -1,7 +1,20 @@
-Release process
-===============
+Maintainer's guide
+==================
 
-Note: this is intended for core committers.
+
+Commit policy
+-------------
+
+* Pull requests from outside contributors require a review from a maintainer.
+
+* Maintainers should avoid working on a master branch directly and create branches for everything. A code review from another maintainer is recommended but not required, use your best judgment.
+
+
+
+Release process
+---------------
+
+Releases happen on a 6-week schedule. Currently due to a long break the date of the next release is not set.
 
 * Update CHANGES.md with everything interesting since the last update.
 
@@ -9,6 +22,7 @@ Note: this is intended for core committers.
 
   * The header in CHANGES.md (this is where the site looks for the latest version number)
   * ``"version"`` attribute in package.json
+  * ``"version"`` attribute in package-lock.json (run `npm install`)
   * Two places in docs/conf.py (``version`` and ``release``)
 
 * Commit the version changes and tag the commit with the plain version number (no "v." or anything like that)
