@@ -5,7 +5,12 @@ New languages:
 New styles:
 
 Improvements:
-
+- Pony: add missing "object" highlighting (1932) 
+- XQuery: added built-in functions, prolog declarations, parsing...
+- fix(dart): Corrects highlighting with string interpolation. (#1946) 
+- fix(swift): be eager on optional-using types (!/?) (#1919)
+- fix(tex): Changed cyrillic to unicode (IE11 throw SCRIPT5021) (#1601)
+- fix(JavaScript): Recognize get/set accessor keywords (#1940)
 - Fixed Dockerfile definition when using highlight continuation parameter, by [Laurent Voullemier][]
 - Added tests & new `annotation` and `verbatim` keywords to *Crystal*, by [Benoit de Chezelles][]
 - Added missing dockerfile markup tests, by [Laurent Voullemier][]
