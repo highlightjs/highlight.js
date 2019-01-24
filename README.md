@@ -51,7 +51,7 @@ highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
 functions. This allows you to control *what* to highlight and *when*.
 
 Here’s an equivalent way to calling [`initHighlightingOnLoad`][1] using
-jQuery:
+vanilla JS:
 
 ```js
 document.addEventListener('DOMContentLoaded', (event) => {
