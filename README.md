@@ -55,7 +55,7 @@ jQuery:
 
 ```js
 document.addEventListener('DOMContentLoaded', (event) => {
-  document.querySelectorAll('pre code').forEach((block, i) => {
+  document.querySelectorAll('pre code').forEach((block) => {
     hljs.highlightBlock(block);
   });
 });
@@ -68,7 +68,7 @@ configure highlight.js to use the `<br>` tag:
 ```js
 hljs.configure({useBR: true});
 
-document.querySelectorAll('div.code').forEach((block, i) => {
+document.querySelectorAll('div.code').forEach((block) => {
   hljs.highlightBlock(block);
 });
 ```
