@@ -33,5 +33,5 @@ function testAutoDetection(language) {
 describe('hljs.highlightAuto()', function() {
   const languages = hljs.listLanguages();
 
-  languages.forEach(testAutoDetection);
+  languages.filter(hljs.autoDetection).forEach(testAutoDetection);
 });

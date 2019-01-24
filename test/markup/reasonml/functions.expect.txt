@@ -1,0 +1,22 @@
+<span class="hljs-comment">/* This is a simple function */</span>
+<span class="hljs-keyword">let</span> greet =<span class="hljs-function"> (<span class="hljs-params">name</span>) =&gt;</span> <span class="hljs-string">"Hello World"</span>;
+
+<span class="hljs-keyword">let</span> body = <span class="hljs-constructor">`Plain(<span class="hljs-string">"uploaded "</span> <span class="hljs-operator">++</span> <span class="hljs-params">cacheServiceConfig</span>.<span class="hljs-params">desc</span> <span class="hljs-operator">++</span> <span class="hljs-string">"configuration data into cache on S3"</span>)</span>;
+
+<span class="hljs-keyword">let</span> getCacheConfigByEnv =
+   <span class="hljs-function"> (
+      <span class="hljs-params">environment<span class="hljs-typing">: environment,</span>
+</span>      <span class="hljs-params">cacheServiceConfig<span class="hljs-typing">: <span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Dict</span>.</span>t(cachingServiceConfig)
+</span>    )</span> =&gt;</span>
+  switch (cacheServiceConfig) {
+  <span class="hljs-pattern-match">| <span class="hljs-constructor">Some(<span class="hljs-params">config</span>)</span> =&gt;</span> config
+  <span class="hljs-pattern-match">| <span class="hljs-constructor">None</span> =&gt;</span>
+    raise(<span class="hljs-constructor">InvalidEnvironment(<span class="hljs-string">"Caching Service Coinfiguration is missing"</span>)</span>)
+  };
+
+<span class="hljs-keyword">let</span> readCacheServiceConfigAndDecode =<span class="hljs-function"> (<span class="hljs-params">configJson</span>) =&gt;</span>
+  switch (configJson<span class="hljs-operator"> |&gt; </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Json</span>.</span></span>decodeObject) {
+  <span class="hljs-pattern-match">| <span class="hljs-constructor">None</span> =&gt;</span> raise(Json.Decode.<span class="hljs-constructor">DecodeError(<span class="hljs-string">"Invalid Cache Config"</span>)</span>)
+  <span class="hljs-pattern-match">| <span class="hljs-constructor">Some(<span class="hljs-params">data</span>)</span> =&gt;</span>
+    data<span class="hljs-operator"> |&gt; </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Dict</span>.</span></span>map(<span class="hljs-function">(. json) =&gt;</span> <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">CachingServiceConfig</span>.</span></span>decode(json))
+  };

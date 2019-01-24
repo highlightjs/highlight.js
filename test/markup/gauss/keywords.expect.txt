@@ -1,0 +1,7 @@
+<span class="hljs-keyword">for</span> i(start, stop, <span class="hljs-built_in">bar</span>(<span class="hljs-number">5</span>));
+<span class="hljs-keyword">if</span> (i<span class="hljs-number">-1</span> % <span class="hljs-number">5</span> == <span class="hljs-number">0</span> .<span class="hljs-keyword">and</span> some_flag);
+<span class="hljs-keyword">elseif</span> i % <span class="hljs-number">2</span> .<span class="hljs-keyword">eqv</span> <span class="hljs-number">0</span>;
+<span class="hljs-keyword">external string</span> _olsrnam;
+<span class="hljs-keyword">external proc</span> <span class="hljs-built_in">indices2</span>,<span class="hljs-built_in">indexcat</span>;
+myPlot.axes.and.for.if.endif.text = <span class="hljs-string">"hey"</span>;
+<span class="hljs-keyword">local</span> f:<span class="hljs-function"><span class="hljs-keyword">proc</span></span>;

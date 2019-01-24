@@ -1,0 +1,4 @@
+<span class="hljs-keyword">float</span> test = <span class="hljs-number">1.0f</span>;
+<span class="hljs-keyword">float</span> test2 = <span class="hljs-number">1.f</span>;
+<span class="hljs-keyword">float</span> test3 = <span class="hljs-number">1.0</span>;
+<span class="hljs-keyword">float</span> test4 = <span class="hljs-number">1</span>;
