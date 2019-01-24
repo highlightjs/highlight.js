@@ -1,0 +1,13 @@
+<span class="hljs-meta">@foo</span>(<span class="hljs-string">'foo'</span>)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyClass {
+    <span class="hljs-meta">@baz</span>(<span class="hljs-number">123</span>)
+    <span class="hljs-keyword">private</span> myAttribute: <span class="hljs-built_in">string</span>;
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-meta">@bar</span>(<span class="hljs-literal">true</span>) <span class="hljs-keyword">private</span> x, 
+                <span class="hljs-meta">@bar</span>(qux(quux(<span class="hljs-literal">true</span>))) <span class="hljs-keyword">private</span> y</span>) { }
+
+    <span class="hljs-meta">@bar</span>()
+    <span class="hljs-keyword">private</span> myMethod(<span class="hljs-meta">@bar</span>() z) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello world.'</span>);
+    }
+}
