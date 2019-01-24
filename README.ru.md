@@ -42,9 +42,9 @@ Highlight.js — это инструмент для подсветки синт�
 Вот пример инициализации, эквивалентной вызову [`initHighlightingOnLoad`][1], но
 с использованием jQuery:
 
-```javascript
-$(document).ready(function() {
-  $('pre code').each(function(i, block) {
+```js
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block, i) => {
     hljs.highlightBlock(block);
   });
 });
@@ -54,10 +54,10 @@ $(document).ready(function() {
 используете контейнер, не сохраняющий переводы строк, вам нужно сказать
 highlight.js использовать для них тег `<br>`:
 
-```javascript
+```js
 hljs.configure({useBR: true});
 
-$('div.code').each(function(i, block) {
+document.querySelectorAll('div.code').forEach((block, i) => {
   hljs.highlightBlock(block);
 });
 ```
@@ -72,23 +72,23 @@ $('div.code').each(function(i, block) {
 
 В основном скрипте:
 
-```javascript
-addEventListener('load', function() {
-  var code = document.querySelector('#code');
-  var worker = new Worker('worker.js');
-  worker.onmessage = function(event) { code.innerHTML = event.data; }
+```js
+addEventListener('load', () => {
+  const code = document.querySelector('#code');
+  const worker = new Worker('worker.js');
+  worker.onmessage = (event) => { code.innerHTML = event.data; }
   worker.postMessage(code.textContent);
-})
+});
 ```
 
 В worker.js:
 
-```javascript
-onmessage = function(event) {
+```js
+onmessage = (event) => {
   importScripts('<path>/highlight.pack.js');
-  var result = self.hljs.highlightAuto(event.data);
+  const result = self.hljs.highlightAuto(event.data);
   postMessage(result.value);
-}
+};
 ```
 
 
