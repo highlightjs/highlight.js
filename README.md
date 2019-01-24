@@ -51,11 +51,11 @@ highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
 functions. This allows you to control *what* to highlight and *when*.
 
 Here’s an equivalent way to calling [`initHighlightingOnLoad`][1] using
-jQuery:
+vanilla JS:
 
-```javascript
-$(document).ready(() => {
-  $('pre code').each((i, block) => {
+```js
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
     hljs.highlightBlock(block);
   });
 });
@@ -65,10 +65,10 @@ You can use any tags instead of `<pre><code>` to mark up your code. If
 you don't use a container that preserves line breaks you will need to
 configure highlight.js to use the `<br>` tag:
 
-```javascript
+```js
 hljs.configure({useBR: true});
 
-$('div.code').each((i, block) => {
+document.querySelectorAll('div.code').forEach((block) => {
   hljs.highlightBlock(block);
 });
 ```
@@ -83,23 +83,23 @@ window while dealing with very big chunks of code.
 
 In your main script:
 
-```javascript
+```js
 addEventListener('load', () => {
   const code = document.querySelector('#code');
   const worker = new Worker('worker.js');
   worker.onmessage = (event) => { code.innerHTML = event.data; }
   worker.postMessage(code.textContent);
-})
+});
 ```
 
 In worker.js:
 
-```javascript
+```js
 onmessage = (event) => {
   importScripts('<path>/highlight.pack.js');
   const result = self.hljs.highlightAuto(event.data);
   postMessage(result.value);
-}
+};
 ```
 
 
@@ -145,13 +145,13 @@ npm install highlight.js --save
 
 In your application:
 
-```javascript
+```js
 import hljs from 'highlight.js';
 ```
 
 The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
 
-```javascript
+```js
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
@@ -159,9 +159,9 @@ hljs.registerLanguage('javascript', javascript);
 
 To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can import the stylesheet directly into your CommonJS-module:
 
-```javascript
+```js
 import hljs from 'highlight.js/lib/highlight';
-import 'highlight.js/styles/github.css'
+import 'highlight.js/styles/github.css';
 ```
 
 ## License
