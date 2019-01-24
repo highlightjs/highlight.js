@@ -39,7 +39,7 @@ function(hljs) {
       },
       {
         className: 'title', //symbol would be most accurate however is higlighted just like built_in and that makes up a lot of AutoHotkey code
-		//meaning that it would fail to highlight anything
+		                        //meaning that it would fail to highlight anything
         variants: [
           {begin: '^[^\\n";]+::(?!=)'},
           {begin: '^[^\\n";]+:(?!=)', relevance: 0} // zero relevance as it catches a lot of things
