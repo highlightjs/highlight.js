@@ -51,7 +51,7 @@ function(hljs) {
         begin: '^\\s*#\\w+', end:'$',
         relevance: 0
       },
-	  {
+	    {
         className: 'built_in',
         begin: 'A_[a-zA-Z0-9]+'
       },
