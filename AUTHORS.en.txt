@@ -242,7 +242,6 @@ Contributors:
 - Michael Rodler <contact@f0rki.at>
 - Sergey Sobko <s.sobko@profitware.ru>
 - Hale Chan <halechan@qq.com>
-- Matt Evans <syrius3@gmail.com>
 - Kasper Andersen <kma_untrusted@protonmail.com>
 - Philipp A. <flying-sheep@web.de>
 - Guannan Wei <guannanwei@outlook.com>
@@ -262,6 +261,7 @@ Contributors:
 - Arctic Ice Studio <development@arcticicestudio.com>
 - Google Inc. (David Benjamin) <davidben@google.com>
 - Ahmad Awais <me@AhmadAwais.com>
+- Duncan Paterson <duncan@exist-db.org>
 - Tristian Kelly <tristian.kelly560@gmail.com>
 - Melissa Geels <melissa@nimble.tools>
 - Dmitriy Tarasov <dimatar@gmail.com>
@@ -273,3 +273,4 @@ Contributors:
 - Antoine Boisier-Michaud <aboisiermichaud@gmail.com>
 - Alejandro Isaza <al@isaza.ca>
 - Laurent Voullemier <laurent.voullemier@gmail.com>
+- Sean T. Allen <sean@monkeysnatchbanana.com>

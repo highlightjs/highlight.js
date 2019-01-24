@@ -16,20 +16,20 @@ function(hljs) {
           'delete do handler insert load replace select truncate update set show pragma grant ' +
           'merge describe use explain help declare prepare execute deallocate release ' +
           'unlock purge reset change stop analyze cache flush optimize repair kill ' +
-          'install uninstall checksum restore check backup revoke comment with',
+          'install uninstall checksum restore check backup revoke comment values with',
         end: /;/, endsWithParent: true,
         lexemes: /[\w\.]+/,
         keywords: {
           keyword:
             'as abort abs absolute acc acce accep accept access accessed accessible account acos action activate add ' +
             'addtime admin administer advanced advise aes_decrypt aes_encrypt after agent aggregate ali alia alias ' +
-            'allocate allow alter always analyze ancillary and any anydata anydataset anyschema anytype apply ' +
+            'all allocate allow alter always analyze ancillary and anti any anydata anydataset anyschema anytype apply ' +
             'archive archived archivelog are as asc ascii asin assembly assertion associate asynchronous at atan ' +
             'atn2 attr attri attrib attribu attribut attribute attributes audit authenticated authentication authid ' +
             'authors auto autoallocate autodblink autoextend automatic availability avg backup badfile basicfile ' +
             'before begin beginning benchmark between bfile bfile_base big bigfile bin binary_double binary_float ' +
             'binlog bit_and bit_count bit_length bit_or bit_xor bitmap blob_base block blocksize body both bound ' +
-            'buffer_cache buffer_pool build bulk by byte byteordermark bytes cache caching call calling cancel ' +
+            'bucket buffer_cache buffer_pool build bulk by byte byteordermark bytes cache caching call calling cancel ' +
             'capacity cascade cascaded case cast catalog category ceil ceiling chain change changed char_base ' +
             'char_length character_length characters characterset charindex charset charsetform charsetid check ' +
             'checksum checksum_agg child choose chr chunk class cleanup clear client clob clob_base clone close ' +
@@ -53,7 +53,7 @@ function(hljs) {
             'editions element ellipsis else elsif elt empty enable enable_all enclosed encode encoding encrypt ' +
             'end end-exec endian enforced engine engines enqueue enterprise entityescaping eomonth error errors ' +
             'escaped evalname evaluate event eventdata events except exception exceptions exchange exclude excluding ' +
-            'execu execut execute exempt exists exit exp expire explain export export_set extended extent external ' +
+            'execu execut execute exempt exists exit exp expire explain explode export export_set extended extent external ' +
             'external_1 external_2 externally extract failed failed_login_attempts failover failure far fast ' +
             'feature_set feature_value fetch field fields file file_name_convert filesystem_like_logging final ' +
             'finish first first_value fixed flash_cache flashback floor flush following follows for forall force foreign ' +
@@ -61,13 +61,13 @@ function(hljs) {
             'ftp full function general generated get get_format get_lock getdate getutcdate global global_name ' +
             'globally go goto grant grants greatest group group_concat group_id grouping grouping_id groups ' +
             'gtid_subtract guarantee guard handler hash hashkeys having hea head headi headin heading heap help hex ' +
-            'hierarchy high high_priority hosts hour http id ident_current ident_incr ident_seed identified ' +
+            'hierarchy high high_priority hosts hour hours http id ident_current ident_incr ident_seed identified ' +
             'identity idle_time if ifnull ignore iif ilike ilm immediate import in include including increment ' +
             'index indexes indexing indextype indicator indices inet6_aton inet6_ntoa inet_aton inet_ntoa infile ' +
             'initial initialized initially initrans inmemory inner innodb input insert install instance instantiable ' +
             'instr interface interleaved intersect into invalidate invisible is is_free_lock is_ipv4 is_ipv4_compat ' +
             'is_not is_not_null is_used_lock isdate isnull isolation iterate java join json json_exists ' +
-            'keep keep_duplicates key keys kill language large last last_day last_insert_id last_value lax lcase ' +
+            'keep keep_duplicates key keys kill language large last last_day last_insert_id last_value lateral lax lcase ' +
             'lead leading least leaves left len lenght length less level levels library like like2 like4 likec limit ' +
             'lines link list listagg little ln load load_file lob lobs local localtime localtimestamp locate ' +
             'locator lock locked log log10 log2 logfile logfiles logging logical logical_reads_per_call ' +
@@ -75,7 +75,7 @@ function(hljs) {
             'managed management manual map mapping mask master master_pos_wait match matched materialized max ' +
             'maxextents maximize maxinstances maxlen maxlogfiles maxloghistory maxlogmembers maxsize maxtrans ' +
             'md5 measures median medium member memcompress memory merge microsecond mid migration min minextents ' +
-            'minimum mining minus minute minvalue missing mod mode model modification modify module monitoring month ' +
+            'minimum mining minus minute minutes minvalue missing mod mode model modification modify module monitoring month ' +
             'months mount move movement multiset mutex name name_const names nan national native natural nav nchar ' +
             'nclob nested never new newline next nextval no no_write_to_binlog noarchivelog noaudit nobadfile ' +
             'nocheck nocompress nocopy nocycle nodelay nodiscardfile noentityescaping noguarantee nokeep nologfile ' +
@@ -103,8 +103,8 @@ function(hljs) {
             'restricted result result_cache resumable resume retention return returning returns reuse reverse revoke ' +
             'right rlike role roles rollback rolling rollup round row row_count rowdependencies rowid rownum rows ' +
             'rtrim rules safe salt sample save savepoint sb1 sb2 sb4 scan schema schemacheck scn scope scroll ' +
-            'sdo_georaster sdo_topo_geometry search sec_to_time second section securefile security seed segment select ' +
-            'self sequence sequential serializable server servererror session session_user sessions_per_user set ' +
+            'sdo_georaster sdo_topo_geometry search sec_to_time second seconds section securefile security seed segment select ' +
+            'self semi sequence sequential serializable server servererror session session_user sessions_per_user set ' +
             'sets settings sha sha1 sha2 share shared shared_pool short show shrink shutdown si_averagecolor ' +
             'si_colorhistogram si_featurelist si_positionalcolor si_stillimage si_texture siblings sid sign sin ' +
             'size size_t sizes skip slave sleep smalldatetimefromparts smallfile snapshot some soname sort soundex ' +
@@ -116,7 +116,7 @@ function(hljs) {
             'stop storage store stored str str_to_date straight_join strcmp strict string struct stuff style subdate ' +
             'subpartition subpartitions substitutable substr substring subtime subtring_index subtype success sum ' +
             'suspend switch switchoffset switchover sync synchronous synonym sys sys_xmlagg sysasm sysaux sysdate ' +
-            'sysdatetimeoffset sysdba sysoper system system_user sysutcdatetime table tables tablespace tan tdo ' +
+            'sysdatetimeoffset sysdba sysoper system system_user sysutcdatetime table tables tablespace tablesample tan tdo ' +
             'template temporary terminated tertiary_weights test than then thread through tier ties time time_format ' +
             'time_zone timediff timefromparts timeout timestamp timestampadd timestampdiff timezone_abbr ' +
             'timezone_minute timezone_region to to_base64 to_date to_days to_seconds todatetimeoffset trace tracking ' +
@@ -128,14 +128,14 @@ function(hljs) {
             'utc_timestamp uuid uuid_short validate validate_password_strength validation valist value values var ' +
             'var_samp varcharc vari varia variab variabl variable variables variance varp varraw varrawc varray ' +
             'verify version versions view virtual visible void wait wallet warning warnings week weekday weekofyear ' +
-            'wellformed when whene whenev wheneve whenever where while whitespace with within without work wrapped ' +
+            'wellformed when whene whenev wheneve whenever where while whitespace window with within without work wrapped ' +
             'xdb xml xmlagg xmlattributes xmlcast xmlcolattval xmlelement xmlexists xmlforest xmlindex xmlnamespaces ' +
             'xmlpi xmlquery xmlroot xmlschema xmlserialize xmltable xmltype xor year year_to_month years yearweek',
           literal:
             'true false null unknown',
           built_in:
             'array bigint binary bit blob bool boolean char character date dec decimal float int int8 integer interval number ' +
-            'numeric real record serial serial8 smallint text time timestamp varchar varying void'
+            'numeric real record serial serial8 smallint text time timestamp tinyint varchar varying void'
         },
         contains: [
           {

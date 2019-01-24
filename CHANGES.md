@@ -6,9 +6,24 @@ New styles:
 
 Improvements:
 
+- Fixed Dockerfile definition when using highlight continuation parameter, by [Laurent Voullemier][]
 - Added tests & new `annotation` and `verbatim` keywords to *Crystal*, by [Benoit de Chezelles][]
+- Added missing dockerfile markup tests, by [Laurent Voullemier][]
+  Allow empty prompt text in clojure-repl, by [Egor Rogov][]
+- Fixed several issues with *Crystal* language definition, by [Johannes Müller][]
+- Added `C#` as an alias for *CSharp* language, by [Ahmed Atito][]
+- Added generic user-defined proc support, new compiler define, refactor to re-use rules, and add tests to *GAUSS*, by [Matthew Evans][]
+- Improve *Crystal* language to highlight regexes after some keywords, by [Tsuyusato Kitsune][]
+- Fix filterByQualifiers: fileInfo can be null
+- Fixed String interpolation in Dart, by [Scott Hyndman][].
 
+[Laurent Voullemier]: https://github.com/l-vo
 [Benoit de Chezelles]: https://github.com/bew
+[Johannes Müller]: https://github.com/straight-shoota
+[Ahmed Atito]: https://github.com/atitoa93
+[Matthew Evans]: https://github.com/matthewevans
+[Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Scott Hyndman]: https://github.com/shyndman
 
 ## Version 9.13.1
 
@@ -20,13 +35,11 @@ Improvements:
 - Added support for multiline strings to *Swift*, by [Alejandro Isaza][]
 - Fixed issue that was causing some minifiers to fail.
 - Fixed `autoDetection` to accept language aliases.
-- Fixed Dockerfile definition when using highlight continuation parameter, by [Laurent Voullemier][]
 
 [JeremyTCD]: https://github.com/JeremyTCD
 [Melissa Geels]: https://github.com/codecat
 [Antoine Boisier-Michaud]: https://github.com/Aboisier
 [Alejandro Isaza]: https://github.com/alejandro-isaza
-[Laurent Voullemier]: https://github.com/l-vo
 
 ## Version 9.13.0
 
@@ -110,7 +123,7 @@ New style:
 - *VisualStudio 2015 Dark* by [Nicolas LLOBERA][]
 
 Improvements:
-
+- [Duncan Paterson][] added *XQuery* built-in functions, prolog declarations, as well as parsing of function bodies, computed and direct constructors.
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
 - *Julia* updated to the modern definitions by [Alex Arslan][].
 - *julia-repl* added by [Morten Piibeleht][].
@@ -133,6 +146,7 @@ Improvements:
 [nnnik]: https://github.com/nnnik
 [Martin Clausen]: https://github.com/maacl
 [Alejandro Alonso]: https://github.com/Azoy
+[Duncan Paterson]: https://github.com/duncdrum
 
 ## Version 9.11.0
 
