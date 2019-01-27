@@ -50,8 +50,13 @@ function(hljs) {
 
   var CLASS = {
     className: 'class',
-    beginKeywords: 'class actor object', end: '$',
+    beginKeywords: 'class actor object primitive', end: '$',
     contains: [
+      {
+        className: 'keyword',
+        begin: 'is'
+      },
+      TYPE_NAME,
       hljs.TITLE_MODE,
       hljs.C_LINE_COMMENT_MODE
     ]
