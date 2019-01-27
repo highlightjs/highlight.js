@@ -1,10 +1,13 @@
 ## Master
 
 New languages:
+ - GN [Petr Hosek][]
 
 New styles:
 
 Improvements:
+
+[Petr Hosek]: https://github.com/petrhosek
 
 ## Version 9.15.6
 New languages:

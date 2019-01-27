@@ -1,0 +1,47 @@
+import("//tools/idl_compiler.gni")
+
+declare_args() {
+  # Applies only to toolchains targeting `target_cpu`.
+  sysroot = ""
+}
+
+config("my_config") {
+  if (current_cpu == "arm") {
+    defines = [ "CPU_IS_32_BIT" ]
+  } else {
+    defines = [ "CPU_IS_64_BIT" ]
+  }
+  if (sysroot != "" && current_cpu == target_cpu) {
+    cflags = [ "--sysroot=${sysroot}" ]
+  }
+}
+
+# Declares a script that compiles IDL files.
+template("idl") {
+  idl_target_name = "${target_name}_generate"
+  action_foreach(idl_target_name) {
+    script = idl_compiler
+  }
+
+  source_set(target_name) {
+    sources = invoker.sources
+    deps = [ ":$idl_target_name" ]
+  }
+}
+
+idl("my_interfaces") {
+  sources = [
+    "a.idl",
+    "b.idl",
+  ]
+}
+
+executable("my_tool") {
+  sources = [
+    "main.cc",
+  ]
+
+  deps = [
+    ":my_interfaces",
+  ]
+}

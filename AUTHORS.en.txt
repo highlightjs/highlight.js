@@ -275,3 +275,4 @@ Contributors:
 - Laurent Voullemier <laurent.voullemier@gmail.com>
 - Sean T. Allen <sean@monkeysnatchbanana.com>
 - Greg Cline <gregrcline@gmail.com>
+- Petr Hosek <petrhosek@gmail.com>
