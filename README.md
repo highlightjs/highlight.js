@@ -55,9 +55,7 @@ vanilla JS:
 
 ```js
 document.addEventListener('DOMContentLoaded', (event) => {
-  document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block);
-  });
+  document.querySelectorAll('pre code').forEach(hljs.highlightBlock);
 });
 ```
 
@@ -68,9 +66,7 @@ configure highlight.js to use the `<br>` tag:
 ```js
 hljs.configure({useBR: true});
 
-document.querySelectorAll('div.code').forEach((block) => {
-  hljs.highlightBlock(block);
-});
+document.querySelectorAll('div.code').forEach(hljs.highlightBlock);
 ```
 
 For other options refer to the documentation for [`configure`][4].
