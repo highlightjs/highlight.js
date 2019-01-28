@@ -6,6 +6,19 @@ New styles:
 
 Improvements:
 
+## Version 9.14.0
+
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+- Pony: add missing "object" highlighting (#1932)
+- Added *XQuery* built-in functions, prolog declarations, as well as parsing of function bodies, computed and direct constructors, by [Duncan Paterson][] 
+- fix(dart): Corrects highlighting with string interpolation. (#1946)
+- fix(swift): be eager on optional-using types (!/?) (#1919)
+- fix(tex): Changed cyrillic to unicode (IE11 throw SCRIPT5021) (#1601)
+- fix(JavaScript): Recognize get/set accessor keywords (#1940)
 - Fixed Dockerfile definition when using highlight continuation parameter, by [Laurent Voullemier][]
 - Added tests & new `annotation` and `verbatim` keywords to *Crystal*, by [Benoit de Chezelles][]
 - Added missing dockerfile markup tests, by [Laurent Voullemier][]
@@ -25,6 +38,7 @@ Improvements:
 [Matthew Evans]: https://github.com/matthewevans
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Scott Hyndman]: https://github.com/shyndman
+[Duncan Paterson]: https://github.com/duncdrum
 
 ## Version 9.13.1
 
@@ -125,7 +139,6 @@ New style:
 - *VisualStudio 2015 Dark* by [Nicolas LLOBERA][]
 
 Improvements:
-- [Duncan Paterson][] added *XQuery* built-in functions, prolog declarations, as well as parsing of function bodies, computed and direct constructors.
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
 - *Julia* updated to the modern definitions by [Alex Arslan][].
 - *julia-repl* added by [Morten Piibeleht][].
@@ -148,7 +161,6 @@ Improvements:
 [nnnik]: https://github.com/nnnik
 [Martin Clausen]: https://github.com/maacl
 [Alejandro Alonso]: https://github.com/Azoy
-[Duncan Paterson]: https://github.com/duncdrum
 
 ## Version 9.11.0
 
