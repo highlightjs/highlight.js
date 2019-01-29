@@ -1,0 +1,3 @@
+<span class="hljs-string">'1234<span class="hljs-subst">$identifier</span> <span class="hljs-subst">$true</span>'</span>;
+<span class="hljs-comment">// comment</span>
+<span class="hljs-string">'1234<span class="hljs-subst">${<span class="hljs-number">1234</span> + <span class="hljs-keyword">true</span> + <span class="hljs-string">'foo'</span>}</span>'</span>;
