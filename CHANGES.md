@@ -6,7 +6,7 @@ New styles:
 
 Improvements:
 
-## Version 9.13.0
+## Version 9.14.2
 
 Improvements:
 
