@@ -5,6 +5,7 @@ New languages:
 New styles:
 
 Improvements:
+- fix(Tcl): removed apostrophe string delimiters (don't exist)
 
 ## Version 9.14.1
 
