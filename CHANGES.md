@@ -5,6 +5,9 @@ New languages:
 New styles:
 
 Improvements:
+- *Gauss* fixed to stop global namespace pollution [Scott Hyndman][].
+
+[Scott Hyndman]: https://github.com/shyndman
 
 ## Version 9.14.1
 
