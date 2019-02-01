@@ -210,7 +210,7 @@ function(hljs) {
     begin: '"', end: '"',
     contains: [hljs.BACKSLASH_ESCAPE],
     relevance: 0,
-  },
+  };
 
   var FUNCTION_REF =
   {
