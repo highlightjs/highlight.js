@@ -1,0 +1,9 @@
+<span class="hljs-title">xquery version "3.1";</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">$root</span> := <span class="hljs-keyword">element</span> {<span class="hljs-built_in">fn:node-name</span>(<span class="hljs-variable">$e</span>)}
+   {<span class="hljs-variable">$e</span>/@*, <span class="hljs-number">2</span> * <span class="hljs-built_in">fn:data</span>(<span class="hljs-variable">$e</span>)}
+
+<span class="hljs-keyword">for</span> <span class="hljs-variable">$node</span> <span class="hljs-keyword">in</span><span class="hljs-built_in"> root</span>(<span class="hljs-variable">$root</span>)
+<span class="hljs-keyword">return</span>
+  <span class="hljs-keyword">element</span> root {<span class="hljs-built_in"> root</span> (<span class="hljs-variable">$node</span>)/<span class="hljs-type">text</span>(), <span class="hljs-keyword">attribute</span> root {<span class="hljs-string">'root'</span>},
+<span class="hljs-keyword">element</span> not-root{<span class="hljs-keyword">attribute</span> type{<span class="hljs-string">"root"</span>},<span class="hljs-built_in"> root</span>(<span class="hljs-variable">$root</span>)}
+}

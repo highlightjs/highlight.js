@@ -5,7 +5,30 @@ New languages:
 New styles:
 
 Improvements:
+- fix(Tcl): removed apostrophe string delimiters (don't exist)
 
+## Version 9.14.1
+
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+- Pony: language improvements (#1958)
+
+## Version 9.14.0
+
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+- Pony: add missing "object" highlighting (#1932)
+- Added *XQuery* built-in functions, prolog declarations, as well as parsing of function bodies, computed and direct constructors, by [Duncan Paterson][]
+- fix(dart): Corrects highlighting with string interpolation. (#1946)
+- fix(swift): be eager on optional-using types (!/?) (#1919)
+- fix(tex): Changed cyrillic to unicode (IE11 throw SCRIPT5021) (#1601)
+- fix(JavaScript): Recognize get/set accessor keywords (#1940)
 - Fixed Dockerfile definition when using highlight continuation parameter, by [Laurent Voullemier][]
 - Added tests & new `annotation` and `verbatim` keywords to *Crystal*, by [Benoit de Chezelles][]
 - Added missing dockerfile markup tests, by [Laurent Voullemier][]
@@ -14,6 +37,8 @@ Improvements:
 - Added `C#` as an alias for *CSharp* language, by [Ahmed Atito][]
 - Added generic user-defined proc support, new compiler define, refactor to re-use rules, and add tests to *GAUSS*, by [Matthew Evans][]
 - Improve *Crystal* language to highlight regexes after some keywords, by [Tsuyusato Kitsune][]
+- Fix filterByQualifiers: fileInfo can be null
+- Fixed String interpolation in Dart, by [Scott Hyndman][].
 
 [Laurent Voullemier]: https://github.com/l-vo
 [Benoit de Chezelles]: https://github.com/bew
@@ -21,6 +46,8 @@ Improvements:
 [Ahmed Atito]: https://github.com/atitoa93
 [Matthew Evans]: https://github.com/matthewevans
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Scott Hyndman]: https://github.com/shyndman
+[Duncan Paterson]: https://github.com/duncdrum
 
 ## Version 9.13.1
 
@@ -120,7 +147,6 @@ New style:
 - *VisualStudio 2015 Dark* by [Nicolas LLOBERA][]
 
 Improvements:
-
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
 - *Julia* updated to the modern definitions by [Alex Arslan][].
 - *julia-repl* added by [Morten Piibeleht][].

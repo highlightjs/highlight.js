@@ -1,0 +1,8 @@
+fun foo(bar: String): String =>
+  bar + "baz"
+
+new create(hunger: I32) =>
+  _hunger = hunger
+
+be feed(food: I32) =>
+  _hunger = _hunger - food

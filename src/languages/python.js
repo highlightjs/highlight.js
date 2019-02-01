@@ -84,7 +84,7 @@ function(hljs) {
   };
   SUBST.contains = [STRING, NUMBER, PROMPT];
   return {
-    aliases: ['py', 'gyp'],
+    aliases: ['py', 'gyp', 'ipython'],
     keywords: KEYWORDS,
     illegal: /(<\/|->|\?)|=>/,
     contains: [

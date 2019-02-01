@@ -166,7 +166,7 @@ function(hljs) {
         ]
       },
       {
-        beginKeywords: 'constructor', end: /\{/, excludeEnd: true
+        beginKeywords: 'constructor get set', end: /\{/, excludeEnd: true
       }
     ],
     illegal: /#(?!!)/
