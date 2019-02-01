@@ -8,7 +8,7 @@ function(hljs) {
   var JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
   var GENERIC_IDENT_RE = JAVA_IDENT_RE + '(<' + JAVA_IDENT_RE + '(\\s*,\\s*' + JAVA_IDENT_RE + ')*>)?';
   var KEYWORDS =
-    'false synchronized int abstract float private char boolean static null if const ' +
+    'false synchronized int abstract float private char boolean var static null if const ' +
     'for true while long strictfp finally protected import native final void ' +
     'enum else break transient catch instanceof byte super volatile case assert short ' +
     'package default double public try this switch continue throws protected public private ' +

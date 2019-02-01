@@ -1,0 +1,5 @@
+k = colsf(fin);
+nr = floor(minc(maxbytes/(k*8*3.5)|maxvec/(k+1)));
+call random_user_function_2(-10.0, "hey", /* blah */ x[0x2F]);
+ols("", csvReadM("test.csv"));
+if myfn(10) == 20;
