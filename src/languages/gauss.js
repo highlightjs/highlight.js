@@ -109,9 +109,9 @@ function(hljs) {
   };
 
 
-  AT_COMMENT_MODE = hljs.COMMENT('@', '@');
+  var AT_COMMENT_MODE = hljs.COMMENT('@', '@');
 
-  PREPROCESSOR =
+  var PREPROCESSOR =
   {
     className: 'meta',
     begin: '#', end: '$',
@@ -137,7 +137,7 @@ function(hljs) {
     ]
   };
 
-  STRUCT_TYPE =
+  var STRUCT_TYPE =
   {
     begin: /\bstruct\s+/,
     end: /\s/,
@@ -152,7 +152,7 @@ function(hljs) {
   };
 
   // only for definitions
-  PARSE_PARAMS = [
+  var PARSE_PARAMS = [
     {
       className: 'params',
       begin: /\(/, end: /\)/,
@@ -173,14 +173,14 @@ function(hljs) {
     }
   ];
 
-  FUNCTION_DEF = 
+  var FUNCTION_DEF =
   {
     className: "title",
     begin: hljs.UNDERSCORE_IDENT_RE,
     relevance: 0,
   };
 
-  DEFINITION = function (beginKeywords, end, inherits) {
+  var DEFINITION = function (beginKeywords, end, inherits) {
     var mode = hljs.inherit(
       {
         className: "function",
@@ -188,7 +188,7 @@ function(hljs) {
         end: end,
         excludeEnd: true,
         contains: [].concat(PARSE_PARAMS),
-      },  
+      },
       inherits || {}
     );
     mode.contains.push(FUNCTION_DEF);
@@ -198,21 +198,21 @@ function(hljs) {
     return mode;
   };
 
-  BUILT_IN_REF = 
+  var BUILT_IN_REF =
   { // these are explicitly named internal function calls
     className: 'built_in',
     begin: '\\b(' + KEYWORDS.built_in.split(' ').join('|') + ')\\b',
   };
 
-  STRING_REF =
+  var STRING_REF =
   {
     className: 'string',
     begin: '"', end: '"',
     contains: [hljs.BACKSLASH_ESCAPE],
     relevance: 0,
-  },
+  };
 
-  FUNCTION_REF = 
+  var FUNCTION_REF =
   {
     //className: "fn_ref",
     begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
@@ -220,7 +220,7 @@ function(hljs) {
     keywords: KEYWORDS,
     relevance: 0,
     contains: [
-      { 
+      {
         beginKeywords: KEYWORDS.keyword,
       },
       BUILT_IN_REF,
@@ -232,7 +232,7 @@ function(hljs) {
     ],
   };
 
-  FUNCTION_REF_PARAMS = 
+  var FUNCTION_REF_PARAMS =
   {
     //className: "fn_ref_params",
     begin: /\(/,
