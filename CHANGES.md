@@ -2,9 +2,14 @@
 
 New languages:
 
-New styles:
+- *lsFusion* by [Aliaksei Danchanka][].
 
+New styles:
+  none.
 Improvements:
+  none.
+
+[Aliaksei Danchanka]: https://github.com/danchanka
 
 ## Version 9.15.6
 New languages:

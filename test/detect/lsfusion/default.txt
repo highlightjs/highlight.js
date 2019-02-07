@@ -1,0 +1,22 @@
+MODULE Sample;
+
+CLASS Book;
+CLASS Category;
+  
+category 'Category' = DATA Category (Book);
+name 'Book name' = DATA STRING[100] (Book);
+
+booksInCategory(Category c) = GROUP SUM 1 BY category(Book book); 
+
+price 'Price' = DATA NUMERIC[8,2] (Book);
+reducedPrice(Book book) = price(book) * 0.8; 
+
+actualPubDate(Book book) = DATA DATE (Book);
+defaultPubDate() = 1980_01_01; // random default date
+pubDate 'Publication date' (Book book) = OVERRIDE actualPubDate(book), defaultPubDate();
+
+FORM books 'Books'  
+	OBJECTS b=Book
+	PROPERTIES(b) name, price, pubDate
+;	
+
