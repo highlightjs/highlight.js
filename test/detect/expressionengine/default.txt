@@ -1,0 +1,15 @@
+{embed="site/header" title="ExpressionEngine"}
+
+<div class="news-articles">
+    {exp:channel:entries channel="news" limit="5"}
+        <h1>{title}</h1>
+        {body}
+    {/exp:channel:entries}
+</div>
+
+{!-- This is a comment! --}
+{if logged_in == TRUE}
+    <p>Hello {logged_in_screen_name}</p>
+{/if:else}
+    <a href="{path='member/login'}">Log In</a>
+{/if}
