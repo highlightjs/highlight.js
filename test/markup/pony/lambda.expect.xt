@@ -1,1 +1,0 @@
-{(foo: <span class="hljs-type">I32</span>)(bar): <span class="hljs-type">String</span> =&gt; (foo + bar).string()}
