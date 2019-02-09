@@ -5,6 +5,7 @@ New languages:
 New styles:
 
 Improvements:
+- Pony: Fixed keywords without spaces at line ends, highlighting of `iso` in class definitions, and function heads without bodies in traits and interfaces. Removed FUNCTION and CLASS modes until they are found to be needed and to provide some of the fixes.
 
 ## Version 9.14.2
 
