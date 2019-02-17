@@ -5,7 +5,18 @@ New languages:
 New styles:
 
 Improvements:
+
+## Version 9.14.2
+
+New languages:
+  none.
+New styles:
+  none.
+Improvements:
+- *Gauss* fixed to stop global namespace pollution [Scott Hyndman][].
 - fix(Tcl): removed apostrophe string delimiters (don't exist)
+
+[Scott Hyndman]: https://github.com/shyndman
 
 ## Version 9.14.1
 
