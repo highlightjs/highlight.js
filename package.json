@@ -50,7 +50,7 @@
   },
   "greenkeeper": {
     "ignore": [
-      "jsdom",
+      "jsdom"
     ]
   }
 }
