@@ -5,6 +5,7 @@ New languages:
 New styles:
 
 Improvements:
+ - new cli tool `hljs` - allows easier [building from command line](docs/building-testing.rst#building-a-bundle-from-the-command-line).
 
 ## Version 9.14.2
 
