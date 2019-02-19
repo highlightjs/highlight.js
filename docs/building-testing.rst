@@ -9,8 +9,7 @@ Building a bundle from the command line
 After installing, you can use `hljs` directly from the command line to build a bundle
 with the core languages you need. This is useful for software that requires hljs as part of a build chain.
 
-```Bash
-Usage: hljs [options] [<language>...]
+Usage: `hljs [options] [<language>...]`
 
 Options:
   -d, --docs           Include documentation and demo (when target "browser")
@@ -19,7 +18,7 @@ Options:
                        (default: "/usr/local/lib/node_modules/highlight.js/build")
   -t, --target <name>  Build for target [all, browser, cdn, node] (default: "browser")
   -h, --help           output usage information
-```
+
 Unlike the legacy build tool (section below), it disables generation of docs and demo files by default.
 
 ### Example
