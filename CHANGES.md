@@ -5,7 +5,16 @@ New languages:
 New styles:
 
 Improvements:
+
+## Version 9.14.3
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
  - new cli tool `hljs` - allows easier [building from command line](docs/building-testing.rst#building-a-bundle-from-the-command-line).
+ - cpp: Fully support C++11 raw strings. (#1897)
+ - Python: Treat False None and True as literals (#1920)
 
 ## Version 9.14.2
 
