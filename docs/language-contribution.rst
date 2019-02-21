@@ -64,10 +64,11 @@ Class reference lives in the :doc:`CSS classes reference </css-classes-reference
 Describe shortly names of all meaningful modes used in your language definition.
 
 
-5. Update CHANGES.md
+5. Add yourself to AUTHORS.*.txt and CHANGES.md
 -----------------------------------------------
 
-Say what you did in CHANGES.md.
+If you're a new contributor add yourself to the authors list.
+Also it will be good to update CHANGES.md.
 
 
 6. Create a pull request
