@@ -1,0 +1,7 @@
+proc (1) = foo(if, endif, 10);
+proc foo;
+proc (1) = calc(local__row, fin, ...);
+fn /* inline */ twopi=pi*2;
+fn _n_pi(n /* inline comment */) = pi*n;
+keyword add(str, struct plotControl myPlot);
+keyword sub;

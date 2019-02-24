@@ -8,10 +8,10 @@ let path     = require('path');
 let registry = require('./tasks');
 let utility  = require('./utility');
 
-let directory;
+let directory = {};
 
 function templateAllFunc(blobs) {
-  const name = path.join('demo', 'index.html');
+  const name = path.join(directory.root, 'demo/index.html');
 
   blobs = _.compact(blobs);
 
@@ -69,13 +69,13 @@ function generateDemo(filterCB, readArgs) {
     writeImages: { requires:'readImages', task: ['dest', destArgs] },
     readDemoJS: {
       requires: 'logStart',
-      task: ['read', path.join('demo', 'demo.js')]
+      task: ['read', path.join(directory.root, 'demo/demo.js')]
     },
     minifyDemoJS: { requires: 'readDemoJS', task: 'jsminify' },
     writeDemoJS: { requires: 'minifyDemoJS', task: ['dest', demoRoot] },
     readDemoCSS: {
       requires: 'logStart',
-      task: ['read', path.join('demo', 'style.css')]
+      task: ['read', path.join(directory.root, 'demo/style.css')]
     },
     minifyDemoCSS: { requires: 'readDemoCSS', task: 'cssminify' },
     writeDemoCSS: { requires: 'minifyDemoCSS', task: ['dest', demoRoot] }
@@ -83,15 +83,15 @@ function generateDemo(filterCB, readArgs) {
 }
 
 module.exports = function(commander, dir) {
-  directory = dir;
+  Object.assign(directory, dir);
 
   let hljsExt, output, requiresTask, tasks,
       replace           = utility.replace,
       regex             = utility.regex,
       replaceClassNames = utility.replaceClassNames,
 
-      coreFile     = path.join('src', 'highlight.js'),
-      languages    = utility.glob(path.join('src', 'languages', '*.js')),
+      coreFile     = path.join(directory.root, 'src/highlight.js'),
+      languages    = utility.glob(path.join(directory.root, 'src/languages', '*.js')),
       filterCB     = utility.buildFilterCallback(commander.args),
       replaceArgs  = replace(regex.header, ''),
       templateArgs =
@@ -157,7 +157,7 @@ module.exports = function(commander, dir) {
     task: ['write', output]
   };
 
-  tasks = (commander.target === 'browser')
+  tasks = (commander.target === 'browser' && commander.docs)
         ? [copyDocs(), generateDemo(filterCB, languages), tasks]
         : [tasks];
 

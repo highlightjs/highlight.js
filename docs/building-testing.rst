@@ -4,8 +4,58 @@ Building and testing
 To actually run highlight.js it is necessary to build it for the environment
 where you're going to run it: a browser, the node.js server, etc.
 
+Building a bundle from the command line
+--------
+After installing, you can use `hljs` directly from the command line to build a bundle
+with the core languages you need. This is useful for software that requires hljs as part of a build chain.
 
-Building
+Usage: `hljs [options] [<language>...]`
+
+Options:
+  -d, --docs           Include documentation and demo (when target "browser")
+  -n, --no-compress    Disable compression
+  -o, --output <path>  directory to output to
+                       (default: "/usr/local/lib/node_modules/highlight.js/build")
+  -t, --target <name>  Build for target [all, browser, cdn, node] (default: "browser")
+  -h, --help           output usage information
+
+Unlike the legacy build tool (section below), it disables generation of docs and demo files by default.
+
+### Example
+The following example shows how to build a highlightjs bundle with that outputs to the "js/deps" directory, and includes only the "xml", "javascript", and "css" languages in the bundle.
+The bundle is outputted uncompressed (`-n`).
+
+```Bash
+hljs -n --output js/deps/ xml javascript css
+```
+
+Build just for Web, don't include docs:
+
+```Bash
+hljs --output "some/path" xml javascript
+```
+
+Build for Web, include docs:
+
+```Bash
+hljs --docs --output "some/path" xml javascript
+```
+
+Build for NodeJS:
+
+```Bash
+hljs -t node --output "some/path" xml javascript
+```
+
+Build for everything (Node and Browser):
+
+```Bash
+hljs -t all --output "some/path" xml javascript
+```
+
+If you provide no arguments, a bundle is built as the described below (the old way).
+
+Building (the old way)
 --------
 
 The build tool is written in JavaScript using node.js. Before running the

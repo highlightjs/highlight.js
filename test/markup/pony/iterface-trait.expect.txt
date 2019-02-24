@@ -1,0 +1,9 @@
+<span class="hljs-keyword">interface</span> <span class="hljs-type">Iterator</span>[<span class="hljs-type">A</span>: <span class="hljs-type">A</span>]
+  <span class="hljs-keyword">fun</span> has_next(): <span class="hljs-type">Bool</span>
+  <span class="hljs-keyword">fun</span> next(): <span class="hljs-type">T</span>?
+
+<span class="hljs-keyword">trait</span> <span class="hljs-type">UnitTest</span>
+  <span class="hljs-keyword">fun</span> name(): <span class="hljs-type">String</span>
+  <span class="hljs-keyword">fun</span> <span class="hljs-meta">ref</span> set_up(h: <span class="hljs-type">TestHelper</span>) ? =&gt;
+    <span class="hljs-type">None</span>
+  <span class="hljs-keyword">fun</span> apply(h: <span class="hljs-type">TestHelper</span>) ?

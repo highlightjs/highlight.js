@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // For the basic introductions on using this build script, see:
 //
 // <https://highlightjs.readthedocs.org/en/latest/building-testing.html>
@@ -12,9 +13,11 @@
 //
 //   The default target. This will package up the core `highlight.js` along
 //   with all the language definitions into the file `highlight.pack.js` --
-//   which will be compressed without including the option to disable it. It
-//   also builds the documentation for our readthedocs page, mentioned
-//   above, along with a local instance of the demo at:
+//   which will be compressed without including the option to disable it.
+//
+//   If the --docs options is set, it also builds the documentation for our
+//   readthedocs page, mentioned above, along with a local instance of the demo
+//   at:
 //
 //   <https://highlightjs.org/static/demo/>.
 //
@@ -65,11 +68,13 @@ let path      = require('path');
 let Queue     = require('gear').Queue;
 let registry  = require('./tasks');
 
-let build, dir = {};
+const defaultOutPath = path.resolve(__dirname, '../build');
 
 commander
   .usage('[options] [<language>...]')
+  .option('-d, --docs', 'Include documentation and demo (when target "browser")')
   .option('-n, --no-compress', 'Disable compression')
+  .option('-o, --output <path>', 'directory to output to', defaultOutPath)
   .option('-t, --target <name>', 'Build for target ' +
                                  '[all, browser, cdn, node]',
                                  /^(browser|cdn|node|all)$/i, 'browser')
@@ -77,13 +82,14 @@ commander
 
 commander.target = commander.target.toLowerCase();
 
-build     = require(`./${commander.target}`);
-dir.root  = path.dirname(__dirname);
-dir.build = path.join(dir.root, 'build');
+const build   = require(`./${commander.target}`);
+const dir = {
+  build: path.resolve(process.cwd(), commander.output),
+  root: path.resolve(__dirname, "../"),
+};
 
 new Queue({ registry: registry })
-  .clean(dir.build)
-  .log('Starting build.')
+  .log(`⚒ Starting build for "${commander.target}."`)
   .series(build(commander, dir))
-  .log('Finished build.')
+  .log('❤️ Finished build.')
   .run();

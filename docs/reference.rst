@@ -157,7 +157,7 @@ keyword ``do`` and another using a comma:
   def foo, do: IO.puts "hello world"
 
 Note that in the first case the parameter list after the function title may also
-include a comma. And iIf we're only interested in highlighting a title we can
+include a comma. And if we're only interested in highlighting a title we can
 tell it to end the function definition after itself:
 
 ::

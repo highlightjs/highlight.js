@@ -118,10 +118,11 @@ function filterByQualifiers(blob, languages, categories) {
 
   let language         = path.basename(blob.name, '.js'),
       fileInfo         = parseHeader(blob.result),
-      fileCategories   = fileInfo.Category || [],
       containsCategory = _.partial(_.includes, categories);
 
   if(!fileInfo) return false;
+
+  let fileCategories = fileInfo.Category || [];
 
   return _.includes(languages, language) ||
          _.some(fileCategories, containsCategory);
