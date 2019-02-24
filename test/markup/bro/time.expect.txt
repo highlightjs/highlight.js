@@ -1,0 +1,1 @@
+<span class="hljs-keyword">local</span> t = <span class="hljs-number">10 min</span>;

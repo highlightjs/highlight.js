@@ -1,0 +1,1 @@
+<span class="hljs-keyword">local</span> t: <span class="hljs-keyword">table</span>[<span class="hljs-keyword">string</span>] of <span class="hljs-keyword">count</span>;

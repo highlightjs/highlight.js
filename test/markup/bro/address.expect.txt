@@ -1,0 +1,4 @@
+<span class="hljs-keyword">local</span> a = <span class="hljs-number">192.168.0.1</span>;
+<span class="hljs-keyword">local</span> b = <span class="hljs-number">192.168.0.1/24</span>;
+<span class="hljs-keyword">local</span> c = <span class="hljs-number">[fe80::1]</span>;
+<span class="hljs-keyword">local</span> d = <span class="hljs-number">[fe80::1]/64</span>;

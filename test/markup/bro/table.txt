@@ -1,0 +1,1 @@
+local t: table[string] of count;

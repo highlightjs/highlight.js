@@ -1,0 +1,4 @@
+event new_connection(c: connection)
+	{
+		print fmt("New connection: %s", c$id);
+	}

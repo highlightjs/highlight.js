@@ -1,6 +1,7 @@
 ## Master
 
 New languages:
+- *Bro* by [Foster McLane][]
 
 New styles:
 
