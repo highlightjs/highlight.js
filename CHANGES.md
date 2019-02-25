@@ -6,6 +6,15 @@ New styles:
 
 Improvements:
 
+
+## Version 9.15.4
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix: reverted hljs cli build tool, as it was causing issues with install.
+
 ## Version 9.15.3
 New languages:
     none.
