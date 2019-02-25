@@ -6,6 +6,13 @@ New styles:
 
 Improvements:
 
+## Version 9.15.5
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix: updated build tool.
 
 ## Version 9.15.4
 New languages:
