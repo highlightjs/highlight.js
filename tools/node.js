@@ -82,7 +82,7 @@ function copyMetaFiles() {
       glob   = `{README.md,LICENSE,${docs}}`,
 
       input  = utility.glob(path.join(directory.root, glob)),
-      output = { dir: directory.build, base: directory.build };
+      output = { dir: directory.build, base: '.' };
 
   return {
     startLog: { task: ['log', 'Copying meta files.'] },

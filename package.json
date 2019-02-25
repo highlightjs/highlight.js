@@ -21,9 +21,6 @@
     "url": "git://github.com/highlightjs/highlight.js.git"
   },
   "main": "./lib/index.js",
-  "bin": {
-    "hljs": "tools/build.js"
-  },
   "scripts": {
     "mocha": "mocha",
     "test": "mocha --globals document test",
@@ -32,9 +29,9 @@
   "engines": {
     "node": "*"
   },
-  "dependencies": {
-    "commander": "^2.19.0",
+  "devDependencies": {
     "bluebird": "^3.5.3",
+    "commander": "^2.19.0",
     "del": "^3.0.0",
     "gear": "^0.9.7",
     "gear-lib": "^0.9.2",
