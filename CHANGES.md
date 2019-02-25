@@ -1,13 +1,20 @@
 ## Master
-
 New languages:
 
 New styles:
 
 Improvements:
-- Pony: Fixed keywords without spaces at line ends, highlighting of `iso` in class definitions, and function heads without bodies in traits and interfaces. Removed FUNCTION and CLASS modes until they are found to be needed and to provide some of the fixes.
 
-## Version 9.14.3
+## Version 9.15.1
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+- Pony: Fixed keywords without spaces at line ends, highlighting of `iso` in class definitions, and function heads without bodies in traits and interfaces. Removed FUNCTION and CLASS modes until they are found to be needed and to provide some of the fixes.
+ - Support external language files in minified version of highlight.js (#1888)
+
+## Version 9.15
 New languages:
     none.
 New styles:
