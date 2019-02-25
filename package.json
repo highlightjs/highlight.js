@@ -22,7 +22,7 @@
   },
   "main": "./lib/index.js",
   "bin": {
-    "hljs": "./tools/build.js"
+    "hljs": "tools/build.js"
   },
   "scripts": {
     "mocha": "mocha",

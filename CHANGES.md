@@ -5,6 +5,14 @@ New styles:
 
 Improvements:
 
+## Version 9.15.2
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix that was preventing highlight.js from installing.
+
 ## Version 9.15.1
 New languages:
     none.
