@@ -1,4 +1,5 @@
 ## Master
+
 New languages:
 
 New styles:
@@ -14,19 +15,26 @@ Improvements:
   🔥 Hot fix that was preventing highlight.js from installing.
 
 ## Version 9.15.1
+
 New languages:
     none.
+
 New styles:
     none.
+
 Improvements:
+
 - Pony: Fixed keywords without spaces at line ends, highlighting of `iso` in class definitions, and function heads without bodies in traits and interfaces. Removed FUNCTION and CLASS modes until they are found to be needed and to provide some of the fixes.
  - Support external language files in minified version of highlight.js (#1888)
 
 ## Version 9.15
+
 New languages:
     none.
+
 New styles:
     none.
+
 Improvements:
  - new cli tool `hljs` - allows easier [building from command line](docs/building-testing.rst#building-a-bundle-from-the-command-line).
  - cpp: Fully support C++11 raw strings. (#1897)
