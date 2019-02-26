@@ -1,7 +1,7 @@
 'use strict';
 
 let bluebird = require('bluebird');
-let jsdomEnv = bluebird.promisify(require('jsdom').env);
+let jsdomEnv = bluebird.promisify(require('jsdom/lib/old-api.js').env);
 let utility  = require('../utility');
 let glob     = bluebird.promisify(require('glob'));
 
