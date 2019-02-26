@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "9.15.1",
+  "version": "9.15.5",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -21,9 +21,6 @@
     "url": "git://github.com/highlightjs/highlight.js.git"
   },
   "main": "./lib/index.js",
-  "bin": {
-    "hljs": "./tools/build.js"
-  },
   "scripts": {
     "mocha": "mocha",
     "test": "mocha --globals document test",

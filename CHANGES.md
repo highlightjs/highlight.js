@@ -6,6 +6,38 @@ New styles:
 
 Improvements:
 
+## Version 9.15.5
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix: updated build tool.
+
+## Version 9.15.4
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix: reverted hljs cli build tool, as it was causing issues with install.
+
+## Version 9.15.3
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix: reverted hljs cli build tool, as it was causing issues with install.
+
+## Version 9.15.2
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix that was preventing highlight.js from installing.
+
 ## Version 9.15.1
 
 New languages:
