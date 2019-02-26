@@ -6,6 +6,15 @@ New styles:
 
 Improvements:
 
+## Version 9.15.6
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+ - Move dependencies to be devDependencies.
+ - Fixed security issues in dev dependencies.
+
 ## Version 9.15.5
 New languages:
     none.
