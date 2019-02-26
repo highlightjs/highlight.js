@@ -1,7 +1,7 @@
 'use strict';
 
 let bluebird = require('bluebird');
-let jsdomEnv = bluebird.promisify(require('jsdom/lib/old-api.js').env);
+let { JSDOM } = require('jsdom');
 let utility  = require('../utility');
 let glob     = bluebird.promisify(require('glob'));
 
@@ -11,7 +11,8 @@ describe('plain browser', function() {
     const filepath = utility.buildPath('..', 'build', 'highlight.*.js');
 
     return glob(filepath)
-      .then(hljsPath => jsdomEnv(this.html, hljsPath))
+      .then(hljsPath => hljsPath.map(file => `<script src="${file}"></script>`).join(""))
+      .then(hljsScript => new JSDOM(hljsScript + this.html))
       .then(window => {
         this.block = window.document.querySelector('pre code');
         this.hljs  = window.hljs;
