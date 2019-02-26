@@ -39,7 +39,7 @@
     "js-beautify": "^1.8.9",
     "jsdom": "^13.2.0",
     "lodash": "^4.17.11",
-    "mocha": "^6.0.0",
+    "mocha": "^6.0.2",
     "should": "^13.2.3",
     "tiny-worker": "^2.1.2"
   }
