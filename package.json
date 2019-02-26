@@ -29,20 +29,18 @@
   "engines": {
     "node": "*"
   },
-  "dependencies": {
+  "devDependencies": {
     "bluebird": "^3.5.3",
     "commander": "^2.19.0",
     "del": "^3.0.0",
-    "gear": "github:highlightjs/gear",
     "gear-lib": "github:highlightjs/gear-lib",
+    "gear": "github:highlightjs/gear",
     "glob": "^7.1.3",
     "js-beautify": "^1.8.9",
     "jsdom": "^13.2.0",
     "lodash": "^4.17.11",
-    "tiny-worker": "^2.1.2"
-  },
-  "devDependencies": {
     "mocha": "^6.0.0",
-    "should": "^13.2.3"
+    "should": "^13.2.3",
+    "tiny-worker": "^2.1.2"
   }
 }
