@@ -12,8 +12,8 @@ describe('plain browser', function() {
 
     return glob(filepath)
       .then(hljsPath => hljsPath.map(file => `<script src="${file}"></script>`).join(""))
-      .then(hljsScript => new JSDOM(hljsScript + this.html))
-      .then(window => {
+      .then(hljsScript => new JSDOM(hljsScript + this.html, { resources: "usable", runScripts: "dangerously" }))
+      .then(({ window }) => {
         this.block = window.document.querySelector('pre code');
         this.hljs  = window.hljs;
       });
