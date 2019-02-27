@@ -1,0 +1,644 @@
+REPORT  bcalv_tree_dnd.
+*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+* Purpose:
+* ~~~~~~~~
+* This reports illustrates the use of drag and drop in one
+* ALV Tree Control. It uses only drag and drop events
+* ON_DRAG and ON_DROP to focus on essential steps.
+* Since you have to use the structure for node layout to use
+* drag and drop anyway, icons are integrated in the hierarchy tree.
+*-----------------------------------------------------------------
+* To check program behavior
+* ~~~~~~~~~~~~~~~~~~~~~~~~~
+* Expand some folders of the hierarchy until you can select
+* a flight (each flight is marked by a plane icon). Click on a
+* flight line (at an arbitrary place) to drag it. Let it
+* drop on the favorites folder. The folder is expanded
+* automatically and contains a copy of your dragged line.
+*-------------------------------------------------------------------
+* Essential steps (Search for '§')
+* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* 1. Define reference variables to CL_DRAGDROP.
+* 2. Define a behaviour for drag and drop on alv tree objects
+* 3.Assign your handles to nodes using the node layout structure
+* 3a. for nodes (in this case only the leaf nodes,
+* 3b. for folders (in this case the favorite folder)
+* 4.Define a class for a data object to exchange data
+*   within ALV Control when using the drag and drop operation.
+* 5.Define an event handler class and methods for ON_DRAG and ON_DROP
+* 6.Use your data object to transfer data between the events
+* 6a.ON_DRAG
+* 6b.ON_DROP
+* 7. Register events on backend (ABAP Objects event handling)
+*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+DATA: g_alv_tree         TYPE REF TO cl_gui_alv_tree,
+      g_custom_container TYPE REF TO cl_gui_custom_container.
+
+DATA: gt_sflight      TYPE sflight OCCURS 0,      "Output-Table
+      gt_fieldcatalog TYPE lvc_t_fcat,
+      ok_code LIKE sy-ucomm,
+      save_ok LIKE sy-ucomm,           "OK-Code
+      g_fav_key TYPE lvc_nkey,
+      g_max type i value 255.
+
+* §1. Define reference variables to CL_DRAGDROP.
+*     It shall only be possible to copy lines from the hierarchy
+*     into the favorites folder - not vice versa.
+*     For this reason we need two behaviours: one that
+*     allows dragging a line and another one that allows
+*     to drop a line into a folder.
+DATA: G_LINE_BEHAVIOUR TYPE REF TO CL_DRAGDROP,
+      G_FAV_BEHAVIOUR TYPE REF TO CL_DRAGDROP.
+
+*###############################################################
+* LOCAL CLASSES
+*###############################################################
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* §4.Define a class for a data object to exchange data
+*    within ALV Control when using the drag and drop operation.
+CLASS LCL_DRAGDROPOBJ DEFINITION.
+  PUBLIC SECTION.
+    DATA: cps_sflight TYPE sflight,
+          cp_node_text type lvc_value,
+          cp_node_key type lvc_nkey.
+
+ENDCLASS.
+***********************************************************
+CLASS lcl_dnd_event_receiver DEFINITION.
+* §5.Define an event handler class and methods for ON_DRAG and ON_DROP
+  PUBLIC SECTION.
+   methods:
+* Remark: Event ON_DRAG provides only a node key for a single line.
+*         Use event ON_DRAG_MULTIPLE if you want to a allow
+*         multiple lines to be dragged.
+      HANDLE_LINE_DRAG
+        FOR EVENT ON_DRAG
+        OF CL_GUI_ALV_TREE
+        IMPORTING sender node_key fieldname drag_drop_object,
+      HANDLE_FAV_DROP
+        FOR EVENT ON_DROP
+        OF CL_GUI_ALV_TREE
+        IMPORTING sender node_key drag_drop_object.
+* Remark: Use Event ON_DROP_COMPLETE to process final actions
+*         (like deleting a node in case of a move dnd operation)
+
+ENDCLASS.
+******************************************************************
+CLASS lcl_dnd_event_receiver IMPLEMENTATION.
+  METHOD HANDLE_LINE_DRAG.
+    DATA: DATAOBJ TYPE REF TO LCL_DRAGDROPOBJ.
+* § 6.Use your data object to transfer data between the events
+* § 6a.ON_DRAG
+* create and fill dataobject for event ON_DROP.
+    CREATE OBJECT DATAOBJ.
+    dataobj->cp_node_key = node_key.
+
+* Get dragged node
+   call method sender->get_outtab_line
+        exporting i_node_key = node_key
+        importing e_outtab_line = dataobj->cps_sflight
+                  e_node_text   = dataobj->cp_node_text.
+
+    drag_drop_object->object = dataobj.
+  ENDMETHOD.
+
+*--------------------------------------------------------------------
+* Implement the event handler for event 'OnDrop'. This event is used
+* to use your dragged information in combination with your drop
+* source. What is more, you should make all checks
+* if the operation is successful _at this point_.
+  METHOD HANDLE_FAV_DROP.
+    DATA: DATAOBJ TYPE REF TO LCL_DRAGDROPOBJ,
+          l_new_key type lvc_nkey.
+*!!!
+* Very importent: 'drag_Drop_Object->object' can have any instance type
+* The needed cast type may lead to a system-exception if the
+* cast can not be performed.
+* For this reason: use ALWAYS the Catch-Statement to make sure
+* that the drag&drop-Operation is aborted properly.
+*!!!
+    CATCH SYSTEM-EXCEPTIONS MOVE_CAST_ERROR = 1.
+* § 6b.ON_DROP
+      DATAOBJ ?= drag_drop_object->object.
+* You could check at this point if the outtab line already
+* existed as favourite using method get_children (to get a
+* list of current favourites) and get_outtab_line (to compare
+* if the dragged line has already a copy in folder 'favourite').
+*...
+* add a node to folder 'favorite'
+      perform add_a_node USING dataobj->cps_sflight
+                               g_fav_key
+                               dataobj->cp_node_text
+                               '@6D@' SPACE
+                         CHANGING l_new_key.
+      call method sender->expand_node
+               exporting i_node_key = g_fav_key.
+      call method sender->frontend_update.
+    ENDCATCH.
+    IF SY-SUBRC <> 0.
+* If anything went wrong this is the clean way of aborting the
+* drag and drop operation:
+      CALL METHOD DRAG_DROP_OBJECT->ABORT.
+    ENDIF.
+  ENDMETHOD.
+
+ENDCLASS.
+*##################################################################
+
+START-OF-SELECTION.
+
+END-OF-SELECTION.
+
+  CALL SCREEN 100.
+
+*&---------------------------------------------------------------------*
+*&      Module  PBO  OUTPUT
+*&---------------------------------------------------------------------*
+*       process before output
+*----------------------------------------------------------------------*
+MODULE pbo OUTPUT.
+
+  SET PF-STATUS 'MAIN100'.
+  SET TITLEBAR 'MAINTITLE'.
+
+  IF g_alv_tree IS INITIAL.
+    PERFORM init_tree.
+
+    CALL METHOD cl_gui_cfw=>flush
+            EXCEPTIONS cntl_system_error = 1
+                       cntl_error        = 2.
+    IF sy-subrc NE 0.
+      CALL FUNCTION 'POPUP_TO_INFORM'
+           EXPORTING
+                titel = text-801
+                txt1  = text-802
+                txt2  = text-803
+                txt3  = text-804.
+    ENDIF.
+  ENDIF.
+
+ENDMODULE.                             " PBO  OUTPUT
+*&---------------------------------------------------------------------*
+*&      Module  PAI  INPUT
+*&---------------------------------------------------------------------*
+*       process after input
+*----------------------------------------------------------------------*
+MODULE pai INPUT.
+  save_ok = ok_code.
+  CLEAR ok_code.
+
+  CASE save_ok.
+    WHEN 'EXIT' OR 'BACK' OR 'CANC'.
+      PERFORM exit_program.
+
+    WHEN OTHERS.
+* Toolbar events are registered in constructur method of
+* CL_ALV_TREE_BASE as application events. So the dispatch call
+* is a must if you want to use the standard toolbar.
+      CALL METHOD cl_gui_cfw=>dispatch.
+
+  ENDCASE.
+
+  CALL METHOD cl_gui_cfw=>flush.
+ENDMODULE.                             " PAI  INPUT
+
+*&---------------------------------------------------------------------*
+*&      Form  init_tree
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM init_tree.
+* create container for alv-tree
+  DATA: l_tree_container_name(30) TYPE c.
+
+  l_tree_container_name = 'CCONTAINER1'.
+
+  CREATE OBJECT g_custom_container
+      EXPORTING
+            container_name = l_tree_container_name
+      EXCEPTIONS
+            cntl_error                  = 1
+            cntl_system_error           = 2
+            create_error                = 3
+            lifetime_error              = 4
+            lifetime_dynpro_dynpro_link = 5.
+  IF sy-subrc <> 0.
+    MESSAGE x208(00) WITH 'ERROR'(100).
+  ENDIF.
+
+* create tree control
+  CREATE OBJECT g_alv_tree
+    EXPORTING
+        parent              = g_custom_container
+        node_selection_mode = cl_gui_column_tree=>node_sel_mode_single
+        item_selection      = 'X'
+        no_html_header      = 'X'
+        no_toolbar          = ''
+    EXCEPTIONS
+        cntl_error                   = 1
+        cntl_system_error            = 2
+        create_error                 = 3
+        lifetime_error               = 4
+        illegal_node_selection_mode  = 5
+        failed                       = 6
+        illegal_column_name          = 7.
+  IF sy-subrc <> 0.
+    MESSAGE x208(00) WITH 'ERROR'.     "#EC NOTEXT
+  ENDIF.
+
+  DATA l_hierarchy_header TYPE treev_hhdr.
+  PERFORM build_hierarchy_header CHANGING l_hierarchy_header.
+
+* Hide columns and sum up values initially using the fieldcatalog
+  PERFORM build_fieldcatalog.
+
+* IMPORTANT: Table 'gt_sflight' must be empty. Do not change this table
+* (even after this method call). You can change data of your table
+* by calling methods of CL_GUI_ALV_TREE.
+* Furthermore, the output table 'gt_outtab' must be global and can
+* only be used for one ALV Tree Control.
+  CALL METHOD g_alv_tree->set_table_for_first_display
+     EXPORTING
+               is_hierarchy_header  = l_hierarchy_header
+     CHANGING
+               it_fieldcatalog      = gt_fieldcatalog
+               it_outtab            = gt_sflight. "table must be empty !
+
+  perform define_DND_behaviour.
+  PERFORM create_hierarchy.
+  PERFORM register_events.
+
+* Update calculations which were initially defined by field DO_SUM
+* of the fieldcatalog. (see build_fieldcatalog).
+  CALL METHOD g_alv_tree->update_calculations.
+
+* Send data to frontend.
+  CALL METHOD g_alv_tree->frontend_update.
+
+ENDFORM.                               " init_tree
+*&---------------------------------------------------------------------*
+*&      Form  build_hierarchy_header
+*&---------------------------------------------------------------------*
+*       build hierarchy-header-information
+*----------------------------------------------------------------------*
+*      -->P_L_HIERARCHY_HEADER  strucxture for hierarchy-header
+*----------------------------------------------------------------------*
+FORM build_hierarchy_header CHANGING
+                               p_hierarchy_header TYPE treev_hhdr.
+
+  p_hierarchy_header-heading = text-300.
+  p_hierarchy_header-tooltip = text-400.
+  p_hierarchy_header-width = 35.
+  p_hierarchy_header-width_pix = ''.
+
+ENDFORM.                               " build_hierarchy_header
+*&---------------------------------------------------------------------*
+*&      Form  exit_program
+*&---------------------------------------------------------------------*
+*       free object and leave program
+*----------------------------------------------------------------------*
+FORM exit_program.
+
+  CALL METHOD g_custom_container->free.
+  LEAVE PROGRAM.
+
+ENDFORM.                               " exit_program
+*--------------------------------------------------------------------
+FORM build_fieldcatalog.
+  DATA: ls_fieldcatalog TYPE lvc_s_fcat.
+
+* The following function module generates a fieldcatalog according
+* to a given structure.
+  CALL FUNCTION 'LVC_FIELDCATALOG_MERGE'
+       EXPORTING
+            i_structure_name = 'SFLIGHT'
+       CHANGING
+            ct_fieldcat      = gt_fieldcatalog.
+
+* Now change the fieldcatalog to hide fields and to determine
+* some initial calculations for chosen fields.
+  LOOP AT gt_fieldcatalog INTO ls_fieldcatalog.
+    CASE ls_fieldcatalog-fieldname.
+* hide columns which are already displayed in our tree
+      WHEN 'CARRID' OR 'FLDATE'.
+        ls_fieldcatalog-no_out = 'X'.
+      endcase.
+    MODIFY gt_fieldcatalog FROM ls_fieldcatalog.
+  ENDLOOP.
+
+* The fieldcatalog is provided in form 'init_tree' using method
+* set_table_for_first_display.
+ENDFORM.                               " build_fieldcatalog
+*&---------------------------------------------------------------------*
+*&      Form  DEFINE_DND_BEHAVIOUR
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM define_dnd_behaviour.
+
+  DATA: EFFECT TYPE I.
+
+* §2. Define a behaviour for drag and drop on alv tree objects
+
+* We need one behaviour for nodes of the last hierarchy level:
+* It shall be possible to drag leaves in our hierarchy
+* (marked by a plane icon)
+  CREATE OBJECT G_LINE_BEHAVIOUR.
+  EFFECT = CL_DRAGDROP=>COPY.
+  CALL METHOD G_line_behaviour->ADD
+    EXPORTING
+      FLAVOR = 'favorit'                  "#EC NOTEXT
+      DRAGSRC = 'X'
+      DROPTARGET = ' '
+      EFFECT = EFFECT.
+
+* The favourite folder shall allow to drop objects with
+* flavor 'favorite'. No dragging is possible.
+  CREATE OBJECT G_FAV_BEHAVIOUR.
+  EFFECT = CL_DRAGDROP=>COPY.
+  CALL METHOD G_fav_behaviour->ADD
+    EXPORTING
+      FLAVOR = 'favorit'                  "#EC NOTEXT
+      DRAGSRC = ' '
+      DROPTARGET = 'X'
+      EFFECT = EFFECT.
+
+ENDFORM.                    " DEFINE_DND_BEHAVIOUR
+
+*-----------------------------------------------------------------------
+FORM register_events.
+* Event registration: tell ALV Tree which events shall be passed
+* from frontend to backend.
+  DATA: lt_events TYPE cntl_simple_events,
+        l_event TYPE cntl_simple_event,
+        l_dnd_event_receiver TYPE REF TO lcl_dnd_event_receiver.
+
+* Frontend registration: do not forget to register (for ALV Tree
+* mandatory) tree events.
+*................................................................
+* The following four tree events registers ALV Tree in the constructor
+* method itself.
+*    - cl_gui_column_tree=>eventid_expand_no_children
+* (needed to load data to frontend when a user expands a node)
+*    - cl_gui_column_tree=>eventid_header_context_men_req
+* (needed for header context menu)
+*    - cl_gui_column_tree=>eventid_header_click
+* (allows selection of columns (only when item selection activated))
+*   - cl_gui_column_tree=>eventid_item_keypress
+* (needed for F1-Help (only when item selection activated))
+*
+* Nevertheless you have to provide their IDs again if you register
+* additional events with SET_REGISTERED_EVENTS (see below).
+* To do so, call first method  GET_REGISTERED_EVENTS (this way,
+* all already registered events remain registered, even your own):
+call method g_alv_tree->get_registered_events
+      importing events = lt_events.
+
+* (If you do not these events will be deregistered!!!).
+* You do not have to register events of the toolbar again.
+*....................................................................
+* Register additional events for your own purposes:
+* §Remark: you do not need to register dnd events on frontend
+
+* register events on frontend
+  CALL METHOD g_alv_tree->set_registered_events
+    EXPORTING
+      events = lt_events
+    EXCEPTIONS
+      cntl_error                = 1
+      cntl_system_error         = 2
+      illegal_event_combination = 3.
+  IF sy-subrc <> 0.
+    MESSAGE x208(00) WITH 'ERROR'.     "#EC NOTEXT
+  ENDIF.
+*--------------------
+* §7. Register events on backend (ABAP Objects event handling)
+  CREATE OBJECT L_DND_EVENT_RECEIVER.
+  SET HANDLER l_dnd_event_receiver->handle_fav_drop FOR g_alv_tree.
+  SET HANDLER l_dnd_event_receiver->handle_line_drag FOR g_alv_tree.
+
+ENDFORM.                               " register_events
+*&---------------------------------------------------------------------*
+*&      Form  create_hierarchy
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM create_hierarchy.
+* See BCALV_TREE_01 for more comments on building the hierarchy
+  DATA: lt_sflight TYPE table of sflight,
+        l_top_key TYPE lvc_nkey.
+
+* Select data
+  SELECT * FROM sflight INTO TABLE lt_sflight up to g_max rows.
+
+* sort table according to conceived hierarchy
+  SORT lt_sflight BY fldate+0(6) carrid fldate+6(2).
+
+* Define a node to collect favorite flights via drag and drop
+* (add_a_folder  USING <relat_key> <node_text> <icon> <dnd?>
+*                CHANGING <new_key>)
+  perform add_a_folder using    SPACE text-f01 SPACE 'X'
+                       changing g_fav_key.
+
+* Define one top node. In this way it is possible to calculate
+* values for the whole hierarchy.
+  perform add_a_folder using    SPACE text-050 SPACE SPACE
+                       CHANGING l_top_key.
+
+* read table and insert nodes for each line
+  perform insert_nodes tables lt_sflight using  l_top_key.
+    CALL METHOD g_alv_tree->expand_node
+               EXPORTING  i_node_key = l_top_key.
+
+
+ENDFORM.                               " create_hierarchy
+
+*&---------------------------------------------------------------------*
+*&      Form  INSERT_NODES
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*      -->P_L_TOP_KEY  text
+*      -->P_LT_SFLIGHT  text
+*----------------------------------------------------------------------*
+FORM insert_nodes TABLES   pt_sflight STRUCTURE sflight
+                  USING    p_top_key type lvc_nkey.
+
+
+  DATA: ls_sflight type SFLIGHT.
+* help variables (to avoid ON CHANGE OF)
+  DATA: l_yyyymm(6) TYPE c,       "year and month of sflight-fldate
+        l_yyyymm_last(6) TYPE c,  "remember last month node inserted
+        l_carrid LIKE sflight-carrid,      "current carrier
+        l_carrid_last LIKE sflight-carrid. "last carrier inserted
+* key variables (to refer to the last inserted folder in hierarchy)
+  DATA: l_month_key TYPE lvc_nkey,
+        l_carrid_key TYPE lvc_nkey,
+        l_last_key TYPE lvc_nkey.
+
+* node-layout
+  DATA: l_node_text type lvc_value,
+        l_month_text(15) type c.
+
+  LOOP AT pt_sflight INTO ls_sflight.
+
+    l_yyyymm = ls_sflight-fldate+0(6).
+    l_carrid = ls_sflight-carrid.
+
+    IF l_yyyymm <> l_yyyymm_last.      "on change of l_yyyymm
+      l_yyyymm_last = l_yyyymm.
+* month nodes
+      perform get_month using l_yyyymm changing L_MONTH_TEXT.
+      l_node_text = l_month_text.
+*(add_a_node USING <data> <relat_key> <node_text>  <icon> <dnd?>
+*            CHANGING <new_key>                                 )
+      perform add_a_node USING  ls_sflight p_top_key l_node_text
+                                SPACE SPACE
+                         CHANGING l_month_key.
+* The month changed, thus, there is no predecessor carrier
+      clear l_carrid_last.
+
+     ENDIF.
+* Carrier nodes:
+    IF l_carrid <> l_carrid_last.      "on change of l_carrid
+      l_carrid_last = l_carrid.
+      l_node_text = ls_sflight-carrid.
+      perform add_a_node USING ls_sflight l_month_key l_node_text
+                               SPACE SPACE
+                         CHANGING l_carrid_key.
+    ENDIF.
+* Leaf:
+  WRITE ls_sflight-fldate TO l_node_text MM/DD/YYYY.
+* §3.Assign your handles to nodes using the node layout structure
+  PERFORM add_a_node USING  ls_sflight l_carrid_key l_node_text
+                            '@AV@' 'X'
+                       CHANGING l_last_key.
+  ENDLOOP.
+
+
+endform.                    " INSERT_NODES
+
+*-----------------------------------------------------------------------
+
+FORM add_a_node USING  p_sflight TYPE sflight
+                       p_relat_key TYPE lvc_nkey
+                       p_node_text TYPE lvc_value
+                       p_node_image type tv_image
+                       p_dnd type c
+              CHANGING p_new_key.
+
+Data: l_layout_node type lvc_s_layn,
+      l_handle_line type i.
+
+* §3a. for nodes (in this case only the leaf nodes,
+*      see form INSERT_NODES)
+if not p_dnd is initial.
+ call method g_line_behaviour->get_handle
+    importing handle = l_handle_line.
+* Assign drag and drop handle for each leaf:
+    l_layout_node-dragdropid = l_handle_line.
+endif.
+* use layout to display an icon at the beginning of the outtab line
+L_LAYOUT_node-N_IMAGE = p_node_image.
+
+  CALL METHOD G_ALV_TREE->ADD_NODE
+     EXPORTING
+           i_relat_node_key = p_relat_key
+           i_relationship   = cl_gui_column_tree=>relat_last_child
+           i_node_text      = p_node_text
+           is_outtab_line   = p_sflight
+           IS_NODE_LAYOUT   = l_layout_node
+        IMPORTING
+           e_new_node_key = p_new_key.
+
+ENDFORM.
+*----------------------------------------------------------------------
+FORM add_a_folder USING  p_relat_key TYPE lvc_nkey
+                         p_node_text TYPE lvc_value
+                         p_node_image type TV_IMAGE
+                         p_dnd type c
+                CHANGING p_new_key.
+
+DATA: l_layout_node type lvc_s_layn,
+      l_handle_favourite_folder type i.
+
+* §3b. for folders (in this case the favorite folder)
+* Assign drag and drop handle if favorite folder is created
+* (see form create_hierarchy):
+if not p_dnd is initial.
+ call method g_fav_behaviour->get_handle
+    importing handle = l_handle_favourite_folder.
+    l_layout_node-dragdropid = l_handle_favourite_folder.
+endif.
+
+* As a default, ALV Tree adds nodes as leaf nodes.
+* You may add a _folder_ explicitly
+* by using structure lvc_s_layn (node layout)
+l_layout_node-isfolder = 'X'.   "=>add a folder, NOT a leaf
+l_layout_node-n_image = p_node_image. "=>Display an icon
+
+  CALL METHOD G_ALV_TREE->ADD_NODE
+     EXPORTING
+           i_relat_node_key = p_relat_key
+           i_relationship   = cl_gui_column_tree=>relat_last_child
+           i_node_text      = p_node_text
+           IS_NODE_LAYOUT    = l_layout_node
+        IMPORTING
+           e_new_node_key = p_new_key.
+
+ENDFORM.
+
+
+*&---------------------------------------------------------------------*
+*&      Form  GET_MONTH
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*      -->P_P_YYYYMM  text
+*      <--P_L_MONTH  text
+*----------------------------------------------------------------------*
+FORM get_month USING    p_yyyymm
+               CHANGING p_month.
+
+  DATA: l_monthdigits(2) TYPE c.
+
+  l_monthdigits = p_yyyymm+4(2).
+  CASE l_monthdigits.
+    WHEN '01'.
+      p_month = 'Januar'(701).
+    WHEN '02'.
+      p_month = 'Februar'(702).
+    WHEN '03'.
+      p_month = 'März'(703).
+    WHEN '04'.
+      p_month = 'April'(704).
+    WHEN '05'.
+      p_month = 'Mai'(705).
+    WHEN '06'.
+      p_month = 'Juni'(706).
+    WHEN '07'.
+      p_month = 'Juli'(707).
+    WHEN '08'.
+      p_month = 'August'(708).
+    WHEN '09'.
+      p_month = 'September'(709).
+    WHEN '10'.
+      p_month = 'Oktober'(710).
+    WHEN '11'.
+      p_month = 'November'(711).
+    WHEN '12'.
+      p_month = 'Dezember'(712).
+  ENDCASE.
+  CONCATENATE p_yyyymm+0(4) '->' p_month INTO p_month.
+
+ENDFORM.                               " GET_MONTH

@@ -1,10 +1,13 @@
 ## Master
 
 New languages:
+- *ABAP* by [Ioannis Karavas][]
 
 New styles:
 
 Improvements:
+
+[Ioannis Karavas]: https://github.com/iokaravas
 
 ## Version 9.15.6
 New languages:
