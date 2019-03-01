@@ -2,7 +2,15 @@ Syntax highlighting with language autodetection.
 
 URL:   https://highlightjs.org/
 
-Core developers (in order of appearance):
+Current core developers (alphabetical):
+
+- Gidi Meir Morris <gidi@gidi.io>
+- Jan T. Sott <git@idleberg.com>
+- Li Xuanji <xuanji@gmail.com>
+- Marcos Cáceres <marcos@marcosc.com>
+- Sang Dang <sang.dang@polku.io>
+
+Former maintainers:
 
 - Ivan Sagalaev (original author) <maniac@softwaremaniacs.org>
 - Jeremy Hull <sourdrums@gmail.com>
@@ -10,7 +18,6 @@ Core developers (in order of appearance):
 
 Contributors:
 
-- Tristian Kelly <tristian.kelly560@gmail.com>
 - Peter Leonov <gojpeg@gmail.com>
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
@@ -95,7 +102,6 @@ Contributors:
 - Bram de Haan <info@atelierbramdehaan.nl>
 - Seongwon Lee <dlimpid@gmail.com>
 - Zaven Muradyan <megalivoithos@gmail.com>
-- Jan T. Sott <git@idleberg.com>
 - Brent Bradbury <brent@brentium.com>
 - Martin Dilling-Hansen <martindlling@gmail.com>
 - Ilya Vassilevsky <vassilevsky@gmail.com>
@@ -236,7 +242,6 @@ Contributors:
 - Michael Rodler <contact@f0rki.at>
 - Sergey Sobko <s.sobko@profitware.ru>
 - Hale Chan <halechan@qq.com>
-- Matt Evans <syrius3@gmail.com>
 - Kasper Andersen <kma_untrusted@protonmail.com>
 - Philipp A. <flying-sheep@web.de>
 - Guannan Wei <guannanwei@outlook.com>
@@ -253,4 +258,20 @@ Contributors:
 - Nicolas LLOBERA <nllobera@gmail.com>
 - Morten Piibeleht <morten.piibeleht@gmail.com>
 - Martin Clausen <martin.clausene@gmail.com>
+- Arctic Ice Studio <development@arcticicestudio.com>
+- Google Inc. (David Benjamin) <davidben@google.com>
 - Ahmad Awais <me@AhmadAwais.com>
+- Duncan Paterson <duncan@exist-db.org>
+- Tristian Kelly <tristian.kelly560@gmail.com>
+- Melissa Geels <melissa@nimble.tools>
+- Dmitriy Tarasov <dimatar@gmail.com>
+- Egor Rogov <e.rogov@postgrespro.ru>
+- Meseta <meseta@gmail.com>
+- Harmon <Harmon.Public@gmail.com>
+- Eric Bailey <eric.w.bailey@gmail.com>
+- Gustavo Costa <gusbemacbe@gmail.com>
+- Antoine Boisier-Michaud <aboisiermichaud@gmail.com>
+- Alejandro Isaza <al@isaza.ca>
+- Laurent Voullemier <laurent.voullemier@gmail.com>
+- Sean T. Allen <sean@monkeysnatchbanana.com>
+- Greg Cline <gregrcline@gmail.com>

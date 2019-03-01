@@ -14,8 +14,8 @@ function(hljs) {
       {
         className: 'name',
         variants: [
-          {begin: /[a-zA-Zа-яА-я]+[*]?/},
-          {begin: /[^a-zA-Zа-яА-я0-9]/}
+          {begin: /[a-zA-Z\u0430-\u044f\u0410-\u042f]+[*]?/},
+          {begin: /[^a-zA-Z\u0430-\u044f\u0410-\u042f0-9]/}
         ],
         starts: {
           endsWithParent: true,

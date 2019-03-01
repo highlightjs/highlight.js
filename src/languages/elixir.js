@@ -6,12 +6,12 @@ Category: functional
 */
 
 function(hljs) {
-  var ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_]*(\\!|\\?)?';
+  var ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(\\!|\\?)?';
   var ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
   var ELIXIR_KEYWORDS =
     'and false then defined module in return redo retry end for true self when ' +
     'next until do begin unless nil break not case cond alias while ensure or ' +
-    'include use alias fn quote';
+    'include use alias fn quote require import with|0';
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
@@ -50,14 +50,17 @@ function(hljs) {
     CLASS,
     FUNCTION,
     {
+      begin: '::'
+    },
+    {
       className: 'symbol',
-      begin: ':(?!\\s)',
+      begin: ':(?![\\s:])',
       contains: [STRING, {begin: ELIXIR_METHOD_RE}],
       relevance: 0
     },
     {
       className: 'symbol',
-      begin: ELIXIR_IDENT_RE + ':',
+      begin: ELIXIR_IDENT_RE + ':(?!:)',
       relevance: 0
     },
     {

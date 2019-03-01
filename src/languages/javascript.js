@@ -25,7 +25,6 @@ function(hljs) {
       'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect ' +
       'Promise'
   };
-  var EXPRESSIONS;
   var NUMBER = {
     className: 'number',
     variants: [
@@ -175,7 +174,7 @@ function(hljs) {
         ]
       },
       {
-        beginKeywords: 'constructor', end: /\{/, excludeEnd: true
+        beginKeywords: 'constructor get set', end: /\{/, excludeEnd: true
       }
     ],
     illegal: /#(?!!)/

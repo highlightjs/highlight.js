@@ -11,7 +11,7 @@ proc give::recursive::count {base p} { ; # 2 mandatory params
     return $result
 }
 
-set a 'a'; set b "bcdef"; set lst [list "item"]
+set a {a}; set b "bcdef"; set lst [list "item"]
 puts [llength $a$b]
 
 set ::my::tid($id) $::my::tid(def)

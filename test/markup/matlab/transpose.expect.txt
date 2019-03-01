@@ -1,0 +1,40 @@
+<span class="hljs-comment">% This use of ' is for transpose:</span>
+mat2x2 = [<span class="hljs-number">1</span> <span class="hljs-number">2</span>; <span class="hljs-number">3</span> <span class="hljs-number">4</span>]';  <span class="hljs-comment">% transpose of a matrix</span>
+cell2x2 = {<span class="hljs-number">1</span> <span class="hljs-number">2</span>; <span class="hljs-number">3</span> <span class="hljs-number">4</span>}'; <span class="hljs-comment">% transpose of a cell</span>
+v=mat2x2';             <span class="hljs-comment">% transpose of a variable</span>
+v2 = (v')';            <span class="hljs-comment">% two transpose operations</span>
+foo = <span class="hljs-number">1.</span>';             <span class="hljs-comment">% transpose of scalar 1.</span>
+
+<span class="hljs-comment">% Nonconjugate transpose uses .'</span>
+mat2x2 = [<span class="hljs-number">1</span> <span class="hljs-number">2</span>; <span class="hljs-number">3</span> <span class="hljs-number">4</span>].';  <span class="hljs-comment">% of a matrix</span>
+cell2x2 = {<span class="hljs-number">1</span> <span class="hljs-number">2</span>; <span class="hljs-number">3</span> <span class="hljs-number">4</span>}.'; <span class="hljs-comment">% of a cell</span>
+v=mat2x2.';             <span class="hljs-comment">% of a variable</span>
+v2 = (v.').';           <span class="hljs-comment">% two operations</span>
+foo = <span class="hljs-number">1.</span>.';             <span class="hljs-comment">% of scalar 1.</span>
+bar = v.''.'.'';        <span class="hljs-comment">% mix of transpose operations</span>
+
+<span class="hljs-comment">% single quote strings:</span>
+sq1 = <span class="hljs-string">'a single quote string'</span>;
+sq2 = ...
+<span class="hljs-string">' abcd '</span>;         <span class="hljs-comment">% single quote string starting at column 1</span>
+sq3 = [<span class="hljs-string">'a'</span>,<span class="hljs-string">'bc'</span>]; <span class="hljs-comment">% array of single quote strings</span>
+sq4 = {<span class="hljs-string">'a'</span>,<span class="hljs-string">'bc'</span>}; <span class="hljs-comment">% cell of single quote strings</span>
+
+<span class="hljs-comment">% double quote strings</span>
+dq1 = <span class="hljs-string">"a double string"</span>;
+dq2 = ...
+<span class="hljs-string">" abcd "</span>;         <span class="hljs-comment">% double quote string starting at column 1</span>
+dq3 = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"bc"</span>]; <span class="hljs-comment">% array of double quote strings</span>
+
+<span class="hljs-comment">% Mixture of strings and transpose</span>
+c2 = {<span class="hljs-string">'a'</span>,<span class="hljs-string">'bc'</span>}'; <span class="hljs-comment">% transpose of a cell of strings</span>
+s = [<span class="hljs-string">'a'</span>,<span class="hljs-string">'bc'</span>]';  <span class="hljs-comment">% you can transpose vectors of strings (they are really 'char' arrays)</span>
+s = s';           <span class="hljs-comment">% and transpose back</span>
+<span class="hljs-comment">% (s')' is a double transpose of a string</span>
+x = [(s')', <span class="hljs-string">' xyz '</span>, <span class="hljs-string">'a single quote in a string'', escape \', two quotes in a string'''''</span>];  
+
+s2 = <span class="hljs-string">"abc\"def""ghi"</span>;      <span class="hljs-comment">% newer versions of MATLAB support double quoted strings</span>
+s3 = ([<span class="hljs-string">"abc"</span>, <span class="hljs-string">"defg"</span>]')';  <span class="hljs-comment">% transpose a vectors of quoted string twice</span>
+s4 = <span class="hljs-string">"abc"</span>!;               <span class="hljs-comment">% transpose a quoted string</span>
+
+b = <span class="hljs-built_in">true</span>' + <span class="hljs-built_in">false</span>';        <span class="hljs-comment">% boolean constants</span>

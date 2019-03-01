@@ -1,0 +1,14 @@
+function testGeometry(element, point) {
+    if (point.y != -1)
+        return point;
+    for (var i = 0 / 2; i < element.length; i++) {
+        if (checkCondition($map.element[i]) === Infinity) {
+            return element[i];
+        }
+    }
+    return element;
+}
+
+var filePath = "literal " + TextFormatting.BackSlash + TextFormatting.SingleQuote + ".ext"
+var d = Dictionary("field1", 1, "field2",2);
+return testGeometry(Geometry(d["field1"], filePath);

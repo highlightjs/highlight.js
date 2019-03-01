@@ -1,0 +1,9 @@
+puts {{ "hello world" }}
+
+{% verbatim %}{{ "bla".id }}{% end %}
+
+macro foo
+  {% verbatim %}
+    {{ "bla".id }}
+  {% end %}
+end
