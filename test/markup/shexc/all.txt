@@ -1,0 +1,27 @@
+PREFIX : <ij> PREFIX a: <kl>
+PREFIX b: <ab%3Acd\u003Aef\U0000003Agh>
+IMPORT <mn>
+BASE <op>
+
+ <#S0%3A> {
+  a.b:p\=1 {
+    $a:te1 <p> {
+      a: xsd:integer OR [1 2]
+    }
+  } ;
+ /* }      A multi-line comment doesn't
+    }      close this shape,
+ */
+  # }      nor does a single-line,
+  : a:b  # as seen by highlighting here
+}        # and class=hljs-title on the
+         # followingprefixed name:
+a:S1 @<#S2> AND (@a:S3 OR
+ EXTENDS @<#S2> EXTRA <p> a:p2 CLOSED {
+  <p> @<#S3> OR NOT {
+    a:p2 /as\/\.df/ OR {
+      &<te1> ;
+      :p3 @:S3
+    } OR xsd:byte /* OR . */
+  }
+})

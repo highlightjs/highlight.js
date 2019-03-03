@@ -1,0 +1,25 @@
+PREFIX : <http://my.example/schema>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+IMPORT <../foo.shex>
+BASE <http://my.example/schema>
+
+<IssueShape> {
+  :reproducedBy @<EmployeeShape>?
+}
+
+ABSTRACT <PersonShape> {
+  :name xsd:string ;
+  :mbox IRI
+}
+
+<UserShape> EXTENDS @<PersonShape> {
+  :representative @<EmployeeShape>
+}
+
+ABSTRACT <RepShape> {
+  :phone IRI /^tel:\+?[1-9][0-9]{1,14}$/+ # E.164 number
+}
+
+<EmployeeShape>
+  EXTENDS @<PersonShape> EXTENDS @<RepShape> {
+}

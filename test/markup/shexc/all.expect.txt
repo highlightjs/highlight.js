@@ -1,0 +1,27 @@
+<span class="hljs-keyword">PREFIX</span> <span class="hljs-type">:</span> <span class="hljs-symbol">&lt;ij&gt;</span> <span class="hljs-keyword">PREFIX</span> <span class="hljs-type">a:</span> <span class="hljs-symbol">&lt;kl&gt;</span>
+<span class="hljs-keyword">PREFIX</span> <span class="hljs-type">b:</span> <span class="hljs-symbol">&lt;ab<span class="hljs-meta-keyword">%3A</span>cd<span class="hljs-meta-keyword">\u003A</span>ef<span class="hljs-meta-keyword">\U0000</span>003Agh&gt;</span>
+<span class="hljs-keyword">IMPORT</span> <span class="hljs-symbol">&lt;mn&gt;</span>
+<span class="hljs-keyword">BASE</span> <span class="hljs-symbol">&lt;op&gt;</span>
+
+ <span class="hljs-title">&lt;#S0%3A&gt;</span> {
+  <span class="hljs-type">a.b:</span><span class="hljs-variable">p\=1</span> {
+    $<span class="hljs-type">a:</span><span class="hljs-variable">te1</span> <span class="hljs-symbol">&lt;p&gt;</span> {
+      <span class="hljs-type">a:</span> <span class="hljs-type">xsd:</span><span class="hljs-variable">integer</span> <span class="hljs-keyword">OR</span> [1 2]
+    }
+  } ;
+ <span class="hljs-comment">/* }      A multi-line comment doesn't
+    }      close this shape,
+ */</span>
+  <span class="hljs-comment"># }      nor does a single-line,</span>
+  <span class="hljs-type">:</span> <span class="hljs-type">a:</span><span class="hljs-variable">b</span>  <span class="hljs-comment"># as seen by highlighting here</span>
+}        <span class="hljs-comment"># and class=hljs-title on the</span>
+         <span class="hljs-comment"># followingprefixed name:</span>
+<span class="hljs-title">a:S1</span> <span class="hljs-name">@&lt;#S2&gt;</span> <span class="hljs-keyword">AND</span> (<span class="hljs-name">@a:S3</span> <span class="hljs-keyword">OR</span>
+ <span class="hljs-keyword">EXTENDS</span> <span class="hljs-name">@&lt;#S2&gt;</span> <span class="hljs-keyword">EXTRA</span> <span class="hljs-symbol">&lt;p&gt;</span> <span class="hljs-type">a:</span><span class="hljs-variable">p2</span> <span class="hljs-keyword">CLOSED</span> {
+  <span class="hljs-symbol">&lt;p&gt;</span> <span class="hljs-name">@&lt;#S3&gt;</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">NOT</span> {
+    <span class="hljs-type">a:</span><span class="hljs-variable">p2</span> <span class="hljs-regexp">/as\/\.df/</span> <span class="hljs-keyword">OR</span> {
+      <span class="hljs-name">&amp;&lt;te1&gt;</span> ;
+      <span class="hljs-type">:</span><span class="hljs-variable">p3</span> <span class="hljs-name">@:S3</span>
+    } <span class="hljs-keyword">OR</span> <span class="hljs-type">xsd:</span><span class="hljs-variable">byte</span> <span class="hljs-comment">/* OR . */</span>
+  }
+})
