@@ -22,6 +22,7 @@ function(hljs) {
 			className: 'variable',
 			begin: '\\${',
 			end: '\\}',
+			relevance: 10,
 			contains: [{
 				className: 'string',
 				begin: '"',
