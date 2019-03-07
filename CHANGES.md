@@ -6,6 +6,16 @@ New styles:
 
 Improvements:
 
+## Version 9.15.7
+New languages:
+    Terraform (HCL) by [Nikos Tsirmirakis][]
+New styles:
+    none.
+Improvements:
+    none.
+
+[Nikos Tsirmirakis]: https://github.com/winopsdba
+
 ## Version 9.15.6
 New languages:
     none.
