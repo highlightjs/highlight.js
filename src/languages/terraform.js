@@ -59,7 +59,7 @@ function(hljs) {
 
 return {
 	aliases: ['tf', 'hcl'],
-	keywords: 'resource|8 variable provider output locals module data terraform|10',
+	keywords: 'resource variable provider output locals module data terraform|10',
 	literal: 'false true null',
 	contains: [
    		hljs.COMMENT('\\#', '$'),

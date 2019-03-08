@@ -1,0 +1,29 @@
+# Terraform (hcl)
+
+variable "string" {
+  default = "string_test" # test inline comment
+}
+
+resource "azurerm_subnet" "sn1" {
+  count                = 1
+  number               = 2.3
+  boolean              = true
+  type                 = "${var.string}"
+  name                 = "${var.prefix}-sn"
+  resource_group_name  = "${azurerm_resource_group.rg1.name}"
+  virtual_network      = "${cidrsubnet("test",3,test())}"
+  address_prefix       = "${cidrsubnet("${var.vnets["${var.location}","test1"]}","${var.network_size}",3,"test")}"
+
+  tags = "${merge(local.tags, map("update","${timestamp()}"))}"
+}
+
+output "public_ip_address" {
+  value = ["${azurerm_public_ip.pip1.*.ip_address}"]
+}
+
+
+terraform {
+  backend "azure" {
+    storage_account_name = "azure"
+  }
+}

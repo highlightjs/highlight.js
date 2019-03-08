@@ -1,0 +1,29 @@
+<span class="hljs-comment"># Terraform (hcl)</span>
+
+<span class="hljs-keyword">variable</span> <span class="hljs-string">"string"</span> {
+  default = <span class="hljs-string">"string_test"</span> <span class="hljs-comment"># test inline comment</span>
+}
+
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azurerm_subnet"</span> <span class="hljs-string">"sn1"</span> {
+  count                = <span class="hljs-number">1</span>
+  number               = <span class="hljs-number">2.3</span>
+  boolean              = true
+  type                 = <span class="hljs-string">"<span class="hljs-variable">${var.string}</span>"</span>
+  name                 = <span class="hljs-string">"<span class="hljs-variable">${var.prefix}</span>-sn"</span>
+  resource_group_name  = <span class="hljs-string">"<span class="hljs-variable">${azurerm_resource_group.rg1.name}</span>"</span>
+  virtual_network      = <span class="hljs-string">"<span class="hljs-variable">${<span class="hljs-meta">cidrsubnet(<span class="hljs-string">"test"</span>,<span class="hljs-number">3</span>,<span class="hljs-meta">test()</span>)</span>}</span>"</span>
+  address_prefix       = <span class="hljs-string">"<span class="hljs-variable">${<span class="hljs-meta">cidrsubnet(<span class="hljs-string">"<span class="hljs-variable">${var.vnets[<span class="hljs-string">"<span class="hljs-variable">${var.location}</span>"</span>,<span class="hljs-string">"test1"</span>]}</span>"</span>,<span class="hljs-string">"<span class="hljs-variable">${var.network_size}</span>"</span>,<span class="hljs-number">3</span>,<span class="hljs-string">"test"</span>)</span>}</span>"</span>
+
+  tags = <span class="hljs-string">"<span class="hljs-variable">${<span class="hljs-meta">merge(local.tags, <span class="hljs-meta">map(<span class="hljs-string">"update"</span>,<span class="hljs-string">"<span class="hljs-variable">${<span class="hljs-meta">timestamp()</span>}</span>"</span>)</span>)</span>}</span>"</span>
+}
+
+<span class="hljs-keyword">output</span> <span class="hljs-string">"public_ip_address"</span> {
+  value = [<span class="hljs-string">"<span class="hljs-variable">${azurerm_public_ip.pip1.*.ip_address}</span>"</span>]
+}
+
+
+<span class="hljs-keyword">terraform</span> {
+  backend <span class="hljs-string">"azure"</span> {
+    storage_account_name = <span class="hljs-string">"azure"</span>
+  }
+}
