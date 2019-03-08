@@ -16,3 +16,14 @@ resource "azurerm_subnet" "sn1" {
 
   tags = "${merge(local.tags, map("update","${timestamp()}"))}"
 }
+
+output "public_ip_address" {
+  value = ["${azurerm_public_ip.pip1.*.ip_address}"]
+}
+
+
+terraform {
+  backend "azure" {
+    storage_account_name = "azure"
+  }
+}

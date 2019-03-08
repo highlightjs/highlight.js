@@ -6,10 +6,6 @@ Category: scripting
 */
 
 function(hljs) {
-	var KEYWORDS = {
-		keywords: 'resource variable provider output locals module data terraform',
-		literal: 'false true null'
-	};
 	var NUMBERS = {
 		className: 'number',
 		begin: '\\d+(\\.\\d+)?'
@@ -63,7 +59,7 @@ function(hljs) {
 
 return {
 	aliases: ['tf', 'hcl'],
-	keywords: 'resource variable provider output locals module data terraform',
+	keywords: 'resource|8 variable provider output locals module data terraform|10',
 	literal: 'false true null',
 	contains: [
    		hljs.COMMENT('\\#', '$'),
