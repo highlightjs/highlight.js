@@ -8,7 +8,7 @@ Category: scripting
 function(hljs) {
 	var NUMBERS = {
 		className: 'number',
-		begin: '\\d+(\\.\\d+)?'
+		begin: '\\b\\d+(\\.\\d+)?'
 	};
 	var STRINGS = {
 		className: 'string',
