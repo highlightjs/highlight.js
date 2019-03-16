@@ -1,0 +1,84 @@
+/**
+*
+* Simple multi-line comment.
+*
+* @command test
+*
+* @switch a  some switch
+*
+* @param <required>  a required parameter
+* @param [optional]  an optional parameter
+*
+* @global
+*
+*/
+alias test {
+  if (!$isid) {
+    ; called as a command
+    if ($0 >= 1) {
+      ; has at least 1 param
+      echo -s success, params: $1-
+    }
+    else {
+      ; no params
+      echo $color(info) -es * /test: insufficient parameters
+      halt
+    }
+  }
+  else {
+    /*
+    called as an identifier, so must throw an error and halt any
+    further commands.
+    */
+    echo $color(info) -es * test: is not an identifier
+    halt
+  }
+}
+
+alias test2 { echo -s this is just another test | echo -s with multiple commands }
+alias -l test3 { echo -s blah
+  echo -s %test
+}
+alias test4 cmd
+
+;===========[ Example from: https://en.wikichip.org/wiki/mirc/dialog_components ]===========;
+; init alias
+alias example {
+  dialog -m example example
+}
+; dialog structure
+dialog Example {
+  title "Example"
+  size -1 -1 100 50
+  option dbu
+  button "Example 1", 1, 4 10 40 12
+  button "Example 2", 2, 50 10 40 12
+  button "Example A", 3, 4 30 40 12
+  button "Example B", 4, 50 30 40 12, ok
+}
+
+; event
+on *:dialog:example:sclick:1-4:{
+  echo -a $did($dname, $did).text is clicked.
+}
+
+;===========[ Example from: mIRC Help file ]===========;
+
+menu status {
+  Animal
+ .$submenu($animal($1))
+}
+
+alias animal {
+ if ($1 == begin) return -
+ if ($1 == 1) return Cow:echo Cow
+ if ($1 == 2) return Llama:echo Llama
+ if ($1 == 3) return Emu:echo Emu
+ if ($1 == end) return -
+}
+
+#test on
+alias testr noop
+#test end
+
+on *:signal:test: echo -s this is a test
