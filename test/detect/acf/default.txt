@@ -1,0 +1,10 @@
+Package test "test package"
+
+Function bb ( string bb1, string bb2 ) 
+	int aa; 
+	aa = 2*3; 
+	timestamp nu = now(); 
+	print "Hvafornoe"; 
+	return aa; 
+end
+
