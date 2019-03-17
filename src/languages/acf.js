@@ -64,7 +64,7 @@ function(hljs) {
     'applicationsupport_directory file_size created_date Modified_date move_file copy_file ' +
     'select_file select_directory save_file_dialogue lower upper from_utf to_utf now usec ' +
     'char ascii explode implode markdown2html mdsnippet regex_match regex_search regex_extract ' +
-    'regex_replace sql_query sql_getrow executesql sql_getrowcount sql_getcolumncount sql_close' +
+    'regex_replace sql_query sql_getrow executesql sql_getrowcount sql_getcolumncount sql_close ' +
     'in2cm cm2in chain2m fathom2m furlong2m leage2m lighty2m m2chain m2fathom m2furlong m2leage ' +
     'm2lighty angstrom2m m2angstrom au2m m2au fldr2ml floz2l UKfloz2l gal2l UKgal2l gill2l ' +
     'USdryPk2l pt2l UKpt2l USdryPt2l qt2l UKqt2l USdryQt2l ml2fldr l2floz l2UKfloz l2gal  ' +
