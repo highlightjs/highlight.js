@@ -1,0 +1,29 @@
+Module: test
+Author: no-one
+Copyright: 2019-03-01
+
+define class <vehicle> (<object>)
+  slot owner :: <string>,
+    init-keyword: owner:,
+    init-value: "Northern Motors";
+end class <vehicle>;
+
+define class <car> (<vehicle>)
+end class <car>;
+
+define class <truck> (<vehicle>)
+  slot capacity,
+    required-init-keyword: tons:;
+end class <truck>;
+
+define method add (x :: <integer>, y :: <integer>) 
+  => ( sum :: <integer>)
+ x + y
+end method add;
+
+define function check()
+  let truck = make(<truck>, tons: 25);
+  format-out("%s's truck can carry %d\n", 
+             truck.owner,
+             truck.capacity);
+end;
