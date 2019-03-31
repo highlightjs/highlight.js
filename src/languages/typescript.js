@@ -93,6 +93,7 @@ function(hljs) {
       },
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
+        endsWithParent: true,
         keywords: 'return throw case',
         contains: [
           hljs.C_LINE_COMMENT_MODE,
