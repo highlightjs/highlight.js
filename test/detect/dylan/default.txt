@@ -1,7 +1,3 @@
-Module: test
-Author: no-one
-Copyright: 2019-03-01
-
 define class <vehicle> (<object>)
   slot owner :: <string>,
     init-keyword: owner:,
@@ -26,4 +22,39 @@ define function check()
   format-out("%s's truck can carry %d\n", 
              truck.owner,
              truck.capacity);
+end;
+
+define generic tax
+    (v :: <vehicle>) => (tax-in-dollars :: <float>);
+
+define method tax
+    (v :: <vehicle>) => (tax-in-dollars :: <float>)
+  100.00
+end;
+
+define method tax
+    (c :: <car>) => (tax-in-dollars :: <float>)
+  50.0;
+end method;
+
+define method tax
+    (t :: <truck>) => (tax-in-dollars :: <float>)
+  // standard vehicle tax plus $10/ton
+  next-method() + t.capacity * 10.0;
+end method;
+
+define function make-fibonacci()
+  let n = 0;
+  let m = 1;
+  method ()
+    let result = n + m;
+    n := m;
+    m := result  // return value
+  end
+end;
+
+define constant fib = make-fibonacci();
+
+for (i from 1 to 15)
+  format-out("%d ", fib())
 end;
