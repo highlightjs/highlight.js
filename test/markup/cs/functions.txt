@@ -1,0 +1,16 @@
+public void ExampleFunction1() {
+}
+
+public void ExampleFunction2()
+{
+}
+
+void ExampleFunctionDeclaration1();
+
+void ExampleFunctionDeclaration2()
+;
+
+public string ExampleExpressionBodiedFunction1() => "dummy";
+
+public string ExampleExpressionBodiedFunction2()
+    => "dummy";

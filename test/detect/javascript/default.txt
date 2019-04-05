@@ -10,6 +10,12 @@ function $initHighlight(block, cls) {
     if (checkCondition(classes[i]) === undefined)
       console.log('undefined');
   }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
 }
 
 export  $initHighlight;

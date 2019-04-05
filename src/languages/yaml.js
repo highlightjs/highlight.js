@@ -65,6 +65,10 @@ function(hljs) {
         excludeEnd: true,
         relevance: 0
       },
+      { // local tags
+        className: 'type',
+        begin: '!' + hljs.UNDERSCORE_IDENT_RE,
+      },
       { // data type
         className: 'type',
         begin: '!!' + hljs.UNDERSCORE_IDENT_RE,

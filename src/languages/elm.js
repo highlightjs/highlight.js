@@ -38,6 +38,12 @@ function(hljs) {
     contains: LIST.contains
   };
 
+  var CHARACTER = {
+    className: 'string',
+    begin: '\'\\\\?.', end: '\'',
+    illegal: '.'
+  };
+
   return {
     keywords:
       'let in if then else case of where module import exposing ' +
@@ -75,7 +81,7 @@ function(hljs) {
 
       // Literals and names.
 
-      // TODO: characters.
+      CHARACTER,
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
