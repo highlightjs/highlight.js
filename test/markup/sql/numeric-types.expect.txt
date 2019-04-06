@@ -1,0 +1,1 @@
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">CAST</span>(<span class="hljs-number">32768</span> <span class="hljs-keyword">AS</span> <span class="hljs-built_in">TINYINT</span>) <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">VALUES</span>(<span class="hljs-string">'dummy'</span>);

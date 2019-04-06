@@ -1,0 +1,11 @@
+# .properties
+! Exclamation mark = comments, too
+
+key1 = value1
+key2 : value2
+key3   value3
+key\ spaces multiline\
+            value4
+empty_key
+! Key can contain escaped chars
+\:\= = value5

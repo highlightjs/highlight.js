@@ -1,0 +1,7 @@
+<span class="hljs-keyword">SELECT</span> 
+    master_child.col1 <span class="hljs-keyword">AS</span> master_id, 
+    child_table.child_id 
+<span class="hljs-keyword">FROM</span> <span class="hljs-keyword">VALUES</span> 
+    ( <span class="hljs-number">1</span> , <span class="hljs-built_in">ARRAY</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)), 
+    (<span class="hljs-number">2</span>, <span class="hljs-built_in">ARRAY</span>(<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>)) <span class="hljs-keyword">AS</span> master_child 
+<span class="hljs-keyword">LATERAL</span> <span class="hljs-keyword">VIEW</span> <span class="hljs-keyword">EXPLODE</span>(master_child.col2) child_table <span class="hljs-keyword">AS</span> child_id;

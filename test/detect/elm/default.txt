@@ -13,3 +13,6 @@ main =
 view model =
     div [] [ div [] [ text (toString model) ]
            , button [ onClick Increment ] [ text "+" ] ]
+
+chars =
+    String.cons 'C' <| String.cons 'h' <| "ars"

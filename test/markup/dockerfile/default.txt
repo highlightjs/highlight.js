@@ -1,0 +1,23 @@
+FROM ubuntu
+
+MAINTAINER laurent@docker.com
+
+ARG debug=0
+
+COPY www.conf /etc/php5/fpm/pool.d/
+
+RUN apt-get update \
+    && apt-get install -y php5-fpm php-apc php5-curl php5-gd php5-intl php5-mysql
+RUN mkdir /tmp/sessions
+
+ENV APPLICATION_ENV dev
+
+USER www-data
+
+EXPOSE 80
+
+VOLUME ["/var/www/html"]
+
+WORKDIR "/var/www/html"
+
+CMD [ "/usr/sbin/php5-fpm", "-F" ]
