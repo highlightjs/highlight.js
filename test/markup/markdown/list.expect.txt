@@ -1,0 +1,5 @@
+<span class="hljs-bullet">- </span>this is a list
+<span class="hljs-bullet">- </span>this is another
+<span class="hljs-bullet">  - </span>nested list
+<span class="hljs-bullet">    - </span>another nested
+<span class="hljs-bullet">    * </span>nested alternative
