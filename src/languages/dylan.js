@@ -12,14 +12,16 @@ function(hljs) {
         DYLAN_FUNCTION_WORDS = [],
         DYLAN_DEFINE_BODY_WORDS = ["class", "library", "method", "module"],
         DYLAN_DEFINE_LIST_WORDS = ["constant", "variable", "domain"],
-        DYLAN_RESERVED_WORDS = [].concat(DYLAN_CORE_WORDS.map(word => word + '|10'),
+        DYLAN_RESERVED_WORDS = [].concat(DYLAN_CORE_WORDS,
             DYLAN_BEGIN_WORDS,
             DYLAN_FUNCTION_WORDS,
-            DYLAN_DEFINE_BODY_WORDS.map(word => word + '|10'),
+            DYLAN_DEFINE_BODY_WORDS.map(function(word) {
+                return word + '|2';
+            }),
             DYLAN_DEFINE_LIST_WORDS
         ),
         DYLAN_HASH_WORDS = ["#t", "#f", "#next", "#rest", "#key", "#all-keys", "#include"],
-        DYLAN_WORD = '[a-z\-+\*/^=#!%$_><@\?~][a-z0-9\-+\*/^=#!%$_><@\?~]+',
+        DYLAN_WORD = '[a-z\-+\*/^=#!%$_><@\?~][a-z0-9\-+\*/^=#!%$_><@\?~]*',
         KEYWORDS = {
             literal: DYLAN_HASH_WORDS.join(" "),
             keyword: DYLAN_RESERVED_WORDS.join(" ")
@@ -31,16 +33,17 @@ function(hljs) {
             keywords: KEYWORDS,
             contains: [{
                     className: 'class',
-                    begin: '<' + DYLAN_WORD + '>'
+                    begin: '<' + DYLAN_WORD + '>',
+                    relevance: 0
                 },
                 {
                     className: 'symbol',
-                    begin: '#',
-                    end: /[ \(\)\{\}\[\]]/
+                    begin: '#' + DYLAN_WORD
                 },
                 {
                     className: 'symbol',
-                    begin: DYLAN_WORD + ':'
+                    begin: DYLAN_WORD + ':',
+                    relevance: 0
                 },
                 {
                     className: 'string',
