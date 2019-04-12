@@ -1,0 +1,7 @@
+VALUES 1, 2 , 3;
+
+VALUES
+        (1, 'Spock'),
+        (2,'Kirk') ,
+        (3, 'McCoy'),
+        (4,'Scotty');

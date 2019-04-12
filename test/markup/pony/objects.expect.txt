@@ -1,0 +1,11 @@
+<span class="hljs-keyword">primitive</span> <span class="hljs-type">I32</span> <span class="hljs-keyword">is</span> <span class="hljs-type">SignedInteger</span>
+
+<span class="hljs-keyword">actor</span> <span class="hljs-type">Main</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-meta">ref</span> <span class="hljs-type">List</span>[<span class="hljs-type">A</span>: <span class="hljs-type">A</span>] <span class="hljs-keyword">is</span> <span class="hljs-type">Seq</span>[<span class="hljs-type">A</span>] <span class="hljs-meta">ref</span>
+
+<span class="hljs-keyword">object</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Hashable</span>
+
+<span class="hljs-keyword">object</span> <span class="hljs-meta">iso</span>
+
+<span class="hljs-keyword">primitive</span> <span class="hljs-type">Foo</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Bar</span> <span class="hljs-meta">iso</span>

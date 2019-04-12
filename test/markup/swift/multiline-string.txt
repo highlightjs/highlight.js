@@ -1,0 +1,3 @@
+var string = """
+    var a = not actually code
+"""

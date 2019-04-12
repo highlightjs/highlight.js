@@ -60,18 +60,28 @@ const REPLACES = {
 };
 
 regex.replaces = new RegExp(
-  `\\b(${Object.keys(REPLACES).join('|')})\\b`, 'g');
+  `(?:([\\w\\d]+)\\.(${Object.keys(REPLACES).filter(r => r.toUpperCase() === r).join('|')})\\s*=(?!=)|\\b(${Object.keys(REPLACES).join('|')})\\b)`, 'g');
 
 regex.classname = /(block|parentNode)\.cN/g;
 
 regex.header = /^\s*(\/\*((.|\r?\n)*?)\*\/)?\s*/;
 
+regex.apiReplacesFrom = /\bvar\s*API_REPLACES\b/;
+regex.apiReplacesTo = `var API_REPLACES = ${JSON.stringify(REPLACES)}`;
+
 function replace(from, to) {
   return { regex: from, replace: to };
 }
 
-function replaceClassNames(match) {
-  return REPLACES[match];
+function replaceClassNames(match, gDeclObj, gDeclKey) {
+  if(gDeclObj)
+    return replaceAndSaveClassNames(gDeclObj, gDeclKey);
+  else
+    return REPLACES[match];
+}
+
+function replaceAndSaveClassNames(obj, key) {
+  return `${obj}.${REPLACES[key]} = ${obj}.${key} =`;
 }
 
 // All meta data, for each language definition, it store within the headers
@@ -108,10 +118,11 @@ function filterByQualifiers(blob, languages, categories) {
 
   let language         = path.basename(blob.name, '.js'),
       fileInfo         = parseHeader(blob.result),
-      fileCategories   = fileInfo.Category || [],
       containsCategory = _.partial(_.includes, categories);
 
   if(!fileInfo) return false;
+
+  let fileCategories = fileInfo.Category || [];
 
   return _.includes(languages, language) ||
          _.some(fileCategories, containsCategory);
@@ -164,5 +175,6 @@ module.exports = {
   regex: regex,
   replace: replace,
   replaceClassNames: replaceClassNames,
-  toQueue: toQueue
+  toQueue: toQueue,
+  REPLACES: REPLACES
 };

@@ -1,0 +1,34 @@
++
+-
+*
+%
+&amp;
+|
+^
+**
+&lt;&lt;
+&gt;&gt;
+==
+!=
+&lt;
+&lt;=
+&gt;
+&gt;=
+&lt;=&gt;
+===
+<span class="hljs-regexp">//</span>
+<span class="hljs-regexp">//</span>=
+&amp;+
+&amp;-
+&amp;*
+&amp;**
+&amp;+=
+&amp;-=
+&amp;*=
+!
+~
+[]
+[]?
+[]=
+<span class="hljs-regexp">/
+</span>
