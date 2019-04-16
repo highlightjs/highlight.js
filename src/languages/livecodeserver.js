@@ -52,12 +52,12 @@ function(hljs) {
         'put abs acos aliasReference annuity arrayDecode arrayEncode asin atan atan2 average avg avgDev base64Decode ' +
         'base64Encode baseConvert binaryDecode binaryEncode byteOffset byteToNum cachedURL cachedURLs charToNum ' +
         'cipherNames codepointOffset codepointProperty codepointToNum codeunitOffset commandNames compound compress ' +
-        'constantNames cos date dateFormat decompress directories ' +
+        'constantNames cos date dateFormat decompress difference directories ' +
         'diskSpace DNSServers exp exp1 exp2 exp10 extents files flushEvents folders format functionNames geometricMean global ' +
         'globals hasMemory harmonicMean hostAddress hostAddressToName hostName hostNameToAddress isNumber ISOToMac itemOffset ' +
         'keys len length libURLErrorData libUrlFormData libURLftpCommand libURLLastHTTPHeaders libURLLastRHHeaders ' +
         'libUrlMultipartFormAddPart libUrlMultipartFormData libURLVersion lineOffset ln ln1 localNames log log2 log10 ' +
-        'longFilePath lower macToISO matchChunk matchText matrixMultiply max md5Digest median merge millisec ' +
+        'longFilePath lower macToISO matchChunk matchText matrixMultiply max md5Digest median merge messageAuthenticationCode messageDigest millisec ' +
         'millisecs millisecond milliseconds min monthNames nativeCharToNum normalizeText num number numToByte numToChar ' +
         'numToCodepoint numToNativeChar offset open openfiles openProcesses openProcessIDs openSockets ' +
         'paragraphOffset paramCount param params peerAddress pendingMessages platform popStdDev populationStandardDeviation ' +
@@ -87,9 +87,9 @@ function(hljs) {
         'xsltLoadStylesheetFromFile add breakpoint cancel clear local variable file word line folder directory URL close socket process ' +
         'combine constant convert create new alias folder directory decrypt delete variable word line folder ' +
         'directory URL dispatch divide do encrypt filter get include intersect kill libURLDownloadToFile ' +
-        'libURLFollowHttpRedirects libURLftpUpload libURLftpUploadFile libURLresetAll libUrlSetAuthCallback ' +
+        'libURLFollowHttpRedirects libURLftpUpload libURLftpUploadFile libURLresetAll libUrlSetAuthCallback libURLSetDriver ' +
         'libURLSetCustomHTTPHeaders libUrlSetExpect100 libURLSetFTPListCommand libURLSetFTPMode libURLSetFTPStopTime ' +
-        'libURLSetStatusCallback load multiply socket prepare process post seek rel relative read from process rename ' +
+        'libURLSetStatusCallback load extension loadedExtensions multiply socket prepare process post seek rel relative read from process rename ' +
         'replace require resetAll resolve revAddXMLNode revAppendXML revCloseCursor revCloseDatabase revCommitDatabase ' +
         'revCopyFile revCopyFolder revCopyXMLNode revDeleteFolder revDeleteXMLNode revDeleteAllXMLTrees ' +
         'revDeleteXMLTree revExecuteSQL revGoURL revInsertXMLNode revMoveFolder revMoveToFirstRecord revMoveToLastRecord ' +
@@ -100,7 +100,7 @@ function(hljs) {
         'revZipAddItemWithFile revZipAddUncompressedItemWithData revZipAddUncompressedItemWithFile revZipCancel ' +
         'revZipCloseArchive revZipDeleteItem revZipExtractItemToFile revZipExtractItemToVariable revZipSetProgressCallback ' +
         'revZipRenameItem revZipReplaceItemWithData revZipReplaceItemWithFile revZipOpenArchive send set sort split start stop ' +
-        'subtract union unload wait write'
+        'subtract symmetric union unload vectorDotProduct wait write'
     },
     contains: [
       VARIABLE,
