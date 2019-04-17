@@ -2,8 +2,8 @@
 Language: LiveCode
 Author: Ralf Bitter <rabit@revigniter.com>
 Description: Language definition for LiveCode server accounting for revIgniter (a web application framework) characteristics.
-Version: 1.0a
-Date: 2013-06-03
+Version: 1.1
+Date: 2019-04-17
 Category: enterprise
 */
 
