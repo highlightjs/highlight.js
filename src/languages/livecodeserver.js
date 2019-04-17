@@ -9,7 +9,11 @@ Category: enterprise
 
 function(hljs) {
   var VARIABLE = {
-    begin: '\\b[gtps][A-Z]+[A-Za-z0-9_\\-]*\\b|\\$_[A-Z]+',
+    className: 'variable',
+    variants: [
+      {begin: '\\b([gtps][A-Z]{1}[a-zA-Z0-9]*)(\\[.+\\])?(?:\\s*?)'},
+      {begin: '\\$_[A-Z]+'}
+    ],
     relevance: 0
   };
   var COMMENT_MODES = [
