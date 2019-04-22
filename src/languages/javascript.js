@@ -54,7 +54,7 @@ function(hljs) {
     TEMPLATE_STRING,
     NUMBER,
     hljs.REGEXP_MODE
-  ]
+  ];
   var PARAMS_CONTAINS = SUBST.contains.concat([
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.C_LINE_COMMENT_MODE
@@ -119,6 +119,12 @@ function(hljs) {
                 ]
               }
             ]
+          },
+          {
+            className: '',
+            begin: /\s/,
+            end: /\s*/,
+            skip: true,
           },
           { // E4X / JSX
             begin: /</, end: /(\/[A-Za-z0-9\\._:-]+|[A-Za-z0-9\\._:-]+\/)>/,
