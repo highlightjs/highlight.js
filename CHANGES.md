@@ -3,10 +3,6 @@
 New languages:
 - *Grammatical Framework* (GF) by [John J. Camilleri][]
 
-New styles:
-
-Improvements:
-
 [John J. Camilleri]: https://github.com/johnjcamilleri
 
 ## Version 9.15.6
