@@ -6,6 +6,16 @@ New styles:
 
 Improvements:
 
+## Version 9.15.7
+New languages:
+
+- *Stacktrace.js* by [Brian Lagerman][]
+
+New styles:
+    none.
+Improvements:
+
+
 ## Version 9.15.6
 New languages:
     none.

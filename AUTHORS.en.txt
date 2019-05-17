@@ -276,3 +276,5 @@ Contributors:
 - Sean T. Allen <sean@monkeysnatchbanana.com>
 - Greg Cline <gregrcline@gmail.com>
 - Sejin Jeon <jinaidy93@gmail.com>
+- Brian Lagerman <lagerman@netpoint.de>
+- Irakli Abetschkhrischwili <irakli@netpoint.de>

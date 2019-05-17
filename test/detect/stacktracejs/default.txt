@@ -1,0 +1,7 @@
+AssertionError: expected false to be true 
+   AssertionError()@https://unpkg.com/chai@4.2.0/chai.js:9449:7
+   Assertion.prototype.assert()@https://unpkg.com/chai@4.2.0/chai.js:239:7
+   Anonymous function()@https://unpkg.com/chai@4.2.0/chai.js:1021:5
+   propertyGetter()@https://unpkg.com/chai@4.2.0/chai.js:7899:9
+   proxyGetter()@https://unpkg.com/chai@4.2.0/chai.js:9247:7
+   Anonymous function()@samples/duration.js:63:17
