@@ -1,0 +1,2 @@
+# Escaped double-quote is not a string
+echo '"quoted"' | tr -d \" > text.txt
