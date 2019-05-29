@@ -5,7 +5,22 @@ New languages:
 New styles:
 
 Improvements:
-- Issue #1930 - fix markup for escaped quotes in Bash
+
+## Version 9.15.7
+New languages:
+  none.
+New styles:
+  none.
+Improvements:
+ - fix(powershell): Add cmdlets (#2022)
+ - fix(Bash): escaped double quotes (#2041)
+ - fix(c++): add aliases 'hh', 'hxx', 'cxx' (#2017)
+ - fix(ini/toml): Support comments on the same line. (#2039)
+ - fix(JSX): not rendering well in a function without parentheses. (#2024)
+ - fix(LiveCode): language definition update (#2021)
+ - fix(markdown): indented lists (#2004)
+ - fix(styles/school-book): don't style all the pre, use .hljs instead (#2034)
+ - fix(JSX): Modify JSX tag detection to use XML language regex in place of simplistic \w+
 
 ## Version 9.15.6
 New languages:
