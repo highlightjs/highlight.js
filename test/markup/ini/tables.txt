@@ -1,0 +1,4 @@
+[table]
+[[array]]
+[dotted.table.name]
+[target.'cfg(unix)']
