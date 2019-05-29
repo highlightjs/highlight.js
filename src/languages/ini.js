@@ -45,6 +45,8 @@ function(hljs) {
             begin: /=/, endsWithParent: true,
             relevance: 0,
             contains: [
+              hljs.COMMENT(';', '$'),
+              hljs.HASH_COMMENT_MODE,
               {
                 className: 'literal',
                 begin: /\bon|off|true|false|yes|no\b/
