@@ -1,2 +1,0 @@
-<span class="hljs-comment"># Escaped double-quote is not a string</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">'"quoted"'</span> | tr -d \" &gt; text.txt

@@ -15,7 +15,7 @@ function(hljs) {
   };
   var QUOTE_STRING = {
     className: 'string',
-    begin: /(?<!\\)"/, end: /(?<!\\)"/,
+    begin: /"/, end: /"/,
     contains: [
       hljs.BACKSLASH_ESCAPE,
       VAR,

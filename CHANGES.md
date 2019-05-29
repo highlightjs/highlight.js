@@ -6,6 +6,15 @@ New styles:
 
 Improvements:
 
+## Version 9.15.8
+
+New languages:
+  none.
+New styles:
+  none.
+Improvements:
+  - fix(bash): revert escaped double quotes - broke Firefox/Safari.
+
 ## Version 9.15.7
 New languages:
   none.
