@@ -1,0 +1,22 @@
+/* This is a simple function */
+let greet = (name) => "Hello World";
+
+let body = `Plain("uploaded " ++ cacheServiceConfig.desc ++ "configuration data into cache on S3");
+
+let getCacheConfigByEnv =
+    (
+      environment: environment,
+      cacheServiceConfig: Js.Dict.t(cachingServiceConfig)
+    ) =>
+  switch (cacheServiceConfig) {
+  | Some(config) => config
+  | None =>
+    raise(InvalidEnvironment("Caching Service Coinfiguration is missing"))
+  };
+
+let readCacheServiceConfigAndDecode = (configJson) =>
+  switch (configJson |> Js.Json.decodeObject) {
+  | None => raise(Json.Decode.DecodeError("Invalid Cache Config"))
+  | Some(data) =>
+    data |> Js.Dict.map((. json) => CachingServiceConfig.decode(json))
+  };

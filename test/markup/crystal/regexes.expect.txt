@@ -1,0 +1,12 @@
+<span class="hljs-keyword">if</span> <span class="hljs-regexp">/foo/</span>
+<span class="hljs-keyword">unless</span> <span class="hljs-regexp">/foo/</span>
+<span class="hljs-keyword">case</span> <span class="hljs-regexp">/foo/</span>
+<span class="hljs-keyword">select</span> <span class="hljs-regexp">/foo/</span>
+<span class="hljs-keyword">when</span> <span class="hljs-regexp">/foo/</span>
+<span class="hljs-keyword">while</span> <span class="hljs-regexp">/foo/</span>
+<span class="hljs-keyword">until</span> <span class="hljs-regexp">/foo/</span>
++<span class="hljs-regexp">/foo/</span>
+
+<span class="hljs-comment"># NG</span>
+xif /foo/
+ifx /foo/

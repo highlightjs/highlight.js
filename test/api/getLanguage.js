@@ -10,6 +10,12 @@ describe('.getLanguage()', function() {
     result.should.be.instanceOf(Object);
   });
 
+  it('should get an existing language by alias', function() {
+    const result = hljs.getLanguage('py');
+
+    result.should.be.instanceOf(Object);
+  });
+
   it('should be case insensitive', function() {
     const result = hljs.getLanguage('pYTHOn');
 
@@ -26,5 +32,12 @@ describe('.getLanguage()', function() {
     const result = hljs.getLanguage(undefined);
 
     should.strictEqual(result, undefined);
+  });
+
+  it('should get the csharp language by c# alias', function() {
+    const result = hljs.getLanguage('c#');
+
+    result.should.be.instanceOf(Object);
+    result.should.have.property('aliases').with.containEql('csharp');
   });
 });

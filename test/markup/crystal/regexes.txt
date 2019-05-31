@@ -1,0 +1,12 @@
+if /foo/
+unless /foo/
+case /foo/
+select /foo/
+when /foo/
+while /foo/
+until /foo/
++/foo/
+
+# NG
+xif /foo/
+ifx /foo/
