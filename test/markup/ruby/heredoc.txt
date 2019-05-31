@@ -4,5 +4,12 @@ def foo()
     <h4>#{bar}</h4>
   </div>
   HTML
+end
 
 def baz()
+  msg = <<~FOO
+  <div>
+    <h4>#{bar}</h4>
+  </div>
+  FOO
+end
