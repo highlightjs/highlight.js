@@ -1,0 +1,20 @@
+i = 1_234
+f = 1.23
+f = 7e+12
+f = 2e3
+f = -1.234e-12
+basic = "string"
+multi_basic = """multiple
+lines"""
+literal = 'string'
+multi_literal = '''multiple
+lines'''
+b = true
+b = false
+b = on
+b = off
+b = yes
+b = no
+dotted.key = 1
+array = [1, 2, 3]
+inline = {name = "foo", id = 123}

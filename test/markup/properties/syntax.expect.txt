@@ -1,0 +1,14 @@
+<span class="hljs-comment"># comment</span>
+<span class="hljs-comment">  # comment</span>
+<span class="hljs-comment">! comment</span>
+<span class="hljs-comment">  ! comment</span>
+<span class="hljs-attr">key</span>=<span class="hljs-string">val</span>
+<span class="hljs-attr">key</span> = <span class="hljs-string">val</span>
+<span class="hljs-attr">key</span>:<span class="hljs-string">val</span>
+<span class="hljs-attr">key</span> : <span class="hljs-string">val</span>
+<span class="hljs-attr">key</span> <span class="hljs-string">val</span>
+<span class="hljs-attr">key</span>   <span class="hljs-string">val</span>
+<span class="hljs-attr">key</span> = <span class="hljs-string">val\
+      val</span>
+<span class="hljs-attr">key\ key\:\=</span> <span class="hljs-string">val</span>
+<span class="hljs-attr">key</span>

@@ -6,15 +6,16 @@ Description: GAUSS Mathematical and Statistical language
 */
 function(hljs) {
   var KEYWORDS = {
-    keyword: 'and bool break call callexe checkinterrupt clear clearg closeall cls comlog compile ' +
+    keyword:  'bool break call callexe checkinterrupt clear clearg closeall cls comlog compile ' +
               'continue create debug declare delete disable dlibrary dllcall do dos ed edit else ' +
               'elseif enable end endfor endif endp endo errorlog errorlogat expr external fn ' +
               'for format goto gosub graph if keyword let lib library line load loadarray loadexe ' +
               'loadf loadk loadm loadp loads loadx local locate loopnextindex lprint lpwidth lshow ' +
-              'matrix msym ndpclex new not open or output outwidth plot plotsym pop prcsn print ' +
+              'matrix msym ndpclex new open output outwidth plot plotsym pop prcsn print ' +
               'printdos proc push retp return rndcon rndmod rndmult rndseed run save saveall screen ' +
               'scroll setarray show sparse stop string struct system trace trap threadfor ' +
-              'threadendfor threadbegin threadjoin threadstat threadend until use while winprint',
+              'threadendfor threadbegin threadjoin threadstat threadend until use while winprint ' +
+              'ne ge le gt lt and xor or not eq eqv',
     built_in: 'abs acf aconcat aeye amax amean AmericanBinomCall AmericanBinomCall_Greeks AmericanBinomCall_ImpVol ' +
               'AmericanBinomPut AmericanBinomPut_Greeks AmericanBinomPut_ImpVol AmericanBSCall AmericanBSCall_Greeks ' +
               'AmericanBSCall_ImpVol AmericanBSPut AmericanBSPut_Greeks AmericanBSPut_ImpVol amin amult annotationGetDefaults ' +
@@ -90,21 +91,25 @@ function(hljs) {
               'spTScalar spZeros sqpSolve sqpSolveMT sqpSolveMTControlCreate sqpSolveMTlagrangeCreate sqpSolveMToutCreate sqpSolveSet ' +
               'sqrt statements stdc stdsc stocv stof strcombine strindx strlen strput strrindx strsect strsplit strsplitPad strtodt ' +
               'strtof strtofcplx strtriml strtrimr strtrunc strtruncl strtruncpad strtruncr submat subscat substute subvec sumc sumr ' +
-              'surface svd svd1 svd2 svdcusv svds svdusv sysstate tab tan tanh tempname threadBegin threadEnd threadEndFor threadFor ' +
-              'threadJoin threadStat time timedt timestr timeutc title tkf2eps tkf2ps tocart todaydt toeplitz token topolar trapchk ' +
+              'surface svd svd1 svd2 svdcusv svds svdusv sysstate tab tan tanh tempname ' +
+              'time timedt timestr timeutc title tkf2eps tkf2ps tocart todaydt toeplitz token topolar trapchk ' +
               'trigamma trimr trunc type typecv typef union unionsa uniqindx uniqindxsa unique uniquesa upmat upmat1 upper utctodt ' +
               'utctodtv utrisol vals varCovMS varCovXS varget vargetl varmall varmares varput varputl vartypef vcm vcms vcx vcxs ' +
               'vec vech vecr vector vget view viewxyz vlist vnamecv volume vput vread vtypecv wait waitc walkindex where window ' +
               'writer xlabel xlsGetSheetCount xlsGetSheetSize xlsGetSheetTypes xlsMakeRange xlsReadM xlsReadSA xlsWrite xlsWriteM ' +
               'xlsWriteSA xpnd xtics xy xyz ylabel ytics zeros zeta zlabel ztics cdfEmpirical dot h5create h5open h5read h5readAttribute ' +
               'h5write h5writeAttribute ldl plotAddErrorBar plotAddSurface plotCDFEmpirical plotSetColormap plotSetContourLabels ' +
-              'plotSetLegendFont plotSetTextInterpreter plotSetXTicCount plotSetYTicCount plotSetZLevels powerm strjoin strtrim sylvester',
+              'plotSetLegendFont plotSetTextInterpreter plotSetXTicCount plotSetYTicCount plotSetZLevels powerm strjoin sylvester ' +
+              'strtrim',
     literal: 'DB_AFTER_LAST_ROW DB_ALL_TABLES DB_BATCH_OPERATIONS DB_BEFORE_FIRST_ROW DB_BLOB DB_EVENT_NOTIFICATIONS ' +
              'DB_FINISH_QUERY DB_HIGH_PRECISION DB_LAST_INSERT_ID DB_LOW_PRECISION_DOUBLE DB_LOW_PRECISION_INT32 ' +
              'DB_LOW_PRECISION_INT64 DB_LOW_PRECISION_NUMBERS DB_MULTIPLE_RESULT_SETS DB_NAMED_PLACEHOLDERS ' +
              'DB_POSITIONAL_PLACEHOLDERS DB_PREPARED_QUERIES DB_QUERY_SIZE DB_SIMPLE_LOCKING DB_SYSTEM_TABLES DB_TABLES ' +
-             'DB_TRANSACTIONS DB_UNICODE DB_VIEWS'
+             'DB_TRANSACTIONS DB_UNICODE DB_VIEWS __STDIN __STDOUT __STDERR __FILE_DIR'
   };
+
+
+  var AT_COMMENT_MODE = hljs.COMMENT('@', '@');
 
   var PREPROCESSOR =
   {
@@ -127,103 +132,165 @@ function(hljs) {
         ]
       },
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE
+      hljs.C_BLOCK_COMMENT_MODE,
+      AT_COMMENT_MODE,
     ]
   };
 
-  var FUNCTION_TITLE = hljs.UNDERSCORE_IDENT_RE + '\\s*\\(?';
+  var STRUCT_TYPE =
+  {
+    begin: /\bstruct\s+/,
+    end: /\s/,
+    keywords: "struct",
+    contains: [
+      {
+        className: "type",
+        begin: hljs.UNDERSCORE_IDENT_RE,
+        relevance: 0,
+      },
+    ],
+  };
+
+  // only for definitions
   var PARSE_PARAMS = [
     {
       className: 'params',
       begin: /\(/, end: /\)/,
-      keywords: KEYWORDS,
+      excludeBegin: true,
+      excludeEnd: true,
+      endsWithParent: true,
       relevance: 0,
       contains: [
+        { // dots
+          className: 'literal',
+          begin: /\.\.\./,
+        },
         hljs.C_NUMBER_MODE,
-        hljs.C_LINE_COMMENT_MODE,
-        hljs.C_BLOCK_COMMENT_MODE
+        hljs.C_BLOCK_COMMENT_MODE,
+        AT_COMMENT_MODE,
+        STRUCT_TYPE,
       ]
     }
   ];
+
+  var FUNCTION_DEF =
+  {
+    className: "title",
+    begin: hljs.UNDERSCORE_IDENT_RE,
+    relevance: 0,
+  };
+
+  var DEFINITION = function (beginKeywords, end, inherits) {
+    var mode = hljs.inherit(
+      {
+        className: "function",
+        beginKeywords: beginKeywords,
+        end: end,
+        excludeEnd: true,
+        contains: [].concat(PARSE_PARAMS),
+      },
+      inherits || {}
+    );
+    mode.contains.push(FUNCTION_DEF);
+    mode.contains.push(hljs.C_NUMBER_MODE);
+    mode.contains.push(hljs.C_BLOCK_COMMENT_MODE);
+    mode.contains.push(AT_COMMENT_MODE);
+    return mode;
+  };
+
+  var BUILT_IN_REF =
+  { // these are explicitly named internal function calls
+    className: 'built_in',
+    begin: '\\b(' + KEYWORDS.built_in.split(' ').join('|') + ')\\b',
+  };
+
+  var STRING_REF =
+  {
+    className: 'string',
+    begin: '"', end: '"',
+    contains: [hljs.BACKSLASH_ESCAPE],
+    relevance: 0,
+  };
+
+  var FUNCTION_REF =
+  {
+    //className: "fn_ref",
+    begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
+    returnBegin: true,
+    keywords: KEYWORDS,
+    relevance: 0,
+    contains: [
+      {
+        beginKeywords: KEYWORDS.keyword,
+      },
+      BUILT_IN_REF,
+      { // ambiguously named function calls get a relevance of 0
+        className: 'built_in',
+        begin: hljs.UNDERSCORE_IDENT_RE,
+        relevance: 0,
+      },
+    ],
+  };
+
+  var FUNCTION_REF_PARAMS =
+  {
+    //className: "fn_ref_params",
+    begin: /\(/,
+    end: /\)/,
+    relevance: 0,
+    keywords: { built_in: KEYWORDS.built_in, literal: KEYWORDS.literal },
+    contains: [
+      hljs.C_NUMBER_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      AT_COMMENT_MODE,
+      BUILT_IN_REF,
+      FUNCTION_REF,
+      STRING_REF,
+      'self',
+    ],
+  };
+
+  FUNCTION_REF.contains.push(FUNCTION_REF_PARAMS);
 
   return {
     aliases: ['gss'],
     case_insensitive: true, // language is case-insensitive
     keywords: KEYWORDS,
-    illegal: '(\\{[%#]|[%#]\\})',
+    illegal: /(\{[%#]|[%#]\}| <- )/,
     contains: [
       hljs.C_NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.COMMENT('@', '@'),
+      AT_COMMENT_MODE,
+      STRING_REF,
       PREPROCESSOR,
       {
-        className: 'string',
-        begin: '"', end: '"',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        className: 'keyword',
+        begin: /\bexternal (matrix|string|array|sparse matrix|struct|proc|keyword|fn)/,
       },
+      DEFINITION('proc keyword', ';'),
+      DEFINITION('fn', '='),
       {
-        className: 'function',
-        beginKeywords: 'proc keyword',
-        end: ';',
-        excludeEnd: true,
-        keywords: KEYWORDS,
+        beginKeywords: 'for threadfor',
+        end: /;/,
+        //end: /\(/,
+        relevance: 0,
         contains: [
-          {
-            begin: FUNCTION_TITLE, returnBegin: true,
-            contains: [hljs.UNDERSCORE_TITLE_MODE],
-            relevance: 0
-          },
-          hljs.C_NUMBER_MODE,
-          hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
-          PREPROCESSOR
-        ].concat(PARSE_PARAMS)
+          AT_COMMENT_MODE,
+          FUNCTION_REF_PARAMS,
+        ],
       },
-      {
-        className: 'function',
-        beginKeywords: 'fn',
-        end: ';',
-        excludeEnd: true,
-        keywords: KEYWORDS,
-        contains: [
-          {
-            begin: FUNCTION_TITLE + hljs.IDENT_RE + '\\)?\\s*\\=\\s*', returnBegin: true,
-            contains: [hljs.UNDERSCORE_TITLE_MODE],
-            relevance: 0
-          },
-          hljs.C_NUMBER_MODE,
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
-        ].concat(PARSE_PARAMS)
+      { // custom method guard
+        // excludes method names from keyword processing
+        variants: [
+          { begin: hljs.UNDERSCORE_IDENT_RE + '\\.' + hljs.UNDERSCORE_IDENT_RE, },
+          { begin: hljs.UNDERSCORE_IDENT_RE + '\\s*=', },
+        ],
+        relevance: 0,
       },
-      {
-        className: 'function',
-        begin: '\\bexternal (proc|keyword|fn)\\s+',
-        end: ';',
-        excludeEnd: true,
-        keywords: KEYWORDS,
-        contains: [
-          {
-            begin: FUNCTION_TITLE, returnBegin: true,
-            contains: [hljs.UNDERSCORE_TITLE_MODE],
-            relevance: 0
-          },
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
-        ]
-      },
-      {
-        className: 'function',
-        begin: '\\bexternal (matrix|string|array|sparse matrix|struct ' + hljs.IDENT_RE + ')\\s+',
-        end: ';',
-        excludeEnd: true,
-        keywords: KEYWORDS,
-        contains: [
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
-        ]
-      }
+      FUNCTION_REF,
+      STRUCT_TYPE,
     ]
   };
 }
