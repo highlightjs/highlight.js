@@ -5,6 +5,7 @@ New languages:
 New styles:
 
 Improvements:
+- Issue #1930 - fix markup for escaped quotes in Bash
 
 ## Version 9.15.8
 
