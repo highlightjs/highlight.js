@@ -61,7 +61,7 @@ function(hljs) {
             'tx ' +
             'assert require revert ' +
             'sha3 sha256 ripemd160 erecover addmod mulmod ' +
-            'abi abi.decode abi.encode abi.encodePacked abi.encodeWithSelector abi.encodeWithSignature ' +
+            'abi ' +
             // :NOTE: not really toplevel, but advantageous to have highlighted as if reserved to
             //        avoid newcomers making mistakes due to accidental name collisions.
             'send call callcode delegatecall',
@@ -142,9 +142,10 @@ function(hljs) {
                 illegal: /\[|%/,
             },
             // built-in members
-            makeBuiltinProps('msg', 'data sender sig value'),
-            makeBuiltinProps('block', 'blockhash coinbase difficulty gaslimit number timestamp '),
+            makeBuiltinProps('msg', 'data sender sig value gas'),
+            makeBuiltinProps('block', 'blockhash coinbase difficulty gaslimit number timestamp'),
             makeBuiltinProps('tx', 'gasprice origin'),
+            makeBuiltinProps('abi', 'decode encode encodePacked encodeWithSelector encodeWithSignature'),
             SOL_RESERVED_MEMBERS,
             { // contracts & libraries & interfaces
                 className: 'class',
