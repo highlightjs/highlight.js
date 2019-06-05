@@ -21,10 +21,14 @@ function(hljs) {
             'bytes9 bytes10 bytes11 bytes12 bytes13 bytes14 bytes15 bytes16 ' +
             'bytes17 bytes18 bytes19 bytes20 bytes21 bytes22 bytes23 bytes24 ' +
             'bytes25 bytes26 bytes27 bytes28 bytes29 bytes30 bytes31 bytes32 ' +
+            'fixed ufixed ' +
             'enum struct mapping address ' +
+            'payable ' +
+            'calldata ' +
+            'constructor ' +
 
             'new delete ' +
-            'if else for while continue break return throw assert require revert ' +
+            'if else for while continue break return throw ' +
 
             'function modifier event ' +
             'constant anonymous indexed ' +
@@ -33,11 +37,21 @@ function(hljs) {
 
             'import using ' +
             'contract interface library ' +
-            'assembly',
+            'emit ' +
+            'pragma solidity experimental ' +
+            'staticcall ' +
+            'transfer ' +
+            'pop name creationCode runtimeCode ' +
+            'assembly ' +
+            'copy virtual override abstract fallback ' +
+            // reserved but currently unused
+            'abstract after alias apply auto case catch copyof default define final immutable ' +
+            'implements in inline let macro match mutable null of override partial promise reference ' +
+            'relocatable sealed sizeof static supports switch try typedef typeof unchecked',
         literal:
             'true false ' +
             'wei szabo finney ether ' +
-            'second seconds minute minutes hour hours day days week weeks year years',
+            'seconds minutes hours days weeks years',
         built_in:
             'self ' +   // :NOTE: not a real keyword, but a convention used in storage manipulation libraries
             'this super selfdestruct ' +
@@ -45,7 +59,9 @@ function(hljs) {
             'msg ' +
             'block ' +
             'tx ' +
+            'assert require revert ' +
             'sha3 sha256 ripemd160 erecover addmod mulmod ' +
+            'abi abi.decode abi.encode abi.encodePacked abi.encodeWithSelector abi.encodeWithSignature ' +
             // :NOTE: not really toplevel, but advantageous to have highlighted as if reserved to
             //        avoid newcomers making mistakes due to accidental name collisions.
             'send call callcode delegatecall',
@@ -126,7 +142,7 @@ function(hljs) {
                 illegal: /\[|%/,
             },
             // built-in members
-            makeBuiltinProps('msg', 'data sender sig'),
+            makeBuiltinProps('msg', 'data sender sig value'),
             makeBuiltinProps('block', 'blockhash coinbase difficulty gaslimit number timestamp '),
             makeBuiltinProps('tx', 'gasprice origin'),
             SOL_RESERVED_MEMBERS,
