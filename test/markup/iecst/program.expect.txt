@@ -1,0 +1,5 @@
+<span class="hljs-title">CONFIGURATION</span> DefaultCfg
+  <span class="hljs-title">VAR_GLOBAL</span>
+    Start_Stop <span class="hljs-keyword">AT</span> <span class="hljs-symbol">%IX0.0</span>: <span class="hljs-built_in">BOOL</span>; <span class="hljs-comment">(* This is comment *)</span>
+  <span class="hljs-title">END_VAR</span>
+<span class="hljs-title">END_CONFIGURATION</span>
