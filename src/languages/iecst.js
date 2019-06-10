@@ -23,7 +23,8 @@ function(hljs) {
             {
                 className: 'string',
                 begin: '\'', end: '\'',
-                contains: [hljs.BACKSLASH_ESCAPE, { begin: '\'\'' }]
+                contains: [hljs.BACKSLASH_ESCAPE, { begin: '\'\'' }],
+                relevance: 0
             },
             {
                 className: 'string',
