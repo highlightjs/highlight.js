@@ -35,7 +35,6 @@ function(hljs) {
             {
                 className: 'symbol',
                 begin: '(T|DT|TOD)#[0-9:-_shmyd]*'
-                relevance: 0
             },
             {
                 className: 'symbol',
