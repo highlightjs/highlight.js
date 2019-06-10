@@ -53,7 +53,6 @@ function(hljs) {
             {
                 className: 'symbol',
                 begin: '\%(I|Q|M)[0-9\.]*',
-                relevance: 0
             },
             hljs.C_NUMBER_MODE,
             hljs.COMMENT('//', '$'),
