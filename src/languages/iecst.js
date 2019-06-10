@@ -49,7 +49,6 @@ function(hljs) {
             {
                 className: 'symbol',
                 begin: '\%(I|Q|M)(X|B|W|D|L)[0-9\.]*'
-                relevance: 0
             },
             {
                 className: 'symbol',
