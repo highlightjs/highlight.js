@@ -36,7 +36,7 @@ function(hljs) {
       {
         className: 'number',
         variants: [
-          {begin: hljs.C_NUMBER_RE + '[dflsi]', relevance: 1},
+          {begin: hljs.C_NUMBER_RE + '[dflsi]?', relevance: 0},
           hljs.C_NUMBER_MODE
         ]
       },
