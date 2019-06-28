@@ -48,11 +48,7 @@ function(hljs) {
     contains: [
       hljs.COMMENT('\\(\\*', '\\*\\)', {contains: ['self']}),
       hljs.QUOTE_STRING_MODE,
-      hljs.C_NUMBER_MODE,
-      {
-        begin: /\{/, end: /\}/,
-        illegal: /:/
-      }
+      hljs.C_NUMBER_MODE
     ]
   };
 }
