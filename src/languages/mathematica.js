@@ -6,7 +6,7 @@ Category: scientific
 
 function(hljs) {
   return {
-    aliases: ['mma'],
+    aliases: ['mma', 'wl'],
     lexemes: '(\\$|\\b)' + hljs.IDENT_RE + '\\b',
     /*
     The list of "keywords" (System` symbols) was determined by evaluating the following Wolfram Language code in Mathematica 12.0:
