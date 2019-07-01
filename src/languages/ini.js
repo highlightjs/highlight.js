@@ -34,17 +34,19 @@ function(hljs) {
         begin: /^\s*\[+/, end: /\]+/
       },
       {
-        begin: /^[a-z0-9\[\]_-]+\s*=\s*/, end: '$',
+        begin: /^[a-z0-9\[\]_\.-]+\s*=\s*/, end: '$',
         returnBegin: true,
         contains: [
           {
             className: 'attr',
-            begin: /[a-z0-9\[\]_-]+/
+            begin: /[a-z0-9\[\]_\.-]+/
           },
           {
             begin: /=/, endsWithParent: true,
             relevance: 0,
             contains: [
+              hljs.COMMENT(';', '$'),
+              hljs.HASH_COMMENT_MODE,
               {
                 className: 'literal',
                 begin: /\bon|off|true|false|yes|no\b/

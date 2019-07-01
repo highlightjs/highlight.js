@@ -19,13 +19,7 @@ function(hljs) {
         illegal: '\\n',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
-      {
-        // TODO: This does not handle raw string literals with prefixes. Using
-        // a single regex with backreferences would work (note to use *?
-        // instead of * to make it non-greedy), but the mode.terminators
-        // computation in highlight.js breaks the counting.
-        begin: '(u8?|U|L)?R"\\(', end: '\\)"',
-      },
+      { begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\((?:.|\n)*?\)\1"/ },
       {
         begin: '\'\\\\?.', end: '\'',
         illegal: '.'
@@ -101,7 +95,7 @@ function(hljs) {
   ];
 
   return {
-    aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp'],
+    aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp', 'hh', 'hxx', 'cxx'],
     keywords: CPP_KEYWORDS,
     illegal: '</',
     contains: EXPRESSION_CONTAINS.concat([
