@@ -735,6 +735,11 @@ https://highlightjs.org/
 
     var blocks = document.querySelectorAll('pre code');
     ArrayProto.forEach.call(blocks, highlightBlock);
+    
+    //event to signal highlight completed
+    var event = new CustomEvent("hl-completed", { "detail": "highlighting applied" });
+    document.dispatchEvent(event);
+    
   }
 
   /*
