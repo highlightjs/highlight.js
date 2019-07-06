@@ -1,0 +1,56 @@
+Name:		hello
+Version:	2.10
+Release:	1%{?dist}
+Summary:	The "Hello World" program from GNU
+Group:		Unspecified
+License:	GPLv3+
+URL:		https://www.gnu.org/software/hello/
+Source:		https://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
+
+BuildRequires:	gettext
+
+
+%description
+The GNU Hello program produces a familiar, friendly greeting.
+
+Yes, this is another implementation of the classic program that prints
+"Hello, world!" when you run it.
+
+However, unlike the minimal version often seen, GNU Hello processes its
+argument list to modify its behavior, supports greetings in many languages,
+and so on.
+
+The primary purpose of GNU Hello is to demonstrate how to write other programs
+that do these things; it serves as a model for GNU coding standards and
+GNU maintainer practices.
+
+
+%prep
+# Unpacks the sources and applies patches...
+%autosetup
+
+
+%build
+# Configures the source tree and builds it...
+%configure
+%make_build
+
+
+%install
+# Installs to the buildroot to for wrapping in a package...
+%make_install
+%find_lang %{name}
+rm -f %{buildroot}/%{_infodir}/dir
+
+
+%files -f %{name}.lang
+%doc ChangeLog NEWS README TODO
+%license COPYING AUTHORS THANKS
+%{_bindir}/hello
+%{_mandir}/man1/hello.1*
+%{_infodir}/hello.info*
+
+
+%changelog
+* Fri Nov 14 00:00:00 UTC 2014 Ty Coon <tycoon@example.org> - 2.10-1
+- Initial version of the package
