@@ -384,13 +384,14 @@ https://highlightjs.org/
 
     function subMode(lexeme, mode) {
       var i, length;
-
-      for (i = 0, length = mode.contains.length; i < length; i++) {
-        if (testRe(mode.contains[i].beginRe, lexeme)) {
-          if (mode.contains[i].endSameAsBegin) {
-            mode.contains[i].endRe = escapeRe( mode.contains[i].beginRe.exec(lexeme)[0] );
+      if(mode.contains){ //Determine if the attribute exists
+        for (i = 0, length = mode.contains.length; i < length; i++) {
+          if (testRe(mode.contains[i].beginRe, lexeme)) {
+            if (mode.contains[i].endSameAsBegin) {
+              mode.contains[i].endRe = escapeRe( mode.contains[i].beginRe.exec(lexeme)[0] );
+            }
+            return mode.contains[i];
           }
-          return mode.contains[i];
         }
       }
     }
