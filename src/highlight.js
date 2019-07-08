@@ -385,13 +385,12 @@ https://highlightjs.org/
     function subMode(lexeme, mode) {
       var i, length;
       if (!mode.contains) return;
-        for (i = 0, length = mode.contains.length; i < length; i++) {
-          if (testRe(mode.contains[i].beginRe, lexeme)) {
-            if (mode.contains[i].endSameAsBegin) {
-              mode.contains[i].endRe = escapeRe( mode.contains[i].beginRe.exec(lexeme)[0] );
-            }
-            return mode.contains[i];
+      for (i = 0, length = mode.contains.length; i < length; i++) {
+        if (testRe(mode.contains[i].beginRe, lexeme)) {
+          if (mode.contains[i].endSameAsBegin) {
+            mode.contains[i].endRe = escapeRe( mode.contains[i].beginRe.exec(lexeme)[0] );
           }
+          return mode.contains[i];
         }
       }
     }
