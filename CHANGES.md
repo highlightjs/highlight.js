@@ -2,6 +2,8 @@
 
 New languages:
 
+ - *GitHub Workflow* by [Mark S. Everitt][]
+
 New styles:
 
 Improvements:

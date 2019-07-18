@@ -277,3 +277,4 @@ Contributors:
 - Greg Cline <gregrcline@gmail.com>
 - Sejin Jeon <jinaidy93@gmail.com>
 - Taif Alimov <inzeppelin@gmail.com>
+- Mark S. Everitt <mark.s.everitt@gmail.com>
