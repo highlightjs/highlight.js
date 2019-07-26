@@ -168,6 +168,7 @@ work for you, you can specify the language in the `class` attribute:
 | RenderMan RSL           | rsl                    |         |
 | Roboconf                | graph, instances       |         |
 | Robot Framework         | robot, rf              | [highlightjs-robot](https://github.com/highlightjs/highlightjs-robot) |
+| robots.txt              | robotstxt, rotbots.txt |         |
 | RPM spec files          | rpm-specfile, rpm, spec, rpm-spec, specfile | [highlightjs-rpm-specfile](https://github.com/highlightjs/highlightjs-rpm-specfile) |
 | Ruby                    | ruby, rb, gemspec, podspec, thor, irb | |
 | Rust                    | rust, rs               |         |

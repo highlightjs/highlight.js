@@ -1,0 +1,23 @@
+# robots.txt for http://www.wikipedia.org/ and friends
+#
+User-agent: MJ12bot
+Disallow: /
+
+# advertising-related bots:
+User-agent: Mediapartners-Google*
+Disallow: /
+
+# Wikipedia work bots:
+User-agent: IsraBot
+Disallow:
+
+User-agent: *
+Allow: /w/api.php?action=mobileview&
+Allow: /w/load.php?
+Allow: /api/rest_v1/?doc  # why not
+Disallow: /w/
+Disallow: /api/*.php$
+
+
+Sitemap: https://www.somewhere.com/s/sitemap.php?stuff#  # main sitemap
+Sitemap: https://www.yahoo.com/entertainment/sitemaps/entertainment-sitemap_googlenews_US_en-US.xml.gz
