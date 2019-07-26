@@ -1,6 +1,7 @@
 ## Master
 
 New languages:
+- *robots.txt* by [Thomas LÉVEIL][]
 
 New styles:
 
