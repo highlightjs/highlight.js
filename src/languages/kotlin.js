@@ -9,8 +9,9 @@ function(hljs) {
     keyword:
       'abstract as val var vararg get set class object open private protected public noinline ' +
       'crossinline dynamic final enum if else do while for when throw try catch finally ' +
-      'import package is in fun override companion reified inline lateinit init' +
+      'import package is in fun override companion reified inline lateinit init ' +
       'interface annotation data sealed internal infix operator out by constructor super ' +
+      'tailrec where const inner suspend typealias external expect actual ' +
       // to be deleted soon
       'trait volatile transient native default',
     built_in:
@@ -37,17 +38,17 @@ function(hljs) {
   // for string templates
   var SUBST = {
     className: 'subst',
-    variants: [
-      {begin: '\\$' + hljs.UNDERSCORE_IDENT_RE},
-      {begin: '\\${', end: '}', contains: [hljs.APOS_STRING_MODE, hljs.C_NUMBER_MODE]}
-    ]
+    begin: '\\${', end: '}', contains: [hljs.APOS_STRING_MODE, hljs.C_NUMBER_MODE]
+  };
+  var VARIABLE = {
+    className: 'variable', begin: '\\$' + hljs.UNDERSCORE_IDENT_RE
   };
   var STRING = {
     className: 'string',
     variants: [
       {
         begin: '"""', end: '"""',
-        contains: [SUBST]
+        contains: [VARIABLE, SUBST]
       },
       // Can't use built-in modes easily, as we want to use STRING in the meta
       // context as 'meta-string' and there's no syntax to remove explicitly set
@@ -60,7 +61,7 @@ function(hljs) {
       {
         begin: '"', end: '"',
         illegal: /\n/,
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, VARIABLE, SUBST]
       }
     ]
   };
@@ -80,7 +81,31 @@ function(hljs) {
     ]
   };
 
+  // https://kotlinlang.org/docs/reference/whatsnew11.html#underscores-in-numeric-literals
+  // According to the doc above, the number mode of kotlin is the same as java 8,
+  // so the code below is copied from java.js
+  var KOTLIN_NUMBER_RE = '\\b' +
+    '(' +
+      '0[bB]([01]+[01_]+[01]+|[01]+)' + // 0b...
+      '|' +
+      '0[xX]([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)' + // 0x...
+      '|' +
+      '(' +
+        '([\\d]+[\\d_]+[\\d]+|[\\d]+)(\\.([\\d]+[\\d_]+[\\d]+|[\\d]+))?' +
+        '|' +
+        '\\.([\\d]+[\\d_]+[\\d]+|[\\d]+)' +
+      ')' +
+      '([eE][-+]?\\d+)?' + // octal, decimal, float
+    ')' +
+    '[lLfF]?';
+  var KOTLIN_NUMBER_MODE = {
+    className: 'number',
+    begin: KOTLIN_NUMBER_RE,
+    relevance: 0
+  };
+
   return {
+    aliases: ['kt'],
     keywords: KEYWORDS,
     contains : [
       hljs.COMMENT(
@@ -173,7 +198,7 @@ function(hljs) {
         begin: "^#!/usr/bin/env", end: '$',
         illegal: '\n'
       },
-      hljs.C_NUMBER_MODE
+      KOTLIN_NUMBER_MODE
     ]
   };
 }

@@ -1,10 +1,10 @@
 # Highlight.js
 
-[![Build Status](https://travis-ci.org/isagalaev/highlight.js.svg?branch=master)](https://travis-ci.org/isagalaev/highlight.js)
+[![Build Status](https://travis-ci.org/highlightjs/highlight.js.svg?branch=master)](https://travis-ci.org/highlightjs/highlight.js) [![Greenkeeper badge](https://badges.greenkeeper.io/highlightjs/highlight.js.svg)](https://greenkeeper.io/)
 
 Highlight.js is a syntax highlighter written in JavaScript. It works in
 the browser as well as on the server. It works with pretty much any
-markup, doesn’t depend on any framework and has automatic language
+markup, doesn’t depend on any framework, and has automatic language
 detection.
 
 ## Getting Started
@@ -31,6 +31,13 @@ The list of supported language classes is available in the [class
 reference][2].  Classes can also be prefixed with either `language-` or
 `lang-`.
 
+To make arbitrary text look like code, but without highlighting, use the
+`plaintext` class:
+
+```html
+<pre><code class="plaintext">...</code></pre>
+```
+
 To disable highlighting altogether use the `nohighlight` class:
 
 ```html
@@ -44,24 +51,24 @@ highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
 functions. This allows you to control *what* to highlight and *when*.
 
 Here’s an equivalent way to calling [`initHighlightingOnLoad`][1] using
-jQuery:
+vanilla JS:
 
-```javascript
-$(document).ready(function() {
-  $('pre code').each(function(i, block) {
+```js
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
     hljs.highlightBlock(block);
   });
 });
 ```
 
 You can use any tags instead of `<pre><code>` to mark up your code. If
-you don't use a container that preserve line breaks you will need to
+you don't use a container that preserves line breaks you will need to
 configure highlight.js to use the `<br>` tag:
 
-```javascript
+```js
 hljs.configure({useBR: true});
 
-$('div.code').each(function(i, block) {
+document.querySelectorAll('div.code').forEach((block) => {
   hljs.highlightBlock(block);
 });
 ```
@@ -76,23 +83,23 @@ window while dealing with very big chunks of code.
 
 In your main script:
 
-```javascript
-addEventListener('load', function() {
-  var code = document.querySelector('#code');
-  var worker = new Worker('worker.js');
-  worker.onmessage = function(event) { code.innerHTML = event.data; }
+```js
+addEventListener('load', () => {
+  const code = document.querySelector('#code');
+  const worker = new Worker('worker.js');
+  worker.onmessage = (event) => { code.innerHTML = event.data; }
   worker.postMessage(code.textContent);
-})
+});
 ```
 
 In worker.js:
 
-```javascript
-onmessage = function(event) {
+```js
+onmessage = (event) => {
   importScripts('<path>/highlight.pack.js');
-  var result = self.hljs.highlightAuto(event.data);
+  const result = self.hljs.highlightAuto(event.data);
   postMessage(result.value);
-}
+};
 ```
 
 
@@ -115,16 +122,47 @@ too big. If you don't see the language you need in the ["Common" section][5],
 it can be added manually:
 
 ```html
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
+<script
+ charset="UTF-8"
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
 ```
 
 **On Almond.** You need to use the optimizer to give the module a name. For
 example:
 
-```
+```bash
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
+
+### CommonJS
+
+You can import Highlight.js as a CommonJS-module:
+
+```bash
+npm install highlight.js --save
+```
+
+In your application:
+
+```js
+import hljs from 'highlight.js';
+```
+
+The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
+
+```js
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
+```
+
+To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can import the stylesheet directly into your CommonJS-module:
+
+```js
+import hljs from 'highlight.js/lib/highlight';
+import 'highlight.js/styles/github.css';
+```
 
 ## License
 
@@ -146,5 +184,5 @@ Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
 [4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure-options
 [5]: https://highlightjs.org/download/
 [6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
-[7]: https://github.com/isagalaev/highlight.js/blob/master/LICENSE
-[8]: https://github.com/isagalaev/highlight.js/blob/master/AUTHORS.en.txt
+[7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
+[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.en.txt
