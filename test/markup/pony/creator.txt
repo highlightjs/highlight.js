@@ -1,0 +1,3 @@
+new create(env: Env, name: String) =>
+  _env = env
+  _name = name

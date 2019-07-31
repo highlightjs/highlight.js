@@ -41,6 +41,11 @@ function(hljs) {
     begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*',
     relevance: 0
   };
+  // slightly more special to swift
+  var OPTIONAL_USING_TYPE = {
+    className: 'type',
+    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]'
+  }
   var BLOCK_COMMENT = hljs.COMMENT(
     '/\\*',
     '\\*/',
@@ -54,22 +59,28 @@ function(hljs) {
     keywords: SWIFT_KEYWORDS,
     contains: [] // assigned later
   };
+  var STRING = {
+    className: 'string',
+    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+    variants: [
+      {begin: /"""/, end: /"""/},
+      {begin: /"/, end: /"/},
+    ]
+  };
   var NUMBERS = {
       className: 'number',
       begin: '\\b([\\d_]+(\\.[\\deE_]+)?|0x[a-fA-F0-9_]+(\\.[a-fA-F0-9p_]+)?|0b[01_]+|0o[0-7_]+)\\b',
       relevance: 0
   };
-  var QUOTE_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
-    contains: [SUBST, hljs.BACKSLASH_ESCAPE]
-  });
   SUBST.contains = [NUMBERS];
 
   return {
     keywords: SWIFT_KEYWORDS,
     contains: [
-      QUOTE_STRING_MODE,
+      STRING,
       hljs.C_LINE_COMMENT_MODE,
       BLOCK_COMMENT,
+      OPTIONAL_USING_TYPE,
       TYPE,
       NUMBERS,
       {
@@ -89,7 +100,7 @@ function(hljs) {
             contains: [
               'self',
               NUMBERS,
-              QUOTE_STRING_MODE,
+              STRING,
               hljs.C_BLOCK_COMMENT_MODE,
               {begin: ':'} // relevance booster
             ],
@@ -110,8 +121,8 @@ function(hljs) {
       },
       {
         className: 'meta', // @attributes
-        begin: '(@warn_unused_result|@exported|@lazy|@noescape|' +
-                  '@NSCopying|@NSManaged|@objc|@convention|@required|' +
+        begin: '(@discardableResult|@warn_unused_result|@exported|@lazy|@noescape|' +
+                  '@NSCopying|@NSManaged|@objc|@objcMembers|@convention|@required|' +
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
                   '@infix|@prefix|@postfix|@autoclosure|@testable|@available|' +
                   '@nonobjc|@NSApplicationMain|@UIApplicationMain)'

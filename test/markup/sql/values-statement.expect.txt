@@ -1,0 +1,7 @@
+<span class="hljs-keyword">VALUES</span> <span class="hljs-number">1</span>, <span class="hljs-number">2</span> , <span class="hljs-number">3</span>;
+
+<span class="hljs-keyword">VALUES</span>
+        (<span class="hljs-number">1</span>, <span class="hljs-string">'Spock'</span>),
+        (<span class="hljs-number">2</span>,<span class="hljs-string">'Kirk'</span>) ,
+        (<span class="hljs-number">3</span>, <span class="hljs-string">'McCoy'</span>),
+        (<span class="hljs-number">4</span>,<span class="hljs-string">'Scotty'</span>);
