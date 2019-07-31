@@ -54,7 +54,7 @@ function(hljs) {
     TEMPLATE_STRING,
     NUMBER,
     hljs.REGEXP_MODE
-  ]
+  ];
   var PARAMS_CONTAINS = SUBST.contains.concat([
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.C_LINE_COMMENT_MODE
@@ -120,15 +120,21 @@ function(hljs) {
               }
             ]
           },
+          {
+            className: '',
+            begin: /\s/,
+            end: /\s*/,
+            skip: true,
+          },
           { // E4X / JSX
-            begin: /</, end: /(\/\w+|\w+\/)>/,
+            begin: /</, end: /(\/[A-Za-z0-9\\._:-]+|[A-Za-z0-9\\._:-]+\/)>/,
             subLanguage: 'xml',
             contains: [
-              {begin: /<\w+\s*\/>/, skip: true},
+              { begin: /<[A-Za-z0-9\\._:-]+\s*\/>/, skip: true },
               {
-                begin: /<\w+/, end: /(\/\w+|\w+\/)>/, skip: true,
+                begin: /<[A-Za-z0-9\\._:-]+/, end: /(\/[A-Za-z0-9\\._:-]+|[A-Za-z0-9\\._:-]+\/)>/, skip: true,
                 contains: [
-                  {begin: /<\w+\s*\/>/, skip: true},
+                  { begin: /<[A-Za-z0-9\\._:-]+\s*\/>/, skip: true },
                   'self'
                 ]
               }

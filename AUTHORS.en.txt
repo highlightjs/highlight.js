@@ -274,3 +274,6 @@ Contributors:
 - Alejandro Isaza <al@isaza.ca>
 - Laurent Voullemier <laurent.voullemier@gmail.com>
 - Sean T. Allen <sean@monkeysnatchbanana.com>
+- Greg Cline <gregrcline@gmail.com>
+- Sejin Jeon <jinaidy93@gmail.com>
+- Taif Alimov <inzeppelin@gmail.com>
