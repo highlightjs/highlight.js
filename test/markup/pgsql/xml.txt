@@ -1,0 +1,47 @@
+-- xml
+
+XMLPARSE (DOCUMENT '...' PRESERVE WHITESPACE)
+XMLPARSE (CONTENT '...' STRIP WHITESPACE)
+XMLSERIALIZE ( DOCUMENT '...' AS text )
+XMLSERIALIZE ( CONTENT '...' AS text )
+
+SET XML OPTION DOCUMENT;
+SET XML OPTION CONTENT;
+
+SELECT xmlcomment('...');
+SELECT xmlconcat('...', '...');
+SELECT xmlelement(name foo, xmlattributes('...' as bar));
+SELECT xmlforest('...' AS foo, 123 AS bar);
+SELECT xmlpi(name php, '...');
+SELECT xmlroot(xmlparse(document '...'), version '...', standalone yes);
+SELECT xmlagg(x ORDER BY y DESC) FROM test;
+
+SELECT xmlexists('...' PASSING BY REF '...');
+
+SELECT xpath('...', '...', ARRAY[ARRAY['...', '...']]);
+SELECT xpath_exists('...', '...', ARRAY[ARRAY['...', '...']]);
+
+SELECT XMLTABLE('...' PASSING data COLUMNS id int PATH '...' DEFAULT '...', ordinality FOR ORDINALITY) ;
+
+SELECT XMLTABLE(XMLNAMESPACES('...' AS x, '...' AS "B"), '...' PASSING (SELECT data FROM xmldata) COLUMNS foo int PATH '...');
+
+foo IS DOCUMENT
+foo IS NOT DOCUMENT
+
+xml_is_well_formed(..)
+xml_is_well_formed_document(..)
+xml_is_well_formed_content(..)
+table_to_xml(..)
+query_to_xml(..)
+cursor_to_xml(..)
+table_to_xmlschema(..)
+query_to_xmlschema(..)
+cursor_to_xmlschema(..)
+table_to_xml_and_xmlschema(..)
+query_to_xml_and_xmlschema(..)
+schema_to_xml(..)
+schema_to_xmlschema(..)
+schema_to_xml_and_xmlschema(..)
+database_to_xml(..)
+database_to_xmlschema(..)
+database_to_xml_and_xmlschema(..)

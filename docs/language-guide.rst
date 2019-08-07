@@ -94,7 +94,7 @@ Different lexing rules can be defined by the ``lexemes`` attribute:
 ::
 
   {
-    lexemes '-[a-z]+',
+    lexemes: '-[a-z]+',
     keywords: '-import -export'
   }
 

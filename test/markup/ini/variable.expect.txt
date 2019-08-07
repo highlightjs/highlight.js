@@ -1,0 +1,2 @@
+<span class="hljs-attr">memory_limit</span> = <span class="hljs-variable">${PHP_MEMORY_LIMIT}</span>
+<span class="hljs-attr">key</span> = <span class="hljs-variable">$VAR1</span>
