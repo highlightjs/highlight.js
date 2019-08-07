@@ -1,7 +1,7 @@
 ## Master
 
 New languages:
-
+- *Cobol* by [Walid Sabouni][]
 New styles:
 
 Improvements:

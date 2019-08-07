@@ -1,3 +1,4 @@
+	    *test
             IDENTIFICATION DIVISION.
             PROGRAM-ID. VARS.
             DATA DIVISION.
