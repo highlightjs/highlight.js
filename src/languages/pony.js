@@ -8,9 +8,9 @@ Description: Pony is an open-source, object-oriented, actor-model,
 function(hljs) {
   var KEYWORDS = {
     keyword:
-      'actor addressof and as be break class compile_error compile_intrinsic' +
-      'consume continue delegate digestof do else elseif embed end error' +
-      'for fun if ifdef in interface is isnt lambda let match new not object' +
+      'actor addressof and as be break class compile_error compile_intrinsic ' +
+      'consume continue delegate digestof do else elseif embed end error ' +
+      'for fun if ifdef in interface is isnt lambda let match new not object ' +
       'or primitive recover repeat return struct then trait try type until ' +
       'use var where while with xor',
     meta:
@@ -48,47 +48,20 @@ function(hljs) {
     begin: hljs.IDENT_RE + '\'', relevance: 0
   };
 
-  var CLASS = {
-    className: 'class',
-    beginKeywords: 'class actor object primitive', end: '$',
-    contains: [
-      {
-        className: 'keyword',
-        begin: 'is'
-      },
-      TYPE_NAME,
-      hljs.TITLE_MODE,
-      hljs.C_LINE_COMMENT_MODE
-    ]
-  }
-
-  var FUNCTION = {
-    className: 'function',
-    beginKeywords: 'new fun be', end: '=>',
-    contains: [
-      hljs.TITLE_MODE,
-      {
-        begin: /\(/, end: /\)/,
-        contains: [
-          TYPE_NAME,
-          PRIMED_NAME,
-          hljs.C_NUMBER_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
-        ]
-      },
-      {
-        begin: /:/, endsWithParent: true,
-        contains: [TYPE_NAME]
-      },
-      hljs.C_LINE_COMMENT_MODE
-    ]
-  }
+  /**
+   * The `FUNCTION` and `CLASS` modes were intentionally removed to simplify
+   * highlighting and fix cases like
+   * ```
+   * interface Iterator[A: A]
+   *   fun has_next(): Bool
+   *   fun next(): A?
+   * ```
+   * where it is valid to have a function head without a body
+   */
 
   return {
     keywords: KEYWORDS,
     contains: [
-      CLASS,
-      FUNCTION,
       TYPE_NAME,
       TRIPLE_QUOTE_STRING_MODE,
       QUOTE_STRING_MODE,

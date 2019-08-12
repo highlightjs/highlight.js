@@ -11,7 +11,8 @@ https://highlightjs.org/
 
   // Setup highlight.js for different environments. First is Node.js or
   // CommonJS.
-  if(typeof exports !== 'undefined') {
+  // `nodeType` is checked to ensure that `exports` is not a HTML element.
+  if(typeof exports !== 'undefined' && !exports.nodeType) {
     factory(exports);
   } else if(globalObject) {
     // Export hljs globally even when using AMD for cases when this script
@@ -39,6 +40,10 @@ https://highlightjs.org/
   var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
       languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
       fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
+
+  // The object will be assigned by the build tool. It used to synchronize API 
+  // of external language files with minified version of the highlight.js library.
+  var API_REPLACES;
 
   var spanEndTag = '</span>';
 
@@ -224,6 +229,15 @@ https://highlightjs.org/
     return mode.cached_variants || (mode.endsWithParent && [inherit(mode)]) || [mode];
   }
 
+  function restoreLanguageApi(obj) {
+    if(API_REPLACES && !obj.langApiRestored) {
+      obj.langApiRestored = true;
+      for(var key in API_REPLACES)
+        obj[key] && (obj[API_REPLACES[key]] = obj[key]);
+      (obj.contains || []).concat(obj.variants || []).forEach(restoreLanguageApi);
+    }
+  }
+
   function compileLanguage(language) {
 
     function reStr(re) {
@@ -350,7 +364,7 @@ https://highlightjs.org/
         .filter(Boolean);
       mode.terminators = terminators.length ? langRe(joinRe(terminators, '|'), true) : {exec: function(/*s*/) {return null;}};
     }
-
+    
     compileMode(language);
   }
 
@@ -410,6 +424,7 @@ https://highlightjs.org/
 
       openSpan += classname + '">';
 
+      if (!classname) return insideSpan;
       return openSpan + insideSpan + closeSpan;
     }
 
@@ -733,6 +748,7 @@ https://highlightjs.org/
 
   function registerLanguage(name, language) {
     var lang = languages[name] = language(hljs);
+    restoreLanguageApi(lang);
     if (lang.aliases) {
       lang.aliases.forEach(function(alias) {aliases[alias] = name;});
     }
