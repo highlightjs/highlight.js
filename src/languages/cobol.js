@@ -476,7 +476,7 @@ var COBOL_BUILT_IN_Keywords_STRIPPED = COBOL_BUILT_IN_Keywords.replace(/(?:\r\n|
 
 var COBOL_STRING = {
   className: "string",
-  variants: [{ begin: /'/, end: /'/ , relevance: 5}, { begin: '"', end: '"', relevance: 0 }],
+  variants: [{ begin: /'/, end: /'/ , relevance: 0}, { begin: '"', end: '"', relevance: 0 }],
 };
 
 var COBOL_COMMENT = hljs.COMMENT(
