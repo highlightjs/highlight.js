@@ -58,6 +58,38 @@ function(hljs) {
       ARGS
     ]
   };
+  var NUMBER = {
+    className: 'number',
+    variants: [
+      { begin: '\\b(0[bB][01]+)' },
+      { begin: '\\b(0[oO][0-7]+)' },
+      { begin: hljs.C_NUMBER_RE }
+    ],
+    relevance: 0
+  };
+  var SUBST = {
+    className: 'subst',
+    begin: '\\$\\{', end: '\\}',
+    keywords: KEYWORDS,
+    contains: []  // defined later
+  };
+  var TEMPLATE_STRING = {
+    className: 'string',
+    begin: '`', end: '`',
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      SUBST
+    ]
+  };
+  SUBST.contains = [
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE,
+    TEMPLATE_STRING,
+    NUMBER,
+    hljs.REGEXP_MODE
+  ];
+
+
 
   return {
     aliases: ['ts'],
@@ -69,28 +101,10 @@ function(hljs) {
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
-      { // template string
-        className: 'string',
-        begin: '`', end: '`',
-        contains: [
-          hljs.BACKSLASH_ESCAPE,
-          {
-            className: 'subst',
-            begin: '\\$\\{', end: '\\}'
-          }
-        ]
-      },
+      TEMPLATE_STRING,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      {
-        className: 'number',
-        variants: [
-          { begin: '\\b(0[bB][01]+)' },
-          { begin: '\\b(0[oO][0-7]+)' },
-          { begin: hljs.C_NUMBER_RE }
-        ],
-        relevance: 0
-      },
+      NUMBER,
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: 'return throw case',
