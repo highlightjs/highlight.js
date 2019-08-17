@@ -1,0 +1,9 @@
+<span class="hljs-comment">/* begin comment at LEVEL 0
+    <span class="hljs-comment">/*
+      multiline nested comment LEVEL 1
+    */</span>
+    println("on kotlin this is a commented code in comment LEVEL 0")
+    <span class="hljs-comment">/*
+        another multiline nested comment LEVEL 1
+    */</span>
+end comment at LEVEL 0 */</span>

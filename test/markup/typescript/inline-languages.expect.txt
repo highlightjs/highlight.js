@@ -1,0 +1,24 @@
+<span class="hljs-keyword">let</span> foo = <span class="hljs-literal">true</span>;
+<span class="hljs-string">`hello <span class="hljs-subst">${foo ? <span class="hljs-string">`Mr <span class="hljs-subst">${name}</span>`</span> : <span class="hljs-string">'there'</span>}</span>`</span>;
+foo = <span class="hljs-literal">false</span>;
+
+html`<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"foo"</span>&gt;</span>Hello world<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>`</span>;
+
+html`<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"foo"</span>&gt;</span>Hello times </span><span class="hljs-subst">${<span class="hljs-number">10</span>}</span><span class="xml"> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"bar"</span>&gt;</span>world<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>`</span>;
+
+html`<span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"list"</span>&gt;</span>
+    </span><span class="hljs-subst">${repeat([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>], (v) =&gt; {
+      <span class="hljs-keyword">return</span> html`<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span></span><span class="hljs-subst">${v}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>`</span>;
+    }</span><span class="xml">}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+`</span>;
+
+css`<span class="css">
+  <span class="hljs-selector-tag">body</span> {
+    <span class="hljs-attribute">color</span>: red;
+  }
+`</span>;
+
+<span class="hljs-comment">// Ensure that we're back in TypeScript mode.</span>
+<span class="hljs-keyword">var</span> foo = <span class="hljs-number">10</span>;
