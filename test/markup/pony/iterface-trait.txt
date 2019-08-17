@@ -1,0 +1,9 @@
+interface Iterator[A: A]
+  fun has_next(): Bool
+  fun next(): T?
+
+trait UnitTest
+  fun name(): String
+  fun ref set_up(h: TestHelper) ? =>
+    None
+  fun apply(h: TestHelper) ?
