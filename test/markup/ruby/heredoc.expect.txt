@@ -4,5 +4,12 @@
     &lt;h4&gt;<span class="hljs-subst">#{bar}</span>&lt;/h4&gt;
   &lt;/div&gt;
   HTML</span>
+<span class="hljs-keyword">end</span>
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">baz</span><span class="hljs-params">()</span></span>
+  msg = <span class="hljs-string">&lt;&lt;~FOO
+  &lt;div&gt;
+    &lt;h4&gt;<span class="hljs-subst">#{bar}</span>&lt;/h4&gt;
+  &lt;/div&gt;
+  FOO</span>
+<span class="hljs-keyword">end</span>
