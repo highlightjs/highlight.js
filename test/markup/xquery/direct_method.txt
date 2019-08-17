@@ -1,0 +1,12 @@
+xquery version "3.1";
+let $var := <root n="x1">"rooting" out 1 or 2 root causes</root>
+return
+  <result name="test">
+    disable highlight for a name such as root {
+      for $name in $var
+      return
+        $name as xs:string
+      }
+    return to unhighlighted order of things.
+    <test type="{$name}">"rooting" out root causes</test>
+  </result>

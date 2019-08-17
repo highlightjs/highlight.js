@@ -2,15 +2,24 @@
 Language: Dart
 Requires: markdown.js
 Author: Maxim Dikun <dikmax@gmail.com>
-Description: Dart is a JavaScript replacement language developed by Google. For more information see http://dartlang.org/
+Description: Dart a modern, object-oriented language developed by Google. For more information see https://www.dartlang.org/
 Category: scripting
 */
 
 function (hljs) {
   var SUBST = {
     className: 'subst',
-    begin: '\\$\\{', end: '}',
-    keywords: 'true false null this is new super'
+    variants: [
+       {begin: '\\$[A-Za-z0-9_]+'}
+    ],
+  };
+
+  var BRACED_SUBST = {
+    className: 'subst',
+    variants: [
+       {begin: '\\${', end: '}'},
+    ],
+    keywords: 'true false null this is new super',
   };
 
   var STRING = {
@@ -32,25 +41,25 @@ function (hljs) {
       },
       {
         begin: '\'\'\'', end: '\'\'\'',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       },
       {
         begin: '"""', end: '"""',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       },
       {
         begin: '\'', end: '\'',
         illegal: '\\n',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       },
       {
         begin: '"', end: '"',
         illegal: '\\n',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       }
     ]
   };
-  SUBST.contains = [
+  BRACED_SUBST.contains = [
     hljs.C_NUMBER_MODE, STRING
   ];
 

@@ -1,0 +1,23 @@
+<span class="hljs-keyword">FROM</span> ubuntu
+
+<span class="hljs-keyword">MAINTAINER</span> laurent@docker.com
+
+<span class="hljs-keyword">ARG</span> debug=<span class="hljs-number">0</span>
+
+<span class="hljs-keyword">COPY</span><span class="bash"> www.conf /etc/php5/fpm/pool.d/</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> apt-get update \
+    &amp;&amp; apt-get install -y php5-fpm php-apc php5-curl php5-gd php5-intl php5-mysql</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> mkdir /tmp/sessions</span>
+
+<span class="hljs-keyword">ENV</span> APPLICATION_ENV dev
+
+<span class="hljs-keyword">USER</span> www-data
+
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+
+<span class="hljs-keyword">VOLUME</span><span class="bash"> [<span class="hljs-string">"/var/www/html"</span>]</span>
+
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> <span class="hljs-string">"/var/www/html"</span></span>
+
+<span class="hljs-keyword">CMD</span><span class="bash"> [ <span class="hljs-string">"/usr/sbin/php5-fpm"</span>, <span class="hljs-string">"-F"</span> ]</span>

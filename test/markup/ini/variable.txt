@@ -1,0 +1,2 @@
+memory_limit = ${PHP_MEMORY_LIMIT}
+key = $VAR1
