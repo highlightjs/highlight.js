@@ -1,0 +1,8 @@
+match foo
+| true => "it's true"
+| "bar" => "it's bar"
+| let x: I32 if x > 3 => "it's greater than 3"
+| let x: I32 => "it's less than or equal to 3"
+else
+"I don't know what it is"
+end

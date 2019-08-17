@@ -1,0 +1,14 @@
+# comment
+  # comment
+! comment
+  ! comment
+key=val
+key = val
+key:val
+key : val
+key val
+key   val
+key = val\
+      val
+key\ key\:\= val
+key
