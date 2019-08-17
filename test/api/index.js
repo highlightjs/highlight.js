@@ -8,5 +8,7 @@ describe('hljs', function() {
   require('./binaryNumber');
   require('./starters');
   require('./getLanguage');
+  require('./autoDetection');
   require('./highlight');
+  require('./fixmarkup');
 });

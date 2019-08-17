@@ -1,0 +1,7 @@
+for i(start, stop, bar(5));
+if (i-1 % 5 == 0 .and some_flag);
+elseif i % 2 .eqv 0;
+external string _olsrnam;
+external proc indices2,indexcat;
+myPlot.axes.and.for.if.endif.text = "hey";
+local f:proc;

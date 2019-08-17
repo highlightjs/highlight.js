@@ -1,0 +1,51 @@
+interface IInterface
+{
+    void DoSomething();
+}
+
+namespace MyApplication
+{
+    /*
+     * This ia a test class.
+     */
+    class SomeClass : IInterface
+    {
+        array<float> m_arr;
+
+        array<SomeClass@> m_children;
+        array<array<SomeClass@>> m_subChildren; // Nested templates
+
+        SomeClass()
+        {
+            // Add some integers
+            m_arr.insertLast(1.0f);
+            m_arr.insertLast(1.75f);
+            m_arr.insertLast(3.14159f);
+            uint x = 0x7fff0000;
+            int y = 9001;
+        }
+
+        void DoSomething()
+        {
+            print("Something! " + 'stuff.');
+            for (uint i = 0; i < m_arr.length(); i++) {
+                print("  " + i + ": " + m_arr[i]);
+            }
+        }
+
+        protected void SomeProtectedFunction()
+        {
+            try {
+                DoSomething();
+            } catch {
+                print("Exception while doing something!");
+            }
+        }
+    }
+}
+
+void Main()
+{
+    SomeClass@ c = SomeClass();
+    c.DoSomething();
+}
