@@ -3130,7 +3130,7 @@ function(hljs) {
     keywords: KEYWORDS,
     begin: UNDERSCORE_IDENT_RE,
     relevance: 0,
-    containts: [TYPES, METHODS],
+    contains: [TYPES, METHODS],
   };
 
   // Имена функций
