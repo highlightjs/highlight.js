@@ -2,5 +2,6 @@ var jsx = <node/>;
 var jsx = <node><child/></node>;
 var jsx = <node>...<child>...</child></node>;
 var jsx = <div><span><br /></span></div>;
+var jsx = <pre-node><child /></pre-node>;
 var x = 5;
 return (<node attr="value"></node>);

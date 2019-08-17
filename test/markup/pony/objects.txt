@@ -5,3 +5,7 @@ actor Main
 class ref List[A: A] is Seq[A] ref
 
 object is Hashable
+
+object iso
+
+primitive Foo is Bar iso
