@@ -1,0 +1,20 @@
+<span class="hljs-attr">i</span> = <span class="hljs-number">1_234</span>
+<span class="hljs-attr">f</span> = <span class="hljs-number">1.23</span>
+<span class="hljs-attr">f</span> = <span class="hljs-number">7</span>e+<span class="hljs-number">12</span>
+<span class="hljs-attr">f</span> = <span class="hljs-number">2</span>e3
+<span class="hljs-attr">f</span> = -<span class="hljs-number">1.234</span>e-<span class="hljs-number">12</span>
+<span class="hljs-attr">basic</span> = <span class="hljs-string">"string"</span>
+<span class="hljs-attr">multi_basic</span> = <span class="hljs-string">"""multiple
+lines"""</span>
+<span class="hljs-attr">literal</span> = <span class="hljs-string">'string'</span>
+<span class="hljs-attr">multi_literal</span> = <span class="hljs-string">'''multiple
+lines'''</span>
+<span class="hljs-attr">b</span> = <span class="hljs-literal">true</span>
+<span class="hljs-attr">b</span> = <span class="hljs-literal">false</span>
+<span class="hljs-attr">b</span> = <span class="hljs-literal">on</span>
+<span class="hljs-attr">b</span> = <span class="hljs-literal">off</span>
+<span class="hljs-attr">b</span> = <span class="hljs-literal">yes</span>
+<span class="hljs-attr">b</span> = <span class="hljs-literal">no</span>
+<span class="hljs-attr">dotted.key</span> = <span class="hljs-number">1</span>
+<span class="hljs-attr">array</span> = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+<span class="hljs-attr">inline</span> = {name = <span class="hljs-string">"foo"</span>, id = <span class="hljs-number">123</span>}

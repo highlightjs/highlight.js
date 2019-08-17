@@ -1,0 +1,43 @@
+'''text \''' text'''
+u'''text \''' text'''
+b'''text \''' text'''
+r'''text \''' text'''
+ur'''text \''' text'''
+br'''text \''' text'''
+
+"""text \""" text"""
+u"""text \""" text"""
+b"""text \""" text"""
+r"""text \""" text"""
+ur"""text \""" text"""
+br"""text \""" text"""
+
+f'''text \''' text'''
+fr'''text \''' text'''
+rf'''text \''' text'''
+
+f"""text \""" text"""
+fr"""text \""" text"""
+rf"""text \""" text"""
+
+u'text \' text'
+r'text \' text'
+ur'text \' text'
+
+u"text \" text"
+r"text \" text"
+ur"text \" text"
+
+b'text \' text'
+br'text \' text'
+
+b"text \" text"
+br"text \" text"
+
+f'text \' text'
+fr'text \' text'
+rf'text \' text'
+
+f"text \" text"
+fr"text \" text"
+rf"text \" text"

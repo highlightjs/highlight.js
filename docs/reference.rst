@@ -157,7 +157,7 @@ keyword ``do`` and another using a comma:
   def foo, do: IO.puts "hello world"
 
 Note that in the first case the parameter list after the function title may also
-include a comma. And iIf we're only interested in highlighting a title we can
+include a comma. And if we're only interested in highlighting a title we can
 tell it to end the function definition after itself:
 
 ::
@@ -174,6 +174,34 @@ tell it to end the function definition after itself:
   }
 
 (The ``end: /\B\b/`` regex tells function to never end by itself.)
+
+.. _endSameAsBegin:
+
+endSameAsBegin
+^^^^^^^^^^^^^^
+
+**type**: boolean
+
+Acts as ``end`` matching exactly the same string that was found by the
+corresponding ``begin`` regexp.
+
+For example, in PostgreSQL string constants can uee "dollar quotes",
+consisting of a dollar sign, an optional tag of zero or more characters,
+and another dollar sign. String constant must be ended with the same
+construct using the same tag. It is possible to nest dollar-quoted string
+constants by choosing different tags at each nesting level:
+
+::
+
+  $foo$
+    ...
+    $bar$ nested $bar$
+    ...
+  $foo$
+
+In this case you can't simply specify the same regexp for ``begin`` and
+``end`` (say, ``"\\$[a-z]\\$"``), but you can use ``begin: "\\$[a-z]\\$"``
+and ``endSameAsBegin: true``.
 
 .. _lexemes:
 
@@ -322,3 +350,11 @@ handle pairs of ``/* .. */`` to correctly find the ending ``?>``::
 
 Without ``skip: true`` every comment would cause the parser to drop out back
 into the HTML mode.
+
+disableAutodetect
+^^^^^^^^^^^^^^^^^
+
+**type**: boolean
+
+Disables autodetection for this language.
+

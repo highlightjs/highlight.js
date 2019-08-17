@@ -92,6 +92,33 @@ function copyMetaFiles() {
   };
 }
 
+function buildSCSSStyles() {
+  let input   = path.join(directory.root, 'src', 'styles', '*.css'),
+      output  = path.join(directory.build, 'scss'),
+      options = { encoding: 'binary', dir: output }
+
+  return {
+    startLog: { task: ['log', 'Building SCSS styles.'] },
+    read: { requires: 'startLog', task: ['glob', utility.glob(input)] },
+    writeLog: { requires: 'read', task: ['log', 'Writing SCSS styles.'] },
+    rename: { requires: 'writeLog', task: ['rename', { extname: '.scss' }] },
+    write: { requires: 'rename', task: ['dest', options] }
+  };
+}
+
+function buildSCSSImages() {
+  let input   = path.join(directory.root, 'src', 'styles', '*.{jpg,png}'),
+      output  = path.join(directory.build, 'scss'),
+      options = { encoding: 'binary', dir: output }
+
+  return {
+    startLog: { task: ['log', 'Building SCSS files.'] },
+    read: { requires: 'startLog', task: ['glob', utility.glob(input, 'binary')] },
+    writeLog: { requires: 'read', task: ['log', 'Writing SCSS files.'] },
+    write: { requires: 'writeLog', task: ['dest', options] }
+  };
+}
+
 function buildStyles() {
   let input   = path.join(directory.root, 'src', 'styles', '*'),
       output  = path.join(directory.build, 'styles'),
@@ -133,6 +160,8 @@ module.exports = function(commander, dir) {
     buildCore(),
     buildIndex(),
     buildStyles(),
+    buildSCSSStyles(),
+    buildSCSSImages(),
     copyMetaFiles(),
     buildPackageFile()
   ];
