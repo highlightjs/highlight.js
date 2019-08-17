@@ -1,0 +1,21 @@
+if a == b and b == a then
+  env.out.print("they are the same")
+elseif a > b or b < a then
+  env.out.print("a is bigger")
+else
+  env.out.print("b bigger")
+end
+
+while count <= 10 do
+  env.out.print(count.string())
+  count = count + 1
+end
+
+for name in ["Bob"; "Fred"; "Sarah"].values() do
+  env.out.print(name)
+end
+
+repeat
+      env.out.print("hello!")
+      counter = counter + 1
+until counter > 7 end

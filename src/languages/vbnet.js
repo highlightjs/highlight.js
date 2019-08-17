@@ -27,7 +27,7 @@ function(hljs) {
       literal:
         'true false nothing'
     },
-    illegal: '//|{|}|endif|gosub|variant|wend', /* reserved deprecated keywords */
+    illegal: '//|{|}|endif|gosub|variant|wend|^\\$ ', /* reserved deprecated keywords */
     contains: [
       hljs.inherit(hljs.QUOTE_STRING_MODE, {contains: [{begin: '""'}]}),
       hljs.COMMENT(

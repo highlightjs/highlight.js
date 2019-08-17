@@ -3,7 +3,7 @@
 let _        = require('lodash');
 let bluebird = require('bluebird');
 let hljs     = require('../../build');
-let jsdomEnv = bluebird.promisify(require('jsdom').env);
+let { JSDOM } = require('jsdom');
 let readFile = bluebird.promisify(require('fs').readFile);
 let utility  = require('../utility');
 
@@ -12,12 +12,15 @@ describe('special cases tests', function() {
     const filename = utility.buildPath('fixtures', 'index.html');
 
     return readFile(filename, 'utf-8')
-      .then(page => jsdomEnv(page))
-      .then(window => {
+      .then(page => new JSDOM(page))
+      .then(({ window }) => {
         let blocks;
 
         // Allows hljs to use document
         global.document = window.document;
+
+        // Special language to test endsWithParentVariants
+        hljs.registerLanguage('nested', require('../fixtures/nested.js'));
 
         // Setup hljs environment
         hljs.configure({ tabReplace: '    ' });
@@ -38,4 +41,5 @@ describe('special cases tests', function() {
   require('./subLanguages');
   require('./buildClassName');
   require('./useBr');
+  require('./endsWithParentVariants')
 });

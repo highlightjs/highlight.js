@@ -1,0 +1,4 @@
+<span class="hljs-comment">{ Compiler directives }</span>
+<span class="hljs-meta">{$I}</span> <span class="hljs-meta">(*$I*)</span>
+<span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">A</span><span class="hljs-params">(x: <span class="hljs-meta">{$IFDEF Debug}</span>Integer<span class="hljs-meta">{$ELSE}</span>Word<span class="hljs-meta">{$ENDIF}</span>)</span>;</span>
+<span class="hljs-keyword">begin</span> <span class="hljs-keyword">end</span>;

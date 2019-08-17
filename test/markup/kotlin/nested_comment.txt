@@ -1,0 +1,9 @@
+/* begin comment at LEVEL 0
+    /*
+      multiline nested comment LEVEL 1
+    */
+    println("on kotlin this is a commented code in comment LEVEL 0")
+    /*
+        another multiline nested comment LEVEL 1
+    */
+end comment at LEVEL 0 */

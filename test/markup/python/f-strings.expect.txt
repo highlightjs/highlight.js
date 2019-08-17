@@ -1,0 +1,10 @@
+<span class="hljs-string">f'<span class="hljs-subst">{name}</span>'</span>
+<span class="hljs-string">f"<span class="hljs-subst">{name + <span class="hljs-number">5</span>}</span>"</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">f"""
+<span class="hljs-meta">... </span><span class="hljs-subst">{
+<span class="hljs-meta">... </span>   name
+<span class="hljs-meta">... </span>}</span>
+<span class="hljs-meta">... </span>"""</span>
+<span class="hljs-string">rf"<span class="hljs-subst">{name}</span>"</span>
+<span class="hljs-string">fr"<span class="hljs-subst">{name}</span>"</span>
+<span class="hljs-string">f"<span class="hljs-subst">{name + <span class="hljs-string">f'<span class="hljs-subst">{name}</span>'</span>}</span>"</span>
