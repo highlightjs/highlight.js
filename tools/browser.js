@@ -130,7 +130,12 @@ module.exports = function(commander, dir) {
       task: ['replace', replace(regex.classname, '$1.className')]
     };
 
-    tasks.minify  = { requires: 'replace3', task: 'jsminify' };
+    tasks.replace4 = {
+      requires: 'replace3',
+      task: ['replace', replace(regex.apiReplacesFrom, regex.apiReplacesTo)]
+    };
+
+    tasks.minify  = { requires: 'replace4', task: 'jsminify' };
     requiresTask  = 'minify';
   }
 

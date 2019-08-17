@@ -13,3 +13,5 @@ fi
 genApacheConf(){
  echo -e "# Host ${HOME_DIR}$1/$2 :"
 }
+
+echo '"quoted"' | tr -d \" > text.txt

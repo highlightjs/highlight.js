@@ -10,20 +10,46 @@
 <span class="hljs-comment">// Raw string literals (multiline)</span>
 <span class="hljs-keyword">auto</span> char_multi  = <span class="hljs-string">R"(Hello
 "normal"
-muliline
+multiline
 string.)"</span>;
 <span class="hljs-keyword">auto</span> utf8_multi  = <span class="hljs-string">u8R"(Hello
 "utf-8"
-muliline
+multiline
 string)"</span>;
 <span class="hljs-keyword">auto</span> utf16_multi = <span class="hljs-string">uR"(Hello
 "utf-16"
-muliline
+multiline
 string)"</span>;
 <span class="hljs-keyword">auto</span> utf32_multi = <span class="hljs-string">UR"(Hello
 "utf-32"
-muliline
+multiline
 string)"</span>;
+
+<span class="hljs-comment">// Raw string literals with delimiter (multiline)</span>
+<span class="hljs-keyword">auto</span> char_multi  = <span class="hljs-string">R"blah1(Hello
+"normal"
+multiline
+)"
+)blah"
+string.)blah1"</span>;
+<span class="hljs-keyword">auto</span> utf8_multi  = <span class="hljs-string">u8R"blah2(Hello
+"utf-8"
+multiline
+)"
+)blah"
+string)blah2"</span>;
+<span class="hljs-keyword">auto</span> utf16_multi = <span class="hljs-string">uR"blah3(Hello
+"utf-16"
+multiline
+)"
+)blah"
+string)blah3"</span>;
+<span class="hljs-keyword">auto</span> utf32_multi = <span class="hljs-string">UR"blah4(Hello
+"utf-32"
+multiline
+)"
+)blah"
+string)blah4"</span>;
 
 <span class="hljs-comment">// Meta strings</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio&gt;</span></span>
