@@ -103,6 +103,10 @@ function(hljs) {
     begin: KOTLIN_NUMBER_RE,
     relevance: 0
   };
+  var KOTLIN_NESTED_COMMENT = hljs.COMMENT(
+    '/\\*', '\\*/',
+    { contains: [ hljs.C_BLOCK_COMMENT_MODE ] }
+  );
 
   return {
     aliases: ['kt'],
@@ -120,7 +124,7 @@ function(hljs) {
         }
       ),
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
+      KOTLIN_NESTED_COMMENT,
       KEYWORDS_WITH_LABEL,
       LABEL,
       ANNOTATION_USE_SITE,
@@ -156,19 +160,19 @@ function(hljs) {
                 contains: [
                   {className: 'type', begin: hljs.UNDERSCORE_IDENT_RE},
                   hljs.C_LINE_COMMENT_MODE,
-                  hljs.C_BLOCK_COMMENT_MODE
+                  KOTLIN_NESTED_COMMENT
                 ],
                 relevance: 0
               },
               hljs.C_LINE_COMMENT_MODE,
-              hljs.C_BLOCK_COMMENT_MODE,
+              KOTLIN_NESTED_COMMENT,
               ANNOTATION_USE_SITE,
               ANNOTATION,
               STRING,
               hljs.C_NUMBER_MODE
             ]
           },
-          hljs.C_BLOCK_COMMENT_MODE
+          KOTLIN_NESTED_COMMENT
         ]
       },
       {
