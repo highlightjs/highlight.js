@@ -1,16 +1,288 @@
-## Master (UNRELEASED)
+## Master
+
+New languages:
+
+New styles:
 
 Improvements:
 
+## Version 9.15.9
+
+Improvements:
+ - fix(AutoHotkey): order and extended highlighting (#1579)
+ - fix(Go): correctly highlight hex numbers, rather than stopping at last 'd' or 'f'. (#2060)
+ - fix(Mathematica): Improvements to language (#2065)
+ - fix(Node): Adds SCSS build (#2079)
+ - fix(Rust): update keywords (#2052)
+ - fix(Stata): Added keywords for the meta-analysis suite introduced in Stata 16 (#2081)
+ - fix(Bash): escape double quotes (#2048)
+
+## Version 9.15.8
+
+New languages:
+  none.
+New styles:
+  none.
+Improvements:
+  - fix(bash): revert escaped double quotes - broke Firefox/Safari.
+
+## Version 9.15.7
+New languages:
+  none.
+New styles:
+  none.
+Improvements:
+ - fix(powershell): Add cmdlets (#2022)
+ - fix(Bash): escaped double quotes (#2041)
+ - fix(c++): add aliases 'hh', 'hxx', 'cxx' (#2017)
+ - fix(ini/toml): Support comments on the same line. (#2039)
+ - fix(JSX): not rendering well in a function without parentheses. (#2024)
+ - fix(LiveCode): language definition update (#2021)
+ - fix(markdown): indented lists (#2004)
+ - fix(styles/school-book): don't style all the pre, use .hljs instead (#2034)
+ - fix(JSX): Modify JSX tag detection to use XML language regex in place of simplistic \w+
+
+## Version 9.15.6
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+ - Move dependencies to be devDependencies.
+ - Fixed security issues in dev dependencies.
+
+## Version 9.15.5
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix: updated build tool.
+
+## Version 9.15.4
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix: reverted hljs cli build tool, as it was causing issues with install.
+
+## Version 9.15.3
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix: reverted hljs cli build tool, as it was causing issues with install.
+
+## Version 9.15.2
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+  🔥 Hot fix that was preventing highlight.js from installing.
+
+## Version 9.15.1
+
+New languages:
+    none.
+
+New styles:
+    none.
+
+Improvements:
+
+- Pony: Fixed keywords without spaces at line ends, highlighting of `iso` in class definitions, and function heads without bodies in traits and interfaces. Removed FUNCTION and CLASS modes until they are found to be needed and to provide some of the fixes.
+ - Support external language files in minified version of highlight.js (#1888)
+
+## Version 9.15
+
+New languages:
+    none.
+
+New styles:
+    none.
+
+Improvements:
+ - new cli tool `hljs` - allows easier [building from command line](docs/building-testing.rst#building-a-bundle-from-the-command-line).
+ - cpp: Fully support C++11 raw strings. (#1897)
+ - Python: Treat False None and True as literals (#1920)
+
+## Version 9.14.2
+
+New languages:
+  none.
+New styles:
+  none.
+Improvements:
+- *Gauss* fixed to stop global namespace pollution [Scott Hyndman][].
+- fix(Tcl): removed apostrophe string delimiters (don't exist)
+
+[Scott Hyndman]: https://github.com/shyndman
+
+## Version 9.14.1
+
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+- Pony: language improvements (#1958)
+
+## Version 9.14.0
+
+New languages:
+    none.
+New styles:
+    none.
+Improvements:
+- Pony: add missing "object" highlighting (#1932)
+- Added *XQuery* built-in functions, prolog declarations, as well as parsing of function bodies, computed and direct constructors, by [Duncan Paterson][]
+- fix(dart): Corrects highlighting with string interpolation. (#1946)
+- fix(swift): be eager on optional-using types (!/?) (#1919)
+- fix(tex): Changed cyrillic to unicode (IE11 throw SCRIPT5021) (#1601)
+- fix(JavaScript): Recognize get/set accessor keywords (#1940)
+- Fixed Dockerfile definition when using highlight continuation parameter, by [Laurent Voullemier][]
+- Added tests & new `annotation` and `verbatim` keywords to *Crystal*, by [Benoit de Chezelles][]
+- Added missing dockerfile markup tests, by [Laurent Voullemier][]
+  Allow empty prompt text in clojure-repl, by [Egor Rogov][]
+- Fixed several issues with *Crystal* language definition, by [Johannes Müller][]
+- Added `C#` as an alias for *CSharp* language, by [Ahmed Atito][]
+- Added generic user-defined proc support, new compiler define, refactor to re-use rules, and add tests to *GAUSS*, by [Matthew Evans][]
+- Improve *Crystal* language to highlight regexes after some keywords, by [Tsuyusato Kitsune][]
+- Fix filterByQualifiers: fileInfo can be null
+- Fixed String interpolation in Dart, by [Scott Hyndman][].
+
+[Laurent Voullemier]: https://github.com/l-vo
+[Benoit de Chezelles]: https://github.com/bew
+[Johannes Müller]: https://github.com/straight-shoota
+[Ahmed Atito]: https://github.com/atitoa93
+[Matthew Evans]: https://github.com/matthewevans
+[Tsuyusato Kitsune]: https://github.com/MakeNowJust
+[Scott Hyndman]: https://github.com/shyndman
+[Duncan Paterson]: https://github.com/duncdrum
+
+## Version 9.13.1
+
+Improvements:
+
+- *C#* function declarations no longer include trailing whitespace, by [JeremyTCD][]
+- Added new and missing keywords to *AngelScript*, by [Melissa Geels][]
+- *TypeScript* decorator factories highlighting fix, by [Antoine Boisier-Michaud][]
+- Added support for multiline strings to *Swift*, by [Alejandro Isaza][]
+- Fixed issue that was causing some minifiers to fail.
+- Fixed `autoDetection` to accept language aliases.
+
+[JeremyTCD]: https://github.com/JeremyTCD
+[Melissa Geels]: https://github.com/codecat
+[Antoine Boisier-Michaud]: https://github.com/Aboisier
+[Alejandro Isaza]: https://github.com/alejandro-isaza
+
+## Version 9.13.0
+
+New languages:
+
+- *ArcGIS Arcade* by [John Foster][]
+- *AngelScript* by [Melissa Geels][]
+- *GML* by [meseta][]
+- *isbl* built-in language DIRECTUM and Conterra by [Dmitriy Tarasov][].
+- *PostgreSQL* SQL dialect and PL/pgSQL language by [Egor Rogov][].
+- *ReasonML* by [Gidi Meir Morris][]
+- *SAS* by [Mauricio Caceres Bravo][]
+- *Plaintext* by [Egor Rogov][]
+- *.properties* by [bostko][] and [Egor Rogov][]
+
+New styles:
+
+- *a11y-dark theme* by [Eric Bailey][]
+- *a11y-light theme* by [Eric Bailey][]
+- *An Old Hope* by [Gustavo Costa][]
+- *Atom One Dark Reasonable* by [Gidi Meir Morris][]
+- *isbl editor dark* by [Dmitriy Tarasov][]
+- *isbl editor light* by [Dmitriy Tarasov][]
+- *Lightfair* by [Tristian Kelly][]
+- [*Nord*][nord-highlightjs] by [Arctic Ice Studio][]
+- *[🦄 Shades of Purple](https://github.com/ahmadawais/Shades-of-Purple-HighlightJS)* by [Ahmad Awais][]
+
+Improvements:
+
+- New attribute `endSameAsBegin` for nested constructs with variable names
+  by [Egor Rogov][].
+- *Python* highlighting of escaped quotes fixed by [Harmon][]
+- *PHP*: Added alias for php7, by [Vijaya Chandran Mani][]
+- *C++* string handling, by [David Benjamin][]
+- *Swift* Add `@objcMembers` to `@attributes`, by [Berk Çebi][]
+- Infrastructural changes by [Marcos Cáceres][]
+- Fixed metachars highighting for *NSIS* by [Jan T. Sott][]
+- *Yaml* highlight local tags as types by [Léo Lam][]
+- Improved highlighting for *Elixir* by [Piotr Kaminski][]
+- New attribute `disableAutodetect` for preventing autodetection by [Egor Rogov][]
+- *Matlab*: transpose operators and double quote strings, by [JohnC32][] and [Egor Rogov][]
+- Various documentation typos and improvemets by [Jimmy Wärting][], [Lutz Büch][], [bcleland][]
+- *Cmake* updated with new keywords and commands by [Deniz Bahadir][]
+
+[Ahmad Awais]: https://github.com/ahmadawais
+[Arctic Ice Studio]: https://github.com/arcticicestudio
+[Dmitriy Tarasov]: https://github.com/MedvedTMN
+[Egor Rogov]: https://github.com/egor-rogov
+[Eric Bailey]: https://github.com/ericwbailey
+[Gidi Meir Morris]: https://github.com/gmmorris
+[Gustavo Costa]: https://github.com/gusbemacbe
+[Harmon]: https://github.com/Harmon758
+[Melissa Geels]: https://github.com/codecat
+[meseta]: https://github.com/meseta
+[nord-highlightjs]: https://github.com/arcticicestudio/nord-highlightjs
+[Tristian Kelly]: https://github.com/TristianK3604
+[Vijaya Chandran Mani]: https://github.com/vijaycs85
+[John Foster]: https://github.com/jf990
+[David Benjamin]: https://github.com/davidben
+[Berk Çebi]: https://github.com/berkcebi
+[Mauricio Caceres Bravo]: https://github.com/mcaceresb
+[bostko]: https://github.com/bostko
+[Deniz Bahadir]: https://github.com/Bagira80
+[bcleland]: https://github.com/bcleland
+[JohnC32]: https://github.com/JohnC32
+[Lutz Büch]: https://github.com/lutz-100worte
+[Piotr Kaminski]: https://github.com/pkaminski
+[Léo Lam]: https://github.com/leoetlino
+[Jan T. Sott]: https://github.com/idleberg
+[Jimmy Wärting]: https://github.com/jimmywarting
+[Marcos Cáceres]: https://github.com/marcoscaceres
+
+## Version 9.12.0
+
+New language:
+
+- *MikroTik* RouterOS Scripting language by [Ivan Dementev][].
+
+New style:
+
+- *VisualStudio 2015 Dark* by [Nicolas LLOBERA][]
+
+Improvements:
 - *Crystal* updated with new keywords and syntaxes by [Tsuyusato Kitsune][].
 - *Julia* updated to the modern definitions by [Alex Arslan][].
+- *julia-repl* added by [Morten Piibeleht][].
 - [Stanislav Belov][] wrote a new definition for *1C*, replacing the one that
-  been updated for more than 8 years. The new version supports syntax for
-  versions 7.7 and 8.
+  has not been updated for more than 8 years. The new version supports syntax
+  for versions 7.7 and 8.
+- [Nicolas LLOBERA][] improved C# definition fixing edge cases with function
+  titles detection and added highlighting of `[Attributes]`.
+- [nnnik][] provided a few correctness fixes for *Autohotkey*.
+- [Martin Clausen][] made annotation collections in *Clojure* to look
+  consistently with other kinds.
+- [Alejandro Alonso][] updated *Swift* keywords.
 
 [Tsuyusato Kitsune]: https://github.com/MakeNowJust
 [Alex Arslan]: https://github.com/ararslan
+[Morten Piibeleht]: https://github.com/mortenpi
 [Stanislav Belov]: https://github.com/4ppl
+[Ivan Dementev]: https://github.com/DiVAN1x
+[Nicolas LLOBERA]: https://github.com/Nicolas01
+[nnnik]: https://github.com/nnnik
+[Martin Clausen]: https://github.com/maacl
+[Alejandro Alonso]: https://github.com/Azoy
 
 ## Version 9.11.0
 

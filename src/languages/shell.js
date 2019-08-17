@@ -15,7 +15,7 @@ function(hljs) {
         starts: {
           end: '$', subLanguage: 'bash'
         }
-      },
+      }
     ]
   }
 }
