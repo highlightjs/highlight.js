@@ -131,3 +131,10 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | module                   | ReasonML module reference within scope access     |
 +--------------------------+---------------------------------------------------+
+
+
+Language names and aliases
+--------------------------
+
+The language names and aliases table has moved to the project
+[README](https://github.com/highlightjs/highlight.js)
