@@ -32,7 +32,7 @@
   "devDependencies": {
     "bluebird": "^3.5.5",
     "commander": "^3.0.0",
-    "del": "^5.0.0",
+    "del": "^5.1.0",
     "gear-lib": "github:highlightjs/gear-lib",
     "gear": "github:highlightjs/gear",
     "glob": "^7.1.4",
