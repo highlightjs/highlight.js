@@ -38,7 +38,7 @@ function(hljs) {
   // for string templates
   var SUBST = {
     className: 'subst',
-    begin: '\\${', end: '}', contains: [hljs.APOS_STRING_MODE, hljs.C_NUMBER_MODE]
+    begin: '\\${', end: '}', contains: [hljs.C_NUMBER_MODE]
   };
   var VARIABLE = {
     className: 'variable', begin: '\\$' + hljs.UNDERSCORE_IDENT_RE
@@ -65,6 +65,7 @@ function(hljs) {
       }
     ]
   };
+  SUBST.contains.push(STRING)
 
   var ANNOTATION_USE_SITE = {
     className: 'meta', begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
@@ -107,6 +108,19 @@ function(hljs) {
     '/\\*', '\\*/',
     { contains: [ hljs.C_BLOCK_COMMENT_MODE ] }
   );
+  var KOTLIN_PAREN_TYPE = {
+    variants: [
+	  { className: 'type',
+	    begin: hljs.UNDERSCORE_IDENT_RE
+	  },
+	  { begin: /\(/, end: /\)/,
+	    contains: [] //defined later
+	  }
+	]
+  };
+  var KOTLIN_PAREN_TYPE2 = KOTLIN_PAREN_TYPE;
+  KOTLIN_PAREN_TYPE2.variants[1].contains = [ KOTLIN_PAREN_TYPE ];
+  KOTLIN_PAREN_TYPE.variants[1].contains = [ KOTLIN_PAREN_TYPE2 ];
 
   return {
     aliases: ['kt'],
@@ -158,7 +172,7 @@ function(hljs) {
               {
                 begin: /:/, end: /[=,\/]/, endsWithParent: true,
                 contains: [
-                  {className: 'type', begin: hljs.UNDERSCORE_IDENT_RE},
+                  KOTLIN_PAREN_TYPE,
                   hljs.C_LINE_COMMENT_MODE,
                   KOTLIN_NESTED_COMMENT
                 ],
