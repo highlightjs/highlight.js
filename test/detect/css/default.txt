@@ -5,6 +5,7 @@
 body, .usertext {
   color: #F0F0F0; background: #600;
   font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
 }
 
 @import url(print.css);

@@ -11,3 +11,6 @@ fun e(
     b : String //b
 )
 {}
+
+
+fun <OUT> handle(lambda: (IN) /* parenthesized type */ -> OUT) {}

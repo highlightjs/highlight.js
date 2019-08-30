@@ -1,7 +1,7 @@
 /*
 Language: PureBASIC
 Author: Tristano Ajmone <tajmone@gmail.com>
-Description: Syntax highlighting for PureBASIC (v.5). No inline ASM highlighting. First release (v.1.0), April 2016.
+Description: Syntax highlighting for PureBASIC (v.5.00-5.60). No inline ASM highlighting. (v.1.2, May 2017)
 Credits: I've taken inspiration from the PureBasic language file for GeSHi, created by Gustavo Julio Fiorenza (GuShH).
 */
 
@@ -22,17 +22,22 @@ function(hljs) {
   return {
     aliases: ['pb', 'pbi'],
     keywords: // PB IDE color: #006666 (Blue Stone) + Bold
-      // The following keywords list was taken and adapted from GuShH's PureBasic language file for GeSHi...
-      'And As Break CallDebugger Case CompilerCase CompilerDefault CompilerElse CompilerEndIf CompilerEndSelect ' +
-      'CompilerError CompilerIf CompilerSelect Continue Data DataSection EndDataSection Debug DebugLevel ' +
-      'Default Define Dim DisableASM DisableDebugger DisableExplicit Else ElseIf EnableASM ' +
-      'EnableDebugger EnableExplicit End EndEnumeration EndIf EndImport EndInterface EndMacro EndProcedure ' +
-      'EndSelect EndStructure EndStructureUnion EndWith Enumeration Extends FakeReturn For Next ForEach ' +
-      'ForEver Global Gosub Goto If Import ImportC IncludeBinary IncludeFile IncludePath Interface Macro ' +
-      'NewList Not Or ProcedureReturn Protected Prototype ' +
-      'PrototypeC Read ReDim Repeat Until Restore Return Select Shared Static Step Structure StructureUnion ' +
-      'Swap To Wend While With XIncludeFile XOr ' +
-      'Procedure ProcedureC ProcedureCDLL ProcedureDLL Declare DeclareC DeclareCDLL DeclareDLL',
+      // Keywords from all version of PureBASIC 5.00 upward ...
+      'Align And Array As Break CallDebugger Case CompilerCase CompilerDefault ' +
+      'CompilerElse CompilerElseIf CompilerEndIf CompilerEndSelect CompilerError ' +
+      'CompilerIf CompilerSelect CompilerWarning Continue Data DataSection Debug ' +
+      'DebugLevel Declare DeclareC DeclareCDLL DeclareDLL DeclareModule Default ' +
+      'Define Dim DisableASM DisableDebugger DisableExplicit Else ElseIf EnableASM ' +
+      'EnableDebugger EnableExplicit End EndDataSection EndDeclareModule EndEnumeration ' +
+      'EndIf EndImport EndInterface EndMacro EndModule EndProcedure EndSelect ' +
+      'EndStructure EndStructureUnion EndWith Enumeration EnumerationBinary Extends ' +
+      'FakeReturn For ForEach ForEver Global Gosub Goto If Import ImportC ' +
+      'IncludeBinary IncludeFile IncludePath Interface List Macro MacroExpandedCount ' +
+      'Map Module NewList NewMap Next Not Or Procedure ProcedureC ' +
+      'ProcedureCDLL ProcedureDLL ProcedureReturn Protected Prototype PrototypeC ReDim ' +
+      'Read Repeat Restore Return Runtime Select Shared Static Step Structure ' +
+      'StructureUnion Swap Threaded To UndefineMacro Until Until  UnuseModule ' +
+      'UseModule Wend While With XIncludeFile XOr',
     contains: [
       // COMMENTS | PB IDE color: #00AAAA (Persian Green)
       hljs.COMMENT(';', '$', {relevance: 0}),
@@ -62,3 +67,25 @@ function(hljs) {
     ]
   };
 }
+
+/*  ==============================================================================
+                                      CHANGELOG                                   
+    ==============================================================================
+    - v.1.2 (2017-05-12)
+        -- BUG-FIX: Some keywords were accidentally joyned together. Now fixed.
+    - v.1.1 (2017-04-30)
+        -- Updated to PureBASIC 5.60.
+        -- Keywords list now built by extracting them from the PureBASIC SDK's
+           "SyntaxHilighting.dll" (from each PureBASIC version). Tokens from each
+           version are added to the list, and renamed or removed tokens are kept
+           for the sake of covering all versions of the language from PureBASIC
+           v5.00 upward. (NOTE: currently, there are no renamed or deprecated
+           tokens in the keywords list). For more info, see:
+           -- http://www.purebasic.fr/english/viewtopic.php?&p=506269
+           -- https://github.com/tajmone/purebasic-archives/tree/master/syntax-highlighting/guidelines
+    - v.1.0 (April 2016)
+        -- First release
+        -- Keywords list taken and adapted from GuShH's (Gustavo Julio Fiorenza)
+           PureBasic language file for GeSHi:
+           -- https://github.com/easybook/geshi/blob/master/geshi/purebasic.php
+*/
