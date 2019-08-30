@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "9.15.9",
+  "version": "9.15.10",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "bluebird": "^3.5.5",
-    "commander": "^2.20.0",
+    "commander": "^3.0.0",
     "del": "^5.0.0",
     "gear-lib": "github:highlightjs/gear-lib",
     "gear": "github:highlightjs/gear",
