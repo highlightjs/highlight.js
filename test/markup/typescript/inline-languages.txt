@@ -1,0 +1,24 @@
+let foo = true;
+`hello ${foo ? `Mr ${name}` : 'there'}`;
+foo = false;
+
+html`<div id="foo">Hello world</div>`;
+
+html`<div id="foo">Hello times ${10} <span id="bar">world</span></div>`;
+
+html`
+  <ul id="list">
+    ${repeat(['a', 'b', 'c'], (v) => {
+      return html`<li class="item">${v}</li>`;
+    }}
+  </ul>
+`;
+
+css`
+  body {
+    color: red;
+  }
+`;
+
+// Ensure that we're back in TypeScript mode.
+var foo = 10;

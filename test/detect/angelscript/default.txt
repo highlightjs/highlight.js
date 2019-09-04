@@ -32,6 +32,15 @@ namespace MyApplication
                 print("  " + i + ": " + m_arr[i]);
             }
         }
+
+        protected void SomeProtectedFunction()
+        {
+            try {
+                DoSomething();
+            } catch {
+                print("Exception while doing something!");
+            }
+        }
     }
 }
 

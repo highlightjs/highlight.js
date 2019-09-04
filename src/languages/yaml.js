@@ -3,7 +3,7 @@ Language: YAML
 Author: Stefan Wienert <stwienert@gmail.com>
 Requires: ruby.js
 Description: YAML (Yet Another Markdown Language)
-Category: config
+Category: common, config
 */
 function(hljs) {
   var LITERALS = 'true false yes no null';
@@ -64,6 +64,10 @@ function(hljs) {
         excludeBegin: true,
         excludeEnd: true,
         relevance: 0
+      },
+      { // local tags
+        className: 'type',
+        begin: '!' + hljs.UNDERSCORE_IDENT_RE,
       },
       { // data type
         className: 'type',

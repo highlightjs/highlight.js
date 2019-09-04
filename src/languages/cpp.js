@@ -15,14 +15,11 @@ function(hljs) {
     className: 'string',
     variants: [
       {
-        begin: '(u8?|U)?L?"', end: '"',
+        begin: '(u8?|U|L)?"', end: '"',
         illegal: '\\n',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
-      {
-        begin: '(u8?|U)?R"', end: '"',
-        contains: [hljs.BACKSLASH_ESCAPE]
-      },
+      { begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\((?:.|\n)*?\)\1"/ },
       {
         begin: '\'\\\\?.', end: '\'',
         illegal: '.'
@@ -98,7 +95,7 @@ function(hljs) {
   ];
 
   return {
-    aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp'],
+    aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp', 'hh', 'hxx', 'cxx'],
     keywords: CPP_KEYWORDS,
     illegal: '</',
     contains: EXPRESSION_CONTAINS.concat([

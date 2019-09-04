@@ -38,7 +38,7 @@ function(hljs) {
   // for string templates
   var SUBST = {
     className: 'subst',
-    begin: '\\${', end: '}', contains: [hljs.APOS_STRING_MODE, hljs.C_NUMBER_MODE]
+    begin: '\\${', end: '}', contains: [hljs.C_NUMBER_MODE]
   };
   var VARIABLE = {
     className: 'variable', begin: '\\$' + hljs.UNDERSCORE_IDENT_RE
@@ -65,6 +65,7 @@ function(hljs) {
       }
     ]
   };
+  SUBST.contains.push(STRING)
 
   var ANNOTATION_USE_SITE = {
     className: 'meta', begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
@@ -103,6 +104,23 @@ function(hljs) {
     begin: KOTLIN_NUMBER_RE,
     relevance: 0
   };
+  var KOTLIN_NESTED_COMMENT = hljs.COMMENT(
+    '/\\*', '\\*/',
+    { contains: [ hljs.C_BLOCK_COMMENT_MODE ] }
+  );
+  var KOTLIN_PAREN_TYPE = {
+    variants: [
+	  { className: 'type',
+	    begin: hljs.UNDERSCORE_IDENT_RE
+	  },
+	  { begin: /\(/, end: /\)/,
+	    contains: [] //defined later
+	  }
+	]
+  };
+  var KOTLIN_PAREN_TYPE2 = KOTLIN_PAREN_TYPE;
+  KOTLIN_PAREN_TYPE2.variants[1].contains = [ KOTLIN_PAREN_TYPE ];
+  KOTLIN_PAREN_TYPE.variants[1].contains = [ KOTLIN_PAREN_TYPE2 ];
 
   return {
     aliases: ['kt'],
@@ -120,7 +138,7 @@ function(hljs) {
         }
       ),
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
+      KOTLIN_NESTED_COMMENT,
       KEYWORDS_WITH_LABEL,
       LABEL,
       ANNOTATION_USE_SITE,
@@ -154,21 +172,21 @@ function(hljs) {
               {
                 begin: /:/, end: /[=,\/]/, endsWithParent: true,
                 contains: [
-                  {className: 'type', begin: hljs.UNDERSCORE_IDENT_RE},
+                  KOTLIN_PAREN_TYPE,
                   hljs.C_LINE_COMMENT_MODE,
-                  hljs.C_BLOCK_COMMENT_MODE
+                  KOTLIN_NESTED_COMMENT
                 ],
                 relevance: 0
               },
               hljs.C_LINE_COMMENT_MODE,
-              hljs.C_BLOCK_COMMENT_MODE,
+              KOTLIN_NESTED_COMMENT,
               ANNOTATION_USE_SITE,
               ANNOTATION,
               STRING,
               hljs.C_NUMBER_MODE
             ]
           },
-          hljs.C_BLOCK_COMMENT_MODE
+          KOTLIN_NESTED_COMMENT
         ]
       },
       {
