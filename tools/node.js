@@ -120,7 +120,7 @@ function buildSCSSImages() {
 }
 
 function buildStyles() {
-  let input   = path.join(directory.root, 'src', 'styles', '*'),
+  let input   = path.join(directory.root, 'src', 'styles', '*.css'),
       output  = path.join(directory.build, 'styles'),
       options = { encoding: 'utf8', dir: output };
 
@@ -131,6 +131,19 @@ function buildStyles() {
       task: ['glob', utility.glob(input, 'binary')]
     },
     writeLog: { requires: 'read', task: ['log', 'Writing style files.'] },
+    write: { requires: 'writeLog', task: ['dest', options] }
+  };
+}
+
+function buildCSSImages() {
+  let input   = path.join(directory.root, 'src', 'styles', '*.{jpg,png}'),
+      output  = path.join(directory.build, 'styles'),
+      options = { encoding: 'binary', dir: output }
+
+  return {
+    startLog: { task: ['log', 'Building CSS image files.'] },
+    read: { requires: 'startLog', task: ['glob', utility.glob(input, 'binary')] },
+    writeLog: { requires: 'read', task: ['log', 'Writing CSS images files.'] },
     write: { requires: 'writeLog', task: ['dest', options] }
   };
 }
@@ -159,6 +172,7 @@ module.exports = function(commander, dir) {
     buildCore(),
     buildIndex(),
     buildStyles(),
+    buildCSSImages(),
     buildSCSSStyles(),
     buildSCSSImages(),
     copyMetaFiles(),
