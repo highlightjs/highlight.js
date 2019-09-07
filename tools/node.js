@@ -95,7 +95,7 @@ function copyMetaFiles() {
 function buildSCSSStyles() {
   let input   = path.join(directory.root, 'src', 'styles', '*.css'),
       output  = path.join(directory.build, 'scss'),
-      options = { encoding: 'binary', dir: output }
+      options = { encoding: 'utf8', dir: output }
 
   return {
     startLog: { task: ['log', 'Building SCSS styles.'] },
@@ -122,7 +122,7 @@ function buildSCSSImages() {
 function buildStyles() {
   let input   = path.join(directory.root, 'src', 'styles', '*'),
       output  = path.join(directory.build, 'styles'),
-      options = { encoding: 'binary', dir: output };
+      options = { encoding: 'utf8', dir: output };
 
   return {
     startLog: { task: ['log', 'Building style files.'] },
@@ -154,7 +154,6 @@ function buildPackageFile() {
 module.exports = function(commander, dir) {
   directory = dir;
   filterCB  = utility.buildFilterCallback(commander.args);
-
   let tasks = [
     buildLanguages(),
     buildCore(),
