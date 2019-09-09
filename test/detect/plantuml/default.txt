@@ -1,0 +1,37 @@
+@startuml
+
+!pragma graphviz_dot 
+!myfunction two graphviz_dot 
+!$ab = "foo1"
+
+skinparam titleBackgroundColor Aqua-CadetBlue
+
+'single line comment
+
+title Relationships - Class Diagram
+
+/' multi line
+comments '/
+
+class Dwelling {
+  +Int Windows
+  +void LockTheDoor()
+}
+
+class Apartment
+class House
+class Commune
+class Window
+class Door
+
+class "Stack" as Stack23 << (E,orchid) extension >> {
+
+}
+
+Dwelling <|-down- Apartment: Inheritance
+Dwelling <|-down- Commune: Inheritance
+Dwelling <|-down- House: Inheritance
+Dwelling "1" *-up- "many" Window: Composition
+Dwelling "1" *-up- "many" Door: Composition
+
+@enduml

@@ -1,10 +1,12 @@
 ## Master
 
 New languages:
-
+  - *PlantUML* - PlantText/UML syntax definition by [Palani Raja][].
 New styles:
 
 Improvements:
+
+[Palani Raja]: https://github.com/palaniraja
 
 ## Version 9.15.10
 New languages:
