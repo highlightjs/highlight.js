@@ -1,0 +1,10 @@
+context University def:
+statistics : Set(Tuple(dpt : Department, studentNb:Integer,
+                               graduated: Set(Student), average: Integer)) =
+     department->collect(each |
+       Tuple {dpt : Department = each,
+           studentNb: Integer = each.students()->size(),
+           graduated: Set(Student) = each.students()->select(graduated()),
+           average: Integer = each.students()->collect(note)->avg()
+          }
+      )

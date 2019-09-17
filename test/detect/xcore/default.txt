@@ -1,0 +1,31 @@
+@Ecore(nsURI="http://www.trace.com")
+@Import(ecore="http://www.eclipse.org/emf/2002/Ecore")
+@GenModel(modelDirectory="/trace/src/main/java-gen/",
+	importerID="org.eclipse.emf.importer.ecore")
+
+package org.atlanmod.trace
+
+annotation "http://www.eclipse.org/OCL/Import" as Import
+
+class Trace {
+	contains Level[] levels opposite trace
+	String[1] name
+}
+
+class Level {
+	container Trace[1] trace opposite levels
+	contains Call[] calls opposite level
+}
+
+class Call {
+	container Level[1] level opposite calls
+	contains Index[+] indexes
+	String[1] methodName
+	int[1] DBAccessesNumber
+	int[1] DBRowsNumber
+	int[1] CPUTime
+}
+
+class Index {
+	int[1] value
+}

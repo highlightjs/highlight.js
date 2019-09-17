@@ -2,6 +2,10 @@
 
 New languages:
 
+- *OCL* OMG's Object Constraint Language [Gerson Sunyé][].
+- *ATL* Atlas Transformation Language (Eclipse Foundation) [Gerson Sunyé][].
+- *Xcore* Textual notation for Ecore (Eclipse Modeling Framework) [Gerson Sunyé][].
+
 New styles:
 
 Improvements:

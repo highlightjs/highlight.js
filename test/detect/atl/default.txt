@@ -1,0 +1,16 @@
+rule Dependency {
+    from s : uml!"uml::Dependency" (
+		if thisModule.inElements->includes(s) then
+			s.oclIsTypeOf(uml!"uml::Dependency")
+		else false endif)
+    to t : uml!"uml::Dependency" mapsTo s (
+        name <- s.name,
+        visibility <- s.visibility,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        templateParameter <- s.templateParameter,
+        supplier <- s.supplier,
+        client <- s.client)
+}
