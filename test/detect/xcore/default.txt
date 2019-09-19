@@ -1,8 +1,3 @@
-@Ecore(nsURI="http://www.trace.com")
-@Import(ecore="http://www.eclipse.org/emf/2002/Ecore")
-@GenModel(modelDirectory="/trace/src/main/java-gen/",
-	importerID="org.eclipse.emf.importer.ecore")
-
 package org.atlanmod.trace
 
 annotation "http://www.eclipse.org/OCL/Import" as Import
