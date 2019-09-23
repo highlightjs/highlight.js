@@ -6,6 +6,7 @@ Category: mde
 */
 
 function(hljs) {
+  var TYPES = 'Boolean Integer UnlimitedNatural Real String OrderedSet Tuple OrderedSet Bag Set Sequence OclInvalid OclVoid TupleType OclState Collection OclMessage ';
   return {
     case_insensitive: false,
     beginKeywords: 'module rule ',
@@ -27,7 +28,7 @@ function(hljs) {
         'oclIsTypeOf oclIsKindOf oclInState oclIsNew oclIsUndefined oclIsInvalid oclAsType allInstances ' +
         '@pre ',
       literal: 'true false null unknown ',
-      built_in: 'Boolean Integer UnlimitedNatural Real String OrderedSet Tuple OrderedSet Bag Set Sequence OclInvalid OclVoid TupleType OclState Collection OclMessage '
+      built_in: TYPES
     },
     contains: [{
         className: 'string',
@@ -39,7 +40,7 @@ function(hljs) {
       hljs.COMMENT('--', '$'),
       {
         className: 'rule',
-        beginKeywords: 'rule abstract',
+        beginKeywords: 'rule',
         end: /[{;=]/,
         excludeEnd: true,
         keywords: 'rule abstract',
@@ -47,13 +48,26 @@ function(hljs) {
         contains: [{
             beginKeywords: 'extends'
           },
+          {
+            className: 'params',
+            begin: /\(/,
+            end: /\)/,
+            keywords: TYPES,
+            relevance: 0,
+            contains: [
+              hljs.APOS_STRING_MODE,
+              hljs.QUOTE_STRING_MODE,
+              hljs.C_NUMBER_MODE,
+              hljs.C_BLOCK_COMMENT_MODE
+            ]
+          },
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       {
         className: 'class',
         beginKeywords: 'module',
-        end: '$',
+        end: /[$;]/,
         keywords: 'module',
         illegal: /[{}$]/,
         contains: [{
