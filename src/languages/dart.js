@@ -6,54 +6,62 @@ Description: Dart a modern, object-oriented language developed by Google. For mo
 Category: scripting
 */
 
-function (hljs) {
+function(hljs) {
   var SUBST = {
     className: 'subst',
-    variants: [
-       {begin: '\\$[A-Za-z0-9_]+'}
-    ],
+    variants: [{
+      begin: '\\$[A-Za-z0-9_]+'
+    }],
   };
 
   var BRACED_SUBST = {
     className: 'subst',
-    variants: [
-       {begin: '\\${', end: '}'},
-    ],
+    variants: [{
+      begin: '\\${',
+      end: '}'
+    }, ],
     keywords: 'true false null this is new super',
   };
 
   var STRING = {
     className: 'string',
-    variants: [
-      {
-        begin: 'r\'\'\'', end: '\'\'\''
+    variants: [{
+        begin: 'r\'\'\'',
+        end: '\'\'\''
       },
       {
-        begin: 'r"""', end: '"""'
+        begin: 'r"""',
+        end: '"""'
       },
       {
-        begin: 'r\'', end: '\'',
+        begin: 'r\'',
+        end: '\'',
         illegal: '\\n'
       },
       {
-        begin: 'r"', end: '"',
+        begin: 'r"',
+        end: '"',
         illegal: '\\n'
       },
       {
-        begin: '\'\'\'', end: '\'\'\'',
+        begin: '\'\'\'',
+        end: '\'\'\'',
         contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       },
       {
-        begin: '"""', end: '"""',
+        begin: '"""',
+        end: '"""',
         contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       },
       {
-        begin: '\'', end: '\'',
+        begin: '\'',
+        end: '\'',
         illegal: '\\n',
         contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       },
       {
-        begin: '"', end: '"',
+        begin: '"',
+        end: '"',
         illegal: '\\n',
         contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       }
@@ -81,25 +89,28 @@ function (hljs) {
       STRING,
       hljs.COMMENT(
         '/\\*\\*',
-        '\\*/',
-        {
+        '\\*/', {
           subLanguage: 'markdown'
         }
       ),
       hljs.COMMENT(
-        '///',
-        '$',
-        {
-          subLanguage: 'markdown'
+        '///+\\s*',
+        '$', {
+          contains: [{
+            subLanguage: 'markdown',
+            begin: '.',
+            end: '$',
+          }]
         }
       ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '{', excludeEnd: true,
-        contains: [
-          {
+        beginKeywords: 'class interface',
+        end: '{',
+        excludeEnd: true,
+        contains: [{
             beginKeywords: 'extends implements'
           },
           hljs.UNDERSCORE_TITLE_MODE
@@ -107,7 +118,8 @@ function (hljs) {
       },
       hljs.C_NUMBER_MODE,
       {
-        className: 'meta', begin: '@[A-Za-z]+'
+        className: 'meta',
+        begin: '@[A-Za-z]+'
       },
       {
         begin: '=>' // No markup, just a relevance booster
@@ -115,4 +127,3 @@ function (hljs) {
     ]
   }
 }
-
