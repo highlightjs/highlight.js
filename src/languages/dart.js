@@ -72,15 +72,16 @@ function(hljs) {
   ];
 
   var KEYWORDS = {
-    keyword: 'assert async await break case catch class const continue default do else enum extends false final ' +
-      'finally for if in is new null rethrow return super switch sync this throw true try var void while with yield ' +
-      'abstract as dynamic export external factory get implements import library operator part set static typedef',
+    keyword: 'abstract as assert async await break case catch class const continue covariant default deferred do ' +
+      'dynamic else enum export extends extension external factory false final finally for Function get hide if ' +
+      'implements import in inferface is library mixin new null on operator part rethrow return set show static ' +
+      'super switch sync this throw true try typedef var void while with yield',
     built_in:
       // dart:core
-      'print Comparable DateTime Duration Function Iterable Iterator List Map Match Null Object Pattern RegExp Set ' +
-      'Stopwatch String StringBuffer StringSink Symbol Type Uri bool double int num ' +
+      'Comparable DateTime Duration Function Iterable Iterator List Map Match Null Object Pattern RegExp Set ' +
+      'Stopwatch String StringBuffer StringSink Symbol Type Uri bool double dynamic int num print ' +
       // dart:html
-      'document window querySelector querySelectorAll Element ElementList'
+      'Element ElementList document querySelector querySelectorAll window'
   };
 
   return {
