@@ -40,6 +40,29 @@ function(hljs) {
     ]
   };
 
+  var PREPROCESSOR =       {
+    className: 'meta',
+    begin: /#\s*[a-z]+\b/, end: /$/,
+    keywords: {
+      'meta-keyword':
+        'if else elif endif define undef warning error line ' +
+        'pragma ifdef ifndef include'
+    },
+    contains: [
+      {
+        begin: /\\\n/, relevance: 0
+      },
+      hljs.inherit(STRINGS, {className: 'meta-string'}),
+      {
+        className: 'meta-string',
+        begin: /<[^\n>]*>/, end: /$/,
+        illegal: '\\n',
+      },
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE
+    ]
+  };
+
   return {
     aliases: ['sqf'],
     case_insensitive: true,
@@ -405,7 +428,7 @@ function(hljs) {
       VARIABLE,
       FUNCTION,
       STRINGS,
-      CPP.preprocessor
+      PREPROCESSOR
     ],
     illegal: /#|^\$ /
   };
