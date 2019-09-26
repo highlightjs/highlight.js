@@ -40,13 +40,14 @@ function(hljs) {
     ]
   };
 
+  // list of keywords from:
+  // https://community.bistudio.com/wiki/PreProcessor_Commands
   var PREPROCESSOR =       {
     className: 'meta',
     begin: /#\s*[a-z]+\b/, end: /$/,
     keywords: {
       'meta-keyword':
-        'if else elif endif define undef warning error line ' +
-        'pragma ifdef ifndef include'
+        'define undef ifdef ifndef else endif include'
     },
     contains: [
       {
