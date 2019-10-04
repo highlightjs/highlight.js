@@ -20,7 +20,7 @@ function(hljs) {
       HASH_COMMENT_MODE,
       hljs.NUMBER_MODE,
       {
-        className: 'regex', 
+        className: 'string', 
         begin: '^\\s*(?:user-agent|(?:dis)?allow)\\s*:\\s*', 
         end: '$', 
         excludeBegin: true,
