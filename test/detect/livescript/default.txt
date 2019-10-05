@@ -15,7 +15,7 @@ last-three = reverse >> take-three >> reverse
 last-three [1 to 8]
 
 # List comprehensions and piping
-t1 =
+const t1 =
   * id: 1
     name: 'george'
   * id: 2
@@ -23,7 +23,7 @@ t1 =
   * id: 3
     name: 'donald'
 
-t2 =
+const t2 =
   * id: 2
     age: 21
   * id: 1
