@@ -15,6 +15,8 @@ namespace MyApplication
         array<SomeClass@> m_children;
         array<array<SomeClass@>> m_subChildren; // Nested templates
 
+        int m_thing;
+
         SomeClass()
         {
             // Add some integers
@@ -24,6 +26,9 @@ namespace MyApplication
             uint x = 0x7fff0000;
             int y = 9001;
         }
+
+        int get_Thing() property { return m_thing; }
+        void set_Thing(int x) property { m_thing = x; }
 
         void DoSomething()
         {
