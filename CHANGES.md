@@ -3,8 +3,11 @@
 New languages:
 
 New styles:
+- *Night Owl* by [Carl Baxter][]
 
 Improvements:
+
+[Carl Baxter]: https://github.com/cdbax
 
 ## Version 9.15.10
 New languages:
