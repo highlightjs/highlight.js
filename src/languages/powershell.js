@@ -60,7 +60,7 @@ function(hljs){
   });
 
   return {
-    aliases: ["ps"],
+    aliases: ["ps", "ps1"],
     lexemes: /-?[A-z\.\-]+/,
     case_insensitive: true,
     keywords: {

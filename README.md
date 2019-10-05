@@ -151,7 +151,7 @@ work for you, you can specify the language in the `class` attribute:
 | Plaintext: no highlight | plaintext              |         |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
-| PowerShell              | powershell, ps         |         |
+| PowerShell              | powershell, ps, ps1    |         |
 | Processing              | processing             |         |
 | Prolog                  | prolog                 |         |
 | Properties              | properties             |         |
