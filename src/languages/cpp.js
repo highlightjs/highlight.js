@@ -11,6 +11,9 @@ function(hljs) {
     begin: '\\b[a-z\\d_]*_t\\b'
   };
 
+  // https://en.cppreference.com/w/cpp/language/escape
+  // \\ \x \xFF \u2837 \u00323747 \374
+  var CHARACTER_ESCAPES = '\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4,8}|[0-7]{3}|\\S)'
   var STRINGS = {
     className: 'string',
     variants: [
@@ -20,9 +23,8 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
-        begin: '(u8?|U|L)?\'', end: '\'',
-        illegal: '\\n',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + "|.)", end: '\'',
+        illegal: '.'
       },
       { begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\((?:.|\n)*?\)\1"/ }
     ]
