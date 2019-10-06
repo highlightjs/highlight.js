@@ -6,6 +6,8 @@ New styles:
 
 Improvements:
 - fix(Elixir): improve regex for numbers
+- JSON: support for comments in JSON (#2016)
+- fix(cpp): improve string literal matching
 
 ## Version 9.15.10
 New languages:
