@@ -3,9 +3,15 @@ auto str   = "Hello regular string";
 auto utf8  = u8"Hello utf-8 string";
 auto utf16 = u"Hello utf-16 string";
 auto utf32 = U"Hello utf-32 string";
+// single quoted
+auto str   = 'Hello regular string';
+auto utf8  = u8'Hello utf-8 string';
+auto utf16 = u'Hello utf-16 string';
+auto utf32 = U'Hello utf-32 string';
 
 // Wide-character strings
 auto wide_char = L"Hello wchar_t string";
+auto wide_char = L'Hello wchar_t string';
 
 // Raw string literals (multiline)
 auto char_multi  = R"(Hello

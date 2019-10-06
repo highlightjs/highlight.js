@@ -6,6 +6,7 @@ New styles:
 
 Improvements:
 - fix(Elixir): improve regex for numbers
+- fix(cpp): improve string literal matching
 
 ## Version 9.15.10
 New languages:

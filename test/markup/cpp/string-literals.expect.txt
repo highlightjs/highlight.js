@@ -3,9 +3,15 @@
 <span class="hljs-keyword">auto</span> utf8  = <span class="hljs-string">u8"Hello utf-8 string"</span>;
 <span class="hljs-keyword">auto</span> utf16 = <span class="hljs-string">u"Hello utf-16 string"</span>;
 <span class="hljs-keyword">auto</span> utf32 = <span class="hljs-string">U"Hello utf-32 string"</span>;
+<span class="hljs-comment">// single quoted</span>
+<span class="hljs-keyword">auto</span> str   = <span class="hljs-string">'Hello regular string'</span>;
+<span class="hljs-keyword">auto</span> utf8  = <span class="hljs-string">u8'Hello utf-8 string'</span>;
+<span class="hljs-keyword">auto</span> utf16 = <span class="hljs-string">u'Hello utf-16 string'</span>;
+<span class="hljs-keyword">auto</span> utf32 = <span class="hljs-string">U'Hello utf-32 string'</span>;
 
 <span class="hljs-comment">// Wide-character strings</span>
 <span class="hljs-keyword">auto</span> wide_char = <span class="hljs-string">L"Hello wchar_t string"</span>;
+<span class="hljs-keyword">auto</span> wide_char = <span class="hljs-string">L'Hello wchar_t string'</span>;
 
 <span class="hljs-comment">// Raw string literals (multiline)</span>
 <span class="hljs-keyword">auto</span> char_multi  = <span class="hljs-string">R"(Hello
