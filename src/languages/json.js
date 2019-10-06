@@ -1,5 +1,5 @@
 /*
-Language: JSON
+Language: JSON / JSON with Comments
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Category: common, protocols
 */
