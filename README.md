@@ -323,7 +323,7 @@ const highlightedCode = hljs.highlight('html', '<span>Hello World!</span>').valu
 {
   language: … // detected language
   relevance: … // integer value
-  value: HTML … // string with highlighting markup
+  value: … // HTML string with highlighting markup
   second_best: … // object with the same structure for second-best heuristically detected language, may be absent
 }
 ```
