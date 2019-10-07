@@ -8,15 +8,17 @@ Category: common, config
 function(hljs) {
   var LITERALS = 'true false yes no null';
 
-  var keyPrefix = '^[ \\-]*';
-  var keyName =  '[a-zA-Z_][\\w\\-]*';
+  // Define keys as starting with a word character 
+  // ...containing word chars, spaces, colons, forward-slashes and periods
+  // ...and ending with a colon followed immediately by a space, tab or newline.
+  // The YAML spec allows for much more than this, but this covers most use-cases.
   var KEY = {
     className: 'attr',
     variants: [
-      { begin: keyPrefix + keyName + ":"},
-      { begin: keyPrefix + '"' + keyName + '"' + ":"},
-      { begin: keyPrefix + "'" + keyName + "'" + ":"}
-    ]
+      { begin: '\\w[\\w :\\/\\.]*:(?=[ \t]|$)' },
+      { begin: '"\\w[\\w :\\/\\.]*":(?=[ \t]|$)' } //quoted keys
+    ],
+    relevance: 0
   };
 
   var TEMPLATE_VARIABLES = {
