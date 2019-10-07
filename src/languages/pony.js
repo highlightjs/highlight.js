@@ -50,7 +50,7 @@ function(hljs) {
 
   var NUMBER_MODE = {
     className: 'number',
-    begin: '(-?)(\\b0[xX][a-fA-F0-9]+|\\b0[bB]\\d+|(\\b\\d+(_\\d+)?(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)',
+    begin: '(-?)(\\b0[xX][a-fA-F0-9]+|\\b0[bB][01]+|(\\b\\d+(_\\d+)?(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)',
     relevance: 0
   };
 
