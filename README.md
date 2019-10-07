@@ -287,6 +287,46 @@ onmessage = (event) => {
 };
 ```
 
+## Node.js
+
+You can run highlight.js on node to prepare content before sending it to the browser.
+
+
+```js
+// require the highlight.js library including all languages
+const hljs = require('./highlight');
+const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
+```
+
+```js
+// require the highlight.js library without languages
+const hljs = require("highlight.js/lib/highlight.js");
+// seperatly require languages
+hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
+hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
+// highlight with providing the language
+const highlightedCode = hljs.highlight('html', '<span>Hello World!</span>').value
+```
+
+### highlight() return value
+```js
+{
+  language: … // language name, same as the one passed into a function, returned for consistency with highlightAuto
+  relevance: … // integer value
+  value: … // HTML string with highlighting markup
+  top: … // top of the current mode stack
+}
+```
+
+### highlightAuto() return value
+```js
+{
+  language: … // detected language
+  relevance: … // integer value
+  value: HTML … // string with highlighting markup
+  second_best: … // object with the same structure for second-best heuristically detected language, may be absent
+}
+```
 
 ## Getting the Library
 
