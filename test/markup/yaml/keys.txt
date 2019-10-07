@@ -10,6 +10,16 @@ some key:
 "some key":
   "another key": value
 
+'some key':
+  'another key': value
+
+some-key:
+  another-key: value
+
+some.key:
+  another.key: value
+
+
 parentKey:
   - subKey:
     subValue

@@ -9,14 +9,15 @@ function(hljs) {
   var LITERALS = 'true false yes no null';
 
   // Define keys as starting with a word character 
-  // ...containing word chars, spaces, colons, forward-slashes and periods
+  // ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
   // ...and ending with a colon followed immediately by a space, tab or newline.
   // The YAML spec allows for much more than this, but this covers most use-cases.
   var KEY = {
     className: 'attr',
     variants: [
-      { begin: '\\w[\\w :\\/\\.]*:(?=[ \t]|$)' },
-      { begin: '"\\w[\\w :\\/\\.]*":(?=[ \t]|$)' } //quoted keys
+      { begin: '\\w[\\w :\\/.-]*:(?=[ \t]|$)' },
+      { begin: '"\\w[\\w :\\/.-]*":(?=[ \t]|$)' }, //double quoted keys
+      { begin: '\'\\w[\\w :\\/.-]*\':(?=[ \t]|$)' } //single quoted keys
     ]
   };
 

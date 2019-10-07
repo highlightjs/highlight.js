@@ -10,6 +10,16 @@
 <span class="hljs-attr">"some key":</span>
   <span class="hljs-attr">"another key":</span> <span class="hljs-string">value</span>
 
+<span class="hljs-attr">'some key':</span>
+  <span class="hljs-attr">'another key':</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attr">some-key:</span>
+  <span class="hljs-attr">another-key:</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attr">some.key:</span>
+  <span class="hljs-attr">another.key:</span> <span class="hljs-string">value</span>
+
+
 <span class="hljs-attr">parentKey:</span>
 <span class="hljs-bullet">  -</span> <span class="hljs-attr">subKey:</span>
     <span class="hljs-string">subValue</span>
