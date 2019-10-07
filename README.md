@@ -99,7 +99,7 @@ work for you, you can specify the language in the `class` attribute:
 | Golo                    | golo, gololang         |         |
 | Gradle                  | gradle                 |         |
 | Groovy                  | groovy                 |         |
-| HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist | |
+| HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist, svg | |
 | HTTP                    | http, https            |         |
 | Haml                    | haml                   |         |
 | Handlebars              | handlebars, hbs, html.hbs, html.handlebars        | |
