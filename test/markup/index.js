@@ -26,7 +26,7 @@ function testLanguage(language) {
 
           actual.trim().should.equal(expected.trim());
           done();
-        });
+        }).catch(function(err) { return done(err) });
       });
     });
   });
