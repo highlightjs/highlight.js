@@ -17,8 +17,7 @@ function(hljs) {
     variants: [
       { begin: '\\w[\\w :\\/\\.]*:(?=[ \t]|$)' },
       { begin: '"\\w[\\w :\\/\\.]*":(?=[ \t]|$)' } //quoted keys
-    ],
-    relevance: 0
+    ]
   };
 
   var TEMPLATE_VARIABLES = {
