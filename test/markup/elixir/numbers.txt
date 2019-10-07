@@ -1,0 +1,14 @@
+integer = 1234
+big_integer = 1_234_000
+neg_integer = -20_000
+float = 2.34
+sci_float = 2.4e23
+plus_sci_float = 2.4e+23
+small_sci_float = 2.4e-23
+cap_sci_float = 2.4E23
+binary = 0b1010
+strange_binary = 0b1010_1010_1010
+octal = 0o777
+strange_octal = 0o777_666_555
+hex = 0x1ABEF
+strange_hex = 0x1234_FACE_987D

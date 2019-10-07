@@ -6,6 +6,9 @@ New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- fix(Elixir): improve regex for numbers
+- JSON: support for comments in JSON (#2016)
+- fix(cpp): improve string literal matching
 
 [Carl Baxter]: https://github.com/cdbax
 
