@@ -1,0 +1,15 @@
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">U32</span> = <span class="hljs-number">42_000</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">U32</span> = <span class="hljs-number">42_000</span>_
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">U32</span> = <span class="hljs-number">42_000.234</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">U8</span> = <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">F32</span> = <span class="hljs-number">1.234</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">I32</span> = <span class="hljs-number">1024</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">I32</span> = <span class="hljs-number">-1024</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">I32</span> = <span class="hljs-number">0x400</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">I32</span> = <span class="hljs-number">0X400</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">I32</span> = <span class="hljs-number">0b10101010</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">I32</span> = <span class="hljs-number">0B1010101</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">F32</span> = <span class="hljs-number">42.12e-4</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">F32</span> = <span class="hljs-number">42.12E-4</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">F32</span> = <span class="hljs-number">42.12e+4</span>
+<span class="hljs-keyword">let</span> num: <span class="hljs-type">F32</span> = <span class="hljs-number">42.12E+4</span>
