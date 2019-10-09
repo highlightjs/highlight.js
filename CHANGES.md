@@ -6,6 +6,7 @@ New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- fix(xml): remove `vbscript` as potential script tag subLanguage
 - fix(Elixir): improve regex for numbers
 - fix(Pony): improve regex for numbers
 - JSON: support for comments in JSON (#2016)
