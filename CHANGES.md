@@ -6,6 +6,7 @@ New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- fix(javascript): fix object attributes immediately following line comments
 - fix(Elixir): improve regex for numbers
 - JSON: support for comments in JSON (#2016)
 - fix(cpp): improve string literal matching
