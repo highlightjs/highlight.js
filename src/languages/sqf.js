@@ -3,12 +3,10 @@ Language: SQF
 Author: Søren Enevoldsen <senevoldsen90@gmail.com>
 Contributors: Marvin Saignat <contact@zgmrvn.com>, Dedmen Miller <dedmen@dedmen.de>
 Description: Scripting language for the Arma game series
-Requires: cpp.js
+Category: scripting
 */
 
 function(hljs) {
-  var CPP = hljs.getLanguage('cpp').exports;
-
   // In SQF, a variable start with _
   var VARIABLE = {
     className: 'variable',
