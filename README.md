@@ -289,7 +289,9 @@ onmessage = (event) => {
 
 ## Node.js
 
-You can use highlight.js with node to highlight content before sending it to the browser.
+You can use highlight.js with node to highlight content before sending it to the browser. 
+Make sure to use the `.value` property to get the formatted html. 
+For more info about the returned object refer to the api docs https://highlightjs.readthedocs.io/en/latest/api.html
 
 
 ```js
@@ -306,28 +308,6 @@ hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
 hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
 // highlight with providing the language
 const highlightedCode = hljs.highlight('html', '<span>Hello World!</span>').value
-```
-
-### highlight() return value
-
-```js
-{
-  language: … // language name, same as the one passed into a function, returned for consistency with highlightAuto
-  relevance: … // integer value
-  value: … // HTML string with highlighting markup
-  top: … // top of the current mode stack
-}
-```
-
-### highlightAuto() return value
-
-```js
-{
-  language: … // detected language
-  relevance: … // integer value
-  value: … // HTML string with highlighting markup
-  second_best: … // object with the same structure for second-best heuristically detected language, may be absent
-}
 ```
 
 ## Getting the Library
