@@ -94,7 +94,7 @@ function(hljs) {
         contains: [TAG_INTERNALS],
         starts: {
           end: '\<\/script\>', returnEnd: true,
-          subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml', 'vbscript']
+          subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
         }
       },
       {
