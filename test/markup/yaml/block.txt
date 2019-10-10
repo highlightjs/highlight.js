@@ -1,0 +1,19 @@
+-
+- |
+ block node
+- - one # Compact
+  - two # sequence
+- one: two # Compact mapping
+key_block: |
+  first
+  second
+  third
+gt_block: >
+     once
+     twice
+start-key: |
+  <!-- example of
+     some valid string content-->
+# ******************************************************************************
+# *                             COMMENT BLOCK HERE                             *
+# ******************************************************************************
