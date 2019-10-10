@@ -17,7 +17,6 @@ function(hljs) {
   var KEY = {
     className: 'attr',
     variants: [
-      // TODO: remove |$ hack when we have proper look-ahead support
       { begin: '\\w[\\w :\\/.-]*:(?=[ \t]|$)' },
       { begin: '"\\w[\\w :\\/.-]*":(?=[ \t]|$)' }, //double quoted keys
       { begin: '\'\\w[\\w :\\/.-]*\':(?=[ \t]|$)' } //single quoted keys
