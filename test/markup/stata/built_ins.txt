@@ -1,0 +1,3 @@
+local b1 = ln(`or')
+generate logit1 = log( pgty1 / ( 1 - pgty1))
+generate logit2 = log( pgty2 / ( 1 - pgty2))
