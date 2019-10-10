@@ -26,7 +26,8 @@ function(hljs) {
     case_insensitive: true,
     subLanguage: 'xml',
     contains: [
-      hljs.COMMENT('{{!(--)?', '(--)?}}'),
+      hljs.COMMENT(/\{\{!--/, /--\}\}/),
+      hljs.COMMENT(/\{\{!/, /\}\}/),
       // raw block {{{{raw}}}} verbatim xml {{{{/raw}} {{handlebars}}
       {
         className: 'template-tag',
