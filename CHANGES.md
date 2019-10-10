@@ -6,6 +6,7 @@ New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- fix(javascript): fix object attributes immediately following line comments
 - fix(xml): remove `vbscript` as potential script tag subLanguage
 - fix(Elixir): improve regex for numbers
 - fix(YAML): improve matching for keys
