@@ -14,7 +14,7 @@ function(hljs) {
       'in if for while finally new do return else break catch instanceof throw try this ' +
       'switch continue typeof delete debugger case default function var with ' +
       // LiveScript keywords
-      'then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super ' +
+      'then unless until loop of by when and or is isnt not it that otherwise|10 from to til fallthrough super ' +
       'case default function var void const let enum export import native ' +
       '__hasProp __extends __slice __bind __indexOf',
     literal:

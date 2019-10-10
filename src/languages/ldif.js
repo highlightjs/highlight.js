@@ -7,9 +7,13 @@ function(hljs) {
   return {
     contains: [
       {
-        className: 'attribute',
-        begin: '^dn', end: ': ', excludeEnd: true,
-        starts: {end: '$', relevance: 0},
+        className: 'keyword',
+        begin: '^dn:',
+        relevance: 10
+      },
+      {
+        className: 'built-in',
+        begin:'(cn|CN|ou|OU|dc|DC)=',
         relevance: 10
       },
       {

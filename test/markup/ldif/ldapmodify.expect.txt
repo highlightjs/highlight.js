@@ -1,4 +1,4 @@
-<span class="hljs-attribute">dn</span>: uid=user.0,ou=People,dc=example,dc=com
+<span class="hljs-keyword">dn:</span> uid=user.0,<span class="hljs-built-in">ou=</span>People,<span class="hljs-built-in">dc=</span>example,<span class="hljs-built-in">dc=</span>com
 <span class="hljs-attribute">changeType</span>: modify
 <span class="hljs-attribute">add</span>: cn
 <span class="hljs-attribute">cn</span>: Morris Day
