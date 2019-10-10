@@ -33,7 +33,7 @@ function(hljs){
       },
       {
         // this mode works as the only relevance counter
-        begin: /\+\+|\-\-/, returnBegin: true,
+        begin: /(?:\+\+|\-\-)/,
         contains: [LITERAL]
       },
       LITERAL
