@@ -38,24 +38,27 @@ function(hljs) {
         begin: /\{\{\{\{/, end: /\}\}\}\}/,
         contains: [MUSTACHE_CONTENTS()],
         starts: {
-          end: '{{{{/',
+          end: /\{\{\{\{\//,
           returnEnd: true,
           subLanguage: 'xml'
         }
-     },
+      },
+      // standard blocks {{#block}} ... {{/block}}
       {
         className: 'template-tag',
-        begin: /{{[#\/]/, end: /}}/,
+        begin: /\{\{[#\/]/, end: /\}\}/,
         contains: [MUSTACHE_CONTENTS()],
       },
+      // triple mustaches {{{unescapedOutput}}}
       {
         className: 'template-variable',
-        begin: '{{{', end: '}}}',
+        begin: /\{\{\{/, end: /\}\}\}/,
         keywords: BUILT_INS
       },
+      // standard mustaches {{{htmlEscapedOutput}}}
       {
         className: 'template-variable',
-        begin: '{{', end: '}}',
+        begin: /\{\{/, end: /\}\}/,
         keywords: BUILT_INS
       }
     ]
