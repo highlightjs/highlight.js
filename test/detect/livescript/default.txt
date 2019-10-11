@@ -51,3 +51,6 @@ a = new A 3
 a.x        #=> 3
 a.property #=> 1
 a.method 6 #=> 10
+
+f = !-> 2
+g = (x) !-> x + 2

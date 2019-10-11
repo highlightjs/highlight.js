@@ -14,8 +14,8 @@ function(hljs) {
       'in if for while finally new do return else break catch instanceof throw try this ' +
       'switch continue typeof delete debugger case default function var with ' +
       // LiveScript keywords
-      'then unless until loop of by when and or is isnt not it that otherwise|10 from to til fallthrough super ' +
-      'case default function var void const let enum export import native ' +
+      'then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super ' +
+      'case default function var void const let enum export import native list map ' +
       '__hasProp __extends __slice __bind __indexOf',
     literal:
       // JS literals
@@ -109,6 +109,10 @@ function(hljs) {
     ]
   };
 
+  var SYMBOLS = {
+    begin: '(#=>|=>|\\|>|>>|-?->|\\!->)'
+  };
+
   return {
     aliases: ['ls'],
     keywords: KEYWORDS,
@@ -116,6 +120,7 @@ function(hljs) {
     contains: EXPRESSIONS.concat([
       hljs.COMMENT('\\/\\*', '\\*\\/'),
       hljs.HASH_COMMENT_MODE,
+      SYMBOLS,
       {
         className: 'function',
         contains: [TITLE, PARAMS],
