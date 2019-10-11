@@ -28,21 +28,22 @@ function(hljs) {
     contains: [
       hljs.COMMENT(/\{\{!--/, /--\}\}/),
       hljs.COMMENT(/\{\{!/, /\}\}/),
-      // raw block {{{{raw}}}} verbatim xml {{{{/raw}} {{handlebars}}
+      // raw block (open) {{{{raw}}}} verbatim xml {{{{/raw}} {{handlebars}}
       {
         className: 'template-tag',
-        begin: /\{\{\{\{\//, end: /\}\}\}\}/,
-        contains: [MUSTACHE_CONTENTS()]
-      },
-      {
-        className: 'template-tag',
-        begin: /\{\{\{\{/, end: /\}\}\}\}/,
+        begin: /\{\{\{\{(?!\/)/, end: /\}\}\}\}/,
         contains: [MUSTACHE_CONTENTS()],
         starts: {
           end: /\{\{\{\{\//,
           returnEnd: true,
           subLanguage: 'xml'
         }
+      },
+      // raw block (close)
+      {
+        className: 'template-tag',
+        begin: /\{\{\{\{\//, end: /\}\}\}\}/,
+        contains: [MUSTACHE_CONTENTS()]
       },
       // standard blocks {{#block}} ... {{/block}}
       {
