@@ -56,6 +56,9 @@ https://highlightjs.org/
     languages: undefined
   };
 
+  // keywords that should have no default relevance value
+  var COMMON_KEYWORDS = 'if'.split(' ')
+
 
   /* Utility functions */
 
@@ -428,6 +431,10 @@ https://highlightjs.org/
       return openSpan + insideSpan + closeSpan;
     }
 
+    function commonKeyword(word) {
+      return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1
+    }
+
     function processKeywords() {
       var keyword_match, last_index, match, result;
 
@@ -443,7 +450,8 @@ https://highlightjs.org/
         result += escape(mode_buffer.substring(last_index, match.index));
         keyword_match = keywordMatch(top, match);
         if (keyword_match) {
-          relevance += keyword_match[1];
+          if (keyword_match[1] > 1 || !commonKeyword(match[0]))
+            relevance += keyword_match[1];
           result += buildSpan(keyword_match[0], escape(match[0]));
         } else {
           result += escape(match[0]);
