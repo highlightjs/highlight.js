@@ -87,7 +87,7 @@ function(hljs) {
       { // array listing
         className: 'bullet',
       // TODO: remove |$ and |^ hacks when we have proper look-ahead support
-      begin: '((?<= )|^)?\\-(?=[ ]|$)',
+      begin: '\\-(?=[ ]|$)',
         relevance: 0
       },
       hljs.HASH_COMMENT_MODE,
