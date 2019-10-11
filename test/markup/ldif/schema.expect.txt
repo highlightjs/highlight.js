@@ -1,4 +1,4 @@
-<span class="hljs-keyword">dn:</span> <span class="hljs-built-in">cn=</span>schema
+<span class="hljs-attribute">dn</span>: cn=schema
 <span class="hljs-attribute">objectClass</span>: top
 <span class="hljs-attribute">objectClass</span>: ldapSubentry
 <span class="hljs-attribute">objectClass</span>: subschema
