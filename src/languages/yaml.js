@@ -1,6 +1,7 @@
 /*
 Language: YAML
 Author: Stefan Wienert <stwienert@gmail.com>
+Contributors: Carl Baxter <carl@cbax.tech>
 Requires: ruby.js
 Description: YAML (Yet Another Markdown Language)
 Category: common, config
