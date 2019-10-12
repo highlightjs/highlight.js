@@ -418,16 +418,15 @@ https://highlightjs.org/
     }
 
     function buildSpan(classname, insideSpan, leaveOpen, noPrefix) {
-      if (!leaveOpen && insideSpan !== '') {
-        return ''
-      }
+      if (!leaveOpen && insideSpan === '') return '';
+      if (!classname) return insideSpan;
+
       var classPrefix = noPrefix ? '' : options.classPrefix,
           openSpan    = '<span class="' + classPrefix,
           closeSpan   = leaveOpen ? '' : spanEndTag;
 
       openSpan += classname + '">';
 
-      if (!classname) return insideSpan;
       return openSpan + insideSpan + closeSpan;
     }
 
