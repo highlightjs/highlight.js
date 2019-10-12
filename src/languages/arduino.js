@@ -9,7 +9,7 @@ function(hljs) {
 
 	ARDUINO_KW = {
       keyword:
-        'boolean byte word string String array',
+        'boolean byte word String',
       built_in:
         'setup loop' +
         'KeyboardController MouseController SoftwareSerial ' +
