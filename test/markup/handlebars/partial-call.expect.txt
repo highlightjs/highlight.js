@@ -1,2 +1,2 @@
-<span class="xml"></span><span class="hljs-template-variable">{{&gt; partial}}</span><span class="xml">
+<span class="hljs-template-variable">{{&gt; partial}}</span><span class="xml">
 </span>
