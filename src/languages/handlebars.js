@@ -16,14 +16,14 @@ function (hljs) {
   function BLOCK_MUSTACHE_CONTENTS() {
     return hljs.inherit(EXPRESSION_OR_HELPER_CALL(), {
       className: 'name'
-    })
+    });
   }
 
   function BASIC_MUSTACHE_CONTENTS() {
     return hljs.inherit(EXPRESSION_OR_HELPER_CALL(), {
       // relevance 0 for backward compatibility concerning auto-detection
       relevance: 0
-    })
+    });
   }
 
   function EXPRESSION_OR_HELPER_CALL() {
