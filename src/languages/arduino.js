@@ -6,14 +6,13 @@ Requires: cpp.js
 */
 
 function(hljs) {
-  var CPP = hljs.getLanguage('cpp').exports;
-	return {
+
+	ARDUINO = {
     keywords: {
       keyword:
-        'boolean byte word string String array ' + CPP.keywords.keyword,
+        'boolean byte word string String array',
       built_in:
-        'setup loop while catch for if do goto try switch case else ' +
-        'default break continue return ' +
+        'setup loop' +
         'KeyboardController MouseController SoftwareSerial ' +
         'EthernetServer EthernetClient LiquidCrystal ' +
         'RobotControl GSMVoiceCall EthernetUDP EsploraTFT ' +
@@ -94,13 +93,16 @@ function(hljs) {
         'INTERNAL1V1 SYSEX_START INTERNAL EXTERNAL ' +
         'DEFAULT OUTPUT INPUT HIGH LOW'
     },
-    contains: [
-      CPP.preprocessor,
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE,
-      hljs.C_NUMBER_MODE
-    ]
   };
+
+  var CPP = hljs.getLanguage('cpp').rawDefinition();
+
+  var keywords = CPP.keywords || CPP.k; // deal with compression artifacts :-(
+
+  keywords.keyword += ' ' + ARDUINO.keywords.keyword;
+  keywords.literal += ' ' + ARDUINO.keywords.literal;
+  keywords.built_in += ' ' + ARDUINO.keywords.built_in;
+
+  return CPP;
+
 }
