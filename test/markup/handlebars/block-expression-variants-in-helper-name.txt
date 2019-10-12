@@ -1,0 +1,7 @@
+text {{#[ab}}c] param }}a{{/[ab}}c]}}
+
+text {{#['ab}}c' param}}a{{/'ab}}c'}}
+
+text {{#"ab}}c" param}}a{{/"ab}}c"}}
+
+text

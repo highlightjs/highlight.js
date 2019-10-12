@@ -1,0 +1,8 @@
+<span class="xml">text </span><span class="hljs-template-tag">{{#<span class="hljs-name">abc</span> "lite]'ral}}segment" }}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">abc</span>}}</span><span class="xml">
+
+text </span><span class="hljs-template-tag">{{#<span class="hljs-name">abc</span> 'lite]"ral}}segment' }}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">abc</span>}}</span><span class="xml">
+
+text </span><span class="hljs-template-tag">{{#<span class="hljs-name">abc</span> [lite"'ral}}segment] }}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">abc</span>}}</span><span class="xml">
+
+text
+</span>

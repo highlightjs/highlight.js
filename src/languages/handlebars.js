@@ -6,19 +6,44 @@ Description: Matcher for Handlebars as well as EmberJS additions.
 Website: https://handlebarsjs.com
 Category: template
 */
-function(hljs) {
-  var BUILT_INS = {'builtin-name': 'each in with if else unless bindattr action collection debugger log outlet template unbound view yield lookup'};
-  function MUSTACHE_CONTENTS() {
-    return  {
-      className: 'name',
-      begin: /[a-zA-Z\.-]+/,
+function handlebars(hljs) {
+  var BUILT_INS = {'builtin-name': 'each in with if else unless bindattr action collection debugger log outlet template unbound view lookup'};
+
+  function BLOCK_MUSTACHE_CONTENTS() {
+    return hljs.inherit(EXPRESSION_OR_HELPER_CALL(), {
+      className: 'name'
+    })
+  }
+
+  function BASIC_MUSTACHE_CONTENTS() {
+    return hljs.inherit(EXPRESSION_OR_HELPER_CALL(), {
+      // relevance 0 for backward compatibility concerning auto-detection
+      relevance: 0
+    })
+  }
+
+  function EXPRESSION_OR_HELPER_CALL() {
+    return  hljs.inherit(EXPRESSION(), {
       keywords: BUILT_INS,
-      starts: {
-        endsWithParent: true, relevance: 0,
-        contains: [
-          hljs.QUOTE_STRING_MODE
-        ]
-      }
+      starts: HELPER_PARAMETERS()
+    });
+  }
+
+  function HELPER_PARAMETERS() {
+    return {
+      endsWithParent: true,
+      relevance: 0,
+      contains: [
+        hljs.inherit(EXPRESSION(), {
+          relevance: 0
+        })
+      ]
+    };
+  }
+
+  function EXPRESSION() {
+    return  {
+      begin: /("[^"]+"|'[^']+'|\[[^\]]+\]|\w+)/
     };
   }
 
@@ -33,7 +58,9 @@ function(hljs) {
       {
         className: 'template-tag',
         begin: /\{\{\{\{(?!\/)/, end: /\}\}\}\}/,
-        contains: [MUSTACHE_CONTENTS()],
+        contains: [
+          BLOCK_MUSTACHE_CONTENTS()
+        ],
         starts: {
           end: /\{\{\{\{\//,
           returnEnd: true,
@@ -44,25 +71,35 @@ function(hljs) {
       {
         className: 'template-tag',
         begin: /\{\{\{\{\//, end: /\}\}\}\}/,
-        contains: [MUSTACHE_CONTENTS()]
+        contains: [
+          BLOCK_MUSTACHE_CONTENTS()
+        ]
       },
       // standard blocks {{#block}} ... {{/block}}
       {
         className: 'template-tag',
         begin: /\{\{[#\/]/, end: /\}\}/,
-        contains: [MUSTACHE_CONTENTS()],
+        contains: [
+          BLOCK_MUSTACHE_CONTENTS()
+        ],
       },
       // triple mustaches {{{unescapedOutput}}}
       {
         className: 'template-variable',
         begin: /\{\{\{/, end: /\}\}\}/,
-        keywords: BUILT_INS
+        keywords: BUILT_INS,
+        contains: [
+          BASIC_MUSTACHE_CONTENTS()
+        ]
       },
       // standard mustaches {{{htmlEscapedOutput}}}
       {
         className: 'template-variable',
         begin: /\{\{/, end: /\}\}/,
-        keywords: BUILT_INS
+        keywords: BUILT_INS,
+        contains: [
+          BASIC_MUSTACHE_CONTENTS()
+        ]
       }
     ]
   };
