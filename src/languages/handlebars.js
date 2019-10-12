@@ -6,7 +6,7 @@ Description: Matcher for Handlebars as well as EmberJS additions.
 Website: https://handlebarsjs.com
 Category: template
 */
-function handlebars(hljs) {
+function(hljs) {
   var BUILT_INS = {'builtin-name': 'each in with if else unless bindattr action collection debugger log outlet template unbound view lookup'};
 
   function BLOCK_MUSTACHE_CONTENTS() {
