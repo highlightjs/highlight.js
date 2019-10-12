@@ -7,8 +7,7 @@ Requires: cpp.js
 
 function(hljs) {
 
-	ARDUINO = {
-    keywords: {
+	ARDUINO_KW = {
       keyword:
         'boolean byte word string String array',
       built_in:
@@ -92,17 +91,15 @@ function(hljs) {
         'SET_PIN_MODE INTERNAL2V56 SYSTEM_RESET LED_BUILTIN ' +
         'INTERNAL1V1 SYSEX_START INTERNAL EXTERNAL ' +
         'DEFAULT OUTPUT INPUT HIGH LOW'
-    },
   };
 
-  var CPP = hljs.getLanguage('cpp').rawDefinition();
+  var ARDUINO = hljs.getLanguage('cpp').rawDefinition();
 
-  var keywords = CPP.keywords || CPP.k; // deal with compression artifacts :-(
+  var kws = ARDUINO.keywords;
 
-  keywords.keyword += ' ' + ARDUINO.keywords.keyword;
-  keywords.literal += ' ' + ARDUINO.keywords.literal;
-  keywords.built_in += ' ' + ARDUINO.keywords.built_in;
+  kws.keyword += ' ' + ARDUINO_KW.keyword;
+  kws.literal += ' ' + ARDUINO_KW.literal;
+  kws.built_in += ' ' + ARDUINO_KW.built_in;
 
-  return CPP;
-
+  return ARDUINO;
 }
