@@ -26,7 +26,6 @@ const REPLACES = {
   'excludeEnd': 'eE',
   'returnBegin': 'rB',
   'returnEnd': 'rE',
-  'relevance': 'r',
   'variants': 'v',
 
   'IDENT_RE': 'IR',
