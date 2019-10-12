@@ -6,8 +6,12 @@ Description: Matcher for Handlebars as well as EmberJS additions.
 Website: https://handlebarsjs.com
 Category: template
 */
-function(hljs) {
+function (hljs) {
   var BUILT_INS = {'builtin-name': 'each in with if else unless bindattr action collection debugger log outlet template unbound view lookup'};
+
+  var IDENTIFIER_PLAIN_OR_QUOTED = {
+    begin: /("[^"]+"|'[^']+'|\[[^\]]+\]|\w+)/
+  };
 
   function BLOCK_MUSTACHE_CONTENTS() {
     return hljs.inherit(EXPRESSION_OR_HELPER_CALL(), {
@@ -23,7 +27,7 @@ function(hljs) {
   }
 
   function EXPRESSION_OR_HELPER_CALL() {
-    return  hljs.inherit(EXPRESSION(), {
+    return hljs.inherit(IDENTIFIER_PLAIN_OR_QUOTED, {
       keywords: BUILT_INS,
       starts: HELPER_PARAMETERS()
     });
@@ -34,16 +38,10 @@ function(hljs) {
       endsWithParent: true,
       relevance: 0,
       contains: [
-        hljs.inherit(EXPRESSION(), {
+        hljs.inherit(IDENTIFIER_PLAIN_OR_QUOTED, {
           relevance: 0
         })
       ]
-    };
-  }
-
-  function EXPRESSION() {
-    return  {
-      begin: /("[^"]+"|'[^']+'|\[[^\]]+\]|\w+)/
     };
   }
 
