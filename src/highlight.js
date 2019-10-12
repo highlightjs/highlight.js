@@ -41,7 +41,7 @@ https://highlightjs.org/
       languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
       fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
 
-  // The object will be assigned by the build tool. It used to synchronize API 
+  // The object will be assigned by the build tool. It used to synchronize API
   // of external language files with minified version of the highlight.js library.
   var API_REPLACES;
 
@@ -57,7 +57,7 @@ https://highlightjs.org/
   };
 
   // keywords that should have no default relevance value
-  var COMMON_KEYWORDS = 'if'.split(' ')
+  var COMMON_KEYWORDS = 'of and for in not or if then'.split(' ')
 
 
   /* Utility functions */
@@ -367,7 +367,7 @@ https://highlightjs.org/
         .filter(Boolean);
       mode.terminators = terminators.length ? langRe(joinRe(terminators, '|'), true) : {exec: function(/*s*/) {return null;}};
     }
-    
+
     compileMode(language);
   }
 
