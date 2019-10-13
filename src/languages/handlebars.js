@@ -5,21 +5,19 @@ Author: Robin Ward <robin.ward@gmail.com>
 Description: Matcher for Handlebars as well as EmberJS additions.
 Category: template
 */
-function(hljs) {
+function (hljs) {
   var BUILT_INS = {'builtin-name': 'each in with if else unless bindattr action collection debugger log outlet template unbound view yield lookup'};
-  function MUSTACHE_CONTENTS() {
-    return  {
-      className: 'name',
-      begin: /[a-zA-Z\.-]+/,
-      keywords: BUILT_INS,
-      starts: {
-        endsWithParent: true, relevance: 0,
-        contains: [
-          hljs.QUOTE_STRING_MODE
-        ]
-      }
-    };
-  }
+  var MUSTACHE_CONTENTS = {
+    className: 'name',
+    begin: /[a-zA-Z\.-]+/,
+    keywords: BUILT_INS,
+    starts: {
+      endsWithParent: true, relevance: 0,
+      contains: [
+        hljs.QUOTE_STRING_MODE
+      ]
+    }
+  };
 
   return {
     aliases: ['hbs', 'html.hbs', 'html.handlebars'],
@@ -32,7 +30,7 @@ function(hljs) {
       {
         className: 'template-tag',
         begin: /\{\{\{\{(?!\/)/, end: /\}\}\}\}/,
-        contains: [MUSTACHE_CONTENTS()],
+        contains: [MUSTACHE_CONTENTS],
         starts: {
           end: /\{\{\{\{\//,
           returnEnd: true,
@@ -43,13 +41,13 @@ function(hljs) {
       {
         className: 'template-tag',
         begin: /\{\{\{\{\//, end: /\}\}\}\}/,
-        contains: [MUSTACHE_CONTENTS()]
+        contains: [MUSTACHE_CONTENTS]
       },
       // standard blocks {{#block}} ... {{/block}}
       {
         className: 'template-tag',
         begin: /\{\{[#\/]/, end: /\}\}/,
-        contains: [MUSTACHE_CONTENTS()],
+        contains: [MUSTACHE_CONTENTS],
       },
       // triple mustaches {{{unescapedOutput}}}
       {

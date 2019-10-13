@@ -293,8 +293,7 @@ https://highlightjs.org/
     }
 
     function compileMode(mode, parent) {
-      if (mode.compiled)
-        return;
+      mode = inherit(mode);
       mode.compiled = true;
 
       mode.keywords = mode.keywords || mode.beginKeywords;
@@ -349,10 +348,10 @@ https://highlightjs.org/
       mode.contains = Array.prototype.concat.apply([], mode.contains.map(function(c) {
         return expand_mode(c === 'self' ? mode : c);
       }));
-      mode.contains.forEach(function(c) {compileMode(c, mode);});
+      mode.contains = mode.contains.map(function(c) { return compileMode(c, mode);});
 
       if (mode.starts) {
-        compileMode(mode.starts, parent);
+        mode.starts = compileMode(mode.starts, parent);
       }
 
       var terminators =
@@ -363,9 +362,10 @@ https://highlightjs.org/
         .map(reStr)
         .filter(Boolean);
       mode.terminators = terminators.length ? langRe(joinRe(terminators, '|'), true) : {exec: function(/*s*/) {return null;}};
+      return mode;
     }
     
-    compileMode(language);
+    return compileMode(language);
   }
 
   /*
@@ -564,7 +564,7 @@ https://highlightjs.org/
       throw new Error('Unknown language: "' + name + '"');
     }
 
-    compileLanguage(language);
+    language = compileLanguage(language);
     var top = continuation || language;
     var continuations = {}; // keep continuations for sub-languages
     var result = '', current;
