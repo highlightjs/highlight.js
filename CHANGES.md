@@ -7,13 +7,17 @@ New styles:
 
 Improvements:
 - fix(typescript): constructor in declaration doesn't break highlighting
+- feature(arduino) make arduino a super-set of cpp grammar
 - fix(javascript): fix object attributes immediately following line comments
 - fix(xml): remove `vbscript` as potential script tag subLanguage
 - fix(Elixir): improve regex for numbers
 - fix(YAML): improve matching for keys
 - fix(Pony): improve regex for numbers
+- fix(handlebars): add support for raw-blocks and triple-mustaches (#2175)
 - JSON: support for comments in JSON (#2016)
 - fix(cpp): improve string literal matching
+- fix(highlight.js): omit empty span-tags in the output (#2182)
+- fix(Go): improve function declaration matching
 
 [Carl Baxter]: https://github.com/cdbax
 
