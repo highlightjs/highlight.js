@@ -23,8 +23,9 @@ function(hljs) {
     illegal: /#/
   };
   var LITERAL_BRACKET = {
-    begin: /\{\{/
-  }
+    begin: /\{\{/,
+    relevance: 0
+  };
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE],
