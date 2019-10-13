@@ -10,7 +10,7 @@ function (hljs) {
   var BUILT_INS = {'builtin-name': 'each in with if else unless bindattr action collection debugger log outlet template unbound view lookup'};
 
   var IDENTIFIER_PLAIN_OR_QUOTED = {
-    begin: /("[^"]+"|'[^']+'|\[[^\]]+\]|\w+)/
+    begin: /".*?"|'.*?'|\[.*?\]|\w+/
   };
 
   function BLOCK_MUSTACHE_CONTENTS() {

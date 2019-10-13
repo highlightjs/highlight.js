@@ -18,3 +18,9 @@ text
 {{ abcd."lite]'ral}}segment" }} text
 
 {{ abcd.'lite]"ral}}segment' }} text
+
+{{ abcd.''}} text
+
+{{ abcd."" }} text
+
+{{ abcd.[] }} text
