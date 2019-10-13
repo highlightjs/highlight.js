@@ -18,7 +18,7 @@ Improvements:
 - fix(cpp): improve string literal matching
 - fix(highlight.js): omit empty span-tags in the output (#2182)
 - fix(Go): improve function declaration matching
-- fix(python): added support for f-string literal curly braces
+- fix(python): added support for f-string literal curly braces (#2195)
 
 [Carl Baxter]: https://github.com/cdbax
 
