@@ -13,7 +13,7 @@ Improvements:
 - fix(Pony): improve regex for numbers
 - JSON: support for comments in JSON (#2016)
 - fix(cpp): improve string literal matching
-- fix(Go): improve function matching
+- fix(Go): improve function declaration matching
 
 [Carl Baxter]: https://github.com/cdbax
 
