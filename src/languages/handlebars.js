@@ -3,6 +3,7 @@ Language: Handlebars
 Requires: xml.js
 Author: Robin Ward <robin.ward@gmail.com>
 Description: Matcher for Handlebars as well as EmberJS additions.
+Website: https://handlebarsjs.com
 Category: template
 */
 function(hljs) {

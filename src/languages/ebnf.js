@@ -1,6 +1,7 @@
 /*
 Language: Extended Backus-Naur Form
 Author: Alex McKibben <alex@nullscope.net>
+Website: https://en.wikipedia.org/wiki/Extended_Backus–Naur_form
 */
 
 function(hljs) {

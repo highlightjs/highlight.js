@@ -1,7 +1,8 @@
 /*
 Language: Oxygene
 Author: Carlo Kok <ck@remobjects.com>
-Description: Language definition for RemObjects Oxygene (http://www.remobjects.com)
+Description: Oxygene is built on the foundation of Object Pascal, revamped and extended to be a modern language for the twenty-first century.
+Website: https://www.elementscompiler.com/elements/default.aspx
 */
 
 function(hljs) {

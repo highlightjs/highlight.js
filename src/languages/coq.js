@@ -2,6 +2,7 @@
 Language: Coq
 Author: Stephan Boyer <stephan@stephanboyer.com>
 Category: functional
+Website: https://coq.inria.fr
 */
 
 function(hljs) {

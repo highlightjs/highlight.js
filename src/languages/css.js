@@ -1,6 +1,7 @@
 /*
 Language: CSS
 Category: common, css
+Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 */
 
 function(hljs) {

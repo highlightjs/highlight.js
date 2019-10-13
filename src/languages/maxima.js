@@ -1,6 +1,7 @@
 /*
 Language: Maxima
 Author: Robert Dodier <robert.dodier@gmail.com>
+Website: http://maxima.sourceforge.net
 Category: scientific
 */
 

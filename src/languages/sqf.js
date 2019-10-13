@@ -3,6 +3,7 @@ Language: SQF
 Author: Søren Enevoldsen <senevoldsen90@gmail.com>
 Contributors: Marvin Saignat <contact@zgmrvn.com>, Dedmen Miller <dedmen@dedmen.de>
 Description: Scripting language for the Arma game series
+Website: https://community.bistudio.com/wiki/SQF_syntax
 Category: scripting
 */
 
