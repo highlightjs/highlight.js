@@ -45,14 +45,15 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'func', end: /\s*\{/, excludeEnd: true,
+        beginKeywords: 'func', end: /\B\b/,
         contains: [
           hljs.TITLE_MODE,
           {
             className: 'params',
             begin: /\(/, end: /\)/,
             keywords: GO_KEYWORDS,
-            illegal: /["']/
+            illegal: /["']/,
+            endsParent: true
           }
         ]
       }
