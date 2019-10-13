@@ -1,0 +1,8 @@
+<span class="xml">\{{no-expression}} </span><span class="hljs-template-variable">{{expression}}</span><span class="xml">
+
+\{{{no-expression}}} </span><span class="hljs-template-variable">{{expression}}</span><span class="xml">
+
+\{{#no}} block \{{/no}} </span><span class="hljs-template-variable">{{expression}}</span><span class="xml">
+
+\{{\{{no}}}} block \{{\{{/no}}}} </span><span class="hljs-template-variable">{{expression}}</span><span class="xml">
+</span>

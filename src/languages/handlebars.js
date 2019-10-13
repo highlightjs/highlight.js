@@ -52,6 +52,10 @@ function (hljs) {
     contains: [
       hljs.COMMENT(/\{\{!--/, /--\}\}/),
       hljs.COMMENT(/\{\{!/, /\}\}/),
+      {
+        begin: /\\{{/,
+        skip: true
+      },
       // raw block (open) {{{{raw}}}} verbatim xml {{{{/raw}} {{handlebars}}
       {
         className: 'template-tag',
