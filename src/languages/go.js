@@ -45,7 +45,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'func', end: '\\{|$', excludeEnd: true,
+        beginKeywords: 'func', end: '\\s*\\{|$', excludeEnd: true,
         contains: [
           hljs.TITLE_MODE,
           {
