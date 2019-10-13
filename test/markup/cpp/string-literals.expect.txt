@@ -6,6 +6,19 @@
 
 <span class="hljs-comment">// Wide-character strings</span>
 <span class="hljs-keyword">auto</span> wide_char = <span class="hljs-string">L"Hello wchar_t string"</span>;
+<span class="hljs-keyword">auto</span> lr = <span class="hljs-string">LR"(Hello
+world)"</span>;
+
+<span class="hljs-comment">// character literals</span>
+<span class="hljs-keyword">auto</span> wide_char = <span class="hljs-string">L'H'</span>;
+<span class="hljs-keyword">auto</span> cr   = <span class="hljs-string">'\n'</span>;
+<span class="hljs-keyword">auto</span> chr   = <span class="hljs-string">'H'</span>;
+<span class="hljs-keyword">auto</span> utf8  = <span class="hljs-string">u8'H'</span>;
+<span class="hljs-keyword">auto</span> utf16 = <span class="hljs-string">u'H'</span>;
+<span class="hljs-keyword">auto</span> utf32 = <span class="hljs-string">U'H'</span>;
+<span class="hljs-keyword">auto</span> unicode = <span class="hljs-string">L'\u202e'</span>
+<span class="hljs-keyword">auto</span> hex = <span class="hljs-string">'\xFF'</span>
+<span class="hljs-keyword">auto</span> octal = <span class="hljs-string">'\123'</span>
 
 <span class="hljs-comment">// Raw string literals (multiline)</span>
 <span class="hljs-keyword">auto</span> char_multi  = <span class="hljs-string">R"(Hello
