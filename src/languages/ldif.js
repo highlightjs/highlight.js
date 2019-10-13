@@ -9,10 +9,7 @@ function(hljs) {
       {
         className: 'attribute',
         begin: '^dn', end: ': ', excludeEnd: true,
-        relevance: 10
-      },
-      {
-        begin:'(cn|CN|ou|OU|dc|DC)=',
+        starts: { begin: '$', relevance: 0},
         relevance: 10
       },
       {
