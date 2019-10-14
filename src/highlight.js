@@ -41,7 +41,7 @@ https://highlightjs.org/
       languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
       fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
 
-  // The object will be assigned by the build tool. It used to synchronize API 
+  // The object will be assigned by the build tool. It used to synchronize API
   // of external language files with minified version of the highlight.js library.
   var API_REPLACES;
 
@@ -220,13 +220,34 @@ https://highlightjs.org/
 
   /* Initialization */
 
-  function expand_mode(mode) {
+  function dependencyOnParent(mode) {
+    if (!mode) return false;
+
+    return mode.endsWithParent || dependencyOnParent(mode.starts)
+  }
+
+  function expand_or_clone_mode(mode) {
     if (mode.variants && !mode.cached_variants) {
       mode.cached_variants = mode.variants.map(function(variant) {
         return inherit(mode, {variants: null}, variant);
       });
     }
-    return mode.cached_variants || (mode.endsWithParent && [inherit(mode)]) || [mode];
+
+    // EXPAND
+    // if we have variants then essentually "replace" the mode with the variants
+    // this happens in compileMode, where this function is called from
+    if (mode.cached_variants)
+      return mode.cached_variants;
+
+    // CLONE
+    // if we have dependencies on parents then we need a unique
+    // instance of ourselves, so we can be reused with many
+    // different parents without issue
+    if (dependencyOnParent(mode))
+      return [inherit(mode, { starts: inherit(mode.starts)})]
+
+    // no special dependency issues, just return ourselves
+    return [mode]
   }
 
   function restoreLanguageApi(obj) {
@@ -347,7 +368,7 @@ https://highlightjs.org/
         mode.contains = [];
       }
       mode.contains = Array.prototype.concat.apply([], mode.contains.map(function(c) {
-        return expand_mode(c === 'self' ? mode : c);
+        return expand_or_clone_mode(c === 'self' ? mode : c);
       }));
       mode.contains.forEach(function(c) {compileMode(c, mode);});
 
@@ -364,7 +385,7 @@ https://highlightjs.org/
         .filter(Boolean);
       mode.terminators = terminators.length ? langRe(joinRe(terminators, '|'), true) : {exec: function(/*s*/) {return null;}};
     }
-    
+
     compileMode(language);
   }
 
