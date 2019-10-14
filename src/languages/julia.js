@@ -1,7 +1,9 @@
 /*
 Language: Julia
+Description: Julia is a high-level, high-performance, dynamic programming language.
 Author: Kenta Sato <bicycle1885@gmail.com>
 Contributors: Alex Arslan <ararslan@comcast.net>
+Website: https://julialang.org
 */
 
 function(hljs) {

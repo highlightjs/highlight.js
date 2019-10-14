@@ -21,6 +21,11 @@ describe('plain browser', function() {
       });
   });
 
+  it('should return relevance key', function() {
+    var out = this.hljs.highlight("javascript","");
+    out.relevance.should.equal(0);
+  })
+
   it('should highlight block', function() {
     this.hljs.highlightBlock(this.block);
 

@@ -2,6 +2,7 @@
 Language: Haskell
 Author: Jeremy Hull <sourdrums@gmail.com>
 Contributors: Zena Treep <zena.treep@gmail.com>
+Website: https://www.haskell.org
 Category: functional
 */
 

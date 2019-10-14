@@ -1,0 +1,12 @@
+<span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> test}}</span><span class="xml">yes</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">if</span></span>}}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">unless</span></span> test}}</span><span class="xml">no</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">unless</span></span>}}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">with</span></span> test}}</span><span class="xml">abc</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">with</span></span>}}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">each</span></span> test}}</span><span class="xml">abc</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">each</span></span>}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">lookup</span> abc}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">log</span> test}}</span><span class="xml">
+</span>

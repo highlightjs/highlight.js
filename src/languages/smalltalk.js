@@ -1,6 +1,8 @@
 /*
 Language: Smalltalk
+Description: Smalltalk is an object-oriented, dynamically typed reflective programming language.
 Author: Vladimir Gubarkov <xonixx@gmail.com>
+Website: https://en.wikipedia.org/wiki/Smalltalk
 */
 
 function(hljs) {

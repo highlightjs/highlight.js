@@ -2,6 +2,7 @@
 Language: C#
 Author: Jason Diamond <jason@diamond.name>
 Contributor: Nicolas LLOBERA <nllobera@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>
+Website: https://docs.microsoft.com/en-us/dotnet/csharp/
 Category: common
 */
 
