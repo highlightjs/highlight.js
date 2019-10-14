@@ -4,6 +4,7 @@ Requires: javascript.js, xml.js
 Author: John Foster <jfoster@esri.com>
 Description: Syntax highlighting for the Qt Quick QML scripting language, based mostly off
              the JavaScript parser.
+Website: https://doc.qt.io/qt-5/qmlapplications.html
 Category: scripting
 */
 

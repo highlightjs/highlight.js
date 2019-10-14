@@ -3,6 +3,7 @@ Language: C++
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Zaven Muradyan <megalivoithos@gmail.com>, Roel Deckers <admin@codingcat.nl>, Sam Wu <samsam2310@gmail.com>, Jordi Petit <jordi.petit@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>, Google Inc. (David Benjamin) <davidben@google.com>
 Category: common, system
+Website: https://isocpp.org
 */
 
 function(hljs) {

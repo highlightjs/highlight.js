@@ -2,6 +2,7 @@
 Language: LSL (Linden Scripting Language)
 Description: The Linden Scripting Language is used in Second Life by Linden Labs.
 Author: Builder's Brewery <buildersbrewery@gmail.com>
+Website: http://wiki.secondlife.com/wiki/LSL_Portal
 Category: scripting
 */
 

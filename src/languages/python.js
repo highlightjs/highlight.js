@@ -1,5 +1,7 @@
 /*
 Language: Python
+Description: Python is an interpreted, object-oriented, high-level programming language with dynamic semantics.
+Website: https://www.python.org
 Category: common
 */
 

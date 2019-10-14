@@ -1,5 +1,6 @@
 /*
 Language: Backus–Naur Form
+Website: https://en.wikipedia.org/wiki/Backus–Naur_form
 Author: Oleg Efimov <efimovov@gmail.com>
 */
 

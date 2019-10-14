@@ -2,6 +2,7 @@
 Language: RenderMan RSL
 Author: Konstantin Evdokimenko <qewerty@gmail.com>
 Contributors: Shuen-Huei Guan <drake.guan@gmail.com>
+Website: https://renderman.pixar.com/resources/RenderMan_20/shadingLanguage.html
 Category: graphics
 */
 

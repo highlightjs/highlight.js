@@ -3,6 +3,7 @@ Language: Pony
 Author: Joe Eli McIlvain <joe.eli.mac@gmail.com>
 Description: Pony is an open-source, object-oriented, actor-model,
              capabilities-secure, high performance programming language.
+Website: https://www.ponylang.io
 */
 
 function(hljs) {

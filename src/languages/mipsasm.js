@@ -2,6 +2,7 @@
 Language: MIPS Assembly
 Author: Nebuleon Fumika <nebuleon.fumika@gmail.com>
 Description: MIPS Assembly (up to MIPS32R2)
+Website: https://en.wikipedia.org/wiki/MIPS_architecture
 Category: assembler
 */
 

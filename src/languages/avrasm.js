@@ -2,6 +2,7 @@
 Language: AVR Assembler
 Author: Vladimir Ermakov <vooon341@gmail.com>
 Category: assembler
+Website: https://www.microchip.com/webdoc/avrassembler/avrassembler.wb_instruction_list.html
 */
 
 function(hljs) {

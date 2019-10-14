@@ -3,6 +3,7 @@ Language: HTMLBars
 Requires: xml.js
 Author: Michael Johnston <lastobelus@gmail.com>
 Description: Matcher for HTMLBars
+Website: https://github.com/tildeio/htmlbars
 Category: template
 */
 
