@@ -779,6 +779,15 @@ https://highlightjs.org/
     }
   }
 
+  function deregisterLanguage(name, language) {
+    var lang = languages[name]
+
+    delete languages[name]
+    if (lang.aliases) {
+      lang.aliases.forEach(function(alias) {delete aliases[alias];});
+    }
+  }
+
   function listLanguages() {
     return objectKeys(languages);
   }
@@ -803,6 +812,7 @@ https://highlightjs.org/
   hljs.initHighlighting = initHighlighting;
   hljs.initHighlightingOnLoad = initHighlightingOnLoad;
   hljs.registerLanguage = registerLanguage;
+  hljs.deregisterLanguage = deregisterLanguage;
   hljs.listLanguages = listLanguages;
   hljs.getLanguage = getLanguage;
   hljs.autoDetection = autoDetection;
