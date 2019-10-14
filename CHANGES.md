@@ -6,6 +6,7 @@ New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- blacklist super-common keywords from having relevance (#2179)
 - fix(swift): support for `@dynamicMemberLookup` and `@propertyWrapper` (#2202)
 - fix(typescript): constructor in declaration doesn't break highlighting
 - fix(typescript): only match function keyword as a separate identifier (#2191)
