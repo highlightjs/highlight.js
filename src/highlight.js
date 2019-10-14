@@ -244,7 +244,7 @@ https://highlightjs.org/
     // instance of ourselves, so we can be reused with many
     // different parents without issue
     if (dependencyOnParent(mode))
-      return [inherit(mode, { starts: inherit(mode.starts)})]
+      return [inherit(mode, { starts: mode.starts ? inherit(mode.starts) : null })]
 
     // no special dependency issues, just return ourselves
     return [mode]
