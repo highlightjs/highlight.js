@@ -45,8 +45,8 @@ function (hljs) {
     };
   }
 
-  var ESCAPE_MUSTACHE_WITH_PRECEEDING_BACKSLASH = {begin: /\\{{/, skip: true};
-  var PREVENT_ESCAPE_WITH_ANOTHER_PRECEEDING_BACKSLASH = {begin: /\\\\(?={{)/, skip: true};
+  var ESCAPE_MUSTACHE_WITH_PRECEEDING_BACKSLASH = {begin: /\\\{\{/, skip: true};
+  var PREVENT_ESCAPE_WITH_ANOTHER_PRECEEDING_BACKSLASH = {begin: /\\\\(?=\{\{)/, skip: true};
 
   var OPEN_RAW_BLOCK = {
     className: 'template-tag',
