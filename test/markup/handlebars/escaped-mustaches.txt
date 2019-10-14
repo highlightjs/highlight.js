@@ -1,10 +1,16 @@
-\{{no-expression}} {{expression}}
+\{{no-expression}}
 
-\{{{no-expression}}} {{expression}}
+\{{{no-expression}}}
 
-\{{#no}} block \{{/no}} {{expression}}
+\{{#no}} block \{{/no}}
 
-\{{\{{no}}}} block \{{\{{/no}}}} {{expression}}
+\{{\{{no}}}} block \{{\{{/no}}}}
+
+\{{!-- no comment --}}
+
+\{{! no comment }}
+
+<!-- escaped escapings -->
 
 \\{{expression}}
 
@@ -12,3 +18,4 @@
 
 \\\\{{expression}}
 
+\\\{{! comment }}
