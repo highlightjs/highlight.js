@@ -3,6 +3,7 @@
  Author: Andres Täht <andres.taht@gmail.com>
  Contributors: Rene Saarsoo <nene@triin.net>
  Description: Couchbase query language
+ Website: https://www.couchbase.com/products/n1ql
  */
 
 function(hljs) {

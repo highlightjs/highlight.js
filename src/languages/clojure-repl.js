@@ -3,6 +3,7 @@ Language: Clojure REPL
 Description: Clojure REPL sessions
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Requires: clojure.js
+Website: https://clojure.org
 Category: lisp
 */
 

@@ -3,6 +3,7 @@ Language: Dart
 Requires: markdown.js
 Author: Maxim Dikun <dikmax@gmail.com>
 Description: Dart a modern, object-oriented language developed by Google. For more information see https://www.dartlang.org/
+Website: https://dart.dev
 Category: scripting
 */
 

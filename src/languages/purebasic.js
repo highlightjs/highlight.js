@@ -3,6 +3,7 @@ Language: PureBASIC
 Author: Tristano Ajmone <tajmone@gmail.com>
 Description: Syntax highlighting for PureBASIC (v.5.00-5.60). No inline ASM highlighting. (v.1.2, May 2017)
 Credits: I've taken inspiration from the PureBasic language file for GeSHi, created by Gustavo Julio Fiorenza (GuShH).
+Website: https://www.purebasic.com
 */
 
 // Base deafult colors in PB IDE: background: #FFFFDF; foreground: #000000;
@@ -69,7 +70,7 @@ function(hljs) {
 }
 
 /*  ==============================================================================
-                                      CHANGELOG                                   
+                                      CHANGELOG
     ==============================================================================
     - v.1.2 (2017-05-12)
         -- BUG-FIX: Some keywords were accidentally joyned together. Now fixed.

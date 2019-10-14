@@ -2,8 +2,13 @@
 Language: Stata
 Author: Brian Quistorff <bquistorff@gmail.com>
 Contributors: Drew McDonald <drewmcdo@gmail.com>
-Description: Syntax highlighting for Stata code. This is a fork and modification of Drew McDonald's file (https://github.com/drewmcdonald/stata-highlighting). I have also included a list of builtin commands from https://bugs.kde.org/show_bug.cgi?id=135646.
+Description: Stata is a general-purpose statistical software package created in 1985 by StataCorp.
+Website: https://en.wikipedia.org/wiki/Stata
 Category: scientific
+*/
+
+/*
+  This is a fork and modification of Drew McDonald's file (https://github.com/drewmcdonald/stata-highlighting). I have also included a list of builtin commands from https://bugs.kde.org/show_bug.cgi?id=135646.
 */
 
 function(hljs) {

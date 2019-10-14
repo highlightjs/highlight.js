@@ -1,14 +1,15 @@
 /*
 Language: YAML
+Description: Yet Another Markdown Language
 Author: Stefan Wienert <stwienert@gmail.com>
 Requires: ruby.js
-Description: YAML (Yet Another Markdown Language)
+Website: https://yaml.org
 Category: common, config
 */
 function(hljs) {
   var LITERALS = 'true false yes no null';
 
-  // Define keys as starting with a word character 
+  // Define keys as starting with a word character
   // ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
   // ...and ending with a colon followed immediately by a space, tab or newline.
   // The YAML spec allows for much more than this, but this covers most use-cases.

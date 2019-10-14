@@ -2,7 +2,7 @@
 Language: Microtik RouterOS script
 Author: Ivan Dementev <ivan_div@mail.ru>
 Description: Scripting host provides a way to automate some router maintenance tasks by means of executing user-defined scripts bounded to some event occurrence
-URL: https://wiki.mikrotik.com/wiki/Manual:Scripting
+Website: https://wiki.mikrotik.com/wiki/Manual:Scripting
 */
 
 // Colors from RouterOS terminal:
@@ -30,7 +30,7 @@ function(hljs) {
   // ToDo: var PARAMETERS_PRINT = 'append as-value brief detail count-only file follow follow-only from interval terse value-list without-paging where info';
   // ToDo: var OPERATORS = '&& and ! not || or in ~ ^ & << >> + - * /';
   // ToDo: var TYPES = 'num number bool boolean str string ip ip6-prefix id time array';
-  // ToDo: The following tokens serve as delimiters in the grammar: ()  []  {}  :   ;   $   / 
+  // ToDo: The following tokens serve as delimiters in the grammar: ()  []  {}  :   ;   $   /
 
   var VAR_PREFIX = 'global local set for foreach';
 
@@ -41,7 +41,7 @@ function(hljs) {
       {begin: /\$\{(.*?)}/}
     ]
   };
-  
+
   var QUOTE_STRING = {
     className: 'string',
     begin: /"/, end: /"/,
@@ -55,12 +55,12 @@ function(hljs) {
       }
     ]
   };
-  
+
   var APOS_STRING = {
     className: 'string',
     begin: /'/, end: /'/
   };
-  
+
   var IPADDR = '((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\b';
   var IPADDR_wBITMASK =  IPADDR+'/(3[0-2]|[1-2][0-9]|\\d)';
   //////////////////////////////////////////////////////////////////////
@@ -84,7 +84,7 @@ function(hljs) {
           { begin: /^\[\</, end: /\>\]$/, },        // F# class declaration?
           { begin: /<\//, end: />/, },              // HTML tags
           { begin: /^facet /, end: /\}/, },         // roboconf - лютый костыль )))
-          { begin: '^1\\.\\.(\\d+)$', end: /$/, },  // tap  
+          { begin: '^1\\.\\.(\\d+)$', end: /$/, },  // tap
         ],
         illegal: /./,
       },
@@ -93,7 +93,7 @@ function(hljs) {
       APOS_STRING,
       VAR,
       { // attribute=value
-        begin: /[\w-]+\=([^\s\{\}\[\]\(\)]+)/, 
+        begin: /[\w-]+\=([^\s\{\}\[\]\(\)]+)/,
         relevance: 0,
         returnBegin: true,
         contains: [
@@ -102,7 +102,7 @@ function(hljs) {
             begin: /[^=]+/
           },
           {
-            begin: /=/, 
+            begin: /=/,
             endsWithParent:  true,
             relevance: 0,
             contains: [
@@ -129,7 +129,7 @@ function(hljs) {
               }, //*/
               {
                 // Не форматировать не классифицированные значения. Необходимо для исключения подсветки значений как built_in.
-                // className: 'number',  
+                // className: 'number',
                 begin: /("[^"]*"|[^\s\{\}\[\]]+)/,
               }, //*/
             ]
@@ -142,7 +142,7 @@ function(hljs) {
         begin: /\*[0-9a-fA-F]+/,
       }, //*/
 
-      { 
+      {
         begin: '\\b(' + COMMON_COMMANDS.split(' ').join('|') + ')([\\s\[\(]|\])',
         returnBegin: true,
         contains: [
@@ -150,10 +150,10 @@ function(hljs) {
             className: 'builtin-name', //'function',
             begin: /\w+/,
           },
-        ],  
+        ],
       },
-      
-      { 
+
+      {
         className: 'built_in',
         variants: [
           {begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+',relevance: 10,},

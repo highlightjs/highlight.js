@@ -2,6 +2,7 @@
  Language: ArcGIS Arcade
  Category: scripting
  Author: John Foster <jfoster@esri.com>
+ Website: https://developers.arcgis.com/arcade/
  Description: ArcGIS Arcade is an expression language used in many Esri ArcGIS products such as Pro, Online, Server, Runtime, JavaScript, and Python
 */
 function(hljs) {
