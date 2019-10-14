@@ -9,7 +9,7 @@ function(hljs) {
       {
         className: 'attribute',
         begin: '^dn', end: ': ', excludeEnd: true,
-        starts: { end: '$', relevance: 0},
+        starts: {end: '$', relevance: 0},
         relevance: 10
       },
       {
