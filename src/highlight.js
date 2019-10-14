@@ -801,6 +801,7 @@ https://highlightjs.org/
     }
   }
 
+  // needed to unhook test languages after adding
   function deregisterLanguage(name, language) {
     var lang = languages[name]
 
