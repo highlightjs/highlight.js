@@ -7,6 +7,7 @@ New styles:
 
 Improvements:
 - fix(typescript): constructor in declaration doesn't break highlighting
+- fix(typescript): only match function keyword as a separate identifier (#2191)
 - feature(arduino) make arduino a super-set of cpp grammar
 - fix(javascript): fix object attributes immediately following line comments
 - fix(xml): remove `vbscript` as potential script tag subLanguage
