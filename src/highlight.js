@@ -418,13 +418,15 @@ https://highlightjs.org/
     }
 
     function buildSpan(classname, insideSpan, leaveOpen, noPrefix) {
+      if (!leaveOpen && insideSpan === '') return '';
+      if (!classname) return insideSpan;
+
       var classPrefix = noPrefix ? '' : options.classPrefix,
           openSpan    = '<span class="' + classPrefix,
           closeSpan   = leaveOpen ? '' : spanEndTag;
 
       openSpan += classname + '">';
 
-      if (!classname) return insideSpan;
       return openSpan + insideSpan + closeSpan;
     }
 
@@ -749,6 +751,8 @@ https://highlightjs.org/
   function registerLanguage(name, language) {
     var lang = languages[name] = language(hljs);
     restoreLanguageApi(lang);
+    lang.rawDefinition = language.bind(null,hljs);
+
     if (lang.aliases) {
       lang.aliases.forEach(function(alias) {aliases[alias] = name;});
     }

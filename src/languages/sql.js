@@ -1,6 +1,7 @@
 /*
- Language: SQL
+ Language: SQL (Structured Query Language)
  Contributors: Nikolay Lisienko <info@neor.ru>, Heiko August <post@auge8472.de>, Travis Odom <travis.a.odom@gmail.com>, Vadimtro <vadimtro@yahoo.com>, Benjamin Auder <benjamin.auder@gmail.com>
+ Website: https://en.wikipedia.org/wiki/SQL
  Category: common
  */
 

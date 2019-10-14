@@ -2,6 +2,7 @@
 Language: Excel
 Author: Victor Zhou <OiCMudkips@users.noreply.github.com>
 Description: Excel formulae
+Website: https://products.office.com/en-us/excel/
 */
 
 function(hljs) {
@@ -15,7 +16,7 @@ function(hljs) {
     },
     contains: [
       {
-        /* matches a beginning equal sign found in Excel formula examples */ 
+        /* matches a beginning equal sign found in Excel formula examples */
         begin: /^=/,
         end: /[^=]/, returnEnd: true, illegal: /=/, /* only allow single equal sign at front of line */
         relevance: 10

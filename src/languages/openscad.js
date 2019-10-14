@@ -2,6 +2,7 @@
 Language: OpenSCAD
 Author: Dan Panzarella <alsoelp@gmail.com>
 Description: OpenSCAD is a language for the 3D CAD modeling software of the same name.
+Website: https://www.openscad.org
 Category: scientific
 */
 

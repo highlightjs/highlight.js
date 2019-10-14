@@ -279,3 +279,5 @@ Contributors:
 - Taif Alimov <inzeppelin@gmail.com>
 - Yuri Mazursky <mail@colomolome.com>
 - Carl Baxter <carl@cbax.tech>
+- Thomas Reichel <tom.p.reichel@gmail.com>
+

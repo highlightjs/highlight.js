@@ -1,0 +1,9 @@
+func name()
+
+func name(int32, *somePointer)(string)
+
+map[string]func(int32, string)
+
+func name (x int32) int32 {
+  return x;
+}
