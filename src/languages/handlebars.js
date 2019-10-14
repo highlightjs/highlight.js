@@ -48,36 +48,6 @@ function (hljs) {
   var ESCAPE_MUSTACHE_WITH_PRECEEDING_BACKSLASH = {begin: /\\\{\{/, skip: true};
   var PREVENT_ESCAPE_WITH_ANOTHER_PRECEEDING_BACKSLASH = {begin: /\\\\(?=\{\{)/, skip: true};
 
-  var OPEN_RAW_BLOCK = {
-    className: 'template-tag',
-    begin: /\{\{\{\{(?!\/)/, end: /\}\}\}\}/,
-    contains: [BLOCK_MUSTACHE_CONTENTS()],
-    starts: {end: /\{\{\{\{\//, returnEnd: true, subLanguage: 'xml'}
-  };
-  var CLOSE_RAW_BLOCK = {
-    className: 'template-tag',
-    begin: /\{\{\{\{\//, end: /\}\}\}\}/,
-    contains: [BLOCK_MUSTACHE_CONTENTS()]
-  };
-  var STANDARD_BLOCK = {
-    className: 'template-tag',
-    begin: /\{\{[#\/]/, end: /\}\}/,
-    contains: [BLOCK_MUSTACHE_CONTENTS()],
-  };
-  var UNESCAPED_OUTPUT = {
-    className: 'template-variable',
-    begin: /\{\{\{/, end: /\}\}\}/,
-    keywords: BUILT_INS,
-    contains: [BASIC_MUSTACHE_CONTENTS()]
-  };
-  var HTML_ESCAPED_OUTPUT = {
-    className: 'template-variable',
-    begin: /\{\{/, end: /\}\}/,
-    keywords: BUILT_INS,
-    contains: [
-      BASIC_MUSTACHE_CONTENTS()
-    ]
-  };
   return {
     aliases: ['hbs', 'html.hbs', 'html.handlebars'],
     case_insensitive: true,
@@ -87,11 +57,41 @@ function (hljs) {
       PREVENT_ESCAPE_WITH_ANOTHER_PRECEEDING_BACKSLASH,
       hljs.COMMENT(/\{\{!--/, /--\}\}/),
       hljs.COMMENT(/\{\{!/, /\}\}/),
-      OPEN_RAW_BLOCK,
-      CLOSE_RAW_BLOCK,
-      STANDARD_BLOCK,
-      UNESCAPED_OUTPUT,
-      HTML_ESCAPED_OUTPUT
+      {
+        // open raw block "{{{{raw}}}} content not evaluated {{{{/raw}}}}"
+        className: 'template-tag',
+        begin: /\{\{\{\{(?!\/)/, end: /\}\}\}\}/,
+        contains: [BLOCK_MUSTACHE_CONTENTS()],
+        starts: {end: /\{\{\{\{\//, returnEnd: true, subLanguage: 'xml'}
+      },
+      {
+        // close raw block
+        className: 'template-tag',
+        begin: /\{\{\{\{\//, end: /\}\}\}\}/,
+        contains: [BLOCK_MUSTACHE_CONTENTS()]
+      },
+      {
+        // open block statement
+        className: 'template-tag',
+        begin: /\{\{[#\/]/, end: /\}\}/,
+        contains: [BLOCK_MUSTACHE_CONTENTS()],
+      },
+      {
+        // template variable or helper-call that is NOT html-escaped
+        className: 'template-variable',
+        begin: /\{\{\{/, end: /\}\}\}/,
+        keywords: BUILT_INS,
+        contains: [BASIC_MUSTACHE_CONTENTS()]
+      },
+      {
+        // template variable or helper-call that is html-escaped
+        className: 'template-variable',
+        begin: /\{\{/, end: /\}\}/,
+        keywords: BUILT_INS,
+        contains: [
+          BASIC_MUSTACHE_CONTENTS()
+        ]
+      }
     ]
   };
 }
