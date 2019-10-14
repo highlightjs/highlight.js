@@ -241,6 +241,42 @@ https://highlightjs.org/
     }
   }
 
+  function commonKeyword(word) {
+    return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1
+  }
+
+  function scoreForKeyword(keyword, providedScore) {
+    // manual scores always win over common keywords
+    // so you can force a score of 1 if you really insist
+    if (providedScore)
+      return Number(providedScore)
+
+    return commonKeyword(keyword) ? 0 : 1;
+  }
+
+  function compileKeywords(rawKeywords, case_insensitive) {
+      var compiled_keywords = {};
+
+      var flatten = function(className, str) {
+        if (case_insensitive) {
+          str = str.toLowerCase();
+        }
+        str.split(' ').forEach(function(kw) {
+          var pair = kw.split('|');
+          compiled_keywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
+        });
+      };
+
+      if (typeof rawKeywords === 'string') { // string
+        flatten('keyword', rawKeywords);
+      } else {
+        objectKeys(rawKeywords).forEach(function (className) {
+          flatten(className, rawKeywords[className]);
+        });
+      }
+    return compiled_keywords;
+  }
+
   function compileLanguage(language) {
 
     function reStr(re) {
@@ -301,28 +337,9 @@ https://highlightjs.org/
       mode.compiled = true;
 
       mode.keywords = mode.keywords || mode.beginKeywords;
-      if (mode.keywords) {
-        var compiled_keywords = {};
+      if (mode.keywords)
+        mode.keywords = compileKeywords(mode.keywords, language.case_insensitive)
 
-        var flatten = function(className, str) {
-          if (language.case_insensitive) {
-            str = str.toLowerCase();
-          }
-          str.split(' ').forEach(function(kw) {
-            var pair = kw.split('|');
-            compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
-          });
-        };
-
-        if (typeof mode.keywords === 'string') { // string
-          flatten('keyword', mode.keywords);
-        } else {
-          objectKeys(mode.keywords).forEach(function (className) {
-            flatten(className, mode.keywords[className]);
-          });
-        }
-        mode.keywords = compiled_keywords;
-      }
       mode.lexemesRe = langRe(mode.lexemes || /\w+/, true);
 
       if (parent) {
@@ -431,10 +448,6 @@ https://highlightjs.org/
       return openSpan + insideSpan + closeSpan;
     }
 
-    function commonKeyword(word) {
-      return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1
-    }
-
     function processKeywords() {
       var keyword_match, last_index, match, result;
 
@@ -450,8 +463,7 @@ https://highlightjs.org/
         result += escape(mode_buffer.substring(last_index, match.index));
         keyword_match = keywordMatch(top, match);
         if (keyword_match) {
-          if (keyword_match[1] > 1 || !commonKeyword(match[0]))
-            relevance += keyword_match[1];
+          relevance += keyword_match[1];
           result += buildSpan(keyword_match[0], escape(match[0]));
         } else {
           result += escape(match[0]);
