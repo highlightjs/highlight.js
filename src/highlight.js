@@ -244,24 +244,26 @@ https://highlightjs.org/
   function compileKeywords(rawKeywords, case_insensitive) {
       var compiled_keywords = {};
 
-      var flatten = function(className, str) {
-        if (case_insensitive) {
-          str = str.toLowerCase();
-        }
-        str.split(' ').forEach(function(keyword) {
-          var pair = keyword.split('|');
-          compiled_keywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
-        });
-      };
-
       if (typeof rawKeywords === 'string') { // string
-        flatten('keyword', rawKeywords);
+        splitAndCompile('keyword', rawKeywords);
       } else {
         objectKeys(rawKeywords).forEach(function (className) {
-          flatten(className, rawKeywords[className]);
+          splitAndCompile(className, rawKeywords[className]);
         });
       }
     return compiled_keywords;
+
+    // ---
+
+    function splitAndCompile(className, str) {
+      if (case_insensitive) {
+        str = str.toLowerCase();
+      }
+      str.split(' ').forEach(function(keyword) {
+        var pair = keyword.split('|');
+        compiled_keywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
+      });
+    };
   }
 
   function scoreForKeyword(keyword, providedScore) {
