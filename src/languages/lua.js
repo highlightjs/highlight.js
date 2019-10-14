@@ -2,7 +2,7 @@
 Language: Lua
 Description: Lua is a powerful, efficient, lightweight, embeddable scripting language.
 Author: Andrew Fedorov <dmmdrs@mail.ru>
-Category: scripting
+Category: common, scripting
 Website: https://www.lua.org
 */
 

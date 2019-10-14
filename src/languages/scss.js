@@ -3,7 +3,7 @@ Language: SCSS
 Description: Scss is an extension of the syntax of CSS.
 Author: Kurt Emch <kurt@kurtemch.com>
 Website: https://sass-lang.com
-Category: css
+Category: common, css
 */
 function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';

@@ -4,7 +4,7 @@ Author: Panu Horsmalahti <panu.horsmalahti@iki.fi>
 Contributors: Ike Ku <dempfi@yahoo.com>
 Description: TypeScript is a strict superset of JavaScript
 Website: https://www.typescriptlang.org
-Category: scripting
+Category: common, scripting
 */
 
 function(hljs) {
