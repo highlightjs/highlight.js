@@ -241,19 +241,6 @@ https://highlightjs.org/
     }
   }
 
-  function commonKeyword(word) {
-    return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1
-  }
-
-  function scoreForKeyword(keyword, providedScore) {
-    // manual scores always win over common keywords
-    // so you can force a score of 1 if you really insist
-    if (providedScore)
-      return Number(providedScore)
-
-    return commonKeyword(keyword) ? 0 : 1;
-  }
-
   function compileKeywords(rawKeywords, case_insensitive) {
       var compiled_keywords = {};
 
@@ -261,8 +248,8 @@ https://highlightjs.org/
         if (case_insensitive) {
           str = str.toLowerCase();
         }
-        str.split(' ').forEach(function(kw) {
-          var pair = kw.split('|');
+        str.split(' ').forEach(function(keyword) {
+          var pair = keyword.split('|');
           compiled_keywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
         });
       };
@@ -275,6 +262,19 @@ https://highlightjs.org/
         });
       }
     return compiled_keywords;
+  }
+
+  function scoreForKeyword(keyword, providedScore) {
+    // manual scores always win over common keywords
+    // so you can force a score of 1 if you really insist
+    if (providedScore)
+      return Number(providedScore)
+
+    return commonKeyword(keyword) ? 0 : 1;
+  }
+
+  function commonKeyword(word) {
+    return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1
   }
 
   function compileLanguage(language) {
