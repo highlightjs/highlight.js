@@ -31,43 +31,43 @@ function(hljs) {
     contains: [hljs.BACKSLASH_ESCAPE],
     variants: [
       {
-        begin: /(u|b)?r?'''/, end: /'''/,
+        begin: /\b(u|b)?r?'''/, end: /'''/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT],
         relevance: 10
       },
       {
-        begin: /(u|b)?r?"""/, end: /"""/,
+        begin: /\b(u|b)?r?"""/, end: /"""/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT],
         relevance: 10
       },
       {
-        begin: /(fr|rf|f)'''/, end: /'''/,
+        begin: /\b(fr|rf|f)'''/, end: /'''/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT, LITERAL_BRACKET, SUBST]
       },
       {
-        begin: /(fr|rf|f)"""/, end: /"""/,
+        begin: /\b(fr|rf|f)"""/, end: /"""/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT, LITERAL_BRACKET, SUBST]
       },
       {
-        begin: /(u|r|ur)'/, end: /'/,
+        begin: /\b(u|r|ur)'/, end: /'/,
         relevance: 10
       },
       {
-        begin: /(u|r|ur)"/, end: /"/,
+        begin: /\b(u|r|ur)"/, end: /"/,
         relevance: 10
       },
       {
-        begin: /(b|br)'/, end: /'/
+        begin: /\b(b|br)'/, end: /'/
       },
       {
-        begin: /(b|br)"/, end: /"/
+        begin: /\b(b|br)"/, end: /"/
       },
       {
-        begin: /(fr|rf|f)'/, end: /'/,
+        begin: /\b(fr|rf|f)'/, end: /'/,
         contains: [hljs.BACKSLASH_ESCAPE, LITERAL_BRACKET, SUBST]
       },
       {
-        begin: /(fr|rf|f)"/, end: /"/,
+        begin: /\b(fr|rf|f)"/, end: /"/,
         contains: [hljs.BACKSLASH_ESCAPE, LITERAL_BRACKET, SUBST]
       },
       hljs.APOS_STRING_MODE,
