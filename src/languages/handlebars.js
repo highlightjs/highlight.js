@@ -52,6 +52,12 @@ function (hljs) {
     contains: [
       hljs.COMMENT(/\{\{!--/, /--\}\}/),
       hljs.COMMENT(/\{\{!/, /\}\}/),
+      // Prevent escaping mustaches
+      {
+        begin: /\\\\(?={{)/,
+        skip: true
+      },
+      // Escaped mustache
       {
         begin: /\\{{/,
         skip: true
