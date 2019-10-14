@@ -45,70 +45,53 @@ function (hljs) {
     };
   }
 
+  var ESCAPE_MUSTACHE_WITH_PRECEEDING_BACKSLASH = {begin: /\\{{/, skip: true};
+  var PREVENT_ESCAPE_WITH_ANOTHER_PRECEEDING_BACKSLASH = {begin: /\\\\(?={{)/, skip: true};
+
+  var OPEN_RAW_BLOCK = {
+    className: 'template-tag',
+    begin: /\{\{\{\{(?!\/)/, end: /\}\}\}\}/,
+    contains: [BLOCK_MUSTACHE_CONTENTS()],
+    starts: {end: /\{\{\{\{\//, returnEnd: true, subLanguage: 'xml'}
+  };
+  var CLOSE_RAW_BLOCK = {
+    className: 'template-tag',
+    begin: /\{\{\{\{\//, end: /\}\}\}\}/,
+    contains: [BLOCK_MUSTACHE_CONTENTS()]
+  };
+  var STANDARD_BLOCK = {
+    className: 'template-tag',
+    begin: /\{\{[#\/]/, end: /\}\}/,
+    contains: [BLOCK_MUSTACHE_CONTENTS()],
+  };
+  var UNESCAPED_OUTPUT = {
+    className: 'template-variable',
+    begin: /\{\{\{/, end: /\}\}\}/,
+    keywords: BUILT_INS,
+    contains: [BASIC_MUSTACHE_CONTENTS()]
+  };
+  var HTML_ESCAPED_OUTPUT = {
+    className: 'template-variable',
+    begin: /\{\{/, end: /\}\}/,
+    keywords: BUILT_INS,
+    contains: [
+      BASIC_MUSTACHE_CONTENTS()
+    ]
+  };
   return {
     aliases: ['hbs', 'html.hbs', 'html.handlebars'],
     case_insensitive: true,
     subLanguage: 'xml',
     contains: [
+      ESCAPE_MUSTACHE_WITH_PRECEEDING_BACKSLASH,
+      PREVENT_ESCAPE_WITH_ANOTHER_PRECEEDING_BACKSLASH,
       hljs.COMMENT(/\{\{!--/, /--\}\}/),
       hljs.COMMENT(/\{\{!/, /\}\}/),
-      // Prevent escaping mustaches
-      {
-        begin: /\\\\(?={{)/,
-        skip: true
-      },
-      // Escaped mustache
-      {
-        begin: /\\{{/,
-        skip: true
-      },
-      // raw block (open) {{{{raw}}}} verbatim xml {{{{/raw}} {{handlebars}}
-      {
-        className: 'template-tag',
-        begin: /\{\{\{\{(?!\/)/, end: /\}\}\}\}/,
-        contains: [
-          BLOCK_MUSTACHE_CONTENTS()
-        ],
-        starts: {
-          end: /\{\{\{\{\//,
-          returnEnd: true,
-          subLanguage: 'xml'
-        }
-      },
-      // raw block (close)
-      {
-        className: 'template-tag',
-        begin: /\{\{\{\{\//, end: /\}\}\}\}/,
-        contains: [
-          BLOCK_MUSTACHE_CONTENTS()
-        ]
-      },
-      // standard blocks {{#block}} ... {{/block}}
-      {
-        className: 'template-tag',
-        begin: /\{\{[#\/]/, end: /\}\}/,
-        contains: [
-          BLOCK_MUSTACHE_CONTENTS()
-        ],
-      },
-      // triple mustaches {{{unescapedOutput}}}
-      {
-        className: 'template-variable',
-        begin: /\{\{\{/, end: /\}\}\}/,
-        keywords: BUILT_INS,
-        contains: [
-          BASIC_MUSTACHE_CONTENTS()
-        ]
-      },
-      // standard mustaches {{{htmlEscapedOutput}}}
-      {
-        className: 'template-variable',
-        begin: /\{\{/, end: /\}\}/,
-        keywords: BUILT_INS,
-        contains: [
-          BASIC_MUSTACHE_CONTENTS()
-        ]
-      }
+      OPEN_RAW_BLOCK,
+      CLOSE_RAW_BLOCK,
+      STANDARD_BLOCK,
+      UNESCAPED_OUTPUT,
+      HTML_ESCAPED_OUTPUT
     ]
   };
 }
