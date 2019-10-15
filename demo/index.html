@@ -36,18 +36,18 @@
   <div id="content">
 
   <div id="languages">
-    <% _.each(blobs, function(blob) { %>
-    <% var categories = blob.fileInfo.Category; %>
-    <div <% if(categories) { %>class="<%= categories.join(' ') %>"<% } %>>
-      <h2><%- blob.fileInfo.Language %></h2>
-      <pre><code class="<%- path.basename(blob.name, '.js') %>"><%- blob.result %></code></pre>
+    <% _.each(languages, function(language) { %>
+    <% var categories = language.categories; %>
+    <div <% if(categories.length>0) { %>class="<%= categories.join(' ') %>"<% } %>>
+      <h2><%- language.prettyName %></h2>
+      <pre><code class="<%- path.basename(language.name, '.js') %>"><%- language.sample %></code></pre>
     </div>
     <% }); %>
   </div>
 
   </div>
 
-  <script src="../highlight.pack.js"></script>
+  <script src="../highlight.min.js"></script>
   <script src="jquery-2.1.1.min.js"></script>
   <script src="perfect-scrollbar.min.js"></script>
   <script src="demo.js"></script>

@@ -7,7 +7,7 @@ Website: https://dart.dev
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   var SUBST = {
     className: 'subst',
     variants: [{

@@ -6,7 +6,7 @@ Website: http://man.openbsd.org/pf.conf
 Category: config
 */
 
-function(hljs) {
+export default function(hljs) {
   var MACRO = {
     className: 'variable',
     begin: /\$[\w\d#@][\w\d_]*/

@@ -7,7 +7,7 @@ Category: common, scripting
 Website: https://coffeescript.org
 */
 
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:
       // JS keywords

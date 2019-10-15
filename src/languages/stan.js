@@ -6,7 +6,7 @@ Website: http://mc-stan.org/
 Category: scientific
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     contains: [
       hljs.HASH_COMMENT_MODE,

@@ -6,7 +6,7 @@ Website: https://www.rust-lang.org
 Category: common, system
 */
 
-function(hljs) {
+export default function(hljs) {
   var NUM_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
   var KEYWORDS =
     'abstract as async await become box break const continue crate do dyn ' +

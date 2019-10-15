@@ -4,7 +4,7 @@ Contributors: Valentin Aitken <valentin@nalisbg.com>, Egor Rogov <e.rogov@postgr
 Category: common, config
 */
 
-function(hljs) {
+export default function(hljs) {
 
   // whitespaces: space, tab, formfeed
   var WS0 = '[ \\t\\f]*';

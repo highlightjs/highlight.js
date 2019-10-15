@@ -77,7 +77,14 @@ commander
 
 commander.target = commander.target.toLowerCase();
 
-build     = require(`./${commander.target}`);
+var target = commander.target
+if (target=="cdn")
+  target = "./roll_cdn"
+if (target=="browser")
+  target = "./roll_browser"
+
+
+build     = require(`./${target}`);
 dir.root  = path.dirname(__dirname);
 dir.build = path.join(dir.root, 'build');
 

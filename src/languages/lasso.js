@@ -5,7 +5,7 @@ Description: Lasso is a language and server platform for database-driven web app
 Website: http://www.lassosoft.com/What-Is-Lasso
 */
 
-function(hljs) {
+export default function(hljs) {
   var LASSO_IDENT_RE = '[a-zA-Z_][\\w.]*';
   var LASSO_ANGLE_RE = '<\\?(lasso(script)?|=)';
   var LASSO_CLOSE_RE = '\\]|\\?>';

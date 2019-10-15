@@ -5,7 +5,7 @@ Description: AutoHotkey language definition
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   var BACKTICK_ESCAPE = {
     begin: '`[\\s\\S]'
   };
@@ -47,7 +47,7 @@ function(hljs) {
         ]
       },
       {
-        className: 'meta', 
+        className: 'meta',
         begin: '^\\s*#\\w+', end:'$',
         relevance: 0
       },

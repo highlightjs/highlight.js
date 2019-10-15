@@ -135,8 +135,8 @@ module.exports = function(commander, dir) {
       task: ['replace', replace(regex.apiReplacesFrom, regex.apiReplacesTo)]
     };
 
-    tasks.minify  = { requires: 'replace4', task: 'jsminify' };
-    requiresTask  = 'minify';
+    // tasks.minify  = { requires: 'replace4', task: 'jsminify' };
+    requiresTask  = 'replace4';
   }
 
   tasks.insertLicenseTag = {

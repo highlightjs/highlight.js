@@ -6,7 +6,7 @@ Website: https://www.openscad.org
 Category: scientific
 */
 
-function(hljs) {
+export default function(hljs) {
 	var SPECIAL_VARS = {
 		className: 'keyword',
 		begin: '\\$(f[asn]|t|vp[rtd]|children)'

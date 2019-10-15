@@ -5,7 +5,7 @@ Website: https://puppet.com/docs
 Category: config
 */
 
-function(hljs) {
+export default function(hljs) {
 
   var PUPPET_KEYWORDS = {
     keyword:

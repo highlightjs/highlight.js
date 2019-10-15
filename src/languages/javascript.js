@@ -5,7 +5,7 @@ Category: common, scripting
 Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
-function(hljs) {
+export default function(hljs) {
   var TAG_START = /<[A-Za-z0-9\\._:-]+/;
   var TAG_FINISH = /\/[A-Za-z0-9\\._:-]+>|\/>/;
   var IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';

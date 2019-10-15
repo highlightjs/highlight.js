@@ -6,7 +6,7 @@
  Category: config
  */
 
-function (hljs) {
+export default function (hljs) {
   var PARAM = {
     begin: /[\w-]+ *=/, returnBegin: true,
     relevance: 0,

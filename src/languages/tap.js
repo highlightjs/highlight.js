@@ -5,7 +5,7 @@ Author: Sergey Bronnikov <sergeyb@bronevichok.ru>
 Website: https://bronevichok.ru/
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     case_insensitive: true,
     contains: [

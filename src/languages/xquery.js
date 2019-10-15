@@ -8,7 +8,7 @@ Website: https://www.w3.org/XML/Query/
 Category: functional
 */
 
-function(hljs) {
+export default function(hljs) {
   // see https://www.w3.org/TR/xquery/#id-terminal-delimitation
   var KEYWORDS = 'module schema namespace boundary-space preserve no-preserve strip default collation base-uri ordering context decimal-format decimal-separator copy-namespaces empty-sequence except exponent-separator external grouping-separator inherit no-inherit lax minus-sign per-mille percent schema-attribute schema-element strict unordered zero-digit ' +
   'declare import option function validate variable ' +

@@ -6,7 +6,7 @@ Website: https://github.com/stylus/stylus
 Category: css
 */
 
-function(hljs) {
+export default function(hljs) {
 
   var VARIABLE = {
     className: 'variable',

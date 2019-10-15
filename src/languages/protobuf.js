@@ -6,7 +6,7 @@ Website: https://developers.google.com/protocol-buffers/docs/proto3
 Category: protocols
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     keywords: {
       keyword: 'package import option optional required repeated group oneof',

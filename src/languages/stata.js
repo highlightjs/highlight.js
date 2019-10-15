@@ -11,7 +11,7 @@ Category: scientific
   This is a fork and modification of Drew McDonald's file (https://github.com/drewmcdonald/stata-highlighting). I have also included a list of builtin commands from https://bugs.kde.org/show_bug.cgi?id=135646.
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     aliases: ['do', 'ado'],
     case_insensitive: true,

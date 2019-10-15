@@ -6,7 +6,7 @@ Website: https://www.vim.org
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     lexemes: /[!#@\w]+/,
     keywords: {

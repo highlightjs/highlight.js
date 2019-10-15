@@ -5,7 +5,7 @@ Description: Excel formulae
 Website: https://products.office.com/en-us/excel/
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     aliases: ['xlsx', 'xls'],
     case_insensitive: true,

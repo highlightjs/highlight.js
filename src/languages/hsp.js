@@ -5,7 +5,7 @@ Website: https://en.wikipedia.org/wiki/Hot_Soup_Processor
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     case_insensitive: true,
     lexemes: /[\w\._]+/,

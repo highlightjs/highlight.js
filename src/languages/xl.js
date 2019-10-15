@@ -5,7 +5,7 @@ Description: An extensible programming language, based on parse tree rewriting
 Website: http://xlr.sf.net
 */
 
-function(hljs) {
+export default function(hljs) {
   var BUILTIN_MODULES =
     'ObjectLoader Animate MovieCredits Slides Filters Shading Materials LensFlare Mapping VLCAudioVideo ' +
     'StereoDecoder PointCloud NetworkAccess RemoteControl RegExp ChromaKey Snowfall NodeJS Speech Charts';

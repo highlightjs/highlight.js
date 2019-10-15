@@ -64,6 +64,7 @@ regex.replaces = new RegExp(
 regex.classname = /(block|parentNode)\.cN/g;
 
 regex.header = /^\s*(\/\*((.|\r?\n)*?)\*\/)?\s*/;
+regex.exportDefault = /export default /
 
 regex.apiReplacesFrom = /\bvar\s*API_REPLACES\b/;
 regex.apiReplacesTo = `var API_REPLACES = ${JSON.stringify(REPLACES)}`;

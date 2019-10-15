@@ -6,7 +6,7 @@ Website: https://www.php.net
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   var VARIABLE = {
     begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
   };

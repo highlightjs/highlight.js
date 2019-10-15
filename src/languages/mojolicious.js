@@ -6,7 +6,7 @@ Description: Mojolicious .ep (Embedded Perl) templates
 Website: https://mojolicious.org
 Category: template
 */
-function(hljs) {
+export default function(hljs) {
   return {
     subLanguage: 'xml',
     contains: [

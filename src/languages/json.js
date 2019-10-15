@@ -6,7 +6,7 @@ Website: http://www.json.org
 Category: common, protocols
 */
 
-function(hljs) {
+export default function(hljs) {
   var LITERALS = {literal: 'true false null'};
   var ALLOWED_COMMENTS = [
     hljs.C_LINE_COMMENT_MODE,

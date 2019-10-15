@@ -5,7 +5,7 @@ Description: Plain text without any highlighting.
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
     return {
         disableAutodetect: true
     };

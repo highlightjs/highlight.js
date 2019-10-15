@@ -6,7 +6,7 @@ Category: common, system
 Website: https://isocpp.org
 */
 
-function(hljs) {
+export default function(hljs) {
   var CPP_PRIMITIVE_TYPES = {
     className: 'keyword',
     begin: '\\b[a-z\\d_]*_t\\b'

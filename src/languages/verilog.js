@@ -6,7 +6,7 @@ Description: Verilog is a hardware description language used in electronic desig
 Website: http://www.verilog.com
 */
 
-function(hljs) {
+export default function(hljs) {
   var SV_KEYWORDS = {
     keyword:
       'accept_on alias always always_comb always_ff always_latch and assert assign ' +

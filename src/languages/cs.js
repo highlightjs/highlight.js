@@ -6,7 +6,7 @@ Website: https://docs.microsoft.com/en-us/dotnet/csharp/
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:
       // Normal keywords.
