@@ -17,3 +17,14 @@ start-key: |
 # ******************************************************************************
 # *                             COMMENT BLOCK HERE                             *
 # ******************************************************************************
+with-indicator: |3
+   fff
+    ggg
+with-chomp: |-
+  jjj
+  kkk
+with-both: |3-
+   ggg
+   hhh
+   # not a comment
+# comment starts here

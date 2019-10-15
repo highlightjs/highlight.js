@@ -17,3 +17,14 @@
 </span><span class="hljs-comment"># ******************************************************************************</span>
 <span class="hljs-comment"># *                             COMMENT BLOCK HERE                             *</span>
 <span class="hljs-comment"># ******************************************************************************</span>
+<span class="hljs-attr">with-indicator:</span> <span class="hljs-string">|3</span>
+   <span class="hljs-string">fff</span>
+    <span class="hljs-string">ggg</span>
+<span class="hljs-attr">with-chomp:</span> <span class="hljs-string">|-
+  jjj
+  kkk
+</span><span class="hljs-attr">with-both:</span> <span class="hljs-string">|3-
+   ggg
+   hhh
+   # not a comment
+</span><span class="hljs-comment"># comment starts here</span>
