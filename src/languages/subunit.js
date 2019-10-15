@@ -1,7 +1,7 @@
 /*
 Language: SubUnit
 Author: Sergey Bronnikov <sergeyb@bronevichok.ru>
-Website: https://bronevichok.ru/
+Website: https://pypi.org/project/python-subunit/
 */
 
 function(hljs) {

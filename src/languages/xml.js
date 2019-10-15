@@ -1,5 +1,6 @@
 /*
 Language: HTML, XML
+Website: https://www.w3.org/XML/
 Category: common
 */
 
@@ -33,7 +34,7 @@ function(hljs) {
     ]
   };
   return {
-    aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist', 'wsf'],
+    aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist', 'wsf', 'svg'],
     case_insensitive: true,
     contains: [
       {
@@ -94,7 +95,7 @@ function(hljs) {
         contains: [TAG_INTERNALS],
         starts: {
           end: '\<\/script\>', returnEnd: true,
-          subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml', 'vbscript']
+          subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
         }
       },
       {

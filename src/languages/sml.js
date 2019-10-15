@@ -1,7 +1,8 @@
 /*
-Language: SML
+Language: SML (Standard ML)
 Author: Edwin Dalorzo <edwin@dalorzo.org>
 Description: SML language definition.
+Website: https://www.smlnj.org
 Origin: ocaml.js
 Category: functional
 */

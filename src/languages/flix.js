@@ -2,6 +2,7 @@
  Language: Flix
  Category: functional
  Author: Magnus Madsen <mmadsen@uwaterloo.ca>
+ Website: https://flix.dev/
  */
 
 function (hljs) {

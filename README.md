@@ -99,7 +99,7 @@ work for you, you can specify the language in the `class` attribute:
 | Golo                    | golo, gololang         |         |
 | Gradle                  | gradle                 |         |
 | Groovy                  | groovy                 |         |
-| HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist | |
+| HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist, svg | |
 | HTTP                    | http, https            |         |
 | Haml                    | haml                   |         |
 | Handlebars              | handlebars, hbs, html.hbs, html.handlebars        | |
@@ -151,7 +151,7 @@ work for you, you can specify the language in the `class` attribute:
 | Plaintext: no highlight | plaintext              |         |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
-| PowerShell              | powershell, ps         |         |
+| PowerShell              | powershell, ps, ps1    |         |
 | Processing              | processing             |         |
 | Prolog                  | prolog                 |         |
 | Properties              | properties             |         |
@@ -287,6 +287,28 @@ onmessage = (event) => {
 };
 ```
 
+## Node.js
+
+You can use highlight.js with node to highlight content before sending it to the browser. 
+Make sure to use the `.value` property to get the formatted html. 
+For more info about the returned object refer to the api docs https://highlightjs.readthedocs.io/en/latest/api.html
+
+
+```js
+// require the highlight.js library including all languages
+const hljs = require('./highlight.js');
+const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
+```
+
+```js
+// require the highlight.js library without languages
+const hljs = require("highlight.js/lib/highlight.js");
+// separately require languages
+hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
+hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
+// highlight with providing the language
+const highlightedCode = hljs.highlight('html', '<span>Hello World!</span>').value
+```
 
 ## Getting the Library
 

@@ -8,10 +8,10 @@
 <span class="hljs-symbol">ok</span>
 <span class="hljs-symbol">ok</span>
   <span class="yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">  message:</span> <span class="hljs-string">"Board layout"</span>
-<span class="hljs-attr">  severity:</span> <span class="hljs-string">comment</span>
-<span class="hljs-attr">  dump:</span>
-<span class="hljs-attr">     board:</span>
+  <span class="hljs-attr">message:</span> <span class="hljs-string">"Board layout"</span>
+  <span class="hljs-attr">severity:</span> <span class="hljs-string">comment</span>
+  <span class="hljs-attr">dump:</span>
+     <span class="hljs-attr">board:</span>
 <span class="hljs-bullet">       -</span> <span class="hljs-string">'      16G         05C        '</span>
 <span class="hljs-bullet">       -</span> <span class="hljs-string">'      G N C       C C G      '</span>
 <span class="hljs-bullet">       -</span> <span class="hljs-string">'        G           C  +     '</span>

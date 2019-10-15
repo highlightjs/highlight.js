@@ -31,16 +31,16 @@
   },
   "devDependencies": {
     "bluebird": "^3.5.5",
-    "commander": "^3.0.0",
-    "del": "^5.0.0",
+    "commander": "^3.0.1",
+    "del": "^5.1.0",
     "gear-lib": "github:highlightjs/gear-lib",
     "gear": "github:highlightjs/gear",
     "glob": "^7.1.4",
-    "js-beautify": "^1.10.1",
+    "js-beautify": "^1.10.2",
     "jsdom": "^15.1.1",
     "lodash": "^4.17.15",
     "mocha": "^6.2.0",
     "should": "^13.2.3",
-    "tiny-worker": "^2.2.0"
+    "tiny-worker": "^2.3.0"
   }
 }
