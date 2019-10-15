@@ -54,7 +54,7 @@ https://highlightjs.org/
     tabReplace: null,
     useBR: false,
     languages: undefined,
-    langAttribute: false
+    addLanguageAttr: false
   };
 
 
@@ -708,8 +708,8 @@ https://highlightjs.org/
 
     block.innerHTML = result.value;
     block.className = buildClassName(block.className, language, result.language);
-    if(options.langAttribute)
-       block.setAttribute('data-lang',result.language);
+    if(options.addLanguageAttr)
+       block.setAttribute('data-language',result.language);
     block.result = {
       language: result.language,
       re: result.relevance
