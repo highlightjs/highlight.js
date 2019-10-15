@@ -1,9 +1,6 @@
 let hljs = require('../../build');
 
 describe("bugs", function () {
-  after(function() {
-    hljs.deregisterLanguage("test-language")
-  })
 
   describe("modes containing 'endsWithParent'", function () {
     it("should be allowed to be reused", function () {
