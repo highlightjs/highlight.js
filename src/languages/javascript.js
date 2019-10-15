@@ -1,6 +1,8 @@
 /*
 Language: JavaScript
+Description: JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
 Category: common, scripting
+Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
 function(hljs) {
@@ -106,7 +108,7 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       NUMBER,
       { // object attr container
-        begin: /[{,]\s*/, relevance: 0,
+        begin: /[{,\n]\s*/, relevance: 0,
         contains: [
           {
             begin: IDENT_RE + '\\s*:', returnBegin: true,

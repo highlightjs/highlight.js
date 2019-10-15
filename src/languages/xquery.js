@@ -4,6 +4,7 @@ Author: Dirk Kirsten <dk@basex.org>
 Contributor: Duncan Paterson
 Description: Supports XQuery 3.1 including XQuery Update 3, so also XPath (as it is a superset)
 Refactored to process xml constructor syntax and function-bodies. Added missing data-types, xpath operands, inbuilt functions, and query prologs
+Website: https://www.w3.org/XML/Query/
 Category: functional
 */
 

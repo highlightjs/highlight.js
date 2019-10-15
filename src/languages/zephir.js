@@ -1,6 +1,8 @@
 /*
  Language: Zephir
+ Description: Zephir, an open source, high-level language designed to ease the creation and maintainability of extensions for PHP with a focus on type and memory safety.
  Author: Oleg Efimov <efimovov@gmail.com>
+ Website: https://zephir-lang.com/en
  */
 
 function(hljs) {

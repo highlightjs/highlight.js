@@ -4,6 +4,7 @@ Author: Taneli Vatanen <taneli.vatanen@gmail.com>
 Contributors: Jen Evers-Corvina <jen@sevvie.net>
 Origin: coffeescript.js
 Description: LiveScript is a programming language that transcompiles to JavaScript. For info about language see http://livescript.net/
+Website: https://livescript.net
 Category: scripting
 */
 

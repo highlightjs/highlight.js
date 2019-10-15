@@ -2,6 +2,7 @@
 Language: MEL
 Description: Maya Embedded Language
 Author: Shuen-Huei Guan <drake.guan@gmail.com>
+Website: http://www.autodesk.com/products/autodesk-maya/overview
 Category: graphics
 */
 

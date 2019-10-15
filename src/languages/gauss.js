@@ -1,8 +1,9 @@
 /*
 Language: GAUSS
 Author: Matt Evans <matt@aptech.com>
-Category: scientific
 Description: GAUSS Mathematical and Statistical language
+Website: https://www.aptech.com
+Category: scientific
 */
 function(hljs) {
   var KEYWORDS = {
