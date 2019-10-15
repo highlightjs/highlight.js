@@ -54,3 +54,13 @@ a.method 6 #=> 10
 
 f = !-> 2
 g = (x) !-> x + 2
+
+result = switch 'test'
+case 'blatant'
+  'effort'
+  fallthrough
+case 'at'
+  'increasing'
+  fallthrough
+case 'relevance'
+  void
