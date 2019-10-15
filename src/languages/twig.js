@@ -7,7 +7,7 @@ Website: https://twig.symfony.com
 Category: template
 */
 
-function(hljs) {
+export default function(hljs) {
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)'

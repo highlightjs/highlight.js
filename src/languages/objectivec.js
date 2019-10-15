@@ -6,7 +6,7 @@ Website: https://developer.apple.com/documentation/objectivec
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   var API_CLASS = {
     className: 'built_in',
     begin: '\\b(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)\\w+',

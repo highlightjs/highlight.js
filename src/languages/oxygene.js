@@ -5,7 +5,7 @@ Description: Oxygene is built on the foundation of Object Pascal, revamped and e
 Website: https://www.elementscompiler.com/elements/default.aspx
 */
 
-function(hljs) {
+export default function(hljs) {
   var OXYGENE_KEYWORDS = 'abstract add and array as asc aspect assembly async begin break block by case class concat const copy constructor continue '+
     'create default delegate desc distinct div do downto dynamic each else empty end ensure enum equals event except exit extension external false '+
     'final finalize finalizer finally flags for forward from function future global group has if implementation implements implies in index inherited '+

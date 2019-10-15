@@ -5,7 +5,7 @@ Description: Mercury is a logic/functional programming language which combines t
 Website: https://www.mercurylang.org
 */
 
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:
       'module use_module import_module include_module end_module initialise ' +

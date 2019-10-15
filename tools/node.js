@@ -10,7 +10,8 @@ let utility     = require('./utility');
 
 let directory, filterCB,
     languages = utility.glob(path.join('src', 'languages', '*.js')),
-    header    = utility.regex.header;
+    header    = utility.regex.header,
+    exportDefault = utility.regex.exportDefault;
 
 function templateAllFunc(blobs) {
   const names = _.map(blobs, blob => path.basename(blob.name, '.js'));
@@ -23,6 +24,7 @@ function buildLanguages() {
       output = path.join(directory.build, 'lib', 'languages'),
 
       replaceArgs = utility.replace(header, ''),
+      replaceExportDefault = utility.replace(exportDefault,""),
       template    = 'module.exports = <%= content %>;';
 
   return {
@@ -30,7 +32,8 @@ function buildLanguages() {
     read: { requires: 'logStart', task: ['glob', input] },
     filter: { requires: 'read', task: ['filter', filterCB] },
     replace: { requires: 'filter', task: ['replace', replaceArgs] },
-    template: { requires: 'replace', task: ['template', template] },
+    replace2: { requires: 'replace', task: ['replace', replaceExportDefault] },
+    template: { requires: 'replace2', task: ['template', template] },
     writeLog: {
       requires: 'template',
       task: ['log', 'Writing language files.']

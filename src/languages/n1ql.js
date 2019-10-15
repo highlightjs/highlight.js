@@ -6,7 +6,7 @@
  Website: https://www.couchbase.com/products/n1ql
  */
 
-function(hljs) {
+export default function(hljs) {
   return {
     case_insensitive: true,
     contains: [

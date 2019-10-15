@@ -5,7 +5,7 @@
  Website: https://flix.dev/
  */
 
-function (hljs) {
+export default function (hljs) {
 
     var CHAR = {
         className: 'string',

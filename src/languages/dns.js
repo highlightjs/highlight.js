@@ -5,7 +5,7 @@ Category: config
 Website: https://en.wikipedia.org/wiki/Zone_file
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     aliases: ['bind', 'zone'],
     keywords: {

@@ -34,11 +34,13 @@
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
     "commander": "^4.0.0",
+    "clean-css": "^4.2.1",
     "del": "^5.1.0",
     "gear": "github:highlightjs/gear",
     "gear-lib": "github:highlightjs/gear-lib",
     "glob": "^7.1.4",
     "handlebars": "^4.5.3",
+    "glob-promise": "^3.4.0",
     "js-beautify": "^1.10.2",
     "jsdom": "^16.0.1",
     "lodash": "^4.17.15",
@@ -46,6 +48,7 @@
     "rollup": "^1.27.8",
     "rollup-plugin-commonjs": "^10.1.0",
     "should": "^13.2.3",
+    "terser": "^4.3.9",
     "tiny-worker": "^2.3.0"
   },
   "dependencies": {}

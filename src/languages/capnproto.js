@@ -6,7 +6,7 @@ Website: https://capnproto.org/capnp-tool.html
 Category: protocols
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     aliases: ['capnp'],
     keywords: {

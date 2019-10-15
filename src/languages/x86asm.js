@@ -6,7 +6,7 @@ Website: https://en.wikipedia.org/wiki/X86_assembly_language
 Category: assembler
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     case_insensitive: true,
     lexemes: '[.%]?' + hljs.IDENT_RE,

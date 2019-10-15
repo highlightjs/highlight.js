@@ -80,6 +80,7 @@ tasks.template = function(template, blob, done) {
 tasks.templateAll = function(options, blobs, done) {
   return options.callback(blobs)
     .then(function(data) {
+
       let template = options.template || data.template,
           content  = _.template(template)(data);
 

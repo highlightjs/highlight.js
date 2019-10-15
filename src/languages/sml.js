@@ -6,7 +6,7 @@ Website: https://www.smlnj.org
 Origin: ocaml.js
 Category: functional
 */
-function(hljs) {
+export default function(hljs) {
   return {
     aliases: ['ml'],
     keywords: {

@@ -6,7 +6,7 @@ Description: VHDL is a hardware description language used in electronic design a
 Website: https://en.wikipedia.org/wiki/VHDL
 */
 
-function(hljs) {
+export default function(hljs) {
   // Regular expression for VHDL numeric literals.
 
   // Decimal literal:

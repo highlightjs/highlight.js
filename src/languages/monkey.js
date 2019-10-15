@@ -5,7 +5,7 @@ Author: Arthur Bikmullin <devolonter@gmail.com>
 Website: https://blitzresearch.itch.io/monkey2
 */
 
-function(hljs) {
+export default function(hljs) {
   var NUMBER = {
     className: 'number', relevance: 0,
     variants: [

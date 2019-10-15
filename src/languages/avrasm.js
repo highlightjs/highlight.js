@@ -5,7 +5,7 @@ Category: assembler
 Website: https://www.microchip.com/webdoc/avrassembler/avrassembler.wb_instruction_list.html
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     case_insensitive: true,
     lexemes: '\\.?' + hljs.IDENT_RE,

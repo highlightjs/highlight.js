@@ -4,7 +4,7 @@ Author: Hale Chan <halechan@qq.com>
 Description: Based on the Leaf reference from https://vapor.github.io/documentation/guide/leaf.html.
 */
 
-function (hljs) {
+export default function (hljs) {
   return {
     contains: [
       {

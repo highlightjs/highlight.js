@@ -6,7 +6,7 @@ Website: https://www.parser.ru/en/
 Category: template
 */
 
-function(hljs) {
+export default function(hljs) {
   var CURLY_SUBCOMMENT = hljs.COMMENT(
     '{',
     '}',

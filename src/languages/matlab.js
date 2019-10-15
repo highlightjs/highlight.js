@@ -10,7 +10,7 @@ Category: scientific
   Formal syntax is not published, helpful link:
   https://github.com/kornilova-l/matlab-IntelliJ-plugin/blob/master/src/main/grammar/Matlab.bnf
 */
-function(hljs) {
+export default function(hljs) {
 
   var TRANSPOSE_RE = '(\'|\\.\')+';
   var TRANSPOSE = {

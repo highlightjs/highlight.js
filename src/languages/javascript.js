@@ -5,7 +5,7 @@ Category: common, scripting
 Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
-function(hljs) {
+export default function(hljs) {
   var FRAGMENT = {
     begin: '<>',
     end: '</>'

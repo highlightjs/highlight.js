@@ -7,7 +7,7 @@ Website: https://www.typescriptlang.org
 Category: common, scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var KEYWORDS = {
     keyword:

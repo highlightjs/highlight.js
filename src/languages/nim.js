@@ -5,7 +5,7 @@ Website: https://nim-lang.org
 Category: system
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     aliases: ['nim'],
     keywords: {

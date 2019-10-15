@@ -5,7 +5,7 @@ Website: https://reasonml.github.io
 Author: Gidi Meir Morris <oss@gidi.io>
 Category: functional
 */
-function(hljs) {
+export default function(hljs) {
   function orReValues(ops){
     return ops
     .map(function(op) {

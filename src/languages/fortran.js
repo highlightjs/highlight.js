@@ -5,7 +5,7 @@ Website: https://en.wikipedia.org/wiki/Fortran
 Category: scientific
 */
 
-function(hljs) {
+export default function(hljs) {
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)'
