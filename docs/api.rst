@@ -66,6 +66,7 @@ Configures global options:
 * ``useBR``: a flag to generate ``<br>`` tags instead of new-line characters in the output, useful when code is marked up using a non-``<pre>`` container.
 * ``classPrefix``: a string prefix added before class names in the generated markup, used for backwards compatibility with stylesheets.
 * ``languages``: an array of language names and aliases restricting auto detection to only these languages.
+* ``addLanguageAttr``: a flag to add a `data-language` attribute containing the current language.
 
 Accepts an object representing options with the values to updated. Other options don't change
 ::
