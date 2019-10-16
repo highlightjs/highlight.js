@@ -5,7 +5,7 @@
 require('./api');
 
 // Test weird bugs we've fixed over time
-require("./bugs")
+require("./parser")
 
 // Tests for auto detection of languages via `highlightAuto`.
 require('./detect');
