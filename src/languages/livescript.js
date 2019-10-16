@@ -111,7 +111,7 @@ function(hljs) {
   };
 
   var SYMBOLS = {
-    begin: '(#=>|=>|\\|>|>>|-?->|\\!->)'
+    begin: '(#=>|=>|\\|>>|-?->|\\!->)'
   };
 
   return {
