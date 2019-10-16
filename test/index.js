@@ -4,6 +4,9 @@
 // Right now, that only includes tests for several common regular expressions.
 require('./api');
 
+// Test weird bugs we've fixed over time
+require("./parser")
+
 // Tests for auto detection of languages via `highlightAuto`.
 require('./detect');
 

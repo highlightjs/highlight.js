@@ -2,6 +2,11 @@
 
 let bluebird = require('bluebird');
 let fs       = bluebird.promisifyAll(require('fs'));
+
+delete require.cache[require.resolve('../../build')]
+delete require.cache[require.resolve('../../build/lib/highlight')]
+
+
 let hljs     = require('../../build');
 let path     = require('path');
 let utility  = require('../utility');
