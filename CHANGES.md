@@ -9,6 +9,7 @@ New styles:
 Improvements:
 - blacklist super-common keywords from having relevance (#2179)
 - fix(swift): support for `@dynamicMemberLookup` and `@propertyWrapper` (#2202)
+- fix: `endWithParent` inside `starts` now always works (#2201)
 - fix(typescript): constructor in declaration doesn't break highlighting
 - fix(typescript): only match function keyword as a separate identifier (#2191)
 - feature(arduino) make arduino a super-set of cpp grammar
