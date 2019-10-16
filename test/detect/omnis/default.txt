@@ -1,0 +1,12 @@
+# My comment $thing is ok?
+Calculate lVar as $cinst.$objs.$whatever
+
+If (lVar=12.43)
+Do $cinst.$somemethod("My Message as a string", kSomeConstant) Returns #F
+End If
+
+For lVar from 1 to 100
+# Do something
+End For
+
+Quit method 'Whatever'  ## Inline comment

@@ -280,4 +280,5 @@ Contributors:
 - Yuri Mazursky <mail@colomolome.com>
 - Carl Baxter <carl@cbax.tech>
 - Thomas Reichel <tom.p.reichel@gmail.com>
+- Jason Gissing <jasongiss1@gmail.com>
 

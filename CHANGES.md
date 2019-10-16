@@ -1,6 +1,7 @@
 ## Master
 
 New languages:
+- *Omnis* by [Jason Gissing][]
 
 New styles:
 - *Night Owl* by [Carl Baxter][]
@@ -27,6 +28,7 @@ Improvements:
 - fix(cpp): add `future` built-in (#1610)
 
 [Carl Baxter]: https://github.com/cdbax
+[Jason Gissing]: https://github.com/jasongiss
 
 ## Version 9.15.10
 New languages:
