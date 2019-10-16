@@ -14,7 +14,7 @@ Improvements:
 - fix(javascript): fix object attributes immediately following line comments
 - fix(xml): remove `vbscript` as potential script tag subLanguage
 - fix(Elixir): improve regex for numbers
-- fix(YAML): improve matching for keys
+- fix(YAML): improve matching for keys, blocks and numbers
 - fix(Pony): improve regex for numbers
 - fix(handlebars): add support for raw-blocks, and triple-mustaches(#2175)
 - fix(handlebars): fix parsing of block-comments containing closing mustaches (#2175)

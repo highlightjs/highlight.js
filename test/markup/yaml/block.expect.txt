@@ -1,0 +1,30 @@
+<span class="hljs-bullet">-</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">|
+ block node
+</span><span class="hljs-bullet">-</span> <span class="hljs-bullet">-</span> <span class="hljs-string">one</span> <span class="hljs-comment"># Compact</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">two</span> <span class="hljs-comment"># sequence</span>
+<span class="hljs-bullet">-</span> <span class="hljs-attr">one:</span> <span class="hljs-string">two</span> <span class="hljs-comment"># Compact mapping</span>
+<span class="hljs-attr">key_block:</span> <span class="hljs-string">|
+  first
+  second
+  third
+</span><span class="hljs-attr">gt_block:</span> <span class="hljs-string">&gt;
+     once
+     twice
+</span><span class="hljs-attr">start-key:</span> <span class="hljs-string">|
+  &lt;!-- example of
+     some valid string content--&gt;
+</span><span class="hljs-comment"># ******************************************************************************</span>
+<span class="hljs-comment"># *                             COMMENT BLOCK HERE                             *</span>
+<span class="hljs-comment"># ******************************************************************************</span>
+<span class="hljs-attr">with-indicator:</span> <span class="hljs-string">|3</span>
+   <span class="hljs-string">fff</span>
+    <span class="hljs-string">ggg</span>
+<span class="hljs-attr">with-chomp:</span> <span class="hljs-string">|-
+  jjj
+  kkk
+</span><span class="hljs-attr">with-both:</span> <span class="hljs-string">|3-
+   ggg
+   hhh
+   # not a comment
+</span><span class="hljs-comment"># comment starts here</span>
