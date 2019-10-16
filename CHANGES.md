@@ -16,7 +16,9 @@ Improvements:
 - fix(Elixir): improve regex for numbers
 - fix(YAML): improve matching for keys, blocks and numbers
 - fix(Pony): improve regex for numbers
-- fix(handlebars): add support for raw-blocks and triple-mustaches (#2175)
+- fix(handlebars): add support for raw-blocks, and triple-mustaches(#2175)
+- fix(handlebars): fix parsing of block-comments containing closing mustaches (#2175)
+- fix(handlebars): add support for segment-literal notation, and escaped mustaches (#2184)
 - JSON: support for comments in JSON (#2016)
 - fix(cpp): improve string literal matching
 - fix(highlight.js): omit empty span-tags in the output (#2182)
