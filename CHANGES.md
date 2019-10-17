@@ -1,11 +1,10 @@
 ## Master
 
-New languages:
-
 New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- added Dockerfile for optionally developing with a container
 - blacklist super-common keywords from having relevance (#2179)
 - fix(swift): support for `@dynamicMemberLookup` and `@propertyWrapper` (#2202)
 - fix: `endWithParent` inside `starts` now always works (#2201)

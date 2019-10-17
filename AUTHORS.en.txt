@@ -19,6 +19,7 @@ Former maintainers:
 Contributors:
 
 - Peter Leonov <gojpeg@gmail.com>
+- Vanessa Sochat <@vsoch>
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
 - Anton Kovalyov <anton@kovalyov.net>
