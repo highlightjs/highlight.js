@@ -26,6 +26,7 @@ Improvements:
 - fix(Go): improve function declaration matching
 - fix(python): added support for f-string literal curly braces (#2195)
 - fix(cpp): add `future` built-in (#1610)
+- fix(python): support comments within function parameters (#2214)
 
 [Carl Baxter]: https://github.com/cdbax
 
