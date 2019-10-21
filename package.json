@@ -35,7 +35,7 @@
     "del": "^5.1.0",
     "gear": "github:highlightjs/gear",
     "gear-lib": "github:highlightjs/gear-lib",
-    "glob": "^7.1.4",
+    "glob": "^7.1.5",
     "js-beautify": "^1.10.2",
     "jsdom": "^15.1.1",
     "lodash": "^4.17.15",
