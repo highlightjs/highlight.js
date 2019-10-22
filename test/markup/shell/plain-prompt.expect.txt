@@ -1,0 +1,2 @@
+<span class="hljs-meta">&gt;</span><span class="bash"> foo</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> /bin/sh</span>
