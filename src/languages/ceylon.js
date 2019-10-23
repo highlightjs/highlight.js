@@ -1,6 +1,7 @@
 /*
 Language: Ceylon
 Author: Lucas Werkmeister <mail@lucaswerkmeister.de>
+Website: https://ceylon-lang.org
 */
 function(hljs) {
   // 2.3. Identifiers and keywords

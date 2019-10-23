@@ -1,24 +1,34 @@
 ## Master
 
 New languages:
+  none.
 
 New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- improve parser to properly support look-ahead regex in begin matchers (#2135)
+- blacklist super-common keywords from having relevance (#2179)
+- fix(swift): support for `@dynamicMemberLookup` and `@propertyWrapper` (#2202)
+- fix: `endWithParent` inside `starts` now always works (#2201)
 - fix(typescript): constructor in declaration doesn't break highlighting
+- fix(typescript): only match function keyword as a separate identifier (#2191)
 - feature(arduino) make arduino a super-set of cpp grammar
 - fix(javascript): fix object attributes immediately following line comments
 - fix(xml): remove `vbscript` as potential script tag subLanguage
 - fix(Elixir): improve regex for numbers
-- fix(YAML): improve matching for keys
+- fix(YAML): improve matching for keys, blocks and numbers
 - fix(Pony): improve regex for numbers
-- fix(handlebars): add support for raw-blocks and triple-mustaches (#2175)
+- fix(handlebars): add support for raw-blocks, and triple-mustaches(#2175)
+- fix(handlebars): fix parsing of block-comments containing closing mustaches (#2175)
+- fix(handlebars): add support for segment-literal notation, and escaped mustaches (#2184)
 - JSON: support for comments in JSON (#2016)
 - fix(cpp): improve string literal matching
 - fix(highlight.js): omit empty span-tags in the output (#2182)
 - fix(Go): improve function declaration matching
 - fix(python): added support for f-string literal curly braces (#2195)
+- fix(cpp): add `future` built-in (#1610)
+- fix(python): support comments within function parameters (#2214)
 
 [Carl Baxter]: https://github.com/cdbax
 

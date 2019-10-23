@@ -2,6 +2,7 @@
 Language: AngelScript
 Author: Melissa Geels <melissa@nimble.tools>
 Category: scripting
+Website: https://www.angelcode.com/angelscript/
 */
 
 function(hljs) {

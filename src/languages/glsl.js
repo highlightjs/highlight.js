@@ -2,6 +2,7 @@
 Language: GLSL
 Description: OpenGL Shading Language
 Author: Sergey Tikhomirov <sergey@tikhomirov.io>
+Website: https://en.wikipedia.org/wiki/OpenGL_Shading_Language
 Category: graphics
 */
 

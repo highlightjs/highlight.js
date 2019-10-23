@@ -1,7 +1,9 @@
 /*
 Language: PowerShell
+Description: PowerShell is a task-based command-line shell and scripting language built on .NET.
 Author: David Mohundro <david@mohundro.com>
 Contributors: Nicholas Blumhardt <nblumhardt@nblumhardt.com>, Victor Zhou <OiCMudkips@users.noreply.github.com>, Nicolas Le Gall <contact@nlegall.fr>
+Website: https://docs.microsoft.com/en-us/powershell/
 */
 
 function(hljs){

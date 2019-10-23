@@ -1,6 +1,8 @@
 /*
 Language: Tcl
+Description: Tcl is a very simple programming language.
 Author: Radek Liska <radekliska@gmail.com>
+Website: https://www.tcl.tk/about/language.html
 */
 
 function(hljs) {

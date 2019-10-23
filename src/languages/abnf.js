@@ -1,6 +1,7 @@
 /*
 Language: Augmented Backus-Naur Form
 Author: Alex McKibben <alex@nullscope.net>
+Website: https://tools.ietf.org/html/rfc5234
 */
 
 function(hljs) {
@@ -51,11 +52,8 @@ function(hljs) {
     };
 
     var ruleDeclarationMode = {
-        begin: regexes.ruleDeclaration + '\\s*=',
-        returnBegin: true,
-        end: /=/,
-        relevance: 0,
-        contains: [{className: "attribute", begin: regexes.ruleDeclaration}]
+        className: "attribute",
+        begin: regexes.ruleDeclaration + '(?=\\s*=)',
     };
 
     return {

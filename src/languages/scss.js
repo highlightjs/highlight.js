@@ -1,6 +1,8 @@
 /*
 Language: SCSS
+Description: Scss is an extension of the syntax of CSS.
 Author: Kurt Emch <kurt@kurtemch.com>
+Website: https://sass-lang.com
 Category: css
 */
 function(hljs) {

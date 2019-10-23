@@ -3,6 +3,7 @@ Language: TypeScript
 Author: Panu Horsmalahti <panu.horsmalahti@iki.fi>
 Contributors: Ike Ku <dempfi@yahoo.com>
 Description: TypeScript is a strict superset of JavaScript
+Website: https://www.typescriptlang.org
 Category: scripting
 */
 
@@ -171,7 +172,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        begin: 'function', end: /[\{;]/, excludeEnd: true,
+        beginKeywords: 'function', end: /[\{;]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           'self',

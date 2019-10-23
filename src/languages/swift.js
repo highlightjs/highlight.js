@@ -1,7 +1,9 @@
 /*
 Language: Swift
+Description: Swift is a general-purpose programming language built using a modern approach to safety, performance, and software design patterns.
 Author: Chris Eidhof <chris@eidhof.nl>
 Contributors: Nate Cook <natecook@gmail.com>, Alexander Lichter <manniL@gmx.net>
+Website: https://swift.org
 Category: system
 */
 
@@ -125,7 +127,8 @@ function(hljs) {
                   '@NSCopying|@NSManaged|@objc|@objcMembers|@convention|@required|' +
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
                   '@infix|@prefix|@postfix|@autoclosure|@testable|@available|' +
-                  '@nonobjc|@NSApplicationMain|@UIApplicationMain)'
+                  '@nonobjc|@NSApplicationMain|@UIApplicationMain|@dynamicMemberLookup|' +
+                  '@propertyWrapper)'
 
       },
       {

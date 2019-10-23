@@ -1,7 +1,9 @@
 /*
 Language: Lua
+Description: Lua is a powerful, efficient, lightweight, embeddable scripting language.
 Author: Andrew Fedorov <dmmdrs@mail.ru>
 Category: scripting
+Website: https://www.lua.org
 */
 
 function(hljs) {

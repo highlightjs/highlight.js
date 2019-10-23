@@ -4,6 +4,7 @@ Author: Taneli Vatanen <taneli.vatanen@gmail.com>
 Contributors: Jen Evers-Corvina <jen@sevvie.net>
 Origin: coffeescript.js
 Description: LiveScript is a programming language that transcompiles to JavaScript. For info about language see http://livescript.net/
+Website: https://livescript.net
 Category: scripting
 */
 
@@ -15,7 +16,7 @@ function(hljs) {
       'switch continue typeof delete debugger case default function var with ' +
       // LiveScript keywords
       'then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super ' +
-      'case default function var void const let enum export import native ' +
+      'case default function var void const let enum export import native list map ' +
       '__hasProp __extends __slice __bind __indexOf',
     literal:
       // JS literals
@@ -80,7 +81,7 @@ function(hljs) {
         {
           // regex can't start with space to parse x / 2 / 3 as two divisions
           // regex can't start with *, and it supports an "illegal" in the main mode
-          begin: /\/(?![ *])(\\\/|.)*?\/[gim]*(?=\W|$)/
+          begin: /\/(?![ *])(\\\/|.)*?\/[gim]*(?=\W)/
         }
       ]
     },
@@ -109,6 +110,10 @@ function(hljs) {
     ]
   };
 
+  var SYMBOLS = {
+    begin: '(#=>|=>|\\|>>|-?->|\\!->)'
+  };
+
   return {
     aliases: ['ls'],
     keywords: KEYWORDS,
@@ -116,6 +121,7 @@ function(hljs) {
     contains: EXPRESSIONS.concat([
       hljs.COMMENT('\\/\\*', '\\*\\/'),
       hljs.HASH_COMMENT_MODE,
+      SYMBOLS, // relevance booster
       {
         className: 'function',
         contains: [TITLE, PARAMS],

@@ -1,6 +1,8 @@
 /*
 Language: Mathematica
+Description: Wolfram Mathematica (usually termed Mathematica) is a modern technical computing system spanning most areas of technical computing.
 Authors: Daniel Kvasnicka <dkvasnicka@vendavo.com>, Jan Poeschko <jan@poeschko.com>
+Website: https://www.wolfram.com/mathematica/
 Category: scientific
 */
 
