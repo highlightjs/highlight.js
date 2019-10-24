@@ -7,6 +7,7 @@ New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- (accesslog) improve accesslog relevancy scoring (#2172)
 - improve parser to properly support look-ahead regex in begin matchers (#2135)
 - blacklist super-common keywords from having relevance (#2179)
 - fix(swift): support for `@dynamicMemberLookup` and `@propertyWrapper` (#2202)
