@@ -7,6 +7,7 @@ New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- fix dropping characters if we choke up on a 0-width match (#2219)
 - improve parser to properly support look-ahead regex in begin matchers (#2135)
 - blacklist super-common keywords from having relevance (#2179)
 - fix(swift): support for `@dynamicMemberLookup` and `@propertyWrapper` (#2202)
