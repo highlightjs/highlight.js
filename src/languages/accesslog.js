@@ -6,6 +6,10 @@
  */
 
 function(hljs) {
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+  var HTTP_VERBS = [
+    "GET", "POST", "HEAD", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH", "TRACE"
+  ]
   return {
     contains: [
       // IP
@@ -23,8 +27,8 @@ function(hljs) {
       // Requests
       {
         className: 'string',
-        begin: '"(GET|POST|HEAD|PUT|DELETE|CONNECT|OPTIONS|PATCH|TRACE)', end: '"',
-        keywords: 'GET POST HEAD PUT DELETE CONNECT OPTIONS PATCH TRACE',
+        begin: '"(' + HTTP_VERBS.join("|") + ')', end: '"',
+        keywords: HTTP_VERBS.join(" "),
         illegal: '\\n',
         relevance: 5,
         contains: [{
@@ -46,21 +50,21 @@ function(hljs) {
         className: 'string',
         begin: /\[/, end: /\]/,
         illegal: '\\n',
-        relevance:0
+        relevance: 0
       },
-      // Popular user agents
+      // User agent / relevance boost
       {
         className: 'string',
-        begin: '"(Googlebot|Mozilla)/\\d\\.', end: '"',
+        begin: '"Mozilla/\\d\\.\\d \\\(', end: '"',
         illegal: '\\n',
-        relevance:3
+        relevance: 3
       },
       // Strings
       {
         className: 'string',
         begin: '"', end: '"',
         illegal: '\\n',
-        relevance:0
+        relevance: 0
       }
     ]
   };
