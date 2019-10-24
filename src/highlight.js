@@ -4,6 +4,8 @@ https://highlightjs.org/
 */
 
 import deepFreeze from './vendor/deep_freeze';
+import TokenTree from './lib/token_tree';
+import HTMLRenderer from './lib/html_renderer';
 import * as regex from './lib/regex';
 import * as utils from './lib/utils';
 import * as MODES from './lib/modes';
@@ -11,10 +13,12 @@ import { compileLanguage } from './lib/mode_compiler';
 
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
+
 const { nodeStream, mergeStreams } = utils;
 
 
 const HLJS = function(hljs) {
+
   // Convenience variables for build-in objects
   var ArrayProto = [];
 
@@ -107,49 +111,48 @@ const HLJS = function(hljs) {
       return mode.keywords.hasOwnProperty(match_str) && mode.keywords[match_str];
     }
 
-    function buildSpan(className, insideSpan, leaveOpen, noPrefix) {
-      if (!leaveOpen && insideSpan === '') return '';
-      if (!className) return insideSpan;
-
-      var classPrefix = noPrefix ? '' : options.classPrefix,
-          openSpan    = '<span class="' + classPrefix,
-          closeSpan   = leaveOpen ? '' : spanEndTag;
-
-      openSpan += className + '">';
-
-      return openSpan + insideSpan + closeSpan;
-    }
-
     function processKeywords() {
-      var keyword_match, last_index, match, result;
+      var keyword_match, last_index, match, result, buf;
 
-      if (!top.keywords)
-        return escape(mode_buffer);
+      if (!top.keywords) {
+        emitter.addText(mode_buffer);
+        return;
+      }
 
-      result = '';
       last_index = 0;
       top.lexemesRe.lastIndex = 0;
       match = top.lexemesRe.exec(mode_buffer);
+      buf = "";
 
       while (match) {
-        result += escape(mode_buffer.substring(last_index, match.index));
+        buf += mode_buffer.substring(last_index, match.index);
         keyword_match = keywordMatch(top, match);
+        var kind = null;
         if (keyword_match) {
+          emitter.addText(buf);
+          buf = "";
+
           relevance += keyword_match[1];
-          result += buildSpan(keyword_match[0], escape(match[0]));
+          kind = keyword_match[0];
+          emitter.addKeyword(match[0], kind);
         } else {
-          result += escape(match[0]);
+          buf += match[0];
         }
         last_index = top.lexemesRe.lastIndex;
         match = top.lexemesRe.exec(mode_buffer);
       }
-      return result + escape(mode_buffer.substr(last_index));
+      buf += mode_buffer.substr(last_index);
+      emitter.addText(buf);
     }
 
     function processSubLanguage() {
+      if (mode_buffer === "") return;
+
       var explicit = typeof top.subLanguage === 'string';
+
       if (explicit && !languages[top.subLanguage]) {
-        return escape(mode_buffer);
+        emitter.addText(mode_buffer);
+        return;
       }
 
       var result = explicit ?
@@ -166,16 +169,18 @@ const HLJS = function(hljs) {
       if (explicit) {
         continuations[top.subLanguage] = result.top;
       }
-      return buildSpan(result.language, result.value, false, true);
+      emitter.addSublanguage(result.emitter, result.language)
     }
 
     function processBuffer() {
-      result += (top.subLanguage != null ? processSubLanguage() : processKeywords());
+      (top.subLanguage != null ? processSubLanguage() : processKeywords());
       mode_buffer = '';
     }
 
     function startNewMode(mode) {
-      result += mode.className? buildSpan(mode.className, '', true): '';
+      if (mode.className) {
+        emitter.openNode(mode.className)
+      }
       top = Object.create(mode, {parent: {value: top}});
     }
 
@@ -223,7 +228,7 @@ const HLJS = function(hljs) {
       }
       do {
         if (top.className) {
-          result += spanEndTag;
+          emitter.closeNode();
         }
         if (!top.skip && !top.subLanguage) {
           relevance += top.relevance;
@@ -237,6 +242,16 @@ const HLJS = function(hljs) {
         startNewMode(end_mode.starts);
       }
       return origin.returnEnd ? 0 : lexeme.length;
+    }
+
+    function processContinuations() {
+      var list = []
+      for(var current = top; current !== language; current = current.parent) {
+        if (current.className) {
+          list.unshift(current.className)
+        }
+      }
+      list.forEach(item => emitter.openNode(item))
     }
 
     var lastMatch = {};
@@ -273,7 +288,9 @@ const HLJS = function(hljs) {
         return doBeginMatch(match);
       } else if (match.type==="illegal" && !ignore_illegals) {
         // illegal match, we do not continue processing
-        throw new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
+        var err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
+        err.mode = top;
+        throw err;
       } else if (match.type==="end") {
         var processed = doEndMatch(match);
         if (processed != undefined)
@@ -305,48 +322,55 @@ const HLJS = function(hljs) {
     compileLanguage(language);
     var top = continuation || language;
     var continuations = {}; // keep continuations for sub-languages
-    var result = '', current;
-    for(current = top; current !== language; current = current.parent) {
-      if (current.className) {
-        result = buildSpan(current.className, '', true) + result;
-      }
-    }
+    var result;
+    var emitter = new TokenTree();
+    processContinuations();
     var mode_buffer = '';
     var relevance = 0;
+    var match, processedCount, index = 0;
+
     try {
-      var match, count, index = 0;
       while (true) {
         top.terminators.lastIndex = index;
         match = top.terminators.exec(codeToHighlight);
         if (!match)
           break;
-        count = processLexeme(codeToHighlight.substring(index, match.index), match);
-        index = match.index + count;
+        let beforeMatch = codeToHighlight.substring(index, match.index);
+        processedCount = processLexeme(beforeMatch, match);
+        index = match.index + processedCount;
       }
       processLexeme(codeToHighlight.substr(index));
-      for(current = top; current.parent; current = current.parent) { // close dangling modes
-        if (current.className) {
-          result += spanEndTag;
-        }
-      }
+      emitter.closeAllNodes();
+      emitter.finalize();
+      result = new HTMLRenderer(emitter, options).value();
+
       return {
         relevance: relevance,
         value: result,
-        illegal:false,
         language: languageName,
+        illegal: false,
+        emitter: emitter,
         top: top
       };
     } catch (err) {
       if (err.message && err.message.includes('Illegal')) {
         return {
           illegal: true,
+          illegalBy: {
+            msg: err.message,
+            context: codeToHighlight.slice(index-100,index+100),
+            mode: err.mode
+          },
+          sofar: result,
           relevance: 0,
-          value: escape(codeToHighlight)
+          value: escape(codeToHighlight),
+          emitter: emitter,
         };
       } else if (SAFE_MODE) {
         return {
           relevance: 0,
           value: escape(codeToHighlight),
+          emitter: emitter,
           language: languageName,
           top: top,
           errorRaised: err
@@ -372,6 +396,7 @@ const HLJS = function(hljs) {
     languageSubset = languageSubset || options.languages || Object.keys(languages);
     var result = {
       relevance: 0,
+      emitter: new TokenTree(),
       value: escape(code)
     };
     var second_best = result;
