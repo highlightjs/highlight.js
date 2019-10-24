@@ -14,18 +14,6 @@ var1
 va1r
 mo_tot_8 = 1./(0.4*log(float(elec_num_tot_8+0.4)))
 
-CALL testing(6_ikind, 4, 2)
-CALL testing(4_ikind, 4, 1)
-CALL testing(4_ikind, 2, -1)
-CALL testing(35_ikind, 7, 3)
-CALL testing(36_ikind, 7, -1)
-CALL testing(184756_ikind, 20, 10)
-CALL testing(184756_ikind, 10, -1)
-CALL testing(3268760_ikind, 25, 10)
-CALL testing(155117520_ikind, 30, 15)
-CALL testing(155117530_ikind, 30, -1)
-CALL testing(6540715896_ikind, 48, 10)
-CALL testing(6540715897_ikind, 48, -1)
-CALL testing(344867425584_ikind, 45, 15)
-CALL testing(118264581564861424_ikind, 60, 30)
-CALL testing(53194089192720_ikind, 60, 15)
+6_ikind
+1_c_short
+6.666666666666666_DBL

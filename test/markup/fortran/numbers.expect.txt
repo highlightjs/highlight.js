@@ -14,18 +14,6 @@ var1
 va1r
 mo_tot_8 = <span class="hljs-number">1.</span>/(<span class="hljs-number">0.4</span>*<span class="hljs-built_in">log</span>(<span class="hljs-built_in">float</span>(elec_num_tot_8+<span class="hljs-number">0.4</span>)))
 
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">6</span>_ikind, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">4</span>_ikind, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">4</span>_ikind, <span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">3</span>5_ikind, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">3</span>6_ikind, <span class="hljs-number">7</span>, -<span class="hljs-number">1</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">1</span>84756_ikind, <span class="hljs-number">20</span>, <span class="hljs-number">10</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">1</span>84756_ikind, <span class="hljs-number">10</span>, -<span class="hljs-number">1</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">3</span>268760_ikind, <span class="hljs-number">25</span>, <span class="hljs-number">10</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">1</span>55117520_ikind, <span class="hljs-number">30</span>, <span class="hljs-number">15</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">1</span>55117530_ikind, <span class="hljs-number">30</span>, -<span class="hljs-number">1</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">6</span>540715896_ikind, <span class="hljs-number">48</span>, <span class="hljs-number">10</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">6</span>540715897_ikind, <span class="hljs-number">48</span>, -<span class="hljs-number">1</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">3</span>44867425584_ikind, <span class="hljs-number">45</span>, <span class="hljs-number">15</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">1</span>18264581564861424_ikind, <span class="hljs-number">60</span>, <span class="hljs-number">30</span>)
-<span class="hljs-keyword">CALL</span> testing(<span class="hljs-number">5</span>3194089192720_ikind, <span class="hljs-number">60</span>, <span class="hljs-number">15</span>)
+<span class="hljs-number">6</span>_ikind
+<span class="hljs-number">1</span>_c_short
+<span class="hljs-number">6.</span><span class="hljs-number">6</span>66666666666666_DBL
