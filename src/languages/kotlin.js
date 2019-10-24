@@ -3,6 +3,7 @@
  Description: Kotlin is an OSS statically typed programming language that targets the JVM, Android, JavaScript and Native.
  Author: Sergey Mashkov <cy6erGn0m@gmail.com>
  Website: https://kotlinlang.org
+ Category: common
  */
 
 
