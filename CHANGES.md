@@ -4,6 +4,17 @@ New languages:
   none.
 
 New styles:
+  none.
+
+Improvements:
+- ...
+
+## Version 9.15.11
+
+New languages:
+  none.
+
+New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
