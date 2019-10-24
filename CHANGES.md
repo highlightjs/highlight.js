@@ -11,6 +11,7 @@ New themes:
 
 Core Changes:
 
+- split out parse tree generation and HTML rendering concerns (#2404) [Josh Goebel][]
 - every language can have a `name` attribute now (#2400) [Josh Goebel][]
 - improve regular expression detect (less false-positives) (#2380) [Josh Goebel][]
 - make `noHighlightRe` and `languagePrefixRe` configurable (#2374) [Josh Goebel][]
