@@ -1,9 +1,9 @@
 'use strict';
 
 let fs       = require('fs')
-let hljs     = require('../../build');
+let hljs     = require('../build');
 let path     = require('path');
-let utility  = require('../utility');
+let utility  = require('../test/utility');
 let Table    = require('cli-table');
 let colors   = require('colors/safe');
 
