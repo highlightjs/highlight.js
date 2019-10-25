@@ -47,15 +47,17 @@ function testAutoDetection(language, index, languages) {
     });
 }
 
-const languages = hljs.listLanguages();
-console.log('Checking auto-highlighting for ' + colors.grey(languages.length) + ' languages...');
+const languages = hljs.listLanguages()
+  .filter(hljs.autoDetection);
+
+  console.log('Checking auto-highlighting for ' + colors.grey(languages.length) + ' languages...');
 languages.forEach(testAutoDetection);
 
-if (resultTable.length < 1) {
+if (resultTable.length === 0) {
   console.log(colors.green('SUCCESS') + ' - ' + colors.green(languages.length) + ' of ' + colors.gray(languages.length) + ' languages passed auto-highlight check!')
 } else {
   console.log(
-    colors.red('FAILURE') + ' - ' + colors.red(resultTable.length) + ' of ' + colors.gray(languages.length) + ' languages failed auto-highlight check.' + 
+    colors.red('FAILURE') + ' - ' + colors.red(resultTable.length) + ' of ' + colors.gray(languages.length) + ' languages failed auto-highlight check.' +
     '\n' +
     resultTable.toString());
 }
