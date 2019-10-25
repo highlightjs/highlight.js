@@ -50,7 +50,12 @@ const languages = hljs.listLanguages()
   .filter(hljs.autoDetection);
 
 console.log('Checking auto-highlighting for ' + colors.grey(languages.length) + ' languages...');
-languages.forEach(testAutoDetection);
+languages.forEach((lang, index) => {
+  if (index%60===0) { console.log("") }
+  testAutoDetection(lang)
+  process.stdout.write(".");
+});
+console.log("\n")
 
 if (resultTable.length === 0) {
   console.log(colors.green('SUCCESS') + ' - ' + colors.green(languages.length) + ' of ' + colors.gray(languages.length) + ' languages passed auto-highlight check!')
