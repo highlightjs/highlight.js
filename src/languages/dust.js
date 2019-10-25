@@ -3,6 +3,7 @@ Language: Dust
 Requires: xml.js
 Author: Michael Allen <michael.allen@benefitfocus.com>
 Description: Matcher for dust.js templates.
+Website: https://www.dustjs.com
 Category: template
 */
 

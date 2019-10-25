@@ -1,10 +1,58 @@
 ## Master
 
 New languages:
+  none.
 
 New styles:
+- *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- fix(crystal): correctly highlight `!~` method definition (#2222)
+- fix dropping characters if we choke up on a 0-width match (#2219)
+- (accesslog) improve accesslog relevancy scoring (#2172)
+- fix(shell): fix parsing of prompts with forward slash (#2218)
+- improve parser to properly support look-ahead regex in begin matchers (#2135)
+- blacklist super-common keywords from having relevance (#2179)
+- fix(swift): support for `@dynamicMemberLookup` and `@propertyWrapper` (#2202)
+- fix: `endWithParent` inside `starts` now always works (#2201)
+- fix(typescript): constructor in declaration doesn't break highlighting
+- fix(typescript): only match function keyword as a separate identifier (#2191)
+- feature(arduino) make arduino a super-set of cpp grammar
+- fix(javascript): fix object attributes immediately following line comments
+- fix(xml): remove `vbscript` as potential script tag subLanguage
+- fix(Elixir): improve regex for numbers
+- fix(YAML): improve matching for keys, blocks and numbers
+- fix(Pony): improve regex for numbers
+- fix(handlebars): add support for raw-blocks, and triple-mustaches(#2175)
+- fix(handlebars): fix parsing of block-comments containing closing mustaches (#2175)
+- fix(handlebars): add support for segment-literal notation, and escaped mustaches (#2184)
+- JSON: support for comments in JSON (#2016)
+- fix(cpp): improve string literal matching
+- fix(highlight.js): omit empty span-tags in the output (#2182)
+- fix(Go): improve function declaration matching
+- fix(python): added support for f-string literal curly braces (#2195)
+- fix(cpp): add `future` built-in (#1610)
+- fix(python): support comments within function parameters (#2214)
+
+[Carl Baxter]: https://github.com/cdbax
+
+## Version 9.15.10
+New languages:
+  none.
+New styles:
+  none.
+Improvements:
+  - support for ruby's squiggly heredoc (#2049)
+  - support css custom properties (#2082)
+  - fix(PureBASIC): update to 5.60 (#1508)
+  - fix(Kotlin): parenthesized types in function declaration (#2107)
+  - fix(Kotlin): nested comment (#2104)
+  - fix(isbl): contains key typo (#2103)
+  - fix(github-gist.css): match Github styles (#2100)
+  - fix(elm): update to latest elm syntax (#2088)
+  - fix: Support highlighting inline HTML and CSS tagged template strings in JS and TS (#2105)
+  - feat(YAML): add YAML to common languages (#1952)
+  - feat(xml): Add support for Windows Script File (.wsf), inline VBScript in XML `script` tags (#1690)
 
 ## Version 9.15.9
 

@@ -1,6 +1,7 @@
 /*
 Language: Puppet
 Author: Jose Molina Colmenero <gaudy41@gmail.com>
+Website: https://puppet.com/docs
 Category: config
 */
 

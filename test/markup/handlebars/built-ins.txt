@@ -1,0 +1,11 @@
+{{#if test}}yes{{/if}}
+
+{{#unless test}}no{{/unless}}
+
+{{#with test}}abc{{/with}}
+
+{{#each test}}abc{{/each}}
+
+{{lookup abc}}
+
+{{log test}}

@@ -2,7 +2,8 @@
 Language: Rust
 Author: Andrey Vlasovskikh <andrey.vlasovskikh@gmail.com>
 Contributors: Roman Shmatov <romanshmatov@gmail.com>, Kasper Andersen <kma_untrusted@protonmail.com>
-Category: system
+Website: https://www.rust-lang.org
+Category: common, system
 */
 
 function(hljs) {

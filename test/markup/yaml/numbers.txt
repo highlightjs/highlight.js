@@ -1,0 +1,5 @@
+key: 1234
+not_hex: 999fff
+hex: 0x999fff
+numkey999: 1234
+exp: -2.3e-5

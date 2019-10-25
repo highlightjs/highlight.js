@@ -1,0 +1,15 @@
+let num: U32 = 42_000
+let num: U32 = 42_000_
+let num: U32 = 42_000.234
+let num: U8 = 1
+let num: F32 = 1.234
+let num: I32 = 1024
+let num: I32 = -1024
+let num: I32 = 0x400
+let num: I32 = 0X400
+let num: I32 = 0b10101010
+let num: I32 = 0B1010101
+let num: F32 = 42.12e-4
+let num: F32 = 42.12E-4
+let num: F32 = 42.12e+4
+let num: F32 = 42.12E+4

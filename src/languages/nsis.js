@@ -2,7 +2,7 @@
 Language: NSIS
 Description: Nullsoft Scriptable Install System
 Author: Jan T. Sott <jan.sott@gmail.com>
-Website: http://github.com/idleberg
+Website: https://nsis.sourceforge.io/Main_Page
 */
 
 function(hljs) {

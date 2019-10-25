@@ -1,8 +1,9 @@
 /*
- Language: Erlang REPL
- Author: Sergey Ignatov <sergey@ignatov.spb.su>
+Language: Erlang REPL
+Author: Sergey Ignatov <sergey@ignatov.spb.su>
+Website: https://www.erlang.org
 Category: functional
- */
+*/
 
 function(hljs) {
   return {

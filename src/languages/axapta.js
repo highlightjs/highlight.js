@@ -1,6 +1,7 @@
 /*
-Language: Axapta
+Language: Microsoft Axapta (now Dynamics 365)
 Author: Dmitri Roudakov <dmitri@roudakov.ru>
+Website: https://dynamics.microsoft.com/en-us/ax-overview/
 Category: enterprise
 */
 
