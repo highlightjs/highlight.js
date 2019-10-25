@@ -7,7 +7,7 @@ New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
-- Add CLI tool to quickly check for relevance conflicts [Mark Ellis][] 
+- Add CLI tool to quickly check for relevance conflicts [Mark Ellis][] (#1554)
 - enhance(twig) update list of filter and tags (#2090)
 - fix(crystal): correctly highlight `!~` method definition (#2222)
 - fix dropping characters if we choke up on a 0-width match (#2219)
