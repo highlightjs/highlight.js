@@ -28,7 +28,7 @@ function(hljs) {
     begin: /\|[A-Za-z_]+:?/,
     keywords:
       'abs batch capitalize column convert_encoding date date_modify default ' +
-      'escape filter first format inky inline_css join json_encode keys last ' +
+      'escape filter first format inky_to_html inline_css join json_encode keys last ' +
       'length lower map markdown merge nl2br number_format raw reduce replace ' +
       'reverse round slice sort spaceless split striptags title trim upper url_encode',
     contains: [
@@ -36,7 +36,7 @@ function(hljs) {
     ]
   };
 
-  var TAGS = 'apply autoescape block deprecated do embed extends flush for from' +
+  var TAGS = 'apply autoescape block deprecated do embed extends filter flush for from' +
     'if import include macro sandbox set use verbatim with';
 
   TAGS = TAGS + ' ' + TAGS.split(' ').map(function(t){return 'end' + t}).join(' ');
