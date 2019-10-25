@@ -7,7 +7,6 @@ Website: https://www.arduino.cc
 */
 
 function(hljs) {
-
 	ARDUINO_KW = {
       keyword:
         'boolean byte word String',
@@ -94,7 +93,15 @@ function(hljs) {
         'DEFAULT OUTPUT INPUT HIGH LOW'
   };
 
-  var ARDUINO = hljs.getLanguage('cpp').rawDefinition();
+  try {
+    var ARDUINO = hljs.getLanguage('cpp').rawDefinition();
+  } catch (e) {
+    if (typeof e == 'TypeError') {
+      console.log('Sorry: Arduino depends on and requires the `cpp` language to be loaded first.');
+    } else {
+      throw e;
+    }
+  }
 
   var kws = ARDUINO.keywords;
 
