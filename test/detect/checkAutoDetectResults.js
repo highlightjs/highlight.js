@@ -1,7 +1,6 @@
 'use strict';
 
-let bluebird = require('bluebird');
-let fs       = bluebird.promisifyAll(require('fs'));
+let fs       = require('fs')
 let hljs     = require('../../build');
 let path     = require('path');
 let utility  = require('../utility');
@@ -50,7 +49,7 @@ function testAutoDetection(language, index, languages) {
 const languages = hljs.listLanguages()
   .filter(hljs.autoDetection);
 
-  console.log('Checking auto-highlighting for ' + colors.grey(languages.length) + ' languages...');
+console.log('Checking auto-highlighting for ' + colors.grey(languages.length) + ' languages...');
 languages.forEach(testAutoDetection);
 
 if (resultTable.length === 0) {
