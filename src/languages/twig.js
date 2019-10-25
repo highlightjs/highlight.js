@@ -36,7 +36,7 @@ function(hljs) {
     ]
   };
 
-  var TAGS = 'apply autoescape block deprecated do embed extends filter flush for from' +
+  var TAGS = 'apply autoescape block deprecated do embed extends filter flush for from ' +
     'if import include macro sandbox set use verbatim with';
 
   TAGS = TAGS + ' ' + TAGS.split(' ').map(function(t){return 'end' + t}).join(' ');
