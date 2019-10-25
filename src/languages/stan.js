@@ -1,8 +1,9 @@
 /*
 Language: Stan
+Description: The Stan probabilistic programming language
 Author: Brendan Rocks <rocks.brendan@gmail.com>
- Category: scientific
-Description: The Stan probabilistic programming language (http://mc-stan.org/).
+Website: http://mc-stan.org/
+Category: scientific
 */
 
 function(hljs) {

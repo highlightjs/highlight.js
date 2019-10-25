@@ -1,0 +1,27 @@
+<span class="xml">text
+
+</span><span class="hljs-template-variable">{{ "lite]'ral}}segment" }}</span><span class="xml"> text
+
+</span><span class="hljs-template-variable">{{ 'lite]"ral}}segment' }}</span><span class="xml"> text
+
+</span><span class="hljs-template-variable">{{ [lite"'ral}}segment] }}</span><span class="xml"> text
+
+</span><span class="hljs-template-variable">{{ abc "lite]'ral}}segment" }}</span><span class="xml"> text
+
+</span><span class="hljs-template-variable">{{ abc 'lite]"ral}}segment' }}</span><span class="xml"> text
+
+</span><span class="hljs-template-variable">{{ abc [lite"'ral}}segment] }}</span><span class="xml"> text
+
+
+</span><span class="hljs-template-variable">{{ abcd.[lite"'ral}}segment] }}</span><span class="xml"> text
+
+</span><span class="hljs-template-variable">{{ abcd."lite]'ral}}segment" }}</span><span class="xml"> text
+
+</span><span class="hljs-template-variable">{{ abcd.'lite]"ral}}segment' }}</span><span class="xml"> text
+
+</span><span class="hljs-template-variable">{{ abcd.''}}</span><span class="xml"> text
+
+</span><span class="hljs-template-variable">{{ abcd."" }}</span><span class="xml"> text
+
+</span><span class="hljs-template-variable">{{ abcd.[] }}</span><span class="xml"> text
+</span>

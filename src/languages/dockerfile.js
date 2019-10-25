@@ -3,6 +3,7 @@ Language: Dockerfile
 Requires: bash.js
 Author: Alexis Hénaut <alexis@henaut.net>
 Description: language definition for Dockerfile files
+Website: https://docs.docker.com/engine/reference/builder/
 Category: config
 */
 
@@ -19,7 +20,7 @@ function(hljs) {
       {
         beginKeywords: 'run cmd entrypoint volume add copy workdir label healthcheck shell',
         starts: {
-          end: /[^\\]\n/,
+          end: /[^\\]$/,
           subLanguage: 'bash'
         }
       }

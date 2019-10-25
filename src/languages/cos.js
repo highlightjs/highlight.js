@@ -2,6 +2,7 @@
 Language: Caché Object Script
 Author: Nikita Savchenko <zitros.lab@gmail.com>
 Category: enterprise, scripting
+Website: https://cedocs.intersystems.com/latest/csp/docbook/DocBook.UI.Page.cls
 */
 function cos (hljs) {
 

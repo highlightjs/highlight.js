@@ -1,5 +1,7 @@
 /*
 Language: Python
+Description: Python is an interpreted, object-oriented, high-level programming language with dynamic semantics.
+Website: https://www.python.org
 Category: common
 */
 
@@ -8,9 +10,10 @@ function(hljs) {
     keyword:
       'and elif is global as in if from raise for except finally print import pass return ' +
       'exec else break not with class assert yield try while continue del or def lambda ' +
-      'async await nonlocal|10 None True False',
+      'async await nonlocal|10',
     built_in:
-      'Ellipsis NotImplemented'
+      'Ellipsis NotImplemented',
+    literal: 'False None True'
   };
   var PROMPT = {
     className: 'meta',  begin: /^(>>>|\.\.\.) /
@@ -21,27 +24,31 @@ function(hljs) {
     keywords: KEYWORDS,
     illegal: /#/
   };
+  var LITERAL_BRACKET = {
+    begin: /\{\{/,
+    relevance: 0
+  };
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE],
     variants: [
       {
         begin: /(u|b)?r?'''/, end: /'''/,
-        contains: [PROMPT],
+        contains: [hljs.BACKSLASH_ESCAPE, PROMPT],
         relevance: 10
       },
       {
         begin: /(u|b)?r?"""/, end: /"""/,
-        contains: [PROMPT],
+        contains: [hljs.BACKSLASH_ESCAPE, PROMPT],
         relevance: 10
       },
       {
         begin: /(fr|rf|f)'''/, end: /'''/,
-        contains: [PROMPT, SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, PROMPT, LITERAL_BRACKET, SUBST]
       },
       {
         begin: /(fr|rf|f)"""/, end: /"""/,
-        contains: [PROMPT, SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, PROMPT, LITERAL_BRACKET, SUBST]
       },
       {
         begin: /(u|r|ur)'/, end: /'/,
@@ -59,11 +66,11 @@ function(hljs) {
       },
       {
         begin: /(fr|rf|f)'/, end: /'/,
-        contains: [SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, LITERAL_BRACKET, SUBST]
       },
       {
         begin: /(fr|rf|f)"/, end: /"/,
-        contains: [SUBST]
+        contains: [hljs.BACKSLASH_ESCAPE, LITERAL_BRACKET, SUBST]
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE
@@ -80,11 +87,11 @@ function(hljs) {
   var PARAMS = {
     className: 'params',
     begin: /\(/, end: /\)/,
-    contains: ['self', PROMPT, NUMBER, STRING]
+    contains: ['self', PROMPT, NUMBER, STRING, hljs.HASH_COMMENT_MODE]
   };
   SUBST.contains = [STRING, NUMBER, PROMPT];
   return {
-    aliases: ['py', 'gyp'],
+    aliases: ['py', 'gyp', 'ipython'],
     keywords: KEYWORDS,
     illegal: /(<\/|->|\?)|=>/,
     contains: [

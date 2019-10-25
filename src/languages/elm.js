@@ -1,6 +1,7 @@
 /*
 Language: Elm
 Author: Janis Voigtlaender <janis.voigtlaender@gmail.com>
+Website: https://elm-lang.org
 Category: functional
 */
 
@@ -36,6 +37,12 @@ function(hljs) {
   var RECORD = {
     begin: '{', end: '}',
     contains: LIST.contains
+  };
+
+  var CHARACTER = {
+    className: 'string',
+    begin: '\'\\\\?.', end: '\'',
+    illegal: '.'
   };
 
   return {
@@ -75,7 +82,7 @@ function(hljs) {
 
       // Literals and names.
 
-      // TODO: characters.
+      CHARACTER,
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,

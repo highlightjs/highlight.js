@@ -2,8 +2,9 @@
 Language: Go
 Author: Stephan Kountso aka StepLg <steplg@gmail.com>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>
-Description: Google go language (golang). For info about language see http://golang.org/
-Category: system
+Description: Google go language (golang). For info about language
+Website: http://golang.org/
+Category: common, system
 */
 
 function(hljs) {
@@ -36,7 +37,7 @@ function(hljs) {
       {
         className: 'number',
         variants: [
-          {begin: hljs.C_NUMBER_RE + '[dflsi]', relevance: 1},
+          {begin: hljs.C_NUMBER_RE + '[i]', relevance: 1},
           hljs.C_NUMBER_MODE
         ]
       },
@@ -45,7 +46,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'func', end: /\s*\{/, excludeEnd: true,
+        beginKeywords: 'func', end: '\\s*(\\{|$)', excludeEnd: true,
         contains: [
           hljs.TITLE_MODE,
           {

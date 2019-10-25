@@ -1,0 +1,22 @@
+<span class="xml">\{{no-expression}}
+
+\{{{no-expression}}}
+
+\{{#no}} block \{{/no}}
+
+\{{\{{no}}}} block \{{\{{/no}}}}
+
+\{{!-- no comment --}}
+
+\{{! no comment }}
+
+<span class="hljs-comment">&lt;!-- escaped escapings --&gt;</span>
+
+\\</span><span class="hljs-template-variable">{{expression}}</span><span class="xml">
+
+\\\</span><span class="hljs-template-variable">{{expression}}</span><span class="xml">
+
+\\\\</span><span class="hljs-template-variable">{{expression}}</span><span class="xml">
+
+\\\</span><span class="hljs-comment">{{! comment }}</span><span class="xml">
+</span>

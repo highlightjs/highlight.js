@@ -2,6 +2,7 @@
 Language: PHP
 Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Ivan Sagalaev <maniac@softwaremaniacs.org>
+Website: https://www.php.net
 Category: common
 */
 
@@ -28,7 +29,7 @@ function(hljs) {
   };
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
   return {
-    aliases: ['php3', 'php4', 'php5', 'php6'],
+    aliases: ['php', 'php3', 'php4', 'php5', 'php6', 'php7'],
     case_insensitive: true,
     keywords:
       'and include_once list abstract global private echo interface as static endswitch ' +

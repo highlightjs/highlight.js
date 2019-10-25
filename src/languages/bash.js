@@ -2,6 +2,7 @@
 Language: Bash
 Author: vah <vahtenberg@gmail.com>
 Contributrors: Benjamin Pannell <contact@sierrasoftworks.com>
+Website: https://www.gnu.org/software/bash/
 Category: common
 */
 
@@ -25,6 +26,11 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE]
       }
     ]
+  };
+  var ESCAPED_QUOTE = {
+    className: '',
+    begin: /\\"/
+
   };
   var APOS_STRING = {
     className: 'string',
@@ -74,6 +80,7 @@ function(hljs) {
       },
       hljs.HASH_COMMENT_MODE,
       QUOTE_STRING,
+      ESCAPED_QUOTE,
       APOS_STRING,
       VAR
     ]

@@ -1,0 +1,23 @@
+SELECT *
+FROM (
+    SELECT
+        posts.col1 AS emp_id,
+        posts.col2 AS dept_id,
+        posts.col3 AS posts,
+        DENSE_RANK() OVER post_ranking AS rank
+    FROM VALUES
+        (1, 1 ,100),
+        (2, 1 ,50),
+        (8, 1 ,250),
+        (3, 2 ,200),
+        (4, 2 ,300),
+        (9, 2 ,1000),
+        (5, 3 ,300),
+        (6, 3 ,100),
+        (7, 3 ,400) AS posts
+    WINDOW post_ranking AS (
+        PARTITION BY posts.col2
+        ORDER BY posts.col3 DESC
+    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+)
+WHERE rank <= 2;

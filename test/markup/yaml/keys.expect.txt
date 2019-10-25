@@ -1,0 +1,32 @@
+<span class="hljs-attr">someKey:</span>
+  <span class="hljs-attr">anotherKey:</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attr">some_key:</span>
+  <span class="hljs-attr">another_key:</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attr">some key:</span>
+  <span class="hljs-attr">another key:</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attr">"some key":</span>
+  <span class="hljs-attr">"another key":</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attr">'some key':</span>
+  <span class="hljs-attr">'another key':</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attr">some-key:</span>
+  <span class="hljs-attr">another-key:</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attr">some.key:</span>
+  <span class="hljs-attr">another.key:</span> <span class="hljs-string">value</span>
+
+
+<span class="hljs-attr">parentKey:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">subKey:</span>
+    <span class="hljs-string">subValue</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">sub key:</span>
+    <span class="hljs-string">sub</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attr">https://url.as.a.key/:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">some</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attr">someKey:</span> <span class="hljs-string">https://url.as.a.value/</span>

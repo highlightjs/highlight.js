@@ -2,6 +2,7 @@
 Language: Vim Script
 Author: Jun Yang <yangjvn@126.com>
 Description: full keyword and built-in from http://vimdoc.sourceforge.net/htmldoc/
+Website: https://www.vim.org
 Category: scripting
 */
 
@@ -69,7 +70,11 @@ function(hljs) {
     illegal: /;/,
     contains: [
       hljs.NUMBER_MODE,
-      hljs.APOS_STRING_MODE,
+      {
+        className: 'string',
+        begin: '\'', end: '\'',
+        illegal: '\\n'
+      },
 
       /*
       A double quote can start either a string or a line comment. Strings are

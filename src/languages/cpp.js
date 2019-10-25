@@ -1,8 +1,9 @@
 /*
 Language: C++
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
-Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Zaven Muradyan <megalivoithos@gmail.com>, Roel Deckers <admin@codingcat.nl>, Sam Wu <samsam2310@gmail.com>, Jordi Petit <jordi.petit@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>
+Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Zaven Muradyan <megalivoithos@gmail.com>, Roel Deckers <admin@codingcat.nl>, Sam Wu <samsam2310@gmail.com>, Jordi Petit <jordi.petit@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>, Google Inc. (David Benjamin) <davidben@google.com>
 Category: common, system
+Website: https://isocpp.org
 */
 
 function(hljs) {
@@ -11,22 +12,22 @@ function(hljs) {
     begin: '\\b[a-z\\d_]*_t\\b'
   };
 
+  // https://en.cppreference.com/w/cpp/language/escape
+  // \\ \x \xFF \u2837 \u00323747 \374
+  var CHARACTER_ESCAPES = '\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4,8}|[0-7]{3}|\\S)'
   var STRINGS = {
     className: 'string',
     variants: [
       {
-        begin: '(u8?|U)?L?"', end: '"',
+        begin: '(u8?|U|L)?"', end: '"',
         illegal: '\\n',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
-        begin: '(u8?|U)?R"', end: '"',
-        contains: [hljs.BACKSLASH_ESCAPE]
-      },
-      {
-        begin: '\'\\\\?.', end: '\'',
+        begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + "|.)", end: '\'',
         illegal: '.'
-      }
+      },
+      { begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\((?:.|\n)*?\)\1"/ }
     ]
   };
 
@@ -71,17 +72,18 @@ function(hljs) {
       'unsigned long volatile static protected bool template mutable if public friend ' +
       'do goto auto void enum else break extern using asm case typeid ' +
       'short reinterpret_cast|10 default double register explicit signed typename try this ' +
-      'switch continue inline delete alignof constexpr decltype ' +
+      'switch continue inline delete alignof constexpr consteval constinit decltype ' +
+      'concept co_await co_return co_yield requires ' +
       'noexcept static_assert thread_local restrict _Bool complex _Complex _Imaginary ' +
       'atomic_bool atomic_char atomic_schar ' +
       'atomic_uchar atomic_short atomic_ushort atomic_int atomic_uint atomic_long atomic_ulong atomic_llong ' +
       'atomic_ullong new throw return ' +
       'and or not',
-    built_in: 'std string cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream ' +
+    built_in: 'std string wstring cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream ' +
       'auto_ptr deque list queue stack vector map set bitset multiset multimap unordered_set ' +
       'unordered_map unordered_multiset unordered_multimap array shared_ptr abort abs acos ' +
       'asin atan2 atan calloc ceil cosh cos exit exp fabs floor fmod fprintf fputs free frexp ' +
-      'fscanf isalnum isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper ' +
+      'fscanf future isalnum isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper ' +
       'isxdigit tolower toupper labs ldexp log10 log malloc realloc memchr memcmp memcpy memset modf pow ' +
       'printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp ' +
       'strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan ' +
@@ -98,7 +100,7 @@ function(hljs) {
   ];
 
   return {
-    aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp'],
+    aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp', 'hh', 'hxx', 'cxx'],
     keywords: CPP_KEYWORDS,
     illegal: '</',
     contains: EXPRESSION_CONTAINS.concat([
@@ -155,7 +157,21 @@ function(hljs) {
               hljs.C_BLOCK_COMMENT_MODE,
               STRINGS,
               NUMBERS,
-              CPP_PRIMITIVE_TYPES
+              CPP_PRIMITIVE_TYPES,
+              // Count matching parentheses.
+              {
+                begin: /\(/, end: /\)/,
+                keywords: CPP_KEYWORDS,
+                relevance: 0,
+                contains: [
+                  'self',
+                  hljs.C_LINE_COMMENT_MODE,
+                  hljs.C_BLOCK_COMMENT_MODE,
+                  STRINGS,
+                  NUMBERS,
+                  CPP_PRIMITIVE_TYPES
+                ]
+              }
             ]
           },
           hljs.C_LINE_COMMENT_MODE,

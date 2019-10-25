@@ -1,0 +1,8 @@
+export declare class CommandHandler extends EventEmitter {
+
+    constructor(config: CommandHandlerConfig);
+    /**
+     * Install the handler onto Discord.js
+     * @param client - Client to handle
+     */
+}

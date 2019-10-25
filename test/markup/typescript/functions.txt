@@ -9,3 +9,7 @@ function println(value: string);
 function getArray(): number[] {
   return [1, 2];
 }
+
+type Foo = {
+    functionInFoo(): void;
+};
