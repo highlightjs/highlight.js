@@ -7,6 +7,7 @@ New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- Add CLI tool to quickly check for relevance conflicts [Mark Ellis][] (#1554)
 - enhance(twig) update list of filter and tags (#2090)
 - fix(crystal): correctly highlight `!~` method definition (#2222)
 - fix dropping characters if we choke up on a 0-width match (#2219)
@@ -36,6 +37,7 @@ Improvements:
 - fix(python): support comments within function parameters (#2214)
 
 [Carl Baxter]: https://github.com/cdbax
+[Mark Ellis]: https://github.com/ellismarkf
 
 ## Version 9.15.10
 New languages:
