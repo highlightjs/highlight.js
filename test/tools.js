@@ -1,8 +1,8 @@
 'use strict';
 
-let utility = require('../tools/utility'),
+const utility = require('../tools/utility'),
     path = require('path'),
-    readFile = require('fs').promises.readFile
+    { readFile } = require('fs').promises
 
 describe("minification tools", () => {
     it("should replace API calls with minified names", () => {

@@ -1,36 +1,32 @@
 'use strict';
 
-let _        = require('lodash');
-let hljs     = require('../../build');
-let { JSDOM } = require('jsdom');
-let readFile = require('fs').promises.readFile
-let utility  = require('../utility');
+const _        = require('lodash');
+const hljs     = require('../../build');
+const { JSDOM } = require('jsdom');
+const { readFile } = require('fs').promises
+const utility  = require('../utility');
 
-describe('special cases tests', function() {
-  before(function() {
+describe('special cases tests', () => {
+  before(async () => {
     const filename = utility.buildPath('fixtures', 'index.html');
+    const page = await readFile(filename, 'utf-8');
+    const { window } = await new JSDOM(page);
 
-    return readFile(filename, 'utf-8')
-      .then(page => new JSDOM(page))
-      .then(({ window }) => {
-        let blocks;
+    // Allows hljs to use document
+    global.document = window.document;
 
-        // Allows hljs to use document
-        global.document = window.document;
+    // Special language to test endsWithParentVariants
+    hljs.registerLanguage('nested', require('../fixtures/nested.js'));
 
-        // Special language to test endsWithParentVariants
-        hljs.registerLanguage('nested', require('../fixtures/nested.js'));
+    // Setup hljs environment
+    hljs.configure({ tabReplace: '    ' });
+    hljs.initHighlighting();
 
-        // Setup hljs environment
-        hljs.configure({ tabReplace: '    ' });
-        hljs.initHighlighting();
+    // Setup hljs for non-`<pre><code>` tests
+    hljs.configure({ useBR: true });
 
-        // Setup hljs for non-`<pre><code>` tests
-        hljs.configure({ useBR: true });
-
-        blocks = document.querySelectorAll('.code');
-        _.each(blocks, hljs.highlightBlock);
-      });
+    let blocks = document.querySelectorAll('.code');
+    _.each(blocks, hljs.highlightBlock);
   });
 
   require('./explicitLanguage');

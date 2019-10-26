@@ -1,11 +1,11 @@
 'use strict';
 
-let _        = require('lodash');
-let fs       = require('fs').promises
-let glob     = require('glob');
-let hljs     = require('../../build');
-let path     = require('path');
-let utility  = require('../utility');
+const _        = require('lodash');
+const fs       = require('fs').promises
+const glob     = require('glob');
+const hljs     = require('../../build');
+const path     = require('path');
+const utility  = require('../utility');
 
 function testLanguage(language) {
   describe(language, function() {
@@ -31,8 +31,9 @@ function testLanguage(language) {
   });
 }
 
-describe('hljs.highlight()', function() {
-  let markupPath = utility.buildPath('markup');
+describe('hljs.highlight()', async () => {
+  const markupPath = utility.buildPath('markup');
 
-  return fs.readdir(markupPath).then((list) => list.forEach(testLanguage));
+  const languages = await fs.readdir(markupPath)
+  return languages.forEach(testLanguage);
 });
