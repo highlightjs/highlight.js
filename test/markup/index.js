@@ -1,7 +1,7 @@
 'use strict';
 
 const _        = require('lodash');
-const fs       = require('fs').promises
+const fs       = require('fs').promises;
 const glob     = require('glob');
 const hljs     = require('../../build');
 const path     = require('path');

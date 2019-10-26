@@ -3,7 +3,7 @@
 const _        = require('lodash');
 const hljs     = require('../../build');
 const { JSDOM } = require('jsdom');
-const { readFile } = require('fs').promises
+const { readFile } = require('fs').promises;
 const utility  = require('../utility');
 
 describe('special cases tests', () => {

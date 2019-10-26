@@ -3,7 +3,7 @@
 delete require.cache[require.resolve('../../build')]
 delete require.cache[require.resolve('../../build/lib/highlight')]
 
-const fs       = require('fs').promises
+const fs       = require('fs').promises;
 const hljs     = require('../../build');
 const path     = require('path');
 const utility  = require('../utility');
