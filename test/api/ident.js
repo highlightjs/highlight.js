@@ -1,11 +1,11 @@
 'use strict';
 
-let hljs = require('../../build');
+const hljs = require('../../build');
 
 const pattern = new RegExp(`^${hljs.IDENT_RE}$`);
 
-describe('.IDENT_RE', function() {
-  it('should match non-underscore starting words', function() {
+describe('.IDENT_RE', () => {
+  it('should match non-underscore starting words', () => {
     const words = [ 'foo' , 'bar' , 'baz'
                   , 'Foo' , 'Bar' , 'Baz'
                   , 'f_oo', 'ba_r', 'baz_'
@@ -15,7 +15,7 @@ describe('.IDENT_RE', function() {
     words.should.matchEach(pattern);
   });
 
-  it('should not match underscore starting words', function() {
+  it('should not match underscore starting words', () => {
     const words = [ '_foo' , '_bar' , '_baz'
                   , '_Foo' , '_Bar' , '_Baz'
                   , '_f_oo', '_ba_r', '_baz_'

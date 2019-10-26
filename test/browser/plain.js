@@ -1,10 +1,10 @@
 'use strict';
 
-let bluebird = require('bluebird');
-let { JSDOM } = require('jsdom');
-let utility  = require('../utility');
-let glob     = bluebird.promisify(require('glob'));
-let fs       = require('fs');
+const { JSDOM } = require('jsdom');
+const utility  = require('../utility');
+const {promisify} = require('util');
+const glob     = promisify(require('glob'));
+const fs       = require('fs');
 
 describe('plain browser', function() {
   before(function() {

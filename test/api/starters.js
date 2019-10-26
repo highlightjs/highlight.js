@@ -1,11 +1,11 @@
 'use strict';
 
-let hljs = require('../../build');
+const hljs = require('../../build');
 
 const pattern = new RegExp(`^${hljs.RE_STARTERS_RE}$`);
 
-describe('.RE_STARTERS_RE', function() {
-  it('should match boolean operators', function() {
+describe('.RE_STARTERS_RE', () => {
+  it('should match boolean operators', () => {
     const operators = [ '!', '!=', '!==', '==', '===',  '<=', '>='
                       , '<', '>', '||', '&&', '?'
                       ];
@@ -13,7 +13,7 @@ describe('.RE_STARTERS_RE', function() {
     operators.should.matchEach(pattern);
   });
 
-  it('should match arithmetic operators', function() {
+  it('should match arithmetic operators', () => {
     const operators = [ '*', '*=', '+', '+=', '-', '-=', '/', '/='
                       , '%', '%='
                       ];
@@ -21,7 +21,7 @@ describe('.RE_STARTERS_RE', function() {
     operators.should.matchEach(pattern);
   });
 
-  it('should match binary operators', function() {
+  it('should match binary operators', () => {
     const operators = [ '&', '&=', '|', '|=', '<<', '<<=', '>>', '>>='
                       , '>>>', '>>>=', '^', '^=', '~'
                       ];
@@ -29,7 +29,7 @@ describe('.RE_STARTERS_RE', function() {
     operators.should.matchEach(pattern);
   });
 
-  it('should match miscellaneous operators', function() {
+  it('should match miscellaneous operators', () => {
     const operators = [',', '=', ':', ';', '[', '{', '('];
 
     operators.should.matchEach(pattern);
