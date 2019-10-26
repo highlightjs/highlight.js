@@ -1,13 +1,13 @@
 'use strict';
 
-let utility = require('../utility');
+const utility = require('../utility');
 
-describe('sub-languages', function() {
-  before(function() {
+describe('sub-languages', () => {
+  before(() => {
     this.block = document.querySelector('#sublanguages');
   });
 
-  it('should highlight XML with PHP and JavaScript', function() {
+  it('should highlight XML with PHP and JavaScript', () => {
     const filename = utility.buildPath('fixtures', 'expect',
                                      'sublanguages.txt'),
           actual   = this.block.innerHTML;
