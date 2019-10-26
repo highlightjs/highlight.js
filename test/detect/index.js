@@ -1,7 +1,6 @@
 'use strict';
 
-let bluebird = require('bluebird');
-let fs       = bluebird.promisifyAll(require('fs'));
+let fs       = require('fs').promises
 
 delete require.cache[require.resolve('../../build')]
 delete require.cache[require.resolve('../../build/lib/highlight')]
@@ -15,18 +14,19 @@ function testAutoDetection(language) {
   const languagePath = utility.buildPath('detect', language);
 
   it(`should have test for ${language}`, function() {
-    return fs.statAsync(languagePath)
+    return fs.stat(languagePath)
       .then(path => path.isDirectory().should.be.true);
   });
 
-  it(`should be detected as ${language}`, function() {
-    return fs.readdirAsync(languagePath)
+  it(`should be detected as ${language}`, async function() {
+    let dirs = await fs.readdir(languagePath)
+    let files = await Promise.all(dirs
       .map(function(example) {
         const filename = path.join(languagePath, example);
 
-        return fs.readFileAsync(filename, 'utf-8');
-      })
-      .each(function(content) {
+        return fs.readFile(filename, 'utf-8');
+      }))
+    files.forEach(function(content) {
         const expected = language,
               actual   = hljs.highlightAuto(content).language;
 

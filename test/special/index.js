@@ -1,10 +1,9 @@
 'use strict';
 
 let _        = require('lodash');
-let bluebird = require('bluebird');
 let hljs     = require('../../build');
 let { JSDOM } = require('jsdom');
-let readFile = bluebird.promisify(require('fs').readFile);
+let readFile = require('fs').promises.readFile
 let utility  = require('../utility');
 
 describe('special cases tests', function() {
