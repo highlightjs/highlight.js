@@ -1,8 +1,7 @@
 'use strict';
 
 const _        = require('lodash');
-const bluebird = require('bluebird');
-const readFile = bluebird.promisify(require('fs').readFile);
+const { readFile } = require('fs').promises;
 const path     = require('path');
 
 // Build a path relative to `test/`
