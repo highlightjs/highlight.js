@@ -1,10 +1,10 @@
 'use strict';
 
-let hljs   = require('../../build');
-let should = require('should');
+const hljs   = require('../../build');
+const should = require('should');
 
-describe('.highlight()', function() {
-  it('should works without continuation', function() {
+describe('.highlight()', () => {
+  it('should works without continuation', () => {
     const code   = "public void moveTo(int x, int y, int z);";
     const result = hljs.highlight('java', code, false, false);
 
