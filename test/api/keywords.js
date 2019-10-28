@@ -1,9 +1,9 @@
 'use strict';
 
-let hljs   = require('../../build');
+const hljs   = require('../../build');
 
-describe('computing the relevance score of a language', function() {
-  it('should ignore common keywords', function() {
+describe('computing the relevance score of a language', () => {
+  it('should ignore common keywords', () => {
     const grammar =function () {
       return {
         keywords:
@@ -17,7 +17,7 @@ describe('computing the relevance score of a language', function() {
 
     result.relevance.should.equal(3)
   });
-  it ('should not ignore weighted common keywords', function() {
+  it ('should not ignore weighted common keywords', () => {
     const grammar =function () {
       return {
         keywords:
@@ -31,7 +31,7 @@ describe('computing the relevance score of a language', function() {
 
     result.relevance.should.equal(13)
   });
-  it ('should not ignore weighted common keywords (if 1 is forced)', function() {
+  it ('should not ignore weighted common keywords (if 1 is forced)', () => {
     const grammar = function () {
       return {
         keywords:

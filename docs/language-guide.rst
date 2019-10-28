@@ -258,6 +258,23 @@ Many languages share common modes and regular expressions. Such expressions are 
 at the end under "Common regexps" and "Common modes" titles. Use them when possible.
 
 
+Regular Expression Features
+---------------------------
+
+The goal of Highlight.js is to support whatever regex features Javascript itself supports.  You're using real regular expressions, use them responsibly.  That said, due to the design of the parser, there are some caveats.  These are addressed below.
+
+Things we support now that we did not always:
+
+* look-ahead matching for `begin` (#2135)
+* look-ahead matching for `illegal` (#2135)
+* back-references within your regex (#1897)
+
+Things we currently know are still issues:
+
+* look-ahead matching for `end` matchers
+* look-behind matching (when JS supports it) for `end` matchers
+
+
 Contributing
 ------------
 

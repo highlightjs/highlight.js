@@ -1,11 +1,19 @@
 ## Master
 
 New languages:
+  none.
 
 New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
+- Add CLI tool to quickly check for relevance conflicts [Mark Ellis][] (#1554)
+- enhance(twig) update list of filter and tags (#2090)
+- fix(crystal): correctly highlight `!~` method definition (#2222)
+- fix dropping characters if we choke up on a 0-width match (#2219)
+- (accesslog) improve accesslog relevancy scoring (#2172)
+- fix(shell): fix parsing of prompts with forward slash (#2218)
+- improve parser to properly support look-ahead regex in begin matchers (#2135)
 - blacklist super-common keywords from having relevance (#2179)
 - fix(swift): support for `@dynamicMemberLookup` and `@propertyWrapper` (#2202)
 - fix: `endWithParent` inside `starts` now always works (#2201)
@@ -26,8 +34,10 @@ Improvements:
 - fix(Go): improve function declaration matching
 - fix(python): added support for f-string literal curly braces (#2195)
 - fix(cpp): add `future` built-in (#1610)
+- fix(python): support comments within function parameters (#2214)
 
 [Carl Baxter]: https://github.com/cdbax
+[Mark Ellis]: https://github.com/ellismarkf
 
 ## Version 9.15.10
 New languages:

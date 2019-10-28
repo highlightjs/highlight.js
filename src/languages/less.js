@@ -3,7 +3,7 @@ Language: Less
 Description: It's CSS, with just a little more.
 Author:   Max Mikhailov <seven.phases.max@gmail.com>
 Website: http://lesscss.org
-Category: css
+Category: common, css
 */
 
 function(hljs) {
