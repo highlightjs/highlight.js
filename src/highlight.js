@@ -54,7 +54,7 @@ https://highlightjs.org/
     tabReplace: null,
     useBR: false,
     languages: undefined,
-    addLanguageAttr: false
+    addLanguageAttr: true
   };
 
   // keywords that should have no default relevance value
