@@ -53,8 +53,7 @@ https://highlightjs.org/
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
-    languages: undefined,
-    addLanguageAttr: true
+    languages: undefined
   };
 
   // keywords that should have no default relevance value
@@ -845,8 +844,7 @@ https://highlightjs.org/
 
     block.innerHTML = result.value;
     block.className = buildClassName(block.className, language, result.language);
-    if(options.addLanguageAttr)
-       block.setAttribute('data-language',result.language);
+    block.setAttribute('data-language', block.getAttribute('data-language') || result.language);
     block.result = {
       language: result.language,
       re: result.relevance
