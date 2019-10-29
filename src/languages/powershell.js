@@ -172,8 +172,8 @@ function(hljs){
     begin: /New-Object\s+\w/, end: /$/,
     returnBegin: true,
     contains: [
-      { begin: /$/, endsParent: true },
-      { className: 'meta', begin: /\s([\w\.])+/, endsParent: true }
+      { begin: /New-Object\s+/, relevance: 0 },
+      { className: 'meta', begin: /([\w\.])+/, endsParent: true }
     ]
   };
 
