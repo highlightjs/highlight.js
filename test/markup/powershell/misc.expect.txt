@@ -1,5 +1,10 @@
- <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> System.Text
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> System.Text
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">module</span> CardGames
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Get-PowerShellProcess</span></span> { <span class="hljs-built_in">Get-Process</span> PowerShell }
+<span class="hljs-function"><span class="hljs-keyword">Function</span> <span class="hljs-title">Add-Numbers</span><span class="hljs-params">(<span class="hljs-variable">$one</span>, <span class="hljs-variable">$two</span>)</span></span> {
+    <span class="hljs-variable">$one</span> + <span class="hljs-variable">$two</span>
+}
 
 <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">MediaTypes</span></span> {
     unknown

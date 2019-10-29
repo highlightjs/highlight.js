@@ -42,6 +42,8 @@ function(hljs){
     // TODO: 'validate[A-Z]+' can't work in keywords
   };
 
+  var TITLE_NAME_RE = /\w[\w\d]*((-)[\w\d]+)*/;
+
   var BACKTICK_ESCAPE = {
     begin: '`[\\s\\S]',
     relevance: 0
@@ -122,12 +124,19 @@ function(hljs){
   };
 
   var PS_FUNCTION = {
-    className: 'keyword',
-    begin: /function\s+/, end: /([^A-Z0-9-])/,
+    className: 'function',
+    begin: /function\s+/, end: /\s*\{|$/,
     excludeEnd: true,
+    returnBegin: true,
     relevance: 0,
     contains: [
-      CMDLETS
+      { begin: "function", relevance: 0, className: "keyword" },
+      { className: "title",
+        begin: TITLE_NAME_RE, relevance:0 },
+      { begin: /\(/, end: /\)/, className: "params",
+        relevance: 0,
+        contains: [VAR] }
+      // CMDLETS
     ]
   };
 

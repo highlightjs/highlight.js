@@ -1,6 +1,11 @@
 using namespace System.Text
 using module CardGames
 
+function Get-PowerShellProcess { Get-Process PowerShell }
+Function Add-Numbers($one, $two) {
+    $one + $two
+}
+
 enum MediaTypes {
     unknown
     music = 10
