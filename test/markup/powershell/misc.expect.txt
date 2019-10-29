@@ -20,7 +20,7 @@
 
 <span class="hljs-variable">$client</span> = <span class="hljs-built_in">New-Object <span class="hljs-meta">System.Net.WebClient</span></span>
 
-[<span class="hljs-meta">System.Environment</span>]<span class="hljs-selector-tag">::<span class="hljs-attribute">Commandline</span></span>
+[<span class="hljs-type">System.Environment</span>]<span class="hljs-selector-tag">::<span class="hljs-attribute">Commandline</span></span>
 
 <span class="hljs-variable">$notepad</span> = <span class="hljs-built_in">Get-Process</span> notepad
 <span class="hljs-variable">$notepad</span>.<span class="hljs-name"><span class="hljs-built_in">Kill</span></span>()

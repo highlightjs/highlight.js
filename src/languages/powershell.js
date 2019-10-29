@@ -8,6 +8,10 @@ Website: https://docs.microsoft.com/en-us/powershell/
 
 function(hljs){
 
+  var TYPES =
+    ["string", "char", "byte", "int", "long", "bool",  "decimal",  "single",
+     "double", "DateTime", "xml", "array", "hashtable", "void"];
+
   // https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx
   var VALID_VERBS =
     'Add|Clear|Close|Copy|Enter|Exit|Find|Format|Get|Hide|Join|Lock|' +
@@ -217,8 +221,12 @@ function(hljs){
     excludeEnd: true,
     relevance: 0,
     contains: GENTLEMANS_SET.concat(
-      'self',
-      { className: 'meta', begin: /[\.\w\d]+/, relevance: 0 }
+      // { keywords: {
+        // built_in: TYPES
+      // }},
+      { begin: "(" + TYPES.join("|") + ")", className: "built_in", relevance:0 },
+      { className: 'type', begin: /[\.\w\d]+/, relevance: 0 },
+      'self'
     )
   };
 
