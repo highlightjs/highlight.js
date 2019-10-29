@@ -156,7 +156,7 @@ function(hljs){
     variants: [
       // PS literals are pretty verbose so it's a good idea to accent them a bit.
       { className: 'operator', begin: '('.concat(COMPARISON_OPERATORS, ')\\b') },
-      { className: 'literal', begin: /(-)[\w\d]+/ }
+      { className: 'literal', begin: /(-)[\w\d]+/, relevance:0 }
     ]
   };
 
