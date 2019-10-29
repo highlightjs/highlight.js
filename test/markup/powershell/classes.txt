@@ -9,6 +9,8 @@ class Device {
 }
 
 class Rack {
+    hidden [int] $Slots = 8
+    static [Rack[]]$InstalledRacks = @()
     [int]$Slots = 8
     [string]$Brand
     [string]$Model

@@ -9,6 +9,8 @@
 }
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rack</span> </span>{
+    <span class="hljs-keyword">hidden</span> [<span class="hljs-meta">int</span>] <span class="hljs-variable">$Slots</span> = <span class="hljs-number">8</span>
+    <span class="hljs-keyword">static</span> [<span class="hljs-meta">Rack</span>[]]<span class="hljs-variable">$InstalledRacks</span> = <span class="hljs-selector-tag">@</span>()
     [<span class="hljs-meta">int</span>]<span class="hljs-variable">$Slots</span> = <span class="hljs-number">8</span>
     [<span class="hljs-meta">string</span>]<span class="hljs-variable">$Brand</span>
     [<span class="hljs-meta">string</span>]<span class="hljs-variable">$Model</span>
