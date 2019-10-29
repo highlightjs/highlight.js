@@ -1,4 +1,19 @@
-## Master
+## Version [master]
+
+New languages:
+  none.
+
+New styles:
+  none.
+
+Improvements:
+- fix(parser): Fix merger HTML attribute quoting (#2235) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
+
+
+## Version 9.16.0
+
 
 New languages:
   none.
