@@ -1,0 +1,27 @@
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">MediaTypes</span> </span>{
+    unknown
+    music = <span class="hljs-number">10</span>
+    mp3
+    aac
+    ogg = <span class="hljs-number">15</span>
+}
+
+<span class="hljs-string">"def"</span> <span class="hljs-subst">-notin</span> <span class="hljs-string">"abc"</span>, <span class="hljs-string">"def"</span>
+<span class="hljs-string">"Sunday"</span> <span class="hljs-subst">-notmatch</span> <span class="hljs-string">"rain"</span>
+<span class="hljs-string">"Good Dog"</span> <span class="hljs-subst">-match</span> <span class="hljs-string">"Dog"</span>
+<span class="hljs-number">2</span> <span class="hljs-subst">-eq</span> <span class="hljs-number">2</span>
+<span class="hljs-string">"abc"</span> <span class="hljs-subst">-ne</span> <span class="hljs-string">"def"</span>
+
+<span class="hljs-variable">$hash</span> = <span class="hljs-selector-tag">@</span>{
+    SomeKey = <span class="hljs-string">'SomeValue'</span>
+    SomeKey2 = <span class="hljs-string">'SomeValue2'</span>
+    SomeKey3 = <span class="hljs-string">'SomeValue3'</span>
+}
+
+<span class="hljs-variable">$client</span> = <span class="hljs-built_in">New-Object <span class="hljs-meta">System.Net.WebClient</span></span>
+
+[<span class="hljs-meta">System.Environment</span>]<span class="hljs-selector-tag">::<span class="hljs-attribute">Commandline</span></span>
+
+<span class="hljs-variable">$notepad</span> = <span class="hljs-built_in">Get-Process</span> notepad
+<span class="hljs-variable">$notepad</span>.<span class="hljs-name"><span class="hljs-built_in">Kill</span></span>()
+<span class="hljs-string">'this is rocket science'</span>.<span class="hljs-name"><span class="hljs-built_in">Replace</span></span>(<span class="hljs-string">'rocket'</span>, <span class="hljs-string">'rock'</span>)
