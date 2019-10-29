@@ -106,9 +106,7 @@ function(hljs){
   var CMDLETS = {
     className: 'built_in',
     variants: [
-      { begin: '('.concat(VALID_VERBS, ')+(-)[\\w\\d]+') },
-      // Invalid cmdlets!
-      { className: 'subst', begin: /[\w\d]+(-)[\w\d]+/, relevance: 0 }
+      { begin: '('.concat(VALID_VERBS, ')+(-)[\\w\\d]+') }
     ]
   };
 
@@ -125,9 +123,7 @@ function(hljs){
     excludeEnd: true,
     relevance: 0,
     contains: [
-      CMDLETS,
-      // Invalid function names!
-      { className: 'subst', begin: /[\w\d]+/ }
+      CMDLETS
     ]
   };
 
@@ -147,7 +143,7 @@ function(hljs){
   var PS_ARGUMENTS = {
     variants: [
       // PS literals are pretty verbose so it's a good idea to accent them a bit.
-      { className: 'subst', begin: '('.concat(COMPARISON_OPERATORS, ')\\b') },
+      { className: 'operator', begin: '('.concat(COMPARISON_OPERATORS, ')\\b') },
       { className: 'literal', begin: /(-)[\w\d]+/ }
     ]
   };
