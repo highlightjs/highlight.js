@@ -34,7 +34,7 @@ function(hljs){
   var KEYWORDS = {
     keyword: 'if else foreach return do while until elseif begin for trap data dynamicparam ' +
     'end break throw param continue finally in switch exit filter try process catch ' +
-    'hidden static parameter';
+    'hidden static parameter'
     // TODO: 'validate[A-Z]+' can't work in keywords
   };
 
