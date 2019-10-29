@@ -180,7 +180,7 @@ function(hljs){
   // It's a very general rule so I'll narrow it a bit with some strict boundaries
   // to avoid any possible false-positive collisions!
   var PS_METHODS = {
-    className: 'name',
+    className: 'function',
     begin: /[\w]+[ ]??\(/, end: /$/,
     returnBegin: true,
     relevance: 0,
