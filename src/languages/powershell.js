@@ -112,7 +112,7 @@ function(hljs){
 
   var PS_CLASS = {
     className: 'class',
-    beginKeywords: 'class enum', end: /[{]/, excludeEnd: true,
+    beginKeywords: 'class enum', end: /\s*[{]/, excludeEnd: true,
     relevance: 0,
     contains: [hljs.TITLE_MODE]
   };

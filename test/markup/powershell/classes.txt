@@ -8,7 +8,7 @@ class Device {
     }
 }
 
-class Rack {
+class Rack : Device {
     hidden [int] $Slots = 8
     static [Rack[]]$InstalledRacks = @()
     [int]$Slots = 8
