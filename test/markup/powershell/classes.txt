@@ -18,6 +18,16 @@ class Rack : Device {
     [string]$AssetId
     [Device[]]$Devices = [Device[]]::new($this.Slots)
 
+    Device(
+        [string]$b,
+        [string]$m,
+        [string]$vsk
+    ){
+        $this.Brand = $b
+        $this.Model = $m
+        $this.VendorSku = $vsk
+    }
+
     [void] AddDevice([Device]$dev, [int]$slot){
         ## Add argument validation logic here
         $this.Devices[$slot] = $dev

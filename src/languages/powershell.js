@@ -181,7 +181,7 @@ function(hljs){
   // to avoid any possible false-positive collisions!
   var PS_METHODS = {
     className: 'function',
-    begin: /[\w]+[ ]??\(/, end: /$/,
+    begin: /\[.*\]\s*[\w]+[ ]??\(/, end: /$/,
     returnBegin: true,
     relevance: 0,
     contains: [
@@ -216,15 +216,15 @@ function(hljs){
     excludeBegin: true,
     excludeEnd: true,
     relevance: 0,
-    contains: GENTLEMANS_SET.concat(
-      // { keywords: {
-        // built_in: TYPES
-      // }},
+    contains: [].concat(
+      'self',
+      GENTLEMANS_SET,
       { begin: "(" + TYPES.join("|") + ")", className: "built_in", relevance:0 },
       { className: 'type', begin: /[\.\w\d]+/, relevance: 0 },
-      'self'
     )
   };
+
+  PS_METHODS.contains.unshift(PS_TYPE)
 
   return {
     aliases: ["ps", "ps1"],
