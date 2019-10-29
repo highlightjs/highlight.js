@@ -23,5 +23,5 @@
 [<span class="hljs-type">System.Environment</span>]<span class="hljs-selector-tag">::<span class="hljs-attribute">Commandline</span></span>
 
 <span class="hljs-variable">$notepad</span> = <span class="hljs-built_in">Get-Process</span> notepad
-<span class="hljs-variable">$notepad</span>.<span class="hljs-name"><span class="hljs-built_in">Kill</span></span>()
-<span class="hljs-string">'this is rocket science'</span>.<span class="hljs-name"><span class="hljs-built_in">Replace</span></span>(<span class="hljs-string">'rocket'</span>, <span class="hljs-string">'rock'</span>)
+<span class="hljs-variable">$notepad</span>.<span class="hljs-name"><span class="hljs-title">Kill</span></span>()
+<span class="hljs-string">'this is rocket science'</span>.<span class="hljs-name"><span class="hljs-title">Replace</span></span>(<span class="hljs-string">'rocket'</span>, <span class="hljs-string">'rock'</span>)

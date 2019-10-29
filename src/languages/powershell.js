@@ -192,11 +192,7 @@ function(hljs){
         endsParent: true,
         relevance: 0
       },
-      {
-        className: 'built_in', begin: /[\w]+\b/,
-        endsParent: true,
-        relevance: 0
-      }
+      hljs.inherit(hljs.TITLE_MODE, { endsParent: true })
     ]
   };
 
