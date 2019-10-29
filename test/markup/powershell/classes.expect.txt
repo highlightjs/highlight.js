@@ -1,0 +1,45 @@
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Device</span> </span>{
+    [<span class="hljs-meta">string</span>]<span class="hljs-variable">$Brand</span>
+    [<span class="hljs-meta">string</span>]<span class="hljs-variable">$Model</span>
+    [<span class="hljs-meta">string</span>]<span class="hljs-variable">$VendorSku</span>
+
+    [<span class="hljs-meta">string</span>]<span class="hljs-name"><span class="hljs-built_in">ToString</span></span>(){
+        <span class="hljs-name"><span class="hljs-keyword">return</span></span> (<span class="hljs-string">"{0}|{1}|{2}"</span> <span class="hljs-subst">-f</span> <span class="hljs-keyword">$this</span>.Brand, <span class="hljs-keyword">$this</span>.Model, <span class="hljs-keyword">$this</span>.VendorSku)
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rack</span> </span>{
+    [<span class="hljs-meta">int</span>]<span class="hljs-variable">$Slots</span> = <span class="hljs-number">8</span>
+    [<span class="hljs-meta">string</span>]<span class="hljs-variable">$Brand</span>
+    [<span class="hljs-meta">string</span>]<span class="hljs-variable">$Model</span>
+    [<span class="hljs-meta">string</span>]<span class="hljs-variable">$VendorSku</span>
+    [<span class="hljs-meta">string</span>]<span class="hljs-variable">$AssetId</span>
+    [<span class="hljs-meta">Device</span>[]]<span class="hljs-variable">$Devices</span> = [<span class="hljs-meta">Device</span>[]]<span class="hljs-selector-tag">::<span class="hljs-attribute">new</span></span>(<span class="hljs-keyword">$this</span>.Slots)
+
+    [<span class="hljs-meta">void</span>] <span class="hljs-name"><span class="hljs-built_in">AddDevice</span></span>([<span class="hljs-meta">Device</span>]<span class="hljs-variable">$dev</span>, [<span class="hljs-meta">int</span>]<span class="hljs-variable">$slot</span>){
+        <span class="hljs-comment">## Add argument validation logic here</span>
+        <span class="hljs-keyword">$this</span>.Devices[<span class="hljs-variable">$slot</span>] = <span class="hljs-variable">$dev</span>
+    }
+
+    [<span class="hljs-meta">void</span>]<span class="hljs-name"><span class="hljs-built_in">RemoveDevice</span></span>([<span class="hljs-meta">int</span>]<span class="hljs-variable">$slot</span>){
+        <span class="hljs-comment">## Add argument validation logic here</span>
+        <span class="hljs-keyword">$this</span>.Devices[<span class="hljs-variable">$slot</span>] = <span class="hljs-variable">$null</span>
+    }
+
+    [<span class="hljs-meta">int</span>[]] <span class="hljs-name"><span class="hljs-built_in">GetAvailableSlots</span></span>(){
+        [<span class="hljs-meta">int</span>]<span class="hljs-variable">$i</span> = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-selector-tag">@</span>(<span class="hljs-keyword">$this</span>.Devices.foreach{ <span class="hljs-name"><span class="hljs-keyword">if</span></span>(<span class="hljs-variable">$_</span> <span class="hljs-subst">-eq</span> <span class="hljs-variable">$null</span>){<span class="hljs-variable">$i</span>}; <span class="hljs-variable">$i</span>++})
+    }
+}
+
+<span class="hljs-variable">$rack</span> = [<span class="hljs-meta">Rack</span>]<span class="hljs-selector-tag">::<span class="hljs-attribute">new</span></span>()
+
+<span class="hljs-variable">$surface</span> = [<span class="hljs-meta">Device</span>]<span class="hljs-selector-tag">::<span class="hljs-attribute">new</span></span>()
+<span class="hljs-variable">$surface</span>.Brand = <span class="hljs-string">"Microsoft"</span>
+<span class="hljs-variable">$surface</span>.Model = <span class="hljs-string">"Surface Pro 4"</span>
+<span class="hljs-variable">$surface</span>.VendorSku = <span class="hljs-string">"5072641000"</span>
+
+<span class="hljs-variable">$rack</span>.<span class="hljs-name"><span class="hljs-built_in">AddDevice</span></span>(<span class="hljs-variable">$surface</span>, <span class="hljs-number">2</span>)
+
+<span class="hljs-variable">$rack</span>
+<span class="hljs-variable">$rack</span>.<span class="hljs-name"><span class="hljs-built_in">GetAvailableSlots</span></span>()

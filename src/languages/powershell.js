@@ -216,7 +216,6 @@ function(hljs){
   ];
 
   var PS_TYPE = {
-    className: 'no-markup',
     begin: /\[/, end: /\]/,
     excludeBegin: true,
     excludeEnd: true,
