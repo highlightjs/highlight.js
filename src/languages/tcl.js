@@ -54,7 +54,7 @@ function(hljs) {
         className: 'string',
         contains: [hljs.BACKSLASH_ESCAPE],
         variants: [
-          hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
+          Object.assign(hljs.QUOTE_STRING_MODE, {illegal: null})
         ]
       },
       {

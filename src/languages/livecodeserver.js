@@ -22,13 +22,13 @@ function(hljs) {
     hljs.COMMENT('--', '$'),
     hljs.COMMENT('[^:]//', '$')
   ];
-  var TITLE1 = hljs.inherit(hljs.TITLE_MODE, {
+  var TITLE1 = Object.assign(hljs.TITLE_MODE, {
     variants: [
       {begin: '\\b_*rig[A-Z]+[A-Za-z0-9_\\-]*'},
       {begin: '\\b_[a-z0-9\\-]+'}
     ]
   });
-  var TITLE2 = hljs.inherit(hljs.TITLE_MODE, {begin: '\\b([A-Za-z0-9_\\-]+)\\b'});
+  var TITLE2 = Object.assign(hljs.TITLE_MODE, {begin: '\\b([A-Za-z0-9_\\-]+)\\b'});
   return {
     case_insensitive: false,
     keywords: {

@@ -20,7 +20,7 @@ function(hljs) {
     },
     contains: [
       BACKTICK_ESCAPE,
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {contains: [BACKTICK_ESCAPE]}),
+      Object.assign(hljs.QUOTE_STRING_MODE, {contains: [BACKTICK_ESCAPE]}),
       hljs.COMMENT(';', '$', {relevance: 0}),
       hljs.C_BLOCK_COMMENT_MODE,
       {

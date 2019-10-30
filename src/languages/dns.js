@@ -29,7 +29,7 @@ function(hljs) {
         className: 'number',
         begin: '((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\b'
       },
-      hljs.inherit(hljs.NUMBER_MODE, {begin: /\b\d+[dhwm]?/})
+      Object.assign(hljs.NUMBER_MODE, {begin: /\b\d+[dhwm]?/})
     ]
   };
 }

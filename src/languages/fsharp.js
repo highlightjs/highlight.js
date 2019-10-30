@@ -9,7 +9,7 @@ function(hljs) {
   var TYPEPARAM = {
     begin: '<', end: '>',
     contains: [
-      hljs.inherit(hljs.TITLE_MODE, {begin: /'[a-zA-Z0-9_]+/})
+      Object.assign(hljs.TITLE_MODE, {begin: /'[a-zA-Z0-9_]+/})
     ]
   };
 
@@ -58,7 +58,7 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       hljs.C_LINE_COMMENT_MODE,
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
+      Object.assign(hljs.QUOTE_STRING_MODE, {illegal: null}),
       hljs.C_NUMBER_MODE
     ]
   };

@@ -53,7 +53,7 @@ function(hljs) {
       {
         begin: /\\\n/, relevance: 0
       },
-      hljs.inherit(STRINGS, {className: 'meta-string'}),
+      Object.assign(STRINGS, {className: 'meta-string'}),
       {
         className: 'meta-string',
         begin: /<[^\n>]*>/, end: /$/,

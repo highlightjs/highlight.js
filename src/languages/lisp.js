@@ -27,7 +27,7 @@ function(hljs) {
       {begin: '#(c|C)\\(' + LISP_SIMPLE_NUMBER_RE + ' +' + LISP_SIMPLE_NUMBER_RE, end: '\\)'}
     ]
   };
-  var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null});
+  var STRING = Object.assign(hljs.QUOTE_STRING_MODE, {illegal: null});
   var COMMENT = hljs.COMMENT(
     ';', '$',
     {

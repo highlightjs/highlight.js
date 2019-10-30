@@ -6,7 +6,7 @@ Website: https://developer.apple.com/library/archive/documentation/AppleScript/C
 */
 
 function(hljs) {
-  var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: ''});
+  var STRING = Object.assign(hljs.QUOTE_STRING_MODE, {illegal: ''});
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)',

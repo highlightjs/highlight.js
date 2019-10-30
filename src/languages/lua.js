@@ -51,7 +51,7 @@ function(hljs) {
         className: 'function',
         beginKeywords: 'function', end: '\\)',
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'}),
+          Object.assign(hljs.TITLE_MODE, {begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'}),
           {
             className: 'params',
             begin: '\\(', endsWithParent: true,

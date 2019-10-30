@@ -13,21 +13,21 @@ function (hljs) {
     begin: /".*?"|'.*?'|\[.*?\]|\w+/
   };
 
-  var EXPRESSION_OR_HELPER_CALL = hljs.inherit(IDENTIFIER_PLAIN_OR_QUOTED, {
+  var EXPRESSION_OR_HELPER_CALL = Object.assign(IDENTIFIER_PLAIN_OR_QUOTED, {
     keywords: BUILT_INS,
     starts: {
       // helper params
       endsWithParent: true,
       relevance: 0,
-      contains: [hljs.inherit(IDENTIFIER_PLAIN_OR_QUOTED, {relevance: 0})]
+      contains: [Object.assign(IDENTIFIER_PLAIN_OR_QUOTED, {relevance: 0})]
     }
   });
 
-  var BLOCK_MUSTACHE_CONTENTS = hljs.inherit(EXPRESSION_OR_HELPER_CALL, {
+  var BLOCK_MUSTACHE_CONTENTS = Object.assign(EXPRESSION_OR_HELPER_CALL, {
     className: 'name'
   });
 
-  var BASIC_MUSTACHE_CONTENTS = hljs.inherit(EXPRESSION_OR_HELPER_CALL, {
+  var BASIC_MUSTACHE_CONTENTS = Object.assign(EXPRESSION_OR_HELPER_CALL, {
     // relevance 0 for backward compatibility concerning auto-detection
     relevance: 0
   });

@@ -102,20 +102,6 @@ https://highlightjs.org/
     }
   }
 
-  function inherit(parent) {  // inherit(parent, override_obj, override_obj, ...)
-    var key;
-    var result = {};
-    var objects = Array.prototype.slice.call(arguments, 1);
-
-    for (key in parent)
-      result[key] = parent[key];
-    objects.forEach(function(obj) {
-      for (key in obj)
-        result[key] = obj[key];
-    });
-    return result;
-  }
-
   /* Stream merging */
 
   function nodeStream(node) {
@@ -232,7 +218,7 @@ https://highlightjs.org/
   function expand_or_clone_mode(mode) {
     if (mode.variants && !mode.cached_variants) {
       mode.cached_variants = mode.variants.map(function(variant) {
-        return inherit(mode, {variants: null}, variant);
+        return Object.assign(mode, {variants: null}, variant);
       });
     }
 
@@ -247,7 +233,7 @@ https://highlightjs.org/
     // instance of ourselves, so we can be reused with many
     // different parents without issue
     if (dependencyOnParent(mode))
-      return [inherit(mode, { starts: mode.starts ? inherit(mode.starts) : null })]
+      return [Object.assign(mode, { starts: mode.starts ? Object.assign(mode.starts) : null })]
 
     // no special dependency issues, just return ourselves
     return [mode]
@@ -860,7 +846,7 @@ https://highlightjs.org/
   Updates highlight.js global options with values passed in the form of an object.
   */
   function configure(user_options) {
-    options = inherit(options, user_options);
+    options = Object.assign(options, user_options);
   }
 
   /*
@@ -950,7 +936,7 @@ https://highlightjs.org/
     begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b/
   };
   hljs.COMMENT = function (begin, end, inherits) {
-    var mode = hljs.inherit(
+    var mode = hljs.Object.assign(
       {
         className: 'comment',
         begin: begin, end: end,

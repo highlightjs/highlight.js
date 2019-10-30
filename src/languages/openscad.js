@@ -20,7 +20,7 @@ function(hljs) {
 		begin: '\\b\\d+(\\.\\d+)?(e-?\\d+)?', //adds 1e5, 1e-10
 		relevance: 0
 	},
-	STRING = hljs.inherit(hljs.QUOTE_STRING_MODE,{illegal: null}),
+	STRING = Object.assign(hljs.QUOTE_STRING_MODE,{illegal: null}),
 	PREPRO = {
 		className: 'meta',
 		keywords: {'meta-keyword': 'include use'},

@@ -48,7 +48,7 @@ function(hljs) {
 
   var IDENT_RE = '([A-Za-z_]|::)(\\w|::)*';
 
-  var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE});
+  var TITLE = Object.assign(hljs.TITLE_MODE, {begin: IDENT_RE});
 
   var VARIABLE = {className: 'variable', begin: '\\$' + IDENT_RE};
 

@@ -60,8 +60,8 @@ function(hljs) {
       { /* don't color identifiers, but safely catch all identifiers with '*/
         begin: '[a-z_]\\w*\'[\\w\']*', relevance: 0
       },
-      hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
+      Object.assign(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
+      Object.assign(hljs.QUOTE_STRING_MODE, {illegal: null}),
       {
         className: 'number',
         begin:

@@ -35,13 +35,13 @@ function(hljs) {
     className: 'function',
     beginKeywords: 'def defp defmacro', end: /\B\b/, // the mode is ended by the title
     contains: [
-      hljs.inherit(hljs.TITLE_MODE, {
+      Object.assign(hljs.TITLE_MODE, {
         begin: ELIXIR_IDENT_RE,
         endsParent: true
       })
     ]
   };
-  var CLASS = hljs.inherit(FUNCTION, {
+  var CLASS = Object.assign(FUNCTION, {
     className: 'class',
     beginKeywords: 'defimpl defmodule defprotocol defrecord', end: /\bdo\b|$|;/
   });

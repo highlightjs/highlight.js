@@ -36,13 +36,13 @@ function(hljs) {
     begin: '@"', end: '"',
     contains: [{begin: '""'}]
   };
-  var VERBATIM_STRING_NO_LF = hljs.inherit(VERBATIM_STRING, {illegal: /\n/});
+  var VERBATIM_STRING_NO_LF = Object.assign(VERBATIM_STRING, {illegal: /\n/});
   var SUBST = {
     className: 'subst',
     begin: '{', end: '}',
     keywords: KEYWORDS
   };
-  var SUBST_NO_LF = hljs.inherit(SUBST, {illegal: /\n/});
+  var SUBST_NO_LF = Object.assign(SUBST, {illegal: /\n/});
   var INTERPOLATED_STRING = {
     className: 'string',
     begin: /\$"/, end: '"',
@@ -54,7 +54,7 @@ function(hljs) {
     begin: /\$@"/, end: '"',
     contains: [{begin: '{{'}, {begin: '}}'}, {begin: '""'}, SUBST]
   };
-  var INTERPOLATED_VERBATIM_STRING_NO_LF = hljs.inherit(INTERPOLATED_VERBATIM_STRING, {
+  var INTERPOLATED_VERBATIM_STRING_NO_LF = Object.assign(INTERPOLATED_VERBATIM_STRING, {
     illegal: /\n/,
     contains: [{begin: '{{'}, {begin: '}}'}, {begin: '""'}, SUBST_NO_LF]
   });
@@ -74,7 +74,7 @@ function(hljs) {
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
     NUMBERS,
-    hljs.inherit(hljs.C_BLOCK_COMMENT_MODE, {illegal: /\n/})
+    Object.assign(hljs.C_BLOCK_COMMENT_MODE, {illegal: /\n/})
   ];
   var STRING = {
     variants: [
@@ -140,7 +140,7 @@ function(hljs) {
         beginKeywords: 'namespace', end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: '[a-zA-Z](\\.?\\w)*'}),
+          Object.assign(hljs.TITLE_MODE, {begin: '[a-zA-Z](\\.?\\w)*'}),
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]

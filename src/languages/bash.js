@@ -75,7 +75,7 @@ function(hljs) {
         className: 'function',
         begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
         returnBegin: true,
-        contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w\d_]*/})],
+        contains: [Object.assign(hljs.TITLE_MODE, {begin: /\w[\w\d_]*/})],
         relevance: 0
       },
       hljs.HASH_COMMENT_MODE,

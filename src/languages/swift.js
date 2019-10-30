@@ -89,7 +89,7 @@ function(hljs) {
         className: 'function',
         beginKeywords: 'func', end: '{', excludeEnd: true,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {
+          Object.assign(hljs.TITLE_MODE, {
             begin: /[A-Za-z$_][0-9A-Za-z$_]*/
           }),
           {
@@ -118,7 +118,7 @@ function(hljs) {
         end: '\\{',
         excludeEnd: true,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/})
+          Object.assign(hljs.TITLE_MODE, {begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/})
         ]
       },
       {

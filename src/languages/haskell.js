@@ -43,7 +43,7 @@ function(hljs) {
       PRAGMA,
       PREPROCESSOR,
       {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
-      hljs.inherit(hljs.TITLE_MODE, {begin: '[_a-z][\\w\']*'}),
+      Object.assign(hljs.TITLE_MODE, {begin: '[_a-z][\\w\']*'}),
       COMMENT
     ]
   };
@@ -119,7 +119,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
-      hljs.inherit(hljs.TITLE_MODE, {begin: '^[_a-z][\\w\']*'}),
+      Object.assign(hljs.TITLE_MODE, {begin: '^[_a-z][\\w\']*'}),
 
       COMMENT,
 

@@ -176,7 +176,7 @@ function(hljs) {
         keywords: KEYWORDS,
         contains: [
           'self',
-          hljs.inherit(hljs.TITLE_MODE, { begin: JS_IDENT_RE }),
+          Object.assign(hljs.TITLE_MODE, { begin: JS_IDENT_RE }),
           PARAMS
         ],
         illegal: /%/,

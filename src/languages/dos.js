@@ -44,7 +44,7 @@ function(hljs) {
         className: 'function',
         begin: LABEL.begin, end: 'goto:eof',
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'}),
+          Object.assign(hljs.TITLE_MODE, {begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'}),
           COMMENT
         ]
       },

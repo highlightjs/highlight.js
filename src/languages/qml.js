@@ -94,7 +94,7 @@ function(hljs) {
     returnBegin: true,
     relevance: 0,
     contains: [
-      hljs.inherit(hljs.TITLE_MODE, {begin: QML_IDENT_RE})
+      Object.assign(hljs.TITLE_MODE, {begin: QML_IDENT_RE})
     ]
   };
 
@@ -152,7 +152,7 @@ function(hljs) {
         className: 'function',
         beginKeywords: 'function', end: /\{/, excludeEnd: true,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/}),
+          Object.assign(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/}),
           {
             className: 'params',
             begin: /\(/, end: /\)/,

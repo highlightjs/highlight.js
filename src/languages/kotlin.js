@@ -79,7 +79,7 @@ function(hljs) {
       {
         begin: /\(/, end: /\)/,
         contains: [
-          hljs.inherit(STRING, {className: 'meta-string'})
+          Object.assign(STRING, {className: 'meta-string'})
         ]
       }
     ]

@@ -420,7 +420,7 @@ function(hljs){
   var LITERAL = 'null истина ложь неопределено';
   
   // number : числа
-  var NUMBERS = hljs.inherit(hljs.NUMBER_MODE);
+  var NUMBERS = Object.assign(hljs.NUMBER_MODE);
 
   // string : строки
   var STRINGS = {
@@ -441,7 +441,7 @@ function(hljs){
   };
   
   // comment : комментарии
-  var COMMENTS = hljs.inherit(hljs.C_LINE_COMMENT_MODE);
+  var COMMENTS = Object.assign(hljs.C_LINE_COMMENT_MODE);
   
   // meta : инструкции препроцессора, директивы компиляции
   var META = {
@@ -489,7 +489,7 @@ function(hljs){
           COMMENTS
         ]
       },
-      hljs.inherit(hljs.TITLE_MODE, {begin: UNDERSCORE_IDENT_RE})
+      Object.assign(hljs.TITLE_MODE, {begin: UNDERSCORE_IDENT_RE})
     ]
   };
 

@@ -94,7 +94,7 @@ function(hljs) {
       beginKeywords: 'class module', end: '$|;',
       illegal: /=/,
       contains: [
-        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
+        Object.assign(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
         {
           begin: '<\\s*',
           contains: [{
@@ -107,7 +107,7 @@ function(hljs) {
       className: 'function',
       beginKeywords: 'def', end: '$|;',
       contains: [
-        hljs.inherit(hljs.TITLE_MODE, {begin: RUBY_METHOD_RE}),
+        Object.assign(hljs.TITLE_MODE, {begin: RUBY_METHOD_RE}),
         PARAMS
       ].concat(COMMENT_MODES)
     },

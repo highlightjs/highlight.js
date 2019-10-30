@@ -36,7 +36,7 @@ function(hljs) {
         beginKeywords: 'struct enum', end: /\{/,
         illegal: /\n/,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {
+          Object.assign(hljs.TITLE_MODE, {
             starts: {endsWithParent: true, excludeEnd: true} // hack: eating everything after the first title
           })
         ]
@@ -46,7 +46,7 @@ function(hljs) {
         beginKeywords: 'interface', end: /\{/,
         illegal: /\n/,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {
+          Object.assign(hljs.TITLE_MODE, {
             starts: {endsWithParent: true, excludeEnd: true} // hack: eating everything after the first title
           })
         ]

@@ -16,8 +16,8 @@ function(hljs) {
       {
         begin: 'b\'', end: '\''
       },
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
+      Object.assign(hljs.APOS_STRING_MODE, {illegal: null}),
+      Object.assign(hljs.QUOTE_STRING_MODE, {illegal: null})
     ]
   };
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};

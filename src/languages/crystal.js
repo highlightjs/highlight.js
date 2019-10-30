@@ -97,7 +97,7 @@ function(hljs) {
     className: 'meta',
     begin: '@\\[', end: '\\]',
     contains: [
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'})
+      Object.assign(hljs.QUOTE_STRING_MODE, {className: 'meta-string'})
     ]
   };
   var CRYSTAL_DEFAULT_CONTAINS = [
@@ -114,7 +114,7 @@ function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
+        Object.assign(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
         {begin: '<'} // relevance booster for inheritance
       ]
     },
@@ -124,7 +124,7 @@ function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
+        Object.assign(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
       ],
       relevance: 10
     },
@@ -133,7 +133,7 @@ function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
+        Object.assign(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
       ],
       relevance: 10
     },
@@ -141,7 +141,7 @@ function(hljs) {
       className: 'function',
       beginKeywords: 'def', end: /\B\b/,
       contains: [
-        hljs.inherit(hljs.TITLE_MODE, {
+        Object.assign(hljs.TITLE_MODE, {
           begin: CRYSTAL_METHOD_RE,
           endsParent: true
         })
@@ -151,7 +151,7 @@ function(hljs) {
       className: 'function',
       beginKeywords: 'fun macro', end: /\B\b/,
       contains: [
-        hljs.inherit(hljs.TITLE_MODE, {
+        Object.assign(hljs.TITLE_MODE, {
           begin: CRYSTAL_METHOD_RE,
           endsParent: true
         })

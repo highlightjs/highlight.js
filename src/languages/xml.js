@@ -67,8 +67,8 @@ function(hljs) {
           {begin: '/\\*', end: '\\*/', skip: true},
           {begin: 'b"', end: '"', skip: true},
           {begin: 'b\'', end: '\'', skip: true},
-          hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null, className: null, contains: null, skip: true}),
-          hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null, className: null, contains: null, skip: true})
+          Object.assign(hljs.APOS_STRING_MODE, {illegal: null, className: null, contains: null, skip: true}),
+          Object.assign(hljs.QUOTE_STRING_MODE, {illegal: null, className: null, contains: null, skip: true})
         ]
       },
       {

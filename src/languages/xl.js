@@ -54,7 +54,7 @@ function(hljs) {
     className: 'function',
     begin: /[a-z][^\n]*->/, returnBegin: true, end: /->/,
     contains: [
-      hljs.inherit(hljs.TITLE_MODE, {starts: {
+      Object.assign(hljs.TITLE_MODE, {starts: {
         endsWithParent: true,
         keywords: XL_KEYWORDS
       }})

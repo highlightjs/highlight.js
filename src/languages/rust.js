@@ -48,7 +48,7 @@ function(hljs) {
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT('/\\*', '\\*/', {contains: ['self']}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {begin: /b?"/, illegal: null}),
+      Object.assign(hljs.QUOTE_STRING_MODE, {begin: /b?"/, illegal: null}),
       {
         className: 'string',
         variants: [
@@ -91,7 +91,7 @@ function(hljs) {
         className: 'class',
         beginKeywords: 'type', end: ';',
         contains: [
-          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {endsParent: true})
+          Object.assign(hljs.UNDERSCORE_TITLE_MODE, {endsParent: true})
         ],
         illegal: '\\S'
       },
@@ -99,7 +99,7 @@ function(hljs) {
         className: 'class',
         beginKeywords: 'trait enum struct union', end: '{',
         contains: [
-          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {endsParent: true})
+          Object.assign(hljs.UNDERSCORE_TITLE_MODE, {endsParent: true})
         ],
         illegal: '[\\w\\d]'
       },

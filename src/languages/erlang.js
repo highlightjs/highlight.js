@@ -79,7 +79,7 @@ function(hljs) {
   BLOCK_STATEMENTS.contains = [
     COMMENT,
     NAMED_FUN,
-    hljs.inherit(hljs.APOS_STRING_MODE, {className: ''}),
+    Object.assign(hljs.APOS_STRING_MODE, {className: ''}),
     BLOCK_STATEMENTS,
     FUNCTION_CALL,
     hljs.QUOTE_STRING_MODE,
@@ -121,7 +121,7 @@ function(hljs) {
         illegal: '\\(|#|//|/\\*|\\\\|:|;',
         contains: [
           PARAMS,
-          hljs.inherit(hljs.TITLE_MODE, {begin: BASIC_ATOM_RE})
+          Object.assign(hljs.TITLE_MODE, {begin: BASIC_ATOM_RE})
         ],
         starts: {
           end: ';|\\.',

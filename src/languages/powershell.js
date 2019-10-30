@@ -51,7 +51,7 @@ function(hljs){
       },
     ],
   };
-  var PS_COMMENT = hljs.inherit(hljs.COMMENT(null, null), {
+  var PS_COMMENT = Object.assign(hljs.COMMENT(null, null), {
     variants: [
       /* single-line comment */
       { begin: /#/, end: /$/ },

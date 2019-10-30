@@ -10,7 +10,7 @@ function(hljs) {
   var STRINGS = {
     className: 'string',
     variants: [
-      hljs.inherit(hljs.QUOTE_STRING_MODE, { begin: '((u8?|U)|L)?"' }),
+      Object.assign(hljs.QUOTE_STRING_MODE, { begin: '((u8?|U)|L)?"' }),
       {
         begin: '(u8?|U)?R"', end: '"',
         contains: [hljs.BACKSLASH_ESCAPE]
@@ -43,7 +43,7 @@ function(hljs) {
         beginKeywords: 'include', end: '$',
         keywords: {'meta-keyword': 'include'},
         contains: [
-          hljs.inherit(STRINGS, {className: 'meta-string'}),
+          Object.assign(STRINGS, {className: 'meta-string'}),
           {
             className: 'meta-string',
             begin: '<', end: '>',

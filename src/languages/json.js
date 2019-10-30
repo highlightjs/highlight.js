@@ -30,13 +30,13 @@ function(hljs) {
         contains: [hljs.BACKSLASH_ESCAPE],
         illegal: '\\n',
       },
-      hljs.inherit(VALUE_CONTAINER, {begin: /:/})
+      Object.assign(VALUE_CONTAINER, {begin: /:/})
     ].concat(ALLOWED_COMMENTS),
     illegal: '\\S'
   };
   var ARRAY = {
     begin: '\\[', end: '\\]',
-    contains: [hljs.inherit(VALUE_CONTAINER)], // inherit is a workaround for a bug that makes shared modes with endsWithParent compile only the ending of one of the parents
+    contains: [Object.assign(VALUE_CONTAINER)], // inherit is a workaround for a bug that makes shared modes with endsWithParent compile only the ending of one of the parents
     illegal: '\\S'
   };
   TYPES.push(OBJECT, ARRAY);

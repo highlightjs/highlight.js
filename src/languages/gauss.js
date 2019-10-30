@@ -182,7 +182,7 @@ function(hljs) {
   };
 
   var DEFINITION = function (beginKeywords, end, inherits) {
-    var mode = hljs.inherit(
+    var mode = Object.assign(
       {
         className: "function",
         beginKeywords: beginKeywords,

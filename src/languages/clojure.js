@@ -52,7 +52,7 @@ function(hljs) {
     className: 'number', begin: SIMPLE_NUMBER_RE,
     relevance: 0
   };
-  var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null});
+  var STRING = Object.assign(hljs.QUOTE_STRING_MODE, {illegal: null});
   var COMMENT = hljs.COMMENT(
     ';',
     '$',
