@@ -1,3 +1,6 @@
+using namespace System.Text
+using module CardGames
+
 enum MediaTypes {
     unknown
     music = 10

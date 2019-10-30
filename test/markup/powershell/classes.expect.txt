@@ -16,7 +16,7 @@
     [<span class="hljs-built_in">string</span>]<span class="hljs-variable">$Model</span>
     [<span class="hljs-built_in">string</span>]<span class="hljs-variable">$VendorSku</span>
     [<span class="hljs-built_in">string</span>]<span class="hljs-variable">$AssetId</span>
-    [<span class="hljs-type">Device</span>[]]<span class="hljs-variable">$Devices</span> = [<span class="hljs-type">Device</span>[]]<span class="hljs-selector-tag">::<span class="hljs-attribute">new</span></span>(<span class="hljs-keyword">$this</span>.Slots)
+    [<span class="hljs-type">Device</span>[]]<span class="hljs-variable">$Devices</span> = [<span class="hljs-type">Device</span>[]]::new(<span class="hljs-keyword">$this</span>.Slots)
 
     Device(
         [<span class="hljs-built_in">string</span>]<span class="hljs-variable">$b</span>,
@@ -44,9 +44,9 @@
     }
 }
 
-<span class="hljs-variable">$rack</span> = [<span class="hljs-type">Rack</span>]<span class="hljs-selector-tag">::<span class="hljs-attribute">new</span></span>()
+<span class="hljs-variable">$rack</span> = [<span class="hljs-type">Rack</span>]::new()
 
-<span class="hljs-variable">$surface</span> = [<span class="hljs-type">Device</span>]<span class="hljs-selector-tag">::<span class="hljs-attribute">new</span></span>()
+<span class="hljs-variable">$surface</span> = [<span class="hljs-type">Device</span>]::new()
 <span class="hljs-variable">$surface</span>.Brand = <span class="hljs-string">"Microsoft"</span>
 <span class="hljs-variable">$surface</span>.Model = <span class="hljs-string">"Surface Pro 4"</span>
 <span class="hljs-variable">$surface</span>.VendorSku = <span class="hljs-string">"5072641000"</span>

@@ -133,13 +133,12 @@ function(hljs){
 
   // Using statment, plus type, plus assembly name.
   var PS_USING = {
-    className: 'keyword',
     begin: /using\s/, end: /$/,
+    returnBegin: true,
     contains: [
       QUOTE_STRING,
       APOS_STRING,
-      { className: 'type', begin: /(assembly|command|module|namespace|type)/ },
-      { className: 'meta', begin: /\S+/ }
+      { className: 'keyword', begin: /(using|assembly|command|module|namespace|type)/ }
     ]
   };
 
@@ -197,14 +196,14 @@ function(hljs){
   };
 
   var GENTLEMANS_SET = [
-    STATIC_MEMBER,
+    // STATIC_MEMBER,
     PS_METHODS,
     PS_COMMENT,
     BACKTICK_ESCAPE,
     hljs.NUMBER_MODE,
     QUOTE_STRING,
     APOS_STRING,
-    PS_NEW_OBJECT_TYPE,
+    // PS_NEW_OBJECT_TYPE,
     CMDLETS,
     VAR,
     LITERAL,
@@ -220,7 +219,7 @@ function(hljs){
       'self',
       GENTLEMANS_SET,
       { begin: "(" + TYPES.join("|") + ")", className: "built_in", relevance:0 },
-      { className: 'type', begin: /[\.\w\d]+/, relevance: 0 },
+      { className: 'type', begin: /[\.\w\d]+/, relevance: 0 }
     )
   };
 

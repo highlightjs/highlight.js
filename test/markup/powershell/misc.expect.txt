@@ -1,3 +1,6 @@
+ <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> System.Text
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">module</span> CardGames
+
 <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">MediaTypes</span></span> {
     unknown
     music = <span class="hljs-number">10</span>
@@ -18,9 +21,9 @@
     SomeKey3 = <span class="hljs-string">'SomeValue3'</span>
 }
 
-<span class="hljs-variable">$client</span> = <span class="hljs-built_in">New-Object <span class="hljs-meta">System.Net.WebClient</span></span>
+<span class="hljs-variable">$client</span> = <span class="hljs-built_in">New-Object</span> System.Net.WebClient
 
-[<span class="hljs-type">System.Environment</span>]<span class="hljs-selector-tag">::<span class="hljs-attribute">Commandline</span></span>
+[<span class="hljs-type">System.Environment</span>]::Commandline
 
 <span class="hljs-variable">$notepad</span> = <span class="hljs-built_in">Get-Process</span> notepad
 <span class="hljs-variable">$notepad</span>.Kill()
