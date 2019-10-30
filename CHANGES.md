@@ -1,4 +1,4 @@
-## Version [master]
+## [master]
 
 New languages:
   none.
