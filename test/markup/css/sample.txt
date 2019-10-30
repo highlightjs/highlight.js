@@ -16,6 +16,9 @@ img {
   filter: grayscale(0.5) blur(10px);
 }
 
+a[href*="example"], * [lang^=en] {
+  font-size: 2em;
+}
 
 @supports (display: flex) {
   @media screen and (min-width: 900px) {

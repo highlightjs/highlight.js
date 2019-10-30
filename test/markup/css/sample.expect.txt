@@ -16,6 +16,9 @@
   <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">grayscale</span>(<span class="hljs-number">0.5</span>) <span class="hljs-built_in">blur</span>(<span class="hljs-number">10px</span>);
 }
 
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href*=<span class="hljs-string">"example"</span>]</span>, * <span class="hljs-selector-attr">[lang^=en]</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2em</span>;
+}
 
 <span class="hljs-keyword">@supports</span> (<span class="hljs-attribute">display:</span> flex) {
   <span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width:</span> <span class="hljs-number">900px</span>) {
