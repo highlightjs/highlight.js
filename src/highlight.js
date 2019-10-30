@@ -614,7 +614,8 @@ https://highlightjs.org/
 
     function doEndMatch(match) {
       var lexeme = match[0];
-      var end_mode = endOfMode(top, lexeme);
+      var matchPlusRemainder = value.substr(match.index);
+      var end_mode = endOfMode(top, matchPlusRemainder);
       if (!end_mode) { return; }
 
       var origin = top;
