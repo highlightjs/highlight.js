@@ -1,0 +1,6 @@
+/**
+  * Create a point.
+  * @param {number} x - The x value.
+  * @param {number} y - The y value.
+  * @return {Point} A Point object.
+  */
