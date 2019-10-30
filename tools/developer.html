@@ -31,33 +31,6 @@
 <body>
   <h1>highlight.js developer</h1>
 
-  <pre><code class="lang-fortran">
-      subroutine test_sub(k)
-      implicit none
-
-    !===============================
-    !   This is a test subroutine
-    !===============================
-
-      integer, intent(in)           :: k
-      double precision, allocatable :: a(:)
-      integer, parameter            :: nmax=10
-      integer                       :: i
-
-      allocate (a(nmax))
-
-      do i=1,nmax
-        a(i) = dble(i)*5.d0
-      enddo
-
-      print *, 'Hello world'
-      write (*,*) a(:)
-
-  end subroutine test_sub
-
-  </code></pre>
-
-
   <div class="editor">
     <div>
       <textarea>Put code here…</textarea>
@@ -78,12 +51,6 @@
 
   <script src="../build/highlight.pack.js"></script>
   <script src="../demo/jquery-2.1.1.min.js"></script>
-
-
-  <script>
-  hljs.initHighlightingOnLoad();
-  </script>
-
 
   <script>
     $(document).ready(function() {
