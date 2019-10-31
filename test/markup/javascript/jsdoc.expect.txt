@@ -1,8 +1,16 @@
 <span class="hljs-comment">/**
   * Create a point.
-  * <span class="hljs-doctag">@param {number} x</span> - The x value.
-  * <span class="hljs-doctag">@param {number} y</span> - The y value.
-  * <span class="hljs-doctag">@typedef {Array&lt;number&gt;}</span>
-  * <span class="hljs-doctag">@author</span> Test
-  * <span class="hljs-doctag">@return {Point}</span> A Point object.
+  * <span class="hljs-doctag">@author </span>Test - nice feature
+  * <span class="hljs-doctag">@param <span class="hljs-type">{number}</span><span class="hljs-variable"> x</span></span> - The x value.
+  * <span class="hljs-doctag">@param <span class="hljs-type">{number}</span><span class="hljs-variable"> y</span></span>
+  * <span class="hljs-doctag">@return <span class="hljs-type">{Point}</span></span> A Point object.
+  */</span>
+
+<span class="hljs-comment">/**
+  * <span class="hljs-doctag">@typedef <span class="hljs-type">{Array&lt;number&gt;}</span></span>
+  * <span class="hljs-doctag">@param <span class="hljs-type">{string=}</span><span class="hljs-variable"> n</span></span> - Optional
+  * <span class="hljs-doctag">@param <span class="hljs-type">{(string\|number)}</span><span class="hljs-variable"> n</span></span> - Multiple types
+  * <span class="hljs-doctag">@param <span class="hljs-type">{*}</span><span class="hljs-variable"> n</span></span> - Any type
+  * <span class="hljs-doctag">@param <span class="hljs-type">{...string}</span><span class="hljs-variable"> n</span></span> - repeatable arguments
+  * <span class="hljs-doctag">@param <span class="hljs-type">{string[]}</span><span class="hljs-variable"> n</span></span>	- Array of strings
   */</span>
