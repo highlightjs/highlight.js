@@ -6,7 +6,7 @@ New styles:
   none.
 
 Improvements:
-- Add support for jsdoc comments (#2245)
+- enh(javascript) Add support for jsdoc comments (#2245)
 
 ## Version 9.16.0
 
