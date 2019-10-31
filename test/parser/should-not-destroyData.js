@@ -1,11 +1,11 @@
-let hljs = require('../../build');
+const hljs = require('../../build');
 
 describe("bugs", function () {
 
   // CONTEXT: https://github.com/highlightjs/highlight.js/pull/2219
-  describe("a grammar with a mode that makes a 0 width match", function () {
-    it("should instead count it as a 1 character match", function () {
-      hljs.registerLanguage('test-language', function (hljs) {
+  describe("a grammar with a mode that makes a 0 width match", () => {
+    it("should instead count it as a 1 character match", () => {
+      hljs.registerLanguage('test-language', (hljs) => {
 
         // broken regex from old Fortran ruleset
         const NUMBER = {

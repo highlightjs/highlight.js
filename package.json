@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "9.15.10",
+  "version": "9.16.0",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -30,6 +30,8 @@
     "node": "*"
   },
   "devDependencies": {
+    "cli-table": "^0.3.1",
+    "colors": "^1.1.2",
     "bluebird": "^3.5.5",
     "commander": "^3.0.1",
     "del": "^5.1.0",

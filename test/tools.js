@@ -1,9 +1,8 @@
 'use strict';
 
-let utility = require('../tools/utility'),
-    bluebird = require('bluebird'),
-    path = require('path'),
-    readFile = bluebird.promisify(require('fs').readFile);
+const utility = require('../tools/utility');
+const path = require('path');
+const { readFile } = require('fs').promises;
 
 describe("minification tools", () => {
     it("should replace API calls with minified names", () => {
