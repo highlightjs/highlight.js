@@ -8,7 +8,7 @@ Website: https://www.arduino.cc
 
 function(hljs) {
 
-	ARDUINO_KW = {
+	var ARDUINO_KW = {
       keyword:
         'boolean byte word String',
       built_in:
