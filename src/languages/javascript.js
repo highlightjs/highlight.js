@@ -113,7 +113,7 @@ function(hljs) {
           contains : [
             {
               className : 'doctag',
-              begin : '@[A-Za-z]+(\\s+\\{[A-Za-z0-9><\\._:-]+\\})?(\\s+[A-Za-z0-9\\._:-]+(?=\\s+-))?'
+              begin : '@[A-Za-z]+(\\s+\\{[A-Za-z0-9><\\._:-]+\\}(\\s+[A-Za-z0-9\\._:-]+(?=\\s+-))?)?'
             }
           ]
         }
