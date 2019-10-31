@@ -1,7 +1,7 @@
 <span class="hljs-comment">/**
   * Create a point.
-  * <span class="hljs-doctag">@param {number}</span> x - The x value.
-  * <span class="hljs-doctag">@param {number}</span> y - The y value.
+  * <span class="hljs-doctag">@param {number} x</span> - The x value.
+  * <span class="hljs-doctag">@param {number} y</span> - The y value.
   * <span class="hljs-doctag">@typedef {Array&lt;number&gt;}</span>
   * <span class="hljs-doctag">@author</span> Test
   * <span class="hljs-doctag">@return {Point}</span> A Point object.
