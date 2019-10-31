@@ -1,3 +1,19 @@
+## Version [master]
+
+New languages:
+  none.
+
+New styles:
+  none.
+
+Improvements:
+- fix(parser): Fix merger HTML attribute quoting (#2235) [Josh Goebel][]
+- fix(parser): Look-ahead regex now work for end matches also (#2237) [Josh Goebel][]
+- fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
+
+
 ## Version 9.16.0
 
 New languages:
