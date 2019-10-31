@@ -117,7 +117,6 @@ function(hljs) {
               contains : [
                 {
                   className: 'type',
-                  relevance: 0,
                   begin: '\\{',
                   end: '\\}'
                 }
