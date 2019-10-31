@@ -10,10 +10,14 @@ Improvements:
 - enhance(css) Improve @rule highlighting, including properties (#2241) [Josh Goebel][]
 - enhance(css) Improve highlighting of numbers inside expr/func `calc(2px+3px)` (#2241)
 - enhance(scss) Pull some of the CSS improvements back into SCSS (#2241)
+- fix(parser): Fix merger HTML attribute quoting (#2235) [Josh Goebel][]
+- fix(parser): Look-ahead regex now work for end matches also (#2237) [Josh Goebel][]
+- fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/yyyc514
 
-## Version 9.16.0
+
+## Version 9.16.1
 
 New languages:
   none.
