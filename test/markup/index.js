@@ -32,6 +32,10 @@ function testLanguage(language) {
 }
 
 describe('hljs.highlight()', async () => {
+  // TODO: why?
+  // ./node_modules/.bin/mocha test/markup
+  it("needs this or it can't be run stand-alone", function() {} );
+
   const markupPath = utility.buildPath('markup');
 
   const languages = await fs.readdir(markupPath)
