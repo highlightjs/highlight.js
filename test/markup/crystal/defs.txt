@@ -1,0 +1,14 @@
+def foo
+end
+
+def *(other)
+end
+
+def **(other)
+end
+
+def =~(other)
+end
+
+def !~(other)
+end

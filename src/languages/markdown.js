@@ -2,7 +2,7 @@
 Language: Markdown
 Requires: xml.js
 Author: John Crepezzi <john.crepezzi@gmail.com>
-Website: http://seejohncode.com/
+Website: https://daringfireball.net/projects/markdown/
 Category: common, markup
 */
 
@@ -54,13 +54,13 @@ function(hljs) {
         className: 'code',
         variants: [
           {
-            begin: '^```\w*\s*$', end: '^```\s*$'
+            begin: '^```\\w*\\s*$', end: '^```[ ]*$'
           },
           {
             begin: '`.+?`'
           },
           {
-            begin: '^( {4}|\t)', end: '$',
+            begin: '^( {4}|\\t)', end: '$',
             relevance: 0
           }
         ]

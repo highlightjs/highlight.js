@@ -6,6 +6,19 @@ auto utf32 = U"Hello utf-32 string";
 
 // Wide-character strings
 auto wide_char = L"Hello wchar_t string";
+auto lr = LR"(Hello
+world)";
+
+// character literals
+auto wide_char = L'H';
+auto cr   = '\n';
+auto chr   = 'H';
+auto utf8  = u8'H';
+auto utf16 = u'H';
+auto utf32 = U'H';
+auto unicode = L'\u202e'
+auto hex = '\xFF'
+auto octal = '\123'
 
 // Raw string literals (multiline)
 auto char_multi  = R"(Hello

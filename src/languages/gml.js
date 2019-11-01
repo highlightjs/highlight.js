@@ -2,6 +2,7 @@
 Language: GML
 Author: Meseta <meseta@gmail.com>
 Description: Game Maker Language for GameMaker Studio 2
+Website: https://docs2.yoyogames.com
 Category: scripting
 */
 

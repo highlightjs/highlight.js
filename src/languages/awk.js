@@ -1,7 +1,7 @@
 /*
 Language: Awk
 Author: Matthew Daly <matthewbdaly@gmail.com>
-Website: http://matthewdaly.co.uk/
+Website: https://www.gnu.org/software/gawk/manual/gawk.html
 Description: language definition for Awk scripts
 */
 

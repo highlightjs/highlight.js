@@ -3,6 +3,7 @@ Language: Elixir
 Author: Josh Adams <josh@isotope11.com>
 Description: language definition for Elixir source code files (.ex and .exs).  Based on ruby language support.
 Category: functional
+Website: https://elixir-lang.org
 */
 
 function(hljs) {
@@ -65,7 +66,7 @@ function(hljs) {
     },
     {
       className: 'number',
-      begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
+      begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(.[0-9_]+([eE][-+]?[0-9]+)?)?)',
       relevance: 0
     },
     {

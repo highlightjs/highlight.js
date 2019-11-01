@@ -1,0 +1,26 @@
+text
+
+{{ "lite]'ral}}segment" }} text
+
+{{ 'lite]"ral}}segment' }} text
+
+{{ [lite"'ral}}segment] }} text
+
+{{ abc "lite]'ral}}segment" }} text
+
+{{ abc 'lite]"ral}}segment' }} text
+
+{{ abc [lite"'ral}}segment] }} text
+
+
+{{ abcd.[lite"'ral}}segment] }} text
+
+{{ abcd."lite]'ral}}segment" }} text
+
+{{ abcd.'lite]"ral}}segment' }} text
+
+{{ abcd.''}} text
+
+{{ abcd."" }} text
+
+{{ abcd.[] }} text

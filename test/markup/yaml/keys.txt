@@ -1,0 +1,32 @@
+someKey:
+  anotherKey: value
+
+some_key:
+  another_key: value
+
+some key:
+  another key: value
+
+"some key":
+  "another key": value
+
+'some key':
+  'another key': value
+
+some-key:
+  another-key: value
+
+some.key:
+  another.key: value
+
+
+parentKey:
+  - subKey:
+    subValue
+  - sub key:
+    sub value
+
+https://url.as.a.key/:
+  - some value
+
+someKey: https://url.as.a.value/
