@@ -1,3 +1,15 @@
+## Version 9.16.2
+
+New languages:
+  none.
+
+New styles:
+  none.
+
+Improvements:
+- fix(arduino) Resolves issue with arduino.js not being "use strict" safe
+
+
 ## Version 9.16.1
 
 New languages:
