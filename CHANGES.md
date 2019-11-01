@@ -1,4 +1,4 @@
-## Version 9.16.x (master)
+## Version 9.17.master
 
 New languages:
   none.
@@ -15,6 +15,18 @@ Improvements:
 - fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/yyyc514
+
+
+## Version 9.16.2
+
+New languages:
+  none.
+
+New styles:
+  none.
+
+Improvements:
+- fix(arduino) Resolves issue with arduino.js not being "use strict" safe (#2247)
 
 
 ## Version 9.16.1
