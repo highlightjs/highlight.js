@@ -33,43 +33,43 @@ function(hljs) {
     contains: [hljs.BACKSLASH_ESCAPE],
     variants: [
       {
-        begin: /\b(u|b)?r?'''/, end: /'''/,
+        begin: /(u|b)?r?'''/, end: /'''/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT],
         relevance: 10
       },
       {
-        begin: /\b(u|b)?r?"""/, end: /"""/,
+        begin: /(u|b)?r?"""/, end: /"""/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT],
         relevance: 10
       },
       {
-        begin: /\b(fr|rf|f)'''/, end: /'''/,
+        begin: /(fr|rf|f)'''/, end: /'''/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT, LITERAL_BRACKET, SUBST]
       },
       {
-        begin: /\b(fr|rf|f)"""/, end: /"""/,
+        begin: /(fr|rf|f)"""/, end: /"""/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT, LITERAL_BRACKET, SUBST]
       },
       {
-        begin: /\b(u|r|ur)'/, end: /'/,
+        begin: /(u|r|ur)'/, end: /'/,
         relevance: 10
       },
       {
-        begin: /\b(u|r|ur)"/, end: /"/,
+        begin: /(u|r|ur)"/, end: /"/,
         relevance: 10
       },
       {
-        begin: /\b(b|br)'/, end: /'/
+        begin: /(b|br)'/, end: /'/
       },
       {
-        begin: /\b(b|br)"/, end: /"/
+        begin: /(b|br)"/, end: /"/
       },
       {
-        begin: /\b(fr|rf|f)'/, end: /'/,
+        begin: /(fr|rf|f)'/, end: /'/,
         contains: [hljs.BACKSLASH_ESCAPE, LITERAL_BRACKET, SUBST]
       },
       {
-        begin: /\b(fr|rf|f)"/, end: /"/,
+        begin: /(fr|rf|f)"/, end: /"/,
         contains: [hljs.BACKSLASH_ESCAPE, LITERAL_BRACKET, SUBST]
       },
       hljs.APOS_STRING_MODE,
@@ -97,6 +97,9 @@ function(hljs) {
     contains: [
       PROMPT,
       NUMBER,
+      // eat "if" prior to string so that it won't accidentally be
+      // labeled as an f-string as in:
+      { beginKeywords: "if", relevance: 0 },
       STRING,
       hljs.HASH_COMMENT_MODE,
       {
