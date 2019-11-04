@@ -113,17 +113,23 @@ function(hljs) {
           contains : [
             {
               className : 'doctag',
-              begin : '@[A-Za-z]+\\s+',
+              begin : '@[A-Za-z]+',
               contains : [
                 {
                   className: 'type',
                   begin: '\\{',
                   end: '\\}'
-                }
-                , {
+                },
+                {
                   className: 'variable',
-                  begin: '\\s+' + IDENT_RE + '(?=\\s*(-)|($))',
-                }
+                  begin: IDENT_RE + '(?=\\s*(-)|($))',
+                },
+                {
+                  className: '',
+                  begin: /\s/,
+                  end: /\s*/,
+                  skip: true,
+                },
               ]
             }
           ]

@@ -1,15 +1,15 @@
 /**
   * Create a point.
-  * @author Test - nice feature
+  * @author Test
   * @param {number} x - The x value.
   * @param {number} y
-  * @return {Point} A Point object.
+  * @returns {Point} A Point object.
   */
 
 /**
   * @typedef {Array<number>}
   * @param {string=} n - Optional
-  * @param {(string\|number)} n - Multiple types
+  * @param {(string|number)} n - Multiple types
   * @param {*} n - Any type
   * @param {...string} n - repeatable arguments
   * @param {string[]} n	- Array of strings
