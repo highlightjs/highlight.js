@@ -1,4 +1,4 @@
-## Version [master]
+## Version 9.17.master
 
 New languages:
   none.
@@ -8,13 +8,29 @@ New styles:
 
 Improvements:
 - enh(javascript): Add support for jsdoc comments (#2245)
+- enh(powershell) major overhaul, huge improvements (#2224) 
+- enh(css) Improve @rule highlighting, including properties (#2241) [Josh Goebel][]
+- enh(css) Improve highlighting of numbers inside expr/func `calc(2px+3px)` (#2241)
+- enh(scss) Pull some of the CSS improvements back into SCSS (#2241)
 - fix(parser): Fix merger HTML attribute quoting (#2235) [Josh Goebel][]
 - fix(parser): Look-ahead regex now work for end matches also (#2237) [Josh Goebel][]
 - fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/yyyc514
 
-## Version 9.16.0
+## Version 9.16.2
+
+New languages:
+  none.
+
+New styles:
+  none.
+
+Improvements:
+- fix(arduino) Resolves issue with arduino.js not being "use strict" safe (#2247)
+
+
+## Version 9.16.1
 
 New languages:
   none.
