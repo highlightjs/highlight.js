@@ -122,13 +122,14 @@ function(hljs) {
                 },
                 {
                   className: 'variable',
-                  begin: IDENT_RE + '(?=\\s*(-)|($))',
+                  begin: IDENT_RE + '(?=\\s*(-)|$)',
+                  endsParent: true
                 },
+                // eat spaces (not newlines) so we can find
+                // types or variables
                 {
-                  className: '',
-                  begin: /\s/,
-                  end: /\s*/,
-                  skip: true,
+                  begin: /(?=[^\n])\s/,
+                  skip: true
                 },
               ]
             }
