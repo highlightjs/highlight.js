@@ -118,17 +118,20 @@ function(hljs) {
                 {
                   className: 'type',
                   begin: '\\{',
-                  end: '\\}'
+                  end: '\\}',
+                  relevance: 0
                 },
                 {
                   className: 'variable',
                   begin: IDENT_RE + '(?=\\s*(-)|$)',
-                  endsParent: true
+                  endsParent: true,
+                  relevance: 0
                 },
                 // eat spaces (not newlines) so we can find
                 // types or variables
                 {
-                  begin: /(?=[^\n])\s/
+                  begin: /(?=[^\n])\s/,
+                  relevance: 0
                 },
               ]
             }
