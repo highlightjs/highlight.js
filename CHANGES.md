@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- enh(javascript): Add support for jsdoc comments (#2245) [Milutin Kristofic][]
 - ehh(build) Add CI check for building a "use strict" safe rollup package from NPM builds (#2247) [Josh Goebel][]
 - fix(python) fix `if` getting confused as an f-string (#2200) [Josh Goebel][] and [Carl Baxter][]
 - enh(powershell) major overhaul, huge improvements (#2224)
@@ -19,7 +20,7 @@ Improvements:
 
 [Josh Goebel]: https://github.com/yyyc514
 [Carl Baxter]: https://github.com/cdbax
-
+[Milutin Kristofic]: https://github.com/milutin
 
 ## Version 9.16.2
 
