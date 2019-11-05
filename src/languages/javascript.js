@@ -128,8 +128,7 @@ function(hljs) {
                 // eat spaces (not newlines) so we can find
                 // types or variables
                 {
-                  begin: /(?=[^\n])\s/,
-                  skip: true
+                  begin: /(?=[^\n])\s/
                 },
               ]
             }
