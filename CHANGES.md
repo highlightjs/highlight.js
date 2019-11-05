@@ -8,7 +8,9 @@ New styles:
 
 Improvements:
 - enh(javascript): Add support for jsdoc comments (#2245)
-- enh(powershell) major overhaul, huge improvements (#2224) 
+- ehh(build) Add CI check for building a "use strict" safe rollup package from NPM builds (#2247) [Josh Goebel][]
+- fix(python) fix `if` getting confused as an f-string (#2200) [Josh Goebel][] and [Carl Baxter][]
+- enh(powershell) major overhaul, huge improvements (#2224)
 - enh(css) Improve @rule highlighting, including properties (#2241) [Josh Goebel][]
 - enh(css) Improve highlighting of numbers inside expr/func `calc(2px+3px)` (#2241)
 - enh(scss) Pull some of the CSS improvements back into SCSS (#2241)
@@ -17,6 +19,7 @@ Improvements:
 - fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/yyyc514
+[Carl Baxter]: https://github.com/cdbax
 
 ## Version 9.16.2
 

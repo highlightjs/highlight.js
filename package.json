@@ -30,9 +30,9 @@
     "node": "*"
   },
   "devDependencies": {
+    "bluebird": "^3.5.5",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
-    "bluebird": "^3.5.5",
     "commander": "^4.0.0",
     "del": "^5.1.0",
     "gear": "github:highlightjs/gear",
@@ -42,6 +42,8 @@
     "jsdom": "^15.1.1",
     "lodash": "^4.17.15",
     "mocha": "^6.2.0",
+    "rollup": "^1.26.2",
+    "rollup-plugin-commonjs": "^10.1.0",
     "should": "^13.2.3",
     "tiny-worker": "^2.3.0"
   }
