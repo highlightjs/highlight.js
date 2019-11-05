@@ -20,13 +20,13 @@ function(hljs) {
     keywords: ELIXIR_KEYWORDS
   };
 
-  var SIGIL_CHARS = '[/|([{<"\']'
+  var SIGIL_DELIMITERS = '[/|([{<"\']'
   var LOWERCASE_SIGIL = {
     className: 'string',
-    begin: '~[a-z]' + SIGIL_CHARS,
-    returnBegin: true,
+    begin: '~[a-z]' + '(?=' + SIGIL_DELIMITERS + ')',
     contains: [
-      { begin: '~[a-z]',
+      {
+        endsParent:true,
         contains: [{
           contains: [hljs.BACKSLASH_ESCAPE, SUBST],
           variants: [
@@ -46,7 +46,7 @@ function(hljs) {
 
   var UPCASE_SIGIL = {
     className: 'string',
-    begin: '~[A-Z]' + '(?=' + SIGIL_CHARS + ')',
+    begin: '~[A-Z]' + '(?=' + SIGIL_DELIMITERS + ')',
     contains: [
       { begin: /"/, end: /"/ },
       { begin: /'/, end: /'/ },
