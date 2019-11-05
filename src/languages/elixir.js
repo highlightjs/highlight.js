@@ -46,10 +46,8 @@ function(hljs) {
 
   var UPCASE_SIGIL = {
     className: 'string',
-    begin: '~[A-Z]' + SIGIL_CHARS,
-    returnBegin: true,
+    begin: '~[A-Z]' + '(?=' + SIGIL_CHARS + ')',
     contains: [
-      { begin: '~[A-Z]' },
       { begin: /"/, end: /"/ },
       { begin: /'/, end: /'/ },
       { begin: /\//, end: /\// },
