@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
 - enh(powershell) major overhaul, huge improvements (#2224) 
 - enh(css) Improve @rule highlighting, including properties (#2241) [Josh Goebel][]
 - enh(css) Improve highlighting of numbers inside expr/func `calc(2px+3px)` (#2241)
@@ -16,7 +17,7 @@ Improvements:
 - fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/yyyc514
-
+[Liam Nobel]: https://github.com/liamnobel
 
 ## Version 9.16.2
 
