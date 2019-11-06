@@ -8,7 +8,10 @@ New styles:
 
 Improvements:
 - enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
-- enh(powershell) major overhaul, huge improvements (#2224) 
+- enh(javascript): Add support for jsdoc comments (#2245) [Milutin Kristofic][]
+- ehh(build) Add CI check for building a "use strict" safe rollup package from NPM builds (#2247) [Josh Goebel][]
+- fix(python) fix `if` getting confused as an f-string (#2200) [Josh Goebel][] and [Carl Baxter][]
+- enh(powershell) major overhaul, huge improvements (#2224)
 - enh(css) Improve @rule highlighting, including properties (#2241) [Josh Goebel][]
 - enh(css) Improve highlighting of numbers inside expr/func `calc(2px+3px)` (#2241)
 - enh(scss) Pull some of the CSS improvements back into SCSS (#2241)
@@ -18,6 +21,9 @@ Improvements:
 
 [Josh Goebel]: https://github.com/yyyc514
 [Liam Nobel]: https://github.com/liamnobel
+[Carl Baxter]: https://github.com/cdbax
+[Milutin Kristofic]: https://github.com/milutin
+
 
 ## Version 9.16.2
 
