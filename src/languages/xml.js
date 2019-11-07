@@ -41,7 +41,11 @@ function(hljs) {
         className: 'meta',
         begin: '<!DOCTYPE', end: '>',
         relevance: 10,
-        contains: [{begin: '\\[', end: '\\]'}]
+        contains: [
+          hljs.QUOTE_STRING_MODE,
+          hljs.APOS_STRING_MODE,
+          {begin: '\\[', end: '\\]'}
+        ]
       },
       hljs.COMMENT(
         '<!--',
@@ -53,6 +57,10 @@ function(hljs) {
       {
         begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
         relevance: 10
+      },
+      {
+        className: 'symbol',
+        begin: '&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;', relevance: 10,
       },
       {
         className: 'meta',
