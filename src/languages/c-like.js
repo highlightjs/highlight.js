@@ -44,7 +44,12 @@ export default function(hljs) {
         begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + "|.)", end: '\'',
         illegal: '.'
       },
-      { begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\((?:.|\n)*?\)\1"/ }
+      {
+        begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\(/,
+        end: /\)([^()\\ ]{0,16})"/,
+        'after:begin': (m, resp) => { resp.data.heredoc = m[1]; },
+        'before:end': function(m, resp) { if (resp.data.heredoc !== m[1]) resp.ignoreMatch(); }
+      }
     ]
   };
 

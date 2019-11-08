@@ -1,0 +1,5 @@
+<span class="hljs-string">R"foo(
+Truncated raw string
+)nope"
+Still not completed.
+</span>
