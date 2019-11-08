@@ -208,6 +208,7 @@ In this case you can't simply specify the same regexp for ``begin`` and
 ``end`` (say, ``"\\$[a-z]\\$"``), but you can use ``begin: "\\$[a-z]\\$"``
 and ``endSameAsBegin: true``.
 
+
 .. _lexemes:
 
 lexemes
