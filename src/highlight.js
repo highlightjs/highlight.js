@@ -610,7 +610,7 @@ https://highlightjs.org/
           mode_buffer = lexeme;
         }
       }
-      startNewMode(new_mode, lexeme);
+      startNewMode(new_mode);
       return new_mode.returnBegin ? 0 : lexeme.length;
     }
 
@@ -645,7 +645,7 @@ https://highlightjs.org/
         if (end_mode.endSameAsBegin) {
           end_mode.starts.endRe = end_mode.endRe;
         }
-        startNewMode(end_mode.starts, '');
+        startNewMode(end_mode.starts);
       }
       return origin.returnEnd ? 0 : lexeme.length;
     }
