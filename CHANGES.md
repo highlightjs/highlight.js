@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- enh(xml) support for highlighting entities (#2260) [w3suli][]
 - enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
 - enh(javascript): Add support for jsdoc comments (#2245) [Milutin Kristofic][]
 - ehh(build) Add CI check for building a "use strict" safe rollup package from NPM builds (#2247) [Josh Goebel][]
@@ -23,6 +24,7 @@ Improvements:
 [Liam Nobel]: https://github.com/liamnobel
 [Carl Baxter]: https://github.com/cdbax
 [Milutin Kristofic]: https://github.com/milutin
+[w3suli]: https://github.com/w3suli
 
 
 ## Version 9.16.2
