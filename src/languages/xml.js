@@ -6,6 +6,10 @@ Category: common
 
 function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
+    var XML_ENTITIES = {
+    className: 'symbol',
+    begin: '&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;'
+  };
   var TAG_INTERNALS = {
     endsWithParent: true,
     illegal: /</,
@@ -24,8 +28,8 @@ function(hljs) {
             className: 'string',
             endsParent: true,
             variants: [
-              {begin: /"/, end: /"/},
-              {begin: /'/, end: /'/},
+              {begin: /"/, end: /"/, contains: [XML_ENTITIES]},
+              {begin: /'/, end: /'/, contains: [XML_ENTITIES]},
               {begin: /[^\s"'=<>`]+/}
             ]
           }
@@ -41,7 +45,9 @@ function(hljs) {
         className: 'meta',
         begin: '<!DOCTYPE', end: '>',
         relevance: 10,
-        contains: [{begin: '\\[', end: '\\]'}]
+        contains: [
+          {begin: '\\[', end: '\\]'}
+        ]
       },
       hljs.COMMENT(
         '<!--',
@@ -54,6 +60,7 @@ function(hljs) {
         begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
         relevance: 10
       },
+      XML_ENTITIES,
       {
         className: 'meta',
         begin: /<\?xml/, end: /\?>/, relevance: 10
