@@ -1,7 +1,7 @@
 ## Version 9.17.master
 
 New languages:
-  none.
+  - *V* by [Raymond][]
 
 New styles:
   none.

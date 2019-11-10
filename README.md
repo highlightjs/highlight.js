@@ -198,6 +198,7 @@ work for you, you can specify the language in the `class` attribute:
 | TP                      | tp                     |         |
 | Twig                    | twig, craftcms         |         |
 | TypeScript              | typescript, ts         |         |
+| V                       | v, vlang               |         |
 | VB.Net                  | vbnet, vb              |         |
 | VBScript                | vbscript, vbs          |         |
 | VHDL                    | vhdl                   |         |
