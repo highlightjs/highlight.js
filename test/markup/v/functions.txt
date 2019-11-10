@@ -1,0 +1,9 @@
+fn name()
+
+fn name(x int, y string) int
+
+map[string]func(int, string)
+
+func name (x int) int {
+  return x;
+}

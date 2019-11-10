@@ -1,0 +1,3 @@
+float_var := <span class="hljs-number">1.0e10</span>
+complex_var := <span class="hljs-number">1.2e5</span>+<span class="hljs-number">2.3i</span>
+hex_int := <span class="hljs-number">0xcf3e4028ac084aea</span>
