@@ -82,7 +82,7 @@ function(hljs) {
           hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'}),
           {
             className: 'meta-string',
-            begin: /<[^\n>]*>/, end: /$/,
+            begin: /<.*?>/, end: /$/,
             illegal: '\\n',
           },
           hljs.C_LINE_COMMENT_MODE,
