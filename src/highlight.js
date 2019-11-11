@@ -46,6 +46,7 @@ https://highlightjs.org/
   var API_REPLACES;
 
   var spanEndTag = '</span>';
+  var LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
 
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.
@@ -88,7 +89,12 @@ https://highlightjs.org/
     // language-* takes precedence over non-prefixed class names.
     match = languagePrefixRe.exec(classes);
     if (match) {
-      return getLanguage(match[1]) ? match[1] : 'no-highlight';
+      var language = getLanguage(match[1])
+      if (!language) {
+        console.warn(LANGUAGE_NOT_FOUND.replace("{}", match[1]));
+        console.warn("Falling back to no-highlight mode for this block.", block);
+      }
+      return language ? match[1] : 'no-highlight';
     }
 
     classes = classes.split(/\s+/);
@@ -180,7 +186,9 @@ https://highlightjs.org/
     }
 
     function open(node) {
-      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value).replace('"', '&quot;') + '"';}
+      function attr_str(a) {
+        return ' ' + a.nodeName + '="' + escape(a.value).replace(/"/g, '&quot;') + '"';
+      }
       result += '<' + tag(node) + ArrayProto.map.call(node.attributes, attr_str).join('') + '>';
     }
 
@@ -602,13 +610,14 @@ https://highlightjs.org/
           mode_buffer = lexeme;
         }
       }
-      startNewMode(new_mode, lexeme);
+      startNewMode(new_mode);
       return new_mode.returnBegin ? 0 : lexeme.length;
     }
 
     function doEndMatch(match) {
       var lexeme = match[0];
-      var end_mode = endOfMode(top, lexeme);
+      var matchPlusRemainder = value.substr(match.index);
+      var end_mode = endOfMode(top, matchPlusRemainder);
       if (!end_mode) { return; }
 
       var origin = top;
@@ -636,7 +645,7 @@ https://highlightjs.org/
         if (end_mode.endSameAsBegin) {
           end_mode.starts.endRe = end_mode.endRe;
         }
-        startNewMode(end_mode.starts, '');
+        startNewMode(end_mode.starts);
       }
       return origin.returnEnd ? 0 : lexeme.length;
     }
@@ -659,6 +668,8 @@ https://highlightjs.org/
       // sometimes they can end up matching nothing at all
       // Ref: https://github.com/highlightjs/highlight.js/issues/2140
       if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
+        // spit the "skipped" character that our regex choked on back into the output sequence
+        mode_buffer += value.slice(match.index, match.index + 1)
         return 1;
       }
       lastMatch = match;
@@ -692,6 +703,7 @@ https://highlightjs.org/
 
     var language = getLanguage(name);
     if (!language) {
+      console.error(LANGUAGE_NOT_FOUND.replace("{}", name))
       throw new Error('Unknown language: "' + name + '"');
     }
 

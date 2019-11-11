@@ -265,13 +265,14 @@ The goal of Highlight.js is to support whatever regex features Javascript itself
 
 Things we support now that we did not always:
 
-* look-ahead matching for `begin` (#2135)
-* look-ahead matching for `illegal` (#2135)
-* back-references within your regex (#1897)
+* look-ahead regex matching for `begin` (#2135)
+* look-ahead regex matching for `end` (#2237)
+* look-ahead regex matching for `illegal` (#2135)
+* back-references within your regex matches (#1897)
+* look-behind matching (when JS supports it) for `begin` (#2135)
 
 Things we currently know are still issues:
 
-* look-ahead matching for `end` matchers
 * look-behind matching (when JS supports it) for `end` matchers
 
 

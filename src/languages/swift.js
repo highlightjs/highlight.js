@@ -4,7 +4,7 @@ Description: Swift is a general-purpose programming language built using a moder
 Author: Chris Eidhof <chris@eidhof.nl>
 Contributors: Nate Cook <natecook@gmail.com>, Alexander Lichter <manniL@gmx.net>
 Website: https://swift.org
-Category: system
+Category: common, system
 */
 
 

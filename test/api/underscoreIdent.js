@@ -1,11 +1,11 @@
 'use strict';
 
-let hljs = require('../../build');
+const hljs = require('../../build');
 
 const pattern = new RegExp(`^${hljs.UNDERSCORE_IDENT_RE}$`);
 
-describe('.UNDERSCORE_IDENT_RE', function() {
-  it('should match any word starting without numbers', function() {
+describe('.UNDERSCORE_IDENT_RE', () => {
+  it('should match any word starting without numbers', () => {
     const words = [ 'foo'  , 'bar'  , 'baz'
                   , 'Foo'  , 'Bar'  , 'Baz'
                   , '_foo' , '_bar' , '_baz'
@@ -17,7 +17,7 @@ describe('.UNDERSCORE_IDENT_RE', function() {
     words.should.matchEach(pattern);
   });
 
-  it('should not match any word starting with numbers', function() {
+  it('should not match any word starting with numbers', () => {
     const words = [ '1foo' , '6bar' , '0baz'
                   , '2Foo' , '7Bar' , '1Baz'
                   , '3f_oo', '8ba_r', '2baz_'

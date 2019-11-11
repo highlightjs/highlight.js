@@ -13,3 +13,7 @@
 var1
 va1r
 mo_tot_8 = 1./(0.4*log(float(elec_num_tot_8+0.4)))
+
+6_ikind
+1_c_short
+6.666666666666666_DBL

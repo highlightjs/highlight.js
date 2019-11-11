@@ -1,10 +1,10 @@
-let hljs = require('../../build');
+const hljs = require('../../build');
 
 describe("bugs", function () {
 
-  describe("modes containing 'endsWithParent'", function () {
-    it("should be allowed to be reused", function () {
-      hljs.registerLanguage('test-language', function (hljs) {
+  describe("modes containing 'endsWithParent'", () => {
+    it("should be allowed to be reused", () => {
+      hljs.registerLanguage('test-language', (hljs) => {
 
         const TAG_CONTENTS = {className: 'name', begin: /\w+/, starts: {endsWithParent: true}};
 

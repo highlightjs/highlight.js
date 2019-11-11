@@ -1,16 +1,16 @@
 'use strict';
 
-let _       = require('lodash');
-let utility = require('../utility');
+const _       = require('lodash');
+const utility = require('../utility');
 
-describe('custom markup', function() {
-  before(function() {
+describe('custom markup', () => {
+  before(() => {
     const testHTML = document.querySelectorAll('#custom-markup .hljs');
 
     this.blocks = _.map(testHTML, 'innerHTML');
   });
 
-  it('should replace tabs', function() {
+  it('should replace tabs', () => {
     const filename = utility.buildPath('fixtures', 'expect',
                                        'tabreplace.txt'),
           actual   = this.blocks[0];
@@ -18,7 +18,7 @@ describe('custom markup', function() {
     return utility.expectedFile(filename, 'utf-8', actual);
   });
 
-  it('should keep custom markup', function() {
+  it('should keep custom markup', () => {
     const filename = utility.buildPath('fixtures', 'expect',
                                        'custommarkup.txt'),
           actual   = this.blocks[1];
@@ -26,7 +26,7 @@ describe('custom markup', function() {
     return utility.expectedFile(filename, 'utf-8', actual);
   });
 
-  it('should keep custom markup and replace tabs', function() {
+  it('should keep custom markup and replace tabs', () => {
     const filename = utility.buildPath('fixtures', 'expect',
                                        'customtabreplace.txt'),
           actual   = this.blocks[2];
@@ -34,7 +34,7 @@ describe('custom markup', function() {
     return utility.expectedFile(filename, 'utf-8', actual);
   });
 
-  it('should keep the same amount of void elements (<br>, <hr>, ...)', function() {
+  it('should keep the same amount of void elements (<br>, <hr>, ...)', () => {
     const filename = utility.buildPath('fixtures', 'expect', 'brInPre.txt'),
           actual   = this.blocks[3];
 
