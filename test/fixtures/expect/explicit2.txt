@@ -1,2 +1,2 @@
-@<span class="hljs-keyword">import</span> <span class="hljs-string">"compass/reset"</span>;
+<span class="hljs-keyword">@import</span> <span class="hljs-string">"compass/reset"</span>;
 <span class="hljs-variable">$colorGreenDark</span>: darken(<span class="hljs-variable">$colorGreen</span>, <span class="hljs-number">10</span>);

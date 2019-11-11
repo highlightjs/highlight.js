@@ -1,0 +1,45 @@
+<span class="hljs-keyword">@-ms-keyframes</span> example {
+  <span class="hljs-selector-tag">from</span> {<span class="hljs-attribute">background-color</span>: red;}
+  <span class="hljs-selector-tag">to</span> {<span class="hljs-attribute">background-color</span>: yellow;}
+}
+<span class="hljs-keyword">@-o-keyframes</span> example {
+  <span class="hljs-selector-tag">from</span> {<span class="hljs-attribute">background-color</span>: red;}
+  <span class="hljs-selector-tag">to</span> {<span class="hljs-attribute">background-color</span>: yellow;}
+}
+
+<span class="hljs-selector-tag">div</span><span class="hljs-selector-class">.cls</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">51</span>, <span class="hljs-number">170</span>, <span class="hljs-number">51</span>, .<span class="hljs-number">1</span>);
+  <span class="hljs-attribute">width</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">80px</span>);
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(<span class="hljs-number">45deg</span>);
+}
+<span class="hljs-selector-tag">img</span> {
+  <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">grayscale</span>(<span class="hljs-number">0.5</span>) <span class="hljs-built_in">blur</span>(<span class="hljs-number">10px</span>);
+}
+
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href*=<span class="hljs-string">"example"</span>]</span>, * <span class="hljs-selector-attr">[lang^=en]</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2em</span>;
+}
+
+<span class="hljs-keyword">@supports</span> (<span class="hljs-attribute">display:</span> flex) {
+  <span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width:</span> <span class="hljs-number">900px</span>) {
+    <span class="hljs-selector-tag">article</span> {
+      <span class="hljs-attribute">display</span>: flex;
+    }
+  }
+}
+
+<span class="hljs-keyword">@media</span> <span class="hljs-keyword">only</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">orientation:</span> landscape) {
+  <span class="hljs-selector-tag">body</span> {
+    <span class="hljs-attribute">background-color</span>: lightblue;
+  }
+}
+
+<span class="hljs-keyword">@page</span> <span class="hljs-selector-pseudo">:first</span> {
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">2cm</span>;
+}
+
+<span class="hljs-keyword">@font-face</span> {
+    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">"Open Sans"</span>;
+    <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"/fonts/OpenSans-Regular-webfont.woff2"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">"woff2"</span>),
+         <span class="hljs-built_in">url</span>(<span class="hljs-string">"/fonts/OpenSans-Regular-webfont.woff"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">"woff"</span>);
+  }
