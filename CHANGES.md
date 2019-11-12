@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- fix(makefile) fix double relevance for assigns, improves auto-detection (#2278)[Josh Goebel][]
 - enh(xml) support for highlighting entities (#2260) [w3suli][]
 - enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
 - enh(javascript): Add support for jsdoc comments (#2245) [Milutin Kristofic][]
