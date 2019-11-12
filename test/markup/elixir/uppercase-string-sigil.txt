@@ -1,0 +1,17 @@
+defmodule Long.Module.Name do
+  @doc ~S'''
+  No #{interpolation} of any kind.
+  \000 \x{ff}
+
+  \n #{\x{ff}}
+  '''
+  def func(a, b \\ []), do: :ok
+
+  @doc ~S"""
+  No #{interpolation} of any kind.
+  \000 \x{ff}
+
+  \n #{\x{ff}}
+  """
+  def func(a, b \\ []), do: :ok
+end
