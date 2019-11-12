@@ -53,6 +53,7 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE,
       {
         className: 'string',
         variants: [
@@ -60,10 +61,6 @@ function(hljs) {
             begin: '@"', end: '"',
             illegal: '\\n',
             contains: [hljs.BACKSLASH_ESCAPE]
-          },
-          {
-            begin: '\'', end: '[^\\\\]\'',
-            illegal: '[^\\\\][^\']'
           }
         ]
       },
