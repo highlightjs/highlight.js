@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- enh(parser): adds `data-language` attribute to highlighted blocks (#1708) [canvasplay][]
 - enh(xml) support for highlighting entities (#2260) [w3suli][]
 - enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
 - enh(javascript): Add support for jsdoc comments (#2245) [Milutin Kristofic][]
@@ -25,6 +26,7 @@ Improvements:
 [Carl Baxter]: https://github.com/cdbax
 [Milutin Kristofic]: https://github.com/milutin
 [w3suli]: https://github.com/w3suli
+[canvasplay]: https://github.com/canvasplay
 
 
 ## Version 9.16.2
