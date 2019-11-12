@@ -20,6 +20,9 @@ Improvements:
 - fix(parser): Fix merger HTML attribute quoting (#2235) [Josh Goebel][]
 - fix(parser): Look-ahead regex now work for end matches also (#2237) [Josh Goebel][]
 - fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
+- fix(go): Fix escaped character literals (#2266) [David Benjamin][]
+- fix(objectivec): Fix various preprocessor highlighting issues (#2265) [David Benjamin][]
+- fix(objectivec): Handle multibyte character literals (#2268) [David Benjamin][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Liam Nobel]: https://github.com/liamnobel
@@ -27,6 +30,7 @@ Improvements:
 [Milutin Kristofic]: https://github.com/milutin
 [w3suli]: https://github.com/w3suli
 [canvasplay]: https://github.com/canvasplay
+[David Benjamin]: https://github.com/davidben
 
 
 ## Version 9.16.2
