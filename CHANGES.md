@@ -7,6 +7,9 @@ New styles:
   none.
 
 Improvements:
+- enh(xml) support for highlighting entities (#2260) [w3suli][]
+- enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
+- enh(javascript): Add support for jsdoc comments (#2245) [Milutin Kristofic][]
 - ehh(build) Add CI check for building a "use strict" safe rollup package from NPM builds (#2247) [Josh Goebel][]
 - fix(python) fix `if` getting confused as an f-string (#2200) [Josh Goebel][] and [Carl Baxter][]
 - enh(powershell) major overhaul, huge improvements (#2224)
@@ -16,9 +19,16 @@ Improvements:
 - fix(parser): Fix merger HTML attribute quoting (#2235) [Josh Goebel][]
 - fix(parser): Look-ahead regex now work for end matches also (#2237) [Josh Goebel][]
 - fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
+- fix(go): Fix escaped character literals (#2266) [David Benjamin][]
+- fix(objectivec): Fix various preprocessor highlighting issues (#2265) [David Benjamin][]
+- fix(objectivec): Handle multibyte character literals (#2268) [David Benjamin][]
 
 [Josh Goebel]: https://github.com/yyyc514
+[Liam Nobel]: https://github.com/liamnobel
 [Carl Baxter]: https://github.com/cdbax
+[Milutin Kristofic]: https://github.com/milutin
+[w3suli]: https://github.com/w3suli
+[David Benjamin]: https://github.com/davidben
 
 
 ## Version 9.16.2
