@@ -20,6 +20,7 @@ Improvements:
 - fix(parser): Look-ahead regex now work for end matches also (#2237) [Josh Goebel][]
 - fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
 - fix(go): Fix escaped character literals (#2266) [David Benjamin][]
+- fix(objectivec): Fix various preprocessor highlighting issues (#2265) [David Benjamin][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Liam Nobel]: https://github.com/liamnobel
