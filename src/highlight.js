@@ -113,12 +113,19 @@ https://highlightjs.org/
     var result = {};
     var objects = Array.prototype.slice.call(arguments, 1);
 
-    for (key in parent)
-      result[key] = parent[key];
+    for (key in parent) {
+      if (Array.isArray(parent[key])) {
+        result[key] = parent[key].slice();
+      } else {
+        result[key] = parent[key];
+      }
+    }
+
     objects.forEach(function(obj) {
       for (key in obj)
         result[key] = obj[key];
     });
+
     return result;
   }
 
