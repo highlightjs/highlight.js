@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- enh(ebnf) add underscore as allowed meta identifier character, and dot as terminator (#2281) [Chris Marchesi][]
 - fix(makefile) fix double relevance for assigns, improves auto-detection (#2278)[Josh Goebel][]
 - enh(xml) support for highlighting entities (#2260) [w3suli][]
 - enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
@@ -30,6 +31,7 @@ Improvements:
 [Milutin Kristofic]: https://github.com/milutin
 [w3suli]: https://github.com/w3suli
 [David Benjamin]: https://github.com/davidben
+[Chris Marchesi]: https://github.com/vancluever
 
 
 ## Version 9.16.2
