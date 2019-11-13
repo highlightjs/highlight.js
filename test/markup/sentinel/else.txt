@@ -1,0 +1,6 @@
+case foo {
+	else:
+		bar
+}
+
+bar else baz

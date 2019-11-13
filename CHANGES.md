@@ -4,7 +4,7 @@ New languages:
   none.
 
 New styles:
-  none.
+- *HashiCorp Sentinel* by [Chris Marchesi][]
 
 Improvements:
 - fix(makefile) fix double relevance for assigns, improves auto-detection (#2278)[Josh Goebel][]
@@ -30,6 +30,7 @@ Improvements:
 [Milutin Kristofic]: https://github.com/milutin
 [w3suli]: https://github.com/w3suli
 [David Benjamin]: https://github.com/davidben
+[Chris Marchesi]: https://github.com/vancluever
 
 
 ## Version 9.16.2

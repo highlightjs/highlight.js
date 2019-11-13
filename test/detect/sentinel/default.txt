@@ -1,0 +1,22 @@
+// This policy is fairly frivolous, but should describe a Sentinel
+// policy enough for it to be detected as Sentinel code.
+
+import "types"
+
+// A parameter with a default.
+param foo default "42"
+
+to_int = func(x) {
+	case types.type_of(x) {
+		when "int", "float":
+			return x
+		when "string":
+			return int(x)
+		else:
+			error("not a valid type")
+	}
+
+	return undefined
+}
+
+main = rule { to_int(foo) is 42 }

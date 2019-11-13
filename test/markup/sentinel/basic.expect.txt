@@ -1,0 +1,22 @@
+<span class="hljs-comment">// This policy is fairly frivolous, but should describe a Sentinel</span>
+<span class="hljs-comment">// policy enough for it to be detected as Sentinel code.</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">"types"</span>
+
+<span class="hljs-comment">// A parameter with a default.</span>
+<span class="hljs-keyword">param</span> foo <span class="hljs-keyword">default</span> <span class="hljs-string">"42"</span>
+
+to_int = <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(x)</span> </span>{
+	<span class="hljs-keyword">case</span> types.type_of(x) {
+		<span class="hljs-keyword">when</span> <span class="hljs-string">"int"</span>, <span class="hljs-string">"float"</span>:
+			<span class="hljs-keyword">return</span> x
+		<span class="hljs-keyword">when</span> <span class="hljs-string">"string"</span>:
+			<span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>(x)
+		<span class="hljs-keyword">else</span>:
+			<span class="hljs-built_in">error</span>(<span class="hljs-string">"not a valid type"</span>)
+	}
+
+	<span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>
+}
+
+main = <span class="hljs-keyword">rule</span> { to_int(foo) is <span class="hljs-number">42</span> }
