@@ -53,6 +53,7 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE,
       {
         className: 'string',
         variants: [
@@ -60,25 +61,29 @@ function(hljs) {
             begin: '@"', end: '"',
             illegal: '\\n',
             contains: [hljs.BACKSLASH_ESCAPE]
-          },
-          {
-            begin: '\'', end: '[^\\\\]\'',
-            illegal: '[^\\\\][^\']'
           }
         ]
       },
       {
         className: 'meta',
-        begin: '#',
-        end: '$',
+        begin: /#\s*[a-z]+\b/, end: /$/,
+        keywords: {
+          'meta-keyword':
+            'if else elif endif define undef warning error line ' +
+            'pragma ifdef ifndef include'
+        },
         contains: [
           {
+            begin: /\\\n/, relevance: 0
+          },
+          hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'}),
+          {
             className: 'meta-string',
-            variants: [
-              { begin: '\"', end: '\"' },
-              { begin: '<', end: '>' }
-            ]
-          }
+            begin: /<.*?>/, end: /$/,
+            illegal: '\\n',
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
         ]
       },
       {
