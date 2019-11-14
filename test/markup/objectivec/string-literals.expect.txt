@@ -1,0 +1,7 @@
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str = <span class="hljs-string">"Regular \"quoted\" string\n"</span>;
+<span class="hljs-built_in">NSString</span> *nsstr = <span class="hljs-string">@"Obj-C \"quoted\" string\n"</span>;
+<span class="hljs-keyword">char</span> c = <span class="hljs-string">'c'</span>;
+<span class="hljs-keyword">char</span> c2 = <span class="hljs-string">'"'</span>;
+<span class="hljs-keyword">char</span> c3 = <span class="hljs-string">'\''</span>;
+<span class="hljs-keyword">char</span> c4 = <span class="hljs-string">'\n'</span>;
+<span class="hljs-keyword">int</span> multibyte_char = <span class="hljs-string">'abcd'</span>;
