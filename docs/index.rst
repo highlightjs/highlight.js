@@ -16,6 +16,7 @@ Contents:
    reference
    css-classes-reference
    style-guide
+   plugins
    recipes
    language-contribution
    building-testing
