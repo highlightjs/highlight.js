@@ -521,15 +521,15 @@ https://highlightjs.org/
       return mode.keywords.hasOwnProperty(match_str) && mode.keywords[match_str];
     }
 
-    function buildSpan(classname, insideSpan, leaveOpen, noPrefix) {
+    function buildSpan(className, insideSpan, leaveOpen, noPrefix) {
       if (!leaveOpen && insideSpan === '') return '';
-      if (!classname) return insideSpan;
+      if (!className) return insideSpan;
 
       var classPrefix = noPrefix ? '' : options.classPrefix,
           openSpan    = '<span class="' + classPrefix,
           closeSpan   = leaveOpen ? '' : spanEndTag;
 
-      openSpan += classname + '">';
+      openSpan += className + '">';
 
       return openSpan + insideSpan + closeSpan;
     }
