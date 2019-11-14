@@ -1,7 +1,7 @@
 .. highlight:: javascript
 
 Plugins
-==============
+=======
 
 Highlight.js supports plugins.
 
@@ -22,7 +22,7 @@ You can add a plugin via the ``addPlugin`` API.
   })
 
 Class based plugins
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 This approach is useful for more complex plugins that need to deal with
 configuration options or managing state.  Highlight.js will instantiate
@@ -71,12 +71,15 @@ result
   The result object returned by `highlight` or `highlightAuto`.
 
 
-before:highlightBlock({block})
+before:highlightBlock({block, language})
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This callback function is passed an object with two keys:
 
 block
   The HTML element of the block that will be highlighted
+
+language
+  The language determined from the class attribute (or undefined).
 
 
