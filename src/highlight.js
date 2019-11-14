@@ -748,15 +748,23 @@ https://highlightjs.org/
         language: name,
         top: top
       };
-    } catch (e) {
-      if (e.message && e.message.indexOf('Illegal') !== -1) {
+    } catch (err) {
+      if (err.message && err.message.indexOf('Illegal') !== -1) {
         return {
           illegal: true,
           relevance: 0,
           value: escape(value)
         };
+      } else if (SAFE_MODE) {
+        return {
+          relevance: 0,
+          value: escape(value),
+          language: name,
+          top: top,
+          errorRaised: err
+        };
       } else {
-        throw e;
+        throw err;
       }
     }
   }
