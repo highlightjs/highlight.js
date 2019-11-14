@@ -70,6 +70,7 @@ block
 result
   The result object returned by `highlight` or `highlightAuto`.
 
+It returns nothing.
 
 before:highlightBlock({block, language})
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -82,4 +83,4 @@ block
 language
   The language determined from the class attribute (or undefined).
 
-
+It returns nothing.
