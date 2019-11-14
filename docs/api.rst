@@ -14,7 +14,13 @@ forces highlighting to finish even in case of detecting illegal syntax for the
 language instead of throwing an exception.
 The ``continuation`` is an optional mode stack representing unfinished parsing.
 When present, the function will restart parsing from this state instead of
-initializing a new one.
+initializing a new one.  This is used internally for `sublanguage` support.
+
+Note: `continuation` is NOT intended to support line-by-line highlighting
+because there is no requirement that a grammar handle linebreaks in any special
+way. It's quite possible for a grammar to have a single mode/regex that matches
+MANY lines at once.  This is not discouraged and entirely up to the grammar.
+
 Returns an object with the following properties:
 
 * ``language``: language name, same as the one passed into a function, returned for consistency with ``highlightAuto``
