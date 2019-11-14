@@ -6,9 +6,36 @@ Category: common
 
 function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
-    var XML_ENTITIES = {
+  var XML_ENTITIES = {
     className: 'symbol',
     begin: '&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;'
+  };
+  var XML_META_KEYWORDS = {
+	  className: 'meta-keyword',
+	  begin: '\\s#?[a-z_][a-z1-9_-]+',
+	  illegal: '\\n',
+  };
+  var XML_META_PAR_KEYWORDS = {
+	  begin: '\\(', end: '\\)',
+	  contains:[
+	    {
+	      className: 'meta-keyword',
+	      begin: '#?[a-z_][a-z1-9_-]+',
+	      illegal: '\\n',
+      }
+	  ]
+	};
+  var APOS_META_STRING_MODE = {
+	  className: 'meta-string',
+	  begin: '\'', end: '\'',
+	  illegal: '\\n',
+	  contains: [hljs.BACKSLASH_ESCAPE]
+  };
+  var QUOTE_META_STRING_MODE = {
+	  className: 'meta-string',
+	  begin: '"', end: '"',
+	  illegal: '\\n',
+	  contains: [hljs.BACKSLASH_ESCAPE]
   };
   var TAG_INTERNALS = {
     endsWithParent: true,
@@ -43,11 +70,29 @@ function(hljs) {
     contains: [
       {
         className: 'meta',
-        begin: '<!DOCTYPE', end: '>',
+        begin: '<![a-z]', end: '>',
         relevance: 10,
         contains: [
-          {begin: '\\[', end: '\\]'}
-        ]
+				  XML_META_KEYWORDS,
+				  QUOTE_META_STRING_MODE,
+				  APOS_META_STRING_MODE,
+					XML_META_PAR_KEYWORDS,
+					{
+					  begin: '\\[', end: '\\]',
+					  contains:[
+						  {
+					      className: 'meta',
+					      begin: '<![a-z]', end: '>',
+					      contains: [
+					        XML_META_KEYWORDS,
+					        XML_META_PAR_KEYWORDS,
+					        QUOTE_META_STRING_MODE,
+					        APOS_META_STRING_MODE
+						    ]
+			        }
+					  ]
+				  }
+				]
       },
       hljs.COMMENT(
         '<!--',
