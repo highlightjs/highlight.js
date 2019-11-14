@@ -33,6 +33,21 @@ describe('browser with html with quotes in attributes', function() {
   });
 })
 
+describe("highlighBlock and data-language attribute", function() {
+  before(async function() {
+    await buildFakeDOM.bind(this)();
+  })
+  it('should set if unset', async function() {
+    this.hljs.highlightBlock(this.block);
+    this.block.dataset.language.should.equal("javascript")
+  });
+  it("should not alter if already set", async function() {
+    this.block.dataset.language="existingData";
+    this.hljs.highlightBlock(this.block);
+    this.block.dataset.language.should.equal("existingData")
+  })
+})
+
 describe('plain browser', function() {
   before(async function() { await buildFakeDOM.bind(this)(); });
 
