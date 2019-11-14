@@ -36,6 +36,10 @@ https://highlightjs.org/
   var languages = {},
       aliases   = {};
 
+  // safe/production mode - swallows more errors, tries to keep running
+  // even if a single syntax or parse hits a fatal error
+  var SAFE_MODE = true;
+
   // Regular expressions used throughout the highlight.js library.
   var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
       languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
@@ -898,8 +902,22 @@ https://highlightjs.org/
     addEventListener('load', initHighlighting, false);
   }
 
+  var PLAINTEXT_LANGUAGE = { disableAutodetect: true };
+
   function registerLanguage(name, language) {
-    var lang = languages[name] = language(hljs);
+    var lang;
+    try { lang = language(hljs); }
+    catch (error) {
+      console.error("Language definition for '{}' could not be registered.".replace("{}", name));
+      // hard or soft error
+      if (!SAFE_MODE) { throw error; } else { console.error(error); }
+      // languages that have serious errors are replaced with essentially a
+      // "plaintext" stand-in so that the code blocks will still get normal
+      // css classes applied to them - and one bad language won't break the
+      // entire highlighter
+      lang = PLAINTEXT_LANGUAGE;
+    }
+    languages[name] = lang;
     restoreLanguageApi(lang);
     lang.rawDefinition = language.bind(null,hljs);
 
@@ -936,6 +954,7 @@ https://highlightjs.org/
   hljs.getLanguage = getLanguage;
   hljs.autoDetection = autoDetection;
   hljs.inherit = inherit;
+  hljs.debugMode = function() { SAFE_MODE = false; }
 
   // Common regexps
   hljs.IDENT_RE = '[a-zA-Z]\\w*';
