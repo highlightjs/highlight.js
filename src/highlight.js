@@ -245,7 +245,7 @@ https://highlightjs.org/
     }
 
     // EXPAND
-    // if we have variants then essentually "replace" the mode with the variants
+    // if we have variants then essentially "replace" the mode with the variants
     // this happens in compileMode, where this function is called from
     if (mode.cached_variants)
       return mode.cached_variants;
