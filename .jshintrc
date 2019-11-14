@@ -1,0 +1,4 @@
+// whole codebase isn't ES8 yet, but our tests and some things are
+{
+    "esversion": 8
+}

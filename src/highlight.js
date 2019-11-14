@@ -58,7 +58,7 @@ https://highlightjs.org/
   };
 
   // keywords that should have no default relevance value
-  var COMMON_KEYWORDS = 'of and for in not or if then'.split(' ')
+  var COMMON_KEYWORDS = 'of and for in not or if then'.split(' ');
 
 
   /* Utility functions */
@@ -89,7 +89,7 @@ https://highlightjs.org/
     // language-* takes precedence over non-prefixed class names.
     match = languagePrefixRe.exec(classes);
     if (match) {
-      var language = getLanguage(match[1])
+      var language = getLanguage(match[1]);
       if (!language) {
         console.warn(LANGUAGE_NOT_FOUND.replace("{}", match[1]));
         console.warn("Falling back to no-highlight mode for this block.", block);
@@ -234,7 +234,7 @@ https://highlightjs.org/
   function dependencyOnParent(mode) {
     if (!mode) return false;
 
-    return mode.endsWithParent || dependencyOnParent(mode.starts)
+    return mode.endsWithParent || dependencyOnParent(mode.starts);
   }
 
   function expand_or_clone_mode(mode) {
@@ -255,10 +255,10 @@ https://highlightjs.org/
     // instance of ourselves, so we can be reused with many
     // different parents without issue
     if (dependencyOnParent(mode))
-      return [inherit(mode, { starts: mode.starts ? inherit(mode.starts) : null })]
+      return [inherit(mode, { starts: mode.starts ? inherit(mode.starts) : null })];
 
     // no special dependency issues, just return ourselves
-    return [mode]
+    return [mode];
   }
 
   function restoreLanguageApi(obj) {
@@ -292,20 +292,20 @@ https://highlightjs.org/
         var pair = keyword.split('|');
         compiled_keywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
       });
-    };
+    }
   }
 
   function scoreForKeyword(keyword, providedScore) {
     // manual scores always win over common keywords
     // so you can force a score of 1 if you really insist
     if (providedScore)
-      return Number(providedScore)
+      return Number(providedScore);
 
     return commonKeyword(keyword) ? 0 : 1;
   }
 
   function commonKeyword(word) {
-    return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1
+    return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1;
   }
 
   function compileLanguage(language) {
@@ -402,7 +402,7 @@ https://highlightjs.org/
       if (mode.illegal)
         addRule("illegal", mode.illegal);
 
-      var terminators = regexes.map(function(el) { return el[1] });
+      var terminators = regexes.map(function(el) { return el[1]; });
       matcherRe = langRe(joinRe(terminators, '|'), true);
 
       matcher.lastIndex = 0;
@@ -431,7 +431,7 @@ https://highlightjs.org/
           match.rule = rule;
         }
         return match;
-      }
+      };
 
       return matcher;
     }
@@ -443,7 +443,7 @@ https://highlightjs.org/
 
       mode.keywords = mode.keywords || mode.beginKeywords;
       if (mode.keywords)
-        mode.keywords = compileKeywords(mode.keywords, language.case_insensitive)
+        mode.keywords = compileKeywords(mode.keywords, language.case_insensitive);
 
       mode.lexemesRe = langRe(mode.lexemes || /\w+/, true);
 
@@ -669,7 +669,7 @@ https://highlightjs.org/
       // Ref: https://github.com/highlightjs/highlight.js/issues/2140
       if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
         // spit the "skipped" character that our regex choked on back into the output sequence
-        mode_buffer += value.slice(match.index, match.index + 1)
+        mode_buffer += value.slice(match.index, match.index + 1);
         return 1;
       }
       lastMatch = match;
@@ -703,7 +703,7 @@ https://highlightjs.org/
 
     var language = getLanguage(name);
     if (!language) {
-      console.error(LANGUAGE_NOT_FOUND.replace("{}", name))
+      console.error(LANGUAGE_NOT_FOUND.replace("{}", name));
       throw new Error('Unknown language: "' + name + '"');
     }
 
