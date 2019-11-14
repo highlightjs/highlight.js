@@ -34,7 +34,8 @@ https://highlightjs.org/
 
   // Global internal variables used within the highlight.js library.
   var languages = {},
-      aliases   = {};
+      aliases   = {},
+      plugins   = [];
 
   // Regular expressions used throughout the highlight.js library.
   var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
@@ -864,6 +865,7 @@ https://highlightjs.org/
         re: result.second_best.relevance
       };
     }
+    fire("after:highlightBlock", { block: block, result: result});
   }
 
   /*
@@ -917,6 +919,23 @@ https://highlightjs.org/
     return lang && !lang.disableAutodetect;
   }
 
+  function addPlugin(plugin, options) {
+    plugins.push(plugin);
+  }
+
+  function fire(event, args) {
+    var cb = eventToFuncName(event);
+    plugins.forEach(function (plugin) {
+      if (plugin[cb]) {
+        plugin[cb](args);
+      }
+    });
+  }
+
+  function eventToFuncName(event) {
+    return event.replace(/:([a-z])/, function(el) { return el.toUpperCase().slice(1) })
+  }
+
   /* Interface definition */
 
   hljs.highlight = highlight;
@@ -931,6 +950,7 @@ https://highlightjs.org/
   hljs.getLanguage = getLanguage;
   hljs.autoDetection = autoDetection;
   hljs.inherit = inherit;
+  hljs.addPlugin = addPlugin;
 
   // Common regexps
   hljs.IDENT_RE = '[a-zA-Z]\\w*';
