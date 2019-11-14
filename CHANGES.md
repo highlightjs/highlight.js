@@ -7,8 +7,9 @@ New styles:
   none.
 
 Improvements:
+- enh(parser) add safe & debug modes.  Better error handling for crash conditions. [Josh Goebel][]
 - enh(ebnf) add underscore as allowed meta identifier character, and dot as terminator (#2281) [Chris Marchesi][]
-- fix(makefile) fix double relevance for assigns, improves auto-detection (#2278)[Josh Goebel][]
+- fix(makefile) fix double relevance for assigns, improves auto-detection (#2278) [Josh Goebel][]
 - enh(xml) support for highlighting entities (#2260) [w3suli][]
 - enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
 - enh(javascript): Add support for jsdoc comments (#2245) [Milutin Kristofic][]
