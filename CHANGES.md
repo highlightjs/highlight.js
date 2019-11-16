@@ -24,6 +24,7 @@ Improvements:
 - fix(go): Fix escaped character literals (#2266) [David Benjamin][]
 - fix(objectivec): Fix various preprocessor highlighting issues (#2265) [David Benjamin][]
 - fix(objectivec): Handle multibyte character literals (#2268) [David Benjamin][]
+- enh(cpp): Add additional keywords (#2289) [Adrian Ostrowski][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Liam Nobel]: https://github.com/liamnobel
@@ -32,6 +33,7 @@ Improvements:
 [w3suli]: https://github.com/w3suli
 [David Benjamin]: https://github.com/davidben
 [Chris Marchesi]: https://github.com/vancluever
+[Adrian Ostrowski]: https://github.com/aostrowski
 
 
 ## Version 9.16.2
