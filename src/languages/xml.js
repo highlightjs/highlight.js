@@ -25,18 +25,8 @@ function(hljs) {
       }
 	  ]
 	};
-  var APOS_META_STRING_MODE = {
-	  className: 'meta-string',
-	  begin: '\'', end: '\'',
-	  illegal: '\\n',
-	  contains: [hljs.BACKSLASH_ESCAPE]
-  };
-  var QUOTE_META_STRING_MODE = {
-	  className: 'meta-string',
-	  begin: '"', end: '"',
-	  illegal: '\\n',
-	  contains: [hljs.BACKSLASH_ESCAPE]
-  };
+  var APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, {className: 'meta-string'});
+  var QUOTE_META_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'});
   var TAG_INTERNALS = {
     endsWithParent: true,
     illegal: /</,
