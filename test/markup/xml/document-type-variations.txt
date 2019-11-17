@@ -1,0 +1,38 @@
+<!DOCTYPE svg PUBLIC " -//W3C//DTD SVG 1.1 Basic//EN " ' http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd ' >
+<!DOCTYPE svg PUBLIC"-//W3C//DTD SVG 1.1 Basic//EN"'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd'>
+
+<!DOCTYPE note [
+<!ENTITY nbsp '&#xA0;'>
+<!ENTITY pound '&#xA3;'>
+<!ENTITY writer_person " Writer: Donald Duck. ">
+<!ENTITY copyright "Copyright: Walt Disney Company.">
+]>
+
+<!ENTITY nbsp ' &#xA0; '>
+<!ENTITY pound '&#xA3;'>
+<!ENTITY writer_person " Writer: Donald Duck. ">
+<!ENTITY copyright "Copyright: Walt Disney Company.">
+
+<!DOCTYPE bookstore [
+<!ELEMENT bookstore (book*)>
+<!ELEMENT book (title,author,genre?)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author ( first-name+, last-name+ )+ >
+<!ELEMENT genre (to,from,header,(message| body))>
+<!ELEMENT first-name (#PCDATA)>
+<!ELEMENT last-name (#PCDATA) >
+<!ATTLIST book price CDATA #REQUIRED>
+<!ATTLIST book publication_date CDATA>
+<!ATTLIST book IBSN CDATA>
+]>
+
+<!ELEMENT bookstore (book*)>
+<!ELEMENT book (title,author,genre?)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author ( first-name+, last-name+ )+ >
+<!ELEMENT genre (to,from,header,(message| body))>
+<!ELEMENT first-name (#PCDATA)>
+<!ELEMENT last-name (#PCDATA) >
+<!ATTLIST book price CDATA #REQUIRED>
+<!ATTLIST book publication_date CDATA>
+<!ATTLIST book IBSN CDATA>
