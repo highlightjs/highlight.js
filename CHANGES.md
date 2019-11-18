@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- enh(ebnf) add backticks as allowed string character (#2290) [Chris Marchesi][]
 - fix(kotlin): fix termination of """ string literals (#2295) [Josh Goebel][]
 - fix(parser/docs): disallow `self` mode at the top-level of a language (#2294) [Josh Goebel][]
 - fix(mercury): don't change global STRING modes (#2271) [Josh Goebel][]
