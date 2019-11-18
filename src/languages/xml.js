@@ -11,12 +11,7 @@ function(hljs) {
     begin: '&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;'
   };
   var XML_META_KEYWORDS = {
-	  className: 'meta-keyword',
-	  begin: '\\s#?[a-z_][a-z1-9_-]+',
-	  illegal: '\\n',
-  };
-  var XML_META_PAR_KEYWORDS = {
-	  begin: '\\(', end: '\\)',
+	  begin: '\\s', end: '',
 	  contains:[
 	    {
 	      className: 'meta-keyword',
@@ -24,7 +19,8 @@ function(hljs) {
 	      illegal: '\\n',
       }
 	  ]
-	};
+  };
+  var XML_META_PAR_KEYWORDS = hljs.inherit(XML_META_KEYWORDS, {begin: '\\(', end: '\\)'});
   var APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, {className: 'meta-string'});
   var QUOTE_META_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'});
   var TAG_INTERNALS = {
