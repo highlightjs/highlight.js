@@ -1,6 +1,8 @@
 (function() {
   'use strict';
 
+  hljs.debugMode();
+
   var $window            = $(window),
       $languages         = $('#languages div'),
       $linkTitle         = $('link[title]'),
