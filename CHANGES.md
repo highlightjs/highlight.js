@@ -7,6 +7,8 @@ New styles:
   none.
 
 Improvements:
+
+- enh(xml) expand and improve document type highlighting (#2287) [w3suli][]
 - enh(parser) add safe & debug modes.  Better error handling for crash conditions. (#2286) [Josh Goebel][]
 - enh(ebnf) add underscore as allowed meta identifier character, and dot as terminator (#2281) [Chris Marchesi][]
 - fix(makefile) fix double relevance for assigns, improves auto-detection (#2278) [Josh Goebel][]
