@@ -131,7 +131,7 @@ Returns the language object if found, ``undefined`` otherwise.
 
 Enables *debug/development* mode.  **This mode purposely makes Highlight.js more fragile!  It should only be used for testing and local development (of languages or the library itself).**  By default "Safe Mode" is used, providing the most reliable experience for production usage.
 
-For example, if a new version suddenly had a bug (or breaking change) that affected only a single language:
+For example, if a new version suddenly had a serious bug (or breaking change) that affected only a single language:
 
 * **In Safe Mode**: All other languages would continue to highlight just fine.  The broken language would appear as a code block, but without any highlighting (as if it were plaintext).
 * **In Debug Mode**: All highlighting would stop when an error was encountered and a JavaScript error would be thrown.
