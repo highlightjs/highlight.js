@@ -11,7 +11,7 @@ function(hljs) {
     begin: '&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;'
   };
   var XML_META_KEYWORDS = {
-	  begin: '\\s', end: '',
+	  begin: '\\s',
 	  contains:[
 	    {
 	      className: 'meta-keyword',
