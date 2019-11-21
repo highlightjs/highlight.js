@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- fix(parser/docs): disallow `self` mode at the top-level of a language
 - fix(mercury): don't change global STRING modes (#2271) [Josh Goebel][]
 - fix: freeze built-in modes to prevent grammars altering them (#2271) [Josh Goebel][]
 - enh(xml) expand and improve document type highlighting (#2287) [w3suli][]
