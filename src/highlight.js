@@ -500,7 +500,7 @@ https://highlightjs.org/
     }
 
     // self is not valid at the top-level
-    if (language.contains.indexOf('self') != -1) {
+    if (language.contains && language.contains.indexOf('self') != -1) {
       if (!SAFE_MODE) {
         throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.")
       } else {
