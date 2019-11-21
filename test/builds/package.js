@@ -7,5 +7,6 @@ See .travis.yml
 
 import hljs from '../../build/lib/index.js';
 
+hljs.debugMode();
 hljs.highlight("cpp","/* test */")
 console.log("Rollup built package works.")
