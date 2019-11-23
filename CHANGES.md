@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- chore(javascript): add esm related extensions to aliases (#2298) [Rongjian Zhang][]
 - fix(kotlin): fix termination of """ string literals (#2295) [Josh Goebel][]
 - fix(parser/docs): disallow `self` mode at the top-level of a language (#2294) [Josh Goebel][]
 - fix(mercury): don't change global STRING modes (#2271) [Josh Goebel][]
@@ -38,7 +39,7 @@ Improvements:
 [w3suli]: https://github.com/w3suli
 [David Benjamin]: https://github.com/davidben
 [Chris Marchesi]: https://github.com/vancluever
-
+[Rongjian Zhang]: https://github.com/pd4d10
 
 ## Version 9.16.2
 
