@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- fix(sql): backslash is not used to escape in strings in standard SQL (#1748) [Mike Schall][]
 - chore(javascript): add esm related extensions to aliases (#2298) [Rongjian Zhang][]
 - fix(kotlin): fix termination of """ string literals (#2295) [Josh Goebel][]
 - fix(parser/docs): disallow `self` mode at the top-level of a language (#2294) [Josh Goebel][]
@@ -42,6 +43,7 @@ Improvements:
 [Chris Marchesi]: https://github.com/vancluever
 [Adrian Ostrowski]: https://github.com/aostrowski
 [Rongjian Zhang]: https://github.com/pd4d10
+[Mike Schall]: https://github.com/schallm
 
 
 ## Version 9.16.2
