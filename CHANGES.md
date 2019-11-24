@@ -7,8 +7,15 @@ New styles:
   none.
 
 Improvements:
+- chore(javascript): add esm related extensions to aliases (#2298) [Rongjian Zhang][]
+- fix(kotlin): fix termination of """ string literals (#2295) [Josh Goebel][]
+- fix(parser/docs): disallow `self` mode at the top-level of a language (#2294) [Josh Goebel][]
+- fix(mercury): don't change global STRING modes (#2271) [Josh Goebel][]
+- fix: freeze built-in modes to prevent grammars altering them (#2271) [Josh Goebel][]
+- enh(xml) expand and improve document type highlighting (#2287) [w3suli][]
+- enh(parser) add safe & debug modes.  Better error handling for crash conditions. (#2286) [Josh Goebel][]
 - enh(ebnf) add underscore as allowed meta identifier character, and dot as terminator (#2281) [Chris Marchesi][]
-- fix(makefile) fix double relevance for assigns, improves auto-detection (#2278)[Josh Goebel][]
+- fix(makefile) fix double relevance for assigns, improves auto-detection (#2278) [Josh Goebel][]
 - enh(xml) support for highlighting entities (#2260) [w3suli][]
 - enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
 - enh(javascript): Add support for jsdoc comments (#2245) [Milutin Kristofic][]
@@ -34,6 +41,7 @@ Improvements:
 [David Benjamin]: https://github.com/davidben
 [Chris Marchesi]: https://github.com/vancluever
 [Adrian Ostrowski]: https://github.com/aostrowski
+[Rongjian Zhang]: https://github.com/pd4d10
 
 
 ## Version 9.16.2
