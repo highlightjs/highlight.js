@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- fix(themes): fix inconsistencies between some themes padding/spacing (#2300) [Josh Goebel][]
 - fix(mercury): don't change global STRING modes (#2271) [Josh Goebel][]
 - fix: freeze built-in modes to prevent grammars altering them (#2271) [Josh Goebel][]
 - enh(xml) expand and improve document type highlighting (#2287) [w3suli][]
