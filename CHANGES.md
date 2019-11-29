@@ -8,6 +8,9 @@ New styles:
 
 Improvements:
 - fix(themes): fix inconsistencies between some themes padding/spacing (#2300) [Josh Goebel][]
+- chore(javascript): add esm related extensions to aliases (#2298) [Rongjian Zhang][]
+- fix(kotlin): fix termination of """ string literals (#2295) [Josh Goebel][]
+- fix(parser/docs): disallow `self` mode at the top-level of a language (#2294) [Josh Goebel][]
 - fix(mercury): don't change global STRING modes (#2271) [Josh Goebel][]
 - fix: freeze built-in modes to prevent grammars altering them (#2271) [Josh Goebel][]
 - enh(xml) expand and improve document type highlighting (#2287) [w3suli][]
@@ -29,6 +32,7 @@ Improvements:
 - fix(go): Fix escaped character literals (#2266) [David Benjamin][]
 - fix(objectivec): Fix various preprocessor highlighting issues (#2265) [David Benjamin][]
 - fix(objectivec): Handle multibyte character literals (#2268) [David Benjamin][]
+- enh(cpp): Add additional keywords (#2289) [Adrian Ostrowski][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Liam Nobel]: https://github.com/liamnobel
@@ -37,6 +41,8 @@ Improvements:
 [w3suli]: https://github.com/w3suli
 [David Benjamin]: https://github.com/davidben
 [Chris Marchesi]: https://github.com/vancluever
+[Adrian Ostrowski]: https://github.com/aostrowski
+[Rongjian Zhang]: https://github.com/pd4d10
 
 
 ## Version 9.16.2
