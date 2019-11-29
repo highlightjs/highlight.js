@@ -1,0 +1,8 @@
+first_quote_symbol  = "'" .
+second_quote_symbol = '"' .
+
+(* escaped_quote_symbol tests backticks, which does not interfere
+ * with backslashes. It has precedent in some language
+ * specifications.
+ *)
+escaped_quote_symbol = `\` ( first_quote_symbol | second_quote_symbol ) .
