@@ -14,9 +14,8 @@ ISBL Editor style light color schemec (c) Dmitriy Tarasov <dimatar@gmail.com>
 
 /* Base color: saturation 0; */
 
-.hljs,
 .hljs-subst {
-  color: #000000;
+  color: black;
 }
 
 .hljs-comment {

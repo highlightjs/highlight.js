@@ -69,6 +69,7 @@
 
 .hljs {
   display: block;
+  overflow-x: auto;
   background: #322931;
   color: #b9b5b8;
   padding: 0.5em;
