@@ -12,9 +12,9 @@ Music: Aphex Twin / Xtal
   overflow-x: auto;
   padding: 0.5em;
   background-color: #f4f4f4;
+  color: black;
 }
 
-.hljs,
 .hljs-subst {
   color: black;
 }
