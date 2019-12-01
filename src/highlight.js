@@ -926,8 +926,8 @@ https://highlightjs.org/
   Attaches highlighting to the page load event.
   */
   function initHighlightingOnLoad() {
-    addEventListener('DOMContentLoaded', initHighlighting, false);
-    addEventListener('load', initHighlighting, false);
+    window.addEventListener('DOMContentLoaded', initHighlighting, false);
+    window.addEventListener('load', initHighlighting, false);
   }
 
   var PLAINTEXT_LANGUAGE = { disableAutodetect: true };
