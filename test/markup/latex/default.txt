@@ -1,0 +1,8 @@
+\documentclass{article}
+\title{Cartesian closed categories and the price of eggs}
+\author{Jane Doe}
+\date{September 1994}
+\begin{document}
+   \maketitle % Random comment
+   Hello world!
+\end{document}

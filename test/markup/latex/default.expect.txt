@@ -1,0 +1,8 @@
+<span class="hljs-built_in">\documentclass</span>{article}
+<span class="hljs-built_in">\title</span>{Cartesian closed categories and the price of eggs}
+<span class="hljs-built_in">\author</span>{Jane Doe}
+<span class="hljs-built_in">\date</span>{September 1994}
+<span class="hljs-built_in">\begin</span>{document}
+   <span class="hljs-built_in">\maketitle</span> <span class="hljs-comment">% Random comment
+</span>   Hello world!
+<span class="hljs-built_in">\end</span>{document}
