@@ -1,7 +1,7 @@
 ## Version 9.17.master
 
 New languages:
-  none.
+- *LaTeX* by [Nathanael Demacon][]
 
 New styles:
   none.
@@ -44,6 +44,7 @@ Improvements:
 [Chris Marchesi]: https://github.com/vancluever
 [Adrian Ostrowski]: https://github.com/aostrowski
 [Rongjian Zhang]: https://github.com/pd4d10
+[Nathanael Demacon]: https://github.com/quantumsheep
 
 
 ## Version 9.16.2
