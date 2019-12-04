@@ -27,6 +27,8 @@ work for you, you can specify the language in the `class` attribute:
 <pre><code class="html">...</code></pre>
 ```
 
+### List of Languages and Classes
+
 <details>
 <summary>The list of supported languages and corresponding classes.</summary>
 
@@ -213,6 +215,8 @@ work for you, you can specify the language in the `class` attribute:
 Languages with the specified package name are defined in separate repositories
 and not included in `highlight.pack.js`.
 </details>
+
+### Class Names and Disabling Highlighting
 
 Classes can also be prefixed with either `language-` or `lang-`.
 
