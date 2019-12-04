@@ -1,7 +1,8 @@
 /*
 Language: Hy
-Description: Hy syntax (based on clojure.js)
+Description: Hy is a wonderful dialect of Lisp that’s embedded in Python.
 Author: Sergey Sobko <s.sobko@profitware.ru>
+Website: http://docs.hylang.org/en/stable/
 Category: lisp
 */
 

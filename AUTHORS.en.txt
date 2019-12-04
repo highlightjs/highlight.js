@@ -9,6 +9,7 @@ Current core developers (alphabetical):
 - Li Xuanji <xuanji@gmail.com>
 - Marcos Cáceres <marcos@marcosc.com>
 - Sang Dang <sang.dang@polku.io>
+- Josh Goebel <hello@joshgoebel.com>
 
 Former maintainers:
 
@@ -261,6 +262,7 @@ Contributors:
 - Arctic Ice Studio <development@arcticicestudio.com>
 - Google Inc. (David Benjamin) <davidben@google.com>
 - Ahmad Awais <me@AhmadAwais.com>
+- Duncan Paterson <duncan@exist-db.org>
 - Tristian Kelly <tristian.kelly560@gmail.com>
 - Melissa Geels <melissa@nimble.tools>
 - Dmitriy Tarasov <dimatar@gmail.com>
@@ -272,3 +274,11 @@ Contributors:
 - Antoine Boisier-Michaud <aboisiermichaud@gmail.com>
 - Alejandro Isaza <al@isaza.ca>
 - Laurent Voullemier <laurent.voullemier@gmail.com>
+- Sean T. Allen <sean@monkeysnatchbanana.com>
+- Greg Cline <gregrcline@gmail.com>
+- Sejin Jeon <jinaidy93@gmail.com>
+- Taif Alimov <inzeppelin@gmail.com>
+- Yuri Mazursky <mail@colomolome.com>
+- Carl Baxter <carl@cbax.tech>
+- Thomas Reichel <tom.p.reichel@gmail.com>
+- G8t Guy <g8tguy@g8tguy.com>

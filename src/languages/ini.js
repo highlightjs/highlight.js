@@ -1,7 +1,9 @@
 /*
-Language: Ini, TOML
+Language: TOML, also INI
+Description: TOML aims to be a minimal configuration file format that's easy to read due to obvious semantics.
 Contributors: Guillaume Gomez <guillaume1.gomez@gmail.com>
 Category: common, config
+Website: https://github.com/toml-lang/toml
 */
 
 function(hljs) {
@@ -34,17 +36,19 @@ function(hljs) {
         begin: /^\s*\[+/, end: /\]+/
       },
       {
-        begin: /^[a-z0-9\[\]_-]+\s*=\s*/, end: '$',
+        begin: /^[a-z0-9\[\]_\.-]+\s*=\s*/, end: '$',
         returnBegin: true,
         contains: [
           {
             className: 'attr',
-            begin: /[a-z0-9\[\]_-]+/
+            begin: /[a-z0-9\[\]_\.-]+/
           },
           {
             begin: /=/, endsWithParent: true,
             relevance: 0,
             contains: [
+              hljs.COMMENT(';', '$'),
+              hljs.HASH_COMMENT_MODE,
               {
                 className: 'literal',
                 begin: /\bon|off|true|false|yes|no\b/

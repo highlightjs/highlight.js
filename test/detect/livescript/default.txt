@@ -15,7 +15,7 @@ last-three = reverse >> take-three >> reverse
 last-three [1 to 8]
 
 # List comprehensions and piping
-t1 =
+const t1 =
   * id: 1
     name: 'george'
   * id: 2
@@ -23,7 +23,7 @@ t1 =
   * id: 3
     name: 'donald'
 
-t2 =
+const t2 =
   * id: 2
     age: 21
   * id: 1
@@ -36,3 +36,31 @@ t2 =
   where id1 is id2]
   |> sort-by \id
   |> JSON.stringify
+
+~function add x, y
+  @result = x + y
+
+class A
+  (num) ->
+    @x = num
+  property: 1
+  method: (y) ->
+    @x + @property + y
+
+a = new A 3
+a.x        #=> 3
+a.property #=> 1
+a.method 6 #=> 10
+
+f = !-> 2
+g = (x) !-> x + 2
+
+result = switch 'test'
+case 'blatant'
+  'effort'
+  fallthrough
+case 'at'
+  'increasing'
+  fallthrough
+case 'relevance'
+  void

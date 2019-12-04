@@ -126,6 +126,8 @@ This is commonly used to define nested modes:
     contains: [hljs.QUOTE_STRING_MODE, 'self']
   }
 
+Note: ``self`` may not be used in the root level ``contains`` of a language.  The root level mode is special and may not be self-referential.
+
 
 Comments
 --------
@@ -256,6 +258,24 @@ Pre-defined modes and regular expressions
 
 Many languages share common modes and regular expressions. Such expressions are defined in core highlight.js code
 at the end under "Common regexps" and "Common modes" titles. Use them when possible.
+
+
+Regular Expression Features
+---------------------------
+
+The goal of Highlight.js is to support whatever regex features Javascript itself supports.  You're using real regular expressions, use them responsibly.  That said, due to the design of the parser, there are some caveats.  These are addressed below.
+
+Things we support now that we did not always:
+
+* look-ahead regex matching for `begin` (#2135)
+* look-ahead regex matching for `end` (#2237)
+* look-ahead regex matching for `illegal` (#2135)
+* back-references within your regex matches (#1897)
+* look-behind matching (when JS supports it) for `begin` (#2135)
+
+Things we currently know are still issues:
+
+* look-behind matching (when JS supports it) for `end` matchers
 
 
 Contributing

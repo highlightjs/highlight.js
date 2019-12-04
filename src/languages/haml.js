@@ -2,7 +2,7 @@
 Language: Haml
 Requires: ruby.js
 Author: Dan Allen <dan.j.allen@gmail.com>
-Website: http://google.com/profiles/dan.j.allen
+Website: http://haml.info
 Category: template
 */
 

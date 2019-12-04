@@ -8,6 +8,7 @@ Lightfair style (c) Tristian Kelly <tristian.kelly560@gmail.com>
   display: block;
   overflow-x: auto;
   padding: 0.5em;
+  /* TODO: background? */
 }
 
 .hljs-name {

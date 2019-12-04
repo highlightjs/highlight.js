@@ -1,0 +1,8 @@
+<span class="hljs-keyword">fun</span> foo(bar: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> =&gt;
+  bar + <span class="hljs-string">"baz"</span>
+
+<span class="hljs-keyword">new</span> create(hunger: <span class="hljs-type">I32</span>) =&gt;
+  _hunger = hunger
+
+<span class="hljs-keyword">be</span> feed(food: <span class="hljs-type">I32</span>) =&gt;
+  _hunger = _hunger - food

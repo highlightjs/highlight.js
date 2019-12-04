@@ -1,0 +1,5 @@
+<span class="hljs-attr">key:</span> <span class="hljs-number">1234</span>
+<span class="hljs-attr">not_hex:</span> <span class="hljs-string">999fff</span>
+<span class="hljs-attr">hex:</span> <span class="hljs-number">0x999fff</span>
+<span class="hljs-attr">numkey999:</span> <span class="hljs-number">1234</span>
+<span class="hljs-attr">exp:</span> <span class="hljs-number">-2.3e-5</span>

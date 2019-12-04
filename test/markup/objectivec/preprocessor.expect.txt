@@ -1,0 +1,19 @@
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> foo 1&lt;&lt;16</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> DEBUG</span>
+TYPE1 foo(<span class="hljs-keyword">void</span>)
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+<span class="hljs-keyword">int</span> foo(<span class="hljs-keyword">void</span>)
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+{ }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> x(v) ((v))</span>
+<span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> x(v) ((v))</span>
+<span class="hljs-meta">#  <span class="hljs-meta-keyword">define</span> x(v) ((v))</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> MACRO_WITH_STRING_ARG(<span class="hljs-meta-string">"hello \"world\""</span>)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">elif</span> MULTI_LINE <span class="hljs-comment">/* comment */</span> &lt; \
+    EXPRESSION</span>
+<span class="hljs-keyword">int</span> bar;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span>  <span class="hljs-comment">// comment</span></span>

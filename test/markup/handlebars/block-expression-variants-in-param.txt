@@ -1,0 +1,7 @@
+text {{#abc "lite]'ral}}segment" }}a{{/abc}}
+
+text {{#abc 'lite]"ral}}segment' }}a{{/abc}}
+
+text {{#abc [lite"'ral}}segment] }}a{{/abc}}
+
+text

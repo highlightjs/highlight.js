@@ -1,14 +1,14 @@
 'use strict';
 
-let _       = require('lodash');
-let hljs    = require('../../build');
-let utility = require('../utility');
+const _       = require('lodash');
+const hljs    = require('../../build');
+const utility = require('../utility');
 
 const pattern      = new RegExp(`${hljs.NUMBER_RE}$`);
-let numberToString = utility.numberToString;
+const numberToString = utility.numberToString;
 
-describe('.NUMBER_RE', function() {
-  it('should match regular numbers and decimals', function() {
+describe('.NUMBER_RE', () => {
+  it('should match regular numbers and decimals', () => {
     const number        = _.map(_.range(0, 1001), numberToString);
     const decimal       = _.map(_.range(0, 1.001, 0.001), numberToString);
     const noLeadingZero = ['.1234', '.5206', '.0002', '.9998'];
@@ -18,7 +18,7 @@ describe('.NUMBER_RE', function() {
     numbers.should.matchEach(pattern);
   });
 
-  it('should not match hex or binary numbers', function() {
+  it('should not match hex or binary numbers', () => {
     const numbers = [ '0xbada55', '0xfa1755', '0x45362e'
                     , '0b0101'  , '0b1100'  , '0b1001'
                     ];
