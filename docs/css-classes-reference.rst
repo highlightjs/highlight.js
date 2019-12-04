@@ -137,4 +137,4 @@ Language names and aliases
 --------------------------
 
 The language names and aliases table has moved to `the project
-README <https://github.com/codingthat/highlight.js/tree/more-prominent-list#list-of-languages-and-classes>`_.
+README <https://github.com/codingthat/highlight.js#list-of-languages-and-classes>`_.
