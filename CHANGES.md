@@ -34,6 +34,7 @@ Improvements:
 - fix(objectivec): Fix various preprocessor highlighting issues (#2265) [David Benjamin][]
 - fix(objectivec): Handle multibyte character literals (#2268) [David Benjamin][]
 - enh(cpp): Add additional keywords (#2289) [Adrian Ostrowski][]
+- fix(pkg): Prefix global addEventListener with window to be able to minify with closure compiler (#2305) [Kirill Saksin]()
 
 [Josh Goebel]: https://github.com/yyyc514
 [Liam Nobel]: https://github.com/liamnobel
@@ -44,6 +45,7 @@ Improvements:
 [Chris Marchesi]: https://github.com/vancluever
 [Adrian Ostrowski]: https://github.com/aostrowski
 [Rongjian Zhang]: https://github.com/pd4d10
+[Kirill Saksin]: https://github.com/saksmt
 
 
 ## Version 9.16.2
