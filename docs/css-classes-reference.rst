@@ -137,4 +137,4 @@ Language names and aliases
 --------------------------
 
 The language names and aliases table has moved to `the project
-README <https://github.com/highlightjs/highlight.js#list-of-languages-and-classes>`_.
+README <https://github.com/highlightjs/highlight.js#supported-languages>`_.
