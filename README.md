@@ -50,8 +50,10 @@ To disable highlighting of a tag completely, use the `nohighlight` class:
 
 ### Supported Languages
 
+The table below shows the full list of supported languages (and corresponding classes) that are bundled with the library.  Note, they may not all be built into any given distributable. See [Building and Testing](https://highlightjs.readthedocs.io/en/latest/building-testing.html) to learn more.
+
 <details>
-<summary>The list of supported languages and corresponding classes.</summary>
+<summary>Show full list...</summary>
 
 | Language                | Classes                | Package |
 | :-----------------------| :--------------------- | :------ |
