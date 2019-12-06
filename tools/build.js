@@ -79,9 +79,9 @@ commander.target = commander.target.toLowerCase();
 
 var target = commander.target
 if (target=="cdn")
-  target = "./roll_cdn"
+  target = "./rollup_cdn"
 if (target=="browser")
-  target = "./roll_browser"
+  target = "./rollup_browser"
 
 
 build     = require(`./${target}`);
