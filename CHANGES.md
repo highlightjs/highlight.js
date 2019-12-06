@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- enh(parser): add better error when a language requirement is missing () [Josh Goebel][]
 - enh(ebnf) add backticks as additional string variant (#2290) [Chris Marchesi][]
 - fix(themes): fix inconsistencies between some themes padding/spacing (#2300) [Josh Goebel][]
 - chore(javascript): add esm related extensions to aliases (#2298) [Rongjian Zhang][]
