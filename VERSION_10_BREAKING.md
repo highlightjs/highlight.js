@@ -1,6 +1,9 @@
 ## Version 10 Breaking Changes
 
-Renamed Language Files
+Incompatibilities:
+- chore(parser): compressed version 9.x language definitions no longer supported (rebuild them minified) [Josh Goebel][]
+
+Renamed Language Files:
 - chore(parser): rename `cs.js` to `csharp.js` [Josh Goebel][]
 
 Legacy Browser Issues:

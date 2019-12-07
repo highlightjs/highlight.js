@@ -274,18 +274,6 @@ https://highlightjs.org/
     return [mode];
   }
 
-  function restoreLanguageApi(obj) {
-    if(API_REPLACES && !obj.langApiRestored) {
-      obj.langApiRestored = true;
-      for(var key in API_REPLACES) {
-        if (obj[key]) {
-          obj[API_REPLACES[key]] = obj[key];
-        }
-      }
-      (obj.contains || []).concat(obj.variants || []).forEach(restoreLanguageApi);
-    }
-  }
-
   function compileKeywords(rawKeywords, case_insensitive) {
       var compiled_keywords = {};
 
@@ -953,7 +941,6 @@ https://highlightjs.org/
       lang = PLAINTEXT_LANGUAGE;
     }
     languages[name] = lang;
-    restoreLanguageApi(lang);
     lang.rawDefinition = language.bind(null,hljs);
 
     if (lang.aliases) {
