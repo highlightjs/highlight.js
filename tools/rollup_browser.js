@@ -88,7 +88,7 @@ function installDemoStyles() {
 }
 
 async function buildBrowserHighlightJS(languages) {
-  log("Building highlight.js min file.")
+  log("Building highlight.js library file.")
 
   var git_sha = child_process
     .execSync("git rev-parse HEAD")
@@ -97,33 +97,33 @@ async function buildBrowserHighlightJS(languages) {
   var versionDetails = {...require("../package"), git_sha}
   var header = buildHeader(versionDetails)
 
-  var out_file = `${process.env.BUILD_DIR}/highlight.js`
-  var min_file = `${process.env.BUILD_DIR}/highlight.min.js`
-  var data = await fs.readFile("src/highlight.js", {encoding: "utf8"})
-  var lib_size = data.length
+  var outFile = `${process.env.BUILD_DIR}/highlight.js`
+  var minifiedFile = outFile.replace(/js$/,"min.js")
+  var librarySrc = await fs.readFile("src/highlight.js", {encoding: "utf8"})
+  var coreSize = librarySrc.length
 
   // strip off the original top comment
-  data = data.replace(/\/\*.*?\*\//s,"")
+  librarySrc = librarySrc.replace(/\/\*.*?\*\//s,"")
 
-  var worker_stub = "if (typeof importScripts === 'function') { var hljs = self.hljs; }"
+  var workerStub = "if (typeof importScripts === 'function') { var hljs = self.hljs; }"
+  var tersed = Terser.minify(librarySrc, config.terser)
 
-  var tersed = Terser.minify(data, config.terser)
-  var minified = tersed.code;
-  minified = `${header}\n${minified}\n${worker_stub}\n`
-  data = `${header}\n${data}\n${worker_stub}\n`
+  var minifiedSrc = [
+    header, tersed.code, workerStub,
+    ...languages.map((lang) => lang.minified) ].join("\n")
 
-  var minified_library = minified.length
+  var fullSrc = [
+    header, librarySrc, workerStub,
+    ...languages.map((lang) => lang.module) ].join("\n")
 
-  minified +=  languages.map((lang) => lang.minified).join("\n")
-  data += languages.map((lang) => lang.module).join("\n")
-
-  // minified = Terser.minify(data, config.terser).code
+  // get approximate core minified size
+  var core_min = [ header, tersed.code, workerStub].join().length
 
   await Promise.all([
-    fs.writeFile(out_file, data, {encoding: "utf8"}),
-    fs.writeFile(min_file, minified, {encoding: "utf8"})
+    fs.writeFile(outFile, fullSrc, {encoding: "utf8"}),
+    fs.writeFile(minifiedFile, minifiedSrc, {encoding: "utf8"})
   ])
-  return {core: lib_size, core_min: minified_library, minified: minified.length, data: minified, regular: data.length }
+  return {core: coreSize, core_min: core_min, minified: minifiedSrc.length, data: minifiedSrc, regular: fullSrc.length }
 }
 
 /* glue code to tie into the existing Gear based system until it's replaced */
