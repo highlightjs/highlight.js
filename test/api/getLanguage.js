@@ -38,6 +38,7 @@ describe('.getLanguage()', () => {
     const result = hljs.getLanguage('c#');
 
     result.should.be.instanceOf(Object);
-    result.should.have.property('aliases').with.containEql('csharp');
+    result.should.have.property('aliases').with.containEql('cs');
+    should.strictEqual(result, hljs.getLanguage('csharp'))
   });
 });

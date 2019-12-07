@@ -89,7 +89,7 @@ function(hljs) {
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
 
   return {
-    aliases: ['csharp', 'c#'],
+    aliases: ['cs', 'c#'],
     keywords: KEYWORDS,
     illegal: /::/,
     contains: [

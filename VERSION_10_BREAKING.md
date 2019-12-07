@@ -1,5 +1,8 @@
 ## Version 10 Breaking Changes
 
+Renamed Language Files
+- chore(parser): rename `cs.js` to `csharp.js` [Josh Goebel][]
+
 Legacy Browser Potential Issues:
 - chore(parser): remove `load` listener in favor of only the newer `DOMContentLoaded` [Josh Goebel][]
 

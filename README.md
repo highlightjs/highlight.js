@@ -79,7 +79,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | Basic                   | basic                  |         |
 | BNF                     | bnf                    |         |
 | Brainfuck               | brainfuck, bf          |         |
-| C#                      | cs, csharp             |         |
+| C#                      | csharp, cs             |         |
 | C++                     | cpp, c, cc, h, c++, h++, hpp |   |
 | C/AL                    | cal                    |         |
 | Cache Object Script     | cos, cls               |         |
@@ -301,8 +301,8 @@ onmessage = (event) => {
 
 ## Node.js
 
-You can use highlight.js with node to highlight content before sending it to the browser. 
-Make sure to use the `.value` property to get the formatted html. 
+You can use highlight.js with node to highlight content before sending it to the browser.
+Make sure to use the `.value` property to get the formatted html.
 For more info about the returned object refer to the api docs https://highlightjs.readthedocs.io/en/latest/api.html
 
 
