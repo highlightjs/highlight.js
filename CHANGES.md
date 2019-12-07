@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- enh(parser): add better error when a language requirement is missing () [Josh Goebel][]
 - fix(sql): backslash is not used to escape in strings in standard SQL (#1748) [Mike Schall][]
 - enh(ebnf) add backticks as additional string variant (#2290) [Chris Marchesi][]
 - fix(themes): fix inconsistencies between some themes padding/spacing (#2300) [Josh Goebel][]
