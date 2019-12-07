@@ -7,7 +7,8 @@ New styles:
   none.
 
 Improvements:
-- enh(ebnf) add backticks as additional string variant (#2290) [Chris Marchesi][]
+- chore(parser): switch from `createElementNS` to `createElement` [Josh Goebel][]
+- enh(ebnf): add backticks as additional string variant (#2290) [Chris Marchesi][]
 - fix(themes): fix inconsistencies between some themes padding/spacing (#2300) [Josh Goebel][]
 - chore(javascript): add esm related extensions to aliases (#2298) [Rongjian Zhang][]
 - fix(kotlin): fix termination of """ string literals (#2295) [Josh Goebel][]
