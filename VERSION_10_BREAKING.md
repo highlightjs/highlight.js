@@ -3,7 +3,9 @@
 Renamed Language Files
 - chore(parser): rename `cs.js` to `csharp.js` [Josh Goebel][]
 
-Legacy Browser Potential Issues:
+Legacy Browser Issues:
+- **We're now using ES2015 features in the codebase.  Internet Explorer 11 is no longer supported.**
+- In general legacy browsers are no longer supported.
 - chore(parser): remove `load` listener in favor of only the newer `DOMContentLoaded` [Josh Goebel][]
 
 Removed styles:

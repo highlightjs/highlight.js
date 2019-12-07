@@ -321,7 +321,7 @@ https://highlightjs.org/
   }
 
   function commonKeyword(word) {
-    return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1;
+    return COMMON_KEYWORDS.includes(word.toLowerCase());
   }
 
   function compileLanguage(language) {
@@ -500,7 +500,7 @@ https://highlightjs.org/
     }
 
     // self is not valid at the top-level
-    if (language.contains && language.contains.indexOf('self') != -1) {
+    if (language.contains && language.contains.includes('self')) {
       if (!SAFE_MODE) {
         throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.")
       } else {
@@ -777,7 +777,7 @@ https://highlightjs.org/
         top: top
       };
     } catch (err) {
-      if (err.message && err.message.indexOf('Illegal') !== -1) {
+      if (err.message && err.message.includes('Illegal')) {
         return {
           illegal: true,
           relevance: 0,
