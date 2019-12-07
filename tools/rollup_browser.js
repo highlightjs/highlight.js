@@ -43,9 +43,10 @@ async function buildBrowser(options) {
 
   log("-----")
   log("Core                :", size.core ,"bytes")
+  log("Core (min)          :", size.core_min ,"bytes")
   log("Languages           :", languages.map((el) => el.data.length).reduce((acc, curr) => acc + curr, 0), "bytes")
   log("Languages (min)     :", languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes")
-  log("highlight.min       :", size.regular ,"bytes")
+  log("highlight.js        :", size.regular ,"bytes")
   log("highlight.min.js    :", size.minified ,"bytes")
   log("highlight.min.js.gz :", zlib.gzipSync(size.data).length ,"bytes")
   log("-----")
@@ -99,6 +100,7 @@ async function buildBrowserHighlightJS(languages) {
   var out_file = `${process.env.BUILD_DIR}/highlight.js`
   var min_file = `${process.env.BUILD_DIR}/highlight.min.js`
   var data = await fs.readFile("src/highlight.js", {encoding: "utf8"})
+  var lib_size = data.length
 
   // strip off the original top comment
   data = data.replace(/\/\*.*?\*\//s,"")
@@ -121,7 +123,7 @@ async function buildBrowserHighlightJS(languages) {
     fs.writeFile(out_file, data, {encoding: "utf8"}),
     fs.writeFile(min_file, minified, {encoding: "utf8"})
   ])
-  return {core: minified_library, minified: minified.length, data: minified, regular: data.length }
+  return {core: lib_size, core_min: minified_library, minified: minified.length, data: minified, regular: data.length }
 }
 
 /* glue code to tie into the existing Gear based system until it's replaced */
