@@ -8,7 +8,9 @@ New styles:
 
 Improvements:
 - chore(parser): switch from `createElementNS` to `createElement` [Josh Goebel][]
-- enh(ebnf): add backticks as additional string variant (#2290) [Chris Marchesi][]
+- enh(parser): add better error when a language requirement is missing () [Josh Goebel][]
+- fix(sql): backslash is not used to escape in strings in standard SQL (#1748) [Mike Schall][]
+- enh(ebnf) add backticks as additional string variant (#2290) [Chris Marchesi][]
 - fix(themes): fix inconsistencies between some themes padding/spacing (#2300) [Josh Goebel][]
 - chore(javascript): add esm related extensions to aliases (#2298) [Rongjian Zhang][]
 - fix(kotlin): fix termination of """ string literals (#2295) [Josh Goebel][]
@@ -46,6 +48,7 @@ Improvements:
 [Chris Marchesi]: https://github.com/vancluever
 [Adrian Ostrowski]: https://github.com/aostrowski
 [Rongjian Zhang]: https://github.com/pd4d10
+[Mike Schall]: https://github.com/schallm
 [Kirill Saksin]: https://github.com/saksmt
 
 

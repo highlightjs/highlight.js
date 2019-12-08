@@ -958,6 +958,20 @@ https://highlightjs.org/
     return objectKeys(languages);
   }
 
+  /*
+    intended usage: When one language truly requires another
+
+    Unlike `getLanguage`, this will throw when the requested language
+    is not available.
+  */
+  function requireLanguage(name) {
+    var lang = getLanguage(name);
+    if (lang) { return lang; }
+
+    var err = new Error('The \'{}\' language is required, but not loaded.'.replace('{}',name));
+    throw err;
+  }
+
   function getLanguage(name) {
     name = (name || '').toLowerCase();
     return languages[name] || languages[aliases[name]];
@@ -980,6 +994,7 @@ https://highlightjs.org/
   hljs.registerLanguage = registerLanguage;
   hljs.listLanguages = listLanguages;
   hljs.getLanguage = getLanguage;
+  hljs.requireLanguage = requireLanguage;
   hljs.autoDetection = autoDetection;
   hljs.inherit = inherit;
   hljs.debugMode = function() { SAFE_MODE = false; }
