@@ -16,7 +16,7 @@ You can add a plugin via the ``addPlugin`` API.
   addPlugin(PluginClass, options)
   // or simply a keyed object of functions
   addPlugin({
-    afterHighlightBlock: (args) => {
+    'after:highlightBlock': (args) => {
       ...
     }
   })
@@ -36,7 +36,7 @@ your class and execute it's callbacks as necessary.
       self.prefix = options.dataPrefix;
     }
 
-    afterHighlightBlock({block, result}) {
+    'after:highlightBlock'({block, result}) {
       // ...
     }
   }
@@ -51,7 +51,7 @@ This approach is best for simpler plugins.
 ::
 
     hljs.addPlugin( {
-      afterHighlightBlock: ({block, result}) => {
+      'after:highlightBlock': ({block, result}) => {
         // move the language from the result into the dataset
         block.dataset.language = result.language }
     })
