@@ -13,7 +13,9 @@ You can add a plugin via the ``addPlugin`` API.
 ::
 
   // a plugin can be a class
-  addPlugin(PluginClass, options)
+  addPlugin(new SimplePlugin())
+  addPlugin(new MoreComplexPlugin(options))
+
   // or simply a keyed object of functions
   addPlugin({
     'after:highlightBlock': (args) => {
@@ -41,7 +43,7 @@ your class and execute it's callbacks as necessary.
     }
   }
 
-  hljs.addPlugin(DataLanguagePlugin, { dataPrefix: "hljs"})
+  hljs.addPlugin(new DataLanguagePlugin({dataPrefix: "hljs"}))
 
 Function based plugins
 ^^^^^^^^^^^^^^^^^^^^^
@@ -71,6 +73,7 @@ result
   The result object returned by `highlight` or `highlightAuto`.
 
 It returns nothing.
+
 
 before:highlightBlock({block, language})
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

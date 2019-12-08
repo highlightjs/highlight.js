@@ -927,7 +927,8 @@ https://highlightjs.org/
   }
 
   function fire(event, args) {
-    var cb = eventToFuncName(event);
+    // var cb = eventToFuncName(event);
+    var cb = event;
     plugins.forEach(function (plugin) {
       if (plugin[cb]) {
         plugin[cb](args);
