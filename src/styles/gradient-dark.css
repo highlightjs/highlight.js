@@ -37,7 +37,8 @@ color:#e7e4eb;
 }
 
 .hljs-params,
-.hljs-selector-class
+.hljs-selector-class,
+.hljs-bullet
 
 {
   color:#F19FFF;
@@ -56,13 +57,13 @@ color:#e7e4eb;
 }
 
 .hljs-addition,
-.hljs-bullet,
-.hljs-number
+.hljs-number,
+.hljs-link
 {
   color:#C5FE00;
 }
 
-.hljs-attribute,
+
 .hljs-string
 {
   color: #38c0ff;
@@ -70,8 +71,7 @@ color:#e7e4eb;
 
 
 .hljs-attribute,
-.hljs-addition,
-.hljs-bullet
+.hljs-addition
 {
   color:#E7FF9F;
 }
