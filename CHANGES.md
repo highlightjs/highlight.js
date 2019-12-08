@@ -4,9 +4,10 @@ New languages:
   none.
 
 New styles:
-  none.
+- *Gradient Dark* by [Samia Ali][]
 
 Improvements:
+- chore(parser): switch from `createElementNS` to `createElement` [Josh Goebel][]
 - enh(parser): add better error when a language requirement is missing () [Josh Goebel][]
 - fix(sql): backslash is not used to escape in strings in standard SQL (#1748) [Mike Schall][]
 - enh(ebnf) add backticks as additional string variant (#2290) [Chris Marchesi][]
@@ -49,6 +50,7 @@ Improvements:
 [Rongjian Zhang]: https://github.com/pd4d10
 [Mike Schall]: https://github.com/schallm
 [Kirill Saksin]: https://github.com/saksmt
+[Samia Ali]:https://github.com/samiaab1990
 
 
 ## Version 9.16.2
@@ -57,7 +59,7 @@ New languages:
   none.
 
 New styles:
-  -*Gradient Dark* by [Samia Ali][]
+  none.
 
 Improvements:
 - fix(arduino) Resolves issue with arduino.js not being "use strict" safe (#2247)
