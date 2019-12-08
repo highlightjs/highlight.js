@@ -7,6 +7,10 @@ New styles:
   none.
 
 Improvements:
+- enh(parser): add better error when a language requirement is missing () [Josh Goebel][]
+- fix(sql): backslash is not used to escape in strings in standard SQL (#1748) [Mike Schall][]
+- enh(ebnf) add backticks as additional string variant (#2290) [Chris Marchesi][]
+- fix(themes): fix inconsistencies between some themes padding/spacing (#2300) [Josh Goebel][]
 - chore(javascript): add esm related extensions to aliases (#2298) [Rongjian Zhang][]
 - fix(kotlin): fix termination of """ string literals (#2295) [Josh Goebel][]
 - fix(parser/docs): disallow `self` mode at the top-level of a language (#2294) [Josh Goebel][]
@@ -32,6 +36,7 @@ Improvements:
 - fix(objectivec): Fix various preprocessor highlighting issues (#2265) [David Benjamin][]
 - fix(objectivec): Handle multibyte character literals (#2268) [David Benjamin][]
 - enh(cpp): Add additional keywords (#2289) [Adrian Ostrowski][]
+- fix(pkg): Prefix global addEventListener with window to be able to minify with closure compiler (#2305) [Kirill Saksin]()
 
 [Josh Goebel]: https://github.com/yyyc514
 [Liam Nobel]: https://github.com/liamnobel
@@ -42,6 +47,8 @@ Improvements:
 [Chris Marchesi]: https://github.com/vancluever
 [Adrian Ostrowski]: https://github.com/aostrowski
 [Rongjian Zhang]: https://github.com/pd4d10
+[Mike Schall]: https://github.com/schallm
+[Kirill Saksin]: https://github.com/saksmt
 
 
 ## Version 9.16.2
