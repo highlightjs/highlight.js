@@ -27,8 +27,33 @@ work for you, you can specify the language in the `class` attribute:
 <pre><code class="html">...</code></pre>
 ```
 
+Classes may also be prefixed with either `language-` or `lang-`.
+
+```html
+<pre><code class="language-html">...</code></pre>
+```
+
+### Plaintext and Disabling Highlighting
+
+To style arbitrary text like code, but without any highlighting, use the
+`plaintext` class:
+
+```html
+<pre><code class="plaintext">...</code></pre>
+```
+
+To disable highlighting of a tag completely, use the `nohighlight` class:
+
+```html
+<pre><code class="nohighlight">...</code></pre>
+```
+
+### Supported Languages
+
+The table below shows the full list of supported languages (and corresponding classes) that are bundled with the library.  Note: Which languages are available may depend on how you've built or included the library in your app. See [Getting the Library](#getting-the-library) below.
+
 <details>
-<summary>The list of supported languages and corresponding classes.</summary>
+<summary>Reveal the full list of languages...</summary>
 
 | Language                | Classes                | Package |
 | :-----------------------| :--------------------- | :------ |
@@ -214,20 +239,6 @@ Languages with the specified package name are defined in separate repositories
 and not included in `highlight.pack.js`.
 </details>
 
-Classes can also be prefixed with either `language-` or `lang-`.
-
-To make arbitrary text look like code, but without highlighting, use the
-`plaintext` class:
-
-```html
-<pre><code class="plaintext">...</code></pre>
-```
-
-To disable highlighting altogether use the `nohighlight` class:
-
-```html
-<pre><code class="nohighlight">...</code></pre>
-```
 
 ## Custom Initialization
 
