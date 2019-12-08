@@ -7,6 +7,7 @@ New styles:
   none.
 
 Improvements:
+- chore(parser): switch from `createElementNS` to `createElement` [Josh Goebel][]
 - enh(parser): add better error when a language requirement is missing () [Josh Goebel][]
 - fix(sql): backslash is not used to escape in strings in standard SQL (#1748) [Mike Schall][]
 - enh(ebnf) add backticks as additional string variant (#2290) [Chris Marchesi][]
