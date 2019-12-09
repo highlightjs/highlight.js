@@ -4,6 +4,7 @@
  Author: Stefan Bechert <stefan.bechert@gmx.net>
  Contributors: Oleg Efimov <efimovov@gmail.com>, Mikko Kouhia <mikko.kouhia@iki.fi>
  Description: The General Algebraic Modeling System language
+ Website: https://www.gams.com
  Category: scientific
  */
 

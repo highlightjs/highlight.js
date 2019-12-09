@@ -1,7 +1,9 @@
 /*
 Language: Haxe
+Description: Haxe is an open source toolkit based on a modern, high level, strictly typed programming language.
 Author: Christopher Kaster <ikasoki@gmail.com> (Based on the actionscript.js language file by Alexander Myadzel)
 Contributors: Kenton Hamaluik <kentonh@gmail.com>
+Website: https://haxe.org
 */
 
 function(hljs) {

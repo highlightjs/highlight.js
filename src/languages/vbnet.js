@@ -1,6 +1,8 @@
 /*
 Language: VB.NET
+Description: Visual Basic .NET (VB.NET) is a multi-paradigm, object-oriented programming language, implemented on the .NET Framework.
 Author: Poren Chiang <ren.chiang@gmail.com>
+Website: https://docs.microsoft.com/en-us/dotnet/visual-basic/getting-started/
 */
 
 function(hljs) {

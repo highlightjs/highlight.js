@@ -1,9 +1,11 @@
 /*
 Language: Scheme
-Description: Keywords based on http://community.schemewiki.org/?scheme-keywords
+Description: Scheme is a programming language in the Lisp family.
+             (keywords based on http://community.schemewiki.org/?scheme-keywords)
 Author: JP Verkamp <me@jverkamp.com>
 Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Origin: clojure.js
+Website: http://community.schemewiki.org/?what-is-scheme
 Category: lisp
 */
 

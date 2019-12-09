@@ -2,12 +2,13 @@
 Language: GML
 Author: Meseta <meseta@gmail.com>
 Description: Game Maker Language for GameMaker Studio 2
+Website: https://docs2.yoyogames.com
 Category: scripting
 */
 
 function(hljs) {
   var GML_KEYWORDS = {
-    keywords: 'begin end if then else while do for break continue with until ' +
+    keyword: 'begin end if then else while do for break continue with until ' +
       'repeat exit and or xor not return mod div switch case default var ' +
       'globalvar enum #macro #region #endregion',
     built_in: 'is_real is_string is_array is_undefined is_int32 is_int64 ' +

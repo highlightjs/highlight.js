@@ -3,6 +3,7 @@ Language: Pony
 Author: Joe Eli McIlvain <joe.eli.mac@gmail.com>
 Description: Pony is an open-source, object-oriented, actor-model,
              capabilities-secure, high performance programming language.
+Website: https://www.ponylang.io
 */
 
 function(hljs) {
@@ -48,6 +49,12 @@ function(hljs) {
     begin: hljs.IDENT_RE + '\'', relevance: 0
   };
 
+  var NUMBER_MODE = {
+    className: 'number',
+    begin: '(-?)(\\b0[xX][a-fA-F0-9]+|\\b0[bB][01]+|(\\b\\d+(_\\d+)?(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)',
+    relevance: 0
+  };
+
   /**
    * The `FUNCTION` and `CLASS` modes were intentionally removed to simplify
    * highlighting and fix cases like
@@ -67,7 +74,7 @@ function(hljs) {
       QUOTE_STRING_MODE,
       SINGLE_QUOTE_CHAR_MODE,
       PRIMED_NAME,
-      hljs.C_NUMBER_MODE,
+      NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
     ]

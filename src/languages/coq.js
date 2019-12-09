@@ -2,13 +2,14 @@
 Language: Coq
 Author: Stephan Boyer <stephan@stephanboyer.com>
 Category: functional
+Website: https://coq.inria.fr
 */
 
 function(hljs) {
   return {
     keywords: {
       keyword:
-        '_ as at cofix else end exists exists2 fix for forall fun if IF in let ' +
+        '_|0 as at cofix else end exists exists2 fix for forall fun if IF in let ' +
         'match mod Prop return Set then Type using where with ' +
         'Abort About Add Admit Admitted All Arguments Assumptions Axiom Back BackTo ' +
         'Backtrack Bind Blacklist Canonical Cd Check Class Classes Close Coercion ' +

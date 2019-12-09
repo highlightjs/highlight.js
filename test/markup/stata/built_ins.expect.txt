@@ -1,0 +1,3 @@
+<span class="hljs-keyword">local</span> b1 = <span class="hljs-built_in">ln</span>(<span class="hljs-symbol">`or'</span>)
+<span class="hljs-keyword">generate</span> logit1 = <span class="hljs-built_in">log</span>( pgty1 / ( 1 - pgty1))
+<span class="hljs-keyword">generate</span> logit2 = <span class="hljs-built_in">log</span>( pgty2 / ( 1 - pgty2))

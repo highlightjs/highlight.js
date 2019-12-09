@@ -9,6 +9,7 @@ Current core developers (alphabetical):
 - Li Xuanji <xuanji@gmail.com>
 - Marcos Cáceres <marcos@marcosc.com>
 - Sang Dang <sang.dang@polku.io>
+- Josh Goebel <hello@joshgoebel.com>
 
 Former maintainers:
 
@@ -279,4 +280,6 @@ Contributors:
 - Taif Alimov <inzeppelin@gmail.com>
 - Yuri Mazursky <mail@colomolome.com>
 - Gerson Sunyé <sunye@protonmail.com>
-
+- Carl Baxter <carl@cbax.tech>
+- Thomas Reichel <tom.p.reichel@gmail.com>
+- G8t Guy <g8tguy@g8tguy.com>
