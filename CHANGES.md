@@ -4,7 +4,7 @@ New languages:
   none.
 
 New styles:
-  none.
+- *Gradient Dark* by [Samia Ali][]
 
 Improvements:
 - chore(parser): switch from `createElementNS` to `createElement` [Josh Goebel][]
@@ -50,6 +50,7 @@ Improvements:
 [Rongjian Zhang]: https://github.com/pd4d10
 [Mike Schall]: https://github.com/schallm
 [Kirill Saksin]: https://github.com/saksmt
+[Samia Ali]:https://github.com/samiaab1990
 
 
 ## Version 9.16.2
