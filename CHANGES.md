@@ -1,43 +1,49 @@
 ## Version 9.17.0
 
 New languages:
-  none.
 
-New styles:
+- none.
+
+New themes:
+
 - *Gradient Dark* by [Samia Ali][]
 
-Improvements:
+Core Improvements:
+
 - chore(parser): switch from `createElementNS` to `createElement` (#2314) [Josh Goebel][]
 - enh(parser): add better error when a language requirement is missing (#2311) [Josh Goebel][]
+- fix(parser/docs): disallow `self` mode at the top-level of a language (#2294) [Josh Goebel][]
+- enh(parser) add safe & debug modes.  Better error handling for crash conditions. (#2286) [Josh Goebel][]
+- fix(parser): Fix merger HTML attribute quoting (#2235) [Josh Goebel][]
+- fix(parser): Look-ahead regex now work for end matches also (#2237) [Josh Goebel][]
+- fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
+- fix(parser): freeze built-in modes to prevent grammars altering them (#2271) [Josh Goebel][]
+- fix(themes): fix inconsistencies between some themes padding/spacing (#2300) [Josh Goebel][]
+- ehh(build) Add CI check for building a "use strict" safe rollup package from NPM builds (#2247) [Josh Goebel][]
+- fix(pkg): Prefix global addEventListener with window to be able to minify with closure compiler (#2305) [Kirill Saksin]()
+
+Language Improvements:
+
 - fix(sql): backslash is not used to escape in strings in standard SQL (#1748) [Mike Schall][]
 - enh(ebnf) add backticks as additional string variant (#2290) [Chris Marchesi][]
-- fix(themes): fix inconsistencies between some themes padding/spacing (#2300) [Josh Goebel][]
 - chore(javascript): add esm related extensions to aliases (#2298) [Rongjian Zhang][]
 - fix(kotlin): fix termination of """ string literals (#2295) [Josh Goebel][]
-- fix(parser/docs): disallow `self` mode at the top-level of a language (#2294) [Josh Goebel][]
 - fix(mercury): don't change global STRING modes (#2271) [Josh Goebel][]
-- fix: freeze built-in modes to prevent grammars altering them (#2271) [Josh Goebel][]
 - enh(xml) expand and improve document type highlighting (#2287) [w3suli][]
-- enh(parser) add safe & debug modes.  Better error handling for crash conditions. (#2286) [Josh Goebel][]
 - enh(ebnf) add underscore as allowed meta identifier character, and dot as terminator (#2281) [Chris Marchesi][]
 - fix(makefile) fix double relevance for assigns, improves auto-detection (#2278) [Josh Goebel][]
 - enh(xml) support for highlighting entities (#2260) [w3suli][]
 - enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
 - enh(javascript): Add support for jsdoc comments (#2245) [Milutin Kristofic][]
-- ehh(build) Add CI check for building a "use strict" safe rollup package from NPM builds (#2247) [Josh Goebel][]
 - fix(python) fix `if` getting confused as an f-string (#2200) [Josh Goebel][] and [Carl Baxter][]
 - enh(powershell) major overhaul, huge improvements (#2224)
 - enh(css) Improve @rule highlighting, including properties (#2241) [Josh Goebel][]
 - enh(css) Improve highlighting of numbers inside expr/func `calc(2px+3px)` (#2241)
 - enh(scss) Pull some of the CSS improvements back into SCSS (#2241)
-- fix(parser): Fix merger HTML attribute quoting (#2235) [Josh Goebel][]
-- fix(parser): Look-ahead regex now work for end matches also (#2237) [Josh Goebel][]
-- fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
 - fix(go): Fix escaped character literals (#2266) [David Benjamin][]
 - fix(objectivec): Fix various preprocessor highlighting issues (#2265) [David Benjamin][]
 - fix(objectivec): Handle multibyte character literals (#2268) [David Benjamin][]
 - enh(cpp): Add additional keywords (#2289) [Adrian Ostrowski][]
-- fix(pkg): Prefix global addEventListener with window to be able to minify with closure compiler (#2305) [Kirill Saksin]()
 
 [Josh Goebel]: https://github.com/yyyc514
 [Liam Nobel]: https://github.com/liamnobel
