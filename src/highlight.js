@@ -530,7 +530,7 @@ https://highlightjs.org/
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignore_illegals, continuation) {
-    var value = code;
+    var codeToHighlight = code; // for search and replace
 
     function escapeRe(value) {
       return new RegExp(value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
@@ -651,7 +651,7 @@ https://highlightjs.org/
 
     function doEndMatch(match) {
       var lexeme = match[0];
-      var matchPlusRemainder = value.substr(match.index);
+      var matchPlusRemainder = codeToHighlight.substr(match.index);
       var end_mode = endOfMode(top, matchPlusRemainder);
       if (!end_mode) { return; }
 
@@ -704,7 +704,7 @@ https://highlightjs.org/
       // Ref: https://github.com/highlightjs/highlight.js/issues/2140
       if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
         // spit the "skipped" character that our regex choked on back into the output sequence
-        mode_buffer += value.slice(match.index, match.index + 1);
+        mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
         return 1;
       }
       lastMatch = match;
@@ -757,13 +757,13 @@ https://highlightjs.org/
       var match, count, index = 0;
       while (true) {
         top.terminators.lastIndex = index;
-        match = top.terminators.exec(value);
+        match = top.terminators.exec(codeToHighlight);
         if (!match)
           break;
-        count = processLexeme(value.substring(index, match.index), match);
+        count = processLexeme(codeToHighlight.substring(index, match.index), match);
         index = match.index + count;
       }
-      processLexeme(value.substr(index));
+      processLexeme(codeToHighlight.substr(index));
       for(current = top; current.parent; current = current.parent) { // close dangling modes
         if (current.className) {
           result += spanEndTag;
@@ -781,12 +781,12 @@ https://highlightjs.org/
         return {
           illegal: true,
           relevance: 0,
-          value: escape(value)
+          value: escape(codeToHighlight)
         };
       } else if (SAFE_MODE) {
         return {
           relevance: 0,
-          value: escape(value),
+          value: escape(codeToHighlight),
           language: languageName,
           top: top,
           errorRaised: err
