@@ -1,3 +1,22 @@
+## Version 10.x (master)
+
+New languages:
+
+- none.
+
+New themes:
+
+- none.
+
+Core Changes:
+
+- none yet.
+
+Language Improvements:
+
+- none yet.
+
+
 ## Version 9.17.0
 
 New languages:
