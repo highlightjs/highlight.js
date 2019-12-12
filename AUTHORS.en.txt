@@ -283,3 +283,4 @@ Contributors:
 - Thomas Reichel <tom.p.reichel@gmail.com>
 - G8t Guy <g8tguy@g8tguy.com>
 - Samia Ali <samiaab1990@gmail.com>
+- Erwan Jahier <jahierwan@gmail.com>

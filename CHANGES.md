@@ -2,7 +2,9 @@
 
 New languages:
 
-- none.
+- *Lustre* by [Erwan Jahier][]
+
+[Erwan Jahier]: https://github.com/jahierwan
 
 New themes:
 
@@ -15,13 +17,6 @@ Core Changes:
 Language Improvements:
 
 - none yet.
-
-
-## Version 9.17.1
-
-Fixes:
-
-- fix(parser): resolve IE 11 issue with Object.freeze() (#2319) [Josh Goebel][]
 
 
 ## Version 9.17.0

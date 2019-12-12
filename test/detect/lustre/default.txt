@@ -1,0 +1,19 @@
+(* a multi-line 
+comment *)
+node add_vect_to_matrix<<const n:int; const m:int; type t>>(x:t^m; y:t^n^m)
+returns (res:t^(n+1)^m);
+let
+  res =
+  with m = 1 then [ [ x[0]] | y[0] ]
+  else            [ [ x[0]] | y[0] ]
+                  | add_vect_to_matrix<<n,m-1,t>> (x[1..m-1], y[1..m-1]);
+tel
+function transpose_is_involutive(x:bool^4^2) returns (res:bool);
+var
+  y: bool^2^4; -- a single line comment
+  z: bool^4^2;
+let
+  y = transpose<<2,4,bool>>(x);
+  z = transpose<<4,2,bool>>(y); 
+  res = ( x = z );
+tel

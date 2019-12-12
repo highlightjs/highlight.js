@@ -1,0 +1,19 @@
+<span class="hljs-comment">(* a multi-line 
+comment *)</span>
+<span class="hljs-keyword">node</span> add_vect_to_matrix&lt;&lt;<span class="hljs-keyword">const</span> n:<span class="hljs-built_in">int</span>; <span class="hljs-keyword">const</span> m:<span class="hljs-built_in">int</span>; <span class="hljs-keyword">type</span> t&gt;&gt;(x:t^m; y:t^n^m)
+<span class="hljs-keyword">returns</span> (res:t^(n+<span class="hljs-number">1</span>)^m);
+<span class="hljs-keyword">let</span>
+  res =
+  <span class="hljs-keyword">with</span> m = <span class="hljs-number">1</span> <span class="hljs-keyword">then</span> [ [ x[<span class="hljs-number">0</span>]] | y[<span class="hljs-number">0</span>] ]
+  <span class="hljs-keyword">else</span>            [ [ x[<span class="hljs-number">0</span>]] | y[<span class="hljs-number">0</span>] ]
+                  | add_vect_to_matrix&lt;&lt;n,m-<span class="hljs-number">1</span>,t&gt;&gt; (x[<span class="hljs-number">1.</span>.m-<span class="hljs-number">1</span>], y[<span class="hljs-number">1.</span>.m-<span class="hljs-number">1</span>]);
+<span class="hljs-keyword">tel</span>
+<span class="hljs-keyword">function</span> transpose_is_involutive(x:<span class="hljs-built_in">bool</span>^<span class="hljs-number">4</span>^<span class="hljs-number">2</span>) <span class="hljs-keyword">returns</span> (res:<span class="hljs-built_in">bool</span>);
+<span class="hljs-keyword">var</span>
+  y: <span class="hljs-built_in">bool</span>^<span class="hljs-number">2</span>^<span class="hljs-number">4</span>; <span class="hljs-comment">-- a single line comment</span>
+  z: <span class="hljs-built_in">bool</span>^<span class="hljs-number">4</span>^<span class="hljs-number">2</span>;
+<span class="hljs-keyword">let</span>
+  y = transpose&lt;&lt;<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-built_in">bool</span>&gt;&gt;(x);
+  z = transpose&lt;&lt;<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-built_in">bool</span>&gt;&gt;(y); 
+  res = ( x = z );
+<span class="hljs-keyword">tel</span>
