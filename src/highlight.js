@@ -1104,12 +1104,6 @@ https://highlightjs.org/
   };
 
   var constants = [
-    hljs.IDENT_RE,
-    hljs.UNDERSCORE_IDENT_RE,
-    hljs.NUMBER_RE,
-    hljs.C_NUMBER_RE,
-    hljs.BINARY_NUMBER_RE,
-    hljs.RE_STARTERS_RE,
     hljs.BACKSLASH_ESCAPE,
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
