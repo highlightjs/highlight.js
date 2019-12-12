@@ -38,6 +38,7 @@
     "gear": "github:highlightjs/gear",
     "gear-lib": "github:highlightjs/gear-lib",
     "glob": "^7.1.4",
+    "handlebars": "^4.5.3",
     "js-beautify": "^1.10.2",
     "jsdom": "^15.1.1",
     "lodash": "^4.17.15",
@@ -47,7 +48,5 @@
     "should": "^13.2.3",
     "tiny-worker": "^2.3.0"
   },
-  "dependencies": {
-    "handlebars": "^4.5.3"
-  }
+  "dependencies": {}
 }
