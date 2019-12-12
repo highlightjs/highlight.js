@@ -1,3 +1,10 @@
+## Version 9.17.1
+
+Fixes:
+
+- fix(parser): resolve IE 11 issue with Object.freeze() (#2319) [Josh Goebel][]
+
+
 ## Version 9.17.0
 
 New languages:
