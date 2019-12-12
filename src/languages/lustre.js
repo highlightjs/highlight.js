@@ -21,6 +21,7 @@ function(hljs) {
       literal:
         'true false'
     },
+    illegal: /\/\*/,
     lexemes: '[a-z_]\\w*!?',
     contains: [
       {
