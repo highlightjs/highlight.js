@@ -21,7 +21,7 @@ function(hljs) {
       literal:
         'true false'
     },
-    illegal: /\/\*/,
+    illegal: '^/\/\*/|\\$[A-Za-z_]|\\{\\}',
     lexemes: '[a-z_]\\w*!?',
     contains: [
       {
@@ -41,7 +41,7 @@ function(hljs) {
         '$',
         {
           contains: ['self']
-        }
+        } 
       ),
         { /* type variable */
         className: 'symbol',
