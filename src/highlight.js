@@ -1104,12 +1104,6 @@ https://highlightjs.org/
   };
 
   var constants = [
-    hljs.IDENT_RE,
-    hljs.UNDERSCORE_IDENT_RE,
-    hljs.NUMBER_RE,
-    hljs.C_NUMBER_RE,
-    hljs.BINARY_NUMBER_RE,
-    hljs.RE_STARTERS_RE,
     hljs.BACKSLASH_ESCAPE,
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
@@ -1133,10 +1127,15 @@ https://highlightjs.org/
   function deepFreeze (o) {
     Object.freeze(o);
 
+    var objIsFunction = typeof o === 'function';
+
     Object.getOwnPropertyNames(o).forEach(function (prop) {
       if (o.hasOwnProperty(prop)
       && o[prop] !== null
       && (typeof o[prop] === "object" || typeof o[prop] === "function")
+      // IE11 fix: https://github.com/highlightjs/highlight.js/issues/2318
+      // TODO: remove in the future
+      && (objIsFunction ? prop !== 'caller' && prop !== 'callee' && prop !== 'arguments' : true)
       && !Object.isFrozen(o[prop])) {
         deepFreeze(o[prop]);
       }
