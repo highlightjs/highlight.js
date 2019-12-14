@@ -190,21 +190,17 @@ function(hljs) {
           },
           { // E4X / JSX
             className: 'jsx',
-            begin: /<[A-Za-z0-9\\._:-]+/, end: /(\/[A-Za-z0-9\\._:-]+)>/,
+            begin: /<[A-Za-z0-9\\._:-]+/,
+            end: /\/[A-Za-z0-9\\._:-]+>|\/>/,
             subLanguage: 'xml',
             contains: [
-              { begin: SELF_CLOSING_TAG, skip: true },
-              // manually closed tag
               {
                 begin: /<[A-Za-z0-9\\._:-]+/, end: /(\/[A-Za-z0-9\\._:-]+)>/, skip: true,
                 contains: [
-                  { begin: SELF_CLOSING_TAG, skip: true },
+                  { begin: /<[A-Za-z0-9\\._:-]+\s*/, end: /\/>/, skip: true },
                   'self'
                 ]
               },
-              // it's possible our beginning JSX tag is actually self closing tag,
-              // so we need to allow for that possibility
-              { begin: /\/>/, skip: true, endsParent: true},
             ]
           }
         ],
