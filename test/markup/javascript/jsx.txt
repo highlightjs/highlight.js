@@ -3,5 +3,25 @@ var jsx = <node><child/></node>;
 var jsx = <node>...<child>...</child></node>;
 var jsx = <div><span><br /></span></div>;
 var jsx = <pre-node><child /></pre-node>;
+
 var x = 5;
+
 return (<node attr="value"></node>);
+
+const n = () => <X />
+const m = () => <X x="" />
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+
+var x = 5;
