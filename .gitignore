@@ -10,3 +10,4 @@ yarn.lock
 # editors
 .idea/
 .vscode/
+.Rproj.user

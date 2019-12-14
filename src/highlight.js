@@ -881,7 +881,7 @@ https://highlightjs.org/
         return;
 
     if (options.useBR) {
-      node = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+      node = document.createElement('div');
       node.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ \/]*>/g, '\n');
     } else {
       node = block;
@@ -891,7 +891,7 @@ https://highlightjs.org/
 
     originalStream = nodeStream(node);
     if (originalStream.length) {
-      resultNode = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+      resultNode = document.createElement('div');
       resultNode.innerHTML = result.value;
       result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
     }
@@ -966,6 +966,20 @@ https://highlightjs.org/
     return objectKeys(languages);
   }
 
+  /*
+    intended usage: When one language truly requires another
+
+    Unlike `getLanguage`, this will throw when the requested language
+    is not available.
+  */
+  function requireLanguage(name) {
+    var lang = getLanguage(name);
+    if (lang) { return lang; }
+
+    var err = new Error('The \'{}\' language is required, but not loaded.'.replace('{}',name));
+    throw err;
+  }
+
   function getLanguage(name) {
     name = (name || '').toLowerCase();
     return languages[name] || languages[aliases[name]];
@@ -988,6 +1002,7 @@ https://highlightjs.org/
   hljs.registerLanguage = registerLanguage;
   hljs.listLanguages = listLanguages;
   hljs.getLanguage = getLanguage;
+  hljs.requireLanguage = requireLanguage;
   hljs.autoDetection = autoDetection;
   hljs.inherit = inherit;
   hljs.debugMode = function() { SAFE_MODE = false; }
@@ -1097,12 +1112,6 @@ https://highlightjs.org/
   };
 
   var constants = [
-    hljs.IDENT_RE,
-    hljs.UNDERSCORE_IDENT_RE,
-    hljs.NUMBER_RE,
-    hljs.C_NUMBER_RE,
-    hljs.BINARY_NUMBER_RE,
-    hljs.RE_STARTERS_RE,
     hljs.BACKSLASH_ESCAPE,
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
@@ -1126,10 +1135,15 @@ https://highlightjs.org/
   function deepFreeze (o) {
     Object.freeze(o);
 
+    var objIsFunction = typeof o === 'function';
+
     Object.getOwnPropertyNames(o).forEach(function (prop) {
       if (o.hasOwnProperty(prop)
       && o[prop] !== null
       && (typeof o[prop] === "object" || typeof o[prop] === "function")
+      // IE11 fix: https://github.com/highlightjs/highlight.js/issues/2318
+      // TODO: remove in the future
+      && (objIsFunction ? prop !== 'caller' && prop !== 'callee' && prop !== 'arguments' : true)
       && !Object.isFrozen(o[prop])) {
         deepFreeze(o[prop]);
       }

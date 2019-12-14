@@ -128,6 +128,18 @@ Looks up a language by name or alias.
 Returns the language object if found, ``undefined`` otherwise.
 
 
+``requireLanguage(name)``
+---------------------
+
+Looks up a language by name or alias.
+
+This should be used when one language definition depends on another.
+Using this function (vs ``getLanguage``) will provide better error messaging
+when a required language is missing.
+
+Returns the language object if found, raises a hard error otherwise.
+
+
 ``debugMode()``
 ---------------
 
