@@ -530,7 +530,7 @@ https://highlightjs.org/
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignore_illegals, continuation) {
-    var codeToHighlight = code; // for search and replace
+    var codeToHighlight = code;
 
     function escapeRe(value) {
       return new RegExp(value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
