@@ -10,11 +10,13 @@ New themes:
 
 Core Changes:
 
-- none yet.
+- (javascript) fix JSX self-closing tag issues (#2322) [Josh Goebel][]
 
 Language Improvements:
 
 - none yet.
+
+[Josh Goebel]: https://github.com/yyyc514
 
 
 ## Version 9.17.1
@@ -22,6 +24,8 @@ Language Improvements:
 Fixes:
 
 - fix(parser): resolve IE 11 issue with Object.freeze() (#2319) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
 
 
 ## Version 9.17.0
