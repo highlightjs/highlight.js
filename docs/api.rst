@@ -4,7 +4,7 @@ Library API
 Highlight.js exports a few functions as methods of the ``hljs`` object.
 
 
-``highlight(name, value, ignore_illegals, continuation)``
+``highlight(languageName, code, ignore_illegals, continuation)``
 ---------------------------------------------------------
 
 Core highlighting function.
@@ -23,23 +23,25 @@ MANY lines at once.  This is not discouraged and entirely up to the grammar.
 
 Returns an object with the following properties:
 
-* ``language``: language name, same as the one passed into a function, returned for consistency with ``highlightAuto``
-* ``relevance``: integer value
+* ``language``: language name, same as the name passed in ``languageName``, returned for consistency with ``highlightAuto``
+* ``relevance``: integer value representing the relevance score
 * ``value``: HTML string with highlighting markup
 * ``top``: top of the current mode stack
+* ``illegal``: boolean representing whether any illegal matches were found
 
 
-``highlightAuto(value, languageSubset)``
+``highlightAuto(code, languageSubset)``
 ----------------------------------------
 
 Highlighting with language detection.
 Accepts a string with the code to highlight and an optional array of language names and aliases restricting detection to only those languages. The subset can also be set with ``configure``, but the local parameter overrides the option if set.
+
 Returns an object with the following properties:
 
 * ``language``: detected language
-* ``relevance``: integer value
+* ``relevance``: integer value representing the relevance score
 * ``value``: HTML string with highlighting markup
-* ``second_best``: object with the same structure for second-best heuristically detected language, may be absent
+* ``second_best``: object with the same structure for second-best heuristically detected language (may be absent)
 
 
 ``fixMarkup(value)``

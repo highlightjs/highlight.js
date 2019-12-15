@@ -513,16 +513,24 @@ https://highlightjs.org/
     compileMode(language);
   }
 
-  /*
-  Core highlighting function. Accepts a language name, or an alias, and a
-  string with the code to highlight. Returns an object with the following
-  properties:
 
-  - relevance (int)
-  - value (an HTML string with highlighting markup)
-
+  /**
+   * Core highlighting function.
+   *
+   * @param {string} languageName - the language to use for highlighting
+   * @param {string} code - the code to highlight
+   * @param {boolean} ignore_illegals - whether to ignore illegal matches, default is to bail
+   * @param {array<mode>} continuation - array of continuation modes
+   *
+   * @returns an object that represents the result
+   * @property {string} language - the language name
+   * @property {number} relevance - the relevance score
+   * @property {string} value - the highlighted HTML code
+   * @property {mode} top - top of the current mode stack
+   * @property {boolean} illegal - indicates whether any illegal matches were found
   */
-  function highlight(name, value, ignore_illegals, continuation) {
+  function highlight(languageName, code, ignore_illegals, continuation) {
+    var codeToHighlight = code;
 
     function escapeRe(value) {
       return new RegExp(value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
@@ -643,7 +651,7 @@ https://highlightjs.org/
 
     function doEndMatch(match) {
       var lexeme = match[0];
-      var matchPlusRemainder = value.substr(match.index);
+      var matchPlusRemainder = codeToHighlight.substr(match.index);
       var end_mode = endOfMode(top, matchPlusRemainder);
       if (!end_mode) { return; }
 
@@ -696,7 +704,7 @@ https://highlightjs.org/
       // Ref: https://github.com/highlightjs/highlight.js/issues/2140
       if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
         // spit the "skipped" character that our regex choked on back into the output sequence
-        mode_buffer += value.slice(match.index, match.index + 1);
+        mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
         return 1;
       }
       lastMatch = match;
@@ -728,10 +736,10 @@ https://highlightjs.org/
       return lexeme.length;
     }
 
-    var language = getLanguage(name);
+    var language = getLanguage(languageName);
     if (!language) {
-      console.error(LANGUAGE_NOT_FOUND.replace("{}", name));
-      throw new Error('Unknown language: "' + name + '"');
+      console.error(LANGUAGE_NOT_FOUND.replace("{}", languageName));
+      throw new Error('Unknown language: "' + languageName + '"');
     }
 
     compileLanguage(language);
@@ -749,13 +757,13 @@ https://highlightjs.org/
       var match, count, index = 0;
       while (true) {
         top.terminators.lastIndex = index;
-        match = top.terminators.exec(value);
+        match = top.terminators.exec(codeToHighlight);
         if (!match)
           break;
-        count = processLexeme(value.substring(index, match.index), match);
+        count = processLexeme(codeToHighlight.substring(index, match.index), match);
         index = match.index + count;
       }
-      processLexeme(value.substr(index));
+      processLexeme(codeToHighlight.substr(index));
       for(current = top; current.parent; current = current.parent) { // close dangling modes
         if (current.className) {
           result += spanEndTag;
@@ -765,7 +773,7 @@ https://highlightjs.org/
         relevance: relevance,
         value: result,
         illegal:false,
-        language: name,
+        language: languageName,
         top: top
       };
     } catch (err) {
@@ -773,13 +781,13 @@ https://highlightjs.org/
         return {
           illegal: true,
           relevance: 0,
-          value: escape(value)
+          value: escape(codeToHighlight)
         };
       } else if (SAFE_MODE) {
         return {
           relevance: 0,
-          value: escape(value),
-          language: name,
+          value: escape(codeToHighlight),
+          language: languageName,
           top: top,
           errorRaised: err
         };
@@ -800,15 +808,15 @@ https://highlightjs.org/
     detected language, may be absent)
 
   */
-  function highlightAuto(text, languageSubset) {
+  function highlightAuto(code, languageSubset) {
     languageSubset = languageSubset || options.languages || objectKeys(languages);
     var result = {
       relevance: 0,
-      value: escape(text)
+      value: escape(code)
     };
     var second_best = result;
     languageSubset.filter(getLanguage).filter(autoDetection).forEach(function(name) {
-      var current = highlight(name, text, false);
+      var current = highlight(name, code, false);
       current.language = name;
       if (current.relevance > second_best.relevance) {
         second_best = current;
