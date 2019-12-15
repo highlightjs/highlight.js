@@ -5,6 +5,7 @@ Incompatibilities:
 
 Renamed Language Files:
 - chore(parser): rename `cs.js` to `csharp.js` [Josh Goebel][]
+- chore(parser): rename `tex.js` to `latex.js` [Josh Goebel][]
 
 Legacy Browser Issues:
 - **We're now using ES2015 features in the codebase.  Internet Explorer 11 is no longer supported.**

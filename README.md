@@ -139,6 +139,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Kotlin                  | kotlin, kt             |         |
+| LaTeX                   | tex                    |         |
 | Leaf                    | leaf                   |         |
 | Lasso                   | lasso, ls, lassoscript |         |
 | Less                    | less                   |         |
@@ -219,7 +220,6 @@ The table below shows the full list of supported languages (and corresponding cl
 | Tcl                     | tcl, tk                |         |
 | Terraform (HCL)         | terraform, tf, hcl     | [highlightjs-terraform](https://github.com/highlightjs/highlightjs-terraform) |
 | Test Anything Protocol  | tap                    |         |
-| TeX                     | tex                    |         |
 | Thrift                  | thrift                 |         |
 | TP                      | tp                     |         |
 | Twig                    | twig, craftcms         |         |
