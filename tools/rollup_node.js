@@ -7,7 +7,7 @@ const { filter } = require("./lib/dependencies")
 const { build } = require("./lib/bundling.js")
 const log = (...args) => console.log(...args)
 
-function buildNodeIndex(languages) {
+async function buildNodeIndex(languages) {
   const header = "var hljs = require('./highlight');"
   const footer = "module.exports = hljs;"
 
@@ -16,19 +16,19 @@ function buildNodeIndex(languages) {
   )
 
   const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`
-  fs.writeFile(`${process.env.BUILD_DIR}/lib/index.js`, index)
+  await fs.writeFile(`${process.env.BUILD_DIR}/lib/index.js`, index)
 }
 
  async function buildNodeLanguage (language) {
   const input = { input: `src/languages/${language.name}.js` }
   const output = { ...config.CJS,  file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` }
-  build(input, output)
+  await build(input, output)
 }
 
 async function buildNodeHighlightJS() {
   const input = { input: `src/highlight.js` }
   const output = { ...config.CJS, file: `${process.env.BUILD_DIR}/lib/highlight.js` }
-  build(input, output)
+  await build(input, output)
 }
 
 async function buildPackageJSON() {
@@ -51,15 +51,26 @@ async function buildPackageJSON() {
   fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(json, null, '   '))
 }
 
+async function buildLanguages(languages) {
+  log("Writing languages.")
+  await Promise.all(
+    languages.map(async (lang) =>  {
+      await buildNodeLanguage(lang);
+      process.stdout.write(".");
+    })
+  )
+  log("")
+}
+
 async function buildNode(options) {
   mkdir("lib/languages")
   mkdir("scss")
   mkdir("styles")
 
-  log("Writing styles.")
   install("./LICENSE", "LICENSE")
   install("./README.md","README.md")
 
+  log("Writing styles.")
   const styles = await fs.readdir("./src/styles/")
   styles.forEach((file) => {
     install(`./src/styles/${file}`,`styles/${file}`)
@@ -72,11 +83,8 @@ async function buildNode(options) {
   // filter languages for inclusion in the highlight.js bundle
   languages = filter(languages, options["languages"])
 
-  log("Writing languages.")
   await buildNodeIndex(languages)
-  languages.forEach(async (lang) =>  {
-    await buildNodeLanguage(lang)
-  })
+  await buildLanguages(languages)
   log("Writing highlight.js")
   await buildNodeHighlightJS()
 }
@@ -102,3 +110,5 @@ module.exports = function(commander, dir) {
   return utility.toQueue([{startLog: { task: ['build', [commander, dir]] }}], registry)
 };
 
+
+module.exports.build = buildNode;

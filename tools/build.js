@@ -64,8 +64,10 @@ let commander = require('commander');
 let path      = require('path');
 let Queue     = require('gear').Queue;
 let registry  = require('./tasks');
+const { clean } = require("./lib/makestuff")
+const log = (...args) => console.log(...args)
 
-let build, dir = {};
+let dir = {};
 
 commander
   .usage('[options] [<language>...]')
@@ -77,22 +79,34 @@ commander
 
 commander.target = commander.target.toLowerCase();
 
-var target = commander.target
-if (target=="cdn")
-  target = "./rollup_cdn"
-if (target=="browser")
-  target = "./rollup_browser"
-if (target=="node")
-  target = "./rollup_node"
+var target = `./rollup_${commander.target}`
+// if (target=="cdn")
+//   target = "./rollup_cdn"
+// if (target=="browser")
+//   target = "./rollup_browser"
+// if (target=="node")
+//   target = "./rollup_node"
+
+const build     = require(`./${target}`);
+
+async function doBuild() {
+  dir.root  = path.dirname(__dirname);
+  dir.build = path.join(dir.root, 'build');
+
+  process.env.BUILD_DIR = dir.build
+
+  log ("Starting build.")
+  await clean(dir.build);
+  await build.build({languages: commander.args});
+  log ("Finished build.")
+};
 
 
-build     = require(`./${target}`);
-dir.root  = path.dirname(__dirname);
-dir.build = path.join(dir.root, 'build');
+doBuild();
 
-new Queue({ registry: registry })
-  .clean(dir.build)
-  .log('Starting build.')
-  .series(build(commander, dir))
-  .log('Finished build.')
-  .run();
+// new Queue({ registry: registry })
+//   .clean(dir.build)
+//   .log('Starting build.')
+//   .series(build(commander, dir))
+//   .log('Finished build.')
+//   .run();
