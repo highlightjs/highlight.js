@@ -2,6 +2,10 @@ module.exports = {
     "build_dir": "build",
     "copyrightYears": "2006-2019",
     "clean_css": {},
+    "CJS": {
+      format: "cjs",
+      strict: false
+    },
     "terser": {
         // output: { ascii_only: true },
         "compress": {
