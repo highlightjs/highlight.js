@@ -11,7 +11,6 @@ async function clean(directory) {
   });
 };
 
-
 function install(file, dest=file) {
   fs.copyFileSync(file, `${process.env.BUILD_DIR}/${dest}`)
 }

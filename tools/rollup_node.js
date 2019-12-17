@@ -89,26 +89,4 @@ async function buildNode(options) {
   await buildNodeHighlightJS()
 }
 
-/* glue code to tie into the existing Gear based system until it's replaced */
-
-let gear     = require('gear');
-let utility  = require('./utility');
-
-var tasks = {
-  build: async function([commander, dir], blobs, done) {
-    // console.log("commander", commander)
-    process.env.BUILD_DIR = dir.build
-    // console.log("dir", dir)
-    await buildNode({languages: commander.args});
-    return done(null);
-  }
-}
-tasks.build.type = 'collect';
-let registry = new gear.Registry({ tasks: tasks });
-
-module.exports = function(commander, dir) {
-  return utility.toQueue([{startLog: { task: ['build', [commander, dir]] }}], registry)
-};
-
-
 module.exports.build = buildNode;

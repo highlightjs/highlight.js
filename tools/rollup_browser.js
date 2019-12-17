@@ -39,16 +39,23 @@ async function buildBrowser(options) {
 
   // config.terser.mangle.properties.cache.props.delete("className")
 
-  var size = await buildBrowserHighlightJS(languages)
+  var size = await buildBrowserHighlightJS(languages, {minify: options.minify})
 
   log("-----")
   log("Core                :", size.core ,"bytes")
-  log("Core (min)          :", size.core_min ,"bytes")
+  if (options.minify)
+    log("Core (min)          :", size.core_min ,"bytes")
   log("Languages           :", languages.map((el) => el.data.length).reduce((acc, curr) => acc + curr, 0), "bytes")
-  log("Languages (min)     :", languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes")
+  if (options.minify) {
+    log("Languages (min)     :", languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes")
+  }
   log("highlight.js        :", size.regular ,"bytes")
-  log("highlight.min.js    :", size.minified ,"bytes")
-  log("highlight.min.js.gz :", zlib.gzipSync(size.data).length ,"bytes")
+  if (options.minify) {
+    log("highlight.min.js    :", size.minified ,"bytes")
+    log("highlight.min.js.gz :", zlib.gzipSync(size.data).length ,"bytes")
+  } else {
+    log("highlight.js.gz     :", zlib.gzipSync(size.fullSrc).length ,"bytes")
+  }
   log("-----")
 }
 
@@ -87,7 +94,7 @@ function installDemoStyles() {
   })
 }
 
-async function buildBrowserHighlightJS(languages) {
+async function buildBrowserHighlightJS(languages, {minify}) {
   log("Building highlight.js library file.")
 
   var git_sha = child_process
@@ -119,34 +126,20 @@ async function buildBrowserHighlightJS(languages) {
   // get approximate core minified size
   var core_min = [ header, tersed.code, workerStub].join().length
 
-  await Promise.all([
-    fs.writeFile(outFile, fullSrc, {encoding: "utf8"}),
-    fs.writeFile(minifiedFile, minifiedSrc, {encoding: "utf8"})
-  ])
-  return {core: coreSize, core_min: core_min, minified: minifiedSrc.length, data: minifiedSrc, regular: fullSrc.length }
+  var tasks = [];
+  tasks.push(fs.writeFile(outFile, fullSrc, {encoding: "utf8"}));
+  if (minify)
+    tasks.push(fs.writeFile(minifiedFile, minifiedSrc, {encoding: "utf8"}))
+
+  await Promise.all(tasks);
+  return {
+    core: coreSize,
+    core_min: core_min,
+    minified: Buffer.byteLength(minifiedSrc, 'utf8'),
+    data: minifiedSrc,
+    fullSrc: fullSrc,
+    regular: Buffer.byteLength(fullSrc, 'utf8') }
 }
-
-/* glue code to tie into the existing Gear based system until it's replaced */
-
-let gear     = require('gear');
-let utility  = require('./utility');
-
-var tasks = {
-  build: async function([commander, dir], blobs, done) {
-    // console.log("commander", commander)
-    process.env.BUILD_DIR = dir.build
-    // console.log("dir", dir)
-    await buildBrowser({languages: commander.args});
-    return done(null);
-  }
-}
-tasks.build.type = 'collect';
-let registry = new gear.Registry({ tasks: tasks });
-
-module.exports = function(commander, dir) {
-  return utility.toQueue([{startLog: { task: ['build', [commander, dir]] }}], registry)
-};
 
 module.exports.buildBrowserHighlightJS = buildBrowserHighlightJS
-
 module.exports.build = buildBrowser;
