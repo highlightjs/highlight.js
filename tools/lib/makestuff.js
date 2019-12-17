@@ -7,7 +7,7 @@ const del      = require('del');
 
 async function clean(directory) {
   await del([directory]).then(() => {
-    fs.mkdirSync(directory)
+    fs.mkdirSync(directory, {recursive: true})
   });
 };
 

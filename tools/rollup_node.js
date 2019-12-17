@@ -85,6 +85,7 @@ async function buildNode(options) {
 
   await buildNodeIndex(languages)
   await buildLanguages(languages)
+
   log("Writing highlight.js")
   await buildNodeHighlightJS()
 }

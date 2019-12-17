@@ -95,7 +95,7 @@ function installDemoStyles() {
 }
 
 async function buildBrowserHighlightJS(languages, {minify}) {
-  log("Building highlight.js library file.")
+  log("Building highlight.js.")
 
   var git_sha = child_process
     .execSync("git rev-parse HEAD")
@@ -113,23 +113,30 @@ async function buildBrowserHighlightJS(languages, {minify}) {
   librarySrc = librarySrc.replace(/\/\*.*?\*\//s,"")
 
   var workerStub = "if (typeof importScripts === 'function') { var hljs = self.hljs; }"
-  var tersed = Terser.minify(librarySrc, config.terser)
-
-  var minifiedSrc = [
-    header, tersed.code, workerStub,
-    ...languages.map((lang) => lang.minified) ].join("\n")
 
   var fullSrc = [
     header, librarySrc, workerStub,
     ...languages.map((lang) => lang.module) ].join("\n")
 
-  // get approximate core minified size
-  var core_min = [ header, tersed.code, workerStub].join().length
-
   var tasks = [];
   tasks.push(fs.writeFile(outFile, fullSrc, {encoding: "utf8"}));
-  if (minify)
+
+  var core_min = []
+  var minifiedSrc = ""
+
+  if (minify) {
+    var tersed = Terser.minify(librarySrc, config.terser)
+
+    minifiedSrc = [
+      header, tersed.code, workerStub,
+      ...languages.map((lang) => lang.minified) ].join("\n")
+
+
+    // get approximate core minified size
+    core_min = [ header, tersed.code, workerStub].join().length
+
     tasks.push(fs.writeFile(minifiedFile, minifiedSrc, {encoding: "utf8"}))
+  }
 
   await Promise.all(tasks);
   return {
@@ -141,5 +148,6 @@ async function buildBrowserHighlightJS(languages, {minify}) {
     regular: Buffer.byteLength(fullSrc, 'utf8') }
 }
 
+// CDN build uses the exact same highlight.js distributable
 module.exports.buildBrowserHighlightJS = buildBrowserHighlightJS
 module.exports.build = buildBrowser;

@@ -60,6 +60,8 @@
 
 'use strict';
 
+const TARGETS = ["cdn", "browser", "node"];
+
 let commander = require('commander');
 let path      = require('path');
 const { clean } = require("./lib/makestuff")
@@ -80,15 +82,26 @@ commander.target = commander.target.toLowerCase();
 dir.root  = path.dirname(__dirname);
 dir.buildRoot = path.join(dir.root, 'build');
 
-async function doBuild(target, buildDir) {
+async function doTarget(target, buildDir) {
   const build     = require(`./rollup_${target}`);
-
   process.env.BUILD_DIR = buildDir
-
-  log ("Starting build.")
   await clean(buildDir);
   await build.build({languages: commander.args, minify: commander.minify});
-  log ("Finished build.")
 };
 
-doBuild(commander.target, dir.buildRoot);
+async function doBuild() {
+  log ("Starting build.");
+  if (commander.target=="all") {
+    await clean(dir.buildRoot);
+    for (var target of TARGETS) {
+      log (`** Building ${target.toUpperCase()}. **`);
+      var buildDir = path.join(dir.buildRoot, target);
+      await doTarget(target, buildDir);
+    }
+  } else {
+    doTarget(commander.target, dir.buildRoot);
+  }
+  log ("Finished build.");
+}
+
+doBuild();
