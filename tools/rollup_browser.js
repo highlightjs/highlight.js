@@ -148,3 +148,5 @@ module.exports = function(commander, dir) {
 };
 
 module.exports.buildBrowserHighlightJS = buildBrowserHighlightJS
+
+module.exports.build = buildBrowser;

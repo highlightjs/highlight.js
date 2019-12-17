@@ -84,4 +84,5 @@ module.exports = function(commander, dir) {
   return utility.toQueue([{startLog: { task: ['build', [commander, dir]] }}], registry)
 };
 
+module.exports.build = buildCDN;
 
