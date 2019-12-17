@@ -82,6 +82,8 @@ if (target=="cdn")
   target = "./rollup_cdn"
 if (target=="browser")
   target = "./rollup_browser"
+if (target=="node")
+  target = "./rollup_node"
 
 
 build     = require(`./${target}`);
