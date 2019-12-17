@@ -20,14 +20,19 @@ async function buildCDN(options) {
   // filter languages for inclusion in the highlight.js bundle
   const embedLanguages = filter(languages, options["languages"])
 
-  var size = await buildBrowserHighlightJS(embedLanguages)
+  var size = await buildBrowserHighlightJS(embedLanguages, {minify: options.minify})
 
   log("-----")
-  log("Embedded Lang   :", embedLanguages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes")
-  log("All Lang        :", languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes")
-  log("highlight.js    :", size.regular, "bytes")
-  log("highlight.min.js:", size.minified, "bytes")
-  log("highlight.min.js.gz :", zlib.gzipSync(size.data).length ,"bytes")
+  log("Embedded Lang       :", embedLanguages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes")
+  log("All Lang            :", languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes")
+  log("highlight.js        :", size.regular, "bytes")
+
+  if (options.minify) {
+    log("highlight.min.js    :", size.minified ,"bytes")
+    log("highlight.min.js.gz :", zlib.gzipSync(size.data).length ,"bytes")
+  } else {
+    log("highlight.js.gz     :", zlib.gzipSync(size.fullSrc).length ,"bytes")
+  }
   log("-----")
 }
 
@@ -62,27 +67,6 @@ function installStyles() {
   await language.compile({terser: config.terser});
   fs.writeFile(out_file, language.minified)
 }
-
-/* glue code to tie into the existing Gear based system until it's replaced */
-
-let gear     = require('gear');
-let utility  = require('./utility');
-
-var tasks = {
-  build: async function([commander, dir], blobs, done) {
-    // console.log("commander", commander)
-    // console.log("dir", dir)
-    process.env.BUILD_DIR = dir.build
-    await buildCDN({languages: commander.args});
-    return done(null);
-  }
-}
-tasks.build.type = 'collect';
-let registry = new gear.Registry({ tasks: tasks });
-
-module.exports = function(commander, dir) {
-  return utility.toQueue([{startLog: { task: ['build', [commander, dir]] }}], registry)
-};
 
 module.exports.build = buildCDN;
 

@@ -62,8 +62,6 @@
 
 let commander = require('commander');
 let path      = require('path');
-let Queue     = require('gear').Queue;
-let registry  = require('./tasks');
 const { clean } = require("./lib/makestuff")
 const log = (...args) => console.log(...args)
 
@@ -71,7 +69,7 @@ let dir = {};
 
 commander
   .usage('[options] [<language>...]')
-  .option('-n, --no-compress', 'Disable compression')
+  .option('-n, --no-minify', 'Disable minification')
   .option('-t, --target <name>', 'Build for target ' +
                                  '[all, browser, cdn, node]',
                                  /^(browser|cdn|node|all)$/i, 'browser')
@@ -79,34 +77,18 @@ commander
 
 commander.target = commander.target.toLowerCase();
 
-var target = `./rollup_${commander.target}`
-// if (target=="cdn")
-//   target = "./rollup_cdn"
-// if (target=="browser")
-//   target = "./rollup_browser"
-// if (target=="node")
-//   target = "./rollup_node"
+dir.root  = path.dirname(__dirname);
+dir.buildRoot = path.join(dir.root, 'build');
 
-const build     = require(`./${target}`);
+async function doBuild(target, buildDir) {
+  const build     = require(`./rollup_${target}`);
 
-async function doBuild() {
-  dir.root  = path.dirname(__dirname);
-  dir.build = path.join(dir.root, 'build');
-
-  process.env.BUILD_DIR = dir.build
+  process.env.BUILD_DIR = buildDir
 
   log ("Starting build.")
-  await clean(dir.build);
-  await build.build({languages: commander.args});
+  await clean(buildDir);
+  await build.build({languages: commander.args, minify: commander.minify});
   log ("Finished build.")
 };
 
-
-doBuild();
-
-// new Queue({ registry: registry })
-//   .clean(dir.build)
-//   .log('Starting build.')
-//   .series(build(commander, dir))
-//   .log('Finished build.')
-//   .run();
+doBuild(commander.target, dir.buildRoot);
