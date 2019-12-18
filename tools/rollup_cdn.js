@@ -14,7 +14,7 @@ async function buildCDN(options) {
   installStyles();
 
   // all the languages are built for the CDN and placed into `/languages`
-  const languages = getLanguages()
+  const languages = await getLanguages()
   await installLanguages(languages);
 
   // filter languages for inclusion in the highlight.js bundle

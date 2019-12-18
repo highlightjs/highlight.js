@@ -6,6 +6,12 @@ async function buildOutput(inputOptions, outputOptions) {
   return output[0].code;
 }
 
+async function buildRaw(inputOptions, outputOptions) {
+  const bundle = await rollup.rollup(inputOptions).catch(err => console.log(err));;
+  const { output } = await bundle.generate(outputOptions);
+  return output;
+}
+
 async function build(inputOptions, outputOptions) {
   // create a bundle
   const bundle = await rollup.rollup(inputOptions).catch(err => console.log(err));;
@@ -56,4 +62,4 @@ async function build(inputOptions, outputOptions) {
   await bundle.write(outputOptions)
 }
 
-module.exports = { build, buildOutput }
+module.exports = { build, buildOutput, buildRaw }

@@ -4,6 +4,11 @@ module.exports = {
     "build_dir": "build",
     "copyrightYears": "2006-2019",
     "clean_css": {},
+    "CJS.input.browser" : {
+      plugins: [
+        cjsPlugin()
+      ]
+    },
     "CJS.input" : {
       plugins: [
         cjsPlugin(),
