@@ -131,7 +131,6 @@ async function buildBrowserHighlightJS(languages, {minify}) {
       header, tersed.code, workerStub,
       ...languages.map((lang) => lang.minified) ].join("\n")
 
-
     // get approximate core minified size
     core_min = [ header, tersed.code, workerStub].join().length
 

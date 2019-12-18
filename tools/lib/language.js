@@ -1,11 +1,14 @@
 const fs = require("fs")
 const fsProm = require("fs").promises
 const Terser = require("terser");
+const glob = require("glob-promise")
+const path = require("path")
 
 const REQUIRES_REGEX = /\/\*.*?Requires: (.*?)\n/s
 const CATEGORY_REGEX = /\/\*.*?Category: (.*?)\n/s
 const LANGUAGE_REGEX = /\/\*.*?Language: (.*?)\n/s
 const {buildOutput} = require("./bundling.js")
+const { getExternals } = require("./external_language")
 
 class Language {
 
@@ -19,6 +22,7 @@ class Language {
     this.module = ""
     this.minified = ""
 
+    this.path = path
     this.data = fs.readFileSync(path, {encoding: "utf8"})
     this.loadMetadata()
   }
@@ -55,10 +59,15 @@ class Language {
   }
 
   static fromFile(filename) {
-    var path = `./src/languages/${filename}`
+    if (filename.startsWith("/"))
+    {
+      var file = filename
+    } else {
+      var file = `./src/languages/${filename}`
+    }
     return new Language(
-      filename.replace(".js",""),
-      path
+      path.basename(filename).replace(".js",""),
+      file
     )
   }
 }
@@ -74,7 +83,7 @@ async function compileLanguage (language, options) {
     }
 
   // TODO: cant we use the source we already have?
-  const input = { input: `src/languages/${language.name}.js` }
+  const input = { input: language.path }
   const output = { ...opts,  name: `hljs`, file: "out.js" }
   var data = await buildOutput(input, output)
 
@@ -87,11 +96,19 @@ async function compileLanguage (language, options) {
   language.minified = data.code
 }
 
-function getLanguages() {
+
+
+async function getLanguages() {
   let languages = []
   fs.readdirSync("./src/languages/").forEach((file) => {
     languages.push(Language.fromFile(file))
   })
+  var externals = await getExternals();
+  for (let ext of externals) {
+    let l = Language.fromFile(ext.file)
+    l.loader = ext.loader
+    languages.push(l)
+  }
   return languages
 }
 
