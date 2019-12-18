@@ -11,16 +11,20 @@ async function buildNodeIndex(languages) {
   const header = "var hljs = require('./highlight');"
   const footer = "module.exports = hljs;"
 
-  const registration = languages.map((lang) =>
-    `hljs.registerLanguage('${lang.name}', require('./languages/${lang.name}'));`
-  )
+  const registration = languages.map((lang) => {
+    let require = `require('./languages/${lang.name}')`
+    if (lang.loader) {
+      require = require += `.${lang.loader}`
+    }
+    return `hljs.registerLanguage('${lang.name}', ${require});`
+  })
 
   const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`
   await fs.writeFile(`${process.env.BUILD_DIR}/lib/index.js`, index)
 }
 
  async function buildNodeLanguage (language) {
-  const input = { input: `src/languages/${language.name}.js` }
+  const input = { ...config["CJS.input"], input: language.path }
   const output = { ...config.CJS,  file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` }
   await build(input, output)
 }
@@ -79,7 +83,7 @@ async function buildNode(options) {
   log("Writing package.json.")
   await buildPackageJSON()
 
-  var languages = getLanguages()
+  var languages = await getLanguages()
   // filter languages for inclusion in the highlight.js bundle
   languages = filter(languages, options["languages"])
 
