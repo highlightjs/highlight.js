@@ -20,7 +20,7 @@ function buildHeader(args) {
 }
 
 async function buildBrowser(options) {
-  var languages = getLanguages()
+  var languages = await getLanguages()
   // filter languages for inclusion in the highlight.js bundle
   languages = filter(languages, options["languages"])
 

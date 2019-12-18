@@ -7,9 +7,14 @@ const hljs     = require('../../build');
 const path     = require('path');
 const utility  = require('../utility');
 
-function testLanguage(language) {
+const { getThirdPartyLanguages } = require("../../tools/lib/external_language")
+
+function testLanguage(language, {dir}) {
   describe(language, function() {
-    const filePath  = utility.buildPath('markup', language, '*.expect.txt'),
+    const where = dir ?
+      path.join(dir, '*.expect.txt') :
+      utility.buildPath('markup', language, '*.expect.txt')
+    const filePath  = where,
           filenames = glob.sync(filePath);
 
     _.each(filenames, function(filename) {
@@ -32,12 +37,19 @@ function testLanguage(language) {
 }
 
 describe('hljs.highlight()', async () => {
+  let languages,thirdPartyLanguages;
+  before(async function() {
+    const markupPath = utility.buildPath('markup');
+
+    if (!process.env.EXTRA) {
+      languages = await fs.readdir(markupPath)
+      languages.forEach(testLanguage);
+    }
+
+    thirdPartyLanguages = await getThirdPartyLanguages();
+    return thirdPartyLanguages.forEach((l) => testLanguage(l.name,{dir: `${l.dir}/test/markup`}));
+  })
   // TODO: why?
   // ./node_modules/.bin/mocha test/markup
   it("needs this or it can't be run stand-alone", function() {} );
-
-  const markupPath = utility.buildPath('markup');
-
-  const languages = await fs.readdir(markupPath)
-  return languages.forEach(testLanguage);
 });
