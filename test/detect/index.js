@@ -4,19 +4,20 @@ delete require.cache[require.resolve('../../build')]
 delete require.cache[require.resolve('../../build/lib/highlight')]
 
 const fs       = require('fs').promises;
+const fsSync   = require('fs');
 const hljs     = require('../../build');
 const path     = require('path');
 const utility  = require('../utility');
 
-function testAutoDetection(language) {
-  const languagePath = utility.buildPath('detect', language);
+const { getThirdPartyLanguages } = require("../../tools/lib/external_language")
 
-  it(`should have test for ${language}`, async () => {
-    const path = await fs.stat(languagePath);
-    return path.isDirectory().should.be.true;
-  });
+function testAutoDetection(language, detectDir) {
+  const languagePath = detectDir || utility.buildPath('detect', language);
 
   it(`should be detected as ${language}`, async () => {
+    const dir = await fs.stat(languagePath);
+    dir.isDirectory().should.be.true;
+
     const dirs = await fs.readdir(languagePath)
     const files = await Promise.all(dirs
       .map(function(example) {
@@ -34,7 +35,34 @@ function testAutoDetection(language) {
 }
 
 describe('hljs.highlightAuto()', () => {
-  const languages = hljs.listLanguages();
+  let languages,thirdPartyLanguages;
+  before( async function() {
+    thirdPartyLanguages = await getThirdPartyLanguages();
 
-  languages.filter(hljs.autoDetection).forEach(testAutoDetection);
+    languages = hljs.listLanguages();
+    describe(`hljs.highlightAuto()`, function() {
+      languages.filter(hljs.autoDetection).forEach((lang) => {
+        testAutoDetection(lang, detectTestDir(lang))
+      });
+    });
+
+    function detectTestDir(lang) {
+      var language = thirdPartyLanguages.find((x) => x.name == lang )
+      if (language) {
+        let paths = [
+          `${language.dir}/test/detect/${language.name}`,
+          `${language.dir}/test/detect/`];
+        for (let p of paths) {
+          try {
+            var stat = fsSync.statSync(p)
+            if (stat.isDirectory()) { return p }
+          } catch { }
+        }
+        return paths[0] // default to the first directory, long form
+      }
+    }
+  });
+
+  it("adding dynamic tests...", async function() {} ); // this is required to work
 });
+
