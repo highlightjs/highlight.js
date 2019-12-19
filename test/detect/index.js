@@ -49,16 +49,7 @@ describe('hljs.highlightAuto()', () => {
     function detectTestDir(lang) {
       var language = thirdPartyLanguages.find((x) => x.name == lang )
       if (language) {
-        let paths = [
-          `${language.dir}/test/detect/${language.name}`,
-          `${language.dir}/test/detect/`];
-        for (let p of paths) {
-          try {
-            var stat = fsSync.statSync(p)
-            if (stat.isDirectory()) { return p }
-          } catch { }
-        }
-        return paths[0] // default to the first directory, long form
+        return language.detectTestPath
       }
     }
   });
