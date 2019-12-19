@@ -15,8 +15,25 @@ class ExternalLanguage {
     if (langs[0]) {
       this.file = path.join(process.cwd(), langs[0])
       this.name = path.basename(this.file,".js")
+      this.bundle = true
       this._valid = true
       return true
+    }
+  }
+
+  get markupTestPath() {
+    if (this.bundle) {
+      return `${this.dir}/test/markup/${this.name}`
+    } else {
+      return `${this.dir}/test/markup`
+    }
+  }
+
+  get detectTestPath() {
+    if (this.bundle) {
+      return `${this.dir}/test/detect/${this.name}`
+    } else {
+      return `${this.dir}/test/detect`
     }
   }
 
