@@ -36,6 +36,7 @@
     "colors": "^1.1.2",
     "commander": "^4.0.0",
     "del": "^5.1.0",
+    "dependency-resolver": "^2.0.1",
     "gear": "github:highlightjs/gear",
     "gear-lib": "github:highlightjs/gear-lib",
     "glob": "^7.1.4",
