@@ -78,7 +78,7 @@ class Language {
 
 async function compileLanguage (language, options) {
   const EXPORT = /export default (.*);/
-  const iife = /^\(function \(\)/
+  const iife = /^(var dummyName = )?\(function \(\)/
   const opts = { format: "iife", strict: false,
     // banner: "test",
     outro: "return module.exports.definer || module.exports;",
@@ -87,25 +87,20 @@ async function compileLanguage (language, options) {
     extend: false,
     }
 
-
-
   // TODO: cant we use the source we already have?
   const input = { ...build_config["CJS.input.browser"], input: language.path }
-  const output = { ...opts,  xname: `hljs`, file: "out.js" }
+  const output = { ...opts,  name: `dummyName`, file: "out.js" }
   var data = await buildOutput(input, output)
-
-
 
   // console.log(language.name)
   // var res = await buildRaw(input,output);
   // console.log(res)
   // console.log(data)
 
-
-  var m = iife.exec(data)
-  if (m) {
-    data = data.replace(m, `hljs.registerLanguage('${language.name}', function ()`)
-  }
+  // var m = iife.exec(data)
+  // if (m) {
+    data = data.replace(iife, `hljs.registerLanguage('${language.name}', function ()`)
+  // }
   // var m = EXPORT.exec(data)
   // if (m && m[1]) {
   //   data = data.replace(EXPORT, "")
@@ -129,9 +124,9 @@ async function compileLanguage (language, options) {
 
 async function getLanguages() {
   let languages = []
-  // fs.readdirSync("./src/languages/").forEach((file) => {
-  //   languages.push(Language.fromFile(file))
-  // })
+  fs.readdirSync("./src/languages/").forEach((file) => {
+    languages.push(Language.fromFile(file))
+  })
   var externals = await getThirdPartyLanguages();
   for (let ext of externals) {
     let l = Language.fromFile(ext.file)
