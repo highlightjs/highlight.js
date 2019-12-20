@@ -14,9 +14,10 @@ Core Changes:
 
 Language Improvements:
 
-- none yet.
+- (vbnet) add nameof operator to the keywords
 
 [Josh Goebel]: https://github.com/yyyc514
+[Youssef Victor]: https://github.com/Youssef1313
 
 
 ## Version 9.17.1
