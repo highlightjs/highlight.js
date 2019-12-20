@@ -23,14 +23,14 @@ async function buildNodeIndex(languages) {
 }
 
  async function buildNodeLanguage (language) {
-  const input = { ...config["CJS.input"], input: language.path }
-  const output = { ...config.CJS,  file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` }
+  const input = { ...config.rollup.node.input, input: language.path }
+  const output = { ...config.rollup.node.output,  file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` }
   await rollupWrite(input, output)
 }
 
 async function buildNodeHighlightJS() {
   const input = { input: `src/highlight.js` }
-  const output = { ...config.CJS, file: `${process.env.BUILD_DIR}/lib/highlight.js` }
+  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/highlight.js` }
   await rollupWrite(input, output)
 }
 
