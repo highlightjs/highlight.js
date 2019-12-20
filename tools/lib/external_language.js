@@ -3,86 +3,88 @@ const fsProm = require("fs").promises
 const glob = require("glob-promise")
 const path = require("path")
 
+const MODULE_DEFINER = /module\.exports\.definer\s*=/;
 
-class ExternalLanguage {
-  constructor(dir) {
-    this.dir = dir
+class LanguagePackage {
+  constructor(packageDir) {
+    this.dir = packageDir;
   }
 
   async trySrcLanguages() {
-    var dir = path.join(this.dir,"src/languages/*")
-    var langs = await glob(dir)
-    if (langs[0]) {
-      this.file = path.join(process.cwd(), langs[0])
-      this.name = path.basename(this.file,".js")
-      this.bundle = true
-      this._valid = true
-      return true
+    let dir = path.join(this.dir,"src/languages/*");
+    let languages = await glob(dir);
+    if (languages[0]) {
+      this.file = path.join(process.cwd(), languages[0]);
+      this.name = path.basename(this.file,".js");
+      this._bundle = true;
+      this._valid = true;
+      return true;
     }
   }
 
   get markupTestPath() {
     if (this.bundle) {
-      return `${this.dir}/test/markup/${this.name}`
+      return `${this.dir}/test/markup/${this.name}`;
     } else {
-      return `${this.dir}/test/markup`
+      return `${this.dir}/test/markup`;
     }
   }
 
   get detectTestPath() {
     if (this.bundle) {
-      return `${this.dir}/test/detect/${this.name}`
+      return `${this.dir}/test/detect/${this.name}`;
     } else {
-      return `${this.dir}/test/detect`
+      return `${this.dir}/test/detect`;
     }
   }
 
   async tryPackageJSON() {
-    var pack = path.join(this.dir,"package.json")
+    let pack = path.join(this.dir,"package.json");
     if (fs.existsSync(pack)) {
-      var data = await fsProm.readFile(pack)
-      var json = JSON.parse(data)
+      let data = await fsProm.readFile(pack);
+      let json = JSON.parse(data);
       if (json.main) {
-        this.type = "npm"
-        let file = path.join(process.cwd(),this.dir, json.main)
-        let x = require(file)
-        if (x.definer) {
-          this.loader = "definer"
-        } else {
-          this.loader = null
+        this.type = "npm";
+        let file = path.join(process.cwd(),this.dir, json.main);
+        let content = await fsProm.readFile(file, { encoding: "utf8" });
+        if (content.match(MODULE_DEFINER)) {
+          this.loader = "definer";
         }
-        // this.language = Language.fromFile(file)
-        this.file = file
-        this.name = path.basename(file,".js")
-        this._valid = true
-        return true
+        this.file = file;
+        this.name = path.basename(file,".js");
+        this._valid = true;
+        return true;
       }
     }
   }
 
+  get bundle() { return this._bundle; }
+
   async detect() {
-    await this.tryPackageJSON() ||
-      await this.trySrcLanguages()
+    await this.trySrcLanguages() ||
+      await this.tryPackageJSON();
+    this._detected = true;
   }
 
   async valid() {
-    await this.detect()
+    if (!this._detected) {
+      await this.detect()
+    }
     return this._valid;
   }
 }
 
 async function getThirdPartyLanguages() {
-  var languages = []
-  var other = await glob("./extra/*")
-  // var other = await glob("./extra/highlightjs-lustre")
-  for (var dir of other) {
-    let thirdPartyLanguage = new ExternalLanguage(dir)
-    var v = await thirdPartyLanguage.valid();
-    if (v) {
+  let languages = [];
+  let otherLanguages = await glob("./extra/*");
+  for (let packageDir of otherLanguages) {
+    let thirdPartyLanguage = new LanguagePackage(packageDir)
+    let valid = await thirdPartyLanguage.valid();
+    if (valid) {
       languages.push(thirdPartyLanguage)
     }
   }
   return languages;
 }
 
-module.exports = { ExternalLanguage, getThirdPartyLanguages}
+module.exports = { LanguagePackage, getThirdPartyLanguages}
