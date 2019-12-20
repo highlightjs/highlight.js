@@ -13,7 +13,7 @@ function testLanguage(language, {testDir}) {
   describe(language, function() {
     const where = testDir ?
       path.join(testDir, '*.expect.txt') :
-      utility.buildPath('markup', language, '*.expect.txt')
+      utility.buildPath('markup', language, '*.expect.txt');
     const filePath  = where,
           filenames = glob.sync(filePath);
 
@@ -37,16 +37,15 @@ function testLanguage(language, {testDir}) {
 }
 
 describe('highlight() markup', async () => {
-  let languages,thirdPartyLanguages;
   before(async function() {
     const markupPath = utility.buildPath('markup');
 
-    if (!process.env.EXTRA) {
-      languages = await fs.readdir(markupPath)
+    if (!process.env.ONLY_EXTRA) {
+      let languages = await fs.readdir(markupPath);
       languages.forEach(testLanguage);
     }
 
-    thirdPartyLanguages = await getThirdPartyLanguages();
+    let thirdPartyLanguages = await getThirdPartyLanguages();
     return thirdPartyLanguages.forEach((l) => testLanguage(l.name,{testDir: l.markupTestPath}));
   })
 
