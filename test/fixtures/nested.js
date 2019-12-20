@@ -12,6 +12,7 @@ module.exports = function(hljs) {
   };
   BODY.contains = [LIST];
   return {
+    disableAutodetect: true,
     contains: [LIST]
   }
 };
