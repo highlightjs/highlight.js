@@ -1,4 +1,4 @@
-const MAX_REORDER_ATTEMPTS = 10
+const DependencyResolver = require('dependency-resolver');
 
 /**
  * Reorders languages, moving dependencies above the languages
@@ -9,35 +9,16 @@ const MAX_REORDER_ATTEMPTS = 10
 */
 
 const reorderDependencies = (languages) => {
-  var languages = [...languages] // clone
-  var moved
-  var attempts = 0
-  do {
-    moved = false
-    let loaded = []
-    for (let lang of languages) {
-      loaded.push(lang.name)
-      if (lang.requires.length === 0) continue;
-      for (let needed of lang.requires) {
-        if (loaded.includes(needed)) continue;
-        moved = true
-
-        let i = languages.findIndex((el) => el.name == needed)
-        let removed = languages.splice(i, 1)
-        let me = languages.findIndex((el) => el.name == lang.name)
-        languages.splice(me,0, ...removed)
-
-        loaded.push(needed)
-      }
+  let resolver = new DependencyResolver();
+  for (let lang of languages) {
+    resolver.add(lang.name);
+    for (let required of lang.requires) {
+      resolver.setDependency(lang.name, required);
     }
-    attempts += 1
-  } while(moved===true && attempts <= MAX_REORDER_ATTEMPTS)
-  if (attempts > MAX_REORDER_ATTEMPTS) {
-    let topOfStack = languages.slice(0,2).map((el) => el.name)
-    console.error("[ERROR] You have recursive dependencies:", topOfStack)
-    process.exit(1)
   }
-  return languages
+  return resolver.sort().map((name) =>
+    languages.find((l) => l.name == name)
+  );
 }
 
 /**
