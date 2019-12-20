@@ -14,7 +14,7 @@ Core Changes:
 
 Language Improvements:
 
-- (vbnet) add nameof operator to the keywords
+- (vbnet) add nameof operator to the keywords (#2329) [Youssef Victor][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Youssef Victor]: https://github.com/Youssef1313
