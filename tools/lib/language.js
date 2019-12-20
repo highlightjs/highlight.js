@@ -8,7 +8,7 @@ const build_config = require("../build_config")
 const REQUIRES_REGEX = /\/\*.*?Requires: (.*?)\n/s
 const CATEGORY_REGEX = /\/\*.*?Category: (.*?)\n/s
 const LANGUAGE_REGEX = /\/\*.*?Language: (.*?)\n/s
-const {buildOutput, buildRaw} = require("./bundling.js")
+const {rollupCode} = require("./bundling.js")
 const { getThirdPartyLanguages } = require("./external_language")
 
 class Language {
@@ -77,63 +77,34 @@ class Language {
 
 
 async function compileLanguage (language, options) {
-  const EXPORT = /export default (.*);/
-  const iife = /^(var dummyName = )?\(function \(\)/
-  const opts = { format: "iife", strict: false,
-    // banner: "test",
-    outro: "return module.exports.definer || module.exports;",
-    compact: false,
-    interop: false,
-    extend: false,
-    }
+  const EXPORT_REGEX = /export default (.*);/;
+  const IIFE_HEADER_REGEX = /^(var dummyName = )?\(function \(\)/;
 
   // TODO: cant we use the source we already have?
-  const input = { ...build_config["CJS.input.browser"], input: language.path }
-  const output = { ...opts,  name: `dummyName`, file: "out.js" }
-  var data = await buildOutput(input, output)
+  const input = { ...build_config.rollup.browser.input, input: language.path };
+  const output = { ...build_config.rollup.browser.output,  name: `dummyName`, file: "out.js" };
+  var data = await rollupCode(input, output)
 
-  // console.log(language.name)
-  // var res = await buildRaw(input,output);
-  // console.log(res)
-  // console.log(data)
+  data = data.replace(IIFE_HEADER_REGEX, `hljs.registerLanguage('${language.name}', function ()`)
 
-  // var m = iife.exec(data)
-  // if (m) {
-    data = data.replace(iife, `hljs.registerLanguage('${language.name}', function ()`)
-  // }
-  // var m = EXPORT.exec(data)
-  // if (m && m[1]) {
-  //   data = data.replace(EXPORT, "")
-  //   data = data.replace(`function ${m[1]}`,`hljs.registerLanguage('${language.name}',function`)
-  //   data = data.replace(`<outro>`,');')
-  // } else {
-  //   data = data.replace(`<outro>`,'')
-  // }
-  var original = data
-  language.module = data
-  // console.log(data)
-  // data = Terser.minify(data, options["terser"])
-  if (!data.code) {
-    // console.log("---",original,"---")
-    // console.log(data)
-  }
-  language.minified = data.code || original
+  var original = data;
+  language.module = data;
+  data = Terser.minify(data, options["terser"]);
+  language.minified = data.code || original;
 }
-
-
 
 async function getLanguages() {
-  let languages = []
+  let languages = [];
   fs.readdirSync("./src/languages/").forEach((file) => {
-    languages.push(Language.fromFile(file))
-  })
-  var externals = await getThirdPartyLanguages();
-  for (let ext of externals) {
-    let l = Language.fromFile(ext.file)
-    l.loader = ext.loader
-    languages.push(l)
+    languages.push(Language.fromFile(file));
+  });
+  let extraLanguages = await getThirdPartyLanguages();
+  for (let ext of extraLanguages) {
+    let l = Language.fromFile(ext.file);
+    l.loader = ext.loader;
+    languages.push(l);
   }
-  return languages
+  return languages;
 }
 
-module.exports = { Language, getLanguages }
+module.exports = { Language, getLanguages };
