@@ -6,7 +6,7 @@ const { filter } = require("./lib/dependencies");
 const config = require("./build_config");
 const { install, install_cleancss, mkdir } = require("./lib/makestuff");
 const log = (...args) => console.log(...args);
-const { buildBrowserHighlightJS } = require("./rollup_browser");
+const { buildBrowserHighlightJS } = require("./build_browser");
 
 async function buildCDN(options) {
   installStyles();

@@ -81,7 +81,7 @@ dir.root  = path.dirname(__dirname);
 dir.buildRoot = path.join(dir.root, 'build');
 
 async function doTarget(target, buildDir) {
-  const build     = require(`./rollup_${target}`);
+  const build     = require(`./build_${target}`);
   process.env.BUILD_DIR = buildDir;
   await clean(buildDir);
   await build.build({languages: commander.args, minify: commander.minify});
