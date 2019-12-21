@@ -7,8 +7,8 @@ const glob     = promisify(require('glob'));
 const fs       = require('fs');
 
 const buildFakeDOM = async function() {
-  // Will match both `highlight.pack.js` and `highlight.min.js`
-  const filePath = utility.buildPath('..', 'build', 'highlight.*.js');
+  // Will match both `highlight.js` and `highlight.min.js`
+  const filePath = utility.buildPath('..', 'build', 'highlight.*js');
   const hljsPath = await glob(filePath)
   const hljsFiles = await hljsPath.map(path => fs.readFileSync(path, 'utf8'))
   const hljsScript = await hljsFiles.map(file => `<script>${file}</script>`).join("")
