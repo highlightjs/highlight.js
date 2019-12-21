@@ -1,18 +1,13 @@
 'use strict';
 
 const { JSDOM } = require('jsdom');
-const utility  = require('../utility');
 const {promisify} = require('util');
-const glob     = promisify(require('glob'));
 const fs       = require('fs');
 
 const buildFakeDOM = async function() {
-  // Will match both `highlight.js` and `highlight.min.js`
-  const filePath = utility.buildPath('..', 'build', 'highlight.*js');
-  const hljsPath = await glob(filePath)
-  const hljsFiles = await hljsPath.map(path => fs.readFileSync(path, 'utf8'))
-  const hljsScript = await hljsFiles.map(file => `<script>${file}</script>`).join("")
-  const { window} = await new JSDOM(hljsScript + this.html, { runScripts: "dangerously" })
+  const library = fs.readFileSync(this.hljsPath, 'utf8');
+  const hljsScript = `<script>${library}</script>`;
+  const { window} = await new JSDOM(hljsScript + this.html, { runScripts: "dangerously" });
 
   this.block = window.document.querySelector('pre code');
   this.hljs  = window.hljs;
