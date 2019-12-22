@@ -1,4 +1,5 @@
-// whole codebase isn't ES8 yet, but our tests and some things are
+// whole codebase isn't ES8/9 yet, but our tests and some things are
 {
-    "esversion": 8
+    "esversion": 9,
+    "node": true
 }
