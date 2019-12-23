@@ -5,6 +5,9 @@ friend void showB(B x) {}
 friend void showB(B::SomeType x) {}
 inline int add(int a, int b) {}
 int8t Get_Tile_Value() {}
+
 int8_t Get_Tile_Value() {}
+
+B::type test() {};
 
 test();

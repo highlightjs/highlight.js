@@ -7,8 +7,13 @@ Website: https://isocpp.org
 */
 
 function(hljs) {
+  function optional(s) {
+    return '(' + s + ')?';
+  }
   var DECLTYPE_AUTO_RE = 'decltype\\(auto\\)'
-  var FUNCTION_TYPE_RE = '(' + DECLTYPE_AUTO_RE + '|[a-zA-Z_]\\w*)';
+  var NAMESPACE_RE = '[a-zA-Z_]\\w*::'
+  // (<.*?>)?
+  var FUNCTION_TYPE_RE = '(' + DECLTYPE_AUTO_RE + '|' + optional(NAMESPACE_RE) +'[a-zA-Z_]\\w*)';
   var CPP_PRIMITIVE_TYPES = {
     className: 'keyword',
     begin: '\\b[a-z\\d_]*_t\\b'
@@ -68,11 +73,11 @@ function(hljs) {
 
   var TITLE_MODE = {
     className: 'title',
-    begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE,
+    begin: optional(NAMESPACE_RE) + hljs.IDENT_RE,
     relevance: 0
   };
 
-  var FUNCTION_TITLE = '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE + '\\s*\\(';
+  var FUNCTION_TITLE = optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
 
   var CPP_KEYWORDS = {
     keyword: 'int float while private char char8_t char16_t char32_t catch import module export virtual operator sizeof ' +
@@ -134,11 +139,13 @@ function(hljs) {
     returnBegin: true, end: /[{;=]/,
     excludeEnd: true,
     keywords: CPP_KEYWORDS,
-    illegal: /[^\w\s\*&]/,
+    illegal: /[^\w\s\*&:]/,
     contains: [
-      {
+
+      { // to prevent it from being confused as the function title
         begin: DECLTYPE_AUTO_RE,
-        keywords: CPP_KEYWORDS
+        keywords: CPP_KEYWORDS,
+        relevance: 0,
       },
       {
         begin: FUNCTION_TITLE, returnBegin: true,
