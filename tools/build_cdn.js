@@ -7,6 +7,7 @@ const config = require("./build_config");
 const { install, install_cleancss, mkdir } = require("./lib/makestuff");
 const log = (...args) => console.log(...args);
 const { buildBrowserHighlightJS } = require("./build_browser");
+const path = require("path");
 
 async function buildCDN(options) {
   install("./LICENSE", "LICENSE");
@@ -69,7 +70,20 @@ function installStyles() {
   const filename = `${process.env.BUILD_DIR}/languages/${language.name}.min.js`;
 
   await language.compile({terser: config.terser});
-  fs.writeFile(filename, language.minified)
+  fs.writeFile(filename, language.minified);
+
+  // TODO: cleanup
+  const extra = path.resolve(__dirname,"../extra")
+  if (language.path.startsWith(extra)) {
+    var tmp = language.path.replace(extra,"")
+    var name = tmp.split("/")[1]
+    var libPath =  path.join(extra, name)
+
+    // console.log(libPath)
+    // add a distributable to the 3rd party directory
+    await fs.mkdir(path.join(libPath, "dist"), {recursive: true});
+    fs.writeFile(path.join(libPath,"dist",path.basename(filename)), language.minified);
+  }
 }
 
 module.exports.build = buildCDN;
