@@ -10,4 +10,7 @@ int8_t Get_Tile_Value() {}
 
 B::type test() {};
 
+// template
+boost::optional<application> handle_key(application state, key_code key, coord size);
+
 test();

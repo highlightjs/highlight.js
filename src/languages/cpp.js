@@ -12,8 +12,11 @@ function(hljs) {
   }
   var DECLTYPE_AUTO_RE = 'decltype\\(auto\\)'
   var NAMESPACE_RE = '[a-zA-Z_]\\w*::'
-  // (<.*?>)?
-  var FUNCTION_TYPE_RE = '(' + DECLTYPE_AUTO_RE + '|' + optional(NAMESPACE_RE) +'[a-zA-Z_]\\w*)';
+  var TEMPLATE_ARGUMENT_RE = '<.*?>';
+  var FUNCTION_TYPE_RE = '(' +
+    DECLTYPE_AUTO_RE + '|' +
+    optional(NAMESPACE_RE) +'[a-zA-Z_]\\w*' + optional(TEMPLATE_ARGUMENT_RE) +
+  ')';
   var CPP_PRIMITIVE_TYPES = {
     className: 'keyword',
     begin: '\\b[a-z\\d_]*_t\\b'
@@ -139,7 +142,7 @@ function(hljs) {
     returnBegin: true, end: /[{;=]/,
     excludeEnd: true,
     keywords: CPP_KEYWORDS,
-    illegal: /[^\w\s\*&:]/,
+    illegal: /[^\w\s\*&:<>]/,
     contains: [
 
       { // to prevent it from being confused as the function title
