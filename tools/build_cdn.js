@@ -9,6 +9,9 @@ const log = (...args) => console.log(...args);
 const { buildBrowserHighlightJS } = require("./build_browser");
 
 async function buildCDN(options) {
+  install("./LICENSE", "LICENSE");
+  install("./README.md","README.md");
+
   installStyles();
 
   // all the languages are built for the CDN and placed into `/languages`
