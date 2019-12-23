@@ -7,6 +7,8 @@ Website: https://isocpp.org
 */
 
 function(hljs) {
+  var DECLTYPE_AUTO_RE = 'decltype\\(auto\\)'
+  var FUNCTION_TYPE_RE = '(' + DECLTYPE_AUTO_RE + '|[a-zA-Z_]\\w*)';
   var CPP_PRIMITIVE_TYPES = {
     className: 'keyword',
     begin: '\\b[a-z\\d_]*_t\\b'
@@ -64,7 +66,13 @@ function(hljs) {
     ]
   };
 
-  var FUNCTION_TITLE = hljs.IDENT_RE + '\\s*\\(';
+  var TITLE_MODE = {
+    className: 'title',
+    begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE,
+    relevance: 0
+  };
+
+  var FUNCTION_TITLE = '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE + '\\s*\\(';
 
   var CPP_KEYWORDS = {
     keyword: 'int float while private char char8_t char16_t char32_t catch import module export virtual operator sizeof ' +
@@ -99,11 +107,87 @@ function(hljs) {
     STRINGS
   ];
 
+  var EXPRESSION_CONTEXT = {
+    // This mode covers expression context where we can't expect a function
+    // definition and shouldn't highlight anything that looks like one:
+    // `return some()`, `else if()`, `(x*sum(1, 2))`
+    variants: [
+      {begin: /=/, end: /;/},
+      {begin: /\(/, end: /\)/},
+      {beginKeywords: 'new throw return else', end: /;/}
+    ],
+    keywords: CPP_KEYWORDS,
+    contains: EXPRESSION_CONTAINS.concat([
+      {
+        begin: /\(/, end: /\)/,
+        keywords: CPP_KEYWORDS,
+        contains: EXPRESSION_CONTAINS.concat(['self']),
+        relevance: 0
+      }
+    ]),
+    relevance: 0
+  };
+
+  var FUNCTION_DECLARATION = {
+    className: 'function',
+    begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
+    returnBegin: true, end: /[{;=]/,
+    excludeEnd: true,
+    keywords: CPP_KEYWORDS,
+    illegal: /[^\w\s\*&]/,
+    contains: [
+      {
+        begin: DECLTYPE_AUTO_RE,
+        keywords: CPP_KEYWORDS
+      },
+      {
+        begin: FUNCTION_TITLE, returnBegin: true,
+        contains: [TITLE_MODE],
+        relevance: 0
+      },
+      {
+        className: 'params',
+        begin: /\(/, end: /\)/,
+        keywords: CPP_KEYWORDS,
+        relevance: 0,
+        contains: [
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
+          STRINGS,
+          NUMBERS,
+          CPP_PRIMITIVE_TYPES,
+          // Count matching parentheses.
+          {
+            begin: /\(/, end: /\)/,
+            keywords: CPP_KEYWORDS,
+            relevance: 0,
+            contains: [
+              'self',
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
+              STRINGS,
+              NUMBERS,
+              CPP_PRIMITIVE_TYPES
+            ]
+          }
+        ]
+      },
+      CPP_PRIMITIVE_TYPES,
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      PREPROCESSOR
+    ]
+  };
+
   return {
     aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp', 'hh', 'hxx', 'cxx'],
     keywords: CPP_KEYWORDS,
     illegal: '</',
-    contains: EXPRESSION_CONTAINS.concat([
+    contains: [].concat(
+      EXPRESSION_CONTEXT,
+      FUNCTION_DECLARATION,
+      EXPRESSION_CONTAINS,
+      [
       PREPROCESSOR,
       {
         begin: '\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<', end: '>',
@@ -113,71 +197,6 @@ function(hljs) {
       {
         begin: hljs.IDENT_RE + '::',
         keywords: CPP_KEYWORDS
-      },
-      {
-        // This mode covers expression context where we can't expect a function
-        // definition and shouldn't highlight anything that looks like one:
-        // `return some()`, `else if()`, `(x*sum(1, 2))`
-        variants: [
-          {begin: /=/, end: /;/},
-          {begin: /\(/, end: /\)/},
-          {beginKeywords: 'new throw return else', end: /;/}
-        ],
-        keywords: CPP_KEYWORDS,
-        contains: EXPRESSION_CONTAINS.concat([
-          {
-            begin: /\(/, end: /\)/,
-            keywords: CPP_KEYWORDS,
-            contains: EXPRESSION_CONTAINS.concat(['self']),
-            relevance: 0
-          }
-        ]),
-        relevance: 0
-      },
-      {
-        className: 'function',
-        begin: '(' + hljs.IDENT_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
-        returnBegin: true, end: /[{;=]/,
-        excludeEnd: true,
-        keywords: CPP_KEYWORDS,
-        illegal: /[^\w\s\*&]/,
-        contains: [
-          {
-            begin: FUNCTION_TITLE, returnBegin: true,
-            contains: [hljs.TITLE_MODE],
-            relevance: 0
-          },
-          {
-            className: 'params',
-            begin: /\(/, end: /\)/,
-            keywords: CPP_KEYWORDS,
-            relevance: 0,
-            contains: [
-              hljs.C_LINE_COMMENT_MODE,
-              hljs.C_BLOCK_COMMENT_MODE,
-              STRINGS,
-              NUMBERS,
-              CPP_PRIMITIVE_TYPES,
-              // Count matching parentheses.
-              {
-                begin: /\(/, end: /\)/,
-                keywords: CPP_KEYWORDS,
-                relevance: 0,
-                contains: [
-                  'self',
-                  hljs.C_LINE_COMMENT_MODE,
-                  hljs.C_BLOCK_COMMENT_MODE,
-                  STRINGS,
-                  NUMBERS,
-                  CPP_PRIMITIVE_TYPES
-                ]
-              }
-            ]
-          },
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE,
-          PREPROCESSOR
-        ]
       },
       {
         className: 'class',
