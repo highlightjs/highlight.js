@@ -15,7 +15,9 @@ Core Changes:
 Language Improvements:
 
 - (vbnet) add nameof operator to the keywords (#2329) [Youssef Victor][]
+- (stan) updated with improved coverage of language keywords and patterns. (#1829) [Jeffrey Arnold][]
 
+[Jeffrey Arnold]: https://github.com/jrnold
 [Josh Goebel]: https://github.com/yyyc514
 [Youssef Victor]: https://github.com/Youssef1313
 
