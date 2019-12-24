@@ -10,8 +10,10 @@ function(hljs) {
     begin: '<>',
     end: '</>'
   };
-  var TAG_START = /<[A-Za-z0-9\\._:-]+/;
-  var TAG_FINISH = /\/[A-Za-z0-9\\._:-]+>|\/>/;
+  var XML_TAG = {
+    begin: /<[A-Za-z0-9\\._:-]+/,
+    end: /\/[A-Za-z0-9\\._:-]+>|\/>/
+  };
   var IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var KEYWORDS = {
     keyword:
@@ -193,27 +195,19 @@ function(hljs) {
             end: /\s*/,
             skip: true,
           },
-          // JSX
-          {
-            begin: FRAGMENT.begin, end: FRAGMENT.end,
+          { // JSX
+            variants: [
+              { begin: FRAGMENT.begin, end: FRAGMENT.end },
+              { begin: XML_TAG.begin, end: XML_TAG.end }
+            ],
             subLanguage: 'xml',
             contains: [
               {
-                begin: TAG_START, end: TAG_FINISH, skip: true,
+                begin: XML_TAG.begin, end: XML_TAG.end, skip: true,
                 contains: ['self']
               }
             ]
           },
-          {
-            begin: TAG_START, end: TAG_FINISH,
-            subLanguage: 'xml',
-            contains: [
-              {
-                begin: TAG_START, end: TAG_FINISH, skip: true,
-                contains: ['self']
-              }
-            ]
-          }
         ],
         relevance: 0
       },
