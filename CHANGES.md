@@ -15,7 +15,9 @@ Core Changes:
 Language Improvements:
 
 - (vbnet) add nameof operator to the keywords (#2329) [Youssef Victor][]
+- (stan) updated with improved coverage of language keywords and patterns. (#1829) [Jeffrey Arnold][]
 
+[Jeffrey Arnold]: https://github.com/jrnold
 [Josh Goebel]: https://github.com/yyyc514
 [Youssef Victor]: https://github.com/Youssef1313
 
@@ -308,7 +310,6 @@ Improvements:
 - Improve *Crystal* language to highlight regexes after some keywords, by [Tsuyusato Kitsune][]
 - Fix filterByQualifiers: fileInfo can be null
 - Fixed String interpolation in Dart, by [Scott Hyndman][].
-- *Stan* updated with improved coverage of language keywords and patterns.
 
 [Laurent Voullemier]: https://github.com/l-vo
 [Benoit de Chezelles]: https://github.com/bew
@@ -394,7 +395,6 @@ Improvements:
 [John Foster]: https://github.com/jf990
 [David Benjamin]: https://github.com/davidben
 [Berk Çebi]: https://github.com/berkcebi
-[Jeffrey Arnold]: https://github.com/jrnold
 [Mauricio Caceres Bravo]: https://github.com/mcaceresb
 [bostko]: https://github.com/bostko
 [Deniz Bahadir]: https://github.com/Bagira80
