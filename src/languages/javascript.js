@@ -6,6 +6,10 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
 function(hljs) {
+  var FRAGMENT = {
+    begin: '<>',
+    end: '</>'
+  };
   var TAG_START = /<[A-Za-z0-9\\._:-]+/;
   var TAG_FINISH = /\/[A-Za-z0-9\\._:-]+>|\/>/;
   var IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
@@ -189,7 +193,18 @@ function(hljs) {
             end: /\s*/,
             skip: true,
           },
-          { // JSX
+          // JSX
+          {
+            begin: FRAGMENT.begin, end: FRAGMENT.end,
+            subLanguage: 'xml',
+            contains: [
+              {
+                begin: TAG_START, end: TAG_FINISH, skip: true,
+                contains: ['self']
+              }
+            ]
+          },
+          {
             begin: TAG_START, end: TAG_FINISH,
             subLanguage: 'xml',
             contains: [
