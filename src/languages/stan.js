@@ -8,7 +8,7 @@ Category: scientific
 
 function(hljs) {
   // variable names cannot conflict with block identifiers
-  const BLOCKS = [
+  var BLOCKS = [
     'functions',
     'model',
     'data',
@@ -16,8 +16,8 @@ function(hljs) {
     'quantities',
     'transformed',
     'generated'
-  ]
-  const STATEMENTS = [
+  ];
+  var STATEMENTS = [
     'for',
     'in',
     'if',
@@ -26,8 +26,8 @@ function(hljs) {
     'break',
     'continue',
     'return'
-  ]
-  const SPECIAL_FUNCTIONS = [
+  ];
+  var SPECIAL_FUNCTIONS = [
     'print',
     'reject',
     'increment_log_prob|10',
@@ -35,8 +35,8 @@ function(hljs) {
     'integrate_ode_rk45|10',
     'integrate_ode_bdf|10',
     'algebra_solver'
-  ]
-  const VAR_TYPES = [
+  ];
+  var VAR_TYPES = [
     'int',
     'real',
     'vector',
@@ -51,8 +51,8 @@ function(hljs) {
     'corr_matrix|10',
     'cov_matrix|10',
     'void'
-  ]
-  const FUNCTIONS = [
+  ];
+  var FUNCTIONS = [
     'Phi', 'Phi_approx', 'abs', 'acos', 'acosh', 'algebra_solver', 'append_array',
     'append_col', 'append_row', 'asin', 'asinh', 'atan', 'atan2', 'atanh',
     'bernoulli_cdf', 'bernoulli_lccdf', 'bernoulli_lcdf', 'bernoulli_logit_lpmf',
@@ -135,8 +135,8 @@ function(hljs) {
     'von_mises_lpdf', 'von_mises_rng', 'weibull_cdf', 'weibull_lccdf',
     'weibull_lcdf', 'weibull_lpdf', 'weibull_rng', 'wiener_lpdf', 'wishart_lpdf',
     'wishart_rng'
-  ]
-  const DISTRIBUTIONS = [
+  ];
+  var DISTRIBUTIONS = [
     'bernoulli', 'bernoulli_logit', 'beta', 'beta_binomial', 'binomial',
     'binomial_logit', 'categorical', 'categorical_logit', 'cauchy', 'chi_square',
     'dirichlet', 'double_exponential', 'exp_mod_normal', 'exponential', 'frechet',
@@ -148,7 +148,7 @@ function(hljs) {
     'ordered_logistic', 'pareto', 'pareto_type_2', 'poisson', 'poisson_log',
     'rayleigh', 'scaled_inv_chi_square', 'skew_normal', 'student_t', 'uniform',
     'von_mises', 'weibull', 'wiener', 'wishart'
-  ]
+  ];
 
   return {
     aliases: ['stanfuncs'],
