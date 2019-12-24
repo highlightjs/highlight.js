@@ -780,8 +780,6 @@ https://highlightjs.org/
       if (err.message && err.message.indexOf('Illegal') !== -1) {
         return {
           illegal: true,
-          illegalBy: err,
-          context: codeToHighlight.substring(index-10, index+10),
           relevance: 0,
           value: escape(codeToHighlight)
         };
