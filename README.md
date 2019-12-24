@@ -208,7 +208,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | Smali                   | smali                  |         |
 | Smalltalk               | smalltalk, st          |         |
 | Solidity                | solidity, sol          | [highlightjs-solidity](https://github.com/highlightjs/highlightjs-solidity) |
-| Stan                    | stan                   |         |
+| Stan                    | stan, stanfuncs        |         |
 | Stata                   | stata                  |         |
 | Structured Text         | iecst, scl, stl, structured-text | [highlightjs-structured-text](https://github.com/highlightjs/highlightjs-structured-text) |
 | Stylus                  | stylus, styl           |         |
