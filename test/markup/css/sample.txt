@@ -1,0 +1,45 @@
+@-ms-keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+@-o-keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+div.cls {
+  color: rgba(51, 170, 51, .1);
+  width: calc(100% - 80px);
+  transform: rotate(45deg);
+}
+img {
+  filter: grayscale(0.5) blur(10px);
+}
+
+a[href*="example"], * [lang^=en] {
+  font-size: 2em;
+}
+
+@supports (display: flex) {
+  @media screen and (min-width: 900px) {
+    article {
+      display: flex;
+    }
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+@page :first {
+    margin: 2cm;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+         url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
+  }

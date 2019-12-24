@@ -2,6 +2,7 @@
 Language: AVR Assembler
 Author: Vladimir Ermakov <vooon341@gmail.com>
 Category: assembler
+Website: https://www.microchip.com/webdoc/avrassembler/avrassembler.wb_instruction_list.html
 */
 
 function(hljs) {
@@ -58,7 +59,7 @@ function(hljs) {
       },
       {className: 'symbol',  begin: '^[A-Za-z0-9_.$]+:'},
       {className: 'meta', begin: '#', end: '$'},
-      {  // подстановка в «.macro»
+      {  // substitution within a macro
         className: 'subst',
         begin: '@[0-9]+'
       }

@@ -1,7 +1,7 @@
 /*
 Language: HSP
 Author: prince <MC.prince.0203@gmail.com>
-Website: http://prince.webcrow.jp/
+Website: https://en.wikipedia.org/wiki/Hot_Soup_Processor
 Category: scripting
 */
 

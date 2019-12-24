@@ -12,7 +12,7 @@ GML Theme - Meseta <meseta@gmail.com>
   color: #C0C0C0;
 }
 
-.hljs-keywords {
+.hljs-keyword {
   color: #FFB871;
   font-weight: bold;
 }

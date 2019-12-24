@@ -1,0 +1,35 @@
+using namespace System.Text
+using module CardGames
+
+function Get-PowerShellProcess { Get-Process PowerShell }
+Function Add-Numbers($one, $two) {
+    $one + $two
+}
+
+enum MediaTypes {
+    unknown
+    music = 10
+    mp3
+    aac
+    ogg = 15
+}
+
+"def" -notin "abc", "def"
+"Sunday" -notmatch "rain"
+"Good Dog" -match "Dog"
+2 -eq 2
+"abc" -ne "def"
+
+$hash = @{
+    SomeKey = 'SomeValue'
+    SomeKey2 = 'SomeValue2'
+    SomeKey3 = 'SomeValue3'
+}
+
+$client = New-Object System.Net.WebClient
+
+[System.Environment]::Commandline
+
+$notepad = Get-Process notepad
+$notepad.Kill()
+'this is rocket science'.Replace('rocket', 'rock')

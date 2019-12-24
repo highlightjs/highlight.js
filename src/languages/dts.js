@@ -2,6 +2,7 @@
 Language: Device Tree
 Description: *.dts files used in the Linux kernel
 Author: Martin Braun <martin.braun@ettus.com>, Moritz Fischer <moritz.fischer@ettus.com>
+Website: https://elinux.org/Device_Tree_Reference
 Category: config
 */
 

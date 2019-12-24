@@ -1,0 +1,2 @@
+<span class="hljs-template-tag">{{#<span class="hljs-name">block</span>}}</span><span class="xml">block content</span><span class="hljs-template-tag">{{/<span class="hljs-name">block</span>}}</span><span class="xml">
+</span>

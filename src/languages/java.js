@@ -2,6 +2,7 @@
 Language: Java
 Author: Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
 Category: common, enterprise
+Website: https://www.java.com/
 */
 
 function(hljs) {

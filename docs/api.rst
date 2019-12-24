@@ -4,7 +4,7 @@ Library API
 Highlight.js exports a few functions as methods of the ``hljs`` object.
 
 
-``highlight(name, value, ignore_illegals, continuation)``
+``highlight(languageName, code, ignore_illegals, continuation)``
 ---------------------------------------------------------
 
 Core highlighting function.
@@ -14,26 +14,34 @@ forces highlighting to finish even in case of detecting illegal syntax for the
 language instead of throwing an exception.
 The ``continuation`` is an optional mode stack representing unfinished parsing.
 When present, the function will restart parsing from this state instead of
-initializing a new one.
+initializing a new one.  This is used internally for `sublanguage` support.
+
+Note: `continuation` is NOT intended to support line-by-line highlighting
+because there is no requirement that a grammar handle linebreaks in any special
+way. It's quite possible for a grammar to have a single mode/regex that matches
+MANY lines at once.  This is not discouraged and entirely up to the grammar.
+
 Returns an object with the following properties:
 
-* ``language``: language name, same as the one passed into a function, returned for consistency with ``highlightAuto``
-* ``relevance``: integer value
+* ``language``: language name, same as the name passed in ``languageName``, returned for consistency with ``highlightAuto``
+* ``relevance``: integer value representing the relevance score
 * ``value``: HTML string with highlighting markup
 * ``top``: top of the current mode stack
+* ``illegal``: boolean representing whether any illegal matches were found
 
 
-``highlightAuto(value, languageSubset)``
+``highlightAuto(code, languageSubset)``
 ----------------------------------------
 
 Highlighting with language detection.
 Accepts a string with the code to highlight and an optional array of language names and aliases restricting detection to only those languages. The subset can also be set with ``configure``, but the local parameter overrides the option if set.
+
 Returns an object with the following properties:
 
 * ``language``: detected language
-* ``relevance``: integer value
+* ``relevance``: integer value representing the relevance score
 * ``value``: HTML string with highlighting markup
-* ``second_best``: object with the same structure for second-best heuristically detected language, may be absent
+* ``second_best``: object with the same structure for second-best heuristically detected language (may be absent)
 
 
 ``fixMarkup(value)``
@@ -118,3 +126,26 @@ Returns the languages names list.
 Looks up a language by name or alias.
 
 Returns the language object if found, ``undefined`` otherwise.
+
+
+``requireLanguage(name)``
+---------------------
+
+Looks up a language by name or alias.
+
+This should be used when one language definition depends on another.
+Using this function (vs ``getLanguage``) will provide better error messaging
+when a required language is missing.
+
+Returns the language object if found, raises a hard error otherwise.
+
+
+``debugMode()``
+---------------
+
+Enables *debug/development* mode.  **This mode purposely makes Highlight.js more fragile!  It should only be used for testing and local development (of languages or the library itself).**  By default "Safe Mode" is used, providing the most reliable experience for production usage.
+
+For example, if a new version suddenly had a serious bug (or breaking change) that affected only a single language:
+
+* **In Safe Mode**: All other languages would continue to highlight just fine.  The broken language would appear as a code block, but without any highlighting (as if it were plaintext).
+* **In Debug Mode**: All highlighting would stop when an error was encountered and a JavaScript error would be thrown.

@@ -1,9 +1,9 @@
 /*
 Language: Stan
-Author: Brendan Rocks <rocks.brendan@gmail.com>
-Contributors: Jeffrey B. Arnold <jeffrey.arnold@gmail.com>
+Description: The Stan probabilistic programming language
+Author: Jeffrey B. Arnold <jeffrey.arnold@gmail.com>
+Website: http://mc-stan.org/
 Category: scientific
-Description: The Stan probabilistic programming language (http://mc-stan.org/).
 */
 
 function (hljs) {

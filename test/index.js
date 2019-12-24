@@ -4,6 +4,9 @@
 // Right now, that only includes tests for several common regular expressions.
 require('./api');
 
+// Test weird bugs we've fixed over time
+require("./parser")
+
 // Tests for auto detection of languages via `highlightAuto`.
 require('./detect');
 
@@ -20,3 +23,5 @@ require('./markup');
 // isn't actually used to test inside a browser but `jsdom` acts as a virtual
 // browser inside of node.js and runs together with all the other tests.
 require('./special');
+
+require("./tools");

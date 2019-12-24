@@ -1,5 +1,5 @@
 {
-  key: value,
+  key: value, // with comment
   key2: value,
   'key-3': value,
   key4: false ? undefined : true

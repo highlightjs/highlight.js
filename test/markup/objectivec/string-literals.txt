@@ -1,0 +1,7 @@
+const char *str = "Regular \"quoted\" string\n";
+NSString *nsstr = @"Obj-C \"quoted\" string\n";
+char c = 'c';
+char c2 = '"';
+char c3 = '\'';
+char c4 = '\n';
+int multibyte_char = 'abcd';

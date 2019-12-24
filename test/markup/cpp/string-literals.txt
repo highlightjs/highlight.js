@@ -6,24 +6,63 @@ auto utf32 = U"Hello utf-32 string";
 
 // Wide-character strings
 auto wide_char = L"Hello wchar_t string";
+auto lr = LR"(Hello
+world)";
+
+// character literals
+auto wide_char = L'H';
+auto cr   = '\n';
+auto chr   = 'H';
+auto utf8  = u8'H';
+auto utf16 = u'H';
+auto utf32 = U'H';
+auto unicode = L'\u202e'
+auto hex = '\xFF'
+auto octal = '\123'
 
 // Raw string literals (multiline)
 auto char_multi  = R"(Hello
 "normal"
-muliline
+multiline
 string.)";
 auto utf8_multi  = u8R"(Hello
 "utf-8"
-muliline
+multiline
 string)";
 auto utf16_multi = uR"(Hello
 "utf-16"
-muliline
+multiline
 string)";
 auto utf32_multi = UR"(Hello
 "utf-32"
-muliline
+multiline
 string)";
+
+// Raw string literals with delimiter (multiline)
+auto char_multi  = R"blah1(Hello
+"normal"
+multiline
+)"
+)blah"
+string.)blah1";
+auto utf8_multi  = u8R"blah2(Hello
+"utf-8"
+multiline
+)"
+)blah"
+string)blah2";
+auto utf16_multi = uR"blah3(Hello
+"utf-16"
+multiline
+)"
+)blah"
+string)blah3";
+auto utf32_multi = UR"blah4(Hello
+"utf-32"
+multiline
+)"
+)blah"
+string)blah4";
 
 // Meta strings
 #include <stdio>

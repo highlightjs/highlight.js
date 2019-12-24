@@ -3,57 +3,66 @@ Language: Dart
 Requires: markdown.js
 Author: Maxim Dikun <dikmax@gmail.com>
 Description: Dart a modern, object-oriented language developed by Google. For more information see https://www.dartlang.org/
+Website: https://dart.dev
 Category: scripting
 */
 
-function (hljs) {
+function(hljs) {
   var SUBST = {
     className: 'subst',
-    variants: [
-       {begin: '\\$[A-Za-z0-9_]+'}
-    ],
+    variants: [{
+      begin: '\\$[A-Za-z0-9_]+'
+    }],
   };
 
   var BRACED_SUBST = {
     className: 'subst',
-    variants: [
-       {begin: '\\${', end: '}'},
-    ],
+    variants: [{
+      begin: '\\${',
+      end: '}'
+    }, ],
     keywords: 'true false null this is new super',
   };
 
   var STRING = {
     className: 'string',
-    variants: [
-      {
-        begin: 'r\'\'\'', end: '\'\'\''
+    variants: [{
+        begin: 'r\'\'\'',
+        end: '\'\'\''
       },
       {
-        begin: 'r"""', end: '"""'
+        begin: 'r"""',
+        end: '"""'
       },
       {
-        begin: 'r\'', end: '\'',
+        begin: 'r\'',
+        end: '\'',
         illegal: '\\n'
       },
       {
-        begin: 'r"', end: '"',
+        begin: 'r"',
+        end: '"',
         illegal: '\\n'
       },
       {
-        begin: '\'\'\'', end: '\'\'\'',
+        begin: '\'\'\'',
+        end: '\'\'\'',
         contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       },
       {
-        begin: '"""', end: '"""',
+        begin: '"""',
+        end: '"""',
         contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       },
       {
-        begin: '\'', end: '\'',
+        begin: '\'',
+        end: '\'',
         illegal: '\\n',
         contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       },
       {
-        begin: '"', end: '"',
+        begin: '"',
+        end: '"',
         illegal: '\\n',
         contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
       }
@@ -64,15 +73,16 @@ function (hljs) {
   ];
 
   var KEYWORDS = {
-    keyword: 'assert async await break case catch class const continue default do else enum extends false final ' +
-      'finally for if in is new null rethrow return super switch sync this throw true try var void while with yield ' +
-      'abstract as dynamic export external factory get implements import library operator part set static typedef',
+    keyword: 'abstract as assert async await break case catch class const continue covariant default deferred do ' +
+      'dynamic else enum export extends extension external factory false final finally for Function get hide if ' +
+      'implements import in inferface is library mixin new null on operator part rethrow return set show static ' +
+      'super switch sync this throw true try typedef var void while with yield',
     built_in:
       // dart:core
-      'print Comparable DateTime Duration Function Iterable Iterator List Map Match Null Object Pattern RegExp Set ' +
-      'Stopwatch String StringBuffer StringSink Symbol Type Uri bool double int num ' +
+      'Comparable DateTime Duration Function Iterable Iterator List Map Match Null Object Pattern RegExp Set ' +
+      'Stopwatch String StringBuffer StringSink Symbol Type Uri bool double dynamic int num print ' +
       // dart:html
-      'document window querySelector querySelectorAll Element ElementList'
+      'Element ElementList document querySelector querySelectorAll window'
   };
 
   return {
@@ -81,25 +91,28 @@ function (hljs) {
       STRING,
       hljs.COMMENT(
         '/\\*\\*',
-        '\\*/',
-        {
+        '\\*/', {
           subLanguage: 'markdown'
         }
       ),
       hljs.COMMENT(
-        '///',
-        '$',
-        {
-          subLanguage: 'markdown'
+        '///+\\s*',
+        '$', {
+          contains: [{
+            subLanguage: 'markdown',
+            begin: '.',
+            end: '$',
+          }]
         }
       ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '{', excludeEnd: true,
-        contains: [
-          {
+        beginKeywords: 'class interface',
+        end: '{',
+        excludeEnd: true,
+        contains: [{
             beginKeywords: 'extends implements'
           },
           hljs.UNDERSCORE_TITLE_MODE
@@ -107,7 +120,8 @@ function (hljs) {
       },
       hljs.C_NUMBER_MODE,
       {
-        className: 'meta', begin: '@[A-Za-z]+'
+        className: 'meta',
+        begin: '@[A-Za-z]+'
       },
       {
         begin: '=>' // No markup, just a relevance booster
@@ -115,4 +129,3 @@ function (hljs) {
     ]
   }
 }
-
