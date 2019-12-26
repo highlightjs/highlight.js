@@ -7,7 +7,31 @@ Website: https://github.com/toml-lang/toml
 */
 
 function(hljs) {
-  var STRING = {
+  var NUMBERS = {
+    className: 'number',
+    relevance: 0,
+    variants: [
+      { begin: /([\+\-]+)?[\d]+_[\d_]+/ },
+      { begin: hljs.NUMBER_RE }
+    ]
+  };
+  var COMMENTS = hljs.COMMENT();
+  COMMENTS.variants = [
+    {begin: /;/, end: /$/},
+    {begin: /#/, end: /$/},
+  ];
+  var VARIABLES = {
+    className: 'variable',
+    variants: [
+      { begin: /\$[\w\d"][\w\d_]*/ },
+      { begin: /\$\{(.*?)}/ }
+    ]
+  };
+  var LITERALS = {
+    className: 'literal',
+    begin: /\bon|off|true|false|yes|no\b/
+  };
+  var STRINGS = {
     className: "string",
     contains: [hljs.BACKSLASH_ESCAPE],
     variants: [
@@ -24,51 +48,44 @@ function(hljs) {
       }
     ]
   };
+  var ARRAY = {
+    begin: /\[/, end: /\]/,
+    contains: [
+      COMMENTS,
+      LITERALS,
+      VARIABLES,
+      STRINGS,
+      NUMBERS,
+      'self'
+    ],
+    relevance:0
+  };
+
   return {
     aliases: ['toml'],
     case_insensitive: true,
     illegal: /\S/,
     contains: [
-      hljs.COMMENT(';', '$'),
-      hljs.HASH_COMMENT_MODE,
+      COMMENTS,
       {
         className: 'section',
-        begin: /^\s*\[+/, end: /\]+/
+        begin: /\[+/, end: /\]+/
       },
       {
-        begin: /^[a-z0-9\[\]_\.-]+\s*=\s*/, end: '$',
-        returnBegin: true,
-        contains: [
+        begin: /^[a-z0-9\[\]_\.-]+(?=\s*=\s*)/,
+        className: 'attr',
+        starts:
           {
-            className: 'attr',
-            begin: /[a-z0-9\[\]_\.-]+/
-          },
-          {
-            begin: /=/, endsWithParent: true,
-            relevance: 0,
+            end: /$/,
             contains: [
-              hljs.COMMENT(';', '$'),
-              hljs.HASH_COMMENT_MODE,
-              {
-                className: 'literal',
-                begin: /\bon|off|true|false|yes|no\b/
-              },
-              {
-                className: 'variable',
-                variants: [
-                  {begin: /\$[\w\d"][\w\d_]*/},
-                  {begin: /\$\{(.*?)}/}
-                ]
-              },
-              STRING,
-              {
-                className: 'number',
-                begin: /([\+\-]+)?[\d]+_[\d_]+/
-              },
-              hljs.NUMBER_MODE
+              COMMENTS,
+              ARRAY,
+              LITERALS,
+              VARIABLES,
+              STRINGS,
+              NUMBERS
             ]
           }
-        ]
       }
     ]
   };
