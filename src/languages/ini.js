@@ -35,17 +35,10 @@ function(hljs) {
     className: "string",
     contains: [hljs.BACKSLASH_ESCAPE],
     variants: [
-      {
-        begin: "'''", end: "'''",
-        relevance: 10
-      }, {
-        begin: '"""', end: '"""',
-        relevance: 10
-      }, {
-        begin: '"', end: '"'
-      }, {
-        begin: "'", end: "'"
-      }
+      { begin: "'''", end: "'''", relevance: 10 },
+      { begin: '"""', end: '"""', relevance: 10 },
+      { begin: '"', end: '"' },
+      { begin: "'", end: "'" }
     ]
   };
   var ARRAY = {
@@ -74,18 +67,17 @@ function(hljs) {
       {
         begin: /^[a-z0-9\[\]_\.-]+(?=\s*=\s*)/,
         className: 'attr',
-        starts:
-          {
-            end: /$/,
-            contains: [
-              COMMENTS,
-              ARRAY,
-              LITERALS,
-              VARIABLES,
-              STRINGS,
-              NUMBERS
-            ]
-          }
+        starts: {
+          end: /$/,
+          contains: [
+            COMMENTS,
+            ARRAY,
+            LITERALS,
+            VARIABLES,
+            STRINGS,
+            NUMBERS
+          ]
+        }
       }
     ]
   };
