@@ -46,11 +46,12 @@ describe('hljs.highlightAuto()', () => {
 
     // assumes only one package provides the requested module name
     function detectTestDir(name) {
-      thirdPartyPackages.forEach(pkg => {
+      for (let i = 0; i < thirdPartyPackages.length; ++i) {
+        const pkg = thirdPartyPackages[i];
         const idx = pkg.names.indexOf(name);
         if (idx !== -1)
           return pkg.detectTestPaths[idx]
-      });
+      }
       return null; // test not found
     }
   });
