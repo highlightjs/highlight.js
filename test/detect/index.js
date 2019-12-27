@@ -51,7 +51,7 @@ describe('hljs.highlightAuto()', () => {
         if (idx !== -1)
           return pkg.detectTestPaths[idx]
       });
-      return null;
+      return null; // test not found
     }
   });
 

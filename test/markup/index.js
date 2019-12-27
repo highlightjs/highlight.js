@@ -46,9 +46,9 @@ describe('highlight() markup', async () => {
     }
 
     let thirdPartyPackages = await getThirdPartyPackages();
-    return thirdPartyPackages.forEach(
-      (pkg) => pkg.l.markupTestPaths.forEach(
-        testDir => testLanguage(l.name, {testDir})
+    thirdPartyPackages.forEach(
+      (pkg) => pkg.names.forEach(
+        (name, idx) => testLanguage(name, {testDir: pkg.markupTestPaths[idx]})
       )
     );
   })
