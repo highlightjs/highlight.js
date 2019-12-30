@@ -15,6 +15,7 @@ Core Changes:
 Language Improvements:
 
 - (javascript) support jsx fragments (#2333) [Josh Goebel][]
+- (ini) support TOML arrays, clean up grammar (#2335) [Josh Goebel][]
 - (vbnet) add nameof operator to the keywords (#2329) [Youssef Victor][]
 - (stan) updated with improved coverage of language keywords and patterns. (#1829) [Jeffrey Arnold][]
 
