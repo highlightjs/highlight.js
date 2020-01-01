@@ -6,6 +6,12 @@ Incompatibilities:
 Renamed Language Files:
 - chore(parser): rename `cs.js` to `csharp.js` [Josh Goebel][]
 - chore(parser): rename `tex.js` to `latex.js` [Josh Goebel][]
+- chore(parser): effectively rename `cpp.js` to `c-like.js` [Josh Goebel][]
+- chore(parser): create new `c.js` (C), depends on `c-like` now [Josh Goebel][]
+- chore(parser): create new `cpp.js` (C), depends on `c-like` now [Josh Goebel][]
+- This will allow us to clean up C/C++ in the future without another breaking change
+  by getting this require change out of the way early.
+  (https://github.com/highlightjs/highlight.js/issues/2146)
 
 Legacy Browser Issues:
 - **We're now using ES2015 features in the codebase.  Internet Explorer 11 is no longer supported.**

@@ -44,6 +44,14 @@ tasks.reorderDeps = function(options, blobs, done) {
     if(buf.Requires) {
       _.each(buf.Requires, function(language) {
         object = buffer[language];
+        // go a second level deep for dependencies
+        // (new build system will eliminate this)
+        if (object.Requires) {
+          _.each(object.Requires, function(language) {
+            let object = buffer[language];
+            pushInBlob(object);
+          });
+        }
         pushInBlob(object);
       });
     }
