@@ -1,0 +1,3 @@
+cd npm-test
+npm install sax@latest
+npm install @myorg/mypackage@latest
