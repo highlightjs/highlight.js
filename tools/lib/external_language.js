@@ -13,7 +13,7 @@ class LanguagePackage {
   async trySrcLanguages() {
     let dir = path.join(this.dir,"src/languages/*");
     let languages = await glob(dir);
-    if (languages.length) {
+    if (languages.length > 0) {
       this.files = languages.map(fn => path.join(process.cwd(), fn));
       this.names = this.files.map(fn => path.basename(fn,".js"));
       this._bundle = true;
