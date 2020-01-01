@@ -7,7 +7,7 @@ const hljs     = require('../../build');
 const path     = require('path');
 const utility  = require('../utility');
 
-const { getThirdPartyLanguages } = require("../../tools/lib/external_language")
+const { getThirdPartyPackages } = require("../../tools/lib/external_language")
 
 function testLanguage(language, {testDir}) {
   describe(language, function() {
@@ -45,8 +45,12 @@ describe('highlight() markup', async () => {
       languages.forEach(testLanguage);
     }
 
-    let thirdPartyLanguages = await getThirdPartyLanguages();
-    return thirdPartyLanguages.forEach((l) => testLanguage(l.name,{testDir: l.markupTestPath}));
+    let thirdPartyPackages = await getThirdPartyPackages();
+    thirdPartyPackages.forEach(
+      (pkg) => pkg.names.forEach(
+        (name, idx) => testLanguage(name, {testDir: pkg.markupTestPaths[idx]})
+      )
+    );
   })
 
   it("adding dynamic tests...", async function() {} ); // this is required to work

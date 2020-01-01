@@ -9,7 +9,7 @@ const REQUIRES_REGEX = /\/\*.*?Requires: (.*?)\n/s
 const CATEGORY_REGEX = /\/\*.*?Category: (.*?)\n/s
 const LANGUAGE_REGEX = /\/\*.*?Language: (.*?)\n/s
 const {rollupCode} = require("./bundling.js")
-const { getThirdPartyLanguages } = require("./external_language")
+const { getThirdPartyPackages } = require("./external_language")
 
 class Language {
 
@@ -98,11 +98,13 @@ async function getLanguages() {
   fs.readdirSync("./src/languages/").forEach((file) => {
     languages.push(Language.fromFile(file));
   });
-  let extraLanguages = await getThirdPartyLanguages();
-  for (let ext of extraLanguages) {
-    let l = Language.fromFile(ext.file);
-    l.loader = ext.loader;
-    languages.push(l);
+  let extraPackages = await getThirdPartyPackages();
+  for (let ext of extraPackages) {
+    for (let file of ext.files) {
+      let l = Language.fromFile(file);
+      l.loader = ext.loader;
+      languages.push(l);
+    }
   }
   return languages;
 }

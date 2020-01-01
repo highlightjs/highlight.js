@@ -13,28 +13,28 @@ class LanguagePackage {
   async trySrcLanguages() {
     let dir = path.join(this.dir,"src/languages/*");
     let languages = await glob(dir);
-    if (languages[0]) {
-      this.file = path.join(process.cwd(), languages[0]);
-      this.name = path.basename(this.file,".js");
+    if (languages.length > 0) {
+      this.files = languages.map(fn => path.join(process.cwd(), fn));
+      this.names = this.files.map(fn => path.basename(fn,".js"));
       this._bundle = true;
       this._valid = true;
       return true;
+    } else { return false; }
+  }
+
+  get markupTestPaths() {
+    if (this.bundle) {
+      return this.names.map(name => `${this.dir}/test/markup/${name}`);
+    } else {
+      return [`${this.dir}/test/markup`];
     }
   }
 
-  get markupTestPath() {
+  get detectTestPaths() {
     if (this.bundle) {
-      return `${this.dir}/test/markup/${this.name}`;
+      return this.names.map(name => `${this.dir}/test/detect/${name}`);
     } else {
-      return `${this.dir}/test/markup`;
-    }
-  }
-
-  get detectTestPath() {
-    if (this.bundle) {
-      return `${this.dir}/test/detect/${this.name}`;
-    } else {
-      return `${this.dir}/test/detect`;
+      return [`${this.dir}/test/detect`];
     }
   }
 
@@ -50,8 +50,8 @@ class LanguagePackage {
         if (content.match(MODULE_DEFINER)) {
           this.loader = "definer";
         }
-        this.file = file;
-        this.name = path.basename(file,".js");
+        this.files = [file];
+        this.names = [path.basename(file,".js")];
         this._valid = true;
         return true;
       }
@@ -74,17 +74,17 @@ class LanguagePackage {
   }
 }
 
-async function getThirdPartyLanguages() {
-  let languages = [];
-  let otherLanguages = await glob("./extra/*");
-  for (let packageDir of otherLanguages) {
-    let thirdPartyLanguage = new LanguagePackage(packageDir)
-    let valid = await thirdPartyLanguage.valid();
+async function getThirdPartyPackages() {
+  let packages = [];
+  let otherPackages = await glob("./extra/*");
+  for (let packageDir of otherPackages) {
+    let thirdPartyPackage = new LanguagePackage(packageDir)
+    let valid = await thirdPartyPackage.valid();
     if (valid) {
-      languages.push(thirdPartyLanguage)
+      packages.push(thirdPartyPackage)
     }
   }
-  return languages;
+  return packages;
 }
 
-module.exports = { LanguagePackage, getThirdPartyLanguages}
+module.exports = { LanguagePackage, getThirdPartyPackages}

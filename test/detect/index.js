@@ -8,7 +8,7 @@ const hljs     = require('../../build');
 hljs.debugMode(); // tests run in debug mode so errors are raised
 const path     = require('path');
 const utility  = require('../utility');
-const { getThirdPartyLanguages } = require('../../tools/lib/external_language')
+const { getThirdPartyPackages } = require('../../tools/lib/external_language')
 
 function testAutoDetection(language, {detectPath}) {
   const languagePath = detectPath || utility.buildPath('detect', language);
@@ -35,7 +35,7 @@ function testAutoDetection(language, {detectPath}) {
 
 describe('hljs.highlightAuto()', () => {
   before( async function() {
-    let thirdPartyLanguages = await getThirdPartyLanguages();
+    let thirdPartyPackages = await getThirdPartyPackages();
 
     let languages = hljs.listLanguages();
     describe(`hljs.highlightAuto()`, function() {
@@ -45,11 +45,15 @@ describe('hljs.highlightAuto()', () => {
       });
     });
 
+    // assumes only one package provides the requested module name
     function detectTestDir(name) {
-      let language = thirdPartyLanguages.find((x) => x.name == name);
-      if (language) {
-        return language.detectTestPath;
+      for (let i = 0; i < thirdPartyPackages.length; ++i) {
+        const pkg = thirdPartyPackages[i];
+        const idx = pkg.names.indexOf(name);
+        if (idx !== -1)
+          return pkg.detectTestPaths[idx]
       }
+      return null; // test not found
     }
   });
 
