@@ -1,47 +1,47 @@
 /*
 Language: NPM CLI
 */
-  function npmcli(hljs) {
-    var VAR = {
-        className: 'variable',
-        variants: [
-        {begin: /\$[\w\d#@][\w\d_]*/},
-        {begin: /\$\{(.*?)}/}
-        ]
-    };
-    var PARAMETER =
-    {
-      // Match command line parameters (-p, -u)
-      className: 'parameter',
-      variants: [ //single dash, double dash, double dash in square brackets
-        {begin: ' -{1,2}[a-zA-Z\-]*'},
-        {begin: '--[a-zA-Z\-]*'},
-        {begin: '\[--[a-zA-Z\-]*\]'},
-      ],
-      relevance: 0
-    };
+function(hljs) {
+  var VAR = {
+    className: 'variable',
+    variants: [
+    {begin: /\$[\w\d#@][\w\d_]*/},
+    {begin: /\$\{(.*?)}/}
+    ]
+  };
+  var PARAMETER =
+  {
+    // Match command line parameters (-p, -u)
+    className: 'parameter',
+    variants: [ //single dash, double dash, double dash in square brackets
+      {begin: ' -{1,2}[a-zA-Z\-]*'},
+      {begin: '--[a-zA-Z\-]*'},
+      {begin: '\[--[a-zA-Z\-]*\]'},
+    ],
+    relevance: 0
+  };
 
-    var QUOTE_STRING = {
-        className: 'string',
-        begin: /"/, end: /"/,
-        contains: [
-        hljs.BACKSLASH_ESCAPE,
-        VAR,
-        {
-            className: 'variable',
-            begin: /\$\(/, end: /\)/,
-            contains: [hljs.BACKSLASH_ESCAPE]
-        }
-        ]
-    };
-    var APOS_STRING = {
-        className: 'string',
-        begin: /'/, end: /'/
-    };
-    var AngleBracket_STRING = {
-        className: 'string',
-        begin: /</, end: />/
-    };
+  var QUOTE_STRING = {
+    className: 'string',
+    begin: /"/, end: /"/,
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      VAR,
+      {
+        className: 'variable',
+        begin: /\$\(/, end: /\)/,
+        contains: [hljs.BACKSLASH_ESCAPE]
+      }
+    ]
+  };
+  var APOS_STRING = {
+    className: 'string',
+    begin: /'/, end: /'/
+  };
+  var AngleBracket_STRING = {
+    className: 'string',
+    begin: /</, end: />/
+  };
 
   return {
     aliases: ['npmcli', 'npm'],
