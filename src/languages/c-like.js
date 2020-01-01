@@ -1,9 +1,16 @@
 /*
-Language: C++
+Language: C-like foundation grammar for C/C++ grammars
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Zaven Muradyan <megalivoithos@gmail.com>, Roel Deckers <admin@codingcat.nl>, Sam Wu <samsam2310@gmail.com>, Jordi Petit <jordi.petit@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>, Google Inc. (David Benjamin) <davidben@google.com>
 Category: common, system
-Website: https://isocpp.org
+*/
+
+/* In the future the intention is to split out the C/C++ grammars distinctly
+since they are separate languages.  They will likely share a common foundation
+though, and this file sets the groundwork for that - so that we get the breaking
+change in v10 and don't have to change the requirements again later.
+
+See: https://github.com/highlightjs/highlight.js/issues/2146
 */
 
 function(hljs) {
@@ -192,6 +199,9 @@ function(hljs) {
   return {
     aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp', 'hh', 'hxx', 'cxx'],
     keywords: CPP_KEYWORDS,
+    // the base c-like language will NEVER be auto-detected, rather the
+    // derivitives: c, c++, arduino turn auto-detect back on for themselves
+    disableAutodetect: true,
     illegal: '</',
     contains: [].concat(
       EXPRESSION_CONTEXT,
