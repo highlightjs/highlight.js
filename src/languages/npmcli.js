@@ -1,7 +1,7 @@
 /*
 Language: NPM CLI
 */
-  function dotnetcli(hljs) {
+  function npmcli(hljs) {
     var VAR = {
         className: 'variable',
         variants: [
