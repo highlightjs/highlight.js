@@ -2,7 +2,7 @@
 
 New languages:
 
-- *npm CLI* - by [Youssef Victor][]
+- *npm CLI* - npm command-line interface (#2341) by [Youssef Victor][]
 
 New themes:
 
