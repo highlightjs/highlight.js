@@ -2,7 +2,7 @@
 
 New languages:
 
-- none.
+- *npm CLI* - by [Youssef Victor][]
 
 New themes:
 
