@@ -80,7 +80,8 @@ The table below shows the full list of supported languages (and corresponding cl
 | BNF                     | bnf                    |         |
 | Brainfuck               | brainfuck, bf          |         |
 | C#                      | csharp, cs             |         |
-| C++                     | cpp, c, cc, h, c++, h++, hpp |   |
+| C                       | h                      |         |
+| C++                     | cpp, hpp, cc, hh, c++, h++, cxx, hxx |   |
 | C/AL                    | cal                    |         |
 | Cache Object Script     | cos, cls               |         |
 | CMake                   | cmake, cmake.in        |         |

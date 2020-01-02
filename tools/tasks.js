@@ -212,7 +212,7 @@ tasks.readSnippet = function(options, blob, done) {
       snippetName = path.join('test', 'detect', name, 'default.txt');
 
   function onRead(error, blob) {
-    if(error) return done(error); // ignore missing snippets
+    if(error) return done(null); // ignore missing snippets
 
     let meta = { name: `${name}.js`, fileInfo: fileInfo };
 
