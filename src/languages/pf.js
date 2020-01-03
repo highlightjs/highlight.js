@@ -1,8 +1,9 @@
 /*
-Language: pf
-Category: config
+Language: pf.conf
+Description: pf.conf — packet filter configuration file (OpenBSD)
 Author: Peter Piwowarski <oldlaptop654@aol.com>
-Description: The pf.conf(5) format as of OpenBSD 5.6
+Website: http://man.openbsd.org/pf.conf
+Category: config
 */
 
 function(hljs) {

@@ -21,7 +21,7 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 			http://chir.ag/projects/name-that-color
 */
 
-.hljs { /* Common set of rules required by highlight.js (don'r remove!) */
+.hljs {
 	display: block;
 	overflow-x: auto;
 	padding: 0.5em;

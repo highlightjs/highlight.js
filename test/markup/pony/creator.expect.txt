@@ -1,0 +1,3 @@
+<span class="hljs-keyword">new</span> create(env: <span class="hljs-type">Env</span>, name: <span class="hljs-type">String</span>) =&gt;
+  _env = env
+  _name = name

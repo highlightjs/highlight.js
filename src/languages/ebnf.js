@@ -1,6 +1,7 @@
 /*
 Language: Extended Backus-Naur Form
 Author: Alex McKibben <alex@nullscope.net>
+Website: https://en.wikipedia.org/wiki/Extended_Backus–Naur_form
 */
 
 function(hljs) {
@@ -8,7 +9,7 @@ function(hljs) {
 
     var nonTerminalMode = {
         className: "attribute",
-        begin: /^[ ]*[a-zA-Z][a-zA-Z-]*([\s-]+[a-zA-Z][a-zA-Z]*)*/
+        begin: /^[ ]*[a-zA-Z][a-zA-Z-_]*([\s-_]+[a-zA-Z][a-zA-Z]*)*/
     };
 
     var specialSequenceMode = {
@@ -17,12 +18,19 @@ function(hljs) {
     };
 
     var ruleBodyMode = {
-        begin: /=/, end: /;/,
+        begin: /=/, end: /[.;]/,
         contains: [
             commentMode,
             specialSequenceMode,
-            // terminals
-            hljs.APOS_STRING_MODE, hljs.QUOTE_STRING_MODE
+            {
+              // terminals
+              className: 'string',
+              variants: [
+                hljs.APOS_STRING_MODE,
+                hljs.QUOTE_STRING_MODE,
+                {begin: '`', end: '`'},
+              ]
+            },
         ]
     };
 

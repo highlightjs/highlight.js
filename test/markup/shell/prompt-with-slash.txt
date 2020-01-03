@@ -1,0 +1,13 @@
+pao-sw-a04-40(config)# interface range ethernet 1/1/1-1/1/9
+pao-sw-a04-42(conf-range-eth1/1/1-1/1/9)# switchport trunk allowed vlan 1102
+pao-sw-a04-42(conf-range-eth1/1/1-1/1/9)# show configuration
+!
+interface ethernet1/1/1
+ description pao-sw-a03-09_port56
+ no shutdown
+ switchport mode trunk
+ switchport access vlan 1
+ switchport trunk allowed vlan 998,1000,1006,1010,1012-1015,1102,1200,1210,1296,1300-1304,1310-1312,1320-1322,1330-1332,1340-1352,1400-1404,1410-1412,1420-1422,1430-1432,1440-1452,1500-1504,1510-1512,1520-1522,1530-1532,1540-1552,1600-1604,1610-1612,1620-1622,1630-1632,1640-1652,1700-1704,1710-1712,1720-1722,1730-1732,1740-1752,1800-1804,1810-1812,1820-1822,1830-1832,1840-1852,1900-1904,1910-1912,1920-1922,1930-1932,1940-1952,3939
+ mtu 9216
+ flowcontrol receive on
+ flowcontrol transmit off

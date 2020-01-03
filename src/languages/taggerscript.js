@@ -2,6 +2,7 @@
 Language: Tagger Script
 Author: Philipp Wolfer <ph.wolfer@gmail.com>
 Description: Syntax Highlighting for the Tagger Script as used by MusicBrainz Picard.
+Website: https://picard.musicbrainz.org
  */
 function(hljs) {
 

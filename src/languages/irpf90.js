@@ -1,7 +1,8 @@
 /*
 Language: IRPF90
 Author: Anthony Scemama <scemama@irsamc.ups-tlse.fr>
-Description: IRPF90 is an open-source Fortran code generator : http://irpf90.ups-tlse.fr
+Description: IRPF90 is an open-source Fortran code generator
+Website: http://irpf90.ups-tlse.fr
 Category: scientific
 */
 

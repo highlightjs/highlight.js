@@ -1,0 +1,8 @@
+<span class="hljs-string">"astring"</span>
+expression
+<span class="hljs-string">"a <span class="hljs-subst">${  <span class="hljs-string">"string"</span> }</span> <span class="hljs-subst">${<span class="hljs-string">'c'</span>}</span> b"</span>
+<span class="hljs-string">"a <span class="hljs-subst">${  <span class="hljs-string">"string <span class="hljs-variable">$var</span> <span class="hljs-subst">${subs}</span>"</span> }</span> b"</span>
+<span class="hljs-string">"""  <span class="hljs-subst">${
+    ${subst}</span>
+} """</span>
+<span class="hljs-string">"""f="true""""</span>

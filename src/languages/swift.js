@@ -1,8 +1,10 @@
 /*
 Language: Swift
+Description: Swift is a general-purpose programming language built using a modern approach to safety, performance, and software design patterns.
 Author: Chris Eidhof <chris@eidhof.nl>
 Contributors: Nate Cook <natecook@gmail.com>, Alexander Lichter <manniL@gmx.net>
-Category: system
+Website: https://swift.org
+Category: common, system
 */
 
 
@@ -41,6 +43,11 @@ function(hljs) {
     begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*',
     relevance: 0
   };
+  // slightly more special to swift
+  var OPTIONAL_USING_TYPE = {
+    className: 'type',
+    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]'
+  }
   var BLOCK_COMMENT = hljs.COMMENT(
     '/\\*',
     '\\*/',
@@ -75,6 +82,7 @@ function(hljs) {
       STRING,
       hljs.C_LINE_COMMENT_MODE,
       BLOCK_COMMENT,
+      OPTIONAL_USING_TYPE,
       TYPE,
       NUMBERS,
       {
@@ -119,7 +127,8 @@ function(hljs) {
                   '@NSCopying|@NSManaged|@objc|@objcMembers|@convention|@required|' +
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
                   '@infix|@prefix|@postfix|@autoclosure|@testable|@available|' +
-                  '@nonobjc|@NSApplicationMain|@UIApplicationMain)'
+                  '@nonobjc|@NSApplicationMain|@UIApplicationMain|@dynamicMemberLookup|' +
+                  '@propertyWrapper)'
 
       },
       {

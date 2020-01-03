@@ -92,10 +92,37 @@ function copyMetaFiles() {
   };
 }
 
+function buildSCSSStyles() {
+  let input   = path.join(directory.root, 'src', 'styles', '*.css'),
+      output  = path.join(directory.build, 'scss'),
+      options = { encoding: 'utf8', dir: output }
+
+  return {
+    startLog: { task: ['log', 'Building SCSS styles.'] },
+    read: { requires: 'startLog', task: ['glob', utility.glob(input)] },
+    writeLog: { requires: 'read', task: ['log', 'Writing SCSS styles.'] },
+    rename: { requires: 'writeLog', task: ['rename', { extname: '.scss' }] },
+    write: { requires: 'rename', task: ['dest', options] }
+  };
+}
+
+function buildSCSSImages() {
+  let input   = path.join(directory.root, 'src', 'styles', '*.{jpg,png}'),
+      output  = path.join(directory.build, 'scss'),
+      options = { encoding: 'binary', dir: output }
+
+  return {
+    startLog: { task: ['log', 'Building SCSS files.'] },
+    read: { requires: 'startLog', task: ['glob', utility.glob(input, 'binary')] },
+    writeLog: { requires: 'read', task: ['log', 'Writing SCSS files.'] },
+    write: { requires: 'writeLog', task: ['dest', options] }
+  };
+}
+
 function buildStyles() {
-  let input   = path.join(directory.root, 'src', 'styles', '*'),
+  let input   = path.join(directory.root, 'src', 'styles', '*.css'),
       output  = path.join(directory.build, 'styles'),
-      options = { encoding: 'binary', dir: output };
+      options = { encoding: 'utf8', dir: output };
 
   return {
     startLog: { task: ['log', 'Building style files.'] },
@@ -104,6 +131,19 @@ function buildStyles() {
       task: ['glob', utility.glob(input, 'binary')]
     },
     writeLog: { requires: 'read', task: ['log', 'Writing style files.'] },
+    write: { requires: 'writeLog', task: ['dest', options] }
+  };
+}
+
+function buildCSSImages() {
+  let input   = path.join(directory.root, 'src', 'styles', '*.{jpg,png}'),
+      output  = path.join(directory.build, 'styles'),
+      options = { encoding: 'binary', dir: output }
+
+  return {
+    startLog: { task: ['log', 'Building CSS image files.'] },
+    read: { requires: 'startLog', task: ['glob', utility.glob(input, 'binary')] },
+    writeLog: { requires: 'read', task: ['log', 'Writing CSS images files.'] },
     write: { requires: 'writeLog', task: ['dest', options] }
   };
 }
@@ -127,12 +167,14 @@ function buildPackageFile() {
 module.exports = function(commander, dir) {
   directory = dir;
   filterCB  = utility.buildFilterCallback(commander.args);
-
   let tasks = [
     buildLanguages(),
     buildCore(),
     buildIndex(),
     buildStyles(),
+    buildCSSImages(),
+    buildSCSSStyles(),
+    buildSCSSImages(),
     copyMetaFiles(),
     buildPackageFile()
   ];

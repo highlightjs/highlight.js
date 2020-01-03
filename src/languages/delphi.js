@@ -1,5 +1,6 @@
 /*
 Language: Delphi
+Website: https://www.embarcadero.com/products/delphi
 */
 
 function(hljs) {
