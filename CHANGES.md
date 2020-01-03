@@ -14,6 +14,7 @@ Core Changes:
 
 Language Improvements:
 
+- (fortran) added `block` and `endblock` keywords (#2343) [Philipp Engel][]
 - (javascript) support jsx fragments (#2333) [Josh Goebel][]
 - (ini) support TOML arrays, clean up grammar (#2335) [Josh Goebel][]
 - (vbnet) add nameof operator to the keywords (#2329) [Youssef Victor][]
@@ -21,6 +22,7 @@ Language Improvements:
 
 [Jeffrey Arnold]: https://github.com/jrnold
 [Josh Goebel]: https://github.com/yyyc514
+[Philipp Engel]: https://github.com/interkosmos
 [Youssef Victor]: https://github.com/Youssef1313
 
 
