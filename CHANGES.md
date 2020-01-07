@@ -16,6 +16,7 @@ Core Changes:
 
 Language Improvements:
 
+- enh(clojureAdd support for global definitions name (#2347) [Alexandre Grison][]
 - fix(elixir) Support function names with a slash (#2406) [Josh Goebel][]
 - fix(javascript) comma is allowed in a "value container" (#2403) [Josh Goebel][]
 - enh(apache) add `deny` and `allow` keywords [Josh Goebel][]
@@ -42,6 +43,7 @@ Developer Tools:
 
 - added Dockerfile for optionally developing with a container
 
+[Alexandre Grison]: https://github.com/agrison
 [Josh Goebel]: https://github.com/yyyc514
 [Sam Miller]: https://github.com/smillerc
 [Robert Riebisch]: https://github.com/bttrx
