@@ -8,7 +8,7 @@ Website: https://isocpp.org
 
 function(hljs) {
   function optional(s) {
-    return '(' + s + ')?';
+    return '(?:' + s + ')?';
   }
   var DECLTYPE_AUTO_RE = 'decltype\\(auto\\)'
   var NAMESPACE_RE = '[a-zA-Z_]\\w*::'
