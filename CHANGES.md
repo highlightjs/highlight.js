@@ -20,11 +20,15 @@ Language Improvements:
 - (vbnet) add nameof operator to the keywords (#2329) [Youssef Victor][]
 - (stan) updated with improved coverage of language keywords and patterns. (#1829) [Jeffrey Arnold][]
 
+Developer Tools:
+
+- feat(developer): add button to show parsed structure (#2345) [Nils Knappmeier][]
+
 [Jeffrey Arnold]: https://github.com/jrnold
 [Josh Goebel]: https://github.com/yyyc514
 [Philipp Engel]: https://github.com/interkosmos
 [Youssef Victor]: https://github.com/Youssef1313
-
+[Nils Knappmeier]: https://github.com/nknapp
 
 ## Version 9.17.1
 
