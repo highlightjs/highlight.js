@@ -1,0 +1,16 @@
+decltype(auto) look_up_a_string_1() { return lookup1(); }
+void look_up_a_string_2() { return lookup2(); }
+friend void A::showB(B x) {}
+friend void showB(B x) {}
+friend void showB(B::SomeType x) {}
+inline int add(int a, int b) {}
+int8t Get_Tile_Value() {}
+
+int8_t Get_Tile_Value() {}
+
+B::type test() {};
+
+// template
+boost::optional<application> handle_key(application state, key_code key, coord size);
+
+test();

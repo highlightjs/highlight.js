@@ -19,12 +19,20 @@ Language Improvements:
 - (ini) support TOML arrays, clean up grammar (#2335) [Josh Goebel][]
 - (vbnet) add nameof operator to the keywords (#2329) [Youssef Victor][]
 - (stan) updated with improved coverage of language keywords and patterns. (#1829) [Jeffrey Arnold][]
+- enh(cpp) Detect namespaced function types (`A::typeName func(...)`) (#2332) [Josh Goebel][]
+- enh(cpp) Detect namespaced functions also (`A::functionName`) (#2332) [Josh Goebel][]
+- enh(cpp) Properly detect decltype(auto) (#2332) [Josh Goebel][]
+- enh(cpp) recognize primitive types (`int8_t`, etc.) as function types (#2332) [Josh Goebel][]
+
+Developer Tools:
+
+- feat(developer): add button to show parsed structure (#2345) [Nils Knappmeier][]
 
 [Jeffrey Arnold]: https://github.com/jrnold
 [Josh Goebel]: https://github.com/yyyc514
 [Philipp Engel]: https://github.com/interkosmos
 [Youssef Victor]: https://github.com/Youssef1313
-
+[Nils Knappmeier]: https://github.com/nknapp
 
 ## Version 9.17.1
 
