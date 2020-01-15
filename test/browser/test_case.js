@@ -12,6 +12,12 @@ function newTestCase(opts) {
   test.expect = opts.expect;
   test.language = opts.language;
   test.html = test.html || `<pre><code class='${test.language}'>${test.code}</code></pre>`;
+  test.runner = async function() {
+    await buildFakeDOM.bind(this, test)();
+    this.hljs.highlightBlock(this.block);
+    const actual = this.block.innerHTML;
+    actual.should.equal(test.expect);
+  }
   return test;
 }
 
