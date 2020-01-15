@@ -1,22 +1,8 @@
 'use strict';
 
-const { JSDOM } = require('jsdom');
-const utility  = require('../utility');
 const {promisify} = require('util');
-const glob     = promisify(require('glob'));
-const fs       = require('fs');
 
-const buildFakeDOM = async function() {
-  // Will match both `highlight.pack.js` and `highlight.min.js`
-  const filePath = utility.buildPath('..', 'build', 'highlight.*.js');
-  const hljsPath = await glob(filePath)
-  const hljsFiles = await hljsPath.map(path => fs.readFileSync(path, 'utf8'))
-  const hljsScript = await hljsFiles.map(file => `<script>${file}</script>`).join("")
-  const { window} = await new JSDOM(hljsScript + this.html, { runScripts: "dangerously" })
-
-  this.block = window.document.querySelector('pre code');
-  this.hljs  = window.hljs;
-};
+const {newTestCase, defaultCase, buildFakeDOM } = require('./test_case')
 
 class ContentAdder {
   constructor(params) {
@@ -29,9 +15,11 @@ class ContentAdder {
 
 describe('before:highlightBlock', function() {
   it('can modify block content before highlight', async function() {
-    this.text = "This is the original content."
-    this.html = `<pre><code class="javascript">${this.text}</code></pre>`;
-    await buildFakeDOM.bind(this)();
+    const testCase = newTestCase({
+      code: "This is the original content.",
+      language: "javascript"
+    })
+    await buildFakeDOM.bind(this)(testCase);
 
     this.hljs.addPlugin({
       'before:highlightBlock': ({block, language}) => {
@@ -47,21 +35,24 @@ describe('before:highlightBlock', function() {
   });
 
   it("supports class based plugins", async function() {
-    this.text = "var b";
-    this.html = `<pre><code class="javascript">${this.text}</code></pre>`;
-    await buildFakeDOM.bind(this)();
+    const testCase = newTestCase({
+      code: "var b",
+      language: "javascript",
+      expect: `<span class="hljs-keyword">var</span> b = <span class="hljs-number">5</span>;`
+    });
+    await buildFakeDOM.bind(this)(testCase);
 
     this.hljs.addPlugin(new ContentAdder({content:" = 5;"}))
     this.hljs.highlightBlock(this.block);
     const actual = this.block.innerHTML;
-    actual.should.equal(
-      `<span class="hljs-keyword">var</span> b = <span class="hljs-number">5</span>;`);
+    actual.should.equal(testCase.expect);
+
   })
 })
 
 describe('after:highlightBlock', function() {
   it('receives result data', async function() {
-    await buildFakeDOM.bind(this)();
+    await buildFakeDOM.bind(this)(defaultCase);
 
     var pluginCalled = 0;
 
