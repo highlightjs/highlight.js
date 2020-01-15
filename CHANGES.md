@@ -24,11 +24,15 @@ Language Improvements:
 - enh(cpp) Properly detect decltype(auto) (#2332) [Josh Goebel][]
 - enh(cpp) recognize primitive types (`int8_t`, etc.) as function types (#2332) [Josh Goebel][]
 
+Developer Tools:
+
+- feat(developer): add button to show parsed structure (#2345) [Nils Knappmeier][]
+
 [Jeffrey Arnold]: https://github.com/jrnold
 [Josh Goebel]: https://github.com/yyyc514
 [Philipp Engel]: https://github.com/interkosmos
 [Youssef Victor]: https://github.com/Youssef1313
-
+[Nils Knappmeier]: https://github.com/nknapp
 
 ## Version 9.17.1
 
