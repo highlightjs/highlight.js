@@ -9,10 +9,8 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  line-height: 1.3em;
   color: #abb2bf;
   background: #282c34;
-  border-radius: 5px;
 }
 .hljs-keyword, .hljs-operator {
   color: #F92672;

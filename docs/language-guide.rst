@@ -126,6 +126,8 @@ This is commonly used to define nested modes:
     contains: [hljs.QUOTE_STRING_MODE, 'self']
   }
 
+Note: ``self`` may not be used in the root level ``contains`` of a language.  The root level mode is special and may not be self-referential.
+
 
 Comments
 --------

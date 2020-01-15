@@ -1,0 +1,5 @@
+<span class="hljs-keyword">SELECT</span> <span class="hljs-string">'\'</span>;
+
+<span class="hljs-keyword">SELECT</span> <span class="hljs-string">"\"</span>;
+
+<span class="hljs-keyword">SELECT</span> <span class="hljs-string">`\`</span>;

@@ -1,0 +1,10 @@
+
+moo=["foo"]
+
+KNOWN_PEERS = [
+    "finland.some-host.com:11625",
+    "germany.some-host.com:11625",
+    "hongkong.some-host.com:11625",
+    32,
+    true
+]
