@@ -101,7 +101,7 @@ describe('after:highlightBlock', function() {
     });
 
     this.hljs.highlightBlock(this.block);
-    this.block.outerHTML.should.equal(`<code class="hljs basic">anothingstring</code>`);
+    should(this.block.outerHTML.includes(`class="hljs basic"`)).equal(true);
 
   })
   it('can modify result and affect the render output', async function() {
