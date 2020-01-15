@@ -88,4 +88,35 @@ describe('after:highlightBlock', function() {
 
     this.hljs.highlightBlock(this.block);
   });
+  it('can override language if not originally provided (in class)', async function() {
+    var test = newTestCase({
+      code: "anothingstring",
+      language: ""
+    });
+    await buildFakeDOM.bind(this)(test);
+    this.hljs.addPlugin({
+      'after:highlightBlock': ({block, result}) => {
+        result.language="basic";
+      }
+    });
+
+    this.hljs.highlightBlock(this.block);
+    this.block.outerHTML.should.equal(`<code class="hljs basic">anothingstring</code>`);
+
+  })
+  it('can modify result and affect the render output', async function() {
+    var test = newTestCase({
+      code: "var a = 4;",
+      language: "javascript"
+    })
+    await buildFakeDOM.bind(this)(test);
+    this.hljs.addPlugin({
+      'after:highlightBlock': ({block, result}) => {
+        result.value="redacted";
+      }
+    });
+
+    this.hljs.highlightBlock(this.block);
+    this.block.outerHTML.should.equal(`<code class="javascript hljs">redacted</code>`);
+  })
 })

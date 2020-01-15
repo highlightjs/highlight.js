@@ -901,6 +901,8 @@ https://highlightjs.org/
     }
     result.value = fixMarkup(result.value);
 
+    fire("after:highlightBlock", { block: block, result: result});
+
     block.innerHTML = result.value;
     block.className = buildClassName(block.className, language, result.language);
     block.result = {
@@ -913,7 +915,6 @@ https://highlightjs.org/
         re: result.second_best.relevance
       };
     }
-    fire("after:highlightBlock", { block: block, result: result});
   }
 
   /*
