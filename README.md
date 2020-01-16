@@ -121,6 +121,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | Gherkin                 | gherkin                |         |
 | GN for Ninja            | gn, gni                | [highlightjs-GN](https://github.com/highlightjs/highlightjs-GN/blob/master/gn.js) |
 | Go                      | go, golang             |         |
+| Grammatical Framework   | gf                     | [highlightjs-gf](https://github.com/johnjcamilleri/highlightjs-gf) |
 | Golo                    | golo, gololang         |         |
 | Gradle                  | gradle                 |         |
 | Groovy                  | groovy                 |         |
