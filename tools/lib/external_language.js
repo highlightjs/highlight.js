@@ -10,6 +10,7 @@ class LanguagePackage {
     this.dir = packageDir;
   }
 
+  // check for language modules in /src/languages
   async trySrcLanguages() {
     let dir = path.join(this.dir,"src/languages/*");
     let languages = await glob(dir);
@@ -38,6 +39,7 @@ class LanguagePackage {
     }
   }
 
+  // try to find a language module by probing package.json
   async tryPackageJSON() {
     let pack = path.join(this.dir,"package.json");
     if (fs.existsSync(pack)) {
@@ -47,6 +49,11 @@ class LanguagePackage {
         this.type = "npm";
         let file = path.join(process.cwd(),this.dir, json.main);
         let content = await fsProm.readFile(file, { encoding: "utf8" });
+        // many existing languages seem to export a `definer` function rather than
+        // simply export the language module directly.  This checks for that and if
+        // so allows those existing modules to work "as is" by allowing the build
+        // system to know it should call `definer` to define the language not call
+        // the default export
         if (content.match(MODULE_DEFINER)) {
           this.loader = "definer";
         }
@@ -61,7 +68,13 @@ class LanguagePackage {
   get bundle() { return this._bundle; }
 
   async detect() {
+    // any bundle with files in ROOT/src/languages/ will be considered a potential
+    // multi language bundle and any files in that directy will be considered to be
+    // language modules
     await this.trySrcLanguages() ||
+      // otherwise we fall back to looking for a package.json and whatever it's
+      // `main` entry point is that is the file we assume the language module is
+      // defined in
       await this.tryPackageJSON();
     this._detected = true;
   }
@@ -74,6 +87,8 @@ class LanguagePackage {
   }
 }
 
+// third party language modules are dropped into the `highlight-js/extra`
+// folder and will be auto-detected by the build system
 async function getThirdPartyPackages() {
   let packages = [];
   let otherPackages = await glob("./extra/*");
