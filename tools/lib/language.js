@@ -1,7 +1,7 @@
 const fs = require("fs")
 const fsProm = require("fs").promises
 const Terser = require("terser");
-const glob = require("glob-promise")
+const glob = require("glob")
 const path = require("path")
 const build_config = require("../build_config")
 
@@ -62,7 +62,7 @@ class Language {
   }
 
   static fromFile(filename) {
-    if (filename.startsWith("/"))
+    if (filename.startsWith("/") || filename.startsWith("."))
     {
       var file = filename
     } else {
@@ -95,7 +95,7 @@ async function compileLanguage (language, options) {
 
 async function getLanguages() {
   let languages = [];
-  fs.readdirSync("./src/languages/").forEach((file) => {
+  glob.sync("./src/languages/*.js").forEach((file) => {
     languages.push(Language.fromFile(file));
   });
   let extraPackages = await getThirdPartyPackages();
