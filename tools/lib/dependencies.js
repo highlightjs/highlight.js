@@ -30,10 +30,12 @@ const reorderDependencies = (languages) => {
  * @returns {array<Language>} filtered list
 */
 
-const languagesByGroup = (languages, groupName) => {
-  return languages.filter((el) => el.categories.includes(groupName))
+const languagesByGroup = (languages, groupIdentifier) => {
+  let groupName = groupIdentifier.replace(":","");
+  return languages.filter((el) => el.categories.includes(groupName));
 }
-const isGroupName = (name) => name[0] == ":"
+// :common is a group identifier, "common" is the group name
+const isGroup = (id) => id[0] == ":"
 
 
 /**
@@ -52,16 +54,16 @@ const filter = (allLanguages, includes) => {
     return reorderDependencies(allLanguages);
 
   let languages = [];
-  for (let lang of includes) {
-    if (isGroupName(lang)) {
-      let group = lang.substr(1)
-      languages = languages.concat(languagesByGroup(allLanguages,group))
+  for (let item of includes) {
+    if (isGroup(item)) {
+      languages = languages.concat(languagesByGroup(allLanguages, item))
     } else {
-      let found = allLanguages.find((el) => el.name == lang )
+      let languageName = item;
+      let found = allLanguages.find((el) => el.name == languageName )
       if (found)
         languages.push(found)
       else {
-        console.error(`[ERROR] Language '${lang}' could not be found.`)
+        console.error(`[ERROR] Language '${languageName}' could not be found.`)
         process.exit(1)
       }
     }
