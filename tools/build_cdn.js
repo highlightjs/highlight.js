@@ -30,11 +30,11 @@ async function buildCDN(options) {
   log("All Lang            :",
     languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes");
   log("highlight.js        :",
-    size.regular, "bytes");
+    size.full, "bytes");
 
   if (options.minify) {
     log("highlight.min.js    :", size.minified ,"bytes");
-    log("highlight.min.js.gz :", zlib.gzipSync(size.data).length ,"bytes");
+    log("highlight.min.js.gz :", zlib.gzipSync(size.minifiedSrc).length ,"bytes");
   } else {
     log("highlight.js.gz     :", zlib.gzipSync(size.fullSrc).length ,"bytes");
   }

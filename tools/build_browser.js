@@ -47,10 +47,10 @@ async function buildBrowser(options) {
     log("Languages (min)     :",
       languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes");
   }
-  log("highlight.js        :", size.regular ,"bytes");
+  log("highlight.js        :", size.full ,"bytes");
   if (options.minify) {
     log("highlight.min.js    :", size.minified ,"bytes");
-    log("highlight.min.js.gz :", zlib.gzipSync(size.data).length ,"bytes");
+    log("highlight.min.js.gz :", zlib.gzipSync(size.minifiedSrc).length ,"bytes");
   } else {
     log("highlight.js.gz     :", zlib.gzipSync(size.fullSrc).length ,"bytes");
   }
@@ -140,9 +140,9 @@ async function buildBrowserHighlightJS(languages, {minify}) {
     core: coreSize,
     core_min: core_min,
     minified: Buffer.byteLength(minifiedSrc, 'utf8'),
-    data: minifiedSrc,
-    fullSrc: fullSrc,
-    regular: Buffer.byteLength(fullSrc, 'utf8') };
+    minifiedSrc,
+    fullSrc,
+    full: Buffer.byteLength(fullSrc, 'utf8') };
 }
 
 // CDN build uses the exact same highlight.js distributable
