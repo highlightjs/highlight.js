@@ -72,7 +72,7 @@ commander
   .option('-n, --no-minify', 'Disable minification')
   .option('-t, --target <name>', 'Build for target ' +
                                  '[all, browser, cdn, node]',
-                                 /^(browser|cdn|node|all)$/i, 'browser')
+                                  'browser')
   .parse(process.argv);
 
 commander.target = commander.target.toLowerCase();
@@ -96,8 +96,10 @@ async function doBuild() {
       let buildDir = path.join(dir.buildRoot, target);
       await doTarget(target, buildDir);
     }
-  } else {
+  } else if (TARGETS.includes(commander.target)) {
     doTarget(commander.target, dir.buildRoot);
+  } else {
+    log(`ERROR: I do not know how to build '${commander.target}'`);
   }
   log ("Finished build.");
 }
