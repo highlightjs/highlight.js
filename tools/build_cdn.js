@@ -20,7 +20,14 @@ async function buildCDN(options) {
   await installLanguages(languages);
 
   // filter languages for inclusion in the highlight.js bundle
-  const embedLanguages = filter(languages, options["languages"])
+  let embedLanguages = filter(languages, options["languages"])
+
+  // it really makes no sense to embed ALL languages with the CDN build, it's
+  // more likely we want to embed NONE and have completely separate run-time
+  // loading of some sort
+  if (embedLanguages.length == languages.length) {
+    embedLanguages = []
+  }
 
   var size = await buildBrowserHighlightJS(embedLanguages, {minify: options.minify})
 
@@ -51,6 +58,7 @@ async function installLanguages(languages) {
       process.stdout.write(".");
      })
   );
+  log("");
 
   await Promise.all(
     languages.filter((l) => l.third_party)
