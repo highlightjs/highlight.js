@@ -49,8 +49,16 @@ async function installLanguages(languages) {
     languages.map(async (language) => {
       await buildCDNLanguage(language);
       process.stdout.write(".");
-     } )
-  )
+     })
+  );
+
+  await Promise.all(
+    languages.filter((l) => l.third_party)
+      .map(async (language) => {
+        await buildDistributable(language);
+     })
+  );
+
   log("");
 }
 
@@ -66,24 +74,21 @@ function installStyles() {
   })
 }
 
+async function buildDistributable(language) {
+  const filename = `${language.name}.min.js`;
+
+  let distDir = path.join(language.moduleDir,"dist")
+  log(`Building ${distDir}/${filename}.`)
+  await fs.mkdir(distDir, {recursive: true});
+  fs.writeFile(path.join(language.moduleDir,"dist",filename), language.minified);
+
+}
+
  async function buildCDNLanguage (language) {
   const filename = `${process.env.BUILD_DIR}/languages/${language.name}.min.js`;
 
   await language.compile({terser: config.terser});
   fs.writeFile(filename, language.minified);
-
-  // TODO: cleanup
-  const extra = path.resolve(__dirname,"../extra")
-  if (language.path.startsWith(extra)) {
-    var tmp = language.path.replace(extra,"")
-    var name = tmp.split("/")[1]
-    var libPath =  path.join(extra, name)
-
-    // console.log(libPath)
-    // add a distributable to the 3rd party directory
-    await fs.mkdir(path.join(libPath, "dist"), {recursive: true});
-    fs.writeFile(path.join(libPath,"dist",path.basename(filename)), language.minified);
-  }
 }
 
 module.exports.build = buildCDN;

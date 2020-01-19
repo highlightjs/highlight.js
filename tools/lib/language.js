@@ -18,6 +18,7 @@ class Language {
     this.prettyName = name
     this.requires = []
     this.categories = []
+    this.third_party = false
 
     // compiled code
     this.module = ""
@@ -103,6 +104,8 @@ async function getLanguages() {
     for (let file of ext.files) {
       let l = Language.fromFile(file);
       l.loader = ext.loader;
+      l.third_party = true;
+      l.moduleDir = ext.dir;
       languages.push(l);
     }
   }
