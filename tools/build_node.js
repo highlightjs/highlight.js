@@ -7,7 +7,7 @@ const { rollupWrite } = require("./lib/bundling.js");
 const log = (...args) => console.log(...args);
 
 async function buildNodeIndex(languages) {
-  const header = "var hljs = require('./highlight');";
+  const header = "var hljs = require('./core');";
   const footer = "module.exports = hljs;";
 
   const registration = languages.map((lang) => {
@@ -17,6 +17,12 @@ async function buildNodeIndex(languages) {
     }
     return `hljs.registerLanguage('${lang.name}', ${require});`;
   })
+
+  // legacy
+  await fs.writeFile(`${process.env.BUILD_DIR}/lib/highlight.js`,
+    "// This file has been deprecated in favor of core.js\n" +
+    "var hljs = require('./core');\n"
+  )
 
   const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
   await fs.writeFile(`${process.env.BUILD_DIR}/lib/index.js`, index);
@@ -30,7 +36,7 @@ async function buildNodeIndex(languages) {
 
 async function buildNodeHighlightJS() {
   const input = { input: `src/highlight.js` }
-  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/highlight.js` }
+  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` }
   await rollupWrite(input, output)
 }
 

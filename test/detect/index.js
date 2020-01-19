@@ -1,7 +1,7 @@
 'use strict';
 
 delete require.cache[require.resolve('../../build')]
-delete require.cache[require.resolve('../../build/lib/highlight')]
+delete require.cache[require.resolve('../../build/lib/core')]
 
 const fs       = require('fs').promises;
 const hljs     = require('../../build');
