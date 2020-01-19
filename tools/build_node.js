@@ -43,7 +43,7 @@ async function buildNodeHighlightJS() {
 async function buildPackageJSON() {
   const CONTRIBUTOR = /^- (.*) <(.*)>$/
 
-  let authors = await fs.readFile("AUTHORS.en.txt", {encoding: "utf8"})
+  let authors = await fs.readFile("AUTHORS.txt", {encoding: "utf8"})
   let lines = authors.split(/\r?\n/)
   let json = require("../package")
   json.contributors = lines.reduce((acc, line) => {
