@@ -1,3 +1,26 @@
+## Version 10.0.0 (master)
+
+New languages:
+
+- none.
+
+New themes:
+
+- none.
+
+Core Changes:
+
+- none.
+
+Language Improvements:
+
+- none.
+
+Developer Tools:
+
+- none.
+
+
 ## Version 9.18.0
 
 New languages:
