@@ -149,7 +149,7 @@ function buildCSSImages() {
 }
 
 function buildPackageFile() {
-  const input  = path.join(directory.root, 'AUTHORS.en.txt'),
+  const input  = path.join(directory.root, 'AUTHORS.txt'),
         output = path.join(directory.build, 'package.json');
 
   return {
