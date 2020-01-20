@@ -99,15 +99,32 @@ finish with your changes you can build the container from the root of the reposi
   docker build -t highlight-js .
 
 
-And then run the container. You will need to expose port 80 on the host, and 
-note that we are running it in detached (-d) mode.
+And then run the container. You will need to expose port 80 on the host for the 
+web interface, and note that we are running it in detached (-d) mode.
 
 ::
 
   docker run -d --name highlight-js --rm -p 80:80 highlight-js
 
 
-You can use docker ps to ensure that it's running.
+If your preference is for another port, you can do that too:
+
+
+::
+
+  docker run -d --name highlight-js --rm -p 80:8080 highlight-js
+
+
+Or you can skip binding a port if your intention is to interactively shell
+into the container to use it as a development environment.
+
+
+::
+
+  docker run -d --name highlight-js --rm highlight-js
+
+
+Whatever you choose, you can use docker ps to ensure that it's running.
 
 ::
 

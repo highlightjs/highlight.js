@@ -1,0 +1,9 @@
+<span class="hljs-attr">moo</span>=[<span class="hljs-string">"foo"</span>]
+
+<span class="hljs-attr">KNOWN_PEERS</span> = [
+    <span class="hljs-string">"finland.some-host.com:11625"</span>,
+    <span class="hljs-string">"germany.some-host.com:11625"</span>,
+    <span class="hljs-string">"hongkong.some-host.com:11625"</span>,
+    <span class="hljs-number">32</span>,
+    <span class="hljs-literal">true</span>
+]

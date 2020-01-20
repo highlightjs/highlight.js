@@ -4,7 +4,7 @@ Author: Stephan Kountso aka StepLg <steplg@gmail.com>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>
 Description: Google go language (golang). For info about language
 Website: http://golang.org/
-Category: system
+Category: common, system
 */
 
 function(hljs) {
@@ -30,7 +30,7 @@ function(hljs) {
         className: 'string',
         variants: [
           hljs.QUOTE_STRING_MODE,
-          {begin: '\'', end: '[^\\\\]\''},
+          hljs.APOS_STRING_MODE,
           {begin: '`', end: '`'},
         ]
       },

@@ -1,12 +1,11 @@
 'use strict';
 
-let _        = require('lodash');
-let bluebird = require('bluebird');
-let fs       = bluebird.promisifyAll(require('fs'));
-let glob     = require('glob');
-let hljs     = require('../../build');
-let path     = require('path');
-let utility  = require('../utility');
+const _        = require('lodash');
+const fs       = require('fs').promises;
+const glob     = require('glob');
+const hljs     = require('../../build');
+const path     = require('path');
+const utility  = require('../utility');
 
 function testLanguage(language) {
   describe(language, function() {
@@ -18,10 +17,10 @@ function testLanguage(language) {
             sourceName = filename.replace(/\.expect/, '');
 
       it(`should markup ${testName}`, function(done) {
-        const sourceFile   = fs.readFileAsync(sourceName, 'utf-8'),
-              expectedFile = fs.readFileAsync(filename, 'utf-8');
+        const sourceFile   = fs.readFile(sourceName, 'utf-8'),
+              expectedFile = fs.readFile(filename, 'utf-8');
 
-        bluebird.join(sourceFile, expectedFile, function(source, expected) {
+        Promise.all([sourceFile, expectedFile]).then(function([source, expected]) {
           const actual = hljs.highlight(language, source).value;
 
           actual.trim().should.equal(expected.trim());
@@ -32,8 +31,13 @@ function testLanguage(language) {
   });
 }
 
-describe('hljs.highlight()', function() {
-  let markupPath = utility.buildPath('markup');
+describe('hljs.highlight()', async () => {
+  // TODO: why?
+  // ./node_modules/.bin/mocha test/markup
+  it("needs this or it can't be run stand-alone", function() {} );
 
-  return fs.readdirAsync(markupPath).each(testLanguage);
+  const markupPath = utility.buildPath('markup');
+
+  const languages = await fs.readdir(markupPath)
+  return languages.forEach(testLanguage);
 });

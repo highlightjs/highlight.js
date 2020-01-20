@@ -1,9 +1,9 @@
 'use strict';
 
-let bluebird = require('bluebird');
-let Worker   = require('tiny-worker');
-let utility  = require('../utility');
-let glob     = bluebird.promisify(require('glob'));
+const Worker   = require('tiny-worker');
+const utility  = require('../utility');
+const {promisify} = require('util');
+const glob     = promisify(require('glob'));
 
 describe('web worker', function() {
   before(function() {

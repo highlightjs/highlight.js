@@ -5,3 +5,4 @@ expression
 <span class="hljs-string">"""  <span class="hljs-subst">${
     ${subst}</span>
 } """</span>
+<span class="hljs-string">"""f="true""""</span>

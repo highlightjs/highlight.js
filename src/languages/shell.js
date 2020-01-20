@@ -11,7 +11,7 @@ function(hljs) {
     contains: [
       {
         className: 'meta',
-        begin: '^\\s{0,3}[\\w\\d\\[\\]()@-]*[>%$#]',
+        begin: '^\\s{0,3}[/\\w\\d\\[\\]()@-]*[>%$#]',
         starts: {
           end: '$', subLanguage: 'bash'
         }

@@ -9,6 +9,7 @@ Current core developers (alphabetical):
 - Li Xuanji <xuanji@gmail.com>
 - Marcos Cáceres <marcos@marcosc.com>
 - Sang Dang <sang.dang@polku.io>
+- Josh Goebel <hello@joshgoebel.com>
 
 Former maintainers:
 
@@ -271,6 +272,7 @@ Contributors:
 - Harmon <Harmon.Public@gmail.com>
 - Eric Bailey <eric.w.bailey@gmail.com>
 - Gustavo Costa <gusbemacbe@gmail.com>
+- Jeffrey Arnold <jeffrey.arnold@gmail.com>
 - Antoine Boisier-Michaud <aboisiermichaud@gmail.com>
 - Alejandro Isaza <al@isaza.ca>
 - Laurent Voullemier <laurent.voullemier@gmail.com>
@@ -281,4 +283,5 @@ Contributors:
 - Yuri Mazursky <mail@colomolome.com>
 - Carl Baxter <carl@cbax.tech>
 - Thomas Reichel <tom.p.reichel@gmail.com>
-
+- G8t Guy <g8tguy@g8tguy.com>
+- Samia Ali <samiaab1990@gmail.com>

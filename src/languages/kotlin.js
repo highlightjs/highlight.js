@@ -3,6 +3,7 @@
  Description: Kotlin is an OSS statically typed programming language that targets the JVM, Android, JavaScript and Native.
  Author: Sergey Mashkov <cy6erGn0m@gmail.com>
  Website: https://kotlinlang.org
+ Category: common
  */
 
 
@@ -49,7 +50,7 @@ function(hljs) {
     className: 'string',
     variants: [
       {
-        begin: '"""', end: '"""',
+        begin: '"""', end: '"""(?=[^"])',
         contains: [VARIABLE, SUBST]
       },
       // Can't use built-in modes easily, as we want to use STRING in the meta

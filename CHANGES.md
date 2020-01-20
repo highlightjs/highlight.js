@@ -1,10 +1,162 @@
-## Master
+## Version 10.0.0 (master)
+
+New languages:
+
+- none.
+
+New themes:
+
+- none.
+
+Core Changes:
+
+- none.
+
+Language Improvements:
+
+- none.
+
+Developer Tools:
+
+- added Dockerfile for optionally developing with a container
+
+
+## Version 9.18.0
+
+New languages:
+
+- none.
+
+New themes:
+
+- none.
+
+Core Changes:
+
+- none.
+
+Language Improvements:
+
+- (javascript) fix JSX self-closing tag issues (#2322) [Josh Goebel][]
+- (fortran) added `block` and `endblock` keywords (#2343) [Philipp Engel][]
+- (javascript) support jsx fragments (#2333) [Josh Goebel][]
+- (ini) support TOML arrays, clean up grammar (#2335) [Josh Goebel][]
+- (vbnet) add nameof operator to the keywords (#2329) [Youssef Victor][]
+- (stan) updated with improved coverage of language keywords and patterns. (#1829) [Jeffrey Arnold][]
+- enh(cpp) Detect namespaced function types (`A::typeName func(...)`) (#2332) [Josh Goebel][]
+- enh(cpp) Detect namespaced functions also (`A::functionName`) (#2332) [Josh Goebel][]
+- enh(cpp) Properly detect decltype(auto) (#2332) [Josh Goebel][]
+- enh(cpp) recognize primitive types (`int8_t`, etc.) as function types (#2332) [Josh Goebel][]
+
+Developer Tools:
+
+- feat(developer): add button to show parsed structure (#2345) [Nils Knappmeier][]
+
+[Jeffrey Arnold]: https://github.com/jrnold
+[Josh Goebel]: https://github.com/yyyc514
+[Philipp Engel]: https://github.com/interkosmos
+[Youssef Victor]: https://github.com/Youssef1313
+[Nils Knappmeier]: https://github.com/nknapp
+
+
+## Version 9.17.1
+
+Fixes:
+
+- fix(parser): resolve IE 11 issue with Object.freeze() (#2319) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
+
+
+## Version 9.17.0
+
+New languages:
+
+- none.
+
+New themes:
+
+- *Gradient Dark* by [Samia Ali][]
+
+Core Improvements:
+
+- chore(parser): switch from `createElementNS` to `createElement` (#2314) [Josh Goebel][]
+- enh(parser): add better error when a language requirement is missing (#2311) [Josh Goebel][]
+- fix(parser/docs): disallow `self` mode at the top-level of a language (#2294) [Josh Goebel][]
+- enh(parser) add safe & debug modes.  Better error handling for crash conditions. (#2286) [Josh Goebel][]
+- fix(parser): Fix merger HTML attribute quoting (#2235) [Josh Goebel][]
+- fix(parser): Look-ahead regex now work for end matches also (#2237) [Josh Goebel][]
+- fix(parser): Better errors when a language is missing (#2236) [Josh Goebel][]
+- fix(parser): freeze built-in modes to prevent grammars altering them (#2271) [Josh Goebel][]
+- fix(themes): fix inconsistencies between some themes padding/spacing (#2300) [Josh Goebel][]
+- ehh(build) Add CI check for building a "use strict" safe rollup package from NPM builds (#2247) [Josh Goebel][]
+- fix(pkg): Prefix global addEventListener with window to be able to minify with closure compiler (#2305) [Kirill Saksin]()
+
+Language Improvements:
+
+- fix(sql): backslash is not used to escape in strings in standard SQL (#1748) [Mike Schall][]
+- enh(ebnf) add backticks as additional string variant (#2290) [Chris Marchesi][]
+- chore(javascript): add esm related extensions to aliases (#2298) [Rongjian Zhang][]
+- fix(kotlin): fix termination of """ string literals (#2295) [Josh Goebel][]
+- fix(mercury): don't change global STRING modes (#2271) [Josh Goebel][]
+- enh(xml) expand and improve document type highlighting (#2287) [w3suli][]
+- enh(ebnf) add underscore as allowed meta identifier character, and dot as terminator (#2281) [Chris Marchesi][]
+- fix(makefile) fix double relevance for assigns, improves auto-detection (#2278) [Josh Goebel][]
+- enh(xml) support for highlighting entities (#2260) [w3suli][]
+- enh(gml) fix naming of keyword class (consistency fix) (#2254) [Liam Nobel][]
+- enh(javascript): Add support for jsdoc comments (#2245) [Milutin Kristofic][]
+- fix(python) fix `if` getting confused as an f-string (#2200) [Josh Goebel][] and [Carl Baxter][]
+- enh(powershell) major overhaul, huge improvements (#2224)
+- enh(css) Improve @rule highlighting, including properties (#2241) [Josh Goebel][]
+- enh(css) Improve highlighting of numbers inside expr/func `calc(2px+3px)` (#2241)
+- enh(scss) Pull some of the CSS improvements back into SCSS (#2241)
+- fix(go): Fix escaped character literals (#2266) [David Benjamin][]
+- fix(objectivec): Fix various preprocessor highlighting issues (#2265) [David Benjamin][]
+- fix(objectivec): Handle multibyte character literals (#2268) [David Benjamin][]
+- enh(cpp): Add additional keywords (#2289) [Adrian Ostrowski][]
+
+[Josh Goebel]: https://github.com/yyyc514
+[Liam Nobel]: https://github.com/liamnobel
+[Carl Baxter]: https://github.com/cdbax
+[Milutin Kristofic]: https://github.com/milutin
+[w3suli]: https://github.com/w3suli
+[David Benjamin]: https://github.com/davidben
+[Chris Marchesi]: https://github.com/vancluever
+[Adrian Ostrowski]: https://github.com/aostrowski
+[Rongjian Zhang]: https://github.com/pd4d10
+[Mike Schall]: https://github.com/schallm
+[Kirill Saksin]: https://github.com/saksmt
+[Samia Ali]:https://github.com/samiaab1990
+
+
+## Version 9.16.2
+
+New languages:
+  none.
+
+New styles:
+  none.
+
+Improvements:
+- fix(arduino) Resolves issue with arduino.js not being "use strict" safe (#2247)
+
+
+## Version 9.16.1
+
+New languages:
+  none.
 
 New styles:
 - *Night Owl* by [Carl Baxter][]
 
 Improvements:
-- added Dockerfile for optionally developing with a container
+- Add CLI tool to quickly check for relevance conflicts [Mark Ellis][] (#1554)
+- enhance(twig) update list of filter and tags (#2090)
+- fix(crystal): correctly highlight `!~` method definition (#2222)
+- fix dropping characters if we choke up on a 0-width match (#2219)
+- (accesslog) improve accesslog relevancy scoring (#2172)
+- fix(shell): fix parsing of prompts with forward slash (#2218)
+- improve parser to properly support look-ahead regex in begin matchers (#2135)
 - blacklist super-common keywords from having relevance (#2179)
 - fix(swift): support for `@dynamicMemberLookup` and `@propertyWrapper` (#2202)
 - fix: `endWithParent` inside `starts` now always works (#2201)
@@ -25,8 +177,10 @@ Improvements:
 - fix(Go): improve function declaration matching
 - fix(python): added support for f-string literal curly braces (#2195)
 - fix(cpp): add `future` built-in (#1610)
+- fix(python): support comments within function parameters (#2214)
 
 [Carl Baxter]: https://github.com/cdbax
+[Mark Ellis]: https://github.com/ellismarkf
 
 ## Version 9.15.10
 New languages:
@@ -1934,3 +2088,4 @@ your comments and question to [highlight.js forum][forum]. And don't be afraid
 if you find there some fancy Cyrillic letters -- it's for Russian users too :-)
 
 [forum]: http://softwaremaniacs.org/forum/viewforum.php?id=6
+

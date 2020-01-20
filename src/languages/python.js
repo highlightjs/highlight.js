@@ -87,7 +87,7 @@ function(hljs) {
   var PARAMS = {
     className: 'params',
     begin: /\(/, end: /\)/,
-    contains: ['self', PROMPT, NUMBER, STRING]
+    contains: ['self', PROMPT, NUMBER, STRING, hljs.HASH_COMMENT_MODE]
   };
   SUBST.contains = [STRING, NUMBER, PROMPT];
   return {
@@ -97,6 +97,9 @@ function(hljs) {
     contains: [
       PROMPT,
       NUMBER,
+      // eat "if" prior to string so that it won't accidentally be
+      // labeled as an f-string as in:
+      { beginKeywords: "if", relevance: 0 },
       STRING,
       hljs.HASH_COMMENT_MODE,
       {

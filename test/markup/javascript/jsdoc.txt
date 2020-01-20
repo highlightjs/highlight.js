@@ -1,0 +1,17 @@
+/**
+  * Create a point.
+  * @author Test
+  * @author Test Smith
+  * @param {number} x - The x value.
+  * @param {number} y
+  * @returns {Point} A Point object.
+  */
+
+/**
+  * @typedef {Array<number>}
+  * @param {string=} n - Optional
+  * @param {(string|number)} n - Multiple types
+  * @param {*} n - Any type
+  * @param {...string} n - repeatable arguments
+  * @param {string[]} n - Array of strings
+  */

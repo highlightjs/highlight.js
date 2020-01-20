@@ -1,0 +1,10 @@
+def foo(
+  bar, # commment
+):
+    pass
+
+
+class Foo(collections.namedtuple('Test'), (
+    'name', # comment
+)):
+    pass
