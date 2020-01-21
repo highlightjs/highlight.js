@@ -35,20 +35,31 @@ function(hljs) {
       hljs.COMMENT('REM', '$'),
       hljs.COMMENT('\'', '$'),
       hljs.COMMENT('\/\/', '$'),
-      hljs.C_NUMBER_MODE,
       {
-        className: 'meta',
-        begin: '#', end: '$',
-        keywords: {'meta-keyword': 'Else ElseIf EndIf If Pragma Tag'}
+        className: 'double',
+        variants: [
+          {begin: '\\b\\d+\\.\\d+[eE]-?\\d+'},
+          {begin: '\\b\\d+\\.\\d+'}
+        ]
       },
       {
-      	className: 'color_alpha',
-      	begin: '\&c[a-fA-F0-9]{2}[a-fA-F0-9]{2}[a-fA-F0-9]{2}[a-fA-F0-9]{2}'
+        className: 'integer',
+        variants: [
+          {begin: '\\b\\d+[eE]-?\\d+'},
+          {begin: '\\b\\d+'}
+        ]
+      }, 
+      {
+        className: 'color',
+        begin: '\&c[a-fA-F0-9]{2}[a-fA-F0-9]{2}[a-fA-F0-9]{2}([a-fA-F0-9]{2})?'
       },      
       {
-      	className: 'color',
-      	begin: '\&c[a-fA-F0-9]{2}[a-fA-F0-9]{2}[a-fA-F0-9]{2}'
-      }    
+        className: 'meta',
+        variants: [
+          {begin: 'Bad|Else|ElseIf|EndIf|If|Pragma|Tag'}
+        ],
+
+      }  
     ]
   };
 }
