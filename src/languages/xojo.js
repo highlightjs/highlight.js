@@ -55,10 +55,7 @@ function(hljs) {
       },      
       {
         className: 'meta',
-        variants: [
-          {begin: 'Bad|Else|ElseIf|EndIf|If|Pragma|Tag'}
-        ],
-
+        begin: '#Bad|#Else|#ElseIf|#EndIf|#If|#Pragma|#Tag'
       }  
     ]
   };
