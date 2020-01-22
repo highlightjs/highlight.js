@@ -46,7 +46,10 @@ function(hljs) {
         className: 'integer',
         variants: [
           {begin: '\\b\\d+[eE]-?\\d+'},
-          {begin: '\\b\\d+'}
+          {begin: '\\b\\d+'},
+          {begin: '\&h[a-fA-F0-9]+'}, // Hex
+          {begin: '\&o[0-7]+'}, // Octal
+          {begin: '\&b[0-1]+'} // Binary
         ]
       }, 
       {
