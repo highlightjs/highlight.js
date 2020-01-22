@@ -54,7 +54,13 @@ function(hljs) {
       }, 
       {
         className: 'color',
-        begin: '\&c[a-fA-F0-9]{2}[a-fA-F0-9]{2}[a-fA-F0-9]{2}([a-fA-F0-9]{2})?'
+        begin: '\&c(?=[a-fA-F0-9]{6,8}\\b)',
+        contains: [
+          {
+            className: 'rgb_component',
+            begin: '[a-fA-F0-9]{2}'
+          }
+        ]
       },      
       {
         className: 'meta',
