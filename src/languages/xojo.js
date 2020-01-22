@@ -54,7 +54,7 @@ function(hljs) {
       }, 
       {
         className: 'color',
-        begin: '\&c(?=[a-fA-F0-9]{6,8}\\b)',
+        begin: '\&c',
         contains: [
           {
             className: 'rgb_component',
