@@ -42,7 +42,7 @@
     "js-beautify": "^1.10.2",
     "jsdom": "^16.0.1",
     "lodash": "^4.17.15",
-    "mocha": "^6.2.0",
+    "mocha": "^7.0.1",
     "rollup": "^1.27.8",
     "rollup-plugin-commonjs": "^10.1.0",
     "should": "^13.2.3",
