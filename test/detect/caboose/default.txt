@@ -1,0 +1,13 @@
+#!/usr/bin/env cb
+
+/*
+ * Say hello!
+ */
+fun hello(name) {
+    if (name == nil) return;
+    else print("Hello, " + name);
+}
+
+hello(nil);
+hello("world");
+hello(420.69);

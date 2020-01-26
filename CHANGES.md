@@ -2,7 +2,9 @@
 
 New languages:
 
-- none.
+- Caboose [Landon Gravat][]
+
+[Landon Gravat]: https://github.com/railrunner166
 
 New themes:
 
