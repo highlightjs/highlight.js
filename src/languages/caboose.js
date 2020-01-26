@@ -36,6 +36,7 @@ function(hljs) {
         // Shebang
         className: 'meta',
         begin: /^#!/, end: /$/,
+        relevance: 3,
       },
       hljs.QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,
@@ -43,7 +44,7 @@ function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'function',
-        beginKeywords: 'function', end: /\{/, excludeEnd: true,
+        beginKeywords: 'fun', end: /\{/, excludeEnd: true,
         contains: [
           hljs.UNDERSCORE_TITLE_MODE,
           {
