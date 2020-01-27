@@ -32,7 +32,7 @@ function(hljs) {
     },
     contains: [
       hljs.QUOTE_STRING_MODE,
-      hljs.COMMENT('REM', '$'),
+      hljs.COMMENT('REM\\b', '$'),
       hljs.COMMENT('\'', '$'),
       hljs.COMMENT('\/\/', '$'),
       {
