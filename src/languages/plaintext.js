@@ -7,7 +7,7 @@ Category: common
 
 function(hljs) {
     return {
-        aliases: ['txt'],
+        aliases: ['text', 'txt'],
         disableAutodetect: true
     };
 }
