@@ -33,6 +33,27 @@ function(hljs) {
     begin: /'/, end: /'/,
     contains: [{begin: /''/}]
   };
+  var NUMBER = {
+    className: 'number',
+    // Source: https://www.freepascal.org/docs-html/ref/refse6.html
+    variants: [
+      {
+        // Hexadecimal notation, e.g., $7F.
+        begin: '\\$[0-9A-Fa-f]+',
+        relevance: 0
+      },
+      {
+        // Octal notation, e.g., &42.
+        begin: '&[0-7]+',
+        relevance: 0
+      },
+      {
+        // Binary notation, e.g., %1010.
+        begin: '%[01]+',
+        relevance: 0
+      }
+    ]
+  };
   var CHAR_STRING = {
     className: 'string', begin: /(#\d+)+/
   };
@@ -65,27 +86,7 @@ function(hljs) {
     contains: [
       STRING, CHAR_STRING,
       hljs.NUMBER_MODE,
-      {
-        className: 'number',
-        // Source: https://www.freepascal.org/docs-html/ref/refse6.html
-        variants: [
-          {
-            // Hexadecimal notation, e.g., $7F.
-            begin: '\\$[0-9A-Fa-f]+',
-            relevance: 0
-          },
-          {
-            // Octal notation, e.g., &42.
-            begin: '&[0-7]+',
-            relevance: 0
-          },
-          {
-            // Binary notation, e.g., %1010.
-            begin: '%[01]+',
-            relevance: 0
-          }
-        ]
-      },
+      NUMBER,
       CLASS,
       FUNCTION,
       DIRECTIVE
