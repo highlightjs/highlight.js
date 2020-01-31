@@ -53,7 +53,7 @@ https://highlightjs.org/
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.
   var options = {
-    noHighlightRe: /^(no-?highlight|plain|text)$/i,
+    noHighlightRe: /^(no-?highlight)$/i,
     languagePrefixRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
     tabReplace: null,
