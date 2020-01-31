@@ -31,15 +31,21 @@ function(hljs) {
   return {
     aliases: ['php', 'php3', 'php4', 'php5', 'php6', 'php7'],
     case_insensitive: true,
-    keywords:
-      'and include_once list abstract global private echo interface as static endswitch ' +
-      'array null if endwhile or const for endforeach self var while isset public ' +
-      'protected exit foreach throw elseif include __FILE__ empty require_once do xor ' +
-      'return parent clone use __CLASS__ __LINE__ else break print eval new ' +
-      'catch __METHOD__ case exception default die require __FUNCTION__ ' +
-      'enddeclare final try switch continue endfor endif declare unset true false ' +
-      'trait goto instanceof insteadof __DIR__ __NAMESPACE__ ' +
-      'yield finally',
+    keywords: {
+      keyword:
+      // Magic constants:
+      // <https://www.php.net/manual/en/language.constants.predefined.php>
+      '__CLASS__ __DIR__ __FILE__ __FUNCTION__ __LINE__ __METHOD__ __NAMESPACE__ __TRAIT__' +
+      // Function that look like language construct or language construct that look like function:
+      // List of keywords that may not require parenthesis
+      ' die echo exit include include_once parent print require require_once self static' +
+      // These are not language construct (function) but operate on the currently-executing function and can access the current symbol table
+      // ' compact extract func_get_arg func_get_args func_num_args get_called_class get_parent_class' +
+      // Other keywords:
+      // <https://www.php.net/manual/en/reserved.php>
+      ' array abstract and as bool break callable case catch clone const continue declare default do else elseif empty enddeclare endfor endforeach endif endswitch endwhile eval final finally float for foreach from global goto if instanceof insteadof int isset iterable list new object or private protected public return string switch throw trait try unset var void while xor yield',
+      literal: 'false null true'
+    },
     contains: [
       hljs.HASH_COMMENT_MODE,
       hljs.COMMENT('//', '$', {contains: [PREPROCESSOR]}),
@@ -89,7 +95,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function', end: /[;{]/, excludeEnd: true,
+        beginKeywords: 'fn function', end: /[;{]/, excludeEnd: true,
         illegal: '\\$|\\[|%',
         contains: [
           hljs.UNDERSCORE_TITLE_MODE,
