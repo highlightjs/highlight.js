@@ -15,6 +15,7 @@ Core Changes:
 Language Improvements:
 
 - enh(java) annotations can include numbers () [Josh Goebel][]
+- enh(java) annotations can take params () [Josh Goebel][]
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
 
 Developer Tools:

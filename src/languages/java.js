@@ -17,7 +17,14 @@ function(hljs) {
 
   var ANNOTATION = {
     className: 'meta',
-    begin: '@[A-Za-z0-9]+'
+    begin: '@[A-Za-z0-9]+',
+    contains:[
+      {
+        begin: /\(/,
+        end: /\)/,
+        contains: ["self"] // allow nested () inside our annotation
+      },
+    ]
   }
   // https://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html
   var JAVA_NUMBER_RE = '\\b' +
