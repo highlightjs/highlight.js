@@ -79,8 +79,9 @@ The table below shows the full list of supported languages (and corresponding cl
 | Basic                   | basic                  |         |
 | BNF                     | bnf                    |         |
 | Brainfuck               | brainfuck, bf          |         |
-| C#                      | cs, csharp             |         |
-| C++                     | cpp, c, cc, h, c++, h++, hpp |   |
+| C#                      | csharp, cs             |         |
+| C                       | h                      |         |
+| C++                     | cpp, hpp, cc, hh, c++, h++, cxx, hxx |   |
 | C/AL                    | cal                    |         |
 | Cache Object Script     | cos, cls               |         |
 | CMake                   | cmake, cmake.in        |         |
@@ -139,6 +140,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Kotlin                  | kotlin, kt             |         |
+| LaTeX                   | tex                    |         |
 | Leaf                    | leaf                   |         |
 | Lasso                   | lasso, ls, lassoscript |         |
 | Less                    | less                   |         |
@@ -162,7 +164,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | N1QL                    | n1ql                   |         |
 | NSIS                    | nsis                   |         |
 | Nginx                   | nginx, nginxconf       |         |
-| Nimrod                  | nimrod, nim            |         |
+| Nim                     | nimrod                 |         |
 | Nix                     | nix                    |         |
 | OCaml                   | ocaml, ml              |         |
 | Objective C             | objectivec, mm, objc, obj-c |    |
@@ -219,7 +221,6 @@ The table below shows the full list of supported languages (and corresponding cl
 | Tcl                     | tcl, tk                |         |
 | Terraform (HCL)         | terraform, tf, hcl     | [highlightjs-terraform](https://github.com/highlightjs/highlightjs-terraform) |
 | Test Anything Protocol  | tap                    |         |
-| TeX                     | tex                    |         |
 | Thrift                  | thrift                 |         |
 | TP                      | tp                     |         |
 | Twig                    | twig, craftcms         |         |
@@ -301,8 +302,8 @@ onmessage = (event) => {
 
 ## Node.js
 
-You can use highlight.js with node to highlight content before sending it to the browser. 
-Make sure to use the `.value` property to get the formatted html. 
+You can use highlight.js with node to highlight content before sending it to the browser.
+Make sure to use the `.value` property to get the formatted html.
 For more info about the returned object refer to the api docs https://highlightjs.readthedocs.io/en/latest/api.html
 
 

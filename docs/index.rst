@@ -16,6 +16,8 @@ Contents:
    reference
    css-classes-reference
    style-guide
+   plugin-api
+   plugin-recipes
    language-contribution
    building-testing
    maintainers-guide
