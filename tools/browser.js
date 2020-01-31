@@ -113,29 +113,7 @@ module.exports = function(commander, dir) {
   requiresTask = 'packageFiles';
 
   if(commander.compress || commander.target === 'cdn') {
-    tasks.compresslog = {
-      requires: requiresTask,
-      task: ['log', 'Compressing highlight.js pack file.']
-    };
-
-    tasks.replace2 = {
-      requires: 'compresslog',
-      task: [ 'replaceSkippingStrings'
-            , replace(regex.replaces, replaceClassNames)
-            ]
-    };
-
-    tasks.replace3 = {
-      requires: 'replace2',
-      task: ['replace', replace(regex.classname, '$1.className')]
-    };
-
-    tasks.replace4 = {
-      requires: 'replace3',
-      task: ['replace', replace(regex.apiReplacesFrom, regex.apiReplacesTo)]
-    };
-
-    tasks.minify  = { requires: 'replace4', task: 'jsminify' };
+    tasks.minify = { requires: requiresTask, task: 'jsminify' };
     requiresTask  = 'minify';
   }
 

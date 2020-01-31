@@ -1,4 +1,4 @@
-## Version 10.x (master)
+## Version 10.0.0 (master)
 
 New languages:
 
@@ -10,10 +10,36 @@ New themes:
 
 Core Changes:
 
-- (javascript) fix JSX self-closing tag issues (#2322) [Josh Goebel][]
+- none.
 
 Language Improvements:
 
+- enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
+
+Developer Tools:
+
+- none.
+
+[Taufik Nurrohman]: https://github.com/taufik-nurrohman
+
+
+## Version 9.18.0
+
+New languages:
+
+- none.
+
+New themes:
+
+- none.
+
+Core Changes:
+
+- none.
+
+Language Improvements:
+
+- (javascript) fix JSX self-closing tag issues (#2322) [Josh Goebel][]
 - (fortran) added `block` and `endblock` keywords (#2343) [Philipp Engel][]
 - (javascript) support jsx fragments (#2333) [Josh Goebel][]
 - (ini) support TOML arrays, clean up grammar (#2335) [Josh Goebel][]
@@ -33,6 +59,7 @@ Developer Tools:
 [Philipp Engel]: https://github.com/interkosmos
 [Youssef Victor]: https://github.com/Youssef1313
 [Nils Knappmeier]: https://github.com/nknapp
+
 
 ## Version 9.17.1
 

@@ -275,18 +275,6 @@ https://highlightjs.org/
     return [mode];
   }
 
-  function restoreLanguageApi(obj) {
-    if(API_REPLACES && !obj.langApiRestored) {
-      obj.langApiRestored = true;
-      for(var key in API_REPLACES) {
-        if (obj[key]) {
-          obj[API_REPLACES[key]] = obj[key];
-        }
-      }
-      (obj.contains || []).concat(obj.variants || []).forEach(restoreLanguageApi);
-    }
-  }
-
   function compileKeywords(rawKeywords, case_insensitive) {
       var compiled_keywords = {};
 
@@ -322,7 +310,7 @@ https://highlightjs.org/
   }
 
   function commonKeyword(word) {
-    return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1;
+    return COMMON_KEYWORDS.includes(word.toLowerCase());
   }
 
   function compileLanguage(language) {
@@ -501,7 +489,7 @@ https://highlightjs.org/
     }
 
     // self is not valid at the top-level
-    if (language.contains && language.contains.indexOf('self') != -1) {
+    if (language.contains && language.contains.includes('self')) {
       if (!SAFE_MODE) {
         throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.")
       } else {
@@ -778,7 +766,7 @@ https://highlightjs.org/
         top: top
       };
     } catch (err) {
-      if (err.message && err.message.indexOf('Illegal') !== -1) {
+      if (err.message && err.message.includes('Illegal')) {
         return {
           illegal: true,
           relevance: 0,
@@ -941,7 +929,6 @@ https://highlightjs.org/
   */
   function initHighlightingOnLoad() {
     window.addEventListener('DOMContentLoaded', initHighlighting, false);
-    window.addEventListener('load', initHighlighting, false);
   }
 
   var PLAINTEXT_LANGUAGE = { disableAutodetect: true };
@@ -960,7 +947,6 @@ https://highlightjs.org/
       lang = PLAINTEXT_LANGUAGE;
     }
     languages[name] = lang;
-    restoreLanguageApi(lang);
     lang.rawDefinition = language.bind(null,hljs);
 
     if (lang.aliases) {
