@@ -14,11 +14,13 @@ Core Changes:
 
 Language Improvements:
 
-- none.
+- (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
 
 Developer Tools:
 
 - none.
+
+[Sam Miller]: https://github.com/smillerc
 
 
 ## Version 9.18.0
