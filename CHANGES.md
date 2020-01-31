@@ -15,12 +15,16 @@ Core Changes:
 Language Improvements:
 
 - (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
+- (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
+- enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
 
 Developer Tools:
 
 - none.
 
 [Sam Miller]: https://github.com/smillerc
+[Robert Riebisch]: https://github.com/bttrx
+[Taufik Nurrohman]: https://github.com/taufik-nurrohman
 
 
 ## Version 9.18.0

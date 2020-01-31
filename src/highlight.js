@@ -34,7 +34,8 @@ https://highlightjs.org/
 
   // Global internal variables used within the highlight.js library.
   var languages = {},
-      aliases   = {};
+      aliases   = {},
+      plugins   = [];
 
   // safe/production mode - swallows more errors, tries to keep running
   // even if a single syntax or parse hits a fatal error
@@ -274,18 +275,6 @@ https://highlightjs.org/
     return [mode];
   }
 
-  function restoreLanguageApi(obj) {
-    if(API_REPLACES && !obj.langApiRestored) {
-      obj.langApiRestored = true;
-      for(var key in API_REPLACES) {
-        if (obj[key]) {
-          obj[API_REPLACES[key]] = obj[key];
-        }
-      }
-      (obj.contains || []).concat(obj.variants || []).forEach(restoreLanguageApi);
-    }
-  }
-
   function compileKeywords(rawKeywords, case_insensitive) {
       var compiled_keywords = {};
 
@@ -321,7 +310,7 @@ https://highlightjs.org/
   }
 
   function commonKeyword(word) {
-    return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1;
+    return COMMON_KEYWORDS.includes(word.toLowerCase());
   }
 
   function compileLanguage(language) {
@@ -500,7 +489,7 @@ https://highlightjs.org/
     }
 
     // self is not valid at the top-level
-    if (language.contains && language.contains.indexOf('self') != -1) {
+    if (language.contains && language.contains.includes('self')) {
       if (!SAFE_MODE) {
         throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.")
       } else {
@@ -777,7 +766,7 @@ https://highlightjs.org/
         top: top
       };
     } catch (err) {
-      if (err.message && err.message.indexOf('Illegal') !== -1) {
+      if (err.message && err.message.includes('Illegal')) {
         return {
           illegal: true,
           relevance: 0,
@@ -880,6 +869,9 @@ https://highlightjs.org/
     if (isNotHighlighted(language))
         return;
 
+    fire("before:highlightBlock",
+      { block: block, language: language});
+
     if (options.useBR) {
       node = document.createElement('div');
       node.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ \/]*>/g, '\n');
@@ -896,6 +888,8 @@ https://highlightjs.org/
       result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
     }
     result.value = fixMarkup(result.value);
+
+    fire("after:highlightBlock", { block: block, result: result});
 
     block.innerHTML = result.value;
     block.className = buildClassName(block.className, language, result.language);
@@ -935,7 +929,6 @@ https://highlightjs.org/
   */
   function initHighlightingOnLoad() {
     window.addEventListener('DOMContentLoaded', initHighlighting, false);
-    window.addEventListener('load', initHighlighting, false);
   }
 
   var PLAINTEXT_LANGUAGE = { disableAutodetect: true };
@@ -954,7 +947,6 @@ https://highlightjs.org/
       lang = PLAINTEXT_LANGUAGE;
     }
     languages[name] = lang;
-    restoreLanguageApi(lang);
     lang.rawDefinition = language.bind(null,hljs);
 
     if (lang.aliases) {
@@ -990,6 +982,25 @@ https://highlightjs.org/
     return lang && !lang.disableAutodetect;
   }
 
+  function addPlugin(plugin, options) {
+    plugins.push(plugin);
+  }
+
+  function fire(event, args) {
+    // var cb = eventToFuncName(event);
+    var cb = event;
+    plugins.forEach(function (plugin) {
+      if (plugin[cb]) {
+        plugin[cb](args);
+      }
+    });
+  }
+
+
+  function eventToFuncName(event) {
+    return event.replace(/:([a-z])/, function(el) { return el.toUpperCase().slice(1) })
+  }
+
   /* Interface definition */
 
   hljs.highlight = highlight;
@@ -1005,6 +1016,7 @@ https://highlightjs.org/
   hljs.requireLanguage = requireLanguage;
   hljs.autoDetection = autoDetection;
   hljs.inherit = inherit;
+  hljs.addPlugin = addPlugin;
   hljs.debugMode = function() { SAFE_MODE = false; }
 
   // Common regexps
