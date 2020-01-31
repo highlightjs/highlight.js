@@ -1,0 +1,7 @@
+@SpringBootTest
+@AutoConfigureMockMvc
+@Transactional
+@Slf4j
+public class BoardControllerTest {
+}
+

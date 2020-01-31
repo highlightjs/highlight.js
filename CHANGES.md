@@ -14,12 +14,14 @@ Core Changes:
 
 Language Improvements:
 
+- enh(java) annotations can include numbers () [Josh Goebel][]
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
 
 Developer Tools:
 
 - none.
 
+[Josh Goebel]: https://github.com/yyyc514
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 
 
