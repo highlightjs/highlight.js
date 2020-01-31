@@ -14,12 +14,14 @@ Core Changes:
 
 Language Improvements:
 
+- (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
 
 Developer Tools:
 
 - none.
 
+[Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 
 
