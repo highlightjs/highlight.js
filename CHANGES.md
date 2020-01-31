@@ -1,3 +1,12 @@
+## Version 9.18.1
+
+Language Improvements:
+
+- bug(coffeescript) fix freezing bug due to badly behaved regex () [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
+
+
 ## Version 9.18.0
 
 New languages:
