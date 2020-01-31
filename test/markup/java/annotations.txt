@@ -7,3 +7,6 @@
 public class BoardControllerTest {
 }
 
+class Example {
+  void foo(@SuppressWarnings("unused") int bar) { }
+}

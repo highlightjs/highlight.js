@@ -106,6 +106,7 @@ function(hljs) {
             keywords: KEYWORDS,
             relevance: 0,
             contains: [
+              ANNOTATION,
               hljs.APOS_STRING_MODE,
               hljs.QUOTE_STRING_MODE,
               hljs.C_NUMBER_MODE,
