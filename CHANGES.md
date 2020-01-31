@@ -14,11 +14,15 @@ Core Changes:
 
 Language Improvements:
 
-- none.
+- enh(apache) added `htaccess` as alias (#2360) [Taufik Nurrohman][]
+- enh(php) added more keywords and include `<?=` syntax to meta [Taufik Nurrohman][]
+- enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
 
 Developer Tools:
 
 - none.
+
+[Taufik Nurrohman]: https://github.com/taufik-nurrohman
 
 
 ## Version 9.18.0
