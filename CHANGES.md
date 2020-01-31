@@ -14,6 +14,7 @@ Core Changes:
 
 Language Improvements:
 
+- bug(coffeescript) fix freezing bug due to badly behaved regex () [Josh Goebel][]
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
 
 Developer Tools:
