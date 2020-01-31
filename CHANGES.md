@@ -14,6 +14,7 @@ Core Changes:
 
 Language Improvements:
 
+- enh(csharp) Support `where` keyword as class constraint (#2378) [Josh Goebel][]
 - enh(csharp) Allow reference path in class inheritance lists (#2378) [Josh Goebel][]
 - enh(csharp) Add generic modifiers (in, out) (#2378) [Josh Goebel][]
 - (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]

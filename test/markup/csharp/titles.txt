@@ -16,4 +16,6 @@ namespace Foo // namespace
         }
     }
 
+    public class TesterA<R, S>  where R : class where S : IComparable
+    {}
 }

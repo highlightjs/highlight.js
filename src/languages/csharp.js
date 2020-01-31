@@ -139,8 +139,9 @@ function(hljs) {
         beginKeywords: 'class interface', end: /[{;=]/,
         illegal: /[^\s:,]/,
         contains: [
-          GENERIC_MODIFIER,
+          { beginKeywords: "where class" },
           TITLE_MODE,
+          GENERIC_MODIFIER,
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
