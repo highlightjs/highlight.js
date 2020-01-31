@@ -14,11 +14,13 @@ Core Changes:
 
 Language Improvements:
 
-- none.
+- (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
 
 Developer Tools:
 
 - none.
+
+[Robert Riebisch]: https://github.com/bttrx
 
 
 ## Version 9.18.0
