@@ -24,6 +24,7 @@ function(hljs) {
     literal:
       'null false true'
   };
+  var TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, {begin: '[a-zA-Z](\\.?\\w)*'});
   var NUMBERS = {
     className: 'number',
     variants: [
@@ -139,7 +140,7 @@ function(hljs) {
         illegal: /[^\s:,]/,
         contains: [
           GENERIC_MODIFIER,
-          hljs.TITLE_MODE,
+          TITLE_MODE,
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
@@ -148,7 +149,7 @@ function(hljs) {
         beginKeywords: 'namespace', end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: '[a-zA-Z](\\.?\\w)*'}),
+          TITLE_MODE,
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
