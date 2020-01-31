@@ -61,7 +61,7 @@ function(hljs) {
           contains: [SUBST, hljs.HASH_COMMENT_MODE]
         },
         {
-          begin: '//[gim]{0,3}',
+          begin: '//[gim]{0,3}(?=\\W)',
           relevance: 0
         },
         {
