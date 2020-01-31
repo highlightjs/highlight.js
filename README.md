@@ -164,7 +164,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | N1QL                    | n1ql                   |         |
 | NSIS                    | nsis                   |         |
 | Nginx                   | nginx, nginxconf       |         |
-| Nimrod                  | nimrod, nim            |         |
+| Nim                     | nimrod                 |         |
 | Nix                     | nix                    |         |
 | OCaml                   | ocaml, ml              |         |
 | Objective C             | objectivec, mm, objc, obj-c |    |
