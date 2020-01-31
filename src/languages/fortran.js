@@ -29,7 +29,7 @@ function(hljs) {
       'c_ptr c_funptr iso_fortran_env character_storage_size error_unit file_storage_size input_unit iostat_end iostat_eor ' +
       'numeric_storage_size output_unit c_f_procpointer ieee_arithmetic ieee_support_underflow_control ' +
       'ieee_get_underflow_mode ieee_set_underflow_mode newunit contiguous recursive ' +
-      'pad position action delim readwrite eor advance nml interface procedure namelist include sequence elemental pure impure' +
+      'pad position action delim readwrite eor advance nml interface procedure namelist include sequence elemental pure impure ' +
       'integer real character complex logical codimension dimension allocatable|10 parameter ' +
       'external implicit|10 none double precision assign intent optional pointer ' +
       'target in out common equivalence data',
