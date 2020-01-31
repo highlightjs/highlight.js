@@ -160,8 +160,10 @@ export default function (hljs) {
         contains: [OPENING_BLOCK_MUSTACHE_CONTENTS],
       },
       {
-        className: 'keyword',
-        begin: /\{\{else\}\}/
+        className: 'template-tag',
+        begin: /\{\{(?=else\}\})/,
+        end: /\}\}/,
+        keywords: 'else'
       },
       {
         // closing block statement
