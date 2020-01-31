@@ -17,6 +17,8 @@ Language Improvements:
 - enh(java) annotations can include numbers (#2377) [Josh Goebel][]
 - enh(java) annotations can take params (#2377) [Josh Goebel][]
 - enh(java) allow annotations inside function call params (#2377) [Josh Goebel][]
+- (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
+- (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
 
 Developer Tools:
@@ -24,6 +26,8 @@ Developer Tools:
 - none.
 
 [Josh Goebel]: https://github.com/yyyc514
+[Sam Miller]: https://github.com/smillerc
+[Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 
 
