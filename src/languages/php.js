@@ -11,7 +11,7 @@ function(hljs) {
     begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
   };
   var PREPROCESSOR = {
-    className: 'meta', begin: /<\?(php)?|\?>/
+    className: 'meta', begin: /<\?(php|=)?|\?>/
   };
   var STRING = {
     className: 'string',
