@@ -41,9 +41,7 @@ https://highlightjs.org/
   var SAFE_MODE = true;
 
   // Regular expressions used throughout the highlight.js library.
-  var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
-      languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
-      fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
+  var fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
 
   // The object will be assigned by the build tool. It used to synchronize API
   // of external language files with minified version of the highlight.js library.
@@ -55,6 +53,8 @@ https://highlightjs.org/
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.
   var options = {
+    noHighlightRe: /^(no-?highlight|plain|text)$/i,
+    languagePrefixRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
@@ -81,7 +81,7 @@ https://highlightjs.org/
   }
 
   function isNotHighlighted(language) {
-    return noHighlightRe.test(language);
+    return options.noHighlightRe.test(language);
   }
 
   function blockLanguage(block) {
@@ -91,7 +91,7 @@ https://highlightjs.org/
     classes += block.parentNode ? block.parentNode.className : '';
 
     // language-* takes precedence over non-prefixed class names.
-    match = languagePrefixRe.exec(classes);
+    match = options.languagePrefixRe.exec(classes);
     if (match) {
       var language = getLanguage(match[1]);
       if (!language) {
