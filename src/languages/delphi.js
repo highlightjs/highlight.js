@@ -35,22 +35,20 @@ function(hljs) {
   };
   var NUMBER = {
     className: 'number',
+    relevance: 0,
     // Source: https://www.freepascal.org/docs-html/ref/refse6.html
     variants: [
       {
         // Hexadecimal notation, e.g., $7F.
         begin: '\\$[0-9A-Fa-f]+',
-        relevance: 0
       },
       {
         // Octal notation, e.g., &42.
         begin: '&[0-7]+',
-        relevance: 0
       },
       {
         // Binary notation, e.g., %1010.
         begin: '%[01]+',
-        relevance: 0
       }
     ]
   };
