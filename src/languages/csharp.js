@@ -18,7 +18,9 @@ function(hljs) {
       'uint ulong unchecked unsafe ushort using virtual void volatile while ' +
       // Contextual keywords.
       'add alias ascending async await by descending dynamic equals from get global group into join ' +
-      'let nameof on orderby partial remove select set value var when where yield',
+      'let nameof on orderby partial remove select set value var when where yield ' +
+      // generic modifiers
+      'in out',
     literal:
       'null false true'
   };
@@ -86,6 +88,11 @@ function(hljs) {
     ]
   };
 
+  var GENERIC_MODIFIER = {
+    begin: "<",
+    end: ">",
+    keywords: "in out"
+  };
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
 
   return {
@@ -131,6 +138,7 @@ function(hljs) {
         beginKeywords: 'class interface', end: /[{;=]/,
         illegal: /[^\s:,]/,
         contains: [
+          GENERIC_MODIFIER,
           hljs.TITLE_MODE,
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
