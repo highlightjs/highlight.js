@@ -26,37 +26,37 @@ function(hljs) {
     aliases: ['zep'],
     case_insensitive: true,
     keywords:
-      'and include_once list  global   interface as   ' +
-      'null   or  self   ' +
-      'exit foreach include  require_once do xor ' +
-      'parent clone  print eval  ' +
-      'catch  exception default die ' +
-      'try  endif declare unset ' +
+      ' list      as   ' +
+      'self   ' +
+      'exit    require_once do  ' +
+      'parent  print eval  ' +
+      'die ' +
+      'declare unset ' +
       'trait goto instanceof insteadof ' +
-      'yield finally int uchar bool ' +
+      'finally    ' +
 
       // classes and objects
-      'namespace class use extends ' +
+      'namespace class interface use extends ' +
       'function return ' +
       'abstract final public protected private static deprecated ' +
       // error handling
-      'throw catch Exception ' +
+      'throw try catch Exception ' +
       // keyword-ish things their website does NOT seem to highlight (in their own snippets)
-      // 'typeof fetch ' +
+      // 'typeof fetch in ' +
       // operators/helpers
       'echo empty isset ' +
       // assignment/variables
       'let var new const ' +
       // control
       'require ' +
-      'if else elseif switch case ' +
+      'if else elseif switch case default ' +
       'while loop for continue break ' +
       // magic constants
       // https://github.com/phalcon/zephir/blob/master/Library/Expression/Constants.php
       '__LINE__ __FILE__ __DIR__ __FUNCTION__ __CLASS__ __TRAIT__ __METHOD__ __NAMESPACE__ ' +
       // types - https://docs.zephir-lang.com/0.12/en/types
       'array boolean float double integer object resource string ' +
-      'char long unsigned uint ulong ' +
+      'char long unsigned bool int uint ulong uchar' +
       // optimizations
       'likely unlikely ' +
       // built-ins
