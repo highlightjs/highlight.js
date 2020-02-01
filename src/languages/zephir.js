@@ -20,6 +20,7 @@ function(hljs) {
       hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
     ]
   };
+  var TITLE_MODE = hljs.UNDERSCORE_TITLE_MODE;
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
   return {
     aliases: ['zep'],
@@ -62,7 +63,7 @@ function(hljs) {
         beginKeywords: 'function', end: /[;{]/, excludeEnd: true,
         illegal: '\\$|\\[|%',
         contains: [
-          hljs.UNDERSCORE_TITLE_MODE,
+          TITLE_MODE,
           {
             className: 'params',
             begin: '\\(', end: '\\)',
@@ -81,17 +82,17 @@ function(hljs) {
         illegal: /[:\(\$"]/,
         contains: [
           {beginKeywords: 'extends implements'},
-          hljs.UNDERSCORE_TITLE_MODE
+          TITLE_MODE
         ]
       },
       {
         beginKeywords: 'namespace', end: ';',
         illegal: /[\.']/,
-        contains: [hljs.UNDERSCORE_TITLE_MODE]
+        contains: [TITLE_MODE]
       },
       {
         beginKeywords: 'use', end: ';',
-        contains: [hljs.UNDERSCORE_TITLE_MODE]
+        contains: [TITLE_MODE]
       },
       {
         begin: '=>' // No markup, just a relevance booster
