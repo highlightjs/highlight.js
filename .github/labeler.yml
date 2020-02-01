@@ -1,0 +1,30 @@
+# language changes
+language:
+  - src/language/*
+  - test/markup/**/*
+  - test/detect/**/*
+
+# parser changes
+parser:
+  - src/highlight.js
+  - test/api/*
+  - test/browser/*
+  - test/builds/*
+  - test/fixtures/*
+  - test/parser/*
+  - test/special/*
+
+# changes to the build system
+packaging/build:
+  - tools/*build*.js
+
+# theme changes
+style/theme:
+  - src/styles/*
+
+# doc or website changes
+'docs/website':
+  - README.md
+  - README.ru.md
+  - docs/*
+  - demo/*
