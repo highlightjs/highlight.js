@@ -26,15 +26,6 @@ function(hljs) {
     aliases: ['zep'],
     case_insensitive: true,
     keywords:
-      ' list      as   ' +
-      'self   ' +
-      'exit    require_once do  ' +
-      'parent  print eval  ' +
-      'die ' +
-      'declare unset ' +
-      'trait goto instanceof insteadof ' +
-      'finally    ' +
-
       // classes and objects
       'namespace class interface use extends ' +
       'function return ' +
@@ -44,21 +35,20 @@ function(hljs) {
       // keyword-ish things their website does NOT seem to highlight (in their own snippets)
       // 'typeof fetch in ' +
       // operators/helpers
-      'echo empty isset ' +
+      'echo empty isset instanceof unset' +
       // assignment/variables
-      'let var new const ' +
+      'let var new const self ' +
       // control
       'require ' +
       'if else elseif switch case default ' +
-      'while loop for continue break ' +
+      'do while loop for continue break ' +
+      'likely unlikely ' +
       // magic constants
       // https://github.com/phalcon/zephir/blob/master/Library/Expression/Constants.php
       '__LINE__ __FILE__ __DIR__ __FUNCTION__ __CLASS__ __TRAIT__ __METHOD__ __NAMESPACE__ ' +
       // types - https://docs.zephir-lang.com/0.12/en/types
       'array boolean float double integer object resource string ' +
-      'char long unsigned bool int uint ulong uchar' +
-      // optimizations
-      'likely unlikely ' +
+      'char long unsigned bool int uint ulong uchar ' +
       // built-ins
       'true false null undefined',
     contains: [
