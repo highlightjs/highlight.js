@@ -38,7 +38,7 @@ function(hljs) {
   };
   LIST = {
     className: 'bullet',
-    begin: '^\\s*([*+-]|(\\d+\\.))\\s+'
+    begin: '^[ \t]*([*+-]|(\\d+\\.))\\s+'
   };
   LINK_REFERENCE = {
     begin: /^\[[^\n]+\]:/,

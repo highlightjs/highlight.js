@@ -10,3 +10,9 @@ __Bold *then italic*__
 
 > quoted **Bold _then italic_**
 > _[this](https://google.com)_
+
+  *this is a emphasized paragraph*
+  *this is too*
+
+* list with a *italic item*
+* list with a **bold item**
