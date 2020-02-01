@@ -26,12 +26,12 @@ function(hljs) {
     aliases: ['zep'],
     case_insensitive: true,
     keywords:
-      'and include_once list  global   interface as  endswitch ' +
-      'null  endwhile or endforeach self   ' +
+      'and include_once list  global   interface as   ' +
+      'null   or  self   ' +
       'exit foreach include  require_once do xor ' +
       'parent clone  print eval  ' +
       'catch  exception default die ' +
-      'enddeclare try endfor endif declare unset ' +
+      'try  endif declare unset ' +
       'trait goto instanceof insteadof ' +
       'yield finally int uchar bool ' +
 
