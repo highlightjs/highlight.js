@@ -15,13 +15,6 @@ function(hljs) {
   HORIZONTAL_RULE = {
     begin: '^[-\\*]{3,}', end: '$'
   };
-  HEADER = {
-    className: 'section',
-    variants: [
-      { begin: '^#{1,6}', end: '$' },
-      { begin: '^.+?\\n[=-]{2,}$' }
-    ]
-  };
   CODE = {
     className: 'code',
     variants: [
@@ -108,18 +101,32 @@ function(hljs) {
   BOLD.contains = BOLD.contains.concat(CONTAINABLE);
   ITALIC.contains = ITALIC.contains.concat(CONTAINABLE);
 
+  CONTAINABLE = CONTAINABLE.concat(BOLD,ITALIC);
+
+  HEADER = {
+    className: 'section',
+    variants: [
+      {
+        begin: '^#{1,6}',
+        end: '$',
+        contains: CONTAINABLE
+       },
+      {
+        begin: '(?=^.+?\\n[=-]{2,}$)',
+        contains: [
+          { begin: '^[=-]*$' },
+          { begin: '^', end: "\\n", contains: CONTAINABLE },
+        ]
+       }
+    ]
+  };
+
   BLOCKQUOTE = {
     className: 'quote',
     begin: '^>\\s+',
-    contains: [],
+    contains: CONTAINABLE,
     end: '$',
   };
-
-  BLOCKQUOTE.contains = BLOCKQUOTE.contains.concat(
-    CONTAINABLE,
-    BOLD,
-    ITALIC
-  )
 
   return {
     aliases: ['md', 'mkdown', 'mkd'],
