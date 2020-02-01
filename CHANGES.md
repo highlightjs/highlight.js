@@ -14,6 +14,7 @@ Core Changes:
 
 Language Improvements:
 
+- (markdown) much improved code block support (#2382) [Josh Goebel][]
 - (markdown) improve bold/italic nesting (#2382) [Josh Goebel][]
 - (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
 - (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()

@@ -18,14 +18,20 @@ function(hljs) {
   CODE = {
     className: 'code',
     variants: [
+      // TODO: fix to allow these to work with sublanguage also
+      { begin: '(`{3,})(.|\\n)*?\\1`*[ ]*', },
+      { begin: '(~{3,})(.|\\n)*?\\1~*[ ]*', },
+      // needed to allow markdown as a sublanguage to work
+      { begin: '```', end: '```+[ ]*$' },
+      { begin: '~~~', end: '~~~+[ ]*$' },
+      { begin: '`.+?`' },
       {
-        begin: '^```\\w*\\s*$', end: '^```[ ]*$'
-      },
-      {
-        begin: '`.+?`'
-      },
-      {
-        begin: '^( {4}|\\t)', end: '$',
+        begin: '(?=^( {4}|\\t))',
+        // use contains to gobble up multiple lines to allow the block to be whatever size
+        // but only have a single open/close tag vs one per line
+        contains: [
+          { begin: '^( {4}|\\t)', end: '(\\n)$' }
+        ],
         relevance: 0
       }
     ]
