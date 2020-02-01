@@ -44,6 +44,14 @@ tasks.reorderDeps = function(options, blobs, done) {
     if(buf.Requires) {
       _.each(buf.Requires, function(language) {
         object = buffer[language];
+        // go a second level deep for dependencies
+        // (new build system will eliminate this)
+        if (object.Requires) {
+          _.each(object.Requires, function(language) {
+            let object = buffer[language];
+            pushInBlob(object);
+          });
+        }
         pushInBlob(object);
       });
     }
@@ -204,7 +212,7 @@ tasks.readSnippet = function(options, blob, done) {
       snippetName = path.join('test', 'detect', name, 'default.txt');
 
   function onRead(error, blob) {
-    if(error) return done(error); // ignore missing snippets
+    if(error) return done(null); // ignore missing snippets
 
     let meta = { name: `${name}.js`, fileInfo: fileInfo };
 
