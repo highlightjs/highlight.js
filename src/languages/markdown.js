@@ -7,6 +7,20 @@ Category: common, markup
 */
 
 function(hljs) {
+  BOLD ={
+    className: 'strong',
+    begin: '[*_]{2}.+?[*_]{2}'
+  };
+  ITALIC = {
+    className: 'emphasis',
+    variants: [
+      { begin: '\\*.+?\\*' },
+      { begin: '_.+?_'
+      , relevance: 0
+      }
+    ]
+  };
+
   return {
     aliases: ['md', 'mkdown', 'mkd'],
     contains: [
@@ -29,21 +43,8 @@ function(hljs) {
         className: 'bullet',
         begin: '^\\s*([*+-]|(\\d+\\.))\\s+'
       },
-      // strong segments
-      {
-        className: 'strong',
-        begin: '[*_]{2}.+?[*_]{2}'
-      },
-      // emphasis segments
-      {
-        className: 'emphasis',
-        variants: [
-          { begin: '\\*.+?\\*' },
-          { begin: '_.+?_'
-          , relevance: 0
-          }
-        ]
-      },
+      BOLD,
+      ITALIC,
       // blockquotes
       {
         className: 'quote',
