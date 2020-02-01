@@ -63,6 +63,19 @@ function(hljs) {
   BOLD.contains = BOLD.contains.concat(CONTAINABLE);
   ITALIC.contains = ITALIC.contains.concat(CONTAINABLE);
 
+  BLOCKQUOTE = {
+    className: 'quote',
+    begin: '^>\\s+',
+    contains: [],
+    end: '$',
+  };
+
+  BLOCKQUOTE.contains = BLOCKQUOTE.contains.concat(
+    CONTAINABLE,
+    BOLD,
+    ITALIC
+  )
+
   return {
     aliases: ['md', 'mkdown', 'mkd'],
     contains: [
@@ -82,11 +95,7 @@ function(hljs) {
       },
       BOLD,
       ITALIC,
-      // blockquotes
-      {
-        className: 'quote',
-        begin: '^>\\s+', end: '$'
-      },
+      BLOCKQUOTE,
       // code snippets
       {
         className: 'code',
