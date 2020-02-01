@@ -28,7 +28,7 @@ function(hljs) {
       // keyword-ish things their website does NOT seem to highlight (in their own snippets)
       // 'typeof fetch in ' +
       // operators/helpers
-      'echo empty isset instanceof unset' +
+      'echo empty isset instanceof unset ' +
       // assignment/variables
       'let var new const self ' +
       // control
