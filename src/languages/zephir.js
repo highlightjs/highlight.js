@@ -24,7 +24,6 @@ function(hljs) {
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
   return {
     aliases: ['zep'],
-    case_insensitive: true,
     keywords:
       // classes and objects
       'namespace class interface use extends ' +
