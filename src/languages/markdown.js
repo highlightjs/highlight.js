@@ -12,6 +12,51 @@ function(hljs) {
     subLanguage: 'xml',
     relevance: 0
   };
+  HORIZONTAL_RULE = {
+    begin: '^[-\\*]{3,}', end: '$'
+  };
+  HEADER = {
+    className: 'section',
+    variants: [
+      { begin: '^#{1,6}', end: '$' },
+      { begin: '^.+?\\n[=-]{2,}$' }
+    ]
+  };
+  CODE = {
+    className: 'code',
+    variants: [
+      {
+        begin: '^```\\w*\\s*$', end: '^```[ ]*$'
+      },
+      {
+        begin: '`.+?`'
+      },
+      {
+        begin: '^( {4}|\\t)', end: '$',
+        relevance: 0
+      }
+    ]
+  };
+  LIST = {
+    className: 'bullet',
+    begin: '^\\s*([*+-]|(\\d+\\.))\\s+'
+  };
+  LINK_REFERENCE = {
+    begin: /^\[[^\n]+\]:/,
+    returnBegin: true,
+    contains: [
+      {
+        className: 'symbol',
+        begin: /\[/, end: /\]/,
+        excludeBegin: true, excludeEnd: true
+      },
+      {
+        className: 'link',
+        begin: /:\s*/, end: /$/,
+        excludeBegin: true
+      }
+    ]
+  };
   LINK = {
     begin: '\\[.+?\\][\\(\\[].*?[\\)\\]]',
     returnBegin: true,
@@ -79,60 +124,16 @@ function(hljs) {
   return {
     aliases: ['md', 'mkdown', 'mkd'],
     contains: [
-      // highlight headers
-      {
-        className: 'section',
-        variants: [
-          { begin: '^#{1,6}', end: '$' },
-          { begin: '^.+?\\n[=-]{2,}$' }
-        ]
-      },
+      HEADER,
       INLINE_HTML,
-      // lists (indicators only)
-      {
-        className: 'bullet',
-        begin: '^\\s*([*+-]|(\\d+\\.))\\s+'
-      },
+      LIST,
       BOLD,
       ITALIC,
       BLOCKQUOTE,
-      // code snippets
-      {
-        className: 'code',
-        variants: [
-          {
-            begin: '^```\\w*\\s*$', end: '^```[ ]*$'
-          },
-          {
-            begin: '`.+?`'
-          },
-          {
-            begin: '^( {4}|\\t)', end: '$',
-            relevance: 0
-          }
-        ]
-      },
-      // horizontal rules
-      {
-        begin: '^[-\\*]{3,}', end: '$'
-      },
+      CODE,
+      HORIZONTAL_RULE,
       LINK,
-      {
-        begin: /^\[[^\n]+\]:/,
-        returnBegin: true,
-        contains: [
-          {
-            className: 'symbol',
-            begin: /\[/, end: /\]/,
-            excludeBegin: true, excludeEnd: true
-          },
-          {
-            className: 'link',
-            begin: /:\s*/, end: /$/,
-            excludeBegin: true
-          }
-        ]
-      }
+      LINK_REFERENCE
     ]
   };
 }
