@@ -7,19 +7,24 @@ Category: common, markup
 */
 
 function(hljs) {
-  BOLD ={
+  BOLD = {
     className: 'strong',
-    begin: '[*_]{2}.+?[*_]{2}'
+    contains: [],
+    variants: [
+      {begin: /_{2}/, end: /_{2}/ },
+      {begin: /\*{2}/, end: /\*{2}/ }
+    ]
   };
   ITALIC = {
     className: 'emphasis',
+    contains: [],
     variants: [
-      { begin: '\\*.+?\\*' },
-      { begin: '_.+?_'
-      , relevance: 0
-      }
+      { begin: /\*(?!\*)/, end: /\*/ },
+      { begin: /_(?!_)/, end: /_/, relevance: 0},
     ]
   };
+  BOLD.contains.push(ITALIC);
+  ITALIC.contains.push(BOLD);
 
   return {
     aliases: ['md', 'mkdown', 'mkd'],

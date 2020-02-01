@@ -1,0 +1,7 @@
+_Italic_
+*Italic*
+__Bold__
+**Bold**
+*Is __Combined__*
+__Bold *then italic*__
+**Bold _then italic_**
