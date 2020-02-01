@@ -27,14 +27,23 @@ function(hljs) {
     case_insensitive: true,
     keywords:
       'and include_once list abstract global private echo interface as static endswitch ' +
-      'array null if endwhile or const for endforeach self var let while isset public ' +
-      'protected exit foreach throw elseif include __FILE__ empty require_once do xor ' +
-      'return parent clone use __CLASS__ __LINE__ else break print eval new ' +
-      'catch __METHOD__ case exception default die require __FUNCTION__ ' +
-      'enddeclare final try switch continue endfor endif declare unset true false ' +
-      'trait goto instanceof insteadof __DIR__ __NAMESPACE__ ' +
-      'yield finally int uint long ulong char uchar double float bool boolean string' +
-      'likely unlikely',
+      'null if endwhile or const for endforeach self var let while isset public ' +
+      'protected exit foreach throw elseif include empty require_once do xor ' +
+      'return parent clone use else break print eval new ' +
+      'catch case exception default die require ' +
+      'enddeclare final try switch continue endfor endif declare unset ' +
+      'trait goto instanceof insteadof ' +
+      'yield finally int uint long ulong char uchar bool ' +
+      // magic constants
+      // https://github.com/phalcon/zephir/blob/master/Library/Expression/Constants.php
+      '__LINE__ __FILE__ __DIR__ __FUNCTION__ __CLASS__ __TRAIT__ __METHOD__ __NAMESPACE__ ' +
+      // types - https://docs.zephir-lang.com/0.12/en/types
+      'array boolean float double integer object resource string ' +
+      'char long unsigned ' +
+      // optimizations
+      'likely unlikely ' +
+      // built-ins
+      'true false null',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(
