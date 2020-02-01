@@ -26,24 +26,41 @@ function(hljs) {
     aliases: ['zep'],
     case_insensitive: true,
     keywords:
-      'and include_once list abstract global private echo interface as static endswitch ' +
-      'null if endwhile or const for endforeach self var let while isset public ' +
-      'protected exit foreach throw elseif include empty require_once do xor ' +
-      'return parent clone use else break print eval new ' +
-      'catch case exception default die require ' +
-      'enddeclare final try switch continue endfor endif declare unset ' +
+      'and include_once list  global   interface as  endswitch ' +
+      'null  endwhile or endforeach self   ' +
+      'exit foreach include  require_once do xor ' +
+      'parent clone  print eval  ' +
+      'catch  exception default die ' +
+      'enddeclare try endfor endif declare unset ' +
       'trait goto instanceof insteadof ' +
-      'yield finally int uint long ulong char uchar bool ' +
+      'yield finally int uchar bool ' +
+
+      // classes and objects
+      'namespace class use extends ' +
+      'function return ' +
+      'abstract final public protected private static deprecated ' +
+      // error handling
+      'throw catch Exception ' +
+      // keyword-ish things their website does NOT seem to highlight (in their own snippets)
+      // 'typeof fetch ' +
+      // operators/helpers
+      'echo empty isset ' +
+      // assignment/variables
+      'let var new const ' +
+      // control
+      'require ' +
+      'if else elseif switch case ' +
+      'while loop for continue break ' +
       // magic constants
       // https://github.com/phalcon/zephir/blob/master/Library/Expression/Constants.php
       '__LINE__ __FILE__ __DIR__ __FUNCTION__ __CLASS__ __TRAIT__ __METHOD__ __NAMESPACE__ ' +
       // types - https://docs.zephir-lang.com/0.12/en/types
       'array boolean float double integer object resource string ' +
-      'char long unsigned ' +
+      'char long unsigned uint ulong ' +
       // optimizations
       'likely unlikely ' +
       // built-ins
-      'true false null',
+      'true false null undefined',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(
