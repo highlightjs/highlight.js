@@ -10,7 +10,7 @@ New themes:
 
 Core Changes:
 
-- Improve regular expression detect (less false-positives) [Josh Goebel][]
+- Improve regular expression detect (less false-positives) (#2380) [Josh Goebel][]
 
 Language Improvements:
 
