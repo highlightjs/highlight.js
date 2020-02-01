@@ -14,6 +14,7 @@ Core Changes:
 
 Language Improvements:
 
+- enh(zephir) add `fn` keyword for => functions [Josh Goebel][]
 - enh(php) added more keywords and include `<?=` syntax to meta [Taufik Nurrohman][]
 - (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
 - (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
@@ -23,6 +24,7 @@ Developer Tools:
 
 - none.
 
+[Josh Goebel]: https://github.com/yyyc514
 [Sam Miller]: https://github.com/smillerc
 [Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
