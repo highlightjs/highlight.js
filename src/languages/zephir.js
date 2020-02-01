@@ -36,7 +36,6 @@ function(hljs) {
       'likely unlikely',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      hljs.HASH_COMMENT_MODE,
       hljs.COMMENT(
         '/\\*',
         '\\*/',
@@ -47,15 +46,6 @@ function(hljs) {
               begin: '@[A-Za-z]+'
             }
           ]
-        }
-      ),
-      hljs.COMMENT(
-        '__halt_compiler.+?;',
-        false,
-        {
-          endsWithParent: true,
-          keywords: '__halt_compiler',
-          lexemes: hljs.UNDERSCORE_IDENT_RE
         }
       ),
       {
