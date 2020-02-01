@@ -35,15 +35,15 @@ function(hljs) {
       keyword:
       // Magic constants:
       // <https://www.php.net/manual/en/language.constants.predefined.php>
-      '__CLASS__ __DIR__ __FILE__ __FUNCTION__ __LINE__ __METHOD__ __NAMESPACE__ __TRAIT__' +
+      '__CLASS__ __DIR__ __FILE__ __FUNCTION__ __LINE__ __METHOD__ __NAMESPACE__ __TRAIT__ ' +
       // Function that look like language construct or language construct that look like function:
       // List of keywords that may not require parenthesis
-      ' die echo exit include include_once parent print require require_once self static' +
+      'die echo exit include include_once parent print require require_once self static ' +
       // These are not language construct (function) but operate on the currently-executing function and can access the current symbol table
       // ' compact extract func_get_arg func_get_args func_num_args get_called_class get_parent_class' +
       // Other keywords:
       // <https://www.php.net/manual/en/reserved.php>
-      ' array abstract and as bool break callable case catch clone const continue declare default do else elseif empty enddeclare endfor endforeach endif endswitch endwhile eval final finally float for foreach from global goto if instanceof insteadof int isset iterable list new object or private protected public return string switch throw trait try unset var void while xor yield',
+      'array abstract and as bool break callable case catch clone const continue declare default do else elseif empty enddeclare endfor endforeach endif endswitch endwhile eval final finally float for foreach from global goto if instanceof insteadof int isset iterable list new object or private protected public return string switch throw trait try unset var void while xor yield',
       literal: 'false null true'
     },
     contains: [
