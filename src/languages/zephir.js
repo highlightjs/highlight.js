@@ -69,7 +69,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function', end: /[;{]/, excludeEnd: true,
+        beginKeywords: 'function fn', end: /[;{]/, excludeEnd: true,
         illegal: '\\$|\\[|%',
         contains: [
           TITLE_MODE,
