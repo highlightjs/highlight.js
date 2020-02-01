@@ -7,6 +7,35 @@ Category: common, markup
 */
 
 function(hljs) {
+  INLINE_HTML = {
+    begin: '<', end: '>',
+    subLanguage: 'xml',
+    relevance: 0
+  };
+  LINK = {
+    begin: '\\[.+?\\][\\(\\[].*?[\\)\\]]',
+    returnBegin: true,
+    contains: [
+      {
+        className: 'string',
+        begin: '\\[', end: '\\]',
+        excludeBegin: true,
+        returnEnd: true,
+        relevance: 0
+      },
+      {
+        className: 'link',
+        begin: '\\]\\(', end: '\\)',
+        excludeBegin: true, excludeEnd: true
+      },
+      {
+        className: 'symbol',
+        begin: '\\]\\[', end: '\\]',
+        excludeBegin: true, excludeEnd: true
+      }
+    ],
+    relevance: 10
+  };
   BOLD = {
     className: 'strong',
     contains: [],
@@ -26,6 +55,14 @@ function(hljs) {
   BOLD.contains.push(ITALIC);
   ITALIC.contains.push(BOLD);
 
+  CONTAINABLE = [
+    INLINE_HTML,
+    LINK
+  ];
+
+  BOLD.contains = BOLD.contains.concat(CONTAINABLE);
+  ITALIC.contains = ITALIC.contains.concat(CONTAINABLE);
+
   return {
     aliases: ['md', 'mkdown', 'mkd'],
     contains: [
@@ -37,12 +74,7 @@ function(hljs) {
           { begin: '^.+?\\n[=-]{2,}$' }
         ]
       },
-      // inline html
-      {
-        begin: '<', end: '>',
-        subLanguage: 'xml',
-        relevance: 0
-      },
+      INLINE_HTML,
       // lists (indicators only)
       {
         className: 'bullet',
@@ -75,31 +107,7 @@ function(hljs) {
       {
         begin: '^[-\\*]{3,}', end: '$'
       },
-      // using links - title and link
-      {
-        begin: '\\[.+?\\][\\(\\[].*?[\\)\\]]',
-        returnBegin: true,
-        contains: [
-          {
-            className: 'string',
-            begin: '\\[', end: '\\]',
-            excludeBegin: true,
-            returnEnd: true,
-            relevance: 0
-          },
-          {
-            className: 'link',
-            begin: '\\]\\(', end: '\\)',
-            excludeBegin: true, excludeEnd: true
-          },
-          {
-            className: 'symbol',
-            begin: '\\]\\[', end: '\\]',
-            excludeBegin: true, excludeEnd: true
-          }
-        ],
-        relevance: 10
-      },
+      LINK,
       {
         begin: /^\[[^\n]+\]:/,
         returnBegin: true,
