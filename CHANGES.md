@@ -1,8 +1,8 @@
 ## Version 9.18.1
 
-Language Improvements:
+Grammar Improvements:
 
-- bug(coffeescript) fix freezing bug due to badly behaved regex () [Josh Goebel][]
+- bug(coffeescript) fix freezing bug due to badly behaved regex (#2376) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/yyyc514
 
