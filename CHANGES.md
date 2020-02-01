@@ -10,7 +10,7 @@ New themes:
 
 Core Changes:
 
-- none.
+- Improve regular expression detect (less false-positives) [Josh Goebel][]
 
 Language Improvements:
 
@@ -22,6 +22,7 @@ Developer Tools:
 
 - none.
 
+[Josh Goebel]: https://github.com/yyyc514
 [Sam Miller]: https://github.com/smillerc
 [Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
