@@ -14,5 +14,5 @@
   <span class="hljs-emphasis">*this is a emphasized paragraph*</span>
   <span class="hljs-emphasis">*this is too*</span>
 
-<span class="hljs-bullet">* </span>list with a <span class="hljs-emphasis">*italic item*</span>
-<span class="hljs-bullet">* </span>list with a <span class="hljs-strong">**bold item**</span>
+<span class="hljs-bullet">*</span> list with a <span class="hljs-emphasis">*italic item*</span>
+<span class="hljs-bullet">*</span> list with a <span class="hljs-strong">**bold item**</span>
