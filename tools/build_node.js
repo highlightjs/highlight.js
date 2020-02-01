@@ -57,7 +57,7 @@ async function buildPackageJSON() {
     }
     return acc;
   }, []);
-  fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(json, null, '   '));
+  await fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(json, null, '   '));
 }
 
 async function buildLanguages(languages) {
@@ -100,3 +100,4 @@ async function buildNode(options) {
 }
 
 module.exports.build = buildNode;
+module.exports.buildPackageJSON = buildPackageJSON;

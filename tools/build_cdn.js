@@ -7,11 +7,20 @@ const config = require("./build_config");
 const { install, install_cleancss, mkdir } = require("./lib/makestuff");
 const log = (...args) => console.log(...args);
 const { buildBrowserHighlightJS } = require("./build_browser");
+const { buildPackageJSON } = require("./build_node");
 const path = require("path");
+
+async function installPackageJSON() {
+  await buildPackageJSON();
+  let json = require(`${process.env.BUILD_DIR}/package`);
+  json.name = "highlight.js-cdn-assets";
+  fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(json, null, '   '));
+}
 
 async function buildCDN(options) {
   install("./LICENSE", "LICENSE");
-  install("./README.md","README.md");
+  install("./README.CDN.md","README.md");
+  installPackageJSON();
 
   installStyles();
 
