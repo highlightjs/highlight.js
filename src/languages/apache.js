@@ -8,13 +8,28 @@ Category: common, config
 */
 
 function(hljs) {
-  var NUMBER = {className: 'number', begin: '[\\$%]\\d+'};
+  var NUMBER_REF = {className: 'number', begin: '[\\$%]\\d+'};
+  var NUMBER = {className: 'number', begin: '\\d+'};
+  var IP_ADDRESS = {
+    className: "number",
+    begin: '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(:\\d{1,5})?'
+  };
+  var PORT_NUMBER = {
+    className: "number",
+    begin: ":\\d{1,5}"
+  };
   return {
     aliases: ['apacheconf'],
     case_insensitive: true,
     contains: [
       hljs.HASH_COMMENT_MODE,
-      {className: 'section', begin: '</?', end: '>'},
+      {className: 'section', begin: '</?', end: '>',
+      contains: [
+        IP_ADDRESS,
+        PORT_NUMBER,
+        hljs.QUOTE_STRING_MODE
+      ]
+    },
       {
         className: 'attribute',
         begin: /\w+/,
@@ -31,7 +46,7 @@ function(hljs) {
           end: /$/,
           relevance: 0,
           keywords: {
-            literal: 'on off all'
+            literal: 'on off all deny allow'
           },
           contains: [
             {
@@ -41,8 +56,9 @@ function(hljs) {
             {
               className: 'variable',
               begin: '[\\$%]\\{', end: '\\}',
-              contains: ['self', NUMBER]
+              contains: ['self', NUMBER_REF]
             },
+            IP_ADDRESS,
             NUMBER,
             hljs.QUOTE_STRING_MODE
           ]
