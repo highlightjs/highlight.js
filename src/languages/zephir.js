@@ -16,34 +16,36 @@ function(hljs) {
   };
   var TITLE_MODE = hljs.UNDERSCORE_TITLE_MODE;
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
+  var KEYWORDS =
+    // classes and objects
+    'namespace class interface use extends ' +
+    'function return ' +
+    'abstract final public protected private static deprecated ' +
+    // error handling
+    'throw try catch Exception ' +
+    // keyword-ish things their website does NOT seem to highlight (in their own snippets)
+    // 'typeof fetch in ' +
+    // operators/helpers
+    'echo empty isset instanceof unset ' +
+    // assignment/variables
+    'let var new const self ' +
+    // control
+    'require ' +
+    'if else elseif switch case default ' +
+    'do while loop for continue break ' +
+    'likely unlikely ' +
+    // magic constants
+    // https://github.com/phalcon/zephir/blob/master/Library/Expression/Constants.php
+    '__LINE__ __FILE__ __DIR__ __FUNCTION__ __CLASS__ __TRAIT__ __METHOD__ __NAMESPACE__ ' +
+    // types - https://docs.zephir-lang.com/0.12/en/types
+    'array boolean float double integer object resource string ' +
+    'char long unsigned bool int uint ulong uchar ' +
+    // built-ins
+    'true false null undefined';
+
   return {
     aliases: ['zep'],
-    keywords:
-      // classes and objects
-      'namespace class interface use extends ' +
-      'function return ' +
-      'abstract final public protected private static deprecated ' +
-      // error handling
-      'throw try catch Exception ' +
-      // keyword-ish things their website does NOT seem to highlight (in their own snippets)
-      // 'typeof fetch in ' +
-      // operators/helpers
-      'echo empty isset instanceof unset ' +
-      // assignment/variables
-      'let var new const self ' +
-      // control
-      'require ' +
-      'if else elseif switch case default ' +
-      'do while loop for continue break ' +
-      'likely unlikely ' +
-      // magic constants
-      // https://github.com/phalcon/zephir/blob/master/Library/Expression/Constants.php
-      '__LINE__ __FILE__ __DIR__ __FUNCTION__ __CLASS__ __TRAIT__ __METHOD__ __NAMESPACE__ ' +
-      // types - https://docs.zephir-lang.com/0.12/en/types
-      'array boolean float double integer object resource string ' +
-      'char long unsigned bool int uint ulong uchar ' +
-      // built-ins
-      'true false null undefined',
+    keywords: KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(
@@ -76,6 +78,7 @@ function(hljs) {
           {
             className: 'params',
             begin: '\\(', end: '\\)',
+            keywords: KEYWORDS,
             contains: [
               'self',
               hljs.C_BLOCK_COMMENT_MODE,
