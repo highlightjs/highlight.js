@@ -1,5 +1,5 @@
 /*
- Language: jboss-cli
+ Language: JBoss CLI
  Author: Raphaël Parrëe <rparree@edc4it.com>
  Description: language definition jboss cli
  Website: https://docs.jboss.org/author/display/WFLY/Command+Line+Interface
