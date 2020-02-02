@@ -32,7 +32,7 @@ function(hljs) {
       'catch __METHOD__ case exception default die require __FUNCTION__ ' +
       'enddeclare final try switch continue endfor endif declare unset true false ' +
       'trait goto instanceof insteadof __DIR__ __NAMESPACE__ ' +
-      'yield finally int uint long ulong char uchar double float bool boolean string' +
+      'yield finally int uint long ulong char uchar double float bool boolean string ' +
       'likely unlikely',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
@@ -69,7 +69,7 @@ function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function', end: /[;{]/, excludeEnd: true,
+        beginKeywords: 'fn function', end: /[;{]/, excludeEnd: true,
         illegal: '\\$|\\[|%',
         contains: [
           hljs.UNDERSCORE_TITLE_MODE,

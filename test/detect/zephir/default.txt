@@ -22,6 +22,11 @@ class Test extends CustomClass implements TestInterface
     public function method1()
     {
         int a = 1, b = 2;
+        if likely a > b {
+            a++;
+        } else if unlikely b < a {
+            a--;
+        }
         return a + b;
     }
 
