@@ -27,7 +27,9 @@ function(hljs) {
       contains: [
         IP_ADDRESS,
         PORT_NUMBER,
-        hljs.QUOTE_STRING_MODE
+        // low relevance prevents us from claming XML/HTML where this rule would
+        // match strings inside of XML tags
+        hljs.inherit(hljs.QUOTE_STRING_MODE, { relevance:0 })
       ]
     },
       {
