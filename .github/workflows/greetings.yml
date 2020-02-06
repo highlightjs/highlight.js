@@ -12,7 +12,7 @@ jobs:
 #        issue-message: 'Message that will be displayed on users'' first issue'
         pr-message: >
           Thank you so much for your first contribution!  It's appreciated.
-          One of our maintainers shouild review it in the next few days (if not sooner).
+          One of our maintainers will review it as soon as they can.
           
           If you didn't modify `CHANGES.md` already, please go and do that now and push a second
           commit.  The `CHANGES.md` file is where we keep a running summary of changes so users 
