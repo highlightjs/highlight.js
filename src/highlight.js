@@ -1102,17 +1102,26 @@ https://highlightjs.org/
     relevance: 0
   };
   hljs.REGEXP_MODE = {
-    className: 'regexp',
-    begin: /\//, end: /\/[gimuy]*/,
-    illegal: /\n/,
-    contains: [
-      hljs.BACKSLASH_ESCAPE,
-      {
-        begin: /\[/, end: /\]/,
-        relevance: 0,
-        contains: [hljs.BACKSLASH_ESCAPE]
-      }
-    ]
+    // this outer rule makes sure we actually have a WHOLE regex and not simply
+    // an expression such as:
+    //
+    //     3 / something
+    //
+    // (which will then blow up when regex's `illegal` sees the newline)
+    begin: /(?=\/[^\/\n]*\/)/,
+    contains: [{
+      className: 'regexp',
+      begin: /\//, end: /\/[gimuy]*/,
+      illegal: /\n/,
+      contains: [
+        hljs.BACKSLASH_ESCAPE,
+        {
+          begin: /\[/, end: /\]/,
+          relevance: 0,
+          contains: [hljs.BACKSLASH_ESCAPE]
+        }
+      ]
+    }]
   };
   hljs.TITLE_MODE = {
     className: 'title',

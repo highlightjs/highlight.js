@@ -10,6 +10,7 @@ New themes:
 
 Core Changes:
 
+- improve regular expression detect (less false-positives) (#2380) [Josh Goebel][]
 - make `noHighlightRe` and `languagePrefixRe` configurable (#2374) [Josh Goebel][]
 
 Language Improvements:
