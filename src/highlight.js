@@ -89,11 +89,21 @@ const HLJS = function(hljs) {
    * @property {string} language - the language name
    * @property {number} relevance - the relevance score
    * @property {string} value - the highlighted HTML code
+   * @property {string} originalCade - the original raw code
    * @property {mode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignore_illegals, continuation) {
-    var codeToHighlight = code;
+    var codeToHighlight;
+    var context = {
+      originalCode: code,
+      language: languageName
+    }
+    // the plugin can change the desired language or the code to be highlighted
+    // just be changing the object it was passed
+    fire("before:highlight", context);
+    codeToHighlight = context.originalCode;
+    languageName = context.language;
 
     function endOfMode(mode, lexeme) {
       if (regex.startsWith(mode.endRe, lexeme)) {
@@ -330,6 +340,7 @@ const HLJS = function(hljs) {
     var relevance = 0;
     var match, processedCount, index = 0;
 
+    var returnValue;
     try {
       while (true) {
         top.terminators.lastIndex = index;
@@ -345,7 +356,7 @@ const HLJS = function(hljs) {
       emitter.finalize();
       result = emitter.toHTML();
 
-      return {
+      returnValue = {
         relevance: relevance,
         value: result,
         language: languageName,
@@ -355,7 +366,7 @@ const HLJS = function(hljs) {
       };
     } catch (err) {
       if (err.message && err.message.includes('Illegal')) {
-        return {
+        returnValue = {
           illegal: true,
           illegalBy: {
             msg: err.message,
@@ -368,7 +379,7 @@ const HLJS = function(hljs) {
           emitter: emitter,
         };
       } else if (SAFE_MODE) {
-        return {
+        returnValue = {
           relevance: 0,
           value: escape(codeToHighlight),
           emitter: emitter,
@@ -380,6 +391,12 @@ const HLJS = function(hljs) {
         throw err;
       }
     }
+
+    returnValue.originalCode = codeToHighlight;
+    // the plugin can change anything in returnValue to suite it
+    fire("after:highlight", returnValue);
+
+    return returnValue;
   }
 
   /*
