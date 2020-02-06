@@ -42,9 +42,7 @@ https://highlightjs.org/
   var SAFE_MODE = true;
 
   // Regular expressions used throughout the highlight.js library.
-  var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
-      languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
-      fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
+  var fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
 
   // The object will be assigned by the build tool. It used to synchronize API
   // of external language files with minified version of the highlight.js library.
@@ -56,6 +54,8 @@ https://highlightjs.org/
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.
   var options = {
+    noHighlightRe: /^(no-?highlight)$/i,
+    languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
@@ -82,7 +82,7 @@ https://highlightjs.org/
   }
 
   function isNotHighlighted(language) {
-    return noHighlightRe.test(language);
+    return options.noHighlightRe.test(language);
   }
 
   function blockLanguage(block) {
@@ -92,7 +92,7 @@ https://highlightjs.org/
     classes += block.parentNode ? block.parentNode.className : '';
 
     // language-* takes precedence over non-prefixed class names.
-    match = languagePrefixRe.exec(classes);
+    match = options.languageDetectRe.exec(classes);
     if (match) {
       var language = getLanguage(match[1]);
       if (!language) {
@@ -694,6 +694,12 @@ https://highlightjs.org/
       if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
         // spit the "skipped" character that our regex choked on back into the output sequence
         mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
+        if (!SAFE_MODE) {
+          var err = new Error('0 width match regex');
+          err.languageName = languageName;
+          err.badRule = lastMatch.rule;
+          throw(err);
+        }
         return 1;
       }
       lastMatch = match;
@@ -1018,6 +1024,7 @@ https://highlightjs.org/
   hljs.inherit = inherit;
   hljs.addPlugin = addPlugin;
   hljs.debugMode = function() { SAFE_MODE = false; }
+  hljs.safeMode = function() { SAFE_MODE = true; }
 
   // Common regexps
   hljs.IDENT_RE = '[a-zA-Z]\\w*';

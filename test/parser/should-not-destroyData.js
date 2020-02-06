@@ -5,6 +5,7 @@ describe("bugs", function () {
   // CONTEXT: https://github.com/highlightjs/highlight.js/pull/2219
   describe("a grammar with a mode that makes a 0 width match", () => {
     it("should instead count it as a 1 character match", () => {
+      hljs.safeMode();
       hljs.registerLanguage('test-language', (hljs) => {
 
         // broken regex from old Fortran ruleset
@@ -28,6 +29,12 @@ describe("bugs", function () {
         // Incorrect prior output:
         // 'The number is <span class="hljs-number"></span>23_longint yes.'
       )
+      hljs.debugMode();
+      should(() => {
+        hljs.highlight('test-language', 'The number is 123_longint yes.').value
+       }).throw(Error, {
+         message: "0 width match regex",
+         languageName: "test-language"})
     })
   })
 })

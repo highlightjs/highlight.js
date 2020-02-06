@@ -1,5 +1,8 @@
 'use strict';
 
+const hljs     = require('../build');
+hljs.debugMode(); // tests run in debug mode so errors are raised
+
 // Tests specific to the API exposed inside the hljs object.
 // Right now, that only includes tests for several common regular expressions.
 require('./api');

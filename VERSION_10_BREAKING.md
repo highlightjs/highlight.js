@@ -2,6 +2,8 @@
 
 Incompatibilities:
 - chore(parser): compressed version 9.x language definitions no longer supported (rebuild them minified) [Josh Goebel][]
+- `nohightlight` and `no-highlight` are the only "ignore me" css classes now (`plain` and `text` no longer count)
+  (to get the old behavior you can customize `noHighlightRe`)
 
 Renamed Language Files:
 - chore(parser): rename `nimrod.js` to `nim.js` [Josh Goebel][]
