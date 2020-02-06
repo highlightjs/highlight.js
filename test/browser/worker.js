@@ -5,6 +5,8 @@ const utility  = require('../utility');
 const {promisify} = require('util');
 const glob     = promisify(require('glob'));
 
+const {newTestCase, defaultCase } = require('./test_case')
+
 describe('web worker', function() {
   before(function() {
     // Will match both `highlight.pack.js` and `highlight.min.js`
@@ -36,12 +38,12 @@ describe('web worker', function() {
     this.worker.onmessage = event => {
       const actual = event.data;
 
-      actual.should.equal(this.expect);
+      actual.should.equal(defaultCase.expect);
 
       done();
     };
 
-    this.worker.postMessage(this.text);
+    this.worker.postMessage(defaultCase.code);
   });
 
   after(function() {
