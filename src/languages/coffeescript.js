@@ -61,13 +61,13 @@ function(hljs) {
           contains: [SUBST, hljs.HASH_COMMENT_MODE]
         },
         {
-          begin: '//[gim]*',
+          begin: '//[gim]{0,3}(?=\\W)',
           relevance: 0
         },
         {
           // regex can't start with space to parse x / 2 / 3 as two divisions
           // regex can't start with *, and it supports an "illegal" in the main mode
-          begin: /\/(?![ *])(\\\/|.)*?\/[gim]*(?=\W)/
+          begin: /\/(?![ *]).*?(?![\\]).\/[gim]{0,3}(?=\W)/
         }
       ]
     },

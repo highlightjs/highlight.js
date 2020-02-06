@@ -22,6 +22,7 @@ function(hljs) {
     literal:
       'null false true'
   };
+  var TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, {begin: '[a-zA-Z](\\.?\\w)*'});
   var NUMBERS = {
     className: 'number',
     variants: [
@@ -86,6 +87,11 @@ function(hljs) {
     ]
   };
 
+  var GENERIC_MODIFIER = {
+    begin: "<",
+    end: ">",
+    keywords: "in out"
+  };
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
 
   return {
@@ -131,7 +137,9 @@ function(hljs) {
         beginKeywords: 'class interface', end: /[{;=]/,
         illegal: /[^\s:,]/,
         contains: [
-          hljs.TITLE_MODE,
+          { beginKeywords: "where class" },
+          TITLE_MODE,
+          GENERIC_MODIFIER,
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
@@ -140,7 +148,7 @@ function(hljs) {
         beginKeywords: 'namespace', end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: '[a-zA-Z](\\.?\\w)*'}),
+          TITLE_MODE,
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
