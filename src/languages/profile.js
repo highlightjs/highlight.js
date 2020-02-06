@@ -1,5 +1,5 @@
 /*
-Language: Python profile
+Language: Python profiler
 Description: Python profiler results
 Author: Brian Beck <exogen@gmail.com>
 */

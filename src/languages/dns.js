@@ -1,5 +1,5 @@
 /*
-Language: DNS Zone file
+Language: DNS Zone
 Author: Tim Schumacher <tim@datenknoten.me>
 Category: config
 Website: https://en.wikipedia.org/wiki/Zone_file
