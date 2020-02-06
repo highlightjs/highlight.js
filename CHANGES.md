@@ -15,6 +15,8 @@ Core Changes:
 
 Language Improvements:
 
+- (markdown) much improved code block support (#2382) [Josh Goebel][]
+- (markdown) improve bold/italic nesting (#2382) [Josh Goebel][]
 - enh(csharp) Support `where` keyword as class constraint (#2378) [Josh Goebel][]
 - enh(csharp) Allow reference path in class inheritance lists (#2378) [Josh Goebel][]
 - enh(csharp) Add generic modifiers (in, out) (#2378) [Josh Goebel][]
