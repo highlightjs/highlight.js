@@ -29,6 +29,15 @@ Developer Tools:
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 
 
+## Version 9.18.1
+
+Grammar Improvements:
+
+- bug(coffeescript) fix freezing bug due to badly behaved regex (#2376) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
+
+
 ## Version 9.18.0
 
 New languages:
