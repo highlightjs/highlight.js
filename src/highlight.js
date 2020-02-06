@@ -91,7 +91,7 @@ https://highlightjs.org/
     classes += block.parentNode ? block.parentNode.className : '';
 
     // language-* takes precedence over non-prefixed class names.
-    match = options.languagePrefixRe.exec(classes);
+    match = options.languageDetectRe.exec(classes);
     if (match) {
       var language = getLanguage(match[1]);
       if (!language) {
