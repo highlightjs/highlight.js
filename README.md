@@ -58,6 +58,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | Language                | Classes                | Package |
 | :-----------------------| :--------------------- | :------ |
 | 1C                      | 1c                     |         |
+| 4D                      | 4d                     |[highlightjs-4d](https://github.com/highlightjs/highlightjs-4d) |
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |

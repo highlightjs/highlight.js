@@ -1,4 +1,4 @@
-## Version 10.0.0 (master)
+## Version (master)
 
 New languages:
 
@@ -14,13 +14,28 @@ Core Changes:
 
 Language Improvements:
 
+- enh(parser) pre/post-highlightBlock callbacks via plugin (#2285) [Josh Goebel][]
+- (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
+- (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
 
 Developer Tools:
 
 - none.
 
+[Josh Goebel]: https://github.com/yyyc514
+[Sam Miller]: https://github.com/smillerc
+[Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
+[Josh Goebel]: https://github.com/yyyc514
+
+
+## Version 9.18.1
+
+Grammar Improvements:
+
+- bug(coffeescript) fix freezing bug due to badly behaved regex (#2376) [Josh Goebel][]
+
 [Josh Goebel]: https://github.com/yyyc514
 
 
