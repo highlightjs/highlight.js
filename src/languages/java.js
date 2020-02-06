@@ -17,7 +17,7 @@ function(hljs) {
 
   var ANNOTATION = {
     className: 'meta',
-    begin: '@[A-Za-z0-9]+',
+    begin: '@' + JAVA_IDENT_RE,
     contains:[
       {
         begin: /\(/,
