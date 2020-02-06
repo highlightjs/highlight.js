@@ -1,5 +1,5 @@
 /*
-Language: Haml
+Language: HAML
 Requires: ruby.js
 Author: Dan Allen <dan.j.allen@gmail.com>
 Website: http://haml.info

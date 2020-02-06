@@ -1,4 +1,4 @@
-## Version 10.0.0 (master)
+## Version (master)
 
 New languages:
 
@@ -10,10 +10,21 @@ New themes:
 
 Core Changes:
 
-- none.
+- improve regular expression detect (less false-positives) (#2380) [Josh Goebel][]
+- make `noHighlightRe` and `languagePrefixRe` configurable (#2374) [Josh Goebel][]
 
 Language Improvements:
 
+- (markdown) much improved code block support (#2382) [Josh Goebel][]
+- (markdown) improve bold/italic nesting (#2382) [Josh Goebel][]
+- enh(csharp) Support `where` keyword as class constraint (#2378) [Josh Goebel][]
+- enh(csharp) Allow reference path in class inheritance lists (#2378) [Josh Goebel][]
+- enh(csharp) Add generic modifiers (in, out) (#2378) [Josh Goebel][]
+- (fortran) enh(fortran) support intrinsic data types (#2379) [Josh Goebel][]
+- enh(java) annotations can include numbers (#2377) [Josh Goebel][]
+- enh(java) annotations can take params (#2377) [Josh Goebel][]
+- enh(java) allow annotations inside function call params (#2377) [Josh Goebel][]
+- enh(parser) pre/post-highlightBlock callbacks via plugin (#2285) [Josh Goebel][]
 - (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
 - (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
@@ -22,9 +33,20 @@ Developer Tools:
 
 - none.
 
+[Josh Goebel]: https://github.com/yyyc514
 [Sam Miller]: https://github.com/smillerc
 [Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
+[Josh Goebel]: https://github.com/yyyc514
+
+
+## Version 9.18.1
+
+Grammar Improvements:
+
+- bug(coffeescript) fix freezing bug due to badly behaved regex (#2376) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
 
 
 ## Version 9.18.0
