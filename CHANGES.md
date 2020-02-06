@@ -15,6 +15,7 @@ Core Changes:
 
 Language Improvements:
 
+- enh(zephir) almost complete rework of the zephir grammar (#2387) [Josh Goebel][]
 - (markdown) much improved code block support (#2382) [Josh Goebel][]
 - (markdown) improve bold/italic nesting (#2382) [Josh Goebel][]
 - enh(csharp) Support `where` keyword as class constraint (#2378) [Josh Goebel][]
