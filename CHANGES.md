@@ -14,6 +14,9 @@ Core Changes:
 
 Language Improvements:
 
+- enh(csharp) Support `where` keyword as class constraint (#2378) [Josh Goebel][]
+- enh(csharp) Allow reference path in class inheritance lists (#2378) [Josh Goebel][]
+- enh(csharp) Add generic modifiers (in, out) (#2378) [Josh Goebel][]
 - (fortran) enh(fortran) support intrinsic data types (#2379) [Josh Goebel][]
 - enh(java) annotations can include numbers (#2377) [Josh Goebel][]
 - enh(java) annotations can take params (#2377) [Josh Goebel][]
