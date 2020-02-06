@@ -1,5 +1,5 @@
 /*
-Language: PostgreSQL SQL dialect and PL/pgSQL
+Language: PostgreSQL and PL/pgSQL
 Author: Egor Rogov (e.rogov@postgrespro.ru)
 Website: https://www.postgresql.org/docs/11/sql.html
 Description:
