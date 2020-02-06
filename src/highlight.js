@@ -54,7 +54,7 @@ https://highlightjs.org/
   // calling the `hljs.configure` function.
   var options = {
     noHighlightRe: /^(no-?highlight)$/i,
-    languagePrefixRe: /\blang(?:uage)?-([\w-]+)\b/i,
+    languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,

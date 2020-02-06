@@ -74,8 +74,8 @@ Configures global options:
 * ``useBR``: a flag to generate ``<br>`` tags instead of new-line characters in the output, useful when code is marked up using a non-``<pre>`` container.
 * ``classPrefix``: a string prefix added before class names in the generated markup, used for backwards compatibility with stylesheets.
 * ``languages``: an array of language names and aliases restricting auto detection to only these languages.
-* ``languagePrefixRe``: allows you to configure the css language prefix  (to allow class names like, `color-as-php`, etc.)
-* ``noHighlightRe``: allows you to configure which CSS classes are considered as "do not highlight" flags
+* ``languageDetectRe``: a regex to configure how CSS class names map to language (allows class names like say `color-as-php` vs the default of `language-php`, etc.)
+* ``noHighlightRe``: a regex to configure which CSS classes are to be skipped completely
 
 Accepts an object representing options with the values to updated. Other options don't change
 ::
