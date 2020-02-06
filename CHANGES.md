@@ -10,7 +10,7 @@ New themes:
 
 Core Changes:
 
-- none.
+- make `noHighlightRe` and `languagePrefixRe` configurable (#2374) [Josh Goebel][]
 
 Language Improvements:
 
@@ -31,6 +31,7 @@ Developer Tools:
 [Sam Miller]: https://github.com/smillerc
 [Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
+[Josh Goebel]: https://github.com/yyyc514
 
 
 ## Version 9.18.1

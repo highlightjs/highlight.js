@@ -177,7 +177,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | PHP                     | php, php3, php4, php5, php6, php7 |    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
-| Plaintext: no highlight | plaintext              |         |
+| Plaintext               | plaintext, txt, text   |         |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
 | PowerShell              | powershell, ps, ps1    |         |
