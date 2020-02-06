@@ -5,6 +5,7 @@ delete require.cache[require.resolve('../../build/lib/highlight')]
 
 const fs       = require('fs').promises;
 const hljs     = require('../../build');
+hljs.debugMode(); // tests run in debug mode so errors are raised
 const path     = require('path');
 const utility  = require('../utility');
 

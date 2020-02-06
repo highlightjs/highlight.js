@@ -14,6 +14,10 @@ Core Changes:
 
 Language Improvements:
 
+- (fortran) enh(fortran) support intrinsic data types (#2379) [Josh Goebel][]
+- enh(java) annotations can include numbers (#2377) [Josh Goebel][]
+- enh(java) annotations can take params (#2377) [Josh Goebel][]
+- enh(java) allow annotations inside function call params (#2377) [Josh Goebel][]
 - enh(parser) pre/post-highlightBlock callbacks via plugin (#2285) [Josh Goebel][]
 - (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
 - (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
