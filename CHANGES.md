@@ -10,7 +10,7 @@ New themes:
 
 Core Changes:
 
-- make `noHighlightRe` and `languagePrefixRe` configurable () [Josh Goebel][]
+- make `noHighlightRe` and `languagePrefixRe` configurable (#2374) [Josh Goebel][]
 
 Language Improvements:
 
