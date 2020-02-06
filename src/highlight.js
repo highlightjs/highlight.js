@@ -694,6 +694,12 @@ https://highlightjs.org/
       if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
         // spit the "skipped" character that our regex choked on back into the output sequence
         mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
+        if (!SAFE_MODE) {
+          var err = new Error('0 width match regex');
+          err.languageName = languageName;
+          err.badRule = lastMatch.rule;
+          throw(err);
+        }
         return 1;
       }
       lastMatch = match;
@@ -1018,6 +1024,7 @@ https://highlightjs.org/
   hljs.inherit = inherit;
   hljs.addPlugin = addPlugin;
   hljs.debugMode = function() { SAFE_MODE = false; }
+  hljs.safeMode = function() { SAFE_MODE = true; }
 
   // Common regexps
   hljs.IDENT_RE = '[a-zA-Z]\\w*';

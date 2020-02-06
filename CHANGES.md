@@ -14,6 +14,7 @@ Core Changes:
 
 Language Improvements:
 
+- (fortran) enh(fortran) support intrinsic data types (#2379) [Josh Goebel][]
 - enh(java) annotations can include numbers (#2377) [Josh Goebel][]
 - enh(java) annotations can take params (#2377) [Josh Goebel][]
 - enh(java) allow annotations inside function call params (#2377) [Josh Goebel][]
