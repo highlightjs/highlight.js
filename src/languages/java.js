@@ -15,6 +15,17 @@ function(hljs) {
     'package default double public try this switch continue throws protected public private ' +
     'module requires exports do';
 
+  var ANNOTATION = {
+    className: 'meta',
+    begin: '@' + JAVA_IDENT_RE,
+    contains:[
+      {
+        begin: /\(/,
+        end: /\)/,
+        contains: ["self"] // allow nested () inside our annotation
+      },
+    ]
+  }
   // https://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html
   var JAVA_NUMBER_RE = '\\b' +
     '(' +
@@ -95,6 +106,7 @@ function(hljs) {
             keywords: KEYWORDS,
             relevance: 0,
             contains: [
+              ANNOTATION,
               hljs.APOS_STRING_MODE,
               hljs.QUOTE_STRING_MODE,
               hljs.C_NUMBER_MODE,
@@ -106,9 +118,7 @@ function(hljs) {
         ]
       },
       JAVA_NUMBER_MODE,
-      {
-        className: 'meta', begin: '@[A-Za-z]+'
-      }
+      ANNOTATION
     ]
   };
 }
