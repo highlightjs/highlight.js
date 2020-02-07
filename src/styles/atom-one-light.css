@@ -28,7 +28,7 @@ hue-6-2: #c18401
 
 .hljs-comment,
 .hljs-quote {
-  color: #a0a1a7;
+  color: #717277;
   font-style: italic;
 }
 
@@ -55,7 +55,7 @@ hue-6-2: #c18401
 .hljs-addition,
 .hljs-attribute,
 .hljs-meta-string {
-  color: #50a14f;
+  color: #42803C;
 }
 
 .hljs-built_in,
