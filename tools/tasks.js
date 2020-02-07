@@ -100,7 +100,7 @@ tasks.rename = function(options, blob, done) {
   return done(null, new gear.Blob(blob.result, { name: name }));
 };
 
-// Adds the contributors from `AUTHORS.en.txt` onto the `package.json` file
+// Adds the contributors from `AUTHORS.txt` onto the `package.json` file
 // and moves the result into the `build` directory.
 tasks.buildPackage = function(json, blob, done) {
   let result,
