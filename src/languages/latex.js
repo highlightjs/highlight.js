@@ -1,5 +1,5 @@
 /*
-Language: TeX
+Language: LaTeX
 Author: Vladimir Moskva <vladmos@gmail.com>
 Website: https://www.latex-project.org
 Category: markup
@@ -45,6 +45,7 @@ function(hljs) {
   };
 
   return {
+    aliases: ['tex'],
     contains: [
       COMMAND,
       {

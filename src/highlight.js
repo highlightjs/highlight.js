@@ -34,16 +34,15 @@ https://highlightjs.org/
 
   // Global internal variables used within the highlight.js library.
   var languages = {},
-      aliases   = {};
+      aliases   = {},
+      plugins   = [];
 
   // safe/production mode - swallows more errors, tries to keep running
   // even if a single syntax or parse hits a fatal error
   var SAFE_MODE = true;
 
   // Regular expressions used throughout the highlight.js library.
-  var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
-      languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
-      fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
+  var fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
 
   // The object will be assigned by the build tool. It used to synchronize API
   // of external language files with minified version of the highlight.js library.
@@ -55,6 +54,8 @@ https://highlightjs.org/
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.
   var options = {
+    noHighlightRe: /^(no-?highlight)$/i,
+    languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
@@ -81,7 +82,7 @@ https://highlightjs.org/
   }
 
   function isNotHighlighted(language) {
-    return noHighlightRe.test(language);
+    return options.noHighlightRe.test(language);
   }
 
   function blockLanguage(block) {
@@ -91,7 +92,7 @@ https://highlightjs.org/
     classes += block.parentNode ? block.parentNode.className : '';
 
     // language-* takes precedence over non-prefixed class names.
-    match = languagePrefixRe.exec(classes);
+    match = options.languageDetectRe.exec(classes);
     if (match) {
       var language = getLanguage(match[1]);
       if (!language) {
@@ -274,18 +275,6 @@ https://highlightjs.org/
     return [mode];
   }
 
-  function restoreLanguageApi(obj) {
-    if(API_REPLACES && !obj.langApiRestored) {
-      obj.langApiRestored = true;
-      for(var key in API_REPLACES) {
-        if (obj[key]) {
-          obj[API_REPLACES[key]] = obj[key];
-        }
-      }
-      (obj.contains || []).concat(obj.variants || []).forEach(restoreLanguageApi);
-    }
-  }
-
   function compileKeywords(rawKeywords, case_insensitive) {
       var compiled_keywords = {};
 
@@ -321,7 +310,7 @@ https://highlightjs.org/
   }
 
   function commonKeyword(word) {
-    return COMMON_KEYWORDS.indexOf(word.toLowerCase()) != -1;
+    return COMMON_KEYWORDS.includes(word.toLowerCase());
   }
 
   function compileLanguage(language) {
@@ -500,7 +489,7 @@ https://highlightjs.org/
     }
 
     // self is not valid at the top-level
-    if (language.contains && language.contains.indexOf('self') != -1) {
+    if (language.contains && language.contains.includes('self')) {
       if (!SAFE_MODE) {
         throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.")
       } else {
@@ -705,6 +694,12 @@ https://highlightjs.org/
       if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
         // spit the "skipped" character that our regex choked on back into the output sequence
         mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
+        if (!SAFE_MODE) {
+          var err = new Error('0 width match regex');
+          err.languageName = languageName;
+          err.badRule = lastMatch.rule;
+          throw(err);
+        }
         return 1;
       }
       lastMatch = match;
@@ -777,7 +772,7 @@ https://highlightjs.org/
         top: top
       };
     } catch (err) {
-      if (err.message && err.message.indexOf('Illegal') !== -1) {
+      if (err.message && err.message.includes('Illegal')) {
         return {
           illegal: true,
           relevance: 0,
@@ -880,6 +875,9 @@ https://highlightjs.org/
     if (isNotHighlighted(language))
         return;
 
+    fire("before:highlightBlock",
+      { block: block, language: language});
+
     if (options.useBR) {
       node = document.createElement('div');
       node.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ \/]*>/g, '\n');
@@ -896,6 +894,8 @@ https://highlightjs.org/
       result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
     }
     result.value = fixMarkup(result.value);
+
+    fire("after:highlightBlock", { block: block, result: result});
 
     block.innerHTML = result.value;
     block.className = buildClassName(block.className, language, result.language);
@@ -935,7 +935,6 @@ https://highlightjs.org/
   */
   function initHighlightingOnLoad() {
     window.addEventListener('DOMContentLoaded', initHighlighting, false);
-    window.addEventListener('load', initHighlighting, false);
   }
 
   var PLAINTEXT_LANGUAGE = { disableAutodetect: true };
@@ -954,7 +953,6 @@ https://highlightjs.org/
       lang = PLAINTEXT_LANGUAGE;
     }
     languages[name] = lang;
-    restoreLanguageApi(lang);
     lang.rawDefinition = language.bind(null,hljs);
 
     if (lang.aliases) {
@@ -990,6 +988,25 @@ https://highlightjs.org/
     return lang && !lang.disableAutodetect;
   }
 
+  function addPlugin(plugin, options) {
+    plugins.push(plugin);
+  }
+
+  function fire(event, args) {
+    // var cb = eventToFuncName(event);
+    var cb = event;
+    plugins.forEach(function (plugin) {
+      if (plugin[cb]) {
+        plugin[cb](args);
+      }
+    });
+  }
+
+
+  function eventToFuncName(event) {
+    return event.replace(/:([a-z])/, function(el) { return el.toUpperCase().slice(1) })
+  }
+
   /* Interface definition */
 
   hljs.highlight = highlight;
@@ -1005,7 +1022,9 @@ https://highlightjs.org/
   hljs.requireLanguage = requireLanguage;
   hljs.autoDetection = autoDetection;
   hljs.inherit = inherit;
+  hljs.addPlugin = addPlugin;
   hljs.debugMode = function() { SAFE_MODE = false; }
+  hljs.safeMode = function() { SAFE_MODE = true; }
 
   // Common regexps
   hljs.IDENT_RE = '[a-zA-Z]\\w*';
@@ -1083,17 +1102,26 @@ https://highlightjs.org/
     relevance: 0
   };
   hljs.REGEXP_MODE = {
-    className: 'regexp',
-    begin: /\//, end: /\/[gimuy]*/,
-    illegal: /\n/,
-    contains: [
-      hljs.BACKSLASH_ESCAPE,
-      {
-        begin: /\[/, end: /\]/,
-        relevance: 0,
-        contains: [hljs.BACKSLASH_ESCAPE]
-      }
-    ]
+    // this outer rule makes sure we actually have a WHOLE regex and not simply
+    // an expression such as:
+    //
+    //     3 / something
+    //
+    // (which will then blow up when regex's `illegal` sees the newline)
+    begin: /(?=\/[^\/\n]*\/)/,
+    contains: [{
+      className: 'regexp',
+      begin: /\//, end: /\/[gimuy]*/,
+      illegal: /\n/,
+      contains: [
+        hljs.BACKSLASH_ESCAPE,
+        {
+          begin: /\[/, end: /\]/,
+          relevance: 0,
+          contains: [hljs.BACKSLASH_ESCAPE]
+        }
+      ]
+    }]
   };
   hljs.TITLE_MODE = {
     className: 'title',

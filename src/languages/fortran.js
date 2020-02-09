@@ -13,8 +13,8 @@ function(hljs) {
 
   var F_KEYWORDS = {
     literal: '.False. .True.',
-    keyword: 'kind do while private call intrinsic where elsewhere ' +
-      'type endtype endmodule endselect endinterface end enddo endif if forall endforall only contains default return stop then block endblock ' +
+    keyword: 'kind do concurrent local shared while private call intrinsic where elsewhere ' +
+      'type endtype endmodule endselect endinterface end enddo endif if forall endforall only contains default return stop then block endblock endassociate ' +
       'public subroutine|10 function program .and. .or. .not. .le. .eq. .ge. .gt. .lt. ' +
       'goto save else use module select case ' +
       'access blank direct exist file fmt form formatted iostat name named nextrec number opened rec recl sequential status unformatted unit ' +
@@ -29,8 +29,8 @@ function(hljs) {
       'c_ptr c_funptr iso_fortran_env character_storage_size error_unit file_storage_size input_unit iostat_end iostat_eor ' +
       'numeric_storage_size output_unit c_f_procpointer ieee_arithmetic ieee_support_underflow_control ' +
       'ieee_get_underflow_mode ieee_set_underflow_mode newunit contiguous recursive ' +
-      'pad position action delim readwrite eor advance nml interface procedure namelist include sequence elemental pure ' +
-      'integer real character complex logical dimension allocatable|10 parameter ' +
+      'pad position action delim readwrite eor advance nml interface procedure namelist include sequence elemental pure impure ' +
+      'integer real character complex logical codimension dimension allocatable|10 parameter ' +
       'external implicit|10 none double precision assign intent optional pointer ' +
       'target in out common equivalence data',
     built_in: 'alog alog10 amax0 amax1 amin0 amin1 amod cabs ccos cexp clog csin csqrt dabs dacos dasin datan datan2 dcos dcosh ddim dexp dint ' +
@@ -50,7 +50,7 @@ function(hljs) {
       'acosh asinh atanh bessel_j0 bessel_j1 bessel_jn bessel_y0 bessel_y1 bessel_yn erf erfc erfc_scaled gamma log_gamma hypot norm2 ' +
       'atomic_define atomic_ref execute_command_line leadz trailz storage_size merge_bits ' +
       'bge bgt ble blt dshiftl dshiftr findloc iall iany iparity image_index lcobound ucobound maskl maskr ' +
-      'num_images parity popcnt poppar shifta shiftl shiftr this_image'
+      'num_images parity popcnt poppar shifta shiftl shiftr this_image sync change team co_broadcast co_max co_min co_sum co_reduce'
   };
   return {
     case_insensitive: true,
@@ -69,7 +69,8 @@ function(hljs) {
       hljs.COMMENT('!', '$', {relevance: 0}),
       {
         className: 'number',
-        begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][+-]?\\d+)?\\b\\.?',
+        // regex in both fortran and irpf90 should match
+        begin: '(?=\\b|\\+|\\-|\\.)(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z_\\d]+)?',
         relevance: 0
       }
     ]

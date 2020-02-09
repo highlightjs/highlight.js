@@ -1,0 +1,7 @@
+<span class="hljs-keyword">interface</span> <span class="hljs-title">IObserver</span>&lt;<span class="hljs-keyword">in</span> T&gt;;
+{}
+
+<span class="hljs-keyword">interface</span> <span class="hljs-title">IObservable</span>&lt;<span class="hljs-keyword">out</span> T&gt;;
+{}
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">delegate</span> <span class="hljs-keyword">void</span> DContravariant&lt;<span class="hljs-keyword">in</span> A&gt;(A argument);
