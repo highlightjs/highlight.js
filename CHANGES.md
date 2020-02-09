@@ -15,6 +15,7 @@ Core Changes:
 
 Language Improvements:
 
+- enh(php) added more keywords and include `<?=` syntax to meta [Taufik Nurrohman][]
 - fix(protobuf) Fix `rpc` when followed by a block (#) [Josh Goebel][]
 - enh(zephir) almost complete rework of the zephir grammar (#2387) [Josh Goebel][]
 - (markdown) much improved code block support (#2382) [Josh Goebel][]
