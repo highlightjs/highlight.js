@@ -94,7 +94,6 @@ const HLJS = function(hljs) {
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignore_illegals, continuation) {
-    var codeToHighlight;
     var context = {
       originalCode: code,
       language: languageName
@@ -102,8 +101,23 @@ const HLJS = function(hljs) {
     // the plugin can change the desired language or the code to be highlighted
     // just be changing the object it was passed
     fire("before:highlight", context);
-    codeToHighlight = context.originalCode;
-    languageName = context.language;
+
+    // a before plugin can usurp the result completely by providing it's own
+    // in which case we don't even need to call highlight
+    var result = context.result ?
+      context.result :
+      _highlight(context.language, context.originalCode, ignore_illegals, continuation);
+
+    result.originalCode = context.originalCode;
+    // the plugin can change anything in result to suite it
+    fire("after:highlight", result);
+
+    return result;
+  }
+
+  // private highlight that's used internally and does not fire callbacks
+  function _highlight(languageName, code, ignore_illegals, continuation) {
+    var codeToHighlight = code;
 
     function endOfMode(mode, lexeme) {
       if (regex.startsWith(mode.endRe, lexeme)) {
@@ -167,7 +181,7 @@ const HLJS = function(hljs) {
       }
 
       var result = explicit ?
-                   highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) :
+                   _highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) :
                    highlightAuto(mode_buffer, top.subLanguage.length ? top.subLanguage : undefined);
 
       // Counting embedded language score towards the host language may be disabled
@@ -340,7 +354,6 @@ const HLJS = function(hljs) {
     var relevance = 0;
     var match, processedCount, index = 0;
 
-    var returnValue;
     try {
       while (true) {
         top.terminators.lastIndex = index;
@@ -356,7 +369,7 @@ const HLJS = function(hljs) {
       emitter.finalize();
       result = emitter.toHTML();
 
-      returnValue = {
+      return {
         relevance: relevance,
         value: result,
         language: languageName,
@@ -366,7 +379,7 @@ const HLJS = function(hljs) {
       };
     } catch (err) {
       if (err.message && err.message.includes('Illegal')) {
-        returnValue = {
+        return {
           illegal: true,
           illegalBy: {
             msg: err.message,
@@ -379,7 +392,7 @@ const HLJS = function(hljs) {
           emitter: emitter,
         };
       } else if (SAFE_MODE) {
-        returnValue = {
+        return {
           relevance: 0,
           value: escape(codeToHighlight),
           emitter: emitter,
@@ -391,12 +404,6 @@ const HLJS = function(hljs) {
         throw err;
       }
     }
-
-    returnValue.originalCode = codeToHighlight;
-    // the plugin can change anything in returnValue to suite it
-    fire("after:highlight", returnValue);
-
-    return returnValue;
   }
 
   /*
