@@ -92,7 +92,8 @@ function(hljs) {
       hljs.COMMENT(
         '/\\*\\*',
         '\\*/', {
-          subLanguage: 'markdown'
+          subLanguage: 'markdown',
+          relevance:0
         }
       ),
       hljs.COMMENT(
@@ -102,6 +103,7 @@ function(hljs) {
             subLanguage: 'markdown',
             begin: '.',
             end: '$',
+            relevance:0
           }]
         }
       ),

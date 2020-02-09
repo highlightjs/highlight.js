@@ -1,8 +1,9 @@
 /*
 Language: Test Anything Protocol
+Description: TAP, the Test Anything Protocol, is a simple text-based interface between testing modules in a test harness.
 Requires: yaml.js
 Author: Sergey Bronnikov <sergeyb@bronevichok.ru>
-Website: https://bronevichok.ru/
+Website: https://testanything.org
 */
 
 function(hljs) {

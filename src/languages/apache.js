@@ -1,5 +1,5 @@
 /*
-Language: Apache
+Language: Apache config
 Author: Ruslan Keba <rukeba@gmail.com>
 Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: https://httpd.apache.org

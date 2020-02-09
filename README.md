@@ -58,6 +58,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | Language                | Classes                | Package |
 | :-----------------------| :--------------------- | :------ |
 | 1C                      | 1c                     |         |
+| 4D                      | 4d                     |[highlightjs-4d](https://github.com/highlightjs/highlightjs-4d) |
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
@@ -176,7 +177,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | PHP                     | php, php3, php4, php5, php6, php7 |    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
-| Plaintext: no highlight | plaintext              |         |
+| Plaintext               | plaintext, txt, text   |         |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
 | PowerShell              | powershell, ps, ps1    |         |
@@ -396,7 +397,7 @@ The official site for the library is at <https://highlightjs.org/>.
 Further in-depth documentation for the API and other topics is at
 <http://highlightjs.readthedocs.io/>.
 
-Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
+Authors and contributors are listed in the [AUTHORS.txt][8] file.
 
 [1]: http://highlightjs.readthedocs.io/en/latest/api.html#inithighlightingonload
 [2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
@@ -405,4 +406,4 @@ Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
 [5]: https://highlightjs.org/download/
 [6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
 [7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
-[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.en.txt
+[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.txt

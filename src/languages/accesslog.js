@@ -1,5 +1,5 @@
 /*
- Language: Access log
+ Language: Apache Access Log
  Author: Oleg Efimov <efimovov@gmail.com>
  Description: Apache/Nginx Access Logs
  Website: https://httpd.apache.org/docs/2.4/logs.html#accesslog

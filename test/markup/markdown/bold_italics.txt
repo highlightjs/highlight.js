@@ -1,0 +1,18 @@
+_Italic_
+*Italic*
+__Bold__
+**Bold**
+*Is __Combined__*
+__Bold *then italic*__
+**Bold _then italic_**
+**Bold and <br/>**
+**_[this](https://google.com)_**
+
+> quoted **Bold _then italic_**
+> _[this](https://google.com)_
+
+  *this is a emphasized paragraph*
+  *this is too*
+
+* list with a *italic item*
+* list with a **bold item**

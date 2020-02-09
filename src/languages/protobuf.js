@@ -31,7 +31,7 @@ function(hljs) {
       {
         className: 'function',
         beginKeywords: 'rpc',
-        end: /;/, excludeEnd: true,
+        end: /[{;]/, excludeEnd: true,
         keywords: 'rpc returns'
       },
       {
