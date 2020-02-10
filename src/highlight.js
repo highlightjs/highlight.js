@@ -97,7 +97,7 @@ const HLJS = function(hljs) {
     var context = {
       originalCode: code,
       language: languageName
-    }
+    };
     // the plugin can change the desired language or the code to be highlighted
     // just be changing the object it was passed
     fire("before:highlight", context);
@@ -426,7 +426,7 @@ const HLJS = function(hljs) {
     };
     var second_best = result;
     languageSubset.filter(getLanguage).filter(autoDetection).forEach(function(name) {
-      var current = highlight(name, code, false);
+      var current = _highlight(name, code, false);
       current.language = name;
       if (current.relevance > second_best.relevance) {
         second_best = current;
