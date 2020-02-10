@@ -36,7 +36,6 @@ function newTestCase(opts) {
 }
 
 const buildFakeDOM = async function(data) {
-  // Will match both `highlight.pack.js` and `highlight.min.js`
   const filePath = await findLibrary();
   const hljsPath = await glob(filePath);
   const hljsFiles = await hljsPath.map(path => fs.readFileSync(path, 'utf8'));

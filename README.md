@@ -15,7 +15,7 @@ library along with one of the styles and calling
 
 ```html
 <link rel="stylesheet" href="/path/to/styles/default.css">
-<script src="/path/to/highlight.pack.js"></script>
+<script src="/path/to/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 ```
 
@@ -239,7 +239,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | Zephir                  | zephir, zep            |         |
 
 Languages with the specified package name are defined in separate repositories
-and not included in `highlight.pack.js`.
+and not included in `highlight.min.js`.
 </details>
 
 
@@ -295,7 +295,7 @@ In worker.js:
 
 ```js
 onmessage = (event) => {
-  importScripts('<path>/highlight.pack.js');
+  importScripts('<path>/highlight.min.js');
   const result = self.hljs.highlightAuto(event.data);
   postMessage(result.value);
 };
