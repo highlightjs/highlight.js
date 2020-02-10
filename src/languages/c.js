@@ -5,7 +5,7 @@ Website: https://en.wikipedia.org/wiki/C_(programming_language)
 Requires: c-like.js
 */
 
-function(hljs) {
+export default function(hljs) {
 
   var lang = hljs.getLanguage('c-like').rawDefinition();
   // Until C is actually different than C++ there is no reason to auto-detect C
