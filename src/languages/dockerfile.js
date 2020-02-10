@@ -7,7 +7,7 @@ Website: https://docs.docker.com/engine/reference/builder/
 Category: config
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     aliases: ['docker'],
     case_insensitive: true,

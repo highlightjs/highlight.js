@@ -4,7 +4,7 @@ Author: Alex McKibben <alex@nullscope.net>
 Website: https://en.wikipedia.org/wiki/Extended_Backus–Naur_form
 */
 
-function(hljs) {
+export default function(hljs) {
     var commentMode = hljs.COMMENT(/\(\*/, /\*\)/);
 
     var nonTerminalMode = {

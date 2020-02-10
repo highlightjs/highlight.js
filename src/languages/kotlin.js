@@ -7,7 +7,7 @@
  */
 
 
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:
       'abstract as val var vararg get set class object open private protected public noinline ' +

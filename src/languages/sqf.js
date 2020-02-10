@@ -7,7 +7,7 @@ Website: https://community.bistudio.com/wiki/SQF_syntax
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   // In SQF, a variable start with _
   var VARIABLE = {
     className: 'variable',

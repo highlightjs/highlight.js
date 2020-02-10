@@ -5,7 +5,7 @@ Website: https://www.erlang.org
 Category: functional
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     keywords: {
       built_in:

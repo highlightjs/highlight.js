@@ -4,7 +4,7 @@ Author: Sergey Bronnikov <sergeyb@bronevichok.ru>
 Website: https://pypi.org/project/python-subunit/
 */
 
-function(hljs) {
+export default function(hljs) {
   var DETAILS = {
     className: 'string',
     begin: '\\[\n(multipart)?', end: '\\]\n'

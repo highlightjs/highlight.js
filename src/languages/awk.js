@@ -5,7 +5,7 @@ Website: https://www.gnu.org/software/gawk/manual/gawk.html
 Description: language definition for Awk scripts
 */
 
-function(hljs) {
+export default function(hljs) {
   var VARIABLE = {
     className: 'variable',
     variants: [

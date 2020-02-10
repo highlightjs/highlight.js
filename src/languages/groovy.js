@@ -5,7 +5,7 @@
  Website: https://groovy-lang.org
  */
 
-function(hljs) {
+export default function(hljs) {
     return {
         keywords: {
             literal : 'true false null',

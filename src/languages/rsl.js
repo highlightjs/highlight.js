@@ -6,7 +6,7 @@ Website: https://renderman.pixar.com/resources/RenderMan_20/shadingLanguage.html
 Category: graphics
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     keywords: {
       keyword:

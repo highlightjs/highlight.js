@@ -5,7 +5,7 @@ Author: Raivo Laanemets <raivo@infdot.com>
 Website: https://en.wikipedia.org/wiki/Prolog
 */
 
-function(hljs) {
+export default function(hljs) {
 
   var ATOM = {
 

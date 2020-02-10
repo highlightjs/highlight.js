@@ -6,7 +6,7 @@ Website: http://mc-stan.org/
 Category: scientific
 */
 
-function(hljs) {
+export default function(hljs) {
   // variable names cannot conflict with block identifiers
   var BLOCKS = [
     'functions',

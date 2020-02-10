@@ -8,7 +8,7 @@ Website: https://www.djangoproject.com
 Category: template
 */
 
-function(hljs) {
+export default function(hljs) {
   var FILTER = {
     begin: /\|[A-Za-z]+:?/,
     keywords: {

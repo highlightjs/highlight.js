@@ -6,7 +6,7 @@ Website: https://llvm.org/docs/LangRef.html
 Category: assembler
 */
 
-function(hljs) {
+export default function(hljs) {
   var identifier = '([-a-zA-Z$._][\\w\\-$.]*)';
   return {
     //lexemes: '[.%]?' + hljs.IDENT_RE,

@@ -5,7 +5,7 @@ Description: Q is a vector-based functional paradigm programming language built 
 Author: Sergey Vidyuk <svidyuk@gmail.com>
 Website: https://kx.com/connect-with-us/developers/
 */
-function(hljs) {
+export default function(hljs) {
   var Q_KEYWORDS = {
   keyword:
     'do while select delete by update from',

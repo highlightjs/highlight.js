@@ -6,7 +6,7 @@ Website: http://nixos.org/nix
 */
 
 
-function(hljs) {
+export default function(hljs) {
   var NIX_KEYWORDS = {
     keyword:
       'rec with let in inherit assert if else then',

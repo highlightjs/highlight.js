@@ -6,7 +6,7 @@ Requires: cpp.js
 Website: https://www.arduino.cc
 */
 
-function(hljs) {
+export default function(hljs) {
 
 	var ARDUINO_KW = {
       keyword:

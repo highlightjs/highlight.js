@@ -5,7 +5,7 @@ Author: Poren Chiang <ren.chiang@gmail.com>
 Website: https://docs.microsoft.com/en-us/dotnet/visual-basic/getting-started/
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     aliases: ['vb'],
     case_insensitive: true,

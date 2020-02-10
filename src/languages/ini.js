@@ -6,7 +6,7 @@ Category: common, config
 Website: https://github.com/toml-lang/toml
 */
 
-function(hljs) {
+export default function(hljs) {
   var NUMBERS = {
     className: 'number',
     relevance: 0,

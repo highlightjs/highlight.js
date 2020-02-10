@@ -6,7 +6,7 @@ Website: https://www.gnu.org/software/make/manual/html_node/Introduction.html
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   /* Variables: simple (eg $(var)) and special (eg $@) */
   var VARIABLE = {
     className: 'variable',

@@ -6,7 +6,7 @@ Author: Sergey Bronnikov <sergeyb@bronevichok.ru>
 Website: https://testanything.org
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     case_insensitive: true,
     contains: [

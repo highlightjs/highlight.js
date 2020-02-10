@@ -4,7 +4,7 @@ Author: Alex McKibben <alex@nullscope.net>
 Website: https://tools.ietf.org/html/rfc5234
 */
 
-function(hljs) {
+export default function(hljs) {
     var regexes = {
         ruleDeclaration: "^[a-zA-Z][a-zA-Z0-9-]*",
         unexpectedChars: "[!@#$^&',?+~`|:]"

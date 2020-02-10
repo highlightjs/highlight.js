@@ -5,7 +5,7 @@ Contributors: Troy Kershaw <hello@troykershaw.com>, Henrik Feldt <henrik@haf.se>
 Website: https://docs.microsoft.com/en-us/dotnet/fsharp/
 Category: functional
 */
-function(hljs) {
+export default function(hljs) {
   var TYPEPARAM = {
     begin: '<', end: '>',
     contains: [

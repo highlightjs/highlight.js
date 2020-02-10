@@ -7,9 +7,14 @@ const hljs     = require('../../build');
 const path     = require('path');
 const utility  = require('../utility');
 
-function testLanguage(language) {
+const { getThirdPartyPackages } = require("../../tools/lib/external_language")
+
+function testLanguage(language, {testDir}) {
   describe(language, function() {
-    const filePath  = utility.buildPath('markup', language, '*.expect.txt'),
+    const where = testDir ?
+      path.join(testDir, '*.expect.txt') :
+      utility.buildPath('markup', language, '*.expect.txt');
+    const filePath  = where,
           filenames = glob.sync(filePath);
 
     _.each(filenames, function(filename) {
@@ -31,13 +36,22 @@ function testLanguage(language) {
   });
 }
 
-describe('hljs.highlight()', async () => {
-  // TODO: why?
-  // ./node_modules/.bin/mocha test/markup
-  it("needs this or it can't be run stand-alone", function() {} );
+describe('highlight() markup', async () => {
+  before(async function() {
+    const markupPath = utility.buildPath('markup');
 
-  const markupPath = utility.buildPath('markup');
+    if (!process.env.ONLY_EXTRA) {
+      let languages = await fs.readdir(markupPath);
+      languages.forEach(testLanguage);
+    }
 
-  const languages = await fs.readdir(markupPath)
-  return languages.forEach(testLanguage);
+    let thirdPartyPackages = await getThirdPartyPackages();
+    thirdPartyPackages.forEach(
+      (pkg) => pkg.names.forEach(
+        (name, idx) => testLanguage(name, {testDir: pkg.markupTestPaths[idx]})
+      )
+    );
+  })
+
+  it("adding dynamic tests...", async function() {} ); // this is required to work
 });

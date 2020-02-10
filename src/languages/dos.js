@@ -5,7 +5,7 @@ Contributors: Anton Kochkov <anton.kochkov@gmail.com>
 Website: https://en.wikipedia.org/wiki/Batch_file
 */
 
-function(hljs) {
+export default function(hljs) {
   var COMMENT = hljs.COMMENT(
     /^\s*@?rem\b/, /$/,
     {

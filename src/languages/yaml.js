@@ -7,7 +7,7 @@ Requires: ruby.js
 Website: https://yaml.org
 Category: common, config
 */
-function(hljs) {
+export default function(hljs) {
   var LITERALS = 'true false yes no null';
 
   // Define keys as starting with a word character

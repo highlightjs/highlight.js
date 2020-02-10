@@ -11,21 +11,20 @@
 // * browser
 //
 //   The default target. This will package up the core `highlight.js` along
-//   with all the language definitions into the file `highlight.pack.js` --
-//   which will be compressed without including the option to disable it. It
-//   also builds the documentation for our readthedocs page, mentioned
-//   above, along with a local instance of the demo at:
+//   with all the language definitions into the file `highlight.js`. A
+//   minified version is also created unless `--no-minify` is passed.
+//   It also builds the documentation for our readthedocs page, mentioned
+//   above, along with a local instance of the demo found at:
 //
 //   <https://highlightjs.org/static/demo/>.
 //
 // * cdn
 //
-//   This will package up the core `highlight.js` along with all the
-//   language definitions into the file `highlight.min.js` and compresses
-//   all languages and styles into separate files. Since the target is for
-//   CDNs -- like cdnjs and jsdelivr -- it doesn't matter if you put the
-//   option to disable compression, this target is always be compressed. Do
-//   keep in mind that we don't keep the build results in the main
+//   This will package up the core `highlight.js` along with any specified
+//   language definitions into the file `highlight.min.js` and also package
+//   _all_ languages and styles into separate files. The intended use is for
+//   CDNs -- like cdnjs and jsdelivr -- so `--no-minify` is ignored.
+//   Do keep in mind that we don't provide the build results in the main
 //   repository; however, there is a separate repository for those that want
 //   the CDN builds without using a third party site or building it
 //   themselves. For those curious, head over to:
@@ -60,30 +59,49 @@
 
 'use strict';
 
-let commander = require('commander');
-let path      = require('path');
-let Queue     = require('gear').Queue;
-let registry  = require('./tasks');
+const commander = require('commander');
+const path      = require('path');
+const { clean } = require("./lib/makestuff")
+const log = (...args) => console.log(...args)
 
-let build, dir = {};
+const TARGETS = ["cdn", "browser", "node"];
+let dir = {};
 
 commander
   .usage('[options] [<language>...]')
-  .option('-n, --no-compress', 'Disable compression')
+  .option('-n, --no-minify', 'Disable minification')
   .option('-t, --target <name>', 'Build for target ' +
                                  '[all, browser, cdn, node]',
-                                 /^(browser|cdn|node|all)$/i, 'browser')
+                                  'browser')
   .parse(process.argv);
 
 commander.target = commander.target.toLowerCase();
 
-build     = require(`./${commander.target}`);
 dir.root  = path.dirname(__dirname);
-dir.build = path.join(dir.root, 'build');
+dir.buildRoot = path.join(dir.root, 'build');
 
-new Queue({ registry: registry })
-  .clean(dir.build)
-  .log('Starting build.')
-  .series(build(commander, dir))
-  .log('Finished build.')
-  .run();
+async function doTarget(target, buildDir) {
+  const build     = require(`./build_${target}`);
+  process.env.BUILD_DIR = buildDir;
+  await clean(buildDir);
+  await build.build({languages: commander.args, minify: commander.minify});
+};
+
+async function doBuild() {
+  log ("Starting build.");
+  if (commander.target=="all") {
+    await clean(dir.buildRoot);
+    for (let target of TARGETS) {
+      log (`** Building ${target.toUpperCase()}. **`);
+      let buildDir = path.join(dir.buildRoot, target);
+      await doTarget(target, buildDir);
+    }
+  } else if (TARGETS.includes(commander.target)) {
+    doTarget(commander.target, dir.buildRoot);
+  } else {
+    log(`ERROR: I do not know how to build '${commander.target}'`);
+  }
+  log ("Finished build.");
+}
+
+doBuild()

@@ -5,7 +5,7 @@ Description: AutoIt language definition
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
     var KEYWORDS = 'ByRef Case Const ContinueCase ContinueLoop ' +
         'Default Dim Do Else ElseIf EndFunc EndIf EndSelect ' +
         'EndSwitch EndWith Enum Exit ExitLoop For Func ' +

@@ -7,7 +7,7 @@ Date: 2019-04-17
 Category: enterprise
 */
 
-function(hljs) {
+export default function(hljs) {
   var VARIABLE = {
     className: 'variable',
     variants: [

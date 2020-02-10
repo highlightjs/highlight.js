@@ -6,7 +6,7 @@ Website: https://daringfireball.net/projects/markdown/
 Category: common, markup
 */
 
-function(hljs) {
+export default function(hljs) {
   INLINE_HTML = {
     begin: '<', end: '>',
     subLanguage: 'xml',
