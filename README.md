@@ -316,7 +316,7 @@ const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 
 ```js
 // require the highlight.js library without languages
-const hljs = require("highlight.js/lib/core.js");
+const hljs = require("highlight.js/lib/core");
 // separately require languages
 hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
 hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
