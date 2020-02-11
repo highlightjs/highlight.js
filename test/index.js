@@ -27,4 +27,3 @@ require('./markup');
 // browser inside of node.js and runs together with all the other tests.
 require('./special');
 
-require("./tools");

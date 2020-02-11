@@ -44,10 +44,6 @@ https://highlightjs.org/
   // Regular expressions used throughout the highlight.js library.
   var fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
 
-  // The object will be assigned by the build tool. It used to synchronize API
-  // of external language files with minified version of the highlight.js library.
-  var API_REPLACES;
-
   var spanEndTag = '</span>';
   var LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
 
@@ -993,18 +989,12 @@ https://highlightjs.org/
   }
 
   function fire(event, args) {
-    // var cb = eventToFuncName(event);
     var cb = event;
     plugins.forEach(function (plugin) {
       if (plugin[cb]) {
         plugin[cb](args);
       }
     });
-  }
-
-
-  function eventToFuncName(event) {
-    return event.replace(/:([a-z])/, function(el) { return el.toUpperCase().slice(1) })
   }
 
   /* Interface definition */
