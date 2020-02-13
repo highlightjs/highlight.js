@@ -5,6 +5,9 @@ https://highlightjs.org/
 
 import deepFreeze from './vendor/deep_freeze';
 import * as regex from './lib/regex';
+import * as utils from './lib/utils';
+
+const escape = utils.escapeHTML;
 
 (function(factory) {
 
@@ -66,10 +69,6 @@ import * as regex from './lib/regex';
 
 
   /* Utility functions */
-
-  function escape(value) {
-    return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
 
   function tag(node) {
     return node.nodeName.toLowerCase();
