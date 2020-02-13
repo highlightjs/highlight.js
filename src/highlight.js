@@ -8,6 +8,7 @@ import * as regex from './lib/regex';
 import * as utils from './lib/utils';
 
 const escape = utils.escapeHTML;
+const inherit = utils.inherit;
 
 (function(factory) {
 
@@ -104,26 +105,6 @@ const escape = utils.escapeHTML;
         return _class;
       }
     }
-  }
-
-  /**
-   * performs a shallow merge of multiple objects into one
-   *
-   * @arguments list of objects with properties to merge
-   * @returns a single new object
-   */
-  function inherit(parent) {  // inherit(parent, override_obj, override_obj, ...)
-    var key;
-    var result = {};
-    var objects = Array.prototype.slice.call(arguments, 1);
-
-    for (key in parent)
-      result[key] = parent[key];
-    objects.forEach(function(obj) {
-      for (key in obj)
-        result[key] = obj[key];
-    });
-    return result;
   }
 
   /* Stream merging */
