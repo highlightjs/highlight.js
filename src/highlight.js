@@ -6,6 +6,7 @@ https://highlightjs.org/
 import deepFreeze from './vendor/deep_freeze';
 import * as regex from './lib/regex';
 import * as utils from './lib/utils';
+import * as MODES from './lib/modes';
 
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
@@ -935,138 +936,13 @@ const inherit = utils.inherit;
   hljs.debugMode = function() { SAFE_MODE = false; }
   hljs.safeMode = function() { SAFE_MODE = true; }
 
-  // Common regexps
-  hljs.IDENT_RE = '[a-zA-Z]\\w*';
-  hljs.UNDERSCORE_IDENT_RE = '[a-zA-Z_]\\w*';
-  hljs.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
-  hljs.C_NUMBER_RE = '(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
-  hljs.BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
-  hljs.RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
+  for (const key in MODES) {
+    if (typeof MODES[key] === "object")
+      deepFreeze(MODES[key]);
+  }
 
-  // Common modes
-  hljs.BACKSLASH_ESCAPE = {
-    begin: '\\\\[\\s\\S]', relevance: 0
-  };
-  hljs.APOS_STRING_MODE = {
-    className: 'string',
-    begin: '\'', end: '\'',
-    illegal: '\\n',
-    contains: [hljs.BACKSLASH_ESCAPE]
-  };
-  hljs.QUOTE_STRING_MODE = {
-    className: 'string',
-    begin: '"', end: '"',
-    illegal: '\\n',
-    contains: [hljs.BACKSLASH_ESCAPE]
-  };
-  hljs.PHRASAL_WORDS_MODE = {
-    begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b/
-  };
-  hljs.COMMENT = function (begin, end, inherits) {
-    var mode = hljs.inherit(
-      {
-        className: 'comment',
-        begin: begin, end: end,
-        contains: []
-      },
-      inherits || {}
-    );
-    mode.contains.push(hljs.PHRASAL_WORDS_MODE);
-    mode.contains.push({
-      className: 'doctag',
-      begin: '(?:TODO|FIXME|NOTE|BUG|XXX):',
-      relevance: 0
-    });
-    return mode;
-  };
-  hljs.C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$');
-  hljs.C_BLOCK_COMMENT_MODE = hljs.COMMENT('/\\*', '\\*/');
-  hljs.HASH_COMMENT_MODE = hljs.COMMENT('#', '$');
-  hljs.NUMBER_MODE = {
-    className: 'number',
-    begin: hljs.NUMBER_RE,
-    relevance: 0
-  };
-  hljs.C_NUMBER_MODE = {
-    className: 'number',
-    begin: hljs.C_NUMBER_RE,
-    relevance: 0
-  };
-  hljs.BINARY_NUMBER_MODE = {
-    className: 'number',
-    begin: hljs.BINARY_NUMBER_RE,
-    relevance: 0
-  };
-  hljs.CSS_NUMBER_MODE = {
-    className: 'number',
-    begin: hljs.NUMBER_RE + '(' +
-      '%|em|ex|ch|rem'  +
-      '|vw|vh|vmin|vmax' +
-      '|cm|mm|in|pt|pc|px' +
-      '|deg|grad|rad|turn' +
-      '|s|ms' +
-      '|Hz|kHz' +
-      '|dpi|dpcm|dppx' +
-      ')?',
-    relevance: 0
-  };
-  hljs.REGEXP_MODE = {
-    // this outer rule makes sure we actually have a WHOLE regex and not simply
-    // an expression such as:
-    //
-    //     3 / something
-    //
-    // (which will then blow up when regex's `illegal` sees the newline)
-    begin: /(?=\/[^\/\n]*\/)/,
-    contains: [{
-      className: 'regexp',
-      begin: /\//, end: /\/[gimuy]*/,
-      illegal: /\n/,
-      contains: [
-        hljs.BACKSLASH_ESCAPE,
-        {
-          begin: /\[/, end: /\]/,
-          relevance: 0,
-          contains: [hljs.BACKSLASH_ESCAPE]
-        }
-      ]
-    }]
-  };
-  hljs.TITLE_MODE = {
-    className: 'title',
-    begin: hljs.IDENT_RE,
-    relevance: 0
-  };
-  hljs.UNDERSCORE_TITLE_MODE = {
-    className: 'title',
-    begin: hljs.UNDERSCORE_IDENT_RE,
-    relevance: 0
-  };
-  hljs.METHOD_GUARD = {
-    // excludes method names from keyword processing
-    begin: '\\.\\s*' + hljs.UNDERSCORE_IDENT_RE,
-    relevance: 0
-  };
-
-  var constants = [
-    hljs.BACKSLASH_ESCAPE,
-    hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE,
-    hljs.PHRASAL_WORDS_MODE,
-    hljs.COMMENT,
-    hljs.C_LINE_COMMENT_MODE,
-    hljs.C_BLOCK_COMMENT_MODE,
-    hljs.HASH_COMMENT_MODE,
-    hljs.NUMBER_MODE,
-    hljs.C_NUMBER_MODE,
-    hljs.BINARY_NUMBER_MODE,
-    hljs.CSS_NUMBER_MODE,
-    hljs.REGEXP_MODE,
-    hljs.TITLE_MODE,
-    hljs.UNDERSCORE_TITLE_MODE,
-    hljs.METHOD_GUARD
-  ]
-  constants.forEach(function(obj) { deepFreeze(obj); });
+  // merge all the modes/regexs into our mai object
+  Object.assign(hljs, MODES);
 
   return hljs;
 }));
