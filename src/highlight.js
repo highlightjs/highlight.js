@@ -321,10 +321,6 @@ import * as regex from './lib/regex';
       );
     }
 
-    function reCountMatchGroups(re) {
-      return (new RegExp(re.toString() + '|')).exec('').length - 1;
-    }
-
     // joinRe logically computes regexps.join(separator), but fixes the
     // backreferences so they continue to match.
     // it also places each individual regular expression into it's own
@@ -380,10 +376,10 @@ import * as regex from './lib/regex';
       var matcher = {};
       var matchAt = 1;
 
-      function addRule(rule, regex) {
+      function addRule(rule, re) {
         matchIndexes[matchAt] = rule;
-        regexes.push([rule, regex]);
-        matchAt += reCountMatchGroups(regex) + 1;
+        regexes.push([rule, re]);
+        matchAt += regex.countMatchGroups(re) + 1;
       }
 
       var term;
