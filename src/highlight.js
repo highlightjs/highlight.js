@@ -4,7 +4,7 @@ https://highlightjs.org/
 */
 
 import deepFreeze from './vendor/deep_freeze';
-import * as re from './lib/regex';
+import * as regex from './lib/regex';
 
 (function(factory) {
 
@@ -314,13 +314,9 @@ import * as re from './lib/regex';
 
   function compileLanguage(language) {
 
-    function reStr(re) {
-        return (re && re.source) || re;
-    }
-
     function langRe(value, global) {
       return new RegExp(
-        reStr(value),
+        regex.source(value),
         'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
       );
     }
@@ -348,7 +344,7 @@ import * as re from './lib/regex';
       for (var i = 0; i < regexps.length; i++) {
         numCaptures += 1;
         var offset = numCaptures;
-        var re = reStr(regexps[i]);
+        var re = regex.source(regexps[i]);
         if (i > 0) {
           ret += separator;
         }
@@ -464,7 +460,7 @@ import * as re from './lib/regex';
           mode.end = /\B|\b/;
         if (mode.end)
           mode.endRe = langRe(mode.end);
-        mode.terminator_end = reStr(mode.end) || '';
+        mode.terminator_end = regex.source(mode.end) || '';
         if (mode.endsWithParent && parent.terminator_end)
           mode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
       }
@@ -615,7 +611,7 @@ import * as re from './lib/regex';
       var new_mode = match.rule;
 
       if (new_mode && new_mode.endSameAsBegin) {
-        new_mode.endRe = re.escape( lexeme );
+        new_mode.endRe = regex.escape( lexeme );
       }
 
       if (new_mode.skip) {
