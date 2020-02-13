@@ -919,20 +919,23 @@ const inherit = utils.inherit;
 
   /* Interface definition */
 
-  hljs.highlight = highlight;
-  hljs.highlightAuto = highlightAuto;
-  hljs.fixMarkup = fixMarkup;
-  hljs.highlightBlock = highlightBlock;
-  hljs.configure = configure;
-  hljs.initHighlighting = initHighlighting;
-  hljs.initHighlightingOnLoad = initHighlightingOnLoad;
-  hljs.registerLanguage = registerLanguage;
-  hljs.listLanguages = listLanguages;
-  hljs.getLanguage = getLanguage;
-  hljs.requireLanguage = requireLanguage;
-  hljs.autoDetection = autoDetection;
-  hljs.inherit = inherit;
-  hljs.addPlugin = addPlugin;
+  Object.assign(hljs,{
+    highlight,
+    highlightAuto,
+    fixMarkup,
+    highlightBlock,
+    configure,
+    initHighlighting,
+    initHighlightingOnLoad,
+    registerLanguage,
+    listLanguages,
+    getLanguage,
+    requireLanguage,
+    autoDetection,
+    inherit,
+    addPlugin
+  });
+
   hljs.debugMode = function() { SAFE_MODE = false; }
   hljs.safeMode = function() { SAFE_MODE = true; }
 
