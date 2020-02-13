@@ -3,7 +3,8 @@ Syntax highlighting with language autodetection.
 https://highlightjs.org/
 */
 
-import deepFreeze from './vendor/deep_freeze'
+import deepFreeze from './vendor/deep_freeze';
+import * as re from './lib/regex';
 
 (function(factory) {
 
@@ -519,10 +520,6 @@ import deepFreeze from './vendor/deep_freeze'
   function highlight(languageName, code, ignore_illegals, continuation) {
     var codeToHighlight = code;
 
-    function escapeRe(value) {
-      return new RegExp(value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
-    }
-
     function endOfMode(mode, lexeme) {
       if (testRe(mode.endRe, lexeme)) {
         while (mode.endsParent && mode.parent) {
@@ -618,7 +615,7 @@ import deepFreeze from './vendor/deep_freeze'
       var new_mode = match.rule;
 
       if (new_mode && new_mode.endSameAsBegin) {
-        new_mode.endRe = escapeRe( lexeme );
+        new_mode.endRe = re.escape( lexeme );
       }
 
       if (new_mode.skip) {
