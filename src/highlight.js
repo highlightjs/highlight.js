@@ -75,11 +75,6 @@ import * as regex from './lib/regex';
     return node.nodeName.toLowerCase();
   }
 
-  function testRe(re, lexeme) {
-    var match = re && re.exec(lexeme);
-    return match && match.index === 0;
-  }
-
   function isNotHighlighted(language) {
     return options.noHighlightRe.test(language);
   }
@@ -321,53 +316,6 @@ import * as regex from './lib/regex';
       );
     }
 
-    // joinRe logically computes regexps.join(separator), but fixes the
-    // backreferences so they continue to match.
-    // it also places each individual regular expression into it's own
-    // match group, keeping track of the sequencing of those match groups
-    // is currently an exercise for the caller. :-)
-    function joinRe(regexps, separator) {
-      // backreferenceRe matches an open parenthesis or backreference. To avoid
-      // an incorrect parse, it additionally matches the following:
-      // - [...] elements, where the meaning of parentheses and escapes change
-      // - other escape sequences, so we do not misparse escape sequences as
-      //   interesting elements
-      // - non-matching or lookahead parentheses, which do not capture. These
-      //   follow the '(' with a '?'.
-      var backreferenceRe = /\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\./;
-      var numCaptures = 0;
-      var ret = '';
-      for (var i = 0; i < regexps.length; i++) {
-        numCaptures += 1;
-        var offset = numCaptures;
-        var re = regex.source(regexps[i]);
-        if (i > 0) {
-          ret += separator;
-        }
-        ret += "(";
-        while (re.length > 0) {
-          var match = backreferenceRe.exec(re);
-          if (match == null) {
-            ret += re;
-            break;
-          }
-          ret += re.substring(0, match.index);
-          re = re.substring(match.index + match[0].length);
-          if (match[0][0] == '\\' && match[1]) {
-            // Adjust the backreference.
-            ret += '\\' + String(Number(match[1]) + offset);
-          } else {
-            ret += match[0];
-            if (match[0] == '(') {
-              numCaptures++;
-            }
-          }
-        }
-        ret += ")";
-      }
-      return ret;
-    }
-
     function buildModeRegex(mode) {
 
       var matchIndexes = {};
@@ -399,7 +347,7 @@ import * as regex from './lib/regex';
         addRule("illegal", mode.illegal);
 
       var terminators = regexes.map(function(el) { return el[1]; });
-      matcherRe = langRe(joinRe(terminators, '|'), true);
+      matcherRe = langRe(regex.join(terminators, '|'), true);
 
       matcher.lastIndex = 0;
       matcher.exec = function(s) {
@@ -513,7 +461,7 @@ import * as regex from './lib/regex';
     var codeToHighlight = code;
 
     function endOfMode(mode, lexeme) {
-      if (testRe(mode.endRe, lexeme)) {
+      if (regex.startsWith(mode.endRe, lexeme)) {
         while (mode.endsParent && mode.parent) {
           mode = mode.parent;
         }
