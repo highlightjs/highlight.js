@@ -37,8 +37,7 @@ const inherit = utils.inherit;
 
 }(function(hljs) {
   // Convenience variables for build-in objects
-  var ArrayProto = [],
-      objectKeys = Object.keys;
+  var ArrayProto = [];
 
   // Global internal variables used within the highlight.js library.
   var languages = {},
@@ -250,7 +249,7 @@ const inherit = utils.inherit;
       if (typeof rawKeywords === 'string') { // string
         splitAndCompile('keyword', rawKeywords);
       } else {
-        objectKeys(rawKeywords).forEach(function (className) {
+        Object.keys(rawKeywords).forEach(function (className) {
           splitAndCompile(className, rawKeywords[className]);
         });
       }
@@ -714,7 +713,7 @@ const inherit = utils.inherit;
 
   */
   function highlightAuto(code, languageSubset) {
-    languageSubset = languageSubset || options.languages || objectKeys(languages);
+    languageSubset = languageSubset || options.languages || Object.keys(languages);
     var result = {
       relevance: 0,
       value: escape(code)
@@ -871,7 +870,7 @@ const inherit = utils.inherit;
   }
 
   function listLanguages() {
-    return objectKeys(languages);
+    return Object.keys(languages);
   }
 
   /*
