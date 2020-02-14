@@ -81,7 +81,7 @@ const inherit = utils.inherit;
   }
 
   function blockLanguage(block) {
-    var i, match, length, _class;
+    var match;
     var classes = block.className + ' ';
 
     classes += block.parentNode ? block.parentNode.className : '';
@@ -97,15 +97,9 @@ const inherit = utils.inherit;
       return language ? match[1] : 'no-highlight';
     }
 
-    classes = classes.split(/\s+/);
-
-    for (i = 0, length = classes.length; i < length; i++) {
-      _class = classes[i];
-
-      if (isNotHighlighted(_class) || getLanguage(_class)) {
-        return _class;
-      }
-    }
+    return classes
+      .split(/\s+/)
+      .find((_class) => isNotHighlighted(_class) || getLanguage(_class))
   }
 
   /* Stream merging */
@@ -944,7 +938,7 @@ const inherit = utils.inherit;
       deepFreeze(MODES[key]);
   }
 
-  // merge all the modes/regexs into our mai object
+  // merge all the modes/regexs into our main object
   Object.assign(hljs, MODES);
 
   return hljs;
