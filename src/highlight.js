@@ -171,10 +171,8 @@ const HLJS = function(hljs) {
         matchAt += regex.countMatchGroups(re) + 1;
       }
 
-      var term;
-      for (var i=0; i < mode.contains.length; i++) {
+      for (var term of mode.contains) {
         var re;
-        term = mode.contains[i];
         if (term.beginKeywords) {
           re = '\\.?(?:' + term.begin + ')\\.?';
         } else {
@@ -187,7 +185,7 @@ const HLJS = function(hljs) {
       if (mode.illegal)
         addRule("illegal", mode.illegal);
 
-      var terminators = regexes.map(function(el) { return el[1]; });
+      var terminators = regexes.map(el => el[1]);
       matcherRe = langRe(regex.join(terminators, '|'), true);
 
       matcher.lastIndex = 0;
@@ -256,7 +254,7 @@ const HLJS = function(hljs) {
       if (!mode.contains) {
         mode.contains = [];
       }
-      mode.contains = Array.prototype.concat.apply([], mode.contains.map(function(c) {
+      mode.contains = [].concat(...mode.contains.map(function(c) {
         return expand_or_clone_mode(c === 'self' ? mode : c);
       }));
       mode.contains.forEach(function(c) {compileMode(c, mode);});
@@ -633,7 +631,7 @@ const HLJS = function(hljs) {
       result.push('hljs');
     }
 
-    if (prevClassName.indexOf(language) === -1) {
+    if (!prevClassName.includes(language)) {
       result.push(language);
     }
 
