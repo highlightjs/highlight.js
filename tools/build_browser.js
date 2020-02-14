@@ -10,6 +10,7 @@ const { filter } = require("./lib/dependencies");
 const config = require("./build_config");
 const { install, install_cleancss, mkdir, renderTemplate } = require("./lib/makestuff");
 const log = (...args) => console.log(...args);
+const { rollupCode } = require("./lib/bundling.js");
 
 function buildHeader(args) {
   return "/*\n" +
@@ -104,7 +105,12 @@ async function buildBrowserHighlightJS(languages, {minify}) {
 
   var outFile = `${process.env.BUILD_DIR}/highlight.js`;
   var minifiedFile = outFile.replace(/js$/,"min.js");
-  var librarySrc = await fs.readFile("src/highlight.js", {encoding: "utf8"});
+
+  const input = { input: `src/highlight.js` }
+  const output = { ...config.rollup.browser_core.output, file: outFile };
+  var librarySrc = await rollupCode(input, output);
+
+  // var librarySrc = await fs.readFile("src/highlight.js", {encoding: "utf8"});
   var coreSize = librarySrc.length;
 
   // strip off the original top comment
