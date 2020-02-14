@@ -116,10 +116,8 @@ async function buildBrowserHighlightJS(languages, {minify}) {
   // strip off the original top comment
   librarySrc = librarySrc.replace(/\/\*.*?\*\//s,"");
 
-  var workerStub = "if (typeof importScripts === 'function') { var hljs = self.hljs; }";
-
   var fullSrc = [
-    header, librarySrc, workerStub,
+    header, librarySrc,
     ...languages.map((lang) => lang.module) ].join("\n");
 
   var tasks = [];
@@ -132,11 +130,11 @@ async function buildBrowserHighlightJS(languages, {minify}) {
     var tersed = Terser.minify(librarySrc, config.terser)
 
     minifiedSrc = [
-      header, tersed.code, workerStub,
+      header, tersed.code,
       ...languages.map((lang) => lang.minified) ].join("\n");
 
     // get approximate core minified size
-    core_min = [ header, tersed.code, workerStub].join().length;
+    core_min = [ header, tersed.code].join().length;
 
     tasks.push(fs.writeFile(minifiedFile, minifiedSrc, {encoding: "utf8"}));
   }

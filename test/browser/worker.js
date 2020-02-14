@@ -13,7 +13,7 @@ describe('web worker', function() {
           importScripts(event.data.script);
           postMessage(1);
         } else {
-          var result = self.hljs.highlight('javascript', event.data);
+          var result = hljs.highlight('javascript', event.data);
           postMessage(result.value);
         }
       };
