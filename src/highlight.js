@@ -101,13 +101,13 @@ const HLJS = function(hljs) {
     // instance of ourselves, so we can be reused with many
     // different parents without issue
     if (dependencyOnParent(mode))
-      return [inherit(mode, { starts: mode.starts ? inherit(mode.starts) : null })];
+      return inherit(mode, { starts: mode.starts ? inherit(mode.starts) : null });
 
     if (Object.isFrozen(mode))
-      return [inherit(mode)];
+      return inherit(mode);
 
     // no special dependency issues, just return ourselves
-    return [mode];
+    return mode;
   }
 
   function compileKeywords(rawKeywords, case_insensitive) {
