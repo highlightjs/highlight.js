@@ -62,6 +62,10 @@ hue-6-2: #e6c07b
 .hljs-class .hljs-title {
   color: #e6c07b;
 }
+/* Customization to make module usage appear nice */
+.hljs-module-reference {
+  color: #e6c07b;
+}
 
 .hljs-attr,
 .hljs-variable,

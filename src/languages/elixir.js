@@ -12,7 +12,7 @@ export default function(hljs) {
   var ELIXIR_KEYWORDS =
     'and false then defined module in return redo retry end for true self when ' +
     'next until do begin unless nil break not case cond alias while ensure or ' +
-    'include use alias fn quote require import with|0';
+    'include use alias fn quote require import defstruct defguard with|0';
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
@@ -136,6 +136,10 @@ export default function(hljs) {
     {
       className: 'variable',
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))'
+    },
+    { // Usage of a module, struct, etc. Customized and paired with atom-one-dark.css customization
+      className: ['module-reference'],
+      begin: '([A-Z][a-zA-z0-9_]+)'
     },
     {
       begin: '->'
