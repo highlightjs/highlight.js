@@ -952,7 +952,7 @@ https://highlightjs.org/
       // entire highlighter
       lang = PLAINTEXT_LANGUAGE;
     }
-    // give it a temporary name it it doesn't have one in the meta-data
+    // give it a temporary name if it doesn't have one in the meta-data
     if (!lang.name)
       lang.name = name;
     languages[name] = lang;
