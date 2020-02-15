@@ -7,7 +7,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 vim: ts=2 sw=2 st=2
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     case_insensitive: false,
     lexemes: '[a-zA-Z][a-zA-Z0-9_-]*',

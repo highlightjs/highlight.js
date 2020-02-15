@@ -30,14 +30,14 @@
     "node": "*"
   },
   "devDependencies": {
-    "bluebird": "^3.5.5",
+    "clean-css": "^4.2.1",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
     "commander": "^4.0.0",
     "del": "^5.1.0",
-    "gear": "github:highlightjs/gear",
-    "gear-lib": "github:highlightjs/gear-lib",
+    "dependency-resolver": "^2.0.1",
     "glob": "^7.1.4",
+    "glob-promise": "^3.4.0",
     "handlebars": "^4.5.3",
     "js-beautify": "^1.10.2",
     "jsdom": "^16.0.1",
@@ -46,6 +46,7 @@
     "rollup": "^1.27.8",
     "rollup-plugin-commonjs": "^10.1.0",
     "should": "^13.2.3",
+    "terser": "^4.3.9",
     "tiny-worker": "^2.3.0"
   },
   "dependencies": {}

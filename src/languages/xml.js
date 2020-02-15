@@ -4,7 +4,7 @@ Website: https://www.w3.org/XML/
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
   var XML_ENTITIES = {
     className: 'symbol',

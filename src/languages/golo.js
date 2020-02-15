@@ -5,7 +5,7 @@ Description: a lightweight dynamic language for the JVM
 Website: http://golo-lang.org/
 */
 
-function(hljs) {
+export default function(hljs) {
     return {
       keywords: {
         keyword:

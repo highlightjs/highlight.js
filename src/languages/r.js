@@ -6,7 +6,7 @@ Website: https://www.r-project.org
 Category: scientific
 */
 
-function(hljs) {
+export default function(hljs) {
   var IDENT_RE = '([a-zA-Z]|\\.[a-zA-Z.])[a-zA-Z0-9._]*';
 
   return {

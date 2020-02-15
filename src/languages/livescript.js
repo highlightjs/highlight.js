@@ -8,7 +8,7 @@ Website: https://livescript.net
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:
       // JS keywords

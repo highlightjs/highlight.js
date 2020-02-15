@@ -6,7 +6,7 @@ Website: http://mizar.org/language/
 Category: scientific
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     keywords:
       'environ vocabularies notations constructors definitions ' +

@@ -5,7 +5,7 @@ Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     aliases: ['console'],
     contains: [

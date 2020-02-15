@@ -6,7 +6,7 @@ Website: https://www.gnu.org/software/diffutils/
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     aliases: ['patch'],
     contains: [

@@ -5,7 +5,7 @@
  Website: https://zephir-lang.com/en
  */
 
-function(hljs) {
+export default function(hljs) {
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE],

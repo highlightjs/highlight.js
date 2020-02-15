@@ -7,7 +7,7 @@ Website: https://www.dustjs.com
 Category: template
 */
 
-function(hljs) {
+export default function(hljs) {
   var EXPRESSION_KEYWORDS = 'if eq ne lt lte gt gte select default math sep';
   return {
     aliases: ['dst'],

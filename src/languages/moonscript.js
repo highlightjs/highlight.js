@@ -7,7 +7,7 @@ Website: http://moonscript.org/
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:
       // Moonscript keywords

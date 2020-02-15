@@ -15,7 +15,7 @@ library along with one of the styles and calling
 
 ```html
 <link rel="stylesheet" href="/path/to/styles/default.css">
-<script src="/path/to/highlight.pack.js"></script>
+<script src="/path/to/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 ```
 
@@ -239,7 +239,7 @@ The table below shows the full list of supported languages (and corresponding cl
 | Zephir                  | zephir, zep            |         |
 
 Languages with the specified package name are defined in separate repositories
-and not included in `highlight.pack.js`.
+and not included in `highlight.min.js`.
 </details>
 
 
@@ -295,7 +295,7 @@ In worker.js:
 
 ```js
 onmessage = (event) => {
-  importScripts('<path>/highlight.pack.js');
+  importScripts('<path>/highlight.min.js');
   const result = self.hljs.highlightAuto(event.data);
   postMessage(result.value);
 };
@@ -316,7 +316,7 @@ const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 
 ```js
 // require the highlight.js library without languages
-const hljs = require("highlight.js/lib/highlight.js");
+const hljs = require("highlight.js/lib/core");
 // separately require languages
 hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
 hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
@@ -373,7 +373,7 @@ import hljs from 'highlight.js';
 The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
 
 ```js
-import hljs from 'highlight.js/lib/highlight';
+import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 ```
@@ -381,7 +381,7 @@ hljs.registerLanguage('javascript', javascript);
 To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can import the stylesheet directly into your CommonJS-module:
 
 ```js
-import hljs from 'highlight.js/lib/highlight';
+import hljs from 'highlight.js/lib/core';
 import 'highlight.js/styles/github.css';
 ```
 

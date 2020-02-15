@@ -5,7 +5,7 @@ Website: https://www.latex-project.org
 Category: markup
 */
 
-function(hljs) {
+export default function(hljs) {
   var COMMAND = {
     className: 'tag',
     begin: /\\/,

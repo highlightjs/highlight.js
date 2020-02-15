@@ -6,7 +6,7 @@ Website: https://www.gnu.org/software/bash/
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   var VAR = {
     className: 'variable',
     variants: [

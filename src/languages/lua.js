@@ -6,7 +6,7 @@ Category: common, scripting
 Website: https://www.lua.org
 */
 
-function(hljs) {
+export default function(hljs) {
   var OPENING_LONG_BRACKET = '\\[=*\\[';
   var CLOSING_LONG_BRACKET = '\\]=*\\]';
   var LONG_BRACKETS = {

@@ -5,7 +5,7 @@ Category: functional
 Website: https://coq.inria.fr
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     keywords: {
       keyword:

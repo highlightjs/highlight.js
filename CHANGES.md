@@ -16,6 +16,10 @@ Core Changes:
 
 Language Improvements:
 
+- enh(apache) add `deny` and `allow` keywords [Josh Goebel][]
+- enh(apache) highlight numeric attributes values [Josh Goebel][]
+- enh(apache) highlight IP addresses, ports, and strings in sections [Josh Goebel][]
+- enh(php) added more keywords and include `<?=` syntax to meta [Taufik Nurrohman][]
 - fix(protobuf) Fix `rpc` when followed by a block (#) [Josh Goebel][]
 - enh(zephir) almost complete rework of the zephir grammar (#2387) [Josh Goebel][]
 - (markdown) much improved code block support (#2382) [Josh Goebel][]
@@ -34,7 +38,7 @@ Language Improvements:
 
 Developer Tools:
 
-- none.
+- added Dockerfile for optionally developing with a container
 
 [Josh Goebel]: https://github.com/yyyc514
 [Sam Miller]: https://github.com/smillerc
@@ -2119,3 +2123,4 @@ your comments and question to [highlight.js forum][forum]. And don't be afraid
 if you find there some fancy Cyrillic letters -- it's for Russian users too :-)
 
 [forum]: http://softwaremaniacs.org/forum/viewforum.php?id=6
+

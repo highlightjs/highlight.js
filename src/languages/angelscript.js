@@ -5,7 +5,7 @@ Category: scripting
 Website: https://www.angelcode.com/angelscript/
 */
 
-function(hljs) {
+export default function(hljs) {
   var builtInTypeMode = {
     className: 'built_in',
     begin: '\\b(void|bool|int|int8|int16|int32|int64|uint|uint8|uint16|uint32|uint64|string|ref|array|double|float|auto|dictionary)'

@@ -6,7 +6,7 @@ Website: http://docs.hylang.org/en/stable/
 Category: lisp
 */
 
-function(hljs) {
+export default function(hljs) {
   var keywords = {
     'builtin-name':
       // keywords

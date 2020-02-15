@@ -5,7 +5,7 @@ Description: ARM Assembly including Thumb and Thumb2 instructions
 Category: assembler
 */
 
-function(hljs) {
+export default function(hljs) {
     //local labels: %?[FB]?[AT]?\d{1,2}\w+
   return {
     case_insensitive: true,

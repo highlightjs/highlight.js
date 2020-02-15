@@ -1,6 +1,5 @@
 'use strict';
 
-var _         = require('lodash');
 var bluebird  = require('bluebird');
 var path      = require('path');
 var glob      = bluebird.promisify(require('glob'));

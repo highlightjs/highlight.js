@@ -13,7 +13,7 @@ change in v10 and don't have to change the requirements again later.
 See: https://github.com/highlightjs/highlight.js/issues/2146
 */
 
-function(hljs) {
+export default function(hljs) {
   function optional(s) {
     return '(?:' + s + ')?';
   }

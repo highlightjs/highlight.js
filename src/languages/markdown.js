@@ -6,16 +6,16 @@ Website: https://daringfireball.net/projects/markdown/
 Category: common, markup
 */
 
-function(hljs) {
-  INLINE_HTML = {
+export default function(hljs) {
+  const INLINE_HTML = {
     begin: '<', end: '>',
     subLanguage: 'xml',
     relevance: 0
   };
-  HORIZONTAL_RULE = {
+  const HORIZONTAL_RULE = {
     begin: '^[-\\*]{3,}', end: '$'
   };
-  CODE = {
+  const CODE = {
     className: 'code',
     variants: [
       // TODO: fix to allow these to work with sublanguage also
@@ -36,13 +36,13 @@ function(hljs) {
       }
     ]
   };
-  LIST = {
+  const LIST = {
     className: 'bullet',
     begin: '^[ \t]*([*+-]|(\\d+\\.))(?=\\s+)',
     end: '\\s+',
     excludeEnd: true
   };
-  LINK_REFERENCE = {
+  const LINK_REFERENCE = {
     begin: /^\[[^\n]+\]:/,
     returnBegin: true,
     contains: [
@@ -58,7 +58,7 @@ function(hljs) {
       }
     ]
   };
-  LINK = {
+  const LINK = {
     begin: '\\[.+?\\][\\(\\[].*?[\\)\\]]',
     returnBegin: true,
     contains: [
@@ -82,7 +82,7 @@ function(hljs) {
     ],
     relevance: 10
   };
-  BOLD = {
+  const BOLD = {
     className: 'strong',
     contains: [],
     variants: [
@@ -90,7 +90,7 @@ function(hljs) {
       {begin: /\*{2}/, end: /\*{2}/ }
     ]
   };
-  ITALIC = {
+  const ITALIC = {
     className: 'emphasis',
     contains: [],
     variants: [
@@ -101,7 +101,7 @@ function(hljs) {
   BOLD.contains.push(ITALIC);
   ITALIC.contains.push(BOLD);
 
-  CONTAINABLE = [
+  var CONTAINABLE = [
     INLINE_HTML,
     LINK
   ];
@@ -111,7 +111,7 @@ function(hljs) {
 
   CONTAINABLE = CONTAINABLE.concat(BOLD,ITALIC);
 
-  HEADER = {
+  const HEADER = {
     className: 'section',
     variants: [
       {
@@ -129,7 +129,7 @@ function(hljs) {
     ]
   };
 
-  BLOCKQUOTE = {
+  const BLOCKQUOTE = {
     className: 'quote',
     begin: '^>\\s+',
     contains: CONTAINABLE,

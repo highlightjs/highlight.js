@@ -1,13 +1,12 @@
 'use strict';
 
-const _       = require('lodash');
 const utility = require('../utility');
 
 describe('custom markup', () => {
   before(() => {
     const testHTML = document.querySelectorAll('#custom-markup .hljs');
 
-    this.blocks = _.map(testHTML, 'innerHTML');
+    this.blocks = [...testHTML].map(x => x.innerHTML);
   });
 
   it('should replace tabs', () => {

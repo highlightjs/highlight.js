@@ -5,7 +5,7 @@ Website: https://gradle.org
 Author: Damian Mee <mee.damian@gmail.com>
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     case_insensitive: true,
     keywords: {

@@ -5,7 +5,7 @@
  Website: https://httpd.apache.org/docs/2.4/logs.html#accesslog
  */
 
-function(hljs) {
+export default function(hljs) {
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
   var HTTP_VERBS = [
     "GET", "POST", "HEAD", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH", "TRACE"

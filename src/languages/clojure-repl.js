@@ -7,7 +7,7 @@ Website: https://clojure.org
 Category: lisp
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     contains: [
       {

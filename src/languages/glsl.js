@@ -6,7 +6,7 @@ Website: https://en.wikipedia.org/wiki/OpenGL_Shading_Language
 Category: graphics
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     keywords: {
       keyword:

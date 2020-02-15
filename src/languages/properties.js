@@ -5,7 +5,7 @@ Website: https://en.wikipedia.org/wiki/.properties
 Category: common, config
 */
 
-function(hljs) {
+export default function(hljs) {
 
   // whitespaces: space, tab, formfeed
   var WS0 = '[ \\t\\f]*';

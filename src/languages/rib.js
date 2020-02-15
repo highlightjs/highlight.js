@@ -6,7 +6,7 @@ Website: https://renderman.pixar.com/resources/RenderMan_20/ribBinding.html
 Category: graphics
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     keywords:
       'ArchiveRecord AreaLightSource Atmosphere Attribute AttributeBegin AttributeEnd Basis ' +

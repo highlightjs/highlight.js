@@ -1,6 +1,5 @@
 'use strict';
 
-const _        = require('lodash');
 const hljs     = require('../../build');
 const { JSDOM } = require('jsdom');
 const { readFile } = require('fs').promises;
@@ -26,7 +25,7 @@ describe('special cases tests', () => {
     hljs.configure({ useBR: true });
 
     let blocks = document.querySelectorAll('.code');
-    _.each(blocks, hljs.highlightBlock);
+    blocks.forEach(hljs.highlightBlock);
   });
 
   require('./explicitLanguage');

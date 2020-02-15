@@ -5,7 +5,7 @@ Description: Language definition for Inform 7, a DSL for writing parser interact
 Website: http://inform7.com
 */
 
-function(hljs) {
+export default function(hljs) {
   var START_BRACKET = '\\[';
   var END_BRACKET = '\\]';
   return {

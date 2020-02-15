@@ -6,7 +6,7 @@ Website: https://www.haskell.org
 Category: functional
 */
 
-function(hljs) {
+export default function(hljs) {
   var COMMENT = {
     variants: [
       hljs.COMMENT('--', '$'),

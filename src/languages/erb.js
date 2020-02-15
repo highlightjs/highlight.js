@@ -8,7 +8,7 @@ Website: https://ruby-doc.org/stdlib-2.6.5/libdoc/erb/rdoc/ERB.html
 Category: template
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     subLanguage: 'xml',
     contains: [

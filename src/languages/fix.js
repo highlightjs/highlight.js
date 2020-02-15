@@ -3,7 +3,7 @@ Language: FIX
 Author: Brent Bradbury <brent@brentium.com>
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
     contains: [
     {

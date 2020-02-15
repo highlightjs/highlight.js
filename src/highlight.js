@@ -3,34 +3,19 @@ Syntax highlighting with language autodetection.
 https://highlightjs.org/
 */
 
-(function(factory) {
+import deepFreeze from './vendor/deep_freeze';
+import * as regex from './lib/regex';
+import * as utils from './lib/utils';
+import * as MODES from './lib/modes';
 
-  // Find the global object for export to both the browser and web workers.
-  var globalObject = typeof window === 'object' && window ||
-                     typeof self === 'object' && self;
+const escape = utils.escapeHTML;
+const inherit = utils.inherit;
 
-  // Setup highlight.js for different environments. First is Node.js or
-  // CommonJS.
-  // `nodeType` is checked to ensure that `exports` is not a HTML element.
-  if(typeof exports !== 'undefined' && !exports.nodeType) {
-    factory(exports);
-  } else if(globalObject) {
-    // Export hljs globally even when using AMD for cases when this script
-    // is loaded with others that may still expect a global hljs.
-    globalObject.hljs = factory({});
+const { nodeStream, mergeStreams } = utils;
 
-    // Finally register the global hljs with AMD.
-    if(typeof define === 'function' && define.amd) {
-      define([], function() {
-        return globalObject.hljs;
-      });
-    }
-  }
-
-}(function(hljs) {
+const HLJS = function(hljs) {
   // Convenience variables for build-in objects
-  var ArrayProto = [],
-      objectKeys = Object.keys;
+  var ArrayProto = [];
 
   // Global internal variables used within the highlight.js library.
   var languages = {},
@@ -43,10 +28,6 @@ https://highlightjs.org/
 
   // Regular expressions used throughout the highlight.js library.
   var fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
-
-  // The object will be assigned by the build tool. It used to synchronize API
-  // of external language files with minified version of the highlight.js library.
-  var API_REPLACES;
 
   var spanEndTag = '</span>';
   var LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
@@ -65,28 +46,14 @@ https://highlightjs.org/
   // keywords that should have no default relevance value
   var COMMON_KEYWORDS = 'of and for in not or if then'.split(' ');
 
-
   /* Utility functions */
-
-  function escape(value) {
-    return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
-
-  function tag(node) {
-    return node.nodeName.toLowerCase();
-  }
-
-  function testRe(re, lexeme) {
-    var match = re && re.exec(lexeme);
-    return match && match.index === 0;
-  }
 
   function isNotHighlighted(language) {
     return options.noHighlightRe.test(language);
   }
 
   function blockLanguage(block) {
-    var i, match, length, _class;
+    var match;
     var classes = block.className + ' ';
 
     classes += block.parentNode ? block.parentNode.className : '';
@@ -102,143 +69,11 @@ https://highlightjs.org/
       return language ? match[1] : 'no-highlight';
     }
 
-    classes = classes.split(/\s+/);
-
-    for (i = 0, length = classes.length; i < length; i++) {
-      _class = classes[i];
-
-      if (isNotHighlighted(_class) || getLanguage(_class)) {
-        return _class;
-      }
-    }
+    return classes
+      .split(/\s+/)
+      .find((_class) => isNotHighlighted(_class) || getLanguage(_class))
   }
 
-  /**
-   * performs a shallow merge of multiple objects into one
-   *
-   * @arguments list of objects with properties to merge
-   * @returns a single new object
-   */
-  function inherit(parent) {  // inherit(parent, override_obj, override_obj, ...)
-    var key;
-    var result = {};
-    var objects = Array.prototype.slice.call(arguments, 1);
-
-    for (key in parent)
-      result[key] = parent[key];
-    objects.forEach(function(obj) {
-      for (key in obj)
-        result[key] = obj[key];
-    });
-    return result;
-  }
-
-  /* Stream merging */
-
-  function nodeStream(node) {
-    var result = [];
-    (function _nodeStream(node, offset) {
-      for (var child = node.firstChild; child; child = child.nextSibling) {
-        if (child.nodeType === 3)
-          offset += child.nodeValue.length;
-        else if (child.nodeType === 1) {
-          result.push({
-            event: 'start',
-            offset: offset,
-            node: child
-          });
-          offset = _nodeStream(child, offset);
-          // Prevent void elements from having an end tag that would actually
-          // double them in the output. There are more void elements in HTML
-          // but we list only those realistically expected in code display.
-          if (!tag(child).match(/br|hr|img|input/)) {
-            result.push({
-              event: 'stop',
-              offset: offset,
-              node: child
-            });
-          }
-        }
-      }
-      return offset;
-    })(node, 0);
-    return result;
-  }
-
-  function mergeStreams(original, highlighted, value) {
-    var processed = 0;
-    var result = '';
-    var nodeStack = [];
-
-    function selectStream() {
-      if (!original.length || !highlighted.length) {
-        return original.length ? original : highlighted;
-      }
-      if (original[0].offset !== highlighted[0].offset) {
-        return (original[0].offset < highlighted[0].offset) ? original : highlighted;
-      }
-
-      /*
-      To avoid starting the stream just before it should stop the order is
-      ensured that original always starts first and closes last:
-
-      if (event1 == 'start' && event2 == 'start')
-        return original;
-      if (event1 == 'start' && event2 == 'stop')
-        return highlighted;
-      if (event1 == 'stop' && event2 == 'start')
-        return original;
-      if (event1 == 'stop' && event2 == 'stop')
-        return highlighted;
-
-      ... which is collapsed to:
-      */
-      return highlighted[0].event === 'start' ? original : highlighted;
-    }
-
-    function open(node) {
-      function attr_str(a) {
-        return ' ' + a.nodeName + '="' + escape(a.value).replace(/"/g, '&quot;') + '"';
-      }
-      result += '<' + tag(node) + ArrayProto.map.call(node.attributes, attr_str).join('') + '>';
-    }
-
-    function close(node) {
-      result += '</' + tag(node) + '>';
-    }
-
-    function render(event) {
-      (event.event === 'start' ? open : close)(event.node);
-    }
-
-    while (original.length || highlighted.length) {
-      var stream = selectStream();
-      result += escape(value.substring(processed, stream[0].offset));
-      processed = stream[0].offset;
-      if (stream === original) {
-        /*
-        On any opening or closing tag of the original markup we first close
-        the entire highlighted node stack, then render the original tag along
-        with all the following original tags at the same offset and then
-        reopen all the tags on the highlighted stack.
-        */
-        nodeStack.reverse().forEach(close);
-        do {
-          render(stream.splice(0, 1)[0]);
-          stream = selectStream();
-        } while (stream === original && stream.length && stream[0].offset === processed);
-        nodeStack.reverse().forEach(open);
-      } else {
-        if (stream[0].event === 'start') {
-          nodeStack.push(stream[0].node);
-        } else {
-          nodeStack.pop();
-        }
-        render(stream.splice(0, 1)[0]);
-      }
-    }
-    return result + escape(value.substr(processed));
-  }
 
   /* Initialization */
 
@@ -266,13 +101,13 @@ https://highlightjs.org/
     // instance of ourselves, so we can be reused with many
     // different parents without issue
     if (dependencyOnParent(mode))
-      return [inherit(mode, { starts: mode.starts ? inherit(mode.starts) : null })];
+      return inherit(mode, { starts: mode.starts ? inherit(mode.starts) : null });
 
     if (Object.isFrozen(mode))
-      return [inherit(mode)];
+      return inherit(mode);
 
     // no special dependency issues, just return ourselves
-    return [mode];
+    return mode;
   }
 
   function compileKeywords(rawKeywords, case_insensitive) {
@@ -281,7 +116,7 @@ https://highlightjs.org/
       if (typeof rawKeywords === 'string') { // string
         splitAndCompile('keyword', rawKeywords);
       } else {
-        objectKeys(rawKeywords).forEach(function (className) {
+        Object.keys(rawKeywords).forEach(function (className) {
           splitAndCompile(className, rawKeywords[className]);
         });
       }
@@ -315,66 +150,11 @@ https://highlightjs.org/
 
   function compileLanguage(language) {
 
-    function reStr(re) {
-        return (re && re.source) || re;
-    }
-
     function langRe(value, global) {
       return new RegExp(
-        reStr(value),
+        regex.source(value),
         'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
       );
-    }
-
-    function reCountMatchGroups(re) {
-      return (new RegExp(re.toString() + '|')).exec('').length - 1;
-    }
-
-    // joinRe logically computes regexps.join(separator), but fixes the
-    // backreferences so they continue to match.
-    // it also places each individual regular expression into it's own
-    // match group, keeping track of the sequencing of those match groups
-    // is currently an exercise for the caller. :-)
-    function joinRe(regexps, separator) {
-      // backreferenceRe matches an open parenthesis or backreference. To avoid
-      // an incorrect parse, it additionally matches the following:
-      // - [...] elements, where the meaning of parentheses and escapes change
-      // - other escape sequences, so we do not misparse escape sequences as
-      //   interesting elements
-      // - non-matching or lookahead parentheses, which do not capture. These
-      //   follow the '(' with a '?'.
-      var backreferenceRe = /\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\./;
-      var numCaptures = 0;
-      var ret = '';
-      for (var i = 0; i < regexps.length; i++) {
-        numCaptures += 1;
-        var offset = numCaptures;
-        var re = reStr(regexps[i]);
-        if (i > 0) {
-          ret += separator;
-        }
-        ret += "(";
-        while (re.length > 0) {
-          var match = backreferenceRe.exec(re);
-          if (match == null) {
-            ret += re;
-            break;
-          }
-          ret += re.substring(0, match.index);
-          re = re.substring(match.index + match[0].length);
-          if (match[0][0] == '\\' && match[1]) {
-            // Adjust the backreference.
-            ret += '\\' + String(Number(match[1]) + offset);
-          } else {
-            ret += match[0];
-            if (match[0] == '(') {
-              numCaptures++;
-            }
-          }
-        }
-        ret += ")";
-      }
-      return ret;
     }
 
     function buildModeRegex(mode) {
@@ -385,30 +165,21 @@ https://highlightjs.org/
       var matcher = {};
       var matchAt = 1;
 
-      function addRule(rule, regex) {
+      function addRule(rule, re) {
         matchIndexes[matchAt] = rule;
-        regexes.push([rule, regex]);
-        matchAt += reCountMatchGroups(regex) + 1;
+        regexes.push([rule, re]);
+        matchAt += regex.countMatchGroups(re) + 1;
       }
 
-      var term;
-      for (var i=0; i < mode.contains.length; i++) {
-        var re;
-        term = mode.contains[i];
-        if (term.beginKeywords) {
-          re = '\\.?(?:' + term.begin + ')\\.?';
-        } else {
-          re = term.begin;
-        }
-        addRule(term, re);
-      }
+      mode.contains.forEach(term => addRule(term, term.begin))
+
       if (mode.terminator_end)
         addRule("end", mode.terminator_end);
       if (mode.illegal)
         addRule("illegal", mode.illegal);
 
-      var terminators = regexes.map(function(el) { return el[1]; });
-      matcherRe = langRe(joinRe(terminators, '|'), true);
+      var terminators = regexes.map(el => el[1]);
+      matcherRe = langRe(regex.join(terminators, '|'), true);
 
       matcher.lastIndex = 0;
       matcher.exec = function(s) {
@@ -421,8 +192,8 @@ https://highlightjs.org/
         if (!match) { return null; }
 
         for(var i = 0; i<match.length; i++) {
-          if (match[i] != undefined && matchIndexes["" +i] != undefined ) {
-            rule = matchIndexes[""+i];
+          if (match[i] != undefined && matchIndexes[i]) {
+            rule = matchIndexes[i];
             break;
           }
         }
@@ -465,7 +236,7 @@ https://highlightjs.org/
           mode.end = /\B|\b/;
         if (mode.end)
           mode.endRe = langRe(mode.end);
-        mode.terminator_end = reStr(mode.end) || '';
+        mode.terminator_end = regex.source(mode.end) || '';
         if (mode.endsWithParent && parent.terminator_end)
           mode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
       }
@@ -476,7 +247,7 @@ https://highlightjs.org/
       if (!mode.contains) {
         mode.contains = [];
       }
-      mode.contains = Array.prototype.concat.apply([], mode.contains.map(function(c) {
+      mode.contains = [].concat(...mode.contains.map(function(c) {
         return expand_or_clone_mode(c === 'self' ? mode : c);
       }));
       mode.contains.forEach(function(c) {compileMode(c, mode);});
@@ -521,12 +292,8 @@ https://highlightjs.org/
   function highlight(languageName, code, ignore_illegals, continuation) {
     var codeToHighlight = code;
 
-    function escapeRe(value) {
-      return new RegExp(value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
-    }
-
     function endOfMode(mode, lexeme) {
-      if (testRe(mode.endRe, lexeme)) {
+      if (regex.startsWith(mode.endRe, lexeme)) {
         while (mode.endsParent && mode.parent) {
           mode = mode.parent;
         }
@@ -620,7 +387,7 @@ https://highlightjs.org/
       var new_mode = match.rule;
 
       if (new_mode && new_mode.endSameAsBegin) {
-        new_mode.endRe = escapeRe( lexeme );
+        new_mode.endRe = regex.escape( lexeme );
       }
 
       if (new_mode.skip) {
@@ -804,7 +571,7 @@ https://highlightjs.org/
 
   */
   function highlightAuto(code, languageSubset) {
-    languageSubset = languageSubset || options.languages || objectKeys(languages);
+    languageSubset = languageSubset || options.languages || Object.keys(languages);
     var result = {
       relevance: 0,
       value: escape(code)
@@ -857,7 +624,7 @@ https://highlightjs.org/
       result.push('hljs');
     }
 
-    if (prevClassName.indexOf(language) === -1) {
+    if (!prevClassName.includes(language)) {
       result.push(language);
     }
 
@@ -964,7 +731,7 @@ https://highlightjs.org/
   }
 
   function listLanguages() {
-    return objectKeys(languages);
+    return Object.keys(languages);
   }
 
   /*
@@ -996,7 +763,6 @@ https://highlightjs.org/
   }
 
   function fire(event, args) {
-    // var cb = eventToFuncName(event);
     var cb = event;
     plugins.forEach(function (plugin) {
       if (plugin[cb]) {
@@ -1005,184 +771,38 @@ https://highlightjs.org/
     });
   }
 
-
-  function eventToFuncName(event) {
-    return event.replace(/:([a-z])/, function(el) { return el.toUpperCase().slice(1) })
-  }
-
   /* Interface definition */
 
-  hljs.highlight = highlight;
-  hljs.highlightAuto = highlightAuto;
-  hljs.fixMarkup = fixMarkup;
-  hljs.highlightBlock = highlightBlock;
-  hljs.configure = configure;
-  hljs.initHighlighting = initHighlighting;
-  hljs.initHighlightingOnLoad = initHighlightingOnLoad;
-  hljs.registerLanguage = registerLanguage;
-  hljs.listLanguages = listLanguages;
-  hljs.getLanguage = getLanguage;
-  hljs.requireLanguage = requireLanguage;
-  hljs.autoDetection = autoDetection;
-  hljs.inherit = inherit;
-  hljs.addPlugin = addPlugin;
+  Object.assign(hljs,{
+    highlight,
+    highlightAuto,
+    fixMarkup,
+    highlightBlock,
+    configure,
+    initHighlighting,
+    initHighlightingOnLoad,
+    registerLanguage,
+    listLanguages,
+    getLanguage,
+    requireLanguage,
+    autoDetection,
+    inherit,
+    addPlugin
+  });
+
   hljs.debugMode = function() { SAFE_MODE = false; }
   hljs.safeMode = function() { SAFE_MODE = true; }
 
-  // Common regexps
-  hljs.IDENT_RE = '[a-zA-Z]\\w*';
-  hljs.UNDERSCORE_IDENT_RE = '[a-zA-Z_]\\w*';
-  hljs.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
-  hljs.C_NUMBER_RE = '(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
-  hljs.BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
-  hljs.RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
+  for (const key in MODES) {
+    if (typeof MODES[key] === "object")
+      deepFreeze(MODES[key]);
+  }
 
-  // Common modes
-  hljs.BACKSLASH_ESCAPE = {
-    begin: '\\\\[\\s\\S]', relevance: 0
-  };
-  hljs.APOS_STRING_MODE = {
-    className: 'string',
-    begin: '\'', end: '\'',
-    illegal: '\\n',
-    contains: [hljs.BACKSLASH_ESCAPE]
-  };
-  hljs.QUOTE_STRING_MODE = {
-    className: 'string',
-    begin: '"', end: '"',
-    illegal: '\\n',
-    contains: [hljs.BACKSLASH_ESCAPE]
-  };
-  hljs.PHRASAL_WORDS_MODE = {
-    begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b/
-  };
-  hljs.COMMENT = function (begin, end, inherits) {
-    var mode = hljs.inherit(
-      {
-        className: 'comment',
-        begin: begin, end: end,
-        contains: []
-      },
-      inherits || {}
-    );
-    mode.contains.push(hljs.PHRASAL_WORDS_MODE);
-    mode.contains.push({
-      className: 'doctag',
-      begin: '(?:TODO|FIXME|NOTE|BUG|XXX):',
-      relevance: 0
-    });
-    return mode;
-  };
-  hljs.C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$');
-  hljs.C_BLOCK_COMMENT_MODE = hljs.COMMENT('/\\*', '\\*/');
-  hljs.HASH_COMMENT_MODE = hljs.COMMENT('#', '$');
-  hljs.NUMBER_MODE = {
-    className: 'number',
-    begin: hljs.NUMBER_RE,
-    relevance: 0
-  };
-  hljs.C_NUMBER_MODE = {
-    className: 'number',
-    begin: hljs.C_NUMBER_RE,
-    relevance: 0
-  };
-  hljs.BINARY_NUMBER_MODE = {
-    className: 'number',
-    begin: hljs.BINARY_NUMBER_RE,
-    relevance: 0
-  };
-  hljs.CSS_NUMBER_MODE = {
-    className: 'number',
-    begin: hljs.NUMBER_RE + '(' +
-      '%|em|ex|ch|rem'  +
-      '|vw|vh|vmin|vmax' +
-      '|cm|mm|in|pt|pc|px' +
-      '|deg|grad|rad|turn' +
-      '|s|ms' +
-      '|Hz|kHz' +
-      '|dpi|dpcm|dppx' +
-      ')?',
-    relevance: 0
-  };
-  hljs.REGEXP_MODE = {
-    // this outer rule makes sure we actually have a WHOLE regex and not simply
-    // an expression such as:
-    //
-    //     3 / something
-    //
-    // (which will then blow up when regex's `illegal` sees the newline)
-    begin: /(?=\/[^\/\n]*\/)/,
-    contains: [{
-      className: 'regexp',
-      begin: /\//, end: /\/[gimuy]*/,
-      illegal: /\n/,
-      contains: [
-        hljs.BACKSLASH_ESCAPE,
-        {
-          begin: /\[/, end: /\]/,
-          relevance: 0,
-          contains: [hljs.BACKSLASH_ESCAPE]
-        }
-      ]
-    }]
-  };
-  hljs.TITLE_MODE = {
-    className: 'title',
-    begin: hljs.IDENT_RE,
-    relevance: 0
-  };
-  hljs.UNDERSCORE_TITLE_MODE = {
-    className: 'title',
-    begin: hljs.UNDERSCORE_IDENT_RE,
-    relevance: 0
-  };
-  hljs.METHOD_GUARD = {
-    // excludes method names from keyword processing
-    begin: '\\.\\s*' + hljs.UNDERSCORE_IDENT_RE,
-    relevance: 0
-  };
-
-  var constants = [
-    hljs.BACKSLASH_ESCAPE,
-    hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE,
-    hljs.PHRASAL_WORDS_MODE,
-    hljs.COMMENT,
-    hljs.C_LINE_COMMENT_MODE,
-    hljs.C_BLOCK_COMMENT_MODE,
-    hljs.HASH_COMMENT_MODE,
-    hljs.NUMBER_MODE,
-    hljs.C_NUMBER_MODE,
-    hljs.BINARY_NUMBER_MODE,
-    hljs.CSS_NUMBER_MODE,
-    hljs.REGEXP_MODE,
-    hljs.TITLE_MODE,
-    hljs.UNDERSCORE_TITLE_MODE,
-    hljs.METHOD_GUARD
-  ]
-  constants.forEach(function(obj) { deepFreeze(obj); });
-
-  // https://github.com/substack/deep-freeze/blob/master/index.js
-  function deepFreeze (o) {
-    Object.freeze(o);
-
-    var objIsFunction = typeof o === 'function';
-
-    Object.getOwnPropertyNames(o).forEach(function (prop) {
-      if (o.hasOwnProperty(prop)
-      && o[prop] !== null
-      && (typeof o[prop] === "object" || typeof o[prop] === "function")
-      // IE11 fix: https://github.com/highlightjs/highlight.js/issues/2318
-      // TODO: remove in the future
-      && (objIsFunction ? prop !== 'caller' && prop !== 'callee' && prop !== 'arguments' : true)
-      && !Object.isFrozen(o[prop])) {
-        deepFreeze(o[prop]);
-      }
-    });
-
-    return o;
-  };
-
+  // merge all the modes/regexs into our main object
+  Object.assign(hljs, MODES);
 
   return hljs;
-}));
+};
+
+// export an "instance" of the highlighter
+export default HLJS({});

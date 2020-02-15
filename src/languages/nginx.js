@@ -6,7 +6,7 @@ Category: common, config
 Website: https://www.nginx.com
 */
 
-function(hljs) {
+export default function(hljs) {
   var VAR = {
     className: 'variable',
     variants: [
