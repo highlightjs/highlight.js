@@ -26,10 +26,7 @@ module.exports = {
         output: {
           name: "hljs",
           format: "umd",
-          // strict: false,
-          compact: false,
           interop: false,
-          extend: false
         }
       },
       browser: {
@@ -41,10 +38,7 @@ module.exports = {
         output: {
           format: "iife",
           outro: "return module.exports.definer || module.exports;",
-          // strict: false,
-          compact: false,
           interop: false,
-          extend: false,
         }
       }
     },
