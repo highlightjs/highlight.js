@@ -171,15 +171,8 @@ const HLJS = function(hljs) {
         matchAt += regex.countMatchGroups(re) + 1;
       }
 
-      for (var term of mode.contains) {
-        var re;
-        if (term.beginKeywords) {
-          re = '\\.?(?:' + term.begin + ')\\.?';
-        } else {
-          re = term.begin;
-        }
-        addRule(term, re);
-      }
+      mode.contains.forEach(term => addRule(term, term.begin))
+
       if (mode.terminator_end)
         addRule("end", mode.terminator_end);
       if (mode.illegal)
@@ -199,8 +192,8 @@ const HLJS = function(hljs) {
         if (!match) { return null; }
 
         for(var i = 0; i<match.length; i++) {
-          if (match[i] != undefined && matchIndexes["" +i] != undefined ) {
-            rule = matchIndexes[""+i];
+          if (match[i] != undefined && matchIndexes[i]) {
+            rule = matchIndexes[i];
             break;
           }
         }
