@@ -1,6 +1,5 @@
 'use strict';
 
-const _        = require('lodash');
 const fs       = require('fs').promises;
 const glob     = require('glob');
 const hljs     = require('../../build');
@@ -17,7 +16,7 @@ function testLanguage(language, {testDir}) {
     const filePath  = where,
           filenames = glob.sync(filePath);
 
-    _.each(filenames, function(filename) {
+    filenames.forEach(function(filename) {
       const testName   = path.basename(filename, '.expect.txt'),
             sourceName = filename.replace(/\.expect/, '');
 
