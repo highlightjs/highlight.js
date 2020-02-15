@@ -2,20 +2,18 @@
 
 const _       = require('lodash');
 const hljs    = require('../../build');
-const utility = require('../utility');
 
 const pattern      = new RegExp(`${hljs.C_NUMBER_RE}$`);
-const numberToString = utility.numberToString;
 
 describe('.C_NUMBER_RE', () => {
   it('should match regular numbers', () => {
-    const numbers = _.map(_.range(0, 1001), numberToString);
+    const numbers = _.range(0, 1001).map(x => x.toString());
 
     numbers.should.matchEach(pattern);
   });
 
   it('should match decimals', () => {
-    const decimal       = _.map(_.range(0, 1.001, 0.001), numberToString);
+    const decimal       = _.range(0, 1.001, 0.001).map(x => x.toString());
     const noLeadingZero = ['.1234', '.5206', '.0002', '.9998'];
 
     const numbers = [].concat(decimal, noLeadingZero);

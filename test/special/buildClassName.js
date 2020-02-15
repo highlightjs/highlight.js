@@ -1,12 +1,10 @@
 'use strict';
 
-const _ = require('lodash');
-
 describe('block class names',  () => {
   before( () => {
     const testHTML = document.querySelectorAll('#build-classname .hljs');
 
-    this.blocks = _.map(testHTML, 'className');
+    this.blocks = [...testHTML].map((x) => x.className);
   });
 
   it('should add language class name to block',  () => {

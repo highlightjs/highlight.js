@@ -21,6 +21,14 @@ module.exports = {
           ],
         },
       },
+      browser_core: {
+        input: {},
+        output: {
+          name: "hljs",
+          format: "umd",
+          interop: false,
+        }
+      },
       browser: {
         input: {
           plugins: [
@@ -30,10 +38,7 @@ module.exports = {
         output: {
           format: "iife",
           outro: "return module.exports.definer || module.exports;",
-          strict: false,
-          compact: false,
           interop: false,
-          extend: false,
         }
       }
     },
