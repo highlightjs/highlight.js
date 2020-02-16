@@ -189,6 +189,9 @@ export default function(hljs) {
               }
             ]
           },
+          { // could be a comma delimited list of params to a function call
+            begin: /,/, relevance: 0,
+          },
           {
             className: '',
             begin: /\s/,
@@ -229,6 +232,7 @@ export default function(hljs) {
       {
         begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
       },
+
       hljs.METHOD_GUARD,
       { // ES6 class
         className: 'class',
