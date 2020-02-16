@@ -34,7 +34,7 @@ export default class TokenTree {
   }
 
   openNode(kind) {
-    var node = { kind, children: [] };
+    let node = { kind, children: [] };
     this.add(node);
     this.stack.push(node);
   }
