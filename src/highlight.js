@@ -34,7 +34,6 @@ const HLJS = function(hljs) {
   // Regular expressions used throughout the highlight.js library.
   var fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
 
-  var spanEndTag = '</span>';
   var LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
 
   // Global options used when within external APIs. This is modified when
@@ -50,7 +49,7 @@ const HLJS = function(hljs) {
 
   /* Utility functions */
 
-  function isNotHighlighted(language) {
+  function shouldNotHighlight(language) {
     return options.noHighlightRe.test(language);
   }
 
@@ -73,7 +72,7 @@ const HLJS = function(hljs) {
 
     return classes
       .split(/\s+/)
-      .find((_class) => isNotHighlighted(_class) || getLanguage(_class))
+      .find((_class) => shouldNotHighlight(_class) || getLanguage(_class))
   }
 
   /**
@@ -462,7 +461,7 @@ const HLJS = function(hljs) {
     var node, originalStream, result, resultNode, text;
     var language = blockLanguage(block);
 
-    if (isNotHighlighted(language))
+    if (shouldNotHighlight(language))
         return;
 
     fire("before:highlightBlock",
