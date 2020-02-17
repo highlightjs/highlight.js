@@ -1,0 +1,6 @@
+<span class="hljs-keyword">import</span> Kernel, <span class="hljs-symbol">except:</span> [
+    <span class="hljs-symbol">spawn:</span> <span class="hljs-number">1</span>,
+    +: <span class="hljs-number">2</span>,
+    /: <span class="hljs-number">2</span>,
+    <span class="hljs-symbol">Unless:</span> <span class="hljs-number">2</span>
+]
