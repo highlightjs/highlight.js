@@ -72,6 +72,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Mercury',
     aliases: ['m', 'moo'],
     keywords: KEYWORDS,
     contains: [

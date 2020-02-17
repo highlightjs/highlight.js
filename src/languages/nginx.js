@@ -69,6 +69,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Nginx config',
     aliases: ['nginxconf'],
     contains: [
       hljs.HASH_COMMENT_MODE,

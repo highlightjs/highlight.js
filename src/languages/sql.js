@@ -8,7 +8,7 @@
 export default function(hljs) {
   var COMMENT_MODE = hljs.COMMENT('--', '$');
   return {
-    name: "SQL",
+    name: 'SQL',
     case_insensitive: true,
     illegal: /[<>{}*]/,
     contains: [

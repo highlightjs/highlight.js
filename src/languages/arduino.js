@@ -102,5 +102,7 @@ export default function(hljs) {
   kws.literal += ' ' + ARDUINO_KW.literal;
   kws.built_in += ' ' + ARDUINO_KW.built_in;
 
+  ARDUINO.name = 'Arduino';
+
   return ARDUINO;
 }

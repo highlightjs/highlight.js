@@ -197,6 +197,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'C-like',
     aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp', 'hh', 'hxx', 'cxx'],
     keywords: CPP_KEYWORDS,
     // the base c-like language will NEVER be auto-detected, rather the

@@ -8,6 +8,7 @@ Category: assembler
 export default function(hljs) {
     //local labels: %?[FB]?[AT]?\d{1,2}\w+
   return {
+    name: 'ARM Assembly',
     case_insensitive: true,
     aliases: ['arm'],
     lexemes: '\\.?' + hljs.IDENT_RE,

@@ -37,6 +37,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'TP',
     keywords: {
       keyword:
         'ABORT ACC ADJUST AND AP_LD BREAK CALL CNT COL CONDITION CONFIG DA DB ' +

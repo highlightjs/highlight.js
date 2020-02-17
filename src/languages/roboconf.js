@@ -29,6 +29,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Roboconf',
     aliases: ['graph', 'instances'],
     case_insensitive: true,
     keywords: 'import',

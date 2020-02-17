@@ -113,6 +113,7 @@ export default function(hljs) {
     }
   ];
   return {
+    name: 'Lasso',
     aliases: ['ls', 'lassoscript'],
     case_insensitive: true,
     lexemes: LASSO_IDENT_RE + '|&[lg]t;',

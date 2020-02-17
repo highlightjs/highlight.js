@@ -7,6 +7,7 @@ Category: enterprise
 
 export default function(hljs) {
   return {
+    name: 'Dynamics 365',
     keywords: 'false int abstract private char boolean static null if for true ' +
       'while long throw finally protected final return void enum else ' +
       'break new catch byte super case short default double public try this switch ' +

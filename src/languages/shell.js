@@ -7,6 +7,7 @@ Category: common
 
 export default function(hljs) {
   return {
+    name: 'Shell Session',
     aliases: ['console'],
     contains: [
       {

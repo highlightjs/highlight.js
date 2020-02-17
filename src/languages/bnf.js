@@ -6,6 +6,7 @@ Author: Oleg Efimov <efimovov@gmail.com>
 
 export default function(hljs){
   return {
+    name: 'Backus–Naur Form',
     contains: [
       // Attribute
       {

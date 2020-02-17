@@ -151,6 +151,7 @@ export default function(hljs) {
   ];
 
   return {
+    name: 'Stan',
     aliases: ['stanfuncs'],
     keywords: {
       'title': BLOCKS.join(' '),

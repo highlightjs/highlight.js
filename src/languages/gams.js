@@ -85,6 +85,7 @@ export default function (hljs) {
   };
 
   return {
+    name: 'GAMS',
     aliases: ['gms'],
     case_insensitive: true,
     keywords: KEYWORDS,

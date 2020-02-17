@@ -6,6 +6,7 @@ Description: Based on the Leaf reference from https://vapor.github.io/documentat
 
 export default function (hljs) {
   return {
+    name: 'Leaf',
     contains: [
       {
         className: 'function',

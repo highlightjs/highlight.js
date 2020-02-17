@@ -34,6 +34,7 @@ export default function(hljs) {
     'option_env! print! println! select! stringify! try! unimplemented! ' +
     'unreachable! vec! write! writeln! macro_rules! assert_ne! debug_assert_ne!';
   return {
+    name: 'Rust',
     aliases: ['rs'],
     keywords: {
       keyword:

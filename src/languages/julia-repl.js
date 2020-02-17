@@ -24,6 +24,7 @@ also prints out six spaces, but such cases should be rare.
 
 export default function(hljs) {
   return {
+    name: 'Julia REPL',
     contains: [
       {
         className: 'meta',

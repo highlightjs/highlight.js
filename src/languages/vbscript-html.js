@@ -9,6 +9,7 @@ Category: scripting
 
 export default function(hljs) {
   return {
+    name: 'VBScript in HTML',
     subLanguage: 'xml',
     contains: [
       {

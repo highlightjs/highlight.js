@@ -26,7 +26,8 @@ export default function(hljs) {
   objectHandleMode.contains = [ genericMode ];
 
   return {
-    aliases: [ 'asc' ],
+    name: 'AngelScript',
+    aliases: ['asc'],
 
     keywords:
       'for in|0 break continue while do|0 return if else case switch namespace is cast ' +

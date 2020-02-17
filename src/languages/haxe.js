@@ -13,6 +13,7 @@ export default function(hljs) {
   var HAXE_BASIC_TYPES = 'Int Float String Bool Dynamic Void Array ';
 
   return {
+    name: 'Haxe',
     aliases: ['hx'],
     keywords: {
       keyword: 'break case cast catch continue default do dynamic else enum extern ' +

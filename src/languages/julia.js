@@ -86,6 +86,7 @@ export default function(hljs) {
 
   // placeholder for recursive self-reference
   var DEFAULT = {
+    name: 'Julia',
     lexemes: VARIABLE_NAME_RE, keywords: KEYWORDS, illegal: /<\//
   };
 

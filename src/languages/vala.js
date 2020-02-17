@@ -7,6 +7,7 @@ Website: https://wiki.gnome.org/Projects/Vala
 
 export default function(hljs) {
   return {
+    name: 'Vala',
     keywords: {
       keyword:
         // Value types
