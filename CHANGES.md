@@ -16,6 +16,7 @@ Core Changes:
 
 Language Improvements:
 
+- fix(javascript) comma is allowed in a "value container" (#2403) [Josh Goebel][]
 - enh(apache) add `deny` and `allow` keywords [Josh Goebel][]
 - enh(apache) highlight numeric attributes values [Josh Goebel][]
 - enh(apache) highlight IP addresses, ports, and strings in sections [Josh Goebel][]
