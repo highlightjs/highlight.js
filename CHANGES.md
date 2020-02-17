@@ -16,7 +16,7 @@ Core Changes:
 
 Language Improvements:
 
-- fix(elixir) Support function names with a slash (#) [Josh Goebel][]
+- fix(elixir) Support function names with a slash (#2406) [Josh Goebel][]
 - fix(javascript) comma is allowed in a "value container" (#2403) [Josh Goebel][]
 - enh(apache) add `deny` and `allow` keywords [Josh Goebel][]
 - enh(apache) highlight numeric attributes values [Josh Goebel][]
