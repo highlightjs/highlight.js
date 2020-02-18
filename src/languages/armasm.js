@@ -10,7 +10,7 @@ export default function(hljs) {
 
   const COMMENT = {
     variants: [
-      hljs.COMMENT('^[ ]*#', '$', {relevance: 0}),
+      hljs.COMMENT('^[ ]*(?=#)', '$', {relevance: 0, excludeBegin: true }),
       hljs.COMMENT('[;@]', '$', {relevance: 0}),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,

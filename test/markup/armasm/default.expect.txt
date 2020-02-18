@@ -1,6 +1,6 @@
 <span class="hljs-comment">//=================== YOUR CODE GOES IN THE SECTION BELOW ===================//</span>
 
-<span class="hljs-comment">    # check for and handle zero</span>
+    <span class="hljs-comment"># check for and handle zero</span>
     <span class="hljs-keyword">orr</span> <span class="hljs-built_in">r1</span>, <span class="hljs-built_in">r0</span>, <span class="hljs-number">#128</span>            <span class="hljs-comment">// r1 = r0 | 128</span>
     <span class="hljs-keyword">cmp</span> <span class="hljs-built_in">r1</span>, <span class="hljs-number">#128</span>                <span class="hljs-comment">// if r1 == 128 {</span>
     <span class="hljs-keyword">bne</span> notZero                 <span class="hljs-comment">// .</span>
@@ -8,14 +8,14 @@
     <span class="hljs-keyword">b</span> <span class="hljs-meta">end</span>                       <span class="hljs-comment">// else {</span>
 
 <span class="hljs-symbol">notZero:</span>                        <span class="hljs-comment">// .</span>
-<span class="hljs-comment">    # extract fields from quidfp</span>
+    <span class="hljs-comment"># extract fields from quidfp</span>
     <span class="hljs-keyword">and</span> <span class="hljs-built_in">r1</span>, <span class="hljs-built_in">r0</span>, <span class="hljs-number">#128</span>            <span class="hljs-comment">//          r1 = r0 &amp; 128     // sign</span>
     <span class="hljs-keyword">and</span> <span class="hljs-built_in">r2</span>, <span class="hljs-built_in">r0</span>, <span class="hljs-number">#112</span>            <span class="hljs-comment">//          r2 = r0 &amp; 112     // exponent</span>
     <span class="hljs-keyword">and</span> <span class="hljs-built_in">r3</span>, <span class="hljs-built_in">r0</span>, <span class="hljs-number">#15</span>             <span class="hljs-comment">//          r3 = r0 &amp; 15      // mantissa</span>
 
     <span class="hljs-comment">// ...</span>
 
-<span class="hljs-comment">    # combine into r0</span>
+    <span class="hljs-comment"># combine into r0</span>
     <span class="hljs-keyword">orr</span> <span class="hljs-built_in">r0</span>, <span class="hljs-built_in">r1</span>, <span class="hljs-built_in">r2</span>              <span class="hljs-comment">//          r0 = r1 | r2</span>
     <span class="hljs-keyword">orr</span> <span class="hljs-built_in">r0</span>, <span class="hljs-built_in">r0</span>, <span class="hljs-built_in">r3</span>              <span class="hljs-comment">//          r0 = r0 | r3 }</span>
 
