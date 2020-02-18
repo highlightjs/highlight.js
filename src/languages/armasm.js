@@ -96,8 +96,8 @@ export default function(hljs) {
       {
         className: 'symbol',
         variants: [
+            {begin: '^[ ]*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'}, //GNU ARM syntax
             {begin: '^[a-z_\\.\\$][a-z0-9_\\.\\$]+'}, //ARM syntax
-            {begin: '^\\s*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'}, //GNU ARM syntax
             {begin: '[=#]\\w+' }  //label reference
         ],
         relevance: 0
