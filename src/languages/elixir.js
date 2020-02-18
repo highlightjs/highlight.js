@@ -19,7 +19,11 @@ export default function(hljs) {
     lexemes: ELIXIR_IDENT_RE,
     keywords: ELIXIR_KEYWORDS
   };
-
+  var NUMBER = {
+    className: 'number',
+    begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(.[0-9_]+([eE][-+]?[0-9]+)?)?)',
+    relevance: 0
+  };
   var SIGIL_DELIMITERS = '[/|([{<"\']'
   var LOWERCASE_SIGIL = {
     className: 'string',
@@ -128,11 +132,7 @@ export default function(hljs) {
       begin: ELIXIR_IDENT_RE + ':(?!:)',
       relevance: 0
     },
-    {
-      className: 'number',
-      begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(.[0-9_]+([eE][-+]?[0-9]+)?)?)',
-      relevance: 0
-    },
+    NUMBER,
     {
       className: 'variable',
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))'
@@ -144,6 +144,15 @@ export default function(hljs) {
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
       contains: [
         hljs.HASH_COMMENT_MODE,
+        {
+          // to prevent false regex triggers for the division function:
+          // /:
+          begin: /\/: (?=\d+\s*[,\]])/,
+          relevance: 0,
+          contains: [
+            NUMBER
+          ]
+        },
         {
           className: 'regexp',
           illegal: '\\n',
