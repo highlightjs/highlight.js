@@ -10,7 +10,7 @@ export default function(hljs) {
 
   const COMMENT = {
     variants: [
-      hljs.COMMENT('^[ ]*(?=#)', '$', {relevance: 0, excludeBegin: true }),
+      hljs.COMMENT('^[ \\t]*(?=#)', '$', {relevance: 0, excludeBegin: true }),
       hljs.COMMENT('[;@]', '$', {relevance: 0}),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
@@ -96,7 +96,7 @@ export default function(hljs) {
       {
         className: 'symbol',
         variants: [
-            {begin: '^[ ]*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'}, //GNU ARM syntax
+            {begin: '^[ \\t]*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'}, //GNU ARM syntax
             {begin: '^[a-z_\\.\\$][a-z0-9_\\.\\$]+'}, //ARM syntax
             {begin: '[=#]\\w+' }  //label reference
         ],
