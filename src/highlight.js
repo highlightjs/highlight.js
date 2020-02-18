@@ -261,14 +261,7 @@ const HLJS = function(hljs) {
 
     // self is not valid at the top-level
     if (language.contains && language.contains.includes('self')) {
-      if (!SAFE_MODE) {
-        throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.")
-      } else {
-        // silently remove the broken rule (effectively ignoring it), this has historically
-        // been the behavior in the past, so this removal preserves compatibility with broken
-        // grammars when running in Safe Mode
-        language.contains = language.contains.filter(function(mode) { return mode != 'self'; });
-      }
+      throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.")
     }
     compileMode(language);
   }
