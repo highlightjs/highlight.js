@@ -7,6 +7,16 @@ Category: assembler
 
 export default function(hljs) {
     //local labels: %?[FB]?[AT]?\d{1,2}\w+
+
+  const COMMENT = {
+    variants: [
+      hljs.COMMENT('^[ ]*#', '$', {relevance: 0}),
+      hljs.COMMENT('[;@]', '$', {relevance: 0}),
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+    ]
+  }
+
   return {
     case_insensitive: true,
     aliases: ['arm'],
@@ -59,8 +69,7 @@ export default function(hljs) {
         '[sptrx]?' ,                                             //legal postfixes
         end: '\\s'
       },
-      hljs.COMMENT('[;@]', '$', {relevance: 0}),
-      hljs.C_BLOCK_COMMENT_MODE,
+      COMMENT,
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
