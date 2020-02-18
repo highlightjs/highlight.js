@@ -66,8 +66,8 @@ export default function(hljs) {
             'wfe|wfi|yield'+
         ')'+
         '(eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le|al|hs|lo)?'+ //condition codes
-        '[sptrx]?' ,                                             //legal postfixes
-        end: '\\s'
+        '[sptrx]?' +                                             //legal postfixes
+        '(?=\\s)'                                                // followed by space
       },
       COMMENT,
       hljs.QUOTE_STRING_MODE,
