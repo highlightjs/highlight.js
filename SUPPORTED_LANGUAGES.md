@@ -4,6 +4,7 @@ The table below shows the full list of supported languages (and corresponding cl
 
 Languages that listed a **Package** below are 3rd party languages and are not bundled with the core library.  You can find their repositories by following the links.
 
+<!-- LANGLIST -->
 | Language                | Classes                | Package |
 | :-----------------------| :--------------------- | :------ |
 | 1C                      | 1c                     |         |
@@ -186,6 +187,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | XQuery                  | xquery, xpath, xq      |         |
 | YAML                    | yml, yaml              |         |
 | Zephir                  | zephir, zep            |         |
+<!-- LANGLIST_END -->
 
 
 [1]: https://github.com/highlightjs/highlight.js#getting-the-library
