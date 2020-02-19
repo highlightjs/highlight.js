@@ -16,8 +16,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
+          {/* comment */}
+          { test "}" }
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <div
+            box="yes" // comment
+          />
         </div>
       </BrowserRouter>
     );

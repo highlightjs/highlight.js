@@ -5,15 +5,9 @@ Category: common, scripting
 Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
+import { JSX_MODE, JSX_LANGUAGE } from "./lib/jsx";
+
 export default function(hljs) {
-  var FRAGMENT = {
-    begin: '<>',
-    end: '</>'
-  };
-  var XML_TAG = {
-    begin: /<[A-Za-z0-9\\._:-]+/,
-    end: /\/[A-Za-z0-9\\._:-]+>|\/>/
-  };
   var IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var KEYWORDS = {
     keyword:
@@ -100,6 +94,15 @@ export default function(hljs) {
     excludeEnd: true,
     contains: PARAMS_CONTAINS
   };
+
+  const containers = [
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE,
+    TEMPLATE_STRING,
+    hljs.C_BLOCK_COMMENT_MODE,
+    hljs.C_LINE_COMMENT_MODE
+  ];
+  hljs.registerLanguage("_jsx", JSX_LANGUAGE({containers}));
 
   return {
     name: 'JavaScript',
@@ -206,19 +209,7 @@ export default function(hljs) {
             end: /\s*/,
             skip: true,
           },
-          { // JSX
-            variants: [
-              { begin: FRAGMENT.begin, end: FRAGMENT.end },
-              { begin: XML_TAG.begin, end: XML_TAG.end }
-            ],
-            subLanguage: 'xml',
-            contains: [
-              {
-                begin: XML_TAG.begin, end: XML_TAG.end, skip: true,
-                contains: ['self']
-              }
-            ]
-          },
+          JSX_MODE
         ],
         relevance: 0
       },
