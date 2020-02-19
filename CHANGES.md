@@ -2,7 +2,7 @@
 
 New languages:
 
-- none.
+- enh(python) Added `python-repl` for Python REPL sessions
 
 New themes:
 
