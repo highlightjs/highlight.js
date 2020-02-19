@@ -1,0 +1,4 @@
+var @class = new MyClass();
+doSomething(@var, @foo);
+var a;
+
