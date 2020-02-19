@@ -2,7 +2,7 @@
 
 The table below shows the full list of supported languages (and corresponding classes/aliases).  Note: Which languages are available may depend on how you've built or included the library in your app. See [Getting the Library][1] in the README.
 
-Languages that are listed as **Package** below are 3rd party languages and not bundled with the core library.  You can find them at the linked repositories.
+Languages that listed a **Package** below are 3rd party languages and are not bundled with the core library.  You can find their repositories by following the links.
 
 | Language                | Classes                | Package |
 | :-----------------------| :--------------------- | :------ |
