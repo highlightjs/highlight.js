@@ -89,13 +89,13 @@ const HLJS = function(hljs) {
    * @property {string} language - the language name
    * @property {number} relevance - the relevance score
    * @property {string} value - the highlighted HTML code
-   * @property {string} originalCade - the original raw code
+   * @property {string} code - the original raw code
    * @property {mode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignore_illegals, continuation) {
     var context = {
-      originalCode: code,
+      code,
       language: languageName
     };
     // the plugin can change the desired language or the code to be highlighted
@@ -106,9 +106,9 @@ const HLJS = function(hljs) {
     // in which case we don't even need to call highlight
     var result = context.result ?
       context.result :
-      _highlight(context.language, context.originalCode, ignore_illegals, continuation);
+      _highlight(context.language, context.code, ignore_illegals, continuation);
 
-    result.originalCode = context.originalCode;
+    result.code = context.code;
     // the plugin can change anything in result to suite it
     fire("after:highlight", result);
 
