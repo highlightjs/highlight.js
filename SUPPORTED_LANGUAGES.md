@@ -1,6 +1,8 @@
 # Supported Languages
 
-The table below shows the full list of supported languages (and corresponding classes) that are bundled with the library.  Note: Which languages are available may depend on how you've built or included the library in your app. See [Getting the Library][1] in the README.
+The table below shows the full list of supported languages (and corresponding classes/aliases).  Note: Which languages are available may depend on how you've built or included the library in your app. See [Getting the Library][1] in the README.
+
+Languages that are listed as **Package** below are 3rd party languages and not bundled with the core library.  You can find them at the linked repositories.
 
 | Language                | Classes                | Package |
 | :-----------------------| :--------------------- | :------ |
@@ -185,7 +187,5 @@ The table below shows the full list of supported languages (and corresponding cl
 | YAML                    | yml, yaml              |         |
 | Zephir                  | zephir, zep            |         |
 
-Languages with the specified package name are defined in separate repositories
-and not included in `highlight.min.js`.
 
 [1]: https://github.com/highlightjs/highlight.js#getting-the-library
