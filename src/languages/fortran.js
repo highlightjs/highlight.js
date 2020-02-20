@@ -91,7 +91,7 @@ export default function(hljs) {
     contains: [
       STRING,
       FUNCTION_DEF,
-      // allow C = value for assignments so they aren't misdetected
+      // allow `C = value` for assignments so they aren't misdetected
       // as Fortran 77 style comments
       {
         begin: /^C\s*=(?!=)/,
