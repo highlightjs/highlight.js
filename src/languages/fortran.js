@@ -11,6 +11,14 @@ export default function(hljs) {
     begin: '\\(', end: '\\)'
   };
 
+  var COMMENT = {
+    variants: [
+      hljs.COMMENT('!', '$', {relevance: 0}),
+      // allow Fortran 77 style comments
+      hljs.COMMENT('^C', '$', {relevance: 0})
+    ]
+  }
+
   var F_KEYWORDS = {
     literal: '.False. .True.',
     keyword: 'kind do concurrent local shared while private call intrinsic where elsewhere ' +
@@ -66,7 +74,13 @@ export default function(hljs) {
         illegal: '[${=\\n]',
         contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
       },
-      hljs.COMMENT('!', '$', {relevance: 0}),
+      // allow C = value for assignments so they aren't misdetected
+      // as Fortran 77 style comments
+      {
+        begin: /^C\s*=(?!=)/,
+        relevance:0,
+      },
+      COMMENT,
       {
         className: 'number',
         // regex in both fortran and irpf90 should match
