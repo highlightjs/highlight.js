@@ -6,20 +6,43 @@ Category: scientific
 */
 
 export default function(hljs) {
-  var PARAMS = {
+  const PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)'
   };
 
-  var COMMENT = {
+  const COMMENT = {
     variants: [
       hljs.COMMENT('!', '$', {relevance: 0}),
       // allow Fortran 77 style comments
       hljs.COMMENT('^C', '$', {relevance: 0})
     ]
-  }
+  };
 
-  var F_KEYWORDS = {
+  const NUMBER = {
+    className: 'number',
+    // regex in both fortran and irpf90 should match
+    begin: '(?=\\b|\\+|\\-|\\.)(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z_\\d]+)?',
+    relevance: 0
+  };
+
+  const FUNCTION_DEF = {
+    className: 'function',
+    beginKeywords: 'subroutine function program',
+    illegal: '[${=\\n]',
+    contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
+  };
+
+  const STRING = {
+    className: 'string',
+    relevance: 0,
+    variants: [
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  };
+
+  const KEYWORDS = {
     literal: '.False. .True.',
     keyword: 'kind do concurrent local shared while private call intrinsic where elsewhere ' +
       'type endtype endmodule endselect endinterface end enddo endif if forall endforall only contains default return stop then block endblock endassociate ' +
@@ -63,17 +86,11 @@ export default function(hljs) {
   return {
     case_insensitive: true,
     aliases: ['f90', 'f95'],
-    keywords: F_KEYWORDS,
+    keywords: KEYWORDS,
     illegal: /\/\*/,
     contains: [
-      hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'string', relevance: 0}),
-      {
-        className: 'function',
-        beginKeywords: 'subroutine function program',
-        illegal: '[${=\\n]',
-        contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
-      },
+      STRING,
+      FUNCTION_DEF,
       // allow C = value for assignments so they aren't misdetected
       // as Fortran 77 style comments
       {
@@ -81,12 +98,7 @@ export default function(hljs) {
         relevance:0,
       },
       COMMENT,
-      {
-        className: 'number',
-        // regex in both fortran and irpf90 should match
-        begin: '(?=\\b|\\+|\\-|\\.)(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z_\\d]+)?',
-        relevance: 0
-      }
+      NUMBER
     ]
   };
 }
