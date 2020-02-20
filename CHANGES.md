@@ -2,7 +2,7 @@
 
 New languages:
 
-- none.
+- (php-template) Explicit language to detect PHP templates (vs xml) [Josh Goebel][]
 
 New themes:
 
