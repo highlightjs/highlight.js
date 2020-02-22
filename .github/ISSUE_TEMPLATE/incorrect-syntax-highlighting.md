@@ -11,7 +11,7 @@ assignees: ''
 A clear and concise description of what the issue seems to be.
 
 **Which language seems to have the issue?**
-Please specify exactly WHICH language grammar you are using to highlight (`python`, `javascript`, etc.) or specify if you are using auto-detection.  If you are using auto-detection please first check to make sure the language you are expecting was properly detected.  If Highlight.js misidentifies the type of code - then the highlighting may be entirely incorrect - and there isn't much we can do about that - auto-detection is only best-effort and can't guess right 100% of the time.
+Please specify exactly WHICH language grammar you are using to highlight (`python`, `javascript`, etc.) or specify if you are using auto-detection.  If you are using auto-detection please first check to make sure the language you are expecting was properly detected.  If Highlight.js misidentifies the type of code - then the highlighting may be entirely incorrect - and there often isn't much we can do about that - auto-detection is only best-effort and can't guess right 100% of the time.
 
 **Sample Code to Reproduce**
 Please include text examples of the code that fails to highlight properly or can reproduce the bug.  You can attach a screenshot if you'd like, but the code is necessary because we may need to copy/paste it to help resolve the issue - or add it to a test.
