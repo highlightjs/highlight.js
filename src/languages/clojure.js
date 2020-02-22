@@ -100,6 +100,7 @@ export default function(hljs) {
         className: 'title',
         begin: SYMBOL_RE,
         relevance: 0,
+        excludeEnd: true,
         // we can only have a single title
         endsParent: true
       },
