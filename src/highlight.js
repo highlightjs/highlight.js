@@ -728,9 +728,6 @@ const HLJS = function(hljs) {
     if (lang.aliases) {
       lang.aliases.forEach(function(alias) {aliases[alias] = name;});
     }
-    if (lang.extensions) {
-      lang.extensions.forEach(function(extension) {aliases[extension] = name;});
-    }
   }
 
   function listLanguages() {
