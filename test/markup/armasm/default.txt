@@ -1,0 +1,13 @@
+//=================== YOUR CODE GOES HERE ===================//
+
+# logical operator demo (highlight.js arm comment test)
+mov r0, #0x00F0     // r0 = 0x00F0
+mov r1, #0x000F     // r1 = 0x000F
+mov r2, #0xFF00     // r2 = 0xFF00
+
+    # and even more code, but indented
+    orr r3, r0, r1      // r3 = r0 | r1     // r3 = 0x00FF
+    and r4, r3, r2      // r4 = r3 & r2     // r4 = 0x0000
+    orr r5, r3, r2      // r4 = r3 | r2     // r5 = 0xFFFF
+    eor r6, r5, r2      // r6 = r5 ^ r2     // r6 = 0x00FF
+//===========================================================================//
