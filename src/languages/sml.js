@@ -8,6 +8,7 @@ Category: functional
 */
 export default function(hljs) {
   return {
+    name: 'SML (Standard ML)',
     aliases: ['ml'],
     keywords: {
       keyword:

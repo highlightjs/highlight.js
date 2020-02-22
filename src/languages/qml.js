@@ -99,6 +99,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'QML',
     aliases: ['qt'],
     case_insensitive: false,
     keywords: KEYWORDS,

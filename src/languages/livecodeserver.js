@@ -30,6 +30,7 @@ export default function(hljs) {
   });
   var TITLE2 = hljs.inherit(hljs.TITLE_MODE, {begin: '\\b([A-Za-z0-9_\\-]+)\\b'});
   return {
+    name: 'LiveCode',
     case_insensitive: false,
     keywords: {
       keyword:

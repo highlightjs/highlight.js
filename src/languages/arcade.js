@@ -66,6 +66,7 @@ export default function(hljs) {
   ]);
 
   return {
+    name: 'ArcGIS Arcade',
     aliases: ['arcade'],
     keywords: KEYWORDS,
     contains: [

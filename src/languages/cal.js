@@ -72,6 +72,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'C/AL',
     case_insensitive: true,
     keywords: { keyword: KEYWORDS, literal: LITERALS },
     illegal: /\/\*/,

@@ -57,6 +57,7 @@ export default function(hljs) {
     };
 
     return {
+        name: 'LSL (Linden Scripting Language)',
         illegal: ':',
         contains: [
             LSL_STRINGS,

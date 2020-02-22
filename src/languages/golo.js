@@ -7,6 +7,7 @@ Website: http://golo-lang.org/
 
 export default function(hljs) {
     return {
+      name: 'Golo',
       keywords: {
         keyword:
           'println readln print import module function local return let var ' +

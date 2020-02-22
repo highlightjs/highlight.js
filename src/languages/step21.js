@@ -22,6 +22,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'STEP Part 21',
     aliases: ['p21', 'step', 'stp'],
     case_insensitive: true, // STEP 21 is case insensitive in theory, in practice all non-comments are capitalized.
     lexemes: STEP21_IDENT_RE,

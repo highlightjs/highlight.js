@@ -102,6 +102,7 @@ export default function(hljs) {
   COLLECTION.contains = DEFAULT_CONTAINS;
 
   return {
+    name: 'Hy',
     aliases: ['hylang'],
     illegal: /\S/,
     contains: [SHEBANG, LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL]

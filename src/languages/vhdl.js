@@ -20,6 +20,7 @@ export default function(hljs) {
   var NUMBER_RE = '\\b(' + BASED_LITERAL_RE + '|' + DECIMAL_LITERAL_RE + ')';
 
   return {
+    name: 'VHDL',
     case_insensitive: true,
     keywords: {
       keyword:

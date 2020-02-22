@@ -7,6 +7,7 @@ Author: Damian Mee <mee.damian@gmail.com>
 
 export default function(hljs) {
   return {
+    name: 'Gradle',
     case_insensitive: true,
     keywords: {
       keyword:

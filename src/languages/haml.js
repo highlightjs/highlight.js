@@ -9,6 +9,7 @@ Category: template
 // TODO support filter tags like :javascript, support inline HTML
 export default function(hljs) {
   return {
+    name: 'HAML',
     case_insensitive: true,
     contains: [
       {

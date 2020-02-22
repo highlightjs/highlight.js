@@ -18,6 +18,7 @@ export default function(hljs) {
   }
 
   return {
+    name: 'ARM Assembly',
     case_insensitive: true,
     aliases: ['arm'],
     lexemes: '\\.?' + hljs.IDENT_RE,

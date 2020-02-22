@@ -16,6 +16,7 @@ export default function (hljs) {
     'warning error soft precedence thisAspectInstance';
   var SHORTKEYS = 'get set args call';
   return {
+    name: 'AspectJ',
     keywords : KEYWORDS,
     illegal : /<\/|#/,
     contains : [

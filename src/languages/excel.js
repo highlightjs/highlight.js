@@ -7,6 +7,7 @@ Website: https://products.office.com/en-us/excel/
 
 export default function(hljs) {
   return {
+    name: 'Excel formulae',
     aliases: ['xlsx', 'xls'],
     case_insensitive: true,
     lexemes: /[a-zA-Z][\w\.]*/,

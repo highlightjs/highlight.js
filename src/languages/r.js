@@ -10,6 +10,7 @@ export default function(hljs) {
   var IDENT_RE = '([a-zA-Z]|\\.[a-zA-Z.])[a-zA-Z0-9._]*';
 
   return {
+    name: 'R',
     contains: [
       hljs.HASH_COMMENT_MODE,
       {

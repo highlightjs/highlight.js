@@ -238,6 +238,7 @@ export default function(hljs) {
   PARAMS_CONTENTS.push(MODULE_ACCESS_MODE);
 
   return {
+    name: 'ReasonML',
     aliases: ['re'],
     keywords: KEYWORDS,
     illegal: '(:\\-|:=|\\${|\\+=)',
