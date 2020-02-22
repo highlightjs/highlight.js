@@ -16,7 +16,7 @@ Core Changes:
 
 Language Improvements:
 
-- enh(clojureAdd support for global definitions name (#2347) [Alexandre Grison][]
+- enh(clojure) Add support for global definitions name (#2347) [Alexandre Grison][]
 - fix(elixir) Support function names with a slash (#2406) [Josh Goebel][]
 - fix(javascript) comma is allowed in a "value container" (#2403) [Josh Goebel][]
 - enh(apache) add `deny` and `allow` keywords [Josh Goebel][]
