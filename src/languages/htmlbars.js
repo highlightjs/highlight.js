@@ -50,6 +50,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'HTMLBars',
     case_insensitive: true,
     subLanguage: 'xml',
     contains: [

@@ -8,6 +8,7 @@ Category: scripting
 
 export default function(hljs) {
   return {
+    name: 'Vim Script',
     lexemes: /[!#@\w]+/,
     keywords: {
       keyword:

@@ -10,6 +10,7 @@ Category: template
 export default function(hljs) {
   var EXPRESSION_KEYWORDS = 'if eq ne lt lte gt gte select default math sep';
   return {
+    name: 'Dust',
     aliases: ['dst'],
     case_insensitive: true,
     subLanguage: 'xml',

@@ -17,6 +17,7 @@ export default function(hljs) {
     '`float `double int `timestamp `timespan `datetime `time `boolean `symbol `char `byte `short `long `real `month `date `minute `second `guid'
   };
   return {
+  name: 'Q',
   aliases:['k', 'kdb'],
   keywords: Q_KEYWORDS,
   lexemes: /(`?)[A-Za-z0-9_]+\b/,

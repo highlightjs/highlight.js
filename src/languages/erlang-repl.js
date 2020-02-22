@@ -7,6 +7,7 @@ Category: functional
 
 export default function(hljs) {
   return {
+    name: 'Erlang REPL',
     keywords: {
       built_in:
         'spawn spawn_link self',

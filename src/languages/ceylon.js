@@ -53,6 +53,7 @@ export default function(hljs) {
   SUBST.contains = EXPRESSIONS;
 
   return {
+    name: 'Ceylon',
     keywords: {
       keyword: KEYWORDS + ' ' + DECLARATION_MODIFIERS,
       meta: DOCUMENTATION

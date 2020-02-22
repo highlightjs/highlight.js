@@ -7,6 +7,7 @@
 
 export default function(hljs) {
     return {
+        name: 'Groovy',
         keywords: {
             literal : 'true false null',
             keyword:

@@ -56,6 +56,7 @@ export default function(hljs) {
     ];
 
     return {
+        name: 'G-code (ISO 6983)',
         aliases: ['nc'],
         // Some implementations (CNC controls) of G-code are interoperable with uppercase and lowercase letters seamlessly.
         // However, most prefer all uppercase and uppercase is customary.

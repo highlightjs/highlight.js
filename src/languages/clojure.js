@@ -112,6 +112,7 @@ export default function(hljs) {
   HINT_COL.contains = [COLLECTION];
 
   return {
+    name: 'Clojure',
     aliases: ['clj'],
     illegal: /\S/,
     contains: [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL]

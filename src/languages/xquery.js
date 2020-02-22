@@ -165,6 +165,7 @@ export default function(hljs) {
 
 
   return {
+    name: 'XQuery',
     aliases: ['xpath', 'xq'],
     case_insensitive: false,
     lexemes: /[a-zA-Z\$][a-zA-Z0-9_:\-]*/,

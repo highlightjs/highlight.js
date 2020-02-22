@@ -95,6 +95,7 @@ export default function(hljs) {
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
 
   return {
+    name: 'C#',
     aliases: ['cs', 'c#'],
     keywords: KEYWORDS,
     illegal: /::/,

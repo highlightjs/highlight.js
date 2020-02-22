@@ -55,6 +55,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'TOML, also INI',
     aliases: ['toml'],
     case_insensitive: true,
     illegal: /\S/,

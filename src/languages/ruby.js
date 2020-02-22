@@ -185,6 +185,7 @@ export default function(hljs) {
   ];
 
   return {
+    name: 'Ruby',
     aliases: ['rb', 'gemspec', 'podspec', 'thor', 'irb'],
     keywords: RUBY_KEYWORDS,
     illegal: /\/\*/,

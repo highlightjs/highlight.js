@@ -8,6 +8,7 @@
 
 export default function(hljs) {
   return {
+    name: 'N1QL',
     case_insensitive: true,
     contains: [
       {

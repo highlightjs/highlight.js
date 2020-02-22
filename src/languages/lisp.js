@@ -93,6 +93,7 @@ export default function(hljs) {
   BODY.contains = [QUOTED, QUOTED_ATOM, LIST, LITERAL, NUMBER, STRING, COMMENT, VARIABLE, KEYWORD, MEC, IDENT];
 
   return {
+    name: 'Lisp',
     illegal: /\S/,
     contains: [
       NUMBER,

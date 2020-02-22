@@ -9,6 +9,7 @@ Category: scripting
 
 export default function(hljs) {
   return {
+    name: 'VBScript',
     aliases: ['vbs'],
     case_insensitive: true,
     keywords: {

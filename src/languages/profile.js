@@ -6,6 +6,7 @@ Author: Brian Beck <exogen@gmail.com>
 
 export default function(hljs) {
   return {
+    name: 'Python profiler',
     contains: [
       hljs.C_NUMBER_MODE,
       {

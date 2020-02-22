@@ -71,6 +71,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'MoonScript',
     aliases: ['moon'],
     keywords: KEYWORDS,
     illegal: /\/\*/,

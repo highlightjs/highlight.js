@@ -346,6 +346,7 @@ export default function(hljs) {
   ];
 
   return {
+    name: 'Stylus',
     aliases: ['styl'],
     case_insensitive: false,
     keywords: 'if else for in',

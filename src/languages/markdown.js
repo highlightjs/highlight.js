@@ -137,6 +137,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Markdown',
     aliases: ['md', 'mkdown', 'mkd'],
     contains: [
       HEADER,

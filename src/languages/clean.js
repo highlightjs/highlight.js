@@ -7,6 +7,7 @@ Website: http://clean.cs.ru.nl
 
 export default function(hljs) {
   return {
+    name: 'Clean',
     aliases: ['clean','icl','dcl'],
     keywords: {
       keyword:
