@@ -14,6 +14,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'F#',
     aliases: ['fs'],
     keywords:
       'abstract and as assert base begin class default delegate do done ' +

@@ -7,6 +7,7 @@ Website: https://en.wikipedia.org/wiki/Zone_file
 
 export default function(hljs) {
   return {
+    name: 'DNS Zone',
     aliases: ['bind', 'zone'],
     keywords: {
       keyword:

@@ -52,6 +52,7 @@ export default function(hljs) {
     ]
   };
   return {
+    name: 'Oxygene',
     case_insensitive: true,
     lexemes: /\.?\w+/,
     keywords: OXYGENE_KEYWORDS,

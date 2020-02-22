@@ -117,6 +117,7 @@ export default function(hljs) {
 
 
   return {
+    name: 'TypeScript',
     aliases: ['ts'],
     keywords: KEYWORDS,
     contains: [

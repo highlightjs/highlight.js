@@ -9,6 +9,7 @@ Category: protocols
 export default function(hljs) {
   var BUILT_IN_TYPES = 'bool byte i16 i32 i64 double string binary';
   return {
+    name: 'Thrift',
     keywords: {
       keyword:
         'namespace const typedef struct enum service exception void oneway set list map required optional',

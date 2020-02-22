@@ -77,6 +77,7 @@ export default function(hljs) {
   SUBST.contains = [NUMBERS];
 
   return {
+    name: 'Swift',
     keywords: SWIFT_KEYWORDS,
     contains: [
       STRING,

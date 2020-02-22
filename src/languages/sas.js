@@ -78,6 +78,7 @@ export default function(hljs) {
         'trim|unquote|until|upcase|verify|while|window';
 
     return {
+        name: 'SAS',
         aliases: ['sas', 'SAS'],
         case_insensitive: true, // SAS is case-insensitive
         keywords: {

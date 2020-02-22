@@ -44,6 +44,7 @@ export default function(hljs) {
 	};
 
 	return {
+		name: 'OpenSCAD',
 		aliases: ['scad'],
 		keywords: {
 			keyword: 'function module include use for intersection_for if else \\%',

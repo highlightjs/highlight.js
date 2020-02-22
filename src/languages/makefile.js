@@ -62,6 +62,7 @@ export default function(hljs) {
     contains: [VARIABLE,]
   };
   return {
+    name: 'Makefile',
     aliases: ['mk', 'mak'],
     keywords:
       'define endef undefine ifdef ifndef ifeq ifneq else endif ' +

@@ -38,6 +38,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Bash',
     aliases: ['sh', 'zsh'],
     lexemes: /\b-?[a-z\._]+\b/,
     keywords: {

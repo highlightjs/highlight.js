@@ -74,6 +74,7 @@ export default function(hljs) {
     };
 
     return {
+        name: 'Ada',
         case_insensitive: true,
         keywords: {
             keyword:

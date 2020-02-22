@@ -35,6 +35,7 @@ export default function(hljs) {
     };
 
     return {
+        name: 'Extended Backus-Naur Form',
         illegal: /\S/,
         contains: [
             commentMode,

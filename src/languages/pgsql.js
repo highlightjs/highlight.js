@@ -290,6 +290,7 @@ export default function(hljs) {
                .join('|');
 
     return {
+        name: 'PostgreSQL',
         aliases: ['postgres','postgresql'],
         case_insensitive: true,
         keywords: {

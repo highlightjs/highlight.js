@@ -8,6 +8,7 @@ Website: https://testanything.org
 
 export default function(hljs) {
   return {
+    name: 'Test Anything Protocol',
     case_insensitive: true,
     contains: [
       hljs.HASH_COMMENT_MODE,

@@ -53,6 +53,7 @@ export default function(hljs) {
       'num_images parity popcnt poppar shifta shiftl shiftr this_image sync change team co_broadcast co_max co_min co_sum co_reduce'
   };
   return {
+    name: 'Fortran',
     case_insensitive: true,
     aliases: ['f90', 'f95'],
     keywords: F_KEYWORDS,

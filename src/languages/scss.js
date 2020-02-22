@@ -36,6 +36,7 @@ export default function(hljs) {
     }
   };
   return {
+    name: 'SCSS',
     case_insensitive: true,
     illegal: '[=/|\']',
     contains: [
