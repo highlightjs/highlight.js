@@ -14,7 +14,7 @@ export default function(hljs) {
     className: 'meta',
     variants: [
       { begin: /<\?php/, relevance: 10 }, // boost for obvious PHP
-      { begin: /<\?=/ },
+      { begin: /<\?[=]?/ },
       { begin: /\?>/ } // end php tag
     ]
   };
