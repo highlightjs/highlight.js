@@ -42,6 +42,23 @@ export default function(hljs){
     // TODO: 'validate[A-Z]+' can't work in keywords
   };
 
+  // Default aliases as defined in Windows PowerShell 5.1 (with exception of %/?)
+  var ALIASES = [
+    'ac', 'asnp', 'cat', 'cd', 'CFS', 'chdir', 'clc', 'clear', 'clhy', 'cli', 'clp', 'cls', 
+    'clv', 'cnsn', 'compare', 'copy', 'cp', 'cpi', 'cpp', 'curl', 'cvpa', 'dbp', 'del', 
+    'diff', 'dir', 'dnsn', 'ebp', 'echo', 'epal', 'epcsv', 'epsn', 'erase', 'etsn', 'exsn', 
+    'fc', 'fhx', 'fl', 'foreach', 'ft', 'fw', 'gal', 'gbp', 'gc', 'gci', 'gcm', 'gcs', 'gdr', 
+    'ghy', 'gi', 'gjb', 'gl', 'gm', 'gmo', 'gp', 'gps', 'gpv', 'group', 'gsn', 'gsnp', 'gsv', 
+    'gu', 'gv', 'gwmi', 'h', 'history', 'icm', 'iex', 'ihy', 'ii', 'ipal', 'ipcsv', 'ipmo', 
+    'ipsn', 'irm', 'ise', 'iwmi', 'iwr', 'kill', 'lp', 'ls', 'man', 'md', 'measure', 'mi', 
+    'mount', 'move', 'mp', 'mv', 'nal', 'ndr', 'ni', 'nmo', 'npssc', 'nsn', 'nv', 'ogv', 
+    'oh', 'popd', 'ps', 'pushd', 'pwd', 'r', 'rbp', 'rcjb', 'rcsn', 'rd', 'rdr', 'ren', 
+    'ri', 'rjb', 'rm', 'rmdir', 'rmo', 'rni', 'rnp', 'rp', 'rsn', 'rsnp', 'rujb', 'rv', 
+    'rvpa', 'rwmi', 'sajb', 'sal', 'saps', 'sasv', 'sbp', 'sc', 'select', 'set', 'shcm', 
+    'si', 'sl', 'sleep', 'sls', 'sort', 'sp', 'spjb', 'spps', 'spsv', 'start', 'sujb', 
+    'sv', 'swmi', 'tee', 'trcm', 'type', 'wget', 'where', 'wjb', 'write'
+  ];
+
   var TITLE_NAME_RE = /\w[\w\d]*((-)[\w\d]+)*/;
 
   var BACKTICK_ESCAPE = {
@@ -113,6 +130,13 @@ export default function(hljs){
     className: 'built_in',
     variants: [
       { begin: '('.concat(VALID_VERBS, ')+(-)[\\w\\d]+') }
+    ]
+  };
+
+  var PS_ALIAS = {
+    className: 'built_in',
+    variants: [
+      { keywords: KEYWORDS }
     ]
   };
 
@@ -245,7 +269,8 @@ export default function(hljs){
       PS_FUNCTION,
       PS_USING,
       PS_ARGUMENTS,
-      PS_TYPE
+      PS_TYPE,
+      PS_ALIAS
     )
   };
 }
