@@ -17,7 +17,7 @@ Please specify exactly *which* language grammar you are using to highlight (`pyt
 Please include text examples of the code that fails to highlight properly or can reproduce the bug.  You can attach a screenshot if you'd like, but the code is necessary because we may need to copy/paste it to help resolve the issue - or add it to a test.
 
 A jsfiddle can sometimes be even better.  You can fork an example test case:
-https://jsfiddle.net/ajoshguy/gfzujpyt/5/
+https://jsfiddle.net/ajoshguy/gfzujpyt/
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.  A screenshot might help here if another highlighting library gets it right, or is Github highlights it better/properly you can use a GitHub code block.
