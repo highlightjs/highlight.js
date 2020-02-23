@@ -14,16 +14,16 @@ export default function(hljs) {
         starts: {
           // a space separates the REPL prefix from the actual code
           // this is purely for cleaner HTML output
-          end: / /,
+          end: / |$/,
           starts: {
             end: '$', subLanguage: 'python'
           }
         },
         variants: [
-          { begin: /^>>>(?=[ ])/ },
+          { begin: /^>>>(?=[ ]|$)/ },
           { begin: /^\.\.\.(?=[ ])/ }
         ]
-      }
+      },
     ]
   }
 }
