@@ -21,7 +21,7 @@ export default function(hljs) {
         },
         variants: [
           { begin: /^>>>(?=[ ]|$)/ },
-          { begin: /^\.\.\.(?=[ ])/ }
+          { begin: /^\.\.\.(?=[ ]|$)/ }
         ]
       },
     ]
