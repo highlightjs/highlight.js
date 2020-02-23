@@ -15,6 +15,7 @@ export default function(hljs) {
   // See further comments in c-like.js.
 
   // lang.disableAutodetect = false;
+  lang.name = 'C';
   lang.aliases = ['c', 'h'];
   return lang;
 

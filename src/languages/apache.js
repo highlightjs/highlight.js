@@ -19,6 +19,7 @@ export default function(hljs) {
     begin: ":\\d{1,5}"
   };
   return {
+    name: 'Apache config',
     aliases: ['apacheconf'],
     case_insensitive: true,
     contains: [

@@ -18,6 +18,7 @@ export default function(hljs) {
     relevance: 0
   };
   return {
+    name: 'Batch file (DOS)',
     aliases: ['bat', 'cmd'],
     case_insensitive: true,
     illegal: /\/\*/,

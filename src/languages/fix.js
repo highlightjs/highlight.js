@@ -5,6 +5,7 @@ Author: Brent Bradbury <brent@brentium.com>
 
 export default function(hljs) {
   return {
+    name: 'FIX',
     contains: [
     {
       begin: /[^\u2401\u0001]+/,

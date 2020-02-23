@@ -28,6 +28,7 @@ export default function(hljs) {
     ],
   };
   return {
+    name: 'SubUnit',
     case_insensitive: true,
     contains: [
       DETAILS,

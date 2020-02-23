@@ -44,6 +44,7 @@ export default function(hljs) {
     TYPES.push(rule)
   })
   return {
+    name: 'JSON',
     contains: TYPES,
     keywords: LITERALS,
     illegal: '\\S'

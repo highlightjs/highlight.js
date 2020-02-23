@@ -91,6 +91,7 @@ export default function(hljs) {
   };
   SUBST.contains = [STRING, NUMBER, PROMPT];
   return {
+    name: 'Python',
     aliases: ['py', 'gyp', 'ipython'],
     keywords: KEYWORDS,
     illegal: /(<\/|->|\?)|=>/,

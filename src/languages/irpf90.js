@@ -59,6 +59,7 @@ export default function(hljs) {
       'IRP_ALIGN irp_here'
   };
   return {
+    name: 'IRPF90',
     case_insensitive: true,
     keywords: F_KEYWORDS,
     illegal: /\/\*/,

@@ -86,6 +86,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Dart',
     keywords: KEYWORDS,
     contains: [
       STRING,

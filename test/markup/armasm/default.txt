@@ -1,24 +1,13 @@
-  //=================== YOUR CODE GOES IN THE SECTION BELOW ===================//
+//=================== YOUR CODE GOES HERE ===================//
 
-    # check for and handle zero
-    orr r1, r0, #128            // r1 = r0 | 128
-    cmp r1, #128                // if r1 == 128 {
-    bne notZero                 // .
-    bl zeroQuidFP2float         //          zeroQuidFP2float() }
-    b end                       // else {
+# logical operator demo (highlight.js arm comment test)
+mov r0, #0x00F0     // r0 = 0x00F0
+mov r1, #0x000F     // r1 = 0x000F
+mov r2, #0xFF00     // r2 = 0xFF00
 
-notZero:                        // .
-    # extract fields from quidfp
-    and r1, r0, #128            //          r1 = r0 & 128     // sign
-    and r2, r0, #112            //          r2 = r0 & 112     // exponent
-    and r3, r0, #15             //          r3 = r0 & 15      // mantissa
-
-    // ...
-
-    # combine into r0
-    orr r0, r1, r2              //          r0 = r1 | r2
-    orr r0, r0, r3              //          r0 = r0 | r3 }
-
-end:                            //  return r0
-
-  //===========================================================================//
+    # and even more code, but indented
+    orr r3, r0, r1      // r3 = r0 | r1     // r3 = 0x00FF
+    and r4, r3, r2      // r4 = r3 & r2     // r4 = 0x0000
+    orr r5, r3, r2      // r4 = r3 | r2     // r5 = 0xFFFF
+    eor r6, r5, r2      // r6 = r5 ^ r2     // r6 = 0x00FF
+//===========================================================================//

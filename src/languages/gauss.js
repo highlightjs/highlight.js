@@ -254,6 +254,7 @@ export default function(hljs) {
   FUNCTION_REF.contains.push(FUNCTION_REF_PARAMS);
 
   return {
+    name: 'GAUSS',
     aliases: ['gss'],
     case_insensitive: true, // language is case-insensitive
     keywords: KEYWORDS,

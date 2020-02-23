@@ -115,6 +115,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'LiveScript',
     aliases: ['ls'],
     keywords: KEYWORDS,
     illegal: /\/\*/,

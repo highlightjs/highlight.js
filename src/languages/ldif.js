@@ -6,6 +6,7 @@ Website: https://en.wikipedia.org/wiki/LDAP_Data_Interchange_Format
 */
 export default function(hljs) {
   return {
+    name: 'LDIF',
     contains: [
       {
         className: 'attribute',
