@@ -136,7 +136,7 @@ export default function(hljs){
   var PS_ALIAS = {
     className: 'built_in',
     variants: [
-      { keywords: KEYWORDS }
+      { keywords: ALIASES.join(' ') }
     ]
   };
 
