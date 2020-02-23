@@ -95,7 +95,7 @@ export default function(hljs) {
       // as Fortran 77 style comments
       {
         begin: /^C\s*=(?!=)/,
-        relevance:0,
+        relevance: 0,
       },
       COMMENT,
       NUMBER
