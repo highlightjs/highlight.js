@@ -235,6 +235,7 @@ export default function(hljs){
   PS_METHODS.contains.unshift(PS_TYPE)
 
   return {
+    name: 'PowerShell',
     aliases: ["ps", "ps1"],
     lexemes: /-?[A-z\.\-]+/,
     case_insensitive: true,

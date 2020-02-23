@@ -25,6 +25,7 @@ export default function(hljs) {
     )
   ];
   return {
+    name: 'Lua',
     lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords: {
       literal: "true false nil",

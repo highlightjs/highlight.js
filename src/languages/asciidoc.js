@@ -9,6 +9,7 @@ Category: markup
 
 export default function(hljs) {
   return {
+    name: 'AsciiDoc',
     aliases: ['adoc'],
     contains: [
       // block comment

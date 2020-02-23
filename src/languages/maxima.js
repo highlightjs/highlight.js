@@ -365,6 +365,7 @@ export default function(hljs) {
   var SYMBOLS = '_ __ %|0 %%|0';
 
   return {
+    name: 'Maxima',
     lexemes: '[A-Za-z_%][0-9A-Za-z_%]*',
     keywords: {
       keyword: KEYWORDS,

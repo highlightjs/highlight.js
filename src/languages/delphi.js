@@ -77,6 +77,7 @@ export default function(hljs) {
     ].concat(COMMENT_MODES)
   };
   return {
+    name: 'Delphi',
     aliases: ['dpr', 'dfm', 'pas', 'pascal', 'freepascal', 'lazarus', 'lpr', 'lfm'],
     case_insensitive: true,
     keywords: KEYWORDS,

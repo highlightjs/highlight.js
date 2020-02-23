@@ -126,6 +126,7 @@ export default function(hljs) {
   KOTLIN_PAREN_TYPE.variants[1].contains = [ KOTLIN_PAREN_TYPE2 ];
 
   return {
+    name: 'Kotlin',
     aliases: ['kt'],
     keywords: KEYWORDS,
     contains : [

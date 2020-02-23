@@ -65,6 +65,7 @@ export default function(hljs) {
   var IPADDR_wBITMASK =  IPADDR+'/(3[0-2]|[1-2][0-9]|\\d)';
   //////////////////////////////////////////////////////////////////////
   return {
+    name: 'Microtik RouterOS script',
     aliases: ['routeros', 'mikrotik'],
     case_insensitive: true,
     lexemes: /:?[\w-]+/,

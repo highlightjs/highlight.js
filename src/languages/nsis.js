@@ -78,6 +78,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'NSIS',
     case_insensitive: false,
     keywords: {
       keyword:

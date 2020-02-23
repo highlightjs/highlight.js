@@ -7,6 +7,7 @@ Website: https://www.microchip.com/webdoc/avrassembler/avrassembler.wb_instructi
 
 export default function(hljs) {
   return {
+    name: 'AVR Assembly',
     case_insensitive: true,
     lexemes: '\\.?' + hljs.IDENT_RE,
     keywords: {

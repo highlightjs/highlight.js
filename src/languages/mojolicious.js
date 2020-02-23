@@ -8,6 +8,7 @@ Category: template
 */
 export default function(hljs) {
   return {
+    name: 'Mojolicious',
     subLanguage: 'xml',
     contains: [
       {

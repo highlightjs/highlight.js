@@ -11,6 +11,7 @@ export default function(hljs){
     relevance: 0
   };
   return {
+    name: 'Brainfuck',
     aliases: ['bf'],
     contains: [
       hljs.COMMENT(

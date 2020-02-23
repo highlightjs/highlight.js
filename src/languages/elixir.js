@@ -173,6 +173,7 @@ export default function(hljs) {
   SUBST.contains = ELIXIR_DEFAULT_CONTAINS;
 
   return {
+    name: 'Elixir',
     lexemes: ELIXIR_IDENT_RE,
     keywords: ELIXIR_KEYWORDS,
     contains: ELIXIR_DEFAULT_CONTAINS

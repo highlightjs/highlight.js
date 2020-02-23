@@ -43,6 +43,7 @@ export default function(hljs) {
   TAGS = TAGS + ' ' + TAGS.split(' ').map(function(t){return 'end' + t}).join(' ');
 
   return {
+    name: 'Twig',
     aliases: ['craftcms'],
     case_insensitive: true,
     subLanguage: 'xml',

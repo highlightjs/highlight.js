@@ -9,6 +9,7 @@ vim: ts=2 sw=2 st=2
 
 export default function(hljs) {
   return {
+    name: 'CSP',
     case_insensitive: false,
     lexemes: '[a-zA-Z][a-zA-Z0-9_-]*',
     keywords: {

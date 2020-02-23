@@ -44,6 +44,7 @@ export default function(hljs) {
     'true false null undefined';
 
   return {
+    name: 'Zephir',
     aliases: ['zep'],
     keywords: KEYWORDS,
     contains: [
