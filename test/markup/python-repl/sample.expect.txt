@@ -1,0 +1,17 @@
+<span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python">v = <span class="hljs-string">"foo = 42"</span></span>
+<span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python">v</span>
+"foo = 42"
+<span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python">print(v)</span>
+foo = 42
+<span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python">print(repr(v).rstrip(<span class="hljs-string">'"'</span>))</span>
+"foo = 42
+<span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python">print(repr(v).lstrip(<span class="hljs-string">'"'</span>))</span>
+foo = 42"
+
+<span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python"><span class="hljs-string">"""</span></span>
+<span class="hljs-meta">...</span> <span class="python"><span class="hljs-string">abc</span></span>
+<span class="hljs-meta">...</span> <span class="python"><span class="hljs-string">"""</span></span>
+<span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:</span></span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">pass</span></span>
+<span class="hljs-meta">&gt;&gt;&gt;</span>
+<span class="hljs-meta">&gt;&gt;&gt;</span>
