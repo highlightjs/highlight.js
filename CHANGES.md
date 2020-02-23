@@ -39,6 +39,7 @@ Language Improvements:
 - (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
 - (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
+- enh(powershell) added PowerShell v5.1/v7 default aliases as "built_in"s (#2423) [Sean Williams][]
 
 Developer Tools:
 
@@ -49,6 +50,7 @@ Developer Tools:
 [Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Josh Goebel]: https://github.com/yyyc514
+[Sean Williams]: https://github.com/hmmwhatsthisdo
 
 
 ## Version 9.18.1
