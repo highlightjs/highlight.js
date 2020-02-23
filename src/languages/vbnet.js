@@ -7,6 +7,7 @@ Website: https://docs.microsoft.com/en-us/dotnet/visual-basic/getting-started/
 
 export default function(hljs) {
   return {
+    name: 'Visual Basic .NET',
     aliases: ['vb'],
     case_insensitive: true,
     keywords: {

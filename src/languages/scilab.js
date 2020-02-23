@@ -19,6 +19,7 @@ export default function(hljs) {
   ];
 
   return {
+    name: 'Scilab',
     aliases: ['sci'],
     lexemes: /%?\w+/,
     keywords: {

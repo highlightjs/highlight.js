@@ -15,6 +15,7 @@ export default function(hljs) {
     }
   );
   return {
+    name: 'Parser3',
     subLanguage: 'xml', relevance: 0,
     contains: [
       hljs.COMMENT('^#', '$'),

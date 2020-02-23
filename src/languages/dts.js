@@ -109,6 +109,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Device Tree',
     keywords: "",
     contains: [
       DTS_ROOT_NODE,

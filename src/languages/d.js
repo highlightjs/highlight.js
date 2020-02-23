@@ -244,6 +244,7 @@ export default function(hljs) {
   );
 
   return {
+    name: 'D',
     lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords: D_KEYWORDS,
     contains: [

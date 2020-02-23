@@ -27,6 +27,7 @@ export default function(hljs) {
   ];
 
   return {
+    name: 'AppleScript',
     aliases: ['osascript'],
     keywords: {
       keyword:

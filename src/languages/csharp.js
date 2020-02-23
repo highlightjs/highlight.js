@@ -101,6 +101,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'C#',
     aliases: ['cs', 'c#'],
     keywords: KEYWORDS,
     illegal: /::/,

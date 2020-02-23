@@ -8,6 +8,7 @@ Category: graphics
 
 export default function(hljs) {
   return {
+    name: 'RenderMan RSL',
     keywords: {
       keyword:
         'float color point normal vector matrix while for if do return else break extern continue',

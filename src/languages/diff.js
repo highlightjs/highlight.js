@@ -8,6 +8,7 @@ Category: common
 
 export default function(hljs) {
   return {
+    name: 'Diff',
     aliases: ['patch'],
     contains: [
       {

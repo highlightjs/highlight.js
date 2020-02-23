@@ -29,6 +29,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Django',
     aliases: ['jinja'],
     case_insensitive: true,
     subLanguage: 'xml',

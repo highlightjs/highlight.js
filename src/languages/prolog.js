@@ -87,6 +87,7 @@ export default function(hljs) {
   LIST.contains = inner;
 
   return {
+    name: 'Prolog',
     contains: inner.concat([
       {begin: /\.$/} // relevance booster
     ])

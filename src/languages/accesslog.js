@@ -11,6 +11,7 @@ export default function(hljs) {
     "GET", "POST", "HEAD", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH", "TRACE"
   ]
   return {
+    name: 'Apache Access Log',
     contains: [
       // IP
       {

@@ -140,6 +140,7 @@ export default function(hljs) {
   );
 
   return {
+    name: 'Less',
     case_insensitive: true,
     illegal: '[=>\'/<($"]',
     contains: RULES

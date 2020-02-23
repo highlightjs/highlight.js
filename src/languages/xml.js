@@ -51,6 +51,7 @@ export default function(hljs) {
     ]
   };
   return {
+    name: 'HTML, XML',
     aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist', 'wsf', 'svg'],
     case_insensitive: true,
     contains: [

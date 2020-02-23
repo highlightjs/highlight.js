@@ -8,6 +8,7 @@ Category: assembler
 
 export default function(hljs) {
   return {
+    name: 'Intel x86 Assembly',
     case_insensitive: true,
     lexemes: '[.%]?' + hljs.IDENT_RE,
     keywords: {

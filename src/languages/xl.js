@@ -61,6 +61,7 @@ export default function(hljs) {
     ]
   };
   return {
+    name: 'XL',
     aliases: ['tao'],
     lexemes: /[a-zA-Z][a-zA-Z0-9_?]*/,
     keywords: XL_KEYWORDS,

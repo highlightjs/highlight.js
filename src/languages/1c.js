@@ -494,6 +494,7 @@ export default function(hljs){
   };
 
   return {
+    name: '1C:Enterprise',
     case_insensitive: true,
     lexemes: UNDERSCORE_IDENT_RE,
     keywords: {

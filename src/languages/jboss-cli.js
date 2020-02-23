@@ -33,6 +33,7 @@ export default function (hljs) {
     begin: /--[\w\-=\/]+/,
   };
   return {
+    name: 'JBoss CLI',
     aliases: ['wildfly-cli'],
     lexemes: '[a-z\-]+',
     keywords: {

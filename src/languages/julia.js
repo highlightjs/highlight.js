@@ -148,6 +148,7 @@ export default function(hljs) {
     ]
   };
 
+  DEFAULT.name = 'Julia';
   DEFAULT.contains = [
     NUMBER,
     CHAR,

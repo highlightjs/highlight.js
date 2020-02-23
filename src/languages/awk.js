@@ -45,8 +45,9 @@ export default function(hljs) {
     ]
   };
   return {
-	 keywords: {
-	   keyword: KEYWORDS
+    name: 'Awk',
+    keywords: {
+      keyword: KEYWORDS
     },
     contains: [
       VARIABLE,

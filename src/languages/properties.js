@@ -31,6 +31,7 @@ export default function(hljs) {
         };
 
   return {
+    name: '.properties',
     case_insensitive: true,
     illegal: /\S/,
     contains: [

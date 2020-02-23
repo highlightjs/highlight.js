@@ -7,6 +7,7 @@ Category: system
 
 export default function(hljs) {
   return {
+    name: 'Nim',
     aliases: ['nim'],
     keywords: {
       keyword:

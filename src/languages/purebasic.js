@@ -21,6 +21,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'PureBASIC',
     aliases: ['pb', 'pbi'],
     keywords: // PB IDE color: #006666 (Blue Stone) + Bold
       // Keywords from all version of PureBASIC 5.00 upward ...

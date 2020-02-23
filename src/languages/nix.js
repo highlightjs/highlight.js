@@ -49,6 +49,7 @@ export default function(hljs) {
   ];
   ANTIQUOTE.contains = EXPRESSIONS;
   return {
+    name: 'Nix',
     aliases: ["nixos"],
     keywords: NIX_KEYWORDS,
     contains: EXPRESSIONS
