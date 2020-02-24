@@ -3,6 +3,7 @@
 New languages:
 
 - enh(python) Added `python-repl` for Python REPL sessions
+- *Cypher* by [Oliver B. Fischer][]
 
 New themes:
 

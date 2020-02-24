@@ -1,0 +1,3 @@
+MATCH (charlie:Person),(martin:Person)
+CREATE (charlie)-[:X]->(:UNBLOCKED)<-[:X]-(martin)
+CREATE (charlie)-[:X]->(:BLOCKED)<-[:X]-(martin)
