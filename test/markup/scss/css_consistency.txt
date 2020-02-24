@@ -7,3 +7,9 @@ div {
     -o-animation-name: example;
     animation-name: example;
 }
+
+@-webkit-keyframes example {}
+@-moz-keyframes example {}
+@-ms-keyframes example {}
+@-o-keyframes example {}
+@keyframes example {}
