@@ -21,6 +21,9 @@ export default function(hljs) {
         ]
       }
     ]
+  };
+  var VENDOR_PREFIX= {
+    begin: /-(webkit|moz|ms|o)-/
   }
   var ATTRIBUTE = {
     className: 'attribute',
@@ -50,6 +53,7 @@ export default function(hljs) {
   var RULE = {
     begin: /(?:[A-Z\_\.\-]+|--[a-zA-Z0-9_-]+)\s*:/, returnBegin: true, end: ';', endsWithParent: true,
     contains: [
+      VENDOR_PREFIX,
       ATTRIBUTE
     ]
   };

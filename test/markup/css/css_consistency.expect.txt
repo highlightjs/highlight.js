@@ -1,0 +1,9 @@
+<span class="hljs-comment">/* this test is shared with css, less, scss, and stylus to confirm consistent highlighting */</span>
+
+<span class="hljs-selector-tag">div</span> {
+    -webkit-<span class="hljs-attribute">animation-name</span>: example;
+    -moz-<span class="hljs-attribute">animation-name</span>: example;
+    -ms-<span class="hljs-attribute">animation-name</span>: example;
+    -o-<span class="hljs-attribute">animation-name</span>: example;
+    <span class="hljs-attribute">animation-name</span>: example;
+}
