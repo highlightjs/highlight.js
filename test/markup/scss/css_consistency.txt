@@ -13,3 +13,5 @@ div {
 @-ms-keyframes example {}
 @-o-keyframes example {}
 @keyframes example {}
+
+div, p, table { width: 30px; }
