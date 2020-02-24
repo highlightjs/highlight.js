@@ -246,7 +246,7 @@ export default function(hljs){
   return {
     name: 'PowerShell',
     aliases: ["ps", "ps1"],
-    lexemes: /-?[A-z\.\-]+/,
+    lexemes: /-?[A-z\.\-]+\b/,
     case_insensitive: true,
     keywords: KEYWORDS,
     contains: GENTLEMANS_SET.concat(
