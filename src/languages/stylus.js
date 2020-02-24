@@ -27,6 +27,7 @@ export default function(hljs) {
     'for',
     'import',
     'include',
+    'keyframes',
     'media',
     'mixin',
     'page',
@@ -389,7 +390,8 @@ export default function(hljs) {
 
       // @ keywords
       {
-        begin: '\@(' + AT_KEYWORDS.join('|') + ')\\b'
+        className: 'keyword',
+        begin: '\@((-(o|moz|ms|webkit)-)?(' + AT_KEYWORDS.join('|') + '))\\b'
       },
 
       // variables

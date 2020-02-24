@@ -24,7 +24,7 @@ export default function(hljs) {
   };
   var VENDOR_PREFIX= {
     begin: /-(webkit|moz|ms|o)-/
-  }
+  };
   var ATTRIBUTE = {
     className: 'attribute',
     begin: /\S/, end: ':', excludeEnd: true,

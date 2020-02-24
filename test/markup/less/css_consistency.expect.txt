@@ -7,3 +7,9 @@
     -o-<span class="hljs-attribute">animation-name</span>: example;
     <span class="hljs-attribute">animation-name</span>: example;
 }
+
+<span class="hljs-keyword">@-webkit-keyframes</span> example {}
+<span class="hljs-keyword">@-moz-keyframes</span> example {}
+<span class="hljs-keyword">@-ms-keyframes</span> example {}
+<span class="hljs-keyword">@-o-keyframes</span> example {}
+<span class="hljs-keyword">@keyframes</span> example {}
