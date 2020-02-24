@@ -68,6 +68,7 @@ export default function(hljs) {
     begin: INTERP_IDENT_RE + '\\s*:', returnBegin: true, end: '[;}]',
     relevance: 0,
     contains: [
+      { begin: /-(webkit|moz|ms|o)-/ },
       {
         className: 'attribute',
         begin: INTERP_IDENT_RE, end: ':', excludeEnd: true,

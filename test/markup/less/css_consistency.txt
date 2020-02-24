@@ -1,0 +1,9 @@
+/* this test is shared with css, less, scss, and stylus to confirm consistent highlighting */
+
+div {
+    -webkit-animation-name: example;
+    -moz-animation-name: example;
+    -ms-animation-name: example;
+    -o-animation-name: example;
+    animation-name: example;
+}
