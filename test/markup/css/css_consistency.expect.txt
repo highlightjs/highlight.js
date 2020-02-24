@@ -13,3 +13,5 @@
 <span class="hljs-keyword">@-ms-keyframes</span> example {}
 <span class="hljs-keyword">@-o-keyframes</span> example {}
 <span class="hljs-keyword">@keyframes</span> example {}
+
+<span class="hljs-selector-tag">div</span>, <span class="hljs-selector-tag">p</span>, <span class="hljs-selector-tag">table</span> { <span class="hljs-attribute">width</span>: <span class="hljs-number">30px</span>; }
