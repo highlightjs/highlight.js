@@ -2,6 +2,7 @@
 
 New languages:
 
+- (php-template) Explicit language to detect PHP templates (vs xml) [Josh Goebel][]
 - enh(python) Added `python-repl` for Python REPL sessions
 
 New themes:

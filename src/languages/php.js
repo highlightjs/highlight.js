@@ -11,7 +11,12 @@ export default function(hljs) {
     begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
   };
   var PREPROCESSOR = {
-    className: 'meta', begin: /<\?(php|=)?|\?>/
+    className: 'meta',
+    variants: [
+      { begin: /<\?php/, relevance: 10 }, // boost for obvious PHP
+      { begin: /<\?[=]?/ },
+      { begin: /\?>/ } // end php tag
+    ]
   };
   var STRING = {
     className: 'string',
