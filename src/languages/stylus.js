@@ -42,11 +42,12 @@ export default function(hljs) {
     'first-line',
     'active',
     'first-child',
+    'nth-child',
     'focus',
     'hover',
     'lang',
     'link',
-    'visited'
+    'visited',
   ];
 
   var TAGS = [
@@ -122,8 +123,6 @@ export default function(hljs) {
     'var',
     'video'
   ];
-
-  var LOOKAHEAD_TAG_END = '(?=[\\.\\s\\n\\[\\:,])';
 
   var ATTRIBUTES = [
     'align-content',
@@ -346,6 +345,8 @@ export default function(hljs) {
     '%', // prolog
   ];
 
+  var LOOKAHEAD_TAG_END = '(?=[\\.\\s\\n\\[\\:,\(])';
+
   return {
     name: 'Stylus',
     aliases: ['styl'],
@@ -385,6 +386,7 @@ export default function(hljs) {
 
       // psuedo selectors
       {
+        className: 'selector-pseudo',
         begin: '&?:?:\\b(' + PSEUDO_SELECTORS.join('|') + ')' + LOOKAHEAD_TAG_END
       },
 
