@@ -125,9 +125,32 @@ export default function(hljs) {
       IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),
       IDENT_MODE('selector-tag',  '&', 0),
       {className: 'selector-attr', begin: '\\[', end: '\\]'},
-      {className: 'selector-pseudo', begin: /:(:)?[a-zA-Z0-9_\-+()"'.]+/},
+      {className: 'selector-pseudo', begin: /:(:)?[a-zA-Z0-9_\-+"'.]+/},
       {begin: '\\(', end: '\\)', contains: VALUE_WITH_RULESETS}, // argument list of parametric mixins
       {begin: '!important'} // eat !important after mixin call or it will be colored as tag
+    ]
+  };
+
+  var PSEUDO_SELECTORS = [
+    'after',
+    'before',
+    'first-letter',
+    'first-line',
+    'active',
+    'first-child',
+    'nth-child',
+    'focus',
+    'hover',
+    'lang',
+    'link',
+    'visited',
+  ];
+
+  const PSEUDO_SELECTOR_MODE = {
+    begin: IDENT_RE + ':(:)?' + `(${PSEUDO_SELECTORS.join('|')})`,
+    returnBegin: true,
+    contains: [
+      SELECTOR_MODE
     ]
   };
 
@@ -136,6 +159,7 @@ export default function(hljs) {
     hljs.C_BLOCK_COMMENT_MODE,
     AT_RULE_MODE,
     VAR_RULE_MODE,
+    PSEUDO_SELECTOR_MODE,
     RULE_MODE,
     SELECTOR_MODE
   );
