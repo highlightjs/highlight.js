@@ -43,6 +43,7 @@ export default function(hljs) {
   var LEXEMES = /[a-zA-Z@][a-zA-Z0-9_]*/;
   var CLASS_KEYWORDS = '@interface @class @protocol @implementation';
   return {
+    name: 'Objective-C',
     aliases: ['mm', 'objc', 'obj-c'],
     keywords: OBJC_KEYWORDS,
     lexemes: LEXEMES,

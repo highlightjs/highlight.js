@@ -8,6 +8,7 @@ Category: protocols
 
 export default function(hljs) {
   return {
+    name: 'Protocol Buffers',
     keywords: {
       keyword: 'package import option optional required repeated group oneof',
       built_in: 'double float int32 int64 uint32 uint64 sint32 sint64 ' +

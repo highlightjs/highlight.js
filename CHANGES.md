@@ -3,6 +3,7 @@
 New languages:
 
 - (php-template) Explicit language to detect PHP templates (vs xml) [Josh Goebel][]
+- enh(python) Added `python-repl` for Python REPL sessions
 
 New themes:
 
@@ -16,6 +17,9 @@ Core Changes:
 
 Language Improvements:
 
+- enh(clojure) Add support for global definitions name (#2347) [Alexandre Grison][]
+- enh(fortran) Support Fortran 77 style comments (#2416) [Josh Goebel][]
+- (csharp) add support for `@identifier` style identifiers (#2414) [Josh Goebel][]
 - fix(elixir) Support function names with a slash (#2406) [Josh Goebel][]
 - fix(javascript) comma is allowed in a "value container" (#2403) [Josh Goebel][]
 - enh(apache) add `deny` and `allow` keywords [Josh Goebel][]
@@ -37,16 +41,19 @@ Language Improvements:
 - (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
 - (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
+- enh(powershell) added PowerShell v5.1/v7 default aliases as "built_in"s (#2423) [Sean Williams][]
 
 Developer Tools:
 
 - added Dockerfile for optionally developing with a container
 
+[Alexandre Grison]: https://github.com/agrison
 [Josh Goebel]: https://github.com/yyyc514
 [Sam Miller]: https://github.com/smillerc
 [Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Josh Goebel]: https://github.com/yyyc514
+[Sean Williams]: https://github.com/hmmwhatsthisdo
 
 
 ## Version 9.18.1

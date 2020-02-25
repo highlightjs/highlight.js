@@ -4,7 +4,7 @@
 (<span class="hljs-name">definterface</span> Foo (<span class="hljs-name">foo</span> []))
 
 <span class="hljs-comment">;; annotation on type</span>
-(<span class="hljs-name"><span class="hljs-builtin-name">deftype</span></span> <span class="hljs-comment">^{Deprecated true
+(<span class="hljs-keyword">deftype</span> <span class="hljs-comment">^{Deprecated true
            Retention RetentionPolicy/RUNTIME
            javax.annotation.processing.SupportedOptions [<span class="hljs-string">"foo"</span> <span class="hljs-string">"bar"</span> <span class="hljs-string">"baz"</span>]
            javax.xml.ws.soap.Addressing {<span class="hljs-symbol">:enabled</span> <span class="hljs-literal">false</span> <span class="hljs-symbol">:required</span> <span class="hljs-literal">true</span>}

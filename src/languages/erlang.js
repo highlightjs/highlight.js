@@ -110,6 +110,7 @@ export default function(hljs) {
     contains: BASIC_MODES
   };
   return {
+    name: 'Erlang',
     aliases: ['erl'],
     keywords: ERLANG_RESERVED,
     illegal: '(</|\\*=|\\+=|-=|/\\*|\\*/|\\(\\*|\\*\\))',

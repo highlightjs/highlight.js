@@ -67,6 +67,7 @@ export default function(hljs) {
       '$sformatf $fgetc $ungetc $fgets $sscanf $rewind $ftell $ferror'
     };
   return {
+    name: 'Verilog',
     aliases: ['v', 'sv', 'svh'],
     case_insensitive: false,
     keywords: SV_KEYWORDS, lexemes: /[\w\$]+/,

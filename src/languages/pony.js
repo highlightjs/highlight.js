@@ -67,6 +67,7 @@ export default function(hljs) {
    */
 
   return {
+    name: 'Pony',
     keywords: KEYWORDS,
     contains: [
       TYPE_NAME,

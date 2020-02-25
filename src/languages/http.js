@@ -9,6 +9,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
 export default function(hljs) {
   var VERSION = 'HTTP/[0-9\\.]+';
   return {
+    name: 'HTTP',
     aliases: ['https'],
     illegal: '\\S',
     contains: [

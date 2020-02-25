@@ -93,8 +93,15 @@ export default function(hljs) {
     keywords: "in out"
   };
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
+  var AT_IDENTIFIER = {
+    // prevents expressions like `@class` from incorrect flagging
+    // `class` as a keyword
+    begin: "@" + hljs.IDENT_RE,
+    relevance: 0
+  };
 
   return {
+    name: 'C#',
     aliases: ['cs', 'c#'],
     keywords: KEYWORDS,
     illegal: /::/,
@@ -194,7 +201,8 @@ export default function(hljs) {
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
-      }
+      },
+      AT_IDENTIFIER
     ]
   };
 }

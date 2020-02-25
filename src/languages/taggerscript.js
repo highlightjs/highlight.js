@@ -39,6 +39,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Tagger Script',
     contains: [
       COMMENT,
       FUNCTION,

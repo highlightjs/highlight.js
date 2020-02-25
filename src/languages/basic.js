@@ -7,6 +7,7 @@ Website: https://en.wikipedia.org/wiki/Tandy_1000
 
 export default function(hljs) {
   return {
+    name: 'BASIC',
     case_insensitive: true,
     illegal: '^\.',
     // Support explicitly typed variables that end with $%! or #.

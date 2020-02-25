@@ -55,6 +55,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'CSS',
     case_insensitive: true,
     illegal: /[=\/|'\$]/,
     contains: [

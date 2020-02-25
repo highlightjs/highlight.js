@@ -95,6 +95,7 @@ export default function(hljs) {
   ]);
 
   return {
+    name: 'JavaScript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
     keywords: KEYWORDS,
     contains: [

@@ -38,7 +38,16 @@ export default function(hljs){
   var KEYWORDS = {
     keyword: 'if else foreach return do while until elseif begin for trap data dynamicparam ' +
     'end break throw param continue finally in switch exit filter try process catch ' +
-    'hidden static parameter'
+    'hidden static parameter',
+    // "echo" relevance has been set to 0 to avoid auto-detect conflicts with shell transcripts
+    built_in: 'ac asnp cat cd CFS chdir clc clear clhy cli clp cls clv cnsn compare copy cp ' +
+    'cpi cpp curl cvpa dbp del diff dir dnsn ebp echo|0 epal epcsv epsn erase etsn exsn fc fhx ' +
+    'fl ft fw gal gbp gc gcb gci gcm gcs gdr gerr ghy gi gin gjb gl gm gmo gp gps gpv group ' +
+    'gsn gsnp gsv gtz gu gv gwmi h history icm iex ihy ii ipal ipcsv ipmo ipsn irm ise iwmi ' +
+    'iwr kill lp ls man md measure mi mount move mp mv nal ndr ni nmo npssc nsn nv ogv oh ' +
+    'popd ps pushd pwd r rbp rcjb rcsn rd rdr ren ri rjb rm rmdir rmo rni rnp rp rsn rsnp ' +
+    'rujb rv rvpa rwmi sajb sal saps sasv sbp sc scb select set shcm si sl sleep sls sort sp ' +
+    'spjb spps spsv start stz sujb sv swmi tee trcm type wget where wjb write'
     // TODO: 'validate[A-Z]+' can't work in keywords
   };
 
@@ -235,8 +244,9 @@ export default function(hljs){
   PS_METHODS.contains.unshift(PS_TYPE)
 
   return {
+    name: 'PowerShell',
     aliases: ["ps", "ps1"],
-    lexemes: /-?[A-z\.\-]+/,
+    lexemes: /-?[A-z\.\-]+\b/,
     case_insensitive: true,
     keywords: KEYWORDS,
     contains: GENTLEMANS_SET.concat(

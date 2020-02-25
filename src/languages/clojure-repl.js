@@ -9,6 +9,7 @@ Category: lisp
 
 export default function(hljs) {
   return {
+    name: 'Clojure REPL',
     contains: [
       {
         className: 'meta',

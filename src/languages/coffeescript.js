@@ -104,6 +104,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'CoffeeScript',
     aliases: ['coffee', 'cson', 'iced'],
     keywords: KEYWORDS,
     illegal: /\/\*/,

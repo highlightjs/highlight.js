@@ -9,6 +9,7 @@ Category: assembler
 export default function(hljs) {
     //local labels: %?[FB]?[AT]?\d{1,2}\w+
   return {
+    name: 'MIPS Assembly',
     case_insensitive: true,
     aliases: ['mips'],
     lexemes: '\\.?' + hljs.IDENT_RE,

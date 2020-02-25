@@ -8,6 +8,7 @@ Category: graphics
 
 export default function(hljs) {
   return {
+    name: 'GLSL',
     keywords: {
       keyword:
         // Statements

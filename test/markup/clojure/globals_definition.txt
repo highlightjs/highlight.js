@@ -1,0 +1,61 @@
+(ns playground
+  (:require
+    [clojure.string :as str]))
+
+; function
+(defn clojure-function [args]
+  (let [string   "multiline\nstring"
+        regexp   #"regexp"
+        number   100,000
+        booleans [false true]
+        keyword  ::the-keyword]
+    ;; this is comment
+    (if true
+      (->>
+        (list [vector] {:map map} #{'set})))))
+
+; global
+(def some-var)
+; another one
+(def alternative-var "132")
+; defonce
+(defonce ^:private another-var #"foo")
+
+; private function
+(defn- add [x y] (+ x y))
+
+; protocols
+(defprotocol Fly
+  "A simple protocol for flying"
+  (fly [this] "Method to fly"))
+
+(defrecord Bird [name species]
+  Fly
+  (fly [this] (str (:name this) " flies...")))
+
+; multimethods
+(defmulti service-charge (fn [acct] [(account-level acct) (:tag acct)]))
+(defmethod service-charge [::acc/Basic ::acc/Checking]   [_] 25)
+(defmethod service-charge [::acc/Basic ::acc/Savings]    [_] 10)
+(defmethod service-charge [::acc/Premium ::acc/Account] [_] 0)
+
+; macros
+(defmacro unless [pred a b]
+  `(if (not ~pred) ~a ~b))
+
+(unless false (println "Will print") (println "Will not print"))
+
+; types
+(deftype Circle [radius])
+(deftype Square [length width])
+
+;; multimethods again
+(defmulti area class)
+(defmethod area Circle [c]
+    (* Math/PI (* (.radius c) (.radius c))))
+(defmethod area Square [s]
+    (* (.length s) (.width s)))
+
+;; create a couple shapes and get their area
+(def myCircle (Circle. 10))
+(def mySquare (Square. 5 11))
