@@ -79,7 +79,7 @@ are not going to support your custom classes and you should likely also
 distribute your own custom theme.
 
 
-6. Request a repository at the ``highlightjs` organization
+6. Request a repository at the ``highlightjs`` organization
 ----------------------------------------------------------
 
 *This is optional.*  Of course you are free to host your repository anywhere
