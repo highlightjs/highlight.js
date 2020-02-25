@@ -16,6 +16,7 @@ Core Changes:
 
 Language Improvements:
 
+- enh(clojure) Add support for global definitions name (#2347) [Alexandre Grison][]
 - enh(fortran) Support Fortran 77 style comments (#2416) [Josh Goebel][]
 - (csharp) add support for `@identifier` style identifiers (#2414) [Josh Goebel][]
 - fix(elixir) Support function names with a slash (#2406) [Josh Goebel][]
@@ -45,6 +46,7 @@ Developer Tools:
 
 - added Dockerfile for optionally developing with a container
 
+[Alexandre Grison]: https://github.com/agrison
 [Josh Goebel]: https://github.com/yyyc514
 [Sam Miller]: https://github.com/smillerc
 [Robert Riebisch]: https://github.com/bttrx
