@@ -4,9 +4,15 @@ Description: It's CSS, with just a little more.
 Author:   Max Mikhailov <seven.phases.max@gmail.com>
 Website: http://lesscss.org
 Category: common, css
+Requires: css.js
 */
 
 export default function(hljs) {
+
+  const css_shared = hljs.requireLanguage("css").exports;
+  const PSEUDO_SELECTORS = css_shared.PSEUDO_SELECTORS;
+
+
   var IDENT_RE        = '[\\w-]+'; // yes, Less identifiers may begin with a digit
   var INTERP_IDENT_RE = '(' + IDENT_RE + '|@{' + IDENT_RE + '})';
 
@@ -130,21 +136,6 @@ export default function(hljs) {
       {begin: '!important'} // eat !important after mixin call or it will be colored as tag
     ]
   };
-
-  var PSEUDO_SELECTORS = [
-    'after',
-    'before',
-    'first-letter',
-    'first-line',
-    'active',
-    'first-child',
-    'nth-child',
-    'focus',
-    'hover',
-    'lang',
-    'link',
-    'visited',
-  ];
 
   const PSEUDO_SELECTOR_MODE = {
     begin: IDENT_RE + ':(:)?' + `(${PSEUDO_SELECTORS.join('|')})`,

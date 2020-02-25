@@ -4,9 +4,13 @@ Author: Bryant Williams <b.n.williams@gmail.com>
 Description: Stylus is an expressive, robust, feature-rich CSS language built for nodejs.
 Website: https://github.com/stylus/stylus
 Category: css
+Requires: css.js
 */
 
 export default function(hljs) {
+
+  const css_shared = hljs.requireLanguage("css").exports;
+  const PSEUDO_SELECTORS = css_shared.PSEUDO_SELECTORS;
 
   var VARIABLE = {
     className: 'variable',
@@ -33,21 +37,6 @@ export default function(hljs) {
     'page',
     'warn',
     'while'
-  ];
-
-  var PSEUDO_SELECTORS = [
-    'after',
-    'before',
-    'first-letter',
-    'first-line',
-    'active',
-    'first-child',
-    'nth-child',
-    'focus',
-    'hover',
-    'lang',
-    'link',
-    'visited',
   ];
 
   var TAGS = [

@@ -4,8 +4,13 @@ Description: Scss is an extension of the syntax of CSS.
 Author: Kurt Emch <kurt@kurtemch.com>
 Website: https://sass-lang.com
 Category: common, css
+Requires: css.js
 */
 export default function(hljs) {
+  const css_shared = hljs.requireLanguage("css").exports;
+  const PSEUDO_ELEMENTS = css_shared.PSEUDO_ELEMENTS;
+  const PSEUDO_CLASSES = css_shared.PSEUDO_CLASSES;
+
   var AT_IDENTIFIER = '@[a-z-]+' // @font-face
   var AT_MODIFIERS = "and or not only"
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
@@ -61,11 +66,11 @@ export default function(hljs) {
       },
       {
         className: 'selector-pseudo',
-        begin: ':(visited|valid|root|right|required|read-write|read-only|out-range|optional|only-of-type|only-child|nth-of-type|nth-last-of-type|nth-last-child|nth-child|not|link|left|last-of-type|last-child|lang|invalid|indeterminate|in-range|hover|focus|first-of-type|first-line|first-letter|first-child|first|enabled|empty|disabled|default|checked|before|after|active)'
+        begin: ':(' + PSEUDO_CLASSES.join('|') + ')'
       },
       {
         className: 'selector-pseudo',
-        begin: '::(after|before|choices|first-letter|first-line|repeat-index|repeat-item|selection|value)'
+        begin: '::(' + PSEUDO_ELEMENTS.join('|') + ')'
       },
       VARIABLE,
       { // pseudo-selector params
