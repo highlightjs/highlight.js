@@ -81,7 +81,12 @@ export default function(hljs) {
       },
       {
         className: 'selector-pseudo',
-        begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)"'.]+/
+        begin: /:(:)?[a-zA-Z0-9\_\-\+"'.]+/
+      },
+      { // pseudo-selector params
+        begin: /\(/,
+        end: /\)/,
+        contains: [ hljs.CSS_NUMBER_MODE ]
       },
       // matching these here allows us to treat them more like regular CSS
       // rules so everything between the {} gets regular rule highlighting,
