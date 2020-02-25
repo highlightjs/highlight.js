@@ -4,6 +4,12 @@ Category: common, css
 Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 */
 
+// using modules in case we want to switch purely to modules
+// in the future instead of run-time requires in which case
+// already using a module should make it only a few lines of
+// code that we would need to change
+import * as css_shared from "./lib/css-shared";
+
 export default function(hljs) {
   var FUNCTION_LIKE = {
     begin: /[\w-]+\(/, returnBegin: true,
@@ -62,6 +68,7 @@ export default function(hljs) {
     name: 'CSS',
     case_insensitive: true,
     illegal: /[=\/|'\$]/,
+    exports: css_shared,
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
       {
