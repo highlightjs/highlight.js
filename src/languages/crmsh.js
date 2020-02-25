@@ -26,6 +26,7 @@ export default function(hljs) {
   var LITERALS = 'Master Started Slave Stopped start promote demote stop monitor true false';
 
   return {
+    name: 'crmsh',
     aliases: ['crm', 'pcmk'],
     case_insensitive: true,
     keywords: {

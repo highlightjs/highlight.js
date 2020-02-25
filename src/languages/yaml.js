@@ -45,8 +45,9 @@ export default function(hljs) {
   };
 
   return {
+    name: 'YAML',
     case_insensitive: true,
-    aliases: ['yml', 'YAML', 'yaml'],
+    aliases: ['yml', 'YAML'],
     contains: [
       KEY,
       {

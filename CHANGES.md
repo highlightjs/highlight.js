@@ -1,8 +1,8 @@
-## Version (master)
+## Version 10.0.0 (beta.0)
 
 New languages:
 
-- none.
+- enh(python) Added `python-repl` for Python REPL sessions
 
 New themes:
 
@@ -16,6 +16,8 @@ Core Changes:
 
 Language Improvements:
 
+- enh(fortran) Support Fortran 77 style comments (#2416) [Josh Goebel][]
+- (csharp) add support for `@identifier` style identifiers (#2414) [Josh Goebel][]
 - fix(elixir) Support function names with a slash (#2406) [Josh Goebel][]
 - fix(javascript) comma is allowed in a "value container" (#2403) [Josh Goebel][]
 - enh(apache) add `deny` and `allow` keywords [Josh Goebel][]
@@ -37,6 +39,7 @@ Language Improvements:
 - (fortran) Add Fortran 2018 keywords and coarray intrinsics (#2361) [Sam Miller][]
 - (delphi) highlight hexadecimal, octal, and binary numbers (#2370) [Robert Riebisch]()
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
+- enh(powershell) added PowerShell v5.1/v7 default aliases as "built_in"s (#2423) [Sean Williams][]
 
 Developer Tools:
 
@@ -47,6 +50,7 @@ Developer Tools:
 [Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Josh Goebel]: https://github.com/yyyc514
+[Sean Williams]: https://github.com/hmmwhatsthisdo
 
 
 ## Version 9.18.1

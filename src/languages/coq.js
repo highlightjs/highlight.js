@@ -7,6 +7,7 @@ Website: https://coq.inria.fr
 
 export default function(hljs) {
   return {
+    name: 'Coq',
     keywords: {
       keyword:
         '_|0 as at cofix else end exists exists2 fix for forall fun if IF in let ' +

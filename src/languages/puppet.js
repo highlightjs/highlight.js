@@ -62,6 +62,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Puppet',
     aliases: ['pp'],
     contains: [
       COMMENT,

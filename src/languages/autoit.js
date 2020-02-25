@@ -122,6 +122,7 @@ export default function(hljs) {
         };
 
     return {
+        name: 'AutoIt',
         case_insensitive: true,
         illegal: /\/\*/,
         keywords: {

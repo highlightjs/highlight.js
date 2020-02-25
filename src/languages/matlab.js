@@ -21,6 +21,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Matlab',
     keywords: {
       keyword:
         'break case catch classdef continue else elseif end enumerated events for function ' +

@@ -7,6 +7,7 @@ Website: https://cmake.org
 
 export default function(hljs) {
   return {
+    name: 'CMake',
     aliases: ['cmake.in'],
     case_insensitive: true,
     keywords: {

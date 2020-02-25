@@ -45,6 +45,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'LaTeX',
     aliases: ['tex'],
     contains: [
       COMMAND,

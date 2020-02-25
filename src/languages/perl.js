@@ -155,6 +155,7 @@ export default function(hljs) {
   METHOD.contains = PERL_DEFAULT_CONTAINS;
 
   return {
+    name: 'Perl',
     aliases: ['pl', 'pm'],
     lexemes: /[\w\.]+/,
     keywords: PERL_KEYWORDS,

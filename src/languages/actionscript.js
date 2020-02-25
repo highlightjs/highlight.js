@@ -15,6 +15,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'ActionScript',
     aliases: ['as'],
     keywords: {
       keyword: 'as break case catch class const continue default delete do dynamic each ' +

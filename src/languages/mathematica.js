@@ -8,6 +8,7 @@ Category: scientific
 
 export default function(hljs) {
   return {
+    name: 'Mathematica',
     aliases: ['mma', 'wl'],
     lexemes: '(\\$|\\b)' + hljs.IDENT_RE + '\\b',
     //

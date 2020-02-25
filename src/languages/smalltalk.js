@@ -16,6 +16,7 @@ export default function(hljs) {
     begin: '#' + hljs.UNDERSCORE_IDENT_RE
   };
   return {
+    name: 'Smalltalk',
     aliases: ['st'],
     keywords: 'self super nil true false thisContext', // only 6
     contains: [

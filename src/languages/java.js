@@ -48,6 +48,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'Java',
     aliases: ['jsp'],
     keywords: KEYWORDS,
     illegal: /<\/|#/,
