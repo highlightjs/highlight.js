@@ -214,6 +214,12 @@ const HLJS = function(hljs) {
       var lexeme = match[0];
       var new_mode = match.rule;
 
+      // __abortIf is consider private API
+      if (new_mode.__abortIf && new_mode.__abortIf(match)) {
+        mode_buffer += lexeme;
+        return lexeme.length;
+      }
+
       if (new_mode && new_mode.endSameAsBegin) {
         new_mode.endRe = regex.escape( lexeme );
       }
@@ -358,6 +364,7 @@ const HLJS = function(hljs) {
       while (true) {
         top.terminators.lastIndex = index;
         match = top.terminators.exec(codeToHighlight);
+        // console.log("match", match[0], match.rule && match.rule.begin)
         if (!match)
           break;
         let beforeMatch = codeToHighlight.substring(index, match.index);

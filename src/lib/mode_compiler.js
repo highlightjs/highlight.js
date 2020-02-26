@@ -70,6 +70,14 @@ export function compileLanguage(language) {
     return matcher;
   }
 
+  function abortIf_preceedingOrTrailingDot(match) {
+    let before = match.input[match.index-1];
+    let after = match.input[match.index + match[0].length];
+    if (before === "." || after === ".") {
+      return true;
+    }
+  }
+
   function compileMode(mode, parent) {
     if (mode.compiled)
       return;
@@ -89,6 +97,7 @@ export function compileLanguage(language) {
         // doesn't allow spaces in keywords anyways and we still check for the boundary
         // first
         mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')(?=\\b|\\s)';
+        mode.__abortIf = abortIf_preceedingOrTrailingDot;
       }
       if (!mode.begin)
         mode.begin = /\B|\b/;
