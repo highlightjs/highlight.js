@@ -214,7 +214,6 @@ const HLJS = function(hljs) {
       var lexeme = match[0];
       var new_mode = match.rule;
 
-      // __abortIf is consider private API
       if (new_mode.__abortIf && new_mode.__abortIf(match)) {
         mode_buffer += lexeme;
         return lexeme.length;

@@ -70,7 +70,9 @@ export function compileLanguage(language) {
     return matcher;
   }
 
-  function abortIf_preceedingOrTrailingDot(match) {
+  // HACK: Abort vs ignore is technically broken. (See note below)
+  // TODO: We need negative look-behind support to do this properly
+  function hasPrecedingOrTrailingDot(match) {
     let before = match.input[match.index-1];
     let after = match.input[match.index + match[0].length];
     if (before === "." || after === ".") {
@@ -78,10 +80,43 @@ export function compileLanguage(language) {
     }
   }
 
+  /** skip vs abort vs ignore
+   *
+   * @skip   - The mode is still entered and exited normally (and contains rules apply),
+   *           but all content is held and added to the parent buffer rather than being
+   *           output when the mode ends.  Mostly used with `sublanguage` to build up
+   *           a single large buffer than can be parsed by sublanguage.
+   *
+   *             - The mode begin ands ends normally.
+   *             - Content matched is added to the parent mode buffer.
+   *             - The parser cursor is moved forward normally.
+   *
+   * @abort  - A hack placeholder until we have ignore.  Aborts the mode (as if it
+   *           never matched) but DOES NOT continue to match subsequent `contains`
+   *           modes.  Abort is bad/suboptimal because it can result in modes
+   *           farther down not getting applied because an earlier rule eats the
+   *           content but then aborts.
+   *
+   *             - The mode does not begin.
+   *             - Content matched by `begin` is added to the mode buffer.
+   *             - The parser cursor is moved forward accordingly.
+   *
+   * @ignore - Ignores the mode (as if it never matched) and continues to match any
+   *           subsequent `contains` modes.  Ignore isn't technically possible with
+   *           the current parser implementation.
+   *
+   *             - The mode does not begin.
+   *             - Content matched by `begin` is ignored.
+   *             - The parser cursor is not moved forward.
+   */
+
   function compileMode(mode, parent) {
     if (mode.compiled)
       return;
     mode.compiled = true;
+
+    // __abortIf is considered private API, internal use only
+    mode.__abortIf = null;
 
     mode.keywords = mode.keywords || mode.beginKeywords;
     if (mode.keywords)
@@ -97,7 +132,7 @@ export function compileLanguage(language) {
         // doesn't allow spaces in keywords anyways and we still check for the boundary
         // first
         mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')(?=\\b|\\s)';
-        mode.__abortIf = abortIf_preceedingOrTrailingDot;
+        mode.__abortIf = hasPrecedingOrTrailingDot;
       }
       if (!mode.begin)
         mode.begin = /\B|\b/;
