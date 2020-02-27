@@ -15,6 +15,19 @@ export function compileLanguage(language) {
     );
   }
 
+  /**
+    Stores multiple regular expressions and allows you to quickly search for
+    them all in a string simultaneously - returning the first match.  It does
+    this by creating a huge (a|b|c) regex - each individual item wrapped with ()
+    and joined by `|` - using match groups to track position.  When a match is
+    found checking which position in the array has content allows us to figure
+    out which of the original regexes / match groups triggered the match.
+
+    The match object itself (the result of `Regex.exec`) is returned but also
+    enhanced by merging in any meta-data that was registered with the regex.
+    This is how we keep track of which mode matched, and what type of rule
+    (`illegal`, `begin`, end, etc).
+  */
   class MultiRegex {
     constructor() {
       this.matchIndexes = {};
@@ -55,7 +68,38 @@ export function compileLanguage(language) {
     }
   }
 
-  class ContinuableMultiRegex {
+  /*
+    Created to solve the key deficiently with MultiRegex - there is no way to
+    test for multiple matches at a single location.  Why would we need to do
+    that?  In the future a more dynamic engine will allow certain matches to be
+    ignored.  An example: if we matched say the 3rd regex in a large group but
+    decided to ignore it - we'd need to started testing again at the 4th
+    regex... but MultiRegex itself gives us no real way to do that.
+
+    So what this class creates MultiRegexs on the fly for whatever search
+    position they are needed.
+
+    NOTE: These additional MultiRegex objects are created dynamically.  For most
+    grammars most of the time we will never actually need anything more than the
+    first MultiRegex - so this shouldn't have too much overhead.
+
+    Say this is our search group, and we match regex3, but wish to ignore it.
+
+      regex1 | regex2 | regex3 | regex4 | regex5    ' ie, startAt = 0
+
+    What we need is a new MultiRegex that only includes the remaining
+    possibilities:
+
+      regex4 | regex5                               ' ie, startAt = 3
+
+    This class wraps all that complexity up in a simple API... `startAt` decides
+    where in the array of expressions to start doing the matching. It
+    auto-increments, so if a match is found at position 2, then startAt will be
+    set to 3.  If the end is reached startAt will return to 0.
+
+    MOST of the time the parser will be setting startAt manually to 0.
+  */
+  class ResumableMultiRegex {
     constructor() {
       this.rules = [];
       this.multiRegexes = [];
@@ -90,14 +134,14 @@ export function compileLanguage(language) {
           this.startAt = 0;
       }
 
-      this.startAt = 0;
+      // this.startAt = 0;
       return result;
     }
   }
 
   function buildModeRegex(mode) {
 
-    let mm = new ContinuableMultiRegex();
+    let mm = new ResumableMultiRegex();
 
     mode.contains.forEach(term => mm.addRule(term.begin, {rule: term, type: "begin" }))
 
@@ -109,7 +153,6 @@ export function compileLanguage(language) {
     return mm;
   }
 
-  // HACK: Abort vs ignore is technically broken. (See note below)
   // TODO: We need negative look-behind support to do this properly
   function hasPrecedingOrTrailingDot(match) {
     let before = match.input[match.index-1];
