@@ -89,21 +89,25 @@ Used instead of ``begin`` for modes starting with keywords to avoid needless rep
 ::
 
   {
-    begin: '\\b(extends|implements) ',
-    keywords: 'extends implements'
+    begin: '\\b(class|interface) ',
+    keywords: 'class interface'
   }
 
-… becomes:
+… can often be shortened to:
 
 ::
 
   {
-    beginKeywords: 'extends implements'
+    beginKeywords: 'class interface'
   }
 
 Unlike the :ref:`keywords <keywords>` attribute, this one allows only a simple list of space separated keywords.
 If you do need additional features of ``keywords`` or you just need more keywords for this mode you may include ``keywords`` along with ``beginKeywords``.
 
+Note: ``beginKeywords`` also checks for a ``.`` before or after the keywords and will fail to match if one is found.
+This is to avoid false positives for method calls or property accesses.
+
+Ex. ``class A { ... }`` would match while ``A.class == B.class`` would not.
 
 .. _endsWithParent:
 
