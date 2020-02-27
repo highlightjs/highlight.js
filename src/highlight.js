@@ -207,17 +207,34 @@ const HLJS = function(hljs) {
         emitter.openNode(mode.className)
       }
       top = Object.create(mode, {parent: {value: top}});
+      top.terminators.startAt = 0;
     }
 
+    function doIgnore(lexeme) {
+      if (top.terminators.startAt === 0) {
+        // no more regexs to potentially match here, so we move the cursor forward one
+        // space
+        mode_buffer += lexeme[0];
+        return 1;
+      } else {
+        // no need to move the cursor, we still have additional regexes to try and
+        // match at this very spot
+        return 0;
+      }
+    }
 
     function doBeginMatch(match) {
       var lexeme = match[0];
       var new_mode = match.rule;
 
       if (new_mode.__abortIf && new_mode.__abortIf(match)) {
-        mode_buffer += lexeme;
-        return lexeme.length;
+        return doIgnore(lexeme);
+        // mode_buffer += lexeme;
+        // return lexeme.length;
       }
+
+      // we are not ignoring
+      top.terminators.startAt = 0;
 
       if (new_mode && new_mode.endSameAsBegin) {
         new_mode.endRe = regex.escape( lexeme );
@@ -242,6 +259,7 @@ const HLJS = function(hljs) {
       var lexeme = match[0];
       var matchPlusRemainder = codeToHighlight.substr(match.index);
       var end_mode = endOfMode(top, matchPlusRemainder);
+      top.terminators.startAt = 0;
       if (!end_mode) { return; }
 
       var origin = top;
@@ -296,6 +314,8 @@ const HLJS = function(hljs) {
         processBuffer();
         return 0;
       }
+
+
 
       // we've found a 0 width match and we're stuck, so we need to advance
       // this happens when we have badly behaved rules that have optional matchers to the degree that
@@ -360,6 +380,7 @@ const HLJS = function(hljs) {
     var match, processedCount, index = 0;
 
     try {
+      top.terminators.startAt = 0;
       while (true) {
         top.terminators.lastIndex = index;
         match = top.terminators.exec(codeToHighlight);
