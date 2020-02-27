@@ -44,25 +44,22 @@ export function compileLanguage(language) {
     }
 
     compile() {
+      if (this.regexes.length === 0) {
+        // avoids the need to check length every time exec is called
+        this.exec = () => null;
+      }
       let terminators = this.regexes.map(el => el[1]);
       this.matcherRe = langRe(regex.join(terminators, '|'), true);
       this.lastIndex = 0;
     }
 
     exec(s) {
-      var matchData;
-      if (this.regexes.length === 0) return null;
-
       this.matcherRe.lastIndex = this.lastIndex;
       let match = this.matcherRe.exec(s);
       if (!match) { return null; }
 
-      for(var i = 0; i<match.length; i++) {
-        if (match[i] != undefined && this.matchIndexes[i]) {
-          matchData = this.matchIndexes[i];
-          break;
-        }
-      }
+      let i = match.findIndex((el, i) => i>0 && el!=undefined);
+      let matchData = this.matchIndexes[i];
 
       return Object.assign(match, matchData);
     }
