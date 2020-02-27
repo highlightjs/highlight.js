@@ -154,11 +154,11 @@ export function compileLanguage(language) {
   }
 
   // TODO: We need negative look-behind support to do this properly
-  function hasPrecedingOrTrailingDot(match) {
+  function skipIfhasPrecedingOrTrailingDot(match) {
     let before = match.input[match.index-1];
     let after = match.input[match.index + match[0].length];
     if (before === "." || after === ".") {
-      return true;
+      return {ignoreMatch: true };
     }
   }
 
@@ -197,8 +197,8 @@ export function compileLanguage(language) {
       return;
     mode.compiled = true;
 
-    // __abortIf is considered private API, internal use only
-    mode.__abortIf = null;
+    // __onBegin is considered private API, internal use only
+    mode.__onBegin = null;
 
     mode.keywords = mode.keywords || mode.beginKeywords;
     if (mode.keywords)
@@ -214,7 +214,7 @@ export function compileLanguage(language) {
         // doesn't allow spaces in keywords anyways and we still check for the boundary
         // first
         mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')(?=\\b|\\s)';
-        mode.__abortIf = hasPrecedingOrTrailingDot;
+        mode.__onBegin = skipIfhasPrecedingOrTrailingDot;
       }
       if (!mode.begin)
         mode.begin = /\B|\b/;

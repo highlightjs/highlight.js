@@ -227,13 +227,13 @@ const HLJS = function(hljs) {
       var lexeme = match[0];
       var new_mode = match.rule;
 
-      if (new_mode.__abortIf && new_mode.__abortIf(match)) {
-        return doIgnore(lexeme);
-        // mode_buffer += lexeme;
-        // return lexeme.length;
+      if (new_mode.__onBegin) {
+        let res = new_mode.__onBegin(match) || {};
+        if (res.ignoreMatch)
+          return doIgnore(lexeme);
       }
 
-      // we are not ignoring
+      // we are not ignoring, so next match should start with first regex in stack
       top.terminators.startAt = 0;
 
       if (new_mode && new_mode.endSameAsBegin) {
