@@ -89,7 +89,7 @@ Used instead of ``begin`` for modes starting with keywords to avoid needless rep
 ::
 
   {
-    begin: '\\b(class|interface) ',
+    begin: '\\b(class|interface)\\b',
     keywords: 'class interface'
   }
 
