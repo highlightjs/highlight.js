@@ -15,14 +15,16 @@ export function compileLanguage(language) {
     );
   }
 
-  class MultiMatcher {
+  class MultiRegex {
     constructor() {
       this.matchIndexes = {};
       this.regexes = [];
       this.matchAt = 1;
+      this.position = 0;
     }
 
     addRule(re, opts) {
+      opts.position = this.position++;
       this.matchIndexes[this.matchAt] = opts;
       this.regexes.push([opts, re]);
       this.matchAt += regex.countMatchGroups(re) + 1;
@@ -53,9 +55,49 @@ export function compileLanguage(language) {
     }
   }
 
+  class ContinuableMultiRegex {
+    constructor() {
+      this.rules = [];
+      this.multiRegexes = [];
+      this.count = 0;
+
+      this.lastIndex = 0;
+      this.startAt = 0;
+    }
+
+    getMatcher(index) {
+      if (this.multiRegexes[index]) return this.multiRegexes[index];
+
+      let matcher = new MultiRegex();
+      this.rules.slice(index).forEach(([re, opts])=> matcher.addRule(re,opts))
+      matcher.compile();
+      this.multiRegexes[index] = matcher;
+      return matcher;
+    }
+
+    addRule(re, opts) {
+      this.rules.push([re, opts]);
+      if (opts.type==="begin") this.count++;
+    }
+
+    exec(s) {
+      let m = this.getMatcher(this.startAt);
+      m.lastIndex = this.lastIndex;
+      let result = m.exec(s);
+      if (result) {
+        this.startAt += result.position + 1;
+        if (this.startAt === this.count) // wrap-around
+          this.startAt = 0;
+      }
+
+      this.startAt = 0;
+      return result;
+    }
+  }
+
   function buildModeRegex(mode) {
 
-    let mm = new MultiMatcher();
+    let mm = new ContinuableMultiRegex();
 
     mode.contains.forEach(term => mm.addRule(term.begin, {rule: term, type: "begin" }))
 
@@ -64,7 +106,6 @@ export function compileLanguage(language) {
     if (mode.illegal)
       mm.addRule(mode.illegal, {type: "illegal"} );
 
-    mm.compile();
     return mm;
   }
 
