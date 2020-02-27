@@ -15,59 +15,57 @@ export function compileLanguage(language) {
     );
   }
 
-  function buildModeRegex(mode) {
-
-    var matchIndexes = {};
-    var matcherRe;
-    var regexes = [];
-    var matcher = {};
-    var matchAt = 1;
-
-    function addRule(rule, re) {
-      matchIndexes[matchAt] = rule;
-      regexes.push([rule, re]);
-      matchAt += regex.countMatchGroups(re) + 1;
+  class MultiMatcher {
+    constructor() {
+      this.matchIndexes = {};
+      this.regexes = [];
+      this.matchAt = 1;
     }
 
-    mode.contains.forEach(term => addRule(term, term.begin))
+    addRule(re, opts) {
+      this.matchIndexes[this.matchAt] = opts;
+      this.regexes.push([opts, re]);
+      this.matchAt += regex.countMatchGroups(re) + 1;
+    }
 
-    if (mode.terminator_end)
-      addRule("end", mode.terminator_end);
-    if (mode.illegal)
-      addRule("illegal", mode.illegal);
+    compile() {
+      let terminators = this.regexes.map(el => el[1]);
+      this.matcherRe = langRe(regex.join(terminators, '|'), true);
+      this.lastIndex = 0;
+    }
 
-    var terminators = regexes.map(el => el[1]);
-    matcherRe = langRe(regex.join(terminators, '|'), true);
+    exec(s) {
+      var matchData;
+      if (this.regexes.length === 0) return null;
 
-    matcher.lastIndex = 0;
-    matcher.exec = function(s) {
-      var rule;
-
-      if( regexes.length === 0) return null;
-
-      matcherRe.lastIndex = matcher.lastIndex;
-      var match = matcherRe.exec(s);
+      this.matcherRe.lastIndex = this.lastIndex;
+      let match = this.matcherRe.exec(s);
       if (!match) { return null; }
 
       for(var i = 0; i<match.length; i++) {
-        if (match[i] != undefined && matchIndexes[i]) {
-          rule = matchIndexes[i];
+        if (match[i] != undefined && this.matchIndexes[i]) {
+          matchData = this.matchIndexes[i];
           break;
         }
       }
 
-      // illegal or end match
-      if (typeof rule === "string") {
-        match.type = rule;
-        match.extra = [mode.illegal, mode.terminator_end];
-      } else {
-        match.type = "begin";
-        match.rule = rule;
-      }
-      return match;
-    };
+      return Object.assign(match, matchData);
+    }
+  }
 
-    return matcher;
+  function buildModeRegex(mode) {
+
+    let mm = new MultiMatcher();
+
+    mode.contains.forEach(term => mm.addRule(term.begin, {rule: term, type: "begin" }))
+
+    if (mode.terminator_end)
+      mm.addRule(mode.terminator_end, {type: "end"} );
+    if (mode.illegal)
+      mm.addRule(mode.illegal, {type: "illegal"} );
+
+    mm.compile();
+    return mm;
   }
 
   // HACK: Abort vs ignore is technically broken. (See note below)
