@@ -193,7 +193,7 @@ export default function(hljs) {
       {
         // hack: in range constraints, upper must follow either , or <
         // <lower = ..., upper = ...> or <upper = ...>
-        begin: /[<,]*upper\s*=/,
+        begin: /[<,]\s*upper\s*=/,
         keywords: 'upper'
       },
       {
