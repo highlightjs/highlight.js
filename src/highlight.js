@@ -207,7 +207,6 @@ const HLJS = function(hljs) {
         emitter.openNode(mode.className)
       }
       top = Object.create(mode, {parent: {value: top}});
-      top.terminators.startAt = 0;
     }
 
     function doIgnore(lexeme) {
@@ -219,6 +218,7 @@ const HLJS = function(hljs) {
       } else {
         // no need to move the cursor, we still have additional regexes to try and
         // match at this very spot
+        findNextRegexMatch = true;
         return 0;
       }
     }
@@ -232,9 +232,6 @@ const HLJS = function(hljs) {
         if (res.ignoreMatch)
           return doIgnore(lexeme);
       }
-
-      // we are not ignoring, so next match should start with first regex in stack
-      top.terminators.startAt = 0;
 
       if (new_mode && new_mode.endSameAsBegin) {
         new_mode.endRe = regex.escape( lexeme );
@@ -259,7 +256,6 @@ const HLJS = function(hljs) {
       var lexeme = match[0];
       var matchPlusRemainder = codeToHighlight.substr(match.index);
       var end_mode = endOfMode(top, matchPlusRemainder);
-      top.terminators.startAt = 0;
       if (!end_mode) { return; }
 
       var origin = top;
@@ -322,7 +318,6 @@ const HLJS = function(hljs) {
       // sometimes they can end up matching nothing at all
       // Ref: https://github.com/highlightjs/highlight.js/issues/2140
       if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
-        top.terminators.startAt = 0;
         // spit the "skipped" character that our regex choked on back into the output sequence
         mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
         if (!SAFE_MODE) {
@@ -381,9 +376,16 @@ const HLJS = function(hljs) {
     var match, processedCount, index = 0;
 
     try {
+      var findNextRegexMatch = false;
       top.terminators.startAt = 0;
+
       while (true) {
         top.terminators.lastIndex = index;
+        if (findNextRegexMatch) {
+          findNextRegexMatch = false;
+        } else {
+          top.terminators.startAt = 0;
+        }
         match = top.terminators.exec(codeToHighlight);
         // console.log("match", match[0], match.rule && match.rule.begin)
         if (!match)
