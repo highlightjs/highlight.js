@@ -14,19 +14,21 @@ export default function(hljs) {
       {begin: /\$\{(.*?)}/}
     ]
   };
+  var SUBST = {
+    className: 'subst',
+    begin: /\$\(/, end: /\)/,
+    contains: [hljs.BACKSLASH_ESCAPE]
+  };
   var QUOTE_STRING = {
     className: 'string',
     begin: /"/, end: /"/,
     contains: [
       hljs.BACKSLASH_ESCAPE,
       VAR,
-      {
-        className: 'variable',
-        begin: /\$\(/, end: /\)/,
-        contains: [hljs.BACKSLASH_ESCAPE]
-      }
+      SUBST
     ]
   };
+  SUBST.contains.push(QUOTE_STRING);
   var ESCAPED_QUOTE = {
     className: '',
     begin: /\\"/

@@ -1,0 +1,3 @@
+SCRIPT_DIR=<span class="hljs-string">"<span class="hljs-subst">$( cd <span class="hljs-string">"<span class="hljs-subst">$( dirname <span class="hljs-string">"<span class="hljs-variable">${BASH_SOURCE[0]}</span>"</span> )</span>"</span> &gt;/dev/null 2&gt;&amp;1 &amp;&amp; pwd )</span>"</span>
+TLS_DIR=<span class="hljs-string">"<span class="hljs-variable">$SCRIPT_DIR</span>/../src/main/resources/tls"</span>
+ROOT_DIR=<span class="hljs-string">"<span class="hljs-variable">$SCRIPT_DIR</span>/.."</span>
