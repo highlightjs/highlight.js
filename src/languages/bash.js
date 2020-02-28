@@ -36,6 +36,15 @@ export default function(hljs) {
     className: 'string',
     begin: /'/, end: /'/
   };
+  const ARITHEMETIC = {
+    begin: /\$\(\(/,
+    end: /\)\)/,
+    contains: [
+      { begin: /\d+#[0-9a-f]+/, className: "number" },
+      hljs.NUMBER_MODE,
+      VAR
+    ]
+  };
 
   return {
     name: 'Bash',
@@ -79,6 +88,7 @@ export default function(hljs) {
         contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w\d_]*/})],
         relevance: 0
       },
+      ARITHEMETIC,
       hljs.HASH_COMMENT_MODE,
       QUOTE_STRING,
       ESCAPED_QUOTE,
