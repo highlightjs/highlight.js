@@ -17,7 +17,7 @@ Core Changes:
 
 Language Improvements:
 
-- bug(clojure) Now highlights `defn-` properly (#) [Josh Goebel][]
+- bug(clojure) Now highlights `defn-` properly (#2438) [Josh Goebel][]
 - enh(clojure) Add support for global definitions name (#2347) [Alexandre Grison][]
 - enh(fortran) Support Fortran 77 style comments (#2416) [Josh Goebel][]
 - (csharp) add support for `@identifier` style identifiers (#2414) [Josh Goebel][]
