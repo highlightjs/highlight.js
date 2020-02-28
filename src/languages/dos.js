@@ -32,7 +32,7 @@ export default function(hljs) {
         'append assoc at attrib break cacls cd chcp chdir chkdsk chkntfs cls cmd color ' +
         'comp compact convert date dir diskcomp diskcopy doskey erase fs ' +
         'find findstr format ftype graftabl help keyb label md mkdir mode more move path ' +
-        'pause print popd pushd promt rd recover rem rename replace restore rmdir shift' +
+        'pause print popd pushd promt rd recover rem rename replace restore rmdir shift ' +
         'sort start subst time title tree type ver verify vol ' +
         // winutils
         'ping net ipconfig taskkill xcopy ren del'
