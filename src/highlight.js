@@ -322,6 +322,7 @@ const HLJS = function(hljs) {
       // sometimes they can end up matching nothing at all
       // Ref: https://github.com/highlightjs/highlight.js/issues/2140
       if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
+        top.terminators.startAt = 0;
         // spit the "skipped" character that our regex choked on back into the output sequence
         mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
         if (!SAFE_MODE) {
