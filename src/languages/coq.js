@@ -16,7 +16,7 @@ export default function(hljs) {
         'Backtrack Bind Blacklist Canonical Cd Check Class Classes Close Coercion ' +
         'Coercions CoFixpoint CoInductive Collection Combined Compute Conjecture ' +
         'Conjectures Constant constr Constraint Constructors Context Corollary ' +
-        'CreateHintDb Cut Declare Defined Definition Delimit Dependencies Dependent' +
+        'CreateHintDb Cut Declare Defined Definition Delimit Dependencies Dependent ' +
         'Derive Drop eauto End Equality Eval Example Existential Existentials ' +
         'Existing Export exporting Extern Extract Extraction Fact Field Fields File ' +
         'Fixpoint Focus for From Function Functional Generalizable Global Goal Grab ' +

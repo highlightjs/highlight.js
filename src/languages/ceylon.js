@@ -12,7 +12,7 @@ export default function(hljs) {
     'catch finally then let this outer super is exists nonempty';
   // 7.4.1 Declaration Modifiers
   var DECLARATION_MODIFIERS =
-    'shared abstract formal default actual variable late native deprecated' +
+    'shared abstract formal default actual variable late native deprecated ' +
     'final sealed annotation suppressWarnings small';
   // 7.4.2 Documentation
   var DOCUMENTATION =
