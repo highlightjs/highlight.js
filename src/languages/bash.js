@@ -7,19 +7,19 @@ Category: common
 */
 
 export default function(hljs) {
-  var VAR = {
+  const VAR = {
     className: 'variable',
     variants: [
       {begin: /\$[\w\d#@][\w\d_]*/},
       {begin: /\$\{(.*?)}/}
     ]
   };
-  var SUBST = {
+  const SUBST = {
     className: 'subst',
     begin: /\$\(/, end: /\)/,
     contains: [hljs.BACKSLASH_ESCAPE]
   };
-  var QUOTE_STRING = {
+  const QUOTE_STRING = {
     className: 'string',
     begin: /"/, end: /"/,
     contains: [
@@ -29,16 +29,16 @@ export default function(hljs) {
     ]
   };
   SUBST.contains.push(QUOTE_STRING);
-  var ESCAPED_QUOTE = {
+  const ESCAPED_QUOTE = {
     className: '',
     begin: /\\"/
 
   };
-  var APOS_STRING = {
+  const APOS_STRING = {
     className: 'string',
     begin: /'/, end: /'/
   };
-  const ARITHEMETIC = {
+  const ARITHMETIC = {
     begin: /\$\(\(/,
     end: /\)\)/,
     contains: [
@@ -46,6 +46,18 @@ export default function(hljs) {
       hljs.NUMBER_MODE,
       VAR
     ]
+  };
+  const SHEBANG = {
+    className: 'meta',
+    begin: /^#![^\n]+sh\s*$/,
+    relevance: 10
+  };
+  const FUNCTION = {
+    className: 'function',
+    begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
+    returnBegin: true,
+    contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w\d_]*/})],
+    relevance: 0
   };
 
   return {
@@ -78,19 +90,9 @@ export default function(hljs) {
         '-ne -eq -lt -gt -f -d -e -s -l -a' // relevance booster
     },
     contains: [
-      {
-        className: 'meta',
-        begin: /^#![^\n]+sh\s*$/,
-        relevance: 10
-      },
-      {
-        className: 'function',
-        begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
-        returnBegin: true,
-        contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w\d_]*/})],
-        relevance: 0
-      },
-      ARITHEMETIC,
+      SHEBANG,
+      FUNCTION,
+      ARITHMETIC,
       hljs.HASH_COMMENT_MODE,
       QUOTE_STRING,
       ESCAPED_QUOTE,
