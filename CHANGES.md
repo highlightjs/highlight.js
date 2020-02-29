@@ -19,6 +19,7 @@ Language Improvements:
 
 - fix(javascript) prevent get/set variables conflicting with keywords (#2440) [Josh Goebel][]
 - bug(clojure) Now highlights `defn-` properly (#2438) [Josh Goebel][]
+- enh(bash) default value is another variable (#2439) [Josh Goebel][]
 - enh(bash) string nested within string (#2439) [Josh Goebel][]
 - enh(bash) Add arithmetic expression support (#2439) [Josh Goebel][]
 - enh(clojure) Add support for global definitions name (#2347) [Alexandre Grison][]

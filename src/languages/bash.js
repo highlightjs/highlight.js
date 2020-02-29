@@ -7,13 +7,21 @@ Category: common
 */
 
 export default function(hljs) {
-  const VAR = {
+  const VAR = {};
+  const BRACED_VAR = {
+    begin: /\$\{/, end:/\}/,
+    contains: [
+      { begin: /:-/, contains: [VAR] } // default values
+    ]
+  };
+  Object.assign(VAR,{
     className: 'variable',
     variants: [
       {begin: /\$[\w\d#@][\w\d_]*/},
-      {begin: /\$\{(.*?)}/}
+      BRACED_VAR
     ]
-  };
+  });
+
   const SUBST = {
     className: 'subst',
     begin: /\$\(/, end: /\)/,
