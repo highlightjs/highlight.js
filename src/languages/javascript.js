@@ -93,6 +93,13 @@ export default function(hljs) {
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.C_LINE_COMMENT_MODE
   ]);
+  var PARAMS = {
+    className: 'params',
+    begin: /\(/, end: /\)/,
+    excludeBegin: true,
+    excludeEnd: true,
+    contains: PARAMS_CONTAINS
+  };
 
   return {
     name: 'JavaScript',
@@ -220,13 +227,7 @@ export default function(hljs) {
         beginKeywords: 'function', end: /\{/, excludeEnd: true,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE}),
-          {
-            className: 'params',
-            begin: /\(/, end: /\)/,
-            excludeBegin: true,
-            excludeEnd: true,
-            contains: PARAMS_CONTAINS
-          }
+          PARAMS
         ],
         illegal: /\[|%/
       },
@@ -245,7 +246,18 @@ export default function(hljs) {
         ]
       },
       {
-        beginKeywords: 'constructor get set', end: /\{/, excludeEnd: true
+        beginKeywords: 'constructor', end: /\{/, excludeEnd: true
+      },
+      {
+        begin:'(get|set)\\s*(?=' + IDENT_RE+ '\\()',
+        end: /{/,
+        keywords: "get set",
+        contains: [
+          hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE}),
+          { begin: /\(\)/ }, // eat to avoid empty params
+          PARAMS
+        ]
+
       }
     ],
     illegal: /#(?!!)/
