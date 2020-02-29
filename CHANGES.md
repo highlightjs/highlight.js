@@ -17,6 +17,7 @@ Core Changes:
 
 Language Improvements:
 
+- fix(javascript) prevent get/set variables conflicting with keywords (#2440) [Josh Goebel][]
 - bug(clojure) Now highlights `defn-` properly (#2438) [Josh Goebel][]
 - enh(clojure) Add support for global definitions name (#2347) [Alexandre Grison][]
 - enh(fortran) Support Fortran 77 style comments (#2416) [Josh Goebel][]
