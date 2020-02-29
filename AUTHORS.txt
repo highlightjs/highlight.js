@@ -286,3 +286,4 @@ Contributors:
 - G8t Guy <g8tguy@g8tguy.com>
 - Samia Ali <samiaab1990@gmail.com>
 - Alexandre Grison <a.grison@gmail.com>
+- sksat <sksat@sksat.net>

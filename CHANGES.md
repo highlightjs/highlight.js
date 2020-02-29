@@ -4,6 +4,7 @@ New languages:
 
 - (php-template) Explicit language to detect PHP templates (vs xml) [Josh Goebel][]
 - enh(python) Added `python-repl` for Python REPL sessions
+- *Zig* by [sksat][]
 
 New themes:
 
@@ -54,6 +55,7 @@ Developer Tools:
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Josh Goebel]: https://github.com/yyyc514
 [Sean Williams]: https://github.com/hmmwhatsthisdo
+[sksat]: https://github.com/sk2sat
 
 
 ## Version 9.18.1
