@@ -61,6 +61,46 @@ This approach is best for simpler plugins.
 Callbacks
 ---------
 
+before:highlight({code, language})
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This callback function is passed a context object with two keys:
+
+code
+  The code to be highlighted.
+
+language
+  The language grammar that should be used for highlighting.
+
+Your plugin may modify either value and those new values will be used as input
+to the highlighting engine.  If you add a ``result`` key to the object that
+result will be returned as the overall result and the internal highlighting code
+will never even be called.
+
+If you're plugin plans to make its own recursive calls to ``highlight`` you'll
+need to manually handle this. Each time ``highlight`` is called your plugin
+callbacks will also be called - making it easy to get into an infinite loop.
+You'll likely need to use a class based plugin and add a guard so that your
+plugin code is only triggered on the initial call to ``highlight`` and not on
+any internal calls your plugin itself is making.
+
+Note: This callback does not fire from highlighting resulting from auto-language detection.
+
+It returns nothing.
+
+
+after:highlight(result)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+This callback function is passed the ``result`` object after highlighting is
+complete. Your plugin may make any changes it desires to the result object
+and that will be the final return value of the initial call to ``highlight``.
+
+Note: This callback does not fire from highlighting resulting from auto-language detection.
+
+It returns nothing.
+
+
 after:highlightBlock({block, result})
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
