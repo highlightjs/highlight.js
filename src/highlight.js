@@ -5,7 +5,6 @@ https://highlightjs.org/
 
 import deepFreeze from './vendor/deep_freeze';
 import TokenTreeEmitter from './lib/token_tree';
-import HTMLRenderer from './lib/html_renderer';
 import * as regex from './lib/regex';
 import * as utils from './lib/utils';
 import * as MODES from './lib/modes';
@@ -44,7 +43,10 @@ const HLJS = function(hljs) {
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
-    languages: undefined
+    languages: undefined,
+    // beta configuration options, subject to change, welcome to discuss
+    // https://github.com/highlightjs/highlight.js/issues/1086
+    __emitter: TokenTreeEmitter
   };
 
   /* Utility functions */
@@ -322,7 +324,7 @@ const HLJS = function(hljs) {
     var top = continuation || language;
     var continuations = {}; // keep continuations for sub-languages
     var result;
-    var emitter = new TokenTreeEmitter();
+    var emitter = new options.__emitter(options);
     processContinuations();
     var mode_buffer = '';
     var relevance = 0;
@@ -341,7 +343,7 @@ const HLJS = function(hljs) {
       processLexeme(codeToHighlight.substr(index));
       emitter.closeAllNodes();
       emitter.finalize();
-      result = new HTMLRenderer(emitter, options).value();
+      result = emitter.toHTML();
 
       return {
         relevance: relevance,
@@ -395,7 +397,7 @@ const HLJS = function(hljs) {
     languageSubset = languageSubset || options.languages || Object.keys(languages);
     var result = {
       relevance: 0,
-      emitter: new TokenTreeEmitter(),
+      emitter: new options.__emitter(options),
       value: escape(code)
     };
     var second_best = result;
