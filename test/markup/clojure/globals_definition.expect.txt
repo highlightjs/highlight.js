@@ -22,7 +22,7 @@
 (<span class="hljs-keyword">defonce</span> ^<span class="hljs-symbol">:private</span> <span class="hljs-title">another-var</span> #<span class="hljs-string">"foo"</span>)
 
 <span class="hljs-comment">; private function</span>
-(<span class="hljs-keyword">defn</span><span class="hljs-title">-</span> add [x y] (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> x y))
+(<span class="hljs-keyword">defn-</span> <span class="hljs-title">add</span> [x y] (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> x y))
 
 <span class="hljs-comment">; protocols</span>
 (<span class="hljs-keyword">defprotocol</span> <span class="hljs-title">Fly</span>
