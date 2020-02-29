@@ -83,7 +83,12 @@ export function compileLanguage(language) {
 
     if (parent) {
       if (mode.beginKeywords) {
-        mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')\\b';
+        // for languages with keywords that include non-word characters checking for
+        // a word boundary is not sufficient, so instead we check for a word boundary
+        // or whitespace - this does no harm in any case since our keyword engine
+        // doesn't allow spaces in keywords anyways and we still check for the boundary
+        // first
+        mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')(?=\\b|\\s)';
       }
       if (!mode.begin)
         mode.begin = /\B|\b/;

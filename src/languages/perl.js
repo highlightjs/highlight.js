@@ -8,9 +8,9 @@ Category: common
 export default function(hljs) {
   var PERL_KEYWORDS = 'getpwent getservent quotemeta msgrcv scalar kill dbmclose undef lc ' +
     'ma syswrite tr send umask sysopen shmwrite vec qx utime local oct semctl localtime ' +
-    'readpipe do return format read sprintf dbmopen pop getpgrp not getpwnam rewinddir qq' +
+    'readpipe do return format read sprintf dbmopen pop getpgrp not getpwnam rewinddir qq ' +
     'fileno qw endprotoent wait sethostent bless s|0 opendir continue each sleep endgrent ' +
-    'shutdown dump chomp connect getsockname die socketpair close flock exists index shmget' +
+    'shutdown dump chomp connect getsockname die socketpair close flock exists index shmget ' +
     'sub for endpwent redo lstat msgctl setpgrp abs exit select print ref gethostbyaddr ' +
     'unshift fcntl syscall goto getnetbyaddr join gmtime symlink semget splice x|0 ' +
     'getpeername recv log setsockopt cos last reverse gethostbyname getgrnam study formline ' +
@@ -22,7 +22,7 @@ export default function(hljs) {
     'lcfirst until warn while values shift telldir getpwuid my getprotobynumber delete and ' +
     'sort uc defined srand accept package seekdir getprotobyname semop our rename seek if q|0 ' +
     'chroot sysread setpwent no crypt getc chown sqrt write setnetent setpriority foreach ' +
-    'tie sin msgget map stat getlogin unless elsif truncate exec keys glob tied closedir' +
+    'tie sin msgget map stat getlogin unless elsif truncate exec keys glob tied closedir ' +
     'ioctl socket readlink eval xor readline binmode setservent eof ord bind alarm pipe ' +
     'atan2 getgrent exp time push setgrent gt lt or ne m|0 break given say state when';
   var SUBST = {

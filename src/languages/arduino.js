@@ -12,7 +12,7 @@ export default function(hljs) {
       keyword:
         'boolean byte word String',
       built_in:
-        'setup loop' +
+        'setup loop ' +
         'KeyboardController MouseController SoftwareSerial ' +
         'EthernetServer EthernetClient LiquidCrystal ' +
         'RobotControl GSMVoiceCall EthernetUDP EsploraTFT ' +
