@@ -4,7 +4,7 @@ https://highlightjs.org/
 */
 
 import deepFreeze from './vendor/deep_freeze';
-import TokenTree from './lib/token_tree';
+import TokenTreeEmitter from './lib/token_tree';
 import HTMLRenderer from './lib/html_renderer';
 import * as regex from './lib/regex';
 import * as utils from './lib/utils';
@@ -322,7 +322,7 @@ const HLJS = function(hljs) {
     var top = continuation || language;
     var continuations = {}; // keep continuations for sub-languages
     var result;
-    var emitter = new TokenTree();
+    var emitter = new TokenTreeEmitter();
     processContinuations();
     var mode_buffer = '';
     var relevance = 0;
@@ -395,7 +395,7 @@ const HLJS = function(hljs) {
     languageSubset = languageSubset || options.languages || Object.keys(languages);
     var result = {
       relevance: 0,
-      emitter: new TokenTree(),
+      emitter: new TokenTreeEmitter(),
       value: escape(code)
     };
     var second_best = result;
