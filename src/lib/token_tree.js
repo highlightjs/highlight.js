@@ -1,4 +1,4 @@
-export default class TokenTree {
+class TokenTree {
   constructor() {
     this.rootNode = { children: [] };
     this.stack = [ this.rootNode ];
@@ -8,29 +8,10 @@ export default class TokenTree {
     return this.stack[this.stack.length - 1];
   }
 
+  get root() { return this.rootNode };
+
   add(node) {
     this.top.children.push(node);
-  }
-
-  addKeyword(text, kind) {
-    if (text === "") { return; }
-
-    this.openNode(kind);
-    this.addText(text);
-    this.closeNode();
-  }
-
-  addText(text) {
-    if (text === "") { return; }
-
-    this.add(text);
-  }
-
-  addSublanguage({rootNode}, name) {
-    let node = rootNode;
-    node.kind = name;
-    node.sublanguage = true;
-    this.add(node);
   }
 
   openNode(kind) {
@@ -52,12 +33,8 @@ export default class TokenTree {
     return JSON.stringify(this.rootNode, null, 4);
   }
 
-  finalize() {
-    return;
-  }
-
   walk(builder) {
-    return TokenTree._walk(builder, this.rootNode);
+    return this.constructor._walk(builder, this.rootNode);
   }
 
   static _walk(builder, node) {
@@ -73,7 +50,7 @@ export default class TokenTree {
 
   static _collapse(node) {
     if (!node.children) {
-      return
+      return;
     }
     if (node.children.every(el => typeof el === "string")) {
       node.text = node.children.join("")
@@ -85,4 +62,48 @@ export default class TokenTree {
       })
     }
   }
+}
+
+/**
+  Currently this is all private API, but this is the minimal API necessary
+  that an Emitter must implement to fully support the parser.
+
+  API:
+
+  - addKeyword(text, kind)
+  - addText(text)
+  - addSublanguage(emitter, subLangaugeName)
+  - finalize()
+
+*/
+export default class TokenTreeEmitter extends TokenTree {
+  constructor() {
+    super();
+  }
+
+  addKeyword(text, kind) {
+    if (text === "") { return; }
+
+    this.openNode(kind);
+    this.addText(text);
+    this.closeNode();
+  }
+
+  addText(text) {
+    if (text === "") { return; }
+
+    this.add(text);
+  }
+
+  addSublanguage(emitter, name) {
+    let node = emitter.root;
+    node.kind = name;
+    node.sublanguage = true;
+    this.add(node);
+  }
+
+  finalize() {
+    return;
+  }
+
 }
