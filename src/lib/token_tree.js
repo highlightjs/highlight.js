@@ -1,3 +1,5 @@
+import HTMLRenderer from './html_renderer';
+
 class TokenTree {
   constructor() {
     this.rootNode = { children: [] };
@@ -68,17 +70,22 @@ class TokenTree {
   Currently this is all private API, but this is the minimal API necessary
   that an Emitter must implement to fully support the parser.
 
-  API:
+  Minimal interface:
 
   - addKeyword(text, kind)
   - addText(text)
   - addSublanguage(emitter, subLangaugeName)
   - finalize()
+  - openNode(kind)
+  - closeNode()
+  - closeAllNodes()
+  - toHTML()
 
 */
 export default class TokenTreeEmitter extends TokenTree {
-  constructor() {
+  constructor(options) {
     super();
+    this.options = options;
   }
 
   addKeyword(text, kind) {
@@ -100,6 +107,11 @@ export default class TokenTreeEmitter extends TokenTree {
     node.kind = name;
     node.sublanguage = true;
     this.add(node);
+  }
+
+  toHTML() {
+    let renderer = new HTMLRenderer(this, this.options);
+    return renderer.value();
   }
 
   finalize() {
