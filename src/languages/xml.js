@@ -121,7 +121,7 @@ export default function(hljs) {
         contains: [TAG_INTERNALS],
         starts: {
           end: '\<\/script\>', returnEnd: true,
-          subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
+          subLanguage: ['javascript', 'handlebars', 'xml']
         }
       },
       {
