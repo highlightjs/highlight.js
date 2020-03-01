@@ -300,13 +300,28 @@ each having all the attributes from the main definition augmented or overridden 
 
   {
     className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE],
+    contains: ['self', hljs.BACKSLASH_ESCAPE],
     relevance: 0,
     variants: [
       {begin: /"/, end: /"/},
       {begin: /'/, end: /'/, relevance: 1}
     ]
   }
+
+Note: ``variants`` has very specific behavior with regards to ``contains: ['self']``.
+Lets consider the example above. While you might think this would allow you to
+embed any type of string (double or single quoted) within any other string, it
+does not allow for this.
+
+The variants are compiled into to two *discrete* modes::
+
+  { className: 'string', begin: /"/, contains: ['self', ... ] }
+  { className: 'string', begin: /'/, contains: ['self', ... ] }
+
+Each mode's ``self`` refers only to the new expanded mode, not the original mode
+with variants (which no longer exists after compiling).
+
+Further info: https://github.com/highlightjs/highlight.js/issues/826
 
 
 .. _subLanguage:
