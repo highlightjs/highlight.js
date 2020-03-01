@@ -9,8 +9,10 @@ New themes:
 
 - none.
 
-Core Changes:
+Parser Engine Changes:
 
+- add `before:highlight` plugin API callback (#2395) [Josh Goebel][]
+- add `after:highlight` plugin API callback (#2395) [Josh Goebel][]
 - split out parse tree generation and HTML rendering concerns (#2404) [Josh Goebel][]
 - every language can have a `name` attribute now (#2400) [Josh Goebel][]
 - improve regular expression detect (less false-positives) (#2380) [Josh Goebel][]
