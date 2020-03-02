@@ -2,7 +2,7 @@
 
 New languages:
 
-- (php-template) Explicit language to detect PHP templates (vs xml) [Josh Goebel][]
+- add(php-template) Explicit language to detect PHP templates (vs xml) [Josh Goebel][]
 - enh(python) Added `python-repl` for Python REPL sessions
 
 New themes:
@@ -11,12 +11,13 @@ New themes:
 
 Parser Engine Changes:
 
-- add `before:highlight` plugin API callback (#2395) [Josh Goebel][]
-- add `after:highlight` plugin API callback (#2395) [Josh Goebel][]
-- split out parse tree generation and HTML rendering concerns (#2404) [Josh Goebel][]
-- every language can have a `name` attribute now (#2400) [Josh Goebel][]
-- improve regular expression detect (less false-positives) (#2380) [Josh Goebel][]
-- make `noHighlightRe` and `languagePrefixRe` configurable (#2374) [Josh Goebel][]
+- (bug) Fix `beginKeywords` to ignore . matches (#2434) [Josh Goebel][]
+- (enh) add `before:highlight` plugin API callback (#2395) [Josh Goebel][]
+- (enh) add `after:highlight` plugin API callback (#2395) [Josh Goebel][]
+- (enh) split out parse tree generation and HTML rendering concerns (#2404) [Josh Goebel][]
+- (enh) every language can have a `name` attribute now (#2400) [Josh Goebel][]
+- (enh) improve regular expression detect (less false-positives) (#2380) [Josh Goebel][]
+- (enh) make `noHighlightRe` and `languagePrefixRe` configurable (#2374) [Josh Goebel][]
 
 Language Improvements:
 
