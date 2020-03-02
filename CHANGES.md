@@ -20,6 +20,7 @@ Parser Engine Changes:
 
 Language Improvements:
 
+- enh(xml) deprecate ActionScript inside script tags (#2444) [Josh Goebel][]
 - fix(javascript) prevent get/set variables conflicting with keywords (#2440) [Josh Goebel][]
 - bug(clojure) Now highlights `defn-` properly (#2438) [Josh Goebel][]
 - enh(bash) default value is another variable (#2439) [Josh Goebel][]
