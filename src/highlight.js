@@ -209,10 +209,29 @@ const HLJS = function(hljs) {
       top = Object.create(mode, {parent: {value: top}});
     }
 
+    function doIgnore(lexeme) {
+      if (top.matcher.regexIndex === 0) {
+        // no more regexs to potentially match here, so we move the cursor forward one
+        // space
+        mode_buffer += lexeme[0];
+        return 1;
+      } else {
+        // no need to move the cursor, we still have additional regexes to try and
+        // match at this very spot
+        continueScanAtSamePosition = true;
+        return 0;
+      }
+    }
 
     function doBeginMatch(match) {
       var lexeme = match[0];
       var new_mode = match.rule;
+
+      if (new_mode.__onBegin) {
+        let res = new_mode.__onBegin(match) || {};
+        if (res.ignoreMatch)
+          return doIgnore(lexeme);
+      }
 
       if (new_mode && new_mode.endSameAsBegin) {
         new_mode.endRe = regex.escape( lexeme );
@@ -292,6 +311,8 @@ const HLJS = function(hljs) {
         return 0;
       }
 
+
+
       // we've found a 0 width match and we're stuck, so we need to advance
       // this happens when we have badly behaved rules that have optional matchers to the degree that
       // sometimes they can end up matching nothing at all
@@ -355,9 +376,20 @@ const HLJS = function(hljs) {
     var match, processedCount, index = 0;
 
     try {
+      var continueScanAtSamePosition = false;
+      top.matcher.considerAll();
+
       while (true) {
-        top.terminators.lastIndex = index;
-        match = top.terminators.exec(codeToHighlight);
+        if (continueScanAtSamePosition) {
+          continueScanAtSamePosition = false;
+          // only regexes not matched previously will now be
+          // considered for a potential match
+        } else {
+          top.matcher.lastIndex = index;
+          top.matcher.considerAll();
+        }
+        match = top.matcher.exec(codeToHighlight);
+        // console.log("match", match[0], match.rule && match.rule.begin)
         if (!match)
           break;
         let beforeMatch = codeToHighlight.substring(index, match.index);

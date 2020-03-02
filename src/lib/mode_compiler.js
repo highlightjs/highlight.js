@@ -15,65 +15,191 @@ export function compileLanguage(language) {
     );
   }
 
-  function buildModeRegex(mode) {
+  /**
+    Stores multiple regular expressions and allows you to quickly search for
+    them all in a string simultaneously - returning the first match.  It does
+    this by creating a huge (a|b|c) regex - each individual item wrapped with ()
+    and joined by `|` - using match groups to track position.  When a match is
+    found checking which position in the array has content allows us to figure
+    out which of the original regexes / match groups triggered the match.
 
-    var matchIndexes = {};
-    var matcherRe;
-    var regexes = [];
-    var matcher = {};
-    var matchAt = 1;
-
-    function addRule(rule, re) {
-      matchIndexes[matchAt] = rule;
-      regexes.push([rule, re]);
-      matchAt += regex.countMatchGroups(re) + 1;
+    The match object itself (the result of `Regex.exec`) is returned but also
+    enhanced by merging in any meta-data that was registered with the regex.
+    This is how we keep track of which mode matched, and what type of rule
+    (`illegal`, `begin`, end, etc).
+  */
+  class MultiRegex {
+    constructor() {
+      this.matchIndexes = {};
+      this.regexes = [];
+      this.matchAt = 1;
+      this.position = 0;
     }
 
-    mode.contains.forEach(term => addRule(term, term.begin))
+    addRule(re, opts) {
+      opts.position = this.position++;
+      this.matchIndexes[this.matchAt] = opts;
+      this.regexes.push([opts, re]);
+      this.matchAt += regex.countMatchGroups(re) + 1;
+    }
 
-    if (mode.terminator_end)
-      addRule("end", mode.terminator_end);
-    if (mode.illegal)
-      addRule("illegal", mode.illegal);
+    compile() {
+      if (this.regexes.length === 0) {
+        // avoids the need to check length every time exec is called
+        this.exec = () => null;
+      }
+      let terminators = this.regexes.map(el => el[1]);
+      this.matcherRe = langRe(regex.join(terminators, '|'), true);
+      this.lastIndex = 0;
+    }
 
-    var terminators = regexes.map(el => el[1]);
-    matcherRe = langRe(regex.join(terminators, '|'), true);
-
-    matcher.lastIndex = 0;
-    matcher.exec = function(s) {
-      var rule;
-
-      if( regexes.length === 0) return null;
-
-      matcherRe.lastIndex = matcher.lastIndex;
-      var match = matcherRe.exec(s);
+    exec(s) {
+      this.matcherRe.lastIndex = this.lastIndex;
+      let match = this.matcherRe.exec(s);
       if (!match) { return null; }
 
-      for(var i = 0; i<match.length; i++) {
-        if (match[i] != undefined && matchIndexes[i]) {
-          rule = matchIndexes[i];
-          break;
-        }
-      }
+      let i = match.findIndex((el, i) => i>0 && el!=undefined);
+      let matchData = this.matchIndexes[i];
 
-      // illegal or end match
-      if (typeof rule === "string") {
-        match.type = rule;
-        match.extra = [mode.illegal, mode.terminator_end];
-      } else {
-        match.type = "begin";
-        match.rule = rule;
-      }
-      return match;
-    };
-
-    return matcher;
+      return Object.assign(match, matchData);
+    }
   }
+
+  /*
+    Created to solve the key deficiently with MultiRegex - there is no way to
+    test for multiple matches at a single location.  Why would we need to do
+    that?  In the future a more dynamic engine will allow certain matches to be
+    ignored.  An example: if we matched say the 3rd regex in a large group but
+    decided to ignore it - we'd need to started testing again at the 4th
+    regex... but MultiRegex itself gives us no real way to do that.
+
+    So what this class creates MultiRegexs on the fly for whatever search
+    position they are needed.
+
+    NOTE: These additional MultiRegex objects are created dynamically.  For most
+    grammars most of the time we will never actually need anything more than the
+    first MultiRegex - so this shouldn't have too much overhead.
+
+    Say this is our search group, and we match regex3, but wish to ignore it.
+
+      regex1 | regex2 | regex3 | regex4 | regex5    ' ie, startAt = 0
+
+    What we need is a new MultiRegex that only includes the remaining
+    possibilities:
+
+      regex4 | regex5                               ' ie, startAt = 3
+
+    This class wraps all that complexity up in a simple API... `startAt` decides
+    where in the array of expressions to start doing the matching. It
+    auto-increments, so if a match is found at position 2, then startAt will be
+    set to 3.  If the end is reached startAt will return to 0.
+
+    MOST of the time the parser will be setting startAt manually to 0.
+  */
+  class ResumableMultiRegex {
+    constructor() {
+      this.rules = [];
+      this.multiRegexes = [];
+      this.count = 0;
+
+      this.lastIndex = 0;
+      this.regexIndex = 0;
+    }
+
+    getMatcher(index) {
+      if (this.multiRegexes[index]) return this.multiRegexes[index];
+
+      let matcher = new MultiRegex();
+      this.rules.slice(index).forEach(([re, opts])=> matcher.addRule(re,opts))
+      matcher.compile();
+      this.multiRegexes[index] = matcher;
+      return matcher;
+    }
+
+    considerAll() {
+      this.regexIndex = 0;
+    }
+
+    addRule(re, opts) {
+      this.rules.push([re, opts]);
+      if (opts.type==="begin") this.count++;
+    }
+
+    exec(s) {
+      let m = this.getMatcher(this.regexIndex);
+      m.lastIndex = this.lastIndex;
+      let result = m.exec(s);
+      if (result) {
+        this.regexIndex += result.position + 1;
+        if (this.regexIndex === this.count) // wrap-around
+          this.regexIndex = 0;
+      }
+
+      // this.regexIndex = 0;
+      return result;
+    }
+  }
+
+  function buildModeRegex(mode) {
+
+    let mm = new ResumableMultiRegex();
+
+    mode.contains.forEach(term => mm.addRule(term.begin, {rule: term, type: "begin" }))
+
+    if (mode.terminator_end)
+      mm.addRule(mode.terminator_end, {type: "end"} );
+    if (mode.illegal)
+      mm.addRule(mode.illegal, {type: "illegal"} );
+
+    return mm;
+  }
+
+  // TODO: We need negative look-behind support to do this properly
+  function skipIfhasPrecedingOrTrailingDot(match) {
+    let before = match.input[match.index-1];
+    let after = match.input[match.index + match[0].length];
+    if (before === "." || after === ".") {
+      return {ignoreMatch: true };
+    }
+  }
+
+  /** skip vs abort vs ignore
+   *
+   * @skip   - The mode is still entered and exited normally (and contains rules apply),
+   *           but all content is held and added to the parent buffer rather than being
+   *           output when the mode ends.  Mostly used with `sublanguage` to build up
+   *           a single large buffer than can be parsed by sublanguage.
+   *
+   *             - The mode begin ands ends normally.
+   *             - Content matched is added to the parent mode buffer.
+   *             - The parser cursor is moved forward normally.
+   *
+   * @abort  - A hack placeholder until we have ignore.  Aborts the mode (as if it
+   *           never matched) but DOES NOT continue to match subsequent `contains`
+   *           modes.  Abort is bad/suboptimal because it can result in modes
+   *           farther down not getting applied because an earlier rule eats the
+   *           content but then aborts.
+   *
+   *             - The mode does not begin.
+   *             - Content matched by `begin` is added to the mode buffer.
+   *             - The parser cursor is moved forward accordingly.
+   *
+   * @ignore - Ignores the mode (as if it never matched) and continues to match any
+   *           subsequent `contains` modes.  Ignore isn't technically possible with
+   *           the current parser implementation.
+   *
+   *             - The mode does not begin.
+   *             - Content matched by `begin` is ignored.
+   *             - The parser cursor is not moved forward.
+   */
 
   function compileMode(mode, parent) {
     if (mode.compiled)
       return;
     mode.compiled = true;
+
+    // __onBegin is considered private API, internal use only
+    mode.__onBegin = null;
 
     mode.keywords = mode.keywords || mode.beginKeywords;
     if (mode.keywords)
@@ -89,6 +215,7 @@ export function compileLanguage(language) {
         // doesn't allow spaces in keywords anyways and we still check for the boundary
         // first
         mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')(?=\\b|\\s)';
+        mode.__onBegin = skipIfhasPrecedingOrTrailingDot;
       }
       if (!mode.begin)
         mode.begin = /\B|\b/;
@@ -119,7 +246,7 @@ export function compileLanguage(language) {
       compileMode(mode.starts, parent);
     }
 
-    mode.terminators = buildModeRegex(mode);
+    mode.matcher = buildModeRegex(mode);
   }
 
   // self is not valid at the top-level
