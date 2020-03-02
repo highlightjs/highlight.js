@@ -103,7 +103,7 @@ export function compileLanguage(language) {
       this.count = 0;
 
       this.lastIndex = 0;
-      this.startAt = 0;
+      this.regexIndex = 0;
     }
 
     getMatcher(index) {
@@ -116,22 +116,26 @@ export function compileLanguage(language) {
       return matcher;
     }
 
+    considerAll() {
+      this.regexIndex = 0;
+    }
+
     addRule(re, opts) {
       this.rules.push([re, opts]);
       if (opts.type==="begin") this.count++;
     }
 
     exec(s) {
-      let m = this.getMatcher(this.startAt);
+      let m = this.getMatcher(this.regexIndex);
       m.lastIndex = this.lastIndex;
       let result = m.exec(s);
       if (result) {
-        this.startAt += result.position + 1;
-        if (this.startAt === this.count) // wrap-around
-          this.startAt = 0;
+        this.regexIndex += result.position + 1;
+        if (this.regexIndex === this.count) // wrap-around
+          this.regexIndex = 0;
       }
 
-      // this.startAt = 0;
+      // this.regexIndex = 0;
       return result;
     }
   }
@@ -242,7 +246,7 @@ export function compileLanguage(language) {
       compileMode(mode.starts, parent);
     }
 
-    mode.terminators = buildModeRegex(mode);
+    mode.matcher = buildModeRegex(mode);
   }
 
   // self is not valid at the top-level

@@ -210,7 +210,7 @@ const HLJS = function(hljs) {
     }
 
     function doIgnore(lexeme) {
-      if (top.terminators.startAt === 0) {
+      if (top.matcher.regexIndex === 0) {
         // no more regexs to potentially match here, so we move the cursor forward one
         // space
         mode_buffer += lexeme[0];
@@ -218,7 +218,7 @@ const HLJS = function(hljs) {
       } else {
         // no need to move the cursor, we still have additional regexes to try and
         // match at this very spot
-        findNextRegexMatch = true;
+        continueScanAtSamePosition = true;
         return 0;
       }
     }
@@ -376,17 +376,19 @@ const HLJS = function(hljs) {
     var match, processedCount, index = 0;
 
     try {
-      var findNextRegexMatch = false;
-      top.terminators.startAt = 0;
+      var continueScanAtSamePosition = false;
+      top.matcher.considerAll();
 
       while (true) {
-        top.terminators.lastIndex = index;
-        if (findNextRegexMatch) {
-          findNextRegexMatch = false;
+        if (continueScanAtSamePosition) {
+          continueScanAtSamePosition = false;
+          // only regexes not matched previously will now be
+          // considered for a potential match
         } else {
-          top.terminators.startAt = 0;
+          top.matcher.lastIndex = index;
+          top.matcher.considerAll();
         }
-        match = top.terminators.exec(codeToHighlight);
+        match = top.matcher.exec(codeToHighlight);
         // console.log("match", match[0], match.rule && match.rule.begin)
         if (!match)
           break;
