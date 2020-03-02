@@ -89,10 +89,34 @@ const HLJS = function(hljs) {
    * @property {string} language - the language name
    * @property {number} relevance - the relevance score
    * @property {string} value - the highlighted HTML code
+   * @property {string} code - the original raw code
    * @property {mode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignore_illegals, continuation) {
+    var context = {
+      code,
+      language: languageName
+    };
+    // the plugin can change the desired language or the code to be highlighted
+    // just be changing the object it was passed
+    fire("before:highlight", context);
+
+    // a before plugin can usurp the result completely by providing it's own
+    // in which case we don't even need to call highlight
+    var result = context.result ?
+      context.result :
+      _highlight(context.language, context.code, ignore_illegals, continuation);
+
+    result.code = context.code;
+    // the plugin can change anything in result to suite it
+    fire("after:highlight", result);
+
+    return result;
+  }
+
+  // private highlight that's used internally and does not fire callbacks
+  function _highlight(languageName, code, ignore_illegals, continuation) {
     var codeToHighlight = code;
 
     function endOfMode(mode, lexeme) {
@@ -157,7 +181,7 @@ const HLJS = function(hljs) {
       }
 
       var result = explicit ?
-                   highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) :
+                   _highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) :
                    highlightAuto(mode_buffer, top.subLanguage.length ? top.subLanguage : undefined);
 
       // Counting embedded language score towards the host language may be disabled
@@ -402,7 +426,7 @@ const HLJS = function(hljs) {
     };
     var second_best = result;
     languageSubset.filter(getLanguage).filter(autoDetection).forEach(function(name) {
-      var current = highlight(name, code, false);
+      var current = _highlight(name, code, false);
       current.language = name;
       if (current.relevance > second_best.relevance) {
         second_best = current;

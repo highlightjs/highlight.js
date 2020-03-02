@@ -28,6 +28,7 @@ Returns an object with the following properties:
 * ``value``: HTML string with highlighting markup
 * ``top``: top of the current mode stack
 * ``illegal``: boolean representing whether any illegal matches were found
+* ``code``: the original raw code
 
 
 ``highlightAuto(code, languageSubset)``
