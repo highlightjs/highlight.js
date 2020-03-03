@@ -12,3 +12,6 @@ extra/
 .idea/
 .vscode/
 .Rproj.user
+
+# misc
+/work
