@@ -32,6 +32,10 @@ export default function(hljs) {
   // https://en.cppreference.com/w/cpp/language/escape
   // \\ \x \xFF \u2837 \u00323747 \374
   var CHARACTER_ESCAPES = '\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4,8}|[0-7]{3}|\\S)'
+  var END_GROUP_SAME_AS_BEGIN = {
+    'after:begin': (m, resp) => { resp.data.heredoc = m[1]; },
+    'before:end': (m, resp) => { if (resp.data.heredoc !== m[1]) resp.ignoreMatch(); }
+  };
   var STRINGS = {
     className: 'string',
     variants: [
@@ -44,12 +48,10 @@ export default function(hljs) {
         begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + "|.)", end: '\'',
         illegal: '.'
       },
-      {
+      Object.assign({
         begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\(/,
         end: /\)([^()\\ ]{0,16})"/,
-        'after:begin': (m, resp) => { resp.data.heredoc = m[1]; },
-        'before:end': function(m, resp) { if (resp.data.heredoc !== m[1]) resp.ignoreMatch(); }
-      }
+      }, END_GROUP_SAME_AS_BEGIN)
     ]
   };
 
