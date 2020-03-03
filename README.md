@@ -7,6 +7,14 @@ the browser as well as on the server. It works with pretty much any
 markup, doesn’t depend on any framework, and has automatic language
 detection.
 
+## Upgrading from Version 9
+
+Version 10 is one of the biggest releases in quite some time.  If you're
+upgrading from version 9, there are some breaking changes and things you may
+want to double check first.
+
+See [VERSION_10_BREAKING_CHANGES.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_BREAKING_CHANGES.md) to learn about the breaking changes and [CHANGES.md](https://github.com/highlightjs/highlight.js/blob/master/CHANGES.md) to learn what else is new.
+
 ## Getting Started
 
 The bare minimum for using highlight.js on a web page is linking to the
