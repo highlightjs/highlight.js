@@ -117,3 +117,8 @@ export const METHOD_GUARD = {
   begin: '\\.\\s*' + UNDERSCORE_IDENT_RE,
   relevance: 0
 };
+
+export const END_FIRST_MATCH_SAME_AS_BEGIN = {
+  'after:begin': (m, resp) => { resp.data.heredoc = m[1]; },
+  'before:end': (m, resp) => { if (resp.data.heredoc !== m[1]) resp.ignoreMatch(); }
+};

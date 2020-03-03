@@ -72,10 +72,10 @@ export default function(hljs) {
         returnBegin: true,
         contains: [
           { begin: /<<[-~]?'?/ },
-          { begin: /\w+/,
-            endSameAsBegin: true,
+          Object.assign({
+            begin: /(\w+)/, end: /(\w+)/,
             contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-          }
+          }, hljs.END_FIRST_MATCH_SAME_AS_BEGIN)
         ]
       }
     ]
