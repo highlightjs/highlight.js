@@ -9,6 +9,7 @@ import * as regex from './lib/regex';
 import * as utils from './lib/utils';
 import * as MODES from './lib/modes';
 import { compileLanguage } from './lib/mode_compiler';
+import * as packageJSON from '../package.json';
 
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
@@ -672,6 +673,7 @@ const HLJS = function(hljs) {
 
   hljs.debugMode = function() { SAFE_MODE = false; }
   hljs.safeMode = function() { SAFE_MODE = true; }
+  hljs.versionString = packageJSON.version;
 
   for (const key in MODES) {
     if (typeof MODES[key] === "object")
