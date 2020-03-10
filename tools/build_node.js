@@ -35,7 +35,7 @@ async function buildNodeIndex(languages) {
 }
 
 async function buildNodeHighlightJS() {
-  const input = { input: `src/highlight.js` }
+  const input = { ...config.rollup.node.input, input: `src/highlight.js` }
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` }
   await rollupWrite(input, output)
 }

@@ -9,6 +9,7 @@ import * as regex from './lib/regex';
 import * as utils from './lib/utils';
 import * as MODES from './lib/modes';
 import { compileLanguage } from './lib/mode_compiler';
+import * as packageJSON from '../package.json';
 
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
@@ -74,7 +75,7 @@ const HLJS = function(hljs) {
 
     return classes
       .split(/\s+/)
-      .find((_class) => shouldNotHighlight(_class) || getLanguage(_class))
+      .find((_class) => shouldNotHighlight(_class) || getLanguage(_class));
   }
 
   /**
@@ -194,17 +195,20 @@ const HLJS = function(hljs) {
       if (explicit) {
         continuations[top.subLanguage] = result.top;
       }
-      emitter.addSublanguage(result.emitter, result.language)
+      emitter.addSublanguage(result.emitter, result.language);
     }
 
     function processBuffer() {
-      (top.subLanguage != null ? processSubLanguage() : processKeywords());
+      if (top.subLanguage != null)
+        processSubLanguage();
+      else
+        processKeywords();
       mode_buffer = '';
     }
 
     function startNewMode(mode) {
       if (mode.className) {
-        emitter.openNode(mode.className)
+        emitter.openNode(mode.className);
       }
       top = Object.create(mode, {parent: {value: top}});
     }
@@ -289,18 +293,19 @@ const HLJS = function(hljs) {
     }
 
     function processContinuations() {
-      var list = []
+      var list = [];
       for(var current = top; current !== language; current = current.parent) {
         if (current.className) {
-          list.unshift(current.className)
+          list.unshift(current.className);
         }
       }
-      list.forEach(item => emitter.openNode(item))
+      list.forEach(item => emitter.openNode(item));
     }
 
     var lastMatch = {};
     function processLexeme(text_before_match, match) {
 
+      var err;
       var lexeme = match && match[0];
 
       // add non-matched text to the current mode buffer
@@ -321,7 +326,7 @@ const HLJS = function(hljs) {
         // spit the "skipped" character that our regex choked on back into the output sequence
         mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
         if (!SAFE_MODE) {
-          var err = new Error('0 width match regex');
+          err = new Error('0 width match regex');
           err.languageName = languageName;
           err.badRule = lastMatch.rule;
           throw(err);
@@ -334,7 +339,7 @@ const HLJS = function(hljs) {
         return doBeginMatch(match);
       } else if (match.type==="illegal" && !ignore_illegals) {
         // illegal match, we do not continue processing
-        var err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
+        err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
         err.mode = top;
         throw err;
       } else if (match.type==="end") {
@@ -670,8 +675,9 @@ const HLJS = function(hljs) {
     addPlugin
   });
 
-  hljs.debugMode = function() { SAFE_MODE = false; }
-  hljs.safeMode = function() { SAFE_MODE = true; }
+  hljs.debugMode = function() { SAFE_MODE = false; };
+  hljs.safeMode = function() { SAFE_MODE = true; };
+  hljs.versionString = packageJSON.version;
 
   for (const key in MODES) {
     if (typeof MODES[key] === "object")

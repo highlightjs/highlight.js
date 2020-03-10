@@ -106,7 +106,7 @@ async function buildBrowserHighlightJS(languages, {minify}) {
   var outFile = `${process.env.BUILD_DIR}/highlight.js`;
   var minifiedFile = outFile.replace(/js$/,"min.js");
 
-  const input = { input: `src/highlight.js` }
+  const input = { ...config.rollup.browser_core.input, input: `src/highlight.js` }
   const output = { ...config.rollup.browser_core.output, file: outFile };
   var librarySrc = await rollupCode(input, output);
 

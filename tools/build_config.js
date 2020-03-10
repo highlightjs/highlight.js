@@ -1,4 +1,5 @@
 const cjsPlugin = require('rollup-plugin-commonjs');
+const jsonPlugin = require('rollup-plugin-json');
 
 module.exports = {
     build_dir: "build",
@@ -10,6 +11,7 @@ module.exports = {
         input : {
           plugins: [
             cjsPlugin(),
+            jsonPlugin(),
             {
               transform: (x) => {
                 if (/var module/.exec(x)) {
@@ -22,7 +24,9 @@ module.exports = {
         },
       },
       browser_core: {
-        input: {},
+        input: {
+          plugins: [jsonPlugin()]
+        },
         output: {
           name: "hljs",
           format: "umd",
@@ -32,7 +36,8 @@ module.exports = {
       browser: {
         input: {
           plugins: [
-            cjsPlugin()
+            cjsPlugin(),
+            jsonPlugin()
           ]
         },
         output: {
