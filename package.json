@@ -1,5 +1,5 @@
 {
-  "name": "highlight.js",
+  "name": "@highlightjs/highlight.js",
   "description": "Syntax highlighting with language autodetection.",
   "keywords": [
     "highlight",

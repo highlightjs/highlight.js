@@ -1,5 +1,10 @@
 ## Version 10 Breaking Changes
 
+NPM:
+
+- The package has moved from `highlight.js` to `@highlightjs/highlight.js`, so you may
+  need to update your package.json and some require paths accordingly.
+
 Incompatibilities:
 
 - chore(parser): compressed version 9.x language definitions no longer supported (rebuild them minified) [Josh Goebel][]

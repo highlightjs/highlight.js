@@ -131,16 +131,16 @@ For more info about the returned object refer to the api docs https://highlightj
 
 ```js
 // require the highlight.js library including all languages
-const hljs = require('./highlight.js');
+const hljs = require('@highlightjs/highlight.js');
 const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 ```
 
 ```js
 // require the highlight.js library without languages
-const hljs = require("highlight.js/lib/core");
+const hljs = require("@highlightjs/highlight.js/lib/core");
 // separately require languages
-hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
-hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
+hljs.registerLanguage('html', require('@highlightjs/highlight.js/lib/languages/html'));
+hljs.registerLanguage('sql', require('@highlightjs/highlight.js/lib/languages/sql'));
 // highlight with providing the language
 const highlightedCode = hljs.highlight('html', '<span>Hello World!</span>').value
 ```
@@ -182,28 +182,28 @@ r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 You can import Highlight.js as a CommonJS-module:
 
 ```bash
-npm install highlight.js --save
+npm install @highlightjs/highlight.js --save
 ```
 
 In your application:
 
 ```js
-import hljs from 'highlight.js';
+import hljs from '@highlightjs/highlight.js';
 ```
 
 The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
 
 ```js
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
+import hljs from '@highlightjs/highlight.js/lib/core';
+import javascript from '@highlightjs/highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 ```
 
 To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can import the stylesheet directly into your CommonJS-module:
 
 ```js
-import hljs from 'highlight.js/lib/core';
-import 'highlight.js/styles/github.css';
+import hljs from '@highlightjs/highlight.js/lib/core';
+import '@highlightjs/highlight.js/styles/github.css';
 ```
 
 ## License
