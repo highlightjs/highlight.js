@@ -186,7 +186,7 @@ For such modes ``className`` attribute should be omitted so they won't generate 
 Mode attributes
 ---------------
 
-Other useful attributes are defined in the :doc:`mode reference </reference>`.
+Other useful attributes are defined in the :doc:`mode reference </mode-reference>`.
 
 
 .. _relevance:

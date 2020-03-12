@@ -203,9 +203,9 @@ const HLJS = function(hljs) {
       let matched = regex.startsWith(mode.endRe, matchPlusRemainder);
 
       if (matched) {
-        if (mode["before:end"]) {
+        if (mode["on:end"]) {
           let resp = new Response(mode);
-          mode["before:end"](match, resp);
+          mode["on:end"](match, resp);
           if (resp.ignore)
             matched = false;
         }
@@ -217,7 +217,7 @@ const HLJS = function(hljs) {
           return mode;
         }
       }
-      // even if before:end fires an `ignore` it's still possible
+      // even if on:end fires an `ignore` it's still possible
       // that we might trigger the end node because of a parent mode
       if (mode.endsWithParent) {
         return endOfMode(mode.parent, match, matchPlusRemainder);
@@ -245,7 +245,7 @@ const HLJS = function(hljs) {
 
       let resp = new Response(new_mode);
       // first internal before callbacks, then the public ones
-      let beforeCallbacks = [new_mode.__beforeBegin, new_mode["before:begin"]];
+      let beforeCallbacks = [new_mode.__beforeBegin, new_mode["on:begin"]];
       for (let cb of beforeCallbacks) {
         if (!cb) continue;
         cb(match, resp);
@@ -268,10 +268,10 @@ const HLJS = function(hljs) {
         }
       }
       mode = startNewMode(new_mode);
-      if (mode["after:begin"]) {
-        let resp = new Response(mode);
-        mode["after:begin"](match, resp);
-      }
+      // if (mode["after:begin"]) {
+      //   let resp = new Response(mode);
+      //   mode["after:begin"](match, resp);
+      // }
       return new_mode.returnBegin ? 0 : lexeme.length;
     }
 
