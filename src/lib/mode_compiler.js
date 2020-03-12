@@ -61,7 +61,9 @@ export function compileLanguage(language) {
       // eslint-disable-next-line no-undefined
       const i = match.findIndex((el, i) => i > 0 && el !== undefined);
       const matchData = this.matchIndexes[i];
-      match.splice(0, i); // // trim off the extra matches
+      // trim off any earlier non-relevant match groups (ie, the other regex
+      // match groups that make up the multi-matcher)
+      match.splice(0, i);
 
       return Object.assign(match, matchData);
     }

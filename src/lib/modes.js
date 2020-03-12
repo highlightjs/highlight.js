@@ -121,7 +121,7 @@ export const METHOD_GUARD = {
 export const END_SAME_AS_BEGIN = function(mode) {
   return Object.assign(mode,
     {
-    'after:begin': (m, resp) => { resp.data._beginMatch = m[1]; },
-    'before:end': (m, resp) => { if (resp.data._beginMatch !== m[1]) resp.ignoreMatch() }
+    'on:begin': (m, resp) => { resp.data._beginMatch = m[1]; },
+    'on:end': (m, resp) => { if (resp.data._beginMatch !== m[1]) resp.ignoreMatch() }
     });
 };

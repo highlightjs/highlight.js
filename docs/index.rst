@@ -13,7 +13,7 @@ Contents:
 
    api
    language-guide
-   reference
+   mode-reference
    css-classes-reference
    style-guide
    plugin-api
