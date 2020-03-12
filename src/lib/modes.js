@@ -118,7 +118,10 @@ export const METHOD_GUARD = {
   relevance: 0
 };
 
-export const END_FIRST_MATCH_SAME_AS_BEGIN = {
-  'after:begin': (m, resp) => { resp.data.heredoc = m[1]; },
-  'before:end': (m, resp) => { if (resp.data.heredoc !== m[1]) resp.ignoreMatch(); }
+export const END_SAME_AS_BEGIN = function(mode) {
+  return Object.assign(mode,
+    {
+    'after:begin': (m, resp) => { resp.data._beginMatch = m[1]; },
+    'before:end': (m, resp) => { if (resp.data._beginMatch !== m[1]) resp.ignoreMatch() }
+    });
 };
