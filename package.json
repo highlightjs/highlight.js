@@ -33,7 +33,7 @@
     "clean-css": "^4.2.1",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
-    "commander": "^4.0.0",
+    "commander": "^5.0.0",
     "del": "^5.1.0",
     "dependency-resolver": "^2.0.1",
     "glob": "^7.1.4",
