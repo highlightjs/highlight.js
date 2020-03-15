@@ -13,7 +13,8 @@ const path = require("path");
 async function installPackageJSON() {
   await buildPackageJSON();
   let json = require(`${process.env.BUILD_DIR}/package`);
-  json.name = "highlight.js-cdn-assets";
+  json.name = "@highlightjs/cdn-assets";
+  json.description = json.description.concat(" (pre-compiled CDN assets)");
   fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(json, null, '   '));
 }
 
