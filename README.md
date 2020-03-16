@@ -253,7 +253,7 @@ yarn add highlight.js
 
 Alternatively, you can build it from [source](#source):
 
-```
+```bash
 node tools/build.js -t node
 ```
 
