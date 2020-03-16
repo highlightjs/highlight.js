@@ -148,7 +148,7 @@ const highlightedCode = hljs.highlight('html', '<span>Hello World!</span>').valu
 
 ## ES6 Modules
 
-First you'll likely install via `npm` -- see [Getting the Library](#getting-the-library) below.
+First, you'll likely install via `npm` or `yarn` -- see [Getting the Library](#getting-the-library) below.
 
 In your application:
 
