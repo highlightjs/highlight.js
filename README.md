@@ -245,8 +245,10 @@ There is also an npm package [@highlightjs/cdn-assets](https://www.npmjs.com/pac
 
 Highlight.js can also be used on the server. The package with all supported languages can be installed from NPM or Yarn:
 
-```
+```bash
 npm install highlight.js
+# or
+yarn add highlight.js
 ```
 
 Alternatively, you can build it from [source](#source):
