@@ -243,7 +243,7 @@ There is also an npm package [@highlightjs/cdn-assets](https://www.npmjs.com/pac
 
 ### NPM / Node.js server module
 
-Highlight.js can also be used on the server. The package with all supported languages can be installed from NPM:
+Highlight.js can also be used on the server. The package with all supported languages can be installed from NPM or Yarn:
 
 ```
 npm install highlight.js
