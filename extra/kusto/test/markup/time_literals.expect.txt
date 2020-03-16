@@ -1,0 +1,6 @@
+<span class="hljs-number">5s</span>
+<span class="hljs-number">3tick</span>
+<span class="hljs-number">2h</span>
+<span class="hljs-number">30d</span>
+<span class="hljs-number">20microsecond</span>
+<span class="hljs-number">10m</span>

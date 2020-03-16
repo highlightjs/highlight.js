@@ -63,8 +63,7 @@ class Language {
   }
 
   static fromFile(filename) {
-    if (filename.startsWith("/") || filename.startsWith("."))
-    {
+    if (filename.startsWith("/") || filename.startsWith(".") || process.platform === "win32") {
       var file = filename
     } else {
       var file = `./src/languages/${filename}`

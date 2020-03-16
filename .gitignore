@@ -6,7 +6,7 @@ __pycache__
 node_modules
 .project
 yarn.lock
-extra/
+extra/*
 
 # editors
 .idea/
@@ -15,3 +15,6 @@ extra/
 
 # misc
 /work
+
+# exclude 3rd party languages
+!extra/kusto/
