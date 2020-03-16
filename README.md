@@ -223,7 +223,7 @@ very large.  You can find our list "common" languages that we bundle by default 
 
 The [download page][5] can quickly generate a custom bundle including only the languages you need.
 
-Alternatively, you can build a browser package package from [source](#source):
+Alternatively, you can build a browser package from [source](#source):
 
 ```
 node tools/build.js -t browser :common
