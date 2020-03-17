@@ -32,12 +32,11 @@ export default function (hljs) {
         literal: 'false true null',
     };
 
-    var NUM_OR_TIMEPERIOD = {
-        className: 'number',
-        begin: hljs.NUMBER_RE + '(' +
-            'tick|microsecond|ms|s|h|d' +
-            ')?',
-        relevance: 10
+    var NUMBER = {
+        className: 'number', relevance: 0,
+        variants: [
+            {begin: /\b\d+(tick|microsecond|ms|s|h|d)/}, // time literal
+            {begin: hljs.C_NUMBER_RE},
     };
 
     return {
@@ -50,7 +49,7 @@ export default function (hljs) {
             hljs.APOS_STRING_MODE,
             hljs.C_LINE_COMMENT_MODE,
             // contains numbers and timeperiods
-            NUM_OR_TIMEPERIOD,
+            NUMBER,
         ],
         aliases: ['kql', 'kusto']
     }
