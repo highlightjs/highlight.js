@@ -22,14 +22,17 @@ export default function (hljs) {
         'make_set make_set_if max maxif min minif percentiles stdev stdevif stdevp ' +
         'sum sumif tdigest tdigest tdigest_merge variance varianceif variancep ';
 
+    var JOIN_FLAVOURS = 'innerunique inner leftouter rightouter fullouter leftanti ' +
+        'anti leftantisemi rightanti rightantisemi leftsemi rightsemi '
+
     var KEYWORDS = {
         keyword: TABULAR_OPS + MISC_OPS,
-        
+
         built_in:
-            AGGFUNCS +
-            'by on kind from with bool step to desc abs acos datetime '+
+            AGGFUNCS + JOIN_FLAVOURS +
+            'by on kind from with bool step to desc abs acos datetime ' +
             'anomalychart double todouble bin ago datatable totimespan ' +
-            'string int toscalar ',
+            'string int toscalar inner outer',
 
         literal: 'false true null',
     };
