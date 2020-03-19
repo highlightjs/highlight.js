@@ -130,20 +130,47 @@ For more info about the returned object refer to the api docs https://highlightj
 
 
 ```js
-// require the highlight.js library including all languages
+// require the highlight.js library, including all languages
 const hljs = require('./highlight.js');
 const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 ```
 
+Or for a smaller footprint... load just the languages you need.
+
 ```js
-// require the highlight.js library without languages
-const hljs = require("highlight.js/lib/core");
+const hljs = require("highlight.js/lib/core");  // require only the core library
 // separately require languages
 hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
-hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
-// highlight with providing the language
+
 const highlightedCode = hljs.highlight('html', '<span>Hello World!</span>').value
 ```
+
+
+## ES6 Modules
+
+First, you'll likely install via `npm` or `yarn` -- see [Getting the Library](#getting-the-library) below.
+
+In your application:
+
+```js
+import hljs from 'highlight.js';
+```
+
+The default import imports all languages. Therefore it is likely to be more efficient to import only the library and the languages you need:
+
+```js
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
+```
+
+To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can also import the stylesheet directly as modules:
+
+```js
+import hljs from 'highlight.js/lib/core';
+import 'highlight.js/styles/github.css';
+```
+
 
 ## Getting the Library
 
@@ -153,21 +180,11 @@ both AMD and CommonJS, so if you wish you can use RequireJS or
 Browserify without having to build from source. The server module also
 works perfectly fine with Browserify, but there is the option to use a
 build specific to browsers rather than something meant for a server.
-Head over to the [download page][5] for all the options.
 
-**Don't link to GitHub directly.** The library is not supposed to work straight
+
+**Do not link to GitHub directly.** The library is not supposed to work straight
 from the source, it requires building. If none of the pre-packaged options
 work for you refer to the [building documentation][6].
-
-**The CDN-hosted package doesn't have all the languages.** Otherwise it'd be
-too big. If you don't see the language you need in the ["Common" section][5],
-it can be added manually:
-
-```html
-<script
- charset="UTF-8"
- src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/languages/go.min.js"></script>
-```
 
 **On Almond.** You need to use the optimizer to give the module a name. For
 example:
@@ -176,40 +193,83 @@ example:
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
+### CDN Hosted
 
-### CommonJS
+A prebuilt version of highlight.js bundled with many common languages is hosted by the following CDNs:
 
-You can import Highlight.js as a CommonJS-module:
+**cdnjs** ([link](https://cdnjs.com/libraries/highlight.js))
+
+```html
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8"
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/go.min.js"></script>
+```
+
+**jsdelivr** ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
+
+```html
+<link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/default.min.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
+```
+
+**Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
+very large.  You can find our list "common" languages that we bundle by default on our [download page][5].
+
+### Self Hosting
+
+The [download page][5] can quickly generate a custom bundle including only the languages you need.
+
+Alternatively, you can build a browser package from [source](#source):
+
+```
+node tools/build.js -t browser :common
+```
+
+See our [building documentation][6] for more information.
+
+**Note:** Building from source should always result in the smallest size builds.  Thw website download page is optimized for speed, not size.
+
+
+#### Prebuilt CDN assets
+
+You can also download and self-host the same assets we serve up via our own CDNs.  We publish those builds to the [cdn-release](https://github.com/highlightjs/cdn-release) GitHub repository.  You can easily pull individual files off the CDN endpoints with `curl`, etc; if say you only needed `highlight.min.js` and a single CSS file.
+
+There is also an npm package [@highlightjs/cdn-assets](https://www.npmjs.com/package/@highlightjs/cdn-assets) if pulling the assets in via `npm` or `yarn` would be easier for your build process.
+
+
+### NPM / Node.js server module
+
+Highlight.js can also be used on the server. The package with all supported languages can be installed from NPM or Yarn:
 
 ```bash
-npm install highlight.js --save
+npm install highlight.js
+# or
+yarn add highlight.js
 ```
 
-In your application:
+Alternatively, you can build it from [source](#source):
 
-```js
-import hljs from 'highlight.js';
+```bash
+node tools/build.js -t node
 ```
 
-The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
+See our [building documentation][6] for more information.
 
-```js
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
-hljs.registerLanguage('javascript', javascript);
-```
 
-To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can import the stylesheet directly into your CommonJS-module:
+### Source
 
-```js
-import hljs from 'highlight.js/lib/core';
-import 'highlight.js/styles/github.css';
-```
+[Current source][10] is always available on GitHub.
+
 
 ## License
 
 Highlight.js is released under the BSD License. See [LICENSE][7] file
 for details.
+
 
 ## Links
 
@@ -229,3 +289,4 @@ Authors and contributors are listed in the [AUTHORS.txt][8] file.
 [7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
 [8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.txt
 [9]: https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md
+[10]: https://github.com/highlightjs/
