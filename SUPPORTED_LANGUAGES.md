@@ -93,6 +93,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Kotlin                  | kotlin, kt             |         |
 | LaTeX                   | tex                    |         |
 | Leaf                    | leaf                   |         |
+| Lean                    | lean                   | [highlightjs-lean](https://github.com/leanprover-community/highlightjs-lean) |
 | Lasso                   | lasso, ls, lassoscript |         |
 | Less                    | less                   |         |
 | LDIF                    | ldif                   |         |
