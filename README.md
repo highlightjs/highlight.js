@@ -140,9 +140,9 @@ Or for a smaller footprint... load just the languages you need.
 ```js
 const hljs = require("highlight.js/lib/core");  // require only the core library
 // separately require languages
-hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
+hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
 
-const highlightedCode = hljs.highlight('html', '<span>Hello World!</span>').value
+const highlightedCode = hljs.highlight('xml', '<span>Hello World!</span>').value
 ```
 
 
