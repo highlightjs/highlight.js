@@ -13,7 +13,7 @@ export default function(hljs) {
       keyword:
         'addr and as asm bind block break case cast const continue converter ' +
         'discard distinct div do elif else end enum except export finally ' +
-        'for from generic if import in include interface is isnot iterator ' +
+        'for from func generic if import in include interface is isnot iterator ' +
         'let macro method mixin mod nil not notin object of or out proc ptr ' +
         'raise ref return shl shr static template try tuple type using var ' +
         'when while with without xor yield',
