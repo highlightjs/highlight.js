@@ -21,6 +21,7 @@ Parser Engine Changes:
 
 Language Improvements:
 
+- enh(nim) adds `func` keyword (#2468) [Adnan Yaqoob][]
 - enh(xml) deprecate ActionScript inside script tags (#2444) [Josh Goebel][]
 - fix(javascript) prevent get/set variables conflicting with keywords (#2440) [Josh Goebel][]
 - bug(clojure) Now highlights `defn-` properly (#2438) [Josh Goebel][]
@@ -64,6 +65,7 @@ Developer Tools:
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Josh Goebel]: https://github.com/yyyc514
 [Sean Williams]: https://github.com/hmmwhatsthisdo
+[Adnan Yaqoob]: https://github.com/adnanyaqoobvirk
 
 
 ## Version 9.18.1
