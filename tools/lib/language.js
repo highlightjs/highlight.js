@@ -63,7 +63,7 @@ class Language {
   }
 
   static fromFile(filename) {
-    if ( path.isAbsolute(filename) || filename.startsWith(".") )
+    if (path.isAbsolute(filename) || filename.startsWith("."))
     {
       var file = filename
     } else {
