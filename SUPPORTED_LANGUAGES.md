@@ -139,6 +139,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Puppet                  | puppet, pp             |         |
 | Python                  | python, py, gyp        |         |
 | Python profiler results | profile                |         |
+| Python REPL             | python-repl, pycon     |         |
 | Q                       | k, kdb                 |         |
 | QML                     | qml                    |         |
 | R                       | r                      |         |
