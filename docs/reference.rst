@@ -190,7 +190,7 @@ endSameAsBegin
 Acts as ``end`` matching exactly the same string that was found by the
 corresponding ``begin`` regexp.
 
-For example, in PostgreSQL string constants can uee "dollar quotes",
+For example, in PostgreSQL string constants can use "dollar quotes",
 consisting of a dollar sign, an optional tag of zero or more characters,
 and another dollar sign. String constant must be ended with the same
 construct using the same tag. It is possible to nest dollar-quoted string
