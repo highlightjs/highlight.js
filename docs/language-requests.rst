@@ -5,7 +5,7 @@ This is a general answer to requests for adding new languages that appear from
 time to time in the highlight.js issue tracker and discussion group.
 
     Highlight.js doesn't have a fundamental plan for implementing languages,
-    instead the project works by encouraging develoment of 3rd party language
+    instead the project works by encouraging development of 3rd party language
     grammars from contributors.  We're also happy to host 3rd party language
     grammars at the ``highlightjs`` GitHub organization - no matter how obscure
     or weird.
