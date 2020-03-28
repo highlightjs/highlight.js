@@ -231,7 +231,7 @@ node tools/build.js -t browser :common
 
 See our [building documentation][6] for more information.
 
-**Note:** Building from source should always result in the smallest size builds.  Thw website download page is optimized for speed, not size.
+**Note:** Building from source should always result in the smallest size builds.  The website download page is optimized for speed, not size.
 
 
 #### Prebuilt CDN assets
