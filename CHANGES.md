@@ -21,6 +21,7 @@ Parser Engine Changes:
 
 Language Improvements:
 
+- enh(swift) Add `compactMap` to keywords as built_in (#2478) [Omid Golparvar](https://github.com/omidgolparvar)
 - enh(nim) adds `func` keyword (#2468) [Adnan Yaqoob][]
 - enh(xml) deprecate ActionScript inside script tags (#2444) [Josh Goebel][]
 - fix(javascript) prevent get/set variables conflicting with keywords (#2440) [Josh Goebel][]
