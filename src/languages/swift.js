@@ -23,7 +23,7 @@ export default function(hljs) {
       literal: 'true false nil',
       built_in: 'abs advance alignof alignofValue anyGenerator assert assertionFailure ' +
         'bridgeFromObjectiveC bridgeFromObjectiveCUnconditional bridgeToObjectiveC ' +
-        'bridgeToObjectiveCUnconditional c contains count countElements countLeadingZeros ' +
+        'bridgeToObjectiveCUnconditional c compactMap contains count countElements countLeadingZeros ' +
         'debugPrint debugPrintln distance dropFirst dropLast dump encodeBitsAsWords ' +
         'enumerate equal fatalError filter find getBridgedObjectiveCType getVaList ' +
         'indices insertionSort isBridgedToObjectiveC isBridgedVerbatimToObjectiveC ' +
