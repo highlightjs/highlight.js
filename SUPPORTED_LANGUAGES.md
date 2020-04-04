@@ -115,6 +115,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Moonscript              | moonscript, moon       |         |
 | N1QL                    | n1ql                   |         |
 | NSIS                    | nsis                   |         |
+| Never                   | never                  | [highlightjs-never](https://github.com/never-lang/highlightjs-never) |
 | Nginx                   | nginx, nginxconf       |         |
 | Nim                     | nimrod                 |         |
 | Nix                     | nix                    |         |
