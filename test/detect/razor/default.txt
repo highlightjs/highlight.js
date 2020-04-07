@@ -1,0 +1,14 @@
+@* url with the item id parameter *@
+@page "/item/{id:int}"
+
+@if (Item == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{ /* ... */ }
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+}

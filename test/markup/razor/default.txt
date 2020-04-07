@@ -1,0 +1,14 @@
+<!-- comment -->
+@* comment *@
+
+@page "/item/{id:int}"
+
+@if (Item == null)
+{
+    <p><em>Loading...</em></p>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+}

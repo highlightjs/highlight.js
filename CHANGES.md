@@ -9,6 +9,7 @@ New Grammars:
 
 - added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
 - added 3rd party C3 grammar to SUPPORTED_LANGUAGES [aliaegik][]
+- added 3rd party Razor grammar to SUPPORTED_LANGUAGES [Nicolas01][]
 
 Grammars:
 
@@ -43,6 +44,7 @@ Parser:
 [CrystalSplitter]: https://github.com/CrystalSplitter
 [Sam Rawlins]: https://github.com/srawlins
 [Keyacom]: https://github.com/Keyacom
+[Nicolas01]: https://github.com/Nicolas01
 
 
 ## Version 11.7.0

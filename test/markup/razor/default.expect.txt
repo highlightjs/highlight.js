@@ -1,0 +1,14 @@
+<span class="hljs-comment">&lt;!-- comment --&gt;</span>
+<span class="hljs-comment">@* comment *@</span>
+
+<span class="hljs-razor-directives"><span class="hljs-name">@page</span><span class="language-csharp"> <span class="hljs-string">&quot;/item/{id:int}&quot;</span></span></span>
+
+<span class="hljs-razor-block"><span class="hljs-symbol">@</span><span class="language-csharp"><span class="hljs-keyword">if</span> (Item == <span class="hljs-literal">null</span>)
+{
+    </span><span class="hljs-simple-xml-block"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span></span><span class="hljs-simple-xml-block"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span></span></span><span class="language-csharp">Loading...</span><span class="hljs-simple-xml-block"><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span></span></span><span class="hljs-simple-xml-block"><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></span><span class="language-csharp">
+}</span></span>
+
+<span class="hljs-razor-block"><span class="hljs-symbol">@code</span><span class="language-csharp"> {
+    [<span class="hljs-meta">Parameter</span>]
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Id { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+}</span></span>
