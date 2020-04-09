@@ -10,6 +10,9 @@ Category: common, config
 export default function(hljs) {
   var LITERALS = 'true false yes no null';
 
+  // YAML spec allows non-reserved characters in tags
+  var YAML_TAG_RE = '[a-zA-Z_.~@#$%():;+=-?/]\\w*'
+
   // Define keys as starting with a word character
   // ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
   // ...and ending with a colon followed immediately by a space, tab or newline.
@@ -81,11 +84,11 @@ export default function(hljs) {
       },
       { // local tags
         className: 'type',
-        begin: '!' + hljs.UNDERSCORE_IDENT_RE,
+        begin: '!' + YAML_TAG_RE,
       },
       { // data type
         className: 'type',
-        begin: '!!' + hljs.UNDERSCORE_IDENT_RE,
+        begin: '!!' + YAML_TAG_RE,
       },
       { // fragment id &ref
         className: 'meta',
