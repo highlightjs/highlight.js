@@ -57,6 +57,7 @@ Language Improvements:
 - enh(plaintext) added `text` and `txt` as alias (#2360) [Taufik Nurrohman][]
 - enh(powershell) added PowerShell v5.1/v7 default aliases as "built_in"s (#2423) [Sean Williams][]
 - enh(yaml) added support for timestamps (#2475) [Peter Plantinga][]
+- fix(yaml) Fix tags to include non-word characters (#2486) [Peter Plantinga][]
 
 Developer Tools:
 
