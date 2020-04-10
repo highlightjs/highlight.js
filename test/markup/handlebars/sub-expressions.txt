@@ -1,1 +1,13 @@
 {{helper (subExpression 1 2)}}
+
+{{{helper (subExpression 1 2)}}}
+
+{{{{#helper (subExpression 1 2)}}}} {{{{/helper}}}}
+
+{{#helper (subExpression 1 2)}} {{/helper}}
+
+{{>partial (subExpression 1 2)}}
+
+{{helper key=(subExpression 1 2)}}
+
+{{helper (subExpression (canBeNested 1 2) anotherParam)}}
