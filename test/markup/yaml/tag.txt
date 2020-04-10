@@ -2,3 +2,7 @@ key: !!builtintagname test
 key: !localtagname test
 key: "!notatag"
 key: '!!notatageither'
+key: !!python/dict test
+key: !!python/name:module.name test
+key: !foo2.bar test
+key: !(foo.bar?):tag test
