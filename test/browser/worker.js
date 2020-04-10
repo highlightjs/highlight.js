@@ -2,7 +2,7 @@
 
 const Worker   = require('tiny-worker');
 
-const {newTestCase, defaultCase, findLibrary } = require('./test_case')
+const { defaultCase, findLibrary } = require('./test_case')
 
 describe('web worker', function() {
   before(async function() {
