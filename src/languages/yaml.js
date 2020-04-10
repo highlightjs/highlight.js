@@ -11,7 +11,7 @@ export default function(hljs) {
   var LITERALS = 'true false yes no null';
 
   // YAML spec allows non-reserved characters in tags
-  var YAML_TAG_RE = '[\w#;/?:@&=+$,_.!~*\'()[\]]+'
+  var YAML_TAG_RE = '[\\w#;/?:@&=+$,.!~*\\\'()[\\]]+'
 
   // Define keys as starting with a word character
   // ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
