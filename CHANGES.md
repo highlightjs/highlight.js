@@ -8,7 +8,7 @@ New languages:
 
 New themes:
 
-- none.
+- *Srcery* by [Chen Bin][]
 
 Parser Engine Changes:
 
@@ -63,6 +63,7 @@ Developer Tools:
 [Omid Golparvar]: https://github.com/omidgolparvar
 [Alexandre Grison]: https://github.com/agrison
 [Josh Goebel]: https://github.com/yyyc514
+[Chen Bin]: https://github.com/redguardtoo
 [Sam Miller]: https://github.com/smillerc
 [Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
