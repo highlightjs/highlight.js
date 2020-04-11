@@ -1,0 +1,2 @@
+const bad = ((a, b) => [...a, b]);
+// https://github.com/highlightjs/highlight.js/issues/2189
