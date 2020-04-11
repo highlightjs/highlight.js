@@ -22,6 +22,7 @@ Parser Engine Changes:
 
 Language Improvements:
 
+- enh(python) Exclude parens from functions params (#2490) [Álvaro Mondéjar][]
 - enh(swift) Add `compactMap` to keywords as built_in (#2478) [Omid Golparvar][]
 - enh(nim) adds `func` keyword (#2468) [Adnan Yaqoob][]
 - enh(xml) deprecate ActionScript inside script tags (#2444) [Josh Goebel][]
@@ -70,6 +71,7 @@ Developer Tools:
 [Josh Goebel]: https://github.com/yyyc514
 [Sean Williams]: https://github.com/hmmwhatsthisdo
 [Adnan Yaqoob]: https://github.com/adnanyaqoobvirk
+[Álvaro Mondéjar]: https://github.com/mondeja
 
 
 ## Version 9.18.1
@@ -2148,4 +2150,3 @@ your comments and question to [highlight.js forum][forum]. And don't be afraid
 if you find there some fancy Cyrillic letters -- it's for Russian users too :-)
 
 [forum]: http://softwaremaniacs.org/forum/viewforum.php?id=6
-

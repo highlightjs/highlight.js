@@ -86,8 +86,14 @@ export default function(hljs) {
   };
   var PARAMS = {
     className: 'params',
-    begin: /\(/, end: /\)/,
-    contains: ['self', PROMPT, NUMBER, STRING, hljs.HASH_COMMENT_MODE]
+    variants: [
+      // Exclude params at functions without params
+      {begin: /\(\s*\)/, skip: true, className: null },
+      {
+        begin: /\(/, end: /\)/, excludeBegin: true, excludeEnd: true,
+        contains: ['self', PROMPT, NUMBER, STRING, hljs.HASH_COMMENT_MODE],
+      },
+    ],
   };
   SUBST.contains = [STRING, NUMBER, PROMPT];
   return {
