@@ -11,7 +11,8 @@ export default function(hljs) {
   var LITERALS = 'true false yes no null';
 
   // YAML spec allows non-reserved characters in tags
-  var YAML_TAG_RE = '[\\w#;/?:@&=+$,.!~*\\\'()[\\]]+'
+  var NON_EX_CHARS = '\\w#;/?:@&=+$,.~*\\\'()[\\]'
+  var YAML_TAG_RE = '[' + NON_EX_CHARS + '][' + NON_EX_CHARS + '!]*'
 
   // Define keys as starting with a word character
   // ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
@@ -82,9 +83,13 @@ export default function(hljs) {
         excludeEnd: true,
         relevance: 0
       },
-      { // tags
+      { // local tags
         className: 'type',
         begin: '!' + YAML_TAG_RE,
+      },
+      { // data type
+        className: 'type',
+        begin: '!!' + YAML_TAG_RE,
       },
       { // fragment id &ref
         className: 'meta',
