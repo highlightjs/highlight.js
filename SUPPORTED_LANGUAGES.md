@@ -177,6 +177,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Test Anything Protocol  | tap                    |         |
 | Thrift                  | thrift                 |         |
 | TP                      | tp                     |         |
+| Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
 | Twig                    | twig, craftcms         |         |
 | TypeScript              | typescript, ts         |         |
 | VB.Net                  | vbnet, vb              |         |
