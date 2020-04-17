@@ -83,17 +83,17 @@ export default function(hljs) {
         excludeEnd: true,
         relevance: 0
       },
-      { // local tags
+      { // "named" tags
         className: 'type',
-        begin: '!' + YAML_TAG_RE,
+        begin: '!\w+!' + YAML_TAG_RE,
       },
       { // "global" tags (data types)
         className: 'type',
         begin: '!!' + YAML_TAG_RE,
       },
-      { // "named" tags
+      { // local tags
         className: 'type',
-        begin: '!\w+!' + YAML_TAG_RE,
+        begin: '!' + YAML_TAG_RE,
       },
       { // fragment id &ref
         className: 'meta',
