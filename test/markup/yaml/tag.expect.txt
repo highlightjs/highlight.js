@@ -6,3 +6,4 @@
 <span class="hljs-attr">key:</span> <span class="hljs-type">!!python/name:module.name</span> <span class="hljs-string">test</span>
 <span class="hljs-attr">key:</span> <span class="hljs-type">!foo2.bar</span> <span class="hljs-string">test</span>
 <span class="hljs-attr">key:</span> <span class="hljs-type">!(foo.bar?):tag</span> <span class="hljs-string">test</span>
+<span class="hljs-attr">key:</span> <span class="hljs-type">!foo!bar</span> <span class="hljs-string">test</span>
