@@ -10,12 +10,8 @@ Category: common, config
 export default function(hljs) {
   var LITERALS = 'true false yes no null';
 
-  // YAML spec allows non-reserved characters in tags, since they are intended
-  // to be used sometimes as URIs. In order to differentiate between "local"
-  // tags, prefixed with `!` and global tags, prefixed with `!!`, don't allow
-  // the prefix char `!` in the first char of the expression.
-  var NON_EXCLAMATION_CHARS = '\\w#;/?:@&=+$,.~*\\\'()[\\]'
-  var YAML_TAG_RE = '[' + NON_EXCLAMATION_CHARS + '][' + NON_EXCLAMATION_CHARS + '!]*'
+  // YAML spec allows non-reserved URI characters in tags.
+  var URI_CHARACTERS = '[\\w#;/?:@&=+$,.~*\\\'()[\\]]+'
 
   // Define keys as starting with a word character
   // ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
@@ -86,13 +82,17 @@ export default function(hljs) {
         excludeEnd: true,
         relevance: 0
       },
+      { // named tags
+        className: 'type',
+        begin: '!\\w+!' + URI_CHARACTERS,
+      },
       { // local tags
         className: 'type',
-        begin: '!' + YAML_TAG_RE,
+        begin: '!' + URI_CHARACTERS,
       },
       { // data type
         className: 'type',
-        begin: '!!' + YAML_TAG_RE,
+        begin: '!!' + URI_CHARACTERS,
       },
       { // fragment id &ref
         className: 'meta',
