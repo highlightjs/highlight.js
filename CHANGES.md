@@ -1,3 +1,13 @@
+## Version 10.1.0 (in progress)
+
+Language Improvements:
+
+- fix(javascript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
+- fix(typescript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
+
+
 ## Version 10.0.0
 
 New languages:
