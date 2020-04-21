@@ -86,11 +86,16 @@ export default function(hljs) {
         className: 'type',
         begin: '!\\w+!' + URI_CHARACTERS,
       },
-      { // local tags
+      // https://yaml.org/spec/1.2/spec.html#id2784064
+      { // verbatim tags
+        className: 'type',
+        begin: '!<' + URI_CHARACTERS + ">",
+      },
+      { // primary tags
         className: 'type',
         begin: '!' + URI_CHARACTERS,
       },
-      { // data type
+      { // secondary tags
         className: 'type',
         begin: '!!' + URI_CHARACTERS,
       },
