@@ -131,7 +131,7 @@ Highlight.js распространяется под лицензией BSD. П�
 Более подробная документация по API и другим темам расположена на
 <http://highlightjs.readthedocs.io/>.
 
-Авторы и контрибьюторы перечислены в файле [AUTHORS.ru.txt][8] file.
+Авторы и контрибьюторы перечислены в файле [AUTHORS.txt][8] file.
 
 [1]: http://highlightjs.readthedocs.io/en/latest/api.html#inithighlightingonload
 [2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
@@ -140,4 +140,4 @@ Highlight.js распространяется под лицензией BSD. П�
 [5]: https://highlightjs.org/download/
 [6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
 [7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
-[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.ru.txt
+[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.txt
