@@ -1,6 +1,6 @@
 /*
 Language: HTMLBars
-Requires: xml.js
+Requires: xml.js, handlebars.js
 Author: Michael Johnston <lastobelus@gmail.com>
 Description: Matcher for HTMLBars
 Website: https://github.com/tildeio/htmlbars
@@ -8,6 +8,12 @@ Category: template
 */
 
 export default function(hljs) {
+  // This work isn't complete yet but this is done so that this technically
+  // breaking change becomes a part of the 10.0 release and won't force
+  // us to prematurely release 11.0 just to break this.
+  var SHOULD_INHERIT_FROM_HANDLEBARS = hljs.requireLanguage('handlebars');
+  // https://github.com/highlightjs/highlight.js/issues/2181
+
   var BUILT_INS = 'action collection component concat debugger each each-in else get hash if input link-to loc log mut outlet partial query-params render textarea unbound unless with yield view';
 
   var ATTR_ASSIGNMENT = {

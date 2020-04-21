@@ -11,6 +11,7 @@ Incompatibilities:
 
 Renamed Language Files:
 
+- chore(parser): `htmlbars.js` now depends on `handlebars.js` [Josh Goebel][]
 - chore(parser): rename `nimrod.js` to `nim.js` [Josh Goebel][]
 - chore(parser): rename `cs.js` to `csharp.js` [Josh Goebel][]
 - chore(parser): rename `tex.js` to `latex.js` [Josh Goebel][]
