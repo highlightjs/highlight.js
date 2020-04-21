@@ -142,24 +142,37 @@ export default function(hljs) {
           hljs.REGEXP_MODE,
           {
             className: 'function',
-            begin: '(\\(.*?\\)|' + hljs.IDENT_RE + ')\\s*=>', returnBegin: true,
+            // we have to count the parens to make sure we actually have the
+            // correct bounding ( ) before the =>.  There could be any number of
+            // sub-expressions inside also surrounded by parens.
+            begin: '(\\([^(]*' +
+              '(\\([^(]*' +
+                '(\\([^(]*' +
+                '\\))?' +
+              '\\))?' +
+            '\\)|' + hljs.UNDERSCORE_IDENT_RE + ')\\s*=>', returnBegin: true,
             end: '\\s*=>',
             contains: [
               {
                 className: 'params',
                 variants: [
                   {
-                    begin: hljs.IDENT_RE
+                    begin: hljs.UNDERSCORE_IDENT_RE
                   },
                   {
+                    className: null,
                     begin: /\(\s*\)/,
+                    skip: true
                   },
                   {
                     begin: /\(/, end: /\)/,
                     excludeBegin: true, excludeEnd: true,
                     keywords: KEYWORDS,
                     contains: [
-                      'self',
+                      // eat recursive parens in sub expressions
+                      { begin: /\(/, end: /\)/,
+                        contains: ["self", hljs.C_LINE_COMMENT_MODE,hljs.C_BLOCK_COMMENT_MODE]
+                      },
                       hljs.C_LINE_COMMENT_MODE,
                       hljs.C_BLOCK_COMMENT_MODE
                     ]

@@ -2,3 +2,13 @@ var f = x => x;
 f(x => x + (y=2, z=undefined, ...rest) => y);
 () => null;
 const FC = props => <p>functional component</p>;
+
+const good = () => 0;
+const good = (x) => 0;
+const bad = (a => [...a, b]);
+const bad = (_ => doSomething());
+const bad = (() => 0);
+const bad = ((a, b) => [...a, b]);
+const array = [1, 2, 3].reduce((acc, next) => [...acc, next], []);
+sides.every((length,width=(3+2+(4/5))) => length > 0 );
+
