@@ -1,4 +1,4 @@
-## Version 10.0.0 (beta.0)
+## Version 10.0.0
 
 New languages:
 

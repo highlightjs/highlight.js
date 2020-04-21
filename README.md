@@ -1,5 +1,3 @@
-**This documentation reflects version 10, which is not released yet.  For the stable README, see <https://github.com/highlightjs/highlight.js/tree/9-18-stable>.**
-
 # Highlight.js
 
 [![Build Status](https://travis-ci.org/highlightjs/highlight.js.svg?branch=master)](https://travis-ci.org/highlightjs/highlight.js) [![Greenkeeper badge](https://badges.greenkeeper.io/highlightjs/highlight.js.svg)](https://greenkeeper.io/) [![install size](https://packagephobia.now.sh/badge?p=highlight.js)](https://packagephobia.now.sh/result?p=highlight.js)
