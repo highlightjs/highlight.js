@@ -1,10 +1,9 @@
+import { escapeHTML } from './utils';
+
 const SPAN_CLOSE = '</span>';
-
-import {escapeHTML} from './utils';
-
 const emitsWrappingTags = (node) => {
   return !!node.kind;
-}
+};
 
 export default class HTMLRenderer {
   constructor(tree, options) {
@@ -16,15 +15,16 @@ export default class HTMLRenderer {
   // renderer API
 
   addText(text) {
-    this.buffer += escapeHTML(text)
+    this.buffer += escapeHTML(text);
   }
 
   openNode(node) {
     if (!emitsWrappingTags(node)) return;
 
     let className = node.kind;
-    if (!node.sublanguage)
+    if (!node.sublanguage) {
       className = `${this.classPrefix}${className}`;
+    }
     this.span(className);
   }
 
@@ -37,7 +37,7 @@ export default class HTMLRenderer {
   // helpers
 
   span(className) {
-    this.buffer += `<span class="${className}">`
+    this.buffer += `<span class="${className}">`;
   }
 
   value() {

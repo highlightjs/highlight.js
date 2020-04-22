@@ -75,7 +75,7 @@ class TokenTree {
 
   - addKeyword(text, kind)
   - addText(text)
-  - addSublanguage(emitter, subLangaugeName)
+  - addSublanguage(emitter, subLanguageName)
   - finalize()
   - openNode(kind)
   - closeNode()
