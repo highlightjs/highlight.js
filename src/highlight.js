@@ -22,9 +22,9 @@ const HLJS = function(hljs) {
   var ArrayProto = [];
 
   // Global internal variables used within the highlight.js library.
-  var languages = {},
-      aliases = {},
-      plugins = [];
+  var languages = {};
+  var aliases = {};
+  var plugins = [];
 
   // safe/production mode - swallows more errors, tries to keep running
   // even if a single syntax or parse hits a fatal error
@@ -377,7 +377,7 @@ const HLJS = function(hljs) {
     processContinuations();
     var mode_buffer = '';
     var relevance = 0;
-    var match, processedCount, index = 0;
+    var index = 0;
     var continueScanAtSamePosition = false;
 
     try {
@@ -392,12 +392,12 @@ const HLJS = function(hljs) {
           top.matcher.lastIndex = index;
           top.matcher.considerAll();
         }
-        match = top.matcher.exec(codeToHighlight);
+        const match = top.matcher.exec(codeToHighlight);
         // console.log("match", match[0], match.rule && match.rule.begin)
         if (!match) break;
 
         const beforeMatch = codeToHighlight.substring(index, match.index);
-        processedCount = processLexeme(beforeMatch, match);
+        const processedCount = processLexeme(beforeMatch, match);
         index = match.index + processedCount;
       }
       processLexeme(codeToHighlight.substr(index));
@@ -513,8 +513,8 @@ const HLJS = function(hljs) {
   }
 
   function buildClassName(prevClassName, currentLang, resultLang) {
-    var language = currentLang ? aliases[currentLang] : resultLang,
-        result = [prevClassName.trim()];
+    var language = currentLang ? aliases[currentLang] : resultLang;
+    var result = [prevClassName.trim()];
 
     if (!prevClassName.match(/\bhljs\b/)) {
       result.push('hljs');

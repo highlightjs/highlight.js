@@ -26,7 +26,6 @@ module.exports = {
       // for now ignore diff between types of quoting
       "quotes": "off",
       // "no-multi-spaces": "off",
-      "one-var": "off",
       // this is the style we are already using
       "operator-linebreak": ["error","after", { "overrides": { "?": "after", ":": "after" } }],
       // sometimes we declare variables with extra spacing
