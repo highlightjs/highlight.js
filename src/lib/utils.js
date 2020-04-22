@@ -9,15 +9,14 @@ export function escapeHTML(value) {
  * @returns a single new object
  */
 export function inherit(parent) { // inherit(parent, override_obj, override_obj, ...)
-  var key;
   var result = {};
   var objects = Array.prototype.slice.call(arguments, 1);
 
-  for (key in parent) {
+  for (const key in parent) {
     result[key] = parent[key];
   }
   objects.forEach(function(obj) {
-    for (key in obj) {
+    for (const key in obj) {
       result[key] = obj[key];
     }
   });

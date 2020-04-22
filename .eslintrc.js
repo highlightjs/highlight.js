@@ -35,7 +35,7 @@ module.exports = {
 
       // TODO maybe
       "camelcase": "off", // TODO: turn on later
-      // "init-declarations": ["error","always"]
+      "init-declarations": ["error","always"]
     },
     "overrides": [
       {

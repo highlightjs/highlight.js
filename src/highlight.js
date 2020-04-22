@@ -56,13 +56,12 @@ const HLJS = function(hljs) {
   }
 
   function blockLanguage(block) {
-    var match;
     var classes = block.className + ' ';
 
     classes += block.parentNode ? block.parentNode.className : '';
 
     // language-* takes precedence over non-prefixed class names.
-    match = options.languageDetectRe.exec(classes);
+    const match = options.languageDetectRe.exec(classes);
     if (match) {
       var language = getLanguage(match[1]);
       if (!language) {
@@ -137,22 +136,20 @@ const HLJS = function(hljs) {
     }
 
     function processKeywords() {
-      var keyword_match, last_index, match, buf;
-
       if (!top.keywords) {
         emitter.addText(mode_buffer);
         return;
       }
 
-      last_index = 0;
+      let last_index = 0;
       top.lexemesRe.lastIndex = 0;
-      match = top.lexemesRe.exec(mode_buffer);
-      buf = "";
+      let match = top.lexemesRe.exec(mode_buffer);
+      let buf = "";
 
       while (match) {
         buf += mode_buffer.substring(last_index, match.index);
-        keyword_match = keywordMatch(top, match);
-        var kind = null;
+        const keyword_match = keywordMatch(top, match);
+        let kind = null;
         if (keyword_match) {
           emitter.addText(buf);
           buf = "";
@@ -305,7 +302,6 @@ const HLJS = function(hljs) {
 
     var lastMatch = {};
     function processLexeme(text_before_match, match) {
-      var err;
       var lexeme = match && match[0];
 
       // add non-matched text to the current mode buffer
@@ -324,7 +320,7 @@ const HLJS = function(hljs) {
         // spit the "skipped" character that our regex choked on back into the output sequence
         mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
         if (!SAFE_MODE) {
-          err = new Error('0 width match regex');
+          const err = new Error('0 width match regex');
           err.languageName = languageName;
           err.badRule = lastMatch.rule;
           throw err;
@@ -337,7 +333,7 @@ const HLJS = function(hljs) {
         return doBeginMatch(match);
       } else if (match.type === "illegal" && !ignore_illegals) {
         // illegal match, we do not continue processing
-        err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
+        const err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
         err.mode = top;
         throw err;
       } else if (match.type === "end") {
@@ -370,9 +366,9 @@ const HLJS = function(hljs) {
     }
 
     compileLanguage(language);
+    var result = '';
     var top = continuation || language;
     var continuations = {}; // keep continuations for sub-languages
-    var result;
     var emitter = new options.__emitter(options);
     processContinuations();
     var mode_buffer = '';
@@ -532,8 +528,8 @@ const HLJS = function(hljs) {
   two optional parameters for fixMarkup.
   */
   function highlightBlock(block) {
-    var node, originalStream, result, resultNode, text;
-    var language = blockLanguage(block);
+    let node = null;
+    const language = blockLanguage(block);
 
     if (shouldNotHighlight(language)) return;
 
@@ -546,12 +542,12 @@ const HLJS = function(hljs) {
     } else {
       node = block;
     }
-    text = node.textContent;
-    result = language ? highlight(language, text, true) : highlightAuto(text);
+    const text = node.textContent;
+    const result = language ? highlight(language, text, true) : highlightAuto(text);
 
-    originalStream = nodeStream(node);
+    const originalStream = nodeStream(node);
     if (originalStream.length) {
-      resultNode = document.createElement('div');
+      const resultNode = document.createElement('div');
       resultNode.innerHTML = result.value;
       result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
     }
@@ -601,7 +597,7 @@ const HLJS = function(hljs) {
   const PLAINTEXT_LANGUAGE = { disableAutodetect: true, name: 'Plain text' };
 
   function registerLanguage(name, language) {
-    var lang;
+    var lang = null;
     try {
       lang = language(hljs);
     } catch (error) {
