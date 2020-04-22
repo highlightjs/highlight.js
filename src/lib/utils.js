@@ -2,42 +2,41 @@ export function escapeHTML(value) {
   return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-
 /**
  * performs a shallow merge of multiple objects into one
  *
  * @arguments list of objects with properties to merge
  * @returns a single new object
  */
-export function inherit(parent) {  // inherit(parent, override_obj, override_obj, ...)
+export function inherit(parent) { // inherit(parent, override_obj, override_obj, ...)
   var key;
   var result = {};
   var objects = Array.prototype.slice.call(arguments, 1);
 
-  for (key in parent)
+  for (key in parent) {
     result[key] = parent[key];
+  }
   objects.forEach(function(obj) {
-    for (key in obj)
+    for (key in obj) {
       result[key] = obj[key];
+    }
   });
   return result;
 }
 
 /* Stream merging */
 
-
 function tag(node) {
   return node.nodeName.toLowerCase();
 }
-
 
 export function nodeStream(node) {
   var result = [];
   (function _nodeStream(node, offset) {
     for (var child = node.firstChild; child; child = child.nextSibling) {
-      if (child.nodeType === 3)
+      if (child.nodeType === 3) {
         offset += child.nodeValue.length;
-      else if (child.nodeType === 1) {
+      } else if (child.nodeType === 1) {
         result.push({
           event: 'start',
           offset: offset,

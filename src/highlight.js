@@ -198,10 +198,11 @@ const HLJS = function(hljs) {
     }
 
     function processBuffer() {
-      if (top.subLanguage != null)
+      if (top.subLanguage != null) {
         processSubLanguage();
-      else
+      } else {
         processKeywords();
+      }
       mode_buffer = '';
     }
 
@@ -232,8 +233,9 @@ const HLJS = function(hljs) {
 
       if (new_mode.__onBegin) {
         const res = new_mode.__onBegin(match) || {};
-        if (res.ignoreMatch)
+        if (res.ignoreMatch) {
           return doIgnore(lexeme);
+        }
       }
 
       if (new_mode && new_mode.endSameAsBegin) {
@@ -392,8 +394,8 @@ const HLJS = function(hljs) {
         }
         match = top.matcher.exec(codeToHighlight);
         // console.log("match", match[0], match.rule && match.rule.begin)
-        if (!match)
-          break;
+        if (!match) break;
+
         const beforeMatch = codeToHighlight.substring(index, match.index);
         processedCount = processLexeme(beforeMatch, match);
         index = match.index + processedCount;
@@ -533,8 +535,7 @@ const HLJS = function(hljs) {
     var node, originalStream, result, resultNode, text;
     var language = blockLanguage(block);
 
-    if (shouldNotHighlight(language))
-      return;
+    if (shouldNotHighlight(language)) return;
 
     fire("before:highlightBlock",
       { block: block, language: language });
@@ -583,8 +584,7 @@ const HLJS = function(hljs) {
   Applies highlighting to all <pre><code>..</code></pre> blocks on a page.
   */
   function initHighlighting() {
-    if (initHighlighting.called)
-      return;
+    if (initHighlighting.called) return;
     initHighlighting.called = true;
 
     var blocks = document.querySelectorAll('pre code');
@@ -615,8 +615,7 @@ const HLJS = function(hljs) {
       lang = PLAINTEXT_LANGUAGE;
     }
     // give it a temporary name if it doesn't have one in the meta-data
-    if (!lang.name)
-      lang.name = name;
+    if (!lang.name) lang.name = name;
     languages[name] = lang;
     lang.rawDefinition = language.bind(null, hljs);
 
@@ -690,8 +689,9 @@ const HLJS = function(hljs) {
   hljs.versionString = packageJSON.version;
 
   for (const key in MODES) {
-    if (typeof MODES[key] === "object")
+    if (typeof MODES[key] === "object") {
       deepFreeze(MODES[key]);
+    }
   }
 
   // merge all the modes/regexs into our main object
