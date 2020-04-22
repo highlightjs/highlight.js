@@ -36,5 +36,22 @@ module.exports = {
       // TODO maybe
       "camelcase": "off", // TODO: turn on later
       // "init-declarations": ["error","always"]
-    }
+    },
+    "overrides": [
+      {
+        "files": ["src/languages/*.js"],
+        "rules": {
+          "no-unused-expressions": "off",
+          // languages are all over the map and we don't want to
+          // do a mass edit so turn off the most egregious rule violations
+          "indent": "off",
+          "comma-dangle": "off",
+          "array-bracket-spacing": "off",
+          "object-curly-spacing": "off",
+          "key-spacing": "off",
+          "object-curly-newline": "off",
+          "object-property-newline": "off"
+        }
+      }
+    ]
 };
