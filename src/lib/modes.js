@@ -1,4 +1,4 @@
-import {inherit} from './utils';
+import { inherit } from './utils';
 
 // Common regexps
 export const IDENT_RE = '[a-zA-Z]\\w*';
@@ -14,24 +14,27 @@ export const BACKSLASH_ESCAPE = {
 };
 export const APOS_STRING_MODE = {
   className: 'string',
-  begin: '\'', end: '\'',
+  begin: '\'',
+  end: '\'',
   illegal: '\\n',
   contains: [BACKSLASH_ESCAPE]
 };
 export const QUOTE_STRING_MODE = {
   className: 'string',
-  begin: '"', end: '"',
+  begin: '"',
+  end: '"',
   illegal: '\\n',
   contains: [BACKSLASH_ESCAPE]
 };
 export const PHRASAL_WORDS_MODE = {
   begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b/
 };
-export const COMMENT = function (begin, end, inherits) {
+export const COMMENT = function(begin, end, inherits) {
   var mode = inherit(
     {
       className: 'comment',
-      begin: begin, end: end,
+      begin: begin,
+      end: end,
       contains: []
     },
     inherits || {}
@@ -65,7 +68,7 @@ export const BINARY_NUMBER_MODE = {
 export const CSS_NUMBER_MODE = {
   className: 'number',
   begin: NUMBER_RE + '(' +
-    '%|em|ex|ch|rem'  +
+    '%|em|ex|ch|rem' +
     '|vw|vh|vmin|vmax' +
     '|cm|mm|in|pt|pc|px' +
     '|deg|grad|rad|turn' +
@@ -85,12 +88,14 @@ export const REGEXP_MODE = {
   begin: /(?=\/[^/\n]*\/)/,
   contains: [{
     className: 'regexp',
-    begin: /\//, end: /\/[gimuy]*/,
+    begin: /\//,
+    end: /\/[gimuy]*/,
     illegal: /\n/,
     contains: [
       BACKSLASH_ESCAPE,
       {
-        begin: /\[/, end: /\]/,
+        begin: /\[/,
+        end: /\]/,
         relevance: 0,
         contains: [BACKSLASH_ESCAPE]
       }

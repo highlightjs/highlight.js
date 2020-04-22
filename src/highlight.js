@@ -15,24 +15,23 @@ const escape = utils.escapeHTML;
 const inherit = utils.inherit;
 
 const { nodeStream, mergeStreams } = utils;
-
+const NO_MATCH = Symbol("nomatch");
 
 const HLJS = function(hljs) {
-
   // Convenience variables for build-in objects
   var ArrayProto = [];
 
   // Global internal variables used within the highlight.js library.
   var languages = {},
-      aliases   = {},
-      plugins   = [];
+      aliases = {},
+      plugins = [];
 
   // safe/production mode - swallows more errors, tries to keep running
   // even if a single syntax or parse hits a fatal error
   var SAFE_MODE = true;
 
   // Regular expressions used throughout the highlight.js library.
-  var fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
+  var fixMarkupRe = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
 
   var LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
 
@@ -44,7 +43,7 @@ const HLJS = function(hljs) {
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
-    languages: undefined,
+    languages: null,
     // beta configuration options, subject to change, welcome to discuss
     // https://github.com/highlightjs/highlight.js/issues/1086
     __emitter: TokenTreeEmitter
@@ -134,7 +133,7 @@ const HLJS = function(hljs) {
 
     function keywordMatch(mode, match) {
       var match_str = language.case_insensitive ? match[0].toLowerCase() : match[0];
-      return Object.prototype.hasOwnProperty.call(mode.keywords,match_str) && mode.keywords[match_str];
+      return Object.prototype.hasOwnProperty.call(mode.keywords, match_str) && mode.keywords[match_str];
     }
 
     function processKeywords() {
@@ -182,8 +181,8 @@ const HLJS = function(hljs) {
       }
 
       var result = explicit ?
-                   _highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) :
-                   highlightAuto(mode_buffer, top.subLanguage.length ? top.subLanguage : undefined);
+        _highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) :
+        highlightAuto(mode_buffer, top.subLanguage.length ? top.subLanguage : null);
 
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Use case in point is Markdown that
@@ -210,7 +209,7 @@ const HLJS = function(hljs) {
       if (mode.className) {
         emitter.openNode(mode.className);
       }
-      top = Object.create(mode, {parent: {value: top}});
+      top = Object.create(mode, { parent: { value: top } });
     }
 
     function doIgnore(lexeme) {
@@ -232,13 +231,13 @@ const HLJS = function(hljs) {
       var new_mode = match.rule;
 
       if (new_mode.__onBegin) {
-        let res = new_mode.__onBegin(match) || {};
+        const res = new_mode.__onBegin(match) || {};
         if (res.ignoreMatch)
           return doIgnore(lexeme);
       }
 
       if (new_mode && new_mode.endSameAsBegin) {
-        new_mode.endRe = regex.escape( lexeme );
+        new_mode.endRe = regex.escape(lexeme);
       }
 
       if (new_mode.skip) {
@@ -260,7 +259,7 @@ const HLJS = function(hljs) {
       var lexeme = match[0];
       var matchPlusRemainder = codeToHighlight.substr(match.index);
       var end_mode = endOfMode(top, matchPlusRemainder);
-      if (!end_mode) { return; }
+      if (!end_mode) { return NO_MATCH; }
 
       var origin = top;
       if (origin.skip) {
@@ -294,7 +293,7 @@ const HLJS = function(hljs) {
 
     function processContinuations() {
       var list = [];
-      for(var current = top; current !== language; current = current.parent) {
+      for (var current = top; current !== language; current = current.parent) {
         if (current.className) {
           list.unshift(current.className);
         }
@@ -304,7 +303,6 @@ const HLJS = function(hljs) {
 
     var lastMatch = {};
     function processLexeme(text_before_match, match) {
-
       var err;
       var lexeme = match && match[0];
 
@@ -316,36 +314,35 @@ const HLJS = function(hljs) {
         return 0;
       }
 
-
-
       // we've found a 0 width match and we're stuck, so we need to advance
       // this happens when we have badly behaved rules that have optional matchers to the degree that
       // sometimes they can end up matching nothing at all
       // Ref: https://github.com/highlightjs/highlight.js/issues/2140
-      if (lastMatch.type=="begin" && match.type=="end" && lastMatch.index == match.index && lexeme === "") {
+      if (lastMatch.type === "begin" && match.type === "end" && lastMatch.index === match.index && lexeme === "") {
         // spit the "skipped" character that our regex choked on back into the output sequence
         mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
         if (!SAFE_MODE) {
           err = new Error('0 width match regex');
           err.languageName = languageName;
           err.badRule = lastMatch.rule;
-          throw(err);
+          throw err;
         }
         return 1;
       }
       lastMatch = match;
 
-      if (match.type==="begin") {
+      if (match.type === "begin") {
         return doBeginMatch(match);
-      } else if (match.type==="illegal" && !ignore_illegals) {
+      } else if (match.type === "illegal" && !ignore_illegals) {
         // illegal match, we do not continue processing
         err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
         err.mode = top;
         throw err;
-      } else if (match.type==="end") {
+      } else if (match.type === "end") {
         var processed = doEndMatch(match);
-        if (processed != undefined)
+        if (processed !== NO_MATCH) {
           return processed;
+        }
       }
 
       /*
@@ -379,9 +376,9 @@ const HLJS = function(hljs) {
     var mode_buffer = '';
     var relevance = 0;
     var match, processedCount, index = 0;
+    var continueScanAtSamePosition = false;
 
     try {
-      var continueScanAtSamePosition = false;
       top.matcher.considerAll();
 
       for (;;) {
@@ -397,7 +394,7 @@ const HLJS = function(hljs) {
         // console.log("match", match[0], match.rule && match.rule.begin)
         if (!match)
           break;
-        let beforeMatch = codeToHighlight.substring(index, match.index);
+        const beforeMatch = codeToHighlight.substring(index, match.index);
         processedCount = processLexeme(beforeMatch, match);
         index = match.index + processedCount;
       }
@@ -420,13 +417,13 @@ const HLJS = function(hljs) {
           illegal: true,
           illegalBy: {
             msg: err.message,
-            context: codeToHighlight.slice(index-100,index+100),
+            context: codeToHighlight.slice(index - 100, index + 100),
             mode: err.mode
           },
           sofar: result,
           relevance: 0,
           value: escape(codeToHighlight),
-          emitter: emitter,
+          emitter: emitter
         };
       } else if (SAFE_MODE) {
         return {
@@ -504,18 +501,18 @@ const HLJS = function(hljs) {
     }
 
     return value.replace(fixMarkupRe, function(match, p1) {
-        if (options.useBR && match === '\n') {
-          return '<br>';
-        } else if (options.tabReplace) {
-          return p1.replace(/\t/g, options.tabReplace);
-        }
-        return '';
+      if (options.useBR && match === '\n') {
+        return '<br>';
+      } else if (options.tabReplace) {
+        return p1.replace(/\t/g, options.tabReplace);
+      }
+      return '';
     });
   }
 
   function buildClassName(prevClassName, currentLang, resultLang) {
     var language = currentLang ? aliases[currentLang] : resultLang,
-        result   = [prevClassName.trim()];
+        result = [prevClassName.trim()];
 
     if (!prevClassName.match(/\bhljs\b/)) {
       result.push('hljs');
@@ -537,10 +534,10 @@ const HLJS = function(hljs) {
     var language = blockLanguage(block);
 
     if (shouldNotHighlight(language))
-        return;
+      return;
 
     fire("before:highlightBlock",
-      { block: block, language: language});
+      { block: block, language: language });
 
     if (options.useBR) {
       node = document.createElement('div');
@@ -559,7 +556,7 @@ const HLJS = function(hljs) {
     }
     result.value = fixMarkup(result.value);
 
-    fire("after:highlightBlock", { block: block, result: result});
+    fire("after:highlightBlock", { block: block, result: result });
 
     block.innerHTML = result.value;
     block.className = buildClassName(block.className, language, result.language);
@@ -605,8 +602,9 @@ const HLJS = function(hljs) {
 
   function registerLanguage(name, language) {
     var lang;
-    try { lang = language(hljs); }
-    catch (error) {
+    try {
+      lang = language(hljs);
+    } catch (error) {
       console.error("Language definition for '{}' could not be registered.".replace("{}", name));
       // hard or soft error
       if (!SAFE_MODE) { throw error; } else { console.error(error); }
@@ -620,10 +618,10 @@ const HLJS = function(hljs) {
     if (!lang.name)
       lang.name = name;
     languages[name] = lang;
-    lang.rawDefinition = language.bind(null,hljs);
+    lang.rawDefinition = language.bind(null, hljs);
 
     if (lang.aliases) {
-      lang.aliases.forEach(function(alias) {aliases[alias] = name;});
+      lang.aliases.forEach(function(alias) { aliases[alias] = name; });
     }
   }
 
@@ -641,7 +639,7 @@ const HLJS = function(hljs) {
     var lang = getLanguage(name);
     if (lang) { return lang; }
 
-    var err = new Error('The \'{}\' language is required, but not loaded.'.replace('{}',name));
+    var err = new Error('The \'{}\' language is required, but not loaded.'.replace('{}', name));
     throw err;
   }
 
@@ -661,7 +659,7 @@ const HLJS = function(hljs) {
 
   function fire(event, args) {
     var cb = event;
-    plugins.forEach(function (plugin) {
+    plugins.forEach(function(plugin) {
       if (plugin[cb]) {
         plugin[cb](args);
       }
@@ -670,7 +668,7 @@ const HLJS = function(hljs) {
 
   /* Interface definition */
 
-  Object.assign(hljs,{
+  Object.assign(hljs, {
     highlight,
     highlightAuto,
     fixMarkup,
