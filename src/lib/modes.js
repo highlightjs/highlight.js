@@ -82,7 +82,7 @@ export const REGEXP_MODE = {
   //     3 / something
   //
   // (which will then blow up when regex's `illegal` sees the newline)
-  begin: /(?=\/[^\/\n]*\/)/,
+  begin: /(?=\/[^/\n]*\/)/,
   contains: [{
     className: 'regexp',
     begin: /\//, end: /\/[gimuy]*/,

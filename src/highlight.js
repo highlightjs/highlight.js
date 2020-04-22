@@ -134,11 +134,11 @@ const HLJS = function(hljs) {
 
     function keywordMatch(mode, match) {
       var match_str = language.case_insensitive ? match[0].toLowerCase() : match[0];
-      return mode.keywords.hasOwnProperty(match_str) && mode.keywords[match_str];
+      return Object.prototype.hasOwnProperty.call(mode.keywords,match_str) && mode.keywords[match_str];
     }
 
     function processKeywords() {
-      var keyword_match, last_index, match, result, buf;
+      var keyword_match, last_index, match, buf;
 
       if (!top.keywords) {
         emitter.addText(mode_buffer);
@@ -384,7 +384,7 @@ const HLJS = function(hljs) {
       var continueScanAtSamePosition = false;
       top.matcher.considerAll();
 
-      while (true) {
+      for (;;) {
         if (continueScanAtSamePosition) {
           continueScanAtSamePosition = false;
           // only regexes not matched previously will now be
@@ -544,7 +544,7 @@ const HLJS = function(hljs) {
 
     if (options.useBR) {
       node = document.createElement('div');
-      node.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ \/]*>/g, '\n');
+      node.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ /]*>/g, '\n');
     } else {
       node = block;
     }
@@ -655,7 +655,7 @@ const HLJS = function(hljs) {
     return lang && !lang.disableAutodetect;
   }
 
-  function addPlugin(plugin, options) {
+  function addPlugin(plugin) {
     plugins.push(plugin);
   }
 
