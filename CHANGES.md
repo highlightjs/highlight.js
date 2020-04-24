@@ -2,7 +2,7 @@
 
 Parser Engine Changes:
 
-- (bug) Fix sublanguage with no relevance score (#) [Josh Goebel][]
+- (bug) Fix sublanguage with no relevance score (#2506) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/yyyc514
 
