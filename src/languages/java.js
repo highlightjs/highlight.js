@@ -31,8 +31,8 @@ export default function (hljs) {
     variants: [
       { begin: '\\b(0[bB][01]+)[lL]?' }, // binary
       { begin: '\\b(0[0-7]+)[dDfFlL]?' }, // octal
-      { begin: '\\b0[xX](([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)?[\\.])?([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)?-?[pP]([\\d]+)[dDfF]?' }, // hexadecimal floating point literals
-      { begin: hljs.C_NUMBER_RE + '[dDfFlL]?' }, // hexadecimal, decimal and scientific notation
+      { begin: '\\b0[xX]((([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)?[\\.])?([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)?[pP]-?([\\d]+)[dDfF]?|([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+))' },
+      { begin: '(-?)(\\b0[xX][a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)' + '[dDfFlL]?' }, // hexadecimal, decimal and scientific notation
     ],
     relevance: 0
   };
