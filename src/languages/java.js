@@ -5,7 +5,7 @@ Category: common, enterprise
 Website: https://www.java.com/
 */
 
-export default function(hljs) {
+export default function (hljs) {
   var JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
   var GENERIC_IDENT_RE = JAVA_IDENT_RE + '(<' + JAVA_IDENT_RE + '(\\s*,\\s*' + JAVA_IDENT_RE + ')*>)?';
   var KEYWORDS =
@@ -18,7 +18,7 @@ export default function(hljs) {
   var ANNOTATION = {
     className: 'meta',
     begin: '@' + JAVA_IDENT_RE,
-    contains:[
+    contains: [
       {
         begin: /\(/,
         end: /\)/,
@@ -26,24 +26,14 @@ export default function(hljs) {
       },
     ]
   }
-  // https://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html
-  var JAVA_NUMBER_RE = '\\b' +
-    '(' +
-      '0[bB]([01]+[01_]+[01]+|[01]+)' + // 0b...
-      '|' +
-      '0[xX]([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)' + // 0x...
-      '|' +
-      '(' +
-        '([\\d]+[\\d_]+[\\d]+|[\\d]+)(\\.([\\d]+[\\d_]+[\\d]+|[\\d]+))?' +
-        '|' +
-        '\\.([\\d]+[\\d_]+[\\d]+|[\\d]+)' +
-      ')' +
-      '([eE][-+]?\\d+)?' + // octal, decimal, float
-    ')' +
-    '[lLfF]?';
   var JAVA_NUMBER_MODE = {
     className: 'number',
-    begin: JAVA_NUMBER_RE,
+    variants: [
+      { begin: '\\b(0[bB][01]+)[lL]?' }, // binary
+      { begin: '\\b(0[0-7]+)[dDfFlL]?' }, // octal
+      { begin: '\\b0[xX](([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)?[\\.])?([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)?-?[pP]([\\d]+)[dDfF]?' }, // hexadecimal floating point literals
+      { begin: hljs.C_NUMBER_RE + '[dDfFlL]?' }, // hexadecimal, decimal and scientific notation
+    ],
     relevance: 0
   };
 
@@ -57,15 +47,15 @@ export default function(hljs) {
         '/\\*\\*',
         '\\*/',
         {
-          relevance : 0,
-          contains : [
+          relevance: 0,
+          contains: [
             {
               // eat up @'s in emails to prevent them to be recognized as doctags
               begin: /\w+@/, relevance: 0
             },
             {
-              className : 'doctag',
-              begin : '@[A-Za-z]+'
+              className: 'doctag',
+              begin: '@[A-Za-z]+'
             }
           ]
         }
@@ -80,7 +70,7 @@ export default function(hljs) {
         keywords: 'class interface',
         illegal: /[:"\[\]]/,
         contains: [
-          {beginKeywords: 'extends implements'},
+          { beginKeywords: 'extends implements' },
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
