@@ -40,6 +40,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | CSP                     | csp                    |         |
 | CSS                     | css                    |         |
 | Cap’n Proto             | capnproto, capnp       |         |
+| Chaos                   | chaos, kaos            | [highlightjs-chaos](https://github.com/chaos-lang/highlightjs-chaos) |
 | Clojure                 | clojure, clj           |         |
 | CoffeeScript            | coffeescript, coffee, cson, iced | |
 | CpcdosC+                | cpc                    | [highlightjs-cpcdos](https://github.com/SPinti-Software/highlightjs-cpcdos) |
