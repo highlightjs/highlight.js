@@ -48,18 +48,19 @@ export function compileLanguage(language) {
         // avoids the need to check length every time exec is called
         this.exec = () => null;
       }
-      let terminators = this.regexes.map(el => el[1]);
+      const terminators = this.regexes.map(el => el[1]);
       this.matcherRe = langRe(regex.join(terminators, '|'), true);
       this.lastIndex = 0;
     }
 
     exec(s) {
       this.matcherRe.lastIndex = this.lastIndex;
-      let match = this.matcherRe.exec(s);
+      const match = this.matcherRe.exec(s);
       if (!match) { return null; }
 
-      let i = match.findIndex((el, i) => i>0 && el!=undefined);
-      let matchData = this.matchIndexes[i];
+      // eslint-disable-next-line no-undefined
+      const i = match.findIndex((el, i) => i > 0 && el !== undefined);
+      const matchData = this.matchIndexes[i];
 
       return Object.assign(match, matchData);
     }
@@ -109,8 +110,8 @@ export function compileLanguage(language) {
     getMatcher(index) {
       if (this.multiRegexes[index]) return this.multiRegexes[index];
 
-      let matcher = new MultiRegex();
-      this.rules.slice(index).forEach(([re, opts])=> matcher.addRule(re,opts))
+      const matcher = new MultiRegex();
+      this.rules.slice(index).forEach(([re, opts]) => matcher.addRule(re, opts));
       matcher.compile();
       this.multiRegexes[index] = matcher;
       return matcher;
@@ -122,17 +123,18 @@ export function compileLanguage(language) {
 
     addRule(re, opts) {
       this.rules.push([re, opts]);
-      if (opts.type==="begin") this.count++;
+      if (opts.type === "begin") this.count++;
     }
 
     exec(s) {
-      let m = this.getMatcher(this.regexIndex);
+      const m = this.getMatcher(this.regexIndex);
       m.lastIndex = this.lastIndex;
-      let result = m.exec(s);
+      const result = m.exec(s);
       if (result) {
         this.regexIndex += result.position + 1;
-        if (this.regexIndex === this.count) // wrap-around
+        if (this.regexIndex === this.count) { // wrap-around
           this.regexIndex = 0;
+        }
       }
 
       // this.regexIndex = 0;
@@ -141,25 +143,26 @@ export function compileLanguage(language) {
   }
 
   function buildModeRegex(mode) {
+    const mm = new ResumableMultiRegex();
 
-    let mm = new ResumableMultiRegex();
+    mode.contains.forEach(term => mm.addRule(term.begin, { rule: term, type: "begin" }));
 
-    mode.contains.forEach(term => mm.addRule(term.begin, {rule: term, type: "begin" }))
-
-    if (mode.terminator_end)
-      mm.addRule(mode.terminator_end, {type: "end"} );
-    if (mode.illegal)
-      mm.addRule(mode.illegal, {type: "illegal"} );
+    if (mode.terminator_end) {
+      mm.addRule(mode.terminator_end, { type: "end" });
+    }
+    if (mode.illegal) {
+      mm.addRule(mode.illegal, { type: "illegal" });
+    }
 
     return mm;
   }
 
   // TODO: We need negative look-behind support to do this properly
   function skipIfhasPrecedingOrTrailingDot(match) {
-    let before = match.input[match.index-1];
-    let after = match.input[match.index + match[0].length];
+    const before = match.input[match.index - 1];
+    const after = match.input[match.index + match[0].length];
     if (before === "." || after === ".") {
-      return {ignoreMatch: true };
+      return { ignoreMatch: true };
     }
   }
 
@@ -194,16 +197,16 @@ export function compileLanguage(language) {
    */
 
   function compileMode(mode, parent) {
-    if (mode.compiled)
-      return;
+    if (mode.compiled) return;
     mode.compiled = true;
 
     // __onBegin is considered private API, internal use only
     mode.__onBegin = null;
 
     mode.keywords = mode.keywords || mode.beginKeywords;
-    if (mode.keywords)
+    if (mode.keywords) {
       mode.keywords = compileKeywords(mode.keywords, language.case_insensitive);
+    }
 
     mode.lexemesRe = langRe(mode.lexemes || /\w+/, true);
 
@@ -240,7 +243,7 @@ export function compileLanguage(language) {
     mode.contains = [].concat(...mode.contains.map(function(c) {
       return expand_or_clone_mode(c === 'self' ? mode : c);
     }));
-    mode.contains.forEach(function(c) {compileMode(c, mode);});
+    mode.contains.forEach(function(c) { compileMode(c, mode); });
 
     if (mode.starts) {
       compileMode(mode.starts, parent);
@@ -251,7 +254,7 @@ export function compileLanguage(language) {
 
   // self is not valid at the top-level
   if (language.contains && language.contains.includes('self')) {
-    throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.")
+    throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.");
   }
   compileMode(language);
 }
@@ -265,30 +268,32 @@ function dependencyOnParent(mode) {
 function expand_or_clone_mode(mode) {
   if (mode.variants && !mode.cached_variants) {
     mode.cached_variants = mode.variants.map(function(variant) {
-      return inherit(mode, {variants: null}, variant);
+      return inherit(mode, { variants: null }, variant);
     });
   }
 
   // EXPAND
   // if we have variants then essentially "replace" the mode with the variants
   // this happens in compileMode, where this function is called from
-  if (mode.cached_variants)
+  if (mode.cached_variants) {
     return mode.cached_variants;
+  }
 
   // CLONE
   // if we have dependencies on parents then we need a unique
   // instance of ourselves, so we can be reused with many
   // different parents without issue
-  if (dependencyOnParent(mode))
+  if (dependencyOnParent(mode)) {
     return inherit(mode, { starts: mode.starts ? inherit(mode.starts) : null });
+  }
 
-  if (Object.isFrozen(mode))
+  if (Object.isFrozen(mode)) {
     return inherit(mode);
+  }
 
   // no special dependency issues, just return ourselves
   return mode;
 }
-
 
 // keywords
 
@@ -298,34 +303,35 @@ function compileKeywords(rawKeywords, case_insensitive) {
   if (typeof rawKeywords === 'string') { // string
     splitAndCompile('keyword', rawKeywords);
   } else {
-    Object.keys(rawKeywords).forEach(function (className) {
+    Object.keys(rawKeywords).forEach(function(className) {
       splitAndCompile(className, rawKeywords[className]);
     });
   }
-return compiled_keywords;
+  return compiled_keywords;
 
-// ---
+  // ---
 
-function splitAndCompile(className, str) {
-  if (case_insensitive) {
-    str = str.toLowerCase();
+  function splitAndCompile(className, str) {
+    if (case_insensitive) {
+      str = str.toLowerCase();
+    }
+    str.split(' ').forEach(function(keyword) {
+      var pair = keyword.split('|');
+      compiled_keywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
+    });
   }
-  str.split(' ').forEach(function(keyword) {
-    var pair = keyword.split('|');
-    compiled_keywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
-  });
-}
 }
 
 function scoreForKeyword(keyword, providedScore) {
-// manual scores always win over common keywords
-// so you can force a score of 1 if you really insist
-if (providedScore)
-  return Number(providedScore);
+  // manual scores always win over common keywords
+  // so you can force a score of 1 if you really insist
+  if (providedScore) {
+    return Number(providedScore);
+  }
 
-return commonKeyword(keyword) ? 0 : 1;
+  return commonKeyword(keyword) ? 0 : 1;
 }
 
 function commonKeyword(word) {
-return COMMON_KEYWORDS.includes(word.toLowerCase());
+  return COMMON_KEYWORDS.includes(word.toLowerCase());
 }

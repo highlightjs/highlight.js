@@ -3,28 +3,29 @@ import HTMLRenderer from './html_renderer';
 class TokenTree {
   constructor() {
     this.rootNode = { children: [] };
-    this.stack = [ this.rootNode ];
+    this.stack = [this.rootNode];
   }
 
   get top() {
     return this.stack[this.stack.length - 1];
   }
 
-  get root() { return this.rootNode };
+  get root() { return this.rootNode; }
 
   add(node) {
     this.top.children.push(node);
   }
 
   openNode(kind) {
-    let node = { kind, children: [] };
+    const node = { kind, children: [] };
     this.add(node);
     this.stack.push(node);
   }
 
   closeNode() {
-    if (this.stack.length > 1)
+    if (this.stack.length > 1) {
       return this.stack.pop();
+    }
   }
 
   closeAllNodes() {
@@ -44,7 +45,7 @@ class TokenTree {
       builder.addText(node);
     } else if (node.children) {
       builder.openNode(node);
-      node.children.forEach((child) => this._walk(builder, child))
+      node.children.forEach((child) => this._walk(builder, child));
       builder.closeNode(node);
     }
     return builder;
@@ -55,13 +56,13 @@ class TokenTree {
       return;
     }
     if (node.children.every(el => typeof el === "string")) {
-      node.text = node.children.join("")
-      delete node["children"]
+      node.text = node.children.join("");
+      delete node.children;
     } else {
       node.children.forEach((child) => {
         if (typeof child === "string") return;
-        TokenTree._collapse(child)
-      })
+        TokenTree._collapse(child);
+      });
     }
   }
 }
@@ -74,7 +75,7 @@ class TokenTree {
 
   - addKeyword(text, kind)
   - addText(text)
-  - addSublanguage(emitter, subLangaugeName)
+  - addSublanguage(emitter, subLanguageName)
   - finalize()
   - openNode(kind)
   - closeNode()
@@ -103,19 +104,18 @@ export default class TokenTreeEmitter extends TokenTree {
   }
 
   addSublanguage(emitter, name) {
-    let node = emitter.root;
+    const node = emitter.root;
     node.kind = name;
     node.sublanguage = true;
     this.add(node);
   }
 
   toHTML() {
-    let renderer = new HTMLRenderer(this, this.options);
+    const renderer = new HTMLRenderer(this, this.options);
     return renderer.value();
   }
 
   finalize() {
-    return;
+    return true;
   }
-
 }
