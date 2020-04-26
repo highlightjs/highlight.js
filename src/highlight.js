@@ -81,7 +81,7 @@ const HLJS = function(hljs) {
    *
    * @param {string} languageName - the language to use for highlighting
    * @param {string} code - the code to highlight
-   * @param {boolean} ignore_illegals - whether to ignore illegal matches, default is to bail
+   * @param {boolean} ignoreIllegals - whether to ignore illegal matches, default is to bail
    * @param {array<mode>} continuation - array of continuation modes
    *
    * @returns an object that represents the result
@@ -92,7 +92,7 @@ const HLJS = function(hljs) {
    * @property {mode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
-  function highlight(languageName, code, ignore_illegals, continuation) {
+  function highlight(languageName, code, ignoreIllegals, continuation) {
     var context = {
       code,
       language: languageName
@@ -105,7 +105,7 @@ const HLJS = function(hljs) {
     // in which case we don't even need to call highlight
     var result = context.result ?
       context.result :
-      _highlight(context.language, context.code, ignore_illegals, continuation);
+      _highlight(context.language, context.code, ignoreIllegals, continuation);
 
     result.code = context.code;
     // the plugin can change anything in result to suite it
@@ -115,7 +115,7 @@ const HLJS = function(hljs) {
   }
 
   // private highlight that's used internally and does not fire callbacks
-  function _highlight(languageName, code, ignore_illegals, continuation) {
+  function _highlight(languageName, code, ignoreIllegals, continuation) {
     var codeToHighlight = code;
 
     function endOfMode(mode, lexeme) {
@@ -130,9 +130,9 @@ const HLJS = function(hljs) {
       }
     }
 
-    function keywordMatch(mode, match) {
-      var match_str = language.case_insensitive ? match[0].toLowerCase() : match[0];
-      return Object.prototype.hasOwnProperty.call(mode.keywords, match_str) && mode.keywords[match_str];
+    function keywordData(mode, match) {
+      var matchText = language.case_insensitive ? match[0].toLowerCase() : match[0];
+      return Object.prototype.hasOwnProperty.call(mode.keywords, matchText) && mode.keywords[matchText];
     }
 
     function processKeywords() {
@@ -148,14 +148,13 @@ const HLJS = function(hljs) {
 
       while (match) {
         buf += mode_buffer.substring(last_index, match.index);
-        const keyword_match = keywordMatch(top, match);
-        let kind = null;
-        if (keyword_match) {
+        const data = keywordData(top, match);
+        if (data) {
+          const [kind, keywordRelevance] = data;
           emitter.addText(buf);
           buf = "";
 
-          relevance += keyword_match[1];
-          kind = keyword_match[0];
+          relevance += keywordRelevance;
           emitter.addKeyword(match[0], kind);
         } else {
           buf += match[0];
@@ -301,11 +300,11 @@ const HLJS = function(hljs) {
     }
 
     var lastMatch = {};
-    function processLexeme(text_before_match, match) {
+    function processLexeme(textBeforeMatch, match) {
       var lexeme = match && match[0];
 
       // add non-matched text to the current mode buffer
-      mode_buffer += text_before_match;
+      mode_buffer += textBeforeMatch;
 
       if (lexeme == null) {
         processBuffer();
@@ -331,7 +330,7 @@ const HLJS = function(hljs) {
 
       if (match.type === "begin") {
         return doBeginMatch(match);
-      } else if (match.type === "illegal" && !ignore_illegals) {
+      } else if (match.type === "illegal" && !ignoreIllegals) {
         // illegal match, we do not continue processing
         const err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
         err.mode = top;
@@ -468,20 +467,21 @@ const HLJS = function(hljs) {
   function highlightAuto(code, languageSubset) {
     languageSubset = languageSubset || options.languages || Object.keys(languages);
     var result = justTextHighlightResult(code)
-    var second_best = result;
+    var secondBest = result;
     languageSubset.filter(getLanguage).filter(autoDetection).forEach(function(name) {
       var current = _highlight(name, code, false);
       current.language = name;
-      if (current.relevance > second_best.relevance) {
-        second_best = current;
+      if (current.relevance > secondBest.relevance) {
+        secondBest = current;
       }
       if (current.relevance > result.relevance) {
-        second_best = result;
+        secondBest = result;
         result = current;
       }
     });
-    if (second_best.language) {
-      result.second_best = second_best;
+    if (secondBest.language) {
+      // second_best (with underscore) is the expected API
+      result.second_best = secondBest;
     }
     return result;
   }
@@ -572,8 +572,8 @@ const HLJS = function(hljs) {
   /*
   Updates highlight.js global options with values passed in the form of an object.
   */
-  function configure(user_options) {
-    options = inherit(options, user_options);
+  function configure(userOptions) {
+    options = inherit(options, userOptions);
   }
 
   /*
