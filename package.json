@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "10.0.0",
+  "version": "10.0.1",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -40,9 +40,9 @@
     "glob-promise": "^3.4.0",
     "handlebars": "^4.5.3",
     "js-beautify": "^1.10.2",
-    "jsdom": "^16.0.1",
+    "jsdom": "^16.2.2",
     "lodash": "^4.17.15",
-    "mocha": "^7.0.1",
+    "mocha": "^7.1.2",
     "rollup": "^2.0.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
