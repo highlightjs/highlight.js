@@ -1,0 +1,3 @@
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>foo();<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>booger<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>hjk<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
