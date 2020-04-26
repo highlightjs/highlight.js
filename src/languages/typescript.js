@@ -27,37 +27,9 @@ export default function(hljs) {
       'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
       'module console window document any number boolean string void Promise'
   };
-
   var DECORATOR = {
     className: 'meta',
     begin: '@' + JS_IDENT_RE,
-  };
-
-  var ARGS =
-  {
-    begin: '\\(',
-    end: /\)/,
-    keywords: KEYWORDS,
-    contains: [
-      'self',
-      hljs.QUOTE_STRING_MODE,
-      hljs.APOS_STRING_MODE,
-      hljs.NUMBER_MODE
-    ]
-  };
-
-  var PARAMS = {
-    className: 'params',
-    begin: /\(/, end: /\)/,
-    excludeBegin: true,
-    excludeEnd: true,
-    keywords: KEYWORDS,
-    contains: [
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      DECORATOR,
-      ARGS
-    ]
   };
   var NUMBER = {
     className: 'number',
@@ -113,8 +85,31 @@ export default function(hljs) {
     NUMBER,
     hljs.REGEXP_MODE
   ];
-
-
+  var ARGUMENTS =
+  {
+    begin: '\\(',
+    end: /\)/,
+    keywords: KEYWORDS,
+    contains: [
+      'self',
+      hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.NUMBER_MODE
+    ]
+  };
+  var PARAMS = {
+    className: 'params',
+    begin: /\(/, end: /\)/,
+    excludeBegin: true,
+    excludeEnd: true,
+    keywords: KEYWORDS,
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      DECORATOR,
+      ARGUMENTS
+    ]
+  };
 
   return {
     name: 'TypeScript',
@@ -168,14 +163,7 @@ export default function(hljs) {
                     begin: /\(/, end: /\)/,
                     excludeBegin: true, excludeEnd: true,
                     keywords: KEYWORDS,
-                    contains: [
-                      // eat recursive parens in sub expressions
-                      { begin: /\(/, end: /\)/,
-                        contains: ["self", hljs.C_LINE_COMMENT_MODE,hljs.C_BLOCK_COMMENT_MODE]
-                      },
-                      hljs.C_LINE_COMMENT_MODE,
-                      hljs.C_BLOCK_COMMENT_MODE
-                    ]
+                    contains: ARGUMENTS.contains
                   }
                 ]
               }
@@ -222,7 +210,7 @@ export default function(hljs) {
         begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
       },
       DECORATOR,
-      ARGS
+      ARGUMENTS
     ]
   };
 }
