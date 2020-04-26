@@ -1,8 +1,16 @@
 ## Version 10.0.1
 
+Brower build:
+
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2505) (bug) Fix: Version 10 fails to load as CommonJS module. (#2511) [Josh Goebel][]
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2505) (removal) AMD module loading support has been removed. (#2511) [Josh Goebel][]
+
+
 Parser Engine Changes:
 
-- (bug) Fix sublanguage with no relevance score (#2506) [Josh Goebel][]
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2504) (bug) Fix sublanguage with no relevance score (#2506) [Josh Goebel][]
+
+
 
 [Josh Goebel]: https://github.com/yyyc514
 
