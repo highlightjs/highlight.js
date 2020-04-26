@@ -92,7 +92,7 @@ export default function(hljs) {
   var PARAMS_CONTAINS = SUBST.contains.concat([
     // eat recursive parens in sub expressions
     { begin: /\(/, end: /\)/,
-      contains: ["self", hljs.C_LINE_COMMENT_MODE,hljs.C_BLOCK_COMMENT_MODE]
+      contains: ["self"].concat(SUBST.contains, [hljs.C_BLOCK_COMMENT_MODE, hljs.C_LINE_COMMENT_MODE])
     },
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.C_LINE_COMMENT_MODE
