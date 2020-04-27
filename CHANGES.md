@@ -4,8 +4,10 @@ Language Improvements:
 
 - fix(javascript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
 - fix(typescript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
+- fix(yaml) Fix tags to include non-word characters (#2486) [Peter Plantinga][]
 
 [Josh Goebel]: https://github.com/yyyc514
+[Peter Plantinga]: https://github.com/pplantinga
 
 
 ## Version 10.0.1
