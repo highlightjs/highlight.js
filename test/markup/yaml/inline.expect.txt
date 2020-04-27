@@ -1,0 +1,2 @@
+<span class="hljs-attr">foo:</span> [<span class="hljs-string">bar</span>, <span class="hljs-string">bar2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+<span class="hljs-attr">foo:</span> {<span class="hljs-attr">bar:</span> <span class="hljs-number">1</span>, <span class="hljs-attr">bar:</span> <span class="hljs-number">2</span>}

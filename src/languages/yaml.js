@@ -39,7 +39,7 @@ export default function(hljs) {
     variants: [
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/},
-      {begin: /\S+/}
+      {begin: /[^\s,{}[\]]+/}
     ],
     contains: [
       hljs.BACKSLASH_ESCAPE,
