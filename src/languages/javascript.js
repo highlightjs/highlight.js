@@ -90,6 +90,10 @@ export default function(hljs) {
     hljs.REGEXP_MODE
   ];
   var PARAMS_CONTAINS = SUBST.contains.concat([
+    // eat recursive parens in sub expressions
+    { begin: /\(/, end: /\)/,
+      contains: ["self"].concat(SUBST.contains, [hljs.C_BLOCK_COMMENT_MODE, hljs.C_LINE_COMMENT_MODE])
+    },
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.C_LINE_COMMENT_MODE
   ]);
@@ -175,17 +179,27 @@ export default function(hljs) {
           hljs.REGEXP_MODE,
           {
             className: 'function',
-            begin: '(\\(.*?\\)|' + IDENT_RE + ')\\s*=>', returnBegin: true,
+            // we have to count the parens to make sure we actually have the
+            // correct bounding ( ) before the =>.  There could be any number of
+            // sub-expressions inside also surrounded by parens.
+            begin: '(\\([^(]*' +
+              '(\\([^(]*' +
+                '(\\([^(]*' +
+                '\\))?' +
+              '\\))?' +
+            '\\)|' + hljs.UNDERSCORE_IDENT_RE + ')\\s*=>', returnBegin: true,
             end: '\\s*=>',
             contains: [
               {
                 className: 'params',
                 variants: [
                   {
-                    begin: IDENT_RE
+                    begin: hljs.UNDERSCORE_IDENT_RE
                   },
                   {
+                    className: null,
                     begin: /\(\s*\)/,
+                    skip: true
                   },
                   {
                     begin: /\(/, end: /\)/,
