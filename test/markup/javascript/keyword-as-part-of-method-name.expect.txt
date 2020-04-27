@@ -1,2 +1,2 @@
-<span class="hljs-keyword">setTimeout</span>();
-<span class="hljs-keyword">setInterval</span>();
+<span class="hljs-built_in">setTimeout</span>();
+<span class="hljs-built_in">setInterval</span>();
