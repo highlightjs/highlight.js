@@ -13,6 +13,7 @@ Deprecations:
 
 Language Improvements:
 
+- fix(javascript) prevent setter keyword `set` conflicting with setTimeout|setInterval (#2514) [Vania Kucher][]
 - fix(cpp) Fix highlighting of unterminated raw strings (#2261) [David Benjamin][]
 - fix(javascript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
 - fix(typescript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
