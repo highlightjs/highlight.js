@@ -23,6 +23,7 @@ Language Improvements:
 [Josh Goebel]: https://github.com/yyyc514
 [Peter Plantinga]: https://github.com/pplantinga
 [David Benjamin]: https://github.com/davidben
+[Vania Kucher]: https://github.com/qWici
 
 
 ## Version 10.0.1
