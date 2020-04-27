@@ -272,6 +272,12 @@ export default function(hljs) {
           PARAMS
         ]
 
+      },
+      {
+        beginKeywords: "(setInterval|setTimeout)",
+        keywords: "setInterval setTimeout",
+        end: /\(/,
+        excludeEnd: true,
       }
     ],
     illegal: /#(?!!)/
