@@ -33,7 +33,7 @@ export default function(hljs) {
       'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
       'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
       'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect ' +
-      'Promise setInterval setTimeout'
+      'Promise setInterval setTimeout clearInterval clearTimeout'
   };
   var NUMBER = {
     className: 'number',
