@@ -1,3 +1,12 @@
+## Version 10.1.0 (in progress)
+
+Language improvements:
+
+- fix(yaml) Fix tags to include non-word characters (#2486) [Peter Plantinga][]
+
+[Peter Plantinga]: https://github.com/pplantinga
+
+
 ## Version 10.0.1
 
 Parser Engine Changes:

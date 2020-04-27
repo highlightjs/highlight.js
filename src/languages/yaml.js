@@ -10,6 +10,9 @@ Category: common, config
 export default function(hljs) {
   var LITERALS = 'true false yes no null';
 
+  // YAML spec allows non-reserved URI characters in tags.
+  var URI_CHARACTERS = '[\\w#;/?:@&=+$,.~*\\\'()[\\]]+'
+
   // Define keys as starting with a word character
   // ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
   // ...and ending with a colon followed immediately by a space, tab or newline.
@@ -79,13 +82,22 @@ export default function(hljs) {
         excludeEnd: true,
         relevance: 0
       },
-      { // local tags
+      { // named tags
         className: 'type',
-        begin: '!' + hljs.UNDERSCORE_IDENT_RE,
+        begin: '!\\w+!' + URI_CHARACTERS,
       },
-      { // data type
+      // https://yaml.org/spec/1.2/spec.html#id2784064
+      { // verbatim tags
         className: 'type',
-        begin: '!!' + hljs.UNDERSCORE_IDENT_RE,
+        begin: '!<' + URI_CHARACTERS + ">",
+      },
+      { // primary tags
+        className: 'type',
+        begin: '!' + URI_CHARACTERS,
+      },
+      { // secondary tags
+        className: 'type',
+        begin: '!!' + URI_CHARACTERS,
       },
       { // fragment id &ref
         className: 'meta',
