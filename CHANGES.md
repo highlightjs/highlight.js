@@ -13,6 +13,9 @@ Deprecations:
 
 Language Improvements:
 
+- enh(typescript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Josh Goebel][]
+- enh(javascript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Vania Kucher][]
+- fix(javascript) prevent `set` keyword conflicting with setTimeout, etc. (#2514) [Vania Kucher][]
 - fix(cpp) Fix highlighting of unterminated raw strings (#2261) [David Benjamin][]
 - fix(javascript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
 - fix(typescript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
@@ -21,6 +24,7 @@ Language Improvements:
 [Josh Goebel]: https://github.com/yyyc514
 [Peter Plantinga]: https://github.com/pplantinga
 [David Benjamin]: https://github.com/davidben
+[Vania Kucher]: https://github.com/qWici
 
 
 ## Version 10.0.1

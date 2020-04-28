@@ -33,7 +33,7 @@ export default function(hljs) {
       'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
       'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
       'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect ' +
-      'Promise'
+      'Promise setInterval setTimeout clearInterval clearTimeout'
   };
   var NUMBER = {
     className: 'number',
@@ -263,7 +263,7 @@ export default function(hljs) {
         beginKeywords: 'constructor', end: /\{/, excludeEnd: true
       },
       {
-        begin:'(get|set)\\s*(?=' + IDENT_RE+ '\\()',
+        begin: '(get|set)\\s+(?=' + IDENT_RE + '\\()',
         end: /{/,
         keywords: "get set",
         contains: [
