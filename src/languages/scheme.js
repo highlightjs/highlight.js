@@ -50,12 +50,6 @@ export default function(hljs) {
       'with-input-from-file with-output-to-file write write-char zero?'
   };
 
-  var SHEBANG = {
-    className: 'meta',
-    begin: '^#!',
-    end: '$'
-  };
-
   var LITERAL = {
     className: 'literal',
     begin: '(#t|#f|#\\\\' + SCHEME_IDENT_RE + '|#\\\\.)'
@@ -150,6 +144,6 @@ export default function(hljs) {
   return {
     name: 'Scheme',
     illegal: /\S/,
-    contains: [SHEBANG, NUMBER, STRING, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES)
+    contains: [hljs.SHEBANG(), NUMBER, STRING, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES)
   };
 }
