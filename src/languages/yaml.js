@@ -39,7 +39,7 @@ export default function(hljs) {
     variants: [
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/},
-      {begin: /[^\s,{}[\]]+/}
+      {begin: /\S+/}
     ],
     contains: [
       hljs.BACKSLASH_ESCAPE,
@@ -56,76 +56,92 @@ export default function(hljs) {
     begin: '\\b' + DATE_RE + TIME_RE + FRACTION_RE + ZONE_RE + '\\b',
   }
 
+  var TYPES = [
+    KEY,
+    {
+      className: 'meta',
+      begin: '^---\s*$',
+      relevance: 10
+    },
+    { // multi line string
+      // Blocks start with a | or > followed by a newline
+      //
+      // Indentation of subsequent lines must be the same to
+      // be considered part of the block
+      className: 'string',
+      begin: '[\\|>]([0-9]?[+-])?[ ]*\\n( *)[\\S ]+\\n(\\2[\\S ]+\\n?)*',
+    },
+    { // Ruby/Rails erb
+      begin: '<%[%=-]?', end: '[%-]?%>',
+      subLanguage: 'ruby',
+      excludeBegin: true,
+      excludeEnd: true,
+      relevance: 0
+    },
+    { // named tags
+      className: 'type',
+      begin: '!\\w+!' + URI_CHARACTERS,
+    },
+    // https://yaml.org/spec/1.2/spec.html#id2784064
+    { // verbatim tags
+      className: 'type',
+      begin: '!<' + URI_CHARACTERS + ">",
+    },
+    { // primary tags
+      className: 'type',
+      begin: '!' + URI_CHARACTERS,
+    },
+    { // secondary tags
+      className: 'type',
+      begin: '!!' + URI_CHARACTERS,
+    },
+    { // fragment id &ref
+      className: 'meta',
+      begin: '&' + hljs.UNDERSCORE_IDENT_RE + '$',
+    },
+    { // fragment reference *ref
+      className: 'meta',
+      begin: '\\*' + hljs.UNDERSCORE_IDENT_RE + '$'
+    },
+    { // array listing
+      className: 'bullet',
+    // TODO: remove |$ hack when we have proper look-ahead support
+    begin: '\\-(?=[ ]|$)',
+      relevance: 0
+    },
+    hljs.HASH_COMMENT_MODE,
+    {
+      beginKeywords: LITERALS,
+      keywords: {literal: LITERALS}
+    },
+    TIMESTAMP,
+    // numbers are any valid C-style number that
+    // sit isolated from other words
+    {
+      className: 'number',
+      begin: hljs.C_NUMBER_RE + '\\b'
+    },
+  ];
+  var VALUE_CONTAINER = {
+    end: ',', endsWithParent: true, excludeEnd: true,
+    contains: TYPES,
+    keywords: LITERALS
+  };
+  var OBJECT = {
+    begin: '{', end: '}',
+    contains: [hljs.inherit(VALUE_CONTAINER)],
+    illegal: '\\n'
+  };
+  var ARRAY = {
+    begin: '\\[', end: '\\]',
+    contains: [hljs.inherit(VALUE_CONTAINER)],
+    illegal: '\\n'
+  };
+  TYPES.push(OBJECT, ARRAY, STRING);
   return {
     name: 'YAML',
     case_insensitive: true,
     aliases: ['yml', 'YAML'],
-    contains: [
-      KEY,
-      {
-        className: 'meta',
-        begin: '^---\s*$',
-        relevance: 10
-      },
-      { // multi line string
-        // Blocks start with a | or > followed by a newline
-        //
-        // Indentation of subsequent lines must be the same to
-        // be considered part of the block
-        className: 'string',
-        begin: '[\\|>]([0-9]?[+-])?[ ]*\\n( *)[\\S ]+\\n(\\2[\\S ]+\\n?)*',
-      },
-      { // Ruby/Rails erb
-        begin: '<%[%=-]?', end: '[%-]?%>',
-        subLanguage: 'ruby',
-        excludeBegin: true,
-        excludeEnd: true,
-        relevance: 0
-      },
-      { // named tags
-        className: 'type',
-        begin: '!\\w+!' + URI_CHARACTERS,
-      },
-      // https://yaml.org/spec/1.2/spec.html#id2784064
-      { // verbatim tags
-        className: 'type',
-        begin: '!<' + URI_CHARACTERS + ">",
-      },
-      { // primary tags
-        className: 'type',
-        begin: '!' + URI_CHARACTERS,
-      },
-      { // secondary tags
-        className: 'type',
-        begin: '!!' + URI_CHARACTERS,
-      },
-      { // fragment id &ref
-        className: 'meta',
-        begin: '&' + hljs.UNDERSCORE_IDENT_RE + '$',
-      },
-      { // fragment reference *ref
-        className: 'meta',
-        begin: '\\*' + hljs.UNDERSCORE_IDENT_RE + '$'
-      },
-      { // array listing
-        className: 'bullet',
-      // TODO: remove |$ hack when we have proper look-ahead support
-      begin: '\\-(?=[ ]|$)',
-        relevance: 0
-      },
-      hljs.HASH_COMMENT_MODE,
-      {
-        beginKeywords: LITERALS,
-        keywords: {literal: LITERALS}
-      },
-      TIMESTAMP,
-      // numbers are any valid C-style number that
-      // sit isolated from other words
-      {
-        className: 'number',
-        begin: hljs.C_NUMBER_RE + '\\b'
-      },
-      STRING
-    ]
+    contains: TYPES,
   };
 }
