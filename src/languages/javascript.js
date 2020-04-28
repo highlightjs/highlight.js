@@ -97,14 +97,14 @@ export default function(hljs) {
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
     keywords: KEYWORDS,
     contains: [
+      hljs.SHEBANG({
+        binary: "node",
+        relevance: 5
+      }),
       {
         className: 'meta',
         relevance: 10,
         begin: /^\s*['"]use (strict|asm)['"]/
-      },
-      {
-        className: 'meta',
-        begin: /^#!/, end: /$/
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,

@@ -127,6 +127,7 @@ export default function(hljs) {
     aliases: ['ts'],
     keywords: KEYWORDS,
     contains: [
+      hljs.SHEBANG(),
       {
         className: 'meta',
         begin: /^\s*['"]use strict['"]/

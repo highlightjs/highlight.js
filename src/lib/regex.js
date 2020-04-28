@@ -8,6 +8,11 @@ export function source(re) {
   return (re && re.source) || re;
 }
 
+export function concat(...args) {
+  const joined = args.map((x) => source(x)).join("");
+  return joined;
+}
+
 export function countMatchGroups(re) {
   return (new RegExp(re.toString() + '|')).exec('').length - 1;
 }

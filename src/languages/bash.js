@@ -55,11 +55,21 @@ export default function(hljs) {
       VAR
     ]
   };
-  const SHEBANG = {
-    className: 'meta',
-    begin: /^#![^\n]+sh\s*$/,
+  const SH_LIKE_SHELLS = [
+    "fish",
+    "bash",
+    "zsh",
+    "sh",
+    "csh",
+    "ksh",
+    "tcsh",
+    "dash",
+    "scsh",
+  ];
+  const KNOWN_SHEBANG = hljs.SHEBANG({
+    binary: `(${SH_LIKE_SHELLS.join("|")})`,
     relevance: 10
-  };
+  });
   const FUNCTION = {
     className: 'function',
     begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
@@ -98,7 +108,8 @@ export default function(hljs) {
         '-ne -eq -lt -gt -f -d -e -s -l -a' // relevance booster
     },
     contains: [
-      SHEBANG,
+      KNOWN_SHEBANG, // to catch known shells and boost relevancy
+      hljs.SHEBANG(), // to catch unknown shells but still highlight the shebang
       FUNCTION,
       ARITHMETIC,
       hljs.HASH_COMMENT_MODE,

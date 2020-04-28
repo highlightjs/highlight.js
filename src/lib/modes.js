@@ -1,4 +1,5 @@
 import { inherit } from './utils';
+import * as regex from './regex';
 
 // Common regexps
 export const IDENT_RE = '[a-zA-Z]\\w*';
@@ -7,6 +8,26 @@ export const NUMBER_RE = '\\b\\d+(\\.\\d+)?';
 export const C_NUMBER_RE = '(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
 export const BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
 export const RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
+
+export const SHEBANG = (opts = {}) => {
+  const beginShebang = /^#![ ]*\//;
+  if (opts.binary) {
+    opts.begin = regex.concat(
+      beginShebang,
+      /.*\b/,
+      opts.binary,
+      /\b.*/);
+  }
+  return inherit({
+    className: 'meta',
+    begin: beginShebang,
+    end: /$/,
+    relevance: 0,
+    "on:begin": (m, resp) => {
+      if (m.index !== 0) resp.ignoreMatch();
+    }
+  }, opts);
+};
 
 // Common modes
 export const BACKSLASH_ESCAPE = {

@@ -2,6 +2,7 @@
 
 Parser Engine:
 
+- (parser) Adds SHEBANG utility mode [Josh Goebel][]
 - (enh) Added `on:begin` callback for modes (#2261) [Josh Goebel][]
 - (enh) Added `on:end` callback for modes (#2261) [Josh Goebel][]
 - (enh) Added ability to programatically ignore begin and end matches (#2261) [Josh Goebel][]
