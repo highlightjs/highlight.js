@@ -46,6 +46,19 @@ export default function(hljs) {
       TEMPLATE_VARIABLES
     ]
   };
+  var INSIDE_OBJECT_STRING = {
+    className: 'string',
+    relevance: 0,
+    variants: [
+      {begin: /'/, end: /'/},
+      {begin: /"/, end: /"/},
+      {begin: /\S*[^\s,\]}]/}
+    ],
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      TEMPLATE_VARIABLES
+    ]
+  };
 
   var DATE_RE = '[0-9]{4}(-[0-9][0-9]){0,2}';
   var TIME_RE = '([Tt \\t][0-9][0-9]?(:[0-9][0-9]){2})?';
@@ -124,24 +137,27 @@ export default function(hljs) {
   ];
   var VALUE_CONTAINER = {
     end: ',', endsWithParent: true, excludeEnd: true,
-    contains: TYPES,
-    keywords: LITERALS
+    contains: TYPES.concat([INSIDE_OBJECT_STRING]),
+    keywords: LITERALS,
+    relevance: 0
   };
   var OBJECT = {
     begin: '{', end: '}',
     contains: [hljs.inherit(VALUE_CONTAINER)],
-    illegal: '\\n'
+    illegal: '\\n',
+    relevance: 0
   };
   var ARRAY = {
     begin: '\\[', end: '\\]',
     contains: [hljs.inherit(VALUE_CONTAINER)],
-    illegal: '\\n'
+    illegal: '\\n',
+    relevance: 0
   };
-  TYPES.push(OBJECT, ARRAY, STRING);
+  TYPES.push(OBJECT, ARRAY);
   return {
     name: 'YAML',
     case_insensitive: true,
     aliases: ['yml', 'YAML'],
-    contains: TYPES,
+    contains: TYPES.concat([STRING]),
   };
 }
