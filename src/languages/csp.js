@@ -7,6 +7,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 vim: ts=2 sw=2 st=2
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'CSP',

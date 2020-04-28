@@ -9,6 +9,9 @@ export const C_NUMBER_RE = '(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+
 export const BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
 export const RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
 
+/**
+* @param { Partial<Mode> & {binary?: string | RegExp} } opts
+*/
 export const SHEBANG = (opts = {}) => {
   const beginShebang = /^#![ ]*\//;
   if (opts.binary) {
@@ -23,6 +26,7 @@ export const SHEBANG = (opts = {}) => {
     begin: beginShebang,
     end: /$/,
     relevance: 0,
+    /** @type {ModeCallback} */
     "on:begin": (m, resp) => {
       if (m.index !== 0) resp.ignoreMatch();
     }
@@ -50,15 +54,22 @@ export const QUOTE_STRING_MODE = {
 export const PHRASAL_WORDS_MODE = {
   begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b/
 };
-export const COMMENT = function(begin, end, inherits) {
+/**
+ *
+ * @param {string | RegExp} begin
+ * @param {string | RegExp} end
+ * @param {Mode | {}} [modeOptions]
+ * @returns {Partial<Mode>}
+ */
+export const COMMENT = function(begin, end, modeOptions = {}) {
   var mode = inherit(
     {
       className: 'comment',
-      begin: begin,
-      end: end,
+      begin,
+      end,
       contains: []
     },
-    inherits || {}
+    modeOptions
   );
   mode.contains.push(PHRASAL_WORDS_MODE);
   mode.contains.push({
@@ -139,10 +150,15 @@ export const METHOD_GUARD = {
   relevance: 0
 };
 
+/**
+ * @param {Partial<Mode>} mode
+ */
 export const END_SAME_AS_BEGIN = function(mode) {
   return Object.assign(mode,
     {
-    'on:begin': (m, resp) => { resp.data._beginMatch = m[1]; },
-    'on:end': (m, resp) => { if (resp.data._beginMatch !== m[1]) resp.ignoreMatch() }
+      /** @type {ModeCallback} */
+      'on:begin': (m, resp) => { resp.data._beginMatch = m[1]; },
+      /** @type {ModeCallback} */
+      'on:end': (m, resp) => { if (resp.data._beginMatch !== m[1]) resp.ignoreMatch(); }
     });
 };

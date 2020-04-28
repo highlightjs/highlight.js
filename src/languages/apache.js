@@ -7,6 +7,7 @@ Description: language definition for Apache configuration files (httpd.conf & .h
 Category: common, config
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   var NUMBER_REF = {className: 'number', begin: '[\\$%]\\d+'};
   var NUMBER = {className: 'number', begin: '\\d+'};

@@ -3,6 +3,8 @@ Language: Ceylon
 Author: Lucas Werkmeister <mail@lucaswerkmeister.de>
 Website: https://ceylon-lang.org
 */
+
+/** @type LanguageFn */
 export default function(hljs) {
   // 2.3. Identifiers and keywords
   var KEYWORDS =
