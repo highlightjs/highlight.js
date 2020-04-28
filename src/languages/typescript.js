@@ -7,26 +7,36 @@ Website: https://www.typescriptlang.org
 Category: common, scripting
 */
 
+import * as ECMAScript from "./lib/ecmascript";
+
 export default function(hljs) {
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
+  var TYPES = [
+    "any",
+    "void",
+    "number",
+    "boolean",
+    "string",
+    "object",
+    "never",
+    "enum"
+  ];
+  var TS_SPECIFIC_KEYWORDS = [
+    "type",
+    "namespace",
+    "typedef",
+    "interface",
+    "public",
+    "private",
+    "protected",
+    "implements",
+    "declare",
+    "abstract"
+  ];
   var KEYWORDS = {
-    keyword:
-      'in if for while finally var new function do return void else break catch ' +
-      'instanceof with throw case default try this switch continue typeof delete ' +
-      'let yield const class public private protected get set super ' +
-      'static implements enum export import declare type namespace abstract ' +
-      'as from extends async await',
-    literal:
-      'true false null undefined NaN Infinity',
-    built_in:
-      'eval isFinite isNaN parseFloat parseInt decodeURI decodeURIComponent ' +
-      'encodeURI encodeURIComponent escape unescape Object Function Boolean Error ' +
-      'EvalError InternalError RangeError ReferenceError StopIteration SyntaxError ' +
-      'TypeError URIError Number Math Date String RegExp Array Float32Array ' +
-      'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
-      'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
-      'module console window document any number boolean string void Promise ' +
-      'setInterval setTimeout clearInterval clearTimeout'
+    keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS).join(" "),
+    literal: ECMAScript.LITERALS.join(" "),
+    built_in: ECMAScript.BUILT_INS.concat(TYPES).join(" ")
   };
   var DECORATOR = {
     className: 'meta',
