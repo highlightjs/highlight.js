@@ -47,15 +47,14 @@ export default function(hljs) {
     ]
   };
 
-  // Strings inside objects can't start with { or } or [ or ] or ,
-  // and can't end with } or ] or ,
+  // Strings inside objects can't contain braces, brackets, or commas
   var INSIDE_OBJECT_STRING = {
     className: 'string',
     relevance: 0,
     variants: [
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/},
-      {begin: /[^\s,{}[\]](\S*[^\s,\]}])?/}
+      {begin: /[^\s,{}[\]]+/}
     ],
     contains: [
       hljs.BACKSLASH_ESCAPE,
@@ -72,7 +71,7 @@ export default function(hljs) {
     begin: '\\b' + DATE_RE + TIME_RE + FRACTION_RE + ZONE_RE + '\\b',
   }
 
-  var TYPES = [
+  var INSIDE_OBJECT_TYPES = [
     KEY,
     {
       className: 'meta',
@@ -139,8 +138,8 @@ export default function(hljs) {
     },
   ];
   var VALUE_CONTAINER = {
-    end: ',', excludeEnd: true,
-    contains: TYPES.concat([INSIDE_OBJECT_STRING]),
+      end: ',', endsWithParent: true, excludeEnd: true,
+    contains: INSIDE_OBJECT_TYPES,
     keywords: LITERALS,
     relevance: 0
   };
@@ -156,11 +155,15 @@ export default function(hljs) {
     illegal: '\\n',
     relevance: 0
   };
-  TYPES.push(OBJECT, ARRAY);
+  INSIDE_OBJECT_TYPES.push(OBJECT, ARRAY, INSIDE_OBJECT_STRING);
+
+  // Exclude the INSIDE_OBJECT_STRING from TYPES
+  TYPES = INSIDE_OBJECT_TYPES.slice(0, -1)
+  TYPES.push(STRING);
   return {
     name: 'YAML',
     case_insensitive: true,
     aliases: ['yml', 'YAML'],
-    contains: TYPES.concat([STRING]),
+    contains: TYPES,
   };
 }
