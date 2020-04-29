@@ -46,13 +46,16 @@ export default function(hljs) {
       TEMPLATE_VARIABLES
     ]
   };
+
+  // Strings inside objects can't start with { or } or [ or ] or ,
+  // and can't end with } or ] or ,
   var INSIDE_OBJECT_STRING = {
     className: 'string',
     relevance: 0,
     variants: [
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/},
-      {begin: /\S*[^\s,\]}]/}
+      {begin: /[^\s,{}[\]](\S*[^\s,\]}])?/}
     ],
     contains: [
       hljs.BACKSLASH_ESCAPE,
@@ -136,20 +139,20 @@ export default function(hljs) {
     },
   ];
   var VALUE_CONTAINER = {
-    end: ',', endsWithParent: true, excludeEnd: true,
+    end: ',', excludeEnd: true,
     contains: TYPES.concat([INSIDE_OBJECT_STRING]),
     keywords: LITERALS,
     relevance: 0
   };
   var OBJECT = {
     begin: '{', end: '}',
-    contains: [hljs.inherit(VALUE_CONTAINER)],
+    contains: [VALUE_CONTAINER],
     illegal: '\\n',
     relevance: 0
   };
   var ARRAY = {
     begin: '\\[', end: '\\]',
-    contains: [hljs.inherit(VALUE_CONTAINER)],
+    contains: [VALUE_CONTAINER],
     illegal: '\\n',
     relevance: 0
   };
