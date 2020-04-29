@@ -10,7 +10,7 @@ Category: common, scripting
 import * as ECMAScript from "./lib/ecmascript";
 
 export default function(hljs) {
-  var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
+  var IDENT_RE = ECMAScript.IDENT_RE;
   var TYPES = [
     "any",
     "void",
@@ -34,13 +34,14 @@ export default function(hljs) {
     "abstract"
   ];
   var KEYWORDS = {
+    $lexemes: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS).join(" "),
     literal: ECMAScript.LITERALS.join(" "),
     built_in: ECMAScript.BUILT_INS.concat(TYPES).join(" ")
   };
   var DECORATOR = {
     className: 'meta',
-    begin: '@' + JS_IDENT_RE,
+    begin: '@' + IDENT_RE,
   };
   var NUMBER = {
     className: 'number',
@@ -55,7 +56,7 @@ export default function(hljs) {
     className: 'subst',
     begin: '\\$\\{', end: '\\}',
     keywords: KEYWORDS,
-    contains: []  // defined later
+    contains: [] // defined later
   };
   var HTML_TEMPLATE = {
     begin: 'html`', end: '',
@@ -190,7 +191,7 @@ export default function(hljs) {
         keywords: KEYWORDS,
         contains: [
           'self',
-          hljs.inherit(hljs.TITLE_MODE, { begin: JS_IDENT_RE }),
+          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
           PARAMS
         ],
         illegal: /%/,

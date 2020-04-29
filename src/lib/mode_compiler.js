@@ -206,12 +206,18 @@ export function compileLanguage(language) {
     // __beforeBegin is considered private API, internal use only
     mode.__beforeBegin = null;
 
+    let kw_lexemes = null;
+    if (typeof mode.keywords === "object") {
+      kw_lexemes = mode.keywords.$lexemes;
+      delete mode.keywords.$lexemes;
+    }
+
     mode.keywords = mode.keywords || mode.beginKeywords;
     if (mode.keywords) {
       mode.keywords = compileKeywords(mode.keywords, language.case_insensitive);
     }
 
-    mode.lexemesRe = langRe(mode.lexemes || /\w+/, true);
+    mode.lexemesRe = langRe(mode.lexemes || kw_lexemes || /\w+/, true);
 
     if (parent) {
       if (mode.beginKeywords) {
