@@ -7,14 +7,22 @@
   <link rel="stylesheet" href="../src/styles/default.css">
 
   <style>
+    body { padding: 20px;
+    font-family: sans-serif;
+     }
     .editor textarea {
       display: block; width: 100%;
       height: 15em;
+    }
+    h3 {
+      margin:0 0 0.5em;
+      font-size:1.1em;
     }
 
     pre code,
     pre output {
       display: block;
+      padding:20px !important;
     }
 
     pre output {
@@ -28,28 +36,30 @@
     }
 
     .visible-structure pre code span {
-      display: block;
-      padding: 0.5em;
-      margin: 0.5em;
-      border: 1px dashed black;
-      position: relative;
+      display: inline-block;
+      padding:2px;
+      margin: 3px 0;
+      border: 1px dashed #777;
+      border-radius: 5px;
       white-space: pre;
     }
 
     .visible-structure pre code span:before {
-      display: block;
-      content: attr(class);
-      color: black;
+      display: inline-block;
+      content: attr(data-klass);
       font-size: 70%;
-      float:right;
-      margin-top: -0.5em;
+      background: #693;
+      padding:1px 5px;
+      border-radius: 3px;
+      color:white;
+      margin-right:0.5em;
+      font-weight: normal;
     }
   </style>
 </head>
 <body>
-  <h1>highlight.js developer</h1>
-
   <div class="editor">
+    <h3>Code</h3>
     <div>
       <textarea>Put code here…</textarea>
       <p>
@@ -59,11 +69,11 @@
       </p>
     </div>
     <div>
-      <p>Rendered in <span class="rendering_time">...</span> ms [<span class="rendering_stats">...</span>]</p>
+      <h3>Rendered in <span class="rendering_time">...</span> ms [<span class="rendering_stats">...</span>]</h3>
       <pre><code class="hljs">...</code></pre>
     </div>
     <div>
-      <p>Markup
+      <h3>Markup</h3>
       <pre><output>...</output></pre>
     </div>
   </div>
@@ -88,7 +98,10 @@
         var result = hljs.getLanguage(language) ? hljs.highlight(language, source, true) : hljs.highlightAuto(source);
         var rendering_time = +new Date() - start_time;
         editor.find('.hljs').html(result.value);
-        var rendering_stats = result.language + ': ' + (result.relevance || result.r);
+        $(".hljs span").each((_,el) => {
+          $(el).attr("data-klass", el.className.replace("hljs-",""))
+        })
+        var rendering_stats = result.language + ': relevance ' + (result.relevance );
         if (result.second_best) {
             rendering_stats += ', ' + result.second_best.language + ': ' + (result.second_best.relevance || result.second_best.r);
         }

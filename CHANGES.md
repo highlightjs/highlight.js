@@ -1,3 +1,43 @@
+## Version 10.1.0 (in progress)
+
+Parser Engine:
+
+- (parser) Adds SHEBANG utility mode [Josh Goebel][]
+- (enh) Added `on:begin` callback for modes (#2261) [Josh Goebel][]
+- (enh) Added `on:end` callback for modes (#2261) [Josh Goebel][]
+- (enh) Added ability to programatically ignore begin and end matches (#2261) [Josh Goebel][]
+- (enh) Added `END_SAME_AS_BEGIN` mode to replace `endSameAsBegin` parser attribute (#2261) [Josh Goebel][]
+
+Deprecations:
+
+- (deprecation) `endSameAsBegin` is now deprecated. (#2261) [Josh Goebel][]
+
+Language Improvements:
+
+- enh(typescript/javascript/coffeescript/livescript) derive ECMAscript keywords from a common foudation (#2518) [Josh Goebel][]
+- enh(typescript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Josh Goebel][]
+- enh(javascript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Vania Kucher][]
+- fix(javascript) prevent `set` keyword conflicting with setTimeout, etc. (#2514) [Vania Kucher][]
+- fix(cpp) Fix highlighting of unterminated raw strings (#2261) [David Benjamin][]
+- fix(javascript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
+- fix(typescript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
+- fix(yaml) Fix tags to include non-word characters (#2486) [Peter Plantinga][]
+
+[Josh Goebel]: https://github.com/yyyc514
+[Peter Plantinga]: https://github.com/pplantinga
+[David Benjamin]: https://github.com/davidben
+[Vania Kucher]: https://github.com/qWici
+
+
+## Version 10.0.1
+
+Parser Engine Changes:
+
+- (bug) Fix sublanguage with no relevance score (#2506) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
+
+
 ## Version 10.0.0
 
 New languages:

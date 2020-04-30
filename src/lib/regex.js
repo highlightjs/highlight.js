@@ -1,11 +1,16 @@
 export function escape(value) {
-  return new RegExp(value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
+  return new RegExp(value.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
 }
 
 export function source(re) {
   // if it's a regex get it's source,
   // otherwise it's a string already so just return it
   return (re && re.source) || re;
+}
+
+export function concat(...args) {
+  const joined = args.map((x) => source(x)).join("");
+  return joined;
 }
 
 export function countMatchGroups(re) {
@@ -49,12 +54,12 @@ export function join(regexps, separator) {
       }
       ret += re.substring(0, match.index);
       re = re.substring(match.index + match[0].length);
-      if (match[0][0] == '\\' && match[1]) {
+      if (match[0][0] === '\\' && match[1]) {
         // Adjust the backreference.
         ret += '\\' + String(Number(match[1]) + offset);
       } else {
         ret += match[0];
-        if (match[0] == '(') {
+        if (match[0] === '(') {
           numCaptures++;
         }
       }
