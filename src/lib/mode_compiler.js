@@ -61,6 +61,9 @@ export function compileLanguage(language) {
       // eslint-disable-next-line no-undefined
       const i = match.findIndex((el, i) => i > 0 && el !== undefined);
       const matchData = this.matchIndexes[i];
+      // trim off any earlier non-relevant match groups (ie, the other regex
+      // match groups that make up the multi-matcher)
+      match.splice(0, i);
 
       return Object.assign(match, matchData);
     }
@@ -158,11 +161,11 @@ export function compileLanguage(language) {
   }
 
   // TODO: We need negative look-behind support to do this properly
-  function skipIfhasPrecedingOrTrailingDot(match) {
+  function skipIfhasPrecedingOrTrailingDot(match, resp) {
     const before = match.input[match.index - 1];
     const after = match.input[match.index + match[0].length];
     if (before === "." || after === ".") {
-      return { ignoreMatch: true };
+      resp.ignoreMatch();
     }
   }
 
@@ -200,8 +203,8 @@ export function compileLanguage(language) {
     if (mode.compiled) return;
     mode.compiled = true;
 
-    // __onBegin is considered private API, internal use only
-    mode.__onBegin = null;
+    // __beforeBegin is considered private API, internal use only
+    mode.__beforeBegin = null;
 
     mode.keywords = mode.keywords || mode.beginKeywords;
     if (mode.keywords) {
@@ -218,7 +221,7 @@ export function compileLanguage(language) {
         // doesn't allow spaces in keywords anyways and we still check for the boundary
         // first
         mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')(?=\\b|\\s)';
-        mode.__onBegin = skipIfhasPrecedingOrTrailingDot;
+        mode.__beforeBegin = skipIfhasPrecedingOrTrailingDot;
       }
       if (!mode.begin)
         mode.begin = /\B|\b/;

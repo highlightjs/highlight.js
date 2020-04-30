@@ -23,7 +23,15 @@
   "main": "./lib/index.js",
   "scripts": {
     "mocha": "mocha",
+
+    "build_and_test": "npm run build && npm run test",
+    "build": "node ./tools/build.js -t node",
+    "build-cdn": "node ./tools/build.js -t cdn",
+    "build-browser": "node ./tools/build.js -t browser :common",
+
     "test": "mocha --globals document test",
+    "test-markup": "mocha --globals document test/markup",
+    "test-detect": "mocha --globals document test/detect",
     "test-browser": "mocha --globals document test/browser"
   },
   "engines": {

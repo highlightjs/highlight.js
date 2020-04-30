@@ -4,6 +4,7 @@ https://highlightjs.org/
 */
 
 import deepFreeze from './vendor/deep_freeze';
+import Response from './lib/response';
 import TokenTreeEmitter from './lib/token_tree';
 import * as regex from './lib/regex';
 import * as utils from './lib/utils';
@@ -118,18 +119,6 @@ const HLJS = function(hljs) {
   function _highlight(languageName, code, ignoreIllegals, continuation) {
     var codeToHighlight = code;
 
-    function endOfMode(mode, lexeme) {
-      if (regex.startsWith(mode.endRe, lexeme)) {
-        while (mode.endsParent && mode.parent) {
-          mode = mode.parent;
-        }
-        return mode;
-      }
-      if (mode.endsWithParent) {
-        return endOfMode(mode.parent, lexeme);
-      }
-    }
-
     function keywordData(mode, match) {
       var matchText = language.case_insensitive ? match[0].toLowerCase() : match[0];
       return Object.prototype.hasOwnProperty.call(mode.keywords, matchText) && mode.keywords[matchText];
@@ -206,7 +195,33 @@ const HLJS = function(hljs) {
       if (mode.className) {
         emitter.openNode(mode.className);
       }
-      top = Object.create(mode, { parent: { value: top } });
+      top = Object.create(mode, {parent: {value: top}});
+      return top;
+    }
+
+    function endOfMode(mode, match, matchPlusRemainder) {
+      let matched = regex.startsWith(mode.endRe, matchPlusRemainder);
+
+      if (matched) {
+        if (mode["on:end"]) {
+          let resp = new Response(mode);
+          mode["on:end"](match, resp);
+          if (resp.ignore)
+            matched = false;
+        }
+
+        if (matched) {
+          while (mode.endsParent && mode.parent) {
+            mode = mode.parent;
+          }
+          return mode;
+        }
+      }
+      // even if on:end fires an `ignore` it's still possible
+      // that we might trigger the end node because of a parent mode
+      if (mode.endsWithParent) {
+        return endOfMode(mode.parent, match, matchPlusRemainder);
+      }
     }
 
     function doIgnore(lexeme) {
@@ -226,12 +241,15 @@ const HLJS = function(hljs) {
     function doBeginMatch(match) {
       var lexeme = match[0];
       var new_mode = match.rule;
+      var mode;
 
-      if (new_mode.__onBegin) {
-        const res = new_mode.__onBegin(match) || {};
-        if (res.ignoreMatch) {
-          return doIgnore(lexeme);
-        }
+      let resp = new Response(new_mode);
+      // first internal before callbacks, then the public ones
+      let beforeCallbacks = [new_mode.__beforeBegin, new_mode["on:begin"]];
+      for (let cb of beforeCallbacks) {
+        if (!cb) continue;
+        cb(match, resp);
+        if (resp.ignore) return doIgnore(lexeme);
       }
 
       if (new_mode && new_mode.endSameAsBegin) {
@@ -249,14 +267,19 @@ const HLJS = function(hljs) {
           mode_buffer = lexeme;
         }
       }
-      startNewMode(new_mode);
+      mode = startNewMode(new_mode);
+      // if (mode["after:begin"]) {
+      //   let resp = new Response(mode);
+      //   mode["after:begin"](match, resp);
+      // }
       return new_mode.returnBegin ? 0 : lexeme.length;
     }
 
     function doEndMatch(match) {
       var lexeme = match[0];
       var matchPlusRemainder = codeToHighlight.substr(match.index);
-      var end_mode = endOfMode(top, matchPlusRemainder);
+
+      var end_mode = endOfMode(top, match, matchPlusRemainder);
       if (!end_mode) { return NO_MATCH; }
 
       var origin = top;
