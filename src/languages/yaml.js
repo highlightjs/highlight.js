@@ -11,7 +11,7 @@ export default function(hljs) {
   var LITERALS = 'true false yes no null';
 
   // YAML spec allows non-reserved URI characters in tags.
-  var URI_CHARACTERS = '[\\w#;/?:@&=+$,.~*\\\'()[\\]]+'
+  var URI_CHARACTERS = '[\\w#;/?:@&=+$,.~*\\\'()[\\]]+';
 
   // Define keys as starting with a word character
   // ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
@@ -21,25 +21,25 @@ export default function(hljs) {
     className: 'attr',
     variants: [
       { begin: '\\w[\\w :\\/.-]*:(?=[ \t]|$)' },
-      { begin: '"\\w[\\w :\\/.-]*":(?=[ \t]|$)' }, //double quoted keys
-      { begin: '\'\\w[\\w :\\/.-]*\':(?=[ \t]|$)' } //single quoted keys
+      { begin: '"\\w[\\w :\\/.-]*":(?=[ \t]|$)' }, // double quoted keys
+      { begin: '\'\\w[\\w :\\/.-]*\':(?=[ \t]|$)' } // single quoted keys
     ]
   };
 
   var TEMPLATE_VARIABLES = {
     className: 'template-variable',
     variants: [
-      { begin: '\{\{', end: '\}\}' }, // jinja templates Ansible
-      { begin: '%\{', end: '\}' } // Ruby i18n
+      { begin: '{{', end: '}}' }, // jinja templates Ansible
+      { begin: '%{', end: '}' } // Ruby i18n
     ]
   };
   var STRING = {
     className: 'string',
     relevance: 0,
     variants: [
-      {begin: /'/, end: /'/},
-      {begin: /"/, end: /"/},
-      {begin: /\S+/}
+      { begin: /'/, end: /'/ },
+      { begin: /"/, end: /"/ },
+      { begin: /\S+/ }
     ],
     contains: [
       hljs.BACKSLASH_ESCAPE,
@@ -51,9 +51,9 @@ export default function(hljs) {
   // brackets, or commas
   var CONTAINER_STRING = hljs.inherit(STRING, {
     variants: [
-      {begin: /'/, end: /'/},
-      {begin: /"/, end: /"/},
-      {begin: /[^\s,{}[\]]+/}
+      { begin: /'/, end: /'/ },
+      { begin: /"/, end: /"/ },
+      { begin: /[^\s,{}[\]]+/ }
     ]
   });
 
@@ -63,7 +63,7 @@ export default function(hljs) {
   var ZONE_RE = '([ \\t])*(Z|[-+][0-9][0-9]?(:[0-9][0-9])?)?';
   var TIMESTAMP = {
     className: 'number',
-    begin: '\\b' + DATE_RE + TIME_RE + FRACTION_RE + ZONE_RE + '\\b',
+    begin: '\\b' + DATE_RE + TIME_RE + FRACTION_RE + ZONE_RE + '\\b'
   };
 
   var VALUE_CONTAINER = {
@@ -75,13 +75,15 @@ export default function(hljs) {
     relevance: 0
   };
   var OBJECT = {
-    begin: '{', end: '}',
+    begin: '{',
+    end: '}',
     contains: [VALUE_CONTAINER],
     illegal: '\\n',
     relevance: 0
   };
   var ARRAY = {
-    begin: '\\[', end: '\\]',
+    begin: '\\[',
+    end: '\\]',
     contains: [VALUE_CONTAINER],
     illegal: '\\n',
     relevance: 0
@@ -100,10 +102,11 @@ export default function(hljs) {
       // Indentation of subsequent lines must be the same to
       // be considered part of the block
       className: 'string',
-      begin: '[\\|>]([0-9]?[+-])?[ ]*\\n( *)[\\S ]+\\n(\\2[\\S ]+\\n?)*',
+      begin: '[\\|>]([0-9]?[+-])?[ ]*\\n( *)[\\S ]+\\n(\\2[\\S ]+\\n?)*'
     },
     { // Ruby/Rails erb
-      begin: '<%[%=-]?', end: '[%-]?%>',
+      begin: '<%[%=-]?',
+      end: '[%-]?%>',
       subLanguage: 'ruby',
       excludeBegin: true,
       excludeEnd: true,
@@ -111,24 +114,24 @@ export default function(hljs) {
     },
     { // named tags
       className: 'type',
-      begin: '!\\w+!' + URI_CHARACTERS,
+      begin: '!\\w+!' + URI_CHARACTERS
     },
     // https://yaml.org/spec/1.2/spec.html#id2784064
     { // verbatim tags
       className: 'type',
-      begin: '!<' + URI_CHARACTERS + ">",
+      begin: '!<' + URI_CHARACTERS + ">"
     },
     { // primary tags
       className: 'type',
-      begin: '!' + URI_CHARACTERS,
+      begin: '!' + URI_CHARACTERS
     },
     { // secondary tags
       className: 'type',
-      begin: '!!' + URI_CHARACTERS,
+      begin: '!!' + URI_CHARACTERS
     },
     { // fragment id &ref
       className: 'meta',
-      begin: '&' + hljs.UNDERSCORE_IDENT_RE + '$',
+      begin: '&' + hljs.UNDERSCORE_IDENT_RE + '$'
     },
     { // fragment reference *ref
       className: 'meta',
@@ -143,7 +146,7 @@ export default function(hljs) {
     hljs.HASH_COMMENT_MODE,
     {
       beginKeywords: LITERALS,
-      keywords: {literal: LITERALS}
+      keywords: { literal: LITERALS }
     },
     TIMESTAMP,
     // numbers are any valid C-style number that
@@ -166,6 +169,6 @@ export default function(hljs) {
     name: 'YAML',
     case_insensitive: true,
     aliases: ['yml', 'YAML'],
-    contains: MODES,
+    contains: MODES
   };
 }
