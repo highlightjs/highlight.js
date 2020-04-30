@@ -47,20 +47,15 @@ export default function(hljs) {
     ]
   };
 
-  // Strings inside objects can't contain braces, brackets, or commas
-  var INSIDE_OBJECT_STRING = {
-    className: 'string',
-    relevance: 0,
+  // Strings inside of value containers (objects) can't contain braces,
+  // brackets, or commas
+  var CONTAINER_STRING = hljs.inherit(STRING, {
     variants: [
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/},
       {begin: /[^\s,{}[\]]+/}
-    ],
-    contains: [
-      hljs.BACKSLASH_ESCAPE,
-      TEMPLATE_VARIABLES
     ]
-  };
+  });
 
   var DATE_RE = '[0-9]{4}(-[0-9][0-9]){0,2}';
   var TIME_RE = '([Tt \\t][0-9][0-9]?(:[0-9][0-9]){2})?';
@@ -69,9 +64,30 @@ export default function(hljs) {
   var TIMESTAMP = {
     className: 'number',
     begin: '\\b' + DATE_RE + TIME_RE + FRACTION_RE + ZONE_RE + '\\b',
-  }
+  };
 
-  var INSIDE_OBJECT_TYPES = [
+  var VALUE_CONTAINER = {
+    end: ',',
+    endsWithParent: true,
+    excludeEnd: true,
+    contains: [],
+    keywords: LITERALS,
+    relevance: 0
+  };
+  var OBJECT = {
+    begin: '{', end: '}',
+    contains: [VALUE_CONTAINER],
+    illegal: '\\n',
+    relevance: 0
+  };
+  var ARRAY = {
+    begin: '\\[', end: '\\]',
+    contains: [VALUE_CONTAINER],
+    illegal: '\\n',
+    relevance: 0
+  };
+
+  var MODES = [
     KEY,
     {
       className: 'meta',
@@ -120,8 +136,8 @@ export default function(hljs) {
     },
     { // array listing
       className: 'bullet',
-    // TODO: remove |$ hack when we have proper look-ahead support
-    begin: '\\-(?=[ ]|$)',
+      // TODO: remove |$ hack when we have proper look-ahead support
+      begin: '\\-(?=[ ]|$)',
       relevance: 0
     },
     hljs.HASH_COMMENT_MODE,
@@ -136,34 +152,20 @@ export default function(hljs) {
       className: 'number',
       begin: hljs.C_NUMBER_RE + '\\b'
     },
+    OBJECT,
+    ARRAY,
+    STRING
   ];
-  var VALUE_CONTAINER = {
-      end: ',', endsWithParent: true, excludeEnd: true,
-    contains: INSIDE_OBJECT_TYPES,
-    keywords: LITERALS,
-    relevance: 0
-  };
-  var OBJECT = {
-    begin: '{', end: '}',
-    contains: [VALUE_CONTAINER],
-    illegal: '\\n',
-    relevance: 0
-  };
-  var ARRAY = {
-    begin: '\\[', end: '\\]',
-    contains: [VALUE_CONTAINER],
-    illegal: '\\n',
-    relevance: 0
-  };
-  INSIDE_OBJECT_TYPES.push(OBJECT, ARRAY, INSIDE_OBJECT_STRING);
 
-  // Exclude the INSIDE_OBJECT_STRING from TYPES
-  TYPES = INSIDE_OBJECT_TYPES.slice(0, -1)
-  TYPES.push(STRING);
+  var VALUE_MODES = [...MODES];
+  VALUE_MODES.pop();
+  VALUE_MODES.push(CONTAINER_STRING);
+  VALUE_CONTAINER.contains = VALUE_MODES;
+
   return {
     name: 'YAML',
     case_insensitive: true,
     aliases: ['yml', 'YAML'],
-    contains: TYPES,
+    contains: MODES,
   };
 }
