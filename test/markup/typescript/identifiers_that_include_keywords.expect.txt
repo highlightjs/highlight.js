@@ -1,0 +1,2 @@
+<span class="hljs-keyword">const</span> $class = <span class="hljs-function">() =&gt;</span> <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">const</span> result = $class();
