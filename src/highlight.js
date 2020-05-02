@@ -365,6 +365,14 @@ const HLJS = function(hljs) {
         }
       }
 
+      // edge case for when illegal matches $ (end of line) which is technically
+      // a 0 width match but not a begin/end match so it's not caught by the
+      // first handler (when ignoreIllegals is true)
+      if (match.type === "illegal" && lexeme === "") {
+        // advance so we aren't stuck in an infinite loop
+        return 1;
+      }
+
       /*
       Why might be find ourselves here?  Only one occasion now.  An end match that was
       triggered but could not be completed.  When might this happen?  When an `endSameasBegin`
