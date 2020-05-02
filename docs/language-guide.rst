@@ -64,7 +64,7 @@ and most interesting parsing happens inside tags.
 Keywords
 --------
 
-In the simple case language keywords are defined in a string, separated by space:
+In the simple case language keywords can by defined with a string, separated by space:
 
 ::
 
@@ -72,9 +72,11 @@ In the simple case language keywords are defined in a string, separated by space
     keywords: 'else for if while'
   }
 
-Some languages have different kinds of "keywords" that might not be called as such by the language spec
-but are very close to them from the point of view of a syntax highlighter. These are all sorts of "literals", "built-ins", "symbols" and such.
-To define such keyword groups the attribute ``keywords`` becomes an object each property of which defines its own group of keywords:
+Some languages have different kinds of "keywords" that might not be called as
+such by the language spec but are very close to them from the point of view of a
+syntax highlighter. These are all sorts of "literals", "built-ins", "symbols"
+and such. To define such keyword groups the attribute ``keywords`` becomes an
+object each property of which defines its own group of keywords:
 
 ::
 
@@ -85,19 +87,25 @@ To define such keyword groups the attribute ``keywords`` becomes an object each 
     }
   }
 
-The group name becomes then a class name in a generated markup enabling different styling for different kinds of keywords.
+The group name becomes the class name in the generated markup enabling different
+themeing for different kinds of keywords.
 
-To detect keywords highlight.js breaks the processed chunk of code into separate words — a process called lexing.
-The "word" here is defined by the regexp ``[a-zA-Z][a-zA-Z0-9_]*`` that works for keywords in most languages.
-Different lexing rules can be defined by the ``lexemes`` attribute:
+To detect keywords highlight.js breaks the processed chunk of code into separate
+words — a process called lexing. By default "words" are matched with the regexp
+``\w+``, and that works well for many languages. Different lexing rules can be
+defined by the magic ``$pattern`` attribute:
 
 ::
 
   {
-    lexemes: '-[a-z]+',
-    keywords: '-import -export'
+    keywords: {
+      $pattern: /-[a-z]+/,        // allow keywords with dash in them
+      keyword: '-import -export'
+    }
   }
 
+Note: The older ``mode.lexemes`` setting has been deprecated in favor of using
+``keywords.$pattern``. They are functionally identical.
 
 Sub-modes
 ---------

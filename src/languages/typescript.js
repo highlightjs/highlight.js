@@ -34,7 +34,7 @@ export default function(hljs) {
     "abstract"
   ];
   var KEYWORDS = {
-    $lexemes: ECMAScript.IDENT_RE,
+    $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS).join(" "),
     literal: ECMAScript.LITERALS.join(" "),
     built_in: ECMAScript.BUILT_INS.concat(TYPES).join(" ")

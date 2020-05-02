@@ -18,7 +18,7 @@ export default function(hljs) {
     end: /\/[A-Za-z0-9\\._:-]+>|\/>/
   };
   var KEYWORDS = {
-    $lexemes: ECMAScript.IDENT_RE,
+    $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.join(" "),
     literal: ECMAScript.LITERALS.join(" "),
     built_in: ECMAScript.BUILT_INS.join(" ")
