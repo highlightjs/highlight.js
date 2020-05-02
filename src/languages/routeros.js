@@ -68,8 +68,8 @@ export default function(hljs) {
     name: 'Microtik RouterOS script',
     aliases: ['routeros', 'mikrotik'],
     case_insensitive: true,
-    lexemes: /:?[\w-]+/,
     keywords: {
+      $pattern: /:?[\w-]+/,
       literal: LITERALS,
       keyword: STATEMENTS + ' :' + STATEMENTS.split(' ').join(' :') + ' :' + GLOBAL_COMMANDS.split(' ').join(' :'),
     },

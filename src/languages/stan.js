@@ -154,11 +154,11 @@ export default function(hljs) {
     name: 'Stan',
     aliases: ['stanfuncs'],
     keywords: {
-      'title': BLOCKS.join(' '),
-      'keyword': STATEMENTS.concat(VAR_TYPES).concat(SPECIAL_FUNCTIONS).join(' '),
-      'built_in': FUNCTIONS.join(' ')
+      $pattern: hljs.IDENT_RE,
+      title: BLOCKS.join(' '),
+      keyword: STATEMENTS.concat(VAR_TYPES).concat(SPECIAL_FUNCTIONS).join(' '),
+      built_in: FUNCTIONS.join(' ')
     },
-    lexemes: hljs.IDENT_RE,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(

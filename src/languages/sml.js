@@ -11,6 +11,7 @@ export default function(hljs) {
     name: 'SML (Standard ML)',
     aliases: ['ml'],
     keywords: {
+      $pattern: '[a-z_]\\w*!?',
       keyword:
         /* according to Definition of Standard ML 97  */
         'abstype and andalso as case datatype do else end eqtype ' +
@@ -24,7 +25,6 @@ export default function(hljs) {
         'true false NONE SOME LESS EQUAL GREATER nil'
     },
     illegal: /\/\/|>>/,
-    lexemes: '[a-z_]\\w*!?',
     contains: [
       {
         className: 'literal',

@@ -23,8 +23,8 @@ export default function(hljs) {
   return {
     name: 'Packet Filter config',
     aliases: ['pf.conf'],
-    lexemes: /[a-z0-9_<>-]+/,
     keywords: {
+      $pattern: /[a-z0-9_<>-]+/,
       built_in: /* block match pass are "actions" in pf.conf(5), the rest are
                  * lexically similar top-level commands.
                  */

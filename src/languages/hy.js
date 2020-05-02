@@ -7,7 +7,10 @@ Category: lisp
 */
 
 export default function(hljs) {
+  var SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&#\'';
+  var SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
   var keywords = {
+    $pattern: SYMBOL_RE,
     'builtin-name':
       // keywords
       '!= % %= & &= * ** **= *= *map ' +
@@ -41,8 +44,6 @@ export default function(hljs) {
       'xi xor yield yield-from zero? zip zip-longest | |= ~'
    };
 
-  var SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&#\'';
-  var SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
   var SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
 
   var SYMBOL = {
@@ -86,7 +87,6 @@ export default function(hljs) {
   };
   var NAME = {
     keywords: keywords,
-    lexemes: SYMBOL_RE,
     className: 'name', begin: SYMBOL_RE,
     starts: BODY
   };
