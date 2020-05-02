@@ -64,7 +64,7 @@ and most interesting parsing happens inside tags.
 Keywords
 --------
 
-In the simple case language keywords can by defined with a string, separated by space:
+In the simple case language keywords can be defined with a string, separated by space:
 
 ::
 
@@ -104,7 +104,7 @@ defined by the magic ``$pattern`` attribute:
     }
   }
 
-Note: The older ``mode.lexemes`` setting has been deprecated in favor of using
+Note: The older ``lexemes`` setting has been deprecated in favor of using
 ``keywords.$pattern``. They are functionally identical.
 
 Sub-modes
