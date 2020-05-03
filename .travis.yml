@@ -29,5 +29,7 @@ script:
       npm run test
     else
       npm run test-browser
+      # our browser build should also work fine as a Node.js CommonJS module
+      node test/builds/browser_build_as_commonjs.js
     fi
 sudo: false  # Use container-based architecture
