@@ -50,6 +50,10 @@ export default function (hljs) {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, SUBST],
     variants: [{
+        begin: /\//,
+        end: /\/|\n/
+      },
+      {
         begin: /'/,
         end: /'|\n/
       },
