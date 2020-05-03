@@ -30,7 +30,7 @@ Language Improvements:
 [Vania Kucher]: https://github.com/qWici
 
 
-## Version 10.0.1
+## Version 10.0.2 (pending)
 
 Brower build:
 
@@ -43,6 +43,14 @@ Parser Engine Changes:
 - [Issue](https://github.com/highlightjs/highlight.js/issues/2504) (bug) Fix sublanguage with no relevance score (#2506) [Josh Goebel][]
 
 
+[Josh Goebel]: https://github.com/yyyc514
+
+
+## Version 10.0.1
+
+Parser Engine Changes:
+
+- (bug) Fix sublanguage with no relevance score (#2506) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/yyyc514
 
