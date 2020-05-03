@@ -146,7 +146,6 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Q                       | k, kdb                 |         |
 | QML                     | qml                    |         |
 | R                       | r                      |         |
-| Rails-log               | rails-log              | [highlightjs-rails-log](https://github.com/sweetppro/highlightjs-rails-log)
 | Razor CSHTML            | cshtml, razor, razor-cshtml | [highlightjs-cshtml-razor](https://github.com/highlightjs/highlightjs-cshtml-razor) |
 | ReasonML                | reasonml, re           |         |
 | RenderMan RIB           | rib                    |         |
