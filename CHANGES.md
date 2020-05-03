@@ -1,4 +1,4 @@
-## Version 10.0.2 (pending)
+## Version 10.0.2
 
 Brower build:
 
@@ -7,7 +7,7 @@ Brower build:
 
 Parser Engine Changes:
 
-- [Issue](https://github.com/highlightjs/highlight.js/issues/2522) fix(parser) Fix freez issue with illegal 0 width matches (#2524) [Josh Goebel][]
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2522) fix(parser) Fix freeze issue with illegal 0 width matches (#2524) [Josh Goebel][]
 
 
 [Josh Goebel]: https://github.com/yyyc514
