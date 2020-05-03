@@ -348,6 +348,23 @@ const HLJS = function(hljs) {
           return processed;
       }
 
+      // edge case for when illegal matches $ (end of line) which is technically
+      // a 0 width match but not a begin/end match so it's not caught by the
+      // first handler (when ignoreIllegals is true)
+      if (match.type === "illegal" && lexeme === "") {
+        // advance so we aren't stuck in an infinite loop
+        return 1;
+      }
+
+      // infinite loops are BAD, this is a last ditch catch all. if we have a
+      // decent number of iterations yet our index (cursor position in our
+      // parsing) still 3x behind our index then something is very wrong
+      // so we bail
+      if (iterations > 100000 && iterations > match.index * 3) {
+        const err = new Error('potential infinite loop, way more iterations than matches');
+        throw err;
+      }
+
       /*
       Why might be find ourselves here?  Only one occasion now.  An end match that was
       triggered but could not be completed.  When might this happen?  When an `endSameasBegin`
@@ -378,13 +395,17 @@ const HLJS = function(hljs) {
     processContinuations();
     var mode_buffer = '';
     var relevance = 0;
-    var match, processedCount, index = 0;
+    var match;
+    var processedCount;
+    var index = 0;
+    var iterations = 0;
+    var continueScanAtSamePosition = false;
 
     try {
-      var continueScanAtSamePosition = false;
       top.matcher.considerAll();
 
-      while (true) {
+      for (;;) {
+        iterations++;
         if (continueScanAtSamePosition) {
           continueScanAtSamePosition = false;
           // only regexes not matched previously will now be
