@@ -1,0 +1,2 @@
+<span class="hljs-built_in">setTimeout</span>();
+<span class="hljs-built_in">setInterval</span>();

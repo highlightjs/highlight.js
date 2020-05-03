@@ -45,11 +45,6 @@ export default function(hljs) {
   var SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
   var SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
 
-  var SHEBANG = {
-    className: 'meta',
-    begin: '^#!', end: '$'
-  };
-
   var SYMBOL = {
     begin: SYMBOL_RE,
     relevance: 0
@@ -105,6 +100,6 @@ export default function(hljs) {
     name: 'Hy',
     aliases: ['hylang'],
     illegal: /\S/,
-    contains: [SHEBANG, LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL]
+    contains: [hljs.SHEBANG(), LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL]
   }
 }

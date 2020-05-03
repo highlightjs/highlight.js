@@ -44,7 +44,10 @@ export default function(hljs) {
         begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + "|.)", end: '\'',
         illegal: '.'
       },
-      { begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\((?:.|\n)*?\)\1"/ }
+      hljs.END_SAME_AS_BEGIN({
+        begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\(/,
+        end: /\)([^()\\ ]{0,16})"/,
+      })
     ]
   };
 

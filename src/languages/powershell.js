@@ -6,7 +6,7 @@ Contributors: Nicholas Blumhardt <nblumhardt@nblumhardt.com>, Victor Zhou <OiCMu
 Website: https://docs.microsoft.com/en-us/powershell/
 */
 
-export default function(hljs){
+export default function(hljs) {
 
   var TYPES =
     ["string", "char", "byte", "int", "long", "bool",  "decimal",  "single",

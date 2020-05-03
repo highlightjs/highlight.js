@@ -1,0 +1,3 @@
+<span class="hljs-attr">foo:</span> [<span class="hljs-string">bar</span>, <span class="hljs-string">bar2</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-number">3</span>]
+<span class="hljs-attr">foo:</span> {<span class="hljs-attr">bar:</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-attr">baz:</span> {<span class="hljs-attr">inside:</span> <span class="hljs-number">3</span>}}
+<span class="hljs-attr">foo:</span> <span class="hljs-string">ba{}r,ba[]z</span>
