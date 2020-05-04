@@ -182,6 +182,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
 | Twig                    | twig, craftcms         |         |
 | TypeScript              | typescript, ts         |         |
+| Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log)
 | VB.Net                  | vbnet, vb              |         |
 | VBA                     | vba                    | [highlightjs-vba](https://github.com/dullin/highlightjs-vba) |
 | VBScript                | vbscript, vbs          |         |
