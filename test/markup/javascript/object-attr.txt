@@ -3,5 +3,7 @@
   key2: value,
   key2clone: value,
   'key-3': value,
-  key4: false ? undefined : true
+  key4: false ? undefined : true,
+  key5: value, /* with a multiline comment */
+  key6: value,
 }

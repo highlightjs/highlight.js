@@ -153,10 +153,18 @@ export default function(hljs) {
           // we need to look ahead to make sure that we actually have an
           // attribute coming up so we don't steal a comma from a potential
           // "value" container
+          //
+          // NOTE: this might not work how you think.  We don't actually always
+          // enter this mode and stay.  Instead it might merely match `,
+          // <comments up next>` and then immediately end after the , because it
+          // fails to find any actual attrs. But this still does the job because
+          // it prevents the value contain rule from grabbing this instead and
+          // prevening this rule from firing when we actually DO have keys.
           regex.lookahead(regex.concat(
             // we also need to allow for multiple possible comments inbetween
             // the first key:value pairing
             /(\/\/.*\s*)*/,
+            /(\/\*.*\*\/\s*)*/,
             IDENT_RE + '\\s*:'))),
         relevance: 0,
         contains: [
@@ -165,7 +173,6 @@ export default function(hljs) {
             begin: IDENT_RE + regex.lookahead('\\s*:'),
             relevance: 0,
           },
-          hljs.C_LINE_COMMENT_MODE,
         ]
       },
       { // "value" container
