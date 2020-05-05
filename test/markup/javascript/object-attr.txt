@@ -1,6 +1,7 @@
 {
   key: value, // with comment
   key2: value,
+  key2clone: value,
   'key-3': value,
   key4: false ? undefined : true
 }

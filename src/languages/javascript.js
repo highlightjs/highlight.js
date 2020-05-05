@@ -153,14 +153,19 @@ export default function(hljs) {
           // we need to look ahead to make sure that we actually have an
           // attribute coming up so we don't steal a comma from a potential
           // "value" container
-          regex.lookahead(IDENT_RE + '\\s*:')),
+          regex.lookahead(regex.concat(
+            // we also need to allow for multiple possible comments inbetween
+            // the first key:value pairing
+            /(\/\/.*\s*)*/,
+            IDENT_RE + '\\s*:'))),
         relevance: 0,
         contains: [
           {
-            begin: IDENT_RE + '\\s*:', returnBegin: true,
+            className: 'attr',
+            begin: IDENT_RE + regex.lookahead('\\s*:'),
             relevance: 0,
-            contains: [{className: 'attr', begin: IDENT_RE, relevance: 0}]
-          }
+          },
+          hljs.C_LINE_COMMENT_MODE,
         ]
       },
       { // "value" container
