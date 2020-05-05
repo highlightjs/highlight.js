@@ -6,6 +6,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
 import * as ECMAScript from "./lib/ecmascript";
+import * as regex from "../lib/regex";
 
 export default function(hljs) {
   var FRAGMENT = {
@@ -148,7 +149,12 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       NUMBER,
       { // object attr container
-        begin: /[{,\n]\s*/, relevance: 0,
+        begin: regex.concat(/[{,\n]\s*/,
+          // we need to look ahead to make sure that we actually have an
+          // attribute coming up so we don't steal a comma from a potential
+          // "value" container
+          regex.lookahead(IDENT_RE + '\\s*:')),
+        relevance: 0,
         contains: [
           {
             begin: IDENT_RE + '\\s*:', returnBegin: true,
