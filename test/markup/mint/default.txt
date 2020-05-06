@@ -1,0 +1,34 @@
+/* Records provide equality and serialization tools */
+record Lang {
+  name : String,
+  fans : Number using "super_fans"
+}
+
+/* Stores handle state and mutations */
+store Application {
+  state lang : Lang = Lang("Mint", 42)
+  state love : Number = 5
+
+  fun giveLove : Promise(Never, Void) {
+    next { love = love + 1 }
+  }
+}
+
+/* Components are dynamically styled and connect stores */
+component Main {
+  connect Application exposing { love }
+
+  style base {
+    display: flex;
+
+    if (love > 5) {
+      color: red;
+    }
+  }
+
+  fun render : Html {
+    <div::base>
+      "#{lang.name} has #{lang.fans} fans"
+    </div>
+  }
+}

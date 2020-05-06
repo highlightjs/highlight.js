@@ -1,12 +1,20 @@
+/*
+Language: Mint
+Author: John Smith <email@domain.com>
+Contributors: Luke Pighetti <github.com/lukepighetti>
+Description: A refreshing programming language for the front-end web.
+Website: https://www.mint-lang.com
+*/
+
 export default function(hljs) {
   var MINT_CONTAINS = [];
 
   var MINT_KEYWORDS =
     [ 'const', 'global', 'component', 'store', 'module', 'fun', 'state',
-      'property', 'next', 'if', 'else', 'sequence', 'parallel', 'style',
+      'property', 'next', 'if', 'else', 'sequence', 'parallel|10', 'style',
       'record', 'connect', 'enum', 'routes', 'try', 'catch', 'case',
       'where', 'when', 'use', 'for', 'of', 'true', 'false', 'then',
-      'finally', 'get', 'exposing', 'as', 'decode', 'encode' ];
+      'finally', 'get', 'exposing|10', 'as', 'decode', 'encode', 'using|10' ];
 
    var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
 
@@ -50,6 +58,7 @@ export default function(hljs) {
       {
         begin: "\\b\\d+(\\.\\d+)?",
         className: 'number',
+        relevance: 0,
         end: "\\B|\\b"
       },
       {
@@ -60,6 +69,7 @@ export default function(hljs) {
       {
         begin: "\\b[A-Z][A-Za-z0-9]+",
         ends: "[^A-Za-z0-9]",
+        relevance: 0,
         className: 'type'
       },
       {
@@ -107,8 +117,8 @@ export default function(hljs) {
    ])
 
   return {
-    contains: MINT_CONTAINS,
+    name: "Mint",
     keywords: MINT_KEYWORDS,
-    name: "Mint"
+    contains: MINT_CONTAINS,
   }
 }
