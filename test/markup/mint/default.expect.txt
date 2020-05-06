@@ -1,0 +1,34 @@
+<span class="hljs-comment">/* Records provide equality and serialization tools */</span>
+<span class="hljs-14">record</span> <span class="hljs-type">Lang</span> {
+  name : <span class="hljs-type">String</span>,
+  fans : <span class="hljs-type">Number</span> <span class="hljs-35">using</span> <span class="hljs-string">"super_fans"</span>
+}
+
+<span class="hljs-comment">/* Stores handle state and mutations */</span>
+<span class="hljs-3">store</span> <span class="hljs-type">Application</span> {
+  <span class="hljs-6">state</span> lang : <span class="hljs-type">Lang</span> = <span class="hljs-type">Lang</span>(<span class="hljs-string">"Mint"</span>, <span class="hljs-number">42</span>)
+  <span class="hljs-6">state</span> love : <span class="hljs-type">Number</span> = <span class="hljs-number">5</span>
+
+  <span class="hljs-5">fun</span> giveLove : <span class="hljs-type">Promise</span>(<span class="hljs-type">Never</span>, <span class="hljs-type">Void</span>) {
+    <span class="hljs-8">next</span> { love = love + <span class="hljs-number">1</span> }
+  }
+}
+
+<span class="hljs-comment">/* Components are dynamically styled and connect stores */</span>
+<span class="hljs-2">component</span> <span class="hljs-type">Main</span> {
+  <span class="hljs-15">connect</span> <span class="hljs-type">Application</span> <span class="hljs-31">exposing</span> { love }
+
+  <span class="hljs-13">style</span> base {
+    <span class="hljs-string">display</span>: flex;
+
+    <span class="hljs-9">if</span> (love &gt; 5) {
+      <span class="hljs-string">color</span>: red;
+    }
+  }
+
+  <span class="hljs-5">fun</span> render : <span class="hljs-type">Html</span> {
+    <span class="hljs-tag">&lt;<span class="hljs-name">div::base</span>&gt;</span>
+      <span class="hljs-string">"#{lang.name} has #{lang.fans} fans"</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  }
+}
