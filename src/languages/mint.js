@@ -1,6 +1,6 @@
 /*
 Language: Mint
-Author: John Smith <email@domain.com>
+Author: Szikszai Gusztáv <github.com/gdotdesign>
 Contributors: Luke Pighetti <github.com/lukepighetti>
 Description: A refreshing programming language for the front-end web.
 Website: https://www.mint-lang.com
