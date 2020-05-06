@@ -94,6 +94,26 @@ document.querySelectorAll('div.code').forEach((block) => {
 For other options refer to the documentation for [`configure`][4].
 
 
+## Using with Vue.js
+
+Simply register the plugin with Vue:
+
+```js
+Vue.use(hljs.vuePlugin);
+```
+
+And you'll be provided with a `highlightjs` component for use
+in your templates:
+
+```html
+  <div id="app">
+    <!-- bind to the a data proptery named `code` -->
+    <highlightjs auto :code="code" />
+    <!-- or literal code works as well -->
+    <highlightjs language='javascript' code="var x = 5;" />
+  </div>
+```
+
 ## Web Workers
 
 You can run highlighting inside a web worker to avoid freezing the browser

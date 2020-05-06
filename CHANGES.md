@@ -34,6 +34,10 @@ New themes:
 - *NNFX* and *NNFX-dark* by [Jim Mason][]
 - *lioshi* by [lioshi][]
 
+Big picture:
+
+- Add simple Vue plugin for basic use cases [Josh Goebel][]
+
 Parser Engine:
 
 - (parser) Now escapes quotes in text content when escaping HTML (#2564) [Josh Goebel][]
