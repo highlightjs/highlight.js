@@ -9,14 +9,15 @@ Website: https://elixir-lang.org
 export default function(hljs) {
   var ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(\\!|\\?)?';
   var ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
-  var ELIXIR_KEYWORDS =
-    'and false then defined module in return redo retry end for true self when ' +
+  var ELIXIR_KEYWORDS = {
+    $pattern: ELIXIR_IDENT_RE,
+    keyword: 'and false then defined module in return redo retry end for true self when ' +
     'next until do begin unless nil break not case cond alias while ensure or ' +
-    'include use alias fn quote require import with|0';
+    'include use alias fn quote require import with|0'
+  };
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
-    lexemes: ELIXIR_IDENT_RE,
     keywords: ELIXIR_KEYWORDS
   };
   var NUMBER = {
@@ -174,7 +175,6 @@ export default function(hljs) {
 
   return {
     name: 'Elixir',
-    lexemes: ELIXIR_IDENT_RE,
     keywords: ELIXIR_KEYWORDS,
     contains: ELIXIR_DEFAULT_CONTAINS
   };

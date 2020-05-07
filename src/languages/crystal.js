@@ -11,6 +11,7 @@ export default function(hljs) {
   var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|[=!]~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~|]|//|//=|&[-+*]=?|&\\*\\*|\\[\\][=?]?';
   var CRYSTAL_PATH_RE = '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?';
   var CRYSTAL_KEYWORDS = {
+    $pattern: CRYSTAL_IDENT_RE,
     keyword:
       'abstract alias annotation as as? asm begin break case class def do else elsif end ensure enum extend for fun if ' +
       'include instance_sizeof is_a? lib macro module next nil? of out pointerof private protected rescue responds_to? ' +
@@ -187,7 +188,6 @@ export default function(hljs) {
   return {
     name: 'Crystal',
     aliases: ['cr'],
-    lexemes: CRYSTAL_IDENT_RE,
     keywords: CRYSTAL_KEYWORDS,
     contains: CRYSTAL_DEFAULT_CONTAINS
   };

@@ -2,6 +2,7 @@
 
 Parser Engine:
 
+- (parser) Adds `keywords.$pattern` key to grammar definitions (#2519) [Josh Goebel][]
 - (parser) Adds SHEBANG utility mode [Josh Goebel][]
 - (enh) Added `on:begin` callback for modes (#2261) [Josh Goebel][]
 - (enh) Added `on:end` callback for modes (#2261) [Josh Goebel][]
@@ -10,10 +11,15 @@ Parser Engine:
 
 Deprecations:
 
-- (deprecation) `endSameAsBegin` is now deprecated. (#2261) [Josh Goebel][]
+- `lexemes` is now deprecated in favor of `keywords.$pattern` key (#2519) [Josh Goebel][]
+- `endSameAsBegin` is now deprecated. (#2261) [Josh Goebel][]
 
 Language Improvements:
 
+- fix(javascript) fix regex inside parens after a non-regex (#2530) [Josh Goebel][]
+- enh(typescript) use identifier to match potential keywords, preventing false positivites (#2519) [Josh Goebel][]
+- enh(javascript) use identifier to match potential keywords, preventing false positivites (#2519) [Josh Goebel][]
+- [enh] Add `OPTIMIZE:` and `HACK:` to the labels highlighted inside comments [Josh Goebel][]
 - enh(typescript/javascript/coffeescript/livescript) derive ECMAscript keywords from a common foudation (#2518) [Josh Goebel][]
 - enh(typescript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Josh Goebel][]
 - enh(javascript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Vania Kucher][]
@@ -27,6 +33,21 @@ Language Improvements:
 [Peter Plantinga]: https://github.com/pplantinga
 [David Benjamin]: https://github.com/davidben
 [Vania Kucher]: https://github.com/qWici
+
+
+## Version 10.0.2
+
+Brower build:
+
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2505) (bug) Fix: Version 10 fails to load as CommonJS module. (#2511) [Josh Goebel][]
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2505) (removal) AMD module loading support has been removed. (#2511) [Josh Goebel][]
+
+Parser Engine Changes:
+
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2522) fix(parser) Fix freez issue with illegal 0 width matches (#2524) [Josh Goebel][]
+
+
+[Josh Goebel]: https://github.com/yyyc514
 
 
 ## Version 10.0.1

@@ -8,9 +8,11 @@
 export default function(hljs) {
     var GCODE_IDENT_RE = '[A-Z_][A-Z0-9_.]*';
     var GCODE_CLOSE_RE = '\\%';
-    var GCODE_KEYWORDS =
-      'IF DO WHILE ENDWHILE CALL ENDIF SUB ENDSUB GOTO REPEAT ENDREPEAT ' +
-      'EQ LT GT NE GE LE OR XOR';
+    var GCODE_KEYWORDS = {
+      $pattern: GCODE_IDENT_RE,
+      keyword: 'IF DO WHILE ENDWHILE CALL ENDIF SUB ENDSUB GOTO REPEAT ENDREPEAT ' +
+      'EQ LT GT NE GE LE OR XOR'
+    };
     var GCODE_START = {
         className: 'meta',
         begin: '([O])([0-9]+)'
@@ -61,7 +63,6 @@ export default function(hljs) {
         // Some implementations (CNC controls) of G-code are interoperable with uppercase and lowercase letters seamlessly.
         // However, most prefer all uppercase and uppercase is customary.
         case_insensitive: true,
-        lexemes: GCODE_IDENT_RE,
         keywords: GCODE_KEYWORDS,
         contains: [
             {

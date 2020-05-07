@@ -131,8 +131,8 @@ const HLJS = function(hljs) {
       }
 
       let last_index = 0;
-      top.lexemesRe.lastIndex = 0;
-      let match = top.lexemesRe.exec(mode_buffer);
+      top.keywordPatternRe.lastIndex = 0;
+      let match = top.keywordPatternRe.exec(mode_buffer);
       let buf = "";
 
       while (match) {
@@ -148,8 +148,8 @@ const HLJS = function(hljs) {
         } else {
           buf += match[0];
         }
-        last_index = top.lexemesRe.lastIndex;
-        match = top.lexemesRe.exec(mode_buffer);
+        last_index = top.keywordPatternRe.lastIndex;
+        match = top.keywordPatternRe.exec(mode_buffer);
       }
       buf += mode_buffer.substr(last_index);
       emitter.addText(buf);
@@ -365,6 +365,23 @@ const HLJS = function(hljs) {
         }
       }
 
+      // edge case for when illegal matches $ (end of line) which is technically
+      // a 0 width match but not a begin/end match so it's not caught by the
+      // first handler (when ignoreIllegals is true)
+      if (match.type === "illegal" && lexeme === "") {
+        // advance so we aren't stuck in an infinite loop
+        return 1;
+      }
+
+      // infinite loops are BAD, this is a last ditch catch all. if we have a
+      // decent number of iterations yet our index (cursor position in our
+      // parsing) still 3x behind our index then something is very wrong
+      // so we bail
+      if (iterations > 100000 && iterations > match.index * 3) {
+        const err = new Error('potential infinite loop, way more iterations than matches');
+        throw err;
+      }
+
       /*
       Why might be find ourselves here?  Only one occasion now.  An end match that was
       triggered but could not be completed.  When might this happen?  When an `endSameasBegin`
@@ -396,12 +413,14 @@ const HLJS = function(hljs) {
     var mode_buffer = '';
     var relevance = 0;
     var index = 0;
+    var iterations = 0;
     var continueScanAtSamePosition = false;
 
     try {
       top.matcher.considerAll();
 
       for (;;) {
+        iterations++;
         if (continueScanAtSamePosition) {
           continueScanAtSamePosition = false;
           // only regexes not matched previously will now be

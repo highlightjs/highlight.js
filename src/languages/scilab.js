@@ -21,8 +21,8 @@ export default function(hljs) {
   return {
     name: 'Scilab',
     aliases: ['sci'],
-    lexemes: /%?\w+/,
     keywords: {
+      $pattern: /%?\w+/,
       keyword: 'abort break case clear catch continue do elseif else endfunction end for function '+
         'global if pause return resume select try then while',
       literal:
