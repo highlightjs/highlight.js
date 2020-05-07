@@ -81,8 +81,8 @@ export default function(hljs) {
   return {
     name: 'Bash',
     aliases: ['sh', 'zsh'],
-    lexemes: /\b-?[a-z\._]+\b/,
     keywords: {
+      $pattern: /\b-?[a-z\._]+\b/,
       keyword:
         'if then else elif fi for while in do done case esac function',
       literal:

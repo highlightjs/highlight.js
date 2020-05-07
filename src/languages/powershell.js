@@ -36,6 +36,7 @@ export default function(hljs) {
     '-split|-wildcard|-xor';
 
   var KEYWORDS = {
+    $pattern: /-?[A-z\.\-]+\b/,
     keyword: 'if else foreach return do while until elseif begin for trap data dynamicparam ' +
     'end break throw param continue finally in switch exit filter try process catch ' +
     'hidden static parameter',
@@ -246,7 +247,6 @@ export default function(hljs) {
   return {
     name: 'PowerShell',
     aliases: ["ps", "ps1"],
-    lexemes: /-?[A-z\.\-]+\b/,
     case_insensitive: true,
     keywords: KEYWORDS,
     contains: GENTLEMANS_SET.concat(

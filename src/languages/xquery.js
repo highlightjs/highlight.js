@@ -168,9 +168,9 @@ export default function(hljs) {
     name: 'XQuery',
     aliases: ['xpath', 'xq'],
     case_insensitive: false,
-    lexemes: /[a-zA-Z\$][a-zA-Z0-9_:\-]*/,
     illegal: /(proc)|(abstract)|(extends)|(until)|(#)/,
     keywords: {
+      $pattern: /[a-zA-Z\$][a-zA-Z0-9_:\-]*/,
       keyword: KEYWORDS,
       type: TYPE,
       literal: LITERAL

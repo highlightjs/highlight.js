@@ -207,11 +207,25 @@ export function compileLanguage(language) {
     mode.__beforeBegin = null;
 
     mode.keywords = mode.keywords || mode.beginKeywords;
+
+    let kw_pattern = null;
+    if (typeof mode.keywords === "object") {
+      kw_pattern = mode.keywords.$pattern;
+      delete mode.keywords.$pattern;
+    }
+
     if (mode.keywords) {
       mode.keywords = compileKeywords(mode.keywords, language.case_insensitive);
     }
 
-    mode.lexemesRe = langRe(mode.lexemes || /\w+/, true);
+    // both are not allowed
+    if (mode.lexemes && kw_pattern) {
+      throw new Error("ERR: Prefer `keywords.$pattern` to `mode.lexemes`, BOTH are not allowed. (see mode reference) ");
+    }
+
+    // `mode.lexemes` was the old standard before we added and now recommend
+    // using `keywords.$pattern` to pass the keyword pattern
+    mode.keywordPatternRe = langRe(mode.lexemes || kw_pattern || /\w+/, true);
 
     if (parent) {
       if (mode.beginKeywords) {
