@@ -17,8 +17,8 @@ export default function(hljs) {
   };
   var DEFAULT = {
     endsWithParent: true,
-    lexemes: '[a-z/_]+',
     keywords: {
+      $pattern: '[a-z/_]+',
       literal:
         'on off yes no true false none blocked debug info notice warn error crit ' +
         'select break last permanent redirect kqueue rtsig epoll poll /dev/poll'

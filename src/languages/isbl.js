@@ -3102,6 +3102,7 @@ export default function(hljs) {
 
   // keywords : ключевые слова
   var KEYWORDS = {
+    $pattern: UNDERSCORE_IDENT_RE,
     keyword: KEYWORD,
     built_in: BUILTIN,
     class: CLASS,
@@ -3126,7 +3127,6 @@ export default function(hljs) {
   // variables : переменные
   var VARIABLES = {
     className: "variable",
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     begin: UNDERSCORE_IDENT_RE,
     relevance: 0,
@@ -3138,8 +3138,8 @@ export default function(hljs) {
 
   var TITLE_MODE = {
     className: "title",
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: {
+      $pattern: UNDERSCORE_IDENT_RE,
       built_in: system_functions,
     },
     begin: FUNCTION_TITLE,
@@ -3154,7 +3154,6 @@ export default function(hljs) {
     begin: FUNCTION_TITLE,
     end: "\\)$",
     returnBegin: true,
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     illegal: "[\\[\\]\\|\\$\\?%,~#@]",
     contains: [TITLE_MODE, METHODS, VARIABLES, STRINGS, NUMBERS, COMMENTS],
@@ -3164,7 +3163,6 @@ export default function(hljs) {
     name: 'ISBL',
     aliases: ["isbl"],
     case_insensitive: true,
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     illegal: "\\$|\\?|%|,|;$|~|#|@|</",
     contains: [

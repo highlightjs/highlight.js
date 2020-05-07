@@ -11,6 +11,7 @@ export default function(hljs) {
     'StereoDecoder PointCloud NetworkAccess RemoteControl RegExp ChromaKey Snowfall NodeJS Speech Charts';
 
   var XL_KEYWORDS = {
+    $pattern: /[a-zA-Z][a-zA-Z0-9_?]*/,
     keyword:
       'if then else do while until for loop import with is as where when by data constant ' +
       'integer real text name boolean symbol infix prefix postfix block tree',
@@ -63,7 +64,6 @@ export default function(hljs) {
   return {
     name: 'XL',
     aliases: ['tao'],
-    lexemes: /[a-zA-Z][a-zA-Z0-9_?]*/,
     keywords: XL_KEYWORDS,
     contains: [
     hljs.C_LINE_COMMENT_MODE,

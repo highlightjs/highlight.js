@@ -9,8 +9,8 @@ Category: scripting
 export default function(hljs) {
   return {
     name: 'Vim Script',
-    lexemes: /[!#@\w]+/,
     keywords: {
+      $pattern: /[!#@\w]+/,
       keyword:
         // express version except: ! & * < = > !! # @ @@
         'N|0 P|0 X|0 a|0 ab abc abo al am an|0 ar arga argd arge argdo argg argl argu as au aug aun b|0 bN ba bad bd be bel bf bl bm bn bo bp br brea breaka breakd breakl bro bufdo buffers bun bw c|0 cN cNf ca cabc caddb cad caddf cal cat cb cc ccl cd ce cex cf cfir cgetb cgete cg changes chd che checkt cl cla clo cm cmapc cme cn cnew cnf cno cnorea cnoreme co col colo com comc comp con conf cope '+

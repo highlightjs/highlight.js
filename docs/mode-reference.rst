@@ -241,14 +241,19 @@ and ``endSameAsBegin: true``.
 
 .. _lexemes:
 
-lexemes
-^^^^^^^
+lexemes (now keywords.$pattern)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **type**: regexp
 
-A regular expression that extracts individual lexemes from language text to find :ref:`keywords <keywords>` among them.
-Default value is ``hljs.IDENT_RE`` which works for most languages.
+A regular expression that extracts individual "words" from the code to compare
+against :ref:`keywords <keywords>`. The default value is ``\w+`` which works for
+many languages.
 
+Note: It's now recommmended that you use ``keywords.$pattern`` instead of
+``lexemes``, as this makes it easier to keep your keyword pattern associated
+with your keywords themselves, particularly if your keyword configuration is a
+constant that you repeat multiple times within different modes of your grammar.
 
 .. _keywords:
 
@@ -259,8 +264,8 @@ keywords
 
 Keyword definition comes in two forms:
 
-* ``'for while if else weird_voodoo|10 ... '`` -- a string of space-separated keywords with an optional relevance over a pipe
-* ``{'keyword': ' ... ', 'literal': ' ... '}`` -- an object whose keys are names of different kinds of keywords and values are keyword definition strings in the first form
+* ``'for while if|0 else weird_voodoo|10 ... '`` -- a string of space-separated keywords with an optional relevance over a pipe
+* ``{keyword: ' ... ', literal: ' ... ', $pattern: /\w+/ }`` -- an object that describes multiple sets of keywords and the pattern used to find them
 
 For detailed explanation see :doc:`Language definition guide </language-guide>`.
 

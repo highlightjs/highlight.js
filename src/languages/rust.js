@@ -37,6 +37,7 @@ export default function(hljs) {
     name: 'Rust',
     aliases: ['rs'],
     keywords: {
+      $pattern: hljs.IDENT_RE + '!?',
       keyword:
         KEYWORDS,
       literal:
@@ -44,7 +45,6 @@ export default function(hljs) {
       built_in:
         BUILTINS
     },
-    lexemes: hljs.IDENT_RE + '!?',
     illegal: '</',
     contains: [
       hljs.C_LINE_COMMENT_MODE,

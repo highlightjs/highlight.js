@@ -11,7 +11,9 @@ export default function(hljs) {
     className: 'built_in',
     begin: '\\b(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)\\w+',
   };
+  var IDENTIFIER_RE = /[a-zA-Z@][a-zA-Z0-9_]*/;
   var OBJC_KEYWORDS = {
+    $pattern: IDENTIFIER_RE,
     keyword:
       'int float while char export sizeof typedef const struct for union ' +
       'unsigned long volatile static bool mutable if do return goto void ' +
@@ -40,13 +42,14 @@ export default function(hljs) {
     built_in:
       'BOOL dispatch_once_t dispatch_queue_t dispatch_sync dispatch_async dispatch_once'
   };
-  var LEXEMES = /[a-zA-Z@][a-zA-Z0-9_]*/;
-  var CLASS_KEYWORDS = '@interface @class @protocol @implementation';
+  var CLASS_KEYWORDS = {
+    $pattern: IDENTIFIER_RE,
+    keyword: '@interface @class @protocol @implementation'
+  };
   return {
     name: 'Objective-C',
     aliases: ['mm', 'objc', 'obj-c'],
     keywords: OBJC_KEYWORDS,
-    lexemes: LEXEMES,
     illegal: '</',
     contains: [
       API_CLASS,
@@ -89,8 +92,8 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        begin: '(' + CLASS_KEYWORDS.split(' ').join('|') + ')\\b', end: '({|$)', excludeEnd: true,
-        keywords: CLASS_KEYWORDS, lexemes: LEXEMES,
+        begin: '(' + CLASS_KEYWORDS.keyword.split(' ').join('|') + ')\\b', end: '({|$)', excludeEnd: true,
+        keywords: CLASS_KEYWORDS,
         contains: [
           hljs.UNDERSCORE_TITLE_MODE
         ]

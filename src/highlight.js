@@ -131,8 +131,8 @@ const HLJS = function(hljs) {
       }
 
       let last_index = 0;
-      top.lexemesRe.lastIndex = 0;
-      let match = top.lexemesRe.exec(mode_buffer);
+      top.keywordPatternRe.lastIndex = 0;
+      let match = top.keywordPatternRe.exec(mode_buffer);
       let buf = "";
 
       while (match) {
@@ -148,8 +148,8 @@ const HLJS = function(hljs) {
         } else {
           buf += match[0];
         }
-        last_index = top.lexemesRe.lastIndex;
-        match = top.lexemesRe.exec(mode_buffer);
+        last_index = top.keywordPatternRe.lastIndex;
+        match = top.keywordPatternRe.exec(mode_buffer);
       }
       buf += mode_buffer.substr(last_index);
       emitter.addText(buf);
