@@ -30,6 +30,21 @@ Language Improvements:
 [Vania Kucher]: https://github.com/qWici
 
 
+## Version 10.0.2 (pending)
+
+Brower build:
+
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2505) (bug) Fix: Version 10 fails to load as CommonJS module. (#2511) [Josh Goebel][]
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2505) (removal) AMD module loading support has been removed. (#2511) [Josh Goebel][]
+
+Parser Engine Changes:
+
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2522) fix(parser) Fix freez issue with illegal 0 width matches (#2524) [Josh Goebel][]
+
+
+[Josh Goebel]: https://github.com/yyyc514
+
+
 ## Version 10.0.1
 
 Parser Engine Changes:
