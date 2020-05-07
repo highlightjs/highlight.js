@@ -99,7 +99,7 @@ defined by the magic ``$pattern`` attribute:
 
   {
     keywords: {
-      $pattern: /-[a-z]+/,        // allow keywords with dash in them
+      $pattern: /-[a-z]+/,        // allow keywords to begin with dash
       keyword: '-import -export'
     }
   }
