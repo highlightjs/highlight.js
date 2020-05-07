@@ -163,8 +163,7 @@ export default function(hljs) {
           regex.lookahead(regex.concat(
             // we also need to allow for multiple possible comments inbetween
             // the first key:value pairing
-            /(\/\/.*\s*)*/,
-            /(\/\*.*\*\/\s*)*/,
+            /(((\/\/.*)|(\/\*(.|\n)*\*\/))\s*)*/,
             IDENT_RE + '\\s*:'))),
         relevance: 0,
         contains: [
