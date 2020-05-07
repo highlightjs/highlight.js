@@ -2,6 +2,7 @@
 
 Parser Engine:
 
+- (parser) Adds `keywords.$pattern` key to grammar definitions (#2519) [Josh Goebel][]
 - (parser) Adds SHEBANG utility mode [Josh Goebel][]
 - (enh) Added `on:begin` callback for modes (#2261) [Josh Goebel][]
 - (enh) Added `on:end` callback for modes (#2261) [Josh Goebel][]
@@ -10,11 +11,14 @@ Parser Engine:
 
 Deprecations:
 
-- (deprecation) `endSameAsBegin` is now deprecated. (#2261) [Josh Goebel][]
+- `lexemes` is now deprecated in favor of `keywords.$pattern` key (#2519) [Josh Goebel][]
+- `endSameAsBegin` is now deprecated. (#2261) [Josh Goebel][]
 
 Language Improvements:
 
 - fix(javascript) fix regex inside parens after a non-regex (#2530) [Josh Goebel][]
+- enh(typescript) use identifier to match potential keywords, preventing false positivites (#2519) [Josh Goebel][]
+- enh(javascript) use identifier to match potential keywords, preventing false positivites (#2519) [Josh Goebel][]
 - [enh] Add `OPTIMIZE:` and `HACK:` to the labels highlighted inside comments [Josh Goebel][]
 - enh(typescript/javascript/coffeescript/livescript) derive ECMAscript keywords from a common foudation (#2518) [Josh Goebel][]
 - enh(typescript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Josh Goebel][]
@@ -31,7 +35,7 @@ Language Improvements:
 [Vania Kucher]: https://github.com/qWici
 
 
-## Version 10.0.2 (pending)
+## Version 10.0.2
 
 Brower build:
 

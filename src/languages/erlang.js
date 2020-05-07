@@ -136,11 +136,12 @@ export default function(hljs) {
         relevance: 0,
         excludeEnd: true,
         returnBegin: true,
-        lexemes: '-' + hljs.IDENT_RE,
-        keywords:
-          '-module -record -undef -export -ifdef -ifndef -author -copyright -doc -vsn ' +
+        keywords: {
+          $pattern: '-' + hljs.IDENT_RE,
+          keyword: '-module -record -undef -export -ifdef -ifndef -author -copyright -doc -vsn ' +
           '-import -include -include_lib -compile -define -else -endif -file -behaviour ' +
-          '-behavior -spec',
+          '-behavior -spec'
+        },
         contains: [PARAMS]
       },
       NUMBER,

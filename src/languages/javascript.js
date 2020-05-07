@@ -9,6 +9,7 @@ import * as ECMAScript from "./lib/ecmascript";
 import * as regex from "../lib/regex";
 
 export default function(hljs) {
+  var IDENT_RE = ECMAScript.IDENT_RE;
   var FRAGMENT = {
     begin: '<>',
     end: '</>'
@@ -17,8 +18,8 @@ export default function(hljs) {
     begin: /<[A-Za-z0-9\\._:-]+/,
     end: /\/[A-Za-z0-9\\._:-]+>|\/>/
   };
-  var IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var KEYWORDS = {
+    $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.join(" "),
     literal: ECMAScript.LITERALS.join(" "),
     built_in: ECMAScript.BUILT_INS.join(" ")

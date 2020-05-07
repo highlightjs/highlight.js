@@ -21,8 +21,8 @@ export default function(hljs) {
     name: 'ARM Assembly',
     case_insensitive: true,
     aliases: ['arm'],
-    lexemes: '\\.?' + hljs.IDENT_RE,
     keywords: {
+      $pattern: '\\.?' + hljs.IDENT_RE,
       meta:
         //GNU preprocs
         '.2byte .4byte .align .ascii .asciz .balign .byte .code .data .else .end .endif .endm .endr .equ .err .exitm .extern .global .hword .if .ifdef .ifndef .include .irp .long .macro .rept .req .section .set .skip .space .text .word .arm .thumb .code16 .code32 .force_thumb .thumb_func .ltorg '+
