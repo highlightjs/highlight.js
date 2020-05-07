@@ -92,7 +92,7 @@ Accepts an object representing options with the values to updated. Other options
 ``initHighlighting()``
 ----------------------
 
-Applies highlighting to all ``<pre><code>…</code></pre>`` blocks on a page.
+Applies highlighting to all ``<pre><code>...</code></pre>`` blocks on a page.
 
 
 ``initHighlightingOnLoad()``
