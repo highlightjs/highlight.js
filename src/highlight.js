@@ -685,11 +685,12 @@ const HLJS = function(hljs) {
     return languages[name] || languages[aliases[name]];
   }
 
-  function registerAlias(name, names) {
-    if (typeof names === 'string') {
-      aliases[names] = name;
-    } else {
-      names.forEach(function(alias) { aliases[alias] = name; });
+  function registerAlias(alias, {languageName}) {
+    let list = alias;
+    if (typeof list === 'string') {
+      list = [alias]
+    }
+    list.forEach(alias => aliases[alias] = languageName);
     }
   }
 
