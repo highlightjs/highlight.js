@@ -15,6 +15,8 @@ Deprecations:
 - `endSameAsBegin` is now deprecated. (#2261) [Josh Goebel][]
 
 Language Improvements:
+
+- fix(javascript) fix regex inside parens after a non-regex (#2530) [Josh Goebel][]
 - enh(typescript) use identifier to match potential keywords, preventing false positivites (#2519) [Josh Goebel][]
 - enh(javascript) use identifier to match potential keywords, preventing false positivites (#2519) [Josh Goebel][]
 - [enh] Add `OPTIMIZE:` and `HACK:` to the labels highlighted inside comments [Josh Goebel][]
