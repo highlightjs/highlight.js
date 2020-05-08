@@ -8,6 +8,10 @@ export function source(re) {
   return (re && re.source) || re;
 }
 
+export function lookahead(regex) {
+  return concat('(?=', regex, ')');
+}
+
 export function concat(...args) {
   const joined = args.map((x) => source(x)).join("");
   return joined;
