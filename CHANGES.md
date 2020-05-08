@@ -24,7 +24,7 @@ Language Improvements:
 - enh(typescript/javascript/coffeescript/livescript) derive ECMAscript keywords from a common foudation (#2518) [Josh Goebel][]
 - enh(typescript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Josh Goebel][]
 - enh(javascript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Vania Kucher][]
-- enh(cpp) add pair, make_pair, priority_queue as built-ins (#2538) [Hankun Lin][]
+- enh(cpp) add `pair`, `make_pair`, `priority_queue` as built-ins (#2538) [Hankun Lin][]
 - fix(javascript) prevent `set` keyword conflicting with setTimeout, etc. (#2514) [Vania Kucher][]
 - fix(cpp) Fix highlighting of unterminated raw strings (#2261) [David Benjamin][]
 - fix(javascript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
