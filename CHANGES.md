@@ -4,6 +4,7 @@ Parser Engine:
 
 - (parser) Adds `keywords.$pattern` key to grammar definitions (#2519) [Josh Goebel][]
 - (parser) Adds SHEBANG utility mode [Josh Goebel][]
+- (parser) Adds `registerAlias` method (#2540) [Taufik Nurrohman][]
 - (enh) Added `on:begin` callback for modes (#2261) [Josh Goebel][]
 - (enh) Added `on:end` callback for modes (#2261) [Josh Goebel][]
 - (enh) Added ability to programatically ignore begin and end matches (#2261) [Josh Goebel][]

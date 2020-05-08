@@ -685,6 +685,14 @@ const HLJS = function(hljs) {
     return languages[name] || languages[aliases[name]];
   }
 
+  function registerAlias(alias, {languageName}) {
+    let list = alias;
+    if (typeof list === 'string') {
+      list = [alias]
+    }
+    list.forEach(alias => aliases[alias] = languageName);
+  }
+
   function autoDetection(name) {
     var lang = getLanguage(name);
     return lang && !lang.disableAutodetect;
@@ -716,6 +724,7 @@ const HLJS = function(hljs) {
     registerLanguage,
     listLanguages,
     getLanguage,
+    registerAlias,
     requireLanguage,
     autoDetection,
     inherit,
