@@ -35,6 +35,7 @@ Language Improvements:
 [Peter Plantinga]: https://github.com/pplantinga
 [David Benjamin]: https://github.com/davidben
 [Vania Kucher]: https://github.com/qWici
+[Hankun Lin]: https://github.com/Linhk1606
 
 
 ## Version 10.0.2
