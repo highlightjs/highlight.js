@@ -32,7 +32,7 @@ const HLJS = function(hljs) {
   var SAFE_MODE = true;
 
   // Regular expressions used throughout the highlight.js library.
-  var fixMarkupRe = /((^(<[^>]+>|\t|)+|\n))/gm;
+  var fixMarkupRe = /(^(<[^>]+>|\t|)+|\n)/gm;
 
   var LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
 
