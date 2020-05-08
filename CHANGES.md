@@ -9,6 +9,7 @@ Parser Engine:
 - (enh) Added `on:end` callback for modes (#2261) [Josh Goebel][]
 - (enh) Added ability to programatically ignore begin and end matches (#2261) [Josh Goebel][]
 - (enh) Added `END_SAME_AS_BEGIN` mode to replace `endSameAsBegin` parser attribute (#2261) [Josh Goebel][]
+- (fix) `fixMarkup` would rarely destroy markup when `useBR` was enabled (#2532) [Josh Goebel][]
 
 Deprecations:
 
