@@ -691,7 +691,6 @@ const HLJS = function(hljs) {
       list = [alias]
     }
     list.forEach(alias => aliases[alias] = languageName);
-    }
   }
 
   function autoDetection(name) {
