@@ -125,11 +125,11 @@ export default function(hljs) {
       {
         className: 'meta', // @attributes
         begin: '(@discardableResult|@warn_unused_result|@exported|@lazy|@noescape|' +
-                  '@NSCopying|@NSManaged|@objcMembers|@objc|@convention|@required|' +
+                  '@NSCopying|@NSManaged|@objc|@objcMembers|@convention|@required|' +
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
                   '@infix|@prefix|@postfix|@autoclosure|@testable|@available|' +
                   '@nonobjc|@NSApplicationMain|@UIApplicationMain|@dynamicMemberLookup|' +
-                  '@propertyWrapper)'
+                  '@propertyWrapper)\\b'
 
       },
       {
