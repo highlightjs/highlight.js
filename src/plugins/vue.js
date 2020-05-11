@@ -1,20 +1,31 @@
+import { escapeHTML } from "../lib/utils";
+
 function hasValueOrEmptyAttribute(value) {
   return Boolean(value || value === "");
 }
+
+const NO_HIGHLIGHT = "no-highlight";
 
 export const Component = {
   props: ["language", "code", "auto"],
   data: function() {
     return {
-      detectedLanguage: ""
+      detectedLanguage: "",
+      doNotHighlight: false
     };
   },
   computed: {
     className() {
+      if (this.doNotHighlight) return NO_HIGHLIGHT;
+
       return "hljs " + this.detectedLanguage;
     },
     highlighted() {
-      if (!this.autoDetect && !hljs.getLanguage(this.language)) return;
+      // no idea what language to use, return raw code
+      if (!this.autoDetect && !hljs.getLanguage(this.language)) {
+        this.doNotHighlight = true;
+        return escapeHTML(this.code);
+      }
 
       let result;
       if (this.autoDetect) {
