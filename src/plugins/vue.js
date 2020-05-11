@@ -11,19 +11,19 @@ export const Component = {
   data: function() {
     return {
       detectedLanguage: "",
-      doNotHighlight: false
+      doHighlight: true
     };
   },
   computed: {
     className() {
-      if (this.doNotHighlight) return NO_HIGHLIGHT;
+      if (!this.doHighlight) return NO_HIGHLIGHT;
 
       return "hljs " + this.detectedLanguage;
     },
     highlighted() {
       // no idea what language to use, return raw code
       if (!this.autoDetect && !hljs.getLanguage(this.language)) {
-        this.doNotHighlight = true;
+        this.doHighlight = false;
         return escapeHTML(this.code);
       }
 
