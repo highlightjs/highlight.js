@@ -121,6 +121,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Nginx                   | nginx, nginxconf       |         |
 | Nim                     | nimrod                 |         |
 | Nix                     | nix                    |         |
+| Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | OCaml                   | ocaml, ml              |         |
 | Objective C             | objectivec, mm, objc, obj-c |    |
 | OpenGL Shading Language | glsl                   |         |
