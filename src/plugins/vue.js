@@ -3,7 +3,7 @@ function hasValueOrEmptyAttribute(value) {
 }
 
 export const Component = {
-  props: ["language", "code", "ignore_illegals", "auto"],
+  props: ["language", "code", "auto"],
   data: function() {
     return {
       detectedLanguage: ""
@@ -30,7 +30,8 @@ export const Component = {
       return !this.language || hasValueOrEmptyAttribute(this.auto);
     },
     ignoreIllegals() {
-      return !hasValueOrEmptyAttribute(this.ignore_illegals);
+      return true;
+      // return !hasValueOrEmptyAttribute(this.ignore_illegals);
     }
   },
   render(createElement) {
