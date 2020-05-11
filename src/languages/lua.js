@@ -26,8 +26,8 @@ export default function(hljs) {
   ];
   return {
     name: 'Lua',
-    lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords: {
+      $pattern: hljs.UNDERSCORE_IDENT_RE,
       literal: "true false nil",
       keyword: "and break do else elseif end for goto if in local not or repeat return then until while",
       built_in:

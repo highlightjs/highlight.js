@@ -32,7 +32,7 @@ const HLJS = function(hljs) {
   var SAFE_MODE = true;
 
   // Regular expressions used throughout the highlight.js library.
-  var fixMarkupRe = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
+  var fixMarkupRe = /(^(<[^>]+>|\t|)+|\n)/gm;
 
   var LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
 
@@ -131,8 +131,8 @@ const HLJS = function(hljs) {
       }
 
       let last_index = 0;
-      top.lexemesRe.lastIndex = 0;
-      let match = top.lexemesRe.exec(mode_buffer);
+      top.keywordPatternRe.lastIndex = 0;
+      let match = top.keywordPatternRe.exec(mode_buffer);
       let buf = "";
 
       while (match) {
@@ -148,8 +148,8 @@ const HLJS = function(hljs) {
         } else {
           buf += match[0];
         }
-        last_index = top.lexemesRe.lastIndex;
-        match = top.lexemesRe.exec(mode_buffer);
+        last_index = top.keywordPatternRe.lastIndex;
+        match = top.keywordPatternRe.exec(mode_buffer);
       }
       buf += mode_buffer.substr(last_index);
       emitter.addText(buf);
@@ -540,13 +540,13 @@ const HLJS = function(hljs) {
       return value;
     }
 
-    return value.replace(fixMarkupRe, function(match, p1) {
-      if (options.useBR && match === '\n') {
-        return '<br>';
+    return value.replace(fixMarkupRe, match => {
+      if (match === '\n') {
+        return options.useBR ? '<br>' : match;
       } else if (options.tabReplace) {
-        return p1.replace(/\t/g, options.tabReplace);
+        return match.replace(/\t/g, options.tabReplace);
       }
-      return '';
+      return match;
     });
   }
 
@@ -658,7 +658,7 @@ const HLJS = function(hljs) {
     lang.rawDefinition = language.bind(null, hljs);
 
     if (lang.aliases) {
-      lang.aliases.forEach(function(alias) { aliases[alias] = name; });
+      registerAliases(lang.aliases, { languageName: name });
     }
   }
 
@@ -683,6 +683,13 @@ const HLJS = function(hljs) {
   function getLanguage(name) {
     name = (name || '').toLowerCase();
     return languages[name] || languages[aliases[name]];
+  }
+
+  function registerAliases(aliasList, {languageName}) {
+    if (typeof aliasList === 'string') {
+      aliasList = [aliasList]
+    }
+    aliasList.forEach(alias => aliases[alias] = languageName);
   }
 
   function autoDetection(name) {
@@ -716,6 +723,7 @@ const HLJS = function(hljs) {
     registerLanguage,
     listLanguages,
     getLanguage,
+    registerAliases,
     requireLanguage,
     autoDetection,
     inherit,

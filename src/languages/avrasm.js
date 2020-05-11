@@ -9,8 +9,8 @@ export default function(hljs) {
   return {
     name: 'AVR Assembly',
     case_insensitive: true,
-    lexemes: '\\.?' + hljs.IDENT_RE,
     keywords: {
+      $pattern: '\\.?' + hljs.IDENT_RE,
       keyword:
         /* mnemonic */
         'adc add adiw and andi asr bclr bld brbc brbs brcc brcs break breq brge brhc brhs ' +

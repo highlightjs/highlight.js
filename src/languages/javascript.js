@@ -6,8 +6,10 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
 import * as ECMAScript from "./lib/ecmascript";
+import * as regex from "../lib/regex";
 
 export default function(hljs) {
+  var IDENT_RE = ECMAScript.IDENT_RE;
   var FRAGMENT = {
     begin: '<>',
     end: '</>'
@@ -16,8 +18,8 @@ export default function(hljs) {
     begin: /<[A-Za-z0-9\\._:-]+/,
     end: /\/[A-Za-z0-9\\._:-]+>|\/>/
   };
-  var IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var KEYWORDS = {
+    $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.join(" "),
     literal: ECMAScript.LITERALS.join(" "),
     built_in: ECMAScript.BUILT_INS.join(" ")
@@ -148,13 +150,29 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       NUMBER,
       { // object attr container
-        begin: /[{,\n]\s*/, relevance: 0,
+        begin: regex.concat(/[{,\n]\s*/,
+          // we need to look ahead to make sure that we actually have an
+          // attribute coming up so we don't steal a comma from a potential
+          // "value" container
+          //
+          // NOTE: this might not work how you think.  We don't actually always
+          // enter this mode and stay.  Instead it might merely match `,
+          // <comments up next>` and then immediately end after the , because it
+          // fails to find any actual attrs. But this still does the job because
+          // it prevents the value contain rule from grabbing this instead and
+          // prevening this rule from firing when we actually DO have keys.
+          regex.lookahead(regex.concat(
+            // we also need to allow for multiple possible comments inbetween
+            // the first key:value pairing
+            /(((\/\/.*)|(\/\*(.|\n)*\*\/))\s*)*/,
+            IDENT_RE + '\\s*:'))),
+        relevance: 0,
         contains: [
           {
-            begin: IDENT_RE + '\\s*:', returnBegin: true,
+            className: 'attr',
+            begin: IDENT_RE + regex.lookahead('\\s*:'),
             relevance: 0,
-            contains: [{className: 'attr', begin: IDENT_RE, relevance: 0}]
-          }
+          },
         ]
       },
       { // "value" container

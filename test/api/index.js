@@ -12,4 +12,5 @@ describe('hljs', function() {
   require('./highlight');
   require('./fixmarkup');
   require('./keywords');
+  require('./registerAlias');
 });

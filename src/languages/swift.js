@@ -129,7 +129,7 @@ export default function(hljs) {
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
                   '@infix|@prefix|@postfix|@autoclosure|@testable|@available|' +
                   '@nonobjc|@NSApplicationMain|@UIApplicationMain|@dynamicMemberLookup|' +
-                  '@propertyWrapper)'
+                  '@propertyWrapper)\\b'
 
       },
       {

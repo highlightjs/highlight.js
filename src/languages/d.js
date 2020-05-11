@@ -30,6 +30,7 @@ export default function(hljs) {
    * @type {Object}
    */
   var D_KEYWORDS = {
+    $pattern: hljs.UNDERSCORE_IDENT_RE,
     keyword:
       'abstract alias align asm assert auto body break byte case cast catch class ' +
       'const continue debug default delete deprecated do else enum export extern final ' +
@@ -245,7 +246,6 @@ export default function(hljs) {
 
   return {
     name: 'D',
-    lexemes: hljs.UNDERSCORE_IDENT_RE,
     keywords: D_KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
