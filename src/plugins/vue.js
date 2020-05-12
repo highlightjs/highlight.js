@@ -45,9 +45,7 @@ export const Component = {
       // return !hasValueOrEmptyAttribute(this.ignore_illegals);
     }
   },
-  // this is on purpose because eventually someone is going to ask us to make
-  // the tags configurable (in which case I think we're forced to render?) and
-  // it also avoids needing to use to a whole Vue complication pipline just
+  // this avoids needing to use a whole Vue compilation pipeline just
   // to build Highlight.js
   render(createElement) {
     return createElement("pre", {}, [
