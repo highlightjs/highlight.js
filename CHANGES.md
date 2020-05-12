@@ -1,3 +1,10 @@
+## Version 10.0.3
+
+- [Issue](https://github.com/highlightjs/highlight.js/issues/2514) fix(javascript) Fix `get`/`set` incorrect highlighting (#2515) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
+
+
 ## Version 10.0.2
 
 Brower build:

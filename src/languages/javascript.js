@@ -249,7 +249,7 @@ export default function(hljs) {
         beginKeywords: 'constructor', end: /\{/, excludeEnd: true
       },
       {
-        begin:'(get|set)\\s*(?=' + IDENT_RE+ '\\()',
+        begin:'(get|set)\\s+(?=' + IDENT_RE+ '\\()',
         end: /{/,
         keywords: "get set",
         contains: [
