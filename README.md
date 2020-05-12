@@ -108,7 +108,7 @@ in your templates:
 ```html
   <div id="app">
     <!-- bind to the a data proptery named `code` -->
-    <highlightjs auto :code="code" />
+    <highlightjs autodetect :code="code" />
     <!-- or literal code works as well -->
     <highlightjs language='javascript' code="var x = 5;" />
   </div>

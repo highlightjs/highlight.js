@@ -7,23 +7,23 @@ function hasValueOrEmptyAttribute(value) {
 const NO_HIGHLIGHT = "no-highlight";
 
 export const Component = {
-  props: ["language", "code", "auto"],
+  props: ["language", "code", "autodetect"],
   data: function() {
     return {
       detectedLanguage: "",
-      doHighlight: true
+      unknownLanguage: false
     };
   },
   computed: {
     className() {
-      if (!this.doHighlight) return NO_HIGHLIGHT;
+      if (this.unknownLanguage) return NO_HIGHLIGHT;
 
       return "hljs " + this.detectedLanguage;
     },
     highlighted() {
       // no idea what language to use, return raw code
       if (!this.autoDetect && !hljs.getLanguage(this.language)) {
-        this.doHighlight = false;
+        this.unknownLanguage = true;
         return escapeHTML(this.code);
       }
 
@@ -38,7 +38,7 @@ export const Component = {
       return result.value;
     },
     autoDetect() {
-      return !this.language || hasValueOrEmptyAttribute(this.auto);
+      return !this.language || hasValueOrEmptyAttribute(this.autodetect);
     },
     ignoreIllegals() {
       return true;
