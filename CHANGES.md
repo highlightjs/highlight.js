@@ -33,7 +33,7 @@ Language Improvements:
 - fix(typescript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
 - fix(yaml) Fix tags to include non-word characters (#2486) [Peter Plantinga][]
 - fix(swift) `@objcMembers` was being partially highlighted (#2543) [Nick Randall][]
-- fix(dart) Add `late` and `required` keywords, and `Never` built-in type (#2550) [Sam Rawlins][]
+- enh(dart) Add `late` and `required` keywords, and `Never` built-in type (#2550) [Sam Rawlins][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Peter Plantinga]: https://github.com/pplantinga
