@@ -31,11 +31,12 @@ export default function (hljs) {
     variants: [
       { begin: '\\b(0[bB][01]+([01_]*[01]+)?)[lL]?' }, // binary
       { begin: '\\b(0[0-7]+([0-7_]*[0-7]+)?)[dDfFlL]?' }, // octal
-      { begin: '\\b[\\d]+[\\d_]*[\\d]+[lL]?' }, // decimal
+      { begin: '\\b[\\d]+([\\d_]*[\\d]+)?[lL]?' }, // decimal
       { begin: '\\b([\\d]*[\\.][\\d_]*[\\d]+|[\\d]+[\\d_]*)[eE][+-]?[\\d]+[dDfF]?' }, // scientific notation
       { begin: '\\b[\\d]+[\\.][\\d_]*[\\d]+[dDfF]?' }, // floating point
       { begin: '\\b0[xX]([a-fA-F0-9]+[a-fA-F0-9_]*[a-fA-F0-9]+)[pP]?[\\d]*[lL]?' }, // hexadecimal
       { begin: '\\b0[xX]((([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)?[\\.]?)?([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)?[pP][+-]?([\\d]+)[dDfF]?|([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+))[fFdD]?' }, // hexadecimal floating point
+      { begin: '\\b[0-9]?(\\.)?[0-9]' },
     ],
     relevance: 0
   };
