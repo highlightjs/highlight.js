@@ -6,17 +6,50 @@ Description: Matcher for Handlebars as well as EmberJS additions.
 Website: https://handlebarsjs.com
 Category: template
 */
+
 export default function (hljs) {
 
   var BUILT_INS = {
-    'builtin-name': 'action bindattr collection component concat debugger '
-      + 'each each-in get hash if in input link-to loc log lookup '
-      + 'mut outlet partial query-params render template textarea unbound '
-      + 'unless view with yield'
+    'builtin-name': [
+      'action',
+      'bindattr',
+      'collection',
+      'component',
+      'concat',
+      'debugger',
+      'each',
+      'each-in',
+      'get',
+      'hash',
+      'if',
+      'in',
+      'input',
+      'link-to',
+      'loc',
+      'log',
+      'lookup',
+      'mut',
+      'outlet',
+      'partial',
+      'query-params',
+      'render',
+      'template',
+      'textarea',
+      'unbound',
+      'unless',
+      'view',
+      'with',
+      'yield'
+    ].join(" ")
   };
 
   var LITERALS = {
-    'literal': 'true false undefined null'
+    'literal': [
+      'true',
+      'false',
+      'undefined',
+      'null'
+    ].join(" ")
   };
 
   // as defined in https://handlebarsjs.com/guide/expressions.html#literal-segments
