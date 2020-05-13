@@ -25,3 +25,6 @@ i = <span class="hljs-number">0x1.p2</span>;
 <span class="hljs-keyword">byte</span> mask = <span class="hljs-number">0x0f</span>;
 <span class="hljs-keyword">int</span> i = <span class="hljs-number">4</span>;
 <span class="hljs-keyword">byte</span> mask = <span class="hljs-number">0xa</span>;
+<span class="hljs-keyword">float</span> f = <span class="hljs-number">5.4</span>;
+<span class="hljs-keyword">float</span> f = <span class="hljs-number">2e3</span>;
+<span class="hljs-keyword">int</span> n = <span class="hljs-number">0b1</span>;
