@@ -30,7 +30,7 @@ export default function (hljs) {
     className: 'number',
     variants: [
       { begin: '\\b(0[bB][01]+([01_]*[01]+)?)[lL]?' }, // binary
-      { begin: '\\b(0[0-7]+[0-7_]*[0-7]+)[dDfFlL]?' }, // octal
+      { begin: '\\b(0[0-7]+([0-7_]*[0-7]+)?)[dDfFlL]?' }, // octal
       { begin: '\\b[\\d]+[\\d_]*[\\d]+[lL]?' }, // decimal
       { begin: '\\b([\\d]*[\\.][\\d_]*[\\d]+|[\\d]+[\\d_]*)[eE][+-]?[\\d]+[dDfF]?' }, // scientific notation
       { begin: '\\b[\\d]+[\\.][\\d_]*[\\d]+[dDfF]?' }, // floating point
