@@ -13,6 +13,8 @@ Parser Engine:
 
 Deprecations:
 
+- when using `highlightBlock` `result.re` deprecated. Use `result.relevance` instead. (#2552) [Josh Goebel][]
+- ditto for `result.second_best.re` => `result.second_best.relevance` (#2552)
 - `lexemes` is now deprecated in favor of `keywords.$pattern` key (#2519) [Josh Goebel][]
 - `endSameAsBegin` is now deprecated. (#2261) [Josh Goebel][]
 
