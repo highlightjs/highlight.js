@@ -7,8 +7,7 @@ Website: https://handlebarsjs.com
 Category: template
 */
 
-export default function (hljs) {
-
+export default function(hljs) {
   const BUILT_INS = {
     'builtin-name': [
       'action',
@@ -44,7 +43,7 @@ export default function (hljs) {
   };
 
   const LITERALS = {
-    'literal': [
+    literal: [
       'true',
       'false',
       'undefined',
@@ -71,7 +70,8 @@ export default function (hljs) {
 
   const SUB_EXPRESSION = {
     illegal: /\}\}/,
-    begin: /\(/, end: /\)/
+    begin: /\(/,
+    end: /\)/
     // the "contains" is added below when all necessary sub-modes are defined
   };
 
@@ -108,7 +108,7 @@ export default function (hljs) {
         keywords: ''
       }
     ]
-  }
+  };
 
   const HELPER_PARAMETERS = {
     contains: [
@@ -151,7 +151,6 @@ export default function (hljs) {
     className: 'name'
   });
 
-
   const BASIC_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     className: 'name',
     keywords: BUILT_INS,
@@ -176,20 +175,23 @@ export default function (hljs) {
       {
         // open raw block "{{{{raw}}}} content not evaluated {{{{/raw}}}}"
         className: 'template-tag',
-        begin: /\{\{\{\{(?!\/)/, end: /\}\}\}\}/,
+        begin: /\{\{\{\{(?!\/)/,
+        end: /\}\}\}\}/,
         contains: [OPENING_BLOCK_MUSTACHE_CONTENTS],
         starts: {end: /\{\{\{\{\//, returnEnd: true, subLanguage: 'xml'}
       },
       {
         // close raw block
         className: 'template-tag',
-        begin: /\{\{\{\{\//, end: /\}\}\}\}/,
+        begin: /\{\{\{\{\//,
+        end: /\}\}\}\}/,
         contains: [CLOSING_BLOCK_MUSTACHE_CONTENTS]
       },
       {
         // open block statement
         className: 'template-tag',
-        begin: /\{\{#/, end: /\}\}/,
+        begin: /\{\{#/,
+        end: /\}\}/,
         contains: [OPENING_BLOCK_MUSTACHE_CONTENTS],
       },
       {
@@ -201,19 +203,22 @@ export default function (hljs) {
       {
         // closing block statement
         className: 'template-tag',
-        begin: /\{\{\//, end: /\}\}/,
+        begin: /\{\{\//,
+        end: /\}\}/,
         contains: [CLOSING_BLOCK_MUSTACHE_CONTENTS],
       },
       {
         // template variable or helper-call that is NOT html-escaped
         className: 'template-variable',
-        begin: /\{\{\{/, end: /\}\}\}/,
+        begin: /\{\{\{/,
+        end: /\}\}\}/,
         contains: [BASIC_MUSTACHE_CONTENTS]
       },
       {
         // template variable or helper-call that is html-escaped
         className: 'template-variable',
-        begin: /\{\{/, end: /\}\}/,
+        begin: /\{\{/,
+        end: /\}\}/,
         contains: [BASIC_MUSTACHE_CONTENTS]
       }
     ]
