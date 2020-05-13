@@ -9,7 +9,7 @@ Category: template
 
 export default function (hljs) {
 
-  var BUILT_INS = {
+  const BUILT_INS = {
     'builtin-name': [
       'action',
       'bindattr',
@@ -43,7 +43,7 @@ export default function (hljs) {
     ].join(" ")
   };
 
-  var LITERALS = {
+  const LITERALS = {
     'literal': [
       'true',
       'false',
@@ -55,27 +55,27 @@ export default function (hljs) {
   // as defined in https://handlebarsjs.com/guide/expressions.html#literal-segments
   // this regex matches literal segments like ' abc ' or [ abc ] as well as helpers and paths
   // like a/b, ./abc/cde, and abc.bcd
-  var IDENFIFIER_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+|\.|\/)+/;
+  const IDENFIFIER_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+|\.|\/)+/;
 
   // identifier followed by a equal-sign (without the equal sign)
-  var HASH_PARAM_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+)(?==)/;
+  const HASH_PARAM_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+)(?==)/;
 
-  var HELPER_NAME_OR_PATH_EXPRESSION = {
+  const HELPER_NAME_OR_PATH_EXPRESSION = {
     begin: IDENFIFIER_REGEX,
     lexemes: /[\w.\/]+/
   };
 
-  var HELPER_PARAMETER = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
+  const HELPER_PARAMETER = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     keywords: LITERALS
   });
 
-  var SUB_EXPRESSION = {
+  const SUB_EXPRESSION = {
     illegal: /\}\}/,
     begin: /\(/, end: /\)/
     // the "contains" is added below when all necessary sub-modes are defined
   };
 
-  var HASH = {
+  const HASH = {
     // fka "attribute-assignment", parameters of the form 'key=value'
     className: 'attr',
     illegal: /\}\}/,
@@ -96,7 +96,7 @@ export default function (hljs) {
     }
   };
 
-  var BLOCK_PARAMS = {
+  const BLOCK_PARAMS = {
     // parameters of the form '{{#with x as | y |}}...{{/with}}'
     begin: /as\s+\|/,
     keywords: { keyword: 'as' },
@@ -110,7 +110,7 @@ export default function (hljs) {
     ]
   }
 
-  var HELPER_PARAMETERS = {
+  const HELPER_PARAMETERS = {
     contains: [
       hljs.NUMBER_MODE,
       hljs.QUOTE_STRING_MODE,
@@ -126,7 +126,7 @@ export default function (hljs) {
     // end-token of the surrounding mode)
   };
 
-  var SUB_EXPRESSION_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
+  const SUB_EXPRESSION_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     className: 'name',
     keywords: BUILT_INS,
     starts: hljs.inherit(HELPER_PARAMETERS, {
@@ -138,7 +138,7 @@ export default function (hljs) {
     SUB_EXPRESSION_CONTENTS
   ];
 
-  var OPENING_BLOCK_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
+  const OPENING_BLOCK_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     keywords: BUILT_INS,
     className: 'name',
     starts: hljs.inherit(HELPER_PARAMETERS, {
@@ -146,13 +146,13 @@ export default function (hljs) {
     })
   });
 
-  var CLOSING_BLOCK_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
+  const CLOSING_BLOCK_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     keywords: BUILT_INS,
     className: 'name'
   });
 
 
-  var BASIC_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
+  const BASIC_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     className: 'name',
     keywords: BUILT_INS,
     starts: hljs.inherit(HELPER_PARAMETERS, {
@@ -160,8 +160,8 @@ export default function (hljs) {
     })
   });
 
-  var ESCAPE_MUSTACHE_WITH_PRECEEDING_BACKSLASH = {begin: /\\\{\{/, skip: true};
-  var PREVENT_ESCAPE_WITH_ANOTHER_PRECEEDING_BACKSLASH = {begin: /\\\\(?=\{\{)/, skip: true};
+  const ESCAPE_MUSTACHE_WITH_PRECEEDING_BACKSLASH = {begin: /\\\{\{/, skip: true};
+  const PREVENT_ESCAPE_WITH_ANOTHER_PRECEEDING_BACKSLASH = {begin: /\\\\(?=\{\{)/, skip: true};
 
   return {
     name: 'Handlebars',
