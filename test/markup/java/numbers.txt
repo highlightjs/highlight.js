@@ -23,3 +23,5 @@ h = 0x1.2ep5D;
 i = 0x1.p2;
 int i = 23;
 byte mask = 0x0f;
+int i = 4;
+byte mask = 0xa;
