@@ -7,11 +7,17 @@ var COMMON_KEYWORDS = 'of and for in not or if then'.split(' ');
 // compilation
 
 /**
+ * Compiles a language definition result
+ *
+ * Given the raw result of a language definition (Language), compiles this so
+ * that it is ready for highlighting code.
  * @param {Language} language
  * @returns {CompiledLanguage}
  */
 export function compileLanguage(language) {
   /**
+   * Builds a regex with the case sensativility of the current language
+   *
    * @param {RegExp | string} value
    * @param {boolean} [global]
    */
@@ -164,7 +170,11 @@ export function compileLanguage(language) {
   }
 
   /**
+   * Given a mode, builds a huge ResumableMultiRegex that can be used to walk
+   * the content and find matches.
+   *
    * @param {CompiledMode} mode
+   * @returns {ResumableMultiRegex}
    */
   function buildModeRegex(mode) {
     const mm = new ResumableMultiRegex();
@@ -183,14 +193,19 @@ export function compileLanguage(language) {
 
   // TODO: We need negative look-behind support to do this properly
   /**
+   * Skip a match if it has a preceding or trailing dot
+   *
+   * This is used for `beginKeywords` to prevent matching expressions such as
+   * `bob.keyword.do()`. The mode compiler automatically wires this up as a
+   * special _internal_ 'on:begin' callback for modes with `beginKeywords`
    * @param {RegExpMatchArray} match
-   * @param {CallbackResponse} resp
+   * @param {CallbackResponse} response
    */
-  function skipIfhasPrecedingOrTrailingDot(match, resp) {
+  function skipIfhasPrecedingOrTrailingDot(match, response) {
     const before = match.input[match.index - 1];
     const after = match.input[match.index + match[0].length];
     if (before === "." || after === ".") {
-      resp.ignoreMatch();
+      response.ignoreMatch();
     }
   }
 
@@ -225,7 +240,10 @@ export function compileLanguage(language) {
    */
 
   /**
+   * Compiles an individual mode
    *
+   * This can raise an error if the mode contains certain detectable known logic
+   * issues.
    * @param {Mode} mode
    * @param {CompiledMode | null} [parent]
    * @returns {CompiledMode | never}
@@ -305,8 +323,15 @@ export function compileLanguage(language) {
 }
 
 /**
+ * Determines if a mode has a dependency on it's parent or not
+ *
+ * If a mode does have a parent dependency then often we need to clone it if
+ * it's used in multiple places so that each copy points to the correct parent,
+ * where-as modes without a parent can often safely be re-used at the bottom of
+ * a mode chain.
+ *
  * @param {Mode | null} mode
- * @returns {boolean}
+ * @returns {boolean} - is there a dependency on the parent?
  * */
 function dependencyOnParent(mode) {
   if (!mode) return false;
@@ -315,6 +340,12 @@ function dependencyOnParent(mode) {
 }
 
 /**
+ * Expands a mode or clones it if necessary
+ *
+ * This is necessary for modes with parental dependenceis (see notes on
+ * `dependencyOnParent`) and for nodes that have `variants` - which must then be
+ * exploded into their own individual modes at compile time.
+ *
  * @param {Mode} mode
  * @returns {Mode | Mode[]}
  * */
@@ -348,8 +379,13 @@ function expand_or_clone_mode(mode) {
   return mode;
 }
 
-// keywords
+/***********************************************
+  Keywords
+***********************************************/
+
 /**
+ * Given raw keywords from a language definition, compile them.
+ *
  * @param {string | Record<string,string>} rawKeywords
  * @param {boolean} case_insensitive
  */
@@ -369,14 +405,18 @@ function compileKeywords(rawKeywords, case_insensitive) {
   // ---
 
   /**
+   * Compiles an individual list of keywords
+   *
+   * Ex: "for if when while|5"
+   *
    * @param {string} className
-   * @param {string} str
+   * @param {string} keywordList
    */
-  function splitAndCompile(className, str) {
+  function splitAndCompile(className, keywordList) {
     if (case_insensitive) {
-      str = str.toLowerCase();
+      keywordList = keywordList.toLowerCase();
     }
-    str.split(' ').forEach(function(keyword) {
+    keywordList.split(' ').forEach(function(keyword) {
       var pair = keyword.split('|');
       compiled_keywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
     });
@@ -384,7 +424,10 @@ function compileKeywords(rawKeywords, case_insensitive) {
 }
 
 /**
+ * Returns the proper score for a given keyword
  *
+ * Also takes into account comment keywords, which will be scored 0 UNLESS
+ * another score has been manually assigned.
  * @param {string} keyword
  * @param {string} [providedScore]
  */
@@ -398,7 +441,10 @@ function scoreForKeyword(keyword, providedScore) {
   return commonKeyword(keyword) ? 0 : 1;
 }
 
-/** @param {string} keyword */
+/**
+ * Determines if a given keyword is common or not
+ *
+ * @param {string} keyword */
 function commonKeyword(keyword) {
   return COMMON_KEYWORDS.includes(keyword.toLowerCase());
 }

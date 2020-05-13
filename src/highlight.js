@@ -723,15 +723,15 @@ const HLJS = function(hljs) {
   /**
    * Register a language grammar module
    *
-   * @param {string} name
-   * @param {LanguageFn} language
+   * @param {string} languageName
+   * @param {LanguageFn} languageDefinition
    */
-  function registerLanguage(name, language) {
+  function registerLanguage(languageName, languageDefinition) {
     var lang = null;
     try {
-      lang = language(hljs);
+      lang = languageDefinition(hljs);
     } catch (error) {
-      console.error("Language definition for '{}' could not be registered.".replace("{}", name));
+      console.error("Language definition for '{}' could not be registered.".replace("{}", languageName));
       // hard or soft error
       if (!SAFE_MODE) { throw error; } else { console.error(error); }
       // languages that have serious errors are replaced with essentially a
@@ -741,12 +741,12 @@ const HLJS = function(hljs) {
       lang = PLAINTEXT_LANGUAGE;
     }
     // give it a temporary name if it doesn't have one in the meta-data
-    if (!lang.name) lang.name = name;
-    languages[name] = lang;
-    lang.rawDefinition = language.bind(null, hljs);
+    if (!lang.name) lang.name = languageName;
+    languages[languageName] = lang;
+    lang.rawDefinition = languageDefinition.bind(null, hljs);
 
     if (lang.aliases) {
-      registerAliases(lang.aliases, { languageName: name });
+      registerAliases(lang.aliases, { languageName });
     }
   }
 

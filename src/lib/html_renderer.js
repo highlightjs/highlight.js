@@ -13,7 +13,11 @@ import { escapeHTML } from './utils';
 /** */
 
 const SPAN_CLOSE = '</span>';
-/** @param {Node} node */
+
+/**
+ * Determines if a node needs to be wrapped in <span>
+ *
+ * @param {Node} node */
 const emitsWrappingTags = (node) => {
   return !!node.kind;
 };
@@ -21,24 +25,29 @@ const emitsWrappingTags = (node) => {
 /** @type {Renderer} */
 export default class HTMLRenderer {
   /**
+   * Creates a new HTMLRenderer
    *
-   * @param {Tree} tree
+   * @param {Tree} parseTree - the parse tree (must support `walk` API)
    * @param {{classPrefix: string}} options
    */
-  constructor(tree, options) {
+  constructor(parseTree, options) {
     this.buffer = "";
     this.classPrefix = options.classPrefix;
-    tree.walk(this);
+    parseTree.walk(this);
   }
 
-  // renderer API
-
-  /** @param {string} text */
+  /**
+   * Adds texts to the output stream
+   *
+   * @param {string} text */
   addText(text) {
     this.buffer += escapeHTML(text);
   }
 
-  /** @param {Node} node */
+  /**
+   * Adds a node open to the output stream (if needed)
+   *
+   * @param {Node} node */
   openNode(node) {
     if (!emitsWrappingTags(node)) return;
 
@@ -49,21 +58,31 @@ export default class HTMLRenderer {
     this.span(className);
   }
 
-  /** @param {Node} node */
+  /**
+   * Adds a node close to the output stream (if needed)
+   *
+   * @param {Node} node */
   closeNode(node) {
     if (!emitsWrappingTags(node)) return;
 
     this.buffer += SPAN_CLOSE;
   }
 
+  /**
+   * returns the accumulated buffer
+  */
+  value() {
+    return this.buffer;
+  }
+
   // helpers
 
-  /** @param {string} className */
+  /**
+   * Builds a span element
+   *
+   * @param {string} className */
   span(className) {
     this.buffer += `<span class="${className}">`;
   }
 
-  value() {
-    return this.buffer;
-  }
 }

@@ -55,6 +55,7 @@ export const PHRASAL_WORDS_MODE = {
   begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b/
 };
 /**
+ * Creates a comment mode
  *
  * @param {string | RegExp} begin
  * @param {string | RegExp} end
@@ -151,6 +152,10 @@ export const METHOD_GUARD = {
 };
 
 /**
+ * Adds end same as begin mechanics to a mode
+ *
+ * Your mode must include at least a single () match group as that first match
+ * group is what is used for comparison
  * @param {Partial<Mode>} mode
  */
 export const END_SAME_AS_BEGIN = function(mode) {
