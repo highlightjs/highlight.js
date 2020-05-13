@@ -28,3 +28,5 @@ byte mask = 0xa;
 float f = 5.4;
 float f = 2e3;
 int n = 0b1;
+float f = 3.;
+float f = .2;
