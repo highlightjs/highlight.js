@@ -54,13 +54,13 @@ export default function(hljs) {
   // as defined in https://handlebarsjs.com/guide/expressions.html#literal-segments
   // this regex matches literal segments like ' abc ' or [ abc ] as well as helpers and paths
   // like a/b, ./abc/cde, and abc.bcd
-  const IDENFIFIER_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+|\.|\/)+/;
+  const IDENTIFIER_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+|\.|\/)+/;
 
   // identifier followed by a equal-sign (without the equal sign)
   const HASH_PARAM_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+)(?==)/;
 
   const HELPER_NAME_OR_PATH_EXPRESSION = {
-    begin: IDENFIFIER_REGEX,
+    begin: IDENTIFIER_REGEX,
     lexemes: /[\w.\/]+/
   };
 
