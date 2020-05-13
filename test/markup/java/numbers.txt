@@ -21,3 +21,5 @@ f = 0x1p1;
 g = 0x.3p4d;
 h = 0x1.2ep5D;
 i = 0x1.p2;
+int i = 23;
+byte mask = 0x0f;

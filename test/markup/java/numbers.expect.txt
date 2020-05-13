@@ -21,3 +21,5 @@ f = <span class="hljs-number">0x1p1</span>;
 g = <span class="hljs-number">0x.3p4d</span>;
 h = <span class="hljs-number">0x1.2ep5D</span>;
 i = <span class="hljs-number">0x1.p2</span>;
+<span class="hljs-keyword">int</span> i = <span class="hljs-number">23</span>;
+<span class="hljs-keyword">byte</span> mask = <span class="hljs-number">0x0f</span>;
