@@ -4,10 +4,12 @@ Parser Engine:
 
 - (parser) Adds `keywords.$pattern` key to grammar definitions (#2519) [Josh Goebel][]
 - (parser) Adds SHEBANG utility mode [Josh Goebel][]
+- (parser) Adds `registerAliases` method (#2540) [Taufik Nurrohman][]
 - (enh) Added `on:begin` callback for modes (#2261) [Josh Goebel][]
 - (enh) Added `on:end` callback for modes (#2261) [Josh Goebel][]
 - (enh) Added ability to programatically ignore begin and end matches (#2261) [Josh Goebel][]
 - (enh) Added `END_SAME_AS_BEGIN` mode to replace `endSameAsBegin` parser attribute (#2261) [Josh Goebel][]
+- (fix) `fixMarkup` would rarely destroy markup when `useBR` was enabled (#2532) [Josh Goebel][]
 
 Deprecations:
 
@@ -23,16 +25,23 @@ Language Improvements:
 - enh(typescript/javascript/coffeescript/livescript) derive ECMAscript keywords from a common foudation (#2518) [Josh Goebel][]
 - enh(typescript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Josh Goebel][]
 - enh(javascript) add setInterval, setTimeout, clearInterval, clearTimeout (#2514) [Vania Kucher][]
+- enh(cpp) add `pair`, `make_pair`, `priority_queue` as built-ins (#2538) [Hankun Lin][]
+- enh(cpp) recognize `priority_queue` `pair` as cpp containers (#2541) [Hankun Lin][]
 - fix(javascript) prevent `set` keyword conflicting with setTimeout, etc. (#2514) [Vania Kucher][]
 - fix(cpp) Fix highlighting of unterminated raw strings (#2261) [David Benjamin][]
 - fix(javascript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
 - fix(typescript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
 - fix(yaml) Fix tags to include non-word characters (#2486) [Peter Plantinga][]
+- fix(swift) `@objcMembers` was being partially highlighted (#2543) [Nick Randall][]
+- enh(dart) Add `late` and `required` keywords, and `Never` built-in type (#2550) [Sam Rawlins][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Peter Plantinga]: https://github.com/pplantinga
 [David Benjamin]: https://github.com/davidben
 [Vania Kucher]: https://github.com/qWici
+[Hankun Lin]: https://github.com/Linhk1606
+[Nick Randall]: https://github.com/nicked
+[Sam Rawlins]: https://github.com/srawlins
 
 
 ## Version 10.0.2

@@ -121,6 +121,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Nginx                   | nginx, nginxconf       |         |
 | Nim                     | nimrod                 |         |
 | Nix                     | nix                    |         |
+| Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | OCaml                   | ocaml, ml              |         |
 | Objective C             | objectivec, mm, objc, obj-c |    |
 | OpenGL Shading Language | glsl                   |         |
@@ -173,6 +174,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Stylus                  | stylus, styl           |         |
 | SubUnit                 | subunit                |         |
 | Supercollider           | supercollider, sc      | [highlightjs-supercollider](https://github.com/highlightjs/highlightjs-supercollider) |
+| Svelte                  | svelte                 | [highlightjs-svelte](https://github.com/AlexxNB/highlightjs-svelte) |
 | Swift                   | swift                  |         |
 | Tcl                     | tcl, tk                |         |
 | Terraform (HCL)         | terraform, tf, hcl     | [highlightjs-terraform](https://github.com/highlightjs/highlightjs-terraform) |
