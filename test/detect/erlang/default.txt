@@ -6,6 +6,10 @@
 %% backwards compatibility
 -export([listen/1, listen/2, listen/3, listen/4, stop/1]).
 
+-define(MILLION, 1_000_000).
+-define(BIT_FLAG, 2#1100_0011_1010_0101).
+-define(PI, 3.14159_26535_89793).
+
 if L =/= [] ->      % If L is not empty
     sum(L) / count(L);
 true ->
