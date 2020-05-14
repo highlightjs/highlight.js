@@ -92,6 +92,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | JSON                    | json                   |         |
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
+| Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
 | Kotlin                  | kotlin, kt             |         |
 | LaTeX                   | tex                    |         |
 | Leaf                    | leaf                   |         |
