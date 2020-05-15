@@ -321,7 +321,7 @@ const HLJS = function(hljs) {
     }
 
     /**
-     * Handle the potential nd of mode
+     * Handle the potential end of mode
      *
      * @param {RegExpMatchArray} match - the current match
      */
