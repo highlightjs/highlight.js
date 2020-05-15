@@ -17,6 +17,10 @@ module.exports = {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    "parser": '@typescript-eslint/parser',
+    "plugins": [
+      "@typescript-eslint"
+    ],
     "rules": {
       "array-callback-return": "error",
       "block-scoped-var": "error",
@@ -27,7 +31,7 @@ module.exports = {
       // for now ignore diff between types of quoting
       "quotes": "off",
       // this is the style we are already using
-      "operator-linebreak": ["error","after", { "overrides": { "?": "after", ":": "after" } }],
+      "operator-linebreak": ["error","before", { "overrides": { "?": "after", ":": "after", "+": "after" } }],
       // sometimes we declare variables with extra spacing
       "indent": ["error", 2, {"VariableDeclarator":2}],
       // seems like a good idea not to use explicit undefined

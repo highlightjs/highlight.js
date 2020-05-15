@@ -4,6 +4,8 @@ Author: Nikita Savchenko <zitros.lab@gmail.com>
 Category: enterprise, scripting
 Website: https://cedocs.intersystems.com/latest/csp/docbook/DocBook.UI.Page.cls
 */
+
+/** @type LanguageFn */
 export default function cos (hljs) {
 
   var STRINGS = {

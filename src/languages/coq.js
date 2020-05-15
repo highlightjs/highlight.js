@@ -5,6 +5,7 @@ Category: functional
 Website: https://coq.inria.fr
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'Coq',

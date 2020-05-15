@@ -75,9 +75,11 @@ async function buildNode(options) {
   mkdir("lib/languages");
   mkdir("scss");
   mkdir("styles");
+  mkdir("types");
 
   install("./LICENSE", "LICENSE");
   install("./README.md","README.md");
+  install("./types/index.d.ts","types/index.d.ts");
 
   log("Writing styles.");
   const styles = await fs.readdir("./src/styles/");

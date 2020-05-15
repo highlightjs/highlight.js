@@ -5,6 +5,7 @@
  Website: https://httpd.apache.org/docs/2.4/logs.html#accesslog
  */
 
+ /** @type LanguageFn */
 export default function(hljs) {
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
   var HTTP_VERBS = [

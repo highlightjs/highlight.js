@@ -5,6 +5,7 @@ Website: https://dynamics.microsoft.com/en-us/ax-overview/
 Category: enterprise
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'Dynamics 365',
