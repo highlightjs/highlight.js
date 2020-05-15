@@ -682,12 +682,16 @@ const HLJS = function(hljs) {
     element.className = buildClassName(element.className, language, result.language);
     element.result = {
       language: result.language,
-      re: result.relevance
+      // TODO: remove with version 11.0
+      re: result.relevance,
+      relavance: result.relevance,
     };
     if (result.second_best) {
       element.second_best = {
         language: result.second_best.language,
-        re: result.second_best.relevance
+        // TODO: remove with version 11.0
+        re: result.second_best.relevance,
+        relavance: result.second_best.relevance
       };
     }
   }
