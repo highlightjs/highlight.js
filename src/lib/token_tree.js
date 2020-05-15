@@ -1,7 +1,12 @@
 import HTMLRenderer from './html_renderer';
 
+/** @typedef {{kind?: string, sublanguage?: boolean, children: Node[]} | string} Node */
+/** @typedef {{kind?: string, sublanguage?: boolean, children: Node[]} } DataNode */
+/**  */
+
 class TokenTree {
   constructor() {
+    /** @type DataNode */
     this.rootNode = { children: [] };
     this.stack = [this.rootNode];
   }
@@ -12,11 +17,14 @@ class TokenTree {
 
   get root() { return this.rootNode; }
 
+  /** @param {Node} node */
   add(node) {
     this.top.children.push(node);
   }
 
+  /** @param {string} kind */
   openNode(kind) {
+    /** @type Node */
     const node = { kind, children: [] };
     this.add(node);
     this.stack.push(node);
@@ -26,6 +34,8 @@ class TokenTree {
     if (this.stack.length > 1) {
       return this.stack.pop();
     }
+    // eslint-disable-next-line no-undefined
+    return undefined;
   }
 
   closeAllNodes() {
@@ -36,10 +46,21 @@ class TokenTree {
     return JSON.stringify(this.rootNode, null, 4);
   }
 
+  /**
+   * @typedef { import("./html_renderer").Renderer } Renderer
+   * @param {Renderer} builder
+   */
   walk(builder) {
+    // this does not
     return this.constructor._walk(builder, this.rootNode);
+    // this works
+    // return TokenTree._walk(builder, this.rootNode);
   }
 
+  /**
+   * @param {Renderer} builder
+   * @param {Node} node
+   */
   static _walk(builder, node) {
     if (typeof node === "string") {
       builder.addText(node);
@@ -51,16 +72,19 @@ class TokenTree {
     return builder;
   }
 
+  /**
+   * @param {Node} node
+   */
   static _collapse(node) {
-    if (!node.children) {
-      return;
-    }
+    if (typeof node === "string") return;
+    if (!node.children) return;
+
     if (node.children.every(el => typeof el === "string")) {
-      node.text = node.children.join("");
-      delete node.children;
+      // node.text = node.children.join("");
+      // delete node.children;
+      node.children = [node.children.join("")];
     } else {
       node.children.forEach((child) => {
-        if (typeof child === "string") return;
         TokenTree._collapse(child);
       });
     }
@@ -83,12 +107,23 @@ class TokenTree {
   - toHTML()
 
 */
+
+/**
+ * @implements {Emitter}
+ */
 export default class TokenTreeEmitter extends TokenTree {
+  /**
+   * @param {*} options
+   */
   constructor(options) {
     super();
     this.options = options;
   }
 
+  /**
+   * @param {string} text
+   * @param {string} kind
+   */
   addKeyword(text, kind) {
     if (text === "") { return; }
 
@@ -97,13 +132,21 @@ export default class TokenTreeEmitter extends TokenTree {
     this.closeNode();
   }
 
+  /**
+   * @param {string} text
+   */
   addText(text) {
     if (text === "") { return; }
 
     this.add(text);
   }
 
+  /**
+   * @param {Emitter & {root: DataNode}} emitter
+   * @param {string} name
+   */
   addSublanguage(emitter, name) {
+    /** @type DataNode */
     const node = emitter.root;
     node.kind = name;
     node.sublanguage = true;

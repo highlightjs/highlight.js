@@ -4,6 +4,7 @@ Author: Evgeny Stepanischev <imbolk@gmail.com>
 Website: https://esolangs.org/wiki/Brainfuck
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   var LITERAL = {
     className: 'literal',

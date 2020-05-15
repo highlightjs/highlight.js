@@ -1,26 +1,52 @@
+/**
+ * @param {string} value
+ * @returns {RegExp}
+ * */
 export function escape(value) {
   return new RegExp(value.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&'), 'm');
 }
 
+/**
+ * @param {RegExp | string } re
+ * @returns {string}
+ */
 export function source(re) {
-  // if it's a regex get it's source,
-  // otherwise it's a string already so just return it
-  return (re && re.source) || re;
+  if (!re) return null;
+  if (typeof re === "string") return re;
+
+  return re.source;
 }
 
-export function lookahead(regex) {
-  return concat('(?=', regex, ')');
+/**
+ * @param {RegExp | string } re
+ * @returns {string}
+ */
+export function lookahead(re) {
+  return concat('(?=', re, ')');
 }
 
+/**
+ * @param {(RegExp | string)[] } args
+ * @returns {string}
+ */
 export function concat(...args) {
   const joined = args.map((x) => source(x)).join("");
   return joined;
 }
 
+/**
+ * @param {RegExp} re
+ * @returns {number}
+ */
 export function countMatchGroups(re) {
   return (new RegExp(re.toString() + '|')).exec('').length - 1;
 }
 
+/**
+ * Does lexeme start with a regular expression match at the beginning
+ * @param {RegExp} re
+ * @param {string} lexeme
+ */
 export function startsWith(re, lexeme) {
   var match = re && re.exec(lexeme);
   return match && match.index === 0;
@@ -31,7 +57,12 @@ export function startsWith(re, lexeme) {
 // it also places each individual regular expression into it's own
 // match group, keeping track of the sequencing of those match groups
 // is currently an exercise for the caller. :-)
-export function join(regexps, separator) {
+/**
+ * @param {(string | RegExp)[]} regexps
+ * @param {string} separator
+ * @returns {string}
+ */
+export function join(regexps, separator = "|") {
   // backreferenceRe matches an open parenthesis or backreference. To avoid
   // an incorrect parse, it additionally matches the following:
   // - [...] elements, where the meaning of parentheses and escapes change

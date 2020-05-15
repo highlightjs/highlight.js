@@ -18,26 +18,33 @@ const inherit = utils.inherit;
 const { nodeStream, mergeStreams } = utils;
 const NO_MATCH = Symbol("nomatch");
 
+/**
+ * @param {any} hljs - object that is extended (legacy)
+ */
 const HLJS = function(hljs) {
   // Convenience variables for build-in objects
+  /** @type {unknown[]} */
   var ArrayProto = [];
 
   // Global internal variables used within the highlight.js library.
+  /** @type {Record<string, Language>} */
   var languages = {};
+  /** @type {Record<string, string>} */
   var aliases = {};
+  /** @type {HLJSPlugin[]} */
   var plugins = [];
 
   // safe/production mode - swallows more errors, tries to keep running
   // even if a single syntax or parse hits a fatal error
   var SAFE_MODE = true;
-
-  // Regular expressions used throughout the highlight.js library.
   var fixMarkupRe = /(^(<[^>]+>|\t|)+|\n)/gm;
-
   var LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
+  /** @type {Language} */
+  const PLAINTEXT_LANGUAGE = { disableAutodetect: true, name: 'Plain text', contains: [] };
 
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.
+  /** @type HLJSOptions */
   var options = {
     noHighlightRe: /^(no-?highlight)$/i,
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
@@ -52,10 +59,17 @@ const HLJS = function(hljs) {
 
   /* Utility functions */
 
-  function shouldNotHighlight(language) {
-    return options.noHighlightRe.test(language);
+  /**
+   * Tests a language name to see if highlighting should be skipped
+   * @param {string} languageName
+   */
+  function shouldNotHighlight(languageName) {
+    return options.noHighlightRe.test(languageName);
   }
 
+  /**
+   * @param {HighlightedHTMLElement} block - the HTML element to determine language for
+   */
   function blockLanguage(block) {
     var classes = block.className + ' ';
 
@@ -82,18 +96,19 @@ const HLJS = function(hljs) {
    *
    * @param {string} languageName - the language to use for highlighting
    * @param {string} code - the code to highlight
-   * @param {boolean} ignoreIllegals - whether to ignore illegal matches, default is to bail
-   * @param {array<mode>} continuation - array of continuation modes
+   * @param {boolean} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
+   * @param {Mode} [continuation] - current continuation mode, if any
    *
-   * @returns an object that represents the result
+   * @returns {HighlightResult} Result - an object that represents the result
    * @property {string} language - the language name
    * @property {number} relevance - the relevance score
    * @property {string} value - the highlighted HTML code
    * @property {string} code - the original raw code
-   * @property {mode} top - top of the current mode stack
+   * @property {Mode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignoreIllegals, continuation) {
+    /** @type {{ code: string, language: string, result?: any }} */
     var context = {
       code,
       language: languageName
@@ -115,10 +130,23 @@ const HLJS = function(hljs) {
     return result;
   }
 
-  // private highlight that's used internally and does not fire callbacks
+  /**
+   * private highlight that's used internally and does not fire callbacks
+   *
+   * @param {string} languageName - the language to use for highlighting
+   * @param {string} code - the code to highlight
+   * @param {boolean} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
+   * @param {Mode} [continuation] - current continuation mode, if any
+  */
   function _highlight(languageName, code, ignoreIllegals, continuation) {
     var codeToHighlight = code;
 
+    /**
+     * Return keyword data if a match is a keyword
+     * @param {CompiledMode} mode - current mode
+     * @param {RegExpMatchArray} match - regexp match data
+     * @returns {KeywordData | false}
+     */
     function keywordData(mode, match) {
       var matchText = language.case_insensitive ? match[0].toLowerCase() : match[0];
       return Object.prototype.hasOwnProperty.call(mode.keywords, matchText) && mode.keywords[matchText];
@@ -157,17 +185,19 @@ const HLJS = function(hljs) {
 
     function processSubLanguage() {
       if (mode_buffer === "") return;
+      /** @type HighlightResult */
+      var result = null;
 
-      var explicit = typeof top.subLanguage === 'string';
-
-      if (explicit && !languages[top.subLanguage]) {
-        emitter.addText(mode_buffer);
-        return;
+      if (typeof top.subLanguage === 'string') {
+        if (!languages[top.subLanguage]) {
+          emitter.addText(mode_buffer);
+          return;
+        }
+        result = _highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]);
+        continuations[top.subLanguage] = result.top;
+      } else {
+        result = highlightAuto(mode_buffer, top.subLanguage.length ? top.subLanguage : null);
       }
-
-      var result = explicit ?
-        _highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) :
-        highlightAuto(mode_buffer, top.subLanguage.length ? top.subLanguage : null);
 
       // Counting embedded language score towards the host language may be disabled
       // with zeroing the containing mode relevance. Use case in point is Markdown that
@@ -175,9 +205,6 @@ const HLJS = function(hljs) {
       // score.
       if (top.relevance > 0) {
         relevance += result.relevance;
-      }
-      if (explicit) {
-        continuations[top.subLanguage] = result.top;
       }
       emitter.addSublanguage(result.emitter, result.language);
     }
@@ -191,23 +218,31 @@ const HLJS = function(hljs) {
       mode_buffer = '';
     }
 
+    /**
+     * @param {Mode} mode - new mode to start
+     */
     function startNewMode(mode) {
       if (mode.className) {
         emitter.openNode(mode.className);
       }
-      top = Object.create(mode, {parent: {value: top}});
+      top = Object.create(mode, { parent: { value: top } });
       return top;
     }
 
+    /**
+     * @param {CompiledMode } mode - the mode to potentially end
+     * @param {RegExpMatchArray} match - the latest match
+     * @param {string} matchPlusRemainder - match plus remainder of content
+     * @returns {CompiledMode | void} - the next mode, or if void continue on in current mode
+     */
     function endOfMode(mode, match, matchPlusRemainder) {
       let matched = regex.startsWith(mode.endRe, matchPlusRemainder);
 
       if (matched) {
         if (mode["on:end"]) {
-          let resp = new Response(mode);
+          const resp = new Response(mode);
           mode["on:end"](match, resp);
-          if (resp.ignore)
-            matched = false;
+          if (resp.ignore) matched = false;
         }
 
         if (matched) {
@@ -224,6 +259,11 @@ const HLJS = function(hljs) {
       }
     }
 
+    /**
+     * Handle matching but then ignoring a sequence of text
+     *
+     * @param {string} lexeme - string containing full match text
+     */
     function doIgnore(lexeme) {
       if (top.matcher.regexIndex === 0) {
         // no more regexs to potentially match here, so we move the cursor forward one
@@ -238,15 +278,20 @@ const HLJS = function(hljs) {
       }
     }
 
+    /**
+     * Handle the start of a new potential mode match
+     *
+     * @param {EnhancedMatch} match - the current match
+     * @returns {number} how far to advance the parse cursor
+     */
     function doBeginMatch(match) {
       var lexeme = match[0];
       var new_mode = match.rule;
-      var mode;
 
-      let resp = new Response(new_mode);
+      const resp = new Response(new_mode);
       // first internal before callbacks, then the public ones
-      let beforeCallbacks = [new_mode.__beforeBegin, new_mode["on:begin"]];
-      for (let cb of beforeCallbacks) {
+      const beforeCallbacks = [new_mode.__beforeBegin, new_mode["on:begin"]];
+      for (const cb of beforeCallbacks) {
         if (!cb) continue;
         cb(match, resp);
         if (resp.ignore) return doIgnore(lexeme);
@@ -267,7 +312,7 @@ const HLJS = function(hljs) {
           mode_buffer = lexeme;
         }
       }
-      mode = startNewMode(new_mode);
+      startNewMode(new_mode);
       // if (mode["after:begin"]) {
       //   let resp = new Response(mode);
       //   mode["after:begin"](match, resp);
@@ -275,6 +320,11 @@ const HLJS = function(hljs) {
       return new_mode.returnBegin ? 0 : lexeme.length;
     }
 
+    /**
+     * Handle the potential end of mode
+     *
+     * @param {RegExpMatchArray} match - the current match
+     */
     function doEndMatch(match) {
       var lexeme = match[0];
       var matchPlusRemainder = codeToHighlight.substr(match.index);
@@ -322,7 +372,15 @@ const HLJS = function(hljs) {
       list.forEach(item => emitter.openNode(item));
     }
 
+    /** @type {{type?: MatchType, index?: number, rule?: Mode}}} */
     var lastMatch = {};
+
+    /**
+     *  Process an individual match
+     *
+     * @param {string} textBeforeMatch - text preceeding the match (since the last match)
+     * @param {EnhancedMatch} [match] - the match itself
+     */
     function processLexeme(textBeforeMatch, match) {
       var lexeme = match && match[0];
 
@@ -342,6 +400,7 @@ const HLJS = function(hljs) {
         // spit the "skipped" character that our regex choked on back into the output sequence
         mode_buffer += codeToHighlight.slice(match.index, match.index + 1);
         if (!SAFE_MODE) {
+          /** @type {AnnotatedError} */
           const err = new Error('0 width match regex');
           err.languageName = languageName;
           err.badRule = lastMatch.rule;
@@ -355,6 +414,7 @@ const HLJS = function(hljs) {
         return doBeginMatch(match);
       } else if (match.type === "illegal" && !ignoreIllegals) {
         // illegal match, we do not continue processing
+        /** @type {AnnotatedError} */
         const err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
         err.mode = top;
         throw err;
@@ -404,9 +464,11 @@ const HLJS = function(hljs) {
       throw new Error('Unknown language: "' + languageName + '"');
     }
 
-    compileLanguage(language);
+    var md = compileLanguage(language);
     var result = '';
-    var top = continuation || language;
+    /** @type {CompiledMode} */
+    var top = continuation || md;
+    /** @type Record<string,Mode> */
     var continuations = {}; // keep continuations for sub-languages
     var emitter = new options.__emitter(options);
     processContinuations();
@@ -422,9 +484,9 @@ const HLJS = function(hljs) {
       for (;;) {
         iterations++;
         if (continueScanAtSamePosition) {
-          continueScanAtSamePosition = false;
           // only regexes not matched previously will now be
           // considered for a potential match
+          continueScanAtSamePosition = false;
         } else {
           top.matcher.lastIndex = index;
           top.matcher.considerAll();
@@ -466,6 +528,7 @@ const HLJS = function(hljs) {
         };
       } else if (SAFE_MODE) {
         return {
+          illegal: false,
           relevance: 0,
           value: escape(codeToHighlight),
           emitter: emitter,
@@ -479,10 +542,13 @@ const HLJS = function(hljs) {
     }
   }
 
-  // returns a valid highlight result, without actually
-  // doing any actual work, auto highlight starts with
-  // this and it's possible for small snippets that
-  // auto-detection may not find a better match
+  /**
+   * returns a valid highlight result, without actually doing any actual work,
+   * auto highlight starts with this and it's possible for small snippets that
+   * auto-detection may not find a better match
+   * @param {string} code
+   * @returns {HighlightResult}
+   */
   function justTextHighlightResult(code) {
     const result = {
       relevance: 0,
@@ -491,11 +557,11 @@ const HLJS = function(hljs) {
       illegal: false,
       top: PLAINTEXT_LANGUAGE
     };
-    result.emitter.addText(code)
+    result.emitter.addText(code);
     return result;
   }
 
-  /*
+  /**
   Highlighting with language detection. Accepts a string with the code to
   highlight. Returns an object with the following properties:
 
@@ -505,10 +571,13 @@ const HLJS = function(hljs) {
   - second_best (object with the same structure for second-best heuristically
     detected language, may be absent)
 
+    @param {string} code
+    @param {Array<string>} [languageSubset]
+    @returns {AutoHighlightResult}
   */
   function highlightAuto(code, languageSubset) {
     languageSubset = languageSubset || options.languages || Object.keys(languages);
-    var result = justTextHighlightResult(code)
+    var result = justTextHighlightResult(code);
     var secondBest = result;
     languageSubset.filter(getLanguage).filter(autoDetection).forEach(function(name) {
       var current = _highlight(name, code, false);
@@ -528,19 +597,21 @@ const HLJS = function(hljs) {
     return result;
   }
 
-  /*
+  /**
   Post-processing of the highlighted markup:
 
   - replace TABs with something more useful
   - replace real line-breaks with '<br>' for non-pre containers
 
+    @param {string} html
+    @returns {string}
   */
-  function fixMarkup(value) {
+  function fixMarkup(html) {
     if (!(options.tabReplace || options.useBR)) {
-      return value;
+      return html;
     }
 
-    return value.replace(fixMarkupRe, match => {
+    return html.replace(fixMarkupRe, match => {
       if (match === '\n') {
         return options.useBR ? '<br>' : match;
       } else if (options.tabReplace) {
@@ -550,6 +621,13 @@ const HLJS = function(hljs) {
     });
   }
 
+  /**
+   * Builds new class name for block given the language name
+   *
+   * @param {string} prevClassName
+   * @param {string} [currentLang]
+   * @param {string} [resultLang]
+   */
   function buildClassName(prevClassName, currentLang, resultLang) {
     var language = currentLang ? aliases[currentLang] : resultLang;
     var result = [prevClassName.trim()];
@@ -565,24 +643,27 @@ const HLJS = function(hljs) {
     return result.join(' ').trim();
   }
 
-  /*
-  Applies highlighting to a DOM node containing code. Accepts a DOM node and
-  two optional parameters for fixMarkup.
+  /**
+   * Applies highlighting to a DOM node containing code. Accepts a DOM node and
+   * two optional parameters for fixMarkup.
+   *
+   * @param {HighlightedHTMLElement} element - the HTML element to highlight
   */
-  function highlightBlock(block) {
+  function highlightBlock(element) {
+    /** @type HTMLElement */
     let node = null;
-    const language = blockLanguage(block);
+    const language = blockLanguage(element);
 
     if (shouldNotHighlight(language)) return;
 
     fire("before:highlightBlock",
-      { block: block, language: language });
+      { block: element, language: language });
 
     if (options.useBR) {
       node = document.createElement('div');
-      node.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ /]*>/g, '\n');
+      node.innerHTML = element.innerHTML.replace(/\n/g, '').replace(/<br[ /]*>/g, '\n');
     } else {
-      node = block;
+      node = element;
     }
     const text = node.textContent;
     const result = language ? highlight(language, text, true) : highlightAuto(text);
@@ -595,55 +676,62 @@ const HLJS = function(hljs) {
     }
     result.value = fixMarkup(result.value);
 
-    fire("after:highlightBlock", { block: block, result: result });
+    fire("after:highlightBlock", { block: element, result: result });
 
-    block.innerHTML = result.value;
-    block.className = buildClassName(block.className, language, result.language);
-    block.result = {
+    element.innerHTML = result.value;
+    element.className = buildClassName(element.className, language, result.language);
+    element.result = {
       language: result.language,
       re: result.relevance
     };
     if (result.second_best) {
-      block.second_best = {
+      element.second_best = {
         language: result.second_best.language,
         re: result.second_best.relevance
       };
     }
   }
 
-  /*
-  Updates highlight.js global options with values passed in the form of an object.
-  */
+  /**
+   * Updates highlight.js global options with the passed options
+   *
+   * @param {{}} userOptions
+   */
   function configure(userOptions) {
     options = inherit(options, userOptions);
   }
 
-  /*
-  Applies highlighting to all <pre><code>..</code></pre> blocks on a page.
-  */
-  function initHighlighting() {
+  /**
+   * Highlights to all <pre><code> blocks on a page
+   *
+   * @type {Function & {called?: boolean}}
+   */
+  const initHighlighting = () => {
     if (initHighlighting.called) return;
     initHighlighting.called = true;
 
     var blocks = document.querySelectorAll('pre code');
     ArrayProto.forEach.call(blocks, highlightBlock);
-  }
+  };
 
-  /*
-  Attaches highlighting to the page load event.
-  */
+  // Higlights all when DOMContentLoaded fires
   function initHighlightingOnLoad() {
+    // @ts-ignore
     window.addEventListener('DOMContentLoaded', initHighlighting, false);
   }
 
-  const PLAINTEXT_LANGUAGE = { disableAutodetect: true, name: 'Plain text' };
-
-  function registerLanguage(name, language) {
+  /**
+   * Register a language grammar module
+   *
+   * @param {string} languageName
+   * @param {LanguageFn} languageDefinition
+   */
+  function registerLanguage(languageName, languageDefinition) {
     var lang = null;
     try {
-      lang = language(hljs);
+      lang = languageDefinition(hljs);
     } catch (error) {
-      console.error("Language definition for '{}' could not be registered.".replace("{}", name));
+      console.error("Language definition for '{}' could not be registered.".replace("{}", languageName));
       // hard or soft error
       if (!SAFE_MODE) { throw error; } else { console.error(error); }
       // languages that have serious errors are replaced with essentially a
@@ -653,24 +741,30 @@ const HLJS = function(hljs) {
       lang = PLAINTEXT_LANGUAGE;
     }
     // give it a temporary name if it doesn't have one in the meta-data
-    if (!lang.name) lang.name = name;
-    languages[name] = lang;
-    lang.rawDefinition = language.bind(null, hljs);
+    if (!lang.name) lang.name = languageName;
+    languages[languageName] = lang;
+    lang.rawDefinition = languageDefinition.bind(null, hljs);
 
     if (lang.aliases) {
-      registerAliases(lang.aliases, { languageName: name });
+      registerAliases(lang.aliases, { languageName });
     }
   }
 
+  /**
+   * @returns {string[]} List of language internal names
+   */
   function listLanguages() {
     return Object.keys(languages);
   }
 
-  /*
+  /**
     intended usage: When one language truly requires another
 
     Unlike `getLanguage`, this will throw when the requested language
     is not available.
+
+    @param {string} name - name of the language to fetch/require
+    @returns {Language | never}
   */
   function requireLanguage(name) {
     var lang = getLanguage(name);
@@ -680,27 +774,48 @@ const HLJS = function(hljs) {
     throw err;
   }
 
+  /**
+   * @param {string} name - name of the language to retrieve
+   * @returns {Language | undefined}
+   */
   function getLanguage(name) {
     name = (name || '').toLowerCase();
     return languages[name] || languages[aliases[name]];
   }
 
-  function registerAliases(aliasList, {languageName}) {
+  /**
+   *
+   * @param {string|string[]} aliasList - single alias or list of aliases
+   * @param {{languageName: string}} opts
+   */
+  function registerAliases(aliasList, { languageName }) {
     if (typeof aliasList === 'string') {
-      aliasList = [aliasList]
+      aliasList = [aliasList];
     }
-    aliasList.forEach(alias => aliases[alias] = languageName);
+    aliasList.forEach(alias => { aliases[alias] = languageName; });
   }
 
+  /**
+   * Determines if a given language has auto-detection enabled
+   * @param {string} name - name of the language
+   */
   function autoDetection(name) {
     var lang = getLanguage(name);
     return lang && !lang.disableAutodetect;
   }
 
+  /**
+   * @param {HLJSPlugin} plugin
+   */
   function addPlugin(plugin) {
     plugins.push(plugin);
   }
 
+  /**
+   *
+   * @param {PluginEvent} event
+   * @param {any} args
+   */
   function fire(event, args) {
     var cb = event;
     plugins.forEach(function(plugin) {
@@ -735,7 +850,9 @@ const HLJS = function(hljs) {
   hljs.versionString = packageJSON.version;
 
   for (const key in MODES) {
+    // @ts-ignore
     if (typeof MODES[key] === "object") {
+      // @ts-ignore
       deepFreeze(MODES[key]);
     }
   }

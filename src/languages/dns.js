@@ -5,6 +5,7 @@ Category: config
 Website: https://en.wikipedia.org/wiki/Zone_file
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'DNS Zone',

@@ -5,6 +5,7 @@ Category: functional
 Website: http://clean.cs.ru.nl
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'Clean',

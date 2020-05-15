@@ -6,6 +6,7 @@ Website: https://capnproto.org/capnp-tool.html
 Category: protocols
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'Cap’n Proto',

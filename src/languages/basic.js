@@ -5,6 +5,7 @@ Description: Based on the BASIC reference from the Tandy 1000 guide
 Website: https://en.wikipedia.org/wiki/Tandy_1000
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'BASIC',

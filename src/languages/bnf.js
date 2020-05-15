@@ -4,6 +4,7 @@ Website: https://en.wikipedia.org/wiki/Backus–Naur_form
 Author: Oleg Efimov <efimovov@gmail.com>
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'Backus–Naur Form',
