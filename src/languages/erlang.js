@@ -20,7 +20,7 @@ export default function(hljs) {
   var COMMENT = hljs.COMMENT('%', '$');
   var NUMBER = {
     className: 'number',
-    begin: '\\b(\\d+#[a-fA-F0-9]+|\\d+(\\.\\d+)?([eE][-+]?\\d+)?)',
+    begin: '\\b(\\d+(_\\d+)*#[a-fA-F0-9]+(_[a-fA-F0-9]+)*|\\d+(_\\d+)*(\\.\\d+(_\\d+)*)?([eE][-+]?\\d+)?)',
     relevance: 0
   };
   var NAMED_FUN = {
