@@ -124,8 +124,7 @@ export default function(hljs) {
     contains: [
       {
         // define sub-mode in order to prevent highlighting of block-parameter named "as"
-        begin: /\w+/,
-        keywords: ''
+        begin: /\w+/
       }
     ]
   };
