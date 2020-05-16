@@ -69,7 +69,6 @@ export default function(hljs) {
   });
 
   const SUB_EXPRESSION = {
-    illegal: /\}\}/,
     begin: /\(/,
     end: /\)/
     // the "contains" is added below when all necessary sub-modes are defined
@@ -78,7 +77,6 @@ export default function(hljs) {
   const HASH = {
     // fka "attribute-assignment", parameters of the form 'key=value'
     className: 'attr',
-    illegal: /\}\}/,
     begin: HASH_PARAM_REGEX,
     relevance: 0,
     starts: {
