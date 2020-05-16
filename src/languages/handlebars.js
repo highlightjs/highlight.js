@@ -57,7 +57,7 @@ export default function(hljs) {
   const IDENTIFIER_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+|\.|\/)+/;
 
   // identifier followed by a equal-sign (without the equal sign)
-  const HASH_PARAM_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+)(?==)/;
+  const HASH_PARAM_REGEX = /(\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+)(?==)/;
 
   const HELPER_NAME_OR_PATH_EXPRESSION = {
     begin: IDENTIFIER_REGEX,
