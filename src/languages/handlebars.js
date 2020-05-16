@@ -7,6 +7,8 @@ Website: https://handlebarsjs.com
 Category: template
 */
 
+import * as regex from '../lib/regex'
+
 export default function(hljs) {
   const BUILT_INS = {
     'builtin-name': [
@@ -54,10 +56,30 @@ export default function(hljs) {
   // as defined in https://handlebarsjs.com/guide/expressions.html#literal-segments
   // this regex matches literal segments like ' abc ' or [ abc ] as well as helpers and paths
   // like a/b, ./abc/cde, and abc.bcd
-  const IDENTIFIER_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+|\.|\/)+/;
+
+  const DOUBLE_QUOTED_ID_REGEX=/".*?"/;
+  const SINGLE_QUOTED_ID_REGEX=/'.*?'/;
+  const BRACKET_QUOTED_ID_REGEX=/\[.*?\]/;
+  const PLAIN_ID_REGEX=/[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+/;
+  const PATH_DELIMITER_REGEX=/\.|\//;
+
+  const IDENTIFIER_REGEX = regex.concat(
+    '(',
+    SINGLE_QUOTED_ID_REGEX, '|',
+    DOUBLE_QUOTED_ID_REGEX, '|',
+    BRACKET_QUOTED_ID_REGEX, '|',
+    PLAIN_ID_REGEX, '|',
+    PATH_DELIMITER_REGEX,
+    ')+'
+  );
 
   // identifier followed by a equal-sign (without the equal sign)
-  const HASH_PARAM_REGEX = /(\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+)(?==)/;
+  const HASH_PARAM_REGEX = regex.concat(
+    '(',
+    BRACKET_QUOTED_ID_REGEX, '|',
+    PLAIN_ID_REGEX,
+    ')(?==)'
+  );
 
   const HELPER_NAME_OR_PATH_EXPRESSION = {
     begin: IDENTIFIER_REGEX,
