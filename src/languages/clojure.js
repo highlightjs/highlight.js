@@ -6,6 +6,7 @@ Website: https://clojure.org
 Category: lisp
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   var SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&#\'';
   var SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';

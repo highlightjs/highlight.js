@@ -6,6 +6,8 @@ const hljs     = require('../../build');
 const path     = require('path');
 const utility  = require('../utility');
 
+hljs.debugMode();
+
 const { getThirdPartyPackages } = require("../../tools/lib/external_language")
 
 function testLanguage(language, {testDir}) {

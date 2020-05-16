@@ -1,3 +1,7 @@
+/**
+ * @param {string} value
+ * @returns {string}
+ */
 export function escapeHTML(value) {
   return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
@@ -5,31 +9,47 @@ export function escapeHTML(value) {
 /**
  * performs a shallow merge of multiple objects into one
  *
- * @arguments list of objects with properties to merge
- * @returns a single new object
+ * @template T
+ * @param {T} original
+ * @param {Record<string,any>[]} objects
+ * @returns {T} a single new object
  */
-export function inherit(parent) { // inherit(parent, override_obj, override_obj, ...)
+export function inherit(original, ...objects) {
+  /** @type Record<string,any> */
   var result = {};
-  var objects = Array.prototype.slice.call(arguments, 1);
 
-  for (const key in parent) {
-    result[key] = parent[key];
+  for (const key in original) {
+    result[key] = original[key];
   }
   objects.forEach(function(obj) {
     for (const key in obj) {
       result[key] = obj[key];
     }
   });
-  return result;
+  return /** @type {T} */ (result);
 }
 
 /* Stream merging */
 
+/**
+ * @typedef Event
+ * @property {'start'|'stop'} event
+ * @property {number} offset
+ * @property {Node} node
+ */
+
+/**
+ * @param {Node} node
+ */
 function tag(node) {
   return node.nodeName.toLowerCase();
 }
 
+/**
+ * @param {Node} node
+ */
 export function nodeStream(node) {
+  /** @type Event[] */
   var result = [];
   (function _nodeStream(node, offset) {
     for (var child = node.firstChild; child; child = child.nextSibling) {
@@ -59,6 +79,11 @@ export function nodeStream(node) {
   return result;
 }
 
+/**
+ * @param {any} original - the original stream
+ * @param {any} highlighted - stream of the highlighted source
+ * @param {string} value - the original source itself
+ */
 export function mergeStreams(original, highlighted, value) {
   var processed = 0;
   var result = '';
@@ -90,17 +115,28 @@ export function mergeStreams(original, highlighted, value) {
     return highlighted[0].event === 'start' ? original : highlighted;
   }
 
+  /**
+   * @param {Node} node
+   */
   function open(node) {
-    function attr_str(a) {
-      return ' ' + a.nodeName + '="' + escapeHTML(a.value).replace(/"/g, '&quot;') + '"';
+    /** @param {Attr} attr */
+    function attr_str(attr) {
+      return ' ' + attr.nodeName + '="' + escapeHTML(attr.value).replace(/"/g, '&quot;') + '"';
     }
+    // @ts-ignore
     result += '<' + tag(node) + [].map.call(node.attributes, attr_str).join('') + '>';
   }
 
+  /**
+   * @param {Node} node
+   */
   function close(node) {
     result += '</' + tag(node) + '>';
   }
 
+  /**
+   * @param {Event} event
+   */
   function render(event) {
     (event.event === 'start' ? open : close)(event.node);
   }

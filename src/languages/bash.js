@@ -6,6 +6,7 @@ Website: https://www.gnu.org/software/bash/
 Category: common
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   const VAR = {};
   const BRACED_VAR = {

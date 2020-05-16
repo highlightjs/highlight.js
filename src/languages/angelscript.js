@@ -5,6 +5,7 @@ Category: scripting
 Website: https://www.angelcode.com/angelscript/
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   var builtInTypeMode = {
     className: 'built_in',

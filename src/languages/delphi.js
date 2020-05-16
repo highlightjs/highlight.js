@@ -3,6 +3,7 @@ Language: Delphi
 Website: https://www.embarcadero.com/products/delphi
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   var KEYWORDS =
     'exports register file shl array record property for mod while set ally label uses raise not ' +

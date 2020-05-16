@@ -13,6 +13,8 @@ Parser Engine:
 
 Deprecations:
 
+- when using `highlightBlock` `result.re` deprecated. Use `result.relevance` instead. (#2552) [Josh Goebel][]
+- ditto for `result.second_best.re` => `result.second_best.relevance` (#2552)
 - `lexemes` is now deprecated in favor of `keywords.$pattern` key (#2519) [Josh Goebel][]
 - `endSameAsBegin` is now deprecated. (#2261) [Josh Goebel][]
 
@@ -34,6 +36,7 @@ Language Improvements:
 - fix(yaml) Fix tags to include non-word characters (#2486) [Peter Plantinga][]
 - fix(swift) `@objcMembers` was being partially highlighted (#2543) [Nick Randall][]
 - enh(dart) Add `late` and `required` keywords, and `Never` built-in type (#2550) [Sam Rawlins][]
+- enh(erlang) Add underscore separators to numeric literals (#2554) [Sergey Prokhorov][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Peter Plantinga]: https://github.com/pplantinga
@@ -42,6 +45,7 @@ Language Improvements:
 [Hankun Lin]: https://github.com/Linhk1606
 [Nick Randall]: https://github.com/nicked
 [Sam Rawlins]: https://github.com/srawlins
+[Sergey Prokhorov]: https://github.com/seriyps
 
 
 ## Version 10.0.2

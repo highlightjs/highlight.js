@@ -5,6 +5,7 @@ Author: Igor Kalnitsky <igor@kalnitsky.org>
 Website: https://cmake.org
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'CMake',

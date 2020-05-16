@@ -21,14 +21,13 @@
     "url": "git://github.com/highlightjs/highlight.js.git"
   },
   "main": "./lib/index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "mocha": "mocha",
-
     "build_and_test": "npm run build && npm run test",
     "build": "node ./tools/build.js -t node",
     "build-cdn": "node ./tools/build.js -t cdn",
     "build-browser": "node ./tools/build.js -t browser :common",
-
     "test": "mocha --globals document test",
     "test-markup": "mocha --globals document test/markup",
     "test-detect": "mocha --globals document test/detect",
@@ -38,6 +37,8 @@
     "node": "*"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.32.0",
+    "@typescript-eslint/parser": "^2.32.0",
     "clean-css": "^4.2.1",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
@@ -62,7 +63,8 @@
     "rollup-plugin-json": "^4.0.0",
     "should": "^13.2.3",
     "terser": "^4.3.9",
-    "tiny-worker": "^2.3.0"
+    "tiny-worker": "^2.3.0",
+    "typescript": "^4.0.0-dev.20200512"
   },
   "dependencies": {}
 }
