@@ -14,15 +14,15 @@
     <span class="hljs-keyword">def</span> otherNumber = <span class="hljs-number">3</span> / <span class="hljs-number">4</span>
     <span class="hljs-keyword">boolean</span> archivable = condition ?: <span class="hljs-literal">true</span>
     <span class="hljs-keyword">def</span> ternary = a ? b : c
-    String name = <span class="hljs-string">"Guillaume"</span>
+    String name = <span class="hljs-string">&quot;Guillaume&quot;</span>
     Closure description = <span class="hljs-literal">null</span>
     List&lt;DownloadPackage&gt; packages = []
     String regex = <span class="hljs-regexp">~/.*foo.*/</span>
-    String multi = <span class="hljs-string">'''
+    String multi = <span class="hljs-string">&#x27;&#x27;&#x27;
         multi line string
-    '''</span> + <span class="hljs-string">"""
+    &#x27;&#x27;&#x27;</span> + <span class="hljs-string">&quot;&quot;&quot;
         now with double quotes and ${gstring}
-    """</span> + <span class="hljs-string">$/
+    &quot;&quot;&quot;</span> + <span class="hljs-string">$/
         even with dollar slashy strings
     /$</span>
 
@@ -33,10 +33,10 @@
     <span class="hljs-keyword">void</span> description(Closure cl) { <span class="hljs-built_in">this</span>.description = cl }
 
     <span class="hljs-keyword">void</span> version(String name, Closure versionSpec) {
-        <span class="hljs-keyword">def</span> closure = { println <span class="hljs-string">"hi"</span> } <span class="hljs-keyword">as</span> Runnable
+        <span class="hljs-keyword">def</span> closure = { println <span class="hljs-string">&quot;hi&quot;</span> } <span class="hljs-keyword">as</span> Runnable
 
         MyList ml = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, [<span class="hljs-attr">a:</span> <span class="hljs-number">1</span>, <span class="hljs-attr">b:</span><span class="hljs-number">2</span>,<span class="hljs-attr">c :</span><span class="hljs-number">3</span>]]
-        <span class="hljs-keyword">for</span> (ch <span class="hljs-keyword">in</span> <span class="hljs-string">"name"</span>) {}
+        <span class="hljs-keyword">for</span> (ch <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;name&quot;</span>) {}
 
         <span class="hljs-comment">// single line comment</span>
         DownloadPackage pkg = <span class="hljs-keyword">new</span> DownloadPackage(<span class="hljs-attr">version:</span> name)

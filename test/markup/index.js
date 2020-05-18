@@ -29,6 +29,10 @@ function testLanguage(language, {testDir}) {
         Promise.all([sourceFile, expectedFile]).then(function([source, expected]) {
           const actual = hljs.highlight(language, source).value;
 
+          // Uncomment this for major changes that rewrite the test expectations
+          // which will then need to be manually compared by hand of course
+          // require('fs').writeFileSync(filename, actual);
+
           actual.trim().should.equal(expected.trim());
           done();
         }).catch(function(err) { return done(err) });

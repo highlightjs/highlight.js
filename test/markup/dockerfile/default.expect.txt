@@ -16,8 +16,8 @@
 
 <span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
 
-<span class="hljs-keyword">VOLUME</span><span class="bash"> [<span class="hljs-string">"/var/www/html"</span>]</span>
+<span class="hljs-keyword">VOLUME</span><span class="bash"> [<span class="hljs-string">&quot;/var/www/html&quot;</span>]</span>
 
-<span class="hljs-keyword">WORKDIR</span><span class="bash"> <span class="hljs-string">"/var/www/html"</span></span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> <span class="hljs-string">&quot;/var/www/html&quot;</span></span>
 
-<span class="hljs-keyword">CMD</span><span class="bash"> [ <span class="hljs-string">"/usr/sbin/php5-fpm"</span>, <span class="hljs-string">"-F"</span> ]</span>
+<span class="hljs-keyword">CMD</span><span class="bash"> [ <span class="hljs-string">&quot;/usr/sbin/php5-fpm&quot;</span>, <span class="hljs-string">&quot;-F&quot;</span> ]</span>
