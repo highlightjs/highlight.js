@@ -150,6 +150,7 @@ export default function(hljs) {
       contains: ["self"].concat(SUBST_AND_COMMENTS)
     },
   ]);
+  // TODO: remove, this is older
   var ARGUMENTS =
   {
     begin: '\\(',
