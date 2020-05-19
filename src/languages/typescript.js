@@ -313,11 +313,6 @@ export default function(hljs) {
         ]
 
       },
-      { // prevent references like module.id from being higlighted as module definitions
-        begin: /module\./,
-        keywords: { built_in: 'module' },
-        relevance: 0
-      },
       {
         beginKeywords: 'namespace', end: /\{/, excludeEnd: true
       },
