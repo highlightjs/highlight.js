@@ -31,7 +31,8 @@ export default function(hljs) {
     "protected",
     "implements",
     "declare",
-    "abstract"
+    "abstract",
+    "readonly"
   ];
   var KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
