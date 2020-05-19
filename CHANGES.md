@@ -1,5 +1,9 @@
 ## Version 10.1.0 (in progress)
 
+New themes:
+
+- *NNFX* by [Jim Mason][]
+
 Parser Engine:
 
 - (parser) Adds `keywords.$pattern` key to grammar definitions (#2519) [Josh Goebel][]
@@ -51,6 +55,7 @@ Language Improvements:
 [Sergey Prokhorov]: https://github.com/seriyps
 [Nils Knappmeier]: https://github.com/nknapp
 [Martin (Lhoerion)]: https://github.com/Lhoerion
+[Jim Mason]: https://github.com/RocketMan
 
 
 ## Version 10.0.2
