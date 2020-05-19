@@ -1,0 +1,10 @@
+<span class="hljs-template-variable">{{<span class="hljs-name">path.expression</span>}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{{<span class="hljs-name">path.expression</span>}}}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{{#<span class="hljs-name">path.expression</span>}}</span><span class="xml"> </span><span class="hljs-template-tag">{{/<span class="hljs-name">path.expression</span>}}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{{{{#<span class="hljs-name">path.expression</span>}}}}</span><span class="xml"> </span><span class="hljs-template-tag">{{{{/<span class="hljs-name">path.expression</span>}}}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{<span class="hljs-name">with.in.a.path.expression</span>}}</span><span class="xml"> is not a built-in
+</span>

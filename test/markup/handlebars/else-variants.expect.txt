@@ -1,0 +1,11 @@
+<span class="hljs-template-tag">{{#<span class="hljs-name">helper</span>}}</span><span class="hljs-template-tag">{{<span class="hljs-keyword">else</span>}}</span><span class="xml">else-block</span><span class="hljs-template-tag">{{/<span class="hljs-name">helper</span>}}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{{#<span class="hljs-name">helper</span>}}</span><span class="xml">block</span><span class="hljs-template-tag">{{<span class="hljs-keyword">else</span>}}</span><span class="xml">else-block</span><span class="hljs-template-tag">{{/<span class="hljs-name">helper</span>}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{<span class="hljs-name">[else]</span>}}</span><span class="xml"> in brackets is a helper, not a keyword
+
+</span><span class="hljs-template-tag">{{#<span class="hljs-name">else</span>}}</span><span class="xml"> as block helper name is not a keyword </span><span class="hljs-template-tag">{{/<span class="hljs-name">else</span>}}</span><span class="xml">
+
+\{{else}} is not a keyword if escaped
+
+</span>

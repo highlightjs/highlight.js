@@ -1,0 +1,10 @@
+{{#helper}}{{else}}else-block{{/helper}}
+
+{{#helper}}block{{else}}else-block{{/helper}}
+
+{{[else]}} in brackets is a helper, not a keyword
+
+{{#else}} as block helper name is not a keyword {{/else}}
+
+\{{else}} is not a keyword if escaped
+
