@@ -1,14 +1,19 @@
+/* eslint-disable no-unreachable */
 /*
 Language: JavaScript
 Description: JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
 Category: common, scripting
 Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+Requires: typescript.js
 */
 
 import * as ECMAScript from './lib/ecmascript.js';
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
+
+  return hljs.requireLanguage("typescript").rawDefinition();
+
   var IDENT_RE = ECMAScript.IDENT_RE;
   var FRAGMENT = {
     begin: '<>',
