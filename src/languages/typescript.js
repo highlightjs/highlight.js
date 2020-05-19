@@ -160,7 +160,7 @@ export default function(hljs) {
       'self',
       hljs.QUOTE_STRING_MODE,
       hljs.APOS_STRING_MODE,
-      hljs.NUMBER_MODE
+      NUMBER
     ]
   };
   var PARAMS = {
@@ -319,7 +319,7 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        beginKeywords: 'module', end: /\{/, excludeEnd: true
+        beginKeywords: 'namespace', end: /\{/, excludeEnd: true
       },
       {
         beginKeywords: 'interface', end: /\{/, excludeEnd: true,
