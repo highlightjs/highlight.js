@@ -37,6 +37,7 @@ Language Improvements:
 - fix(swift) `@objcMembers` was being partially highlighted (#2543) [Nick Randall][]
 - enh(dart) Add `late` and `required` keywords, and `Never` built-in type (#2550) [Sam Rawlins][]
 - enh(erlang) Add underscore separators to numeric literals (#2554) [Sergey Prokhorov][]
+- enh(handlebars) Support for sub-expressions, path-expressions, hashes, block-parameters and literals (#2344) [Nils Knappmeier][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Peter Plantinga]: https://github.com/pplantinga
@@ -46,6 +47,7 @@ Language Improvements:
 [Nick Randall]: https://github.com/nicked
 [Sam Rawlins]: https://github.com/srawlins
 [Sergey Prokhorov]: https://github.com/seriyps
+[Nils Knappmeier]: https://github.com/nknapp
 
 
 ## Version 10.0.2
