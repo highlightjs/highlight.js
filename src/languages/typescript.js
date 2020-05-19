@@ -275,6 +275,16 @@ export default function(hljs) {
         illegal: /%/,
         relevance: 0 // () => {} is more typical in TypeScript
       },
+      // hack: prevents detection of keywords in some circumstances
+      // .keyword()
+      // $keyword = x
+      {
+        variants: [
+          { begin: '\\.' + IDENT_RE },
+          { begin: '\\$' + IDENT_RE }
+        ],
+        relevance: 0
+      },
       { // ES6 class
         className: 'class',
         beginKeywords: 'class', end: /[{;=]/, excludeEnd: true,
@@ -316,9 +326,6 @@ export default function(hljs) {
       },
       {
         begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
-      },
-      {
-        begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
       },
       DECORATOR,
       ARGUMENTS
