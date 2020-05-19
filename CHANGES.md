@@ -50,7 +50,7 @@ Language Improvements:
 [Sam Rawlins]: https://github.com/srawlins
 [Sergey Prokhorov]: https://github.com/seriyps
 [Nils Knappmeier]: https://github.com/nknapp
-[Martin]: https://github.com/Lhoerion
+[Martin (Lhoerion)]: https://github.com/Lhoerion
 
 
 ## Version 10.0.2
