@@ -29,4 +29,7 @@ i = <span class="hljs-number">0x1.p2</span>;
 <span class="hljs-keyword">float</span> f = <span class="hljs-number">2e3</span>;
 <span class="hljs-keyword">int</span> n = <span class="hljs-number">0b1</span>;
 <span class="hljs-keyword">float</span> f = <span class="hljs-number">3.</span>;
-<span class="hljs-keyword">float</span> f = <span class="hljs-number">.2</span>;
+f = <span class="hljs-number">3_3.</span>;
+<span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> in the future</span>
+<span class="hljs-comment">// float f = .2;</span>
+<span class="hljs-comment">// f = .2_022;</span>

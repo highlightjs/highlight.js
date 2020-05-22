@@ -5,6 +5,8 @@ Category: common, enterprise
 Website: https://www.java.com/
 */
 
+import * as regex from "../lib/regex";
+
 export default function (hljs) {
   var JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
   var GENERIC_IDENT_RE = JAVA_IDENT_RE + '(<' + JAVA_IDENT_RE + '(\\s*,\\s*' + JAVA_IDENT_RE + ')*>)?';
@@ -25,17 +27,45 @@ export default function (hljs) {
         contains: ["self"] // allow nested () inside our annotation
       },
     ]
-  }
+  };
+  /**
+   * A given sequence, possibly with underscores
+   * @type {(s: string | RegExp) => string}  */
+  var SEQUENCE_OF = (seq) => regex.concat('[', seq, ']+([', seq, '_]*[', seq, ']+)?');
   var JAVA_NUMBER_MODE = {
     className: 'number',
     variants: [
-      { begin: '\\b(0[bB][01]+([01_]*[01]+)?)[lL]?' }, // binary
-      { begin: '\\b(0[0-7]+([0-7_]*[0-7]+)?)[dDfFlL]?' }, // octal
-      { begin: '\\b[\\d]+([\\d_]*[\\d]+)?[lL]?' }, // decimal
-      { begin: '\\b([\\d]*[\\.][\\d_]*[\\d]+|[\\d]+[\\d_]*)[eE][+-]?[\\d]+[dDfF]?' }, // scientific notation
-      { begin: '\\b[\\d]+[\\.][\\d_]*[\\d]+[dDfF]?' }, // floating point
-      { begin: '\\b0[xX]([a-fA-F0-9]+[a-fA-F0-9_]*[a-fA-F0-9]+)[pP]?[\\d]*[lL]?' }, // hexadecimal
-      { begin: '\\b0[xX]((([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)?[\\.]?)?([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)?[pP][+-]?([\\d]+)[dDfF]?|([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+))[fFdD]?' }, // hexadecimal floating point
+      { begin: `\\b(0[bB]${SEQUENCE_OF('01')})[lL]?` }, // binary
+      { begin: `\\b(0${SEQUENCE_OF('0-7')})[dDfFlL]?` }, // octal
+      {
+        begin: regex.concat(
+          /\b0[xX]/,
+          regex.either(
+            regex.concat(SEQUENCE_OF('a-fA-F0-9'), /\./, SEQUENCE_OF('a-fA-F0-9')),
+            regex.concat(SEQUENCE_OF('a-fA-F0-9'), /\.?/),
+            regex.concat(/\./, SEQUENCE_OF('a-fA-F0-9')),
+          ),
+          /([pP][+-]?(\d+))?/,
+          /[fFdDlL]?/ // decimal & fp mixed for simplicity
+        )
+      },
+      // scientific notation
+      { begin: regex.concat(
+        /\b/,
+        regex.either(
+          /\d*\.[\d_]*\d+/, // 3.3e2
+          /\d+[\d_]*/ // 3e2
+        ),
+        /[eE][+-]?[\d]+[dDfF]?/)
+      },
+      // decimal & fp mixed for simplicity
+      { begin: regex.concat(
+        /\b/,
+        SEQUENCE_OF(/\d/),
+        regex.optional(/\.?/),
+        regex.optional(SEQUENCE_OF(/\d/)),
+        /[dDfFlL]?/)
+      }
     ],
     relevance: 0
   };

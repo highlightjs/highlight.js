@@ -29,4 +29,7 @@ float f = 5.4;
 float f = 2e3;
 int n = 0b1;
 float f = 3.;
-float f = .2;
+f = 3_3.;
+// TODO: in the future
+// float f = .2;
+// f = .2_022;
