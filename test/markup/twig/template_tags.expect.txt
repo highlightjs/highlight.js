@@ -3,7 +3,7 @@
   <span class="hljs-symbol">&amp;lt;</span>div<span class="hljs-symbol">&amp;gt;</span>
   </span><span class="hljs-template-variable">{{ article.title|<span class="hljs-keyword">upper</span>() }}</span><span class="xml">
 
-  </span><span class="hljs-comment">{# outputs 'WELCOME' #}</span><span class="xml">
+  </span><span class="hljs-comment">{# outputs &#x27;WELCOME&#x27; #}</span><span class="xml">
   <span class="hljs-symbol">&amp;lt;</span>/div<span class="hljs-symbol">&amp;gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">

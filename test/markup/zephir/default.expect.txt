@@ -28,7 +28,7 @@
     <span class="hljs-comment">// See fn is allowed like shortcut</span>
     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">method2</span><span class="hljs-params">()</span> -&gt; &lt;<span class="hljs-title">Test</span>&gt;
     </span>{
-        call_user_func(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">echo</span> <span class="hljs-string">"hello"</span>; });
+        call_user_func(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;hello&quot;</span>; });
 
 
         [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]-&gt;walk(

@@ -1,9 +1,9 @@
 <span class="hljs-keyword">let</span> decode =<span class="hljs-function"> <span class="hljs-params">json</span> =&gt;</span>
   <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Json</span>.</span><span class="hljs-module"><span class="hljs-identifier">Decode</span>.</span>{
-    query: json <span class="hljs-operator">|&gt;</span> field(<span class="hljs-string">"query"</span>, <span class="hljs-built_in">string</span>),
-    cacheKey: json <span class="hljs-operator">|&gt;</span> field(<span class="hljs-string">"cacheKey"</span>, <span class="hljs-built_in">string</span>),
-    desc: json <span class="hljs-operator">|&gt;</span> field(<span class="hljs-string">"desc"</span>, <span class="hljs-built_in">string</span>),
-    lambda: json <span class="hljs-operator">|&gt;</span> field(<span class="hljs-string">"lambda"</span>, <span class="hljs-built_in">string</span>),
+    query: json <span class="hljs-operator">|&gt;</span> field(<span class="hljs-string">&quot;query&quot;</span>, <span class="hljs-built_in">string</span>),
+    cacheKey: json <span class="hljs-operator">|&gt;</span> field(<span class="hljs-string">&quot;cacheKey&quot;</span>, <span class="hljs-built_in">string</span>),
+    desc: json <span class="hljs-operator">|&gt;</span> field(<span class="hljs-string">&quot;desc&quot;</span>, <span class="hljs-built_in">string</span>),
+    lambda: json <span class="hljs-operator">|&gt;</span> field(<span class="hljs-string">&quot;lambda&quot;</span>, <span class="hljs-built_in">string</span>),
   }</span>;
 
 <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Some</span>.</span><span class="hljs-module"><span class="hljs-identifier">Bucket</span>.</span><span class="hljs-module"><span class="hljs-identifier">Of</span>.</span>(
