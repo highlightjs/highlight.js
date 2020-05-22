@@ -31,7 +31,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | BNF                     | bnf                    |         |
 | Brainfuck               | brainfuck, bf          |         |
 | C#                      | csharp, cs             |         |
-| C                       | h                      |         |
+| C                       | c, h                   |         |
 | C++                     | cpp, hpp, cc, hh, c++, h++, cxx, hxx |   |
 | C/AL                    | cal                    |         |
 | Cache Object Script     | cos, cls               |         |
