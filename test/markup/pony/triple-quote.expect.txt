@@ -1,5 +1,5 @@
-<span class="hljs-string">"""
+<span class="hljs-string">&quot;&quot;&quot;
 A triple quoted string
 * Goes several lines
 * Keeps formatting
-"""</span>
+&quot;&quot;&quot;</span>

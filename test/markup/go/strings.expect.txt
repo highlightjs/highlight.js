@@ -1,7 +1,7 @@
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-	str := <span class="hljs-string">"Hello, 世界\nHello \"world\"\nHello 'world'"</span>
-	char := <span class="hljs-string">'a'</span>
-	char2 := <span class="hljs-string">'"'</span>
-	char3 := <span class="hljs-string">'\\'</span>
-	char3 := <span class="hljs-string">'\''</span>
+	str := <span class="hljs-string">&quot;Hello, 世界\nHello \&quot;world\&quot;\nHello &#x27;world&#x27;&quot;</span>
+	char := <span class="hljs-string">&#x27;a&#x27;</span>
+	char2 := <span class="hljs-string">&#x27;&quot;&#x27;</span>
+	char3 := <span class="hljs-string">&#x27;\\&#x27;</span>
+	char3 := <span class="hljs-string">&#x27;\&#x27;&#x27;</span>
 }

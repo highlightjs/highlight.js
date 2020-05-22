@@ -16,7 +16,7 @@
   <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">grayscale</span>(<span class="hljs-number">0.5</span>) <span class="hljs-built_in">blur</span>(<span class="hljs-number">10px</span>);
 }
 
-<span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href*=<span class="hljs-string">"example"</span>]</span>, * <span class="hljs-selector-attr">[lang^=en]</span> {
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href*=<span class="hljs-string">&quot;example&quot;</span>]</span>, * <span class="hljs-selector-attr">[lang^=en]</span> {
   <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2em</span>;
 }
 
@@ -39,7 +39,7 @@
 }
 
 <span class="hljs-keyword">@font-face</span> {
-    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">"Open Sans"</span>;
-    <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"/fonts/OpenSans-Regular-webfont.woff2"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">"woff2"</span>),
-         <span class="hljs-built_in">url</span>(<span class="hljs-string">"/fonts/OpenSans-Regular-webfont.woff"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">"woff"</span>);
+    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Open Sans&quot;</span>;
+    <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;/fonts/OpenSans-Regular-webfont.woff2&quot;</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">&quot;woff2&quot;</span>),
+         <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;/fonts/OpenSans-Regular-webfont.woff&quot;</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">&quot;woff&quot;</span>);
   }

@@ -2,7 +2,7 @@
   <span class="hljs-keyword">try</span> {
     <span class="hljs-keyword">if</span> (cls.search(<span class="hljs-regexp">/\bno\-highlight\b/</span>) != <span class="hljs-number">-1</span>)
       <span class="hljs-keyword">return</span> process(block, <span class="hljs-literal">true</span>, <span class="hljs-number">0x0F</span>) +
-             <span class="hljs-string">' class=""'</span>;
+             <span class="hljs-string">&#x27; class=&quot;&quot;&#x27;</span>;
   } <span class="hljs-keyword">catch</span> (e) {
     <span class="hljs-comment">/* handle exception */</span>
   }

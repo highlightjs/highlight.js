@@ -10,6 +10,6 @@
   <span class="hljs-symbol">:ok</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f!</span></span>, <span class="hljs-symbol">do:</span> IO.puts <span class="hljs-string">"hello world"</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f!</span></span>, <span class="hljs-symbol">do:</span> IO.puts <span class="hljs-string">&quot;hello world&quot;</span>
 
 x = <span class="hljs-number">5</span>

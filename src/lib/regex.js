@@ -34,7 +34,7 @@ export function optional(re) {
 }
 
 /**
- * @param {(RegExp | string)[] } args
+ * @param {...(RegExp | string) } args
  * @returns {string}
  */
 export function concat(...args) {

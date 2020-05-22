@@ -1,2 +1,2 @@
-<span class="hljs-keyword">new</span> create(name': <span class="hljs-type">String</span>) =&gt;
-  name = name' + <span class="hljs-string">'a'</span>
+<span class="hljs-keyword">new</span> create(name&#x27;: <span class="hljs-type">String</span>) =&gt;
+  name = name&#x27; + <span class="hljs-string">&#x27;a&#x27;</span>

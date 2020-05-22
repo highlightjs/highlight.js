@@ -14,16 +14,16 @@
     ogg = <span class="hljs-number">15</span>
 }
 
-<span class="hljs-string">"def"</span> <span class="hljs-operator">-notin</span> <span class="hljs-string">"abc"</span>, <span class="hljs-string">"def"</span>
-<span class="hljs-string">"Sunday"</span> <span class="hljs-operator">-notmatch</span> <span class="hljs-string">"rain"</span>
-<span class="hljs-string">"Good Dog"</span> <span class="hljs-operator">-match</span> <span class="hljs-string">"Dog"</span>
+<span class="hljs-string">&quot;def&quot;</span> <span class="hljs-operator">-notin</span> <span class="hljs-string">&quot;abc&quot;</span>, <span class="hljs-string">&quot;def&quot;</span>
+<span class="hljs-string">&quot;Sunday&quot;</span> <span class="hljs-operator">-notmatch</span> <span class="hljs-string">&quot;rain&quot;</span>
+<span class="hljs-string">&quot;Good Dog&quot;</span> <span class="hljs-operator">-match</span> <span class="hljs-string">&quot;Dog&quot;</span>
 <span class="hljs-number">2</span> <span class="hljs-operator">-eq</span> <span class="hljs-number">2</span>
-<span class="hljs-string">"abc"</span> <span class="hljs-operator">-ne</span> <span class="hljs-string">"def"</span>
+<span class="hljs-string">&quot;abc&quot;</span> <span class="hljs-operator">-ne</span> <span class="hljs-string">&quot;def&quot;</span>
 
 <span class="hljs-variable">$hash</span> = <span class="hljs-selector-tag">@</span>{
-    SomeKey = <span class="hljs-string">'SomeValue'</span>
-    SomeKey2 = <span class="hljs-string">'SomeValue2'</span>
-    SomeKey3 = <span class="hljs-string">'SomeValue3'</span>
+    SomeKey = <span class="hljs-string">&#x27;SomeValue&#x27;</span>
+    SomeKey2 = <span class="hljs-string">&#x27;SomeValue2&#x27;</span>
+    SomeKey3 = <span class="hljs-string">&#x27;SomeValue3&#x27;</span>
 }
 
 <span class="hljs-variable">$client</span> = <span class="hljs-built_in">New-Object</span> System.Net.WebClient
@@ -32,4 +32,4 @@
 
 <span class="hljs-variable">$notepad</span> = <span class="hljs-built_in">Get-Process</span> notepad
 <span class="hljs-variable">$notepad</span>.Kill()
-<span class="hljs-string">'this is rocket science'</span>.Replace(<span class="hljs-string">'rocket'</span>, <span class="hljs-string">'rock'</span>)
+<span class="hljs-string">&#x27;this is rocket science&#x27;</span>.Replace(<span class="hljs-string">&#x27;rocket&#x27;</span>, <span class="hljs-string">&#x27;rock&#x27;</span>)
