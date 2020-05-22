@@ -2,6 +2,7 @@
 
 Parser Engine:
 
+- (parser) Now escapes quotes in text content when escaping HTML (#2564) [Josh Goebel][]
 - (parser) Adds `keywords.$pattern` key to grammar definitions (#2519) [Josh Goebel][]
 - (parser) Adds SHEBANG utility mode [Josh Goebel][]
 - (parser) Adds `registerAliases` method (#2540) [Taufik Nurrohman][]
