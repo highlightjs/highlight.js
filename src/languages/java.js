@@ -31,19 +31,19 @@ export default function (hljs) {
   /**
    * A given sequence, possibly with underscores
    * @type {(s: string | RegExp) => string}  */
-  var SEQUENCE_OF = (seq) => regex.concat('[', seq, ']+([', seq, '_]*[', seq, ']+)?');
+  var SEQUENCE_ALLOWING_UNDERSCORES = (seq) => regex.concat('[', seq, ']+([', seq, '_]*[', seq, ']+)?');
   var JAVA_NUMBER_MODE = {
     className: 'number',
     variants: [
-      { begin: `\\b(0[bB]${SEQUENCE_OF('01')})[lL]?` }, // binary
-      { begin: `\\b(0${SEQUENCE_OF('0-7')})[dDfFlL]?` }, // octal
+      { begin: `\\b(0[bB]${SEQUENCE_ALLOWING_UNDERSCORES('01')})[lL]?` }, // binary
+      { begin: `\\b(0${SEQUENCE_ALLOWING_UNDERSCORES('0-7')})[dDfFlL]?` }, // octal
       {
         begin: regex.concat(
           /\b0[xX]/,
           regex.either(
-            regex.concat(SEQUENCE_OF('a-fA-F0-9'), /\./, SEQUENCE_OF('a-fA-F0-9')),
-            regex.concat(SEQUENCE_OF('a-fA-F0-9'), /\.?/),
-            regex.concat(/\./, SEQUENCE_OF('a-fA-F0-9')),
+            regex.concat(SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9'), /\./, SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9')),
+            regex.concat(SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9'), /\.?/),
+            regex.concat(/\./, SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9')),
           ),
           /([pP][+-]?(\d+))?/,
           /[fFdDlL]?/ // decimal & fp mixed for simplicity
@@ -61,9 +61,9 @@ export default function (hljs) {
       // decimal & fp mixed for simplicity
       { begin: regex.concat(
         /\b/,
-        SEQUENCE_OF(/\d/),
+        SEQUENCE_ALLOWING_UNDERSCORES(/\d/),
         regex.optional(/\.?/),
-        regex.optional(SEQUENCE_OF(/\d/)),
+        regex.optional(SEQUENCE_ALLOWING_UNDERSCORES(/\d/)),
         /[dDfFlL]?/)
       }
     ],
