@@ -1,27 +1,27 @@
 <span class="xml">text
 
-</span><span class="hljs-template-variable">{{ "lite]'ral}}segment" }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">"lite]'ral}}segment"</span> }}</span><span class="xml"> text
 
-</span><span class="hljs-template-variable">{{ 'lite]"ral}}segment' }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">'lite]"ral}}segment'</span> }}</span><span class="xml"> text
 
-</span><span class="hljs-template-variable">{{ [lite"'ral}}segment] }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">[lite"'ral}}segment]</span> }}</span><span class="xml"> text
 
-</span><span class="hljs-template-variable">{{ abc "lite]'ral}}segment" }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">abc</span> <span class="hljs-string">"lite]'ral}}segment"</span> }}</span><span class="xml"> text
 
-</span><span class="hljs-template-variable">{{ abc 'lite]"ral}}segment' }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">abc</span> <span class="hljs-string">'lite]"ral}}segment'</span> }}</span><span class="xml"> text
 
-</span><span class="hljs-template-variable">{{ abc [lite"'ral}}segment] }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">abc</span> [lite"'ral}}segment] }}</span><span class="xml"> text
 
 
-</span><span class="hljs-template-variable">{{ abcd.[lite"'ral}}segment] }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">abcd.[lite"'ral}}segment]</span> }}</span><span class="xml"> text
 
-</span><span class="hljs-template-variable">{{ abcd."lite]'ral}}segment" }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">abcd."lite]'ral}}segment"</span> }}</span><span class="xml"> text
 
-</span><span class="hljs-template-variable">{{ abcd.'lite]"ral}}segment' }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">abcd.'lite]"ral}}segment'</span> }}</span><span class="xml"> text
 
-</span><span class="hljs-template-variable">{{ abcd.''}}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">abcd.''</span>}}</span><span class="xml"> text
 
-</span><span class="hljs-template-variable">{{ abcd."" }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">abcd.""</span> }}</span><span class="xml"> text
 
-</span><span class="hljs-template-variable">{{ abcd.[] }}</span><span class="xml"> text
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">abcd.[]</span> }}</span><span class="xml"> text
 </span>

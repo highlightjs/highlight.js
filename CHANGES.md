@@ -13,6 +13,7 @@ Parser Engine:
 
 Deprecations:
 
+- `htmlbars` grammar is now deprecated. Use `handlebars` instead. (#2344) [Nils Knappmeier][]
 - when using `highlightBlock` `result.re` deprecated. Use `result.relevance` instead. (#2552) [Josh Goebel][]
 - ditto for `result.second_best.re` => `result.second_best.relevance` (#2552)
 - `lexemes` is now deprecated in favor of `keywords.$pattern` key (#2519) [Josh Goebel][]
@@ -21,6 +22,7 @@ Deprecations:
 Language Improvements:
 
 - fix(groovy) strings are not allowed inside ternary clauses (#2217) [Josh Goebel][]
+- fix(typescript) add `readonly` keyword (#2562) [Martin (Lhoerion)][]
 - fix(javascript) fix regex inside parens after a non-regex (#2530) [Josh Goebel][]
 - enh(typescript) use identifier to match potential keywords, preventing false positivites (#2519) [Josh Goebel][]
 - enh(javascript) use identifier to match potential keywords, preventing false positivites (#2519) [Josh Goebel][]
@@ -38,6 +40,7 @@ Language Improvements:
 - fix(swift) `@objcMembers` was being partially highlighted (#2543) [Nick Randall][]
 - enh(dart) Add `late` and `required` keywords, and `Never` built-in type (#2550) [Sam Rawlins][]
 - enh(erlang) Add underscore separators to numeric literals (#2554) [Sergey Prokhorov][]
+- enh(handlebars) Support for sub-expressions, path-expressions, hashes, block-parameters and literals (#2344) [Nils Knappmeier][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Peter Plantinga]: https://github.com/pplantinga
@@ -47,6 +50,8 @@ Language Improvements:
 [Nick Randall]: https://github.com/nicked
 [Sam Rawlins]: https://github.com/srawlins
 [Sergey Prokhorov]: https://github.com/seriyps
+[Nils Knappmeier]: https://github.com/nknapp
+[Martin (Lhoerion)]: https://github.com/Lhoerion
 
 
 ## Version 10.0.2

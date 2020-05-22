@@ -1,86 +1,42 @@
 /*
-Language: HTMLBars
-Requires: xml.js, handlebars.js
-Author: Michael Johnston <lastobelus@gmail.com>
-Description: Matcher for HTMLBars
-Website: https://github.com/tildeio/htmlbars
-Category: template
+ Language: HTMLBars (legacy)
+ Requires: xml.js
+ Description: Matcher for Handlebars as well as EmberJS additions.
+ Website: https://github.com/tildeio/htmlbars
+ Category: template
+ */
+
+/*
+
+See: https://github.com/highlightjs/highlight.js/issues/2181
+
+This file is a stub that is only left in place for compatbility reasons for
+anyone who may be manually pulling in this file via a require or fetching
+it individually via CDN.
+
+TODO: Remove in version 11.0.
+
 */
 
+// compile time dependency on handlebars
+import handlebars from "./handlebars"
+
 export default function(hljs) {
-  // This work isn't complete yet but this is done so that this technically
-  // breaking change becomes a part of the 10.0 release and won't force
-  // us to prematurely release 11.0 just to break this.
-  var SHOULD_INHERIT_FROM_HANDLEBARS = hljs.requireLanguage('handlebars');
-  // https://github.com/highlightjs/highlight.js/issues/2181
+  const definition = handlebars(hljs)
 
-  var BUILT_INS = 'action collection component concat debugger each each-in else get hash if input link-to loc log mut outlet partial query-params render textarea unbound unless with yield view';
+  definition.name = "HTMLbars"
 
-  var ATTR_ASSIGNMENT = {
-    illegal: /\}\}/,
-    begin: /[a-zA-Z0-9_]+=/,
-    returnBegin: true,
-    relevance: 0,
-    contains: [
-      {
-        className: 'attr', begin: /[a-zA-Z0-9_]+/
-      }
-    ]
-  };
+  // HACK: This lets handlebars do the auto-detection if it's been loaded (by
+  // default the build script will load in alphabetical order) and if not (perhaps
+  // an install is only using `htmlbars`, not `handlebars`) then this will still
+  // allow HTMLBars to participate in the auto-detection
 
-  var SUB_EXPR = {
-    illegal: /\}\}/,
-    begin: /\)/, end: /\)/,
-    contains: [
-      {
-        begin: /[a-zA-Z\.\-]+/,
-        keywords: {built_in: BUILT_INS},
-        starts: {
-          endsWithParent: true, relevance: 0,
-          contains: [
-            hljs.QUOTE_STRING_MODE,
-          ]
-        }
-      }
-    ]
-  };
+  // worse case someone will have HTMLbars and handlebars competing for the same
+  // content and will need to change their setup to only require handlebars, but
+  // I don't consider this a breaking change
+  if (hljs.getLanguage("handlebars")) {
+    definition.disableAutodetect = true
+  }
 
-  var TAG_INNARDS = {
-    endsWithParent: true, relevance: 0,
-    keywords: {keyword: 'as', built_in: BUILT_INS},
-    contains: [
-      hljs.QUOTE_STRING_MODE,
-      ATTR_ASSIGNMENT,
-      hljs.NUMBER_MODE
-    ]
-  };
-
-  return {
-    name: 'HTMLBars',
-    case_insensitive: true,
-    subLanguage: 'xml',
-    contains: [
-      hljs.COMMENT('{{!(--)?', '(--)?}}'),
-      {
-        className: 'template-tag',
-        begin: /\{\{[#\/]/, end: /\}\}/,
-        contains: [
-          {
-            className: 'name',
-            begin: /[a-zA-Z\.\-]+/,
-            keywords: {'builtin-name': BUILT_INS},
-            starts: TAG_INNARDS
-          }
-        ]
-      },
-      {
-        className: 'template-variable',
-        begin: /\{\{[a-zA-Z][a-zA-Z\-]+/, end: /\}\}/,
-        keywords: {keyword: 'as', built_in: BUILT_INS},
-        contains: [
-          hljs.QUOTE_STRING_MODE
-        ]
-      }
-    ]
-  };
+  return definition
 }
