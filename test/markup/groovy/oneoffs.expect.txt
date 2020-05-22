@@ -1,0 +1,3 @@
+<span class="hljs-comment">// ternary can include quotes</span>
+<span class="hljs-keyword">def</span> formattingMsg = label &lt; <span class="hljs-number">0</span> ? (<span class="hljs-string">'The following files need formatting:\n    '</span> +
+    codeStyleFiles.join(<span class="hljs-string">'\n    '</span>)) : <span class="hljs-string">'All files are correctly formatted'</span>

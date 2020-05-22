@@ -21,6 +21,7 @@ Deprecations:
 
 Language Improvements:
 
+- fix(groovy) strings are not allowed inside ternary clauses (#2217) [Josh Goebel][]
 - fix(typescript) add `readonly` keyword (#2562) [Martin (Lhoerion)][]
 - fix(javascript) fix regex inside parens after a non-regex (#2530) [Josh Goebel][]
 - enh(typescript) use identifier to match potential keywords, preventing false positivites (#2519) [Josh Goebel][]
