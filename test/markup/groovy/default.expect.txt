@@ -44,6 +44,8 @@
         check <span class="hljs-attr">that:</span> <span class="hljs-literal">true</span>
 
         <span class="hljs-symbol">label:</span>
+        <span class="hljs-comment">// This is purposely tabbed</span>
+		<span class="hljs-symbol">tabbed_label:</span>
         <span class="hljs-keyword">def</span> clone = versionSpec.rehydrate(pkg, pkg, pkg)
         <span class="hljs-comment">/*
             now clone() in a multiline comment

@@ -44,6 +44,8 @@ class Distribution implements Distributable {
         check that: true
 
         label:
+        // This is purposely tabbed
+		tabbed_label:
         def clone = versionSpec.rehydrate(pkg, pkg, pkg)
         /*
             now clone() in a multiline comment

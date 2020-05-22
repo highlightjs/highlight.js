@@ -97,7 +97,7 @@ export default function(hljs) {
             },
             {
               // highlight map keys and named parameters as attrs
-              className: 'attr', begin: IDENT_RE + '[ ]*:'
+              className: 'attr', begin: IDENT_RE + '[ \t]*:'
             },
             {
               // catch middle element of the ternary operator
@@ -115,7 +115,7 @@ export default function(hljs) {
             {
                 // highlight labeled statements
                 className: 'symbol',
-                begin: '^[ ]*' + regex.lookahead(IDENT_RE + ':'),
+                begin: '^[ \t]*' + regex.lookahead(IDENT_RE + ':'),
                 excludeBegin: true,
                 end: IDENT_RE + ':',
                 relevance: 0
