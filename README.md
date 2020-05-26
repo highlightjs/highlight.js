@@ -128,7 +128,7 @@ For more info about the returned object refer to the api docs https://highlightj
 
 
 ```js
-// require the highlight.js library, including all languages
+// require() the highlight.js library, including all languages.
 const hljs = require('./highlight.js');
 const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 ```
@@ -136,8 +136,8 @@ const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 Or for a smaller footprint... load just the languages you need.
 
 ```js
-const hljs = require("highlight.js/lib/core");  // require only the core library
-// separately require languages
+const hljs = require("highlight.js/lib/highlight");  // Require only the core library.
+// require() languages individually.
 hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
 
 const highlightedCode = hljs.highlight('xml', '<span>Hello World!</span>').value
@@ -157,7 +157,7 @@ import hljs from 'highlight.js';
 The default import imports all languages. Therefore it is likely to be more efficient to import only the library and the languages you need:
 
 ```js
-import hljs from 'highlight.js/lib/core';
+import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 ```
@@ -165,7 +165,7 @@ hljs.registerLanguage('javascript', javascript);
 To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can also import the stylesheet directly as modules:
 
 ```js
-import hljs from 'highlight.js/lib/core';
+import hljs from 'highlight.js/lib/highlight';
 import 'highlight.js/styles/github.css';
 ```
 
