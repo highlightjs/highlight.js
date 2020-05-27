@@ -7,4 +7,4 @@
 <span class="hljs-comment">====</span>
 <span class="hljs-addition">+ Here too</span>
 <span class="hljs-comment">=====</span>
-<span class="hljs-addition">+ Here we don't anymore after five '=' next to each other</span>
+<span class="hljs-addition">+ Here we don&#x27;t anymore after five &#x27;=&#x27; next to each other</span>

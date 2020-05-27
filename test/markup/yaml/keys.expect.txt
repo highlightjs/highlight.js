@@ -7,11 +7,11 @@
 <span class="hljs-attr">some key:</span>
   <span class="hljs-attr">another key:</span> <span class="hljs-string">value</span>
 
-<span class="hljs-attr">"some key":</span>
-  <span class="hljs-attr">"another key":</span> <span class="hljs-string">value</span>
+<span class="hljs-attr">&quot;some key&quot;:</span>
+  <span class="hljs-attr">&quot;another key&quot;:</span> <span class="hljs-string">value</span>
 
-<span class="hljs-attr">'some key':</span>
-  <span class="hljs-attr">'another key':</span> <span class="hljs-string">value</span>
+<span class="hljs-attr">&#x27;some key&#x27;:</span>
+  <span class="hljs-attr">&#x27;another key&#x27;:</span> <span class="hljs-string">value</span>
 
 <span class="hljs-attr">some-key:</span>
   <span class="hljs-attr">another-key:</span> <span class="hljs-string">value</span>

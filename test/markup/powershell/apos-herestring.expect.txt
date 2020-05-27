@@ -1,11 +1,11 @@
-<span class="hljs-string">@' The wild cat jumped over the $height-tall fence.
+<span class="hljs-string">@&#x27; The wild cat jumped over the $height-tall fence.
    He did so with grace.
-'@</span>
+&#x27;@</span>
 
 This SHOULDNT be a part of the above strings span.
 
-<span class="hljs-string">@' The wild cat jumped over the $height-tall fence.
+<span class="hljs-string">@&#x27; The wild cat jumped over the $height-tall fence.
    He did so with grace.
-break-end-of-string'@
+break-end-of-string&#x27;@
 
 This SHOULD be a part of the above strings span.</span>

@@ -6,6 +6,7 @@ New themes:
 
 Parser Engine:
 
+- (parser) Now escapes quotes in text content when escaping HTML (#2564) [Josh Goebel][]
 - (parser) Adds `keywords.$pattern` key to grammar definitions (#2519) [Josh Goebel][]
 - (parser) Adds SHEBANG utility mode [Josh Goebel][]
 - (parser) Adds `registerAliases` method (#2540) [Taufik Nurrohman][]
@@ -25,6 +26,7 @@ Deprecations:
 
 Language Improvements:
 
+- fix(groovy) strings are not allowed inside ternary clauses (#2217) [Josh Goebel][]
 - fix(typescript) add `readonly` keyword (#2562) [Martin (Lhoerion)][]
 - fix(javascript) fix regex inside parens after a non-regex (#2530) [Josh Goebel][]
 - enh(typescript) use identifier to match potential keywords, preventing false positivites (#2519) [Josh Goebel][]
