@@ -59,6 +59,7 @@ Language Improvements:
 [Nils Knappmeier]: https://github.com/nknapp
 [Martin (Lhoerion)]: https://github.com/Lhoerion
 [Jim Mason]: https://github.com/RocketMan
+[lioshi]: https://github.com/
 
 
 ## Version 10.0.2
