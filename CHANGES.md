@@ -3,6 +3,7 @@
 New themes:
 
 - *NNFX* by [Jim Mason][]
+- *lioshi* by [lioshi][]
 
 Parser Engine:
 
