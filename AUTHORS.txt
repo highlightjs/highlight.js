@@ -287,4 +287,4 @@ Contributors:
 - Samia Ali <samiaab1990@gmail.com>
 - Alexandre Grison <a.grison@gmail.com>
 - Jim Mason <jmason@ibinx.com>
-- Lioshi <lioshi@lioshi.com>
+- lioshi <lioshi@lioshi.com>
