@@ -2,7 +2,11 @@
 /* Original theme - https://github.com/lioshi/vscode-lioshi-theme */
 
 /* Comment */
-.hljs-comment,
+.hljs-comment {
+  color: #8d8d8d;
+}
+
+/* quote */
 .hljs-quote {
   color: #b3c7d8;
 }
@@ -25,8 +29,7 @@
 .hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
-.hljs-params,
-.hljs-meta,
+.hljs-subst
 .hljs-link {
   color: #de935f;
 }
@@ -38,23 +41,30 @@
 
 /* Green */
 .hljs-string,
-.hljs-subst,
-.hljs-symbol,
 .hljs-bullet,
+.hljs-params,
 .hljs-addition {
   color: #b5bd68;
 }
 
 /* Blue */
 .hljs-title,
+.hljs-meta,
 .hljs-section {
   color: #81a2be;
 }
 
 /* Purple */
+.hljs-selector-tag,
 .hljs-keyword,
-.hljs-selector-tag {
+.hljs-function,
+.hljs-class {
   color: #be94bb;
+}
+
+/* Purple light */
+.hljs-symbol {
+  color: #dbc4d9;
 }
 
 .hljs {
@@ -72,3 +82,7 @@
 .hljs-strong {
   font-weight: bold;
 }
+
+
+
+
