@@ -1,5 +1,10 @@
 ## Version 10.1.0 (in progress)
 
+New themes:
+
+- *NNFX* by [Jim Mason][]
+- *lioshi* by [lioshi][]
+
 Parser Engine:
 
 - (parser) Now escapes quotes in text content when escaping HTML (#2564) [Josh Goebel][]
@@ -53,6 +58,8 @@ Language Improvements:
 [Sergey Prokhorov]: https://github.com/seriyps
 [Nils Knappmeier]: https://github.com/nknapp
 [Martin (Lhoerion)]: https://github.com/Lhoerion
+[Jim Mason]: https://github.com/RocketMan
+[lioshi]: https://github.com/lioshi
 
 
 ## Version 10.0.2
