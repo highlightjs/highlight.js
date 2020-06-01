@@ -2,7 +2,7 @@
 
 New themes:
 
-- *NNFX* by [Jim Mason][]
+- *NNFX* and *NNFX-dark* by [Jim Mason][]
 - *lioshi* by [lioshi][]
 
 Parser Engine:
