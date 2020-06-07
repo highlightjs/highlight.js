@@ -1,0 +1,2 @@
+unsafe fn sqr(i: i32) { unsafe { i * i } }
+unsafe trait Minimum : Copy {}

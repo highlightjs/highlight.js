@@ -12,7 +12,7 @@ export default function(hljs) {
     'abstract as async await become box break const continue crate do dyn ' +
     'else enum extern false final fn for if impl in let loop macro match mod ' +
     'move mut override priv pub ref return self Self static struct super ' +
-    'trait true try type typeof unsafe unsized use virtual where while yield';
+    'trait true try type typeof unsized use virtual where while yield';
   var BUILTINS =
     // functions
     'drop ' +
@@ -38,6 +38,7 @@ export default function(hljs) {
     aliases: ['rs'],
     keywords: {
       $pattern: hljs.IDENT_RE + '!?',
+      "keyword emphasis strong": "unsafe",
       keyword:
         KEYWORDS,
       literal:
