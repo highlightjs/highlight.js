@@ -3,7 +3,12 @@
  * @returns {string}
  */
 export function escapeHTML(value) {
-  return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;');
 }
 
 /**
@@ -121,7 +126,7 @@ export function mergeStreams(original, highlighted, value) {
   function open(node) {
     /** @param {Attr} attr */
     function attr_str(attr) {
-      return ' ' + attr.nodeName + '="' + escapeHTML(attr.value).replace(/"/g, '&quot;') + '"';
+      return ' ' + attr.nodeName + '="' + escapeHTML(attr.value) + '"';
     }
     // @ts-ignore
     result += '<' + tag(node) + [].map.call(node.attributes, attr_str).join('') + '>';

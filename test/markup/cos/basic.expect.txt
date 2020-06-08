@@ -1,7 +1,7 @@
 <span class="hljs-keyword">SET</span> test = <span class="hljs-number">1</span>
 <span class="hljs-keyword">set</span> <span class="hljs-symbol">^global</span> = <span class="hljs-number">2</span>
-<span class="hljs-keyword">Write</span> <span class="hljs-string">"Current date """</span>, <span class="hljs-built_in">$ztimestamp</span>, <span class="hljs-string">""", result: "</span>, test + <span class="hljs-symbol">^global</span> = <span class="hljs-number">3</span>
+<span class="hljs-keyword">Write</span> <span class="hljs-string">&quot;Current date &quot;&quot;&quot;</span>, <span class="hljs-built_in">$ztimestamp</span>, <span class="hljs-string">&quot;&quot;&quot;, result: &quot;</span>, test + <span class="hljs-symbol">^global</span> = <span class="hljs-number">3</span>
 <span class="hljs-keyword">if</span> (<span class="hljs-symbol">^global</span> = <span class="hljs-number">2</span>) {
-  <span class="hljs-keyword">do</span> <span class="hljs-keyword">##class</span>(Cinema.Utils).AddShow(<span class="hljs-string">"test"</span>) <span class="hljs-comment">// line comment</span>
+  <span class="hljs-keyword">do</span> <span class="hljs-keyword">##class</span>(Cinema.Utils).AddShow(<span class="hljs-string">&quot;test&quot;</span>) <span class="hljs-comment">// line comment</span>
 }
-<span class="hljs-keyword">d</span>:(<span class="hljs-symbol">^global</span> = <span class="hljs-number">2</span>) <span class="hljs-built_in">..thisClassMethod</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-string">"test"</span>)
+<span class="hljs-keyword">d</span>:(<span class="hljs-symbol">^global</span> = <span class="hljs-number">2</span>) <span class="hljs-built_in">..thisClassMethod</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&quot;test&quot;</span>)

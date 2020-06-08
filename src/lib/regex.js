@@ -26,11 +26,31 @@ export function lookahead(re) {
 }
 
 /**
+ * @param {RegExp | string } re
+ * @returns {string}
+ */
+export function optional(re) {
+  return concat('(', re, ')?');
+}
+
+/**
  * @param {...(RegExp | string) } args
  * @returns {string}
  */
 export function concat(...args) {
   const joined = args.map((x) => source(x)).join("");
+  return joined;
+}
+
+/**
+ * Any of the passed expresssions may match
+ *
+ * Creates a huge this | this | that | that match
+ * @param {(RegExp | string)[] } args
+ * @returns {string}
+ */
+export function either(...args) {
+  const joined = '(' + args.map((x) => source(x)).join("|") + ")";
   return joined;
 }
 

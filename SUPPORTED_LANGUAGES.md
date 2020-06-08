@@ -31,7 +31,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | BNF                     | bnf                    |         |
 | Brainfuck               | brainfuck, bf          |         |
 | C#                      | csharp, cs             |         |
-| C                       | h                      |         |
+| C                       | c, h                   |         |
 | C++                     | cpp, hpp, cc, hh, c++, h++, cxx, hxx |   |
 | C/AL                    | cal                    |         |
 | Cache Object Script     | cos, cls               |         |
@@ -41,6 +41,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | CSS                     | css                    |         |
 | Cap’n Proto             | capnproto, capnp       |         |
 | Chaos                   | chaos, kaos            | [highlightjs-chaos](https://github.com/chaos-lang/highlightjs-chaos) |
+| Cisco CLI               | cisco                  | [highlightjs-cisco-cli](https://github.com/BMatheas/highlightjs-cisco-cli) |
 | Clojure                 | clojure, clj           |         |
 | CoffeeScript            | coffeescript, coffee, cson, iced | |
 | CpcdosC+                | cpc                    | [highlightjs-cpcdos](https://github.com/SPinti-Software/highlightjs-cpcdos) |

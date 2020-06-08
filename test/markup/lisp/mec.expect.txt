@@ -1,4 +1,4 @@
 <span class="hljs-comment">; MEC: Multiple Escape Characters. See https://github.com/highlightjs/highlight.js/issues/615</span>
 (<span class="hljs-name">|spaces and
 newlines|</span> x)
-(<span class="hljs-name">x</span> '|quoted|)
+(<span class="hljs-name">x</span> &#x27;|quoted|)

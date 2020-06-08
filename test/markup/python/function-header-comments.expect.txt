@@ -4,7 +4,7 @@
     <span class="hljs-keyword">pass</span>
 
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span>(<span class="hljs-params">collections.namedtuple(<span class="hljs-params"><span class="hljs-string">'Test'</span></span>), (<span class="hljs-params">
-    <span class="hljs-string">'name'</span>, <span class="hljs-comment"># comment</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span>(<span class="hljs-params">collections.namedtuple(<span class="hljs-params"><span class="hljs-string">&#x27;Test&#x27;</span></span>), (<span class="hljs-params">
+    <span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-comment"># comment</span>
 </span>)</span>):</span>
     <span class="hljs-keyword">pass</span>

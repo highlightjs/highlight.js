@@ -1,8 +1,8 @@
 <span class="hljs-keyword">match</span> foo
-| <span class="hljs-literal">true</span> =&gt; <span class="hljs-string">"it's true"</span>
-| <span class="hljs-string">"bar"</span> =&gt; <span class="hljs-string">"it's bar"</span>
-| <span class="hljs-keyword">let</span> x: <span class="hljs-type">I32</span> <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">3</span> =&gt; <span class="hljs-string">"it's greater than 3"</span>
-| <span class="hljs-keyword">let</span> x: <span class="hljs-type">I32</span> =&gt; <span class="hljs-string">"it's less than or equal to 3"</span>
+| <span class="hljs-literal">true</span> =&gt; <span class="hljs-string">&quot;it&#x27;s true&quot;</span>
+| <span class="hljs-string">&quot;bar&quot;</span> =&gt; <span class="hljs-string">&quot;it&#x27;s bar&quot;</span>
+| <span class="hljs-keyword">let</span> x: <span class="hljs-type">I32</span> <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">3</span> =&gt; <span class="hljs-string">&quot;it&#x27;s greater than 3&quot;</span>
+| <span class="hljs-keyword">let</span> x: <span class="hljs-type">I32</span> =&gt; <span class="hljs-string">&quot;it&#x27;s less than or equal to 3&quot;</span>
 <span class="hljs-keyword">else</span>
-<span class="hljs-string">"I don't know what it is"</span>
+<span class="hljs-string">&quot;I don&#x27;t know what it is&quot;</span>
 <span class="hljs-keyword">end</span>

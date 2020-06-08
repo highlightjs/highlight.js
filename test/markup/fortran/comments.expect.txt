@@ -1,5 +1,5 @@
 <span class="hljs-comment">C</span>
-<span class="hljs-comment">C  This program in FORTRAN 77 outputs "Hello, World!".</span>
+<span class="hljs-comment">C  This program in FORTRAN 77 outputs &quot;Hello, World!&quot;.</span>
 <span class="hljs-comment">C ====================================================</span>
 
   <span class="hljs-comment">!===============================</span>
@@ -10,4 +10,4 @@
 
 C=<span class="hljs-number">2</span>
 C = <span class="hljs-number">2</span> <span class="hljs-comment">!correct</span>
-C =<span class="hljs-string">'boo'</span>
+C =<span class="hljs-string">&#x27;boo&#x27;</span>
