@@ -48,6 +48,7 @@ Language Improvements:
 - enh(erlang) Add underscore separators to numeric literals (#2554) [Sergey Prokhorov][]
 - enh(handlebars) Support for sub-expressions, path-expressions, hashes, block-parameters and literals (#2344) [Nils Knappmeier][]
 - enh(protobuf) Support multiline comments (#2597) [Pavel Evstigneev][]
+- fix(toml) Improve key parsing (#2595) [Antoine du Hamel][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Peter Plantinga]: https://github.com/pplantinga
@@ -62,6 +63,7 @@ Language Improvements:
 [Jim Mason]: https://github.com/RocketMan
 [lioshi]: https://github.com/lioshi
 [Pavel Evstigneev]: https://github.com/Paxa
+[Antoine du Hamel]: https://github.com/aduh95
 
 
 ## Version 10.0.2
