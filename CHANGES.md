@@ -47,6 +47,7 @@ Language Improvements:
 - enh(dart) Add `late` and `required` keywords, and `Never` built-in type (#2550) [Sam Rawlins][]
 - enh(erlang) Add underscore separators to numeric literals (#2554) [Sergey Prokhorov][]
 - enh(handlebars) Support for sub-expressions, path-expressions, hashes, block-parameters and literals (#2344) [Nils Knappmeier][]
+- enh(protobuf) Support multiline comments (#2597) [Pavel Evstigneev][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Peter Plantinga]: https://github.com/pplantinga
@@ -60,6 +61,7 @@ Language Improvements:
 [Martin (Lhoerion)]: https://github.com/Lhoerion
 [Jim Mason]: https://github.com/RocketMan
 [lioshi]: https://github.com/lioshi
+[Pavel Evstigneev]: https://github.com/Paxa
 
 
 ## Version 10.0.2
