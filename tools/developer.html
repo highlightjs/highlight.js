@@ -57,11 +57,8 @@
     }
   </style>
 </head>
-<body>
-  <div id="app">
-    <highlightjs auto :code="code" ignore_illegals />
-  </div>
-  <div class="editor">
+<body id>
+  <div class="editor" id="app">
     <h3>Code</h3>
     <div>
       <textarea>Put code here…</textarea>
@@ -73,7 +70,7 @@
     </div>
     <div>
       <h3>Rendered in <span class="rendering_time">...</span> ms [<span class="rendering_stats">...</span>]</h3>
-      <pre><code class="hljs">...</code></pre>
+      <highlightjs auto :code="code" ignore_illegals />
     </div>
     <div>
       <h3>Markup</h3>
@@ -101,11 +98,14 @@
         var start_time = +new Date();
         var result = hljs.getLanguage(language) ? hljs.highlight(language, source, true) : hljs.highlightAuto(source);
         var rendering_time = +new Date() - start_time;
-        editor.find('.hljs').html(result.value);
         vue.code = source;
-        $(".hljs span").each((_,el) => {
-          $(el).attr("data-klass", el.className.replace("hljs-",""))
-        })
+        // give Vue a moment to update
+        setTimeout(() => {
+          $(".hljs span").each((_,el) => {
+            $(el).attr("data-klass", el.className.replace("hljs-",""))
+          })
+        }, 10);
+
         var rendering_stats = result.language + ': relevance ' + (result.relevance );
         if (result.second_best) {
             rendering_stats += ', ' + result.second_best.language + ': ' + (result.second_best.relevance || result.second_best.r);
