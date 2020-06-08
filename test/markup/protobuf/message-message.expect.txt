@@ -1,3 +1,4 @@
+<span class="hljs-comment">// A Container message</span>
 <span class="hljs-class"><span class="hljs-keyword">message</span> <span class="hljs-title">Container</span> </span>{
   <span class="hljs-class"><span class="hljs-keyword">message</span> <span class="hljs-title">Message</span> </span>{
     <span class="hljs-keyword">required</span> <span class="hljs-built_in">int64</span> id = <span class="hljs-number">1</span>;
@@ -5,3 +6,8 @@
   <span class="hljs-keyword">repeated</span> Message messages = <span class="hljs-number">1</span>;
   <span class="hljs-keyword">optional</span> <span class="hljs-built_in">int32</span> number = <span class="hljs-number">2</span>;
 }
+
+<span class="hljs-comment">/*
+  test multiline
+  comment
+*/</span>

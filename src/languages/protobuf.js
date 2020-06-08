@@ -19,6 +19,7 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'class',
         beginKeywords: 'message enum service', end: /\{/,

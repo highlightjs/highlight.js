@@ -1,3 +1,4 @@
+// A Container message
 message Container {
   message Message {
     required int64 id = 1;
@@ -5,3 +6,8 @@ message Container {
   repeated Message messages = 1;
   optional int32 number = 2;
 }
+
+/*
+  test multiline
+  comment
+*/
