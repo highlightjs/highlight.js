@@ -53,8 +53,8 @@ export default function (hljs) {
       { begin: regex.concat(
         /\b/,
         regex.either(
-          /\d*\.[\d_]*\d+/, // 3.3e2
-          /\d+[\d_]*/ // 3e2
+          regex.concat(/\d*\./, SEQUENCE_ALLOWING_UNDERSCORES("\\d")), // .3, 3.3, 3.3_3
+          SEQUENCE_ALLOWING_UNDERSCORES("\\d") // 3, 3_3
         ),
         /[eE][+-]?[\d]+[dDfF]?/)
       },
