@@ -72,12 +72,36 @@ export default function(hljs) {
     hljs.C_NUMBER_MODE, STRING
   ];
 
-  var BUILT_IN_TYPES =
+  var BUILT_IN_TYPES = [
     // dart:core
-    'Comparable DateTime Duration Function Iterable Iterator List Map Match Object Pattern RegExp Set Stopwatch ' +
-    'String StringBuffer StringSink Symbol Type Uri bool double int num ' +
+    'Comparable',
+    'DateTime',
+    'Duration',
+    'Function',
+    'Iterable',
+    'Iterator',
+    'List',
+    'Map',
+    'Match',
+    'Object',
+    'Pattern',
+    'RegExp',
+    'Set',
+    'Stopwatch',
+    'String',
+    'StringBuffer',
+    'StringSink',
+    'Symbol',
+    'Type',
+    'Uri',
+    'bool',
+    'double',
+    'int',
+    'num',
     // dart:html
-    'Element ElementList';
+    'Element',
+    'ElementList',
+  ];
 
   var KEYWORDS = {
     keyword: 'abstract as assert async await break case catch class const continue covariant default deferred do ' +
@@ -85,15 +109,22 @@ export default function(hljs) {
       'implements import in inferface is late library mixin new null on operator part required rethrow return set ' +
       'show static super switch sync this throw true try typedef var void while with yield',
     built_in:
-      // non-nullable built-in types
-      BUILT_IN_TYPES + ' ' +
-      // nullable built-in types
-      BUILT_IN_TYPES.split(' ').map((e) => { e + '?' }).join(' ') + ' ' +
-      // dart:core
-      'Never Null dynamic print ' +
-      // dart:html
-      'document querySelector querySelectorAll window',
-    $pattern: /[A-Za-z][A-Za-z0-9_]+\??/
+        // non-nullable built-in types
+        BUILT_IN_TYPES.concat(
+          // nullable built-in types
+          BUILT_IN_TYPES.map((e) => `${e}?`)).concat([
+            // dart:core
+            'Never',
+            'Null',
+            'dynamic',
+            'print',
+            // dart:html
+            'document',
+            'querySelector',
+            'querySelectorAll',
+            'window',
+        ]).join(' '),
+    $pattern: /[A-Za-z][A-Za-z0-9_]*\??/
   };
 
   return {
