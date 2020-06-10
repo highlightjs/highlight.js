@@ -1,4 +1,4 @@
-import * as regex from '../lib/regex';
+import * as regex from '../lib/regex.js';
 
 /*
 Language: TOML, also INI
