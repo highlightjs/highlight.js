@@ -38,9 +38,6 @@ module.exports = {
       "no-undefined": "error",
       // ensure import specifier contains file extension
       "import/extensions": ["error", "always"],
-      // make sure there is no Node.js specific API slipping into the source files
-      "import/no-nodejs-modules": "error",
-      "import/no-commonjs": "error",
 
       // TODO maybe
       "camelcase": "off", // TODO: turn on later
@@ -50,6 +47,10 @@ module.exports = {
       {
         "files": ["src/languages/*.js"],
         "rules": {
+          // make sure there is no Node.js specific API slipping into the source files
+          "import/no-nodejs-modules": "error",
+          "import/no-commonjs": "error",
+
           "no-unused-expressions": "off",
           // languages are all over the map and we don't want to
           // do a mass edit so turn off the most egregious rule violations
