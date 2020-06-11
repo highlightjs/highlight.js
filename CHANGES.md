@@ -44,7 +44,7 @@ Language Improvements:
 - fix(typescript) `=>` function with nested `()` in params now works (#2502) [Josh Goebel][]
 - fix(yaml) Fix tags to include non-word characters (#2486) [Peter Plantinga][]
 - fix(swift) `@objcMembers` was being partially highlighted (#2543) [Nick Randall][]
-- enh(dart) Add `late` and `required` keywords, and `Never` built-in type (#2550) [Sam Rawlins][]
+- enh(dart) Add `late` and `required` keywords, the `Never` built-in type, and nullable built-in types (#2550) [Sam Rawlins][]
 - enh(erlang) Add underscore separators to numeric literals (#2554) [Sergey Prokhorov][]
 - enh(handlebars) Support for sub-expressions, path-expressions, hashes, block-parameters and literals (#2344) [Nils Knappmeier][]
 - enh(protobuf) Support multiline comments (#2597) [Pavel Evstigneev][]
