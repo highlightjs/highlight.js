@@ -1,0 +1,32 @@
+# Bare keys:
+key = "value"
+bare_key = "value"
+bare-key = "value"
+1234 = "value"
+
+# Quoted keys:
+"127.0.0.1" = "value"
+"character encoding" = "value"
+"ʎǝʞ" = "value"
+'key2' = "value"
+'quoted "value"' = "value"
+
+"key \"containing\" backslash" = 6
+'key \"containing" backslash\' = 6
+
+# empty quoted key is allowed
+"" = "blank"     # VALID but discouraged
+'' = 'blank'     # VALID but discouraged
+
+# Dotted keys:
+name = "Orange"
+physical.color = "orange"
+physical.shape = "round"
+site."google.com" = true
+3.14159 = "pi"
+
+# Whitespace around dot-separated parts is ignored:
+hello  .  world  =  "!"
+
+# Whitespace is ignored around key names and values
+  hello = "World!"
