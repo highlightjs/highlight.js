@@ -102,6 +102,7 @@ export default function(hljs) {
     'Element',
     'ElementList',
   ];
+  var NULLABLE_BUILT_IN_TYPES = BUILT_IN_TYPES.map((e) => `${e}?`);
 
   var KEYWORDS = {
     keyword: 'abstract as assert async await break case catch class const continue covariant default deferred do ' +
@@ -109,21 +110,20 @@ export default function(hljs) {
       'implements import in inferface is late library mixin new null on operator part required rethrow return set ' +
       'show static super switch sync this throw true try typedef var void while with yield',
     built_in:
-        // non-nullable built-in types
-        BUILT_IN_TYPES.concat(
-          // nullable built-in types
-          BUILT_IN_TYPES.map((e) => `${e}?`)).concat([
-            // dart:core
-            'Never',
-            'Null',
-            'dynamic',
-            'print',
-            // dart:html
-            'document',
-            'querySelector',
-            'querySelectorAll',
-            'window',
-        ]).join(' '),
+      BUILT_IN_TYPES
+        .concat(NULLABLE_BUILT_IN_TYPES)
+        .concat([
+          // dart:core
+          'Never',
+          'Null',
+          'dynamic',
+          'print',
+          // dart:html
+          'document',
+          'querySelector',
+          'querySelectorAll',
+          'window',
+      ]).join(' '),
     $pattern: /[A-Za-z][A-Za-z0-9_]*\??/
   };
 
@@ -172,5 +172,5 @@ export default function(hljs) {
         begin: '=>' // No markup, just a relevance booster
       }
     ]
-  }
+  };
 }
