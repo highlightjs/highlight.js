@@ -1,4 +1,4 @@
-import { escapeHTML } from './utils';
+import { escapeHTML } from './utils.js';
 
 /**
  * @typedef {object} Renderer

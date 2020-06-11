@@ -1,5 +1,5 @@
-import { inherit } from './utils';
-import * as regex from './regex';
+import { inherit } from './utils.js';
+import * as regex from './regex.js';
 
 // Common regexps
 export const IDENT_RE = '[a-zA-Z]\\w*';

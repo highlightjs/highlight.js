@@ -7,7 +7,7 @@ Website: https://handlebarsjs.com
 Category: template
 */
 
-import * as regex from '../lib/regex'
+import * as regex from '../lib/regex.js'
 
 export default function(hljs) {
   const BUILT_INS = {

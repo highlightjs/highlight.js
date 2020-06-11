@@ -5,7 +5,7 @@
  Website: https://groovy-lang.org
  */
 
-import * as regex from "../lib/regex";
+import * as regex from '../lib/regex.js';
 
 function variants(variants, obj = {}) {
   obj.variants = variants;
