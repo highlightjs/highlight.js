@@ -16,6 +16,6 @@
         }
     }
 
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TesterA</span>&lt;R, S&gt;  <span class="hljs-keyword">where</span> <span class="hljs-title">R</span> : <span class="hljs-keyword">class</span> <span class="hljs-keyword">where</span> <span class="hljs-title">S</span> : <span class="hljs-title">IComparable</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TesterA</span>&lt;<span class="hljs-title">R</span>, <span class="hljs-title">S</span>&gt;  <span class="hljs-keyword">where</span> <span class="hljs-title">R</span> : <span class="hljs-keyword">class</span> <span class="hljs-keyword">where</span> <span class="hljs-title">S</span> : <span class="hljs-title">IComparable</span>
     {}
 }
