@@ -91,8 +91,11 @@ export default function(hljs) {
   var GENERIC_MODIFIER = {
     begin: "<",
     end: ">",
-    keywords: "in out",
-    contains: [ TITLE_MODE ]
+    contains: [ 
+      { className: "keyword", begin: "in\\s" },
+      { className: "keyword", begin: "out\\s" },
+      TITLE_MODE 
+    ]
   };
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
   var AT_IDENTIFIER = {
