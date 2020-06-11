@@ -19,7 +19,7 @@ TODO: Remove in version 11.0.
 */
 
 // compile time dependency on handlebars
-import handlebars from "./handlebars"
+import handlebars from "./handlebars.js"
 
 export default function(hljs) {
   const definition = handlebars(hljs)
