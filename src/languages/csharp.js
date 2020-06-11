@@ -92,8 +92,7 @@ export default function(hljs) {
     begin: "<",
     end: ">",
     contains: [ 
-      { className: "keyword", begin: "in\\s" },
-      { className: "keyword", begin: "out\\s" },
+      { beginKeywords: "in out"},
       TITLE_MODE 
     ]
   };
