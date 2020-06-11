@@ -91,7 +91,10 @@ export default function(hljs) {
   var GENERIC_MODIFIER = {
     begin: "<",
     end: ">",
-    keywords: "in out"
+    contains: [ 
+      { beginKeywords: "in out"},
+      TITLE_MODE 
+    ]
   };
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
   var AT_IDENTIFIER = {
@@ -177,13 +180,16 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
+        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
         end: /\s*[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           {
-            begin: hljs.IDENT_RE + '\\s*\\(', returnBegin: true,
-            contains: [hljs.TITLE_MODE],
+            begin: hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
+            contains: [
+              hljs.TITLE_MODE,
+              GENERIC_MODIFIER
+            ],
             relevance: 0
           },
           {
