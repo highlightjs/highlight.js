@@ -36,12 +36,22 @@ module.exports = {
       "indent": ["error", 2, {"VariableDeclarator":2}],
       // seems like a good idea not to use explicit undefined
       "no-undefined": "error",
+      // ensure import specifier contains file extension
+      "import/extensions": ["error", "always"],
 
       // TODO maybe
       "camelcase": "off", // TODO: turn on later
       "init-declarations": ["error","always"]
     },
     "overrides": [
+      {
+        "files": ["src/**/*.js"],
+        "rules": {
+          // make sure there is no Node.js specific API slipping into the source files
+          "import/no-nodejs-modules": "error",
+          "import/no-commonjs": "error",
+        }
+      },
       {
         "files": ["src/languages/*.js"],
         "rules": {

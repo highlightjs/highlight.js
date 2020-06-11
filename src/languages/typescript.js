@@ -7,7 +7,7 @@ Website: https://www.typescriptlang.org
 Category: common, scripting
 */
 
-import * as ECMAScript from "./lib/ecmascript";
+import * as ECMAScript from './lib/ecmascript.js';
 
 export default function(hljs) {
   var IDENT_RE = ECMAScript.IDENT_RE;

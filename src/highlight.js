@@ -3,13 +3,13 @@ Syntax highlighting with language autodetection.
 https://highlightjs.org/
 */
 
-import deepFreeze from './vendor/deep_freeze';
-import Response from './lib/response';
-import TokenTreeEmitter from './lib/token_tree';
-import * as regex from './lib/regex';
-import * as utils from './lib/utils';
-import * as MODES from './lib/modes';
-import { compileLanguage } from './lib/mode_compiler';
+import deepFreeze from './vendor/deep_freeze.js';
+import Response from './lib/response.js';
+import TokenTreeEmitter from './lib/token_tree.js';
+import * as regex from './lib/regex.js';
+import * as utils from './lib/utils.js';
+import * as MODES from './lib/modes.js';
+import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
 
 const escape = utils.escapeHTML;
