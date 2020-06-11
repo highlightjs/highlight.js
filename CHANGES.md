@@ -1,4 +1,4 @@
-## Version 10.1.0 (in progress)
+## Version 10.1.0
 
 New themes:
 
