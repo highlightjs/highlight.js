@@ -78,7 +78,7 @@ export default function(hljs) {
     contains: EXPRESSIONS.concat([
       hljs.COMMENT('--', '$'),
       {
-        className: 'function',  // function: -> =>
+        className: 'function', // function: -> =>
         begin: '^\\s*' + JS_IDENT_RE + '\\s*=\\s*' + PARAMS_RE, end: '[-=]>',
         returnBegin: true,
         contains: [TITLE, PARAMS]
@@ -111,7 +111,7 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'name',    // table
+        className: 'name', // table
         begin: JS_IDENT_RE + ':', end: ':',
         returnBegin: true, returnEnd: true,
         relevance: 0

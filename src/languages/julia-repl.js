@@ -44,5 +44,5 @@ export default function(hljs) {
       aliases: ['jldoctest']
       }
     ]
-  }
+  };
 }

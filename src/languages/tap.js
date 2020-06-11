@@ -26,12 +26,12 @@ export default function(hljs) {
         subLanguage: 'yaml',
         relevance: 0
       },
-	  // testcase number
+    // testcase number
       {
         className: 'number',
         begin: ' (\\d+) '
       },
-	  // testcase status and description
+    // testcase status and description
       {
         className: 'symbol',
         variants: [

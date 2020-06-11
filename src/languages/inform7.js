@@ -49,7 +49,7 @@ export default function(hljs) {
         end: ':',
         contains: [
           {
-            //Rule name
+            // Rule name
             begin: '\\(This', end: '\\)'
           }
         ]

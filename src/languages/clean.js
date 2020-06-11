@@ -9,7 +9,7 @@ Website: http://clean.cs.ru.nl
 export default function(hljs) {
   return {
     name: 'Clean',
-    aliases: ['clean','icl','dcl'],
+    aliases: ['clean', 'icl', 'dcl'],
     keywords: {
       keyword:
         'if let in with where case of class instance otherwise ' +

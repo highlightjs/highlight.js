@@ -7,21 +7,25 @@ Category: common, css
 */
 
 export default function(hljs) {
-  var IDENT_RE        = '[\\w-]+'; // yes, Less identifiers may begin with a digit
+  var IDENT_RE = '[\\w-]+'; // yes, Less identifiers may begin with a digit
   var INTERP_IDENT_RE = '(' + IDENT_RE + '|@{' + IDENT_RE + '})';
 
   /* Generic Modes */
 
-  var RULES = [], VALUE = []; // forward def. for recursive modes
+  var RULES = []; var VALUE = []; // forward def. for recursive modes
 
-  var STRING_MODE = function(c) { return {
+  var STRING_MODE = function(c) {
+ return {
     // Less strings are not multiline (also include '~' for more consistent coloring of "escaped" strings)
     className: 'string', begin: '~?' + c + '.*?' + c
-  };};
+  };
+};
 
-  var IDENT_MODE = function(name, begin, relevance) { return {
+  var IDENT_MODE = function(name, begin, relevance) {
+ return {
     className: name, begin: begin, relevance: relevance
-  };};
+  };
+};
 
   var PARENS_MODE = {
     // used only to properly balance nested parens inside mixin call, def. arg list
@@ -42,7 +46,7 @@ export default function(hljs) {
     IDENT_MODE('number', '#[0-9A-Fa-f]+\\b'),
     PARENS_MODE,
     IDENT_MODE('variable', '@@?' + IDENT_RE, 10),
-    IDENT_MODE('variable', '@{'  + IDENT_RE + '}'),
+    IDENT_MODE('variable', '@{' + IDENT_RE + '}'),
     IDENT_MODE('built_in', '~?`[^`]*?`'), // inline javascript (or whatever host language) *multiline* string
     { // @media features (it’s here to not duplicate things in AT_RULE_MODE with extra PARENS_MODE overriding):
       className: 'attribute', begin: IDENT_RE + '\\s*:', end: ':', returnBegin: true, excludeEnd: true
@@ -105,7 +109,7 @@ export default function(hljs) {
     // then fall into the scary lookahead-discriminator variant.
     // this mode also handles mixin definitions and calls
     variants: [{
-      begin: '[\\.#:&\\[>]', end: '[;{}]'  // mixin calls end with ';'
+      begin: '[\\.#:&\\[>]', end: '[;{}]' // mixin calls end with ';'
       }, {
       begin: INTERP_IDENT_RE, end: '{'
     }],
@@ -117,12 +121,12 @@ export default function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       MIXIN_GUARD_MODE,
-      IDENT_MODE('keyword',  'all\\b'),
-      IDENT_MODE('variable', '@{'  + IDENT_RE + '}'),     // otherwise it’s identified as tag
-      IDENT_MODE('selector-tag',  INTERP_IDENT_RE + '%?', 0), // '%' for more consistent coloring of @keyframes "tags"
+      IDENT_MODE('keyword', 'all\\b'),
+      IDENT_MODE('variable', '@{' + IDENT_RE + '}'), // otherwise it’s identified as tag
+      IDENT_MODE('selector-tag', INTERP_IDENT_RE + '%?', 0), // '%' for more consistent coloring of @keyframes "tags"
       IDENT_MODE('selector-id', '#' + INTERP_IDENT_RE),
       IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),
-      IDENT_MODE('selector-tag',  '&', 0),
+      IDENT_MODE('selector-tag', '&', 0),
       {className: 'selector-attr', begin: '\\[', end: '\\]'},
       {className: 'selector-pseudo', begin: /:(:)?[a-zA-Z0-9\_\-\+\(\)"'.]+/},
       {begin: '\\(', end: '\\)', contains: VALUE_WITH_RULESETS}, // argument list of parametric mixins

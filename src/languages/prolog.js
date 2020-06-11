@@ -6,7 +6,6 @@ Website: https://en.wikipedia.org/wiki/Prolog
 */
 
 export default function(hljs) {
-
   var ATOM = {
 
     begin: /[a-z][A-Za-z0-9_]*/,

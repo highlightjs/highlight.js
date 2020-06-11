@@ -18,8 +18,8 @@ export default function(hljs) {
         '^/{4,}\\n',
         '\\n/{4,}$',
         // can also be done as...
-        //'^/{4,}$',
-        //'^/{4,}$',
+        // '^/{4,}$',
+        // '^/{4,}$',
         {
           relevance: 10
         }

@@ -141,7 +141,6 @@ export default function(hljs) {
       }, 'self']
     };
 
-
   var CONTAINS = [
     VAR,
     BUILT_IN,
@@ -153,16 +152,6 @@ export default function(hljs) {
     COMPUTED,
     DIRECT
   ];
-
-
-
-    var METHOD = {
-      begin: '{',
-      end: '}',
-      contains: CONTAINS
-    };
-
-
 
   return {
     name: 'XQuery',

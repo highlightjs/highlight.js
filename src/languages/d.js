@@ -54,31 +54,31 @@ export default function(hljs) {
    *
    * @type {String}
    */
-  var decimal_integer_re = '(0|[1-9][\\d_]*)',
-    decimal_integer_nosus_re = '(0|[1-9][\\d_]*|\\d[\\d_]*|[\\d_]+?\\d)',
-    binary_integer_re = '0[bB][01_]+',
-    hexadecimal_digits_re = '([\\da-fA-F][\\da-fA-F_]*|_[\\da-fA-F][\\da-fA-F_]*)',
-    hexadecimal_integer_re = '0[xX]' + hexadecimal_digits_re,
+  var decimal_integer_re = '(0|[1-9][\\d_]*)';
+    var decimal_integer_nosus_re = '(0|[1-9][\\d_]*|\\d[\\d_]*|[\\d_]+?\\d)';
+    var binary_integer_re = '0[bB][01_]+';
+    var hexadecimal_digits_re = '([\\da-fA-F][\\da-fA-F_]*|_[\\da-fA-F][\\da-fA-F_]*)';
+    var hexadecimal_integer_re = '0[xX]' + hexadecimal_digits_re;
 
-    decimal_exponent_re = '([eE][+-]?' + decimal_integer_nosus_re + ')',
-    decimal_float_re = '(' + decimal_integer_nosus_re + '(\\.\\d*|' + decimal_exponent_re + ')|' +
+    var decimal_exponent_re = '([eE][+-]?' + decimal_integer_nosus_re + ')';
+    var decimal_float_re = '(' + decimal_integer_nosus_re + '(\\.\\d*|' + decimal_exponent_re + ')|' +
                 '\\d+\\.' + decimal_integer_nosus_re + decimal_integer_nosus_re + '|' +
                 '\\.' + decimal_integer_re + decimal_exponent_re + '?' +
-              ')',
-    hexadecimal_float_re = '(0[xX](' +
-                  hexadecimal_digits_re + '\\.' + hexadecimal_digits_re + '|'+
+              ')';
+    var hexadecimal_float_re = '(0[xX](' +
+                  hexadecimal_digits_re + '\\.' + hexadecimal_digits_re + '|' +
                   '\\.?' + hexadecimal_digits_re +
-                 ')[pP][+-]?' + decimal_integer_nosus_re + ')',
+                 ')[pP][+-]?' + decimal_integer_nosus_re + ')';
 
-    integer_re = '(' +
+    var integer_re = '(' +
       decimal_integer_re + '|' +
-      binary_integer_re  + '|' +
-       hexadecimal_integer_re   +
-    ')',
+      binary_integer_re + '|' +
+       hexadecimal_integer_re +
+    ')';
 
-    float_re = '(' +
+    var float_re = '(' +
       hexadecimal_float_re + '|' +
-      decimal_float_re  +
+      decimal_float_re +
     ')';
 
   /**
@@ -87,13 +87,13 @@ export default function(hljs) {
    * @type {String}
    */
   var escape_sequence_re = '\\\\(' +
-              '[\'"\\?\\\\abfnrtv]|' +  // common escapes
-              'u[\\dA-Fa-f]{4}|' +     // four hex digit unicode codepoint
-              '[0-7]{1,3}|' +       // one to three octal digit ascii char code
-              'x[\\dA-Fa-f]{2}|' +    // two hex digit ascii char code
-              'U[\\dA-Fa-f]{8}' +      // eight hex digit unicode codepoint
+              '[\'"\\?\\\\abfnrtv]|' + // common escapes
+              'u[\\dA-Fa-f]{4}|' + // four hex digit unicode codepoint
+              '[0-7]{1,3}|' + // one to three octal digit ascii char code
+              'x[\\dA-Fa-f]{2}|' + // two hex digit ascii char code
+              'U[\\dA-Fa-f]{8}' + // eight hex digit unicode codepoint
               ')|' +
-              '&[a-zA-Z\\d]{2,};';      // named character entity
+              '&[a-zA-Z\\d]{2,};'; // named character entity
 
   /**
    * D integer number literals

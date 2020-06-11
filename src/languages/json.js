@@ -11,7 +11,7 @@ export default function(hljs) {
   var ALLOWED_COMMENTS = [
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE
-  ]
+  ];
   var TYPES = [
     hljs.QUOTE_STRING_MODE,
     hljs.C_NUMBER_MODE
@@ -41,8 +41,8 @@ export default function(hljs) {
   };
   TYPES.push(OBJECT, ARRAY);
   ALLOWED_COMMENTS.forEach(function(rule) {
-    TYPES.push(rule)
-  })
+    TYPES.push(rule);
+  });
   return {
     name: 'JSON',
     contains: TYPES,

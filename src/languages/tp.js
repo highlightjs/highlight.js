@@ -4,7 +4,6 @@ Author: Jay Strybis <jay.strybis@gmail.com>
 Description: FANUC TP programming language (TPP).
 */
 
-
 export default function(hljs) {
   var TPID = {
     className: 'number',

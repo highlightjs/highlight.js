@@ -44,7 +44,7 @@ export default function(hljs) {
         relevance: 0
       },
       /* Excel formula comments are done by putting the comment in a function call to N() */
-      hljs.COMMENT(/\bN\(/,/\)/,
+      hljs.COMMENT(/\bN\(/, /\)/,
       {
         excludeBegin: true,
         excludeEnd: true,

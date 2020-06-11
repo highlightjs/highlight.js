@@ -130,5 +130,5 @@ export default function(hljs) {
         begin: '=>' // No markup, just a relevance booster
       }
     ]
-  }
+  };
 }

@@ -3,6 +3,7 @@ Language: FIX
 Author: Brent Bradbury <brent@brentium.com>
 */
 
+/* eslint no-control-regex: "off" */
 export default function(hljs) {
   return {
     name: 'FIX',

@@ -99,7 +99,7 @@ export default function(hljs) {
   var TYPES_RE =
     TYPES.trim()
          .split(' ')
-         .map( function(val) { return val.split('|')[0]; } )
+         .map(function(val) { return val.split('|')[0]; })
          .join('|');
 
   var SQL_BI =
@@ -286,12 +286,12 @@ export default function(hljs) {
     var FUNCTIONS_RE =
       FUNCTIONS.trim()
                .split(' ')
-               .map( function(val) { return val.split('|')[0]; } )
+               .map(function(val) { return val.split('|')[0]; })
                .join('|');
 
     return {
         name: 'PostgreSQL',
-        aliases: ['postgres','postgresql'],
+        aliases: ['postgres', 'postgresql'],
         case_insensitive: true,
         keywords: {
           keyword:
@@ -354,7 +354,7 @@ export default function(hljs) {
           // functions named as keywords, followed by '('
           {
             begin: /\b(FORMAT|FAMILY|VERSION)\s*\(/,
-            //keywords: { built_in: 'FORMAT FAMILY VERSION' }
+            // keywords: { built_in: 'FORMAT FAMILY VERSION' }
           },
           // INCLUDE ( ... ) in index_parameters in CREATE TABLE
           {
@@ -372,7 +372,7 @@ export default function(hljs) {
           },
           // PG_smth; HAS_some_PRIVILEGE
           {
-            //className: 'built_in',
+            // className: 'built_in',
             begin: /\b(PG_\w+?|HAS_[A-Z_]+_PRIVILEGE)\b/,
             relevance: 10
           },
@@ -382,7 +382,7 @@ export default function(hljs) {
             end: /\bFROM\b/,
             returnEnd: true,
             keywords: {
-              //built_in: 'EXTRACT',
+              // built_in: 'EXTRACT',
               type:     'CENTURY DAY DECADE DOW DOY EPOCH HOUR ISODOW ISOYEAR MICROSECONDS ' +
                         'MILLENNIUM MILLISECONDS MINUTE MONTH QUARTER SECOND TIMEZONE TIMEZONE_HOUR ' +
                         'TIMEZONE_MINUTE WEEK YEAR'
@@ -392,7 +392,7 @@ export default function(hljs) {
           {
             begin: /\b(XMLELEMENT|XMLPI)\s*\(\s*NAME/,
             keywords: {
-              //built_in: 'XMLELEMENT XMLPI',
+              // built_in: 'XMLELEMENT XMLPI',
               keyword:  'NAME'
             }
           },
@@ -400,7 +400,7 @@ export default function(hljs) {
           {
             begin: /\b(XMLPARSE|XMLSERIALIZE)\s*\(\s*(DOCUMENT|CONTENT)/,
             keywords: {
-              //built_in: 'XMLPARSE XMLSERIALIZE',
+              // built_in: 'XMLPARSE XMLSERIALIZE',
               keyword:  'DOCUMENT CONTENT'
             }
           },
@@ -434,7 +434,7 @@ export default function(hljs) {
           // Known functions - only when followed by '('
           {
             begin: '\\b(' + FUNCTIONS_RE + ')\\s*\\('
-            //keywords: { built_in: FUNCTIONS }
+            // keywords: { built_in: FUNCTIONS }
           },
           // Types
           {
@@ -444,7 +444,7 @@ export default function(hljs) {
             begin: '\\b(' + TYPES_RE + ')\\s+PATH\\b', // in XMLTABLE
             keywords: {
               keyword: 'PATH', // hopefully no one would use PATH type in XMLTABLE...
-              type: TYPES.replace('PATH ','')
+              type: TYPES.replace('PATH ', '')
             }
           },
           {
@@ -470,7 +470,7 @@ export default function(hljs) {
               {
                 // actually we want them all except SQL; listed are those with known implementations
                 // and XML + JSON just in case
-                subLanguage: ['pgsql','perl','python','tcl','r','lua','java','php','ruby','bash','scheme','xml','json'],
+                subLanguage: ['pgsql', 'perl', 'python', 'tcl', 'r', 'lua', 'java', 'php', 'ruby', 'bash', 'scheme', 'xml', 'json'],
                 endsWithParent: true
               }
             ]
@@ -491,8 +491,8 @@ export default function(hljs) {
             className: 'meta',
             variants: [
               {begin: '%(ROW)?TYPE', relevance: 10}, // %TYPE, %ROWTYPE
-              {begin: '\\$\\d+'},                    // $n
-              {begin: '^#\\w', end: '$'}             // #compiler option
+              {begin: '\\$\\d+'}, // $n
+              {begin: '^#\\w', end: '$'} // #compiler option
             ]
           },
           // <<labeles>>

@@ -7,7 +7,6 @@ Website: https://www.scala-lang.org
 */
 
 export default function(hljs) {
-
   var ANNOTATION = { className: 'meta', begin: '@[A-Za-z]+' };
 
   // used in strings for escaping/interpolation/substitution

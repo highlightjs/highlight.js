@@ -7,9 +7,8 @@ Website: https://docs.microsoft.com/en-us/powershell/
 */
 
 export default function(hljs) {
-
   var TYPES =
-    ["string", "char", "byte", "int", "long", "bool",  "decimal",  "single",
+    ["string", "char", "byte", "int", "long", "bool", "decimal", "single",
      "double", "DateTime", "xml", "array", "hashtable", "void"];
 
   // https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx
@@ -170,29 +169,10 @@ export default function(hljs) {
     ]
   };
 
-  var STATIC_MEMBER = {
-    className: 'selector-tag',
-    begin: /::\w+\b/, end: /$/,
-    returnBegin: true,
-    contains: [
-      { className: 'attribute', begin: /\w+/, endsParent: true }
-    ]
-  };
-
   var HASH_SIGNS = {
     className: 'selector-tag',
     begin: /\@\B/,
     relevance: 0
-  };
-
-  var PS_NEW_OBJECT_TYPE = {
-    className: 'built_in',
-    begin: /New-Object\s+\w/, end: /$/,
-    returnBegin: true,
-    contains: [
-      { begin: /New-Object\s+/, relevance: 0 },
-      { className: 'meta', begin: /([\w\.])+/, endsParent: true }
-    ]
   };
 
   // It's a very general rule so I'll narrow it a bit with some strict boundaries
@@ -242,7 +222,7 @@ export default function(hljs) {
     )
   };
 
-  PS_METHODS.contains.unshift(PS_TYPE)
+  PS_METHODS.contains.unshift(PS_TYPE);
 
   return {
     name: 'PowerShell',

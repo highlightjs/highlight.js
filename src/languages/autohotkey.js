@@ -31,17 +31,17 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'variable', //subst would be the most accurate however fails the point of highlighting. variable is comparably the most accurate that actually has some effect
+        className: 'variable', // subst would be the most accurate however fails the point of highlighting. variable is comparably the most accurate that actually has some effect
         begin: '%[a-zA-Z0-9#_$@]+%'
       },
       {
         className: 'built_in',
         begin: '^\\s*\\w+\\s*(,|%)'
-        //I don't really know if this is totally relevant
+        // I don't really know if this is totally relevant
       },
       {
-        className: 'title', //symbol would be most accurate however is higlighted just like built_in and that makes up a lot of AutoHotkey code
-		                        //meaning that it would fail to highlight anything
+        className: 'title', // symbol would be most accurate however is higlighted just like built_in and that makes up a lot of AutoHotkey code
+                            // meaning that it would fail to highlight anything
         variants: [
           {begin: '^[^\\n";]+::(?!=)'},
           {begin: '^[^\\n";]+:(?!=)', relevance: 0} // zero relevance as it catches a lot of things
@@ -53,7 +53,7 @@ export default function(hljs) {
         begin: '^\\s*#\\w+', end:'$',
         relevance: 0
       },
-	    {
+      {
         className: 'built_in',
         begin: 'A_[a-zA-Z0-9]+'
       },
@@ -62,5 +62,5 @@ export default function(hljs) {
         begin: ',\\s*,'
       }
     ]
-  }
+  };
 }

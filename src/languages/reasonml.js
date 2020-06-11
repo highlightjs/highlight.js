@@ -6,7 +6,7 @@ Author: Gidi Meir Morris <oss@gidi.io>
 Category: functional
 */
 export default function(hljs) {
-  function orReValues(ops){
+  function orReValues(ops) {
     return ops
     .map(function(op) {
       return op

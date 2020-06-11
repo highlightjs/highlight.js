@@ -69,12 +69,6 @@ export default function(hljs) {
 
   var STRING = hljs.QUOTE_STRING_MODE;
 
-  var REGULAR_EXPRESSION = {
-    className: 'regexp',
-    begin: '#[pr]x"',
-    end: '[^\\\\]"'
-  };
-
   var COMMENT_MODES = [
     hljs.COMMENT(
       ';',

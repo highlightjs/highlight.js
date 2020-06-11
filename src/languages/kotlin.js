@@ -6,7 +6,6 @@
  Category: common
  */
 
-
 export default function(hljs) {
   var KEYWORDS = {
     keyword:
@@ -68,7 +67,7 @@ export default function(hljs) {
       }
     ]
   };
-  SUBST.contains.push(STRING)
+  SUBST.contains.push(STRING);
 
   var ANNOTATION_USE_SITE = {
     className: 'meta', begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
@@ -113,13 +112,13 @@ export default function(hljs) {
   );
   var KOTLIN_PAREN_TYPE = {
     variants: [
-	  { className: 'type',
-	    begin: hljs.UNDERSCORE_IDENT_RE
-	  },
-	  { begin: /\(/, end: /\)/,
-	    contains: [] //defined later
-	  }
-	]
+    { className: 'type',
+      begin: hljs.UNDERSCORE_IDENT_RE
+    },
+    { begin: /\(/, end: /\)/,
+      contains: [] // defined later
+    }
+  ]
   };
   var KOTLIN_PAREN_TYPE2 = KOTLIN_PAREN_TYPE;
   KOTLIN_PAREN_TYPE2.variants[1].contains = [ KOTLIN_PAREN_TYPE ];

@@ -7,9 +7,6 @@ Website: https://haxe.org
 */
 
 export default function(hljs) {
-  var IDENT_RE = '[a-zA-Z_$][a-zA-Z0-9_$]*';
-  var IDENT_FUNC_RETURN_TYPE_RE = '([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)';
-
   var HAXE_BASIC_TYPES = 'Int Float String Bool Dynamic Void Array ';
 
   return {
@@ -90,7 +87,7 @@ export default function(hljs) {
         }
       },
       { className: 'class', // classes
-        begin: '\\b(class|interface) +', end: '[\\{$]',  excludeEnd: true,
+        begin: '\\b(class|interface) +', end: '[\\{$]', excludeEnd: true,
         keywords: 'class interface',
         contains: [
           { className: 'keyword',

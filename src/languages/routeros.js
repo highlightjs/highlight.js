@@ -12,7 +12,6 @@ Website: https://wiki.mikrotik.com/wiki/Manual:Scripting
 //   light-brown  - #9A9900
 
 export default function(hljs) {
-
   var STATEMENTS = 'foreach do while for if from to step else on-error and or not in';
 
   // Global commands: Every global command should start with ":" token, otherwise it will be treated as variable.
@@ -31,8 +30,6 @@ export default function(hljs) {
   // ToDo: var OPERATORS = '&& and ! not || or in ~ ^ & << >> + - * /';
   // ToDo: var TYPES = 'num number bool boolean str string ip ip6-prefix id time array';
   // ToDo: The following tokens serve as delimiters in the grammar: ()  []  {}  :   ;   $   /
-
-  var VAR_PREFIX = 'global local set for foreach';
 
   var VAR = {
     className: 'variable',
@@ -61,9 +58,7 @@ export default function(hljs) {
     begin: /'/, end: /'/
   };
 
-  var IPADDR = '((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\b';
-  var IPADDR_wBITMASK =  IPADDR+'/(3[0-2]|[1-2][0-9]|\\d)';
-  //////////////////////////////////////////////////////////////////////
+  /// ///////////////////////////////////////////////////////////////////
   return {
     name: 'Microtik RouterOS script',
     aliases: ['routeros', 'mikrotik'],
@@ -76,16 +71,16 @@ export default function(hljs) {
     contains: [
       { // недопустимые конструкции
         variants: [
-          { begin: /^@/, end: /$/, },               // dns
-          { begin: /\/\*/, end: /\*\//, },          // -- comment
-          { begin: /%%/, end: /$/, },               // -- comment
-          { begin: /^'/, end: /$/, },               // Monkey one line comment
-          { begin: /^\s*\/[\w-]+=/, end: /$/, },    // jboss-cli
-          { begin: /\/\//, end: /$/, },             // Stan comment
-          { begin: /^\[\</, end: /\>\]$/, },        // F# class declaration?
-          { begin: /<\//, end: />/, },              // HTML tags
-          { begin: /^facet /, end: /\}/, },         // roboconf - лютый костыль )))
-          { begin: '^1\\.\\.(\\d+)$', end: /$/, },  // tap
+          { begin: /^@/, end: /$/, }, // dns
+          { begin: /\/\*/, end: /\*\//, }, // -- comment
+          { begin: /%%/, end: /$/, }, // -- comment
+          { begin: /^'/, end: /$/, }, // Monkey one line comment
+          { begin: /^\s*\/[\w-]+=/, end: /$/, }, // jboss-cli
+          { begin: /\/\//, end: /$/, }, // Stan comment
+          { begin: /^\[\</, end: /\>\]$/, }, // F# class declaration?
+          { begin: /<\//, end: />/, }, // HTML tags
+          { begin: /^facet /, end: /\}/, }, // roboconf - лютый костыль )))
+          { begin: '^1\\.\\.(\\d+)$', end: /$/, }, // tap
         ],
         illegal: /./,
       },
@@ -114,7 +109,7 @@ export default function(hljs) {
                 className: 'literal',
                 begin: '\\b(' + LITERALS.split(' ').join('|') + ')\\b',
               },
-              /*{
+              /* {
                 // IPv4 addresses and subnets
                 className: 'number',
                 variants: [
@@ -123,32 +118,32 @@ export default function(hljs) {
                   {begin: IPADDR+'(,'+IPADDR+')*'}, // 192.168.0.1,192.168.0.34,192.168.24.1,192.168.0.1
                 ]
               }, // */
-              /*{
+              /* {
                 // MAC addresses and DHCP Client IDs
                 className: 'number',
                 begin: /\b(1:)?([0-9A-Fa-f]{1,2}[:-]){5}([0-9A-Fa-f]){1,2}\b/,
-              }, //*/
+              }, // */
               {
                 // Не форматировать не классифицированные значения. Необходимо для исключения подсветки значений как built_in.
                 // className: 'number',
                 begin: /("[^"]*"|[^\s\{\}\[\]]+)/,
-              }, //*/
+              }, //* /
             ]
-          } //*/
+          } //* /
         ]
-      },//*/
+      }, //* /
       {
         // HEX values
         className: 'number',
         begin: /\*[0-9a-fA-F]+/,
-      }, //*/
+      }, //* /
 
       {
         begin: '\\b(' + COMMON_COMMANDS.split(' ').join('|') + ')([\\s\[\(]|\])',
         returnBegin: true,
         contains: [
           {
-            className: 'builtin-name', //'function',
+            className: 'builtin-name', // 'function',
             begin: /\w+/,
           },
         ],
@@ -157,14 +152,10 @@ export default function(hljs) {
       {
         className: 'built_in',
         variants: [
-          {begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+',relevance: 10,},
-          {begin: /\.\./,},
+          {begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+', relevance: 10, },
+          {begin: /\.\./, },
         ],
-      },//*/
+      }, //* /
     ]
   };
 }
-
-
-
-

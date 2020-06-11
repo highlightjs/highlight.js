@@ -16,7 +16,7 @@ export default function(hljs) {
     literal: 'False None True'
   };
   var PROMPT = {
-    className: 'meta',  begin: /^(>>>|\.\.\.) /
+    className: 'meta', begin: /^(>>>|\.\.\.) /
   };
   var SUBST = {
     className: 'subst',

@@ -23,12 +23,12 @@
   "main": "./lib/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
-    "mocha": "mocha",
+    "lint": "eslint -c .eslintrc.json src/",
     "build_and_test": "npm run build && npm run test",
     "build": "node ./tools/build.js -t node",
     "build-cdn": "node ./tools/build.js -t cdn",
     "build-browser": "node ./tools/build.js -t browser :common",
-    "test": "mocha --globals document test",
+    "test": "npm run lint && mocha --globals document test",
     "test-markup": "mocha --globals document test/markup",
     "test-detect": "mocha --globals document test/detect",
     "test-browser": "mocha --globals document test/browser"
@@ -37,15 +37,13 @@
     "node": "*"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.0.0",
-    "@typescript-eslint/parser": "^3.0.0",
     "clean-css": "^4.2.1",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
     "commander": "^5.0.0",
     "del": "^5.1.0",
     "dependency-resolver": "^2.0.1",
-    "eslint": "^6.8.0",
+    "eslint": "^7.2.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",

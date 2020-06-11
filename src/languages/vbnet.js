@@ -24,7 +24,7 @@ export default function(hljs) {
         'select set shadows shared skip static step stop structure strict sub synclock ' + /* s */
         'take text then throw to try unicode until using when where while widening with withevents writeonly xor yield', /* t-y */
       built_in:
-        'boolean byte cbool cbyte cchar cdate cdec cdbl char cint clng cobj csbyte cshort csng cstr ctype ' +  /* b-c */
+        'boolean byte cbool cbyte cchar cdate cdec cdbl char cint clng cobj csbyte cshort csng cstr ctype ' + /* b-c */
         'date decimal directcast double gettype getxmlnamespace iif integer long object ' + /* d-o */
         'sbyte short single string trycast typeof uinteger ulong ushort', /* s-u */
       literal:

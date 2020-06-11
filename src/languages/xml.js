@@ -11,14 +11,14 @@ export default function(hljs) {
     begin: '&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;'
   };
   var XML_META_KEYWORDS = {
-	  begin: '\\s',
-	  contains:[
-	    {
-	      className: 'meta-keyword',
-	      begin: '#?[a-z_][a-z1-9_-]+',
-	      illegal: '\\n',
+    begin: '\\s',
+    contains:[
+      {
+        className: 'meta-keyword',
+        begin: '#?[a-z_][a-z1-9_-]+',
+        illegal: '\\n',
       }
-	  ]
+    ]
   };
   var XML_META_PAR_KEYWORDS = hljs.inherit(XML_META_KEYWORDS, {begin: '\\(', end: '\\)'});
   var APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, {className: 'meta-string'});
@@ -60,26 +60,26 @@ export default function(hljs) {
         begin: '<![a-z]', end: '>',
         relevance: 10,
         contains: [
-				  XML_META_KEYWORDS,
-				  QUOTE_META_STRING_MODE,
-				  APOS_META_STRING_MODE,
-					XML_META_PAR_KEYWORDS,
-					{
-					  begin: '\\[', end: '\\]',
-					  contains:[
-						  {
-					      className: 'meta',
-					      begin: '<![a-z]', end: '>',
-					      contains: [
-					        XML_META_KEYWORDS,
-					        XML_META_PAR_KEYWORDS,
-					        QUOTE_META_STRING_MODE,
-					        APOS_META_STRING_MODE
-						    ]
-			        }
-					  ]
-				  }
-				]
+          XML_META_KEYWORDS,
+          QUOTE_META_STRING_MODE,
+          APOS_META_STRING_MODE,
+          XML_META_PAR_KEYWORDS,
+          {
+            begin: '\\[', end: '\\]',
+            contains:[
+              {
+                className: 'meta',
+                begin: '<![a-z]', end: '>',
+                contains: [
+                  XML_META_KEYWORDS,
+                  XML_META_PAR_KEYWORDS,
+                  QUOTE_META_STRING_MODE,
+                  APOS_META_STRING_MODE
+                ]
+              }
+            ]
+          }
+        ]
       },
       hljs.COMMENT(
         '<!--',

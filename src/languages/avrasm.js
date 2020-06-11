@@ -59,9 +59,9 @@ export default function(hljs) {
         begin: '\'', end: '[^\\\\]\'',
         illegal: '[^\\\\][^\']'
       },
-      {className: 'symbol',  begin: '^[A-Za-z0-9_.$]+:'},
+      {className: 'symbol', begin: '^[A-Za-z0-9_.$]+:'},
       {className: 'meta', begin: '#', end: '$'},
-      {  // substitution within a macro
+      { // substitution within a macro
         className: 'subst',
         begin: '@[0-9]+'
       }

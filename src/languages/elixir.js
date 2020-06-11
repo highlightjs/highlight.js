@@ -25,7 +25,7 @@ export default function(hljs) {
     begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(.[0-9_]+([eE][-+]?[0-9]+)?)?)',
     relevance: 0
   };
-  var SIGIL_DELIMITERS = '[/|([{<"\']'
+  var SIGIL_DELIMITERS = '[/|([{<"\']';
   var LOWERCASE_SIGIL = {
     className: 'string',
     begin: '~[a-z]' + '(?=' + SIGIL_DELIMITERS + ')',

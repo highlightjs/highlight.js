@@ -15,7 +15,7 @@ export default function(hljs) {
       { begin: /:-/, contains: [VAR] } // default values
     ]
   };
-  Object.assign(VAR,{
+  Object.assign(VAR, {
     className: 'variable',
     variants: [
       {begin: /\$[\w\d#@][\w\d_]*/},

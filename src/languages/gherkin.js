@@ -5,7 +5,7 @@
  Website: https://cucumber.io/docs/gherkin/
  */
 
-export default function (hljs) {
+export default function(hljs) {
   return {
     name: 'Gherkin',
     aliases: ['feature'],

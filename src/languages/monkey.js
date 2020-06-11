@@ -78,5 +78,5 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       NUMBER
     ]
-  }
+  };
 }

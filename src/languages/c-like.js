@@ -18,12 +18,12 @@ export default function(hljs) {
   function optional(s) {
     return '(?:' + s + ')?';
   }
-  var DECLTYPE_AUTO_RE = 'decltype\\(auto\\)'
-  var NAMESPACE_RE = '[a-zA-Z_]\\w*::'
+  var DECLTYPE_AUTO_RE = 'decltype\\(auto\\)';
+  var NAMESPACE_RE = '[a-zA-Z_]\\w*::';
   var TEMPLATE_ARGUMENT_RE = '<.*?>';
   var FUNCTION_TYPE_RE = '(' +
     DECLTYPE_AUTO_RE + '|' +
-    optional(NAMESPACE_RE) +'[a-zA-Z_]\\w*' + optional(TEMPLATE_ARGUMENT_RE) +
+    optional(NAMESPACE_RE) + '[a-zA-Z_]\\w*' + optional(TEMPLATE_ARGUMENT_RE) +
   ')';
   var CPP_PRIMITIVE_TYPES = {
     className: 'keyword',
@@ -32,7 +32,7 @@ export default function(hljs) {
 
   // https://en.cppreference.com/w/cpp/language/escape
   // \\ \x \xFF \u2837 \u00323747 \374
-  var CHARACTER_ESCAPES = '\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4,8}|[0-7]{3}|\\S)'
+  var CHARACTER_ESCAPES = '\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4,8}|[0-7]{3}|\\S)';
   var STRINGS = {
     className: 'string',
     variants: [
@@ -62,7 +62,7 @@ export default function(hljs) {
     relevance: 0
   };
 
-  var PREPROCESSOR =       {
+  var PREPROCESSOR = {
     className: 'meta',
     begin: /#\s*[a-z]+\b/, end: /$/,
     keywords: {

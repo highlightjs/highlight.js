@@ -5,8 +5,7 @@
  Website: https://flix.dev/
  */
 
-export default function (hljs) {
-
+export default function(hljs) {
     var CHAR = {
         className: 'string',
         begin: /'(.|\\[xXuU][a-zA-Z0-9]+)'/

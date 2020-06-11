@@ -7,7 +7,6 @@ Category: css
 */
 
 export default function(hljs) {
-
   var VARIABLE = {
     className: 'variable',
     begin: '\\$' + hljs.IDENT_RE

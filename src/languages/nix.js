@@ -5,7 +5,6 @@ Description: Nix functional language
 Website: http://nixos.org/nix
 */
 
-
 export default function(hljs) {
   var NIX_KEYWORDS = {
     keyword:

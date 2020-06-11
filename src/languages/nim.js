@@ -58,5 +58,5 @@ export default function(hljs) {
       },
       hljs.HASH_COMMENT_MODE
     ]
-  }
+  };
 }

@@ -7,7 +7,7 @@ Website: https://handlebarsjs.com
 Category: template
 */
 
-import * as regex from '../lib/regex'
+import * as regex from '../lib/regex';
 
 export default function(hljs) {
   const BUILT_INS = {
@@ -57,11 +57,11 @@ export default function(hljs) {
   // this regex matches literal segments like ' abc ' or [ abc ] as well as helpers and paths
   // like a/b, ./abc/cde, and abc.bcd
 
-  const DOUBLE_QUOTED_ID_REGEX=/".*?"/;
-  const SINGLE_QUOTED_ID_REGEX=/'.*?'/;
-  const BRACKET_QUOTED_ID_REGEX=/\[.*?\]/;
-  const PLAIN_ID_REGEX=/[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+/;
-  const PATH_DELIMITER_REGEX=/\.|\//;
+  const DOUBLE_QUOTED_ID_REGEX = /".*?"/;
+  const SINGLE_QUOTED_ID_REGEX = /'.*?'/;
+  const BRACKET_QUOTED_ID_REGEX = /\[.*?\]/;
+  const PLAIN_ID_REGEX = /[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+/;
+  const PATH_DELIMITER_REGEX = /\.|\//;
 
   const IDENTIFIER_REGEX = regex.concat(
     '(',

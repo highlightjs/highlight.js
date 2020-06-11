@@ -41,12 +41,12 @@ export default function(hljs) {
         'std_ulogic std_ulogic_vector unresolved_unsigned u_unsigned unresolved_signed u_signed ' +
         'real_vector time_vector',
       literal:
-        'false true note warning error failure ' +  // severity_level
-        'line text side width'                      // textio
+        'false true note warning error failure ' + // severity_level
+        'line text side width' // textio
     },
     illegal: '{',
     contains: [
-      hljs.C_BLOCK_COMMENT_MODE,      // VHDL-2008 block commenting.
+      hljs.C_BLOCK_COMMENT_MODE, // VHDL-2008 block commenting.
       hljs.COMMENT('--', '$'),
       hljs.QUOTE_STRING_MODE,
       {

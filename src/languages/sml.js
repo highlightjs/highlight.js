@@ -52,7 +52,7 @@ export default function(hljs) {
         begin: '\\b[A-Z][\\w\']*',
         relevance: 0
       },
-      { /* don't color identifiers, but safely catch all identifiers with '*/
+      { /* don't color identifiers, but safely catch all identifiers with ' */
         begin: '[a-z_]\\w*\'[\\w\']*'
       },
       hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),

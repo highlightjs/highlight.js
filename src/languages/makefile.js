@@ -61,7 +61,7 @@ export default function(hljs) {
   var TARGET = {
     className: 'section',
     begin: /^[^\s]+:/, end: /$/,
-    contains: [VARIABLE,]
+    contains: [VARIABLE, ]
   };
   return {
     name: 'Makefile',

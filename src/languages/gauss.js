@@ -109,7 +109,6 @@ export default function(hljs) {
              'DB_TRANSACTIONS DB_UNICODE DB_VIEWS __STDIN __STDOUT __STDERR __FILE_DIR'
   };
 
-
   var AT_COMMENT_MODE = hljs.COMMENT('@', '@');
 
   var PREPROCESSOR =
@@ -181,7 +180,7 @@ export default function(hljs) {
     relevance: 0,
   };
 
-  var DEFINITION = function (beginKeywords, end, inherits) {
+  var DEFINITION = function(beginKeywords, end, inherits) {
     var mode = hljs.inherit(
       {
         className: "function",
@@ -215,7 +214,7 @@ export default function(hljs) {
 
   var FUNCTION_REF =
   {
-    //className: "fn_ref",
+    // className: "fn_ref",
     begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
     returnBegin: true,
     keywords: KEYWORDS,
@@ -235,7 +234,7 @@ export default function(hljs) {
 
   var FUNCTION_REF_PARAMS =
   {
-    //className: "fn_ref_params",
+    // className: "fn_ref_params",
     begin: /\(/,
     end: /\)/,
     relevance: 0,
@@ -275,7 +274,7 @@ export default function(hljs) {
       {
         beginKeywords: 'for threadfor',
         end: /;/,
-        //end: /\(/,
+        // end: /\(/,
         relevance: 0,
         contains: [
           hljs.C_BLOCK_COMMENT_MODE,

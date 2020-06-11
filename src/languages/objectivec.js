@@ -99,7 +99,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: '\\.'+hljs.UNDERSCORE_IDENT_RE,
+        begin: '\\.' + hljs.UNDERSCORE_IDENT_RE,
         relevance: 0
       }
     ]

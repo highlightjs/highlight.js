@@ -37,7 +37,7 @@ export default function(hljs) {
     className: 'subst',
     begin: '\\$\\{', end: '\\}',
     keywords: KEYWORDS,
-    contains: []  // defined later
+    contains: [] // defined later
   };
   var HTML_TEMPLATE = {
     begin: 'html`', end: '',

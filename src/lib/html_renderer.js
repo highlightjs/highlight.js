@@ -84,5 +84,4 @@ export default class HTMLRenderer {
   span(className) {
     this.buffer += `<span class="${className}">`;
   }
-
 }

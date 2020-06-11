@@ -26,5 +26,5 @@ export default function(hljs) {
           className: 'meta', begin: '@[A-Za-z]+'
         }
       ]
-    }
+    };
 }

@@ -15,10 +15,6 @@ export default function(hljs) {
     className: 'variable',
     begin: /<(?!\/)/, end: />/
   };
-  var QUOTE_STRING = {
-    className: 'string',
-    begin: /"/, end: /"/
-  };
 
   return {
     name: 'Packet Filter config',

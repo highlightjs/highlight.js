@@ -14,7 +14,7 @@ export default function(hljs) {
     'assert short package default double public try this switch continue throws privileged ' +
     'aspectOf adviceexecution proceed cflowbelow cflow initialization preinitialization ' +
     'staticinitialization withincode target within execution getWithinTypeName handler ' +
-    'thisJoinPoint thisJoinPointStaticPart thisEnclosingJoinPointStaticPart declare parents '+
+    'thisJoinPoint thisJoinPointStaticPart thisEnclosingJoinPointStaticPart declare parents ' +
     'warning error soft precedence thisAspectInstance';
   var SHORTKEYS = 'get set args call';
   return {

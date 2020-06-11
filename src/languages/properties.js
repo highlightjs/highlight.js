@@ -6,12 +6,11 @@ Category: common, config
 */
 
 export default function(hljs) {
-
   // whitespaces: space, tab, formfeed
   var WS0 = '[ \\t\\f]*';
   var WS1 = '[ \\t\\f]+';
   // delimiter
-  var DELIM = '(' + WS0+'[:=]'+WS0+ '|' + WS1 + ')';
+  var DELIM = '(' + WS0 + '[:=]' + WS0 + '|' + WS1 + ')';
   var KEY_ALPHANUM = '([^\\\\\\W:= \\t\\f\\n]|\\\\.)+';
   var KEY_OTHER = '([^\\\\:= \\t\\f\\n]|\\\\.)+';
 

@@ -18,7 +18,7 @@ export default function(hljs) {
     '\\(\\*',
     '\\*\\)',
     {
-      contains: ['self', COMMENT_MODE_1] //allow nesting
+      contains: ['self', COMMENT_MODE_1] // allow nesting
     }
   );
   var COMMENTS = [

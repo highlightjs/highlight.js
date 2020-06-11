@@ -8,7 +8,7 @@
  Category: scientific
  */
 
-export default function (hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:
       'abort acronym acronyms alias all and assign binary card diag display ' +

@@ -8,7 +8,6 @@ Category: scientific
 */
 
 export default function(hljs) {
-
   var COMMON_CONTAINS = [
     hljs.C_NUMBER_MODE,
     {
@@ -23,16 +22,16 @@ export default function(hljs) {
     aliases: ['sci'],
     keywords: {
       $pattern: /%?\w+/,
-      keyword: 'abort break case clear catch continue do elseif else endfunction end for function '+
+      keyword: 'abort break case clear catch continue do elseif else endfunction end for function ' +
         'global if pause return resume select try then while',
       literal:
         '%f %F %t %T %pi %eps %inf %nan %e %i %z %s',
       built_in: // Scilab has more than 2000 functions. Just list the most commons
-       'abs and acos asin atan ceil cd chdir clearglobal cosh cos cumprod deff disp error '+
-       'exec execstr exists exp eye gettext floor fprintf fread fsolve imag isdef isempty '+
-       'isinfisnan isvector lasterror length load linspace list listfiles log10 log2 log '+
-       'max min msprintf mclose mopen ones or pathconvert poly printf prod pwd rand real '+
-       'round sinh sin size gsort sprintf sqrt strcat strcmps tring sum system tanh tan '+
+       'abs and acos asin atan ceil cd chdir clearglobal cosh cos cumprod deff disp error ' +
+       'exec execstr exists exp eye gettext floor fprintf fread fsolve imag isdef isempty ' +
+       'isinfisnan isvector lasterror length load linspace list listfiles log10 log2 log ' +
+       'max min msprintf mclose mopen ones or pathconvert poly printf prod pwd rand real ' +
+       'round sinh sin size gsort sprintf sqrt strcat strcmps tring sum system tanh tan ' +
        'type typename warning zeros matrix'
     },
     illegal: '("|#|/\\*|\\s+/\\w+)',

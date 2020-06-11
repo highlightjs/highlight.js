@@ -177,7 +177,7 @@ export default function(hljs) {
     },
     {
       className: 'meta',
-      begin: '^('+SIMPLE_PROMPT+"|"+DEFAULT_PROMPT+'|'+RVM_PROMPT+')',
+      begin: '^(' + SIMPLE_PROMPT + "|" + DEFAULT_PROMPT + '|' + RVM_PROMPT + ')',
       starts: {
         end: '$', contains: RUBY_DEFAULT_CONTAINS
       }

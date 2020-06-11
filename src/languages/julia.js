@@ -61,7 +61,7 @@ export default function(hljs) {
     built_in:
       'ANY AbstractArray AbstractChannel AbstractFloat AbstractMatrix AbstractRNG AbstractSerializer AbstractSet ' +
       'AbstractSparseArray AbstractSparseMatrix AbstractSparseVector AbstractString AbstractUnitRange AbstractVecOrMat ' +
-      'AbstractVector Any ArgumentError Array AssertionError Associative Base64DecodePipe Base64EncodePipe Bidiagonal '+
+      'AbstractVector Any ArgumentError Array AssertionError Associative Base64DecodePipe Base64EncodePipe Bidiagonal ' +
       'BigFloat BigInt BitArray BitMatrix BitVector Bool BoundsError BufferStream CachingPool CapturedException ' +
       'CartesianIndex CartesianRange Cchar Cdouble Cfloat Channel Char Cint Cintmax_t Clong Clonglong ClusterManager ' +
       'Cmd CodeInfo Colon Complex Complex128 Complex32 Complex64 CompositeException Condition ConjArray ConjMatrix ' +
@@ -163,7 +163,7 @@ export default function(hljs) {
       begin:
         '\\b(((abstract|primitive)\\s+)type|(mutable\\s+)?struct)\\b'
     },
-    {begin: /<:/}  // relevance booster
+    {begin: /<:/} // relevance booster
   ];
   INTERPOLATION.contains = DEFAULT.contains;
 

@@ -6,7 +6,7 @@
  Category: config
  */
 
-export default function (hljs) {
+export default function(hljs) {
   var PARAM = {
     begin: /[\w-]+ *=/, returnBegin: true,
     relevance: 0,
@@ -51,5 +51,5 @@ export default function (hljs) {
       PATH,
       PARAMSBLOCK
     ]
-  }
+  };
 }

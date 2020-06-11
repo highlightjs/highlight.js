@@ -7,7 +7,6 @@ Website: https://swift.org
 Category: common, system
 */
 
-
 export default function(hljs) {
   var SWIFT_KEYWORDS = {
       keyword: '#available #colorLiteral #column #else #elseif #endif #file ' +
@@ -47,7 +46,7 @@ export default function(hljs) {
   var OPTIONAL_USING_TYPE = {
     className: 'type',
     begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]'
-  }
+  };
   var BLOCK_COMMENT = hljs.COMMENT(
     '/\\*',
     '\\*/',

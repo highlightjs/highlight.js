@@ -6,8 +6,8 @@ Website: https://sass-lang.com
 Category: common, css
 */
 export default function(hljs) {
-  var AT_IDENTIFIER = '@[a-z-]+' // @font-face
-  var AT_MODIFIERS = "and or not only"
+  var AT_IDENTIFIER = '@[a-z-]+'; // @font-face
+  var AT_MODIFIERS = "and or not only";
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   var VARIABLE = {
     className: 'variable',
@@ -16,25 +16,7 @@ export default function(hljs) {
   var HEXCOLOR = {
     className: 'number', begin: '#[0-9A-Fa-f]+'
   };
-  var DEF_INTERNALS = {
-    className: 'attribute',
-    begin: '[A-Z\\_\\.\\-]+', end: ':',
-    excludeEnd: true,
-    illegal: '[^\\s]',
-    starts: {
-      endsWithParent: true, excludeEnd: true,
-      contains: [
-        HEXCOLOR,
-        hljs.CSS_NUMBER_MODE,
-        hljs.QUOTE_STRING_MODE,
-        hljs.APOS_STRING_MODE,
-        hljs.C_BLOCK_COMMENT_MODE,
-        {
-          className: 'meta', begin: '!important'
-        }
-      ]
-    }
-  };
+
   return {
     name: 'SCSS',
     case_insensitive: true,
