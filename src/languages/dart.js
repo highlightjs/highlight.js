@@ -8,23 +8,23 @@ Category: scripting
 */
 
 export default function(hljs) {
-  var SUBST = {
+  const SUBST = {
     className: 'subst',
     variants: [{
       begin: '\\$[A-Za-z0-9_]+'
     }],
   };
 
-  var BRACED_SUBST = {
+  const BRACED_SUBST = {
     className: 'subst',
     variants: [{
       begin: '\\${',
       end: '}'
-    }, ],
+    }],
     keywords: 'true false null this is new super',
   };
 
-  var STRING = {
+  const STRING = {
     className: 'string',
     variants: [{
         begin: 'r\'\'\'',
@@ -72,7 +72,7 @@ export default function(hljs) {
     hljs.C_NUMBER_MODE, STRING
   ];
 
-  var BUILT_IN_TYPES = [
+  const BUILT_IN_TYPES = [
     // dart:core
     'Comparable',
     'DateTime',
@@ -102,13 +102,13 @@ export default function(hljs) {
     'Element',
     'ElementList',
   ];
-  var NULLABLE_BUILT_IN_TYPES = BUILT_IN_TYPES.map((e) => `${e}?`);
+  const NULLABLE_BUILT_IN_TYPES = BUILT_IN_TYPES.map((e) => `${e}?`);
 
-  var KEYWORDS = {
+  const KEYWORDS = {
     keyword: 'abstract as assert async await break case catch class const continue covariant default deferred do ' +
       'dynamic else enum export extends extension external factory false final finally for Function get hide if ' +
       'implements import in inferface is late library mixin new null on operator part required rethrow return set ' +
-      'show static super switch sync this throw true try typedef var void while with yield',
+      'show static super switch sync this throw true try typedef const void while with yield',
     built_in:
       BUILT_IN_TYPES
         .concat(NULLABLE_BUILT_IN_TYPES)
