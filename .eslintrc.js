@@ -45,12 +45,16 @@ module.exports = {
     },
     "overrides": [
       {
-        "files": ["src/languages/*.js"],
+        "files": ["src/**/*.js"],
         "rules": {
           // make sure there is no Node.js specific API slipping into the source files
           "import/no-nodejs-modules": "error",
           "import/no-commonjs": "error",
-
+        }
+      },
+      {
+        "files": ["src/languages/*.js"],
+        "rules": {
           "no-unused-expressions": "off",
           // languages are all over the map and we don't want to
           // do a mass edit so turn off the most egregious rule violations
