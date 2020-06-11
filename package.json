@@ -24,6 +24,7 @@
   "types": "./types/index.d.ts",
   "scripts": {
     "mocha": "mocha",
+    "lint": "eslint -c .eslintrc.js src/*.js src/lib/*.js",
     "build_and_test": "npm run build && npm run test",
     "build": "node ./tools/build.js -t node",
     "build-cdn": "node ./tools/build.js -t cdn",

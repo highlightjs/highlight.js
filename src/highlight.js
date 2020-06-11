@@ -684,7 +684,7 @@ const HLJS = function(hljs) {
       language: result.language,
       // TODO: remove with version 11.0
       re: result.relevance,
-      relavance: result.relevance,
+      relavance: result.relevance
     };
     if (result.second_best) {
       element.second_best = {
