@@ -14,7 +14,7 @@ export default function(hljs) {
     'for true while long strictfp finally protected import native final void ' +
     'enum else break transient catch instanceof byte super volatile case assert short ' +
     'package default double public try this switch continue throws protected public private ' +
-    'module requires exports do';
+    'module requires exports do record';
 
   var ANNOTATION = {
     className: 'meta',
