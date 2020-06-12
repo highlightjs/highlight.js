@@ -1,1 +1,1 @@
-<span class="hljs-function"><span class="hljs-keyword">record</span <span class="hljs-title">Point</span>(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span> { }
+<span class="hljs-function"><span class="hljs-keyword">record</span> <span class="hljs-title">Point</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span> </span>{ }
