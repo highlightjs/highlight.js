@@ -49,6 +49,7 @@ Language Improvements:
 - enh(handlebars) Support for sub-expressions, path-expressions, hashes, block-parameters and literals (#2344) [Nils Knappmeier][]
 - enh(protobuf) Support multiline comments (#2597) [Pavel Evstigneev][]
 - fix(toml) Improve key parsing (#2595) [Antoine du Hamel][]
+- enh(java) Added `record` as keyword [0xflotus][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Peter Plantinga]: https://github.com/pplantinga
@@ -64,6 +65,7 @@ Language Improvements:
 [lioshi]: https://github.com/lioshi
 [Pavel Evstigneev]: https://github.com/Paxa
 [Antoine du Hamel]: https://github.com/aduh95
+[0xflotus]: https://github.com/0xflotus
 
 
 ## Version 10.0.2
