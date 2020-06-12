@@ -1,0 +1,1 @@
+<span class="hljs-keyword">record</span Point(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span y) { }
