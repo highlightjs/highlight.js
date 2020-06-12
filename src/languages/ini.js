@@ -1,5 +1,3 @@
-import * as regex from '../lib/regex.js';
-
 /*
 Language: TOML, also INI
 Description: TOML aims to be a minimal configuration file format that's easy to read due to obvious semantics.
@@ -7,6 +5,8 @@ Contributors: Guillaume Gomez <guillaume1.gomez@gmail.com>
 Category: common, config
 Website: https://github.com/toml-lang/toml
 */
+
+import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
   var NUMBERS = {
