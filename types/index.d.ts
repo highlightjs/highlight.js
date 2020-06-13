@@ -3,6 +3,8 @@
 // eslint-disable-next-line
 declare const hljs : HLJSApi;
 
+export = hljs;
+
 interface HLJSApi {
     highlight: (languageName: string, code: string, ignoreIllegals?: boolean, continuation?: Mode) => HighlightResult
     highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
