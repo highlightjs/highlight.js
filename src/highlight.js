@@ -20,6 +20,7 @@ const NO_MATCH = Symbol("nomatch");
 
 /**
  * @param {any} hljs - object that is extended (legacy)
+ * @returns {HLJSApi}
  */
 const HLJS = function(hljs) {
   // Convenience variables for build-in objects
