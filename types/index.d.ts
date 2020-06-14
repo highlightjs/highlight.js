@@ -210,3 +210,22 @@ interface ModeDetails {
     subLanguage?: string | string[]
     compiled?: boolean
 }
+
+// deprecated API since v10
+// declare module 'highlight.js/lib/highlight.js';
+
+declare module 'highlight.js' {
+    export = hljs;
+}
+
+declare module 'highlight.js/lib/core' {
+    export = hljs;
+}
+
+declare module 'highlight.js/lib/core.js' {
+    export = hljs;
+}
+
+declare module 'highlight.js/lib/languages/*' {
+    export default function(hljs?: HLJSApi): LanguageDetail;
+}
