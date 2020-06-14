@@ -57,6 +57,7 @@ async function buildPackageJSON() {
     }
     return acc;
   }, []);
+  json.types = "./lib/index.d.ts";
   await fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(json, null, '   '));
 }
 
@@ -75,11 +76,14 @@ async function buildNode(options) {
   mkdir("lib/languages");
   mkdir("scss");
   mkdir("styles");
-  mkdir("types");
 
   install("./LICENSE", "LICENSE");
   install("./README.md","README.md");
-  install("./types/index.d.ts","types/index.d.ts");
+  install("./types/index.d.ts","lib/index.d.ts");
+  install("./types/types.ts","lib/types.ts");
+  install("./types/core.d.ts","lib/core.d.ts");
+  install("./types/highlight.d.ts","lib/highlight.d.ts");
+  install("./types/languages/basic.d.ts","lib/languages/basic.d.ts");
 
   log("Writing styles.");
   const styles = await fs.readdir("./src/styles/");
