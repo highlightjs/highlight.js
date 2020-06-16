@@ -1,3 +1,14 @@
+## Version 10.1.1
+
+Fixes:
+
+- Resolve issue on Node 6 due to dangling comma (#2608) [Edwin Hoogerbeets][]
+- Resolve `index.d.ts is not a module` error (#2603) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/yyyc514
+[Edwin Hoogerbeets]: https://github.com/ehoogerbeets
+
+
 ## Version 10.1.0
 
 New themes:
