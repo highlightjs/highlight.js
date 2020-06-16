@@ -42,7 +42,7 @@ export default function(hljs) {
           regex.either(
             regex.concat(SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9'), /\./, SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9')),
             regex.concat(SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9'), /\.?/),
-            regex.concat(/\./, SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9')),
+            regex.concat(/\./, SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9'))
           ),
           /([pP][+-]?(\d+))?/,
           /[fFdDlL]?/ // decimal & fp mixed for simplicity
