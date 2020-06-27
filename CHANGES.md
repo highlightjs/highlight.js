@@ -1,3 +1,9 @@
+## Version 10.1.2
+
+New themes:
+
+- *Gradient Light* by [Samia Ali]()
+
 ## Version 10.1.1
 
 Fixes:
