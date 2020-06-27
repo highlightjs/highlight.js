@@ -4,6 +4,8 @@ New themes:
 
 - *Gradient Light* by [Samia Ali]()
 
+[Samia Ali]: https://github.com/samiaab1990
+
 ## Version 10.1.1
 
 Fixes:
