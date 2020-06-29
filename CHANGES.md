@@ -6,6 +6,12 @@ New themes:
 
 [Samia Ali]: https://github.com/samiaab1990
 
+Fixes:
+
+- (matlab) Add new R2019b `arguments` keyword and fix `enumeration` keyword (#2619)[Andrew Janke][]
+
+[Andrew Janke]: https://github.com/apjanke
+
 ## Version 10.1.1
 
 Fixes:
