@@ -4,9 +4,9 @@ New themes:
 
 - *Gradient Light* by [Samia Ali]()
 
-Fixes:
+Language Improvements:
 
-- (matlab) Add new R2019b `arguments` keyword and fix `enumeration` keyword (#2619)[Andrew Janke][]
+- enh(matlab) Add new R2019b `arguments` keyword and fix `enumeration` keyword (#2619) [Andrew Janke][]
 
 [Andrew Janke]: https://github.com/apjanke
 [Samia Ali]: https://github.com/samiaab1990
