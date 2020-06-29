@@ -6,6 +6,12 @@ New themes:
 
 [Samia Ali]: https://github.com/samiaab1990
 
+New languages:
+
+- *Octave* as a variant of Matlab by [Andrew Janke]()
+
+[Andrew Janke]: https://github.com/apjanke
+
 ## Version 10.1.1
 
 Fixes:

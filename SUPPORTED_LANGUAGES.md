@@ -125,6 +125,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Nix                     | nix                    |         |
 | Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | OCaml                   | ocaml, ml              |         |
+| Octave                  | octave                 |         |
 | Objective C             | objectivec, mm, objc, obj-c |    |
 | OpenGL Shading Language | glsl                   |         |
 | OpenSCAD                | openscad, scad         |         |
