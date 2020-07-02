@@ -12,6 +12,20 @@ import * as ECMAScript from "./lib/ecmascript.js";
 import * as regex from "../lib/regex.js";
 
 export default function(hljs) {
+
+  /**
+   * Takes a string like "<Booger" and checks to see
+   * if we can find a matching "</Booger" later in the
+   * content.
+   * @param {RegExpMatchArray} match
+   * @param {{after:number}} param1
+   */
+  const hasClosingTag = (match , {after}) => {
+    const tag = match[0].replace("<","</");
+    const pos = match.input.indexOf(tag, after)
+    return pos !== -1;
+  };
+
   var IDENT_RE = ECMAScript.IDENT_RE;
   var FRAGMENT = {
     begin: '<>',
@@ -19,7 +33,28 @@ export default function(hljs) {
   };
   var XML_TAG = {
     begin: /<[A-Za-z0-9\\._:-]+/,
-    end: /\/[A-Za-z0-9\\._:-]+>|\/>/
+    end: /\/[A-Za-z0-9\\._:-]+>|\/>/,
+    isTrulyOpeningTag: (match, response) => {
+      const afterMatchIndex = match[0].length + match.index;
+      const nextChar = match.input[afterMatchIndex]
+      // nested type?
+      // HTML should not include another raw `<` inside a tag
+      // But a type might: `<Array<Array<number>>`, etc.
+      if (nextChar === "<") {
+        response.ignoreMatch();
+        return;
+      }
+      // <something>
+      // This is now either a tag or a type.
+      if (nextChar===">") {
+        // if we cannot find a matching closing tag, then we
+        // will ignore it
+        if (!hasClosingTag(match, {after: afterMatchIndex})) {
+          response.ignoreMatch();
+          return;
+        }
+      }
+    }
   };
   var TYPES = [
     "any",
@@ -281,7 +316,13 @@ export default function(hljs) {
           { // JSX
             variants: [
               { begin: FRAGMENT.begin, end: FRAGMENT.end },
-              { begin: XML_TAG.begin, end: XML_TAG.end }
+              {
+                begin: XML_TAG.begin,
+                // we carefully check the opening tag to see if it truly
+                // is a tag and not a false positive
+                'on:begin': XML_TAG.isTrulyOpeningTag,
+                end: XML_TAG.end
+              }
             ],
             subLanguage: 'xml',
             contains: [
