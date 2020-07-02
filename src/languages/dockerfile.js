@@ -7,8 +7,9 @@ Website: https://docs.docker.com/engine/reference/builder/
 Category: config
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'Dockerfile',
     aliases: ['docker'],
     case_insensitive: true,
     keywords: 'from maintainer expose env arg user onbuild stopsignal',

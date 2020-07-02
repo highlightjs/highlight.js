@@ -8,7 +8,7 @@ Website: https://doc.qt.io/qt-5/qmlapplications.html
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
       keyword:
         'in of on if for while finally var new function do return void else break catch ' +
@@ -26,7 +26,7 @@ function(hljs) {
         'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect ' +
         'Behavior bool color coordinate date double enumeration font geocircle georectangle ' +
         'geoshape int list matrix4x4 parent point quaternion real rect ' +
-        'size string url variant vector2d vector3d vector4d' +
+        'size string url variant vector2d vector3d vector4d ' +
         'Promise'
     };
 
@@ -99,6 +99,7 @@ function(hljs) {
   };
 
   return {
+    name: 'QML',
     aliases: ['qt'],
     case_insensitive: false,
     keywords: KEYWORDS,

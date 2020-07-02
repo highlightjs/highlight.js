@@ -1,0 +1,12 @@
+@SpringBootTest
+@AutoConfigureMockMvc
+@Transactional
+@Slf4j
+@RunWith(SpringRunner.class)
+@Something(1+(3+4))
+public class BoardControllerTest {
+}
+
+class Example {
+  void foo(@SuppressWarnings("unused") int bar) { }
+}

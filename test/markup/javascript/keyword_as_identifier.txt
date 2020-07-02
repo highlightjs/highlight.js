@@ -1,0 +1,9 @@
+const set = new Set([1, 2]);
+for (const e of set)
+
+class A {
+    set value(x) {
+    }
+    get valid() {
+    }
+}

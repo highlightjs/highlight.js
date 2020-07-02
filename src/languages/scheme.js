@@ -9,11 +9,12 @@ Website: http://community.schemewiki.org/?what-is-scheme
 Category: lisp
 */
 
-function(hljs) {
+export default function(hljs) {
   var SCHEME_IDENT_RE = '[^\\(\\)\\[\\]\\{\\}",\'`;#|\\\\\\s]+';
   var SCHEME_SIMPLE_NUMBER_RE = '(\\-|\\+)?\\d+([./]\\d+)?';
   var SCHEME_COMPLEX_NUMBER_RE = SCHEME_SIMPLE_NUMBER_RE + '[+\\-]' + SCHEME_SIMPLE_NUMBER_RE + 'i';
-  var BUILTINS = {
+  var KEYWORDS = {
+    $pattern: SCHEME_IDENT_RE,
     'builtin-name':
       'case-lambda call/cc class define-class exit-handler field import ' +
       'inherit init-field interface let*-values let-values let/ec mixin ' +
@@ -48,12 +49,6 @@ function(hljs) {
       'tan transcript-off transcript-on truncate values vector ' +
       'vector->list vector-fill! vector-length vector-ref vector-set! ' +
       'with-input-from-file with-output-to-file write write-char zero?'
-  };
-
-  var SHEBANG = {
-    className: 'meta',
-    begin: '^#!',
-    end: '$'
   };
 
   var LITERAL = {
@@ -122,8 +117,7 @@ function(hljs) {
   var NAME = {
     className: 'name',
     begin: SCHEME_IDENT_RE,
-    lexemes: SCHEME_IDENT_RE,
-    keywords: BUILTINS
+    keywords: KEYWORDS
   };
 
   var LAMBDA = {
@@ -148,7 +142,8 @@ function(hljs) {
   BODY.contains = [LITERAL, NUMBER, STRING, IDENT, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES);
 
   return {
+    name: 'Scheme',
     illegal: /\S/,
-    contains: [SHEBANG, NUMBER, STRING, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES)
+    contains: [hljs.SHEBANG(), NUMBER, STRING, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES)
   };
 }

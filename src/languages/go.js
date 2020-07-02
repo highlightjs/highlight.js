@@ -7,7 +7,7 @@ Website: http://golang.org/
 Category: common, system
 */
 
-function(hljs) {
+export default function(hljs) {
   var GO_KEYWORDS = {
     keyword:
       'break default func interface select case map struct chan else goto package switch ' +
@@ -20,6 +20,7 @@ function(hljs) {
       'append cap close complex copy imag len make new panic print println real recover delete'
   };
   return {
+    name: 'Go',
     aliases: ['golang'],
     keywords: GO_KEYWORDS,
     illegal: '</',
@@ -30,7 +31,7 @@ function(hljs) {
         className: 'string',
         variants: [
           hljs.QUOTE_STRING_MODE,
-          {begin: '\'', end: '[^\\\\]\''},
+          hljs.APOS_STRING_MODE,
           {begin: '`', end: '`'},
         ]
       },

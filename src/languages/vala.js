@@ -5,8 +5,9 @@ Description: Vala is a new programming language that aims to bring modern progra
 Website: https://wiki.gnome.org/Projects/Vala
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'Vala',
     keywords: {
       keyword:
         // Value types

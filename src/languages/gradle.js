@@ -5,8 +5,9 @@ Website: https://gradle.org
 Author: Damian Mee <mee.damian@gmail.com>
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'Gradle',
     case_insensitive: true,
     keywords: {
       keyword:

@@ -7,7 +7,7 @@ Website: https://twig.symfony.com
 Category: template
 */
 
-function(hljs) {
+export default function(hljs) {
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)'
@@ -43,6 +43,7 @@ function(hljs) {
   TAGS = TAGS + ' ' + TAGS.split(' ').map(function(t){return 'end' + t}).join(' ');
 
   return {
+    name: 'Twig',
     aliases: ['craftcms'],
     case_insensitive: true,
     subLanguage: 'xml',

@@ -6,13 +6,14 @@ Requires: cpp.js
 Website: https://www.arduino.cc
 */
 
-function(hljs) {
+/** @type LanguageFn */
+export default function(hljs) {
 
 	var ARDUINO_KW = {
       keyword:
         'boolean byte word String',
       built_in:
-        'setup loop' +
+        'setup loop ' +
         'KeyboardController MouseController SoftwareSerial ' +
         'EthernetServer EthernetClient LiquidCrystal ' +
         'RobotControl GSMVoiceCall EthernetUDP EsploraTFT ' +
@@ -94,13 +95,15 @@ function(hljs) {
         'DEFAULT OUTPUT INPUT HIGH LOW'
   };
 
-  var ARDUINO = hljs.getLanguage('cpp').rawDefinition();
+  var ARDUINO = hljs.requireLanguage('cpp').rawDefinition();
 
   var kws = ARDUINO.keywords;
 
   kws.keyword += ' ' + ARDUINO_KW.keyword;
   kws.literal += ' ' + ARDUINO_KW.literal;
   kws.built_in += ' ' + ARDUINO_KW.built_in;
+
+  ARDUINO.name = 'Arduino';
 
   return ARDUINO;
 }

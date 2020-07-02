@@ -1,0 +1,8 @@
+echo $(( 16#deadbeef / 1003 ))
+
+yumi=deadbeef
+echo $(( 16#$yumi / 1003 ))
+
+B=20
+yumi=deadbeef
+echo $(( $B#$yumi / 1003 ))

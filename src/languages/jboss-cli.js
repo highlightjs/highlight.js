@@ -1,12 +1,12 @@
 /*
- Language: jboss-cli
+ Language: JBoss CLI
  Author: Raphaël Parrëe <rparree@edc4it.com>
  Description: language definition jboss cli
  Website: https://docs.jboss.org/author/display/WFLY/Command+Line+Interface
  Category: config
  */
 
-function (hljs) {
+export default function (hljs) {
   var PARAM = {
     begin: /[\w-]+ *=/, returnBegin: true,
     relevance: 0,
@@ -33,9 +33,10 @@ function (hljs) {
     begin: /--[\w\-=\/]+/,
   };
   return {
+    name: 'JBoss CLI',
     aliases: ['wildfly-cli'],
-    lexemes: '[a-z\-]+',
     keywords: {
+      $pattern: '[a-z\-]+',
       keyword: 'alias batch cd clear command connect connection-factory connection-info data-source deploy ' +
       'deployment-info deployment-overlay echo echo-dmr help history if jdbc-driver-info jms-queue|20 jms-topic|20 ls ' +
       'patch pwd quit read-attribute read-operation reload rollout-plan run-batch set shutdown try unalias ' +

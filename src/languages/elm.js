@@ -5,7 +5,7 @@ Website: https://elm-lang.org
 Category: functional
 */
 
-function(hljs) {
+export default function(hljs) {
   var COMMENT = {
     variants: [
       hljs.COMMENT('--', '$'),
@@ -46,6 +46,7 @@ function(hljs) {
   };
 
   return {
+    name: 'Elm',
     keywords:
       'let in if then else case of where module import exposing ' +
       'type alias as infix infixl infixr port effect command subscription',

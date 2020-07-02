@@ -6,12 +6,14 @@ Website: https://developer.apple.com/documentation/objectivec
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   var API_CLASS = {
     className: 'built_in',
     begin: '\\b(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)\\w+',
   };
+  var IDENTIFIER_RE = /[a-zA-Z@][a-zA-Z0-9_]*/;
   var OBJC_KEYWORDS = {
+    $pattern: IDENTIFIER_RE,
     keyword:
       'int float while char export sizeof typedef const struct for union ' +
       'unsigned long volatile static bool mutable if do return goto void ' +
@@ -40,12 +42,14 @@ function(hljs) {
     built_in:
       'BOOL dispatch_once_t dispatch_queue_t dispatch_sync dispatch_async dispatch_once'
   };
-  var LEXEMES = /[a-zA-Z@][a-zA-Z0-9_]*/;
-  var CLASS_KEYWORDS = '@interface @class @protocol @implementation';
+  var CLASS_KEYWORDS = {
+    $pattern: IDENTIFIER_RE,
+    keyword: '@interface @class @protocol @implementation'
+  };
   return {
+    name: 'Objective-C',
     aliases: ['mm', 'objc', 'obj-c'],
     keywords: OBJC_KEYWORDS,
-    lexemes: LEXEMES,
     illegal: '</',
     contains: [
       API_CLASS,
@@ -53,6 +57,7 @@ function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE,
       {
         className: 'string',
         variants: [
@@ -60,31 +65,35 @@ function(hljs) {
             begin: '@"', end: '"',
             illegal: '\\n',
             contains: [hljs.BACKSLASH_ESCAPE]
-          },
-          {
-            begin: '\'', end: '[^\\\\]\'',
-            illegal: '[^\\\\][^\']'
           }
         ]
       },
       {
         className: 'meta',
-        begin: '#',
-        end: '$',
+        begin: /#\s*[a-z]+\b/, end: /$/,
+        keywords: {
+          'meta-keyword':
+            'if else elif endif define undef warning error line ' +
+            'pragma ifdef ifndef include'
+        },
         contains: [
           {
+            begin: /\\\n/, relevance: 0
+          },
+          hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'}),
+          {
             className: 'meta-string',
-            variants: [
-              { begin: '\"', end: '\"' },
-              { begin: '<', end: '>' }
-            ]
-          }
+            begin: /<.*?>/, end: /$/,
+            illegal: '\\n',
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
         ]
       },
       {
         className: 'class',
-        begin: '(' + CLASS_KEYWORDS.split(' ').join('|') + ')\\b', end: '({|$)', excludeEnd: true,
-        keywords: CLASS_KEYWORDS, lexemes: LEXEMES,
+        begin: '(' + CLASS_KEYWORDS.keyword.split(' ').join('|') + ')\\b', end: '({|$)', excludeEnd: true,
+        keywords: CLASS_KEYWORDS,
         contains: [
           hljs.UNDERSCORE_TITLE_MODE
         ]

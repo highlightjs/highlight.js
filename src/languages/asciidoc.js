@@ -7,8 +7,10 @@ Description: A semantic, text-based document format that can be exported to HTML
 Category: markup
 */
 
-function(hljs) {
+/** @type LanguageFn */
+export default function(hljs) {
   return {
+    name: 'AsciiDoc',
     aliases: ['adoc'],
     contains: [
       // block comment

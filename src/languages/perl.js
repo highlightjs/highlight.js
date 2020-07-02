@@ -5,12 +5,14 @@ Website: https://www.perl.org
 Category: common
 */
 
-function(hljs) {
-  var PERL_KEYWORDS = 'getpwent getservent quotemeta msgrcv scalar kill dbmclose undef lc ' +
+export default function(hljs) {
+  var PERL_KEYWORDS = {
+    $pattern: /[\w.]+/,
+    keyword: 'getpwent getservent quotemeta msgrcv scalar kill dbmclose undef lc ' +
     'ma syswrite tr send umask sysopen shmwrite vec qx utime local oct semctl localtime ' +
-    'readpipe do return format read sprintf dbmopen pop getpgrp not getpwnam rewinddir qq' +
+    'readpipe do return format read sprintf dbmopen pop getpgrp not getpwnam rewinddir qq ' +
     'fileno qw endprotoent wait sethostent bless s|0 opendir continue each sleep endgrent ' +
-    'shutdown dump chomp connect getsockname die socketpair close flock exists index shmget' +
+    'shutdown dump chomp connect getsockname die socketpair close flock exists index shmget ' +
     'sub for endpwent redo lstat msgctl setpgrp abs exit select print ref gethostbyaddr ' +
     'unshift fcntl syscall goto getnetbyaddr join gmtime symlink semget splice x|0 ' +
     'getpeername recv log setsockopt cos last reverse gethostbyname getgrnam study formline ' +
@@ -22,9 +24,10 @@ function(hljs) {
     'lcfirst until warn while values shift telldir getpwuid my getprotobynumber delete and ' +
     'sort uc defined srand accept package seekdir getprotobyname semop our rename seek if q|0 ' +
     'chroot sysread setpwent no crypt getc chown sqrt write setnetent setpriority foreach ' +
-    'tie sin msgget map stat getlogin unless elsif truncate exec keys glob tied closedir' +
+    'tie sin msgget map stat getlogin unless elsif truncate exec keys glob tied closedir ' +
     'ioctl socket readlink eval xor readline binmode setservent eof ord bind alarm pipe ' +
-    'atan2 getgrent exp time push setgrent gt lt or ne m|0 break given say state when';
+    'atan2 getgrent exp time push setgrent gt lt or ne m|0 break given say state when'
+  };
   var SUBST = {
     className: 'subst',
     begin: '[$@]\\{', end: '\\}',
@@ -155,8 +158,8 @@ function(hljs) {
   METHOD.contains = PERL_DEFAULT_CONTAINS;
 
   return {
+    name: 'Perl',
     aliases: ['pl', 'pm'],
-    lexemes: /[\w\.]+/,
     keywords: PERL_KEYWORDS,
     contains: PERL_DEFAULT_CONTAINS
   };

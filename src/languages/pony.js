@@ -6,7 +6,7 @@ Description: Pony is an open-source, object-oriented, actor-model,
 Website: https://www.ponylang.io
 */
 
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:
       'actor addressof and as be break class compile_error compile_intrinsic ' +
@@ -67,6 +67,7 @@ function(hljs) {
    */
 
   return {
+    name: 'Pony',
     keywords: KEYWORDS,
     contains: [
       TYPE_NAME,

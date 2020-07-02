@@ -1,0 +1,21 @@
+namespace Foo // namespace
+{
+    public class Greet : Base, Other, IInterface.test.path // class
+    {
+        public Greet(string who) // function
+        {
+            Who = who;
+        }
+
+        int[] f(int val = 0)
+        {
+            new Type();
+            return getType();
+            throw getError();
+            await Stuff();
+        }
+    }
+
+    public class TesterA<R, S>  where R : class where S : IComparable
+    {}
+}

@@ -5,14 +5,16 @@ Description: AutoHotkey language definition
 Category: scripting
 */
 
-function(hljs) {
+/** @type LanguageFn */
+export default function(hljs) {
   var BACKTICK_ESCAPE = {
     begin: '`[\\s\\S]'
   };
 
   return {
+    name: 'AutoHotkey',
     case_insensitive: true,
-    aliases: [ 'ahk' ],
+    aliases: ['ahk'],
     keywords: {
       keyword: 'Break Continue Critical Exit ExitApp Gosub Goto New OnExit Pause return SetBatchLines SetTimer Suspend Thread Throw Until ahk_id ahk_class ahk_pid ahk_exe ahk_group',
       literal: 'true false NOT AND OR',
@@ -47,7 +49,7 @@ function(hljs) {
         ]
       },
       {
-        className: 'meta', 
+        className: 'meta',
         begin: '^\\s*#\\w+', end:'$',
         relevance: 0
       },

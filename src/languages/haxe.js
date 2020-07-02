@@ -6,13 +6,14 @@ Contributors: Kenton Hamaluik <kentonh@gmail.com>
 Website: https://haxe.org
 */
 
-function(hljs) {
+export default function(hljs) {
   var IDENT_RE = '[a-zA-Z_$][a-zA-Z0-9_$]*';
   var IDENT_FUNC_RETURN_TYPE_RE = '([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)';
 
   var HAXE_BASIC_TYPES = 'Int Float String Bool Dynamic Void Array ';
 
   return {
+    name: 'Haxe',
     aliases: ['hx'],
     keywords: {
       keyword: 'break case cast catch continue default do dynamic else enum extern ' +

@@ -8,7 +8,7 @@ Website: https://www.purebasic.com
 
 // Base deafult colors in PB IDE: background: #FFFFDF; foreground: #000000;
 
-function(hljs) {
+export default function(hljs) {
   var STRINGS = { // PB IDE color: #0080FF (Azure Radiance)
     className: 'string',
     begin: '(~)?"', end: '"',
@@ -21,6 +21,7 @@ function(hljs) {
   };
 
   return {
+    name: 'PureBASIC',
     aliases: ['pb', 'pbi'],
     keywords: // PB IDE color: #006666 (Blue Stone) + Bold
       // Keywords from all version of PureBASIC 5.00 upward ...

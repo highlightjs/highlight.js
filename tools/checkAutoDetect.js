@@ -8,8 +8,8 @@ let Table    = require('cli-table');
 let colors   = require('colors/safe');
 
 let resultTable = new Table({
-  head: ['expected', 'actual', 'score', '2nd best', 'score'],
-  colWidths: [20,20,10,20, 10],
+  head: ['expected', 'actual', 'score', '2nd best', 'score','info'],
+  colWidths: [20,20,10,20,10,20],
   style: {
     head: ['grey']
   }
@@ -43,6 +43,17 @@ function testAutoDetection(language, index, languages) {
           actual.second_best.relevance ? actual.second_best.relevance : colors.grey('None')
         ]);
       }
+      // equal relevance is flagged
+      if (actual.relevance == actual.second_best.relevance) {
+        return resultTable.push([
+          expected,
+          actual.language,
+          actual.relevance ? colors.yellow(actual.relevance) : colors.grey('None'),
+          actual.second_best.language,
+          actual.second_best.relevance ? colors.yellow(actual.second_best.relevance) : colors.grey('None'),
+          "Relevance match."
+        ]);
+      }
     });
 }
 
@@ -61,7 +72,7 @@ if (resultTable.length === 0) {
   console.log(colors.green('SUCCESS') + ' - ' + colors.green(languages.length) + ' of ' + colors.gray(languages.length) + ' languages passed auto-highlight check!')
 } else {
   console.log(
-    colors.red('FAILURE') + ' - ' + colors.red(resultTable.length) + ' of ' + colors.gray(languages.length) + ' languages failed auto-highlight check.' +
+    colors.red('ISSUES') + ' - ' + colors.red(resultTable.length) + ' of ' + colors.gray(languages.length) + ' languages have potential issues.' +
     '\n' +
     resultTable.toString());
 }

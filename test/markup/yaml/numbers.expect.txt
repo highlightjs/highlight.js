@@ -3,3 +3,8 @@
 <span class="hljs-attr">hex:</span> <span class="hljs-number">0x999fff</span>
 <span class="hljs-attr">numkey999:</span> <span class="hljs-number">1234</span>
 <span class="hljs-attr">exp:</span> <span class="hljs-number">-2.3e-5</span>
+<span class="hljs-attr">canonical:</span> <span class="hljs-number">2001-12-15T02:59:43.1Z</span>
+<span class="hljs-attr">iso8601:</span> <span class="hljs-number">2001-12-14t21:59:43.10-05:00</span>
+<span class="hljs-attr">space:</span> <span class="hljs-number">2001-12-14 21:59:43.10 -5</span>
+<span class="hljs-attr">nozone:</span> <span class="hljs-number">2001-12-15 2:59:43.10</span>
+<span class="hljs-attr">date:</span> <span class="hljs-number">2002-12-14</span>

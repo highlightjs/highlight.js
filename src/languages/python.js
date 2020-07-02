@@ -5,7 +5,7 @@ Website: https://www.python.org
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:
       'and elif is global as in if from raise for except finally print import pass return ' +
@@ -86,11 +86,18 @@ function(hljs) {
   };
   var PARAMS = {
     className: 'params',
-    begin: /\(/, end: /\)/,
-    contains: ['self', PROMPT, NUMBER, STRING, hljs.HASH_COMMENT_MODE]
+    variants: [
+      // Exclude params at functions without params
+      {begin: /\(\s*\)/, skip: true, className: null },
+      {
+        begin: /\(/, end: /\)/, excludeBegin: true, excludeEnd: true,
+        contains: ['self', PROMPT, NUMBER, STRING, hljs.HASH_COMMENT_MODE],
+      },
+    ],
   };
   SUBST.contains = [STRING, NUMBER, PROMPT];
   return {
+    name: 'Python',
     aliases: ['py', 'gyp', 'ipython'],
     keywords: KEYWORDS,
     illegal: /(<\/|->|\?)|=>/,

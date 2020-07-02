@@ -4,7 +4,9 @@ Author: Nikita Savchenko <zitros.lab@gmail.com>
 Category: enterprise, scripting
 Website: https://cedocs.intersystems.com/latest/csp/docbook/DocBook.UI.Page.cls
 */
-function cos (hljs) {
+
+/** @type LanguageFn */
+export default function cos (hljs) {
 
   var STRINGS = {
     className: 'string',
@@ -73,6 +75,7 @@ function cos (hljs) {
     //"$ztrap", "$zversion"
 
   return {
+    name: 'Caché Object Script',
     case_insensitive: true,
     aliases: ["cos", "cls"],
     keywords: COS_KEYWORDS,

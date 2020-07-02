@@ -1,0 +1,55 @@
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testBefore</span><span class="hljs-params">(&lt;Test&gt; a, <span class="hljs-keyword">var</span> b = <span class="hljs-number">5</span>, <span class="hljs-keyword">int</span> c = <span class="hljs-number">10</span>)</span>
+</span>{
+    a-&gt;method1();
+
+    <span class="hljs-keyword">return</span> b + c;
+}
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Test</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">RuntimeException</span> <span class="hljs-title">as</span> <span class="hljs-title">RE</span>;
+
+<span class="hljs-comment">/**
+ * Example comment
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CustomClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TestInterface</span>
+</span>{
+    <span class="hljs-keyword">const</span> C1 = <span class="hljs-keyword">null</span>;
+
+    <span class="hljs-comment">// Magic constant: http://php.net/manual/ru/language.constants.predefined.php</span>
+    <span class="hljs-keyword">const</span> className = <span class="hljs-keyword">__CLASS__</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">2</span>;
+        <span class="hljs-keyword">return</span> a + b;
+    }
+
+    <span class="hljs-comment">// See fn is allowed like shortcut</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">method2</span><span class="hljs-params">()</span> -&gt; &lt;<span class="hljs-title">Test</span>&gt;
+    </span>{
+        call_user_func(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;hello&quot;</span>; });
+
+
+        [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]-&gt;walk(
+            <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(<span class="hljs-keyword">int</span>! x)</span> </span>{
+                <span class="hljs-keyword">return</span> x * x;
+            }
+        );
+
+        [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]-&gt;walk(
+            <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(_, <span class="hljs-keyword">int</span> key)</span> </span>{ <span class="hljs-keyword">echo</span> key; }
+        );
+
+        <span class="hljs-keyword">array</span> input = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+
+        input-&gt;walk(
+            <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(_, <span class="hljs-keyword">int</span> key)</span> </span>{ <span class="hljs-keyword">echo</span> key; }
+        );
+
+
+        input-&gt;map(x =&gt; x * x);
+
+        <span class="hljs-keyword">return</span> this;
+    }
+}

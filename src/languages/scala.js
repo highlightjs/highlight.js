@@ -6,7 +6,7 @@ Contributors: Erik Osheim <d_m@plastic-idolatry.com>
 Website: https://www.scala-lang.org
 */
 
-function(hljs) {
+export default function(hljs) {
 
   var ANNOTATION = { className: 'meta', begin: '@[A-Za-z]+' };
 
@@ -103,6 +103,7 @@ function(hljs) {
   };
 
   return {
+    name: 'Scala',
     keywords: {
       literal: 'true false null',
       keyword: 'type yield lazy override def with val var sealed abstract private trait object if forSome for while throw finally protected extends import final return else break new catch super class case package default try this match continue throws implicit'

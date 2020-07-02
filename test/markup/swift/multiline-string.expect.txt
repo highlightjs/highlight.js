@@ -1,3 +1,3 @@
-<span class="hljs-keyword">var</span> string = <span class="hljs-string">"""
+<span class="hljs-keyword">var</span> string = <span class="hljs-string">&quot;&quot;&quot;
     var a = not actually code
-"""</span>
+&quot;&quot;&quot;</span>

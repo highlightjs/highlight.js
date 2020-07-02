@@ -1,11 +1,12 @@
 /*
-Language: Python profile
+Language: Python profiler
 Description: Python profiler results
 Author: Brian Beck <exogen@gmail.com>
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'Python profiler',
     contains: [
       hljs.C_NUMBER_MODE,
       {

@@ -4,13 +4,15 @@ Author: Evgeny Stepanischev <imbolk@gmail.com>
 Website: https://esolangs.org/wiki/Brainfuck
 */
 
-function(hljs){
+/** @type LanguageFn */
+export default function(hljs) {
   var LITERAL = {
     className: 'literal',
     begin: '[\\+\\-]',
     relevance: 0
   };
   return {
+    name: 'Brainfuck',
     aliases: ['bf'],
     contains: [
       hljs.COMMENT(

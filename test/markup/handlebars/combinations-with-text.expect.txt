@@ -1,0 +1,6 @@
+<span class="xml">some text
+
+</span><span class="hljs-template-tag">{{#<span class="hljs-name">custom</span> (<span class="hljs-name">nested</span> (<span class="hljs-name">helper</span> <span class="hljs-string">&#x27;a{{bc&#x27;</span> <span class="hljs-number">1</span>)) <span class="hljs-attr">key</span>=value <span class="hljs-keyword">as</span> | blockParam |}}</span><span class="xml"> some </span><span class="hljs-template-variable">{{<span class="hljs-name">blockParam</span>}}</span><span class="xml"> text </span><span class="hljs-template-tag">{{/<span class="hljs-name">custom</span>}}</span><span class="xml">
+
+some text
+</span>

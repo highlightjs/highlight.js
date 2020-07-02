@@ -10,9 +10,6 @@ Darcula color scheme from the JetBrains family of IDEs
   overflow-x: auto;
   padding: 0.5em;
   background: #2b2b2b;
-}
-
-.hljs {
   color: #bababa;
 }
 

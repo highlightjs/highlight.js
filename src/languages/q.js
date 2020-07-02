@@ -5,8 +5,9 @@ Description: Q is a vector-based functional paradigm programming language built 
 Author: Sergey Vidyuk <svidyuk@gmail.com>
 Website: https://kx.com/connect-with-us/developers/
 */
-function(hljs) {
+export default function(hljs) {
   var Q_KEYWORDS = {
+  $pattern: /(`?)[A-Za-z0-9_]+\b/,
   keyword:
     'do while select delete by update from',
   literal:
@@ -17,9 +18,9 @@ function(hljs) {
     '`float `double int `timestamp `timespan `datetime `time `boolean `symbol `char `byte `short `long `real `month `date `minute `second `guid'
   };
   return {
+  name: 'Q',
   aliases:['k', 'kdb'],
   keywords: Q_KEYWORDS,
-  lexemes: /(`?)[A-Za-z0-9_]+\b/,
   contains: [
   hljs.C_LINE_COMMENT_MODE,
     hljs.QUOTE_STRING_MODE,

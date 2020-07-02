@@ -7,7 +7,7 @@ Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.
 Category: common
 */
 
-function(hljs) {
+export default function(hljs) {
   var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
   var RUBY_KEYWORDS = {
     keyword:
@@ -72,10 +72,10 @@ function(hljs) {
         returnBegin: true,
         contains: [
           { begin: /<<[-~]?'?/ },
-          { begin: /\w+/,
-            endSameAsBegin: true,
+          hljs.END_SAME_AS_BEGIN({
+            begin: /(\w+)/, end: /(\w+)/,
             contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-          }
+          })
         ]
       }
     ]
@@ -185,6 +185,7 @@ function(hljs) {
   ];
 
   return {
+    name: 'Ruby',
     aliases: ['rb', 'gemspec', 'podspec', 'thor', 'irb'],
     keywords: RUBY_KEYWORDS,
     illegal: /\/\*/,

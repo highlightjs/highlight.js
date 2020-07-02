@@ -1,40 +1,58 @@
 'use strict';
 
-delete require.cache[require.resolve('../../build')]
-delete require.cache[require.resolve('../../build/lib/highlight')]
+delete require.cache[require.resolve('../../build')];
+delete require.cache[require.resolve('../../build/lib/core')];
 
-const fs       = require('fs').promises;
-const hljs     = require('../../build');
-const path     = require('path');
-const utility  = require('../utility');
+const fs = require('fs').promises;
+const hljs = require('../../build');
+hljs.debugMode(); // tests run in debug mode so errors are raised
+const path = require('path');
+const utility = require('../utility');
+const { getThirdPartyPackages } = require('../../tools/lib/external_language');
 
-function testAutoDetection(language) {
-  const languagePath = utility.buildPath('detect', language);
+function testAutoDetection(language, { detectPath }) {
+  const languagePath = detectPath || utility.buildPath('detect', language);
 
-  it(`should have test for ${language}`, async () => {
-    const path = await fs.stat(languagePath);
-    return path.isDirectory().should.be.true;
-  });
+  it(`should be detected as ${language}`, async() => {
+    const dir = await fs.stat(languagePath);
+    dir.isDirectory().should.be.true();
 
-  it(`should be detected as ${language}`, async () => {
-    const dirs = await fs.readdir(languagePath)
-    const files = await Promise.all(dirs
-      .map(function(example) {
+    const filenames = await fs.readdir(languagePath);
+    await Promise.all(filenames
+      .map(async function(example) {
         const filename = path.join(languagePath, example);
 
-        return fs.readFile(filename, 'utf-8');
-      }))
-    files.forEach(function(content) {
-        const expected = language,
-              actual   = hljs.highlightAuto(content).language;
+        const content = await fs.readFile(filename, 'utf-8');
+        const detectedLanguage = hljs.highlightAuto(content).language;
 
-        actual.should.equal(expected);
-      });
+        detectedLanguage.should.equal(language,
+          `${path.basename(filename)} should be detected as ${language}, but was ${detectedLanguage}`);
+      }));
   });
 }
 
 describe('hljs.highlightAuto()', () => {
-  const languages = hljs.listLanguages();
+  before(async function() {
+    const thirdPartyPackages = await getThirdPartyPackages();
 
-  languages.filter(hljs.autoDetection).forEach(testAutoDetection);
+    const languages = hljs.listLanguages();
+    describe(`hljs.highlightAuto()`, function() {
+      languages.filter(hljs.autoDetection).forEach((language) => {
+        const detectPath = detectTestDir(language);
+        testAutoDetection(language, { detectPath });
+      });
+    });
+
+    // assumes only one package provides the requested module name
+    function detectTestDir(name) {
+      for (let i = 0; i < thirdPartyPackages.length; ++i) {
+        const pkg = thirdPartyPackages[i];
+        const idx = pkg.names.indexOf(name);
+        if (idx !== -1) return pkg.detectTestPaths[idx];
+      }
+      return null; // test not found
+    }
+  });
+
+  it("adding dynamic tests...", async function() {}); // this is required to work
 });

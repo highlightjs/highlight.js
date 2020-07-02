@@ -5,7 +5,7 @@ Description: Mercury is a logic/functional programming language which combines t
 Website: https://www.mercurylang.org
 */
 
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:
       'module use_module import_module include_module end_module initialise ' +
@@ -49,6 +49,7 @@ function(hljs) {
     begin: '\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]',
     relevance: 0
   };
+  STRING.contains = STRING.contains.slice() // we need our own copy of contains
   STRING.contains.push(STRING_FMT);
 
   var IMPLICATION = {
@@ -71,6 +72,7 @@ function(hljs) {
   };
 
   return {
+    name: 'Mercury',
     aliases: ['m', 'moo'],
     keywords: KEYWORDS,
     contains: [

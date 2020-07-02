@@ -17,6 +17,6 @@ a
                 / insensitive
 
 <span class="hljs-attribute">hex-codes</span>   =   <span class="hljs-symbol">%x68.65.6C.6C.6F</span>
-<span class="hljs-attribute">literal</span>     =   <span class="hljs-string">"string literal"</span>
-<span class="hljs-attribute">sensitive</span>   =   <span class="hljs-symbol">%s</span><span class="hljs-string">"case-sensitive string"</span>
-<span class="hljs-attribute">insensitive</span> =   <span class="hljs-symbol">%i</span><span class="hljs-string">"case-insensitive string"</span>
+<span class="hljs-attribute">literal</span>     =   <span class="hljs-string">&quot;string literal&quot;</span>
+<span class="hljs-attribute">sensitive</span>   =   <span class="hljs-symbol">%s</span><span class="hljs-string">&quot;case-sensitive string&quot;</span>
+<span class="hljs-attribute">insensitive</span> =   <span class="hljs-symbol">%i</span><span class="hljs-string">&quot;case-insensitive string&quot;</span>

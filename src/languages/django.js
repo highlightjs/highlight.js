@@ -8,7 +8,7 @@ Website: https://www.djangoproject.com
 Category: template
 */
 
-function(hljs) {
+export default function(hljs) {
   var FILTER = {
     begin: /\|[A-Za-z]+:?/,
     keywords: {
@@ -29,6 +29,7 @@ function(hljs) {
   };
 
   return {
+    name: 'Django',
     aliases: ['jinja'],
     case_insensitive: true,
     subLanguage: 'xml',

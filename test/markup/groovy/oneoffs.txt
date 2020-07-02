@@ -1,0 +1,3 @@
+// ternary can include quotes
+def formattingMsg = label < 0 ? ('The following files need formatting:\n    ' +
+    codeStyleFiles.join('\n    ')) : 'All files are correctly formatted'

@@ -6,7 +6,7 @@ Website: https://docs2.yoyogames.com
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   var GML_KEYWORDS = {
     keyword: 'begin end if then else while do for break continue with until ' +
       'repeat exit and or xor not return mod div switch case default var ' +
@@ -865,6 +865,7 @@ function(hljs) {
   };
 
   return {
+    name: 'GML',
     aliases: ['gml', 'GML'],
     case_insensitive: false, // language is case-insensitive
     keywords: GML_KEYWORDS,

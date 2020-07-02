@@ -1,11 +1,11 @@
 /*
-Language: DOS .bat
+Language: Batch file (DOS)
 Author: Alexander Makarov <sam@rmcreative.ru>
 Contributors: Anton Kochkov <anton.kochkov@gmail.com>
 Website: https://en.wikipedia.org/wiki/Batch_file
 */
 
-function(hljs) {
+export default function(hljs) {
   var COMMENT = hljs.COMMENT(
     /^\s*@?rem\b/, /$/,
     {
@@ -18,6 +18,7 @@ function(hljs) {
     relevance: 0
   };
   return {
+    name: 'Batch file (DOS)',
     aliases: ['bat', 'cmd'],
     case_insensitive: true,
     illegal: /\/\*/,
@@ -31,7 +32,7 @@ function(hljs) {
         'append assoc at attrib break cacls cd chcp chdir chkdsk chkntfs cls cmd color ' +
         'comp compact convert date dir diskcomp diskcopy doskey erase fs ' +
         'find findstr format ftype graftabl help keyb label md mkdir mode more move path ' +
-        'pause print popd pushd promt rd recover rem rename replace restore rmdir shift' +
+        'pause print popd pushd promt rd recover rem rename replace restore rmdir shift ' +
         'sort start subst time title tree type ver verify vol ' +
         // winutils
         'ping net ipconfig taskkill xcopy ren del'

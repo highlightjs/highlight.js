@@ -5,7 +5,7 @@ Website: https://reasonml.github.io
 Author: Gidi Meir Morris <oss@gidi.io>
 Category: functional
 */
-function(hljs) {
+export default function(hljs) {
   function orReValues(ops){
     return ops
     .map(function(op) {
@@ -30,9 +30,9 @@ function(hljs) {
 
   var KEYWORDS = {
     keyword:
-      'and as asr assert begin class constraint do done downto else end exception external' +
-      'for fun function functor if in include inherit initializer' +
-      'land lazy let lor lsl lsr lxor match method mod module mutable new nonrec' +
+      'and as asr assert begin class constraint do done downto else end exception external ' +
+      'for fun function functor if in include inherit initializer ' +
+      'land lazy let lor lsl lsr lxor match method mod module mutable new nonrec ' +
       'object of open or private rec sig struct then to try type val virtual when while with',
     built_in:
       'array bool bytes char exn|5 float int int32 int64 list lazy_t|5 nativeint|5 ref string unit ',
@@ -238,6 +238,7 @@ function(hljs) {
   PARAMS_CONTENTS.push(MODULE_ACCESS_MODE);
 
   return {
+    name: 'ReasonML',
     aliases: ['re'],
     keywords: KEYWORDS,
     illegal: '(:\\-|:=|\\${|\\+=)',

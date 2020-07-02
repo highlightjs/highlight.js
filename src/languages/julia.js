@@ -6,13 +6,17 @@ Contributors: Alex Arslan <ararslan@comcast.net>
 Website: https://julialang.org
 */
 
-function(hljs) {
+export default function(hljs) {
   // Since there are numerous special names in Julia, it is too much trouble
   // to maintain them by hand. Hence these names (i.e. keywords, literals and
   // built-ins) are automatically generated from Julia v0.6 itself through
   // the following scripts for each.
 
+  // ref: http://julia.readthedocs.org/en/latest/manual/variables/#allowed-variable-names
+  var VARIABLE_NAME_RE = '[A-Za-z_\\u00A1-\\uFFFF][A-Za-z_0-9\\u00A1-\\uFFFF]*';
+
   var KEYWORDS = {
+    $pattern: VARIABLE_NAME_RE,
     // # keyword generator, multi-word keywords handled manually below
     // foreach(println, ["in", "isa", "where"])
     // for kw in Base.REPLCompletions.complete_keyword("")
@@ -81,12 +85,9 @@ function(hljs) {
       'VersionNumber Void WeakKeyDict WeakRef WorkerConfig WorkerPool '
   };
 
-  // ref: http://julia.readthedocs.org/en/latest/manual/variables/#allowed-variable-names
-  var VARIABLE_NAME_RE = '[A-Za-z_\\u00A1-\\uFFFF][A-Za-z_0-9\\u00A1-\\uFFFF]*';
-
   // placeholder for recursive self-reference
   var DEFAULT = {
-    lexemes: VARIABLE_NAME_RE, keywords: KEYWORDS, illegal: /<\//
+    keywords: KEYWORDS, illegal: /<\//
   };
 
   // ref: http://julia.readthedocs.org/en/latest/manual/integers-and-floating-point-numbers/
@@ -148,6 +149,7 @@ function(hljs) {
     ]
   };
 
+  DEFAULT.name = 'Julia';
   DEFAULT.contains = [
     NUMBER,
     CHAR,

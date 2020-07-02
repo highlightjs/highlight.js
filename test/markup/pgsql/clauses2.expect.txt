@@ -15,7 +15,7 @@
 <span class="hljs-keyword">CALLED</span> <span class="hljs-keyword">ON</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">INPUT</span>, <span class="hljs-keyword">RETURNS</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">ON</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">INPUT</span>,
 <span class="hljs-keyword">COLLATE</span>,
 <span class="hljs-keyword">CONCURRENTLY</span>,
-<span class="hljs-keyword">CONNECTION</span> <span class="hljs-string">'..'</span>,
+<span class="hljs-keyword">CONNECTION</span> <span class="hljs-string">&#x27;..&#x27;</span>,
 <span class="hljs-keyword">CONSTRAINT</span>,
 <span class="hljs-keyword">COST</span> <span class="hljs-number">100</span>,
 <span class="hljs-keyword">CLUSTER</span> <span class="hljs-keyword">ON</span>,
@@ -43,7 +43,7 @@
 <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">ROW</span>, <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-keyword">ROW</span>, <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">STATEMENT</span>, <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-keyword">STATEMENT</span>,
 <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">UPDATE</span>, <span class="hljs-keyword">FOR NO KEY</span> <span class="hljs-keyword">UPDATE</span>, <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">SHARE</span>, <span class="hljs-keyword">FOR KEY</span> <span class="hljs-keyword">SHARE</span>,
 <span class="hljs-keyword">FROM</span>,
-<span class="hljs-keyword">FROM</span> <span class="hljs-string">'..'</span>, <span class="hljs-keyword">FROM PROGRAM</span>, <span class="hljs-keyword">FROM STDIN</span>,
+<span class="hljs-keyword">FROM</span> <span class="hljs-string">&#x27;..&#x27;</span>, <span class="hljs-keyword">FROM PROGRAM</span>, <span class="hljs-keyword">FROM STDIN</span>,
 <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">SQL</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">FUNCTION</span>, <span class="hljs-keyword">TO</span> <span class="hljs-keyword">SQL</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">FUNCTION</span>,
 <span class="hljs-keyword">FROM</span> ( .. ), <span class="hljs-comment">-- select</span>
 <span class="hljs-keyword">FUNCTION</span>, <span class="hljs-keyword">FUNCTIONS</span>,
@@ -130,7 +130,7 @@
 <span class="hljs-keyword">TABLESAMPLE</span>,
 <span class="hljs-keyword">TEMPORARY</span>, <span class="hljs-keyword">TEMP</span>, <span class="hljs-comment">-- create sequence/table/view, discard</span>
 <span class="hljs-keyword">TO</span> <span class="hljs-keyword">GROUP</span>, <span class="hljs-built_in">PUBLIC</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>,
-<span class="hljs-keyword">TO</span> <span class="hljs-string">'..'</span>, <span class="hljs-keyword">TO PROGRAM</span>, <span class="hljs-keyword">TO STDOUT</span>,
+<span class="hljs-keyword">TO</span> <span class="hljs-string">&#x27;..&#x27;</span>, <span class="hljs-keyword">TO PROGRAM</span>, <span class="hljs-keyword">TO STDOUT</span>,
 <span class="hljs-keyword">TRANSFORM</span> <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">TYPE</span>,
 <span class="hljs-keyword">TRUSTED</span>,
 <span class="hljs-keyword">TYPE</span>,

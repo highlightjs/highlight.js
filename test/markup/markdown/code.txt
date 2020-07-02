@@ -1,8 +1,38 @@
     var code = true;
+    var code = false;
 
 
 ```javascript
 var code = true;
 ```
+
+````md
+```
+a = 'This is a code block in python'
+```
+````
+
+~~~
+tilde can be used also (github)
+~~~
+
+~~~~    ruby startline=3 $%@#$
+def foo(x)
+  return 3
+end
+~~~~~~~
+
+~~~~~~~something
+code  here
+~~~~~~~
+
+```
+aaa
+~~~
+```
+
+  ```javascript
+  can be indented
+  ```
 
 Inline `code`, and `more code`.

@@ -5,13 +5,25 @@ Description: ARM Assembly including Thumb and Thumb2 instructions
 Category: assembler
 */
 
-function(hljs) {
+/** @type LanguageFn */
+export default function(hljs) {
     //local labels: %?[FB]?[AT]?\d{1,2}\w+
+
+  const COMMENT = {
+    variants: [
+      hljs.COMMENT('^[ \\t]*(?=#)', '$', {relevance: 0, excludeBegin: true }),
+      hljs.COMMENT('[;@]', '$', {relevance: 0}),
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+    ]
+  }
+
   return {
+    name: 'ARM Assembly',
     case_insensitive: true,
     aliases: ['arm'],
-    lexemes: '\\.?' + hljs.IDENT_RE,
     keywords: {
+      $pattern: '\\.?' + hljs.IDENT_RE,
       meta:
         //GNU preprocs
         '.2byte .4byte .align .ascii .asciz .balign .byte .code .data .else .end .endif .endm .endr .equ .err .exitm .extern .global .hword .if .ifdef .ifndef .include .irp .long .macro .rept .req .section .set .skip .space .text .word .arm .thumb .code16 .code32 .force_thumb .thumb_func .ltorg '+
@@ -56,11 +68,10 @@ function(hljs) {
             'wfe|wfi|yield'+
         ')'+
         '(eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le|al|hs|lo)?'+ //condition codes
-        '[sptrx]?' ,                                             //legal postfixes
-        end: '\\s'
+        '[sptrx]?' +                                             //legal postfixes
+        '(?=\\s)'                                                // followed by space
       },
-      hljs.COMMENT('[;@]', '$', {relevance: 0}),
-      hljs.C_BLOCK_COMMENT_MODE,
+      COMMENT,
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
@@ -87,8 +98,8 @@ function(hljs) {
       {
         className: 'symbol',
         variants: [
+            {begin: '^[ \\t]*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'}, //GNU ARM syntax
             {begin: '^[a-z_\\.\\$][a-z0-9_\\.\\$]+'}, //ARM syntax
-            {begin: '^\\s*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'}, //GNU ARM syntax
             {begin: '[=#]\\w+' }  //label reference
         ],
         relevance: 0

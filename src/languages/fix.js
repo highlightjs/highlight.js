@@ -3,8 +3,9 @@ Language: FIX
 Author: Brent Bradbury <brent@brentium.com>
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'FIX',
     contains: [
     {
       begin: /[^\u2401\u0001]+/,

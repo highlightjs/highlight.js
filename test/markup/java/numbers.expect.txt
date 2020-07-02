@@ -7,3 +7,29 @@
 <span class="hljs-keyword">byte</span> nybbles = <span class="hljs-number">0b0010_0101</span>;
 <span class="hljs-keyword">long</span> bytes = <span class="hljs-number">0b11010010_01101001_10010100_10010010</span>;
 <span class="hljs-keyword">int</span> n = <span class="hljs-number">1234</span> + Contacts._ID;
+<span class="hljs-keyword">float</span> f = <span class="hljs-number">0x1.4p2f</span>;
+<span class="hljs-keyword">double</span> d = <span class="hljs-number">0x.ep-6</span>;
+<span class="hljs-keyword">int</span> octal = <span class="hljs-number">0777</span>;
+<span class="hljs-keyword">float</span> f = <span class="hljs-number">2e3f</span>;
+<span class="hljs-keyword">double</span> d = <span class="hljs-number">1.2e4D</span>;
+a = <span class="hljs-number">0x4fa6p2</span>;
+b = <span class="hljs-number">0x.4p2</span>;
+c = <span class="hljs-number">0xa.ffp3f</span>;
+d = <span class="hljs-number">0x1.0p2F</span>;
+e = <span class="hljs-number">0x1.0p2f</span>;
+f = <span class="hljs-number">0x1p1</span>;
+g = <span class="hljs-number">0x.3p4d</span>;
+h = <span class="hljs-number">0x1.2ep5D</span>;
+i = <span class="hljs-number">0x1.p2</span>;
+<span class="hljs-keyword">int</span> i = <span class="hljs-number">23</span>;
+<span class="hljs-keyword">byte</span> mask = <span class="hljs-number">0x0f</span>;
+<span class="hljs-keyword">int</span> i = <span class="hljs-number">4</span>;
+<span class="hljs-keyword">byte</span> mask = <span class="hljs-number">0xa</span>;
+<span class="hljs-keyword">float</span> f = <span class="hljs-number">5.4</span>;
+<span class="hljs-keyword">float</span> f = <span class="hljs-number">2e3</span>;
+<span class="hljs-keyword">int</span> n = <span class="hljs-number">0b1</span>;
+<span class="hljs-keyword">float</span> f = <span class="hljs-number">3.</span>;
+f = <span class="hljs-number">3_3.</span>;
+<span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> in the future</span>
+<span class="hljs-comment">// float f = .2;</span>
+<span class="hljs-comment">// f = .2_022;</span>

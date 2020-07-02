@@ -6,13 +6,14 @@ Website: https://en.wikipedia.org/wiki/MIPS_architecture
 Category: assembler
 */
 
-function(hljs) {
+export default function(hljs) {
     //local labels: %?[FB]?[AT]?\d{1,2}\w+
   return {
+    name: 'MIPS Assembly',
     case_insensitive: true,
     aliases: ['mips'],
-    lexemes: '\\.?' + hljs.IDENT_RE,
     keywords: {
+      $pattern: '\\.?' + hljs.IDENT_RE,
       meta:
         //GNU preprocs
         '.2byte .4byte .align .ascii .asciz .balign .byte .code .data .else .end .endif .endm .endr .equ .err .exitm .extern .global .hword .if .ifdef .ifndef .include .irp .long .macro .rept .req .section .set .skip .space .text .word .ltorg ',

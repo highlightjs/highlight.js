@@ -1,12 +1,13 @@
 /*
-Language: VB.NET
+Language: Visual Basic .NET
 Description: Visual Basic .NET (VB.NET) is a multi-paradigm, object-oriented programming language, implemented on the .NET Framework.
 Author: Poren Chiang <ren.chiang@gmail.com>
 Website: https://docs.microsoft.com/en-us/dotnet/visual-basic/getting-started/
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'Visual Basic .NET',
     aliases: ['vb'],
     case_insensitive: true,
     keywords: {
@@ -16,7 +17,7 @@ function(hljs) {
         'each equals else elseif end enum erase error event exit explicit finally for friend from function ' + /* e-f */
         'get global goto group handles if implements imports in inherits interface into is isfalse isnot istrue iterator ' + /* g-i */
         'join key let lib like loop me mid mod module mustinherit mustoverride mybase myclass ' + /* j-m */
-        'namespace narrowing new next not notinheritable notoverridable ' + /* n */
+        'nameof namespace narrowing new next not notinheritable notoverridable ' + /* n */
         'of off on operator option optional or order orelse overloads overridable overrides ' + /* o */
         'paramarray partial preserve private property protected public ' + /* p */
         'raiseevent readonly redim rem removehandler resume return ' + /* r */

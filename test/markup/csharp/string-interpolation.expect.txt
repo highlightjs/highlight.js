@@ -1,0 +1,9 @@
+<span class="hljs-keyword">var</span> istr = <span class="hljs-string">$&quot;{{Hello}},\n<span class="hljs-subst">{<span class="hljs-string">$&quot;\&quot;<span class="hljs-subst">{nested}</span>\&quot;&quot;</span> + <span class="hljs-string">@&quot; and &quot;</span> + <span class="hljs-string">$@&quot;&quot;&quot;<span class="hljs-subst">{nested}</span>&quot;&quot;&quot;</span> <span class="hljs-comment">/*comments*/</span> }</span>&quot;</span>;
+<span class="hljs-keyword">var</span> ivstr = <span class="hljs-string">$@&quot;{{Hello}},
+<span class="hljs-subst">{
+<span class="hljs-string">$&quot;\&quot;<span class="hljs-subst">{nested}</span>\&quot;&quot;</span> + <span class="hljs-string">@&quot;
+and
+&quot;</span> + <span class="hljs-string">$@&quot;
+&quot;&quot;<span class="hljs-subst">{nested}</span>&quot;&quot;
+&quot;</span>
+<span class="hljs-comment">/*comments*/</span> }</span>&quot;</span>;

@@ -8,23 +8,57 @@ Website: https://livescript.net
 Category: scripting
 */
 
-function(hljs) {
+import * as ECMAScript from './lib/ecmascript.js';
+
+export default function(hljs) {
+  var LIVESCRIPT_BUILT_INS = [
+    'npm',
+    'print'
+  ];
+  var LIVESCRIPT_LITERALS = [
+    'yes',
+    'no',
+    'on',
+    'off',
+    'it',
+    'that',
+    'void'
+  ];
+  var LIVESCRIPT_KEYWORDS = [
+    'then',
+    'unless',
+    'until',
+    'loop',
+    'of',
+    'by',
+    'when',
+    'and',
+    'or',
+    'is',
+    'isnt',
+    'not',
+    'it',
+    'that',
+    'otherwise',
+    'from',
+    'to',
+    'til',
+    'fallthrough',
+    'case',
+    'enum',
+    'native',
+    'list',
+    'map',
+    '__hasProp',
+    '__extends',
+    '__slice',
+    '__bind',
+    '__indexOf'
+  ];
   var KEYWORDS = {
-    keyword:
-      // JS keywords
-      'in if for while finally new do return else break catch instanceof throw try this ' +
-      'switch continue typeof delete debugger case default function var with ' +
-      // LiveScript keywords
-      'then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super ' +
-      'case default function var void const let enum export import native list map ' +
-      '__hasProp __extends __slice __bind __indexOf',
-    literal:
-      // JS literals
-      'true false null undefined ' +
-      // LiveScript literals
-      'yes no on off it that void',
-    built_in:
-      'npm require console print module global window document'
+    keyword: ECMAScript.KEYWORDS.concat(LIVESCRIPT_KEYWORDS).join(" "),
+    literal: ECMAScript.LITERALS.concat(LIVESCRIPT_LITERALS).join(" "),
+    built_in: ECMAScript.BUILT_INS.concat(LIVESCRIPT_BUILT_INS).join(" ")
   };
   var JS_IDENT_RE = '[A-Za-z$_](?:\-[0-9A-Za-z$_]|[0-9A-Za-z$_])*';
   var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: JS_IDENT_RE});
@@ -115,6 +149,7 @@ function(hljs) {
   };
 
   return {
+    name: 'LiveScript',
     aliases: ['ls'],
     keywords: KEYWORDS,
     illegal: /\/\*/,

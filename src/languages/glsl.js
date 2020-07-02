@@ -6,8 +6,9 @@ Website: https://en.wikipedia.org/wiki/OpenGL_Shading_Language
 Category: graphics
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'GLSL',
     keywords: {
       keyword:
         // Statements
@@ -27,7 +28,7 @@ function(hljs) {
       type:
         'atomic_uint bool bvec2 bvec3 bvec4 dmat2 dmat2x2 dmat2x3 dmat2x4 dmat3 dmat3x2 dmat3x3 ' +
         'dmat3x4 dmat4 dmat4x2 dmat4x3 dmat4x4 double dvec2 dvec3 dvec4 float iimage1D iimage1DArray ' +
-        'iimage2D iimage2DArray iimage2DMS iimage2DMSArray iimage2DRect iimage3D iimageBuffer' +
+        'iimage2D iimage2DArray iimage2DMS iimage2DMSArray iimage2DRect iimage3D iimageBuffer ' +
         'iimageCube iimageCubeArray image1D image1DArray image2D image2DArray image2DMS image2DMSArray ' +
         'image2DRect image3D imageBuffer imageCube imageCubeArray int isampler1D isampler1DArray ' +
         'isampler2D isampler2DArray isampler2DMS isampler2DMSArray isampler2DRect isampler3D ' +

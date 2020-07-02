@@ -1,0 +1,14 @@
+<span class="hljs-template-variable">{{<span class="hljs-name">helper</span> <span class="hljs-literal">true</span> <span class="hljs-literal">false</span>}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{<span class="hljs-name">helper</span> <span class="hljs-number">1234</span>}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{<span class="hljs-name">helper</span> <span class="hljs-literal">null</span>}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{<span class="hljs-name">helper</span> <span class="hljs-literal">undefined</span>}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{<span class="hljs-name">helper</span> <span class="hljs-string">&#x27;string&#x27;</span>}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{<span class="hljs-name">helper</span> <span class="hljs-string">&quot;string&quot;</span>}}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{<span class="hljs-name">helper</span> [not a string literal but a variable]}}</span><span class="xml">
+</span>

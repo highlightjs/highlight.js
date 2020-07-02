@@ -5,7 +5,7 @@ Description: built-in language DIRECTUM
 Category: enterprise
 */
 
-function(hljs) {
+export default function(hljs) {
   // Определение идентификаторов
   var UNDERSCORE_IDENT_RE = "[A-Za-zА-Яа-яёЁ_!][A-Za-zА-Яа-яёЁ_0-9]*";
 
@@ -3102,6 +3102,7 @@ function(hljs) {
 
   // keywords : ключевые слова
   var KEYWORDS = {
+    $pattern: UNDERSCORE_IDENT_RE,
     keyword: KEYWORD,
     built_in: BUILTIN,
     class: CLASS,
@@ -3126,7 +3127,6 @@ function(hljs) {
   // variables : переменные
   var VARIABLES = {
     className: "variable",
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     begin: UNDERSCORE_IDENT_RE,
     relevance: 0,
@@ -3138,8 +3138,8 @@ function(hljs) {
 
   var TITLE_MODE = {
     className: "title",
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: {
+      $pattern: UNDERSCORE_IDENT_RE,
       built_in: system_functions,
     },
     begin: FUNCTION_TITLE,
@@ -3154,16 +3154,15 @@ function(hljs) {
     begin: FUNCTION_TITLE,
     end: "\\)$",
     returnBegin: true,
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     illegal: "[\\[\\]\\|\\$\\?%,~#@]",
     contains: [TITLE_MODE, METHODS, VARIABLES, STRINGS, NUMBERS, COMMENTS],
   };
 
   return {
+    name: 'ISBL',
     aliases: ["isbl"],
     case_insensitive: true,
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     illegal: "\\$|\\?|%|,|;$|~|#|@|</",
     contains: [

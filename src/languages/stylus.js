@@ -6,7 +6,7 @@ Website: https://github.com/stylus/stylus
 Category: css
 */
 
-function(hljs) {
+export default function(hljs) {
 
   var VARIABLE = {
     className: 'variable',
@@ -346,6 +346,7 @@ function(hljs) {
   ];
 
   return {
+    name: 'Stylus',
     aliases: ['styl'],
     case_insensitive: false,
     keywords: 'if else for in',

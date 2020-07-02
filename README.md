@@ -1,11 +1,19 @@
 # Highlight.js
 
-[![Build Status](https://travis-ci.org/highlightjs/highlight.js.svg?branch=master)](https://travis-ci.org/highlightjs/highlight.js) [![Greenkeeper badge](https://badges.greenkeeper.io/highlightjs/highlight.js.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/highlightjs/highlight.js.svg?branch=master)](https://travis-ci.org/highlightjs/highlight.js) [![Greenkeeper badge](https://badges.greenkeeper.io/highlightjs/highlight.js.svg)](https://greenkeeper.io/) [![install size](https://packagephobia.now.sh/badge?p=highlight.js)](https://packagephobia.now.sh/result?p=highlight.js)
 
 Highlight.js is a syntax highlighter written in JavaScript. It works in
 the browser as well as on the server. It works with pretty much any
 markup, doesn’t depend on any framework, and has automatic language
 detection.
+
+## Upgrading from Version 9
+
+Version 10 is one of the biggest releases in quite some time.  If you're
+upgrading from version 9, there are some breaking changes and things you may
+want to double check first.
+
+Please read [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md) for  high-level summary of breaking changes and any actions you may need to take. See [VERSION_10_BREAKING_CHANGES.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_BREAKING_CHANGES.md) for a more detailed list and [CHANGES.md](https://github.com/highlightjs/highlight.js/blob/master/CHANGES.md) to learn what else is new.
 
 ## Getting Started
 
@@ -15,7 +23,7 @@ library along with one of the styles and calling
 
 ```html
 <link rel="stylesheet" href="/path/to/styles/default.css">
-<script src="/path/to/highlight.pack.js"></script>
+<script src="/path/to/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 ```
 
@@ -27,207 +35,32 @@ work for you, you can specify the language in the `class` attribute:
 <pre><code class="html">...</code></pre>
 ```
 
-<details>
-<summary>The list of supported languages and corresponding classes.</summary>
+Classes may also be prefixed with either `language-` or `lang-`.
 
-| Language                | Classes                | Package |
-| :-----------------------| :--------------------- | :------ |
-| 1C                      | 1c                     |         |
-| ABNF                    | abnf                   |         |
-| Access logs             | accesslog              |         |
-| Ada                     | ada                    |         |
-| ARM assembler           | armasm, arm            |         |
-| AVR assembler           | avrasm                 |         |
-| ActionScript            | actionscript, as       |         |
-| Alan                    | alan, i                | [highlightjs-alan](https://github.com/highlightjs/highlightjs-alan) |
-| AngelScript             | angelscript, asc       |         |
-| Apache                  | apache, apacheconf     |         |
-| AppleScript             | applescript, osascript |         |
-| Arcade                  | arcade                 |         |
-| AsciiDoc                | asciidoc, adoc         |         |
-| AspectJ                 | aspectj                |         |
-| AutoHotkey              | autohotkey             |         |
-| AutoIt                  | autoit                 |         |
-| Awk                     | awk, mawk, nawk, gawk  |         |
-| Axapta                  | axapta                 |         |
-| Bash                    | bash, sh, zsh          |         |
-| Basic                   | basic                  |         |
-| BNF                     | bnf                    |         |
-| Brainfuck               | brainfuck, bf          |         |
-| C#                      | cs, csharp             |         |
-| C++                     | cpp, c, cc, h, c++, h++, hpp |   |
-| C/AL                    | cal                    |         |
-| Cache Object Script     | cos, cls               |         |
-| CMake                   | cmake, cmake.in        |         |
-| Coq                     | coq                    |         |
-| CSP                     | csp                    |         |
-| CSS                     | css                    |         |
-| Cap’n Proto             | capnproto, capnp       |         |
-| Clojure                 | clojure, clj           |         |
-| CoffeeScript            | coffeescript, coffee, cson, iced | |
-| Crmsh                   | crmsh, crm, pcmk       |         |
-| Crystal                 | crystal, cr            |         |
-| Cypher (Neo4j)          | cypher                 | [highlightjs-cypher](https://github.com/highlightjs/highlightjs-cypher) |
-| D                       | d                      |         |
-| DNS Zone file           | dns, zone, bind        |         |
-| DOS                     | dos, bat, cmd          |         |
-| Dart                    | dart                   |         |
-| Delphi                  | delphi, dpr, dfm, pas, pascal, freepascal, lazarus, lpr, lfm | |
-| Diff                    | diff, patch            |         |
-| Django                  | django, jinja          |         |
-| Dockerfile              | dockerfile, docker     |         |
-| dsconfig                | dsconfig               |         |
-| DTS (Device Tree)       | dts                    |         |
-| Dust                    | dust, dst              |         |
-| Dylan                   | dylan                  | [highlight-dylan](https://github.com/highlightjs/highlight-dylan) |
-| EBNF                    | ebnf                   |         |
-| Elixir                  | elixir                 |         |
-| Elm                     | elm                    |         |
-| Erlang                  | erlang, erl            |         |
-| Excel                   | excel, xls, xlsx       |         |
-| Extempore               | extempore, xtlang, xtm | [highlightjs-xtlang](https://github.com/highlightjs/highlightjs-xtlang) |
-| F#                      | fsharp, fs             |         |
-| FIX                     | fix                    |         |
-| Fortran                 | fortran, f90, f95      |         |
-| G-Code                  | gcode, nc              |         |
-| Gams                    | gams, gms              |         |
-| GAUSS                   | gauss, gss             |         |
-| GDScript                | godot, gdscript        | [highlightjs-gdscript](https://github.com/highlightjs/highlightjs-gdscript) |
-| Gherkin                 | gherkin                |         |
-| GN for Ninja            | gn, gni                | [highlightjs-GN](https://github.com/highlightjs/highlightjs-GN/blob/master/gn.js) |
-| Go                      | go, golang             |         |
-| Golo                    | golo, gololang         |         |
-| Gradle                  | gradle                 |         |
-| Groovy                  | groovy                 |         |
-| HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist, svg | |
-| HTTP                    | http, https            |         |
-| Haml                    | haml                   |         |
-| Handlebars              | handlebars, hbs, html.hbs, html.handlebars        | |
-| Haskell                 | haskell, hs            |         |
-| Haxe                    | haxe, hx               |         |
-| Hy                      | hy, hylang             |         |
-| Ini, TOML               | ini, toml              |         |
-| Inform7                 | inform7, i7            |         |
-| IRPF90                  | irpf90                 |         |
-| JSON                    | json                   |         |
-| Java                    | java, jsp              |         |
-| JavaScript              | javascript, js, jsx    |         |
-| Kotlin                  | kotlin, kt             |         |
-| Leaf                    | leaf                   |         |
-| Lasso                   | lasso, ls, lassoscript |         |
-| Less                    | less                   |         |
-| LDIF                    | ldif                   |         |
-| Lisp                    | lisp                   |         |
-| LiveCode Server         | livecodeserver         |         |
-| LiveScript              | livescript, ls         |         |
-| Lua                     | lua                    |         |
-| Makefile                | makefile, mk, mak      |         |
-| Markdown                | markdown, md, mkdown, mkd |      |
-| Mathematica             | mathematica, mma, wl   |         |
-| Matlab                  | matlab                 |         |
-| Maxima                  | maxima                 |         |
-| Maya Embedded Language  | mel                    |         |
-| Mercury                 | mercury                |         |
-| mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
-| Mizar                   | mizar                  |         |
-| Mojolicious             | mojolicious            |         |
-| Monkey                  | monkey                 |         |
-| Moonscript              | moonscript, moon       |         |
-| N1QL                    | n1ql                   |         |
-| NSIS                    | nsis                   |         |
-| Nginx                   | nginx, nginxconf       |         |
-| Nimrod                  | nimrod, nim            |         |
-| Nix                     | nix                    |         |
-| OCaml                   | ocaml, ml              |         |
-| Objective C             | objectivec, mm, objc, obj-c |    |
-| OpenGL Shading Language | glsl                   |         |
-| OpenSCAD                | openscad, scad         |         |
-| Oracle Rules Language   | ruleslanguage          |         |
-| Oxygene                 | oxygene                |         |
-| PF                      | pf, pf.conf            |         |
-| PHP                     | php, php3, php4, php5, php6 |    |
-| Parser3                 | parser3                |         |
-| Perl                    | perl, pl, pm           |         |
-| Plaintext: no highlight | plaintext              |         |
-| Pony                    | pony                   |         |
-| PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
-| PowerShell              | powershell, ps, ps1    |         |
-| Processing              | processing             |         |
-| Prolog                  | prolog                 |         |
-| Properties              | properties             |         |
-| Protocol Buffers        | protobuf               |         |
-| Puppet                  | puppet, pp             |         |
-| Python                  | python, py, gyp        |         |
-| Python profiler results | profile                |         |
-| Q                       | k, kdb                 |         |
-| QML                     | qml                    |         |
-| R                       | r                      |         |
-| Razor CSHTML            | cshtml, razor, razor-cshtml | [highlightjs-cshtml-razor](https://github.com/highlightjs/highlightjs-cshtml-razor) |
-| ReasonML                | reasonml, re           |         |
-| RenderMan RIB           | rib                    |         |
-| RenderMan RSL           | rsl                    |         |
-| Roboconf                | graph, instances       |         |
-| Robot Framework         | robot, rf              | [highlightjs-robot](https://github.com/highlightjs/highlightjs-robot) |
-| RPM spec files          | rpm-specfile, rpm, spec, rpm-spec, specfile | [highlightjs-rpm-specfile](https://github.com/highlightjs/highlightjs-rpm-specfile) |
-| Ruby                    | ruby, rb, gemspec, podspec, thor, irb | |
-| Rust                    | rust, rs               |         |
-| SAS                     | SAS, sas               |         |
-| SCSS                    | scss                   |         |
-| SQL                     | sql                    |         |
-| STEP Part 21            | p21, step, stp         |         |
-| Scala                   | scala                  |         |
-| Scheme                  | scheme                 |         |
-| Scilab                  | scilab, sci            |         |
-| Shape Expressions       | shexc                  | [highlightjs-shexc](https://github.com/highlightjs/highlightjs-shexc) |
-| Shell                   | shell, console         |         |
-| Smali                   | smali                  |         |
-| Smalltalk               | smalltalk, st          |         |
-| Solidity                | solidity, sol          | [highlightjs-solidity](https://github.com/highlightjs/highlightjs-solidity) |
-| Stan                    | stan                   |         |
-| Stata                   | stata                  |         |
-| Structured Text         | iecst, scl, stl, structured-text | [highlightjs-structured-text](https://github.com/highlightjs/highlightjs-structured-text) |
-| Stylus                  | stylus, styl           |         |
-| SubUnit                 | subunit                |         |
-| Supercollider           | supercollider, sc      | [highlightjs-supercollider](https://github.com/highlightjs/highlightjs-supercollider) |
-| Swift                   | swift                  |         |
-| Tcl                     | tcl, tk                |         |
-| Terraform (HCL)         | terraform, tf, hcl     | [highlightjs-terraform](https://github.com/highlightjs/highlightjs-terraform) |
-| Test Anything Protocol  | tap                    |         |
-| TeX                     | tex                    |         |
-| Thrift                  | thrift                 |         |
-| TP                      | tp                     |         |
-| Twig                    | twig, craftcms         |         |
-| TypeScript              | typescript, ts         |         |
-| VB.Net                  | vbnet, vb              |         |
-| VBScript                | vbscript, vbs          |         |
-| VHDL                    | vhdl                   |         |
-| Vala                    | vala                   |         |
-| Verilog                 | verilog, v             |         |
-| Vim Script              | vim                    |         |
-| x86 Assembly            | x86asm                 |         |
-| XL                      | xl, tao                |         |
-| XQuery                  | xquery, xpath, xq      |         |
-| YAML                    | yml, yaml              |         |
-| Zephir                  | zephir, zep            |         |
+```html
+<pre><code class="language-html">...</code></pre>
+```
 
-Languages with the specified package name are defined in separate repositories
-and not included in `highlight.pack.js`.
-</details>
+### Plaintext and Disabling Highlighting
 
-Classes can also be prefixed with either `language-` or `lang-`.
-
-To make arbitrary text look like code, but without highlighting, use the
+To style arbitrary text like code, but without any highlighting, use the
 `plaintext` class:
 
 ```html
 <pre><code class="plaintext">...</code></pre>
 ```
 
-To disable highlighting altogether use the `nohighlight` class:
+To disable highlighting of a tag completely, use the `nohighlight` class:
 
 ```html
 <pre><code class="nohighlight">...</code></pre>
 ```
+
+### Supported Languages
+
+Highlight.js supports over 180 different languages in the core library.  There are also 3rd party
+language plugins available for additional languages. You can find the full list of supported languages
+in [SUPPORTED_LANGUAGES.md][9].
 
 ## Custom Initialization
 
@@ -281,7 +114,7 @@ In worker.js:
 
 ```js
 onmessage = (event) => {
-  importScripts('<path>/highlight.pack.js');
+  importScripts('<path>/highlight.min.js');
   const result = self.hljs.highlightAuto(event.data);
   postMessage(result.value);
 };
@@ -289,26 +122,53 @@ onmessage = (event) => {
 
 ## Node.js
 
-You can use highlight.js with node to highlight content before sending it to the browser. 
-Make sure to use the `.value` property to get the formatted html. 
+You can use highlight.js with node to highlight content before sending it to the browser.
+Make sure to use the `.value` property to get the formatted html.
 For more info about the returned object refer to the api docs https://highlightjs.readthedocs.io/en/latest/api.html
 
 
 ```js
-// require the highlight.js library including all languages
+// require the highlight.js library, including all languages
 const hljs = require('./highlight.js');
 const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 ```
 
+Or for a smaller footprint... load just the languages you need.
+
 ```js
-// require the highlight.js library without languages
-const hljs = require("highlight.js/lib/highlight.js");
+const hljs = require("highlight.js/lib/core");  // require only the core library
 // separately require languages
-hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
-hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
-// highlight with providing the language
-const highlightedCode = hljs.highlight('html', '<span>Hello World!</span>').value
+hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
+
+const highlightedCode = hljs.highlight('xml', '<span>Hello World!</span>').value
 ```
+
+
+## ES6 Modules
+
+First, you'll likely install via `npm` or `yarn` -- see [Getting the Library](#getting-the-library) below.
+
+In your application:
+
+```js
+import hljs from 'highlight.js';
+```
+
+The default import imports all languages. Therefore it is likely to be more efficient to import only the library and the languages you need:
+
+```js
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
+```
+
+To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can also import the stylesheet directly as modules:
+
+```js
+import hljs from 'highlight.js/lib/core';
+import 'highlight.js/styles/github.css';
+```
+
 
 ## Getting the Library
 
@@ -318,21 +178,11 @@ both AMD and CommonJS, so if you wish you can use RequireJS or
 Browserify without having to build from source. The server module also
 works perfectly fine with Browserify, but there is the option to use a
 build specific to browsers rather than something meant for a server.
-Head over to the [download page][5] for all the options.
 
-**Don't link to GitHub directly.** The library is not supposed to work straight
+
+**Do not link to GitHub directly.** The library is not supposed to work straight
 from the source, it requires building. If none of the pre-packaged options
 work for you refer to the [building documentation][6].
-
-**The CDN-hosted package doesn't have all the languages.** Otherwise it'd be
-too big. If you don't see the language you need in the ["Common" section][5],
-it can be added manually:
-
-```html
-<script
- charset="UTF-8"
- src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/languages/go.min.js"></script>
-```
 
 **On Almond.** You need to use the optimizer to give the module a name. For
 example:
@@ -341,40 +191,83 @@ example:
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
+### CDN Hosted
 
-### CommonJS
+A prebuilt version of highlight.js bundled with many common languages is hosted by the following CDNs:
 
-You can import Highlight.js as a CommonJS-module:
+**cdnjs** ([link](https://cdnjs.com/libraries/highlight.js))
+
+```html
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8"
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/go.min.js"></script>
+```
+
+**jsdelivr** ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
+
+```html
+<link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/default.min.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
+```
+
+**Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
+very large.  You can find our list "common" languages that we bundle by default on our [download page][5].
+
+### Self Hosting
+
+The [download page][5] can quickly generate a custom bundle including only the languages you need.
+
+Alternatively, you can build a browser package from [source](#source):
+
+```
+node tools/build.js -t browser :common
+```
+
+See our [building documentation][6] for more information.
+
+**Note:** Building from source should always result in the smallest size builds.  The website download page is optimized for speed, not size.
+
+
+#### Prebuilt CDN assets
+
+You can also download and self-host the same assets we serve up via our own CDNs.  We publish those builds to the [cdn-release](https://github.com/highlightjs/cdn-release) GitHub repository.  You can easily pull individual files off the CDN endpoints with `curl`, etc; if say you only needed `highlight.min.js` and a single CSS file.
+
+There is also an npm package [@highlightjs/cdn-assets](https://www.npmjs.com/package/@highlightjs/cdn-assets) if pulling the assets in via `npm` or `yarn` would be easier for your build process.
+
+
+### NPM / Node.js server module
+
+Highlight.js can also be used on the server. The package with all supported languages can be installed from NPM or Yarn:
 
 ```bash
-npm install highlight.js --save
+npm install highlight.js
+# or
+yarn add highlight.js
 ```
 
-In your application:
+Alternatively, you can build it from [source](#source):
 
-```js
-import hljs from 'highlight.js';
+```bash
+node tools/build.js -t node
 ```
 
-The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
+See our [building documentation][6] for more information.
 
-```js
-import hljs from 'highlight.js/lib/highlight';
-import javascript from 'highlight.js/lib/languages/javascript';
-hljs.registerLanguage('javascript', javascript);
-```
 
-To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can import the stylesheet directly into your CommonJS-module:
+### Source
 
-```js
-import hljs from 'highlight.js/lib/highlight';
-import 'highlight.js/styles/github.css';
-```
+[Current source][10] is always available on GitHub.
+
 
 ## License
 
 Highlight.js is released under the BSD License. See [LICENSE][7] file
 for details.
+
 
 ## Links
 
@@ -383,7 +276,7 @@ The official site for the library is at <https://highlightjs.org/>.
 Further in-depth documentation for the API and other topics is at
 <http://highlightjs.readthedocs.io/>.
 
-Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
+Authors and contributors are listed in the [AUTHORS.txt][8] file.
 
 [1]: http://highlightjs.readthedocs.io/en/latest/api.html#inithighlightingonload
 [2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
@@ -392,4 +285,6 @@ Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
 [5]: https://highlightjs.org/download/
 [6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
 [7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
-[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.en.txt
+[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.txt
+[9]: https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md
+[10]: https://github.com/highlightjs/

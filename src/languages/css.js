@@ -4,7 +4,8 @@ Category: common, css
 Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 */
 
-function(hljs) {
+/** @type LanguageFn */
+export default function(hljs) {
   var FUNCTION_LIKE = {
     begin: /[\w-]+\(/, returnBegin: true,
     contains: [
@@ -55,6 +56,7 @@ function(hljs) {
   };
 
   return {
+    name: 'CSS',
     case_insensitive: true,
     illegal: /[=\/|'\$]/,
     contains: [

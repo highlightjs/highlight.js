@@ -136,5 +136,4 @@ Stylable classes
 Language names and aliases
 --------------------------
 
-The language names and aliases table has moved to the project
-[README](https://github.com/highlightjs/highlight.js)
+The language names and aliases table has moved to `SUPPORTED_LANGUAGES.md <https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md>`_.

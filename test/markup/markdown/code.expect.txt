@@ -1,8 +1,38 @@
-<span class="hljs-code">    var code = true;</span>
-
+<span class="hljs-code">    var code = true;
+    var code = false;
+</span>
 
 <span class="hljs-code">```javascript
 var code = true;
 ```</span>
+
+<span class="hljs-code">````md
+```
+a = &#x27;This is a code block in python&#x27;
+```
+````</span>
+
+<span class="hljs-code">~~~
+tilde can be used also (github)
+~~~</span>
+
+<span class="hljs-code">~~~~    ruby startline=3 $%@#$
+def foo(x)
+  return 3
+end
+~~~~~~~</span>
+
+<span class="hljs-code">~~~~~~~something
+code  here
+~~~~~~~</span>
+
+<span class="hljs-code">```
+aaa
+~~~
+```</span>
+
+  <span class="hljs-code">```javascript
+  can be indented
+  ```</span>
 
 Inline <span class="hljs-code">`code`</span>, and <span class="hljs-code">`more code`</span>.

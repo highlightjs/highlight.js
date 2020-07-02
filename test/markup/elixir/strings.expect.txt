@@ -1,0 +1,4 @@
+a = <span class="hljs-string">&quot;&quot;&quot;test&quot;&quot;&quot;</span>
+b = <span class="hljs-string">&#x27;&#x27;&#x27;test&#x27;&#x27;&#x27;</span>
+c = <span class="hljs-string">&quot;test&quot;</span>
+d = <span class="hljs-string">&#x27;test&#x27;</span>

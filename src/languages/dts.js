@@ -6,7 +6,7 @@ Website: https://elinux.org/Device_Tree_Reference
 Category: config
 */
 
-function(hljs) {
+export default function(hljs) {
   var STRINGS = {
     className: 'string',
     variants: [
@@ -109,6 +109,7 @@ function(hljs) {
   };
 
   return {
+    name: 'Device Tree',
     keywords: "",
     contains: [
       DTS_ROOT_NODE,

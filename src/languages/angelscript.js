@@ -5,7 +5,8 @@ Category: scripting
 Website: https://www.angelcode.com/angelscript/
 */
 
-function(hljs) {
+/** @type LanguageFn */
+export default function(hljs) {
   var builtInTypeMode = {
     className: 'built_in',
     begin: '\\b(void|bool|int|int8|int16|int32|int64|uint|uint8|uint16|uint32|uint64|string|ref|array|double|float|auto|dictionary)'
@@ -26,7 +27,8 @@ function(hljs) {
   objectHandleMode.contains = [ genericMode ];
 
   return {
-    aliases: [ 'asc' ],
+    name: 'AngelScript',
+    aliases: ['asc'],
 
     keywords:
       'for in|0 break continue while do|0 return if else case switch namespace is cast ' +

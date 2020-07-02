@@ -6,8 +6,9 @@ Website: https://docs.oracle.com/cd/E17904_01/dev.1111/e10227/rlref.htm
 Category: enterprise
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'Oracle Rules Language',
     keywords: {
        keyword: 'BILL_PERIOD BILL_START BILL_STOP RS_EFFECTIVE_START RS_EFFECTIVE_STOP RS_JURIS_CODE RS_OPCO_CODE ' +
          'INTDADDATTRIBUTE|5 INTDADDVMSG|5 INTDBLOCKOP|5 INTDBLOCKOPNA|5 INTDCLOSE|5 INTDCOUNT|5 ' +

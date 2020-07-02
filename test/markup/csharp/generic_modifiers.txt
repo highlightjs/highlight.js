@@ -1,0 +1,11 @@
+interface IObserver<in T>;
+{}
+
+interface IObservable<out T>;
+{}
+
+public delegate void DContravariant<in A>(A argument);
+
+public delegate A DCovariant<out A>();
+
+void MethodWithGenericParameter<T>()

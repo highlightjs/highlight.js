@@ -5,16 +5,47 @@ Website: https://en.wikipedia.org/wiki/Fortran
 Category: scientific
 */
 
-function(hljs) {
-  var PARAMS = {
+export default function(hljs) {
+  const PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)'
   };
 
-  var F_KEYWORDS = {
+  const COMMENT = {
+    variants: [
+      hljs.COMMENT('!', '$', {relevance: 0}),
+      // allow Fortran 77 style comments
+      hljs.COMMENT('^C', '$', {relevance: 0})
+    ]
+  };
+
+  const NUMBER = {
+    className: 'number',
+    // regex in both fortran and irpf90 should match
+    begin: '(?=\\b|\\+|\\-|\\.)(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z_\\d]+)?',
+    relevance: 0
+  };
+
+  const FUNCTION_DEF = {
+    className: 'function',
+    beginKeywords: 'subroutine function program',
+    illegal: '[${=\\n]',
+    contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
+  };
+
+  const STRING = {
+    className: 'string',
+    relevance: 0,
+    variants: [
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  };
+
+  const KEYWORDS = {
     literal: '.False. .True.',
-    keyword: 'kind do while private call intrinsic where elsewhere ' +
-      'type endtype endmodule endselect endinterface end enddo endif if forall endforall only contains default return stop then ' +
+    keyword: 'kind do concurrent local shared while private call intrinsic where elsewhere ' +
+      'type endtype endmodule endselect endinterface end enddo endif if forall endforall only contains default return stop then block endblock endassociate ' +
       'public subroutine|10 function program .and. .or. .not. .le. .eq. .ge. .gt. .lt. ' +
       'goto save else use module select case ' +
       'access blank direct exist file fmt form formatted iostat name named nextrec number opened rec recl sequential status unformatted unit ' +
@@ -29,8 +60,8 @@ function(hljs) {
       'c_ptr c_funptr iso_fortran_env character_storage_size error_unit file_storage_size input_unit iostat_end iostat_eor ' +
       'numeric_storage_size output_unit c_f_procpointer ieee_arithmetic ieee_support_underflow_control ' +
       'ieee_get_underflow_mode ieee_set_underflow_mode newunit contiguous recursive ' +
-      'pad position action delim readwrite eor advance nml interface procedure namelist include sequence elemental pure ' +
-      'integer real character complex logical dimension allocatable|10 parameter ' +
+      'pad position action delim readwrite eor advance nml interface procedure namelist include sequence elemental pure impure ' +
+      'integer real character complex logical codimension dimension allocatable|10 parameter ' +
       'external implicit|10 none double precision assign intent optional pointer ' +
       'target in out common equivalence data',
     built_in: 'alog alog10 amax0 amax1 amin0 amin1 amod cabs ccos cexp clog csin csqrt dabs dacos dasin datan datan2 dcos dcosh ddim dexp dint ' +
@@ -46,32 +77,29 @@ function(hljs) {
       'set_exponent shape size spacing spread sum system_clock tiny transpose trim ubound unpack verify achar iachar transfer ' +
       'dble entry dprod cpu_time command_argument_count get_command get_command_argument get_environment_variable is_iostat_end ' +
       'ieee_arithmetic ieee_support_underflow_control ieee_get_underflow_mode ieee_set_underflow_mode ' +
-      'is_iostat_eor move_alloc new_line selected_char_kind same_type_as extends_type_of'  +
+      'is_iostat_eor move_alloc new_line selected_char_kind same_type_as extends_type_of '  +
       'acosh asinh atanh bessel_j0 bessel_j1 bessel_jn bessel_y0 bessel_y1 bessel_yn erf erfc erfc_scaled gamma log_gamma hypot norm2 ' +
       'atomic_define atomic_ref execute_command_line leadz trailz storage_size merge_bits ' +
       'bge bgt ble blt dshiftl dshiftr findloc iall iany iparity image_index lcobound ucobound maskl maskr ' +
-      'num_images parity popcnt poppar shifta shiftl shiftr this_image'
+      'num_images parity popcnt poppar shifta shiftl shiftr this_image sync change team co_broadcast co_max co_min co_sum co_reduce'
   };
   return {
+    name: 'Fortran',
     case_insensitive: true,
     aliases: ['f90', 'f95'],
-    keywords: F_KEYWORDS,
+    keywords: KEYWORDS,
     illegal: /\/\*/,
     contains: [
-      hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'string', relevance: 0}),
+      STRING,
+      FUNCTION_DEF,
+      // allow `C = value` for assignments so they aren't misdetected
+      // as Fortran 77 style comments
       {
-        className: 'function',
-        beginKeywords: 'subroutine function program',
-        illegal: '[${=\\n]',
-        contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
+        begin: /^C\s*=(?!=)/,
+        relevance: 0,
       },
-      hljs.COMMENT('!', '$', {relevance: 0}),
-      {
-        className: 'number',
-        begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][+-]?\\d+)?\\b\\.?',
-        relevance: 0
-      }
+      COMMENT,
+      NUMBER
     ]
   };
 }

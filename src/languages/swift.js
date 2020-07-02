@@ -8,7 +8,7 @@ Category: common, system
 */
 
 
-function(hljs) {
+export default function(hljs) {
   var SWIFT_KEYWORDS = {
       keyword: '#available #colorLiteral #column #else #elseif #endif #file ' +
         '#fileLiteral #function #if #imageLiteral #line #selector #sourceLocation ' +
@@ -23,7 +23,7 @@ function(hljs) {
       literal: 'true false nil',
       built_in: 'abs advance alignof alignofValue anyGenerator assert assertionFailure ' +
         'bridgeFromObjectiveC bridgeFromObjectiveCUnconditional bridgeToObjectiveC ' +
-        'bridgeToObjectiveCUnconditional c contains count countElements countLeadingZeros ' +
+        'bridgeToObjectiveCUnconditional c compactMap contains count countElements countLeadingZeros ' +
         'debugPrint debugPrintln distance dropFirst dropLast dump encodeBitsAsWords ' +
         'enumerate equal fatalError filter find getBridgedObjectiveCType getVaList ' +
         'indices insertionSort isBridgedToObjectiveC isBridgedVerbatimToObjectiveC ' +
@@ -77,6 +77,7 @@ function(hljs) {
   SUBST.contains = [NUMBERS];
 
   return {
+    name: 'Swift',
     keywords: SWIFT_KEYWORDS,
     contains: [
       STRING,
@@ -128,7 +129,7 @@ function(hljs) {
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
                   '@infix|@prefix|@postfix|@autoclosure|@testable|@available|' +
                   '@nonobjc|@NSApplicationMain|@UIApplicationMain|@dynamicMemberLookup|' +
-                  '@propertyWrapper)'
+                  '@propertyWrapper)\\b'
 
       },
       {

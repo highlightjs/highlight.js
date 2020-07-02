@@ -5,7 +5,8 @@ Description: Provides highlighting of Microsoft Dynamics NAV C/AL code files
 Website: https://docs.microsoft.com/en-us/dynamics-nav/programming-in-c-al
 */
 
-function(hljs) {
+/** @type LanguageFn */
+export default function(hljs) {
   var KEYWORDS =
     'div mod in and or not xor asserterror begin case do downto else end exit for if of repeat then to ' +
     'until while with var';
@@ -72,6 +73,7 @@ function(hljs) {
   };
 
   return {
+    name: 'C/AL',
     case_insensitive: true,
     keywords: { keyword: KEYWORDS, literal: LITERALS },
     illegal: /\/\*/,

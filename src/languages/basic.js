@@ -1,16 +1,19 @@
 /*
-Language: Basic
+Language: BASIC
 Author: Raphaël Assénat <raph@raphnet.net>
 Description: Based on the BASIC reference from the Tandy 1000 guide
 Website: https://en.wikipedia.org/wiki/Tandy_1000
 */
-function(hljs) {
+
+/** @type LanguageFn */
+export default function(hljs) {
   return {
+    name: 'BASIC',
     case_insensitive: true,
     illegal: '^\.',
-    // Support explicitely typed variables that end with $%! or #.
-    lexemes: '[a-zA-Z][a-zA-Z0-9_\$\%\!\#]*',
+    // Support explicitly typed variables that end with $%! or #.
     keywords: {
+        $pattern: '[a-zA-Z][a-zA-Z0-9_\$\%\!\#]*',
         keyword:
           'ABS ASC AND ATN AUTO|0 BEEP BLOAD|10 BSAVE|10 CALL CALLS CDBL CHAIN CHDIR CHR$|10 CINT CIRCLE ' +
           'CLEAR CLOSE CLS COLOR COM COMMON CONT COS CSNG CSRLIN CVD CVI CVS DATA DATE$ ' +

@@ -1,0 +1,23 @@
+<span class="hljs-string">~R&#x27;this + i\s &quot;a&quot; regex too&#x27;</span>
+<span class="hljs-string">~w(hello <span class="hljs-subst">#{ [<span class="hljs-string">&quot;has&quot;</span> &lt;&gt; <span class="hljs-string">&quot;123&quot;</span>, <span class="hljs-string">&#x27;\c\d&#x27;</span>, <span class="hljs-string">&quot;\123 interpol&quot;</span> | []] }</span> world)</span>s
+<span class="hljs-string">~W(hello #{no &quot;123&quot; \c\d \123 interpol} world)</span>s
+<span class="hljs-string">~s{Escapes terminators \{ and \}, but no {balancing}</span> <span class="hljs-comment"># outside of sigil here }</span>
+<span class="hljs-string">~S&quot;No escapes \s\t\n and no #{interpolation}&quot;</span>
+
+<span class="hljs-string">~S/hello/</span>
+<span class="hljs-string">~S|hello|</span>
+<span class="hljs-string">~S&quot;hello&quot;</span>
+<span class="hljs-string">~S&#x27;hello&#x27;</span>
+<span class="hljs-string">~S(hello)</span>
+<span class="hljs-string">~S[hello]</span>
+<span class="hljs-string">~S{hello}</span>
+<span class="hljs-string">~S&lt;hello&gt;</span>
+
+<span class="hljs-string">~s/hello <span class="hljs-subst">#{name}</span>/</span>
+<span class="hljs-string">~s|hello <span class="hljs-subst">#{name}</span>|</span>
+<span class="hljs-string">~s&quot;hello <span class="hljs-subst">#{name}</span>&quot;</span>
+<span class="hljs-string">~s&#x27;hello <span class="hljs-subst">#{name}</span>&#x27;</span>
+<span class="hljs-string">~s(hello <span class="hljs-subst">#{name}</span>)</span>
+<span class="hljs-string">~s[hello <span class="hljs-subst">#{name}</span>]</span>
+<span class="hljs-string">~s{hello <span class="hljs-subst">#{name}</span>}</span>
+<span class="hljs-string">~s&lt;hello <span class="hljs-subst">#{name}</span>&gt;</span>

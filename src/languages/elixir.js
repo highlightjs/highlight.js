@@ -6,29 +6,96 @@ Category: functional
 Website: https://elixir-lang.org
 */
 
-function(hljs) {
+export default function(hljs) {
   var ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(\\!|\\?)?';
   var ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
-  var ELIXIR_KEYWORDS =
-    'and false then defined module in return redo retry end for true self when ' +
+  var ELIXIR_KEYWORDS = {
+    $pattern: ELIXIR_IDENT_RE,
+    keyword: 'and false then defined module in return redo retry end for true self when ' +
     'next until do begin unless nil break not case cond alias while ensure or ' +
-    'include use alias fn quote require import with|0';
+    'include use alias fn quote require import with|0'
+  };
   var SUBST = {
     className: 'subst',
     begin: '#\\{', end: '}',
-    lexemes: ELIXIR_IDENT_RE,
     keywords: ELIXIR_KEYWORDS
   };
+  var NUMBER = {
+    className: 'number',
+    begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(.[0-9_]+([eE][-+]?[0-9]+)?)?)',
+    relevance: 0
+  };
+  var SIGIL_DELIMITERS = '[/|([{<"\']'
+  var LOWERCASE_SIGIL = {
+    className: 'string',
+    begin: '~[a-z]' + '(?=' + SIGIL_DELIMITERS + ')',
+    contains: [
+      {
+        endsParent:true,
+        contains: [{
+          contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+          variants: [
+            { begin: /"/, end: /"/ },
+            { begin: /'/, end: /'/ },
+            { begin: /\//, end: /\// },
+            { begin: /\|/, end: /\|/ },
+            { begin: /\(/, end: /\)/ },
+            { begin: /\[/, end: /\]/ },
+            { begin: /\{/, end: /\}/ },
+            { begin: /</, end: />/ }
+          ]
+        }]
+      },
+    ],
+  };
+
+  var UPCASE_SIGIL = {
+    className: 'string',
+    begin: '~[A-Z]' + '(?=' + SIGIL_DELIMITERS + ')',
+    contains: [
+      { begin: /"/, end: /"/ },
+      { begin: /'/, end: /'/ },
+      { begin: /\//, end: /\// },
+      { begin: /\|/, end: /\|/ },
+      { begin: /\(/, end: /\)/ },
+      { begin: /\[/, end: /\]/ },
+      { begin: /\{/, end: /\}/ },
+      { begin: /\</, end: /\>/ }
+    ]
+  };
+
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, SUBST],
     variants: [
       {
+        begin: /"""/, end: /"""/,
+      },
+      {
+        begin: /'''/, end: /'''/,
+      },
+      {
+        begin: /~S"""/, end: /"""/,
+        contains: []
+      },
+      {
+        begin: /~S"/, end: /"/,
+        contains: []
+      },
+      {
+        begin: /~S'''/, end: /'''/,
+        contains: []
+      },
+      {
+        begin: /~S'/, end: /'/,
+        contains: []
+      },
+      {
         begin: /'/, end: /'/
       },
       {
         begin: /"/, end: /"/
-      }
+      },
     ]
   };
   var FUNCTION = {
@@ -47,6 +114,8 @@ function(hljs) {
   });
   var ELIXIR_DEFAULT_CONTAINS = [
     STRING,
+    UPCASE_SIGIL,
+    LOWERCASE_SIGIL,
     hljs.HASH_COMMENT_MODE,
     CLASS,
     FUNCTION,
@@ -64,11 +133,7 @@ function(hljs) {
       begin: ELIXIR_IDENT_RE + ':(?!:)',
       relevance: 0
     },
-    {
-      className: 'number',
-      begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(.[0-9_]+([eE][-+]?[0-9]+)?)?)',
-      relevance: 0
-    },
+    NUMBER,
     {
       className: 'variable',
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))'
@@ -80,6 +145,15 @@ function(hljs) {
       begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
       contains: [
         hljs.HASH_COMMENT_MODE,
+        {
+          // to prevent false regex triggers for the division function:
+          // /:
+          begin: /\/: (?=\d+\s*[,\]])/,
+          relevance: 0,
+          contains: [
+            NUMBER
+          ]
+        },
         {
           className: 'regexp',
           illegal: '\\n',
@@ -100,7 +174,7 @@ function(hljs) {
   SUBST.contains = ELIXIR_DEFAULT_CONTAINS;
 
   return {
-    lexemes: ELIXIR_IDENT_RE,
+    name: 'Elixir',
     keywords: ELIXIR_KEYWORDS,
     contains: ELIXIR_DEFAULT_CONTAINS
   };

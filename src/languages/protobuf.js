@@ -6,8 +6,9 @@ Website: https://developers.google.com/protocol-buffers/docs/proto3
 Category: protocols
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'Protocol Buffers',
     keywords: {
       keyword: 'package import option optional required repeated group oneof',
       built_in: 'double float int32 int64 uint32 uint64 sint32 sint64 ' +
@@ -18,6 +19,7 @@ function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'class',
         beginKeywords: 'message enum service', end: /\{/,
@@ -31,7 +33,7 @@ function(hljs) {
       {
         className: 'function',
         beginKeywords: 'rpc',
-        end: /;/, excludeEnd: true,
+        end: /[{;]/, excludeEnd: true,
         keywords: 'rpc returns'
       },
       {

@@ -6,8 +6,10 @@ Website: https://www.gnu.org/software/diffutils/
 Category: common
 */
 
-function(hljs) {
+/** @type LanguageFn */
+export default function(hljs) {
   return {
+    name: 'Diff',
     aliases: ['patch'],
     contains: [
       {

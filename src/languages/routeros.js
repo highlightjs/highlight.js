@@ -11,7 +11,7 @@ Website: https://wiki.mikrotik.com/wiki/Manual:Scripting
 //   purple       - #99069A
 //   light-brown  - #9A9900
 
-function(hljs) {
+export default function(hljs) {
 
   var STATEMENTS = 'foreach do while for if from to step else on-error and or not in';
 
@@ -65,10 +65,11 @@ function(hljs) {
   var IPADDR_wBITMASK =  IPADDR+'/(3[0-2]|[1-2][0-9]|\\d)';
   //////////////////////////////////////////////////////////////////////
   return {
+    name: 'Microtik RouterOS script',
     aliases: ['routeros', 'mikrotik'],
     case_insensitive: true,
-    lexemes: /:?[\w-]+/,
     keywords: {
+      $pattern: /:?[\w-]+/,
       literal: LITERALS,
       keyword: STATEMENTS + ' :' + STATEMENTS.split(' ').join(' :') + ' :' + GLOBAL_COMMANDS.split(' ').join(' :'),
     },

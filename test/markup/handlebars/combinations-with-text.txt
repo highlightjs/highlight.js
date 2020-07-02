@@ -1,0 +1,5 @@
+some text
+
+{{#custom (nested (helper 'a{{bc' 1)) key=value as | blockParam |}} some {{blockParam}} text {{/custom}}
+
+some text

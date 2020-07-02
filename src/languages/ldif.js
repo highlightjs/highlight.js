@@ -4,8 +4,9 @@ Contributors: Jacob Childress <jacobc@gmail.com>
 Category: enterprise, config
 Website: https://en.wikipedia.org/wiki/LDAP_Data_Interchange_Format
 */
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'LDIF',
     contains: [
       {
         className: 'attribute',

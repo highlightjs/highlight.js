@@ -6,16 +6,17 @@ Website: https://www.r-project.org
 Category: scientific
 */
 
-function(hljs) {
+export default function(hljs) {
   var IDENT_RE = '([a-zA-Z]|\\.[a-zA-Z.])[a-zA-Z0-9._]*';
 
   return {
+    name: 'R',
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
         begin: IDENT_RE,
-        lexemes: IDENT_RE,
         keywords: {
+          $pattern: IDENT_RE,
           keyword:
             'function if in break next repeat else for return switch while try tryCatch ' +
             'stop warning require library attach detach source setMethod setGeneric ' +

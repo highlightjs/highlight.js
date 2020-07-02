@@ -5,7 +5,7 @@ Author: Vladimir Gubarkov <xonixx@gmail.com>
 Website: https://en.wikipedia.org/wiki/Smalltalk
 */
 
-function(hljs) {
+export default function(hljs) {
   var VAR_IDENT_RE = '[a-z][a-zA-Z0-9_]*';
   var CHAR = {
     className: 'string',
@@ -16,6 +16,7 @@ function(hljs) {
     begin: '#' + hljs.UNDERSCORE_IDENT_RE
   };
   return {
+    name: 'Smalltalk',
     aliases: ['st'],
     keywords: 'self super nil true false thisContext', // only 6
     contains: [

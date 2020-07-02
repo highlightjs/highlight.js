@@ -7,8 +7,9 @@ Website: https://en.wikipedia.org/wiki/VBScript
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'VBScript',
     aliases: ['vbs'],
     case_insensitive: true,
     keywords: {

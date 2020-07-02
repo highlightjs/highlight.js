@@ -1,4 +1,12 @@
 <span class="hljs-attr">key:</span> <span class="hljs-type">!!builtintagname</span> <span class="hljs-string">test</span>
 <span class="hljs-attr">key:</span> <span class="hljs-type">!localtagname</span> <span class="hljs-string">test</span>
-<span class="hljs-attr">key:</span> <span class="hljs-string">"!notatag"</span>
-<span class="hljs-attr">key:</span> <span class="hljs-string">'!!notatageither'</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">&quot;!notatag&quot;</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;!!notatageither&#x27;</span>
+<span class="hljs-attr">key:</span> <span class="hljs-type">!!python/dict</span> <span class="hljs-string">test</span>
+<span class="hljs-attr">key:</span> <span class="hljs-type">!!python/name:module.name</span> <span class="hljs-string">test</span>
+<span class="hljs-attr">key:</span> <span class="hljs-type">!foo2.bar</span> <span class="hljs-string">test</span>
+<span class="hljs-attr">key:</span> <span class="hljs-type">!(foo.bar?):tag</span> <span class="hljs-string">test</span>
+<span class="hljs-attr">key:</span> <span class="hljs-type">!named!tag</span> <span class="hljs-string">test</span>
+
+<span class="hljs-string">---</span> <span class="hljs-type">!&lt;tag:clarkevans.com,2002:invoice&gt;</span>
+<span class="hljs-attr">invoice:</span> <span class="hljs-number">34843</span>

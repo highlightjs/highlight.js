@@ -6,7 +6,7 @@ Website: http://roboconf.net
 Category: config
 */
 
-function(hljs) {
+export default function(hljs) {
   var IDENTIFIER = '[a-zA-Z-_][^\\n{]+\\{';
 
   var PROPERTY = {
@@ -29,6 +29,7 @@ function(hljs) {
   };
 
   return {
+    name: 'Roboconf',
     aliases: ['graph', 'instances'],
     case_insensitive: true,
     keywords: 'import',

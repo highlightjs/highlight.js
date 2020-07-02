@@ -23,13 +23,15 @@ Date: 2012-04-08
  *   up to the end of line is matched as special token sequence)
  */
 
-function(hljs) {
+/** @type LanguageFn */
+export default function(hljs) {
   /**
    * Language keywords
    *
    * @type {Object}
    */
   var D_KEYWORDS = {
+    $pattern: hljs.UNDERSCORE_IDENT_RE,
     keyword:
       'abstract alias align asm assert auto body break byte case cast catch class ' +
       'const continue debug default delete deprecated do else enum export extern final ' +
@@ -244,7 +246,7 @@ function(hljs) {
   );
 
   return {
-    lexemes: hljs.UNDERSCORE_IDENT_RE,
+    name: 'D',
     keywords: D_KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,

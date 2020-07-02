@@ -5,8 +5,9 @@ Author: Radek Liska <radekliska@gmail.com>
 Website: https://www.tcl.tk/about/language.html
 */
 
-function(hljs) {
+export default function(hljs) {
   return {
+    name: 'Tcl',
     aliases: ['tk'],
     keywords: 'after append apply array auto_execok auto_import auto_load auto_mkindex ' +
       'auto_mkindex_old auto_qualify auto_reset bgerror binary break catch cd chan clock ' +

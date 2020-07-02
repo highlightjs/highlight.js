@@ -2,7 +2,7 @@
 <span class="hljs-keyword">for</span> <span class="hljs-variable">$n</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">$node</span>
 <span class="hljs-keyword">return</span>
   <span class="hljs-keyword">element</span> div { <span class="hljs-keyword">switch</span>(<span class="hljs-variable">$n</span>)
-    <span class="hljs-keyword">case</span> <span class="hljs-string">'abc'</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'OK'</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;abc&#x27;</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;OK&#x27;</span>
   <span class="hljs-keyword">default</span> <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>
   }
 };

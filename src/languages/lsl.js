@@ -6,7 +6,7 @@ Website: http://wiki.secondlife.com/wiki/LSL_Portal
 Category: scripting
 */
 
-function(hljs) {
+export default function(hljs) {
 
     var LSL_STRING_ESCAPE_CHARS = {
         className: 'subst',
@@ -57,6 +57,7 @@ function(hljs) {
     };
 
     return {
+        name: 'LSL (Linden Scripting Language)',
         illegal: ':',
         contains: [
             LSL_STRINGS,

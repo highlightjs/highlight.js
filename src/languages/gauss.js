@@ -5,7 +5,7 @@ Description: GAUSS Mathematical and Statistical language
 Website: https://www.aptech.com
 Category: scientific
 */
-function(hljs) {
+export default function(hljs) {
   var KEYWORDS = {
     keyword:  'bool break call callexe checkinterrupt clear clearg closeall cls comlog compile ' +
               'continue create debug declare delete disable dlibrary dllcall do dos ed edit else ' +
@@ -254,6 +254,7 @@ function(hljs) {
   FUNCTION_REF.contains.push(FUNCTION_REF_PARAMS);
 
   return {
+    name: 'GAUSS',
     aliases: ['gss'],
     case_insensitive: true, // language is case-insensitive
     keywords: KEYWORDS,

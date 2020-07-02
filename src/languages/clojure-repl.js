@@ -7,8 +7,10 @@ Website: https://clojure.org
 Category: lisp
 */
 
-function(hljs) {
+/** @type LanguageFn */
+export default function(hljs) {
   return {
+    name: 'Clojure REPL',
     contains: [
       {
         className: 'meta',

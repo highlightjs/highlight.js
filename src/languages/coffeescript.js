@@ -7,21 +7,46 @@ Category: common, scripting
 Website: https://coffeescript.org
 */
 
-function(hljs) {
+import * as ECMAScript from './lib/ecmascript.js';
+
+/** @type LanguageFn */
+export default function(hljs) {
+  var COFFEE_BUILT_INS = [
+    'npm',
+    'print'
+  ];
+  var COFFEE_LITERALS = [
+    'yes',
+    'no',
+    'on',
+    'off'
+  ];
+  var COFFEE_KEYWORDS = [
+    'then',
+    'unless',
+    'until',
+    'loop',
+    'by',
+    'when',
+    'and',
+    'or',
+    'is',
+    'isnt',
+    'not'
+  ];
+  var NOT_VALID_KEYWORDS = [
+    "var",
+    "const",
+    "let",
+    "function",
+    "static"
+  ];
+  var excluding = (list) =>
+    (kw) => !list.includes(kw);
   var KEYWORDS = {
-    keyword:
-      // JS keywords
-      'in if for while finally new do return else break catch instanceof throw try this ' +
-      'switch continue typeof delete debugger super yield import export from as default await ' +
-      // Coffee keywords
-      'then unless until loop of by when and or is isnt not',
-    literal:
-      // JS literals
-      'true false null undefined ' +
-      // Coffee literals
-      'yes no on off',
-    built_in:
-      'npm require console print module global window document'
+    keyword: ECMAScript.KEYWORDS.concat(COFFEE_KEYWORDS).filter(excluding(NOT_VALID_KEYWORDS)).join(" "),
+    literal: ECMAScript.LITERALS.concat(COFFEE_LITERALS).join(" "),
+    built_in: ECMAScript.BUILT_INS.concat(COFFEE_BUILT_INS).join(" ")
   };
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var SUBST = {
@@ -61,13 +86,13 @@ function(hljs) {
           contains: [SUBST, hljs.HASH_COMMENT_MODE]
         },
         {
-          begin: '//[gim]*',
+          begin: '//[gim]{0,3}(?=\\W)',
           relevance: 0
         },
         {
           // regex can't start with space to parse x / 2 / 3 as two divisions
           // regex can't start with *, and it supports an "illegal" in the main mode
-          begin: /\/(?![ *])(\\\/|.)*?\/[gim]*(?=\W)/
+          begin: /\/(?![ *]).*?(?![\\]).\/[gim]{0,3}(?=\W)/
         }
       ]
     },
@@ -104,6 +129,7 @@ function(hljs) {
   };
 
   return {
+    name: 'CoffeeScript',
     aliases: ['coffee', 'cson', 'iced'],
     keywords: KEYWORDS,
     illegal: /\/\*/,
