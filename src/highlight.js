@@ -29,9 +29,9 @@ const HLJS = function(hljs) {
 
   // Global internal variables used within the highlight.js library.
   /** @type {Record<string, Language>} */
-  var languages = {};
+  var languages = Object.create(null);
   /** @type {Record<string, string>} */
-  var aliases = {};
+  var aliases = Object.create(null);
   /** @type {HLJSPlugin[]} */
   var plugins = [];
 
