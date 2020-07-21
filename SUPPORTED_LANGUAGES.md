@@ -169,6 +169,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Shell                   | shell, console         |         |
 | Smali                   | smali                  |         |
 | Smalltalk               | smalltalk, st          |         |
+| SML                     | sml, ml                |         |
 | Solidity                | solidity, sol          | [highlightjs-solidity](https://github.com/highlightjs/highlightjs-solidity) |
 | Stan                    | stan, stanfuncs        |         |
 | Stata                   | stata                  |         |
@@ -200,6 +201,19 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | YAML                    | yml, yaml              |         |
 | Zephir                  | zephir, zep            |         |
 <!-- LANGLIST_END -->
+
+<!-- document it until we can fix it -->
+## Alias Overlap
+
+If you are using either of these languages at the same time please be sure to
+use the full name and not the alias to avoid any ambiguity.
+
+| Language                | Overlap                |
+| :-----------------------| :--------------------- |
+| SML                     | ml                     |
+| OCaml                   | ml                     |
+| Lasso                   | ls                     |
+| LiveScript              | ls                     |
 
 
 [1]: https://github.com/highlightjs/highlight.js#getting-the-library
