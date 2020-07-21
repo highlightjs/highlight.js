@@ -4,12 +4,17 @@ New themes:
 
 - *Gradient Light* by [Samia Ali]()
 
+Big picture:
+
+- Add simple Vue plugin for basic use cases (#2544) [Josh Goebel][]
+
 Language Improvements:
 
 - enh(matlab) Add new R2019b `arguments` keyword and fix `enumeration` keyword (#2619) [Andrew Janke][]
 - fix(kotlin) Remove very old keywords and update example code (#2623) [kageru][]
 - fix(night) Prevent object prototypes method values from being returned in `getLanguage` (#2636) [night][]
 
+[Josh Goebel]: https://github.com/yyyc514
 [Andrew Janke]: https://github.com/apjanke
 [Samia Ali]: https://github.com/samiaab1990
 [kageru]: https://github.com/kageru
@@ -33,10 +38,6 @@ New themes:
 
 - *NNFX* and *NNFX-dark* by [Jim Mason][]
 - *lioshi* by [lioshi][]
-
-Big picture:
-
-- Add simple Vue plugin for basic use cases [Josh Goebel][]
 
 Parser Engine:
 
