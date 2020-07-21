@@ -42,24 +42,6 @@ describe('.getLanguage()', () => {
     should.strictEqual(result, hljs.getLanguage('csharp'))
   });
 
-  it('should not succeed for hasOwnProperty', () => {
-    const result = hljs.getLanguage('hasOwnProperty');
-
-    should.strictEqual(result, undefined);
-  });
-
-  it('should not succeed for toString', () => {
-    const result = hljs.getLanguage('toString');
-
-    should.strictEqual(result, undefined);
-  });
-
-  it('should not succeed for valueOf', () => {
-    const result = hljs.getLanguage('valueOf');
-
-    should.strictEqual(result, undefined);
-  });
-
   it('should not succeed for constructor', () => {
     const result = hljs.getLanguage('constructor');
 
