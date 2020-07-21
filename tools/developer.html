@@ -99,12 +99,6 @@
         var result = hljs.getLanguage(language) ? hljs.highlight(language, source, true) : hljs.highlightAuto(source);
         var rendering_time = +new Date() - start_time;
         vue.code = source;
-        // give Vue a moment to update
-        setTimeout(() => {
-          $(".hljs span").each((_,el) => {
-            $(el).attr("data-klass", el.className.replace("hljs-",""))
-          })
-        }, 10);
 
         var rendering_stats = result.language + ': relevance ' + (result.relevance );
         if (result.second_best) {
@@ -148,7 +142,18 @@
     }());
 
     Vue.use(hljs.vuePlugin);
-    let vue = new Vue({ el: '#app', data: { code: "" }})
+    let vue = new Vue({
+      el: '#app',
+      data: { code: "" },
+      watch: { code: function(){
+        // update data-klass post-render for cool class previews
+        this.$nextTick(() => {
+          $(".hljs span").each((_,el) => {
+            $(el).attr("data-klass", el.className.replace("hljs-",""))
+          })
+        })
+      }}
+    })
   </script>
 </body>
 </html>
