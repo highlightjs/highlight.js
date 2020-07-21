@@ -1,10 +1,9 @@
+// @ts-nocheck
 import { escapeHTML } from "../lib/utils";
 
 function hasValueOrEmptyAttribute(value) {
   return Boolean(value || value === "");
 }
-
-const NO_HIGHLIGHT = "no-highlight";
 
 export const Component = {
   props: ["language", "code", "autodetect"],
@@ -16,13 +15,14 @@ export const Component = {
   },
   computed: {
     className() {
-      if (this.unknownLanguage) return NO_HIGHLIGHT;
+      if (this.unknownLanguage) return "";
 
       return "hljs " + this.detectedLanguage;
     },
     highlighted() {
       // no idea what language to use, return raw code
       if (!this.autoDetect && !hljs.getLanguage(this.language)) {
+        console.warn(`The language "${this.language}" you specified could not be found.`);
         this.unknownLanguage = true;
         return escapeHTML(this.code);
       }
