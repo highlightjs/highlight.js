@@ -42,7 +42,6 @@ export const Component = {
     },
     ignoreIllegals() {
       return true;
-      // return !hasValueOrEmptyAttribute(this.ignore_illegals);
     }
   },
   // this avoids needing to use a whole Vue compilation pipeline just
