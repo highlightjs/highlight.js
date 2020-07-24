@@ -301,8 +301,8 @@ onmessage = (event) => {
 
 ## Node.js
 
-You can use highlight.js with node to highlight content before sending it to the browser. 
-Make sure to use the `.value` property to get the formatted html. 
+You can use highlight.js with node to highlight content before sending it to the browser.
+Make sure to use the `.value` property to get the formatted html.
 For more info about the returned object refer to the api docs https://highlightjs.readthedocs.io/en/latest/api.html
 
 
@@ -343,7 +343,7 @@ it can be added manually:
 ```html
 <script
  charset="UTF-8"
- src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/languages/go.min.js"></script>
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.2/languages/go.min.js"></script>
 ```
 
 **On Almond.** You need to use the optimizer to give the module a name. For

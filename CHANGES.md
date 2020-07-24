@@ -1,3 +1,12 @@
+## Version 9.18.2
+
+Fixes:
+
+- fix(night) Prevent object prototype values from being returned by `getLanguage` (#2636) [night][]
+
+[night]: https://github.com/night
+
+
 ## Version 9.18.1
 
 Grammar Improvements:
