@@ -57,7 +57,7 @@
     "handlebars": "^4.7.6",
     "js-beautify": "^1.11.0",
     "jsdom": "^16.2.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mocha": "^8.0.1",
     "rollup": "^2.0.0",
     "rollup-plugin-commonjs": "^10.1.0",
