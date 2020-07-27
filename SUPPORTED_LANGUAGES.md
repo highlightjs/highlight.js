@@ -12,7 +12,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
-| Arduino (C++ w/Arduino libs) | arduino           |         |
+| Arduino (C++ w/Arduino libs) | arduino ino           |         |
 | ARM assembler           | armasm, arm            |         |
 | AVR assembler           | avrasm                 |         |
 | ActionScript            | actionscript, as       |         |
