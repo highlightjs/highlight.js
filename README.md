@@ -19,11 +19,20 @@ Please read [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/
 
 The bare minimum for using highlight.js on a web page is linking to the
 library along with one of the styles and calling
-[`initHighlightingOnLoad`][1]:
+[`initHighlightingOnLoad`][1]. 
 
 ```html
-<link rel="stylesheet" href="/path/to/styles/default.css">
+<link rel="stylesheet" href="/path/to/styles/default.css"></link>
 <script src="/path/to/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+```
+
+True example: place the following code between the `<head> </head>` tags on your website to use the hosted **cdnjs** CDN (Content Delivery Network).  
+_Note: you may find the latest **cdnjs** or **jsdelivr** Content Delivery Network (CDN) URLs here: https://highlightjs.org/download/._
+```html
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css"></link>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 ```
 
