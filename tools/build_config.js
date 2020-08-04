@@ -43,7 +43,6 @@ module.exports = {
         },
         output: {
           format: "iife",
-          outro: "return module.exports.definer || module.exports;",
           interop: false,
         }
       }
