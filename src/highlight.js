@@ -11,6 +11,7 @@ import * as utils from './lib/utils.js';
 import * as MODES from './lib/modes.js';
 import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
+import { VuePlugin } from "./plugins/vue";
 
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
@@ -847,7 +848,9 @@ const HLJS = function(hljs) {
     requireLanguage,
     autoDetection,
     inherit,
-    addPlugin
+    addPlugin,
+    // plugins for frameworks
+    vuePlugin: VuePlugin
   });
 
   hljs.debugMode = function() { SAFE_MODE = false; };
