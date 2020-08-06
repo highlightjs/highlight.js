@@ -5,6 +5,10 @@ declare const hljs : HLJSApi;
 
 type HLJSApi = PublicApi & ModesAPI
 
+interface VuePlugin {
+    install: (vue: any) => void
+}
+
 interface PublicApi {
     highlight: (languageName: string, code: string, ignoreIllegals?: boolean, continuation?: Mode) => HighlightResult
     highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
@@ -24,6 +28,7 @@ interface PublicApi {
     debugMode: () => void
     safeMode: () => void
     versionString: string
+    vuePlugin: () => VuePlugin
 }
 
 interface ModesAPI {
