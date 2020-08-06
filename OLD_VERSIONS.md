@@ -3,7 +3,7 @@
 Due to both time and resource constrains the Highlight.js core team only fully supports the most current major version of the library. The prior major release will only receive critical security updates (when feasible).
 
 | Version | Status  | EOL |
-| :-----: | :------------ | :-: | - |
+| :-----: | :------ | :-: | 
 | 10.x | *Current.* Regular updates; bug fixes & new features. | n/a |
 | 9.18.x | *Deprecated.* Security updates only.  See [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md). | TBD |
 | < 9.17.x | Obsolete. | Jan 2020 |
