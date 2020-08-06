@@ -98,8 +98,8 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'class',
-        beginKeywords: 'class interface', end: /[{;=]/, excludeEnd: true,
-        keywords: 'class interface',
+        beginKeywords: 'class interface enum', end: /[{;=]/, excludeEnd: true,
+        keywords: 'class interface enum',
         illegal: /[:"\[\]]/,
         contains: [
           { beginKeywords: 'extends implements' },
