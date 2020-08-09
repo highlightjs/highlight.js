@@ -262,6 +262,14 @@ const HLJS = function(hljs) {
     }
 
     /**
+     * Advance a single character
+     */
+    function advanceOne() {
+      mode_buffer += codeToHighlight[index];
+      index += 1;
+    }
+
+    /**
      * Handle matching but then ignoring a sequence of text
      *
      * @param {string} lexeme - string containing full match text
@@ -275,7 +283,7 @@ const HLJS = function(hljs) {
       } else {
         // no need to move the cursor, we still have additional regexes to try and
         // match at this very spot
-        continueScanAtSamePosition = true;
+        resumeScanAtSamePosition = true;
         return 0;
       }
     }
@@ -478,23 +486,32 @@ const HLJS = function(hljs) {
     var relevance = 0;
     var index = 0;
     var iterations = 0;
-    var continueScanAtSamePosition = false;
+    var resumeScanAtSamePosition = false;
 
     try {
       top.matcher.considerAll();
 
       for (;;) {
         iterations++;
-        if (continueScanAtSamePosition) {
+        if (resumeScanAtSamePosition) {
           // only regexes not matched previously will now be
           // considered for a potential match
-          continueScanAtSamePosition = false;
+          resumeScanAtSamePosition = false;
         } else {
           top.matcher.lastIndex = index;
           top.matcher.considerAll();
         }
+
         const match = top.matcher.exec(codeToHighlight);
         // console.log("match", match[0], match.rule && match.rule.begin)
+
+        // if our failure to match was the result of a "resumed scan" then we
+        // need to advance one position and revert to full scanning before we
+        // decide there are truly no more matches at all to be had
+        if (!match && top.matcher.resumingScanAtSamePosition()) {
+          advanceOne();
+          continue;
+        }
         if (!match) break;
 
         const beforeMatch = codeToHighlight.substring(index, match.index);
