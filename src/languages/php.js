@@ -18,18 +18,38 @@ export default function(hljs) {
       { begin: /\?>/ } // end php tag
     ]
   };
+  var SUBST ={
+    className: 'subst',
+    variants: [
+      {begin: /\$\w+/},
+      {begin: /\{\$/, end: /\}/}
+    ]
+  };
+  var SINGLE_QUOTED = hljs.inherit(
+    hljs.APOS_STRING_MODE,
+    {
+      illegal: null,
+      variants: [{
+        begin: 'b\'', end: '\''
+      }]
+    }
+  );
+  var DOUBLE_QUOTED = hljs.inherit(
+    hljs.QUOTE_STRING_MODE,
+    {
+      illegal: null,
+      variants: [{
+        begin: 'b"', end: '"'
+      }],
+      contains: [ SUBST ]
+    }
+  );
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, PREPROCESSOR],
     variants: [
-      {
-        begin: 'b"', end: '"'
-      },
-      {
-        begin: 'b\'', end: '\''
-      },
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
+      SINGLE_QUOTED,
+      DOUBLE_QUOTED
     ]
   };
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
@@ -87,18 +107,12 @@ export default function(hljs) {
           keywords: '__halt_compiler'
         }
       ),
-      {
+      { // heredoc
         className: 'string',
         begin: /<<<['"]?\w+['"]?$/, end: /^\w+;?$/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
-          {
-            className: 'subst',
-            variants: [
-              {begin: /\$\w+/},
-              {begin: /\{\$/, end: /\}/}
-            ]
-          }
+          SUBST
         ]
       },
       PREPROCESSOR,
