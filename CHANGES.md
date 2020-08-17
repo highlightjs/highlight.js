@@ -14,7 +14,7 @@ Language Improvements:
 - fix(kotlin) Remove very old keywords and update example code (#2623) [kageru][]
 - fix(night) Prevent object prototypes method values from being returned in `getLanguage` (#2636) [night][]
 - enh(java) Add support for `enum`, which will identify as a `class` now (#2643) [ezksd][]
-- enh(nsis) Add support for NSIS 3.06 commands (#2653) idleberg
+- enh(nsis) Add support for NSIS 3.06 commands (#2653) [idleberg][]
 
 [Josh Goebel]: https://github.com/yyyc514
 [Andrew Janke]: https://github.com/apjanke
