@@ -10,6 +10,7 @@ Big picture:
 
 Language Improvements:
 
+- fix(js) Prevent long series of /////// from causing freezes (#2656) [Josh Goebel][]
 - enh(matlab) Add new R2019b `arguments` keyword and fix `enumeration` keyword (#2619) [Andrew Janke][]
 - fix(kotlin) Remove very old keywords and update example code (#2623) [kageru][]
 - fix(night) Prevent object prototypes method values from being returned in `getLanguage` (#2636) [night][]
