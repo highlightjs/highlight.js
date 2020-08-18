@@ -6,6 +6,7 @@ Website: https://www.php.net
 Category: common
 */
 
+/** @returns {LanguageDetail} */
 export default function(hljs) {
   var VARIABLE = {
     begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
@@ -41,15 +42,27 @@ export default function(hljs) {
       variants: [{
         begin: 'b"', end: '"'
       }],
-      contains: [ SUBST ]
+      contains: [hljs.BACKSLASH_ESCAPE, SUBST]
     }
   );
+  var HEREDOC = {
+    begin: /<<<[ \t]*(?<marker>\w+)\n(?:.*\n)*?^[ \t]*\k<marker>\b/,
+    returnBegin: true,
+    contains: [
+      { begin: /<<<[ \t]*/ },
+      hljs.END_SAME_AS_BEGIN({
+        begin: /(\w+)/, end: /[ \t]*(\w+)\b/,
+        contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+      }),
+    ]
+  };
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, PREPROCESSOR],
     variants: [
       SINGLE_QUOTED,
-      DOUBLE_QUOTED
+      DOUBLE_QUOTED,
+      HEREDOC
     ]
   };
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
@@ -107,14 +120,6 @@ export default function(hljs) {
           keywords: '__halt_compiler'
         }
       ),
-      { // heredoc
-        className: 'string',
-        begin: /<<<['"]?\w+['"]?$/, end: /^\w+;?$/,
-        contains: [
-          hljs.BACKSLASH_ESCAPE,
-          SUBST
-        ]
-      },
       PREPROCESSOR,
       {
         className: 'keyword', begin: /\$this\b/
