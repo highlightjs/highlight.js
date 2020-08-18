@@ -49,9 +49,8 @@ export default function(hljs) {
     begin: /<<<[ \t]*(?<marker>\w+)\n(?:.*\n)*?^[ \t]*\k<marker>\b/,
     returnBegin: true,
     contains: [
-      { begin: /<<<[ \t]*/ },
       hljs.END_SAME_AS_BEGIN({
-        begin: /(\w+)/, end: /[ \t]*(\w+)\b/,
+        begin: /<<<[ \t]*(\w+)/, end: /[ \t]*(\w+)\b/,
         contains: [hljs.BACKSLASH_ESCAPE, SUBST],
       }),
     ]
