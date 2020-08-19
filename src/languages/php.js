@@ -6,7 +6,10 @@ Website: https://www.php.net
 Category: common
 */
 
-/** @returns {LanguageDetail} */
+/**
+ * @param {HLJSApi} hljs
+ * @returns {LanguageDetail}
+ * */
 export default function(hljs) {
   var VARIABLE = {
     begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
@@ -19,39 +22,27 @@ export default function(hljs) {
       { begin: /\?>/ } // end php tag
     ]
   };
-  var SUBST ={
+  var SUBST = {
     className: 'subst',
     variants: [
-      {begin: /\$\w+/},
-      {begin: /\{\$/, end: /\}/}
+      { begin: /\$\w+/ },
+      { begin: /\{\$/, end: /\}/ }
     ]
   };
-  var SINGLE_QUOTED = hljs.inherit(
-    hljs.APOS_STRING_MODE,
-    {
-      illegal: null,
-      variants: [{
-        begin: 'b\'', end: '\''
-      }]
-    }
-  );
-  var DOUBLE_QUOTED = hljs.inherit(
-    hljs.QUOTE_STRING_MODE,
-    {
-      illegal: null,
-      variants: [{
-        begin: 'b"', end: '"'
-      }],
-      contains: [hljs.BACKSLASH_ESCAPE, SUBST]
-    }
-  );
+  var SINGLE_QUOTED = hljs.inherit(hljs.APOS_STRING_MODE, {
+    illegal: null,
+  });
+  var DOUBLE_QUOTED = hljs.inherit(hljs.QUOTE_STRING_MODE, {
+    illegal: null,
+    contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
+  });
   var HEREDOC = {
     begin: /<<<[ \t]*(?<marker>\w+)\n(?:.*\n)*?^[ \t]*\k<marker>\b/,
     returnBegin: true,
     contains: [
       hljs.END_SAME_AS_BEGIN({
         begin: /<<<[ \t]*(\w+)/, end: /[ \t]*(\w+)\b/,
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+        contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
       }),
     ]
   };
@@ -59,8 +50,14 @@ export default function(hljs) {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, PREPROCESSOR],
     variants: [
-      SINGLE_QUOTED,
+      hljs.inherit(SINGLE_QUOTED, {
+        begin: "b'", end: "'",
+      }),
+      hljs.inherit(DOUBLE_QUOTED, {
+        begin: 'b"', end: '"',
+      }),
       DOUBLE_QUOTED,
+      SINGLE_QUOTED,
       HEREDOC
     ]
   };
