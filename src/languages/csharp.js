@@ -14,7 +14,7 @@ export default function(hljs) {
       'abstract as base bool break byte case catch char checked const continue decimal ' +
       'default delegate do double enum event explicit extern finally fixed float ' +
       'for foreach goto if implicit in init int interface internal is lock long ' +
-      'object operator out override params private protected public record readonly ref sbyte ' +
+      'object operator out override params private protected public readonly ref sbyte ' +
       'sealed short sizeof stackalloc static string struct switch this try typeof ' +
       'uint ulong unchecked unsafe ushort using virtual void volatile while ' +
       // Contextual keywords.
@@ -160,6 +160,16 @@ export default function(hljs) {
         illegal: /[^\s:]/,
         contains: [
           TITLE_MODE,
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
+      },
+      {
+        beginKeywords: 'record', end: /[{;=]/,
+        illegal: /[^\s:]/,
+        contains: [
+          TITLE_MODE,
+          GENERIC_MODIFIER,
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
