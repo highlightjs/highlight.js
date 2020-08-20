@@ -152,7 +152,7 @@ For more info about the returned object refer to the api docs https://highlightj
 
 ```js
 // require the highlight.js library, including all languages
-const hljs = require('./highlight.js');
+const hljs = require('highlight.js');
 const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 ```
 
