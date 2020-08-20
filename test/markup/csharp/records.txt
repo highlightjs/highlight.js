@@ -1,0 +1,4 @@
+public record MyRecord
+{
+    public string SomeMember { get; set; }
+}
