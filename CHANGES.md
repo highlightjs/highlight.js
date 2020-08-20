@@ -10,7 +10,7 @@ Big picture:
 
 Language Improvements:
 
-- enh(csharp) Add `init` and `records` keywords for C# 9.0 (#2660) [Youssef Victor][]
+- enh(csharp) Add `init` and `record` keywords for C# 9.0 (#2660) [Youssef Victor][]
 - enh(matlab) Add new R2019b `arguments` keyword and fix `enumeration` keyword (#2619) [Andrew Janke][]
 - fix(kotlin) Remove very old keywords and update example code (#2623) [kageru][]
 - fix(night) Prevent object prototypes method values from being returned in `getLanguage` (#2636) [night][]
