@@ -10,6 +10,7 @@ Big picture:
 
 Language Improvements:
 
+- fix(js) Prevent long series of /////// from causing freezes (#2656) [Josh Goebel][]
 - enh(csharp) Add `init` and `record` keywords for C# 9.0 (#2660) [Youssef Victor][]
 - enh(matlab) Add new R2019b `arguments` keyword and fix `enumeration` keyword (#2619) [Andrew Janke][]
 - fix(kotlin) Remove very old keywords and update example code (#2623) [kageru][]
