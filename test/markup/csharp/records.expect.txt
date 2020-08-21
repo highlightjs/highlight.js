@@ -1,0 +1,4 @@
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">record</span> <span class="hljs-title">MyRecord</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> SomeMember { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+}
