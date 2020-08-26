@@ -1,3 +1,6 @@
+// For TS consumers who use Node and don't have dom in their tsconfig lib, import the necessary types here.
+/// <reference lib="dom" />
+
 /* Public API */
 
 // eslint-disable-next-line
