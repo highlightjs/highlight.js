@@ -36,16 +36,11 @@ export default function(hljs) {
     illegal: null,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
-  var HEREDOC = {
-    begin: /<<<[ \t]*(?<marker>\w+)\n(?:.*\n)*?^[ \t]*\k<marker>\b/,
-    returnBegin: true,
-    contains: [
-      hljs.END_SAME_AS_BEGIN({
-        begin: /<<<[ \t]*(\w+)/, end: /[ \t]*(\w+)\b/,
-        contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
-      }),
-    ]
-  };
+  var HEREDOC = hljs.END_SAME_AS_BEGIN({
+    begin: /<<<[ \t]*(\w+)\n/,
+    end: /[ \t]*(\w+)\b/,
+    contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
+  });
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, PREPROCESSOR],
