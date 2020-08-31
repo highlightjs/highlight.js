@@ -6,6 +6,10 @@ Website: https://www.php.net
 Category: common
 */
 
+/**
+ * @param {HLJSApi} hljs
+ * @returns {LanguageDetail}
+ * */
 export default function(hljs) {
   var VARIABLE = {
     begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
@@ -18,18 +22,38 @@ export default function(hljs) {
       { begin: /\?>/ } // end php tag
     ]
   };
+  var SUBST = {
+    className: 'subst',
+    variants: [
+      { begin: /\$\w+/ },
+      { begin: /\{\$/, end: /\}/ }
+    ]
+  };
+  var SINGLE_QUOTED = hljs.inherit(hljs.APOS_STRING_MODE, {
+    illegal: null,
+  });
+  var DOUBLE_QUOTED = hljs.inherit(hljs.QUOTE_STRING_MODE, {
+    illegal: null,
+    contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
+  });
+  var HEREDOC = hljs.END_SAME_AS_BEGIN({
+    begin: /<<<[ \t]*(\w+)\n/,
+    end: /[ \t]*(\w+)\b/,
+    contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
+  });
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, PREPROCESSOR],
     variants: [
-      {
-        begin: 'b"', end: '"'
-      },
-      {
-        begin: 'b\'', end: '\''
-      },
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
+      hljs.inherit(SINGLE_QUOTED, {
+        begin: "b'", end: "'",
+      }),
+      hljs.inherit(DOUBLE_QUOTED, {
+        begin: 'b"', end: '"',
+      }),
+      DOUBLE_QUOTED,
+      SINGLE_QUOTED,
+      HEREDOC
     ]
   };
   var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
@@ -87,20 +111,6 @@ export default function(hljs) {
           keywords: '__halt_compiler'
         }
       ),
-      {
-        className: 'string',
-        begin: /<<<['"]?\w+['"]?$/, end: /^\w+;?$/,
-        contains: [
-          hljs.BACKSLASH_ESCAPE,
-          {
-            className: 'subst',
-            variants: [
-              {begin: /\$\w+/},
-              {begin: /\{\$/, end: /\}/}
-            ]
-          }
-        ]
-      },
       PREPROCESSOR,
       {
         className: 'keyword', begin: /\$this\b/
