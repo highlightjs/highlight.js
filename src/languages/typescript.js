@@ -205,7 +205,7 @@ export default function(hljs) {
           PARAMS
         ]
       },
-      { // prevent references like module.id from being higlighted as module definitions
+      { // prevent references like module.id from being highlighted as module definitions
         begin: /module\./,
         keywords: { built_in: 'module' },
         relevance: 0
