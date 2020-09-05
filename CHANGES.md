@@ -1,5 +1,9 @@
 ## Version 10.2.0 (next up)
 
+Parser Engine:
+
+- (fix) When ignoring a potential match highlighting can terminate early (#2649) [Josh Goebel][]
+
 New themes:
 
 - *Gradient Light* by [Samia Ali]()
