@@ -17,6 +17,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | AVR assembler           | avrasm                 |         |
 | ActionScript            | actionscript, as       |         |
 | Alan                    | alan, i                | [highlightjs-alan](https://github.com/highlightjs/highlightjs-alan) |
+| Alan                    | ln                     | [highlightjs-alan](https://github.com/alantech/highlightjs-alan) |
 | AngelScript             | angelscript, asc       |         |
 | Apache                  | apache, apacheconf     |         |
 | AppleScript             | applescript, osascript |         |
