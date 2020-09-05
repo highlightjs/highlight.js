@@ -8,6 +8,10 @@ New themes:
 
 - *Gradient Light* by [Samia Ali]()
 
+Deprecations:
+
+- `fixMarkup` is now deprecated and will be removed in v11.0. (#2534) [Josh Goebel][]
+
 Big picture:
 
 - Add simple Vue plugin for basic use cases (#2544) [Josh Goebel][]

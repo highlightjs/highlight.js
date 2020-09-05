@@ -848,12 +848,19 @@ const HLJS = function(hljs) {
     });
   }
 
-  /* Interface definition */
+  /* fixMarkup is deprecated and will be removed entirely in v11 */
+  function deprecate_fixMarkup(arg) {
+    console.warn("fixMarkup is deprecated and will be removed entirely in v11.0")
+    console.warn("Please see https://github.com/highlightjs/highlight.js/issues/2534")
 
+    return fixMarkup(arg)
+  }
+
+  /* Interface definition */
   Object.assign(hljs, {
     highlight,
     highlightAuto,
-    fixMarkup,
+    fixMarkup: deprecate_fixMarkup,
     highlightBlock,
     configure,
     initHighlighting,
