@@ -146,22 +146,22 @@
     let vue = new Vue({
       el: '#app',
       data: { code: "", language: "" },
+      methods: {
+        refreshKlass: function() {
+          // update data-klass post-render for cool class previews
+          this.$nextTick(() => {
+            $(".hljs span").each((_,el) => {
+              $(el).attr("data-klass", el.className.replace("hljs-",""))
+            })
+          })
+        }
+      },
       watch: {
         code: function(){
-          // update data-klass post-render for cool class previews
-          this.$nextTick(() => {
-            $(".hljs span").each((_,el) => {
-              $(el).attr("data-klass", el.className.replace("hljs-",""))
-            })
-          })
+          this.refreshKlass();
         },
         language: function(){
-          // update data-klass post-render for cool class previews
-          this.$nextTick(() => {
-            $(".hljs span").each((_,el) => {
-              $(el).attr("data-klass", el.className.replace("hljs-",""))
-            })
-          })
+          this.refreshKlass();
         }
       }
     })
