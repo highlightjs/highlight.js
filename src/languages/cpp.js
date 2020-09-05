@@ -7,7 +7,7 @@ Requires: c-like.js
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var lang = hljs.getLanguage('c-like').rawDefinition();
+  var lang = hljs.requireLanguage('c-like').rawDefinition();
   // return auto-detection back on
   lang.disableAutodetect = false;
   lang.name = 'C++';

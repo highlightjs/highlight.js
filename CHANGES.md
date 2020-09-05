@@ -1,8 +1,16 @@
 ## Version 10.2.0 (next up)
 
+Parser Engine:
+
+- (fix) When ignoring a potential match highlighting can terminate early (#2649) [Josh Goebel][]
+
 New themes:
 
 - *Gradient Light* by [Samia Ali]()
+
+Deprecations:
+
+- `fixMarkup` is now deprecated and will be removed in v11.0. (#2534) [Josh Goebel][]
 
 Big picture:
 
@@ -10,6 +18,7 @@ Big picture:
 
 Language Improvements:
 
+- fix(bash) Fewer false positives for keywords in arguments (#2669) [sirosen][]
 - fix(js) Prevent long series of /////// from causing freezes (#2656) [Josh Goebel][]
 - enh(csharp) Add `init` and `record` keywords for C# 9.0 (#2660) [Youssef Victor][]
 - enh(matlab) Add new R2019b `arguments` keyword and fix `enumeration` keyword (#2619) [Andrew Janke][]
@@ -28,6 +37,7 @@ Language Improvements:
 [ezksd]: https://github.com/ezksd
 [idleberg]: https://github.com/idleberg
 [eytienne]: https://github.com/eytienne
+[sirosen]: https://github.com/sirosen
 
 
 ## Version 10.1.1

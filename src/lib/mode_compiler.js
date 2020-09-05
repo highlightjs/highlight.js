@@ -142,6 +142,10 @@ export function compileLanguage(language) {
       return matcher;
     }
 
+    resumingScanAtSamePosition() {
+      return this.regexIndex != 0;
+    }
+
     considerAll() {
       this.regexIndex = 0;
     }
