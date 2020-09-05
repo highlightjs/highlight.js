@@ -13,7 +13,7 @@ time to time in the highlight.js issue tracker and discussion group.
     Instead, the project works by encouraging 3rd party language grammars from
     contributors willing to help develop and maintain them. We're also happy to
     host those 3rd party language grammars at the ``highlightjs`` GitHub
-    organization - no matter how obscure or weird. Or you're wlecome to host it
+    organization - no matter how obscure or weird. Or you're welcome to host it
     yourself - we're still happy to link to it.
 
     This means that *there's no point in requesting a new language without also

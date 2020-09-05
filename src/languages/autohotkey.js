@@ -40,7 +40,7 @@ export default function(hljs) {
         //I don't really know if this is totally relevant
       },
       {
-        className: 'title', //symbol would be most accurate however is higlighted just like built_in and that makes up a lot of AutoHotkey code
+        className: 'title', //symbol would be most accurate however is highlighted just like built_in and that makes up a lot of AutoHotkey code
 		                        //meaning that it would fail to highlight anything
         variants: [
           {begin: '^[^\\n";]+::(?!=)'},

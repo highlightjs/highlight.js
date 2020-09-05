@@ -21,6 +21,7 @@ Language Improvements:
 - fix(night) Prevent object prototypes method values from being returned in `getLanguage` (#2636) [night][]
 - enh(java) Add support for `enum`, which will identify as a `class` now (#2643) [ezksd][]
 - enh(nsis) Add support for NSIS 3.06 commands (#2653) [idleberg][]
+- enh(php) detect newer more flexible HEREdoc syntax (#2658) [eytienne][]
 
 [Youssef Victor]: https://github.com/Youssef1313
 [Josh Goebel]: https://github.com/yyyc514
@@ -30,6 +31,7 @@ Language Improvements:
 [night]: https://github.com/night
 [ezksd]: https://github.com/ezksd
 [idleberg]: https://github.com/idleberg
+[eytienne]: https://github.com/eytienne
 
 
 ## Version 10.1.1
