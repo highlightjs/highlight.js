@@ -20,7 +20,7 @@ export default function(hljs) {
       // Contextual keywords.
       'add alias and ascending async await by descending dynamic equals from get ' +
       'global group init into join let nameof not on or orderby partial remove ' +
-      'select set value var when where yield',
+      'select set value var with when where yield',
     literal:
       'null false true'
   };
