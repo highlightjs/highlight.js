@@ -143,7 +143,7 @@ export function compileLanguage(language) {
     }
 
     resumingScanAtSamePosition() {
-      return this.regexIndex != 0;
+      return this.regexIndex !== 0;
     }
 
     considerAll() {
@@ -198,11 +198,12 @@ export function compileLanguage(language) {
         const m2 = this.getMatcher(0);
         m2.lastIndex = this.lastIndex + 1;
         result2 = m2.exec(s);
-      }
-      if ((!result && result2)
-        || (result && result2 && result2.index < result.index)) {
-        result = result2;
-        this.considerAll();
+
+        if ((!result && result2)
+          || (result && result2 && result2.index < result.index)) {
+          result = result2;
+          this.considerAll();
+        }
       }
 
       if (result) {
