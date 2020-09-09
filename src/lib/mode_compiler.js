@@ -161,7 +161,6 @@ export function compileLanguage(language) {
       const m = this.getMatcher(this.regexIndex);
       m.lastIndex = this.lastIndex;
       let result = m.exec(s);
-      let result2 = null;
 
       // The following is because we have no easy way to say "resume scanning at the
       // existing position but also skip the current rule ONLY". What happens is
@@ -195,15 +194,13 @@ export function compileLanguage(language) {
       // 3. Match at index + 1 for [string, "booger", number]
       // 4. If #2 and #3 result in matches, which came first?
       if (this.resumingScanAtSamePosition()) {
-        const m2 = this.getMatcher(0);
-        m2.lastIndex = this.lastIndex + 1;
-        result2 = m2.exec(s);
-
-        // the only resumed match we care about is at position +0
         if (result && result.index === this.lastIndex) {
-          // result wins
+          // result is position +0 and therefore a valid
+          // "resume" match so result stays result
         } else { // use the second matcher result
-          result = result2;
+          const m2 = this.getMatcher(0);
+          m2.lastIndex = this.lastIndex + 1;
+          result = m2.exec(s);
         }
       }
 
