@@ -199,8 +199,10 @@ export function compileLanguage(language) {
         m2.lastIndex = this.lastIndex + 1;
         result2 = m2.exec(s);
 
-        if ((!result && result2)
-          || (result && result2 && result2.index < result.index)) {
+        // the only resumed match we care about is at position +0
+        if (result && result.index === this.lastIndex) {
+          // result wins
+        } else { // use the second matcher result
           result = result2;
         }
       }
