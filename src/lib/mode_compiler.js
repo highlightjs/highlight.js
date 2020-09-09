@@ -202,7 +202,6 @@ export function compileLanguage(language) {
         if ((!result && result2)
           || (result && result2 && result2.index < result.index)) {
           result = result2;
-          this.considerAll();
         }
       }
 
