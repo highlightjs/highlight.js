@@ -4,9 +4,9 @@
 <span class="hljs-keyword">interface</span> <span class="hljs-title">IObservable</span>&lt;<span class="hljs-keyword">out</span> <span class="hljs-title">T</span>&gt;;
 {}
 
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">delegate</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DContravariant</span>&lt;<span class="hljs-keyword">in</span> <span class="hljs-title">A</span>&gt;(<span class="hljs-params">A argument</span>)</span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">delegate</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DContravariant</span>&lt;<span class="hljs-keyword">in</span> <span class="hljs-title">A</span>&gt;(<span class="hljs-params">A argument</span>)</span>;
 
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">delegate</span> A <span class="hljs-title">DCovariant</span>&lt;<span class="hljs-keyword">out</span> <span class="hljs-title">A</span>&gt;(<span class="hljs-params"></span>)</span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">delegate</span> A <span class="hljs-title">DCovariant</span>&lt;<span class="hljs-keyword">out</span> <span class="hljs-title">A</span>&gt;(<span class="hljs-params"></span>)</span>;
 
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MethodWithGenericParameter</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params"></span>)
 </span>
