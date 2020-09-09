@@ -199,14 +199,17 @@ export function compileLanguage(language) {
         m2.lastIndex = this.lastIndex + 1;
         result2 = m2.exec(s);
       }
-      if (result && result2 && result2.index < result.index) {
+      if ((!result && result2)
+        || (result && result2 && result2.index < result.index)) {
         result = result2;
+        this.considerAll();
       }
 
       if (result) {
         this.regexIndex += result.position + 1;
-        if (this.regexIndex === this.count) { // wrap-around
-          this.regexIndex = 0;
+        if (this.regexIndex === this.count) {
+          // wrap-around to considering all matches again
+          this.considerAll();
         }
       }
 
