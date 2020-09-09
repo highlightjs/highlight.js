@@ -32,7 +32,8 @@
     "test": "mocha --globals document test",
     "test-markup": "mocha --globals document test/markup",
     "test-detect": "mocha --globals document test/detect",
-    "test-browser": "mocha --globals document test/browser"
+    "test-browser": "mocha --globals document test/browser",
+    "test-parser": "mocha --globals document test/parser"
   },
   "engines": {
     "node": "*"
