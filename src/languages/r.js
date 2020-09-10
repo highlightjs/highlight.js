@@ -11,10 +11,28 @@ export default function(hljs) {
   // FIXME: Support Unicode identifiers.
   var IDENT_RE = '(([a-zA-Z]|\\.[._a-zA-Z])[._a-zA-Z0-9]*)|\\.(!=\\d)'
 
+  var ROXYGEN = {
+    className: 'docTag',
+    begin: "#'",
+    end: '$',
+    contains: [
+      {
+        className: 'meta',
+        begin: '@[a-zA-Z]+',
+        relevance: 0
+      },
+      {
+        className: 'built_in',
+        begin: '\\\\[a-zA-Z]+',
+        relevance: 0
+      }
+    ]
+  }
+
+
   return {
     name: 'R',
     contains: [
-      hljs.HASH_COMMENT_MODE,
       {
         begin: IDENT_RE,
         keywords: {
@@ -50,6 +68,14 @@ export default function(hljs) {
         },
         relevance: 0
       },
+      hljs.COMMENT(
+        '#',
+        '$',
+        {
+          returnBegin: true,
+          contains: [ ROXYGEN ]
+        }
+      ),
       {
         // hex value
         className: 'number',
