@@ -89,6 +89,13 @@ export default function(hljs) {
       },
 
       {
+        // infix operator
+        begin: '%',
+        end: '%',
+        relevance: 10
+      },
+
+      {
         className: 'string',
         contains: [hljs.BACKSLASH_ESCAPE],
         variants: [
