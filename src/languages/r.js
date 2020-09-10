@@ -18,13 +18,11 @@ export default function(hljs) {
     contains: [
       {
         className: 'meta',
-        begin: '@[a-zA-Z]+',
-        relevance: 0
+        begin: '@[a-zA-Z]+'
       },
       {
         className: 'built_in',
-        begin: '\\\\[a-zA-Z]+',
-        relevance: 0
+        begin: '\\\\[a-zA-Z]+'
       }
     ]
   }
@@ -114,8 +112,7 @@ export default function(hljs) {
       {
         // infix operator
         begin: '%',
-        end: '%',
-        relevance: 10
+        end: '%'
       }
     ]
   };
