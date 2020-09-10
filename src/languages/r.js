@@ -34,6 +34,22 @@ export default function(hljs) {
     name: 'R',
     contains: [
       {
+        className: 'string',
+        contains: [hljs.BACKSLASH_ESCAPE],
+        variants: [
+          hljs.END_SAME_AS_BEGIN({ begin: /r"(-*)\(/, end: /\)(-*)"/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /r"(-*)\{/, end: /\}(-*)"/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /r"(-*)\[/, end: /\](-*)"/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /r'(-*)\(/, end: /\)(-*)'/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /r'(-*)\{/, end: /\}(-*)'/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /r'(-*)\[/, end: /\](-*)'/ }),
+          {begin: '"', end: '"', relevance: 0},
+          {begin: "'", end: "'", relevance: 0}
+        ],
+        relevance: 10
+      },
+
+      {
         begin: IDENT_RE,
         keywords: {
           $pattern: IDENT_RE,
@@ -119,15 +135,6 @@ export default function(hljs) {
         begin: '%',
         end: '%',
         relevance: 10
-      },
-
-      {
-        className: 'string',
-        contains: [hljs.BACKSLASH_ESCAPE],
-        variants: [
-          {begin: '"', end: '"'},
-          {begin: "'", end: "'"}
-        ]
       }
     ]
   };
