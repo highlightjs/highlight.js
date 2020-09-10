@@ -29,7 +29,6 @@ export default function(hljs) {
     ]
   }
 
-
   return {
     name: 'R',
     contains: [
@@ -84,6 +83,7 @@ export default function(hljs) {
         },
         relevance: 0
       },
+
       hljs.COMMENT(
         '#',
         '$',
@@ -92,34 +92,15 @@ export default function(hljs) {
           contains: [ ROXYGEN ]
         }
       ),
+
       {
-        // hex value
         className: 'number',
-        begin: "0[xX][0-9a-fA-F]+[Li]?\\b",
-        relevance: 0
-      },
-      {
-        // explicit integer
-        className: 'number',
-        begin: "\\d+(?:[eE][+\\-]?\\d*)?L\\b",
-        relevance: 0
-      },
-      {
-        // number with trailing decimal
-        className: 'number',
-        begin: "\\d+\\.(?!\\d)(?:i\\b)?",
-        relevance: 0
-      },
-      {
-        // number
-        className: 'number',
-        begin: "\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",
-        relevance: 0
-      },
-      {
-        // number with leading decimal
-        className: 'number',
-        begin: "\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",
+        variants: [
+          // Special case: only hexadecimal binary powers can contain fractions.
+          { begin: /0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/ },
+          { begin: /0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/ },
+          { begin: /(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/ }
+        ],
         relevance: 0
       },
 
