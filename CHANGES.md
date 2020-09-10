@@ -1,3 +1,11 @@
+## Version 10.3.0 (next up)
+
+Language Improvements:
+
+- Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
+
+[David Pine]: https://github.com/IEvangelist
+
 ## Version 10.2.0
 
 Parser Engine:
@@ -1397,7 +1405,7 @@ New languages:
 - *Protocol Buffers* by [Dan Tao][]
 - *Nix* by [Domen Kožar][]
 - *x86asm* by [innocenat][]
-- *Cap’n Proto* and *Thrift* by [Oleg Efimov][]
+- *Cap'n Proto* and *Thrift* by [Oleg Efimov][]
 - *Monkey* by [Arthur Bikmullin][]
 - *TypeScript* by [Panu Horsmalahti][]
 - *Nimrod* by [Flaviu Tamas][]
