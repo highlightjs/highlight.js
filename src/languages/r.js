@@ -9,7 +9,7 @@ Category: scientific
 
 export default function(hljs) {
   // FIXME: Support Unicode identifiers.
-  var IDENT_RE = '(([a-zA-Z]|\\.[._a-zA-Z])[._a-zA-Z0-9]*)|\\.(!=\\d)'
+  var IDENT_RE = '(([a-zA-Z]|\\.[._a-zA-Z])[._a-zA-Z0-9]*)|\\.(!=\\d)';
 
   var ROXYGEN = {
     className: 'docTag',
@@ -25,7 +25,7 @@ export default function(hljs) {
         begin: '\\\\[a-zA-Z]+'
       }
     ]
-  }
+  };
 
   return {
     name: 'R',
