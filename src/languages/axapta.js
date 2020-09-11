@@ -33,7 +33,6 @@ export default function(hljs) {
     'false',
     'null',
     'true',
-
   ];
 
   const NORMAL_KEYWORDS = [
