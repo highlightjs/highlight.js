@@ -1,5 +1,6 @@
 /*
-Language: Microsoft X++, formerly Axapta, now Microsoft Dynamics 365
+Language: Microsoft X++
+Description: X++ is a language used in Microsoft Dynamics 365, Dynamics AX, and Axapta.
 Author: Dmitri Roudakov <dmitri@roudakov.ru>
 Website: https://dynamics.microsoft.com/en-us/ax-overview/
 Category: enterprise
@@ -145,7 +146,7 @@ export default function(hljs) {
   };
 
   return {
-    name: 'Dynamics 365',
+    name: 'X++',
     keywords: KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
