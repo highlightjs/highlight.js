@@ -15,7 +15,7 @@ export default function(hljs) {
     variants: [
       hljs.COMMENT('!', '$', {relevance: 0}),
       // allow Fortran 77 style comments
-      hljs.COMMENT('^C', '$', {relevance: 0})
+      hljs.COMMENT('^C\s', '$', {relevance: 0})
     ]
   };
 
