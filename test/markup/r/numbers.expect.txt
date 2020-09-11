@@ -14,6 +14,6 @@
 
 <span class="hljs-number">0x0</span>, <span class="hljs-number">0xabcdefABCDEF01234</span>, <span class="hljs-number">0xabcp123</span>, <span class="hljs-number">0xabcP-123</span>, <span class="hljs-number">0x1.2p2</span>, <span class="hljs-number">0xa.bp-3i</span>
 
-<span class="hljs-comment"># Invalid/not literals</span>
+<span class="hljs-comment"># Invalid/not literals (for reference)</span>
 
-<span class="hljs-number">2</span>e, <span class="hljs-number">0x1</span>pa, <span class="hljs-number">0x1</span><span class="hljs-number">.2</span>, <span class="hljs-number">0</span>xg, <span class="hljs-number">.2L</span>, <span class="hljs-number">0.L</span>
+<span class="hljs-comment"># 2e, 0x1pa, 0x1.2, 0xg, .2L, 0.L</span>

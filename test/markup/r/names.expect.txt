@@ -2,10 +2,6 @@
 
 a1_foo, A1_FOO, .foo_, ._foo, Bar.42, foo..1, ., ._, .., ..., ..1, <span class="hljs-built_in">c</span>, <span class="hljs-built_in">T</span>, <span class="hljs-built_in">F</span>, ._1
 
-<span class="hljs-comment"># Invalid names</span>
-
-<span class="hljs-number">0</span>abc, <span class="hljs-number">.0</span>abc, abc+cde, _, _., _x, _<span class="hljs-number">1</span>, <span class="hljs-number">.1</span>_
-
 <span class="hljs-comment"># Reserved Words</span>
 
 <span class="hljs-literal">NA</span>, <span class="hljs-literal">NA_integer_</span>, <span class="hljs-literal">NA_real_</span>, <span class="hljs-literal">NA_character_</span>, <span class="hljs-literal">NA_complex_</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-literal">Inf</span>
@@ -32,3 +28,7 @@ NULLa, NULL1, NULL., `NULL`, <span class="hljs-string">&#x27;NULL&#x27;</span>, 
 `\`b`
 `\\`
 `%\`%`
+
+<span class="hljs-comment"># Invalid names (for reference)</span>
+
+<span class="hljs-comment"># 0abc, .0abc, abc+cde, _, _., _x, _1, .1_</span>

@@ -2,10 +2,6 @@
 
 a1_foo, A1_FOO, .foo_, ._foo, Bar.42, foo..1, ., ._, .., ..., ..1, c, T, F, ._1
 
-# Invalid names
-
-0abc, .0abc, abc+cde, _, _., _x, _1, .1_
-
 # Reserved Words
 
 NA, NA_integer_, NA_real_, NA_character_, NA_complex_, NULL, NaN, Inf
@@ -32,3 +28,7 @@ return, switch, sum, stop, try
 `\`b`
 `\\`
 `%\`%`
+
+# Invalid names (for reference)
+
+# 0abc, .0abc, abc+cde, _, _., _x, _1, .1_
