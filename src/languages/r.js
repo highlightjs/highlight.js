@@ -76,7 +76,7 @@ export default function(hljs) {
             begin: '@[a-zA-Z]+'
           },
           {
-            className: 'built_in',
+            className: 'meta-keyword',
             begin: '\\\\[a-zA-Z]+'
           }
         ]
