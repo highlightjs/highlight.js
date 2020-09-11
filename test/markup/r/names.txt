@@ -14,9 +14,13 @@ function, while, repeat, for, if, in, else, next, break
 
 NULLa, NULL1, NULL., `NULL`, 'NULL', NA_foo_, na_real_, Function, for.
 
-# Primitive built-ins and others
+# Primitive built-ins
 
-return, switch, sum, stop, try
+return, switch, sum
+
+# Non-primitive base functions
+
+stop, try
 
 # Quoted identifiers
 

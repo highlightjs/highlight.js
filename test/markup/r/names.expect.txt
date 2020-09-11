@@ -14,9 +14,13 @@ a1_foo, A1_FOO, .foo_, ._foo, Bar.42, foo..1, ., ._, .., ..., ..1, <span class="
 
 NULLa, NULL1, NULL., `NULL`, <span class="hljs-string">&#x27;NULL&#x27;</span>, NA_foo_, na_real_, Function, for.
 
-<span class="hljs-comment"># Primitive built-ins and others</span>
+<span class="hljs-comment"># Primitive built-ins</span>
 
-<span class="hljs-built_in">return</span>, <span class="hljs-built_in">switch</span>, <span class="hljs-built_in">sum</span>, stop, try
+<span class="hljs-built_in">return</span>, <span class="hljs-built_in">switch</span>, <span class="hljs-built_in">sum</span>
+
+<span class="hljs-comment"># Non-primitive base functions</span>
+
+stop, try
 
 <span class="hljs-comment"># Quoted identifiers</span>
 
