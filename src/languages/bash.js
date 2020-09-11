@@ -83,7 +83,7 @@ export default function(hljs) {
     name: 'Bash',
     aliases: ['sh', 'zsh'],
     keywords: {
-      $pattern: /\b-?[a-z\._-]+\b/,
+      $pattern: /\b[a-z._-]+\b/,
       keyword:
         'if then else elif fi for while in do done case esac function',
       literal:
@@ -104,9 +104,7 @@ export default function(hljs) {
         'fc fg float functions getcap getln history integer jobs kill limit log noglob popd print ' +
         'pushd pushln rehash sched setcap setopt stat suspend ttyctl unfunction unhash unlimit ' +
         'unsetopt vared wait whence where which zcompile zformat zftp zle zmodload zparseopts zprof ' +
-        'zpty zregexparse zsocket zstyle ztcp',
-      _:
-        '-ne -eq -lt -gt -f -d -e -s -l -a' // relevance booster
+        'zpty zregexparse zsocket zstyle ztcp'
     },
     contains: [
       KNOWN_SHEBANG, // to catch known shells and boost relevancy
