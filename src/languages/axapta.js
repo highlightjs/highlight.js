@@ -8,7 +8,7 @@ Category: enterprise
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var BUILT_IN_KEYWORDS = [
+  const BUILT_IN_KEYWORDS = [
     'anytype',
     'boolean',
     'byte',
@@ -28,7 +28,7 @@ export default function(hljs) {
     'var'
   ];
 
-  var LITERAL_KEYWORDS = [
+  const LITERAL_KEYWORDS = [
     'default',
     'false',
     'null',
@@ -36,7 +36,7 @@ export default function(hljs) {
 
   ];
 
-  var NORMAL_KEYWORDS = [
+  const NORMAL_KEYWORDS = [
     'abstract',
     'as',
     'asc',
@@ -139,7 +139,7 @@ export default function(hljs) {
     'while',
   ];
 
-  var KEYWORDS = {
+  const KEYWORDS = {
     keyword: NORMAL_KEYWORDS.join(' '),
     built_in: BUILT_IN_KEYWORDS.join(' '),
     literal: LITERAL_KEYWORDS.join(' ')
