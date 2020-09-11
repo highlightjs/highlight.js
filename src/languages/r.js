@@ -66,21 +66,54 @@ export default function(hljs) {
         relevance: 0
       },
 
-      {
-        className: 'docTag',
-        begin: "#'",
-        end: '$',
-        contains: [
-          {
-            className: 'meta',
-            begin: '@[a-zA-Z]+'
-          },
-          {
-            className: 'meta-keyword',
-            begin: '\\\\[a-zA-Z]+'
-          }
-        ]
-      },
+      hljs.COMMENT(
+        /#'/,
+        /$/,
+        {
+          contains: [
+            {
+              className: 'doctag',
+              begin: '@examples',
+              starts: {
+                contains: [
+                  { begin: /\n/ },
+                  {
+                    begin: /#'\s*(?=@[a-zA-Z]+)/,
+                    endsParent: true,
+                  },
+                  {
+                    begin: /#'\s?/,
+                    end: /$/,
+                    excludeBegin: true,
+                  }
+                ]
+              }
+            },
+            {
+              className: 'doctag',
+              begin: '@param',
+              starts: {
+                end: /$/,
+                contains: [
+                  {
+                    className: 'meta',
+                    begin: IDENT_RE,
+                    endsParent: true
+                  }
+                ]
+              }
+            },
+            {
+              className: 'doctag',
+              begin: /@[a-zA-Z]+/
+            },
+            {
+              className: 'meta-keyword',
+              begin: /\\[a-zA-Z]+/,
+            }
+          ]
+        }
+      ),
 
       hljs.HASH_COMMENT_MODE,
 
