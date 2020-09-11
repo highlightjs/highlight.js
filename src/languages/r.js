@@ -9,7 +9,7 @@ Category: scientific
 
 export default function(hljs) {
   // FIXME: Support Unicode identifiers.
-  var IDENT_RE = '(([a-zA-Z]|\\.[._a-zA-Z])[._a-zA-Z0-9]*)|\\.(!=\\d)';
+  const IDENT_RE = '(([a-zA-Z]|\\.[._a-zA-Z])[._a-zA-Z0-9]*)|\\.(!=\\d)';
 
   return {
     name: 'R',
