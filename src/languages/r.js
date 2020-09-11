@@ -27,7 +27,6 @@ export default function(hljs) {
           {begin: '"', end: '"', relevance: 0},
           {begin: "'", end: "'", relevance: 0}
         ],
-        relevance: 10
       },
 
       {
