@@ -113,6 +113,34 @@ export default function(hljs) {
         relevance: 0
       },
       {
+        className: 'class',
+        begin: 'record\\s+' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
+        returnBegin: true,
+        excludeEnd: true,
+        end: /[{;=]/,
+        keywords: KEYWORDS,
+        contains: [
+          { beginKeywords: "record" },
+          {
+            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
+            returnBegin: true,
+            relevance: 0,
+            contains: [hljs.UNDERSCORE_TITLE_MODE]
+          },
+          {
+            className: 'params',
+            begin: /\(/, end: /\)/,
+            keywords: KEYWORDS,
+            relevance: 0,
+            contains: [
+              hljs.C_BLOCK_COMMENT_MODE
+            ]
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
+      },
+      {
         className: 'function',
         begin: '(' + GENERIC_IDENT_RE + '\\s+)+' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
         excludeEnd: true,
