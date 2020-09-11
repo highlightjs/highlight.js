@@ -41,7 +41,10 @@ export default function(hljs) {
     'extern',
     'override',
     'unsafe',
-    'virtual'
+    'virtual',
+    'new',
+    'sealed',
+    'partial'
   ];
   var LITERAL_KEYWORDS = [
       'default',
@@ -319,6 +322,7 @@ export default function(hljs) {
         end: /\s*[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
+          // prevents these from being highlighted `title`
           { beginKeywords: FUNCTION_MODIFIERS.join(" ")},
           {
             begin: hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
