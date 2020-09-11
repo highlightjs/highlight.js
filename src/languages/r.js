@@ -8,6 +8,11 @@ Category: scientific
 */
 
 export default function(hljs) {
+  // Identifiers in R cannot start with `_`, but they can start with `.` if it
+  // is not immediately followed by a digit.
+  // R also supports quoted identifiers, which are near-arbitrary sequences
+  // delimited by backticks (`…`), which may contain escape sequences. See
+  // `test/markup/r/names.txt` for examples.
   // FIXME: Support Unicode identifiers.
   const IDENT_RE = /(?:(?:[a-zA-Z]|\.[._a-zA-Z])[._a-zA-Z0-9]*)|\.(?!\d)|`(?:[^`]|\\`)+`/;
 
@@ -65,12 +70,18 @@ export default function(hljs) {
         relevance: 0
       },
 
+      // Roxygen comments
       hljs.COMMENT(
         /#'/,
         /$/,
         {
           contains: [
             {
+              // Handle `@examples` separately to cause all subsequent code
+              // until the next `@`-tag on its own line to be kept as-is,
+              // preventing highlighting. This code is example R code, so nested
+              // doctags shouldn’t be treated as such. See
+              // `test/markup/r/roxygen.txt` for an example.
               className: 'doctag',
               begin: '@examples',
               starts: {
@@ -89,6 +100,8 @@ export default function(hljs) {
               }
             },
             {
+              // Handle `@param` to highlight the parameter name following
+              // after.
               className: 'doctag',
               begin: '@param',
               starts: {
