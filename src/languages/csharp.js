@@ -30,6 +30,19 @@ export default function(hljs) {
       'unit',
       'ushort'
   ];
+  var FUNCTION_MODIFIERS = [
+    'public',
+    'private',
+    'static',
+    'internal',
+    'protected',
+    'abstract',
+    'async',
+    'extern',
+    'override',
+    'unsafe',
+    'virtual'
+  ];
   var LITERAL_KEYWORDS = [
       'default',
       'false',
@@ -306,7 +319,7 @@ export default function(hljs) {
         end: /\s*[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
-          { beginKeywords: "public private static internal protected"},
+          { beginKeywords: FUNCTION_MODIFIERS.join(" ")},
           {
             begin: hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
             contains: [
