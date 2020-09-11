@@ -41,7 +41,7 @@ export default function(hljs) {
             'NA_character_|10 NA_complex_|10',
           built_in:
             // Builtin constants
-            'LETTERS letters month.abb month.name pi T F ... ..1 ..2 ' +
+            'LETTERS letters month.abb month.name pi T F ' +
             // Primitive functions
             // These are all the functions in `base` that are implemented as a
             // `.Primitive`, minus those functions that are also keywords.
