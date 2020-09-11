@@ -92,7 +92,7 @@ export default function(hljs) {
                     endsParent: true,
                   },
                   {
-                    begin: /#'\s?/,
+                    begin: /#'/,
                     end: /$/,
                     excludeBegin: true,
                   }
