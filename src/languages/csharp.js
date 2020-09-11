@@ -203,9 +203,9 @@ export default function(hljs) {
   var GENERIC_MODIFIER = {
     begin: "<",
     end: ">",
-    contains: [ 
+    contains: [
       { beginKeywords: "in out"},
-      TITLE_MODE 
+      TITLE_MODE
     ]
   };
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
@@ -306,6 +306,7 @@ export default function(hljs) {
         end: /\s*[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
+          { beginKeywords: "public private static internal protected"},
           {
             begin: hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
             contains: [
