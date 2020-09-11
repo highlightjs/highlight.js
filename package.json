@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "10.2.0",
+  "version": "10.2.1",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -29,10 +29,10 @@
     "build": "node ./tools/build.js -t node",
     "build-cdn": "node ./tools/build.js -t cdn",
     "build-browser": "node ./tools/build.js -t browser :common",
-    "test": "mocha --globals document test",
-    "test-markup": "mocha --globals document test/markup",
-    "test-detect": "mocha --globals document test/detect",
-    "test-browser": "mocha --globals document test/browser"
+    "test": "mocha test",
+    "test-markup": "mocha test/markup",
+    "test-detect": "mocha test/detect",
+    "test-browser": "mocha test/browser"
   },
   "engines": {
     "node": "*"
