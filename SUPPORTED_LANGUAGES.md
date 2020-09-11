@@ -27,7 +27,6 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | AutoHotkey              | autohotkey             |         |
 | AutoIt                  | autoit                 |         |
 | Awk                     | awk, mawk, nawk, gawk  |         |
-| Axapta                  | axapta                 |         |
 | Bash                    | bash, sh, zsh          |         |
 | Basic                   | basic                  |         |
 | BNF                     | bnf                    |         |
@@ -197,6 +196,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Vala                    | vala                   |         |
 | Verilog                 | verilog, v             |         |
 | Vim Script              | vim                    |         |
+| X++                     | axapta, x++            |         |
 | x86 Assembly            | x86asm                 |         |
 | XL                      | xl, tao                |         |
 | XQuery                  | xquery, xpath, xq      |         |
