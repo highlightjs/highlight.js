@@ -147,6 +147,7 @@ export default function(hljs) {
 
   return {
     name: 'X++',
+    aliases: ['x++'],
     keywords: KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
