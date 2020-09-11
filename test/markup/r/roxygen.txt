@@ -18,3 +18,7 @@ is_zero = function (x) x == 0
 sum_all <- function (...) {
   sum(..., na.rm = TRUE)
 }
+
+# Weird identifier in @param string
+
+#' @param `a\`b\\` test

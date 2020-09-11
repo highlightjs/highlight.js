@@ -18,3 +18,7 @@ is_zero = <span class="hljs-keyword">function</span> (x) x == <span class="hljs-
 sum_all &lt;- <span class="hljs-keyword">function</span> (...) {
   <span class="hljs-built_in">sum</span>(..., na.rm = <span class="hljs-literal">TRUE</span>)
 }
+
+<span class="hljs-comment"># Weird identifier in @param string</span>
+
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@param <span class="hljs-variable">`a\`b\\`</span></span> test</span>

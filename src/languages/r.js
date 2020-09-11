@@ -11,10 +11,10 @@ export default function(hljs) {
   // Identifiers in R cannot start with `_`, but they can start with `.` if it
   // is not immediately followed by a digit.
   // R also supports quoted identifiers, which are near-arbitrary sequences
-  // delimited by backticks (`…`), which may contain escape sequences. See
-  // `test/markup/r/names.txt` for examples.
+  // delimited by backticks (`…`), which may contain escape sequences. These are
+  // handled in a separate mode. See `test/markup/r/names.txt` for examples.
   // FIXME: Support Unicode identifiers.
-  const IDENT_RE = /(?:(?:[a-zA-Z]|\.[._a-zA-Z])[._a-zA-Z0-9]*)|\.(?!\d)|`(?:[^`]|\\`)+`/;
+  const IDENT_RE = /(?:(?:[a-zA-Z]|\.[._a-zA-Z])[._a-zA-Z0-9]*)|\.(?!\d)/;
 
   return {
     name: 'R',
@@ -90,7 +90,10 @@ export default function(hljs) {
               contains: [
                 {
                   className: 'variable',
-                  begin: IDENT_RE,
+                  variants: [
+                    { begin: IDENT_RE },
+                    { begin: /`(?:\\.|[^`])+`/ }
+                  ],
                   endsParent: true
                 }
               ]
@@ -143,7 +146,11 @@ export default function(hljs) {
 
       {
         // escaped identifier
-        begin: /`(?:[^`]|\\`)+`/,
+        begin: '`',
+        end: '`',
+        contains: [
+          { begin: /\\./ }
+        ]
       }
     ]
   };
