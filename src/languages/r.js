@@ -104,16 +104,14 @@ export default function(hljs) {
               // after.
               className: 'doctag',
               begin: '@param',
-              starts: {
-                end: /$/,
-                contains: [
-                  {
-                    className: 'meta',
-                    begin: IDENT_RE,
-                    endsParent: true
-                  }
-                ]
-              }
+              end: /$/,
+              contains: [
+                {
+                  className: 'variable',
+                  begin: IDENT_RE,
+                  endsParent: true
+                }
+              ]
             },
             {
               className: 'doctag',
