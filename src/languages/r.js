@@ -18,12 +18,12 @@ export default function(hljs) {
         className: 'string',
         contains: [hljs.BACKSLASH_ESCAPE],
         variants: [
-          hljs.END_SAME_AS_BEGIN({ begin: /r"(-*)\(/, end: /\)(-*)"/ }),
-          hljs.END_SAME_AS_BEGIN({ begin: /r"(-*)\{/, end: /\}(-*)"/ }),
-          hljs.END_SAME_AS_BEGIN({ begin: /r"(-*)\[/, end: /\](-*)"/ }),
-          hljs.END_SAME_AS_BEGIN({ begin: /r'(-*)\(/, end: /\)(-*)'/ }),
-          hljs.END_SAME_AS_BEGIN({ begin: /r'(-*)\{/, end: /\}(-*)'/ }),
-          hljs.END_SAME_AS_BEGIN({ begin: /r'(-*)\[/, end: /\](-*)'/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /[rR]"(-*)\(/, end: /\)(-*)"/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /[rR]"(-*)\{/, end: /\}(-*)"/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /[rR]"(-*)\[/, end: /\](-*)"/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /[rR]'(-*)\(/, end: /\)(-*)'/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /[rR]'(-*)\{/, end: /\}(-*)'/ }),
+          hljs.END_SAME_AS_BEGIN({ begin: /[rR]'(-*)\[/, end: /\](-*)'/ }),
           {begin: '"', end: '"', relevance: 0},
           {begin: "'", end: "'", relevance: 0}
         ],

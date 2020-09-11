@@ -13,7 +13,7 @@
 <span class="hljs-string">r&quot;{foo)&quot;bar}&quot;</span>
 <span class="hljs-string">r&quot;[foo)&quot;bar]&quot;</span>
 <span class="hljs-string">r&quot;-(foo)&quot;bar)-&quot;</span>
-<span class="hljs-string">r&quot;--(foo)-&quot;bar)--&quot;</span>
+<span class="hljs-string">R&quot;--(foo)-&quot;bar)--&quot;</span>
 <span class="hljs-string">r&#x27;-(foo)&#x27;bar)-&#x27;</span> <span class="hljs-comment"># &#x27;</span>
 <span class="hljs-string">r&quot;(
 xyz

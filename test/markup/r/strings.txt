@@ -13,7 +13,7 @@ r"(foo"bar)"
 r"{foo)"bar}"
 r"[foo)"bar]"
 r"-(foo)"bar)-"
-r"--(foo)-"bar)--"
+R"--(foo)-"bar)--"
 r'-(foo)'bar)-' # '
 r"(
 xyz
