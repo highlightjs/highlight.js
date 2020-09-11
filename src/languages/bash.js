@@ -27,7 +27,10 @@ export default function(hljs) {
       BRACED_VAR
     ]
   });
-
+  const NUMBER = {
+    className: "number",
+    begin: /\b\d+\b/
+  };
   const SUBST = {
     className: 'subst',
     begin: /\$\(/, end: /\)/,
@@ -120,6 +123,7 @@ export default function(hljs) {
       QUOTE_STRING,
       ESCAPED_QUOTE,
       APOS_STRING,
+      NUMBER,
       VAR
     ]
   };
