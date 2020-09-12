@@ -13,10 +13,14 @@ export default function(hljs) {
 
   const COMMENT = {
     variants: [
+<<<<<<< HEAD
       hljs.COMMENT('!', '$', {relevance: 0}),
       // allow FORTRAN 77 style comments
       hljs.COMMENT('^C[ ]', '$', {relevance: 0}),
       hljs.COMMENT('^C$', '$', {relevance: 0})
+=======
+      hljs.COMMENT('!', '$', {relevance: 0})
+>>>>>>> b9e4040290d49910f8c7261bbc8c9a9ba17193b0
     ]
   };
 
