@@ -11,3 +11,5 @@
 C=<span class="hljs-number">2</span>
 C = <span class="hljs-number">2</span> <span class="hljs-comment">!correct</span>
 C =<span class="hljs-string">&#x27;boo&#x27;</span>
+
+<span class="hljs-keyword">contains</span>
