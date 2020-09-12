@@ -3,12 +3,9 @@
   !===============================
 
 ! another comment
-<<<<<<< HEAD
 
 C=2
 C = 2 !correct
 C ='boo'
 
 contains
-=======
->>>>>>> b9e4040290d49910f8c7261bbc8c9a9ba17193b0
