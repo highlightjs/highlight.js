@@ -2,6 +2,7 @@
 
 Language Improvements:
 
+- enh(r) major overhaul of the R language grammar (and fix a few bugs) (#2680) [Konrad Rudolph][]
 - enh(csharp) Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
 - enh(objectivec) Add `objective-c++` and `obj-c++` aliases for Objective-C [Josh Goebel][]
 - enh(java) Add support for `record` (#2685) [Josh Goebel][]
@@ -11,6 +12,7 @@ Language Improvements:
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/yyyc514
 [Ryan Jonasson]: https://github.com/ryanjonasson
+[Konrad Rudolph]: https://github.com/klmr
 
 ## Version 10.2.0
 

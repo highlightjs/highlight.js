@@ -1,0 +1,19 @@
+# Numbers
+
+0, 01, 08, 123456, 1256.701, 123e3, 123E+3, 1.23e-3, 1.23E3, .25, 2.
+
+# Integers
+
+123L, -50L
+
+# Imaginary numbers
+
+123i, -123i, 1.2e-3i, 1.i, .0i
+
+# Hex numbers
+
+0x0, 0xabcdefABCDEF01234, 0xabcp123, 0xabcP-123, 0x1.2p2, 0xa.bp-3i
+
+# Invalid/not literals (for reference)
+
+# 2e, 0x1pa, 0x1.2, 0xg, .2L, 0.L
