@@ -33,6 +33,7 @@ export default function(hljs) {
   var FUNCTION_MODIFIERS = [
     'public',
     'private',
+    'protected',
     'static',
     'internal',
     'protected',
