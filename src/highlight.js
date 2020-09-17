@@ -498,20 +498,13 @@ const HLJS = function(hljs) {
           // considered for a potential match
           resumeScanAtSamePosition = false;
         } else {
-          top.matcher.lastIndex = index;
           top.matcher.considerAll();
         }
+        top.matcher.lastIndex = index;
 
         const match = top.matcher.exec(codeToHighlight);
         // console.log("match", match[0], match.rule && match.rule.begin)
 
-        // if our failure to match was the result of a "resumed scan" then we
-        // need to advance one position and revert to full scanning before we
-        // decide there are truly no more matches at all to be had
-        if (!match && top.matcher.resumingScanAtSamePosition()) {
-          advanceOne();
-          continue;
-        }
         if (!match) break;
 
         const beforeMatch = codeToHighlight.substring(index, match.index);
