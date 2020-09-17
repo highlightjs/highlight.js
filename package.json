@@ -32,7 +32,7 @@
     "test": "mocha test",
     "test-markup": "mocha test/markup",
     "test-detect": "mocha test/detect",
-    "test-browser": "mocha test/browser"
+    "test-browser": "mocha test/browser",
     "test-parser": "mocha test/parser"
   },
   "engines": {
