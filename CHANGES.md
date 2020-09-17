@@ -2,8 +2,9 @@
 
 Language Improvements:
 
-- Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
-- Add `objective-c++` and `obj-c++` aliases for Objective-C [Josh Goebel][]
+- enh(csharp) Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
+- enh(objectivec) Add `objective-c++` and `obj-c++` aliases for Objective-C [Josh Goebel][]
+- enh(java) Add support for `record` (#2685) [Josh Goebel][]
 - fix(csharp) prevent modifier keywords wrongly flagged as `title` (#2683) [Josh Goebel][]
 - enh(axapta) Update keyword list for Axapta (X++) (#2686) [Ryan Jonasson][]
 
