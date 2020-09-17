@@ -4,7 +4,8 @@ Language Improvements:
 
 - Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
 - Add `objective-c++` and `obj-c++` aliases for Objective-C [Josh Goebel][]
-- Update keyword list for Axapta (X++) (#2686) [Ryan Jonasson][]
+- fix(csharp) prevent modifier keywords wrongly flagged as `title` (#2683) [Josh Goebel][]
+- enh(axapta) Update keyword list for Axapta (X++) (#2686) [Ryan Jonasson][]
 
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/yyyc514
