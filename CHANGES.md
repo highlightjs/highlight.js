@@ -4,7 +4,7 @@ Language Improvements:
 
 - Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
 - Add `objective-c++` and `obj-c++` aliases for Objective-C [Josh Goebel][]
-- fix(csharp) prevent public/static/private incorrectly flagged as `title` [Josh Goebel][]
+- fix(csharp) prevent modifier keywords wrongly flagged as `title` (#2683) [Josh Goebel][]
 
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/yyyc514
