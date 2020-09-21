@@ -8,10 +8,12 @@ Language Improvements:
 - enh(java) Add support for `record` (#2685) [Josh Goebel][]
 - fix(csharp) prevent modifier keywords wrongly flagged as `title` (#2683) [Josh Goebel][]
 - enh(axapta) Update keyword list for Axapta (X++) (#2686) [Ryan Jonasson][]
+- fix(fortran) FORTRAN 77-style comments (#2677) [Philipp Engel][]
 
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/yyyc514
 [Ryan Jonasson]: https://github.com/ryanjonasson
+[Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
 
 ## Version 10.2.0
