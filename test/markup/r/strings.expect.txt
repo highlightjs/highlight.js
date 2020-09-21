@@ -1,0 +1,33 @@
+<span class="hljs-string">&quot;test #&quot;</span>
+<span class="hljs-string">&quot;a&#x27;b&quot;</span>
+<span class="hljs-string">&#x27;a&quot;b&#x27;</span>
+<span class="hljs-string">&quot;foo\&quot;bar&quot;</span>
+<span class="hljs-string">&#x27;foo\&#x27;bar&#x27;</span>
+<span class="hljs-string">&quot;\013x&quot;</span>
+<span class="hljs-string">&quot;\xfex&quot;</span>
+<span class="hljs-string">&quot;\uabc0x&quot;</span>
+<span class="hljs-string">&quot;\U0123abcdx&quot;</span>
+<span class="hljs-string">&quot;\u{abcd}x&quot;</span>
+<span class="hljs-string">&quot;\U{0123abcd}x&quot;</span>
+<span class="hljs-string">r&quot;(foo&quot;bar)&quot;</span>
+<span class="hljs-string">r&quot;{foo)&quot;bar}&quot;</span>
+<span class="hljs-string">r&quot;[foo)&quot;bar]&quot;</span>
+<span class="hljs-string">r&quot;-(foo)&quot;bar)-&quot;</span>
+<span class="hljs-string">R&quot;--(foo)-&quot;bar)--&quot;</span>
+<span class="hljs-string">r&#x27;-(foo)&#x27;bar)-&#x27;</span> <span class="hljs-comment"># &#x27;</span>
+<span class="hljs-string">r&quot;(
+xyz
+&quot;
+\
+)
+)&quot;</span>
+<span class="hljs-string">&quot;this is a quote that spans
+multiple lines
+\&quot;
+
+is this still a quote? it should be.
+# even still!
+
+&quot;</span>
+<span class="hljs-string">&#x27;same for
+single quotes #&#x27;</span>

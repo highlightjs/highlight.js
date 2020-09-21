@@ -30,6 +30,23 @@ export default function(hljs) {
       'unit',
       'ushort'
   ];
+  var FUNCTION_MODIFIERS = [
+    'public',
+    'private',
+    'protected',
+    'static',
+    'internal',
+    'protected',
+    'abstract',
+    'async',
+    'extern',
+    'override',
+    'unsafe',
+    'virtual',
+    'new',
+    'sealed',
+    'partial'
+  ];
   var LITERAL_KEYWORDS = [
       'default',
       'false',
@@ -203,9 +220,9 @@ export default function(hljs) {
   var GENERIC_MODIFIER = {
     begin: "<",
     end: ">",
-    contains: [ 
+    contains: [
       { beginKeywords: "in out"},
-      TITLE_MODE 
+      TITLE_MODE
     ]
   };
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
@@ -306,6 +323,8 @@ export default function(hljs) {
         end: /\s*[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
+          // prevents these from being highlighted `title`
+          { beginKeywords: FUNCTION_MODIFIERS.join(" ")},
           {
             begin: hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
             contains: [

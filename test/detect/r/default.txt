@@ -1,69 +1,46 @@
-library(ggplot2)
+require(stats)
 
-centre <- function(x, type, ...) {
+#' Compute different averages
+#'
+#' @param x \code{numeric} vector of sample data
+#' @param type \code{character} vector of length 1 specifying the average type
+#' @return \code{centre} returns the sample average according to the chosen method.
+#' @examples
+#' centre(rcauchy(10), "mean")
+#' @export
+centre <- function(x, type) {
   switch(type,
          mean = mean(x),
          median = median(x),
          trimmed = mean(x, trim = .1))
 }
+x <- rcauchy(10)
+centre(x, "mean")
 
-myVar1
-myVar.2
-data$x
-foo "bar" baz
-# test "test"
-"test # test"
+library(ggplot2)
 
-(123) (1) (10) (0.1) (.2) (1e-7)
-(1.2e+7) (2e) (3e+10) (0x0) (0xa)
-(0xabcdef1234567890) (123L) (1L)
-(0x10L) (10000000L) (1e6L) (1.1L)
-(1e-3L) (4123.381E-10i)
-(3.) (3.E10) # BUG: .E10 should be part of number
+models <- tibble::tribble(
+  ~model_name,    ~ formula,
+  "length-width", Sepal.Length ~ Petal.Width + Petal.Length,
+  "interaction",  Sepal.Length ~ Petal.Width * Petal.Length
+)
 
-# Numbers in some different contexts
-1L
-0x40
-.234
-3.
-1L + 30
-plot(cars, xlim=20)
-plot(cars, xlim=0x20)
-foo<-30
-my.data.3 <- read() # not a number
-c(1,2,3)
-1%%2
-
-"this is a quote that spans
-multiple lines
-\"
-
-is this still a quote? it should be.
-# even still!
-
-" # now we're done.
-
-'same for
-single quotes #'
-
-# keywords
-NULL, NA, TRUE, FALSE, Inf, NaN, NA_integer_,
-NA_real_, NA_character_, NA_complex_, function,
-while, repeat, for, if, in, else, next, break,
-..., ..1, ..2
-
-# not keywords
-the quick brown fox jumped over the lazy dogs
-null na true false inf nan na_integer_ na_real_
-na_character_ na_complex_ Function While Repeat
-For If In Else Next Break .. .... "NULL" `NULL` 'NULL'
-
-# operators
-+, -, *, /, %%, ^, >, >=, <, <=, ==, !=, !, &, |, ~,
-->, <-, <<-, $, :, ::
-
-# infix operator
-foo %union% bar
-%"test"%
-`"test"`
-
+iris %>% 
+  nest_by(Species) %>% 
+  left_join(models, by = character()) %>% 
+  rowwise(Species, model_name) %>% 
+  mutate(model = list(lm(formula, data = data))) %>% 
+  summarise(broom::glance(model))
+#> `summarise()` regrouping output by 'Species', 'model_name' (override with `.groups` argument)
+#> # A tibble: 6 x 13
+#> # Groups:   Species, model_name [6]
+#>   Species model_name r.squared adj.r.squared sigma statistic  p.value    df
+#>   <fct>   <chr>          <dbl>         <dbl> <dbl>     <dbl>    <dbl> <int>
+#> 1 setosa  length-wi…     0.112        0.0739 0.339      2.96 6.18e- 2     3
+#> 2 setosa  interacti…     0.133        0.0760 0.339      2.34 8.54e- 2     4
+#> 3 versic… length-wi…     0.574        0.556  0.344     31.7  1.92e- 9     3
+#> 4 versic… interacti…     0.577        0.549  0.347     20.9  1.11e- 8     4
+#> 5 virgin… length-wi…     0.747        0.736  0.327     69.3  9.50e-15     3
+#> 6 virgin… interacti…     0.757        0.741  0.323     47.8  3.54e-14     4
+#> # … with 5 more variables: logLik <dbl>, AIC <dbl>, BIC <dbl>, deviance <dbl>,
+#> #   df.residual <int>
