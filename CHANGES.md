@@ -9,12 +9,14 @@ Language Improvements:
 - fix(csharp) prevent modifier keywords wrongly flagged as `title` (#2683) [Josh Goebel][]
 - enh(axapta) Update keyword list for Axapta (X++) (#2686) [Ryan Jonasson][]
 - fix(fortran) FORTRAN 77-style comments (#2677) [Philipp Engel][]
+- enh(twig): Update keyword list [Florian Förster][]
 
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Jonasson]: https://github.com/ryanjonasson
 [Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
+[Florian Förster]: https://github.com/florianjr
 
 ## Version 10.2.0
 
