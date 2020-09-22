@@ -98,8 +98,27 @@ async function buildDistributable(language) {
   let distDir = path.join(language.moduleDir,"dist")
   log(`Building ${distDir}/${filename}.`)
   await fs.mkdir(distDir, {recursive: true});
-  fs.writeFile(path.join(language.moduleDir,"dist",filename), language.minified);
+  fs.writeFile(path.join(distDir,filename), language.minified);
 
+
+  let styleSourceDir = path.join(language.moduleDir, "src/styles")
+  glob.sync("*", { cwd: styleSourceDir }).forEach((file) => {
+    let sourceFile = path.join(styleSourceDir, file)
+    let destFileName = file;
+    let destFilePath;
+    log(`Processing ${sourceFile}.`)
+    if (file.endsWith(".css")) {
+      destFileName = file.replace(".css", ".min.css")
+      destFilePath = `../${distDir}/${destFileName}`
+      install_cleancss(sourceFile, destFilePath);
+    }
+    else { // images, backgrounds, etc
+      destFilePath = `../${distDir}/${destFileName}`
+      install(sourceFile, destFilePath);
+    }
+
+    install(`${process.env.BUILD_DIR}/${destFilePath}`, `styles/${destFileName}`);
+  })
 }
 
  async function buildCDNLanguage (language) {
