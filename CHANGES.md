@@ -2,6 +2,7 @@
 
 Language Improvements:
 
+- enh(javascript) allow `#` for private class fields (#2701) [Chris Krycho][]
 - fix(bash) enh(bash) allow nested params (#2731) [Josh Goebel][]
 - fix(python) Fix highlighting of keywords and strings (#2713, #2715) [Konrad Rudolph][]
 - fix(fsharp) Prevent `(*)` from being detected as a multi-line comment [Josh Goebel][]
@@ -25,6 +26,7 @@ Deprecations:
 
 - `useBR` option deprecated and will be removed in v11.0. (#2559) [Josh Goebel][]
 
+[Chris Krycho]: https://github.com/chriskrycho
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Jonasson]: https://github.com/ryanjonasson
