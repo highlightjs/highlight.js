@@ -10,6 +10,7 @@ Language Improvements:
 - enh(axapta) Update keyword list for Axapta (X++) (#2686) [Ryan Jonasson][]
 - fix(fortran) FORTRAN 77-style comments (#2677) [Philipp Engel][]
 - fix(javascript) Comments inside params should be highlighted (#2702) [Josh Goebel][]
+- fix(scala) Comments inside class header should be highlighted (#1559) [Josh Goebel][]
 
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
