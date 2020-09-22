@@ -17,6 +17,16 @@ Language Improvements:
 [Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
 
+
+## Version 10.2.1
+
+ Parser Engine:
+
+ -  fix(parser) complete fix for resuming matches from same index (#2678) [Josh Goebel][]
+
+ [Josh Goebel]: https://github.com/yyyc514
+
+
 ## Version 10.2.0
 
 Parser Engine:
