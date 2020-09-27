@@ -9,6 +9,8 @@ Language Improvements:
 - fix(csharp) prevent modifier keywords wrongly flagged as `title` (#2683) [Josh Goebel][]
 - enh(axapta) Update keyword list for Axapta (X++) (#2686) [Ryan Jonasson][]
 - fix(fortran) FORTRAN 77-style comments (#2677) [Philipp Engel][]
+- fix(javascript) Comments inside params should be highlighted (#2702) [Josh Goebel][]
+- fix(scala) Comments inside class header should be highlighted (#1559) [Josh Goebel][]
 - fix(c-like) Correctly highlight modifiers (`final`) in class declaration (#2696) [Josh Goebel][]
 
 [David Pine]: https://github.com/IEvangelist
