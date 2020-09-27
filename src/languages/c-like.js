@@ -226,6 +226,7 @@ export default function(hljs) {
         className: 'class',
         beginKeywords: 'class struct', end: /[{;:]/,
         contains: [
+          { beginKeywords: "final" },
           {begin: /</, end: />/, contains: ['self']}, // skip generic stuff
           hljs.TITLE_MODE
         ]

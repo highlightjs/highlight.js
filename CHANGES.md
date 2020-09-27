@@ -11,12 +11,23 @@ Language Improvements:
 - fix(fortran) FORTRAN 77-style comments (#2677) [Philipp Engel][]
 - fix(javascript) Comments inside params should be highlighted (#2702) [Josh Goebel][]
 - fix(scala) Comments inside class header should be highlighted (#1559) [Josh Goebel][]
+- fix(c-like) Correctly highlight modifiers (`final`) in class declaration (#2696) [Josh Goebel][]
 
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Jonasson]: https://github.com/ryanjonasson
 [Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
+
+
+## Version 10.2.1
+
+ Parser Engine:
+
+ -  fix(parser) complete fix for resuming matches from same index (#2678) [Josh Goebel][]
+
+ [Josh Goebel]: https://github.com/yyyc514
+
 
 ## Version 10.2.0
 
