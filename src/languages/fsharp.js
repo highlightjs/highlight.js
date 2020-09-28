@@ -39,7 +39,9 @@ export default function(hljs) {
         className: 'string',
         begin: '"""', end: '"""'
       },
-      hljs.COMMENT('\\(\\*(\\s)', '\\*\\)'),
+      hljs.COMMENT('\\(\\*(\\s)', '\\*\\)',{
+        contains: [ "self" ]
+      }),
       {
         className: 'class',
         beginKeywords: 'type', end: '\\(|=|$', excludeEnd: true,
