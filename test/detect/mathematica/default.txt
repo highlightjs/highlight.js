@@ -62,15 +62,16 @@ numbers = {
     10000000000*^-10
 }
 
+(* More symbols from System *)
+{ $RecursionLimit, $RecursionLimitWrong }
 
-(* Only available Named Characters match (Note that \[ and ] is highlighted as well) *)
-(* Correct ones: *)
-
+(* Named Characters are matched as symbols *)
 { \[Gamma],  \[CapitalEAcute], \[DoubleLeftRightArrow], \[FormalEpsilon], my\[CapitalEAcute]Variable }
 
-(* Incorrect ones: *)
-
-{ \[Plasma],  \[Useless] }
+(* Patterns and Slots *)
+xkcdLabel[{str_, {x1_Integer, y1_WrongHead}, {_Real, _List}}]
+Style[x_, st_]
+(# + #)&
 
 (* Usage message, In/Out *)
 
