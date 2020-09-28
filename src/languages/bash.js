@@ -36,7 +36,9 @@ export default function(hljs) {
   const HERE_DOC = hljs.END_SAME_AS_BEGIN({
     className: 'string',
     begin: /<<-?\s*(\w+)/,
-    end: /(\w+)/
+    end: /(\w+)/,
+    excludeBegin: true,
+    excludeEnd:true
   });
   const QUOTE_STRING = {
     className: 'string',
