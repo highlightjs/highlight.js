@@ -31,48 +31,46 @@ import * as Mathematica from './lib/mathematica.js';
 import * as regex from '../lib/regex.js';
 
 // @ts-ignore
-export default function(highlightJS) {
+export default function(hljs) {
   /*
   This rather scary looking matching of Mathematica numbers is carefully explained by Robert Jacobson here:
   https://wltools.github.io/LanguageSpec/Specification/Syntax/Number-representations/
    */
-  const base_re = /([2-9]|[1-2]\d|[3][0-5])\^\^/;
-  const base_digits_re = /(\w*\.\w+|\w+\.\w*|\w+)/;
-  const number_re = /(\d*\.\d+|\d+\.\d*|\d+)/;
-  const base_number_re = regex.either(regex.concat(base_re, base_digits_re), number_re);
+  const BASE_RE = /([2-9]|[1-2]\d|[3][0-5])\^\^/;
+  const BASE_DIGITS_RE = /(\w*\.\w+|\w+\.\w*|\w+)/;
+  const NUMBER_RE = /(\d*\.\d+|\d+\.\d*|\d+)/;
+  const BASE_NUMBER_RE = regex.either(regex.concat(BASE_RE, BASE_DIGITS_RE), NUMBER_RE);
 
-  const accuracy_re = /``[+-]?(\d*\.\d+|\d+\.\d*|\d+)/;
-  const precision_re = /`([+-]?(\d*\.\d+|\d+\.\d*|\d+))?/;
-  const approximate_number_re = regex.either(accuracy_re, precision_re);
+  const ACCURACY_RE = /``[+-]?(\d*\.\d+|\d+\.\d*|\d+)/;
+  const PRECISION_RE = /`([+-]?(\d*\.\d+|\d+\.\d*|\d+))?/;
+  const APPROXIMATE_NUMBER_RE = regex.either(ACCURACY_RE, PRECISION_RE);
 
-  const scientific_notation_re = /\*\^[+-]?\d+/;
+  const SCIENTIFIC_NOTATION_RE = /\*\^[+-]?\d+/;
 
-  const mathematica_number_re = regex.concat(
-    base_number_re,
-    regex.optional(approximate_number_re),
-    regex.optional(scientific_notation_re)
+  const MATHEMATICA_NUMBER_RE = regex.concat(
+    BASE_NUMBER_RE,
+    regex.optional(APPROXIMATE_NUMBER_RE),
+    regex.optional(SCIENTIFIC_NOTATION_RE)
   );
 
   const NUMBERS = {
     className: 'number',
-    begin: mathematica_number_re,
+    begin: MATHEMATICA_NUMBER_RE,
   };
 
-  const symbol_re = /[a-zA-Z$][a-zA-Z0-9$]*/;
+  const SYMBOL_RE = /[a-zA-Z$][a-zA-Z0-9$]*/;
   const SYMBOLS = {
     className: 'symbol',
-    begin: /[a-zA-Z$]/,
-    keywords: {
-      $pattern: symbol_re,
-      keyword: Mathematica.SYSTEM_SYMBOLS.join(" ")
-    },
-    end: /[a-zA-Z0-9$]*/
+    begin: SYMBOL_RE,
+      keywords: {
+        $pattern: SYMBOL_RE,
+        keyword: Mathematica.SYSTEM_SYMBOLS.join(" ")
+      },
   };
 
   const NAMED_CHARACTER = {
     className: 'symbol',
-    begin: /\\\[/,
-    end: /[$a-zA-Z][$a-zA-Z0-9]+]/
+    begin: /\\\[[$a-zA-Z][$a-zA-Z0-9]+]/,
   };
 
   const OPERATORS = {
@@ -86,7 +84,7 @@ export default function(highlightJS) {
       {
         begin: /([a-zA-Z$][a-zA-Z0-9$]*)?_+([a-zA-Z$][a-zA-Z0-9$]*)?/,
         keywords: {
-          $pattern: symbol_re,
+          $pattern: SYMBOL_RE,
           strong: Mathematica.SYSTEM_SYMBOLS.join(" ")
         }
       },
@@ -102,7 +100,7 @@ export default function(highlightJS) {
   const MESSAGES = {
     className: 'keyword',
     begin: /::/,
-    end: symbol_re
+    end: SYMBOL_RE
   };
 
   return {
@@ -114,8 +112,8 @@ export default function(highlightJS) {
       MESSAGES,
       SYMBOLS,
       NAMED_CHARACTER,
-      highlightJS.QUOTE_STRING_MODE,
-      highlightJS.COMMENT(/\(\*/, /\*\)/, {contains: ['self']}),
+      hljs.QUOTE_STRING_MODE,
+      hljs.COMMENT(/\(\*/, /\*\)/, {contains: ['self']}),
       NUMBERS,
       OPERATORS,
       BRACES
