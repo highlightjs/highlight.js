@@ -8,11 +8,26 @@ Language Improvements:
 - enh(java) Add support for `record` (#2685) [Josh Goebel][]
 - fix(csharp) prevent modifier keywords wrongly flagged as `title` (#2683) [Josh Goebel][]
 - enh(axapta) Update keyword list for Axapta (X++) (#2686) [Ryan Jonasson][]
+- fix(fortran) FORTRAN 77-style comments (#2677) [Philipp Engel][]
+- fix(javascript) Comments inside params should be highlighted (#2702) [Josh Goebel][]
+- fix(scala) Comments inside class header should be highlighted (#1559) [Josh Goebel][]
+- fix(c-like) Correctly highlight modifiers (`final`) in class declaration (#2696) [Josh Goebel][]
 
 [David Pine]: https://github.com/IEvangelist
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 [Ryan Jonasson]: https://github.com/ryanjonasson
+[Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
+
+
+## Version 10.2.1
+
+ Parser Engine:
+
+ -  fix(parser) complete fix for resuming matches from same index (#2678) [Josh Goebel][]
+
+ [Josh Goebel]: https://github.com/yyyc514
+
 
 ## Version 10.2.0
 
@@ -45,7 +60,7 @@ Language Improvements:
 - enh(php) detect newer more flexible HEREdoc syntax (#2658) [eytienne][]
 
 [Youssef Victor]: https://github.com/Youssef1313
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 [Andrew Janke]: https://github.com/apjanke
 [Samia Ali]: https://github.com/samiaab1990
 [kageru]: https://github.com/kageru
@@ -63,7 +78,7 @@ Fixes:
 - Resolve issue on Node 6 due to dangling comma (#2608) [Edwin Hoogerbeets][]
 - Resolve `index.d.ts is not a module` error (#2603) [Josh Goebel][]
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 [Edwin Hoogerbeets]: https://github.com/ehoogerbeets
 
 
@@ -119,7 +134,7 @@ Language Improvements:
 - enh(protobuf) Support multiline comments (#2597) [Pavel Evstigneev][]
 - fix(toml) Improve key parsing (#2595) [Antoine du Hamel][]
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 [Peter Plantinga]: https://github.com/pplantinga
 [David Benjamin]: https://github.com/davidben
 [Vania Kucher]: https://github.com/qWici
@@ -147,7 +162,7 @@ Parser Engine Changes:
 - [Issue](https://github.com/highlightjs/highlight.js/issues/2522) fix(parser) Fix freez issue with illegal 0 width matches (#2524) [Josh Goebel][]
 
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 10.0.1
@@ -156,7 +171,7 @@ Parser Engine Changes:
 
 - (bug) Fix sublanguage with no relevance score (#2506) [Josh Goebel][]
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 10.0.0
@@ -225,12 +240,12 @@ Developer Tools:
 
 [Omid Golparvar]: https://github.com/omidgolparvar
 [Alexandre Grison]: https://github.com/agrison
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 [Chen Bin]: https://github.com/redguardtoo
 [Sam Miller]: https://github.com/smillerc
 [Robert Riebisch]: https://github.com/bttrx
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 [Sean Williams]: https://github.com/hmmwhatsthisdo
 [Adnan Yaqoob]: https://github.com/adnanyaqoobvirk
 [Álvaro Mondéjar]: https://github.com/mondeja
@@ -242,7 +257,7 @@ Grammar Improvements:
 
 - bug(coffeescript) fix freezing bug due to badly behaved regex (#2376) [Josh Goebel][]
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 9.18.0
@@ -277,7 +292,7 @@ Developer Tools:
 - feat(developer): add button to show parsed structure (#2345) [Nils Knappmeier][]
 
 [Jeffrey Arnold]: https://github.com/jrnold
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 [Philipp Engel]: https://github.com/interkosmos
 [Youssef Victor]: https://github.com/Youssef1313
 [Nils Knappmeier]: https://github.com/nknapp
@@ -289,7 +304,7 @@ Fixes:
 
 - fix(parser): resolve IE 11 issue with Object.freeze() (#2319) [Josh Goebel][]
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 9.17.0
@@ -339,7 +354,7 @@ Language Improvements:
 - fix(objectivec): Handle multibyte character literals (#2268) [David Benjamin][]
 - enh(cpp): Add additional keywords (#2289) [Adrian Ostrowski][]
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 [Liam Nobel]: https://github.com/liamnobel
 [Carl Baxter]: https://github.com/cdbax
 [Milutin Kristofic]: https://github.com/milutin

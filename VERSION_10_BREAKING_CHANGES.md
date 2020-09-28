@@ -32,7 +32,7 @@ Removed styles:
 
 - chore(styles): darkula.css (use darcula.css instead) [Josh Goebel][]
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 
 ---
 

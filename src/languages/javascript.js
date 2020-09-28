@@ -78,14 +78,21 @@ export default function(hljs) {
     NUMBER,
     hljs.REGEXP_MODE
   ];
-  var PARAMS_CONTAINS = SUBST.contains.concat([
-    // eat recursive parens in sub expressions
-    { begin: /\(/, end: /\)/,
-      contains: ["self"].concat(SUBST.contains, [hljs.C_BLOCK_COMMENT_MODE, hljs.C_LINE_COMMENT_MODE])
-    },
+  var PARAMS_CONTAINS = [].concat([
     hljs.C_BLOCK_COMMENT_MODE,
-    hljs.C_LINE_COMMENT_MODE
-  ]);
+    hljs.C_LINE_COMMENT_MODE,
+    // eat recursive parens in sub expressions
+    {
+      begin: /\(/,
+      end: /\)/,
+      contains: ["self"].concat([
+          hljs.C_BLOCK_COMMENT_MODE,
+          hljs.C_LINE_COMMENT_MODE
+        ],
+        SUBST.contains
+      )
+    }
+  ], SUBST.contains);
   var PARAMS = {
     className: 'params',
     begin: /\(/, end: /\)/,

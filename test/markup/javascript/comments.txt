@@ -1,0 +1,6 @@
+f = (                // f is a recursive function taking:
+  [c,                //   c   = next digit character
+      ...a],         //   a[] = array of remaining digits
+  o = b,            //   o   = output string
+  S = s        //   S   = set of solutions
+) =>  {}
