@@ -1,7 +1,3 @@
-<span class="hljs-comment">C</span>
-<span class="hljs-comment">C  This program in FORTRAN 77 outputs &quot;Hello, World!&quot;.</span>
-<span class="hljs-comment">C ====================================================</span>
-
   <span class="hljs-comment">!===============================</span>
   <span class="hljs-comment">!   This is a test subroutine</span>
   <span class="hljs-comment">!===============================</span>
@@ -11,3 +7,5 @@
 C=<span class="hljs-number">2</span>
 C = <span class="hljs-number">2</span> <span class="hljs-comment">!correct</span>
 C =<span class="hljs-string">&#x27;boo&#x27;</span>
+
+<span class="hljs-keyword">contains</span>
