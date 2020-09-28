@@ -108,6 +108,7 @@ export default function(highlightJS) {
   return {
     name: 'Mathematica',
     aliases: ['mma', 'wl'],
+    disableAutodetect: true,
     contains: [
       PATTERNS_AND_SLOTS,
       MESSAGES,
