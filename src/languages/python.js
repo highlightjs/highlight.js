@@ -7,13 +7,19 @@ Category: common
 
 export default function(hljs) {
   var KEYWORDS = {
+    $pattern: /(?<!\.)\w+/,
     keyword:
-      'and elif is global as in if from raise for except finally print import pass return ' +
-      'exec else break not with class assert yield try while continue del or def lambda ' +
-      'async await nonlocal|10',
+      'and as assert async await break class continue def del elif else except finally for ' +
+      'from global if import in is lambda nonlocal|10 not or pass raise return try while with yield',
     built_in:
-      'Ellipsis NotImplemented',
-    literal: 'False None True'
+      'abs delattr hash memoryview set all dict help min setattr any dir hex next slice ascii ' +
+      'divmod id object sorted bin enumerate input oct staticmethod bool eval int open str ' +
+      'breakpoint exec isinstance ord sum bytearray filter issubclass pow super bytes float ' +
+      'iter print tuple callable format len property type chr frozenset list range vars ' +
+      'classmethod getattr locals repr zip compile globals map reversed __import__ complex ' +
+      'hasattr max round',
+    literal:
+      '__debug__ Ellipsis False None NotImplemented True'
   };
   var PROMPT = {
     className: 'meta',  begin: /^(>>>|\.\.\.) /
