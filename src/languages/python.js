@@ -91,6 +91,7 @@ export default function(hljs) {
       {begin: /\(\s*\)/, skip: true, className: null },
       {
         begin: /\(/, end: /\)/, excludeBegin: true, excludeEnd: true,
+        keywords: KEYWORDS,
         contains: ['self', PROMPT, NUMBER, STRING, hljs.HASH_COMMENT_MODE],
       },
     ],
