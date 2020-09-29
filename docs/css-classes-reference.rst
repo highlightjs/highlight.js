@@ -36,6 +36,9 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | function                 | function or method declaration                    |
 +--------------------------+---------------------------------------------------+
+| variable                 | variable in a config or a template file,          |
+|                          | environment var expansion in a script             |
++--------------------------+---------------------------------------------------+
 | title                    | name of a class or a function at the place of     |
 |                          | declaration                                       |
 +--------------------------+---------------------------------------------------+
@@ -75,9 +78,6 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | attribute                | name of an attribute followed by a structured     |
 |                          | value part, like CSS properties                   |
-+--------------------------+---------------------------------------------------+
-| variable                 | variable in a config or a template file,          |
-|                          | environment var expansion in a script             |
 +--------------------------+---------------------------------------------------+
 | **Markup**                                                                   |
 +--------------------------+---------------------------------------------------+
