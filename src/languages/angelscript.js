@@ -48,18 +48,18 @@ export default function(hljs) {
         relevance: 0
       },
 
+      // """heredoc strings"""
+      {
+        className: 'string',
+        begin: '"""', end: '"""'
+      },
+
       { // "strings"
         className: 'string',
         begin: '"', end: '"',
         illegal: '\\n',
         contains: [ hljs.BACKSLASH_ESCAPE ],
         relevance: 0
-      },
-
-      // """heredoc strings"""
-      {
-        className: 'string',
-        begin: '"""', end: '"""'
       },
 
       hljs.C_LINE_COMMENT_MODE, // single-line comments
