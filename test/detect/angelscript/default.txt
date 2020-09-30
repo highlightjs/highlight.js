@@ -23,13 +23,15 @@ namespace MyApplication
             m_arr.insertLast(1.0f);
             m_arr.insertLast(1.75f);
             m_arr.insertLast(3.14159f);
-            uint x = 0x7fff0000;
+            uint x = 0x7fff0000 + 2;
             int y = 9001;
+            uint z = 0b10101010;
         }
 
         int get_Thing() property { return m_thing; }
         void set_Thing(int x) property { m_thing = x; }
 
+        [Hook x=1 y=2]
         void DoSomething()
         {
             print("Something! " + 'stuff.');
@@ -53,4 +55,9 @@ void Main()
 {
     SomeClass@ c = SomeClass();
     c.DoSomething();
+    @c = null;
 }
+
+string multilineString = """
+Hello world, "this is a test"!
+""";
