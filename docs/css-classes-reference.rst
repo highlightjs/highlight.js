@@ -6,16 +6,16 @@ Stylable classes
 ----------------
 
 The general purpose classes are intended to be used for any language, but the
-other classes may also be used if they are semantically correct.  For example
+other classes may also be used when they are semantically correct.  For example
 if you had a general purpose language that allowed inline URLs:
 
 ::
 
-  var x = https://www.google.com/
+  var GOOGLE = https://www.google.com/
 
 
 It would be wholly reasonable to use the ``link`` class for this, even though
-your language is not a "Markup" language.
+your language is not considered a "Markup" language.
 
 +------------------------------------------------------------------------------+
 | **General purpose**                                                          |
@@ -28,12 +28,12 @@ your language is not a "Markup" language.
 | type                     | user-defined type in a language with first-class  |
 |                          | syntactically significant types, like Haskell     |
 +--------------------------+---------------------------------------------------+
-| literal                  | special identifier for a built-in value ("true",  |
-|                          | "false", "null")                                  |
+| literal                  | special identifier for a built-in value           |
+|                          | (``true``, ``false``, ``null``, etc.)             |
 +--------------------------+---------------------------------------------------+
 | number                   | number, including units and modifiers, if any.    |
 +--------------------------+---------------------------------------------------+
-| operator                 | operators: +, -, >>, |, ==, etc...                |
+| operator                 | operators: ``+``, ``-``, ``>>``, ``|``, ``==``    |
 +--------------------------+---------------------------------------------------+
 | regexp                   | literal regular expression                        |
 +--------------------------+---------------------------------------------------+
@@ -48,8 +48,7 @@ your language is not a "Markup" language.
 +--------------------------+---------------------------------------------------+
 | function                 | function or method declaration                    |
 +--------------------------+---------------------------------------------------+
-| variable                 | variable in a config or a template file,          |
-|                          | environment var expansion in a script             |
+| variable                 | variables                                         |
 +--------------------------+---------------------------------------------------+
 | title                    | name of a class or a function at the place of     |
 |                          | declaration                                       |
@@ -57,11 +56,11 @@ your language is not a "Markup" language.
 | params                   | block of function arguments (parameters) at the   |
 |                          | place of declaration                              |
 +--------------------------+---------------------------------------------------+
-| **Meta**                                                                     |
-+--------------------------+---------------------------------------------------+
-| comment                  | comment                                           |
+| comment                  | comments                                          |
 +--------------------------+---------------------------------------------------+
 | doctag                   | documentation markup within comments              |
++--------------------------+---------------------------------------------------+
+| **Meta**                                                                     |
 +--------------------------+---------------------------------------------------+
 | meta                     | flags, modifiers, annotations, processing         |
 |                          | instructions, preprocessor directive, etc         |
@@ -91,33 +90,33 @@ your language is not a "Markup" language.
 | attribute                | name of an attribute followed by a structured     |
 |                          | value part, like CSS properties                   |
 +--------------------------+---------------------------------------------------+
-| **Markup**                                                                   |
+| **Text Markup**                                                              |
 +--------------------------+---------------------------------------------------+
-| bullet                   | list item bullet in text markup                   |
+| bullet                   | list item bullet                                  |
 +--------------------------+---------------------------------------------------+
-| code                     | code block in text markup                         |
+| code                     | code block                                        |
 +--------------------------+---------------------------------------------------+
-| emphasis                 | emphasis in text markup                           |
+| emphasis                 | emphasis                                          |
 +--------------------------+---------------------------------------------------+
-| strong                   | strong emphasis in text markup                    |
+| strong                   | strong emphasis                                   |
 +--------------------------+---------------------------------------------------+
-| formula                  | mathematical formula in text markup               |
+| formula                  | mathematical formula                              |
 +--------------------------+---------------------------------------------------+
-| link                     | hyperlink in text markup                          |
+| link                     | hyperlink                                         |
 +--------------------------+---------------------------------------------------+
-| quote                    | quotation in text markup                          |
+| quote                    | quotation or blockquote                           |
 +--------------------------+---------------------------------------------------+
 | **CSS**                                                                      |
 +--------------------------+---------------------------------------------------+
-| selector-tag             | tag selector in CSS                               |
+| selector-tag             | tag selector                                      |
 +--------------------------+---------------------------------------------------+
-| selector-id              | #id selector in CSS                               |
+| selector-id              | #id selector                                      |
 +--------------------------+---------------------------------------------------+
-| selector-class           | .class selector in CSS                            |
+| selector-class           | .class selector                                   |
 +--------------------------+---------------------------------------------------+
-| selector-attr            | [attr] selector in CSS                            |
+| selector-attr            | [attr] selector                                   |
 +--------------------------+---------------------------------------------------+
-| selector-pseudo          | :pseudo selector in CSS                           |
+| selector-pseudo          | :pseudo selector                                  |
 +--------------------------+---------------------------------------------------+
 | **Templates**                                                                |
 +--------------------------+---------------------------------------------------+
@@ -127,14 +126,17 @@ your language is not a "Markup" language.
 +--------------------------+---------------------------------------------------+
 | **diff**                                                                     |
 +--------------------------+---------------------------------------------------+
-| addition                 | added or changed line in a diff                   |
+| addition                 | added or changed line                             |
 +--------------------------+---------------------------------------------------+
-| deletion                 | deleted line in a diff                            |
+| deletion                 | deleted line                                      |
 +--------------------------+---------------------------------------------------+
 
+Reserved classes
+^^^^^^^^^^^^^^^^
+
 The below classes (ReasonML) are left here for documentation purposes but may
-not be used in other grammars because they are very poorly supported by all of
-our themes.
+not be used in other grammars because they are very poorly supported by all
+themes.
 
 If you'd like to help out with the larger issue here:
 
@@ -144,15 +146,15 @@ If you'd like to help out with the larger issue here:
 +--------------------------+---------------------------------------------------+
 | **ReasonML**                                                                 |
 +--------------------------+---------------------------------------------------+
-| pattern-match            | reasonml pattern matching matchers                |
+| pattern-match            | pattern matching matchers                         |
 +--------------------------+---------------------------------------------------+
 | typing                   | type signatures on function parameters            |
 +--------------------------+---------------------------------------------------+
 | constructor              | type constructors                                 |
 +--------------------------+---------------------------------------------------+
-| module-access            | scope access into a ReasonML module               |
+| module-access            | scope access into a module                        |
 +--------------------------+---------------------------------------------------+
-| module                   | ReasonML module reference within scope access     |
+| module                   | module reference within scope access              |
 +--------------------------+---------------------------------------------------+
 
 
