@@ -5,6 +5,18 @@ CSS classes reference
 Stylable classes
 ----------------
 
+The general purpose classes are intended to be used for any language, but the
+other classes may also be used if they are semantically correct.  For example
+if you had a general purpose language that allowed inline URLs:
+
+::
+
+  var x = https://www.google.com/
+
+
+It would be wholly reasonable to use the ``link`` class for this, even though
+your language is not a "Markup" language.
+
 +------------------------------------------------------------------------------+
 | **General purpose**                                                          |
 +--------------------------+---------------------------------------------------+
@@ -118,6 +130,17 @@ Stylable classes
 | addition                 | added or changed line in a diff                   |
 +--------------------------+---------------------------------------------------+
 | deletion                 | deleted line in a diff                            |
++--------------------------+---------------------------------------------------+
+
+The below classes (ReasonML) are left here for documentation purposes but may
+not be used in other grammars because they are very poorly supported by all of
+our themes.
+
+If you'd like to help out with the larger issue here:
+
+- https://github.com/highlightjs/highlight.js/issues/2521
+- https://github.com/highlightjs/highlight.js/issues/2500
+
 +--------------------------+---------------------------------------------------+
 | **ReasonML**                                                                 |
 +--------------------------+---------------------------------------------------+
