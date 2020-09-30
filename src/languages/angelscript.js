@@ -65,6 +65,11 @@ export default function(hljs) {
       hljs.C_LINE_COMMENT_MODE, // single-line comments
       hljs.C_BLOCK_COMMENT_MODE, // comment blocks
 
+      { // metadata
+        className: 'string',
+        begin: '^\\s*\\[', end: '\\]',
+      },
+
       { // interface or namespace declaration
         beginKeywords: 'interface namespace', end: '{',
         illegal: '[;.\\-]',
