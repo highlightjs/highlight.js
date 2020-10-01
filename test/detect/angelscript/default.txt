@@ -55,7 +55,6 @@ void Main()
 {
     SomeClass@ c = SomeClass();
     c.DoSomething();
-    @c = null;
 }
 
 string multilineString = """
