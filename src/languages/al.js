@@ -329,7 +329,7 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
     ]
   };
-
+   
   var PROCEDURE = {
     className: 'function',
     beginKeywords: 'procedure trigger', returnBegin: true, 
