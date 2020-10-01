@@ -154,7 +154,7 @@ interface LanguageDetail {
     rawDefinition?: () => Language
     aliases?: string[]
     disableAutodetect?: boolean
-    contains: ("self"|Mode)[]
+    contains: (Mode)[]
     case_insensitive?: boolean
     keywords?: Record<string, any> | string
     compiled?: boolean,

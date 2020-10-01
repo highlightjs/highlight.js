@@ -67,6 +67,9 @@ export default function(hljs) {
     INTERFACE,
   ]);
 
+  const functionDeclaration = tsLanguage.contains.find(m => m.className === "function");
+  functionDeclaration.relevance = 0; // () => {} is more typical in TypeScript
+
   Object.assign(tsLanguage, {
     name: 'TypeScript',
     aliases: ['ts']

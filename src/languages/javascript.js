@@ -302,8 +302,7 @@ export default function(hljs) {
           hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
           PARAMS
         ],
-        illegal: /%/,
-        relevance: 0 // () => {} is more typical in TypeScript
+        illegal: /%/
       },
       // hack: prevents detection of keywords in some circumstances
       // .keyword()
