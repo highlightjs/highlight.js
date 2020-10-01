@@ -182,6 +182,7 @@ export default function(hljs) {
     keywords: KEYWORDS,
     // this will be extended by TypeScript
     exports: { PARAMS_CONTAINS },
+    illegal: /#(?!!)/,
     contains: [
       hljs.SHEBANG(),
       {
