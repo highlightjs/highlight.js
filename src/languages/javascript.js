@@ -184,10 +184,16 @@ export default function(hljs) {
     exports: { PARAMS_CONTAINS },
     illegal: /#(?!!)/,
     contains: [
-      hljs.SHEBANG(),
+      hljs.SHEBANG({
+        label: "shebang",
+        binary: "node",
+        relevance: 5
+      }),
       {
+        label: "use_strict",
         className: 'meta',
-        begin: /^\s*['"]use strict['"]/
+        relevance: 10,
+        begin: /^\s*['"]use (strict|asm)['"]/
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,

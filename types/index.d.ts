@@ -214,6 +214,7 @@ interface ModeDetails {
     // parsed
     subLanguage?: string | string[]
     compiled?: boolean
+    label?: string
 }
 
 // deprecated API since v10

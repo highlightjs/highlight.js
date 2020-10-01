@@ -20,6 +20,11 @@ export default function(hljs) {
     beginKeywords: 'interface', end: /\{/, excludeEnd: true,
     keywords: 'interface extends'
   };
+  const USE_STRICT = {
+    className: 'meta',
+    relevance: 10,
+    begin: /^\s*['"]use strict['"]/
+  };
   const TYPES = [
     "any",
     "void",
@@ -54,6 +59,13 @@ export default function(hljs) {
     begin: '@' + IDENT_RE,
   };
 
+  const swapMode = (mode, label, replacement) => {
+    const indx = mode.contains.findIndex(m => m.label === label);
+    if (indx === -1) { throw new Error("can not find mode to replace"); };
+
+    mode.contains.splice(indx, 1, replacement);
+  };
+
   const tsLanguage = javascript(hljs);
 
   // this should update anywhere keywords is used since
@@ -66,6 +78,11 @@ export default function(hljs) {
     NAMESPACE,
     INTERFACE,
   ]);
+
+  // TS gets a simpler shebang rule than JS
+  swapMode(tsLanguage, "shebang", hljs.SHEBANG());
+  // JS use strict rule purposely excludes `asm` which makes no sense
+  swapMode(tsLanguage, "use_strict", USE_STRICT);
 
   const functionDeclaration = tsLanguage.contains.find(m => m.className === "function");
   functionDeclaration.relevance = 0; // () => {} is more typical in TypeScript
