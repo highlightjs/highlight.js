@@ -6,6 +6,7 @@ New languages:
 
 Language Improvements:
 
+- fix(fsharp) Prevent `(*)` from being detected as a multi-line comment [Josh Goebel][]
 - enh(r) major overhaul of the R language grammar (and fix a few bugs) (#2680) [Konrad Rudolph][]
 - enh(csharp) Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
 - enh(objectivec) Add `objective-c++` and `obj-c++` aliases for Objective-C [Josh Goebel][]
