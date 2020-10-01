@@ -12,15 +12,15 @@ import javascript from "./javascript.js";
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var IDENT_RE = ECMAScript.IDENT_RE;
-  var NAMESPACE = {
+  const IDENT_RE = ECMAScript.IDENT_RE;
+  const NAMESPACE = {
     beginKeywords: 'namespace', end: /\{/, excludeEnd: true
   };
-  var INTERFACE = {
+  const INTERFACE = {
     beginKeywords: 'interface', end: /\{/, excludeEnd: true,
     keywords: 'interface extends'
   };
-  var TYPES = [
+  const TYPES = [
     "any",
     "void",
     "number",
@@ -30,7 +30,7 @@ export default function(hljs) {
     "never",
     "enum"
   ];
-  var TS_SPECIFIC_KEYWORDS = [
+  const TS_SPECIFIC_KEYWORDS = [
     "type",
     "namespace",
     "typedef",
@@ -43,13 +43,13 @@ export default function(hljs) {
     "abstract",
     "readonly"
   ];
-  var KEYWORDS = {
+  const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS).join(" "),
     literal: ECMAScript.LITERALS.join(" "),
     built_in: ECMAScript.BUILT_INS.concat(TYPES).join(" ")
   };
-  var DECORATOR = {
+  const DECORATOR = {
     className: 'meta',
     begin: '@' + IDENT_RE,
   };
@@ -60,11 +60,6 @@ export default function(hljs) {
   // it will be the same actual JS object
   Object.assign(tsLanguage.keywords, KEYWORDS);
 
-  Object.assign(tsLanguage, {
-    name: 'TypeScript',
-    aliases: ['ts']
-  });
-
   tsLanguage.exports.PARAMS_CONTAINS.push(DECORATOR);
   tsLanguage.contains = tsLanguage.contains.concat([
     DECORATOR,
@@ -72,5 +67,10 @@ export default function(hljs) {
     INTERFACE,
   ]);
 
+  Object.assign(tsLanguage, {
+    name: 'TypeScript',
+    aliases: ['ts']
+  });
+
   return tsLanguage;
-  }
+}

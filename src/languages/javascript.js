@@ -24,12 +24,12 @@ export default function(hljs) {
     return pos !== -1;
   };
 
-  var IDENT_RE = ECMAScript.IDENT_RE;
-  var FRAGMENT = {
+  const IDENT_RE = ECMAScript.IDENT_RE;
+  const FRAGMENT = {
     begin: '<>',
     end: '</>'
   };
-  var XML_TAG = {
+  const XML_TAG = {
     begin: /<[A-Za-z0-9\\._:-]+/,
     end: /\/[A-Za-z0-9\\._:-]+>|\/>/,
     /**
@@ -57,13 +57,13 @@ export default function(hljs) {
       }
     }
   };
-  var KEYWORDS = {
+  const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.join(" "),
     literal: ECMAScript.LITERALS.join(" "),
     built_in: ECMAScript.BUILT_INS.join(" ")
   };
-  var NUMBER = {
+  const NUMBER = {
     className: 'number',
     variants: [
       { begin: '\\b(0[bB][01]+)n?' },
@@ -72,13 +72,13 @@ export default function(hljs) {
     ],
     relevance: 0
   };
-  var SUBST = {
+  const SUBST = {
     className: 'subst',
     begin: '\\$\\{', end: '\\}',
     keywords: KEYWORDS,
     contains: [] // defined later
   };
-  var HTML_TEMPLATE = {
+  const HTML_TEMPLATE = {
     begin: 'html`', end: '',
     starts: {
       end: '`', returnEnd: false,
@@ -89,7 +89,7 @@ export default function(hljs) {
       subLanguage: 'xml',
     }
   };
-  var CSS_TEMPLATE = {
+  const CSS_TEMPLATE = {
     begin: 'css`', end: '',
     starts: {
       end: '`', returnEnd: false,
@@ -100,7 +100,7 @@ export default function(hljs) {
       subLanguage: 'css',
     }
   };
-  var TEMPLATE_STRING = {
+  const TEMPLATE_STRING = {
     className: 'string',
     begin: '`', end: '`',
     contains: [
@@ -108,7 +108,7 @@ export default function(hljs) {
       SUBST
     ]
   };
-  var JSDOC_COMMENT = hljs.COMMENT(
+  const JSDOC_COMMENT = hljs.COMMENT(
     '/\\*\\*',
     '\\*/',
     {
@@ -141,7 +141,7 @@ export default function(hljs) {
       ]
     }
   );
-  var COMMENT = {
+  const COMMENT = {
     className: "comment",
     variants: [
       JSDOC_COMMENT,
@@ -158,8 +158,8 @@ export default function(hljs) {
     NUMBER,
     hljs.REGEXP_MODE
   ];
-  var SUBST_AND_COMMENTS = SUBST.contains.concat(COMMENT);
-  var PARAMS_CONTAINS = SUBST_AND_COMMENTS.concat([
+  const SUBST_AND_COMMENTS = SUBST.contains.concat(COMMENT);
+  const PARAMS_CONTAINS = SUBST_AND_COMMENTS.concat([
     // eat recursive parens in sub expressions
     { begin: /\(/,
       end: /\)/,
@@ -167,19 +167,13 @@ export default function(hljs) {
       contains: ["self"].concat(SUBST_AND_COMMENTS)
     },
   ]);
-  var PARAMS = {
+  const PARAMS = {
     className: 'params',
     begin: /\(/, end: /\)/,
     excludeBegin: true,
     excludeEnd: true,
     keywords: KEYWORDS,
     contains: PARAMS_CONTAINS
-    // [
-    //   hljs.C_LINE_COMMENT_MODE,
-    //   hljs.C_BLOCK_COMMENT_MODE,
-    //   DECORATOR,
-    //   ARGUMENTS
-    // ]
   };
 
   return {
