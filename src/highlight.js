@@ -11,7 +11,7 @@ import * as utils from './lib/utils.js';
 import * as MODES from './lib/modes.js';
 import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
-import { VuePlugin } from "./plugins/vue";
+import { VuePlugin } from "./plugins/vue.js";
 
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
@@ -259,14 +259,6 @@ const HLJS = function(hljs) {
       if (mode.endsWithParent) {
         return endOfMode(mode.parent, match, matchPlusRemainder);
       }
-    }
-
-    /**
-     * Advance a single character
-     */
-    function advanceOne() {
-      mode_buffer += codeToHighlight[index];
-      index += 1;
     }
 
     /**
@@ -841,12 +833,17 @@ const HLJS = function(hljs) {
     });
   }
 
-  /* fixMarkup is deprecated and will be removed entirely in v11 */
-  function deprecate_fixMarkup(arg) {
-    console.warn("fixMarkup is deprecated and will be removed entirely in v11.0")
-    console.warn("Please see https://github.com/highlightjs/highlight.js/issues/2534")
+  /**
+  Note: fixMarkup is deprecated and will be removed entirely in v11
 
-    return fixMarkup(arg)
+  @param {string} arg
+  @returns {string}
+  */
+  function deprecate_fixMarkup(arg) {
+    console.warn("fixMarkup is deprecated and will be removed entirely in v11.0");
+    console.warn("Please see https://github.com/highlightjs/highlight.js/issues/2534");
+
+    return fixMarkup(arg);
   }
 
   /* Interface definition */
