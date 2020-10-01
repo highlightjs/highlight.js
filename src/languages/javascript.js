@@ -4,15 +4,25 @@ Language: JavaScript
 Description: JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
 Category: common, scripting
 Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
-Requires: typescript.js
 */
 
 import * as ECMAScript from './lib/ecmascript.js';
 import * as regex from '../lib/regex.js';
 
+/** @type LanguageFn */
 export default function(hljs) {
-
-  return hljs.requireLanguage("typescript").rawDefinition();
+  /**
+   * Takes a string like "<Booger" and checks to see
+   * if we can find a matching "</Booger" later in the
+   * content.
+   * @param {RegExpMatchArray} match
+   * @param {{after:number}} param1
+   */
+  const hasClosingTag = (match, {after}) => {
+    const tag = match[0].replace("<", "</");
+    const pos = match.input.indexOf(tag, after);
+    return pos !== -1;
+  };
 
   var IDENT_RE = ECMAScript.IDENT_RE;
   var FRAGMENT = {
@@ -21,7 +31,31 @@ export default function(hljs) {
   };
   var XML_TAG = {
     begin: /<[A-Za-z0-9\\._:-]+/,
-    end: /\/[A-Za-z0-9\\._:-]+>|\/>/
+    end: /\/[A-Za-z0-9\\._:-]+>|\/>/,
+    /**
+     * @param {RegExpMatchArray} match
+     * @param {CallbackResponse} response
+     */
+    isTrulyOpeningTag: (match, response) => {
+      const afterMatchIndex = match[0].length + match.index;
+      const nextChar = match.input[afterMatchIndex];
+      // nested type?
+      // HTML should not include another raw `<` inside a tag
+      // But a type might: `<Array<Array<number>>`, etc.
+      if (nextChar === "<") {
+        response.ignoreMatch();
+        return;
+      }
+      // <something>
+      // This is now either a tag or a type.
+      if (nextChar === ">") {
+        // if we cannot find a matching closing tag, then we
+        // will ignore it
+        if (!hasClosingTag(match, {after: afterMatchIndex})) {
+          response.ignoreMatch();
+        }
+      }
+    }
   };
   var KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
@@ -42,7 +76,7 @@ export default function(hljs) {
     className: 'subst',
     begin: '\\$\\{', end: '\\}',
     keywords: KEYWORDS,
-    contains: []  // defined later
+    contains: [] // defined later
   };
   var HTML_TEMPLATE = {
     begin: 'html`', end: '',
@@ -74,6 +108,47 @@ export default function(hljs) {
       SUBST
     ]
   };
+  var JSDOC_COMMENT = hljs.COMMENT(
+    '/\\*\\*',
+    '\\*/',
+    {
+      relevance : 0,
+      contains : [
+        {
+          className : 'doctag',
+          begin : '@[A-Za-z]+',
+          contains : [
+            {
+              className: 'type',
+              begin: '\\{',
+              end: '\\}',
+              relevance: 0
+            },
+            {
+              className: 'variable',
+              begin: IDENT_RE + '(?=\\s*(-)|$)',
+              endsParent: true,
+              relevance: 0
+            },
+            // eat spaces (not newlines) so we can find
+            // types or variables
+            {
+              begin: /(?=[^\n])\s/,
+              relevance: 0
+            },
+          ]
+        }
+      ]
+    }
+  );
+  var COMMENT = {
+    className: "comment",
+    variants: [
+      JSDOC_COMMENT,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.C_LINE_COMMENT_MODE
+    ]
+  };
   SUBST.contains = [
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
@@ -83,83 +158,48 @@ export default function(hljs) {
     NUMBER,
     hljs.REGEXP_MODE
   ];
-  var PARAMS_CONTAINS = [].concat([
-    hljs.C_BLOCK_COMMENT_MODE,
-    hljs.C_LINE_COMMENT_MODE,
+  var SUBST_AND_COMMENTS = SUBST.contains.concat(COMMENT);
+  var PARAMS_CONTAINS = SUBST_AND_COMMENTS.concat([
     // eat recursive parens in sub expressions
-    {
-      begin: /\(/,
+    { begin: /\(/,
       end: /\)/,
-      contains: ["self"].concat([
-          hljs.C_BLOCK_COMMENT_MODE,
-          hljs.C_LINE_COMMENT_MODE
-        ],
-        SUBST.contains
-      )
-    }
-  ], SUBST.contains);
+      keywords: KEYWORDS,
+      contains: ["self"].concat(SUBST_AND_COMMENTS)
+    },
+  ]);
   var PARAMS = {
     className: 'params',
     begin: /\(/, end: /\)/,
     excludeBegin: true,
     excludeEnd: true,
+    keywords: KEYWORDS,
     contains: PARAMS_CONTAINS
+    // [
+    //   hljs.C_LINE_COMMENT_MODE,
+    //   hljs.C_BLOCK_COMMENT_MODE,
+    //   DECORATOR,
+    //   ARGUMENTS
+    // ]
   };
 
   return {
-    name: 'JavaScript',
+    name: 'Javascript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
     keywords: KEYWORDS,
+    // this will be extended by TypeScript
+    exports: { PARAMS_CONTAINS },
     contains: [
-      hljs.SHEBANG({
-        binary: "node",
-        relevance: 5
-      }),
+      hljs.SHEBANG(),
       {
         className: 'meta',
-        relevance: 10,
-        begin: /^\s*['"]use (strict|asm)['"]/
+        begin: /^\s*['"]use strict['"]/
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       HTML_TEMPLATE,
       CSS_TEMPLATE,
       TEMPLATE_STRING,
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.COMMENT(
-        '/\\*\\*',
-        '\\*/',
-        {
-          relevance : 0,
-          contains : [
-            {
-              className : 'doctag',
-              begin : '@[A-Za-z]+',
-              contains : [
-                {
-                  className: 'type',
-                  begin: '\\{',
-                  end: '\\}',
-                  relevance: 0
-                },
-                {
-                  className: 'variable',
-                  begin: IDENT_RE + '(?=\\s*(-)|$)',
-                  endsParent: true,
-                  relevance: 0
-                },
-                // eat spaces (not newlines) so we can find
-                // types or variables
-                {
-                  begin: /(?=[^\n])\s/,
-                  relevance: 0
-                },
-              ]
-            }
-          ]
-        }
-      ),
-      hljs.C_BLOCK_COMMENT_MODE,
+      COMMENT,
       NUMBER,
       { // object attr container
         begin: regex.concat(/[{,\n]\s*/,
@@ -191,8 +231,7 @@ export default function(hljs) {
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: 'return throw case',
         contains: [
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE,
+          COMMENT,
           hljs.REGEXP_MODE,
           {
             className: 'function',
@@ -240,7 +279,13 @@ export default function(hljs) {
           { // JSX
             variants: [
               { begin: FRAGMENT.begin, end: FRAGMENT.end },
-              { begin: XML_TAG.begin, end: XML_TAG.end }
+              {
+                begin: XML_TAG.begin,
+                // we carefully check the opening tag to see if it truly
+                // is a tag and not a false positive
+                'on:begin': XML_TAG.isTrulyOpeningTag,
+                end: XML_TAG.end
+              }
             ],
             subLanguage: 'xml',
             contains: [
@@ -249,24 +294,32 @@ export default function(hljs) {
                 contains: ['self']
               }
             ]
-          },
+          }
         ],
         relevance: 0
       },
       {
         className: 'function',
-        beginKeywords: 'function', end: /\{/, excludeEnd: true,
+        beginKeywords: 'function', end: /[{;]/, excludeEnd: true,
+        keywords: KEYWORDS,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE}),
+          'self',
+          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
           PARAMS
         ],
-        illegal: /\[|%/
+        illegal: /%/,
+        relevance: 0 // () => {} is more typical in TypeScript
       },
+      // hack: prevents detection of keywords in some circumstances
+      // .keyword()
+      // $keyword = x
       {
-        begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
+        variants: [
+          { begin: '\\.' + IDENT_RE },
+          { begin: '\\$' + IDENT_RE }
+        ],
+        relevance: 0
       },
-
-      hljs.METHOD_GUARD,
       { // ES6 class
         className: 'class',
         beginKeywords: 'class', end: /[{;=]/, excludeEnd: true,
@@ -277,7 +330,11 @@ export default function(hljs) {
         ]
       },
       {
-        beginKeywords: 'constructor', end: /\{/, excludeEnd: true
+        beginKeywords: 'constructor', end: /[\{;]/, excludeEnd: true,
+        contains: [
+          'self',
+          PARAMS
+        ]
       },
       {
         begin: '(get|set)\\s+(?=' + IDENT_RE + '\\()',
@@ -288,9 +345,10 @@ export default function(hljs) {
           { begin: /\(\)/ }, // eat to avoid empty params
           PARAMS
         ]
-
+      },
+      {
+        begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
       }
-    ],
-    illegal: /#(?!!)/
+    ]
   };
 }

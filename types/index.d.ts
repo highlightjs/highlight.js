@@ -157,7 +157,8 @@ interface LanguageDetail {
     contains: ("self"|Mode)[]
     case_insensitive?: boolean
     keywords?: Record<string, any> | string
-    compiled?: boolean
+    compiled?: boolean,
+    exports?: any
 }
 
 type Language = LanguageDetail & Partial<Mode>
