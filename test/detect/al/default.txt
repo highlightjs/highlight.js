@@ -1,0 +1,99 @@
+/// <summary>
+/// Manage Loyalty Benefits
+/// </summary>
+codeunit 50100 "Loyalty Benefits Management"
+{
+    var
+        Vendor: record Vendor;
+
+    trigger OnRun()
+    begin
+    end; 
+
+    /// <summary>
+    /// Adjust a Sales Order with loyalty level
+    /// </summary>
+    /// <param name="SalesHeader">Sales Header to adjust based on Customer Loyalty</param>
+    procedure AdjustForLoyalty(var SalesHeader: record "Sales Header"): Integer;
+    var
+        Customer: record Customer;
+        LoyaltyBenefits: interfcace ILoyaltyBenefits;
+        Discount: Decimal;
+    begin
+        Customer.Get(SalesHeader."Sell-to Customer No.");
+
+        LoyaltyBenefits := Customer.Loyalty;
+        Discount := 1;
+        Discount := LoyaltyBenefits.GetDiscount();
+        ApplyDiscount(SalesHeader, Discount);
+    end;
+
+    /// <summary>
+    /// Applies the Discount to the Sales Order
+    /// </summary>
+    /// <param name="SalesHeader">Sales Order</param>
+    /// <param name="Discount">Discount to apply</param>
+    local procedure "Apply Discount"(SalesHeader: record "Sales Header"; Discount: Decimal)
+    begin
+        // TODO: Implement
+    end;
+}
+
+
+enum 50140 SomeEnum
+{
+    value(0;None) {}
+}
+
+#region interface stuff
+
+interface ISuperGreat
+{
+    procedure YesSir("c in c": codeunit FooBar);
+}
+
+#endregion
+
+table 50100 Customer
+{
+    Access = Internal;
+    TableType = Normal;
+
+    fields
+    {
+        field(1;"P K"; Integer)
+        {
+        }
+    }
+}
+
+/// <summary>
+/// Add the Loyalty fields to the Customer table.
+/// </summary>
+tableextension 50100 LoyaltyCustomerExt extends Customer
+{
+    fields
+    {
+        /// <summary>
+        /// Customer loyalty.
+        /// </summary>
+        field(50100; Loyalty; enum LoyaltyLevel)
+        {
+        }
+    }
+}
+
+/// <summary>
+/// Adds the Loyalty field to the General group on the "Customer Card"
+/// </summary>
+pageextension 50100 LoyaltyCustCardExt extends "Customer Card"
+{
+    layout
+    {
+        addlast(General)
+        {
+            field(Loyalty; Rec.Loyalty) { }
+        }
+    }
+}
+

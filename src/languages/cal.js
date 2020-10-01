@@ -62,9 +62,16 @@ export default function(hljs) {
     ].concat(COMMENT_MODES)
   };
 
+  var OBJECTPROPERTIES = {
+    // Very unique to C/AL, but not in CAL. Boost relevance
+    begin: 'OBJECT-PROPERTIES',
+    relevance: 10
+  };
+
   var OBJECT = {
     className: 'class',
     begin: 'OBJECT (Table|Form|Report|Dataport|Codeunit|XMLport|MenuSuite|Page|Query) (\\d+) ([^\\r\\n]+)',
+    relevance: 10,
     returnBegin: true,
     contains: [
       hljs.TITLE_MODE,
@@ -82,7 +89,8 @@ export default function(hljs) {
       DATE, DBL_QUOTED_VARIABLE,
       hljs.NUMBER_MODE,
       OBJECT,
-      PROCEDURE
+      PROCEDURE,
+      OBJECTPROPERTIES
     ]
   };
 }

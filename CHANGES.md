@@ -1,5 +1,9 @@
 ## Version 10.3.0 (next up)
 
+New languages:
+
+- add(al) Added Microsoft Dynamics 365 Business Central AL language support [Esben Nyhuus Kristoffersen][]
+
 Language Improvements:
 
 - enh(r) major overhaul of the R language grammar (and fix a few bugs) (#2680) [Konrad Rudolph][]
@@ -18,6 +22,7 @@ Language Improvements:
 [Ryan Jonasson]: https://github.com/ryanjonasson
 [Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
+[Esben Nyhuus Kristoffersen]: https://github.com/esbenk
 
 
 ## Version 10.2.1
