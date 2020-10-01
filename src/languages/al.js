@@ -236,6 +236,10 @@ export default function(hljs) {
     'interface',
     'assembly'
   ]
+  var LITERAL_KEYWORDS = [
+    'false', 
+    'true'
+  ];
 
   var OBJECT_KEYWORDS = OBJECT_WITH_ID_KEYWORDS.concat(OBJECT_WITHOUT_ID_KEYWORDS);
 
@@ -246,15 +250,25 @@ export default function(hljs) {
     illegal: '\\n',
   };
 
-  var LITERAL_KEYWORDS = [
-    'false', 
-    'true'
-  ];
-
   var STRING = {
     variants: [
       STRING_MODE
     ]
+  };
+
+  var NUMBERS = {
+    className: 'number',
+    variants: [
+      hljs.NUMBER_MODE,
+      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)L' },
+    ],
+    relevance: 0
+  };
+  
+  var DATE = {
+      className: 'number',
+      begin: '\\b\\d+(\\.\\d+)?(DT|D|T)',
+      relevance: 0
   };
   
   var QUOTED_IDENT_RE = '"([^"]|"")*"';
@@ -328,30 +342,6 @@ export default function(hljs) {
     ].concat(COMMENT_MODES)
   };
 
-  // var CHAR_STRING = {
-  //   className: 'string', begin: /(#\d+)+/
-  // };
-  // var DATE = {
-  //     className: 'number',
-  //     begin: '\\b\\d+(\\.\\d+)?(DT','D','T)',
-  //     relevance: 0
-  // };
-
-  // var PROCEDURE = {
-  //   className: 'function',
-  //   beginKeywords: 'procedure', end: /[:;]/,
-  //   keywords: 'procedure|10',
-  //   contains: [
-  //     hljs.TITLE_MODE,
-  //     {
-  //       className: 'params',
-  //       begin: /\(/, end: /\)/,
-  //       keywords: KEYWORDS,
-  //       contains: [STRING, CHAR_STRING]
-  //     }
-  //   ].concat(COMMENT_MODES)
-  // };
-
   var KEYWORDS = {
     keyword: NORMAL_KEYWORDS.concat(OBJECT_KEYWORDS).concat(OPERATOR_KEYWORDS).concat(METADATA_KEYWORDS).join(' '),
     built_in: BUILTIN_TYPES_KEYWORDS.join(' '),
@@ -393,7 +383,8 @@ export default function(hljs) {
       },
       STRING, 
       QUOTED_IDENTIFIER_GUARD,
-      hljs.NUMBER_MODE,
+      NUMBERS,
+      DATE,
       OBJECTWITHID,
       OBJECTWITHOUTID,
       PROCEDURE,
