@@ -23,7 +23,7 @@ namespace MyApplication
             m_arr.insertLast(1.0f);
             m_arr.insertLast(1.75f);
             m_arr.insertLast(3.14159f);
-            uint x = 0x7fff0000 + 2;
+            uint x = 0x7fff0000;
             int y = 9001;
             uint z = 0b10101010;
         }
