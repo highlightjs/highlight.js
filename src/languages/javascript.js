@@ -18,7 +18,7 @@ export default function(hljs) {
    * @param {RegExpMatchArray} match
    * @param {{after:number}} param1
    */
-  const hasClosingTag = (match, {after}) => {
+  const hasClosingTag = (match, { after }) => {
     const tag = match[0].replace("<", "</");
     const pos = match.input.indexOf(tag, after);
     return pos !== -1;
@@ -51,7 +51,7 @@ export default function(hljs) {
       if (nextChar === ">") {
         // if we cannot find a matching closing tag, then we
         // will ignore it
-        if (!hasClosingTag(match, {after: afterMatchIndex})) {
+        if (!hasClosingTag(match, { after: afterMatchIndex })) {
           response.ignoreMatch();
         }
       }
@@ -74,35 +74,41 @@ export default function(hljs) {
   };
   const SUBST = {
     className: 'subst',
-    begin: '\\$\\{', end: '\\}',
+    begin: '\\$\\{',
+    end: '\\}',
     keywords: KEYWORDS,
     contains: [] // defined later
   };
   const HTML_TEMPLATE = {
-    begin: 'html`', end: '',
+    begin: 'html`',
+    end: '',
     starts: {
-      end: '`', returnEnd: false,
+      end: '`',
+      returnEnd: false,
       contains: [
         hljs.BACKSLASH_ESCAPE,
         SUBST
       ],
-      subLanguage: 'xml',
+      subLanguage: 'xml'
     }
   };
   const CSS_TEMPLATE = {
-    begin: 'css`', end: '',
+    begin: 'css`',
+    end: '',
     starts: {
-      end: '`', returnEnd: false,
+      end: '`',
+      returnEnd: false,
       contains: [
         hljs.BACKSLASH_ESCAPE,
         SUBST
       ],
-      subLanguage: 'css',
+      subLanguage: 'css'
     }
   };
   const TEMPLATE_STRING = {
     className: 'string',
-    begin: '`', end: '`',
+    begin: '`',
+    end: '`',
     contains: [
       hljs.BACKSLASH_ESCAPE,
       SUBST
@@ -112,12 +118,12 @@ export default function(hljs) {
     '/\\*\\*',
     '\\*/',
     {
-      relevance : 0,
-      contains : [
+      relevance: 0,
+      contains: [
         {
-          className : 'doctag',
-          begin : '@[A-Za-z]+',
-          contains : [
+          className: 'doctag',
+          begin: '@[A-Za-z]+',
+          contains: [
             {
               className: 'type',
               begin: '\\{',
@@ -135,7 +141,7 @@ export default function(hljs) {
             {
               begin: /(?=[^\n])\s/,
               relevance: 0
-            },
+            }
           ]
         }
       ]
@@ -161,15 +167,17 @@ export default function(hljs) {
   const SUBST_AND_COMMENTS = [].concat(COMMENT, SUBST.contains);
   const PARAMS_CONTAINS = SUBST_AND_COMMENTS.concat([
     // eat recursive parens in sub expressions
-    { begin: /\(/,
+    {
+      begin: /\(/,
       end: /\)/,
       keywords: KEYWORDS,
       contains: ["self"].concat(SUBST_AND_COMMENTS)
-    },
+    }
   ]);
   const PARAMS = {
     className: 'params',
-    begin: /\(/, end: /\)/,
+    begin: /\(/,
+    end: /\)/,
     excludeBegin: true,
     excludeEnd: true,
     keywords: KEYWORDS,
@@ -224,8 +232,8 @@ export default function(hljs) {
           {
             className: 'attr',
             begin: IDENT_RE + regex.lookahead('\\s*:'),
-            relevance: 0,
-          },
+            relevance: 0
+          }
         ]
       },
       { // "value" container
@@ -244,7 +252,8 @@ export default function(hljs) {
                 '(\\([^(]*' +
                 '\\))?' +
               '\\))?' +
-            '\\)|' + hljs.UNDERSCORE_IDENT_RE + ')\\s*=>', returnBegin: true,
+            '\\)|' + hljs.UNDERSCORE_IDENT_RE + ')\\s*=>',
+            returnBegin: true,
             end: '\\s*=>',
             contains: [
               {
@@ -259,8 +268,10 @@ export default function(hljs) {
                     skip: true
                   },
                   {
-                    begin: /\(/, end: /\)/,
-                    excludeBegin: true, excludeEnd: true,
+                    begin: /\(/,
+                    end: /\)/,
+                    excludeBegin: true,
+                    excludeEnd: true,
                     keywords: KEYWORDS,
                     contains: PARAMS_CONTAINS
                   }
@@ -269,13 +280,13 @@ export default function(hljs) {
             ]
           },
           { // could be a comma delimited list of params to a function call
-            begin: /,/, relevance: 0,
+            begin: /,/, relevance: 0
           },
           {
             className: '',
             begin: /\s/,
             end: /\s*/,
-            skip: true,
+            skip: true
           },
           { // JSX
             variants: [
@@ -291,7 +302,9 @@ export default function(hljs) {
             subLanguage: 'xml',
             contains: [
               {
-                begin: XML_TAG.begin, end: XML_TAG.end, skip: true,
+                begin: XML_TAG.begin,
+                end: XML_TAG.end,
+                skip: true,
                 contains: ['self']
               }
             ]
@@ -301,7 +314,9 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function', end: /[{;]/, excludeEnd: true,
+        beginKeywords: 'function',
+        end: /[{;]/,
+        excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           'self',
@@ -322,15 +337,19 @@ export default function(hljs) {
       },
       { // ES6 class
         className: 'class',
-        beginKeywords: 'class', end: /[{;=]/, excludeEnd: true,
+        beginKeywords: 'class',
+        end: /[{;=]/,
+        excludeEnd: true,
         illegal: /[:"\[\]]/,
         contains: [
-          {beginKeywords: 'extends'},
+          { beginKeywords: 'extends' },
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       {
-        beginKeywords: 'constructor', end: /[\{;]/, excludeEnd: true,
+        beginKeywords: 'constructor',
+        end: /[\{;]/,
+        excludeEnd: true,
         contains: [
           'self',
           PARAMS
@@ -341,7 +360,7 @@ export default function(hljs) {
         end: /{/,
         keywords: "get set",
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: IDENT_RE}),
+          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
           { begin: /\(\)/ }, // eat to avoid empty params
           PARAMS
         ]
