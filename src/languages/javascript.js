@@ -250,8 +250,8 @@ export default function(hljs) {
             begin: '(\\([^(]*' +
               '(\\([^(]*' +
                 '(\\([^(]*' +
-                '\\))?' +
-              '\\))?' +
+                '\\)\\s*)?' +
+              '\\)\\s*)?' +
             '\\)|' + hljs.UNDERSCORE_IDENT_RE + ')\\s*=>',
             returnBegin: true,
             end: '\\s*=>',
@@ -327,14 +327,14 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        // we have to count the parens to make sure we actually have the
-        // correct bounding ( ) before the =>.  There could be any number of
-        // sub-expressions inside also surrounded by parens.
+        // we have to count the parens to make sure we actually have the correct
+        // bounding ( ).  There could be any number of sub-expressions inside
+        // also surrounded by parens.
         begin: hljs.UNDERSCORE_IDENT_RE + '(\\([^(]*' +
               '(\\([^(]*' +
                 '(\\([^(]*' +
-                '\\))?' +
-              '\\))?' +
+                '\\)\\s*)?' +
+              '\\)\\s*)?' +
             '\\))\\s*{',
         returnBegin:true,
         contains: [

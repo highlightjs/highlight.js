@@ -1,3 +1,4 @@
+class Vehicle {}
 class Car extends Vehicle {
   constructor(speed, cost) {
     super(speed);
@@ -7,5 +8,10 @@ class Car extends Vehicle {
 
     this.intro = `This is a car runs at
       ${speed}.`;
+  }
+  join() {
+  }
+  other(a = ( ( 3 + 2 ) ) ) {
+    console.log(a)
   }
 }
