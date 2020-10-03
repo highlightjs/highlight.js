@@ -1,0 +1,50 @@
+1000000000   // Is this a billion? a hundred millions? Ten millions?
+101475938.38 // what scale is this? what power of 10?
+
+const FEE = 12300;
+// is this 12,300? Or 123, because it's in cents?
+
+const AMOUNT = 1234500;
+// is this 1,234,500? Or cents, hence 12,345? Or financial, 4-fixed 123.45?
+
+1_000_000_000           // Ah, so a billion
+101_475_938.38          // And this is hundreds of millions
+
+let fee = 123_00;       // $123 (12300 cents, apparently)
+let fee = 12_300;       // $12,300 (woah, that fee!)
+let amount = 12345_00;  // 12,345 (1234500 cents, apparently)
+let amount = 123_4500;  // 123.45 (4-fixed financial)
+let amount = 1_234_500; // 1,234,500
+
+0.000001 // 1 millionth
+0.000_001 // 1 millionth
+.000_001 // 1 millionth
+-.000_001 // 1 millionth
+1e10_000  // 10^10000 -- granted, far less useful / in-range...
+
+let nibbles = 0b1010_0001_1000_0101;
+let message = 0xA0_B0_C0;
+
+let x1 = _52;              // This is an identifier, not a numeric literal
+let x2 = 5_2;              // OK (decimal literal)
+
+let x7 = 0x5_2;            // OK (hexadecimal literal)
+0xff
+0xdead_beef
+
+0o52
+0O52
+
+0xa
+0Xa
+0XA
+0xA
+
+0n
+2n
+20n
+2_0n
+2_00n
+2_0_0n
+20_0n
+-20_0n
