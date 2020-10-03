@@ -325,6 +325,23 @@ export default function(hljs) {
         ],
         illegal: /%/
       },
+      {
+        className: 'function',
+        // we have to count the parens to make sure we actually have the
+        // correct bounding ( ) before the =>.  There could be any number of
+        // sub-expressions inside also surrounded by parens.
+        begin: hljs.UNDERSCORE_IDENT_RE + '(\\([^(]*' +
+              '(\\([^(]*' +
+                '(\\([^(]*' +
+                '\\))?' +
+              '\\))?' +
+            '\\))\\s*{',
+        returnBegin:true,
+        contains: [
+          PARAMS,
+          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
+        ]
+      },
       // hack: prevents detection of keywords in some circumstances
       // .keyword()
       // $keyword = x
@@ -347,10 +364,11 @@ export default function(hljs) {
         ]
       },
       {
-        beginKeywords: 'constructor',
+        begin: /\b(?=constructor)/,
         end: /[\{;]/,
         excludeEnd: true,
         contains: [
+          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
           'self',
           PARAMS
         ]
