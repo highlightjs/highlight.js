@@ -1,6 +1,5 @@
 /*
 Language: LaTeX
-Requires: latex@.js, latex3.js
 Author: Benedikt Wilde <bwilde@posteo.de>
 Website: https://www.latex-project.org
 Category: markup
@@ -16,11 +15,15 @@ export default function(hljs) {
         begin: /\\/,
         relevance: 0,
         contains: [
-          {
-            // Special control sequences that indicate LaTeX.
+          { // Special control sequences that indicate LaTeX.
             endsParent: true,
             relevance: 10,
             begin: new RegExp([
+              'NeedsTeXFormat',
+              'ProvidesPackage',
+              'RequirePackage',
+              'DeclareOption',
+              'ProcessOptions',
               'documentclass',
               'usepackage',
               'input',
@@ -39,33 +42,25 @@ export default function(hljs) {
               'subsection',
               'paragraph',
               'caption',
-              'makeatletter',
-              'ExplSyntaxOn'
-            ].map(csname => csname + '(?![a-zA-Z])').join('|'))
+              'makeat(?:letter|other)',
+              'ExplSyntax(?:On|Off)'
+            ].map(csname => csname + '(?![a-zA-Z@])').join('|'))
           },
-          {
-            // Any control sequence.
+          { // Any control sequence.
             endsParent: true,
             relevance: 0,
             variants: [
-              {begin: /[a-zA-Z]+/}, // control word
-              {begin: /[^a-zA-Z]?/} // control symbol
+              {begin: /[a-zA-Z@]+/}, // control word
+              {begin: /[^a-zA-Z@]?/} // control symbol
             ]
           },
         ],
-        starts: { // The control sequence may have changed the category code regime.
-          relevance: 0,
+        starts: { // \ExplSyntaxOn should switch to LaTeX3
+          begin: /(?<=\\ExplSyntaxOn)/,
+          end: /(?=\\ExplSyntaxOff)/,
+          subLanguage: 'latex3',
           contains: [
-            {
-              begin: /(?<=\\makeatletter)/,
-              end: /0^/,
-              subLanguage: 'latex@'
-            },
-            {
-              begin: /(?<=\\ExplSyntaxOn)/,
-              end: /0^/,
-              subLanguage: 'latex3'
-            }
+            {begin: /%/, end: /$/, skip: true}
           ]
         }
       },
