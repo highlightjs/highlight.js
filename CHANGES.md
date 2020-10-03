@@ -2,6 +2,7 @@
 
 Language Improvements:
 
+- fix(bash) enh(bash) allow nested params (#2731) [Josh Goebel][]
 - fix(fsharp) Prevent `(*)` from being detected as a multi-line comment [Josh Goebel][]
 - enh(r) major overhaul of the R language grammar (and fix a few bugs) (#2680) [Konrad Rudolph][]
 - enh(csharp) Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
