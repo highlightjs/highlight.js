@@ -14,6 +14,7 @@ Language Improvements:
 - fix(scala) Comments inside class header should be highlighted (#1559) [Josh Goebel][]
 - fix(c-like) Correctly highlight modifiers (`final`) in class declaration (#2696) [Josh Goebel][]
 - enh(angelscript) Improve heredocs, numbers, metadata blocks (#2724) [Melissa Geels][]
+- enh(js) Implement Numeric Separator proposal (#2617) [Antoine du Hamel][]
 
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
@@ -21,6 +22,7 @@ Language Improvements:
 [Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
 [Melissa Geels]: https://github.com/codecat
+[Antoine du Hamel]: https://github.com/aduh95
 
 
 ## Version 10.2.1
