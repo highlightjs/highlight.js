@@ -1,6 +1,6 @@
 /*
-Language: LaTeX
-Requires: latex@.js, latex3.js
+Language: LaTeX3
+Requires: latex.js, latex3@.js
 Author: Benedikt Wilde <bwilde@posteo.de>
 Website: https://www.latex-project.org
 Category: markup
@@ -8,8 +8,8 @@ Category: markup
 
 export default function(hljs) {
   return {
-    name: 'latex',
-    aliases: ['tex'],
+    name: 'latex3',
+    aliases: ['expl3'],
     contains: [
       {
         className: 'control_sequence',
@@ -17,39 +17,34 @@ export default function(hljs) {
         relevance: 0,
         contains: [
           {
-            // Special control sequences that indicate LaTeX.
+            // Special control sequences that indicate LaTeX3.
             endsParent: true,
             relevance: 10,
             begin: new RegExp([
-              'documentclass',
-              'usepackage',
-              'input',
-              'include',
-              '(?:new|renew|provide)?command',
-              '(?:re)newenvironment',
               '(?:New|Renew|Provide|Declare)(?:Expandable)?DocumentCommand',
               '(?:New|Renew|Provide|Declare)DocumentEnvironment',
-              'def',
-              'let',
-              'begin',
-              'end',
-              'part',
-              'chapter',
-              'section',
-              'subsection',
-              'paragraph',
-              'caption',
               'makeatletter',
-              'ExplSyntaxOn'
-            ].map(csname => csname + '(?![a-zA-Z])').join('|'))
+              'ExplSyntaxOff'
+            ].map(csname => csname + '(?![a-zA-Z:_])').join('|'))
+          },
+          {
+            // Control sequences following the LaTeX3 naming scheme.
+            endsParent: true,
+            relevance: 10,
+            variants: [
+              {begin: /(?:__)?[a-zA-Z]+_[a-zA-Z_]+:[nNpTFDwcVvxefo]*/}, // function
+              {begin: /[lgc]__?[a-zA-Z]+_[a-zA-Z_]+_[a-zA-Z]+/},        // variable
+              {begin: /[lgc]_tmp[a-z]_[a-zA-Z]+/},            // temporary variable
+              {begin: /[sq]_[a-zA-Z_]+/}                   // quarks and scan marks
+            ]
           },
           {
             // Any control sequence.
             endsParent: true,
             relevance: 0,
             variants: [
-              {begin: /[a-zA-Z]+/}, // control word
-              {begin: /[^a-zA-Z]?/} // control symbol
+              {begin: /[a-zA-Z:_]+/}, // control word
+              {begin: /[^a-zA-Z:_]?/} // control symbol
             ]
           },
         ],
@@ -59,12 +54,12 @@ export default function(hljs) {
             {
               begin: /(?<=\\makeatletter)/,
               end: /0^/,
-              subLanguage: 'latex@'
+              subLanguage: 'latex3@'
             },
             {
-              begin: /(?<=\\ExplSyntaxOn)/,
+              begin: /(?<=\\ExplSyntaxOff)/,
               end: /0^/,
-              subLanguage: 'latex3'
+              subLanguage: 'latex'
             }
           ]
         }
@@ -77,7 +72,7 @@ export default function(hljs) {
       {
         className: 'special_cc',
         relevance: 0,
-        begin: /[{}$&^_]/
+        begin: /[{}$&^]/
       },
       hljs.COMMENT(
         '%',
