@@ -5,8 +5,6 @@ __pycache__
 *.swp
 node_modules
 .project
-yarn.lock
-extra/
 
 # editors
 .idea/
