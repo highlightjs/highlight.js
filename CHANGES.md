@@ -2,6 +2,8 @@
 
 Language Improvements:
 
+- enh(javascipt/typescript) Highlight class methods as functions (#2727) [Josh Goebel][]
+- fix(javascipt/typescript) `constructor` is now highlighted as a function title (not keyword) (#2727) [Josh Goebel][]
 - fix(fsharp) Prevent `(*)` from being detected as a multi-line comment [Josh Goebel][]
 - enh(r) major overhaul of the R language grammar (and fix a few bugs) (#2680) [Konrad Rudolph][]
 - enh(csharp) Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
