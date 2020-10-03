@@ -75,7 +75,7 @@ export default function(hljs) {
       { begin: nonDecimalLiterals('oO', '0-7') }, // Octal literals
       { begin: nonDecimalLiterals('xX', '0-9a-fA-F') }, // Hexadecimal literals
       { begin: regex.concat(/\b/, noLeadingZeroDecimalDigits, 'n') }, // Non-zero BigInt literals
-      { begin: regex.concat(/\b0?\./, decimalDigits, regex.optional(exponentPart)) }, // Decimal literals between 0 and 1
+      { begin: regex.concat(/(\b0)?\./, decimalDigits, regex.optional(exponentPart)) }, // Decimal literals between 0 and 1
       { begin: regex.concat(
         /\b/,
         noLeadingZeroDecimalDigits,
