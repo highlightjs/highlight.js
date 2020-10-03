@@ -63,10 +63,10 @@ export default function(hljs) {
         relevance: 10
       },
       {
-        begin: /([bB][rR]?|[rR][bB])'/, end: /'/
+        begin: /([bB]|[bB][rR]|[rR][bB])'/, end: /'/
       },
       {
-        begin: /([bB][rR]?|[rR][bB])"/, end: /"/
+        begin: /([bB]|[bB][rR]|[rR][bB])"/, end: /"/
       },
       {
         begin: /([fF][rR]|[rR][fF]|[fF])'/, end: /'/,
