@@ -1,0 +1,15 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{hljs}%
+  [2020/10/03 v0.1 show LaTeX highlighting with highlight.js]
+\DeclareOption{really}{%
+  \edef\@tempa#1{\expandafter\@gobble\expandafter{\@tempa}}%
+}
+\ProcessOptions\relax
+\newcommand*\hljs{\@ifnextchar[\@hljs\@@hljs}
+\def\@hljs[#1]#2{%
+  \LaTeX\ is good for typesetting #1, especially #2.%
+}
+\if@tempswa\expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi
+  {\newcommand*\@@hljs{\@hljs[anything]}}
+  {\newcommand*\@@hljs{\@hljs[books]}}
+\endinput
