@@ -10,9 +10,14 @@ Category: common
 export default function(hljs) {
   const VAR = {};
   const BRACED_VAR = {
-    begin: /\$\{/, end:/\}/,
+    begin: /\$\{/,
+    end:/\}/,
     contains: [
-      { begin: /:-/, contains: [VAR] } // default values
+      "self",
+      {
+        begin: /:-/,
+        contains: [ VAR ]
+      } // default values
     ]
   };
   Object.assign(VAR,{
