@@ -4,7 +4,6 @@ class Shorty(dict):
 
 x = Shorty()
 len(x)
-x.len()
 
 if __debug__:
     sys = __import__('sys')

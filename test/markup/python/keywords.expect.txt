@@ -4,7 +4,6 @@
 
 x = Shorty()
 <span class="hljs-built_in">len</span>(x)
-x.len()
 
 <span class="hljs-keyword">if</span> <span class="hljs-literal">__debug__</span>:
     sys = <span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>)

@@ -7,7 +7,6 @@ Category: common
 
 export default function(hljs) {
   var KEYWORDS = {
-    $pattern: /(?<!\.)\w+/,
     keyword:
       'and as assert async await break class continue def del elif else except finally for ' +
       'from global if import in is lambda nonlocal|10 not or pass raise return try while with yield',
