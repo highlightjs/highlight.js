@@ -19,7 +19,7 @@
 <span class="hljs-number">0.000001</span> <span class="hljs-comment">// 1 millionth</span>
 <span class="hljs-number">0.000_001</span> <span class="hljs-comment">// 1 millionth</span>
 <span class="hljs-number">.000_001</span> <span class="hljs-comment">// 1 millionth</span>
-<span class="hljs-number">-.000_001</span> <span class="hljs-comment">// 1 millionth</span>
+-<span class="hljs-number">.000_001</span> <span class="hljs-comment">// 1 millionth</span>
 <span class="hljs-number">1e10_000</span>  <span class="hljs-comment">// 10^10000 -- granted, far less useful / in-range...</span>
 
 <span class="hljs-keyword">let</span> nibbles = <span class="hljs-number">0b1010_0001_1000_0101</span>;
@@ -47,4 +47,4 @@
 <span class="hljs-number">2_00n</span>
 <span class="hljs-number">2_0_0n</span>
 <span class="hljs-number">20_0n</span>
-<span class="hljs-number">-20_0n</span>
+-<span class="hljs-number">20_0n</span>

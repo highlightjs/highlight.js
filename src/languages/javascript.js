@@ -64,7 +64,7 @@ export default function(hljs) {
     built_in: ECMAScript.BUILT_INS.join(" ")
   };
   const nonDecimalLiterals = (prefixLetters, validChars) => 
-    `(-?)\\b0[${prefixLetters}][${validChars}]([${validChars}_]*[${validChars}])?n?`;
+    `\\b0[${prefixLetters}][${validChars}]([${validChars}_]*[${validChars}])?n?`;
   const noLeadingZeroDecimalDigits = /[1-9]([0-9_]*\d)?/;
   const decimalDigits = /\d([0-9_]*\d)?/;
   const exponentPart = regex.concat(/[eE][+-]?/, decimalDigits);
@@ -74,15 +74,15 @@ export default function(hljs) {
       { begin: nonDecimalLiterals('bB', '01') }, // Binary literals
       { begin: nonDecimalLiterals('oO', '0-7') }, // Octal literals
       { begin: nonDecimalLiterals('xX', '0-9a-fA-F') }, // Hexadecimal literals
-      { begin: regex.concat(/(-?)\b/, noLeadingZeroDecimalDigits, 'n') }, // Non-zero BigInt literals
-      { begin: regex.concat(/(-?)0?\./, decimalDigits, regex.optional(exponentPart)) }, // Decimal literals between 0 and 1
+      { begin: regex.concat(/\b/, noLeadingZeroDecimalDigits, 'n') }, // Non-zero BigInt literals
+      { begin: regex.concat(/0?\./, decimalDigits, regex.optional(exponentPart)) }, // Decimal literals between 0 and 1
       { begin: regex.concat(
-        /(-?)\b/,
+        /\b/,
         noLeadingZeroDecimalDigits,
         regex.optional(regex.concat(/\./, regex.optional(decimalDigits))), // fractional part
         regex.optional(exponentPart)
         ) }, // Decimal literals >= 1
-      { begin: /(-?)\b0[\.n]?/ }, // Zero literals (`0`, `0.`, `0n`, `-0`, ...)
+      { begin: /\b0[\.n]?/ }, // Zero literals (`0`, `0.`, `0n`)
     ],
     relevance: 0
   };
