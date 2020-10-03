@@ -6,32 +6,145 @@ Category: common
 */
 
 export default function(hljs) {
-  var KEYWORDS = {
-    keyword:
-      'and as assert async await break class continue def del elif else except finally for ' +
-      'from global if import in is lambda nonlocal|10 not or pass raise return try while with yield',
-    built_in:
-      '__import__ abs all any ascii bin bool breakpoint bytearray bytes callable chr classmethod ' +
-      'compile complex delattr dict dir divmod enumerate eval exec filter float format frozenset ' +
-      'getattr globals hasattr hash help hex id input int isinstance issubclass iter len list ' +
-      'locals map max memoryview min next object oct open ord pow print property range repr ' +
-      'reversed round set setattr slice sorted staticmethod str sum super tuple type vars zip',
-    literal:
-      '__debug__ Ellipsis False None NotImplemented True'
+  const RESERVED_WORDS = [
+    'and',
+    'as',
+    'assert',
+    'async',
+    'await',
+    'break',
+    'class',
+    'continue',
+    'def',
+    'del',
+    'elif',
+    'else',
+    'except',
+    'finally',
+    'for',
+    '',
+    'from',
+    'global',
+    'if',
+    'import',
+    'in',
+    'is',
+    'lambda',
+    'nonlocal|10',
+    'not',
+    'or',
+    'pass',
+    'raise',
+    'return',
+    'try',
+    'while',
+    'with',
+    'yield',
+  ].join(' ');
+
+  const BUILT_INS = [
+    '__import__',
+    'abs',
+    'all',
+    'any',
+    'ascii',
+    'bin',
+    'bool',
+    'breakpoint',
+    'bytearray',
+    'bytes',
+    'callable',
+    'chr',
+    'classmethod',
+    'compile',
+    'complex',
+    'delattr',
+    'dict',
+    'dir',
+    'divmod',
+    'enumerate',
+    'eval',
+    'exec',
+    'filter',
+    'float',
+    'format',
+    'frozenset',
+    'getattr',
+    'globals',
+    'hasattr',
+    'hash',
+    'help',
+    'hex',
+    'id',
+    'input',
+    'int',
+    'isinstance',
+    'issubclass',
+    'iter',
+    'len',
+    'list',
+    'locals',
+    'map',
+    'max',
+    'memoryview',
+    'min',
+    'next',
+    'object',
+    'oct',
+    'open',
+    'ord',
+    'pow',
+    'print',
+    'property',
+    'range',
+    'repr',
+    'reversed',
+    'round',
+    'set',
+    'setattr',
+    'slice',
+    'sorted',
+    'staticmethod',
+    'str',
+    'sum',
+    'super',
+    'tuple',
+    'type',
+    'vars',
+    'zip',
+  ].join(' ');
+
+  const LITERALS = [
+    '__debug__',
+    'Ellipsis',
+    'False',
+    'None',
+    'NotImplemented',
+    'True',
+  ].join(' ');
+
+  const KEYWORDS = {
+    keyword: RESERVED_WORDS,
+    built_in: BUILT_INS,
+    literal: LITERALS
   };
+
   var PROMPT = {
     className: 'meta',  begin: /^(>>>|\.\.\.) /
   };
+
   var SUBST = {
     className: 'subst',
     begin: /\{/, end: /\}/,
     keywords: KEYWORDS,
     illegal: /#/
   };
+
   var LITERAL_BRACKET = {
     begin: /\{\{/,
     relevance: 0
   };
+
   var STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE],
@@ -80,6 +193,7 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE
     ]
   };
+
   var NUMBER = {
     className: 'number', relevance: 0,
     variants: [
@@ -88,6 +202,7 @@ export default function(hljs) {
       {begin: hljs.C_NUMBER_RE + '[lLjJ]?'}
     ]
   };
+
   var PARAMS = {
     className: 'params',
     variants: [
@@ -101,6 +216,7 @@ export default function(hljs) {
     ],
   };
   SUBST.contains = [STRING, NUMBER, PROMPT];
+
   return {
     name: 'Python',
     aliases: ['py', 'gyp', 'ipython'],
