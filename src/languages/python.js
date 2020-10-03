@@ -40,7 +40,7 @@ export default function(hljs) {
     'while',
     'with',
     'yield',
-  ].join(' ');
+  ];
 
   const BUILT_INS = [
     '__import__',
@@ -112,7 +112,7 @@ export default function(hljs) {
     'type',
     'vars',
     'zip',
-  ].join(' ');
+  ];
 
   const LITERALS = [
     '__debug__',
@@ -121,31 +121,31 @@ export default function(hljs) {
     'None',
     'NotImplemented',
     'True',
-  ].join(' ');
+  ];
 
   const KEYWORDS = {
-    keyword: RESERVED_WORDS,
-    built_in: BUILT_INS,
-    literal: LITERALS
+    keyword: RESERVED_WORDS.join(' '),
+    built_in: BUILT_INS.join(' '),
+    literal: LITERALS.join(' ')
   };
 
-  var PROMPT = {
+  const PROMPT = {
     className: 'meta',  begin: /^(>>>|\.\.\.) /
   };
 
-  var SUBST = {
+  const SUBST = {
     className: 'subst',
     begin: /\{/, end: /\}/,
     keywords: KEYWORDS,
     illegal: /#/
   };
 
-  var LITERAL_BRACKET = {
+  const LITERAL_BRACKET = {
     begin: /\{\{/,
     relevance: 0
   };
 
-  var STRING = {
+  const STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE],
     variants: [
@@ -194,7 +194,7 @@ export default function(hljs) {
     ]
   };
 
-  var NUMBER = {
+  const NUMBER = {
     className: 'number', relevance: 0,
     variants: [
       {begin: hljs.BINARY_NUMBER_RE + '[lLjJ]?'},
@@ -203,7 +203,7 @@ export default function(hljs) {
     ]
   };
 
-  var PARAMS = {
+  const PARAMS = {
     className: 'params',
     variants: [
       // Exclude params at functions without params
