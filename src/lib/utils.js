@@ -125,11 +125,11 @@ export function mergeStreams(original, highlighted, value) {
    */
   function open(node) {
     /** @param {Attr} attr */
-    function attr_str(attr) {
+    function attributeString(attr) {
       return ' ' + attr.nodeName + '="' + escapeHTML(attr.value) + '"';
     }
     // @ts-ignore
-    result += '<' + tag(node) + [].map.call(node.attributes, attr_str).join('') + '>';
+    result += '<' + tag(node) + [].map.call(node.attributes, attributeString).join('') + '>';
   }
 
   /**

@@ -3,7 +3,7 @@ export class MyClass {
     @baz(123)
     private myAttribute: string;
 
-    constructor(@bar(true) private x, 
+    constructor(@bar(true) private x,
                 @bar(qux(quux(true))) private y) { }
 
     @bar()

@@ -2,6 +2,7 @@
 
 Language Improvements:
 
+- fix(fsharp) Prevent `(*)` from being detected as a multi-line comment [Josh Goebel][]
 - enh(r) major overhaul of the R language grammar (and fix a few bugs) (#2680) [Konrad Rudolph][]
 - enh(csharp) Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
 - enh(objectivec) Add `objective-c++` and `obj-c++` aliases for Objective-C [Josh Goebel][]
@@ -12,12 +13,14 @@ Language Improvements:
 - fix(javascript) Comments inside params should be highlighted (#2702) [Josh Goebel][]
 - fix(scala) Comments inside class header should be highlighted (#1559) [Josh Goebel][]
 - fix(c-like) Correctly highlight modifiers (`final`) in class declaration (#2696) [Josh Goebel][]
+- enh(angelscript) Improve heredocs, numbers, metadata blocks (#2724) [Melissa Geels][]
 
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Jonasson]: https://github.com/ryanjonasson
 [Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
+[Melissa Geels]: https://github.com/codecat
 
 
 ## Version 10.2.1
