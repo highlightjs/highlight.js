@@ -1,0 +1,104 @@
+template <template <typename X> class T> void f();
+
+template class A::B<1, 2> {};
+
+template void A::f(int);
+
+template <class T, std::size_t N = sizeof(T), class K = T>
+ostream& operator<< (ostream& os, const skg::Triplet<T> pt) ;
+void other_stuff_that_isnt_colored();
+
+
+template<class T>
+class My_vector { /* ... */ };
+
+template<class T = void>
+struct My_op_functor { /* ... */ };
+
+template<typename... Ts>
+class My_tuple { /* ... */ };
+
+
+template<class> class My_vector;
+template<class = void> struct My_op_functor;
+template<typename...> class My_tuple;
+
+
+template<typename T> concept C1 = true;
+template<typename... Ts> concept C2 = true; // variadic concept
+template<typename T, typename U> concept C3 = true;
+ 
+template<C1 T> struct s1;         // constraint-expression is C1<T>
+template<C1... T> struct s2;      // constraint-expression is (C1<T> && ...)
+template<C2... T> struct s3;      // constraint-expression is (C2<T> && ...)
+template<C3<int> T> struct s4;    // constraint-expression is C3<T, int>
+template<C3<int>... T> struct s5; // constraint-expression is (C3<T, int> && ...)
+
+
+template<typename K, typename V, template<typename> typename C = my_array>
+class Map {};
+
+
+template<class B>
+template<class C>
+void A<B>::g(C) {}
+
+
+void g() {
+    f<int()>();
+}
+
+
+template<int (&pa)[5]> struct W {};
+template<void (*pf)(int)> struct A {};
+
+
+template<class T, const char* p> class X {};
+
+
+template<typename T> class A { int x; }; // primary template
+template<typename T> class A<T*> { long x; }; // partial specialization
+
+
+template<typename T> struct eval; // primary template 
+ 
+template<template<typename, typename...> class TT, typename T1, typename... Rest>
+struct eval<TT<T1, Rest...>> {}; // partial specialization of eval
+
+
+eval<A<int>> eA;
+eval<B<int, float>> eB;
+eval<C<17>> eC;
+eval<D<int, 17>> eD;
+eval<E<int, float>> eE;
+
+
+template <template <auto> class> void FA();  // note: C++17
+
+
+template<template<typename TT = char> class T>
+void A<T>::g()
+{
+    T<> t; // ok: t is T<char>
+}
+
+s.template foo<T>();
+class C;
+
+
+// Hard mode
+
+template <int a, int b, bool c = (a > b), class T> void f1();
+template <int a, int b, bool c = (a >> b), class T> void f2();
+
+template <int a, int b, bool c = (a < b), class T> void g1();
+class C;
+
+template <int a, int b, bool c = a < b, class T> void g1();
+class D;
+
+template <int a, int b, bool c = (a << b), class T> void g2();
+class E;
+
+template <int a, int b, bool c = a << b, class T> void g2();
+class F;

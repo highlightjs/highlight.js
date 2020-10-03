@@ -1,0 +1,104 @@
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> X&gt; <span class="hljs-keyword">class</span> T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>;
+
+<span class="hljs-keyword">template</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A::B</span>&lt;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>&gt; {</span>};
+
+<span class="hljs-function"><span class="hljs-keyword">template</span> <span class="hljs-keyword">void</span> <span class="hljs-title">A::f</span><span class="hljs-params">(<span class="hljs-keyword">int</span>)</span></span>;
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> T, <span class="hljs-built_in">std</span>::<span class="hljs-keyword">size_t</span> N = <span class="hljs-keyword">sizeof</span>(T), <span class="hljs-keyword">class</span> K = T&gt;
+ostream&amp; <span class="hljs-keyword">operator</span>&lt;&lt; (ostream&amp; os, <span class="hljs-keyword">const</span> skg::Triplet&lt;T&gt; pt) ;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">other_stuff_that_isnt_colored</span><span class="hljs-params">()</span></span>;
+
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">My_vector</span> {</span> <span class="hljs-comment">/* ... */</span> };
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T = <span class="hljs-keyword">void</span>&gt;
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">My_op_functor</span> {</span> <span class="hljs-comment">/* ... */</span> };
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span>... Ts&gt;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">My_tuple</span> {</span> <span class="hljs-comment">/* ... */</span> };
+
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span>&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">My_vector</span>;</span>
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> = <span class="hljs-keyword">void</span>&gt; <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">My_op_functor</span>;</span>
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span>...&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">My_tuple</span>;</span>
+
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">concept</span> C1 = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span>... Ts&gt; <span class="hljs-keyword">concept</span> C2 = <span class="hljs-literal">true</span>; <span class="hljs-comment">// variadic concept</span>
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span> U&gt; <span class="hljs-keyword">concept</span> C3 = <span class="hljs-literal">true</span>;
+ 
+<span class="hljs-keyword">template</span>&lt;C1 T&gt; <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">s1</span>;</span>         <span class="hljs-comment">// constraint-expression is C1&lt;T&gt;</span>
+<span class="hljs-keyword">template</span>&lt;C1... T&gt; <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">s2</span>;</span>      <span class="hljs-comment">// constraint-expression is (C1&lt;T&gt; &amp;&amp; ...)</span>
+<span class="hljs-keyword">template</span>&lt;C2... T&gt; <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">s3</span>;</span>      <span class="hljs-comment">// constraint-expression is (C2&lt;T&gt; &amp;&amp; ...)</span>
+<span class="hljs-keyword">template</span>&lt;C3&lt;<span class="hljs-keyword">int</span>&gt; T&gt; <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">s4</span>;</span>    <span class="hljs-comment">// constraint-expression is C3&lt;T, int&gt;</span>
+<span class="hljs-keyword">template</span>&lt;C3&lt;<span class="hljs-keyword">int</span>&gt;... T&gt; <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">s5</span>;</span> <span class="hljs-comment">// constraint-expression is (C3&lt;T, int&gt; &amp;&amp; ...)</span>
+
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> K, <span class="hljs-keyword">typename</span> V, <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span>&gt; <span class="hljs-keyword">typename</span> C = my_array&gt;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Map</span> {</span>};
+
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> B&gt;
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> C&gt;
+<span class="hljs-keyword">void</span> A&lt;B&gt;::g(C) {}
+
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g</span><span class="hljs-params">()</span> </span>{
+    f&lt;<span class="hljs-keyword">int</span>()&gt;();
+}
+
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">int</span> (&amp;pa)[<span class="hljs-number">5</span>]&gt; <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">W</span> {</span>};
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">void</span> (*pf)(<span class="hljs-keyword">int</span>)&gt; <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">A</span> {</span>};
+
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* p&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">X</span> {</span>};
+
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> {</span> <span class="hljs-keyword">int</span> x; }; <span class="hljs-comment">// primary template</span>
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span>&lt;T*&gt; {</span> <span class="hljs-keyword">long</span> x; }; <span class="hljs-comment">// partial specialization</span>
+
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">eval</span>;</span> <span class="hljs-comment">// primary template </span>
+ 
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span>, <span class="hljs-keyword">typename</span>...&gt; <span class="hljs-keyword">class</span> TT, <span class="hljs-keyword">typename</span> T1, <span class="hljs-keyword">typename</span>... Rest&gt;
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">eval</span>&lt;TT&lt;T1, Rest...&gt;&gt; {</span>}; <span class="hljs-comment">// partial specialization of eval</span>
+
+
+eval&lt;A&lt;<span class="hljs-keyword">int</span>&gt;&gt; eA;
+eval&lt;B&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">float</span>&gt;&gt; eB;
+eval&lt;C&lt;<span class="hljs-number">17</span>&gt;&gt; eC;
+eval&lt;D&lt;<span class="hljs-keyword">int</span>, <span class="hljs-number">17</span>&gt;&gt; eD;
+eval&lt;E&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">float</span>&gt;&gt; eE;
+
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">auto</span>&gt; <span class="hljs-keyword">class</span>&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FA</span><span class="hljs-params">()</span></span>;  <span class="hljs-comment">// note: C++17</span>
+
+
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> TT = <span class="hljs-keyword">char</span>&gt; <span class="hljs-keyword">class</span> T&gt;
+<span class="hljs-keyword">void</span> A&lt;T&gt;::g()
+{
+    T&lt;&gt; t; <span class="hljs-comment">// ok: t is T&lt;char&gt;</span>
+}
+
+s.<span class="hljs-keyword">template</span> foo&lt;T&gt;();
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span>;</span>
+
+
+<span class="hljs-comment">// Hard mode</span>
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">bool</span> c = (a &gt; b), <span class="hljs-keyword">class</span> T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f1</span><span class="hljs-params">()</span></span>;
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">bool</span> c = (a &gt;&gt; b), <span class="hljs-keyword">class</span> T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f2</span><span class="hljs-params">()</span></span>;
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">bool</span> c = (a &lt; b), <span class="hljs-keyword">class</span> T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g1</span><span class="hljs-params">()</span></span>;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span>;</span>
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">bool</span> c = a &lt; b, <span class="hljs-keyword">class</span> T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g1</span><span class="hljs-params">()</span></span>;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">D</span>;</span>
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">bool</span> c = (a &lt;&lt; b), <span class="hljs-keyword">class</span> T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g2</span><span class="hljs-params">()</span></span>;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">E</span>;</span>
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">bool</span> c = a &lt;&lt; b, <span class="hljs-keyword">class</span> T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">g2</span><span class="hljs-params">()</span></span>;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">F</span>;</span>
