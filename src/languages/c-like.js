@@ -105,6 +105,7 @@ export default function(hljs) {
       'atomic_bool atomic_char atomic_schar ' +
       'atomic_uchar atomic_short atomic_ushort atomic_int atomic_uint atomic_long atomic_ulong atomic_llong ' +
       'atomic_ullong new throw return ' +
+      'class struct' +
       'and and_eq bitand bitor compl not not_eq or or_eq xor xor_eq',
     built_in: 'std string wstring cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream ' +
       'auto_ptr deque list queue stack vector map set pair bitset multiset multimap unordered_set ' +
@@ -200,6 +201,58 @@ export default function(hljs) {
     ]
   };
 
+  var TEMPLATE_USE = {
+    begin: /</, end: />/,
+    keywords: CPP_KEYWORDS,
+    contains: EXPRESSION_CONTAINS.concat([
+      // Match left-shift to prevent it from creating a nested `TEMPLATE_USE`.
+      { begin: /<</ },
+      'self'
+    ])
+  };
+
+  var CLASS_DECLARATION = {
+    className: 'class',
+    beginKeywords: 'class struct union', end: /[{;:]/,
+    contains: [
+      { beginKeywords: "final" },
+      TEMPLATE_USE,
+      TITLE_MODE
+    ]
+  };
+
+  var TEMPLATE_DECLARATION = {
+    beginKeywords: 'template',
+    // Add additional stops to stop runaway template declaration, e.g.
+    // `template <bool b = 1 < 2> void f();`
+    end: /[>;{]/,
+    contains: [
+      {
+        begin: /</, end: />/,
+        endsWithParent: true,
+        endsParent: true,
+        keywords: CPP_KEYWORDS,
+        contains: EXPRESSION_CONTAINS.concat([
+          // Match left-shift to prevent it from creating a nested `TEMPLATE_USE`.
+          { begin: /<</ },
+          TEMPLATE_USE,
+          {
+            begin: /\(/, end: /\)/,
+            keywords: CPP_KEYWORDS,
+            contains: [
+              // Match left-shift to prevent it from creating a nested `TEMPLATE_USE`.
+              { begin: /<</ },
+              TEMPLATE_USE
+            ]
+          },
+        ]),
+        relevance: 10
+      },
+      // FIXME: Set relevance of class declarations at this point to 10!
+      CLASS_DECLARATION,
+    ]
+  };
+
   return {
     aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp', 'hh', 'hxx', 'cxx'],
     keywords: CPP_KEYWORDS,
@@ -222,15 +275,8 @@ export default function(hljs) {
         begin: hljs.IDENT_RE + '::',
         keywords: CPP_KEYWORDS
       },
-      {
-        className: 'class',
-        beginKeywords: 'class struct', end: /[{;:]/,
-        contains: [
-          { beginKeywords: "final" },
-          {begin: /</, end: />/, contains: ['self']}, // skip generic stuff
-          hljs.TITLE_MODE
-        ]
-      }
+      TEMPLATE_DECLARATION,
+      CLASS_DECLARATION,
     ]),
     exports: {
       preprocessor: PREPROCESSOR,
