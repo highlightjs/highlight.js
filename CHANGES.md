@@ -17,6 +17,7 @@ Language Improvements:
 - enh(angelscript) Improve heredocs, numbers, metadata blocks (#2724) [Melissa Geels][]
 - enh(javascript) Implement Numeric Separators (#2617) [Antoine du Hamel][]
 - enh(typescript) TypeScript also gains support for numeric separators (#2617) [Antoine du Hamel][]
+- enh(php) Add support for PHP 8 `match` keyword and add `php8` as an alias (#2733) [Ayesh Karunaratne][]
 
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
@@ -25,6 +26,7 @@ Language Improvements:
 [Konrad Rudolph]: https://github.com/klmr
 [Melissa Geels]: https://github.com/codecat
 [Antoine du Hamel]: https://github.com/aduh95
+[Ayesh Karunaratne]: https://github.com/Ayesh
 
 
 ## Version 10.2.1
