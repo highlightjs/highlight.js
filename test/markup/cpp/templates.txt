@@ -102,3 +102,7 @@ class E;
 
 template <int a, int b, bool c = a << b, class T> void g2();
 class F;
+
+template <int A = (B<C>), class T> class C;
+template <int A = B<(c > D<E>)>, class T> class C;
+template <int A = B<(c > D<(e > f)>)>, class T> class C;
