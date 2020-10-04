@@ -1,3 +1,4 @@
+% !TeX encoding = utf8
 \documentclass{article}
 
 \usepackage[T1]{fontenc}
