@@ -6,7 +6,7 @@ Category: markup
 */
 
 export default function(hljs) {
-  var KNOWN_CS = new RegExp([
+  var KNOWN_CONTROL_WORDS = new RegExp([
       '(?:NeedsTeXFormat|RequirePackage|GetIdInfo)',
       'Provides(?:Expl)?(?:Package|Class|File)',
       '(?:DeclareOption|ProcessOptions)',
@@ -23,6 +23,7 @@ export default function(hljs) {
       'caption',
       '(?:label|(?:eq|page|name)?ref|(?:paren|foot|super)?cite)'
     ].map(csname => csname + '(?![a-zA-Z@:_])').join('|'));
+  var KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|:|;/
   var L3_VARIANTS = [
     {begin: /(?:__)?[a-zA-Z]{2,}_[a-zA-Z_]{2,}:[nNcVvoxefTFpwD]*/}, // functions
     {begin: /[lgc]__?[a-zA-Z]+_[a-zA-Z_]+/},                        // variables
@@ -48,21 +49,20 @@ export default function(hljs) {
   var CONTROL_SEQUENCE = {
     className: 'keyword',
     begin: /\\/,
-    relevance: 0,
     contains: [
       {
         endsParent: true,
-        relevance: 10,
-        begin: KNOWN_CS
+        variants: [
+          {begin: KNOWN_CONTROL_WORDS},
+          {begin: KNOWN_CONTROL_SYMBOLS}
+        ]
       },
       {
         endsParent: true,
-        relevance: 10,
         variants: L3_VARIANTS
       },
       {
         endsParent: true,
-        relevance: 10,
         variants: DOUBLE_CARET_VARIANTS
       },
       {
@@ -83,7 +83,6 @@ export default function(hljs) {
     begin: /#+\d?/
   };
   var DOUBLE_CARET_CHAR = {
-    relevance: 10,
     variants: DOUBLE_CARET_VARIANTS
   };
   var SPECIAL_CATCODE = {
@@ -108,7 +107,6 @@ export default function(hljs) {
   );
   var VERBATIM = hljs.END_SAME_AS_BEGIN({
     className: 'string',
-    relevance: 10,
     variants: [
       {
         begin: /(?<=\\(?:verb|lstinline))\s*(.)/,
