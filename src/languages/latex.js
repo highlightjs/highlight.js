@@ -15,7 +15,7 @@ export default function(hljs) {
         begin: /\\/,
         relevance: 0,
         contains: [
-          { // Special control sequences that indicate LaTeX.
+          { // Special control sequences that indicate LaTeX
             endsParent: true,
             relevance: 10,
             begin: new RegExp([
@@ -48,7 +48,7 @@ export default function(hljs) {
               'ExplSyntax(?:On|Off)'
             ].map(csname => csname + '(?![a-zA-Z@:_])').join('|'))
           },
-          { // Control sequences following the LaTeX3 naming scheme.
+          { // Control sequences following the LaTeX3 naming scheme
             endsParent: true,
             relevance: 10,
             variants: [
@@ -62,7 +62,19 @@ export default function(hljs) {
               {begin: /::[oefxvV]_unbraced/}
             ]
           },
-          { // Any non-LaTeX3 control sequence.
+          { // A specially input character
+            endsParent: true,
+            relevance: 10,
+            variants: [
+              {begin: /\^{6}[0-9a-f]{6}/},
+              {begin: /\^{5}[0-9a-f]{5}/},
+              {begin: /\^{4}[0-9a-f]{4}/},
+              {begin: /\^{3}[0-9a-f]{3}/},
+              {begin: /\^{2}[0-9a-f]{2}/},
+              {begin: /\^{2}[\u0000-\u007f]/}
+            ]
+          },
+          { // Any non-LaTeX3 control sequence
             endsParent: true,
             relevance: 0,
             variants: [
@@ -76,6 +88,18 @@ export default function(hljs) {
         className: 'macro_param',
         relevance: 0,
         begin: /#+\d?/
+      },
+      {
+        className: 'char_input',
+        relevance: 10,
+        variants: [
+          {begin: /\^{6}[0-9a-f]{6}/},
+          {begin: /\^{5}[0-9a-f]{5}/},
+          {begin: /\^{4}[0-9a-f]{4}/},
+          {begin: /\^{3}[0-9a-f]{3}/},
+          {begin: /\^{2}[0-9a-f]{2}/},
+          {begin: /\^{2}[\u0000-\u007f]/}
+        ]
       },
       {
         className: 'special_cc',
