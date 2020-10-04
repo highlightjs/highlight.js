@@ -2,7 +2,17 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{xparse}
+\usepackage{mathtools}
+
 \newcommand\hi[1]{Hello #1!}
+
+\ExplSyntaxOn
+  % Convert a roman number into an arabic one
+  \NewDocumentCommand \romantonum { m }
+    { \int_from_roman:n { #1 } }
+\ExplSyntaxOff
 
 \begin{document}
 
@@ -10,6 +20,8 @@
 \hi{you}
 This is \LaTeX\ syntax highlighted by \verb|highlight.js|.
 You should look at section~\ref{sec:fermat} next.
+
+Did you know that MDCLXI is \romantonum{MDCLXI}? % It's 1661.
 
 \subsection{Fermat}\label{sec:fermat}
 I have a wonderful proof that
