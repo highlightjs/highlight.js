@@ -20,8 +20,9 @@ export default function(hljs) {
             relevance: 10,
             begin: new RegExp([
               'NeedsTeXFormat',
-              'ProvidesPackage',
+              'Provides(?:Expl)?(?:Package|Class|File)',
               'RequirePackage',
+              'GetIdInfo',
               'DeclareOption',
               'ProcessOptions',
               'documentclass',
@@ -38,15 +39,30 @@ export default function(hljs) {
               'end',
               'part',
               'chapter',
-              'section',
-              'subsection',
-              'paragraph',
+              '(?:sub){0,2}section',
+              '(?:sub)?paragraph',
               'caption',
+              'label',
+              '(?:eq|page|name)?ref',
               'makeat(?:letter|other)',
               'ExplSyntax(?:On|Off)'
-            ].map(csname => csname + '(?![a-zA-Z@])').join('|'))
+            ].map(csname => csname + '(?![a-zA-Z@:_])').join('|'))
           },
-          { // Any control sequence.
+          { // Control sequences following the LaTeX3 naming scheme.
+            endsParent: true,
+            relevance: 10,
+            variants: [
+              {begin: /(?:__)?[a-zA-Z]{2,}_[a-zA-Z_]{2,}:[nNcVvoxefTFpwD]*/}, // functions
+              {begin: /[lgc]__?[a-zA-Z]+_[a-zA-Z_]+/},                        // variables
+              {begin: /[qs]__?[a-zA-Z_]{2,}/},                    // quarks and scan marks
+              {begin: /use(?:_i)?:[nNcVvoxef]*/},
+              {begin: /(?:else|fi|or):/},
+              {begin: /(?:if|cs|exp):w/},
+              {begin: /::[NnpcoefxvV:]/},
+              {begin: /::[oefxvV]_unbraced/}
+            ]
+          },
+          { // Any non-LaTeX3 control sequence.
             endsParent: true,
             relevance: 0,
             variants: [
@@ -55,14 +71,6 @@ export default function(hljs) {
             ]
           },
         ],
-        starts: { // \ExplSyntaxOn should switch to LaTeX3
-          begin: /(?<=\\ExplSyntaxOn)/,
-          end: /(?=\\ExplSyntaxOff)/,
-          subLanguage: 'latex3',
-          contains: [
-            {begin: /%/, end: /$/, skip: true}
-          ]
-        }
       },
       {
         className: 'macro_param',
