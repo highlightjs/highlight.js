@@ -72,6 +72,11 @@ export default function(hljs) {
           },
         ],
       },
+      { // Active characters
+        className: 'keyword',
+        relevance: 0,
+        begin: /~|"/
+      },
       { // Macro parameters
         className: 'params',
         relevance: 0,
