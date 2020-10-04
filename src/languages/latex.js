@@ -10,8 +10,8 @@ export default function(hljs) {
     name: 'latex',
     aliases: ['tex'],
     contains: [
-      {
-        className: 'control_sequence',
+      { // Control sequences
+        className: 'keyword',
         begin: /\\/,
         relevance: 0,
         contains: [
@@ -50,7 +50,7 @@ export default function(hljs) {
               {begin: /::[oefxvV]_unbraced/}
             ]
           },
-          { // A specially input character
+          { // A control symbol of the double (or more) caret input type
             endsParent: true,
             relevance: 10,
             variants: [
@@ -72,13 +72,12 @@ export default function(hljs) {
           },
         ],
       },
-      {
-        className: 'macro_param',
+      { // Macro parameters
+        className: 'params',
         relevance: 0,
         begin: /#+\d?/
       },
-      {
-        className: 'char_input',
+      { // Double caret input (or more for certain engines) of characters
         relevance: 10,
         variants: [
           {begin: /\^{6}[0-9a-f]{6}/},
@@ -89,20 +88,20 @@ export default function(hljs) {
           {begin: /\^{2}[\u0000-\u007f]/}
         ]
       },
-      {
-        className: 'special_cc',
+      { // Characters with special category codes (not otherwise covered)
+        className: 'built_in',
         relevance: 0,
         begin: /[{}$&^_]/
       },
-      hljs.COMMENT(
+      hljs.COMMENT( // Magic comments
         '% !TeX',
         '$',
         {
-          relevance: 10,
-          className: 'meta'
+          className: 'meta',
+          relevance: 10
         }
       ),
-      hljs.COMMENT(
+      hljs.COMMENT( // Comments
         '%',
         '$',
         {
