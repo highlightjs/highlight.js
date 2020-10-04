@@ -128,15 +128,15 @@ export default function(hljs) {
       },
       {
         begin: /(?<=\\begin\s*\{(verbatim\*?)\})/,
-        end: /(?=\\end\s*\{(verbatim\*?)\})/
+        end: /(?=\\end\{(verbatim\*?)\})/
       },
       {
         begin: /(?<=\\begin\s*\{([LB]?Verbatim\*?|lstlisting)\}(?:\s*\[.*?\])?\s*$)/,
-        end: /(?=\\end\s*\{([LB]?Verbatim\*?|lstlisting)\})/
+        end: /(?=\\end\{([LB]?Verbatim\*?|lstlisting)\})/
       },
       {
         begin: /(?<=\\begin\s*\{(minted)\}(?:\s*\[.*?\])\s*\{.*?\}\s*$)/,
-        end: /(?=\\end\s*\{(minted)\})/
+        end: /(?=\\end\{(minted)\})/
       }
     ]
   });
