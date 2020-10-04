@@ -36,7 +36,7 @@ export default function(hljs) {
   var L2_VARIANTS = [
     {begin: /[a-zA-Z@]+/}, // control word
     {begin: /[^a-zA-Z@]?/} // control symbol
-  ]
+  ];
   var DOUBLE_CARET_VARIANTS = [
     {begin: /\^{6}[0-9a-f]{6}/},
     {begin: /\^{5}[0-9a-f]{5}/},
@@ -69,7 +69,7 @@ export default function(hljs) {
         endsParent: true,
         relevance: 0,
         variants: L2_VARIANTS
-      },
+      }
     ]
   };
   var ACTIVE_CHAR = {
@@ -106,10 +106,45 @@ export default function(hljs) {
       relevance: 0
     }
   );
+  var VERBATIM = hljs.END_SAME_AS_BEGIN({
+    className: 'string',
+    relevance: 10,
+    variants: [
+      {
+        begin: /(?<=\\(?:verb|lstinline))\s*(.)/,
+        end: /(.)/,
+        excludeBegin: true,
+        excludeEnd: true
+      },
+      {
+        begin: /(?<=\\mintinline\s*\{[^\{\}]*\}\{)/,
+        end: /(?=\})/
+      },
+      {
+        begin: /(?<=\\(?:mint|mintinline)\s*\{[^\{\}]*\})([^\{])/,
+        end: /([^\{])/,
+        excludeBegin: true,
+        excludeEnd: true
+      },
+      {
+        begin: /(?<=\\begin\s*\{(verbatim\*?)\})/,
+        end: /(?=\\end\s*\{(verbatim\*?)\})/
+      },
+      {
+        begin: /(?<=\\begin\s*\{([LB]?Verbatim\*?|lstlisting)\}(?:\s*\[.*?\])?\s*$)/,
+        end: /(?=\\end\s*\{([LB]?Verbatim\*?|lstlisting)\})/
+      },
+      {
+        begin: /(?<=\\begin\s*\{(minted)\}(?:\s*\[.*?\])\s*\{.*?\}\s*$)/,
+        end: /(?=\\end\s*\{(minted)\})/
+      }
+    ]
+  });
   return {
     name: 'LaTeX',
     aliases: ['TeX'],
     contains: [
+      VERBATIM,
       CONTROL_SEQUENCE,
       ACTIVE_CHAR,
       MACRO_PARAM,
