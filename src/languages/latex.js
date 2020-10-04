@@ -95,6 +95,14 @@ export default function(hljs) {
         begin: /[{}$&^_]/
       },
       hljs.COMMENT(
+        '% !TeX',
+        '$',
+        {
+          relevance: 10,
+          className: 'meta'
+        }
+      ),
+      hljs.COMMENT(
         '%',
         '$',
         {
