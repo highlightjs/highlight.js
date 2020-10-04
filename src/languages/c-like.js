@@ -232,11 +232,15 @@ export default function(hljs) {
       { begin: /<</ },
       TEMPLATE_USE,
       {
-        begin: /\(/, end: /[);{]/,
+        begin: /\(/, end: /\)/,
+        endsWithParent: true,
         keywords: CPP_KEYWORDS,
         contains: [
           // Match left-shift to prevent it from creating a nested `TEMPLATE_USE`.
           { begin: /<</ },
+          // Match greater-than to prevent this from terminating the mode (via
+          // the parent).
+          { begin: />/ },
           TEMPLATE_USE
         ]
       },
