@@ -202,7 +202,7 @@ export default function(hljs) {
   };
 
   var TEMPLATE_USE = {
-    begin: /</, end: />/,
+    begin: /</, end: /[>{;]/,
     keywords: CPP_KEYWORDS,
     contains: EXPRESSION_CONTAINS.concat([
       // Match left-shift to prevent it from creating a nested `TEMPLATE_USE`.
@@ -222,35 +222,27 @@ export default function(hljs) {
   };
 
   var TEMPLATE_DECLARATION = {
-    beginKeywords: 'template',
+    begin: /template\s*</,
     // Add additional stops to stop runaway template declaration, e.g.
     // `template <bool b = 1 < 2> void f();`
     end: /[>;{]/,
-    contains: [
+    keywords: CPP_KEYWORDS,
+    contains: EXPRESSION_CONTAINS.concat([
+      // Match left-shift to prevent it from creating a nested `TEMPLATE_USE`.
+      { begin: /<</ },
+      TEMPLATE_USE,
       {
-        begin: /</, end: />/,
-        endsWithParent: true,
-        endsParent: true,
+        begin: /\(/, end: /[);{]/,
         keywords: CPP_KEYWORDS,
-        contains: EXPRESSION_CONTAINS.concat([
+        contains: [
           // Match left-shift to prevent it from creating a nested `TEMPLATE_USE`.
           { begin: /<</ },
-          TEMPLATE_USE,
-          {
-            begin: /\(/, end: /\)/,
-            keywords: CPP_KEYWORDS,
-            contains: [
-              // Match left-shift to prevent it from creating a nested `TEMPLATE_USE`.
-              { begin: /<</ },
-              TEMPLATE_USE
-            ]
-          },
-        ]),
-        relevance: 10
+          TEMPLATE_USE
+        ]
       },
-      // FIXME: Set relevance of class declarations at this point to 10!
-      CLASS_DECLARATION,
-    ]
+      'self'
+    ]),
+    relevance: 10
   };
 
   return {
