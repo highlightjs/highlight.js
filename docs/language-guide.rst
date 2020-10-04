@@ -230,7 +230,12 @@ and it makes sense to bring their relevance to zero to lessen statistical noise:
     relevance: 0
   }
 
-The default value for relevance is 1. When setting an explicit value it's recommended to use either 10 or 0.
+The default value for relevance is always 1. When setting an explicit value
+typically either 10 or 0 is used. A 0 means this match should not be considered
+for language detection purposes. 0 should be used for very common matches that
+might be found in ANY language (basic numbers, strings, etc) or things that
+would otherwise create too many false positives. A 10 means "this is almost
+guaranteed to be XYZ code". 10 should be used sparingly.
 
 Keywords also influence relevance. Each of them usually has a relevance of 1, but there are some unique names
 that aren't likely to be found outside of their languages, even in the form of variable names.
