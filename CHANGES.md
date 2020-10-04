@@ -3,6 +3,7 @@
 Language Improvements:
 
 - fix(bash) enh(bash) allow nested params (#2731) [Josh Goebel][]
+- fix(python) Fix highlighting of keywords and strings (#2713, #2715) [Konrad Rudolph][]
 - fix(fsharp) Prevent `(*)` from being detected as a multi-line comment [Josh Goebel][]
 - enh(r) major overhaul of the R language grammar (and fix a few bugs) (#2680) [Konrad Rudolph][]
 - enh(csharp) Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
@@ -15,6 +16,8 @@ Language Improvements:
 - fix(scala) Comments inside class header should be highlighted (#1559) [Josh Goebel][]
 - fix(c-like) Correctly highlight modifiers (`final`) in class declaration (#2696) [Josh Goebel][]
 - enh(angelscript) Improve heredocs, numbers, metadata blocks (#2724) [Melissa Geels][]
+- enh(javascript) Implement Numeric Separators (#2617) [Antoine du Hamel][]
+- enh(typescript) TypeScript also gains support for numeric separators (#2617) [Antoine du Hamel][]
 
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
@@ -22,6 +25,7 @@ Language Improvements:
 [Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
 [Melissa Geels]: https://github.com/codecat
+[Antoine du Hamel]: https://github.com/aduh95
 
 
 ## Version 10.2.1
