@@ -6,77 +6,195 @@ Category: common
 */
 
 export default function(hljs) {
-  var KEYWORDS = {
-    keyword:
-      'and elif is global as in if from raise for except finally print import pass return ' +
-      'exec else break not with class assert yield try while continue del or def lambda ' +
-      'async await nonlocal|10',
-    built_in:
-      'Ellipsis NotImplemented',
-    literal: 'False None True'
+  const RESERVED_WORDS = [
+    'and',
+    'as',
+    'assert',
+    'async',
+    'await',
+    'break',
+    'class',
+    'continue',
+    'def',
+    'del',
+    'elif',
+    'else',
+    'except',
+    'finally',
+    'for',
+    '',
+    'from',
+    'global',
+    'if',
+    'import',
+    'in',
+    'is',
+    'lambda',
+    'nonlocal|10',
+    'not',
+    'or',
+    'pass',
+    'raise',
+    'return',
+    'try',
+    'while',
+    'with',
+    'yield',
+  ];
+
+  const BUILT_INS = [
+    '__import__',
+    'abs',
+    'all',
+    'any',
+    'ascii',
+    'bin',
+    'bool',
+    'breakpoint',
+    'bytearray',
+    'bytes',
+    'callable',
+    'chr',
+    'classmethod',
+    'compile',
+    'complex',
+    'delattr',
+    'dict',
+    'dir',
+    'divmod',
+    'enumerate',
+    'eval',
+    'exec',
+    'filter',
+    'float',
+    'format',
+    'frozenset',
+    'getattr',
+    'globals',
+    'hasattr',
+    'hash',
+    'help',
+    'hex',
+    'id',
+    'input',
+    'int',
+    'isinstance',
+    'issubclass',
+    'iter',
+    'len',
+    'list',
+    'locals',
+    'map',
+    'max',
+    'memoryview',
+    'min',
+    'next',
+    'object',
+    'oct',
+    'open',
+    'ord',
+    'pow',
+    'print',
+    'property',
+    'range',
+    'repr',
+    'reversed',
+    'round',
+    'set',
+    'setattr',
+    'slice',
+    'sorted',
+    'staticmethod',
+    'str',
+    'sum',
+    'super',
+    'tuple',
+    'type',
+    'vars',
+    'zip',
+  ];
+
+  const LITERALS = [
+    '__debug__',
+    'Ellipsis',
+    'False',
+    'None',
+    'NotImplemented',
+    'True',
+  ];
+
+  const KEYWORDS = {
+    keyword: RESERVED_WORDS.join(' '),
+    built_in: BUILT_INS.join(' '),
+    literal: LITERALS.join(' ')
   };
-  var PROMPT = {
+
+  const PROMPT = {
     className: 'meta',  begin: /^(>>>|\.\.\.) /
   };
-  var SUBST = {
+
+  const SUBST = {
     className: 'subst',
     begin: /\{/, end: /\}/,
     keywords: KEYWORDS,
     illegal: /#/
   };
-  var LITERAL_BRACKET = {
+
+  const LITERAL_BRACKET = {
     begin: /\{\{/,
     relevance: 0
   };
-  var STRING = {
+
+  const STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE],
     variants: [
       {
-        begin: /(u|b)?r?'''/, end: /'''/,
+        begin: /([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?'''/, end: /'''/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT],
         relevance: 10
       },
       {
-        begin: /(u|b)?r?"""/, end: /"""/,
+        begin: /([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?"""/, end: /"""/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT],
         relevance: 10
       },
       {
-        begin: /(fr|rf|f)'''/, end: /'''/,
+        begin: /([fF][rR]|[rR][fF]|[fF])'''/, end: /'''/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT, LITERAL_BRACKET, SUBST]
       },
       {
-        begin: /(fr|rf|f)"""/, end: /"""/,
+        begin: /([fF][rR]|[rR][fF]|[fF])"""/, end: /"""/,
         contains: [hljs.BACKSLASH_ESCAPE, PROMPT, LITERAL_BRACKET, SUBST]
       },
       {
-        begin: /(u|r|ur)'/, end: /'/,
+        begin: /([uU]|[rR])'/, end: /'/,
         relevance: 10
       },
       {
-        begin: /(u|r|ur)"/, end: /"/,
+        begin: /([uU]|[rR])"/, end: /"/,
         relevance: 10
       },
       {
-        begin: /(b|br)'/, end: /'/
+        begin: /([bB]|[bB][rR]|[rR][bB])'/, end: /'/
       },
       {
-        begin: /(b|br)"/, end: /"/
+        begin: /([bB]|[bB][rR]|[rR][bB])"/, end: /"/
       },
       {
-        begin: /(fr|rf|f)'/, end: /'/,
+        begin: /([fF][rR]|[rR][fF]|[fF])'/, end: /'/,
         contains: [hljs.BACKSLASH_ESCAPE, LITERAL_BRACKET, SUBST]
       },
       {
-        begin: /(fr|rf|f)"/, end: /"/,
+        begin: /([fF][rR]|[rR][fF]|[fF])"/, end: /"/,
         contains: [hljs.BACKSLASH_ESCAPE, LITERAL_BRACKET, SUBST]
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE
     ]
   };
-  var NUMBER = {
+
+  const NUMBER = {
     className: 'number', relevance: 0,
     variants: [
       {begin: hljs.BINARY_NUMBER_RE + '[lLjJ]?'},
@@ -84,18 +202,21 @@ export default function(hljs) {
       {begin: hljs.C_NUMBER_RE + '[lLjJ]?'}
     ]
   };
-  var PARAMS = {
+
+  const PARAMS = {
     className: 'params',
     variants: [
       // Exclude params at functions without params
       {begin: /\(\s*\)/, skip: true, className: null },
       {
         begin: /\(/, end: /\)/, excludeBegin: true, excludeEnd: true,
+        keywords: KEYWORDS,
         contains: ['self', PROMPT, NUMBER, STRING, hljs.HASH_COMMENT_MODE],
       },
     ],
   };
   SUBST.contains = [STRING, NUMBER, PROMPT];
+
   return {
     name: 'Python',
     aliases: ['py', 'gyp', 'ipython'],

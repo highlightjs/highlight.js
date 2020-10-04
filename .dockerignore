@@ -1,0 +1,15 @@
+.DS_Store
+build
+docs/_build
+__pycache__
+*.swp
+node_modules
+.project
+
+# editors
+.idea/
+.vscode/
+.Rproj.user
+
+# misc
+/work
