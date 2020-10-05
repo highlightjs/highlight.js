@@ -88,7 +88,12 @@ export default function(hljs) {
   var SPECIAL_CATCODE = {
     className: 'built_in',
     relevance: 0,
-    begin: /[{}$&^_]/
+    begin: /[$&^_]/
+  };
+  var BRACES = {
+    className: 'built_in',
+    relevance: 0,
+    begin: /[{}]/
   };
   var MAGIC_COMMENT = hljs.COMMENT(
     '% !TeX',
@@ -105,51 +110,115 @@ export default function(hljs) {
       relevance: 0
     }
   );
-  var VERBATIM = hljs.END_SAME_AS_BEGIN({
-    className: 'string',
-    variants: [
-      {
-        begin: /(?<=\\(?:verb|lstinline))\s*(.)/,
-        end: /(.)/,
-        excludeBegin: true,
-        excludeEnd: true
-      },
-      {
-        begin: /(?<=\\mintinline\s*\{[^\{\}]*\}\{)/,
-        end: /(?=\})/
-      },
-      {
-        begin: /(?<=\\(?:mint|mintinline)\s*\{[^\{\}]*\})([^\{])/,
-        end: /([^\{])/,
-        excludeBegin: true,
-        excludeEnd: true
-      },
-      {
-        begin: /(?<=\\begin\s*\{(verbatim\*?)\})/,
-        end: /(?=\\end\{(verbatim\*?)\})/
-      },
-      {
-        begin: /(?<=\\begin\s*\{([LB]?Verbatim\*?|lstlisting)\}(?:\s*\[.*?\])?\s*$)/,
-        end: /(?=\\end\{([LB]?Verbatim\*?|lstlisting)\})/
-      },
-      {
-        begin: /(?<=\\begin\s*\{(minted)\}(?:\s*\[.*?\])\s*\{.*?\}\s*$)/,
-        end: /(?=\\end\{(minted)\})/
+  var EVERYTHING_BUT_BRACES_AND_VERBATIM = [
+    CONTROL_SEQUENCE,
+    ACTIVE_CHAR,
+    MACRO_PARAM,
+    DOUBLE_CARET_CHAR,
+    SPECIAL_CATCODE,
+    MAGIC_COMMENT,
+    COMMENT
+  ];
+  var EVERYTHING_BUT_VERBATIM = [...EVERYTHING_BUT_BRACES_AND_VERBATIM, BRACES];
+  var BRACE_GROUP_NO_VERBATIM = {
+    begin: /\{/, end: /\}/,
+    keywords: {
+      $pattern: /\{|\}/,
+      built_in: '{ }'
+    },
+    relevance: 0,
+    contains: ['self', ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
+  }
+  var ARGUMENT_BRACES = hljs.inherit(
+    BRACE_GROUP_NO_VERBATIM,
+    {endsParent: true, contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]}
+  );
+  var ARGUMENT_BRACKETS = {
+    begin: /\[/, end: /\]/,
+    endsParent: true,
+    relevance: 0,
+    contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
+  }
+  var ARGUMENT_ABSENT = {
+    begin: /(?=[.$])/, end: /(?=[.$])/,
+    endsParent: true,
+    relevance: 0
+  }
+  var SPACE_GOBBLER = {
+    begin: /\s+/,
+    endsParent: true,
+    relevance: 0
+  };
+  var ARGUMENT_M = [ARGUMENT_BRACES];
+  var ARGUMENT_O = [ARGUMENT_BRACKETS, ARGUMENT_ABSENT];
+  var ARGUMENT_NONE = [ARGUMENT_ABSENT];
+  var ARGUMENT_AND_THEN = function(arg, starts_mode) {
+    return {
+      contains: [SPACE_GOBBLER],
+      starts: {
+        relevance: 0,
+        contains: arg,
+        starts: starts_mode
       }
-    ]
+    };
+  };
+  var CSNAME = function(csname, starts_mode) {
+    return hljs.inherit(
+      {
+        begin: '\\\\' + csname + '(?![a-zA-Z@:_])',
+        keywords: {$pattern: /\S+/, keyword: '\\' + csname}
+      },
+      ARGUMENT_AND_THEN(ARGUMENT_NONE, starts_mode)
+    );
+  };
+  var BEGIN_ENV = function(envname, starts_mode) {
+    return hljs.inherit(
+      {
+        begin: '\\\\begin(?=\\s*\\r?\\n?\\s*\\{' + envname + '\\})',
+        keywords: {$pattern: /\S+/, keyword: '\\begin'}
+      },
+      ARGUMENT_AND_THEN(ARGUMENT_M, starts_mode)
+    );
+  };
+  var VERBATIM_DELIMITED_EQUAL = hljs.END_SAME_AS_BEGIN({
+    className: 'string',
+    begin: /(.|\r?\n)/, end: /(.|\r?\n)/,
+    excludeBegin: true, excludeEnd: true,
+    endsParent: true
   });
+  var VERBATIM_DELIMITED_BRACES = {
+    className: 'string',
+    begin: /\{/, end: /\}/,
+    excludeBegin: true, excludeEnd: true,
+    endsParent: true
+  };
+  var VERBATIM_DELIMITED_ENV = function(envname) {
+    return {
+      className: 'string',
+      end: '(?=\\\\end\\{' + envname + '\\})'
+    };
+  };
+  var VERBATIM = {
+    variants: [
+      CSNAME('verb', {contains: [VERBATIM_DELIMITED_EQUAL]}),
+      CSNAME('lstinline', {contains: [VERBATIM_DELIMITED_EQUAL]}),
+      CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL]})),
+      CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_BRACES, VERBATIM_DELIMITED_EQUAL]})),
+      BEGIN_ENV('verbatim',    {starts: VERBATIM_DELIMITED_ENV('verbatim')}),
+      BEGIN_ENV('verbatim\\*', {starts: VERBATIM_DELIMITED_ENV('verbatim\\*')}),
+      BEGIN_ENV('Verbatim',     ARGUMENT_AND_THEN(ARGUMENT_O, {starts: VERBATIM_DELIMITED_ENV('Verbatim')})),
+      BEGIN_ENV('Verbatim\\*',  ARGUMENT_AND_THEN(ARGUMENT_O, {starts: VERBATIM_DELIMITED_ENV('Verbatim\\*')})),
+      BEGIN_ENV('BVerbatim',    ARGUMENT_AND_THEN(ARGUMENT_O, {starts: VERBATIM_DELIMITED_ENV('BVerbatim')})),
+      BEGIN_ENV('BVerbatim\\*', ARGUMENT_AND_THEN(ARGUMENT_O, {starts: VERBATIM_DELIMITED_ENV('BVerbatim\\*')})),
+      BEGIN_ENV('LVerbatim',    ARGUMENT_AND_THEN(ARGUMENT_O, {starts: VERBATIM_DELIMITED_ENV('LVerbatim')})),
+      BEGIN_ENV('LVerbatim\\*', ARGUMENT_AND_THEN(ARGUMENT_O, {starts: VERBATIM_DELIMITED_ENV('LVerbatim\\*')})),
+      BEGIN_ENV('minted',    ARGUMENT_AND_THEN(ARGUMENT_O, ARGUMENT_AND_THEN(ARGUMENT_M, {starts: VERBATIM_DELIMITED_ENV('minted')})))
+    ]
+  };
+  var EVERYTHING = [VERBATIM, ...EVERYTHING_BUT_VERBATIM];
   return {
     name: 'LaTeX',
     aliases: ['TeX'],
-    contains: [
-      VERBATIM,
-      CONTROL_SEQUENCE,
-      ACTIVE_CHAR,
-      MACRO_PARAM,
-      DOUBLE_CARET_CHAR,
-      SPECIAL_CATCODE,
-      MAGIC_COMMENT,
-      COMMENT
-    ]
+    contains: EVERYTHING
   };
 }
