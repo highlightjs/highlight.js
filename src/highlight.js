@@ -374,7 +374,7 @@ const HLJS = function(hljs) {
       list.forEach(item => emitter.openNode(item));
     }
 
-    /** @type {{type?: MatchType, index?: number, rule?: Mode}}} */
+    /** @type {{type?: MatchType, index?: number, rule?: Mode, top?: Mode}}} */
     var lastMatch = {};
 
     /**
@@ -386,12 +386,27 @@ const HLJS = function(hljs) {
     function processLexeme(textBeforeMatch, match) {
       var lexeme = match && match[0];
 
-      // add non-matched text to the current mode buffer
       modeBuffer += textBeforeMatch;
 
       if (lexeme == null) {
         processBuffer();
         return 0;
+      }
+
+      // infinite loops are BAD, this is a last ditch catch all. if we have a
+      // decent number of iterations yet our index (cursor position in our
+      // parsing) still 10x behind our index then something is very wrong
+      // so we bail
+      if (match.type === "begin" && iterations >= 10000 && iterations > match.index * 10) {
+        if (!SAFE_MODE) {
+          const err = new Error(`we appear stuck, more iterations ${iterations} than progress ${match.index}`);
+          throw err;
+        }
+        // try to move past it
+        modeBuffer += codeToHighlight.slice(match.index, match.index + 1);
+        // give us some breathing room
+        iterations -= 25;
+        return 1;
       }
 
       // we've found a 0 width match and we're stuck, so we need to advance
@@ -403,7 +418,10 @@ const HLJS = function(hljs) {
         modeBuffer += codeToHighlight.slice(match.index, match.index + 1);
         if (!SAFE_MODE) {
           /** @type {AnnotatedError} */
-          const err = new Error('0 width match regex');
+          console.log(lastMatch.rule);
+          console.log("match was", match)
+          console.log("context", codeToHighlight.slice(match.index-50, match.index+50));
+          const err = new Error('0 width match regex', lastMatch.rule);
           err.languageName = languageName;
           err.badRule = lastMatch.rule;
           throw err;
@@ -412,52 +430,49 @@ const HLJS = function(hljs) {
       }
       lastMatch = match;
 
-      if (match.type === "begin") {
-        return doBeginMatch(match);
-      } else if (match.type === "illegal" && !ignoreIllegals) {
+      /** @type {Symbol | number} */
+      let processed = 0;
+      switch (match.type) {
+      case "begin":
+        processed = doBeginMatch(match);
+        return processed;
+      case "end":
+        processed = doEndMatch(match);
+
+        /*
+        Why might be find ourselves here?  Only one occasion now.  An end match that was
+        triggered but could not be completed.  When might this happen?  When an `endSameasBegin`
+        rule sets the end rule to a specific match.  Since the overall mode termination rule that's
+        being used to scan the text isn't recompiled that means that any match that LOOKS like
+        the end (but is not, because it is not an exact match to the beginning) will
+        end up here.  A definite end match, but when `doEndMatch` tries to "reapply"
+        the end rule and fails to match, we wind up here, and just silently ignore the end.
+
+        This causes no real harm other than stopping a few times too many.
+        */
+        if (processed === NO_MATCH) {
+          modeBuffer += lexeme;
+          return lexeme.length;
+        }
+
+        return processed;
+      case "illegal":
+        if (ignoreIllegals) {
+          // edge case for when illegal matches $ (end of line) which is technically
+          // a 0 width match but not a begin/end match so it's not caught by the
+          // first handler (when ignoreIllegals is true)
+          if (lexeme === "") return 1;
+
+          modeBuffer += lexeme;
+          return lexeme.length;
+        }
+
         // illegal match, we do not continue processing
         /** @type {AnnotatedError} */
-        const err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
+        var err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
         err.mode = top;
         throw err;
-      } else if (match.type === "end") {
-        var processed = doEndMatch(match);
-        if (processed !== NO_MATCH) {
-          return processed;
-        }
       }
-
-      // edge case for when illegal matches $ (end of line) which is technically
-      // a 0 width match but not a begin/end match so it's not caught by the
-      // first handler (when ignoreIllegals is true)
-      if (match.type === "illegal" && lexeme === "") {
-        // advance so we aren't stuck in an infinite loop
-        return 1;
-      }
-
-      // infinite loops are BAD, this is a last ditch catch all. if we have a
-      // decent number of iterations yet our index (cursor position in our
-      // parsing) still 3x behind our index then something is very wrong
-      // so we bail
-      if (iterations > 100000 && iterations > match.index * 3) {
-        const err = new Error('potential infinite loop, way more iterations than matches');
-        throw err;
-      }
-
-      /*
-      Why might be find ourselves here?  Only one occasion now.  An end match that was
-      triggered but could not be completed.  When might this happen?  When an `endSameasBegin`
-      rule sets the end rule to a specific match.  Since the overall mode termination rule that's
-      being used to scan the text isn't recompiled that means that any match that LOOKS like
-      the end (but is not, because it is not an exact match to the beginning) will
-      end up here.  A definite end match, but when `doEndMatch` tries to "reapply"
-      the end rule and fails to match, we wind up here, and just silently ignore the end.
-
-      This causes no real harm other than stopping a few times too many.
-      */
-
-      modeBuffer += lexeme;
-      return lexeme.length;
     }
 
     var language = getLanguage(languageName);
