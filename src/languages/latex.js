@@ -198,12 +198,17 @@ export default function(hljs) {
       end: '(?=\\\\end\\{' + envname + '\\})'
     };
   };
+  var PATCH_CLASSNAME = function(mode, class_name) {
+    return hljs.inherit(mode, {className: class_name});
+  };
   var VERBATIM = {
     variants: [
       CSNAME('verb', {contains: [VERBATIM_DELIMITED_EQUAL]}),
       CSNAME('lstinline', {contains: [VERBATIM_DELIMITED_EQUAL]}),
       CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL]})),
       CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_BRACES, VERBATIM_DELIMITED_EQUAL]})),
+      CSNAME('url', {contains: [PATCH_CLASSNAME(VERBATIM_DELIMITED_BRACES, 'link'),
+                                PATCH_CLASSNAME(VERBATIM_DELIMITED_EQUAL, 'link')]}),
       BEGIN_ENV('verbatim',    {starts: VERBATIM_DELIMITED_ENV('verbatim')}),
       BEGIN_ENV('verbatim\\*', {starts: VERBATIM_DELIMITED_ENV('verbatim\\*')}),
       BEGIN_ENV('Verbatim',     ARGUMENT_AND_THEN(ARGUMENT_O, {starts: VERBATIM_DELIMITED_ENV('Verbatim')})),
@@ -212,7 +217,9 @@ export default function(hljs) {
       BEGIN_ENV('BVerbatim\\*', ARGUMENT_AND_THEN(ARGUMENT_O, {starts: VERBATIM_DELIMITED_ENV('BVerbatim\\*')})),
       BEGIN_ENV('LVerbatim',    ARGUMENT_AND_THEN(ARGUMENT_O, {starts: VERBATIM_DELIMITED_ENV('LVerbatim')})),
       BEGIN_ENV('LVerbatim\\*', ARGUMENT_AND_THEN(ARGUMENT_O, {starts: VERBATIM_DELIMITED_ENV('LVerbatim\\*')})),
-      BEGIN_ENV('minted',    ARGUMENT_AND_THEN(ARGUMENT_O, ARGUMENT_AND_THEN(ARGUMENT_M, {starts: VERBATIM_DELIMITED_ENV('minted')})))
+      BEGIN_ENV('minted', ARGUMENT_AND_THEN(ARGUMENT_O, ARGUMENT_AND_THEN(ARGUMENT_M, {starts: VERBATIM_DELIMITED_ENV('minted')}))),
+      BEGIN_ENV('filecontents',  ARGUMENT_AND_THEN(ARGUMENT_M, {starts: VERBATIM_DELIMITED_ENV('filecontents')})),
+      BEGIN_ENV('filecontents*', ARGUMENT_AND_THEN(ARGUMENT_M, {starts: VERBATIM_DELIMITED_ENV('filecontents*')}))
     ]
   };
   var EVERYTHING = [VERBATIM, ...EVERYTHING_BUT_VERBATIM];
