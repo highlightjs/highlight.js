@@ -25,14 +25,14 @@ export default function(hljs) {
     ].map(csname => csname + '(?![a-zA-Z@:_])').join('|'));
   var KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|:|;/
   var L3_VARIANTS = [
-    {begin: /(?:__)?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]:[nNcVvoxefTFpwD]*/}, // functions
-    {begin: /[lgc]__?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]/},                  // variables
-    {begin: /[qs]__?[a-zA-Z][a-zA-Z_]*[a-zA-Z]/},                    // quarks and scan marks
-    {begin: /use(?:_i)?:[nNcVvoxef]*/},
+    {begin: /(?:__)?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]:[a-zA-Z]*/}, // functions
+    {begin: /[lgc]__?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]/},          // variables
+    {begin: /[qs]__?[a-zA-Z][a-zA-Z_]*[a-zA-Z]/},            // quarks and scan marks
+    {begin: /use(?:_i)?:[a-zA-Z]*/},
     {begin: /(?:else|fi|or):/},
     {begin: /(?:if|cs|exp):w/},
-    {begin: /::[NnpcoefxvV:]/},
-    {begin: /::[oefxvV]_unbraced/}
+    {begin: /::[a-zA-Z:]/},
+    {begin: /::[a-zA-Z]_unbraced/}
   ];
   var L2_VARIANTS = [
     {begin: /[a-zA-Z@]+/}, // control word
