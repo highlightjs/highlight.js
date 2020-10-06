@@ -20,10 +20,10 @@
 
 <span class="hljs-keyword">if</span> (p) {
 <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> DEBUG</span>
-    <span class="hljs-built_in">fprintf</span> (<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;error: no digits converted in &#x27;%s&#x27;.\n&quot;</span>, p);
+    onething();
 <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (errno) {
 <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> DEBUG</span>
-    <span class="hljs-built_in">fprintf</span> (<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;error: over/under-flow in conversion or &#x27;%s&#x27;.\n&quot;</span>, p);
+    anotherthing();
 <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 }

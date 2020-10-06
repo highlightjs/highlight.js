@@ -20,10 +20,10 @@ int bar;
 
 if (p) {
 #ifdef DEBUG
-    fprintf (stderr, "error: no digits converted in '%s'.\n", p);
+    onething();
 #endif
 } else if (errno) {
 #ifdef DEBUG
-    fprintf (stderr, "error: over/under-flow in conversion or '%s'.\n", p);
+    anotherthing();
 #endif
 }
