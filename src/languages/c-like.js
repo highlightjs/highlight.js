@@ -119,6 +119,7 @@ export default function(hljs) {
   };
 
   var EXPRESSION_CONTAINS = [
+    PREPROCESSOR,
     CPP_PRIMITIVE_TYPES,
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
