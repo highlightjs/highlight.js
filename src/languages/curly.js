@@ -24,14 +24,14 @@ export default function (hljs)
 			},
 			{
 				className: 'unused-uwu-owo-uwu-owo',
-				begin: /\./,
+				begin: /\.\s*/,
 				contains: [
 					{
 						className: 'symbol',
 						begin: /[0-9A-Za-z_@\$][a-zA-Z0-9'_]*/
 					}
 				],
-				end: /\s/
+				end: /[\s\-\*\(\)]/
 			},
 			{
 				className: 'class',
