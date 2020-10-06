@@ -25,9 +25,9 @@ export default function(hljs) {
     ].map(csname => csname + '(?![a-zA-Z@:_])').join('|'));
   var KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|:|;/
   var L3_VARIANTS = [
-    {begin: /(?:__)?[a-zA-Z]{2,}_[a-zA-Z_]{2,}:[nNcVvoxefTFpwD]*/}, // functions
-    {begin: /[lgc]__?[a-zA-Z]+_[a-zA-Z_]+/},                        // variables
-    {begin: /[qs]__?[a-zA-Z_]{2,}/},                    // quarks and scan marks
+    {begin: /(?:__)?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]:[nNcVvoxefTFpwD]*/}, // functions
+    {begin: /[lgc]__?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]/},                  // variables
+    {begin: /[qs]__?[a-zA-Z][a-zA-Z_]*[a-zA-Z]/},                    // quarks and scan marks
     {begin: /use(?:_i)?:[nNcVvoxef]*/},
     {begin: /(?:else|fi|or):/},
     {begin: /(?:if|cs|exp):w/},
