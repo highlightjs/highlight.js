@@ -48,6 +48,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | CpcdosC+                | cpc                    | [highlightjs-cpcdos](https://github.com/SPinti-Software/highlightjs-cpcdos) |
 | Crmsh                   | crmsh, crm, pcmk       |         |
 | Crystal                 | crystal, cr            |         |
+| Curly                   | curly                  |         |
 | Cypher (Neo4j)          | cypher                 | [highlightjs-cypher](https://github.com/highlightjs/highlightjs-cypher) |
 | D                       | d                      |         |
 | DNS Zone file           | dns, zone, bind        |         |
