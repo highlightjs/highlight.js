@@ -72,11 +72,6 @@ export default function(hljs) {
       }
     ]
   };
-  var ACTIVE_CHAR = {
-    className: 'keyword',
-    relevance: 0,
-    begin: /~|"/
-  };
   var MACRO_PARAM = {
     className: 'params',
     relevance: 0,
@@ -112,7 +107,6 @@ export default function(hljs) {
   );
   var EVERYTHING_BUT_BRACES_AND_VERBATIM = [
     CONTROL_SEQUENCE,
-    ACTIVE_CHAR,
     MACRO_PARAM,
     DOUBLE_CARET_CHAR,
     SPECIAL_CATCODE,
