@@ -35,11 +35,15 @@ export default function(hljs) {
   };
   const HERE_DOC = {
     begin: /<<-?\s*(?=\w+)/,
-    starts: hljs.END_SAME_AS_BEGIN({
-      begin: /(\w+)/,
-      end: /(\w+)/,
-      className: 'string'
-    })
+    starts: {
+      contains: [
+        hljs.END_SAME_AS_BEGIN({
+          begin: /(\w+)/,
+          end: /(\w+)/,
+          className: 'string'
+        })
+      ]
+    }
   };
   const QUOTE_STRING = {
     className: 'string',
