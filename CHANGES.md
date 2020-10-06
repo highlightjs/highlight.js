@@ -21,6 +21,10 @@ Language Improvements:
 - enh(typescript) TypeScript also gains support for numeric separators (#2617) [Antoine du Hamel][]
 - enh(php) Add support for PHP 8 `match` keyword and add `php8` as an alias (#2733) [Ayesh Karunaratne][]
 
+Deprecations:
+
+- `useBR` option deprecated and will be removed in v11.0. (#2559) [Josh Goebel][]
+
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Jonasson]: https://github.com/ryanjonasson
