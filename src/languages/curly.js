@@ -23,8 +23,15 @@ export default function (hljs)
 				begin: /\b[0-9]+(\.[0-9]+)?/
 			},
 			{
-				className: 'symbol',
-				begin: /\.[A-Za-z_@\$][a-zA-Z0-9'_]*/
+				className: 'unused-uwu-owo-uwu-owo',
+				begin: /\./,
+				contains: [
+					{
+						className: 'symbol',
+						begin: /[0-9A-Za-z_@\$][a-zA-Z0-9'_]*/
+					}
+				],
+				end: /\s/
 			},
 			{
 				className: 'class',
