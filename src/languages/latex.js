@@ -166,7 +166,7 @@ export default function(hljs) {
     return hljs.inherit(
       {
         begin: '\\\\' + csname + '(?![a-zA-Z@:_])',
-        keywords: {$pattern: /\S+/, keyword: '\\' + csname}
+        keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\' + csname}
       },
       ARGUMENT_AND_THEN(ARGUMENT_NONE, starts_mode)
     );
@@ -175,7 +175,7 @@ export default function(hljs) {
     return hljs.inherit(
       {
         begin: '\\\\begin(?=\\s*\\r?\\n?\\s*\\{' + envname + '\\})',
-        keywords: {$pattern: /\S+/, keyword: '\\begin'}
+        keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\begin'}
       },
       ARGUMENT_AND_THEN(ARGUMENT_M, starts_mode)
     );
