@@ -14,4 +14,8 @@ class Car extends Vehicle {
   other(a = ( ( 3 + 2 ) ) ) {
     console.log(a)
   }
+  something(a = ( ( 3 + 2 ) ), b = 1 ) {
+    console.log(a)
+  }
+  onemore(a=(3+2, b=(5*9))) {}
 }
