@@ -33,6 +33,18 @@ export default function(hljs) {
     begin: /\$\(/, end: /\)/,
     contains: [hljs.BACKSLASH_ESCAPE]
   };
+  const HERE_DOC = {
+    begin: /<<-?\s*(?=\w+)/,
+    starts: {
+      contains: [
+        hljs.END_SAME_AS_BEGIN({
+          begin: /(\w+)/,
+          end: /(\w+)/,
+          className: 'string'
+        })
+      ]
+    }
+  };
   const QUOTE_STRING = {
     className: 'string',
     begin: /"/, end: /"/,
@@ -117,6 +129,7 @@ export default function(hljs) {
       FUNCTION,
       ARITHMETIC,
       hljs.HASH_COMMENT_MODE,
+      HERE_DOC,
       QUOTE_STRING,
       ESCAPED_QUOTE,
       APOS_STRING,
