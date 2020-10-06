@@ -24,7 +24,22 @@ export default function (hljs)
 			},
 			{
 				className: 'symbol',
-				begin: /\b[A-Za-z_@\$][a-zA-Z0-9'_]*(?=\s*\:)|\.[A-Za-z_@\$][a-zA-Z0-9'_]*/
+				begin: /\.[A-Za-z_@\$][a-zA-Z0-9'_]*/
+			},
+			{
+				className: 'class',
+				beginKeywords: 'type',
+				contains: [
+					{
+						className: 'symbol',
+						begin: /\b[A-Za-z_@\$][a-zA-Z0-9'_]*(?=\s*\:)/,
+					},
+					{
+						className: 'type',
+						begin: /\b[A-Z][a-z0-9_A-Z']*/
+					}
+				],
+				end: /\n(?!\s*[&\|\*\(\)])/
 			},
 			{
 				className: 'type',
