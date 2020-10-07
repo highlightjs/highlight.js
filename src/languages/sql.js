@@ -10,8 +10,8 @@ Goals:
 
 SQL is intended to highlight basic/common SQL keywords and expressions
 
-- It is not intended to include tons of vendor specific keywords
-  such as Oracle, MySQL, PostgreSQL, etc...
+- It is NOT intended to include tons of vendor specific keywords (Oracle, MySQL,
+  PostgreSQL) although the list of data types is purposely a bit more expansive.
 - For more specific SQL grammars please see:
   - PostgreSQL and PL/pgSQL - core
   - T-SQL - https://github.com/highlightjs/highlightjs-tsql
