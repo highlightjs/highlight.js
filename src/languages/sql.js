@@ -299,6 +299,11 @@ export default function(hljs) {
     begin: /@[a-z0-9]+/,
   };
 
+  const OPERATOR = {
+    className: "operator",
+    begin: /[-+*\/=%^~]|&&?|\|\|?|!=?|<(?:=>?|<|>)?|>[>=]?/
+  };
+
   const FUNCTION_CALL = {
     begin: regex.concat(/\b/,regex.either(...FUNCTIONS),/\s*\(/),
     keywords: {
@@ -352,7 +357,8 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       COMMENT_MODE,
-      hljs.HASH_COMMENT_MODE
+      hljs.HASH_COMMENT_MODE,
+      OPERATOR
     ]
   };
 }
