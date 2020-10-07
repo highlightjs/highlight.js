@@ -15,6 +15,7 @@ SQL is intended to highlight basic/common SQL keywords and expressions
 - For more specific SQL grammars please see:
   - PostgreSQL and PL/pgSQL - core
   - T-SQL - https://github.com/highlightjs/highlightjs-tsql
+  - sql_more (core)
 
  */
 
@@ -282,14 +283,6 @@ export default function(hljs) {
     "without"
   ];
 
-  const RELEVANT_KEYWORDS = [
-    "where",
-    "constraint",
-    "table",
-    "values",
-    "primary"
-  ];
-
   const COMBOS = [
     "create table",
     "insert into",
@@ -344,7 +337,6 @@ export default function(hljs) {
     contains: [
       {
         begin: regex.either(...COMBOS),
-        relevance: 0,
         keywords: {
           $pattern: /[\w\.]+/,
           keyword: KEYWORDS.join(" "),
