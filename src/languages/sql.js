@@ -6,7 +6,23 @@
  */
 
 export default function(hljs) {
-  var COMMENT_MODE = hljs.COMMENT('--', '$');
+  const COMMENT_MODE = hljs.COMMENT('--', '$');
+  const STRING = {
+    className: 'string',
+    variants: [
+    {
+      begin: '\'', end: '\'',
+      contains: [{begin: '\'\''}]
+    },
+    {
+      begin: '"', end: '"',
+      contains: [{begin: '""'}]
+    },
+    {
+      begin: '`', end: '`'
+    }
+  ]};
+
   return {
     name: 'SQL',
     case_insensitive: true,
@@ -140,26 +156,14 @@ export default function(hljs) {
             'numeric real record serial serial8 smallint text time timestamp tinyint varchar varchar2 varying void'
         },
         contains: [
-          {
-            className: 'string',
-            begin: '\'', end: '\'',
-            contains: [{begin: '\'\''}]
-          },
-          {
-            className: 'string',
-            begin: '"', end: '"',
-            contains: [{begin: '""'}]
-          },
-          {
-            className: 'string',
-            begin: '`', end: '`'
-          },
+          STRING,
           hljs.C_NUMBER_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
           COMMENT_MODE,
           hljs.HASH_COMMENT_MODE
         ]
       },
+      STRING,
       hljs.C_BLOCK_COMMENT_MODE,
       COMMENT_MODE,
       hljs.HASH_COMMENT_MODE
