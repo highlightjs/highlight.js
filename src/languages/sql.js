@@ -1,7 +1,7 @@
 /*
  Language: SQL
  Website: https://en.wikipedia.org/wiki/SQL
- Category: common
+ Category: common, database
  */
 
 /*

@@ -1,5 +1,5 @@
 /*
- Language: SQL (mix of MySQL, Oracle, etc)
+ Language: SQL More (mix of MySQL, Oracle, etc)
  Contributors: Nikolay Lisienko <info@neor.ru>, Heiko August <post@auge8472.de>, Travis Odom <travis.a.odom@gmail.com>, Vadimtro <vadimtro@yahoo.com>, Benjamin Auder <benjamin.auder@gmail.com>
  Website: https://en.wikipedia.org/wiki/SQL
  Category: database
@@ -19,7 +19,7 @@ which databases.  This is likely to be removed in the future.
 export default function(hljs) {
   var COMMENT_MODE = hljs.COMMENT('--', '$');
   return {
-    name: 'SQL',
+    name: 'SQL (more)',
     aliases: ["mysql", "oraclesql"],
     disableAutodetect: true,
     case_insensitive: true,
