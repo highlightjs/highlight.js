@@ -63,7 +63,7 @@ export default function(hljs) {
     literal: ECMAScript.LITERALS.join(" "),
     built_in: ECMAScript.BUILT_INS.join(" ")
   };
-  const nonDecimalLiterals = (prefixLetters, validChars) => 
+  const nonDecimalLiterals = (prefixLetters, validChars) =>
     `\\b0[${prefixLetters}][${validChars}]([${validChars}_]*[${validChars}])?n?`;
   const noLeadingZeroDecimalDigits = /[1-9]([0-9_]*\d)?/;
   const decimalDigits = /\d([0-9_]*\d)?/;
@@ -204,7 +204,7 @@ export default function(hljs) {
     keywords: KEYWORDS,
     // this will be extended by TypeScript
     exports: { PARAMS_CONTAINS },
-    illegal: /#(?!!)/,
+    illegal: /#(?![$_A-z])/,
     contains: [
       hljs.SHEBANG({
         label: "shebang",
