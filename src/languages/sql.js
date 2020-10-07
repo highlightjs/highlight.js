@@ -1417,30 +1417,20 @@ export default function(hljs) {
   return {
     name: 'SQL',
     case_insensitive: true,
-    illegal: /[<>{}*]/,
+    // does not include {} or HTML tags `</`
+    illegal: /[{}]|<\//,
+    keywords: {
+      $pattern: /[\w\.]+/,
+      keyword:
+        STATEMENT_KEYWORDS.concat(REGULAR_KEYWORDS).join(" "),
+      literal:
+        LITERALS.join(" "),
+      built_in:
+        BUILT_INS.join(" ")
+    },
     contains: [
-      {
-        beginKeywords:
-          STATEMENT_KEYWORDS.join(" "),
-        end: /;/, endsWithParent: true,
-        keywords: {
-          $pattern: /[\w\.]+/,
-          keyword:
-            REGULAR_KEYWORDS.join(" "),
-          literal:
-            LITERALS.join(" "),
-          built_in:
-            BUILT_INS.join(" ")
-        },
-        contains: [
-          STRING,
-          hljs.C_NUMBER_MODE,
-          hljs.C_BLOCK_COMMENT_MODE,
-          COMMENT_MODE,
-          hljs.HASH_COMMENT_MODE
-        ]
-      },
       STRING,
+      hljs.C_NUMBER_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       COMMENT_MODE,
       hljs.HASH_COMMENT_MODE
