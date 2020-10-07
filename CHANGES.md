@@ -2,6 +2,7 @@
 
 Language Improvements:
 
+- fix(c-like) preprocessor directives not detected after else (#2738) [Josh Goebel][]
 - enh(javascript) allow `#` for private class fields (#2701) [Chris Krycho][]
 - fix(bash) enh(bash) allow nested params (#2731) [Josh Goebel][]
 - fix(python) Fix highlighting of keywords and strings (#2713, #2715) [Konrad Rudolph][]
