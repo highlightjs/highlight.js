@@ -1438,6 +1438,11 @@ export default function(hljs) {
     "add constraint",
   ];
 
+  const VARIABLE = {
+    className: "variable",
+    begin: /@[a-z0-9]+/,
+  };
+
   // makes all keywords worth 0 by default
   // SQL simply has too many keywords to match them top-level
   // without any other context
@@ -1477,6 +1482,7 @@ export default function(hljs) {
           built_in: BUILT_INS.join(" ")
         },
       },
+      VARIABLE,
       STRING,
       hljs.C_NUMBER_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
