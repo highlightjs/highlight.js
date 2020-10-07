@@ -300,7 +300,7 @@ export default function(hljs) {
   };
 
   const FUNCTION_CALL = {
-    begin: regex.concat(regex.either(...FUNCTIONS),/\s*\(/),
+    begin: regex.concat(/\b/,regex.either(...FUNCTIONS),/\s*\(/),
     keywords: {
       built_in: FUNCTIONS.join(" ")
     }
@@ -327,7 +327,7 @@ export default function(hljs) {
     // does not include {} or HTML tags `</`
     illegal: /[{}]|<\//,
     keywords: {
-      $pattern: /[\w\.]+/,
+      $pattern: /\b[\w\.]+/,
       keyword:
         // STATEMENT_KEYWORDS.concat(
           // defaultScoreZero(REGULAR_KEYWORDS, {exceptions: RELEVANT_KEYWORDS}))
