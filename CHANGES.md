@@ -2,6 +2,8 @@
 
 Language Improvements:
 
+- enh(javascipt/typescript) Highlight class methods as functions (#2727) [Josh Goebel][]
+- fix(javascipt/typescript) `constructor` is now highlighted as a function title (not keyword) (#2727) [Josh Goebel][]
 - fix(c-like) preprocessor directives not detected after else (#2738) [Josh Goebel][]
 - enh(javascript) allow `#` for private class fields (#2701) [Chris Krycho][]
 - fix(bash) enh(bash) allow nested params (#2731) [Josh Goebel][]
