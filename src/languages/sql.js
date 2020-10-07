@@ -65,8 +65,17 @@ export default function(hljs) {
     'void'
   ];
 
-  const REGULAR_KEYWORDS = [
+  const MYSQL_KEYWORDS = [
+    'aes_decrypt',
+    'aes_encrypt'
+  ];
+  const GENERIC_KEYWORDS = [
     'as',
+    'join',
+    'like',
+    'where',
+  ];
+  const OTHER_KEYWORDS = [
     'abort',
     'abs',
     'absolute',
@@ -87,8 +96,6 @@ export default function(hljs) {
     'administer',
     'advanced',
     'advise',
-    'aes_decrypt',
-    'aes_encrypt',
     'after',
     'agent',
     'aggregate',
@@ -603,7 +610,6 @@ export default function(hljs) {
     'isolation',
     'iterate',
     'java',
-    'join',
     'json',
     'json_exists',
     'keep',
@@ -632,7 +638,6 @@ export default function(hljs) {
     'level',
     'levels',
     'library',
-    'like',
     'like2',
     'like4',
     'likec',
@@ -1323,7 +1328,6 @@ export default function(hljs) {
     'whenev',
     'wheneve',
     'whenever',
-    'where',
     'while',
     'whitespace',
     'window',
@@ -1356,6 +1360,7 @@ export default function(hljs) {
     'years',
     'yearweek'
   ];
+  const REGULAR_KEYWORDS = MYSQL_KEYWORDS.concat(GENERIC_KEYWORDS, OTHER_KEYWORDS);
   const STATEMENT_KEYWORDS = [
     'begin',
     'end',
