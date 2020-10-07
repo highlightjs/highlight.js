@@ -4,6 +4,8 @@ Language Improvements:
 
 - enh(javascipt/typescript) Highlight class methods as functions (#2727) [Josh Goebel][]
 - fix(javascipt/typescript) `constructor` is now highlighted as a function title (not keyword) (#2727) [Josh Goebel][]
+- fix(c-like) preprocessor directives not detected after else (#2738) [Josh Goebel][]
+- enh(javascript) allow `#` for private class fields (#2701) [Chris Krycho][]
 - fix(bash) enh(bash) allow nested params (#2731) [Josh Goebel][]
 - fix(python) Fix highlighting of keywords and strings (#2713, #2715) [Konrad Rudolph][]
 - fix(fsharp) Prevent `(*)` from being detected as a multi-line comment [Josh Goebel][]
@@ -23,6 +25,11 @@ Language Improvements:
 - enh(typescript) TypeScript also gains support for numeric separators (#2617) [Antoine du Hamel][]
 - enh(php) Add support for PHP 8 `match` keyword and add `php8` as an alias (#2733) [Ayesh Karunaratne][]
 
+Deprecations:
+
+- `useBR` option deprecated and will be removed in v11.0. (#2559) [Josh Goebel][]
+
+[Chris Krycho]: https://github.com/chriskrycho
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Jonasson]: https://github.com/ryanjonasson

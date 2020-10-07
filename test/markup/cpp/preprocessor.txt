@@ -17,3 +17,13 @@ int foo(void)
     EXPRESSION
 int bar;
 #endif  // comment
+
+if (p) {
+#ifdef DEBUG
+    onething();
+#endif
+} else if (errno) {
+#ifdef DEBUG
+    anotherthing();
+#endif
+}

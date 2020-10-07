@@ -706,6 +706,10 @@ const HLJS = function(hljs) {
    * @param {{}} userOptions
    */
   function configure(userOptions) {
+    if (userOptions.useBR) {
+      console.warn("'useBR' option is deprecated and will be removed entirely in v11.0");
+      console.warn("Please see https://github.com/highlightjs/highlight.js/issues/2559");
+    }
     options = inherit(options, userOptions);
   }
 
