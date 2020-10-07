@@ -5,7 +5,7 @@
  Category: common
  */
 
-import { BUILT_INS } from "./lib/ecmascript";
+import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
   const COMMENT_MODE = hljs.COMMENT('--', '$');
@@ -915,6 +915,7 @@ export default function(hljs) {
     'prepare',
     'present',
     'preserve',
+    'primary',
     'prior',
     'priority',
     'private',
@@ -1414,6 +1415,37 @@ export default function(hljs) {
     'with'
   ];
 
+  const RELEVANT_KEYWORDS = [
+    "where",
+    "constraint",
+    "table",
+    "values",
+    "primary"
+  ];
+
+  const COMBOS = [
+    "create table",
+    "insert into",
+    "primary key",
+    "foreign key",
+    "not null",
+    "alter table",
+    "add constraint",
+  ];
+
+  // makes all keywords worth 0 by default
+  // SQL simply has too many keywords to match them top-level
+  // without any other context
+  function defaultScoreZero(list, {exceptions}) {
+    return list.map((item) => {
+      if (item.match(/\|\d+$/) || exceptions.includes(item)) {
+        return item;
+      } else {
+        return `${item}|0`;
+      }
+    });
+  }
+
   return {
     name: 'SQL',
     case_insensitive: true,
@@ -1422,13 +1454,24 @@ export default function(hljs) {
     keywords: {
       $pattern: /[\w\.]+/,
       keyword:
-        STATEMENT_KEYWORDS.concat(REGULAR_KEYWORDS).join(" "),
-      literal:
-        LITERALS.join(" "),
-      built_in:
-        BUILT_INS.join(" ")
+        STATEMENT_KEYWORDS.concat(
+          defaultScoreZero(REGULAR_KEYWORDS, {exceptions: RELEVANT_KEYWORDS}))
+        .join(" "),
+      literal: LITERALS.join(" "),
+      built_in: BUILT_INS.join(" ")
     },
     contains: [
+      {
+        begin: regex.either(...COMBOS),
+        relevance: 0,
+        keywords: {
+          $pattern: /[\w\.]+/,
+          keyword:
+          STATEMENT_KEYWORDS.concat(REGULAR_KEYWORDS).join(" "),
+          literal: LITERALS.join(" "),
+          built_in: BUILT_INS.join(" ")
+        },
+      },
       STRING,
       hljs.C_NUMBER_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
