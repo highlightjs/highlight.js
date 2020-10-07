@@ -71,7 +71,7 @@ detection still works with your language definition included in the whole suite.
 
 Testing is done using `Mocha <http://mochajs.org/>`_ and the
 files are found in the ``test/`` directory. You can use the node build to
-run the tests in the command line with ``npm test`` after building_. (Using
+run the tests from the command line with ``npm test`` after building_. (Using
 ``npm run build_and_test`` you can build and then test with one command.)
 
 **Note**: for Debian-based machine, like Ubuntu, you might need to create an
