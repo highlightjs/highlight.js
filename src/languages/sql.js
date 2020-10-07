@@ -922,7 +922,6 @@ export default function(hljs) {
     'prompt',
     'protection',
     'public',
-    'publishingservername',
     'purge',
     'quarter',
     'query',
