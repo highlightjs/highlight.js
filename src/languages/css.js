@@ -65,7 +65,7 @@ export default function(hljs) {
         className: 'selector-id', begin: /#[A-Za-z0-9_-]+/
       },
       {
-        className: 'selector-class', begin: /\.[A-Za-z0-9_-]+/
+        className: 'selector-class', begin: '\\.' + IDENT_RE
       },
       {
         className: 'selector-attr',
