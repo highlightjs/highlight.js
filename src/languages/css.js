@@ -49,7 +49,7 @@ export default function(hljs) {
   var AT_PROPERTY_RE = /@-?\w[\w]*(-\w+)*/ // @-webkit-keyframes
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   var RULE = {
-    begin: /(?:[A-Z_.-]+|--[a-zA-Z0-9_-]+)\s*:/, returnBegin: true, end: ';', endsWithParent: true,
+    begin: /([*]\s?)?(?:[A-Z_.\-\\]+|--[a-zA-Z0-9_-]+)\s*(\/\*\*\/)?:/, returnBegin: true, end: ';', endsWithParent: true,
     contains: [
       ATTRIBUTE
     ]
