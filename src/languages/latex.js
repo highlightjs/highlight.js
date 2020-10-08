@@ -24,16 +24,16 @@ export default function(hljs) {
       '(?:label|(?:eq|page|name)?ref|(?:paren|foot|super)?cite)'
     ].map(csname => csname + '(?![a-zA-Z@:_])').join('|'));
   var KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|;/
-  var L3_VARIANTS = [
-    {begin: /(?:__)?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]:[a-zA-Z]*/}, // functions
-    {begin: /[lgc]__?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]/},          // variables
-    {begin: /[qs]__?[a-zA-Z][a-zA-Z_]*[a-zA-Z]/},            // quarks and scan marks
-    {begin: /use(?:_i)?:[a-zA-Z]*/},
-    {begin: /(?:else|fi|or):/},
-    {begin: /(?:if|cs|exp):w/},
-    {begin: /::[a-zA-Z:]/},
-    {begin: /::[a-zA-Z]_unbraced/}
-  ];
+  var L3_REGEX = new RegExp([
+      '(?:__)?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]:[a-zA-Z]*',
+      '[lgc]__?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]',
+      '[qs]__?[a-zA-Z][a-zA-Z_]*[a-zA-Z]',
+      'use(?:_i)?:[a-zA-Z]*',
+      '(?:else|fi|or):',
+      '(?:if|cs|exp):w',
+      '::[a-zA-Z]_unbraced',
+      '::[a-zA-Z:]'
+    ].map(pattern => pattern + '(?![a-zA-Z:_])').join('|'));
   var L2_VARIANTS = [
     {begin: /[a-zA-Z@]+/}, // control word
     {begin: /[^a-zA-Z@]?/} // control symbol
@@ -59,7 +59,7 @@ export default function(hljs) {
       },
       {
         endsParent: true,
-        variants: L3_VARIANTS
+        begin: L3_REGEX
       },
       {
         endsParent: true,
