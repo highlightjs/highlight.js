@@ -301,7 +301,8 @@ export default function(hljs) {
 
   const OPERATOR = {
     className: "operator",
-    begin: /[-+*\/=%^~]|&&?|\|\|?|!=?|<(?:=>?|<|>)?|>[>=]?/
+    begin: /[-+*\/=%^~]|&&?|\|\|?|!=?|<(?:=>?|<|>)?|>[>=]?/,
+    relevance: 0,
   };
 
   const FUNCTION_CALL = {
