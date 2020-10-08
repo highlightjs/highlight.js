@@ -197,23 +197,19 @@ export default function(hljs) {
   };
   var VERBATIM = {
     variants: [
-      CSNAME('verb', {contains: [VERBATIM_DELIMITED_EQUAL]}),
-      CSNAME('lstinline', {contains: [VERBATIM_DELIMITED_EQUAL]}),
+      ...['verb', 'lstinline'].map(csname => CSNAME('verb', {contains: [VERBATIM_DELIMITED_EQUAL]})),
       CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL]})),
       CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_BRACES, VERBATIM_DELIMITED_EQUAL]})),
       CSNAME('url', {contains: [PATCH_CLASSNAME(VERBATIM_DELIMITED_BRACES, 'link'),
                                 PATCH_CLASSNAME(VERBATIM_DELIMITED_EQUAL, 'link')]}),
-      BEGIN_ENV('verbatim',    VERBATIM_DELIMITED_ENV('verbatim')),
-      BEGIN_ENV('verbatim\\*', VERBATIM_DELIMITED_ENV('verbatim\\*')),
-      BEGIN_ENV('Verbatim',     ARGUMENT_AND_THEN(ARGUMENT_O, VERBATIM_DELIMITED_ENV('Verbatim'))),
-      BEGIN_ENV('Verbatim\\*',  ARGUMENT_AND_THEN(ARGUMENT_O, VERBATIM_DELIMITED_ENV('Verbatim\\*'))),
-      BEGIN_ENV('BVerbatim',    ARGUMENT_AND_THEN(ARGUMENT_O, VERBATIM_DELIMITED_ENV('BVerbatim'))),
-      BEGIN_ENV('BVerbatim\\*', ARGUMENT_AND_THEN(ARGUMENT_O, VERBATIM_DELIMITED_ENV('BVerbatim\\*'))),
-      BEGIN_ENV('LVerbatim',    ARGUMENT_AND_THEN(ARGUMENT_O, VERBATIM_DELIMITED_ENV('LVerbatim'))),
-      BEGIN_ENV('LVerbatim\\*', ARGUMENT_AND_THEN(ARGUMENT_O, VERBATIM_DELIMITED_ENV('LVerbatim\\*'))),
+      ...[].concat(...['', '\\*'].map(suffix => [
+        BEGIN_ENV('verbatim' + suffix, VERBATIM_DELIMITED_ENV('verbatim' + suffix)),
+        BEGIN_ENV('filecontents' + suffix,  ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('filecontents' + suffix))),
+        ...['', 'B', 'L'].map(prefix =>
+          BEGIN_ENV(prefix + 'Verbatim' + suffix, ARGUMENT_AND_THEN(ARGUMENT_O, VERBATIM_DELIMITED_ENV(prefix + 'Verbatim' + suffix)))
+        )
+      ])),
       BEGIN_ENV('minted', ARGUMENT_AND_THEN(ARGUMENT_O, ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('minted')))),
-      BEGIN_ENV('filecontents',  ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('filecontents'))),
-      BEGIN_ENV('filecontents*', ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('filecontents*')))
     ]
   };
   var EVERYTHING = [VERBATIM, ...EVERYTHING_BUT_VERBATIM];
