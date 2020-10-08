@@ -125,6 +125,7 @@ export default function(hljs) {
         illegal: /\S/,
         contains: [
           hljs.C_BLOCK_COMMENT_MODE,
+          { begin: /;/ }, // empty ; rule
           RULE,
         ]
       }
