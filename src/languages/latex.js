@@ -23,7 +23,7 @@ export default function(hljs) {
       'caption',
       '(?:label|(?:eq|page|name)?ref|(?:paren|foot|super)?cite)'
     ].map(csname => csname + '(?![a-zA-Z@:_])').join('|'));
-  var KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|:|;/
+  var KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|;/
   var L3_VARIANTS = [
     {begin: /(?:__)?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]:[a-zA-Z]*/}, // functions
     {begin: /[lgc]__?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]/},          // variables
