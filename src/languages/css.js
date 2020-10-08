@@ -58,7 +58,7 @@ export default function(hljs) {
   return {
     name: 'CSS',
     case_insensitive: true,
-    illegal: /[=\/|'\$]/,
+    illegal: /[=|'\$]/,
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
       {
