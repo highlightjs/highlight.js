@@ -139,7 +139,7 @@ export default function(hljs) {
     'select',
     'set',
     'unmanaged',
-    'value',
+    'value|0',
     'var',
     'when',
     'where',
@@ -274,7 +274,9 @@ export default function(hljs) {
       STRING,
       NUMBERS,
       {
-        beginKeywords: 'class interface', end: /[{;=]/,
+        beginKeywords: 'class interface',
+        relevance: 0,
+        end: /[{;=]/,
         illegal: /[^\s:,]/,
         contains: [
           { beginKeywords: "where class" },
@@ -285,7 +287,9 @@ export default function(hljs) {
         ]
       },
       {
-        beginKeywords: 'namespace', end: /[{;=]/,
+        beginKeywords: 'namespace',
+        relevance: 0,
+        end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
           TITLE_MODE,
@@ -294,7 +298,9 @@ export default function(hljs) {
         ]
       },
       {
-        beginKeywords: 'record', end: /[{;=]/,
+        beginKeywords: 'record',
+        relevance: 0,
+        end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
           TITLE_MODE,
@@ -324,7 +330,10 @@ export default function(hljs) {
         keywords: KEYWORDS,
         contains: [
           // prevents these from being highlighted `title`
-          { beginKeywords: FUNCTION_MODIFIERS.join(" ")},
+          {
+            beginKeywords: FUNCTION_MODIFIERS.join(" "),
+            relevance: 0
+          },
           {
             begin: hljs.IDENT_RE + '\\s*(<.+>)?\\s*\\(', returnBegin: true,
             contains: [
