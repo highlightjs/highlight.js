@@ -25,9 +25,9 @@ export default function(hljs) {
     ].map(csname => csname + '(?![a-zA-Z@:_])').join('|'));
   var KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|;/
   var L3_REGEX = new RegExp([
-      '(?:__)?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]:[a-zA-Z]*',
-      '[lgc]__?[a-zA-Z]{2,}_[a-zA-Z][a-zA-Z_]*[a-zA-Z]',
-      '[qs]__?[a-zA-Z][a-zA-Z_]*[a-zA-Z]',
+      '(?:__)?[a-zA-Z]{2,}_[a-zA-Z](?:_?[a-zA-Z])*[a-zA-Z]:[a-zA-Z]*',
+      '[lgc]__?[a-zA-Z]{2,}_[a-zA-Z](?:_?[a-zA-Z])*[a-zA-Z]',
+      '[qs]__?[a-zA-Z](?:_?[a-zA-Z])*[a-zA-Z]',
       'use(?:_i)?:[a-zA-Z]*',
       '(?:else|fi|or):',
       '(?:if|cs|exp):w',
