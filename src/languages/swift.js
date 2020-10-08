@@ -156,7 +156,8 @@ export default function(hljs) {
       },
       {
         beginKeywords: 'import', end: /$/,
-        contains: [hljs.C_LINE_COMMENT_MODE, BLOCK_COMMENT]
+        contains: [hljs.C_LINE_COMMENT_MODE, BLOCK_COMMENT],
+        relevance: 0
       }
     ]
   };
