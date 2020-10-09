@@ -181,10 +181,22 @@ export default function(hljs) {
     endsParent: true
   });
   var VERBATIM_DELIMITED_BRACES = {
-    className: 'string',
-    begin: /\{/, end: /\}/,
-    excludeBegin: true, excludeEnd: true,
-    endsParent: true
+    className: 'built_in',
+    begin: /(?=\{)/, end: /\{/,
+    starts: {
+      className: 'string',
+      begin: /(?=[.$])/, end: /(?=\})/,
+      endsParent: true,
+      contains: [
+        {
+          variants: [
+            {begin: /[^\{\}]+/},
+            {begin: /\{/, end: /\}/}
+          ],
+          contains: ['self']
+        }
+      ]
+    }
   };
   var VERBATIM_DELIMITED_ENV = function(envname) {
     return {
