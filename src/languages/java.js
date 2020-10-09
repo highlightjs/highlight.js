@@ -84,6 +84,12 @@ export default function(hljs) {
           ]
         }
       ),
+      // relevance boost
+      {
+        begin: /import java\.[a-z]+\./,
+        keywords: "import",
+        relevance: 2
+      },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.APOS_STRING_MODE,
