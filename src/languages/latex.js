@@ -210,7 +210,7 @@ export default function(hljs) {
   var URL_DELIMITED_BRACES = hljs.inherit(VERBATIM_DELIMITED_BRACES, {starts: URL_DELIMITED_BRACES_INNER});
   var VERBATIM = {
     variants: [
-      ...['verb', 'lstinline'].map(csname => CSNAME('verb', {contains: [VERBATIM_DELIMITED_EQUAL]})),
+      ...['verb', 'lstinline'].map(csname => CSNAME(csname, {contains: [VERBATIM_DELIMITED_EQUAL]})),
       CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL]})),
       CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_BRACES, VERBATIM_DELIMITED_EQUAL]})),
       CSNAME('url', {contains: [URL_DELIMITED_BRACES, URL_DELIMITED_EQUAL]}),
