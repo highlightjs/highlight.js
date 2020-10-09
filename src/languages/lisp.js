@@ -80,7 +80,10 @@ export default function(hljs) {
     {
       className: 'name',
       variants: [
-        {begin: LISP_IDENT_RE},
+        {
+          begin: LISP_IDENT_RE,
+          relevance: 0,
+        },
         {begin: MEC_RE}
       ]
     },
