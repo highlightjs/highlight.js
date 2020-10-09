@@ -215,6 +215,7 @@ export default function(hljs) {
       CSNAME('url', {contains: [PATCH_CLASSNAME(VERBATIM_DELIMITED_BRACES, 'link'),
                                 PATCH_CLASSNAME(VERBATIM_DELIMITED_EQUAL, 'link')]}),
       CSNAME('hyperref', {contains: [PATCH_CLASSNAME(VERBATIM_DELIMITED_BRACES, 'link')]}),
+      CSNAME('href', ARGUMENT_AND_THEN(ARGUMENT_O, {contains: [PATCH_CLASSNAME(VERBATIM_DELIMITED_BRACES, 'link')]})),
       ...[].concat(...['', '\\*'].map(suffix => [
         BEGIN_ENV('verbatim' + suffix, VERBATIM_DELIMITED_ENV('verbatim' + suffix)),
         BEGIN_ENV('filecontents' + suffix,  ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('filecontents' + suffix))),
