@@ -78,7 +78,10 @@ export default function(hljs) {
             'throw throws try catch finally implements extends new import package return instanceof'
         },
         contains: [
-            hljs.SHEBANG(),
+            hljs.SHEBANG({
+              binary: "groovy",
+              relevance: 10
+            }),
             COMMENT,
             STRING,
             REGEXP,
@@ -104,6 +107,7 @@ export default function(hljs) {
               // to avoid highlight it as a label, named parameter, or map key
               begin: /\?/,
               end: /:/,
+              relevance: 0,
               contains: [
                 COMMENT,
                 STRING,
