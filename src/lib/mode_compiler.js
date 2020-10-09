@@ -2,7 +2,18 @@ import * as regex from './regex.js';
 import { inherit } from './utils.js';
 
 // keywords that should have no default relevance value
-const COMMON_KEYWORDS = 'of and for in not or if then'.split(' ');
+const COMMON_KEYWORDS = [
+  'of',
+  'and',
+  'for',
+  'in',
+  'not',
+  'or',
+  'if',
+  'then',
+  'parent', // common variable name
+  'list' // common variable name
+];
 
 // compilation
 
