@@ -1,4 +1,5 @@
 <span class="hljs-keyword">\verb</span>|<span class="hljs-string">\verb</span>|<span class="hljs-keyword">\verb</span>!<span class="hljs-string">%\&amp;$^_{}</span>!foo
+<span class="hljs-keyword">\verb</span>{<span class="hljs-string">\verb</span>{<span class="hljs-keyword">\verb</span>}<span class="hljs-string">\verb{</span>}
 <span class="hljs-keyword">\lstinline</span>|<span class="hljs-string"></span>|foo
 <span class="hljs-keyword">\mint</span><span class="hljs-built_in">{</span><span class="hljs-keyword">\foo</span>{bar}[<span class="hljs-built_in">}</span>.<span class="hljs-string">\foo{bar}</span>.
 <span class="hljs-keyword">\mintinline</span><span class="hljs-built_in">{</span>foo<span class="hljs-built_in">}</span><span class="hljs-built_in">{</span><span class="hljs-string">\mintinline{foo}{\foo{bar}}</span><span class="hljs-built_in">}</span>

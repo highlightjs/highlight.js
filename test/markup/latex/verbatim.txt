@@ -1,4 +1,5 @@
 \verb|\verb|\verb!%\&$^_{}!foo
+\verb{\verb{\verb}\verb{}
 \lstinline||foo
 \mint{\foo{bar}[}.\foo{bar}.
 \mintinline{foo}{\mintinline{foo}{\foo{bar}}}
