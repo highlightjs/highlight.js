@@ -71,7 +71,11 @@ export default function(hljs) {
     // Other keywords:
     // <https://www.php.net/manual/en/reserved.php>
     // <https://www.php.net/manual/en/language.types.type-juggling.php>
-    'array abstract and as binary bool boolean break callable case catch class clone const continue declare default do double else elseif empty enddeclare endfor endforeach endif endswitch endwhile eval extends final finally float for foreach from global goto if implements instanceof insteadof int integer interface isset iterable list match new object or private protected public real return string switch throw trait try unset use var void while xor yield',
+    'array abstract and as binary bool boolean break callable case catch class clone const continue declare ' +
+    'default do double else elseif empty enddeclare endfor endforeach endif endswitch endwhile eval extends ' +
+    'final finally float for foreach from global goto if implements instanceof insteadof int integer interface ' +
+    'isset iterable list match|0 new object or private protected public real return string switch throw trait ' +
+    'try unset use var void while xor yield',
     literal: 'false null true',
     built_in:
     // Standard PHP library:
@@ -123,10 +127,14 @@ export default function(hljs) {
       },
       {
         className: 'function',
+        relevance: 0,
         beginKeywords: 'fn function', end: /[;{]/, excludeEnd: true,
         illegal: '[$%\\[]',
         contains: [
           hljs.UNDERSCORE_TITLE_MODE,
+          {
+            begin: '=>' // No markup, just a relevance booster
+          },
           {
             className: 'params',
             begin: '\\(', end: '\\)',
@@ -145,7 +153,10 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface', end: /\{/, excludeEnd: true,
+        beginKeywords: 'class interface',
+        relevance: 0,
+        end: /\{/,
+        excludeEnd: true,
         illegal: /[:($"]/,
         contains: [
           {beginKeywords: 'extends implements'},
@@ -153,16 +164,17 @@ export default function(hljs) {
         ]
       },
       {
-        beginKeywords: 'namespace', end: ';',
+        beginKeywords: 'namespace',
+        relevance: 0,
+        end: ';',
         illegal: /[.']/,
         contains: [hljs.UNDERSCORE_TITLE_MODE]
       },
       {
-        beginKeywords: 'use', end: ';',
+        beginKeywords: 'use',
+        relevance: 0,
+        end: ';',
         contains: [hljs.UNDERSCORE_TITLE_MODE]
-      },
-      {
-        begin: '=>' // No markup, just a relevance booster
       },
       STRING,
       NUMBER
