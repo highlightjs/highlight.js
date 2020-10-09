@@ -180,23 +180,24 @@ export default function(hljs) {
     excludeBegin: true, excludeEnd: true,
     endsParent: true
   });
+  var VERBATIM_DELIMITED_BRACES_INNER = {
+    className: 'string',
+    begin: /(?=[.$])/, end: /(?=\})/,
+    endsParent: true,
+    contains: [
+      {
+        variants: [
+          {begin: /[^\{\}]+/},
+          {begin: /\{/, end: /\}/}
+        ],
+        contains: ['self']
+      }
+    ]
+  };
   var VERBATIM_DELIMITED_BRACES = {
     className: 'built_in',
     begin: /(?=\{)/, end: /\{/,
-    starts: {
-      className: 'string',
-      begin: /(?=[.$])/, end: /(?=\})/,
-      endsParent: true,
-      contains: [
-        {
-          variants: [
-            {begin: /[^\{\}]+/},
-            {begin: /\{/, end: /\}/}
-          ],
-          contains: ['self']
-        }
-      ]
-    }
+    starts: VERBATIM_DELIMITED_BRACES_INNER
   };
   var VERBATIM_DELIMITED_ENV = function(envname) {
     return {
@@ -204,18 +205,17 @@ export default function(hljs) {
       end: '(?=\\\\end\\{' + envname + '\\})'
     };
   };
-  var PATCH_CLASSNAME = function(mode, class_name) {
-    return hljs.inherit(mode, {className: class_name});
-  };
+  var URL_DELIMITED_EQUAL = hljs.inherit(VERBATIM_DELIMITED_EQUAL, {className: 'link'});
+  var URL_DELIMITED_BRACES_INNER = hljs.inherit(VERBATIM_DELIMITED_BRACES_INNER, {className: 'link'});
+  var URL_DELIMITED_BRACES = hljs.inherit(VERBATIM_DELIMITED_BRACES, {starts: URL_DELIMITED_BRACES_INNER});
   var VERBATIM = {
     variants: [
       ...['verb', 'lstinline'].map(csname => CSNAME('verb', {contains: [VERBATIM_DELIMITED_EQUAL]})),
       CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL]})),
       CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_BRACES, VERBATIM_DELIMITED_EQUAL]})),
-      CSNAME('url', {contains: [PATCH_CLASSNAME(VERBATIM_DELIMITED_BRACES, 'link'),
-                                PATCH_CLASSNAME(VERBATIM_DELIMITED_EQUAL, 'link')]}),
-      CSNAME('hyperref', {contains: [PATCH_CLASSNAME(VERBATIM_DELIMITED_BRACES, 'link')]}),
-      CSNAME('href', ARGUMENT_AND_THEN(ARGUMENT_O, {contains: [PATCH_CLASSNAME(VERBATIM_DELIMITED_BRACES, 'link')]})),
+      CSNAME('url', {contains: [URL_DELIMITED_BRACES, URL_DELIMITED_EQUAL]}),
+      CSNAME('hyperref', {contains: [URL_DELIMITED_BRACES]}),
+      CSNAME('href', ARGUMENT_AND_THEN(ARGUMENT_O, {contains: [URL_DELIMITED_BRACES]})),
       ...[].concat(...['', '\\*'].map(suffix => [
         BEGIN_ENV('verbatim' + suffix, VERBATIM_DELIMITED_ENV('verbatim' + suffix)),
         BEGIN_ENV('filecontents' + suffix,  ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('filecontents' + suffix))),
