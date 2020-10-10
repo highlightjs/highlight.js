@@ -7,13 +7,17 @@ Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.
 Category: common
 */
 
+import * as regex from '../lib/regex.js';
+
 export default function(hljs) {
-  var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
+  var RUBY_METHOD_RE = '([a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?)';
   var RUBY_KEYWORDS = {
     keyword:
       'and then defined module in return redo if BEGIN retry end for self when ' +
       'next until do begin unless END rescue else break undef not super class case ' +
-      'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor',
+      'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor ' +
+      '__FILE__',
+    built_in: 'proc lambda',
     literal:
       'true false nil'
   };
@@ -112,7 +116,6 @@ export default function(hljs) {
 
   var RUBY_DEFAULT_CONTAINS = [
     STRING,
-    IRB_OBJECT,
     {
       className: 'class',
       beginKeywords: 'class module', end: '$|;',
@@ -129,7 +132,12 @@ export default function(hljs) {
     },
     {
       className: 'function',
-      beginKeywords: 'def', end: '$|;',
+      // def method_name(
+      // def method_name;
+      // def method_name (end of line)
+      begin: regex.concat(/def\s*/, regex.lookahead(RUBY_METHOD_RE + "\\s*(\\(|;|$)")),
+      keywords: "def",
+      end: '$|;',
       contains: [
         hljs.inherit(hljs.TITLE_MODE, {begin: RUBY_METHOD_RE}),
         PARAMS
@@ -152,18 +160,20 @@ export default function(hljs) {
     },
     NUMBER,
     {
+      className: "variable",
       begin: '(\\$\\W)|((\\$|@@?)(\\w+))' // variables
     },
     {
       className: 'params',
-      begin: /\|/, end: /\|/,
+      begin: /\|/,
+      end: /\|/,
+      relevance:0, // this could be a lot of things (in other languages) other than params
       keywords: RUBY_KEYWORDS
     },
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + '|unless)\\s*',
       keywords: 'unless',
       contains: [
-        IRB_OBJECT,
         {
           className: 'regexp',
           contains: [hljs.BACKSLASH_ESCAPE, SUBST],
@@ -176,15 +186,18 @@ export default function(hljs) {
             {begin: '%r\\[', end: '\\][a-z]*'}
           ]
         }
-      ].concat(COMMENT_MODES),
+      ].concat(IRB_OBJECT, COMMENT_MODES),
       relevance: 0
     }
-  ].concat(COMMENT_MODES);
+  ].concat(IRB_OBJECT, COMMENT_MODES);
 
-  SUBST.contains = RUBY_DEFAULT_CONTAINS;
-  PARAMS.contains = RUBY_DEFAULT_CONTAINS;
+  SUBST.contains = RUBY_DEFAULT_CONTAINS
+  PARAMS.contains = RUBY_DEFAULT_CONTAINS
 
+  // >>
+  // ?>
   var SIMPLE_PROMPT = "[>?]>";
+  // irb(main):001:0>
   var DEFAULT_PROMPT = "[\\w#]+\\(\\w+\\):\\d+:\\d+>";
   var RVM_PROMPT = "(\\w+-)?\\d+\\.\\d+\\.\\d(p\\d+)?[^>]+>";
 
@@ -197,18 +210,25 @@ export default function(hljs) {
     },
     {
       className: 'meta',
-      begin: '^('+SIMPLE_PROMPT+"|"+DEFAULT_PROMPT+'|'+RVM_PROMPT+')',
+      begin: '^('+SIMPLE_PROMPT+"|"+DEFAULT_PROMPT+'|'+RVM_PROMPT+')(?=[ ])',
       starts: {
         end: '$', contains: RUBY_DEFAULT_CONTAINS
       }
     }
   ];
 
+  COMMENT_MODES.unshift(IRB_OBJECT);
+
   return {
     name: 'Ruby',
     aliases: ['rb', 'gemspec', 'podspec', 'thor', 'irb'],
     keywords: RUBY_KEYWORDS,
     illegal: /\/\*/,
-    contains: COMMENT_MODES.concat(IRB_DEFAULT).concat(RUBY_DEFAULT_CONTAINS)
+    contains: [
+        hljs.SHEBANG({binary:"ruby"}),
+      ]
+      .concat(IRB_DEFAULT)
+      .concat(COMMENT_MODES)
+      .concat(RUBY_DEFAULT_CONTAINS)
   };
 }
