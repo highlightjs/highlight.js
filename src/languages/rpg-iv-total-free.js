@@ -242,42 +242,6 @@ export default function (hljs) {
         ],
         contains: [hljs.APOS_STRING_MODE, hljs.NUMBER_MODE],
       },
-
-      // {
-      //   className: "keyword",
-      //   variants: [
-      //     {
-      //       begin: /[*]+/,
-      //       end: /[;$\s]/,
-      //     },
-      //     {
-      //       begin: /%.*/,
-      //       end: /[(;\s$]/,
-      //     },
-      //     {
-      //       begin: /dcl-.*/,
-      //       end: /\s/,
-      //     },
-      //   ],
-      // },
     ],
-    // contains: [
-    //   NUMBER,
-    //   STRING,
-    //   hljs.C_LINE_COMMENT_MODE,
-    //   hljs.C_BLOCK_COMMENT_MODE,
-    //   {
-    //     variants: [{ className: "function", beginKeywords: "dcl-proc" }],
-    //     end: /;/,
-    //   },
-    //   {
-    //     className: "meta",
-    //     begin: /^[\t ]*@/,
-    //     end: /$/,
-    //   },
-    //   {
-    //     begin: /\b(print|exec)\(/, // don’t highlight keywords-turned-functions in Python 3
-    //   },
-    // ],
   };
 }
