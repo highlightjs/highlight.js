@@ -6,17 +6,6 @@ Category: enterprise
 */
 
 export default function (hljs) {
-  const TYPES = [
-    "zoned",
-    "packed",
-    "bindec",
-    "int",
-    "float",
-    "char",
-    "varchar",
-    "graph",
-    "vargraph",
-  ];
   const CONTROL_FLOW = [
     "for",
     "endfor",
@@ -212,7 +201,7 @@ export default function (hljs) {
     case_insensitive: true,
     keywords: {
       $pattern: /(\*\*|\*|dcl-|end-|)\w+/,
-      keyword: [...RESERVED_WORDS, ...TYPES, ...CONTROL_FLOW].join(" "),
+      keyword: [...RESERVED_WORDS, ...CONTROL_FLOW].join(" "),
       literal: LITERALS.join(" "),
     },
     contains: [
@@ -254,6 +243,10 @@ export default function (hljs) {
             begin: "end-pr",
           },
         ],
+      },
+      {
+        className: "type",
+        begin: /zoned|packed|bindex|int|float|char|varchar|graph|vargraph|ucs2|varucs2|date|time|timestamp/,
       },
     ],
   };
