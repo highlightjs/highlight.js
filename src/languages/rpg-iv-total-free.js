@@ -17,6 +17,25 @@ export default function (hljs) {
     "graph",
     "vargraph",
   ];
+  const CONTROL_FLOW = [
+    "for",
+    "endfor",
+    "if",
+    "elseif",
+    "else",
+    "endif",
+    "monitor",
+    "endmon",
+    "on-error",
+    "dow",
+    "dou",
+    "enddo",
+    "leave",
+    "iter",
+    "select",
+    "when",
+    "other",
+  ];
   const RESERVED_WORDS = [
     "dcl-s",
     "dcl-pi",
@@ -289,7 +308,7 @@ export default function (hljs) {
     case_insensitive: true,
     keywords: {
       $pattern: /(\*\*|\*|dcl-|end-|)\w+/,
-      keyword: [...RESERVED_WORDS, ...TYPES].join(" "),
+      keyword: [...RESERVED_WORDS, ...TYPES, ...CONTROL_FLOW].join(" "),
       literal: LITERALS.join(" "),
     },
     contains: [
