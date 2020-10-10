@@ -240,6 +240,7 @@ export default function (hljs) {
             end: /\)/,
           },
         ],
+        contains: [hljs.APOS_STRING_MODE, hljs.NUMBER_MODE],
       },
 
       // {
