@@ -96,7 +96,9 @@ export default function(hljs) {
                 ]
             },
             {
-                className: 'meta', begin: '@[A-Za-z]+'
+                className: 'meta',
+                begin: '@[A-Za-z]+',
+                relevance: 0
             },
             {
               // highlight map keys and named parameters as attrs
