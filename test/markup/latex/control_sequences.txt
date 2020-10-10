@@ -16,12 +16,14 @@ bar\foo:baz
 
 % expl3 macros are recognized
 \cs_new:Nn \hljs_test:N \__hljs_internal:Nx
+\use_ii_i:nn
 \cs:w hljs_test:N\cs_end:
 \use_i:nn \use:\q_test
 \if:w\scan_stop:\s_test[\else:]\fi:
 \::c\::o\::V\:::\hljs_test_args:Nnn
 \::V_unbraced
 \l_hljs_var_tl \g_tmpa_prop \c__hljs_secret_int
+\c_e_fp
 % but only those conforming to the naming scheme
 % with at least to letters in every name
 \hljs_error:Nn_foo \hljs_double:colon:x
