@@ -31,6 +31,7 @@ export default function(hljs) {
       'use(?:_i)?:[a-zA-Z]*',
       '(?:else|fi|or):',
       '(?:if|cs|exp):w',
+      '(?:hbox|vbox):n',
       '::[a-zA-Z]_unbraced',
       '::[a-zA-Z:]'
     ].map(pattern => pattern + '(?![a-zA-Z:_])').join('|'));

@@ -20,6 +20,7 @@
 <span class="hljs-keyword">\cs:w</span> hljs<span class="hljs-built_in">_</span>test:N<span class="hljs-keyword">\cs_end:</span>
 <span class="hljs-keyword">\use_i:nn</span> <span class="hljs-keyword">\use:</span><span class="hljs-keyword">\q_test</span>
 <span class="hljs-keyword">\if:w</span><span class="hljs-keyword">\scan_stop:</span><span class="hljs-keyword">\s_test</span>[<span class="hljs-keyword">\else:</span>]<span class="hljs-keyword">\fi:</span>
+<span class="hljs-keyword">\hbox:n</span> <span class="hljs-keyword">\vbox:n</span>
 <span class="hljs-keyword">\::c</span><span class="hljs-keyword">\::o</span><span class="hljs-keyword">\::V</span><span class="hljs-keyword">\:::</span><span class="hljs-keyword">\hljs_test_args:Nnn</span>
 <span class="hljs-keyword">\::V_unbraced</span>
 <span class="hljs-keyword">\l_hljs_var_tl</span> <span class="hljs-keyword">\g_tmpa_prop</span> <span class="hljs-keyword">\c__hljs_secret_int</span>
