@@ -7,6 +7,8 @@ Website: https://www.r-project.org
 Category: scientific
 */
 
+import * as regex from '../lib/regex.js';
+
 export default function(hljs) {
   // Identifiers in R cannot start with `_`, but they can start with `.` if it
   // is not immediately followed by a digit.
@@ -15,10 +17,13 @@ export default function(hljs) {
   // handled in a separate mode. See `test/markup/r/names.txt` for examples.
   // FIXME: Support Unicode identifiers.
   const IDENT_RE = /(?:(?:[a-zA-Z]|\.[._a-zA-Z])[._a-zA-Z0-9]*)|\.(?!\d)/;
+  const SIMPLE_IDENT = /[a-zA-Z][a-zA-Z_0-9]*/;
 
   return {
     name: 'R',
 
+    // only in Haskell, not R
+    illegal: /->/,
     keywords: {
       $pattern: IDENT_RE,
       keyword:
@@ -168,7 +173,10 @@ export default function(hljs) {
         begin: '%',
         end: '%'
       },
-
+      // relevance boost for assignment
+      {
+        begin: regex.concat(SIMPLE_IDENT, "\\s+<-\\s+")
+      },
       {
         // escaped identifier
         begin: '`',
