@@ -41,10 +41,6 @@ export default function (hljs) {
     "dcl-pi",
     "dcl-ds",
     "end-ds",
-    "dcl-proc",
-    "end-proc",
-    "dcl-pr",
-    "end-pr",
     "UDATE",
     "*DATE",
     "UMONTH",
@@ -241,6 +237,23 @@ export default function (hljs) {
           },
         ],
         contains: [hljs.APOS_STRING_MODE, hljs.NUMBER_MODE],
+      },
+      {
+        className: "function",
+        variants: [
+          {
+            begin: "dcl-proc",
+          },
+          {
+            begin: "dcl-pr",
+          },
+          {
+            begin: "end-proc",
+          },
+          {
+            begin: "end-pr",
+          },
+        ],
       },
     ],
   };
