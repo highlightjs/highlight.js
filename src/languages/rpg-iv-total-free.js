@@ -224,7 +224,9 @@ export default function (hljs) {
         variants: [
           {
             begin: /\(/,
-            end: /\)/,
+          },
+          {
+            begin: /\)/,
           },
         ],
         contains: [hljs.APOS_STRING_MODE, hljs.NUMBER_MODE],
