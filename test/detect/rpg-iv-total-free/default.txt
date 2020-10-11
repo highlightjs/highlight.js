@@ -1,18 +1,43 @@
-dcl-ds raga0100 qualified template
+**FREE
 
+Ctl-Opt DftActGrp(*No) ActGrp(*New);
+
+Dcl-S Ptr   Pointer; //Keep at first element
+
+Dcl-Ds PersonData Qualified Based(DsPtr);
+  ID    Int(5);
+  Name  Char(25) Inz('Kerim');
+  Telno Char(11);
+END-DS;
+
+// Program Entry Point
 dcl-proc main;
   dcl-pi *N;
     job char(26) const options(*nopass);
   end-pi;
 
-dcl-pr getActivationGroupAttr extpgm('QWVOLAGP');
-  receiver char(65535) options(*varsize);
-  numberRecords int(10) const;
-  intJobId graph(16) const;
-  error likeds(QUSEC) options(*varsize);
-end-pr;
+  dcl-s receiver char(65355);
+  dcl-ds format likeds(raga0100) based(formatPtr);
+  dcl-s intRetVal int(10);
 
+  clear QUSEC;
 
-dsply %trimr(format.actGroupname + ' ' +
-          %char(format.staticSize) + ' / ' +
-          %char(format.heapSize) +
+  for i = 0 to listInfo.listReturned - 1;
+    formatPtr = %addr(receiver) + (i * listInfo.listRecLen);
+    dsply %trimr(format.actGroupname + ' ' +
+          '(' + %char(format.numberHeaps) + ')');
+  endfor;
+
+  // close list
+  closeList(listInfo.listHandle : intRetVal);
+end-proc;
+PersonData.Name  = 'Liam';
+
+Dcl-Proc SetElements;
+  Else;
+    If (pEleCount > DsElements);
+
+      Ptr = %Realloc(Ptr:(%Size(PersonData) * DsElements) + 1);
+    Endif;
+  ENDIF;
+END-PROC;
