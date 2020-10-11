@@ -1,0 +1,18 @@
+dcl-ds raga0100 qualified template
+
+dcl-proc main;
+  dcl-pi *N;
+    job char(26) const options(*nopass);
+  end-pi;
+
+dcl-pr getActivationGroupAttr extpgm('QWVOLAGP');
+  receiver char(65535) options(*varsize);
+  numberRecords int(10) const;
+  intJobId graph(16) const;
+  error likeds(QUSEC) options(*varsize);
+end-pr;
+
+
+dsply %trimr(format.actGroupname + ' ' +
+          %char(format.staticSize) + ' / ' +
+          %char(format.heapSize) +
