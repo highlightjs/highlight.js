@@ -249,7 +249,7 @@ export default function (hljs) {
       },
       {
         className: "type",
-        begin: /zoned|packed|bindex|int|float|char|varchar|graph|vargraph|ucs2|varucs2|date|time|timestamp/,
+        begin: /(zoned|packed|bindex|int|float|char|varchar|graph|vargraph|ucs2|varucs2|date|time|timestamp)(?!\w+)/,
       },
     ],
   };
