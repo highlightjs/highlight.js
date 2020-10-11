@@ -263,7 +263,7 @@ export default function(hljs) {
     "rows", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
     "savepoint", // good
     "select", // good
-    "set",
+    "set", // UPDATE ... SET
     "table", // good
     "temp",
     "temporary",
