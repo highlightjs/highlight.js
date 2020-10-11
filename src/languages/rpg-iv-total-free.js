@@ -28,6 +28,7 @@ export default function (hljs) {
   const RESERVED_WORDS = [
     "dcl-s",
     "dcl-pi",
+    "end-pi",
     "dcl-ds",
     "end-ds",
     "UDATE",
