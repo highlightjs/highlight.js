@@ -122,7 +122,7 @@ export default function(hljs) {
     "substr",
     // "total_changes", // sqlite
     "trim",
-    "typeof",
+    // "typeof", // sqlite
     "unicode",
     // "unlikely", // sqlite
     "upper",
@@ -150,7 +150,7 @@ export default function(hljs) {
     "analyze",
     "and", // good
     "as", // good (aliasing field names)
-    "asc",
+    "asc", // good
     "attach",
     "autoincrement",
     "before",
@@ -177,7 +177,7 @@ export default function(hljs) {
     "deferrable",
     "deferred",
     "delete", // good
-    "desc",
+    "desc", // good
     "detach",
     "distinct", // good
     "do|0",
