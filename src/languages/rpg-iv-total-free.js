@@ -216,6 +216,7 @@ export default function (hljs) {
             begin: /%\w+/,
           },
         ],
+        relevance: 0,
       },
       {
         className: "params",
@@ -226,6 +227,7 @@ export default function (hljs) {
           },
         ],
         contains: [hljs.APOS_STRING_MODE, hljs.NUMBER_MODE],
+        relevance: 0,
       },
       {
         className: "function",
@@ -243,6 +245,7 @@ export default function (hljs) {
             begin: "end-pr",
           },
         ],
+        relevance: 10,
       },
       {
         className: "type",
