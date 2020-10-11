@@ -45,11 +45,15 @@ export default function(hljs) {
     "null",
     "unknown"
   ];
+
+  const MULTI_WORD_BUILT_INS = [
+    "double precision"
+  ];
   const BUILT_INS = [
     'array',
     'bigint',
     'binary',
-    'bit',
+    // 'bit',  // MS SQL
     'blob',
     'bool',
     'boolean',
@@ -60,23 +64,22 @@ export default function(hljs) {
     'decimal',
     'float',
     'int',
-    'int8',
+    // 'int8', // postgres
     'integer',
     'interval',
     'number',
     'numeric',
     'real',
-    'record',
-    'serial',
-    'serial8',
+    // 'record', Dunno?
+    // 'serial', Oracle?
+    // 'serial8', Oracle?
     'smallint',
     'text',
     'time',
     'timestamp',
-    'tinyint',
+    // 'tinyint', // MySQL specific
     'varchar',
-    'varchar2',
-    'varying',
+    'varying', // modifier (character varying)
     'void'
   ];
 
