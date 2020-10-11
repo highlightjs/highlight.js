@@ -155,7 +155,7 @@ export default function(hljs) {
     "autoincrement",
     "before",
     "begin", // good
-    "between",
+    "between", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
     "by", // good (group by)
     "cascade",
     "case",
@@ -168,7 +168,7 @@ export default function(hljs) {
     "constraint", // good
     "create", // good (create table)
     "cross",
-    "current",
+    "current", // current row
     "current_date",
     "current_time",
     "current_timestamp",
@@ -194,7 +194,7 @@ export default function(hljs) {
     "fail",
     "filter",
     "first",
-    "following",
+    "following", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
     "for",
     "foreign", // good
     "from", // good
@@ -244,7 +244,7 @@ export default function(hljs) {
     "partition",
     "plan",
     // "pragma", // sqlite only
-    "preceding",
+    "preceding", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
     "primary", // good (PRIMARY KEY)
     "query",
     "raise",
@@ -259,8 +259,8 @@ export default function(hljs) {
     "restrict",
     "right", // good
     "rollback", // good
-    "row",
-    "rows",
+    "row", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
+    "rows", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
     "savepoint", // good
     "select", // good
     "set",
@@ -272,12 +272,12 @@ export default function(hljs) {
     "to|0",
     "transaction", // good
     "trigger",
-    "unbounded",
+    "unbounded", // ORDER BY t ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
     "union", // good
     "unique", // good
     "update", // good
     "using",
-    "vacuum",
+    // "vacuum",
     "values", // good
     "view",
     "virtual",
