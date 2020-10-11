@@ -154,7 +154,7 @@ export default function(hljs) {
     "attach",
     "autoincrement",
     "before",
-    "begin",
+    "begin", // good
     "between",
     "by", // good (group by)
     "cascade",
@@ -164,7 +164,7 @@ export default function(hljs) {
     "collate",
     "column",
     "commit", // good
-    "conflict",
+    // "conflict", // The ON CONFLICT clause is a non-standard extension specific to SQLite
     "constraint", // good
     "create", // good (create table)
     "cross",
@@ -258,10 +258,10 @@ export default function(hljs) {
     // "replace", // this is already in SCALAR_FUNCTIONS
     "restrict",
     "right", // good
-    "rollback",
+    "rollback", // good
     "row",
     "rows",
-    "savepoint",
+    "savepoint", // good
     "select", // good
     "set",
     "table", // good
@@ -270,7 +270,7 @@ export default function(hljs) {
     "then",
     "ties",
     "to|0",
-    "transaction",
+    "transaction", // good
     "trigger",
     "unbounded",
     "union", // good
