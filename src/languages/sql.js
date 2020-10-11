@@ -86,11 +86,11 @@ export default function(hljs) {
   const AGG_FUNCTIONS = [
     "avg",
     "count",
-    "group_concat",
+    // "group_concat", // STRING_AGG() in T-SQL, etc...
     "max",
     "min",
     "sum",
-    "total"
+    // "total" // doesn't seem to be mentioned in SQL 2011
   ];
 
   const SCALAR_FUNCTIONS = [
