@@ -95,38 +95,38 @@ export default function(hljs) {
 
   const SCALAR_FUNCTIONS = [
     "abs",
-    "changes",
+    // "changes", // sqlite
     "char",
     "coalesce",
     "glob",
-    "hex",
-    "ifnull",
+    // "hex", // postgres does not include
+    // "ifnull",  // postgres does not include
     "iif",
     "instr",
-    "last_insert_rowid",
+    // "last_insert_rowid", //sqlite only
     "length",
     "like",
-    "likelihood",
-    "likely",
+    // "likelihood", // sqlite
+    // "likely", // sqlite
     "lower",
     "ltrim",
     "nullif",
     "printf",
     "quote",
     "random",
-    "randomblob",
+    // "randomblob", // sqlite
     "replace",
     "round",
     "rtrim",
     "soundex",
     "substr",
-    "total_changes",
+    // "total_changes", // sqlite
     "trim",
     "typeof",
     "unicode",
-    "unlikely",
+    // "unlikely", // sqlite
     "upper",
-    "zeroblob"
+    // "zeroblob" // sqlite
   ];
 
   const DATE_FUNCTIONS = [
@@ -142,46 +142,46 @@ export default function(hljs) {
   const KEYWORDS = [
     "abort",
     "action",
-    "add",
+    "add", // good (add constraint)
     "after",
     "all",
-    "alter",
+    "alter", // good
     "always",
     "analyze",
-    "and",
-    "as",
+    "and", // good
+    "as", // good (aliasing field names)
     "asc",
     "attach",
     "autoincrement",
     "before",
     "begin",
     "between",
-    "by",
+    "by", // good (group by)
     "cascade",
     "case",
     "cast",
     "check",
     "collate",
     "column",
-    "commit",
+    "commit", // good
     "conflict",
-    "constraint",
-    "create",
+    "constraint", // good
+    "create", // good (create table)
     "cross",
     "current",
     "current_date",
     "current_time",
     "current_timestamp",
-    "database",
+    "database", // good
     "default",
     "deferrable",
     "deferred",
-    "delete",
+    "delete", // good
     "desc",
     "detach",
-    "distinct",
+    "distinct", // good
     "do|0",
-    "drop",
+    "drop", // good
     "each",
     "else",
     "end",
@@ -196,74 +196,75 @@ export default function(hljs) {
     "first",
     "following",
     "for",
-    "foreign",
-    "from",
+    "foreign", // good
+    "from", // good
     "full",
     "generated",
     "glob",
-    "group",
+    "group", // good
     "groups",
-    "having",
+    "having", // good
     "if|0",
     "ignore",
     "immediate",
     "in|0",
-    "index",
+    "index", // good
     "indexed",
     "initially",
-    "inner",
-    "insert",
+    "inner", // good
+    "insert", // good
     "instead",
     "intersect",
-    "into",
-    "is",
+    "into", // good
+    "in|0", // good - value in (a, b, c)
+    "is|0", // good (is null)
     "isnull",
-    "join",
-    "key",
+    "join", // good
+    "key", // good
     "last",
-    "left",
-    "like",
-    "limit",
+    "left", // good
+    "like", // good
+    "limit", // good
     "match",
-    "natural",
-    "no",
-    "not",
-    "nothing",
+    "natural", // seems supported by all
+    // "no", // seems to be reserved but not used yet?
+    "not", // good
+    // "nothing", // looks like Sqlite only
     "notnull",
-    "null",
+    // "null", // NULL is a literal
     "nulls",
     "of",
-    "offset",
-    "on",
-    "or",
-    "order",
+    "offset", // good
+    "on|0", // good (JOIN ON)
+    "or", // good
+    "order", // good (ORDER BY)
     "others",
-    "outer",
+    "outer", // good (OUTER JOIN)
     "over",
     "partition",
     "plan",
-    "pragma",
+    // "pragma", // sqlite only
     "preceding",
-    "primary",
+    "primary", // good (PRIMARY KEY)
     "query",
     "raise",
     "range",
     "recursive",
     "references",
     "regexp",
-    "reindex",
+    // "reindex", // not in 2011 spec, oracle uses `ALTER INDEX REBUILD`
     "release",
-    "rename",
-    "replace",
+    "rename", // good
+    // "replace", // this is already in SCALAR_FUNCTIONS
     "restrict",
-    "right",
+    "right", // good
     "rollback",
     "row",
     "rows",
     "savepoint",
-    "select",
+    "select", // good
     "set",
-    "table",
+    "table", // good
     "temp",
     "temporary",
     "then",
@@ -272,16 +273,16 @@ export default function(hljs) {
     "transaction",
     "trigger",
     "unbounded",
-    "union",
-    "unique",
-    "update",
+    "union", // good
+    "unique", // good
+    "update", // good
     "using",
     "vacuum",
-    "values",
+    "values", // good
     "view",
     "virtual",
     "when",
-    "where",
+    "where", // good
     "window",
     "with",
     "without"
