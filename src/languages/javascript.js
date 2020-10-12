@@ -184,6 +184,7 @@ export default function(hljs) {
       // it from ending too early by matching another }
       begin: /{/,
       end: /}/,
+      keywords: KEYWORDS,
       contains: [
         "self"
       ].concat(SUBST_INTERNALS)
