@@ -126,15 +126,40 @@ export default function(hljs) {
           {begin: "'", end: "'", relevance: 0}
         ],
       },
-
       {
         className: 'number',
         variants: [
-          // Special case: only hexadecimal binary powers can contain fractions.
-          { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/ },
-          { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/ },
-          { begin: /(?<![a-zA-Z0-9._])(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/ }
+          // TODO: replace with negative look-behind when available
+          // { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/ },
+          // { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/ },
+          // { begin: /(?<![a-zA-Z0-9._])(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/ }
+
+          // The below rules all eat an extra character in front (for the
+          // look-behind check) and then exclude it from the match, but I think
+          // in many cases this will work out just fine.
+          {
+            // Special case: only hexadecimal binary powers can contain fractions.
+            begin: /([^a-zA-Z0-9._])(?=0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?)/,
+            end: /0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/,
+            excludeBegin: true
+          },
+          {
+            begin: /([^a-zA-Z0-9._])(?=0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?)/,
+            end: /0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/ ,
+            excludeBegin: true
+          },
+          {
+            begin: /([^a-zA-Z0-9._])(?=(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?)/,
+            end: /(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/,
+            excludeBegin: true
+          }
         ],
+        // "on:begin": (match, response) => {
+        //   if (match.index > 0) {
+        //     let priorChar = match.input[match.index - 1];
+        //     if (priorChar.match(/[a-zA-Z0-9._]/)) response.ignoreMatch();
+        //   }
+        // },
         relevance: 0
       },
 
