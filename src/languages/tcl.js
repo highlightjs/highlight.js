@@ -5,7 +5,11 @@ Author: Radek Liska <radekliska@gmail.com>
 Website: https://www.tcl.tk/about/language.html
 */
 
+import * as regex from '../lib/regex.js';
+
 export default function(hljs) {
+  const ARRAY_ACCESS = '\\(([a-zA-Z0-9_]+)*\\)';
+
   return {
     name: 'Tcl',
     aliases: ['tk'],
@@ -40,14 +44,13 @@ export default function(hljs) {
       },
       {
         excludeEnd: true,
+        className: "variable",
         variants: [
           {
-            begin: '\\$(\\{)?(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*\\(([a-zA-Z0-9_])*\\)',
-            end: '[^a-zA-Z0-9_\\}\\$]'
+            begin: '\\$(::)?[a-zA-Z_]+((::)?[a-zA-Z0-9_]+)*' + regex.optional(ARRAY_ACCESS),
           },
           {
-            begin: '\\$(\\{)?(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*',
-            end: '(\\))?[^a-zA-Z0-9_\\}\\$]'
+            begin: '\\$\\{(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*' + regex.optional(ARRAY_ACCESS) + '}',
           }
         ]
       },
