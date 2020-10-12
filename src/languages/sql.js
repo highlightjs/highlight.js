@@ -51,7 +51,7 @@ export default function(hljs) {
     "large object"
   ];
   const BUILT_INS = [
-    'array',
+    // 'array', // used in procedural languages
     'bigint',
     'binary',
     // 'bit',  // MS SQL
@@ -71,19 +71,20 @@ export default function(hljs) {
     'integer',
     'interval',
     // 'number',  // oracle
-    'multiset',
+    // 'multiset', // used in procedural languages
     'nchar',
     'nclob',
     'national',
     'numeric',
     'real',
-    'ref',
+    // 'ref', // used in procedural languages
     // 'record', Dunno?
+    'row',
     // 'serial', Oracle?
     // 'serial8', Oracle?
-    'scope',
+    //'scope', // used in procedural languages
     'smallint',
-    'text',
+    // 'text', // PostgreSQL
     'time',
     'timestamp',
     // 'tinyint', // MySQL specific
