@@ -20,7 +20,7 @@ export default function(hljs) {
   var COMMENT_MODE = hljs.COMMENT('--', '$');
   return {
     name: 'SQL (more)',
-    aliases: ["mysql", "oraclesql"],
+    aliases: ["mysql", "oracle"],
     disableAutodetect: true,
     case_insensitive: true,
     illegal: /[<>{}*]/,
