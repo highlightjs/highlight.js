@@ -160,8 +160,10 @@ export default function(hljs) {
     },
     NUMBER,
     {
+      // negative-look forward attemps to prevent false matches like:
+      // @ident@ or $ident$ that might indicate this is not ruby at all
       className: "variable",
-      begin: '(\\$\\W)|((\\$|@@?)(\\w+))' // variables
+      begin: '(\\$\\W)|((\\$|@@?)(\\w+))(?=[^@$?])' + `(?![A-Za-z])(?![@$?'])`
     },
     {
       className: 'params',

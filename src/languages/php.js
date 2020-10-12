@@ -13,7 +13,7 @@ Category: common
 export default function(hljs) {
   const VARIABLE = {
     className: 'variable',
-    begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
+    begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' + `(?![A-Za-z0-9])(?![$])`
   };
   const PREPROCESSOR = {
     className: 'meta',

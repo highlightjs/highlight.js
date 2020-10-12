@@ -5,6 +5,9 @@ Website: https://www.perl.org
 Category: common
 */
 
+import * as regex from '../lib/regex.js';
+
+/** @type LanguageFn */
 export default function(hljs) {
   var PERL_KEYWORDS = {
     $pattern: /[\w.]+/,
@@ -40,7 +43,12 @@ export default function(hljs) {
   var VAR = {
     variants: [
       {begin: /\$\d/},
-      {begin: /[$%@](\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)/},
+      {begin: regex.concat(
+        /[$%@](\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)/,
+        // negative look-ahead tries to avoid matching patterns that are not
+        // Perl at all like $ident$, @ident@, etc.
+        `(?![A-Za-z])(?![@$%])`
+        )},
       {begin: /[$%@][^\s\w{]/, relevance: 0}
     ]
   };

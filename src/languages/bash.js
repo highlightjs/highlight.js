@@ -6,6 +6,8 @@ Website: https://www.gnu.org/software/bash/
 Category: common
 */
 
+import * as regex from '../lib/regex.js';
+
 /** @type LanguageFn */
 export default function(hljs) {
   const VAR = {};
@@ -23,7 +25,7 @@ export default function(hljs) {
   Object.assign(VAR,{
     className: 'variable',
     variants: [
-      {begin: /\$[\w\d#@][\w\d_]*/},
+      {begin: regex.concat(/\$[\w\d#@][\w\d_]*/, `(?![\\w\\d])(?![$])`) },
       BRACED_VAR
     ]
   });
