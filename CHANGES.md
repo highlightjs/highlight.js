@@ -2,7 +2,7 @@
 
 Language Improvements:
 
-- fix(js/ts) Fix nesting of `{}` inside termplate literals SUBST expression (#2748) [Josh Goebel][]
+- fix(js/ts) Fix nesting of `{}` inside template literals SUBST expression (#2748) [Josh Goebel][]
 - enh(js/ts) Highlight class methods as functions (#2727) [Josh Goebel][]
 - fix(js/ts) `constructor` is now highlighted as a function title (not keyword) (#2727) [Josh Goebel][]
 - fix(c-like) preprocessor directives not detected after else (#2738) [Josh Goebel][]
