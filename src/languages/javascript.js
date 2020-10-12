@@ -169,15 +169,25 @@ export default function(hljs) {
       hljs.C_LINE_COMMENT_MODE
     ]
   };
-  SUBST.contains = [
+  const SUBST_INTERNALS = [
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
     HTML_TEMPLATE,
     CSS_TEMPLATE,
     TEMPLATE_STRING,
     NUMBER,
-    hljs.REGEXP_MODE
+    hljs.REGEXP_MODE,
   ];
+  SUBST.contains = SUBST_INTERNALS
+    .concat({
+      // we need to pair up {} inside our subst to prevent
+      // it from ending too early by matching another }
+      begin: /{/,
+      end: /}/,
+      contains: [
+        "self"
+      ].concat(SUBST_INTERNALS)
+    });
   const SUBST_AND_COMMENTS = [].concat(COMMENT, SUBST.contains);
   const PARAMS_CONTAINS = SUBST_AND_COMMENTS.concat([
     // eat recursive parens in sub expressions
