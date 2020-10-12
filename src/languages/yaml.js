@@ -153,7 +153,8 @@ export default function(hljs) {
     // sit isolated from other words
     {
       className: 'number',
-      begin: hljs.C_NUMBER_RE + '\\b'
+      begin: hljs.C_NUMBER_RE + '\\b',
+      relevance: 0
     },
     OBJECT,
     ARRAY,
