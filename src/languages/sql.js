@@ -46,13 +46,13 @@ export default function(hljs) {
     "unknown"
   ];
 
-  const MULTI_WORD_BUILT_INS = [
+  const MULTI_WORD_TYPES = [
     "double precision",
     "large object",
     "with timezone",
     "without timezone"
   ];
-  const BUILT_INS = [
+  const TYPES = [
     // 'array', // used in procedural languages
     'bigint',
     'binary',
@@ -817,7 +817,7 @@ export default function(hljs) {
           // defaultScoreZero(REGULAR_KEYWORDS, {exceptions: RELEVANT_KEYWORDS}))
         reduceRelevancy(KEYWORDS, {when: (x) => x.length < 3 }).join(" "),
       literal: LITERALS.join(" "),
-      built_in: BUILT_INS.join(" ")
+      type: TYPES.join(" ")
     },
     contains: [
       {
@@ -827,12 +827,12 @@ export default function(hljs) {
           keyword: KEYWORDS.join(" "),
           // STATEMENT_KEYWORDS.concat(REGULAR_KEYWORDS).join(" "),
           literal: LITERALS.join(" "),
-          built_in: BUILT_INS.join(" ")
+          type: TYPES.join(" ")
         },
       },
       {
-        className: "built_in",
-        begin: regex.either(...MULTI_WORD_BUILT_INS)
+        className: "types",
+        begin: regex.either(...MULTI_WORD_TYPES)
       },
       FUNCTION_CALL,
       VARIABLE,
