@@ -50,7 +50,8 @@ module.exports = {
   },
   terser: {
     format: {
-      max_line_len: 80
+      max_line_len: 80,
+      ascii_only: true
     },
     compress: {
       passes: 2,
