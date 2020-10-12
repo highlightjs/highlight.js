@@ -47,7 +47,8 @@ export default function(hljs) {
   ];
 
   const MULTI_WORD_BUILT_INS = [
-    "double precision"
+    "double precision",
+    "large object"
   ];
   const BUILT_INS = [
     'array',
@@ -55,24 +56,32 @@ export default function(hljs) {
     'binary',
     // 'bit',  // MS SQL
     'blob',
-    'bool',
+    // 'bool', // ???
     'boolean',
     'char',
     'character',
+    'clob',
     'date',
     'dec',
+    'decfloat',
     'decimal',
     'float',
     'int',
     // 'int8', // postgres
     'integer',
     'interval',
-    'number',
+    // 'number',  // oracle
+    'multiset',
+    'nchar',
+    'nclob',
+    'national',
     'numeric',
     'real',
+    'ref',
     // 'record', Dunno?
     // 'serial', Oracle?
     // 'serial8', Oracle?
+    'scope',
     'smallint',
     'text',
     'time',
@@ -80,7 +89,8 @@ export default function(hljs) {
     // 'tinyint', // MySQL specific
     'varchar',
     'varying', // modifier (character varying)
-    'void'
+    'varbinary'
+    // 'void' // postgres
   ];
 
   const AGG_FUNCTIONS = [
@@ -355,6 +365,10 @@ export default function(hljs) {
           literal: LITERALS.join(" "),
           built_in: BUILT_INS.join(" ")
         },
+      },
+      {
+        className: "built_in",
+        begin: regex.either(...MULTI_WORD_BUILT_INS)
       },
       FUNCTION_CALL,
       VARIABLE,
