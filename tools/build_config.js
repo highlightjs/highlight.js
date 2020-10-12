@@ -7,7 +7,7 @@ module.exports = {
   clean_css: {},
   rollup: {
     node: {
-      output: { format: "cjs", strict: false },
+      output: { format: "cjs", strict: false, exports: "auto" },
       input: {
         plugins: [
           cjsPlugin(),
@@ -49,6 +49,10 @@ module.exports = {
     }
   },
   terser: {
+    format: {
+      max_line_len: 80,
+      ascii_only: true
+    },
     compress: {
       passes: 2,
       unsafe: true,

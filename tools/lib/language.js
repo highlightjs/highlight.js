@@ -90,7 +90,7 @@ async function compileLanguage (language, options) {
 
   var original = data;
   language.module = data;
-  data = Terser.minify(data, options["terser"]);
+  data = await Terser.minify(data, options.terser);
   language.minified = data.code || original;
 }
 

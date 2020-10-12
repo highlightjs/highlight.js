@@ -127,7 +127,7 @@ async function buildBrowserHighlightJS(languages, {minify}) {
   var minifiedSrc = "";
 
   if (minify) {
-    var tersed = Terser.minify(librarySrc, config.terser)
+    var tersed = await Terser.minify(librarySrc, config.terser)
 
     minifiedSrc = [
       header, tersed.code,
