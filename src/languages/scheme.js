@@ -116,6 +116,7 @@ export default function(hljs) {
 
   var NAME = {
     className: 'name',
+    relevance: 0,
     begin: SCHEME_IDENT_RE,
     keywords: KEYWORDS
   };
