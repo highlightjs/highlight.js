@@ -490,6 +490,7 @@ export default function(hljs) {
     "ceil",
     "ceiling",
     "coalesce",
+    "corr",
     "cos",
     "cosh",
     "covar_pop",
