@@ -760,13 +760,22 @@ export default function(hljs) {
   ];
 
   const COMBOS = [
-    "create table",
-    "insert into",
+    "create table", // no need, both are keywords
+    "insert into", // no need, both are keywords
     "primary key",
     "foreign key",
     "not null",
-    "alter table",
-    "add constraint",
+    "alter table", // no need, both are keywords
+    "add constraint", // add -> keywords?
+    "grouping sets",
+    "on overflow",
+    "character set",
+    "respect nulls",
+    "ignore nulls",
+    "nulls first",
+    "nulls last",
+    "depth first",
+    "breadth first"
   ];
 
   const KEYWORDS = RESERVED_WORDS.filter((keyword) => {
