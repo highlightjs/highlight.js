@@ -158,7 +158,7 @@ export default function(hljs) {
           endsParent: true
         })
       ],
-      relevance: 5
+      relevance: 2
     },
     {
       className: 'symbol',
