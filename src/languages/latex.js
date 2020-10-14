@@ -123,7 +123,7 @@ export default function(hljs) {
     },
     relevance: 0,
     contains: ['self', ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
-  }
+  };
   const ARGUMENT_BRACES = hljs.inherit(
     BRACE_GROUP_NO_VERBATIM,
     {
@@ -137,13 +137,13 @@ export default function(hljs) {
     endsParent: true,
     relevance: 0,
     contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
-  }
+  };
   const ARGUMENT_ABSENT = {
     begin: /(?=[.$])/,
     end: /(?=[.$])/,
     endsParent: true,
     relevance: 0
-  }
+  };
   const SPACE_GOBBLER = {
     begin: /\s+/,
     relevance: 0
@@ -224,30 +224,31 @@ export default function(hljs) {
           }
         ]
       }
-    }
+    };
   };
-  const VERBATIM = {
-    variants: [
-      ...['verb', 'lstinline'].map(csname => CSNAME(csname, {contains: [VERBATIM_DELIMITED_EQUAL()]})),
-      CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL()]})),
-      CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_BRACES(), VERBATIM_DELIMITED_EQUAL()]})),
-      CSNAME('url', {contains: [VERBATIM_DELIMITED_BRACES("link"), VERBATIM_DELIMITED_BRACES("link")]}),
-      CSNAME('hyperref', {contains: [VERBATIM_DELIMITED_BRACES("link")]}),
-      CSNAME('href', ARGUMENT_AND_THEN(ARGUMENT_O, {contains: [VERBATIM_DELIMITED_BRACES("link")]})),
-      ...[].concat(...['', '\\*'].map(suffix => [
-        BEGIN_ENV('verbatim' + suffix, VERBATIM_DELIMITED_ENV('verbatim' + suffix)),
-        BEGIN_ENV('filecontents' + suffix,  ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('filecontents' + suffix))),
-        ...['', 'B', 'L'].map(prefix =>
-          BEGIN_ENV(prefix + 'Verbatim' + suffix, ARGUMENT_AND_THEN(ARGUMENT_O, VERBATIM_DELIMITED_ENV(prefix + 'Verbatim' + suffix)))
-        )
-      ])),
-      BEGIN_ENV('minted', ARGUMENT_AND_THEN(ARGUMENT_O, ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('minted')))),
-    ]
-  };
-  const EVERYTHING = [VERBATIM, ...EVERYTHING_BUT_VERBATIM];
+  const VERBATIM = [
+    ...['verb', 'lstinline'].map(csname => CSNAME(csname, {contains: [VERBATIM_DELIMITED_EQUAL()]})),
+    CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL()]})),
+    CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_BRACES(), VERBATIM_DELIMITED_EQUAL()]})),
+    CSNAME('url', {contains: [VERBATIM_DELIMITED_BRACES("link"), VERBATIM_DELIMITED_BRACES("link")]}),
+    CSNAME('hyperref', {contains: [VERBATIM_DELIMITED_BRACES("link")]}),
+    CSNAME('href', ARGUMENT_AND_THEN(ARGUMENT_O, {contains: [VERBATIM_DELIMITED_BRACES("link")]})),
+    ...[].concat(...['', '\\*'].map(suffix => [
+      BEGIN_ENV('verbatim' + suffix, VERBATIM_DELIMITED_ENV('verbatim' + suffix)),
+      BEGIN_ENV('filecontents' + suffix,  ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('filecontents' + suffix))),
+      ...['', 'B', 'L'].map(prefix =>
+        BEGIN_ENV(prefix + 'Verbatim' + suffix, ARGUMENT_AND_THEN(ARGUMENT_O, VERBATIM_DELIMITED_ENV(prefix + 'Verbatim' + suffix)))
+      )
+    ])),
+    BEGIN_ENV('minted', ARGUMENT_AND_THEN(ARGUMENT_O, ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('minted')))),
+  ];
+
   return {
     name: 'LaTeX',
     aliases: ['TeX'],
-    contains: EVERYTHING
+    contains: [
+      ...VERBATIM,
+      ...EVERYTHING_BUT_VERBATIM
+    ]
   };
 }
