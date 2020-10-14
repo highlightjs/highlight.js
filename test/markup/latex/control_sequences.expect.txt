@@ -1,7 +1,7 @@
 <span class="hljs-keyword">\foo</span> bar
 <span class="hljs-keyword">\foo</span>:bar
+<span class="hljs-keyword">\ </span>
 <span class="hljs-keyword">\
-</span><span class="hljs-keyword">\
 </span>bar<span class="hljs-keyword">\foo</span>:baz
 <span class="hljs-keyword">\!</span>!
 <span class="hljs-keyword">\^^3a</span>bc
