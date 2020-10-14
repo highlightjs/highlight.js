@@ -126,16 +126,21 @@ export default function(hljs) {
   }
   const ARGUMENT_BRACES = hljs.inherit(
     BRACE_GROUP_NO_VERBATIM,
-    {endsParent: true, contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]}
+    {
+      endsParent: true,
+      contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
+    }
   );
   const ARGUMENT_BRACKETS = {
-    begin: /\[/, end: /\]/,
+    begin: /\[/,
+      end: /\]/,
     endsParent: true,
     relevance: 0,
     contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
   }
   const ARGUMENT_ABSENT = {
-    begin: /(?=[.$])/, end: /(?=[.$])/,
+    begin: /(?=[.$])/,
+    end: /(?=[.$])/,
     endsParent: true,
     relevance: 0
   }
@@ -175,8 +180,10 @@ export default function(hljs) {
   const VERBATIM_DELIMITED_EQUAL = (innerName = "string") => {
     return hljs.END_SAME_AS_BEGIN({
       className: innerName,
-      begin: /(.|\r?\n)/, end: /(.|\r?\n)/,
-      excludeBegin: true, excludeEnd: true,
+      begin: /(.|\r?\n)/,
+      end: /(.|\r?\n)/,
+      excludeBegin: true,
+      excludeEnd: true,
       endsParent: true
     });
   };
