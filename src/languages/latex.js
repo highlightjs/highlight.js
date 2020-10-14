@@ -95,14 +95,12 @@ export default function(hljs) {
     relevance: 0,
     begin: /[{}]/
   };
-  const MAGIC_COMMENT = hljs.COMMENT(
-    '% !TeX',
-    '$',
-    {
-      className: 'meta',
-      relevance: 10
-    }
-  );
+  const MAGIC_COMMENT = {
+    className: 'meta',
+    begin: '% !TeX',
+    end: '$',
+    relevance: 10
+  };
   const COMMENT = hljs.COMMENT(
     '%',
     '$',
