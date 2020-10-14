@@ -141,12 +141,10 @@ export default function(hljs) {
   }
   var SPACE_GOBBLER = {
     begin: /\s+/,
-    endsParent: true,
     relevance: 0
   };
   var ARGUMENT_M = [ARGUMENT_BRACES];
   var ARGUMENT_O = [ARGUMENT_BRACKETS, ARGUMENT_ABSENT];
-  var ARGUMENT_NONE = [ARGUMENT_ABSENT];
   var ARGUMENT_AND_THEN = function(arg, starts_mode) {
     return {
       contains: [SPACE_GOBBLER],
@@ -158,13 +156,12 @@ export default function(hljs) {
     };
   };
   var CSNAME = function(csname, starts_mode) {
-    return hljs.inherit(
-      {
+    return {
         begin: '\\\\' + csname + '(?![a-zA-Z@:_])',
-        keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\' + csname}
-      },
-      ARGUMENT_AND_THEN(ARGUMENT_NONE, starts_mode)
-    );
+        keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\' + csname},
+        contains: [SPACE_GOBBLER],
+        starts: starts_mode
+      };
   };
   var BEGIN_ENV = function(envname, starts_mode) {
     return hljs.inherit(
@@ -175,30 +172,13 @@ export default function(hljs) {
       ARGUMENT_AND_THEN(ARGUMENT_M, starts_mode)
     );
   };
-  var VERBATIM_DELIMITED_EQUAL = hljs.END_SAME_AS_BEGIN({
-    className: 'string',
-    begin: /(.|\r?\n)/, end: /(.|\r?\n)/,
-    excludeBegin: true, excludeEnd: true,
-    endsParent: true
-  });
-  var VERBATIM_DELIMITED_BRACES_INNER = {
-    className: 'string',
-    begin: /(?=[.$])/, end: /(?=\})/,
-    endsParent: true,
-    contains: [
-      {
-        variants: [
-          {begin: /[^\{\}]+/},
-          {begin: /\{/, end: /\}/}
-        ],
-        contains: ['self']
-      }
-    ]
-  };
-  var VERBATIM_DELIMITED_BRACES = {
-    className: 'built_in',
-    begin: /(?=\{)/, end: /\{/,
-    starts: VERBATIM_DELIMITED_BRACES_INNER
+  var VERBATIM_DELIMITED_EQUAL = (innerName = "string") => {
+    return hljs.END_SAME_AS_BEGIN({
+      className: innerName,
+      begin: /(.|\r?\n)/, end: /(.|\r?\n)/,
+      excludeBegin: true, excludeEnd: true,
+      endsParent: true
+    });
   };
   var VERBATIM_DELIMITED_ENV = function(envname) {
     return {
@@ -206,17 +186,47 @@ export default function(hljs) {
       end: '(?=\\\\end\\{' + envname + '\\})'
     };
   };
-  var URL_DELIMITED_EQUAL = hljs.inherit(VERBATIM_DELIMITED_EQUAL, {className: 'link'});
-  var URL_DELIMITED_BRACES_INNER = hljs.inherit(VERBATIM_DELIMITED_BRACES_INNER, {className: 'link'});
-  var URL_DELIMITED_BRACES = hljs.inherit(VERBATIM_DELIMITED_BRACES, {starts: URL_DELIMITED_BRACES_INNER});
+
+  var VERBATIM_DELIMITED_BRACES = (innerName = "string") => {
+    return {
+      className: 'built_in',
+      begin: /{/,
+      starts: {
+        endsParent: true,
+        contains: [
+          {
+            className: innerName,
+            end: /(?=})/,
+            endsParent:true,
+            contains: [
+              {
+                begin: /\{/,
+                end: /\}/,
+                contains: ["self"]
+              }
+            ],
+            // starts: {
+            //   endsParent: true,
+            //   contains: [{
+            //     end: /}/,
+            //     className : "built_in",
+            //     endsParent: true
+            //   }
+            // ],
+            // }
+          }
+        ]
+      }
+    }
+  };
   var VERBATIM = {
     variants: [
-      ...['verb', 'lstinline'].map(csname => CSNAME(csname, {contains: [VERBATIM_DELIMITED_EQUAL]})),
-      CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL]})),
-      CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_BRACES, VERBATIM_DELIMITED_EQUAL]})),
-      CSNAME('url', {contains: [URL_DELIMITED_BRACES, URL_DELIMITED_EQUAL]}),
-      CSNAME('hyperref', {contains: [URL_DELIMITED_BRACES]}),
-      CSNAME('href', ARGUMENT_AND_THEN(ARGUMENT_O, {contains: [URL_DELIMITED_BRACES]})),
+      ...['verb', 'lstinline'].map(csname => CSNAME(csname, {contains: [VERBATIM_DELIMITED_EQUAL()]})),
+      CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL()]})),
+      CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_BRACES(), VERBATIM_DELIMITED_EQUAL()]})),
+      CSNAME('url', {contains: [VERBATIM_DELIMITED_BRACES("link"), VERBATIM_DELIMITED_BRACES("link")]}),
+      CSNAME('hyperref', {contains: [VERBATIM_DELIMITED_BRACES("link")]}),
+      CSNAME('href', ARGUMENT_AND_THEN(ARGUMENT_O, {contains: [VERBATIM_DELIMITED_BRACES("link")]})),
       ...[].concat(...['', '\\*'].map(suffix => [
         BEGIN_ENV('verbatim' + suffix, VERBATIM_DELIMITED_ENV('verbatim' + suffix)),
         BEGIN_ENV('filecontents' + suffix,  ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('filecontents' + suffix))),
