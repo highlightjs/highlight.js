@@ -5,8 +5,11 @@ Website: https://www.latex-project.org
 Category: markup
 */
 
+import * as regex from '../lib/regex.js';
+
+/** @type LanguageFn */
 export default function(hljs) {
-  const KNOWN_CONTROL_WORDS = new RegExp([
+  const KNOWN_CONTROL_WORDS = regex.either(...[
       '(?:NeedsTeXFormat|RequirePackage|GetIdInfo)',
       'Provides(?:Expl)?(?:Package|Class|File)',
       '(?:DeclareOption|ProcessOptions)',
@@ -22,7 +25,7 @@ export default function(hljs) {
       '(?:part|chapter|(?:sub){0,2}section|(?:sub)?paragraph)',
       'caption',
       '(?:label|(?:eq|page|name)?ref|(?:paren|foot|super)?cite)'
-    ].map(csname => csname + '(?![a-zA-Z@:_])').join('|'));
+    ].map(word => word + '(?![a-zA-Z@:_])'));
   const KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|;/
   const L3_REGEX = new RegExp([
       '(?:__)?[a-zA-Z]{2,}_[a-zA-Z](?:_?[a-zA-Z])+:[a-zA-Z]*',
