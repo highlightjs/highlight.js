@@ -82,6 +82,7 @@ export default function(hljs) {
     begin: /#+\d?/
   };
   const DOUBLE_CARET_CHAR = {
+    // relevance: 1
     variants: DOUBLE_CARET_VARIANTS
   };
   const SPECIAL_CATCODE = {
@@ -122,7 +123,7 @@ export default function(hljs) {
     begin: /\{/, end: /\}/,
     keywords: {
       $pattern: /\{|\}/,
-      built_in: '{ }'
+      built_in: '{|0 }|0'
     },
     relevance: 0,
     contains: ['self', ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
@@ -130,6 +131,7 @@ export default function(hljs) {
   const ARGUMENT_BRACES = hljs.inherit(
     BRACE_GROUP_NO_VERBATIM,
     {
+      relevance: 0,
       endsParent: true,
       contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
     }
@@ -167,6 +169,7 @@ export default function(hljs) {
     return {
         begin: '\\\\' + csname + '(?![a-zA-Z@:_])',
         keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\' + csname},
+        relevance: 0,
         contains: [SPACE_GOBBLER],
         starts: starts_mode
       };
@@ -175,7 +178,8 @@ export default function(hljs) {
     return hljs.inherit(
       {
         begin: '\\\\begin(?=\\s*\\r?\\n?\\s*\\{' + envname + '\\})',
-        keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\begin'}
+        keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\begin'},
+        relevance: 0,
       },
       ARGUMENT_AND_THEN(ARGUMENT_M, starts_mode)
     );
@@ -200,6 +204,7 @@ export default function(hljs) {
   const VERBATIM_DELIMITED_BRACES = (innerName = "string") => {
     return {
       className: 'built_in',
+      relevance: 0,
       begin: /{/,
       starts: {
         endsParent: true,
@@ -212,6 +217,7 @@ export default function(hljs) {
               {
                 begin: /\{/,
                 end: /\}/,
+                relevance: 0,
                 contains: ["self"]
               }
             ],
