@@ -6,7 +6,7 @@ Category: markup
 */
 
 export default function(hljs) {
-  var KNOWN_CONTROL_WORDS = new RegExp([
+  const KNOWN_CONTROL_WORDS = new RegExp([
       '(?:NeedsTeXFormat|RequirePackage|GetIdInfo)',
       'Provides(?:Expl)?(?:Package|Class|File)',
       '(?:DeclareOption|ProcessOptions)',
@@ -23,8 +23,8 @@ export default function(hljs) {
       'caption',
       '(?:label|(?:eq|page|name)?ref|(?:paren|foot|super)?cite)'
     ].map(csname => csname + '(?![a-zA-Z@:_])').join('|'));
-  var KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|;/
-  var L3_REGEX = new RegExp([
+  const KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|;/
+  const L3_REGEX = new RegExp([
       '(?:__)?[a-zA-Z]{2,}_[a-zA-Z](?:_?[a-zA-Z])+:[a-zA-Z]*',
       '[lgc]__?[a-zA-Z]+_[a-zA-Z](?:_?[a-zA-Z])*[a-zA-Z]',
       '[qs]__?[a-zA-Z](?:_?[a-zA-Z])+',
@@ -35,11 +35,11 @@ export default function(hljs) {
       '::[a-zA-Z]_unbraced',
       '::[a-zA-Z:]'
     ].map(pattern => pattern + '(?![a-zA-Z:_])').join('|'));
-  var L2_VARIANTS = [
+  const L2_VARIANTS = [
     {begin: /[a-zA-Z@]+/}, // control word
     {begin: /[^a-zA-Z@]?/} // control symbol
   ];
-  var DOUBLE_CARET_VARIANTS = [
+  const DOUBLE_CARET_VARIANTS = [
     {begin: /\^{6}[0-9a-f]{6}/},
     {begin: /\^{5}[0-9a-f]{5}/},
     {begin: /\^{4}[0-9a-f]{4}/},
@@ -47,7 +47,7 @@ export default function(hljs) {
     {begin: /\^{2}[0-9a-f]{2}/},
     {begin: /\^{2}[\u0000-\u007f]/}
   ];
-  var CONTROL_SEQUENCE = {
+  const CONTROL_SEQUENCE = {
     className: 'keyword',
     begin: /\\/,
     contains: [
@@ -73,25 +73,25 @@ export default function(hljs) {
       }
     ]
   };
-  var MACRO_PARAM = {
+  const MACRO_PARAM = {
     className: 'params',
     relevance: 0,
     begin: /#+\d?/
   };
-  var DOUBLE_CARET_CHAR = {
+  const DOUBLE_CARET_CHAR = {
     variants: DOUBLE_CARET_VARIANTS
   };
-  var SPECIAL_CATCODE = {
+  const SPECIAL_CATCODE = {
     className: 'built_in',
     relevance: 0,
     begin: /[$&^_]/
   };
-  var BRACES = {
+  const BRACES = {
     className: 'built_in',
     relevance: 0,
     begin: /[{}]/
   };
-  var MAGIC_COMMENT = hljs.COMMENT(
+  const MAGIC_COMMENT = hljs.COMMENT(
     '% !TeX',
     '$',
     {
@@ -99,14 +99,14 @@ export default function(hljs) {
       relevance: 10
     }
   );
-  var COMMENT = hljs.COMMENT(
+  const COMMENT = hljs.COMMENT(
     '%',
     '$',
     {
       relevance: 0
     }
   );
-  var EVERYTHING_BUT_BRACES_AND_VERBATIM = [
+  const EVERYTHING_BUT_BRACES_AND_VERBATIM = [
     CONTROL_SEQUENCE,
     MACRO_PARAM,
     DOUBLE_CARET_CHAR,
@@ -114,8 +114,8 @@ export default function(hljs) {
     MAGIC_COMMENT,
     COMMENT
   ];
-  var EVERYTHING_BUT_VERBATIM = [...EVERYTHING_BUT_BRACES_AND_VERBATIM, BRACES];
-  var BRACE_GROUP_NO_VERBATIM = {
+  const EVERYTHING_BUT_VERBATIM = [...EVERYTHING_BUT_BRACES_AND_VERBATIM, BRACES];
+  const BRACE_GROUP_NO_VERBATIM = {
     begin: /\{/, end: /\}/,
     keywords: {
       $pattern: /\{|\}/,
@@ -124,28 +124,28 @@ export default function(hljs) {
     relevance: 0,
     contains: ['self', ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
   }
-  var ARGUMENT_BRACES = hljs.inherit(
+  const ARGUMENT_BRACES = hljs.inherit(
     BRACE_GROUP_NO_VERBATIM,
     {endsParent: true, contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]}
   );
-  var ARGUMENT_BRACKETS = {
+  const ARGUMENT_BRACKETS = {
     begin: /\[/, end: /\]/,
     endsParent: true,
     relevance: 0,
     contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
   }
-  var ARGUMENT_ABSENT = {
+  const ARGUMENT_ABSENT = {
     begin: /(?=[.$])/, end: /(?=[.$])/,
     endsParent: true,
     relevance: 0
   }
-  var SPACE_GOBBLER = {
+  const SPACE_GOBBLER = {
     begin: /\s+/,
     relevance: 0
   };
-  var ARGUMENT_M = [ARGUMENT_BRACES];
-  var ARGUMENT_O = [ARGUMENT_BRACKETS, ARGUMENT_ABSENT];
-  var ARGUMENT_AND_THEN = function(arg, starts_mode) {
+  const ARGUMENT_M = [ARGUMENT_BRACES];
+  const ARGUMENT_O = [ARGUMENT_BRACKETS, ARGUMENT_ABSENT];
+  const ARGUMENT_AND_THEN = function(arg, starts_mode) {
     return {
       contains: [SPACE_GOBBLER],
       starts: {
@@ -155,7 +155,7 @@ export default function(hljs) {
       }
     };
   };
-  var CSNAME = function(csname, starts_mode) {
+  const CSNAME = function(csname, starts_mode) {
     return {
         begin: '\\\\' + csname + '(?![a-zA-Z@:_])',
         keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\' + csname},
@@ -163,7 +163,7 @@ export default function(hljs) {
         starts: starts_mode
       };
   };
-  var BEGIN_ENV = function(envname, starts_mode) {
+  const BEGIN_ENV = function(envname, starts_mode) {
     return hljs.inherit(
       {
         begin: '\\\\begin(?=\\s*\\r?\\n?\\s*\\{' + envname + '\\})',
@@ -172,7 +172,7 @@ export default function(hljs) {
       ARGUMENT_AND_THEN(ARGUMENT_M, starts_mode)
     );
   };
-  var VERBATIM_DELIMITED_EQUAL = (innerName = "string") => {
+  const VERBATIM_DELIMITED_EQUAL = (innerName = "string") => {
     return hljs.END_SAME_AS_BEGIN({
       className: innerName,
       begin: /(.|\r?\n)/, end: /(.|\r?\n)/,
@@ -180,14 +180,14 @@ export default function(hljs) {
       endsParent: true
     });
   };
-  var VERBATIM_DELIMITED_ENV = function(envname) {
+  const VERBATIM_DELIMITED_ENV = function(envname) {
     return {
       className: 'string',
       end: '(?=\\\\end\\{' + envname + '\\})'
     };
   };
 
-  var VERBATIM_DELIMITED_BRACES = (innerName = "string") => {
+  const VERBATIM_DELIMITED_BRACES = (innerName = "string") => {
     return {
       className: 'built_in',
       begin: /{/,
@@ -219,7 +219,7 @@ export default function(hljs) {
       }
     }
   };
-  var VERBATIM = {
+  const VERBATIM = {
     variants: [
       ...['verb', 'lstinline'].map(csname => CSNAME(csname, {contains: [VERBATIM_DELIMITED_EQUAL()]})),
       CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL()]})),
@@ -237,7 +237,7 @@ export default function(hljs) {
       BEGIN_ENV('minted', ARGUMENT_AND_THEN(ARGUMENT_O, ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('minted')))),
     ]
   };
-  var EVERYTHING = [VERBATIM, ...EVERYTHING_BUT_VERBATIM];
+  const EVERYTHING = [VERBATIM, ...EVERYTHING_BUT_VERBATIM];
   return {
     name: 'LaTeX',
     aliases: ['TeX'],
