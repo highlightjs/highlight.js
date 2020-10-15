@@ -1,4 +1,4 @@
-<span class="hljs-built_in">{</span><span class="hljs-built_in">}</span><span class="hljs-built_in">$</span><span class="hljs-built_in">&amp;</span><span class="hljs-built_in">^</span><span class="hljs-built_in">_</span>~&quot;[]()&lt;&gt;
+{}<span class="hljs-built_in">$</span><span class="hljs-built_in">&amp;</span><span class="hljs-built_in">^</span><span class="hljs-built_in">_</span>~&quot;[]()&lt;&gt;
 
 +-0123456789 pt
 

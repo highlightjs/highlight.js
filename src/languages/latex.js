@@ -92,11 +92,6 @@ export default function(hljs) {
     relevance: 0,
     begin: /[$&^_]/
   };
-  const BRACES = {
-    className: 'built_in',
-    relevance: 0,
-    begin: /[{}]/
-  };
   const MAGIC_COMMENT = {
     className: 'meta',
     begin: '% !TeX',
@@ -110,7 +105,7 @@ export default function(hljs) {
       relevance: 0
     }
   );
-  const EVERYTHING_BUT_BRACES_AND_VERBATIM = [
+  const EVERYTHING_BUT_VERBATIM = [
     CONTROL_SEQUENCE,
     MACRO_PARAM,
     DOUBLE_CARET_CHAR,
@@ -118,22 +113,17 @@ export default function(hljs) {
     MAGIC_COMMENT,
     COMMENT
   ];
-  const EVERYTHING_BUT_VERBATIM = [...EVERYTHING_BUT_BRACES_AND_VERBATIM, BRACES];
   const BRACE_GROUP_NO_VERBATIM = {
     begin: /\{/, end: /\}/,
-    keywords: {
-      $pattern: /\{|\}/,
-      built_in: '{|0 }|0'
-    },
     relevance: 0,
-    contains: ['self', ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
+    contains: ['self', ...EVERYTHING_BUT_VERBATIM]
   };
   const ARGUMENT_BRACES = hljs.inherit(
     BRACE_GROUP_NO_VERBATIM,
     {
       relevance: 0,
       endsParent: true,
-      contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
+      contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_VERBATIM]
     }
   );
   const ARGUMENT_BRACKETS = {
@@ -141,7 +131,7 @@ export default function(hljs) {
       end: /\]/,
     endsParent: true,
     relevance: 0,
-    contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
+    contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_VERBATIM]
   };
   const END_PARENT = {
     begin: /(?=[.$])/,
@@ -203,7 +193,6 @@ export default function(hljs) {
 
   const VERBATIM_DELIMITED_BRACES = (innerName = "string") => {
     return {
-      className: 'built_in',
       relevance: 0,
       begin: /{/,
       starts: {
