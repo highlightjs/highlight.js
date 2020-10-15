@@ -24,7 +24,12 @@ export default function(hljs) {
       '(?:begin|end)',
       '(?:part|chapter|(?:sub){0,2}section|(?:sub)?paragraph)',
       'caption',
-      '(?:label|(?:eq|page|name)?ref|(?:paren|foot|super)?cite)'
+      '(?:label|(?:eq|page|name)?ref|(?:paren|foot|super)?cite)',
+      '(?:alpha|beta|[Gg]amma|[Dd]elta|(?:var)?epsilon|zeta|eta|[Tt]heta|vartheta)',
+      '(?:iota|(?:var)?kappa|[Ll]ambda|mu|nu|[Xx]i|[Pp]i|varpi|(?:var)rho)',
+      '(?:[Ss]igma|varsigma|tau|[Uu]psilon|[Pp]hi|varphi|chi|[Pp]si|[Oo]mega)',
+      '(?:frac|sum|prod|lim|infty|times|sqrt|leq|geq|left|right|middle|[bB]igg?)',
+      '(?:[lr]angle|q?quad|[lcvdi]?dots|d?dot|hat|tilde|bar)'
     ].map(word => word + '(?![a-zA-Z@:_])'));
   const L3_REGEX = new RegExp([
       '(?:__)?[a-zA-Z]{2,}_[a-zA-Z](?:_?[a-zA-Z])+:[a-zA-Z]*',
@@ -52,6 +57,7 @@ export default function(hljs) {
   const CONTROL_SEQUENCE = {
     className: 'keyword',
     begin: /\\/,
+    relevance: 0,
     contains: [
       {
         endsParent: true,
