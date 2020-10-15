@@ -225,9 +225,9 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'enum class struct', end: /[{;:<>=]/,
+        beginKeywords: 'enum class struct union', end: /[{;:<>=]/,
         contains: [
-          { beginKeywords: "final class struct enum" },
+          { beginKeywords: "final class struct" },
           hljs.TITLE_MODE
         ]
       }

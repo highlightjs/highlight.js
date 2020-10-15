@@ -3,7 +3,7 @@
 Language Improvements:
 
 - fix(cpp) improve parsing issues with templates (#2752) [Josh Goebel][]
-- enh(cpp) add support for `enum (struct|class)` (#2752) [Josh Goebel][]
+- enh(cpp) add support for `enum (struct|class)` and `union` (#2752) [Josh Goebel][]
 - enh(javascipt/typescript) Highlight class methods as functions (#2727) [Josh Goebel][]
 - fix(javascipt/typescript) `constructor` is now highlighted as a function title (not keyword) (#2727) [Josh Goebel][]
 - fix(c-like) preprocessor directives not detected after else (#2738) [Josh Goebel][]

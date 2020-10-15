@@ -18,3 +18,7 @@
 <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Boolean</span> :</span> <span class="hljs-keyword">char</span> {
     True, False, FileNotFound
 };
+
+<span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">Soy</span>
+{</span>
+};
