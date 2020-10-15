@@ -221,15 +221,6 @@ export default function(hljs) {
                 contains: ["self"]
               }
             ],
-            // starts: {
-            //   endsParent: true,
-            //   contains: [{
-            //     end: /}/,
-            //     className : "built_in",
-            //     endsParent: true
-            //   }
-            // ],
-            // }
           }
         ]
       }
