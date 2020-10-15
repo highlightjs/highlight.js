@@ -12,3 +12,9 @@ std::wostream &operator <<(std::wostream &stream, const T &thing)
 {
     return stream << static_cast<std::wstring_view>(thing);
 }
+
+enum struct DataHolder { }
+enum class DataThingy { }
+enum class Boolean : char {
+    True, False, FileNotFound
+}

@@ -12,3 +12,9 @@
 {
     <span class="hljs-keyword">return</span> stream &lt;&lt; <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-built_in">std</span>::wstring_view&gt;(thing);
 }
+
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-keyword">struct</span> <span class="hljs-title">DataHolder</span> {</span> }
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-keyword">class</span> <span class="hljs-title">DataThingy</span> {</span> }
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Boolean</span> :</span> <span class="hljs-keyword">char</span> {
+    True, False, FileNotFound
+}
