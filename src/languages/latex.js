@@ -26,7 +26,6 @@ export default function(hljs) {
       'caption',
       '(?:label|(?:eq|page|name)?ref|(?:paren|foot|super)?cite)'
     ].map(word => word + '(?![a-zA-Z@:_])'));
-  const KNOWN_CONTROL_SYMBOLS = /\\|\(|\)|\[|\]|\s|!|,|;/
   const L3_REGEX = new RegExp([
       '(?:__)?[a-zA-Z]{2,}_[a-zA-Z](?:_?[a-zA-Z])+:[a-zA-Z]*',
       '[lgc]__?[a-zA-Z]+_[a-zA-Z](?:_?[a-zA-Z])*[a-zA-Z]',
@@ -56,10 +55,7 @@ export default function(hljs) {
     contains: [
       {
         endsParent: true,
-        variants: [
-          {begin: KNOWN_CONTROL_WORDS},
-          {begin: KNOWN_CONTROL_SYMBOLS}
-        ]
+        begin: KNOWN_CONTROL_WORDS
       },
       {
         endsParent: true,
