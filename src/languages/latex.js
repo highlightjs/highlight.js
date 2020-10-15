@@ -141,7 +141,7 @@ export default function(hljs) {
     relevance: 0,
     contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_BRACES_AND_VERBATIM]
   };
-  const ARGUMENT_ABSENT = {
+  const END_PARENT = {
     begin: /(?=[.$])/,
     end: /(?=[.$])/,
     endsParent: true,
@@ -152,7 +152,7 @@ export default function(hljs) {
     relevance: 0
   };
   const ARGUMENT_M = [ARGUMENT_BRACES];
-  const ARGUMENT_O = [ARGUMENT_BRACKETS, ARGUMENT_ABSENT];
+  const ARGUMENT_O = [ARGUMENT_BRACKETS, END_PARENT];
   const ARGUMENT_AND_THEN = function(arg, starts_mode) {
     return {
       contains: [SPACE_GOBBLER],
