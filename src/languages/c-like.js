@@ -225,10 +225,9 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class struct', end: /[{;:]/,
+        beginKeywords: 'enum class struct union', end: /[{;:<>=]/,
         contains: [
-          { beginKeywords: "final" },
-          {begin: /</, end: />/, contains: ['self']}, // skip generic stuff
+          { beginKeywords: "final class struct" },
           hljs.TITLE_MODE
         ]
       }
