@@ -1,0 +1,15 @@
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt; // <span class="hljs-title">comment</span>
+<span class="hljs-title">auto</span> <span class="hljs-title">foo</span>(<span class="hljs-title">T</span> <span class="hljs-title">x</span>) {</span> … }
+
+<span class="hljs-keyword">namespace</span> impl {
+    <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">is_streamable</span>&lt;T, std::void_t&lt;decltype(std::declval&lt;std::wostream &amp;&gt;() &lt;&lt; std::declval&lt;T&gt;())&gt;&gt; : std::true_type { };
+}
+
+// Disable overload for already valid operands.
+template&lt;class T, class = std::enable_if_t&lt;!impl::is_streamable_v&lt;const T &amp;&gt; &amp;&amp; std::is_convertible_v&lt;const T &amp;, std::wstring_view&gt;&gt;&gt;
+std::wostream &amp;operator &lt;&lt;(std::wostream &amp;stream, const T &amp;thing)
+{
+    return stream &lt;&lt; static_cast&lt;std::wstring_view&gt;(thing);
+}
+</span>
