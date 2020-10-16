@@ -63,7 +63,7 @@ export default function(hljs) {
     literal: ECMAScript.LITERALS.join(" "),
     built_in: ECMAScript.BUILT_INS.join(" ")
   };
-  const nonDecimalLiterals = (prefixLetters, validChars) => 
+  const nonDecimalLiterals = (prefixLetters, validChars) =>
     `\\b0[${prefixLetters}][${validChars}]([${validChars}_]*[${validChars}])?n?`;
   const noLeadingZeroDecimalDigits = /[1-9]([0-9_]*\d)?/;
   const decimalDigits = /\d([0-9_]*\d)?/;
@@ -169,7 +169,7 @@ export default function(hljs) {
       hljs.C_LINE_COMMENT_MODE
     ]
   };
-  SUBST.contains = [
+  const SUBST_INTERNALS = [
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
     HTML_TEMPLATE,
@@ -178,6 +178,17 @@ export default function(hljs) {
     NUMBER,
     hljs.REGEXP_MODE
   ];
+  SUBST.contains = SUBST_INTERNALS
+    .concat({
+      // we need to pair up {} inside our subst to prevent
+      // it from ending too early by matching another }
+      begin: /{/,
+      end: /}/,
+      keywords: KEYWORDS,
+      contains: [
+        "self"
+      ].concat(SUBST_INTERNALS)
+    });
   const SUBST_AND_COMMENTS = [].concat(COMMENT, SUBST.contains);
   const PARAMS_CONTAINS = SUBST_AND_COMMENTS.concat([
     // eat recursive parens in sub expressions
@@ -204,7 +215,7 @@ export default function(hljs) {
     keywords: KEYWORDS,
     // this will be extended by TypeScript
     exports: { PARAMS_CONTAINS },
-    illegal: /#(?!!)/,
+    illegal: /#(?![$_A-z])/,
     contains: [
       hljs.SHEBANG({
         label: "shebang",
@@ -239,7 +250,9 @@ export default function(hljs) {
           regex.lookahead(regex.concat(
             // we also need to allow for multiple possible comments inbetween
             // the first key:value pairing
-            /(((\/\/.*$)|(\/\*(.|\n)*\*\/))\s*)*/,
+            /(\/\/.*$)*/,
+            /(\/\*(.|\n)*\*\/)*/,
+            /\s*/,
             IDENT_RE + '\\s*:'))),
         relevance: 0,
         contains: [
@@ -261,11 +274,12 @@ export default function(hljs) {
             // we have to count the parens to make sure we actually have the
             // correct bounding ( ) before the =>.  There could be any number of
             // sub-expressions inside also surrounded by parens.
-            begin: '(\\([^(]*' +
-              '(\\([^(]*' +
-                '(\\([^(]*' +
-                '\\))?' +
-              '\\))?' +
+            begin: '(\\(' +
+            '[^()]*(\\(' +
+            '[^()]*(\\(' +
+            '[^()]*' +
+            '\\))*[^()]*' +
+            '\\))*[^()]*' +
             '\\)|' + hljs.UNDERSCORE_IDENT_RE + ')\\s*=>',
             returnBegin: true,
             end: '\\s*=>',
@@ -339,6 +353,25 @@ export default function(hljs) {
         ],
         illegal: /%/
       },
+      {
+        className: 'function',
+        // we have to count the parens to make sure we actually have the correct
+        // bounding ( ).  There could be any number of sub-expressions inside
+        // also surrounded by parens.
+        begin: hljs.UNDERSCORE_IDENT_RE +
+          '\\(' + // first parens
+          '[^()]*(\\(' +
+            '[^()]*(\\(' +
+              '[^()]*' +
+            '\\))*[^()]*' +
+          '\\))*[^()]*' +
+          '\\)\\s*{', // end parens
+        returnBegin:true,
+        contains: [
+          PARAMS,
+          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
+        ]
+      },
       // hack: prevents detection of keywords in some circumstances
       // .keyword()
       // $keyword = x
@@ -361,10 +394,11 @@ export default function(hljs) {
         ]
       },
       {
-        beginKeywords: 'constructor',
+        begin: /\b(?=constructor)/,
         end: /[\{;]/,
         excludeEnd: true,
         contains: [
+          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
           'self',
           PARAMS
         ]

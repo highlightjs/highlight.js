@@ -2,9 +2,19 @@
 
 Language Improvements:
 
+- fix(cpp) implement backslash line continuation in comments (#2757) [Konrad Rudolph][]
+- fix(cpp) improve parsing issues with templates (#2752) [Josh Goebel][]
+- enh(cpp) add support for `enum (struct|class)` and `union` (#2752) [Josh Goebel][]
+- fix(js/ts) Fix nesting of `{}` inside template literals SUBST expression (#2748) [Josh Goebel][]
+- enh(js/ts) Highlight class methods as functions (#2727) [Josh Goebel][]
+- fix(js/ts) `constructor` is now highlighted as a function title (not keyword) (#2727) [Josh Goebel][]
+- fix(c-like) preprocessor directives not detected after else (#2738) [Josh Goebel][]
+- enh(javascript) allow `#` for private class fields (#2701) [Chris Krycho][]
+- fix(js) prevent runaway regex (#2746) [Josh Goebel][]
 - fix(bash) enh(bash) allow nested params (#2731) [Josh Goebel][]
 - fix(python) Fix highlighting of keywords and strings (#2713, #2715) [Konrad Rudolph][]
 - fix(fsharp) Prevent `(*)` from being detected as a multi-line comment [Josh Goebel][]
+- enh(bash) add support for heredocs (#2684) [Josh Goebel][]
 - enh(r) major overhaul of the R language grammar (and fix a few bugs) (#2680) [Konrad Rudolph][]
 - enh(csharp) Add all C# 9 keywords, and other missing keywords (#2679) [David Pine][]
 - enh(objectivec) Add `objective-c++` and `obj-c++` aliases for Objective-C [Josh Goebel][]
@@ -20,6 +30,11 @@ Language Improvements:
 - enh(typescript) TypeScript also gains support for numeric separators (#2617) [Antoine du Hamel][]
 - enh(php) Add support for PHP 8 `match` keyword and add `php8` as an alias (#2733) [Ayesh Karunaratne][]
 
+Deprecations:
+
+- `useBR` option deprecated and will be removed in v11.0. (#2559) [Josh Goebel][]
+
+[Chris Krycho]: https://github.com/chriskrycho
 [David Pine]: https://github.com/IEvangelist
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Jonasson]: https://github.com/ryanjonasson
