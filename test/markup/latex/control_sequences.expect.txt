@@ -6,6 +6,7 @@
 <span class="hljs-keyword">\^^3a</span>bc
 <span class="hljs-keyword">\^^3</span>ABC
 <span class="hljs-keyword">\^^x</span>yz
+<span class="hljs-comment">% ° does not qualify for the ^^ syntax, as it is not in ASCII</span>
 <span class="hljs-keyword">\^</span><span class="hljs-built_in">^</span>°!
 
 <span class="hljs-comment">% @ is always treated as a letter</span>
