@@ -154,10 +154,11 @@ interface LanguageDetail {
     rawDefinition?: () => Language
     aliases?: string[]
     disableAutodetect?: boolean
-    contains: ("self"|Mode)[]
+    contains: (Mode)[]
     case_insensitive?: boolean
     keywords?: Record<string, any> | string
-    compiled?: boolean
+    compiled?: boolean,
+    exports?: any
 }
 
 type Language = LanguageDetail & Partial<Mode>
@@ -213,6 +214,7 @@ interface ModeDetails {
     // parsed
     subLanguage?: string | string[]
     compiled?: boolean
+    label?: string
 }
 
 // deprecated API since v10

@@ -1,0 +1,14 @@
+<span class="hljs-comment">(* here is a multi-line comment on one line *)</span>
+
+<span class="hljs-comment">(*
+    here is a multi-line comment on
+    multiple lines
+*)</span>
+
+<span class="hljs-keyword">let</span> index =
+    len
+    |&gt; float
+    |&gt; Operators.(*) <span class="hljs-number">0.1</span>      <span class="hljs-comment">// (*) here is not comment</span>
+    |&gt; Operators.(+) <span class="hljs-number">1</span>        <span class="hljs-comment">// (+) here is not comment</span>
+    |&gt; Operators.(-) len      <span class="hljs-comment">// (-) here is not comment</span>
+;;
