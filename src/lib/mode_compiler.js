@@ -24,7 +24,7 @@ export function compileLanguage(language) {
   function langRe(value, global) {
     return new RegExp(
       regex.source(value),
-      'um' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
+      'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
     );
   }
 

@@ -121,7 +121,7 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        begin: '{', end: '}',
+        begin: /\{/, end: /\}/,
         illegal: /\S/,
         contains: [
           hljs.C_BLOCK_COMMENT_MODE,

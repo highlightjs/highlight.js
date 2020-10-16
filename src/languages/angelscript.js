@@ -71,7 +71,7 @@ export default function(hljs) {
       },
 
       { // interface or namespace declaration
-        beginKeywords: 'interface namespace', end: '{',
+        beginKeywords: 'interface namespace', end: /\{/,
         illegal: '[;.\\-]',
         contains: [
           { // interface or namespace name
@@ -82,7 +82,7 @@ export default function(hljs) {
       },
 
       { // class declaration
-        beginKeywords: 'class', end: '{',
+        beginKeywords: 'class', end: /\{/,
         illegal: '[;.\\-]',
         contains: [
           { // class name

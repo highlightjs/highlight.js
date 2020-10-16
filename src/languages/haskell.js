@@ -49,7 +49,7 @@ export default function(hljs) {
   };
 
   var RECORD = {
-    begin: '{', end: '}',
+    begin: /\{/, end: /\}/,
     contains: LIST.contains
   };
 

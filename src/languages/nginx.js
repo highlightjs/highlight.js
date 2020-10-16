@@ -74,8 +74,8 @@ export default function(hljs) {
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
-        begin: hljs.UNDERSCORE_IDENT_RE + '\\s+{', returnBegin: true,
-        end: '{',
+        begin: hljs.UNDERSCORE_IDENT_RE + '\\s+\\{', returnBegin: true,
+        end: /\{/,
         contains: [
           {
             className: 'section',
@@ -85,7 +85,7 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        begin: hljs.UNDERSCORE_IDENT_RE + '\\s', end: ';|{', returnBegin: true,
+        begin: hljs.UNDERSCORE_IDENT_RE + '\\s', end: ';|\\{', returnBegin: true,
         contains: [
           {
             className: 'attribute',

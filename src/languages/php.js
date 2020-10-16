@@ -144,8 +144,8 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '{', excludeEnd: true,
-        illegal: /[:\(\$"]/,
+        beginKeywords: 'class interface', end: /\{/, excludeEnd: true,
+        illegal: /[:($"]/,
         contains: [
           {beginKeywords: 'extends implements'},
           hljs.UNDERSCORE_TITLE_MODE
@@ -153,7 +153,7 @@ export default function(hljs) {
       },
       {
         beginKeywords: 'namespace', end: ';',
-        illegal: /[\.']/,
+        illegal: /[.']/,
         contains: [hljs.UNDERSCORE_TITLE_MODE]
       },
       {

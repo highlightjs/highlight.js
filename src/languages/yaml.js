@@ -75,8 +75,8 @@ export default function(hljs) {
     relevance: 0
   };
   var OBJECT = {
-    begin: '{',
-    end: '}',
+    begin: /\{/,
+    end: /\}/,
     contains: [VALUE_CONTAINER],
     illegal: '\\n',
     relevance: 0
@@ -93,7 +93,7 @@ export default function(hljs) {
     KEY,
     {
       className: 'meta',
-      begin: '^---\s*$',
+      begin: '^---\\s*$',
       relevance: 10
     },
     { // multi line string

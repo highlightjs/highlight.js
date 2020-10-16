@@ -8,7 +8,7 @@ Category: common
 */
 
 export default function(hljs) {
-  var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
+  var RUBY_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
   var RUBY_KEYWORDS = {
     keyword:
       'and then defined module in return redo if BEGIN retry end for self when ' +
@@ -33,8 +33,8 @@ export default function(hljs) {
       }
     ),
     hljs.COMMENT(
-      '^\\=begin',
-      '^\\=end',
+      '^=begin',
+      '^=end',
       {
         contains: [YARDOCTAG],
         relevance: 10
@@ -44,7 +44,7 @@ export default function(hljs) {
   ];
   var SUBST = {
     className: 'subst',
-    begin: '#\\{', end: '}',
+    begin: /#\{/, end: /\}/,
     keywords: RUBY_KEYWORDS
   };
   var STRING = {
@@ -54,14 +54,14 @@ export default function(hljs) {
       {begin: /'/, end: /'/},
       {begin: /"/, end: /"/},
       {begin: /`/, end: /`/},
-      {begin: '%[qQwWx]?\\(', end: '\\)'},
-      {begin: '%[qQwWx]?\\[', end: '\\]'},
-      {begin: '%[qQwWx]?{', end: '}'},
-      {begin: '%[qQwWx]?<', end: '>'},
-      {begin: '%[qQwWx]?/', end: '/'},
-      {begin: '%[qQwWx]?%', end: '%'},
-      {begin: '%[qQwWx]?-', end: '-'},
-      {begin: '%[qQwWx]?\\|', end: '\\|'},
+      {begin: /%[qQwWx]?\(/, end: /\)/},
+      {begin: /%[qQwWx]?\[/, end: /\]/},
+      {begin: /%[qQwWx]?\{/, end: /\}/},
+      {begin: /%[qQwWx]?</, end: />/},
+      {begin: /%[qQwWx]?\//, end: /\//},
+      {begin: /%[qQwWx]?%/, end: /%/},
+      {begin: /%[qQwWx]?-/, end: /-/},
+      {begin: /%[qQwWx]?\|/, end: /\|/},
       {
         // \B in the beginning suppresses recognition of ?-sequences where ?
         // is the last character of a preceding identifier, as in: `func?4`
@@ -118,7 +118,7 @@ export default function(hljs) {
       beginKeywords: 'class module', end: '$|;',
       illegal: /=/,
       contains: [
-        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?'}),
+        hljs.inherit(hljs.TITLE_MODE, {begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|!)?'}),
         {
           begin: '<\\s*',
           contains: [{
@@ -141,7 +141,7 @@ export default function(hljs) {
     },
     {
       className: 'symbol',
-      begin: hljs.UNDERSCORE_IDENT_RE + '(\\!|\\?)?:',
+      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
       relevance: 0
     },
     {
@@ -152,7 +152,7 @@ export default function(hljs) {
     },
     NUMBER,
     {
-      begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))' // variables
+      begin: '(\\$\\W)|((\\$|@@?)(\\w+))' // variables
     },
     {
       className: 'params',
@@ -170,7 +170,7 @@ export default function(hljs) {
           illegal: /\n/,
           variants: [
             {begin: '/', end: '/[a-z]*'},
-            {begin: '%r{', end: '}[a-z]*'},
+            {begin: /%r\{/, end: /\}[a-z]*/},
             {begin: '%r\\(', end: '\\)[a-z]*'},
             {begin: '%r!', end: '![a-z]*'},
             {begin: '%r\\[', end: '\\][a-z]*'}

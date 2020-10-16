@@ -25,7 +25,7 @@ export default function(hljs) {
   var RE_PARAM_TYPEPARAM = '\'?[a-z$_][0-9a-z$_]*';
   var RE_PARAM_TYPE = '\s*:\s*[a-z$_][0-9a-z$_]*(\(\s*(' + RE_PARAM_TYPEPARAM + '\s*(,' + RE_PARAM_TYPEPARAM + ')*)?\s*\))?';
   var RE_PARAM = RE_IDENT + '(' + RE_PARAM_TYPE + ')?(' + RE_PARAM_TYPE + ')?';
-  var RE_OPERATOR = "(" + orReValues(['||', '&&', '++', '**', '+.', '*', '/', '*.', '/.', '...', '|>']) + "|==|===)";
+  var RE_OPERATOR = "(" + orReValues(['||', '++', '**', '+.', '*', '/', '*.', '/.', '...']) + "|\\|>|&&|==|===)";
   var RE_OPERATOR_SPACED = "\\s+" + RE_OPERATOR + "\\s+";
 
   var KEYWORDS = {
@@ -53,7 +53,7 @@ export default function(hljs) {
         begin: RE_NUMBER
       },
       {
-        begin: '\\(\\-' + RE_NUMBER + '\\)'
+        begin: '\\(-' + RE_NUMBER + '\\)'
       }
     ]
   };
@@ -228,8 +228,8 @@ export default function(hljs) {
         ].concat(MODULE_ACCESS_CONTENTS)
       },
       {
-        begin: "\\b(" + RE_MODULE_IDENT + "\\.)+{",
-        end: "}"
+        begin: "\\b(" + RE_MODULE_IDENT + "\\.)+\\{",
+        end: /\}/
       }
     ],
     contains: MODULE_ACCESS_CONTENTS
@@ -241,9 +241,9 @@ export default function(hljs) {
     name: 'ReasonML',
     aliases: ['re'],
     keywords: KEYWORDS,
-    illegal: '(:\\-|:=|\\${|\\+=)',
+    illegal: '(:-|:=|\\$\\{|\\+=)',
     contains: [
-      hljs.COMMENT('/\\*', '\\*/', { illegal: '^(\\#,\\/\\/)' }),
+      hljs.COMMENT('/\\*', '\\*/', { illegal: '^(#,\\/\\/)' }),
       {
         className: 'character',
         begin: '\'(\\\\[^\']+|[^\'])\'',
@@ -274,7 +274,7 @@ export default function(hljs) {
       {
         className: 'operator',
         begin: RE_OPERATOR_SPACED,
-        illegal: '\\-\\->',
+        illegal: '-->',
         relevance: 0
       },
       NUMBER_MODE,
@@ -283,8 +283,8 @@ export default function(hljs) {
       FUNCTION_BLOCK_MODE,
       {
         className: 'module-def',
-        begin: "\\bmodule\\s+" + RE_IDENT + "\\s+" + RE_MODULE_IDENT + "\\s+=\\s+{",
-        end: "}",
+        begin: "\\bmodule\\s+" + RE_IDENT + "\\s+" + RE_MODULE_IDENT + "\\s+=\\s+\\{",
+        end: /\}/,
         returnBegin: true,
         keywords: KEYWORDS,
         relevance: 0,
@@ -295,8 +295,8 @@ export default function(hljs) {
             begin: RE_MODULE_IDENT
           },
           {
-            begin: '{',
-            end: '}',
+            begin: /\{/,
+            end: /\}/,
             skip: true
           }
         ].concat(MODULE_ACCESS_CONTENTS)

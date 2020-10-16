@@ -8,8 +8,8 @@ Category: template
 
 export default function(hljs) {
   var CURLY_SUBCOMMENT = hljs.COMMENT(
-    '{',
-    '}',
+    /\{/,
+    /\}/,
     {
       contains: ['self']
     }

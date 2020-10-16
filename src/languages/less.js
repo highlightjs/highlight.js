@@ -8,7 +8,7 @@ Category: common, css
 
 export default function(hljs) {
   var IDENT_RE        = '[\\w-]+'; // yes, Less identifiers may begin with a digit
-  var INTERP_IDENT_RE = '(' + IDENT_RE + '|@{' + IDENT_RE + '})';
+  var INTERP_IDENT_RE = '(' + IDENT_RE + '|@\\{' + IDENT_RE + '\\})';
 
   /* Generic Modes */
 
@@ -42,7 +42,7 @@ export default function(hljs) {
     IDENT_MODE('number', '#[0-9A-Fa-f]+\\b'),
     PARENS_MODE,
     IDENT_MODE('variable', '@@?' + IDENT_RE, 10),
-    IDENT_MODE('variable', '@{'  + IDENT_RE + '}'),
+    IDENT_MODE('variable', '@\\{'  + IDENT_RE + '\\}'),
     IDENT_MODE('built_in', '~?`[^`]*?`'), // inline javascript (or whatever host language) *multiline* string
     { // @media features (it’s here to not duplicate things in AT_RULE_MODE with extra PARENS_MODE overriding):
       className: 'attribute', begin: IDENT_RE + '\\s*:', end: ':', returnBegin: true, excludeEnd: true
@@ -54,7 +54,7 @@ export default function(hljs) {
   );
 
   var VALUE_WITH_RULESETS = VALUE.concat({
-    begin: '{', end: '}', contains: RULES
+    begin: /\{/, end: /\}/, contains: RULES
   });
 
   var MIXIN_GUARD_MODE = {
@@ -107,7 +107,7 @@ export default function(hljs) {
     variants: [{
       begin: '[\\.#:&\\[>]', end: '[;{}]'  // mixin calls end with ';'
       }, {
-      begin: INTERP_IDENT_RE, end: '{'
+      begin: INTERP_IDENT_RE, end: /\{/
     }],
     returnBegin: true,
     returnEnd:   true,
@@ -118,7 +118,7 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       MIXIN_GUARD_MODE,
       IDENT_MODE('keyword',  'all\\b'),
-      IDENT_MODE('variable', '@{'  + IDENT_RE + '}'),     // otherwise it’s identified as tag
+      IDENT_MODE('variable', '@\\{'  + IDENT_RE + '\\}'),     // otherwise it’s identified as tag
       IDENT_MODE('selector-tag',  INTERP_IDENT_RE + '%?', 0), // '%' for more consistent coloring of @keyframes "tags"
       IDENT_MODE('selector-id', '#' + INTERP_IDENT_RE),
       IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),
