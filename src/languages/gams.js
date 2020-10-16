@@ -78,7 +78,7 @@ export default function (hljs) {
       ASSIGNMENT,
       {
         className: 'comment',
-        begin: /([ ]*[a-z0-9&#*=?@>\\<:\-,()$\[\]_.{}!+%^]+)+/,
+        begin: /([ ]*[a-z0-9&#*=?@><:\-,()$[\]_.{}!+%^]+)+/,
         relevance: 0
       },
     ],

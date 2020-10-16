@@ -20,7 +20,7 @@ export default function(hljs) {
     contains: [
       hljs.COMMENT('^#', '$'),
       hljs.COMMENT(
-        '\\^rem{',
+        /\\^rem\{/,
         /\}/,
         {
           relevance: 10,
@@ -40,11 +40,11 @@ export default function(hljs) {
       },
       {
         className: 'variable',
-        begin: '\\$\\{?[\\w\\-\\.\\:]+\\}?'
+        begin: /\$\{?[\w\-.:]+\}?/
       },
       {
         className: 'keyword',
-        begin: '\\^[\\w\\-\\.\\:]+'
+        begin: /\^[\w\-.:]+/
       },
       {
         className: 'number',

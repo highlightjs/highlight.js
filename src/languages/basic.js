@@ -13,7 +13,7 @@ export default function(hljs) {
     illegal: '^\.',
     // Support explicitly typed variables that end with $%! or #.
     keywords: {
-        $pattern: '[a-zA-Z][a-zA-Z0-9_\$\%\!\#]*',
+        $pattern: '[a-zA-Z][a-zA-Z0-9_$%!#]*',
         keyword:
           'ABS ASC AND ATN AUTO|0 BEEP BLOAD|10 BSAVE|10 CALL CALLS CDBL CHAIN CHDIR CHR$|10 CINT CIRCLE ' +
           'CLEAR CLOSE CLS COLOR COM COMMON CONT COS CSNG CSRLIN CVD CVI CVS DATA DATE$ ' +

@@ -92,7 +92,7 @@ export default function(hljs) {
             {
                 // Distinct highlight for proc <proc>, data, run, quit
                 className: 'keyword',
-                begin: /^\s*(proc [\w\d_]+|data|run|quit)[\s\;]/
+                begin: /^\s*(proc [\w\d_]+|data|run|quit)[\s;]/
             },
             {
                 // Macro variables

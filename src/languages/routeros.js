@@ -38,7 +38,7 @@ export default function(hljs) {
     className: 'variable',
     variants: [
       {begin: /\$[\w\d#@][\w\d_]*/},
-      {begin: /\$\{(.*?)}/}
+      {begin: /\$\{(.*?)\}/}
     ]
   };
 
@@ -82,7 +82,7 @@ export default function(hljs) {
           { begin: /^'/, end: /$/, },               // Monkey one line comment
           { begin: /^\s*\/[\w-]+=/, end: /$/, },    // jboss-cli
           { begin: /\/\//, end: /$/, },             // Stan comment
-          { begin: /^\[\</, end: /\>\]$/, },        // F# class declaration?
+          { begin: /^\[</, end: />\]$/, },        // F# class declaration?
           { begin: /<\//, end: />/, },              // HTML tags
           { begin: /^facet /, end: /\}/, },         // roboconf - лютый костыль )))
           { begin: '^1\\.\\.(\\d+)$', end: /$/, },  // tap
@@ -94,7 +94,7 @@ export default function(hljs) {
       APOS_STRING,
       VAR,
       { // attribute=value
-        begin: /[\w-]+\=([^\s\{\}\[\]\(\)]+)/,
+        begin: /[\w-]+=([^\s{}[\]()]+)/,
         relevance: 0,
         returnBegin: true,
         contains: [
@@ -131,7 +131,7 @@ export default function(hljs) {
               {
                 // Не форматировать не классифицированные значения. Необходимо для исключения подсветки значений как built_in.
                 // className: 'number',
-                begin: /("[^"]*"|[^\s\{\}\[\]]+)/,
+                begin: /("[^"]*"|[^\s{}[\]]+)/,
               }, //*/
             ]
           } //*/
@@ -144,7 +144,7 @@ export default function(hljs) {
       }, //*/
 
       {
-        begin: '\\b(' + COMMON_COMMANDS.split(' ').join('|') + ')([\\s\[\(]|\])',
+        begin: '\\b(' + COMMON_COMMANDS.split(' ').join('|') + ')([\\s[(\\]|])',
         returnBegin: true,
         contains: [
           {

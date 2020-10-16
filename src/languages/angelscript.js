@@ -37,7 +37,7 @@ export default function(hljs) {
       'abstract|0 try catch protected explicit property',
 
     // avoid close detection with C# and JS
-    illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|\\bfunction\s*[^\\(])',
+    illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|\\bfunction\\s*[^\\(])',
 
     contains: [
       { // 'strings'

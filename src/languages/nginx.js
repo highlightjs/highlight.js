@@ -12,7 +12,7 @@ export default function(hljs) {
     variants: [
       {begin: /\$\d+/},
       {begin: /\$\{/, end: /\}/},
-      {begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE}
+      {begin: /[$@]/ + hljs.UNDERSCORE_IDENT_RE}
     ]
   };
   var DEFAULT = {
@@ -44,9 +44,9 @@ export default function(hljs) {
         className: 'regexp',
         contains: [hljs.BACKSLASH_ESCAPE, VAR],
         variants: [
-          {begin: "\\s\\^", end: "\\s|{|;", returnEnd: true},
+          {begin: "\\s\\^", end: "\\s|\\{|;", returnEnd: true},
           // regexp locations (~, ~*)
-          {begin: "~\\*?\\s+", end: "\\s|{|;", returnEnd: true},
+          {begin: "~\\*?\\s+", end: "\\s|\\{|;", returnEnd: true},
           // *.example.com
           {begin: "\\*(\\.[a-z\\-]+)+"},
           // sub.example.*
