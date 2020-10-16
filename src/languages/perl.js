@@ -34,7 +34,7 @@ export default function(hljs) {
     keywords: PERL_KEYWORDS
   };
   var METHOD = {
-    begin: '->{', end: '}'
+    begin: /->\{/, end: /\}/
     // contains defined later
   };
   var VAR = {
@@ -49,8 +49,8 @@ export default function(hljs) {
     VAR,
     hljs.HASH_COMMENT_MODE,
     hljs.COMMENT(
-      '^\\=\\w',
-      '\\=cut',
+      /^=\w/,
+      /=cut/,
       {
         endsWithParent: true
       }
@@ -77,7 +77,7 @@ export default function(hljs) {
           relevance: 5
         },
         {
-          begin: 'q[qwxr]?\\s*\\<', end: '\\>',
+          begin: 'q[qwxr]?\\s*<', end: '>',
           relevance: 5
         },
         {
@@ -96,12 +96,12 @@ export default function(hljs) {
           contains: [hljs.BACKSLASH_ESCAPE]
         },
         {
-          begin: '{\\w+}',
+          begin: /\{\w+\}/,
           contains: [],
           relevance: 0
         },
         {
-          begin: '\-?\\w+\\s*\\=\\>',
+          begin: '-?\\w+\\s*=>',
           contains: [],
           relevance: 0
         }

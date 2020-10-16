@@ -11,7 +11,7 @@ export default function(hljs) {
     className: 'variable',
     variants: [
       {begin: /\$\d+/},
-      {begin: /\$\{/, end: /}/},
+      {begin: /\$\{/, end: /\}/},
       {begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE}
     ]
   };

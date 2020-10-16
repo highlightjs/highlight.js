@@ -10,8 +10,8 @@ export default function(hljs) {
     variants: [
       hljs.COMMENT('--', '$'),
       hljs.COMMENT(
-        '{-',
-        '-}',
+        /\{-/,
+        /-\}/,
         {
           contains: ['self']
         }

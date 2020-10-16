@@ -97,7 +97,7 @@ export default function(hljs) {
             {
                 // Macro variables
                 className: 'variable',
-                begin: /\&[a-zA-Z_\&][a-zA-Z0-9_]*\.?/
+                begin: /&[a-zA-Z_&][a-zA-Z0-9_]*\.?/
             },
             {
                 // Special emphasis for datalines|cards

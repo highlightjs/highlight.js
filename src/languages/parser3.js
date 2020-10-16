@@ -21,7 +21,7 @@ export default function(hljs) {
       hljs.COMMENT('^#', '$'),
       hljs.COMMENT(
         '\\^rem{',
-        '}',
+        /\}/,
         {
           relevance: 10,
           contains: [
