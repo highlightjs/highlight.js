@@ -85,7 +85,7 @@ export default function(hljs) {
             NUMBER,
             {
                 className: 'class',
-                beginKeywords: 'class interface trait enum', end: '{',
+                beginKeywords: 'class interface trait enum', end: /\{/,
                 illegal: ':',
                 contains: [
                     {beginKeywords: 'extends implements'},

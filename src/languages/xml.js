@@ -89,7 +89,7 @@ export default function(hljs) {
         }
       ),
       {
-        begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
+        begin: '<!\\[CDATA\\[', end: '\\]\\]>',
         relevance: 10
       },
       XML_ENTITIES,
