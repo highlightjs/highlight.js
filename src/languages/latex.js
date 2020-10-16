@@ -33,7 +33,7 @@ export default function(hljs) {
     ].map(word => word + '(?![a-zA-Z@:_])'));
   const L3_REGEX = new RegExp([
       '(?:__)?[a-zA-Z]{2,}_[a-zA-Z](?:_?[a-zA-Z])+:[a-zA-Z]*',
-      '[lgc]__?[a-zA-Z]+_[a-zA-Z](?:_?[a-zA-Z])*[a-zA-Z]',
+      '[lgc]__?[a-zA-Z](?:_?[a-zA-Z])*_[a-zA-Z]{2,}',
       '[qs]__?[a-zA-Z](?:_?[a-zA-Z])+',
       'use(?:_i)?:[a-zA-Z]*',
       '(?:else|fi|or):',
