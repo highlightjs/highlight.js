@@ -25,7 +25,7 @@ bar\foo:baz
 \l_hljs_var_tl \g_tmpa_prop \c__hljs_secret_int
 \c_e_fp
 % but only those conforming to the naming scheme
-% with at least to letters in every name
+% with at least two letters in every name
 \hljs_error:Nn_foo \hljs_double:colon:x
 \a:n \foo:n \x_foo:nn \foo_x:nnn
 \hljs_trailing_:N \hljs__double:N \hljs_later__double:N
