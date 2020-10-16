@@ -2,6 +2,7 @@
 
 Language Improvements:
 
+- fix(cpp) implement backslash line continuation in comments (#2757) [Konrad Rudolph][]
 - fix(cpp) improve parsing issues with templates (#2752) [Josh Goebel][]
 - enh(cpp) add support for `enum (struct|class)` and `union` (#2752) [Josh Goebel][]
 - fix(js/ts) Fix nesting of `{}` inside template literals SUBST expression (#2748) [Josh Goebel][]
