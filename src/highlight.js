@@ -579,12 +579,17 @@ const HLJS = function(hljs) {
     @param {Array<string>} [languageSubset]
     @returns {AutoHighlightResult}
   */
+    let ts = {};
   function highlightAuto(code, languageSubset) {
     languageSubset = languageSubset || options.languages || Object.keys(languages);
     var result = justTextHighlightResult(code);
     var secondBest = result;
     languageSubset.filter(getLanguage).filter(autoDetection).forEach(function(name) {
+      var before = new Date();
       var current = _highlight(name, code, false);
+      var after = new Date();
+      ts[name] = ts[name] || 0;
+      ts[name] += (after-before);
       current.language = name;
       if (current.relevance > secondBest.relevance) {
         secondBest = current;
@@ -598,6 +603,7 @@ const HLJS = function(hljs) {
       // second_best (with underscore) is the expected API
       result.second_best = secondBest;
     }
+    console.log(Object.entries(ts).sort((a,b) => b[1]-a[1]));
     return result;
   }
 
