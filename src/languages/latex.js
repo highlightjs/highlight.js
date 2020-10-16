@@ -32,9 +32,20 @@ export default function(hljs) {
       '(?:[lr]angle|q?quad|[lcvdi]?dots|d?dot|hat|tilde|bar)'
     ].map(word => word + '(?![a-zA-Z@:_])'));
   const L3_REGEX = new RegExp([
+      // A function \module_function_name:signature or \__module_function_name:signature,
+      // where both module and function_name need at least two characters and
+      // function_name may contain single underscores.
       '(?:__)?[a-zA-Z]{2,}_[a-zA-Z](?:_?[a-zA-Z])+:[a-zA-Z]*',
+      // A variable \scope_module_and_name_type or \scope__module_ane_name_type,
+      // where scope is one of l, g or c, type needs at least two characters
+      // and module_and_name may contain single underscores.
       '[lgc]__?[a-zA-Z](?:_?[a-zA-Z])*_[a-zA-Z]{2,}',
+      // A quark \q_the_name or \q__the_name or
+      // scan mark \s_the_name or \s__vthe_name,
+      // where variable_name needs at least two characters and
+      // may contain single underscores.
       '[qs]__?[a-zA-Z](?:_?[a-zA-Z])+',
+      // Other LaTeX3 macro names that are not covered by the three rules above.
       'use(?:_i)?:[a-zA-Z]*',
       '(?:else|fi|or):',
       '(?:if|cs|exp):w',
