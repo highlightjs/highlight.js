@@ -18,6 +18,9 @@ export default function(hljs) {
   function optional(s) {
     return '(?:' + s + ')?';
   }
+  // added for historic reasons because `hljs.C_LINE_COMMENT_MODE` does 
+  // not include such support nor can we be sure all the grammars depending
+  // on it would desire this behavior
   var C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', {
     contains: [{begin: /\\\n/}]
   });
