@@ -25,7 +25,7 @@
 <span class="hljs-keyword">\l_hljs_var_tl</span> <span class="hljs-keyword">\g_tmpa_prop</span> <span class="hljs-keyword">\c__hljs_secret_int</span>
 <span class="hljs-keyword">\c_e_fp</span>
 <span class="hljs-comment">% but only those conforming to the naming scheme</span>
-<span class="hljs-comment">% with at least to letters in every name</span>
+<span class="hljs-comment">% with at least two letters in every name</span>
 <span class="hljs-keyword">\hljs</span><span class="hljs-built_in">_</span>error:Nn<span class="hljs-built_in">_</span>foo <span class="hljs-keyword">\hljs</span><span class="hljs-built_in">_</span>double:colon:x
 <span class="hljs-keyword">\a</span>:n <span class="hljs-keyword">\foo</span>:n <span class="hljs-keyword">\x</span><span class="hljs-built_in">_</span>foo:nn <span class="hljs-keyword">\foo</span><span class="hljs-built_in">_</span>x:nnn
 <span class="hljs-keyword">\hljs</span><span class="hljs-built_in">_</span>trailing<span class="hljs-built_in">_</span>:N <span class="hljs-keyword">\hljs</span><span class="hljs-built_in">_</span><span class="hljs-built_in">_</span>double:N <span class="hljs-keyword">\hljs</span><span class="hljs-built_in">_</span>later<span class="hljs-built_in">_</span><span class="hljs-built_in">_</span>double:N
