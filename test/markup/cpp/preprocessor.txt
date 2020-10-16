@@ -27,3 +27,7 @@ if (p) {
     anotherthing();
 #endif
 }
+
+// this is a continued\
+comment.
+end
