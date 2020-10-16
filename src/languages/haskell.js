@@ -11,8 +11,8 @@ export default function(hljs) {
     variants: [
       hljs.COMMENT('--', '$'),
       hljs.COMMENT(
-        '{-',
-        '-}',
+        /\{-/,
+        /-\}/,
         {
           contains: ['self']
         }
@@ -22,7 +22,7 @@ export default function(hljs) {
 
   var PRAGMA = {
     className: 'meta',
-    begin: '{-#', end: '#-}'
+    begin: /\{-#/, end: /#-\}/
   };
 
   var PREPROCESSOR = {

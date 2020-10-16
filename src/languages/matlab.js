@@ -84,7 +84,7 @@ export default function(hljs) {
           {begin: '\'\''}]
       },
       {
-        begin: /\]|}|\)/,
+        begin: /\]|\}|\)/,
         relevance: 0,
         starts: TRANSPOSE
       },
@@ -97,8 +97,8 @@ export default function(hljs) {
         ],
         starts: TRANSPOSE
       },
-      hljs.COMMENT('^\\s*\\%\\{\\s*$', '^\\s*\\%\\}\\s*$'),
-      hljs.COMMENT('\\%', '$')
+      hljs.COMMENT('^\\s*%\\{\\s*$', '^\\s*%\\}\\s*$'),
+      hljs.COMMENT('%', '$')
     ]
   };
 }

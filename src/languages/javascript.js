@@ -365,7 +365,7 @@ export default function(hljs) {
               '[^()]*' +
             '\\))*[^()]*' +
           '\\))*[^()]*' +
-          '\\)\\s*{', // end parens
+          '\\)\\s*\\{', // end parens
         returnBegin:true,
         contains: [
           PARAMS,
@@ -387,7 +387,7 @@ export default function(hljs) {
         beginKeywords: 'class',
         end: /[{;=]/,
         excludeEnd: true,
-        illegal: /[:"\[\]]/,
+        illegal: /[:"[\]]/,
         contains: [
           { beginKeywords: 'extends' },
           hljs.UNDERSCORE_TITLE_MODE
@@ -395,7 +395,7 @@ export default function(hljs) {
       },
       {
         begin: /\b(?=constructor)/,
-        end: /[\{;]/,
+        end: /[{;]/,
         excludeEnd: true,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
@@ -405,7 +405,7 @@ export default function(hljs) {
       },
       {
         begin: '(get|set)\\s+(?=' + IDENT_RE + '\\()',
-        end: /{/,
+        end: /\{/,
         keywords: "get set",
         contains: [
           hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),

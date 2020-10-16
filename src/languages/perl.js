@@ -40,8 +40,8 @@ export default function(hljs) {
   var VAR = {
     variants: [
       {begin: /\$\d/},
-      {begin: /[\$%@](\^\w\b|#\w+(::\w+)*|{\w+}|\w+(::\w*)*)/},
-      {begin: /[\$%@][^\s\w{]/, relevance: 0}
+      {begin: /[$%@](\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)/},
+      {begin: /[$%@][^\s\w{]/, relevance: 0}
     ]
   };
   var STRING_CONTAINS = [hljs.BACKSLASH_ESCAPE, SUBST, VAR];
