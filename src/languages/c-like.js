@@ -18,6 +18,12 @@ export default function(hljs) {
   function optional(s) {
     return '(?:' + s + ')?';
   }
+  // added for historic reasons because `hljs.C_LINE_COMMENT_MODE` does 
+  // not include such support nor can we be sure all the grammars depending
+  // on it would desire this behavior
+  var C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', {
+    contains: [{begin: /\\\n/}]
+  });
   var DECLTYPE_AUTO_RE = 'decltype\\(auto\\)'
   var NAMESPACE_RE = '[a-zA-Z_]\\w*::'
   var TEMPLATE_ARGUMENT_RE = '<.*?>';
@@ -80,7 +86,7 @@ export default function(hljs) {
         begin: /<.*?>/, end: /$/,
         illegal: '\\n',
       },
-      hljs.C_LINE_COMMENT_MODE,
+      C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
     ]
   };
@@ -121,7 +127,7 @@ export default function(hljs) {
   var EXPRESSION_CONTAINS = [
     PREPROCESSOR,
     CPP_PRIMITIVE_TYPES,
-    hljs.C_LINE_COMMENT_MODE,
+    C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     NUMBERS,
     STRINGS
@@ -173,7 +179,7 @@ export default function(hljs) {
         keywords: CPP_KEYWORDS,
         relevance: 0,
         contains: [
-          hljs.C_LINE_COMMENT_MODE,
+          C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
           STRINGS,
           NUMBERS,
@@ -185,7 +191,7 @@ export default function(hljs) {
             relevance: 0,
             contains: [
               'self',
-              hljs.C_LINE_COMMENT_MODE,
+              C_LINE_COMMENT_MODE,
               hljs.C_BLOCK_COMMENT_MODE,
               STRINGS,
               NUMBERS,
@@ -195,7 +201,7 @@ export default function(hljs) {
         ]
       },
       CPP_PRIMITIVE_TYPES,
-      hljs.C_LINE_COMMENT_MODE,
+      C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       PREPROCESSOR
     ]

@@ -27,3 +27,7 @@
     anotherthing();
 <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 }
+
+<span class="hljs-comment">// this is a continued\
+comment.</span>
+end
