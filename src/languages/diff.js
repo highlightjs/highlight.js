@@ -16,9 +16,9 @@ export default function(hljs) {
         className: 'meta',
         relevance: 10,
         variants: [
-          {begin: /^@@ +\-\d+,\d+ +\+\d+,\d+ +@@$/},
+          {begin: /^@@ +-\d+,\d+ +\+\d+,\d+ +@@$/},
           {begin: /^\*\*\* +\d+,\d+ +\*\*\*\*$/},
-          {begin: /^\-\-\- +\d+,\d+ +\-\-\-\-$/}
+          {begin: /^--- +\d+,\d+ +----$/}
         ]
       },
       {
@@ -26,7 +26,7 @@ export default function(hljs) {
         variants: [
           {begin: /Index: /, end: /$/},
           {begin: /={3,}/, end: /$/},
-          {begin: /^\-{3}/, end: /$/},
+          {begin: /^-{3}/, end: /$/},
           {begin: /^\*{3} /, end: /$/},
           {begin: /^\+{3}/, end: /$/},
           {begin: /^\*{15}$/ }
@@ -34,15 +34,15 @@ export default function(hljs) {
       },
       {
         className: 'addition',
-        begin: '^\\+', end: '$'
+        begin: /^\+/, end: /$/
       },
       {
         className: 'deletion',
-        begin: '^\\-', end: '$'
+        begin: /^-/, end: /$/
       },
       {
         className: 'addition',
-        begin: '^\\!', end: '$'
+        begin: /^!/, end: /$/
       }
     ]
   };
