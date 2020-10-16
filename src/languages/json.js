@@ -22,7 +22,7 @@ export default function(hljs) {
     keywords: LITERALS
   };
   var OBJECT = {
-    begin: '{', end: '}',
+    begin: /\{/, end: /\}/,
     contains: [
       {
         className: 'attr',

@@ -13,7 +13,7 @@ export default function(hljs) {
     className: 'number',
     relevance: 0,
     variants: [
-      { begin: /([\+\-]+)?[\d]+_[\d_]+/ },
+      { begin: /([+-]+)?[\d]+_[\d_]+/ },
       { begin: hljs.NUMBER_RE }
     ]
   };
@@ -26,7 +26,7 @@ export default function(hljs) {
     className: 'variable',
     variants: [
       { begin: /\$[\w\d"][\w\d_]*/ },
-      { begin: /\$\{(.*?)}/ }
+      { begin: /\$\{(.*?)\}/ }
     ]
   };
   var LITERALS = {
