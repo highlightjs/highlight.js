@@ -35,6 +35,9 @@ your language is not considered a "Markup" language.
 +--------------------------+---------------------------------------------------+
 | operator                 | operators: ``+``, ``-``, ``>>``, ``|``, ``==``    |
 +--------------------------+---------------------------------------------------+
+| punctuation              | aux. punctuation that should be subtly highlighted|
+|                          | (parenthesis, brackets, etc.)                     |
++--------------------------+---------------------------------------------------+
 | regexp                   | literal regular expression                        |
 +--------------------------+---------------------------------------------------+
 | string                   | literal string, character                         |
@@ -63,7 +66,7 @@ your language is not considered a "Markup" language.
 | **Meta**                                                                     |
 +--------------------------+---------------------------------------------------+
 | meta                     | flags, modifiers, annotations, processing         |
-|                          | instructions, preprocessor directive, etc         |
+|                          | instructions, preprocessor directives, etc        |
 +--------------------------+---------------------------------------------------+
 | meta-keyword             | keyword or built-in within meta construct         |
 +--------------------------+---------------------------------------------------+
@@ -130,6 +133,20 @@ your language is not considered a "Markup" language.
 +--------------------------+---------------------------------------------------+
 | deletion                 | deleted line                                      |
 +--------------------------+---------------------------------------------------+
+
+A note on newer classes
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Some classes have been added more recently and do not enjoy universal theme
+support.  For themes without support these items will simply not be
+highlighted.  This doesn't mean not to use them, only that they will be
+highlighted better as support improves over time.
+
+A list of these classes:
+
+- operator
+- punctuation
+
 
 Reserved classes
 ^^^^^^^^^^^^^^^^
