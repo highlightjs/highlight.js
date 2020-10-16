@@ -170,7 +170,7 @@ export default function(hljs) {
   var VERBATIM_STRING_NO_LF = hljs.inherit(VERBATIM_STRING, {illegal: /\n/});
   var SUBST = {
     className: 'subst',
-    begin: '{', end: '}',
+    begin: /\{/, end: /\}/,
     keywords: KEYWORDS
   };
   var SUBST_NO_LF = hljs.inherit(SUBST, {illegal: /\n/});
@@ -178,16 +178,16 @@ export default function(hljs) {
     className: 'string',
     begin: /\$"/, end: '"',
     illegal: /\n/,
-    contains: [{begin: '{{'}, {begin: '}}'}, hljs.BACKSLASH_ESCAPE, SUBST_NO_LF]
+    contains: [{begin: /\{\{/}, {begin: /\}\}/}, hljs.BACKSLASH_ESCAPE, SUBST_NO_LF]
   };
   var INTERPOLATED_VERBATIM_STRING = {
     className: 'string',
     begin: /\$@"/, end: '"',
-    contains: [{begin: '{{'}, {begin: '}}'}, {begin: '""'}, SUBST]
+    contains: [{begin: /\{\{/}, {begin: /\}\}/}, {begin: '""'}, SUBST]
   };
   var INTERPOLATED_VERBATIM_STRING_NO_LF = hljs.inherit(INTERPOLATED_VERBATIM_STRING, {
     illegal: /\n/,
-    contains: [{begin: '{{'}, {begin: '}}'}, {begin: '""'}, SUBST_NO_LF]
+    contains: [{begin: /\{\{/}, {begin: /\}\}/}, {begin: '""'}, SUBST_NO_LF]
   });
   SUBST.contains = [
     INTERPOLATED_VERBATIM_STRING,
@@ -319,14 +319,14 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
+        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(<.+>)?\\s*\\(', returnBegin: true,
         end: /\s*[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           // prevents these from being highlighted `title`
           { beginKeywords: FUNCTION_MODIFIERS.join(" ")},
           {
-            begin: hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
+            begin: hljs.IDENT_RE + '\\s*(<.+>)?\\s*\\(', returnBegin: true,
             contains: [
               hljs.TITLE_MODE,
               GENERIC_MODIFIER
