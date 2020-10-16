@@ -133,18 +133,12 @@ export default function(hljs) {
     relevance: 0,
     contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_VERBATIM]
   };
-  const END_PARENT = {
-    begin: /(?=[.$])/,
-    end: /(?=[.$])/,
-    endsParent: true,
-    relevance: 0
-  };
   const SPACE_GOBBLER = {
     begin: /\s+/,
     relevance: 0
   };
   const ARGUMENT_M = [ARGUMENT_BRACES];
-  const ARGUMENT_O = [ARGUMENT_BRACKETS, END_PARENT];
+  const ARGUMENT_O = [ARGUMENT_BRACKETS];
   const ARGUMENT_AND_THEN = function(arg, starts_mode) {
     return {
       contains: [SPACE_GOBBLER],
