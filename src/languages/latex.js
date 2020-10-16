@@ -194,13 +194,13 @@ export default function(hljs) {
   const VERBATIM_DELIMITED_BRACES = (innerName = "string") => {
     return {
       relevance: 0,
-      begin: /{/,
+      begin: /\{/,
       starts: {
         endsParent: true,
         contains: [
           {
             className: innerName,
-            end: /(?=})/,
+            end: /(?=\})/,
             endsParent:true,
             contains: [
               {
