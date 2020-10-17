@@ -129,8 +129,14 @@ export default function(hljs) {
           subLanguage: ['javascript', 'handlebars', 'xml']
         }
       },
+      // we need this for now for jSX
+      {
+        className: 'tag',
+        begin: /<>|<\/>/,
+      },
       // open tag
       {
+        className: 'tag',
         begin: regex.concat(/</,
           regex.lookahead(regex.concat(
             TAG_NAME_RE,
@@ -149,6 +155,7 @@ export default function(hljs) {
       },
       // close tag
       {
+        className: 'tag',
         begin: regex.concat(/<\//,
           regex.lookahead(regex.concat(
             TAG_NAME_RE, />/)
@@ -157,7 +164,12 @@ export default function(hljs) {
           className: 'name',
           begin: TAG_NAME_RE,
           relevance: 0
-        }]
+        },
+        {
+          begin: />/,
+          relevance: 0
+        }
+      ]
       },
     ]
   };
