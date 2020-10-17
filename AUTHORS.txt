@@ -290,4 +290,5 @@ Contributors:
 - lioshi <lioshi@lioshi.com>
 - David Pine <david.pine.7@gmail.com>
 - Konrad Rudolph <konrad.rudolph@gmail.com>
+- Tom Wallace <thomasmichaelwallace@gmail.com>
 - Michael Newton <miken32@github>
