@@ -29,6 +29,7 @@ Language Improvements:
 - enh(javascript) Implement Numeric Separators (#2617) [Antoine du Hamel][]
 - enh(typescript) TypeScript also gains support for numeric separators (#2617) [Antoine du Hamel][]
 - enh(php) Add support for PHP 8 `match` keyword and add `php8` as an alias (#2733) [Ayesh Karunaratne][]
+- fix(handlebars) Support if else keyboards (#2659) []
 
 Deprecations:
 
@@ -43,6 +44,7 @@ Deprecations:
 [Melissa Geels]: https://github.com/codecat
 [Antoine du Hamel]: https://github.com/aduh95
 [Ayesh Karunaratne]: https://github.com/Ayesh
+[Tom Wallace]: https://github.com/thomasmichaelwallace
 
 
 ## Version 10.2.1
