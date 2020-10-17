@@ -59,7 +59,13 @@ export default function(hljs) {
     ]
   };
   const LINK = {
-    begin: '\\[.+?\\][\\(\\[].*?[\\)\\]]',
+    className: "link",
+    variants: [
+      // too much like nested array access in so many languages
+      // to have any real relevance
+      { begin: /\[.+?\]\[.*?\]/, relevance: 0 },
+      { begin: /\[.+?\]\(.*?\)/ }
+    ],
     returnBegin: true,
     contains: [
       {
@@ -71,16 +77,19 @@ export default function(hljs) {
       },
       {
         className: 'link',
+        relevance: 0,
         begin: '\\]\\(', end: '\\)',
-        excludeBegin: true, excludeEnd: true
+        excludeBegin: true,
+        excludeEnd: true
       },
       {
         className: 'symbol',
+        relevance: 0,
         begin: '\\]\\[', end: '\\]',
-        excludeBegin: true, excludeEnd: true
+        excludeBegin: true,
+        excludeEnd: true
       }
-    ],
-    relevance: 10
+    ]
   };
   const BOLD = {
     className: 'strong',
