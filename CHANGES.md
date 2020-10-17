@@ -1,4 +1,4 @@
-## Version 10.3.0 (next up)
+## Version 10.3.0
 
 Language Improvements:
 
