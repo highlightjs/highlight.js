@@ -36,7 +36,7 @@ your language is not considered a "Markup" language.
 | operator                 | operators: ``+``, ``-``, ``>>``, ``|``, ``==``    |
 +--------------------------+---------------------------------------------------+
 | punctuation              | aux. punctuation that should be subtly highlighted|
-|                          | (parenthesis, brackets, etc.)                     |
+|                          | (parentheses, brackets, etc.)                     |
 +--------------------------+---------------------------------------------------+
 | regexp                   | literal regular expression                        |
 +--------------------------+---------------------------------------------------+
