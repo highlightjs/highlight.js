@@ -8,7 +8,7 @@ Category: common, markup
 
 export default function(hljs) {
   const INLINE_HTML = {
-    begin: '<', end: '>',
+    begin: '<[A-Za-z_]', end: '>',
     subLanguage: 'xml',
     relevance: 0
   };
