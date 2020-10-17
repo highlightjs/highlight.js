@@ -2,6 +2,7 @@
 
 Language Improvements:
 
+- enh(latex) Complete ground up rewrite of LaTex grammar [schtandard][]
 - fix(cpp) implement backslash line continuation in comments (#2757) [Konrad Rudolph][]
 - fix(cpp) improve parsing issues with templates (#2752) [Josh Goebel][]
 - enh(cpp) add support for `enum (struct|class)` and `union` (#2752) [Josh Goebel][]
@@ -45,6 +46,7 @@ Deprecations:
 [Antoine du Hamel]: https://github.com/aduh95
 [Ayesh Karunaratne]: https://github.com/Ayesh
 [Tom Wallace]: https://github.com/thomasmichaelwallace
+[schtandard]: https://github.com/schtandard
 
 
 ## Version 10.2.1

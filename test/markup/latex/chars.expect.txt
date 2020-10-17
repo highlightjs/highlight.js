@@ -1,0 +1,18 @@
+{}<span class="hljs-built_in">$</span><span class="hljs-built_in">&amp;</span><span class="hljs-built_in">^</span><span class="hljs-built_in">_</span>~&quot;[]()&lt;&gt;
+
++-0123456789 pt
+
+^^3abc
+^^3ABC
+^^xyz
+^^#3
+<span class="hljs-built_in">^</span><span class="hljs-built_in">^</span>°!
+^^{
+^^}
+^^$
+^^&amp;
+^^%asdf
+^^^
+^^_
+^^^^3bf2a3
+^^^<span class="hljs-built_in">^</span>g12345

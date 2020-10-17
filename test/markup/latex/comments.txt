@@ -1,0 +1,4 @@
+% foo ^^bar \baz
+foo%
+% !TeX program = pdflatex
+%% !TeX encoding = utf8
