@@ -59,7 +59,6 @@ export default function(hljs) {
     ]
   };
   const LINK = {
-    className: "link",
     variants: [
       // too much like nested array access in so many languages
       // to have any real relevance
