@@ -1,3 +1,11 @@
+## Version 10.4.0 (wip)
+
+Language Improvements:
+
+- bug(xml) XML grammar was far too imprecise/fuzzy [Josh Goebel][]
+- enh(xml) Improve precision to prevent false auto-detect positives [Josh Goebel][]
+
+
 ## Version 10.3.1
 
 Prior version let some look-behind regex sneak in, which does not work
@@ -9,6 +17,7 @@ Fix:
 
 [Josh Goebel]: https://github.com/joshgoebel
 [187e7cfc]: https://github.com/highlightjs/highlight.js/commit/187e7cfcb06277ce13b5f35fb6c37ab7a7b46de9
+
 
 ## Version 10.3.0
 

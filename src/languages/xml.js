@@ -4,7 +4,12 @@ Website: https://www.w3.org/XML/
 Category: common
 */
 
+import * as regex from '../lib/regex.js';
+
+/** @type LanguageFn */
 export default function(hljs) {
+  // Element names can contain letters, digits, hyphens, underscores, and periods
+  var TAG_NAME_RE = /[A-Z_][A-Z0-9_.-]*/;
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
   var XML_ENTITIES = {
     className: 'symbol',
@@ -124,16 +129,36 @@ export default function(hljs) {
           subLanguage: ['javascript', 'handlebars', 'xml']
         }
       },
+      // open tag
       {
-        className: 'tag',
-        begin: '</?', end: '/?>',
-        contains: [
-          {
-            className: 'name', begin: /[^\/><\s]+/, relevance: 0
-          },
-          TAG_INTERNALS
-        ]
-      }
+        begin: regex.concat(/</,
+          regex.lookahead(regex.concat(
+            TAG_NAME_RE,
+            // <tag/>
+            // <tag>
+            // <tag ...
+            regex.either(/\/>/, />/, /\s/))
+          )),
+        end: /\/?>/,
+        contains: [{
+          className: 'name',
+          begin: TAG_NAME_RE,
+          relevance: 0,
+          starts: TAG_INTERNALS
+        }]
+      },
+      // close tag
+      {
+        begin: regex.concat(/<\//,
+          regex.lookahead(regex.concat(
+            TAG_NAME_RE, />/)
+          )),
+        contains: [{
+          className: 'name',
+          begin: TAG_NAME_RE,
+          relevance: 0
+        }]
+      },
     ]
   };
 }
