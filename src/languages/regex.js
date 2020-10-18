@@ -52,11 +52,11 @@ export default function (hljs) {
   const GROUP_SPECIALS = [
     // Named group
     'P?<[^>]+>',
-    "'['>'+'",
-    // Zero-length assertions
-    '[|>=!]|<=|<!|',
+    "'[^']+'",
+    // Zero-length assertions, branch reset & atomic
+    '[|>=!]|<=|<!',
     // Modifiers applied inside group
-    `${MODIFIERS}:`,
+    `(?:${MODIFIERS}):`,
     ':'
   ];
 
