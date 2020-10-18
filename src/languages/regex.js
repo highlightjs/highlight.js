@@ -65,30 +65,14 @@ export default function (hljs) {
     begin: `\\(\\?(?:${MODIFIERS})\\)`
   };
 
-  let GROUP = {};
-  GROUP = {
-    className: 'group',
-    begin: `\\((?:\\?(?:${GROUP_SPECIALS.join('|')}))?`, end: /\)/,
-    // starts: {
-    //   // begin: /./, end: /\)/,
-    //   // excludeBegin: true,
-    //   contains: [
-    //     ESCAPE_SEQUENCE,
-    //     CHARACTER_CLASS,
-    //     META,
-    //     COMMENT,
-    //     MODIFIER,
-    //     GROUP
-    //   ]
-    // }
-    contains: [
-      ESCAPE_SEQUENCE,
-      CHARACTER_CLASS,
-      META,
-      COMMENT,
-      MODIFIER,
-      'self'
-    ]
+  const GROUP_BEGIN = {
+    className: 'keyword',
+    begin: `\\((?:\\?(?:${GROUP_SPECIALS.join('|')}))?`
+  };
+
+  const GROUP_END = {
+    className: 'keyword',
+    begin: /\)/
   };
 
   return {
@@ -101,7 +85,8 @@ export default function (hljs) {
       META,
       COMMENT,
       MODIFIER,
-      GROUP
+      GROUP_BEGIN,
+      GROUP_END
     ]
   };
 };
