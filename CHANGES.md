@@ -1,3 +1,12 @@
+## Version 10.4.0 (work in process)
+
+Dev Improvements:
+
+- chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 10.3.0
 
 Language Improvements:
@@ -38,7 +47,8 @@ Deprecations:
 
 [Chris Krycho]: https://github.com/chriskrycho
 [David Pine]: https://github.com/IEvangelist
-[Josh Goebel]: https://github.com/joshgoebel
+
+
 [Ryan Jonasson]: https://github.com/ryanjonasson
 [Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
