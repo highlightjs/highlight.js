@@ -78,6 +78,7 @@ export default function (hljs) {
   return {
     name: 'regex',
     aliases: ['re', 'regexp'],
+    disableAutodetect: true,
 
     contains: [
       ESCAPE_SEQUENCE,
