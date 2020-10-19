@@ -1,0 +1,36 @@
+\foo bar
+\foo:bar
+\ and\
+bar\foo:baz
+\!!
+\^^3abc
+\^^3ABC
+\^^xyz
+% ° does not qualify for the ^^ syntax, as it is not in ASCII
+\^^°!
+
+% @ is always treated as a letter
+\@foo
+\foo@bar
+\@ifnextchar[\@foo\@@foo
+
+% expl3 macros are recognized
+\cs_new:Nn \hljs_test:N \__hljs_internal:Nx
+\use_ii_i:nn
+\cs:w hljs_test:N\cs_end:
+\use_i:nn \use:\q_test
+\if:w\scan_stop:\s_test[\else:]\fi:
+\hbox:n \vbox:n
+\::c\::o\::V\:::\hljs_test_args:Nnn
+\::V_unbraced
+\l_hljs_var_tl \g_tmpa_prop \c__hljs_secret_int
+\c_e_fp
+% but only those conforming to the naming scheme with at least two letters
+% in module, function, type, quark and scan mark names
+% see latex.js for details
+\hljs_error:Nn_foo \hljs_double:colon:x
+\a:n \foo:n \x_foo:nn \foo_x:nnn
+\hljs_trailing_:N \hljs__double:N \hljs_later__double:N
+\::xy \::n_unbraceddd
+\l_tl \c_x_int \h_imaginary_scope
+\g_hljs_trailing_ \l_hljs_double__int

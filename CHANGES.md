@@ -1,7 +1,8 @@
-## Version 10.3.0 (next up)
+## Version 10.3.0
 
 Language Improvements:
 
+- enh(latex) Complete ground up rewrite of LaTex grammar [schtandard][]
 - fix(cpp) implement backslash line continuation in comments (#2757) [Konrad Rudolph][]
 - fix(cpp) improve parsing issues with templates (#2752) [Josh Goebel][]
 - enh(cpp) add support for `enum (struct|class)` and `union` (#2752) [Josh Goebel][]
@@ -29,6 +30,7 @@ Language Improvements:
 - enh(javascript) Implement Numeric Separators (#2617) [Antoine du Hamel][]
 - enh(typescript) TypeScript also gains support for numeric separators (#2617) [Antoine du Hamel][]
 - enh(php) Add support for PHP 8 `match` keyword and add `php8` as an alias (#2733) [Ayesh Karunaratne][]
+- fix(handlebars) Support if else keyboards (#2659) [Tom Wallace][]
 
 Deprecations:
 
@@ -43,6 +45,8 @@ Deprecations:
 [Melissa Geels]: https://github.com/codecat
 [Antoine du Hamel]: https://github.com/aduh95
 [Ayesh Karunaratne]: https://github.com/Ayesh
+[Tom Wallace]: https://github.com/thomasmichaelwallace
+[schtandard]: https://github.com/schtandard
 
 
 ## Version 10.2.1

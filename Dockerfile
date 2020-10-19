@@ -11,7 +11,7 @@
 FROM node:12-slim
 RUN apt-get update -qq \
     && apt-get install --yes --no-install-recommends \
-        nginx \
+        nginx git \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /var/www/html
 COPY package*.json /var/www/html/
