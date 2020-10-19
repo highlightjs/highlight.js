@@ -42,7 +42,7 @@ export default function (hljs) {
 
   const META = {
     className: 'keyword',
-    begin: /[.+*?|^$]|\{[^}]+\}/,
+    begin: /[.+*?|^$]|\{(?:\d+(?:,\d*)?|,\d+)\}/,
   };
 
   const COMMENT = hljs.COMMENT(/\(\?#/, /\)/);
