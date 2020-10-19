@@ -67,7 +67,15 @@ export default function (hljs) {
 
   const GROUP_BEGIN = {
     className: 'keyword',
-    begin: `\\((?:\\?(?:${GROUP_SPECIALS.join('|')}))?`
+    begin: /\(/,
+    starts: {
+      contains: [
+        {
+          className: 'meta',
+          begin: `\\?(?:${GROUP_SPECIALS.join('|')})`
+        }
+      ]
+    }
   };
 
   const GROUP_END = {
