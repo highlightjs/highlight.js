@@ -45,7 +45,7 @@ export default function (hljs) {
     begin: /[.+*?|^$]|\{[^}]+\}/,
   };
 
-  const COMMENT = hljs.COMMENT(/\(#/, /\)/);
+  const COMMENT = hljs.COMMENT(/\(\?#/, /\)/);
 
   const MODIFIERS = '-?(?:[ictsmnpdJUbqX^]|xx?)';
 
