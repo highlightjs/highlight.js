@@ -59,7 +59,7 @@ Accepts a string with the highlighted markup.
 Applies highlighting to a DOM node containing code.
 
 This function is the one to use to apply highlighting dynamically after page load
-or within initialization code of third-party Javascript frameworks.
+or within initialization code of third-party JavaScript frameworks.
 
 The function uses language detection by default but you can specify the language
 in the ``class`` attribute of the DOM node. See the :doc:`class reference
