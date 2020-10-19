@@ -8,7 +8,7 @@ Programming language code consists of parts with different rules of parsing: key
 don't make sense inside strings, strings may contain backslash-escaped symbols like ``\"``,
 and comments usually don't contain anything interesting except the end of the comment.
 
-In highlight.js such parts are called "modes".
+In Highlight.js such parts are called "modes".
 
 Each mode consists of:
 
@@ -256,7 +256,7 @@ Another way to improve language detection is to define illegal symbols for a mod
 For example, in Python the first line of a class definition (``class MyClass(object):``) cannot contain the symbol ``{`` or a newline.
 The presence of these symbols clearly shows that the language is not Python, and the parser can drop this attempt early.
 
-Illegal symbols are defined as a single regular expression:
+Illegal symbols are defined using a single regular expression:
 
 ::
 
@@ -269,13 +269,13 @@ Illegal symbols are defined as a single regular expression:
 Pre-defined modes and regular expressions
 -----------------------------------------
 
-Many languages share common modes and regular expressions. Such expressions are defined in `lib/modes.js`. Once compiled, they be found near the end of the core `highlight.js` code under "Common regexps" and "Common modes" titles. Use them when possible.
+Many languages share common modes and regular expressions. These expressions are defined in `lib/modes.js <https://github.com/highlightjs/highlight.js/blob/master/src/lib/modes.js>`_ and should be used whenever possible.
 
 
 Regular Expression Features
 ---------------------------
 
-The goal of highlight.js is to support whatever regex features JavaScript itself supports.  You're using real regular expressions, use them responsibly.  That said, due to the design of the parser, there are some caveats.  These are addressed below.
+The goal of Highlight.js is to support whatever regex features JavaScript itself supports.  You're using real regular expressions, use them responsibly.  That said, due to the design of the parser, there are some caveats.  These are addressed below.
 
 Things we support now that we did not always:
 
