@@ -8,7 +8,7 @@ Category: common, markup
 
 export default function(hljs) {
   const INLINE_HTML = {
-    begin: '<[A-Za-z_]', end: '>',
+    begin: /<\/?[A-Za-z_]/, end: '>',
     subLanguage: 'xml',
     relevance: 0
   };
@@ -63,16 +63,17 @@ export default function(hljs) {
       // too much like nested array access in so many languages
       // to have any real relevance
       { begin: /\[.+?\]\[.*?\]/, relevance: 0 },
+      { begin: /\[.+?\]\(https?:\/\/.*?\)/, relevance: 2 },
       { begin: /\[.+?\]\(.*?\)/ }
     ],
     returnBegin: true,
     contains: [
       {
         className: 'string',
+        relevance: 0,
         begin: '\\[', end: '\\]',
         excludeBegin: true,
         returnEnd: true,
-        relevance: 0
       },
       {
         className: 'link',
