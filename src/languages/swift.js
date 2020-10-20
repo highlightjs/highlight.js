@@ -18,7 +18,7 @@ export default function(hljs) {
         'get guard if import in indirect infix init inout internal is lazy left let ' +
         'mutating nil none nonmutating open operator optional override postfix precedence ' +
         'prefix private protocol Protocol public repeat required rethrows return ' +
-        'right self Self set static struct subscript super switch throw throws true ' +
+        'right self Self set some static struct subscript super switch throw throws true ' +
         'try try! try? Type typealias unowned var weak where while willSet',
       literal: 'true false nil',
       built_in: 'abs advance alignof alignofValue anyGenerator assert assertionFailure ' +
@@ -148,7 +148,7 @@ export default function(hljs) {
                   '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
                   '@infix|@prefix|@postfix|@autoclosure|@testable|@available|' +
                   '@nonobjc|@NSApplicationMain|@UIApplicationMain|@dynamicMemberLookup|' +
-                  '@propertyWrapper)\\b'
+                  '@propertyWrapper|@main)\\b'
 
       },
       {
