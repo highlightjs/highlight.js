@@ -9,6 +9,118 @@ import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  // Chain some modes to be applied consecutively.
+  // If modes == [A, [B, C], [D, E, F]], then an outer chain (i.e. any link may
+  // be omitted) <A-B-D> will be created, which contains the inner chains (i.e.
+  // only trailing links may be omitted) <B-C> and <D-E-F> as subchains.
+  // If lookahead is true, the begin value of the first mode in the chain is
+  // used as the begin lookahead of the outermost mode of the chain. If
+  // lookahead is truthy but not true, it is assumed to be a regex and itself
+  // used.
+  // Since chaining is realized using the starts field, that field cannot be
+  // used by the modes that shall be chained. (Except for the last mode in a
+  // subchain, which may use it with care.)
+  const MODE_CHAIN = function(modes, lookahead = true) {
+    var skeleton = {};
+    if (lookahead === true) {
+      skeleton = {begin: regex.lookahead(GET_FIRST_BEGIN(modes[0]))};
+    } else if (lookahead) {
+      skeleton = {begin: regex.lookahead(lookahead)};
+    }
+    if (Array.isArray(modes)) {
+      if (modes.length) {
+        return hljs.inherit(
+          {
+            contains: MODE_SUBCHAIN(modes[0]),
+            starts: MODE_CHAIN(modes.slice(1), false)
+          },
+          skeleton
+        );
+      } else {
+        return {};
+      }
+    } else {
+      return modes;
+    }
+  }
+  const MODE_SUBCHAIN = function(modes) {
+    if (Array.isArray(modes)) {
+      if (modes.length) {
+        return [hljs.inherit(
+          {starts: {
+            endsParent: true,
+            contains: MODE_SUBCHAIN(modes.slice(1))
+          }},
+          modes[0]
+        )];
+      } else {
+        return [];
+      }
+    } else {
+      return MODE_SUBCHAIN([modes]);
+    }
+  };
+  const GET_FIRST_BEGIN = function(modes) {
+    if (Array.isArray(modes)) {
+      return GET_FIRST_BEGIN(modes[0]);
+    } else {
+      return modes.begin;
+    }
+  };
+  // Append a mode to every subchain in the chain.
+  // If omit_last is n, it is not appended to the n last subchains in chain.
+  // This can be useful for inserting modes only "between" subchains.
+  const APPEND_TO_SUBCHAINS = function(chain, appendix, omit_last = 0) {
+      if (omit_last == 0) {
+        return chain.map(subchain => APPEND_TO_SUBCHAIN(subchain, appendix));
+      } else {
+        return [
+          ...chain.slice(0, -omit_last).map(subchain => APPEND_TO_SUBCHAIN(subchain, appendix)),
+          ...chain.slice(-omit_last)
+        ];
+      }
+  };
+  const APPEND_TO_SUBCHAIN = function(subchain, appendix) {
+    if (Array.isArray(subchain)) {
+      return [...subchain, appendix];
+    } else {
+      return [subchain, appendix];
+    }
+  };
+  // TeX's normal space gobbling behavior: Whitespace containing at most one newline.
+  const GOBBLE_SPACES = {
+    begin: /[ \t]+(?:\r?\n[ \t]*)?|\r?\n[ \t]*/,
+    relevance: 0
+  };
+  const CSNAME = function(csname, arg_chain, omit_space_gobbling = 1) {
+    var chain = [
+      {begin: '\\\\' + csname + '(?![a-zA-Z@:_])', className: 'keyword'},
+      ...arg_chain
+    ];
+    if (omit_space_gobbling === true) {
+      return MODE_CHAIN(chain);
+    } else {
+      if (omit_space_gobbling === false) {omit_space_gobbling = 0;}
+      return MODE_CHAIN(APPEND_TO_SUBCHAINS(chain, GOBBLE_SPACES, omit_space_gobbling));
+    }
+  };
+  const BEGIN_ENV = function(envname, arg_chain, omit_space_gobbling = 1) {
+    var tail = [
+      [{begin: /\{/}, {begin: envname}, {begin: /\}/}],
+      ...arg_chain
+    ];
+    if (omit_space_gobbling !== true) {
+      if (omit_space_gobbling === false) {omit_space_gobbling = 0;}
+      tail = APPEND_TO_SUBCHAINS(tail, GOBBLE_SPACES, omit_space_gobbling);
+    }
+    return MODE_CHAIN(
+      [
+        [{begin: /\\begin/, className: 'keyword'}, GOBBLE_SPACES],
+        ...tail
+      ],
+      '\\\\begin[ \t]*(?:\\r?\\n)?[ \t]*\\{' + envname + '\\}'
+    );
+  };
   const KNOWN_CONTROL_WORDS = regex.either(...[
       '(?:NeedsTeXFormat|RequirePackage|GetIdInfo)',
       'Provides(?:Expl)?(?:Package|Class|File)',
@@ -129,57 +241,17 @@ export default function(hljs) {
     relevance: 0,
     contains: ['self', ...EVERYTHING_BUT_VERBATIM]
   };
-  const ARGUMENT_BRACES = hljs.inherit(
-    BRACE_GROUP_NO_VERBATIM,
-    {
-      relevance: 0,
-      endsParent: true,
-      contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_VERBATIM]
-    }
-  );
-  const ARGUMENT_BRACKETS = {
-    begin: /\[/,
-      end: /\]/,
-    endsParent: true,
+  const ARG_M = {
+    begin: /\{/, end: /\}/,
     relevance: 0,
     contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_VERBATIM]
   };
-  const SPACE_GOBBLER = {
-    begin: /\s+/,
-    relevance: 0
+  const ARG_O = {
+    begin: /\[/, end: /\]/,
+    relevance: 0,
+    contains: [BRACE_GROUP_NO_VERBATIM, ...EVERYTHING_BUT_VERBATIM]
   };
-  const ARGUMENT_M = [ARGUMENT_BRACES];
-  const ARGUMENT_O = [ARGUMENT_BRACKETS];
-  const ARGUMENT_AND_THEN = function(arg, starts_mode) {
-    return {
-      contains: [SPACE_GOBBLER],
-      starts: {
-        relevance: 0,
-        contains: arg,
-        starts: starts_mode
-      }
-    };
-  };
-  const CSNAME = function(csname, starts_mode) {
-    return {
-        begin: '\\\\' + csname + '(?![a-zA-Z@:_])',
-        keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\' + csname},
-        relevance: 0,
-        contains: [SPACE_GOBBLER],
-        starts: starts_mode
-      };
-  };
-  const BEGIN_ENV = function(envname, starts_mode) {
-    return hljs.inherit(
-      {
-        begin: '\\\\begin(?=\\s*\\r?\\n?\\s*\\{' + envname + '\\})',
-        keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\begin'},
-        relevance: 0,
-      },
-      ARGUMENT_AND_THEN(ARGUMENT_M, starts_mode)
-    );
-  };
-  const VERBATIM_DELIMITED_EQUAL = (innerName = "string") => {
+  const VERBATIM_DELIMITED_EQUAL = (innerName = 'string') => {
     return hljs.END_SAME_AS_BEGIN({
       className: innerName,
       begin: /(.|\r?\n)/,
@@ -189,30 +261,25 @@ export default function(hljs) {
       endsParent: true
     });
   };
-  const VERBATIM_DELIMITED_ENV = function(envname) {
+  const VERBATIM_DELIMITED_BRACES = (innerName = 'string') => {
     return {
-      className: 'string',
-      end: '(?=\\\\end\\{' + envname + '\\})'
-    };
-  };
-
-  const VERBATIM_DELIMITED_BRACES = (innerName = "string") => {
-    return {
-      relevance: 0,
       begin: /\{/,
+      relevance: 0,
       starts: {
         endsParent: true,
+        relevance: 0,
         contains: [
           {
             className: innerName,
             end: /(?=\})/,
-            endsParent:true,
+            relevance: 0,
+            endsParent: true,
             contains: [
               {
                 begin: /\{/,
                 end: /\}/,
                 relevance: 0,
-                contains: ["self"]
+                contains: ['self']
               }
             ],
           }
@@ -220,21 +287,36 @@ export default function(hljs) {
       }
     };
   };
+  const GOBBLE_SPACES_NO_NEWLINE = {
+    begin: /[ \t]+/,
+    relevance: 0
+  };
+  const GOBBLE_NEWLINE = {
+    begin: /\r?\n/,
+    relevance: 0
+  };
+  const VERBATIM_DELIMITED_ENV = function(envname) {
+    return {
+      className: 'string',
+      relevance: 0,
+      end: '(?=\\\\end\\{' + envname + '\\})'
+    };
+  };
   const VERBATIM = [
-    ...['verb', 'lstinline'].map(csname => CSNAME(csname, {contains: [VERBATIM_DELIMITED_EQUAL()]})),
-    CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_EQUAL()]})),
-    CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {contains: [VERBATIM_DELIMITED_BRACES(), VERBATIM_DELIMITED_EQUAL()]})),
-    CSNAME('url', {contains: [VERBATIM_DELIMITED_BRACES("link"), VERBATIM_DELIMITED_BRACES("link")]}),
-    CSNAME('hyperref', {contains: [VERBATIM_DELIMITED_BRACES("link")]}),
-    CSNAME('href', ARGUMENT_AND_THEN(ARGUMENT_O, {contains: [VERBATIM_DELIMITED_BRACES("link")]})),
+    ...['verb', 'lstinline'].map(csname => CSNAME(csname, [GOBBLE_SPACES_NO_NEWLINE, VERBATIM_DELIMITED_EQUAL()], true)),
+    CSNAME('mint', [GOBBLE_SPACES, ARG_M, GOBBLE_NEWLINE, VERBATIM_DELIMITED_EQUAL()], true),
+    CSNAME('mintinline', [GOBBLE_SPACES, ARG_M, GOBBLE_NEWLINE, {variants: [VERBATIM_DELIMITED_BRACES(), VERBATIM_DELIMITED_EQUAL()]}], true),
+    CSNAME('url', [{variants: [VERBATIM_DELIMITED_BRACES('link'), VERBATIM_DELIMITED_EQUAL('link')]}]),
+    CSNAME('hyperref', [VERBATIM_DELIMITED_BRACES('link')]),
+    CSNAME('href', [ARG_O, VERBATIM_DELIMITED_BRACES('link')]),
     ...[].concat(...['', '\\*'].map(suffix => [
-      BEGIN_ENV('verbatim' + suffix, VERBATIM_DELIMITED_ENV('verbatim' + suffix)),
-      BEGIN_ENV('filecontents' + suffix,  ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('filecontents' + suffix))),
+      BEGIN_ENV('verbatim' + suffix, [VERBATIM_DELIMITED_ENV('verbatim' + suffix)], 2),
+      BEGIN_ENV('filecontents' + suffix, [ARG_M, VERBATIM_DELIMITED_ENV('filecontents' + suffix)], 2),
       ...['', 'B', 'L'].map(prefix =>
-        BEGIN_ENV(prefix + 'Verbatim' + suffix, ARGUMENT_AND_THEN(ARGUMENT_O, VERBATIM_DELIMITED_ENV(prefix + 'Verbatim' + suffix)))
+        BEGIN_ENV(prefix + 'Verbatim' + suffix, [ARG_O, VERBATIM_DELIMITED_ENV(prefix + 'Verbatim' + suffix)], 2)
       )
     ])),
-    BEGIN_ENV('minted', ARGUMENT_AND_THEN(ARGUMENT_O, ARGUMENT_AND_THEN(ARGUMENT_M, VERBATIM_DELIMITED_ENV('minted')))),
+    BEGIN_ENV('minted', [ARG_O, ARG_M, VERBATIM_DELIMITED_ENV('minted')], 2)
   ];
 
   return {
