@@ -240,8 +240,8 @@ A prebuilt version of highlight.js bundled with many common languages is hosted 
 **unpkg** ([link](https://unpkg.com/browse/highlight.js/))
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/highlight.js/styles/default.css">
-<script src="https://unpkg.com/highlight.js/lib/core.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/browse/@highlightjs/cdn-assets@10.3.1/styles/default.min.css">
+<script src="https://unpkg.com/browse/@highlightjs/cdn-assets@10.3.1/highlight.min.js"></script>
 ```
 
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
