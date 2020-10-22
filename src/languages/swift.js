@@ -10,6 +10,9 @@ Category: common, system
 
 export default function(hljs) {
   var SWIFT_KEYWORDS = {
+      // override the pattern since the default of of /\w+/ is not sufficient to
+      // capture the keywords that start with the character "#"
+      $pattern: /[\w#]+/,
       keyword: '#available #colorLiteral #column #else #elseif #endif #file ' +
         '#fileLiteral #function #if #imageLiteral #line #selector #sourceLocation ' +
         '_ __COLUMN__ __FILE__ __FUNCTION__ __LINE__ Any as as! as? associatedtype ' +
