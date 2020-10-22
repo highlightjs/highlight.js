@@ -237,8 +237,15 @@ A prebuilt version of highlight.js bundled with many common languages is hosted 
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
 ```
 
+**unpkg** ([link](https://unpkg.com/browse/highlight.js/))
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/highlight.js/styles/default.css">
+<script src="https://unpkg.com/highlight.js/lib/core.js"></script>
+```
+
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
-very large.  You can find our list "common" languages that we bundle by default on our [download page][5].
+very large. You can find our list "common" languages that we bundle by default on our [download page][5].
 
 ### Self Hosting
 
