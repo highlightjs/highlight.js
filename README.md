@@ -237,7 +237,7 @@ A prebuilt version of highlight.js bundled with many common languages is hosted 
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
 ```
 
-**unpkg** ([link](https://unpkg.com/browse/highlight.js/))
+**unpkg** ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.3.1/styles/default.min.css">
