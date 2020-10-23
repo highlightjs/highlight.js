@@ -2,7 +2,7 @@ On requesting new languages
 ===========================
 
 This is a general answer to requests for adding new languages that appear from
-time to time in the highlight.js issue tracker and discussion group.
+time to time in the Highlight.js issue tracker and discussion group.
 
     Highlight.js does not have a fundamental plan for implementing new languages
     - i.e., the core team doesn't usually develop new languages. The core team

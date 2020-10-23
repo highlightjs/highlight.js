@@ -7,6 +7,19 @@ Dev Improvements:
 [Josh Goebel]: https://github.com/joshgoebel
 
 
+## Version 10.3.1
+
+Prior version let some look-behind regex sneak in, which does not work
+yet on Safari.  This release removes those incompatible regexes.
+
+Fix:
+
+- fix(Safari) Remove currently unsupported look-behind regex ([fix][187e7cfc]) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+[187e7cfc]: https://github.com/highlightjs/highlight.js/commit/187e7cfcb06277ce13b5f35fb6c37ab7a7b46de9
+
+
 ## Version 10.3.0
 
 Language Improvements:
