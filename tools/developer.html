@@ -249,7 +249,7 @@
           return {
             code,
             language: localStorage.getItem(key_LANGUAGE),
-            theme: localStorage.getItem(key_THEME),
+            theme: localStorage.getItem(key_THEME) || 'default.css',
           };
         }
       };
