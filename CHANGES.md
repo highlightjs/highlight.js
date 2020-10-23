@@ -4,8 +4,12 @@ Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
 
-[Josh Goebel]: https://github.com/joshgoebel
+Language Improvements:
 
+- enh(python) Match numeric literals per the language reference [Richard Gibson][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+[Richard Gibson]: https://github.com/gibson042
 
 ## Version 10.3.1
 
