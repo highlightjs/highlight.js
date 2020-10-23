@@ -1,21 +1,5 @@
 ### Types
 
-# Old-style definitions
-
-immutable Point{T<:AbstractFloat}
-    index::Int
-    x::T
-    y::T
-end
-
-abstract A
-
-type B <: A end
-
-typealias P Point{Float16}
-
-# New-style definitions
-
 struct Plus
     f::typeof(+)
 end
@@ -35,7 +19,6 @@ module M
 
 using X
 import Y
-importall Z
 
 export a, b, c
 
@@ -44,7 +27,21 @@ end # module
 baremodule Bare
 end
 
-### New in 0.6
+
+### Miscellaneous
+
+# Some things new for Julia >1.0
+function f(x::Union{String,Missing,Nothing}, y::Tuple{Float64,ComplexF64})
+    if x === nothing
+        println(devnull, "nothing")
+    elseif x === missing
+        println(stderr, "missing")
+    else
+        println(stdout, x)
+    end
+end
+
+f(x::UndefInitializer = undef) = Regex("^hello, world\$")
 
 # where, infix isa, UnionAll
 function F{T}(x::T) where T
@@ -52,8 +49,6 @@ function F{T}(x::T) where T
         i isa UnionAll && return
     end
 end
-
-### Miscellaneous
 
 #=
 Multi
