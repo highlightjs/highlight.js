@@ -196,7 +196,7 @@ export default function(hljs) {
 
   // https://docs.python.org/3/reference/lexical_analysis.html#numeric-literals
   const digitpart = '[0-9](_?[0-9])*';
-  const pointfloat = '(dp)?\\.(dp)|(dp)\\.'.replace(/dp/g, digitpart);
+  const pointfloat = `(${digitpart})?\\.(${digitpart})|(${digitpart})\\.`;
   const NUMBER = {
     className: 'number', relevance: 0,
     variants: [
@@ -204,10 +204,8 @@ export default function(hljs) {
       // https://docs.python.org/3/reference/lexical_analysis.html#floating-point-literals
       // optionally imaginary
       // https://docs.python.org/3/reference/lexical_analysis.html#imaginary-literals
-      {begin: '((dp)|(pf))[eE][+-]?(dp)[jJ]?'
-        .replace(/dp/g, digitpart).replace(/pf/g, pointfloat)},
-      {begin: '(pf)[jJ]?'
-        .replace(/pf/g, pointfloat)},
+      {begin: `((${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?`},
+      {begin: `(${pointfloat})[jJ]?`},
 
       // decinteger, bininteger, octinteger, hexinteger
       // https://docs.python.org/3/reference/lexical_analysis.html#integer-literals
@@ -222,8 +220,7 @@ export default function(hljs) {
 
       // imagnumber (digitpart-based)
       // https://docs.python.org/3/reference/lexical_analysis.html#imaginary-literals
-      {begin: '\\b(dp)[jJ]\\b'
-        .replace(/dp/g, digitpart)},
+      {begin: `\\b(${digitpart})[jJ]\\b`},
     ]
   };
 
