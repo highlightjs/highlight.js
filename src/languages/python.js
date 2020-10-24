@@ -196,7 +196,7 @@ export default function(hljs) {
 
   // https://docs.python.org/3.9/reference/lexical_analysis.html#numeric-literals
   const digitpart = '[0-9](_?[0-9])*';
-  const pointfloat = `(${digitpart})?\\.(${digitpart})|(${digitpart})\\.`;
+  const pointfloat = `(\\b(${digitpart}))?\\.(${digitpart})|\\b(${digitpart})\\.`;
   const NUMBER = {
     className: 'number', relevance: 0,
     variants: [
@@ -204,7 +204,13 @@ export default function(hljs) {
       // https://docs.python.org/3.9/reference/lexical_analysis.html#floating-point-literals
       // optionally imaginary
       // https://docs.python.org/3.9/reference/lexical_analysis.html#imaginary-literals
-      {begin: `((${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?`},
+      // Note: no leading \b because floats can start with a decimal point
+      // and we don't want to mishandle e.g. `fn(.5)`,
+      // no trailing \b for pointfloat because it can end with a decimal point
+      // and we don't want to mishandle e.g. `0..hex()`; this should be safe
+      // because both MUST contain a decimal point and so cannot be confused with
+      // the interior part of an identifier
+      {begin: `((${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?\\b`},
       {begin: `(${pointfloat})[jJ]?`},
 
       // decinteger, bininteger, octinteger, hexinteger
