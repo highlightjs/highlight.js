@@ -12,6 +12,7 @@ Category: common
  * */
 export default function(hljs) {
   var VARIABLE = {
+    className: 'variable',
     begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
   };
   var PREPROCESSOR = {
