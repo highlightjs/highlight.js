@@ -19,6 +19,7 @@ export default function(hljs) {
           hljs.APOS_STRING_MODE,
           hljs.QUOTE_STRING_MODE,
           hljs.CSS_NUMBER_MODE,
+          FUNCTION_LIKE,
         ]
       }
     ]
