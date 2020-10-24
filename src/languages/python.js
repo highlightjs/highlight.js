@@ -194,32 +194,32 @@ export default function(hljs) {
     ]
   };
 
-  // https://docs.python.org/3/reference/lexical_analysis.html#numeric-literals
+  // https://docs.python.org/3.9/reference/lexical_analysis.html#numeric-literals
   const digitpart = '[0-9](_?[0-9])*';
   const pointfloat = `(${digitpart})?\\.(${digitpart})|(${digitpart})\\.`;
   const NUMBER = {
     className: 'number', relevance: 0,
     variants: [
       // exponentfloat, pointfloat
-      // https://docs.python.org/3/reference/lexical_analysis.html#floating-point-literals
+      // https://docs.python.org/3.9/reference/lexical_analysis.html#floating-point-literals
       // optionally imaginary
-      // https://docs.python.org/3/reference/lexical_analysis.html#imaginary-literals
+      // https://docs.python.org/3.9/reference/lexical_analysis.html#imaginary-literals
       {begin: `((${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?`},
       {begin: `(${pointfloat})[jJ]?`},
 
       // decinteger, bininteger, octinteger, hexinteger
-      // https://docs.python.org/3/reference/lexical_analysis.html#integer-literals
+      // https://docs.python.org/3.9/reference/lexical_analysis.html#integer-literals
       // optionally "long" in Python 2
       // https://docs.python.org/2.7/reference/lexical_analysis.html#integer-and-long-integer-literals
       // decinteger is optionally imaginary
-      // https://docs.python.org/3/reference/lexical_analysis.html#imaginary-literals
+      // https://docs.python.org/3.9/reference/lexical_analysis.html#imaginary-literals
       {begin: '\\b([1-9](_?[0-9])*|0+(_?0)*)[lLjJ]?\\b'},
       {begin: '\\b0[bB](_?[01])+[lL]?\\b'},
       {begin: '\\b0[oO](_?[0-7])+[lL]?\\b'},
       {begin: '\\b0[xX](_?[0-9a-fA-F])+[lL]?\\b'},
 
       // imagnumber (digitpart-based)
-      // https://docs.python.org/3/reference/lexical_analysis.html#imaginary-literals
+      // https://docs.python.org/3.9/reference/lexical_analysis.html#imaginary-literals
       {begin: `\\b(${digitpart})[jJ]\\b`},
     ]
   };
