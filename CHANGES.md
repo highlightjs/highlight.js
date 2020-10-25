@@ -2,14 +2,16 @@
 
 Language Improvements:
 
-- enh(julia) Update keyword lists for Julia 1.X (#2781) [Fredrik Ekre][]
+- enh(julia) Update keyword lists for Julia 1.x (#2781) [Fredrik Ekre][]
+- enh(python) Match numeric literals per the language reference [Richard Gibson][]
 
 Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
 
-[Josh Goebel]: https://github.com/joshgoebel
 [Fredrik Ekre]: https://github.com/fredrikekre
+[Richard Gibson]: https://github.com/gibson042
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 10.3.1
