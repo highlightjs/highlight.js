@@ -92,10 +92,15 @@ export default function(hljs) {
       // decimal integer/float, optionally exponential or rational, optionally imaginary
       { begin: `\\b(${decimal})(\\.(${digits}))?([eE][+-]?(${digits})|r)?i?\\b` },
 
-      // 0-prefixed octal integer or explicit decimal/binary/octal/hexadecimal integer,
+      // explicit decimal/binary/octal/hexadecimal integer,
       // optionally rational and/or imaginary
-      { begin: "\\b(0[dD][0-9](_?[0-9])*|0[bB][01](_?[01])*|0([oO][0-7])?(_?[0-7])*" +
-          "|0[xX][0-9a-fA-F](_?[0-9a-fA-F])*)r?i?\\b" },
+      { begin: "\\b0[dD][0-9](_?[0-9])*r?i?\\b" },
+      { begin: "\\b0[bB][0-1](_?[0-1])*r?i?\\b" },
+      { begin: "\\b0[oO][0-7](_?[0-7])*r?i?\\b" },
+      { begin: "\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*r?i?\\b" },
+
+	  // 0-prefixed implicit octal integer, optionally rational and/or imaginary
+      { begin: "\\b0(_?[0-7])+r?i?\\b" },
     ]
   };
 
