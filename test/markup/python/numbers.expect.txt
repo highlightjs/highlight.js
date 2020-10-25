@@ -30,3 +30,5 @@
 
 <span class="hljs-number">0.</span>.__str__, <span class="hljs-number">1e1</span>.__str__, fn(<span class="hljs-number">.5</span>)
 x0.j
+
+0b1e1

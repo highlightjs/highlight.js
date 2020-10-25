@@ -210,7 +210,7 @@ export default function(hljs) {
       // and we don't want to mishandle e.g. `0..hex()`; this should be safe
       // because both MUST contain a decimal point and so cannot be confused with
       // the interior part of an identifier
-      { begin: `((${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?\\b` },
+      { begin: `(\\b(${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?\\b` },
       { begin: `(${pointfloat})[jJ]?` },
 
       // decinteger, bininteger, octinteger, hexinteger
