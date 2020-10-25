@@ -90,6 +90,7 @@ export default function(hljs) {
         relevance: 0
       }
     ],
+    // forward slashes are not allowed
     illegal: /\//
   };
 }
