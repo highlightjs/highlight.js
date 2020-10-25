@@ -8,6 +8,8 @@ Website: https://doc.qt.io/qt-5/qmlapplications.html
 Category: scripting
 */
 
+import * as regex from '../lib/regex.js';
+
 export default function(hljs) {
   var KEYWORDS = {
       keyword:
@@ -90,7 +92,7 @@ export default function(hljs) {
   // Find QML object. A QML object is a QML identifier followed by { and ends at the matching }.
   // All we really care about is finding IDENT followed by { and just mark up the IDENT and ignore the {.
   var QML_OBJECT = {
-    begin: QML_IDENT_RE + /\s*\{/, end: /\{/,
+    begin: regex.concat(QML_IDENT_RE, /\s*\{/), end: /\{/,
     returnBegin: true,
     relevance: 0,
     contains: [
