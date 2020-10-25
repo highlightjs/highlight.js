@@ -293,3 +293,4 @@ Contributors:
 - Tom Wallace <thomasmichaelwallace@gmail.com>
 - Michael Newton <miken32@github>
 - Richard Gibson <gibson042@github>
+- Fredrik Ekre <ekrefredrik@gmail.com>
