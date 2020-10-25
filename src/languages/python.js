@@ -210,8 +210,8 @@ export default function(hljs) {
       // and we don't want to mishandle e.g. `0..hex()`; this should be safe
       // because both MUST contain a decimal point and so cannot be confused with
       // the interior part of an identifier
-      {begin: `((${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?\\b`},
-      {begin: `(${pointfloat})[jJ]?`},
+      { begin: `((${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?\\b` },
+      { begin: `(${pointfloat})[jJ]?` },
 
       // decinteger, bininteger, octinteger, hexinteger
       // https://docs.python.org/3.9/reference/lexical_analysis.html#integer-literals
@@ -219,14 +219,14 @@ export default function(hljs) {
       // https://docs.python.org/2.7/reference/lexical_analysis.html#integer-and-long-integer-literals
       // decinteger is optionally imaginary
       // https://docs.python.org/3.9/reference/lexical_analysis.html#imaginary-literals
-      {begin: '\\b([1-9](_?[0-9])*|0+(_?0)*)[lLjJ]?\\b'},
-      {begin: '\\b0[bB](_?[01])+[lL]?\\b'},
-      {begin: '\\b0[oO](_?[0-7])+[lL]?\\b'},
-      {begin: '\\b0[xX](_?[0-9a-fA-F])+[lL]?\\b'},
+      { begin: '\\b([1-9](_?[0-9])*|0+(_?0)*)[lLjJ]?\\b' },
+      { begin: '\\b0[bB](_?[01])+[lL]?\\b' },
+      { begin: '\\b0[oO](_?[0-7])+[lL]?\\b' },
+      { begin: '\\b0[xX](_?[0-9a-fA-F])+[lL]?\\b' },
 
       // imagnumber (digitpart-based)
       // https://docs.python.org/3.9/reference/lexical_analysis.html#imaginary-literals
-      {begin: `\\b(${digitpart})[jJ]\\b`},
+      { begin: `\\b(${digitpart})[jJ]\\b` },
     ]
   };
 
