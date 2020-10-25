@@ -28,9 +28,13 @@
 0j, 0_0J, 0_0_0j, 12_3_4J
 
 
+# expressions containing numeric literals
 0..__str__, 1e1.__str__, fn(.5)
+
+# expressions not containing numeric literals
 x0.j
 
+# invalid pseudo-numeric expressions
 1__0
 1e_1
 07

@@ -28,9 +28,13 @@
 <span class="hljs-number">0j</span>, <span class="hljs-number">0_0J</span>, <span class="hljs-number">0_0_0j</span>, <span class="hljs-number">12_3_4J</span>
 
 
+<span class="hljs-comment"># expressions containing numeric literals</span>
 <span class="hljs-number">0.</span>.__str__, <span class="hljs-number">1e1</span>.__str__, fn(<span class="hljs-number">.5</span>)
+
+<span class="hljs-comment"># expressions not containing numeric literals</span>
 x0.j
 
+<span class="hljs-comment"># invalid pseudo-numeric expressions</span>
 1__0
 1e_1
 07
