@@ -1,0 +1,3 @@
+number = <span class="hljs-number">1.0e1_2</span>
+number = <span class="hljs-number">1.0e1_2i</span>
+number = <span class="hljs-number">1.0r</span>

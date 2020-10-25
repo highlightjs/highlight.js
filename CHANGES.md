@@ -3,6 +3,7 @@
 Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
+- fix(ruby) add support for expontential, real, and imaginary notation (#2766) [Kevin Hamer][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 

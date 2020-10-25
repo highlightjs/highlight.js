@@ -1,0 +1,3 @@
+number = 1.0e1_2
+number = 1.0e1_2i
+number = 1.0r
