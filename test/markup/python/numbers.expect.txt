@@ -14,15 +14,15 @@
 <span class="hljs-number">.0</span>, <span class="hljs-number">.00</span>,  <span class="hljs-number">.9</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">40.0</span>,  <span class="hljs-number">0.</span>, <span class="hljs-number">00.</span>,  <span class="hljs-number">10.</span>
 <span class="hljs-number">.0</span>, <span class="hljs-number">.0_0</span>, <span class="hljs-number">.9</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">4_0.0</span>, <span class="hljs-number">0.</span>, <span class="hljs-number">0_0.</span>, <span class="hljs-number">1_0.</span>
 
-<span class="hljs-number">.0e10</span>,  <span class="hljs-number">.00e+10</span>,  <span class="hljs-number">.9e-10</span>,  <span class="hljs-number">4.2E10</span>,  <span class="hljs-number">40.0E+10</span>,   <span class="hljs-number">0.E-10</span>,  <span class="hljs-number">00.e100</span>,    <span class="hljs-number">0010e+10</span>
-<span class="hljs-number">.0e1_0</span>, <span class="hljs-number">.0_0e+10</span>, <span class="hljs-number">.9e-1_0</span>, <span class="hljs-number">4.2E1_0</span>, <span class="hljs-number">4_0.0E+1_0</span>, <span class="hljs-number">0.E-1_0</span>, <span class="hljs-number">0_0.e1_0_0</span>, <span class="hljs-number">00_10e+10</span>
+<span class="hljs-number">.0e10</span>,  <span class="hljs-number">.00e+10</span>,  <span class="hljs-number">.9e-10</span>,  <span class="hljs-number">4.2E10</span>,  <span class="hljs-number">40.0E+08</span>,   <span class="hljs-number">0.E-10</span>,  <span class="hljs-number">00.e100</span>,    <span class="hljs-number">0010e+10</span>
+<span class="hljs-number">.0e1_0</span>, <span class="hljs-number">.0_0e+10</span>, <span class="hljs-number">.9e-1_0</span>, <span class="hljs-number">4.2E1_0</span>, <span class="hljs-number">4_0.0E+0_8</span>, <span class="hljs-number">0.E-1_0</span>, <span class="hljs-number">0_0.e1_0_0</span>, <span class="hljs-number">00_10e+10</span>
 
 
 <span class="hljs-number">.0j</span>, <span class="hljs-number">.00J</span>,  <span class="hljs-number">.9j</span>, <span class="hljs-number">4.2J</span>, <span class="hljs-number">40.0j</span>,  <span class="hljs-number">0.J</span>, <span class="hljs-number">00.j</span>,  <span class="hljs-number">10.J</span>
 <span class="hljs-number">.0j</span>, <span class="hljs-number">.0_0J</span>, <span class="hljs-number">.9j</span>, <span class="hljs-number">4.2J</span>, <span class="hljs-number">4_0.0j</span>, <span class="hljs-number">0.J</span>, <span class="hljs-number">0_0.j</span>, <span class="hljs-number">1_0.J</span>
 
-<span class="hljs-number">.0e10J</span>,  <span class="hljs-number">.00e+10j</span>,  <span class="hljs-number">.9e-10J</span>,  <span class="hljs-number">4.2E10j</span>,  <span class="hljs-number">40.0E+10J</span>,   <span class="hljs-number">0.E-10j</span>,  <span class="hljs-number">00.e100J</span>,    <span class="hljs-number">0010e+10j</span>
-<span class="hljs-number">.0e1_0J</span>, <span class="hljs-number">.0_0e+10j</span>, <span class="hljs-number">.9e-1_0J</span>, <span class="hljs-number">4.2E1_0j</span>, <span class="hljs-number">4_0.0E+1_0J</span>, <span class="hljs-number">0.E-1_0j</span>, <span class="hljs-number">0_0.e1_0_0J</span>, <span class="hljs-number">00_10e+10j</span>
+<span class="hljs-number">.0e10J</span>,  <span class="hljs-number">.00e+10j</span>,  <span class="hljs-number">.9e-10J</span>,  <span class="hljs-number">4.2E10j</span>,  <span class="hljs-number">40.0E+08J</span>,   <span class="hljs-number">0.E-10j</span>,  <span class="hljs-number">00.e100J</span>,    <span class="hljs-number">0010e+10j</span>
+<span class="hljs-number">.0e1_0J</span>, <span class="hljs-number">.0_0e+10j</span>, <span class="hljs-number">.9e-1_0J</span>, <span class="hljs-number">4.2E1_0j</span>, <span class="hljs-number">4_0.0E+0_8J</span>, <span class="hljs-number">0.E-1_0j</span>, <span class="hljs-number">0_0.e1_0_0J</span>, <span class="hljs-number">00_10e+10j</span>
 
 <span class="hljs-number">0j</span>, <span class="hljs-number">00J</span>,  <span class="hljs-number">000j</span>,   <span class="hljs-number">1234J</span>
 <span class="hljs-number">0j</span>, <span class="hljs-number">0_0J</span>, <span class="hljs-number">0_0_0j</span>, <span class="hljs-number">12_3_4J</span>
@@ -31,4 +31,7 @@
 <span class="hljs-number">0.</span>.__str__, <span class="hljs-number">1e1</span>.__str__, fn(<span class="hljs-number">.5</span>)
 x0.j
 
+1__0
+1e_1
+07
 0b1e1
