@@ -99,7 +99,7 @@ export default function(hljs) {
       { begin: "\\b0[oO][0-7](_?[0-7])*r?i?\\b" },
       { begin: "\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*r?i?\\b" },
 
-	  // 0-prefixed implicit octal integer, optionally rational and/or imaginary
+      // 0-prefixed implicit octal integer, optionally rational and/or imaginary
       { begin: "\\b0(_?[0-7])+r?i?\\b" },
     ]
   };
