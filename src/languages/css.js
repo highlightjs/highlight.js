@@ -6,7 +6,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var FUNCTION_LIKE = {
+  const FUNCTION_LIKE = {
     begin: /[\w-]+\(/, returnBegin: true,
     contains: [
       {
@@ -19,11 +19,12 @@ export default function(hljs) {
           hljs.APOS_STRING_MODE,
           hljs.QUOTE_STRING_MODE,
           hljs.CSS_NUMBER_MODE,
+          FUNCTION_LIKE
         ]
       }
     ]
   }
-  var ATTRIBUTE = {
+  const ATTRIBUTE = {
     className: 'attribute',
     begin: /\S/, end: ':', excludeEnd: true,
     starts: {
@@ -43,12 +44,12 @@ export default function(hljs) {
       ]
     }
   }
-  var AT_IDENTIFIER = '@[a-z-]+' // @font-face
-  var AT_MODIFIERS = "and or not only"
-  var MEDIA_TYPES = "all print screen speech"
-  var AT_PROPERTY_RE = /@\-?\w[\w]*(\-\w+)*/ // @-webkit-keyframes
-  var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
-  var RULE = {
+  const AT_IDENTIFIER = '@[a-z-]+' // @font-face
+  const AT_MODIFIERS = "and or not only"
+  const MEDIA_TYPES = "all print screen speech"
+  const AT_PROPERTY_RE = /@\-?\w[\w]*(\-\w+)*/ // @-webkit-keyframes
+  const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
+  const RULE = {
     begin: /(?:[A-Z\_\.\-]+|--[a-zA-Z0-9_-]+)\s*:/, returnBegin: true, end: ';', endsWithParent: true,
     contains: [
       ATTRIBUTE
