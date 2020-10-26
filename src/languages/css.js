@@ -45,16 +45,16 @@ export default function(hljs) {
     }
   }
   const AT_IDENTIFIER = '@[a-z-]+' // @font-face
-  const AT_MODIFIERS = "and or not only"
-  const MEDIA_TYPES = "all print screen speech"
+  const AT_MODIFIERS = 'and or not only'
+  const MEDIA_TYPES = 'all braille embossed handheld print projection screen speech tty tv' // <https://www.w3.org/TR/CSS21/media.html>
   const AT_PROPERTY_RE = /@\-?\w[\w]*(\-\w+)*/ // @-webkit-keyframes
-  const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
+  const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*'
   const RULE = {
     begin: /(?:[A-Z\_\.\-]+|--[a-zA-Z0-9_-]+)\s*:/, returnBegin: true, end: ';', endsWithParent: true,
     contains: [
       ATTRIBUTE
     ]
-  };
+  }
 
   return {
     name: 'CSS',
@@ -108,7 +108,7 @@ export default function(hljs) {
             contains: [
               {
                 begin: /[a-z-]+:/,
-                className:"attribute"
+                className: 'attribute'
               },
               hljs.APOS_STRING_MODE,
               hljs.QUOTE_STRING_MODE,
@@ -126,9 +126,9 @@ export default function(hljs) {
         illegal: /\S/,
         contains: [
           hljs.C_BLOCK_COMMENT_MODE,
-          RULE,
+          RULE
         ]
       }
     ]
-  };
+  }
 }
