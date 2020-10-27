@@ -142,8 +142,8 @@ export default function(hljs) {
         className: 'number',
         begin: /\*[0-9a-fA-F]+/,
       }, //*/
-
       {
+        // command followed by space, `|`, `(`, `[`, `]`, or `|`
         begin: '\\b(' + COMMON_COMMANDS.split(' ').join('|') + ')([\\s[(\\]|])',
         returnBegin: true,
         contains: [
