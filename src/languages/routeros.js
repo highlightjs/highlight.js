@@ -76,18 +76,11 @@ export default function(hljs) {
       keyword: STATEMENTS + ' :' + STATEMENTS.split(' ').join(' :') + ' :' + GLOBAL_COMMANDS.split(' ').join(' :')
     },
     contains: [
-      { // недопустимые конструкции
+      { // illegal syntax
         variants: [
-          { begin: /^@/, end: /$/ },               // dns
           { begin: /\/\*/, end: /\*\// },          // -- comment
-          { begin: /%%/, end: /$/ },               // -- comment
-          { begin: /^'/, end: /$/ },               // Monkey one line comment
-          { begin: /^\s*\/[\w-]+=/, end: /$/ },    // jboss-cli
           { begin: /\/\//, end: /$/ },             // Stan comment
-          { begin: /^\[</, end: />\]$/ },          // F# class declaration?
           { begin: /<\//, end: />/ },              // HTML tags
-          { begin: /^facet /, end: /\}/ },         // roboconf - лютый костыль )))
-          { begin: '^1\\.\\.(\\d+)$', end: /$/ }   // tap
         ],
         illegal: /./
       },
@@ -159,11 +152,11 @@ export default function(hljs) {
         className: 'built_in',
         variants: [
           {
-            begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+',
-            relevance: 10
+            begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+'
           },
           {
-            begin: /\.\./
+            begin: /\.\./,
+            relevance: 0
           }
         ]
       }
