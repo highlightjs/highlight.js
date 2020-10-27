@@ -294,3 +294,4 @@ Contributors:
 - Michael Newton <miken32@github>
 - Richard Gibson <gibson042@github>
 - Fredrik Ekre <ekrefredrik@gmail.com>
+- Zachary Spriggs <zspriggs14@gmail.com>
