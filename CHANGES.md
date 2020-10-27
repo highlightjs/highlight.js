@@ -4,6 +4,7 @@ Language Improvements:
 
 - enh(julia) Update keyword lists for Julia 1.x (#2781) [Fredrik Ekre][]
 - enh(python) Match numeric literals per the language reference [Richard Gibson][]
+- enh(ruby) Match numeric literals per language documentation [Richard Gibson][]
 
 Dev Improvements:
 
