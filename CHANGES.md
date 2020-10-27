@@ -5,6 +5,7 @@ Language Improvements:
 - enh(julia) Update keyword lists for Julia 1.x (#2781) [Fredrik Ekre][]
 - enh(python) Match numeric literals per the language reference [Richard Gibson][]
 - enh(ruby) Match numeric literals per language documentation [Richard Gibson][]
+- enh(php) highlight variables (#2785) [Taufik Nurrohman][]
 
 Dev Improvements:
 
@@ -13,11 +14,6 @@ Dev Improvements:
 [Fredrik Ekre]: https://github.com/fredrikekre
 [Richard Gibson]: https://github.com/gibson042
 [Josh Goebel]: https://github.com/joshgoebel
-
-Language Improvements:
-
-- enh(php) highlight variables (#2785) [Taufik Nurrohman][]
-
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 
 
