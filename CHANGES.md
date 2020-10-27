@@ -1,3 +1,17 @@
+## Version 10.4.0 (work in process)
+
+Language Improvements:
+
+- enh(julia) Update keyword lists for Julia 1.X (#2781) [Fredrik Ekre][]
+
+Dev Improvements:
+
+- chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+[Fredrik Ekre]: https://github.com/fredrikekre
+
+
 ## Version 10.3.1
 
 Prior version let some look-behind regex sneak in, which does not work
@@ -9,6 +23,7 @@ Fix:
 
 [Josh Goebel]: https://github.com/joshgoebel
 [187e7cfc]: https://github.com/highlightjs/highlight.js/commit/187e7cfcb06277ce13b5f35fb6c37ab7a7b46de9
+
 
 ## Version 10.3.0
 
@@ -50,7 +65,8 @@ Deprecations:
 
 [Chris Krycho]: https://github.com/chriskrycho
 [David Pine]: https://github.com/IEvangelist
-[Josh Goebel]: https://github.com/joshgoebel
+
+
 [Ryan Jonasson]: https://github.com/ryanjonasson
 [Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr

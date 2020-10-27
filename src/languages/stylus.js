@@ -4,9 +4,13 @@ Author: Bryant Williams <b.n.williams@gmail.com>
 Description: Stylus is an expressive, robust, feature-rich CSS language built for nodejs.
 Website: https://github.com/stylus/stylus
 Category: css
+Requires: css.js
 */
 
 export default function(hljs) {
+
+  const css_shared = hljs.requireLanguage("css").exports;
+  const PSEUDO_SELECTORS = css_shared.PSEUDO_SELECTORS;
 
   var VARIABLE = {
     className: 'variable',
@@ -27,25 +31,12 @@ export default function(hljs) {
     'for',
     'import',
     'include',
+    'keyframes',
     'media',
     'mixin',
     'page',
     'warn',
     'while'
-  ];
-
-  var PSEUDO_SELECTORS = [
-    'after',
-    'before',
-    'first-letter',
-    'first-line',
-    'active',
-    'first-child',
-    'focus',
-    'hover',
-    'lang',
-    'link',
-    'visited'
   ];
 
   var TAGS = [
@@ -121,8 +112,6 @@ export default function(hljs) {
     'var',
     'video'
   ];
-
-  var LOOKAHEAD_TAG_END = '(?=[\\.\\s\\n\\[\\:,])';
 
   var ATTRIBUTES = [
     'align-content',
@@ -345,6 +334,8 @@ export default function(hljs) {
     '%', // prolog
   ];
 
+  var LOOKAHEAD_TAG_END = '(?=[\\.\\s\\n\\[\\:,\(])';
+
   return {
     name: 'Stylus',
     aliases: ['styl'],
@@ -384,12 +375,14 @@ export default function(hljs) {
 
       // psuedo selectors
       {
+        className: 'selector-pseudo',
         begin: '&?:?:\\b(' + PSEUDO_SELECTORS.join('|') + ')' + LOOKAHEAD_TAG_END
       },
 
       // @ keywords
       {
-        begin: '\@(' + AT_KEYWORDS.join('|') + ')\\b'
+        className: 'keyword',
+        begin: '\@((-(o|moz|ms|webkit)-)?(' + AT_KEYWORDS.join('|') + '))\\b'
       },
 
       // variables
