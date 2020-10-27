@@ -20,3 +20,13 @@ a:visited { color: blue; }
 div::after { content: "test"; }
 div::before { content: open-quote; }
 span:nth-child(33) { color:red; }
+
+div {
+  color: rgb(var(--r), var(--g), var(--b));
+  background: linear-gradient( var(--black), var(--white) );
+  border-color: rgb(
+    var(--r),
+    var(--g),
+    var(--b)
+  );
+}

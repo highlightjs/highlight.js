@@ -20,3 +20,13 @@
 <span class="hljs-selector-tag">div</span><span class="hljs-selector-pseudo">::after</span> { <span class="hljs-attribute">content</span>: <span class="hljs-string">"test"</span>; }
 <span class="hljs-selector-tag">div</span><span class="hljs-selector-pseudo">::before</span> { <span class="hljs-attribute">content</span>: open-quote; }
 <span class="hljs-selector-tag">span</span><span class="hljs-selector-pseudo">:nth-child</span>(<span class="hljs-number">33</span>) { <span class="hljs-attribute">color</span>:red; }
+
+<span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--r), <span class="hljs-built_in">var</span>(--g), <span class="hljs-built_in">var</span>(--b));
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>( <span class="hljs-built_in">var</span>(--black), <span class="hljs-built_in">var</span>(--white) );
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-built_in">rgb</span>(
+    <span class="hljs-built_in">var</span>(--r),
+    <span class="hljs-built_in">var</span>(--g),
+    <span class="hljs-built_in">var</span>(--b)
+  );
+}
