@@ -182,8 +182,8 @@ export default function(hljs) {
     .concat({
       // we need to pair up {} inside our subst to prevent
       // it from ending too early by matching another }
-      begin: /{/,
-      end: /}/,
+      begin: /\{/,
+      end: /\}/,
       keywords: KEYWORDS,
       contains: [
         "self"
