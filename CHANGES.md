@@ -6,6 +6,12 @@ Dev Improvements:
 
 [Josh Goebel]: https://github.com/joshgoebel
 
+Language Improvements:
+
+- enh(php) highlight variables (#2785) [Taufik Nurrohman][]
+
+[Taufik Nurrohman]: https://github.com/taufik-nurrohman
+
 
 ## Version 10.3.1
 
