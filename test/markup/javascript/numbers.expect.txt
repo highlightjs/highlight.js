@@ -22,6 +22,12 @@
 -<span class="hljs-number">.000_001</span> <span class="hljs-comment">// 1 millionth</span>
 <span class="hljs-number">1e10_000</span>  <span class="hljs-comment">// 10^10000 -- granted, far less useful / in-range...</span>
 
+<span class="hljs-number">.0</span>, <span class="hljs-number">.00</span>,  <span class="hljs-number">.9</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">40.0</span>,  <span class="hljs-number">0.</span>, <span class="hljs-number">10.</span>
+<span class="hljs-number">.0</span>, <span class="hljs-number">.0_0</span>, <span class="hljs-number">.9</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">4_0.0</span>, <span class="hljs-number">0.</span>, <span class="hljs-number">1_0.</span>
+
+<span class="hljs-number">.0e10</span>,  <span class="hljs-number">.00e+10</span>,  <span class="hljs-number">.9e-10</span>,  <span class="hljs-number">4.2E10</span>,  <span class="hljs-number">40.0E+08</span>,   <span class="hljs-number">0.E-10</span>,  <span class="hljs-number">0.e100</span>,   <span class="hljs-number">1010e+10</span>
+<span class="hljs-number">.0e1_0</span>, <span class="hljs-number">.0_0e+10</span>, <span class="hljs-number">.9e-1_0</span>, <span class="hljs-number">4.2E1_0</span>, <span class="hljs-number">4_0.0E+0_8</span>, <span class="hljs-number">0.E-1_0</span>, <span class="hljs-number">0.e1_0_0</span>, <span class="hljs-number">10_10e+10</span>
+
 <span class="hljs-keyword">let</span> nibbles = <span class="hljs-number">0b1010_0001_1000_0101</span>;
 <span class="hljs-keyword">let</span> message = <span class="hljs-number">0xA0_B0_C0</span>;
 
@@ -48,3 +54,24 @@
 <span class="hljs-number">2_0_0n</span>
 <span class="hljs-number">20_0n</span>
 -<span class="hljs-number">20_0n</span>
+<span class="hljs-number">0B1n</span>
+<span class="hljs-number">0O1n</span>
+<span class="hljs-number">0X1n</span>
+
+<span class="hljs-comment">// Annex B numeric literals</span>
+<span class="hljs-comment">// https://tc39.es/ecma262/#sec-additional-syntax-numeric-literals</span>
+<span class="hljs-number">00</span>, <span class="hljs-number">04</span>, <span class="hljs-number">0777</span>, <span class="hljs-number">08</span>, <span class="hljs-number">008</span>
+
+<span class="hljs-comment">// expressions containing numeric literals</span>
+<span class="hljs-number">0.</span>.toString, <span class="hljs-number">1e1</span>.toString, fn(<span class="hljs-number">.5</span>)
+
+<span class="hljs-comment">// expressions not containing numeric literals</span>
+x0.e1
+
+<span class="hljs-comment">// invalid pseudo-numeric expressions</span>
+1__0
+0b1__0
+1e_1
+0b1e1
+0N
+<span class="hljs-number">00</span>.
