@@ -22,7 +22,7 @@ In terms of getting help, GitHub issues are the primary method of communication.
 > - we're more than a keyword highlighter
 > - we're not a full language parser
 > - auto-detect is not powered by magic unicorn dust
-> 
+>
 > ([Josh Goebel](https://github.com/highlightjs/highlight.js/issues/2753#issuecomment-709415929))
 
 ## Reporting an Issue
@@ -50,7 +50,35 @@ Please open an issue before your PR, so we can explore and discuss the topic at 
 - If necessary, add your name to [AUTHORS.txt](https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.txt) under Contributors
 
 ## Setup and Run
-*build & test instructions go here...*
+
+You'll of course need Node.js and npm or yarn.
+
+Often when contributing a PR (that doesn't make any specific changes to browser
+features) it's more than sufficient to build and test only the Node.js build.
+Our CI process will guarantee that the browser build is still green.
+
+**Should we shown yarn examples also?**
+
+```
+npm run build
+npm run test
+```
+
+The browser library must be built and tested separately:
+
+```
+npm run build-browser
+npm run test-browser
+```
+
+**Where should we mention the developer tool? ./tools/developer.html**
+
+The "run" here made me think of that because otherwise there isn't really
+much to "run" (other than tests).
+
+
+
+For more details see [Building and Testing](https://highlightjs.readthedocs.io/en/latest/building-testing.html).
 
 ### Prerequisites
 Are you someone who...
