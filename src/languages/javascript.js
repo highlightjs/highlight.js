@@ -82,9 +82,9 @@ export default function(hljs) {
       { begin: `\\b(0|[1-9](_?[0-9])*)n\\b` },
 
       // NonDecimalIntegerLiteral
+      { begin: "\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*n?\\b" },
       { begin: "\\b0[bB][0-1](_?[0-1])*n?\\b" },
       { begin: "\\b0[oO][0-7](_?[0-7])*n?\\b" },
-      { begin: "\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*n?\\b" },
 
       // LegacyOctalIntegerLiteral (does not include underscore separators)
       // https://tc39.es/ecma262/#sec-additional-syntax-numeric-literals
