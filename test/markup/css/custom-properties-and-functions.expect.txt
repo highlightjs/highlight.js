@@ -1,0 +1,9 @@
+<span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--dark-blue</span>: <span class="hljs-number">#005</span>;
+}
+
+<span class="hljs-selector-class">.example</span> {
+    <span class="hljs-attribute">border-color</span>: <span class="hljs-built_in">var</span>(--dark-blue, <span class="hljs-built_in">rgb</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>));
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-built_in">var</span>(--dark-blue), <span class="hljs-built_in">var</span>(--white));
+    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--r), <span class="hljs-built_in">var</span>(--g), <span class="hljs-built_in">var</span>(--b));
+}

@@ -1,0 +1,9 @@
+:root {
+    --dark-blue: #005;
+}
+
+.example {
+    border-color: var(--dark-blue, rgb(0, 0, 255));
+    background: linear-gradient(var(--dark-blue), var(--white));
+    color: rgb(var(--r), var(--g), var(--b));
+}

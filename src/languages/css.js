@@ -25,6 +25,8 @@ export default function(hljs) {
       }
     ]
   };
+  FUNCTION_LIKE.contains[1].contains.push(FUNCTION_LIKE); // self-reference for nested functions
+
   var VENDOR_PREFIX= {
     begin: /-(webkit|moz|ms|o)-/
   };
