@@ -7,6 +7,7 @@
 4. [Fixing an Issue (PRs)](#fixing-an-issue-prs) (2nd draft)
 5. [Setup and Run](#setup-and-run) (TBD)
 
+
 ## Welcome
 Hi, and welcome to Highlight.js. We're a code-highlighting engine etc., but you probably know that. You want to contribute, and this document will be your guide.
 
@@ -17,21 +18,21 @@ In terms of getting help, GitHub issues are the primary method of communication.
 
 ## Philosophy
 
-Highlight.js makes a strong effort to keep the core engine, it's usage, and it's feature set simple and clean.  There is definitely a "blessed path" (ie, `<pre><code>` blocks vs other random markup).  When you're on the blessed path (we recommend it) then often everything "just works" with a single line of code.  We aim to well support the typical 80% use cases very well while still allowing the other 20% to in many cases be handled easily via small exentensions or plug-ins.
+Highlight.js makes a strong effort to keep the core engine, it's usage, and it's feature set clean and simple.  We aim to support the happy path (the 90%), not the often innumerable edge cases (the last 10%).  When you're on the happy path everything "just works" with a single line of code.  We do our best to allow those familiar with JavaScript to easily handle the remaining 10% via small extensions or plug-ins.
 
-Feature requests are welcome but don't be surprised if many times the answer is:
+Feature requests are always welcome but many times the answer is:
 
-> That's a great idea, you should write a plug-in for that. It doesn't belong in the core library and it's probably something you could do with only a small amount of code.
+> That's a great idea, you should write a plug-in for that! It doesn't belong in the core library and it's probably something you could do with only a small amount of code.
 
-If you'd like to contribute a feature you definitely should first open an issue to discuss if the feature belongs in core vs a plug-in.
+If you'd like to contribute a feature you should always first open an issue to discuss if the feature belongs in core vs a plug-in.  Often this is a great way to get tips for implemention as well or links to prior disussions with context, etc.
 
 Some bullet points:
 
-- Our [lack of line numbers is a feature](https://highlightjs.readthedocs.io/en/latest/line-numbers.html).
-- We [embrace plug-ins and extension](https://github.com/highlightjs/highlight.js/issues/2225) rather than adding 100 tiny features or config knobs.
-- We are much more than a simple keyword highlighter. We do make some attempt to understand context.
-- We are not a full parser for any language, we're just a fancy pattern matcher.
-- Our [auto-detect is not powered by magic unicorn dust](https://github.com/highlightjs/highlight.js/issues/1213). It's best effort, not best in class.
+- Our [lack of line numbers is a feature](https://highlightjs.readthedocs.io/en/latest/line-numbers.html). The simple case isn't hard to add though with a little custom JavaScript.
+- We [embrace plug-ins and extensions](https://github.com/highlightjs/highlight.js/issues/2225) rather than adding lots of tiny features and configuration options.
+- We are much more than a keyword highlighter. We do make attempts to understand context...
+- ...Yet we are not a full parser for any language, we're still just a fancy nested pattern matcher.
+- Our [auto-detect is sadly not powered by magic unicorn dust](https://github.com/highlightjs/highlight.js/issues/1213). It's best effort, not best in class.
 
 
 ## Reporting an Issue
@@ -43,6 +44,7 @@ Some bullet points:
 If you're new to contributing to open-source, have a look at [this GitHub Guide](https://guides.github.com/activities/forking). It explains the general process of GitHub collaboration.
 
 If you feel comfortable with our [prerequisites](#prerequisites), you can grab any issue [marked `beginner friendly`](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22beginner+friendly%22).
+
 
 ### Rules
 Don't worry; these rules are pretty standard.
@@ -58,6 +60,7 @@ Please open an issue before your PR, so we can explore and discuss the topic at 
 - Find and link to the relevant issue
 - Add a changelog entry to [CHANGES.md](https://github.com/highlightjs/highlight.js/blob/master/CHANGES.md)
 - If necessary, add your name to [AUTHORS.txt](https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.txt) under Contributors
+
 
 ## Setup and Run
 
@@ -89,6 +92,7 @@ much to "run" (other than tests).
 
 
 For more details see [Building and Testing](https://highlightjs.readthedocs.io/en/latest/building-testing.html).
+
 
 ### Prerequisites
 Are you someone who...
