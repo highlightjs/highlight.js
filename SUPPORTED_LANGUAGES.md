@@ -95,6 +95,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
+| Julia                   | julia, julia-repl      |         |
 | Kotlin                  | kotlin, kt             |         |
 | LaTeX                   | tex                    |         |
 | Leaf                    | leaf                   |         |
