@@ -6,6 +6,7 @@ Language Improvements:
 - enh(python) Match numeric literals per the language reference [Richard Gibson][]
 - enh(ruby) Match numeric literals per language documentation [Richard Gibson][]
 - enh(javascript) Match numeric literals per ECMA-262 spec [Richard Gibson][]
+- enh(php) highlight variables (#2785) [Taufik Nurrohman][]
 
 Dev Improvements:
 
@@ -14,6 +15,7 @@ Dev Improvements:
 [Fredrik Ekre]: https://github.com/fredrikekre
 [Richard Gibson]: https://github.com/gibson042
 [Josh Goebel]: https://github.com/joshgoebel
+[Taufik Nurrohman]: https://github.com/taufik-nurrohman
 
 
 ## Version 10.3.1
@@ -1324,7 +1326,7 @@ Notable fixes and improvements to existing languages:
 - HTML `<script>` tag now allows any language, not just JavaScript.
 - Multi-line comments are supported now in MatLab.
 
-[Taufik Nurrohman]: https://github.com/tovic
+[Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Jet Brains]: https://www.jetbrains.com/
 [Peter Piwowarski]: https://github.com/oldlaptop
 [Kenta Sato]: https://github.com/bicycle1885
