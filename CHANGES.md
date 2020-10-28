@@ -3,6 +3,7 @@
 Language Improvements:
 
 - enh(julia) Update keyword lists for Julia 1.X (#2781) [Fredrik Ekre][]
+- fix(css) Fix highlighting of nested css functions (#2674) [Kevin Hamer][]
 
 Dev Improvements:
 
