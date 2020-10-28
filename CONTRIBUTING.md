@@ -14,20 +14,30 @@ There are many ways to contribute to Highlight.js. Reporting issues is super use
 
 In terms of getting help, GitHub issues are the primary method of communication. We're exploring the idea of creating a Gitter chat room.
 
+
 ## Philosophy
-> A short section on our overall philosophy somewhere would be great also (I'm happy to help there):
-> - keep the core parser simple (focus on the 80%)
-> - encourage and support a plug-in culture (let others tackle the last 20%)
-> - we don't show line numbers on purpose
-> - we're more than a keyword highlighter
-> - we're not a full language parser
-> - auto-detect is not powered by magic unicorn dust
->
-> ([Josh Goebel](https://github.com/highlightjs/highlight.js/issues/2753#issuecomment-709415929))
+
+Highlight.js makes a strong effort to keep the core engine, it's usage, and it's feature set simple and clean.  There is definitely a "blessed path" (ie, `<pre><code>` blocks vs other random markup).  When you're on the blessed path (we recommend it) then often everything "just works" with a single line of code.  We aim to well support the typical 80% use cases very well while still allowing the other 20% to in many cases be handled easily via small exentensions or plug-ins.
+
+Feature requests are welcome but don't be surprised if many times the answer is:
+
+> That's a great idea, you should write a plug-in for that. It doesn't belong in the core library and it's probably something you could do with only a small amount of code.
+
+If you'd like to contribute a feature you definitely should first open an issue to discuss if the feature belongs in core vs a plug-in.
+
+Some bullet points:
+
+- Our [lack of line numbers is a feature](https://highlightjs.readthedocs.io/en/latest/line-numbers.html).
+- We [embrace plug-ins and extension](https://github.com/highlightjs/highlight.js/issues/2225) rather than adding 100 tiny features or config knobs.
+- We are much more than a simple keyword highlighter. We do make some attempt to understand context.
+- We are not a full parser for any language, we're just a fancy pattern matcher.
+- Our [auto-detect is not powered by magic unicorn dust](https://github.com/highlightjs/highlight.js/issues/1213). It's best effort, not best in class.
+
 
 ## Reporting an Issue
 (Misc.)
 - If you found a language highlighting issue, use [this JSFiddle](https://jsfiddle.net/ajoshguy/2bmdswn6/) to create a test case.
+
 
 ## Fixing an Issue (PRs)
 If you're new to contributing to open-source, have a look at [this GitHub Guide](https://guides.github.com/activities/forking). It explains the general process of GitHub collaboration.
