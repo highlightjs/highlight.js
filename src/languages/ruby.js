@@ -80,6 +80,30 @@ export default function(hljs) {
       }
     ]
   };
+
+  // Ruby syntax is underdocumented, but this grammar seems to be accurate
+  // as of version 2.7.2 (confirmed with (irb and `Ripper.sexp(...)`)
+  // https://docs.ruby-lang.org/en/2.7.0/doc/syntax/literals_rdoc.html#label-Numbers
+  var decimal = '[1-9](_?[0-9])*|0';
+  var digits = '[0-9](_?[0-9])*';
+  var NUMBER = {
+    className: 'number', relevance: 0,
+    variants: [
+      // decimal integer/float, optionally exponential or rational, optionally imaginary
+      { begin: `\\b(${decimal})(\\.(${digits}))?([eE][+-]?(${digits})|r)?i?\\b` },
+
+      // explicit decimal/binary/octal/hexadecimal integer,
+      // optionally rational and/or imaginary
+      { begin: "\\b0[dD][0-9](_?[0-9])*r?i?\\b" },
+      { begin: "\\b0[bB][0-1](_?[0-1])*r?i?\\b" },
+      { begin: "\\b0[oO][0-7](_?[0-7])*r?i?\\b" },
+      { begin: "\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*r?i?\\b" },
+
+      // 0-prefixed implicit octal integer, optionally rational and/or imaginary
+      { begin: "\\b0(_?[0-7])+r?i?\\b" },
+    ]
+  };
+
   var PARAMS = {
     className: 'params',
     begin: '\\(', end: '\\)', endsParent: true,
@@ -126,11 +150,7 @@ export default function(hljs) {
       contains: [STRING, {begin: RUBY_METHOD_RE}],
       relevance: 0
     },
-    {
-      className: 'number',
-      begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
-      relevance: 0
-    },
+    NUMBER,
     {
       begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))' // variables
     },

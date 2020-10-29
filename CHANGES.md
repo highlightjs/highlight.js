@@ -1,9 +1,20 @@
-## Version 10.4.0 (wip)
+## Version 10.4.0 (work in process)
 
 Language Improvements:
 
 - bug(xml) XML grammar was far too imprecise/fuzzy [Josh Goebel][]
 - enh(xml) Improve precision to prevent false auto-detect positives [Josh Goebel][]
+- enh(julia) Update keyword lists for Julia 1.x (#2781) [Fredrik Ekre][]
+- enh(python) Match numeric literals per the language reference [Richard Gibson][]
+- enh(ruby) Match numeric literals per language documentation [Richard Gibson][]
+
+Dev Improvements:
+
+- chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
+
+[Fredrik Ekre]: https://github.com/fredrikekre
+[Richard Gibson]: https://github.com/gibson042
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 10.3.1
@@ -59,7 +70,8 @@ Deprecations:
 
 [Chris Krycho]: https://github.com/chriskrycho
 [David Pine]: https://github.com/IEvangelist
-[Josh Goebel]: https://github.com/joshgoebel
+
+
 [Ryan Jonasson]: https://github.com/ryanjonasson
 [Philipp Engel]: https://github.com/interkosmos
 [Konrad Rudolph]: https://github.com/klmr
