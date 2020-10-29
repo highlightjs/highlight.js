@@ -17,6 +17,10 @@ New themes:
 - *StackOverflow Dark* by [Jan Pilzer][]
 - *StackOverflow Light* by [Jan Pilzer][]
 
+Theme Improvements:
+
+- chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
+
 [Fredrik Ekre]: https://github.com/fredrikekre
 [Richard Gibson]: https://github.com/gibson042
 [Josh Goebel]: https://github.com/joshgoebel
