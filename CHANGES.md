@@ -1,3 +1,11 @@
+## Version 10.3.2
+
+Tiny tiny release, just to fix the website incorrectly not listing Javascript
+in the list of languages you could choose for a custom build.
+
+- There are no other changes.
+
+
 ## Version 10.3.1
 
 Prior version let some look-behind regex sneak in, which does not work
