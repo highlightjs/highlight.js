@@ -67,7 +67,7 @@ export default function(hljs) {
       // to have any real relevance
       { begin: /\[.+?\]\[.*?\]/, relevance: 0 },
       // popular internet URLs
-      { begin: /\[.+?\]\((?:data|(?:http|ftp)s?|javascript|mailto):\/\/.*?\)/, relevance: 2 },
+      { begin: /\[.+?\]\(((data|javascript|mailto):|(?:http|ftp)s?:\/\/).*?\)/, relevance: 2 },
       { begin: regex.concat(/\[.+?\]\(/, URL_SCHEME, /:\/\/.*?\)/), relevance: 2 },
       // relative urls
       { begin: /\[.+?\]\([./?&#].*?\)/, relevance: 1 },
