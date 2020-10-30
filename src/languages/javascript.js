@@ -411,7 +411,6 @@ export default function(hljs) {
         excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
-          'self',
           hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
           PARAMS
         ],
