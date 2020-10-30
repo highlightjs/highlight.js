@@ -387,13 +387,6 @@ export default function(hljs) {
         className: "operator",
         relevance: 0
       },
-      {
-        className: "operator",
-        relevance: 0,
-        begin: /\s(?=>)/,
-        end: />/,
-        excludeBegin: true,
-      },
       { // "value" container
         begin: '(' + RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: {
