@@ -1,33 +1,45 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
+
 /* Base styles */
 body {
-  color: #F0F0F0;
+  color: #f0f0f0;
   background: #500;
-  font-family: Arial, sans;
-  margin: 0; padding: 0;
+  font-family: PT Sans, DejaVu Sans, Arial, sans;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-  color: white;
+  color: #f0f0f0;
 }
 
 h1 {
-  font: bold 150% Arial, sans-serif;
-  margin: 0; padding: 1em 0;
+  font-size: 150%;
+  margin: 0;
+  padding: 1em 0;
 }
 
 h2 {
-  font: bold 120% Arial, sans-serif;
+  font-size: 120%;
   margin: 1.5em 0 0.5em 0;
 }
 
 pre {
   margin: 0;
-  font-size: medium;
+}
+
+code {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 10pt;
+  scrollbar-width: thin;
 }
 
 #sidebar {
-  float: left; width: 16em; height: 1000em; position: fixed;
-  padding: 1px 1em;
+  float: left;
+  width: 16em;
+  height: 1000em;
+  position: fixed;
+  padding: 0 1em;
   background: #600;
   box-shadow: 0 0 15px black;
 }
@@ -35,12 +47,36 @@ pre {
 #sidebar ul,
 #sidebar li {
   list-style: none;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #sidebar ul {
   position: relative;
-  overflow-y: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+#sidebar ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+#sidebar ul::-webkit-scrollbar-track {
+  background: #4d0607;
+}
+
+#sidebar ul::-webkit-scrollbar-thumb {
+  background: #926868;
+  border-right: 1px solid #4d0607;
+  border-left: 1px solid #4d0607;
+}
+
+#sidebar ul::-webkit-scrollbar-thumb:hover {
+  background: #7f5555;
+}
+
+#sidebar ul::-webkit-scrollbar-thumb:active {
+  background: #5d3333;
 }
 
 #sidebar li {
@@ -53,12 +89,15 @@ pre {
 }
 
 #sidebar li.current:before {
-  content: '▶'; font-size: smaller;
-  position: absolute; left: 0;
+  content: "▶";
+  font-size: smaller;
+  position: absolute;
+  left: 0;
 }
 
 #content {
   margin-left: 19em;
+  min-width: 36em;
 }
 
 #languages {
