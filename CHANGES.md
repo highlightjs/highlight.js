@@ -2,7 +2,7 @@
 
 Language Improvements:
 
-- fix(js/ts) Prevent while/if/switch from falsly matching as functions () [Josh Goebel][]
+- fix(js/ts) Prevent while/if/switch from falsly matching as functions (#2803) [Josh Goebel][]
 - enh(julia) Update keyword lists for Julia 1.x (#2781) [Fredrik Ekre][]
 - enh(python) Match numeric literals per the language reference [Richard Gibson][]
 - enh(ruby) Match numeric literals per language documentation [Richard Gibson][]
