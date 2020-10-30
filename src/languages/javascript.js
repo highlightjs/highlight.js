@@ -53,11 +53,7 @@ export default function(hljs) {
   const OPERATOR = {
     className: "operator",
     relevance: 0,
-    variants: [
-      { begin: regex.either(...OPERATORS.map(x => regex.escape(x))) },
-      { begin: /[<>](?=\s)/}
-    ]
-
+    begin: regex.either(...OPERATORS.map(x => regex.escape(x)))
   };
   const FRAGMENT = {
     begin: '<>',
