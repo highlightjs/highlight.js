@@ -405,14 +405,6 @@ export default function(hljs) {
         excludeBegin: true,
       },
       { // "value" container
-      begin: '/',
-      className: "operator",
-      starts: {
-        contains: VALUE_CONTAINS,
-      },
-      relevance: 0
-    },
-      { // "value" container
         begin: '(' + RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: {
           $pattern: regex.either("case", "return", "throw", ...OPERATORS.map(x => regex.escape(x))),
