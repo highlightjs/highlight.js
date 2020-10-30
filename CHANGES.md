@@ -15,11 +15,18 @@ Dev Improvements:
 Translation Improvements:
 - Add polish `README.md` translation (#2777) [Michael Tomasik][]
 
+New themes:
+
+- *StackOverflow Dark* by [Jan Pilzer][]
+- *StackOverflow Light* by [Jan Pilzer][]
+
 [Fredrik Ekre]: https://github.com/fredrikekre
 [Richard Gibson]: https://github.com/gibson042
 [Josh Goebel]: https://github.com/joshgoebel
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Michael Tomasik]: https://github.com/michaeltomasik
+[Jan Pilzer]: https://github.com/Hirse
+
 ## Version 10.3.1
 
 Prior version let some look-behind regex sneak in, which does not work

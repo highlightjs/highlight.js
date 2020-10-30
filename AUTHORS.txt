@@ -295,3 +295,4 @@ Contributors:
 - Richard Gibson <gibson042@github>
 - Fredrik Ekre <ekrefredrik@gmail.com>
 - Michael Tomasik <michael.f.tomasik@gmail.com>
+- Jan Pilzer <Hirse@github>
