@@ -33,7 +33,7 @@ export const Component = {
         this.detectedLanguage = result.language;
       } else {
         result = hljs.highlight(this.language, this.code, this.ignoreIllegals);
-        this.detectectLanguage = this.language;
+        this.detectedLanguage = this.language;
       }
       return result.value;
     },
