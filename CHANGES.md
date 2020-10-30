@@ -12,12 +12,14 @@ Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
 
+Translation Improvements:
+- Add polish `README.md` translation (#2777) [Michael Tomasik][]
+
 [Fredrik Ekre]: https://github.com/fredrikekre
 [Richard Gibson]: https://github.com/gibson042
 [Josh Goebel]: https://github.com/joshgoebel
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
-
-
+[Michael Tomasik]: https://github.com/michaeltomasik
 ## Version 10.3.1
 
 Prior version let some look-behind regex sneak in, which does not work
