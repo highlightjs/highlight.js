@@ -394,13 +394,15 @@ export default function(hljs) {
       },
       {
         begin: /--|\+\+/,
-        className: "operator"
+        className: "operator",
+        relevance: 0
       },
       {
         className: "operator",
+        relevance: 0,
         begin: /\s(?=>)/,
         end: />/,
-        excludeBegin: true
+        excludeBegin: true,
       },
       { // "value" container
       begin: '/',
@@ -415,7 +417,7 @@ export default function(hljs) {
         keywords: {
           $pattern: regex.either("case", "return", "throw", ...OPERATORS.map(x => regex.escape(x))),
           keyword: 'return throw case',
-          operator: OPERATORS.join(" ")
+          operator: OPERATORS.map(x => `${x}|0`).join(" ") // 0 relevance
         },
         relevance: 0,
         contains: VALUE_CONTAINS
