@@ -12,10 +12,16 @@ Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
 
+New themes:
+
+- *StackOverflow Dark* by [Jan Pilzer][]
+- *StackOverflow Light* by [Jan Pilzer][]
+
 [Fredrik Ekre]: https://github.com/fredrikekre
 [Richard Gibson]: https://github.com/gibson042
 [Josh Goebel]: https://github.com/joshgoebel
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
+[Jan Pilzer]: https://github.com/Hirse
 
 
 ## Version 10.3.1
