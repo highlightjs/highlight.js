@@ -397,7 +397,7 @@ const HLJS = function(hljs) {
       // decent number of iterations yet our index (cursor position in our
       // parsing) still 10x behind our index then something is very wrong
       // so we bail
-      if (match.type === "begin" && iterations >= 10000 && iterations > match.index * 10) {
+      if (iterations >= 10000 && iterations > match.index * 10) {
         if (!SAFE_MODE) {
           const err = new Error(`we appear stuck, more iterations ${iterations} than progress ${match.index}`);
           throw err;
@@ -409,26 +409,30 @@ const HLJS = function(hljs) {
         return 1;
       }
 
-      // we've found a 0 width match and we're stuck, so we need to advance
-      // this happens when we have badly behaved rules that have optional matchers to the degree that
-      // sometimes they can end up matching nothing at all
-      // Ref: https://github.com/highlightjs/highlight.js/issues/2140
-      if (lastMatch.type === "begin" && match.type === "end" && lastMatch.index === match.index && lexeme === "") {
-        // spit the "skipped" character that our regex choked on back into the output sequence
-        modeBuffer += codeToHighlight.slice(match.index, match.index + 1);
-        if (!SAFE_MODE) {
+      // we've found a stuck rule (typicaly a 0 width match or faulty
+      // returnBegin) and we're stuck, so we need to advance this happens when
+      // we have badly behaved rules that have optional matchers to the degree
+      // that sometimes they can end up matching nothing at all Ref:
+      // https://github.com/highlightjs/highlight.js/issues/2140
+      // ---
+      // Note: This only catches a single repeating rule (in debug mode), it
+      // will not catch a complex chain of repeating rules, that's what the
+      // iteration safeguard handles.  This hopefully might help with debugging
+      // a grammar during development.  If it does not prove useful for this
+      // then it can be removed entirely.
+      if (!SAFE_MODE) {
+        if (match.rule === lastMatch.rule && lastMatch.index === match.index) {
           /** @type {AnnotatedError} */
-          console.log(lastMatch.rule);
-          console.log("match was", match)
-          console.log("context", codeToHighlight.slice(match.index-50, match.index+50));
-          const err = new Error('0 width match regex', lastMatch.rule);
+          // console.log(lastMatch.rule);
+          // console.log("match was", match)
+          // console.log("context", codeToHighlight.slice(match.index-50, match.index+50));
+          const err = new Error('0 width match regex or bad returnBegin', lastMatch.rule);
           err.languageName = languageName;
           err.badRule = lastMatch.rule;
           throw err;
         }
-        return 1;
+        if (match.type === "begin") lastMatch = match;
       }
-      lastMatch = match;
 
       /** @type {Symbol | number} */
       let processed = 0;
