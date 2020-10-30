@@ -321,8 +321,7 @@ export default function(hljs) {
           contains: ['self']
         }
       ]
-    },
-    OPERATOR
+    }
   ];
 
   return {
@@ -350,15 +349,6 @@ export default function(hljs) {
       CSS_TEMPLATE,
       TEMPLATE_STRING,
       COMMENT,
-      // {
-      //   // className: "booger",
-      //   begin: /(?=\d+)/,
-      //   // contains: [
-      //   //   { begin:  /granny/ },
-      //   //   { "on:begin": (x, resp) => { return resp.ignoreMatch() }, begin: /\d+/, className: "smith" },
-      //   //   { begin:  /granny/ },
-      //   // ]
-      // },
       NUMBER,
       { // object attr container
         begin: regex.concat(/[{,\n]\s*/,
@@ -413,21 +403,6 @@ export default function(hljs) {
         },
         relevance: 0,
         contains: VALUE_CONTAINS
-        // contains: [
-        //   inherit(OPERATOR, {
-        //     // endsParent: true,
-        //     starts: { label: "secret", contains: VALUE_CONTAINS }
-        //   }),
-        //   {
-        //     // we need to eat the value container if it hasn't already been handled
-        //     // by operator
-        //     begin: '(' + RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
-        //     keywords: 'return throw case',
-        //     // endsParent: true,
-        //     starts: { contains: VALUE_CONTAINS, label: "another" },
-        //     relevance:0
-        //   },
-        // ],
       },
       {
         className: 'function',
