@@ -292,7 +292,8 @@ export default function(hljs) {
                 className: 'params',
                 variants: [
                   {
-                    begin: hljs.UNDERSCORE_IDENT_RE
+                    begin: hljs.UNDERSCORE_IDENT_RE,
+                    relevance: 0
                   },
                   {
                     className: null,
