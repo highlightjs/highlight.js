@@ -60,7 +60,6 @@ export default function(hljs) {
 
   const SYMBOL_RE = /[a-zA-Z$][a-zA-Z0-9$]*/;
   const SYMBOLS = {
-    className: 'variable',
     begin: SYMBOL_RE,
       keywords: {
         $pattern: SYMBOL_RE,
@@ -69,8 +68,7 @@ export default function(hljs) {
   };
 
   const NAMED_CHARACTER = {
-    className: 'variable',
-    begin: /\\\[[$a-zA-Z][$a-zA-Z0-9]+]/,
+    begin: /\\\[[$a-zA-Z][$a-zA-Z0-9]+]/
   };
 
   const OPERATORS = {
