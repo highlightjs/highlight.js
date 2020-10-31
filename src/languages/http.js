@@ -55,6 +55,7 @@ export default function(hljs) {
         ],
         starts: {
           end: /\b\B/,
+          illegal: '\\S',
           contains: HEADERS_AND_BODY
         }
       },
@@ -81,6 +82,7 @@ export default function(hljs) {
         end: /$/,
         starts: {
           end: /\b\B/,
+          illegal: '\\S',
           contains: HEADERS_AND_BODY
         }
       }
