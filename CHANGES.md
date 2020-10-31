@@ -1,5 +1,9 @@
 ## Version 10.4.0 (work in process)
 
+Parser:
+
+- enh(parser) use negative look-ahead for `beginKeywords` support (#2813) [Josh Goebel][]
+
 Language Improvements:
 
 - enh(julia) Update keyword lists for Julia 1.x (#2781) [Fredrik Ekre][]
