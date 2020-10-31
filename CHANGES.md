@@ -6,6 +6,7 @@ Language Improvements:
 - enh(python) Match numeric literals per the language reference [Richard Gibson][]
 - enh(ruby) Match numeric literals per language documentation [Richard Gibson][]
 - enh(javascript) Match numeric literals per ECMA-262 spec [Richard Gibson][]
+- enh(java) Match numeric literals per Java Language Specification [Richard Gibson][]
 - enh(php) highlight variables (#2785) [Taufik Nurrohman][]
 
 Dev Improvements:
