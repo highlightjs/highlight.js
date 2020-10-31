@@ -508,6 +508,7 @@ export default function(hljs) {
     "deref",
     "element",
     "exp",
+    "extract",
     "first_value",
     "floor",
     "json_array",
