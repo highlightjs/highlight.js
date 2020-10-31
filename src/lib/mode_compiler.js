@@ -240,7 +240,7 @@ export function compileLanguage(language) {
 
   // TODO: We need negative look-behind support to do this properly
   /**
-   * Skip a match if it has a preceding or trailing dot
+   * Skip a match if it has a preceding dot
    *
    * This is used for `beginKeywords` to prevent matching expressions such as
    * `bob.keyword.do()`. The mode compiler automatically wires this up as a
@@ -248,10 +248,9 @@ export function compileLanguage(language) {
    * @param {RegExpMatchArray} match
    * @param {CallbackResponse} response
    */
-  function skipIfhasPrecedingOrTrailingDot(match, response) {
+  function skipIfhasPrecedingDot(match, response) {
     const before = match.input[match.index - 1];
-    const after = match.input[match.index + match[0].length];
-    if (before === "." || after === ".") {
+    if (before === ".") {
       response.ignoreMatch();
     }
   }
@@ -331,8 +330,8 @@ export function compileLanguage(language) {
         // or whitespace - this does no harm in any case since our keyword engine
         // doesn't allow spaces in keywords anyways and we still check for the boundary
         // first
-        mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')(?=\\b|\\s)';
-        mode.__beforeBegin = skipIfhasPrecedingOrTrailingDot;
+        mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')(?!\\.)(?=\\b|\\s)';
+        mode.__beforeBegin = skipIfhasPrecedingDot;
       }
       if (!mode.begin) mode.begin = /\B|\b/;
       cmode.beginRe = langRe(mode.begin);
