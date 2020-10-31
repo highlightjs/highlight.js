@@ -39,6 +39,7 @@ export default function(hljs) {
       begin: '`', end: '`'
     }
   ]};
+
   const LITERALS = [
     "true",
     "false",
@@ -52,13 +53,11 @@ export default function(hljs) {
     "with timezone",
     "without timezone"
   ];
+
   const TYPES = [
-    // 'array', // used in procedural languages
     'bigint',
     'binary',
-    // 'bit',  // MS SQL
     'blob',
-    // 'bool', // ???
     'boolean',
     'char',
     'character',
@@ -69,41 +68,20 @@ export default function(hljs) {
     'decimal',
     'float',
     'int',
-    // 'int8', // postgres
     'integer',
     'interval',
-    // 'number',  // oracle
-    // 'multiset', // used in procedural languages
     'nchar',
     'nclob',
     'national',
     'numeric',
     'real',
-    // 'ref', // used in procedural languages
-    // 'record', Dunno?
     'row',
-    // 'serial', Oracle?
-    // 'serial8', Oracle?
-    //'scope', // used in procedural languages
     'smallint',
-    // 'text', // PostgreSQL
     'time',
     'timestamp',
-    // 'tinyint', // MySQL specific
     'varchar',
     'varying', // modifier (character varying)
     'varbinary'
-    // 'void' // postgres
-  ];
-
-  const AGG_FUNCTIONS = [
-    "avg",
-    "count",
-    // "group_concat", // STRING_AGG() in T-SQL, etc...
-    "max",
-    "min",
-    "sum",
-    // "total" // doesn't seem to be mentioned in SQL 2011
   ];
 
   const NON_RESERVED_WORDS = [
@@ -573,201 +551,6 @@ export default function(hljs) {
     "width_bucket",
   ];
 
-  const OLD_SCALAR_FUNCTIONS = [
-    "abs",
-    // "changes", // sqlite
-    "char",
-    "coalesce",
-    "glob",
-    // "hex", // postgres does not include
-    // "ifnull",  // postgres does not include
-    "iif",
-    "instr",
-    // "last_insert_rowid", //sqlite only
-    "length",
-    "like",
-    // "likelihood", // sqlite
-    // "likely", // sqlite
-    "lower",
-    "ltrim",
-    "nullif",
-    "printf",
-    "quote",
-    "random",
-    // "randomblob", // sqlite
-    "replace",
-    "round",
-    "rtrim",
-    "soundex",
-    "substr",
-    // "total_changes", // sqlite
-    "trim",
-    // "typeof", // sqlite
-    "unicode",
-    // "unlikely", // sqlite
-    "upper",
-    // "zeroblob" // sqlite
-  ];
-
-  const DATE_FUNCTIONS = [
-    "date",
-    "time",
-    "datetime",
-    "julianday",
-    "strftime"
-  ];
-
-  const FUNCTIONS = [].concat(AGG_FUNCTIONS, RESERVED_FUNCTIONS);
-
-  const OLD_KEYWORDS = [
-    "abort",
-    "action",
-    "add", // good (add constraint)
-    "after",
-    "all",
-    "alter", // good
-    "always",
-    "analyze",
-    "and", // good
-    "as", // good (aliasing field names)
-    "asc", // good
-    "attach",
-    "autoincrement",
-    "before",
-    "begin", // good
-    "between", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
-    "by", // good (group by)
-    "cascade",
-    "case",
-    "cast",
-    "check",
-    "collate",
-    "column",
-    "commit", // good
-    // "conflict", // The ON CONFLICT clause is a non-standard extension specific to SQLite
-    "constraint", // good
-    "create", // good (create table)
-    "cross",
-    "current", // current row
-    "current_date",
-    "current_time",
-    "current_timestamp",
-    "database", // good
-    "default",
-    "deferrable",
-    "deferred",
-    "delete", // good
-    "desc", // good
-    "detach",
-    "distinct", // good
-    "do|0",
-    "drop", // good
-    "each",
-    "else",
-    "end",
-    "escape",
-    "except",
-    "exclude",
-    "exclusive",
-    "exists",
-    "explain",
-    "fail",
-    "filter",
-    "first",
-    "following", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
-    "for",
-    "foreign", // good
-    "from", // good
-    "full",
-    "generated",
-    "glob",
-    "group", // good
-    "groups",
-    "having", // good
-    "if|0",
-    "ignore",
-    "immediate",
-    "in|0",
-    "index", // good
-    "indexed",
-    "initially",
-    "inner", // good
-    "insert", // good
-    "instead",
-    "intersect",
-    "into", // good
-    "in|0", // good - value in (a, b, c)
-    "is|0", // good (is null)
-    "isnull",
-    "join", // good
-    "key", // good
-    "last",
-    "left", // good
-    "like", // good
-    "limit", // good
-    "match",
-    "natural", // seems supported by all
-    // "no", // seems to be reserved but not used yet?
-    "not", // good
-    // "nothing", // looks like Sqlite only
-    "notnull",
-    // "null", // NULL is a literal
-    "nulls",
-    "of",
-    "offset", // good
-    "on|0", // good (JOIN ON)
-    "or", // good
-    "order", // good (ORDER BY)
-    "others",
-    "outer", // good (OUTER JOIN)
-    "over",
-    "partition",
-    "plan",
-    // "pragma", // sqlite only
-    "preceding", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
-    "primary", // good (PRIMARY KEY)
-    "query",
-    "raise",
-    "range",
-    "recursive",
-    "references",
-    "regexp",
-    // "reindex", // not in 2011 spec, oracle uses `ALTER INDEX REBUILD`
-    "release",
-    "rename", // good
-    // "replace", // this is already in SCALAR_FUNCTIONS
-    "restrict",
-    "right", // good
-    "rollback", // good
-    "row", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
-    "rows", // ORDER BY t ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
-    "savepoint", // good
-    "select", // good
-    "set", // UPDATE ... SET
-    "table", // good
-    "temp",
-    "temporary",
-    "then",
-    "ties",
-    "to|0",
-    "transaction", // good
-    "trigger",
-    "unbounded", // ORDER BY t ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
-    "union", // good
-    "unique", // good
-    "update", // good
-    "using",
-    // "vacuum",
-    "values", // good
-    "view",
-    "virtual",
-    "when",
-    "where", // good
-    "window",
-    "with",
-    "without"
-  ];
-
   const COMBOS = [
     "create table", // no need, both are keywords
     "insert into", // no need, both are keywords
@@ -787,6 +570,8 @@ export default function(hljs) {
     "breadth first"
   ];
 
+  const FUNCTIONS = RESERVED_FUNCTIONS;
+
   const KEYWORDS = [...RESERVED_WORDS, ...NON_RESERVED_WORDS].filter((keyword) => {
     return !RESERVED_FUNCTIONS.includes(keyword);
   });
@@ -798,12 +583,12 @@ export default function(hljs) {
 
   const OPERATOR = {
     className: "operator",
-    begin: /[-+*\/=%^~]|&&?|\|\|?|!=?|<(?:=>?|<|>)?|>[>=]?/,
+    begin: /[-+*/=%^~]|&&?|\|\|?|!=?|<(?:=>?|<|>)?|>[>=]?/,
     relevance: 0,
   };
 
   const FUNCTION_CALL = {
-    begin: regex.concat(/\b/,regex.either(...FUNCTIONS),/\s*\(/),
+    begin: regex.concat(/\b/, regex.either(...FUNCTIONS), /\s*\(/),
     keywords: {
       built_in: FUNCTIONS.join(" ")
     }
@@ -832,9 +617,7 @@ export default function(hljs) {
     keywords: {
       $pattern: /\b[\w\.]+/,
       keyword:
-        // STATEMENT_KEYWORDS.concat(
-          // defaultScoreZero(REGULAR_KEYWORDS, {exceptions: RELEVANT_KEYWORDS}))
-        reduceRelevancy(KEYWORDS, {when: (x) => x.length < 3 }).join(" "),
+        reduceRelevancy(KEYWORDS, { when: (x) => x.length < 3 }).join(" "),
       literal: LITERALS.join(" "),
       type: TYPES.join(" ")
     },
@@ -844,7 +627,6 @@ export default function(hljs) {
         keywords: {
           $pattern: /[\w\.]+/,
           keyword: KEYWORDS.join(" "),
-          // STATEMENT_KEYWORDS.concat(REGULAR_KEYWORDS).join(" "),
           literal: LITERALS.join(" "),
           type: TYPES.join(" ")
         },
