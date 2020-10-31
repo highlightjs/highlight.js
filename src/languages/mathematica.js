@@ -60,16 +60,16 @@ export default function(hljs) {
 
   const SYMBOL_RE = /[a-zA-Z$][a-zA-Z0-9$]*/;
   const SYMBOLS = {
-    className: 'symbol',
+    className: 'variable',
     begin: SYMBOL_RE,
       keywords: {
         $pattern: SYMBOL_RE,
-        keyword: Mathematica.SYSTEM_SYMBOLS.join(" ")
+        built_in: Mathematica.SYSTEM_SYMBOLS.join(" ")
       },
   };
 
   const NAMED_CHARACTER = {
-    className: 'symbol',
+    className: 'variable',
     begin: /\\\[[$a-zA-Z][$a-zA-Z0-9]+]/,
   };
 
@@ -79,28 +79,20 @@ export default function(hljs) {
   };
 
   const PATTERNS_AND_SLOTS = {
-    className: 'pattern',
+    className: 'pattern-match',
     variants: [
-      {
-        begin: /([a-zA-Z$][a-zA-Z0-9$]*)?_+([a-zA-Z$][a-zA-Z0-9$]*)?/,
-        keywords: {
-          $pattern: SYMBOL_RE,
-          strong: Mathematica.SYSTEM_SYMBOLS.join(" ")
-        }
-      },
+      {begin: /([a-zA-Z$][a-zA-Z0-9$]*)?_+([a-zA-Z$][a-zA-Z0-9$]*)?/},
       {begin: /#[a-zA-Z$][a-zA-Z0-9$]*|#+[0-9]?/}
     ]
   };
 
   const BRACES = {
-    className: 'brace',
     begin: /[[\](){}]/
   };
 
   const MESSAGES = {
-    className: 'keyword',
-    begin: /::/,
-    end: SYMBOL_RE
+    className: 'string',
+    begin: regex.concat("::", SYMBOL_RE),
   };
 
   return {

@@ -1,43 +1,47 @@
+(* Real-world example from StackExchange *)
 xkcdStyle = {FontFamily -> "Comic Sans MS", 16};
 
-xkcdLabel[{str_, {x1_, y1_}, {xo_, yo_}}] := Module[{x2, y2},
-   x2 = x1 + xo; y2 = y1 + yo;
-   {Inset[
-     Style[str, xkcdStyle], {x2, y2}, {1.2 Sign[x1 - x2],
-      Sign[y1 - y2] Boole[x1 == x2]}], Thick,
-    BezierCurve[{{0.9 x1 + 0.1 x2, 0.9 y1 + 0.1 y2}, {x1, y2}, {x2, y2}}]}];
+xkcdLabel[{str_String, {x1_, y1_}, {xo_, yo_}}] := Module[{x2, y2},
+  x2 = x1 + xo; y2 = y1 + yo;
+  {
+    Inset[
+      Style[str, xkcdStyle],
+      {x2, y2},
+      {1.2*Sign[x1 - x2], Sign[y1 - y2] Boole[x1 == x2]}
+    ],
+    Thick,
+    BezierCurve[{{0.9*x1 + 0.1*x2, 0.9*y1 + 0.1*y2}, {x1, y2}, {x2, y2}}]
+  }
+];
 
-xkcdRules = {EdgeForm[ef:Except[None]] :> EdgeForm[Flatten@{ef, Thick, Black}],
-   Style[x_, st_] :> Style[x, xkcdStyle],
-   Pane[s_String] :> Pane[Style[s, xkcdStyle]],
-   {h_Hue, l_Line} :> {Thickness[0.02], White, l, Thick, h, l},
-   Grid[{{g_Graphics, s_String}}] :> Grid[{{g, Style[s, xkcdStyle]}}],
-   Rule[PlotLabel, lab_] :> Rule[PlotLabel, Style[lab, xkcdStyle]]};
+xkcdRules = {
+  EdgeForm[ef : Except[None]] :> EdgeForm[Flatten@{ef, Thick, Black}],
+  Style[x_, st_] :> Style[x, xkcdStyle],
+  Pane[s_String] :> Pane[Style[s, xkcdStyle]],
+  {h_Hue, l_Line} :> {Thickness[0.02], White, l, Thick, h, l},
+  Grid[{{g_Graphics, s_String}}] :> Grid[{{g, Style[s, xkcdStyle]}}],
+  Rule[PlotLabel, lab_] :> Rule[PlotLabel, Style[lab, xkcdStyle]]
+};
 
-xkcdShow[p_] := Show[p, AxesStyle -> Thick, LabelStyle -> xkcdStyle] /. xkcdRules
+xkcdShow[plot_] := Show[plot, AxesStyle -> Thick, LabelStyle -> xkcdStyle] /. xkcdRules;
+xkcdShow[Labeled[plot_, rest__]] := Labeled[
+  Show[plot, AxesStyle -> Thick, LabelStyle -> xkcdStyle], rest ] /. xkcdRules;
 
-xkcdShow[Labeled[p_, rest__]] :=
- Labeled[Show[p, AxesStyle -> Thick, LabelStyle -> xkcdStyle], rest] /. xkcdRules
+xkcdDistort[plot_] := Module[{r, ix, iy},
+  r = ImagePad[Rasterize@plot, 10, Padding -> White];
+  {ix, iy} = Table[
+    RandomImage[{-1, 1}, ImageDimensions@r] ~ ImageConvolve ~ GaussianMatrix[10],
+    {2}
+  ];
+  ImagePad[
+    ImageTransformation[r, # + 15 {ImageValue[ix, #], ImageValue[iy, #]} &, DataRange -> Full],
+    -5
+  ]
+];
+xkcdConvert[plot_] := xkcdDistort[xkcdShow[plot]];
+xkcdConvert[Plot[Sin[x], {x, 0, 4 Pi}]]
 
-xkcdDistort[p_] := Module[{r, ix, iy},
-   r = ImagePad[Rasterize@p, 10, Padding -> White];
-   {ix, iy} =
-    Table[RandomImage[{-1, 1}, ImageDimensions@r]~ImageConvolve~
-      GaussianMatrix[10], {2}];
-   ImagePad[ImageTransformation[r,
-     # + 15 {ImageValue[ix, #], ImageValue[iy, #]} &, DataRange -> Full], -5]];
-
-xkcdConvert[x_] := xkcdDistort[xkcdShow[x]]
-
-(* All System symbols from Mathematica 12 are highlighted, e.g. *)
-
-SubsetMap[Reverse, {x1, x2, x3, x4, x5, x6}, {2, 4}]
-ReverseSortBy[{{1, 3}, {2, 1}, {2, 2}, {3, 2}}, Total]
-
-
-(* Strings *)
-
-str = "This is a string"
+(* Features *)
 
 (* The Wolfram Language supports a variety of different number input forms *)
 (* All numbers below are correct numbers! *)
@@ -62,19 +66,14 @@ numbers = {
     10000000000*^-10
 }
 
-(* More symbols from System *)
-{ $RecursionLimit, $RecursionLimitWrong }
-
-(* Named Characters are matched as symbols *)
+(* Named Characters are matched as normal symbols *)
 { \[Gamma],  \[CapitalEAcute], \[DoubleLeftRightArrow], \[FormalEpsilon], my\[CapitalEAcute]Variable }
 
 (* Patterns and Slots *)
-xkcdLabel[{str_, {x1_Integer, y1_WrongHead}, {_Real, _List}}]
-Style[x_, st_]
-(# + #)&
+xkcdLabel[{str_String, {x1_Integer, y1_Real}, {_Real, _List}}]
+If[# > 5, #, ## &[]] & /@ Range[10]
 
-(* Usage message, In/Out *)
-
+(* Usage and other messages, In/Out *)
 In[1]:= func::usage = "A Usage message"
 Out[1]= "A Usage message"
 
