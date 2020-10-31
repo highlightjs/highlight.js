@@ -20,6 +20,7 @@ export default function(hljs) {
           {
             className: "punctuation",
             begin: /: /,
+            relevance: 0,
             starts: {
               end: '$',
               relevance: 0
@@ -41,7 +42,7 @@ export default function(hljs) {
     contains: [
       // response
       {
-        begin: '^(?=' + VERSION + ")",
+        begin: '^(?=' + VERSION + " \\d{3})",
         end: '$',
         contains: [
           {
