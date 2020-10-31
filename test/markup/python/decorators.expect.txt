@@ -10,6 +10,6 @@
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">qux</span>():</span>
     <span class="hljs-keyword">pass</span>
 
-<span class="hljs-meta">@foo</span>(<span class="hljs-string">&quot;hi&quot;</span>, bar=baz)
+<span class="hljs-meta">@foo(<span class="hljs-params"><span class="hljs-string">&quot;hi&quot;</span>, bar=baz</span>)</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">qux</span>():</span>
     <span class="hljs-keyword">pass</span>
