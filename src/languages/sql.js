@@ -850,7 +850,7 @@ export default function(hljs) {
         },
       },
       {
-        className: "types",
+        className: "type",
         begin: regex.either(...MULTI_WORD_TYPES)
       },
       FUNCTION_CALL,
