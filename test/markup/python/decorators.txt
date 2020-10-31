@@ -10,6 +10,22 @@ def baz():
 def qux():
     pass
 
-@foo("hi", bar=baz)
-def qux():
+@surround_with("#", repeat=3)
+def text():
+    return "hi!"
+
+@py38.style
+def func():
+    pass
+
+@py["3.9"].style
+def func():
+    pass
+
+@py[3.9].style
+def func():
+    pass
+
+@2 + 2 == 5
+def func():
     pass
