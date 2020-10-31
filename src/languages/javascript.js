@@ -7,7 +7,6 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 import * as ECMAScript from './lib/ecmascript.js';
 import * as regex from '../lib/regex.js';
-import { inherit } from '../lib/utils.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
