@@ -1,6 +1,5 @@
-Import System
-Import System.IO
-<span class="hljs-meta">#Const DEBUG = True</span>
+<span class="hljs-keyword">Imports</span> System.IO
+<span class="hljs-meta">#<span class="hljs-meta-keyword">Const</span> DEBUG = True <span class="hljs-comment">&#x27; Set to false for prod</span></span>
 
 <span class="hljs-keyword">Namespace</span> Highlighter.Test
   <span class="hljs-comment"><span class="hljs-doctag">&#x27;&#x27;&#x27;</span> <span class="hljs-doctag">&lt;summary&gt;</span>This is an example class.<span class="hljs-doctag">&lt;/summary&gt;</span></span>
