@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "10.2.1",
+  "version": "10.3.99",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -39,34 +39,34 @@
     "node": "*"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.2.0",
-    "@typescript-eslint/parser": "^3.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
     "clean-css": "^4.2.3",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
-    "commander": "^5.1.0",
-    "del": "^5.1.0",
+    "commander": "^6.1.0",
+    "del": "^6.0.0",
     "dependency-resolver": "^2.0.1",
-    "eslint": "^7.2.0",
+    "eslint": "^7.11.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "glob": "^7.1.6",
     "glob-promise": "^3.4.0",
     "handlebars": "^4.7.6",
-    "js-beautify": "^1.11.0",
-    "jsdom": "^16.2.2",
-    "lodash": "^4.17.19",
+    "js-beautify": "^1.13.0",
+    "jsdom": "^16.4.0",
+    "lodash": "^4.17.20",
     "mocha": "^8.1.3",
-    "rollup": "^2.0.0",
+    "rollup": "^2.29.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "should": "^13.2.3",
-    "terser": "^4.3.9",
+    "terser": "^5.3.4",
     "tiny-worker": "^2.3.0",
-    "typescript": "^4.0.0-dev.20200512"
+    "typescript": "^4.0.3"
   },
   "dependencies": {}
 }

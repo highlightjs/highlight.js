@@ -7,19 +7,19 @@ Types
 Types of attributes values in this reference:
 
 +------------+-------------------------------------------------------------------------------------+
-| identifier | String suitable to be used as a Javascript variable and CSS class name              |
+| identifier | String suitable to be used as a JavaScript variable and CSS class name              |
 |            | (i.e. mostly ``/[A-Za-z0-9_]+/``)                                                   |
 +------------+-------------------------------------------------------------------------------------+
-| regexp     | String representing a Javascript regexp.                                            |
+| regexp     | String representing a JavaScript regexp.                                            |
 |            | Note that since it's not a literal regexp all back-slashes should be repeated twice |
 +------------+-------------------------------------------------------------------------------------+
-| boolean    | Javascript boolean: ``true`` or ``false``                                           |
+| boolean    | JavaScript boolean: ``true`` or ``false``                                           |
 +------------+-------------------------------------------------------------------------------------+
-| number     | Javascript number                                                                   |
+| number     | JavaScript number                                                                   |
 +------------+-------------------------------------------------------------------------------------+
-| object     | Javascript object: ``{ ... }``                                                      |
+| object     | JavaScript object: ``{ ... }``                                                      |
 +------------+-------------------------------------------------------------------------------------+
-| array      | Javascript array: ``[ ... ]``                                                       |
+| array      | JavaScript array: ``[ ... ]``                                                       |
 +------------+-------------------------------------------------------------------------------------+
 
 
@@ -304,8 +304,8 @@ returnEnd
 
 **type**: boolean
 
-Returns just found ending lexeme back into parser. This is used for example to parse Javascript embedded into HTML.
-A Javascript block ends with the HTML closing tag ``</script>`` that cannot be parsed with Javascript rules.
+Returns just found ending lexeme back into parser. This is used for example to parse JavaScript embedded into HTML.
+A JavaScript block ends with the HTML closing tag ``</script>`` that cannot be parsed with JavaScript rules.
 So it is returned back into its parent HTML mode that knows what to do with it.
 
 Since the parser is effectively goes back it's quite possible to create a infinite loop here so use with caution!
@@ -326,7 +326,7 @@ starts
 
 The name of the mode that will start right after the current mode ends. The new mode won't be contained within the current one.
 
-Currently this attribute is used to highlight Javascript and CSS contained within HTML.
+Currently this attribute is used to highlight JavaScript and CSS contained within HTML.
 Tags ``<script>`` and ``<style>`` start sub-modes that use another language definition to parse their contents (see :ref:`subLanguage`).
 
 

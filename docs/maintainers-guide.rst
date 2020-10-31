@@ -27,9 +27,9 @@ The goal being that minor version series always get more stable over time and th
 * Update version numbers using the three-part x.y.z notation everywhere:
 
   * The header in CHANGES.md (this is where the site looks for the latest version number)
-  * ``"version"`` attribute in package.json
-  * ``"version"`` attribute in package-lock.json (run `npm install`)
-  * Two places in docs/conf.py (``version`` and ``release``)
+  * ``version`` attribute in package.json
+  * ``version`` attribute in package-lock.json (run `npm install`)
+  * ``release`` variable in docs/conf.py
 
 * Commit the version changes and tag the commit with the version number (``9.16.2``, no "v" prefix or anything like that)
 

@@ -1,0 +1,77 @@
+1000000000   // Is this a billion? a hundred millions? Ten millions?
+101475938.38 // what scale is this? what power of 10?
+
+const FEE = 12300;
+// is this 12,300? Or 123, because it's in cents?
+
+const AMOUNT = 1234500;
+// is this 1,234,500? Or cents, hence 12,345? Or financial, 4-fixed 123.45?
+
+1_000_000_000           // Ah, so a billion
+101_475_938.38          // And this is hundreds of millions
+
+let fee = 123_00;       // $123 (12300 cents, apparently)
+let fee = 12_300;       // $12,300 (woah, that fee!)
+let amount = 12345_00;  // 12,345 (1234500 cents, apparently)
+let amount = 123_4500;  // 123.45 (4-fixed financial)
+let amount = 1_234_500; // 1,234,500
+
+0.000001 // 1 millionth
+0.000_001 // 1 millionth
+.000_001 // 1 millionth
+-.000_001 // 1 millionth
+1e10_000  // 10^10000 -- granted, far less useful / in-range...
+
+.0, .00,  .9, 4.2, 40.0,  0., 10.
+.0, .0_0, .9, 4.2, 4_0.0, 0., 1_0.
+
+.0e10,  .00e+10,  .9e-10,  4.2E10,  40.0E+08,   0.E-10,  0.e100,   1010e+10
+.0e1_0, .0_0e+10, .9e-1_0, 4.2E1_0, 4_0.0E+0_8, 0.E-1_0, 0.e1_0_0, 10_10e+10
+
+let nibbles = 0b1010_0001_1000_0101;
+let message = 0xA0_B0_C0;
+
+let x1 = _52;              // This is an identifier, not a numeric literal
+let x2 = 5_2;              // OK (decimal literal)
+
+let x7 = 0x5_2;            // OK (hexadecimal literal)
+0xff
+0xdead_beef
+
+0o52
+0O52
+
+0xa
+0Xa
+0XA
+0xA
+
+0n
+2n
+20n
+2_0n
+2_00n
+2_0_0n
+20_0n
+-20_0n
+0B1n
+0O1n
+0X1n
+
+// Annex B numeric literals
+// https://tc39.es/ecma262/#sec-additional-syntax-numeric-literals
+00, 04, 0777, 08, 008
+
+// expressions containing numeric literals
+0..toString, 1e1.toString, fn(.5)
+
+// expressions not containing numeric literals
+x0.e1
+
+// invalid pseudo-numeric expressions
+1__0
+0b1__0
+1e_1
+0b1e1
+0N
+00.

@@ -95,6 +95,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
+| Julia                   | julia, julia-repl      |         |
 | Kotlin                  | kotlin, kt             |         |
 | LaTeX                   | tex                    |         |
 | Leaf                    | leaf                   |         |
@@ -122,7 +123,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | NSIS                    | nsis                   |         |
 | Never                   | never                  | [highlightjs-never](https://github.com/never-lang/highlightjs-never) |
 | Nginx                   | nginx, nginxconf       |         |
-| Nim                     | nimrod                 |         |
+| Nim                     | nim, nimrod            |         |
 | Nix                     | nix                    |         |
 | Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | OCaml                   | ocaml, ml              |         |

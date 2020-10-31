@@ -25,7 +25,7 @@ async function buildBrowser(options) {
   languages = filter(languages, options["languages"]);
 
   await installDocs();
-  await installDemo(languages);
+  await installDemo(languages, { minify: options.minify });
 
   log("Preparing languages.")
   await Promise.all(
@@ -58,7 +58,7 @@ async function buildBrowser(options) {
   log("-----");
 }
 
-async function installDemo(languages) {
+async function installDemo(languages, { minify }) {
   log("Writing demo files.");
   mkdir("demo");
   installDemoStyles();
@@ -70,7 +70,7 @@ async function installDemo(languages) {
   const styles = css.map((el) => (
     { "name": _.startCase(path.basename(el,".css")), "path": el }
   ));
-  renderTemplate("./demo/index.html", "./demo/index.html", { styles , languages });
+  renderTemplate("./demo/index.html", "./demo/index.html", { styles, languages, minify });
 }
 
 async function installDocs() {
@@ -127,7 +127,7 @@ async function buildBrowserHighlightJS(languages, {minify}) {
   var minifiedSrc = "";
 
   if (minify) {
-    var tersed = Terser.minify(librarySrc, config.terser)
+    var tersed = await Terser.minify(librarySrc, config.terser)
 
     minifiedSrc = [
       header, tersed.code,

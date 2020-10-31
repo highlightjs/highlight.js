@@ -1,0 +1,48 @@
+<span class="hljs-keyword">\verb</span>|<span class="hljs-string">\verb</span>|<span class="hljs-keyword">\verb</span>!<span class="hljs-string">%\&amp;$^_{}</span>!foo
+<span class="hljs-keyword">\verb</span>{<span class="hljs-string">\verb</span>{<span class="hljs-keyword">\verb</span>}<span class="hljs-string">\verb{</span>}
+<span class="hljs-keyword">\lstinline</span>|<span class="hljs-string"></span>|foo
+<span class="hljs-keyword">\mint</span>{<span class="hljs-keyword">\foo</span>{bar}[}.<span class="hljs-string">\foo{bar}</span>.
+<span class="hljs-keyword">\mintinline</span>{foo}{<span class="hljs-string">\mintinline{foo}{\foo{bar}}</span>}
+
+<span class="hljs-keyword">\verb</span> x<span class="hljs-string">foo</span>xfoo foo
+<span class="hljs-keyword">\verb</span>  x<span class="hljs-string">foo</span>xfoo foo
+<span class="hljs-keyword">\lstinline</span>  x<span class="hljs-string">foo</span>xfoo foo
+<span class="hljs-keyword">\mintinline</span> {foo} <span class="hljs-string">\delimited_by_spaces$</span> foo
+
+<span class="hljs-keyword">\url</span> {<span class="hljs-link">https://en.wikipedia.org/w/index.php?search=%25&amp;advancedSearch-current={}</span>}
+<span class="hljs-keyword">\hyperref</span>{<span class="hljs-link">url</span>}{category}{name}{text}
+<span class="hljs-keyword">\hyperref</span>[label]{text}
+<span class="hljs-keyword">\href</span>{<span class="hljs-link">url</span>}{text}
+<span class="hljs-keyword">\href</span>[options]{<span class="hljs-link">url</span>}{text}
+<span class="hljs-keyword">\href</span>[
+  several,
+  options,
+  on=lines,
+  ]{<span class="hljs-link">url</span>}{text}
+
+<span class="hljs-keyword">\begin</span>{verbatim}<span class="hljs-string">
+  Some verbatim text
+  }}%&amp;$
+</span><span class="hljs-keyword">\end</span>{verbatim}
+
+<span class="hljs-keyword">\begin</span>{filecontents*}{filename}<span class="hljs-string">
+  {The file&#x27;s contents}
+</span><span class="hljs-keyword">\end</span>{filecontents*}
+
+<span class="hljs-keyword">\begin</span> {Verbatim}
+<span class="hljs-string">\end {Verbatim}
+\begin{Verbatim}
+\end{Verbatim*}
+\begin{Verbatim*}
+</span><span class="hljs-keyword">\end</span>{Verbatim}
+
+<span class="hljs-keyword">\begin</span> {minted}
+    [some options,
+     given here]
+    {language}<span class="hljs-string">
+  [code]
+</span><span class="hljs-keyword">\end</span>{minted}
+
+<span class="hljs-keyword">\begin</span>{minted}{latex}<span class="hljs-string">
+On \beginnings and \endings
+</span><span class="hljs-keyword">\end</span>{minted}

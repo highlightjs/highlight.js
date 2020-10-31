@@ -47,7 +47,11 @@
 
   </div>
 
+  <% if (minify) { %>
   <script src="../highlight.min.js"></script>
+  <% } else { %>
+  <script src="../highlight.js"></script>
+  <% } %>
   <script src="jquery-2.1.1.min.js"></script>
   <script src="perfect-scrollbar.min.js"></script>
   <script src="demo.js"></script>
