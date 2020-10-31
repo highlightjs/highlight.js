@@ -8,6 +8,7 @@ Language Improvements:
 - enh(javascript) Match numeric literals per ECMA-262 spec [Richard Gibson][]
 - enh(java) Match numeric literals per Java Language Specification [Richard Gibson][]
 - enh(php) highlight variables (#2785) [Taufik Nurrohman][]
+- fix(python) Handle comments on decorators (#2804) [Jonathan Sharpe][]
 
 Dev Improvements:
 
@@ -23,6 +24,7 @@ New themes:
 [Josh Goebel]: https://github.com/joshgoebel
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Jan Pilzer]: https://github.com/Hirse
+[Jonathan Sharpe]: https://github.com/textbook
 
 
 ## Version 10.3.1
