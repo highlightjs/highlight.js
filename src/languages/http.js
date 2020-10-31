@@ -38,12 +38,12 @@ export default function(hljs) {
   return {
     name: 'HTTP',
     aliases: ['https'],
-    illegal: '\\S',
+    illegal: /\S/,
     contains: [
       // response
       {
         begin: '^(?=' + VERSION + " \\d{3})",
-        end: '$',
+        end: /$/,
         contains: [
           {
             className: "meta",
@@ -55,13 +55,14 @@ export default function(hljs) {
         ],
         starts: {
           end: /\b\B/,
-          illegal: '\\S',
+          illegal: /\S/,
           contains: HEADERS_AND_BODY
         }
       },
       // request
       {
         begin: '(?=^[A-Z]+ (.*?) ' + VERSION + '$)',
+        end: /$/,
         contains: [
           {
             className: 'string',
@@ -79,10 +80,9 @@ export default function(hljs) {
             begin: '[A-Z]+'
           }
         ],
-        end: /$/,
         starts: {
           end: /\b\B/,
-          illegal: '\\S',
+          illegal: /\S/,
           contains: HEADERS_AND_BODY
         }
       }
