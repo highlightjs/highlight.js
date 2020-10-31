@@ -275,7 +275,7 @@ export default function(hljs) {
       },
       {
         className: 'meta',
-        begin: /^[\t ]*@/, end: /$/
+        begin: /^[\t ]*@[^\d\W]\w+(\.[^\d\W]\w+)*/
       },
       {
         begin: /\b(print|exec)\(/ // don’t highlight keywords-turned-functions in Python 3

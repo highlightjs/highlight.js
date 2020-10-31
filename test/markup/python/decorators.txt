@@ -1,0 +1,15 @@
+@foo
+def bar():
+    pass
+
+@foo  # bar
+def baz():
+    pass
+
+@foo.bar.baz
+def qux():
+    pass
+
+@foo("hi", bar=baz)
+def qux():
+    pass
