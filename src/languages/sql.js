@@ -106,6 +106,14 @@ export default function(hljs) {
     // "total" // doesn't seem to be mentioned in SQL 2011
   ];
 
+  const NON_RESERVED_WORDS = [
+    "add",
+    "collation",
+    "final",
+    "first",
+    "last"
+  ];
+
   // https://jakewheat.github.io/sql-overview/sql-2016-foundation-grammar.html#reserved-word
   const RESERVED_WORDS = [
     "abs",
@@ -778,7 +786,7 @@ export default function(hljs) {
     "breadth first"
   ];
 
-  const KEYWORDS = RESERVED_WORDS.filter((keyword) => {
+  const KEYWORDS = [...RESERVED_WORDS, ...NON_RESERVED_WORDS].filter((keyword) => {
     return !RESERVED_FUNCTIONS.includes(keyword);
   });
 
