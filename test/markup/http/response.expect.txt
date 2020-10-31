@@ -1,4 +1,4 @@
-HTTP/2 <span class="hljs-number">301</span>
+<span class="hljs-meta">HTTP/2</span> <span class="hljs-number">301</span>
 <span class="hljs-attribute">location</span><span class="hljs-punctuation">: </span>https://www.google.com/
 <span class="hljs-attribute">content-type</span><span class="hljs-punctuation">: </span>text/html; charset=UTF-8
 <span class="hljs-attribute">date</span><span class="hljs-punctuation">: </span>Sat, 31 Oct 2020 22:47:14 GMT

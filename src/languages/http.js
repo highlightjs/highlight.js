@@ -11,16 +11,53 @@ import * as regex from '../lib/regex.js';
 export default function(hljs) {
   const VERSION = 'HTTP/(2|1\\.[01])';
   const HEADER_NAME = /[A-Za-z][A-Za-z0-9-]*/;
+  const HEADERS_AND_BODY = [
+    {
+      className: 'attribute',
+      begin: regex.concat('^', HEADER_NAME, '(?=\\:\\s)'),
+      starts: {
+        contains: [
+          {
+            className: "punctuation",
+            begin: /: /,
+            starts: {
+              end: '$',
+              relevance: 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      begin: '\\n\\n',
+      starts: { subLanguage: [], endsWithParent: true }
+    }
+  ];
 
   return {
     name: 'HTTP',
     aliases: ['https'],
     illegal: '\\S',
     contains: [
+      // response
       {
-        begin: '^' + VERSION, end: '$',
-        contains: [{className: 'number', begin: '\\b\\d{3}\\b'}]
+        begin: '^(?=' + VERSION + ")",
+        end: '$',
+        contains: [
+          {
+            className: "meta",
+            begin: VERSION
+          },
+          {
+            className: 'number', begin: '\\b\\d{3}\\b'
+          }
+        ],
+        starts: {
+          end: /\b\B/,
+          contains: HEADERS_AND_BODY
+        }
       },
+      // request
       {
         begin: '(?=^[A-Z]+ (.*?) ' + VERSION + '$)',
         contains: [
@@ -39,27 +76,12 @@ export default function(hljs) {
             className: 'keyword',
             begin: '[A-Z]+'
           }
-        ]
-      },
-      {
-        className: 'attribute',
-        begin: regex.concat('^', HEADER_NAME, '(?=\\:\\s)'),
+        ],
+        end: /$/,
         starts: {
-          contains: [
-            {
-              className: "punctuation",
-              begin: /: /,
-              starts: {
-                end: '$',
-                relevance: 0
-              }
-            }
-          ]
+          end: /\b\B/,
+          contains: HEADERS_AND_BODY
         }
-      },
-      {
-        begin: '\\n\\n',
-        starts: {subLanguage: [], endsWithParent: true}
       }
     ]
   };
