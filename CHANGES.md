@@ -54,6 +54,7 @@ Language Improvements:
 - fix(swift) Handle keywords that start with `#` [Marcus Ortiz][]
 - enh(swift) Match `some` keyword [Marcus Ortiz][]
 - enh(swift) Match `@main` attribute [Marcus Ortiz][]
+- enh(vbnet) Highlight date literals (#2775) [Jan Pilzer][]
 
 Dev Improvements:
 
