@@ -12,6 +12,10 @@ Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
 
+Parser:
+
+- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
+
 New themes:
 
 - *StackOverflow Dark* by [Jan Pilzer][]

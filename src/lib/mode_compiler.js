@@ -366,6 +366,10 @@ export function compileLanguage(language) {
   if (language.contains && language.contains.includes('self')) {
     throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.");
   }
+  if (!language.classNameAliases) {
+    language.classNameAliases = {};
+  }
+
   return compileMode(/** @type Mode */ (language));
 }
 

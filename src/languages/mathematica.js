@@ -108,16 +108,14 @@ export default function(hljs) {
     name: 'Mathematica',
     aliases: ['mma', 'wl'],
     disableAutodetect: true,
-    theming: {
-      aliases: {
-        brace: 'punctuation',
-        pattern: 'type',
-        slot: 'type',
-        symbol: 'variable',
-        'named-character': 'variable',
-        'builtin-symbol': 'keyword',
-        'message-name': 'string'
-      }
+    classNameAliases: {
+      brace: 'punctuation',
+      pattern: 'type',
+      slot: 'type',
+      symbol: 'variable',
+      'named-character': 'variable',
+      'builtin-symbol': 'keyword',
+      'message-name': 'string'
     },
     contains: [
       hljs.COMMENT(/\(\*/, /\*\)/, {contains: ['self']}),

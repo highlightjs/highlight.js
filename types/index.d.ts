@@ -158,7 +158,8 @@ interface LanguageDetail {
     case_insensitive?: boolean
     keywords?: Record<string, any> | string
     compiled?: boolean,
-    exports?: any
+    exports?: any,
+    classNameAliases?: Record<string, string>
 }
 
 type Language = LanguageDetail & Partial<Mode>
