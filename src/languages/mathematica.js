@@ -75,9 +75,9 @@ export default function(hljs) {
 
   const OPERATORS = {
     className: 'operator',
+    relevance: 0,
     begin: /[+\-*/,;.:@~=><&|_`'^?!%]+/
   };
-
   const PATTERNS = {
     className: 'pattern',
     begin: /([a-zA-Z$][a-zA-Z0-9$]*)?_+([a-zA-Z$][a-zA-Z0-9$]*)?/,
