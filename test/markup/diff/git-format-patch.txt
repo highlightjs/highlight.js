@@ -1,8 +1,10 @@
+diff --git a/file.py b/file.py
 --- a/file.py
 +++ b/file.py
 @@ -28,2 +28,2 @@ import logging
 + import shutil
 - import os
+diff --git a/file.txt b/file.txt
 --- a/file.txt
 --- b/file.txt
 @@ -28,2 +28,2 @@

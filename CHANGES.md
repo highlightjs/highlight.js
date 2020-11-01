@@ -19,6 +19,7 @@ Language Improvements:
 - enh(php) highlight variables (#2785) [Taufik Nurrohman][]
 - fix(python) Handle comments on decorators (#2804) [Jonathan Sharpe][]
 - enh(diff) improve highlighting of hunk identifier lines [Florian Bezdeka][]
+- enh(diff) mark lines starting with "diff --git" as comment [Florian Bezdeka][]
 
 Dev Improvements:
 

@@ -29,7 +29,8 @@ export default function(hljs) {
           {begin: /^-{3}/, end: /$/},
           {begin: /^\*{3} /, end: /$/},
           {begin: /^\+{3}/, end: /$/},
-          {begin: /^\*{15}$/ }
+          {begin: /^\*{15}$/ },
+          {begin: /^diff --git/, end: /$/},
         ]
       },
       {
