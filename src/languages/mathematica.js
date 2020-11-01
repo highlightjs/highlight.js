@@ -30,7 +30,7 @@ Category: scientific
 import * as Mathematica from './lib/mathematica.js';
 import * as regex from '../lib/regex.js';
 
-// @ts-ignore
+/** @type LanguageFn */
 export default function(hljs) {
   /*
   This rather scary looking matching of Mathematica numbers is carefully explained by Robert Jacobson here:
