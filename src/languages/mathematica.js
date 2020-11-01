@@ -55,17 +55,18 @@ export default function(hljs) {
 
   const NUMBERS = {
     className: 'number',
-    relevance:0,
+    relevance: 0,
     begin: MATHEMATICA_NUMBER_RE,
   };
 
   const SYMBOL_RE = /[a-zA-Z$][a-zA-Z0-9$]*/;
   const SYMBOLS = {
     begin: SYMBOL_RE,
+    className: 'symbol',
     relevance: 0, // it gets relevance from keywords
     keywords: {
       $pattern: SYMBOL_RE,
-      'builtin-symbol' : Mathematica.SYSTEM_SYMBOLS.join(" ")
+      'builtin-symbol': Mathematica.SYSTEM_SYMBOLS.join(" ")
     },
   };
 
@@ -81,11 +82,13 @@ export default function(hljs) {
   };
   const PATTERNS = {
     className: 'pattern',
+    relevance: 0,
     begin: /([a-zA-Z$][a-zA-Z0-9$]*)?_+([a-zA-Z$][a-zA-Z0-9$]*)?/,
   };
 
   const SLOTS = {
     className: 'slot',
+    relevance: 0,
     begin: /#[a-zA-Z$][a-zA-Z0-9$]*|#+[0-9]?/
   };
 
@@ -97,6 +100,7 @@ export default function(hljs) {
 
   const MESSAGES = {
     className: 'message-name',
+    relevance: 0,
     begin: regex.concat("::", SYMBOL_RE),
   };
 
@@ -116,13 +120,13 @@ export default function(hljs) {
       }
     },
     contains: [
+      hljs.COMMENT(/\(\*/, /\*\)/, {contains: ['self']}),
       PATTERNS,
       SLOTS,
       MESSAGES,
       SYMBOLS,
       NAMED_CHARACTER,
       hljs.QUOTE_STRING_MODE,
-      hljs.COMMENT(/\(\*/, /\*\)/, {contains: ['self']}),
       NUMBERS,
       OPERATORS,
       BRACES
