@@ -55,6 +55,7 @@ export default function(hljs) {
 
   const NUMBERS = {
     className: 'number',
+    relevance:0,
     begin: MATHEMATICA_NUMBER_RE,
   };
 
