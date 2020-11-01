@@ -60,10 +60,9 @@ export default function(hljs) {
 
   const SYMBOL_RE = /[a-zA-Z$][a-zA-Z0-9$]*/;
   const SYMBOLS = {
-    className: 'symbol',
     begin: SYMBOL_RE,
+    relevance: 0, // it gets relevance from keywords
     keywords: {
-      className: 'builtin-symbol',
       $pattern: SYMBOL_RE,
       'builtin-symbol' : Mathematica.SYSTEM_SYMBOLS.join(" ")
     },
