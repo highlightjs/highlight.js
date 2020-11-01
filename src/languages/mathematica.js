@@ -90,6 +90,7 @@ export default function(hljs) {
 
   const BRACES = {
     className: 'brace',
+    relevance: 0,
     begin: /[[\](){}]/
   };
 
