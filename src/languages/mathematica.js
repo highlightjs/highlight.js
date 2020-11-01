@@ -60,14 +60,23 @@ export default function(hljs) {
   };
 
   const SYMBOL_RE = /[a-zA-Z$][a-zA-Z0-9$]*/;
+  const SYSTEM_SYMBOLS_SET = new Set(Mathematica.SYSTEM_SYMBOLS);
   const SYMBOLS = {
-    begin: SYMBOL_RE,
-    className: 'symbol',
-    relevance: 0, // it gets relevance from keywords
-    keywords: {
-      $pattern: SYMBOL_RE,
-      'builtin-symbol': Mathematica.SYSTEM_SYMBOLS.join(" ")
-    },
+    variants: [
+      {
+        className: 'builtin-symbol',
+        begin: SYMBOL_RE,
+        // for performance out of fear of regex.either(...Mathematica.SYSTEM_SYMBOLS)
+        "on:begin": (match, response) => {
+          if (!SYSTEM_SYMBOLS_SET.has(match[0])) response.ignoreMatch();
+        }
+      },
+      {
+        className: 'symbol',
+        relevance: 0,
+        begin: SYMBOL_RE,
+      }
+    ]
   };
 
   const NAMED_CHARACTER = {
