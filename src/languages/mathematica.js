@@ -81,7 +81,7 @@ export default function(hljs) {
 
   const NAMED_CHARACTER = {
     className: 'named-character',
-    begin: /\\\[[$a-zA-Z][$a-zA-Z0-9]+]/
+    begin: /\\\[[$a-zA-Z][$a-zA-Z0-9]+\]/
   };
 
   const OPERATORS = {
