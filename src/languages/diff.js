@@ -21,6 +21,12 @@ export default function(hljs) {
           {begin: /^--- +\d+,\d+ +----$/}
         ]
       },
+      {                                                                             
+         className: "meta-string",                                                  
+         variants: [                                                                
+           {begin: /^index/, end: /$/ }                                             
+         ]                                                                          
+      },
       {
         className: 'comment',
         variants: [
