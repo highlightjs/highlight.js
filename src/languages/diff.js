@@ -16,7 +16,7 @@ export default function(hljs) {
         className: 'meta',
         relevance: 10,
         variants: [
-          {begin: /^@@ +-\d+,\d+ +\+\d+,\d+ +@@$/},
+          {begin: /^@@ +-\d+,\d+ +\+\d+,\d+ +@@/},
           {begin: /^\*\*\* +\d+,\d+ +\*\*\*\*$/},
           {begin: /^--- +\d+,\d+ +----$/}
         ]

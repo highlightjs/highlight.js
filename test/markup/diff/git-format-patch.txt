@@ -1,0 +1,10 @@
+--- a/file.py
++++ b/file.py
+@@ -28,2 +28,2 @@ import logging
++ import shutil
+- import os
+--- a/file.txt
+--- b/file.txt
+@@ -28,2 +28,2 @@
+- removal
++ addition
