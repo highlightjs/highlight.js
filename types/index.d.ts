@@ -142,7 +142,7 @@ type MatchType = "begin" | "end" | "illegal"
 
  interface ModeCallbacks {
      "on:end"?: Function,
-     "on:begin"?: Function,
+     "on:begin"?: (match: RegExpMatchArray, response: Response) => void
  }
 
 interface Mode extends ModeCallbacks, ModeDetails {

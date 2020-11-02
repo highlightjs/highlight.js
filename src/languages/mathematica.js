@@ -61,6 +61,7 @@ export default function(hljs) {
 
   const SYMBOL_RE = /[a-zA-Z$][a-zA-Z0-9$]*/;
   const SYSTEM_SYMBOLS_SET = new Set(Mathematica.SYSTEM_SYMBOLS);
+  /** @type {Mode} */
   const SYMBOLS = {
     variants: [
       {
