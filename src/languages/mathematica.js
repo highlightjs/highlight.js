@@ -117,14 +117,13 @@ export default function(hljs) {
   return {
     name: 'Mathematica',
     aliases: ['mma', 'wl'],
-    disableAutodetect: true,
     classNameAliases: {
       brace: 'punctuation',
       pattern: 'type',
       slot: 'type',
       symbol: 'variable',
       'named-character': 'variable',
-      'builtin-symbol': 'keyword',
+      'builtin-symbol': 'built_in',
       'message-name': 'string'
     },
     contains: [
