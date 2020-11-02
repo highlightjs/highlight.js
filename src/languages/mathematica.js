@@ -56,7 +56,7 @@ export default function(hljs) {
   const NUMBERS = {
     className: 'number',
     relevance: 0,
-    begin: MATHEMATICA_NUMBER_RE,
+    begin: MATHEMATICA_NUMBER_RE
   };
 
   const SYMBOL_RE = /[a-zA-Z$][a-zA-Z0-9$]*/;
@@ -75,7 +75,7 @@ export default function(hljs) {
       {
         className: 'symbol',
         relevance: 0,
-        begin: SYMBOL_RE,
+        begin: SYMBOL_RE
       }
     ]
   };
@@ -93,7 +93,7 @@ export default function(hljs) {
   const PATTERNS = {
     className: 'pattern',
     relevance: 0,
-    begin: /([a-zA-Z$][a-zA-Z0-9$]*)?_+([a-zA-Z$][a-zA-Z0-9$]*)?/,
+    begin: /([a-zA-Z$][a-zA-Z0-9$]*)?_+([a-zA-Z$][a-zA-Z0-9$]*)?/
   };
 
   const SLOTS = {
@@ -111,7 +111,7 @@ export default function(hljs) {
   const MESSAGES = {
     className: 'message-name',
     relevance: 0,
-    begin: regex.concat("::", SYMBOL_RE),
+    begin: regex.concat("::", SYMBOL_RE)
   };
 
   return {
