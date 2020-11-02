@@ -1,6 +1,10 @@
 ## Version 10.4.0 (work in process)
 
-New languages:
+Parser:
+
+- fix(vue): Language name now appears in CSS class (#2807) [Michael Rush][]
+
+New Languages:
 
 - Added Chapel grammar to SUPPORTED_LANGUAGES (#2806) [Brad Chamberlain][]
 
@@ -29,12 +33,7 @@ New themes:
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Jan Pilzer]: https://github.com/Hirse
 [Jonathan Sharpe]: https://github.com/textbook
-
-
-Vue Plugin
-- Fixed a typo in the Vue plugin that caused `detectedLanguage` not to get set 
-when a language was provided, causing the language CSS class to be missing from
-the computed the CSS classname(s).
+[Michael Rush]: https://github.com/rushimusmaximus
 
 
 ## Version 10.3.1
