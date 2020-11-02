@@ -2,7 +2,7 @@
 
 New languages:
 
-- add(chapel) Added initial third-party Chapel language support (#2806) [Brad Chamberlain][]
+- Added Chapel grammar to SUPPORTED_LANGUAGES (#2806) [Brad Chamberlain][]
 
 Language Improvements:
 
