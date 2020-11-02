@@ -1,5 +1,9 @@
 ## Version 10.4.0 (work in process)
 
+New languages:
+
+- add(chapel) Added initial third-party Chapel language support (#2806) [Brad Chamberlain][]
+
 Language Improvements:
 
 - enh(julia) Update keyword lists for Julia 1.x (#2781) [Fredrik Ekre][]
