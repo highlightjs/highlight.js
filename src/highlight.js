@@ -589,19 +589,18 @@ const HLJS = function(hljs) {
     results.unshift(plaintext); // plaintext is always an option
 
     const sorted = results.sort((a,b) => {
-      // first sort base on relevance
-      if (a.relevance !== b.relevance) return b.relevance - a.relevance;
+      // sort base on relevance
+      return b.relevance - a.relevance;
 
       // otherwise say they are equal, which has the effect of sorting on
       // relevance while preserving the original ordering - which is how ties
       // have historically been settled, ie the language that comes first always
       // wins in the case of a tie
-      return 0;
-    }
-    );
+    });
 
     const [best, secondBest] = sorted;
 
+    /** @type {AutoHighlightResult} */
     const result = best;
     result.second_best = secondBest;
 
