@@ -367,7 +367,7 @@ export function compileLanguage(language) {
     throw new Error("ERR: contains `self` is not supported at the top-level of a language.  See documentation.");
   }
   if (!language.classNameAliases) {
-    language.classNameAliases = {};
+    language.classNameAliases = Object.create(null);
   }
 
   return compileMode(/** @type Mode */ (language));
