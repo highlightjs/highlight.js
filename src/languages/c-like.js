@@ -119,6 +119,7 @@ export default function(hljs) {
   };
 
   var EXPRESSION_CONTAINS = [
+    PREPROCESSOR,
     CPP_PRIMITIVE_TYPES,
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
@@ -224,10 +225,9 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class struct', end: /[{;:]/,
+        beginKeywords: 'enum class struct union', end: /[{;:<>=]/,
         contains: [
-          { beginKeywords: "final" },
-          {begin: /</, end: />/, contains: ['self']}, // skip generic stuff
+          { beginKeywords: "final class struct" },
           hljs.TITLE_MODE
         ]
       }

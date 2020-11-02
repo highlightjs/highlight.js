@@ -10,9 +10,14 @@ Category: common
 export default function(hljs) {
   const VAR = {};
   const BRACED_VAR = {
-    begin: /\$\{/, end:/\}/,
+    begin: /\$\{/,
+    end:/\}/,
     contains: [
-      { begin: /:-/, contains: [VAR] } // default values
+      "self",
+      {
+        begin: /:-/,
+        contains: [ VAR ]
+      } // default values
     ]
   };
   Object.assign(VAR,{
@@ -27,6 +32,18 @@ export default function(hljs) {
     className: 'subst',
     begin: /\$\(/, end: /\)/,
     contains: [hljs.BACKSLASH_ESCAPE]
+  };
+  const HERE_DOC = {
+    begin: /<<-?\s*(?=\w+)/,
+    starts: {
+      contains: [
+        hljs.END_SAME_AS_BEGIN({
+          begin: /(\w+)/,
+          end: /(\w+)/,
+          className: 'string'
+        })
+      ]
+    }
   };
   const QUOTE_STRING = {
     className: 'string',
@@ -112,6 +129,7 @@ export default function(hljs) {
       FUNCTION,
       ARITHMETIC,
       hljs.HASH_COMMENT_MODE,
+      HERE_DOC,
       QUOTE_STRING,
       ESCAPED_QUOTE,
       APOS_STRING,
