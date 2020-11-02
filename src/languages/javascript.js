@@ -360,6 +360,11 @@ export default function(hljs) {
         illegal: /%/
       },
       {
+        // prevent this from getting swallowed up by function
+        // since they appear "function like"
+        beginKeywords: "while if switch catch for"
+      },
+      {
         className: 'function',
         // we have to count the parens to make sure we actually have the correct
         // bounding ( ).  There could be any number of sub-expressions inside
