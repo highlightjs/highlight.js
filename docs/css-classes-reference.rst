@@ -140,7 +140,7 @@ A note on newer classes
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Some classes have been added more recently and do not enjoy universal theme
-support.  For themes without support these items will simply not be
+support.  For themes without support, these items will simply not be
 highlighted.  This doesn't mean not to use them, only that they will be
 highlighted better as support improves over time.
 
