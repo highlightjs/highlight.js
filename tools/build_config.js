@@ -7,7 +7,15 @@ module.exports = {
   clean_css: {},
   rollup: {
     node: {
-      output: { format: "cjs", strict: false, exports: "auto" },
+      output: {
+        format: "cjs",
+        strict: false,
+        exports: "auto",
+        footer: `
+var isBrowser=new Function("try {return this===window;}catch(e){ return false;}");
+if (isBrowser()) { window.hljs = highlight; }
+        `
+      },
       input: {
         plugins: [
           cjsPlugin(),
