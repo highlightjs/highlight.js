@@ -67,6 +67,9 @@ export default function(hljs) {
     variants: [
       {begin: /"""/, end: /"""/},
       {begin: /"/, end: /"/},
+      {begin: /#"/, end: /"#/},
+      {begin: /##"/, end: /"##/},
+      {begin: /###"/, end: /"###/},
     ]
   };
   var NUMBERS = {
