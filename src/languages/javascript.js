@@ -362,7 +362,7 @@ export default function(hljs) {
       {
         // prevent this from getting swallowed up by function
         // since they appear "function like"
-        beginKeywords: "while if switch catch"
+        beginKeywords: "while if switch catch for"
       },
       {
         className: 'function',
