@@ -9,6 +9,7 @@ Language Improvements:
 - enh(java) Match numeric literals per Java Language Specification [Richard Gibson][]
 - enh(php) highlight variables (#2785) [Taufik Nurrohman][]
 - fix(python) Handle comments on decorators (#2804) [Jonathan Sharpe][]
+- enh(swift) Highlight raw strings in Swift (#2819) [Steven Van Impe][]
 
 Dev Improvements:
 
