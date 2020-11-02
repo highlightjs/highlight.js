@@ -1,0 +1,5 @@
+var string = """
+    var a = not actually code
+"""
+
+print(##"Use #" and "# to delimit a raw string."##)
