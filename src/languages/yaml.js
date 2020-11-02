@@ -11,7 +11,7 @@ export default function(hljs) {
   var LITERALS = 'true false yes no null';
 
   // YAML spec allows non-reserved URI characters in tags.
-  var URI_CHARACTERS = '[\\w#;/?:@&=+$,.~*\\\'()[\\]]+';
+  var URI_CHARACTERS = '[\\w#;/?:@&=+$,.~*\'()[\\]]+';
 
   // Define keys as starting with a word character
   // ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
@@ -29,8 +29,8 @@ export default function(hljs) {
   var TEMPLATE_VARIABLES = {
     className: 'template-variable',
     variants: [
-      { begin: '{{', end: '}}' }, // jinja templates Ansible
-      { begin: '%{', end: '}' } // Ruby i18n
+      { begin: /\{\{/, end: /\}\}/ }, // jinja templates Ansible
+      { begin: /%\{/, end: /\}/ } // Ruby i18n
     ]
   };
   var STRING = {
@@ -75,8 +75,8 @@ export default function(hljs) {
     relevance: 0
   };
   var OBJECT = {
-    begin: '{',
-    end: '}',
+    begin: /\{/,
+    end: /\}/,
     contains: [VALUE_CONTAINER],
     illegal: '\\n',
     relevance: 0
@@ -93,7 +93,7 @@ export default function(hljs) {
     KEY,
     {
       className: 'meta',
-      begin: '^---\s*$',
+      begin: '^---\\s*$',
       relevance: 10
     },
     { // multi line string
@@ -102,7 +102,7 @@ export default function(hljs) {
       // Indentation of subsequent lines must be the same to
       // be considered part of the block
       className: 'string',
-      begin: '[\\|>]([0-9]?[+-])?[ ]*\\n( *)[\\S ]+\\n(\\2[\\S ]+\\n?)*'
+      begin: '[\\|>]([1-9]?[+-])?[ ]*\\n( +)[^\\n]+\\n(\\2[^\\n]+\\n?)*'
     },
     { // Ruby/Rails erb
       begin: '<%[%=-]?',
@@ -140,7 +140,7 @@ export default function(hljs) {
     { // array listing
       className: 'bullet',
       // TODO: remove |$ hack when we have proper look-ahead support
-      begin: '\\-(?=[ ]|$)',
+      begin: '-(?=[ ]|$)',
       relevance: 0
     },
     hljs.HASH_COMMENT_MODE,

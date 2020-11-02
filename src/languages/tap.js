@@ -22,7 +22,7 @@ export default function(hljs) {
       },
       // YAML block
       {
-        begin: '(\s+)?---$', end: '\\.\\.\\.$',
+        begin: /---$/, end: '\\.\\.\\.$',
         subLanguage: 'yaml',
         relevance: 0
       },

@@ -96,7 +96,7 @@ export default function(hljs) {
       // lists (can only capture indicators)
       {
         className: 'bullet',
-        begin: '^(\\*+|\\-+|\\.+|[^\\n]+?::)\\s+'
+        begin: '^(\\*+|-+|\\.+|[^\\n]+?::)\\s+'
       },
       // admonition
       {

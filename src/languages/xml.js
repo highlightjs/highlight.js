@@ -89,7 +89,7 @@ export default function(hljs) {
         }
       ),
       {
-        begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
+        begin: '<!\\[CDATA\\[', end: '\\]\\]>',
         relevance: 10
       },
       XML_ENTITIES,
@@ -120,7 +120,7 @@ export default function(hljs) {
         keywords: {name: 'script'},
         contains: [TAG_INTERNALS],
         starts: {
-          end: '\<\/script\>', returnEnd: true,
+          end: /<\/script>/, returnEnd: true,
           subLanguage: ['javascript', 'handlebars', 'xml']
         }
       },

@@ -23,7 +23,7 @@ export default function(hljs) {
   const NUMBER = {
     className: 'number',
     // regex in both fortran and irpf90 should match
-    begin: '(?=\\b|\\+|\\-|\\.)(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z_\\d]+)?',
+    begin: '(?=\\b|\\+|-|\\.)(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z_\\d]+)?',
     relevance: 0
   };
 
