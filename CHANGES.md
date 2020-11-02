@@ -24,6 +24,12 @@ New themes:
 [Jan Pilzer]: https://github.com/Hirse
 
 
+Vue Plugin
+- Fixed a typo in the Vue plugin that caused `detectedLanguage` not to get set 
+when a language was provided, causing the language CSS class to be missing from
+the computed the CSS classname(s).
+
+
 ## Version 10.3.1
 
 Prior version let some look-behind regex sneak in, which does not work
