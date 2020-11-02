@@ -21,6 +21,7 @@ class Car extends Vehicle {
 }
 
 // these should not be matched as class functions
+for(expr; expr; expr) {}
 while(value) {}
 if(value) {}
 switch(value) {}
