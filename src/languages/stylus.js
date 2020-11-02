@@ -122,7 +122,7 @@ export default function(hljs) {
     'video'
   ];
 
-  var LOOKAHEAD_TAG_END = '(?=[.\\s\\n\\[:,])';
+  var LOOKAHEAD_TAG_END = '(?=[.\\s\\n[:,])';
 
   var ATTRIBUTES = [
     'align-content',
