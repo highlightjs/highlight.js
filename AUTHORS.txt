@@ -295,4 +295,5 @@ Contributors:
 - Richard Gibson <gibson042@github>
 - Fredrik Ekre <ekrefredrik@gmail.com>
 - Jan Pilzer <Hirse@github>
+- Jonathan Sharpe <mail@jonrshar.pe>
 - Michael Rush <michaelrush@gmail.com>
