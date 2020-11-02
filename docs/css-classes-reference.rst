@@ -25,8 +25,9 @@ your language is not considered a "Markup" language.
 | built_in                 | built-in or library object (constant, class,      |
 |                          | function)                                         |
 +--------------------------+---------------------------------------------------+
-| type                     | user-defined type in a language with first-class  |
-|                          | syntactically significant types, like Haskell     |
+| type                     | data type (in a language with syntactically       |
+|                          | significant types) (``string``, ``int``,          |
+|                          | ``array``, etc.)                                  |
 +--------------------------+---------------------------------------------------+
 | literal                  | special identifier for a built-in value           |
 |                          | (``true``, ``false``, ``null``, etc.)             |
@@ -47,7 +48,8 @@ your language is not considered a "Markup" language.
 | symbol                   | symbolic constant, interned string, goto label    |
 +--------------------------+---------------------------------------------------+
 | class                    | class or class-level declaration (interfaces,     |
-|                          | traits, modules, etc)                             |
+|                          | traits, modules, etc), typically includes a       |
+|                          | ``title`` submode                                 |
 +--------------------------+---------------------------------------------------+
 | function                 | function or method declaration                    |
 +--------------------------+---------------------------------------------------+
