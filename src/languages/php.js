@@ -11,10 +11,11 @@ Category: common
  * @returns {LanguageDetail}
  * */
 export default function(hljs) {
-  var VARIABLE = {
+  const VARIABLE = {
+    className: 'variable',
     begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
   };
-  var PREPROCESSOR = {
+  const PREPROCESSOR = {
     className: 'meta',
     variants: [
       { begin: /<\?php/, relevance: 10 }, // boost for obvious PHP
@@ -22,26 +23,26 @@ export default function(hljs) {
       { begin: /\?>/ } // end php tag
     ]
   };
-  var SUBST = {
+  const SUBST = {
     className: 'subst',
     variants: [
       { begin: /\$\w+/ },
       { begin: /\{\$/, end: /\}/ }
     ]
   };
-  var SINGLE_QUOTED = hljs.inherit(hljs.APOS_STRING_MODE, {
+  const SINGLE_QUOTED = hljs.inherit(hljs.APOS_STRING_MODE, {
     illegal: null,
   });
-  var DOUBLE_QUOTED = hljs.inherit(hljs.QUOTE_STRING_MODE, {
+  const DOUBLE_QUOTED = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     illegal: null,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
-  var HEREDOC = hljs.END_SAME_AS_BEGIN({
+  const HEREDOC = hljs.END_SAME_AS_BEGIN({
     begin: /<<<[ \t]*(\w+)\n/,
     end: /[ \t]*(\w+)\b/,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
-  var STRING = {
+  const STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, PREPROCESSOR],
     variants: [
@@ -56,8 +57,8 @@ export default function(hljs) {
       HEREDOC
     ]
   };
-  var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
-  var KEYWORDS = {
+  const NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
+  const KEYWORDS = {
     keyword:
     // Magic constants:
     // <https://www.php.net/manual/en/language.constants.predefined.php>

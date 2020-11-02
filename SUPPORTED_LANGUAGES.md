@@ -42,6 +42,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | CSS                     | css                    |         |
 | Cap’n Proto             | capnproto, capnp       |         |
 | Chaos                   | chaos, kaos            | [highlightjs-chaos](https://github.com/chaos-lang/highlightjs-chaos) |
+| Chapel                  | chapel, chpl           | [highlightjs-chapel](https://github.com/chapel-lang/highlightjs-chapel) |
 | Cisco CLI               | cisco                  | [highlightjs-cisco-cli](https://github.com/BMatheas/highlightjs-cisco-cli) |
 | Clojure                 | clojure, clj           |         |
 | CoffeeScript            | coffeescript, coffee, cson, iced | |
@@ -95,6 +96,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
+| Julia                   | julia, julia-repl      |         |
 | Kotlin                  | kotlin, kt             |         |
 | LaTeX                   | tex                    |         |
 | Leaf                    | leaf                   |         |

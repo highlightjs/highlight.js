@@ -1,18 +1,40 @@
 ## Version 10.4.0 (work in process)
 
+Parser:
+
+- fix(vue): Language name now appears in CSS class (#2807) [Michael Rush][]
+
+New Languages:
+
+- Added Chapel grammar to SUPPORTED_LANGUAGES (#2806) [Brad Chamberlain][]
+
 Language Improvements:
 
+- fix(js/ts) Prevent for/while/if/switch from falsly matching as functions (#2803) [Josh Goebel][]
 - enh(julia) Update keyword lists for Julia 1.x (#2781) [Fredrik Ekre][]
 - enh(python) Match numeric literals per the language reference [Richard Gibson][]
 - enh(ruby) Match numeric literals per language documentation [Richard Gibson][]
+- enh(javascript) Match numeric literals per ECMA-262 spec [Richard Gibson][]
+- enh(java) Match numeric literals per Java Language Specification [Richard Gibson][]
+- enh(php) highlight variables (#2785) [Taufik Nurrohman][]
+- fix(python) Handle comments on decorators (#2804) [Jonathan Sharpe][]
 
 Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
 
+New themes:
+
+- *StackOverflow Dark* by [Jan Pilzer][]
+- *StackOverflow Light* by [Jan Pilzer][]
+
 [Fredrik Ekre]: https://github.com/fredrikekre
 [Richard Gibson]: https://github.com/gibson042
 [Josh Goebel]: https://github.com/joshgoebel
+[Taufik Nurrohman]: https://github.com/taufik-nurrohman
+[Jan Pilzer]: https://github.com/Hirse
+[Jonathan Sharpe]: https://github.com/textbook
+[Michael Rush]: https://github.com/rushimusmaximus
 
 
 ## Version 10.3.1
@@ -1323,7 +1345,7 @@ Notable fixes and improvements to existing languages:
 - HTML `<script>` tag now allows any language, not just JavaScript.
 - Multi-line comments are supported now in MatLab.
 
-[Taufik Nurrohman]: https://github.com/tovic
+[Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Jet Brains]: https://www.jetbrains.com/
 [Peter Piwowarski]: https://github.com/oldlaptop
 [Kenta Sato]: https://github.com/bicycle1885
