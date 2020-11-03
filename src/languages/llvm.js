@@ -7,7 +7,54 @@ Category: assembler
 */
 
 export default function(hljs) {
-  var identifier = '([-a-zA-Z$._][\\w\\-$.]*)';
+  const IDENT_RE = '([-a-zA-Z$._][\\w\\-$.]*)';
+  const TYPE = {
+    className: 'type',
+    begin: /\bi\d+(?=\s|\b)/
+  };
+  const OPERATOR = {
+    className: 'operator',
+    relevance: 0,
+    begin: /=/
+  };
+  const PUNCTUATION = {
+    className: 'punctuation',
+    relevance: 0,
+    begin: /,/
+  };
+  const NUMBER = {
+    className: 'number',
+    variants: [
+        { begin: '0[xX][a-fA-F0-9]+' },
+        { begin: '-?\\d+(?:[.]\\d+)?(?:[eE][-+]?\\d+(?:[.]\\d+)?)?' }
+    ],
+    relevance: 0
+  };
+  const LABEL = {
+    className: 'symbol',
+    variants: [
+        { begin: /^\s*[a-z]+:/ }, // labels
+    ],
+    relevance: 0
+  };
+  const VARIABLE = {
+    className: 'variable',
+    variants: [
+      { begin: '%' + IDENT_RE },
+      { begin: '%\\d+' },
+      { begin: '#\\d+' },
+    ]
+  };
+  const FUNCTION = {
+    className: 'title',
+    variants: [
+      { begin: '@' + IDENT_RE },
+      { begin: '@\\d+' },
+      { begin: '!' + IDENT_RE },
+      { begin: '!\\d+' + IDENT_RE }
+    ]
+  };
+
   return {
     name: 'LLVM IR',
     keywords:
@@ -49,10 +96,7 @@ export default function(hljs) {
       'extractvalue insertvalue atomicrmw cmpxchg fence ' +
       'argmemonly double',
     contains: [
-      {
-        className: 'type',
-        begin: /\bi\d+(?=\s|\b)/
-      },
+      TYPE,
       hljs.COMMENT(/;\s*$/,
         // this matches "empty comments"...
         // ...because it's far more likely this is a statement terminator in
@@ -68,48 +112,12 @@ export default function(hljs) {
           { begin: '"', end: '[^\\\\]"' },
         ]
       },
-      {
-        className: 'title',
-        variants: [
-          { begin: '@' + identifier },
-          { begin: '@\\d+' },
-          { begin: '!' + identifier },
-          { begin: '!\\d+' + identifier }
-        ]
-      },
-      {
-        className: 'punctuation',
-        relevance: 0,
-        begin: /,/
-      },
-      {
-        className: 'operator',
-        relevance: 0,
-        begin: /=/
-      },
-      {
-        className: 'variable',
-        variants: [
-          { begin: '%' + identifier },
-          { begin: '%\\d+' },
-          { begin: '#\\d+' },
-        ]
-      },
-      {
-        className: 'symbol',
-        variants: [
-            { begin: /^\s*[a-z]+:/ }, // labels
-        ],
-        relevance: 0
-      },
-      {
-        className: 'number',
-        variants: [
-            { begin: '0[xX][a-fA-F0-9]+' },
-            { begin: '-?\\d+(?:[.]\\d+)?(?:[eE][-+]?\\d+(?:[.]\\d+)?)?' }
-        ],
-        relevance: 0
-      },
+      FUNCTION,
+      PUNCTUATION,
+      OPERATOR,
+      VARIABLE,
+      LABEL,
+      NUMBER
     ]
   };
 }

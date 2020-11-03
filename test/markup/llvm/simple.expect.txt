@@ -1,0 +1,8 @@
+<span class="hljs-comment">;; foooo</span>
+<span class="hljs-keyword">define</span> <span class="hljs-type">i32</span> <span class="hljs-title">@mul_add</span>(<span class="hljs-type">i32</span> <span class="hljs-variable">%x</span><span class="hljs-punctuation">,</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%y</span><span class="hljs-punctuation">,</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%z</span>) {
+<span class="hljs-symbol">  entry:</span>
+    <span class="hljs-variable">%tmp</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">mul</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%x</span><span class="hljs-punctuation">,</span> <span class="hljs-variable">%y</span>
+    <span class="hljs-variable">%tmp2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">add</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%tmp</span><span class="hljs-punctuation">,</span> <span class="hljs-variable">%z</span>
+    <span class="hljs-variable">%tmp3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">add</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%tmp</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span>
+    <span class="hljs-keyword">ret</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%tmp3</span>
+}
