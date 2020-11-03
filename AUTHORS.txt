@@ -298,3 +298,4 @@ Contributors:
 - Jonathan Sharpe <mail@jonrshar.pe>
 - Michael Rush <michaelrush@gmail.com>
 - Florian Bezdeka <florian@bezdeka.de>
+- Patrick Scheibe <patrick@halirutan.de>
