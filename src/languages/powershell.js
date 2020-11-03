@@ -181,7 +181,7 @@ export default function(hljs) {
 
   var HASH_SIGNS = {
     className: 'selector-tag',
-    begin: /\@\B/,
+    begin: /@\B/,
     relevance: 0
   };
 

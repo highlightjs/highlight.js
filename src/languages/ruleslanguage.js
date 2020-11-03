@@ -60,8 +60,8 @@ export default function(hljs) {
       {
         className: 'literal',
         variants: [
-          {begin: '#\\s+[a-zA-Z\\ \\.]*', relevance: 0}, // looks like #-comment
-          {begin: '#[a-zA-Z\\ \\.]+'}
+          {begin: '#\\s+[a-zA-Z .]*', relevance: 0}, // looks like #-comment
+          {begin: '#[a-zA-Z .]+'}
         ]
       }
     ]
