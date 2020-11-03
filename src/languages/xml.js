@@ -156,10 +156,12 @@ export default function(hljs) {
       // close tag
       {
         className: 'tag',
-        begin: regex.concat(/<\//,
+        begin: regex.concat(
+          /<\//,
           regex.lookahead(regex.concat(
-            TAG_NAME_RE, />/)
-          )),
+            TAG_NAME_RE, />/
+          ))
+        ),
         contains: [{
           className: 'name',
           begin: TAG_NAME_RE,
