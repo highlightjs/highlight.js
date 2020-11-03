@@ -2,20 +2,27 @@ Syntax highlighting with language autodetection.
 
 URL:   https://highlightjs.org/
 
-Current core developers (alphabetical):
+
+Current Core Team:
+
+- Josh Goebel <hello@joshgoebel.com> (maintainer)
+- Egor Rogov <e.rogov@postgrespro.ru>
+- Vladimir Jimenez <me@allejo.io>
+
+Former maintainers:
+
+- Ivan Sagalaev <maniac@softwaremaniacs.org> (original author)
+- Jeremy Hull <sourdrums@gmail.com>
+- Oleg Efimov <efimovov@gmail.com>
+
+Former Core Team members:
 
 - Gidi Meir Morris <gidi@gidi.io>
 - Jan T. Sott <git@idleberg.com>
 - Li Xuanji <xuanji@gmail.com>
 - Marcos Cáceres <marcos@marcosc.com>
 - Sang Dang <sang.dang@polku.io>
-- Josh Goebel <hello@joshgoebel.com>
 
-Former maintainers:
-
-- Ivan Sagalaev (original author) <maniac@softwaremaniacs.org>
-- Jeremy Hull <sourdrums@gmail.com>
-- Oleg Efimov <efimovov@gmail.com>
 
 Contributors:
 
