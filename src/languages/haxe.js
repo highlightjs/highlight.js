@@ -34,7 +34,7 @@ export default function(hljs) {
             begin: '\\$\\{', end: '\\}'
           },
           { className: 'subst', // interpolation
-            begin: '\\$', end: '\\W}'
+            begin: '\\$', end: /\W\}/
           }
         ]
       },

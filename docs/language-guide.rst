@@ -130,7 +130,7 @@ This is commonly used to define nested modes:
 
   {
     className: 'object',
-    begin: '{', end: '}',
+    begin: /\{/, end: /\}/,
     contains: [hljs.QUOTE_STRING_MODE, 'self']
   }
 

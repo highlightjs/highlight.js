@@ -80,7 +80,7 @@ export default function(hljs) {
       },
       {
         className: 'meta',
-        begin: '#\\!?\\[', end: '\\]',
+        begin: '#!?\\[', end: '\\]',
         contains: [
           {
             className: 'meta-string',
@@ -98,7 +98,7 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'trait enum struct union', end: '{',
+        beginKeywords: 'trait enum struct union', end: /\{/,
         contains: [
           hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {endsParent: true})
         ],

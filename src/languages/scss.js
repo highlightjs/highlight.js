@@ -43,7 +43,7 @@ export default function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
-        className: 'selector-id', begin: '\\#[A-Za-z0-9_-]+',
+        className: 'selector-id', begin: '#[A-Za-z0-9_-]+',
         relevance: 0
       },
       {

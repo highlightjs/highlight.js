@@ -24,7 +24,7 @@ export default function(hljs) {
   var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
   var SUBST = {
     className: 'subst',
-    begin: /#\{/, end: /}/,
+    begin: /#\{/, end: /\}/,
     keywords: KEYWORDS
   };
   var EXPRESSIONS = [

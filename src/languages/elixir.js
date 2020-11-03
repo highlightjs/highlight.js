@@ -7,8 +7,8 @@ Website: https://elixir-lang.org
 */
 
 export default function(hljs) {
-  var ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(\\!|\\?)?';
-  var ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
+  var ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(!|\\?)?';
+  var ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
   var ELIXIR_KEYWORDS = {
     $pattern: ELIXIR_IDENT_RE,
     keyword: 'and false then defined module in return redo retry end for true self when ' +
@@ -17,7 +17,7 @@ export default function(hljs) {
   };
   var SUBST = {
     className: 'subst',
-    begin: '#\\{', end: '}',
+    begin: /#\{/, end: /\}/,
     keywords: ELIXIR_KEYWORDS
   };
   var NUMBER = {
@@ -25,7 +25,7 @@ export default function(hljs) {
     begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(.[0-9_]+([eE][-+]?[0-9]+)?)?)',
     relevance: 0
   };
-  var SIGIL_DELIMITERS = '[/|([{<"\']'
+  var SIGIL_DELIMITERS = '[/|([{<"\']';
   var LOWERCASE_SIGIL = {
     className: 'string',
     begin: '~[a-z]' + '(?=' + SIGIL_DELIMITERS + ')',
@@ -60,7 +60,7 @@ export default function(hljs) {
       { begin: /\(/, end: /\)/ },
       { begin: /\[/, end: /\]/ },
       { begin: /\{/, end: /\}/ },
-      { begin: /\</, end: /\>/ }
+      { begin: /</, end: />/ }
     ]
   };
 
@@ -136,7 +136,7 @@ export default function(hljs) {
     NUMBER,
     {
       className: 'variable',
-      begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))'
+      begin: '(\\$\\W)|((\\$|@@?)(\\w+))'
     },
     {
       begin: '->'

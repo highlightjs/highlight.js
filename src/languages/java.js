@@ -27,44 +27,38 @@ export default function(hljs) {
       },
     ]
   };
-  /**
-   * A given sequence, possibly with underscores
-   * @type {(s: string | RegExp) => string}  */
-  var SEQUENCE_ALLOWING_UNDERSCORES = (seq) => regex.concat('[', seq, ']+([', seq, '_]*[', seq, ']+)?');
-  var JAVA_NUMBER_MODE = {
+
+  // https://docs.oracle.com/javase/specs/jls/se15/html/jls-3.html#jls-3.10
+  var decimalDigits = '[0-9](_*[0-9])*';
+  var frac = `\\.(${decimalDigits})`;
+  var hexDigits = '[0-9a-fA-F](_*[0-9a-fA-F])*';
+  var NUMBER = {
     className: 'number',
     variants: [
-      { begin: `\\b(0[bB]${SEQUENCE_ALLOWING_UNDERSCORES('01')})[lL]?` }, // binary
-      { begin: `\\b(0${SEQUENCE_ALLOWING_UNDERSCORES('0-7')})[dDfFlL]?` }, // octal
-      {
-        begin: regex.concat(
-          /\b0[xX]/,
-          regex.either(
-            regex.concat(SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9'), /\./, SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9')),
-            regex.concat(SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9'), /\.?/),
-            regex.concat(/\./, SEQUENCE_ALLOWING_UNDERSCORES('a-fA-F0-9'))
-          ),
-          /([pP][+-]?(\d+))?/,
-          /[fFdDlL]?/ // decimal & fp mixed for simplicity
-        )
-      },
-      // scientific notation
-      { begin: regex.concat(
-        /\b/,
-        regex.either(
-          regex.concat(/\d*\./, SEQUENCE_ALLOWING_UNDERSCORES("\\d")), // .3, 3.3, 3.3_3
-          SEQUENCE_ALLOWING_UNDERSCORES("\\d") // 3, 3_3
-        ),
-        /[eE][+-]?[\d]+[dDfF]?/)
-      },
-      // decimal & fp mixed for simplicity
-      { begin: regex.concat(
-        /\b/,
-        SEQUENCE_ALLOWING_UNDERSCORES(/\d/),
-        regex.optional(/\.?/),
-        regex.optional(SEQUENCE_ALLOWING_UNDERSCORES(/\d/)),
-        /[dDfFlL]?/)
-      }
+      // DecimalFloatingPointLiteral
+      // including ExponentPart
+      { begin: `(\\b(${decimalDigits})((${frac})|\\.)?|(${frac}))` +
+        `[eE][+-]?(${decimalDigits})[fFdD]?\\b` },
+      // excluding ExponentPart
+      { begin: `\\b(${decimalDigits})((${frac})[fFdD]?\\b|\\.([fFdD]\\b)?)` },
+      { begin: `(${frac})[fFdD]?\\b` },
+      { begin: `\\b(${decimalDigits})[fFdD]\\b` },
+
+      // HexadecimalFloatingPointLiteral
+      { begin: `\\b0[xX]((${hexDigits})\\.?|(${hexDigits})?\\.(${hexDigits}))` +
+        `[pP][+-]?(${decimalDigits})[fFdD]?\\b` },
+
+      // DecimalIntegerLiteral
+      { begin: '\\b(0|[1-9](_*[0-9])*)[lL]?\\b' },
+
+      // HexIntegerLiteral
+      { begin: `\\b0[xX](${hexDigits})[lL]?\\b` },
+
+      // OctalIntegerLiteral
+      { begin: '\\b0(_*[0-7])*[lL]?\\b' },
+
+      // BinaryIntegerLiteral
+      { begin: '\\b0[bB][01](_*[01])*[lL]?\\b' },
     ],
     relevance: 0
   };
@@ -160,7 +154,7 @@ export default function(hljs) {
               ANNOTATION,
               hljs.APOS_STRING_MODE,
               hljs.QUOTE_STRING_MODE,
-              hljs.C_NUMBER_MODE,
+              NUMBER,
               hljs.C_BLOCK_COMMENT_MODE
             ]
           },
@@ -168,7 +162,7 @@ export default function(hljs) {
           hljs.C_BLOCK_COMMENT_MODE
         ]
       },
-      JAVA_NUMBER_MODE,
+      NUMBER,
       ANNOTATION
     ]
   };

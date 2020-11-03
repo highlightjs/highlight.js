@@ -301,7 +301,7 @@ export default function(hljs) {
         },
         // Forbid some cunstructs from other languages to improve autodetect. In fact
         // "[a-z]:" is legal (as part of array slice), but improbabal.
-        illegal: /:==|\W\s*\(\*|(^|\s)\$[a-z]|{{|[a-z]:\s*$|\.\.\.|TO:|DO:/,
+        illegal: /:==|\W\s*\(\*|(^|\s)\$[a-z]|\{\{|[a-z]:\s*$|\.\.\.|TO:|DO:/,
         contains: [
           // special handling of some words, which are reserved only in some contexts
           {
