@@ -3,6 +3,7 @@
 Parser:
 
 - fix(vue): Language name now appears in CSS class (#2807) [Michael Rush][]
+- (chore) Clean up all regexs to be UTF-8 compliant/ready (#2759) [Josh Goebel][]
 
 New Languages:
 
