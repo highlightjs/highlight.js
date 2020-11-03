@@ -16,7 +16,7 @@ export default function(hljs) {
         className: 'meta',
         relevance: 10,
         variants: [
-          {begin: /^@@ +-\d+,\d+ +\+\d+,\d+ +@@$/},
+          {begin: /^@@ +-\d+,\d+ +\+\d+,\d+ +@@/},
           {begin: /^\*\*\* +\d+,\d+ +\*\*\*\*$/},
           {begin: /^--- +\d+,\d+ +----$/}
         ]
@@ -25,11 +25,13 @@ export default function(hljs) {
         className: 'comment',
         variants: [
           {begin: /Index: /, end: /$/},
+          {begin: /^index/, end: /$/},
           {begin: /={3,}/, end: /$/},
           {begin: /^-{3}/, end: /$/},
           {begin: /^\*{3} /, end: /$/},
           {begin: /^\+{3}/, end: /$/},
-          {begin: /^\*{15}$/ }
+          {begin: /^\*{15}$/ },
+          {begin: /^diff --git/, end: /$/},
         ]
       },
       {

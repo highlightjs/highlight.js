@@ -1,0 +1,14 @@
+<span class="hljs-comment">diff --git a/file.py b/file.py</span>
+<span class="hljs-comment">index 123456..789abc 100644</span>
+<span class="hljs-comment">--- a/file.py</span>
+<span class="hljs-comment">+++ b/file.py</span>
+<span class="hljs-meta">@@ -28,2 +28,2 @@</span> import logging
+<span class="hljs-addition">+ import shutil</span>
+<span class="hljs-deletion">- import os</span>
+<span class="hljs-comment">diff --git a/file.txt b/file.txt</span>
+<span class="hljs-comment">index 123456..789abc 100644</span>
+<span class="hljs-comment">--- a/file.txt</span>
+<span class="hljs-comment">--- b/file.txt</span>
+<span class="hljs-meta">@@ -28,2 +28,2 @@</span>
+<span class="hljs-deletion">- removal</span>
+<span class="hljs-addition">+ addition</span>

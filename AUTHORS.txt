@@ -297,3 +297,4 @@ Contributors:
 - Jan Pilzer <Hirse@github>
 - Jonathan Sharpe <mail@jonrshar.pe>
 - Michael Rush <michaelrush@gmail.com>
+- Florian Bezdeka <florian@bezdeka.de>
