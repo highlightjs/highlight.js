@@ -164,16 +164,17 @@ export default function(hljs) {
             TAG_NAME_RE, />/
           ))
         ),
-        contains: [{
-          className: 'name',
-          begin: TAG_NAME_RE,
-          relevance: 0
-        },
-        {
-          begin: />/,
-          relevance: 0
-        }
-      ]
+        contains: [
+          {
+            className: 'name',
+            begin: TAG_NAME_RE,
+            relevance: 0
+          },
+          {
+            begin: />/,
+            relevance: 0
+          }
+        ]
       },
     ]
   };
