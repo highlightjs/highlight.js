@@ -53,10 +53,13 @@ export default function(hljs) {
         className: 'type',
         begin: /\bi\d+(?=\s|\b)/
       },
-      hljs.COMMENT(
-        ';', /$/, {relevance: 0}
+      hljs.COMMENT(/;\s*$/,
+        // this matches "empty comments"...
+        // ...because it's far more likely this is a statement terminator in
+        // another language than an actual comment
+        { relevance: 0 }
       ),
-      // Double quote string
+      hljs.COMMENT(/;/, /$/),
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
