@@ -22,7 +22,7 @@ export default function(hljs) {
       {
         // multi-line string
         className: 'string',
-        begin: '{"', end: '"}',
+        begin: /\{"/, end: /"\}/,
         contains: [hljs.BACKSLASH_ESCAPE]
       },
 

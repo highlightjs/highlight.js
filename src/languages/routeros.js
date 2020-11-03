@@ -89,7 +89,7 @@ export default function(hljs) {
       APOS_STRING,
       VAR,
       { // attribute=value
-        begin: /[\w-]+\=([^\s\{\}\[\]\(\)]+)/,
+        begin: /[\w-]+=([^\s{}[\]()]+)/,
         relevance: 0,
         returnBegin: true,
         contains: [
@@ -110,8 +110,8 @@ export default function(hljs) {
                 begin: '\\b(' + LITERALS.split(' ').join('|') + ')\\b'
               },
               {
-                // Do not format unclassified values. Needed to exclude highlighting of values ​​as built_in.
-                begin: /("[^"]*"|[^\s\{\}\[\]]+)/
+                // Do not format unclassified values. Needed to exclude highlighting of values as built_in.
+                begin: /("[^"]*"|[^\s{}[\]]+)/
               }
               /*
               {
@@ -139,7 +139,7 @@ export default function(hljs) {
         begin: /\*[0-9a-fA-F]+/
       },
       {
-        begin: '\\b(' + COMMON_COMMANDS.split(' ').join('|') + ')([\\s\[\(]|\])',
+        begin: '\\b(' + COMMON_COMMANDS.split(' ').join('|') + ')([\\s[(\\]|])',
         returnBegin: true,
         contains: [
           {
