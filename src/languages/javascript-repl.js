@@ -1,0 +1,30 @@
+/*
+Language: JavaScript REPL
+Requires: javascript.js
+Author: Marat Nagayev <nagaevmt@yandex.ru>
+Category: common
+*/
+
+export default function(hljs) {
+    return {
+      name: 'JavaScript REPL',
+      contains: [
+        {
+          className: 'meta',
+          starts: {
+            // a space separates the REPL prefix from the actual code
+            // this is purely for cleaner HTML output
+            end: / |$/,
+            starts: {
+              end: '$', subLanguage: 'javascript'
+            }
+          },
+          variants: [
+            { begin: /^>(?=[ ]|$)/ },
+            { begin: /^\.\.\.(?=[ ]|$)/ }
+          ]
+        },
+      ]
+    }
+  }
+  

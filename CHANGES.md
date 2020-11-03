@@ -8,6 +8,7 @@ Parser:
 New Languages:
 
 - Added Chapel grammar to SUPPORTED_LANGUAGES (#2806) [Brad Chamberlain][]
+- enh(javascript) Added `javascript-repl` for Javascript NodeJS REPL sessions
 
 Language Improvements:
 
