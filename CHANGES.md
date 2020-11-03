@@ -26,6 +26,7 @@ Language Improvements:
 Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
+- fix(dev) the Vue.js plugin no longer throws an exception when hljs is not in the global namespace [Kyle Brown][]
 
 New themes:
 
@@ -39,7 +40,7 @@ New themes:
 [Jan Pilzer]: https://github.com/Hirse
 [Jonathan Sharpe]: https://github.com/textbook
 [Michael Rush]: https://github.com/rushimusmaximus
-
+[Kyle Brown]: https://github.com/kylebrown9
 
 ## Version 10.3.1
 
