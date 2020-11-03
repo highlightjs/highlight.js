@@ -50,11 +50,11 @@ export default function(hljs) {
       'argmemonly double',
     contains: [
       {
-        className: 'keyword',
-        begin: 'i\\d+'
+        className: 'type',
+        begin: /\bi\d+(?=\s|\b)/
       },
       hljs.COMMENT(
-        ';', '\\n', {relevance: 0}
+        ';', /$/, {relevance: 0}
       ),
       // Double quote string
       hljs.QUOTE_STRING_MODE,
@@ -76,12 +76,29 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'symbol',
+        className: 'puncutation',
+        begin: /,/
+      },
+      {
+        className: 'operator',
+        variants: [
+          { begin: /=/ }
+        ]
+      },
+      {
+        className: 'variable',
         variants: [
           { begin: '%' + identifier },
           { begin: '%\\d+' },
           { begin: '#\\d+' },
         ]
+      },
+      {
+        className: 'symbol',
+        variants: [
+            {begin: '^\\s*[a-z]+:'}, // labels
+        ],
+        relevance: 0
       },
       {
         className: 'number',
