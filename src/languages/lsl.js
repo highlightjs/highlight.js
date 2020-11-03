@@ -24,6 +24,7 @@ export default function(hljs) {
 
     var LSL_NUMBERS = {
         className: 'number',
+        relevance:0,
         begin: hljs.C_NUMBER_RE
     };
 
