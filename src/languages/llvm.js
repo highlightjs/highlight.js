@@ -78,7 +78,7 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'puncutation',
+        className: 'punctuation',
         relevance: 0,
         begin: /,/
       },
