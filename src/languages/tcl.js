@@ -50,7 +50,7 @@ export default function(hljs) {
             begin: '\\$(::)?[a-zA-Z_]+((::)?[a-zA-Z0-9_]+)*' + regex.optional(ARRAY_ACCESS),
           },
           {
-            begin: '\\$\\{(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*' + regex.optional(ARRAY_ACCESS) + '}',
+            begin: '\\$\\{(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*' + regex.optional(ARRAY_ACCESS) + '\\}',
           }
         ]
       },
