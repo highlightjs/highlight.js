@@ -43,7 +43,7 @@ export default function(hljs) {
     ]
   };
   var TUPLE = {
-    begin: '{', end: '}',
+    begin: /\{/, end: /\}/,
     relevance: 0
     // "contains" defined later
   };
@@ -65,7 +65,7 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        begin: '{', end: '}',
+        begin: /\{/, end: /\}/,
         relevance: 0
         // "contains" defined later
       }

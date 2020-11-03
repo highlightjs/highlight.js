@@ -4,7 +4,12 @@ Website: https://www.w3.org/XML/
 Category: common
 */
 
+import * as regex from '../lib/regex.js';
+
+/** @type LanguageFn */
 export default function(hljs) {
+  // Element names can contain letters, digits, hyphens, underscores, and periods
+  var TAG_NAME_RE = regex.concat(/[A-Z_]/, regex.optional(/[A-Z0-9_.-]+:/), /[A-Z0-9_.-]*/);
   var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
   var XML_ENTITIES = {
     className: 'symbol',
@@ -89,7 +94,7 @@ export default function(hljs) {
         }
       ),
       {
-        begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
+        begin: '<!\\[CDATA\\[', end: '\\]\\]>',
         relevance: 10
       },
       XML_ENTITIES,
@@ -120,20 +125,57 @@ export default function(hljs) {
         keywords: {name: 'script'},
         contains: [TAG_INTERNALS],
         starts: {
-          end: '\<\/script\>', returnEnd: true,
+          end: /<\/script>/, returnEnd: true,
           subLanguage: ['javascript', 'handlebars', 'xml']
         }
       },
+      // we need this for now for jSX
       {
         className: 'tag',
-        begin: '</?', end: '/?>',
+        begin: /<>|<\/>/,
+      },
+      // open tag
+      {
+        className: 'tag',
+        begin: regex.concat(
+          /</,
+          regex.lookahead(regex.concat(
+            TAG_NAME_RE,
+            // <tag/>
+            // <tag>
+            // <tag ...
+            regex.either(/\/>/, />/, /\s/)
+          ))
+        ),
+        end: /\/?>/,
+        contains: [{
+          className: 'name',
+          begin: TAG_NAME_RE,
+          relevance: 0,
+          starts: TAG_INTERNALS
+        }]
+      },
+      // close tag
+      {
+        className: 'tag',
+        begin: regex.concat(
+          /<\//,
+          regex.lookahead(regex.concat(
+            TAG_NAME_RE, />/
+          ))
+        ),
         contains: [
           {
-            className: 'name', begin: /[^\/><\s]+/, relevance: 0
+            className: 'name',
+            begin: TAG_NAME_RE,
+            relevance: 0
           },
-          TAG_INTERNALS
+          {
+            begin: />/,
+            relevance: 0
+          }
         ]
-      }
+      },
     ]
   };
 }

@@ -5,21 +5,39 @@ CSS classes reference
 Stylable classes
 ----------------
 
+The general purpose classes are intended to be used for any language, but the
+other classes may also be used when they are semantically correct.  For example
+if you had a general purpose language that allowed inline URLs:
+
+::
+
+  var GOOGLE = https://www.google.com/
+
+
+It would be wholly reasonable to use the ``link`` class for this, even though
+your language is not considered a "Markup" language.
+
 +------------------------------------------------------------------------------+
-| **General-purpose**                                                          |
+| **General purpose**                                                          |
 +--------------------------+---------------------------------------------------+
 | keyword                  | keyword in a regular Algol-style language         |
 +--------------------------+---------------------------------------------------+
 | built_in                 | built-in or library object (constant, class,      |
 |                          | function)                                         |
 +--------------------------+---------------------------------------------------+
-| type                     | user-defined type in a language with first-class  |
-|                          | syntactically significant types, like Haskell     |
+| type                     | data type (in a language with syntactically       |
+|                          | significant types) (``string``, ``int``,          |
+|                          | ``array``, etc.)                                  |
 +--------------------------+---------------------------------------------------+
-| literal                  | special identifier for a built-in value ("true",  |
-|                          | "false", "null")                                  |
+| literal                  | special identifier for a built-in value           |
+|                          | (``true``, ``false``, ``null``, etc.)             |
 +--------------------------+---------------------------------------------------+
 | number                   | number, including units and modifiers, if any.    |
++--------------------------+---------------------------------------------------+
+| operator                 | operators: ``+``, ``-``, ``>>``, ``|``, ``==``    |
++--------------------------+---------------------------------------------------+
+| punctuation              | aux. punctuation that should be subtly highlighted|
+|                          | (parentheses, brackets, etc.)                     |
 +--------------------------+---------------------------------------------------+
 | regexp                   | literal regular expression                        |
 +--------------------------+---------------------------------------------------+
@@ -30,9 +48,12 @@ Stylable classes
 | symbol                   | symbolic constant, interned string, goto label    |
 +--------------------------+---------------------------------------------------+
 | class                    | class or class-level declaration (interfaces,     |
-|                          | traits, modules, etc)                             |
+|                          | traits, modules, etc), typically includes a       |
+|                          | ``title`` submode                                 |
 +--------------------------+---------------------------------------------------+
 | function                 | function or method declaration                    |
++--------------------------+---------------------------------------------------+
+| variable                 | variables                                         |
 +--------------------------+---------------------------------------------------+
 | title                    | name of a class or a function at the place of     |
 |                          | declaration                                       |
@@ -40,14 +61,14 @@ Stylable classes
 | params                   | block of function arguments (parameters) at the   |
 |                          | place of declaration                              |
 +--------------------------+---------------------------------------------------+
-| **Meta**                                                                     |
-+--------------------------+---------------------------------------------------+
-| comment                  | comment                                           |
+| comment                  | comments                                          |
 +--------------------------+---------------------------------------------------+
 | doctag                   | documentation markup within comments              |
 +--------------------------+---------------------------------------------------+
+| **Meta**                                                                     |
++--------------------------+---------------------------------------------------+
 | meta                     | flags, modifiers, annotations, processing         |
-|                          | instructions, preprocessor directive, etc         |
+|                          | instructions, preprocessor directives, etc        |
 +--------------------------+---------------------------------------------------+
 | meta-keyword             | keyword or built-in within meta construct         |
 +--------------------------+---------------------------------------------------+
@@ -74,36 +95,33 @@ Stylable classes
 | attribute                | name of an attribute followed by a structured     |
 |                          | value part, like CSS properties                   |
 +--------------------------+---------------------------------------------------+
-| variable                 | variable in a config or a template file,          |
-|                          | environment var expansion in a script             |
+| **Text Markup**                                                              |
 +--------------------------+---------------------------------------------------+
-| **Markup**                                                                   |
+| bullet                   | list item bullet                                  |
 +--------------------------+---------------------------------------------------+
-| bullet                   | list item bullet in text markup                   |
+| code                     | code block                                        |
 +--------------------------+---------------------------------------------------+
-| code                     | code block in text markup                         |
+| emphasis                 | emphasis                                          |
 +--------------------------+---------------------------------------------------+
-| emphasis                 | emphasis in text markup                           |
+| strong                   | strong emphasis                                   |
 +--------------------------+---------------------------------------------------+
-| strong                   | strong emphasis in text markup                    |
+| formula                  | mathematical formula                              |
 +--------------------------+---------------------------------------------------+
-| formula                  | mathematical formula in text markup               |
+| link                     | hyperlink                                         |
 +--------------------------+---------------------------------------------------+
-| link                     | hyperlink in text markup                          |
-+--------------------------+---------------------------------------------------+
-| quote                    | quotation in text markup                          |
+| quote                    | quotation or blockquote                           |
 +--------------------------+---------------------------------------------------+
 | **CSS**                                                                      |
 +--------------------------+---------------------------------------------------+
-| selector-tag             | tag selector in CSS                               |
+| selector-tag             | tag selector                                      |
 +--------------------------+---------------------------------------------------+
-| selector-id              | #id selector in CSS                               |
+| selector-id              | #id selector                                      |
 +--------------------------+---------------------------------------------------+
-| selector-class           | .class selector in CSS                            |
+| selector-class           | .class selector                                   |
 +--------------------------+---------------------------------------------------+
-| selector-attr            | [attr] selector in CSS                            |
+| selector-attr            | [attr] selector                                   |
 +--------------------------+---------------------------------------------------+
-| selector-pseudo          | :pseudo selector in CSS                           |
+| selector-pseudo          | :pseudo selector                                  |
 +--------------------------+---------------------------------------------------+
 | **Templates**                                                                |
 +--------------------------+---------------------------------------------------+
@@ -113,23 +131,49 @@ Stylable classes
 +--------------------------+---------------------------------------------------+
 | **diff**                                                                     |
 +--------------------------+---------------------------------------------------+
-| addition                 | added or changed line in a diff                   |
+| addition                 | added or changed line                             |
 +--------------------------+---------------------------------------------------+
-| deletion                 | deleted line in a diff                            |
+| deletion                 | deleted line                                      |
++--------------------------+---------------------------------------------------+
+
+A note on newer classes
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Some classes have been added more recently and do not enjoy universal theme
+support.  For themes without support, these items will simply not be
+highlighted.  This doesn't mean not to use them, only that they will be
+highlighted better as support improves over time.
+
+A list of these classes:
+
+- operator
+- punctuation
+
+
+Reserved classes
+^^^^^^^^^^^^^^^^
+
+The below classes (ReasonML) are left here for documentation purposes but may
+not be used in other grammars because they are very poorly supported by all
+themes.
+
+If you'd like to help out with the larger issue here:
+
+- https://github.com/highlightjs/highlight.js/issues/2521
+- https://github.com/highlightjs/highlight.js/issues/2500
+
 +--------------------------+---------------------------------------------------+
 | **ReasonML**                                                                 |
 +--------------------------+---------------------------------------------------+
-| operator                 | reasonml operator such as pipe                    |
-+--------------------------+---------------------------------------------------+
-| pattern-match            | reasonml pattern matching matchers                |
+| pattern-match            | pattern matching matchers                         |
 +--------------------------+---------------------------------------------------+
 | typing                   | type signatures on function parameters            |
 +--------------------------+---------------------------------------------------+
 | constructor              | type constructors                                 |
 +--------------------------+---------------------------------------------------+
-| module-access            | scope access into a ReasonML module               |
+| module-access            | scope access into a module                        |
 +--------------------------+---------------------------------------------------+
-| module                   | ReasonML module reference within scope access     |
+| module                   | module reference within scope access              |
 +--------------------------+---------------------------------------------------+
 
 

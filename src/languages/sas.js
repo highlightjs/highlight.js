@@ -92,12 +92,12 @@ export default function(hljs) {
             {
                 // Distinct highlight for proc <proc>, data, run, quit
                 className: 'keyword',
-                begin: /^\s*(proc [\w\d_]+|data|run|quit)[\s\;]/
+                begin: /^\s*(proc [\w\d_]+|data|run|quit)[\s;]/
             },
             {
                 // Macro variables
                 className: 'variable',
-                begin: /\&[a-zA-Z_\&][a-zA-Z0-9_]*\.?/
+                begin: /&[a-zA-Z_&][a-zA-Z0-9_]*\.?/
             },
             {
                 // Special emphasis for datalines|cards

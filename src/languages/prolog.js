@@ -51,15 +51,13 @@ export default function(hljs) {
   };
 
   var CHAR_CODE = {
-
     className: 'string', // 0'a etc.
-    begin: /0\'(\\\'|.)/
+    begin: /0'(\\'|.)/
   };
 
   var SPACE_CODE = {
-
     className: 'string',
-    begin: /0\'\\s/ // 0'\s
+    begin: /0'\\s/ // 0'\s
   };
 
   var PRED_OP = { // relevance booster

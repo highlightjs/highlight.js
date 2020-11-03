@@ -210,7 +210,7 @@ This is when ``endsWithParent`` comes into play:
 ::
 
   {
-    className: 'rules', begin: '{', end: '}',
+    className: 'rules', begin: /\{/, end: /\}/,
     contains: [
       {className: 'rule', /* ... */ end: ';', endsWithParent: true}
     ]

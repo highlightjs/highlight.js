@@ -44,7 +44,7 @@ export default function(hljs) {
         contains: [{begin: '(\\|[ ]*)?' + VAR_IDENT_RE}]
       },
       {
-        begin: '\\#\\(', end: '\\)',
+        begin: '#\\(', end: '\\)',
         contains: [
           hljs.APOS_STRING_MODE,
           CHAR,

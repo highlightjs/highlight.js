@@ -60,16 +60,16 @@ export default function(hljs) {
     literal: ECMAScript.LITERALS.concat(LIVESCRIPT_LITERALS).join(" "),
     built_in: ECMAScript.BUILT_INS.concat(LIVESCRIPT_BUILT_INS).join(" ")
   };
-  var JS_IDENT_RE = '[A-Za-z$_](?:\-[0-9A-Za-z$_]|[0-9A-Za-z$_])*';
+  var JS_IDENT_RE = '[A-Za-z$_](?:-[0-9A-Za-z$_]|[0-9A-Za-z$_])*';
   var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: JS_IDENT_RE});
   var SUBST = {
     className: 'subst',
-    begin: /#\{/, end: /}/,
+    begin: /#\{/, end: /\}/,
     keywords: KEYWORDS
   };
   var SUBST_SIMPLE = {
     className: 'subst',
-    begin: /#[A-Za-z$_]/, end: /(?:\-[0-9A-Za-z$_]|[0-9A-Za-z$_])*/,
+    begin: /#[A-Za-z$_]/, end: /(?:-[0-9A-Za-z$_]|[0-9A-Za-z$_])*/,
     keywords: KEYWORDS
   };
   var EXPRESSIONS = [
@@ -145,7 +145,7 @@ export default function(hljs) {
   };
 
   var SYMBOLS = {
-    begin: '(#=>|=>|\\|>>|-?->|\\!->)'
+    begin: '(#=>|=>|\\|>>|-?->|!->)'
   };
 
   return {
@@ -163,7 +163,7 @@ export default function(hljs) {
         returnBegin: true,
         variants: [
           {
-            begin: '(' + JS_IDENT_RE + '\\s*(?:=|:=)\\s*)?(\\(.*\\))?\\s*\\B\\->\\*?', end: '\\->\\*?'
+            begin: '(' + JS_IDENT_RE + '\\s*(?:=|:=)\\s*)?(\\(.*\\))?\\s*\\B->\\*?', end: '->\\*?'
           },
           {
             begin: '(' + JS_IDENT_RE + '\\s*(?:=|:=)\\s*)?!?(\\(.*\\))?\\s*\\B[-~]{1,2}>\\*?', end: '[-~]{1,2}>\\*?'

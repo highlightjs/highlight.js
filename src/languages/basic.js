@@ -13,7 +13,7 @@ export default function(hljs) {
     illegal: '^\.',
     // Support explicitly typed variables that end with $%! or #.
     keywords: {
-        $pattern: '[a-zA-Z][a-zA-Z0-9_\$\%\!\#]*',
+        $pattern: '[a-zA-Z][a-zA-Z0-9_$%!#]*',
         keyword:
           'ABS ASC AND ATN AUTO|0 BEEP BLOAD|10 BSAVE|10 CALL CALLS CDBL CHAIN CHDIR CHR$|10 CINT CIRCLE ' +
           'CLEAR CLOSE CLS COLOR COM COMMON CONT COS CSNG CSRLIN CVD CVI CVS DATA DATE$ ' +
@@ -35,7 +35,7 @@ export default function(hljs) {
       {
         // Match line numbers
         className: 'symbol',
-        begin: '^[0-9]+\ ',
+        begin: '^[0-9]+ ',
         relevance: 10
       },
       {
@@ -47,12 +47,12 @@ export default function(hljs) {
       {
         // Match hexadecimal numbers (&Hxxxx)
         className: 'number',
-        begin: '(\&[hH][0-9a-fA-F]{1,4})'
+        begin: '(&[hH][0-9a-fA-F]{1,4})'
       },
       {
         // Match octal numbers (&Oxxxxxx)
         className: 'number',
-        begin: '(\&[oO][0-7]{1,6})'
+        begin: '(&[oO][0-7]{1,6})'
       }
     ]
   };

@@ -1,0 +1,31 @@
+@foo
+def bar():
+    pass
+
+@foo  # bar
+def baz():
+    pass
+
+@foo.bar.baz
+def qux():
+    pass
+
+@surround_with("#", repeat=3)
+def text():
+    return "hi!"
+
+@py38.style
+def func():
+    pass
+
+@py["3.9"].style
+def func():
+    pass
+
+@py[3.9].style
+def func():
+    pass
+
+@2 + 2 == 5
+def func():
+    pass
