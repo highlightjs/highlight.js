@@ -63,8 +63,7 @@ export default function(hljs) {
         variants: [
           // Double-quoted string
           { begin: '"', end: '[^\\\\]"' },
-        ],
-        relevance: 0
+        ]
       },
       {
         className: 'title',
@@ -77,13 +76,13 @@ export default function(hljs) {
       },
       {
         className: 'puncutation',
+        relevance: 0,
         begin: /,/
       },
       {
         className: 'operator',
-        variants: [
-          { begin: /=/ }
-        ]
+        relevance: 0,
+        begin: /=/
       },
       {
         className: 'variable',
@@ -96,7 +95,7 @@ export default function(hljs) {
       {
         className: 'symbol',
         variants: [
-            {begin: '^\\s*[a-z]+:'}, // labels
+            { begin: /^\s*[a-z]+:/ }, // labels
         ],
         relevance: 0
       },
