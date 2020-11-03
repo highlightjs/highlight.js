@@ -34,12 +34,12 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'class',
-        beginKeywords: 'package', end: '{',
+        beginKeywords: 'package', end: /\{/,
         contains: [hljs.TITLE_MODE]
       },
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '{', excludeEnd: true,
+        beginKeywords: 'class interface', end: /\{/, excludeEnd: true,
         contains: [
           {
             beginKeywords: 'extends implements'

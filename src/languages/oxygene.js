@@ -18,8 +18,8 @@ export default function(hljs) {
     'register safecall overload library platform reference packed strict published autoreleasepool selector strong weak unretained'
   };
   var CURLY_COMMENT = hljs.COMMENT(
-    '{',
-    '}',
+    /\{/,
+    /\}/,
     {
       relevance: 0
     }

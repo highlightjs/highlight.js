@@ -44,7 +44,7 @@ export default function(hljs) {
         'false true note warning error failure ' +  // severity_level
         'line text side width'                      // textio
     },
-    illegal: '{',
+    illegal: /\{/,
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,      // VHDL-2008 block commenting.
       hljs.COMMENT('--', '$'),

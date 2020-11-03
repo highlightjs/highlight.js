@@ -14,20 +14,20 @@ export default function(hljs) {
   var DEFINES = {
     // ${defines}
     className: 'variable',
-    begin: /\$+{[\w\.:-]+}/
+    begin: /\$+\{[\w.:-]+\}/
   };
 
   var VARIABLES = {
     // $variables
     className: 'variable',
     begin: /\$+\w+/,
-    illegal: /\(\){}/
+    illegal: /\(\)\{\}/
   };
 
   var LANGUAGES = {
     // $(language_strings)
     className: 'variable',
-    begin: /\$+\([\w\^\.:-]+\)/
+    begin: /\$+\([\w^.:-]+\)/
   };
 
   var PARAMETERS = {
@@ -39,7 +39,7 @@ export default function(hljs) {
   var COMPILER = {
     // !compiler_flags
     className: 'keyword',
-    begin: /\!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversion|gettlbversion|if|ifdef|ifmacrodef|ifmacrondef|ifndef|include|insertmacro|macro|macroend|makensis|packhdr|searchparse|searchreplace|system|tempfile|undef|verbose|warning)/
+    begin: /!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversion|gettlbversion|if|ifdef|ifmacrodef|ifmacrondef|ifndef|include|insertmacro|macro|macroend|makensis|packhdr|searchparse|searchreplace|system|tempfile|undef|verbose|warning)/
   };
 
   var METACHARS = {
@@ -51,7 +51,7 @@ export default function(hljs) {
   var PLUGINS = {
     // plug::ins
     className: 'class',
-    begin: /\w+\:\:\w+/
+    begin: /\w+::\w+/
   };
 
     var STRING = {

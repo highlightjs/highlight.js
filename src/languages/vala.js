@@ -31,7 +31,7 @@ export default function(hljs) {
     contains: [
       {
         className: 'class',
-        beginKeywords: 'class interface namespace', end: '{', excludeEnd: true,
+        beginKeywords: 'class interface namespace', end: /\{/, excludeEnd: true,
         illegal: '[^,:\\n\\s\\.]',
         contains: [
           hljs.UNDERSCORE_TITLE_MODE

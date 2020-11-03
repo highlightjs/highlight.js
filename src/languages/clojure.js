@@ -96,7 +96,7 @@ export default function(hljs) {
   var GLOBAL = {
     beginKeywords: globals,
     lexemes: SYMBOL_RE,
-    end: '(\\[|\\#|\\d|"|:|\\{|\\)|\\(|$)',
+    end: '(\\[|#|\\d|"|:|\\{|\\)|\\(|$)',
     contains: [
       {
         className: 'title',

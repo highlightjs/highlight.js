@@ -91,7 +91,7 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '{', excludeEnd: true,
+        beginKeywords: 'class interface', end: /\{/, excludeEnd: true,
         illegal: /[:\(\$"]/,
         contains: [
           {beginKeywords: 'extends implements'},
