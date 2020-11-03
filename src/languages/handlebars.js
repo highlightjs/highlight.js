@@ -161,7 +161,7 @@ export default function(hljs) {
     keywords: BUILT_INS,
     className: 'name',
     starts: hljs.inherit(HELPER_PARAMETERS, {
-      end: /}}/,
+      end: /\}\}/,
     })
   });
 
@@ -174,7 +174,7 @@ export default function(hljs) {
     className: 'name',
     keywords: BUILT_INS,
     starts: hljs.inherit(HELPER_PARAMETERS, {
-      end: /}}/,
+      end: /\}\}/,
     })
   });
 

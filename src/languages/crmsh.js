@@ -89,7 +89,7 @@ export default function(hljs) {
       },
       {
         className: 'attr',
-        begin: /([A-Za-z\$_\#][\w_-]+)=/,
+        begin: /([A-Za-z$_#][\w_-]+)=/,
         relevance: 0
       },
       {

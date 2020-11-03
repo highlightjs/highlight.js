@@ -18,8 +18,8 @@ export default function(hljs) {
   const BRACED_SUBST = {
     className: 'subst',
     variants: [{
-      begin: '\\${',
-      end: '}'
+      begin: /\$\{/,
+      end: /\}/
     }],
     keywords: 'true false null this is new super',
   };
@@ -155,7 +155,7 @@ export default function(hljs) {
       {
         className: 'class',
         beginKeywords: 'class interface',
-        end: '{',
+        end: /\{/,
         excludeEnd: true,
         contains: [{
             beginKeywords: 'extends implements'

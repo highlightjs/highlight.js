@@ -28,8 +28,8 @@ export default function(hljs) {
     },
     contains: [ {
         className: 'meta', // Actually pragma
-        begin: /{\./,
-        end: /\.}/,
+        begin: /\{\./,
+        end: /\.\}/,
         relevance: 10
       }, {
         className: 'string',

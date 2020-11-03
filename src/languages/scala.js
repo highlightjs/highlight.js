@@ -15,7 +15,7 @@ export default function(hljs) {
     className: 'subst',
     variants: [
       {begin: '\\$[A-Za-z0-9_]+'},
-      {begin: '\\${', end: '}'}
+      {begin: /\$\{/, end: /\}/}
     ]
   };
 

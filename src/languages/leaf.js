@@ -11,7 +11,7 @@ export default function (hljs) {
       {
         className: 'function',
         begin: '#+' + '[A-Za-z_0-9]*' + '\\(',
-        end:' {',
+        end:/ \{/,
         returnBegin: true,
         excludeEnd: true,
         contains : [
