@@ -21,16 +21,11 @@ export default function(hljs) {
           {begin: /^--- +\d+,\d+ +----$/}
         ]
       },
-      {                                                                             
-         className: "meta-string",                                                  
-         variants: [                                                                
-           {begin: /^index/, end: /$/ }                                             
-         ]                                                                          
-      },
       {
         className: 'comment',
         variants: [
           {begin: /Index: /, end: /$/},
+          {begin: /^index/, end: /$/},
           {begin: /={3,}/, end: /$/},
           {begin: /^-{3}/, end: /$/},
           {begin: /^\*{3} /, end: /$/},
