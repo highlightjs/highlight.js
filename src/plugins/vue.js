@@ -57,7 +57,7 @@ export function BuildVuePlugin(hljs) {
     // template: `<pre><code :class="className" v-html="highlighted"></code></pre>`
   };
   
-  export const VuePlugin = {
+  const VuePlugin = {
     install(Vue) {
       Vue.component('highlightjs', Component);
     }
