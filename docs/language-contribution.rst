@@ -1,10 +1,27 @@
 Language contributor checklist
 ==============================
 
-1. Read ``extra/3RD_PARTY_QUICK_START.md``
-------------------------------------------
+1. Don't get your hopes up
+--------------------------
 
-It contains rough high-level steps for creating a 3rd party language grammar for Highlight.js.
+If you're interested in adding a new language to the core Highlight.js
+code base, please note that this isn't really an option.  The core
+development team doesn't have the cycles or incentive to take on
+maintaining additional languages, and there currently isn't a way for
+external developers to contribute new languages to the code base.
+
+That said, Highlight.js does support a third-party plug-in framework
+that makes it easy to overlay external repositories defining new
+languages into a clone of the Highlight.js repository via its
+`extras/` directory.  This represents your best bet for having
+Highlight.js users make use of your new language parsing.  For
+additional details on how to do this, see
+``extra/3RD_PARTY_QUICK_START.md`` which contains rough, high-level
+steps for creating a third-party language grammar for Highlight.js.
+
+The following steps describe how a core developer would add a new
+language to the code base, but they can also be used as a reference
+for creating support for your language within your third-party repo.
 
 
 2. Create a language grammar definition file
@@ -25,7 +42,8 @@ process and details differ for different build targets.
     }
   }
 
-The name of the file is used as a short language identifier and should be usable as a class name in HTML and CSS.
+The name of the file is used as a short language identifier and should be usable as a class name in HTML and CSS.  The file itself should be stored in
+src/languages/
 
 
 3. Add language metadata
