@@ -113,6 +113,7 @@ export default function(hljs) {
 
       { // numbers
         className: 'number',
+        relevance: 0,
         begin: '(-?)(\\b0[xXbBoOdD][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?f?|\\.\\d+f?)([eE][-+]?\\d+f?)?)'
       }
     ]
