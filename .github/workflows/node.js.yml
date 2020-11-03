@@ -26,18 +26,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
+    - run: node ./tools/build.js -t ${{ matrix.build-how }}
     # normal browser build
     - if: contains(matrix.build-how, 'browser')
       name: Test browser build
       run: |
-        node ./tools/build.js -t ${{ matrix.build-how }}
         npm run test-browser
         node test/builds/browser_build_as_commonjs.js
 
     - if: contains(matrix.build-how, 'node')
       name: Test Node.js build
       run: |
-        node ./tools/build.js -t ${{ matrix.build-how }}
         npm test
 
     # test that our build is "use strict" safe for use with packaging
