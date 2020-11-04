@@ -73,7 +73,13 @@ export const COMMENT = function(begin, end, modeOptions = {}) {
     },
     modeOptions
   );
-  mode.contains.push(PHRASAL_WORDS_MODE);
+  mode.contains.push(
+    {
+      className: "hint",
+      begin: /([()"]?([A-Za-z'-]{3,}|is|a|I|so|us|[tT][oO]|at|if|in|it|on)[.]?[()":]?([.][ ]|[ ]|\))){3}/
+    }
+  );
+  // mode.contains.push(PHRASAL_WORDS_MODE);
   mode.contains.push({
     className: 'doctag',
     begin: '(?:TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
