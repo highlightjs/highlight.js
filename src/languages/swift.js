@@ -87,10 +87,10 @@ export default function(hljs) {
           `([pP][+-]?(${decimalDigits}))?\\b` },
 
         // octal-literal
-        { begin: '\\b0o([0-7]_*)+\\b' },
+        { begin: /\b0o([0-7]_*)+\b/ },
 
         // binary-literal
-        { begin: '\\b0b([01]_*)+\\b' },
+        { begin: /\b0b([01]_*)+\b/ },
       ]
   };
   SUBST.contains = [NUMBER];
