@@ -25,19 +25,19 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
+    - run: yarn install
     - run: node ./tools/build.js -t ${{ matrix.build-how }}
     # normal browser build
     - if: contains(matrix.build-how, 'browser')
       name: Test browser build
       run: |
-        npm run test-browser
+        yarn run test-browser
         node test/builds/browser_build_as_commonjs.js
 
     - if: contains(matrix.build-how, 'node')
       name: Test Node.js build
       run: |
-        npm test
+        yarn test
 
     # test that our build is "use strict" safe for use with packaging
     # systems importing our source thru ES6 modules (rollup, etc.)
