@@ -588,7 +588,7 @@ const HLJS = function(hljs) {
     );
     results.unshift(plaintext); // plaintext is always an option
 
-    const sorted = results.sort((a,b) => {
+    const sorted = results.sort((a, b) => {
       // sort base on relevance
       return b.relevance - a.relevance;
 
