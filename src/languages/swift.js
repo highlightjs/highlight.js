@@ -71,6 +71,7 @@ export default function(hljs) {
   };
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_numeric-literal
+  // TODO: Update for leading `-` after lookbehind is supported everywhere
   var decimalDigits = '([0-9]_*)+';
   var hexDigits = '([0-9a-fA-F]_*)+';
   var NUMBER = {
@@ -78,18 +79,18 @@ export default function(hljs) {
       relevance: 0,
       variants: [
         // decimal floating-point-literal (subsumes decimal-literal)
-        { begin: `-?\\b(${decimalDigits})(\\.(${decimalDigits}))?` +
+        { begin: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` +
           `([eE][+-]?(${decimalDigits}))?\\b` },
 
         // hexadecimal floating-point-literal (subsumes hexadecimal-literal)
-        { begin: `-?\\b0x(${hexDigits})(\\.(${hexDigits}))?` +
+        { begin: `\\b0x(${hexDigits})(\\.(${hexDigits}))?` +
           `([pP][+-]?(${decimalDigits}))?\\b` },
 
         // octal-literal
-        { begin: '-?\\b0o([0-7]_*)+\\b' },
+        { begin: '\\b0o([0-7]_*)+\\b' },
 
         // binary-literal
-        { begin: '-?\\b0b([01]_*)+\\b' },
+        { begin: '\\b0b([01]_*)+\\b' },
       ]
   };
   SUBST.contains = [NUMBER];
