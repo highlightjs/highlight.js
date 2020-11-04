@@ -69,12 +69,31 @@ export default function(hljs) {
       {begin: /"/, end: /"/},
     ]
   };
-  var NUMBERS = {
+
+  // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_numeric-literal
+  // TODO: Update for leading `-` after lookbehind is supported everywhere
+  var decimalDigits = '([0-9]_*)+';
+  var hexDigits = '([0-9a-fA-F]_*)+';
+  var NUMBER = {
       className: 'number',
-      begin: '\\b([\\d_]+(\\.[\\deE_]+)?|0x[a-fA-F0-9_]+(\\.[a-fA-F0-9p_]+)?|0b[01_]+|0o[0-7_]+)\\b',
-      relevance: 0
+      relevance: 0,
+      variants: [
+        // decimal floating-point-literal (subsumes decimal-literal)
+        { begin: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` +
+          `([eE][+-]?(${decimalDigits}))?\\b` },
+
+        // hexadecimal floating-point-literal (subsumes hexadecimal-literal)
+        { begin: `\\b0x(${hexDigits})(\\.(${hexDigits}))?` +
+          `([pP][+-]?(${decimalDigits}))?\\b` },
+
+        // octal-literal
+        { begin: /\b0o([0-7]_*)+\b/ },
+
+        // binary-literal
+        { begin: /\b0b([01]_*)+\b/ },
+      ]
   };
-  SUBST.contains = [NUMBERS];
+  SUBST.contains = [NUMBER];
 
   return {
     name: 'Swift',
@@ -85,7 +104,7 @@ export default function(hljs) {
       BLOCK_COMMENT,
       OPTIONAL_USING_TYPE,
       TYPE,
-      NUMBERS,
+      NUMBER,
       {
         className: 'function',
         beginKeywords: 'func', end: /\{/, excludeEnd: true,
@@ -102,7 +121,7 @@ export default function(hljs) {
             keywords: SWIFT_KEYWORDS,
             contains: [
               'self',
-              NUMBERS,
+              NUMBER,
               STRING,
               hljs.C_BLOCK_COMMENT_MODE,
               {begin: ':'} // relevance booster
