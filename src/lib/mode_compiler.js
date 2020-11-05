@@ -314,6 +314,8 @@ export function compileLanguage(language) {
     // __beforeBegin is considered private API, internal use only
     mode.__beforeBegin = null;
 
+    language.extensions.forEach(ext => ext(mode, parent));
+
     mode.keywords = mode.keywords || mode.beginKeywords;
 
     let keywordPattern = null;
@@ -372,6 +374,8 @@ export function compileLanguage(language) {
     cmode.matcher = buildModeRegex(cmode);
     return cmode;
   }
+
+  if (!language.extensions) language.extensions = [];
 
   // self is not valid at the top-level
   if (language.contains && language.contains.includes('self')) {

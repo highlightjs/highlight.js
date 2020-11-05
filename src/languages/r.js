@@ -55,7 +55,32 @@ export default function(hljs) {
         'standardGeneric substitute sum switch tan tanh tanpi tracemem ' +
         'trigamma trunc unclass untracemem UseMethod xtfrm',
     },
+    extensions: [
+      // allow `match` to used rather than `begin` simply for clarity
+      (mode, parent) => {
+        if (mode.match) {
+          mode.begin = mode.match;
+          delete mode.end;
+          delete mode.match;
+        }
+      },
+      // allow beforeMatch to act as a "qualifier" for the match
+      // the full match begin must be [beforeMatch][begin]
+      (mode, parent) => {
+        if (!mode.beforeMatch) return;
 
+        let begin = mode.begin;
+        mode.begin = regex.concat(mode.beforeMatch, regex.lookahead(mode.begin));
+        mode.starts = {
+          contains: [{
+            className: mode.className,
+            begin: begin,
+            keywords: mode.keywords
+          }]
+        };
+        mode.className = null;
+      }
+    ],
     contains: [
       // Roxygen comments
       hljs.COMMENT(
@@ -133,38 +158,23 @@ export default function(hljs) {
       },
       {
         className: 'number',
+        beforeMatch: /([^a-zA-Z0-9._])/, // not part of an identifier
         variants: [
           // TODO: replace with negative look-behind when available
           // { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/ },
           // { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/ },
           // { begin: /(?<![a-zA-Z0-9._])(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/ }
-
-          // The below rules all eat an extra character in front (for the
-          // look-behind check) and then exclude it from the match, but I think
-          // in many cases this will work out just fine.
           {
             // Special case: only hexadecimal binary powers can contain fractions.
-            begin: /([^a-zA-Z0-9._])(?=0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?)/,
-            end: /0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/,
-            excludeBegin: true
+            match: /0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/,
           },
           {
-            begin: /([^a-zA-Z0-9._])(?=0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?)/,
-            end: /0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/ ,
-            excludeBegin: true
+            match: /0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/
           },
           {
-            begin: /([^a-zA-Z0-9._])(?=(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?)/,
-            end: /(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/,
-            excludeBegin: true
+            match: /(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/,
           }
         ],
-        // "on:begin": (match, response) => {
-        //   if (match.index > 0) {
-        //     let priorChar = match.input[match.index - 1];
-        //     if (priorChar.match(/[a-zA-Z0-9._]/)) response.ignoreMatch();
-        //   }
-        // },
         relevance: 0
       },
 
