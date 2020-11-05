@@ -75,6 +75,7 @@ export default function(hljs) {
           contains: [{
             className: mode.className,
             begin: begin,
+            relevance: 0,
             keywords: mode.keywords
           }]
         };
