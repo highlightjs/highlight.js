@@ -69,17 +69,21 @@ export default function(hljs) {
       (mode, parent) => {
         if (!mode.beforeMatch) return;
 
-        let begin = mode.begin;
+        const begin = mode.begin;
+        const relevance = mode.relevance;
         mode.begin = regex.concat(mode.beforeMatch, regex.lookahead(mode.begin));
         mode.starts = {
+          relevance: 0,
           contains: [{
             className: mode.className,
             begin: begin,
-            relevance: 0,
-            keywords: mode.keywords
+            relevance: relevance,
+            keywords: mode.keywords,
+            endsParent: true
           }]
         };
-        mode.className = null;
+        mode.relevance = 0;
+        delete mode.className;
       }
     ],
     contains: [
@@ -159,6 +163,7 @@ export default function(hljs) {
       },
       {
         className: 'number',
+        relevance: 0,
         beforeMatch: /([^a-zA-Z0-9._])/, // not part of an identifier
         variants: [
           // TODO: replace with negative look-behind when available
@@ -176,9 +181,7 @@ export default function(hljs) {
             match: /(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/,
           }
         ],
-        relevance: 0
       },
-
       {
         // infix operator
         begin: '%',
