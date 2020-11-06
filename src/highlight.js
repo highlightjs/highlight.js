@@ -3,7 +3,8 @@ Syntax highlighting with language autodetection.
 https://highlightjs.org/
 */
 
-import deepFreeze from './vendor/deep_freeze.js';
+// @ts-ignore
+import deepFreeze from 'deep-freeze-es6';
 import Response from './lib/response.js';
 import TokenTreeEmitter from './lib/token_tree.js';
 import * as regex from './lib/regex.js';
