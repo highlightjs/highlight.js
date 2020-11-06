@@ -21,7 +21,7 @@ export function escapeHTML(value) {
  */
 export function inherit(original, ...objects) {
   /** @type Record<string,any> */
-  const result = {};
+  const result = Object.create(null);
 
   for (const key in original) {
     result[key] = original[key];
