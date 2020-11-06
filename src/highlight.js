@@ -11,7 +11,7 @@ import * as utils from './lib/utils.js';
 import * as MODES from './lib/modes.js';
 import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
-import { VuePlugin } from "./plugins/vue.js";
+import { BuildVuePlugin } from "./plugins/vue.js";
 
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
@@ -589,7 +589,7 @@ const HLJS = function(hljs) {
     );
     results.unshift(plaintext); // plaintext is always an option
 
-    const sorted = results.sort((a,b) => {
+    const sorted = results.sort((a, b) => {
       // sort base on relevance
       return b.relevance - a.relevance;
 
@@ -875,7 +875,7 @@ const HLJS = function(hljs) {
     inherit,
     addPlugin,
     // plugins for frameworks
-    vuePlugin: VuePlugin
+    vuePlugin: BuildVuePlugin(hljs).VuePlugin
   });
 
   hljs.debugMode = function() { SAFE_MODE = false; };
