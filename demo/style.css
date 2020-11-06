@@ -16,7 +16,7 @@ a {
 h1 {
   font-size: 150%;
   margin: 0;
-  padding: 1em 0;
+  padding: 1em 0 0.5em;
 }
 
 h2 {
