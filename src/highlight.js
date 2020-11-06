@@ -99,14 +99,14 @@ const HLJS = function(hljs) {
    * @param {string} languageName - the language to use for highlighting
    * @param {string} code - the code to highlight
    * @param {boolean} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
-   * @param {Mode} [continuation] - current continuation mode, if any
+   * @param {CompiledMode} [continuation] - current continuation mode, if any
    *
    * @returns {HighlightResult} Result - an object that represents the result
    * @property {string} language - the language name
    * @property {number} relevance - the relevance score
    * @property {string} value - the highlighted HTML code
    * @property {string} code - the original raw code
-   * @property {Mode} top - top of the current mode stack
+   * @property {CompiledMode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignoreIllegals, continuation) {
@@ -138,7 +138,8 @@ const HLJS = function(hljs) {
    * @param {string} languageName - the language to use for highlighting
    * @param {string} code - the code to highlight
    * @param {boolean} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
-   * @param {Mode} [continuation] - current continuation mode, if any
+   * @param {CompiledMode} [continuation] - current continuation mode, if any
+   * @returns {HighlightResult} - result of the highlight operation
   */
   function _highlight(languageName, code, ignoreIllegals, continuation) {
     const codeToHighlight = code;
@@ -196,7 +197,7 @@ const HLJS = function(hljs) {
           return;
         }
         result = _highlight(top.subLanguage, modeBuffer, true, continuations[top.subLanguage]);
-        continuations[top.subLanguage] = result.top;
+        continuations[top.subLanguage] = /** @type {CompiledMode} */ (result.top);
       } else {
         result = highlightAuto(modeBuffer, top.subLanguage.length ? top.subLanguage : null);
       }
@@ -470,7 +471,7 @@ const HLJS = function(hljs) {
     let result = '';
     /** @type {CompiledMode} */
     let top = continuation || md;
-    /** @type Record<string,Mode> */
+    /** @type Record<string,CompiledMode> */
     const continuations = {}; // keep continuations for sub-languages
     const emitter = new options.__emitter(options);
     processContinuations();
@@ -709,7 +710,7 @@ const HLJS = function(hljs) {
   /**
    * Updates highlight.js global options with the passed options
    *
-   * @param {{}} userOptions
+   * @param {Partial<HLJSOptions>} userOptions
    */
   function configure(userOptions) {
     if (userOptions.useBR) {
