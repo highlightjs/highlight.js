@@ -22,10 +22,11 @@ Language Improvements:
 - fix(python) Handle comments on decorators (#2804) [Jonathan Sharpe][]
 - enh(diff) improve highlighting of diff for git patches [Florian Bezdeka][]
 - enh(mathematica) Rework entire implementation [Patrick Scheibe][]
-    - Correct matching of the many variations of Mathematica's numbers
-    - Matching of named-characters aka special symbols like `\[Gamma]`
-    - Updated list of version 12.1 built-in symbols
-    - Matching of patterns, slots, message-names and braces
+  - Correct matching of the many variations of Mathematica's numbers
+  - Matching of named-characters aka special symbols like `\[Gamma]`
+  - Updated list of version 12.1 built-in symbols
+  - Matching of patterns, slots, message-names and braces
+
 Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
