@@ -63,12 +63,14 @@ code {
 
 #sidebar ul::-webkit-scrollbar-track {
   background: #4d0607;
+  border-radius: 5px;
 }
 
 #sidebar ul::-webkit-scrollbar-thumb {
   background: #926868;
   border-right: 1px solid #4d0607;
   border-left: 1px solid #4d0607;
+  border-radius: 5px;
 }
 
 #sidebar ul::-webkit-scrollbar-thumb:hover {
