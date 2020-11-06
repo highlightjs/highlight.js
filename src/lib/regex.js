@@ -68,7 +68,7 @@ export function countMatchGroups(re) {
  * @param {string} lexeme
  */
 export function startsWith(re, lexeme) {
-  var match = re && re.exec(lexeme);
+  const match = re && re.exec(lexeme);
   return match && match.index === 0;
 }
 
@@ -90,19 +90,19 @@ export function join(regexps, separator = "|") {
   //   interesting elements
   // - non-matching or lookahead parentheses, which do not capture. These
   //   follow the '(' with a '?'.
-  var backreferenceRe = /\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\./;
-  var numCaptures = 0;
-  var ret = '';
-  for (var i = 0; i < regexps.length; i++) {
+  const backreferenceRe = /\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\./;
+  let numCaptures = 0;
+  let ret = '';
+  for (let i = 0; i < regexps.length; i++) {
     numCaptures += 1;
-    var offset = numCaptures;
-    var re = source(regexps[i]);
+    const offset = numCaptures;
+    let re = source(regexps[i]);
     if (i > 0) {
       ret += separator;
     }
     ret += "(";
     while (re.length > 0) {
-      var match = backreferenceRe.exec(re);
+      const match = backreferenceRe.exec(re);
       if (match == null) {
         ret += re;
         break;
