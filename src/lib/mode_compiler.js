@@ -25,9 +25,10 @@ const COMMON_KEYWORDS = [
  * Given the raw result of a language definition (Language), compiles this so
  * that it is ready for highlighting code.
  * @param {Language} language
+ * @param {{plugins: [HLJSPlugin] }} opts
  * @returns {CompiledLanguage}
  */
-export function compileLanguage(language) {
+export function compileLanguage(language, {plugins}) {
   /**
    * Builds a regex with the case sensativility of the current language
    *
@@ -316,7 +317,9 @@ export function compileLanguage(language) {
     mode.__beforeBegin = null;
 
     compilerExtensions.EARLY.forEach(ext => ext(mode, parent));
+    plugins.forEach(plugin => plugin["compileMode:early"] && plugin["compileMode:early"](mode, parent));
     language.extensions.forEach(ext => ext(mode, parent));
+    plugins.forEach(plugin => plugin["compileMode:late"] && plugin["compileMode:late"](mode, parent));
     compilerExtensions.LAST.forEach(ext => ext(mode, parent));
 
     mode.keywords = mode.keywords || mode.beginKeywords;
