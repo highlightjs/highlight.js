@@ -191,6 +191,7 @@ type CompiledMode = Omit<Mode, 'contains'> &
 
 interface ModeDetails {
     begin?: RegExp | string
+    match?: RegExp | string
     end?: RegExp | string
     className?: string
     contains?: ("self" | Mode)[]
@@ -209,7 +210,7 @@ interface ModeDetails {
     keywords?: Record<string, any> | string
     beginKeywords?: string
     relevance?: number
-    illegal?: string | RegExp
+    illegal?: string | RegExp | Array<string | RegExp>
     variants?: Mode[]
     cached_variants?: Mode[]
     // parsed

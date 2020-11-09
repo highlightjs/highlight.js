@@ -56,14 +56,6 @@ export default function(hljs) {
         'trigamma trunc unclass untracemem UseMethod xtfrm',
     },
     extensions: [
-      // allow `match` to used rather than `begin` simply for clarity
-      (mode, parent) => {
-        if (mode.match) {
-          mode.begin = mode.match;
-          delete mode.end;
-          delete mode.match;
-        }
-      },
       // allow beforeMatch to act as a "qualifier" for the match
       // the full match begin must be [beforeMatch][begin]
       (mode, parent) => {

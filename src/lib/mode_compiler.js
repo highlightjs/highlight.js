@@ -1,5 +1,6 @@
 import * as regex from './regex.js';
 import { inherit } from './utils.js';
+import * as compilerExtensions from "./compiler_extensions.js";
 
 // keywords that should have no default relevance value
 const COMMON_KEYWORDS = [
@@ -314,7 +315,9 @@ export function compileLanguage(language) {
     // __beforeBegin is considered private API, internal use only
     mode.__beforeBegin = null;
 
+    compilerExtensions.EARLY.forEach(ext => ext(mode, parent));
     language.extensions.forEach(ext => ext(mode, parent));
+    compilerExtensions.LAST.forEach(ext => ext(mode, parent));
 
     mode.keywords = mode.keywords || mode.beginKeywords;
 
