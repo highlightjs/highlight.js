@@ -14,9 +14,7 @@ import * as regex from './regex.js';
 
 /**
  * Allow `illegal` to contain an array of illegal values
- *
- * @param {Mode} mode
- * @param {Language | Mode} _parent
+ * @type {CompilerExt}
  */
 export function compileIllegal(mode, _parent) {
   if (!Array.isArray(mode.illegal)) return;
@@ -26,9 +24,7 @@ export function compileIllegal(mode, _parent) {
 
 /**
  * `match` to match a single expression for readability
- *
- * @param {Mode} mode
- * @param {Language | Mode} _parent
+ * @type {CompilerExt}
  */
 export function compileMatch(mode, _parent) {
   if (!mode.match) return;
@@ -40,9 +36,7 @@ export function compileMatch(mode, _parent) {
 
 /**
  * provides the default 1 relevance to all modes
- *
- * @param {Mode} mode
- * @param {Language | Mode} _parent
+ * @type {CompilerExt}
  */
 export function compileRelevance(mode, _parent) {
   // eslint-disable-next-line no-undefined

@@ -63,6 +63,7 @@ interface ModesAPI {
 }
 
 type LanguageFn = (hljs?: HLJSApi) => Language
+type CompilerExt = (mode: Mode, parent: Mode | Language | null) => void
 
 interface HighlightResult {
     relevance : number
