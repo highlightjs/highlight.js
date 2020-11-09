@@ -1,6 +1,6 @@
 import * as regex from './regex.js';
 import { inherit } from './utils.js';
-import * as compilerExtensions from "./compiler_extensions.js";
+import * as EXT from "./compiler_extensions.js";
 
 // keywords that should have no default relevance value
 const COMMON_KEYWORDS = [
@@ -313,14 +313,26 @@ export function compileLanguage(language, {plugins}) {
     if (mode.compiled) return cmode;
     mode.compiled = true;
 
-    // __beforeBegin is considered private API, internal use only
-    mode.__beforeBegin = null;
+    [
+      // do this early so compiler extensions generally don't have to worry about
+      // the distinction between match/begin
+      EXT.compileMatch
+    ].forEach(ext => ext(mode, parent));
 
-    compilerExtensions.EARLY.forEach(ext => ext(mode, parent));
     plugins.forEach(plugin => plugin["compileMode:early"] && plugin["compileMode:early"](mode, parent));
     language.extensions.forEach(ext => ext(mode, parent));
     plugins.forEach(plugin => plugin["compileMode:late"] && plugin["compileMode:late"](mode, parent));
-    compilerExtensions.LAST.forEach(ext => ext(mode, parent));
+
+    // __beforeBegin is considered private API, internal use only
+    mode.__beforeBegin = null;
+
+    [
+      // do this last so compiler extensions that come earlier have access to the
+      // raw array if they wanted to perhaps manipulate it, etc.
+      EXT.compileIllegal,
+      // default to 1 relevance if not specified
+      EXT.compileRelevance
+    ].forEach(ext => ext(mode, parent));
 
     mode.keywords = mode.keywords || mode.beginKeywords;
 
@@ -364,8 +376,6 @@ export function compileLanguage(language, {plugins}) {
       }
     }
     if (mode.illegal) cmode.illegalRe = langRe(mode.illegal);
-    // eslint-disable-next-line no-undefined
-    if (mode.relevance === undefined) mode.relevance = 1;
     if (!mode.contains) mode.contains = [];
 
     mode.contains = [].concat(...mode.contains.map(function(c) {

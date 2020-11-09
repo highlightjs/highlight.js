@@ -18,7 +18,7 @@ import * as regex from './regex.js';
  * @param {Mode} mode
  * @param {Language | Mode} _parent
  */
-function compileIllegal(mode, _parent) {
+export function compileIllegal(mode, _parent) {
   if (!Array.isArray(mode.illegal)) return;
 
   mode.illegal = regex.either(...mode.illegal);
@@ -30,7 +30,7 @@ function compileIllegal(mode, _parent) {
  * @param {Mode} mode
  * @param {Language | Mode} _parent
  */
-function compileMatch(mode, _parent) {
+export function compileMatch(mode, _parent) {
   if (!mode.match) return;
   if (mode.begin || mode.end) throw new Error("begin & end are not supported with match");
 
@@ -38,16 +38,13 @@ function compileMatch(mode, _parent) {
   delete mode.match;
 }
 
-const EARLY = [
-  // do this early so compiler extensions generally don't have to worry about
-  // the distinction between match/begin
-  compileMatch
-];
-
-const LAST = [
-  // do this last so compiler extensions that come earlier have access to the
-  // raw array if they wanted to perhaps manipulate it, etc.
-  compileIllegal
-];
-
-export { EARLY, LAST };
+/**
+ * provides the default 1 relevance to all modes
+ *
+ * @param {Mode} mode
+ * @param {Language | Mode} _parent
+ */
+export function compileRelevance(mode, _parent) {
+  // eslint-disable-next-line no-undefined
+  if (mode.relevance === undefined) mode.relevance = 1;
+}
