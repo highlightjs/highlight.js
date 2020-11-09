@@ -21,7 +21,7 @@ import * as regex from './regex.js';
 function compileIllegal(mode, _parent) {
   if (!Array.isArray(mode.illegal)) return;
 
-  mode.illegal = regex.either(mode.illegal);
+  mode.illegal = regex.either(...mode.illegal);
 }
 
 /**
