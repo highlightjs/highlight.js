@@ -91,8 +91,8 @@ type PluginEvent =
     | 'after:highlight'
     | 'before:highlightBlock'
     | 'after:highlightBlock'
-    | 'compileMode:early'
-    | 'compileMode:late'
+    | 'beforeCompile:early'
+    | 'beforeCompile:late'
 
 type HLJSPlugin = {
     [K in PluginEvent]? : any

@@ -252,23 +252,6 @@ export function compileLanguage(language, {plugins}) {
     return mm;
   }
 
-  // TODO: We need negative look-behind support to do this properly
-  /**
-   * Skip a match if it has a preceding dot
-   *
-   * This is used for `beginKeywords` to prevent matching expressions such as
-   * `bob.keyword.do()`. The mode compiler automatically wires this up as a
-   * special _internal_ 'on:begin' callback for modes with `beginKeywords`
-   * @param {RegExpMatchArray} match
-   * @param {CallbackResponse} response
-   */
-  function skipIfhasPrecedingDot(match, response) {
-    const before = match.input[match.index - 1];
-    if (before === ".") {
-      response.ignoreMatch();
-    }
-  }
-
   /** skip vs abort vs ignore
    *
    * @skip   - The mode is still entered and exited normally (and contains rules apply),
@@ -319,22 +302,21 @@ export function compileLanguage(language, {plugins}) {
       EXT.compileMatch
     ].forEach(ext => ext(mode, parent));
 
-    plugins.forEach(plugin => plugin["compileMode:early"] && plugin["compileMode:early"](mode, parent));
+    plugins.forEach(plugin => plugin["beforeCompile:early"] && plugin["beforeCompile:early"](mode, parent));
     language.extensions.forEach(ext => ext(mode, parent));
-    plugins.forEach(plugin => plugin["compileMode:late"] && plugin["compileMode:late"](mode, parent));
+    plugins.forEach(plugin => plugin["beforeCompile:late"] && plugin["beforeCompile:late"](mode, parent));
 
     // __beforeBegin is considered private API, internal use only
     mode.__beforeBegin = null;
 
     [
+      EXT.beginKeywords,
       // do this last so compiler extensions that come earlier have access to the
       // raw array if they wanted to perhaps manipulate it, etc.
       EXT.compileIllegal,
       // default to 1 relevance if not specified
       EXT.compileRelevance
     ].forEach(ext => ext(mode, parent));
-
-    mode.keywords = mode.keywords || mode.beginKeywords;
 
     let keywordPattern = null;
     if (typeof mode.keywords === "object") {
@@ -351,20 +333,13 @@ export function compileLanguage(language, {plugins}) {
       throw new Error("ERR: Prefer `keywords.$pattern` to `mode.lexemes`, BOTH are not allowed. (see mode reference) ");
     }
 
+    keywordPattern = keywordPattern || mode.lexemes || /\w+/;
+
     // `mode.lexemes` was the old standard before we added and now recommend
     // using `keywords.$pattern` to pass the keyword pattern
-    cmode.keywordPatternRe = langRe(mode.lexemes || keywordPattern || /\w+/, true);
+    cmode.keywordPatternRe = langRe(keywordPattern, true);
 
     if (parent) {
-      if (mode.beginKeywords) {
-        // for languages with keywords that include non-word characters checking for
-        // a word boundary is not sufficient, so instead we check for a word boundary
-        // or whitespace - this does no harm in any case since our keyword engine
-        // doesn't allow spaces in keywords anyways and we still check for the boundary
-        // first
-        mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')(?!\\.)(?=\\b|\\s)';
-        mode.__beforeBegin = skipIfhasPrecedingDot;
-      }
       if (!mode.begin) mode.begin = /\B|\b/;
       cmode.beginRe = langRe(mode.begin);
       if (mode.endSameAsBegin) mode.end = mode.begin;
