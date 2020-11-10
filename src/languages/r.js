@@ -55,7 +55,7 @@ export default function(hljs) {
         'standardGeneric substitute sum switch tan tanh tanpi tracemem ' +
         'trigamma trunc unclass untracemem UseMethod xtfrm',
     },
-    extensions: [
+    compilerExtensions: [
       // allow beforeMatch to act as a "qualifier" for the match
       // the full match begin must be [beforeMatch][begin]
       (mode, parent) => {

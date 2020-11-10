@@ -163,6 +163,7 @@ interface LanguageDetail {
     compiled?: boolean,
     exports?: any,
     classNameAliases?: Record<string, string>
+    compilerExtensions?: CompilerExt[]
 }
 
 type Language = LanguageDetail & Partial<Mode>

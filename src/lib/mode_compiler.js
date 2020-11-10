@@ -11,10 +11,10 @@ import { compileKeywords } from "./compile_keywords.js";
  * Given the raw result of a language definition (Language), compiles this so
  * that it is ready for highlighting code.
  * @param {Language} language
- * @param {{plugins: HLJSPlugin[]] }} opts
+ * @param {{plugins: HLJSPlugin[] }} opts
  * @returns {CompiledLanguage}
  */
-export function compileLanguage(language, {plugins}) {
+export function compileLanguage(language, { plugins }) {
   /**
    * Builds a regex with the case sensativility of the current language
    *
@@ -289,7 +289,7 @@ export function compileLanguage(language, {plugins}) {
     ].forEach(ext => ext(mode, parent));
 
     plugins.forEach(plugin => plugin["beforeCompile:early"] && plugin["beforeCompile:early"](mode, parent));
-    language.extensions.forEach(ext => ext(mode, parent));
+    language.compilerExtensions.forEach(ext => ext(mode, parent));
     plugins.forEach(plugin => plugin["beforeCompile:late"] && plugin["beforeCompile:late"](mode, parent));
 
     // __beforeBegin is considered private API, internal use only
@@ -352,7 +352,7 @@ export function compileLanguage(language, {plugins}) {
     return cmode;
   }
 
-  if (!language.extensions) language.extensions = [];
+  if (!language.compilerExtensions) language.compilerExtensions = [];
 
   // self is not valid at the top-level
   if (language.contains && language.contains.includes('self')) {
