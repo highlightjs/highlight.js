@@ -336,7 +336,7 @@ export function compileLanguage(language, { plugins }) {
         cmode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
       }
     }
-    if (mode.illegal) cmode.illegalRe = langRe(mode.illegal);
+    if (mode.illegal) cmode.illegalRe = langRe(/** @type {RegExp | string} */ (mode.illegal));
     if (!mode.contains) mode.contains = [];
 
     mode.contains = [].concat(...mode.contains.map(function(c) {

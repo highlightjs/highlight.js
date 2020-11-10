@@ -9,6 +9,7 @@ Category: scientific
 
 import * as regex from '../lib/regex.js';
 
+/** @type LanguageFn */
 export default function(hljs) {
   // Identifiers in R cannot start with `_`, but they can start with `.` if it
   // is not immediately followed by a digit.
