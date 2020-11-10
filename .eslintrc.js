@@ -14,10 +14,10 @@ module.exports = {
     SharedArrayBuffer: "readonly"
   },
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2015,
     sourceType: "module"
   },
-  parser: '@typescript-eslint/parser',
+  // parser: '@typescript-eslint/parser',
   plugins: [
     "@typescript-eslint"
   ],

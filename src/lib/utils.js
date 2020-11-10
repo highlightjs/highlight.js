@@ -21,7 +21,7 @@ export function escapeHTML(value) {
  */
 export function inherit(original, ...objects) {
   /** @type Record<string,any> */
-  var result = Object.create(null);
+  const result = Object.create(null);
 
   for (const key in original) {
     result[key] = original[key];
@@ -55,9 +55,9 @@ function tag(node) {
  */
 export function nodeStream(node) {
   /** @type Event[] */
-  var result = [];
+  const result = [];
   (function _nodeStream(node, offset) {
-    for (var child = node.firstChild; child; child = child.nextSibling) {
+    for (let child = node.firstChild; child; child = child.nextSibling) {
       if (child.nodeType === 3) {
         offset += child.nodeValue.length;
       } else if (child.nodeType === 1) {
@@ -90,9 +90,9 @@ export function nodeStream(node) {
  * @param {string} value - the original source itself
  */
 export function mergeStreams(original, highlighted, value) {
-  var processed = 0;
-  var result = '';
-  var nodeStack = [];
+  let processed = 0;
+  let result = '';
+  const nodeStack = [];
 
   function selectStream() {
     if (!original.length || !highlighted.length) {
@@ -147,7 +147,7 @@ export function mergeStreams(original, highlighted, value) {
   }
 
   while (original.length || highlighted.length) {
-    var stream = selectStream();
+    let stream = selectStream();
     result += escapeHTML(value.substring(processed, stream[0].offset));
     processed = stream[0].offset;
     if (stream === original) {

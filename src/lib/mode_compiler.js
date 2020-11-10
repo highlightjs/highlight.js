@@ -2,7 +2,7 @@ import * as regex from './regex.js';
 import { inherit } from './utils.js';
 
 // keywords that should have no default relevance value
-var COMMON_KEYWORDS = 'of and for in not or if then'.split(' ');
+const COMMON_KEYWORDS = 'of and for in not or if then'.split(' ');
 
 // compilation
 
@@ -442,7 +442,7 @@ function expandOrCloneMode(mode) {
  */
 function compileKeywords(rawKeywords, caseInsensitive) {
   /** @type KeywordDict */
-  var compiledKeywords = {};
+  const compiledKeywords = {};
 
   if (typeof rawKeywords === 'string') { // string
     splitAndCompile('keyword', rawKeywords);
@@ -468,7 +468,7 @@ function compileKeywords(rawKeywords, caseInsensitive) {
       keywordList = keywordList.toLowerCase();
     }
     keywordList.split(' ').forEach(function(keyword) {
-      var pair = keyword.split('|');
+      const pair = keyword.split('|');
       compiledKeywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
     });
   }

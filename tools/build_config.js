@@ -20,8 +20,8 @@ module.exports = {
               }
             }
           }
-        ],
-      },
+        ]
+      }
     },
     browser_core: {
       input: {
