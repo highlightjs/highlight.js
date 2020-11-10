@@ -288,9 +288,9 @@ export function compileLanguage(language, { plugins }) {
       EXT.compileMatch
     ].forEach(ext => ext(mode, parent));
 
-    plugins.forEach(plugin => plugin["beforeCompile:early"] && plugin["beforeCompile:early"](mode, parent));
+    plugins.forEach(plugin => plugin["before:compileEarly"] && plugin["before:compileEarly"](mode, parent));
     language.compilerExtensions.forEach(ext => ext(mode, parent));
-    plugins.forEach(plugin => plugin["beforeCompile:late"] && plugin["beforeCompile:late"](mode, parent));
+    plugins.forEach(plugin => plugin["before:compileLate"] && plugin["before:compileLate"](mode, parent));
 
     // __beforeBegin is considered private API, internal use only
     mode.__beforeBegin = null;

@@ -13,11 +13,11 @@ describe("compiler extensions", function() {
       };
     });
     const plugin = {
-      "beforeCompile:early": (mode, parent) => {
+      "before:compileEarly": (mode, parent) => {
         if (mode.earlyWantsToBeBegin) mode.begin = mode.earlyWantsToBeBegin;
         if (mode.apple) mode.orange = true;
       },
-      "beforeCompile:late": (mode, parent) => {
+      "before:compileLate": (mode, parent) => {
         if (mode.lateWantsToBeBegin) mode.begin = mode.lateWantsToBeBegin;
         if (mode.orange) mode.lime = true;
       }
@@ -30,11 +30,11 @@ describe("compiler extensions", function() {
 
     const [first, second] = hljs.getLanguage("extension_test").contains;
 
-    it("beforeCompile:early is executed", () => {
+    it("before:compileEarly is executed", () => {
       first.begin.should.equal("booger");
     });
 
-    it("beforeCompile:late is executed", () => {
+    it("before:compileLate is executed", () => {
       second.begin.should.equal("booger");
     });
 

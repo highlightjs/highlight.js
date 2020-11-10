@@ -130,3 +130,41 @@ language
   The language determined from the class attribute (or undefined).
 
 It returns nothing.
+
+
+before:compile(mode, parent)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This allows plugins to extend the mode compiler to add their own syntactic sugar
+to make reading and writing grammars easier.
+
+mode
+  The incoming mode object (before compilation)
+
+parent
+  The parent mode of the mode (null for the top level language mode)
+
+For example lets look at a tiny plugin to allow us to write ``match``  in our
+modes to better express our intent of "match a single item" vs ``begin``.
+
+::
+
+    hljs.addPlugin({
+      'before:compile': (mode, _parent) => {
+        // first some quick sanity checks
+        if (!mode.match) return;
+
+        // then check for users doing things that would make no sense
+        if (mode.begin || mode.end) throw new Error("begin & end are not supported with match");
+
+        // copy the match regex into begin
+        mode.begin = mode.match;
+
+        // cleanup: delete our syntactic construct
+        delete mode.match;
+      }
+    })
+
+It returns nothing.
+
+
