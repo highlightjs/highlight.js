@@ -1,6 +1,6 @@
 const hljs = require('../../build');
 
-describe("bugs", function () {
+describe("parser/should not destroy data", function () {
 
   // CONTEXT: https://github.com/highlightjs/highlight.js/pull/2219
   describe("a grammar with a mode that makes a 0 width match", () => {
@@ -11,7 +11,7 @@ describe("bugs", function () {
         // broken regex from old Fortran ruleset
         const NUMBER = {
           className: "number",
-          begin: '(?=\\b|\\+|\\-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][+-]?\\d+)?\\b\\.?',
+          begin: '(?=\\b|\\+|-|\\.)(?=\\.\\d|\\d)(?:\\d+)?(?:\\.?\\d*)(?:[de][+-]?\\d+)?\\b\\.?',
         }
 
         return {
