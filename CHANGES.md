@@ -20,13 +20,24 @@ Language Improvements:
 - enh(ruby) Match numeric literals per language documentation [Richard Gibson][]
 - enh(javascript) Match numeric literals per ECMA-262 spec [Richard Gibson][]
 - enh(java) Match numeric literals per Java Language Specification [Richard Gibson][]
+- enh(swift) Match numeric literals per language reference [Richard Gibson][]
 - enh(php) highlight variables (#2785) [Taufik Nurrohman][]
 - fix(python) Handle comments on decorators (#2804) [Jonathan Sharpe][]
 - enh(diff) improve highlighting of diff for git patches [Florian Bezdeka][]
+- enh(mathematica) Rework entire implementation [Patrick Scheibe][]
+  - Correct matching of the many variations of Mathematica's numbers
+  - Matching of named-characters aka special symbols like `\[Gamma]`
+  - Updated list of version 12.1 built-in symbols
+  - Matching of patterns, slots, message-names and braces
 
 Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
+- fix(dev) the Vue.js plugin no longer throws an exception when hljs is not in the global namespace [Kyle Brown][]
+
+Parser:
+
+- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
 
 New themes:
 
@@ -41,6 +52,8 @@ New themes:
 [Jan Pilzer]: https://github.com/Hirse
 [Jonathan Sharpe]: https://github.com/textbook
 [Michael Rush]: https://github.com/rushimusmaximus
+[Patrick Scheibe]: https://github.com/halirutan
+[Kyle Brown]: https://github.com/kylebrown9
 
 
 ## Version 10.3.1
