@@ -45,8 +45,10 @@ Returns an object with the following properties:
 * ``second_best``: object with the same structure for second-best heuristically detected language (may be absent)
 
 
-``fixMarkup(value)``
---------------------
+``fixMarkup(value)`` (deprecated as of 10.3)
+--------------------------------------------
+
+**fixMarkup is deprecated and will be removed entirely in v11.**
 
 Post-processing of the highlighted markup. Currently consists of replacing indentation TAB characters and using ``<br>`` tags instead of new-line characters. Options are set globally with ``configure``.
 
