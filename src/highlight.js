@@ -608,6 +608,7 @@ const HLJS = function(hljs) {
       // relevance while preserving the original ordering - which is how ties
       // have historically been settled, ie the language that comes first always
       // wins in the case of a tie
+      return 0;
     });
 
     const [best, secondBest] = sorted;
