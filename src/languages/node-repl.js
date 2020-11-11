@@ -1,13 +1,14 @@
 /*
-Language: JavaScript REPL
+Language: Node REPL
 Requires: javascript.js
 Author: Marat Nagayev <nagaevmt@yandex.ru>
-Category: common
+Category: scripting
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
     return {
-      name: 'JavaScript REPL',
+      name: 'Node REPL',
       contains: [
         {
           className: 'meta',
@@ -27,4 +28,3 @@ export default function(hljs) {
       ]
     }
   }
-  
