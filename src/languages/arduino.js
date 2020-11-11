@@ -2,7 +2,6 @@
 Language: Arduino
 Author: Stefania Mellai <s.mellai@arduino.cc>
 Description: The Arduino® Language is a superset of C++. This rules are designed to highlight the Arduino® source code. For info about language see http://www.arduino.cc.
-Requires: cpp.js
 Website: https://www.arduino.cc
 */
 

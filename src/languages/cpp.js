@@ -2,7 +2,6 @@
 Language: C++
 Category: common, system
 Website: https://isocpp.org
-Requires: c-like.js
 */
 
 import cLike from './c-like.js';

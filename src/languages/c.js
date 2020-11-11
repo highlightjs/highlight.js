@@ -2,7 +2,6 @@
 Language: C
 Category: common, system
 Website: https://en.wikipedia.org/wiki/C_(programming_language)
-Requires: c-like.js
 */
 
 import cLike from './c-like.js';
