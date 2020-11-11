@@ -1,5 +1,11 @@
 ## Version 10.4.0 (work in process)
 
+Deprecations:
+
+- (chore) `requireLanguage` is deprecated.
+  - Prefer `getLanguage` (with custom error handling) or built-time dependencies.
+  - See [Library API](https://highlightjs.readthedocs.io/en/latest/api.html#requirelanguage-name) for more information.
+
 Parser:
 
 - fix(vue): Language name now appears in CSS class (#2807) [Michael Rush][]
