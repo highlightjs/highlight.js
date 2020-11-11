@@ -28,6 +28,9 @@ Language Improvements:
   - Matching of named-characters aka special symbols like `\[Gamma]`
   - Updated list of version 12.1 built-in symbols
   - Matching of patterns, slots, message-names and braces
+- fix(swift) Handle keywords that start with `#` [Marcus Ortiz][]
+- enh(swift) Match `some` keyword [Marcus Ortiz][]
+- enh(swift) Match `@main` attribute [Marcus Ortiz][]
 
 Dev Improvements:
 
@@ -52,6 +55,7 @@ New themes:
 [Michael Rush]: https://github.com/rushimusmaximus
 [Patrick Scheibe]: https://github.com/halirutan
 [Kyle Brown]: https://github.com/kylebrown9
+[Marcus Ortiz]: https://github.com/mportiz08
 
 
 ## Version 10.3.1
