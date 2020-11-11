@@ -592,7 +592,7 @@ const HLJS = function(hljs) {
 
     const sorted = results.sort((a, b) => {
       // sort base on relevance
-      if (a.relevance != b.relevance) return b.relevance - a.relevance;
+      if (a.relevance !== b.relevance) return b.relevance - a.relevance;
 
       // always award the tie to the base language
       // ie if C++ and Arduino are tied, it's more likely to be C++
