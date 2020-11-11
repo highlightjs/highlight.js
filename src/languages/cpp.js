@@ -5,9 +5,11 @@ Website: https://isocpp.org
 Requires: c-like.js
 */
 
+import cLike from './c-like.js';
+
 /** @type LanguageFn */
 export default function(hljs) {
-  var lang = hljs.requireLanguage('c-like').rawDefinition();
+  const lang = cLike(hljs);
   // return auto-detection back on
   lang.disableAutodetect = false;
   lang.name = 'C++';

@@ -5,9 +5,11 @@ Website: https://en.wikipedia.org/wiki/C_(programming_language)
 Requires: c-like.js
 */
 
+import cLike from './c-like.js';
+
 /** @type LanguageFn */
 export default function(hljs) {
-  var lang = hljs.requireLanguage('c-like').rawDefinition();
+  const lang = cLike(hljs);
   // Until C is actually different than C++ there is no reason to auto-detect C
   // as it's own language since it would just fail auto-detect testing or
   // simply match with C++.

@@ -6,6 +6,8 @@ Requires: cpp.js
 Website: https://www.arduino.cc
 */
 
+import cPlusPlus from './cpp.js';
+
 /** @type LanguageFn */
 export default function(hljs) {
 
@@ -95,7 +97,7 @@ export default function(hljs) {
         'DEFAULT OUTPUT INPUT HIGH LOW'
   };
 
-  var ARDUINO = hljs.requireLanguage('cpp').rawDefinition();
+  var ARDUINO = cPlusPlus(hljs);
 
   var kws = ARDUINO.keywords;
 
