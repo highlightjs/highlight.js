@@ -7,7 +7,8 @@ Parser:
 
 New Languages:
 
-- Added Chapel grammar to SUPPORTED_LANGUAGES (#2806) [Brad Chamberlain][]
+- Added 3rd party Chapel grammar to SUPPORTED_LANGUAGES (#2806) [Brad Chamberlain][]
+- enh(javascript) Added `node-repl` for Node.js REPL sessions (#2792) [Marat Nagayev][]
 
 Language Improvements:
 
@@ -46,6 +47,7 @@ New themes:
 - *StackOverflow Dark* by [Jan Pilzer][]
 - *StackOverflow Light* by [Jan Pilzer][]
 
+[Marat Nagayev]: https://github.com/nagayev
 [Fredrik Ekre]: https://github.com/fredrikekre
 [Richard Gibson]: https://github.com/gibson042
 [Josh Goebel]: https://github.com/joshgoebel
