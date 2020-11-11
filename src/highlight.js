@@ -787,6 +787,9 @@ const HLJS = function(hljs) {
     @returns {Language | never}
   */
   function requireLanguage(name) {
+    console.warn("requireLanguage is deprecated and will be removed entirely in the future.");
+    console.warn("Please see https://github.com/highlightjs/highlight.js/pull/2844");
+
     const lang = getLanguage(name);
     if (lang) { return lang; }
 
