@@ -592,7 +592,17 @@ const HLJS = function(hljs) {
 
     const sorted = results.sort((a, b) => {
       // sort base on relevance
-      return b.relevance - a.relevance;
+      if (a.relevance != b.relevance) return b.relevance - a.relevance;
+
+      // always award the tie to the base language
+      // ie if C++ and Arduino are tied, it's more likely to be C++
+      if (a.language && b.language) {
+        if (getLanguage(a.language).supersetOf === b.language) {
+          return 1;
+        } else if (getLanguage(b.language).supersetOf === a.language) {
+          return -1;
+        }
+      }
 
       // otherwise say they are equal, which has the effect of sorting on
       // relevance while preserving the original ordering - which is how ties

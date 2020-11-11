@@ -105,6 +105,7 @@ export default function(hljs) {
 
   ARDUINO.name = 'Arduino';
   ARDUINO.aliases = ['ino'];
+  ARDUINO.supersetOf = "cpp";
 
   return ARDUINO;
 }
