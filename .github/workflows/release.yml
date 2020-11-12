@@ -1,0 +1,47 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*beta*"
+      - "*pre*"
+
+jobs:
+  prerelease:
+    name: Pre-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: match-tag-to-package-version
+        uses: geritol/match-tag-to-package-version@0.0.2
+        env:
+          TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
+
+      - name: Use Node.js 15.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+      - run: npm install
+      - run: node ./tools/build.js -t node
+      - run: npm test
+
+      - if: contains(env.GITHUB_REF, "beta") || contains(env.GITHUB_REF, "pre")
+        run: echo "NPM_TAG=beta" >> $GITHUB_ENV
+
+      - if: ${{ !(contains(env.GITHUB_REF, "beta") || contains(env.GITHUB_REF, "pre")) }}
+        run: echo "NPM_TAG=latest" >> $GITHUB_ENV
+
+      - name: Publish to NPM
+        id: publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          check-version: true
+          dry-run: true
+          token: ${{ secrets.NPM_TOKEN }}
+          tag: ${{ env.NPM_TAG }}
+
+      - if: steps.publish.outputs.type != 'none'
+        run: |
+          echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
