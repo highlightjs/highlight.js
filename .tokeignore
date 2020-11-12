@@ -1,0 +1,7 @@
+test/*
+src/styles/*
+*.md
+*.json
+tools
+docs
+types
