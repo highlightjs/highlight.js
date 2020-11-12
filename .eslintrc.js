@@ -61,12 +61,14 @@ module.exports = {
         "no-control-regex": 0,
         "no-useless-escape": 0,
         "comma-dangle": 1,
-        // "array-bracket-spacing": ["error","always",
+        "array-bracket-spacing": ["error", "always"
         //   {
         //     objectsInArrays: true
-        //   }],
+          // }
+        ],
         // "object-curly-spacing": 1,
         // "key-spacing": "off",
+        // "array-bracket-spacing": [1],
         "array-bracket-newline": [1, {
           multiline: true,
           minItems: 2

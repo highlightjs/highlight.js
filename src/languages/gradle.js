@@ -38,5 +38,5 @@ export default function(hljs) {
       hljs.REGEXP_MODE
 
     ]
-  }
+  };
 }
