@@ -22,6 +22,9 @@ New Languages:
 
 Language Improvements:
 
+- fix(r) fixed keywords not properly spaced (#2852) [Josh Goebel][]
+- fix(javascript) fix potential catastrophic backtracking (#2852) [Josh Goebel][]
+- fix(livescript) fix potential catastrophic backtracking (#2852) [Josh Goebel][]
 - bug(xml) XML grammar was far too imprecise/fuzzy [Josh Goebel][]
 - enh(xml) Improve precision to prevent false auto-detect positives [Josh Goebel][]
 - fix(js/ts) Prevent for/while/if/switch from falsly matching as functions (#2803) [Josh Goebel][]
