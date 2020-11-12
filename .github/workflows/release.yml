@@ -2,6 +2,8 @@ name: Release
 
 on:
   push:
+    branches:
+      - "*beta*"
     tags:
       - "*beta*"
       - "*pre*"
