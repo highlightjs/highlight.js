@@ -40,7 +40,7 @@ export default function(_hljs) {
       // Requests
       {
         className: 'string',
-        begin: regex.concat(/"/,regex.either(...HTTP_VERBS)),
+        begin: regex.concat(/"/, regex.either(...HTTP_VERBS)),
         end: /"/,
         keywords: HTTP_VERBS.join(" "),
         illegal: /\n/,
