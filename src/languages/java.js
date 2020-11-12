@@ -5,8 +5,6 @@ Category: common, enterprise
 Website: https://www.java.com/
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
   var JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
   var GENERIC_IDENT_RE = JAVA_IDENT_RE + '(<' + JAVA_IDENT_RE + '(\\s*,\\s*' + JAVA_IDENT_RE + ')*>)?';

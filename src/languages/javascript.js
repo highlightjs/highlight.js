@@ -18,7 +18,7 @@ export default function(hljs) {
    * @param {{after:number}} param1
    */
   const hasClosingTag = (match, { after }) => {
-    const tag = match[0].replace("<", "</");
+    const tag = "</" + match[0].slice(1);
     const pos = match.input.indexOf(tag, after);
     return pos !== -1;
   };

@@ -101,5 +101,5 @@ export default function(hljs) {
     aliases: ['hylang'],
     illegal: /\S/,
     contains: [hljs.SHEBANG(), LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL]
-  }
+  };
 }

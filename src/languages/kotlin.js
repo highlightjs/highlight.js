@@ -66,7 +66,7 @@ export default function(hljs) {
       }
     ]
   };
-  SUBST.contains.push(STRING)
+  SUBST.contains.push(STRING);
 
   var ANNOTATION_USE_SITE = {
     className: 'meta', begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
