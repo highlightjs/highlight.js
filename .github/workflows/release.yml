@@ -29,10 +29,10 @@ jobs:
       - run: node ./tools/build.js -t node
       - run: npm test
 
-      - if: contains(env.GITHUB_REF, "beta") || contains(env.GITHUB_REF, "pre")
+      - if: contains(env.GITHUB_REF, 'beta') || contains(env.GITHUB_REF, 'pre')
         run: echo "NPM_TAG=beta" >> $GITHUB_ENV
 
-      - if: ${{ !(contains(env.GITHUB_REF, "beta") || contains(env.GITHUB_REF, "pre")) }}
+      - if: ${{ !(contains(env.GITHUB_REF, 'beta') || contains(env.GITHUB_REF, 'pre')) }}
         run: echo "NPM_TAG=latest" >> $GITHUB_ENV
 
       - name: Publish to NPM
