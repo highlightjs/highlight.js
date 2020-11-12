@@ -6,7 +6,7 @@ Website: https://esolangs.org/wiki/Brainfuck
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var LITERAL = {
+  const LITERAL = {
     className: 'literal',
     begin: /[+-]/,
     relevance: 0
