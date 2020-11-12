@@ -57,12 +57,18 @@ module.exports = {
         // // languages are all over the map and we don't want to
         // // do a mass edit so turn off the most egregious rule violations
         // indent: "off",
+        "camelcase": 0,
+        "no-control-regex": 0,
         "no-useless-escape": 0,
         "comma-dangle": 1,
-        // "array-bracket-spacing": 1,
+        // "array-bracket-spacing": ["error","always",
+        //   {
+        //     objectsInArrays: true
+        //   }],
         // "object-curly-spacing": 1,
         // "key-spacing": "off",
         "array-bracket-newline": [1, {
+          multiline: true,
           minItems: 2
         }],
         "array-element-newline": 1,
