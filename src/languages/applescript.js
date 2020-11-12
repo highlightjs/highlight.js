@@ -3,6 +3,7 @@ Language: AppleScript
 Authors: Nathan Grigg <nathan@nathanamy.org>, Dr. Drang <drdrang@gmail.com>
 Category: scripting
 Website: https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html
+Audit: 2020
 */
 
 /** @type LanguageFn */
@@ -12,18 +13,18 @@ export default function(hljs) {
   });
   const PARAMS = {
     className: 'params',
-    begin: '\\(',
-    end: '\\)',
+    begin: /\(/,
+    end: /\)/,
     contains: [
       'self',
       hljs.C_NUMBER_MODE,
       STRING
     ]
   };
-  const COMMENT_MODE_1 = hljs.COMMENT('--', '$');
+  const COMMENT_MODE_1 = hljs.COMMENT(/--/, /$/);
   const COMMENT_MODE_2 = hljs.COMMENT(
-    '\\(\\*',
-    '\\*\\)',
+    /\(\*/,
+    /\*\)/,
     {
       contains: [
         'self', // allow nesting
@@ -39,7 +40,7 @@ export default function(hljs) {
 
   return {
     name: 'AppleScript',
-    aliases: ['osascript'],
+    aliases: [ 'osascript' ],
     keywords: {
       keyword:
         'about above after against and around as at back before beginning ' +
@@ -82,7 +83,7 @@ export default function(hljs) {
       {
         className: 'literal',
         begin:
-          '\\b(text item delimiters|current application|missing value)\\b'
+          /\b(text item delimiters|current application|missing value)\b/
       },
       {
         className: 'keyword',
@@ -95,13 +96,13 @@ export default function(hljs) {
       },
       {
         beginKeywords: 'on',
-        illegal: '[${=;\\n]',
+        illegal: /[${=;\n]/,
         contains: [
           hljs.UNDERSCORE_TITLE_MODE,
           PARAMS
         ]
       }
     ].concat(COMMENTS),
-    illegal: '//|->|=>|\\[\\['
+    illegal: /\/\/|->|=>|\[\[/
   };
 }
