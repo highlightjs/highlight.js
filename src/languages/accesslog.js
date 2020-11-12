@@ -3,13 +3,24 @@
  Author: Oleg Efimov <efimovov@gmail.com>
  Description: Apache/Nginx Access Logs
  Website: https://httpd.apache.org/docs/2.4/logs.html#accesslog
+ Audit: 2020
  */
 
+import * as regex from '../lib/regex.js';
+
 /** @type LanguageFn */
-export default function(hljs) {
+export default function(_hljs) {
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
   const HTTP_VERBS = [
-    "GET", "POST", "HEAD", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH", "TRACE"
+    "GET",
+    "POST",
+    "HEAD",
+    "PUT",
+    "DELETE",
+    "CONNECT",
+    "OPTIONS",
+    "PATCH",
+    "TRACE"
   ];
   return {
     name: 'Apache Access Log',
@@ -17,27 +28,29 @@ export default function(hljs) {
       // IP
       {
         className: 'number',
-        begin: '^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(:\\d{1,5})?\\b',
+        begin: /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?\b/,
         relevance: 5
       },
       // Other numbers
       {
         className: 'number',
-        begin: '\\b\\d+\\b',
+        begin: /\b\d+\b/,
         relevance: 0
       },
       // Requests
       {
         className: 'string',
-        begin: '"(' + HTTP_VERBS.join("|") + ')',
-        end: '"',
+        begin: regex.concat(/"/,regex.either(...HTTP_VERBS)),
+        end: /"/,
         keywords: HTTP_VERBS.join(" "),
-        illegal: '\\n',
+        illegal: /\n/,
         relevance: 5,
-        contains: [{
-          begin: 'HTTP/[12]\\.\\d',
-          relevance: 5
-        }]
+        contains: [
+          {
+            begin: /HTTP\/[12]\.\d'/,
+            relevance: 5
+          }
+        ]
       },
       // Dates
       {
@@ -46,30 +59,30 @@ export default function(hljs) {
         // simple array accesses a[123] and [] and other common patterns
         // found in other languages
         begin: /\[\d[^\]\n]{8,}\]/,
-        illegal: '\\n',
+        illegal: /\n/,
         relevance: 1
       },
       {
         className: 'string',
         begin: /\[/,
         end: /\]/,
-        illegal: '\\n',
+        illegal: /\n/,
         relevance: 0
       },
       // User agent / relevance boost
       {
         className: 'string',
-        begin: '"Mozilla/\\d\\.\\d \\(',
-        end: '"',
-        illegal: '\\n',
+        begin: /"Mozilla\/\d\.\d \(/,
+        end: /"/,
+        illegal: /\n/,
         relevance: 3
       },
       // Strings
       {
         className: 'string',
-        begin: '"',
-        end: '"',
-        illegal: '\\n',
+        begin: /"/,
+        end: /"/,
+        illegal: /\n/,
         relevance: 0
       }
     ]
