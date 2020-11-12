@@ -7,7 +7,7 @@ Category: protocols
 */
 
 export default function(hljs) {
-  var BUILT_IN_TYPES = 'bool byte i16 i32 i64 double string binary';
+  const BUILT_IN_TYPES = 'bool byte i16 i32 i64 double string binary';
   return {
     name: 'Thrift',
     keywords: {
@@ -25,18 +25,24 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'class',
-        beginKeywords: 'struct enum service exception', end: /\{/,
+        beginKeywords: 'struct enum service exception',
+        end: /\{/,
         illegal: /\n/,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
-            starts: {endsWithParent: true, excludeEnd: true} // hack: eating everything after the first title
+            // hack: eating everything after the first title
+            starts: {
+              endsWithParent: true,
+              excludeEnd: true
+            }
           })
         ]
       },
       {
-        begin: '\\b(set|list|map)\\s*<', end: '>',
+        begin: '\\b(set|list|map)\\s*<',
+        end: '>',
         keywords: BUILT_IN_TYPES,
-        contains: ['self']
+        contains: [ 'self' ]
       }
     ]
   };
