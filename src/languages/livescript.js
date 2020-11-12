@@ -115,7 +115,7 @@ export default function(hljs) {
         {
           // regex can't start with space to parse x / 2 / 3 as two divisions
           // regex can't start with *, and it supports an "illegal" in the main mode
-          begin: /\/(?![ *])(\\\/|.)*?\/[gim]*(?=\W)/
+          begin: /\/(?![ *])(\\.|[^\\\n])*?\/[gim]*(?=\W)/
         }
       ]
     },
