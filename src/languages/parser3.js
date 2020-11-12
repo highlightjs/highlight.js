@@ -7,16 +7,17 @@ Category: template
 */
 
 export default function(hljs) {
-  var CURLY_SUBCOMMENT = hljs.COMMENT(
+  const CURLY_SUBCOMMENT = hljs.COMMENT(
     /\{/,
     /\}/,
     {
-      contains: ['self']
+      contains: [ 'self' ]
     }
   );
   return {
     name: 'Parser3',
-    subLanguage: 'xml', relevance: 0,
+    subLanguage: 'xml',
+    relevance: 0,
     contains: [
       hljs.COMMENT('^#', '$'),
       hljs.COMMENT(
@@ -24,9 +25,7 @@ export default function(hljs) {
         /\}/,
         {
           relevance: 10,
-          contains: [
-            CURLY_SUBCOMMENT
-          ]
+          contains: [ CURLY_SUBCOMMENT ]
         }
       ),
       {
