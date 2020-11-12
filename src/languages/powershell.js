@@ -242,7 +242,7 @@ export default function(hljs) {
     )
   };
 
-  PS_METHODS.contains.unshift(PS_TYPE)
+  PS_METHODS.contains.unshift(PS_TYPE);
 
   return {
     name: 'PowerShell',

@@ -20,7 +20,7 @@ export default function(hljs) {
     contains: [
       hljs.COMMENT('^#', '$'),
       hljs.COMMENT(
-        /\\^rem\{/,
+        /\^rem\{/,
         /\}/,
         {
           relevance: 10,
