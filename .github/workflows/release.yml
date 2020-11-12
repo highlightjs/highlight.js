@@ -1,9 +1,9 @@
 name: Release
 
 on:
+  pull_request:
+    branches: [ master ]
   push:
-    branches:
-      - "*beta*"
     tags:
       - "*beta*"
       - "*pre*"
