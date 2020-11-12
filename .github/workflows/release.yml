@@ -16,10 +16,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: match-tag-to-package-version
-        uses: geritol/match-tag-to-package-version@0.0.2
-        env:
-          TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
+      # - name: match-tag-to-package-version
+      #   uses: geritol/match-tag-to-package-version@0.0.2
+      #   env:
+      #     TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
 
       - name: Use Node.js 15.x
         uses: actions/setup-node@v1
