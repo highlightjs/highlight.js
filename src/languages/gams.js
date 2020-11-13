@@ -42,7 +42,7 @@ export default function (hljs) {
   var SYMBOLS = {
     className: 'symbol',
     variants: [
-      {begin: /\=[lgenxc]=/},
+      {begin: /=[lgenxc]=/},
       {begin: /\$/},
     ]
   };
@@ -78,7 +78,7 @@ export default function (hljs) {
       ASSIGNMENT,
       {
         className: 'comment',
-        begin: /([ ]*[a-z0-9&#*=?@>\\<:\-,()$\[\]_.{}!+%^]+)+/,
+        begin: /([ ]*[a-z0-9&#*=?@\\><:,()$[\]_.{}!+%^-]+)+/,
         relevance: 0
       },
     ],

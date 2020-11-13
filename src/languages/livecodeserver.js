@@ -165,6 +165,6 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       TITLE1
     ].concat(COMMENT_MODES),
-    illegal: ';$|^\\[|^=|&|{'
+    illegal: ';$|^\\[|^=|&|\\{'
   };
 }

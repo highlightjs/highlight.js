@@ -1,6 +1,26 @@
 # Highlight.js
 
-[![Build Status](https://travis-ci.org/highlightjs/highlight.js.svg?branch=master)](https://travis-ci.org/highlightjs/highlight.js) [![Greenkeeper badge](https://badges.greenkeeper.io/highlightjs/highlight.js.svg)](https://greenkeeper.io/) [![install size](https://packagephobia.now.sh/badge?p=highlight.js)](https://packagephobia.now.sh/result?p=highlight.js)
+[![latest version](https://badgen.net/npm/v/highlight.js?label=latest)](https://www.npmjs.com/package/highlight.js)
+[![license](https://badgen.net/github/license/highlightjs/highlight.js?color=cyan)](https://github.com/highlightjs/highlight.js/blob/master/LICENSE)
+[![install size](https://badgen.net/packagephobia/install/highlight.js?label=npm+install)](https://packagephobia.now.sh/result?p=highlight.js)
+![minified](https://img.shields.io/github/size/highlightjs/cdn-release/build/highlight.min.js?label=minified)
+[![NPM downloads weekly](https://badgen.net/npm/dw/highlight.js?label=npm+downloads&color=purple)](https://www.npmjs.com/package/highlight.js)
+[![jsDelivr CDN downloads](https://badgen.net/jsdelivr/hits/gh/highlightjs/cdn-release?label=jsDelivr+CDN&color=purple)](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release)
+![dev deps](https://badgen.net/david/dev/highlightjs/highlight.js?label=dev+deps)
+[![code quality](https://badgen.net/lgtm/grade/g/highlightjs/highlight.js/js)](https://lgtm.com/projects/g/highlightjs/highlight.js/?mode=list)
+
+[![build and CI status](https://badgen.net/github/checks/highlightjs/highlight.js?label=build)](https://github.com/highlightjs/highlight.js/actions?query=workflow%3A%22Node.js+CI%22)
+[![open issues](https://badgen.net/github/open-issues/highlightjs/highlight.js?label=issues&labelColor=orange&color=c41)](https://github.com/highlightjs/highlight.js/issues)
+[![help welcome issues](https://badgen.net/github/label-issues/highlightjs/highlight.js/help%20welcome/open?labelColor=393&color=6c6)](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+welcome%22)
+[![beginner friendly issues](https://badgen.net/github/label-issues/highlightjs/highlight.js/beginner%20friendly/open?labelColor=669&color=99c)](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22beginner+friendly%22)
+[![vulnerabilities](https://badgen.net/snyk/highlightjs/highlight.js)](https://snyk.io/test/github/highlightjs/highlight.js?targetFile=package.json)
+
+<!-- [![Build CI](https://img.shields.io/github/workflow/status/highlightjs/highlight.js/Node.js%20CI)](https://github.com/highlightjs/highlight.js/actions?query=workflow%3A%22Node.js+CI%22) -->
+<!-- [![commits since release](https://img.shields.io/github/commits-since/highlightjs/highlight.js/latest?label=commits+since)](https://github.com/highlightjs/highlight.js/commits/master) -->
+<!-- [![](https://data.jsdelivr.com/v1/package/gh/highlightjs/cdn-release/badge?style=rounded)](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release) -->
+<!-- [![Total Lines](https://img.shields.io/tokei/lines/github/highlightjs/highlight.js)]() -->
+<!-- [![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/highlight.js.svg)](https://bundlephobia.com/result?p=highlight.js) -->
+
 
 Highlight.js is a syntax highlighter written in JavaScript. It works in
 the browser as well as on the server. It works with pretty much any

@@ -13,11 +13,9 @@
     var screenHeight = $window.height()
 
     $categoryContainer.css('max-height', screenHeight / 4);
-    $categoryContainer.perfectScrollbar('update');
     $styleContainer.height(
       screenHeight - $styleContainer.position().top - 20
     );
-    $styleContainer.perfectScrollbar('update');
   }
 
   function selectCategory(category) {
@@ -83,7 +81,6 @@
     });
 
     $categories.first().click();
-    $categoryContainer.perfectScrollbar();
   }
 
   function selectStyle(style) {
@@ -109,7 +106,6 @@
       selectStyle($style.text());
     });
     $styles.first().click();
-    $styleContainer.perfectScrollbar();
   }
 
   $(function() {

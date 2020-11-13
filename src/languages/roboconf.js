@@ -37,7 +37,7 @@ export default function(hljs) {
       // Facet sections
       {
         begin: '^facet ' + IDENTIFIER,
-        end: '}',
+        end: /\}/,
         keywords: 'facet',
         contains: [
           PROPERTY,
@@ -48,7 +48,7 @@ export default function(hljs) {
       // Instance sections
       {
         begin: '^\\s*instance of ' + IDENTIFIER,
-        end: '}',
+        end: /\}/,
         keywords: 'name count channels instance-data instance-state instance of',
         illegal: /\S/,
         contains: [
@@ -61,7 +61,7 @@ export default function(hljs) {
       // Component sections
       {
         begin: '^' + IDENTIFIER,
-        end: '}',
+        end: /\}/,
         contains: [
           PROPERTY,
           hljs.HASH_COMMENT_MODE

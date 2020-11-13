@@ -1,0 +1,56 @@
+1;  10;  999;    0; 00;  000;     08;   019
+1_; 1_0; 9_9__9; 0; 0_0; 0_0_0__; 0__8; 01_9
+
+0b0;  0b11;  0b000;  0b010;  0b01011
+0b0_; 0b1_1; 0b0_00; 0b01_0; 0b01__0_1__1_
+
+0o77;   0o0; 0o01;  0o777;   0o644
+0o7_7_; 0o0; 0o0_1; 0o77__7; 0o6_44__
+
+0x0;  0xa0;   0x7FFF;  0xd3aD
+0x0_; 0xa__0; 0x7F_FF; 0xd3_aD__
+
+
+4.2;  4.20;   88.0;  13.37
+4.2_; 4.2__0; 8_8.0; 13_.3_7__
+
+0e10;  0.00e+10;    9e-10;     4.2E10;   40.0E+10;    0e100;   1010e+10
+0e1_0; 0.0__0e+1_0; 9_e-1__0_; 4.2_E1_0; 4_0_.0E+1_0; 0e1_0_0; 10_10e+10_
+
+0x0p0;   0x1.ep6;   0xa0p+01;    0x0.7FFp-18;        0xd3aD.B00p9
+0x0_P0_; 0x1__.Ep6; 0xa_0p+0__1; 0x0.7__F_F_P-1__8_; 0xd__3_aD.b00__p9
+
+
+// expressions containing numeric literals
++0
++-1
+2-3
+-10.magnitude
+fn(-5)
+0x2.p2
+
+// expressions not containing numeric literals
+fn(x0.d);
+
+// pseudo-expressions containing numeric literals
+.0
+0.
+
+// invalid pseudo-numeric expressions
+_0
+0b_0
+0b02
+0B0
+0o_0
+0o08
+0O7
+0x_0
+0x0G
+0X0
+1e_1
+
+0b1e1
+0o1e1
+
+0x0pA
+0x.1p1

@@ -11,7 +11,7 @@ export default function(hljs) {
     className: 'variable',
     variants: [
       {begin: /\$[\w\d#@][\w\d_]*/},
-      {begin: /\$\{(.*?)}/}
+      {begin: /\$\{(.*?)\}/}
     ]
   };
   var KEYWORDS = 'BEGIN END if else while do for in break continue delete next nextfile function func exit|10';

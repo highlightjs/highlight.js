@@ -188,8 +188,8 @@ export default function(hljs) {
     .concat({
       // we need to pair up {} inside our subst to prevent
       // it from ending too early by matching another }
-      begin: /{/,
-      end: /}/,
+      begin: /\{/,
+      end: /\}/,
       keywords: KEYWORDS,
       contains: [
         "self"
@@ -360,6 +360,11 @@ export default function(hljs) {
         illegal: /%/
       },
       {
+        // prevent this from getting swallowed up by function
+        // since they appear "function like"
+        beginKeywords: "while if switch catch for"
+      },
+      {
         className: 'function',
         // we have to count the parens to make sure we actually have the correct
         // bounding ( ).  There could be any number of sub-expressions inside
@@ -371,7 +376,7 @@ export default function(hljs) {
               '[^()]*' +
             '\\))*[^()]*' +
           '\\))*[^()]*' +
-          '\\)\\s*{', // end parens
+          '\\)\\s*\\{', // end parens
         returnBegin:true,
         contains: [
           PARAMS,
@@ -393,7 +398,7 @@ export default function(hljs) {
         beginKeywords: 'class',
         end: /[{;=]/,
         excludeEnd: true,
-        illegal: /[:"\[\]]/,
+        illegal: /[:"[\]]/,
         contains: [
           { beginKeywords: 'extends' },
           hljs.UNDERSCORE_TITLE_MODE
@@ -401,7 +406,7 @@ export default function(hljs) {
       },
       {
         begin: /\b(?=constructor)/,
-        end: /[\{;]/,
+        end: /[{;]/,
         excludeEnd: true,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
@@ -411,7 +416,7 @@ export default function(hljs) {
       },
       {
         begin: '(get|set)\\s+(?=' + IDENT_RE + '\\()',
-        end: /{/,
+        end: /\{/,
         keywords: "get set",
         contains: [
           hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),

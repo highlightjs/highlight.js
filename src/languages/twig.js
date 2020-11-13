@@ -48,10 +48,10 @@ export default function(hljs) {
     case_insensitive: true,
     subLanguage: 'xml',
     contains: [
-      hljs.COMMENT(/\{#/, /#}/),
+      hljs.COMMENT(/\{#/, /#\}/),
       {
         className: 'template-tag',
-        begin: /\{%/, end: /%}/,
+        begin: /\{%/, end: /%\}/,
         contains: [
           {
             className: 'name',
@@ -67,7 +67,7 @@ export default function(hljs) {
       },
       {
         className: 'template-variable',
-        begin: /\{\{/, end: /}}/,
+        begin: /\{\{/, end: /\}\}/,
         contains: ['self', FILTER, FUNCTIONS]
       }
     ]

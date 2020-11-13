@@ -92,7 +92,7 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        begin: '(' + CLASS_KEYWORDS.keyword.split(' ').join('|') + ')\\b', end: '({|$)', excludeEnd: true,
+        begin: '(' + CLASS_KEYWORDS.keyword.split(' ').join('|') + ')\\b', end: /(\{|$)/, excludeEnd: true,
         keywords: CLASS_KEYWORDS,
         contains: [
           hljs.UNDERSCORE_TITLE_MODE

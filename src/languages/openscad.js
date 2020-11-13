@@ -39,7 +39,7 @@ export default function(hljs) {
 	FUNCTIONS = {
 		className: 'function',
 		beginKeywords: 'module function',
-		end: '\\=|\\{',
+		end: /=|\{/,
 		contains: [PARAMS, hljs.UNDERSCORE_TITLE_MODE]
 	};
 

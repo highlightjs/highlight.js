@@ -6,9 +6,11 @@ Website: https://daringfireball.net/projects/markdown/
 Category: common, markup
 */
 
+import * as regex from '../lib/regex.js';
+
 export default function(hljs) {
   const INLINE_HTML = {
-    begin: '<', end: '>',
+    begin: /<\/?[A-Za-z_]/, end: '>',
     subLanguage: 'xml',
     relevance: 0
   };
@@ -58,29 +60,44 @@ export default function(hljs) {
       }
     ]
   };
+  const URL_SCHEME = /[A-Za-z][A-Za-z0-9+.-]*/;
   const LINK = {
-    begin: '\\[.+?\\][\\(\\[].*?[\\)\\]]',
+    variants: [
+      // too much like nested array access in so many languages
+      // to have any real relevance
+      { begin: /\[.+?\]\[.*?\]/, relevance: 0 },
+      // popular internet URLs
+      { begin: /\[.+?\]\(((data|javascript|mailto):|(?:http|ftp)s?:\/\/).*?\)/, relevance: 2 },
+      { begin: regex.concat(/\[.+?\]\(/, URL_SCHEME, /:\/\/.*?\)/), relevance: 2 },
+      // relative urls
+      { begin: /\[.+?\]\([./?&#].*?\)/, relevance: 1 },
+      // whatever else, lower relevance (might not be a link at all)
+      { begin: /\[.+?\]\(.*?\)/, relevance: 0 }
+    ],
     returnBegin: true,
     contains: [
       {
         className: 'string',
+        relevance: 0,
         begin: '\\[', end: '\\]',
         excludeBegin: true,
         returnEnd: true,
-        relevance: 0
       },
       {
         className: 'link',
+        relevance: 0,
         begin: '\\]\\(', end: '\\)',
-        excludeBegin: true, excludeEnd: true
+        excludeBegin: true,
+        excludeEnd: true
       },
       {
         className: 'symbol',
+        relevance: 0,
         begin: '\\]\\[', end: '\\]',
-        excludeBegin: true, excludeEnd: true
+        excludeBegin: true,
+        excludeEnd: true
       }
-    ],
-    relevance: 10
+    ]
   };
   const BOLD = {
     className: 'strong',

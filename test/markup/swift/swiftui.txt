@@ -1,0 +1,12 @@
+@main
+struct MyApp: App {
+    var body: some Scene {
+        WindowGroup {
+            #if os(iOS)
+            Text("Hello, world from iOS!")
+            #else
+            Text("Hello, world!")
+            #endif
+        }
+    }
+}

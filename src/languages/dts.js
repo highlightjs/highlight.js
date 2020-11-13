@@ -59,7 +59,7 @@ export default function(hljs) {
 
   var DTS_REFERENCE = {
     className: 'variable',
-    begin: '\\&[a-z\\d_]*\\b'
+    begin: /&[a-z\d_]*\b/
   };
 
   var DTS_KEYWORD = {
@@ -84,7 +84,7 @@ export default function(hljs) {
 
   var DTS_NODE = {
     className: 'class',
-    begin: /[a-zA-Z_][a-zA-Z\d_@]*\s{/,
+    begin: /[a-zA-Z_][a-zA-Z\d_@]*\s\{/,
     end: /[{;=]/,
     returnBegin: true,
     excludeEnd: true
@@ -92,8 +92,8 @@ export default function(hljs) {
 
   var DTS_ROOT_NODE = {
     className: 'class',
-    begin: '/\\s*{',
-    end: '};',
+    begin: '/\\s*\\{',
+    end: /\};/,
     relevance: 10,
     contains: [
       DTS_REFERENCE,
