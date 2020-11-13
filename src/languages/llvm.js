@@ -97,12 +97,7 @@ export default function(hljs) {
       'argmemonly double',
     contains: [
       TYPE,
-      hljs.COMMENT(/;\s*$/,
-        // this matches "empty comments"...
-        // ...because it's far more likely this is a statement terminator in
-        // another language than an actual comment
-        { relevance: 0 }
-      ),
+      hljs.COMMENT(/;\s*$/, null, { relevance: 0 }),
       hljs.COMMENT(/;/, /$/),
       hljs.QUOTE_STRING_MODE,
       {
