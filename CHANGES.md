@@ -1,4 +1,8 @@
-## Version 10.4.0 (work in process)
+## Version 10.4.0 (a work in process)
+
+Parser:
+
+- enh(parser) use negative look-ahead for `beginKeywords` support (#2813) [Josh Goebel][]
 
 Deprecations:
 
