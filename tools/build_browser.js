@@ -66,6 +66,14 @@ async function installDemo(languages, { minify }) {
   const assets = await glob("./demo/*.{js,css}");
   assets.forEach((file) => install(file));
 
+  languages = languages.filter((lang) =>
+    // hide a few languages
+    lang.name !== "plaintext"
+    && lang.name !== "c-like"
+    // no sample means no demo
+    && lang.sample
+  );
+
   const css = await glob("styles/*.css", {cwd:"./src"})
   const styles = css.map((el) => (
     { "name": _.startCase(path.basename(el,".css")), "path": el }
