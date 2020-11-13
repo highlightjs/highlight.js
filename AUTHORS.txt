@@ -305,5 +305,7 @@ Contributors:
 - Jonathan Sharpe <mail@jonrshar.pe>
 - Michael Rush <michaelrush@gmail.com>
 - Florian Bezdeka <florian@bezdeka.de>
+- Marat Nagayev <nagaevmt@yandex.ru>
 - Patrick Scheibe <patrick@halirutan.de>
 - Kyle Brown <kylebrown9@github>
+- Marcus Ortiz <mportiz08@gmail.com>
