@@ -2,7 +2,6 @@
 Language: C-like foundation grammar for C/C++ grammars
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Zaven Muradyan <megalivoithos@gmail.com>, Roel Deckers <admin@codingcat.nl>, Sam Wu <samsam2310@gmail.com>, Jordi Petit <jordi.petit@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>, Google Inc. (David Benjamin) <davidben@google.com>
-Category: common, system
 */
 
 /* In the future the intention is to split out the C/C++ grammars distinctly
@@ -18,7 +17,7 @@ export default function(hljs) {
   function optional(s) {
     return '(?:' + s + ')?';
   }
-  // added for historic reasons because `hljs.C_LINE_COMMENT_MODE` does 
+  // added for historic reasons because `hljs.C_LINE_COMMENT_MODE` does
   // not include such support nor can we be sure all the grammars depending
   // on it would desire this behavior
   var C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', {
