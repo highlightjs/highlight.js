@@ -14,7 +14,7 @@ export default function(hljs) {
         className: 'meta',
         begin: '^\\s{0,3}[/\\w\\d\\[\\]()@-]*[>%$#]',
         starts: {
-          end: '$', subLanguage: 'bash'
+          end: '[^\\\\](?=\\s*$)', subLanguage: 'bash'
         }
       }
     ]

@@ -1,3 +1,12 @@
+## Version 10.4.0 (a work in process)
+
+Language Improvements:
+
+- enh(shell) Add support for multiline commands with line continuation `\` (#2861) [Guillaume Grossetie][]
+
+[Guillaume Grossetie]: https://github.com/mogztter
+
+
 ## Version 10.4.0-beta1
 
 Parser:
