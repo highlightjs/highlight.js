@@ -63,7 +63,7 @@ export const PHRASAL_WORDS_MODE = {
  * @returns {Partial<Mode>}
  */
 export const COMMENT = function(begin, end, modeOptions = {}) {
-  var mode = inherit(
+  const mode = inherit(
     {
       className: 'comment',
       begin,
