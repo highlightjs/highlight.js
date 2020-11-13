@@ -23,6 +23,7 @@ New Languages:
 
 Language Improvements:
 
+- enh(shell) Recognize prompts which contain tilde `~` (#2859) [Guillaume Grossetie][]
 - enh(shell) Add support for multiline commands with line continuation `\` (#2861) [Guillaume Grossetie][]
 - enh(autodetect) Over 30+ improvements to auto-detect (#2745) [Josh Goebel][]
     - 4-5% improvement in auto-detect against large sample set
