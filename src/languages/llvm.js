@@ -4,10 +4,14 @@ Author: Michael Rodler <contact@f0rki.at>
 Description: language used as intermediate representation in the LLVM compiler framework
 Website: https://llvm.org/docs/LangRef.html
 Category: assembler
+Audit: 2020
 */
 
+import * as regex from '../lib/regex.js';
+
+/** @type LanguageFn */
 export default function(hljs) {
-  const IDENT_RE = '([-a-zA-Z$._][\\w\\-$.]*)';
+  const IDENT_RE = /([-a-zA-Z$._][\w$.-]*)/;
   const TYPE = {
     className: 'type',
     begin: /\bi\d+(?=\s|\b)/
@@ -25,8 +29,8 @@ export default function(hljs) {
   const NUMBER = {
     className: 'number',
     variants: [
-        { begin: '0[xX][a-fA-F0-9]+' },
-        { begin: '-?\\d+(?:[.]\\d+)?(?:[eE][-+]?\\d+(?:[.]\\d+)?)?' }
+        { begin: /0[xX][a-fA-F0-9]+/ },
+        { begin: /-?\d+(?:[.]\d+)?(?:[eE][-+]?\d+(?:[.]\d+)?)?/ }
     ],
     relevance: 0
   };
@@ -40,26 +44,27 @@ export default function(hljs) {
   const VARIABLE = {
     className: 'variable',
     variants: [
-      { begin: '%' + IDENT_RE },
-      { begin: '%\\d+' },
-      { begin: '#\\d+' },
+      { begin: regex.concat(/%/, IDENT_RE) },
+      { begin: /%\d+/ },
+      { begin: /#\d+/ },
     ]
   };
   const FUNCTION = {
     className: 'title',
     variants: [
-      { begin: '@' + IDENT_RE },
-      { begin: '@\\d+' },
-      { begin: '!' + IDENT_RE },
-      { begin: '!\\d+' + IDENT_RE },
+      { begin: regex.concat(/@/, IDENT_RE) },
+      { begin: /@\d+/ },
+      { begin: regex.concat(/!/, IDENT_RE) },
+      { begin: regex.concat(/!\d+/, IDENT_RE) },
       // https://llvm.org/docs/LangRef.html#namedmetadatastructure
       // obviously a single digit can also be used in this fashion
-      { begin: '!\\d+' }
+      { begin: /!\d+/ }
     ]
   };
 
   return {
     name: 'LLVM IR',
+    // TODO: split into different categories of keywords
     keywords:
       'begin end true false declare define global ' +
       'constant private linker_private internal ' +
@@ -110,7 +115,7 @@ export default function(hljs) {
         className: 'string',
         variants: [
           // Double-quoted string
-          { begin: '"', end: '[^\\\\]"' },
+          { begin: /"/, end: /[^\\]"/ },
         ]
       },
       FUNCTION,
