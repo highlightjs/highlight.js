@@ -51,7 +51,10 @@ export default function(hljs) {
       { begin: '@' + IDENT_RE },
       { begin: '@\\d+' },
       { begin: '!' + IDENT_RE },
-      { begin: '!\\d+' + IDENT_RE }
+      { begin: '!\\d+' + IDENT_RE },
+      // https://llvm.org/docs/LangRef.html#namedmetadatastructure
+      // obviously a single digit can also be used in this fashion
+      { begin: '!\\d+' }
     ]
   };
 
@@ -97,6 +100,9 @@ export default function(hljs) {
       'argmemonly double',
     contains: [
       TYPE,
+      // this matches "empty comments"...
+      // ...because it's far more likely this is a statement terminator in
+      // another language than an actual comment
       hljs.COMMENT(/;\s*$/, null, { relevance: 0 }),
       hljs.COMMENT(/;/, /$/),
       hljs.QUOTE_STRING_MODE,
