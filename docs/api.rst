@@ -45,8 +45,10 @@ Returns an object with the following properties:
 * ``second_best``: object with the same structure for second-best heuristically detected language (may be absent)
 
 
-``fixMarkup(value)``
---------------------
+``fixMarkup(value)`` (deprecated as of 10.3)
+--------------------------------------------
+
+**fixMarkup is deprecated and will be removed entirely in v11.**
 
 Post-processing of the highlighted markup. Currently consists of replacing indentation TAB characters and using ``<br>`` tags instead of new-line characters. Options are set globally with ``configure``.
 
@@ -138,8 +140,13 @@ Looks up a language by name or alias.
 Returns the language object if found, ``undefined`` otherwise.
 
 
-``requireLanguage(name)``
--------------------------
+``requireLanguage(name)`` (deprecated as of 10.4)
+-------------------------------------------------
+
+**This has been deprecated and will be removed in a future release.**  If you
+need this type of functionality use ``getLanguage`` with your own error
+handling.  It is highly recommended that all inter-dependencies between grammars
+be handled at built-time, not run-time.  This is what the core library now does.
 
 Looks up a language by name or alias.
 
