@@ -22,6 +22,7 @@ Language Improvements:
 - enh(php) highlight variables (#2785) [Taufik Nurrohman][]
 - fix(python) Handle comments on decorators (#2804) [Jonathan Sharpe][]
 - enh(diff) improve highlighting of diff for git patches [Florian Bezdeka][]
+- fix(llvm) lots of small improvements and fixes (#2830) [Josh Goebel][]
 
 Dev Improvements:
 
