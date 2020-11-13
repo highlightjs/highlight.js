@@ -1,0 +1,8 @@
+<span class="hljs-attribute">&lt;syntax&gt;</span>         ::= &lt;rule&gt; | &lt;rule&gt; &lt;syntax&gt;
+<span class="hljs-attribute">&lt;rule&gt;</span>           ::= &lt;opt-whitespace&gt; <span class="hljs-string">&quot;&lt;&quot;</span> &lt;rule-name&gt; <span class="hljs-string">&quot;&gt;&quot;</span> &lt;opt-whitespace&gt; <span class="hljs-string">&quot;::=&quot;</span> &lt;opt-whitespace&gt; &lt;expression&gt; &lt;line-end&gt;
+<span class="hljs-attribute">&lt;opt-whitespace&gt;</span> ::= <span class="hljs-string">&quot; &quot;</span> &lt;opt-whitespace&gt; | <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-attribute">&lt;expression&gt;</span>     ::= &lt;list&gt; | &lt;list&gt; &lt;opt-whitespace&gt; <span class="hljs-string">&quot;|&quot;</span> &lt;opt-whitespace&gt; &lt;expression&gt;
+<span class="hljs-attribute">&lt;line-end&gt;</span>       ::= &lt;opt-whitespace&gt; &lt;EOL&gt; | &lt;line-end&gt; &lt;line-end&gt;
+<span class="hljs-attribute">&lt;list&gt;</span>           ::= &lt;term&gt; | &lt;term&gt; &lt;opt-whitespace&gt; &lt;list&gt;
+<span class="hljs-attribute">&lt;term&gt;</span>           ::= &lt;literal&gt; | <span class="hljs-string">&quot;&lt;&quot;</span> &lt;rule-name&gt; <span class="hljs-string">&quot;&gt;&quot;</span>
+<span class="hljs-attribute">&lt;literal&gt;</span>        ::= <span class="hljs-string">&#x27;&quot;&#x27;</span> &lt;text&gt; <span class="hljs-string">&#x27;&quot;&#x27;</span> | <span class="hljs-string">&quot;&#x27;&quot;</span> &lt;text&gt; <span class="hljs-string">&quot;&#x27;&quot;</span>

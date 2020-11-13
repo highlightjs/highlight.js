@@ -1,0 +1,37 @@
+<span class="hljs-built_in">print</span> <span class="hljs-string">&quot;I am <span class="hljs-subst">#{<span class="hljs-built_in">math</span>.random! * <span class="hljs-number">100</span>}</span>% sure.&quot;</span>
+<span class="hljs-function">
+<span class="hljs-title">my_function</span> = <span class="hljs-params">(name=<span class="hljs-string">&quot;something&quot;</span>, height=<span class="hljs-number">100</span>)</span> -&gt;</span>
+  <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;Hello I am&quot;</span>, name
+  <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;My height is&quot;</span>, height
+
+my_function <span class="hljs-name">dance</span>: <span class="hljs-string">&quot;Tango&quot;</span>, <span class="hljs-name">partner</span>: <span class="hljs-string">&quot;none&quot;</span>
+
+my_func <span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,      <span class="hljs-comment">-- multi-line arguments</span>
+  <span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>
+
+<span class="hljs-built_in">table</span> = {
+  <span class="hljs-name">name</span>: <span class="hljs-string">&quot;Bill&quot;</span>,
+  <span class="hljs-name">age</span>: <span class="hljs-number">200</span>,
+  [<span class="hljs-string">&quot;favorite food&quot;</span>]: <span class="hljs-string">&quot;rice&quot;</span>,
+  :keyvalue,
+  [<span class="hljs-number">1</span>+<span class="hljs-number">7</span>]: <span class="hljs-string">&#x27;eight&#x27;</span>
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Inventory</span></span>
+  <span class="hljs-name">new</span>: <span class="hljs-function">=&gt;</span>
+    @items = {}
+
+  <span class="hljs-name">add_item</span>: <span class="hljs-function"><span class="hljs-params">(name)</span> =&gt;</span>
+    <span class="hljs-keyword">if</span> @items[name]
+      @items[name] += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">else</span>
+      @items[name] = <span class="hljs-number">1</span>
+
+inv = Inventory!
+inv\add_item <span class="hljs-string">&quot;t-shirt&quot;</span>
+inv\add_item <span class="hljs-string">&quot;pants&quot;</span>
+
+<span class="hljs-keyword">import</span>
+  assert_csrf
+  require_login
+  <span class="hljs-keyword">from</span> <span class="hljs-built_in">require</span> <span class="hljs-string">&quot;helpers&quot;</span>

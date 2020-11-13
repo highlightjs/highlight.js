@@ -1,0 +1,5 @@
+<span class="hljs-attribute">Content-Security-Policy</span>:
+    <span class="hljs-keyword">default-src</span> <span class="hljs-string">&#x27;self&#x27;</span>;
+    <span class="hljs-keyword">style-src</span> <span class="hljs-string">&#x27;self&#x27;</span> css.example.com;
+    <span class="hljs-keyword">img-src</span> *.example.com;
+    <span class="hljs-keyword">script-src</span> <span class="hljs-string">&#x27;unsafe-eval&#x27;</span> <span class="hljs-string">&#x27;self&#x27;</span> js.example.com <span class="hljs-string">&#x27;nonce-Nc3n83cnSAd3wc3Sasdfn939hc3&#x27;</span>

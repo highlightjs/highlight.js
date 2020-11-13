@@ -1,0 +1,21 @@
+<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">empty</span><span class="hljs-params">(<span class="hljs-variable">friends</span>)</span></span> {
+    Try adding some friends!
+} <span class="hljs-function"><span class="hljs-keyword">##</span><span class="hljs-title">loop</span><span class="hljs-params">(<span class="hljs-variable">friends</span>, <span class="hljs-string">&quot;friend&quot;</span>)</span></span> {
+    &lt;li&gt; <span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-params">(<span class="hljs-variable">friend</span>.<span class="hljs-variable">name</span>)</span></span> &lt;/li&gt;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">someTag</span><span class="hljs-params">(<span class="hljs-variable">parameter</span>.<span class="hljs-variable">list</span>, <span class="hljs-variable">goes</span>, <span class="hljs-string">&quot;here&quot;</span>)</span></span> {
+    This is an optional body here
+}
+
+<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">index</span><span class="hljs-params">(<span class="hljs-variable">friends</span>, <span class="hljs-string">&quot;0&quot;</span>)</span></span> {
+    Hello, <span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-params">(<span class="hljs-variable">self</span>)</span></span>!
+} <span class="hljs-function"><span class="hljs-keyword">##</span><span class="hljs-title">else</span><span class="hljs-params">()</span></span> {
+    Nobody&#x27;s there!
+}
+
+<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-params">()</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">raw</span><span class="hljs-params">()</span></span> {
+    &lt;li&gt; Hello &lt;/li&gt;
+}

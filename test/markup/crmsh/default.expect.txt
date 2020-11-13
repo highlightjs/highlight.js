@@ -1,0 +1,48 @@
+<span class="hljs-keyword">node</span> <span class="hljs-title">webui</span>
+<span class="hljs-keyword">node</span> 168633611:<span class="hljs-title"> node1</span>
+<span class="hljs-keyword">rsc_template</span><span class="hljs-title"> web-server</span> apache \
+	<span class="hljs-keyword">params</span> <span class="hljs-attr">port=</span><span class="hljs-number">8000</span> \
+	<span class="hljs-keyword">op</span> <span class="hljs-literal">monitor</span> <span class="hljs-attr">interval=</span><span class="hljs-number">10s</span>
+<span class="hljs-comment"># Never use this STONITH agent in production!</span>
+<span class="hljs-keyword">primitive</span><span class="hljs-title"> development-stonith</span> stonith:null \
+	<span class="hljs-keyword">params</span> <span class="hljs-attr">hostlist=</span><span class="hljs-string">&quot;webui node1 node2 node3&quot;</span>
+<span class="hljs-keyword">primitive</span><span class="hljs-title"> proxy</span> systemd:haproxy \
+	<span class="hljs-keyword">op</span> <span class="hljs-literal">monitor</span> <span class="hljs-attr">interval=</span><span class="hljs-number">10s</span>
+<span class="hljs-keyword">primitive</span><span class="hljs-title"> proxy-vip</span> IPaddr2 \
+	<span class="hljs-keyword">params</span> <span class="hljs-attr">ip=</span><span class="hljs-number">10.13</span>.<span class="hljs-number">37.20</span>
+<span class="hljs-keyword">primitive</span><span class="hljs-title"> srv1</span> @web-server
+<span class="hljs-keyword">primitive</span><span class="hljs-title"> srv2</span> @web-server
+<span class="hljs-keyword">primitive</span><span class="hljs-title"> test1</span> Dummy
+<span class="hljs-keyword">primitive</span><span class="hljs-title"> test2</span> IPaddr2 \
+	<span class="hljs-keyword">params</span> <span class="hljs-attr">ip=</span><span class="hljs-number">10.13</span>.<span class="hljs-number">37.99</span>
+<span class="hljs-keyword">primitive</span><span class="hljs-title"> vip1</span> IPaddr2 \
+	<span class="hljs-keyword">params</span> <span class="hljs-attr">ip=</span><span class="hljs-number">10.13</span>.<span class="hljs-number">37.21</span> \
+	<span class="hljs-keyword">op</span> <span class="hljs-literal">monitor</span> <span class="hljs-attr">interval=</span><span class="hljs-number">20s</span>
+<span class="hljs-keyword">primitive</span><span class="hljs-title"> vip2</span> IPaddr2 \
+	<span class="hljs-keyword">params</span> <span class="hljs-attr">ip=</span><span class="hljs-number">10.13</span>.<span class="hljs-number">37.22</span> \
+	<span class="hljs-keyword">op</span> <span class="hljs-literal">monitor</span> <span class="hljs-attr">interval=</span><span class="hljs-number">20s</span>
+<span class="hljs-keyword">group</span> <span class="hljs-title">g-proxy</span> proxy-vip proxy
+<span class="hljs-keyword">group</span> <span class="hljs-title">g-serv1</span> vip1 srv1
+<span class="hljs-keyword">group</span> <span class="hljs-title">g-serv2</span> vip2 srv2
+<span class="hljs-comment"># Never put the two web servers on the same node</span>
+<span class="hljs-keyword">colocation</span> <span class="hljs-title">co-serv</span> <span class="hljs-literal">-inf</span>: g-serv1 g-serv2
+<span class="hljs-comment"># Never put any web server or haproxy on webui</span>
+<span class="hljs-keyword">location</span> <span class="hljs-title">l-avoid-webui</span> { g-proxy g-serv1 g-serv2 } <span class="hljs-literal">-inf</span>: webui
+<span class="hljs-comment"># Prever to spread groups across nodes</span>
+<span class="hljs-keyword">location</span> <span class="hljs-title">l-proxy</span> g-proxy <span class="hljs-number">200</span>: node1
+<span class="hljs-keyword">location</span> <span class="hljs-title">l-serv1</span> g-serv1 <span class="hljs-number">200</span>: node2
+<span class="hljs-keyword">location</span> <span class="hljs-title">l-serv2</span> g-serv2 <span class="hljs-number">200</span>: node3
+<span class="hljs-keyword">property</span><span class="hljs-title"> cib-bootstrap-options:</span> \
+	<span class="hljs-attr">stonith-enabled=</span><span class="hljs-literal">true</span> \
+	<span class="hljs-attr">no-quorum-policy=</span>ignore \
+	<span class="hljs-attr">placement-strategy=</span>balanced \
+	<span class="hljs-attr">have-watchdog=</span><span class="hljs-literal">false</span> \
+	<span class="hljs-attr">dc-version=</span><span class="hljs-string">&quot;1.1.13-1.1.13+git20150827.e8888b9&quot;</span> \
+	<span class="hljs-attr">cluster-infrastructure=</span>corosync \
+	<span class="hljs-attr">cluster-name=</span>hacluster
+<span class="hljs-keyword">rsc_defaults</span><span class="hljs-title"> rsc-options:</span> \
+	<span class="hljs-attr">resource-stickiness=</span><span class="hljs-number">1</span> \
+	<span class="hljs-attr">migration-threshold=</span><span class="hljs-number">3</span>
+<span class="hljs-keyword">op_defaults</span><span class="hljs-title"> op-options:</span> \
+	<span class="hljs-attr">timeout=</span><span class="hljs-number">600</span> \
+	<span class="hljs-attr">record-pending=</span><span class="hljs-literal">true</span>

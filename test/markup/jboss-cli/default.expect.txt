@@ -1,0 +1,24 @@
+<span class="hljs-keyword">jms-queue</span> add <span class="hljs-params">--queue-address=myQueue</span> <span class="hljs-params">--entries=queue/myQueue</span>
+
+<span class="hljs-keyword">deploy</span> <span class="hljs-string">/path/to/file.war</span>
+
+<span class="hljs-string">/system-property=prop1</span><span class="hljs-function">:add</span><span class="hljs-params">(<span class="hljs-attr">value</span>=value1)</span>
+
+
+
+<span class="hljs-string">/extension=org.jboss.as.modcluster</span><span class="hljs-function">:add</span>
+
+<span class="hljs-string">./foo=bar</span><span class="hljs-function">:remove</span>
+
+<span class="hljs-string">/subsystem=security/security-domain=demo-realm/authentication=classic</span><span class="hljs-function">:add</span>
+
+<span class="hljs-string">/subsystem=security/security-domain=demo-realm/authentication=classic/login-module=UsersRoles</span><span class="hljs-function">:add</span><span class="hljs-params">( \
+    <span class="hljs-attr">code</span>=UsersRoles, \
+    <span class="hljs-attr">flag</span>=required, \
+    <span class="hljs-attr">module-options</span>=  { \
+         <span class="hljs-attr">usersProperties</span>=auth/demo-users.properties, \
+         <span class="hljs-attr">rolesProperties</span> =auth/demo-roles.properties,  \
+         <span class="hljs-attr">hashAlgorithm</span>= MD5, \
+         <span class="hljs-attr">hashCharset</span>=&quot;UTF-8&quot;  \
+    } \
+)</span>

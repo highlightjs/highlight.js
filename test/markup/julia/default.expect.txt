@@ -1,0 +1,99 @@
+<span class="hljs-comment">### Types</span>
+
+<span class="hljs-keyword">struct</span> Plus
+    f::typeof(+)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">mutable struct</span> Mut
+    mutable::A          <span class="hljs-comment"># mutable should not be highlighted (not followed by struct)</span>
+    primitive::B        <span class="hljs-comment"># primitive should not be highlighted (not followed by type)</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">primitive type</span> Prim <span class="hljs-number">8</span> <span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">abstract type</span> Abstr <span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">### Modules</span>
+
+<span class="hljs-keyword">module</span> M
+
+<span class="hljs-keyword">using</span> X
+<span class="hljs-keyword">import</span> Y
+
+<span class="hljs-keyword">export</span> a, b, c
+
+<span class="hljs-keyword">end</span> <span class="hljs-comment"># module</span>
+
+<span class="hljs-keyword">baremodule</span> Bare
+<span class="hljs-keyword">end</span>
+
+
+<span class="hljs-comment">### Miscellaneous</span>
+
+<span class="hljs-comment"># Some things new for Julia &gt;1.0</span>
+<span class="hljs-keyword">function</span> f(x::<span class="hljs-built_in">Union</span>{<span class="hljs-built_in">String</span>,<span class="hljs-built_in">Missing</span>,<span class="hljs-built_in">Nothing</span>}, y::<span class="hljs-built_in">Tuple</span>{<span class="hljs-built_in">Float64</span>,<span class="hljs-built_in">ComplexF64</span>})
+    <span class="hljs-keyword">if</span> x === <span class="hljs-literal">nothing</span>
+        println(<span class="hljs-literal">devnull</span>, <span class="hljs-string">&quot;nothing&quot;</span>)
+    <span class="hljs-keyword">elseif</span> x === <span class="hljs-literal">missing</span>
+        println(<span class="hljs-literal">stderr</span>, <span class="hljs-string">&quot;missing&quot;</span>)
+    <span class="hljs-keyword">else</span>
+        println(<span class="hljs-literal">stdout</span>, x)
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+f(x::<span class="hljs-built_in">UndefInitializer</span> = <span class="hljs-literal">undef</span>) = <span class="hljs-built_in">Regex</span>(<span class="hljs-string">&quot;^hello, world\$&quot;</span>)
+
+<span class="hljs-comment"># where, infix isa, UnionAll</span>
+<span class="hljs-keyword">function</span> F{T}(x::T) <span class="hljs-keyword">where</span> T
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> x
+        i <span class="hljs-keyword">isa</span> <span class="hljs-built_in">UnionAll</span> &amp;&amp; <span class="hljs-keyword">return</span>
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">#=
+Multi
+Line
+Comment
+=#</span>
+<span class="hljs-keyword">function</span> method0(x, y::<span class="hljs-built_in">Int</span>; version::<span class="hljs-built_in">VersionNumber</span>=<span class="hljs-string">v&quot;0.1.2&quot;</span>)
+    <span class="hljs-string">&quot;&quot;&quot;
+    Triple
+    Quoted
+    String
+    &quot;&quot;&quot;</span>
+
+    <span class="hljs-meta">@assert</span> <span class="hljs-literal">π</span> &gt; e
+
+    s = <span class="hljs-number">1.2</span>
+    変数 = <span class="hljs-string">&quot;variable&quot;</span>
+
+    <span class="hljs-keyword">if</span> s * <span class="hljs-number">100_000</span> ≥ <span class="hljs-number">5.2e+10</span> &amp;&amp; <span class="hljs-literal">true</span> || x === <span class="hljs-literal">nothing</span>
+        s = <span class="hljs-number">1.</span> + <span class="hljs-number">.5</span><span class="hljs-literal">im</span>
+    <span class="hljs-keyword">elseif</span> <span class="hljs-number">1</span> ∈ [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+        println(<span class="hljs-string">&quot;s is <span class="hljs-variable">$s</span> and 変数 is <span class="hljs-variable">$変数</span>&quot;</span>)
+    <span class="hljs-keyword">else</span>
+        x = [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>; <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span>]
+        <span class="hljs-meta">@show</span> x&#x27;
+    <span class="hljs-keyword">end</span>
+
+    <span class="hljs-keyword">local</span> var = rand(<span class="hljs-number">10</span>)
+    <span class="hljs-keyword">global</span> g = <span class="hljs-number">44</span>
+    var[<span class="hljs-number">1</span>:<span class="hljs-number">5</span>]
+    var[<span class="hljs-number">5</span>:<span class="hljs-keyword">end</span>-<span class="hljs-number">1</span>]
+    var[<span class="hljs-keyword">end</span>]
+
+    opt = <span class="hljs-string">&quot;-la&quot;</span>
+    run(<span class="hljs-string">`ls <span class="hljs-variable">$opt</span>`</span>)
+
+    <span class="hljs-keyword">try</span>
+        <span class="hljs-keyword">ccall</span>(:lib, (<span class="hljs-built_in">Ptr</span>{Void},), <span class="hljs-built_in">Ref</span>{<span class="hljs-literal">C_NULL</span>})
+    <span class="hljs-keyword">catch</span>
+        throw(<span class="hljs-built_in">ArgumentError</span>(<span class="hljs-string">&quot;wat&quot;</span>))
+    <span class="hljs-keyword">finally</span>
+        warn(<span class="hljs-string">&quot;god save the queen&quot;</span>)
+    <span class="hljs-keyword">end</span>
+
+    <span class="hljs-string">&#x27;\u2200&#x27;</span> != <span class="hljs-string">&#x27;T&#x27;</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">5</span>s / <span class="hljs-number">2</span>
+<span class="hljs-keyword">end</span>

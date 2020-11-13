@@ -1,0 +1,22 @@
+<span class="hljs-keyword">import</span> Browser
+<span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (div, button, text)
+<span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (onClick)
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
+    = <span class="hljs-type">Increment</span>
+
+<span class="hljs-title">main</span> =
+    <span class="hljs-type">Browser</span>.sandbox
+        { init = <span class="hljs-number">0</span>
+        , update = \msg model -&gt; model + <span class="hljs-number">1</span>
+        , view = view
+        }
+
+<span class="hljs-title">view</span> model =
+    div []
+        [ div [] [ text (<span class="hljs-type">String</span>.fromInt model) ]
+        , button [ onClick <span class="hljs-type">Increment</span> ] [ text <span class="hljs-string">&quot;+&quot;</span> ]
+        ]
+
+<span class="hljs-title">chars</span> =
+    <span class="hljs-type">String</span>.cons <span class="hljs-string">&#x27;C&#x27;</span> &lt;| <span class="hljs-type">String</span>.cons <span class="hljs-string">&#x27;h&#x27;</span> &lt;| <span class="hljs-string">&quot;ars&quot;</span>

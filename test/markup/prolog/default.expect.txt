@@ -1,0 +1,11 @@
+mergesort([],[]). <span class="hljs-comment">% special case</span>
+mergesort([<span class="hljs-symbol">A</span>],[<span class="hljs-symbol">A</span>]).
+mergesort([<span class="hljs-symbol">A</span>,<span class="hljs-symbol">B</span>|<span class="hljs-symbol">R</span>],<span class="hljs-symbol">S</span>) :-
+   split([<span class="hljs-symbol">A</span>,<span class="hljs-symbol">B</span>|<span class="hljs-symbol">R</span>],<span class="hljs-symbol">L1</span>,<span class="hljs-symbol">L2</span>),
+   mergesort(<span class="hljs-symbol">L1</span>,<span class="hljs-symbol">S1</span>),
+   mergesort(<span class="hljs-symbol">L2</span>,<span class="hljs-symbol">S2</span>),
+   merge(<span class="hljs-symbol">S1</span>,<span class="hljs-symbol">S2</span>,<span class="hljs-symbol">S</span>).
+
+split([],[],[]).
+split([<span class="hljs-symbol">A</span>],[<span class="hljs-symbol">A</span>],[]).
+split([<span class="hljs-symbol">A</span>,<span class="hljs-symbol">B</span>|<span class="hljs-symbol">R</span>],[<span class="hljs-symbol">A</span>|<span class="hljs-symbol">Ra</span>],[<span class="hljs-symbol">B</span>|<span class="hljs-symbol">Rb</span>]) :-  split(<span class="hljs-symbol">R</span>,<span class="hljs-symbol">Ra</span>,<span class="hljs-symbol">Rb</span>).
