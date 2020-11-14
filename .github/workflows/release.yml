@@ -27,7 +27,7 @@ jobs:
         run: false
         # run: echo "TAG_NAME=0.0.0-test0" >> $GITHUB_ENV
 
-      - if: ${{ contains(github.ref, 'beta') || contains(github.ref, 'pre') }}
+      - if: contains(github.ref, 'beta') || contains(github.ref, 'pre')
         run: |
           echo "NPM_TAG=beta" >> $GITHUB_ENV
           echo "RELEASING=beta" >> $GITHUB_ENV
