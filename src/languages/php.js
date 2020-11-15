@@ -13,7 +13,10 @@ Category: common
 export default function(hljs) {
   const VARIABLE = {
     className: 'variable',
-    begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' + `(?![A-Za-z0-9])(?![$])`
+    begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' +
+      // negative look-ahead tries to avoid matching patterns that are not
+      // Perl at all like $ident$, @ident@, etc.
+      `(?![A-Za-z0-9])(?![$])`
   };
   const PREPROCESSOR = {
     className: 'meta',

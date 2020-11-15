@@ -25,7 +25,7 @@ export default function(hljs) {
     "server",
     "response",
     "request",
-    // take no arguments so can be caleld without ()
+    // take no arguments so can be called without ()
     "scriptengine",
     "scriptenginebuildversion",
     "scriptengineminorversion",
