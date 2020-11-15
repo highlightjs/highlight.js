@@ -1,0 +1,14 @@
+$ docker run \
+      --publish=7474:7474 --publish=7687:7687 \
+      --volume=/neo4j/data:/data \
+      --volume=/neo4j/plugins:/plugins \
+      --volume=/neo4j/conf:/conf \
+      --volume=/logs/neo4j:/logs \
+      --user="$(id -u neo4j):$(id -g neo4j)" \
+      --group-add=$groups \
+      neo4j:3.4
+> /bin/cat \.travis.yml\
+ -b | head -n1
+     1	language: node_js
+> echo 'hello'
+hello

@@ -3,8 +3,10 @@ Language: Shell Session
 Requires: bash.js
 Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
 Category: common
+Audit: 2020
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'Shell Session',
@@ -12,9 +14,10 @@ export default function(hljs) {
     contains: [
       {
         className: 'meta',
-        begin: '^\\s{0,3}[/\\w\\d\\[\\]()@-]*[>%$#]',
+        begin: /^\s{0,3}[/\w\d[\]()@-]*[>%$#]/,
         starts: {
-          end: '$', subLanguage: 'bash'
+          end: /[^\\](?=\s*$)/,
+          subLanguage: 'bash'
         }
       }
     ]
