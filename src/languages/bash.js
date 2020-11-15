@@ -25,7 +25,10 @@ export default function(hljs) {
   Object.assign(VAR,{
     className: 'variable',
     variants: [
-      {begin: regex.concat(/\$[\w\d#@][\w\d_]*/, `(?![\\w\\d])(?![$])`) },
+      {begin: regex.concat(/\$[\w\d#@][\w\d_]*/,
+        // negative look-ahead tries to avoid matching patterns that are not
+        // Perl at all like $ident$, @ident@, etc.
+        `(?![\\w\\d])(?![$])`) },
       BRACED_VAR
     ]
   });
