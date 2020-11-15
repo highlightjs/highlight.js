@@ -1,12 +1,3 @@
-## Version 10.4.0 (a work in process)
-
-Language Improvements:
-
-- enh(shell) Add support for multiline commands with line continuation `\` (#2861) [Guillaume Grossetie][]
-
-[Guillaume Grossetie]: https://github.com/mogztter
-
-
 ## Version 10.4.0-beta1
 
 Parser:
@@ -32,6 +23,7 @@ New Languages:
 
 Language Improvements:
 
+- enh(shell) Add support for multiline commands with line continuation `\` (#2861) [Guillaume Grossetie][]
 - enh(autodetect) Over 30+ improvements to auto-detect (#2745) [Josh Goebel][]
     - 4-5% improvement in auto-detect against large sample set
     - properties, angelscript, lsl, javascript, n1ql, ocaml, ruby
@@ -76,6 +68,7 @@ New themes:
 - *StackOverflow Dark* by [Jan Pilzer][]
 - *StackOverflow Light* by [Jan Pilzer][]
 
+[Guillaume Grossetie]: https://github.com/mogztter
 [Brad Chamberlain]: https://github.com/bradcray
 [Marat Nagayev]: https://github.com/nagayev
 [Fredrik Ekre]: https://github.com/fredrikekre
