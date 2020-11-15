@@ -18,6 +18,7 @@ Parser:
 New Languages:
 
 - Added 3rd party Chapel grammar to SUPPORTED_LANGUAGES (#2806) [Brad Chamberlain][]
+- Added BBCode grammar to SUPPORTED_LANGUAGES (#2867) [Paul Reid][]
 - enh(javascript) Added `node-repl` for Node.js REPL sessions (#2792) [Marat Nagayev][]
 
 Language Improvements:
@@ -78,6 +79,7 @@ New themes:
 [Patrick Scheibe]: https://github.com/halirutan
 [Kyle Brown]: https://github.com/kylebrown9
 [Marcus Ortiz]: https://github.com/mportiz08
+[Paul Reid]: https://github.com/RedGuy12
 
 
 ## Version 10.3.1
