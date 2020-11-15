@@ -2,10 +2,11 @@
 
 **Table of Contents**
 1. [Welcome](#welcome) (2nd draft)
-2. [Philosophy](#philosophy) (TBD)
-3. [Reporting an Issue](#reporting-an-issue) (TBD)
-4. [Fixing an Issue (PRs)](#fixing-an-issue-prs) (2nd draft)
-5. [Setup and Run](#setup-and-run) (TBD)
+2. [Philosophy](#philosophy) (1st draft)
+3. [Feature Requests](#feature-requests) (1st draft)
+4. [Reporting an Issue](#reporting-an-issue) (TBD)
+5. [Fixing an Issue (PRs)](#fixing-an-issue-prs) (2nd draft)
+6. [Setup and Run](#setup-and-run) (1st draft)
 
 
 ## Welcome
@@ -13,26 +14,28 @@ Hi, and welcome to Highlight.js. We're a code-highlighting engine etc., but you 
 
 There are many ways to contribute to Highlight.js. Reporting issues is super useful. Feel free to work on an open issue. You can also help by writing [a plugin](https://highlightjs.readthedocs.io/en/latest/plugin-api.html), adding [a 3rd party grammar](https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md), or creating [a theme](https://highlightjs.readthedocs.io/en/latest/style-guide.html).
 
-In terms of getting help, GitHub issues are the primary method of communication. We're exploring the idea of creating a Gitter chat room.
+If you need support, you can [open a GitHub issue](https://github.com/highlightjs/highlight.js/issues/new/choose).
 
 
 ## Philosophy
 
 Highlight.js makes a strong effort to keep the core engine, it's usage, and it's feature set clean and simple.  We aim to support the happy path (the 90%), not the often innumerable edge cases (the last 10%).  When you're on the happy path everything "just works" with a single line of code.  We do our best to allow those familiar with JavaScript to easily handle the remaining 10% via small extensions or plug-ins.
 
+Some bullet points:
+
+- Our [lack of line numbers is a feature](https://highlightjs.readthedocs.io/en/latest/line-numbers.html). It's usually pretty simple to add them yourself ([example](https://github.com/taufik-nurrohman/highlight.ln.js)).
+- We [embrace plug-ins and extensions](https://github.com/highlightjs/highlight.js/issues/2225) rather than adding lots of tiny features and configuration options.
+- We are much more than a keyword highlighter. We do make attempts to understand context...
+- ...Yet we are not a full parser for any language, we're still just a fancy nested pattern matcher.
+- Our [auto-detect is sadly not powered by magic unicorn dust](https://github.com/highlightjs/highlight.js/issues/1213). It's best effort, not best in class.
+
+
+## Feature Requests
 Feature requests are always welcome but many times the answer is:
 
 > That's a great idea, you should write a plug-in for that! It doesn't belong in the core library and it's probably something you could do with only a small amount of code.
 
 If you'd like to contribute a feature you should always first open an issue to discuss if the feature belongs in core vs a plug-in.  Often this is a great way to get tips for implemention as well or links to prior disussions with context, etc.
-
-Some bullet points:
-
-- Our [lack of line numbers is a feature](https://highlightjs.readthedocs.io/en/latest/line-numbers.html). The simple case isn't hard to add though with a little custom JavaScript.
-- We [embrace plug-ins and extensions](https://github.com/highlightjs/highlight.js/issues/2225) rather than adding lots of tiny features and configuration options.
-- We are much more than a keyword highlighter. We do make attempts to understand context...
-- ...Yet we are not a full parser for any language, we're still just a fancy nested pattern matcher.
-- Our [auto-detect is sadly not powered by magic unicorn dust](https://github.com/highlightjs/highlight.js/issues/1213). It's best effort, not best in class.
 
 
 ## Reporting an Issue
@@ -56,43 +59,33 @@ Please open an issue before your PR, so we can explore and discuss the topic at 
 - Change only what needs to be changed; don't re-lint/rewrite whole files when fixing bugs
 - Linting needs a dedicated commit
 
-**When you're ready** to open a PR, we have some housekeeping tasks for you.
-- Find and link to the relevant issue
-- Add a changelog entry to [CHANGES.md](https://github.com/highlightjs/highlight.js/blob/master/CHANGES.md)
-- If necessary, add your name to [AUTHORS.txt](https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.txt) under Contributors
+**After** you make your changes, we have some housekeeping tasks for you. See the PR template for details.
 
 
 ## Setup and Run
 
-You'll of course need Node.js and npm or yarn.
+You'll need [Node.js](https://nodejs.dev/download/), and optionally [yarn](https://yarnpkg.com/).
 
 Often when contributing a PR (that doesn't make any specific changes to browser
 features) it's more than sufficient to build and test only the Node.js build.
 Our CI process will guarantee that the browser build is still green.
 
-**Should we shown yarn examples also?**
-
-```
+```console
 npm run build
 npm run test
 ```
 
 The browser library must be built and tested separately:
 
-```
+```console
 npm run build-browser
 npm run test-browser
 ```
 
-**Where should we mention the developer tool? ./tools/developer.html**
-
-The "run" here made me think of that because otherwise there isn't really
-much to "run" (other than tests).
+There's also a tool for visual testing at [tools/developer.html](https://github.com/highlightjs/highlight.js/blob/master/tools/developer.html)
 
 
-
-For more details see [Building and Testing](https://highlightjs.readthedocs.io/en/latest/building-testing.html).
-
+For more details, see [Building and Testing](https://highlightjs.readthedocs.io/en/latest/building-testing.html) in our docs.
 
 ### Prerequisites
 Are you someone who...
@@ -102,4 +95,3 @@ Are you someone who...
 - is willing to read our grammar documentation and look at other grammars?
 
 
-(We should link somewhere to the "in-depth docs at https://highlightjs.readthedocs.io/")
