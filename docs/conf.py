@@ -48,7 +48,7 @@ copyright = u'2012–2020, Ivan Sagalaev'
 # built documents.
 
 # The full version, including alpha/beta/rc tags.
-release = '10.3.1'
+release = '10.4.0-beta1'
 # The short X.Y version.
 version = ".".join(release.split(".")[:2])
 

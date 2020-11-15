@@ -1,4 +1,4 @@
-## Version 10.4.0 (a work in process)
+## Version 10.4.0-beta1
 
 Parser:
 
@@ -22,6 +22,11 @@ New Languages:
 
 Language Improvements:
 
+- enh(autodetect) Over 30+ improvements to auto-detect (#2745) [Josh Goebel][]
+    - 4-5% improvement in auto-detect against large sample set
+    - properties, angelscript, lsl, javascript, n1ql, ocaml, ruby
+    - protobuf, hy, scheme, crystal, yaml, r, vbscript, groovy
+    - python, java, php, lisp, matlab, clojure, csharp, css
 - fix(r) fixed keywords not properly spaced (#2852) [Josh Goebel][]
 - fix(javascript) fix potential catastrophic backtracking (#2852) [Josh Goebel][]
 - fix(livescript) fix potential catastrophic backtracking (#2852) [Josh Goebel][]
@@ -61,6 +66,7 @@ New themes:
 - *StackOverflow Dark* by [Jan Pilzer][]
 - *StackOverflow Light* by [Jan Pilzer][]
 
+[Brad Chamberlain]: https://github.com/bradcray
 [Marat Nagayev]: https://github.com/nagayev
 [Fredrik Ekre]: https://github.com/fredrikekre
 [Richard Gibson]: https://github.com/gibson042
