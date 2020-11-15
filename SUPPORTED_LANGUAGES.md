@@ -29,7 +29,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Awk                     | awk, mawk, nawk, gawk  |         |
 | Bash                    | bash, sh, zsh          |         |
 | Basic                   | basic                  |         |
-| BBCode                  | bbcode                 | [highlightjs-gf](https://github.com/johnjcamilleri/highlightjs-gf) |
+| BBCode                  | bbcode                 | [highlightjs-bbcode](https://github.com/RedGuy7/highlightjs-bbcode) |
 | BNF                     | bnf                    |         |
 | Brainfuck               | brainfuck, bf          |         |
 | C#                      | csharp, cs             |         |
