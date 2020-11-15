@@ -60,6 +60,8 @@ module.exports = {
       ascii_only: true
     },
     compress: {
+      ecma: 2015,
+      unsafe_arrows: true,
       passes: 2,
       unsafe: true,
       warnings: true,
