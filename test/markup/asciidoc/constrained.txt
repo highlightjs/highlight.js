@@ -1,0 +1,7 @@
+bold *constrained* text.
+
+italic _constrained_ text.
+
+monospace `constrained` text.
+
+Some strong [#strong]*word*.

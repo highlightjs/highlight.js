@@ -107,7 +107,13 @@ export default function(hljs) {
         begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+',
         relevance: 10
       },
-      // inline strong
+      // inline unconstrained strong
+      {
+        className: 'strong',
+        begin: /\*{2}/,
+        end: /(\n{2}|\*{2})/
+      },
+      // inline constrained strong
       {
         className: 'strong',
         // must not follow a word character or be followed by an asterisk or space
@@ -118,6 +124,12 @@ export default function(hljs) {
           begin: '\\\\*\\w',
           relevance: 0
         }]
+      },
+      // inline unconstrained emphasis
+      {
+        className: 'emphasis',
+        begin: /_{2}/,
+        end: /(\n{2}|_{2})/
       },
       // inline emphasis
       {
@@ -151,6 +163,12 @@ export default function(hljs) {
             begin: "`.+?'"
           }
         ]
+      },
+      // inline unconstrained emphasis
+      {
+        className: 'code',
+        begin: /`{2}/,
+        end: /(\n{2}|`{2})/
       },
       // inline code snippets (TODO should get same treatment as strong and emphasis)
       {
