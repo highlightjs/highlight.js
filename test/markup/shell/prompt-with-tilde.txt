@@ -1,0 +1,4 @@
+~/docs> cat readme.adoc
+= Highlight.js
+
+Highlight.js is a syntax highlighter written in JavaScript.
