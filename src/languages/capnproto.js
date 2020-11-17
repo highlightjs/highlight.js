@@ -35,23 +35,27 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'struct enum', end: /\{/,
+        beginKeywords: 'struct enum',
+        end: /\{/,
         illegal: /\n/,
-        contains: [
-          hljs.inherit(hljs.TITLE_MODE, {
-            starts: {endsWithParent: true, excludeEnd: true} // hack: eating everything after the first title
-          })
-        ]
+        contains: [hljs.inherit(hljs.TITLE_MODE, {
+          starts: {
+            endsWithParent: true,
+            excludeEnd: true
+          } // hack: eating everything after the first title
+        })]
       },
       {
         className: 'class',
-        beginKeywords: 'interface', end: /\{/,
+        beginKeywords: 'interface',
+        end: /\{/,
         illegal: /\n/,
-        contains: [
-          hljs.inherit(hljs.TITLE_MODE, {
-            starts: {endsWithParent: true, excludeEnd: true} // hack: eating everything after the first title
-          })
-        ]
+        contains: [hljs.inherit(hljs.TITLE_MODE, {
+          starts: {
+            endsWithParent: true,
+            excludeEnd: true
+          } // hack: eating everything after the first title
+        })]
       }
     ]
   };

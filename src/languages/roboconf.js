@@ -7,11 +7,13 @@ Category: config
 */
 
 export default function(hljs) {
-  var IDENTIFIER = '[a-zA-Z-_][^\\n{]+\\{';
+  const IDENTIFIER = '[a-zA-Z-_][^\\n{]+\\{';
 
-  var PROPERTY = {
+  const PROPERTY = {
     className: 'attribute',
-    begin: /[a-zA-Z-_]+/, end: /\s*:/, excludeEnd: true,
+    begin: /[a-zA-Z-_]+/,
+    end: /\s*:/,
+    excludeEnd: true,
     starts: {
       end: ';',
       relevance: 0,
@@ -30,7 +32,10 @@ export default function(hljs) {
 
   return {
     name: 'Roboconf',
-    aliases: ['graph', 'instances'],
+    aliases: [
+      'graph',
+      'instances'
+    ],
     case_insensitive: true,
     keywords: 'import',
     contains: [

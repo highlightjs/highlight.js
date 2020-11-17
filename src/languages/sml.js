@@ -9,7 +9,7 @@ Category: functional
 export default function(hljs) {
   return {
     name: 'SML (Standard ML)',
-    aliases: ['ml'],
+    aliases: [ 'ml' ],
     keywords: {
       $pattern: '[a-z_]\\w*!?',
       keyword:
@@ -35,7 +35,7 @@ export default function(hljs) {
         '\\(\\*',
         '\\*\\)',
         {
-          contains: ['self']
+          contains: [ 'self' ]
         }
       ),
       { /* type variable */
@@ -52,11 +52,16 @@ export default function(hljs) {
         begin: '\\b[A-Z][\\w\']*',
         relevance: 0
       },
-      { /* don't color identifiers, but safely catch all identifiers with '*/
+      { /* don't color identifiers, but safely catch all identifiers with ' */
         begin: '[a-z_]\\w*\'[\\w\']*'
       },
-      hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
+      hljs.inherit(hljs.APOS_STRING_MODE, {
+        className: 'string',
+        relevance: 0
+      }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {
+        illegal: null
+      }),
       {
         className: 'number',
         begin:
