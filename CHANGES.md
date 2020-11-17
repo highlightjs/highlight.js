@@ -156,25 +156,27 @@ New themes:
 
 Deprecations (*these will be mentioned in every release*):
 
-- HTML "merging" is deprecated and will be removed in v11. (#2873) [Josh Goebel][]
+- HTML "merging" is deprecated. (#2873) [Josh Goebel][]
   - HTML inside `<pre>` blocks will no longer be magically merged back into the
   highlighted code's HTML result - it will instead be silently removed.
   - Use a plugin if you truly need this functionality
-  - Deprecated as of 10.4.0.
-- `tabReplace` option deprecated and will be removed in v11. (#2873) [Josh Goebel][]
-  - Use CSS's `tab-size` property, avoiding the need for text processing
-  - Pre-process the text before rendering as HTML
-  - or use a plugin
-  - Deprecated as of 10.4.0.
-- `useBR` option deprecated and will be removed in v11. (#2559) [Josh Goebel][]
-  - Use HTML `<pre>` tag, avoiding the need for text processing
-  - or use a plugin
-  - Deprecated as of 10.3.0.
-- (chore) `requireLanguage` is deprecated, will be removed in v11.0.
-  - Deprecated as of 10.4.0.
-  - Prefer `getLanguage` (with custom error handling) or built-time dependencies.
+  - Deprecated as of 10.4.0 - will be removed in v11.
+- `tabReplace` option deprecated. (#2873) [Josh Goebel][]
+  - **Consider:** Use the CSS `tab-size` property, or simply pre-process the
+    text yourself before rendering the initial HTML
+  - otherwise, [use a plugin][tabPlugin]
+  - Deprecated as of 10.4.0 - will be removed in v11.
+- `useBR` option deprecated. (#2559) [Josh Goebel][]
+  - **Recommended:** You really should just use the HTML `<pre>` tag
+  - otherwise, [use a plugin][brPlugin]
+  - Deprecated as of 10.3.0 - will be removed in v11.
+- `requireLanguage` API is deprecated, will be removed in v11.0.
+  - **Consider:** Use `getLanguage` (with custom error handling) or built-time dependencies.
   - See [Library API](https://highlightjs.readthedocs.io/en/latest/api.html#requirelanguage-name) for more information.
+  - Deprecated as of 10.4.0 - will be removed in v11.
 
+[tabPlugin]: https://github.com/highlightjs/highlight.js/issues/2874
+[brPlugin]: https://github.com/highlightjs/highlight.js/issues/2559
 
 [Guillaume Grossetie]: https://github.com/mogztter
 [Brad Chamberlain]: https://github.com/bradcray
