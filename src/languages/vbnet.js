@@ -59,7 +59,7 @@ export default function(hljs) {
         className: 'meta',
         begin: '#(?:const|disable|else|elseif|enable|end|externalsource|if|region)\\b', end: '$',
         keywords: {'meta-keyword': 'const disable else elseif enable end externalsource if region'},
-        contains: [commentMode]
+        contains: [COMMENT]
       },
       {
         className: 'literal',
