@@ -101,6 +101,7 @@ Parser:
 - enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
 - fix(vue): Language name now appears in CSS class (#2807) [Michael Rush][]
 - (chore) Clean up all regexs to be UTF-8 compliant/ready (#2759) [Josh Goebel][]
+- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
 
 New Languages:
 
@@ -151,6 +152,25 @@ New themes:
 
 - *StackOverflow Dark* by [Jan Pilzer][]
 - *StackOverflow Light* by [Jan Pilzer][]
+
+
+Deprecations (*these will be mentioned in every release*):
+
+- HTML "merging" is deprecated and will be removed in v11. (#2873) [Josh Goebel][]
+  - HTML inside `<pre>` blocks will no longer be magically merged back into the
+  highlighted code's HTML result - it will instead be silently removed.
+  - Use a plugin if you truly need this functionality
+- `tabReplace` option deprecated and will be removed in v11. (#2873) [Josh Goebel][]
+  - Use CSS's `tab-size` property, avoiding the need for text processing
+  - Pre-process the text before rendering as HTML
+  - or use a plugin
+- `useBR` option deprecated and will be removed in v11. (#2559) [Josh Goebel][]
+  - Use HTML `<pre>` tag, avoiding the need for text processing
+  - or use a plugin
+- (chore) `requireLanguage` is deprecated, will be removed in v11.0.
+  - Prefer `getLanguage` (with custom error handling) or built-time dependencies.
+  - See [Library API](https://highlightjs.readthedocs.io/en/latest/api.html#requirelanguage-name) for more information.
+
 
 [Guillaume Grossetie]: https://github.com/mogztter
 [Brad Chamberlain]: https://github.com/bradcray
