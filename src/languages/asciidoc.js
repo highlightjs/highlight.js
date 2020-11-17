@@ -113,12 +113,17 @@ export default function(hljs) {
         begin: /\*{2}[\w\s\n]+/,
         end: /\*{2}/
       },
+      // escaped formatting marks
+      {
+        begin: /\\/,
+        end: /[*_`]/
+      },
       // inline constrained strong
       {
         className: 'strong',
         // must not follow a word character or be followed by an asterisk or space
         // must not be preceded by the escape character \
-        begin: /(?<!\\)\B\*(\w\n?\w)+(?!\n\n)/,
+        begin: /\B\*(\w\n?\w)+(?!\n\n)/,
         end: /\*/,
         // allow escaped asterisk followed by word char
         contains: [{
