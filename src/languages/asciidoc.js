@@ -122,17 +122,17 @@ export default function(hljs) {
       {
         begin: /\\[*_`]/
       },
-      // inline constrained strong
+      // inline contrained string (single line)
       {
         className: 'strong',
-        // must not follow a word character or be followed by an asterisk or space
-        begin: /\B\*(\w\n?\w)+(?!\n\n)/,
-        end: /\*/,
-        // allow escaped asterisk followed by word char
-        contains: [{
-          begin: '\\\\*\\w',
-          relevance: 0
-        }]
+        // must not precede or follow a word character
+        begin: /\B\*\w+\*\B/,
+      },
+      // inline constrained strong (multi-line)
+      {
+        className: 'strong',
+        // must not precede or follow a word character
+        begin: /\B\*(\w\n?)*\*/,
       },
       // inline unconstrained emphasis
       {
