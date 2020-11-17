@@ -9,3 +9,10 @@ Some strong [#strong]<span class="hljs-strong">*word*</span>.
 The word \*stars* is not rendered as bold text.
 
 Use the * symbol. Read the footnotes*. You can also type* this symbol *.
+
+A strong <span class="hljs-strong">*wo
+rd*</span>.
+
+Not a strong *wo
+
+rd*.

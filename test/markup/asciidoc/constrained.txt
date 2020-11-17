@@ -9,3 +9,10 @@ Some strong [#strong]*word*.
 The word \*stars* is not rendered as bold text.
 
 Use the * symbol. Read the footnotes*. You can also type* this symbol *.
+
+A strong *wo
+rd*.
+
+Not a strong *wo
+
+rd*.

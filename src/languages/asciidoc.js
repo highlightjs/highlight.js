@@ -118,7 +118,7 @@ export default function(hljs) {
         className: 'strong',
         // must not follow a word character or be followed by an asterisk or space
         // must not be preceded by the escape character \
-        begin: /(?<!\\)\B\*\w/,
+        begin: /(?<!\\)\B\*(\w\n?\w)+(?!\n\n)/,
         end: /\*/,
         // allow escaped asterisk followed by word char
         contains: [{
