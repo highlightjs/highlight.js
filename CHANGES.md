@@ -168,6 +168,7 @@ Deprecations (*these will be mentioned in every release*):
   - Deprecated as of 10.4.0 - will be removed in v11.
 - `useBR` option deprecated. (#2559) [Josh Goebel][]
   - **Recommended:** You really should just use the HTML `<pre>` tag
+  - or perhaps try CSS `white-space: pre;`
   - otherwise, [use a plugin][brPlugin]
   - Deprecated as of 10.3.0 - will be removed in v11.
 - `requireLanguage` API is deprecated, will be removed in v11.0.
