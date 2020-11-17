@@ -3,3 +3,10 @@ bold **un**constrained text.
 italic __un__constrained text.
 
 monospace ``un``constrained text.
+
+A sentence ** with words, and more words!
+using bold style :)**.
+
+Read the little notes**.
+
+This is **bold**.

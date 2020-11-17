@@ -3,3 +3,10 @@ bold <span class="hljs-strong">**un**</span>constrained text.
 italic <span class="hljs-emphasis">__un__</span>constrained text.
 
 monospace <span class="hljs-code">``un``</span>constrained text.
+
+A sentence <span class="hljs-strong">** with words, and more words!
+using bold style :)**</span>.
+
+Read the little notes**.
+
+This is <span class="hljs-strong">**bold**</span>.

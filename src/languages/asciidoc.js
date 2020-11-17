@@ -110,16 +110,16 @@ export default function(hljs) {
       // inline unconstrained strong
       {
         className: 'strong',
-        begin: /\*{2}/,
-        end: /(\n{2}|\*{2})/
+        begin: /\*{2}[\w\s\n]+/,
+        end: /\*{2}/
       },
       // inline constrained strong
       {
         className: 'strong',
         // must not follow a word character or be followed by an asterisk or space
         // must not be preceded by the escape character \
-        begin: '(?<!\\\\)\\B\\*(?![\\*\\s])',
-        end: '(\\n{2}|\\*)',
+        begin: /(?<!\\)\B\*\w/,
+        end: /\*/,
         // allow escaped asterisk followed by word char
         contains: [{
           begin: '\\\\*\\w',
