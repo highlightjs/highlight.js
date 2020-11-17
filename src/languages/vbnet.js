@@ -6,7 +6,7 @@ Website: https://docs.microsoft.com/en-us/dotnet/visual-basic/getting-started/
 */
 
 export default function(hljs) {
-  const commentMode = hljs.COMMENT(
+  const COMMENT = hljs.COMMENT(
     '\'',
     '$',
     {
