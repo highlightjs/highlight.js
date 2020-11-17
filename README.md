@@ -104,16 +104,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 ```
 
-You can use any tags instead of `<pre><code>` to mark up your code. If
-you don't use a container that preserves line breaks you will need to
-configure highlight.js to use the `<br>` tag:
+We recommend you use `<pre><code>` for code blocks. It's super semantic and
+"just works".  Code blocks are what these two tags were built for. It is
+possible to use different tags though - with just a bit more effort.
 
 ```js
-hljs.configure({useBR: true});
-
+// manually find your code block elements
 document.querySelectorAll('div.code').forEach((block) => {
+  // call highlightBlock for each
   hljs.highlightBlock(block);
 });
+```
+
+If you're not using a tag that preserves line breaks by default (like `pre`)
+you'll need some CSS to preserve them.  Otherwise you'll have to [pre and
+post-process line breaks with a plug-in][brPlugin].  We recommend CSS.
+
+[brPlugin]: https://github.com/highlightjs/highlight.js/issues/2559
+
+Using CSS to preserve linebreaks:
+
+```css
+div.code {
+  /* preserve line-breaks as if div.code was a <pre> tag */
+  white-space: pre;
+}
 ```
 
 For other options refer to the documentation for [`configure`][4].
