@@ -2,6 +2,7 @@
 
 [![latest version](https://badgen.net/npm/v/highlight.js?label=latest)](https://www.npmjs.com/package/highlight.js)
 [![beta](https://badgen.net/npm/v/highlight.js/beta)](https://www.npmjs.com/package/highlight.js)
+[![slack](https://badgen.net/badge/icon/slack?icon=slack&label&color=pink)](https://join.slack.com/t/highlightjs/shared_invite/zt-jatdlkw4-h3LdjU5rC23t7aQ6zqoxzw)
 [![license](https://badgen.net/github/license/highlightjs/highlight.js?color=cyan)](https://github.com/highlightjs/highlight.js/blob/master/LICENSE)
 [![install size](https://badgen.net/packagephobia/install/highlight.js?label=npm+install)](https://packagephobia.now.sh/result?p=highlight.js)
 ![minified](https://img.shields.io/github/size/highlightjs/cdn-release/build/highlight.min.js?label=minified)
