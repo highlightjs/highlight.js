@@ -93,7 +93,7 @@ When you need a bit more control over the initialization of
 highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
 functions. This allows you to control *what* to highlight and *when*.
 
-Here’s an equivalent way to calling [`initHighlightingOnLoad`][1] using
+Here’s an equivalent to calling [`initHighlightingOnLoad`][1] using
 vanilla JS:
 
 ```js
@@ -104,25 +104,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 ```
 
-We recommend you use `<pre><code>` for code blocks. It's super semantic and
-"just works".  Code blocks are what these two tags were built for. It is
-possible to use different tags though - with just a bit more effort.
+### Using other HTML elements for code blocks
+
+We recommend using `<pre><code>` for code blocks. It's super semantic and "just
+works".  This is what these two tags were built for. It is possible to use other
+tags though. Let's say your markup for code blocks looks something like `<div
+class='code'>...</div>`.
+
+To highlight all such code blocks:
 
 ```js
-// manually find your code block elements
+// first, find all the div.code elements
 document.querySelectorAll('div.code').forEach((block) => {
-  // call highlightBlock for each
+  // then call highlightBlock for each
   hljs.highlightBlock(block);
 });
 ```
 
-If you're not using a tag that preserves line breaks by default (like `pre`)
-you'll need some CSS to preserve them.  Otherwise you'll have to [pre and
-post-process line breaks with a plug-in][brPlugin].  We recommend CSS.
+Without using a tag that preserves linebreaks (like `pre`) you'd need some CSS
+to preserve them.  Otherwise you'd have to [pre and post-process line breaks
+with a plug-in][brPlugin]. We recommend the CSS approach:
 
 [brPlugin]: https://github.com/highlightjs/highlight.js/issues/2559
-
-Using CSS to preserve linebreaks:
 
 ```css
 div.code {
