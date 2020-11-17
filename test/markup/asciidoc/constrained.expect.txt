@@ -5,3 +5,5 @@ italic <span class="hljs-emphasis">_constrained_</span> text.
 monospace <span class="hljs-code">`constrained`</span> text.
 
 Some strong [#strong]<span class="hljs-strong">*word*</span>.
+
+The word \*stars* is not rendered as bold text.

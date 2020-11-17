@@ -5,3 +5,5 @@ italic _constrained_ text.
 monospace `constrained` text.
 
 Some strong [#strong]*word*.
+
+The word \*stars* is not rendered as bold text.
