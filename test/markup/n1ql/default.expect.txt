@@ -1,0 +1,19 @@
+<span class="hljs-keyword">SELECT</span> *
+<span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`beer-sample`</span>
+<span class="hljs-keyword">WHERE</span> brewery_id <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">MISSING</span> <span class="hljs-keyword">AND</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;beer&quot;</span>
+<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">1</span>;
+
+<span class="hljs-keyword">UPSERT</span> <span class="hljs-keyword">INTO</span> product (<span class="hljs-keyword">KEY</span>, <span class="hljs-keyword">VALUE</span>) <span class="hljs-keyword">VALUES</span> (
+    <span class="hljs-string">&quot;odwalla-juice1&quot;</span>, {
+        <span class="hljs-string">&quot;productId&quot;</span>: <span class="hljs-string">&quot;odwalla-juice1&quot;</span>,
+        <span class="hljs-string">&quot;unitPrice&quot;</span>: <span class="hljs-number">5.40</span>,
+        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;product&quot;</span>,
+        <span class="hljs-string">&quot;color&quot;</span>:<span class="hljs-string">&quot;red&quot;</span>
+    }
+) <span class="hljs-keyword">RETURNING</span> *;
+
+<span class="hljs-keyword">INFER</span> <span class="hljs-symbol">`beer-sample`</span> <span class="hljs-keyword">WITH</span> {
+    <span class="hljs-string">&quot;sample_size&quot;</span>: <span class="hljs-number">10000</span>,
+    <span class="hljs-string">&quot;num_sample_values&quot;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">&quot;similarity_metric&quot;</span>: <span class="hljs-number">0.0</span>
+};

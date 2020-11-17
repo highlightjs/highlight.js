@@ -1,0 +1,24 @@
+<span class="hljs-section">Book 1 - Language Definition Testing File</span>
+
+<span class="hljs-comment">[Comments in Inform 7 can be <span class="hljs-comment">[nested]</span> inside one another]</span>
+
+Syntax highlighting <span class="hljs-keyword">is</span> an action applying to one <span class="hljs-keyword">thing</span>.
+<span class="hljs-keyword">Understand</span> <span class="hljs-string">&quot;highlight <span class="hljs-subst">[something preferably codeish]</span>&quot;</span> as syntax highlighting.
+
+Code <span class="hljs-keyword">is</span> a <span class="hljs-keyword">kind</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">thing</span>. Code <span class="hljs-keyword">is</span> usually plural-named.
+
+Code can be highlighted. Code <span class="hljs-keyword">is</span> usually not highlighted.
+
+Check syntax highlighting:
+  unless the noun <span class="hljs-keyword">is</span> code:
+    <span class="hljs-keyword">say</span> <span class="hljs-string">&quot;<span class="hljs-subst">[The noun]</span> isn&#x27;t source code you can highlight.&quot;</span>;
+    <span class="hljs-keyword">rule</span> fails.
+
+Carry out syntax highlighting:
+  now the noun <span class="hljs-keyword">is</span> highlighted.
+
+<span class="hljs-section">Table of Programming Languages</span>
+language  utility
+ruby      <span class="hljs-string">&quot;Web back-end development&quot;</span>
+lua       <span class="hljs-string">&quot;Embedded scripting&quot;</span>
+erlang    <span class="hljs-string">&quot;High-concurrency server applications&quot;</span>

@@ -1,0 +1,14 @@
+<span class="hljs-meta">!!! XML</span>
+<span class="hljs-tag">%<span class="hljs-selector-tag">html</span></span>
+<span class="hljs-tag">  %<span class="hljs-selector-tag">body</span></span>
+<span class="hljs-tag">    %<span class="hljs-selector-tag">h1</span><span class="hljs-selector-class">.jumbo</span>{<span class="hljs-attr">:id</span>=&gt;<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-attr">:style</span>=&gt;<span class="hljs-string">&#x27;font-weight: normal&#x27;</span>, <span class="hljs-attr">:title</span>=&gt;title}</span> highlight.js
+<span class="hljs-comment">    /html comment</span>
+<span class="hljs-comment">    -# ignore this line</span>
+<span class="hljs-tag">    %<span class="hljs-selector-tag">ul</span>(<span class="hljs-attr">style</span>=<span class="hljs-string">&#x27;margin: 0&#x27;</span>)</span>
+    -<span class="ruby">items.each <span class="hljs-keyword">do</span> <span class="hljs-params">|i|</span>
+</span><span class="hljs-tag">      %<span class="hljs-selector-tag">i</span></span>= i
+    =<span class="ruby"> variable
+</span>    =<span class="ruby">variable2
+</span>    ~ variable3
+    ~variable4
+    The current year is #{<span class="ruby">DataTime.now.year}</span>.

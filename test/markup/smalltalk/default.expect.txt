@@ -1,0 +1,39 @@
+<span class="hljs-type">Object</span>&gt;&gt;method: num
+    <span class="hljs-comment">&quot;comment 123&quot;</span>
+    | var1 var2 |
+    (<span class="hljs-number">1</span> to: num) do: [:i | |var| ^i].
+    <span class="hljs-type">Klass</span> with: var1.
+    <span class="hljs-type">Klass</span> new.
+    arr := #(<span class="hljs-string">&#x27;123&#x27;</span> <span class="hljs-number">123.345</span> <span class="hljs-symbol">#hello</span> Transcript var <span class="hljs-string">$@</span>).
+    arr := #().
+    var2 = arr at: <span class="hljs-number">3.</span>
+    ^ <span class="hljs-keyword">self</span> abc
+
+heapExample
+    <span class="hljs-comment">&quot;HeapTest new heapExample&quot;</span>
+    <span class="hljs-comment">&quot;Multiline
+    decription&quot;</span>
+    | n rnd array time sorted |
+    n := <span class="hljs-number">5000.</span>
+    <span class="hljs-comment">&quot;# of elements to sort&quot;</span>
+    rnd := <span class="hljs-type">Random</span> new.
+    array := (<span class="hljs-number">1</span> to: n)
+                collect: [:i | rnd next].
+    <span class="hljs-comment">&quot;First, the heap version&quot;</span>
+    time := <span class="hljs-type">Time</span>
+                millisecondsToRun: [sorted := <span class="hljs-type">Heap</span> withAll: array.
+    <span class="hljs-number">1</span>
+        to: n
+        do: [:i |
+            sorted removeFirst.
+            sorted add: rnd next]].
+    <span class="hljs-type">Transcript</span> cr; show: <span class="hljs-string">&#x27;Time for Heap: &#x27;</span> , time printString , <span class="hljs-string">&#x27; msecs&#x27;</span>.
+    <span class="hljs-comment">&quot;The quicksort version&quot;</span>
+    time := <span class="hljs-type">Time</span>
+                millisecondsToRun: [sorted := <span class="hljs-type">SortedCollection</span> withAll: array.
+    <span class="hljs-number">1</span>
+        to: n
+        do: [:i |
+            sorted removeFirst.
+            sorted add: rnd next]].
+    <span class="hljs-type">Transcript</span> cr; show: <span class="hljs-string">&#x27;Time for SortedCollection: &#x27;</span> , time printString , <span class="hljs-string">&#x27; msecs&#x27;</span>

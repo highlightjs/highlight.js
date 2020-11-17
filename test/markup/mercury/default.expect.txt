@@ -1,0 +1,24 @@
+<span class="hljs-comment">% &quot;Hello World&quot; in Mercury.</span>
+:- <span class="hljs-keyword">module</span> hello.
+
+
+:- <span class="hljs-keyword">interface</span>.
+:- <span class="hljs-keyword">import_module</span> io.
+
+:- <span class="hljs-keyword">pred</span> main(io::di, io::uo) <span class="hljs-keyword">is</span> <span class="hljs-keyword">det</span>.
+
+
+:- <span class="hljs-keyword">implementation</span>.
+
+main(!IO) :-
+    io.write_string(<span class="hljs-string">&quot;Hello, world\n&quot;</span>, !IO).
+
+:- <span class="hljs-keyword">pred</span> filter(<span class="hljs-keyword">pred</span>(T), list(T), list(T), list(T) ).
+:- <span class="hljs-keyword">mode</span> filter(in(<span class="hljs-keyword">pred</span>(in) <span class="hljs-keyword">is</span> <span class="hljs-keyword">semidet</span>), in, out, out ) <span class="hljs-keyword">is</span> <span class="hljs-keyword">det</span>.
+
+filter(_, [], [], []).
+filter(P, [X | Xs], Ys, Zs) :-
+    filter(P, Xs, Ys0, Zs0),
+    ( <span class="hljs-built_in">if</span> P(X)   <span class="hljs-built_in">then</span>    Ys <span class="hljs-built_in">=</span> [X | Ys0],   Zs <span class="hljs-built_in">=</span> Zs0
+                <span class="hljs-built_in">else</span>    Ys <span class="hljs-built_in">=</span> Ys0      ,   Zs <span class="hljs-built_in">=</span> [X | Zs0]
+    ).

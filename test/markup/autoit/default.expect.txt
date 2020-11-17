@@ -1,0 +1,16 @@
+<span class="hljs-meta">#<span class="hljs-meta-keyword">NoTrayIcon</span></span>
+<span class="hljs-meta">#AutoIt3Wrapper_Run_Tidy=Y</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;Misc.au3&gt;</span></span>
+
+_Singleton(<span class="hljs-symbol">@ScriptName</span>) <span class="hljs-comment">; Allow only one instance</span>
+example(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">Func</span> <span class="hljs-title">example</span><span class="hljs-params">($min, $max)</span></span>
+	<span class="hljs-keyword">For</span> $i = $min <span class="hljs-keyword">To</span> $max
+		<span class="hljs-keyword">If</span> <span class="hljs-built_in">Mod</span>($i, <span class="hljs-number">2</span>) == <span class="hljs-number">0</span> <span class="hljs-keyword">Then</span>
+			<span class="hljs-built_in">MsgBox</span>(<span class="hljs-number">64</span>, <span class="hljs-string">&quot;Message&quot;</span>, $i &amp; <span class="hljs-string">&#x27; is even number!&#x27;</span>)
+		<span class="hljs-keyword">Else</span>
+			<span class="hljs-built_in">MsgBox</span>(<span class="hljs-number">64</span>, <span class="hljs-string">&quot;Message&quot;</span>, $i &amp; <span class="hljs-string">&#x27; is odd number!&#x27;</span>)
+		<span class="hljs-keyword">EndIf</span>
+	<span class="hljs-keyword">Next</span>
+<span class="hljs-keyword">EndFunc</span>   <span class="hljs-comment">;==&gt;example</span>

@@ -1,0 +1,37 @@
+ <span class="hljs-keyword">BEGIN_PROVIDER</span> [ <span class="hljs-keyword">integer</span>(bit_kind), psi_det_sorted_bit, (N_int,<span class="hljs-number">2</span>,psi_det_size) ]
+&amp;<span class="hljs-keyword">BEGIN_PROVIDER</span> [ <span class="hljs-keyword">double</span> <span class="hljs-keyword">precision</span>, psi_coef_sorted_bit, (psi_det_size,N_states) ]
+ <span class="hljs-keyword">implicit</span> <span class="hljs-keyword">none</span>
+ <span class="hljs-comment">BEGIN_DOC
+ ! Determinants on which we apply &lt;i|H|psi&gt; for perturbation.
+ ! They are sorted by determinants interpreted as integers. Useful
+ ! to accelerate the search of a random determinant in the wave
+ ! function.
+ END_DOC</span>
+ <span class="hljs-keyword">integer</span> :: i,j,k
+ <span class="hljs-keyword">integer</span>, <span class="hljs-keyword">allocatable</span> ::  iorder(:)
+ <span class="hljs-keyword">integer</span>*<span class="hljs-number">8</span>, <span class="hljs-keyword">allocatable</span> :: bit_tmp(:)
+ <span class="hljs-keyword">integer</span>*<span class="hljs-number">8</span>, <span class="hljs-keyword">external</span> :: det_search_key
+
+ <span class="hljs-built_in">allocate</span> ( iorder(N_det), bit_tmp(N_det) )
+
+ <span class="hljs-keyword">do</span> i=<span class="hljs-number">1</span>,N_det
+   iorder(i) = i
+   <span class="hljs-comment">!DIR$ FORCEINLINE</span>
+   bit_tmp(i) = det_search_key(psi_det(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,i),N_int)
+ <span class="hljs-keyword">enddo</span>
+ <span class="hljs-keyword">call</span> isort(bit_tmp,iorder,N_det)
+ <span class="hljs-comment">!DIR$ IVDEP</span>
+ <span class="hljs-keyword">do</span> i=<span class="hljs-number">1</span>,N_det
+  <span class="hljs-keyword">do</span> j=<span class="hljs-number">1</span>,N_int
+    psi_det_sorted_bit(j,<span class="hljs-number">1</span>,i) = psi_det(j,<span class="hljs-number">1</span>,iorder(i))
+    psi_det_sorted_bit(j,<span class="hljs-number">2</span>,i) = psi_det(j,<span class="hljs-number">2</span>,iorder(i))
+  <span class="hljs-keyword">enddo</span>
+  <span class="hljs-keyword">do</span> k=<span class="hljs-number">1</span>,N_states
+    psi_coef_sorted_bit(i,k) = psi_coef(iorder(i),k)
+  <span class="hljs-keyword">enddo</span>
+ <span class="hljs-keyword">enddo</span>
+
+ <span class="hljs-built_in">deallocate</span>(iorder, bit_tmp)
+
+<span class="hljs-keyword">END_PROVIDER</span>
+

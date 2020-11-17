@@ -1,0 +1,12 @@
+<span class="hljs-section">default</span>
+{
+    <span class="hljs-section">state_entry</span>()
+    {
+        <span class="hljs-built_in">llSay</span>(<span class="hljs-literal">PUBLIC_CHANNEL</span>, <span class="hljs-string">&quot;Hello, Avatar!&quot;</span>);
+    }
+
+    <span class="hljs-section">touch_start</span>(<span class="hljs-type">integer</span> num_detected)
+    {
+        <span class="hljs-built_in">llSay</span>(<span class="hljs-literal">PUBLIC_CHANNEL</span>, <span class="hljs-string">&quot;Touched.&quot;</span>);
+    }
+}

@@ -1,0 +1,30 @@
+<span class="hljs-keyword">module</span> fsieve
+
+<span class="hljs-keyword">import</span> StdClass; <span class="hljs-comment">// RWS</span>
+<span class="hljs-keyword">import</span> StdInt, StdReal
+
+NrOfPrimes :== <span class="hljs-number">3000</span>
+
+primes :: [<span class="hljs-built_in">Int</span>]
+primes = pr <span class="hljs-keyword">where</span> pr = [<span class="hljs-number">5</span> : sieve <span class="hljs-number">7</span> <span class="hljs-number">4</span> pr]
+
+sieve :: <span class="hljs-built_in">Int</span> !<span class="hljs-built_in">Int</span> [<span class="hljs-built_in">Int</span>] -&gt; [<span class="hljs-built_in">Int</span>]
+sieve g i prs
+| isPrime prs g (toInt (sqrt (toReal g))) = [g : sieve` g i prs]
+| <span class="hljs-keyword">otherwise</span>                               = sieve (g + i) (<span class="hljs-number">6</span> - i) prs
+
+sieve` :: <span class="hljs-built_in">Int</span> <span class="hljs-built_in">Int</span> [<span class="hljs-built_in">Int</span>] -&gt; [<span class="hljs-built_in">Int</span>]
+sieve` g i prs = sieve (g + i) (<span class="hljs-number">6</span> - i) prs
+
+isPrime :: [<span class="hljs-built_in">Int</span>] !<span class="hljs-built_in">Int</span> <span class="hljs-built_in">Int</span> -&gt; <span class="hljs-built_in">Bool</span>
+isPrime [f:r] pr bd
+| f&gt;bd        =  <span class="hljs-literal">True</span>
+| pr rem f==<span class="hljs-number">0</span> =  <span class="hljs-literal">False</span>
+| <span class="hljs-keyword">otherwise</span>   =  isPrime r pr bd
+
+select :: [x] <span class="hljs-built_in">Int</span> -&gt; x
+select [f:r] <span class="hljs-number">1</span> = f
+select [f:r] n = select r (n - <span class="hljs-number">1</span>)
+
+Start :: <span class="hljs-built_in">Int</span>
+Start = select [<span class="hljs-number">2</span>, <span class="hljs-number">3</span> : primes] NrOfPrimes

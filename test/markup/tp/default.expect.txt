@@ -1,0 +1,156 @@
+<span class="hljs-keyword">/PROG</span>  ALL
+<span class="hljs-keyword">/ATTR</span>
+OWNER		= MNEDITOR;
+COMMENT		= <span class="hljs-string">&quot;&quot;</span>;
+PROG_SIZE	= <span class="hljs-number">3689</span>;
+CREATE		= DATE <span class="hljs-number">14</span><span class="hljs-number">-05</span><span class="hljs-number">-13</span>  TIME <span class="hljs-number">17</span>:<span class="hljs-number">03</span>:<span class="hljs-number">06</span>;
+MODIFIED	= DATE <span class="hljs-number">14</span><span class="hljs-number">-05</span><span class="hljs-number">-13</span>  TIME <span class="hljs-number">17</span>:<span class="hljs-number">21</span>:<span class="hljs-number">44</span>;
+FILE_NAME	= ;
+VERSION		= <span class="hljs-number">0</span>;
+LINE_COUNT	= <span class="hljs-number">118</span>;
+MEMORY_SIZE	= <span class="hljs-number">4365</span>;
+PROTECT		= READ_WRITE;
+TCD:  STACK_SIZE	= <span class="hljs-number">0</span>,
+      TASK_PRIORITY	= <span class="hljs-number">50</span>,
+      TIME_SLICE	= <span class="hljs-number">0</span>,
+      BUSY_LAMP_OFF	= <span class="hljs-number">0</span>,
+      ABORT_REQUEST	= <span class="hljs-number">0</span>,
+      PAUSE_REQUEST	= <span class="hljs-number">0</span>;
+DEFAULT_GROUP	= <span class="hljs-number">1</span>,*,*,*,*;
+CONTROL_CODE	= <span class="hljs-number">00000000</span> <span class="hljs-number">00000000</span>;
+<span class="hljs-keyword">/MN</span>
+  <span class="hljs-comment">! motion ;</span>
+J <span class="hljs-built_in">P[<span class="hljs-number">1</span><span class="hljs-symbol">:test point</span>]</span> <span class="hljs-number">100</span>% <span class="hljs-keyword">FINE</span>    ;
+J <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100</span><span class="hljs-number">.0</span>sec <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span>    ;
+J <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100msec</span> <span class="hljs-keyword">CNT</span> <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100</span>/sec <span class="hljs-keyword">FINE</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100cm/min</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100</span><span class="hljs-number">.0</span>inch/min <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100deg/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span>    ;
+  <span class="hljs-comment">! indirect speed ;</span>
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>sec <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span>    ;
+  <span class="hljs-comment">! indirect indirect ;</span>
+L <span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span> <span class="hljs-built_in">R[<span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>]</span>msec <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span>    ;
+  <span class="hljs-comment">! indirect destination ;</span>
+L <span class="hljs-built_in">PR[<span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>]</span> <span class="hljs-literal">max_speed</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span>    ;
+   ;
+  <span class="hljs-comment">! assignment ;</span>
+  <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=<span class="hljs-built_in">R[<span class="hljs-number">2</span>]</span>    ;
+  <span class="hljs-comment">! indirect assignment ;</span>
+  <span class="hljs-built_in">R[<span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>]</span>=<span class="hljs-built_in">R[<span class="hljs-number">2</span>]</span> ;
+  <span class="hljs-comment">! system variables ;</span>
+  <span class="hljs-variable">$foo</span>=<span class="hljs-variable">$bar</span>[<span class="hljs-number">100</span>].<span class="hljs-variable">$baz</span> ;
+  <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=<span class="hljs-variable">$FOO</span>.<span class="hljs-variable">$BAR</span> ;
+    ;
+  <span class="hljs-comment">! various keyword assignments ;</span>
+  <span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">LPOS</span>    ;
+  <span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">JPOS</span>    ;
+  <span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span>=<span class="hljs-built_in">UFRAME[<span class="hljs-number">1</span>]</span> ;
+  <span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span>=<span class="hljs-built_in">UTOOL[<span class="hljs-number">1</span>]</span> ;
+  <span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span>=<span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span>    ;
+  <span class="hljs-built_in">PR[<span class="hljs-number">1</span>,<span class="hljs-number">1</span><span class="hljs-symbol">:component</span>]</span>=<span class="hljs-number">5</span>    ;
+  <span class="hljs-built_in">SR[<span class="hljs-number">1</span><span class="hljs-symbol">:string reg</span>]</span>=<span class="hljs-built_in">SR[<span class="hljs-number">2</span>]</span>+<span class="hljs-built_in">AR[<span class="hljs-number">1</span>]</span>    ;
+  <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=<span class="hljs-built_in">SO[<span class="hljs-number">1</span><span class="hljs-symbol">:Cycle start</span>]</span> <span class="hljs-keyword">DIV</span> <span class="hljs-built_in">SI[<span class="hljs-number">2</span><span class="hljs-symbol">:Remote</span>]</span>    ;
+  <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=<span class="hljs-built_in">UO[<span class="hljs-number">1</span><span class="hljs-symbol">:Cmd enabled</span>]</span> <span class="hljs-keyword">MOD</span> <span class="hljs-built_in">UI[<span class="hljs-number">1</span><span class="hljs-symbol">:*IMSTP</span>]</span>    ;
+  <span class="hljs-comment">! mixed logic ;</span>
+  <span class="hljs-built_in">DO[<span class="hljs-number">1</span>]</span>=(<span class="hljs-built_in">DI[<span class="hljs-number">1</span>]</span> <span class="hljs-keyword">AND</span> <span class="hljs-built_in">AR[<span class="hljs-number">1</span>]</span> <span class="hljs-keyword">AND</span> <span class="hljs-built_in">F[<span class="hljs-number">1</span>]</span> <span class="hljs-keyword">OR</span> <span class="hljs-built_in">TIMER[<span class="hljs-number">1</span>]</span>&gt;<span class="hljs-built_in">TIMER_OVERFLOW[<span class="hljs-number">1</span>]</span>) ;
+  <span class="hljs-built_in">F[<span class="hljs-number">1</span>]</span>=(<span class="hljs-literal">ON</span>) ;
+  <span class="hljs-built_in">JOINT_MAX_SPEED[<span class="hljs-number">1</span>]</span>=<span class="hljs-number">5</span> ;
+  <span class="hljs-keyword">LINEAR_MAX_SPEED</span>=<span class="hljs-number">5</span> ;
+  <span class="hljs-keyword">SKIP</span> <span class="hljs-keyword">CONDITION</span> <span class="hljs-built_in">DI[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">OFF</span>-   ;
+  <span class="hljs-built_in">PAYLOAD[<span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>]</span> ;
+  <span class="hljs-keyword">OFFSET</span> <span class="hljs-keyword">CONDITION</span> <span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span>    ;
+  <span class="hljs-keyword">UFRAME_NUM</span>=<span class="hljs-number">1</span> ;
+  <span class="hljs-keyword">UTOOL_NUM</span>=<span class="hljs-number">1</span> ;
+  <span class="hljs-built_in">UFRAME[<span class="hljs-number">1</span>]</span>=<span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span> ;
+  <span class="hljs-built_in">UTOOL[<span class="hljs-number">1</span>]</span>=<span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span> ;
+  <span class="hljs-built_in">RSR[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">ENABLE</span> ;
+  <span class="hljs-built_in">RSR[<span class="hljs-built_in">AR[<span class="hljs-number">1</span>]</span>]</span>=<span class="hljs-literal">DISABLE</span> ;
+  <span class="hljs-built_in">UALM[<span class="hljs-number">1</span>]</span> ;
+  <span class="hljs-built_in">TIMER[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">START</span> ;
+  <span class="hljs-built_in">TIMER[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">STOP</span> ;
+  <span class="hljs-built_in">TIMER[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">RESET</span> ;
+  <span class="hljs-keyword">OVERRIDE</span>=<span class="hljs-number">50</span>% ;
+  <span class="hljs-keyword">TOOL_OFFSET</span> <span class="hljs-keyword">CONDITION</span> <span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span>    ;
+  <span class="hljs-keyword">LOCK</span> <span class="hljs-keyword">PREG</span> ;
+  <span class="hljs-keyword">UNLOCK</span> <span class="hljs-keyword">PREG</span> ;
+  <span class="hljs-keyword">COL</span> <span class="hljs-keyword">DETECT</span> <span class="hljs-literal">ON</span> ;
+  <span class="hljs-keyword">COL</span> <span class="hljs-keyword">DETECT</span> <span class="hljs-literal">OFF</span> ;
+  <span class="hljs-keyword">COL</span> <span class="hljs-keyword">GUARD</span> <span class="hljs-keyword">ADJUST</span> <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span> ;
+  <span class="hljs-keyword">COL</span> <span class="hljs-keyword">GUARD</span> <span class="hljs-keyword">ADJUST</span> <span class="hljs-number">50</span> ;
+  <span class="hljs-keyword">MONITOR</span> TEST ;
+  <span class="hljs-keyword">MONITOR</span> <span class="hljs-keyword">END</span> TEST ;
+  <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=<span class="hljs-keyword">STRLEN</span> <span class="hljs-built_in">SR[<span class="hljs-number">1</span>]</span> ;
+  <span class="hljs-built_in">SR[<span class="hljs-number">1</span>]</span>=<span class="hljs-keyword">SUBSTR</span> <span class="hljs-built_in">SR[<span class="hljs-number">2</span>]</span>,<span class="hljs-built_in">R[<span class="hljs-number">3</span>]</span>,<span class="hljs-built_in">R[<span class="hljs-number">4</span>]</span> ;
+  <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=<span class="hljs-keyword">FINDSTR</span> <span class="hljs-built_in">SR[<span class="hljs-number">1</span>]</span>,<span class="hljs-built_in">SR[<span class="hljs-number">2</span>]</span> ;
+  <span class="hljs-built_in">DIAG_REC[<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>]</span> ;
+   ;
+  <span class="hljs-comment">! program calls ;</span>
+  <span class="hljs-keyword">CALL</span> TEST ;
+  <span class="hljs-keyword">CALL</span> TEST(<span class="hljs-number">1</span>,<span class="hljs-string">&#x27;string&#x27;</span>,<span class="hljs-built_in">SR[<span class="hljs-number">1</span>]</span>,<span class="hljs-built_in">AR[<span class="hljs-number">1</span>]</span>) ;
+  <span class="hljs-keyword">RUN</span> TEST ;
+  <span class="hljs-keyword">RUN</span> TEST(<span class="hljs-number">1</span>,<span class="hljs-string">&#x27;string&#x27;</span>,<span class="hljs-built_in">SR[<span class="hljs-number">1</span>]</span>,<span class="hljs-built_in">AR[<span class="hljs-number">1</span>]</span>) ;
+   ;
+  <span class="hljs-comment">! conditionals ;</span>
+  <span class="hljs-keyword">IF</span> <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=<span class="hljs-number">1</span>,<span class="hljs-keyword">JMP</span> <span class="hljs-built_in">LBL[<span class="hljs-number">5</span>]</span> ;
+  <span class="hljs-keyword">IF</span> <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=<span class="hljs-built_in">AR[<span class="hljs-number">1</span>]</span>,<span class="hljs-keyword">CALL</span> TEST ;
+  <span class="hljs-keyword">IF</span> (<span class="hljs-built_in">DI[<span class="hljs-number">1</span>]</span>),<span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=(<span class="hljs-number">5</span>) ;
+  <span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=<span class="hljs-number">1</span>,<span class="hljs-keyword">JMP</span> <span class="hljs-built_in">LBL[<span class="hljs-number">5</span>]</span> ;
+         =<span class="hljs-number">2</span>,<span class="hljs-keyword">CALL</span> TEST ;
+         <span class="hljs-keyword">ELSE</span>,<span class="hljs-keyword">JMP</span> <span class="hljs-built_in">LBL[<span class="hljs-number">100</span>]</span> ;
+  <span class="hljs-keyword">FOR</span> <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>=<span class="hljs-number">1</span> <span class="hljs-keyword">TO</span> <span class="hljs-built_in">R[<span class="hljs-number">2</span>]</span> ;
+  <span class="hljs-keyword">ENDFOR</span> ;
+   ;
+  <span class="hljs-comment">! wait statement ;</span>
+  <span class="hljs-keyword">WAIT</span>   <span class="hljs-number">1</span><span class="hljs-number">.00</span>(sec) ;
+  <span class="hljs-keyword">WAIT</span> <span class="hljs-built_in">R[<span class="hljs-number">5</span>]</span> ;
+  <span class="hljs-keyword">WAIT</span> <span class="hljs-built_in">DI[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">ON</span>    ;
+  <span class="hljs-keyword">WAIT</span> <span class="hljs-built_in">DI[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">ON</span>+    ;
+  <span class="hljs-keyword">WAIT</span> <span class="hljs-keyword">ERR_NUM</span>=<span class="hljs-number">1</span>    ;
+  <span class="hljs-keyword">WAIT</span> (<span class="hljs-built_in">DI[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">ON</span>) ;
+   ;
+  <span class="hljs-comment">! jumps and labels ;</span>
+  <span class="hljs-keyword">JMP</span> <span class="hljs-built_in">LBL[<span class="hljs-number">1</span>]</span> ;
+  <span class="hljs-keyword">JMP</span> <span class="hljs-built_in">LBL[<span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>]</span> ;
+  <span class="hljs-built_in">LBL[<span class="hljs-number">100</span>]</span> ;
+  <span class="hljs-built_in">LBL[<span class="hljs-number">100</span><span class="hljs-symbol">:TEST</span>]</span> ;
+   ;
+  <span class="hljs-comment">! statements ;</span>
+  <span class="hljs-keyword">PAUSE</span> ;
+  <span class="hljs-keyword">ABORT</span> ;
+  <span class="hljs-keyword">ERROR_PROG</span>=ALL ;
+  <span class="hljs-built_in">RESUME_PROG[<span class="hljs-number">1</span>]</span>=TEST ;
+  <span class="hljs-keyword">END</span> ;
+  <span class="hljs-built_in">MESSAGE[ASDF]</span> ;
+   ;
+  <span class="hljs-comment">! comments ;</span>
+  <span class="hljs-comment">--eg:ASDFASDFASDF ;</span>
+  <span class="hljs-comment">// L P[9] 100mm/sec CNT100 ACC100    ;</span>
+   ;
+  <span class="hljs-comment">! motion modifiers ;</span>
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">ACC</span><span class="hljs-number">100</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">ACC</span> <span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">Skip</span>,<span class="hljs-built_in">LBL[<span class="hljs-number">1</span>]</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">BREAK</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">Offset</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">PSPD</span><span class="hljs-number">50</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">Offset</span>,<span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">INC</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">RT_LD</span><span class="hljs-built_in">R[<span class="hljs-number">1</span>]</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">AP_LD</span><span class="hljs-number">50</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">Tool_Offset</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">Tool_Offset</span>,<span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">Skip</span>,<span class="hljs-built_in">LBL[<span class="hljs-number">1</span>]</span>,<span class="hljs-built_in">PR[<span class="hljs-number">1</span>]</span>=<span class="hljs-literal">LPOS</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">TB</span> <span class="hljs-built_in">R[<span class="hljs-number">5</span>]</span>sec,<span class="hljs-keyword">CALL</span> ALL    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">TA</span>   <span class="hljs-number">0</span><span class="hljs-number">.00</span>sec,<span class="hljs-built_in">AO[<span class="hljs-number">1</span>]</span>=<span class="hljs-built_in">R[<span class="hljs-number">5</span>]</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">DB</span>    <span class="hljs-number">0</span><span class="hljs-number">.0</span>mm,<span class="hljs-keyword">CALL</span> ALL    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">PTH</span>    ;
+L <span class="hljs-built_in">P[<span class="hljs-number">1</span>]</span> <span class="hljs-number">100mm/sec</span> <span class="hljs-keyword">CNT</span><span class="hljs-number">100</span> <span class="hljs-keyword">VOFFSET</span>,<span class="hljs-built_in">VR[<span class="hljs-number">1</span>]</span> ;
+<span class="hljs-keyword">/POS</span>
+<span class="hljs-built_in">P[<span class="hljs-number">1</span><span class="hljs-symbol">:&quot;test&quot;</span>]</span>{
+   <span class="hljs-keyword">GP</span><span class="hljs-number">1</span>:
+	<span class="hljs-keyword">UF</span> : <span class="hljs-number">0</span>, <span class="hljs-keyword">UT</span> : <span class="hljs-number">1</span>,		<span class="hljs-keyword">CONFIG</span> : <span class="hljs-string">&#x27;&#x27;</span>,
+	<span class="hljs-keyword">X</span> =   <span class="hljs-number">550</span><span class="hljs-number">.000</span>  mm,	<span class="hljs-keyword">Y</span> =     <span class="hljs-number">0</span><span class="hljs-number">.000</span>  mm,	<span class="hljs-keyword">Z</span> =  <span class="hljs-number">-685.000</span>  mm,
+	<span class="hljs-keyword">W</span> =   <span class="hljs-number">180</span><span class="hljs-number">.000</span> deg,	<span class="hljs-keyword">P</span> =     <span class="hljs-number">0</span><span class="hljs-number">.000</span> deg,	<span class="hljs-keyword">R</span> =     <span class="hljs-number">0</span><span class="hljs-number">.000</span> deg
+};
+<span class="hljs-keyword">/END</span>

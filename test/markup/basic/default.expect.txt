@@ -1,0 +1,22 @@
+<span class="hljs-symbol">10 </span><span class="hljs-keyword">CLS</span>
+<span class="hljs-symbol">20 </span><span class="hljs-keyword">FOR</span> I = <span class="hljs-number">0</span> <span class="hljs-keyword">TO</span> <span class="hljs-number">15</span>
+<span class="hljs-symbol">22 </span><span class="hljs-keyword">FOR</span> J = <span class="hljs-number">0</span> <span class="hljs-keyword">TO</span> <span class="hljs-number">7</span>
+<span class="hljs-symbol">30 </span><span class="hljs-keyword">COLOR</span> I,J
+<span class="hljs-symbol">40 </span><span class="hljs-keyword">PRINT</span> <span class="hljs-string">&quot; ** &quot;</span>;
+<span class="hljs-symbol">45 </span><span class="hljs-keyword">NEXT</span> J
+<span class="hljs-symbol">46 </span><span class="hljs-keyword">COLOR</span> I,<span class="hljs-number">0</span>
+<span class="hljs-symbol">47 </span><span class="hljs-keyword">GOSUB</span> <span class="hljs-number">100</span>
+<span class="hljs-symbol">48 </span><span class="hljs-keyword">PRINT</span>
+<span class="hljs-symbol">50 </span><span class="hljs-keyword">NEXT</span> I
+<span class="hljs-symbol">60 </span><span class="hljs-keyword">COLOR</span> <span class="hljs-number">15</span>,<span class="hljs-number">0</span>
+<span class="hljs-symbol">99 </span><span class="hljs-keyword">END</span>
+<span class="hljs-symbol">100 </span><span class="hljs-keyword">FOR</span> T = <span class="hljs-number">65</span> <span class="hljs-keyword">TO</span> <span class="hljs-number">90</span>
+<span class="hljs-symbol">101 </span><span class="hljs-keyword">PRINT</span> <span class="hljs-keyword">CHR$</span>(T);
+<span class="hljs-symbol">102 </span><span class="hljs-keyword">NEXT</span> T
+<span class="hljs-symbol">103 </span><span class="hljs-keyword">RETURN</span>
+<span class="hljs-symbol">200 </span><span class="hljs-comment">REM Data types test</span>
+<span class="hljs-symbol">201 </span>TOTAL# = <span class="hljs-number">3.30#</span>		<span class="hljs-comment">&#x27;Double precision variable</span>
+<span class="hljs-symbol">202 </span>BALANCE! = <span class="hljs-number">3!</span>		<span class="hljs-comment">&#x27;Single precision variable</span>
+<span class="hljs-symbol">203 </span>B2! = <span class="hljs-number">12e5</span>			<span class="hljs-comment">&#x27;120000</span>
+<span class="hljs-symbol">204 </span>ITEMS% = <span class="hljs-number">10</span>			<span class="hljs-comment">&#x27;Integer variable</span>
+<span class="hljs-symbol">205 </span>HEXTEST = <span class="hljs-number">&amp;H12DB</span>	<span class="hljs-comment">&#x27;Hex value</span>

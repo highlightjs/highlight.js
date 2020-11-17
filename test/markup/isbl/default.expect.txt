@@ -1,0 +1,27 @@
+﻿  <span class="hljs-comment">// Описание констант</span>
+  <span class="hljs-variable">ADD_EQUAL_NUMBER_TEMPLATE</span> = <span class="hljs-string">&quot;%s.%s = %s&quot;</span>
+  <span class="hljs-variable">EMPLOYEES_REFERENCE</span> = <span class="hljs-string">&quot;РАБ&quot;</span>
+  <span class="hljs-comment">/********************************************* 
+   *  Получить список кодов или ИД работников, *
+   *  соответствующих текущему пользователю    *
+   *********************************************/</span>
+  <span class="hljs-variable">Employees<span class="hljs-type">: IReference.РАБ</span> =</span> <span class="hljs-function"><span class="hljs-title"><span class="hljs-built_in">CreateReference</span></span>(<span class="hljs-variable">EMPLOYEES_REFERENCE</span>; 
+    <span class="hljs-title"><span class="hljs-built_in">ArrayOf</span></span>(<span class="hljs-string">&quot;Пользователь&quot;</span>; <span class="hljs-variable"><span class="hljs-built_in">SYSREQ_STATE</span></span>); <span class="hljs-title">MyFunction</span>(<span class="hljs-variable"><span class="hljs-literal">FALSE</span></span>; <span class="hljs-variable">MyParam</span> * <span class="hljs-number">0.05</span>))</span>
+  <span class="hljs-variable">Employees.Events.DisableAll</span>
+  <span class="hljs-variable">EmployeesTableName</span> = <span class="hljs-variable">Employees.TableName</span>
+  <span class="hljs-variable">EmployeesUserWhereID</span> = <span class="hljs-variable">Employees.AddWhere</span>(<span class="hljs-function"><span class="hljs-title"><span class="hljs-built_in">Format</span></span>(<span class="hljs-variable">ADD_EQUAL_NUMBER_TEMPLATE</span>; 
+    <span class="hljs-title"><span class="hljs-built_in">ArrayOf</span></span>(<span class="hljs-variable">EmployeesTableName</span>; <span class="hljs-variable">Employees.Requisites</span>(<span class="hljs-string">&quot;Пользователь&quot;</span>).SQLFieldName; 
+    <span class="hljs-variable"><span class="hljs-class">EDocuments</span>.CurrentUser.ID</span>)))</span>
+  <span class="hljs-variable">Employees.Open</span>()
+  <span class="hljs-variable"><span class="hljs-class">Result</span></span> = <span class="hljs-function"><span class="hljs-title"><span class="hljs-built_in">CreateStringList</span></span>()</span>
+  <span class="hljs-variable"><span class="hljs-keyword">foreach</span></span> <span class="hljs-variable">Employee</span> <span class="hljs-variable"><span class="hljs-keyword">in</span></span> <span class="hljs-variable">Employees</span>
+    <span class="hljs-variable"><span class="hljs-keyword">if</span></span> <span class="hljs-variable">IsResultCode</span>
+      <span class="hljs-variable"><span class="hljs-class">Result</span>.Add</span>(<span class="hljs-variable">Employee.<span class="hljs-built_in">SYSREQ_CODE</span></span>)
+    <span class="hljs-variable"><span class="hljs-keyword">else</span></span>
+      <span class="hljs-variable"><span class="hljs-class">Result</span>.Add</span>(<span class="hljs-variable">Employee.<span class="hljs-built_in">SYSREQ_ID</span></span>)
+    <span class="hljs-variable"><span class="hljs-keyword">endif</span></span>  
+  <span class="hljs-variable"><span class="hljs-keyword">endforeach</span></span>
+  <span class="hljs-variable">Employees.Close</span>()
+  <span class="hljs-variable">Employees.DelWhere</span>(<span class="hljs-variable">EmployeesUserWhereID</span>)
+  <span class="hljs-variable">Employees.Events.EnableAll</span>
+  <span class="hljs-variable">Employees</span> = <span class="hljs-variable"><span class="hljs-literal">nil</span></span>

@@ -1,0 +1,62 @@
+
+apply plugin: <span class="hljs-string">&#x27;android&#x27;</span>
+
+android {
+    compileSdkVersion <span class="hljs-number">19</span>
+    buildToolsVersion <span class="hljs-string">&quot;19.1&quot;</span>
+
+    defaultConfig {
+        minSdkVersion <span class="hljs-number">15</span>
+        targetSdkVersion <span class="hljs-number">19</span>
+        versionCode <span class="hljs-number">5</span>
+        versionName <span class="hljs-string">&quot;0.4.4&quot;</span>
+    }
+
+    compileOptions {
+        <span class="hljs-keyword">sourceCompatibility</span> JavaVersion.VERSION_1_7
+        <span class="hljs-keyword">targetCompatibility</span> JavaVersion.VERSION_1_7
+    }
+    signingConfigs {
+        release
+    }
+    buildTypes {
+        release {
+            <span class="hljs-comment">// runProguard true</span>
+            proguardFiles getDefaultProguardFile(<span class="hljs-string">&#x27;proguard-android.txt&#x27;</span>), <span class="hljs-string">&#x27;proguard-rules.txt&#x27;</span>
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+<span class="hljs-keyword">dependencies</span> {
+    <span class="hljs-keyword">compile</span> <span class="hljs-keyword">fileTree</span>(dir: <span class="hljs-string">&#x27;libs&#x27;</span>, <span class="hljs-keyword">include</span>: [<span class="hljs-string">&#x27;*.jar&#x27;</span>])
+
+    <span class="hljs-keyword">compile</span> <span class="hljs-string">&#x27;com.example:example-lib:1.0.0&#x27;</span>
+}
+
+
+<span class="hljs-keyword">def</span> propFile = <span class="hljs-keyword">file</span>(<span class="hljs-string">&#x27;../signing.properties&#x27;</span>)
+<span class="hljs-keyword">if</span>( propFile.canRead() ) {
+    <span class="hljs-keyword">def</span> Properties p = <span class="hljs-keyword">new</span> Properties()
+    p.load(<span class="hljs-keyword">new</span> FileInputStream(propFile))
+
+    <span class="hljs-keyword">if</span>( p!=<span class="hljs-keyword">null</span>
+    &amp;&amp;  p.containsKey(<span class="hljs-string">&quot;STORE_FILE&quot;</span>)
+    &amp;&amp;  p.containsKey(<span class="hljs-string">&#x27;STORE_PASSWORD&#x27;</span>)
+    &amp;&amp;  p.containsKey(<span class="hljs-string">&#x27;KEY_ALIAS&#x27;</span>)
+    &amp;&amp;  p.containsKey(<span class="hljs-string">&#x27;KEY_PASSWORD&#x27;</span>)
+    ) {
+        <span class="hljs-keyword">println</span> <span class="hljs-string">&quot;RELEASE_BUILD: Signing...&quot;</span>
+
+        android.signingConfigs.release.storeFile = <span class="hljs-keyword">file</span>( p[<span class="hljs-string">&#x27;STORE_FILE&#x27;</span>] )
+        android.signingConfigs.release.storePassword = p[<span class="hljs-string">&#x27;STORE_PASSWORD&#x27;</span>]
+        android.signingConfigs.release.keyAlias = p[<span class="hljs-string">&#x27;KEY_ALIAS&#x27;</span>]
+        android.signingConfigs.release.keyPassword = p[<span class="hljs-string">&#x27;KEY_PASSWORD&#x27;</span>]
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">println</span> <span class="hljs-string">&quot;RELEASE_BUILD: Required properties in signing.properties are missing&quot;</span>
+        android.buildTypes.release.signingConfig = <span class="hljs-keyword">null</span>
+    }
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">println</span> <span class="hljs-string">&quot;RELEASE_BUILD: signing.properties not found&quot;</span>
+    android.buildTypes.release.signingProperties = <span class="hljs-keyword">null</span>
+}

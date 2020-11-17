@@ -1,0 +1,29 @@
+<span class="hljs-comment">&#x27; creating configuration storage and initializing with default values</span>
+<span class="hljs-keyword">Set</span> cfg = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.Dictionary&quot;</span>)
+
+<span class="hljs-comment">&#x27; reading ini file</span>
+<span class="hljs-keyword">for</span> i = <span class="hljs-number">0</span> <span class="hljs-keyword">to</span> <span class="hljs-built_in">ubound</span>(ini_strings)
+    s = <span class="hljs-built_in">trim</span>(ini_strings(i))
+
+    <span class="hljs-comment">&#x27; skipping empty strings and comments</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">mid</span>(s, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>) &lt;&gt; <span class="hljs-string">&quot;#&quot;</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">len</span>(s) &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+      <span class="hljs-comment">&#x27; obtaining key and value</span>
+      parts = <span class="hljs-built_in">split</span>(s, <span class="hljs-string">&quot;=&quot;</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>)
+
+      <span class="hljs-keyword">if</span> <span class="hljs-built_in">ubound</span>(parts)+<span class="hljs-number">1</span> = <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+        parts(<span class="hljs-number">0</span>) = <span class="hljs-built_in">trim</span>(parts(<span class="hljs-number">0</span>))
+        parts(<span class="hljs-number">1</span>) = <span class="hljs-built_in">trim</span>(parts(<span class="hljs-number">1</span>))
+
+        <span class="hljs-comment">&#x27; reading configuration and filenames</span>
+        <span class="hljs-keyword">select</span> <span class="hljs-keyword">case</span> <span class="hljs-built_in">lcase</span>(parts(<span class="hljs-number">0</span>))
+          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;uncompressed&quot;&quot;_postfix&quot;</span> cfg.item(<span class="hljs-string">&quot;uncompressed&quot;&quot;_postfix&quot;</span>) = parts(<span class="hljs-number">1</span>)
+          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;f&quot;</span>
+                    options = <span class="hljs-built_in">split</span>(parts(<span class="hljs-number">1</span>), <span class="hljs-string">&quot;|&quot;</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>)
+                    <span class="hljs-keyword">if</span> <span class="hljs-built_in">ubound</span>(options)+<span class="hljs-number">1</span> = <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+                      <span class="hljs-comment">&#x27; 0: filename,  1: options</span>
+                      ff.add <span class="hljs-built_in">trim</span>(options(<span class="hljs-number">0</span>)), <span class="hljs-built_in">trim</span>(options(<span class="hljs-number">1</span>))
+                    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+        <span class="hljs-keyword">end</span> <span class="hljs-keyword">select</span>
+      <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">next</span>

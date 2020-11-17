@@ -1,0 +1,75 @@
+<span class="hljs-keyword">.class</span><span class="hljs-keyword"> public</span> <span class="hljs-class">Lcom/test/Preferences;</span>
+<span class="hljs-keyword">.super</span> <span class="hljs-class">Landroid/preference/PreferenceActivity;</span>
+<span class="hljs-keyword">.source</span> <span class="hljs-string">&quot;Preferences.java&quot;</span>
+
+
+<span class="hljs-comment"># instance fields</span>
+<span class="hljs-keyword">.field</span><span class="hljs-keyword"> private</span> PACKAGE_NAME:<span class="hljs-class">Ljava/lang/String;</span>
+
+
+<span class="hljs-comment"># direct methods</span>
+<span class="hljs-keyword">.method</span><span class="hljs-keyword"> public</span><span class="hljs-keyword"> constructor</span> &lt;init&gt;()V
+<span class="hljs-keyword">    .registers</span> 1
+<span class="hljs-keyword">    .annotation</span> build <span class="hljs-class">Landroid/annotation/SuppressLint;</span>
+        value = {
+            <span class="hljs-string">&quot;InlinedApi&quot;</span>
+        }<span class="hljs-keyword">
+    .end annotation</span>
+
+<span class="hljs-keyword">    .prologue</span>
+<span class="hljs-keyword">    .line</span> 25
+   <span class="hljs-built_in"> invoke-direct </span>{p0}, <span class="hljs-class">Landroid/preference/PreferenceActivity;</span>-&gt;&lt;init&gt;()V
+
+   <span class="hljs-built_in"> const-string </span>v4, <span class="hljs-string">&quot;ASDF!&quot;</span>
+
+<span class="hljs-keyword">    .line</span> 156<span class="hljs-keyword">
+    .end local</span> v0           <span class="hljs-comment">#customOther:Landroid/preference/Preference;</span><span class="hljs-keyword">
+    .end local</span> v1           <span class="hljs-comment">#customRate:Landroid/preference/Preference;</span><span class="hljs-keyword">
+    .end local</span> v2           <span class="hljs-comment">#hideApp:Landroid/preference/Preference;</span>
+   <span class="hljs-keyword"> :cond_56</span>
+
+<span class="hljs-keyword">        .line</span> 135
+   <span class="hljs-built_in"> invoke-static </span>{p1}, <span class="hljs-class">Lcom/google/ads/AdActivity;</span>-&gt;b(<span class="hljs-class">Lcom/google/ads/internal/d;</span>)<span class="hljs-class">Lcom/google/ads/internal/d;</span>
+
+<span class="hljs-keyword">    .line</span> 140
+   <span class="hljs-keyword"> :cond_e</span>
+   <span class="hljs-built_in"> monitor-exit </span>v1
+   <span class="hljs-keyword"> :try_end_f</span>
+<span class="hljs-keyword">    .catchall</span> {:try_start_5 ..<span class="hljs-keyword"> :try_end_f</span>}<span class="hljs-keyword"> :catchall_30</span>
+
+<span class="hljs-keyword">    .line</span> 143
+   <span class="hljs-built_in"> invoke-virtual </span>{p1}, <span class="hljs-class">Lcom/google/ads/internal/d;</span>-&gt;g()<span class="hljs-class">Lcom/google/ads/m;</span>
+
+   <span class="hljs-built_in"> move-result-object </span>v0
+
+   <span class="hljs-built_in"> iget-object </span>v0, v0, <span class="hljs-class">Lcom/google/ads/m;</span>-&gt;c:<span class="hljs-class">Lcom/google/ads/util/i$d;</span>
+
+   <span class="hljs-built_in"> invoke-virtual </span>{v0}, <span class="hljs-class">Lcom/google/ads/util/i$d;</span>-&gt;a()<span class="hljs-class">Ljava/lang/Object;</span>
+
+   <span class="hljs-built_in"> move-result-object </span>v0
+
+   <span class="hljs-built_in"> check-cast </span>v0, <span class="hljs-class">Landroid/app/Activity;</span>
+
+<span class="hljs-keyword">    .line</span> 144
+   <span class="hljs-built_in"> if-nez </span>v0,<span class="hljs-keyword"> :cond_33</span>
+
+<span class="hljs-keyword">    .line</span> 145
+   <span class="hljs-built_in"> const-string </span>v0, <span class="hljs-string">&quot;activity was null while launching an AdActivity.&quot;</span>
+
+   <span class="hljs-built_in"> invoke-static </span>{v0}, <span class="hljs-class">Lcom/google/ads/util/b;</span>-&gt;e(<span class="hljs-class">Ljava/lang/String;</span>)V
+
+<span class="hljs-keyword">    .line</span> 160
+   <span class="hljs-keyword"> :goto_22</span>
+   <span class="hljs-built_in"> return-void
+</span>
+<span class="hljs-keyword">    .line</span> 136
+   <span class="hljs-keyword"> :cond_23</span>
+   <span class="hljs-keyword"> :try_start_23</span>
+   <span class="hljs-built_in"> invoke-static </span>{}, <span class="hljs-class">Lcom/google/ads/AdActivity;</span>-&gt;c()<span class="hljs-class">Lcom/google/ads/internal/d;</span>
+
+   <span class="hljs-built_in"> move-result-object </span>v0
+
+   <span class="hljs-built_in"> if-eq </span>v0, p1,<span class="hljs-keyword"> :cond_e</span>
+
+   <span class="hljs-built_in"> return-void
+</span><span class="hljs-keyword">.end method</span>
