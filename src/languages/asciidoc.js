@@ -107,24 +107,25 @@ export default function(hljs) {
         begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+',
         relevance: 10
       },
-      // inline unconstrained strong
+      // inline unconstrained strong (single line)
       {
         className: 'strong',
-        begin: /\*{2}[\w\s\n]+/,
-        end: /\*{2}/
+        begin: /\*\*(.+?)\*\*/
       },
-      // escaped formatting marks
+      // inline unconstrained strong (multi-line)
       {
-        begin: /\\/,
-        contains: [{
-          begin: /[*_`]/,
-        }]
+        className: 'strong',
+        begin: /\*{2}(\s\S+)*\*{2}/,
+        relevance: 0
+      },
+      // escaped formatting marks (i.e., \* \_ or \`)
+      {
+        begin: /\\[*_`]/
       },
       // inline constrained strong
       {
         className: 'strong',
         // must not follow a word character or be followed by an asterisk or space
-        // must not be preceded by the escape character \
         begin: /\B\*(\w\n?\w)+(?!\n\n)/,
         end: /\*/,
         // allow escaped asterisk followed by word char

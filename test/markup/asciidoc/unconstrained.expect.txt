@@ -9,4 +9,6 @@ using bold style :)**</span>.
 
 Read the little notes**.
 
-This is <span class="hljs-strong">**bold**</span>.
+Read the little notes**
+
+This is <span class="hljs-strong">**bold**</span>

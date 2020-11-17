@@ -9,4 +9,6 @@ using bold style :)**.
 
 Read the little notes**.
 
-This is **bold**.
+Read the little notes**
+
+This is **bold**
