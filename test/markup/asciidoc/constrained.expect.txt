@@ -16,3 +16,7 @@ rd*</span>.
 Not a strong *wo
 
 rd*.
+
+\\blah blah <span class="hljs-strong">*blah*</span>.
+
+\\blah blah blah*.

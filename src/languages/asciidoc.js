@@ -116,7 +116,9 @@ export default function(hljs) {
       // escaped formatting marks
       {
         begin: /\\/,
-        end: /[*_`]/
+        contains: [{
+          begin: /[*_`]/,
+        }]
       },
       // inline constrained strong
       {
