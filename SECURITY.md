@@ -2,16 +2,14 @@
 
 ## Supported Versions
 
-Due to both time and resource constrains the Highlight.js core team only fully supports the most current major/minor release of the library.  Problems with prior minor releases are often solved by upgrading to the most recent minor release.  Prior major release will only receive critical security updates (when feasible).
+Due to both time and resource constrains the Highlight.js core team only fully supports the most current major/minor release of the library.  Problems with prior minor releases are often resolved by upgrading to the most recent minor release.  Prior major release will only receive critical security updates (when feasible).
 
-| Version  |     | Status  |
+| Version  | Supported    | Status  |
 | :-----:  | :-: | :------ |
-| 10.3.x   | :white_check_mark: |  The 10.x series recieves regular updates, new features & bug fixes. |
-| <= 10.2.x  | :x: | *Please upgrade to a more recent release.* |
+| 10.4.x   | :white_check_mark: |  The 10.x series recieves regular updates, new features & bug fixes. |
+| <= 10.3.x  | :x: | *Please upgrade to the latest 10.x release.* |
 | 9.18.x   | :closed_lock_with_key: | Security updates only.  See [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md). |
 | <= 9.17.x | :x: | Obsolete. |
-| 8.x      | :x: | Obsolete. |
-| 7.x      | :x: | Obsolete. |
 | Older    | :x: | Obsolete. |
 
 ### Version 9
