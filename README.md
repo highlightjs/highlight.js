@@ -1,11 +1,28 @@
 # Highlight.js
 
-[![Build Status](https://travis-ci.org/highlightjs/highlight.js.svg?branch=master)](https://travis-ci.org/highlightjs/highlight.js) [![Greenkeeper badge](https://badges.greenkeeper.io/highlightjs/highlight.js.svg)](https://greenkeeper.io/) [![install size](https://packagephobia.now.sh/badge?p=highlight.js)](https://packagephobia.now.sh/result?p=highlight.js)
+[![this version](https://badgen.net/badge/this%20version/v9.18.4/red)](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md)
+[![supported](https://badgen.net/badge/supported/no/red)](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md)
+[![vulnerabilities](https://badgen.net/badge/vulnerabilities/possible/red)](https://github.com/highlightjs/highlight.js/blob/master/SECURITY.md)
+[![latest version](https://badgen.net/npm/v/highlight.js?label=latest)](https://www.npmjs.com/package/highlight.js)
+[![beta](https://badgen.net/npm/v/highlight.js/beta)](https://www.npmjs.com/package/highlight.js)
+[![slack](https://badgen.net/badge/icon/slack?icon=slack&label&color=pink)](https://join.slack.com/t/highlightjs/shared_invite/zt-jatdlkw4-h3LdjU5rC23t7aQ6zqoxzw)
+
+---
+
+### :warning: :warning:  Important: Version 9 is no longer supported.  :warning: :warning:
+
+Version 9 has reached end-of-support and will receive no future updates.
+It may include security vulnerabiites.  Please upgrade to version 10.
+
+Please see [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md) and perhaps [SECURITY.md](https://github.com/highlightjs/highlight.js/blob/master/SECURITY.md).
+
+---
 
 Highlight.js is a syntax highlighter written in JavaScript. It works in
 the browser as well as on the server. It works with pretty much any
 markup, doesn’t depend on any framework, and has automatic language
 detection.
+
 
 ## Getting Started
 
@@ -343,7 +360,7 @@ it can be added manually:
 ```html
 <script
  charset="UTF-8"
- src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/languages/go.min.js"></script>
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.4/languages/go.min.js"></script>
 ```
 
 **On Almond.** You need to use the optimizer to give the module a name. For
