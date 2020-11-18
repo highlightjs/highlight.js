@@ -30,7 +30,7 @@ https://highlightjs.org/
 }(function(hljs) {
 
   var warn = console.warn || console.log;
-  warn("Verion 9 of Highlight.js has reached EOL and is no longer supported. Please upgrade to version 10.");
+  warn("Version 9 of Highlight.js has reached EOL and is no longer supported. Please upgrade to version 10.");
 
 
   // Convenience variables for build-in objects
