@@ -14,6 +14,8 @@
 Version 9 has reached end-of-support and will receive no future updates.
 It may include unpatched security vulnerabiites.  Please upgrade to version 10.
 
+*The last release was 9.18.4 on November 18, 2020.*
+
 Please see [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md) and perhaps [SECURITY.md](https://github.com/highlightjs/highlight.js/blob/master/SECURITY.md).
 
 ---

@@ -64,7 +64,6 @@ let commander = require('commander');
 let path      = require('path');
 let Queue     = require('gear').Queue;
 let registry  = require('./tasks');
-let fs = require('fs');
 
 let build, dir = {};
 
