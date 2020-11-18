@@ -1,3 +1,20 @@
+## Release v9.18.4
+
+**Version 9 has reached end-of-support and will not receive future updates or fixes.**
+
+Please see [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md) and perhaps [SECURITY.md](https://github.com/highlightjs/highlight.js/blob/master/SECURITY.md).
+
+
+- fix(livescript) fix potential catastrophic backtracking ([#2852](https://github.com/highlightjs/highlight.js/pull/2852)) [[commit](https://github.com/highlightjs/highlight.js/pull/2852/commits/ebaf171d2b3a21961b605aa6173a6a4c57346194)]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
+## Version 9.18.3
+
+- fix(parser) Freezing issue with illegal 0 width illegals (#2524)
+    - backported from v10.x
+
 ## Version 9.18.2
 
 Fixes:
@@ -13,7 +30,7 @@ Grammar Improvements:
 
 - bug(coffeescript) fix freezing bug due to badly behaved regex (#2376) [Josh Goebel][]
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 9.18.0
@@ -48,7 +65,7 @@ Developer Tools:
 - feat(developer): add button to show parsed structure (#2345) [Nils Knappmeier][]
 
 [Jeffrey Arnold]: https://github.com/jrnold
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 [Philipp Engel]: https://github.com/interkosmos
 [Youssef Victor]: https://github.com/Youssef1313
 [Nils Knappmeier]: https://github.com/nknapp
@@ -60,7 +77,7 @@ Fixes:
 
 - fix(parser): resolve IE 11 issue with Object.freeze() (#2319) [Josh Goebel][]
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 9.17.0
@@ -110,7 +127,7 @@ Language Improvements:
 - fix(objectivec): Handle multibyte character literals (#2268) [David Benjamin][]
 - enh(cpp): Add additional keywords (#2289) [Adrian Ostrowski][]
 
-[Josh Goebel]: https://github.com/yyyc514
+[Josh Goebel]: https://github.com/joshgoebel
 [Liam Nobel]: https://github.com/liamnobel
 [Carl Baxter]: https://github.com/cdbax
 [Milutin Kristofic]: https://github.com/milutin
