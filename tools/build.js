@@ -64,6 +64,7 @@ let commander = require('commander');
 let path      = require('path');
 let Queue     = require('gear').Queue;
 let registry  = require('./tasks');
+let fs = require('fs');
 
 let build, dir = {};
 
@@ -85,5 +86,7 @@ new Queue({ registry: registry })
   .clean(dir.build)
   .log('Starting build.')
   .series(build(commander, dir))
+  .read(["deprecated.js"])
+  .dest("./build")
   .log('Finished build.')
-  .run();
+  .run()

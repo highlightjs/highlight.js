@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "9.18.3",
+  "version": "9.18.4",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -24,6 +24,7 @@
   "scripts": {
     "mocha": "mocha",
     "test": "mocha --globals document test",
+    "postinstall": "node deprecated.js",
     "test-browser": "mocha --globals document test/browser"
   },
   "engines": {
