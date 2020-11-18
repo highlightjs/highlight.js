@@ -20,3 +20,30 @@ rd*.
 \\blah blah *blah*.
 
 \\blah blah blah*.
+
+Does *Bob -love- Gemma*?
+
+Does *Bob "love" Gemma*?
+
+Does *Bob love Gemma? Truly?*
+
+There's a colon:*directly* before the starting formatting mark.
+
+There's a semi-colon directly before the starting formatting mark &ndash;*2018*
+
+There's a closing curly bracket directly {before}*the starting formatting mark*.
+
+*bl*ck*-eye
+
+*黑*眼圈*
+
+E = mc*2*
+
+E = *mc*2
+
+The parser is working *99%* of the time
+
+*bob
+knows
+very
+best*

@@ -20,3 +20,30 @@ rd*.
 \\blah blah <span class="hljs-strong">*blah*</span>.
 
 \\blah blah blah*.
+
+Does <span class="hljs-strong">*Bob -love- Gemma*</span>?
+
+Does <span class="hljs-strong">*Bob &quot;love&quot; Gemma*</span>?
+
+Does <span class="hljs-strong">*Bob love Gemma? Truly?*</span>
+
+There&#x27;s a colon:*directly* before the starting formatting mark.
+
+There&#x27;s a semi-colon directly before the starting formatting mark &amp;ndash;*2018*
+
+There&#x27;s a closing curly bracket directly {before}*the starting formatting mark*.
+
+<span class="hljs-strong">*bl*ck*</span>-eye
+
+<span class="hljs-strong">*黑*眼圈*</span>
+
+E = mc*2*
+
+E = *mc*2
+
+The parser is working <span class="hljs-strong">*99%*</span> of the time
+
+<span class="hljs-strong">*bob
+knows
+very
+best*</span>

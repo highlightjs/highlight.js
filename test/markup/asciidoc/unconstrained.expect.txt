@@ -12,3 +12,26 @@ Read the little notes**.
 Read the little notes**
 
 This is <span class="hljs-strong">**bold**</span>
+
+E = <span class="hljs-strong">**mc**</span>2
+
+There&#x27;s a colon:<span class="hljs-strong">**directly**</span> before the starting formatting mark.
+
+There&#x27;s a semi-colon directly before the starting formatting mark &amp;ndash;<span class="hljs-strong">**2018**</span>
+
+There&#x27;s a closing curly bracket directly {before}<span class="hljs-strong">**the starting formatting mark**</span>.
+
+<span class="hljs-strong">**--anything goes **</span>
+
+\\**--anything goes **
+
+<span class="hljs-strong">**Git**</span>Hub
+
+<span class="hljs-strong">**bl*ck**</span>-eye
+
+Git[.blue]<span class="hljs-strong">**Hub**</span>
+
+<span class="hljs-strong">**bob
+knows
+very
+best**</span>
