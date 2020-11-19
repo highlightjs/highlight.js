@@ -134,7 +134,8 @@ export default function(hljs) {
       {
         begin: /\\\\`{2}[^\n]*`{2}/
       },
-      // constrained preceded by ":", ";", or "}".
+      // constrained formatting mark may not be preceded by ":", ";" or "}".
+      // match these so the constrained rule doesn't see them
       {
         begin: /[:;}][*_`](?!\*)/
       },
