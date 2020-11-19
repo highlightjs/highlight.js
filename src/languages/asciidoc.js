@@ -7,6 +7,8 @@ Description: A semantic, text-based document format that can be exported to HTML
 Category: markup
 */
 
+import * as regex from '../lib/regex.js';
+
 /** @type LanguageFn */
 export default function(hljs) {
   return {
@@ -115,7 +117,12 @@ export default function(hljs) {
       // inline unconstrained strong (multi-line)
       {
         className: 'strong',
-        begin: /\*{2}(([^\n\\]|\\[^\n])+\n)+([^\n\\]|\\[^\n])*\*{2}/,
+        begin: regex.concat(
+          /\*\*/,
+          /((\*(?!\*)|\\[^\n]|[^*\n\\])+\n)+/,
+          /(\*(?!\*)|\\[^\n]|[^*\n\\])*/,
+          /\*\*/
+        ),
         relevance: 0
       },
       // escaped constrained formatting marks (i.e., \* \_ or \`)
