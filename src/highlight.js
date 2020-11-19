@@ -57,7 +57,7 @@ https://highlightjs.org/
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.
   var options = {
-    hideUpgradeWarningPlusNoSupportOrSecurityUpdates: false,
+    hideUpgradeWarningAcceptNoSupportOrSecurityUpdates: false,
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
@@ -533,7 +533,7 @@ https://highlightjs.org/
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignore_illegals, continuation) {
-    if (!options.hideUpgradeWarningPlusNoSupportOrSecurityUpdates) {
+    if (!options.hideUpgradeWarningAcceptNoSupportOrSecurityUpdates) {
       if (!showedUpgradeWarning) {
         showedUpgradeWarning = true;
         console.log(
