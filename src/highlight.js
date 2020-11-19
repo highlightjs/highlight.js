@@ -516,6 +516,13 @@ https://highlightjs.org/
     compileMode(language);
   }
 
+  function hideUpgradeWarning() {
+    if (options.hideUpgradeWarningAcceptNoSupportOrSecurityUpdates)
+      return true;
+
+    if (typeof process === "object" && typeof process.env === "object" && process.env["HLJS_HIDE_UPGRADE_WARNING"])
+      return true;
+  }
 
   /**
    * Core highlighting function.
@@ -533,7 +540,7 @@ https://highlightjs.org/
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignore_illegals, continuation) {
-    if (!options.hideUpgradeWarningAcceptNoSupportOrSecurityUpdates) {
+    if (!hideUpgradeWarning()) {
       if (!showedUpgradeWarning) {
         showedUpgradeWarning = true;
         console.log(
