@@ -139,7 +139,7 @@ export default function(hljs) {
       {
         begin: /[:;}][*_`](?!\*)/
       },
-      // inline constrained string (single line)
+      // inline constrained strong (single line)
       {
         className: 'strong',
         // must not precede or follow a word character
@@ -149,7 +149,7 @@ export default function(hljs) {
       {
         className: 'strong',
         // must not precede or follow a word character
-        begin: /\*[^\s]([^\n]*\n)+([^\n]+)\*/,
+        begin: /\*[^\s]([^\n]+\n)+([^\n]+)\*/,
       },
       // TODO emphasis and code should get same treatment as strong!
       // inline unconstrained emphasis
