@@ -362,7 +362,7 @@ it can be added manually:
 ```html
 <script
  charset="UTF-8"
- src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.4/languages/go.min.js"></script>
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.5/languages/go.min.js"></script>
 ```
 
 **On Almond.** You need to use the optimizer to give the module a name. For

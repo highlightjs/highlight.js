@@ -28,10 +28,7 @@ https://highlightjs.org/
   }
 
 }(function(hljs) {
-
-  var warn = console.warn || console.log;
-  warn("Version 9 of Highlight.js has reached EOL and is no longer supported. Please upgrade to version 10.");
-
+  var showedUpgradeWarning = false;
 
   // Convenience variables for build-in objects
   var ArrayProto = [],
@@ -60,6 +57,7 @@ https://highlightjs.org/
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.
   var options = {
+    hideUpgradeWarningAcceptNoSupportOrSecurityUpdates: false,
     classPrefix: 'hljs-',
     tabReplace: null,
     useBR: false,
@@ -518,6 +516,13 @@ https://highlightjs.org/
     compileMode(language);
   }
 
+  function hideUpgradeWarning() {
+    if (options.hideUpgradeWarningAcceptNoSupportOrSecurityUpdates)
+      return true;
+
+    if (typeof process === "object" && typeof process.env === "object" && process.env["HLJS_HIDE_UPGRADE_WARNING"])
+      return true;
+  }
 
   /**
    * Core highlighting function.
@@ -535,6 +540,17 @@ https://highlightjs.org/
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignore_illegals, continuation) {
+    if (!hideUpgradeWarning()) {
+      if (!showedUpgradeWarning) {
+        showedUpgradeWarning = true;
+        console.log(
+          "Version 9 of Highlight.js has reached EOL and is no longer supported.\n" +
+          "Please upgrade or ask whatever dependency you are using to upgrade.\n" +
+          "https://github.com/highlightjs/highlight.js/issues/2877"
+        );
+      }
+    }
+
     var codeToHighlight = code;
 
     function escapeRe(value) {

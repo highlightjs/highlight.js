@@ -1,3 +1,28 @@
+## Release v9.18.5
+
+**Version 9 has reached end-of-support and will not receive future updates or fixes.**
+
+Please see [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md) and perhaps [SECURITY.md](https://github.com/highlightjs/highlight.js/blob/master/SECURITY.md).
+
+- enh: Post-install script can be disabled with `HLJS_HIDE_UPGRADE_WARNING=yes`
+- fix: Deprecation notice logged at library startup a `console.log` vs `console.warn`.
+  - Notice only shown if actually highlighting code, not just requiring the library.
+  - Node.js treats `warn` the same as `error` and that was problematic.
+  - You (or perhaps your indirect dependency) may disable the notice with
+    the `hideUpgradeWarningAcceptNoSupportOrSecurityUpdates` option
+  - You can also set `HLJS_HIDE_UPGRADE_WARNING=yes` in your envionment to disable the warning
+
+Example:
+
+```js
+hljs.configure({
+  hideUpgradeWarningAcceptNoSupportOrSecurityUpdates: true
+})
+```
+
+Reference:
+https://github.com/highlightjs/highlight.js/issues/2877
+
 ## Release v9.18.4
 
 **Version 9 has reached end-of-support and will not receive future updates or fixes.**

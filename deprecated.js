@@ -12,7 +12,8 @@ ${BgRed + FgWhite}
 ${Reset}${Bright}${FgWhite}
   Verion 9 of Highlight.js has reached EOL.  It will no longer
   be supported or receive security updates in the future.
-  Please upgrade to version 10.
+  Please upgrade to version 10 or encourage your indirect
+  dependencies to do so.
 
   For more info:
   ${FgBlue}
@@ -20,6 +21,8 @@ ${Reset}${Bright}${FgWhite}
   https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md
  ${BgRed + FgWhite}
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*${Reset}
-.`.trim()
+`.trim()
 
-console.log(DEPRECATION)
+if (!process.env["HLJS_HIDE_UPGRADE_WARNING"]) {
+  console.log(DEPRECATION)
+}
