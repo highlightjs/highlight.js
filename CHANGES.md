@@ -1,3 +1,13 @@
+## Version 10.5.0 preparation
+
+New Languages:
+
+- Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
+
+[Oldes Huhuman]: https://github.com/Oldes
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 10.4.0
 
 A largish release with many improvements and fixes from quite a few different contributors.  Enjoy!
