@@ -155,9 +155,9 @@ export default function(hljs) {
       },
       // escaped unconstrained formatting marks (i.e., \\** \\__ or \\``)
       // must ignore until the next formatting marks
-      // this rule is not 100% compliant with Asciidoctor but we are entering undefined behavior territory...
+      // this rule might not be 100% compliant with Asciidoctor 2.0 but we are entering undefined behavior territory...
       {
-        begin: /\\\\\*{2}[^\n]*\*{2}/
+        begin: /\\\\\*{2}[^\n]*?\*{2}/
       },
       {
         begin: /\\\\_{2}[^\n]*_{2}/

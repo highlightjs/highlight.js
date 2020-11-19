@@ -25,6 +25,8 @@ There's a closing curly bracket directly {before}**the starting formatting mark*
 
 \\**--anything goes **
 
+\\**--anything goes ** with * a **lot** of stars**
+
 **Git**Hub
 
 **bl*ck**-eye

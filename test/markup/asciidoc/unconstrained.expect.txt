@@ -25,6 +25,8 @@ There&#x27;s a closing curly bracket directly {before}<span class="hljs-strong">
 
 \\**--anything goes **
 
+\\**--anything goes ** with * a <span class="hljs-strong">**lot**</span> of stars**
+
 <span class="hljs-strong">**Git**</span>Hub
 
 <span class="hljs-strong">**bl*ck**</span>-eye
