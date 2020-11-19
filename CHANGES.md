@@ -7,7 +7,7 @@ Please see [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/b
 - Make post-install a bit quietier.
 - Make the deprecation notice logged at library startup a `console.log` vs `console.warn`.
   - Node.js treats `warn` the same as `error` and that was problematic.
-  - You (or perhaps your upstream dependency) may disable the notice with
+  - You (or perhaps your indirect dependency) may disable the notice with
     the `hideUpgradeWarningAcceptNoSupportOrSecurityUpdates` option
 
 Example:
