@@ -17,6 +17,7 @@ Parser:
 
 New Languages:
 
+- Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
 - Added 3rd party Chapel grammar to SUPPORTED_LANGUAGES (#2806) [Brad Chamberlain][]
 - Added BBCode grammar to SUPPORTED_LANGUAGES (#2867) [Paul Reid][]
 - enh(javascript) Added `node-repl` for Node.js REPL sessions (#2792) [Marat Nagayev][]
@@ -83,6 +84,7 @@ New themes:
 [Kyle Brown]: https://github.com/kylebrown9
 [Marcus Ortiz]: https://github.com/mportiz08
 [Paul Reid]: https://github.com/RedGuy12
+[Oldes Huhuman]: https://github.com/Oldes
 
 
 ## Version 10.3.1
