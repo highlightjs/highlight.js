@@ -9,6 +9,7 @@ Please see [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/b
   - Node.js treats `warn` the same as `error` and that was problematic.
   - You (or perhaps your indirect dependency) may disable the notice with
     the `hideUpgradeWarningAcceptNoSupportOrSecurityUpdates` option
+  - You can also set `HLJS_HIDE_UPGRADE_WARNING` in your envionment to disable the warning
 
 Example:
 
