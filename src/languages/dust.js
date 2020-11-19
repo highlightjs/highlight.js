@@ -7,8 +7,9 @@ Website: https://www.dustjs.com
 Category: template
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var EXPRESSION_KEYWORDS = 'if eq ne lt lte gt gte select default math sep';
+  const EXPRESSION_KEYWORDS = 'if eq ne lt lte gt gte select default math sep';
   return {
     name: 'Dust',
     aliases: ['dst'],
@@ -17,23 +18,24 @@ export default function(hljs) {
     contains: [
       {
         className: 'template-tag',
-        begin: /\{[#\/]/, end: /\}/, illegal: /;/,
-        contains: [
-          {
-            className: 'name',
-            begin: /[a-zA-Z\.-]+/,
-            starts: {
-              endsWithParent: true, relevance: 0,
-              contains: [
-                hljs.QUOTE_STRING_MODE
-              ]
-            }
+        begin: /\{[#\/]/,
+        end: /\}/,
+        illegal: /;/,
+        contains: [{
+          className: 'name',
+          begin: /[a-zA-Z\.-]+/,
+          starts: {
+            endsWithParent: true,
+            relevance: 0,
+            contains: [hljs.QUOTE_STRING_MODE]
           }
-        ]
+        }]
       },
       {
         className: 'template-variable',
-        begin: /\{/, end: /\}/, illegal: /;/,
+        begin: /\{/,
+        end: /\}/,
+        illegal: /;/,
         keywords: EXPRESSION_KEYWORDS
       }
     ]

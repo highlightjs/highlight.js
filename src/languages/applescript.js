@@ -7,21 +7,31 @@ Website: https://developer.apple.com/library/archive/documentation/AppleScript/C
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: ''});
-  var PARAMS = {
+  const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
+    illegal: ''
+  });
+  const PARAMS = {
     className: 'params',
-    begin: '\\(', end: '\\)',
-    contains: ['self', hljs.C_NUMBER_MODE, STRING]
+    begin: '\\(',
+    end: '\\)',
+    contains: [
+      'self',
+      hljs.C_NUMBER_MODE,
+      STRING
+    ]
   };
-  var COMMENT_MODE_1 = hljs.COMMENT('--', '$');
-  var COMMENT_MODE_2 = hljs.COMMENT(
+  const COMMENT_MODE_1 = hljs.COMMENT('--', '$');
+  const COMMENT_MODE_2 = hljs.COMMENT(
     '\\(\\*',
     '\\*\\)',
     {
-      contains: ['self', COMMENT_MODE_1] //allow nesting
+      contains: [
+        'self', // allow nesting
+        COMMENT_MODE_1
+      ]
     }
   );
-  var COMMENTS = [
+  const COMMENTS = [
     COMMENT_MODE_1,
     COMMENT_MODE_2,
     hljs.HASH_COMMENT_MODE
@@ -86,7 +96,10 @@ export default function(hljs) {
       {
         beginKeywords: 'on',
         illegal: '[${=;\\n]',
-        contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
+        contains: [
+          hljs.UNDERSCORE_TITLE_MODE,
+          PARAMS
+        ]
       }
     ].concat(COMMENTS),
     illegal: '//|->|=>|\\[\\['

@@ -1,0 +1,31 @@
+<span class="hljs-keyword">SETS</span>
+    I   <span class="hljs-comment">canning plants</span>   / SEATTLE, SAN-DIEGO /
+    J   <span class="hljs-comment">markets</span>          / NEW-YORK, CHICAGO, TOPEKA / ;
+<span class="hljs-keyword">PARAMETERS</span>
+    A(I)  <span class="hljs-comment">capacity of plant i in cases</span>
+      /    SEATTLE     <span class="hljs-number">350</span>
+           SAN-DIEGO   <span class="hljs-number">600</span>  /
+    B(J)  <span class="hljs-comment">demand at market j in cases</span>
+      /    NEW-YORK    <span class="hljs-number">325</span>
+           CHICAGO     <span class="hljs-number">300</span>
+           TOPEKA      <span class="hljs-number">275</span>  / ;
+<span class="hljs-keyword">TABLE</span> D(I,J)  <span class="hljs-comment">distance in thousands of miles</span>
+                  NEW-YORK       CHICAGO      TOPEKA
+    SEATTLE          <span class="hljs-number">2.5</span>           <span class="hljs-number">1.7</span>          <span class="hljs-number">1.8</span>
+    SAN-DIEGO        <span class="hljs-number">2.5</span>           <span class="hljs-number">1.8</span>          <span class="hljs-number">1.4</span>  ;
+<span class="hljs-keyword">SCALAR</span> F  <span class="hljs-comment">freight in dollars per case per thousand miles</span>  /<span class="hljs-number">90</span>/ ;
+<span class="hljs-keyword">PARAMETER</span> C(I,J)  <span class="hljs-comment">transport cost in thousands of dollars per case</span> ;
+          C(I,J) = F * D(I,J) / <span class="hljs-number">1000</span> ;
+<span class="hljs-keyword">VARIABLES</span>
+    X(I,J)  <span class="hljs-comment">shipment quantities in cases</span>
+    Z       <span class="hljs-comment">total transportation costs in thousands of dollars</span> ;
+<span class="hljs-keyword">POSITIVE</span> <span class="hljs-keyword">VARIABLE</span> X ;
+<span class="hljs-keyword">EQUATIONS</span>
+    COST        <span class="hljs-comment">define objective function</span>
+    SUPPLY(I)   <span class="hljs-comment">observe supply limit at plant i</span>
+    DEMAND(J)   <span class="hljs-comment">satisfy demand at market j</span> ;
+<span class="hljs-function"><span class="hljs-title">COST</span></span> ..        Z  <span class="hljs-symbol">=E=</span>  <span class="hljs-keyword">SUM</span>((I,J), C(I,J)*X(I,J)) ;
+<span class="hljs-function"><span class="hljs-title">SUPPLY</span>(<span class="hljs-params">I</span>)</span> ..   <span class="hljs-keyword">SUM</span>(J, X(I,J))  <span class="hljs-symbol">=L=</span>  A(I) ;
+<span class="hljs-function"><span class="hljs-title">DEMAND</span>(<span class="hljs-params">J</span>)</span> ..   <span class="hljs-keyword">SUM</span>(I, X(I,J))  <span class="hljs-symbol">=G=</span>  B(J) ;
+<span class="hljs-keyword">MODEL</span> TRANSPORT /<span class="hljs-keyword">ALL</span>/ ;
+<span class="hljs-keyword">SOLVE</span> TRANSPORT <span class="hljs-keyword">USING</span> LP <span class="hljs-keyword">MINIMIZING</span> Z ;

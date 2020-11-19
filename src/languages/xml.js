@@ -9,26 +9,33 @@ import * as regex from '../lib/regex.js';
 /** @type LanguageFn */
 export default function(hljs) {
   // Element names can contain letters, digits, hyphens, underscores, and periods
-  var TAG_NAME_RE = regex.concat(/[A-Z_]/, regex.optional(/[A-Z0-9_.-]+:/), /[A-Z0-9_.-]*/);
-  var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
-  var XML_ENTITIES = {
+  const TAG_NAME_RE = regex.concat(/[A-Z_]/, regex.optional(/[A-Z0-9_.-]+:/), /[A-Z0-9_.-]*/);
+  const XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
+  const XML_ENTITIES = {
     className: 'symbol',
     begin: '&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;'
   };
-  var XML_META_KEYWORDS = {
-	  begin: '\\s',
-	  contains:[
-	    {
-	      className: 'meta-keyword',
-	      begin: '#?[a-z_][a-z1-9_-]+',
-	      illegal: '\\n',
+  const XML_META_KEYWORDS = {
+    begin: '\\s',
+    contains: [
+      {
+        className: 'meta-keyword',
+        begin: '#?[a-z_][a-z1-9_-]+',
+        illegal: '\\n'
       }
-	  ]
+    ]
   };
-  var XML_META_PAR_KEYWORDS = hljs.inherit(XML_META_KEYWORDS, {begin: '\\(', end: '\\)'});
-  var APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, {className: 'meta-string'});
-  var QUOTE_META_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'});
-  var TAG_INTERNALS = {
+  const XML_META_PAR_KEYWORDS = hljs.inherit(XML_META_KEYWORDS, {
+    begin: '\\(',
+    end: '\\)'
+  });
+  const APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, {
+    className: 'meta-string'
+  });
+  const QUOTE_META_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
+    className: 'meta-string'
+  });
+  const TAG_INTERNALS = {
     endsWithParent: true,
     illegal: /</,
     relevance: 0,
@@ -46,9 +53,19 @@ export default function(hljs) {
             className: 'string',
             endsParent: true,
             variants: [
-              {begin: /"/, end: /"/, contains: [XML_ENTITIES]},
-              {begin: /'/, end: /'/, contains: [XML_ENTITIES]},
-              {begin: /[^\s"'=<>`]+/}
+              {
+                begin: /"/,
+                end: /"/,
+                contains: [ XML_ENTITIES ]
+              },
+              {
+                begin: /'/,
+                end: /'/,
+                contains: [ XML_ENTITIES ]
+              },
+              {
+                begin: /[^\s"'=<>`]+/
+              }
             ]
           }
         ]
@@ -57,34 +74,48 @@ export default function(hljs) {
   };
   return {
     name: 'HTML, XML',
-    aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist', 'wsf', 'svg'],
+    aliases: [
+      'html',
+      'xhtml',
+      'rss',
+      'atom',
+      'xjb',
+      'xsd',
+      'xsl',
+      'plist',
+      'wsf',
+      'svg'
+    ],
     case_insensitive: true,
     contains: [
       {
         className: 'meta',
-        begin: '<![a-z]', end: '>',
+        begin: '<![a-z]',
+        end: '>',
         relevance: 10,
         contains: [
-				  XML_META_KEYWORDS,
-				  QUOTE_META_STRING_MODE,
-				  APOS_META_STRING_MODE,
-					XML_META_PAR_KEYWORDS,
-					{
-					  begin: '\\[', end: '\\]',
-					  contains:[
-						  {
-					      className: 'meta',
-					      begin: '<![a-z]', end: '>',
-					      contains: [
-					        XML_META_KEYWORDS,
-					        XML_META_PAR_KEYWORDS,
-					        QUOTE_META_STRING_MODE,
-					        APOS_META_STRING_MODE
-						    ]
-			        }
-					  ]
-				  }
-				]
+          XML_META_KEYWORDS,
+          QUOTE_META_STRING_MODE,
+          APOS_META_STRING_MODE,
+          XML_META_PAR_KEYWORDS,
+          {
+            begin: '\\[',
+            end: '\\]',
+            contains: [
+              {
+                className: 'meta',
+                begin: '<![a-z]',
+                end: '>',
+                contains: [
+                  XML_META_KEYWORDS,
+                  XML_META_PAR_KEYWORDS,
+                  QUOTE_META_STRING_MODE,
+                  APOS_META_STRING_MODE
+                ]
+              }
+            ]
+          }
+        ]
       },
       hljs.COMMENT(
         '<!--',
@@ -94,13 +125,16 @@ export default function(hljs) {
         }
       ),
       {
-        begin: '<!\\[CDATA\\[', end: '\\]\\]>',
+        begin: '<!\\[CDATA\\[',
+        end: '\\]\\]>',
         relevance: 10
       },
       XML_ENTITIES,
       {
         className: 'meta',
-        begin: /<\?xml/, end: /\?>/, relevance: 10
+        begin: /<\?xml/,
+        end: /\?>/,
+        relevance: 10
       },
       {
         className: 'tag',
@@ -110,29 +144,44 @@ export default function(hljs) {
         ending braket. The '$' is needed for the lexeme to be recognized
         by hljs.subMode() that tests lexemes outside the stream.
         */
-        begin: '<style(?=\\s|>)', end: '>',
-        keywords: {name: 'style'},
-        contains: [TAG_INTERNALS],
+        begin: '<style(?=\\s|>)',
+        end: '>',
+        keywords: {
+          name: 'style'
+        },
+        contains: [ TAG_INTERNALS ],
         starts: {
-          end: '</style>', returnEnd: true,
-          subLanguage: ['css', 'xml']
+          end: '</style>',
+          returnEnd: true,
+          subLanguage: [
+            'css',
+            'xml'
+          ]
         }
       },
       {
         className: 'tag',
         // See the comment in the <style tag about the lookahead pattern
-        begin: '<script(?=\\s|>)', end: '>',
-        keywords: {name: 'script'},
-        contains: [TAG_INTERNALS],
+        begin: '<script(?=\\s|>)',
+        end: '>',
+        keywords: {
+          name: 'script'
+        },
+        contains: [ TAG_INTERNALS ],
         starts: {
-          end: /<\/script>/, returnEnd: true,
-          subLanguage: ['javascript', 'handlebars', 'xml']
+          end: /<\/script>/,
+          returnEnd: true,
+          subLanguage: [
+            'javascript',
+            'handlebars',
+            'xml'
+          ]
         }
       },
       // we need this for now for jSX
       {
         className: 'tag',
-        begin: /<>|<\/>/,
+        begin: /<>|<\/>/
       },
       // open tag
       {
@@ -148,12 +197,14 @@ export default function(hljs) {
           ))
         ),
         end: /\/?>/,
-        contains: [{
-          className: 'name',
-          begin: TAG_NAME_RE,
-          relevance: 0,
-          starts: TAG_INTERNALS
-        }]
+        contains: [
+          {
+            className: 'name',
+            begin: TAG_NAME_RE,
+            relevance: 0,
+            starts: TAG_INTERNALS
+          }
+        ]
       },
       // close tag
       {
@@ -175,7 +226,7 @@ export default function(hljs) {
             relevance: 0
           }
         ]
-      },
+      }
     ]
   };
 }

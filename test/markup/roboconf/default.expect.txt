@@ -1,0 +1,54 @@
+<span class="hljs-comment"># This is a comment</span>
+<span class="hljs-keyword">import</span> toto.graph;
+
+<span class="hljs-comment">##</span>
+<span class="hljs-comment"># Facet</span>
+<span class="hljs-comment">##</span>
+<span class="hljs-keyword">facet</span> VM {
+	<span class="hljs-attribute">installer</span>: iaas;
+}
+
+<span class="hljs-comment"># Components</span>
+VM_ec2 {
+	<span class="hljs-attribute">facets</span>: VM;
+	<span class="hljs-attribute">children</span>: cluster-node, mysql;
+}
+
+VM_openstack {
+	<span class="hljs-attribute">facets</span>: VM;
+	<span class="hljs-attribute">children</span>: cluster-node, mysql;
+}
+
+cluster-node {
+	<span class="hljs-attribute">alias</span>: a cluster node;
+	<span class="hljs-attribute">installer</span>: puppet;
+	<span class="hljs-attribute">exports</span>: ip, port, optional-property1, optional_property2;
+	<span class="hljs-attribute">imports</span>: cluster-node<span class="hljs-variable">.ip</span> <span class="hljs-keyword">(optional)</span>, cluster-node<span class="hljs-variable">.port</span> <span class="hljs-keyword">(optional)</span>, mysql<span class="hljs-variable">.ip</span>, mysql<span class="hljs-variable">.port</span>;
+}
+
+mysql {
+	<span class="hljs-attribute">alias</span>: a MySQL database;
+	<span class="hljs-attribute">installer</span>: puppet;
+	<span class="hljs-attribute">exports</span>: ip, port;
+}
+
+<span class="hljs-comment">##</span>
+<span class="hljs-comment"># Normally, instances are defined in another file...</span>
+<span class="hljs-comment">##</span>
+<span class="hljs-keyword">instance</span> <span class="hljs-keyword">of</span> VM_ec2 {
+	<span class="hljs-attribute">name</span>: VM_;
+	<span class="hljs-attribute">count</span>: 3;
+	<span class="hljs-attribute">my-instance-property</span>: whatever;
+	
+	<span class="hljs-keyword">instance</span> <span class="hljs-keyword">of</span> cluster-node {
+		<span class="hljs-attribute">name</span>: cluster node;		<span class="hljs-comment"># An in-line comment</span>
+	}
+}
+
+<span class="hljs-keyword">instance</span> <span class="hljs-keyword">of</span> VM_openstack {
+	<span class="hljs-attribute">name</span>: VM_database;
+	
+	<span class="hljs-keyword">instance</span> <span class="hljs-keyword">of</span> mysql {
+		<span class="hljs-attribute">name</span>: mysql;
+	}
+}

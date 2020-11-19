@@ -1,0 +1,36 @@
+<span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">function</span> foo(x) x + <span class="hljs-number">1</span> <span class="hljs-keyword">end</span>
+</span>foo (generic function with 1 method)
+
+<span class="hljs-meta">julia&gt;</span><span class="julia"> foo(<span class="hljs-number">42</span>)
+</span>43
+
+<span class="hljs-meta">julia&gt;</span><span class="julia"> foo(<span class="hljs-number">42</span>) === <span class="hljs-number">43.</span>
+</span>false
+
+
+Here we match all three lines of code:
+
+<span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">function</span> foo(x::<span class="hljs-built_in">Float64</span>)
+           <span class="hljs-number">42.</span> - x
+       <span class="hljs-keyword">end</span>
+</span>foo (generic function with 2 methods)
+
+<span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">Any</span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.4</span>]
+          println(<span class="hljs-string">&quot;foo(<span class="hljs-variable">$x</span>) = <span class="hljs-subst">$(foo(x)</span>)&quot;</span>)
+       <span class="hljs-keyword">end</span>
+</span>foo(1) = 2
+foo(2) = 3
+foo(3.4) = 38.6
+
+
+... unless it is not properly indented:
+
+<span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">function</span> foo(x)
+</span>    x + 1
+end
+
+
+Ordinary Julia code does not get highlighted:
+
+Pkg.add(&quot;Combinatorics&quot;)
+abstract type Foo end

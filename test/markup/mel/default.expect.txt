@@ -1,0 +1,25 @@
+<span class="hljs-keyword">proc</span> <span class="hljs-keyword">string</span>[] getSelectedLights()
+
+{
+  <span class="hljs-keyword">string</span> $selectedLights[];
+
+  <span class="hljs-keyword">string</span> $select[] = <span class="hljs-string">`ls -sl -dag -leaf`</span>;
+
+  <span class="hljs-keyword">for</span> ( $shape <span class="hljs-keyword">in</span> $select )
+  {
+    <span class="hljs-comment">// Determine if this is a light.</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-keyword">string</span> $class[] = <span class="hljs-keyword">getClassification</span>( <span class="hljs-string">`nodeType $shape`</span> );
+
+
+    <span class="hljs-keyword">if</span> ( ( <span class="hljs-string">`size $class`</span> ) &gt; <span class="hljs-number">0</span> &amp;&amp; ( <span class="hljs-string">&quot;light&quot;</span> == $class[<span class="hljs-number">0</span>] ) )
+    {
+      $selectedLights[ <span class="hljs-string">`size $selectedLights`</span> ] = $shape;
+    }
+  }
+
+  <span class="hljs-comment">// Result is an array of all lights included in</span>
+
+  <span class="hljs-comment">// current selection list.</span>
+  <span class="hljs-keyword">return</span> $selectedLights;
+}

@@ -1,0 +1,56 @@
+<span class="hljs-keyword">namespace</span> LinkedList;
+
+<span class="hljs-keyword">interface</span>
+
+<span class="hljs-keyword">uses</span>
+  System.Text;
+
+<span class="hljs-keyword">type</span>
+  List&lt;T&gt; = <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span>
+    <span class="hljs-keyword">where</span> T <span class="hljs-keyword">is</span> Object;
+  <span class="hljs-keyword">private</span>
+    <span class="hljs-function"><span class="hljs-keyword">method</span> <span class="hljs-title">AppendToString</span><span class="hljs-params">(aBuilder: StringBuilder)</span>;</span>
+  <span class="hljs-keyword">public</span>
+    <span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(aData: T)</span>;</span>
+    <span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(aData: T; aNext: List&lt;T&gt;)</span>;</span>
+    <span class="hljs-keyword">property</span> Next: List&lt;T&gt;;
+    <span class="hljs-keyword">property</span> Data: T;
+
+    <span class="hljs-function"><span class="hljs-keyword">method</span> <span class="hljs-title">ToString</span>:</span> string; <span class="hljs-keyword">override</span>;
+  <span class="hljs-keyword">end</span>;
+
+<span class="hljs-keyword">implementation</span>
+
+<span class="hljs-function"><span class="hljs-keyword">constructor</span> <span class="hljs-title">List</span>&lt;<span class="hljs-title">T</span>&gt;<span class="hljs-params">(aData: T)</span>;</span>
+<span class="hljs-keyword">begin</span>
+  Data := aData;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">constructor</span> <span class="hljs-title">List</span>&lt;<span class="hljs-title">T</span>&gt;<span class="hljs-params">(aData: T; aNext: List&lt;T&gt;)</span>;</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(aData)</span>;</span>
+  Next := aNext;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">method</span> <span class="hljs-title">List</span>&lt;<span class="hljs-title">T</span>&gt;.<span class="hljs-title">ToString</span>:</span> string;
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-keyword">with</span> lBuilder := <span class="hljs-keyword">new</span> StringBuilder <span class="hljs-keyword">do</span> <span class="hljs-keyword">begin</span>
+    AppendToString(lBuilder);
+    <span class="hljs-keyword">result</span> := lBuilder.ToString();
+  <span class="hljs-keyword">end</span>;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">method</span> <span class="hljs-title">List</span>&lt;<span class="hljs-title">T</span>&gt;.<span class="hljs-title">AppendToString</span><span class="hljs-params">(aBuilder: StringBuilder)</span>;</span>
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-keyword">if</span> assigned(Data) <span class="hljs-keyword">then</span>
+    aBuilder.Append(Data.ToString)
+  <span class="hljs-keyword">else</span>
+    aBuilder.Append(<span class="hljs-string">&#x27;nil&#x27;</span>);
+
+  <span class="hljs-keyword">if</span> assigned(Next) <span class="hljs-keyword">then</span> <span class="hljs-keyword">begin</span>
+    aBuilder.Append(<span class="hljs-string">&#x27;, &#x27;</span>);
+    Next.AppendToString(aBuilder);
+  <span class="hljs-keyword">end</span>;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-keyword">end</span>.

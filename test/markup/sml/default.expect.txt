@@ -1,0 +1,26 @@
+<span class="hljs-keyword">structure</span> <span class="hljs-type">List</span> : <span class="hljs-type">LIST</span> =
+  <span class="hljs-keyword">struct</span>
+
+    <span class="hljs-keyword">val</span> <span class="hljs-keyword">op</span> +  = <span class="hljs-type">InlineT</span>.<span class="hljs-type">DfltInt</span>.+
+
+    <span class="hljs-keyword">datatype</span> <span class="hljs-built_in">list</span> = <span class="hljs-keyword">datatype</span> <span class="hljs-built_in">list</span>
+
+    <span class="hljs-keyword">exception</span> <span class="hljs-type">Empty</span> = <span class="hljs-type">Empty</span>
+
+    <span class="hljs-keyword">fun</span> last <span class="hljs-literal">[]</span> = <span class="hljs-keyword">raise</span> <span class="hljs-type">Empty</span>
+      | last [x] = x
+      | last (_::r) = last r
+
+  <span class="hljs-keyword">fun</span> loop (<span class="hljs-literal">[]</span>, <span class="hljs-literal">[]</span>) = <span class="hljs-type">EQUAL</span>
+    | loop (<span class="hljs-literal">[]</span>, _) = <span class="hljs-type">LESS</span>
+    | loop (_, <span class="hljs-literal">[]</span>) = <span class="hljs-type">GREATER</span>
+    | loop (x :: xs, y :: ys) =
+      (<span class="hljs-keyword">case</span> compare (x, y) <span class="hljs-keyword">of</span>
+     <span class="hljs-type">EQUAL</span> =&gt; loop (xs, ys)
+         | unequal =&gt; unequal)
+    <span class="hljs-keyword">in</span>
+  loop
+    <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">end</span> <span class="hljs-comment">(* structure List *)</span>
+

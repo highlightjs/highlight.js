@@ -16,17 +16,20 @@ export default function(hljs) {
       $pattern: '[a-zA-Z][a-zA-Z0-9_-]*',
       keyword: 'base-uri child-src connect-src default-src font-src form-action ' +
         'frame-ancestors frame-src img-src media-src object-src plugin-types ' +
-        'report-uri sandbox script-src style-src',
+        'report-uri sandbox script-src style-src'
     },
     contains: [
-    {
-      className: 'string',
-      begin: "'", end: "'"
-    },
-    {
-      className: 'attribute',
-      begin: '^Content', end: ':', excludeEnd: true,
-    },
+      {
+        className: 'string',
+        begin: "'",
+        end: "'"
+      },
+      {
+        className: 'attribute',
+        begin: '^Content',
+        end: ':',
+        excludeEnd: true
+      }
     ]
   };
 }

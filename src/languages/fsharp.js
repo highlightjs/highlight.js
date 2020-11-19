@@ -39,9 +39,11 @@ export default function(hljs) {
         className: 'string',
         begin: '@"',
         end: '"',
-        contains: [{
-          begin: '""'
-        }]
+        contains: [
+          {
+            begin: '""'
+          }
+        ]
       },
       {
         className: 'string',
@@ -70,12 +72,12 @@ export default function(hljs) {
       {
         className: 'symbol',
         begin: '\\B(\'[A-Za-z])\\b',
-        contains: [
-          hljs.BACKSLASH_ESCAPE
-        ]
+        contains: [hljs.BACKSLASH_ESCAPE]
       },
       hljs.C_LINE_COMMENT_MODE,
-      hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {
+        illegal: null
+      }),
       hljs.C_NUMBER_MODE
     ]
   };

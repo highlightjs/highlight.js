@@ -13,7 +13,8 @@ export default function(hljs) {
     subLanguage: 'xml',
     contains: [
       {
-        begin: '<%', end: '%>',
+        begin: '<%',
+        end: '%>',
         subLanguage: 'vbscript'
       }
     ]
