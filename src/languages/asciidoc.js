@@ -115,7 +115,7 @@ export default function(hljs) {
       // inline unconstrained strong (multi-line)
       {
         className: 'strong',
-        begin: /\*{2}(([^*\n\\]|\\[^\n])+\n)+([^*\n\\]|\\[^\n])*\*{2}/,
+        begin: /\*{2}(([^\n\\]|\\[^\n])+\n)+([^\n\\]|\\[^\n])*\*{2}/,
         relevance: 0
       },
       // escaped constrained formatting marks (i.e., \* \_ or \`)

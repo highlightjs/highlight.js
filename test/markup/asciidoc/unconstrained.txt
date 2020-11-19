@@ -15,6 +15,11 @@ This is **bold**
 
 E = **mc**2
 
+**Bob went with *Sarah* to the market today.**
+
+**Bob went with *Sarah*
+to the market today.**
+
 There's a colon:**directly** before the starting formatting mark.
 
 There's a semi-colon directly before the starting formatting mark &ndash;**2018**

@@ -15,6 +15,11 @@ This is <span class="hljs-strong">**bold**</span>
 
 E = <span class="hljs-strong">**mc**</span>2
 
+<span class="hljs-strong">**Bob went with *Sarah* to the market today.**</span>
+
+<span class="hljs-strong">**Bob went with *Sarah*
+to the market today.**</span>
+
 There&#x27;s a colon:<span class="hljs-strong">**directly**</span> before the starting formatting mark.
 
 There&#x27;s a semi-colon directly before the starting formatting mark &amp;ndash;<span class="hljs-strong">**2018**</span>
