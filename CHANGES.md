@@ -19,6 +19,9 @@ hljs.configure({
 })
 ```
 
+Reference:
+https://github.com/highlightjs/highlight.js/issues/2877
+
 ## Release v9.18.4
 
 **Version 9 has reached end-of-support and will not receive future updates or fixes.**
