@@ -7,9 +7,22 @@ FgBlue = "\x1b[34m"
 BgRed = "\x1b[41m"
 
 DEPRECATION = `
-Version 9 of Highlight.js is ${FgRed}no longer supported.${Reset} Please upgrade
-or ask whatever dependency you are using to upgrade. More info:
-- https://github.com/highlightjs/highlight.js/issues/2877
-- https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md`.trim()
+${BgRed + FgWhite}
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+${Reset}${Bright}${FgWhite}
+  Verion 9 of Highlight.js has reached EOL.  It will no longer
+  be supported or receive security updates in the future.
+  Please upgrade to version 10 or encourage your indirect
+  dependencies to do so.
 
-console.log(DEPRECATION)
+  For more info:
+  ${FgBlue}
+  https://github.com/highlightjs/highlight.js/issues/2877
+  https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md
+ ${BgRed + FgWhite}
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*${Reset}
+`.trim()
+
+if (!process.env["HLJS_HIDE_UPGRADE_WARNING"]) {
+  console.log(DEPRECATION)
+}
