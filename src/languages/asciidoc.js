@@ -148,7 +148,7 @@ export default function(hljs) {
       {
         className: 'strong',
         // must not precede or follow a word character
-        begin: /\B\*(\w\n?)*\*(?!\w)/,
+        begin: /\*[^\s]([^\n]*\n)+([^\n]+)\*/,
       },
       // TODO emphasis and code should get same treatment as strong!
       // inline unconstrained emphasis

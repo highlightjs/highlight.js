@@ -45,3 +45,7 @@ The parser is working <span class="hljs-strong">*99%*</span> of the time
 knows
 very
 best*</span>
+
+<span class="hljs-strong">*does bob
+-really-
+know best?*</span>
