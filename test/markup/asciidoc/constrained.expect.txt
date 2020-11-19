@@ -35,8 +35,6 @@ There&#x27;s a closing curly bracket directly {before}*the starting formatting m
 
 <span class="hljs-strong">*bl*ck*</span>-eye
 
-<span class="hljs-strong">*黑*眼圈*</span>
-
 E = mc*2*
 
 E = *mc*2
