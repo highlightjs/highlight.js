@@ -8,7 +8,7 @@ Due to both time and resource constrains the Highlight.js core team only fully s
 | :-----:  | :-: | :------ |
 | 10.4.x   | :white_check_mark: &nbsp; :closed_lock_with_key: |  The 10.x series recieves regular updates, new features & bug fixes. |
 | <= 10.3.x  | :x: | *Please upgrade to a more recent 10.x release.* |
-| 9.18.4   | :x: |  [EOL](https://github.com/highlightjs/highlight.js/issues/2877). No longer supported. See [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md). |
+| 9.18.5   | :x: |  [EOL](https://github.com/highlightjs/highlight.js/issues/2877). No longer supported. See [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md). |
 | <= 9.18.3 | :x: | No longer supported.  Known vulnerabities. |
 | <= 8.x    | :x: | Obsolete. |
 
