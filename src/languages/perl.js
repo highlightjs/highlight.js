@@ -9,6 +9,8 @@ import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  // https://perldoc.perl.org/perlre#Modifiers
+  const REGEX_MODIFIERS = /[dualxmsipn]{0,12}/; // aa and xx are valid, making max length 12
   const PERL_KEYWORDS = {
     $pattern: /[\w.]+/,
     keyword: 'getpwent getservent quotemeta msgrcv scalar kill dbmclose undef lc ' +
@@ -150,13 +152,24 @@ export default function(hljs) {
         hljs.HASH_COMMENT_MODE,
         {
           className: 'regexp',
-          begin: '(s|tr|y)/(\\\\.|[^/])*/(\\\\.|[^/])*/[a-z]*',
+          begin: regex.concat(
+            /(s|tr|y)/,
+            /\//,
+            /(\\.|[^\\\/])*/,
+            /\//,
+            /(\\.|[^\\\/])*/,
+            /\//,
+            REGEX_MODIFIERS,
+          ),
           relevance: 10
         },
         {
           className: 'regexp',
-          begin: '(m|qr)?/',
-          end: '/[a-z]*',
+          begin: /(m|qr)?\//,
+          end: regex.concat(
+            /\//,
+            REGEX_MODIFIERS
+          ),
           contains: [ hljs.BACKSLASH_ESCAPE ],
           relevance: 0 // allows empty "//" which is a common comment delimiter in other languages
         }
