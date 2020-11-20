@@ -25,10 +25,6 @@ const NO_MATCH = Symbol("nomatch");
  * @returns {HLJSApi}
  */
 const HLJS = function(hljs) {
-  // Convenience variables for build-in objects
-  /** @type {unknown[]} */
-  const ArrayProto = [];
-
   // Global internal variables used within the highlight.js library.
   /** @type {Record<string, Language>} */
   const languages = Object.create(null);
@@ -743,7 +739,7 @@ const HLJS = function(hljs) {
     initHighlighting.called = true;
 
     const blocks = document.querySelectorAll('pre code');
-    ArrayProto.forEach.call(blocks, highlightBlock);
+    blocks.forEach(highlightBlock);
   };
 
   // Higlights all when DOMContentLoaded fires
