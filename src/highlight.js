@@ -644,23 +644,15 @@ const HLJS = function(hljs) {
   /**
    * Builds new class name for block given the language name
    *
-   * @param {string} prevClassName
+   * @param {HTMLElement} element
    * @param {string} [currentLang]
    * @param {string} [resultLang]
    */
-  function buildClassName(prevClassName, currentLang, resultLang) {
+  function updateClassName(element, currentLang, resultLang) {
     const language = currentLang ? aliases[currentLang] : resultLang;
-    const result = [prevClassName.trim()];
 
-    if (!prevClassName.match(/\bhljs\b/)) {
-      result.push('hljs');
-    }
-
-    if (!prevClassName.includes(language)) {
-      result.push(language);
-    }
-
-    return result.join(' ').trim();
+    element.classList.add("hljs");
+    element.classList.add(language);
   }
 
   /**
@@ -699,7 +691,7 @@ const HLJS = function(hljs) {
     fire("after:highlightBlock", { block: element, result: result });
 
     element.innerHTML = result.value;
-    element.className = buildClassName(element.className, language, result.language);
+    updateClassName(element, language, result.language);
     element.result = {
       language: result.language,
       // TODO: remove with version 11.0
