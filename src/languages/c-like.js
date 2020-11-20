@@ -12,11 +12,10 @@ change in v10 and don't have to change the requirements again later.
 See: https://github.com/highlightjs/highlight.js/issues/2146
 */
 
+import * as regex from '../lib/regex.js';
+
 /** @type LanguageFn */
 export default function(hljs) {
-  function optional(s) {
-    return '(?:' + s + ')?';
-  }
   // added for historic reasons because `hljs.C_LINE_COMMENT_MODE` does
   // not include such support nor can we be sure all the grammars depending
   // on it would desire this behavior
@@ -29,10 +28,11 @@ export default function(hljs) {
   });
   const DECLTYPE_AUTO_RE = 'decltype\\(auto\\)';
   const NAMESPACE_RE = '[a-zA-Z_]\\w*::';
-  const TEMPLATE_ARGUMENT_RE = '<.*?>';
+  const TEMPLATE_ARGUMENT_RE = '<[^<>]+>';
   const FUNCTION_TYPE_RE = '(' +
     DECLTYPE_AUTO_RE + '|' +
-    optional(NAMESPACE_RE) + '[a-zA-Z_]\\w*' + optional(TEMPLATE_ARGUMENT_RE) +
+    regex.optional(NAMESPACE_RE) +
+    '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE) +
   ')';
   const CPP_PRIMITIVE_TYPES = {
     className: 'keyword',
@@ -109,11 +109,11 @@ export default function(hljs) {
 
   const TITLE_MODE = {
     className: 'title',
-    begin: optional(NAMESPACE_RE) + hljs.IDENT_RE,
+    begin: regex.optional(NAMESPACE_RE) + hljs.IDENT_RE,
     relevance: 0
   };
 
-  const FUNCTION_TITLE = optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
+  const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
 
   const CPP_KEYWORDS = {
     keyword: 'int float while private char char8_t char16_t char32_t catch import module export virtual operator sizeof ' +
@@ -189,7 +189,6 @@ export default function(hljs) {
     keywords: CPP_KEYWORDS,
     illegal: /[^\w\s\*&:<>]/,
     contains: [
-
       { // to prevent it from being confused as the function title
         begin: DECLTYPE_AUTO_RE,
         keywords: CPP_KEYWORDS,
