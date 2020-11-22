@@ -7,6 +7,7 @@ Website: https://docs.docker.com/engine/reference/builder/
 Category: config
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'Dockerfile',
@@ -27,5 +28,5 @@ export default function(hljs) {
       }
     ],
     illegal: '</'
-  }
+  };
 }

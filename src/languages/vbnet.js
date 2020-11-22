@@ -8,7 +8,7 @@
 export default function(hljs) {
   const CHAR = {
     className: 'string',
-    begin: /"(""|[^/n])"C\b/,
+    begin: /"(""|[^/n])"C\b/
   };
 
   const STRING = {
@@ -16,7 +16,11 @@ export default function(hljs) {
     begin: /"/,
     end: /"/,
     illegal: /\n/,
-    contains: [{ begin: /""/ }], // double quote escape
+    contains: [
+      {
+        begin: /""/
+      }
+    ] // double quote escape
   };
 
   /**
@@ -26,7 +30,7 @@ export default function(hljs) {
    */
   const DATE = {
     className: 'literal',
-    begin: /# *(((\d+[-/]){2}\d+)|((\d+(:\d+){1,2} ?(AM|PM)?)|(\d+ ?(AM|PM)))|((\d+[-/]){2}\d+ ((\d+(:\d+){1,2} ?(AM|PM)?)|(\d+ ?(AM|PM))))) *#/,
+    begin: /# *(((\d+[-/]){2}\d+)|((\d+(:\d+){1,2} ?(AM|PM)?)|(\d+ ?(AM|PM)))|((\d+[-/]){2}\d+ ((\d+(:\d+){1,2} ?(AM|PM)?)|(\d+ ?(AM|PM))))) *#/
   };
 
   /**
@@ -39,12 +43,12 @@ export default function(hljs) {
   const NUMBER = {
     className: 'number',
     begin: /((&[HOB])[\dA-F_]+|(-?\b\d[\d_]*))((\.[\d_]+)?(E[+-]?[\d_]+)?)?((U?[SIL])|[RFD@!#%&])?/,
-    relevance: 0,
+    relevance: 0
   };
 
   const LABEL = {
     className: 'symbol',
-    begin: /^\w+:$/,
+    begin: /^\w+:$/
   };
 
   const COMMENT = hljs.COMMENT(/'(?!'')|\bREM\b/, /$/);
@@ -55,9 +59,9 @@ export default function(hljs) {
         className: 'doctag',
         begin: /<\/?/,
         end: />/,
-        contains: [hljs.PHRASAL_WORDS_MODE],
-      },
-    ],
+        contains: [ hljs.PHRASAL_WORDS_MODE ]
+      }
+    ]
   });
 
   const DIRECTIVES = {
@@ -66,14 +70,14 @@ export default function(hljs) {
     end: /$/,
     keywords: {
       'meta-keyword':
-        'const disable else elseif enable end externalsource if region then',
+        'const disable else elseif enable end externalsource if region then'
     },
-    contains: [COMMENT],
+    contains: [ COMMENT ]
   };
 
   return {
     name: 'Visual Basic .NET',
-    aliases: ['vb'],
+    aliases: [ 'vb' ],
     case_insensitive: true,
     keywords: {
       keyword:
@@ -96,7 +100,7 @@ export default function(hljs) {
       type:
         // Data types https://docs.microsoft.com/dotnet/visual-basic/language-reference/data-types
         'boolean byte char date decimal double integer long object sbyte short single string uinteger ulong ushort',
-      literal: 'true false nothing',
+      literal: 'true false nothing'
     },
     illegal:
       '//|\\{|\\}|endif|gosub|variant|wend|^\\$ ' /* reserved deprecated keywords */,
@@ -108,7 +112,7 @@ export default function(hljs) {
       LABEL,
       COMMENT,
       DOC_COMMENT,
-      DIRECTIVES,
-    ],
+      DIRECTIVES
+    ]
   };
 }

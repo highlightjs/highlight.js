@@ -36,8 +36,12 @@ export default function(hljs) {
   const VAR = {
     className: 'variable',
     variants: [
-      { begin: /\$[\w\d#@][\w\d_]*/ },
-      { begin: /\$\{(.*?)\}/ }
+      {
+        begin: /\$[\w\d#@][\w\d_]*/
+      },
+      {
+        begin: /\$\{(.*?)\}/
+      }
     ]
   };
 
@@ -52,7 +56,7 @@ export default function(hljs) {
         className: 'variable',
         begin: /\$\(/,
         end: /\)/,
-        contains: [hljs.BACKSLASH_ESCAPE]
+        contains: [ hljs.BACKSLASH_ESCAPE ]
       }
     ]
   };
@@ -68,7 +72,10 @@ export default function(hljs) {
 
   return {
     name: 'Microtik RouterOS script',
-    aliases: ['routeros', 'mikrotik'],
+    aliases: [
+      'routeros',
+      'mikrotik'
+    ],
     case_insensitive: true,
     keywords: {
       $pattern: /:?[\w-]+/,
@@ -78,9 +85,18 @@ export default function(hljs) {
     contains: [
       { // illegal syntax
         variants: [
-          { begin: /\/\*/, end: /\*\// },          // -- comment
-          { begin: /\/\//, end: /$/ },             // Stan comment
-          { begin: /<\//, end: />/ },              // HTML tags
+          { // -- comment
+            begin: /\/\*/,
+            end: /\*\//
+          },
+          { // Stan comment
+            begin: /\/\//,
+            end: /$/
+          },
+          { // HTML tags
+            begin: /<\//,
+            end: />/
+          }
         ],
         illegal: /./
       },

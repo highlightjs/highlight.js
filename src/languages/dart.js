@@ -7,12 +7,13 @@ Website: https://dart.dev
 Category: scripting
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   const SUBST = {
     className: 'subst',
     variants: [{
       begin: '\\$[A-Za-z0-9_]+'
-    }],
+    }]
   };
 
   const BRACED_SUBST = {
@@ -21,12 +22,13 @@ export default function(hljs) {
       begin: /\$\{/,
       end: /\}/
     }],
-    keywords: 'true false null this is new super',
+    keywords: 'true false null this is new super'
   };
 
   const STRING = {
     className: 'string',
-    variants: [{
+    variants: [
+      {
         begin: 'r\'\'\'',
         end: '\'\'\''
       },
@@ -47,29 +49,46 @@ export default function(hljs) {
       {
         begin: '\'\'\'',
         end: '\'\'\'',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST,
+          BRACED_SUBST
+        ]
       },
       {
         begin: '"""',
         end: '"""',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST,
+          BRACED_SUBST
+        ]
       },
       {
         begin: '\'',
         end: '\'',
         illegal: '\\n',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST,
+          BRACED_SUBST
+        ]
       },
       {
         begin: '"',
         end: '"',
         illegal: '\\n',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST,
+          BRACED_SUBST
+        ]
       }
     ]
   };
   BRACED_SUBST.contains = [
-    hljs.C_NUMBER_MODE, STRING
+    hljs.C_NUMBER_MODE,
+    STRING
   ];
 
   const BUILT_IN_TYPES = [
@@ -100,7 +119,7 @@ export default function(hljs) {
     'num',
     // dart:html
     'Element',
-    'ElementList',
+    'ElementList'
   ];
   const NULLABLE_BUILT_IN_TYPES = BUILT_IN_TYPES.map((e) => `${e}?`);
 
@@ -122,8 +141,8 @@ export default function(hljs) {
           'document',
           'querySelector',
           'querySelectorAll',
-          'window',
-      ]).join(' '),
+          'window'
+        ]).join(' '),
     $pattern: /[A-Za-z][A-Za-z0-9_]*\??/
   };
 
@@ -136,7 +155,7 @@ export default function(hljs) {
         '/\\*\\*',
         '\\*/', {
           subLanguage: 'markdown',
-          relevance:0
+          relevance: 0
         }
       ),
       hljs.COMMENT(
@@ -146,7 +165,7 @@ export default function(hljs) {
             subLanguage: 'markdown',
             begin: '.',
             end: '$',
-            relevance:0
+            relevance: 0
           }]
         }
       ),
@@ -157,7 +176,8 @@ export default function(hljs) {
         beginKeywords: 'class interface',
         end: /\{/,
         excludeEnd: true,
-        contains: [{
+        contains: [
+          {
             beginKeywords: 'extends implements'
           },
           hljs.UNDERSCORE_TITLE_MODE

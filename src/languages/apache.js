@@ -9,13 +9,19 @@ Category: common, config
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var NUMBER_REF = {className: 'number', begin: '[\\$%]\\d+'};
-  var NUMBER = {className: 'number', begin: '\\d+'};
-  var IP_ADDRESS = {
+  const NUMBER_REF = {
+    className: 'number',
+    begin: '[\\$%]\\d+'
+  };
+  const NUMBER = {
+    className: 'number',
+    begin: '\\d+'
+  };
+  const IP_ADDRESS = {
     className: "number",
     begin: '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(:\\d{1,5})?'
   };
-  var PORT_NUMBER = {
+  const PORT_NUMBER = {
     className: "number",
     begin: ":\\d{1,5}"
   };
@@ -25,42 +31,44 @@ export default function(hljs) {
     case_insensitive: true,
     contains: [
       hljs.HASH_COMMENT_MODE,
-      {className: 'section', begin: '</?', end: '>',
-      contains: [
-        IP_ADDRESS,
-        PORT_NUMBER,
-        // low relevance prevents us from claming XML/HTML where this rule would
-        // match strings inside of XML tags
-        hljs.inherit(hljs.QUOTE_STRING_MODE, { relevance:0 })
-      ]
-    },
+      {
+        className: 'section',
+        begin: '</?',
+        end: '>',
+        contains: [
+          IP_ADDRESS,
+          PORT_NUMBER,
+          // low relevance prevents us from claming XML/HTML where this rule would
+          // match strings inside of XML tags
+          hljs.inherit(hljs.QUOTE_STRING_MODE, { relevance: 0 })
+        ]
+      },
       {
         className: 'attribute',
         begin: /\w+/,
         relevance: 0,
         // keywords aren’t needed for highlighting per se, they only boost relevance
         // for a very generally defined mode (starts with a word, ends with line-end
-        keywords: {
-          nomarkup:
+        keywords: { nomarkup:
             'order deny allow setenv rewriterule rewriteengine rewritecond documentroot ' +
             'sethandler errordocument loadmodule options header listen serverroot ' +
-            'servername'
-        },
+            'servername' },
         starts: {
           end: /$/,
           relevance: 0,
-          keywords: {
-            literal: 'on off all deny allow'
-          },
+          keywords: { literal: 'on off all deny allow' },
           contains: [
             {
               className: 'meta',
-              begin: '\\s\\[', end: '\\]$'
+              begin: '\\s\\[',
+              end: '\\]$'
             },
             {
               className: 'variable',
-              begin: '[\\$%]\\{', end: '\\}',
-              contains: ['self', NUMBER_REF]
+              begin: '[\\$%]\\{',
+              end: '\\}',
+              contains: ['self',
+                NUMBER_REF]
             },
             IP_ADDRESS,
             NUMBER,

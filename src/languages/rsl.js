@@ -30,14 +30,17 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'meta',
-        begin: '#', end: '$'
+        begin: '#',
+        end: '$'
       },
       {
         className: 'class',
-        beginKeywords: 'surface displacement light volume imager', end: '\\('
+        beginKeywords: 'surface displacement light volume imager',
+        end: '\\('
       },
       {
-        beginKeywords: 'illuminate illuminance gather', end: '\\('
+        beginKeywords: 'illuminate illuminance gather',
+        end: '\\('
       }
     ]
   };

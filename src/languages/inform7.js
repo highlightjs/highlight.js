@@ -6,8 +6,8 @@ Website: http://inform7.com
 */
 
 export default function(hljs) {
-  var START_BRACKET = '\\[';
-  var END_BRACKET = '\\]';
+  const START_BRACKET = '\\[';
+  const END_BRACKET = '\\]';
   return {
     name: 'Inform 7',
     aliases: ['i7'],
@@ -28,12 +28,14 @@ export default function(hljs) {
     contains: [
       {
         className: 'string',
-        begin: '"', end: '"',
+        begin: '"',
+        end: '"',
         relevance: 0,
         contains: [
           {
             className: 'subst',
-            begin: START_BRACKET, end: END_BRACKET
+            begin: START_BRACKET,
+            end: END_BRACKET
           }
         ]
       },
@@ -49,14 +51,16 @@ export default function(hljs) {
         end: ':',
         contains: [
           {
-            //Rule name
-            begin: '\\(This', end: '\\)'
+            // Rule name
+            begin: '\\(This',
+            end: '\\)'
           }
         ]
       },
       {
         className: 'comment',
-        begin: START_BRACKET, end: END_BRACKET,
+        begin: START_BRACKET,
+        end: END_BRACKET,
         contains: ['self']
       }
     ]

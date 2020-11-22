@@ -155,6 +155,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | R                       | r                      |         |
 | Razor CSHTML            | cshtml, razor, razor-cshtml | [highlightjs-cshtml-razor](https://github.com/highlightjs/highlightjs-cshtml-razor) |
 | ReasonML                | reasonml, re           |         |
+| Rebol & Red             | redbol, rebol, red, red-system | [highlightjs-redbol](https://github.com/oldes/highlightjs-redbol) |
 | RenderMan RIB           | rib                    |         |
 | RenderMan RSL           | rsl                    |         |
 | Roboconf                | graph, instances       |         |

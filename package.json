@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "10.4.0-beta1",
+  "version": "10.4.0",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -48,7 +48,7 @@
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
     "commander": "^6.2.0",
-    "deep-freeze-es6": "^1.3.1",
+    "deep-freeze-es6": "^1.4.1",
     "del": "^6.0.0",
     "dependency-resolver": "^2.0.1",
     "eslint": "^7.12.1",

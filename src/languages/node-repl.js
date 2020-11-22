@@ -7,24 +7,29 @@ Category: scripting
 
 /** @type LanguageFn */
 export default function(hljs) {
-    return {
-      name: 'Node REPL',
-      contains: [
-        {
-          className: 'meta',
+  return {
+    name: 'Node REPL',
+    contains: [
+      {
+        className: 'meta',
+        starts: {
+          // a space separates the REPL prefix from the actual code
+          // this is purely for cleaner HTML output
+          end: / |$/,
           starts: {
-            // a space separates the REPL prefix from the actual code
-            // this is purely for cleaner HTML output
-            end: / |$/,
-            starts: {
-              end: '$', subLanguage: 'javascript'
-            }
-          },
-          variants: [
-            { begin: /^>(?=[ ]|$)/ },
-            { begin: /^\.\.\.(?=[ ]|$)/ }
-          ]
+            end: '$',
+            subLanguage: 'javascript'
+          }
         },
-      ]
-    }
-  }
+        variants: [
+          {
+            begin: /^>(?=[ ]|$)/
+          },
+          {
+            begin: /^\.\.\.(?=[ ]|$)/
+          }
+        ]
+      }
+    ]
+  };
+}

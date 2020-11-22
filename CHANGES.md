@@ -1,8 +1,16 @@
-## Version 10.4.0-beta1
+## Version 10.5.0 preparation
 
-Parser:
+New Languages:
 
-- enh(parser) use negative look-ahead for `beginKeywords` support (#2813) [Josh Goebel][]
+- Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
+
+[Oldes Huhuman]: https://github.com/Oldes
+[Josh Goebel]: https://github.com/joshgoebel
+
+
+## Version 10.4.0
+
+A largish release with many improvements and fixes from quite a few different contributors.  Enjoy!
 
 Deprecations:
 
@@ -12,6 +20,8 @@ Deprecations:
 
 Parser:
 
+- enh(parser) use negative look-ahead for `beginKeywords` support (#2813) [Josh Goebel][]
+- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
 - fix(vue): Language name now appears in CSS class (#2807) [Michael Rush][]
 - (chore) Clean up all regexs to be UTF-8 compliant/ready (#2759) [Josh Goebel][]
 
@@ -64,10 +74,6 @@ Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
 - fix(dev) the Vue.js plugin no longer throws an exception when hljs is not in the global namespace [Kyle Brown][]
-
-Parser:
-
-- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
 
 New themes:
 

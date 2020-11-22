@@ -12,7 +12,8 @@ export default function(hljs) {
       // Attribute
       {
         className: 'attribute',
-        begin: /</, end: />/
+        begin: /</,
+        end: />/
       },
       // Specific
       {
@@ -20,7 +21,8 @@ export default function(hljs) {
         end: /$/,
         contains: [
           {
-            begin: /</, end: />/
+            begin: /</,
+            end: />/
           },
           // Common
           hljs.C_LINE_COMMENT_MODE,

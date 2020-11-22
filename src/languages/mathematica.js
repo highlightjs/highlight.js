@@ -116,7 +116,10 @@ export default function(hljs) {
 
   return {
     name: 'Mathematica',
-    aliases: ['mma', 'wl'],
+    aliases: [
+      'mma',
+      'wl'
+    ],
     classNameAliases: {
       brace: 'punctuation',
       pattern: 'type',
@@ -127,7 +130,9 @@ export default function(hljs) {
       'message-name': 'string'
     },
     contains: [
-      hljs.COMMENT(/\(\*/, /\*\)/, {contains: ['self']}),
+      hljs.COMMENT(/\(\*/, /\*\)/, {
+        contains: [ 'self' ]
+      }),
       PATTERNS,
       SLOTS,
       MESSAGES,
