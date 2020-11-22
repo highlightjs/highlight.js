@@ -34,7 +34,7 @@ export default function(hljs) {
     variants: [
       {
         // #YYYY-MM-DD# (ISO-Date)
-        begin: /# *\d{4}(-\d\d){2} *#/
+        begin: /# *\d{4}(-\d{1,2}){2} *#/
       },
       {
         // #M/D/YYYY# (US-Date)
@@ -50,11 +50,11 @@ export default function(hljs) {
       },
       {
         // ISO-Date and 24h Time
-        begin: /# *\d{4}(-\d\d){2} +\d{1,2}(:\d{1,2}){1,2} *#/
+        begin: /# *\d{4}(-\d{1,2}){2} +\d{1,2}(:\d{1,2}){1,2} *#/
       },
       {
         // ISO-Date and 12h Time
-        begin: /# *\d{4}(-\d\d){2} +(\d|1[012])(:\d+){0,2} *(AM|PM) *#/
+        begin: /# *\d{4}(-\d{1,2}){2} +(\d|1[012])(:\d+){0,2} *(AM|PM) *#/
       },
       {
         // US-Date and 24h Time
@@ -116,7 +116,7 @@ export default function(hljs) {
       },
       {
         // TODO: Use `beforeMatch:` for leading spaces
-        begin: /([\t ]|^)REM(?!\S)/
+        begin: /([\t ]|^)REM(?=\s)/
       }
     ]
   });
