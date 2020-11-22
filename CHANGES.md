@@ -54,7 +54,11 @@ Language Improvements:
 - fix(swift) Handle keywords that start with `#` [Marcus Ortiz][]
 - enh(swift) Match `some` keyword [Marcus Ortiz][]
 - enh(swift) Match `@main` attribute [Marcus Ortiz][]
-- enh(vbnet) Highlight date literals (#2775) [Jan Pilzer][]
+- enh(vbnet) Recognize date literals (#2775) [Jan Pilzer][]
+- enh(vbnet) Recognize labels [Jan Pilzer][]
+- enh(vbnet) Use custom number mode instead [Jan Pilzer][]
+- enh(vbnet) Highlight operators and type conversion functions as built-in [Jan Pilzer][]
+- enh(vbnet) Highlight types as type instead of keyword [Jan Pilzer][]
 
 Dev Improvements:
 
