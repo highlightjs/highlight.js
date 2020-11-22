@@ -1,9 +1,9 @@
-/**
- * Language: Visual Basic .NET
- * Description: Visual Basic .NET (VB.NET) is a multi-paradigm, object-oriented programming language, implemented on the .NET Framework.
- * Authors: Poren Chiang <ren.chiang@gmail.com>, Jan Pilzer
- * Website: https://docs.microsoft.com/dotnet/visual-basic/getting-started/
- */
+/*
+Language: Visual Basic .NET
+Description: Visual Basic .NET (VB.NET) is a multi-paradigm, object-oriented programming language, implemented on the .NET Framework.
+Authors: Poren Chiang <ren.chiang@gmail.com>, Jan Pilzer
+Website: https://docs.microsoft.com/en-us/dotnet/visual-basic/getting-started/
+*/
 
 export default function(hljs) {
   /**
@@ -73,11 +73,11 @@ export default function(hljs) {
     variants: [
       {
         // Float
-        begin: /-?\b\d[\d_]*((\.[\d_]+(E[+-]?[\d_]+)?)|(E[+-]?[\d_]+))[RFD@!#]?/
+        begin: /\b\d[\d_]*((\.[\d_]+(E[+-]?[\d_]+)?)|(E[+-]?[\d_]+))[RFD@!#]?/
       },
       {
         // Integer (base 10)
-        begin: /-?\b\d[\d_]*((U?[SIL])|[%&])?/
+        begin: /\b\d[\d_]*((U?[SIL])|[%&])?/
       },
       {
         // Integer (base 16)
@@ -112,7 +112,7 @@ export default function(hljs) {
   const COMMENT = hljs.COMMENT(null, /$/, {
     variants: [
       {
-        begin: /'(?!'')/
+        begin: /'/
       },
       {
         // TODO: Use `beforeMatch:` for leading spaces
