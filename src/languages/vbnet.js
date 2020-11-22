@@ -6,7 +6,11 @@
  */
 
 export default function(hljs) {
-  const CHAR = {
+  /**
+   * Character Literal
+   * Either a single character ("a"C) or an escaped double quote (""""C).
+   */
+  const CHARACTER = {
     className: 'string',
     begin: /"(""|[^/n])"C\b/
   };
@@ -18,55 +22,90 @@ export default function(hljs) {
     illegal: /\n/,
     contains: [
       {
+        // double quote escape
         begin: /""/
       }
-    ] // double quote escape
+    ]
   };
 
   /**
-   * Date Literals consist of a date or a time or both separated by whitespace, surrounded by #.
-   * Date can be in M/D/YYYY or YYYY-MM-DD format.
-   * A time value may be specified either using a 24-hour value (H:mm[:ss]) or a 12-hour value (h[:mm[:ss]] A)
+   * Date Literals consist of a date, a time, or both separated by whitespace, surrounded by #.
    */
   const DATE = {
     className: 'literal',
-    begin: /# *(((\d+[-/]){2}\d+)|((\d+(:\d+){1,2} ?(AM|PM)?)|(\d+ ?(AM|PM)))|((\d+[-/]){2}\d+ ((\d+(:\d+){1,2} ?(AM|PM)?)|(\d+ ?(AM|PM))))) *#/
+    variants: [
+      {
+        // Date: #M/D/YYYY# or #YYYY-MM-DD#
+        begin: /# *((\d+[-/]){2}\d+) *#/
+      },
+      {
+        // Time: #H:mm[:ss]# (24h) or #h[:mm[:ss]] A# (12h )
+        begin: /# *((\d+(:\d+){0,2} *(AM|PM)?)) *#/
+      },
+      {
+        // Date and time
+        begin: /# *((\d+[-/]){2}\d+ +((\d+(:\d+){0,2} *(AM|PM)?))) *#/
+      }
+    ]
   };
 
-  /**
-   * Float: /-?\b\d[\d_]*((\.[\d_]+(E[+-]?[\d_]+)?)|(E[+-]?[\d_]+))[RFD@!#]?/
-   * Integer (base 10): /-?\b\d[\d_]*((U?[SIL])|[%&])?/
-   * Integer (base 16): /&H[\dA-F_]+((U?[SIL])|[%&])?/
-   * Integer (base  8): /&O[0-7_]+((U?[SIL])|[%&])?/
-   * Integer (base  2): /&B[01_]+((U?[SIL])|[%&])?/
-   */
   const NUMBER = {
     className: 'number',
-    begin: /((&[HOB])[\dA-F_]+|(-?\b\d[\d_]*))((\.[\d_]+)?(E[+-]?[\d_]+)?)?((U?[SIL])|[RFD@!#%&])?/,
-    relevance: 0
+    relevance: 0,
+    variants: [
+      {
+        // Float
+        begin: /-?\b\d[\d_]*((\.[\d_]+(E[+-]?[\d_]+)?)|(E[+-]?[\d_]+))[RFD@!#]?/
+      },
+      {
+        // Integer (base 10)
+        begin: /-?\b\d[\d_]*((U?[SIL])|[%&])?/
+      },
+      {
+        // Integer (base 16)
+        begin: /&H[\dA-F_]+((U?[SIL])|[%&])?/
+      },
+      {
+        // Integer (base 8)
+        begin: /&O[0-7_]+((U?[SIL])|[%&])?/
+      },
+      {
+        // Integer (base 2)
+        begin: /&B[01_]+((U?[SIL])|[%&])?/
+      }
+    ]
   };
 
   const LABEL = {
-    className: 'symbol',
-    begin: /^\w+:$/
+    className: 'label',
+    begin: /^\w+:/
   };
 
-  const COMMENT = hljs.COMMENT(/'(?!'')|\bREM\b/, /$/);
+  const COMMENT = hljs.COMMENT(null, /$/, {
+    variants: [
+      {
+        begin: /'(?!'')/
+      },
+      {
+        begin: /\bREM\b/
+      }
+    ]
+  });
 
   const DOC_COMMENT = hljs.COMMENT(/'''/, /$/, {
     contains: [
       {
         className: 'doctag',
         begin: /<\/?/,
-        end: />/,
-        contains: [ hljs.PHRASAL_WORDS_MODE ]
+        end: />/
       }
     ]
   });
 
   const DIRECTIVES = {
     className: 'meta',
-    begin: /#(const|disable|else|elseif|enable|end|externalsource|if|region)\b/,
+    // TODO: Use `beforeMatch:` for indentation once available
+    begin: /[\t ]*#(const|disable|else|elseif|enable|end|externalsource|if|region)\b/,
     end: /$/,
     keywords: {
       'meta-keyword':
@@ -79,6 +118,9 @@ export default function(hljs) {
     name: 'Visual Basic .NET',
     aliases: [ 'vb' ],
     case_insensitive: true,
+    classNameAliases: {
+      label: 'symbol'
+    },
     keywords: {
       keyword:
         'addhandler alias aggregate ansi as async assembly auto binary by byref byval ' + /* a-b */
@@ -105,7 +147,7 @@ export default function(hljs) {
     illegal:
       '//|\\{|\\}|endif|gosub|variant|wend|^\\$ ' /* reserved deprecated keywords */,
     contains: [
-      CHAR,
+      CHARACTER,
       STRING,
       DATE,
       NUMBER,
