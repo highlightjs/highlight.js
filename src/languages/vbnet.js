@@ -28,23 +28,41 @@ export default function(hljs) {
     ]
   };
 
-  /**
-   * Date Literals consist of a date, a time, or both separated by whitespace, surrounded by #.
-   */
+  /** Date Literals consist of a date, a time, or both separated by whitespace, surrounded by # */
   const DATE = {
     className: 'literal',
     variants: [
       {
-        // Date: #M/D/YYYY# or #YYYY-MM-DD#
-        begin: /# *((\d+[-/]){2}\d+) *#/
+        // #YYYY-MM-DD# (ISO-Date)
+        begin: /# *\d{4}(-\d\d){2} *#/
       },
       {
-        // Time: #H:mm[:ss]# (24h) or #h[:mm[:ss]] A# (12h )
-        begin: /# *((\d+(:\d+){0,2} *(AM|PM)?)) *#/
+        // #M/D/YYYY# (US-Date)
+        begin: /# *(\d{1,2}\/){2}\d{4} *#/
       },
       {
-        // Date and time
-        begin: /# *((\d+[-/]){2}\d+ +((\d+(:\d+){0,2} *(AM|PM)?))) *#/
+        // #H:mm[:ss]# (24h Time)
+        begin: /# *\d{1,2}(:\d{1,2}){1,2} *#/
+      },
+      {
+        // #h[:mm[:ss]] A# (12h Time)
+        begin: /# *(\d|1[012])(:\d+){0,2} *(AM|PM) *#/
+      },
+      {
+        // ISO-Date and 24h Time
+        begin: /# *\d{4}(-\d\d){2} +\d{1,2}(:\d{1,2}){1,2} *#/
+      },
+      {
+        // ISO-Date and 12h Time
+        begin: /# *\d{4}(-\d\d){2} +(\d|1[012])(:\d+){0,2} *(AM|PM) *#/
+      },
+      {
+        // US-Date and 24h Time
+        begin: /# *(\d{1,2}\/){2}\d{4} +\d{1,2}(:\d{1,2}){1,2} *#/
+      },
+      {
+        // US-Date and 12h Time
+        begin: /# *(\d{1,2}\/){2}\d{4} +(\d|1[012])(:\d+){0,2} *(AM|PM) *#/
       }
     ]
   };
@@ -81,23 +99,24 @@ export default function(hljs) {
     begin: /^\w+:/
   };
 
-  const COMMENT = hljs.COMMENT(null, /$/, {
-    variants: [
-      {
-        begin: /'(?!'')/
-      },
-      {
-        begin: /\bREM\b/
-      }
-    ]
-  });
-
   const DOC_COMMENT = hljs.COMMENT(/'''/, /$/, {
     contains: [
       {
         className: 'doctag',
         begin: /<\/?/,
         end: />/
+      }
+    ]
+  });
+
+  const COMMENT = hljs.COMMENT(null, /$/, {
+    variants: [
+      {
+        begin: /'(?!'')/
+      },
+      {
+        // TODO: Use `beforeMatch:` for leading spaces
+        begin: /([\t ]|^)REM(?!\S)/
       }
     ]
   });
@@ -152,8 +171,8 @@ export default function(hljs) {
       DATE,
       NUMBER,
       LABEL,
-      COMMENT,
       DOC_COMMENT,
+      COMMENT,
       DIRECTIVES
     ]
   };

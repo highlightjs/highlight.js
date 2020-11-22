@@ -19,7 +19,7 @@
             System.Windows.Forms.MessageBox.Show(<span class="hljs-built_in">CInt</span>(<span class="hljs-string">&quot;1&quot;</span>).ToString())
           <span class="hljs-keyword">Catch</span> ex <span class="hljs-keyword">As</span> Exception       <span class="hljs-comment">&#x27; What are you doing? Well...</span>
             <span class="hljs-keyword">Dim</span> exp = CType(ex, IOException)
-            <span class="hljs-comment">REM ORZ</span>
+           <span class="hljs-comment"> REM ORZ</span>
             <span class="hljs-keyword">Return</span>
           <span class="hljs-keyword">End</span> <span class="hljs-keyword">Try</span>
         <span class="hljs-keyword">Next</span>
