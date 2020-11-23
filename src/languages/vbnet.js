@@ -5,6 +5,9 @@ Authors: Poren Chiang <ren.chiang@gmail.com>, Jan Pilzer
 Website: https://docs.microsoft.com/dotnet/visual-basic/getting-started
 */
 
+import * as regex from '../lib/regex.js';
+
+/** @type LanguageFn */
 export default function(hljs) {
   /**
    * Character Literal
@@ -29,40 +32,34 @@ export default function(hljs) {
   };
 
   /** Date Literals consist of a date, a time, or both separated by whitespace, surrounded by # */
+  const MM_DD_YYYY = /\d{1,2}\/\d{1,2}\/\d{4}/;
+  const YYYY_MM_DD = /\d{4}-\d{1,2}-\d{1,2}/;
+  const TIME_12H = /(\d|1[012])(:\d+){0,2} *(AM|PM)/;
+  const TIME_24H = /\d{1,2}(:\d{1,2}){1,2}/;
   const DATE = {
     className: 'literal',
     variants: [
       {
-        // #YYYY-MM-DD# (ISO-Date)
-        begin: /# *\d{4}(-\d{1,2}){2} *#/
-      },
-      {
-        // #M/D/YYYY# (US-Date)
-        begin: /# *(\d{1,2}\/){2}\d{4} *#/
+        // #YYYY-MM-DD# (ISO-Date) or #M/D/YYYY# (US-Date)
+        begin: regex.concat(/# */, regex.either(YYYY_MM_DD, MM_DD_YYYY), / *#/)
       },
       {
         // #H:mm[:ss]# (24h Time)
-        begin: /# *\d{1,2}(:\d{1,2}){1,2} *#/
+        begin: regex.concat(/# */, TIME_24H, / *#/)
       },
       {
         // #h[:mm[:ss]] A# (12h Time)
-        begin: /# *(\d|1[012])(:\d+){0,2} *(AM|PM) *#/
+        begin: regex.concat(/# */, TIME_12H, / *#/)
       },
       {
-        // ISO-Date and 24h Time
-        begin: /# *\d{4}(-\d{1,2}){2} +\d{1,2}(:\d{1,2}){1,2} *#/
-      },
-      {
-        // ISO-Date and 12h Time
-        begin: /# *\d{4}(-\d{1,2}){2} +(\d|1[012])(:\d+){0,2} *(AM|PM) *#/
-      },
-      {
-        // US-Date and 24h Time
-        begin: /# *(\d{1,2}\/){2}\d{4} +\d{1,2}(:\d{1,2}){1,2} *#/
-      },
-      {
-        // US-Date and 12h Time
-        begin: /# *(\d{1,2}\/){2}\d{4} +(\d|1[012])(:\d+){0,2} *(AM|PM) *#/
+        // date plus time
+        begin: regex.concat(
+          /# */,
+          regex.either(YYYY_MM_DD, MM_DD_YYYY),
+          / +/,
+          regex.either(TIME_12H, TIME_24H),
+          / *#/
+        )
       }
     ]
   };
