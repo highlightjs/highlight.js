@@ -1,0 +1,17 @@
+<span class="hljs-keyword">Dim</span> c1 = <span class="hljs-string">&quot;1&quot;c</span>
+<span class="hljs-keyword">Dim</span> c2 = <span class="hljs-string">&quot;1&quot;C</span>
+<span class="hljs-keyword">Dim</span> c3 = <span class="hljs-string">&quot;&quot;&quot;&quot;C</span>
+
+<span class="hljs-keyword">Dim</span> s1 = <span class="hljs-string">&quot;123&quot;</span>
+<span class="hljs-keyword">Dim</span> s2 = <span class="hljs-string">&quot;&quot;&quot;1&quot;&quot;&quot;</span>
+
+<span class="hljs-keyword">Dim</span> d1 = <span class="hljs-literal">#2020-11-11#</span>
+<span class="hljs-keyword">Dim</span> d1 = <span class="hljs-literal">#2020-1-1#</span>
+<span class="hljs-keyword">Dim</span> d2 = <span class="hljs-literal">#5/5/2005#</span>
+<span class="hljs-keyword">Dim</span> d3 = <span class="hljs-literal">#13:13:13#</span>
+<span class="hljs-keyword">Dim</span> d4 = <span class="hljs-literal">#13:13#</span>
+<span class="hljs-keyword">Dim</span> d5 = <span class="hljs-literal">#1:13:13 AM#</span>
+<span class="hljs-keyword">Dim</span> d6 = <span class="hljs-literal">#1:13 AM#</span>
+<span class="hljs-keyword">Dim</span> d7 = <span class="hljs-literal">#1 AM#</span>
+<span class="hljs-keyword">Dim</span> d10 = <span class="hljs-literal">#2020-11-11 13:13:13#</span>
+<span class="hljs-keyword">Dim</span> d11 = <span class="hljs-literal">#5/5/2005 1:13:13 AM#</span>
