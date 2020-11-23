@@ -4,6 +4,19 @@ New Languages:
 
 - Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
 
+Grammar improvements:
+
+- enh(vb) Large rework of VB.net grammar (#2808) [Jan Pilzer][]
+  - Adds support for Date data types, see (#2775)
+  - Adds support for `REM` comments and fixes `'''` doctags (#2875) (#2851)
+    - Custom number mode to support VB.net specific number flags
+    - Hex (&H), Oct (&O), and binary (&B) prefixes
+    - Separating digits with underscores: 90_946
+  - Type suffixes: 123UI (unsigned integer)
+  - Improves directives detection and adds support for `Enable`, `Disable`, and `Then` keywords
+  - Adds more markup tests
+
+[Jan Pilzer]: https://github.com/Hirse
 [Oldes Huhuman]: https://github.com/Oldes
 [Josh Goebel]: https://github.com/joshgoebel
 
@@ -64,11 +77,6 @@ Language Improvements:
 - fix(swift) Handle keywords that start with `#` [Marcus Ortiz][]
 - enh(swift) Match `some` keyword [Marcus Ortiz][]
 - enh(swift) Match `@main` attribute [Marcus Ortiz][]
-- enh(vbnet) Recognize date literals (#2775) [Jan Pilzer][]
-- enh(vbnet) Recognize labels [Jan Pilzer][]
-- enh(vbnet) Use custom number mode instead [Jan Pilzer][]
-- enh(vbnet) Highlight operators and type conversion functions as built-in [Jan Pilzer][]
-- enh(vbnet) Highlight types as type instead of keyword [Jan Pilzer][]
 
 Dev Improvements:
 
