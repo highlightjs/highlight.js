@@ -8,6 +8,11 @@
 <span class="hljs-keyword">Dim</span> f8 = <span class="hljs-number">123.123!</span>
 <span class="hljs-keyword">Dim</span> f9 = <span class="hljs-number">123.123#</span>
 
+<span class="hljs-keyword">Dim</span> v = <span class="hljs-number">123E+1</span>
+<span class="hljs-keyword">Dim</span> v = <span class="hljs-number">123E1</span>
+<span class="hljs-keyword">Dim</span> v = <span class="hljs-number">123E-5</span>
+<span class="hljs-keyword">Dim</span> v = <span class="hljs-number">123_000E-5_000</span>
+
 <span class="hljs-keyword">Dim</span> i1 = <span class="hljs-number">123</span>
 <span class="hljs-keyword">Dim</span> i2 = -<span class="hljs-number">123</span>
 <span class="hljs-keyword">Dim</span> i3 = <span class="hljs-number">123S</span>
