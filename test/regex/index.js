@@ -199,7 +199,11 @@ function testLanguage(languageName) {
 }
 
 let count = 0;
-const languages = hljs.listLanguages();
+let languages = hljs.listLanguages();
+if (process.env.ONLY_LANG) {
+  languages = [process.env.ONLY_LANG];
+}
+
 for (const language of languages) {
   testLanguage(language);
 }
