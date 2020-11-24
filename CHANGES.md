@@ -4,6 +4,10 @@ New Languages:
 
 - Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
 
+Language improvements:
+
+- enh(makefile): Add `make` as an alias (#2883) [tripleee][]
+
 Grammar improvements:
 
 - enh(vb) Large rework of VB.net grammar (#2808) [Jan Pilzer][]
@@ -19,6 +23,7 @@ Grammar improvements:
 [Jan Pilzer]: https://github.com/Hirse
 [Oldes Huhuman]: https://github.com/Oldes
 [Josh Goebel]: https://github.com/joshgoebel
+[tripleee]: https://github.com/tripleee
 
 
 ## Version 10.4.0

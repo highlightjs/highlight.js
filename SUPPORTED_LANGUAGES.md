@@ -109,7 +109,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
 | Lua                     | lua                    |         |
-| Makefile                | makefile, mk, mak      |         |
+| Makefile                | makefile, mk, mak, make |        |
 | Markdown                | markdown, md, mkdown, mkd |      |
 | Mathematica             | mathematica, mma, wl   |         |
 | Matlab                  | matlab                 |         |
