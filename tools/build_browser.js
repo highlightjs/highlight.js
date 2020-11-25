@@ -11,6 +11,7 @@ const config = require("./build_config");
 const { install, install_cleancss, mkdir, renderTemplate } = require("./lib/makestuff");
 const log = (...args) => console.log(...args);
 const { rollupCode } = require("./lib/bundling.js");
+const bundling = require('./lib/bundling.js');
 
 function buildHeader(args) {
   return "/*\n" +
@@ -130,6 +131,9 @@ async function buildBrowserHighlightJS(languages, {minify}) {
 
   var tasks = [];
   tasks.push(fs.writeFile(outFile, fullSrc, {encoding: "utf8"}));
+  var shas = {
+    "highlight.js": bundling.sha384(fullSrc)
+  }
 
   var core_min = [];
   var minifiedSrc = "";
@@ -145,6 +149,7 @@ async function buildBrowserHighlightJS(languages, {minify}) {
     core_min = [ header, tersed.code].join().length;
 
     tasks.push(fs.writeFile(minifiedFile, minifiedSrc, {encoding: "utf8"}));
+    shas["highlight.min.js"] = bundling.sha384(minifiedSrc);
   }
 
   await Promise.all(tasks);
@@ -154,6 +159,7 @@ async function buildBrowserHighlightJS(languages, {minify}) {
     minified: Buffer.byteLength(minifiedSrc, 'utf8'),
     minifiedSrc,
     fullSrc,
+    shas,
     full: Buffer.byteLength(fullSrc, 'utf8') };
 }
 

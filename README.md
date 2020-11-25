@@ -238,7 +238,9 @@ r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 
 ### CDN Hosted
 
-A prebuilt version of highlight.js bundled with many common languages is hosted by the following CDNs:
+A prebuilt version of Highlight.js bundled with many common languages is hosted by several popular CDNs.
+When using Highlight.js via CDN you can use Subresource Integrity for additional security.  For details
+see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/master/DIGESTS.md).
 
 **cdnjs** ([link](https://cdnjs.com/libraries/highlight.js))
 

@@ -1,4 +1,5 @@
 const rollup = require('rollup')
+const crypto = require("crypto");
 
 async function rollupCode(inputOptions, outputOptions) {
   const output = await generate(inputOptions, outputOptions)
@@ -17,4 +18,11 @@ async function rollupWrite(inputOptions, outputOptions) {
   await bundle.write(outputOptions);
 }
 
-module.exports = { rollupWrite, rollupCode };
+function sha384(contents) {
+  const hash = crypto.createHash('sha384');
+  let data = hash.update(contents, 'utf-8');
+  let gen_hash = data.digest('base64');
+  return `sha384-${gen_hash}`
+}
+
+module.exports = { rollupWrite, rollupCode, sha384 };

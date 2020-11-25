@@ -1,5 +1,9 @@
 ## Version 10.5.0 preparation
 
+Build:
+
+- Add Subresource Integrity digest lists to `cdn-assets` [Josh Goebel][]
+
 New Languages:
 
 - Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
