@@ -7,6 +7,7 @@ New Languages:
 Language improvements:
 
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
+- fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
 
 Grammar improvements:
 
