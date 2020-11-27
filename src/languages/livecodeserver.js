@@ -29,7 +29,7 @@ export default function(hljs) {
   const TITLE1 = hljs.inherit(hljs.TITLE_MODE, {
     variants: [
       {
-        begin: '\\b_*rig[A-Z]+[A-Za-z0-9_\\-]*'
+        begin: '\\b_*rig[A-Z][A-Za-z0-9_\\-]*'
       },
       {
         begin: '\\b_[a-z0-9\\-]+'
