@@ -177,7 +177,6 @@ export default function(hljs) {
         returnBegin: true,
         excludeEnd: true,
         keywords: KEYWORDS,
-        illegal: /fun\s+(<.*>)?[^\s\(]+(\s+[^\s\(]+)\s*=/,
         relevance: 5,
         contains: [
           {
