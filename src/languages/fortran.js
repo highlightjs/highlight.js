@@ -5,6 +5,8 @@ Website: https://en.wikipedia.org/wiki/Fortran
 Category: scientific
 */
 
+import * as regex from '../lib/regex.js';
+
 /** @type LanguageFn */
 export default function(hljs) {
   const PARAMS = {
@@ -28,10 +30,21 @@ export default function(hljs) {
     ]
   };
 
+  const OPTIONAL_NUMBER_SUFFIX = /(_[a-z_\d]+)?/;
+  const OPTIONAL_NUMBER_EXP = /([de][+-]?\d+)?/;
   const NUMBER = {
     className: 'number',
-    // regex in both fortran and irpf90 should match
-    begin: '(?=\\b|\\+|-|\\.)(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z_\\d]+)?',
+    variants: [
+      {
+        begin: regex.concat(/\b\d+/, /\.(\d*)/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX)
+      },
+      {
+        begin: regex.concat(/\b\d+/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX)
+      },
+      {
+        begin: regex.concat(/\.\d+/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX)
+      }
+    ],
     relevance: 0
   };
 
