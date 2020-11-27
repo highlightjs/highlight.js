@@ -30,6 +30,7 @@ export default function(hljs) {
     ]
   };
 
+  // regex in both fortran and irpf90 should match
   const OPTIONAL_NUMBER_SUFFIX = /(_[a-z_\d]+)?/;
   const OPTIONAL_NUMBER_EXP = /([de][+-]?\d+)?/;
   const NUMBER = {
