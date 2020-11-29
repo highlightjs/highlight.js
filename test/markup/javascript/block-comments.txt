@@ -1,0 +1,9 @@
+/* Block-Comment */
+
+/* Can
+   Be
+   Multi-
+   Line
+*/
+
+/**/
