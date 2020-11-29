@@ -5,5 +5,10 @@
 /// code;
 /// ```
 /// text.
+/// * bullet
+///   * sub-bullet
 
-/// Comment 3.
+///
+code;
+
+/**/code;

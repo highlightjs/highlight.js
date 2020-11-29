@@ -152,15 +152,16 @@ export default function(hljs) {
     contains: [
       STRING,
       hljs.COMMENT(
-        '/\\*\\*',
-        '\\*/', {
+        /\/\*\*(?!\/)/,
+        /\*\//,
+        {
           subLanguage: 'markdown',
           relevance: 0
         }
       ),
       hljs.COMMENT(
-        '///+\\s*',
-        '$', {
+        /\/{3,} ?/,
+        /$/, {
           contains: [{
             subLanguage: 'markdown',
             begin: '.',
