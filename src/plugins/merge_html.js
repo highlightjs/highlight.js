@@ -1,10 +1,10 @@
-import { escapeHTML } from "../lib/utils.js"
+import { escapeHTML } from "../lib/utils.js";
 
 /* plugin itself */
 
 /** @type {HLJSPlugin} */
 export const mergeHTMLPlugin = {
-  "after:highlightBlock": ( {block, result, text}) => {
+  "after:highlightBlock": ({ block, result, text }) => {
     const originalStream = nodeStream(block);
     if (!originalStream.length) return;
 
@@ -14,7 +14,7 @@ export const mergeHTMLPlugin = {
   }
 };
 
-/* Stream merging support functoins */
+/* Stream merging support functions */
 
 /**
  * @typedef Event

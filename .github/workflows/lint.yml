@@ -4,28 +4,18 @@
 name: Lint
 
 on:
-#   push:
-    # branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
-  build:
-
+  lint:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [15.x]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - name: Lint the main source
-      run: npx eslint src/*.js src/lib/*.js
-    - name: Lint the language grammars
-      run: npx eslint --no-eslintrc -c .eslintrc.lang.js src/languages/**/*.js
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "*" # latest
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run lint-languages

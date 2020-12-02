@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { escapeHTML } from "../lib/utils";
+import { escapeHTML } from "../lib/utils.js";
 
 function hasValueOrEmptyAttribute(value) {
   return Boolean(value || value === "");
@@ -17,7 +17,7 @@ export function BuildVuePlugin(hljs) {
     computed: {
       className() {
         if (this.unknownLanguage) return "";
-  
+
         return "hljs " + this.detectedLanguage;
       },
       highlighted() {
@@ -27,8 +27,8 @@ export function BuildVuePlugin(hljs) {
           this.unknownLanguage = true;
           return escapeHTML(this.code);
         }
-  
-        let result;
+
+        let result = {};
         if (this.autoDetect) {
           result = hljs.highlightAuto(this.code);
           this.detectedLanguage = result.language;
@@ -51,12 +51,13 @@ export function BuildVuePlugin(hljs) {
       return createElement("pre", {}, [
         createElement("code", {
           class: this.className,
-          domProps: { innerHTML: this.highlighted }})
+          domProps: { innerHTML: this.highlighted }
+        })
       ]);
     }
     // template: `<pre><code :class="className" v-html="highlighted"></code></pre>`
   };
-  
+
   const VuePlugin = {
     install(Vue) {
       Vue.component('highlightjs', Component);
