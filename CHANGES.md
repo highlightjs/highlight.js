@@ -20,6 +20,8 @@ Grammar improvements:
   - Improves directives detection and adds support for `Enable`, `Disable`, and `Then` keywords
   - Adds more markup tests
 - fix(javascript) Empty block-comments break highlighting (#2896) [Jan Pilzer][]
+- enh(dart) Fix empty block-comments from breaking highlighting (#2898) [Jan Pilzer][]
+- enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
 
 [Jan Pilzer]: https://github.com/Hirse
 [Oldes Huhuman]: https://github.com/Oldes
