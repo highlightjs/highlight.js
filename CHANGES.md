@@ -7,6 +7,7 @@ New Languages:
 Language improvements:
 
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
+- enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
 
 Grammar improvements:
 

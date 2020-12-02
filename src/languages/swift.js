@@ -2,13 +2,12 @@
 Language: Swift
 Description: Swift is a general-purpose programming language built using a modern approach to safety, performance, and software design patterns.
 Author: Chris Eidhof <chris@eidhof.nl>
-Contributors: Nate Cook <natecook@gmail.com>, Alexander Lichter <manniL@gmx.net>
+Contributors: Nate Cook <natecook@gmail.com>, Alexander Lichter <manniL@gmx.net>, Steven Van Impe <steven.vanimpe@icloud.com>
 Website: https://swift.org
 Category: common, system
 */
 
 import { concat } from "../lib/regex";
-
 
 export default function(hljs) {
   var SWIFT_KEYWORDS = {
