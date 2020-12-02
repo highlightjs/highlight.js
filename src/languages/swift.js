@@ -7,6 +7,8 @@ Website: https://swift.org
 Category: common, system
 */
 
+import { concat } from "../lib/regex";
+
 
 export default function(hljs) {
   var SWIFT_KEYWORDS = {
@@ -84,112 +86,50 @@ export default function(hljs) {
   };
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_string-literal
-  var ESCAPED_CHARACTER = {
+  var ESCAPED_CHARACTER = (rawDelimiter = "") => ({
     className: 'subst',
-    begin: /\\[0\\tnr"']|\\u\{[0-9a-fA-F]{1,8}\}/
-  };
-  var RAW1_ESCAPED_CHARACTER = {
+    variants: [
+      { begin: concat(/\\/, rawDelimiter, /[0\\tnr"']/) },
+      { begin: concat(/\\/, rawDelimiter, /u\{[0-9a-fA-F]{1,8}\}/) }
+    ]
+  });
+  var ESCAPED_NEWLINE = (rawDelimiter = "") => ({
     className: 'subst',
-    begin: /\\#[0\\tnr"']|\\#u\{[0-9a-fA-F]{1,8}\}/
-  };
-  var RAW2_ESCAPED_CHARACTER = {
+    begin: concat(/\\/, rawDelimiter, /[\t ]*(?:[\r\n]|\r\n)/)
+  });
+  var INTERPOLATION = (rawDelimiter = "") => ({
     className: 'subst',
-    begin: /\\##[0\\tnr"']|\\##u\{[0-9a-fA-F]{1,8}\}/
-  };
-  var RAW3_ESCAPED_CHARACTER = {
-    className: 'subst',
-    begin: /\\###[0\\tnr"']|\\###u\{[0-9a-fA-F]{1,8}\}/
-  };
-  var ESCAPED_NEWLINE = {
-    className: 'subst',
-    begin: /\\[\u0009\u0020]*(?:[\u000a\u000d]|\u000d\u000a)/
-  };
-  var RAW1_ESCAPED_NEWLINE = {
-    className: 'subst',
-    begin: /\\#[\u0009\u0020]*(?:[\u000a\u000d]|\u000d\u000a)/
-  };
-  var RAW2_ESCAPED_NEWLINE = {
-    className: 'subst',
-    begin: /\\##[\u0009\u0020]*(?:[\u000a\u000d]|\u000d\u000a)/
-  };
-  var RAW3_ESCAPED_NEWLINE = {
-    className: 'subst',
-    begin: /\\###[\u0009\u0020]*(?:[\u000a\u000d]|\u000d\u000a)/
-  };
-  var INTERPOLATION = {
-    className: 'subst',
-    begin: /\\\(/, end: /\)/,
-  };
-  var RAW1_INTERPOLATION = {
-    className: 'subst',
-    begin: /\\#\(/, end: /\)/,
-  };
-  var RAW2_INTERPOLATION = {
-    className: 'subst',
-    begin: /\\##\(/, end: /\)/,
-  };
-  var RAW3_INTERPOLATION = {
-    className: 'subst',
-    begin: /\\###\(/, end: /\)/,
-  };
-  var MULTILINE_STRING = {
-    begin: /"""/,
-    end: /"""/,
-    contains: [ESCAPED_CHARACTER, ESCAPED_NEWLINE, INTERPOLATION]
-  };
-  var RAW1_MULTILINE_STRING = {
-    begin: /#"""/,
-    end: /"""#/,
-    contains: [RAW1_ESCAPED_CHARACTER, RAW1_ESCAPED_NEWLINE, RAW1_INTERPOLATION]
-  };
-  var RAW2_MULTILINE_STRING = {
-    begin: /##"""/,
-    end: /"""##/,
-    contains: [RAW2_ESCAPED_CHARACTER, RAW2_ESCAPED_NEWLINE, RAW2_INTERPOLATION]
-  };
-  var RAW3_MULTILINE_STRING = {
-    begin: /###"""/,
-    end: /"""###/,
-    contains: [RAW3_ESCAPED_CHARACTER, RAW3_ESCAPED_NEWLINE, RAW3_INTERPOLATION]
-  };
-  var SINGLE_LINE_STRING = {
-    begin: /"/,
-    end: /"/,
-    contains: [ESCAPED_CHARACTER, INTERPOLATION]
-  };
-  var RAW1_SINGLE_LINE_STRING = {
-    begin: /#"/,
-    end: /"#/,
-    contains: [RAW1_ESCAPED_CHARACTER, RAW1_INTERPOLATION]
-  };
-  var RAW2_SINGLE_LINE_STRING = {
-    begin: /##"/,
-    end: /"##/,
-    contains: [RAW2_ESCAPED_CHARACTER, RAW2_INTERPOLATION]
-  };
-  var RAW3_SINGLE_LINE_STRING = {
-    begin: /###"/,
-    end: /"###/,
-    contains: [RAW3_ESCAPED_CHARACTER, RAW3_INTERPOLATION]
-  };
+    begin: concat(/\\/, rawDelimiter, /\(/),
+    end: /\)/
+  });
+  var MULTILINE_STRING = (rawDelimiter = "") => ({
+    begin: concat(rawDelimiter, /"""/),
+    end: concat(/"""/, rawDelimiter),
+    contains: [ESCAPED_CHARACTER(rawDelimiter), ESCAPED_NEWLINE(rawDelimiter), INTERPOLATION(rawDelimiter)]
+  });
+  var SINGLE_LINE_STRING = (rawDelimiter = "") => ({
+    begin: concat(rawDelimiter, /"/),
+    end: concat(/"/, rawDelimiter),
+    contains: [ESCAPED_CHARACTER(rawDelimiter), INTERPOLATION(rawDelimiter)]
+  });
   var STRING = {
     className: 'string',
     variants: [
-      MULTILINE_STRING,
-      RAW1_MULTILINE_STRING,
-      RAW2_MULTILINE_STRING,
-      RAW3_MULTILINE_STRING,
-      SINGLE_LINE_STRING,
-      RAW1_SINGLE_LINE_STRING,
-      RAW2_SINGLE_LINE_STRING,
-      RAW3_SINGLE_LINE_STRING,
+      MULTILINE_STRING(),
+      MULTILINE_STRING("#"),
+      MULTILINE_STRING("##"),
+      MULTILINE_STRING("###"),
+      SINGLE_LINE_STRING(),
+      SINGLE_LINE_STRING("#"),
+      SINGLE_LINE_STRING("##"),
+      SINGLE_LINE_STRING("###"),
     ]
   };
   // TODO: Interpolation can contain any expression, so there's room for improvement here.
-  INTERPOLATION.contains = [STRING, NUMBER];
-  RAW1_INTERPOLATION.contains = [STRING, NUMBER];
-  RAW2_INTERPOLATION.contains = [STRING, NUMBER];
-  RAW3_INTERPOLATION.contains = [STRING, NUMBER];
+  for (const variant of STRING.variants) {
+    const interpolation = variant.contains[variant.contains.length - 1]
+    interpolation.contains = [STRING, NUMBER];
+  }
 
   return {
     name: 'Swift',
@@ -213,7 +153,7 @@ export default function(hljs) {
           },
           {
             className: 'params',
-            begin: /\(/, end: /\)/, endsParent: true,
+            begin: /\(/, end: /\)/,
             keywords: SWIFT_KEYWORDS,
             contains: [
               'self',
