@@ -58,20 +58,6 @@ export default function(hljs) {
       contains: ['self']
     }
   );
-  var SUBST = {
-    className: 'subst',
-    begin: /\\\(/, end: '\\)',
-    keywords: SWIFT_KEYWORDS,
-    contains: [] // assigned later
-  };
-  var STRING = {
-    className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-    variants: [
-      {begin: /"""/, end: /"""/},
-      {begin: /"/, end: /"/},
-    ]
-  };
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_numeric-literal
   // TODO: Update for leading `-` after lookbehind is supported everywhere
@@ -96,7 +82,114 @@ export default function(hljs) {
         { begin: /\b0b([01]_*)+\b/ },
       ]
   };
-  SUBST.contains = [NUMBER];
+
+  // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_string-literal
+  var ESCAPED_CHARACTER = {
+    className: 'subst',
+    begin: /\\[0\\tnr"']|\\u\{[0-9a-fA-F]{1,8}\}/
+  };
+  var RAW1_ESCAPED_CHARACTER = {
+    className: 'subst',
+    begin: /\\#[0\\tnr"']|\\#u\{[0-9a-fA-F]{1,8}\}/
+  };
+  var RAW2_ESCAPED_CHARACTER = {
+    className: 'subst',
+    begin: /\\##[0\\tnr"']|\\##u\{[0-9a-fA-F]{1,8}\}/
+  };
+  var RAW3_ESCAPED_CHARACTER = {
+    className: 'subst',
+    begin: /\\###[0\\tnr"']|\\###u\{[0-9a-fA-F]{1,8}\}/
+  };
+  var ESCAPED_NEWLINE = {
+    className: 'subst',
+    begin: /\\[\u0009\u0020]*(?:[\u000a\u000d]|\u000d\u000a)/
+  };
+  var RAW1_ESCAPED_NEWLINE = {
+    className: 'subst',
+    begin: /\\#[\u0009\u0020]*(?:[\u000a\u000d]|\u000d\u000a)/
+  };
+  var RAW2_ESCAPED_NEWLINE = {
+    className: 'subst',
+    begin: /\\##[\u0009\u0020]*(?:[\u000a\u000d]|\u000d\u000a)/
+  };
+  var RAW3_ESCAPED_NEWLINE = {
+    className: 'subst',
+    begin: /\\###[\u0009\u0020]*(?:[\u000a\u000d]|\u000d\u000a)/
+  };
+  var INTERPOLATION = {
+    className: 'subst',
+    begin: /\\\(/, end: /\)/,
+  };
+  var RAW1_INTERPOLATION = {
+    className: 'subst',
+    begin: /\\#\(/, end: /\)/,
+  };
+  var RAW2_INTERPOLATION = {
+    className: 'subst',
+    begin: /\\##\(/, end: /\)/,
+  };
+  var RAW3_INTERPOLATION = {
+    className: 'subst',
+    begin: /\\###\(/, end: /\)/,
+  };
+  var MULTILINE_STRING = {
+    begin: /"""/,
+    end: /"""/,
+    contains: [ESCAPED_CHARACTER, ESCAPED_NEWLINE, INTERPOLATION]
+  };
+  var RAW1_MULTILINE_STRING = {
+    begin: /#"""/,
+    end: /"""#/,
+    contains: [RAW1_ESCAPED_CHARACTER, RAW1_ESCAPED_NEWLINE, RAW1_INTERPOLATION]
+  };
+  var RAW2_MULTILINE_STRING = {
+    begin: /##"""/,
+    end: /"""##/,
+    contains: [RAW2_ESCAPED_CHARACTER, RAW2_ESCAPED_NEWLINE, RAW2_INTERPOLATION]
+  };
+  var RAW3_MULTILINE_STRING = {
+    begin: /###"""/,
+    end: /"""###/,
+    contains: [RAW3_ESCAPED_CHARACTER, RAW3_ESCAPED_NEWLINE, RAW3_INTERPOLATION]
+  };
+  var SINGLE_LINE_STRING = {
+    begin: /"/,
+    end: /"/,
+    contains: [ESCAPED_CHARACTER, INTERPOLATION]
+  };
+  var RAW1_SINGLE_LINE_STRING = {
+    begin: /#"/,
+    end: /"#/,
+    contains: [RAW1_ESCAPED_CHARACTER, RAW1_INTERPOLATION]
+  };
+  var RAW2_SINGLE_LINE_STRING = {
+    begin: /##"/,
+    end: /"##/,
+    contains: [RAW2_ESCAPED_CHARACTER, RAW2_INTERPOLATION]
+  };
+  var RAW3_SINGLE_LINE_STRING = {
+    begin: /###"/,
+    end: /"###/,
+    contains: [RAW3_ESCAPED_CHARACTER, RAW3_INTERPOLATION]
+  };
+  var STRING = {
+    className: 'string',
+    variants: [
+      MULTILINE_STRING,
+      RAW1_MULTILINE_STRING,
+      RAW2_MULTILINE_STRING,
+      RAW3_MULTILINE_STRING,
+      SINGLE_LINE_STRING,
+      RAW1_SINGLE_LINE_STRING,
+      RAW2_SINGLE_LINE_STRING,
+      RAW3_SINGLE_LINE_STRING,
+    ]
+  };
+  // TODO: Interpolation can contain any expression, so there's room for improvement here.
+  INTERPOLATION.contains = [STRING, NUMBER];
+  RAW1_INTERPOLATION.contains = [STRING, NUMBER];
+  RAW2_INTERPOLATION.contains = [STRING, NUMBER];
+  RAW3_INTERPOLATION.contains = [STRING, NUMBER];
 
   return {
     name: 'Swift',
