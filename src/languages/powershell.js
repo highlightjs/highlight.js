@@ -31,7 +31,7 @@ export default function(hljs) {
     'Search|Select|Set|Show|Skip|Split|Step|Switch|Undo|Unlock|' +
     'Watch|Backup|Checkpoint|Compare|Compress|Convert|ConvertFrom|' +
     'ConvertTo|Dismount|Edit|Expand|Export|Group|Import|Initialize|' +
-    'Limit|Merge|New|Out|Publish|Restore|Save|Sync|Unpublish|Update|' +
+    'Limit|Merge|Out|Publish|Restore|Save|Sync|Unpublish|Update|' +
     'Approve|Assert|Complete|Confirm|Deny|Disable|Enable|Install|Invoke|Register|' +
     'Request|Restart|Resume|Start|Stop|Submit|Suspend|Uninstall|' +
     'Unregister|Wait|Debug|Measure|Ping|Repair|Resolve|Test|Trace|Connect|' +

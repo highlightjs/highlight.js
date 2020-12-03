@@ -29,6 +29,53 @@ Grammar improvements:
 [tripleee]: https://github.com/tripleee
 
 
+## Version 10.4.1 (tentative)
+
+Security
+
+- (fix) Exponential backtracking fixes for: [Josh Goebel][]
+  - cpp
+  - handlebars
+  - gams
+  - perl
+  - jboss-cli
+  - r
+  - erlang-repl
+  - powershell
+  - routeros
+- (fix) Polynomial backtracking fixes for: [Josh Goebel][]
+  - asciidoc
+  - reasonml
+  - latex
+  - kotlin
+  - gcode
+  - d
+  - aspectj
+  - moonscript
+  - coffeescript/livescript
+  - csharp
+  - scilab
+  - crystal
+  - elixir
+  - basic
+  - ebnf
+  - ruby
+  - fortran/irpf90
+  - livecodeserver
+  - yaml
+  - x86asm
+  - dsconfig
+  - markdown
+  - ruleslanguage
+  - xquery
+  - sqf
+
+Very grateful to [Michael Schmidt][] for all the help.
+
+[Michael Schmidt]: https://github.com/RunDevelopment
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 10.4.0
 
 A largish release with many improvements and fixes from quite a few different contributors.  Enjoy!
