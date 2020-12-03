@@ -1,35 +1,4 @@
-## Version 10.5.0 preparation
-
-New Languages:
-
-- Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
-
-Language improvements:
-
-- enh(makefile): Add `make` as an alias (#2883) [tripleee][]
-
-Grammar improvements:
-
-- enh(vb) Large rework of VB.net grammar (#2808) [Jan Pilzer][]
-  - Adds support for Date data types, see (#2775)
-  - Adds support for `REM` comments and fixes `'''` doctags (#2875) (#2851)
-    - Custom number mode to support VB.net specific number flags
-    - Hex (&H), Oct (&O), and binary (&B) prefixes
-    - Separating digits with underscores: 90_946
-  - Type suffixes: 123UI (unsigned integer)
-  - Improves directives detection and adds support for `Enable`, `Disable`, and `Then` keywords
-  - Adds more markup tests
-- fix(javascript) Empty block-comments break highlighting (#2896) [Jan Pilzer][]
-- enh(dart) Fix empty block-comments from breaking highlighting (#2898) [Jan Pilzer][]
-- enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
-
-[Jan Pilzer]: https://github.com/Hirse
-[Oldes Huhuman]: https://github.com/Oldes
-[Josh Goebel]: https://github.com/joshgoebel
-[tripleee]: https://github.com/tripleee
-
-
-## Version 10.4.1 (tentative)
+## Version 10.4.1
 
 Security
 

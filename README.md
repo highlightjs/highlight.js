@@ -244,26 +244,26 @@ A prebuilt version of highlight.js bundled with many common languages is hosted 
 
 ```html
 <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
 <script charset="UTF-8"
- src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/languages/go.min.js"></script>
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/languages/go.min.js"></script>
 ```
 
 **jsdelivr** ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
 
 ```html
 <link rel="stylesheet"
-      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/styles/default.min.css">
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.1/build/styles/default.min.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.1/build/highlight.min.js"></script>
 ```
 
 **unpkg** ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.4.0/styles/default.min.css">
-<script src="https://unpkg.com/@highlightjs/cdn-assets@10.4.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.4.1/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@10.4.1/highlight.min.js"></script>
 ```
 
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
