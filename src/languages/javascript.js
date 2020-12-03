@@ -282,8 +282,8 @@ export default function(hljs) {
             '[^()]*(\\(' +
             '[^()]*(\\(' +
             '[^()]*' +
-            '\\))*[^()]*' +
-            '\\))*[^()]*' +
+            '\\)[^()]*)*' +
+            '\\)[^()]*)*' +
             '\\)|' + hljs.UNDERSCORE_IDENT_RE + ')\\s*=>',
             returnBegin: true,
             end: '\\s*=>',
@@ -373,8 +373,8 @@ export default function(hljs) {
           '[^()]*(\\(' +
             '[^()]*(\\(' +
               '[^()]*' +
-            '\\))*[^()]*' +
-          '\\))*[^()]*' +
+            '\\)[^()]*)*' +
+          '\\)[^()]*)*' +
           '\\)\\s*\\{', // end parens
         returnBegin:true,
         contains: [
