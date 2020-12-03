@@ -25,7 +25,7 @@ Grammar improvements:
 [Oldes Huhuman]: https://github.com/Oldes
 [Josh Goebel]: https://github.com/joshgoebel
 [tripleee]: https://github.com/tripleee
-
+[Steven Van Impe]: https://github.com/svanimpe/
 
 ## Version 10.4.0
 
