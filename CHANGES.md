@@ -7,6 +7,8 @@ New Languages:
 Language improvements:
 
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
+- fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
+
 
 Grammar improvements:
 
@@ -27,7 +29,7 @@ Grammar improvements:
 [Oldes Huhuman]: https://github.com/Oldes
 [Josh Goebel]: https://github.com/joshgoebel
 [tripleee]: https://github.com/tripleee
-
+[Vaibhav Chanana]: https://github.com/il3ven
 
 ## Version 10.4.0
 
