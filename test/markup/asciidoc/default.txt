@@ -69,4 +69,12 @@ I'll join that party, too.
 ===== Level 4 Section Title
 ====== Level 5 Section Title
 
+// symmetric Atx-style sections & headings
+= Document Title (Level 0) =
+== Level 1 Section Title ==
+=== Level 2 Section Title ===
+==== Level 3 Section Title ====
+===== Level 4 Section Title =====
+====== Level 5 Section Title ======
+
 NOTE: AsciiDoc is quite cool, you should try it.

@@ -69,4 +69,12 @@ I&#x27;ll join that party, too.
 <span class="hljs-section">===== Level 4 Section Title</span>
 <span class="hljs-section">====== Level 5 Section Title</span>
 
+<span class="hljs-comment">// symmetric Atx-style sections &amp; headings</span>
+<span class="hljs-section">= Document Title (Level 0) =</span>
+<span class="hljs-section">== Level 1 Section Title ==</span>
+<span class="hljs-section">=== Level 2 Section Title ===</span>
+<span class="hljs-section">==== Level 3 Section Title ====</span>
+<span class="hljs-section">===== Level 4 Section Title =====</span>
+<span class="hljs-section">====== Level 5 Section Title ======</span>
+
 <span class="hljs-symbol">NOTE: </span>AsciiDoc is quite cool, you should try it.
