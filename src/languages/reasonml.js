@@ -23,8 +23,8 @@ export default function(hljs) {
   const RE_MODULE_IDENT = '`?[A-Z$_][0-9a-zA-Z$_]*';
 
   const RE_PARAM_TYPEPARAM = '\'?[a-z$_][0-9a-z$_]*';
-  const RE_PARAM_TYPE = '\s*:\s*[a-z$_][0-9a-z$_]*(\(\s*(' + RE_PARAM_TYPEPARAM + '\s*(,' + RE_PARAM_TYPEPARAM + ')*)?\s*\))?';
-  const RE_PARAM = RE_IDENT + '(' + RE_PARAM_TYPE + ')?(' + RE_PARAM_TYPE + ')?';
+  const RE_PARAM_TYPE = '\\s*:\\s*[a-z$_][0-9a-z$_]*(\\(\\s*(' + RE_PARAM_TYPEPARAM + '\\s*(,' + RE_PARAM_TYPEPARAM + '\\s*)*)?\\))?';
+  const RE_PARAM = RE_IDENT + '(' + RE_PARAM_TYPE + '){0,2}';
   const RE_OPERATOR = "(" + orReValues([
     '||',
     '++',

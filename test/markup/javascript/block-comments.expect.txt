@@ -1,0 +1,9 @@
+<span class="hljs-comment">/* Block-Comment */</span>
+
+<span class="hljs-comment">/* Can
+   Be
+   Multi-
+   Line
+*/</span>
+
+<span class="hljs-comment">/**/</span>

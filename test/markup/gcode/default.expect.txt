@@ -25,7 +25,7 @@
 <span class="hljs-symbol">N23</span> <span class="hljs-keyword">IF</span> [<span class="hljs-attr">#1</span> <span class="hljs-keyword">LT</span> <span class="hljs-number">0.370</span>] <span class="hljs-keyword">GOTO</span> <span class="hljs-number">49</span>
 <span class="hljs-symbol">N24</span> X<span class="hljs-number">-0.678</span> Y<span class="hljs-number">+.990</span>
 <span class="hljs-symbol">N25</span> <span class="hljs-name">G84.3</span> X<span class="hljs-number">-0.1</span>
-<span class="hljs-symbol">N26</span> <span class="hljs-attr">#4</span>=<span class="hljs-attr">#5</span>*<span class="hljs-built_in">COS[45]</span>
-<span class="hljs-symbol">N27</span> <span class="hljs-attr">#4</span>=<span class="hljs-attr">#5</span>*<span class="hljs-built_in">SIN[45]</span>
+<span class="hljs-symbol">N26</span> <span class="hljs-attr">#4</span>=<span class="hljs-attr">#5</span>*<span class="hljs-built_in">COS[<span class="hljs-number">45</span>]</span>
+<span class="hljs-symbol">N27</span> <span class="hljs-attr">#4</span>=<span class="hljs-attr">#5</span>*<span class="hljs-built_in">SIN[<span class="hljs-number">45</span>]</span>
 <span class="hljs-symbol">N28</span> <span class="hljs-attr">VZOFZ</span>=<span class="hljs-number">652.9658</span>
 <span class="hljs-meta">%</span>

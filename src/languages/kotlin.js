@@ -6,6 +6,8 @@
  Category: common
  */
 
+import { NUMERIC } from "./lib/java.js";
+
 export default function(hljs) {
   const KEYWORDS = {
     keyword:
@@ -104,25 +106,7 @@ export default function(hljs) {
   // https://kotlinlang.org/docs/reference/whatsnew11.html#underscores-in-numeric-literals
   // According to the doc above, the number mode of kotlin is the same as java 8,
   // so the code below is copied from java.js
-  const KOTLIN_NUMBER_RE = '\\b' +
-    '(' +
-      '0[bB]([01]+[01_]+[01]+|[01]+)' + // 0b...
-      '|' +
-      '0[xX]([a-fA-F0-9]+[a-fA-F0-9_]+[a-fA-F0-9]+|[a-fA-F0-9]+)' + // 0x...
-      '|' +
-      '(' +
-        '([\\d]+[\\d_]+[\\d]+|[\\d]+)(\\.([\\d]+[\\d_]+[\\d]+|[\\d]+))?' +
-        '|' +
-        '\\.([\\d]+[\\d_]+[\\d]+|[\\d]+)' +
-      ')' +
-      '([eE][-+]?\\d+)?' + // octal, decimal, float
-    ')' +
-    '[lLfF]?';
-  const KOTLIN_NUMBER_MODE = {
-    className: 'number',
-    begin: KOTLIN_NUMBER_RE,
-    relevance: 0
-  };
+  const KOTLIN_NUMBER_MODE = NUMERIC;
   const KOTLIN_NESTED_COMMENT = hljs.COMMENT(
     '/\\*', '\\*/',
     {
@@ -177,7 +161,6 @@ export default function(hljs) {
         returnBegin: true,
         excludeEnd: true,
         keywords: KEYWORDS,
-        illegal: /fun\s+(<.*>)?[^\s\(]+(\s+[^\s\(]+)\s*=/,
         relevance: 5,
         contains: [
           {
