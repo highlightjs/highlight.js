@@ -7,6 +7,7 @@ New Languages:
 Language improvements:
 
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
+- enh(swift) Revamped keywords and added support for operators (#2908) [Steven Van Impe][]
 
 Grammar improvements:
 
@@ -24,7 +25,7 @@ Grammar improvements:
 [Oldes Huhuman]: https://github.com/Oldes
 [Josh Goebel]: https://github.com/joshgoebel
 [tripleee]: https://github.com/tripleee
-
+[Steven Van Impe]: https://github.com/svanimpe/
 
 ## Version 10.4.0
 
