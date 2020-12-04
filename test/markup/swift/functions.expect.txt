@@ -8,3 +8,5 @@
     <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
   }
 }
+
+reversedNames = names.sorted(by: { <span class="hljs-variable">$0</span> &gt; <span class="hljs-variable">$1</span> } )
