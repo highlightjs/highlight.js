@@ -1,0 +1,109 @@
+x is y
+x.is(y)
+x as y
+x as? y
+x as! y
+a.as(y)
+try x
+try? x
+try! x
+x.try(y)
+
+!true
+~x
++1
+-1
+..<1
+...1
+0...
+a?
+a!
+
+a << 1
+a<<1
+a >> 1
+a>>1
+a * 1
+a*1
+a / 1
+a/1
+a % 1
+a%1
+a &* 1
+a&*1
+a & b
+a&b
+a + 1
+a+1
+a - 1
+a-1
+a &+ 1
+a&+1
+a &- 1
+a&-1
+a | b
+a|b
+a ^ b
+a^b
+0 ..< 1
+0..<1
+0 ... 1
+0...1
+a ?? 1
+a??1
+a < 1
+a<1
+a <= 1
+a<=1
+a > 1
+a>1
+a >= 1
+a>=1
+a == 1
+a==1
+a != 1
+a!=1
+a === b
+a===b
+a !== b
+a!==b
+a ~= 1
+a~=1
+a .== b
+a.==b
+a .!= b
+a.!=b
+a .< b
+a.<b
+a .<= b
+a.<=b
+a .> b
+a.>b
+a .>= b
+a.>=b
+true && false
+true&&false
+true || false
+true||false
+a = 1
+a=1
+a *= 1
+a*=1
+a /= 1
+a/=1
+a %= 1
+a%=1
+a += 1
+a+=1
+a -= 1
+a-=1
+a <<= 1
+a<<=1
+a >>= 1
+a>>=1
+a &= b
+a&=b
+a |= b
+a|=b
+a ^= b
+a^=b
