@@ -96,7 +96,15 @@ export default function(hljs) {
         { begin: /\b0b([01]_*)+\b/ },
       ]
   };
-  SUBST.contains = [NUMBER];
+
+  // shorthand arguments in closures (eg. $0, $1)
+  // more info : https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID100
+  var CLOSURE_ARGUMENTS = {
+    className: "variable",
+    begin: "\\B\\$\\d+\\b",
+  };
+
+  SUBST.contains = [NUMBER, CLOSURE_ARGUMENTS];
 
   return {
     name: 'Swift',
@@ -107,6 +115,7 @@ export default function(hljs) {
       BLOCK_COMMENT,
       OPTIONAL_USING_TYPE,
       TYPE,
+      CLOSURE_ARGUMENTS,
       NUMBER,
       {
         className: 'function',
