@@ -7,10 +7,11 @@ Website: https://swift.org
 Category: common, system
 */
 
-import { concat } from "../lib/regex";
+import { concat } from "../lib/regex.js";
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var SWIFT_KEYWORDS = {
+  const SWIFT_KEYWORDS = {
       // override the pattern since the default of of /\w+/ is not sufficient to
       // capture the keywords that start with the character "#"
       $pattern: /[\w#]+/,
@@ -42,17 +43,17 @@ export default function(hljs) {
         'withUnsafePointer withUnsafePointers withVaList zip'
     };
 
-  var TYPE = {
+  const TYPE = {
     className: 'type',
     begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*',
     relevance: 0
   };
   // slightly more special to swift
-  var OPTIONAL_USING_TYPE = {
+  const OPTIONAL_USING_TYPE = {
     className: 'type',
     begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]'
   };
-  var BLOCK_COMMENT = hljs.COMMENT(
+  const BLOCK_COMMENT = hljs.COMMENT(
     '/\\*',
     '\\*/',
     {
@@ -62,9 +63,9 @@ export default function(hljs) {
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_numeric-literal
   // TODO: Update for leading `-` after lookbehind is supported everywhere
-  var decimalDigits = '([0-9]_*)+';
-  var hexDigits = '([0-9a-fA-F]_*)+';
-  var NUMBER = {
+  const decimalDigits = '([0-9]_*)+';
+  const hexDigits = '([0-9a-fA-F]_*)+';
+  const NUMBER = {
       className: 'number',
       relevance: 0,
       variants: [
@@ -85,34 +86,34 @@ export default function(hljs) {
   };
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_string-literal
-  var ESCAPED_CHARACTER = (rawDelimiter = "") => ({
+  const ESCAPED_CHARACTER = (rawDelimiter = "") => ({
     className: 'subst',
     variants: [
       { begin: concat(/\\/, rawDelimiter, /[0\\tnr"']/) },
       { begin: concat(/\\/, rawDelimiter, /u\{[0-9a-fA-F]{1,8}\}/) }
     ]
   });
-  var ESCAPED_NEWLINE = (rawDelimiter = "") => ({
+  const ESCAPED_NEWLINE = (rawDelimiter = "") => ({
     className: 'subst',
     begin: concat(/\\/, rawDelimiter, /[\t ]*(?:[\r\n]|\r\n)/)
   });
-  var INTERPOLATION = (rawDelimiter = "") => ({
+  const INTERPOLATION = (rawDelimiter = "") => ({
     className: 'subst',
     label: "interpol",
     begin: concat(/\\/, rawDelimiter, /\(/),
     end: /\)/
   });
-  var MULTILINE_STRING = (rawDelimiter = "") => ({
+  const MULTILINE_STRING = (rawDelimiter = "") => ({
     begin: concat(rawDelimiter, /"""/),
     end: concat(/"""/, rawDelimiter),
     contains: [ESCAPED_CHARACTER(rawDelimiter), ESCAPED_NEWLINE(rawDelimiter), INTERPOLATION(rawDelimiter)]
   });
-  var SINGLE_LINE_STRING = (rawDelimiter = "") => ({
+  const SINGLE_LINE_STRING = (rawDelimiter = "") => ({
     begin: concat(rawDelimiter, /"/),
     end: concat(/"/, rawDelimiter),
     contains: [ESCAPED_CHARACTER(rawDelimiter), INTERPOLATION(rawDelimiter)]
   });
-  var STRING = {
+  const STRING = {
     className: 'string',
     variants: [
       MULTILINE_STRING(),
