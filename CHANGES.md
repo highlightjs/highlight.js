@@ -8,6 +8,7 @@ Language improvements:
 
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
 - enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
+- fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
 
 Grammar improvements:
 
@@ -29,6 +30,7 @@ Grammar improvements:
 [Josh Goebel]: https://github.com/joshgoebel
 [tripleee]: https://github.com/tripleee
 [Steven Van Impe]: https://github.com/svanimpe/
+[Vaibhav Chanana]: https://github.com/il3ven
 
 ## Version 10.4.1 (tentative)
 
