@@ -2,13 +2,14 @@
 Language: Swift
 Description: Swift is a general-purpose programming language built using a modern approach to safety, performance, and software design patterns.
 Author: Chris Eidhof <chris@eidhof.nl>
-Contributors: Nate Cook <natecook@gmail.com>, Alexander Lichter <manniL@gmx.net>
+Contributors: Nate Cook <natecook@gmail.com>, Alexander Lichter <manniL@gmx.net>, Steven Van Impe <steven.vanimpe@icloud.com>
 Website: https://swift.org
 Category: common, system
 */
 
-import { either } from "../lib/regex";
+import { concat, either } from "../lib/regex";
 
+/** @type LanguageFn */
 export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413
   // https://docs.swift.org/swift-book/ReferenceManual/zzSummaryOfTheGrammar.html
@@ -54,43 +55,29 @@ export default function(hljs) {
       'withUnsafePointer withUnsafePointers withVaList zip'
   };
 
-  var TYPE = {
+  const TYPE = {
     className: 'type',
     begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*',
     relevance: 0
   };
   // slightly more special to swift
-  var OPTIONAL_USING_TYPE = {
+  const OPTIONAL_USING_TYPE = {
     className: 'type',
     begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]'
   };
-  var BLOCK_COMMENT = hljs.COMMENT(
+  const BLOCK_COMMENT = hljs.COMMENT(
     '/\\*',
     '\\*/',
     {
       contains: ['self']
     }
   );
-  var SUBST = {
-    className: 'subst',
-    begin: /\\\(/, end: '\\)',
-    keywords: SWIFT_KEYWORDS,
-    contains: [] // assigned later
-  };
-  var STRING = {
-    className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-    variants: [
-      {begin: /"""/, end: /"""/},
-      {begin: /"/, end: /"/},
-    ]
-  };
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_numeric-literal
   // TODO: Update for leading `-` after lookbehind is supported everywhere
-  var decimalDigits = '([0-9]_*)+';
-  var hexDigits = '([0-9a-fA-F]_*)+';
-  var NUMBER = {
+  const decimalDigits = '([0-9]_*)+';
+  const hexDigits = '([0-9a-fA-F]_*)+';
+  const NUMBER = {
       className: 'number',
       relevance: 0,
       variants: [
@@ -109,7 +96,53 @@ export default function(hljs) {
         { begin: /\b0b([01]_*)+\b/ },
       ]
   };
-  SUBST.contains = [NUMBER];
+
+  // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_string-literal
+  const ESCAPED_CHARACTER = (rawDelimiter = "") => ({
+    className: 'subst',
+    variants: [
+      { begin: concat(/\\/, rawDelimiter, /[0\\tnr"']/) },
+      { begin: concat(/\\/, rawDelimiter, /u\{[0-9a-fA-F]{1,8}\}/) }
+    ]
+  });
+  const ESCAPED_NEWLINE = (rawDelimiter = "") => ({
+    className: 'subst',
+    begin: concat(/\\/, rawDelimiter, /[\t ]*(?:[\r\n]|\r\n)/)
+  });
+  const INTERPOLATION = (rawDelimiter = "") => ({
+    className: 'subst',
+    label: "interpol",
+    begin: concat(/\\/, rawDelimiter, /\(/),
+    end: /\)/
+  });
+  const MULTILINE_STRING = (rawDelimiter = "") => ({
+    begin: concat(rawDelimiter, /"""/),
+    end: concat(/"""/, rawDelimiter),
+    contains: [ESCAPED_CHARACTER(rawDelimiter), ESCAPED_NEWLINE(rawDelimiter), INTERPOLATION(rawDelimiter)]
+  });
+  const SINGLE_LINE_STRING = (rawDelimiter = "") => ({
+    begin: concat(rawDelimiter, /"/),
+    end: concat(/"/, rawDelimiter),
+    contains: [ESCAPED_CHARACTER(rawDelimiter), INTERPOLATION(rawDelimiter)]
+  });
+  const STRING = {
+    className: 'string',
+    variants: [
+      MULTILINE_STRING(),
+      MULTILINE_STRING("#"),
+      MULTILINE_STRING("##"),
+      MULTILINE_STRING("###"),
+      SINGLE_LINE_STRING(),
+      SINGLE_LINE_STRING("#"),
+      SINGLE_LINE_STRING("##"),
+      SINGLE_LINE_STRING("###"),
+    ]
+  };
+  for (const variant of STRING.variants) {
+    const interpolation = variant.contains.find(mode => mode.label === "interpol");
+    // TODO: Interpolation can contain any expression, so there's room for improvement here.
+    interpolation.contains = [STRING, NUMBER];
+  }
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418
   const operatorHead = either(

@@ -11,7 +11,7 @@ export default function(hljs) {
   // In SQF, a variable start with _
   const VARIABLE = {
     className: 'variable',
-    begin: /\b_+[a-zA-Z_]\w*/
+    begin: /\b_+[a-zA-Z]\w*/
   };
 
   // In SQF, a function should fit myTag_fnc_myFunction pattern

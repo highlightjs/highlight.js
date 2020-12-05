@@ -19,6 +19,9 @@ require('./detect');
 // theses highlighting errors from cropping up again.
 require('./markup');
 
+// check regex for fatal issues like exponential backtracking, etc
+require('./regex');
+
 // Tests meant for the browser only. Using the `test/fixtures/index.html` file
 // along with `jsdom` these tests check for things like: custom markup already
 // existing in the code being highlighted, blocks that disable highlighting,

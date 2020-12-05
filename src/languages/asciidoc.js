@@ -49,7 +49,7 @@ export default function(hljs) {
         relevance: 10,
         variants: [
           {
-            begin: '^(={1,5}) .+?( \\1)?$'
+            begin: '^(={1,6})[ \t].+?([ \t]\\1)?$'
           },
           {
             begin: '^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$'
@@ -172,7 +172,7 @@ export default function(hljs) {
       },
       // images and links
       {
-        begin: '(link:)?(http|https|ftp|file|irc|image:?):\\S+\\[.*?\\]',
+        begin: '(link:)?(http|https|ftp|file|irc|image:?):\\S+?\\[[^[]*?\\]',
         returnBegin: true,
         contains: [
           {
