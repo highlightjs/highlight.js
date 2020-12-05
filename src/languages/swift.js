@@ -161,6 +161,7 @@ export default function(hljs) {
       { // TODO: Replace with negative look-behind when available.
         className: 'keyword',
         begin: /[^.](?=\btry[?!]?\s)/,
+        begin: /(^|[^.])(?=\btry[?!]?\s)/,
         excludeBegin: true,
         end: /try[?!]?(?=\s)/
       },
