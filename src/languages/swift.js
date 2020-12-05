@@ -98,6 +98,7 @@ export default function(hljs) {
   });
   var INTERPOLATION = (rawDelimiter = "") => ({
     className: 'subst',
+    label: "interpol",
     begin: concat(/\\/, rawDelimiter, /\(/),
     end: /\)/
   });
@@ -124,9 +125,9 @@ export default function(hljs) {
       SINGLE_LINE_STRING("###"),
     ]
   };
-  // TODO: Interpolation can contain any expression, so there's room for improvement here.
   for (const variant of STRING.variants) {
-    const interpolation = variant.contains[variant.contains.length - 1]
+    const interpolation = variant.contains.find(mode => mode.label === "interpol");
+    // TODO: Interpolation can contain any expression, so there's room for improvement here.
     interpolation.contains = [STRING, NUMBER];
   }
 
