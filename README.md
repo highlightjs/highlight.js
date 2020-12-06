@@ -169,7 +169,7 @@ onmessage = (event) => {
 
 You can use highlight.js with node to highlight content before sending it to the browser.
 Make sure to use the `.value` property to get the formatted html.
-For more info about the returned object refer to the api docs https://highlightjs.readthedocs.io/en/latest/api.html
+For more info about the returned object refer to the [api docs](https://highlightjs.readthedocs.io/en/latest/api.html).
 
 
 ```js
@@ -181,7 +181,7 @@ const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 Or for a smaller footprint... load just the languages you need.
 
 ```js
-const hljs = require("highlight.js/lib/core");  // require only the core library
+const hljs = require('highlight.js/lib/core');  // require only the core library
 // separately require languages
 hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
 
@@ -243,31 +243,32 @@ A prebuilt version of highlight.js bundled with many common languages is hosted 
 **cdnjs** ([link](https://cdnjs.com/libraries/highlight.js))
 
 ```html
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
-<script charset="UTF-8"
- src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/languages/go.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/languages/go.min.js"></script>
 ```
 
 **jsdelivr** ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
 
 ```html
-<link rel="stylesheet"
-      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/styles/default.min.css">
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.1/build/styles/default.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.1/build/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.1/build/languages/go.min.js"></script>
 ```
 
 **unpkg** ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.4.0/styles/default.min.css">
-<script src="https://unpkg.com/@highlightjs/cdn-assets@10.4.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.4.1/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@10.4.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script src="https://unpkg.com/@highlightjs/cdn-assets@10.4.1/languages/go.min.js"></script>
 ```
 
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
-very large. You can find our list "common" languages that we bundle by default on our [download page][5].
+very large. You can find our list of "common" languages that we bundle by default on our [download page][5].
 
 ### Self Hosting
 
