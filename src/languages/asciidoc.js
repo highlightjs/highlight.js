@@ -8,9 +8,78 @@ Category: markup
 */
 
 import * as regex from '../lib/regex.js';
+import { NUMERIC } from './lib/java.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const HORIZONTAL_RULE = {
+    begin: '^\'{3,}[ \\t]*$',
+    relevance: 10
+  };
+  const ESCAPED_FORMATTING = [
+    // escaped constrained formatting marks (i.e., \* \_ or \`)
+    {
+      begin: /\\[*_`]/
+    },
+    // escaped unconstrained formatting marks (i.e., \\** \\__ or \\``)
+    // must ignore until the next formatting marks
+    // this rule might not be 100% compliant with Asciidoctor 2.0 but we are entering undefined behavior territory...
+    {
+      begin: /\\\\\*{2}[^\n]*?\*{2}/
+    },
+    {
+      begin: /\\\\_{2}[^\n]*_{2}/
+    },
+    {
+      begin: /\\\\`{2}[^\n]*`{2}/
+    },
+    // guard: constrained formatting mark may not be preceded by ":", ";" or
+    // "}". match these so the constrained rule doesn't see them
+    {
+      begin: /[:;}][*_`](?!\*)/
+    }
+  ];
+
+  const STRONG = [
+    // inline unconstrained strong (single line)
+    {
+      className: 'strong',
+      begin: /\*{2}([^\n]+?)\*{2}/
+    },
+    // inline unconstrained strong (multi-line)
+    {
+      className: 'strong',
+      begin: regex.concat(
+        /\*\*/,
+        /((\*(?!\*)|\\[^\n]|[^*\n\\])+\n)+/,
+        /(\*(?!\*)|\\[^\n]|[^*\n\\])*/,
+        /\*\*/
+      ),
+      relevance: 0
+    },
+    // inline constrained strong (single line)
+    {
+      className: 'strong',
+      // must not precede or follow a word character
+      begin: /\B\*(\S|\S[^\n]*?\S)\*(?!\w)/
+    },
+    // inline constrained strong (multi-line)
+    {
+      className: 'strong',
+      // must not precede or follow a word character
+      begin: /\*[^\s]([^\n]+\n)+([^\n]+)\*/
+    }
+  ];
+  const ADMONITION = {
+    className: 'symbol',
+    begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+',
+    relevance: 10
+  };
+  const BULLET_LIST = {
+    className: 'bullet',
+    begin: '^(\\*+|-+|\\.+|[^\\n]+?::)\\s+'
+  };
+
   return {
     name: 'AsciiDoc',
     aliases: ['adoc'],
@@ -98,66 +167,12 @@ export default function(hljs) {
         }],
         relevance: 10
       },
-      // lists (can only capture indicators)
-      {
-        className: 'bullet',
-        begin: '^(\\*+|-+|\\.+|[^\\n]+?::)\\s+'
-      },
-      // admonition
-      {
-        className: 'symbol',
-        begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+',
-        relevance: 10
-      },
-      // inline unconstrained strong (single line)
-      {
-        className: 'strong',
-        begin: /\*{2}([^\n]+?)\*{2}/
-      },
-      // inline unconstrained strong (multi-line)
-      {
-        className: 'strong',
-        begin: regex.concat(
-          /\*\*/,
-          /((\*(?!\*)|\\[^\n]|[^*\n\\])+\n)+/,
-          /(\*(?!\*)|\\[^\n]|[^*\n\\])*/,
-          /\*\*/
-        ),
-        relevance: 0
-      },
-      // escaped constrained formatting marks (i.e., \* \_ or \`)
-      {
-        begin: /\\[*_`]/
-      },
-      // escaped unconstrained formatting marks (i.e., \\** \\__ or \\``)
-      // must ignore until the next formatting marks
-      // this rule might not be 100% compliant with Asciidoctor 2.0 but we are entering undefined behavior territory...
-      {
-        begin: /\\\\\*{2}[^\n]*?\*{2}/
-      },
-      {
-        begin: /\\\\_{2}[^\n]*_{2}/
-      },
-      {
-        begin: /\\\\`{2}[^\n]*`{2}/
-      },
-      // constrained formatting mark may not be preceded by ":", ";" or "}".
-      // match these so the constrained rule doesn't see them
-      {
-        begin: /[:;}][*_`](?!\*)/
-      },
-      // inline constrained strong (single line)
-      {
-        className: 'strong',
-        // must not precede or follow a word character
-        begin: /\B\*(\S|\S[^\n]*?\S)\*(?!\w)/,
-      },
-      // inline constrained strong (multi-line)
-      {
-        className: 'strong',
-        // must not precede or follow a word character
-        begin: /\*[^\s]([^\n]+\n)+([^\n]+)\*/,
-      },
+
+      BULLET_LIST,
+      ADMONITION,
+      ...ESCAPED_FORMATTING,
+      ...STRONG,
+
       // TODO emphasis and code should get same treatment as strong!
       // inline unconstrained emphasis
       {
@@ -217,11 +232,7 @@ export default function(hljs) {
         end: '$',
         relevance: 0
       },
-      // horizontal rules
-      {
-        begin: '^\'{3,}[ \\t]*$',
-        relevance: 10
-      },
+      HORIZONTAL_RULE,
       // images and links
       {
         begin: '(link:)?(http|https|ftp|file|irc|image:?):\\S+?\\[[^[]*?\\]',
