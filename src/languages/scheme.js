@@ -126,7 +126,11 @@ export default function(hljs) {
     contains: [
       NAME,
       {
-        begin: /\(/, end: /\)/, endsParent: true,
+        endsParent: true,
+        variants: [
+          {begin: /\(/, end: /\)/ },
+          {begin: /\[/, end: /\]/},
+        ],
         contains: [IDENT],
       }
     ]

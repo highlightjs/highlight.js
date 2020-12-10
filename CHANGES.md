@@ -12,6 +12,7 @@ Language improvements:
 
 Grammar improvements:
 
+- enh(scheme) Allow `[]` for argument lists (#2913) [Josh Goebel][]
 - enh(vb) Large rework of VB.net grammar (#2808) [Jan Pilzer][]
   - Adds support for Date data types, see (#2775)
   - Adds support for `REM` comments and fixes `'''` doctags (#2875) (#2851)
