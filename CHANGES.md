@@ -7,8 +7,12 @@ New Languages:
 Language improvements:
 
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
-- enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
-- enh(swift) Improvements to keywords and built-ins and added support for operators and attributes (#2908) [Steven Van Impe][]
+- enh(swift) Grammar improvements (#2908) [Steven Van Impe][]
+  - New grammar for keywords and built-ins
+  - Added support for operator highlighting
+  - New grammar for attributes
+  - Added support for quoted identifiers, implicit parameters, and property wrapper projections
+  - Support for more complex expressions in string interpolation
 - fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
 
 Grammar improvements:
