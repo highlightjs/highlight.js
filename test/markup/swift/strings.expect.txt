@@ -53,16 +53,16 @@ escaped newline <span class="hljs-subst">\###
 <span class="hljs-string">###&quot;interpolation <span class="hljs-subst">\###(<span class="hljs-string">&quot;string&quot;</span>)</span> raw \##(&quot;string&quot;) raw \#(&quot;string&quot;) raw \(&quot;string&quot;)&quot;###</span>
 
 <span class="hljs-string">&quot;&quot;&quot;
-interpolation <span class="hljs-subst">\(x)</span>
+interpolation <span class="hljs-subst">\(<span class="hljs-variable">$0</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span>)</span>
 &quot;&quot;&quot;</span>
 <span class="hljs-string">#&quot;&quot;&quot;
-interpolation <span class="hljs-subst">\#(<span class="hljs-number">123</span>)</span>
-raw \(123)
+interpolation <span class="hljs-subst">\#(<span class="hljs-built_in">abs</span>(x <span class="hljs-operator">-</span> <span class="hljs-number">2</span>) <span class="hljs-keyword">as</span> Double)</span>
+raw \(abs(x - 2) as Double)
 &quot;&quot;&quot;#</span>
 <span class="hljs-string">##&quot;&quot;&quot;
-interpolation <span class="hljs-subst">\##(<span class="hljs-number">1.23</span>)</span>
-raw \#(1.23)
-raw \(1.23)
+interpolation <span class="hljs-subst">\##(<span class="hljs-keyword">true</span>)</span>
+raw \#(true)
+raw \(true)
 &quot;&quot;&quot;##</span>
 <span class="hljs-string">###&quot;&quot;&quot;
 interpolation <span class="hljs-subst">\###(<span class="hljs-string">&quot;string&quot;</span>)</span>

@@ -7,71 +7,60 @@ Website: https://swift.org
 Category: common, system
 */
 
-import { concat, either } from "../lib/regex";
+import * as Swift from './lib/swift.js';
+import { concat, either } from '../lib/regex';
 
 /** @type LanguageFn */
 export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413
   // https://docs.swift.org/swift-book/ReferenceManual/zzSummaryOfTheGrammar.html
-  const SWIFT_KEYWORDS = {
-    // Override the pattern since the default of /\w+/ is not sufficient to capture
-    // the keywords that start with a number sign (#) or that have parentheses.
-    $pattern: /#?\w+(\(\w+\))?/,
-    keyword:
-      // Reserved keywords. These require backticks to use as an identifier:
-      '_ Any as associatedtype break case catch class continue default defer deinit do else enum extension ' +
-      'fallthrough fileprivate fileprivate(set) for func guard if import in init inout internal internal(set) is ' +
-      'let operator precedencegroup private private(set) protocol public public(set) repeat rethrows return ' +
-      'self Self static struct subscript super switch throw throws try typealias var where while ' +
-      // This list includes as, is, and try, even though they're technically operators.
-      // The remaining operators as?, as!, try?, and try! are declared in the OPERATOR mode. 
-
-      // Keywords that begin with a number sign:
-      '#available #colorLiteral #column #dsohandle #else #elseif #endif #error #file #fileID #fileLiteral #filePath ' +
-      '#function #if #imageLiteral #keyPath #line #selector #sourceLocation #warning ' +
-
-      // Keywords reserved in particular contexts. These can be used as identifiers:
-      'convenience didSet dynamic final get infix indirect lazy mutating nonmutating open open(set) ' +
-      'optional override postfix prefix Protocol required set some Type unowned unowned(safe) unowned(unsafe) weak willSet ',
-      // Ideally, these keywords should only be matched in specific modes, as they can result in false positives.
-      // For example, the following keywords are commented out because they're only used in
-      // precedencegroup declarations, so they will likely result in mostly false positives:
-      // 'assignment associativity higherThan left lowerThan none right '
-    literal: 'true false nil',
-    built_in: 'abs advance alignof alignofValue anyGenerator assert assertionFailure ' +
-      'bridgeFromObjectiveC bridgeFromObjectiveCUnconditional bridgeToObjectiveC ' +
-      'bridgeToObjectiveCUnconditional c compactMap contains count countElements countLeadingZeros ' +
-      'debugPrint debugPrintln distance dropFirst dropLast dump encodeBitsAsWords ' +
-      'enumerate equal fatalError filter find getBridgedObjectiveCType getVaList ' +
-      'indices insertionSort isBridgedToObjectiveC isBridgedVerbatimToObjectiveC ' +
-      'isUniquelyReferenced isUniquelyReferencedNonObjC join lazy lexicographicalCompare ' +
-      'map max maxElement min minElement numericCast overlaps partition posix ' +
-      'precondition preconditionFailure print println quickSort readLine reduce reflect ' +
-      'reinterpretCast reverse roundUpToAlignment sizeof sizeofValue sort split ' +
-      'startsWith stride strideof strideofValue swap toString transcode ' +
-      'underestimateCount unsafeAddressOf unsafeBitCast unsafeDowncast unsafeUnwrap ' +
-      'unsafeReflect withExtendedLifetime withObjectAtPlusZero withUnsafePointer ' +
-      'withUnsafePointerToObject withUnsafeMutablePointer withUnsafeMutablePointers ' +
-      'withUnsafePointer withUnsafePointers withVaList zip'
+  const DOT_KEYWORD = {
+    begin: concat(/\./, either(...Swift.dotKeywords, ...Swift.optionalDotKeywords)),
+    returnBegin: true,
+    contains: [
+      {
+        begin: /\./
+      },
+      {
+        className: 'keyword',
+        begin: either(...Swift.dotKeywords, ...Swift.optionalDotKeywords)
+      }
+    ]
   };
+  const KEYWORD_GUARD = {
+    // Consume .keyword to prevent highlighting properties and methods as keywords.
+    begin: concat(/\./, either(...Swift.keywords)),
+    relevance: 0,
+  };
+  const KEYWORD = {
+    className: 'keyword',
+    variants: [
+      { begin: either(...Swift.keywords, ...Swift.optionalDotKeywords) },
+      { begin: concat(/#/, either(...Swift.numberKeywords)) }
+    ]
+  };
+  const KEYWORDS = [DOT_KEYWORD, KEYWORD_GUARD, KEYWORD];
 
-  const TYPE = {
-    className: 'type',
-    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*',
-    relevance: 0
+  // https://github.com/apple/swift/tree/main/stdlib/public/core
+  const BUILT_IN_GUARD = {
+    // Consume .built_in to prevent highlighting properties and methods.
+    begin: concat(/\./, either(...Swift.builtIns)),
+    relevance: 0,
   };
-  // slightly more special to swift
-  const OPTIONAL_USING_TYPE = {
-    className: 'type',
-    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]'
+  const BUILT_IN = {
+    className: 'built_in',
+    begin: concat(/\b/, either(...Swift.builtIns), /(?=\()/)
   };
-  const BLOCK_COMMENT = hljs.COMMENT(
-    '/\\*',
-    '\\*/',
-    {
-      contains: ['self']
-    }
-  );
+  const BUILT_INS = [BUILT_IN_GUARD, BUILT_IN];
+
+  // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418
+  const OPERATOR = {
+    className: 'operator',
+    variants: [
+      { begin: `${Swift.operatorHead}${Swift.operatorCharacter}*` },
+      { begin: `\\.(\\.|${Swift.operatorCharacter})+` }
+    ]
+  };
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_numeric-literal
   // TODO: Update for leading `-` after lookbehind is supported everywhere
@@ -138,81 +127,98 @@ export default function(hljs) {
       SINGLE_LINE_STRING("###"),
     ]
   };
+
+  // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID412
+  const QUOTED_IDENTIFIER = {
+    begin: concat(/`/, Swift.identifier, /`/)
+  };
+  const IMPLICIT_PARAMETER = {
+    className: 'variable',
+    begin: /\$\d+/
+  };
+  const PROPERTY_WRAPPER_PROJECTION = {
+    className: 'variable',
+    begin: `\\$${Swift.identifierCharacter}+`
+  };
+  const IDENTIFIERS = [QUOTED_IDENTIFIER, IMPLICIT_PARAMETER, PROPERTY_WRAPPER_PROJECTION];
+
+  // https://docs.swift.org/swift-book/ReferenceManual/Attributes.html
+  const AVAILABLE = {
+    begin: /(@|#)available/,
+    returnBegin: true,
+    contains: [
+      {
+        className: 'keyword',
+        begin: /(@|#)available/
+      },
+      {
+        begin: /\(/,
+        end: /\)/,
+        endsParent: true,
+        keywords: Swift.availabilityKeywords.join(' '),
+        contains: [
+          OPERATOR,
+          NUMBER,
+          STRING,
+        ]
+      }
+    ]
+  };
+  const KEYWORD_ATTRIBUTE = {
+    className: 'keyword',
+    begin: concat(/@/, either(...Swift.keywordAttributes))
+  };
+  const USER_DEFINED_ATTRIBUTE = {
+    className: 'meta',
+    begin: concat(/@/, Swift.identifier)
+  }
+  const ATTRIBUTES = [
+    AVAILABLE,
+    KEYWORD_ATTRIBUTE,
+    USER_DEFINED_ATTRIBUTE
+  ];
+
+  const TYPE = {
+    className: 'type',
+    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*',
+    relevance: 0
+  };
+  // slightly more special to swift
+  const OPTIONAL_USING_TYPE = {
+    className: 'type',
+    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]'
+  };
+  const BLOCK_COMMENT = hljs.COMMENT(
+    '/\\*',
+    '\\*/',
+    {
+      contains: ['self']
+    }
+  );
+  
+  // Add supported submodes to string interpolation.
   for (const variant of STRING.variants) {
     const interpolation = variant.contains.find(mode => mode.label === "interpol");
     // TODO: Interpolation can contain any expression, so there's room for improvement here.
-    interpolation.contains = [STRING, NUMBER];
+    const submodes = [...KEYWORDS, ...BUILT_INS, OPERATOR, NUMBER, STRING, ...IDENTIFIERS];
+    interpolation.contains = [
+      ...submodes,
+      {
+        begin: /\(/,
+        end: /\)/,
+        contains: [
+          'self',
+          ...submodes
+        ]
+      }
+    ];
   }
-
-  // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418
-  const operatorHead = either(
-    /[/=\-+!*%<>&|^~?]/,
-    /[\u00A1–\u00A7]/,
-    /[\u00A9\u00AB]/,
-    /[\u00AC\u00AE]/,
-    /[\u00B0\u00B1]/,
-    /[\u00B6\u00BB\u00BF\u00D7\u00F7]/,
-    /[\u2016–\u2017]/,
-    /[\u2020–\u2027]/,
-    /[\u2030–\u203E]/,
-    /[\u2041–\u2053]/,
-    /[\u2055–\u205E]/,
-    /[\u2190–\u23FF]/,
-    /[\u2500–\u2775]/,
-    /[\u2794–\u2BFF]/,
-    /[\u2E00–\u2E7F]/,
-    /[\u3001–\u3003]/,
-    /[\u3008–\u3020]/,
-    /[\u3030]/
-  );
-  const operatorCharacter = either(
-    operatorHead,
-    /[\u0300–\u036F]/,
-    /[\u1DC0–\u1DFF]/,
-    /[\u20D0–\u20FF]/,
-    /[\uFE00–\uFE0F]/,
-    /[\uFE20–\uFE2F]/,
-    // TODO: The following characters are also allowed, but the regex doesn't work as intended.
-    // For example, it also matches -10 as an operator.
-    // /[\u{E0100}–\u{E01EF}]/u
-  );
-  const OPERATOR = {
-    className: 'operator',
-    variants: [
-      { // TODO: Replace with negative look-behind when available.
-        className: 'keyword',
-        begin: /\s(?=as[?!]?\s)/,
-        excludeBegin: true,
-        end: /as[?!]?(?=\s)/
-      },
-      { // TODO: Replace with negative look-behind when available.
-        className: 'keyword',
-        begin: /\s(?=is\s)/,
-        excludeBegin: true,
-        end: /is(?=\s)/
-      },
-      { // TODO: Replace with negative look-behind when available.
-        className: 'keyword',
-        begin: /(^|[^.])(?=\btry[?!]?\s)/,
-        excludeBegin: true,
-        end: /try[?!]?(?=\s)/
-      },
-      { begin: `${operatorHead}${operatorCharacter}*` },
-      { begin: `\\.(\\.|${operatorCharacter})+` }
-    ]
-  };
 
   return {
     name: 'Swift',
-    keywords: SWIFT_KEYWORDS,
     contains: [
-      STRING,
       hljs.C_LINE_COMMENT_MODE,
       BLOCK_COMMENT,
-      OPERATOR,
-      OPTIONAL_USING_TYPE,
-      TYPE,
-      NUMBER,
       {
         className: 'function',
         beginKeywords: 'func', end: /\{/, excludeEnd: true,
@@ -226,9 +232,9 @@ export default function(hljs) {
           {
             className: 'params',
             begin: /\(/, end: /\)/, endsParent: true,
-            keywords: SWIFT_KEYWORDS,
             contains: [
               'self',
+              ...KEYWORDS,
               NUMBER,
               STRING,
               hljs.C_BLOCK_COMMENT_MODE,
@@ -242,28 +248,27 @@ export default function(hljs) {
       {
         className: 'class',
         beginKeywords: 'struct protocol class extension enum',
-        keywords: SWIFT_KEYWORDS,
         end: '\\{',
         excludeEnd: true,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/})
+          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/}),
+          ...KEYWORDS
         ]
-      },
-      {
-        className: 'meta', // @attributes
-        begin: '(@discardableResult|@warn_unused_result|@exported|@lazy|@noescape|' +
-                  '@NSCopying|@NSManaged|@objc|@objcMembers|@convention|@required|' +
-                  '@noreturn|@IBAction|@IBDesignable|@IBInspectable|@IBOutlet|' +
-                  '@infix|@prefix|@postfix|@autoclosure|@testable|@available|' +
-                  '@nonobjc|@NSApplicationMain|@UIApplicationMain|@dynamicMemberLookup|' +
-                  '@propertyWrapper|@main)\\b'
-
       },
       {
         beginKeywords: 'import', end: /$/,
         contains: [hljs.C_LINE_COMMENT_MODE, BLOCK_COMMENT],
         relevance: 0
-      }
+      },
+      ...KEYWORDS,
+      ...BUILT_INS,
+      OPERATOR,
+      NUMBER,
+      STRING,
+      ...IDENTIFIERS,
+      ...ATTRIBUTES,
+      OPTIONAL_USING_TYPE,
+      TYPE,
     ]
   };
 }

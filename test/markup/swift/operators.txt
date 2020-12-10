@@ -1,14 +1,3 @@
-x is y
-x.is(y)
-x as y
-x as? y
-x as! y
-a.as(y)
-try x
-try? x
-try! x
-x.try(y)
-
 !true
 ~x
 +1

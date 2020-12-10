@@ -1,0 +1,3 @@
+`func`
+{ $0 + 1 }
+value.$wrappedValue
