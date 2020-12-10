@@ -652,7 +652,7 @@ const HLJS = function(hljs) {
     const language = currentLang ? aliases[currentLang] : resultLang;
 
     element.classList.add("hljs");
-    element.classList.add(language);
+    if (language) element.classList.add(language);
   }
 
   /**
