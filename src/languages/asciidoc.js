@@ -8,7 +8,6 @@ Category: markup
 */
 
 import * as regex from '../lib/regex.js';
-import { NUMERIC } from './lib/java.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
