@@ -24,6 +24,7 @@ Grammar improvements:
 - fix(javascript) Empty block-comments break highlighting (#2896) [Jan Pilzer][]
 - enh(dart) Fix empty block-comments from breaking highlighting (#2898) [Jan Pilzer][]
 - enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
+- enh(asciidoc) Adds support for unconstrained bold syntax (#2869) [Guillaume Grossetie][]
 
 [Jan Pilzer]: https://github.com/Hirse
 [Oldes Huhuman]: https://github.com/Oldes
@@ -31,6 +32,7 @@ Grammar improvements:
 [tripleee]: https://github.com/tripleee
 [Steven Van Impe]: https://github.com/svanimpe/
 [Vaibhav Chanana]: https://github.com/il3ven
+[Guillaume Grossetie]: https://github.com/mogztter
 
 ## Version 10.4.1 (tentative)
 

@@ -1,0 +1,51 @@
+bold *constrained* text.
+
+italic _constrained_ text.
+
+monospace `constrained` text.
+
+Some strong [#strong]*word*.
+
+The word \*stars* is not rendered as bold text.
+
+Use the * symbol. Read the footnotes*. You can also type* this symbol *.
+
+A strong *wo
+rd*.
+
+Not a strong *wo
+
+rd*.
+
+\\blah blah *blah*.
+
+\\blah blah blah*.
+
+Does *Bob -love- Gemma*?
+
+Does *Bob "love" Gemma*?
+
+Does *Bob love Gemma? Truly?*
+
+There's a colon:*directly* before the starting formatting mark.
+
+There's a semi-colon directly before the starting formatting mark &ndash;*2018*
+
+There's a closing curly bracket directly {before}*the starting formatting mark*.
+
+*bl*ck*-eye
+
+E = mc*2*
+
+E = *mc*2
+
+The parser is working *99%* of the time
+
+*bob
+knows
+very
+best*
+
+*does bob
+-really-
+know best?*
