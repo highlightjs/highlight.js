@@ -8,6 +8,8 @@ Language improvements:
 
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
 - fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
+- enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
+- fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
 
 Grammar improvements:
 
@@ -20,11 +22,64 @@ Grammar improvements:
   - Type suffixes: 123UI (unsigned integer)
   - Improves directives detection and adds support for `Enable`, `Disable`, and `Then` keywords
   - Adds more markup tests
+- fix(javascript) Empty block-comments break highlighting (#2896) [Jan Pilzer][]
+- enh(dart) Fix empty block-comments from breaking highlighting (#2898) [Jan Pilzer][]
+- enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
+- enh(asciidoc) Adds support for unconstrained bold syntax (#2869) [Guillaume Grossetie][]
 
 [Jan Pilzer]: https://github.com/Hirse
 [Oldes Huhuman]: https://github.com/Oldes
 [Josh Goebel]: https://github.com/joshgoebel
 [tripleee]: https://github.com/tripleee
+[Steven Van Impe]: https://github.com/svanimpe/
+[Vaibhav Chanana]: https://github.com/il3ven
+[Guillaume Grossetie]: https://github.com/mogztter
+
+## Version 10.4.1 (tentative)
+
+Security
+
+- (fix) Exponential backtracking fixes for: [Josh Goebel][]
+  - cpp
+  - handlebars
+  - gams
+  - perl
+  - jboss-cli
+  - r
+  - erlang-repl
+  - powershell
+  - routeros
+- (fix) Polynomial backtracking fixes for: [Josh Goebel][]
+  - asciidoc
+  - reasonml
+  - latex
+  - kotlin
+  - gcode
+  - d
+  - aspectj
+  - moonscript
+  - coffeescript/livescript
+  - csharp
+  - scilab
+  - crystal
+  - elixir
+  - basic
+  - ebnf
+  - ruby
+  - fortran/irpf90
+  - livecodeserver
+  - yaml
+  - x86asm
+  - dsconfig
+  - markdown
+  - ruleslanguage
+  - xquery
+  - sqf
+
+Very grateful to [Michael Schmidt][] for all the help.
+
+[Michael Schmidt]: https://github.com/RunDevelopment
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 10.4.0

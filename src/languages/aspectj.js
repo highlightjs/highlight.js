@@ -3,11 +3,15 @@ Language: AspectJ
 Author: Hakan Ozler <ozler.hakan@gmail.com>
 Website: https://www.eclipse.org/aspectj/
 Description: Syntax Highlighting for the AspectJ Language which is a general-purpose aspect-oriented extension to the Java programming language.
- */
+Audit: 2020
+*/
+
+import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
-  const KEYWORDS = 'false synchronized int abstract float private char boolean static null if const ' +
+  const KEYWORDS =
+    'false synchronized int abstract float private char boolean static null if const ' +
     'for true while long throw strictfp finally protected import native final return void ' +
     'enum else extends implements break transient new catch instanceof byte super volatile case ' +
     'assert short package default double public try this switch continue throws privileged ' +
@@ -23,8 +27,8 @@ export default function(hljs) {
     illegal: /<\/|#/,
     contains: [
       hljs.COMMENT(
-        '/\\*\\*',
-        '\\*/',
+        /\/\*\*/,
+        /\*\//,
         {
           relevance: 0,
           contains: [
@@ -35,7 +39,7 @@ export default function(hljs) {
             },
             {
               className: 'doctag',
-              begin: '@[A-Za-z]+'
+              begin: /@[A-Za-z]+/
             }
           ]
         }
@@ -84,11 +88,13 @@ export default function(hljs) {
         end: /[)]/,
         excludeEnd: false,
         illegal: /["\[\]]/,
-        contains: [{
-          begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
-          returnBegin: true,
-          contains: [hljs.UNDERSCORE_TITLE_MODE]
-        }]
+        contains: [
+          {
+            begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
+            returnBegin: true,
+            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
+          }
+        ]
       },
       {
         begin: /[:]/,
@@ -100,7 +106,7 @@ export default function(hljs) {
         illegal: /["\[\]]/,
         contains: [
           {
-            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
+            begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
             keywords: KEYWORDS + ' ' + SHORTKEYS,
             relevance: 0
           },
@@ -115,17 +121,17 @@ export default function(hljs) {
       {
         // the function class is a bit different for AspectJ compared to the Java language
         className: 'function',
-        begin: /\w+ +\w+(\.)?\w+\s*\([^\)]*\)\s*((throws)[\w\s,]+)?[\{;]/,
+        begin: /\w+ +\w+(\.\w+)?\s*\([^\)]*\)\s*((throws)[\w\s,]+)?[\{;]/,
         returnBegin: true,
         end: /[{;=]/,
         keywords: KEYWORDS,
         excludeEnd: true,
         contains: [
           {
-            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
+            begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
             returnBegin: true,
             relevance: 0,
-            contains: [hljs.UNDERSCORE_TITLE_MODE]
+            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
           },
           {
             className: 'params',
@@ -148,7 +154,7 @@ export default function(hljs) {
       {
         // annotation is also used in this language
         className: 'meta',
-        begin: '@[A-Za-z]+'
+        begin: /@[A-Za-z]+/
       }
     ]
   };

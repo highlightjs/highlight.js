@@ -8,6 +8,9 @@
  Category: scientific
  */
 
+import * as regex from '../lib/regex.js';
+
+/** @type LanguageFn */
 export default function(hljs) {
   const KEYWORDS = {
     keyword:
@@ -80,6 +83,7 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE
     ]
   };
+  const COMMENT_WORD = /[a-z0-9&#*=?@\\><:,()$[\]_.{}!+%^-]+/;
   const DESCTEXT = { // Parameter/set/variable description text
     begin: /[a-z][a-z0-9_]*(\([a-z0-9_, ]*\))?[ \t]+/,
     excludeBegin: true,
@@ -90,7 +94,12 @@ export default function(hljs) {
       ASSIGNMENT,
       {
         className: 'comment',
-        begin: /([ ]*[a-z0-9&#*=?@\\><:,()$[\]_.{}!+%^-]+)+/,
+        // one comment word, then possibly more
+        begin: regex.concat(
+          COMMENT_WORD,
+          // [ ] because \s would be too broad (matching newlines)
+          regex.anyNumberOfTimes(regex.concat(/[ ]+/, COMMENT_WORD))
+        ),
         relevance: 0
       }
     ]

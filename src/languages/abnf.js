@@ -2,13 +2,16 @@
 Language: Augmented Backus-Naur Form
 Author: Alex McKibben <alex@nullscope.net>
 Website: https://tools.ietf.org/html/rfc5234
+Audit: 2020
 */
+
+import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
   const regexes = {
-    ruleDeclaration: "^[a-zA-Z][a-zA-Z0-9-]*",
-    unexpectedChars: "[!@#$^&',?+~`|:]"
+    ruleDeclaration: /^[a-zA-Z][a-zA-Z0-9-]*/,
+    unexpectedChars: /[!@#$^&',?+~`|:]/
   };
 
   const keywords = [
@@ -30,7 +33,7 @@ export default function(hljs) {
     "WSP"
   ];
 
-  const commentMode = hljs.COMMENT(";", "$");
+  const commentMode = hljs.COMMENT(/;/, /$/);
 
   const terminalBinaryMode = {
     className: "symbol",
@@ -54,7 +57,7 @@ export default function(hljs) {
 
   const ruleDeclarationMode = {
     className: "attribute",
-    begin: regexes.ruleDeclaration + '(?=\\s*=)'
+    begin: regex.concat(regexes.ruleDeclaration, /(?=\s*=)/)
   };
 
   return {

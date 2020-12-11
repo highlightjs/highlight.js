@@ -24,10 +24,10 @@ export default function(hljs) {
     variants: [
       // TODO: fix to allow these to work with sublanguage also
       {
-        begin: '(`{3,})(.|\\n)*?\\1`*[ ]*'
+        begin: '(`{3,})[^`](.|\\n)*?\\1`*[ ]*'
       },
       {
-        begin: '(~{3,})(.|\\n)*?\\1~*[ ]*'
+        begin: '(~{3,})[^~](.|\\n)*?\\1~*[ ]*'
       },
       // needed to allow markdown as a sublanguage to work
       {
