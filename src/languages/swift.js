@@ -10,7 +10,8 @@ Category: common, system
 import * as Swift from './lib/swift.js';
 import {
   concat,
-  either
+  either,
+  lookahead
 } from '../lib/regex.js';
 
 /** @type LanguageFn */
@@ -18,17 +19,10 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413
   // https://docs.swift.org/swift-book/ReferenceManual/zzSummaryOfTheGrammar.html
   const DOT_KEYWORD = {
-    begin: concat(/\./, either(...Swift.dotKeywords, ...Swift.optionalDotKeywords)),
-    returnBegin: true,
-    contains: [
-      {
-        begin: /\./
-      },
-      {
-        className: 'keyword',
-        begin: either(...Swift.dotKeywords, ...Swift.optionalDotKeywords)
-      }
-    ]
+    className: 'keyword',
+    begin: concat(/\./, lookahead(either(...Swift.dotKeywords, ...Swift.optionalDotKeywords))),
+    end: either(...Swift.dotKeywords, ...Swift.optionalDotKeywords),
+    excludeBegin: true
   };
   const KEYWORD_GUARD = {
     // Consume .keyword to prevent highlighting properties and methods as keywords.
@@ -80,9 +74,10 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418
   const OPERATOR = {
     className: 'operator',
+    relevance: 0,
     variants: [
       {
-        begin: `${Swift.operatorHead}${Swift.operatorCharacter}*`
+        begin: Swift.operator
       },
       {
         begin: `\\.(\\.|${Swift.operatorCharacter})+`
@@ -189,9 +184,9 @@ export default function(hljs) {
   ];
 
   // https://docs.swift.org/swift-book/ReferenceManual/Attributes.html
-  const AVAILABLE = {
-    begin: /(@|#)available/,
-    returnBegin: true,
+  const AVAILABLE_ATTRIBUTE = {
+    begin: lookahead(/(@|#)available/), // also matches #available
+    relevance: 0,
     contains: [
       {
         className: 'keyword',
@@ -200,7 +195,6 @@ export default function(hljs) {
       {
         begin: /\(/,
         end: /\)/,
-        endsParent: true,
         keywords: Swift.availabilityKeywords.join(' '),
         contains: [
           OPERATOR,
@@ -219,7 +213,7 @@ export default function(hljs) {
     begin: concat(/@/, Swift.identifier)
   };
   const ATTRIBUTES = [
-    AVAILABLE,
+    AVAILABLE_ATTRIBUTE,
     KEYWORD_ATTRIBUTE,
     USER_DEFINED_ATTRIBUTE
   ];
@@ -232,7 +226,8 @@ export default function(hljs) {
   // slightly more special to swift
   const OPTIONAL_USING_TYPE = {
     className: 'type',
-    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]'
+    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]',
+    relevance: 0
   };
   const BLOCK_COMMENT = hljs.COMMENT(
     '/\\*',
