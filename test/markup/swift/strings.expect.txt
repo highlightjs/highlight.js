@@ -60,7 +60,7 @@ interpolation <span class="hljs-subst">\#(<span class="hljs-built_in">abs</span>
 raw \(abs(x - 2) as Double)
 &quot;&quot;&quot;#</span>
 <span class="hljs-string">##&quot;&quot;&quot;
-interpolation <span class="hljs-subst">\##(<span class="hljs-keyword">true</span>)</span>
+interpolation <span class="hljs-subst">\##(<span class="hljs-literal">true</span>)</span>
 raw \#(true)
 raw \(true)
 &quot;&quot;&quot;##</span>

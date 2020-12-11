@@ -40,7 +40,6 @@ export const keywords = [
   /\benum\b/,
   /\bextension\b/,
   /\bfallthrough\b/,
-  /\bfalse\b/, // literal
   /\bfileprivate\(set\)\B/,
   /\bfileprivate\b/,
   /\bfinal\b/, // contextual
@@ -62,7 +61,6 @@ export const keywords = [
   /\blazy\b/, // contextual
   /\blet\b/,
   /\bmutating\b/, // contextual
-  /\bnil\b/, // literal
   /\bnonmutating\b/, // contextual
   /\bopen\(set\)\B/, // contextual
   /\bopen\b/, // contextual
@@ -90,7 +88,6 @@ export const keywords = [
   /\bswitch\b/,
   /\bthrows\b/,
   /\bthrow\b/,
-  /\btrue\b/, // literal
   /\btry\?\B/, // operator
   /\btry!\B/, // operator
   /\btry\b/, // operator
@@ -112,9 +109,16 @@ export const keywords = [
 // assignment associativity higherThan left lowerThan none right
 // These aren't included in the list because they result in mostly false positives.
 
-// Keywords that start with a number character (#).
+// Literals.
+export const literals = [
+  /\bfalse\b/,
+  /\bnil\b/,
+  /\btrue\b/
+];
+
+// Keywords that start with a number sign (#).
 // #available is handled separately.
-export const numberKeywords = [
+export const numberSignKeywords = [
   'colorLiteral',
   'column',
   'dsohandle',

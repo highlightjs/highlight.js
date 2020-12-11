@@ -36,13 +36,18 @@ export default function(hljs) {
     relevance: 0
   };
   const KEYWORD = {
-    className: 'keyword',
     variants: [
       {
+        className: 'keyword',
         begin: either(...Swift.keywords, ...Swift.optionalDotKeywords)
       },
       {
-        begin: concat(/#/, either(...Swift.numberKeywords))
+        className: 'literal',
+        begin: either(...Swift.literals)
+      },
+      {
+        className: 'keyword',
+        begin: concat(/#/, either(...Swift.numberSignKeywords))
       }
     ]
   };
