@@ -8,7 +8,10 @@ Category: common, system
 */
 
 import * as Swift from './lib/swift.js';
-import { concat, either } from '../lib/regex';
+import {
+  concat,
+  either
+} from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
@@ -30,35 +33,50 @@ export default function(hljs) {
   const KEYWORD_GUARD = {
     // Consume .keyword to prevent highlighting properties and methods as keywords.
     begin: concat(/\./, either(...Swift.keywords)),
-    relevance: 0,
+    relevance: 0
   };
   const KEYWORD = {
     className: 'keyword',
     variants: [
-      { begin: either(...Swift.keywords, ...Swift.optionalDotKeywords) },
-      { begin: concat(/#/, either(...Swift.numberKeywords)) }
+      {
+        begin: either(...Swift.keywords, ...Swift.optionalDotKeywords)
+      },
+      {
+        begin: concat(/#/, either(...Swift.numberKeywords))
+      }
     ]
   };
-  const KEYWORDS = [DOT_KEYWORD, KEYWORD_GUARD, KEYWORD];
+  const KEYWORDS = [
+    DOT_KEYWORD,
+    KEYWORD_GUARD,
+    KEYWORD
+  ];
 
   // https://github.com/apple/swift/tree/main/stdlib/public/core
   const BUILT_IN_GUARD = {
     // Consume .built_in to prevent highlighting properties and methods.
     begin: concat(/\./, either(...Swift.builtIns)),
-    relevance: 0,
+    relevance: 0
   };
   const BUILT_IN = {
     className: 'built_in',
     begin: concat(/\b/, either(...Swift.builtIns), /(?=\()/)
   };
-  const BUILT_INS = [BUILT_IN_GUARD, BUILT_IN];
+  const BUILT_INS = [
+    BUILT_IN_GUARD,
+    BUILT_IN
+  ];
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418
   const OPERATOR = {
     className: 'operator',
     variants: [
-      { begin: `${Swift.operatorHead}${Swift.operatorCharacter}*` },
-      { begin: `\\.(\\.|${Swift.operatorCharacter})+` }
+      {
+        begin: `${Swift.operatorHead}${Swift.operatorCharacter}*`
+      },
+      {
+        begin: `\\.(\\.|${Swift.operatorCharacter})+`
+      }
     ]
   };
 
@@ -67,31 +85,38 @@ export default function(hljs) {
   const decimalDigits = '([0-9]_*)+';
   const hexDigits = '([0-9a-fA-F]_*)+';
   const NUMBER = {
-      className: 'number',
-      relevance: 0,
-      variants: [
-        // decimal floating-point-literal (subsumes decimal-literal)
-        { begin: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` +
-          `([eE][+-]?(${decimalDigits}))?\\b` },
-
-        // hexadecimal floating-point-literal (subsumes hexadecimal-literal)
-        { begin: `\\b0x(${hexDigits})(\\.(${hexDigits}))?` +
-          `([pP][+-]?(${decimalDigits}))?\\b` },
-
-        // octal-literal
-        { begin: /\b0o([0-7]_*)+\b/ },
-
-        // binary-literal
-        { begin: /\b0b([01]_*)+\b/ },
-      ]
+    className: 'number',
+    relevance: 0,
+    variants: [
+      // decimal floating-point-literal (subsumes decimal-literal)
+      {
+        begin: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b`
+      },
+      // hexadecimal floating-point-literal (subsumes hexadecimal-literal)
+      {
+        begin: `\\b0x(${hexDigits})(\\.(${hexDigits}))?` + `([pP][+-]?(${decimalDigits}))?\\b`
+      },
+      // octal-literal
+      {
+        begin: /\b0o([0-7]_*)+\b/
+      },
+      // binary-literal
+      {
+        begin: /\b0b([01]_*)+\b/
+      }
+    ]
   };
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_string-literal
   const ESCAPED_CHARACTER = (rawDelimiter = "") => ({
     className: 'subst',
     variants: [
-      { begin: concat(/\\/, rawDelimiter, /[0\\tnr"']/) },
-      { begin: concat(/\\/, rawDelimiter, /u\{[0-9a-fA-F]{1,8}\}/) }
+      {
+        begin: concat(/\\/, rawDelimiter, /[0\\tnr"']/)
+      },
+      {
+        begin: concat(/\\/, rawDelimiter, /u\{[0-9a-fA-F]{1,8}\}/)
+      }
     ]
   });
   const ESCAPED_NEWLINE = (rawDelimiter = "") => ({
@@ -107,12 +132,19 @@ export default function(hljs) {
   const MULTILINE_STRING = (rawDelimiter = "") => ({
     begin: concat(rawDelimiter, /"""/),
     end: concat(/"""/, rawDelimiter),
-    contains: [ESCAPED_CHARACTER(rawDelimiter), ESCAPED_NEWLINE(rawDelimiter), INTERPOLATION(rawDelimiter)]
+    contains: [
+      ESCAPED_CHARACTER(rawDelimiter),
+      ESCAPED_NEWLINE(rawDelimiter),
+      INTERPOLATION(rawDelimiter)
+    ]
   });
   const SINGLE_LINE_STRING = (rawDelimiter = "") => ({
     begin: concat(rawDelimiter, /"/),
     end: concat(/"/, rawDelimiter),
-    contains: [ESCAPED_CHARACTER(rawDelimiter), INTERPOLATION(rawDelimiter)]
+    contains: [
+      ESCAPED_CHARACTER(rawDelimiter),
+      INTERPOLATION(rawDelimiter)
+    ]
   });
   const STRING = {
     className: 'string',
@@ -124,7 +156,7 @@ export default function(hljs) {
       SINGLE_LINE_STRING(),
       SINGLE_LINE_STRING("#"),
       SINGLE_LINE_STRING("##"),
-      SINGLE_LINE_STRING("###"),
+      SINGLE_LINE_STRING("###")
     ]
   };
 
@@ -140,7 +172,11 @@ export default function(hljs) {
     className: 'variable',
     begin: `\\$${Swift.identifierCharacter}+`
   };
-  const IDENTIFIERS = [QUOTED_IDENTIFIER, IMPLICIT_PARAMETER, PROPERTY_WRAPPER_PROJECTION];
+  const IDENTIFIERS = [
+    QUOTED_IDENTIFIER,
+    IMPLICIT_PARAMETER,
+    PROPERTY_WRAPPER_PROJECTION
+  ];
 
   // https://docs.swift.org/swift-book/ReferenceManual/Attributes.html
   const AVAILABLE = {
@@ -159,7 +195,7 @@ export default function(hljs) {
         contains: [
           OPERATOR,
           NUMBER,
-          STRING,
+          STRING
         ]
       }
     ]
@@ -171,7 +207,7 @@ export default function(hljs) {
   const USER_DEFINED_ATTRIBUTE = {
     className: 'meta',
     begin: concat(/@/, Swift.identifier)
-  }
+  };
   const ATTRIBUTES = [
     AVAILABLE,
     KEYWORD_ATTRIBUTE,
@@ -192,15 +228,22 @@ export default function(hljs) {
     '/\\*',
     '\\*/',
     {
-      contains: ['self']
+      contains: [ 'self' ]
     }
   );
-  
+
   // Add supported submodes to string interpolation.
   for (const variant of STRING.variants) {
     const interpolation = variant.contains.find(mode => mode.label === "interpol");
     // TODO: Interpolation can contain any expression, so there's room for improvement here.
-    const submodes = [...KEYWORDS, ...BUILT_INS, OPERATOR, NUMBER, STRING, ...IDENTIFIERS];
+    const submodes = [
+      ...KEYWORDS,
+      ...BUILT_INS,
+      OPERATOR,
+      NUMBER,
+      STRING,
+      ...IDENTIFIERS
+    ];
     interpolation.contains = [
       ...submodes,
       {
@@ -221,24 +264,31 @@ export default function(hljs) {
       BLOCK_COMMENT,
       {
         className: 'function',
-        beginKeywords: 'func', end: /\{/, excludeEnd: true,
+        beginKeywords: 'func',
+        end: /\{/,
+        excludeEnd: true,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
             begin: /[A-Za-z$_][0-9A-Za-z$_]*/
           }),
           {
-            begin: /</, end: />/
+            begin: /</,
+            end: />/
           },
           {
             className: 'params',
-            begin: /\(/, end: /\)/, endsParent: true,
+            begin: /\(/,
+            end: /\)/,
+            endsParent: true,
             contains: [
               'self',
               ...KEYWORDS,
               NUMBER,
               STRING,
               hljs.C_BLOCK_COMMENT_MODE,
-              {begin: ':'} // relevance booster
+              { // relevance booster
+                begin: ':'
+              }
             ],
             illegal: /["']/
           }
@@ -251,13 +301,19 @@ export default function(hljs) {
         end: '\\{',
         excludeEnd: true,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/}),
+          hljs.inherit(hljs.TITLE_MODE, {
+            begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
+          }),
           ...KEYWORDS
         ]
       },
       {
-        beginKeywords: 'import', end: /$/,
-        contains: [hljs.C_LINE_COMMENT_MODE, BLOCK_COMMENT],
+        beginKeywords: 'import',
+        end: /$/,
+        contains: [
+          hljs.C_LINE_COMMENT_MODE,
+          BLOCK_COMMENT
+        ],
         relevance: 0
       },
       ...KEYWORDS,
@@ -268,7 +324,7 @@ export default function(hljs) {
       ...IDENTIFIERS,
       ...ATTRIBUTES,
       OPTIONAL_USING_TYPE,
-      TYPE,
+      TYPE
     ]
   };
 }

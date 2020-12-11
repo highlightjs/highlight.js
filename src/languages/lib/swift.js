@@ -1,9 +1,12 @@
-import { concat, either } from '../../lib/regex';
+import {
+  concat,
+  either
+} from '../../lib/regex.js';
 
 // Keywords that require a leading dot.
 export const dotKeywords = [
   /Protocol\b/, // contextual
-  /Type\b/, // contextual
+  /Type\b/ // contextual
 ];
 
 // Keywords that may have a leading dot.
@@ -99,7 +102,7 @@ export const keywords = [
   /\bweak\b/, // contextual
   /\bwhere\b/,
   /\bwhile\b/,
-  /\bwillSet\b/, // contextual
+  /\bwillSet\b/ // contextual
 ];
 
 // NOTE: Contextual keywords are reserved only in specific contexts.
@@ -131,7 +134,7 @@ export const numberKeywords = [
   'selector',
   'sourceLocation',
   'warn_unqualified_access',
-  'warning',
+  'warning'
 ];
 
 // Global functions in the Standard Library.
@@ -169,7 +172,7 @@ export const builtIns = [
   'withUnsafePointer',
   'withVaList',
   'withoutActuallyEscaping',
-  'zip',
+  'zip'
 ];
 
 // Valid first characters for operators.
@@ -201,7 +204,7 @@ export const operatorCharacter = either(
   /[\u1DC0–\u1DFF]/,
   /[\u20D0–\u20FF]/,
   /[\uFE00–\uFE0F]/,
-  /[\uFE20–\uFE2F]/,
+  /[\uFE20–\uFE2F]/
   // TODO: The following characters are also allowed, but the regex isn't supported yet.
   // /[\u{E0100}–\u{E01EF}]/u
 );
@@ -218,7 +221,7 @@ export const identifierHead = either(
   /[\u2C00–\u2DFF\u2E80–\u2FFF]/,
   /[\u3004–\u3007\u3021–\u302F\u3031–\u303F\u3040–\uD7FF]/,
   /[\uF900–\uFD3D\uFD40–\uFDCF\uFDF0–\uFE1F\uFE30–\uFE44]/,
-  /[\uFE47–\uFFFD]/,
+  /[\uFE47–\uFFFD]/
   // The following characters are also allowed, but the regexes aren't supported yet.
   // /[\u{10000}–\u{1FFFD}\u{20000–\u{2FFFD}\u{30000}–\u{3FFFD}\u{40000}–\u{4FFFD}]/u,
   // /[\u{50000}–\u{5FFFD}\u{60000–\u{6FFFD}\u{70000}–\u{7FFFD}\u{80000}–\u{8FFFD}]/u,
@@ -266,7 +269,7 @@ export const keywordAttributes = [
   /testable/,
   /UIApplicationMain/,
   /unknown/,
-  /usableFromInline/,
+  /usableFromInline/
 ];
 
 // Contextual keywords used in @available and #available.
@@ -281,5 +284,5 @@ export const availabilityKeywords = [
   'watchOSApplicationExtension',
   'tvOS',
   'tvOSApplicationExtension',
-  'swift',
+  'swift'
 ];
