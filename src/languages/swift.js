@@ -47,6 +47,11 @@ export default function(hljs) {
       },
       {
         className: 'keyword',
+        begin: /\b_\b/,
+        relevance: 0
+      },
+      {
+        className: 'keyword',
         begin: concat(/#/, either(...Swift.numberSignKeywords))
       }
     ]

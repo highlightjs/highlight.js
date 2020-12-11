@@ -3,104 +3,109 @@ import {
   either
 } from '../../lib/regex.js';
 
+const keywordWrapper = keyword => concat(
+  /\b/,
+  keyword,
+  /\w$/.test(keyword) ? /\b/ : /\B/
+);
+
 // Keywords that require a leading dot.
 export const dotKeywords = [
-  /Protocol\b/, // contextual
-  /Type\b/ // contextual
-];
+  'Protocol', // contextual
+  'Type' // contextual
+].map(keywordWrapper);
 
 // Keywords that may have a leading dot.
 export const optionalDotKeywords = [
-  /init\b/,
-  /self\b/
-];
+  'init',
+  'self'
+].map(keywordWrapper);
 
 // Regular keywords and literals.
 export const keywords = [
-  /\bAny\b/,
-  /\bSelf\b/,
-  /\b_\b/, // pattern
-  /\bassociatedtype\b/,
-  /\bas\?\B/, // operator
-  /\bas!\B/, // operator
-  /\bas\b/, // operator
-  /\bbreak\b/,
-  /\bcase\b/,
-  /\bcatch\b/,
-  /\bclass\b/,
-  /\bcontinue\b/,
-  /\bconvenience\b/, // contextual
-  /\bdefault\b/,
-  /\bdefer\b/,
-  /\bdeinit\b/,
-  /\bdidSet\b/, // contextual
-  /\bdo\b/,
-  /\bdynamic\b/, // contextual
-  /\belse\b/,
-  /\benum\b/,
-  /\bextension\b/,
-  /\bfallthrough\b/,
-  /\bfileprivate\(set\)\B/,
-  /\bfileprivate\b/,
-  /\bfinal\b/, // contextual
-  /\bfor\b/,
-  /\bfunc\b/,
-  /\bget\b/, // contextual
-  /\bguard\b/,
-  /\bif\b/,
-  /\bimport\b/,
-  /\bindirect\b/, // contextual
-  /\binfix\b/, // contextual
-  /\binit\?\B/,
-  /\binit!\B/,
-  /\binout\b/,
-  /\binternal\(set\)\B/,
-  /\binternal\b/,
-  /\bin\b/,
-  /\bis\b/, // operator
-  /\blazy\b/, // contextual
-  /\blet\b/,
-  /\bmutating\b/, // contextual
-  /\bnonmutating\b/, // contextual
-  /\bopen\(set\)\B/, // contextual
-  /\bopen\b/, // contextual
-  /\boperator\b/,
-  /\boptional\b/, // contextual
-  /\boverride\b/, // contextual
-  /\bpostfix\b/, // contextual
-  /\bprecedencegroup\b/,
-  /\bprefix\b/, // contextual
-  /\bprivate\(set\)\B/,
-  /\bprivate\b/,
-  /\bprotocol\b/,
-  /\bpublic\(set\)\B/,
-  /\bpublic\b/,
-  /\brepeat\b/,
-  /\brequired\b/, // contextual
-  /\brethrows\b/,
-  /\breturn\b/,
-  /\bset\b/, // contextual
-  /\bsome\b/, // contextual
-  /\bstatic\b/,
-  /\bstruct\b/,
-  /\bsubscript\b/,
-  /\bsuper\b/,
-  /\bswitch\b/,
-  /\bthrows\b/,
-  /\bthrow\b/,
-  /\btry\?\B/, // operator
-  /\btry!\B/, // operator
-  /\btry\b/, // operator
-  /\btypealias\b/,
-  /\bunowned\(safe\)\B/, // contextual
-  /\bunowned\(unsafe\)\B/, // contextual
-  /\bunowned\b/, // contextual
-  /\bvar\b/,
-  /\bweak\b/, // contextual
-  /\bwhere\b/,
-  /\bwhile\b/,
-  /\bwillSet\b/ // contextual
-];
+  'Any',
+  'Self',
+  'associatedtype',
+  'as\\?', // operator
+  'as!', // operator
+  'as', // operator
+  'break',
+  'case',
+  'catch',
+  'class',
+  'continue',
+  'convenience', // contextual
+  'default',
+  'defer',
+  'deinit',
+  'didSet', // contextual
+  'do',
+  'dynamic', // contextual
+  'else',
+  'enum',
+  'extension',
+  'fallthrough',
+  'fileprivate\\(set\\)',
+  'fileprivate',
+  'final', // contextual
+  'for',
+  'func',
+  'get', // contextual
+  'guard',
+  'if',
+  'import',
+  'indirect', // contextual
+  'infix', // contextual
+  'init\\?',
+  'init!',
+  'inout',
+  'internal\\(set\\)',
+  'internal',
+  'in',
+  'is', // operator
+  'lazy', // contextual
+  'let',
+  'mutating', // contextual
+  'nonmutating', // contextual
+  'open\\(set\\)', // contextual
+  'open', // contextual
+  'operator',
+  'optional', // contextual
+  'override', // contextual
+  'postfix', // contextual
+  'precedencegroup',
+  'prefix', // contextual
+  'private\\(set\\)',
+  'private',
+  'protocol',
+  'public\\(set\\)',
+  'public',
+  'repeat',
+  'required', // contextual
+  'rethrows',
+  'return',
+  'set', // contextual
+  'some', // contextual
+  'static',
+  'struct',
+  'subscript',
+  'super',
+  'switch',
+  'throws',
+  'throw',
+  'try\\?', // operator
+  'try!', // operator
+  'try', // operator
+  'typealias',
+  'unowned\\(safe\\)', // contextual
+  'unowned\\(unsafe\\)', // contextual
+  'unowned', // contextual
+  'var',
+  'weak', // contextual
+  'where',
+  'while',
+  'willSet' // contextual
+].map(keywordWrapper);
 
 // NOTE: Contextual keywords are reserved only in specific contexts.
 // Ideally, these should be matched using modes to avoid false positives.
@@ -111,10 +116,10 @@ export const keywords = [
 
 // Literals.
 export const literals = [
-  /\bfalse\b/,
-  /\bnil\b/,
-  /\btrue\b/
-];
+  'false',
+  'nil',
+  'true'
+].map(keywordWrapper);
 
 // Keywords that start with a number sign (#).
 // #available is handled separately.
@@ -246,34 +251,34 @@ export const identifier = concat(identifierHead, identifierCharacter, '*');
 // Built-in attributes, which are highlighted as keywords.
 // @available is handled separately.
 export const keywordAttributes = [
-  /autoclosure/,
+  'autoclosure',
   concat(/convention\(/, either('swift', 'block', 'c'), /\)/),
-  /discardableResult/,
-  /dynamicCallable/,
-  /dynamicMemberLookup/,
-  /escaping/,
-  /frozen/,
-  /GKInspectable/,
-  /IBAction/,
-  /IBDesignable/,
-  /IBInspectable/,
-  /IBOutlet/,
-  /IBSegueAction/,
-  /inlinable/,
-  /main/,
-  /nonobjc/,
-  /NSApplicationMain/,
-  /NSCopying/,
-  /NSManaged/,
+  'discardableResult',
+  'dynamicCallable',
+  'dynamicMemberLookup',
+  'escaping',
+  'frozen',
+  'GKInspectable',
+  'IBAction',
+  'IBDesignable',
+  'IBInspectable',
+  'IBOutlet',
+  'IBSegueAction',
+  'inlinable',
+  'main',
+  'nonobjc',
+  'NSApplicationMain',
+  'NSCopying',
+  'NSManaged',
   concat(/objc\(/, identifier, /\)/),
-  /objc/,
-  /objcMembers/,
-  /propertyWrapper/,
-  /requires_stored_property_inits/,
-  /testable/,
-  /UIApplicationMain/,
-  /unknown/,
-  /usableFromInline/
+  'objc',
+  'objcMembers',
+  'propertyWrapper',
+  'requires_stored_property_inits',
+  'testable',
+  'UIApplicationMain',
+  'unknown',
+  'usableFromInline'
 ];
 
 // Contextual keywords used in @available and #available.
