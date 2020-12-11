@@ -20,8 +20,8 @@ async function rollupWrite(inputOptions, outputOptions) {
 
 function sha384(contents) {
   const hash = crypto.createHash('sha384');
-  let data = hash.update(contents, 'utf-8');
-  let gen_hash = data.digest('base64');
+  const data = hash.update(contents, 'utf-8');
+  const gen_hash = data.digest('base64');
   return `sha384-${gen_hash}`
 }
 
