@@ -7,6 +7,7 @@ New Languages:
 Language improvements:
 
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
+- fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
 - enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
 - fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
 
