@@ -219,6 +219,9 @@ export const operatorCharacter = either(
   // /[\u{E0100}-\u{E01EF}]/u
 );
 
+// Valid operator.
+export const operator = concat(operatorHead, operatorCharacter, '*');
+
 // Valid first characters for identifiers.
 export const identifierHead = either(
   /[a-zA-Z_]/,
@@ -238,9 +241,6 @@ export const identifierHead = either(
   // /[\u{90000}-\u{9FFFD}\u{A0000-\u{AFFFD}\u{B0000}-\u{BFFFD}\u{C0000}-\u{CFFFD}]/u,
   // /[\u{D0000}-\u{DFFFD}\u{E0000-\u{EFFFD}]/u
 );
-
-// Valid operator.
-export const operator = concat(operatorHead, operatorCharacter, '*');
 
 // Valid characters for identifiers.
 export const identifierCharacter = either(
