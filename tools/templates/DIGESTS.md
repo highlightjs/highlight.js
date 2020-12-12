@@ -2,7 +2,7 @@
 
 If you are loading Highlight.js via CDN you may wish to use [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) to guarantee that you are using a legimitate build of the library.
 
-To do this you simply need to add a `digest` attribute for each JavaScript file you download via CDN. These digests are used by the browser to confirm the files downloade have not been modified.
+To do this you simply need to add the `integrity` attribute for each JavaScript file you download via CDN. These digests are used by the browser to confirm the files downloaded have not been modified.
 
 ```html
 <script
