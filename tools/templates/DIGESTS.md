@@ -7,7 +7,7 @@ To do this you simply need to add a `digest` attribute for each JavaScript file 
 ```html
 <script
   src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/<!-- $VERSION -->/highlight.min.js"
-  digest="<!-- $MIN_JS_DIGEST -->"></script>
+  integrity="<!-- $MIN_JS_DIGEST -->"></script>
 <!-- including any other grammars you might need to load -->
 <script
   src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/<!-- $VERSION -->/languages/go.min.js"
