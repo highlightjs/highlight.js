@@ -1,1 +1,7 @@
 (lambda (x y z) (+ y z))
+
+(define add-point
+  (lambda [p1 p2]
+    (make-point
+      (+ (point-x p1) (point-x p2))
+      (+ (point-y p1) (point-y p2)))))
