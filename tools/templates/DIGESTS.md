@@ -11,7 +11,7 @@ To do this you simply need to add the `integrity` attribute for each JavaScript 
 <!-- including any other grammars you might need to load -->
 <script
   src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/<!-- $VERSION -->/languages/go.min.js"
-  digest="<!-- $GO_SHA -->"></script>
+  integrity="<!-- $GO_SHA -->"></script>
 ```
 
 The full list of digests for every file can be found below.
