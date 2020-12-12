@@ -1,0 +1,44 @@
+bold **un**constrained text.
+
+italic __un__constrained text.
+
+monospace ``un``constrained text.
+
+A sentence ** with words, and more words!
+using bold style :)**.
+
+Read the little notes**.
+
+Read the little notes**
+
+This is **bold**
+
+E = **mc**2
+
+**Bob went with *Sarah* to the market today.**
+
+**Bob went with *Sarah*
+to the market today.**
+
+There's a colon:**directly** before the starting formatting mark.
+
+There's a semi-colon directly before the starting formatting mark &ndash;**2018**
+
+There's a closing curly bracket directly {before}**the starting formatting mark**.
+
+**--anything goes **
+
+\\**--anything goes **
+
+\\**--anything goes ** with * a **lot** of stars**
+
+**Git**Hub
+
+**bl*ck**-eye
+
+Git[.blue]**Hub**
+
+**bob
+knows
+very
+best**
