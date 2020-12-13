@@ -80,6 +80,9 @@ export default function(hljs) {
         begin: Swift.operator
       },
       {
+        // dot-operator: only operators that start with a dot are allowed to use dots as 
+        // characters (..., ...<, .*, etc). So there rule here is: a dot followed by one or more 
+        // characters that may also include dots.
         begin: `\\.(\\.|${Swift.operatorCharacter})+`
       }
     ]
