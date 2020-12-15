@@ -87,14 +87,14 @@ Highlight.js supports over 180 different languages in the core library.  There a
 language plugins available for additional languages. You can find the full list of supported languages
 in [SUPPORTED_LANGUAGES.md][9].
 
-## Custom Initialization
+## Custom Scenarios
 
 When you need a bit more control over the initialization of
 highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
-functions. This allows you to control *what* to highlight and *when*.
+functions. This allows you to better control *what* to highlight and *when*.
 
-Here’s an equivalent way to calling [`initHighlightingOnLoad`][1] using
-vanilla JS:
+Here’s the equivalent of calling [`initHighlightingOnLoad`][1] using
+only vanilla JS:
 
 ```js
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -104,19 +104,45 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 ```
 
-You can use any tags instead of `<pre><code>` to mark up your code. If
-you don't use a container that preserves line breaks you will need to
-configure highlight.js to use the `<br>` tag:
+Please refer to the documentation for [`configure`][4] options.
+
+
+### Using custom HTML elements for code blocks
+
+We strongly recommend `<pre><code>` wrapping for code blocks. It's quite
+semantic and "just works" out of the box with zero fiddling. It is possible to
+use other HTML elements (or combos), but you may need to pay special attention to
+preserving linebreaks.
+
+Let's say your markup for code blocks uses divs:
+
+```html
+<div class='code'>...</div>
+```
+
+To highlight such blocks manually:
 
 ```js
-hljs.configure({useBR: true});
-
-document.querySelectorAll('div.code').forEach((block) => {
+// first, find all the div.code blocks
+document.querySelectorAll('div.code').forEach(block => {
+  // then highlight each
   hljs.highlightBlock(block);
 });
 ```
 
-For other options refer to the documentation for [`configure`][4].
+Without using a tag that preserves linebreaks (like `pre`) you'll need some
+additional CSS to help preserve them.  You could also [pre and post-process line
+breaks with a plug-in][brPlugin], but *we recommend using CSS*.
+
+[brPlugin]: https://github.com/highlightjs/highlight.js/issues/2559
+
+To preserve linebreaks inside a `div` using CSS:
+
+```css
+div.code {
+  white-space: pre;
+}
+```
 
 
 ## Using with Vue.js
