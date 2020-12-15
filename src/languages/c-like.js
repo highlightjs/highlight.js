@@ -187,7 +187,7 @@ export default function(hljs) {
     end: /[{;=]/,
     excludeEnd: true,
     keywords: CPP_KEYWORDS,
-    illegal: /[^\w\s\*&:<>]/,
+    illegal: /[^\w\s\*&:<>.]/,
     contains: [
       { // to prevent it from being confused as the function title
         begin: DECLTYPE_AUTO_RE,

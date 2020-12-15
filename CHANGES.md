@@ -6,6 +6,7 @@ New Languages:
 
 Language improvements:
 
+- enh(cpp): Support C++ pack expansion in function arguments [Martin Dørum][]
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
 - enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
 - enh(swift) Grammar improvements (#2908) [Steven Van Impe][]
@@ -34,6 +35,33 @@ Grammar improvements:
 - enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
 - enh(asciidoc) Adds support for unconstrained bold syntax (#2869) [Guillaume Grossetie][]
 
+Deprecations (*these will be mentioned in every release*):
+
+- HTML "merging" is deprecated. (#2873) [Josh Goebel][]
+  - HTML inside `<pre>` blocks will no longer be magically merged back into the
+  highlighted code's HTML result - it will instead be silently removed.
+  - Consider [using a plugin][htmlPlugin] if you truly need this functionality
+  - Deprecated as of 10.5.0 - will be removed in v11.
+- `tabReplace` option deprecated. (#2873) [Josh Goebel][]
+  - **Consider:** Use the CSS `tab-size` property, or simply pre-process the
+    text yourself before rendering the initial HTML
+  - otherwise, [use a plugin][tabPlugin]
+  - Deprecated as of 10.5.0 - will be removed in v11.
+- `useBR` option deprecated. (#2559) [Josh Goebel][]
+  - **Recommended:** You really should just use the HTML `<pre>` tag
+  - or perhaps try CSS `white-space: pre;`
+  - otherwise, [use a plugin][brPlugin]
+  - Deprecated as of 10.3.0 - will be removed in v11.
+- `requireLanguage` API is deprecated, will be removed in v11.0.
+  - **Consider:** Use `getLanguage` (with custom error handling) or built-time dependencies.
+  - See [Library API](https://highlightjs.readthedocs.io/en/latest/api.html#requirelanguage-name) for more information.
+  - Deprecated as of 10.4.0 - will be removed in v11.
+
+[htmlPlugin]: https://github.com/highlightjs/highlight.js/issues/2889
+[tabPlugin]: https://github.com/highlightjs/highlight.js/issues/2874
+[brPlugin]: https://github.com/highlightjs/highlight.js/issues/2559
+
+[Martin Dørum]: https://github.com/mortie
 [Jan Pilzer]: https://github.com/Hirse
 [Oldes Huhuman]: https://github.com/Oldes
 [Josh Goebel]: https://github.com/joshgoebel
@@ -105,6 +133,7 @@ Parser:
 - enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
 - fix(vue): Language name now appears in CSS class (#2807) [Michael Rush][]
 - (chore) Clean up all regexs to be UTF-8 compliant/ready (#2759) [Josh Goebel][]
+- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
 
 New Languages:
 
