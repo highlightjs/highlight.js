@@ -95,9 +95,11 @@ jobs:
         run: |
           rm -r ./build
           mv ../build/ ./build/
+          mv ./build/DIGESTS.md .
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add ./build/
+          git add ./DIGESTS.md
           git commit -m'Update to version ${{ env.TAG_NAME }}'
           git tag ${TAG_NAME}
           git push -f --atomic origin ${BRANCH_NAME} ${TAG_NAME}
