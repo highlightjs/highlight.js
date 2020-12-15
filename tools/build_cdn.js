@@ -70,7 +70,7 @@ async function buildSRIDigests(shas) {
   const DIGEST_MD = temp.toString()
 
   const version = require("../package").version
-  const digestList = Object.entries(shas).map((k,v) => `${v} ${k}`).join("\n")
+  const digestList = Object.entries(shas).map(([k,v]) => `${v} ${k}`).join("\n")
 
   const out = DIGEST_MD
     .replace("<!-- $DIGEST_LIST -->", digestList)
