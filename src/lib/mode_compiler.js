@@ -297,7 +297,7 @@ export function compileLanguage(language, { plugins }) {
 
     [
       EXT.beginKeywords,
-      // do this last so compiler extensions that come earlier have access to the
+      // do this later so compiler extensions that come earlier have access to the
       // raw array if they wanted to perhaps manipulate it, etc.
       EXT.compileIllegal,
       // default to 1 relevance if not specified
