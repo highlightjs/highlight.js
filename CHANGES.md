@@ -7,16 +7,19 @@ New Languages:
 Language improvements:
 
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
+- enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
 - enh(swift) Grammar improvements (#2908) [Steven Van Impe][]
   - New grammar for keywords and built-ins
   - Added support for operator highlighting
   - New grammar for attributes
   - Added support for quoted identifiers, implicit parameters, and property wrapper projections
   - Support for more complex expressions in string interpolation
+- fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
 - fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
 
 Grammar improvements:
 
+- enh(scheme) Allow `[]` for argument lists (#2913) [Josh Goebel][]
 - enh(vb) Large rework of VB.net grammar (#2808) [Jan Pilzer][]
   - Adds support for Date data types, see (#2775)
   - Adds support for `REM` comments and fixes `'''` doctags (#2875) (#2851)
@@ -29,6 +32,7 @@ Grammar improvements:
 - fix(javascript) Empty block-comments break highlighting (#2896) [Jan Pilzer][]
 - enh(dart) Fix empty block-comments from breaking highlighting (#2898) [Jan Pilzer][]
 - enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
+- enh(asciidoc) Adds support for unconstrained bold syntax (#2869) [Guillaume Grossetie][]
 
 [Jan Pilzer]: https://github.com/Hirse
 [Oldes Huhuman]: https://github.com/Oldes
@@ -36,6 +40,7 @@ Grammar improvements:
 [tripleee]: https://github.com/tripleee
 [Steven Van Impe]: https://github.com/svanimpe/
 [Vaibhav Chanana]: https://github.com/il3ven
+[Guillaume Grossetie]: https://github.com/mogztter
 
 ## Version 10.4.1 (tentative)
 
