@@ -6,6 +6,7 @@ New Languages:
 
 Language improvements:
 
+- enh(cpp): Support C++ pack expansion in function arguments [Martin Dørum][]
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
 - fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
 - enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
@@ -28,6 +29,7 @@ Grammar improvements:
 - enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
 - enh(asciidoc) Adds support for unconstrained bold syntax (#2869) [Guillaume Grossetie][]
 
+[Martin Dørum]: https://github.com/mortie
 [Jan Pilzer]: https://github.com/Hirse
 [Oldes Huhuman]: https://github.com/Oldes
 [Josh Goebel]: https://github.com/joshgoebel
