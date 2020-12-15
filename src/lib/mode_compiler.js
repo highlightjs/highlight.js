@@ -11,7 +11,7 @@ import { compileKeywords } from "./compile_keywords.js";
  * Given the raw result of a language definition (Language), compiles this so
  * that it is ready for highlighting code.
  * @param {Language} language
- * @param {{plugins: HLJSPlugin[] }} opts
+ * @param {{plugins: HLJSPlugin[]}} opts
  * @returns {CompiledLanguage}
  */
 export function compileLanguage(language, { plugins }) {
