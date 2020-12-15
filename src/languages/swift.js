@@ -47,7 +47,7 @@ export default function(hljs) {
   // find all the regular keywords
   const KEYWORDS = {
     $pattern: either(
-      /\b\w+(\(\w+\))?\??/, // kw or kw(arg)
+      /\b\w+(\(\w+\))?/, // kw or kw(arg)
       /#\w+/ // number keywords
     ),
     keyword: PLAIN_KEYWORDS
