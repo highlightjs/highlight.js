@@ -314,7 +314,7 @@ export default function(hljs) {
         beginKeywords: 'struct protocol class extension enum',
         end: '\\{',
         excludeEnd: true,
-        keywords: KEYWORDS + ' struct protocol class extension enum',
+        keywords: KEYWORDS,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
             begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
