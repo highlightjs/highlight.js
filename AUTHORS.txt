@@ -310,3 +310,5 @@ Contributors:
 - Kyle Brown <kylebrown9@github>
 - Marcus Ortiz <mportiz08@gmail.com>
 - Guillaume Grossetie <ggrossetie@yuzutech.fr>
+- Steven Van Impe <steven.vanimpe@icloud.com>
+- Martin Dørum <martid0311@gmail.com>

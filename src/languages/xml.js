@@ -2,6 +2,7 @@
 Language: HTML, XML
 Website: https://www.w3.org/XML/
 Category: common
+Audit: 2020
 */
 
 import * as regex from '../lib/regex.js';
@@ -10,24 +11,24 @@ import * as regex from '../lib/regex.js';
 export default function(hljs) {
   // Element names can contain letters, digits, hyphens, underscores, and periods
   const TAG_NAME_RE = regex.concat(/[A-Z_]/, regex.optional(/[A-Z0-9_.-]+:/), /[A-Z0-9_.-]*/);
-  const XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
+  const XML_IDENT_RE = /[A-Za-z0-9._:-]+/;
   const XML_ENTITIES = {
     className: 'symbol',
-    begin: '&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;'
+    begin: /&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;/
   };
   const XML_META_KEYWORDS = {
-    begin: '\\s',
+    begin: /\s/,
     contains: [
       {
         className: 'meta-keyword',
-        begin: '#?[a-z_][a-z1-9_-]+',
-        illegal: '\\n'
+        begin: /#?[a-z_][a-z1-9_-]+/,
+        illegal: /\n/
       }
     ]
   };
   const XML_META_PAR_KEYWORDS = hljs.inherit(XML_META_KEYWORDS, {
-    begin: '\\(',
-    end: '\\)'
+    begin: /\(/,
+    end: /\)/
   });
   const APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, {
     className: 'meta-string'
@@ -90,8 +91,8 @@ export default function(hljs) {
     contains: [
       {
         className: 'meta',
-        begin: '<![a-z]',
-        end: '>',
+        begin: /<![a-z]/,
+        end: />/,
         relevance: 10,
         contains: [
           XML_META_KEYWORDS,
@@ -99,13 +100,13 @@ export default function(hljs) {
           APOS_META_STRING_MODE,
           XML_META_PAR_KEYWORDS,
           {
-            begin: '\\[',
-            end: '\\]',
+            begin: /\[/,
+            end: /\]/,
             contains: [
               {
                 className: 'meta',
-                begin: '<![a-z]',
-                end: '>',
+                begin: /<![a-z]/,
+                end: />/,
                 contains: [
                   XML_META_KEYWORDS,
                   XML_META_PAR_KEYWORDS,
@@ -118,15 +119,15 @@ export default function(hljs) {
         ]
       },
       hljs.COMMENT(
-        '<!--',
-        '-->',
+        /<!--/,
+        /-->/,
         {
           relevance: 10
         }
       ),
       {
-        begin: '<!\\[CDATA\\[',
-        end: '\\]\\]>',
+        begin: /<!\[CDATA\[/,
+        end: /\]\]>/,
         relevance: 10
       },
       XML_ENTITIES,
@@ -144,14 +145,14 @@ export default function(hljs) {
         ending braket. The '$' is needed for the lexeme to be recognized
         by hljs.subMode() that tests lexemes outside the stream.
         */
-        begin: '<style(?=\\s|>)',
-        end: '>',
+        begin: /<style(?=\s|>)/,
+        end: />/,
         keywords: {
           name: 'style'
         },
         contains: [ TAG_INTERNALS ],
         starts: {
-          end: '</style>',
+          end: /<\/style>/,
           returnEnd: true,
           subLanguage: [
             'css',
@@ -162,8 +163,8 @@ export default function(hljs) {
       {
         className: 'tag',
         // See the comment in the <style tag about the lookahead pattern
-        begin: '<script(?=\\s|>)',
-        end: '>',
+        begin: /<script(?=\s|>)/,
+        end: />/,
         keywords: {
           name: 'script'
         },

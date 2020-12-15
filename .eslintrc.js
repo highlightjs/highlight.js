@@ -26,6 +26,7 @@ module.exports = {
     "init-declarations": ["error", "always"],
     "array-callback-return": "error",
     "block-scoped-var": "error",
+    "no-multiple-empty-lines": ["error", { max: 2 }],
     // we like our semi-colons
     semi: ["error", "always"],
     // our codebase doesn't do this at all, so disabled for now
@@ -57,7 +58,7 @@ module.exports = {
         // // languages are all over the map and we don't want to
         // // do a mass edit so turn off the most egregious rule violations
         // indent: "off",
-        "camelcase": 0,
+        camelcase: 0,
         "no-control-regex": 0,
         "no-useless-escape": 0,
         "comma-dangle": 1,

@@ -102,7 +102,7 @@ export default function(hljs) {
       // Indentation of subsequent lines must be the same to
       // be considered part of the block
       className: 'string',
-      begin: '[\\|>]([1-9]?[+-])?[ ]*\\n( +)[^\\n]+\\n(\\2[^\\n]+\\n?)*'
+      begin: '[\\|>]([1-9]?[+-])?[ ]*\\n( +)[^ ][^\\n]*\\n(\\2[^\\n]+\\n?)*'
     },
     { // Ruby/Rails erb
       begin: '<%[%=-]?',

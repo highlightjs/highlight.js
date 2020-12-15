@@ -5,36 +5,37 @@ Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: https://httpd.apache.org
 Description: language definition for Apache configuration files (httpd.conf & .htaccess)
 Category: common, config
+Audit: 2020
 */
 
 /** @type LanguageFn */
 export default function(hljs) {
   const NUMBER_REF = {
     className: 'number',
-    begin: '[\\$%]\\d+'
+    begin: /[$%]\d+/
   };
   const NUMBER = {
     className: 'number',
-    begin: '\\d+'
+    begin: /\d+/
   };
   const IP_ADDRESS = {
     className: "number",
-    begin: '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(:\\d{1,5})?'
+    begin: /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?/
   };
   const PORT_NUMBER = {
     className: "number",
-    begin: ":\\d{1,5}"
+    begin: /:\d{1,5}/
   };
   return {
     name: 'Apache config',
-    aliases: ['apacheconf'],
+    aliases: [ 'apacheconf' ],
     case_insensitive: true,
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
         className: 'section',
-        begin: '</?',
-        end: '>',
+        begin: /<\/?/,
+        end: />/,
         contains: [
           IP_ADDRESS,
           PORT_NUMBER,
@@ -49,10 +50,12 @@ export default function(hljs) {
         relevance: 0,
         // keywords aren’t needed for highlighting per se, they only boost relevance
         // for a very generally defined mode (starts with a word, ends with line-end
-        keywords: { nomarkup:
+        keywords: {
+          nomarkup:
             'order deny allow setenv rewriterule rewriteengine rewritecond documentroot ' +
             'sethandler errordocument loadmodule options header listen serverroot ' +
-            'servername' },
+            'servername'
+        },
         starts: {
           end: /$/,
           relevance: 0,
@@ -60,15 +63,17 @@ export default function(hljs) {
           contains: [
             {
               className: 'meta',
-              begin: '\\s\\[',
-              end: '\\]$'
+              begin: /\s\[/,
+              end: /\]$/
             },
             {
               className: 'variable',
-              begin: '[\\$%]\\{',
-              end: '\\}',
-              contains: ['self',
-                NUMBER_REF]
+              begin: /[\$%]\{/,
+              end: /\}/,
+              contains: [
+                'self',
+                NUMBER_REF
+              ]
             },
             IP_ADDRESS,
             NUMBER,
