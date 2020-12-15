@@ -319,10 +319,9 @@ export function compileLanguage(language, { plugins }) {
       throw new Error("ERR: Prefer `keywords.$pattern` to `mode.lexemes`, BOTH are not allowed. (see mode reference) ");
     }
 
-    keywordPattern = keywordPattern || mode.lexemes || /\w+/;
-
     // `mode.lexemes` was the old standard before we added and now recommend
     // using `keywords.$pattern` to pass the keyword pattern
+    keywordPattern = keywordPattern || mode.lexemes || /\w+/;
     cmode.keywordPatternRe = langRe(keywordPattern, true);
 
     if (parent) {
