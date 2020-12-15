@@ -53,16 +53,16 @@ same line
 ###"interpolation \###("string") raw \##("string") raw \#("string") raw \("string")"###
 
 """
-interpolation \(x)
+interpolation \($0 + 1)
 """
 #"""
-interpolation \#(123)
-raw \(123)
+interpolation \#(abs(x - 2) as Double)
+raw \(abs(x - 2) as Double)
 """#
 ##"""
-interpolation \##(1.23)
-raw \#(1.23)
-raw \(1.23)
+interpolation \##(true)
+raw \#(true)
+raw \(true)
 """##
 ###"""
 interpolation \###("string")

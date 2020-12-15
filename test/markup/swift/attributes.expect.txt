@@ -1,0 +1,9 @@
+<span class="hljs-keyword">@available</span>(<span class="hljs-keyword">iOS</span> <span class="hljs-number">14</span>, deprecated: <span class="hljs-string">&quot;reason&quot;</span>, <span class="hljs-operator">*</span>)
+<span class="hljs-keyword">@convention(swift)</span>
+<span class="hljs-keyword">@objc</span>
+<span class="hljs-keyword">@objc(name)</span>
+
+<span class="hljs-keyword">@propertyWrapper</span>
+<span class="hljs-meta">@SomeWrapper</span>(value: <span class="hljs-number">1.0</span>, other: <span class="hljs-string">&quot;string&quot;</span>, bool: <span class="hljs-literal">false</span>)
+
+@ notAnAttribute

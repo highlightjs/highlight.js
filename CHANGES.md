@@ -8,8 +8,14 @@ Language improvements:
 
 - enh(cpp): Support C++ pack expansion in function arguments [Martin Dørum][]
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
-- fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
 - enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
+- enh(swift) Grammar improvements (#2908) [Steven Van Impe][]
+  - New grammar for keywords and built-ins
+  - Added support for operator highlighting
+  - New grammar for attributes
+  - Added support for quoted identifiers, implicit parameters, and property wrapper projections
+  - Support for more complex expressions in string interpolation
+- fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
 - fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
 
 Grammar improvements:
