@@ -193,23 +193,21 @@ export default function(hljs) {
 
   // https://docs.swift.org/swift-book/ReferenceManual/Attributes.html
   const AVAILABLE_ATTRIBUTE = {
-    begin: lookahead(/(@|#)available/), // also matches #available
-    relevance: 0,
+    begin: /(@|#)available\(/,
+    end: /\)/,
+    keywords: {
+      $pattern: /[@#]?\w+/,
+      keyword: Swift.availabilityKeywords
+        .concat([
+          "@available",
+          "#available"
+        ])
+        .join(' ')
+    },
     contains: [
-      {
-        className: 'keyword',
-        begin: /(@|#)available/
-      },
-      {
-        begin: /\(/,
-        end: /\)/,
-        keywords: Swift.availabilityKeywords.join(' '),
-        contains: [
-          OPERATOR,
-          NUMBER,
-          STRING
-        ]
-      }
+      OPERATOR,
+      NUMBER,
+      STRING
     ]
   };
   const KEYWORD_ATTRIBUTE = {
