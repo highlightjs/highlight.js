@@ -29,28 +29,33 @@ export default function(hljs) {
     begin: concat(/\./, either(...Swift.keywords)),
     relevance: 0
   };
+  const PLAIN_KEYWORDS = Swift.keywords
+    .filter(kw => typeof kw === 'string')
+    .concat([ "_|0" ]); // seems common, so 0 relevance
+  const REGEX_KEYWORDS = Swift.keywords
+    .filter(kw => typeof kw !== 'string') // find regex
+    .concat(Swift.keywordTypes)
+    .map(Swift.keywordWrapper);
   const KEYWORD = {
     variants: [
       {
         className: 'keyword',
-        begin: either(...Swift.keywords, ...Swift.optionalDotKeywords)
-      },
-      {
-        className: 'literal',
-        begin: either(...Swift.literals)
-      },
-      {
-        className: 'keyword',
-        begin: /\b_\b/,
-        relevance: 0
-      },
-      {
-        className: 'keyword',
-        begin: concat(/#/, either(...Swift.numberSignKeywords))
+        begin: either(...REGEX_KEYWORDS, ...Swift.optionalDotKeywords)
       }
     ]
   };
-  const KEYWORDS = [
+  // find all the regular keywords
+  const KEYWORDS = {
+    $pattern: either(
+      /\b\w+(\(\w+\))?\??/, // kw or kw(arg)
+      /#\w+/ // number keywords
+    ),
+    keyword: PLAIN_KEYWORDS
+      .concat(Swift.numberSignKeywords)
+      .join(" "),
+    literal: Swift.literals.join(" ")
+  };
+  const KEYWORD_MODES = [
     DOT_KEYWORD,
     KEYWORD_GUARD,
     KEYWORD
@@ -80,8 +85,8 @@ export default function(hljs) {
         begin: Swift.operator
       },
       {
-        // dot-operator: only operators that start with a dot are allowed to use dots as 
-        // characters (..., ...<, .*, etc). So there rule here is: a dot followed by one or more 
+        // dot-operator: only operators that start with a dot are allowed to use dots as
+        // characters (..., ...<, .*, etc). So there rule here is: a dot followed by one or more
         // characters that may also include dots.
         begin: `\\.(\\.|${Swift.operatorCharacter})+`
       }
@@ -244,8 +249,9 @@ export default function(hljs) {
   for (const variant of STRING.variants) {
     const interpolation = variant.contains.find(mode => mode.label === "interpol");
     // TODO: Interpolation can contain any expression, so there's room for improvement here.
+    interpolation.keywords = KEYWORDS;
     const submodes = [
-      ...KEYWORDS,
+      ...KEYWORD_MODES,
       ...BUILT_INS,
       OPERATOR,
       NUMBER,
@@ -267,6 +273,7 @@ export default function(hljs) {
 
   return {
     name: 'Swift',
+    keywords: KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       BLOCK_COMMENT,
@@ -288,9 +295,10 @@ export default function(hljs) {
             begin: /\(/,
             end: /\)/,
             endsParent: true,
+            keywords: KEYWORDS,
             contains: [
               'self',
-              ...KEYWORDS,
+              ...KEYWORD_MODES,
               NUMBER,
               STRING,
               hljs.C_BLOCK_COMMENT_MODE,
@@ -308,11 +316,12 @@ export default function(hljs) {
         beginKeywords: 'struct protocol class extension enum',
         end: '\\{',
         excludeEnd: true,
+        keywords: KEYWORDS + ' struct protocol class extension enum',
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
             begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
           }),
-          ...KEYWORDS
+          ...KEYWORD_MODES
         ]
       },
       {
@@ -324,7 +333,7 @@ export default function(hljs) {
         ],
         relevance: 0
       },
-      ...KEYWORDS,
+      ...KEYWORD_MODES,
       ...BUILT_INS,
       OPERATOR,
       NUMBER,

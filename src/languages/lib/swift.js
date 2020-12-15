@@ -1,10 +1,9 @@
-/* eslint-disable no-misleading-character-class */
 import {
   concat,
   either
 } from '../../lib/regex.js';
 
-const keywordWrapper = keyword => concat(
+export const keywordWrapper = keyword => concat(
   /\b/,
   keyword,
   /\w$/.test(keyword) ? /\b/ : /\B/
@@ -22,13 +21,20 @@ export const optionalDotKeywords = [
   'self'
 ].map(keywordWrapper);
 
+// should register as keyword, not type
+export const keywordTypes = [
+  'Any',
+  'Self'
+];
+
 // Regular keywords and literals.
 export const keywords = [
-  'Any',
-  'Self',
+  // strings below will be fed into the regular `keywords` engine while regex
+  // will result in additional modes being created to scan for those keywords to
+  // avoid conflicts with other rules
   'associatedtype',
-  'as\\?', // operator
-  'as!', // operator
+  /as\?/, // operator
+  /as!/, // operator
   'as', // operator
   'break',
   'case',
@@ -46,7 +52,7 @@ export const keywords = [
   'enum',
   'extension',
   'fallthrough',
-  'fileprivate\\(set\\)',
+  'fileprivate(set)',
   'fileprivate',
   'final', // contextual
   'for',
@@ -57,10 +63,10 @@ export const keywords = [
   'import',
   'indirect', // contextual
   'infix', // contextual
-  'init\\?',
-  'init!',
+  /init\?/,
+  /init!/,
   'inout',
-  'internal\\(set\\)',
+  'internal(set)',
   'internal',
   'in',
   'is', // operator
@@ -68,7 +74,7 @@ export const keywords = [
   'let',
   'mutating', // contextual
   'nonmutating', // contextual
-  'open\\(set\\)', // contextual
+  'open(set)', // contextual
   'open', // contextual
   'operator',
   'optional', // contextual
@@ -76,10 +82,10 @@ export const keywords = [
   'postfix', // contextual
   'precedencegroup',
   'prefix', // contextual
-  'private\\(set\\)',
+  'private(set)',
   'private',
   'protocol',
-  'public\\(set\\)',
+  'public(set)',
   'public',
   'repeat',
   'required', // contextual
@@ -94,19 +100,19 @@ export const keywords = [
   'switch',
   'throws',
   'throw',
-  'try\\?', // operator
-  'try!', // operator
+  /try\?/, // operator
+  /try!/, // operator
   'try', // operator
   'typealias',
-  'unowned\\(safe\\)', // contextual
-  'unowned\\(unsafe\\)', // contextual
+  'unowned(safe)', // contextual
+  'unowned(unsafe)', // contextual
   'unowned', // contextual
   'var',
   'weak', // contextual
   'where',
   'while',
   'willSet' // contextual
-].map(keywordWrapper);
+];
 
 // NOTE: Contextual keywords are reserved only in specific contexts.
 // Ideally, these should be matched using modes to avoid false positives.
@@ -120,31 +126,31 @@ export const literals = [
   'false',
   'nil',
   'true'
-].map(keywordWrapper);
+];
 
 // Keywords that start with a number sign (#).
 // #available is handled separately.
 export const numberSignKeywords = [
-  'colorLiteral',
-  'column',
-  'dsohandle',
-  'else',
-  'elseif',
-  'endif',
-  'error',
-  'file',
-  'fileID',
-  'fileLiteral',
-  'filePath',
-  'function',
-  'if',
-  'imageLiteral',
-  'keyPath',
-  'line',
-  'selector',
-  'sourceLocation',
-  'warn_unqualified_access',
-  'warning'
+  '#colorLiteral',
+  '#column',
+  '#dsohandle',
+  '#else',
+  '#elseif',
+  '#endif',
+  '#error',
+  '#file',
+  '#fileID',
+  '#fileLiteral',
+  '#filePath',
+  '#function',
+  '#if',
+  '#imageLiteral',
+  '#keyPath',
+  '#line',
+  '#selector',
+  '#sourceLocation',
+  '#warn_unqualified_access',
+  '#warning'
 ];
 
 // Global functions in the Standard Library.
