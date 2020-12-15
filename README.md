@@ -109,11 +109,18 @@ Please refer to the documentation for [`configure`][4] options.
 
 ### Using custom HTML elements for code blocks
 
-We highly recommend `<pre><code>` for code blocks. It's super semantic and "just
-works" with zero fiddling. That is what these tags were built for. If needed though, it is possible to use custom HTML elements. Let's say your markup for
-code blocks must use divs: `<div class='code'>...</div>`.
+We strongly recommend `<pre><code>` wrapping for code blocks. It's quite
+semantic and "just works" out of the box with zero fiddling. It is possible to
+use other HTML elements (or combos), but you may need to pay special attention to
+preserving linebreaks.
 
-To highlight these blocks:
+Let's say your markup for code blocks uses divs:
+
+```html
+<div class='code'>...</div>
+```
+
+To highlight such blocks manually:
 
 ```js
 // first, find all the div.code blocks
@@ -125,11 +132,11 @@ document.querySelectorAll('div.code').forEach(block => {
 
 Without using a tag that preserves linebreaks (like `pre`) you'll need some
 additional CSS to help preserve them.  You could also [pre and post-process line
-breaks with a plug-in][brPlugin], but we recommend using CSS.
+breaks with a plug-in][brPlugin], but *we recommend using CSS*.
 
 [brPlugin]: https://github.com/highlightjs/highlight.js/issues/2559
 
-To preserve linebreaks inside `div`:
+To preserve linebreaks inside a `div` using CSS:
 
 ```css
 div.code {
