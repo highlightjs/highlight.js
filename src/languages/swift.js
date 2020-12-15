@@ -7,7 +7,7 @@ Website: https://swift.org
 Category: common, system
 */
 
-import * as Swift from './lib/swift.js';
+import * as Swift from './lib/kws_swift.js';
 import {
   concat,
   either,
