@@ -17,13 +17,14 @@ export default function(hljs) {
     className: 'meta',
     begin: '([O])([0-9]+)'
   };
+  const NUMBER = hljs.inherit(hljs.C_NUMBER_MODE, {
+    begin: '([-+]?((\\.\\d+)|(\\d+)(\\.\\d*)?))|' + hljs.C_NUMBER_RE
+  });
   const GCODE_CODE = [
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.COMMENT(/\(/, /\)/),
-    hljs.inherit(hljs.C_NUMBER_MODE, {
-      begin: '([-+]?([0-9]*\\.?[0-9]+\\.?))|' + hljs.C_NUMBER_RE
-    }),
+    NUMBER,
     hljs.inherit(hljs.APOS_STRING_MODE, {
       illegal: null
     }),
@@ -50,7 +51,10 @@ export default function(hljs) {
     {
       className: 'built_in',
       begin: '(ATAN|ABS|ACOS|ASIN|SIN|COS|EXP|FIX|FUP|ROUND|LN|TAN)(\\[)',
-      end: '([-+]?([0-9]*\\.?[0-9]+\\.?))(\\])'
+      contains: [
+        NUMBER
+      ],
+      end: '\\]'
     },
     {
       className: 'symbol',

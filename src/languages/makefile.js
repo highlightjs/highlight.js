@@ -69,7 +69,8 @@ export default function(hljs) {
     name: 'Makefile',
     aliases: [
       'mk',
-      'mak'
+      'mak',
+      'make',
     ],
     keywords: {
       $pattern: /[\w-]+/,

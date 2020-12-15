@@ -101,8 +101,8 @@ Note: This callback does not fire from highlighting resulting from auto-language
 It returns nothing.
 
 
-after:highlightBlock({block, result})
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+after:highlightBlock({block, result, text})
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This callback function is passed an object with two keys:
 
@@ -112,11 +112,14 @@ block
 result
   The result object returned by `highlight` or `highlightAuto`.
 
+text
+  The raw text that was to be highlighted.
+
 It returns nothing.
 
 
 before:highlightBlock({block, language})
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This callback function is passed an object with two keys:
 

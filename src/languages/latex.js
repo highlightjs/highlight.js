@@ -172,7 +172,7 @@ export default function(hljs) {
   const BEGIN_ENV = function(envname, starts_mode) {
     return hljs.inherit(
       {
-        begin: '\\\\begin(?=\\s*\\r?\\n?\\s*\\{' + envname + '\\})',
+        begin: '\\\\begin(?=[ \t]*(\\r?\\n[ \t]*)?\\{' + envname + '\\})',
         keywords: {$pattern: /\\[a-zA-Z]+/, keyword: '\\begin'},
         relevance: 0,
       },
