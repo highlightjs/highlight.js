@@ -67,6 +67,10 @@ async function installDemo(languages, { minify }) {
   const assets = await glob("./demo/*.{js,css}");
   assets.forEach((file) => install(file));
 
+  renderIndex(languages, minify);
+}
+
+async function renderIndex(languages, minify) {
   languages = languages.filter((lang) =>
     // hide a few languages
     lang.name !== "plaintext"
@@ -75,11 +79,39 @@ async function installDemo(languages, { minify }) {
     && lang.sample
   );
 
-  const css = await glob("styles/*.css", {cwd:"./src"})
-  const styles = css.map((el) => (
-    { "name": _.startCase(path.basename(el,".css")), "path": el }
-  ));
-  renderTemplate("./demo/index.html", "./demo/index.html", { styles, languages, minify });
+  languages.forEach((language) => {
+    if (!language.categories.length) {
+      language.categories.push("misc");
+    }
+    language.categories.push("all");
+  });
+
+  const categoryCounter = languages
+    .flatMap((language) => language.categories)
+    .reduce((map, category) => map.set(category, (map.get(category) || 0) + 1), new Map());
+  const categories = [
+    "common",
+    ...Array.from(categoryCounter.keys())
+      .filter((category) => !["common", "misc", "all"].includes(category))
+      .sort(),
+    "misc",
+    "all",
+  ].map((category) => ({
+    category,
+    count: categoryCounter.get(category),
+  }));
+
+  const css = await glob("styles/*.css", { cwd: "./src" });
+  const styles = css
+    .map((el) => ({ name: _.startCase(path.basename(el, ".css")), path: el }))
+    .filter((style) => style.name !== "Default");
+
+  renderTemplate("./demo/index.html", "./demo/index.html", {
+    categories,
+    languages,
+    minify,
+    styles,
+  });
 }
 
 async function installDocs() {
