@@ -32,4 +32,4 @@ export const notice = (message) => {
  */
 export const deprecated = (version, message) => {
   console.log(`Deprecated as of ${version}. ${message}`);
-}
+};
