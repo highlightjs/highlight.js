@@ -270,8 +270,7 @@ export default function(hljs) {
       }
     ]
   };
-  // Generic arguments
-  TYPE.contains.push({
+  const GENERIC_ARGUMENTS = {
     begin: /</,
     end: />/,
     keywords: KEYWORDS,
@@ -281,7 +280,8 @@ export default function(hljs) {
       OPERATOR_GUARD,
       TYPE
     ]
-  });
+  };
+  TYPE.contains.push(GENERIC_ARGUMENTS);
 
   // Add supported submodes to string interpolation.
   for (const variant of STRING.variants) {
