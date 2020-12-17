@@ -14,6 +14,7 @@ import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
 import { BuildVuePlugin } from "./plugins/vue.js";
 import { mergeHTMLPlugin } from "./plugins/merge_html.js";
+import * as logger from "./lib/logger.js";
 
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
@@ -78,8 +79,8 @@ const HLJS = function(hljs) {
     if (match) {
       const language = getLanguage(match[1]);
       if (!language) {
-        console.warn(LANGUAGE_NOT_FOUND.replace("{}", match[1]));
-        console.warn("Falling back to no-highlight mode for this block.", block);
+        logger.warn(LANGUAGE_NOT_FOUND.replace("{}", match[1]));
+        logger.warn("Falling back to no-highlight mode for this block.", block);
       }
       return language ? match[1] : 'no-highlight';
     }
@@ -460,7 +461,7 @@ const HLJS = function(hljs) {
 
     const language = getLanguage(languageName);
     if (!language) {
-      console.error(LANGUAGE_NOT_FOUND.replace("{}", languageName));
+      logger.error(LANGUAGE_NOT_FOUND.replace("{}", languageName));
       throw new Error('Unknown language: "' + languageName + '"');
     }
 
@@ -727,8 +728,8 @@ const HLJS = function(hljs) {
    */
   function configure(userOptions) {
     if (userOptions.useBR) {
-      console.warn("'useBR' option is deprecated and will be removed entirely in v11.0");
-      console.warn("Please see https://github.com/highlightjs/highlight.js/issues/2559");
+      logger.deprecated("10.3.0", "'useBR' will be removed entirely in v11.0");
+      logger.deprecated("10.3.0", "Please see https://github.com/highlightjs/highlight.js/issues/2559");
     }
     options = inherit(options, userOptions);
   }
@@ -763,9 +764,9 @@ const HLJS = function(hljs) {
     try {
       lang = languageDefinition(hljs);
     } catch (error) {
-      console.error("Language definition for '{}' could not be registered.".replace("{}", languageName));
+      logger.error("Language definition for '{}' could not be registered.".replace("{}", languageName));
       // hard or soft error
-      if (!SAFE_MODE) { throw error; } else { console.error(error); }
+      if (!SAFE_MODE) { throw error; } else { logger.error(error); }
       // languages that have serious errors are replaced with essentially a
       // "plaintext" stand-in so that the code blocks will still get normal
       // css classes applied to them - and one bad language won't break the
@@ -799,8 +800,8 @@ const HLJS = function(hljs) {
     @returns {Language | never}
   */
   function requireLanguage(name) {
-    console.warn("requireLanguage is deprecated and will be removed entirely in the future.");
-    console.warn("Please see https://github.com/highlightjs/highlight.js/pull/2844");
+    logger.deprecated("10.4.0", "requireLanguage will be removed entirely in v11.");
+    logger.deprecated("10.4.0", "Please see https://github.com/highlightjs/highlight.js/pull/2844");
 
     const lang = getLanguage(name);
     if (lang) { return lang; }
@@ -867,8 +868,8 @@ const HLJS = function(hljs) {
   @returns {string}
   */
   function deprecateFixMarkup(arg) {
-    console.warn("fixMarkup is deprecated and will be removed entirely in v11.0");
-    console.warn("Please see https://github.com/highlightjs/highlight.js/issues/2534");
+    logger.deprecated("10.2.0", "fixMarkup will be removed entirely in v11.0");
+    logger.deprecated("10.2.0", "Please see https://github.com/highlightjs/highlight.js/issues/2534");
 
     return fixMarkup(arg);
   }
