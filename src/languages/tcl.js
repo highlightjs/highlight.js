@@ -10,6 +10,11 @@ import * as regex from '../lib/regex.js';
 export default function(hljs) {
   const ARRAY_ACCESS = '\\(([a-zA-Z0-9_]+)*\\)';
 
+  const NUMBER = {
+    className: 'number',
+    variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]
+  };
+
   return {
     name: 'Tcl',
     aliases: ['tk'],
@@ -43,14 +48,17 @@ export default function(hljs) {
         ]
       },
       {
-        excludeEnd: true,
         className: "variable",
         variants: [
           {
-            begin: '\\$(::)?[a-zA-Z_]+((::)?[a-zA-Z0-9_]+)*' + regex.optional(ARRAY_ACCESS),
+            begin: '\\$(::)?[a-zA-Z_]+((::)?[a-zA-Z0-9_]+)*',
           },
           {
-            begin: '\\$\\{(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*' + regex.optional(ARRAY_ACCESS) + '\\}',
+            begin: '\\$\\{(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*',
+            end: '\\}',
+            contains: [
+              NUMBER
+            ]
           }
         ]
       },
@@ -61,10 +69,7 @@ export default function(hljs) {
           hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
         ]
       },
-      {
-        className: 'number',
-        variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]
-      }
+      NUMBER
     ]
   }
 }
