@@ -39,6 +39,13 @@ code {
   tab-size: 4;
 }
 
+pre code.hljs {
+  padding-left: 1.5em;
+  /* compatible with school-book */
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
 aside {
   background: #600;
   bottom: 0;
@@ -120,7 +127,7 @@ main {
 }
 
 main > div {
-  margin: 3em 0;
+  margin: 2.5em 0 3em;
 }
 
 .hidden {
