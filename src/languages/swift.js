@@ -16,6 +16,15 @@ import {
 
 /** @type LanguageFn */
 export default function(hljs) {
+  // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID411
+  const BLOCK_COMMENT = hljs.COMMENT(
+    '/\\*',
+    '\\*/',
+    {
+      contains: [ 'self' ]
+    }
+  );
+
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413
   // https://docs.swift.org/swift-book/ReferenceManual/zzSummaryOfTheGrammar.html
   const DOT_KEYWORD = {
@@ -77,6 +86,11 @@ export default function(hljs) {
   ];
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418
+  const OPERATOR_GUARD = {
+    // Prevent -> from being highlighting as an operator.
+    begin: /->/,
+    relevance: 0
+  };
   const OPERATOR = {
     className: 'operator',
     relevance: 0,
@@ -92,6 +106,10 @@ export default function(hljs) {
       }
     ]
   };
+  const OPERATORS = [
+    OPERATOR_GUARD,
+    OPERATOR
+  ];
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_numeric-literal
   // TODO: Update for leading `-` after lookbehind is supported everywhere
@@ -205,7 +223,7 @@ export default function(hljs) {
         .join(' ')
     },
     contains: [
-      OPERATOR,
+      ...OPERATORS,
       NUMBER,
       STRING
     ]
@@ -224,24 +242,46 @@ export default function(hljs) {
     USER_DEFINED_ATTRIBUTE
   ];
 
+  // https://docs.swift.org/swift-book/ReferenceManual/Types.html
   const TYPE = {
-    className: 'type',
-    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*',
-    relevance: 0
+    begin: lookahead(/\b[A-Z]/),
+    relevance: 0,
+    contains: [
+      { // Common Apple frameworks, for relevance boost
+        className: 'type',
+        begin: concat(/(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)/, Swift.identifierCharacter, '+')
+      },
+      { // Type identifier
+        className: 'type',
+        begin: Swift.typeIdentifier,
+        relevance: 0
+      },
+      { // Optional type
+        begin: /[?!]+/,
+        relevance: 0
+      },
+      { // Variadic parameter
+        begin: /\.\.\./,
+        relevance: 0
+      },
+      { // Protocol composition
+        begin: concat(/\s+&\s+/, lookahead(Swift.typeIdentifier)),
+        relevance: 0
+      }
+    ]
   };
-  // slightly more special to swift
-  const OPTIONAL_USING_TYPE = {
-    className: 'type',
-    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*[!?]',
-    relevance: 0
+  const GENERIC_ARGUMENTS = {
+    begin: /</,
+    end: />/,
+    keywords: KEYWORDS,
+    contains: [
+      ...KEYWORD_MODES,
+      ...ATTRIBUTES,
+      OPERATOR_GUARD,
+      TYPE
+    ]
   };
-  const BLOCK_COMMENT = hljs.COMMENT(
-    '/\\*',
-    '\\*/',
-    {
-      contains: [ 'self' ]
-    }
-  );
+  TYPE.contains.push(GENERIC_ARGUMENTS);
 
   // Add supported submodes to string interpolation.
   for (const variant of STRING.variants) {
@@ -251,7 +291,7 @@ export default function(hljs) {
     const submodes = [
       ...KEYWORD_MODES,
       ...BUILT_INS,
-      OPERATOR,
+      ...OPERATORS,
       NUMBER,
       STRING,
       ...IDENTIFIERS
@@ -333,12 +373,11 @@ export default function(hljs) {
       },
       ...KEYWORD_MODES,
       ...BUILT_INS,
-      OPERATOR,
+      ...OPERATORS,
       NUMBER,
       STRING,
       ...IDENTIFIERS,
       ...ATTRIBUTES,
-      OPTIONAL_USING_TYPE,
       TYPE
     ]
   };

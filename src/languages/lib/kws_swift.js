@@ -258,6 +258,9 @@ export const identifierCharacter = either(
 // Valid identifier.
 export const identifier = concat(identifierHead, identifierCharacter, '*');
 
+// Valid type identifier.
+export const typeIdentifier = concat(/[A-Z]/, identifierCharacter, '*');
+
 // Built-in attributes, which are highlighted as keywords.
 // @available is handled separately.
 export const keywordAttributes = [

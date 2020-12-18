@@ -19,6 +19,7 @@ Language improvements:
   - New grammar for attributes
   - Added support for quoted identifiers, implicit parameters, and property wrapper projections
   - Support for more complex expressions in string interpolation
+- enh(swift) Improved highlighting for types and generic arguments (#2920) [Steven Van Impe][]
 - fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
 - fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
 
