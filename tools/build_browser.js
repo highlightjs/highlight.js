@@ -96,10 +96,12 @@ async function renderIndex(languages, minify) {
       .sort(),
     "misc",
     "all",
-  ].map((category) => ({
-    category,
-    count: categoryCounter.get(category),
-  }));
+  ]
+    .filter((category) => categoryCounter.has(category))
+    .map((category) => ({
+      category,
+      count: categoryCounter.get(category),
+    }));
 
   const css = await glob("styles/*.css", { cwd: "./src" });
   const styles = css
