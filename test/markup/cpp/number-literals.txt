@@ -4,3 +4,8 @@ float exponentFloat = .123'456e3'000; // digit separators in floats
 float suffixed = 3.000'001'234f // digit separators in suffixed numbers
 char word[] = { '3', '\0' }; // make sure digit separators don't mess up chars
 float negative = -123.0f; // negative floating point numbers
+
+/* literal suffixes: these are to be highlighted as numbers */
+90ll 90LL 90u 90U 90l 90L
+90ul 90ul 90Ul 90UL 90lu 90lU 90Lu 90LU
+90ull 90uLL 90Ull 90ULL 90llu 90llU 90LLu 90LLU
