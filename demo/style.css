@@ -46,7 +46,7 @@ aside {
   display: flex;
   flex-direction: column;
   left: 0;
-  padding: 0 1em 1em;
+  padding: 0 1.5em 1em;
   position: fixed;
   top: 0;
   width: 16em;
