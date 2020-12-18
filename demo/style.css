@@ -40,10 +40,8 @@ code {
 }
 
 pre code.hljs {
-  padding-left: 1.5em;
   /* compatible with school-book */
-  padding-top:15px;
-  padding-bottom:15px;
+  padding: 16px 30px 20px;
 }
 
 aside {
