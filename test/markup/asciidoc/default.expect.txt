@@ -5,7 +5,7 @@ Author Name, &lt;author@domain.foo&gt;
 you can write text <span class="hljs-link">http://example.com</span>[<span class="hljs-string">with links</span>], optionally
 using an explicit link:<span class="hljs-link">http://example.com</span>[<span class="hljs-string">link prefix</span>].
 
-<span class="hljs-bullet">* </span>single quotes around a phrase does not place &#x27;emphasis&#x27;
+<span class="hljs-bullet">* </span>single quotes around a phrase place <span class="hljs-emphasis">&#x27;emphasis&#x27;</span>
 <span class="hljs-bullet">** </span>alternatively, you can put underlines around a phrase to add <span class="hljs-emphasis">_emphasis_</span>
 <span class="hljs-bullet">* </span>astericks around a phrase make the text <span class="hljs-strong">*bold*</span>
 <span class="hljs-bullet">* </span>pluses around a phrase make it <span class="hljs-code">+monospaced+</span>
@@ -13,7 +13,7 @@ using an explicit link:<span class="hljs-link">http://example.com</span>[<span c
 <span class="hljs-bullet">** </span>use two of each for double <span class="hljs-string">``smart&#x27;&#x27;</span> quotes
 
 <span class="hljs-bullet">- </span>escape characters are supported
-<span class="hljs-bullet">- </span>you can escape underscores like \_surrounded by underscores!_
+<span class="hljs-bullet">- </span>you can escape a quote inside emphasized text like <span class="hljs-emphasis">&#x27;here\&#x27;s johnny!&#x27;</span>
 
 <span class="hljs-bullet">term:: </span>definition
 <span class="hljs-bullet"> another term:: </span>another definition

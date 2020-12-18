@@ -5,7 +5,7 @@ Author Name, <author@domain.foo>
 you can write text http://example.com[with links], optionally
 using an explicit link:http://example.com[link prefix].
 
-* single quotes around a phrase does not place 'emphasis'
+* single quotes around a phrase place 'emphasis'
 ** alternatively, you can put underlines around a phrase to add _emphasis_
 * astericks around a phrase make the text *bold*
 * pluses around a phrase make it +monospaced+
@@ -13,7 +13,7 @@ using an explicit link:http://example.com[link prefix].
 ** use two of each for double ``smart'' quotes
 
 - escape characters are supported
-- you can escape underscores like \_surrounded by underscores!_
+- you can escape a quote inside emphasized text like 'here\'s johnny!'
 
 term:: definition
  another term:: another definition

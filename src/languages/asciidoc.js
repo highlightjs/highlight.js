@@ -96,6 +96,19 @@ export default function(hljs) {
       className: 'emphasis',
       // must not precede or follow a word character
       begin: /_[^\s]([^\n]+\n)+([^\n]+)_/
+    },
+    // inline constrained emphasis using single quote (legacy)
+    {
+      className: 'emphasis',
+      // must not follow a word character or be followed by a single quote or space
+      begin: '\\B\'(?![\'\\s])',
+      end: '(\\n{2}|\')',
+      // allow escaped single quote followed by word char
+      contains: [{
+        begin: '\\\\\'\\w',
+        relevance: 0
+      }],
+      relevance: 0
     }
   ];
   const ADMONITION = {
