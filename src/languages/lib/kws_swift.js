@@ -52,7 +52,7 @@ export const keywords = [
   'enum',
   'extension',
   'fallthrough',
-  'fileprivate(set)',
+  /fileprivate\(set\)/,
   'fileprivate',
   'final', // contextual
   'for',
@@ -66,7 +66,7 @@ export const keywords = [
   /init\?/,
   /init!/,
   'inout',
-  'internal(set)',
+  /internal\(set\)/,
   'internal',
   'in',
   'is', // operator
@@ -74,7 +74,7 @@ export const keywords = [
   'let',
   'mutating', // contextual
   'nonmutating', // contextual
-  'open(set)', // contextual
+  /open\(set\)/, // contextual
   'open', // contextual
   'operator',
   'optional', // contextual
@@ -82,10 +82,10 @@ export const keywords = [
   'postfix', // contextual
   'precedencegroup',
   'prefix', // contextual
-  'private(set)',
+  /private\(set\)/,
   'private',
   'protocol',
-  'public(set)',
+  /public\(set\)/,
   'public',
   'repeat',
   'required', // contextual
@@ -104,8 +104,8 @@ export const keywords = [
   /try!/, // operator
   'try', // operator
   'typealias',
-  'unowned(safe)', // contextual
-  'unowned(unsafe)', // contextual
+  /unowned\(safe\)/, // contextual
+  /unowned\(unsafe\)/, // contextual
   'unowned', // contextual
   'var',
   'weak', // contextual
@@ -240,7 +240,7 @@ export const identifierHead = either(
   /[\u2C00-\u2DFF\u2E80-\u2FFF]/,
   /[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]/,
   /[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]/,
-  /[\uFE47-\uFFFD]/
+  /[\uFE47-\uFEFE\uFF00-\uFFFD]/ // Should be /[\uFE47-\uFFFD]/, but we have to exclude FEFF.
   // The following characters are also allowed, but the regexes aren't supported yet.
   // /[\u{10000}-\u{1FFFD}\u{20000-\u{2FFFD}\u{30000}-\u{3FFFD}\u{40000}-\u{4FFFD}]/u,
   // /[\u{50000}-\u{5FFFD}\u{60000-\u{6FFFD}\u{70000}-\u{7FFFD}\u{80000}-\u{8FFFD}]/u,

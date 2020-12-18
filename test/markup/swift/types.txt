@@ -41,3 +41,7 @@ Array<Sequence.Protocol>
 Dictionary<String, Any>
 Dictionary<String, Array<Int>>
 Array<(@autoclosure () -> String) throws -> String?>
+Array<
+  // documentation
+  Int
+>

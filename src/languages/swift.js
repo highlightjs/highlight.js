@@ -24,6 +24,10 @@ export default function(hljs) {
       contains: [ 'self' ]
     }
   );
+  const COMMENTS = [
+    hljs.C_LINE_COMMENT_MODE,
+    BLOCK_COMMENT
+  ];
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413
   // https://docs.swift.org/swift-book/ReferenceManual/zzSummaryOfTheGrammar.html
@@ -56,7 +60,7 @@ export default function(hljs) {
   // find all the regular keywords
   const KEYWORDS = {
     $pattern: either(
-      /\b\w+(\(\w+\))?/, // kw or kw(arg)
+      /\b\w+/, // regular keywords
       /#\w+/ // number keywords
     ),
     keyword: PLAIN_KEYWORDS
@@ -275,6 +279,7 @@ export default function(hljs) {
     end: />/,
     keywords: KEYWORDS,
     contains: [
+      ...COMMENTS,
       ...KEYWORD_MODES,
       ...ATTRIBUTES,
       OPERATOR_GUARD,
@@ -282,6 +287,143 @@ export default function(hljs) {
     ]
   };
   TYPE.contains.push(GENERIC_ARGUMENTS);
+
+  // https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID552
+  // Prevents element names from being highlighted as keywords.
+  const TUPLE_ELEMENT_NAME = {
+    begin: lookahead(concat(Swift.identifier, /\s*:/)),
+    end: lookahead(/:/),
+    keywords: "_",
+    relevance: 0
+  };
+  // Matches tuples as well as the parameter list of a function type.
+  const TUPLE = {
+    begin: /\(/,
+    end: /\)/,
+    relevance: 0,
+    keywords: KEYWORDS,
+    contains: [
+      'self',
+      TUPLE_ELEMENT_NAME,
+      ...COMMENTS,
+      ...KEYWORD_MODES,
+      ...BUILT_INS,
+      ...OPERATORS,
+      NUMBER,
+      STRING,
+      ...IDENTIFIERS,
+      ...ATTRIBUTES,
+      TYPE
+    ]
+  };
+
+  // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID362
+  // Matches both the keyword func and the function title.
+  // Grouping these lets us differentiate between the operator function <
+  // and the start of the generic parameter clause (also <).
+  const FUNCTION_TITLE = {
+    begin: lookahead(/\bfunc\b/),
+    relevance: 0,
+    contains: [
+      {
+        className: 'keyword',
+        begin: /\bfunc\b/
+      },
+      {
+        begin: /\s+/,
+        relevance: 0
+      },
+      {
+        className: 'title',
+        begin: either(QUOTED_IDENTIFIER.begin, Swift.identifier, Swift.operator),
+        // Required to make sure the opening < of the generic parameter clause
+        // isn't parsed as a second title.
+        endsParent: true,
+        relevance: 0
+      }
+    ]
+  };
+  const GENERIC_PARAMETERS = {
+    begin: /\s*</,
+    end: />/,
+    contains: [
+      ...COMMENTS,
+      TYPE
+    ]
+  };
+  const FUNCTION_PARAMETER_NAME = {
+    begin: either(
+      lookahead(concat(Swift.identifier, /\s*:/)),
+      lookahead(concat(Swift.identifier, /\s+/, Swift.identifier, /\s*:/))
+    ),
+    end: lookahead(/:/),
+    relevance: 0,
+    contains: [
+      {
+        className: 'keyword',
+        begin: /\b_\b/
+      },
+      {
+        className: 'params',
+        begin: Swift.identifier
+      }
+    ]
+  };
+  const FUNCTION_PARAMETERS = {
+    begin: /\s*\(/,
+    end: /\)/,
+    keywords: KEYWORDS,
+    contains: [
+      FUNCTION_PARAMETER_NAME,
+      ...COMMENTS,
+      ...KEYWORD_MODES,
+      ...OPERATORS,
+      NUMBER,
+      STRING,
+      ...ATTRIBUTES,
+      TYPE,
+      TUPLE
+    ],
+    illegal: /["']/
+  };
+  const FUNCTION = {
+    className: 'function',
+    begin: lookahead(/\bfunc\b/),
+    contains: [
+      FUNCTION_TITLE,
+      GENERIC_PARAMETERS,
+      FUNCTION_PARAMETERS
+    ],
+    illegal: /\[|%/
+  };
+
+  // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID375
+  // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID379
+  const INIT_SUBSCRIPT_TITLE = {
+    begin: lookahead(/\b(subscript|init[?!]?)\s*[<(]/),
+    end: lookahead(/[<(]/),
+    relevance: 0,
+    contains: [
+      {
+        className: 'keyword',
+        begin: /subscript|init[?!]?/
+      },
+      {
+        begin: /\s+/,
+        relevance: 0
+      }
+    ]
+  };
+  const INIT_SUBSCRIPT = {
+    className: 'function',
+    begin: lookahead(/\b(subscript|init[?!]?)\s*[<(]/),
+    contains: [
+      INIT_SUBSCRIPT_TITLE,
+      GENERIC_PARAMETERS,
+      FUNCTION_PARAMETERS
+    ],
+    illegal: /\[|%/
+  };
 
   // Add supported submodes to string interpolation.
   for (const variant of STRING.variants) {
@@ -313,42 +455,9 @@ export default function(hljs) {
     name: 'Swift',
     keywords: KEYWORDS,
     contains: [
-      hljs.C_LINE_COMMENT_MODE,
-      BLOCK_COMMENT,
-      {
-        className: 'function',
-        beginKeywords: 'func',
-        end: /\{/,
-        excludeEnd: true,
-        contains: [
-          hljs.inherit(hljs.TITLE_MODE, {
-            begin: /[A-Za-z$_][0-9A-Za-z$_]*/
-          }),
-          {
-            begin: /</,
-            end: />/
-          },
-          {
-            className: 'params',
-            begin: /\(/,
-            end: /\)/,
-            endsParent: true,
-            keywords: KEYWORDS,
-            contains: [
-              'self',
-              ...KEYWORD_MODES,
-              NUMBER,
-              STRING,
-              hljs.C_BLOCK_COMMENT_MODE,
-              { // relevance booster
-                begin: ':'
-              }
-            ],
-            illegal: /["']/
-          }
-        ],
-        illegal: /\[|%/
-      },
+      ...COMMENTS,
+      FUNCTION,
+      INIT_SUBSCRIPT,
       {
         className: 'class',
         beginKeywords: 'struct protocol class extension enum',
@@ -365,10 +474,7 @@ export default function(hljs) {
       {
         beginKeywords: 'import',
         end: /$/,
-        contains: [
-          hljs.C_LINE_COMMENT_MODE,
-          BLOCK_COMMENT
-        ],
+        contains: [ ...COMMENTS ],
         relevance: 0
       },
       ...KEYWORD_MODES,
@@ -378,7 +484,8 @@ export default function(hljs) {
       STRING,
       ...IDENTIFIERS,
       ...ATTRIBUTES,
-      TYPE
+      TYPE,
+      TUPLE
     ]
   };
 }
