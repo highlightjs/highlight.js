@@ -6,16 +6,16 @@ name: Lint
 on:
   pull_request:
     branches:
-      - master
+    - master
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "*" # latest
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run lint-languages
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: "*" # latest
+    - run: npm ci
+    - run: npm run lint
+    - run: npm run lint-languages

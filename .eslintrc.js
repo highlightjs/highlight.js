@@ -12,6 +12,7 @@ module.exports = {
     ecmaVersion: 2015,
     sourceType: "module"
   },
+  // parser: '@typescript-eslint/parser',
   plugins: [
     "@typescript-eslint"
   ],
@@ -83,13 +84,13 @@ module.exports = {
         mocha: true
       },
       parserOptions: {
-        ecmaVersion: 2021
+        ecmaVersion: 2018
       }
     },
     {
       files: ["tools/**/*.js"],
       parserOptions: {
-        ecmaVersion: 2021
+        ecmaVersion: 2018
       }
     }
   ]
