@@ -2,17 +2,12 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true,
-    mocha: true
+    node: true
   },
   extends: [
     "eslint:recommended",
     "standard"
   ],
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly"
-  },
   parserOptions: {
     ecmaVersion: 2015,
     sourceType: "module"
@@ -22,7 +17,7 @@ module.exports = {
     "@typescript-eslint"
   ],
   rules: {
-    "no-var": 1,
+    "no-var": "warn",
     "init-declarations": ["error", "always"],
     "array-callback-return": "error",
     "block-scoped-var": "error",
@@ -55,32 +50,47 @@ module.exports = {
       files: ["src/languages/*.js"],
       rules: {
         "no-unused-expressions": "off",
-        // // languages are all over the map and we don't want to
-        // // do a mass edit so turn off the most egregious rule violations
+        // languages are all over the map and we don't want to
+        // do a mass edit so turn off the most egregious rule violations
         // indent: "off",
-        camelcase: 0,
-        "no-control-regex": 0,
-        "no-useless-escape": 0,
-        "comma-dangle": 1,
+        camelcase: "off",
+        "no-control-regex": "off",
+        "no-useless-escape": "off",
+        "comma-dangle": "warn",
         "array-bracket-spacing": ["error", "always"
-        //   {
-        //     objectsInArrays: true
+          // {
+          //   objectsInArrays: true
           // }
         ],
-        // "object-curly-spacing": 1,
+        // "object-curly-spacing": "warn",
         // "key-spacing": "off",
-        // "array-bracket-spacing": [1],
-        "array-bracket-newline": [1, {
+        // "array-bracket-spacing": ["warn"],
+        "array-bracket-newline": ["warn", {
           multiline: true,
           minItems: 2
         }],
-        "array-element-newline": 1,
+        "array-element-newline": "warn",
         "object-curly-newline": [1, {
           minProperties: 1
         }],
         "object-property-newline": [2,
           { allowAllPropertiesOnSameLine: false }
         ]
+      }
+    },
+    {
+      files: ["test/**/*.js"],
+      env: {
+        mocha: true
+      },
+      parserOptions: {
+        ecmaVersion: 2018
+      }
+    },
+    {
+      files: ["tools/**/*.js"],
+      parserOptions: {
+        ecmaVersion: 2018
       }
     }
   ]

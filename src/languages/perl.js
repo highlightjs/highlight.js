@@ -159,7 +159,7 @@ export default function(hljs) {
             /\//,
             /(\\.|[^\\\/])*/,
             /\//,
-            REGEX_MODIFIERS,
+            REGEX_MODIFIERS
           ),
           relevance: 10
         },
