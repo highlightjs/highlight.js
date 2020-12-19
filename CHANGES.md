@@ -40,6 +40,7 @@ Grammar improvements:
 - enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
 - enh(asciidoc) Adds support for unconstrained bold syntax (#2869) [Guillaume Grossetie][]
 - enh(c-like) Incorrect highlighting for interger suffix (#2919) [Vaibhav Chanana][]
+- enh(properties) Correctly handle trailing backslash (#2922) [Vaibhav Chanana][]
 
 Deprecations (*these will be mentioned in every release*):
 
