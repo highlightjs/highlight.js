@@ -79,6 +79,12 @@ module.exports = {
       }
     },
     {
+      files: ["demo/**/*.js"],
+      globals: {
+        hljs: "readonly"
+      }
+    },
+    {
       files: ["test/**/*.js"],
       env: {
         mocha: true

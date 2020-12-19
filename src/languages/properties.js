@@ -27,6 +27,7 @@ export default function(hljs) {
             end: /$/,
             relevance: 0,
             contains: [
+              { begin: '\\\\\\\\'},
               { begin: '\\\\\\n' }
             ]
           }
