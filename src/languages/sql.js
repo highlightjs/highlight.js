@@ -27,18 +27,24 @@ export default function(hljs) {
   const STRING = {
     className: 'string',
     variants: [
-    {
-      begin: '\'', end: '\'',
-      contains: [{begin: '\'\''}]
-    },
-    {
-      begin: '"', end: '"',
-      contains: [{begin: '""'}]
-    },
-    {
-      begin: '`', end: '`'
-    }
-  ]};
+      {
+        begin: /'/,
+        end: /'/,
+        contains: [
+          {begin: /''/ }
+        ]
+      },
+      {
+        begin: /`/,
+        end: /`/
+      }
+    ]
+  };
+  const QUOTED_IDENTIFIER = {
+    begin: /"/,
+    end: /"/,
+    contains: [ { begin: /""/ } ]
+  };
 
   const LITERALS = [
     "true",
@@ -638,6 +644,7 @@ export default function(hljs) {
       FUNCTION_CALL,
       VARIABLE,
       STRING,
+      QUOTED_IDENTIFIER,
       hljs.C_NUMBER_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       COMMENT_MODE,
