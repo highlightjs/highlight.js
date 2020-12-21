@@ -1,5 +1,6 @@
 SELECT '\';
 
-SELECT "\";
+-- this is not a string in SQL, it's an identifier
+SELECT "name" from users;
 
 SELECT `\`;
