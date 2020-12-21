@@ -557,6 +557,25 @@ export default function(hljs) {
     "width_bucket",
   ];
 
+  // these functions can
+  const POSSIBLE_WITHOUT_PARENS = [
+    "current_catalog",
+    "current_date",
+    "current_default_transform_group",
+    "current_path",
+    "current_role",
+    "current_schema",
+    "current_transform_group_for_type",
+    "current_user",
+    "session_user",
+    "system_time",
+    "system_user",
+    "current_time",
+    "localtime",
+    "current_timestamp",
+    "localtimestamp"
+  ];
+
   const COMBOS = [
     "create table", // no need, both are keywords
     "insert into", // no need, both are keywords
@@ -625,7 +644,8 @@ export default function(hljs) {
       keyword:
         reduceRelevancy(KEYWORDS, { when: (x) => x.length < 3 }).join(" "),
       literal: LITERALS.join(" "),
-      type: TYPES.join(" ")
+      type: TYPES.join(" "),
+      built_in: POSSIBLE_WITHOUT_PARENS.join(" ")
     },
     contains: [
       {
