@@ -572,14 +572,16 @@ export default function(hljs) {
     "localtimestamp"
   ];
 
+  // those exist to boost relevance making these very
+  // "SQL like" keyword combos worth +1 extra relevance
   const COMBOS = [
-    "create table", // no need, both are keywords
-    "insert into", // no need, both are keywords
+    "create table",
+    "insert into",
     "primary key",
     "foreign key",
     "not null",
-    "alter table", // no need, both are keywords
-    "add constraint", // add -> keywords?
+    "alter table",
+    "add constraint",
     "grouping sets",
     "on overflow",
     "character set",
