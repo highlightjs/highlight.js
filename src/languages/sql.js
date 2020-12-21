@@ -33,10 +33,6 @@ export default function(hljs) {
         contains: [
           {begin: /''/ }
         ]
-      },
-      {
-        begin: /`/,
-        end: /`/
       }
     ]
   };
