@@ -66,7 +66,7 @@ export default function(hljs) {
         if (mode.starts) throw new Error("beforeMatch cannot be used with starts");
 
         const originalMode = Object.assign({}, mode);
-        Object.keys(mode).forEach(function(key) { delete mode[key]; });
+        Object.keys(mode).forEach((key) => { delete mode[key]; });
 
         mode.begin = regex.concat(originalMode.beforeMatch, regex.lookahead(originalMode.begin));
         mode.starts = {
