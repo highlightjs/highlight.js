@@ -166,8 +166,8 @@ match
 - **type**: regexp
 
 This is simply syntactic sugar for a ``begin`` when no ``end`` expression is
-necessary.   It may not be used with ``end``.  It exists solely to help make grammars
-a bit more readable.
+necessary.   It may not be used with ``begin`` or ``end`` keys (that would make
+no sense).  It exists simply to help make grammars more readable.
 
 ::
 
