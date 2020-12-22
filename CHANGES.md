@@ -22,6 +22,7 @@ Language improvements:
 - enh(swift) Improved highlighting for types and generic arguments (#2920) [Steven Van Impe][]
 - fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
 - fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
+- fix(asciidoc): Support unconstrained emphasis syntax (#2869) [Guillaume Grossetie][]
 
 Grammar improvements:
 
