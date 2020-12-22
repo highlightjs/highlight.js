@@ -1,3 +1,5 @@
+.. highlight:: javascript
+
 Mode Reference
 ==============
 
@@ -112,6 +114,23 @@ begin
 
 Regular expression starting a mode. For example a single quote for strings or two forward slashes for C-style comments.
 If absent, ``begin`` defaults to a regexp that matches anything, so the mode starts immediately.
+
+
+match
+^^^^^
+
+- **type**: regexp
+
+This is simply syntactic sugar for a ``begin`` when no ``end`` expression is
+necessary.   It may not be used with ``end``.  It exists solely to help make grammars
+a bit more readable.
+
+::
+
+  {
+    className: "title",
+    match: /Fish/
+  }
 
 
 on:begin
@@ -325,10 +344,18 @@ For detailed explanation see :doc:`Language definition guide </language-guide>`.
 illegal
 ^^^^^^^
 
-- **type**: regexp
+- **type**: regexp or array
 
-A regular expression that defines symbols illegal for the mode.
+A regular expression or array that defines symbols illegal for the mode.
 When the parser finds a match for illegal expression it immediately drops parsing the whole language altogether.
+
+::
+
+  {
+    illegal: /%/,
+    // or using an array
+    illegal: [ /%/, /cookies/ ]
+  }
 
 
 excludeBegin, excludeEnd
