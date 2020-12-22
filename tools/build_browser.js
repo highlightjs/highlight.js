@@ -11,6 +11,7 @@ const config = require("./build_config");
 const { install, install_cleancss, mkdir, renderTemplate } = require("./lib/makestuff");
 const log = (...args) => console.log(...args);
 const { rollupCode } = require("./lib/bundling.js");
+const bundling = require('./lib/bundling.js');
 
 function buildHeader(args) {
   return "/*\n" +
@@ -66,6 +67,10 @@ async function installDemo(languages, { minify }) {
   const assets = await glob("./demo/*.{js,css}");
   assets.forEach((file) => install(file));
 
+  renderIndex(languages, minify);
+}
+
+async function renderIndex(languages, minify) {
   languages = languages.filter((lang) =>
     // hide a few languages
     lang.name !== "plaintext"
@@ -74,11 +79,41 @@ async function installDemo(languages, { minify }) {
     && lang.sample
   );
 
-  const css = await glob("styles/*.css", {cwd:"./src"})
-  const styles = css.map((el) => (
-    { "name": _.startCase(path.basename(el,".css")), "path": el }
-  ));
-  renderTemplate("./demo/index.html", "./demo/index.html", { styles, languages, minify });
+  languages.forEach((language) => {
+    if (!language.categories.length) {
+      language.categories.push("misc");
+    }
+    language.categories.push("all");
+  });
+
+  const categoryCounter = languages
+    .flatMap((language) => language.categories)
+    .reduce((map, category) => map.set(category, (map.get(category) || 0) + 1), new Map());
+  const categories = [
+    "common",
+    ...Array.from(categoryCounter.keys())
+      .filter((category) => !["common", "misc", "all"].includes(category))
+      .sort(),
+    "misc",
+    "all",
+  ]
+    .filter((category) => categoryCounter.has(category))
+    .map((category) => ({
+      category,
+      count: categoryCounter.get(category),
+    }));
+
+  const css = await glob("styles/*.css", { cwd: "./src" });
+  const styles = css
+    .map((el) => ({ name: _.startCase(path.basename(el, ".css")), path: el }))
+    .filter((style) => style.name !== "Default");
+
+  renderTemplate("./demo/index.html", "./demo/index.html", {
+    categories,
+    languages,
+    minify,
+    styles,
+  });
 }
 
 async function installDocs() {
@@ -130,6 +165,9 @@ async function buildBrowserHighlightJS(languages, {minify}) {
 
   var tasks = [];
   tasks.push(fs.writeFile(outFile, fullSrc, {encoding: "utf8"}));
+  var shas = {
+    "highlight.js": bundling.sha384(fullSrc)
+  }
 
   var core_min = [];
   var minifiedSrc = "";
@@ -145,6 +183,7 @@ async function buildBrowserHighlightJS(languages, {minify}) {
     core_min = [ header, tersed.code].join().length;
 
     tasks.push(fs.writeFile(minifiedFile, minifiedSrc, {encoding: "utf8"}));
+    shas["highlight.min.js"] = bundling.sha384(minifiedSrc);
   }
 
   await Promise.all(tasks);
@@ -154,6 +193,7 @@ async function buildBrowserHighlightJS(languages, {minify}) {
     minified: Buffer.byteLength(minifiedSrc, 'utf8'),
     minifiedSrc,
     fullSrc,
+    shas,
     full: Buffer.byteLength(fullSrc, 'utf8') };
 }
 

@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "10.4.0-beta1",
+  "version": "10.4.0",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -24,7 +24,8 @@
   "types": "./types/index.d.ts",
   "scripts": {
     "mocha": "mocha",
-    "lint": "eslint -c .eslintrc.js src/*.js src/lib/*.js",
+    "lint": "eslint src/*.js src/lib/*.js src/plugins/*.js demo/*.js",
+    "lint-languages": "eslint --no-eslintrc -c .eslintrc.lang.js src/languages/**/*.js",
     "build_and_test": "npm run build && npm run test",
     "build": "node ./tools/build.js -t node",
     "build-cdn": "node ./tools/build.js -t cdn",
@@ -64,6 +65,7 @@
     "jsdom": "^16.4.0",
     "lodash": "^4.17.20",
     "mocha": "^8.2.1",
+    "refa": "^0.4.1",
     "rollup": "^2.33.1",
     "should": "^13.2.3",
     "terser": "^5.3.8",

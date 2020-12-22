@@ -1,8 +1,133 @@
-## Version 10.4.0-beta1
+## Version 10.5.0 preparation
 
-Parser:
+Build:
 
-- enh(parser) use negative look-ahead for `beginKeywords` support (#2813) [Josh Goebel][]
+- Add Subresource Integrity digest lists to `cdn-assets` [Josh Goebel][]
+
+New Languages:
+
+- Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
+
+Language improvements:
+
+- enh(cpp): Support C++ pack expansion in function arguments [Martin Dørum][]
+- enh(makefile): Add `make` as an alias (#2883) [tripleee][]
+- enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
+- enh(swift) Grammar improvements (#2908) [Steven Van Impe][]
+  - New grammar for keywords and built-ins
+  - Added support for operator highlighting
+  - New grammar for attributes
+  - Added support for quoted identifiers, implicit parameters, and property wrapper projections
+  - Support for more complex expressions in string interpolation
+- enh(swift) Improved highlighting for types and generic arguments (#2920) [Steven Van Impe][]
+- fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
+- fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
+- fix(asciidoc): Support unconstrained emphasis syntax (#2869) [Guillaume Grossetie][]
+
+Grammar improvements:
+
+- enh(scheme) Allow `[]` for argument lists (#2913) [Josh Goebel][]
+- enh(vb) Large rework of VB.net grammar (#2808) [Jan Pilzer][]
+  - Adds support for Date data types, see (#2775)
+  - Adds support for `REM` comments and fixes `'''` doctags (#2875) (#2851)
+    - Custom number mode to support VB.net specific number flags
+    - Hex (&H), Oct (&O), and binary (&B) prefixes
+    - Separating digits with underscores: 90_946
+  - Type suffixes: 123UI (unsigned integer)
+  - Improves directives detection and adds support for `Enable`, `Disable`, and `Then` keywords
+  - Adds more markup tests
+- fix(javascript) Empty block-comments break highlighting (#2896) [Jan Pilzer][]
+- enh(dart) Fix empty block-comments from breaking highlighting (#2898) [Jan Pilzer][]
+- enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
+- enh(asciidoc) Adds support for unconstrained bold syntax (#2869) [Guillaume Grossetie][]
+- enh(c-like) Incorrect highlighting for interger suffix (#2919) [Vaibhav Chanana][]
+- enh(properties) Correctly handle trailing backslash (#2922) [Vaibhav Chanana][]
+
+Deprecations (*these will be mentioned in every release*):
+
+- HTML "merging" is deprecated. (#2873) [Josh Goebel][]
+  - HTML inside `<pre>` blocks will no longer be magically merged back into the
+  highlighted code's HTML result - it will instead be silently removed.
+  - Consider [using a plugin][htmlPlugin] if you truly need this functionality
+  - Deprecated as of 10.5.0 - will be removed in v11.
+- `tabReplace` option deprecated. (#2873) [Josh Goebel][]
+  - **Consider:** Use the CSS `tab-size` property, or simply pre-process the
+    text yourself before rendering the initial HTML
+  - otherwise, [use a plugin][tabPlugin]
+  - Deprecated as of 10.5.0 - will be removed in v11.
+- `useBR` option deprecated. (#2559) [Josh Goebel][]
+  - **Recommended:** You really should just use the HTML `<pre>` tag
+  - or perhaps try CSS `white-space: pre;`
+  - otherwise, [use a plugin][brPlugin]
+  - Deprecated as of 10.3.0 - will be removed in v11.
+- `requireLanguage` API is deprecated, will be removed in v11.0.
+  - **Consider:** Use `getLanguage` (with custom error handling) or built-time dependencies.
+  - See [Library API](https://highlightjs.readthedocs.io/en/latest/api.html#requirelanguage-name) for more information.
+  - Deprecated as of 10.4.0 - will be removed in v11.
+
+[htmlPlugin]: https://github.com/highlightjs/highlight.js/issues/2889
+[tabPlugin]: https://github.com/highlightjs/highlight.js/issues/2874
+[brPlugin]: https://github.com/highlightjs/highlight.js/issues/2559
+
+[Martin Dørum]: https://github.com/mortie
+[Jan Pilzer]: https://github.com/Hirse
+[Oldes Huhuman]: https://github.com/Oldes
+[Josh Goebel]: https://github.com/joshgoebel
+[tripleee]: https://github.com/tripleee
+[Steven Van Impe]: https://github.com/svanimpe/
+[Vaibhav Chanana]: https://github.com/il3ven
+[Guillaume Grossetie]: https://github.com/mogztter
+
+## Version 10.4.1 (tentative)
+
+Security
+
+- (fix) Exponential backtracking fixes for: [Josh Goebel][]
+  - cpp
+  - handlebars
+  - gams
+  - perl
+  - jboss-cli
+  - r
+  - erlang-repl
+  - powershell
+  - routeros
+- (fix) Polynomial backtracking fixes for: [Josh Goebel][]
+  - asciidoc
+  - reasonml
+  - latex
+  - kotlin
+  - gcode
+  - d
+  - aspectj
+  - moonscript
+  - coffeescript/livescript
+  - csharp
+  - scilab
+  - crystal
+  - elixir
+  - basic
+  - ebnf
+  - ruby
+  - fortran/irpf90
+  - livecodeserver
+  - yaml
+  - x86asm
+  - dsconfig
+  - markdown
+  - ruleslanguage
+  - xquery
+  - sqf
+
+Very grateful to [Michael Schmidt][] for all the help.
+
+[Michael Schmidt]: https://github.com/RunDevelopment
+[Josh Goebel]: https://github.com/joshgoebel
+
+
+## Version 10.4.0
+
+A largish release with many improvements and fixes from quite a few different contributors.  Enjoy!
 
 Deprecations:
 
@@ -12,8 +137,11 @@ Deprecations:
 
 Parser:
 
+- enh(parser) use negative look-ahead for `beginKeywords` support (#2813) [Josh Goebel][]
+- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
 - fix(vue): Language name now appears in CSS class (#2807) [Michael Rush][]
 - (chore) Clean up all regexs to be UTF-8 compliant/ready (#2759) [Josh Goebel][]
+- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
 
 New Languages:
 
@@ -59,10 +187,6 @@ Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
 - fix(dev) the Vue.js plugin no longer throws an exception when hljs is not in the global namespace [Kyle Brown][]
-
-Parser:
-
-- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
 
 New themes:
 

@@ -1,0 +1,83 @@
+bold **un**constrained text.
+
+italic __un__constrained text.
+
+monospace ``un``constrained text.
+
+A sentence ** with words, and more words!
+using bold style :)**.
+
+Read the little notes**.
+
+Read the little notes**
+
+This is **bold**
+
+E = **mc**2
+
+**Bob went with *Sarah* to the market today.**
+
+**Bob went with *Sarah*
+to the market today.**
+
+There's a colon:**directly** before the starting formatting mark.
+
+There's a semi-colon directly before the starting formatting mark &ndash;**2018**
+
+There's a closing curly bracket directly {before}**the starting formatting mark**.
+
+**--anything goes **
+
+\\**--anything goes **
+
+\\**--anything goes ** with * a **lot** of stars**
+
+**Git**Hub
+
+**bl*ck**-eye
+
+Git[.blue]**Hub**
+
+**bob
+knows
+very
+best**
+
+A sentence __ with words, and more words!
+using italic style :)__.
+
+Read the little notes__.
+
+Read the little notes__
+
+This is __italic__
+
+E = __mc__2
+
+__Bob went with _Sarah_ to the market today.__
+
+__Bob went with _Sarah_
+to the market today.__
+
+There's a colon:__directly__ before the starting formatting mark.
+
+There's a semi-colon directly before the starting formatting mark &ndash;__2018__
+
+There's a closing curly bracket directly {before}__the starting formatting mark__.
+
+__--anything goes __
+
+\\__--anything goes __
+
+\\__--anything goes __ with _ a __lot__ of underscores__
+
+__Git__Hub
+
+__bl_ck__-eye
+
+Git[.blue]__Hub__
+
+__bob
+knows
+very
+best__

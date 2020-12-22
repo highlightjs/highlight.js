@@ -1,0 +1,11 @@
+HTTP/2 301
+location: https://www.google.com/
+content-type: text/html; charset=UTF-8
+date: Sat, 31 Oct 2020 22:47:14 GMT
+expires: Mon, 30 Nov 2020 22:47:14 GMT
+cache-control: public, max-age=2592000
+server: gws
+content-length: 220
+x-xss-protection: 0
+x-frame-options: SAMEORIGIN
+alt-svc: h3-Q050=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-T051=":443"; ma=2592000,h3-T050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"

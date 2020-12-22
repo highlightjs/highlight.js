@@ -1,0 +1,72 @@
+<span class="hljs-string">&quot;escaped characters <span class="hljs-subst">\0</span><span class="hljs-subst">\\</span><span class="hljs-subst">\t</span><span class="hljs-subst">\n</span><span class="hljs-subst">\r</span><span class="hljs-subst">\&quot;</span><span class="hljs-subst">\&#x27;</span>&quot;</span>
+<span class="hljs-string">&quot;escaped unicode <span class="hljs-subst">\u{0}</span><span class="hljs-subst">\u{12}</span><span class="hljs-subst">\u{345}</span><span class="hljs-subst">\u{6789}</span><span class="hljs-subst">\u{abcde}</span><span class="hljs-subst">\u{fABCDE}</span><span class="hljs-subst">\u{F012345}</span><span class="hljs-subst">\u{67890abc}</span>&quot;</span>
+<span class="hljs-string">#&quot;escaped characters <span class="hljs-subst">\#0</span><span class="hljs-subst">\#\</span><span class="hljs-subst">\#t</span><span class="hljs-subst">\#n</span><span class="hljs-subst">\#r</span><span class="hljs-subst">\#&quot;</span><span class="hljs-subst">\#&#x27;</span>&quot;#</span>
+<span class="hljs-string">#&quot;escaped unicode <span class="hljs-subst">\#u{0}</span><span class="hljs-subst">\#u{12}</span><span class="hljs-subst">\#u{345}</span><span class="hljs-subst">\#u{6789}</span><span class="hljs-subst">\#u{abcde}</span><span class="hljs-subst">\#u{fABCDE}</span><span class="hljs-subst">\#u{F012345}</span><span class="hljs-subst">\#u{67890abc}</span>&quot;#</span>
+<span class="hljs-string">#&quot;raw characters \0\\\t\n\r\&quot;\&#x27;\u{6789}&quot;#</span>
+<span class="hljs-string">##&quot;escaped characters <span class="hljs-subst">\##0</span><span class="hljs-subst">\##\</span><span class="hljs-subst">\##t</span><span class="hljs-subst">\##n</span><span class="hljs-subst">\##r</span><span class="hljs-subst">\##&quot;</span><span class="hljs-subst">\##&#x27;</span>&quot;##</span>
+<span class="hljs-string">##&quot;escaped unicode <span class="hljs-subst">\##u{0}</span><span class="hljs-subst">\##u{12}</span><span class="hljs-subst">\##u{345}</span><span class="hljs-subst">\##u{6789}</span><span class="hljs-subst">\##u{abcde}</span><span class="hljs-subst">\##u{fABCDE}</span><span class="hljs-subst">\##u{F012345}</span><span class="hljs-subst">\##u{67890abc}</span>&quot;##</span>
+<span class="hljs-string">##&quot;raw characters \0\\\t\n\r\&quot;\&#x27;\u{6789} \#0\#\\#t\#n\#r\#&quot;\#&#x27;\#u{6789}&quot;##</span>
+<span class="hljs-string">###&quot;escaped characters <span class="hljs-subst">\###0</span><span class="hljs-subst">\###\</span><span class="hljs-subst">\###t</span><span class="hljs-subst">\###n</span><span class="hljs-subst">\###r</span><span class="hljs-subst">\###&quot;</span><span class="hljs-subst">\###&#x27;</span>&quot;###</span>
+<span class="hljs-string">###&quot;escaped unicode <span class="hljs-subst">\###u{0}</span><span class="hljs-subst">\###u{12}</span><span class="hljs-subst">\###u{345}</span><span class="hljs-subst">\###u{6789}</span><span class="hljs-subst">\###u{abcde}</span><span class="hljs-subst">\###u{fABCDE}</span><span class="hljs-subst">\###u{F012345}</span><span class="hljs-subst">\###u{67890abc}</span>&quot;###</span>
+<span class="hljs-string">###&quot;raw characters \0\\\t\n\r\&quot;\&#x27;\u{6789} \#0\#\\#t\#n\#r\#&quot;\#&#x27;\#u{6789} \##0\##\\##t\##n\##r\##&quot;\##&#x27;\##u{6789}&quot;###</span>
+
+<span class="hljs-string">&quot;&quot;&quot;
+escaped characters <span class="hljs-subst">\0</span><span class="hljs-subst">\\</span><span class="hljs-subst">\t</span><span class="hljs-subst">\n</span><span class="hljs-subst">\r</span><span class="hljs-subst">\&quot;</span><span class="hljs-subst">\&#x27;</span>
+escaped unicode <span class="hljs-subst">\u{0}</span><span class="hljs-subst">\u{12}</span><span class="hljs-subst">\u{345}</span><span class="hljs-subst">\u{6789}</span><span class="hljs-subst">\u{abcde}</span><span class="hljs-subst">\u{fABCDE}</span><span class="hljs-subst">\u{F012345}</span><span class="hljs-subst">\u{67890abc}</span>
+&quot;&quot;&quot;</span>
+<span class="hljs-string">#&quot;&quot;&quot;
+escaped characters <span class="hljs-subst">\#0</span><span class="hljs-subst">\#\</span><span class="hljs-subst">\#t</span><span class="hljs-subst">\#n</span><span class="hljs-subst">\#r</span><span class="hljs-subst">\#&quot;</span><span class="hljs-subst">\#&#x27;</span>
+escaped unicode <span class="hljs-subst">\#u{0}</span><span class="hljs-subst">\#u{12}</span><span class="hljs-subst">\#u{345}</span><span class="hljs-subst">\#u{6789}</span><span class="hljs-subst">\#u{abcde}</span><span class="hljs-subst">\#u{fABCDE}</span><span class="hljs-subst">\#u{F012345}</span><span class="hljs-subst">\#u{67890abc}</span>
+raw characters \0\\\t\n\r\&quot;\&#x27;\u{6789}
+&quot;&quot;&quot;#</span>
+<span class="hljs-string">##&quot;&quot;&quot;
+escaped characters <span class="hljs-subst">\##0</span><span class="hljs-subst">\##\</span><span class="hljs-subst">\##t</span><span class="hljs-subst">\##n</span><span class="hljs-subst">\##r</span><span class="hljs-subst">\##&quot;</span><span class="hljs-subst">\##&#x27;</span>
+escaped unicode <span class="hljs-subst">\##u{0}</span><span class="hljs-subst">\##u{12}</span><span class="hljs-subst">\##u{345}</span><span class="hljs-subst">\##u{6789}</span><span class="hljs-subst">\##u{abcde}</span><span class="hljs-subst">\##u{fABCDE}</span><span class="hljs-subst">\##u{F012345}</span><span class="hljs-subst">\##u{67890abc}</span>
+raw characters \0\\\t\n\r\&quot;\&#x27;\u{6789} \#0\#\\#t\#n\#r\#&quot;\#&#x27;\#u{6789}
+&quot;&quot;&quot;##</span>
+<span class="hljs-string">###&quot;&quot;&quot;
+escaped characters <span class="hljs-subst">\###0</span><span class="hljs-subst">\###\</span><span class="hljs-subst">\###t</span><span class="hljs-subst">\###n</span><span class="hljs-subst">\###r</span><span class="hljs-subst">\###&quot;</span><span class="hljs-subst">\###&#x27;</span>
+escaped unicode <span class="hljs-subst">\###u{0}</span><span class="hljs-subst">\###u{12}</span><span class="hljs-subst">\###u{345}</span><span class="hljs-subst">\###u{6789}</span><span class="hljs-subst">\###u{abcde}</span><span class="hljs-subst">\###u{fABCDE}</span><span class="hljs-subst">\###u{F012345}</span><span class="hljs-subst">\###u{67890abc}</span>
+raw characters \0\\\t\n\r\&quot;\&#x27;\u{6789} \#0\#\\#t\#n\#r\#&quot;\#&#x27;\#u{6789} \##0\##\\##t\##n\##r\##&quot;\##&#x27;\##u{6789}
+&quot;&quot;&quot;###</span>
+
+<span class="hljs-string">&quot;&quot;&quot;
+escaped newline <span class="hljs-subst">\   
+</span>same line
+&quot;&quot;&quot;</span>
+<span class="hljs-string">#&quot;&quot;&quot;
+escaped newline <span class="hljs-subst">\#   
+</span>same line
+&quot;&quot;&quot;#</span>
+<span class="hljs-string">##&quot;&quot;&quot;
+escaped newline <span class="hljs-subst">\##   
+</span>same line
+&quot;&quot;&quot;##</span>
+<span class="hljs-string">###&quot;&quot;&quot;
+escaped newline <span class="hljs-subst">\###   
+</span>same line
+&quot;&quot;&quot;###</span>
+
+<span class="hljs-string">&quot;interpolation <span class="hljs-subst">\(x)</span>&quot;</span>
+<span class="hljs-string">#&quot;interpolation <span class="hljs-subst">\#(<span class="hljs-number">123</span>)</span> raw \(123)&quot;#</span>
+<span class="hljs-string">##&quot;interpolation <span class="hljs-subst">\##(<span class="hljs-number">1.23</span>)</span> raw \#(1.23) raw \(1.23)&quot;##</span>
+<span class="hljs-string">###&quot;interpolation <span class="hljs-subst">\###(<span class="hljs-string">&quot;string&quot;</span>)</span> raw \##(&quot;string&quot;) raw \#(&quot;string&quot;) raw \(&quot;string&quot;)&quot;###</span>
+
+<span class="hljs-string">&quot;&quot;&quot;
+interpolation <span class="hljs-subst">\(<span class="hljs-variable">$0</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span>)</span>
+&quot;&quot;&quot;</span>
+<span class="hljs-string">#&quot;&quot;&quot;
+interpolation <span class="hljs-subst">\#(<span class="hljs-built_in">abs</span>(x <span class="hljs-operator">-</span> <span class="hljs-number">2</span>) <span class="hljs-keyword">as</span> Double)</span>
+raw \(abs(x - 2) as Double)
+&quot;&quot;&quot;#</span>
+<span class="hljs-string">##&quot;&quot;&quot;
+interpolation <span class="hljs-subst">\##(<span class="hljs-literal">true</span>)</span>
+raw \#(true)
+raw \(true)
+&quot;&quot;&quot;##</span>
+<span class="hljs-string">###&quot;&quot;&quot;
+interpolation <span class="hljs-subst">\###(<span class="hljs-string">&quot;string&quot;</span>)</span>
+raw \##(&quot;string&quot;)
+raw \#(&quot;string&quot;)
+raw \(&quot;string&quot;)
+&quot;&quot;&quot;###</span>

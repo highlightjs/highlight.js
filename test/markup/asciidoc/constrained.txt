@@ -1,0 +1,97 @@
+bold *constrained* text.
+
+italic _constrained_ text.
+
+monospace `constrained` text.
+
+Some strong [#strong]*word*.
+
+The word \*stars* is not rendered as bold text.
+
+Use the * symbol. Read the footnotes*. You can also type* this symbol *.
+
+A strong *wo
+rd*.
+
+Not a strong *wo
+
+rd*.
+
+\\blah blah *blah*.
+
+\\blah blah blah*.
+
+Does *Bob -love- Gemma*?
+
+Does *Bob "love" Gemma*?
+
+Does *Bob love Gemma? Truly?*
+
+There's a colon:*directly* before the starting formatting mark.
+
+There's a semi-colon directly before the starting formatting mark &ndash;*2018*
+
+There's a closing curly bracket directly {before}*the starting formatting mark*.
+
+*bl*ck*-eye
+
+E = mc*2*
+
+E = *mc*2
+
+The parser is working *99%* of the time
+
+*bob
+knows
+very
+best*
+
+*does bob
+-really-
+know best?*
+
+Some emphasis on [#emphasis]_that_.
+
+The word \_underscore_ is not rendered as italic.
+
+Use the _ symbol. Read the footnotes_. You can also type_ this symbol _.
+
+An important _wo
+rd_.
+
+Not an important _wo
+
+rd_.
+
+\\blah blah _blah_.
+
+\\blah blah blah_.
+
+Does _Bob -love- Gemma_?
+
+Does _Bob "love" Gemma_?
+
+Does _Bob love Gemma? Truly?_
+
+There's a colon:_directly_ before the starting formatting mark.
+
+There's a semi-colon directly before the starting formatting mark &ndash;_2018_
+
+There's a closing curly bracket directly {before}_the starting formatting mark_.
+
+_bl_ck_-eye
+
+E = mc_2_
+
+E = _mc_2
+
+The parser is working _99%_ of the time
+
+_bob
+knows
+very
+best_
+
+_does bob
+-really-
+know best?_

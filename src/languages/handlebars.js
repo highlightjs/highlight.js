@@ -57,20 +57,25 @@ export default function(hljs) {
   // this regex matches literal segments like ' abc ' or [ abc ] as well as helpers and paths
   // like a/b, ./abc/cde, and abc.bcd
 
-  const DOUBLE_QUOTED_ID_REGEX = /".*?"/;
-  const SINGLE_QUOTED_ID_REGEX = /'.*?'/;
-  const BRACKET_QUOTED_ID_REGEX = /\[.*?\]/;
+  const DOUBLE_QUOTED_ID_REGEX = /""|"[^"]+"/;
+  const SINGLE_QUOTED_ID_REGEX = /''|'[^']+'/;
+  const BRACKET_QUOTED_ID_REGEX = /\[\]|\[[^\]]+\]/;
   const PLAIN_ID_REGEX = /[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+/;
-  const PATH_DELIMITER_REGEX = /\.|\//;
+  const PATH_DELIMITER_REGEX = /(\.|\/)/;
+  const ANY_ID = regex.either(
+    DOUBLE_QUOTED_ID_REGEX,
+    SINGLE_QUOTED_ID_REGEX,
+    BRACKET_QUOTED_ID_REGEX,
+    PLAIN_ID_REGEX
+    );
 
   const IDENTIFIER_REGEX = regex.concat(
-    '(',
-    SINGLE_QUOTED_ID_REGEX, '|',
-    DOUBLE_QUOTED_ID_REGEX, '|',
-    BRACKET_QUOTED_ID_REGEX, '|',
-    PLAIN_ID_REGEX, '|',
-    PATH_DELIMITER_REGEX,
-    ')+'
+    regex.optional(/\.|\.\/|\//), // relative or absolute path
+    ANY_ID,
+    regex.anyNumberOfTimes(regex.concat(
+      PATH_DELIMITER_REGEX,
+      ANY_ID
+    ))
   );
 
   // identifier followed by a equal-sign (without the equal sign)

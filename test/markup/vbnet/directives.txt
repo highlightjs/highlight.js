@@ -1,0 +1,16 @@
+#Region "MathFunctions"
+    #Const CustomerNumber = 36
+    #If CustomerNumber = 35 Then
+        ' Insert code to be compiled for customer # 35.
+    #ElseIf CustomerNumber = 36 Then
+        ' Insert code to be compiled for customer # 36.
+    #Else
+        ' Insert code to be compiled for all other customers.
+    #End If
+#End Region
+
+#Disable Warning BC42356 ' suppress warning about no awaits in this method
+    Async Function TestAsync() As Task
+        Console.WriteLine("testing")
+    End Function
+#Enable Warning BC42356

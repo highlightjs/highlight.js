@@ -27,7 +27,7 @@ Former Core Team members:
 Contributors:
 
 - Peter Leonov <gojpeg@gmail.com>
-- Vanessa Sochat <@vsoch>
+- Vanessa Sochat (https://github.com/vsoch)
 - Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 - Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
 - Anton Kovalyov <anton@kovalyov.net>
@@ -298,15 +298,17 @@ Contributors:
 - David Pine <david.pine.7@gmail.com>
 - Konrad Rudolph <konrad.rudolph@gmail.com>
 - Tom Wallace <thomasmichaelwallace@gmail.com>
-- Michael Newton <miken32@github>
-- Richard Gibson <gibson042@github>
+- Michael Newton (https://github.com/miken32)
+- Richard Gibson (https://github.com/gibson042)
 - Fredrik Ekre <ekrefredrik@gmail.com>
-- Jan Pilzer <Hirse@github>
+- Jan Pilzer (https://github.com/Hirse)
 - Jonathan Sharpe <mail@jonrshar.pe>
 - Michael Rush <michaelrush@gmail.com>
 - Florian Bezdeka <florian@bezdeka.de>
 - Marat Nagayev <nagaevmt@yandex.ru>
 - Patrick Scheibe <patrick@halirutan.de>
-- Kyle Brown <kylebrown9@github>
+- Kyle Brown (https://github.com/kylebrown9)
 - Marcus Ortiz <mportiz08@gmail.com>
 - Guillaume Grossetie <ggrossetie@yuzutech.fr>
+- Steven Van Impe <steven.vanimpe@icloud.com>
+- Martin Dørum <martid0311@gmail.com>

@@ -2,7 +2,7 @@
 
 [![latest version](https://badgen.net/npm/v/highlight.js?label=latest)](https://www.npmjs.com/package/highlight.js)
 [![beta](https://badgen.net/npm/v/highlight.js/beta)](https://www.npmjs.com/package/highlight.js)
-[![slack](https://badgen.net/badge/icon/slack?icon=slack&label&color=pink)](https://join.slack.com/t/highlightjs/shared_invite/zt-jatdlkw4-h3LdjU5rC23t7aQ6zqoxzw)
+[![slack](https://badgen.net/badge/icon/slack?icon=slack&label&color=pink)](https://join.slack.com/t/highlightjs/shared_invite/zt-k1f72n07-dUsqwCYtNPz7laRm7mBCTg)
 [![license](https://badgen.net/github/license/highlightjs/highlight.js?color=cyan)](https://github.com/highlightjs/highlight.js/blob/master/LICENSE)
 [![install size](https://badgen.net/packagephobia/install/highlight.js?label=npm+install)](https://packagephobia.now.sh/result?p=highlight.js)
 ![minified](https://img.shields.io/github/size/highlightjs/cdn-release/build/highlight.min.js?label=minified)
@@ -39,7 +39,7 @@ Please read [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/
 
 ##### Support for older versions
 
-Please see [OLD_VERSIONS.md](https://github.com/highlightjs/highlight.js/blob/master/OLD_VERSIONS.md) for support information.
+Please see [SECURITY.md](https://github.com/highlightjs/highlight.js/blob/master/SECURITY.md) for support information.
 
 ## Getting Started
 
@@ -87,14 +87,14 @@ Highlight.js supports over 180 different languages in the core library.  There a
 language plugins available for additional languages. You can find the full list of supported languages
 in [SUPPORTED_LANGUAGES.md][9].
 
-## Custom Initialization
+## Custom Scenarios
 
 When you need a bit more control over the initialization of
 highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
-functions. This allows you to control *what* to highlight and *when*.
+functions. This allows you to better control *what* to highlight and *when*.
 
-Here’s an equivalent way to calling [`initHighlightingOnLoad`][1] using
-vanilla JS:
+Here’s the equivalent of calling [`initHighlightingOnLoad`][1] using
+only vanilla JS:
 
 ```js
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -104,19 +104,45 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 ```
 
-You can use any tags instead of `<pre><code>` to mark up your code. If
-you don't use a container that preserves line breaks you will need to
-configure highlight.js to use the `<br>` tag:
+Please refer to the documentation for [`configure`][4] options.
+
+
+### Using custom HTML elements for code blocks
+
+We strongly recommend `<pre><code>` wrapping for code blocks. It's quite
+semantic and "just works" out of the box with zero fiddling. It is possible to
+use other HTML elements (or combos), but you may need to pay special attention to
+preserving linebreaks.
+
+Let's say your markup for code blocks uses divs:
+
+```html
+<div class='code'>...</div>
+```
+
+To highlight such blocks manually:
 
 ```js
-hljs.configure({useBR: true});
-
-document.querySelectorAll('div.code').forEach((block) => {
+// first, find all the div.code blocks
+document.querySelectorAll('div.code').forEach(block => {
+  // then highlight each
   hljs.highlightBlock(block);
 });
 ```
 
-For other options refer to the documentation for [`configure`][4].
+Without using a tag that preserves linebreaks (like `pre`) you'll need some
+additional CSS to help preserve them.  You could also [pre and post-process line
+breaks with a plug-in][brPlugin], but *we recommend using CSS*.
+
+[brPlugin]: https://github.com/highlightjs/highlight.js/issues/2559
+
+To preserve linebreaks inside a `div` using CSS:
+
+```css
+div.code {
+  white-space: pre;
+}
+```
 
 
 ## Using with Vue.js
@@ -169,7 +195,7 @@ onmessage = (event) => {
 
 You can use highlight.js with node to highlight content before sending it to the browser.
 Make sure to use the `.value` property to get the formatted html.
-For more info about the returned object refer to the api docs https://highlightjs.readthedocs.io/en/latest/api.html
+For more info about the returned object refer to the [api docs](https://highlightjs.readthedocs.io/en/latest/api.html).
 
 
 ```js
@@ -181,7 +207,7 @@ const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 Or for a smaller footprint... load just the languages you need.
 
 ```js
-const hljs = require("highlight.js/lib/core");  // require only the core library
+const hljs = require('highlight.js/lib/core');  // require only the core library
 // separately require languages
 hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
 
@@ -238,36 +264,39 @@ r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 
 ### CDN Hosted
 
-A prebuilt version of highlight.js bundled with many common languages is hosted by the following CDNs:
+A prebuilt version of Highlight.js bundled with many common languages is hosted by several popular CDNs.
+When using Highlight.js via CDN you can use Subresource Integrity for additional security.  For details
+see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/master/DIGESTS.md).
 
 **cdnjs** ([link](https://cdnjs.com/libraries/highlight.js))
 
 ```html
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
-<script charset="UTF-8"
- src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/go.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/languages/go.min.js"></script>
 ```
 
 **jsdelivr** ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
 
 ```html
-<link rel="stylesheet"
-      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/default.min.css">
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.1/build/styles/default.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.1/build/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.1/build/languages/go.min.js"></script>
 ```
 
 **unpkg** ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.3.1/styles/default.min.css">
-<script src="https://unpkg.com/@highlightjs/cdn-assets@10.3.1/highlight.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.4.1/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@10.4.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script src="https://unpkg.com/@highlightjs/cdn-assets@10.4.1/languages/go.min.js"></script>
 ```
 
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
-very large. You can find our list "common" languages that we bundle by default on our [download page][5].
+very large. You can find our list of "common" languages that we bundle by default on our [download page][5].
 
 ### Self Hosting
 

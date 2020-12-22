@@ -13,11 +13,11 @@ import * as MODES from './lib/modes.js';
 import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
 import { BuildVuePlugin } from "./plugins/vue.js";
+import { mergeHTMLPlugin } from "./plugins/merge_html.js";
+import * as logger from "./lib/logger.js";
 
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
-
-const { nodeStream, mergeStreams } = utils;
 const NO_MATCH = Symbol("nomatch");
 
 /**
@@ -25,10 +25,6 @@ const NO_MATCH = Symbol("nomatch");
  * @returns {HLJSApi}
  */
 const HLJS = function(hljs) {
-  // Convenience variables for build-in objects
-  /** @type {unknown[]} */
-  const ArrayProto = [];
-
   // Global internal variables used within the highlight.js library.
   /** @type {Record<string, Language>} */
   const languages = Object.create(null);
@@ -83,8 +79,8 @@ const HLJS = function(hljs) {
     if (match) {
       const language = getLanguage(match[1]);
       if (!language) {
-        console.warn(LANGUAGE_NOT_FOUND.replace("{}", match[1]));
-        console.warn("Falling back to no-highlight mode for this block.", block);
+        logger.warn(LANGUAGE_NOT_FOUND.replace("{}", match[1]));
+        logger.warn("Falling back to no-highlight mode for this block.", block);
       }
       return language ? match[1] : 'no-highlight';
     }
@@ -465,7 +461,7 @@ const HLJS = function(hljs) {
 
     const language = getLanguage(languageName);
     if (!language) {
-      console.error(LANGUAGE_NOT_FOUND.replace("{}", languageName));
+      logger.error(LANGUAGE_NOT_FOUND.replace("{}", languageName));
       throw new Error('Unknown language: "' + languageName + '"');
     }
 
@@ -648,24 +644,42 @@ const HLJS = function(hljs) {
   /**
    * Builds new class name for block given the language name
    *
-   * @param {string} prevClassName
+   * @param {HTMLElement} element
    * @param {string} [currentLang]
    * @param {string} [resultLang]
    */
-  function buildClassName(prevClassName, currentLang, resultLang) {
+  function updateClassName(element, currentLang, resultLang) {
     const language = currentLang ? aliases[currentLang] : resultLang;
-    const result = [prevClassName.trim()];
 
-    if (!prevClassName.match(/\bhljs\b/)) {
-      result.push('hljs');
-    }
-
-    if (!prevClassName.includes(language)) {
-      result.push(language);
-    }
-
-    return result.join(' ').trim();
+    element.classList.add("hljs");
+    if (language) element.classList.add(language);
   }
+
+  /** @type {HLJSPlugin} */
+  const brPlugin = {
+    "before:highlightBlock": ({ block }) => {
+      if (options.useBR) {
+        block.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ /]*>/g, '\n');
+      }
+    },
+    "after:highlightBlock": ({ result }) => {
+      if (options.useBR) {
+        result.value = result.value.replace(/\n/g, "<br>");
+      }
+    }
+  };
+
+  const TAB_REPLACE_RE = /^(<[^>]+>|\t)+/gm;
+  /** @type {HLJSPlugin} */
+  const tabReplacePlugin = {
+    "after:highlightBlock": ({ result }) => {
+      if (options.tabReplace) {
+        result.value = result.value.replace(TAB_REPLACE_RE, (m) =>
+          m.replace(/\t/g, options.tabReplace)
+        );
+      }
+    }
+  };
 
   /**
    * Applies highlighting to a DOM node containing code. Accepts a DOM node and
@@ -683,27 +697,14 @@ const HLJS = function(hljs) {
     fire("before:highlightBlock",
       { block: element, language: language });
 
-    if (options.useBR) {
-      node = document.createElement('div');
-      node.innerHTML = element.innerHTML.replace(/\n/g, '').replace(/<br[ /]*>/g, '\n');
-    } else {
-      node = element;
-    }
+    node = element;
     const text = node.textContent;
     const result = language ? highlight(language, text, true) : highlightAuto(text);
 
-    const originalStream = nodeStream(node);
-    if (originalStream.length) {
-      const resultNode = document.createElement('div');
-      resultNode.innerHTML = result.value;
-      result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
-    }
-    result.value = fixMarkup(result.value);
-
-    fire("after:highlightBlock", { block: element, result: result });
+    fire("after:highlightBlock", { block: element, result, text });
 
     element.innerHTML = result.value;
-    element.className = buildClassName(element.className, language, result.language);
+    updateClassName(element, language, result.language);
     element.result = {
       language: result.language,
       // TODO: remove with version 11.0
@@ -727,8 +728,8 @@ const HLJS = function(hljs) {
    */
   function configure(userOptions) {
     if (userOptions.useBR) {
-      console.warn("'useBR' option is deprecated and will be removed entirely in v11.0");
-      console.warn("Please see https://github.com/highlightjs/highlight.js/issues/2559");
+      logger.deprecated("10.3.0", "'useBR' will be removed entirely in v11.0");
+      logger.deprecated("10.3.0", "Please see https://github.com/highlightjs/highlight.js/issues/2559");
     }
     options = inherit(options, userOptions);
   }
@@ -743,7 +744,7 @@ const HLJS = function(hljs) {
     initHighlighting.called = true;
 
     const blocks = document.querySelectorAll('pre code');
-    ArrayProto.forEach.call(blocks, highlightBlock);
+    blocks.forEach(highlightBlock);
   };
 
   // Higlights all when DOMContentLoaded fires
@@ -763,9 +764,9 @@ const HLJS = function(hljs) {
     try {
       lang = languageDefinition(hljs);
     } catch (error) {
-      console.error("Language definition for '{}' could not be registered.".replace("{}", languageName));
+      logger.error("Language definition for '{}' could not be registered.".replace("{}", languageName));
       // hard or soft error
-      if (!SAFE_MODE) { throw error; } else { console.error(error); }
+      if (!SAFE_MODE) { throw error; } else { logger.error(error); }
       // languages that have serious errors are replaced with essentially a
       // "plaintext" stand-in so that the code blocks will still get normal
       // css classes applied to them - and one bad language won't break the
@@ -799,8 +800,8 @@ const HLJS = function(hljs) {
     @returns {Language | never}
   */
   function requireLanguage(name) {
-    console.warn("requireLanguage is deprecated and will be removed entirely in the future.");
-    console.warn("Please see https://github.com/highlightjs/highlight.js/pull/2844");
+    logger.deprecated("10.4.0", "requireLanguage will be removed entirely in v11.");
+    logger.deprecated("10.4.0", "Please see https://github.com/highlightjs/highlight.js/pull/2844");
 
     const lang = getLanguage(name);
     if (lang) { return lang; }
@@ -867,8 +868,8 @@ const HLJS = function(hljs) {
   @returns {string}
   */
   function deprecateFixMarkup(arg) {
-    console.warn("fixMarkup is deprecated and will be removed entirely in v11.0");
-    console.warn("Please see https://github.com/highlightjs/highlight.js/issues/2534");
+    logger.deprecated("10.2.0", "fixMarkup will be removed entirely in v11.0");
+    logger.deprecated("10.2.0", "Please see https://github.com/highlightjs/highlight.js/issues/2534");
 
     return fixMarkup(arg);
   }
@@ -909,6 +910,10 @@ const HLJS = function(hljs) {
   // merge all the modes/regexs into our main object
   Object.assign(hljs, MODES);
 
+  // built-in plugins, likely to be moved out of core in the future
+  hljs.addPlugin(brPlugin); // slated to be removed in v11
+  hljs.addPlugin(mergeHTMLPlugin);
+  hljs.addPlugin(tabReplacePlugin);
   return hljs;
 };
 

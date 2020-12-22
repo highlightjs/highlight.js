@@ -41,23 +41,18 @@ async function buildNodeHighlightJS() {
 }
 
 async function buildPackageJSON() {
-  const CONTRIBUTOR = /^- (.*) <(.*)>$/
+  const CONTRIBUTOR = /^- ([^<(]+( ?<.+>)?( ?\(http.+\))?)/;
 
-  let authors = await fs.readFile("AUTHORS.txt", {encoding: "utf8"})
-  let lines = authors.split(/\r?\n/)
-  let json = require("../package")
-  json.contributors = lines.reduce((acc, line) => {
-    let matches = line.match(CONTRIBUTOR)
+  const authors = await fs.readFile("AUTHORS.txt", { encoding: "utf8" });
+  const lines = authors.split(/\r?\n/);
+  const packageJson = require("../package");
 
-    if (matches) {
-      acc.push({
-        name: matches[1],
-        email: matches[2]
-      })
-    }
-    return acc;
-  }, []);
-  await fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(json, null, '   '));
+  packageJson.contributors = lines
+    .map(line => line.match(CONTRIBUTOR))
+    .filter((matches) => matches)
+    .map((matches) => matches[1]);
+
+  await fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(packageJson, null, 2));
 }
 
 async function buildLanguages(languages) {

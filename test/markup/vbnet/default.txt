@@ -1,6 +1,5 @@
-Import System
-Import System.IO
-#Const DEBUG = True
+Imports System.IO
+#Const DEBUG = True ' Set to false for prod
 
 Namespace Highlighter.Test
   ''' <summary>This is an example class.</summary>
