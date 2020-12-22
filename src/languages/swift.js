@@ -293,7 +293,7 @@ export default function(hljs) {
   const TUPLE_ELEMENT_NAME = {
     begin: lookahead(concat(Swift.identifier, /\s*:/)),
     end: lookahead(/:/),
-    keywords: "_",
+    keywords: "_|0",
     relevance: 0
   };
   // Matches tuples as well as the parameter list of a function type.
@@ -322,13 +322,8 @@ export default function(hljs) {
   // Grouping these lets us differentiate between the operator function <
   // and the start of the generic parameter clause (also <).
   const FUNCTION_TITLE = {
-    begin: lookahead(/\bfunc\b/),
-    relevance: 0,
+    beginKeywords: 'func',
     contains: [
-      {
-        className: 'keyword',
-        begin: /\bfunc\b/
-      },
       {
         begin: /\s+/,
         relevance: 0
@@ -344,7 +339,7 @@ export default function(hljs) {
     ]
   };
   const GENERIC_PARAMETERS = {
-    begin: /\s*</,
+    begin: /</,
     end: />/,
     contains: [
       ...COMMENTS,
@@ -370,7 +365,7 @@ export default function(hljs) {
     ]
   };
   const FUNCTION_PARAMETERS = {
-    begin: /\s*\(/,
+    begin: /\(/,
     end: /\)/,
     keywords: KEYWORDS,
     contains: [
@@ -384,6 +379,7 @@ export default function(hljs) {
       TYPE,
       TUPLE
     ],
+    endsParent: true,
     illegal: /["']/
   };
   const FUNCTION = {
@@ -392,35 +388,31 @@ export default function(hljs) {
     contains: [
       FUNCTION_TITLE,
       GENERIC_PARAMETERS,
-      FUNCTION_PARAMETERS
+      FUNCTION_PARAMETERS,
+      {
+        begin: /\s+/,
+        relevance: 0
+      }
     ],
     illegal: /\[|%/
   };
 
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID375
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID379
-  const INIT_SUBSCRIPT_TITLE = {
-    begin: lookahead(/\b(subscript|init[?!]?)\s*[<(]/),
-    end: lookahead(/[<(]/),
-    relevance: 0,
+  const INIT_SUBSCRIPT = {
+    className: 'function',
+    begin: /\b(subscript|init[?!]?)\s*(?=[<(])/,
+    keywords: {
+      keyword: "subscript init init? init!",
+      $pattern: /\w+[?!]?/
+    },
     contains: [
-      {
-        className: 'keyword',
-        begin: /subscript|init[?!]?/
-      },
+      GENERIC_PARAMETERS,
+      FUNCTION_PARAMETERS,
       {
         begin: /\s+/,
         relevance: 0
       }
-    ]
-  };
-  const INIT_SUBSCRIPT = {
-    className: 'function',
-    begin: lookahead(/\b(subscript|init[?!]?)\s*[<(]/),
-    contains: [
-      INIT_SUBSCRIPT_TITLE,
-      GENERIC_PARAMETERS,
-      FUNCTION_PARAMETERS
     ],
     illegal: /\[|%/
   };
