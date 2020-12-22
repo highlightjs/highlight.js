@@ -61,6 +61,9 @@ export default function(hljs) {
       // the full match begin must be [beforeMatch][begin]
       (mode, parent) => {
         if (!mode.beforeMatch) return;
+        // starts conflicts with endsParent which we need to make sure the child
+        // rule is not matched multiple times
+        if (mode.starts) throw new Error("beforeMatch cannot be used with starts");
 
         const originalMode = Object.assign({}, mode);
         Object.keys(mode).forEach(function(key) { delete mode[key]; });
