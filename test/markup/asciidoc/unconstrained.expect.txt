@@ -42,3 +42,42 @@ Git[.blue]<span class="hljs-strong">**Hub**</span>
 knows
 very
 best**</span>
+
+A sentence <span class="hljs-emphasis">__ with words, and more words!
+using italic style :)__</span>.
+
+Read the little notes__.
+
+Read the little notes__
+
+This is <span class="hljs-emphasis">__italic__</span>
+
+E = <span class="hljs-emphasis">__mc__</span>2
+
+<span class="hljs-emphasis">__Bob went with _Sarah_ to the market today.__</span>
+
+<span class="hljs-emphasis">__Bob went with _Sarah_
+to the market today.__</span>
+
+There&#x27;s a colon:<span class="hljs-emphasis">__directly__</span> before the starting formatting mark.
+
+There&#x27;s a semi-colon directly before the starting formatting mark &amp;ndash;<span class="hljs-emphasis">__2018__</span>
+
+There&#x27;s a closing curly bracket directly {before}<span class="hljs-emphasis">__the starting formatting mark__</span>.
+
+<span class="hljs-emphasis">__--anything goes __</span>
+
+\\__--anything goes __
+
+\\__--anything goes __ with _ a __lot__ of underscores__
+
+<span class="hljs-emphasis">__Git__</span>Hub
+
+<span class="hljs-emphasis">__bl_ck__</span>-eye
+
+Git[.blue]<span class="hljs-emphasis">__Hub__</span>
+
+<span class="hljs-emphasis">__bob
+knows
+very
+best__</span>

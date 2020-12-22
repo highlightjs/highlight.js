@@ -35,10 +35,9 @@ export default function(hljs) {
     // guard: constrained formatting mark may not be preceded by ":", ";" or
     // "}". match these so the constrained rule doesn't see them
     {
-      begin: /[:;}][*_`](?!\*)/
+      begin: /[:;}][*_`](?![*_`])/
     }
   ];
-
   const STRONG = [
     // inline unconstrained strong (single line)
     {
@@ -67,6 +66,49 @@ export default function(hljs) {
       className: 'strong',
       // must not precede or follow a word character
       begin: /\*[^\s]([^\n]+\n)+([^\n]+)\*/
+    }
+  ];
+  const EMPHASIS = [
+    // inline unconstrained emphasis (single line)
+    {
+      className: 'emphasis',
+      begin: /_{2}([^\n]+?)_{2}/
+    },
+    // inline unconstrained emphasis (multi-line)
+    {
+      className: 'emphasis',
+      begin: regex.concat(
+        /__/,
+        /((_(?!_)|\\[^\n]|[^_\n\\])+\n)+/,
+        /(_(?!_)|\\[^\n]|[^_\n\\])*/,
+        /__/
+      ),
+      relevance: 0
+    },
+    // inline constrained emphasis (single line)
+    {
+      className: 'emphasis',
+      // must not precede or follow a word character
+      begin: /\b_(\S|\S[^\n]*?\S)_(?!\w)/
+    },
+    // inline constrained emphasis (multi-line)
+    {
+      className: 'emphasis',
+      // must not precede or follow a word character
+      begin: /_[^\s]([^\n]+\n)+([^\n]+)_/
+    },
+    // inline constrained emphasis using single quote (legacy)
+    {
+      className: 'emphasis',
+      // must not follow a word character or be followed by a single quote or space
+      begin: '\\B\'(?![\'\\s])',
+      end: '(\\n{2}|\')',
+      // allow escaped single quote followed by word char
+      contains: [{
+        begin: '\\\\\'\\w',
+        relevance: 0
+      }],
+      relevance: 0
     }
   ];
   const ADMONITION = {
@@ -171,35 +213,8 @@ export default function(hljs) {
       ADMONITION,
       ...ESCAPED_FORMATTING,
       ...STRONG,
+      ...EMPHASIS,
 
-      // TODO emphasis and code should get same treatment as strong!
-      // inline unconstrained emphasis
-      {
-        className: 'emphasis',
-        begin: /_{2}/,
-        end: /(\n{2}|_{2})/
-      },
-      // inline emphasis
-      {
-        className: 'emphasis',
-        // must not follow a word character or be followed by a single quote or space
-        begin: '\\B\'(?![\'\\s])',
-        end: '(\\n{2}|\')',
-        // allow escaped single quote followed by word char
-        contains: [{
-          begin: '\\\\\'\\w',
-          relevance: 0
-        }],
-        relevance: 0
-      },
-      // inline emphasis (alt)
-      {
-        className: 'emphasis',
-        // must not follow a word character or be followed by an underline or space
-        begin: '_(?![_\\s])',
-        end: '(\\n{2}|_)',
-        relevance: 0
-      },
       // inline smart quotes
       {
         className: 'string',
