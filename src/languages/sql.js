@@ -45,7 +45,8 @@ export default function(hljs) {
   const LITERALS = [
     "true",
     "false",
-    "null",
+    // Not sure it's correct to call NULL literal, and clauses like IS [NOT] NULL look strange that way.
+    // "null",
     "unknown"
   ];
 
@@ -88,10 +89,13 @@ export default function(hljs) {
 
   const NON_RESERVED_WORDS = [
     "add",
+    "asc",
     "collation",
+    "desc",
     "final",
     "first",
-    "last"
+    "last",
+    "view"
   ];
 
   // https://jakewheat.github.io/sql-overview/sql-2016-foundation-grammar.html#reserved-word
@@ -481,6 +485,7 @@ export default function(hljs) {
     "corr",
     "cos",
     "cosh",
+    "count",
     "covar_pop",
     "covar_samp",
     "cume_dist",
@@ -502,6 +507,7 @@ export default function(hljs) {
     "json_value",
     "lag",
     "last_value",
+    "lead",
     "listagg",
     "ln",
     "log",
