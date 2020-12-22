@@ -656,7 +656,7 @@ export default function(hljs) {
         begin: regex.either(...COMBOS),
         keywords: {
           $pattern: /[\w\.]+/,
-          keyword: KEYWORDS.join(" "),
+          keyword: KEYWORDS.concat(COMBOS).join(" "),
           literal: LITERALS.join(" "),
           type: TYPES.join(" ")
         },
