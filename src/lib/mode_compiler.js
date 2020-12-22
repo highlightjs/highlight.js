@@ -280,7 +280,6 @@ export function compileLanguage(language, { plugins }) {
   function compileMode(mode, parent) {
     const cmode = /** @type CompiledMode */ (mode);
     if (mode.compiled) return cmode;
-    mode.compiled = true;
 
     [
       // do this early so compiler extensions generally don't have to worry about
@@ -301,6 +300,8 @@ export function compileLanguage(language, { plugins }) {
       // default to 1 relevance if not specified
       EXT.compileRelevance
     ].forEach(ext => ext(mode, parent));
+
+    mode.compiled = true;
 
     let keywordPattern = null;
     if (typeof mode.keywords === "object") {

@@ -62,21 +62,19 @@ export default function(hljs) {
       (mode, parent) => {
         if (!mode.beforeMatch) return;
 
-        const begin = mode.begin;
-        const relevance = mode.relevance;
-        mode.begin = regex.concat(mode.beforeMatch, regex.lookahead(mode.begin));
+        const originalMode = Object.assign({}, mode);
+        Object.keys(mode).forEach(function(key) { delete mode[key]; });
+
+        mode.begin = regex.concat(originalMode.beforeMatch, regex.lookahead(originalMode.begin));
         mode.starts = {
           relevance: 0,
-          contains: [{
-            className: mode.className,
-            begin: begin,
-            relevance: relevance,
-            keywords: mode.keywords,
-            endsParent: true
-          }]
+          contains: [
+            Object.assign(originalMode, { endsParent: true })
+          ]
         };
         mode.relevance = 0;
-        delete mode.className;
+
+        delete originalMode.beforeMatch;
       }
     ],
     contains: [
