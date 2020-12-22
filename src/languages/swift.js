@@ -16,6 +16,10 @@ import {
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const WHITESPACE = {
+    begin: /\s+/,
+    relevance: 0
+  };
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID411
   const BLOCK_COMMENT = hljs.COMMENT(
     '/\\*',
@@ -215,22 +219,22 @@ export default function(hljs) {
 
   // https://docs.swift.org/swift-book/ReferenceManual/Attributes.html
   const AVAILABLE_ATTRIBUTE = {
-    begin: /(@|#)available\(/,
-    end: /\)/,
-    keywords: {
-      $pattern: /[@#]?\w+/,
-      keyword: Swift.availabilityKeywords
-        .concat([
-          "@available",
-          "#available"
-        ])
-        .join(' ')
-    },
-    contains: [
-      ...OPERATORS,
-      NUMBER,
-      STRING
-    ]
+    begin: /(@|#)available/,
+    className: "keyword",
+    starts: {
+      contains: [
+        {
+          begin: /\(/,
+          end: /\)/,
+          keywords: Swift.availabilityKeywords.join(' '),
+          contains: [
+            ...OPERATORS,
+            NUMBER,
+            STRING
+          ]
+        }
+      ]
+    }
   };
   const KEYWORD_ATTRIBUTE = {
     className: 'keyword',
@@ -291,8 +295,7 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID552
   // Prevents element names from being highlighted as keywords.
   const TUPLE_ELEMENT_NAME = {
-    begin: lookahead(concat(Swift.identifier, /\s*:/)),
-    end: lookahead(/:/),
+    begin: concat(Swift.identifier, /\s*:/),
     keywords: "_|0",
     relevance: 0
   };
@@ -321,13 +324,9 @@ export default function(hljs) {
   // Matches both the keyword func and the function title.
   // Grouping these lets us differentiate between the operator function <
   // and the start of the generic parameter clause (also <).
-  const FUNCTION_TITLE = {
+  const FUNC_PLUS_TITLE = {
     beginKeywords: 'func',
     contains: [
-      {
-        begin: /\s+/,
-        relevance: 0
-      },
       {
         className: 'title',
         begin: either(QUOTED_IDENTIFIER.begin, Swift.identifier, Swift.operator),
@@ -335,7 +334,8 @@ export default function(hljs) {
         // isn't parsed as a second title.
         endsParent: true,
         relevance: 0
-      }
+      },
+      WHITESPACE
     ]
   };
   const GENERIC_PARAMETERS = {
@@ -351,7 +351,7 @@ export default function(hljs) {
       lookahead(concat(Swift.identifier, /\s*:/)),
       lookahead(concat(Swift.identifier, /\s+/, Swift.identifier, /\s*:/))
     ),
-    end: lookahead(/:/),
+    end: /:/,
     relevance: 0,
     contains: [
       {
@@ -386,13 +386,10 @@ export default function(hljs) {
     className: 'function',
     begin: lookahead(/\bfunc\b/),
     contains: [
-      FUNCTION_TITLE,
+      FUNC_PLUS_TITLE,
       GENERIC_PARAMETERS,
       FUNCTION_PARAMETERS,
-      {
-        begin: /\s+/,
-        relevance: 0
-      }
+      WHITESPACE
     ],
     illegal: /\[|%/
   };
@@ -409,10 +406,7 @@ export default function(hljs) {
     contains: [
       GENERIC_PARAMETERS,
       FUNCTION_PARAMETERS,
-      {
-        begin: /\s+/,
-        relevance: 0
-      }
+      WHITESPACE
     ],
     illegal: /\[|%/
   };
