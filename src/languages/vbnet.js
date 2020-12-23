@@ -3,6 +3,7 @@ Language: Visual Basic .NET
 Description: Visual Basic .NET (VB.NET) is a multi-paradigm, object-oriented programming language, implemented on the .NET Framework.
 Authors: Poren Chiang <ren.chiang@gmail.com>, Jan Pilzer
 Website: https://docs.microsoft.com/dotnet/visual-basic/getting-started
+Category: common
 */
 
 import * as regex from '../lib/regex.js';

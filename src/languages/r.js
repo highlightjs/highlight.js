@@ -4,7 +4,7 @@ Description: R is a free software environment for statistical computing and grap
 Author: Joe Cheng <joe@rstudio.org>
 Contributors: Konrad Rudolph <konrad.rudolph@gmail.com>
 Website: https://www.r-project.org
-Category: scientific
+Category: common,scientific
 */
 
 import * as regex from '../lib/regex.js';

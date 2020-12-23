@@ -3,6 +3,7 @@
 Build:
 
 - Add Subresource Integrity digest lists to `cdn-assets` [Josh Goebel][]
+- R and VB.net grammars now ship in our default build (`:common`) [Josh Goebel][]
 
 Parser:
 
