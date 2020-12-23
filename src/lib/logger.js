@@ -14,9 +14,10 @@ export const error = (message) => {
 
 /**
  * @param {string} message
+ * @param {any} args
  */
-export const warn = (message) => {
-  console.log(`WARN: ${message}`);
+export const warn = (message, ...args) => {
+  console.log(`WARN: ${message}`, ...args);
 };
 
 /**

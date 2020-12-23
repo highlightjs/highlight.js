@@ -107,7 +107,7 @@ const HLJS = function(hljs) {
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(languageName, code, ignoreIllegals, continuation) {
-    /** @type {{ code: string, language: string, result?: any }} */
+    /** @type {BeforeHighlightContext} */
     const context = {
       code,
       language: languageName
