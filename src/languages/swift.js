@@ -17,7 +17,7 @@ import {
 /** @type LanguageFn */
 export default function(hljs) {
   const WHITESPACE = {
-    begin: /\s+/,
+    match: /\s+/,
     relevance: 0
   };
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID411
@@ -43,7 +43,7 @@ export default function(hljs) {
   };
   const KEYWORD_GUARD = {
     // Consume .keyword to prevent highlighting properties and methods as keywords.
-    begin: concat(/\./, either(...Swift.keywords)),
+    match: concat(/\./, either(...Swift.keywords)),
     relevance: 0
   };
   const PLAIN_KEYWORDS = Swift.keywords
@@ -57,7 +57,7 @@ export default function(hljs) {
     variants: [
       {
         className: 'keyword',
-        begin: either(...REGEX_KEYWORDS, ...Swift.optionalDotKeywords)
+        match: either(...REGEX_KEYWORDS, ...Swift.optionalDotKeywords)
       }
     ]
   };
@@ -81,12 +81,12 @@ export default function(hljs) {
   // https://github.com/apple/swift/tree/main/stdlib/public/core
   const BUILT_IN_GUARD = {
     // Consume .built_in to prevent highlighting properties and methods.
-    begin: concat(/\./, either(...Swift.builtIns)),
+    match: concat(/\./, either(...Swift.builtIns)),
     relevance: 0
   };
   const BUILT_IN = {
     className: 'built_in',
-    begin: concat(/\b/, either(...Swift.builtIns), /(?=\()/)
+    match: concat(/\b/, either(...Swift.builtIns), /(?=\()/)
   };
   const BUILT_INS = [
     BUILT_IN_GUARD,
@@ -96,7 +96,7 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418
   const OPERATOR_GUARD = {
     // Prevent -> from being highlighting as an operator.
-    begin: /->/,
+    match: /->/,
     relevance: 0
   };
   const OPERATOR = {
@@ -104,13 +104,13 @@ export default function(hljs) {
     relevance: 0,
     variants: [
       {
-        begin: Swift.operator
+        match: Swift.operator
       },
       {
         // dot-operator: only operators that start with a dot are allowed to use dots as
         // characters (..., ...<, .*, etc). So there rule here is: a dot followed by one or more
         // characters that may also include dots.
-        begin: `\\.(\\.|${Swift.operatorCharacter})+`
+        match: `\\.(\\.|${Swift.operatorCharacter})+`
       }
     ]
   };
@@ -129,19 +129,19 @@ export default function(hljs) {
     variants: [
       // decimal floating-point-literal (subsumes decimal-literal)
       {
-        begin: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b`
+        match: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b`
       },
       // hexadecimal floating-point-literal (subsumes hexadecimal-literal)
       {
-        begin: `\\b0x(${hexDigits})(\\.(${hexDigits}))?` + `([pP][+-]?(${decimalDigits}))?\\b`
+        match: `\\b0x(${hexDigits})(\\.(${hexDigits}))?` + `([pP][+-]?(${decimalDigits}))?\\b`
       },
       // octal-literal
       {
-        begin: /\b0o([0-7]_*)+\b/
+        match: /\b0o([0-7]_*)+\b/
       },
       // binary-literal
       {
-        begin: /\b0b([01]_*)+\b/
+        match: /\b0b([01]_*)+\b/
       }
     ]
   };
@@ -151,16 +151,16 @@ export default function(hljs) {
     className: 'subst',
     variants: [
       {
-        begin: concat(/\\/, rawDelimiter, /[0\\tnr"']/)
+        match: concat(/\\/, rawDelimiter, /[0\\tnr"']/)
       },
       {
-        begin: concat(/\\/, rawDelimiter, /u\{[0-9a-fA-F]{1,8}\}/)
+        match: concat(/\\/, rawDelimiter, /u\{[0-9a-fA-F]{1,8}\}/)
       }
     ]
   });
   const ESCAPED_NEWLINE = (rawDelimiter = "") => ({
     className: 'subst',
-    begin: concat(/\\/, rawDelimiter, /[\t ]*(?:[\r\n]|\r\n)/)
+    match: concat(/\\/, rawDelimiter, /[\t ]*(?:[\r\n]|\r\n)/)
   });
   const INTERPOLATION = (rawDelimiter = "") => ({
     className: 'subst',
@@ -201,15 +201,15 @@ export default function(hljs) {
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID412
   const QUOTED_IDENTIFIER = {
-    begin: concat(/`/, Swift.identifier, /`/)
+    match: concat(/`/, Swift.identifier, /`/)
   };
   const IMPLICIT_PARAMETER = {
     className: 'variable',
-    begin: /\$\d+/
+    match: /\$\d+/
   };
   const PROPERTY_WRAPPER_PROJECTION = {
     className: 'variable',
-    begin: `\\$${Swift.identifierCharacter}+`
+    match: `\\$${Swift.identifierCharacter}+`
   };
   const IDENTIFIERS = [
     QUOTED_IDENTIFIER,
@@ -219,7 +219,7 @@ export default function(hljs) {
 
   // https://docs.swift.org/swift-book/ReferenceManual/Attributes.html
   const AVAILABLE_ATTRIBUTE = {
-    begin: /(@|#)available/,
+    match: /(@|#)available/,
     className: "keyword",
     starts: {
       contains: [
@@ -238,11 +238,11 @@ export default function(hljs) {
   };
   const KEYWORD_ATTRIBUTE = {
     className: 'keyword',
-    begin: concat(/@/, either(...Swift.keywordAttributes))
+    match: concat(/@/, either(...Swift.keywordAttributes))
   };
   const USER_DEFINED_ATTRIBUTE = {
     className: 'meta',
-    begin: concat(/@/, Swift.identifier)
+    match: concat(/@/, Swift.identifier)
   };
   const ATTRIBUTES = [
     AVAILABLE_ATTRIBUTE,
@@ -252,28 +252,28 @@ export default function(hljs) {
 
   // https://docs.swift.org/swift-book/ReferenceManual/Types.html
   const TYPE = {
-    begin: lookahead(/\b[A-Z]/),
+    match: lookahead(/\b[A-Z]/),
     relevance: 0,
     contains: [
       { // Common Apple frameworks, for relevance boost
         className: 'type',
-        begin: concat(/(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)/, Swift.identifierCharacter, '+')
+        match: concat(/(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)/, Swift.identifierCharacter, '+')
       },
       { // Type identifier
         className: 'type',
-        begin: Swift.typeIdentifier,
+        match: Swift.typeIdentifier,
         relevance: 0
       },
       { // Optional type
-        begin: /[?!]+/,
+        match: /[?!]+/,
         relevance: 0
       },
       { // Variadic parameter
-        begin: /\.\.\./,
+        match: /\.\.\./,
         relevance: 0
       },
       { // Protocol composition
-        begin: concat(/\s+&\s+/, lookahead(Swift.typeIdentifier)),
+        match: concat(/\s+&\s+/, lookahead(Swift.typeIdentifier)),
         relevance: 0
       }
     ]
@@ -295,7 +295,7 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID552
   // Prevents element names from being highlighted as keywords.
   const TUPLE_ELEMENT_NAME = {
-    begin: concat(Swift.identifier, /\s*:/),
+    match: concat(Swift.identifier, /\s*:/),
     keywords: "_|0",
     relevance: 0
   };
@@ -329,7 +329,7 @@ export default function(hljs) {
     contains: [
       {
         className: 'title',
-        begin: either(QUOTED_IDENTIFIER.begin, Swift.identifier, Swift.operator),
+        match: either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator),
         // Required to make sure the opening < of the generic parameter clause
         // isn't parsed as a second title.
         endsParent: true,
@@ -356,11 +356,11 @@ export default function(hljs) {
     contains: [
       {
         className: 'keyword',
-        begin: /\b_\b/
+        match: /\b_\b/
       },
       {
         className: 'params',
-        begin: Swift.identifier
+        match: Swift.identifier
       }
     ]
   };
@@ -384,21 +384,24 @@ export default function(hljs) {
   };
   const FUNCTION = {
     className: 'function',
-    begin: lookahead(/\bfunc\b/),
+    match: lookahead(/\bfunc\b/),
     contains: [
       FUNC_PLUS_TITLE,
       GENERIC_PARAMETERS,
       FUNCTION_PARAMETERS,
       WHITESPACE
     ],
-    illegal: /\[|%/
+    illegal: [
+      /\[/,
+      /%/
+    ]
   };
 
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID375
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID379
   const INIT_SUBSCRIPT = {
     className: 'function',
-    begin: /\b(subscript|init[?!]?)\s*(?=[<(])/,
+    match: /\b(subscript|init[?!]?)\s*(?=[<(])/,
     keywords: {
       keyword: "subscript init init? init!",
       $pattern: /\w+[?!]?/
