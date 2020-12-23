@@ -1,4 +1,4 @@
-## Version 10.5.0 preparation
+## Version 10.5.0
 
 Build:
 
@@ -15,7 +15,7 @@ New Languages:
 
 - Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
 
-Language improvements:
+Language grammar improvements:
 
 - enh(cpp): Support C++ pack expansion in function arguments [Martin Dørum][]
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
@@ -30,9 +30,6 @@ Language improvements:
 - fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
 - fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
 - fix(asciidoc): Support unconstrained emphasis syntax (#2869) [Guillaume Grossetie][]
-
-Grammar improvements:
-
 - enh(scheme) Allow `[]` for argument lists (#2913) [Josh Goebel][]
 - enh(vb) Large rework of VB.net grammar (#2808) [Jan Pilzer][]
   - Adds support for Date data types, see (#2775)
@@ -50,7 +47,7 @@ Grammar improvements:
 - enh(c-like) Incorrect highlighting for interger suffix (#2919) [Vaibhav Chanana][]
 - enh(properties) Correctly handle trailing backslash (#2922) [Vaibhav Chanana][]
 
-Deprecations (*these will be mentioned in every release*):
+Recent Deprecations:
 
 - HTML "merging" is deprecated. (#2873) [Josh Goebel][]
   - HTML inside `<pre>` blocks will no longer be magically merged back into the
