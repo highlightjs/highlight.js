@@ -106,7 +106,7 @@ they perform well promote them into the core library.
 mode
   The incoming mode object
 
-parent
+parentMode
   The parent mode of the mode (null for the top level language mode)
 
 For example lets look at a tiny well behaved extension to allow us to write
@@ -116,7 +116,7 @@ end mode".
 ::
 
   compilerExtensions: [
-    (mode, _parent) => {
+    (mode, _parentMode) => {
       // first some quick sanity checks
       if (!mode.match) return;
 
