@@ -4,7 +4,8 @@ Category: common, css
 Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 */
 
-import * as css_shared from "./lib/css-shared";
+// @ts-ignore
+import * as css_shared from "./lib/css-shared.js";
 
 /** @type LanguageFn */
 export default function(hljs) {
@@ -65,7 +66,6 @@ export default function(hljs) {
     name: 'CSS',
     case_insensitive: true,
     illegal: /[=|'\$]/,
-    exports: css_shared,
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
       {
