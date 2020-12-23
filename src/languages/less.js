@@ -4,12 +4,12 @@ Description: It's CSS, with just a little more.
 Author:   Max Mikhailov <seven.phases.max@gmail.com>
 Website: http://lesscss.org
 Category: common, css
-Requires: css.js
 */
 
-export default function(hljs) {
+import * as css_shared from "./lib/css-shared.js";
 
-  const css_shared = hljs.requireLanguage("css").exports;
+/** @type LanguageFn */
+export default function(hljs) {
   const PSEUDO_SELECTORS = css_shared.PSEUDO_SELECTORS;
 
 

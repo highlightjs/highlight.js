@@ -4,10 +4,12 @@ Description: Scss is an extension of the syntax of CSS.
 Author: Kurt Emch <kurt@kurtemch.com>
 Website: https://sass-lang.com
 Category: common, css
-Requires: css.js
 */
+
+import * as css_shared from "./lib/css-shared.js";
+
+/** @type LanguageFn */
 export default function(hljs) {
-  const css_shared = hljs.requireLanguage("css").exports;
   const PSEUDO_ELEMENTS = css_shared.PSEUDO_ELEMENTS;
   const PSEUDO_CLASSES = css_shared.PSEUDO_CLASSES;
 

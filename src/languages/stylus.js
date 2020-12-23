@@ -4,12 +4,12 @@ Author: Bryant Williams <b.n.williams@gmail.com>
 Description: Stylus is an expressive, robust, feature-rich CSS language built for nodejs.
 Website: https://github.com/stylus/stylus
 Category: css
-Requires: css.js
 */
 
-export default function(hljs) {
+import * as css_shared from "./lib/css-shared.js";
 
-  const css_shared = hljs.requireLanguage("css").exports;
+/** @type LanguageFn */
+export default function(hljs) {
   const PSEUDO_SELECTORS = css_shared.PSEUDO_SELECTORS;
 
   var VARIABLE = {
