@@ -4,6 +4,13 @@ Build:
 
 - Add Subresource Integrity digest lists to `cdn-assets` [Josh Goebel][]
 
+Parser:
+
+- add `match` as sugar for simple `begin` only matches (#2834) [Josh Goebel][]
+- allow `illegal` to also be an array of regex (#2834) [Josh Goebel][]
+- add `compilerExtensions` allows grammers to influence mode compilation (#2834) [Josh Goebel][]
+  - some internal pieces are now simple compiler extensions
+
 New Languages:
 
 - Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]

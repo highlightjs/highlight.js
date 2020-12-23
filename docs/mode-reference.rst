@@ -1,3 +1,5 @@
+.. highlight:: javascript
+
 Mode Reference
 ==============
 
@@ -89,6 +91,50 @@ disableAutodetect
 Disables autodetection for this language.
 
 
+compilerExtensions (USE WITH CAUTION)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **type**: an array of compiler extensions ie: ``(mode, parentMode) -> {} ``
+
+This allows grammars to extend the mode compiler to add their own syntactic
+sugar to make reading and writing grammars easier.  **Note: This is heavily
+dependent upon compiler internals and may NOT be stable from minor release to
+minor release.** *It is currently recommended only for 1st party grammars.* The
+intention is that we use grammars to "test" out new compiler extensions and if
+they perform well promote them into the core library.
+
+mode
+  The incoming mode object
+
+parentMode
+  The parent mode of the mode (null for the top level language mode)
+
+For example lets look at a tiny well behaved extension to allow us to write
+``match`` as sugar to better express the intent to "match a single thing, then
+end mode".
+
+::
+
+  compilerExtensions: [
+    (mode, _parentMode) => {
+      // first some quick sanity checks
+      if (!mode.match) return;
+
+      // then check for users doing things that would make no sense
+      if (mode.begin || mode.end) throw new Error("begin & end are not supported with match");
+
+      // copy the match regex into begin
+      mode.begin = mode.match;
+
+      // cleanup: delete our syntactic construct
+      delete mode.match;
+    }
+  ]
+
+Compiler extension functions return nothing. They are expected to mutate the
+mode itself.
+
+
 
 Mode Attributes
 ---------------
@@ -112,6 +158,23 @@ begin
 
 Regular expression starting a mode. For example a single quote for strings or two forward slashes for C-style comments.
 If absent, ``begin`` defaults to a regexp that matches anything, so the mode starts immediately.
+
+
+match
+^^^^^
+
+- **type**: regexp
+
+This is simply syntactic sugar for a ``begin`` when no ``end`` expression is
+necessary.   It may not be used with ``begin`` or ``end`` keys (that would make
+no sense).  It exists simply to help make grammars more readable.
+
+::
+
+  {
+    className: "title",
+    match: /Fish/
+  }
 
 
 on:begin
@@ -325,10 +388,18 @@ For detailed explanation see :doc:`Language definition guide </language-guide>`.
 illegal
 ^^^^^^^
 
-- **type**: regexp
+- **type**: regexp or array
 
-A regular expression that defines symbols illegal for the mode.
+A regular expression or array that defines symbols illegal for the mode.
 When the parser finds a match for illegal expression it immediately drops parsing the whole language altogether.
+
+::
+
+  {
+    illegal: /%/,
+    // or using an array
+    illegal: [ /%/, /cookies/ ]
+  }
 
 
 excludeBegin, excludeEnd
