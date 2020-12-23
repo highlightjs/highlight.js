@@ -1,4 +1,4 @@
-@import <span class="hljs-string">&quot;nib&quot;</span>
+<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;nib&quot;</span>
 
 <span class="hljs-comment">// variables</span>
 <span class="hljs-variable">$green</span> = <span class="hljs-number">#008000</span>
