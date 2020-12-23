@@ -228,8 +228,8 @@ export function compileLanguage(language, { plugins }) {
 
     mode.contains.forEach(term => mm.addRule(term.begin, { rule: term, type: "begin" }));
 
-    if (mode.terminator_end) {
-      mm.addRule(mode.terminator_end, { type: "end" });
+    if (mode.terminatorEnd) {
+      mm.addRule(mode.terminatorEnd, { type: "end" });
     }
     if (mode.illegal) {
       mm.addRule(mode.illegal, { type: "illegal" });
@@ -329,9 +329,9 @@ export function compileLanguage(language, { plugins }) {
       if (mode.endSameAsBegin) mode.end = mode.begin;
       if (!mode.end && !mode.endsWithParent) mode.end = /\B|\b/;
       if (mode.end) cmode.endRe = langRe(mode.end);
-      cmode.terminator_end = regex.source(mode.end) || '';
-      if (mode.endsWithParent && parent.terminator_end) {
-        cmode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
+      cmode.terminatorEnd = regex.source(mode.end) || '';
+      if (mode.endsWithParent && parent.terminatorEnd) {
+        cmode.terminatorEnd += (mode.end ? '|' : '') + parent.terminatorEnd;
       }
     }
     if (mode.illegal) cmode.illegalRe = langRe(/** @type {RegExp | string} */ (mode.illegal));
@@ -391,8 +391,8 @@ function dependencyOnParent(mode) {
  * @returns {Mode | Mode[]}
  * */
 function expandOrCloneMode(mode) {
-  if (mode.variants && !mode.cached_variants) {
-    mode.cached_variants = mode.variants.map(function(variant) {
+  if (mode.variants && !mode.cachedVariants) {
+    mode.cachedVariants = mode.variants.map(function(variant) {
       return inherit(mode, { variants: null }, variant);
     });
   }
@@ -400,8 +400,8 @@ function expandOrCloneMode(mode) {
   // EXPAND
   // if we have variants then essentially "replace" the mode with the variants
   // this happens in compileMode, where this function is called from
-  if (mode.cached_variants) {
-    return mode.cached_variants;
+  if (mode.cachedVariants) {
+    return mode.cachedVariants;
   }
 
   // CLONE

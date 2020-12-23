@@ -187,7 +187,7 @@ type CompiledMode = Omit<Mode, 'contains'> &
         contains: CompiledMode[]
         keywords: KeywordDict
         data: Record<string, any>
-        terminator_end: string
+        terminatorEnd: string
         keywordPatternRe: RegExp
         beginRe: RegExp
         endRe: RegExp
@@ -221,7 +221,7 @@ interface ModeDetails {
     relevance?: number
     illegal?: string | RegExp | Array<string | RegExp>
     variants?: Mode[]
-    cached_variants?: Mode[]
+    cachedVariants?: Mode[]
     // parsed
     subLanguage?: string | string[]
     compiled?: boolean
