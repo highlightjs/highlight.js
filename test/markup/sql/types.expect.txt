@@ -1,0 +1,72 @@
+<span class="hljs-comment">-- character</span>
+
+<span class="hljs-type">character</span>
+<span class="hljs-type">char</span>
+<span class="hljs-type">character</span> <span class="hljs-type">varying</span>
+<span class="hljs-type">char</span> <span class="hljs-type">varying</span>
+<span class="hljs-type">varchar</span>
+
+<span class="hljs-type">national</span> <span class="hljs-type">character</span>
+<span class="hljs-type">national</span> <span class="hljs-type">char</span>
+<span class="hljs-type">nchar</span>
+<span class="hljs-type">national</span> <span class="hljs-type">character</span> <span class="hljs-type">varying</span>
+<span class="hljs-type">national</span> <span class="hljs-type">char</span> <span class="hljs-type">varying</span>
+<span class="hljs-type">nchar</span> <span class="hljs-type">varying</span>
+
+<span class="hljs-comment">-- LOBs</span>
+
+<span class="hljs-type">character</span> <span class="hljs-type">large object</span>
+<span class="hljs-type">char</span> <span class="hljs-type">large object</span>
+<span class="hljs-type">clob</span>
+<span class="hljs-type">national</span> <span class="hljs-type">character</span> <span class="hljs-type">large object</span>
+<span class="hljs-type">nchar</span> <span class="hljs-type">large object</span>
+<span class="hljs-type">nclob</span>
+<span class="hljs-type">binary</span> <span class="hljs-type">large object</span>
+<span class="hljs-type">blob</span>
+
+<span class="hljs-comment">-- binary</span>
+
+<span class="hljs-type">binary</span>
+<span class="hljs-type">binary</span> <span class="hljs-type">varying</span>
+<span class="hljs-type">varbinary</span>
+
+<span class="hljs-comment">-- numbers</span>
+
+<span class="hljs-type">numeric</span>
+<span class="hljs-type">decimal</span>
+<span class="hljs-type">dec</span>
+<span class="hljs-type">smallint</span>
+<span class="hljs-type">integer</span>
+<span class="hljs-type">int</span>
+<span class="hljs-type">bigint</span>
+
+<span class="hljs-type">float</span>
+<span class="hljs-type">real</span>
+<span class="hljs-type">double precision</span>
+
+<span class="hljs-type">decfloat</span>
+
+<span class="hljs-comment">-- boolean</span>
+
+<span class="hljs-type">boolean</span>
+
+<span class="hljs-comment">-- date &amp; time</span>
+
+<span class="hljs-type">date</span>
+<span class="hljs-type">time</span>
+<span class="hljs-type">timestamp</span>
+<span class="hljs-type">time</span>
+<span class="hljs-type">time</span> ... <span class="hljs-keyword">with</span> <span class="hljs-type">timestamp</span>
+<span class="hljs-type">time</span> ... <span class="hljs-keyword">without</span> <span class="hljs-type">timestamp</span>
+<span class="hljs-type">timestamp</span>
+<span class="hljs-type">timestamp</span> ... <span class="hljs-keyword">with</span> <span class="hljs-type">timestamp</span>
+<span class="hljs-type">timestamp</span> ... <span class="hljs-keyword">without</span> <span class="hljs-type">timestamp</span>
+
+<span class="hljs-comment">-- others</span>
+
+<span class="hljs-type">interval</span>
+<span class="hljs-type">row</span>
+<span class="hljs-keyword">ref</span>
+<span class="hljs-keyword">scope</span>
+<span class="hljs-keyword">array</span>
+<span class="hljs-keyword">multiset</span>

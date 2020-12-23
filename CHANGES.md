@@ -4,6 +4,13 @@ Build:
 
 - Add Subresource Integrity digest lists to `cdn-assets` [Josh Goebel][]
 
+Parser:
+
+- add `match` as sugar for simple `begin` only matches (#2834) [Josh Goebel][]
+- allow `illegal` to also be an array of regex (#2834) [Josh Goebel][]
+- add `compilerExtensions` allows grammers to influence mode compilation (#2834) [Josh Goebel][]
+  - some internal pieces are now simple compiler extensions
+
 New Languages:
 
 - Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
@@ -23,6 +30,7 @@ Language improvements:
 - enh(swift) Improved highlighting for functions, initializers, and subscripts (#2930) [Steven Van Impe][]
 - fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
 - fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
+- fix(asciidoc): Support unconstrained emphasis syntax (#2869) [Guillaume Grossetie][]
 
 Grammar improvements:
 
@@ -40,6 +48,8 @@ Grammar improvements:
 - enh(dart) Fix empty block-comments from breaking highlighting (#2898) [Jan Pilzer][]
 - enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
 - enh(asciidoc) Adds support for unconstrained bold syntax (#2869) [Guillaume Grossetie][]
+- enh(c-like) Incorrect highlighting for interger suffix (#2919) [Vaibhav Chanana][]
+- enh(properties) Correctly handle trailing backslash (#2922) [Vaibhav Chanana][]
 
 Deprecations (*these will be mentioned in every release*):
 

@@ -12,3 +12,9 @@
       val</span>
 <span class="hljs-attr">key\ key\:\=</span> <span class="hljs-string">val</span>
 <span class="hljs-attr">key</span>
+<span class="hljs-comment"># if the number of backslashes at the end of the line is even, the next line is not included in the value</span>
+<span class="hljs-attr">key</span> = <span class="hljs-string">val\\</span>
+<span class="hljs-attr">key</span> = <span class="hljs-string">diffValue\\\\</span>
+<span class="hljs-comment"># val with odd number of backslash, here val2 is part of the key</span>
+<span class="hljs-attr">key</span> = <span class="hljs-string">val\\\
+      val2</span>

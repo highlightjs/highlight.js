@@ -465,7 +465,7 @@ const HLJS = function(hljs) {
       throw new Error('Unknown language: "' + languageName + '"');
     }
 
-    const md = compileLanguage(language);
+    const md = compileLanguage(language, { plugins });
     let result = '';
     /** @type {CompiledMode} */
     let top = continuation || md;

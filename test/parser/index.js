@@ -7,5 +7,5 @@ describe('hljs', function() {
   require('./resume-scan');
   require('./reuse-endsWithParent');
   require('./should-not-destroyData');
-
+  require('./compiler-extensions');
 });

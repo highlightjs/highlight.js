@@ -63,6 +63,7 @@ interface ModesAPI {
 }
 
 type LanguageFn = (hljs?: HLJSApi) => Language
+type CompilerExt = (mode: Mode, parent: Mode | Language | null) => void
 
 interface HighlightResult {
     relevance : number
@@ -160,6 +161,7 @@ interface LanguageDetail {
     compiled?: boolean,
     exports?: any,
     classNameAliases?: Record<string, string>
+    compilerExtensions?: CompilerExt[]
 }
 
 type Language = LanguageDetail & Partial<Mode>
@@ -191,6 +193,7 @@ type CompiledMode = Omit<Mode, 'contains'> &
 
 interface ModeDetails {
     begin?: RegExp | string
+    match?: RegExp | string
     end?: RegExp | string
     className?: string
     contains?: ("self" | Mode)[]
@@ -209,7 +212,7 @@ interface ModeDetails {
     keywords?: Record<string, any> | string
     beginKeywords?: string
     relevance?: number
-    illegal?: string | RegExp
+    illegal?: string | RegExp | Array<string | RegExp>
     variants?: Mode[]
     cached_variants?: Mode[]
     // parsed
