@@ -237,8 +237,7 @@ export default function(hljs) {
         hljs.inherit(hljs.TITLE_MODE, {
           begin: CRYSTAL_PATH_RE
         })
-      ],
-      relevance: 10
+      ]
     },
     {
       beginKeywords: 'annotation',
@@ -250,7 +249,7 @@ export default function(hljs) {
           begin: CRYSTAL_PATH_RE
         })
       ],
-      relevance: 10
+      relevance: 2
     },
     {
       className: 'function',
