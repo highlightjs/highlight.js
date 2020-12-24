@@ -80,14 +80,17 @@ export default function(hljs) {
 
   /* Rule-Level Modes */
 
-  var RULE_MODE = {
-    begin: INTERP_IDENT_RE + '\\s*:', returnBegin: true, end: '[;}]',
+  const RULE_MODE = {
+    begin: INTERP_IDENT_RE + '\\s*:',
+    returnBegin: true,
+    end: /[;}]/,
     relevance: 0,
     contains: [
       { begin: /-(webkit|moz|ms|o)-/ },
       {
         className: 'attribute',
-        begin: INTERP_IDENT_RE, end: ':', excludeEnd: true,
+        begin: '\\b(' + css.ATTRIBUTES.reverse().join('|') + ')\\b',
+        end: /(?=:)/,
         starts: {
           endsWithParent: true, illegal: '[<=$]',
           relevance: 0,
