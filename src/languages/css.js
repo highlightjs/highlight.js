@@ -6,6 +6,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 
 // @ts-ignore
 import * as css_shared from "./lib/css-shared.js";
+import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
@@ -122,9 +123,22 @@ export default function(hljs) {
             relevance: 0,
             keywords: AT_MODIFIERS,
             contains: [
+              // handle CSS 4 negation of attributes as well
+              // as (color) style attributes
+              {
+                begin: regex.concat(
+                  /(not)?\(/,
+                  regex.either(...css_shared.MEDIA_FEATURES),
+                  /\)/
+                ),
+                keywords: {
+                  keyword: "not",
+                  attribute: css_shared.MEDIA_FEATURES.join(" ")
+                }
+              },
               {
                 begin: /[a-z-]+:/,
-                className:"attribute"
+                className: "attribute"
               },
               hljs.APOS_STRING_MODE,
               hljs.QUOTE_STRING_MODE,

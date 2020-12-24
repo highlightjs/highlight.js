@@ -86,6 +86,37 @@ export const TAGS = [
   'video'
 ];
 
+export const MEDIA_FEATURES = [
+  'any-hover',
+  'any-pointer',
+  'aspect-ratio',
+  'color',
+  'color-gamut',
+  'color-index',
+  'device-aspect-ratio',
+  'device-height',
+  'device-width',
+  'display-mode',
+  'forced-colors',
+  'grid',
+  'height',
+  'hover',
+  'inverted-colors',
+  'monochrome',
+  'orientation',
+  'overflow-block',
+  'overflow-inline',
+  'pointer',
+  'prefers-color-scheme',
+  'prefers-contrast',
+  'prefers-reduced-motion',
+  'prefers-reduced-transparency',
+  'resolution',
+  'scan',
+  'scripting',
+  'update',
+  'width'
+];
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
 export const PSEUDO_CLASSES = [
