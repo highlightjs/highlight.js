@@ -42,3 +42,18 @@
   (<span class="hljs-attribute">min-height</span>: <span class="hljs-number">100px</span>) <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-height</span>: <span class="hljs-number">1000px</span>),
   handheld <span class="hljs-keyword">and</span> (<span class="hljs-attribute">orientation</span>: landscape)
 {}
+
+<span class="hljs-keyword">@font-face</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Open Sans&quot;</span>;
+  <span class="hljs-attribute">font-display</span>: swap;
+  <span class="hljs-attribute">font-stretch</span>: <span class="hljs-number">50%</span> <span class="hljs-number">200%</span>;
+  <span class="hljs-attribute">font-style</span>: oblique <span class="hljs-number">20deg</span> <span class="hljs-number">50deg</span>;
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">100</span> <span class="hljs-number">400</span>;
+  <span class="hljs-attribute">font-variant</span>: no-common-ligatures proportional-nums;
+  <span class="hljs-attribute">font-feature-settings</span>: <span class="hljs-string">&quot;liga&quot;</span> <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-variation-settings</span>: <span class="hljs-string">&quot;xhgt&quot;</span> <span class="hljs-number">0.7</span>;
+  <span class="hljs-comment">/* unicode-range: U+0025-00FF, U+4??; */</span>
+  <span class="hljs-comment">/* it&#x27;s not 100% clear how url and format should be highlighted universally */</span>
+  <span class="hljs-comment">/* src: url(&quot;/fonts/OpenSans-Regular-webfont.woff2&quot;) format(&quot;woff2&quot;),
+       url(&quot;/fonts/OpenSans-Regular-webfont.woff&quot;) format(&quot;woff&quot;); */</span>
+}
