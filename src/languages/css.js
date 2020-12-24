@@ -10,22 +10,9 @@ import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var FUNCTION_LIKE = {
-    begin: /[\w-]+\(/, returnBegin: true,
-    contains: [
-      {
-        className: 'built_in',
-        begin: /[\w-]+/
-      },
-      {
-        begin: /\(/, end: /\)/,
-        contains: [
-          hljs.APOS_STRING_MODE,
-          hljs.QUOTE_STRING_MODE,
-          hljs.CSS_NUMBER_MODE,
-        ]
-      }
-    ]
+  var FUNCTION_DISPATCH = {
+    className: "built_in",
+    begin: /[\w-]+(?=\()/
   };
   var VENDOR_PREFIX= {
     begin: /-(webkit|moz|ms|o)-/
@@ -36,7 +23,7 @@ export default function(hljs) {
     starts: {
       endsWithParent: true, excludeEnd: true,
       contains: [
-        FUNCTION_LIKE,
+        FUNCTION_DISPATCH,
         hljs.CSS_NUMBER_MODE,
         hljs.QUOTE_STRING_MODE,
         hljs.APOS_STRING_MODE,
@@ -68,8 +55,17 @@ export default function(hljs) {
     name: 'CSS',
     case_insensitive: true,
     illegal: /[=|'\$]/,
+    keywords: {
+      keyframePosition: "from to"
+    },
+    classNameAliases: {
+      // for visual continuity with `tag {}` and because we
+      // don't have a great class for this?
+      keyframePosition: "selector-tag"
+    },
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
+      hljs.CSS_NUMBER_MODE,
       {
         className: 'selector-id', begin: /#[A-Za-z0-9_-]+/
       },
@@ -141,12 +137,6 @@ export default function(hljs) {
       {
         className: 'selector-tag',
         begin: '\\b(' + css_shared.TAGS.join('|') + ')\\b'
-      },
-      // left for handling keyframe idents as "tags"
-      {
-        className: 'selector-tag',
-        begin: IDENT_RE,
-        relevance: 0
       },
       {
         begin: /\{/, end: /\}/,
