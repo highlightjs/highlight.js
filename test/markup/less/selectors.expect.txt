@@ -1,5 +1,5 @@
 <span class="hljs-selector-id">#foo</span> {
-    <span class="hljs-selector-tag">tag</span> <span class="hljs-selector-id">#bar</span> {}
+    <span class="hljs-selector-tag">div</span> <span class="hljs-selector-id">#bar</span> {}
     &gt; <span class="hljs-selector-id">#bar</span> {}
     <span class="hljs-selector-id">#bar</span> {}
     <span class="hljs-selector-tag">&amp;</span><span class="hljs-selector-id">#bar</span> {}

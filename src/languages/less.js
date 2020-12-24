@@ -126,6 +126,10 @@ export default function(hljs) {
       MIXIN_GUARD_MODE,
       IDENT_MODE('keyword',  'all\\b'),
       IDENT_MODE('variable', '@\\{'  + IDENT_RE + '\\}'),     // otherwise it’s identified as tag
+      {
+        begin: '\\b(' + css_shared.TAGS.join('|') + ')\\b',
+        className: 'selector-tag'
+      },
       IDENT_MODE('selector-tag',  INTERP_IDENT_RE + '%?', 0), // '%' for more consistent coloring of @keyframes "tags"
       IDENT_MODE('selector-id', '#' + INTERP_IDENT_RE),
       IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),

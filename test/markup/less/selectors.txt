@@ -1,5 +1,5 @@
 #foo {
-    tag #bar {}
+    div #bar {}
     > #bar {}
     #bar {}
     &#bar {}

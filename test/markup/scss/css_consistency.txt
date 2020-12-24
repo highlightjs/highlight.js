@@ -16,6 +16,8 @@ div {
 
 div, p, table { width: 30px; }
 
+h1, h2, figcaption, aside, main, form, footer {}
+
 a:visited { color: blue; }
 div::after { content: "test"; }
 div::before { content: open-quote; }
