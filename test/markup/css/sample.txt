@@ -43,3 +43,9 @@ a[href*="example"], * [lang^=en] {
     src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
          url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
   }
+
+@keyframes animation {
+  10.1% {
+    left: 10px;
+  }
+}

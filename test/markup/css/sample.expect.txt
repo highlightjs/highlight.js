@@ -43,3 +43,9 @@
     <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;/fonts/OpenSans-Regular-webfont.woff2&quot;</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">&quot;woff2&quot;</span>),
          <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;/fonts/OpenSans-Regular-webfont.woff&quot;</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">&quot;woff&quot;</span>);
   }
+
+<span class="hljs-keyword">@keyframes</span> animation {
+  <span class="hljs-number">10.1%</span> {
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">10px</span>;
+  }
+}
