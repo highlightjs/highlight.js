@@ -20,3 +20,6 @@ a:visited { color: blue; }
 div::after { content: "test"; }
 div::before { content: open-quote; }
 span:nth-child(33) { color:red; }
+
+p:lang(en) {}
+:lang(en) {}
