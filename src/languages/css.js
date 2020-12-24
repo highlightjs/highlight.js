@@ -129,7 +129,13 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'selector-tag', begin: IDENT_RE,
+        className: 'selector-tag',
+        begin: '\\b(' + css_shared.TAGS.join('|') + ')\\b'
+      },
+      // left for handling keyframe idents as "tags"
+      {
+        className: 'selector-tag',
+        begin: IDENT_RE,
         relevance: 0
       },
       {

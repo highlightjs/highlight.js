@@ -16,6 +16,8 @@
 
 <span class="hljs-selector-tag">div</span>, <span class="hljs-selector-tag">p</span>, <span class="hljs-selector-tag">table</span> { <span class="hljs-attribute">width</span>: <span class="hljs-number">30px</span>; }
 
+<span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">h2</span>, <span class="hljs-selector-tag">figcaption</span>, <span class="hljs-selector-tag">aside</span>, <span class="hljs-selector-tag">main</span>, <span class="hljs-selector-tag">form</span>, <span class="hljs-selector-tag">footer</span> {}
+
 <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span> { <span class="hljs-attribute">color</span>: blue; }
 <span class="hljs-selector-tag">div</span><span class="hljs-selector-pseudo">::after</span> { <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;test&quot;</span>; }
 <span class="hljs-selector-tag">div</span><span class="hljs-selector-pseudo">::before</span> { <span class="hljs-attribute">content</span>: open-quote; }
