@@ -23,3 +23,6 @@ span:nth-child(33) { color:red; }
 
 p:lang(en) {}
 :lang(en) {}
+
+a[href*="example"] {}
+[class^="top"] {}

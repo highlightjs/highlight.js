@@ -23,3 +23,6 @@
 
 <span class="hljs-selector-tag">p</span><span class="hljs-selector-pseudo">:lang</span>(en) {}
 <span class="hljs-selector-pseudo">:lang</span>(en) {}
+
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href*=<span class="hljs-string">&quot;example&quot;</span>]</span> {}
+<span class="hljs-selector-attr">[class^=<span class="hljs-string">&quot;top&quot;</span>]</span> {}

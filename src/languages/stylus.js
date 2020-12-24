@@ -379,6 +379,8 @@ export default function(hljs) {
         begin: '&?:?:\\b(' + PSEUDO_SELECTORS.join('|') + ')' + LOOKAHEAD_TAG_END
       },
 
+      css_shared.ATTRIBUTE_SELECTOR_MODE,
+
       // @ keywords
       {
         className: 'keyword',
