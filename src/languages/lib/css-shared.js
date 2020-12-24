@@ -1,3 +1,15 @@
+import * as modes from '../../lib/modes.js';
+
+export const ATTRIBUTE_SELECTOR_MODE = {
+  className: 'selector-attr',
+  begin: /\[/,
+  end: /\]/,
+  illegal: '$',
+  contains: [
+    modes.APOS_STRING_MODE,
+    modes.QUOTE_STRING_MODE
+  ]
+};
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
 export const PSEUDO_CLASSES = [
