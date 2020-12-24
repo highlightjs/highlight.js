@@ -44,7 +44,8 @@ export default function(hljs) {
           className: 'number', begin: '#[0-9A-Fa-f]+'
         },
         {
-          className: 'meta', begin: '!important'
+          className: 'meta',
+          begin: '!important'
         }
       ]
     }

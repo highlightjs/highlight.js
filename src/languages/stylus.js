@@ -17,6 +17,11 @@ export default function(hljs) {
     begin: '\\$' + hljs.IDENT_RE
   };
 
+  var IMPORTANT = {
+    className: 'meta',
+    begin: '!important'
+  };
+
   var HEX_COLOR = {
     className: 'number',
     begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})'
@@ -367,7 +372,8 @@ export default function(hljs) {
             hljs.QUOTE_STRING_MODE,
             hljs.CSS_NUMBER_MODE,
             hljs.NUMBER_MODE,
-            hljs.C_BLOCK_COMMENT_MODE
+            hljs.C_BLOCK_COMMENT_MODE,
+            IMPORTANT
           ],
           illegal: /\./,
           relevance: 0

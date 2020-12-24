@@ -95,7 +95,8 @@ export default function(hljs) {
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           {
-            className: 'meta', begin: '!important'
+            className: 'meta',
+            begin: '!important'
           }
         ]
       },
