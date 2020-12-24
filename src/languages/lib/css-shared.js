@@ -115,7 +115,12 @@ export const MEDIA_FEATURES = [
   'scan',
   'scripting',
   'update',
-  'width'
+  'width',
+  // TODO: find a better solution?
+  'min-width',
+  'max-width',
+  'min-height',
+  'max-height'
 ];
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes

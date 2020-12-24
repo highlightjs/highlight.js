@@ -12,6 +12,7 @@ import * as css_shared from "./lib/css-shared.js";
 export default function(hljs) {
   const PSEUDO_SELECTORS = css_shared.PSEUDO_SELECTORS;
 
+  var AT_MODIFIERS = "and or not only";
   var VARIABLE = {
     className: 'variable',
     begin: '\\$' + hljs.IDENT_RE
@@ -315,6 +316,22 @@ export default function(hljs) {
       },
 
       css_shared.ATTRIBUTE_SELECTOR_MODE,
+
+      {
+        className: "keyword",
+        begin: /@media/,
+        starts: {
+          end: /[{;}]/,
+          keywords: {
+            $pattern: /[a-z-]+/,
+            keyword: AT_MODIFIERS,
+            attribute: css_shared.MEDIA_FEATURES.join(" ")
+          },
+          contains: [
+            hljs.CSS_NUMBER_MODE
+          ]
+        }
+      },
 
       // @ keywords
       {

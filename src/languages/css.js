@@ -121,23 +121,14 @@ export default function(hljs) {
           {
             begin: /\s/, endsWithParent: true, excludeEnd: true,
             relevance: 0,
-            keywords: AT_MODIFIERS,
+            keywords: {
+              $pattern: /[a-z-]+/,
+              keyword: AT_MODIFIERS,
+              attribute: css_shared.MEDIA_FEATURES.join(" ")
+            },
             contains: [
-              // handle CSS 4 negation of attributes as well
-              // as (color) style attributes
               {
-                begin: regex.concat(
-                  /(not)?\(/,
-                  regex.either(...css_shared.MEDIA_FEATURES),
-                  /\)/
-                ),
-                keywords: {
-                  keyword: "not",
-                  attribute: css_shared.MEDIA_FEATURES.join(" ")
-                }
-              },
-              {
-                begin: /[a-z-]+:/,
+                begin: /[a-z-]+(?=:)/,
                 className: "attribute"
               },
               hljs.APOS_STRING_MODE,
