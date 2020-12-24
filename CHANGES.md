@@ -47,6 +47,7 @@ Language grammar improvements:
 - enh(asciidoc) Adds support for unconstrained bold syntax (#2869) [Guillaume Grossetie][]
 - enh(c-like) Incorrect highlighting for interger suffix (#2919) [Vaibhav Chanana][]
 - enh(properties) Correctly handle trailing backslash (#2922) [Vaibhav Chanana][]
+- enh(css) Fix highlighting of numbers in keyframe animation (#2934) [Vaibhav Chanana][]
 
 Recent Deprecations:
 
