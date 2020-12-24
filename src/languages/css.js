@@ -85,7 +85,11 @@ export default function(hljs) {
       },
       {
         className: 'selector-pseudo',
-        begin: /:(:)?[a-zA-Z0-9_+"'.-]+/
+        begin: ':(' + css_shared.PSEUDO_CLASSES.join('|') + ')'
+      },
+      {
+        className: 'selector-pseudo',
+        begin: '::(' + css_shared.PSEUDO_ELEMENTS.join('|') + ')'
       },
       { // pseudo-selector params
         begin: /\(/,
