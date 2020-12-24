@@ -67,7 +67,7 @@
 }
 
 <span class="hljs-keyword">@mixin</span> mobile {
-  <span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (max-width : <span class="hljs-number">600px</span>) {
+  <span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span> : <span class="hljs-number">600px</span>) {
     <span class="hljs-keyword">@content</span>;
   }
 }

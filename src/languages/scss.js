@@ -111,11 +111,19 @@ export default function(hljs) {
       {
         begin: '@', end: '[{;]',
         returnBegin: true,
-        keywords: AT_MODIFIERS,
+        keywords: {
+          $pattern: /[a-z-]+/,
+          keyword: AT_MODIFIERS,
+          attribute: css_shared.MEDIA_FEATURES.join(" ")
+        },
         contains: [
           {
             begin: AT_IDENTIFIER,
             className: "keyword"
+          },
+          {
+            begin: /[a-z-]+(?=:)/,
+            className: "attribute"
           },
           VARIABLE,
           hljs.QUOTE_STRING_MODE,

@@ -12,13 +12,13 @@ import * as css_shared from "./lib/css-shared.js";
 export default function(hljs) {
   const PSEUDO_SELECTORS = css_shared.PSEUDO_SELECTORS;
 
-
+  var AT_MODIFIERS = "and or not only";
   var IDENT_RE        = '[\\w-]+'; // yes, Less identifiers may begin with a digit
   var INTERP_IDENT_RE = '(' + IDENT_RE + '|@\\{' + IDENT_RE + '\\})';
 
   /* Generic Modes */
 
-  var RULES = [], VALUE = []; // forward def. for recursive modes
+  var RULES = [], VALUE_MODES = []; // forward def. for recursive modes
 
   var STRING_MODE = function(c) { return {
     // Less strings are not multiline (also include '~' for more consistent coloring of "escaped" strings)
@@ -29,13 +29,23 @@ export default function(hljs) {
     className: name, begin: begin, relevance: relevance
   };};
 
+  var AT_KEYWORDS = {
+    $pattern: /[a-z-]+/,
+    keyword: AT_MODIFIERS,
+    attribute: css_shared.MEDIA_FEATURES.join(" ")
+  };
+
   var PARENS_MODE = {
     // used only to properly balance nested parens inside mixin call, def. arg list
-    begin: '\\(', end: '\\)', contains: VALUE, relevance: 0
+    begin: '\\(',
+    end: '\\)',
+    contains: VALUE_MODES,
+    keywords: AT_KEYWORDS,
+    relevance: 0
   };
 
   // generic Less highlighter (used almost everywhere except selectors):
-  VALUE.push(
+  VALUE_MODES.push(
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     STRING_MODE("'"),
@@ -59,13 +69,13 @@ export default function(hljs) {
     }
   );
 
-  var VALUE_WITH_RULESETS = VALUE.concat({
+  var VALUE_WITH_RULESETS = VALUE_MODES.concat({
     begin: /\{/, end: /\}/, contains: RULES
   });
 
   var MIXIN_GUARD_MODE = {
     beginKeywords: 'when', endsWithParent: true,
-    contains: [{beginKeywords: 'and not'}].concat(VALUE) // using this form to override VALUE’s 'function' match
+    contains: [{beginKeywords: 'and not'}].concat(VALUE_MODES) // using this form to override VALUE’s 'function' match
   };
 
   /* Rule-Level Modes */
@@ -81,16 +91,22 @@ export default function(hljs) {
         starts: {
           endsWithParent: true, illegal: '[<=$]',
           relevance: 0,
-          contains: VALUE
+          contains: VALUE_MODES
         }
       }
     ]
   };
 
-  var AT_RULE_MODE = {
+  const AT_RULE_MODE = {
     className: 'keyword',
     begin: '@(import|media|charset|font-face|(-[a-z]+-)?keyframes|supports|document|namespace|page|viewport|host)\\b',
-    starts: {end: '[;{}]', returnEnd: true, contains: VALUE, relevance: 0}
+    starts: {
+      end: '[;{}]',
+      keywords: AT_KEYWORDS,
+      returnEnd: true,
+      contains: VALUE_MODES,
+      relevance: 0
+    }
   };
 
   // variable definitions and calls
