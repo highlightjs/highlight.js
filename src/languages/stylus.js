@@ -302,7 +302,11 @@ export default function(hljs) {
       // psuedo selectors
       {
         className: 'selector-pseudo',
-        begin: '&?:?:\\b(' + PSEUDO_SELECTORS.join('|') + ')' + LOOKAHEAD_TAG_END
+        begin: '&?:(' + css_shared.PSEUDO_CLASSES.join('|') + ')' + LOOKAHEAD_TAG_END
+      },
+      {
+        className: 'selector-pseudo',
+        begin: '&?::(' + css_shared.PSEUDO_ELEMENTS.join('|') + ')' + LOOKAHEAD_TAG_END
       },
 
       css_shared.ATTRIBUTE_SELECTOR_MODE,
