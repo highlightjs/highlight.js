@@ -6,12 +6,13 @@ Website: https://sass-lang.com
 Category: common, css
 */
 
-import * as css_shared from "./lib/css-shared.js";
+import * as css from "./lib/css-shared.js";
 
 /** @type LanguageFn */
 export default function(hljs) {
-  const PSEUDO_ELEMENTS = css_shared.PSEUDO_ELEMENTS;
-  const PSEUDO_CLASSES = css_shared.PSEUDO_CLASSES;
+  const modes = css.MODES(hljs);
+  const PSEUDO_ELEMENTS = css.PSEUDO_ELEMENTS;
+  const PSEUDO_CLASSES = css.PSEUDO_CLASSES;
 
   var AT_IDENTIFIER = '@[a-z-]+' // @font-face
   var AT_MODIFIERS = "and or not only"
@@ -20,28 +21,7 @@ export default function(hljs) {
     className: 'variable',
     begin: '(\\$' + IDENT_RE + ')\\b'
   };
-  var HEXCOLOR = {
-    className: 'number', begin: '#[0-9A-Fa-f]+'
-  };
-  var DEF_INTERNALS = {
-    className: 'attribute',
-    begin: '[A-Z\\_\\.\\-]+', end: ':',
-    excludeEnd: true,
-    illegal: '[^\\s]',
-    starts: {
-      endsWithParent: true, excludeEnd: true,
-      contains: [
-        HEXCOLOR,
-        hljs.CSS_NUMBER_MODE,
-        hljs.QUOTE_STRING_MODE,
-        hljs.APOS_STRING_MODE,
-        hljs.C_BLOCK_COMMENT_MODE,
-        {
-          className: 'meta', begin: '!important'
-        }
-      ]
-    }
-  };
+
   return {
     name: 'SCSS',
     case_insensitive: true,
@@ -57,10 +37,10 @@ export default function(hljs) {
         className: 'selector-class', begin: '\\.[A-Za-z0-9_-]+',
         relevance: 0
       },
-      css_shared.ATTRIBUTE_SELECTOR_MODE,
+      modes.ATTRIBUTE_SELECTOR_MODE,
       {
         className: 'selector-tag',
-        begin: '\\b(' + css_shared.TAGS.join('|') + ')\\b',
+        begin: '\\b(' + css.TAGS.join('|') + ')\\b',
         // was there, before, but why?
         relevance: 0
       },
@@ -80,7 +60,7 @@ export default function(hljs) {
       },
       {
         className: 'attribute',
-        begin: '\\b(' + css_shared.ATTRIBUTES.reverse().join('|') + ')\\b',
+        begin: '\\b(' + css.ATTRIBUTES.reverse().join('|') + ')\\b',
       },
       {
         begin: '\\b(whitespace|wait|w-resize|visible|vertical-text|vertical-ideographic|uppercase|upper-roman|upper-alpha|underline|transparent|top|thin|thick|text|text-top|text-bottom|tb-rl|table-header-group|table-footer-group|sw-resize|super|strict|static|square|solid|small-caps|separate|se-resize|scroll|s-resize|rtl|row-resize|ridge|right|repeat|repeat-y|repeat-x|relative|progress|pointer|overline|outside|outset|oblique|nowrap|not-allowed|normal|none|nw-resize|no-repeat|no-drop|newspaper|ne-resize|n-resize|move|middle|medium|ltr|lr-tb|lowercase|lower-roman|lower-alpha|loose|list-item|line|line-through|line-edge|lighter|left|keep-all|justify|italic|inter-word|inter-ideograph|inside|inset|inline|inline-block|inherit|inactive|ideograph-space|ideograph-parenthesis|ideograph-numeric|ideograph-alpha|horizontal|hidden|help|hand|groove|fixed|ellipsis|e-resize|double|dotted|distribute|distribute-space|distribute-letter|distribute-all-lines|disc|disabled|default|decimal|dashed|crosshair|collapse|col-resize|circle|char|center|capitalize|break-word|break-all|bottom|both|bolder|bold|block|bidi-override|below|baseline|auto|always|all-scroll|absolute|table|table-cell)\\b'
@@ -89,14 +69,11 @@ export default function(hljs) {
         begin: ':', end: ';',
         contains: [
           VARIABLE,
-          HEXCOLOR,
+          modes.HEXCOLOR,
           hljs.CSS_NUMBER_MODE,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
-          {
-            className: 'meta',
-            begin: '!important'
-          }
+          modes.IMPORTANT
         ]
       },
       // matching these here allows us to treat them more like regular CSS
@@ -113,7 +90,7 @@ export default function(hljs) {
         keywords: {
           $pattern: /[a-z-]+/,
           keyword: AT_MODIFIERS,
-          attribute: css_shared.MEDIA_FEATURES.join(" ")
+          attribute: css.MEDIA_FEATURES.join(" ")
         },
         contains: [
           {
@@ -127,12 +104,8 @@ export default function(hljs) {
           VARIABLE,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
-          HEXCOLOR,
+          modes.HEXCOLOR,
           hljs.CSS_NUMBER_MODE,
-          // {
-          //   begin: '\\s[A-Za-z0-9_.-]+',
-          //   relevance: 0
-          // }
         ]
       }
     ]
