@@ -163,7 +163,7 @@ export default function(hljs) {
       //  - must have whitespace after it
       {
         className: 'attribute',
-        begin: '\\b(' + css.ATTRIBUTES.reverse().join('|') + ')\\b',
+        begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b',
         starts: {
           // value container
           end: /;|$/,

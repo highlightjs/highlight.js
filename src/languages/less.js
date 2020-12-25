@@ -111,7 +111,7 @@ export default function(hljs) {
       },
       {
         className: 'attribute',
-        begin: '\\b(' + css.ATTRIBUTES.reverse().join('|') + ')\\b',
+        begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b',
         end: /(?=:)/,
         starts: {
           endsWithParent: true,
