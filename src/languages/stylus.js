@@ -6,26 +6,16 @@ Website: https://github.com/stylus/stylus
 Category: css
 */
 
-import * as css_shared from "./lib/css-shared.js";
+import * as css from "./lib/css-shared.js";
 
 /** @type LanguageFn */
 export default function(hljs) {
-  const PSEUDO_SELECTORS = css_shared.PSEUDO_SELECTORS;
+  const modes = css.MODES(hljs);
 
   var AT_MODIFIERS = "and or not only";
   var VARIABLE = {
     className: 'variable',
     begin: '\\$' + hljs.IDENT_RE
-  };
-
-  var IMPORTANT = {
-    className: 'meta',
-    begin: '!important'
-  };
-
-  var HEX_COLOR = {
-    className: 'number',
-    begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})'
   };
 
   var AT_KEYWORDS = [
@@ -79,7 +69,7 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
 
       // hex colors
-      HEX_COLOR,
+      modes.HEXCOLOR,
 
       // class tag
       {
@@ -95,21 +85,21 @@ export default function(hljs) {
 
       // tags
       {
-        begin: '\\b(' + css_shared.TAGS.join('|') + ')' + LOOKAHEAD_TAG_END,
+        begin: '\\b(' + css.TAGS.join('|') + ')' + LOOKAHEAD_TAG_END,
         className: 'selector-tag'
       },
 
       // psuedo selectors
       {
         className: 'selector-pseudo',
-        begin: '&?:(' + css_shared.PSEUDO_CLASSES.join('|') + ')' + LOOKAHEAD_TAG_END
+        begin: '&?:(' + css.PSEUDO_CLASSES.join('|') + ')' + LOOKAHEAD_TAG_END
       },
       {
         className: 'selector-pseudo',
-        begin: '&?::(' + css_shared.PSEUDO_ELEMENTS.join('|') + ')' + LOOKAHEAD_TAG_END
+        begin: '&?::(' + css.PSEUDO_ELEMENTS.join('|') + ')' + LOOKAHEAD_TAG_END
       },
 
-      css_shared.ATTRIBUTE_SELECTOR_MODE,
+      modes.ATTRIBUTE_SELECTOR_MODE,
 
       {
         className: "keyword",
@@ -119,7 +109,7 @@ export default function(hljs) {
           keywords: {
             $pattern: /[a-z-]+/,
             keyword: AT_MODIFIERS,
-            attribute: css_shared.MEDIA_FEATURES.join(" ")
+            attribute: css.MEDIA_FEATURES.join(" ")
           },
           contains: [
             hljs.CSS_NUMBER_MODE
@@ -156,7 +146,7 @@ export default function(hljs) {
             begin: /\(/,
             end: /\)/,
             contains: [
-              HEX_COLOR,
+              modes.HEXCOLOR,
               VARIABLE,
               hljs.APOS_STRING_MODE,
               hljs.CSS_NUMBER_MODE,
@@ -172,19 +162,19 @@ export default function(hljs) {
       //  - must have whitespace after it
       {
         className: 'attribute',
-        begin: '\\b(' + css_shared.ATTRIBUTES.reverse().join('|') + ')\\b',
+        begin: '\\b(' + css.ATTRIBUTES.reverse().join('|') + ')\\b',
         starts: {
           // value container
           end: /;|$/,
           contains: [
-            HEX_COLOR,
+            modes.HEXCOLOR,
             VARIABLE,
             hljs.APOS_STRING_MODE,
             hljs.QUOTE_STRING_MODE,
             hljs.CSS_NUMBER_MODE,
             hljs.NUMBER_MODE,
             hljs.C_BLOCK_COMMENT_MODE,
-            IMPORTANT
+            modes.IMPORTANT
           ],
           illegal: /\./,
           relevance: 0

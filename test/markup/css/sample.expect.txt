@@ -34,7 +34,7 @@
   }
 }
 
-<span class="hljs-keyword">@page</span> <span class="hljs-selector-pseudo">:first</span> {
+<span class="hljs-keyword">@page</span> :first {
     <span class="hljs-attribute">margin</span>: <span class="hljs-number">2cm</span>;
 }
 

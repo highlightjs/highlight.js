@@ -1,14 +1,24 @@
-import * as modes from '../../lib/modes.js';
-
-export const ATTRIBUTE_SELECTOR_MODE = {
-  className: 'selector-attr',
-  begin: /\[/,
-  end: /\]/,
-  illegal: '$',
-  contains: [
-    modes.APOS_STRING_MODE,
-    modes.QUOTE_STRING_MODE
-  ]
+export const MODES = (hljs) => {
+  return {
+    IMPORTANT: {
+      className: 'meta',
+      begin: '!important'
+    },
+    HEXCOLOR: {
+      className: 'number',
+      begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})'
+    },
+    ATTRIBUTE_SELECTOR_MODE: {
+      className: 'selector-attr',
+      begin: /\[/,
+      end: /\]/,
+      illegal: '$',
+      contains: [
+        hljs.APOS_STRING_MODE,
+        hljs.QUOTE_STRING_MODE
+      ]
+    }
+  };
 };
 
 export const TAGS = [

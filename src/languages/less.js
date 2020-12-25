@@ -6,11 +6,12 @@ Website: http://lesscss.org
 Category: common, css
 */
 
-import * as css_shared from "./lib/css-shared.js";
+import * as css from "./lib/css-shared.js";
 
 /** @type LanguageFn */
 export default function(hljs) {
-  const PSEUDO_SELECTORS = css_shared.PSEUDO_SELECTORS;
+  const modes = css.MODES(hljs);
+  const PSEUDO_SELECTORS = css.PSEUDO_SELECTORS;
 
   var AT_MODIFIERS = "and or not only";
   var IDENT_RE        = '[\\w-]+'; // yes, Less identifiers may begin with a digit
@@ -32,7 +33,7 @@ export default function(hljs) {
   var AT_KEYWORDS = {
     $pattern: /[a-z-]+/,
     keyword: AT_MODIFIERS,
-    attribute: css_shared.MEDIA_FEATURES.join(" ")
+    attribute: css.MEDIA_FEATURES.join(" ")
   };
 
   var PARENS_MODE = {
@@ -55,7 +56,7 @@ export default function(hljs) {
       begin: '(url|data-uri)\\(',
       starts: {className: 'string', end: '[\\)\\n]', excludeEnd: true}
     },
-    IDENT_MODE('number', '#[0-9A-Fa-f]+\\b'),
+    modes.HEXCOLOR,
     PARENS_MODE,
     IDENT_MODE('variable', '@@?' + IDENT_RE, 10),
     IDENT_MODE('variable', '@\\{'  + IDENT_RE + '\\}'),
@@ -63,10 +64,7 @@ export default function(hljs) {
     { // @media features (it’s here to not duplicate things in AT_RULE_MODE with extra PARENS_MODE overriding):
       className: 'attribute', begin: IDENT_RE + '\\s*:', end: ':', returnBegin: true, excludeEnd: true
     },
-    {
-      className: 'meta',
-      begin: '!important'
-    }
+    modes.IMPORTANT
   );
 
   var VALUE_WITH_RULESETS = VALUE_MODES.concat({
@@ -146,21 +144,21 @@ export default function(hljs) {
       IDENT_MODE('keyword',  'all\\b'),
       IDENT_MODE('variable', '@\\{'  + IDENT_RE + '\\}'),     // otherwise it’s identified as tag
       {
-        begin: '\\b(' + css_shared.TAGS.join('|') + ')\\b',
+        begin: '\\b(' + css.TAGS.join('|') + ')\\b',
         className: 'selector-tag'
       },
       IDENT_MODE('selector-tag',  INTERP_IDENT_RE + '%?', 0), // '%' for more consistent coloring of @keyframes "tags"
       IDENT_MODE('selector-id', '#' + INTERP_IDENT_RE),
       IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),
       IDENT_MODE('selector-tag',  '&', 0),
-      css_shared.ATTRIBUTE_SELECTOR_MODE,
+      modes.ATTRIBUTE_SELECTOR_MODE,
       {
         className: 'selector-pseudo',
-        begin: ':(' + css_shared.PSEUDO_CLASSES.join('|') + ')'
+        begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')'
       },
       {
         className: 'selector-pseudo',
-        begin: '::(' + css_shared.PSEUDO_ELEMENTS.join('|') + ')'
+        begin: '::(' + css.PSEUDO_ELEMENTS.join('|') + ')'
       },
       {begin: '\\(', end: '\\)', contains: VALUE_WITH_RULESETS}, // argument list of parametric mixins
       {begin: '!important'} // eat !important after mixin call or it will be colored as tag

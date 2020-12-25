@@ -10,24 +10,21 @@ import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
-  const IMPORTANT = {
-    className: 'meta',
-    begin: '!important'
-  };
-  const HEXCOLOR = {
-    className: 'number', begin: '#[0-9A-Fa-f]+'
-  };
+  const modes = css.MODES(hljs);
   const FUNCTION_DISPATCH = {
     className: "built_in",
     begin: /[\w-]+(?=\()/
   };
   const VENDOR_PREFIX = {
-    begin: /-(webkit|moz|ms|o)-/
+    begin: /-(webkit|moz|ms|o)-(?=[a-z])/
   };
   const AT_MODIFIERS = "and or not only";
   const AT_PROPERTY_RE = /@-?\w[\w]*(-\w+)*/; // @-webkit-keyframes
   const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
-
+  const STRINGS = [
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE
+  ];
 
   return {
     name: 'CSS',
@@ -43,23 +40,31 @@ export default function(hljs) {
     },
     contains: [
       hljs.C_BLOCK_COMMENT_MODE,
+      VENDOR_PREFIX,
       // to recognize keyframe 40% etc which are outside the scope of our
       // attribute value mode
       hljs.CSS_NUMBER_MODE,
       {
-        className: 'selector-id', begin: /#[A-Za-z0-9_-]+/
+        className: 'selector-id',
+        begin: /#[A-Za-z0-9_-]+/,
+        relevance: 0
       },
       {
-        className: 'selector-class', begin: '\\.' + IDENT_RE
+        className: 'selector-class',
+        begin: '\\.' + IDENT_RE,
+        relevance: 0
       },
-      css.ATTRIBUTE_SELECTOR_MODE,
+      modes.ATTRIBUTE_SELECTOR_MODE,
       {
         className: 'selector-pseudo',
-        begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')'
-      },
-      {
-        className: 'selector-pseudo',
-        begin: '::(' + css.PSEUDO_ELEMENTS.join('|') + ')'
+        variants: [
+          {
+            begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')'
+          },
+          {
+            begin: '::(' + css.PSEUDO_ELEMENTS.join('|') + ')'
+          }
+        ]
       },
       // we may actually need this (12/2020)
       // { // pseudo-selector params
@@ -76,17 +81,17 @@ export default function(hljs) {
         begin: ':',
         end: '[;}]',
         contains: [
-          HEXCOLOR,
-          IMPORTANT,
+          modes.HEXCOLOR,
+          modes.IMPORTANT,
           hljs.CSS_NUMBER_MODE,
-          hljs.QUOTE_STRING_MODE,
-          hljs.APOS_STRING_MODE,
+          ...STRINGS,
           // needed to highlight these as strings and to avoid issues with
           // illegal characters that might be inside urls that would tigger the
           // languages illegal stack
           {
             begin: /(url|data-uri)\(/,
             end: /\)/,
+            relevance: 0, // from keywords
             keywords: {
               built_in: "url data-uri"
             },
@@ -104,19 +109,10 @@ export default function(hljs) {
           FUNCTION_DISPATCH
         ]
       },
-      // matching these here allows us to treat them more like regular CSS
-      // rules so everything between the {} gets regular rule highlighting,
-      // which is what we want for page and font-face
-      {
-        begin: '@(page|font-face)',
-        keywords: {
-          $pattern: /@[a-z-]+/,
-          keyword: '@page @font-face'
-        }
-      },
       {
         begin: regex.lookahead(/@/),
         end: '[{;]',
+        relevance: 0,
         illegal: /:/, // break on Less variables @var: ...
         contains: [
           {
@@ -124,7 +120,9 @@ export default function(hljs) {
             begin: AT_PROPERTY_RE
           },
           {
-            begin: /\s/, endsWithParent: true, excludeEnd: true,
+            begin: /\s/,
+            endsWithParent: true,
+            excludeEnd: true,
             relevance: 0,
             keywords: {
               $pattern: /[a-z-]+/,
@@ -136,8 +134,7 @@ export default function(hljs) {
                 begin: /[a-z-]+(?=:)/,
                 className: "attribute"
               },
-              hljs.APOS_STRING_MODE,
-              hljs.QUOTE_STRING_MODE,
+              ...STRINGS,
               hljs.CSS_NUMBER_MODE
             ]
           }
