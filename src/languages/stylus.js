@@ -127,9 +127,6 @@ export default function(hljs) {
       // dimension
       hljs.CSS_NUMBER_MODE,
 
-      // number
-      hljs.NUMBER_MODE,
-
       // functions
       //  - only from beginning of line + whitespace
       {
@@ -151,7 +148,6 @@ export default function(hljs) {
               VARIABLE,
               hljs.APOS_STRING_MODE,
               hljs.CSS_NUMBER_MODE,
-              hljs.NUMBER_MODE,
               hljs.QUOTE_STRING_MODE
             ]
           }
@@ -173,7 +169,6 @@ export default function(hljs) {
             hljs.APOS_STRING_MODE,
             hljs.QUOTE_STRING_MODE,
             hljs.CSS_NUMBER_MODE,
-            hljs.NUMBER_MODE,
             hljs.C_BLOCK_COMMENT_MODE,
             modes.IMPORTANT
           ],
