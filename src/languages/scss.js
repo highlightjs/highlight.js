@@ -14,10 +14,10 @@ export default function(hljs) {
   const PSEUDO_ELEMENTS = css.PSEUDO_ELEMENTS;
   const PSEUDO_CLASSES = css.PSEUDO_CLASSES;
 
-  var AT_IDENTIFIER = '@[a-z-]+' // @font-face
-  var AT_MODIFIERS = "and or not only"
-  var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
-  var VARIABLE = {
+  const AT_IDENTIFIER = '@[a-z-]+'; // @font-face
+  const AT_MODIFIERS = "and or not only";
+  const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
+  const VARIABLE = {
     className: 'variable',
     begin: '(\\$' + IDENT_RE + ')\\b'
   };
@@ -30,11 +30,13 @@ export default function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
-        className: 'selector-id', begin: '#[A-Za-z0-9_-]+',
+        className: 'selector-id',
+        begin: '#[A-Za-z0-9_-]+',
         relevance: 0
       },
       {
-        className: 'selector-class', begin: '\\.[A-Za-z0-9_-]+',
+        className: 'selector-class',
+        begin: '\\.[A-Za-z0-9_-]+',
         relevance: 0
       },
       modes.ATTRIBUTE_SELECTOR_MODE,
@@ -60,13 +62,14 @@ export default function(hljs) {
       },
       {
         className: 'attribute',
-        begin: '\\b(' + css.ATTRIBUTES.reverse().join('|') + ')\\b',
+        begin: '\\b(' + css.ATTRIBUTES.reverse().join('|') + ')\\b'
       },
       {
         begin: '\\b(whitespace|wait|w-resize|visible|vertical-text|vertical-ideographic|uppercase|upper-roman|upper-alpha|underline|transparent|top|thin|thick|text|text-top|text-bottom|tb-rl|table-header-group|table-footer-group|sw-resize|super|strict|static|square|solid|small-caps|separate|se-resize|scroll|s-resize|rtl|row-resize|ridge|right|repeat|repeat-y|repeat-x|relative|progress|pointer|overline|outside|outset|oblique|nowrap|not-allowed|normal|none|nw-resize|no-repeat|no-drop|newspaper|ne-resize|n-resize|move|middle|medium|ltr|lr-tb|lowercase|lower-roman|lower-alpha|loose|list-item|line|line-through|line-edge|lighter|left|keep-all|justify|italic|inter-word|inter-ideograph|inside|inset|inline|inline-block|inherit|inactive|ideograph-space|ideograph-parenthesis|ideograph-numeric|ideograph-alpha|horizontal|hidden|help|hand|groove|fixed|ellipsis|e-resize|double|dotted|distribute|distribute-space|distribute-letter|distribute-all-lines|disc|disabled|default|decimal|dashed|crosshair|collapse|col-resize|circle|char|center|capitalize|break-word|break-all|bottom|both|bolder|bold|block|bidi-override|below|baseline|auto|always|all-scroll|absolute|table|table-cell)\\b'
       },
       {
-        begin: ':', end: ';',
+        begin: ':',
+        end: ';',
         contains: [
           VARIABLE,
           modes.HEXCOLOR,
@@ -85,7 +88,8 @@ export default function(hljs) {
         keywords: '@page @font-face'
       },
       {
-        begin: '@', end: '[{;]',
+        begin: '@',
+        end: '[{;]',
         returnBegin: true,
         keywords: {
           $pattern: /[a-z-]+/,
@@ -105,7 +109,7 @@ export default function(hljs) {
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           modes.HEXCOLOR,
-          hljs.CSS_NUMBER_MODE,
+          hljs.CSS_NUMBER_MODE
         ]
       }
     ]

@@ -74,7 +74,7 @@ export default function(hljs) {
       // },
       {
         className: 'attribute',
-        begin: '\\b(' + css.ATTRIBUTES.reverse().join('|') + ')\\b',
+        begin: '\\b(' + css.ATTRIBUTES.reverse().join('|') + ')\\b'
       },
       // attribute values
       {

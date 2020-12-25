@@ -12,13 +12,13 @@ import * as css from "./lib/css-shared.js";
 export default function(hljs) {
   const modes = css.MODES(hljs);
 
-  var AT_MODIFIERS = "and or not only";
-  var VARIABLE = {
+  const AT_MODIFIERS = "and or not only";
+  const VARIABLE = {
     className: 'variable',
     begin: '\\$' + hljs.IDENT_RE
   };
 
-  var AT_KEYWORDS = [
+  const AT_KEYWORDS = [
     'charset',
     'css',
     'debug',
@@ -35,10 +35,10 @@ export default function(hljs) {
     'while'
   ];
 
-  var LOOKAHEAD_TAG_END = '(?=[.\\s\\n[:,(])';
+  const LOOKAHEAD_TAG_END = '(?=[.\\s\\n[:,(])';
 
   // illegals
-  var ILLEGAL = [
+  const ILLEGAL = [
     '\\?',
     '(\\bReturn\\b)', // monkey
     '(\\bEnd\\b)', // monkey
@@ -49,12 +49,12 @@ export default function(hljs) {
     '\\*\\s', // markdown
     '===\\s', // markdown
     '\\|',
-    '%', // prolog
+    '%' // prolog
   ];
 
   return {
     name: 'Stylus',
-    aliases: ['styl'],
+    aliases: [ 'styl' ],
     case_insensitive: false,
     keywords: 'if else for in',
     illegal: '(' + ILLEGAL.join('|') + ')',
@@ -111,9 +111,7 @@ export default function(hljs) {
             keyword: AT_MODIFIERS,
             attribute: css.MEDIA_FEATURES.join(" ")
           },
-          contains: [
-            hljs.CSS_NUMBER_MODE
-          ]
+          contains: [ hljs.CSS_NUMBER_MODE ]
         }
       },
 
@@ -140,7 +138,10 @@ export default function(hljs) {
         illegal: '[\\n]',
         returnBegin: true,
         contains: [
-          {className: 'title', begin: '\\b[a-zA-Z][a-zA-Z0-9_\-]*'},
+          {
+            className: 'title',
+            begin: '\\b[a-zA-Z][a-zA-Z0-9_\-]*'
+          },
           {
             className: 'params',
             begin: /\(/,
