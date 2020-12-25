@@ -421,7 +421,9 @@ export const ATTRIBUTES = [
   'word-spacing',
   'word-wrap',
   'z-index'
-];
+  // reverse makes sure longer attributes `font-weight` are matched fully
+  // instead of getting false positives on say `font`
+].reverse();
 
 // some grammars use them all as a single group
 export const PSEUDO_SELECTORS = PSEUDO_CLASSES.concat(PSEUDO_ELEMENTS);
