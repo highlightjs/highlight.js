@@ -6,7 +6,11 @@ Website: https://github.com/stylus/stylus
 Category: css
 */
 
+import * as css_shared from "./lib/css-shared.js";
+
+/** @type LanguageFn */
 export default function(hljs) {
+  const PSEUDO_SELECTORS = css_shared.PSEUDO_SELECTORS;
 
   var VARIABLE = {
     className: 'variable',
@@ -27,25 +31,12 @@ export default function(hljs) {
     'for',
     'import',
     'include',
+    'keyframes',
     'media',
     'mixin',
     'page',
     'warn',
     'while'
-  ];
-
-  var PSEUDO_SELECTORS = [
-    'after',
-    'before',
-    'first-letter',
-    'first-line',
-    'active',
-    'first-child',
-    'focus',
-    'hover',
-    'lang',
-    'link',
-    'visited'
   ];
 
   var TAGS = [
@@ -122,7 +113,7 @@ export default function(hljs) {
     'video'
   ];
 
-  var LOOKAHEAD_TAG_END = '(?=[.\\s\\n[:,])';
+  var LOOKAHEAD_TAG_END = '(?=[.\\s\\n[:,(])';
 
   var ATTRIBUTES = [
     'align-content',
@@ -384,12 +375,14 @@ export default function(hljs) {
 
       // psuedo selectors
       {
+        className: 'selector-pseudo',
         begin: '&?:?:\\b(' + PSEUDO_SELECTORS.join('|') + ')' + LOOKAHEAD_TAG_END
       },
 
       // @ keywords
       {
-        begin: '\@(' + AT_KEYWORDS.join('|') + ')\\b'
+        className: 'keyword',
+        begin: '\@((-(o|moz|ms|webkit)-)?(' + AT_KEYWORDS.join('|') + '))\\b'
       },
 
       // variables

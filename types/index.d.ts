@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-use-before-define */
 // For TS consumers who use Node and don't have dom in their tsconfig lib, import the necessary types here.
 /// <reference lib="dom" />
 
@@ -77,6 +79,7 @@ interface HighlightResult {
     errorRaised? : Error
     // * for auto-highlight
     second_best? : Omit<HighlightResult, 'second_best'>
+    code?: string
 }
 interface AutoHighlightResult extends HighlightResult {}
 
@@ -86,14 +89,17 @@ interface illegalData {
     mode: CompiledMode
 }
 
-type PluginEvent =
-    'before:highlight'
-    | 'after:highlight'
-    | 'before:highlightBlock'
-    | 'after:highlightBlock'
-
+type BeforeHighlightContext = {
+  code: string,
+  language: string,
+  result?: HighlightResult
+}
+type PluginEvent = keyof HLJSPlugin;
 type HLJSPlugin = {
-    [K in PluginEvent]? : any
+    'after:highlight'?: (result: HighlightResult) => void,
+    'before:highlight'?: (context: BeforeHighlightContext) => void,
+    'after:highlightBlock'?: (data: { result: HighlightResult}) => void,
+    'before:highlightBlock'?: (data: { block: Element, language: string}) => void,
 }
 
 interface EmitterConstructor {
@@ -162,6 +168,7 @@ interface LanguageDetail {
     exports?: any,
     classNameAliases?: Record<string, string>
     compilerExtensions?: CompilerExt[]
+    supersetOf?: string
 }
 
 type Language = LanguageDetail & Partial<Mode>
@@ -180,7 +187,7 @@ type CompiledMode = Omit<Mode, 'contains'> &
         contains: CompiledMode[]
         keywords: KeywordDict
         data: Record<string, any>
-        terminator_end: string
+        terminatorEnd: string
         keywordPatternRe: RegExp
         beginRe: RegExp
         endRe: RegExp
@@ -214,7 +221,7 @@ interface ModeDetails {
     relevance?: number
     illegal?: string | RegExp | Array<string | RegExp>
     variants?: Mode[]
-    cached_variants?: Mode[]
+    cachedVariants?: Mode[]
     // parsed
     subLanguage?: string | string[]
     compiled?: boolean

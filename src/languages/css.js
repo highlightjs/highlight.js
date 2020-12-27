@@ -4,6 +4,9 @@ Category: common, css
 Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 */
 
+// @ts-ignore
+import * as css_shared from "./lib/css-shared.js";
+
 /** @type LanguageFn */
 export default function(hljs) {
   var FUNCTION_LIKE = {
@@ -22,7 +25,10 @@ export default function(hljs) {
         ]
       }
     ]
-  }
+  };
+  var VENDOR_PREFIX= {
+    begin: /-(webkit|moz|ms|o)-/
+  };
   var ATTRIBUTE = {
     className: 'attribute',
     begin: /\S/, end: ':', excludeEnd: true,
@@ -51,6 +57,7 @@ export default function(hljs) {
   var RULE = {
     begin: /([*]\s?)?(?:[A-Z_.\-\\]+|--[a-zA-Z0-9_-]+)\s*(\/\*\*\/)?:/, returnBegin: true, end: ';', endsWithParent: true,
     contains: [
+      VENDOR_PREFIX,
       ATTRIBUTE
     ]
   };
@@ -78,7 +85,12 @@ export default function(hljs) {
       },
       {
         className: 'selector-pseudo',
-        begin: /:(:)?[a-zA-Z0-9_+()"'.-]+/
+        begin: /:(:)?[a-zA-Z0-9_+"'.-]+/
+      },
+      { // pseudo-selector params
+        begin: /\(/,
+        end: /\)/,
+        contains: [ hljs.CSS_NUMBER_MODE ]
       },
       // matching these here allows us to treat them more like regular CSS
       // rules so everything between the {} gets regular rule highlighting,
