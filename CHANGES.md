@@ -4,7 +4,12 @@ New Languages:
 
 - Added 3rd party Laravel Blade grammar to SUPPORTED_LANGUAGES (#2944) [Michael Newton][]
 
+Language grammar improvements:
+
+- enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
+
 [Michael Newton]: https://github.com/miken32
+[Steven Van Impe]: https://github.com/svanimpe/
 
 
 ## Version 10.5.0

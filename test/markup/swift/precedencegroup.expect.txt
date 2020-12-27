@@ -1,0 +1,8 @@
+<span class="hljs-keyword">precedencegroup</span> <span class="hljs-title">MyGroup</span> {
+  <span class="hljs-keyword">higherThan</span>: <span class="hljs-type">OtherGroup</span>, <span class="hljs-type">AnotherGroup</span>
+  <span class="hljs-keyword">lowerThan</span>: <span class="hljs-type">OtherGroup</span>, <span class="hljs-type">AnotherGroup</span>
+  <span class="hljs-keyword">assignment</span>: <span class="hljs-keyword">true</span>
+  <span class="hljs-keyword">associativity</span>: <span class="hljs-keyword">left</span>
+  <span class="hljs-keyword">associativity</span>: <span class="hljs-keyword">right</span>
+  <span class="hljs-keyword">associativity</span>: <span class="hljs-keyword">none</span>
+}
