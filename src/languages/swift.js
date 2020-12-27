@@ -413,6 +413,49 @@ export default function(hljs) {
     ],
     illegal: /\[|%/
   };
+  // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID380
+  const OPERATOR_DECLARATION = {
+    beginKeywords: 'operator',
+    contains: [
+      {
+        match: /\s+/,
+        relevance: 0
+      },
+      {
+        className: 'title',
+        match: Swift.operator,
+        endsParent: true,
+        relevance: 0
+      }
+    ]
+  };
+
+  // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID550
+  const PRECEDENCEGROUP = {
+    beginKeywords: 'precedencegroup',
+    contains: [
+      {
+        match: /\s+/,
+        relevance: 0
+      },
+      {
+        className: 'title',
+        match: Swift.typeIdentifier,
+        relevance: 0
+      },
+      {
+        begin: /{/,
+        end: /}/,
+        relevance: 0,
+        endsParent: true,
+        keywords: [
+          ...Swift.precedencegroupKeywords,
+          ...Swift.literals
+        ].join(' '),
+        contains: [ TYPE ]
+      }
+    ]
+  };
 
   // Add supported submodes to string interpolation.
   for (const variant of STRING.variants) {
@@ -460,6 +503,8 @@ export default function(hljs) {
           ...KEYWORD_MODES
         ]
       },
+      OPERATOR_DECLARATION,
+      PRECEDENCEGROUP,
       {
         beginKeywords: 'import',
         end: /$/,

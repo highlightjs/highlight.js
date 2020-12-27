@@ -117,15 +117,22 @@ export const keywords = [
 // NOTE: Contextual keywords are reserved only in specific contexts.
 // Ideally, these should be matched using modes to avoid false positives.
 
-// TODO: Create a PRECEDENCE_GROUP mode to match the remaining contextual keywords:
-// assignment associativity higherThan left lowerThan none right
-// These aren't included in the list because they result in mostly false positives.
-
 // Literals.
 export const literals = [
   'false',
   'nil',
   'true'
+];
+
+// Keywords used in precedence groups.
+export const precedencegroupKeywords = [
+  'assignment',
+  'associativity',
+  'higherThan',
+  'left',
+  'lowerThan',
+  'none',
+  'right'
 ];
 
 // Keywords that start with a number sign (#).
