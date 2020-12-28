@@ -2,6 +2,7 @@ import { inherit } from './utils.js';
 import * as regex from './regex.js';
 
 // Common regexps
+export const MATCH_NOTHING_RE = /\b\B/;
 export const IDENT_RE = '[a-zA-Z]\\w*';
 export const UNDERSCORE_IDENT_RE = '[a-zA-Z_]\\w*';
 export const NUMBER_RE = '\\b\\d+(\\.\\d+)?';

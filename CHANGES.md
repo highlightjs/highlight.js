@@ -8,8 +8,15 @@ Language grammar improvements:
 
 - enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
 
+Parser:
+
+- add `modes.MATCH_NOTHING_RE` that will never match
+  - This can be used with `end` to hold a mode open (it must then be ended with
+    `endsParent` in one of it's children modes) [Josh Goebel][]
+
 [Michael Newton]: https://github.com/miken32
 [Steven Van Impe]: https://github.com/svanimpe/
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 10.5.0

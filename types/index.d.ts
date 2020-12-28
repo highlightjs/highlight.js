@@ -58,6 +58,7 @@ interface ModesAPI {
     // built in regex
     IDENT_RE: string
     UNDERSCORE_IDENT_RE: string
+    MATCH_NOTHING_RE: string
     NUMBER_RE: string
     C_NUMBER_RE: string
     BINARY_NUMBER_RE: string
