@@ -744,7 +744,7 @@ const HLJS = function(hljs) {
     initHighlighting.called = true;
 
     const blocks = document.querySelectorAll('pre code');
-    blocks.forEach(highlightBlock);
+    Array.from(blocks).forEach(highlightBlock);
   };
 
   // Higlights all when DOMContentLoaded fires
