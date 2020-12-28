@@ -15,6 +15,7 @@ Parser:
 New Languages:
 
 - Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
+- Added 3rd party Laravel Blade grammar to SUPPORTED_LANGUAGES (#2944) [Michael Newton][]
 
 Language grammar improvements:
 
@@ -83,6 +84,7 @@ Recent Deprecations:
 [Steven Van Impe]: https://github.com/svanimpe/
 [Vaibhav Chanana]: https://github.com/il3ven
 [Guillaume Grossetie]: https://github.com/mogztter
+[Michael Newton]: https://github.com/miken32
 
 ## Version 10.4.1 (tentative)
 
