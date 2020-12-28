@@ -41,3 +41,7 @@
 <span class="hljs-type">Dictionary</span>&lt;<span class="hljs-type">String</span>, <span class="hljs-keyword">Any</span>&gt;
 <span class="hljs-type">Dictionary</span>&lt;<span class="hljs-type">String</span>, <span class="hljs-type">Array</span>&lt;<span class="hljs-type">Int</span>&gt;&gt;
 <span class="hljs-type">Array</span>&lt;(<span class="hljs-keyword">@autoclosure</span> () -&gt; <span class="hljs-type">String</span>) <span class="hljs-keyword">throws</span> -&gt; <span class="hljs-type">String</span>?&gt;
+<span class="hljs-type">Array</span>&lt;
+  <span class="hljs-comment">// documentation</span>
+  <span class="hljs-type">Int</span>
+&gt;

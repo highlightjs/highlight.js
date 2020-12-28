@@ -1,10 +1,32 @@
-protocol Protocol {
-  func f1()
-  func f2()
-}
+func f1<
+  X,
+  Y: A,
+  // documentation
+  Z: B & C<D>
+>() where X == Y, Y: A, Z: B & C<D> { }
 
-class MyClass {
-  func f() {
-    return true
-  }
+func < <T>() { }
+
+func f2(_ p: @escaping () throws -> Void) rethrows -> some Collection { }
+
+func f3(
+  p1e p1i: inout Int = 5,
+  _ p2: (x: Int, y: Int),
+  p3: (var: Int, let: Int) throws -> Int,
+  p4: Int...
+  p5: @attribute String? = "text"
+) { }
+
+init<X: A>(_ p: @attribute inout (x: Int, var: Int) = (0, 0)) { }
+init?(_ p: @attribute inout (x: Int, var: Int) = (0, 0)) { }
+init! (_ p: @attribute inout (x: Int, var: Int) = (0, 0)) { }
+
+subscript<X: A>(_ p: @attribute inout (x: Int, var: Int) = (0, 0))  { }
+
+protocol Comparable: Equatable {
+
+  static func < (lhs: Self, rhs: Self) -> Bool
+  static func <= (lhs: Self, rhs: Self) -> Bool
+  static func > (lhs: Self, rhs: Self) -> Bool
+  static func >= (lhs: Self, rhs: Self) -> Bool
 }
