@@ -416,11 +416,8 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID380
   const OPERATOR_DECLARATION = {
     beginKeywords: 'operator',
+    end: hljs.MATCH_NOTHING_RE,
     contains: [
-      {
-        match: /\s+/,
-        relevance: 0
-      },
       {
         className: 'title',
         match: Swift.operator,
@@ -433,11 +430,8 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID550
   const PRECEDENCEGROUP = {
     beginKeywords: 'precedencegroup',
+    end: hljs.MATCH_NOTHING_RE,
     contains: [
-      {
-        match: /\s+/,
-        relevance: 0
-      },
       {
         className: 'title',
         match: Swift.typeIdentifier,
