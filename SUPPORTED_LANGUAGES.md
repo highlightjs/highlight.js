@@ -30,6 +30,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Bash                    | bash, sh, zsh          |         |
 | Basic                   | basic                  |         |
 | BBCode                  | bbcode                 | [highlightjs-bbcode](https://github.com/RedGuy7/highlightjs-bbcode) |
+| Blade (Laravel)         | blade                  | [highlightjs-blade](https://github.com/miken32/highlightjs-blade) |
 | BNF                     | bnf                    |         |
 | Brainfuck               | brainfuck, bf          |         |
 | C#                      | csharp, cs             |         |
