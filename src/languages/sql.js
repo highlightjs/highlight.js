@@ -10,7 +10,7 @@ Goals:
 
 SQL is intended to highlight basic/common SQL keywords and expressions
 
-- If pretty much every single SQL server includes supports, then it's a canidate.
+- If pretty much every single SQL server includes supports, then it's a candidate.
 - It is NOT intended to include tons of vendor specific keywords (Oracle, MySQL,
   PostgreSQL) although the list of data types is purposely a bit more expansive.
 - For more specific SQL grammars please see:
@@ -245,6 +245,7 @@ export default function(hljs) {
     "hold",
     "hour",
     "identity",
+    "ilike",
     "in",
     "indicator",
     "initial",
