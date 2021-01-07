@@ -99,7 +99,7 @@ type PluginEvent = keyof HLJSPlugin;
 type HLJSPlugin = {
     'after:highlight'?: (result: HighlightResult) => void,
     'before:highlight'?: (context: BeforeHighlightContext) => void,
-    'after:highlightBlock'?: (data: { result: HighlightResult}) => void,
+    'after:highlightBlock'?: (data: { block: Element, result: HighlightResult, text: string}) => void,
     'before:highlightBlock'?: (data: { block: Element, language: string}) => void,
 }
 
