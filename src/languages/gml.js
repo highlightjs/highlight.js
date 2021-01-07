@@ -825,7 +825,7 @@ export default function(hljs) {
     symbol: 'argument_relative argument argument0 argument1 argument2 ' +
       'argument3 argument4 argument5 argument6 argument7 argument8 ' +
       'argument9 argument10 argument11 argument12 argument13 argument14 ' +
-      'argument15 argument_count x y xprevious yprevious xstart ystart ' +
+      'argument15 argument_count x|0 y|0 xprevious yprevious xstart ystart ' +
       'hspeed vspeed direction speed friction gravity gravity_direction ' +
       'path_index path_position path_positionprevious path_speed ' +
       'path_scale path_orientation path_endaction object_index id solid ' +
