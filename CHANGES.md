@@ -8,6 +8,12 @@ Language grammar improvements:
 
 - enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
 
+Grammar changes:
+
+- Deprecate `c-like`, though you should not be using it directly anyways.
+  - will be removed in v11.
+- `c` and `cpp` are now wholly unique grammars that will diverge over time
+
 Parser:
 
 - add `modes.MATCH_NOTHING_RE` that will never match
