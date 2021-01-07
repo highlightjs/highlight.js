@@ -508,7 +508,9 @@ const HLJS = function(hljs) {
       result = emitter.toHTML();
 
       return {
-        relevance: relevance,
+        // avoid possible breakage with v10 clients expecting
+        // this to always be an integer
+        relevance: Math.floor(relevance),
         value: result,
         language: languageName,
         illegal: false,
