@@ -49,6 +49,10 @@ export function beginKeywords(mode, parent) {
   mode.__beforeBegin = skipIfhasPrecedingDot;
   mode.keywords = mode.keywords || mode.beginKeywords;
   delete mode.beginKeywords;
+
+  // prevents double relevance, the keywords themselves provide
+  // relevance, the mode doesn't need to double it
+  if (mode.relevance === undefined) mode.relevance = 0;
 }
 
 /**
