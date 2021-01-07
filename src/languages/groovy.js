@@ -110,7 +110,8 @@ export default function(hljs) {
       {
         // highlight map keys and named parameters as attrs
         className: 'attr',
-        begin: IDENT_RE + '[ \t]*:'
+        begin: IDENT_RE + '[ \t]*:',
+        relevance: 0
       },
       {
         // catch middle element of the ternary operator
