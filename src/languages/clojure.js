@@ -8,10 +8,10 @@ Category: lisp
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&#\'';
-  var SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
-  var globals = 'def defonce defprotocol defstruct defmulti defmethod defn- defn defmacro deftype defrecord';
-  var keywords = {
+  const SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&#\'';
+  const SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
+  const globals = 'def defonce defprotocol defstruct defmulti defmethod defn- defn defmacro deftype defrecord';
+  const keywords = {
     $pattern: SYMBOL_RE,
     'builtin-name':
       // Clojure keywords
@@ -45,57 +45,73 @@ export default function(hljs) {
       'lazy-seq spread list* str find-keyword keyword symbol gensym force rationalize'
   };
 
-  var SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
+  const SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
 
-  var SYMBOL = {
+  const SYMBOL = {
     begin: SYMBOL_RE,
     relevance: 0
   };
-  var NUMBER = {
-    className: 'number', begin: SIMPLE_NUMBER_RE,
+  const NUMBER = {
+    className: 'number',
+    begin: SIMPLE_NUMBER_RE,
     relevance: 0
   };
-  var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null});
-  var COMMENT = hljs.COMMENT(
+  const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
+    illegal: null
+  });
+  const COMMENT = hljs.COMMENT(
     ';',
     '$',
     {
       relevance: 0
     }
   );
-  var LITERAL = {
+  const LITERAL = {
     className: 'literal',
     begin: /\b(true|false|nil)\b/
   };
-  var COLLECTION = {
-    begin: '[\\[\\{]', end: '[\\]\\}]'
+  const COLLECTION = {
+    begin: '[\\[\\{]',
+    end: '[\\]\\}]'
   };
-  var HINT = {
+  const HINT = {
     className: 'comment',
     begin: '\\^' + SYMBOL_RE
   };
-  var HINT_COL = hljs.COMMENT('\\^\\{', '\\}');
-  var KEY = {
+  const HINT_COL = hljs.COMMENT('\\^\\{', '\\}');
+  const KEY = {
     className: 'symbol',
     begin: '[:]{1,2}' + SYMBOL_RE
   };
-  var LIST = {
-    begin: '\\(', end: '\\)'
+  const LIST = {
+    begin: '\\(',
+    end: '\\)'
   };
-  var BODY = {
+  const BODY = {
     endsWithParent: true,
     relevance: 0
   };
-  var NAME = {
+  const NAME = {
     keywords: keywords,
     className: 'name',
     begin: SYMBOL_RE,
     relevance: 0,
     starts: BODY
   };
-  var DEFAULT_CONTAINS = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL, SYMBOL];
+  const DEFAULT_CONTAINS = [
+    LIST,
+    STRING,
+    HINT,
+    HINT_COL,
+    COMMENT,
+    KEY,
+    COLLECTION,
+    NUMBER,
+    LITERAL,
+    SYMBOL
+  ];
 
-  var GLOBAL = {
+  const GLOBAL = {
     beginKeywords: globals,
     lexemes: SYMBOL_RE,
     end: '(\\[|#|\\d|"|:|\\{|\\)|\\(|$)',
@@ -107,19 +123,34 @@ export default function(hljs) {
         excludeEnd: true,
         // we can only have a single title
         endsParent: true
-      },
+      }
     ].concat(DEFAULT_CONTAINS)
   };
 
-  LIST.contains = [hljs.COMMENT('comment', ''), GLOBAL, NAME, BODY];
+  LIST.contains = [
+    hljs.COMMENT('comment', ''),
+    GLOBAL,
+    NAME,
+    BODY
+  ];
   BODY.contains = DEFAULT_CONTAINS;
   COLLECTION.contains = DEFAULT_CONTAINS;
-  HINT_COL.contains = [COLLECTION];
+  HINT_COL.contains = [ COLLECTION ];
 
   return {
     name: 'Clojure',
-    aliases: ['clj'],
+    aliases: [ 'clj' ],
     illegal: /\S/,
-    contains: [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL]
+    contains: [
+      LIST,
+      STRING,
+      HINT,
+      HINT_COL,
+      COMMENT,
+      KEY,
+      COLLECTION,
+      NUMBER,
+      LITERAL
+    ]
   };
 }
