@@ -52,6 +52,7 @@ export function beginKeywords(mode, parent) {
 
   // prevents double relevance, the keywords themselves provide
   // relevance, the mode doesn't need to double it
+  // eslint-disable-next-line no-undefined
   if (mode.relevance === undefined) mode.relevance = 0;
 }
 
