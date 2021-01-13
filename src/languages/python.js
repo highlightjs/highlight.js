@@ -5,6 +5,8 @@ Website: https://www.python.org
 Category: common
 */
 
+import * as regex from '../lib/regex.js';
+
 export default function(hljs) {
   const RESERVED_WORDS = [
     'and',
@@ -123,10 +125,18 @@ export default function(hljs) {
     'True',
   ];
 
+  const TYPES = [
+    "Dict",
+    "List",
+    "Coroutine",
+    "Any"
+  ];
+
   const KEYWORDS = {
     keyword: RESERVED_WORDS,
     built_in: BUILT_INS,
-    literal: LITERALS
+    literal: LITERALS,
+    type: TYPES
   };
 
   const PROMPT = {
@@ -229,7 +239,21 @@ export default function(hljs) {
       { begin: `\\b(${digitpart})[jJ]\\b` },
     ]
   };
-
+  const COMMENT_TYPE = {
+    className: "comment",
+    begin: regex.lookahead(/# type:/),
+    end: /$/,
+    keywords: KEYWORDS,
+    contains: [
+      { begin: /# type:/ }, // prevent keywords from coloring `type`
+      // comment within a datatype comment includes no keywords
+      {
+        begin: /#/,
+        end: /\b\B/,
+        endsWithParent: true
+      }
+    ]
+  };
   const PARAMS = {
     className: 'params',
     variants: [
@@ -257,6 +281,7 @@ export default function(hljs) {
       { begin: /\bself\b/, }, // very common convention
       { beginKeywords: "if", relevance: 0 },
       STRING,
+      COMMENT_TYPE,
       hljs.HASH_COMMENT_MODE,
       {
         variants: [
@@ -269,8 +294,9 @@ export default function(hljs) {
           hljs.UNDERSCORE_TITLE_MODE,
           PARAMS,
           {
-            begin: /->/, endsWithParent: true,
-            keywords: 'None'
+            begin: /->/,
+            endsWithParent: true,
+            keywords: KEYWORDS
           }
         ]
       },
