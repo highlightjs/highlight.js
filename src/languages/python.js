@@ -24,7 +24,6 @@ export default function(hljs) {
     'except',
     'finally',
     'for',
-    '',
     'from',
     'global',
     'if',
@@ -296,9 +295,9 @@ export default function(hljs) {
     end: /$/,
     keywords: KEYWORDS,
     contains: [
-      {
+      { // prevent keywords from coloring `type`
         begin: /# type:/
-      }, // prevent keywords from coloring `type`
+      },
       // comment within a datatype comment includes no keywords
       {
         begin: /#/,
@@ -313,8 +312,7 @@ export default function(hljs) {
       // Exclude params at functions without params
       {
         begin: /\(\s*\)/,
-        skip: true,
-        className: null
+        skip: true
       },
       {
         begin: /\(/,
@@ -350,12 +348,13 @@ export default function(hljs) {
     contains: [
       PROMPT,
       NUMBER,
-      // eat "if" prior to string so that it won't accidentally be
-      // labeled as an f-string as in:
       {
+        // very common convention
         begin: /\bself\b/
-      }, // very common convention
+      },
       {
+        // eat "if" prior to string so that it won't accidentally be
+        // labeled as an f-string
         beginKeywords: "if",
         relevance: 0
       },
@@ -395,8 +394,9 @@ export default function(hljs) {
           STRING
         ]
       },
+      // don’t highlight keywords-turned-functions in Python 3
       {
-        begin: /\b(print|exec)\(/ // don’t highlight keywords-turned-functions in Python 3
+        begin: /\b(print|exec)\(/
       }
     ]
   };
