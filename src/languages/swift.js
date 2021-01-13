@@ -68,9 +68,8 @@ export default function(hljs) {
       /#\w+/ // number keywords
     ),
     keyword: PLAIN_KEYWORDS
-      .concat(Swift.numberSignKeywords)
-      .join(" "),
-    literal: Swift.literals.join(" ")
+      .concat(Swift.numberSignKeywords),
+    literal: Swift.literals
   };
   const KEYWORD_MODES = [
     DOT_KEYWORD,
