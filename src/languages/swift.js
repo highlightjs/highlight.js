@@ -226,7 +226,7 @@ export default function(hljs) {
         {
           begin: /\(/,
           end: /\)/,
-          keywords: Swift.availabilityKeywords.join(' '),
+          keywords: Swift.availabilityKeywords,
           contains: [
             ...OPERATORS,
             NUMBER,
@@ -445,7 +445,7 @@ export default function(hljs) {
         keywords: [
           ...Swift.precedencegroupKeywords,
           ...Swift.literals
-        ].join(' '),
+        ],
         contains: [ TYPE ]
       }
     ]
