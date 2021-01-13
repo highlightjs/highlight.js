@@ -10,13 +10,13 @@ import * as regex from '../lib/regex.js';
 /** @type LanguageFn */
 export default function(hljs) {
   // https://perldoc.perl.org/perlre#Modifiers
-  const REGEX_MODIFIERS = /[dualxmsipn]{0,12}/; // aa and xx are valid, making max length 12
+  const REGEX_MODIFIERS = /[dualxmsipngr]{0,12}/; // aa and xx are valid, making max length 12
   const PERL_KEYWORDS = {
     $pattern: /[\w.]+/,
     keyword: 'getpwent getservent quotemeta msgrcv scalar kill dbmclose undef lc ' +
     'ma syswrite tr send umask sysopen shmwrite vec qx utime local oct semctl localtime ' +
     'readpipe do return format read sprintf dbmopen pop getpgrp not getpwnam rewinddir qq ' +
-    'fileno qw endprotoent wait sethostent bless s|0 opendir continue each sleep endgrent ' +
+    'fileno qw endprotoent wait sethostent bless opendir continue each sleep endgrent ' +
     'shutdown dump chomp connect getsockname die socketpair close flock exists index shmget ' +
     'sub for endpwent redo lstat msgctl setpgrp abs exit select print ref gethostbyaddr ' +
     'unshift fcntl syscall goto getnetbyaddr join gmtime symlink semget splice x|0 ' +
@@ -31,7 +31,7 @@ export default function(hljs) {
     'chroot sysread setpwent no crypt getc chown sqrt write setnetent setpriority foreach ' +
     'tie sin msgget map stat getlogin unless elsif truncate exec keys glob tied closedir ' +
     'ioctl socket readlink eval xor readline binmode setservent eof ord bind alarm pipe ' +
-    'atan2 getgrent exp time push setgrent gt lt or ne m|0 break given say state when'
+    'atan2 getgrent exp time push setgrent gt lt or ne break given say state when'
   };
   const SUBST = {
     className: 'subst',
@@ -68,6 +68,35 @@ export default function(hljs) {
     SUBST,
     VAR
   ];
+  const REGEX_DELIMS = [
+    /!/,
+    /\//,
+    /\|/,
+    /\?/,
+    /'/,
+    /"/, // valid but infrequent and weird
+    /#/ // valid but infrequent and weird
+  ];
+  const PAIRED_DOUBLE_RE = (prefix, open, close) => {
+    return regex.concat(
+      regex.concat("(?:", prefix, ")"),
+      open,
+      /(?:\\.|[^\\\/])*?/,
+      close, open,
+      /(?:\\.|[^\\\/])*?/,
+      close,
+      REGEX_MODIFIERS
+    );
+  };
+  const PAIRED_RE = (prefix, open, close) => {
+    return regex.concat(
+      regex.concat("(?:", prefix, ")"),
+      open,
+      /(?:\\.|[^\\\/])*?/,
+      close,
+      REGEX_MODIFIERS
+    );
+  };
   const PERL_DEFAULT_CONTAINS = [
     VAR,
     hljs.HASH_COMMENT_MODE,
@@ -129,12 +158,10 @@ export default function(hljs) {
         },
         {
           begin: /\{\w+\}/,
-          contains: [],
           relevance: 0
         },
         {
           begin: '-?\\w+\\s*=>',
-          contains: [],
           relevance: 0
         }
       ]
@@ -152,26 +179,42 @@ export default function(hljs) {
         hljs.HASH_COMMENT_MODE,
         {
           className: 'regexp',
-          begin: regex.concat(
-            /(s|tr|y)/,
-            /\//,
-            /(\\.|[^\\\/])*/,
-            /\//,
-            /(\\.|[^\\\/])*/,
-            /\//,
-            REGEX_MODIFIERS
-          ),
-          relevance: 10
+          variants: [
+            {
+              begin: regex.concat(
+                /(?:s|tr|y)/,
+                regex.either(...REGEX_DELIMS),
+                /(?:\\.|[^\\\/])*?/,
+                /\1/,
+                /(?:\\.|[^\\\/])*?/,
+                /\1/,
+                REGEX_MODIFIERS
+              )
+            },
+            { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\(", "\\)") },
+            { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\[", "\\]") },
+            { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\{", "\\}") }
+          ],
+          relevance: 2
         },
         {
           className: 'regexp',
-          begin: /(m|qr)?\//,
-          end: regex.concat(
-            /\//,
-            REGEX_MODIFIERS
-          ),
-          contains: [ hljs.BACKSLASH_ESCAPE ],
-          relevance: 0 // allows empty "//" which is a common comment delimiter in other languages
+          variants: [
+            {
+              // could be a comment in many languages so do not count
+              // as relevant
+              begin: /(m|qr)\/\//,
+              relevance: 0
+            },
+            // prefix is optional with /regex/
+            { begin: PAIRED_RE("(?:m|qr)?", /\//, /\//)},
+            // allow matching common delimiters
+            { begin: PAIRED_RE("m|qr", regex.either(...REGEX_DELIMS), /\1/)},
+            // allow common paired delmins
+            { begin: PAIRED_RE("m|qr", /\(/, /\)/)},
+            { begin: PAIRED_RE("m|qr", /\[/, /\]/)},
+            { begin: PAIRED_RE("m|qr", /\{/, /\}/)}
+          ]
         }
       ]
     },
