@@ -58,9 +58,9 @@ export default function(hljs) {
   };
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
-    keyword: ECMAScript.KEYWORDS.join(" "),
-    literal: ECMAScript.LITERALS.join(" "),
-    built_in: ECMAScript.BUILT_INS.join(" ")
+    keyword: ECMAScript.KEYWORDS,
+    literal: ECMAScript.LITERALS,
+    built_in: ECMAScript.BUILT_INS
   };
 
   // https://tc39.es/ecma262/#sec-literals-numeric-literals
