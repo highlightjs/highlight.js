@@ -292,17 +292,30 @@ export default function(hljs) {
     /"/, // valid but infrequent and weird
     /#/ // valid but infrequent and weird
   ];
-  const PAIRED_DOUBLE_RE = (prefix, open, close) => {
+  /**
+   * @param {string|RegExp} prefix
+   * @param {string|RegExp} open
+   * @param {string|RegExp} close
+   */
+  const PAIRED_DOUBLE_RE = (prefix, open, close = '\\1') => {
+    const middle = (close === '\\1')
+      ? close
+      : regex.concat(close, open);
     return regex.concat(
       regex.concat("(?:", prefix, ")"),
       open,
       /(?:\\.|[^\\\/])*?/,
-      close, open,
+      middle,
       /(?:\\.|[^\\\/])*?/,
       close,
       REGEX_MODIFIERS
     );
   };
+  /**
+   * @param {string|RegExp} prefix
+   * @param {string|RegExp} open
+   * @param {string|RegExp} close
+   */
   const PAIRED_RE = (prefix, open, close) => {
     return regex.concat(
       regex.concat("(?:", prefix, ")"),
@@ -395,17 +408,9 @@ export default function(hljs) {
         {
           className: 'regexp',
           variants: [
-            {
-              begin: regex.concat(
-                /(?:s|tr|y)/,
-                regex.either(...REGEX_DELIMS),
-                /(?:\\.|[^\\\/])*?/,
-                /\1/,
-                /(?:\\.|[^\\\/])*?/,
-                /\1/,
-                REGEX_MODIFIERS
-              )
-            },
+            // allow matching common delimiters
+            { begin: PAIRED_DOUBLE_RE("s|tr|y", regex.either(...REGEX_DELIMS)) },
+            // and then paired delmis
             { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\(", "\\)") },
             { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\[", "\\]") },
             { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\{", "\\}") }
