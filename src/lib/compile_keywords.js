@@ -13,21 +13,31 @@ const COMMON_KEYWORDS = [
   'value' // common variable name
 ];
 
+const DEFAULT_KEYWORD_CLASSNAME = "keyword";
+
 /**
  * Given raw keywords from a language definition, compile them.
  *
- * @param {string | Record<string,string>} rawKeywords
+ * @param {string | Record<string,string|string[]> | Array<string>} rawKeywords
  * @param {boolean} caseInsensitive
  */
-export function compileKeywords(rawKeywords, caseInsensitive) {
+export function compileKeywords(rawKeywords, caseInsensitive, className = DEFAULT_KEYWORD_CLASSNAME) {
   /** @type KeywordDict */
   const compiledKeywords = {};
 
-  if (typeof rawKeywords === 'string') { // string
-    splitAndCompile('keyword', rawKeywords);
+  // input can be a string of keywords, an array of keywords, or a object with
+  // named keys representing className (which can then point to a string or array)
+  if (typeof rawKeywords === 'string') {
+    compileList(className, rawKeywords.split(" "));
+  } else if (Array.isArray(rawKeywords)) {
+    compileList(className, rawKeywords);
   } else {
     Object.keys(rawKeywords).forEach(function(className) {
-      splitAndCompile(className, rawKeywords[className]);
+      // collapse all our objects back into the parent object
+      Object.assign(
+        compiledKeywords,
+        compileKeywords(rawKeywords[className], caseInsensitive, className)
+      );
     });
   }
   return compiledKeywords;
@@ -40,13 +50,13 @@ export function compileKeywords(rawKeywords, caseInsensitive) {
    * Ex: "for if when while|5"
    *
    * @param {string} className
-   * @param {string} keywordList
+   * @param {Array<string>} keywordList
    */
-  function splitAndCompile(className, keywordList) {
+  function compileList(className, keywordList) {
     if (caseInsensitive) {
-      keywordList = keywordList.toLowerCase();
+      keywordList = keywordList.map(x => x.toLowerCase());
     }
-    keywordList.split(' ').forEach(function(keyword) {
+    keywordList.forEach(function(keyword) {
       const pair = keyword.split('|');
       compiledKeywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
     });

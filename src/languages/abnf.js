@@ -63,7 +63,7 @@ export default function(hljs) {
   return {
     name: 'Augmented Backus-Naur Form',
     illegal: regexes.unexpectedChars,
-    keywords: keywords.join(" "),
+    keywords: keywords,
     contains: [
       ruleDeclarationMode,
       commentMode,

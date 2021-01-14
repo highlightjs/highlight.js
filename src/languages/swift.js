@@ -68,9 +68,8 @@ export default function(hljs) {
       /#\w+/ // number keywords
     ),
     keyword: PLAIN_KEYWORDS
-      .concat(Swift.numberSignKeywords)
-      .join(" "),
-    literal: Swift.literals.join(" ")
+      .concat(Swift.numberSignKeywords),
+    literal: Swift.literals
   };
   const KEYWORD_MODES = [
     DOT_KEYWORD,
@@ -226,7 +225,7 @@ export default function(hljs) {
         {
           begin: /\(/,
           end: /\)/,
-          keywords: Swift.availabilityKeywords.join(' '),
+          keywords: Swift.availabilityKeywords,
           contains: [
             ...OPERATORS,
             NUMBER,
@@ -445,7 +444,7 @@ export default function(hljs) {
         keywords: [
           ...Swift.precedencegroupKeywords,
           ...Swift.literals
-        ].join(' '),
+        ],
         contains: [ TYPE ]
       }
     ]
