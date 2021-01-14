@@ -739,6 +739,7 @@ const HLJS = function(hljs) {
    *
    * @type {Function & {called?: boolean}}
    */
+  // TODO: remove v12, deprecated
   const initHighlighting = () => {
     if (initHighlighting.called) return;
     initHighlighting.called = true;
@@ -748,9 +749,9 @@ const HLJS = function(hljs) {
   };
 
   // Higlights all when DOMContentLoaded fires
+  // TODO: remove v12, deprecated
   function initHighlightingOnLoad() {
-    // @ts-ignore
-    window.addEventListener('DOMContentLoaded', initHighlighting, false);
+    wantsHighlight = true;
   }
 
   let wantsHighlight = false;
@@ -766,7 +767,7 @@ const HLJS = function(hljs) {
 
   function boot() {
     domLoaded = true;
-    // if a highlight was required before DOM was loaded, do now
+    // if a highlight was requested before DOM was loaded, do now
     if (wantsHighlight) highlightAll();
   }
 
