@@ -777,7 +777,10 @@ const HLJS = function(hljs) {
     if (wantsHighlight) highlightAll();
   }
 
-  window.addEventListener('DOMContentLoaded', boot, false);
+  // make sure we are in the browser environment
+  if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('DOMContentLoaded', boot, false);
+  }
 
   /**
    * Register a language grammar module
