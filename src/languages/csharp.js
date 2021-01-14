@@ -148,9 +148,9 @@ export default function(hljs) {
   ];
 
   var KEYWORDS = {
-    keyword: NORMAL_KEYWORDS.concat(CONTEXTUAL_KEYWORDS).join(' '),
-    built_in: BUILT_IN_KEYWORDS.join(' '),
-    literal: LITERAL_KEYWORDS.join(' ')
+    keyword: NORMAL_KEYWORDS.concat(CONTEXTUAL_KEYWORDS),
+    built_in: BUILT_IN_KEYWORDS,
+    literal: LITERAL_KEYWORDS
   };
   var TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, {begin: '[a-zA-Z](\\.?\\w)*'});
   var NUMBERS = {

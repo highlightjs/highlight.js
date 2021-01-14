@@ -11,6 +11,7 @@ Language grammar improvements:
 
 Parser:
 
+- allow `keywords` to be an array of strings [Josh Goebel][]
 - add `modes.MATCH_NOTHING_RE` that will never match
   - This can be used with `end` to hold a mode open (it must then be ended with
     `endsParent` in one of it's children modes) [Josh Goebel][]
