@@ -91,14 +91,25 @@ Accepts an object representing options with the values to updated. Other options
   hljs.initHighlighting();
 
 
-``initHighlighting()``
+``highlightAll()``
+------------------
+
+Applies highlighting to all ``<pre><code>...</code></pre>`` blocks on a page.
+This can be called before or after the page's ``onload`` event has fired.
+
+
+``initHighlighting()`` (deprecated as of 10.6)
 ----------------------
+
+*Deprecated:* Please use ``highlightAll()`` instead.
 
 Applies highlighting to all ``<pre><code>...</code></pre>`` blocks on a page.
 
 
-``initHighlightingOnLoad()``
+``initHighlightingOnLoad()`` (deprecated as of 10.6)
 ----------------------------
+
+*Deprecated:* Please use ``highlightAll()`` instead.
 
 Attaches highlighting to the page load event.
 
