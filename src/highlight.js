@@ -753,6 +753,25 @@ const HLJS = function(hljs) {
     window.addEventListener('DOMContentLoaded', initHighlighting, false);
   }
 
+  let wantsHighlight = false;
+  let domLoaded = false;
+
+  function highlightAll() {
+    // if we are called too early in the loading process
+    if (!domLoaded) { wantsHighlight = true; return; }
+
+    const blocks = document.querySelectorAll('pre code');
+    blocks.forEach(highlightBlock);
+  }
+
+  function boot() {
+    domLoaded = true;
+    // if a highlight was required before DOM was loaded, do now
+    if (wantsHighlight) highlightAll();
+  }
+
+  window.addEventListener('DOMContentLoaded', boot, false);
+
   /**
    * Register a language grammar module
    *
@@ -878,6 +897,7 @@ const HLJS = function(hljs) {
   Object.assign(hljs, {
     highlight,
     highlightAuto,
+    highlightAll,
     fixMarkup: deprecateFixMarkup,
     highlightBlock,
     configure,
