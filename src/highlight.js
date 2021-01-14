@@ -744,6 +744,8 @@ const HLJS = function(hljs) {
     if (initHighlighting.called) return;
     initHighlighting.called = true;
 
+    logger.deprecated("10.6.0", "initHighlighting() is deprecated.  Use highlightAll() instead.");
+
     const blocks = document.querySelectorAll('pre code');
     blocks.forEach(highlightBlock);
   };
@@ -751,6 +753,7 @@ const HLJS = function(hljs) {
   // Higlights all when DOMContentLoaded fires
   // TODO: remove v12, deprecated
   function initHighlightingOnLoad() {
+    logger.deprecated("10.6.0", "initHighlightingOnLoad() is deprecated.  Use highlightAll() instead.");
     wantsHighlight = true;
   }
 
