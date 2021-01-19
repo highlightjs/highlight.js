@@ -11,10 +11,19 @@ Language grammar improvements:
 
 Parser:
 
+- new simpler `highlightAll()` API (#2962) [Josh Goebel][]
+  - this should be a drop-in replacement for both `initHighlighting()` and `initHighlightingOnLoad()`
+  - note: it does not prevent itself from being called multiple times (as the previous API did)
 - allow `keywords` to be an array of strings [Josh Goebel][]
 - add `modes.MATCH_NOTHING_RE` that will never match
-  - This can be used with `end` to hold a mode open (it must then be ended with
-    `endsParent` in one of it's children modes) [Josh Goebel][]
+  - This can be used with `end` to hold a mode open (it must then be ended with `endsParent` in one of it's children modes) [Josh Goebel][]
+
+Deprecations:
+
+- `initHighlighting()` and `initHighlightingOnLoad()` deprecated.
+  - Please use the new `highlightAll()` API instead.
+  - Deprecated as of 10.6.
+  - These will both be aliases to `highlightAll` in v11.
 
 [Michael Newton]: https://github.com/miken32
 [Steven Van Impe]: https://github.com/svanimpe/
