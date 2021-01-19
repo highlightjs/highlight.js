@@ -65,6 +65,11 @@ export default function(hljs) {
       {
         className: 'class',
         beginKeywords: 'class interface enum', end: /[{;=]/, excludeEnd: true,
+        // TODO: can this be removed somehow?
+        // an extra boost because Java is more popular than other languages with
+        // this same syntax feature (this is just to preserve our tests passing
+        // for now)
+        relevance: 1,
         keywords: 'class interface enum',
         illegal: /[:"\[\]]/,
         contains: [

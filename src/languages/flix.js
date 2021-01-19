@@ -22,6 +22,7 @@ export default function(hljs) {
 
   const NAME = {
     className: 'title',
+    relevance: 0,
     begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/
   };
 

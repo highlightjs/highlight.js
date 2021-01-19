@@ -116,6 +116,30 @@ export default function(hljs) {
   TUPLE.contains = BASIC_MODES;
   RECORD_ACCESS.contains[1].contains = BASIC_MODES;
 
+  const DIRECTIVES = [
+    "-module",
+    "-record",
+    "-undef",
+    "-export",
+    "-ifdef",
+    "-ifndef",
+    "-author",
+    "-copyright",
+    "-doc",
+    "-vsn",
+    "-import",
+    "-include",
+    "-include_lib",
+    "-compile",
+    "-define",
+    "-else",
+    "-endif",
+    "-file",
+    "-behaviour",
+    "-behavior",
+    "-spec"
+  ];
+
   const PARAMS = {
     className: 'params',
     begin: '\\(',
@@ -155,9 +179,7 @@ export default function(hljs) {
         returnBegin: true,
         keywords: {
           $pattern: '-' + hljs.IDENT_RE,
-          keyword: '-module -record -undef -export -ifdef -ifndef -author -copyright -doc -vsn ' +
-          '-import -include -include_lib -compile -define -else -endif -file -behaviour ' +
-          '-behavior -spec'
+          keyword: DIRECTIVES.map(x => `${x}|1.5`).join(" ")
         },
         contains: [PARAMS]
       },
