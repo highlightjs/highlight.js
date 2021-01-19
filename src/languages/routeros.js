@@ -104,8 +104,10 @@ export default function(hljs) {
       QUOTE_STRING,
       APOS_STRING,
       VAR,
-      { // attribute=value
-        begin: /[\w-]+=([^\s{}[\]()]+)/,
+      // attribute=value
+      {
+        // > is to avoid matches with => in other grammars
+        begin: /[\w-]+=([^\s{}[\]()>]+)/,
         relevance: 0,
         returnBegin: true,
         contains: [

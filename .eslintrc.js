@@ -29,7 +29,11 @@ module.exports = {
     // for now ignore diff between types of quoting
     quotes: "off",
     // this is the style we are already using
-    "operator-linebreak": ["error", "before", { overrides: { "=": "after", "?": "after", ":": "after", "+": "after" } }],
+    "operator-linebreak": ["error", "before", { overrides: {
+      "=": "after",
+      "+": "after"
+    }
+    }],
     // sometimes we declare variables with extra spacing
     indent: ["error", 2, { VariableDeclarator: 2 }],
     // seems like a good idea not to use explicit undefined
