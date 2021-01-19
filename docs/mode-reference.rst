@@ -375,12 +375,13 @@ constant that you repeat multiple times within different modes of your grammar.
 keywords
 ^^^^^^^^
 
-- **type**: object / string
+- **type**: object / string / array
 
-Keyword definition comes in two forms:
+Keyword definition comes in three forms:
 
 * ``'for while if|0 else weird_voodoo|10 ... '`` -- a string of space-separated keywords with an optional relevance over a pipe
 * ``{keyword: ' ... ', literal: ' ... ', $pattern: /\w+/ }`` -- an object that describes multiple sets of keywords and the pattern used to find them
+* ``["for", "while", "if|0", ...]`` -- an array of keywords (with optional relevance via ``|``)
 
 For detailed explanation see :doc:`Language definition guide </language-guide>`.
 

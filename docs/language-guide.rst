@@ -1,3 +1,5 @@
+.. highlight:: javascript
+
 Language definition guide
 =========================
 
@@ -64,12 +66,14 @@ and most interesting parsing happens inside tags.
 Keywords
 --------
 
-In the simple case language keywords can be defined with a string, separated by space:
+In the simple case language keywords can be defined with a string (space delimited) or array:
 
 ::
 
   {
-    keywords: 'else for if while'
+    keywords: 'else for if while',
+    // or with an array
+    keywords: ['else', 'for', 'if', 'while']
   }
 
 Some languages have different kinds of "keywords" that might not be called as
@@ -83,7 +87,7 @@ object, each property of which defines its own group of keywords:
   {
     keywords: {
       keyword: 'else for if while',
-      literal: 'false true null'
+      literal: ['false','true','null']
     }
   }
 

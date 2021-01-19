@@ -139,9 +139,9 @@ export default function(hljs) {
   ];
 
   const KEYWORDS = {
-    keyword: NORMAL_KEYWORDS.join(' '),
-    built_in: BUILT_IN_KEYWORDS.join(' '),
-    literal: LITERAL_KEYWORDS.join(' ')
+    keyword: NORMAL_KEYWORDS,
+    built_in: BUILT_IN_KEYWORDS,
+    literal: LITERAL_KEYWORDS
   };
 
   return {

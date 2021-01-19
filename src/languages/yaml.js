@@ -70,7 +70,6 @@ export default function(hljs) {
     end: ',',
     endsWithParent: true,
     excludeEnd: true,
-    contains: [],
     keywords: LITERALS,
     relevance: 0
   };

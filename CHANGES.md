@@ -6,11 +6,20 @@ New Languages:
 
 Language grammar improvements:
 
+- env(perl) Much improved regex detection (#2960) [Josh Goebel][]
 - enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
+- fix(xml) Support single-character namespaces. (#2957) [Jan Pilzer][]
+
+Grammar changes:
+
+- Deprecate `c-like`, though you should not be using it directly anyways.
+  - will be removed in v11.
+- `c` and `cpp` are now wholly unique grammars that will diverge over time
 
 Parser:
 
 - `beginKeyword` no longer bestows double relevance (#2953) [Josh Goebel][]
+- allow `keywords` to be an array of strings [Josh Goebel][]
 - add `modes.MATCH_NOTHING_RE` that will never match
   - This can be used with `end` to hold a mode open (it must then be ended with
     `endsParent` in one of it's children modes) [Josh Goebel][]
