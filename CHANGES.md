@@ -10,6 +10,12 @@ Language grammar improvements:
 - enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
 - fix(xml) Support single-character namespaces. (#2957) [Jan Pilzer][]
 
+Grammar changes:
+
+- Deprecate `c-like`, though you should not be using it directly anyways.
+  - will be removed in v11.
+- `c` and `cpp` are now wholly unique grammars that will diverge over time
+
 Parser:
 
 - allow `keywords` to be an array of strings [Josh Goebel][]
