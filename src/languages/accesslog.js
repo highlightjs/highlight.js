@@ -42,7 +42,7 @@ export default function(_hljs) {
         className: 'string',
         begin: regex.concat(/"/, regex.either(...HTTP_VERBS)),
         end: /"/,
-        keywords: HTTP_VERBS.join(" "),
+        keywords: HTTP_VERBS,
         illegal: /\n/,
         relevance: 5,
         contains: [

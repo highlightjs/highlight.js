@@ -41,7 +41,7 @@ export default function(hljs) {
       'view',
       'with',
       'yield'
-    ].join(" ")
+    ]
   };
 
   const LITERALS = {
@@ -50,7 +50,7 @@ export default function(hljs) {
       'false',
       'undefined',
       'null'
-    ].join(" ")
+    ]
   };
 
   // as defined in https://handlebarsjs.com/guide/expressions.html#literal-segments

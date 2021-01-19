@@ -139,7 +139,7 @@ export default function(hljs) {
   };
   const BOLD = {
     className: 'strong',
-    contains: [],
+    contains: [], // defined later
     variants: [
       {
         begin: /_{2}/,
@@ -153,7 +153,7 @@ export default function(hljs) {
   };
   const ITALIC = {
     className: 'emphasis',
-    contains: [],
+    contains: [], // defined later
     variants: [
       {
         begin: /\*(?!\*)/,
