@@ -22,6 +22,7 @@ interface PublicApi {
     configure: (options: Partial<HLJSOptions>) => void
     initHighlighting: () => void
     initHighlightingOnLoad: () => void
+    highlightAll: () => void
     registerLanguage: (languageName: string, language: LanguageFn) => void
     listLanguages: () => string[]
     registerAliases: (aliasList: string | string[], { languageName } : {languageName: string}) => void

@@ -1,5 +1,5 @@
 hljs.debugMode();
-hljs.initHighlightingOnLoad();
+hljs.highlightAll();
 
 document.querySelectorAll(".categories > li").forEach((category) => {
   category.addEventListener("click", (event) => {

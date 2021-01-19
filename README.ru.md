@@ -13,7 +13,7 @@ Highlight.js — это инструмент для подсветки синт�
 ```html
 <link rel="stylesheet" href="/path/to/styles/default.css">
 <script src="/path/to/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.highlightAll();</script>
 ```
 
 Библиотека найдёт и раскрасит код внутри тегов `<pre><code>`, попытавшись

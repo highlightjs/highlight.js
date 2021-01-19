@@ -49,7 +49,7 @@ library along with one of the styles and calling [`initHighlightingOnLoad`][1]:
 ```html
 <link rel="stylesheet" href="/path/to/styles/default.css">
 <script src="/path/to/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.highlightAll();</script>
 ```
 
 This will find and highlight code inside of `<pre><code>` tags; it tries
@@ -93,7 +93,7 @@ When you need a bit more control over the initialization of
 highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
 functions. This allows you to better control *what* to highlight and *when*.
 
-Here’s the equivalent of calling [`initHighlightingOnLoad`][1] using
+Here’s the equivalent of calling [`highlightAll`][1] using
 only vanilla JS:
 
 ```js
@@ -359,7 +359,7 @@ Further in-depth documentation for the API and other topics is at
 
 Authors and contributors are listed in the [AUTHORS.txt][8] file.
 
-[1]: http://highlightjs.readthedocs.io/en/latest/api.html#inithighlightingonload
+[1]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightall
 [2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
 [3]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightblock-block
 [4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure-options

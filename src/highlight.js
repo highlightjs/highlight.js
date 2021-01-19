@@ -741,18 +741,47 @@ const HLJS = function(hljs) {
    *
    * @type {Function & {called?: boolean}}
    */
+  // TODO: remove v12, deprecated
   const initHighlighting = () => {
     if (initHighlighting.called) return;
     initHighlighting.called = true;
+
+    logger.deprecated("10.6.0", "initHighlighting() is deprecated.  Use highlightAll() instead.");
 
     const blocks = document.querySelectorAll('pre code');
     blocks.forEach(highlightBlock);
   };
 
   // Higlights all when DOMContentLoaded fires
+  // TODO: remove v12, deprecated
   function initHighlightingOnLoad() {
-    // @ts-ignore
-    window.addEventListener('DOMContentLoaded', initHighlighting, false);
+    logger.deprecated("10.6.0", "initHighlightingOnLoad() is deprecated.  Use highlightAll() instead.");
+    wantsHighlight = true;
+  }
+
+  let wantsHighlight = false;
+  let domLoaded = false;
+
+  /**
+   * auto-highlights all pre>code elements on the page
+   */
+  function highlightAll() {
+    // if we are called too early in the loading process
+    if (!domLoaded) { wantsHighlight = true; return; }
+
+    const blocks = document.querySelectorAll('pre code');
+    blocks.forEach(highlightBlock);
+  }
+
+  function boot() {
+    domLoaded = true;
+    // if a highlight was requested before DOM was loaded, do now
+    if (wantsHighlight) highlightAll();
+  }
+
+  // make sure we are in the browser environment
+  if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('DOMContentLoaded', boot, false);
   }
 
   /**
@@ -880,6 +909,7 @@ const HLJS = function(hljs) {
   Object.assign(hljs, {
     highlight,
     highlightAuto,
+    highlightAll,
     fixMarkup: deprecateFixMarkup,
     highlightBlock,
     configure,
