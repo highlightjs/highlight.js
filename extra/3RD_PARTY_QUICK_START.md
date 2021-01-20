@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-So you'd like to create and share you're own language for Highlight.js.  That's awesome.
+So you'd like to create and share your own language for Highlight.js.  That's awesome.
 
 Take a look at some of the real-life examples first:
 
