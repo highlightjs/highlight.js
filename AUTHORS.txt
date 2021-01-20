@@ -312,3 +312,4 @@ Contributors:
 - Guillaume Grossetie <ggrossetie@yuzutech.fr>
 - Steven Van Impe <steven.vanimpe@icloud.com>
 - Martin Dørum <martid0311@gmail.com>
+- John Haugeland <stonecypher@gmail.com>
