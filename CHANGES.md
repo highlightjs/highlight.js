@@ -9,6 +9,7 @@ Language grammar improvements:
 - env(perl) Much improved regex detection (#2960) [Josh Goebel][]
 - enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
 - fix(xml) Support single-character namespaces. (#2957) [Jan Pilzer][]
+- enh(ruby) Support for character literals (#2950) [Vaibhav Chanana][]
 
 Grammar changes:
 
@@ -36,6 +37,7 @@ Deprecations:
 [Michael Newton]: https://github.com/miken32
 [Steven Van Impe]: https://github.com/svanimpe/
 [Josh Goebel]: https://github.com/joshgoebel
+[Vaibhav Chanana]: https://github.com/il3ven
 
 
 ## Version 10.5.0
