@@ -75,7 +75,7 @@ commander
                                   'browser')
   .parse(process.argv);
 
-commander.target = commander.target.toLowerCase();
+const TARGET = commander.opts().target.toLowerCase();
 
 dir.root  = path.dirname(__dirname);
 dir.buildRoot = path.join(dir.root, 'build');
@@ -89,17 +89,17 @@ async function doTarget(target, buildDir) {
 
 async function doBuild() {
   log ("Starting build.");
-  if (commander.target=="all") {
+  if (TARGET=="all") {
     await clean(dir.buildRoot);
     for (let target of TARGETS) {
       log (`** Building ${target.toUpperCase()}. **`);
       let buildDir = path.join(dir.buildRoot, target);
       await doTarget(target, buildDir);
     }
-  } else if (TARGETS.includes(commander.target)) {
-    doTarget(commander.target, dir.buildRoot);
+  } else if (TARGETS.includes(TARGET)) {
+    doTarget(TARGET, dir.buildRoot);
   } else {
-    log(`ERROR: I do not know how to build '${commander.target}'`);
+    log(`ERROR: I do not know how to build '${TARGET}'`);
   }
   log ("Finished build.");
 }
