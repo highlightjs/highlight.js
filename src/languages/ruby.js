@@ -104,10 +104,25 @@ export default function(hljs) {
         begin: /%[qQwWx]?\|/,
         end: /\|/
       },
+      // in the following expressions, \B in the beginning suppresses recognition of ?-sequences
+      // where ? is the last character of a preceding identifier, as in: `func?4`
       {
-        // \B in the beginning suppresses recognition of ?-sequences where ?
-        // is the last character of a preceding identifier, as in: `func?4`
-        begin: /\B\?(\\\d{1,3}|\\x[A-Fa-f0-9]{1,2}|\\u[A-Fa-f0-9]{4}|\\?\S)\b/
+        begin: /\B\?(\\\d{1,3})/
+      },
+      {
+        begin: /\B\?(\\x[A-Fa-f0-9]{1,2})/
+      },
+      {
+        begin: /\B\?(\\u\{?[A-Fa-f0-9]{1,6}\}?)/
+      },
+      {
+        begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/
+      },
+      {
+        begin: /\B\?\\(c|C-)[\x20-\x7e]/
+      },
+      {
+        begin: /\B\?\\?\S/
       },
       { // heredocs
         begin: /<<[-~]?'?(\w+)\n(?:[^\n]*\n)*?\s*\1\b/,

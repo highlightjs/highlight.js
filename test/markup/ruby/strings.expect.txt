@@ -1,0 +1,30 @@
+<span class="hljs-comment"># Character Literals</span>
+
+c = <span class="hljs-string">?a</span>       <span class="hljs-comment">#=&gt; &quot;a&quot;</span>
+c = <span class="hljs-string">?a</span>bc     <span class="hljs-comment">#=&gt; SyntaxError</span>
+c = <span class="hljs-string">?\n</span>      <span class="hljs-comment">#=&gt; &quot;\n&quot;</span>
+c = <span class="hljs-string">?\s</span>      <span class="hljs-comment">#=&gt; &quot; &quot;</span>
+c = <span class="hljs-string">?\\</span>      <span class="hljs-comment">#=&gt; &quot;\\&quot;</span>
+c = <span class="hljs-string">?\u{41}</span>  <span class="hljs-comment">#=&gt; &quot;A&quot;</span>
+c = <span class="hljs-string">?\C-a</span>    <span class="hljs-comment">#=&gt; &quot;\x01&quot;</span>
+c = <span class="hljs-string">?\M-a</span>    <span class="hljs-comment">#=&gt; &quot;\xE1&quot;</span>
+c = <span class="hljs-string">?\M-\C-a</span> <span class="hljs-comment">#=&gt; &quot;\x81&quot;</span>
+c = <span class="hljs-string">?\C-\M-a</span> <span class="hljs-comment">#=&gt; &quot;\x81&quot;, same as above</span>
+c = <span class="hljs-string">?あ</span>      <span class="hljs-comment">#=&gt; &quot;あ&quot;</span>
+
+
+c = <span class="hljs-string">?/</span>          <span class="hljs-comment">#=&gt; /</span>
+c = <span class="hljs-string">?\123</span>       <span class="hljs-comment"># octal bit pattern, where nnn is 1-3 octal digits ([0-7])</span>
+c = <span class="hljs-string">?\xA1</span>       <span class="hljs-comment"># hexadecimal bit pattern, where nn is 1-2 hexadecimal digits ([0-9a-fA-F])</span>
+c = <span class="hljs-string">?\uAF09</span>     <span class="hljs-comment"># Unicode character, where nnnn is exactly 4 hexadecimal digits ([0-9a-fA-F])</span>
+c = <span class="hljs-string">?\cx</span>        <span class="hljs-comment"># control character, where x is an ASCII printable character</span>
+c = <span class="hljs-string">?\c\M-x</span>     <span class="hljs-comment"># meta control character, where x is an ASCII printable character</span>
+c = <span class="hljs-string">?\c?</span>        <span class="hljs-comment"># delete, ASCII 7Fh (DEL)</span>
+c = <span class="hljs-string">?\C-?</span>       <span class="hljs-comment"># delete, ASCII 7Fh (DEL)</span>
+
+<span class="hljs-comment"># Unicode character(s) of type \u{nnnn ....}, where each nnnn is 1-6 hexadecimal digits ([0-9a-fA-F])</span>
+c = <span class="hljs-string">?\u{00AF09}</span>
+c = <span class="hljs-string">?\u{0AF09}</span>
+c = <span class="hljs-string">?\u{AF9}</span>
+c = <span class="hljs-string">?\u{F9}</span>
+c = <span class="hljs-string">?\u{F}</span>

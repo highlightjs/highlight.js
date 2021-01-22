@@ -1,0 +1,30 @@
+# Character Literals
+
+c = ?a       #=> "a"
+c = ?abc     #=> SyntaxError
+c = ?\n      #=> "\n"
+c = ?\s      #=> " "
+c = ?\\      #=> "\\"
+c = ?\u{41}  #=> "A"
+c = ?\C-a    #=> "\x01"
+c = ?\M-a    #=> "\xE1"
+c = ?\M-\C-a #=> "\x81"
+c = ?\C-\M-a #=> "\x81", same as above
+c = ?あ      #=> "あ"
+
+
+c = ?/          #=> /
+c = ?\123       # octal bit pattern, where nnn is 1-3 octal digits ([0-7])
+c = ?\xA1       # hexadecimal bit pattern, where nn is 1-2 hexadecimal digits ([0-9a-fA-F])
+c = ?\uAF09     # Unicode character, where nnnn is exactly 4 hexadecimal digits ([0-9a-fA-F])
+c = ?\cx        # control character, where x is an ASCII printable character
+c = ?\c\M-x     # meta control character, where x is an ASCII printable character
+c = ?\c?        # delete, ASCII 7Fh (DEL)
+c = ?\C-?       # delete, ASCII 7Fh (DEL)
+
+# Unicode character(s) of type \u{nnnn ....}, where each nnnn is 1-6 hexadecimal digits ([0-9a-fA-F])
+c = ?\u{00AF09}
+c = ?\u{0AF09}
+c = ?\u{AF9}
+c = ?\u{F9}
+c = ?\u{F}
