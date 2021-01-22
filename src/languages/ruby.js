@@ -116,7 +116,7 @@ export default function(hljs) {
         begin: /\B\?(\\u\{?[A-Fa-f0-9]{1,6}\}?)/
       },
       {
-        begin: /\B\?(\\M-\\C-[\x20-\x7e]|\\M-\\c[\x20-\x7e]|\\c\\M-[\x20-\x7e]|\\M-[\x20-\x7e]|\\C-\\M-[\x20-\x7e])/
+        begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/
       },
       {
         begin: /\B\?(\\c[\x20-\x7e]|\\C-[\x20-\x7e])/
