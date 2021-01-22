@@ -119,10 +119,10 @@ export default function(hljs) {
         begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/
       },
       {
-        begin: /\B\?(\\c[\x20-\x7e]|\\C-[\x20-\x7e])/
+        begin: /\B\?\\(c|C-)[\x20-\x7e]/
       },
       {
-        begin: /\B\?(\\?\S)/
+        begin: /\B\?\\?\S/
       },
       { // heredocs
         begin: /<<[-~]?'?(\w+)\n(?:[^\n]*\n)*?\s*\1\b/,
