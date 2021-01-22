@@ -60,7 +60,6 @@
     "glob": "^7.1.6",
     "glob-promise": "^3.4.0",
     "handlebars": "^4.7.6",
-    "js-beautify": "^1.13.0",
     "jsdom": "^16.4.0",
     "lodash": "^4.17.20",
     "mocha": "^8.2.1",
