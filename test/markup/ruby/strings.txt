@@ -21,3 +21,10 @@ c = ?\cx        # control character, where x is an ASCII printable character
 c = ?\c\M-x     # meta control character, where x is an ASCII printable character
 c = ?\c?        # delete, ASCII 7Fh (DEL)
 c = ?\C-?       # delete, ASCII 7Fh (DEL)
+
+# Unicode character(s) of type \u{nnnn ....}, where each nnnn is 1-6 hexadecimal digits ([0-9a-fA-F])
+c = ?\u{00AF09}
+c = ?\u{0AF09}
+c = ?\u{AF9}
+c = ?\u{F9}
+c = ?\u{F}
