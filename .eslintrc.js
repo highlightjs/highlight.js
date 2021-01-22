@@ -101,6 +101,9 @@ module.exports = {
       files: ["tools/**/*.js"],
       parserOptions: {
         ecmaVersion: 2018
+      },
+      rules: {
+        camelcase: "off"
       }
     }
   ]

@@ -16,28 +16,28 @@ async function buildNodeIndex(languages) {
       require = require += `.${lang.loader}`;
     }
     return `hljs.registerLanguage('${lang.name}', ${require});`;
-  })
+  });
 
   // legacy
   await fs.writeFile(`${process.env.BUILD_DIR}/lib/highlight.js`,
     "// This file has been deprecated in favor of core.js\n" +
     "var hljs = require('./core');\n"
-  )
+  );
 
   const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
   await fs.writeFile(`${process.env.BUILD_DIR}/lib/index.js`, index);
 }
 
- async function buildNodeLanguage (language) {
-  const input = { ...config.rollup.node.input, input: language.path }
-  const output = { ...config.rollup.node.output,  file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` }
-  await rollupWrite(input, output)
+async function buildNodeLanguage(language) {
+  const input = { ...config.rollup.node.input, input: language.path };
+  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` };
+  await rollupWrite(input, output);
 }
 
 async function buildNodeHighlightJS() {
-  const input = { ...config.rollup.node.input, input: `src/highlight.js` }
-  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` }
-  await rollupWrite(input, output)
+  const input = { ...config.rollup.node.input, input: `src/highlight.js` };
+  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
+  await rollupWrite(input, output);
 }
 
 async function buildPackageJSON() {
@@ -58,11 +58,11 @@ async function buildPackageJSON() {
 async function buildLanguages(languages) {
   log("Writing languages.");
   await Promise.all(
-    languages.map(async (lang) =>  {
+    languages.map(async(lang) => {
       await buildNodeLanguage(lang);
       process.stdout.write(".");
     })
-  )
+  );
   log("");
 }
 
@@ -73,21 +73,21 @@ async function buildNode(options) {
   mkdir("types");
 
   install("./LICENSE", "LICENSE");
-  install("./README.md","README.md");
-  install("./types/index.d.ts","types/index.d.ts");
+  install("./README.md", "README.md");
+  install("./types/index.d.ts", "types/index.d.ts");
 
   log("Writing styles.");
   const styles = await fs.readdir("./src/styles/");
   styles.forEach((file) => {
-    install(`./src/styles/${file}`,`styles/${file}`);
-    install(`./src/styles/${file}`,`scss/${file.replace(".css",".scss")}`);
-  })
+    install(`./src/styles/${file}`, `styles/${file}`);
+    install(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`);
+  });
   log("Writing package.json.");
   await buildPackageJSON();
 
-  let languages = await getLanguages()
+  let languages = await getLanguages();
   // filter languages for inclusion in the highlight.js bundle
-  languages = filter(languages, options["languages"]);
+  languages = filter(languages, options.languages);
 
   await buildNodeIndex(languages);
   await buildLanguages(languages);
