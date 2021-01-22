@@ -8,7 +8,7 @@ const child_process = require('child_process');
 const { getLanguages } = require("./lib/language");
 const { filter } = require("./lib/dependencies");
 const config = require("./build_config");
-const { install, install_cleancss, mkdir, renderTemplate } = require("./lib/makestuff");
+const { install, installCleanCSS, mkdir, renderTemplate } = require("./lib/makestuff");
 const log = (...args) => console.log(...args);
 const { rollupCode } = require("./lib/bundling.js");
 const bundling = require('./lib/bundling.js');
@@ -129,7 +129,7 @@ function installDemoStyles() {
 
   glob.sync("*", { cwd: "./src/styles" }).forEach((file) => {
     if (file.endsWith(".css")) {
-      install_cleancss(`./src/styles/${file}`, `demo/styles/${file}`);
+      installCleanCSS(`./src/styles/${file}`, `demo/styles/${file}`);
     } else {
       // images, backgrounds, etc
       install(`./src/styles/${file}`, `demo/styles/${file}`);
