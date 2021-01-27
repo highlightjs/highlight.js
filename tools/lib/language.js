@@ -40,10 +40,6 @@ class Language {
     this._sample = "";
     if (fs.existsSync(this.samplePath))
       this._sample = fs.readFileSync(this.samplePath, {encoding: "utf8"});
-    else
-    {
-      console.log("language.js no samplePath for " + this.name);
-    }
     return this._sample;
   }
 
