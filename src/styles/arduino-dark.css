@@ -1,0 +1,86 @@
+/*
+
+  Arduino® Dark Theme - BelKed (https://github.com/BelKed)
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #282c34;
+}
+
+.hljs-ln-n {
+  color: #555555;
+}
+
+.hljs-ln-code {
+  color: #ffffff;
+}
+
+.hljs-params {
+  color: #aaaaaa;
+}
+
+.hljs,
+.hljs-subst {
+  color: #434f54;
+}
+
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-doctag,
+.hljs-name,
+.hljs-built_in,
+.hljs-literal,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition,
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-type,
+.hljs-string,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #61afef;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #c678dd;
+}
+
+.hljs-comment {
+  color: #aaaaaa;
+}
+
+.hljs-meta-keyword {
+  color: #98c379;
+}
+
+.hljs-meta-string {
+  color: #e06c75;
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-number {
+  color: #e5c07b;
+}
