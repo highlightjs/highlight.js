@@ -32,19 +32,28 @@
 .hljs-attribute,
 .hljs-selector-tag,
 .hljs-doctag,
-.hljs-name,
+.hljs-name {
+  color: #61afef;
+}
+
 .hljs-built_in,
 .hljs-literal,
 .hljs-bullet,
 .hljs-code,
-.hljs-addition,
+.hljs-addition {
+  color: #61afef;
+}
+
 .hljs-regexp,
 .hljs-symbol,
 .hljs-variable,
 .hljs-template-variable,
 .hljs-link,
 .hljs-selector-attr,
-.hljs-selector-pseudo,
+.hljs-selector-pseudo {
+  color: #61afef;
+}
+
 .hljs-type,
 .hljs-string,
 .hljs-selector-id,
