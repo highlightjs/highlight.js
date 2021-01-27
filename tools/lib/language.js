@@ -40,11 +40,20 @@ class Language {
     this._sample = "";
     if (fs.existsSync(this.samplePath))
       this._sample = fs.readFileSync(this.samplePath, {encoding: "utf8"});
+    else
+    {
+      console.log("language.js no samplePath for " + this.name);
+    }
     return this._sample;
   }
 
   get samplePath() {
-    return `./test/detect/${this.name}/default.txt`
+    if (!this.moduleDir) {
+      return `./test/detect/${this.name}/default.txt`;
+    }
+    else {
+      return `${this.moduleDir}/test/detect/${this.name}/default.txt`;
+    }
   }
 
   loadMetadata() {
