@@ -9,6 +9,7 @@
   overflow-x: auto;
   padding: 0.5em;
   background: #282c34;
+  font-family: Hack;
 }
 
 .hljs-ln-n {
@@ -33,7 +34,7 @@
 .hljs-selector-tag,
 .hljs-doctag,
 .hljs-name {
-  color: #61afef;
+  color: #e06c75;
 }
 
 .hljs-built_in,
@@ -51,7 +52,7 @@
 .hljs-link,
 .hljs-selector-attr,
 .hljs-selector-pseudo {
-  color: #61afef;
+  color: #d19a66;
 }
 
 .hljs-type,
@@ -67,6 +68,7 @@
 .hljs-title,
 .hljs-section {
   color: #c678dd;
+  font-weight: normal;
 }
 
 .hljs-comment {
