@@ -9,7 +9,6 @@
   overflow-x: auto;
   padding: 0.5em;
   background: #282c34;
-  font-family: Hack;
 }
 
 .hljs-ln-n {
@@ -68,7 +67,6 @@
 .hljs-title,
 .hljs-section {
   color: #c678dd;
-  font-weight: normal;
 }
 
 .hljs-comment {
