@@ -20,21 +20,21 @@
   <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2em</span>;
 }
 
-<span class="hljs-keyword">@supports</span> (<span class="hljs-attribute">display:</span> flex) {
-  <span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width:</span> <span class="hljs-number">900px</span>) {
+<span class="hljs-keyword">@supports</span> (<span class="hljs-attribute">display</span>: flex) {
+  <span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">900px</span>) {
     <span class="hljs-selector-tag">article</span> {
       <span class="hljs-attribute">display</span>: flex;
     }
   }
 }
 
-<span class="hljs-keyword">@media</span> <span class="hljs-keyword">only</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">orientation:</span> landscape) {
+<span class="hljs-keyword">@media</span> <span class="hljs-keyword">only</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">orientation</span>: landscape) {
   <span class="hljs-selector-tag">body</span> {
     <span class="hljs-attribute">background-color</span>: lightblue;
   }
 }
 
-<span class="hljs-keyword">@page</span> <span class="hljs-selector-pseudo">:first</span> {
+<span class="hljs-keyword">@page</span> :first {
     <span class="hljs-attribute">margin</span>: <span class="hljs-number">2cm</span>;
 }
 

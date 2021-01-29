@@ -25,14 +25,14 @@
 <span class="hljs-selector-tag">div</span>,
 <span class="hljs-selector-class">.navbar</span>,
 <span class="hljs-selector-id">#header</span>,
-<span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=&quot;input&quot;]</span> {
+<span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=<span class="hljs-string">&quot;input&quot;</span>]</span> {
     <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Helvetica Neue&quot;</span>, Arial, sans-serif;
     <span class="hljs-attribute">width</span>: auto;
     <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
     <span class="hljs-attribute">display</span>: block;
 }
 
-<span class="hljs-selector-class">.row-12</span> &gt; <span class="hljs-selector-attr">[class*=&quot;spans&quot;]</span> {
+<span class="hljs-selector-class">.row-12</span> &gt; <span class="hljs-selector-attr">[class*=<span class="hljs-string">&quot;spans&quot;</span>]</span> {
     <span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#B5C583</span>;
 }
 
@@ -67,7 +67,7 @@
 }
 
 <span class="hljs-keyword">@mixin</span> mobile {
-  <span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (max-width : <span class="hljs-number">600px</span>) {
+  <span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span> : <span class="hljs-number">600px</span>) {
     <span class="hljs-keyword">@content</span>;
   }
 }
