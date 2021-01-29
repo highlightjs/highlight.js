@@ -60,6 +60,11 @@ New Languages:
 
 Language grammar improvements:
 
+- enh: CSS grammars now share common foundation, keywords, etc. (#2937) [Josh Goebel][]
+  - enh(css): many consistency improvements
+  - enh(scss): many consistency improvements
+  - enh(stylus): many consistency improvements
+  - enh(less): many consistency improvements
 - enh(cpp): Support C++ pack expansion in function arguments [Martin Dørum][]
 - enh(makefile): Add `make` as an alias (#2883) [tripleee][]
 - enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
