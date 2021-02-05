@@ -6,7 +6,8 @@ New Languages:
 
 Language grammar improvements:
 
-- env(perl) Much improved regex detection (#2960) [Josh Goebel][]
+- enh(scala) fix triple quoted strings [Josh Goebel][]
+- enh(perl) Much improved regex detection (#2960) [Josh Goebel][]
 - enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
 - fix(xml) Support single-character namespaces. (#2957) [Jan Pilzer][]
 - enh(ruby) Support for character literals (#2950) [Vaibhav Chanana][]
