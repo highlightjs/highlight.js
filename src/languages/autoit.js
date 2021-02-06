@@ -14,6 +14,24 @@ export default function(hljs) {
         'Global If In Local Next ReDim Return Select Static ' +
         'Step Switch Then To Until Volatile WEnd While With';
 
+  const DIRECTIVES = [
+    "ce",
+    "comments-end",
+    "comments-start",
+    "cs",
+    "include",
+    "include-once",
+    "NoTrayIcon",
+    "OnAutoItStartRegister",
+    "RequireAdmin",
+    "EndRegion",
+    "forcedef",
+    "forceref",
+    "ignorefunc",
+    "pragma",
+    "Region"
+  ]
+  
   const LITERAL = 'True False And Null Not Or Default';
 
   const BUILT_IN
@@ -21,6 +39,9 @@ export default function(hljs) {
 
   const COMMENT = {
     variants: [
+      hljs.COMMENT(/^#/, /$/, {
+        relevance: 0
+      }),
       hljs.COMMENT(';', '$', {
         relevance: 0
       }),
@@ -67,7 +88,7 @@ export default function(hljs) {
     begin: '#',
     end: '$',
     keywords: {
-      'meta-keyword': 'include include-once NoTrayIcon OnAutoItStartRegister pragma compile RequireAdmin'
+      'meta-keyword': DIRECTIVES
     },
     contains: [
       {
