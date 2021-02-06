@@ -38,9 +38,6 @@ export default function(hljs) {
 
   const COMMENT = {
     variants: [
-      hljs.COMMENT(/^#/, /$/, {
-        relevance: 0
-      }),
       hljs.COMMENT(';', '$', {
         relevance: 0
       }),
