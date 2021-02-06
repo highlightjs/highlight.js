@@ -26,9 +26,9 @@ export default function(hljs) {
     "pragma",
     "Region",
     "RequireAdmin",
-    "#Tidy_Off",
-    "#Tidy_On",
-    "#Tidy_Parameters"
+    "Tidy_Off",
+    "Tidy_On",
+    "Tidy_Parameters"
   ]
   
   const LITERAL = 'True False And Null Not Or Default';
