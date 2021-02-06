@@ -15,21 +15,20 @@ export default function(hljs) {
         'Step Switch Then To Until Volatile WEnd While With';
 
   const DIRECTIVES = [
-    "ce",
-    "comments-end",
-    "comments-start",
-    "cs",
-    "include",
-    "include-once",
-    "NoTrayIcon",
-    "OnAutoItStartRegister",
-    "RequireAdmin",
     "EndRegion",
     "forcedef",
     "forceref",
     "ignorefunc",
+    "include",
+    "include-once",
+    "NoTrayIcon",
+    "OnAutoItStartRegister",
     "pragma",
-    "Region"
+    "Region",
+    "RequireAdmin",
+    "#Tidy_Off",
+    "#Tidy_On",
+    "#Tidy_Parameters"
   ]
   
   const LITERAL = 'True False And Null Not Or Default';
