@@ -11,6 +11,7 @@ Language grammar improvements:
 - enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
 - fix(xml) Support single-character namespaces. (#2957) [Jan Pilzer][]
 - enh(ruby) Support for character literals (#2950) [Vaibhav Chanana][]
+- enh(powershell) Add three VALID_VERBS and update the reference link (#2981) [davidhcefx][]
 
 Grammar changes:
 
@@ -39,6 +40,7 @@ Deprecations:
 [Steven Van Impe]: https://github.com/svanimpe/
 [Josh Goebel]: https://github.com/joshgoebel
 [Vaibhav Chanana]: https://github.com/il3ven
+[davidhcefx]: https://github.com/davidhcefx
 
 
 ## Version 10.5.0
