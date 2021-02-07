@@ -313,3 +313,4 @@ Contributors:
 - Steven Van Impe <steven.vanimpe@icloud.com>
 - Martin Dørum <martid0311@gmail.com>
 - John Haugeland <stonecypher@gmail.com>
+- Michał Lipok (https://github.com/mlipok)
