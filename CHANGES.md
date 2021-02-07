@@ -40,6 +40,7 @@ Deprecations:
 [Steven Van Impe]: https://github.com/svanimpe/
 [Josh Goebel]: https://github.com/joshgoebel
 [Vaibhav Chanana]: https://github.com/il3ven
+[davidhcefx]: https://github.com/davidhcefx
 
 
 ## Version 10.5.0
