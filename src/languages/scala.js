@@ -30,22 +30,23 @@ export default function(hljs) {
     className: 'string',
     variants: [
       {
+        begin: '"""',
+        end: '"""'
+      },
+      {
         begin: '"',
         end: '"',
         illegal: '\\n',
         contains: [ hljs.BACKSLASH_ESCAPE ]
       },
       {
-        begin: '"""',
-        end: '"""',
-        relevance: 10
-      },
-      {
         begin: '[a-z]+"',
         end: '"',
         illegal: '\\n',
-        contains: [ hljs.BACKSLASH_ESCAPE,
-          SUBST ]
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
       },
       {
         className: 'string',
