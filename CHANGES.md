@@ -1,3 +1,12 @@
+## Version 10.7.0 (in progress)
+
+Language grammar improvements:
+
+- none yet
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 10.6.0
 
 New Languages:
