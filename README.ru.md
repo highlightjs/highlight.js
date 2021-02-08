@@ -108,7 +108,7 @@ Highlight.js можно использовать в браузере прямо 
 
 ```html
 <script charset="UTF-8"
- src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/go.min.js"></script>
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/go.min.js"></script>
 ```
 
 **Про Almond.** Нужно задать имя модуля в оптимизаторе, например:

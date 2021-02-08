@@ -1,4 +1,4 @@
-## Version 10.6.0 (wip)
+## Version 10.6.0
 
 New Languages:
 
@@ -13,7 +13,7 @@ Language grammar improvements:
 - enh(ruby) Support for character literals (#2950) [Vaibhav Chanana][]
 - enh(powershell) Add three VALID_VERBS and update the reference link (#2981) [davidhcefx][]
 
-Grammar changes:
+Grammar Deprecations:
 
 - Deprecate `c-like`, though you should not be using it directly anyways.
   - will be removed in v11.
