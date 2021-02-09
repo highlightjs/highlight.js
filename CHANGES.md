@@ -1,11 +1,12 @@
 ## Version 10.7.0 (in progress)
+
 New Languages:
 
 - Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]
 
 Language grammar improvements:
 
-- none yet
+- enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
@@ -24,7 +25,6 @@ Language grammar improvements:
 - fix(xml) Support single-character namespaces. (#2957) [Jan Pilzer][]
 - enh(ruby) Support for character literals (#2950) [Vaibhav Chanana][]
 - enh(powershell) Add three VALID_VERBS and update the reference link (#2981) [davidhcefx][]
-- enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
 
 Grammar Deprecations:
 
