@@ -313,4 +313,5 @@ Contributors:
 - Steven Van Impe <steven.vanimpe@icloud.com>
 - Martin Dørum <martid0311@gmail.com>
 - John Haugeland <stonecypher@gmail.com>
+- davidhcefx <davidhu0903ex3@gmail.com>
 - xDGameStudios <xDGameStudios@gmail.com>

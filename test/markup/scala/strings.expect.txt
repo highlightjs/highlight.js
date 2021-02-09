@@ -1,0 +1,1 @@
+<span class="hljs-keyword">val</span> s = <span class="hljs-string">&quot;&quot;&quot; this is a string &quot;this is still a string&quot; another quote: &quot; after the quote &quot;&quot;&quot;</span>
