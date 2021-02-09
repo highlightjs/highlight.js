@@ -10,6 +10,7 @@ Language grammar improvements:
 - enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
 - fix(xml) Support single-character namespaces. (#2957) [Jan Pilzer][]
 - enh(ruby) Support for character literals (#2950) [Vaibhav Chanana][]
+- enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
 
 Grammar changes:
 
