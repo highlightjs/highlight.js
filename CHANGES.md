@@ -8,7 +8,7 @@ Language grammar improvements:
 - none yet
 
 [Josh Goebel]: https://github.com/joshgoebel
-[John C]: https://github.com/Real-John-Cheung
+[John Cheung]: https://github.com/Real-John-Cheung
 
 ## Version 10.6.0
 
