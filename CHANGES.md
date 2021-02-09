@@ -10,6 +10,7 @@ Language grammar improvements:
 
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
+[xDGameStudios]: https://github.com/xDGameStudios
 
 ## Version 10.6.0
 
