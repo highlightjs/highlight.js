@@ -1,11 +1,14 @@
 ## Version 10.7.0 (in progress)
+New Languages:
+
+- Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]
 
 Language grammar improvements:
 
 - none yet
 
 [Josh Goebel]: https://github.com/joshgoebel
-
+[John Cheung]: https://github.com/Real-John-Cheung
 
 ## Version 10.6.0
 
