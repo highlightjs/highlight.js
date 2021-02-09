@@ -1,14 +1,16 @@
 ## Version 10.7.0 (in progress)
+
 New Languages:
 
 - Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]
 
 Language grammar improvements:
 
-- none yet
+- enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
+[xDGameStudios]: https://github.com/xDGameStudios
 
 ## Version 10.6.0
 
