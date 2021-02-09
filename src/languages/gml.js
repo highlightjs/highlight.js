@@ -19,7 +19,7 @@ export default function(hljs) {
       'variable_struct_get_names variable_struct_names_count variable_struct_remove ' + 
       'variable_struct_set array_delete array_insert array_length array_length_1d ' + 
       'array_length_2d array_height_2d array_equals array_create ' +
-      'array_copy array_pop array_push array_resize array_sort' +
+      'array_copy array_pop array_push array_resize array_sort ' +
       'random random_range irandom irandom_range random_set_seed random_get_seed ' +
       'randomize randomise choose abs round floor ceil sign frac sqrt sqr ' +
       'exp ln log2 log10 sin cos tan arcsin arccos arctan arctan2 dsin dcos ' +
