@@ -44,7 +44,7 @@ Please see [SECURITY.md](https://github.com/highlightjs/highlight.js/blob/master
 ## Getting Started
 
 The bare minimum for using highlight.js on a web page is linking to the
-library along with one of the styles and calling [`initHighlightingOnLoad`][1]:
+library along with one of the styles and calling [`highlightAll`][1]:
 
 ```html
 <link rel="stylesheet" href="/path/to/styles/default.css">
