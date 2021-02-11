@@ -60,7 +60,17 @@ export default function(hljs) {
       HEREDOC
     ]
   };
-  const NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
+  const NUMBER = {
+    className: 'number',
+    variants: [
+      { begin: `\\b0b[01]+(?:_[01]+)*\\b` }, // Binary w/ underscore support
+      { begin: `\\b0o[0-7]+(?:_[0-7]+)*\\b` }, // Octals w/ underscore support
+      { begin: `\\b0x[\\da-f]+(?:_[\\da-f]+)*\\b` }, // Hex w/ underscore support
+      // Decimals w/ underscore support, with optional fragments and scientific exponent (e) suffix.
+      { begin: `(?:\\b\\d+(?:_\\d+)*(\\.(?:\\d+(?:_\\d+)*))?|\\B\\.\\d+)(?:e[+-]?\\d+)?` }
+    ],
+    relevance: 0
+  };
   const KEYWORDS = {
     keyword:
     // Magic constants:
