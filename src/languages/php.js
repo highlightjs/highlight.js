@@ -170,11 +170,13 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface trait enum',
+        variants: [
+          { beginKeywords: "enum", illegal: /[($"]/ },
+          { beginKeywords: "class interface trait", illegal: /[:($"]/ }
+        ],
         relevance: 0,
         end: /\{/,
         excludeEnd: true,
-        illegal: /[($"]/,
         contains: [
           {beginKeywords: 'extends implements'},
           hljs.UNDERSCORE_TITLE_MODE
