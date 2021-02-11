@@ -160,7 +160,7 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface',
+        beginKeywords: 'class interface trait',
         relevance: 0,
         end: /\{/,
         excludeEnd: true,
