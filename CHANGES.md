@@ -11,6 +11,7 @@ Language grammar improvements:
 - enh(php) Add `Stringable`, `UnhandledMatchError`, and `WeakMap` classes/interfaces (#2997) [Ayesh][]
 - enh(php) Add `mixed` to list of keywords (#2997) [Ayesh][]
 - enh(php) Add support binary, octal, hex and scientific numerals with underscore separator support (#2997) [Ayesh][]
+- enh(php) Add support for Enums (#3004) [Ayesh][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung

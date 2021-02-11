@@ -85,7 +85,7 @@ export default function(hljs) {
     // <https://www.php.net/manual/en/reserved.php>
     // <https://www.php.net/manual/en/language.types.type-juggling.php>
     'array abstract and as binary bool boolean break callable case catch class clone const continue declare ' +
-    'default do double else elseif empty enddeclare endfor endforeach endif endswitch endwhile eval extends ' +
+    'default do double else elseif empty enddeclare endfor endforeach endif endswitch endwhile enum eval extends ' +
     'final finally float for foreach from global goto if implements instanceof insteadof int integer interface ' +
     'isset iterable list match|0 mixed new object or private protected public real return string switch throw trait ' +
     'try unset use var void while xor yield',
@@ -170,11 +170,11 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface trait',
+        beginKeywords: 'class interface trait enum',
         relevance: 0,
         end: /\{/,
         excludeEnd: true,
-        illegal: /[:($"]/,
+        illegal: /[($"]/,
         contains: [
           {beginKeywords: 'extends implements'},
           hljs.UNDERSCORE_TITLE_MODE

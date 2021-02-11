@@ -52,6 +52,10 @@ match ($key) {
     [1] => 'Array [1]',
 };
 
+enum Foo: string {
+    case Test = 'test';
+}
+
 echo URI::ME . URI::$st1;
 
 __halt_compiler () ; datahere
