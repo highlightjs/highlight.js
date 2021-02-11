@@ -77,7 +77,7 @@ export default function(hljs) {
     'array abstract and as binary bool boolean break callable case catch class clone const continue declare ' +
     'default do double else elseif empty enddeclare endfor endforeach endif endswitch endwhile eval extends ' +
     'final finally float for foreach from global goto if implements instanceof insteadof int integer interface ' +
-    'isset iterable list match|0 new object or private protected public real return string switch throw trait ' +
+    'isset iterable list match|0 mixed new object or private protected public real return string switch throw trait ' +
     'try unset use var void while xor yield',
     literal: 'false null true',
     built_in:
