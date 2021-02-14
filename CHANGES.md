@@ -26,6 +26,7 @@ Language grammar improvements:
 - fix(xml) Support single-character namespaces. (#2957) [Jan Pilzer][]
 - enh(ruby) Support for character literals (#2950) [Vaibhav Chanana][]
 - enh(powershell) Add three VALID_VERBS and update the reference link (#2981) [davidhcefx][]
+- fix(php) Highlighting of anonymous functions without {} block [Vaibhav Chanana][]
 
 Grammar Deprecations:
 

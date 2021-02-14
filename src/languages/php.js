@@ -132,11 +132,16 @@ export default function(hljs) {
         className: 'function',
         relevance: 0,
         beginKeywords: 'fn function', end: /[;{]/, excludeEnd: true,
+        keywords: 'fn function',
         illegal: '[$%\\[]',
         contains: [
+          {
+            beginKeywords: 'use',
+          },
           hljs.UNDERSCORE_TITLE_MODE,
           {
-            begin: '=>' // No markup, just a relevance booster
+            begin: '=>', // No markup, just a relevance booster
+            endsParent: true
           },
           {
             className: 'params',
