@@ -3,7 +3,7 @@
 New Languages:
 
 - Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]
-- Added 3rd party HLSL grammar to SUPPORTED_LANGUAGES (#3002) [Stef Levesque][]
+- Added 3rd party HLSL grammar to SUPPORTED_LANGUAGES (#3002) [highlightjs-hlsl][]
 
 Language grammar improvements:
 
@@ -12,6 +12,7 @@ Language grammar improvements:
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
 [xDGameStudios]: https://github.com/xDGameStudios
+[highlightjs-hlsl]: https://github.com/stef-levesque/highlightjs-hlsl
 
 ## Version 10.6.0
 
