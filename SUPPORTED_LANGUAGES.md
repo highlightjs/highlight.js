@@ -136,7 +136,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Oracle Rules Language   | ruleslanguage          |         |
 | Oxygene                 | oxygene                |         |
 | PF                      | pf, pf.conf            |         |
-| PHP                     | php, php3, php4, php5, php6, php7 |    |
+| PHP                     | php, php3, php4, php5, php6, php7, php8 |    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
 | Plaintext               | plaintext, txt, text   |         |
