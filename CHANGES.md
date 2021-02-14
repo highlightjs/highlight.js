@@ -7,7 +7,7 @@ New Languages:
 Language grammar improvements:
 
 - enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
-- fix(cpp) constructor support for initializers () [Josh Goebel][]
+- fix(cpp) constructor support for initializers (#3001) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
