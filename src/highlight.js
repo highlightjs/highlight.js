@@ -659,12 +659,12 @@ const HLJS = function(hljs) {
 
   /** @type {HLJSPlugin} */
   const brPlugin = {
-    "before:highlightBlock": ({ block }) => {
+    "before:highlightElement": ({ el }) => {
       if (options.useBR) {
-        block.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ /]*>/g, '\n');
+        el.innerHTML = el.innerHTML.replace(/\n/g, '').replace(/<br[ /]*>/g, '\n');
       }
     },
-    "after:highlightBlock": ({ result }) => {
+    "after:highlightElement": ({ result }) => {
       if (options.useBR) {
         result.value = result.value.replace(/\n/g, "<br>");
       }
@@ -674,7 +674,7 @@ const HLJS = function(hljs) {
   const TAB_REPLACE_RE = /^(<[^>]+>|\t)+/gm;
   /** @type {HLJSPlugin} */
   const tabReplacePlugin = {
-    "after:highlightBlock": ({ result }) => {
+    "after:highlightElement": ({ result }) => {
       if (options.tabReplace) {
         result.value = result.value.replace(TAB_REPLACE_RE, (m) =>
           m.replace(/\t/g, options.tabReplace)
@@ -689,21 +689,26 @@ const HLJS = function(hljs) {
    *
    * @param {HighlightedHTMLElement} element - the HTML element to highlight
   */
-  function highlightBlock(element) {
+  function highlightElement(element) {
     /** @type HTMLElement */
     let node = null;
     const language = blockLanguage(element);
 
     if (shouldNotHighlight(language)) return;
 
+    // support for v10 API
     fire("before:highlightBlock",
       { block: element, language: language });
+    fire("before:highlightElement",
+      { el: element, language: language });
 
     node = element;
     const text = node.textContent;
     const result = language ? highlight(language, text, true) : highlightAuto(text);
 
+    // support for v10 API
     fire("after:highlightBlock", { block: element, result, text });
+    fire("after:highlightElement", { el: element, result, text });
 
     element.innerHTML = result.value;
     updateClassName(element, language, result.language);
@@ -749,7 +754,7 @@ const HLJS = function(hljs) {
     logger.deprecated("10.6.0", "initHighlighting() is deprecated.  Use highlightAll() instead.");
 
     const blocks = document.querySelectorAll('pre code');
-    blocks.forEach(highlightBlock);
+    blocks.forEach(highlightElement);
   };
 
   // Higlights all when DOMContentLoaded fires
@@ -770,7 +775,7 @@ const HLJS = function(hljs) {
     if (!domLoaded) { wantsHighlight = true; return; }
 
     const blocks = document.querySelectorAll('pre code');
-    blocks.forEach(highlightBlock);
+    blocks.forEach(highlightElement);
   }
 
   function boot() {
@@ -905,13 +910,26 @@ const HLJS = function(hljs) {
     return fixMarkup(arg);
   }
 
+  /**
+   *
+   * @param {HighlightedHTMLElement} el
+   */
+  function deprecateHighlightBlock(el) {
+    logger.deprecated("10.7.0", "highlightBlock will be removed entirely in v12.0");
+    logger.deprecated("10.7.0", "Please use highlightElement now.");
+
+    return highlightElement(el);
+  }
+
   /* Interface definition */
   Object.assign(hljs, {
     highlight,
     highlightAuto,
     highlightAll,
     fixMarkup: deprecateFixMarkup,
-    highlightBlock,
+    highlightElement,
+    // TODO: Remove with v12 API
+    highlightBlock: deprecateHighlightBlock,
     configure,
     initHighlighting,
     initHighlightingOnLoad,

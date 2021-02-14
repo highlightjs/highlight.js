@@ -23,7 +23,7 @@ describe('callback system', function() {
     await buildFakeDOM.bind(this)(testCase);
 
     this.hljs.addPlugin(new ContentAdder({content:" = 5;"}))
-    this.hljs.highlightBlock(this.block);
+    this.hljs.highlightElement(this.block);
     const actual = this.block.innerHTML;
     actual.should.equal(testCase.expect);
 
@@ -39,7 +39,7 @@ describe('before:highlightBlock', function() {
         called = true;
       }
     });
-    this.hljs.highlightBlock(this.block);
+    this.hljs.highlightElement(this.block);
     called.should.equal(true);
   })
   it('can modify block content before highlight', async function() {
@@ -56,7 +56,7 @@ describe('before:highlightBlock', function() {
       }
     });
 
-    this.hljs.highlightBlock(this.block);
+    this.hljs.highlightElement(this.block);
     const actual = this.block.innerHTML;
     actual.should.equal(
       `<span class="hljs-keyword">var</span> a;`);
@@ -73,7 +73,7 @@ describe('after:highlightBlock', function() {
         called = true;
       }
     });
-    this.hljs.highlightBlock(this.block);
+    this.hljs.highlightElement(this.block);
     called.should.equal(true);
   })
   it('receives result data', async function() {
@@ -86,7 +86,7 @@ describe('after:highlightBlock', function() {
       }
     });
 
-    this.hljs.highlightBlock(this.block);
+    this.hljs.highlightElement(this.block);
   });
   it('can override language if not originally provided (in class)', async function() {
     var test = newTestCase({
@@ -100,7 +100,7 @@ describe('after:highlightBlock', function() {
       }
     });
 
-    this.hljs.highlightBlock(this.block);
+    this.hljs.highlightElement(this.block);
     should(this.block.outerHTML.includes(`class="hljs basic"`)).equal(true);
 
   })
@@ -116,7 +116,7 @@ describe('after:highlightBlock', function() {
       }
     });
 
-    this.hljs.highlightBlock(this.block);
+    this.hljs.highlightElement(this.block);
     this.block.outerHTML.should.equal(`<code class="javascript hljs">redacted</code>`);
   })
 })

@@ -8,6 +8,14 @@ Language grammar improvements:
 
 - enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
 
+Deprecations:
+
+- `highlightBlock(el)` deprecated as of 10.7.
+  - Please use `highlightElement(el)` instead.
+  - Plugin callbacks renamed `before/after:highlightBlock` => `before/after:highlightElement`
+  - Plugin callback now takes `el` vs `block` attribute
+  - The old API and callbacks will be supported until v12.
+
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
 [xDGameStudios]: https://github.com/xDGameStudios

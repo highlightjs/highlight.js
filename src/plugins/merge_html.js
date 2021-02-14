@@ -4,8 +4,8 @@ import { escapeHTML } from "../lib/utils.js";
 
 /** @type {HLJSPlugin} */
 export const mergeHTMLPlugin = {
-  "after:highlightBlock": ({ block, result, text }) => {
-    const originalStream = nodeStream(block);
+  "after:highlightElement": ({ el, result, text }) => {
+    const originalStream = nodeStream(el);
     if (!originalStream.length) return;
 
     const resultNode = document.createElement('div');
