@@ -5,22 +5,22 @@
 <span class="hljs-keyword">set</span> ::rand <span class="hljs-number">4</span>
 
 <span class="hljs-keyword">proc</span><span class="hljs-title"> give::recursive::count</span> {base p} { <span class="hljs-comment">; # 2 mandatory params</span>
-    <span class="hljs-keyword">while</span> {$p &gt; <span class="hljs-number">0</span>} {
-        <span class="hljs-keyword">set</span> result [<span class="hljs-keyword">expr</span> $result * $base]; <span class="hljs-keyword">incr</span> p <span class="hljs-number">-1</span>
+    <span class="hljs-keyword">while</span> {<span class="hljs-variable">$p</span> &gt; <span class="hljs-number">0</span>} {
+        <span class="hljs-keyword">set</span> result [<span class="hljs-keyword">expr</span> <span class="hljs-variable">$result</span> * <span class="hljs-variable">$base</span>]; <span class="hljs-keyword">incr</span> p <span class="hljs-number">-1</span>
     }
-    <span class="hljs-keyword">return</span> $result
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$result</span>
 }
 
 <span class="hljs-keyword">set</span> a {a}; <span class="hljs-keyword">set</span> b <span class="hljs-string">&quot;bcdef&quot;</span>; <span class="hljs-keyword">set</span> lst [<span class="hljs-keyword">list</span> <span class="hljs-string">&quot;item&quot;</span>]
-<span class="hljs-keyword">puts</span> [<span class="hljs-keyword">llength</span> $a$b]
+<span class="hljs-keyword">puts</span> [<span class="hljs-keyword">llength</span> <span class="hljs-variable">$a</span><span class="hljs-variable">$b</span>]
 
-<span class="hljs-keyword">set</span> ::my::tid($id) $::my::tid(def)
-<span class="hljs-keyword">lappend</span> lst $arr($idx) $::my::arr($idx) $ar(key)
-<span class="hljs-keyword">lreplace</span> ::my::tid($id) <span class="hljs-number">4</span> <span class="hljs-number">4</span>
-<span class="hljs-keyword">puts</span> $::rand ${::rand} ${::AWESOME::component::variable}
+<span class="hljs-keyword">set</span> ::my::tid(<span class="hljs-variable">$id</span>) <span class="hljs-variable">$::my::tid</span>(def)
+<span class="hljs-keyword">lappend</span> lst <span class="hljs-variable">$arr</span>(<span class="hljs-variable">$idx</span>) <span class="hljs-variable">$::my::arr</span>(<span class="hljs-variable">$idx</span>) <span class="hljs-variable">$ar</span>(key)
+<span class="hljs-keyword">lreplace</span> ::my::tid(<span class="hljs-variable">$id</span>) <span class="hljs-number">4</span> <span class="hljs-number">4</span>
+<span class="hljs-keyword">puts</span> <span class="hljs-variable">$::rand</span> <span class="hljs-variable">${::rand}</span> <span class="hljs-variable">${::AWESOME::component::variable}</span>
 
 <span class="hljs-keyword">puts</span> <span class="hljs-string">&quot;$x + $y is\t [expr $x + $y]&quot;</span>
 
 <span class="hljs-keyword">proc</span><span class="hljs-title"> isprime</span> x {
-    <span class="hljs-keyword">expr</span> {$x&gt;<span class="hljs-number">1</span> &amp;&amp; ![<span class="hljs-keyword">regexp</span> {^(oo+?)\<span class="hljs-number">1</span>+$} [<span class="hljs-keyword">string</span> repeat o $x]]}
+    <span class="hljs-keyword">expr</span> {<span class="hljs-variable">$x</span>&gt;<span class="hljs-number">1</span> &amp;&amp; ![<span class="hljs-keyword">regexp</span> {^(oo+?)\<span class="hljs-number">1</span>+$} [<span class="hljs-keyword">string</span> repeat o <span class="hljs-variable">$x</span>]]}
 }

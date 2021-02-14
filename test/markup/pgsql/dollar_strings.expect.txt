@@ -5,5 +5,5 @@ $$<span class="pgsql">
 $$</span>
 <span class="hljs-keyword">language</span> <span class="hljs-keyword">sql</span> <span class="hljs-keyword">STRICT</span>;
 
-<span class="hljs-keyword">SELECT</span> sql_expression($sql$<span class="tcl">SELECT hello_world($phrase$Regina&#x27;s elephant&#x27;s dog$phrase$)
-    || $phrase$ I made a cat&#x27;s meow today.$phrase$ $sql$</span>);
+<span class="hljs-keyword">SELECT</span> sql_expression($sql$<span class="tcl">SELECT hello_world(<span class="hljs-variable">$phrase</span><span class="hljs-variable">$Regina</span>&#x27;s elephant&#x27;s dog<span class="hljs-variable">$phrase</span>$)
+    || <span class="hljs-variable">$phrase</span>$ I made a cat&#x27;s meow today.<span class="hljs-variable">$phrase</span>$ <span class="hljs-variable">$sql</span>$</span>);
