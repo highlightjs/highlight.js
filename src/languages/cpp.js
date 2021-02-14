@@ -172,6 +172,17 @@ export default function(hljs) {
     relevance: 0
   };
 
+  const FUNCTION_DISPATCH = {
+    className: "function.dispatch",
+    begin: regex.concat(
+      /\b/,
+      /(?!decltype)/,
+      /(?!if)/,
+      /(?!for)/,
+      /(?!while)/,
+      hljs.IDENT_RE + '\\s*', regex.lookahead(/\(/))
+  };
+
   const FUNCTION_DECLARATION = {
     className: 'function',
     begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
@@ -256,9 +267,13 @@ export default function(hljs) {
     ],
     keywords: CPP_KEYWORDS,
     illegal: '</',
+    classNameAliases: {
+      "function.dispatch": "built_in"
+    },
     contains: [].concat(
       EXPRESSION_CONTEXT,
       FUNCTION_DECLARATION,
+      FUNCTION_DISPATCH,
       EXPRESSION_CONTAINS,
       [
         PREPROCESSOR,

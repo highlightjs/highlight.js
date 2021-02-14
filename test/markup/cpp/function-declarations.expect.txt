@@ -17,7 +17,8 @@
 <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T...&gt;
 <span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">(T... args)</span> </span>{}
 
-test();
+<span class="hljs-built_in">test</span>();
 
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">A</span><span class="hljs-params">()</span>: a(<span class="hljs-number">10</span>) {</span>}
 <span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">A</span><span class="hljs-params">()</span>: a(<span class="hljs-number">10</span>) {</span>}
+
