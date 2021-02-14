@@ -1,7 +1,6 @@
 /*
 Language: AutoIt
 Author: Manh Tuan <junookyo@gmail.com>
-Modified: Michał Lipok
 Description: AutoIt language definition
 Category: scripting
 */
