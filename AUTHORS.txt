@@ -314,3 +314,5 @@ Contributors:
 - Martin Dørum <martid0311@gmail.com>
 - John Haugeland <stonecypher@gmail.com>
 - Michał Lipok (https://github.com/mlipok)
+- davidhcefx <davidhu0903ex3@gmail.com>
+- xDGameStudios <xDGameStudios@gmail.com>

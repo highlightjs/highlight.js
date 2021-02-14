@@ -1,4 +1,18 @@
-## Version 10.6.0 (wip)
+## Version 10.7.0 (in progress)
+
+New Languages:
+
+- Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]
+
+Language grammar improvements:
+
+- enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+[John Cheung]: https://github.com/Real-John-Cheung
+[xDGameStudios]: https://github.com/xDGameStudios
+
+## Version 10.6.0
 
 New Languages:
 
@@ -6,12 +20,15 @@ New Languages:
 
 Language grammar improvements:
 
-- env(perl) Much improved regex detection (#2960) [Josh Goebel][]
+- enh(scala) fix triple quoted strings (#2987) [Josh Goebel][]
+- enh(perl) Much improved regex detection (#2960) [Josh Goebel][]
 - enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
 - fix(xml) Support single-character namespaces. (#2957) [Jan Pilzer][]
 - enh(ruby) Support for character literals (#2950) [Vaibhav Chanana][]
+- enh(powershell) Add three VALID_VERBS and update the reference link (#2981) [davidhcefx][]
+- fix(php) Highlighting of anonymous functions without {} block [Vaibhav Chanana][]
 
-Grammar changes:
+Grammar Deprecations:
 
 - Deprecate `c-like`, though you should not be using it directly anyways.
   - will be removed in v11.
@@ -38,6 +55,7 @@ Deprecations:
 [Steven Van Impe]: https://github.com/svanimpe/
 [Josh Goebel]: https://github.com/joshgoebel
 [Vaibhav Chanana]: https://github.com/il3ven
+[davidhcefx]: https://github.com/davidhcefx
 
 
 ## Version 10.5.0
