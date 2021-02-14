@@ -4,6 +4,7 @@ New Languages:
 
 - Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]
 - Added 3rd party HLSL grammar to SUPPORTED_LANGUAGES (#3002) [Stef Levesque][]
+- Added 3rd party Q# grammar to SUPPORTED_LANGUAGES(#3006) [Vyron Vasileiadis][]
 
 Language grammar improvements:
 
@@ -18,6 +19,7 @@ Language grammar improvements:
 [John Cheung]: https://github.com/Real-John-Cheung
 [xDGameStudios]: https://github.com/xDGameStudios
 [Ayesh]: https://github.com/Ayesh
+[Vyron Vasileiadis]: https://github.com/fedonman
 
 ## Version 10.6.0
 
