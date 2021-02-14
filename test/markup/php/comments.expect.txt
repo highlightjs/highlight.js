@@ -18,11 +18,3 @@
     <span class="hljs-keyword">return</span> (<span class="hljs-variable">$a</span> % <span class="hljs-number">2</span>) === <span class="hljs-number">1</span>;
 }
 
-<span class="hljs-comment">/**
- * Arrow functions
- */</span>
-<span class="hljs-variable">$fn1</span> = <span class="hljs-function"><span class="hljs-keyword">fn</span>(<span class="hljs-params"><span class="hljs-variable">$x</span></span>) =&gt;</span> <span class="hljs-variable">$x</span> + <span class="hljs-variable">$y</span>;
-
-<span class="hljs-variable">$fn2</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$x</span></span>) <span class="hljs-keyword">use</span> (<span class="hljs-params"><span class="hljs-variable">$y</span></span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-variable">$x</span> + <span class="hljs-variable">$y</span>;
-};

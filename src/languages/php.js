@@ -132,7 +132,6 @@ export default function(hljs) {
         className: 'function',
         relevance: 0,
         beginKeywords: 'fn function', end: /[;{]/, excludeEnd: true,
-        keywords: 'fn function',
         illegal: '[$%\\[]',
         contains: [
           {
