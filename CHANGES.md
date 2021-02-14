@@ -8,11 +8,16 @@ New Languages:
 Language grammar improvements:
 
 - enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
+- enh(php) Add `trait` to class-like naming patterns (#2997) [Ayesh][]
+- enh(php) Add `Stringable`, `UnhandledMatchError`, and `WeakMap` classes/interfaces (#2997) [Ayesh][]
+- enh(php) Add `mixed` to list of keywords (#2997) [Ayesh][]
+- enh(php) Add support binary, octal, hex and scientific numerals with underscore separator support (#2997) [Ayesh][]
 
+[highlightjs-hlsl]: https://github.com/stef-levesque/highlightjs-hlsl
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
 [xDGameStudios]: https://github.com/xDGameStudios
-[highlightjs-hlsl]: https://github.com/stef-levesque/highlightjs-hlsl
+[Ayesh]: https://github.com/Ayesh
 
 ## Version 10.6.0
 
