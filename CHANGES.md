@@ -3,6 +3,7 @@
 New Languages:
 
 - Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]
+- Added 3rd party HLSL grammar to SUPPORTED_LANGUAGES (#3002) [Stef Levesque][]
 
 Language grammar improvements:
 
@@ -12,6 +13,7 @@ Language grammar improvements:
 - enh(php) Add `mixed` to list of keywords (#2997) [Ayesh][]
 - enh(php) Add support binary, octal, hex and scientific numerals with underscore separator support (#2997) [Ayesh][]
 
+[Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
 [xDGameStudios]: https://github.com/xDGameStudios
