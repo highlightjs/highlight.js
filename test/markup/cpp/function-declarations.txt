@@ -18,3 +18,6 @@ template<typename T...>
 void foo(T... args) {}
 
 test();
+
+void A(): a(10) {}
+explicit A(): a(10) {}
