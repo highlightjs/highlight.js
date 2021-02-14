@@ -8,7 +8,7 @@ Website: https://www.tcl.tk/about/language.html
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
-  const ARRAY_ACCESS = '\\(([a-zA-Z0-9_]+)*\\)';
+  const TCL_IDENT = /[a-zA-Z_][a-zA-Z0-9_]*/;
 
   const NUMBER = {
     className: 'number',
@@ -51,7 +51,14 @@ export default function(hljs) {
         className: "variable",
         variants: [
           {
-            begin: '\\$(::)?[a-zA-Z_]+((::)?[a-zA-Z0-9_]+)*',
+            begin: regex.concat(
+              /\$/,
+              regex.optional(/::/),
+              TCL_IDENT,
+              '(::',
+              TCL_IDENT,
+              ')*'
+            )
           },
           {
             begin: '\\$\\{(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*',
