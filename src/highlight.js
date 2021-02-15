@@ -821,6 +821,11 @@ const HLJS = function(hljs) {
    */
   function unregisterLanguage(languageName) {
     delete languages[languageName];
+    for(const alias of Object.keys(aliases)) {
+      if(aliases[alias] === languageName) {
+        delete aliases[alias];
+      }
+    }
   }
 
   /**
