@@ -192,6 +192,21 @@ export default function(hljs) {
         contains: [ TITLE_MODE ],
         relevance: 0
       },
+      // needed because we do not have look-behind on the below rule
+      // to prevent it from grabbing the final : in a :: pair
+      {
+        begin: /::/,
+        relevance: 0
+      },
+      // initializers
+      {
+        begin: /:/,
+        endsWithParent: true,
+        contains: [
+          STRINGS,
+          NUMBERS
+        ]
+      },
       {
         className: 'params',
         begin: /\(/,

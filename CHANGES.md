@@ -9,6 +9,7 @@ New Languages:
 Language grammar improvements:
 
 - enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
+- fix(cpp) constructor support for initializers (#3001) [Josh Goebel][]
 - enh(php) Add `trait` to class-like naming patterns (#2997) [Ayesh][]
 - enh(php) Add `Stringable`, `UnhandledMatchError`, and `WeakMap` classes/interfaces (#2997) [Ayesh][]
 - enh(php) Add `mixed` to list of keywords (#2997) [Ayesh][]
