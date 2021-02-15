@@ -815,6 +815,15 @@ const HLJS = function(hljs) {
   }
 
   /**
+   * Remove a language grammar module
+   *
+   * @param {string} languageName
+   */
+  function unregisterLanguage(languageName) {
+    delete languages[languageName];
+  }
+
+  /**
    * @returns {string[]} List of language internal names
    */
   function listLanguages() {
@@ -916,6 +925,7 @@ const HLJS = function(hljs) {
     initHighlighting,
     initHighlightingOnLoad,
     registerLanguage,
+    unregisterLanguage,
     listLanguages,
     getLanguage,
     registerAliases,
