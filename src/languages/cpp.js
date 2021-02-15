@@ -242,7 +242,26 @@ export default function(hljs) {
     literal: 'true false nullptr NULL'
   };
 
+  const FUNCTION_DISPATCH = {
+    className: "function.dispatch",
+    relevance: 0,
+    // keywords: {
+    //   // used only for relevance
+    //   _: COMMON_CPP_HINTS
+    // },
+    keywords: CPP_KEYWORDS,
+    begin: regex.concat(
+      /\b/,
+      /(?!decltype)/,
+      /(?!if)/,
+      /(?!for)/,
+      /(?!while)/,
+      hljs.IDENT_RE,
+      regex.lookahead(/\s*\(/))
+  };
+
   const EXPRESSION_CONTAINS = [
+    FUNCTION_DISPATCH,
     PREPROCESSOR,
     CPP_PRIMITIVE_TYPES,
     C_LINE_COMMENT_MODE,
@@ -250,6 +269,7 @@ export default function(hljs) {
     NUMBERS,
     STRINGS
   ];
+
 
   const EXPRESSION_CONTEXT = {
     // This mode covers expression context where we can't expect a function
@@ -280,22 +300,6 @@ export default function(hljs) {
       }
     ]),
     relevance: 0
-  };
-
-  const FUNCTION_DISPATCH = {
-    className: "function.dispatch",
-    relevance: 0,
-    keywords: {
-      // used only for relevance
-      _: COMMON_CPP_HINTS
-    },
-    begin: regex.concat(
-      /\b/,
-      /(?!decltype)/,
-      /(?!if)/,
-      /(?!for)/,
-      /(?!while)/,
-      hljs.IDENT_RE + '\\s*', regex.lookahead(/\(/))
   };
 
   const FUNCTION_DECLARATION = {
