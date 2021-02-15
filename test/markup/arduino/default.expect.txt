@@ -12,14 +12,14 @@
 <span class="hljs-comment">// the setup routine runs once when you press reset:</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
   <span class="hljs-comment">// initialize the digital pin as an output.</span>
-  <span class="hljs-built_in"><span class="hljs-built_in">pinMode</span></span>(led, <span class="hljs-literal">OUTPUT</span>);
+  <span class="hljs-built_in">pinMode</span>(led, <span class="hljs-literal">OUTPUT</span>);
 }
 
 <span class="hljs-comment">// the loop routine runs over and over again forever:</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span> </span>{
-  <span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span>(led, <span class="hljs-literal">HIGH</span>);   <span class="hljs-comment">// turn the LED on (HIGH is the voltage level)</span>
-  <span class="hljs-built_in"><span class="hljs-built_in">delay</span></span>(<span class="hljs-number">1000</span>);               <span class="hljs-comment">// wait for a second</span>
-  <span class="hljs-built_in"><span class="hljs-built_in">digitalWrite</span></span>(led, <span class="hljs-literal">LOW</span>);    <span class="hljs-comment">// turn the LED off by making the voltage LOW</span>
-  <span class="hljs-built_in"><span class="hljs-built_in">delay</span></span>(<span class="hljs-number">1000</span>);               <span class="hljs-comment">// wait for a second</span>
+  <span class="hljs-built_in">digitalWrite</span>(led, <span class="hljs-literal">HIGH</span>);   <span class="hljs-comment">// turn the LED on (HIGH is the voltage level)</span>
+  <span class="hljs-built_in">delay</span>(<span class="hljs-number">1000</span>);               <span class="hljs-comment">// wait for a second</span>
+  <span class="hljs-built_in">digitalWrite</span>(led, <span class="hljs-literal">LOW</span>);    <span class="hljs-comment">// turn the LED off by making the voltage LOW</span>
+  <span class="hljs-built_in">delay</span>(<span class="hljs-number">1000</span>);               <span class="hljs-comment">// wait for a second</span>
 }
 
