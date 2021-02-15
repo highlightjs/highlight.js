@@ -7,36 +7,41 @@ const { rollupWrite } = require("./lib/bundling.js");
 const log = (...args) => console.log(...args);
 
 async function buildNodeIndex(languages) {
-  const header = "var hljs = require('./core');";
-  const footer = "module.exports = hljs;";
+  const header = "import hljs from './core.mjs';";
+  const footer = "export default hljs;";
 
   const registration = languages.map((lang) => {
-    let require = `require('./languages/${lang.name}')`;
+    let out = '';
+    const importName = "L_" + lang.name.replace("-","_")
+    let require = `import ${importName} from './languages/${lang.name}.mjs';`;
     if (lang.loader) {
       require = require += `.${lang.loader}`;
+    } else {
+      out += require;
+      out += `hljs.registerLanguage('${lang.name}', ${importName});`;
     }
-    return `hljs.registerLanguage('${lang.name}', ${require});`;
+    return out;
   });
 
   // legacy
-  await fs.writeFile(`${process.env.BUILD_DIR}/lib/highlight.js`,
-    "// This file has been deprecated in favor of core.js\n" +
-    "var hljs = require('./core');\n"
-  );
+  // await fs.writeFile(`${process.env.BUILD_DIR}/lib/highlight.mjs`,
+  //   "// This file has been deprecated in favor of core.js\n" +
+  //   "var hljs = require('./core');\n"
+  // );
 
   const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
-  await fs.writeFile(`${process.env.BUILD_DIR}/lib/index.js`, index);
+  await fs.writeFile(`${process.env.BUILD_DIR}/lib/index.mjs`, index);
 }
 
 async function buildNodeLanguage(language) {
   const input = { ...config.rollup.node.input, input: language.path };
-  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` };
+  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.mjs` };
   await rollupWrite(input, output);
 }
 
 async function buildNodeHighlightJS() {
   const input = { ...config.rollup.node.input, input: `src/highlight.js` };
-  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
+  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.mjs` };
   await rollupWrite(input, output);
 }
 

@@ -10,7 +10,7 @@ module.exports = {
   },
   rollup: {
     node: {
-      output: { format: "cjs", strict: false, exports: "auto" },
+      output: { format: "es", strict: false, exports: "auto" },
       input: {
         plugins: [
           cjsPlugin(),
