@@ -1,4 +1,4 @@
-const hljs = require('../../build');
+import hljs from '#hljs';
 
 // not quite ready to become a plugin yet, so these hooks
 // have been removed and we're skipping this test for now

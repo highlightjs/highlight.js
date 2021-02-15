@@ -1,6 +1,4 @@
-'use strict';
-
-const hljs   = require('../../build');
+import hljs from '#hljs';
 
 describe('computing the relevance score of a language', () => {
   it('should ignore common keywords', () => {

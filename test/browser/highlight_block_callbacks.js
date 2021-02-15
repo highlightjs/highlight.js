@@ -1,8 +1,4 @@
-'use strict';
-
-const {promisify} = require('util');
-
-const {newTestCase, defaultCase, buildFakeDOM } = require('./test_case')
+import {newTestCase, defaultCase, buildFakeDOM } from './test_case.js';
 
 class ContentAdder {
   constructor(params) {

@@ -1,6 +1,4 @@
-'use strict';
-
-const hljs = require('../../build');
+import hljs from '#hljs';
 hljs.debugMode(); // tests run in debug mode so errors are raised
 
 describe("bugs", function() {

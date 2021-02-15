@@ -1,8 +1,6 @@
-'use strict';
+import Worker from 'tiny-worker';
 
-const Worker   = require('tiny-worker');
-
-const { defaultCase, findLibrary } = require('./test_case')
+import { defaultCase, findLibrary } from './test_case.js';
 
 describe('web worker', function() {
   before(async function() {

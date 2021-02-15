@@ -1,7 +1,4 @@
-'use strict';
-
-const should = require('should');
-const hljs   = require('../../build');
+import hljs from '#hljs';
 
 describe('.fixmarkup()', () => {
   after(() => {

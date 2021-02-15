@@ -1,14 +1,11 @@
-'use strict';
+import hljs from '#hljs';
 
-delete require.cache[require.resolve('../../build')];
-delete require.cache[require.resolve('../../build/lib/core')];
+import { promises as fs } from 'fs';
+import path from 'path';
+import * as utility from '../utility.js';
+import { getThirdPartyPackages } from '#tools/external_language';
 
-const fs = require('fs').promises;
-const hljs = require('../../build');
 hljs.debugMode(); // tests run in debug mode so errors are raised
-const path = require('path');
-const utility = require('../utility');
-const { getThirdPartyPackages } = require('../../tools/lib/external_language');
 
 function testAutoDetection(language, { detectPath }) {
   const languagePath = detectPath || utility.buildPath('detect', language);

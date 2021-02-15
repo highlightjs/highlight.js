@@ -1,22 +1,24 @@
-'use strict';
+import { promises as fs } from "fs";
+const { readFile } = fs;
+import path from "path";
+import { fileURLToPath } from "url";
 
-const { readFile } = require('fs').promises;
-const path     = require('path');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Build a path relative to `test/`
-exports.buildPath = function() {
+export const buildPath = function() {
   const args  = [...arguments],
         paths = [__dirname].concat(args);
 
   return path.join.apply(this, paths);
 };
 
-exports.expectedFile = (filename, encoding, actual) => {
+export const expectedFile = (filename, encoding, actual) => {
   return readFile(filename, encoding)
     .then(expected => actual.trim().should.equal(expected.trim()));
 };
 
-exports.setupFile = (filename, encoding, that, testHTML) => {
+export const setupFile = (filename, encoding, that, testHTML) => {
   return readFile(filename, encoding)
     .then(expected => {
       that.expected = expected.trim();

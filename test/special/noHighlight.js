@@ -1,4 +1,4 @@
-'use strict';
+import { document } from './document.js'
 
 describe('no highlighting', () => {
   before(() => {

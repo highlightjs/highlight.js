@@ -1,6 +1,4 @@
-'use strict';
-
-const hljs   = require('../../build');
+import hljs from '#hljs';
 
 let grammar = function() {
   return {
@@ -23,6 +21,10 @@ describe('beginKeywords', () => {
   before( () => {
     hljs.registerLanguage("test", grammar);
     hljs.registerLanguage("has-followup", grammarWithFollowupRule);
+  });
+  after( () => {
+    hljs.unregisterLanguage("test");
+    hljs.unregisterLanguage('has-followup');
   });
 
   it("should allow subsequence matches to still succeed", () => {

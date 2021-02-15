@@ -1,11 +1,9 @@
 'use strict';
 
-const should = require('should');
-
-describe('hljs', function() {
-  require('./look-ahead-end-matchers');
-  require('./resume-scan');
-  require('./reuse-endsWithParent');
-  require('./should-not-destroyData');
-  require('./compiler-extensions');
+describe('hljs', async function() {
+  await import('./look-ahead-end-matchers.js');
+  await import('./resume-scan.js');
+  await import('./reuse-endsWithParent.js');
+  await import('./should-not-destroyData.js');
+  await import('./compiler-extensions.js');
 });

@@ -42,6 +42,7 @@ async function buildNodeHighlightJS() {
 
 async function buildPackageJSON() {
   const packageJson = require("../package");
+  packageJson.type = 'commonjs';
   await fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(packageJson, null, 2));
 }
 

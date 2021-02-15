@@ -1,6 +1,4 @@
-'use strict';
-
-const hljs = require('../../build');
+import hljs from '#hljs';
 
 const pattern = new RegExp(`^${hljs.IDENT_RE}$`);
 

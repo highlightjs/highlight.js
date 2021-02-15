@@ -1,4 +1,6 @@
-import hljs from '#hljs';
+'use strict';
+ 
+const hljs = require('#hljs');
 
 describe('.highlight()', () => {
   it('should works without continuation', () => {

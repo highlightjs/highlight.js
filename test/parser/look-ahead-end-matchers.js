@@ -1,6 +1,9 @@
-const hljs = require('../../build');
+import hljs from '#hljs';
 
 describe("parser specifics", function () {
+  after(()=>{
+    hljs.unregisterLanguage('test-language');
+  });
 
   // CONTEXT: https://github.com/highlightjs/highlight.js/pull/2219
   describe("a grammar with look-ahead end matchers", () => {

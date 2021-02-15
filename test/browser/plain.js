@@ -1,6 +1,4 @@
-'use strict';
-
-const {newTestCase, defaultCase, buildFakeDOM } = require('./test_case')
+import {newTestCase, defaultCase, buildFakeDOM } from './test_case.js';
 
 describe('browser with html with quotes in attributes', function() {
   it('should property escape all quotes',

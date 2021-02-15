@@ -166,6 +166,9 @@ async function buildBrowserHighlightJS(languages, { minify }) {
 
   const tasks = [];
   tasks.push(fs.writeFile(outFile, fullSrc, { encoding: "utf8" }));
+  tasks.push(fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify({
+    type:'commonjs'
+  }), { encoding: "utf8" }));
   const shas = {
     "highlight.js": bundling.sha384(fullSrc)
   };

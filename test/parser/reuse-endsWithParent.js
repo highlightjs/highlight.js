@@ -1,6 +1,9 @@
-const hljs = require('../../build');
+import hljs from '#hljs';
 
 describe("bugs", function () {
+  after(()=>{
+    hljs.unregisterLanguage('test-language');
+  });
 
   describe("modes containing 'endsWithParent'", () => {
     it("should be allowed to be reused", () => {

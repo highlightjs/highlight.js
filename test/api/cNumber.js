@@ -1,7 +1,5 @@
-'use strict';
-
-const _       = require('lodash');
-const hljs    = require('../../build');
+import hljs from '#hljs';
+import _ from 'lodash';
 
 const pattern      = new RegExp(`${hljs.C_NUMBER_RE}$`);
 

@@ -1,6 +1,5 @@
-'use strict';
-
-const utility = require('../utility');
+import { document } from './document.js'
+import * as utility from '../utility.js';
 
 describe('language alias', () => {
   before(() => {

@@ -1,8 +1,10 @@
-const {promisify} = require('util');
-const { JSDOM } = require('jsdom');
-const utility  = require('../utility');
-const glob     = promisify(require('glob'));
-const fs       = require('fs');
+import {promisify} from 'util';
+import { JSDOM } from 'jsdom';
+import * as utility  from '../utility.js';
+import fs from 'fs';
+import _glob from 'glob';
+
+const glob = promisify(_glob);
 
 // default to the minified library if it was built, otherwise fallback to
 // the non-minified
@@ -57,4 +59,4 @@ const defaultCase = newTestCase({
   '"Hello"</span>;'
 });
 
-module.exports = { newTestCase, defaultCase, buildFakeDOM, findLibrary };
+export { newTestCase, defaultCase, buildFakeDOM, findLibrary };

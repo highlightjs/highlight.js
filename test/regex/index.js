@@ -1,10 +1,8 @@
-'use strict';
-
-const hljs = require('../../build');
-const { BFS, parseRegex, regexFor } = require('./lib/util.js');
-const { visitRegExpAST } = require('regexpp');
-const { JS, Words, NFA, CharSet } = require('refa');
-const { firstOf, underAStar, isFirstMatch, isAlwaysZeroWidth} = require('./lib/analysis.js');
+import hljs from '#hljs';
+import { visitRegExpAST } from 'regexpp';
+import { JS, Words, NFA, CharSet } from 'refa';
+import { parseRegex, regexFor } from './lib/util.js';
+import { firstOf, underAStar } from './lib/analysis.js';
 
 hljs.debugMode();
 

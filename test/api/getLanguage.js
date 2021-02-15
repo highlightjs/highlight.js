@@ -1,7 +1,5 @@
-'use strict';
-
-const hljs   = require('../../build');
-const should = require('should');
+import hljs from '#hljs';
+import should from 'should';
 
 describe('.getLanguage()', () => {
   it('should get an existing language', () => {

@@ -1,14 +1,14 @@
 'use strict';
 
-const fs = require('fs').promises;
-const glob = require('glob');
-const hljs = require('../../build');
-const path = require('path');
-const utility = require('../utility');
+import { promises as fs } from 'fs';
+import glob from 'glob';;
+import hljs from '#hljs';
+import path from 'path';
+import * as utility from '../utility.js';
 
 hljs.debugMode();
 
-const { getThirdPartyPackages } = require("../../tools/lib/external_language")
+import { getThirdPartyPackages } from "#tools/external_language"
 
 function testLanguage(language, {testDir}) {
   describe(language, function() {

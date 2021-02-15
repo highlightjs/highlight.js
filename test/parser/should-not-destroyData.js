@@ -1,6 +1,9 @@
-const hljs = require('../../build');
+import hljs from '#hljs';
 
 describe("parser/should not destroy data", function () {
+  after(()=>{
+    hljs.unregisterLanguage('test-language');
+  });
 
   // CONTEXT: https://github.com/highlightjs/highlight.js/pull/2219
   describe("a grammar with a mode that makes a 0 width match", () => {
