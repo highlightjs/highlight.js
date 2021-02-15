@@ -14,6 +14,7 @@ async function buildNodeIndex(languages) {
     let out = '';
     const importName = "L_" + lang.name.replace("-","_")
     let require = `import ${importName} from './languages/${lang.name}.mjs';`;
+    // TODO: break this with v11? All modules must export default?
     if (lang.loader) {
       require = require += `.${lang.loader}`;
     } else {
