@@ -14,12 +14,17 @@ Language grammar improvements:
 - enh(php) Add `mixed` to list of keywords (#2997) [Ayesh][]
 - enh(php) Add support binary, octal, hex and scientific numerals with underscore separator support (#2997) [Ayesh][]
 
+API:
+
+- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
+
 [Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
 [xDGameStudios]: https://github.com/xDGameStudios
 [Ayesh]: https://github.com/Ayesh
 [Vyron Vasileiadis]: https://github.com/fedonman
+[Antoine du Hamel]: https://github.com/aduh95
 
 ## Version 10.6.0
 

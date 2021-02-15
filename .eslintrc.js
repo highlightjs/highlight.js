@@ -90,6 +90,9 @@ module.exports = {
     },
     {
       files: ["test/**/*.js"],
+      globals: {
+        should: "readonly"
+      },
       env: {
         mocha: true
       },
