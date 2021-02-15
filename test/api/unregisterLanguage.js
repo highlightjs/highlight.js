@@ -2,37 +2,38 @@
 
 const hljs = require("../../build");
 
-let grammar = function () {
+const jQuery = function() {
   return {
-    contains: [{ beginKeywords: "class" }],
+    name: "jQuery",
+    contains: [{ beginKeywords: "class" }]
   };
 };
 
 describe(".unregisterLanguage()", () => {
   beforeEach(() => {
-    hljs.registerLanguage("test", grammar);
+    hljs.registerLanguage("test", jQuery);
   });
 
   it("should remove an existing language", () => {
     hljs.unregisterLanguage("test");
     const result = hljs.getLanguage("test");
 
-    (result == null).should.be.true();
+    should(result).be.undefined();
   });
 
   it("should remove an existing language and its aliases", () => {
     hljs.registerAliases(["jquery", "jqueryui"], {
-      languageName: "test",
+      languageName: "test"
     });
 
     {
-        const result = hljs.getLanguage("jquery");
-        (result == null).should.be.false();
+      const result = hljs.getLanguage("jquery");
+      should(result.name).equal("jQuery");
     }
     hljs.unregisterLanguage("test");
     {
-        const result = hljs.getLanguage("jquery");
-        (result == null).should.be.true();
+      const result = hljs.getLanguage("jquery");
+      should(result).be.undefined();
     }
   });
 });
