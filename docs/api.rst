@@ -125,6 +125,14 @@ Adds new language to the library under the specified name. Used mostly internall
   to use common regular expressions defined within it.
 
 
+``unregisterLanguage(languageName)``
+------------------------------------
+
+Removes a language and its aliases from the library. Used mostly internally.
+
+* ``languageName``: a string with the name of the language being removed.
+
+
 ``registerAliases(alias|aliases, {languageName})``
 --------------------------------------------------
 

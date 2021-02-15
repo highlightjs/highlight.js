@@ -24,6 +24,7 @@ interface PublicApi {
     initHighlightingOnLoad: () => void
     highlightAll: () => void
     registerLanguage: (languageName: string, language: LanguageFn) => void
+    unregisterLanguage: (languageName: string) => void
     listLanguages: () => string[]
     registerAliases: (aliasList: string | string[], { languageName } : {languageName: string}) => void
     getLanguage: (languageName: string) => Language | undefined

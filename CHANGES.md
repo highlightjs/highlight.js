@@ -3,15 +3,29 @@
 New Languages:
 
 - Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]
+- Added 3rd party HLSL grammar to SUPPORTED_LANGUAGES (#3002) [Stef Levesque][]
+- Added 3rd party Q# grammar to SUPPORTED_LANGUAGES(#3006) [Vyron Vasileiadis][]
 
 Language grammar improvements:
 
 - enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
 - fix(cpp) constructor support for initializers (#3001) [Josh Goebel][]
+- enh(php) Add `trait` to class-like naming patterns (#2997) [Ayesh][]
+- enh(php) Add `Stringable`, `UnhandledMatchError`, and `WeakMap` classes/interfaces (#2997) [Ayesh][]
+- enh(php) Add `mixed` to list of keywords (#2997) [Ayesh][]
+- enh(php) Add support binary, octal, hex and scientific numerals with underscore separator support (#2997) [Ayesh][]
 
+API:
+
+- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
+
+[Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
 [xDGameStudios]: https://github.com/xDGameStudios
+[Ayesh]: https://github.com/Ayesh
+[Vyron Vasileiadis]: https://github.com/fedonman
+[Antoine du Hamel]: https://github.com/aduh95
 
 ## Version 10.6.0
 
