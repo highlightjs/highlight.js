@@ -89,7 +89,7 @@ export default function(hljs) {
 
   Object.assign(tsLanguage, {
     name: 'TypeScript',
-    aliases: ['ts']
+    aliases: ['ts', 'tsx']
   });
 
   return tsLanguage;
