@@ -697,8 +697,6 @@ const HLJS = function(hljs) {
     if (shouldNotHighlight(language)) return;
 
     // support for v10 API
-    fire("before:highlightBlock",
-      { block: element, language: language });
     fire("before:highlightElement",
       { el: element, language: language });
 
@@ -707,7 +705,6 @@ const HLJS = function(hljs) {
     const result = language ? highlight(language, text, true) : highlightAuto(text);
 
     // support for v10 API
-    fire("after:highlightBlock", { block: element, result, text });
     fire("after:highlightElement", { el: element, result, text });
 
     element.innerHTML = result.value;
@@ -877,9 +874,33 @@ const HLJS = function(hljs) {
   }
 
   /**
+   * Upgrades the old highlightBlock plugins to the new
+   * highlightElement API
+   * @param {HLJSPlugin} plugin
+   */
+  function upgradePluginAPI(plugin) {
+    // TODO: remove with v12
+    if (plugin["before:highlightBlock"] && !plugin["before:highlightElement"]) {
+      plugin["before:highlightElement"] = (data) => {
+        plugin["before:highlightBlock"](
+          Object.assign({ block: data.el }, data)
+        );
+      };
+    }
+    if (plugin["after:highlightBlock"] && !plugin["after:highlightElement"]) {
+      plugin["after:highlightElement"] = (data) => {
+        plugin["after:highlightBlock"](
+          Object.assign({ block: data.el }, data)
+        );
+      };
+    }
+  }
+
+  /**
    * @param {HLJSPlugin} plugin
    */
   function addPlugin(plugin) {
+    upgradePluginAPI(plugin);
     plugins.push(plugin);
   }
 
