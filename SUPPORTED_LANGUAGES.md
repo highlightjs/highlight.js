@@ -90,6 +90,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Handlebars              | handlebars, hbs, html.hbs, html.handlebars        | |
 | Haskell                 | haskell, hs            |         |
 | Haxe                    | haxe, hx               |         |
+| High-level shader language| hlsl                | [highlightjs-hlsl](https://github.com/highlightjs/highlightjs-hlsl) |
 | Hy                      | hy, hylang             |         |
 | Ini, TOML               | ini, toml              |         |
 | Inform7                 | inform7, i7            |         |
@@ -151,6 +152,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Python                  | python, py, gyp        |         |
 | Python profiler results | profile                |         |
 | Python REPL             | python-repl, pycon     |         |
+| Q#                      | qsharp                 | [highlightjs-qsharp](https://github.com/fedonman/highlightjs-qsharp) |
 | Q                       | k, kdb                 |         |
 | QML                     | qml                    |         |
 | R                       | r                      |         |

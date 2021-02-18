@@ -12,6 +12,7 @@ describe('hljs', function() {
   require('./keywords');
   require('./number');
   require('./registerAlias');
+  require('./unregisterLanguage');
   require('./starters');
   require('./underscoreIdent');
 });
