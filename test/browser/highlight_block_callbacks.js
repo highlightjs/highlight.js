@@ -29,8 +29,8 @@ describe('old highlightBlock plugin', function() {
     should(old["after:highlightElement"]).be.undefined();
     should(old["before:highlightElement"]).be.undefined();
     this.hljs.addPlugin(old);
-    should(old["after:highlightElement"]).not.be.null();
-    should(old["before:highlightElement"]).not.be.null();
+    should(old["after:highlightElement"]).not.be.undefined();
+    should(old["before:highlightElement"]).not.be.undefined();
   });
 }
 );
