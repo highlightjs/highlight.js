@@ -28,6 +28,7 @@ API:
 [Ayesh]: https://github.com/Ayesh
 [Vyron Vasileiadis]: https://github.com/fedonman
 [Antoine du Hamel]: https://github.com/aduh95
+[Vaibhav Chanana]: https://github.com/il3ven
 
 ## Version 10.6.0
 
