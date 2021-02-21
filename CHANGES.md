@@ -15,6 +15,7 @@ Language grammar improvements:
 - enh(php) Add `mixed` to list of keywords (#2997) [Ayesh][]
 - enh(php) Add support binary, octal, hex and scientific numerals with underscore separator support (#2997) [Ayesh][]
 - enh(php) Add support for Enums (#3004) [Ayesh][]
+- enh(ecmascript) Add built-in types [Vaibhav Chanana][]
 
 API:
 
