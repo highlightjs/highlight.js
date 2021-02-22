@@ -1,0 +1,12 @@
+<?php
+
+$decimal = 12398;
+$binary = 0b10101;
+$binary_alt = 0B1001_0000_1111;
+$hex = 0x12AF;
+$hex_alt = 0X12_AF;
+$oct = 0o1234567;
+$oct_alt = 0O12_34_56_7;
+$oct_alt2 = 0777_555;
+$sci = 1.2e3;
+$sci2 = 7E-10;
