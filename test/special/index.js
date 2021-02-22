@@ -22,13 +22,13 @@ describe('special cases tests', () => {
     // Setup hljs environment
     hljs.configure({ tabReplace: '    ' });
     let blocks = document.querySelectorAll('pre code');
-    blocks.forEach(hljs.highlightBlock);
+    blocks.forEach(hljs.highlightElement);
 
     // Setup hljs for non-`<pre><code>` tests
     hljs.configure({ useBR: true });
 
     blocks = document.querySelectorAll('.code');
-    blocks.forEach(hljs.highlightBlock);
+    blocks.forEach(hljs.highlightElement);
   });
 
   require('./explicitLanguage');

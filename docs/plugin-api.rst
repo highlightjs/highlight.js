@@ -101,14 +101,24 @@ Note: This callback does not fire from highlighting resulting from auto-language
 
 It returns nothing.
 
-
 ``after:highlightBlock({block, result, text})``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Deprecated as of 10.7.  Please use ``after:highlightElement``.
+
+``before:highlightBlock({block, language})``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Deprecated as of 10.7.  Please use ``before:highlightElement``.
+
+
+``after:highlightElement({el, result, text})``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This callback function is passed an object with two keys:
 
-block
-  The HTML element of the block that's been highlighted.
+el
+  The HTML element that's been highlighted.
 
 result
   The result object returned by `highlight` or `highlightAuto`.
@@ -119,13 +129,13 @@ text
 It returns nothing.
 
 
-``before:highlightBlock({block, language})``
+``before:highlightElement({el, language})``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This callback function is passed an object with two keys:
 
-block
-  The HTML element of the block that will be highlighted.
+el
+  The HTML element that will be highlighted.
 
 language
   The language determined from the class attribute (or undefined).

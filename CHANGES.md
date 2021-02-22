@@ -17,6 +17,14 @@ Language grammar improvements:
 - enh(php) Add support for Enums (#3004) [Ayesh][]
 - enh(ecmascript) Add built-in types [Vaibhav Chanana][]
 
+Deprecations:
+
+- `highlightBlock(el)` deprecated as of 10.7.
+  - Please use `highlightElement(el)` instead.
+  - Plugin callbacks renamed `before/after:highlightBlock` => `before/after:highlightElement`
+  - Plugin callback now takes `el` vs `block` attribute
+  - The old API and callbacks will be supported until v12.
+
 API:
 
 - enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
