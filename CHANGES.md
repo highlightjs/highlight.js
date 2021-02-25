@@ -16,6 +16,7 @@ Language grammar improvements:
 - enh(php) Add support binary, octal, hex and scientific numerals with underscore separator support (#2997) [Ayesh][]
 - enh(php) Add support for Enums (#3004) [Ayesh][]
 - enh(ecmascript) Add built-in types [Vaibhav Chanana][]
+- fix(kotlin) Add kts as an alias for Kotlin (#3021) [Vaibhav Chanana][]
 
 Deprecations:
 

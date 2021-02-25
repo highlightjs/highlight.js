@@ -132,7 +132,7 @@ export default function(hljs) {
 
   return {
     name: 'Kotlin',
-    aliases: [ 'kt' ],
+    aliases: [ 'kt', 'kts' ],
     keywords: KEYWORDS,
     contains: [
       hljs.COMMENT(
