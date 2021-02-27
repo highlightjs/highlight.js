@@ -75,7 +75,6 @@ export default function cos(hljs) {
     name: 'Caché Object Script',
     case_insensitive: true,
     aliases: [
-      "cos",
       "cls"
     ],
     keywords: COS_KEYWORDS,

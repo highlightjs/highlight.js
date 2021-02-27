@@ -73,7 +73,6 @@ export default function(hljs) {
   return {
     name: 'Microtik RouterOS script',
     aliases: [
-      'routeros',
       'mikrotik'
     ],
     case_insensitive: true,

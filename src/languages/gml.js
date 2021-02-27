@@ -870,7 +870,6 @@ export default function(hljs) {
   return {
     name: 'GML',
     aliases: [
-      'gml',
       'GML'
     ],
     case_insensitive: false, // language is case-insensitive

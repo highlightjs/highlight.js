@@ -80,7 +80,6 @@ export default function(hljs) {
   return {
     name: 'SAS',
     aliases: [
-      'sas',
       'SAS'
     ],
     case_insensitive: true, // SAS is case-insensitive
