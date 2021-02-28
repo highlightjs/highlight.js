@@ -239,7 +239,10 @@ export default function(hljs) {
 
   return {
     name: 'LaTeX',
-    aliases: ['TeX'],
+    aliases: [
+      'tex',
+      'TeX',
+    ],
     contains: [
       ...VERBATIM,
       ...EVERYTHING_BUT_VERBATIM
