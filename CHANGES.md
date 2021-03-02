@@ -29,6 +29,7 @@ Deprecations:
 API:
 
 - enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
+- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 
 [Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
@@ -38,6 +39,7 @@ API:
 [Vyron Vasileiadis]: https://github.com/fedonman
 [Antoine du Hamel]: https://github.com/aduh95
 [Vaibhav Chanana]: https://github.com/il3ven
+[David Ostrovsky]: https://github.com/davido
 
 ## Version 10.6.0
 
