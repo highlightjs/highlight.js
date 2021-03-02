@@ -17,6 +17,7 @@ Language grammar improvements:
 - enh(php) Add support for Enums (#3004) [Ayesh][]
 - enh(ecmascript) Add built-in types [Vaibhav Chanana][]
 - enh(kotlin) Add `kts` as an alias for Kotlin (#3021) [Vaibhav Chanana][]
+- enh(css) Add `font-smoothing` to attributes list for CSS (#3027) [AndyKIron][]
 
 Deprecations:
 
