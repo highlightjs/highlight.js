@@ -29,7 +29,7 @@ Deprecations:
 API:
 
 - enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
-- Make language registration case insensitive [David Ostrovsky][]
+- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 
 [Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
