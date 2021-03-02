@@ -41,6 +41,7 @@ API:
 [Antoine du Hamel]: https://github.com/aduh95
 [Vaibhav Chanana]: https://github.com/il3ven
 [David Ostrovsky]: https://github.com/davido
+[AndyKIron]: https://github.com/AndyKIron
 
 ## Version 10.6.0
 
