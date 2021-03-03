@@ -79,9 +79,6 @@ export default function(hljs) {
 
   return {
     name: 'SAS',
-    aliases: [
-      'SAS'
-    ],
     case_insensitive: true, // SAS is case-insensitive
     keywords: {
       literal:

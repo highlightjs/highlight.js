@@ -231,7 +231,6 @@ export default function(hljs) {
   return {
     name: "C",
     aliases: [
-      'c',
       'h'
     ],
     keywords: CPP_KEYWORDS,

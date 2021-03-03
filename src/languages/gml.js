@@ -16,8 +16,8 @@ export default function(hljs) {
       'is_numeric typeof variable_global_exists variable_global_get variable_global_set ' +
       'variable_instance_exists variable_instance_get variable_instance_set ' +
       'variable_instance_get_names variable_struct_exists variable_struct_get ' +
-      'variable_struct_get_names variable_struct_names_count variable_struct_remove ' + 
-      'variable_struct_set array_delete array_insert array_length array_length_1d ' + 
+      'variable_struct_get_names variable_struct_names_count variable_struct_remove ' +
+      'variable_struct_set array_delete array_insert array_length array_length_1d ' +
       'array_length_2d array_height_2d array_equals array_create ' +
       'array_copy array_pop array_push array_resize array_sort ' +
       'random random_range irandom irandom_range random_set_seed random_get_seed ' +
@@ -869,9 +869,6 @@ export default function(hljs) {
 
   return {
     name: 'GML',
-    aliases: [
-      'GML'
-    ],
     case_insensitive: false, // language is case-insensitive
     keywords: GML_KEYWORDS,
 
