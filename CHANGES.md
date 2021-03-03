@@ -1,5 +1,9 @@
 ## Version 10.7.0 (in progress)
 
+Bugs:
+
+- fix(parser) `highlightAll()` now works if the library is lazy loaded [Josh Goebel][]
+
 New Languages:
 
 - Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]

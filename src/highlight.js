@@ -781,9 +781,11 @@ const HLJS = function(hljs) {
     if (wantsHighlight) highlightAll();
   }
 
+  const LOADED_STATES = ["interactive", "complete"];
   // make sure we are in the browser environment
   if (typeof window !== 'undefined' && window.addEventListener) {
     window.addEventListener('DOMContentLoaded', boot, false);
+    if (LOADED_STATES.includes(document.readyState)) { domLoaded = true; }
   }
 
   /**
