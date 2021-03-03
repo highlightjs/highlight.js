@@ -41,17 +41,7 @@ async function buildNodeHighlightJS() {
 }
 
 async function buildPackageJSON() {
-  const CONTRIBUTOR = /^- ([^<(]+( ?<.+>)?( ?\(http.+\))?)/;
-
-  const authors = await fs.readFile("AUTHORS.txt", { encoding: "utf8" });
-  const lines = authors.split(/\r?\n/);
   const packageJson = require("../package");
-
-  packageJson.contributors = lines
-    .map(line => line.match(CONTRIBUTOR))
-    .filter((matches) => matches)
-    .map((matches) => matches[1]);
-
   await fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(packageJson, null, 2));
 }
 

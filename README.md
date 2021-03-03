@@ -357,7 +357,7 @@ The official site for the library is at <https://highlightjs.org/>.
 Further in-depth documentation for the API and other topics is at
 <http://highlightjs.readthedocs.io/>.
 
-Authors and contributors are listed in the [AUTHORS.txt][8] file.
+A list of the Core Team and contributors can be found in the [CONTRIBUTORS.md][8] file.
 
 [1]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightall
 [2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
@@ -366,6 +366,6 @@ Authors and contributors are listed in the [AUTHORS.txt][8] file.
 [5]: https://highlightjs.org/download/
 [6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
 [7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
-[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.txt
+[8]: https://github.com/highlightjs/highlight.js/blob/master/CONTRIBUTORS.md
 [9]: https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md
 [10]: https://github.com/highlightjs/

@@ -100,7 +100,6 @@ other meta data if necessary. The format is free:
 
   */
 
-If you're a new contributor add yourself to the authors list in AUTHORS.txt
 Also update CHANGES.md with your contribution.
 
 Send your contribution as a pull request on GitHub.

@@ -11,7 +11,19 @@
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
   },
-  "contributors": [],
+  "contributors": [
+    "Josh Goebel <hello@joshgoebel.com>",
+    "Egor Rogov <e.rogov@postgrespro.ru>",
+    "Vladimir Jimenez <me@allejo.io>",
+    "Ivan Sagalaev <maniac@softwaremaniacs.org>",
+    "Jeremy Hull <sourdrums@gmail.com>",
+    "Oleg Efimov <efimovov@gmail.com>",
+    "Gidi Meir Morris <gidi@gidi.io>",
+    "Jan T. Sott <git@idleberg.com>",
+    "Li Xuanji <xuanji@gmail.com>",
+    "Marcos Cáceres <marcos@marcosc.com>",
+    "Sang Dang <sang.dang@polku.io>"
+  ],
   "bugs": {
     "url": "https://github.com/highlightjs/highlight.js/issues"
   },
