@@ -8,6 +8,8 @@ New Languages:
 
 Language grammar improvements:
 
+- fix(c) comments after `#include <str>` blocks (#3041) [Josh Goebel][]
+- fix(cpp) comments after `#include <str>` blocks (#3041) [Josh Goebel][]
 - enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
 - fix(cpp) constructor support for initializers (#3001) [Josh Goebel][]
 - enh(php) Add `trait` to class-like naming patterns (#2997) [Ayesh][]
