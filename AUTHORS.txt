@@ -318,3 +318,4 @@ Contributors:
 - xDGameStudios <xDGameStudios@gmail.com>
 - Ayesh Karunaratne <ayesh@aye.sh>
 - Olcay Usta <https://github.com/olcayusta>
+- Eli W. Hunter <elihunter173@gmail.com>

@@ -172,7 +172,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | SQL                     | sql                    |         |
 | STEP Part 21            | p21, step, stp         |         |
 | Scala                   | scala                  |         |
-| Scheme                  | scheme                 |         |
+| Scheme                  | scheme, racket         |         |
 | Scilab                  | scilab, sci            |         |
 | Shape Expressions       | shexc                  | [highlightjs-shexc](https://github.com/highlightjs/highlightjs-shexc) |
 | Shell                   | shell, console         |         |

@@ -198,6 +198,7 @@ export default function(hljs) {
 
   return {
     name: 'Scheme',
+    aliases: [ 'racket' ],
     illegal: /\S/,
     contains: [
       hljs.SHEBANG(),
