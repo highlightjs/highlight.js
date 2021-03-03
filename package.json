@@ -25,6 +25,7 @@
   "scripts": {
     "mocha": "mocha",
     "lint": "eslint src/*.js src/lib/*.js src/plugins/*.js demo/*.js",
+    "lint-authors": "node ./tools/lint_authors.js",
     "lint-languages": "eslint --no-eslintrc -c .eslintrc.lang.js src/languages/**/*.js",
     "build_and_test": "npm run build && npm run test",
     "build": "node ./tools/build.js -t node",

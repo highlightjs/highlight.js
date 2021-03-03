@@ -11,11 +11,17 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        command:
+          - lint
+          - lint-authors
+          - lint-languages
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
         node-version: "*" # latest
     - run: npm ci
-    - run: npm run lint
-    - run: npm run lint-languages
+    - run: npm run ${{ matrix.command }}
