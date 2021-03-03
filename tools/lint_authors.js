@@ -16,6 +16,7 @@ rawContents.forEach((line, lineNo) => {
     errorCount++;
 
     console.log(`AUTHORS.txt:${lineNo + 1} does not match expected format`);
+    console.log(`  ${line}`);
   }
 });
 
