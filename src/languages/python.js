@@ -309,7 +309,7 @@ export default function(hljs) {
   const PARAMS = {
     className: 'params',
     variants: [
-      // Exclude params at functions without params
+      // Exclude params in functions without params
       {
         begin: /\(\s*\)/,
         skip: true
