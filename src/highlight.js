@@ -762,21 +762,22 @@ const HLJS = function(hljs) {
   }
 
   let wantsHighlight = false;
-  let domLoaded = false;
 
   /**
    * auto-highlights all pre>code elements on the page
    */
   function highlightAll() {
     // if we are called too early in the loading process
-    if (!domLoaded) { wantsHighlight = true; return; }
+    if (document.readyState === "loading") {
+      wantsHighlight = true;
+      return;
+    }
 
     const blocks = document.querySelectorAll('pre code');
     blocks.forEach(highlightElement);
   }
 
   function boot() {
-    domLoaded = true;
     // if a highlight was requested before DOM was loaded, do now
     if (wantsHighlight) highlightAll();
   }
