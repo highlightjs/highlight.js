@@ -124,11 +124,23 @@ export default function(hljs) {
     'True'
   ];
 
+  // https://docs.python.org/3/library/typing.html
+  // TODO: Couild these be suplimented by a CamelCase matcher in certain
+  // contexts, leaving these remaining only for relevance hinting?
   const TYPES = [
+    "Any",
+    "Callable",
+    "Coroutine",
     "Dict",
     "List",
-    "Coroutine",
-    "Any"
+    "Literal",
+    "Generic",
+    "Optional",
+    "Sequence",
+    "Set",
+    "Tuple",
+    "Type",
+    "Union"
   ];
 
   const KEYWORDS = {
