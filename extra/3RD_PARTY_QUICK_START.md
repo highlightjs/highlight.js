@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-So you'd like to create and share you're own language for Highlight.js.  That's awesome.
+So you'd like to create and share your own language for Highlight.js.  That's awesome.
 
 Take a look at some of the real-life examples first:
 
@@ -42,7 +42,7 @@ node ./tools/build.js -t node
 npm run test
 ```
 
-If you can't get the auto-detect tests passing you should simply turn off auto-detection for your language in it's definition with `disableAutodetect: true`.  Auto-detection is hard.
+If you can't get the auto-detect tests passing you should simply turn off auto-detection for your language in its definition with `disableAutodetect: true`.  Auto-detection is hard.
 
 ## Packaging
 

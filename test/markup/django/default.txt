@@ -1,0 +1,15 @@
+{% if articles|length %}
+{% for article in articles %}
+
+{% custom %}
+
+{# Striped table #}
+<tr class="{% cycle odd,even %}">
+  <td>{{ article|default:"Hi... " }}</td>
+  <td {% if article.today %}class="today"{% endif %}>
+    Published on {{ article.date }}
+  </td>
+</tr>
+
+{% endfor %}
+{% endif %}

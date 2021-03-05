@@ -1,0 +1,12 @@
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shorty</span>(<span class="hljs-params"><span class="hljs-built_in">dict</span></span>):</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">len</span>(<span class="hljs-params">self</span>):</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">NotImplemented</span>
+
+x = Shorty()
+<span class="hljs-built_in">len</span>(x)
+
+<span class="hljs-keyword">if</span> <span class="hljs-literal">__debug__</span>:
+    sys = <span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>)
+
+<span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> sys.path:
+    print(_)

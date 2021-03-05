@@ -1,12 +1,12 @@
 import kotlin.lang.test
 
-trait A {
+interface A {
     fun x()
 }
 
-fun xxx() : Int {
-	return 888
+fun xxx(): Int {
+    return 888
 }
 
-public fun main(args : Array<String>) {
+public fun main(args: Array<String>) {
 }

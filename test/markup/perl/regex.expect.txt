@@ -1,0 +1,37 @@
+<span class="hljs-keyword">use</span> <span class="hljs-number">5.020</span>;
+<span class="hljs-keyword">use</span> strict;
+<span class="hljs-keyword">use</span> warnings;
+
+<span class="hljs-function"><span class="hljs-keyword">sub</span> <span class="hljs-title">saeaoagr</span> () </span>{
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;foo&quot;</span>;
+    <span class="hljs-regexp">qr/x/</span>;
+}
+
+<span class="hljs-comment"># Those are the most popular</span>
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ <span class="hljs-regexp">s/e/o/gr</span>  . <span class="hljs-string">&quot;bar&quot;</span>);
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ <span class="hljs-regexp">s!e!o!gr</span>  . <span class="hljs-string">&quot;bar&quot;</span>);
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ <span class="hljs-regexp">s|e|o|gr</span>  . <span class="hljs-string">&quot;bar&quot;</span>);
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ <span class="hljs-regexp">s{e}{o}gr</span> . <span class="hljs-string">&quot;bar&quot;</span>);
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ <span class="hljs-regexp">s(e)(o)gr</span> . <span class="hljs-string">&quot;bar&quot;</span>);
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ <span class="hljs-regexp">s[e][o]gr</span> . <span class="hljs-string">&quot;bar&quot;</span>);
+
+<span class="hljs-keyword">return</span> <span class="hljs-regexp">m/e/gr</span>;
+<span class="hljs-keyword">return</span> <span class="hljs-regexp">m!e!gr</span>;
+<span class="hljs-keyword">return</span> <span class="hljs-regexp">m|e|gr</span>;
+<span class="hljs-keyword">return</span> <span class="hljs-regexp">m{e}gr</span>;
+<span class="hljs-keyword">return</span> <span class="hljs-regexp">m(e)gr</span>;
+<span class="hljs-keyword">return</span> <span class="hljs-regexp">m[e]gr</span>;
+
+<span class="hljs-comment"># Those have syntactic significance</span>
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ <span class="hljs-regexp">s?e?o?gr</span>  . <span class="hljs-string">&quot;bar&quot;</span>);
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ <span class="hljs-regexp">s&#x27;e&#x27;o&#x27;gr</span>  . <span class="hljs-string">&quot;bar&quot;</span>);  <span class="hljs-comment"># &#x27; # quote to fix</span>
+
+<span class="hljs-comment"># Those are valid, but infrequent (and weird)</span>
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ <span class="hljs-regexp">s&quot;e&quot;o&quot;gr</span>  . <span class="hljs-string">&quot;bar&quot;</span>);  <span class="hljs-comment"># &quot; # quote to fix</span>
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ s aeaoagr . <span class="hljs-string">&quot;bar&quot;</span>);
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ <span class="hljs-regexp">s#e#o#gr</span>  . <span class="hljs-string">&quot;bar&quot;</span>);
+
+<span class="hljs-comment"># Those must not be confused with the previous two</span>
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ saeaoagr  . <span class="hljs-string">&quot;bar&quot;</span>);  <span class="hljs-comment"># calls saeaoagr()</span>
+<span class="hljs-keyword">say</span> (<span class="hljs-string">&quot;fee&quot;</span> =~ s <span class="hljs-comment">#e#o#gr              that&#x27;s a comment, not a regex</span>
+     (e)(o)gr . <span class="hljs-string">&quot;bar&quot;</span>);            <span class="hljs-comment"># and here&#x27;s the regex.</span>

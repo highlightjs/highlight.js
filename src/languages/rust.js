@@ -7,13 +7,13 @@ Category: common, system
 */
 
 export default function(hljs) {
-  var NUM_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
-  var KEYWORDS =
+  const NUM_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
+  const KEYWORDS =
     'abstract as async await become box break const continue crate do dyn ' +
     'else enum extern false final fn for if impl in let loop macro match mod ' +
     'move mut override priv pub ref return self Self static struct super ' +
     'trait true try type typeof unsafe unsized use virtual where while yield';
-  var BUILTINS =
+  const BUILTINS =
     // functions
     'drop ' +
     // types
@@ -35,7 +35,7 @@ export default function(hljs) {
     'unreachable! vec! write! writeln! macro_rules! assert_ne! debug_assert_ne!';
   return {
     name: 'Rust',
-    aliases: ['rs'],
+    aliases: [ 'rs' ],
     keywords: {
       $pattern: hljs.IDENT_RE + '!?',
       keyword:
@@ -48,13 +48,22 @@ export default function(hljs) {
     illegal: '</',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      hljs.COMMENT('/\\*', '\\*/', {contains: ['self']}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {begin: /b?"/, illegal: null}),
+      hljs.COMMENT('/\\*', '\\*/', {
+        contains: [ 'self' ]
+      }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {
+        begin: /b?"/,
+        illegal: null
+      }),
       {
         className: 'string',
         variants: [
-           { begin: /r(#*)"(.|\n)*?"\1(?!#)/ },
-           { begin: /b?'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/ }
+          {
+            begin: /r(#*)"(.|\n)*?"\1(?!#)/
+          },
+          {
+            begin: /b?'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/
+          }
         ]
       },
       {
@@ -64,10 +73,17 @@ export default function(hljs) {
       {
         className: 'number',
         variants: [
-          { begin: '\\b0b([01_]+)' + NUM_SUFFIX },
-          { begin: '\\b0o([0-7_]+)' + NUM_SUFFIX },
-          { begin: '\\b0x([A-Fa-f0-9_]+)' + NUM_SUFFIX },
-          { begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)' +
+          {
+            begin: '\\b0b([01_]+)' + NUM_SUFFIX
+          },
+          {
+            begin: '\\b0o([0-7_]+)' + NUM_SUFFIX
+          },
+          {
+            begin: '\\b0x([A-Fa-f0-9_]+)' + NUM_SUFFIX
+          },
+          {
+            begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)' +
                    NUM_SUFFIX
           }
         ],
@@ -75,38 +91,50 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'fn', end: '(\\(|<)', excludeEnd: true,
-        contains: [hljs.UNDERSCORE_TITLE_MODE]
+        beginKeywords: 'fn',
+        end: '(\\(|<)',
+        excludeEnd: true,
+        contains: [ hljs.UNDERSCORE_TITLE_MODE ]
       },
       {
         className: 'meta',
-        begin: '#\\!?\\[', end: '\\]',
+        begin: '#!?\\[',
+        end: '\\]',
         contains: [
           {
             className: 'meta-string',
-            begin: /"/, end: /"/
+            begin: /"/,
+            end: /"/
           }
         ]
       },
       {
         className: 'class',
-        beginKeywords: 'type', end: ';',
+        beginKeywords: 'type',
+        end: ';',
         contains: [
-          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {endsParent: true})
+          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {
+            endsParent: true
+          })
         ],
         illegal: '\\S'
       },
       {
         className: 'class',
-        beginKeywords: 'trait enum struct union', end: '{',
+        beginKeywords: 'trait enum struct union',
+        end: /\{/,
         contains: [
-          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {endsParent: true})
+          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {
+            endsParent: true
+          })
         ],
         illegal: '[\\w\\d]'
       },
       {
         begin: hljs.IDENT_RE + '::',
-        keywords: {built_in: BUILTINS}
+        keywords: {
+          built_in: BUILTINS
+        }
       },
       {
         begin: '->'

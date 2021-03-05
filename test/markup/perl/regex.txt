@@ -1,0 +1,37 @@
+use 5.020;
+use strict;
+use warnings;
+
+sub saeaoagr () {
+    print "foo";
+    qr/x/;
+}
+
+# Those are the most popular
+say ("fee" =~ s/e/o/gr  . "bar");
+say ("fee" =~ s!e!o!gr  . "bar");
+say ("fee" =~ s|e|o|gr  . "bar");
+say ("fee" =~ s{e}{o}gr . "bar");
+say ("fee" =~ s(e)(o)gr . "bar");
+say ("fee" =~ s[e][o]gr . "bar");
+
+return m/e/gr;
+return m!e!gr;
+return m|e|gr;
+return m{e}gr;
+return m(e)gr;
+return m[e]gr;
+
+# Those have syntactic significance
+say ("fee" =~ s?e?o?gr  . "bar");
+say ("fee" =~ s'e'o'gr  . "bar");  # ' # quote to fix
+
+# Those are valid, but infrequent (and weird)
+say ("fee" =~ s"e"o"gr  . "bar");  # " # quote to fix
+say ("fee" =~ s aeaoagr . "bar");
+say ("fee" =~ s#e#o#gr  . "bar");
+
+# Those must not be confused with the previous two
+say ("fee" =~ saeaoagr  . "bar");  # calls saeaoagr()
+say ("fee" =~ s #e#o#gr              that's a comment, not a regex
+     (e)(o)gr . "bar");            # and here's the regex.

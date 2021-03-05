@@ -6,47 +6,66 @@ Website: https://elinux.org/Device_Tree_Reference
 Category: config
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var STRINGS = {
+  const STRINGS = {
     className: 'string',
     variants: [
-      hljs.inherit(hljs.QUOTE_STRING_MODE, { begin: '((u8?|U)|L)?"' }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {
+        begin: '((u8?|U)|L)?"'
+      }),
       {
-        begin: '(u8?|U)?R"', end: '"',
+        begin: '(u8?|U)?R"',
+        end: '"',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
-        begin: '\'\\\\?.', end: '\'',
+        begin: '\'\\\\?.',
+        end: '\'',
         illegal: '.'
       }
     ]
   };
 
-  var NUMBERS = {
+  const NUMBERS = {
     className: 'number',
     variants: [
-      { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)' },
-      { begin: hljs.C_NUMBER_RE }
+      {
+        begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)'
+      },
+      {
+        begin: hljs.C_NUMBER_RE
+      }
     ],
     relevance: 0
   };
 
-  var PREPROCESSOR = {
+  const PREPROCESSOR = {
     className: 'meta',
-    begin: '#', end: '$',
-    keywords: {'meta-keyword': 'if else elif endif define undef ifdef ifndef'},
+    begin: '#',
+    end: '$',
+    keywords: {
+      'meta-keyword': 'if else elif endif define undef ifdef ifndef'
+    },
     contains: [
       {
-        begin: /\\\n/, relevance: 0
+        begin: /\\\n/,
+        relevance: 0
       },
       {
-        beginKeywords: 'include', end: '$',
-        keywords: {'meta-keyword': 'include'},
+        beginKeywords: 'include',
+        end: '$',
+        keywords: {
+          'meta-keyword': 'include'
+        },
         contains: [
-          hljs.inherit(STRINGS, {className: 'meta-string'}),
+          hljs.inherit(STRINGS, {
+            className: 'meta-string'
+          }),
           {
             className: 'meta-string',
-            begin: '<', end: '>',
+            begin: '<',
+            end: '>',
             illegal: '\\n'
           }
         ]
@@ -57,22 +76,22 @@ export default function(hljs) {
     ]
   };
 
-  var DTS_REFERENCE = {
+  const DTS_REFERENCE = {
     className: 'variable',
-    begin: '\\&[a-z\\d_]*\\b'
+    begin: /&[a-z\d_]*\b/
   };
 
-  var DTS_KEYWORD = {
+  const DTS_KEYWORD = {
     className: 'meta-keyword',
     begin: '/[a-z][a-z\\d-]*/'
   };
 
-  var DTS_LABEL = {
+  const DTS_LABEL = {
     className: 'symbol',
     begin: '^\\s*[a-zA-Z_][a-zA-Z\\d_]*:'
   };
 
-  var DTS_CELL_PROPERTY = {
+  const DTS_CELL_PROPERTY = {
     className: 'params',
     begin: '<',
     end: '>',
@@ -82,18 +101,18 @@ export default function(hljs) {
     ]
   };
 
-  var DTS_NODE = {
+  const DTS_NODE = {
     className: 'class',
-    begin: /[a-zA-Z_][a-zA-Z\d_@]*\s{/,
+    begin: /[a-zA-Z_][a-zA-Z\d_@]*\s\{/,
     end: /[{;=]/,
     returnBegin: true,
     excludeEnd: true
   };
 
-  var DTS_ROOT_NODE = {
+  const DTS_ROOT_NODE = {
     className: 'class',
-    begin: '/\\s*{',
-    end: '};',
+    begin: '/\\s*\\{',
+    end: /\};/,
     relevance: 10,
     contains: [
       DTS_REFERENCE,
@@ -130,4 +149,3 @@ export default function(hljs) {
     ]
   };
 }
-

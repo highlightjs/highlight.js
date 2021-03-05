@@ -1,0 +1,33 @@
+<span class="hljs-meta">ISO-10303-21;</span>
+<span class="hljs-keyword">HEADER</span>;
+FILE_DESCRIPTION((<span class="hljs-string">&#x27;&#x27;</span>),<span class="hljs-string">&#x27;2;1&#x27;</span>);
+FILE_NAME(<span class="hljs-string">&#x27;CUBE_4SQUARE&#x27;</span>,<span class="hljs-string">&#x27;2013-11-29T&#x27;</span>,(<span class="hljs-string">&#x27;acook&#x27;</span>),(<span class="hljs-string">&#x27;&#x27;</span>),
+<span class="hljs-string">&#x27;SOMETHINGCAD BY SOME CORPORATION, 2012130&#x27;</span>,
+<span class="hljs-string">&#x27;SOMETHINGCAD BY SOME CORPORATION, 2012130&#x27;</span>,<span class="hljs-string">&#x27;&#x27;</span>);
+FILE_SCHEMA((<span class="hljs-string">&#x27;CONFIG_CONTROL_DESIGN&#x27;</span>));
+<span class="hljs-keyword">ENDSEC</span>;
+<span class="hljs-comment">/* file written by SomethingCAD */</span>
+<span class="hljs-keyword">DATA</span>;
+<span class="hljs-symbol">#1</span>=DIRECTION(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">1.E0</span>,<span class="hljs-number">0.E0</span>,<span class="hljs-number">0.E0</span>));
+<span class="hljs-symbol">#2</span>=VECTOR(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-symbol">#1</span>,<span class="hljs-number">4.E0</span>);
+<span class="hljs-symbol">#3</span>=CARTESIAN_POINT(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">-2.E0</span>,<span class="hljs-number">-2.E0</span>,<span class="hljs-number">-2.E0</span>));
+<span class="hljs-symbol">#4</span>=LINE(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-symbol">#3</span>,<span class="hljs-symbol">#2</span>);
+<span class="hljs-symbol">#5</span>=DIRECTION(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">0.E0</span>,<span class="hljs-number">1.E0</span>,<span class="hljs-number">0.E0</span>));
+<span class="hljs-symbol">#6</span>=VECTOR(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-symbol">#5</span>,<span class="hljs-number">4.E0</span>);
+<span class="hljs-symbol">#7</span>=CARTESIAN_POINT(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">2.E0</span>,<span class="hljs-number">-2.E0</span>,<span class="hljs-number">-2.E0</span>));
+<span class="hljs-symbol">#8</span>=LINE(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-symbol">#7</span>,<span class="hljs-symbol">#6</span>);
+<span class="hljs-symbol">#9</span>=DIRECTION(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">-1.E0</span>,<span class="hljs-number">0.E0</span>,<span class="hljs-number">0.E0</span>));
+<span class="hljs-symbol">#10</span>=VECTOR(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-symbol">#9</span>,<span class="hljs-number">4.E0</span>);
+<span class="hljs-symbol">#11</span>=CARTESIAN_POINT(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">2.E0</span>,<span class="hljs-number">2.E0</span>,<span class="hljs-number">-2.E0</span>));
+<span class="hljs-symbol">#12</span>=LINE(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-symbol">#11</span>,<span class="hljs-symbol">#10</span>);
+<span class="hljs-symbol">#13</span>=DIRECTION(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">0.E0</span>,<span class="hljs-number">-1.E0</span>,<span class="hljs-number">0.E0</span>));
+<span class="hljs-symbol">#14</span>=VECTOR(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-symbol">#13</span>,<span class="hljs-number">4.E0</span>);
+<span class="hljs-symbol">#15</span>=CARTESIAN_POINT(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">-2.E0</span>,<span class="hljs-number">2.E0</span>,<span class="hljs-number">-2.E0</span>));
+<span class="hljs-symbol">#16</span>=LINE(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-symbol">#15</span>,<span class="hljs-symbol">#14</span>);
+<span class="hljs-symbol">#17</span>=DIRECTION(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">0.E0</span>,<span class="hljs-number">0.E0</span>,<span class="hljs-number">1.E0</span>));
+<span class="hljs-symbol">#18</span>=VECTOR(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-symbol">#17</span>,<span class="hljs-number">4.E0</span>);
+<span class="hljs-symbol">#19</span>=CARTESIAN_POINT(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">-2.E0</span>,<span class="hljs-number">-2.E0</span>,<span class="hljs-number">-2.E0</span>));
+<span class="hljs-symbol">#20</span>=LINE(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-symbol">#19</span>,<span class="hljs-symbol">#18</span>);
+<span class="hljs-symbol">#21</span>=DIRECTION(<span class="hljs-string">&#x27;&#x27;</span>,(<span class="hljs-number">0.E0</span>,<span class="hljs-number">0.E0</span>,<span class="hljs-number">1.E0</span>));
+<span class="hljs-keyword">ENDSEC</span>;
+<span class="hljs-meta">END-ISO-10303-21;</span>

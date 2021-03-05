@@ -1,0 +1,12 @@
+<span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-variable">$decimal</span> = <span class="hljs-number">12398</span>;
+<span class="hljs-variable">$binary</span> = <span class="hljs-number">0b10101</span>;
+<span class="hljs-variable">$binary_alt</span> = <span class="hljs-number">0B1001_0000_1111</span>;
+<span class="hljs-variable">$hex</span> = <span class="hljs-number">0x12AF</span>;
+<span class="hljs-variable">$hex_alt</span> = <span class="hljs-number">0X12_AF</span>;
+<span class="hljs-variable">$oct</span> = <span class="hljs-number">0o1234567</span>;
+<span class="hljs-variable">$oct_alt</span> = <span class="hljs-number">0O12_34_56_7</span>;
+<span class="hljs-variable">$oct_alt2</span> = <span class="hljs-number">0777_555</span>;
+<span class="hljs-variable">$sci</span> = <span class="hljs-number">1.2e3</span>;
+<span class="hljs-variable">$sci2</span> = <span class="hljs-number">7E-10</span>;

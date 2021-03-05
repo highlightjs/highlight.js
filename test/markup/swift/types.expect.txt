@@ -1,0 +1,47 @@
+<span class="hljs-comment">// Simple identifier</span>
+<span class="hljs-type">Int</span>
+
+<span class="hljs-comment">// Types from Apple frameworks</span>
+<span class="hljs-type">CALayer</span>
+<span class="hljs-type">CGRect</span>
+<span class="hljs-type">MKMapView</span>
+<span class="hljs-type">NSView</span>
+<span class="hljs-type">UIView</span>
+<span class="hljs-type">XCTest</span>
+
+<span class="hljs-comment">// ?, !, ..., and &amp; should not be highlighted as operators</span>
+<span class="hljs-type">Int</span>?
+<span class="hljs-type">Int</span>!
+<span class="hljs-type">Int</span>?!
+<span class="hljs-type">String</span>...
+<span class="hljs-type">SomeClass</span> &amp; <span class="hljs-type">SomeProtocol</span>
+
+<span class="hljs-comment">// Arrays, dictionaries, and nested types</span>
+[<span class="hljs-type">String</span>]
+<span class="hljs-type">Array</span>&lt;<span class="hljs-type">String</span>&gt;
+[[<span class="hljs-type">Int</span>?]]
+<span class="hljs-type">Array</span>&lt;<span class="hljs-type">Array</span>&lt;<span class="hljs-type">Int</span>?&gt;&gt;
+[<span class="hljs-type">String</span>: <span class="hljs-type">Int</span>]
+<span class="hljs-type">Dictionary</span>&lt;<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>&gt;
+<span class="hljs-type">Swift</span>.<span class="hljs-type">Array</span>&lt;<span class="hljs-type">Int</span>&gt;.<span class="hljs-type">Element</span>
+
+<span class="hljs-comment">// Tuples</span>
+()
+(<span class="hljs-type">Double</span>, <span class="hljs-type">Double</span>)
+(x: <span class="hljs-type">Double</span>, y: <span class="hljs-type">Double</span>)
+
+<span class="hljs-comment">// Functions</span>
+(<span class="hljs-keyword">@escaping</span> (<span class="hljs-type">String</span>) -&gt; <span class="hljs-type">Void</span>, <span class="hljs-keyword">@autoclosure</span> () -&gt; <span class="hljs-type">String</span>) -&gt; <span class="hljs-type">String</span>
+(<span class="hljs-type">Int</span>, <span class="hljs-type">String</span>...) -&gt; <span class="hljs-keyword">some</span> <span class="hljs-type">Collection</span>
+() <span class="hljs-keyword">throws</span> -&gt; <span class="hljs-keyword">Self</span>
+
+<span class="hljs-comment">// Generic arguments</span>
+<span class="hljs-type">Array</span>&lt;<span class="hljs-type">String</span>.<span class="hljs-keyword">Type</span>&gt;
+<span class="hljs-type">Array</span>&lt;<span class="hljs-type">Sequence</span>.<span class="hljs-keyword">Protocol</span>&gt;
+<span class="hljs-type">Dictionary</span>&lt;<span class="hljs-type">String</span>, <span class="hljs-keyword">Any</span>&gt;
+<span class="hljs-type">Dictionary</span>&lt;<span class="hljs-type">String</span>, <span class="hljs-type">Array</span>&lt;<span class="hljs-type">Int</span>&gt;&gt;
+<span class="hljs-type">Array</span>&lt;(<span class="hljs-keyword">@autoclosure</span> () -&gt; <span class="hljs-type">String</span>) <span class="hljs-keyword">throws</span> -&gt; <span class="hljs-type">String</span>?&gt;
+<span class="hljs-type">Array</span>&lt;
+  <span class="hljs-comment">// documentation</span>
+  <span class="hljs-type">Int</span>
+&gt;

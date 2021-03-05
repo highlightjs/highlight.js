@@ -7,7 +7,7 @@ Category: common
 
 export default function(hljs) {
   return {
-    aliases: ['pycon'],
+    aliases: [ 'pycon' ],
     contains: [
       {
         className: 'meta',
@@ -16,14 +16,19 @@ export default function(hljs) {
           // this is purely for cleaner HTML output
           end: / |$/,
           starts: {
-            end: '$', subLanguage: 'python'
+            end: '$',
+            subLanguage: 'python'
           }
         },
         variants: [
-          { begin: /^>>>(?=[ ]|$)/ },
-          { begin: /^\.\.\.(?=[ ]|$)/ }
+          {
+            begin: /^>>>(?=[ ]|$)/
+          },
+          {
+            begin: /^\.\.\.(?=[ ]|$)/
+          }
         ]
-      },
+      }
     ]
-  }
+  };
 }

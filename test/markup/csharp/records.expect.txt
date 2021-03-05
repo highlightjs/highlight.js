@@ -1,0 +1,6 @@
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">record</span> <span class="hljs-title">MyRecord</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> SomeMember { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">init</span>; }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">record</span> <span class="hljs-title">Person</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> FirstName, <span class="hljs-built_in">string</span>? MiddleName, <span class="hljs-built_in">string</span> LastName</span>)</span>;

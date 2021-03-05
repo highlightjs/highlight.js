@@ -1,0 +1,14 @@
+(* here is a multi-line comment on one line *)
+
+(*
+    here is a multi-line comment on
+    multiple lines
+*)
+
+let index =
+    len
+    |> float
+    |> Operators.(*) 0.1      // (*) here is not comment
+    |> Operators.(+) 1        // (+) here is not comment
+    |> Operators.(-) len      // (-) here is not comment
+;;

@@ -1,0 +1,49 @@
+<span class="hljs-comment">/****************************************************************************
+** QML with Highlight.js                                                  **/</span>
+<span class="hljs-keyword">import</span> QtQuick <span class="hljs-number">2.5</span> <span class="hljs-comment">// good version</span>
+
+<span class="hljs-title">Window</span> {
+    <span class="hljs-attribute">id:</span><span class="hljs-string"> root</span>
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">1024</span>; <span class="hljs-attribute">height</span>: <span class="hljs-number">600</span>
+    <span class="hljs-attribute">color</span>: <span class="hljs-string">&quot;black&quot;</span>
+    <span class="hljs-keyword">property</span><span class="hljs-string"> int highestZ</span>: <span class="hljs-number">0</span> <span class="hljs-comment">// 0 is lowest, +infinity is highest</span>
+    <span class="hljs-keyword">property</span><span class="hljs-string"> real defaultSize </span>= <span class="hljs-number">200.1</span>
+    <span class="hljs-keyword">signal</span><span class="hljs-string"> activated</span>(<span class="hljs-built_in">real</span> xPosition, <span class="hljs-built_in">real</span> yPosition)
+    <span class="hljs-comment">// show the file picker</span>
+    <span class="hljs-title">FileDialog</span> {
+        <span class="hljs-attribute">id:</span><span class="hljs-string">fileDialog</span> <span class="hljs-comment">// an id in a comment should not be detected</span>
+        <span class="hljs-attribute">title</span>: <span class="hljs-string">&quot;Choose a folder with some images&quot;</span>
+        <span class="hljs-attribute">onAccepted</span>: folderModel.folder = fileUrl + <span class="hljs-string">&quot;/&quot;</span> <span class="hljs-comment">// if this is on property</span>
+    }
+    <span class="hljs-title">Flickable</span> {
+        <span class="hljs-attribute">id:</span><span class="hljs-string"> flickableproperty</span>
+        <span class="hljs-attribute">contentHeight</span>: height * surfaceViewportRatio
+        <span class="hljs-keyword">property</span><span class="hljs-string"> real zRestore</span>: <span class="hljs-number">0</span>
+        <span class="hljs-built_in">Behavior</span> <span class="hljs-keyword">on</span> <span class="hljs-title">scale</span> { <span class="hljs-title">NumberAnimation</span> { <span class="hljs-attribute">duration</span>: <span class="hljs-number">200</span> } }
+        <span class="hljs-title">Repeater</span> {
+            <span class="hljs-attribute">model</span>: <span class="hljs-title">FolderListModel</span> {
+                <span class="hljs-attribute">id:</span><span class="hljs-string"> folderModel</span>
+                <span class="hljs-attribute">nameFilters</span>: [<span class="hljs-string">&quot;*.png&quot;</span>, <span class="hljs-string">&quot;*.jpg&quot;</span>, <span class="hljs-string">&quot;*.gif&quot;</span>]
+            }
+            <span class="hljs-attribute">Component.onCompleted</span>: {
+                <span class="hljs-keyword">var</span> x;
+                x = <span class="hljs-built_in">Math</span>.random() * root.width - width / <span class="hljs-number">2</span>
+                rotation = <span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">13</span> - <span class="hljs-number">6</span>
+                <span class="hljs-keyword">if</span> (pinch.scale &gt; <span class="hljs-number">0</span>) {
+                    photoFrame.rotation = <span class="hljs-number">0</span>;
+                    photoFrame.scale = <span class="hljs-built_in">Math</span>.min(root.width, root.height) / <span class="hljs-built_in">Math</span>.max(image.sourceSize.width, image.sourceSize.height) * <span class="hljs-number">0.85</span>
+                } <span class="hljs-title">else</span> {
+                    photoFrame.rotation = pinch.previousAngle
+                    photoFrame.scale = pinch.previousScale
+                }
+            }
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setFrameColor</span>(<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">if</span> (currentFrame)
+                    currentFrame.border.color = <span class="hljs-string">&quot;black&quot;</span>;
+                currentFrame = photoFrame;
+            }
+        }
+    }
+    <span class="hljs-title">Timer</span> { <span class="hljs-attribute">id:</span><span class="hljs-string"> fadeTimer</span>; <span class="hljs-attribute">interval</span>: <span class="hljs-number">1000</span>; <span class="hljs-attribute">onTriggered</span>: { hfade.start(); vfade.start() } }
+    <span class="hljs-attribute">Component.onCompleted</span>: fileDialog.open()
+}

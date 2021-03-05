@@ -1,0 +1,36 @@
+<span class="hljs-keyword">\foo</span> bar
+<span class="hljs-keyword">\foo</span>:bar
+<span class="hljs-keyword">\ </span>and<span class="hljs-keyword">\
+</span>bar<span class="hljs-keyword">\foo</span>:baz
+<span class="hljs-keyword">\!</span>!
+<span class="hljs-keyword">\^^3a</span>bc
+<span class="hljs-keyword">\^^3</span>ABC
+<span class="hljs-keyword">\^^x</span>yz
+<span class="hljs-comment">% ° does not qualify for the ^^ syntax, as it is not in ASCII</span>
+<span class="hljs-keyword">\^</span><span class="hljs-built_in">^</span>°!
+
+<span class="hljs-comment">% @ is always treated as a letter</span>
+<span class="hljs-keyword">\@foo</span>
+<span class="hljs-keyword">\foo@bar</span>
+<span class="hljs-keyword">\@ifnextchar</span>[<span class="hljs-keyword">\@foo</span><span class="hljs-keyword">\@@foo</span>
+
+<span class="hljs-comment">% expl3 macros are recognized</span>
+<span class="hljs-keyword">\cs_new:Nn</span> <span class="hljs-keyword">\hljs_test:N</span> <span class="hljs-keyword">\__hljs_internal:Nx</span>
+<span class="hljs-keyword">\use_ii_i:nn</span>
+<span class="hljs-keyword">\cs:w</span> hljs<span class="hljs-built_in">_</span>test:N<span class="hljs-keyword">\cs_end:</span>
+<span class="hljs-keyword">\use_i:nn</span> <span class="hljs-keyword">\use:</span><span class="hljs-keyword">\q_test</span>
+<span class="hljs-keyword">\if:w</span><span class="hljs-keyword">\scan_stop:</span><span class="hljs-keyword">\s_test</span>[<span class="hljs-keyword">\else:</span>]<span class="hljs-keyword">\fi:</span>
+<span class="hljs-keyword">\hbox:n</span> <span class="hljs-keyword">\vbox:n</span>
+<span class="hljs-keyword">\::c</span><span class="hljs-keyword">\::o</span><span class="hljs-keyword">\::V</span><span class="hljs-keyword">\:::</span><span class="hljs-keyword">\hljs_test_args:Nnn</span>
+<span class="hljs-keyword">\::V_unbraced</span>
+<span class="hljs-keyword">\l_hljs_var_tl</span> <span class="hljs-keyword">\g_tmpa_prop</span> <span class="hljs-keyword">\c__hljs_secret_int</span>
+<span class="hljs-keyword">\c_e_fp</span>
+<span class="hljs-comment">% but only those conforming to the naming scheme with at least two letters</span>
+<span class="hljs-comment">% in module, function, type, quark and scan mark names</span>
+<span class="hljs-comment">% see latex.js for details</span>
+<span class="hljs-keyword">\hljs</span><span class="hljs-built_in">_</span>error:Nn<span class="hljs-built_in">_</span>foo <span class="hljs-keyword">\hljs</span><span class="hljs-built_in">_</span>double:colon:x
+<span class="hljs-keyword">\a</span>:n <span class="hljs-keyword">\foo</span>:n <span class="hljs-keyword">\x</span><span class="hljs-built_in">_</span>foo:nn <span class="hljs-keyword">\foo</span><span class="hljs-built_in">_</span>x:nnn
+<span class="hljs-keyword">\hljs</span><span class="hljs-built_in">_</span>trailing<span class="hljs-built_in">_</span>:N <span class="hljs-keyword">\hljs</span><span class="hljs-built_in">_</span><span class="hljs-built_in">_</span>double:N <span class="hljs-keyword">\hljs</span><span class="hljs-built_in">_</span>later<span class="hljs-built_in">_</span><span class="hljs-built_in">_</span>double:N
+<span class="hljs-keyword">\:</span>:xy <span class="hljs-keyword">\:</span>:n<span class="hljs-built_in">_</span>unbraceddd
+<span class="hljs-keyword">\l</span><span class="hljs-built_in">_</span>tl <span class="hljs-keyword">\c_x_int</span> <span class="hljs-keyword">\h</span><span class="hljs-built_in">_</span>imaginary<span class="hljs-built_in">_</span>scope
+<span class="hljs-keyword">\g</span><span class="hljs-built_in">_</span>hljs<span class="hljs-built_in">_</span>trailing<span class="hljs-built_in">_</span> <span class="hljs-keyword">\l</span><span class="hljs-built_in">_</span>hljs<span class="hljs-built_in">_</span>double<span class="hljs-built_in">_</span><span class="hljs-built_in">_</span>int

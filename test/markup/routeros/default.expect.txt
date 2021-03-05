@@ -1,0 +1,17 @@
+<span class="hljs-comment"># Берем список DNS серверов из /ip dns</span>
+ # Проверяем их доступность, 
+<span class="hljs-comment"># и только рабочие прописываем в настройки DHCP сервера</span>
+<span class="hljs-keyword">:global</span> ActiveDNSServers []
+<span class="hljs-keyword">:local</span> PingResult 0
+<span class="hljs-keyword">:foreach</span> serv <span class="hljs-keyword">in</span>=[<span class="hljs-built_in">/ip dns </span><span class="hljs-builtin-name">get</span> servers] <span class="hljs-keyword">do</span>={
+  <span class="hljs-keyword">:do</span> {:<span class="hljs-builtin-name">set</span> PingResult [ping <span class="hljs-variable">$serv</span> <span class="hljs-attribute">count</span>=3]} <span class="hljs-keyword">on-error</span>={:<span class="hljs-builtin-name">set</span> PingResult 0}
+  <span class="hljs-keyword">:if</span> (<span class="hljs-variable">$PingResult</span>=3) <span class="hljs-keyword">do</span>={ :<span class="hljs-builtin-name">set</span> ActiveDNSServers (<span class="hljs-variable">$ActiveDNSServers</span>,<span class="hljs-variable">$serv</span>) }
+<span class="hljs-comment"># отладочный вывод в журнал </span>
+  <span class="hljs-keyword">:log</span> <span class="hljs-builtin-name">info</span> <span class="hljs-string">&quot;Server: <span class="hljs-variable">$serv</span>, Ping-result: <span class="hljs-variable">$PingResult</span>&quot;</span>;
+}
+
+<span class="hljs-built_in">/ip dhcp-server network </span><span class="hljs-builtin-name">set</span> [<span class="hljs-builtin-name">find</span> <span class="hljs-attribute">address</span>=192.168.254.0/24] <span class="hljs-attribute">dns-server</span>=<span class="hljs-variable">$ActiveDNSServers</span>
+
+<span class="hljs-comment">#---   FIX TTL  ----</span>
+<span class="hljs-built_in">/ip firewall mangle </span><span class="hljs-attribute">chain</span>=postrouting <span class="hljs-attribute">action</span>=change-ttl <span class="hljs-attribute">new-ttl</span>=set:128 <span class="hljs-attribute">comment</span>=<span class="hljs-string">&quot;NAT hide&quot;</span> 
+

@@ -8,27 +8,37 @@ Category: enterprise
 */
 
 export default function(hljs) {
-  var VARIABLE = {
+  const VARIABLE = {
     className: 'variable',
     variants: [
-      {begin: '\\b([gtps][A-Z]{1}[a-zA-Z0-9]*)(\\[.+\\])?(?:\\s*?)'},
-      {begin: '\\$_[A-Z]+'}
+      {
+        begin: '\\b([gtps][A-Z]{1}[a-zA-Z0-9]*)(\\[.+\\])?(?:\\s*?)'
+      },
+      {
+        begin: '\\$_[A-Z]+'
+      }
     ],
     relevance: 0
   };
-  var COMMENT_MODES = [
+  const COMMENT_MODES = [
     hljs.C_BLOCK_COMMENT_MODE,
     hljs.HASH_COMMENT_MODE,
     hljs.COMMENT('--', '$'),
     hljs.COMMENT('[^:]//', '$')
   ];
-  var TITLE1 = hljs.inherit(hljs.TITLE_MODE, {
+  const TITLE1 = hljs.inherit(hljs.TITLE_MODE, {
     variants: [
-      {begin: '\\b_*rig[A-Z]+[A-Za-z0-9_\\-]*'},
-      {begin: '\\b_[a-z0-9\\-]+'}
+      {
+        begin: '\\b_*rig[A-Z][A-Za-z0-9_\\-]*'
+      },
+      {
+        begin: '\\b_[a-z0-9\\-]+'
+      }
     ]
   });
-  var TITLE2 = hljs.inherit(hljs.TITLE_MODE, {begin: '\\b([A-Za-z0-9_\\-]+)\\b'});
+  const TITLE2 = hljs.inherit(hljs.TITLE_MODE, {
+    begin: '\\b([A-Za-z0-9_\\-]+)\\b'
+  });
   return {
     name: 'LiveCode',
     case_insensitive: false,
@@ -115,7 +125,8 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function', end: '$',
+        beginKeywords: 'function',
+        end: '$',
         contains: [
           VARIABLE,
           TITLE2,
@@ -128,7 +139,8 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        begin: '\\bend\\s+', end: '$',
+        begin: '\\bend\\s+',
+        end: '$',
         keywords: 'end',
         contains: [
           TITLE2,
@@ -137,7 +149,8 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        beginKeywords: 'command on', end: '$',
+        beginKeywords: 'command on',
+        end: '$',
         contains: [
           VARIABLE,
           TITLE2,
@@ -155,8 +168,12 @@ export default function(hljs) {
             begin: '<\\?(rev|lc|livecode)',
             relevance: 10
           },
-          { begin: '<\\?' },
-          { begin: '\\?>' }
+          {
+            begin: '<\\?'
+          },
+          {
+            begin: '\\?>'
+          }
         ]
       },
       hljs.APOS_STRING_MODE,
@@ -165,6 +182,6 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       TITLE1
     ].concat(COMMENT_MODES),
-    illegal: ';$|^\\[|^=|&|{'
+    illegal: ';$|^\\[|^=|&|\\{'
   };
 }

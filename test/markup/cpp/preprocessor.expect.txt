@@ -17,3 +17,17 @@
     EXPRESSION</span>
 <span class="hljs-keyword">int</span> bar;
 <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span>  <span class="hljs-comment">// comment</span></span>
+
+<span class="hljs-keyword">if</span> (p) {
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> DEBUG</span>
+    onething();
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (errno) {
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> DEBUG</span>
+    anotherthing();
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+}
+
+<span class="hljs-comment">// this is a continued\
+comment.</span>
+end

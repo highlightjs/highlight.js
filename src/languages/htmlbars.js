@@ -19,12 +19,12 @@ TODO: Remove in version 11.0.
 */
 
 // compile time dependency on handlebars
-import handlebars from "./handlebars.js"
+import handlebars from "./handlebars.js";
 
 export default function(hljs) {
-  const definition = handlebars(hljs)
+  const definition = handlebars(hljs);
 
-  definition.name = "HTMLbars"
+  definition.name = "HTMLbars";
 
   // HACK: This lets handlebars do the auto-detection if it's been loaded (by
   // default the build script will load in alphabetical order) and if not (perhaps
@@ -35,8 +35,8 @@ export default function(hljs) {
   // content and will need to change their setup to only require handlebars, but
   // I don't consider this a breaking change
   if (hljs.getLanguage("handlebars")) {
-    definition.disableAutodetect = true
+    definition.disableAutodetect = true;
   }
 
-  return definition
+  return definition;
 }

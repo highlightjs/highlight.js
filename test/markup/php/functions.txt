@@ -1,0 +1,8 @@
+/**
+ * Arrow functions
+ */
+$fn1 = fn($x) => $x + $y;
+
+$fn2 = function ($x) use ($y) {
+    return $x + $y;
+};

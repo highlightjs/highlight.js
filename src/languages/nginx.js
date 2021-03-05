@@ -7,15 +7,22 @@ Website: https://www.nginx.com
 */
 
 export default function(hljs) {
-  var VAR = {
+  const VAR = {
     className: 'variable',
     variants: [
-      {begin: /\$\d+/},
-      {begin: /\$\{/, end: /}/},
-      {begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE}
+      {
+        begin: /\$\d+/
+      },
+      {
+        begin: /\$\{/,
+        end: /\}/
+      },
+      {
+        begin: /[$@]/ + hljs.UNDERSCORE_IDENT_RE
+      }
     ]
   };
-  var DEFAULT = {
+  const DEFAULT = {
     endsWithParent: true,
     keywords: {
       $pattern: '[a-z/_]+',
@@ -29,28 +36,55 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         className: 'string',
-        contains: [hljs.BACKSLASH_ESCAPE, VAR],
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          VAR
+        ],
         variants: [
-          {begin: /"/, end: /"/},
-          {begin: /'/, end: /'/}
+          {
+            begin: /"/,
+            end: /"/
+          },
+          {
+            begin: /'/,
+            end: /'/
+          }
         ]
       },
       // this swallows entire URLs to avoid detecting numbers within
       {
-        begin: '([a-z]+):/', end: '\\s', endsWithParent: true, excludeEnd: true,
-        contains: [VAR]
+        begin: '([a-z]+):/',
+        end: '\\s',
+        endsWithParent: true,
+        excludeEnd: true,
+        contains: [ VAR ]
       },
       {
         className: 'regexp',
-        contains: [hljs.BACKSLASH_ESCAPE, VAR],
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          VAR
+        ],
         variants: [
-          {begin: "\\s\\^", end: "\\s|{|;", returnEnd: true},
+          {
+            begin: "\\s\\^",
+            end: "\\s|\\{|;",
+            returnEnd: true
+          },
           // regexp locations (~, ~*)
-          {begin: "~\\*?\\s+", end: "\\s|{|;", returnEnd: true},
+          {
+            begin: "~\\*?\\s+",
+            end: "\\s|\\{|;",
+            returnEnd: true
+          },
           // *.example.com
-          {begin: "\\*(\\.[a-z\\-]+)+"},
+          {
+            begin: "\\*(\\.[a-z\\-]+)+"
+          },
           // sub.example.*
-          {begin: "([a-z\\-]+\\.)+\\*"}
+          {
+            begin: "([a-z\\-]+\\.)+\\*"
+          }
         ]
       },
       // IP
@@ -70,12 +104,13 @@ export default function(hljs) {
 
   return {
     name: 'Nginx config',
-    aliases: ['nginxconf'],
+    aliases: [ 'nginxconf' ],
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
-        begin: hljs.UNDERSCORE_IDENT_RE + '\\s+{', returnBegin: true,
-        end: '{',
+        begin: hljs.UNDERSCORE_IDENT_RE + '\\s+\\{',
+        returnBegin: true,
+        end: /\{/,
         contains: [
           {
             className: 'section',
@@ -85,7 +120,9 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        begin: hljs.UNDERSCORE_IDENT_RE + '\\s', end: ';|{', returnBegin: true,
+        begin: hljs.UNDERSCORE_IDENT_RE + '\\s',
+        end: ';|\\{',
+        returnBegin: true,
         contains: [
           {
             className: 'attribute',

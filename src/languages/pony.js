@@ -7,7 +7,7 @@ Website: https://www.ponylang.io
 */
 
 export default function(hljs) {
-  var KEYWORDS = {
+  const KEYWORDS = {
     keyword:
       'actor addressof and as be break class compile_error compile_intrinsic ' +
       'consume continue delegate digestof do else elseif embed end error ' +
@@ -20,36 +20,40 @@ export default function(hljs) {
       'this false true'
   };
 
-  var TRIPLE_QUOTE_STRING_MODE = {
+  const TRIPLE_QUOTE_STRING_MODE = {
     className: 'string',
-    begin: '"""', end: '"""',
+    begin: '"""',
+    end: '"""',
     relevance: 10
   };
 
-  var QUOTE_STRING_MODE = {
+  const QUOTE_STRING_MODE = {
     className: 'string',
-    begin: '"', end: '"',
-    contains: [hljs.BACKSLASH_ESCAPE]
+    begin: '"',
+    end: '"',
+    contains: [ hljs.BACKSLASH_ESCAPE ]
   };
 
-  var SINGLE_QUOTE_CHAR_MODE = {
+  const SINGLE_QUOTE_CHAR_MODE = {
     className: 'string',
-    begin: '\'', end: '\'',
-    contains: [hljs.BACKSLASH_ESCAPE],
+    begin: '\'',
+    end: '\'',
+    contains: [ hljs.BACKSLASH_ESCAPE ],
     relevance: 0
   };
 
-  var TYPE_NAME = {
+  const TYPE_NAME = {
     className: 'type',
     begin: '\\b_?[A-Z][\\w]*',
     relevance: 0
   };
 
-  var PRIMED_NAME = {
-    begin: hljs.IDENT_RE + '\'', relevance: 0
+  const PRIMED_NAME = {
+    begin: hljs.IDENT_RE + '\'',
+    relevance: 0
   };
 
-  var NUMBER_MODE = {
+  const NUMBER_MODE = {
     className: 'number',
     begin: '(-?)(\\b0[xX][a-fA-F0-9]+|\\b0[bB][01]+|(\\b\\d+(_\\d+)?(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)',
     relevance: 0

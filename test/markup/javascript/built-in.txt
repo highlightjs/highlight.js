@@ -1,0 +1,4 @@
+let bi = BigInt('1');
+let inf = Infinity
+Number(undefined)
+let today = new Date()

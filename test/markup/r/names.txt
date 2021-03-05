@@ -1,0 +1,38 @@
+# Valid names
+
+a1_foo, A1_FOO, .foo_, ._foo, Bar.42, foo..1, ., ._, .., ..., ..1, c, T, F, ._1
+
+# Reserved Words
+
+NA, NA_integer_, NA_real_, NA_character_, NA_complex_, NULL, NaN, Inf
+
+# Keywords
+
+function, while, repeat, for, if, in, else, next, break
+
+# Not reserved
+
+NULLa, NULL1, NULL., `NULL`, 'NULL', NA_foo_, na_real_, Function, for.
+
+# Primitive built-ins
+
+return, switch, sum
+
+# Non-primitive base functions
+
+stop, try
+
+# Quoted identifiers
+
+`+`
+`%*%`
+`a 10 b`
+`for`
+`# x`
+`\`b`
+`\\`
+`%\`%`
+
+# Invalid names (for reference)
+
+# 0abc, .0abc, abc+cde, _, _., _x, _1, .1_

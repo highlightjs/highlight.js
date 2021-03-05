@@ -82,7 +82,10 @@ const TYPES = [
   "Array",
   "Uint8Array",
   "Uint8ClampedArray",
-  "ArrayBuffer"
+  "ArrayBuffer",
+  "BigInt64Array",
+  "BigUint64Array",
+  "BigInt"
 ];
 
 const ERROR_TYPES = [

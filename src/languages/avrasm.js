@@ -56,12 +56,20 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
-        begin: '\'', end: '[^\\\\]\'',
+        begin: '\'',
+        end: '[^\\\\]\'',
         illegal: '[^\\\\][^\']'
       },
-      {className: 'symbol',  begin: '^[A-Za-z0-9_.$]+:'},
-      {className: 'meta', begin: '#', end: '$'},
-      {  // substitution within a macro
+      {
+        className: 'symbol',
+        begin: '^[A-Za-z0-9_.$]+:'
+      },
+      {
+        className: 'meta',
+        begin: '#',
+        end: '$'
+      },
+      { // substitution within a macro
         className: 'subst',
         begin: '@[0-9]+'
       }

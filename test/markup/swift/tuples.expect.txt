@@ -1,0 +1,16 @@
+(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;string&quot;</span>)
+(c: (x: <span class="hljs-number">1</span>, y: <span class="hljs-number">1</span>), z: <span class="hljs-number">1</span>)
+(var: <span class="hljs-type">Array</span>&lt;<span class="hljs-type">Int</span>&gt;, let: <span class="hljs-type">Array</span>&lt;<span class="hljs-type">Double</span>&gt;)
+(<span class="hljs-keyword">_</span> x: <span class="hljs-keyword">inout</span> <span class="hljs-type">Int</span>) <span class="hljs-keyword">throws</span> -&gt; <span class="hljs-type">Int</span>
+(<span class="hljs-built_in">abs</span>(<span class="hljs-operator">-</span><span class="hljs-number">2</span>), <span class="hljs-built_in">abs</span>(<span class="hljs-number">2</span>))
+(x <span class="hljs-operator">&lt;</span> y, a <span class="hljs-operator">&gt;</span> b)
+(<span class="hljs-variable">$0</span>, <span class="hljs-variable">$1</span>)
+(<span class="hljs-keyword">@escaping</span> (<span class="hljs-type">String</span>) -&gt; <span class="hljs-type">Void</span>, <span class="hljs-keyword">@autoclosure</span> () -&gt; <span class="hljs-type">String</span>) -&gt; <span class="hljs-type">String</span>
+(
+  <span class="hljs-comment">// x</span>
+  x,
+  <span class="hljs-comment">/* y */</span>
+  y
+)
+(<span class="hljs-keyword">let</span> x, <span class="hljs-keyword">var</span> y)
+([key: value, key: value])

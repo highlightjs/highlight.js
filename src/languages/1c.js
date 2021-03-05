@@ -515,5 +515,5 @@ export default function(hljs) {
       STRINGS,
       DATE
     ]
-  }
+  };
 }
