@@ -1,0 +1,9 @@
+let num = -3;
+
+let diff = 5 - 3;
+let diff = 5-3;
+
+// Who writes JS like that??
+let num = - 3;
+let diff = 5 -3;
+let diff = 5- 3;

@@ -7,15 +7,15 @@ Category: assembler
 */
 
 export default function(hljs) {
-    //local labels: %?[FB]?[AT]?\d{1,2}\w+
+  // local labels: %?[FB]?[AT]?\d{1,2}\w+
   return {
     name: 'MIPS Assembly',
     case_insensitive: true,
-    aliases: ['mips'],
+    aliases: [ 'mips' ],
     keywords: {
       $pattern: '\\.?' + hljs.IDENT_RE,
       meta:
-        //GNU preprocs
+        // GNU preprocs
         '.2byte .4byte .align .ascii .asciz .balign .byte .code .data .else .end .endif .endm .endr .equ .err .exitm .extern .global .hword .if .ifdef .ifndef .include .irp .long .macro .rept .req .section .set .skip .space .text .word .ltorg ',
       built_in:
         '$0 $1 $2 $3 $4 $5 $6 $7 $8 $9 $10 $11 $12 $13 $14 $15 ' + // integer registers
@@ -33,31 +33,31 @@ export default function(hljs) {
     contains: [
       {
         className: 'keyword',
-        begin: '\\b('+     //mnemonics
+        begin: '\\b(' + // mnemonics
             // 32-bit integer instructions
             'addi?u?|andi?|b(al)?|beql?|bgez(al)?l?|bgtzl?|blezl?|bltz(al)?l?|' +
-            'bnel?|cl[oz]|divu?|ext|ins|j(al)?|jalr(\.hb)?|jr(\.hb)?|lbu?|lhu?|' +
+            'bnel?|cl[oz]|divu?|ext|ins|j(al)?|jalr(\\.hb)?|jr(\\.hb)?|lbu?|lhu?|' +
             'll|lui|lw[lr]?|maddu?|mfhi|mflo|movn|movz|move|msubu?|mthi|mtlo|mul|' +
             'multu?|nop|nor|ori?|rotrv?|sb|sc|se[bh]|sh|sllv?|slti?u?|srav?|' +
             'srlv?|subu?|sw[lr]?|xori?|wsbh|' +
             // floating-point instructions
-            'abs\.[sd]|add\.[sd]|alnv.ps|bc1[ft]l?|' +
-            'c\.(s?f|un|u?eq|[ou]lt|[ou]le|ngle?|seq|l[et]|ng[et])\.[sd]|' +
-            '(ceil|floor|round|trunc)\.[lw]\.[sd]|cfc1|cvt\.d\.[lsw]|' +
-            'cvt\.l\.[dsw]|cvt\.ps\.s|cvt\.s\.[dlw]|cvt\.s\.p[lu]|cvt\.w\.[dls]|' +
-            'div\.[ds]|ldx?c1|luxc1|lwx?c1|madd\.[sd]|mfc1|mov[fntz]?\.[ds]|' +
-            'msub\.[sd]|mth?c1|mul\.[ds]|neg\.[ds]|nmadd\.[ds]|nmsub\.[ds]|' +
-            'p[lu][lu]\.ps|recip\.fmt|r?sqrt\.[ds]|sdx?c1|sub\.[ds]|suxc1|' +
+            'abs\\.[sd]|add\\.[sd]|alnv.ps|bc1[ft]l?|' +
+            'c\\.(s?f|un|u?eq|[ou]lt|[ou]le|ngle?|seq|l[et]|ng[et])\\.[sd]|' +
+            '(ceil|floor|round|trunc)\\.[lw]\\.[sd]|cfc1|cvt\\.d\\.[lsw]|' +
+            'cvt\\.l\\.[dsw]|cvt\\.ps\\.s|cvt\\.s\\.[dlw]|cvt\\.s\\.p[lu]|cvt\\.w\\.[dls]|' +
+            'div\\.[ds]|ldx?c1|luxc1|lwx?c1|madd\\.[sd]|mfc1|mov[fntz]?\\.[ds]|' +
+            'msub\\.[sd]|mth?c1|mul\\.[ds]|neg\\.[ds]|nmadd\\.[ds]|nmsub\\.[ds]|' +
+            'p[lu][lu]\\.ps|recip\\.fmt|r?sqrt\\.[ds]|sdx?c1|sub\\.[ds]|suxc1|' +
             'swx?c1|' +
             // system control instructions
             'break|cache|d?eret|[de]i|ehb|mfc0|mtc0|pause|prefx?|rdhwr|' +
             'rdpgpr|sdbbp|ssnop|synci?|syscall|teqi?|tgei?u?|tlb(p|r|w[ir])|' +
-            'tlti?u?|tnei?|wait|wrpgpr'+
+            'tlti?u?|tnei?|wait|wrpgpr' +
         ')',
         end: '\\s'
       },
       // lines ending with ; or # aren't really comments, probably auto-detect fail
-      hljs.COMMENT('[;#](?!\s*$)', '$'),
+      hljs.COMMENT('[;#](?!\\s*$)', '$'),
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.QUOTE_STRING_MODE,
       {
@@ -68,28 +68,40 @@ export default function(hljs) {
       },
       {
         className: 'title',
-        begin: '\\|', end: '\\|',
+        begin: '\\|',
+        end: '\\|',
         illegal: '\\n',
         relevance: 0
       },
       {
         className: 'number',
         variants: [
-            {begin: '0x[0-9a-f]+'}, //hex
-            {begin: '\\b-?\\d+'}           //bare number
+          { // hex
+            begin: '0x[0-9a-f]+'
+          },
+          { // bare number
+            begin: '\\b-?\\d+'
+          }
         ],
         relevance: 0
       },
       {
         className: 'symbol',
         variants: [
-            {begin: '^\\s*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'}, //GNU MIPS syntax
-            {begin: '^\\s*[0-9]+:'}, // numbered local labels
-            {begin: '[0-9]+[bf]' }  // number local label reference (backwards, forwards)
+          { // GNU MIPS syntax
+            begin: '^\\s*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'
+          },
+          { // numbered local labels
+            begin: '^\\s*[0-9]+:'
+          },
+          { // number local label reference (backwards, forwards)
+            begin: '[0-9]+[bf]'
+          }
         ],
         relevance: 0
       }
     ],
-    illegal: '\/'
+    // forward slashes are not allowed
+    illegal: /\//
   };
 }

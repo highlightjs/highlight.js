@@ -5,9 +5,9 @@ const glob = require("glob")
 const path = require("path")
 const build_config = require("../build_config")
 
-const REQUIRES_REGEX = /\/\*.*?Requires: (.*?)\n/s
-const CATEGORY_REGEX = /\/\*.*?Category: (.*?)\n/s
-const LANGUAGE_REGEX = /\/\*.*?Language: (.*?)\n/s
+const REQUIRES_REGEX = /\/\*.*?Requires: (.*?)\r?\n/s
+const CATEGORY_REGEX = /\/\*.*?Category: (.*?)\r?\n/s
+const LANGUAGE_REGEX = /\/\*.*?Language: (.*?)\r?\n/s
 const {rollupCode} = require("./bundling.js")
 const { getThirdPartyPackages } = require("./external_language")
 
@@ -44,7 +44,14 @@ class Language {
   }
 
   get samplePath() {
-    return `./test/detect/${this.name}/default.txt`
+    if (this.moduleDir) {
+      // this is the 'extras' case.
+      return `${this.moduleDir}/test/detect/${this.name}/default.txt`;
+    }
+    else {
+      // this is the common/built-in case.
+      return `./test/detect/${this.name}/default.txt`;
+    }
   }
 
   loadMetadata() {
@@ -90,7 +97,7 @@ async function compileLanguage (language, options) {
 
   var original = data;
   language.module = data;
-  data = Terser.minify(data, options["terser"]);
+  data = await Terser.minify(data, options.terser);
   language.minified = data.code || original;
 }
 

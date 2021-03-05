@@ -1,0 +1,10 @@
+# a keyword as part of an option
+mycmd --disable-foo
+
+# a keyword as part of a parameter
+some-cmd set-some-setting
+some-cmd set_some_setting
+
+# a keyword as part of command
+check-case foo
+check_case foo

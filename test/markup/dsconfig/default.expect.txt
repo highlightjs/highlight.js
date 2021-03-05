@@ -14,11 +14,11 @@
   <span class="hljs-built_in">--set</span> <span class="hljs-string">enabled:true </span><span class="hljs-built_in">--set</span> <span class="hljs-string">evaluation-order-index:100 </span>\
   <span class="hljs-built_in">--set</span> <span class="hljs-string">&#x27;connection-criteria:User.1 Connection Criteria&#x27;</span> \
 <span class="hljs-comment"># Property without value</span>
-  <span class="hljs-built_in">--reset</span> <span class="hljs-string">maximum-concurrent-</span><span class="hljs-string">connections
-</span><span class="hljs-comment"># Unquoted property, quoted property value</span>
+  <span class="hljs-built_in">--reset</span> <span class="hljs-string">maximum-concurrent-connections</span>
+<span class="hljs-comment"># Unquoted property, quoted property value</span>
 <span class="hljs-keyword">dsconfig</span> <span class="hljs-built_in">set-access-control-handler-prop</span> \
- <span class="hljs-built_in">--add</span> <span class="hljs-string">global-aci:</span><span class="hljs-string">&#x27;(target=&quot;ldap:///cn=config&quot;)(targetattr=&quot;*&quot;)(version 3.0; acl &quot;Allow access to the config tree by cn=admin,c=us&quot;; allow(all) groupdn=&quot;ldap:///cn=directory administrators,ou=groups,c=us&quot;;)&#x27;</span> \
- <span class="hljs-built_in">--add</span> <span class="hljs-string">global-aci:</span><span class="hljs-string">&#x27;(target=&quot;ldap:///cn=monitor&quot;)(targetattr=&quot;*&quot;)(version 3.0; acl &quot;Allow access to the monitor tree by cn=admin,c=us&quot;; allow(all) groupdn=&quot;ldap:///cn=directory administrators,ou=groups,c=us&quot;;)&#x27;</span> \
- <span class="hljs-built_in">--remove</span> <span class="hljs-string">global-aci:</span><span class="hljs-string">&#x27;(target=&quot;ldap:///cn=alerts&quot;)(targetattr=&quot;*&quot;)(version 3.0; acl &quot;Allow access to the alerts tree by cn=admin,c=us&quot;; allow(all) groupdn=&quot;ldap:///cn=directory administrators,ou=groups,c=us&quot;;)&#x27;</span>
+ <span class="hljs-built_in">--add</span> <span class="hljs-string">global-aci</span>:<span class="hljs-string">&#x27;(target=&quot;ldap:///cn=config&quot;)(targetattr=&quot;*&quot;)(version 3.0; acl &quot;Allow access to the config tree by cn=admin,c=us&quot;; allow(all) groupdn=&quot;ldap:///cn=directory administrators,ou=groups,c=us&quot;;)&#x27;</span> \
+ <span class="hljs-built_in">--add</span> <span class="hljs-string">global-aci</span>:<span class="hljs-string">&#x27;(target=&quot;ldap:///cn=monitor&quot;)(targetattr=&quot;*&quot;)(version 3.0; acl &quot;Allow access to the monitor tree by cn=admin,c=us&quot;; allow(all) groupdn=&quot;ldap:///cn=directory administrators,ou=groups,c=us&quot;;)&#x27;</span> \
+ <span class="hljs-built_in">--remove</span> <span class="hljs-string">global-aci</span>:<span class="hljs-string">&#x27;(target=&quot;ldap:///cn=alerts&quot;)(targetattr=&quot;*&quot;)(version 3.0; acl &quot;Allow access to the alerts tree by cn=admin,c=us&quot;; allow(all) groupdn=&quot;ldap:///cn=directory administrators,ou=groups,c=us&quot;;)&#x27;</span>
 <span class="hljs-comment"># No continuation</span>
 <span class="hljs-keyword">dsconfig</span> <span class="hljs-built_in">delete-log-publisher</span> <span class="hljs-built_in">--publisher-name</span> <span class="hljs-string">&quot;File-Based Error Logger&quot;</span>

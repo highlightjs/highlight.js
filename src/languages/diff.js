@@ -16,33 +16,67 @@ export default function(hljs) {
         className: 'meta',
         relevance: 10,
         variants: [
-          {begin: /^@@ +\-\d+,\d+ +\+\d+,\d+ +@@$/},
-          {begin: /^\*\*\* +\d+,\d+ +\*\*\*\*$/},
-          {begin: /^\-\-\- +\d+,\d+ +\-\-\-\-$/}
+          {
+            begin: /^@@ +-\d+,\d+ +\+\d+,\d+ +@@/
+          },
+          {
+            begin: /^\*\*\* +\d+,\d+ +\*\*\*\*$/
+          },
+          {
+            begin: /^--- +\d+,\d+ +----$/
+          }
         ]
       },
       {
         className: 'comment',
         variants: [
-          {begin: /Index: /, end: /$/},
-          {begin: /={3,}/, end: /$/},
-          {begin: /^\-{3}/, end: /$/},
-          {begin: /^\*{3} /, end: /$/},
-          {begin: /^\+{3}/, end: /$/},
-          {begin: /^\*{15}$/ }
+          {
+            begin: /Index: /,
+            end: /$/
+          },
+          {
+            begin: /^index/,
+            end: /$/
+          },
+          {
+            begin: /={3,}/,
+            end: /$/
+          },
+          {
+            begin: /^-{3}/,
+            end: /$/
+          },
+          {
+            begin: /^\*{3} /,
+            end: /$/
+          },
+          {
+            begin: /^\+{3}/,
+            end: /$/
+          },
+          {
+            begin: /^\*{15}$/
+          },
+          {
+            begin: /^diff --git/,
+            end: /$/
+          }
         ]
       },
       {
         className: 'addition',
-        begin: '^\\+', end: '$'
+        begin: /^\+/,
+        end: /$/
       },
       {
         className: 'deletion',
-        begin: '^\\-', end: '$'
+        begin: /^-/,
+        end: /$/
       },
       {
         className: 'addition',
-        begin: '^\\!', end: '$'
+        begin: /^!/,
+        end: /$/
       }
     ]
   };

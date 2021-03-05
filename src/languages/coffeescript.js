@@ -11,17 +11,17 @@ import * as ECMAScript from './lib/ecmascript.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var COFFEE_BUILT_INS = [
+  const COFFEE_BUILT_INS = [
     'npm',
     'print'
   ];
-  var COFFEE_LITERALS = [
+  const COFFEE_LITERALS = [
     'yes',
     'no',
     'on',
     'off'
   ];
-  var COFFEE_KEYWORDS = [
+  const COFFEE_KEYWORDS = [
     'then',
     'unless',
     'until',
@@ -34,47 +34,63 @@ export default function(hljs) {
     'isnt',
     'not'
   ];
-  var NOT_VALID_KEYWORDS = [
+  const NOT_VALID_KEYWORDS = [
     "var",
     "const",
     "let",
     "function",
     "static"
   ];
-  var excluding = (list) =>
+  const excluding = (list) =>
     (kw) => !list.includes(kw);
-  var KEYWORDS = {
-    keyword: ECMAScript.KEYWORDS.concat(COFFEE_KEYWORDS).filter(excluding(NOT_VALID_KEYWORDS)).join(" "),
-    literal: ECMAScript.LITERALS.concat(COFFEE_LITERALS).join(" "),
-    built_in: ECMAScript.BUILT_INS.concat(COFFEE_BUILT_INS).join(" ")
+  const KEYWORDS = {
+    keyword: ECMAScript.KEYWORDS.concat(COFFEE_KEYWORDS).filter(excluding(NOT_VALID_KEYWORDS)),
+    literal: ECMAScript.LITERALS.concat(COFFEE_LITERALS),
+    built_in: ECMAScript.BUILT_INS.concat(COFFEE_BUILT_INS)
   };
-  var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
-  var SUBST = {
+  const JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
+  const SUBST = {
     className: 'subst',
-    begin: /#\{/, end: /}/,
+    begin: /#\{/,
+    end: /\}/,
     keywords: KEYWORDS
   };
-  var EXPRESSIONS = [
+  const EXPRESSIONS = [
     hljs.BINARY_NUMBER_MODE,
-    hljs.inherit(hljs.C_NUMBER_MODE, {starts: {end: '(\\s*/)?', relevance: 0}}), // a number tries to eat the following slash to prevent treating it as a regexp
+    hljs.inherit(hljs.C_NUMBER_MODE, {
+      starts: {
+        end: '(\\s*/)?',
+        relevance: 0
+      }
+    }), // a number tries to eat the following slash to prevent treating it as a regexp
     {
       className: 'string',
       variants: [
         {
-          begin: /'''/, end: /'''/,
+          begin: /'''/,
+          end: /'''/,
           contains: [hljs.BACKSLASH_ESCAPE]
         },
         {
-          begin: /'/, end: /'/,
+          begin: /'/,
+          end: /'/,
           contains: [hljs.BACKSLASH_ESCAPE]
         },
         {
-          begin: /"""/, end: /"""/,
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+          begin: /"""/,
+          end: /"""/,
+          contains: [
+            hljs.BACKSLASH_ESCAPE,
+            SUBST
+          ]
         },
         {
-          begin: /"/, end: /"/,
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST]
+          begin: /"/,
+          end: /"/,
+          contains: [
+            hljs.BACKSLASH_ESCAPE,
+            SUBST
+          ]
         }
       ]
     },
@@ -82,8 +98,12 @@ export default function(hljs) {
       className: 'regexp',
       variants: [
         {
-          begin: '///', end: '///',
-          contains: [SUBST, hljs.HASH_COMMENT_MODE]
+          begin: '///',
+          end: '///',
+          contains: [
+            SUBST,
+            hljs.HASH_COMMENT_MODE
+          ]
         },
         {
           begin: '//[gim]{0,3}(?=\\W)',
@@ -101,28 +121,35 @@ export default function(hljs) {
     },
     {
       subLanguage: 'javascript',
-      excludeBegin: true, excludeEnd: true,
+      excludeBegin: true,
+      excludeEnd: true,
       variants: [
         {
-          begin: '```', end: '```',
+          begin: '```',
+          end: '```'
         },
         {
-          begin: '`', end: '`',
+          begin: '`',
+          end: '`'
         }
       ]
     }
   ];
   SUBST.contains = EXPRESSIONS;
 
-  var TITLE = hljs.inherit(hljs.TITLE_MODE, {begin: JS_IDENT_RE});
-  var PARAMS_RE = '(\\(.*\\))?\\s*\\B[-=]>';
-  var PARAMS = {
+  const TITLE = hljs.inherit(hljs.TITLE_MODE, {
+    begin: JS_IDENT_RE
+  });
+  const POSSIBLE_PARAMS_RE = '(\\(.*\\)\\s*)?\\B[-=]>';
+  const PARAMS = {
     className: 'params',
-    begin: '\\([^\\(]', returnBegin: true,
+    begin: '\\([^\\(]',
+    returnBegin: true,
     /* We need another contained nameless mode to not have every nested
     pair of parens to be called "params" */
     contains: [{
-      begin: /\(/, end: /\)/,
+      begin: /\(/,
+      end: /\)/,
       keywords: KEYWORDS,
       contains: ['self'].concat(EXPRESSIONS)
     }]
@@ -130,7 +157,11 @@ export default function(hljs) {
 
   return {
     name: 'CoffeeScript',
-    aliases: ['coffee', 'cson', 'iced'],
+    aliases: [
+      'coffee',
+      'cson',
+      'iced'
+    ],
     keywords: KEYWORDS,
     illegal: /\/\*/,
     contains: EXPRESSIONS.concat([
@@ -138,22 +169,25 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         className: 'function',
-        begin: '^\\s*' + JS_IDENT_RE + '\\s*=\\s*' + PARAMS_RE, end: '[-=]>',
+        begin: '^\\s*' + JS_IDENT_RE + '\\s*=\\s*' + POSSIBLE_PARAMS_RE,
+        end: '[-=]>',
         returnBegin: true,
-        contains: [TITLE, PARAMS]
+        contains: [
+          TITLE,
+          PARAMS
+        ]
       },
       {
         // anonymous function start
         begin: /[:\(,=]\s*/,
         relevance: 0,
-        contains: [
-          {
-            className: 'function',
-            begin: PARAMS_RE, end: '[-=]>',
-            returnBegin: true,
-            contains: [PARAMS]
-          }
-        ]
+        contains: [{
+          className: 'function',
+          begin: POSSIBLE_PARAMS_RE,
+          end: '[-=]>',
+          returnBegin: true,
+          contains: [PARAMS]
+        }]
       },
       {
         className: 'class',
@@ -171,8 +205,10 @@ export default function(hljs) {
         ]
       },
       {
-        begin: JS_IDENT_RE + ':', end: ':',
-        returnBegin: true, returnEnd: true,
+        begin: JS_IDENT_RE + ':',
+        end: ':',
+        returnBegin: true,
+        returnEnd: true,
         relevance: 0
       }
     ])

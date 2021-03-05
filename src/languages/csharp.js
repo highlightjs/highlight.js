@@ -1,27 +1,156 @@
 /*
 Language: C#
 Author: Jason Diamond <jason@diamond.name>
-Contributor: Nicolas LLOBERA <nllobera@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>
+Contributor: Nicolas LLOBERA <nllobera@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>, David Pine <david.pine@microsoft.com>
 Website: https://docs.microsoft.com/en-us/dotnet/csharp/
 Category: common
 */
 
 /** @type LanguageFn */
 export default function(hljs) {
+  var BUILT_IN_KEYWORDS = [
+      'bool',
+      'byte',
+      'char',
+      'decimal',
+      'delegate',
+      'double',
+      'dynamic',
+      'enum',
+      'float',
+      'int',
+      'long',
+      'nint',
+      'nuint',
+      'object',
+      'sbyte',
+      'short',
+      'string',
+      'ulong',
+      'unit',
+      'ushort'
+  ];
+  var FUNCTION_MODIFIERS = [
+    'public',
+    'private',
+    'protected',
+    'static',
+    'internal',
+    'protected',
+    'abstract',
+    'async',
+    'extern',
+    'override',
+    'unsafe',
+    'virtual',
+    'new',
+    'sealed',
+    'partial'
+  ];
+  var LITERAL_KEYWORDS = [
+      'default',
+      'false',
+      'null',
+      'true'
+  ];
+  var NORMAL_KEYWORDS = [
+    'abstract',
+    'as',
+    'base',
+    'break',
+    'case',
+    'class',
+    'const',
+    'continue',
+    'do',
+    'else',
+    'event',
+    'explicit',
+    'extern',
+    'finally',
+    'fixed',
+    'for',
+    'foreach',
+    'goto',
+    'if',
+    'implicit',
+    'in',
+    'interface',
+    'internal',
+    'is',
+    'lock',
+    'namespace',
+    'new',
+    'operator',
+    'out',
+    'override',
+    'params',
+    'private',
+    'protected',
+    'public',
+    'readonly',
+    'record',
+    'ref',
+    'return',
+    'sealed',
+    'sizeof',
+    'stackalloc',
+    'static',
+    'struct',
+    'switch',
+    'this',
+    'throw',
+    'try',
+    'typeof',
+    'unchecked',
+    'unsafe',
+    'using',
+    'virtual',
+    'void',
+    'volatile',
+    'while'
+  ];
+  var CONTEXTUAL_KEYWORDS = [
+    'add',
+    'alias',
+    'and',
+    'ascending',
+    'async',
+    'await',
+    'by',
+    'descending',
+    'equals',
+    'from',
+    'get',
+    'global',
+    'group',
+    'init',
+    'into',
+    'join',
+    'let',
+    'nameof',
+    'not',
+    'notnull',
+    'on',
+    'or',
+    'orderby',
+    'partial',
+    'remove',
+    'select',
+    'set',
+    'unmanaged',
+    'value|0',
+    'var',
+    'when',
+    'where',
+    'with',
+    'yield'
+  ];
+
   var KEYWORDS = {
-    keyword:
-      // Normal keywords.
-      'abstract as base bool break byte case catch char checked const continue decimal ' +
-      'default delegate do double enum event explicit extern finally fixed float ' +
-      'for foreach goto if implicit in int interface internal is lock long ' +
-      'object operator out override params private protected public readonly ref sbyte ' +
-      'sealed short sizeof stackalloc static string struct switch this try typeof ' +
-      'uint ulong unchecked unsafe ushort using virtual void volatile while ' +
-      // Contextual keywords.
-      'add alias ascending async await by descending dynamic equals from get global group into join ' +
-      'let nameof on orderby partial remove select set value var when where yield',
-    literal:
-      'null false true'
+    keyword: NORMAL_KEYWORDS.concat(CONTEXTUAL_KEYWORDS),
+    built_in: BUILT_IN_KEYWORDS,
+    literal: LITERAL_KEYWORDS
   };
   var TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, {begin: '[a-zA-Z](\\.?\\w)*'});
   var NUMBERS = {
@@ -41,7 +170,7 @@ export default function(hljs) {
   var VERBATIM_STRING_NO_LF = hljs.inherit(VERBATIM_STRING, {illegal: /\n/});
   var SUBST = {
     className: 'subst',
-    begin: '{', end: '}',
+    begin: /\{/, end: /\}/,
     keywords: KEYWORDS
   };
   var SUBST_NO_LF = hljs.inherit(SUBST, {illegal: /\n/});
@@ -49,16 +178,16 @@ export default function(hljs) {
     className: 'string',
     begin: /\$"/, end: '"',
     illegal: /\n/,
-    contains: [{begin: '{{'}, {begin: '}}'}, hljs.BACKSLASH_ESCAPE, SUBST_NO_LF]
+    contains: [{begin: /\{\{/}, {begin: /\}\}/}, hljs.BACKSLASH_ESCAPE, SUBST_NO_LF]
   };
   var INTERPOLATED_VERBATIM_STRING = {
     className: 'string',
     begin: /\$@"/, end: '"',
-    contains: [{begin: '{{'}, {begin: '}}'}, {begin: '""'}, SUBST]
+    contains: [{begin: /\{\{/}, {begin: /\}\}/}, {begin: '""'}, SUBST]
   };
   var INTERPOLATED_VERBATIM_STRING_NO_LF = hljs.inherit(INTERPOLATED_VERBATIM_STRING, {
     illegal: /\n/,
-    contains: [{begin: '{{'}, {begin: '}}'}, {begin: '""'}, SUBST_NO_LF]
+    contains: [{begin: /\{\{/}, {begin: /\}\}/}, {begin: '""'}, SUBST_NO_LF]
   });
   SUBST.contains = [
     INTERPOLATED_VERBATIM_STRING,
@@ -91,9 +220,9 @@ export default function(hljs) {
   var GENERIC_MODIFIER = {
     begin: "<",
     end: ">",
-    contains: [ 
+    contains: [
       { beginKeywords: "in out"},
-      TITLE_MODE 
+      TITLE_MODE
     ]
   };
   var TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
@@ -145,7 +274,9 @@ export default function(hljs) {
       STRING,
       NUMBERS,
       {
-        beginKeywords: 'class interface', end: /[{;=]/,
+        beginKeywords: 'class interface',
+        relevance: 0,
+        end: /[{;=]/,
         illegal: /[^\s:,]/,
         contains: [
           { beginKeywords: "where class" },
@@ -156,10 +287,24 @@ export default function(hljs) {
         ]
       },
       {
-        beginKeywords: 'namespace', end: /[{;=]/,
+        beginKeywords: 'namespace',
+        relevance: 0,
+        end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
           TITLE_MODE,
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
+      },
+      {
+        beginKeywords: 'record',
+        relevance: 0,
+        end: /[{;=]/,
+        illegal: /[^\s:]/,
+        contains: [
+          TITLE_MODE,
+          GENERIC_MODIFIER,
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
@@ -180,12 +325,17 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
+        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(<.+>\\s*)?\\(', returnBegin: true,
         end: /\s*[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
+          // prevents these from being highlighted `title`
           {
-            begin: hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
+            beginKeywords: FUNCTION_MODIFIERS.join(" "),
+            relevance: 0
+          },
+          {
+            begin: hljs.IDENT_RE + '\\s*(<.+>\\s*)?\\(', returnBegin: true,
             contains: [
               hljs.TITLE_MODE,
               GENERIC_MODIFIER

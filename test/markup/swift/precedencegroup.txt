@@ -1,0 +1,8 @@
+precedencegroup MyGroup {
+  higherThan: OtherGroup, AnotherGroup
+  lowerThan: OtherGroup, AnotherGroup
+  assignment: true
+  associativity: left
+  associativity: right
+  associativity: none
+}

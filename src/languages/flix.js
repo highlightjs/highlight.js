@@ -5,48 +5,48 @@
  Website: https://flix.dev/
  */
 
-export default function (hljs) {
+ /** @type LanguageFn */
+export default function(hljs) {
+  const CHAR = {
+    className: 'string',
+    begin: /'(.|\\[xXuU][a-zA-Z0-9]+)'/
+  };
 
-    var CHAR = {
-        className: 'string',
-        begin: /'(.|\\[xXuU][a-zA-Z0-9]+)'/
-    };
+  const STRING = {
+    className: 'string',
+    variants: [{
+      begin: '"',
+      end: '"'
+    }]
+  };
 
-    var STRING = {
-        className: 'string',
-        variants: [
-            {
-                begin: '"', end: '"'
-            }
-        ]
-    };
+  const NAME = {
+    className: 'title',
+    relevance: 0,
+    begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/
+  };
 
-    var NAME = {
-        className: 'title',
-        begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/
-    };
+  const METHOD = {
+    className: 'function',
+    beginKeywords: 'def',
+    end: /[:={\[(\n;]/,
+    excludeEnd: true,
+    contains: [NAME]
+  };
 
-    var METHOD = {
-        className: 'function',
-        beginKeywords: 'def',
-        end: /[:={\[(\n;]/,
-        excludeEnd: true,
-        contains: [NAME]
-    };
-
-    return {
-        name: 'Flix',
-        keywords: {
-            literal: 'true false',
-            keyword: 'case class def else enum if impl import in lat rel index let match namespace switch type yield with'
-        },
-        contains: [
-            hljs.C_LINE_COMMENT_MODE,
-            hljs.C_BLOCK_COMMENT_MODE,
-            CHAR,
-            STRING,
-            METHOD,
-            hljs.C_NUMBER_MODE
-        ]
-    };
+  return {
+    name: 'Flix',
+    keywords: {
+      literal: 'true false',
+      keyword: 'case class def else enum if impl import in lat rel index let match namespace switch type yield with'
+    },
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      CHAR,
+      STRING,
+      METHOD,
+      hljs.C_NUMBER_MODE
+    ]
+  };
 }

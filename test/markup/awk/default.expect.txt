@@ -1,0 +1,16 @@
+<span class="hljs-keyword">BEGIN</span> {
+  POPService  = <span class="hljs-string">&quot;/inet/tcp/0/emailhost/pop3&quot;</span>
+  RS = ORS = <span class="hljs-string">&quot;\r\n&quot;</span>
+  print <span class="hljs-string">&quot;user name&quot;</span>            |&amp; POPService
+  POPService                    |&amp; getline
+  print <span class="hljs-string">&quot;pass password&quot;</span>         |&amp; POPService
+  POPService                    |&amp; getline
+  print <span class="hljs-string">&quot;retr 1&quot;</span>                |&amp; POPService
+  POPService                    |&amp; getline
+  <span class="hljs-keyword">if</span> (<span class="hljs-variable">$1</span> != <span class="hljs-string">&quot;+OK&quot;</span>) <span class="hljs-keyword">exit</span>
+  print <span class="hljs-string">&quot;quit&quot;</span>                  |&amp; POPService
+  RS = <span class="hljs-string">&quot;\r\n\\.\r\n&quot;</span>
+  POPService |&amp; getline
+  print <span class="hljs-variable">$0</span>
+  close(POPService)
+}

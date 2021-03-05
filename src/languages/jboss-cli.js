@@ -6,31 +6,37 @@
  Category: config
  */
 
-export default function (hljs) {
-  var PARAM = {
-    begin: /[\w-]+ *=/, returnBegin: true,
+export default function(hljs) {
+  const PARAM = {
+    begin: /[\w-]+ *=/,
+    returnBegin: true,
     relevance: 0,
-    contains: [{className: 'attr', begin: /[\w-]+/}]
+    contains: [
+      {
+        className: 'attr',
+        begin: /[\w-]+/
+      }
+    ]
   };
-  var PARAMSBLOCK = {
+  const PARAMSBLOCK = {
     className: 'params',
     begin: /\(/,
     end: /\)/,
     contains: [PARAM],
-    relevance : 0
+    relevance: 0
   };
-  var OPERATION = {
+  const OPERATION = {
     className: 'function',
     begin: /:[\w\-.]+/,
     relevance: 0
   };
-  var PATH = {
+  const PATH = {
     className: 'string',
-    begin: /\B(([\/.])[\w\-.\/=]+)+/,
+    begin: /\B([\/.])[\w\-.\/=]+/
   };
-  var COMMAND_PARAMS = {
+  const COMMAND_PARAMS = {
     className: 'params',
-    begin: /--[\w\-=\/]+/,
+    begin: /--[\w\-=\/]+/
   };
   return {
     name: 'JBoss CLI',
@@ -51,5 +57,5 @@ export default function (hljs) {
       PATH,
       PARAMSBLOCK
     ]
-  }
+  };
 }

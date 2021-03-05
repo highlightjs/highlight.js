@@ -37,20 +37,12 @@ export default function(hljs) {
       'abstract|0 try catch protected explicit property',
 
     // avoid close detection with C# and JS
-    illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|\\bfunction\s*[^\\(])',
+    illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|\\bfunction\\s*[^\\(])',
 
     contains: [
       { // 'strings'
         className: 'string',
         begin: '\'', end: '\'',
-        illegal: '\\n',
-        contains: [ hljs.BACKSLASH_ESCAPE ],
-        relevance: 0
-      },
-
-      { // "strings"
-        className: 'string',
-        begin: '"', end: '"',
         illegal: '\\n',
         contains: [ hljs.BACKSLASH_ESCAPE ],
         relevance: 0
@@ -62,11 +54,24 @@ export default function(hljs) {
         begin: '"""', end: '"""'
       },
 
+      { // "strings"
+        className: 'string',
+        begin: '"', end: '"',
+        illegal: '\\n',
+        contains: [ hljs.BACKSLASH_ESCAPE ],
+        relevance: 0
+      },
+
       hljs.C_LINE_COMMENT_MODE, // single-line comments
       hljs.C_BLOCK_COMMENT_MODE, // comment blocks
 
+      { // metadata
+        className: 'string',
+        begin: '^\\s*\\[', end: '\\]',
+      },
+
       { // interface or namespace declaration
-        beginKeywords: 'interface namespace', end: '{',
+        beginKeywords: 'interface namespace', end: /\{/,
         illegal: '[;.\\-]',
         contains: [
           { // interface or namespace name
@@ -77,7 +82,7 @@ export default function(hljs) {
       },
 
       { // class declaration
-        beginKeywords: 'class', end: '{',
+        beginKeywords: 'class', end: /\{/,
         illegal: '[;.\\-]',
         contains: [
           { // class name
@@ -108,7 +113,8 @@ export default function(hljs) {
 
       { // numbers
         className: 'number',
-        begin: '(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?f?|\\.\\d+f?)([eE][-+]?\\d+f?)?)'
+        relevance: 0,
+        begin: '(-?)(\\b0[xXbBoOdD][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?f?|\\.\\d+f?)([eE][-+]?\\d+f?)?)'
       }
     ]
   };

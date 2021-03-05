@@ -1,0 +1,29 @@
+<span class="hljs-comment">; PureBASIC 5 - Syntax Highlighting Example</span>
+
+<span class="hljs-keyword">Enumeration</span> Test 3 <span class="hljs-keyword">Step</span> 10
+  <span class="hljs-symbol">#Constant_One</span> <span class="hljs-comment">; Will be 3</span>
+  <span class="hljs-symbol">#Constant_Two</span> <span class="hljs-comment">; Will be 13</span>
+<span class="hljs-keyword">EndEnumeration</span>
+
+A.i = <span class="hljs-symbol">#Constant_One</span>
+B = A + 3
+
+STRING.s = SomeProcedure(<span class="hljs-string">&quot;Hello World&quot;</span>, 2, <span class="hljs-symbol">#Empty$</span>, <span class="hljs-symbol">#Null$</span>)
+ESCAPED_STRING$ = <span class="hljs-string">~&quot;An escaped (\\) string!\nNewline...&quot;</span>
+
+FixedString.s{5} = <span class="hljs-string">&quot;12345&quot;</span>
+
+<span class="hljs-keyword">Macro</span> XCase(Type, Text)
+  Type<span class="hljs-symbol">#Case</span>(Text)
+<span class="hljs-keyword">EndMacro</span>
+
+StrangeProcedureCall (<span class="hljs-string">&quot;This command is split &quot;</span> +
+                      <span class="hljs-string">&quot;over two lines&quot;</span>) <span class="hljs-comment">; Line continuation example</span>
+
+<span class="hljs-keyword">If</span> B &gt; 3 : X$ = <span class="hljs-string">&quot;Concatenation of commands&quot;</span> : <span class="hljs-keyword">Else</span> : X$ = <span class="hljs-string">&quot;Using colons&quot;</span> : <span class="hljs-keyword">EndIf</span>
+
+<span class="hljs-function"><span class="hljs-keyword">Declare</span><span class="hljs-type">.s</span> <span class="hljs-title">Attach</span></span>(String1$, String2$)
+
+<span class="hljs-function"><span class="hljs-keyword">Procedure</span><span class="hljs-type">.s</span> <span class="hljs-title">Attach</span></span>(String1$, String2$)
+  <span class="hljs-keyword">ProcedureReturn</span> String1$+<span class="hljs-string">&quot; &quot;</span>+String2$
+<span class="hljs-keyword">EndProcedure</span> 

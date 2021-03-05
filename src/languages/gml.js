@@ -7,17 +7,20 @@ Category: scripting
 */
 
 export default function(hljs) {
-  var GML_KEYWORDS = {
+  const GML_KEYWORDS = {
     keyword: 'begin end if then else while do for break continue with until ' +
       'repeat exit and or xor not return mod div switch case default var ' +
-      'globalvar enum #macro #region #endregion',
-    built_in: 'is_real is_string is_array is_undefined is_int32 is_int64 ' +
-      'is_ptr is_vec3 is_vec4 is_matrix is_bool typeof ' +
-      'variable_global_exists variable_global_get variable_global_set ' +
+      'globalvar enum function constructor delete #macro #region #endregion',
+    built_in: 'is_real is_string is_array is_undefined is_int32 is_int64 is_ptr ' +
+      'is_vec3 is_vec4 is_matrix is_bool is_method is_struct is_infinity is_nan ' +
+      'is_numeric typeof variable_global_exists variable_global_get variable_global_set ' +
       'variable_instance_exists variable_instance_get variable_instance_set ' +
-      'variable_instance_get_names array_length_1d array_length_2d ' +
-      'array_height_2d array_equals array_create array_copy random ' +
-      'random_range irandom irandom_range random_set_seed random_get_seed ' +
+      'variable_instance_get_names variable_struct_exists variable_struct_get ' +
+      'variable_struct_get_names variable_struct_names_count variable_struct_remove ' +
+      'variable_struct_set array_delete array_insert array_length array_length_1d ' +
+      'array_length_2d array_height_2d array_equals array_create ' +
+      'array_copy array_pop array_push array_resize array_sort ' +
+      'random random_range irandom irandom_range random_set_seed random_get_seed ' +
       'randomize randomise choose abs round floor ceil sign frac sqrt sqr ' +
       'exp ln log2 log10 sin cos tan arcsin arccos arctan arctan2 dsin dcos ' +
       'dtan darcsin darccos darctan darctan2 degtorad radtodeg power logn ' +
@@ -825,7 +828,7 @@ export default function(hljs) {
     symbol: 'argument_relative argument argument0 argument1 argument2 ' +
       'argument3 argument4 argument5 argument6 argument7 argument8 ' +
       'argument9 argument10 argument11 argument12 argument13 argument14 ' +
-      'argument15 argument_count x y xprevious yprevious xstart ystart ' +
+      'argument15 argument_count x|0 y|0 xprevious yprevious xstart ystart ' +
       'hspeed vspeed direction speed friction gravity gravity_direction ' +
       'path_index path_position path_positionprevious path_speed ' +
       'path_scale path_orientation path_endaction object_index id solid ' +
@@ -866,7 +869,6 @@ export default function(hljs) {
 
   return {
     name: 'GML',
-    aliases: ['gml', 'GML'],
     case_insensitive: false, // language is case-insensitive
     keywords: GML_KEYWORDS,
 

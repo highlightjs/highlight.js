@@ -6,11 +6,19 @@ Website: https://www.php.net
 Category: common
 */
 
+/**
+ * @param {HLJSApi} hljs
+ * @returns {LanguageDetail}
+ * */
 export default function(hljs) {
-  var VARIABLE = {
-    begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
+  const VARIABLE = {
+    className: 'variable',
+    begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' +
+      // negative look-ahead tries to avoid matching patterns that are not
+      // Perl at all like $ident$, @ident@, etc.
+      `(?![A-Za-z0-9])(?![$])`
   };
-  var PREPROCESSOR = {
+  const PREPROCESSOR = {
     className: 'meta',
     variants: [
       { begin: /<\?php/, relevance: 10 }, // boost for obvious PHP
@@ -18,22 +26,52 @@ export default function(hljs) {
       { begin: /\?>/ } // end php tag
     ]
   };
-  var STRING = {
+  const SUBST = {
+    className: 'subst',
+    variants: [
+      { begin: /\$\w+/ },
+      { begin: /\{\$/, end: /\}/ }
+    ]
+  };
+  const SINGLE_QUOTED = hljs.inherit(hljs.APOS_STRING_MODE, {
+    illegal: null,
+  });
+  const DOUBLE_QUOTED = hljs.inherit(hljs.QUOTE_STRING_MODE, {
+    illegal: null,
+    contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
+  });
+  const HEREDOC = hljs.END_SAME_AS_BEGIN({
+    begin: /<<<[ \t]*(\w+)\n/,
+    end: /[ \t]*(\w+)\b/,
+    contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
+  });
+  const STRING = {
     className: 'string',
     contains: [hljs.BACKSLASH_ESCAPE, PREPROCESSOR],
     variants: [
-      {
-        begin: 'b"', end: '"'
-      },
-      {
-        begin: 'b\'', end: '\''
-      },
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
+      hljs.inherit(SINGLE_QUOTED, {
+        begin: "b'", end: "'",
+      }),
+      hljs.inherit(DOUBLE_QUOTED, {
+        begin: 'b"', end: '"',
+      }),
+      DOUBLE_QUOTED,
+      SINGLE_QUOTED,
+      HEREDOC
     ]
   };
-  var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
-  var KEYWORDS = {
+  const NUMBER = {
+    className: 'number',
+    variants: [
+      { begin: `\\b0b[01]+(?:_[01]+)*\\b` }, // Binary w/ underscore support
+      { begin: `\\b0o[0-7]+(?:_[0-7]+)*\\b` }, // Octals w/ underscore support
+      { begin: `\\b0x[\\da-f]+(?:_[\\da-f]+)*\\b` }, // Hex w/ underscore support
+      // Decimals w/ underscore support, with optional fragments and scientific exponent (e) suffix.
+      { begin: `(?:\\b\\d+(?:_\\d+)*(\\.(?:\\d+(?:_\\d+)*))?|\\B\\.\\d+)(?:e[+-]?\\d+)?` }
+    ],
+    relevance: 0
+  };
+  const KEYWORDS = {
     keyword:
     // Magic constants:
     // <https://www.php.net/manual/en/language.constants.predefined.php>
@@ -46,22 +84,26 @@ export default function(hljs) {
     // Other keywords:
     // <https://www.php.net/manual/en/reserved.php>
     // <https://www.php.net/manual/en/language.types.type-juggling.php>
-    'array abstract and as binary bool boolean break callable case catch class clone const continue declare default do double else elseif empty enddeclare endfor endforeach endif endswitch endwhile eval extends final finally float for foreach from global goto if implements instanceof insteadof int integer interface isset iterable list new object or private protected public real return string switch throw trait try unset use var void while xor yield',
+    'array abstract and as binary bool boolean break callable case catch class clone const continue declare ' +
+    'default do double else elseif empty enddeclare endfor endforeach endif endswitch endwhile enum eval extends ' +
+    'final finally float for foreach from global goto if implements instanceof insteadof int integer interface ' +
+    'isset iterable list match|0 mixed new object or private protected public real return string switch throw trait ' +
+    'try unset use var void while xor yield',
     literal: 'false null true',
     built_in:
     // Standard PHP library:
     // <https://www.php.net/manual/en/book.spl.php>
     'Error|0 ' + // error is too common a name esp since PHP is case in-sensitive
-    'AppendIterator ArgumentCountError ArithmeticError ArrayIterator ArrayObject AssertionError BadFunctionCallException BadMethodCallException CachingIterator CallbackFilterIterator CompileError Countable DirectoryIterator DivisionByZeroError DomainException EmptyIterator ErrorException Exception FilesystemIterator FilterIterator GlobIterator InfiniteIterator InvalidArgumentException IteratorIterator LengthException LimitIterator LogicException MultipleIterator NoRewindIterator OutOfBoundsException OutOfRangeException OuterIterator OverflowException ParentIterator ParseError RangeException RecursiveArrayIterator RecursiveCachingIterator RecursiveCallbackFilterIterator RecursiveDirectoryIterator RecursiveFilterIterator RecursiveIterator RecursiveIteratorIterator RecursiveRegexIterator RecursiveTreeIterator RegexIterator RuntimeException SeekableIterator SplDoublyLinkedList SplFileInfo SplFileObject SplFixedArray SplHeap SplMaxHeap SplMinHeap SplObjectStorage SplObserver SplObserver SplPriorityQueue SplQueue SplStack SplSubject SplSubject SplTempFileObject TypeError UnderflowException UnexpectedValueException ' +
+    'AppendIterator ArgumentCountError ArithmeticError ArrayIterator ArrayObject AssertionError BadFunctionCallException BadMethodCallException CachingIterator CallbackFilterIterator CompileError Countable DirectoryIterator DivisionByZeroError DomainException EmptyIterator ErrorException Exception FilesystemIterator FilterIterator GlobIterator InfiniteIterator InvalidArgumentException IteratorIterator LengthException LimitIterator LogicException MultipleIterator NoRewindIterator OutOfBoundsException OutOfRangeException OuterIterator OverflowException ParentIterator ParseError RangeException RecursiveArrayIterator RecursiveCachingIterator RecursiveCallbackFilterIterator RecursiveDirectoryIterator RecursiveFilterIterator RecursiveIterator RecursiveIteratorIterator RecursiveRegexIterator RecursiveTreeIterator RegexIterator RuntimeException SeekableIterator SplDoublyLinkedList SplFileInfo SplFileObject SplFixedArray SplHeap SplMaxHeap SplMinHeap SplObjectStorage SplObserver SplObserver SplPriorityQueue SplQueue SplStack SplSubject SplSubject SplTempFileObject TypeError UnderflowException UnexpectedValueException UnhandledMatchError ' +
     // Reserved interfaces:
     // <https://www.php.net/manual/en/reserved.interfaces.php>
-    'ArrayAccess Closure Generator Iterator IteratorAggregate Serializable Throwable Traversable WeakReference ' +
+    'ArrayAccess Closure Generator Iterator IteratorAggregate Serializable Stringable Throwable Traversable WeakReference WeakMap ' +
     // Reserved classes:
     // <https://www.php.net/manual/en/reserved.classes.php>
     'Directory __PHP_Incomplete_Class parent php_user_filter self static stdClass'
   };
   return {
-    aliases: ['php', 'php3', 'php4', 'php5', 'php6', 'php7'],
+    aliases: ['php3', 'php4', 'php5', 'php6', 'php7', 'php8'],
     case_insensitive: true,
     keywords: KEYWORDS,
     contains: [
@@ -87,20 +129,6 @@ export default function(hljs) {
           keywords: '__halt_compiler'
         }
       ),
-      {
-        className: 'string',
-        begin: /<<<['"]?\w+['"]?$/, end: /^\w+;?$/,
-        contains: [
-          hljs.BACKSLASH_ESCAPE,
-          {
-            className: 'subst',
-            variants: [
-              {begin: /\$\w+/},
-              {begin: /\{\$/, end: /\}/}
-            ]
-          }
-        ]
-      },
       PREPROCESSOR,
       {
         className: 'keyword', begin: /\$this\b/
@@ -112,10 +140,18 @@ export default function(hljs) {
       },
       {
         className: 'function',
+        relevance: 0,
         beginKeywords: 'fn function', end: /[;{]/, excludeEnd: true,
         illegal: '[$%\\[]',
         contains: [
+          {
+            beginKeywords: 'use',
+          },
           hljs.UNDERSCORE_TITLE_MODE,
+          {
+            begin: '=>', // No markup, just a relevance booster
+            endsParent: true
+          },
           {
             className: 'params',
             begin: '\\(', end: '\\)',
@@ -134,24 +170,30 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '{', excludeEnd: true,
-        illegal: /[:\(\$"]/,
+        variants: [
+          { beginKeywords: "enum", illegal: /[($"]/ },
+          { beginKeywords: "class interface trait", illegal: /[:($"]/ }
+        ],
+        relevance: 0,
+        end: /\{/,
+        excludeEnd: true,
         contains: [
           {beginKeywords: 'extends implements'},
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
       {
-        beginKeywords: 'namespace', end: ';',
-        illegal: /[\.']/,
+        beginKeywords: 'namespace',
+        relevance: 0,
+        end: ';',
+        illegal: /[.']/,
         contains: [hljs.UNDERSCORE_TITLE_MODE]
       },
       {
-        beginKeywords: 'use', end: ';',
+        beginKeywords: 'use',
+        relevance: 0,
+        end: ';',
         contains: [hljs.UNDERSCORE_TITLE_MODE]
-      },
-      {
-        begin: '=>' // No markup, just a relevance booster
       },
       STRING,
       NUMBER

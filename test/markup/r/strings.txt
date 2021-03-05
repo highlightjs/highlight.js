@@ -1,0 +1,33 @@
+"test #"
+"a'b"
+'a"b'
+"foo\"bar"
+'foo\'bar'
+"\013x"
+"\xfex"
+"\uabc0x"
+"\U0123abcdx"
+"\u{abcd}x"
+"\U{0123abcd}x"
+r"(foo"bar)"
+r"{foo)"bar}"
+r"[foo)"bar]"
+r"-(foo)"bar)-"
+R"--(foo)-"bar)--"
+r'-(foo)'bar)-' # '
+r"(
+xyz
+"
+\
+)
+)"
+"this is a quote that spans
+multiple lines
+\"
+
+is this still a quote? it should be.
+# even still!
+
+"
+'same for
+single quotes #'

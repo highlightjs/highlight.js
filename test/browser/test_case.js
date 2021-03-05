@@ -7,7 +7,7 @@ const fs       = require('fs');
 // default to the minified library if it was built, otherwise fallback to
 // the non-minified
 async function findLibrary() {
-  const files = ['highlight.min.js', 'highlight.js']
+  const files = ['highlight.min.js', 'highlight.js'];
 
   for (let file of files) {
     try {
@@ -16,7 +16,7 @@ async function findLibrary() {
       return path;
     } catch {}
   }
-  throw "could not find library in `build`"
+  throw new Error("could not find library in `build`");
 }
 
 function newTestCase(opts) {
@@ -28,7 +28,7 @@ function newTestCase(opts) {
   test.html = test.html || `<pre><code class='${test.language}'>${test.code}</code></pre>`;
   test.runner = async function() {
     await buildFakeDOM.bind(this, test)();
-    this.hljs.highlightBlock(this.block);
+    this.hljs.highlightElement(this.block);
     const actual = this.block.innerHTML;
     actual.should.equal(test.expect);
   }
@@ -46,6 +46,9 @@ const buildFakeDOM = async function(data) {
   this.hljs  = window.hljs;
 };
 
+// quotes are not encoded because we're testing the value
+// returned by innerHTML where the browser helpfully reencodes
+// &quot; to " for us...
 const defaultCase = newTestCase({
   code: 'var say = "Hello";',
   language: "javascript",

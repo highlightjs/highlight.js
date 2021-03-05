@@ -1,0 +1,29 @@
+Dim f1 = 123.123
+Dim f2 = -123.123
+Dim f3 = 123.123E+1
+Dim f4 = 123.123R
+Dim f5 = 123.123F
+Dim f6 = 123.123D
+Dim f7 = 123.123@
+Dim f8 = 123.123!
+Dim f9 = 123.123#
+
+Dim v = 123E+1
+Dim v = 123E1
+Dim v = 123E-5
+Dim v = 123_000E-5_000
+
+Dim i1 = 123
+Dim i2 = -123
+Dim i3 = 123S
+Dim i4 = 123I
+Dim i5 = 123L
+Dim i6 = 123US
+Dim i7 = 123UI
+Dim i8 = 123UL
+Dim i9 = 123%
+Dim i0 = 123&
+
+Dim b1 = &B10
+Dim o1 = &O70
+Dim h1 = &HA0

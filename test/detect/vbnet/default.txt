@@ -1,5 +1,5 @@
-Import System
-Import System.IO
+Imports System
+Imports System.IO
 #Const DEBUG = True
 
 Namespace Highlighter.Test

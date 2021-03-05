@@ -5,21 +5,25 @@ Contributors: Anton Kochkov <anton.kochkov@gmail.com>
 Website: https://en.wikipedia.org/wiki/Batch_file
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var COMMENT = hljs.COMMENT(
+  const COMMENT = hljs.COMMENT(
     /^\s*@?rem\b/, /$/,
     {
       relevance: 10
     }
   );
-  var LABEL = {
+  const LABEL = {
     className: 'symbol',
     begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
     relevance: 0
   };
   return {
     name: 'Batch file (DOS)',
-    aliases: ['bat', 'cmd'],
+    aliases: [
+      'bat',
+      'cmd'
+    ],
     case_insensitive: true,
     illegal: /\/\*/,
     keywords: {
@@ -39,18 +43,23 @@ export default function(hljs) {
     },
     contains: [
       {
-        className: 'variable', begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
+        className: 'variable',
+        begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
       },
       {
         className: 'function',
-        begin: LABEL.begin, end: 'goto:eof',
+        begin: LABEL.begin,
+        end: 'goto:eof',
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'}),
+          hljs.inherit(hljs.TITLE_MODE, {
+            begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*'
+          }),
           COMMENT
         ]
       },
       {
-        className: 'number', begin: '\\b\\d+',
+        className: 'number',
+        begin: '\\b\\d+',
         relevance: 0
       },
       COMMENT

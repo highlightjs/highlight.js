@@ -6,12 +6,12 @@ Website: https://crystal-lang.org
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var INT_SUFFIX = '(_*[ui](8|16|32|64|128))?';
-  var FLOAT_SUFFIX = '(_*f(32|64))?';
-  var CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
-  var CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|[=!]~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~|]|//|//=|&[-+*]=?|&\\*\\*|\\[\\][=?]?';
-  var CRYSTAL_PATH_RE = '[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?';
-  var CRYSTAL_KEYWORDS = {
+  const INT_SUFFIX = '(_?[ui](8|16|32|64|128))?';
+  const FLOAT_SUFFIX = '(_?f(32|64))?';
+  const CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
+  const CRYSTAL_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|[=!]~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~|]|//|//=|&[-+*]=?|&\\*\\*|\\[\\][=?]?';
+  const CRYSTAL_PATH_RE = '[A-Za-z_]\\w*(::\\w+)*(\\?|!)?';
+  const CRYSTAL_KEYWORDS = {
     $pattern: CRYSTAL_IDENT_RE,
     keyword:
       'abstract alias annotation as as? asm begin break case class def do else elsif end ensure enum extend for fun if ' +
@@ -20,89 +20,191 @@ export default function(hljs) {
       '__DIR__ __END_LINE__ __FILE__ __LINE__',
     literal: 'false nil true'
   };
-  var SUBST = {
+  const SUBST = {
     className: 'subst',
-    begin: '#{', end: '}',
+    begin: /#\{/,
+    end: /\}/,
     keywords: CRYSTAL_KEYWORDS
   };
-  var EXPANSION = {
+  const EXPANSION = {
     className: 'template-variable',
     variants: [
-      {begin: '\\{\\{', end: '\\}\\}'},
-      {begin: '\\{%', end: '%\\}'}
+      {
+        begin: '\\{\\{',
+        end: '\\}\\}'
+      },
+      {
+        begin: '\\{%',
+        end: '%\\}'
+      }
     ],
     keywords: CRYSTAL_KEYWORDS
   };
 
   function recursiveParen(begin, end) {
-    var
-    contains = [{begin: begin, end: end}];
+    const
+        contains = [
+          {
+            begin: begin,
+            end: end
+          }
+        ];
     contains[0].contains = contains;
     return contains;
   }
-  var STRING = {
+  const STRING = {
     className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-    variants: [
-      {begin: /'/, end: /'/},
-      {begin: /"/, end: /"/},
-      {begin: /`/, end: /`/},
-      {begin: '%[Qwi]?\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
-      {begin: '%[Qwi]?\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
-      {begin: '%[Qwi]?{', end: '}', contains: recursiveParen('{', '}')},
-      {begin: '%[Qwi]?<', end: '>', contains: recursiveParen('<', '>')},
-      {begin: '%[Qwi]?\\|', end: '\\|'},
-      {begin: /<<-\w+$/, end: /^\s*\w+$/},
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      SUBST
     ],
-    relevance: 0,
+    variants: [
+      {
+        begin: /'/,
+        end: /'/
+      },
+      {
+        begin: /"/,
+        end: /"/
+      },
+      {
+        begin: /`/,
+        end: /`/
+      },
+      {
+        begin: '%[Qwi]?\\(',
+        end: '\\)',
+        contains: recursiveParen('\\(', '\\)')
+      },
+      {
+        begin: '%[Qwi]?\\[',
+        end: '\\]',
+        contains: recursiveParen('\\[', '\\]')
+      },
+      {
+        begin: '%[Qwi]?\\{',
+        end: /\}/,
+        contains: recursiveParen(/\{/, /\}/)
+      },
+      {
+        begin: '%[Qwi]?<',
+        end: '>',
+        contains: recursiveParen('<', '>')
+      },
+      {
+        begin: '%[Qwi]?\\|',
+        end: '\\|'
+      },
+      {
+        begin: /<<-\w+$/,
+        end: /^\s*\w+$/
+      }
+    ],
+    relevance: 0
   };
-  var Q_STRING = {
+  const Q_STRING = {
     className: 'string',
     variants: [
-      {begin: '%q\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
-      {begin: '%q\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
-      {begin: '%q{', end: '}', contains: recursiveParen('{', '}')},
-      {begin: '%q<', end: '>', contains: recursiveParen('<', '>')},
-      {begin: '%q\\|', end: '\\|'},
-      {begin: /<<-'\w+'$/, end: /^\s*\w+$/},
+      {
+        begin: '%q\\(',
+        end: '\\)',
+        contains: recursiveParen('\\(', '\\)')
+      },
+      {
+        begin: '%q\\[',
+        end: '\\]',
+        contains: recursiveParen('\\[', '\\]')
+      },
+      {
+        begin: '%q\\{',
+        end: /\}/,
+        contains: recursiveParen(/\{/, /\}/)
+      },
+      {
+        begin: '%q<',
+        end: '>',
+        contains: recursiveParen('<', '>')
+      },
+      {
+        begin: '%q\\|',
+        end: '\\|'
+      },
+      {
+        begin: /<<-'\w+'$/,
+        end: /^\s*\w+$/
+      }
     ],
-    relevance: 0,
+    relevance: 0
   };
-  var REGEXP = {
-    begin: '(?!%})(' + hljs.RE_STARTERS_RE + '|\\n|\\b(case|if|select|unless|until|when|while)\\b)\\s*',
+  const REGEXP = {
+    begin: '(?!%\\})(' + hljs.RE_STARTERS_RE + '|\\n|\\b(case|if|select|unless|until|when|while)\\b)\\s*',
     keywords: 'case if select unless until when while',
     contains: [
       {
         className: 'regexp',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ],
         variants: [
-          {begin: '//[a-z]*', relevance: 0},
-          {begin: '/(?!\\/)', end: '/[a-z]*'},
+          {
+            begin: '//[a-z]*',
+            relevance: 0
+          },
+          {
+            begin: '/(?!\\/)',
+            end: '/[a-z]*'
+          }
         ]
       }
     ],
     relevance: 0
   };
-  var REGEXP2 = {
+  const REGEXP2 = {
     className: 'regexp',
-    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      SUBST
+    ],
     variants: [
-      {begin: '%r\\(', end: '\\)', contains: recursiveParen('\\(', '\\)')},
-      {begin: '%r\\[', end: '\\]', contains: recursiveParen('\\[', '\\]')},
-      {begin: '%r{', end: '}', contains: recursiveParen('{', '}')},
-      {begin: '%r<', end: '>', contains: recursiveParen('<', '>')},
-      {begin: '%r\\|', end: '\\|'},
+      {
+        begin: '%r\\(',
+        end: '\\)',
+        contains: recursiveParen('\\(', '\\)')
+      },
+      {
+        begin: '%r\\[',
+        end: '\\]',
+        contains: recursiveParen('\\[', '\\]')
+      },
+      {
+        begin: '%r\\{',
+        end: /\}/,
+        contains: recursiveParen(/\{/, /\}/)
+      },
+      {
+        begin: '%r<',
+        end: '>',
+        contains: recursiveParen('<', '>')
+      },
+      {
+        begin: '%r\\|',
+        end: '\\|'
+      }
     ],
     relevance: 0
   };
-  var ATTRIBUTE = {
+  const ATTRIBUTE = {
     className: 'meta',
-    begin: '@\\[', end: '\\]',
+    begin: '@\\[',
+    end: '\\]',
     contains: [
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'meta-string'})
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {
+        className: 'meta-string'
+      })
     ]
   };
-  var CRYSTAL_DEFAULT_CONTAINS = [
+  const CRYSTAL_DEFAULT_CONTAINS = [
     EXPANSION,
     STRING,
     Q_STRING,
@@ -112,36 +214,47 @@ export default function(hljs) {
     hljs.HASH_COMMENT_MODE,
     {
       className: 'class',
-      beginKeywords: 'class module struct', end: '$|;',
+      beginKeywords: 'class module struct',
+      end: '$|;',
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
-        {begin: '<'} // relevance booster for inheritance
+        hljs.inherit(hljs.TITLE_MODE, {
+          begin: CRYSTAL_PATH_RE
+        }),
+        { // relevance booster for inheritance
+          begin: '<'
+        }
       ]
     },
     {
       className: 'class',
-      beginKeywords: 'lib enum union', end: '$|;',
+      beginKeywords: 'lib enum union',
+      end: '$|;',
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
-      ],
-      relevance: 10
+        hljs.inherit(hljs.TITLE_MODE, {
+          begin: CRYSTAL_PATH_RE
+        })
+      ]
     },
     {
-      beginKeywords: 'annotation', end: '$|;',
+      beginKeywords: 'annotation',
+      end: '$|;',
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {begin: CRYSTAL_PATH_RE}),
+        hljs.inherit(hljs.TITLE_MODE, {
+          begin: CRYSTAL_PATH_RE
+        })
       ],
-      relevance: 10
+      relevance: 2
     },
     {
       className: 'function',
-      beginKeywords: 'def', end: /\B\b/,
+      beginKeywords: 'def',
+      end: /\B\b/,
       contains: [
         hljs.inherit(hljs.TITLE_MODE, {
           begin: CRYSTAL_METHOD_RE,
@@ -151,34 +264,50 @@ export default function(hljs) {
     },
     {
       className: 'function',
-      beginKeywords: 'fun macro', end: /\B\b/,
+      beginKeywords: 'fun macro',
+      end: /\B\b/,
       contains: [
         hljs.inherit(hljs.TITLE_MODE, {
           begin: CRYSTAL_METHOD_RE,
           endsParent: true
         })
       ],
-      relevance: 5
+      relevance: 2
     },
     {
       className: 'symbol',
-      begin: hljs.UNDERSCORE_IDENT_RE + '(\\!|\\?)?:',
+      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
       relevance: 0
     },
     {
       className: 'symbol',
       begin: ':',
-      contains: [STRING, {begin: CRYSTAL_METHOD_RE}],
+      contains: [
+        STRING,
+        {
+          begin: CRYSTAL_METHOD_RE
+        }
+      ],
       relevance: 0
     },
     {
       className: 'number',
       variants: [
-        { begin: '\\b0b([01_]+)' + INT_SUFFIX },
-        { begin: '\\b0o([0-7_]+)' + INT_SUFFIX },
-        { begin: '\\b0x([A-Fa-f0-9_]+)' + INT_SUFFIX },
-        { begin: '\\b([1-9][0-9_]*[0-9]|[0-9])(\\.[0-9][0-9_]*)?([eE]_*[-+]?[0-9_]*)?' + FLOAT_SUFFIX + '(?!_)' },
-        { begin: '\\b([1-9][0-9_]*|0)' + INT_SUFFIX }
+        {
+          begin: '\\b0b([01_]+)' + INT_SUFFIX
+        },
+        {
+          begin: '\\b0o([0-7_]+)' + INT_SUFFIX
+        },
+        {
+          begin: '\\b0x([A-Fa-f0-9_]+)' + INT_SUFFIX
+        },
+        {
+          begin: '\\b([1-9][0-9_]*[0-9]|[0-9])(\\.[0-9][0-9_]*)?([eE]_?[-+]?[0-9_]*)?' + FLOAT_SUFFIX + '(?!_)'
+        },
+        {
+          begin: '\\b([1-9][0-9_]*|0)' + INT_SUFFIX
+        }
       ],
       relevance: 0
     }
@@ -188,7 +317,7 @@ export default function(hljs) {
 
   return {
     name: 'Crystal',
-    aliases: ['cr'],
+    aliases: [ 'cr' ],
     keywords: CRYSTAL_KEYWORDS,
     contains: CRYSTAL_DEFAULT_CONTAINS
   };

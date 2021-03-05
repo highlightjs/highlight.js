@@ -1,0 +1,17 @@
+<span class="hljs-keyword">SELECT</span>
+    left_table.col1 <span class="hljs-keyword">AS</span> l_col1,
+    left_table.col2 <span class="hljs-keyword">AS</span> l_col2
+<span class="hljs-keyword">FROM</span>
+    <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">0</span>, <span class="hljs-number">10</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">11</span>), (<span class="hljs-number">2</span>, <span class="hljs-number">12</span>), (<span class="hljs-number">3</span>,<span class="hljs-number">13</span>), (<span class="hljs-number">4</span>, <span class="hljs-number">14</span>), (<span class="hljs-number">5</span>, <span class="hljs-number">14</span>) <span class="hljs-keyword">AS</span> left_table
+    <span class="hljs-keyword">ANTI</span> <span class="hljs-keyword">JOIN</span>
+    <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">0</span>, <span class="hljs-number">10</span>), (<span class="hljs-number">2</span>, <span class="hljs-number">12</span>), (<span class="hljs-number">4</span>, <span class="hljs-number">14</span>), (<span class="hljs-number">6</span>, <span class="hljs-number">16</span>) <span class="hljs-keyword">AS</span> right_table
+    <span class="hljs-keyword">ON</span> left_table.col1 = right_table.col1;
+
+<span class="hljs-keyword">SELECT</span>
+    left_table.col1 <span class="hljs-keyword">AS</span> l_col1,
+    left_table.col2 <span class="hljs-keyword">AS</span> l_col2
+<span class="hljs-keyword">FROM</span>
+    <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">0</span>, <span class="hljs-number">10</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">11</span>), (<span class="hljs-number">2</span>, <span class="hljs-number">12</span>), (<span class="hljs-number">3</span>,<span class="hljs-number">13</span>), (<span class="hljs-number">4</span>, <span class="hljs-number">14</span>), (<span class="hljs-number">5</span>, <span class="hljs-number">14</span>) <span class="hljs-keyword">AS</span> left_table
+    <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">SEMI</span> <span class="hljs-keyword">JOIN</span>
+    <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">0</span>, <span class="hljs-number">10</span>), (<span class="hljs-number">2</span>, <span class="hljs-number">12</span>), (<span class="hljs-number">4</span>, <span class="hljs-number">14</span>), (<span class="hljs-number">6</span>, <span class="hljs-number">16</span>) <span class="hljs-keyword">AS</span> right_table
+    <span class="hljs-keyword">ON</span> left_table.col1 = right_table.col1;

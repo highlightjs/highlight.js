@@ -1,0 +1,19 @@
+<span class="hljs-comment">;* Title:       Block Copy Routines</span>
+<span class="hljs-comment">;* Version:     1.1</span>
+
+<span class="hljs-meta">.include</span> <span class="hljs-string">&quot;8515def.inc&quot;</span>
+
+        <span class="hljs-keyword">rjmp</span>    RESET       <span class="hljs-comment">;reset handle</span>
+
+<span class="hljs-meta">.def</span>    flashsize=<span class="hljs-built_in">r16</span>       <span class="hljs-comment">;size of block to be copied</span>
+
+<span class="hljs-symbol">flash2ram:</span>
+        <span class="hljs-keyword">lpm</span>                 <span class="hljs-comment">;get constant</span>
+        <span class="hljs-keyword">st</span>      <span class="hljs-built_in">Y</span>+,<span class="hljs-built_in">r0</span>       <span class="hljs-comment">;store in SRAM and increment Y-pointer</span>
+        <span class="hljs-keyword">adiw</span>    <span class="hljs-built_in">ZL</span>,<span class="hljs-number">1</span>        <span class="hljs-comment">;increment Z-pointer</span>
+        <span class="hljs-keyword">dec</span>     flashsize
+        <span class="hljs-keyword">brne</span>    flash2ram   <span class="hljs-comment">;if not end of table, loop more</span>
+        <span class="hljs-keyword">ret</span>
+
+<span class="hljs-meta">.def</span>    ramtemp =<span class="hljs-built_in">r1</span>         <span class="hljs-comment">;temporary storage register</span>
+<span class="hljs-meta">.def</span>    ramsize =<span class="hljs-built_in">r16</span>        <span class="hljs-comment">;size of block to be copied</span>

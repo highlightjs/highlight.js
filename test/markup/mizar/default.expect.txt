@@ -1,0 +1,86 @@
+<span class="hljs-comment">::: ## Lambda calculus</span>
+
+<span class="hljs-keyword">environ</span>
+
+  <span class="hljs-keyword">vocabularies</span> LAMBDA,
+      NUMBERS,
+      NAT_1, XBOOLE_0, SUBSET_1, FINSEQ_1, XXREAL_0, CARD_1,
+      ARYTM_1, ARYTM_3, TARSKI, RELAT_1, ORDINAL4, FUNCOP_1;
+
+  <span class="hljs-comment">:: etc...</span>
+
+<span class="hljs-keyword">begin</span>
+
+<span class="hljs-keyword">reserve</span> D <span class="hljs-keyword">for</span> DecoratedTree,
+        p,q,r <span class="hljs-keyword">for</span> FinSequence <span class="hljs-keyword">of</span> NAT,
+        x <span class="hljs-keyword">for</span> <span class="hljs-keyword">set</span>;
+
+<span class="hljs-keyword">definition</span>
+  <span class="hljs-keyword">let</span> D;
+
+  <span class="hljs-keyword">attr</span> D <span class="hljs-keyword">is</span> LambdaTerm-like <span class="hljs-keyword">means</span>
+    (dom D qua Tree) <span class="hljs-keyword">is</span> finite &amp;
+<span class="hljs-comment">::&gt;                          *143,306</span>
+    <span class="hljs-keyword">for</span> r <span class="hljs-keyword">st</span> r <span class="hljs-keyword">in</span> dom D <span class="hljs-keyword">holds</span>
+      r <span class="hljs-keyword">is</span> FinSequence <span class="hljs-keyword">of</span> {0,1} &amp;
+      r^&lt;*0*&gt; <span class="hljs-keyword">in</span> dom D <span class="hljs-keyword">implies</span> D.r = 0;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-keyword">registration</span>
+  <span class="hljs-keyword">cluster</span> LambdaTerm-like <span class="hljs-keyword">for</span> DecoratedTree <span class="hljs-keyword">of</span> NAT;
+  <span class="hljs-keyword">existence</span>;
+<span class="hljs-comment">::&gt;       *4</span>
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-keyword">definition</span>
+  <span class="hljs-keyword">mode</span> LambdaTerm <span class="hljs-keyword">is</span> LambdaTerm-like DecoratedTree <span class="hljs-keyword">of</span> NAT;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-comment">::: Then we extend this ordinary one-step beta reduction, that is,</span>
+<span class="hljs-comment">:::  any subterm is also allowed to reduce.</span>
+<span class="hljs-keyword">definition</span>
+  <span class="hljs-keyword">let</span> M,N;
+
+  <span class="hljs-keyword">pred</span> M beta N <span class="hljs-keyword">means</span>
+    <span class="hljs-keyword">ex</span> p <span class="hljs-keyword">st</span>
+      M|p beta_shallow N|p &amp;
+      <span class="hljs-keyword">for</span> q <span class="hljs-keyword">st</span> <span class="hljs-keyword">not</span> p is_a_prefix_of q <span class="hljs-keyword">holds</span>
+        [r,x] <span class="hljs-keyword">in</span> M <span class="hljs-keyword">iff</span> [r,x] <span class="hljs-keyword">in</span> N;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-keyword">theorem</span> Th4:
+  ProperPrefixes (v^&lt;*x*&gt;) = ProperPrefixes v \/ {v}
+<span class="hljs-keyword">proof</span>
+  <span class="hljs-keyword">thus</span> ProperPrefixes (v^&lt;*x*&gt;) c= ProperPrefixes v \/ {v}
+  <span class="hljs-keyword">proof</span>
+    <span class="hljs-keyword">let</span> y;
+    <span class="hljs-keyword">assume</span> y <span class="hljs-keyword">in</span> ProperPrefixes (v^&lt;*x*&gt;);
+    <span class="hljs-keyword">then</span> <span class="hljs-keyword">consider</span> v1 <span class="hljs-keyword">such</span> <span class="hljs-keyword">that</span>
+A1: y = v1 <span class="hljs-keyword">and</span>
+A2: v1 is_a_proper_prefix_of v^&lt;*x*&gt; <span class="hljs-keyword">by</span> TREES_1:def 2;
+ v1 is_a_prefix_of v &amp; v1 &lt;&gt; v <span class="hljs-keyword">or</span> v1 = v <span class="hljs-keyword">by</span> A2,TREES_1:9;
+<span class="hljs-keyword">then</span>
+ v1 is_a_proper_prefix_of v <span class="hljs-keyword">or</span> v1 <span class="hljs-keyword">in</span> {v} <span class="hljs-keyword">by</span> TARSKI:def 1,XBOOLE_0:def 8;
+<span class="hljs-keyword">then</span>  y <span class="hljs-keyword">in</span> ProperPrefixes v <span class="hljs-keyword">or</span> y <span class="hljs-keyword">in</span> {v} <span class="hljs-keyword">by</span> A1,TREES_1:def 2;
+    <span class="hljs-keyword">hence</span> <span class="hljs-keyword">thesis</span> <span class="hljs-keyword">by</span> XBOOLE_0:def 3;
+  <span class="hljs-keyword">end</span>;
+  <span class="hljs-keyword">let</span> y;
+  <span class="hljs-keyword">assume</span> y <span class="hljs-keyword">in</span> ProperPrefixes v \/ {v};
+<span class="hljs-keyword">then</span> A3: y <span class="hljs-keyword">in</span> ProperPrefixes v <span class="hljs-keyword">or</span> y <span class="hljs-keyword">in</span> {v} <span class="hljs-keyword">by</span> XBOOLE_0:def 3;
+A4: <span class="hljs-keyword">now</span>
+    <span class="hljs-keyword">assume</span> y <span class="hljs-keyword">in</span> ProperPrefixes v;
+    <span class="hljs-keyword">then</span> <span class="hljs-keyword">consider</span> v1 <span class="hljs-keyword">such</span> <span class="hljs-keyword">that</span>
+A5: y = v1 <span class="hljs-keyword">and</span>
+A6: v1 is_a_proper_prefix_of v <span class="hljs-keyword">by</span> TREES_1:def 2;
+ v is_a_prefix_of v^&lt;*x*&gt; <span class="hljs-keyword">by</span> TREES_1:1;
+<span class="hljs-keyword">then</span>  v1 is_a_proper_prefix_of v^&lt;*x*&gt; <span class="hljs-keyword">by</span> A6,XBOOLE_1:58;
+    <span class="hljs-keyword">hence</span> <span class="hljs-keyword">thesis</span> <span class="hljs-keyword">by</span> A5,TREES_1:def 2;
+  <span class="hljs-keyword">end</span>;
+ v^{} = v <span class="hljs-keyword">by</span> FINSEQ_1:34;
+  <span class="hljs-keyword">then</span>
+ v is_a_prefix_of v^&lt;*x*&gt; &amp; v &lt;&gt; v^&lt;*x*&gt; <span class="hljs-keyword">by</span> FINSEQ_1:33,TREES_1:1;
+<span class="hljs-keyword">then</span>  v is_a_proper_prefix_of v^&lt;*x*&gt; <span class="hljs-keyword">by</span> XBOOLE_0:def 8;
+<span class="hljs-keyword">then</span>  y <span class="hljs-keyword">in</span> ProperPrefixes v <span class="hljs-keyword">or</span> y = v &amp; v <span class="hljs-keyword">in</span> ProperPrefixes (v^&lt;*x*&gt;)
+  <span class="hljs-keyword">by</span> A3,TARSKI:def 1,TREES_1:def 2;
+  <span class="hljs-keyword">hence</span> <span class="hljs-keyword">thesis</span> <span class="hljs-keyword">by</span> A4;
+<span class="hljs-keyword">end</span>;

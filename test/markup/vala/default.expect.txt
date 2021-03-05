@@ -1,0 +1,46 @@
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">DBus</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">namespace</span> <span class="hljs-title">Test</span> </span>{
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> : <span class="hljs-title">Object</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">signal</span> <span class="hljs-keyword">void</span> some_event ();   <span class="hljs-comment">// definition of the signal</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> method () {
+      some_event ();                    <span class="hljs-comment">// emitting the signal (callbacks get invoked)</span>
+    }
+  }
+}
+
+<span class="hljs-comment">/* defining a class */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Track</span> : <span class="hljs-title">GLib</span>.<span class="hljs-title">Object</span>, <span class="hljs-title">Test</span>.<span class="hljs-title">Foo</span> </span>{              <span class="hljs-comment">/* subclassing &#x27;GLib.Object&#x27; */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> mass;                  <span class="hljs-comment">/* a public field */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> name { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }     <span class="hljs-comment">/* a public property */</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">bool</span> terminated = <span class="hljs-literal">false</span>;     <span class="hljs-comment">/* a private field */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> terminate() {            <span class="hljs-comment">/* a public method */</span>
+    terminated = <span class="hljs-literal">true</span>;
+  }
+}
+
+<span class="hljs-keyword">const</span> ALL_UPPER_CASE = <span class="hljs-string">&quot;you should follow this convention&quot;</span>;
+
+<span class="hljs-keyword">var</span> t = <span class="hljs-keyword">new</span> Track();      <span class="hljs-comment">// same as: Track t = new Track();</span>
+<span class="hljs-keyword">var</span> s = <span class="hljs-string">&quot;hello&quot;</span>;          <span class="hljs-comment">// same as: string s = &quot;hello&quot;;</span>
+<span class="hljs-keyword">var</span> l = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-keyword">int</span>&gt;();       <span class="hljs-comment">// same as: List&lt;int&gt; l = new List&lt;int&gt;();</span>
+<span class="hljs-keyword">var</span> i = <span class="hljs-number">10</span>;               <span class="hljs-comment">// same as: int i = 10;</span>
+
+
+<span class="hljs-meta">#if (ololo)</span>
+Regex regex = /foo/;
+<span class="hljs-meta">#endif</span>
+
+<span class="hljs-comment">/*
+ * Entry point can be outside class
+ */</span>
+<span class="hljs-keyword">void</span> main () {
+  <span class="hljs-keyword">var</span> long_string = <span class="hljs-string">&quot;&quot;&quot;
+    Example of &quot;verbatim string&quot;.
+    Same as in @&quot;string&quot; in C#
+  &quot;&quot;&quot;</span>
+  <span class="hljs-keyword">var</span> foo = <span class="hljs-keyword">new</span> Foo ();
+  foo.some_event.connect (callback_a);      <span class="hljs-comment">// connecting the callback functions</span>
+  foo.some_event.connect (callback_b);
+  foo.method ();
+}

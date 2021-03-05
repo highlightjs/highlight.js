@@ -1,0 +1,44 @@
+<span class="hljs-meta">#!/usr/bin/rdmd</span>
+<span class="hljs-comment">// Computes average line length for standard input.</span>
+<span class="hljs-keyword">import</span> std.stdio;
+
+<span class="hljs-comment">/+
+  this is a <span class="hljs-comment">/+ nesting +/</span> comment
++/</span>
+
+<span class="hljs-keyword">enum</span> COMPILED_ON = <span class="hljs-keyword">__TIMESTAMP__</span>;  <span class="hljs-comment">// special token</span>
+
+<span class="hljs-keyword">enum</span> character = <span class="hljs-string">&#x27;©&#x27;</span>;
+<span class="hljs-keyword">enum</span> copy_valid = <span class="hljs-string">&#x27;&amp;copy;&#x27;</span>;
+<span class="hljs-keyword">enum</span> backslash_escaped = <span class="hljs-string">&#x27;\\&#x27;</span>;
+
+<span class="hljs-comment">// string literals</span>
+<span class="hljs-keyword">enum</span> str = <span class="hljs-string">`hello &quot;world&quot;!`</span>;
+<span class="hljs-keyword">enum</span> multiline = <span class="hljs-string">r&quot;lorem
+ipsum
+dolor&quot;</span>;  <span class="hljs-comment">// wysiwyg string, no escapes here allowed</span>
+<span class="hljs-keyword">enum</span> multiline2 = <span class="hljs-string">&quot;sit
+amet
+\&quot;adipiscing\&quot;
+elit.&quot;</span>;
+<span class="hljs-keyword">enum</span> hex = <span class="hljs-string">x&quot;66 6f 6f&quot;</span>;   <span class="hljs-comment">// same as &quot;foo&quot;</span>
+
+<span class="hljs-meta">#line 5</span>
+
+<span class="hljs-comment">// float literals</span>
+<span class="hljs-keyword">enum</span> f = [<span class="hljs-number">3.14f</span>, .<span class="hljs-number">1</span>, <span class="hljs-number">1.</span>, <span class="hljs-number">1e100</span>, <span class="hljs-number">0xc0de.01p+100</span>];
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">if</span> (something == <span class="hljs-literal">true</span>) {
+   <span class="hljs-keyword">import</span> std.algorithm;
+}
+
+<span class="hljs-keyword">void</span> main() <span class="hljs-keyword">pure</span> <span class="hljs-keyword">nothrow</span> <span class="hljs-keyword">@safe</span> {
+    <span class="hljs-built_in">ulong</span> lines = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">double</span> sumLength = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">foreach</span> (line; stdin.byLine()) {
+        ++lines;
+        sumLength += line.length;
+    }
+    writeln(<span class="hljs-string">&quot;Average line length: &quot;</span>,
+        lines ? sumLength / lines : <span class="hljs-number">0</span>);
+}

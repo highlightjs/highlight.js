@@ -1,0 +1,3 @@
+<span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot; ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">xs:schema</span> <span class="hljs-attr">xmlns:xs</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">xs:schema</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">s:schema</span> <span class="hljs-attr">xmlns:s</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">s:schema</span>&gt;</span>

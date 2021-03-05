@@ -1,0 +1,72 @@
+"escaped characters \0\\\t\n\r\"\'"
+"escaped unicode \u{0}\u{12}\u{345}\u{6789}\u{abcde}\u{fABCDE}\u{F012345}\u{67890abc}"
+#"escaped characters \#0\#\\#t\#n\#r\#"\#'"#
+#"escaped unicode \#u{0}\#u{12}\#u{345}\#u{6789}\#u{abcde}\#u{fABCDE}\#u{F012345}\#u{67890abc}"#
+#"raw characters \0\\\t\n\r\"\'\u{6789}"#
+##"escaped characters \##0\##\\##t\##n\##r\##"\##'"##
+##"escaped unicode \##u{0}\##u{12}\##u{345}\##u{6789}\##u{abcde}\##u{fABCDE}\##u{F012345}\##u{67890abc}"##
+##"raw characters \0\\\t\n\r\"\'\u{6789} \#0\#\\#t\#n\#r\#"\#'\#u{6789}"##
+###"escaped characters \###0\###\\###t\###n\###r\###"\###'"###
+###"escaped unicode \###u{0}\###u{12}\###u{345}\###u{6789}\###u{abcde}\###u{fABCDE}\###u{F012345}\###u{67890abc}"###
+###"raw characters \0\\\t\n\r\"\'\u{6789} \#0\#\\#t\#n\#r\#"\#'\#u{6789} \##0\##\\##t\##n\##r\##"\##'\##u{6789}"###
+
+"""
+escaped characters \0\\\t\n\r\"\'
+escaped unicode \u{0}\u{12}\u{345}\u{6789}\u{abcde}\u{fABCDE}\u{F012345}\u{67890abc}
+"""
+#"""
+escaped characters \#0\#\\#t\#n\#r\#"\#'
+escaped unicode \#u{0}\#u{12}\#u{345}\#u{6789}\#u{abcde}\#u{fABCDE}\#u{F012345}\#u{67890abc}
+raw characters \0\\\t\n\r\"\'\u{6789}
+"""#
+##"""
+escaped characters \##0\##\\##t\##n\##r\##"\##'
+escaped unicode \##u{0}\##u{12}\##u{345}\##u{6789}\##u{abcde}\##u{fABCDE}\##u{F012345}\##u{67890abc}
+raw characters \0\\\t\n\r\"\'\u{6789} \#0\#\\#t\#n\#r\#"\#'\#u{6789}
+"""##
+###"""
+escaped characters \###0\###\\###t\###n\###r\###"\###'
+escaped unicode \###u{0}\###u{12}\###u{345}\###u{6789}\###u{abcde}\###u{fABCDE}\###u{F012345}\###u{67890abc}
+raw characters \0\\\t\n\r\"\'\u{6789} \#0\#\\#t\#n\#r\#"\#'\#u{6789} \##0\##\\##t\##n\##r\##"\##'\##u{6789}
+"""###
+
+"""
+escaped newline \   
+same line
+"""
+#"""
+escaped newline \#   
+same line
+"""#
+##"""
+escaped newline \##   
+same line
+"""##
+###"""
+escaped newline \###   
+same line
+"""###
+
+"interpolation \(x)"
+#"interpolation \#(123) raw \(123)"#
+##"interpolation \##(1.23) raw \#(1.23) raw \(1.23)"##
+###"interpolation \###("string") raw \##("string") raw \#("string") raw \("string")"###
+
+"""
+interpolation \($0 + 1)
+"""
+#"""
+interpolation \#(abs(x - 2) as Double)
+raw \(abs(x - 2) as Double)
+"""#
+##"""
+interpolation \##(true)
+raw \#(true)
+raw \(true)
+"""##
+###"""
+interpolation \###("string")
+raw \##("string")
+raw \#("string")
+raw \("string")
+"""###

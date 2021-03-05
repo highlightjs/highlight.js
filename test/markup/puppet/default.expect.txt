@@ -1,0 +1,33 @@
+<span class="hljs-comment"># EC2 sample</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title">ec2utils</span> {
+
+    <span class="hljs-comment"># This must include the path to the Amazon EC2 tools</span>
+    <span class="hljs-variable">$ec2path</span> = [<span class="hljs-string">&quot;/usr/bin&quot;</span>, <span class="hljs-string">&quot;/bin&quot;</span>, <span class="hljs-string">&quot;/usr/sbin&quot;</span>, <span class="hljs-string">&quot;/sbin&quot;</span>,
+                <span class="hljs-string">&quot;/opt/ec2/ec2-api-tools/bin&quot;</span>,
+                <span class="hljs-string">&quot;/opt/ec2/aws-elb-tools/bin&quot;</span>]
+
+    <span class="hljs-keyword">define</span> <span class="hljs-section">elasticip</span> (<span class="hljs-variable">$instanceid</span>, <span class="hljs-variable">$ip</span>)
+    {
+        <span class="hljs-keyword">exec</span> { <span class="hljs-string">&quot;ec2-associate-address-<span class="hljs-variable">$name</span>&quot;</span>:
+            <span class="hljs-attr">logoutput</span>   =&gt; on_failure,
+            <span class="hljs-attr">environment</span> =&gt; <span class="hljs-variable">$ec2utils::ec2env</span>,
+            <span class="hljs-attr">path</span>        =&gt; <span class="hljs-variable">$ec2utils::ec2path</span>,
+            <span class="hljs-attr">command</span>     =&gt; <span class="hljs-string">&quot;ec2assocaddr <span class="hljs-variable">$ip</span> \
+                                         -i <span class="hljs-variable">$instanceid</span>&quot;</span>,
+            <span class="hljs-comment"># Only do this when necessary</span>
+            <span class="hljs-attr">unless</span> =&gt; <span class="hljs-string">&quot;test `ec2daddr <span class="hljs-variable">$ip</span> | awk &#x27;{print \$3}&#x27;` == <span class="hljs-variable">$instanceid</span>&quot;</span>,
+        }
+    }
+
+    <span class="hljs-keyword">mount</span> { <span class="hljs-string">&quot;<span class="hljs-variable">$mountpoint</span>&quot;</span>:
+        <span class="hljs-attr">device</span>  =&gt; <span class="hljs-variable">$devicetomount</span>,
+        <span class="hljs-attr">ensure</span>  =&gt; <span class="hljs-literal">mounted</span>,
+        <span class="hljs-attr">fstype</span>  =&gt; <span class="hljs-variable">$fstype</span>,
+        <span class="hljs-attr">options</span> =&gt; <span class="hljs-variable">$mountoptions</span>,
+        <span class="hljs-attr">require</span> =&gt; [ Exec[<span class="hljs-string">&quot;ec2-attach-volume-<span class="hljs-variable">$name</span>&quot;</span>],
+                     File[<span class="hljs-string">&quot;<span class="hljs-variable">$mountpoint</span>&quot;</span>]
+        ],
+    }
+
+}

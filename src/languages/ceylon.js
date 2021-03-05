@@ -7,25 +7,28 @@ Website: https://ceylon-lang.org
 /** @type LanguageFn */
 export default function(hljs) {
   // 2.3. Identifiers and keywords
-  var KEYWORDS =
+  const KEYWORDS =
     'assembly module package import alias class interface object given value ' +
     'assign void function new of extends satisfies abstracts in out return ' +
     'break continue throw assert dynamic if else switch case for while try ' +
     'catch finally then let this outer super is exists nonempty';
   // 7.4.1 Declaration Modifiers
-  var DECLARATION_MODIFIERS =
+  const DECLARATION_MODIFIERS =
     'shared abstract formal default actual variable late native deprecated ' +
     'final sealed annotation suppressWarnings small';
   // 7.4.2 Documentation
-  var DOCUMENTATION =
+  const DOCUMENTATION =
     'doc by license see throws tagged';
-  var SUBST = {
-    className: 'subst', excludeBegin: true, excludeEnd: true,
-    begin: /``/, end: /``/,
+  const SUBST = {
+    className: 'subst',
+    excludeBegin: true,
+    excludeEnd: true,
+    begin: /``/,
+    end: /``/,
     keywords: KEYWORDS,
     relevance: 10
   };
-  var EXPRESSIONS = [
+  const EXPRESSIONS = [
     {
       // verbatim string
       className: 'string',
@@ -36,7 +39,8 @@ export default function(hljs) {
     {
       // string literal or template
       className: 'string',
-      begin: '"', end: '"',
+      begin: '"',
+      end: '"',
       contains: [SUBST]
     },
     {
@@ -63,11 +67,13 @@ export default function(hljs) {
     illegal: '\\$[^01]|#[^0-9a-fA-F]',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      hljs.COMMENT('/\\*', '\\*/', {contains: ['self']}),
+      hljs.COMMENT('/\\*', '\\*/', {
+        contains: ['self']
+      }),
       {
         // compiler annotation
         className: 'meta',
-        begin: '@[a-z]\\w*(?:\\:\"[^\"]*\")?'
+        begin: '@[a-z]\\w*(?::"[^"]*")?'
       }
     ].concat(EXPRESSIONS)
   };

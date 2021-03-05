@@ -1,0 +1,33 @@
+<span class="hljs-class"><span class="hljs-title">OBJECT</span></span> Codeunit <span class="hljs-number">11</span> Gen. Jnl.-Check Line
+{
+  OBJECT-PROPERTIES
+  {
+    Date=<span class="hljs-number">09</span>-<span class="hljs-number">09</span>-<span class="hljs-number">14</span>;
+    Time=<span class="hljs-number">12</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>;
+    Version List=NAVW18.<span class="hljs-number">00</span>;
+  }
+  PROPERTIES
+  {
+    TableNo=<span class="hljs-number">81</span>;
+    Permissions=TableData <span class="hljs-number">252</span>=rimd;
+    OnRun=<span class="hljs-keyword">BEGIN</span>
+            GLSetup.GET;
+            RunCheck(Rec);
+          <span class="hljs-keyword">END</span>;
+
+  }
+  CODE
+  {
+    <span class="hljs-keyword">VAR</span>
+      Text000@<span class="hljs-number">1000</span> : TextConst <span class="hljs-string">&#x27;ENU=can only be a closing date for G/L entries&#x27;</span>;
+      Text001@<span class="hljs-number">1001</span> : TextConst <span class="hljs-string">&#x27;ENU=is not within your range of allowed posting dates&#x27;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">PROCEDURE</span> <span class="hljs-title">ErrorIfPositiveAmt</span>@2<span class="hljs-params">(GenJnlLine@1000 : Record 81)</span>;</span>
+    <span class="hljs-keyword">BEGIN</span>
+      <span class="hljs-keyword">IF</span> GenJnlLine.Amount &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">THEN</span>
+        GenJnlLine.FIELDERROR(Amount,Text008);
+    <span class="hljs-keyword">END</span>;
+
+    LOCAL <span class="hljs-function"><span class="hljs-keyword">PROCEDURE</span> <span class="hljs-title">CheckGenJnlLineDocType</span>@7<span class="hljs-params">(GenJnlLine@1001 : Record 81)</span>;</span>
+  }
+}

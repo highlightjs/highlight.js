@@ -1,0 +1,25 @@
+<span class="hljs-keyword">FrameBegin</span> <span class="hljs-number">0</span>
+<span class="hljs-keyword">Display</span> <span class="hljs-string">&quot;Scene&quot;</span> <span class="hljs-string">&quot;framebuffer&quot;</span> <span class="hljs-string">&quot;rgb&quot;</span>
+<span class="hljs-keyword">Option</span> <span class="hljs-string">&quot;searchpath&quot;</span> <span class="hljs-string">&quot;shader&quot;</span> <span class="hljs-string">&quot;+&amp;:/home/kew&quot;</span>
+<span class="hljs-keyword">Option</span> <span class="hljs-string">&quot;trace&quot;</span> <span class="hljs-string">&quot;int maxdepth&quot;</span> [<span class="hljs-number">4</span>]
+<span class="hljs-keyword">Attribute</span> <span class="hljs-string">&quot;visibility&quot;</span> <span class="hljs-string">&quot;trace&quot;</span> [<span class="hljs-number">1</span>]
+<span class="hljs-keyword">Attribute</span> <span class="hljs-string">&quot;irradiance&quot;</span> <span class="hljs-string">&quot;maxerror&quot;</span> [<span class="hljs-number">0.1</span>]
+<span class="hljs-keyword">Attribute</span> <span class="hljs-string">&quot;visibility&quot;</span> <span class="hljs-string">&quot;transmission&quot;</span> <span class="hljs-string">&quot;opaque&quot;</span>
+<span class="hljs-keyword">Format</span> <span class="hljs-number">640</span> <span class="hljs-number">480</span> <span class="hljs-number">1.0</span>
+<span class="hljs-keyword">ShadingRate</span> <span class="hljs-number">2</span>
+<span class="hljs-keyword">PixelFilter</span> <span class="hljs-string">&quot;catmull-rom&quot;</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">PixelSamples</span> <span class="hljs-number">4</span> <span class="hljs-number">4</span>
+<span class="hljs-keyword">Projection</span> <span class="hljs-string">&quot;perspective&quot;</span> <span class="hljs-string">&quot;fov&quot;</span> <span class="hljs-number">49.5502811377</span>
+<span class="hljs-keyword">Scale</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">-1</span>
+
+<span class="hljs-keyword">WorldBegin</span>
+
+<span class="hljs-keyword">ReadArchive</span> <span class="hljs-string">&quot;Lamp.002_Light/instance.rib&quot;</span>
+<span class="hljs-keyword">Surface</span> <span class="hljs-string">&quot;plastic&quot;</span>
+<span class="hljs-keyword">ReadArchive</span> <span class="hljs-string">&quot;Cube.004_Mesh/instance.rib&quot;</span>
+<span class="hljs-comment"># ReadArchive &quot;Sphere.010_Mesh/instance.rib&quot;</span>
+<span class="hljs-comment"># ReadArchive &quot;Sphere.009_Mesh/instance.rib&quot;</span>
+<span class="hljs-keyword">ReadArchive</span> <span class="hljs-string">&quot;Sphere.006_Mesh/instance.rib&quot;</span>
+
+<span class="hljs-keyword">WorldEnd</span>
+<span class="hljs-keyword">FrameEnd</span>

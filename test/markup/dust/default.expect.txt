@@ -1,0 +1,8 @@
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Hours<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  </span><span class="hljs-template-tag">{#<span class="hljs-name">users</span>}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> </span></span><span class="hljs-template-variable">{hello}</span><span class="xml"><span class="hljs-tag">&gt;</span></span><span class="hljs-template-variable">{firstName}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><span class="hljs-template-variable">{~n}</span><span class="xml">
+  </span><span class="hljs-template-tag">{/<span class="hljs-name">users</span>}</span><span class="xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</span>

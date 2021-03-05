@@ -1,0 +1,23 @@
+<?php
+
+// variable substitution
+
+echo ('Hello {$person->name}! Welcome to $company!');
+
+echo ("Hello {$person->name}! Welcome to $company!");
+
+echo (<<<MSG
+    Hello {$person->name}! Welcome to $company!
+MSG);
+
+// heredoc syntax
+
+var_dump(<<<SQL
+    SELECT *
+    FROM table
+SQL);
+
+var_dump(<<<SQL
+    SELECT *
+    FROM table
+    SQL);

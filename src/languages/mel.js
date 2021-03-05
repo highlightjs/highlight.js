@@ -220,11 +220,12 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
-        begin: '`', end: '`',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        begin: '`',
+        end: '`',
+        contains: [ hljs.BACKSLASH_ESCAPE ]
       },
       { // eats variables
-        begin: '[\\$\\%\\@](\\^\\w\\b|#\\w+|[^\\s\\w{]|{\\w+}|\\w+)'
+        begin: /[$%@](\^\w\b|#\w+|[^\s\w{]|\{\w+\}|\w+)/
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE

@@ -1,0 +1,37 @@
+<span class="hljs-meta">#IMAGE_FILES=&quot;*.png|*.jpg&quot;</span><span class="hljs-meta">
+#SOUND_FILES=&quot;*.wav|*.ogg&quot;</span><span class="hljs-meta">
+#MUSIC_FILES=&quot;*.wav|*.ogg&quot;</span><span class="hljs-meta">
+#BINARY_FILES=&quot;*.bin|*.dat&quot;</span>
+
+<span class="hljs-keyword">Import</span> mojo
+
+<span class="hljs-comment">&#x27; The main class which expends Mojo&#x27;s &#x27;App&#x27; class:</span>
+<span class="hljs-class"><span class="hljs-keyword">Class</span> <span class="hljs-title">GameApp</span> <span class="hljs-keyword">Extends</span> <span class="hljs-title">App</span></span>
+    <span class="hljs-keyword">Field</span> player:Player
+
+    <span class="hljs-function"><span class="hljs-keyword">Method</span> <span class="hljs-title">OnCreate</span>:</span>Int()
+        <span class="hljs-keyword">Local</span> img:Image = LoadImage(<span class="hljs-string">&quot;player.png&quot;</span>)
+        <span class="hljs-built_in">Self</span>.player = <span class="hljs-keyword">New</span> Player()
+        SetUpdateRate(<span class="hljs-number">60</span>)
+
+        <span class="hljs-keyword">Return</span> <span class="hljs-number">0</span>
+    <span class="hljs-keyword">End</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">Method</span> <span class="hljs-title">OnUpdate</span>:</span>Int()
+        player.x += <span class="hljs-built_in">HALFPI</span>
+
+        <span class="hljs-keyword">If</span> (player.x &gt; <span class="hljs-number">100</span>) <span class="hljs-keyword">Then</span>
+            player.x = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">Endif</span>
+
+        <span class="hljs-keyword">Return</span> <span class="hljs-number">0</span>
+    <span class="hljs-keyword">End</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">Method</span> <span class="hljs-title">OnRender</span>:</span>Int()
+        Cls(<span class="hljs-number">32</span>, <span class="hljs-number">64</span>, <span class="hljs-number">128</span>)
+        player.Draw()
+
+        player = <span class="hljs-literal">Null</span>
+        <span class="hljs-keyword">Return</span> <span class="hljs-number">0</span>
+    <span class="hljs-keyword">End</span>
+<span class="hljs-keyword">End</span>

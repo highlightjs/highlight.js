@@ -9,54 +9,65 @@ Category: scripting
 
 export default function(hljs) {
   // In SQF, a variable start with _
-  var VARIABLE = {
+  const VARIABLE = {
     className: 'variable',
-    begin: /\b_+[a-zA-Z_]\w*/
+    begin: /\b_+[a-zA-Z]\w*/
   };
 
   // In SQF, a function should fit myTag_fnc_myFunction pattern
   // https://community.bistudio.com/wiki/Functions_Library_(Arma_3)#Adding_a_Function
-  var FUNCTION = {
+  const FUNCTION = {
     className: 'title',
     begin: /[a-zA-Z][a-zA-Z0-9]+_fnc_\w*/
   };
 
   // In SQF strings, quotes matching the start are escaped by adding a consecutive.
   // Example of single escaped quotes: " "" " and  ' '' '.
-  var STRINGS = {
+  const STRINGS = {
     className: 'string',
     variants: [
       {
         begin: '"',
         end: '"',
-        contains: [{begin: '""', relevance: 0}]
+        contains: [ {
+          begin: '""',
+          relevance: 0
+        } ]
       },
       {
         begin: '\'',
         end: '\'',
-        contains: [{begin: '\'\'', relevance: 0}]
+        contains: [ {
+          begin: '\'\'',
+          relevance: 0
+        } ]
       }
     ]
   };
 
   // list of keywords from:
   // https://community.bistudio.com/wiki/PreProcessor_Commands
-  var PREPROCESSOR = {
+  const PREPROCESSOR = {
     className: 'meta',
-    begin: /#\s*[a-z]+\b/, end: /$/,
+    begin: /#\s*[a-z]+\b/,
+    end: /$/,
     keywords: {
       'meta-keyword':
         'define undef ifdef ifndef else endif include'
     },
     contains: [
       {
-        begin: /\\\n/, relevance: 0
+        begin: /\\\n/,
+        relevance: 0
       },
-      hljs.inherit(STRINGS, {className: 'meta-string'}),
+      hljs.inherit(STRINGS, {
+        className: 'meta-string'
+      }),
       {
         className: 'meta-string',
-        begin: /<[^\n>]*>/, end: /$/,
-        illegal: '\\n',
+        begin: /<[^\n>]*>/,
+        end: /$/,
+        illegal: '\\n'
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
@@ -65,7 +76,6 @@ export default function(hljs) {
 
   return {
     name: 'SQF',
-    aliases: ['sqf'],
     case_insensitive: true,
     keywords: {
       keyword:
@@ -420,7 +430,7 @@ export default function(hljs) {
       literal:
         'blufor civilian configNull controlNull displayNull east endl false grpNull independent lineBreak ' +
         'locationNull nil objNull opfor pi resistance scriptNull sideAmbientLife sideEmpty sideLogic ' +
-        'sideUnknown taskNull teamMemberNull true west',
+        'sideUnknown taskNull teamMemberNull true west'
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
