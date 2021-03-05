@@ -311,6 +311,7 @@ export default function(hljs) {
     variants: [
       // Exclude params in functions without params
       {
+        className: "",
         begin: /\(\s*\)/,
         skip: true
       },
