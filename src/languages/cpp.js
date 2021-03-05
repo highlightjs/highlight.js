@@ -237,8 +237,7 @@ export default function(hljs) {
       'atomic_ullong new throw return ' +
       'and and_eq bitand bitor compl not not_eq or or_eq xor xor_eq',
     built_in: '_Bool _Complex _Imaginary',
-    // used only for relevance
-    _: COMMON_CPP_HINTS,
+    _relevance_hints: COMMON_CPP_HINTS,
     literal: 'true false nullptr NULL'
   };
 

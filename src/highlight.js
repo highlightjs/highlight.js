@@ -172,8 +172,9 @@ const HLJS = function(hljs) {
           buf = "";
 
           relevance += keywordRelevance;
-          if (kind === "_") {
-            // _ is magic identifier for relevance only, do not highlight
+          if (kind.startsWith("_")) {
+            // _ implied for relevance only, do not highlight
+            // by applying a class name
             buf += match[0];
           } else {
             const cssClass = language.classNameAliases[kind] || kind;
