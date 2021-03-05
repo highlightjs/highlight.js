@@ -125,7 +125,7 @@ export default function(hljs) {
   ];
 
   // https://docs.python.org/3/library/typing.html
-  // TODO: Couild these be suplimented by a CamelCase matcher in certain
+  // TODO: Could these be supplemented by a CamelCase matcher in certain
   // contexts, leaving these remaining only for relevance hinting?
   const TYPES = [
     "Any",
