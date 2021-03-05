@@ -244,10 +244,6 @@ export default function(hljs) {
   const FUNCTION_DISPATCH = {
     className: "function.dispatch",
     relevance: 0,
-    // keywords: {
-    //   // used only for relevance
-    //   _: COMMON_CPP_HINTS
-    // },
     keywords: CPP_KEYWORDS,
     begin: regex.concat(
       /\b/,
