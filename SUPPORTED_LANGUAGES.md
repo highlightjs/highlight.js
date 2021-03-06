@@ -63,7 +63,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | dsconfig                | dsconfig               |         |
 | DTS (Device Tree)       | dts                    |         |
 | Dust                    | dust, dst              |         |
-| Dylan                   | dylan                  | [highlight-dylan](https://github.com/highlightjs/highlight-dylan) |
+| Dylan                   | dylan                  | [highlightjs-dylan](https://github.com/highlightjs/highlightjs-dylan) |
 | EBNF                    | ebnf                   |         |
 | Elixir                  | elixir                 |         |
 | Elm                     | elm                    |         |
