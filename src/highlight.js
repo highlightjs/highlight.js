@@ -172,8 +172,14 @@ const HLJS = function(hljs) {
           buf = "";
 
           relevance += keywordRelevance;
-          const cssClass = language.classNameAliases[kind] || kind;
-          emitter.addKeyword(match[0], cssClass);
+          if (kind.startsWith("_")) {
+            // _ implied for relevance only, do not highlight
+            // by applying a class name
+            buf += match[0];
+          } else {
+            const cssClass = language.classNameAliases[kind] || kind;
+            emitter.addKeyword(match[0], cssClass);
+          }
         } else {
           buf += match[0];
         }
@@ -762,21 +768,22 @@ const HLJS = function(hljs) {
   }
 
   let wantsHighlight = false;
-  let domLoaded = false;
 
   /**
    * auto-highlights all pre>code elements on the page
    */
   function highlightAll() {
     // if we are called too early in the loading process
-    if (!domLoaded) { wantsHighlight = true; return; }
+    if (document.readyState === "loading") {
+      wantsHighlight = true;
+      return;
+    }
 
     const blocks = document.querySelectorAll('pre code');
     blocks.forEach(highlightElement);
   }
 
   function boot() {
-    domLoaded = true;
     // if a highlight was requested before DOM was loaded, do now
     if (wantsHighlight) highlightAll();
   }

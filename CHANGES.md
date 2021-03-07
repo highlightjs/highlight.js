@@ -1,5 +1,9 @@
 ## Version 10.7.0 (in progress)
 
+Bugs:
+
+- fix(parser) `highlightAll()` now works if the library is lazy loaded [Josh Goebel][]
+
 New Languages:
 
 - Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]
@@ -10,6 +14,8 @@ Language grammar improvements:
 
 - fix(c) comments after `#include <str>` blocks (#3041) [Josh Goebel][]
 - fix(cpp) comments after `#include <str>` blocks (#3041) [Josh Goebel][]
+- enh(cpp) Highlight all function dispatches (#3005) [Josh Goebel][]
+- enh(python) support type hints and better type support (#2972) [Josh Goebel][]
 - enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
 - fix(cpp) constructor support for initializers (#3001) [Josh Goebel][]
 - enh(php) Add `trait` to class-like naming patterns (#2997) [Ayesh][]
