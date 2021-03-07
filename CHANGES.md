@@ -12,6 +12,8 @@ New Languages:
 
 Language grammar improvements:
 
+- fix(c) comments after `#include <str>` blocks (#3041) [Josh Goebel][]
+- fix(cpp) comments after `#include <str>` blocks (#3041) [Josh Goebel][]
 - enh(cpp) Highlight all function dispatches (#3005) [Josh Goebel][]
 - enh(python) support type hints and better type support (#2972) [Josh Goebel][]
 - enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]

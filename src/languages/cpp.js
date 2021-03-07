@@ -90,9 +90,7 @@ export default function(hljs) {
       }),
       {
         className: 'meta-string',
-        begin: /<.*?>/,
-        end: /$/,
-        illegal: '\\n'
+        begin: /<.*?>/
       },
       C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
