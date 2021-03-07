@@ -13,7 +13,6 @@ export default function(hljs) {
     keyword:
       'boolean byte word String',
     built_in:
-      'setup loop ' +
       'KeyboardController MouseController SoftwareSerial ' +
       'EthernetServer EthernetClient LiquidCrystal ' +
       'RobotControl GSMVoiceCall EthernetUDP EsploraTFT ' +
@@ -24,7 +23,9 @@ export default function(hljs) {
       'WiFiUDP GSM_SMS Mailbox USBHost Firmata PImage ' +
       'Client Server GSMPIN FileIO Bridge Serial ' +
       'EEPROM Stream Mouse Audio Servo File Task ' +
-      'GPRS WiFi Wire TFT GSM SPI SD ' +
+      'GPRS WiFi Wire TFT GSM SPI SD ',
+    _:
+      'setup loop ' +
       'runShellCommandAsynchronously analogWriteResolution ' +
       'retrieveCallingNumber printFirmwareVersion ' +
       'analogReadResolution sendDigitalPortPair ' +
@@ -102,6 +103,7 @@ export default function(hljs) {
   kws.keyword += ' ' + ARDUINO_KW.keyword;
   kws.literal += ' ' + ARDUINO_KW.literal;
   kws.built_in += ' ' + ARDUINO_KW.built_in;
+  kws._ += ' ' + ARDUINO_KW._;
 
   ARDUINO.name = 'Arduino';
   ARDUINO.aliases = ['ino'];

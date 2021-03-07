@@ -3,14 +3,14 @@
 
 <span class="hljs-keyword">namespace</span> impl {
     <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
-    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">is_streamable</span>&lt;</span>T, <span class="hljs-built_in">std</span>::<span class="hljs-keyword">void_t</span>&lt;<span class="hljs-keyword">decltype</span>(<span class="hljs-built_in">std</span>::declval&lt;<span class="hljs-built_in">std</span>::wostream &amp;&gt;() &lt;&lt; <span class="hljs-built_in">std</span>::declval&lt;T&gt;())&gt;&gt; : <span class="hljs-built_in">std</span>::true_type { };
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">is_streamable</span>&lt;</span>T, std::<span class="hljs-keyword">void_t</span>&lt;<span class="hljs-keyword">decltype</span>(std::declval&lt;std::wostream &amp;&gt;() &lt;&lt; std::declval&lt;T&gt;())&gt;&gt; : std::true_type { };
 }
 
 <span class="hljs-comment">// Disable overload for already valid operands.</span>
-<span class="hljs-keyword">template</span>&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>, <span class="hljs-keyword">class</span> =</span> <span class="hljs-built_in">std</span>::<span class="hljs-keyword">enable_if_t</span>&lt;!impl::is_streamable_v&lt;<span class="hljs-keyword">const</span> T &amp;&gt; &amp;&amp; <span class="hljs-built_in">std</span>::is_convertible_v&lt;<span class="hljs-keyword">const</span> T &amp;, <span class="hljs-built_in">std</span>::wstring_view&gt;&gt;&gt;
-<span class="hljs-built_in">std</span>::wostream &amp;<span class="hljs-keyword">operator</span> &lt;&lt;(<span class="hljs-built_in">std</span>::wostream &amp;stream, <span class="hljs-keyword">const</span> T &amp;thing)
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>, <span class="hljs-keyword">class</span> =</span> std::<span class="hljs-keyword">enable_if_t</span>&lt;!impl::is_streamable_v&lt;<span class="hljs-keyword">const</span> T &amp;&gt; &amp;&amp; std::is_convertible_v&lt;<span class="hljs-keyword">const</span> T &amp;, std::wstring_view&gt;&gt;&gt;
+std::wostream &amp;<span class="hljs-keyword">operator</span> &lt;&lt;(std::wostream &amp;stream, <span class="hljs-keyword">const</span> T &amp;thing)
 {
-    <span class="hljs-keyword">return</span> stream &lt;&lt; <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-built_in">std</span>::wstring_view&gt;(thing);
+    <span class="hljs-keyword">return</span> stream &lt;&lt; <span class="hljs-keyword">static_cast</span>&lt;std::wstring_view&gt;(thing);
 }
 
 <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-keyword">struct</span> <span class="hljs-title">DataHolder</span> {</span> };
