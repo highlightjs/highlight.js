@@ -13,6 +13,7 @@ New Languages:
 Language grammar improvements:
 
 - enh(cpp) Highlight all function dispatches (#3005) [Josh Goebel][]
+- enh(python) support type hints and better type support (#2972) [Josh Goebel][]
 - enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
 - fix(cpp) constructor support for initializers (#3001) [Josh Goebel][]
 - enh(php) Add `trait` to class-like naming patterns (#2997) [Ayesh][]
