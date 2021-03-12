@@ -9,4 +9,6 @@ x = Shorty()
     sys = <span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>)
 
 <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> sys.path:
-    print(_)
+    <span class="hljs-built_in">print</span>(_)
+
+<span class="hljs-built_in">exec</span>(<span class="hljs-number">123</span>)

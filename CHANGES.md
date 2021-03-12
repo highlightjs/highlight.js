@@ -26,6 +26,7 @@ Language grammar improvements:
 - enh(ecmascript) Add built-in types [Vaibhav Chanana][]
 - enh(kotlin) Add `kts` as an alias for Kotlin (#3021) [Vaibhav Chanana][]
 - enh(css) Add `font-smoothing` to attributes list for CSS (#3027) [AndyKIron][]
+- fix(python) Highlight `print` and `exec` as a builtin (#1468) [Samuel Colvin][]
 
 Deprecations:
 

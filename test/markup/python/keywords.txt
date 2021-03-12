@@ -10,3 +10,5 @@ if __debug__:
 
 for _ in sys.path:
     print(_)
+
+exec(123)
