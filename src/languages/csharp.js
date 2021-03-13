@@ -27,7 +27,7 @@ export default function(hljs) {
       'short',
       'string',
       'ulong',
-      'unit',
+      'uint',
       'ushort'
   ];
   var FUNCTION_MODIFIERS = [
