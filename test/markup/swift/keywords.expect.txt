@@ -15,6 +15,7 @@ x <span class="hljs-keyword">is</span> <span class="hljs-type">String</span>
 <span class="hljs-literal">true</span> <span class="hljs-literal">false</span> <span class="hljs-literal">nil</span>
 <span class="hljs-keyword">fileprivate(set)</span> <span class="hljs-keyword">internal(set)</span> <span class="hljs-keyword">open(set)</span> <span class="hljs-keyword">private(set)</span> <span class="hljs-keyword">public(set)</span>
 <span class="hljs-keyword">unowned(safe)</span> <span class="hljs-keyword">unowned(unsafe)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">await</span>
 
 <span class="hljs-keyword">#if</span>
 <span class="hljs-keyword">#error</span>(<span class="hljs-string">&quot;Error&quot;</span>)
