@@ -144,6 +144,7 @@ export default function(hljs) {
   ];
 
   const KEYWORDS = {
+    $pattern: /[A-Za-z]\w+|__\w+__/,
     keyword: RESERVED_WORDS,
     built_in: BUILT_INS,
     literal: LITERALS,
