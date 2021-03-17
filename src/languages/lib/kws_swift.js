@@ -33,6 +33,8 @@ export const keywords = [
   // will result in additional modes being created to scan for those keywords to
   // avoid conflicts with other rules
   'associatedtype',
+  'async',
+  'await',
   /as\?/, // operator
   /as!/, // operator
   'as', // operator
