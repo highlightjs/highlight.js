@@ -2,7 +2,7 @@
 Language: .properties
 Contributors: Valentin Aitken <valentin@nalisbg.com>, Egor Rogov <e.rogov@postgrespro.ru>
 Website: https://en.wikipedia.org/wiki/.properties
-Category: common, config
+Category: config
 */
 
 /** @type LanguageFn */
