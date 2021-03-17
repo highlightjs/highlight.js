@@ -727,27 +727,16 @@ const HLJS = function(hljs) {
     options = inherit(options, userOptions);
   }
 
-  /**
-   * Highlights to all <pre><code> blocks on a page
-   *
-   * @type {Function & {called?: boolean}}
-   */
   // TODO: remove v12, deprecated
   const initHighlighting = () => {
-    if (initHighlighting.called) return;
-    initHighlighting.called = true;
-
-    logger.deprecated("10.6.0", "initHighlighting() is deprecated.  Use highlightAll() instead.");
-
-    const blocks = document.querySelectorAll('pre code');
-    blocks.forEach(highlightElement);
+    highlightAll();
+    logger.deprecated("10.6.0", "initHighlighting() deprecated.  Use highlightAll() now.");
   };
 
-  // Higlights all when DOMContentLoaded fires
   // TODO: remove v12, deprecated
   function initHighlightingOnLoad() {
-    logger.deprecated("10.6.0", "initHighlightingOnLoad() is deprecated.  Use highlightAll() instead.");
-    wantsHighlight = true;
+    highlightAll();
+    logger.deprecated("10.6.0", "initHighlightingOnLoad() deprecated.  Use highlightAll() now.");
   }
 
   let wantsHighlight = false;

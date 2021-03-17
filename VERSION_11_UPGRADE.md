@@ -3,6 +3,11 @@
 -  remove apache, http, nginx, properties, coffeescript from :common #2848
 
 
+### Behavior changes
+
+- `initHighlighting` and `initHighlightingOnLoad` call `highlightAll`
+- Calling `highlightAll` over and over is not guarded against
+
 ### Grammar's removed or renamed
 
 - remove the old htmlbars stub, use handlebars
