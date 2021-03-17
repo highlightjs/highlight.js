@@ -12,3 +12,6 @@ x = Shorty()
     <span class="hljs-built_in">print</span>(_)
 
 <span class="hljs-built_in">exec</span>(<span class="hljs-number">123</span>)
+
+<span class="hljs-comment"># note, numbers still aren&#x27;t highlighted fully</span>
+<span class="hljs-built_in">print</span>(1<span class="hljs-keyword">if</span> <span class="hljs-number">0</span>==0<span class="hljs-keyword">else</span><span class="hljs-string">&quot;b&quot;</span>)
