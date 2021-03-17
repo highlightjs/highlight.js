@@ -12,6 +12,8 @@ const { install, installCleanCSS, mkdir, renderTemplate } = require("./lib/makes
 const log = (...args) => console.log(...args);
 const { rollupCode } = require("./lib/bundling.js");
 const bundling = require('./lib/bundling.js');
+const Table = require('cli-table');
+const { result } = require('lodash');
 
 function buildHeader(args) {
   return "/*!\n" +
@@ -19,6 +21,23 @@ function buildHeader(args) {
   `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n` +
   `  License: ${args.license}\n` +
   ` */`;
+}
+
+function detailedGrammarSizes(languages) {
+  if (languages.length > 180) return;
+
+  const resultTable = new Table({
+    head: ['lang','minified'],
+    // colWidths: [20,20,10,20,10,20],
+    chars: {'mid': '', 'left-mid': '', 'mid-mid': '', 'right-mid': ''},
+    style: {
+      head: ['grey']
+    }
+  });
+  languages.map(async(lang) => {
+    resultTable.push([lang.name, lang.data.length]);
+  });
+  console.log(resultTable.sort((b, a) => a[1] - b[1]).toString());
 }
 
 async function buildBrowser(options) {
@@ -37,6 +56,8 @@ async function buildBrowser(options) {
     })
   );
   log("");
+
+  detailedGrammarSizes(languages);
 
   const size = await buildBrowserHighlightJS(languages, { minify: options.minify });
 
