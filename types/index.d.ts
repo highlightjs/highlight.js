@@ -72,21 +72,24 @@ interface HighlightResult {
     relevance : number
     value : string
     language? : string
-    emitter : Emitter
     illegal : boolean
-    top? : Language | CompiledMode
-    illegalBy? : illegalData
-    sofar? : string
+    _illegalBy? : illegalData
     errorRaised? : Error
     // * for auto-highlight
     secondBest? : Omit<HighlightResult, 'secondBest'>
     code?: string
+    // technically psuedo-private API
+    _emitter : Emitter
+    _top? : Language | CompiledMode
+
 }
 interface AutoHighlightResult extends HighlightResult {}
 
 interface illegalData {
-    msg: string
+    message: string
     context: string
+    index: number
+    resultSoFar : string
     mode: CompiledMode
 }
 
