@@ -218,7 +218,7 @@ const HLJS = function(hljs) {
           return;
         }
         result = _highlight(top.subLanguage, modeBuffer, true, continuations[top.subLanguage]);
-        continuations[top.subLanguage] = /** @type {CompiledMode} */ (result.top);
+        continuations[top.subLanguage] = /** @type {CompiledMode} */ (result._top);
       } else {
         result = highlightAuto(modeBuffer, top.subLanguage.length ? top.subLanguage : null);
       }
@@ -230,7 +230,7 @@ const HLJS = function(hljs) {
       if (top.relevance > 0) {
         relevance += result.relevance;
       }
-      emitter.addSublanguage(result.emitter, result.language);
+      emitter.addSublanguage(result._emitter, result.language);
     }
 
     function processBuffer() {
@@ -559,32 +559,33 @@ const HLJS = function(hljs) {
         value: result,
         relevance: relevance,
         illegal: false,
-        emitter: emitter,
-        top: top
+        _emitter: emitter,
+        _top: top
       };
     } catch (err) {
       if (err.message && err.message.includes('Illegal')) {
         return {
-          illegal: true,
-          illegalBy: {
-            msg: err.message,
-            context: codeToHighlight.slice(index - 100, index + 100),
-            mode: err.mode
-          },
-          sofar: result,
-          relevance: 0,
           value: escape(codeToHighlight),
-          emitter: emitter
+          illegal: true,
+          relevance: 0,
+          _illegalBy: {
+            message: err.message,
+            index: index,
+            context: codeToHighlight.slice(index - 100, index + 100),
+            mode: err.mode,
+            resultSoFar: result
+          },
+          _emitter: emitter
         };
       } else if (SAFE_MODE) {
         return {
+          language: languageName,
+          value: escape(codeToHighlight),
           illegal: false,
           relevance: 0,
-          value: escape(codeToHighlight),
-          emitter: emitter,
-          language: languageName,
-          top: top,
-          errorRaised: err
+          errorRaised: err,
+          _emitter: emitter,
+          _top: top
         };
       } else {
         throw err;
@@ -601,13 +602,13 @@ const HLJS = function(hljs) {
    */
   function justTextHighlightResult(code) {
     const result = {
-      relevance: 0,
-      emitter: new options.__emitter(options),
       value: escape(code),
       illegal: false,
-      top: PLAINTEXT_LANGUAGE
+      relevance: 0,
+      _top: PLAINTEXT_LANGUAGE,
+      _emitter: new options.__emitter(options)
     };
-    result.emitter.addText(code);
+    result._emitter.addText(code);
     return result;
   }
 
