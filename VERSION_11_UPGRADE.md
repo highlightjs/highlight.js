@@ -18,6 +18,7 @@
 
 - fixMarkup is gone now, provide your own replacement #2534
 - highlightElement/highlightBlock result now no longer returns `re` key, use `relevance` instead
+- `CSS_NUMBER_MODE` has now been moved into the internal `css-shared` library
 
 ### Configuration options removed/changed
 
