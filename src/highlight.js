@@ -36,7 +36,6 @@ const HLJS = function(hljs) {
   // safe/production mode - swallows more errors, tries to keep running
   // even if a single syntax or parse hits a fatal error
   let SAFE_MODE = true;
-  const fixMarkupRe = /(^(<[^>]+>|\t|)+|\n)/gm;
   const LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
   /** @type {Language} */
   const PLAINTEXT_LANGUAGE = { disableAutodetect: true, name: 'Plain text', contains: [] };
@@ -48,8 +47,6 @@ const HLJS = function(hljs) {
     noHighlightRe: /^(no-?highlight)$/i,
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
-    tabReplace: null,
-    useBR: false,
     languages: null,
     // beta configuration options, subject to change, welcome to discuss
     // https://github.com/highlightjs/highlight.js/issues/1086
@@ -669,30 +666,6 @@ const HLJS = function(hljs) {
   }
 
   /**
-  Post-processing of the highlighted markup:
-
-  - replace TABs with something more useful
-  - replace real line-breaks with '<br>' for non-pre containers
-
-    @param {string} html
-    @returns {string}
-  */
-  function fixMarkup(html) {
-    if (!(options.tabReplace || options.useBR)) {
-      return html;
-    }
-
-    return html.replace(fixMarkupRe, match => {
-      if (match === '\n') {
-        return options.useBR ? '<br>' : match;
-      } else if (options.tabReplace) {
-        return match.replace(/\t/g, options.tabReplace);
-      }
-      return match;
-    });
-  }
-
-  /**
    * Builds new class name for block given the language name
    *
    * @param {HTMLElement} element
@@ -706,35 +679,8 @@ const HLJS = function(hljs) {
     if (language) element.classList.add(language);
   }
 
-  /** @type {HLJSPlugin} */
-  const brPlugin = {
-    "before:highlightElement": ({ el }) => {
-      if (options.useBR) {
-        el.innerHTML = el.innerHTML.replace(/\n/g, '').replace(/<br[ /]*>/g, '\n');
-      }
-    },
-    "after:highlightElement": ({ result }) => {
-      if (options.useBR) {
-        result.value = result.value.replace(/\n/g, "<br>");
-      }
-    }
-  };
-
-  const TAB_REPLACE_RE = /^(<[^>]+>|\t)+/gm;
-  /** @type {HLJSPlugin} */
-  const tabReplacePlugin = {
-    "after:highlightElement": ({ result }) => {
-      if (options.tabReplace) {
-        result.value = result.value.replace(TAB_REPLACE_RE, (m) =>
-          m.replace(/\t/g, options.tabReplace)
-        );
-      }
-    }
-  };
-
   /**
-   * Applies highlighting to a DOM node containing code. Accepts a DOM node and
-   * two optional parameters for fixMarkup.
+   * Applies highlighting to a DOM node containing code.
    *
    * @param {HighlightedHTMLElement} element - the HTML element to highlight
   */
@@ -778,10 +724,6 @@ const HLJS = function(hljs) {
    * @param {Partial<HLJSOptions>} userOptions
    */
   function configure(userOptions) {
-    if (userOptions.useBR) {
-      logger.deprecated("10.3.0", "'useBR' will be removed entirely in v11.0");
-      logger.deprecated("10.3.0", "Please see https://github.com/highlightjs/highlight.js/issues/2559");
-    }
     options = inherit(options, userOptions);
   }
 
@@ -981,19 +923,6 @@ const HLJS = function(hljs) {
   }
 
   /**
-  Note: fixMarkup is deprecated and will be removed entirely in v11
-
-  @param {string} arg
-  @returns {string}
-  */
-  function deprecateFixMarkup(arg) {
-    logger.deprecated("10.2.0", "fixMarkup will be removed entirely in v11.0");
-    logger.deprecated("10.2.0", "Please see https://github.com/highlightjs/highlight.js/issues/2534");
-
-    return fixMarkup(arg);
-  }
-
-  /**
    *
    * @param {HighlightedHTMLElement} el
    */
@@ -1009,7 +938,6 @@ const HLJS = function(hljs) {
     highlight,
     highlightAuto,
     highlightAll,
-    fixMarkup: deprecateFixMarkup,
     highlightElement,
     // TODO: Remove with v12 API
     highlightBlock: deprecateHighlightBlock,
@@ -1045,9 +973,7 @@ const HLJS = function(hljs) {
   Object.assign(hljs, MODES);
 
   // built-in plugins, likely to be moved out of core in the future
-  hljs.addPlugin(brPlugin); // slated to be removed in v11
   hljs.addPlugin(mergeHTMLPlugin);
-  hljs.addPlugin(tabReplacePlugin);
   return hljs;
 };
 
