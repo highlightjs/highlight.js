@@ -81,11 +81,12 @@ Accepts an object representing options with the values to updated. Other options
 ::
 
   hljs.configure({
-    tabReplace: '    ', // 4 spaces
+    noHighlightRe: /^do-not-highlightme$/i,
+    languageDetectRe: /\bgrammar-([\w-]+)\b/i, // for `grammar-swift` style CSS naming
     classPrefix: ''     // don't append class prefix
                         // … other options aren't changed
   });
-  hljs.initHighlighting();
+  hljs.highlightAll();
 
 
 ``highlightAll()``
