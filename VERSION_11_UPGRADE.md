@@ -24,6 +24,7 @@
 - useBR gone, #2559
 - tabReplace gone, #2874
 
-## Notable
+## Others
 
 - `relevance` returned may be a floating point number now
+- regex utility `join` renamed to `_eitherRewriteBackreferences` (this was always internal)
