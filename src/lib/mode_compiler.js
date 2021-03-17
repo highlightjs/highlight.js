@@ -66,7 +66,7 @@ export function compileLanguage(language, { plugins }) {
         this.exec = () => null;
       }
       const terminators = this.regexes.map(el => el[1]);
-      this.matcherRe = langRe(regex.join(terminators), true);
+      this.matcherRe = langRe(regex._eitherRewriteBackreferences(terminators), true);
       this.lastIndex = 0;
     }
 
