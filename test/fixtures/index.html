@@ -33,21 +33,11 @@ $colorGreenDark: darken($colorGreen, 10);
 
 <div id="custom-markup">
 
-<!-- tab replacement -->
-<pre><code class="python">for x in [1, 2, 3]:
-	count(x)</code></pre>
-
 <!-- custom markup -->
 <pre><code class="html">&lt;<a href="http://dev.w3.org/html5/spec/Overview.html#the-div-element">div</a> id="contents"&gt;
   <del>&lt;p&gt;Hello, World!</del><!-- A comment should not break merging --><ins>Goodbye, cruel world!</ins>
 &lt;/div&gt;
 </code></pre>
-
-<!-- custom markup and tab replacement -->
-<pre><code class="python">for x in [1, 2, 3]:
-<span style="background:yellow">	</span>count(x)
-	if x == 3:
-	<span style="background:yellow">	</span>count(x + 1)</code></pre>
 
 <!-- <br> inside of <pre>s -->
 <pre><code class="language-javascript">&gt;&gt; '\x41\x42\x43'<br>'ABC'<br><hr><br>&gt;&gt; '\x61\x62\x63'<br>'abc'
@@ -110,22 +100,6 @@ $colorGreenDark: darken($colorGreen, 10);
 <!-- do not clutter class name spaces around-->
 <pre><code class=" hljs some-class ">&lt;?xml version="1.0"?&gt;
     &lt;response value="ok" xml:lang="en"&gt;&lt;/response&gt;</code></pre>
-
-</div>
-
-<div id="use-br">
-
-<div class="code xml">&lt;head&gt;<br>  &lt;meta charset="utf-8"&gt;<br>  &lt;title&gt;&lt;/title&gt;<br>&lt;/head&gt;</div>
-
-<div class="code xml">&lt;head&gt;<br>
-  &lt;meta charset="utf-8"&gt;<br>
-  &lt;title&gt;&lt;/title&gt;<br>
-&lt;/head&gt;</div>
-
-<div class="code xml">&lt;head&gt;<br>
-  &lt;meta charset="utf-8"&gt;<br/>
-  &lt;title&gt;&lt;/title&gt;<br />
-&lt;/head&gt;</div>
 
 </div>
 

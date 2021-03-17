@@ -16,7 +16,13 @@
 
 ## API's changed
 
+- fixMarkup is gone now, provide your own replacement #2534
 - highlightElement/highlightBlock result now no longer returns `re` key, use `relevance` instead
+
+### Configuration options removed/changed
+
+- useBR gone, #2559
+- tabReplace gone, #2874
 
 ## Notable
 

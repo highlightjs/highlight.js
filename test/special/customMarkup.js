@@ -9,33 +9,17 @@ describe('custom markup', () => {
     this.blocks = [...testHTML].map(x => x.innerHTML);
   });
 
-  it('should replace tabs', () => {
-    const filename = utility.buildPath('fixtures', 'expect',
-                                       'tabreplace.txt'),
-          actual   = this.blocks[0];
-
-    return utility.expectedFile(filename, 'utf-8', actual);
-  });
-
   it('should keep custom markup', () => {
     const filename = utility.buildPath('fixtures', 'expect',
                                        'custommarkup.txt'),
-          actual   = this.blocks[1];
-
-    return utility.expectedFile(filename, 'utf-8', actual);
-  });
-
-  it('should keep custom markup and replace tabs', () => {
-    const filename = utility.buildPath('fixtures', 'expect',
-                                       'customtabreplace.txt'),
-          actual   = this.blocks[2];
+          actual   = this.blocks[0];
 
     return utility.expectedFile(filename, 'utf-8', actual);
   });
 
   it('should keep the same amount of void elements (<br>, <hr>, ...)', () => {
     const filename = utility.buildPath('fixtures', 'expect', 'brInPre.txt'),
-          actual   = this.blocks[3];
+          actual   = this.blocks[1];
 
     return utility.expectedFile(filename, 'utf-8', actual);
   });

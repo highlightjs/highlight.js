@@ -25,7 +25,7 @@ describe('special cases tests', () => {
     blocks.forEach(hljs.highlightElement);
 
     // Setup hljs for non-`<pre><code>` tests
-    hljs.configure({ useBR: true });
+    hljs.configure();
 
     blocks = document.querySelectorAll('.code');
     blocks.forEach(hljs.highlightElement);
@@ -37,6 +37,5 @@ describe('special cases tests', () => {
   require('./noHighlight');
   require('./subLanguages');
   require('./buildClassName');
-  require('./useBr');
   require('./endsWithParentVariants')
 });

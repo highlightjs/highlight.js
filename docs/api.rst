@@ -54,16 +54,6 @@ Returns an object with the following properties:
 * ``secondBest``: object with the same structure for second-best heuristically detected language (may be absent)
 
 
-``fixMarkup(value)`` (deprecated as of 10.3)
---------------------------------------------
-
-**fixMarkup is deprecated and will be removed entirely in v11.**
-
-Post-processing of the highlighted markup. Currently consists of replacing indentation TAB characters and using ``<br>`` tags instead of new-line characters. Options are set globally with ``configure``.
-
-Accepts a string with the highlighted markup.
-
-
 ``highlightBlock(block)``
 -------------------------
 
@@ -82,8 +72,6 @@ in the ``class`` attribute of the DOM node. See the :doc:`class reference
 
 Configures global options:
 
-* ``tabReplace``: a string used to replace TAB characters in indentation.
-* ``useBR``: a flag to generate ``<br>`` tags instead of new-line characters in the output, useful when code is marked up using a non-``<pre>`` container.
 * ``classPrefix``: a string prefix added before class names in the generated markup, used for backwards compatibility with stylesheets.
 * ``languages``: an array of language names and aliases restricting auto detection to only these languages.
 * ``languageDetectRe``: a regex to configure how CSS class names map to language (allows class names like say `color-as-php` vs the default of `language-php`, etc.)
