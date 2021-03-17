@@ -32,7 +32,6 @@ describe('special cases tests', () => {
   });
 
   require('./explicitLanguage');
-  require('./customMarkup');
   require('./languageAlias');
   require('./noHighlight');
   require('./subLanguages');

@@ -13,7 +13,6 @@ import * as MODES from './lib/modes.js';
 import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
 import { BuildVuePlugin } from "./plugins/vue.js";
-import { mergeHTMLPlugin } from "./plugins/merge_html.js";
 import * as logger from "./lib/logger.js";
 
 const escape = utils.escapeHTML;
@@ -961,8 +960,6 @@ const HLJS = function(hljs) {
   // merge all the modes/regexs into our main object
   Object.assign(hljs, MODES);
 
-  // built-in plugins, likely to be moved out of core in the future
-  hljs.addPlugin(mergeHTMLPlugin);
   return hljs;
 };
 
