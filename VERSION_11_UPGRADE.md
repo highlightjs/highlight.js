@@ -10,6 +10,10 @@
 - remove the old htmlbars stub, use handlebars
 - remove c-like, use c, cpp, or arduino
 
+### Alias Changes
+
+- php3,4,5,6,etc... aliases removed, use php instead
+
 ## API's changed
 
 - highlightElement/highlightBlock result now no longer returns `re` key, use `relevance` instead
