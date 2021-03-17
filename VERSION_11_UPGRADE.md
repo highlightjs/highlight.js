@@ -9,6 +9,7 @@
 
 - remove the old htmlbars stub, use handlebars
 - remove c-like, use c, cpp, or arduino
+- removed `sql_more`, use `sql` instead
 
 ### Alias Changes
 
