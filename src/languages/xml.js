@@ -220,12 +220,12 @@ export default function(hljs) {
           {
             className: 'name',
             begin: TAG_NAME_RE,
-            relevance: 0,
-            endsParent: true
+            relevance: 0
           },
           {
             begin: />/,
-            relevance: 0
+            relevance: 0,
+            endsParent: true
           }
         ]
       }
