@@ -39,6 +39,7 @@
     "lint": "eslint src/*.js src/lib/*.js src/plugins/*.js demo/*.js",
     "lint-languages": "eslint --no-eslintrc -c .eslintrc.lang.js src/languages/**/*.js",
     "build_and_test": "npm run build && npm run test",
+    "build_and_test_browser": "npm run build-browser && npm run test-browser",
     "build": "node ./tools/build.js -t node",
     "build-cdn": "node ./tools/build.js -t cdn",
     "build-browser": "node ./tools/build.js -t browser :common",
