@@ -6,6 +6,11 @@
  * This work is licensed under the Creative Commons CC0 1.0 Universal License
  */
 
+.hljs {
+  background: #322931;
+  color: #b9b5b8;
+}
+
 /* Comment */
 .hljs-comment,
 .hljs-quote {
@@ -65,14 +70,6 @@
 .hljs-keyword,
 .hljs-selector-tag {
   color: #c85e7c;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #322931;
-  color: #b9b5b8;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

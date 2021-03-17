@@ -5,9 +5,6 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   color: #333;
   background: #fff;
 }

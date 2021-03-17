@@ -1,18 +1,13 @@
 /*
-
 Qt Creator light color scheme
-
 */
 
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  color: #000000;
   background: #ffffff;
 }
 
-.hljs,
 .hljs-subst,
 .hljs-tag,
 .hljs-title {

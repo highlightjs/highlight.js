@@ -2,6 +2,11 @@
 /* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
 /* @author: ericwbailey */
 
+.hljs {
+  background: #fefefe;
+  color: #545454;
+}
+
 /* Comment */
 .hljs-comment,
 .hljs-quote {
@@ -55,14 +60,6 @@
 .hljs-keyword,
 .hljs-selector-tag {
   color: #7928a1;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #fefefe;
-  color: #545454;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

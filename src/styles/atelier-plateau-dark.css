@@ -2,6 +2,11 @@
 /* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/plateau) */
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 
+.hljs {
+  background: #1b1818;
+  color: #8a8585;
+}
+
 /* Atelier-Plateau Comment */
 .hljs-comment,
 .hljs-quote {
@@ -65,14 +70,6 @@
 
 .hljs-addition {
   background-color: #4b8b8b;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #1b1818;
-  color: #8a8585;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {
