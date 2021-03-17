@@ -32,6 +32,7 @@
 - rename second_best to secondBest (highlightAuto)
 - highlightElement/highlightBlock result now no longer returns `re` key, use `relevance` instead
 - `CSS_NUMBER_MODE` has now been moved into the internal `css-shared` library
+- `highlight()` result now renames some keys to mark them as private: `_top`, `_emitter`, and `_illegalBy`
 
 ### Configuration options removed/changed
 
