@@ -9,3 +9,7 @@
 
 - remove the old htmlbars stub, use handlebars
 - remove c-like, use c, cpp, or arduino
+
+## API's changed
+
+- highlightElement/highlightBlock result now no longer returns `re` key, use `relevance` instead
