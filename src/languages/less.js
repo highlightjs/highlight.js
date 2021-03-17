@@ -58,7 +58,7 @@ export default function(hljs) {
     hljs.C_BLOCK_COMMENT_MODE,
     STRING_MODE("'"),
     STRING_MODE('"'),
-    hljs.CSS_NUMBER_MODE, // fixme: it does not include dot for numbers like .5em :(
+    modes.CSS_NUMBER_MODE, // fixme: it does not include dot for numbers like .5em :(
     {
       begin: '(url|data-uri)\\(',
       starts: {

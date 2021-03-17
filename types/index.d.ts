@@ -50,7 +50,6 @@ interface ModesAPI {
     NUMBER_MODE: Mode
     C_NUMBER_MODE: Mode
     BINARY_NUMBER_MODE: Mode
-    CSS_NUMBER_MODE: Mode
     REGEXP_MODE: Mode
     TITLE_MODE: Mode
     UNDERSCORE_TITLE_MODE: Mode
