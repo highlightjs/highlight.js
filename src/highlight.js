@@ -600,7 +600,7 @@ const HLJS = function(hljs) {
   - language (detected language)
   - relevance (int)
   - value (an HTML string with highlighting markup)
-  - second_best (object with the same structure for second-best heuristically
+  - secondBest (object with the same structure for second-best heuristically
     detected language, may be absent)
 
     @param {string} code
@@ -641,7 +641,7 @@ const HLJS = function(hljs) {
 
     /** @type {AutoHighlightResult} */
     const result = best;
-    result.second_best = secondBest;
+    result.secondBest = secondBest;
 
     return result;
   }
@@ -742,12 +742,12 @@ const HLJS = function(hljs) {
       re: result.relevance,
       relavance: result.relevance
     };
-    if (result.second_best) {
-      element.second_best = {
-        language: result.second_best.language,
+    if (result.secondBest) {
+      element.secondBest = {
+        language: result.secondBest.language,
         // TODO: remove with version 11.0
-        re: result.second_best.relevance,
-        relavance: result.second_best.relevance
+        re: result.secondBest.relevance,
+        relavance: result.secondBest.relevance
       };
     }
   }

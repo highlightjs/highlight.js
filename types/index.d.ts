@@ -81,7 +81,7 @@ interface HighlightResult {
     sofar? : string
     errorRaised? : Error
     // * for auto-highlight
-    second_best? : Omit<HighlightResult, 'second_best'>
+    secondBest? : Omit<HighlightResult, 'secondBest'>
     code?: string
 }
 interface AutoHighlightResult extends HighlightResult {}
@@ -142,7 +142,7 @@ interface CallbackResponse {
 type AnnotatedError = Error & {mode?: Mode | Language, languageName?: string, badRule?: Mode}
 
 type ModeCallback = (match: RegExpMatchArray, response: CallbackResponse) => void
-type HighlightedHTMLElement = HTMLElement & {result?: object, second_best?: object, parentNode: HTMLElement}
+type HighlightedHTMLElement = HTMLElement & {result?: object, secondBest?: object, parentNode: HTMLElement}
 type EnhancedMatch = RegExpMatchArray & {rule: CompiledMode, type: MatchType}
 type MatchType = "begin" | "end" | "illegal"
 
