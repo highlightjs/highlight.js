@@ -50,10 +50,10 @@
     "test-parser": "mocha test/parser"
   },
   "engines": {
-    "node": "*"
+    "node": ">=12.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "@types/mocha": "^8.2.2",
