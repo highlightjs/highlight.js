@@ -2,6 +2,10 @@
 
 -  remove apache, http, nginx, properties, coffeescript from :common #2848
 
+### Feature Removal
+
+- HTML merging is now no longer included in core.  You'll want to use a plugin instead. https://github.com/highlightjs/highlight.js/issues/2889
+- fixMarkup is gone now, provide your own replacement #2534
 
 ### Behavior changes
 
@@ -26,7 +30,6 @@
 ## API's changed
 
 - rename second_best to secondBest (highlightAuto)
-- fixMarkup is gone now, provide your own replacement #2534
 - highlightElement/highlightBlock result now no longer returns `re` key, use `relevance` instead
 - `CSS_NUMBER_MODE` has now been moved into the internal `css-shared` library
 
