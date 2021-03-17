@@ -112,6 +112,12 @@ interface EmitterConstructor {
     new (opts: any): Emitter
 }
 
+interface HighlightOptions {
+    language: string
+    ignoreIllegals?: boolean
+    continuation?: CompiledMode
+}
+
 interface HLJSOptions {
    noHighlightRe: RegExp
    languageDetectRe: RegExp

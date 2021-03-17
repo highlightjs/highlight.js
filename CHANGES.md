@@ -34,6 +34,11 @@ Language grammar improvements:
 
 Deprecations:
 
+- `highlight(languageName, code, ignoreIllegals, continuation)` deprecated as of 10.7
+  - Please use the newer API which takes `code` and then accepts options as an object
+  - IE: `highlight(code, {language, ignoreIllegals})`
+  - `continuation` is for internal use only and no longer supported
+
 - `highlightBlock(el)` deprecated as of 10.7.
   - Please use `highlightElement(el)` instead.
   - Plugin callbacks renamed `before/after:highlightBlock` => `before/after:highlightElement`

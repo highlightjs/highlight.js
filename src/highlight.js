@@ -132,14 +132,25 @@ const HLJS = function(hljs) {
   /**
    * private highlight that's used internally and does not fire callbacks
    *
-   * @param {string} languageName - the language to use for highlighting
-   * @param {string} code - the code to highlight
-   * @param {boolean} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
-   * @param {CompiledMode} [continuation] - current continuation mode, if any
+   * @param {string} codeOrlanguageName - the language to use for highlighting
+   * @param {string | HighlightOptions} codeOrOptions - the code to highlight
+   * @param {boolean?} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
+   * @param {CompiledMode?} [continuation] - current continuation mode, if any
    * @returns {HighlightResult} - result of the highlight operation
   */
-  function _highlight(languageName, code, ignoreIllegals, continuation) {
-    const codeToHighlight = code;
+  function _highlight(codeOrlanguageName, codeOrOptions, ignoreIllegals, continuation) {
+    let codeToHighlight = "";
+    let languageName = "";
+    if (typeof codeOrOptions === "object") {
+      const opts = codeOrOptions;
+      codeToHighlight = codeOrlanguageName;
+      ignoreIllegals = opts.ignoreIllegals;
+      continuation = opts.continuation;
+      languageName = opts.language;
+    } else {
+      languageName = codeOrlanguageName;
+      codeToHighlight = codeOrOptions;
+    }
 
     /**
      * Return keyword data if a match is a keyword
