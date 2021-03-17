@@ -559,11 +559,9 @@ const HLJS = function(hljs) {
       result = emitter.toHTML();
 
       return {
-        // avoid possible breakage with v10 clients expecting
-        // this to always be an integer
-        relevance: Math.floor(relevance),
-        value: result,
         language: languageName,
+        value: result,
+        relevance: relevance,
         illegal: false,
         emitter: emitter,
         top: top

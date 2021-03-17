@@ -13,3 +13,7 @@
 ## API's changed
 
 - highlightElement/highlightBlock result now no longer returns `re` key, use `relevance` instead
+
+## Notable
+
+- `relevance` returned may be a floating point number now
