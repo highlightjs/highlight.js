@@ -175,7 +175,7 @@ async function buildBrowserHighlightJS(languages, { minify }) {
     },
     load: (id) => {
       if (id == "builtInLanguages") {
-        let escape = (s) => s.replace("-","_");
+        const escape = (s) => "grmr_" + s.replace("-", "_");
         let src = "";
         src += languages.map((x) => `import ${escape(x.name)} from '${x.path}'`).join("\n");
         src += `\nexport {${languages.map((x) => escape(x.name)).join(",")}}`;
