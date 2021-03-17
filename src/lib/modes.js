@@ -146,19 +146,6 @@ export const BINARY_NUMBER_MODE = {
   begin: BINARY_NUMBER_RE,
   relevance: 0
 };
-export const CSS_NUMBER_MODE = {
-  className: 'number',
-  begin: NUMBER_RE + '(' +
-    '%|em|ex|ch|rem' +
-    '|vw|vh|vmin|vmax' +
-    '|cm|mm|in|pt|pc|px' +
-    '|deg|grad|rad|turn' +
-    '|s|ms' +
-    '|Hz|kHz' +
-    '|dpi|dpcm|dppx' +
-    ')?',
-  relevance: 0
-};
 export const REGEXP_MODE = {
   // this outer rule makes sure we actually have a WHOLE regex and not simply
   // an expression such as:
