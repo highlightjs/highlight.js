@@ -26,6 +26,8 @@
 ### Alias Changes
 
 - php3,4,5,6,etc... aliases removed, use php instead
+- `zsh` removed, use `sh` instead
+- `freepascal`, `lazarus`, `lpr`, `lpm` removed. Use `delphi` or add you own aliases back.
 
 ## API's changed
 
