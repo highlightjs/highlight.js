@@ -73,18 +73,25 @@ export const COMMENT = function(begin, end, modeOptions = {}) {
     },
     modeOptions
   );
-  mode.contains.push(
-    {
-      className: "hint",
-      begin: /([()"]?([A-Za-z'-]{3,}|is|a|I|so|us|[tT][oO]|at|if|in|it|on)[.]?[()":]?([.][ ]|[ ]|\))){3}/
-    }
-  );
   // mode.contains.push(PHRASAL_WORDS_MODE);
   mode.contains.push({
     className: 'doctag',
-    begin: '(?:TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+    // hack to avoid the space from being included. the space is necessary to
+    // match here to prevent the plain text rule below from gobbling up doctags
+    begin: '[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+    end: /(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):/,
+    excludeBegin: true,
     relevance: 0
   });
+  // looking like plain text, more likely to be a comment
+  mode.contains.push(
+    {
+      // TODO: how to include ", (, ) without breaking grammars that use these for
+      // comment delimiters?
+      // begin: /[ ]+([()"]?([A-Za-z'-]{3,}|is|a|I|so|us|[tT][oO]|at|if|in|it|on)[.]?[()":]?([.][ ]|[ ]|\))){3}/
+      begin: /[ ]+(([A-Za-z'-]{3,}|is|a|I|so|us|[tT][oO]|at|if|in|it|on)[.]?[:]?([.][ ]|[ ]|\))){3}/
+    }
+  );
   return mode;
 };
 export const C_LINE_COMMENT_MODE = COMMENT('//', '$');
