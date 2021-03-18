@@ -72,7 +72,7 @@ jobs:
         # else (beta)
       - name: Beta Release
         if: env.RELEASING == 'beta'
-        run: echo "BRANCH_NAME=master" >> $GITHUB_ENV
+        run: echo "BRANCH_NAME=main" >> $GITHUB_ENV
       - name: Confirm release is either stable or beta
         if: ${{ !(env.RELEASING == 'stable' || env.RELEASING == 'beta') }}
         run: |
