@@ -45,6 +45,7 @@ const HLJS = function(hljs) {
   // calling the `hljs.configure` function.
   /** @type HLJSOptions */
   let options = {
+    ignoreUnescapedHTML: false,
     noHighlightRe: /^(no-?highlight)$/i,
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
@@ -702,15 +703,19 @@ const HLJS = function(hljs) {
 
     if (shouldNotHighlight(language)) return;
 
-    // support for v10 API
     fire("before:highlightElement",
       { el: element, language: language });
+
+    if (!options.ignoreUnescapedHTML && element.innerHTML !== element.textContent) {
+      console.warn("One of your code blocks includes unescaped HTML. This is a potentially serious security risk.");
+      console.warn("https://github.com/highlightjs/highlight.js/issues/2886");
+      console.warn(element);
+    }
 
     node = element;
     const text = node.textContent;
     const result = language ? highlight(language, text, true) : highlightAuto(text);
 
-    // support for v10 API
     fire("after:highlightElement", { el: element, result, text });
 
     element.innerHTML = result.value;
@@ -1005,7 +1010,7 @@ const HLJS = function(hljs) {
 
   // built-in plugins, likely to be moved out of core in the future
   hljs.addPlugin(brPlugin); // slated to be removed in v11
-  hljs.addPlugin(mergeHTMLPlugin);
+  // hljs.addPlugin(mergeHTMLPlugin);
   hljs.addPlugin(tabReplacePlugin);
   return hljs;
 };

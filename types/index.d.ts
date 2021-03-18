@@ -120,6 +120,7 @@ interface HLJSOptions {
    useBR: boolean
    languages?: string[]
    __emitter: EmitterConstructor
+   ignoreUnescapedHTML?: boolean
 }
 
 interface CallbackResponse {
