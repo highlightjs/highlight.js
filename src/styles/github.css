@@ -13,86 +13,100 @@
   background: #ffffff;
 }
 
-.hljs-keyword,
-.hljs-doctag,
-.hljs-meta-keyword,
 .hljs-builtin-name,
-.hljs-type,
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta-keyword,
 .hljs-template-tag,
-.hljs-template-variable {
+.hljs-template-variable,
+.hljs-type {
+  /* prettylights-syntax-keyword */
   color: #d73a49;
 }
 
 .hljs-title {
+  /* prettylights-syntax-entity */
   color: #6f42c1;
 }
 
-.hljs-literal,
-.hljs-number,
 .hljs-attr,
-.hljs-attrib,
-.hljs-variab,
-.hljs-selector-id,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-variable,
+.hljs-selector-attr,
 .hljs-selector-class,
-.hljs-selector-attr {
+.hljs-selector-id {
+  /* prettylights-syntax-constant */
   color: #005cc5;
 }
 
 .hljs-regexp,
 .hljs-string,
 .hljs-meta-string {
+  /* prettylights-syntax-string */
   color: #032f62;
 }
 
 .hljs-built_in,
 .hljs-symbol,
 .hljs-class .hljs-title {
+  /* prettylights-syntax-variable */
   color: #e36209;
 }
 
 .hljs-comment,
-.hljs-meta,
 .hljs-code,
 .hljs-formula {
+  /* prettylights-syntax-comment */
   color: #6a737d;
-}
-
-.hljs-section {
-  font-weight: bold;
-  color: #005cc5;
 }
 
 .hljs-name,
 .hljs-quote,
 .hljs-selector-tag,
 .hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
   color: #22863a;
 }
 
+.hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: #24292e;
+}
+
+.hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: #005cc5;
+  font-weight: bold;
+}
+
 .hljs-bullet {
+  /* prettylights-syntax-markup-list */
   color: #735c0f;
 }
 
 .hljs-emphasis {
-  font-style: italic;
+  /* prettylights-syntax-markup-italic */
   color: #24292e;
+  font-style: italic;
 }
 
 .hljs-strong {
-  font-weight: bold;
+  /* prettylights-syntax-markup-bold */
   color: #24292e;
-}
-
-.hljs-link {
-  text-decoration: underline;
+  font-weight: bold;
 }
 
 .hljs-addition {
+  /* prettylights-syntax-markup-inserted */
   color: #22863a;
   background-color: #f0fff4;
 }
 
 .hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
   color: #b31d28;
   background-color: #ffeef0;
 }
