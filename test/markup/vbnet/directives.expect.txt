@@ -1,0 +1,16 @@
+<span class="hljs-meta">#<span class="hljs-meta-keyword">Region</span> &quot;MathFunctions&quot;</span>
+<span class="hljs-meta">    #<span class="hljs-meta-keyword">Const</span> CustomerNumber = 36</span>
+<span class="hljs-meta">    #<span class="hljs-meta-keyword">If</span> CustomerNumber = 35 <span class="hljs-meta-keyword">Then</span></span>
+        <span class="hljs-comment">&#x27; Insert code to be compiled for customer # 35.</span>
+<span class="hljs-meta">    #<span class="hljs-meta-keyword">ElseIf</span> CustomerNumber = 36 <span class="hljs-meta-keyword">Then</span></span>
+        <span class="hljs-comment">&#x27; Insert code to be compiled for customer # 36.</span>
+<span class="hljs-meta">    #<span class="hljs-meta-keyword">Else</span></span>
+        <span class="hljs-comment">&#x27; Insert code to be compiled for all other customers.</span>
+<span class="hljs-meta">    #<span class="hljs-meta-keyword">End</span> <span class="hljs-meta-keyword">If</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">End</span> <span class="hljs-meta-keyword">Region</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">Disable</span> Warning BC42356 <span class="hljs-comment">&#x27; suppress warning about no awaits in this method</span></span>
+    <span class="hljs-keyword">Async</span> <span class="hljs-keyword">Function</span> TestAsync() <span class="hljs-keyword">As</span> Task
+        Console.WriteLine(<span class="hljs-string">&quot;testing&quot;</span>)
+    <span class="hljs-keyword">End</span> <span class="hljs-keyword">Function</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">Enable</span> Warning BC42356</span>

@@ -1,0 +1,26 @@
+<span class="hljs-type">Sequence</span>.<span class="hljs-keyword">Protocol</span> <span class="hljs-type">Protocol</span>
+<span class="hljs-type">String</span>.<span class="hljs-keyword">Type</span> <span class="hljs-type">Type</span>
+
+<span class="hljs-type">String</span>.<span class="hljs-keyword">init</span> <span class="hljs-keyword">init</span>
+<span class="hljs-type">String</span>.<span class="hljs-keyword">self</span> <span class="hljs-keyword">self</span>
+
+<span class="hljs-keyword">Any</span> <span class="hljs-keyword">Self</span>
+(<span class="hljs-keyword">_</span> name: <span class="hljs-type">String</span>)
+x <span class="hljs-keyword">as</span> <span class="hljs-type">Int</span>
+x <span class="hljs-keyword">as?</span> <span class="hljs-type">Double</span>
+x <span class="hljs-keyword">as!</span> <span class="hljs-type">String</span>
+x <span class="hljs-keyword">is</span> <span class="hljs-type">String</span>
+<span class="hljs-keyword">init?</span> <span class="hljs-keyword">init!</span> <span class="hljs-keyword">init</span>
+<span class="hljs-keyword">try?</span> <span class="hljs-keyword">try!</span> <span class="hljs-keyword">try</span>
+<span class="hljs-literal">true</span> <span class="hljs-literal">false</span> <span class="hljs-literal">nil</span>
+<span class="hljs-keyword">fileprivate(set)</span> <span class="hljs-keyword">internal(set)</span> <span class="hljs-keyword">open(set)</span> <span class="hljs-keyword">private(set)</span> <span class="hljs-keyword">public(set)</span>
+<span class="hljs-keyword">unowned(safe)</span> <span class="hljs-keyword">unowned(unsafe)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">await</span>
+
+<span class="hljs-keyword">#if</span>
+<span class="hljs-keyword">#error</span>(<span class="hljs-string">&quot;Error&quot;</span>)
+<span class="hljs-keyword">#endif</span>
+
+x.as(y)
+x.for(y)
+#notAKeyword

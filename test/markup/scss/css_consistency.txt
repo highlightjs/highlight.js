@@ -1,0 +1,59 @@
+/* this test is shared with css, less, scss, and stylus to confirm consistent highlighting */
+
+div {
+    -webkit-animation-name: example;
+    -moz-animation-name: example;
+    -ms-animation-name: example;
+    -o-animation-name: example;
+    animation-name: example;
+}
+
+@-webkit-keyframes example {}
+@-moz-keyframes example {}
+@-ms-keyframes example {}
+@-o-keyframes example {}
+@keyframes example {}
+
+div, p, table { width: 30px; }
+
+div { width:0 !important; }
+
+h1, h2, figcaption, aside, main, form, footer {}
+
+a:visited { color: blue; }
+div::after { content: "test"; }
+div::before { content: open-quote; }
+span:nth-child(33) { color:red; }
+
+p:lang(en) {}
+:lang(en) {}
+
+a[href*="example"] {}
+[class^="top"] {}
+
+@media (not(hover)) {}
+@media not all and (max-width: 600px) {}
+@media only screen and (min-width: 900px) and (color-gamut: p3) {}
+@media
+  only screen and (min-width: 100px),
+  not all and (min-width: 100px),
+  not print and (min-height: 100px),
+  (color),
+  (min-height: 100px) and (max-height: 1000px),
+  handheld and (orientation: landscape)
+{}
+
+@font-face {
+  font-family: "Open Sans";
+  font-display: swap;
+  font-stretch: 50% 200%;
+  font-style: oblique 20deg 50deg;
+  font-weight: 100 400;
+  font-variant: no-common-ligatures proportional-nums;
+  font-feature-settings: "liga" 0;
+  font-variation-settings: "xhgt" 0.7;
+  /* unicode-range: U+0025-00FF, U+4??; */
+  /* it's not 100% clear how url and format should be highlighted universally */
+  /* src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+       url("/fonts/OpenSans-Regular-webfont.woff") format("woff"); */
+}

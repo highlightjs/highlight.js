@@ -10,14 +10,14 @@ export default function(hljs) {
   // Regular expression for VHDL numeric literals.
 
   // Decimal literal:
-  var INTEGER_RE = '\\d(_|\\d)*';
-  var EXPONENT_RE = '[eE][-+]?' + INTEGER_RE;
-  var DECIMAL_LITERAL_RE = INTEGER_RE + '(\\.' + INTEGER_RE + ')?' + '(' + EXPONENT_RE + ')?';
+  const INTEGER_RE = '\\d(_|\\d)*';
+  const EXPONENT_RE = '[eE][-+]?' + INTEGER_RE;
+  const DECIMAL_LITERAL_RE = INTEGER_RE + '(\\.' + INTEGER_RE + ')?' + '(' + EXPONENT_RE + ')?';
   // Based literal:
-  var BASED_INTEGER_RE = '\\w+';
-  var BASED_LITERAL_RE = INTEGER_RE + '#' + BASED_INTEGER_RE + '(\\.' + BASED_INTEGER_RE + ')?' + '#' + '(' + EXPONENT_RE + ')?';
+  const BASED_INTEGER_RE = '\\w+';
+  const BASED_LITERAL_RE = INTEGER_RE + '#' + BASED_INTEGER_RE + '(\\.' + BASED_INTEGER_RE + ')?' + '#' + '(' + EXPONENT_RE + ')?';
 
-  var NUMBER_RE = '\\b(' + BASED_LITERAL_RE + '|' + DECIMAL_LITERAL_RE + ')';
+  const NUMBER_RE = '\\b(' + BASED_LITERAL_RE + '|' + DECIMAL_LITERAL_RE + ')';
 
   return {
     name: 'VHDL',
@@ -41,12 +41,12 @@ export default function(hljs) {
         'std_ulogic std_ulogic_vector unresolved_unsigned u_unsigned unresolved_signed u_signed ' +
         'real_vector time_vector',
       literal:
-        'false true note warning error failure ' +  // severity_level
-        'line text side width'                      // textio
+        'false true note warning error failure ' + // severity_level
+        'line text side width' // textio
     },
-    illegal: '{',
+    illegal: /\{/,
     contains: [
-      hljs.C_BLOCK_COMMENT_MODE,      // VHDL-2008 block commenting.
+      hljs.C_BLOCK_COMMENT_MODE, // VHDL-2008 block commenting.
       hljs.COMMENT('--', '$'),
       hljs.QUOTE_STRING_MODE,
       {
@@ -57,12 +57,12 @@ export default function(hljs) {
       {
         className: 'string',
         begin: '\'(U|X|0|1|Z|W|L|H|-)\'',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        contains: [ hljs.BACKSLASH_ESCAPE ]
       },
       {
         className: 'symbol',
         begin: '\'[A-Za-z](_?[A-Za-z0-9])*',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        contains: [ hljs.BACKSLASH_ESCAPE ]
       }
     ]
   };

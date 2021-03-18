@@ -11,7 +11,9 @@ export default function(hljs) {
   var WS0 = '[ \\t\\f]*';
   var WS1 = '[ \\t\\f]+';
   // delimiter
-  var DELIM = '(' + WS0+'[:=]'+WS0+ '|' + WS1 + ')';
+  var EQUAL_DELIM = WS0+'[:=]'+WS0;
+  var WS_DELIM = WS1;
+  var DELIM = '(' + EQUAL_DELIM + '|' + WS_DELIM + ')';
   var KEY_ALPHANUM = '([^\\\\\\W:= \\t\\f\\n]|\\\\.)+';
   var KEY_OTHER = '([^\\\\:= \\t\\f\\n]|\\\\.)+';
 
@@ -25,6 +27,7 @@ export default function(hljs) {
             end: /$/,
             relevance: 0,
             contains: [
+              { begin: '\\\\\\\\'},
               { begin: '\\\\\\n' }
             ]
           }
@@ -39,8 +42,11 @@ export default function(hljs) {
       // key: everything until whitespace or = or : (taking into account backslashes)
       // case of a "normal" key
       {
-        begin: KEY_ALPHANUM + DELIM,
         returnBegin: true,
+        variants: [
+          { begin: KEY_ALPHANUM + EQUAL_DELIM, relevance: 1 },
+          { begin: KEY_ALPHANUM + WS_DELIM, relevance: 0 }
+        ],
         contains: [
           {
             className: 'attr',

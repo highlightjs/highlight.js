@@ -1,0 +1,21 @@
+#empty(friends) {
+    Try adding some friends!
+} ##loop(friends, "friend") {
+    <li> #(friend.name) </li>
+}
+
+#someTag(parameter.list, goes, "here") {
+    This is an optional body here
+}
+
+#index(friends, "0") {
+    Hello, #(self)!
+} ##else() {
+    Nobody's there!
+}
+
+#()
+
+#raw() {
+    <li> Hello </li>
+}

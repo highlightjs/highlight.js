@@ -1,0 +1,14 @@
+<span class="hljs-comment">// line comment</span>
+
+<span class="hljs-comment">/* block comment */</span>
+
+<span class="hljs-comment">/* block comment
+  across lines
+*/</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/wait.h&gt;</span> <span class="hljs-comment">// line comment</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/wait.h&gt;</span> <span class="hljs-comment">/* block comment */</span></span>
+
+<span class="hljs-comment">/*
+Truncated block comment
+</span>

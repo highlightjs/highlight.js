@@ -6,75 +6,78 @@ Website: https://nsis.sourceforge.io/Main_Page
 */
 
 export default function(hljs) {
-  var CONSTANTS = {
+  const CONSTANTS = {
     className: 'variable',
     begin: /\$(ADMINTOOLS|APPDATA|CDBURN_AREA|CMDLINE|COMMONFILES32|COMMONFILES64|COMMONFILES|COOKIES|DESKTOP|DOCUMENTS|EXEDIR|EXEFILE|EXEPATH|FAVORITES|FONTS|HISTORY|HWNDPARENT|INSTDIR|INTERNET_CACHE|LANGUAGE|LOCALAPPDATA|MUSIC|NETHOOD|OUTDIR|PICTURES|PLUGINSDIR|PRINTHOOD|PROFILE|PROGRAMFILES32|PROGRAMFILES64|PROGRAMFILES|QUICKLAUNCH|RECENT|RESOURCES_LOCALIZED|RESOURCES|SENDTO|SMPROGRAMS|SMSTARTUP|STARTMENU|SYSDIR|TEMP|TEMPLATES|VIDEOS|WINDIR)/
   };
 
-  var DEFINES = {
+  const DEFINES = {
     // ${defines}
     className: 'variable',
-    begin: /\$+{[\w\.:-]+}/
+    begin: /\$+\{[\w.:-]+\}/
   };
 
-  var VARIABLES = {
+  const VARIABLES = {
     // $variables
     className: 'variable',
     begin: /\$+\w+/,
-    illegal: /\(\){}/
+    illegal: /\(\)\{\}/
   };
 
-  var LANGUAGES = {
+  const LANGUAGES = {
     // $(language_strings)
     className: 'variable',
-    begin: /\$+\([\w\^\.:-]+\)/
+    begin: /\$+\([\w^.:-]+\)/
   };
 
-  var PARAMETERS = {
+  const PARAMETERS = {
     // command parameters
     className: 'params',
     begin: '(ARCHIVE|FILE_ATTRIBUTE_ARCHIVE|FILE_ATTRIBUTE_NORMAL|FILE_ATTRIBUTE_OFFLINE|FILE_ATTRIBUTE_READONLY|FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_TEMPORARY|HKCR|HKCU|HKDD|HKEY_CLASSES_ROOT|HKEY_CURRENT_CONFIG|HKEY_CURRENT_USER|HKEY_DYN_DATA|HKEY_LOCAL_MACHINE|HKEY_PERFORMANCE_DATA|HKEY_USERS|HKLM|HKPD|HKU|IDABORT|IDCANCEL|IDIGNORE|IDNO|IDOK|IDRETRY|IDYES|MB_ABORTRETRYIGNORE|MB_DEFBUTTON1|MB_DEFBUTTON2|MB_DEFBUTTON3|MB_DEFBUTTON4|MB_ICONEXCLAMATION|MB_ICONINFORMATION|MB_ICONQUESTION|MB_ICONSTOP|MB_OK|MB_OKCANCEL|MB_RETRYCANCEL|MB_RIGHT|MB_RTLREADING|MB_SETFOREGROUND|MB_TOPMOST|MB_USERICON|MB_YESNO|NORMAL|OFFLINE|READONLY|SHCTX|SHELL_CONTEXT|SYSTEM|TEMPORARY)'
   };
 
-  var COMPILER = {
+  const COMPILER = {
     // !compiler_flags
     className: 'keyword',
-    begin: /\!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversion|gettlbversion|if|ifdef|ifmacrodef|ifmacrondef|ifndef|include|insertmacro|macro|macroend|makensis|packhdr|searchparse|searchreplace|system|tempfile|undef|verbose|warning)/
+    begin: /!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversion|gettlbversion|if|ifdef|ifmacrodef|ifmacrondef|ifndef|include|insertmacro|macro|macroend|makensis|packhdr|searchparse|searchreplace|system|tempfile|undef|verbose|warning)/
   };
 
-  var METACHARS = {
+  const METACHARS = {
     // $\n, $\r, $\t, $$
     className: 'meta',
     begin: /\$(\\[nrt]|\$)/
   };
 
-  var PLUGINS = {
+  const PLUGINS = {
     // plug::ins
     className: 'class',
-    begin: /\w+\:\:\w+/
+    begin: /\w+::\w+/
   };
 
-    var STRING = {
-      className: 'string',
-      variants: [
-        {
-          begin: '"', end: '"'
-        },
-        {
-          begin: '\'', end: '\''
-        },
-        {
-          begin: '`', end: '`'
-        }
-      ],
-      illegal: /\n/,
-      contains: [
-        METACHARS,
-        CONSTANTS,
-        DEFINES,
-        VARIABLES,
-        LANGUAGES
-      ]
+  const STRING = {
+    className: 'string',
+    variants: [
+      {
+        begin: '"',
+        end: '"'
+      },
+      {
+        begin: '\'',
+        end: '\''
+      },
+      {
+        begin: '`',
+        end: '`'
+      }
+    ],
+    illegal: /\n/,
+    contains: [
+      METACHARS,
+      CONSTANTS,
+      DEFINES,
+      VARIABLES,
+      LANGUAGES
+    ]
   };
 
   return {
@@ -98,7 +101,8 @@ export default function(hljs) {
       ),
       {
         className: 'function',
-        beginKeywords: 'Function PageEx Section SectionGroup', end: '$'
+        beginKeywords: 'Function PageEx Section SectionGroup',
+        end: '$'
       },
       STRING,
       COMPILER,

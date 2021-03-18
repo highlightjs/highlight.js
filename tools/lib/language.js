@@ -44,7 +44,14 @@ class Language {
   }
 
   get samplePath() {
-    return `./test/detect/${this.name}/default.txt`
+    if (this.moduleDir) {
+      // this is the 'extras' case.
+      return `${this.moduleDir}/test/detect/${this.name}/default.txt`;
+    }
+    else {
+      // this is the common/built-in case.
+      return `./test/detect/${this.name}/default.txt`;
+    }
   }
 
   loadMetadata() {

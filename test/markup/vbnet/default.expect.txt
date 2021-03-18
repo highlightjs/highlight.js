@@ -1,0 +1,41 @@
+<span class="hljs-keyword">Imports</span> System.IO
+<span class="hljs-meta">#<span class="hljs-meta-keyword">Const</span> DEBUG = True <span class="hljs-comment">&#x27; Set to false for prod</span></span>
+
+<span class="hljs-keyword">Namespace</span> Highlighter.Test
+  <span class="hljs-comment">&#x27;&#x27;&#x27; <span class="hljs-doctag">&lt;summary&gt;</span>This is an example class.<span class="hljs-doctag">&lt;/summary&gt;</span></span>
+  <span class="hljs-keyword">Public</span> <span class="hljs-keyword">Class</span> Program
+    <span class="hljs-keyword">Protected</span> <span class="hljs-keyword">Shared</span> hello <span class="hljs-keyword">As</span> <span class="hljs-type">Integer</span> = <span class="hljs-number">3</span>
+    <span class="hljs-keyword">Private</span> <span class="hljs-keyword">Const</span> ABC <span class="hljs-keyword">As</span> <span class="hljs-type">Boolean</span> = <span class="hljs-literal">False</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">Region</span> &quot;Code&quot;</span>
+    <span class="hljs-comment">&#x27; Cheers!</span>
+    &lt;STAThread()&gt; _
+    <span class="hljs-keyword">Public</span> <span class="hljs-keyword">Shared</span> <span class="hljs-keyword">Sub</span> Main(<span class="hljs-keyword">ByVal</span> args() <span class="hljs-keyword">As</span> <span class="hljs-type">String</span>, <span class="hljs-keyword">ParamArray</span> arr <span class="hljs-keyword">As</span> <span class="hljs-type">Object</span>) <span class="hljs-keyword">Handles</span> Form1.Click
+      <span class="hljs-keyword">On</span> <span class="hljs-keyword">Error</span> <span class="hljs-keyword">Resume</span> <span class="hljs-keyword">Next</span>
+      <span class="hljs-keyword">If</span> ABC <span class="hljs-keyword">Then</span>
+        <span class="hljs-keyword">While</span> ABC : Console.WriteLine() : <span class="hljs-keyword">End</span> <span class="hljs-keyword">While</span>
+        <span class="hljs-keyword">For</span> i <span class="hljs-keyword">As</span> <span class="hljs-type">Long</span> = <span class="hljs-number">0</span> <span class="hljs-keyword">To</span> <span class="hljs-number">1000</span> <span class="hljs-keyword">Step</span> <span class="hljs-number">123</span>
+          <span class="hljs-keyword">Try</span>
+            System.Windows.Forms.MessageBox.Show(<span class="hljs-built_in">CInt</span>(<span class="hljs-string">&quot;1&quot;</span>).ToString())
+          <span class="hljs-keyword">Catch</span> ex <span class="hljs-keyword">As</span> Exception       <span class="hljs-comment">&#x27; What are you doing? Well...</span>
+            <span class="hljs-keyword">Dim</span> exp = CType(ex, IOException)
+           <span class="hljs-comment"> REM ORZ</span>
+            <span class="hljs-keyword">Return</span>
+          <span class="hljs-keyword">End</span> <span class="hljs-keyword">Try</span>
+        <span class="hljs-keyword">Next</span>
+      <span class="hljs-keyword">Else</span>
+        <span class="hljs-keyword">Dim</span> l <span class="hljs-keyword">As</span> <span class="hljs-built_in">New</span> System.Collections.List&lt;<span class="hljs-type">String</span>&gt;()
+        <span class="hljs-keyword">SyncLock</span> l
+          <span class="hljs-keyword">If</span> <span class="hljs-built_in">TypeOf</span> l <span class="hljs-built_in">Is</span> <span class="hljs-type">Decimal</span> <span class="hljs-built_in">And</span> l <span class="hljs-built_in">IsNot</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">Then</span>
+            <span class="hljs-keyword">RemoveHandler</span> button1.Paint, <span class="hljs-keyword">delegate</span>
+          <span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+          <span class="hljs-keyword">Dim</span> d = <span class="hljs-built_in">New</span> System.Threading.Thread(<span class="hljs-built_in">AddressOf</span> ThreadProc)
+          <span class="hljs-keyword">Dim</span> a = <span class="hljs-built_in">New</span> Action(<span class="hljs-keyword">Sub</span>(x, y) x + y)
+          <span class="hljs-keyword">Static</span> u = <span class="hljs-keyword">From</span> x <span class="hljs-keyword">As</span> <span class="hljs-type">String</span> <span class="hljs-keyword">In</span> l <span class="hljs-keyword">Select</span> x.Substring(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>) <span class="hljs-keyword">Where</span> x.Length &gt; <span class="hljs-number">0</span>
+        <span class="hljs-keyword">End</span> <span class="hljs-keyword">SyncLock</span>
+        <span class="hljs-keyword">Do</span> : Laugh() : <span class="hljs-keyword">Loop</span> <span class="hljs-keyword">Until</span> hello = <span class="hljs-number">4</span>
+      <span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+    <span class="hljs-keyword">End</span> <span class="hljs-keyword">Sub</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">End</span> <span class="hljs-meta-keyword">Region</span></span>
+  <span class="hljs-keyword">End</span> <span class="hljs-keyword">Class</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">Namespace</span>

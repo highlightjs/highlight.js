@@ -20,11 +20,11 @@
 
 <span class="hljs-keyword">if</span> (p) {
 <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> DEBUG</span>
-    onething();
+    <span class="hljs-built_in">onething</span>();
 <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (errno) {
 <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> DEBUG</span>
-    anotherthing();
+    <span class="hljs-built_in">anotherthing</span>();
 <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 }
 

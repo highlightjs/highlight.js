@@ -5,5 +5,10 @@
 <span class="hljs-comment">/// <span class="markdown"><span class="hljs-code">code;</span></span></span>
 <span class="hljs-comment">/// <span class="markdown"><span class="hljs-code">```</span></span></span>
 <span class="hljs-comment">/// <span class="markdown">text.</span></span>
+<span class="hljs-comment">/// <span class="markdown"><span class="hljs-bullet">*</span> bullet</span></span>
+<span class="hljs-comment">/// <span class="markdown"><span class="hljs-bullet">  *</span> sub-bullet</span></span>
 
-<span class="hljs-comment">/// <span class="markdown">Comment 3.</span></span>
+<span class="hljs-comment">///</span>
+code;
+
+<span class="hljs-comment">/**/</span>code;

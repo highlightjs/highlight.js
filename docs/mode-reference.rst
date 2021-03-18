@@ -1,4 +1,6 @@
-Mode reference
+.. highlight:: javascript
+
+Mode Reference
 ==============
 
 Types
@@ -23,13 +25,24 @@ Types of attributes values in this reference:
 +------------+-------------------------------------------------------------------------------------+
 
 
-Attributes
-----------
+Language Only Attributes
+------------------------
+
+These attributes are only valid at the language level (ie, they many only exist on the top-most language object and have no meaning if specified in children modes).
+
+
+name
+^^^^
+
+- **type**: string
+
+The canonical name of this language, ie "JavaScript", etc.
+
 
 case_insensitive
 ^^^^^^^^^^^^^^^^
 
-**type**: boolean
+- **type**: boolean
 
 Case insensitivity of language keywords and regexps. Used only on the top-level mode.
 
@@ -37,15 +50,100 @@ Case insensitivity of language keywords and regexps. Used only on the top-level 
 aliases
 ^^^^^^^
 
-**type**: array
+- **type**: array
 
 A list of additional names (besides the canonical one given by the filename) that can be used to identify a language in HTML classes and in a call to :ref:`getLanguage <getLanguage>`.
+
+
+classNameAliases
+^^^^^^^^^^^^^^^^
+
+- **type**: object
+
+A mapping table of any custom class names your grammar uses and their supported  equivalencies.  Perhaps your language has a concept of "slots" that roughly correspond to variables in other languages.  This allows you to write grammar code like:
+
+::
+
+  {
+    classNameAliases: {
+      slot: "variable",
+      "message-name": "string"
+    },
+    contains: [
+      {
+        className: "slot",
+        begin: // ...
+      }
+    ]
+  }
+
+The final HTML output will render slots with the CSS class as ``hljs-variable``.  This feature exists to make it easier for grammar maintainers to think in their own language when maintaining a grammar.
+
+For a list of all supported class names please see the :doc:`CSS class reference
+</css-classes-reference>`.
+
+
+disableAutodetect
+^^^^^^^^^^^^^^^^^
+
+- **type**: boolean
+
+Disables autodetection for this language.
+
+
+compilerExtensions (USE WITH CAUTION)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **type**: an array of compiler extensions ie: ``(mode, parentMode) -> {} ``
+
+This allows grammars to extend the mode compiler to add their own syntactic
+sugar to make reading and writing grammars easier.  **Note: This is heavily
+dependent upon compiler internals and may NOT be stable from minor release to
+minor release.** *It is currently recommended only for 1st party grammars.* The
+intention is that we use grammars to "test" out new compiler extensions and if
+they perform well promote them into the core library.
+
+mode
+  The incoming mode object
+
+parentMode
+  The parent mode of the mode (null for the top level language mode)
+
+For example lets look at a tiny well behaved extension to allow us to write
+``match`` as sugar to better express the intent to "match a single thing, then
+end mode".
+
+::
+
+  compilerExtensions: [
+    (mode, _parentMode) => {
+      // first some quick sanity checks
+      if (!mode.match) return;
+
+      // then check for users doing things that would make no sense
+      if (mode.begin || mode.end) throw new Error("begin & end are not supported with match");
+
+      // copy the match regex into begin
+      mode.begin = mode.match;
+
+      // cleanup: delete our syntactic construct
+      delete mode.match;
+    }
+  ]
+
+Compiler extension functions return nothing. They are expected to mutate the
+mode itself.
+
+
+
+Mode Attributes
+---------------
 
 
 className
 ^^^^^^^^^
 
-**type**: identifier
+- **type**: identifier
 
 The name of the mode. It is used as a class name in HTML markup.
 
@@ -56,16 +154,33 @@ for one thing like string in single or double quotes.
 begin
 ^^^^^
 
-**type**: regexp
+- **type**: regexp
 
 Regular expression starting a mode. For example a single quote for strings or two forward slashes for C-style comments.
 If absent, ``begin`` defaults to a regexp that matches anything, so the mode starts immediately.
 
 
-on:begin
-^^^^^^^^^^^
+match
+^^^^^
 
-**type**: callback (matchData, response)
+- **type**: regexp
+
+This is simply syntactic sugar for a ``begin`` when no ``end`` expression is
+necessary.   It may not be used with ``begin`` or ``end`` keys (that would make
+no sense).  It exists simply to help make grammars more readable.
+
+::
+
+  {
+    className: "title",
+    match: /Fish/
+  }
+
+
+on:begin
+^^^^^^^^
+
+- **type**: callback (matchData, response)
 
 This callback is triggered the moment a begin match is detected. ``matchData`` includes the typical regex match data; the full match, match groups, etc. The ``response`` object is used to tell the parser how it should handle the match. It can be also used to temporarily store data.
 
@@ -78,7 +193,7 @@ For an example of usage see ``END_SAME_AS_BEGIN`` in ``modes.js``.
 end
 ^^^
 
-**type**: regexp
+- **type**: regexp
 
 Regular expression ending a mode. For example a single quote for strings or "$" (end of line) for one-line comments.
 
@@ -93,9 +208,9 @@ This is achieved with :ref:`endsWithParent <endsWithParent>` attribute.
 
 
 on:end
-^^^^^^^^^^^
+^^^^^^
 
-**type**: callback (matchData, response)
+- **type**: callback (matchData, response)
 
 This callback is triggered the moment an end match is detected. ``matchData`` includes the typical regex match data; the full match, match groups, etc. The ``response`` object is used to tell the parser how it should handle the match. It can also be used to retrieve data stored from a `begin` callback.
 
@@ -106,9 +221,9 @@ For an example of usage see ``END_SAME_AS_BEGIN`` in ``modes.js``.
 
 
 beginKeywords
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^
 
-**type**: string
+- **type**: string
 
 Used instead of ``begin`` for modes starting with keywords to avoid needless repetition:
 
@@ -140,7 +255,7 @@ Ex. ``class A { ... }`` would match while ``A.class == B.class`` would not.
 endsWithParent
 ^^^^^^^^^^^^^^
 
-**type**: boolean
+- **type**: boolean
 
 A flag showing that a mode ends when its parent ends.
 
@@ -158,7 +273,7 @@ This is when ``endsWithParent`` comes into play:
 ::
 
   {
-    className: 'rules', begin: '{', end: '}',
+    className: 'rules', begin: /\{/, end: /\}/,
     contains: [
       {className: 'rule', /* ... */ end: ';', endsWithParent: true}
     ]
@@ -169,7 +284,7 @@ This is when ``endsWithParent`` comes into play:
 endsParent
 ^^^^^^^^^^^^^^
 
-**type**: boolean
+- **type**: boolean
 
 Forces closing of the parent mode right after the current mode is closed.
 
@@ -215,7 +330,7 @@ endSameAsBegin (deprecated as of 10.1)
 ``END_SAME_AS_BEGIN`` mode or use the ``on:begin`` and ``on:end`` attributes to
 build more complex paired matchers.
 
-**type**: boolean
+- **type**: boolean
 
 Acts as ``end`` matching exactly the same string that was found by the
 corresponding ``begin`` regexp.
@@ -244,7 +359,7 @@ and ``endSameAsBegin: true``.
 lexemes (now keywords.$pattern)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**type**: regexp
+- **type**: regexp
 
 A regular expression that extracts individual "words" from the code to compare
 against :ref:`keywords <keywords>`. The default value is ``\w+`` which works for
@@ -260,12 +375,13 @@ constant that you repeat multiple times within different modes of your grammar.
 keywords
 ^^^^^^^^
 
-**type**: object
+- **type**: object / string / array
 
-Keyword definition comes in two forms:
+Keyword definition comes in three forms:
 
 * ``'for while if|0 else weird_voodoo|10 ... '`` -- a string of space-separated keywords with an optional relevance over a pipe
 * ``{keyword: ' ... ', literal: ' ... ', $pattern: /\w+/ }`` -- an object that describes multiple sets of keywords and the pattern used to find them
+* ``["for", "while", "if|0", ...]`` -- an array of keywords (with optional relevance via ``|``)
 
 For detailed explanation see :doc:`Language definition guide </language-guide>`.
 
@@ -273,16 +389,24 @@ For detailed explanation see :doc:`Language definition guide </language-guide>`.
 illegal
 ^^^^^^^
 
-**type**: regexp
+- **type**: regexp or array
 
-A regular expression that defines symbols illegal for the mode.
+A regular expression or array that defines symbols illegal for the mode.
 When the parser finds a match for illegal expression it immediately drops parsing the whole language altogether.
+
+::
+
+  {
+    illegal: /%/,
+    // or using an array
+    illegal: [ /%/, /cookies/ ]
+  }
 
 
 excludeBegin, excludeEnd
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-**type**: boolean
+- **type**: boolean
 
 Exclude beginning or ending lexemes out of mode's generated markup. For example in CSS syntax a rule ends with a semicolon.
 However visually it's better not to color it as the rule contents. Having ``excludeEnd: true`` forces a ``<span>`` element for the rule to close before the semicolon.
@@ -291,7 +415,7 @@ However visually it's better not to color it as the rule contents. Having ``excl
 returnBegin
 ^^^^^^^^^^^
 
-**type**: boolean
+- **type**: boolean
 
 Returns just found beginning lexeme back into parser. This is used when beginning of a sub-mode is a complex expression
 that should not only be found within a parent mode but also parsed according to the rules of a sub-mode.
@@ -302,7 +426,7 @@ Since the parser is effectively goes back it's quite possible to create a infini
 returnEnd
 ^^^^^^^^^
 
-**type**: boolean
+- **type**: boolean
 
 Returns just found ending lexeme back into parser. This is used for example to parse JavaScript embedded into HTML.
 A JavaScript block ends with the HTML closing tag ``</script>`` that cannot be parsed with JavaScript rules.
@@ -314,7 +438,7 @@ Since the parser is effectively goes back it's quite possible to create a infini
 contains
 ^^^^^^^^
 
-**type**: array
+- **type**: array
 
 The list of sub-modes that can be found inside the mode. For detailed explanation see :doc:`Language definition guide </language-guide>`.
 
@@ -322,7 +446,7 @@ The list of sub-modes that can be found inside the mode. For detailed explanatio
 starts
 ^^^^^^
 
-**type**: identifier
+- **type**: identifier
 
 The name of the mode that will start right after the current mode ends. The new mode won't be contained within the current one.
 
@@ -333,7 +457,7 @@ Tags ``<script>`` and ``<style>`` start sub-modes that use another language defi
 variants
 ^^^^^^^^
 
-**type**: array
+- **type**: array
 
 Modification to the main definitions of the mode, effectively expanding it into several similar modes
 each having all the attributes from the main definition augmented or overridden by the variants::
@@ -366,10 +490,11 @@ Further info: https://github.com/highlightjs/highlight.js/issues/826
 
 .. _subLanguage:
 
+
 subLanguage
 ^^^^^^^^^^^
 
-**type**: string or array
+- **type**: string or array
 
 Highlights the entire contents of the mode with another language.
 
@@ -381,10 +506,11 @@ The value of the attribute controls which language or languages will be used for
 * empty array: auto detection with all the languages available
 * array of language names: auto detection constrained to the specified set
 
+
 skip
 ^^^^
 
-**type**: boolean
+- **type**: boolean
 
 Skips any markup processing for the mode ensuring that it remains a part of its
 parent buffer along with the starting and the ending lexemes. This works in
@@ -406,11 +532,4 @@ handle pairs of ``/* .. */`` to correctly find the ending ``?>``::
 
 Without ``skip: true`` every comment would cause the parser to drop out back
 into the HTML mode.
-
-disableAutodetect
-^^^^^^^^^^^^^^^^^
-
-**type**: boolean
-
-Disables autodetection for this language.
 

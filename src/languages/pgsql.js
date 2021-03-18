@@ -17,12 +17,12 @@ Description:
 */
 
 export default function(hljs) {
-  var COMMENT_MODE = hljs.COMMENT('--', '$');
-  var UNQUOTED_IDENT = '[a-zA-Z_][a-zA-Z_0-9$]*';
-  var DOLLAR_STRING = '\\$([a-zA-Z_]?|[a-zA-Z_][a-zA-Z_0-9]*)\\$';
-  var LABEL = '<<\\s*' + UNQUOTED_IDENT + '\\s*>>';
+  const COMMENT_MODE = hljs.COMMENT('--', '$');
+  const UNQUOTED_IDENT = '[a-zA-Z_][a-zA-Z_0-9$]*';
+  const DOLLAR_STRING = '\\$([a-zA-Z_]?|[a-zA-Z_][a-zA-Z_0-9]*)\\$';
+  const LABEL = '<<\\s*' + UNQUOTED_IDENT + '\\s*>>';
 
-  var SQL_KW =
+  const SQL_KW =
     // https://www.postgresql.org/docs/11/static/sql-keywords-appendix.html
     // https://www.postgresql.org/docs/11/static/sql-commands.html
     // SQL commands (starting words)
@@ -68,16 +68,16 @@ export default function(hljs) {
     // actually literals, but look better this way (due to IS TRUE, IS FALSE, ISNULL etc)
     'TRUE FALSE NAN INFINITY ';
 
-  var ROLE_ATTRS = // only those not in keywrods already
+  const ROLE_ATTRS = // only those not in keywrods already
     'SUPERUSER NOSUPERUSER CREATEDB NOCREATEDB CREATEROLE NOCREATEROLE INHERIT NOINHERIT ' +
     'LOGIN NOLOGIN REPLICATION NOREPLICATION BYPASSRLS NOBYPASSRLS ';
 
-  var PLPGSQL_KW =
+  const PLPGSQL_KW =
     'ALIAS BEGIN CONSTANT DECLARE END EXCEPTION RETURN PERFORM|10 RAISE GET DIAGNOSTICS ' +
     'STACKED|10 FOREACH LOOP ELSIF EXIT WHILE REVERSE SLICE DEBUG LOG INFO NOTICE WARNING ASSERT ' +
     'OPEN ';
 
-  var TYPES =
+  const TYPES =
     // https://www.postgresql.org/docs/11/static/datatype.html
     'BIGINT INT8 BIGSERIAL SERIAL8 BIT VARYING VARBIT BOOLEAN BOOL BOX BYTEA CHARACTER CHAR VARCHAR ' +
     'CIDR CIRCLE DATE DOUBLE PRECISION FLOAT8 FLOAT INET INTEGER INT INT4 INTERVAL JSON JSONB LINE LSEG|10 ' +
@@ -93,20 +93,20 @@ export default function(hljs) {
     // OID-types
     'OID REGPROC|10 REGPROCEDURE|10 REGOPER|10 REGOPERATOR|10 REGCLASS|10 REGTYPE|10 REGROLE|10 ' +
     'REGNAMESPACE|10 REGCONFIG|10 REGDICTIONARY|10 ';// +
-    // some types from standard extensions
-    'HSTORE|10 LO LTREE|10 ';
+  // some types from standard extensions
+  'HSTORE|10 LO LTREE|10 ';
 
-  var TYPES_RE =
+  const TYPES_RE =
     TYPES.trim()
-         .split(' ')
-         .map( function(val) { return val.split('|')[0]; } )
-         .join('|');
+      .split(' ')
+      .map(function(val) { return val.split('|')[0]; })
+      .join('|');
 
-  var SQL_BI =
+  const SQL_BI =
     'CURRENT_TIME CURRENT_TIMESTAMP CURRENT_USER CURRENT_CATALOG|10 CURRENT_DATE LOCALTIME LOCALTIMESTAMP ' +
     'CURRENT_ROLE|10 CURRENT_SCHEMA|10 SESSION_USER PUBLIC ';
 
-  var PLPGSQL_BI =
+  const PLPGSQL_BI =
     'FOUND NEW OLD TG_NAME|10 TG_WHEN|10 TG_LEVEL|10 TG_OP|10 TG_RELID|10 TG_RELNAME|10 ' +
     'TG_TABLE_NAME|10 TG_TABLE_SCHEMA|10 TG_NARGS|10 TG_ARGV|10 TG_EVENT|10 TG_TAG|10 ' +
     // get diagnostics
@@ -114,7 +114,7 @@ export default function(hljs) {
     'PG_DATATYPE_NAME|10 MESSAGE_TEXT TABLE_NAME SCHEMA_NAME PG_EXCEPTION_DETAIL|10 ' +
     'PG_EXCEPTION_HINT|10 PG_EXCEPTION_CONTEXT|10 ';
 
-  var PLPGSQL_EXCEPTIONS =
+  const PLPGSQL_EXCEPTIONS =
     // exceptions https://www.postgresql.org/docs/current/static/errcodes-appendix.html
     'SQLSTATE SQLERRM|10 ' +
     'SUCCESSFUL_COMPLETION WARNING DYNAMIC_RESULT_SETS_RETURNED IMPLICIT_ZERO_BIT_PADDING ' +
@@ -192,7 +192,7 @@ export default function(hljs) {
     'RAISE_EXCEPTION NO_DATA_FOUND TOO_MANY_ROWS ASSERT_FAILURE INTERNAL_ERROR DATA_CORRUPTED ' +
     'INDEX_CORRUPTED ';
 
-  var FUNCTIONS =
+  const FUNCTIONS =
     // https://www.postgresql.org/docs/11/static/functions-aggregate.html
     'ARRAY_AGG AVG BIT_AND BIT_OR BOOL_AND BOOL_OR COUNT EVERY JSON_AGG JSONB_AGG JSON_OBJECT_AGG ' +
     'JSONB_OBJECT_AGG MAX MIN MODE STRING_AGG SUM XMLAGG ' +
@@ -283,224 +283,348 @@ export default function(hljs) {
     //
     'GROUPING CAST ';
 
-    var FUNCTIONS_RE =
+  const FUNCTIONS_RE =
       FUNCTIONS.trim()
-               .split(' ')
-               .map( function(val) { return val.split('|')[0]; } )
-               .join('|');
+        .split(' ')
+        .map(function(val) { return val.split('|')[0]; })
+        .join('|');
 
-    return {
-        name: 'PostgreSQL',
-        aliases: ['postgres','postgresql'],
-        case_insensitive: true,
-        keywords: {
-          keyword:
+  return {
+    name: 'PostgreSQL',
+    aliases: [
+      'postgres',
+      'postgresql'
+    ],
+    case_insensitive: true,
+    keywords: {
+      keyword:
             SQL_KW + PLPGSQL_KW + ROLE_ATTRS,
-          built_in:
-            SQL_BI + PLPGSQL_BI + PLPGSQL_EXCEPTIONS,
-        },
-        // Forbid some cunstructs from other languages to improve autodetect. In fact
-        // "[a-z]:" is legal (as part of array slice), but improbabal.
-        illegal: /:==|\W\s*\(\*|(^|\s)\$[a-z]|{{|[a-z]:\s*$|\.\.\.|TO:|DO:/,
-        contains: [
-          // special handling of some words, which are reserved only in some contexts
+      built_in:
+            SQL_BI + PLPGSQL_BI + PLPGSQL_EXCEPTIONS
+    },
+    // Forbid some cunstructs from other languages to improve autodetect. In fact
+    // "[a-z]:" is legal (as part of array slice), but improbabal.
+    illegal: /:==|\W\s*\(\*|(^|\s)\$[a-z]|\{\{|[a-z]:\s*$|\.\.\.|TO:|DO:/,
+    contains: [
+      // special handling of some words, which are reserved only in some contexts
+      {
+        className: 'keyword',
+        variants: [
           {
-            className: 'keyword',
-            variants: [
-              { begin: /\bTEXT\s*SEARCH\b/ },
-              { begin: /\b(PRIMARY|FOREIGN|FOR(\s+NO)?)\s+KEY\b/ },
-              { begin: /\bPARALLEL\s+(UNSAFE|RESTRICTED|SAFE)\b/ },
-              { begin: /\bSTORAGE\s+(PLAIN|EXTERNAL|EXTENDED|MAIN)\b/ },
-              { begin: /\bMATCH\s+(FULL|PARTIAL|SIMPLE)\b/ },
-              { begin: /\bNULLS\s+(FIRST|LAST)\b/ },
-              { begin: /\bEVENT\s+TRIGGER\b/ },
-              { begin: /\b(MAPPING|OR)\s+REPLACE\b/ },
-              { begin: /\b(FROM|TO)\s+(PROGRAM|STDIN|STDOUT)\b/ },
-              { begin: /\b(SHARE|EXCLUSIVE)\s+MODE\b/ },
-              { begin: /\b(LEFT|RIGHT)\s+(OUTER\s+)?JOIN\b/ },
-              { begin: /\b(FETCH|MOVE)\s+(NEXT|PRIOR|FIRST|LAST|ABSOLUTE|RELATIVE|FORWARD|BACKWARD)\b/ },
-              { begin: /\bPRESERVE\s+ROWS\b/ },
-              { begin: /\bDISCARD\s+PLANS\b/ },
-              { begin: /\bREFERENCING\s+(OLD|NEW)\b/ },
-              { begin: /\bSKIP\s+LOCKED\b/ },
-              { begin: /\bGROUPING\s+SETS\b/ },
-              { begin: /\b(BINARY|INSENSITIVE|SCROLL|NO\s+SCROLL)\s+(CURSOR|FOR)\b/ },
-              { begin: /\b(WITH|WITHOUT)\s+HOLD\b/ },
-              { begin: /\bWITH\s+(CASCADED|LOCAL)\s+CHECK\s+OPTION\b/ },
-              { begin: /\bEXCLUDE\s+(TIES|NO\s+OTHERS)\b/ },
-              { begin: /\bFORMAT\s+(TEXT|XML|JSON|YAML)\b/ },
-              { begin: /\bSET\s+((SESSION|LOCAL)\s+)?NAMES\b/ },
-              { begin: /\bIS\s+(NOT\s+)?UNKNOWN\b/ },
-              { begin: /\bSECURITY\s+LABEL\b/ },
-              { begin: /\bSTANDALONE\s+(YES|NO|NO\s+VALUE)\b/ },
-              { begin: /\bWITH\s+(NO\s+)?DATA\b/ },
-              { begin: /\b(FOREIGN|SET)\s+DATA\b/ },
-              { begin: /\bSET\s+(CATALOG|CONSTRAINTS)\b/ },
-              { begin: /\b(WITH|FOR)\s+ORDINALITY\b/ },
-              { begin: /\bIS\s+(NOT\s+)?DOCUMENT\b/ },
-              { begin: /\bXML\s+OPTION\s+(DOCUMENT|CONTENT)\b/ },
-              { begin: /\b(STRIP|PRESERVE)\s+WHITESPACE\b/ },
-              { begin: /\bNO\s+(ACTION|MAXVALUE|MINVALUE)\b/ },
-              { begin: /\bPARTITION\s+BY\s+(RANGE|LIST|HASH)\b/ },
-              { begin: /\bAT\s+TIME\s+ZONE\b/ },
-              { begin: /\bGRANTED\s+BY\b/ },
-              { begin: /\bRETURN\s+(QUERY|NEXT)\b/ },
-              { begin: /\b(ATTACH|DETACH)\s+PARTITION\b/ },
-              { begin: /\bFORCE\s+ROW\s+LEVEL\s+SECURITY\b/ },
-              { begin: /\b(INCLUDING|EXCLUDING)\s+(COMMENTS|CONSTRAINTS|DEFAULTS|IDENTITY|INDEXES|STATISTICS|STORAGE|ALL)\b/ },
-              { begin: /\bAS\s+(ASSIGNMENT|IMPLICIT|PERMISSIVE|RESTRICTIVE|ENUM|RANGE)\b/ }
-            ]
-          },
-          // functions named as keywords, followed by '('
-          {
-            begin: /\b(FORMAT|FAMILY|VERSION)\s*\(/,
-            //keywords: { built_in: 'FORMAT FAMILY VERSION' }
-          },
-          // INCLUDE ( ... ) in index_parameters in CREATE TABLE
-          {
-            begin: /\bINCLUDE\s*\(/,
-            keywords: 'INCLUDE'
-          },
-          // not highlight RANGE if not in frame_clause (not 100% correct, but seems satisfactory)
-          {
-            begin: /\bRANGE(?!\s*(BETWEEN|UNBOUNDED|CURRENT|[-0-9]+))/
-          },
-          // disable highlighting in commands CREATE AGGREGATE/COLLATION/DATABASE/OPERTOR/TEXT SEARCH .../TYPE
-          // and in PL/pgSQL RAISE ... USING
-          {
-            begin: /\b(VERSION|OWNER|TEMPLATE|TABLESPACE|CONNECTION\s+LIMIT|PROCEDURE|RESTRICT|JOIN|PARSER|COPY|START|END|COLLATION|INPUT|ANALYZE|STORAGE|LIKE|DEFAULT|DELIMITER|ENCODING|COLUMN|CONSTRAINT|TABLE|SCHEMA)\s*=/
-          },
-          // PG_smth; HAS_some_PRIVILEGE
-          {
-            //className: 'built_in',
-            begin: /\b(PG_\w+?|HAS_[A-Z_]+_PRIVILEGE)\b/,
-            relevance: 10
-          },
-          // extract
-          {
-            begin: /\bEXTRACT\s*\(/,
-            end: /\bFROM\b/,
-            returnEnd: true,
-            keywords: {
-              //built_in: 'EXTRACT',
-              type:     'CENTURY DAY DECADE DOW DOY EPOCH HOUR ISODOW ISOYEAR MICROSECONDS ' +
-                        'MILLENNIUM MILLISECONDS MINUTE MONTH QUARTER SECOND TIMEZONE TIMEZONE_HOUR ' +
-                        'TIMEZONE_MINUTE WEEK YEAR'
-            }
-          },
-          // xmlelement, xmlpi - special NAME
-          {
-            begin: /\b(XMLELEMENT|XMLPI)\s*\(\s*NAME/,
-            keywords: {
-              //built_in: 'XMLELEMENT XMLPI',
-              keyword:  'NAME'
-            }
-          },
-          // xmlparse, xmlserialize
-          {
-            begin: /\b(XMLPARSE|XMLSERIALIZE)\s*\(\s*(DOCUMENT|CONTENT)/,
-            keywords: {
-              //built_in: 'XMLPARSE XMLSERIALIZE',
-              keyword:  'DOCUMENT CONTENT'
-            }
-          },
-          // Sequences. We actually skip everything between CACHE|INCREMENT|MAXVALUE|MINVALUE and
-          // nearest following numeric constant. Without with trick we find a lot of "keywords"
-          // in 'avrasm' autodetection test...
-          {
-            beginKeywords: 'CACHE INCREMENT MAXVALUE MINVALUE',
-            end: hljs.C_NUMBER_RE,
-            returnEnd: true,
-            keywords: 'BY CACHE INCREMENT MAXVALUE MINVALUE'
-          },
-          // WITH|WITHOUT TIME ZONE as part of datatype
-          {
-            className: 'type',
-            begin: /\b(WITH|WITHOUT)\s+TIME\s+ZONE\b/
-          },
-          // INTERVAL optional fields
-          {
-            className: 'type',
-            begin: /\bINTERVAL\s+(YEAR|MONTH|DAY|HOUR|MINUTE|SECOND)(\s+TO\s+(MONTH|HOUR|MINUTE|SECOND))?\b/
-          },
-          // Pseudo-types which allowed only as return type
-          {
-            begin: /\bRETURNS\s+(LANGUAGE_HANDLER|TRIGGER|EVENT_TRIGGER|FDW_HANDLER|INDEX_AM_HANDLER|TSM_HANDLER)\b/,
-            keywords: {
-              keyword: 'RETURNS',
-              type: 'LANGUAGE_HANDLER TRIGGER EVENT_TRIGGER FDW_HANDLER INDEX_AM_HANDLER TSM_HANDLER'
-            }
-          },
-          // Known functions - only when followed by '('
-          {
-            begin: '\\b(' + FUNCTIONS_RE + ')\\s*\\('
-            //keywords: { built_in: FUNCTIONS }
-          },
-          // Types
-          {
-            begin: '\\.(' + TYPES_RE + ')\\b' // prevent highlight as type, say, 'oid' in 'pgclass.oid'
+            begin: /\bTEXT\s*SEARCH\b/
           },
           {
-            begin: '\\b(' + TYPES_RE + ')\\s+PATH\\b', // in XMLTABLE
-            keywords: {
-              keyword: 'PATH', // hopefully no one would use PATH type in XMLTABLE...
-              type: TYPES.replace('PATH ','')
-            }
+            begin: /\b(PRIMARY|FOREIGN|FOR(\s+NO)?)\s+KEY\b/
           },
           {
-            className: 'type',
-            begin: '\\b(' + TYPES_RE + ')\\b'
-          },
-          // Strings, see https://www.postgresql.org/docs/11/static/sql-syntax-lexical.html#SQL-SYNTAX-CONSTANTS
-          {
-            className: 'string',
-            begin: '\'', end: '\'',
-            contains: [{begin: '\'\''}]
+            begin: /\bPARALLEL\s+(UNSAFE|RESTRICTED|SAFE)\b/
           },
           {
-            className: 'string',
-            begin: '(e|E|u&|U&)\'', end: '\'',
-            contains: [{begin: '\\\\.'}],
-            relevance: 10
+            begin: /\bSTORAGE\s+(PLAIN|EXTERNAL|EXTENDED|MAIN)\b/
           },
-          hljs.END_SAME_AS_BEGIN({
-            begin: DOLLAR_STRING,
-            end: DOLLAR_STRING,
-            contains: [
-              {
-                // actually we want them all except SQL; listed are those with known implementations
-                // and XML + JSON just in case
-                subLanguage: ['pgsql','perl','python','tcl','r','lua','java','php','ruby','bash','scheme','xml','json'],
-                endsWithParent: true
-              }
-            ]
-          }),
-          // identifiers in quotes
           {
-            begin: '"', end: '"',
-            contains: [{begin: '""'}]
+            begin: /\bMATCH\s+(FULL|PARTIAL|SIMPLE)\b/
           },
-          // numbers
-          hljs.C_NUMBER_MODE,
-          // comments
-          hljs.C_BLOCK_COMMENT_MODE,
-          COMMENT_MODE,
-          // PL/pgSQL staff
-          // %ROWTYPE, %TYPE, $n
           {
-            className: 'meta',
-            variants: [
-              {begin: '%(ROW)?TYPE', relevance: 10}, // %TYPE, %ROWTYPE
-              {begin: '\\$\\d+'},                    // $n
-              {begin: '^#\\w', end: '$'}             // #compiler option
-            ]
+            begin: /\bNULLS\s+(FIRST|LAST)\b/
           },
-          // <<labeles>>
           {
-            className: 'symbol',
-            begin: LABEL,
-            relevance: 10
+            begin: /\bEVENT\s+TRIGGER\b/
+          },
+          {
+            begin: /\b(MAPPING|OR)\s+REPLACE\b/
+          },
+          {
+            begin: /\b(FROM|TO)\s+(PROGRAM|STDIN|STDOUT)\b/
+          },
+          {
+            begin: /\b(SHARE|EXCLUSIVE)\s+MODE\b/
+          },
+          {
+            begin: /\b(LEFT|RIGHT)\s+(OUTER\s+)?JOIN\b/
+          },
+          {
+            begin: /\b(FETCH|MOVE)\s+(NEXT|PRIOR|FIRST|LAST|ABSOLUTE|RELATIVE|FORWARD|BACKWARD)\b/
+          },
+          {
+            begin: /\bPRESERVE\s+ROWS\b/
+          },
+          {
+            begin: /\bDISCARD\s+PLANS\b/
+          },
+          {
+            begin: /\bREFERENCING\s+(OLD|NEW)\b/
+          },
+          {
+            begin: /\bSKIP\s+LOCKED\b/
+          },
+          {
+            begin: /\bGROUPING\s+SETS\b/
+          },
+          {
+            begin: /\b(BINARY|INSENSITIVE|SCROLL|NO\s+SCROLL)\s+(CURSOR|FOR)\b/
+          },
+          {
+            begin: /\b(WITH|WITHOUT)\s+HOLD\b/
+          },
+          {
+            begin: /\bWITH\s+(CASCADED|LOCAL)\s+CHECK\s+OPTION\b/
+          },
+          {
+            begin: /\bEXCLUDE\s+(TIES|NO\s+OTHERS)\b/
+          },
+          {
+            begin: /\bFORMAT\s+(TEXT|XML|JSON|YAML)\b/
+          },
+          {
+            begin: /\bSET\s+((SESSION|LOCAL)\s+)?NAMES\b/
+          },
+          {
+            begin: /\bIS\s+(NOT\s+)?UNKNOWN\b/
+          },
+          {
+            begin: /\bSECURITY\s+LABEL\b/
+          },
+          {
+            begin: /\bSTANDALONE\s+(YES|NO|NO\s+VALUE)\b/
+          },
+          {
+            begin: /\bWITH\s+(NO\s+)?DATA\b/
+          },
+          {
+            begin: /\b(FOREIGN|SET)\s+DATA\b/
+          },
+          {
+            begin: /\bSET\s+(CATALOG|CONSTRAINTS)\b/
+          },
+          {
+            begin: /\b(WITH|FOR)\s+ORDINALITY\b/
+          },
+          {
+            begin: /\bIS\s+(NOT\s+)?DOCUMENT\b/
+          },
+          {
+            begin: /\bXML\s+OPTION\s+(DOCUMENT|CONTENT)\b/
+          },
+          {
+            begin: /\b(STRIP|PRESERVE)\s+WHITESPACE\b/
+          },
+          {
+            begin: /\bNO\s+(ACTION|MAXVALUE|MINVALUE)\b/
+          },
+          {
+            begin: /\bPARTITION\s+BY\s+(RANGE|LIST|HASH)\b/
+          },
+          {
+            begin: /\bAT\s+TIME\s+ZONE\b/
+          },
+          {
+            begin: /\bGRANTED\s+BY\b/
+          },
+          {
+            begin: /\bRETURN\s+(QUERY|NEXT)\b/
+          },
+          {
+            begin: /\b(ATTACH|DETACH)\s+PARTITION\b/
+          },
+          {
+            begin: /\bFORCE\s+ROW\s+LEVEL\s+SECURITY\b/
+          },
+          {
+            begin: /\b(INCLUDING|EXCLUDING)\s+(COMMENTS|CONSTRAINTS|DEFAULTS|IDENTITY|INDEXES|STATISTICS|STORAGE|ALL)\b/
+          },
+          {
+            begin: /\bAS\s+(ASSIGNMENT|IMPLICIT|PERMISSIVE|RESTRICTIVE|ENUM|RANGE)\b/
           }
         ]
+      },
+      // functions named as keywords, followed by '('
+      {
+        begin: /\b(FORMAT|FAMILY|VERSION)\s*\(/
+        // keywords: { built_in: 'FORMAT FAMILY VERSION' }
+      },
+      // INCLUDE ( ... ) in index_parameters in CREATE TABLE
+      {
+        begin: /\bINCLUDE\s*\(/,
+        keywords: 'INCLUDE'
+      },
+      // not highlight RANGE if not in frame_clause (not 100% correct, but seems satisfactory)
+      {
+        begin: /\bRANGE(?!\s*(BETWEEN|UNBOUNDED|CURRENT|[-0-9]+))/
+      },
+      // disable highlighting in commands CREATE AGGREGATE/COLLATION/DATABASE/OPERTOR/TEXT SEARCH .../TYPE
+      // and in PL/pgSQL RAISE ... USING
+      {
+        begin: /\b(VERSION|OWNER|TEMPLATE|TABLESPACE|CONNECTION\s+LIMIT|PROCEDURE|RESTRICT|JOIN|PARSER|COPY|START|END|COLLATION|INPUT|ANALYZE|STORAGE|LIKE|DEFAULT|DELIMITER|ENCODING|COLUMN|CONSTRAINT|TABLE|SCHEMA)\s*=/
+      },
+      // PG_smth; HAS_some_PRIVILEGE
+      {
+        // className: 'built_in',
+        begin: /\b(PG_\w+?|HAS_[A-Z_]+_PRIVILEGE)\b/,
+        relevance: 10
+      },
+      // extract
+      {
+        begin: /\bEXTRACT\s*\(/,
+        end: /\bFROM\b/,
+        returnEnd: true,
+        keywords: {
+          // built_in: 'EXTRACT',
+          type: 'CENTURY DAY DECADE DOW DOY EPOCH HOUR ISODOW ISOYEAR MICROSECONDS ' +
+                        'MILLENNIUM MILLISECONDS MINUTE MONTH QUARTER SECOND TIMEZONE TIMEZONE_HOUR ' +
+                        'TIMEZONE_MINUTE WEEK YEAR'
+        }
+      },
+      // xmlelement, xmlpi - special NAME
+      {
+        begin: /\b(XMLELEMENT|XMLPI)\s*\(\s*NAME/,
+        keywords: {
+          // built_in: 'XMLELEMENT XMLPI',
+          keyword: 'NAME'
+        }
+      },
+      // xmlparse, xmlserialize
+      {
+        begin: /\b(XMLPARSE|XMLSERIALIZE)\s*\(\s*(DOCUMENT|CONTENT)/,
+        keywords: {
+          // built_in: 'XMLPARSE XMLSERIALIZE',
+          keyword: 'DOCUMENT CONTENT'
+        }
+      },
+      // Sequences. We actually skip everything between CACHE|INCREMENT|MAXVALUE|MINVALUE and
+      // nearest following numeric constant. Without with trick we find a lot of "keywords"
+      // in 'avrasm' autodetection test...
+      {
+        beginKeywords: 'CACHE INCREMENT MAXVALUE MINVALUE',
+        end: hljs.C_NUMBER_RE,
+        returnEnd: true,
+        keywords: 'BY CACHE INCREMENT MAXVALUE MINVALUE'
+      },
+      // WITH|WITHOUT TIME ZONE as part of datatype
+      {
+        className: 'type',
+        begin: /\b(WITH|WITHOUT)\s+TIME\s+ZONE\b/
+      },
+      // INTERVAL optional fields
+      {
+        className: 'type',
+        begin: /\bINTERVAL\s+(YEAR|MONTH|DAY|HOUR|MINUTE|SECOND)(\s+TO\s+(MONTH|HOUR|MINUTE|SECOND))?\b/
+      },
+      // Pseudo-types which allowed only as return type
+      {
+        begin: /\bRETURNS\s+(LANGUAGE_HANDLER|TRIGGER|EVENT_TRIGGER|FDW_HANDLER|INDEX_AM_HANDLER|TSM_HANDLER)\b/,
+        keywords: {
+          keyword: 'RETURNS',
+          type: 'LANGUAGE_HANDLER TRIGGER EVENT_TRIGGER FDW_HANDLER INDEX_AM_HANDLER TSM_HANDLER'
+        }
+      },
+      // Known functions - only when followed by '('
+      {
+        begin: '\\b(' + FUNCTIONS_RE + ')\\s*\\('
+        // keywords: { built_in: FUNCTIONS }
+      },
+      // Types
+      {
+        begin: '\\.(' + TYPES_RE + ')\\b' // prevent highlight as type, say, 'oid' in 'pgclass.oid'
+      },
+      {
+        begin: '\\b(' + TYPES_RE + ')\\s+PATH\\b', // in XMLTABLE
+        keywords: {
+          keyword: 'PATH', // hopefully no one would use PATH type in XMLTABLE...
+          type: TYPES.replace('PATH ', '')
+        }
+      },
+      {
+        className: 'type',
+        begin: '\\b(' + TYPES_RE + ')\\b'
+      },
+      // Strings, see https://www.postgresql.org/docs/11/static/sql-syntax-lexical.html#SQL-SYNTAX-CONSTANTS
+      {
+        className: 'string',
+        begin: '\'',
+        end: '\'',
+        contains: [
+          {
+            begin: '\'\''
+          }
+        ]
+      },
+      {
+        className: 'string',
+        begin: '(e|E|u&|U&)\'',
+        end: '\'',
+        contains: [
+          {
+            begin: '\\\\.'
+          }
+        ],
+        relevance: 10
+      },
+      hljs.END_SAME_AS_BEGIN({
+        begin: DOLLAR_STRING,
+        end: DOLLAR_STRING,
+        contains: [
+          {
+            // actually we want them all except SQL; listed are those with known implementations
+            // and XML + JSON just in case
+            subLanguage: [
+              'pgsql',
+              'perl',
+              'python',
+              'tcl',
+              'r',
+              'lua',
+              'java',
+              'php',
+              'ruby',
+              'bash',
+              'scheme',
+              'xml',
+              'json'
+            ],
+            endsWithParent: true
+          }
+        ]
+      }),
+      // identifiers in quotes
+      {
+        begin: '"',
+        end: '"',
+        contains: [
+          {
+            begin: '""'
+          }
+        ]
+      },
+      // numbers
+      hljs.C_NUMBER_MODE,
+      // comments
+      hljs.C_BLOCK_COMMENT_MODE,
+      COMMENT_MODE,
+      // PL/pgSQL staff
+      // %ROWTYPE, %TYPE, $n
+      {
+        className: 'meta',
+        variants: [
+          { // %TYPE, %ROWTYPE
+            begin: '%(ROW)?TYPE',
+            relevance: 10
+          },
+          { // $n
+            begin: '\\$\\d+'
+          },
+          { // #compiler option
+            begin: '^#\\w',
+            end: '$'
+          }
+        ]
+      },
+      // <<labeles>>
+      {
+        className: 'symbol',
+        begin: LABEL,
+        relevance: 10
+      }
+    ]
   };
 }

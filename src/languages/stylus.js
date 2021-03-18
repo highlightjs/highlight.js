@@ -6,19 +6,19 @@ Website: https://github.com/stylus/stylus
 Category: css
 */
 
-export default function(hljs) {
+import * as css from "./lib/css-shared.js";
 
-  var VARIABLE = {
+/** @type LanguageFn */
+export default function(hljs) {
+  const modes = css.MODES(hljs);
+
+  const AT_MODIFIERS = "and or not only";
+  const VARIABLE = {
     className: 'variable',
     begin: '\\$' + hljs.IDENT_RE
   };
 
-  var HEX_COLOR = {
-    className: 'number',
-    begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})'
-  };
-
-  var AT_KEYWORDS = [
+  const AT_KEYWORDS = [
     'charset',
     'css',
     'debug',
@@ -27,6 +27,7 @@ export default function(hljs) {
     'for',
     'import',
     'include',
+    'keyframes',
     'media',
     'mixin',
     'page',
@@ -34,304 +35,10 @@ export default function(hljs) {
     'while'
   ];
 
-  var PSEUDO_SELECTORS = [
-    'after',
-    'before',
-    'first-letter',
-    'first-line',
-    'active',
-    'first-child',
-    'focus',
-    'hover',
-    'lang',
-    'link',
-    'visited'
-  ];
-
-  var TAGS = [
-    'a',
-    'abbr',
-    'address',
-    'article',
-    'aside',
-    'audio',
-    'b',
-    'blockquote',
-    'body',
-    'button',
-    'canvas',
-    'caption',
-    'cite',
-    'code',
-    'dd',
-    'del',
-    'details',
-    'dfn',
-    'div',
-    'dl',
-    'dt',
-    'em',
-    'fieldset',
-    'figcaption',
-    'figure',
-    'footer',
-    'form',
-    'h1',
-    'h2',
-    'h3',
-    'h4',
-    'h5',
-    'h6',
-    'header',
-    'hgroup',
-    'html',
-    'i',
-    'iframe',
-    'img',
-    'input',
-    'ins',
-    'kbd',
-    'label',
-    'legend',
-    'li',
-    'mark',
-    'menu',
-    'nav',
-    'object',
-    'ol',
-    'p',
-    'q',
-    'quote',
-    'samp',
-    'section',
-    'span',
-    'strong',
-    'summary',
-    'sup',
-    'table',
-    'tbody',
-    'td',
-    'textarea',
-    'tfoot',
-    'th',
-    'thead',
-    'time',
-    'tr',
-    'ul',
-    'var',
-    'video'
-  ];
-
-  var LOOKAHEAD_TAG_END = '(?=[\\.\\s\\n\\[\\:,])';
-
-  var ATTRIBUTES = [
-    'align-content',
-    'align-items',
-    'align-self',
-    'animation',
-    'animation-delay',
-    'animation-direction',
-    'animation-duration',
-    'animation-fill-mode',
-    'animation-iteration-count',
-    'animation-name',
-    'animation-play-state',
-    'animation-timing-function',
-    'auto',
-    'backface-visibility',
-    'background',
-    'background-attachment',
-    'background-clip',
-    'background-color',
-    'background-image',
-    'background-origin',
-    'background-position',
-    'background-repeat',
-    'background-size',
-    'border',
-    'border-bottom',
-    'border-bottom-color',
-    'border-bottom-left-radius',
-    'border-bottom-right-radius',
-    'border-bottom-style',
-    'border-bottom-width',
-    'border-collapse',
-    'border-color',
-    'border-image',
-    'border-image-outset',
-    'border-image-repeat',
-    'border-image-slice',
-    'border-image-source',
-    'border-image-width',
-    'border-left',
-    'border-left-color',
-    'border-left-style',
-    'border-left-width',
-    'border-radius',
-    'border-right',
-    'border-right-color',
-    'border-right-style',
-    'border-right-width',
-    'border-spacing',
-    'border-style',
-    'border-top',
-    'border-top-color',
-    'border-top-left-radius',
-    'border-top-right-radius',
-    'border-top-style',
-    'border-top-width',
-    'border-width',
-    'bottom',
-    'box-decoration-break',
-    'box-shadow',
-    'box-sizing',
-    'break-after',
-    'break-before',
-    'break-inside',
-    'caption-side',
-    'clear',
-    'clip',
-    'clip-path',
-    'color',
-    'column-count',
-    'column-fill',
-    'column-gap',
-    'column-rule',
-    'column-rule-color',
-    'column-rule-style',
-    'column-rule-width',
-    'column-span',
-    'column-width',
-    'columns',
-    'content',
-    'counter-increment',
-    'counter-reset',
-    'cursor',
-    'direction',
-    'display',
-    'empty-cells',
-    'filter',
-    'flex',
-    'flex-basis',
-    'flex-direction',
-    'flex-flow',
-    'flex-grow',
-    'flex-shrink',
-    'flex-wrap',
-    'float',
-    'font',
-    'font-family',
-    'font-feature-settings',
-    'font-kerning',
-    'font-language-override',
-    'font-size',
-    'font-size-adjust',
-    'font-stretch',
-    'font-style',
-    'font-variant',
-    'font-variant-ligatures',
-    'font-weight',
-    'height',
-    'hyphens',
-    'icon',
-    'image-orientation',
-    'image-rendering',
-    'image-resolution',
-    'ime-mode',
-    'inherit',
-    'initial',
-    'justify-content',
-    'left',
-    'letter-spacing',
-    'line-height',
-    'list-style',
-    'list-style-image',
-    'list-style-position',
-    'list-style-type',
-    'margin',
-    'margin-bottom',
-    'margin-left',
-    'margin-right',
-    'margin-top',
-    'marks',
-    'mask',
-    'max-height',
-    'max-width',
-    'min-height',
-    'min-width',
-    'nav-down',
-    'nav-index',
-    'nav-left',
-    'nav-right',
-    'nav-up',
-    'none',
-    'normal',
-    'object-fit',
-    'object-position',
-    'opacity',
-    'order',
-    'orphans',
-    'outline',
-    'outline-color',
-    'outline-offset',
-    'outline-style',
-    'outline-width',
-    'overflow',
-    'overflow-wrap',
-    'overflow-x',
-    'overflow-y',
-    'padding',
-    'padding-bottom',
-    'padding-left',
-    'padding-right',
-    'padding-top',
-    'page-break-after',
-    'page-break-before',
-    'page-break-inside',
-    'perspective',
-    'perspective-origin',
-    'pointer-events',
-    'position',
-    'quotes',
-    'resize',
-    'right',
-    'tab-size',
-    'table-layout',
-    'text-align',
-    'text-align-last',
-    'text-decoration',
-    'text-decoration-color',
-    'text-decoration-line',
-    'text-decoration-style',
-    'text-indent',
-    'text-overflow',
-    'text-rendering',
-    'text-shadow',
-    'text-transform',
-    'text-underline-position',
-    'top',
-    'transform',
-    'transform-origin',
-    'transform-style',
-    'transition',
-    'transition-delay',
-    'transition-duration',
-    'transition-property',
-    'transition-timing-function',
-    'unicode-bidi',
-    'vertical-align',
-    'visibility',
-    'white-space',
-    'widows',
-    'width',
-    'word-break',
-    'word-spacing',
-    'word-wrap',
-    'z-index'
-  ];
+  const LOOKAHEAD_TAG_END = '(?=[.\\s\\n[:,(])';
 
   // illegals
-  var ILLEGAL = [
+  const ILLEGAL = [
     '\\?',
     '(\\bReturn\\b)', // monkey
     '(\\bEnd\\b)', // monkey
@@ -342,12 +49,12 @@ export default function(hljs) {
     '\\*\\s', // markdown
     '===\\s', // markdown
     '\\|',
-    '%', // prolog
+    '%' // prolog
   ];
 
   return {
     name: 'Stylus',
-    aliases: ['styl'],
+    aliases: [ 'styl' ],
     case_insensitive: false,
     keywords: 'if else for in',
     illegal: '(' + ILLEGAL.join('|') + ')',
@@ -362,7 +69,7 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
 
       // hex colors
-      HEX_COLOR,
+      modes.HEXCOLOR,
 
       // class tag
       {
@@ -372,24 +79,46 @@ export default function(hljs) {
 
       // id tag
       {
-        begin: '\\#[a-zA-Z][a-zA-Z0-9_-]*' + LOOKAHEAD_TAG_END,
+        begin: '#[a-zA-Z][a-zA-Z0-9_-]*' + LOOKAHEAD_TAG_END,
         className: 'selector-id'
       },
 
       // tags
       {
-        begin: '\\b(' + TAGS.join('|') + ')' + LOOKAHEAD_TAG_END,
+        begin: '\\b(' + css.TAGS.join('|') + ')' + LOOKAHEAD_TAG_END,
         className: 'selector-tag'
       },
 
       // psuedo selectors
       {
-        begin: '&?:?:\\b(' + PSEUDO_SELECTORS.join('|') + ')' + LOOKAHEAD_TAG_END
+        className: 'selector-pseudo',
+        begin: '&?:(' + css.PSEUDO_CLASSES.join('|') + ')' + LOOKAHEAD_TAG_END
+      },
+      {
+        className: 'selector-pseudo',
+        begin: '&?::(' + css.PSEUDO_ELEMENTS.join('|') + ')' + LOOKAHEAD_TAG_END
+      },
+
+      modes.ATTRIBUTE_SELECTOR_MODE,
+
+      {
+        className: "keyword",
+        begin: /@media/,
+        starts: {
+          end: /[{;}]/,
+          keywords: {
+            $pattern: /[a-z-]+/,
+            keyword: AT_MODIFIERS,
+            attribute: css.MEDIA_FEATURES.join(" ")
+          },
+          contains: [ hljs.CSS_NUMBER_MODE ]
+        }
       },
 
       // @ keywords
       {
-        begin: '\@(' + AT_KEYWORDS.join('|') + ')\\b'
+        className: 'keyword',
+        begin: '\@((-(o|moz|ms|webkit)-)?(' + AT_KEYWORDS.join('|') + '))\\b'
       },
 
       // variables
@@ -397,9 +126,6 @@ export default function(hljs) {
 
       // dimension
       hljs.CSS_NUMBER_MODE,
-
-      // number
-      hljs.NUMBER_MODE,
 
       // functions
       //  - only from beginning of line + whitespace
@@ -409,17 +135,19 @@ export default function(hljs) {
         illegal: '[\\n]',
         returnBegin: true,
         contains: [
-          {className: 'title', begin: '\\b[a-zA-Z][a-zA-Z0-9_\-]*'},
+          {
+            className: 'title',
+            begin: '\\b[a-zA-Z][a-zA-Z0-9_\-]*'
+          },
           {
             className: 'params',
             begin: /\(/,
             end: /\)/,
             contains: [
-              HEX_COLOR,
+              modes.HEXCOLOR,
               VARIABLE,
               hljs.APOS_STRING_MODE,
               hljs.CSS_NUMBER_MODE,
-              hljs.NUMBER_MODE,
               hljs.QUOTE_STRING_MODE
             ]
           }
@@ -431,18 +159,18 @@ export default function(hljs) {
       //  - must have whitespace after it
       {
         className: 'attribute',
-        begin: '\\b(' + ATTRIBUTES.reverse().join('|') + ')\\b',
+        begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b',
         starts: {
           // value container
           end: /;|$/,
           contains: [
-            HEX_COLOR,
+            modes.HEXCOLOR,
             VARIABLE,
             hljs.APOS_STRING_MODE,
             hljs.QUOTE_STRING_MODE,
             hljs.CSS_NUMBER_MODE,
-            hljs.NUMBER_MODE,
-            hljs.C_BLOCK_COMMENT_MODE
+            hljs.C_BLOCK_COMMENT_MODE,
+            modes.IMPORTANT
           ],
           illegal: /\./,
           relevance: 0

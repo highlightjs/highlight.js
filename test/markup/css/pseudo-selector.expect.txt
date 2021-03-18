@@ -1,2 +1,2 @@
-<span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:not(.red)</span>{}
-<span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:not(.red)</span><span class="hljs-selector-pseudo">:not(.green)</span>{}
+<span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-class">.red</span>){}
+<span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-class">.red</span>)<span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-class">.green</span>){}

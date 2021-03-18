@@ -1,0 +1,29 @@
+<span class="hljs-keyword">Dim</span> f1 = <span class="hljs-number">123.123</span>
+<span class="hljs-keyword">Dim</span> f2 = -<span class="hljs-number">123.123</span>
+<span class="hljs-keyword">Dim</span> f3 = <span class="hljs-number">123.123E+1</span>
+<span class="hljs-keyword">Dim</span> f4 = <span class="hljs-number">123.123R</span>
+<span class="hljs-keyword">Dim</span> f5 = <span class="hljs-number">123.123F</span>
+<span class="hljs-keyword">Dim</span> f6 = <span class="hljs-number">123.123D</span>
+<span class="hljs-keyword">Dim</span> f7 = <span class="hljs-number">123.123@</span>
+<span class="hljs-keyword">Dim</span> f8 = <span class="hljs-number">123.123!</span>
+<span class="hljs-keyword">Dim</span> f9 = <span class="hljs-number">123.123#</span>
+
+<span class="hljs-keyword">Dim</span> v = <span class="hljs-number">123E+1</span>
+<span class="hljs-keyword">Dim</span> v = <span class="hljs-number">123E1</span>
+<span class="hljs-keyword">Dim</span> v = <span class="hljs-number">123E-5</span>
+<span class="hljs-keyword">Dim</span> v = <span class="hljs-number">123_000E-5_000</span>
+
+<span class="hljs-keyword">Dim</span> i1 = <span class="hljs-number">123</span>
+<span class="hljs-keyword">Dim</span> i2 = -<span class="hljs-number">123</span>
+<span class="hljs-keyword">Dim</span> i3 = <span class="hljs-number">123S</span>
+<span class="hljs-keyword">Dim</span> i4 = <span class="hljs-number">123I</span>
+<span class="hljs-keyword">Dim</span> i5 = <span class="hljs-number">123L</span>
+<span class="hljs-keyword">Dim</span> i6 = <span class="hljs-number">123US</span>
+<span class="hljs-keyword">Dim</span> i7 = <span class="hljs-number">123UI</span>
+<span class="hljs-keyword">Dim</span> i8 = <span class="hljs-number">123UL</span>
+<span class="hljs-keyword">Dim</span> i9 = <span class="hljs-number">123%</span>
+<span class="hljs-keyword">Dim</span> i0 = <span class="hljs-number">123&amp;</span>
+
+<span class="hljs-keyword">Dim</span> b1 = <span class="hljs-number">&amp;B10</span>
+<span class="hljs-keyword">Dim</span> o1 = <span class="hljs-number">&amp;O70</span>
+<span class="hljs-keyword">Dim</span> h1 = <span class="hljs-number">&amp;HA0</span>

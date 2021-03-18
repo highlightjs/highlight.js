@@ -6,101 +6,168 @@ Category: functional
 Website: https://elixir-lang.org
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(\\!|\\?)?';
-  var ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
-  var ELIXIR_KEYWORDS = {
+  const ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(!|\\?)?';
+  const ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
+  const ELIXIR_KEYWORDS = {
     $pattern: ELIXIR_IDENT_RE,
     keyword: 'and false then defined module in return redo retry end for true self when ' +
     'next until do begin unless nil break not case cond alias while ensure or ' +
     'include use alias fn quote require import with|0'
   };
-  var SUBST = {
+  const SUBST = {
     className: 'subst',
-    begin: '#\\{', end: '}',
+    begin: /#\{/,
+    end: /\}/,
     keywords: ELIXIR_KEYWORDS
   };
-  var NUMBER = {
+  const NUMBER = {
     className: 'number',
-    begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(.[0-9_]+([eE][-+]?[0-9]+)?)?)',
+    begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(\\.[0-9_]+([eE][-+]?[0-9]+)?)?)',
     relevance: 0
   };
-  var SIGIL_DELIMITERS = '[/|([{<"\']'
-  var LOWERCASE_SIGIL = {
+  const SIGIL_DELIMITERS = '[/|([{<"\']';
+  const LOWERCASE_SIGIL = {
     className: 'string',
     begin: '~[a-z]' + '(?=' + SIGIL_DELIMITERS + ')',
     contains: [
       {
-        endsParent:true,
-        contains: [{
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST],
-          variants: [
-            { begin: /"/, end: /"/ },
-            { begin: /'/, end: /'/ },
-            { begin: /\//, end: /\// },
-            { begin: /\|/, end: /\|/ },
-            { begin: /\(/, end: /\)/ },
-            { begin: /\[/, end: /\]/ },
-            { begin: /\{/, end: /\}/ },
-            { begin: /</, end: />/ }
-          ]
-        }]
-      },
-    ],
+        endsParent: true,
+        contains: [
+          {
+            contains: [
+              hljs.BACKSLASH_ESCAPE,
+              SUBST
+            ],
+            variants: [
+              {
+                begin: /"/,
+                end: /"/
+              },
+              {
+                begin: /'/,
+                end: /'/
+              },
+              {
+                begin: /\//,
+                end: /\//
+              },
+              {
+                begin: /\|/,
+                end: /\|/
+              },
+              {
+                begin: /\(/,
+                end: /\)/
+              },
+              {
+                begin: /\[/,
+                end: /\]/
+              },
+              {
+                begin: /\{/,
+                end: /\}/
+              },
+              {
+                begin: /</,
+                end: />/
+              }
+            ]
+          }
+        ]
+      }
+    ]
   };
 
-  var UPCASE_SIGIL = {
+  const UPCASE_SIGIL = {
     className: 'string',
     begin: '~[A-Z]' + '(?=' + SIGIL_DELIMITERS + ')',
     contains: [
-      { begin: /"/, end: /"/ },
-      { begin: /'/, end: /'/ },
-      { begin: /\//, end: /\// },
-      { begin: /\|/, end: /\|/ },
-      { begin: /\(/, end: /\)/ },
-      { begin: /\[/, end: /\]/ },
-      { begin: /\{/, end: /\}/ },
-      { begin: /\</, end: /\>/ }
+      {
+        begin: /"/,
+        end: /"/
+      },
+      {
+        begin: /'/,
+        end: /'/
+      },
+      {
+        begin: /\//,
+        end: /\//
+      },
+      {
+        begin: /\|/,
+        end: /\|/
+      },
+      {
+        begin: /\(/,
+        end: /\)/
+      },
+      {
+        begin: /\[/,
+        end: /\]/
+      },
+      {
+        begin: /\{/,
+        end: /\}/
+      },
+      {
+        begin: /</,
+        end: />/
+      }
     ]
   };
 
-  var STRING = {
+  const STRING = {
     className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      SUBST
+    ],
     variants: [
       {
-        begin: /"""/, end: /"""/,
+        begin: /"""/,
+        end: /"""/
       },
       {
-        begin: /'''/, end: /'''/,
+        begin: /'''/,
+        end: /'''/
       },
       {
-        begin: /~S"""/, end: /"""/,
-        contains: []
+        begin: /~S"""/,
+        end: /"""/,
+        contains: [] // override default
       },
       {
-        begin: /~S"/, end: /"/,
-        contains: []
+        begin: /~S"/,
+        end: /"/,
+        contains: [] // override default
       },
       {
-        begin: /~S'''/, end: /'''/,
-        contains: []
+        begin: /~S'''/,
+        end: /'''/,
+        contains: [] // override default
       },
       {
-        begin: /~S'/, end: /'/,
-        contains: []
+        begin: /~S'/,
+        end: /'/,
+        contains: [] // override default
       },
       {
-        begin: /'/, end: /'/
+        begin: /'/,
+        end: /'/
       },
       {
-        begin: /"/, end: /"/
-      },
+        begin: /"/,
+        end: /"/
+      }
     ]
   };
-  var FUNCTION = {
+  const FUNCTION = {
     className: 'function',
-    beginKeywords: 'def defp defmacro', end: /\B\b/, // the mode is ended by the title
+    beginKeywords: 'def defp defmacro',
+    end: /\B\b/, // the mode is ended by the title
     contains: [
       hljs.inherit(hljs.TITLE_MODE, {
         begin: ELIXIR_IDENT_RE,
@@ -108,11 +175,12 @@ export default function(hljs) {
       })
     ]
   };
-  var CLASS = hljs.inherit(FUNCTION, {
+  const CLASS = hljs.inherit(FUNCTION, {
     className: 'class',
-    beginKeywords: 'defimpl defmodule defprotocol defrecord', end: /\bdo\b|$|;/
+    beginKeywords: 'defimpl defmodule defprotocol defrecord',
+    end: /\bdo\b|$|;/
   });
-  var ELIXIR_DEFAULT_CONTAINS = [
+  const ELIXIR_DEFAULT_CONTAINS = [
     STRING,
     UPCASE_SIGIL,
     LOWERCASE_SIGIL,
@@ -125,7 +193,12 @@ export default function(hljs) {
     {
       className: 'symbol',
       begin: ':(?![\\s:])',
-      contains: [STRING, {begin: ELIXIR_METHOD_RE}],
+      contains: [
+        STRING,
+        {
+          begin: ELIXIR_METHOD_RE
+        }
+      ],
       relevance: 0
     },
     {
@@ -136,7 +209,7 @@ export default function(hljs) {
     NUMBER,
     {
       className: 'variable',
-      begin: '(\\$\\W)|((\\$|\\@\\@?)(\\w+))'
+      begin: '(\\$\\W)|((\\$|@@?)(\\w+))'
     },
     {
       begin: '->'
@@ -150,20 +223,23 @@ export default function(hljs) {
           // /:
           begin: /\/: (?=\d+\s*[,\]])/,
           relevance: 0,
-          contains: [
-            NUMBER
-          ]
+          contains: [NUMBER]
         },
         {
           className: 'regexp',
           illegal: '\\n',
-          contains: [hljs.BACKSLASH_ESCAPE, SUBST],
+          contains: [
+            hljs.BACKSLASH_ESCAPE,
+            SUBST
+          ],
           variants: [
             {
-              begin: '/', end: '/[a-z]*'
+              begin: '/',
+              end: '/[a-z]*'
             },
             {
-              begin: '%r\\[', end: '\\][a-z]*'
+              begin: '%r\\[',
+              end: '\\][a-z]*'
             }
           ]
         }

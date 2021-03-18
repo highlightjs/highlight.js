@@ -1,31 +1,335 @@
-## Version 10.4.0 (work in process)
+## Version 10.7.0 (in progress)
+
+Bugs:
+
+- fix(parser) `highlightAll()` now works if the library is lazy loaded [Josh Goebel][]
+
+New Languages:
+
+- Added 3rd party RiScript grammar to SUPPORTED_LANGUAGES (#2988) [John C][]
+- Added 3rd party HLSL grammar to SUPPORTED_LANGUAGES (#3002) [Stef Levesque][]
+- Added 3rd party Q# grammar to SUPPORTED_LANGUAGES(#3006) [Vyron Vasileiadis][]
+
+Language grammar improvements:
+
+- fix(python) allow keywords immediately following numbers (#2985) [Josh Goebel][]
+- fix(xml) char immediately following tag close mis-highlighted (#3044) [Josh Goebel][]
+- fix(ruby) fix `defined?()` mis-highlighted as `def` (#3025) [Josh Goebel][]
+- fix(c) comments after `#include <str>` blocks (#3041) [Josh Goebel][]
+- fix(cpp) comments after `#include <str>` blocks (#3041) [Josh Goebel][]
+- enh(cpp) Highlight all function dispatches (#3005) [Josh Goebel][]
+- enh(python) support type hints and better type support (#2972) [Josh Goebel][]
+- enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
+- fix(cpp) constructor support for initializers (#3001) [Josh Goebel][]
+- enh(php) Add `trait` to class-like naming patterns (#2997) [Ayesh][]
+- enh(php) Add `Stringable`, `UnhandledMatchError`, and `WeakMap` classes/interfaces (#2997) [Ayesh][]
+- enh(php) Add `mixed` to list of keywords (#2997) [Ayesh][]
+- enh(php) Add support binary, octal, hex and scientific numerals with underscore separator support (#2997) [Ayesh][]
+- enh(php) Add support for Enums (#3004) [Ayesh][]
+- enh(ecmascript) Add built-in types [Vaibhav Chanana][]
+- enh(kotlin) Add `kts` as an alias for Kotlin (#3021) [Vaibhav Chanana][]
+- enh(css) Add `font-smoothing` to attributes list for CSS (#3027) [AndyKIron][]
+- fix(python) Highlight `print` and `exec` as a builtin (#1468) [Samuel Colvin][]
+- fix(csharp) Fix unit being highlighted instead of uint (#3046) [Spacehamster][]
+- enh(swift) add async/await keywords (#3048) [Bradley Mackey][]
+
+Deprecations:
+
+- `highlightBlock(el)` deprecated as of 10.7.
+  - Please use `highlightElement(el)` instead.
+  - Plugin callbacks renamed `before/after:highlightBlock` => `before/after:highlightElement`
+  - Plugin callback now takes `el` vs `block` attribute
+  - The old API and callbacks will be supported until v12.
+
+API:
+
+- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
+- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
+
+Theme Improvements:
+
+- chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
+
+[Stef Levesque]: https://github.com/stef-levesque
+[Josh Goebel]: https://github.com/joshgoebel
+[John Cheung]: https://github.com/Real-John-Cheung
+[xDGameStudios]: https://github.com/xDGameStudios
+[Ayesh]: https://github.com/Ayesh
+[Vyron Vasileiadis]: https://github.com/fedonman
+[Antoine du Hamel]: https://github.com/aduh95
+[Vaibhav Chanana]: https://github.com/il3ven
+[David Ostrovsky]: https://github.com/davido
+[AndyKIron]: https://github.com/AndyKIron
+[Samuel Colvin]: https://github.com/samuelcolvin
+[Jan Pilzer]: https://github.com/Hirse
+
+## Version 10.6.0
+
+New Languages:
+
+- Added 3rd party Laravel Blade grammar to SUPPORTED_LANGUAGES (#2944) [Michael Newton][]
+
+Language grammar improvements:
+
+- enh(scala) fix triple quoted strings (#2987) [Josh Goebel][]
+- enh(perl) Much improved regex detection (#2960) [Josh Goebel][]
+- enh(swift) Improved highlighting for operator and precedencegroup declarations. (#2938) [Steven Van Impe][]
+- fix(xml) Support single-character namespaces. (#2957) [Jan Pilzer][]
+- enh(ruby) Support for character literals (#2950) [Vaibhav Chanana][]
+- enh(powershell) Add three VALID_VERBS and update the reference link (#2981) [davidhcefx][]
+- fix(php) Highlighting of anonymous functions without {} block [Vaibhav Chanana][]
+
+Grammar Deprecations:
+
+- Deprecate `c-like`, though you should not be using it directly anyways.
+  - will be removed in v11.
+- `c` and `cpp` are now wholly unique grammars that will diverge over time
+
+Parser:
+
+- new simpler `highlightAll()` API (#2962) [Josh Goebel][]
+  - this should be a drop-in replacement for both `initHighlighting()` and `initHighlightingOnLoad()`
+  - note: it does not prevent itself from being called multiple times (as the previous API did)
+- `beginKeyword` no longer bestows double relevance (#2953) [Josh Goebel][]
+- allow `keywords` to be an array of strings [Josh Goebel][]
+- add `modes.MATCH_NOTHING_RE` that will never match
+  - This can be used with `end` to hold a mode open (it must then be ended with `endsParent` in one of it's children modes) [Josh Goebel][]
+
+Deprecations:
+
+- `initHighlighting()` and `initHighlightingOnLoad()` deprecated.
+  - Please use the new `highlightAll()` API instead.
+  - Deprecated as of 10.6.
+  - These will both be aliases to `highlightAll` in v11.
+
+[Michael Newton]: https://github.com/miken32
+[Steven Van Impe]: https://github.com/svanimpe/
+[Josh Goebel]: https://github.com/joshgoebel
+[Vaibhav Chanana]: https://github.com/il3ven
+[davidhcefx]: https://github.com/davidhcefx
+
+
+## Version 10.5.0
+
+Build:
+
+- Add Subresource Integrity digest lists to `cdn-assets` [Josh Goebel][]
+- R and VB.net grammars now ship in our default build (`:common`) [Josh Goebel][]
+
+Parser:
+
+- add `match` as sugar for simple `begin` only matches (#2834) [Josh Goebel][]
+- allow `illegal` to also be an array of regex (#2834) [Josh Goebel][]
+- add `compilerExtensions` allows grammers to influence mode compilation (#2834) [Josh Goebel][]
+  - some internal pieces are now simple compiler extensions
+
+New Languages:
+
+- Added 3rd party Red & Rebol grammar to SUPPORTED_LANGUAGES (#2872) [Oldes Huhuman][]
+
+Language grammar improvements:
+
+- enh: CSS grammars now share common foundation, keywords, etc. (#2937) [Josh Goebel][]
+  - enh(css): many consistency improvements
+  - enh(scss): many consistency improvements
+  - enh(stylus): many consistency improvements
+  - enh(less): many consistency improvements
+- enh(cpp): Support C++ pack expansion in function arguments [Martin Dørum][]
+- enh(makefile): Add `make` as an alias (#2883) [tripleee][]
+- enh(swift) Improved grammar for strings (#2819) [Steven Van Impe][]
+- enh(swift) Grammar improvements (#2908) [Steven Van Impe][]
+  - New grammar for keywords and built-ins
+  - Added support for operator highlighting
+  - New grammar for attributes
+  - Added support for quoted identifiers, implicit parameters, and property wrapper projections
+  - Support for more complex expressions in string interpolation
+- enh(swift) Improved highlighting for types and generic arguments (#2920) [Steven Van Impe][]
+- enh(swift) Improved highlighting for functions, initializers, and subscripts (#2930) [Steven Van Impe][]
+- fix(http) avoid recursive sublanguage and tighten rules (#2893) [Josh Goebel][]
+- fix(asciidoc): Handle section titles level 5 (#2868) [Vaibhav Chanana][]
+- fix(asciidoc): Support unconstrained emphasis syntax (#2869) [Guillaume Grossetie][]
+- enh(scheme) Allow `[]` for argument lists (#2913) [Josh Goebel][]
+- enh(vb) Large rework of VB.net grammar (#2808) [Jan Pilzer][]
+  - Adds support for Date data types, see (#2775)
+  - Adds support for `REM` comments and fixes `'''` doctags (#2875) (#2851)
+    - Custom number mode to support VB.net specific number flags
+    - Hex (&H), Oct (&O), and binary (&B) prefixes
+    - Separating digits with underscores: 90_946
+  - Type suffixes: 123UI (unsigned integer)
+  - Improves directives detection and adds support for `Enable`, `Disable`, and `Then` keywords
+  - Adds more markup tests
+- fix(javascript) Empty block-comments break highlighting (#2896) [Jan Pilzer][]
+- enh(dart) Fix empty block-comments from breaking highlighting (#2898) [Jan Pilzer][]
+- enh(dart) Fix empty doc-comment eating next line [Jan Pilzer][]
+- enh(asciidoc) Adds support for unconstrained bold syntax (#2869) [Guillaume Grossetie][]
+- enh(c-like) Incorrect highlighting for interger suffix (#2919) [Vaibhav Chanana][]
+- enh(properties) Correctly handle trailing backslash (#2922) [Vaibhav Chanana][]
+
+Recent Deprecations:
+
+- HTML "merging" is deprecated. (#2873) [Josh Goebel][]
+  - HTML inside `<pre>` blocks will no longer be magically merged back into the
+  highlighted code's HTML result - it will instead be silently removed.
+  - Consider [using a plugin][htmlPlugin] if you truly need this functionality
+  - Deprecated as of 10.5.0 - will be removed in v11.
+- `tabReplace` option deprecated. (#2873) [Josh Goebel][]
+  - **Consider:** Use the CSS `tab-size` property, or simply pre-process the
+    text yourself before rendering the initial HTML
+  - otherwise, [use a plugin][tabPlugin]
+  - Deprecated as of 10.5.0 - will be removed in v11.
+- `useBR` option deprecated. (#2559) [Josh Goebel][]
+  - **Recommended:** You really should just use the HTML `<pre>` tag
+  - or perhaps try CSS `white-space: pre;`
+  - otherwise, [use a plugin][brPlugin]
+  - Deprecated as of 10.3.0 - will be removed in v11.
+- `requireLanguage` API is deprecated, will be removed in v11.0.
+  - **Consider:** Use `getLanguage` (with custom error handling) or built-time dependencies.
+  - See [Library API](https://highlightjs.readthedocs.io/en/latest/api.html#requirelanguage-name) for more information.
+  - Deprecated as of 10.4.0 - will be removed in v11.
+
+[htmlPlugin]: https://github.com/highlightjs/highlight.js/issues/2889
+[tabPlugin]: https://github.com/highlightjs/highlight.js/issues/2874
+[brPlugin]: https://github.com/highlightjs/highlight.js/issues/2559
+
+[Martin Dørum]: https://github.com/mortie
+[Jan Pilzer]: https://github.com/Hirse
+[Oldes Huhuman]: https://github.com/Oldes
+[Josh Goebel]: https://github.com/joshgoebel
+[tripleee]: https://github.com/tripleee
+[Steven Van Impe]: https://github.com/svanimpe/
+[Vaibhav Chanana]: https://github.com/il3ven
+[Guillaume Grossetie]: https://github.com/mogztter
+
+
+## Version 10.4.1 (tentative)
+
+Security
+
+- (fix) Exponential backtracking fixes for: [Josh Goebel][]
+  - cpp
+  - handlebars
+  - gams
+  - perl
+  - jboss-cli
+  - r
+  - erlang-repl
+  - powershell
+  - routeros
+- (fix) Polynomial backtracking fixes for: [Josh Goebel][]
+  - asciidoc
+  - reasonml
+  - latex
+  - kotlin
+  - gcode
+  - d
+  - aspectj
+  - moonscript
+  - coffeescript/livescript
+  - csharp
+  - scilab
+  - crystal
+  - elixir
+  - basic
+  - ebnf
+  - ruby
+  - fortran/irpf90
+  - livecodeserver
+  - yaml
+  - x86asm
+  - dsconfig
+  - markdown
+  - ruleslanguage
+  - xquery
+  - sqf
+
+Very grateful to [Michael Schmidt][] for all the help.
+
+[Michael Schmidt]: https://github.com/RunDevelopment
+[Josh Goebel]: https://github.com/joshgoebel
+
+
+## Version 10.4.0
+
+A largish release with many improvements and fixes from quite a few different contributors.  Enjoy!
+
+Deprecations:
+
+- (chore) `requireLanguage` is deprecated.
+  - Prefer `getLanguage` (with custom error handling) or built-time dependencies.
+  - See [Library API](https://highlightjs.readthedocs.io/en/latest/api.html#requirelanguage-name) for more information.
+
+Parser:
+
+- enh(parser) use negative look-ahead for `beginKeywords` support (#2813) [Josh Goebel][]
+- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
+- fix(vue): Language name now appears in CSS class (#2807) [Michael Rush][]
+- (chore) Clean up all regexs to be UTF-8 compliant/ready (#2759) [Josh Goebel][]
+- enh(grammars) allow `classNameAliases` for more complex grammars [Josh Goebel][]
+
+New Languages:
+
+- Added 3rd party Chapel grammar to SUPPORTED_LANGUAGES (#2806) [Brad Chamberlain][]
+- Added BBCode grammar to SUPPORTED_LANGUAGES (#2867) [Paul Reid][]
+- enh(javascript) Added `node-repl` for Node.js REPL sessions (#2792) [Marat Nagayev][]
 
 Language Improvements:
 
+- enh(shell) Recognize prompts which contain tilde `~` (#2859) [Guillaume Grossetie][]
+- enh(shell) Add support for multiline commands with line continuation `\` (#2861) [Guillaume Grossetie][]
+- enh(autodetect) Over 30+ improvements to auto-detect (#2745) [Josh Goebel][]
+    - 4-5% improvement in auto-detect against large sample set
+    - properties, angelscript, lsl, javascript, n1ql, ocaml, ruby
+    - protobuf, hy, scheme, crystal, yaml, r, vbscript, groovy
+    - python, java, php, lisp, matlab, clojure, csharp, css
+- fix(r) fixed keywords not properly spaced (#2852) [Josh Goebel][]
+- fix(javascript) fix potential catastrophic backtracking (#2852) [Josh Goebel][]
+- fix(livescript) fix potential catastrophic backtracking (#2852) [Josh Goebel][]
+- bug(xml) XML grammar was far too imprecise/fuzzy [Josh Goebel][]
+- enh(xml) Improve precision to prevent false auto-detect positives [Josh Goebel][]
+- fix(js/ts) Prevent for/while/if/switch from falsly matching as functions (#2803) [Josh Goebel][]
 - enh(julia) Update keyword lists for Julia 1.x (#2781) [Fredrik Ekre][]
 - enh(python) Match numeric literals per the language reference [Richard Gibson][]
 - enh(ruby) Match numeric literals per language documentation [Richard Gibson][]
 - enh(javascript) Match numeric literals per ECMA-262 spec [Richard Gibson][]
+- enh(java) Match numeric literals per Java Language Specification [Richard Gibson][]
+- enh(swift) Match numeric literals per language reference [Richard Gibson][]
 - enh(php) highlight variables (#2785) [Taufik Nurrohman][]
+- fix(python) Handle comments on decorators (#2804) [Jonathan Sharpe][]
+- enh(diff) improve highlighting of diff for git patches [Florian Bezdeka][]
+- fix(llvm) lots of small improvements and fixes (#2830) [Josh Goebel][]
+- enh(mathematica) Rework entire implementation [Patrick Scheibe][]
+  - Correct matching of the many variations of Mathematica's numbers
+  - Matching of named-characters aka special symbols like `\[Gamma]`
+  - Updated list of version 12.1 built-in symbols
+  - Matching of patterns, slots, message-names and braces
+- fix(swift) Handle keywords that start with `#` [Marcus Ortiz][]
+- enh(swift) Match `some` keyword [Marcus Ortiz][]
+- enh(swift) Match `@main` attribute [Marcus Ortiz][]
 
 Dev Improvements:
 
 - chore(dev) add theme picker to the tools/developer tool (#2770) [Josh Goebel][]
+- fix(dev) the Vue.js plugin no longer throws an exception when hljs is not in the global namespace [Kyle Brown][]
 
 New themes:
 
 - *StackOverflow Dark* by [Jan Pilzer][]
 - *StackOverflow Light* by [Jan Pilzer][]
 
-Theme Improvements:
-
-- chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
-
+[Guillaume Grossetie]: https://github.com/mogztter
+[Brad Chamberlain]: https://github.com/bradcray
+[Marat Nagayev]: https://github.com/nagayev
 [Fredrik Ekre]: https://github.com/fredrikekre
 [Richard Gibson]: https://github.com/gibson042
 [Josh Goebel]: https://github.com/joshgoebel
 [Taufik Nurrohman]: https://github.com/taufik-nurrohman
 [Jan Pilzer]: https://github.com/Hirse
+[Jonathan Sharpe]: https://github.com/textbook
+[Michael Rush]: https://github.com/rushimusmaximus
+[Patrick Scheibe]: https://github.com/halirutan
+[Kyle Brown]: https://github.com/kylebrown9
+[Marcus Ortiz]: https://github.com/mportiz08
+[Paul Reid]: https://github.com/RedGuy12
 
 
 ## Version 10.3.1

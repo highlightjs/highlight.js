@@ -1,5 +1,7 @@
 <span class="hljs-keyword">SELECT</span> <span class="hljs-string">&#x27;\&#x27;</span>;
 
-<span class="hljs-keyword">SELECT</span> <span class="hljs-string">&quot;\&quot;</span>;
+<span class="hljs-comment">-- this is not a string in SQL, it&#x27;s an identifier</span>
+<span class="hljs-keyword">SELECT</span> &quot;name&quot; <span class="hljs-keyword">from</span> users;
 
-<span class="hljs-keyword">SELECT</span> <span class="hljs-string">`\`</span>;
+<span class="hljs-comment">-- not in the SQL spec</span>
+<span class="hljs-keyword">SELECT</span> `\`;

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-use-before-define */
 // For TS consumers who use Node and don't have dom in their tsconfig lib, import the necessary types here.
 /// <reference lib="dom" />
 
@@ -20,7 +22,9 @@ interface PublicApi {
     configure: (options: Partial<HLJSOptions>) => void
     initHighlighting: () => void
     initHighlightingOnLoad: () => void
+    highlightAll: () => void
     registerLanguage: (languageName: string, language: LanguageFn) => void
+    unregisterLanguage: (languageName: string) => void
     listLanguages: () => string[]
     registerAliases: (aliasList: string | string[], { languageName } : {languageName: string}) => void
     getLanguage: (languageName: string) => Language | undefined
@@ -56,6 +60,7 @@ interface ModesAPI {
     // built in regex
     IDENT_RE: string
     UNDERSCORE_IDENT_RE: string
+    MATCH_NOTHING_RE: string
     NUMBER_RE: string
     C_NUMBER_RE: string
     BINARY_NUMBER_RE: string
@@ -63,6 +68,7 @@ interface ModesAPI {
 }
 
 type LanguageFn = (hljs?: HLJSApi) => Language
+type CompilerExt = (mode: Mode, parent: Mode | Language | null) => void
 
 interface HighlightResult {
     relevance : number
@@ -76,6 +82,7 @@ interface HighlightResult {
     errorRaised? : Error
     // * for auto-highlight
     second_best? : Omit<HighlightResult, 'second_best'>
+    code?: string
 }
 interface AutoHighlightResult extends HighlightResult {}
 
@@ -85,14 +92,20 @@ interface illegalData {
     mode: CompiledMode
 }
 
-type PluginEvent =
-    'before:highlight'
-    | 'after:highlight'
-    | 'before:highlightBlock'
-    | 'after:highlightBlock'
-
+type BeforeHighlightContext = {
+  code: string,
+  language: string,
+  result?: HighlightResult
+}
+type PluginEvent = keyof HLJSPlugin;
 type HLJSPlugin = {
-    [K in PluginEvent]? : any
+    'after:highlight'?: (result: HighlightResult) => void,
+    'before:highlight'?: (context: BeforeHighlightContext) => void,
+    'after:highlightElement'?: (data: { el: Element, result: HighlightResult, text: string}) => void,
+    'before:highlightElement'?: (data: { el: Element, language: string}) => void,
+    // TODO: Old API, remove with v12
+    'after:highlightBlock'?: (data: { block: Element, result: HighlightResult, text: string}) => void,
+    'before:highlightBlock'?: (data: { block: Element, language: string}) => void,
 }
 
 interface EmitterConstructor {
@@ -142,7 +155,7 @@ type MatchType = "begin" | "end" | "illegal"
 
  interface ModeCallbacks {
      "on:end"?: Function,
-     "on:begin"?: Function,
+     "on:begin"?: ModeCallback
  }
 
 interface Mode extends ModeCallbacks, ModeDetails {
@@ -158,7 +171,10 @@ interface LanguageDetail {
     case_insensitive?: boolean
     keywords?: Record<string, any> | string
     compiled?: boolean,
-    exports?: any
+    exports?: any,
+    classNameAliases?: Record<string, string>
+    compilerExtensions?: CompilerExt[]
+    supersetOf?: string
 }
 
 type Language = LanguageDetail & Partial<Mode>
@@ -177,7 +193,7 @@ type CompiledMode = Omit<Mode, 'contains'> &
         contains: CompiledMode[]
         keywords: KeywordDict
         data: Record<string, any>
-        terminator_end: string
+        terminatorEnd: string
         keywordPatternRe: RegExp
         beginRe: RegExp
         endRe: RegExp
@@ -190,6 +206,7 @@ type CompiledMode = Omit<Mode, 'contains'> &
 
 interface ModeDetails {
     begin?: RegExp | string
+    match?: RegExp | string
     end?: RegExp | string
     className?: string
     contains?: ("self" | Mode)[]
@@ -208,9 +225,9 @@ interface ModeDetails {
     keywords?: Record<string, any> | string
     beginKeywords?: string
     relevance?: number
-    illegal?: string | RegExp
+    illegal?: string | RegExp | Array<string | RegExp>
     variants?: Mode[]
-    cached_variants?: Mode[]
+    cachedVariants?: Mode[]
     // parsed
     subLanguage?: string | string[]
     compiled?: boolean

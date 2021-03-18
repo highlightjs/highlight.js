@@ -1,0 +1,72 @@
+-- character
+
+character
+char
+character varying
+char varying
+varchar
+
+national character
+national char
+nchar
+national character varying
+national char varying
+nchar varying
+
+-- LOBs
+
+character large object
+char large object
+clob
+national character large object
+nchar large object
+nclob
+binary large object
+blob
+
+-- binary
+
+binary
+binary varying
+varbinary
+
+-- numbers
+
+numeric
+decimal
+dec
+smallint
+integer
+int
+bigint
+
+float
+real
+double precision
+
+decfloat
+
+-- boolean
+
+boolean
+
+-- date & time
+
+date
+time
+timestamp
+time
+time ... with timestamp
+time ... without timestamp
+timestamp
+timestamp ... with timestamp
+timestamp ... without timestamp
+
+-- others
+
+interval
+row
+ref
+scope
+array
+multiset

@@ -27,7 +27,7 @@ export default function(hljs) {
       'short',
       'string',
       'ulong',
-      'unit',
+      'uint',
       'ushort'
   ];
   var FUNCTION_MODIFIERS = [
@@ -139,7 +139,7 @@ export default function(hljs) {
     'select',
     'set',
     'unmanaged',
-    'value',
+    'value|0',
     'var',
     'when',
     'where',
@@ -148,9 +148,9 @@ export default function(hljs) {
   ];
 
   var KEYWORDS = {
-    keyword: NORMAL_KEYWORDS.concat(CONTEXTUAL_KEYWORDS).join(' '),
-    built_in: BUILT_IN_KEYWORDS.join(' '),
-    literal: LITERAL_KEYWORDS.join(' ')
+    keyword: NORMAL_KEYWORDS.concat(CONTEXTUAL_KEYWORDS),
+    built_in: BUILT_IN_KEYWORDS,
+    literal: LITERAL_KEYWORDS
   };
   var TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, {begin: '[a-zA-Z](\\.?\\w)*'});
   var NUMBERS = {
@@ -170,7 +170,7 @@ export default function(hljs) {
   var VERBATIM_STRING_NO_LF = hljs.inherit(VERBATIM_STRING, {illegal: /\n/});
   var SUBST = {
     className: 'subst',
-    begin: '{', end: '}',
+    begin: /\{/, end: /\}/,
     keywords: KEYWORDS
   };
   var SUBST_NO_LF = hljs.inherit(SUBST, {illegal: /\n/});
@@ -178,16 +178,16 @@ export default function(hljs) {
     className: 'string',
     begin: /\$"/, end: '"',
     illegal: /\n/,
-    contains: [{begin: '{{'}, {begin: '}}'}, hljs.BACKSLASH_ESCAPE, SUBST_NO_LF]
+    contains: [{begin: /\{\{/}, {begin: /\}\}/}, hljs.BACKSLASH_ESCAPE, SUBST_NO_LF]
   };
   var INTERPOLATED_VERBATIM_STRING = {
     className: 'string',
     begin: /\$@"/, end: '"',
-    contains: [{begin: '{{'}, {begin: '}}'}, {begin: '""'}, SUBST]
+    contains: [{begin: /\{\{/}, {begin: /\}\}/}, {begin: '""'}, SUBST]
   };
   var INTERPOLATED_VERBATIM_STRING_NO_LF = hljs.inherit(INTERPOLATED_VERBATIM_STRING, {
     illegal: /\n/,
-    contains: [{begin: '{{'}, {begin: '}}'}, {begin: '""'}, SUBST_NO_LF]
+    contains: [{begin: /\{\{/}, {begin: /\}\}/}, {begin: '""'}, SUBST_NO_LF]
   });
   SUBST.contains = [
     INTERPOLATED_VERBATIM_STRING,
@@ -274,7 +274,9 @@ export default function(hljs) {
       STRING,
       NUMBERS,
       {
-        beginKeywords: 'class interface', end: /[{;=]/,
+        beginKeywords: 'class interface',
+        relevance: 0,
+        end: /[{;=]/,
         illegal: /[^\s:,]/,
         contains: [
           { beginKeywords: "where class" },
@@ -285,7 +287,9 @@ export default function(hljs) {
         ]
       },
       {
-        beginKeywords: 'namespace', end: /[{;=]/,
+        beginKeywords: 'namespace',
+        relevance: 0,
+        end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
           TITLE_MODE,
@@ -294,7 +298,9 @@ export default function(hljs) {
         ]
       },
       {
-        beginKeywords: 'record', end: /[{;=]/,
+        beginKeywords: 'record',
+        relevance: 0,
+        end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
           TITLE_MODE,
@@ -319,14 +325,17 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
+        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(<.+>\\s*)?\\(', returnBegin: true,
         end: /\s*[{;=]/, excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           // prevents these from being highlighted `title`
-          { beginKeywords: FUNCTION_MODIFIERS.join(" ")},
           {
-            begin: hljs.IDENT_RE + '\\s*(\\<.+\\>)?\\s*\\(', returnBegin: true,
+            beginKeywords: FUNCTION_MODIFIERS.join(" "),
+            relevance: 0
+          },
+          {
+            begin: hljs.IDENT_RE + '\\s*(<.+>\\s*)?\\(', returnBegin: true,
             contains: [
               hljs.TITLE_MODE,
               GENERIC_MODIFIER

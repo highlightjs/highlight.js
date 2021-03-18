@@ -1,0 +1,16 @@
+<span class="hljs-comment">/***
+	Arma Scripting File
+	Edition: 1.66
+***/</span>
+
+<span class="hljs-comment">// Enable eating to improve health.</span>
+<span class="hljs-variable">_unit</span> <span class="hljs-built_in">addAction</span> [<span class="hljs-string">&quot;Eat Energy Bar&quot;</span>, {
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable">_this</span> <span class="hljs-built_in">getVariable</span> [<span class="hljs-string">&quot;EB_NumActivation&quot;</span>, <span class="hljs-number">0</span>] &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">then</span> {
+        <span class="hljs-variable">_this</span> <span class="hljs-built_in">setDamage</span> (<span class="hljs-number">0</span> <span class="hljs-built_in">max</span> (<span class="hljs-built_in">damage</span> <span class="hljs-variable">_this</span> - <span class="hljs-number">0.25</span>));
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">hint</span> <span class="hljs-string">&quot;You have eaten it all&quot;</span>;
+    };
+    <span class="hljs-comment">// 4 - means something...</span>
+    Z_obj_vip = <span class="hljs-literal">nil</span>;
+    [<span class="hljs-variable">_boat</span>, [<span class="hljs-string">&quot;Black&quot;</span>, <span class="hljs-number">1</span>], <span class="hljs-literal">true</span>] <span class="hljs-built_in">call</span> <span class="hljs-title">BIS_fnc_initVehicle</span>;
+}];

@@ -1,0 +1,26 @@
+Sequence.Protocol Protocol
+String.Type Type
+
+String.init init
+String.self self
+
+Any Self
+(_ name: String)
+x as Int
+x as? Double
+x as! String
+x is String
+init? init! init
+try? try! try
+true false nil
+fileprivate(set) internal(set) open(set) private(set) public(set)
+unowned(safe) unowned(unsafe)
+async await
+
+#if
+#error("Error")
+#endif
+
+x.as(y)
+x.for(y)
+#notAKeyword

@@ -1,0 +1,36 @@
+<span class="hljs-comment">//This is a comment</span>
+<span class="hljs-keyword">ABORT</span> <span class="hljs-string">&quot;You experienced an abort.&quot;</span>;
+<span class="hljs-keyword">WARN</span> <span class="hljs-string">&quot;THIS IS A WARNING&quot;</span>;
+<span class="hljs-keyword">CALL</span> <span class="hljs-string">&quot;RIDER_X&quot;</span>;
+<span class="hljs-keyword">DONE</span>;
+<span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> X <span class="hljs-keyword">IN</span> <span class="hljs-keyword">CSV_FILE</span> <span class="hljs-string">&quot;d:\lodestar\user\d377.lse&quot;</span>
+ <span class="hljs-keyword">LEAVE</span> <span class="hljs-keyword">FOR</span>;
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">FOR</span>;
+<span class="hljs-keyword">IF</span> ((BILL_KW = <span class="hljs-number">0</span>) <span class="hljs-keyword">AND</span> (KW &gt; <span class="hljs-number">0</span>)) <span class="hljs-keyword">THEN</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;
+<span class="hljs-keyword">INCLUDE</span> <span class="hljs-string">&quot;R1&quot;</span>;
+<span class="hljs-keyword">LEAVE</span> <span class="hljs-keyword">RIDER</span>;
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">BILL_PERIOD</span>
+   <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&quot;WINTER&quot;</span>
+      <span class="hljs-keyword">BLOCK</span> KWH
+      <span class="hljs-keyword">FROM</span> <span class="hljs-number">0</span> <span class="hljs-keyword">TO</span> <span class="hljs-number">400</span> <span class="hljs-keyword">CHARGE</span> $<span class="hljs-number">0.03709</span>
+      <span class="hljs-keyword">FROM</span> <span class="hljs-number">400</span> <span class="hljs-keyword">CHARGE</span> $<span class="hljs-number">0.03000</span>
+      <span class="hljs-keyword">TOTAL</span> $ENERGY_CHARGE_WIN;
+   <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&quot;SUMMER&quot;</span>
+      $VOLTAGE_DISCOUNT_SUM = $<span class="hljs-number">0.00</span>
+   <span class="hljs-keyword">OTHERWISE</span>
+      $VOLTAGE_DISCOUNT_SUM = $<span class="hljs-number">1.00</span>
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">SELECT</span>;
+<span class="hljs-comment">/* Report top five peaks */</span>
+<span class="hljs-keyword">LABEL</span> PK.NM <span class="hljs-string">&quot;Peak Number&quot;</span>;
+<span class="hljs-keyword">SAVE_UPDATE</span> MV <span class="hljs-keyword">TO</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">&quot;METERVALUE&quot;</span>;
+
+<span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> INX <span class="hljs-keyword">IN</span> <span class="hljs-keyword">ARRAYUPPERBOUND</span>(<span class="hljs-literal">#MYARRAY</span>[])
+  <span class="hljs-literal">#MYARRAY</span>[INX].VALUE = <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">CLEAR</span> <span class="hljs-literal">#MYARRAY</span>[];
+<span class="hljs-keyword">END</span> <span class="hljs-keyword">FOR</span>
+
+<span class="hljs-comment">//Interval Data</span>
+HNDL_1_ADD_EDI = <span class="hljs-keyword">INTDADDATTRIBUTE</span>(HNDL_1, <span class="hljs-string">&quot;EDI_TRANSACTION&quot;</span>, EDI_ID);
+HNDL_1_ADD_VAL_MSG = <span class="hljs-keyword">INTDADDVMSG</span>(HNDL_1,<span class="hljs-string">&quot;Missing (Status Code 9) values found&quot;</span>);
+EMPTY_HNDL = <span class="hljs-keyword">INTDCREATEHANDLE</span>(<span class="hljs-string">&#x27;05/03/2006 00:00:00&#x27;</span>, <span class="hljs-string">&#x27;05/03/2006 23:59:59&#x27;</span>, <span class="hljs-number">3600</span>, <span class="hljs-string">&quot;Y&quot;</span>, <span class="hljs-string">&quot;0&quot;</span>, <span class="hljs-string">&quot; &quot;</span>);

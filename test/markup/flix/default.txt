@@ -1,0 +1,49 @@
+/**
+ * An example of Flix for syntax highlighting.
+ */
+
+// Here is a namespace.
+namespace a.b.c {
+
+    // Here are some literals.
+    def b: Bool = true
+    def c: Char = 'a'
+    def f: Float = 1.23
+    def i: Int = 42
+    def s: Str = "string"
+
+    // Here are some relations.
+    rel LitStm(r: Str, c: Int)
+    rel AddStm(r: Str, x: Str, y: Str)
+    rel DivStm(r: Str, x: Str, y: Str)
+
+    // Here is a lattice.
+    lat LocalVar(k: Str, v: Constant)
+
+    // Here is an index.
+    index LitStm{{r}, {r, c}}
+
+    // Here is an enum.
+    enum Constant {
+          case Top,
+
+        case Cst(Int),
+
+          case Bot
+    }
+
+    // Here is a function.
+    def leq(e1: Constant, e2: Constant): Bool = match (e1, e2) with {
+        case (Constant.Bot, _)                      => true
+        case (Constant.Cst(n1), Constant.Cst(n2))   => n1 == n2
+        case (_, Constant.Top)                      => true
+        case _                                      => false
+    }
+
+    // Here are some rules.
+    LocalVar(r, alpha(c)) :- LitStm(r, c).
+
+    LocalVar(r, sum(v1, v2)) :- AddStm(r, x, y),
+                                LocalVar(x, v1),
+                                LocalVar(y, v2).
+}

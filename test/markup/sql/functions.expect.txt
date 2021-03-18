@@ -1,0 +1,7 @@
+<span class="hljs-keyword">select</span> <span class="hljs-built_in">CURRENT_CATALOG</span>,
+    <span class="hljs-built_in">CURRENT_USER</span>,
+    <span class="hljs-built_in">CURRENT_TIME</span>,
+    <span class="hljs-built_in">CURRENT_TIME</span>(),
+    <span class="hljs-built_in">CURRENT_TIMESTAMP</span>,
+    <span class="hljs-built_in">CURRENT_TIMESTAMP</span>()
+<span class="hljs-keyword">FROM</span> sys;

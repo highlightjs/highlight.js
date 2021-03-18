@@ -1,0 +1,41 @@
+<span class="hljs-comment">/*
+ * RS-trigger with assynch. reset
+ */</span>
+
+<span class="hljs-keyword">library</span> ieee;
+<span class="hljs-keyword">use</span> ieee.std_logic_1164.<span class="hljs-keyword">all</span>;
+
+<span class="hljs-keyword">entity</span> RS_trigger <span class="hljs-keyword">is</span>
+    <span class="hljs-keyword">generic</span> (T: <span class="hljs-built_in">Time</span> := <span class="hljs-number">0</span>ns);
+    <span class="hljs-keyword">port</span> ( R, S  : <span class="hljs-keyword">in</span>  <span class="hljs-built_in">std_logic</span>;
+           Q, nQ : <span class="hljs-keyword">out</span> <span class="hljs-built_in">std_logic</span>;
+           reset, clock : <span class="hljs-keyword">in</span>  <span class="hljs-built_in">std_logic</span> );
+<span class="hljs-keyword">end</span> RS_trigger;
+
+<span class="hljs-keyword">architecture</span> behaviour <span class="hljs-keyword">of</span> RS_trigger <span class="hljs-keyword">is</span>
+    <span class="hljs-keyword">signal</span> QT: <span class="hljs-built_in">std_logic</span>; <span class="hljs-comment">-- Q(t)</span>
+<span class="hljs-keyword">begin</span>
+    <span class="hljs-keyword">process</span>(clock, reset) <span class="hljs-keyword">is</span>
+        <span class="hljs-keyword">subtype</span> RS <span class="hljs-keyword">is</span> <span class="hljs-built_in">std_logic_vector</span> (<span class="hljs-number">1</span> <span class="hljs-keyword">downto</span> <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">begin</span>
+        <span class="hljs-keyword">if</span> reset = <span class="hljs-string">&#x27;0&#x27;</span> <span class="hljs-keyword">then</span>
+            QT &lt;= <span class="hljs-string">&#x27;0&#x27;</span>;
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-keyword">if</span> rising_edge(C) <span class="hljs-keyword">then</span>
+                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (R<span class="hljs-symbol">&#x27;stable</span>(T) <span class="hljs-keyword">and</span> S<span class="hljs-symbol">&#x27;stable</span>(T)) <span class="hljs-keyword">then</span>
+                    QT &lt;= <span class="hljs-string">&#x27;X&#x27;</span>;
+                <span class="hljs-keyword">else</span>
+                    <span class="hljs-keyword">case</span> RS&#x27;(R&amp;S) <span class="hljs-keyword">is</span>
+                        <span class="hljs-keyword">when</span> <span class="hljs-string">&quot;01&quot;</span> =&gt; QT &lt;= <span class="hljs-string">&#x27;1&#x27;</span>;
+                        <span class="hljs-keyword">when</span> <span class="hljs-string">&quot;10&quot;</span> =&gt; QT &lt;= <span class="hljs-string">&#x27;0&#x27;</span>;
+                        <span class="hljs-keyword">when</span> <span class="hljs-string">&quot;11&quot;</span> =&gt; QT &lt;= <span class="hljs-string">&#x27;X&#x27;</span>;
+                        <span class="hljs-keyword">when</span> <span class="hljs-keyword">others</span> =&gt; <span class="hljs-keyword">null</span>;
+                    <span class="hljs-keyword">end</span> <span class="hljs-keyword">case</span>;
+                <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>;
+            <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>;
+        <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>;
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">process</span>;
+
+    Q  &lt;= QT;
+    nQ &lt;= <span class="hljs-keyword">not</span> QT;
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">architecture</span> behaviour;

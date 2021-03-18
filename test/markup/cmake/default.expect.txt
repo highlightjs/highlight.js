@@ -1,0 +1,19 @@
+<span class="hljs-keyword">cmake_minimum_required</span>(VERSION <span class="hljs-number">2.8</span>.<span class="hljs-number">8</span>)
+<span class="hljs-keyword">project</span>(cmake_example)
+
+<span class="hljs-comment"># Show message on Linux platform</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">${CMAKE_SYSTEM_NAME}</span> <span class="hljs-keyword">MATCHES</span> Linux)
+    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;Good choice, bro!&quot;</span>)
+<span class="hljs-keyword">endif</span>()
+
+<span class="hljs-comment"># Tell CMake to run moc when necessary:</span>
+<span class="hljs-keyword">set</span>(CMAKE_AUTOMOC <span class="hljs-keyword">ON</span>)
+<span class="hljs-comment"># As moc files are generated in the binary dir,</span>
+<span class="hljs-comment"># tell CMake to always look for includes there:</span>
+<span class="hljs-keyword">set</span>(CMAKE_INCLUDE_CURRENT_DIR <span class="hljs-keyword">ON</span>)
+
+<span class="hljs-comment"># Widgets finds its own dependencies.</span>
+<span class="hljs-keyword">find_package</span>(Qt5Widgets REQUIRED)
+
+<span class="hljs-keyword">add_executable</span>(myproject main.cpp mainwindow.cpp)
+<span class="hljs-keyword">qt5_use_modules</span>(myproject Widgets)

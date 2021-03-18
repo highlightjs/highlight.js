@@ -31,17 +31,18 @@ export default function(hljs) {
     contains: [
       {
         className: 'class',
-        beginKeywords: 'class interface namespace', end: '{', excludeEnd: true,
+        beginKeywords: 'class interface namespace',
+        end: /\{/,
+        excludeEnd: true,
         illegal: '[^,:\\n\\s\\.]',
-        contains: [
-          hljs.UNDERSCORE_TITLE_MODE
-        ]
+        contains: [ hljs.UNDERSCORE_TITLE_MODE ]
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'string',
-        begin: '"""', end: '"""',
+        begin: '"""',
+        end: '"""',
         relevance: 5
       },
       hljs.APOS_STRING_MODE,
@@ -49,7 +50,8 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'meta',
-        begin: '^#', end: '$',
+        begin: '^#',
+        end: '$',
         relevance: 2
       }
     ]

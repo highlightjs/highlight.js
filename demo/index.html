@@ -4,56 +4,44 @@
 <head>
   <meta charset="utf-8">
   <title>highlight.js demo</title>
+  <link rel="shortcut icon" type="image/png" href="https://highlightjs.org/static/favicon.png">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="perfect-scrollbar.min.css">
 
   <link rel="stylesheet" title="Default" href="styles/default.css">
-  <% _.each(styles, function(style) { %>
-  <link rel="alternate stylesheet" title="<%= style.name %>" href="<%= style.path %>">
+  <% styles.forEach(({ name, path }) => {%>
+  <link rel="alternate stylesheet" title="<%= name %>" href="<%= path %>" disabled="disabled">
   <% }); %>
+
+  <script defer src="../highlight<%= minify ? '.min' : '' %>.js"></script>
+  <script defer src="demo.js"></script>
 </head>
 <body>
-  <div id="sidebar">
+  <aside>
+    <header>
+      <h1><a href="https://highlightjs.org">highlight.js</a> demo</h1>
+    </header>
+    <h2>Language Categories</h2>
+    <ul class="categories">
+      <% categories.forEach(({category, count}, i) => {%>
+      <li <%= i ? '' : 'class="current"'%> data-category="<%= category %>"><%= `${category} (${count})` %></li>
+      <% }); %>
+    </ul>
+    <h2>Themes</h2>
+    <ul class="styles">
+      <li class="current">Default</li>
+      <% styles.forEach(({name}) => {%>
+      <li><%= name %></li>
+      <% }); %>
+    </ul>
+  </aside>
 
-    <div id="header">
-      <h1><a href="https://highlightjs.org/">highlight.js</a> demo</h1>
-    </div>
-
-    <div id="lists">
-      <div>
-        <h2>Language categories</h2>
-        <ul id="categories"></ul>
-      </div>
-
-      <div>
-        <h2>Styles</h2>
-        <ul id="styles"></ul>
-      </div>
-    </div>
-
-  </div>
-
-  <div id="content">
-
-  <div id="languages">
-    <% _.each(languages, function(language) { %>
-    <% var categories = language.categories; %>
-    <div <% if(categories.length>0) { %>class="<%= categories.join(' ') %>"<% } %>>
-      <h2><%- language.prettyName %></h2>
-      <pre><code class="<%- path.basename(language.name, '.js') %>"><%- language.sample %></code></pre>
+  <main>
+    <% languages.forEach(({categories, name, prettyName, sample}) => { %>
+    <div class="<%= categories.includes('common') ? '' : 'hidden ' %><%= categories.join(' ') %>">
+      <h2><%= prettyName %></h2>
+      <pre><code class="language-<%= name %>"><%- sample %></code></pre>
     </div>
     <% }); %>
-  </div>
-
-  </div>
-
-  <% if (minify) { %>
-  <script src="../highlight.min.js"></script>
-  <% } else { %>
-  <script src="../highlight.js"></script>
-  <% } %>
-  <script src="jquery-2.1.1.min.js"></script>
-  <script src="perfect-scrollbar.min.js"></script>
-  <script src="demo.js"></script>
+  </main>
 </body>
 </html>

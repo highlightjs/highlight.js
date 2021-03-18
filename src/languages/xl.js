@@ -6,11 +6,11 @@ Website: http://xlr.sf.net
 */
 
 export default function(hljs) {
-  var BUILTIN_MODULES =
+  const BUILTIN_MODULES =
     'ObjectLoader Animate MovieCredits Slides Filters Shading Materials LensFlare Mapping VLCAudioVideo ' +
     'StereoDecoder PointCloud NetworkAccess RemoteControl RegExp ChromaKey Snowfall NodeJS Speech Charts';
 
-  var XL_KEYWORDS = {
+  const XL_KEYWORDS = {
     $pattern: /[a-zA-Z][a-zA-Z0-9_?]*/,
     keyword:
       'if then else do while until for loop import with is as where when by data constant ' +
@@ -30,51 +30,61 @@ export default function(hljs) {
       BUILTIN_MODULES
   };
 
-  var DOUBLE_QUOTE_TEXT = {
+  const DOUBLE_QUOTE_TEXT = {
     className: 'string',
-    begin: '"', end: '"', illegal: '\\n'
+    begin: '"',
+    end: '"',
+    illegal: '\\n'
   };
-  var SINGLE_QUOTE_TEXT = {
+  const SINGLE_QUOTE_TEXT = {
     className: 'string',
-    begin: '\'', end: '\'', illegal: '\\n'
+    begin: '\'',
+    end: '\'',
+    illegal: '\\n'
   };
-  var LONG_TEXT = {
+  const LONG_TEXT = {
     className: 'string',
-    begin: '<<', end: '>>'
+    begin: '<<',
+    end: '>>'
   };
-  var BASED_NUMBER = {
+  const BASED_NUMBER = {
     className: 'number',
     begin: '[0-9]+#[0-9A-Z_]+(\\.[0-9-A-Z_]+)?#?([Ee][+-]?[0-9]+)?'
   };
-  var IMPORT = {
-    beginKeywords: 'import', end: '$',
+  const IMPORT = {
+    beginKeywords: 'import',
+    end: '$',
     keywords: XL_KEYWORDS,
-    contains: [DOUBLE_QUOTE_TEXT]
+    contains: [ DOUBLE_QUOTE_TEXT ]
   };
-  var FUNCTION_DEFINITION = {
+  const FUNCTION_DEFINITION = {
     className: 'function',
-    begin: /[a-z][^\n]*->/, returnBegin: true, end: /->/,
+    begin: /[a-z][^\n]*->/,
+    returnBegin: true,
+    end: /->/,
     contains: [
-      hljs.inherit(hljs.TITLE_MODE, {starts: {
-        endsWithParent: true,
-        keywords: XL_KEYWORDS
-      }})
+      hljs.inherit(hljs.TITLE_MODE, {
+        starts: {
+          endsWithParent: true,
+          keywords: XL_KEYWORDS
+        }
+      })
     ]
   };
   return {
     name: 'XL',
-    aliases: ['tao'],
+    aliases: [ 'tao' ],
     keywords: XL_KEYWORDS,
     contains: [
-    hljs.C_LINE_COMMENT_MODE,
-    hljs.C_BLOCK_COMMENT_MODE,
-    DOUBLE_QUOTE_TEXT,
-    SINGLE_QUOTE_TEXT,
-    LONG_TEXT,
-    FUNCTION_DEFINITION,
-    IMPORT,
-    BASED_NUMBER,
-    hljs.NUMBER_MODE
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      DOUBLE_QUOTE_TEXT,
+      SINGLE_QUOTE_TEXT,
+      LONG_TEXT,
+      FUNCTION_DEFINITION,
+      IMPORT,
+      BASED_NUMBER,
+      hljs.NUMBER_MODE
     ]
   };
 }

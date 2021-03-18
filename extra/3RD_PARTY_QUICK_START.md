@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-So you'd like to create and share you're own language for Highlight.js.  That's awesome.
+So you'd like to create and share your own language for Highlight.js.  That's awesome.
 
 Take a look at some of the real-life examples first:
 
@@ -14,7 +14,7 @@ Basically:
 - Checkout highlight-js from github...
 - 3rd party languages are placed into the `extra` directory
 
-So if you had a `xzy` language you'd create an `extra/xyz` folder, and that would be your language module. All paths below are relative to that.
+So if you had a `xyz` language you'd create an `extra/xyz` folder, and that would be your language module. All paths below are relative to that.
 
 - Put your language file in `src/languages/name.js`.
 - Add detect tests in `test/detect/`.
@@ -33,7 +33,7 @@ node ./tools/build.js -t node
 npm run test
 ```
 
-If you can't get the auto-detect tests passing you should simply turn off auto-detection for your language in it's definition with `disableAutodetect: true`.  Auto-detection is hard.
+If you can't get the auto-detect tests passing you should simply turn off auto-detection for your language in its definition with `disableAutodetect: true`.  Auto-detection is hard.
 
 
 ## Packaging

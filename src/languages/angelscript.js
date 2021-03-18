@@ -37,7 +37,7 @@ export default function(hljs) {
       'abstract|0 try catch protected explicit property',
 
     // avoid close detection with C# and JS
-    illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|\\bfunction\s*[^\\(])',
+    illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|\\bfunction\\s*[^\\(])',
 
     contains: [
       { // 'strings'
@@ -71,7 +71,7 @@ export default function(hljs) {
       },
 
       { // interface or namespace declaration
-        beginKeywords: 'interface namespace', end: '{',
+        beginKeywords: 'interface namespace', end: /\{/,
         illegal: '[;.\\-]',
         contains: [
           { // interface or namespace name
@@ -82,7 +82,7 @@ export default function(hljs) {
       },
 
       { // class declaration
-        beginKeywords: 'class', end: '{',
+        beginKeywords: 'class', end: /\{/,
         illegal: '[;.\\-]',
         contains: [
           { // class name
@@ -113,6 +113,7 @@ export default function(hljs) {
 
       { // numbers
         className: 'number',
+        relevance: 0,
         begin: '(-?)(\\b0[xXbBoOdD][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?f?|\\.\\d+f?)([eE][-+]?\\d+f?)?)'
       }
     ]

@@ -1,0 +1,19 @@
+;; foooo
+define i32 @mul_add(i32 %x, i32 %y, i32 %z) {
+  entry:
+    %tmp = mul i32 %x, %y
+    %tmp2 = add i32 %tmp, %z
+    %tmp3 = add i32 %tmp, 0
+    ret i32 %tmp3
+}
+
+; Named metadata
+!0 = !{i32 42, null, !"string"}
+!foo = !{!0}
+
+; Some unnamed metadata nodes, which are referenced by the named metadata.
+!0 = !{!"zero"}
+!1 = !{!"one"}
+!2 = !{!"two"}
+; A named metadata.
+!name = !{!0, !1, !2}

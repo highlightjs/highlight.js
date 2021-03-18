@@ -323,9 +323,9 @@ export default function(hljs) {
 
   var KEYWORDS = {
     $pattern: VARIABLE_NAME_RE,
-    keyword: KEYWORD_LIST.join(" "),
-    literal: LITERAL_LIST.join(" "),
-    built_in: BUILT_IN_LIST.join(" "),
+    keyword: KEYWORD_LIST,
+    literal: LITERAL_LIST,
+    built_in: BUILT_IN_LIST,
   };
 
   // placeholder for recursive self-reference

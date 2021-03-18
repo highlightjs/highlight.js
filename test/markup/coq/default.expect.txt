@@ -1,0 +1,41 @@
+<span class="hljs-keyword">Inductive</span> seq : nat -&gt; <span class="hljs-keyword">Set</span> :=
+| <span class="hljs-type">niln</span> : seq <span class="hljs-number">0</span>
+| <span class="hljs-type">consn</span> : <span class="hljs-keyword">forall</span> n : nat, nat -&gt; seq n -&gt; seq (S n).
+
+<span class="hljs-keyword">Fixpoint</span> length (n : nat) (s : seq n) {struct s} : nat :=
+  <span class="hljs-keyword">match</span> s <span class="hljs-built_in">with</span>
+  | <span class="hljs-type">niln</span> =&gt; <span class="hljs-number">0</span>
+  | <span class="hljs-type">consn</span> i <span class="hljs-keyword">_</span> s&#x27; =&gt; S (length i s&#x27;)
+  <span class="hljs-keyword">end</span>.
+
+<span class="hljs-keyword">Theorem</span> length_corr : <span class="hljs-keyword">forall</span> (n : nat) (s : seq n), length n s = n.
+<span class="hljs-keyword">Proof</span>.
+  <span class="hljs-built_in">intros</span> n s.
+
+  <span class="hljs-comment">(* reasoning by induction over s. Then, we have two new goals
+     corresponding on the case analysis about s (either it is
+     niln or some consn *)</span>
+  <span class="hljs-built_in">induction</span> s.
+
+    <span class="hljs-comment">(* We are in the case where s is void. We can reduce the
+       term: length 0 niln *)</span>
+    <span class="hljs-built_in">simpl</span>.
+
+    <span class="hljs-comment">(* We obtain the goal 0 = 0. *)</span>
+    <span class="hljs-built_in">trivial</span>.
+
+    <span class="hljs-comment">(* now, we treat the case s = consn n e s with induction
+       hypothesis IHs *)</span>
+    <span class="hljs-built_in">simpl</span>.
+
+    <span class="hljs-comment">(* The induction hypothesis has type length n s = n.
+       So we can use it to perform some rewriting in the goal: *)</span>
+    <span class="hljs-built_in">rewrite</span> IHs.
+
+    <span class="hljs-comment">(* Now the goal is the trivial equality: S n = S n *)</span>
+    <span class="hljs-built_in">trivial</span>.
+
+  <span class="hljs-comment">(* Now all sub cases are closed, we perform the ultimate
+     step: typing the term built using tactics and save it as
+     a witness of the theorem. *)</span>
+<span class="hljs-keyword">Qed</span>.

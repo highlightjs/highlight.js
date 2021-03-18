@@ -12,7 +12,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
-| Arduino (C++ w/Arduino libs) | arduino ino           |         |
+| Arduino (C++ w/Arduino libs) | arduino, ino           |         |
 | ARM assembler           | armasm, arm            |         |
 | AVR assembler           | avrasm                 |         |
 | ActionScript            | actionscript, as       |         |
@@ -29,6 +29,8 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Awk                     | awk, mawk, nawk, gawk  |         |
 | Bash                    | bash, sh, zsh          |         |
 | Basic                   | basic                  |         |
+| BBCode                  | bbcode                 | [highlightjs-bbcode](https://github.com/RedGuy12/highlightjs-bbcode) |
+| Blade (Laravel)         | blade                  | [highlightjs-blade](https://github.com/miken32/highlightjs-blade) |
 | BNF                     | bnf                    |         |
 | Brainfuck               | brainfuck, bf          |         |
 | C#                      | csharp, cs             |         |
@@ -42,6 +44,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | CSS                     | css                    |         |
 | Cap’n Proto             | capnproto, capnp       |         |
 | Chaos                   | chaos, kaos            | [highlightjs-chaos](https://github.com/chaos-lang/highlightjs-chaos) |
+| Chapel                  | chapel, chpl           | [highlightjs-chapel](https://github.com/chapel-lang/highlightjs-chapel) |
 | Cisco CLI               | cisco                  | [highlightjs-cisco-cli](https://github.com/BMatheas/highlightjs-cisco-cli) |
 | Clojure                 | clojure, clj           |         |
 | CoffeeScript            | coffeescript, coffee, cson, iced | |
@@ -60,7 +63,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | dsconfig                | dsconfig               |         |
 | DTS (Device Tree)       | dts                    |         |
 | Dust                    | dust, dst              |         |
-| Dylan                   | dylan                  | [highlight-dylan](https://github.com/highlightjs/highlight-dylan) |
+| Dylan                   | dylan                  | [highlightjs-dylan](https://github.com/highlightjs/highlightjs-dylan) |
 | EBNF                    | ebnf                   |         |
 | Elixir                  | elixir                 |         |
 | Elm                     | elm                    |         |
@@ -87,6 +90,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Handlebars              | handlebars, hbs, html.hbs, html.handlebars        | |
 | Haskell                 | haskell, hs            |         |
 | Haxe                    | haxe, hx               |         |
+| High-level shader language| hlsl                | [highlightjs-hlsl](https://github.com/highlightjs/highlightjs-hlsl) |
 | Hy                      | hy, hylang             |         |
 | Ini, TOML               | ini, toml              |         |
 | Inform7                 | inform7, i7            |         |
@@ -107,7 +111,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
 | Lua                     | lua                    |         |
-| Makefile                | makefile, mk, mak      |         |
+| Makefile                | makefile, mk, mak, make |        |
 | Markdown                | markdown, md, mkdown, mkd |      |
 | Mathematica             | mathematica, mma, wl   |         |
 | Matlab                  | matlab                 |         |
@@ -133,7 +137,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Oracle Rules Language   | ruleslanguage          |         |
 | Oxygene                 | oxygene                |         |
 | PF                      | pf, pf.conf            |         |
-| PHP                     | php, php3, php4, php5, php6, php7 |    |
+| PHP                     | php, php3, php4, php5, php6, php7, php8 |    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
 | Plaintext               | plaintext, txt, text   |         |
@@ -148,13 +152,16 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Python                  | python, py, gyp        |         |
 | Python profiler results | profile                |         |
 | Python REPL             | python-repl, pycon     |         |
+| Q#                      | qsharp                 | [highlightjs-qsharp](https://github.com/fedonman/highlightjs-qsharp) |
 | Q                       | k, kdb                 |         |
 | QML                     | qml                    |         |
 | R                       | r                      |         |
 | Razor CSHTML            | cshtml, razor, razor-cshtml | [highlightjs-cshtml-razor](https://github.com/highlightjs/highlightjs-cshtml-razor) |
 | ReasonML                | reasonml, re           |         |
+| Rebol & Red             | redbol, rebol, red, red-system | [highlightjs-redbol](https://github.com/oldes/highlightjs-redbol) |
 | RenderMan RIB           | rib                    |         |
 | RenderMan RSL           | rsl                    |         |
+| RiScript                | risc, riscript         | [highlightjs-riscript](https://github.com/highlightjs/highlightjs-riscript) |
 | Roboconf                | graph, instances       |         |
 | Robot Framework         | robot, rf              | [highlightjs-robot](https://github.com/highlightjs/highlightjs-robot) |
 | RPM spec files          | rpm-specfile, rpm, spec, rpm-spec, specfile | [highlightjs-rpm-specfile](https://github.com/highlightjs/highlightjs-rpm-specfile) |

@@ -1,5 +1,6 @@
 <span class="hljs-comment">Index: languages/demo.js</span>
 <span class="hljs-comment">===================================================================</span>
+<span class="hljs-comment">diff --git a/file.txt b/file.txt</span>
 <span class="hljs-comment">--- languages/demo.js    (revision 199)</span>
 <span class="hljs-comment">+++ languages/demo.js    (revision 200)</span>
 <span class="hljs-meta">@@ -1,8 +1,7 @@</span>

@@ -1,0 +1,19 @@
+<span class="hljs-comment">;; foooo</span>
+<span class="hljs-keyword">define</span> <span class="hljs-type">i32</span> <span class="hljs-title">@mul_add</span>(<span class="hljs-type">i32</span> <span class="hljs-variable">%x</span><span class="hljs-punctuation">,</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%y</span><span class="hljs-punctuation">,</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%z</span>) {
+<span class="hljs-symbol">  entry:</span>
+    <span class="hljs-variable">%tmp</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">mul</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%x</span><span class="hljs-punctuation">,</span> <span class="hljs-variable">%y</span>
+    <span class="hljs-variable">%tmp2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">add</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%tmp</span><span class="hljs-punctuation">,</span> <span class="hljs-variable">%z</span>
+    <span class="hljs-variable">%tmp3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">add</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%tmp</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0</span>
+    <span class="hljs-keyword">ret</span> <span class="hljs-type">i32</span> <span class="hljs-variable">%tmp3</span>
+}
+
+<span class="hljs-comment">; Named metadata</span>
+<span class="hljs-title">!0</span> <span class="hljs-operator">=</span> !{<span class="hljs-type">i32</span> <span class="hljs-number">42</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">null</span><span class="hljs-punctuation">,</span> !<span class="hljs-string">&quot;string&quot;</span>}
+<span class="hljs-title">!foo</span> <span class="hljs-operator">=</span> !{<span class="hljs-title">!0</span>}
+
+<span class="hljs-comment">; Some unnamed metadata nodes, which are referenced by the named metadata.</span>
+<span class="hljs-title">!0</span> <span class="hljs-operator">=</span> !{!<span class="hljs-string">&quot;zero&quot;</span>}
+<span class="hljs-title">!1</span> <span class="hljs-operator">=</span> !{!<span class="hljs-string">&quot;one&quot;</span>}
+<span class="hljs-title">!2</span> <span class="hljs-operator">=</span> !{!<span class="hljs-string">&quot;two&quot;</span>}
+<span class="hljs-comment">; A named metadata.</span>
+<span class="hljs-title">!name</span> <span class="hljs-operator">=</span> !{<span class="hljs-title">!0</span><span class="hljs-punctuation">,</span> <span class="hljs-title">!1</span><span class="hljs-punctuation">,</span> <span class="hljs-title">!2</span>}

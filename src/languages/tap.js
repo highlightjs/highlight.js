@@ -16,29 +16,38 @@ export default function(hljs) {
       {
         className: 'meta',
         variants: [
-          { begin: '^TAP version (\\d+)$' },
-          { begin: '^1\\.\\.(\\d+)$' }
-        ],
+          {
+            begin: '^TAP version (\\d+)$'
+          },
+          {
+            begin: '^1\\.\\.(\\d+)$'
+          }
+        ]
       },
       // YAML block
       {
-        begin: '(\s+)?---$', end: '\\.\\.\\.$',
+        begin: /---$/,
+        end: '\\.\\.\\.$',
         subLanguage: 'yaml',
         relevance: 0
       },
-	  // testcase number
+      // testcase number
       {
         className: 'number',
         begin: ' (\\d+) '
       },
-	  // testcase status and description
+      // testcase status and description
       {
         className: 'symbol',
         variants: [
-          { begin: '^ok' },
-          { begin: '^not ok' }
-        ],
-      },
+          {
+            begin: '^ok'
+          },
+          {
+            begin: '^not ok'
+          }
+        ]
+      }
     ]
   };
 }

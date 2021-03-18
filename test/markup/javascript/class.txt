@@ -19,3 +19,10 @@ class Car extends Vehicle {
   }
   onemore(a=(3+2, b=(5*9))) {}
 }
+
+// these should not be matched as class functions
+for(expr; expr; expr) {}
+while(value) {}
+if(value) {}
+switch(value) {}
+try {} catch(err) {}
