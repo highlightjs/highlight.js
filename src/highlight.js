@@ -118,7 +118,6 @@ const HLJS = function(hljs) {
     if (typeof optionsOrCode === "object") {
       code = codeOrlanguageName;
       ignoreIllegals = optionsOrCode.ignoreIllegals;
-      continuation = optionsOrCode.continuation;
       languageName = optionsOrCode.language;
     } else {
       // old API
