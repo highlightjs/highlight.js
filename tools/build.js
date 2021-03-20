@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // For the basic introductions on using this build script, see:
 //
 // <https://highlightjs.readthedocs.org/en/latest/building-testing.html>

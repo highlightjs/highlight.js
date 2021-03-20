@@ -18,7 +18,7 @@ You can add a plugin via the ``addPlugin`` API.
 
   // or simply a keyed object of functions
   addPlugin({
-    'after:highlightBlock': ({ block, result, text }) => {
+    'after:highlightElement': ({ el, result, text }) => {
       // ...
     }
   });
@@ -38,24 +38,24 @@ your class and execute it's callbacks as necessary.
       self.prefix = options.dataPrefix;
     }
 
-    'after:highlightBlock'({ block, result, text }) {
+    'after:highlightElement'({ el, result, text }) {
       // ...
     }
   }
 
   hljs.addPlugin(new DataLanguagePlugin({ dataPrefix: 'hljs' }));
 
-Function based plugins
-^^^^^^^^^^^^^^^^^^^^^
+Function Based Plugins
+^^^^^^^^^^^^^^^^^^^^^^
 
 This approach is best for simpler plugins.
 
 ::
 
   hljs.addPlugin({
-    'after:highlightBlock': ({ block, result }) => {
+    'after:highlightElement': ({ el, result }) => {
       // move the language from the result into the dataset
-      block.dataset.language = result.language;
+      el.dataset.language = result.language;
     }
   });
 
@@ -91,7 +91,7 @@ It returns nothing.
 
 
 ``after:highlight(result)``
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This callback function is passed the ``result`` object after highlighting is
 complete. Your plugin may make any changes it desires to the result object
@@ -102,18 +102,18 @@ Note: This callback does not fire from highlighting resulting from auto-language
 It returns nothing.
 
 ``after:highlightBlock({block, result, text})``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Deprecated as of 10.7.  Please use ``after:highlightElement``.
 
 ``before:highlightBlock({block, language})``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Deprecated as of 10.7.  Please use ``before:highlightElement``.
 
 
 ``after:highlightElement({el, result, text})``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This callback function is passed an object with two keys:
 
@@ -130,7 +130,7 @@ It returns nothing.
 
 
 ``before:highlightElement({el, language})``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This callback function is passed an object with two keys:
 

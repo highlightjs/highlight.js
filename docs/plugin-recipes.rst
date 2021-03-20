@@ -17,9 +17,9 @@ via CSS with ``:before``, etc.
 ::
 
     hljs.addPlugin( {
-      afterHighlightBlock: ({block, result}) => {
+      'after:highlightElement': ({el, result}) => {
         // move the language from the result into the dataset
-        block.dataset.language = result.language }
+        el.dataset.language = result.language }
     })
 
 
