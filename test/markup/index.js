@@ -27,7 +27,7 @@ function testLanguage(language, {testDir}) {
         const expectedFile = fs.readFile(filename, 'utf-8');
 
         Promise.all([sourceFile, expectedFile]).then(function([source, expected]) {
-          const actual = hljs.highlight(language, source).value;
+          const actual = hljs.highlight(source, { language }).value;
 
           // Uncomment this for major changes that rewrite the test expectations
           // which will then need to be manually compared by hand of course

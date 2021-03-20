@@ -16,7 +16,7 @@ describe("bugs", function () {
         };
       });
 
-      hljs.highlight('test-language', '(abc 123) [abc 123] (abc 123)').value
+      hljs.highlight('(abc 123) [abc 123] (abc 123)', {language: 'test-language'}).value
         .should.equal(
         '<span class="hljs-tag">(<span class="hljs-name">abc</span> 123)</span> ' +
         '<span class="hljs-tag">[<span class="hljs-name">abc</span> 123]</span> ' +
