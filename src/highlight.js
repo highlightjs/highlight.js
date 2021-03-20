@@ -119,6 +119,9 @@ const HLJS = function(hljs) {
       code = codeOrlanguageName;
       ignoreIllegals = optionsOrCode.ignoreIllegals;
       languageName = optionsOrCode.language;
+      // continuation not supported at all via the new API
+      // eslint-disable-next-line no-undefined
+      continuation = undefined;
     } else {
       // old API
       logger.deprecated("10.7.0", "highlight(lang, code, ...args) has been deprecated.");
