@@ -125,6 +125,7 @@ interface HLJSOptions {
 interface CallbackResponse {
     data: Record<string, any>
     ignoreMatch: () => void
+    isMatchIgnored: boolean
 }
 
 /************
@@ -170,7 +171,7 @@ interface LanguageDetail {
     contains: (Mode)[]
     case_insensitive?: boolean
     keywords?: Record<string, any> | string
-    compiled?: boolean,
+    isCompiled?: boolean,
     exports?: any,
     classNameAliases?: Record<string, string>
     compilerExtensions?: CompilerExt[]
@@ -180,7 +181,7 @@ interface LanguageDetail {
 type Language = LanguageDetail & Partial<Mode>
 
 interface CompiledLanguage extends LanguageDetail, CompiledMode {
-    compiled: true
+    isCompiled: true
     contains: CompiledMode[]
     keywords: Record<string, any>
 }
@@ -199,7 +200,7 @@ type CompiledMode = Omit<Mode, 'contains'> &
         endRe: RegExp
         illegalRe: RegExp
         matcher: any
-        compiled: true
+        isCompiled: true
         starts?: CompiledMode
         parent?: CompiledMode
     }
@@ -230,7 +231,7 @@ interface ModeDetails {
     cachedVariants?: Mode[]
     // parsed
     subLanguage?: string | string[]
-    compiled?: boolean
+    isCompiled?: boolean
     label?: string
 }
 
