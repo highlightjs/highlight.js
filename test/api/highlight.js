@@ -44,7 +44,7 @@ describe('.highlight()', () => {
   });
   it('should works without continuation', () => {
     const code = "public void moveTo(int x, int y, int z);";
-    const result = hljs.highlight('java', code, false, false);
+    const result = hljs.highlight(code, { language: 'java' });
 
     result.value.should.equal(
       '<span class="hljs-function"><span class="hljs-keyword">public</span> ' +

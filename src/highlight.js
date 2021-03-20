@@ -93,8 +93,14 @@ const HLJS = function(hljs) {
   /**
    * Core highlighting function.
    *
-   * @param {string} languageName - the language to use for highlighting
-   * @param {string} code - the code to highlight
+   * OLD API
+   * highlight(lang, code, ignoreIllegals, continuation)
+   *
+   * NEW API
+   * highlight(code, {lang, ignoreIllegals})
+   *
+   * @param {string} codeOrlanguageName - the language to use for highlighting
+   * @param {string | HighlightOptions} optionsOrCode - the code to highlight
    * @param {boolean} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
    * @param {CompiledMode} [continuation] - current continuation mode, if any
    *
@@ -106,7 +112,24 @@ const HLJS = function(hljs) {
    * @property {CompiledMode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
-  function highlight(languageName, code, ignoreIllegals, continuation) {
+  function highlight(codeOrlanguageName, optionsOrCode, ignoreIllegals, continuation) {
+    let code = "";
+    let languageName = "";
+    if (typeof optionsOrCode === "object") {
+      code = codeOrlanguageName;
+      ignoreIllegals = optionsOrCode.ignoreIllegals;
+      continuation = optionsOrCode.continuation;
+      languageName = optionsOrCode.language;
+    } else {
+      // old API
+      var stack = new Error().stack;
+      console.log( stack )
+      logger.deprecated("10.7.0", "highlight(lang, code, ...args) has been deprecated.");
+      logger.deprecated("10.7.0", "Please use highlight(code, options) instead.\nhttps://github.com/highlightjs/highlight.js/issues/2277");
+      languageName = codeOrlanguageName;
+      code = optionsOrCode;
+    }
+
     /** @type {BeforeHighlightContext} */
     const context = {
       code,
@@ -132,26 +155,13 @@ const HLJS = function(hljs) {
   /**
    * private highlight that's used internally and does not fire callbacks
    *
-   * @param {string} codeOrlanguageName - the language to use for highlighting
-   * @param {string | HighlightOptions} codeOrOptions - the code to highlight
+   * @param {string} languageName - the language to use for highlighting
+   * @param {string} codeToHighlight - the code to highlight
    * @param {boolean?} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
    * @param {CompiledMode?} [continuation] - current continuation mode, if any
    * @returns {HighlightResult} - result of the highlight operation
   */
-  function _highlight(codeOrlanguageName, codeOrOptions, ignoreIllegals, continuation) {
-    let codeToHighlight = "";
-    let languageName = "";
-    if (typeof codeOrOptions === "object") {
-      const opts = codeOrOptions;
-      codeToHighlight = codeOrlanguageName;
-      ignoreIllegals = opts.ignoreIllegals;
-      continuation = opts.continuation;
-      languageName = opts.language;
-    } else {
-      languageName = codeOrlanguageName;
-      codeToHighlight = codeOrOptions;
-    }
-
+  function _highlight(languageName, codeToHighlight, ignoreIllegals, continuation) {
     /**
      * Return keyword data if a match is a keyword
      * @param {CompiledMode} mode - current mode
@@ -719,7 +729,7 @@ const HLJS = function(hljs) {
 
     node = element;
     const text = node.textContent;
-    const result = language ? highlight(language, text, true) : highlightAuto(text);
+    const result = language ? highlight(text, { language, ignoreIllegals: true }) : highlightAuto(text);
 
     // support for v10 API
     fire("after:highlightElement", { el: element, result, text });

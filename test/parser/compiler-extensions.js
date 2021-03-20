@@ -28,7 +28,7 @@ describe.skip("compiler extension plugins", function() {
     hljs.addPlugin(plugin);
     // stub highlight to make sure the language gets compiled
     // since we have no API point to make that happen
-    hljs.highlight("extension_test", "");
+    hljs.highlight("", { language: "extension_test" });
     const [first, second] = hljs.getLanguage("extension_test").contains;
     this.first = first;
     this.second = second;
