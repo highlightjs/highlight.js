@@ -275,7 +275,7 @@ Illegal symbols are defined using a single regular expression:
 Pre-defined modes and regular expressions
 -----------------------------------------
 
-Many languages share common modes and regular expressions. These expressions are defined in `lib/modes.js <https://github.com/highlightjs/highlight.js/blob/master/src/lib/modes.js>`_ and should be used whenever possible.
+Many languages share common modes and regular expressions. These expressions are defined in `lib/modes.js <https://github.com/highlightjs/highlight.js/blob/main/src/lib/modes.js>`_ and should be used whenever possible.
 
 
 Regular Expression Features

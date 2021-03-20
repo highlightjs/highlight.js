@@ -22,7 +22,7 @@ markup, doesn’t depend on any framework, and has automatic language
 detection.
 
 If you'd like to read the full README:<br>
-<https://github.com/highlightjs/highlight.js/blob/master/README.md>
+<https://github.com/highlightjs/highlight.js/blob/main/README.md>
 
 ## License
 
@@ -41,5 +41,5 @@ Further in-depth documentation for the API and other topics is at
 A list of the Core Team and contributors can be found in the [CONTRIBUTORS.md][8] file.
 
 [1]: https://www.npmjs.com/package/highlight.js
-[7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
-[8]: https://github.com/highlightjs/highlight.js/blob/master/CONTRIBUTORS.md
+[7]: https://github.com/highlightjs/highlight.js/blob/main/LICENSE
+[8]: https://github.com/highlightjs/highlight.js/blob/main/CONTRIBUTORS.md

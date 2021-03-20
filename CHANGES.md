@@ -12,6 +12,7 @@ New Languages:
 
 Language grammar improvements:
 
+- fix(python) allow keywords immediately following numbers (#2985) [Josh Goebel][]
 - fix(xml) char immediately following tag close mis-highlighted (#3044) [Josh Goebel][]
 - fix(ruby) fix `defined?()` mis-highlighted as `def` (#3025) [Josh Goebel][]
 - fix(c) comments after `#include <str>` blocks (#3041) [Josh Goebel][]

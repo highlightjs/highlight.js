@@ -9,7 +9,7 @@ We tried to squeeze in as many as we could this time so that after 10.0 ships we
 
 *IE, if there it could possibly break things for anyone, it's typically a breaking change.*  The fact is a vast majority of users should upgrade and probably not notice any changes at all.
 
-See [VERSION_10_BREAKING_CHANGES.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_BREAKING_CHANGES.md) for a comprehensive list of breaking changes, but here is a summary... if you use:
+See [VERSION_10_BREAKING_CHANGES.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_10_BREAKING_CHANGES.md) for a comprehensive list of breaking changes, but here is a summary... if you use:
 
 ### Core highlight.js lib on the client (with no extra CDN languages)
 
