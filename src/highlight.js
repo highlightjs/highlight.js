@@ -122,8 +122,6 @@ const HLJS = function(hljs) {
       languageName = optionsOrCode.language;
     } else {
       // old API
-      var stack = new Error().stack;
-      console.log( stack )
       logger.deprecated("10.7.0", "highlight(lang, code, ...args) has been deprecated.");
       logger.deprecated("10.7.0", "Please use highlight(code, options) instead.\nhttps://github.com/highlightjs/highlight.js/issues/2277");
       languageName = codeOrlanguageName;
