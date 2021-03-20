@@ -180,4 +180,4 @@ If you'd like to help out with the larger issue here:
 Language names and aliases
 --------------------------
 
-The language names and aliases table has moved to `SUPPORTED_LANGUAGES.md <https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md>`_.
+The language names and aliases table has moved to `SUPPORTED_LANGUAGES.md <https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md>`_.
