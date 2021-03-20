@@ -115,7 +115,6 @@ interface EmitterConstructor {
 interface HighlightOptions {
     language: string
     ignoreIllegals?: boolean
-    continuation?: CompiledMode
 }
 
 interface HLJSOptions {
