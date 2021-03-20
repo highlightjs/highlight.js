@@ -31,7 +31,6 @@ The goal being that minor version series always get more stable over time and th
   * ``version`` attribute in package-lock.json (run `npm install`)
   * ``release`` variable in docs/conf.py
   * All mentions of version number in the README.md
-  * All mentions of version number in the README.ru.md
   * Update ``SECURITY.md`` version table
 
 * Commit the version changes and tag the commit with the version number (``10.4.0``, no "v" prefix or anything like that)

@@ -1,7 +1,9 @@
-## Version 10.7.0 (in progress)
+## Version 10.7.0
 
-Bugs:
+Parser:
 
+- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
+- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 - fix(parser) `highlightAll()` now works if the library is lazy loaded [Josh Goebel][]
 
 New Languages:
@@ -39,17 +41,11 @@ Deprecations:
   - Please use the newer API which takes `code` and then accepts options as an object
   - IE: `highlight(code, {language, ignoreIllegals})`
   - `continuation` is for internal use only and no longer supported
-
 - `highlightBlock(el)` deprecated as of 10.7.
   - Please use `highlightElement(el)` instead.
   - Plugin callbacks renamed `before/after:highlightBlock` => `before/after:highlightElement`
   - Plugin callback now takes `el` vs `block` attribute
   - The old API and callbacks will be supported until v12.
-
-API:
-
-- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
-- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 
 [Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
