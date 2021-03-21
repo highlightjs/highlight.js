@@ -5,17 +5,19 @@ interface Building
 
 @Serializable
 class House(
-    val rooms: Int = 3,
+    private val rooms: Int? = 3,
     val name: String = "Palace"
 ) : Building {
-    var residents: Int = 0
+    var residents: Int = 4
         get() {
             println("Current residents: $field")
             return field
         }
 
     fun burn(evacuation: (people: Int) -> Boolean) {
-        evacuation((0..residents).random())
+        rooms ?: return
+        if (evacuation((0..residents).random()))
+            residents = 0
     }
 }
 
