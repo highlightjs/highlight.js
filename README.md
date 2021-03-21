@@ -58,11 +58,11 @@ detection.
 
 ---
 
-### Upgrade to Version 10
+#### Upgrading to Version 11
 
-Version 10 is one of the biggest releases in quite some time.  If you're
-upgrading from version 9, there are some breaking changes and things you may
-want to double check first.
+As always our major releases do contain breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of breaking changes and any actions you may need to take.
+
+#### Upgrading to Version 10
 
 Please read [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_10_UPGRADE.md) for  high-level summary of breaking changes and any actions you may need to take. See [VERSION_10_BREAKING_CHANGES.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_10_BREAKING_CHANGES.md) for a more detailed list and [CHANGES.md](https://github.com/highlightjs/highlight.js/blob/main/CHANGES.md) to learn what else is new.
 

@@ -1,4 +1,44 @@
-## Version next
+## Version 11.0.0
+
+**This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
+
+Unless otherwise attributed items below are thanks to [Josh Goebel][] (ref: [#2558](https://github.com/highlightjs/highlight.js/issues/2558)).
+
+*The below list should only be considered to be a high-level summary.*
+
+Deprecations / Removals / API Changes:
+
+- `initHighlighting()` and `initHighlightingOnLoad()` deprecated. **Use `highlightAll()`.**
+- `highlightBlock(el)` deprecated. **Use `highlightElement(el)`**
+- `before:highlightBlock` & `after:highlightBlock` callbacks deprecated. **Use  equivalent `highlightElement` callbacks.**
+- `highlight(languageName, code, ignoreIllegals, continuation)` signature deprecated. **Use `highlight(code, {language, ignoreIllegals})`.**
+- Deprecated `highlight()` signature no longer supports `continuation` argument.
+- `tabReplace` option removed. Consider a plugin.
+- `useBR` option removed. Consider a plugin or CSS.
+- `requireLanguage()` removed. **Use `getLanguage()`.**
+- The return values/keys of some APIs have changed slightly.
+
+Security:
+
+- HTML auto-passthru has been removed. Consider a plugin.
+- Unescaped HTML is now stripped (for security). A warning is logged to the console. (#3057) [Josh Goebel][]
+
+Themes:
+
+- The default padding of all themes increases (0.5em => 1em).
+- `schoolbook` has been updated to remove the lined background.
+- `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
+
+Language Grammars:
+
+- Default CDN build drops support for several languages.
+- Some language grammar files have been removed.
+- Some redundant language aliases have been removed.
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
+## Version next (maybe 10, maybe merged into 11?)
 
 Parser:
 
