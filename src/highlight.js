@@ -817,26 +817,6 @@ const HLJS = function(hljs) {
   }
 
   /**
-    intended usage: When one language truly requires another
-
-    Unlike `getLanguage`, this will throw when the requested language
-    is not available.
-
-    @param {string} name - name of the language to fetch/require
-    @returns {Language | never}
-  */
-  function requireLanguage(name) {
-    logger.deprecated("10.4.0", "requireLanguage will be removed entirely in v11.");
-    logger.deprecated("10.4.0", "Please see https://github.com/highlightjs/highlight.js/pull/2844");
-
-    const lang = getLanguage(name);
-    if (lang) { return lang; }
-
-    const err = new Error('The \'{}\' language is required, but not loaded.'.replace('{}', name));
-    throw err;
-  }
-
-  /**
    * @param {string} name - name of the language to retrieve
    * @returns {Language | undefined}
    */
@@ -938,7 +918,6 @@ const HLJS = function(hljs) {
     listLanguages,
     getLanguage,
     registerAliases,
-    requireLanguage,
     autoDetection,
     inherit,
     addPlugin,

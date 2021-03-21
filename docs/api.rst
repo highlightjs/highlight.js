@@ -192,28 +192,6 @@ Looks up a language by name or alias.
 Returns the language object if found, ``undefined`` otherwise.
 
 
-requireLanguage
----------------
-
-::
-
-  requireLanguage(name)
-
-**This has been deprecated as of 10.4 and will be removed in a future release.**
-
-If you need this type of functionality use ``getLanguage`` with your own error
-handling.  It is highly recommended that all inter-dependencies between grammars
-be handled at built-time, not run-time.  This is what the core library now does.
-
-Looks up a language by name or alias.
-
-This should be used when one language definition depends on another.
-Using this function (vs ``getLanguage``) will provide better error messaging
-when a required language is missing.
-
-Returns the language object if found, raises a hard error otherwise.
-
-
 debugMode
 ---------
 
