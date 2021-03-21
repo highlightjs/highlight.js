@@ -1,41 +1,42 @@
-## Version 11
+## Version 11.0.0
 
-Major releases do contain breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a more detailed summary of breaking changes.
+**This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
 
-*The below list should be considered to be a high-level summary.*
+Unless otherwise attributed items below are thanks to [Josh Goebel][] (ref: [#2558](https://github.com/highlightjs/highlight.js/issues/2558)).
 
-Deprecations/removals:
+*The below list should only be considered to be a high-level summary.*
+
+Deprecations / Removals / API Changes:
 
 - `initHighlighting()` and `initHighlightingOnLoad()` deprecated. **Use `highlightAll()`.**
-- `highlightBlock(el)` deprecated. **Use `highlightElement()`**
-- `before:highlightBlock` & `after:highlightBlock` callbacks deprecated. **Use the equivalent `highlightElement` callbacks.**
-- `highlight(languageName, code, ignoreIllegals, continuation)` signature deprecated. **Use `highlight(code, {options})`.**
-- Old `highlight()` signature no longer supports `continuation` argument.
+- `highlightBlock(el)` deprecated. **Use `highlightElement(el)`**
+- `before:highlightBlock` & `after:highlightBlock` callbacks deprecated. **Use  equivalent `highlightElement` callbacks.**
+- `highlight(languageName, code, ignoreIllegals, continuation)` signature deprecated. **Use `highlight(code, {language, ignoreIllegals})`.**
+- Deprecated `highlight()` signature no longer supports `continuation` argument.
 - `tabReplace` option removed. Consider a plugin.
 - `useBR` option removed. Consider a plugin or CSS.
-- `requireLanguage` removed. Consider `getLanguage`.
-- HTML auto-passthru has been removed and unescaped HTML is now stripped. A warning is also logged to the console. Consider a plugin.
+- `requireLanguage()` removed. **Use `getLanguage()`.**
+- The return values/keys of some APIs have changed slightly.
 
-Please see [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for additional details regarding any of these deprecatins/removals.
+Security:
 
-Parser:
-
-- Default common build drops support for certain languages.
-- Some language files have been removed.
-- Some language aliases have been removed.
-- The return values/keys of some APIs have been changed.
+- HTML auto-passthru has been removed. Consider a plugin.
+- Unescaped HTML is now stripped (for security). A warning is logged to the console. (#3057) [Josh Goebel][]
 
 Themes:
 
-- `github` has been updated to better match modern GitHub.
+- The default padding of all themes increases (0.5em => 1em).
 - `schoolbook` has been updated to remove the lined background.
-- The default padding of all themes increase (0.5em => 1em).
+- `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
 
-Grammars:
+Language Grammars:
 
-- ...
+- Default CDN build drops support for several languages.
+- Some language grammar files have been removed.
+- Some redundant language aliases have been removed.
 
 [Josh Goebel]: https://github.com/joshgoebel
+
 
 ## Version 10.7.1
 
