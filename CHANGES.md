@@ -1,4 +1,8 @@
-## Version 10.7.0
+## Version 10.7.1
+
+- fix(parser) Resolves issues with TypeScript types [Josh Goebel][]
+
+### Version 10.7.0
 
 Parser:
 

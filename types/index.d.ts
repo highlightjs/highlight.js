@@ -15,7 +15,7 @@ interface VuePlugin {
 }
 
 interface PublicApi {
-    highlight: (languageName: string, code: string, ignoreIllegals?: boolean, continuation?: Mode) => HighlightResult
+    highlight: (codeOrlanguageName: string, optionsOrCode: string | HighlightOptions, ignoreIllegals?: boolean, continuation?: Mode) => HighlightResult
     highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
     fixMarkup: (html: string) => string
     highlightBlock: (element: HTMLElement) => void
