@@ -27,7 +27,6 @@ interface PublicApi {
     listLanguages: () => string[]
     registerAliases: (aliasList: string | string[], { languageName } : {languageName: string}) => void
     getLanguage: (languageName: string) => Language | undefined
-    requireLanguage: (languageName: string) => Language | never
     autoDetection: (languageName: string) => boolean
     inherit: <T>(original: T, ...args: Record<string, any>[]) => T
     addPlugin: (plugin: HLJSPlugin) => void
