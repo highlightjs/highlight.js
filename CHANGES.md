@@ -1,7 +1,13 @@
+## Version next
+
+- enh(shell) add alias ShellSession [Ryan Mulligan][]
+
+[Ryan Mulligan]: https://github.com/ryantm
+
+
 ## Version 10.7.1
 
 - fix(parser) Resolves issues with TypeScript types [Josh Goebel][]
-- enh(shell) add alias ShellSession [Ryan Mulligan][]
 
 ### Version 10.7.0
 
