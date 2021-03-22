@@ -12,7 +12,6 @@ import * as utils from './lib/utils.js';
 import * as MODES from './lib/modes.js';
 import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
-import { BuildVuePlugin } from "./plugins/vue.js";
 import * as logger from "./lib/logger.js";
 
 const escape = utils.escapeHTML;
@@ -920,9 +919,7 @@ const HLJS = function(hljs) {
     registerAliases,
     autoDetection,
     inherit,
-    addPlugin,
-    // plugins for frameworks
-    vuePlugin: BuildVuePlugin(hljs).VuePlugin
+    addPlugin
   });
 
   hljs.debugMode = function() { SAFE_MODE = false; };
