@@ -2,6 +2,11 @@
 /* https://github.com/gavsiu */
 /* Original theme - https://github.com/chriskempson/base16 */
 
+.hljs {
+  background: #2b303b;
+  color: #c0c5ce;
+}
+
 /* Ocean Comment */
 .hljs-comment,
 .hljs-quote {
@@ -55,14 +60,6 @@
 .hljs-keyword,
 .hljs-selector-tag {
   color: #b48ead;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #2b303b;
-  color: #c0c5ce;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

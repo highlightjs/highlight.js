@@ -102,11 +102,7 @@ export default function(hljs) {
       'dpr',
       'dfm',
       'pas',
-      'pascal',
-      'freepascal',
-      'lazarus',
-      'lpr',
-      'lfm'
+      'pascal'
     ],
     case_insensitive: true,
     keywords: KEYWORDS,

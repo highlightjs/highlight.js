@@ -5,15 +5,13 @@ Gruvbox style (dark) (c) Pavel Pertsev (original style at https://github.com/mor
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  color: #ebdbb2;
   background: #282828;
 }
 
-.hljs,
+
 .hljs-subst {
-  color: #ebdbb2;
+  /* default */
 }
 
 /* Gruvbox Red */

@@ -60,17 +60,6 @@ Okay to use:
 These may seem arbitrary at first but it's what has shown to make sense in
 practice.
 
-There's also a common set of rules that *has* to be defined for the root
-container verbatim:
-
-::
-
-  .hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-  }
-
 
 ``.subst``
 ----------

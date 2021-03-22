@@ -5,7 +5,7 @@ function hasValueOrEmptyAttribute(value) {
   return Boolean(value || value === "");
 }
 
-export function BuildVuePlugin(hljs) {
+export default function BuildVuePlugin(hljs) {
   const Component = {
     props: ["language", "code", "autodetect"],
     data: function() {
@@ -61,8 +61,9 @@ export function BuildVuePlugin(hljs) {
   const VuePlugin = {
     install(Vue) {
       Vue.component('highlightjs', Component);
-    }
+    },
+    component: Component
   };
 
-  return { Component, VuePlugin };
+  return VuePlugin;
 }

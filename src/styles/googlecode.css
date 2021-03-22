@@ -5,9 +5,6 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: white;
   color: black;
 }

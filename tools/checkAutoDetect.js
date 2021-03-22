@@ -26,13 +26,13 @@ function testAutoDetection(language, index, languages) {
     .forEach(function(content) {
       const expected = language,
             actual   = hljs.highlightAuto(content);
-      if (actual.language !== expected && actual.second_best.language !== expected) {
+      if (actual.language !== expected && actual.secondBest.language !== expected) {
         return resultTable.push([
           expected,
           colors.red(actual.language),
           actual.relevance ? actual.relevance : colors.grey('None'),
-          colors.red(actual.second_best.language),
-          actual.second_best.relevance ? actual.second_best.relevance : colors.grey('None')
+          colors.red(actual.secondBest.language),
+          actual.secondBest.relevance ? actual.secondBest.relevance : colors.grey('None')
         ]);
       }
       if (actual.language !== expected) {
@@ -40,18 +40,18 @@ function testAutoDetection(language, index, languages) {
           expected,
           colors.yellow(actual.language),
           actual.relevance ? actual.relevance : colors.grey('None'),
-          colors.yellow(actual.second_best.language),
-          actual.second_best.relevance ? actual.second_best.relevance : colors.grey('None')
+          colors.yellow(actual.secondBest.language),
+          actual.secondBest.relevance ? actual.secondBest.relevance : colors.grey('None')
         ]);
       }
       // equal relevance is flagged
-      if (actual.relevance == actual.second_best.relevance) {
+      if (actual.relevance == actual.secondBest.relevance) {
         return resultTable.push([
           expected,
           actual.language,
           actual.relevance ? colors.yellow(actual.relevance) : colors.grey('None'),
-          actual.second_best.language,
-          actual.second_best.relevance ? colors.yellow(actual.second_best.relevance) : colors.grey('None'),
+          actual.secondBest.language,
+          actual.secondBest.relevance ? colors.yellow(actual.secondBest.relevance) : colors.grey('None'),
           "Relevance match."
         ]);
       }

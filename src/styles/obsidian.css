@@ -4,9 +4,7 @@
  */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  color: #e0e2e4;
   background: #282b2e;
 }
 
@@ -19,10 +17,6 @@
 
 .hljs-number {
   color: #ffcd22;
-}
-
-.hljs {
-  color: #e0e2e4;
 }
 
 .hljs-attribute {

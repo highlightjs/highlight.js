@@ -4,6 +4,11 @@
     Inspired by the art of Rubens LP (http://www.rubenslp.com.br)
 */
 
+.hljs {
+  background: #2f1e2e;
+  color: #a39e9b;
+}
+
 /* Paraíso Comment */
 .hljs-comment,
 .hljs-quote {
@@ -53,14 +58,6 @@
 .hljs-keyword,
 .hljs-selector-tag {
   color: #815ba4;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #2f1e2e;
-  color: #a39e9b;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

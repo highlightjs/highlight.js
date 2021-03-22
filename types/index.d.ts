@@ -15,9 +15,8 @@ interface VuePlugin {
 }
 
 interface PublicApi {
-    highlight: (languageName: string, code: string, ignoreIllegals?: boolean, continuation?: Mode) => HighlightResult
+    highlight: (codeOrlanguageName: string, optionsOrCode: string | HighlightOptions, ignoreIllegals?: boolean, continuation?: Mode) => HighlightResult
     highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
-    fixMarkup: (html: string) => string
     highlightBlock: (element: HTMLElement) => void
     configure: (options: Partial<HLJSOptions>) => void
     initHighlighting: () => void
@@ -28,7 +27,6 @@ interface PublicApi {
     listLanguages: () => string[]
     registerAliases: (aliasList: string | string[], { languageName } : {languageName: string}) => void
     getLanguage: (languageName: string) => Language | undefined
-    requireLanguage: (languageName: string) => Language | never
     autoDetection: (languageName: string) => boolean
     inherit: <T>(original: T, ...args: Record<string, any>[]) => T
     addPlugin: (plugin: HLJSPlugin) => void
@@ -51,7 +49,6 @@ interface ModesAPI {
     NUMBER_MODE: Mode
     C_NUMBER_MODE: Mode
     BINARY_NUMBER_MODE: Mode
-    CSS_NUMBER_MODE: Mode
     REGEXP_MODE: Mode
     TITLE_MODE: Mode
     UNDERSCORE_TITLE_MODE: Mode
@@ -74,21 +71,24 @@ interface HighlightResult {
     relevance : number
     value : string
     language? : string
-    emitter : Emitter
     illegal : boolean
-    top? : Language | CompiledMode
-    illegalBy? : illegalData
-    sofar? : string
+    _illegalBy? : illegalData
     errorRaised? : Error
     // * for auto-highlight
-    second_best? : Omit<HighlightResult, 'second_best'>
+    secondBest? : Omit<HighlightResult, 'secondBest'>
     code?: string
+    // technically psuedo-private API
+    _emitter : Emitter
+    _top? : Language | CompiledMode
+
 }
 interface AutoHighlightResult extends HighlightResult {}
 
 interface illegalData {
-    msg: string
+    message: string
     context: string
+    index: number
+    resultSoFar : string
     mode: CompiledMode
 }
 
@@ -112,12 +112,15 @@ interface EmitterConstructor {
     new (opts: any): Emitter
 }
 
+interface HighlightOptions {
+    language: string
+    ignoreIllegals?: boolean
+}
+
 interface HLJSOptions {
    noHighlightRe: RegExp
    languageDetectRe: RegExp
    classPrefix: string
-   tabReplace?: string
-   useBR: boolean
    languages?: string[]
    __emitter: EmitterConstructor
    ignoreUnescapedHTML?: boolean
@@ -126,6 +129,7 @@ interface HLJSOptions {
 interface CallbackResponse {
     data: Record<string, any>
     ignoreMatch: () => void
+    isMatchIgnored: boolean
 }
 
 /************
@@ -137,7 +141,7 @@ interface CallbackResponse {
 type AnnotatedError = Error & {mode?: Mode | Language, languageName?: string, badRule?: Mode}
 
 type ModeCallback = (match: RegExpMatchArray, response: CallbackResponse) => void
-type HighlightedHTMLElement = HTMLElement & {result?: object, second_best?: object, parentNode: HTMLElement}
+type HighlightedHTMLElement = HTMLElement & {result?: object, secondBest?: object, parentNode: HTMLElement}
 type EnhancedMatch = RegExpMatchArray & {rule: CompiledMode, type: MatchType}
 type MatchType = "begin" | "end" | "illegal"
 
@@ -171,7 +175,7 @@ interface LanguageDetail {
     contains: (Mode)[]
     case_insensitive?: boolean
     keywords?: Record<string, any> | string
-    compiled?: boolean,
+    isCompiled?: boolean,
     exports?: any,
     classNameAliases?: Record<string, string>
     compilerExtensions?: CompilerExt[]
@@ -181,7 +185,7 @@ interface LanguageDetail {
 type Language = LanguageDetail & Partial<Mode>
 
 interface CompiledLanguage extends LanguageDetail, CompiledMode {
-    compiled: true
+    isCompiled: true
     contains: CompiledMode[]
     keywords: Record<string, any>
 }
@@ -200,7 +204,7 @@ type CompiledMode = Omit<Mode, 'contains'> &
         endRe: RegExp
         illegalRe: RegExp
         matcher: any
-        compiled: true
+        isCompiled: true
         starts?: CompiledMode
         parent?: CompiledMode
     }
@@ -231,7 +235,7 @@ interface ModeDetails {
     cachedVariants?: Mode[]
     // parsed
     subLanguage?: string | string[]
-    compiled?: boolean
+    isCompiled?: boolean
     label?: string
 }
 

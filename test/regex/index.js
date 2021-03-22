@@ -25,7 +25,7 @@ const polyBacktrackingCache = {};
 function retrieveRules(language, { name }) {
   // first we need to get the language compiled so we have
   // access to the raw regex
-  hljs.highlight(name, "");
+  hljs.highlight("", {language: name});
   return regexFor(language, { context: name, depth: 0 });
 }
 

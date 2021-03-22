@@ -1,7 +1,53 @@
-## Version 10.7.0 (in progress)
+## Version 11.0.0
 
-Bugs:
+**This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
 
+Unless otherwise attributed items below are thanks to [Josh Goebel][] (ref: [#2558](https://github.com/highlightjs/highlight.js/issues/2558)).
+
+*The below list should only be considered to be a high-level summary.*
+
+Deprecations / Removals / API Changes:
+
+- `initHighlighting()` and `initHighlightingOnLoad()` deprecated. **Use `highlightAll()`.**
+- `highlightBlock(el)` deprecated. **Use `highlightElement(el)`**
+- `before:highlightBlock` & `after:highlightBlock` callbacks deprecated. **Use  equivalent `highlightElement` callbacks.**
+- `highlight(languageName, code, ignoreIllegals, continuation)` signature deprecated. **Use `highlight(code, {language, ignoreIllegals})`.**
+- Deprecated `highlight()` signature no longer supports `continuation` argument.
+- `tabReplace` option removed. Consider a plugin.
+- `useBR` option removed. Consider a plugin or CSS.
+- `requireLanguage()` removed. **Use `getLanguage()`.**
+- The return values/keys of some APIs have changed slightly.
+
+Security:
+
+- HTML auto-passthru has been removed. Consider a plugin.
+- Unescaped HTML is now stripped (for security). A warning is logged to the console. (#3057) [Josh Goebel][]
+
+Themes:
+
+- The default padding of all themes increases (0.5em => 1em).
+- `schoolbook` has been updated to remove the lined background.
+- `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
+
+Language Grammars:
+
+- Default CDN build drops support for several languages.
+- Some language grammar files have been removed.
+- Some redundant language aliases have been removed.
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
+## Version 10.7.1
+
+- fix(parser) Resolves issues with TypeScript types [Josh Goebel][]
+
+### Version 10.7.0
+
+Parser:
+
+- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
+- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 - fix(parser) `highlightAll()` now works if the library is lazy loaded [Josh Goebel][]
 
 New Languages:
@@ -35,16 +81,15 @@ Language grammar improvements:
 
 Deprecations:
 
+- `highlight(languageName, code, ignoreIllegals, continuation)` deprecated as of 10.7
+  - Please use the newer API which takes `code` and then accepts options as an object
+  - IE: `highlight(code, {language, ignoreIllegals})`
+  - `continuation` is for internal use only and no longer supported
 - `highlightBlock(el)` deprecated as of 10.7.
   - Please use `highlightElement(el)` instead.
   - Plugin callbacks renamed `before/after:highlightBlock` => `before/after:highlightElement`
   - Plugin callback now takes `el` vs `block` attribute
   - The old API and callbacks will be supported until v12.
-
-API:
-
-- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
-- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 
 [Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
