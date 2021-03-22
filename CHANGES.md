@@ -2,6 +2,7 @@
 
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
 - enh(shell) add alias ShellSession [Ryan Mulligan][]
+- enh(shell) consider one space after prompt as part of prompt [Ryan Mulligan][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
@@ -72,7 +73,6 @@ Deprecations:
 [David Ostrovsky]: https://github.com/davido
 [AndyKIron]: https://github.com/AndyKIron
 [Samuel Colvin]: https://github.com/samuelcolvin
-[Ryan Mulligan]: https://github.com/ryantm
 
 ## Version 10.6.0
 
