@@ -707,7 +707,7 @@ const HLJS = function(hljs) {
       { el: element, language: language });
 
     // we should be all text, no child nodes
-    if (element.children.length > 0) {
+    if (!options.ignoreUnescapedHTML && element.children.length > 0) {
       console.warn("One of your code blocks includes unescaped HTML. This is a potentially serious security risk.");
       console.warn("https://github.com/highlightjs/highlight.js/issues/2886");
       console.warn(element);
