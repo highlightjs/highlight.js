@@ -1,7 +1,9 @@
 ## Version next
 
+- enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
 - enh(shell) add alias ShellSession [Ryan Mulligan][]
 
+[Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
 
 

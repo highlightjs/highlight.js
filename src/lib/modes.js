@@ -83,13 +83,48 @@ export const COMMENT = function(begin, end, modeOptions = {}) {
     excludeBegin: true,
     relevance: 0
   });
+  const ENGLISH_WORD = regex.either(
+    // list of common 1 and 2 letter words in English
+    "I",
+    "a",
+    "is",
+    "so",
+    "us",
+    "to",
+    "at",
+    "if",
+    "in",
+    "it",
+    "on",
+    // note: this is not an exhaustive list of contractions, just popular ones
+    /[A-Za-z]+['](d|ve|re|ll|t|s|n)/, // contractions - can't we'd they're let's, etc
+    /[A-Za-z]+[-][a-z]+/, // `no-way`, etc.
+    /[A-Za-z][a-z]{2,}/ // allow capitalized words at beginning of sentences
+  );
   // looking like plain text, more likely to be a comment
   mode.contains.push(
     {
       // TODO: how to include ", (, ) without breaking grammars that use these for
       // comment delimiters?
       // begin: /[ ]+([()"]?([A-Za-z'-]{3,}|is|a|I|so|us|[tT][oO]|at|if|in|it|on)[.]?[()":]?([.][ ]|[ ]|\))){3}/
-      begin: /[ ]+(([A-Za-z'-]{3,}|is|a|I|so|us|[tT][oO]|at|if|in|it|on)[.]?[:]?([.][ ]|[ ]|\))){3}/
+      // ---
+
+      // this tries to find sequences of 3 english words in a row (without any
+      // "programming" type syntax) this gives us a strong signal that we've
+      // TRULY found a comment - vs perhaps scanning with the wrong language.
+      // It's possible to find something that LOOKS like the start of the
+      // comment - but then if there is no readable text - good chance it is a
+      // false match and not a comment.
+      //
+      // for a visual example please see:
+      // https://github.com/highlightjs/highlight.js/issues/2827
+
+      begin: regex.concat(
+        /[ ]+/, // necessary to prevent us gobbling up doctags like /* @author Bob Mcgill */
+        '(',
+        ENGLISH_WORD,
+        /[.]?[:]?([.][ ]|[ ])/,
+        '){3}') // look for 3 words in a row
     }
   );
   return mode;
