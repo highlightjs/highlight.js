@@ -73,7 +73,6 @@ export const COMMENT = function(begin, end, modeOptions = {}) {
     },
     modeOptions
   );
-  // mode.contains.push(PHRASAL_WORDS_MODE);
   mode.contains.push({
     className: 'doctag',
     // hack to avoid the space from being included. the space is necessary to
