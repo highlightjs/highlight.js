@@ -1,7 +1,23 @@
-## Version 10.7.0 (in progress)
+## Version next
 
-Bugs:
+- enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
+- enh(shell) add alias ShellSession [Ryan Mulligan][]
+- enh(shell) consider one space after prompt as part of prompt [Ryan Mulligan][]
 
+[Josh Goebel]: https://github.com/joshgoebel
+[Ryan Mulligan]: https://github.com/ryantm
+
+
+## Version 10.7.1
+
+- fix(parser) Resolves issues with TypeScript types [Josh Goebel][]
+
+### Version 10.7.0
+
+Parser:
+
+- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
+- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 - fix(parser) `highlightAll()` now works if the library is lazy loaded [Josh Goebel][]
 
 New Languages:
@@ -12,6 +28,14 @@ New Languages:
 
 Language grammar improvements:
 
+- enh(parser) smarter detection of comments (#2827) [Josh Goebel][]
+- fix(python) allow keywords immediately following numbers (#2985) [Josh Goebel][]
+- fix(xml) char immediately following tag close mis-highlighted (#3044) [Josh Goebel][]
+- fix(ruby) fix `defined?()` mis-highlighted as `def` (#3025) [Josh Goebel][]
+- fix(c) comments after `#include <str>` blocks (#3041) [Josh Goebel][]
+- fix(cpp) comments after `#include <str>` blocks (#3041) [Josh Goebel][]
+- enh(cpp) Highlight all function dispatches (#3005) [Josh Goebel][]
+- enh(python) support type hints and better type support (#2972) [Josh Goebel][]
 - enh(gml) Add additional GML 2.3 keywords (#2984) [xDGameStudios][]
 - fix(cpp) constructor support for initializers (#3001) [Josh Goebel][]
 - enh(php) Add `trait` to class-like naming patterns (#2997) [Ayesh][]
@@ -22,19 +46,21 @@ Language grammar improvements:
 - enh(ecmascript) Add built-in types [Vaibhav Chanana][]
 - enh(kotlin) Add `kts` as an alias for Kotlin (#3021) [Vaibhav Chanana][]
 - enh(css) Add `font-smoothing` to attributes list for CSS (#3027) [AndyKIron][]
+- fix(python) Highlight `print` and `exec` as a builtin (#1468) [Samuel Colvin][]
+- fix(csharp) Fix unit being highlighted instead of uint (#3046) [Spacehamster][]
+- enh(swift) add async/await keywords (#3048) [Bradley Mackey][]
 
 Deprecations:
 
+- `highlight(languageName, code, ignoreIllegals, continuation)` deprecated as of 10.7
+  - Please use the newer API which takes `code` and then accepts options as an object
+  - IE: `highlight(code, {language, ignoreIllegals})`
+  - `continuation` is for internal use only and no longer supported
 - `highlightBlock(el)` deprecated as of 10.7.
   - Please use `highlightElement(el)` instead.
   - Plugin callbacks renamed `before/after:highlightBlock` => `before/after:highlightElement`
   - Plugin callback now takes `el` vs `block` attribute
   - The old API and callbacks will be supported until v12.
-
-API:
-
-- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
-- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 
 [Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
@@ -46,6 +72,7 @@ API:
 [Vaibhav Chanana]: https://github.com/il3ven
 [David Ostrovsky]: https://github.com/davido
 [AndyKIron]: https://github.com/AndyKIron
+[Samuel Colvin]: https://github.com/samuelcolvin
 
 ## Version 10.6.0
 

@@ -13,7 +13,7 @@ describe('computing the relevance score of a language', () => {
     }
     const code   = "farmer and of river weeds";
     hljs.registerLanguage("test", grammar)
-    const result = hljs.highlight('test', code, false, false);
+    const result = hljs.highlight(code, { language: 'test' });
 
     result.relevance.should.equal(3)
   });
@@ -27,7 +27,7 @@ describe('computing the relevance score of a language', () => {
     }
     const code   = "farmer and of river weeds";
     hljs.registerLanguage("test", grammar)
-    const result = hljs.highlight('test', code, false, false);
+    const result = hljs.highlight(code, { language: 'test' });
 
     result.relevance.should.equal(13)
   });
@@ -41,7 +41,7 @@ describe('computing the relevance score of a language', () => {
     }
     const code   = "farmer and of river weeds";
     hljs.registerLanguage("test", grammar)
-    const result = hljs.highlight('test', code, false, false);
+    const result = hljs.highlight(code, { language: 'test' });
 
     result.relevance.should.equal(4)
   });

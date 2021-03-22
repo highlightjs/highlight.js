@@ -217,7 +217,7 @@ export default function(hljs) {
       // def method_name(
       // def method_name;
       // def method_name (end of line)
-      begin: regex.concat(/def\s*/, regex.lookahead(RUBY_METHOD_RE + "\\s*(\\(|;|$)")),
+      begin: regex.concat(/def\s+/, regex.lookahead(RUBY_METHOD_RE + "\\s*(\\(|;|$)")),
       relevance: 0, // relevance comes from kewords
       keywords: "def",
       end: '$|;',

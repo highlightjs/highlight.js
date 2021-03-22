@@ -41,14 +41,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'highlight.js'
-copyright = u'2012–2020, Ivan Sagalaev'
+copyright = u'2012–2021, Ivan Sagalaev'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 
 # The full version, including alpha/beta/rc tags.
-release = '10.6.0'
+release = '10.7.1'
 # The short X.Y version.
 version = ".".join(release.split(".")[:2])
 

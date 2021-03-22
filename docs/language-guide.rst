@@ -87,12 +87,14 @@ object, each property of which defines its own group of keywords:
   {
     keywords: {
       keyword: 'else for if while',
-      literal: ['false','true','null']
+      literal: ['false','true','null'],
+      _relevance_only: 'one two three four'
     }
   }
 
 The group name becomes the class name in the generated markup, enabling different
-theming for different kinds of keywords.
+theming for different kinds of keywords.  Any property starting with a ``_`` will
+only use those keywords to increase relevance, they will not be highlighted.
 
 To detect keywords, highlight.js breaks the processed chunk of code into separate
 words — a process called lexing. By default, "words" are matched with the regexp
@@ -273,7 +275,7 @@ Illegal symbols are defined using a single regular expression:
 Pre-defined modes and regular expressions
 -----------------------------------------
 
-Many languages share common modes and regular expressions. These expressions are defined in `lib/modes.js <https://github.com/highlightjs/highlight.js/blob/master/src/lib/modes.js>`_ and should be used whenever possible.
+Many languages share common modes and regular expressions. These expressions are defined in `lib/modes.js <https://github.com/highlightjs/highlight.js/blob/main/src/lib/modes.js>`_ and should be used whenever possible.
 
 
 Regular Expression Features

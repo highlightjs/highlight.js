@@ -16,7 +16,7 @@ describe('plain browser', function() {
 
   it('should return relevance key', async function() {
     await buildFakeDOM.bind(this, defaultCase)();
-    var out = this.hljs.highlight("javascript","");
+    var out = this.hljs.highlight("", { language: "javascript" });
     out.relevance.should.equal(0);
   });
 

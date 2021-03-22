@@ -4,15 +4,12 @@ Library API
 Highlight.js exports a few functions as methods of the ``hljs`` object.
 
 
-``highlight(languageName, code, ignore_illegals, continuation)``
-----------------------------------------------------------------
+``highlight(languageName, code, ignoreIllegals, continuation)`` (deprecated with 10.7)
+--------------------------------------------------------------------------------------
 
-Core highlighting function.
-Accepts a language name, or an alias, and a string with the code to highlight.
-The ``ignore_illegals`` parameter, when present and evaluates to a true value,
-forces highlighting to finish even in case of detecting illegal syntax for the
-language instead of throwing an exception.
-The ``continuation`` is an optional mode stack representing unfinished parsing.
+**This is the old API, please see the new API immediately below.**
+
+``continuation`` is an optional mode stack representing unfinished parsing.
 When present, the function will restart parsing from this state instead of
 initializing a new one.  This is used internally for `sublanguage` support.
 
@@ -20,6 +17,18 @@ Note: `continuation` is NOT intended to support line-by-line highlighting
 because there is no requirement that a grammar handle linebreaks in any special
 way. It's quite possible for a grammar to have a single mode/regex that matches
 MANY lines at once.  This is not discouraged and entirely up to the grammar.
+
+
+
+``highlight(code, {language, ignoreIllegals})``
+--------------------------------------------------------------------------------------
+
+Core highlighting function.  Accepts the code to highlight (string) and a list of options (object).
+The ``language`` parameter must be present and specify the language name or alias
+of the grammar to be used for highlighting.
+The ``ignoreIllegals`` is an optional parameter than when true forces highlighting
+to finish even in case of detecting illegal syntax for the
+language instead of throwing an exception.
 
 Returns an object with the following properties:
 

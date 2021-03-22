@@ -1,0 +1,13 @@
+// line comment
+
+/* block comment */
+
+/* block comment
+  across lines
+*/
+
+#include <sys/wait.h> // line comment
+#include <sys/wait.h> /* block comment */
+
+/*
+Truncated block comment

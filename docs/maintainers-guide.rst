@@ -7,7 +7,7 @@ Commit policy
 
 * Pull requests from outside contributors require a review from a maintainer.
 
-* Maintainers should avoid working on a master branch directly and create branches for everything. A code review from another maintainer is recommended but not required, use your best judgment.
+* Maintainers should avoid working on a main branch directly and create branches for everything. A code review from another maintainer is recommended but not required, use your best judgment.
 
 
 
@@ -16,7 +16,7 @@ Release process
 
 Releases (minor) typically happen on a 6-week schedule.
 
-For major/minor releases you'll be releasing from ``master``.  For patch releases you'll be releasing from a stable branch, such as ``10-stable``.  This allows ongoing development of new features to continue in isolation (in master) without those changes leaking into patch releases (which should focus only on fixing breaking changes).
+For major/minor releases you'll be releasing from ``main``.  For patch releases you'll be releasing from a stable branch, such as ``10-stable``.  This allows ongoing development of new features to continue in isolation (in main) without those changes leaking into patch releases (which should focus only on fixing breaking changes).
 
 The goal being that minor version series always get more stable over time and that patch releases do not add features.
 
@@ -31,7 +31,6 @@ The goal being that minor version series always get more stable over time and th
   * ``version`` attribute in package-lock.json (run `npm install`)
   * ``release`` variable in docs/conf.py
   * All mentions of version number in the README.md
-  * All mentions of version number in the README.ru.md
   * Update ``SECURITY.md`` version table
 
 * Commit the version changes and tag the commit with the version number (``10.4.0``, no "v" prefix or anything like that)
