@@ -175,6 +175,7 @@
   </div>
 
   <script src="../build/highlight.js"></script>
+  <script src="../build/vue_plugin.js"></script>
   <script src="vendor/jquery-2.1.1.min.js"></script>
   <script src="vendor/vue.js"></script>
 
@@ -273,7 +274,7 @@
       });
     }());
 
-    Vue.use(hljs.vuePlugin);
+    Vue.use(hljsVuePlugin(hljs));
     let vue = new Vue({
       el: '#app',
       data: { code: "", language: "" },

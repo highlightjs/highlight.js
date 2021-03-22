@@ -58,6 +58,7 @@ async function buildBrowser(options) {
 
   detailedGrammarSizes(languages);
 
+  await buildVuePluginJS({ minify: options.minify });
   const size = await buildBrowserHighlightJS(languages, { minify: options.minify });
 
   log("-----");
@@ -152,6 +153,29 @@ function installDemoStyles() {
       install(`./src/styles/${file}`, `demo/styles/${file}`);
     }
   });
+}
+
+async function buildVuePluginJS({ minify }) {
+  log("Building vue_plugin.js.");
+
+  const outFile = `${process.env.BUILD_DIR}/vue_plugin.js`;
+  const minifiedFile = outFile.replace(/js$/, "min.js");
+
+  const input = { ...config.rollup.browser_core.input, input: `src/plugins/vue.js`};
+  const output = config.rollup.browser_core.output;
+  // output.footer = output.footer.replace("hljs", "hljsVue");
+  let pluginSrc = await rollupCode(input,
+    { ...output, file: outFile, name: "hljsVuePlugin", footer: null });
+
+  const tasks = [];
+  tasks.push(fs.writeFile(outFile, pluginSrc, { encoding: "utf8" }));
+
+  if (minify) {
+    const tersed = await Terser.minify(pluginSrc, config.terser);
+    tasks.push(fs.writeFile(minifiedFile, tersed.code, { encoding: "utf8" }));
+  }
+
+  await Promise.all(tasks);
 }
 
 async function buildBrowserHighlightJS(languages, { minify }) {
