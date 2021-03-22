@@ -1,7 +1,9 @@
 ## Version next
 
+- enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
 - enh(shell) add alias ShellSession [Ryan Mulligan][]
 
+[Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
 
 
@@ -25,6 +27,7 @@ New Languages:
 
 Language grammar improvements:
 
+- enh(parser) smarter detection of comments (#2827) [Josh Goebel][]
 - fix(python) allow keywords immediately following numbers (#2985) [Josh Goebel][]
 - fix(xml) char immediately following tag close mis-highlighted (#3044) [Josh Goebel][]
 - fix(ruby) fix `defined?()` mis-highlighted as `def` (#3025) [Josh Goebel][]
