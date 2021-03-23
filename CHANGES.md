@@ -38,6 +38,17 @@ Language Grammars:
 [Josh Goebel]: https://github.com/joshgoebel
 
 
+## Version next 10??? (maybe move into 11)
+
+- enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
+- enh(shell) add alias ShellSession [Ryan Mulligan][]
+- enh(shell) consider one space after prompt as part of prompt [Ryan Mulligan][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+[Ryan Mulligan]: https://github.com/ryantm
+
+
+
 ## Version 10.7.1
 
 - fix(parser) Resolves issues with TypeScript types [Josh Goebel][]
@@ -58,6 +69,7 @@ New Languages:
 
 Language grammar improvements:
 
+- enh(parser) smarter detection of comments (#2827) [Josh Goebel][]
 - fix(python) allow keywords immediately following numbers (#2985) [Josh Goebel][]
 - fix(xml) char immediately following tag close mis-highlighted (#3044) [Josh Goebel][]
 - fix(ruby) fix `defined?()` mis-highlighted as `def` (#3025) [Josh Goebel][]
