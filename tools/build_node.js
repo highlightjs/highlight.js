@@ -34,13 +34,6 @@ async function buildNodeLanguage(language) {
   await rollupWrite(input, output);
 }
 
-async function buildNodeVuePluginJS() {
-  const input = { ...config.rollup.node.input, input: `src/plugins/vue.js` };
-  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/vue_plugin.js` };
-  await rollupWrite(input, output);
-}
-
-
 async function buildNodeHighlightJS() {
   const input = { ...config.rollup.node.input, input: `src/highlight.js` };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
@@ -89,7 +82,6 @@ async function buildNode(options) {
 
   await buildNodeIndex(languages);
   await buildLanguages(languages);
-  await buildNodeVuePluginJS();
 
   log("Writing highlight.js");
   await buildNodeHighlightJS();

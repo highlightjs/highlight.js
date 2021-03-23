@@ -36,7 +36,7 @@
   "types": "./types/index.d.ts",
   "scripts": {
     "mocha": "mocha",
-    "lint": "eslint src/*.js src/lib/*.js src/plugins/*.js demo/*.js",
+    "lint": "eslint src/*.js src/lib/*.js demo/*.js",
     "lint-languages": "eslint --no-eslintrc -c .eslintrc.lang.js src/languages/**/*.js",
     "build_and_test": "npm run build && npm run test",
     "build_and_test_browser": "npm run build-browser && npm run test-browser",
