@@ -1,6 +1,4 @@
-*This is a work in progress.  PRs to improve these docs (or the process) would be welcome.*
-
-## Getting Started
+# 3rd Party Contributor Guide
 
 So you'd like to create and share your own language for Highlight.js.  That's awesome.
 
@@ -9,7 +7,7 @@ Take a look at some of the real-life examples first:
 - https://github.com/highlightjs/highlightjs-cypher
 - https://github.com/highlightjs/highlightjs-robots-txt
 
-Then get started:
+## Get started
 
 - Checkout a clone of the core repo [highlight-js](https://github.com/highlightjs/highlightjs) from GitHub.
 - Read [Language contributors checklist](https://highlightjs.readthedocs.io/en/latest/language-contribution.html).
