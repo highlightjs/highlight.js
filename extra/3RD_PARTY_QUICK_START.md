@@ -47,6 +47,15 @@ node ./tools/build.js -t node
 npm run test
 ```
 
+Running the test this way runs the complete suite of tests for all languages. You can set the `ONLY_EXTRA` environment variable to focus the tests on just the language(s) you are currently working on in the `extra` folder.
+
+```bash
+ONLY_EXTRA=true
+npm run test-markup
+```
+
+This only works for markup tests, but those are the most common that need to be run while developing a language grammar.
+
 If you can't get the auto-detect tests passing then turn off auto-detection for your language in its definition with `disableAutodetect: true`.  Auto-detection is hard.
 
 ## Packaging
@@ -63,7 +72,7 @@ Building extra/highlightjs-your-language/dist/your-language.min.js.
 ...
 ```
 
-Copy `extra/highlightjs-your-language/dist/your-language.min.js` to your repo's dist folder `{your-language-repo}/dist/your-language.min.js`, commit and push it.
+Commit `extra/highlightjs-your-language/dist/your-language.min.js` to your repo and push it.
 
 ## Publishing
 
