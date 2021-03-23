@@ -197,15 +197,9 @@ div.code {
 
 ### Using with Vue.js
 
-Simply build & register the plugin with Vue:
+See [highlightjs/vue-plugin](https://github.com/highlightjs/vue-plugin) for a simple Vue plugin that works great with Highlight.js.
 
-```js
-import { buildVuePlugin } from "highlight.js/lib/vue_plugin.js";
-Vue.use(buildVuePlugin(hljs).VuePlugin);
-```
-
-And you'll be provided with a `highlightjs` component for use
-in your templates:
+An example of `vue-plugin` in action:
 
 ```html
   <div id="app">
