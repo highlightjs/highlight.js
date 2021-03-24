@@ -356,17 +356,9 @@ There is also an npm package [@highlightjs/cdn-assets](https://www.npmjs.com/pac
 
 ### Download from our website
 
-The [download page][5] can quickly generate a custom bundle including only the languages you need.
+The [download page][5] can quickly generate a custom single-file minified bundle including only the languages you desire.
 
-Alternatively, you can build a browser package from [source](#source):
-
-```
-node tools/build.js -t browser :common
-```
-
-See our [building documentation][6] for more information.
-
-**Note:** Building from source should always result in the smallest size builds.  The website download page is optimized for speed, not size.
+**Note:** [Building from source](#build-from-source) can produce slightly smaller builds than the website download.
 
 
 ### Install via NPM package
