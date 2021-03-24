@@ -16,14 +16,9 @@ async function buildESMIndex(name, languages) {
     return s;
   };
 
-  const registration = languages.map((lang) => {
-    let out = '';
-    const importName = safeImportName(lang.name);
-    const require = `import ${importName} from './languages/${lang.name}.js';`;
-    out += require;
-    out += `hljs.registerLanguage('${lang.name}', ${importName});`;
-    return out;
-  });
+  const registration = languages.map((lang) => 
+    `import ${safeImportName(lang.name)} from './languages/${lang.name}.js';` +
+    `hljs.registerLanguage('${lang.name}', ${importName});`);
 
   const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
   await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, index);
