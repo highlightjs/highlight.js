@@ -10,9 +10,15 @@ async function buildESMIndex(name, languages) {
   const header = `import hljs from './core.mjs';`;
   const footer = "export default hljs;";
 
+  const safeImportName = (s) => {
+    s = s.replace(/-/g, "_");
+    if (/^\d/.test(s)) s = `L_${s}`;
+    return s;
+  };
+
   const registration = languages.map((lang) => {
     let out = '';
-    const importName = "L_" + lang.name.replace("-","_")
+    const importName = safeImportName(lang.name);
     let require = `import ${importName} from './languages/${lang.name}.js';`;
     // TODO: break this with v11? All modules must export default?
     if (lang.loader) {
@@ -125,7 +131,7 @@ const CORE_FILES = [
   "SECURITY.md",
   "CHANGES.md",
   "types/index.d.ts"
-]
+];
 
 async function buildNode(options) {
   mkdir("lib/languages");
@@ -156,11 +162,12 @@ async function buildNode(options) {
   // filter languages for inclusion in the highlight.js bundle
   languages = filter(languages, options.languages);
 
+  const common = languages.filter(l => l.categories.includes("common"));
   await buildESMIndex("index", languages);
-  await buildESMIndex("common", languages.filter(l => l.categories.includes("common")));
+  await buildESMIndex("common", common);
   await buildESMUtils();
   await buildCJSIndex("index", languages);
-  await buildCJSIndex("common", languages.filter(l => l.categories.includes("common")));
+  await buildCJSIndex("common", common);
   await buildLanguages(languages);
 
   log("Writing highlight.js");
