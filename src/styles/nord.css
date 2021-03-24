@@ -205,135 +205,137 @@ Aurora
   color: #5E81AC;
 }
 
-.abnf .hljs-attribute {
+/* per language customizations */
+
+.hljs-abnf .hljs-attribute {
   color: #88C0D0;
 }
 
-.abnf .hljs-symbol {
+.hljs-abnf .hljs-symbol {
   color: #EBCB8B;
 }
 
-.apache .hljs-attribute {
+.hljs-apache .hljs-attribute {
   color: #88C0D0;
 }
 
-.apache .hljs-section {
+.hljs-apache .hljs-section {
   color: #81A1C1;
 }
 
-.arduino .hljs-built_in {
+.hljs-arduino .hljs-built_in {
   color: #88C0D0;
 }
 
-.aspectj .hljs-meta {
+.hljs-aspectj .hljs-meta {
   color: #D08770;
 }
 
-.aspectj > .hljs-title {
+.hljs-aspectj > .hljs-title {
   color: #88C0D0;
 }
 
-.bnf .hljs-attribute {
+.hljs-bnf .hljs-attribute {
   color: #8FBCBB;
 }
 
-.clojure .hljs-name {
+.hljs-clojure .hljs-name {
   color: #88C0D0;
 }
 
-.clojure .hljs-symbol {
+.hljs-clojure .hljs-symbol {
   color: #EBCB8B;
 }
 
-.coq .hljs-built_in {
+.hljs-coq .hljs-built_in {
   color: #88C0D0;
 }
 
-.cpp .hljs-meta-string {
+.hljs-cpp .hljs-meta-string {
   color: #8FBCBB;
 }
 
-.css .hljs-built_in {
+.hljs-css .hljs-built_in {
   color: #88C0D0;
 }
 
-.css .hljs-keyword {
+.hljs-css .hljs-keyword {
   color: #D08770;
 }
 
-.diff .hljs-meta {
+.hljs-diff .hljs-meta {
   color: #8FBCBB;
 }
 
-.ebnf .hljs-attribute {
+.hljs-ebnf .hljs-attribute {
   color: #8FBCBB;
 }
 
-.glsl .hljs-built_in {
+.hljs-glsl .hljs-built_in {
   color: #88C0D0;
 }
 
-.groovy .hljs-meta:not(:first-child) {
+.hljs-groovy .hljs-meta:not(:first-child) {
   color: #D08770;
 }
 
-.haxe .hljs-meta {
+.hljs-haxe .hljs-meta {
   color: #D08770;
 }
 
-.java .hljs-meta {
+.hljs-java .hljs-meta {
   color: #D08770;
 }
 
-.ldif .hljs-attribute {
+.hljs-ldif .hljs-attribute {
   color: #8FBCBB;
 }
 
-.lisp .hljs-name {
+.hljs-lisp .hljs-name {
   color: #88C0D0;
 }
 
-.lua .hljs-built_in {
+.hljs-lua .hljs-built_in {
   color: #88C0D0;
 }
 
-.moonscript .hljs-built_in {
+.hljs-moonscript .hljs-built_in {
   color: #88C0D0;
 }
 
-.nginx .hljs-attribute {
+.hljs-nginx .hljs-attribute {
   color: #88C0D0;
 }
 
-.nginx .hljs-section {
+.hljs-nginx .hljs-section {
   color: #5E81AC;
 }
 
-.pf .hljs-built_in {
+.hljs-pf .hljs-built_in {
   color: #88C0D0;
 }
 
-.processing .hljs-built_in {
+.hljs-processing .hljs-built_in {
   color: #88C0D0;
 }
 
-.scss .hljs-keyword {
+.hljs-scss .hljs-keyword {
   color: #81A1C1;
 }
 
-.stylus .hljs-keyword {
+.hljs-stylus .hljs-keyword {
   color: #81A1C1;
 }
 
-.swift .hljs-meta {
+.hljs-swift .hljs-meta {
   color: #D08770;
 }
 
-.vim .hljs-built_in {
+.hljs-vim .hljs-built_in {
   color: #88C0D0;
   font-style: italic;
 }
 
-.yaml .hljs-meta {
+.hljs-yaml .hljs-meta {
   color: #D08770;
 }
