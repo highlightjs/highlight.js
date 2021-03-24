@@ -382,6 +382,13 @@ export default function(hljs) {
           hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
         ]
       },
+      {
+        begin: regex.concat(/\./, regex.lookahead(IDENT_RE)),
+        end: IDENT_RE,
+        excludeBegin: true,
+        keywords: "prototype",
+        className: "property"
+      },
       // hack: prevents detection of keywords in some circumstances
       // .keyword()
       // $keyword = x
