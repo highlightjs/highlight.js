@@ -117,6 +117,16 @@ async function buildLanguages(languages) {
   log("");
 }
 
+const CORE_FILES = [
+  "LICENSE",
+  "README.md",
+  "VERSION_10_UPGRADE.md",
+  "SUPPORTED_LANGUAGES.md",
+  "SECURITY.md",
+  "CHANGES.md",
+  "types/index.d.ts"
+]
+
 async function buildNode(options) {
   mkdir("lib/languages");
   mkdir("es/languages");
@@ -124,10 +134,14 @@ async function buildNode(options) {
   mkdir("styles");
   mkdir("types");
 
-  install("./LICENSE", "LICENSE");
-  install("./README.md", "README.md");
-  install("./types/index.d.ts", "types/index.d.ts");
-  install("./src/core.d.ts","lib/core.d.ts");
+
+  CORE_FILES.forEach(file => {
+    install(`./${file}`, file);
+  });
+  install("./src/core.d.ts", "lib/core.d.ts");
+  install("./src/core.d.ts", "es/core.d.ts");
+  install("./src/core.d.ts", "lib/common.d.ts");
+  install("./src/core.d.ts", "es/common.d.ts");
 
   log("Writing styles.");
   const styles = await fs.readdir("./src/styles/");
