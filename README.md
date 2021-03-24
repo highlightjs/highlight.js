@@ -35,8 +35,8 @@ detection.
 
 - [Basic Usage](#basic-usage)
   - [In the Browser](#in-the-browser)
-    - [Plaintext Blocks](#plaintext-blocks)
-    - [Skip Highlighting a Block](#skip-highlighting-a-block)
+    - [Plaintext Code Blocks](#plaintext-code-blocks)
+    - [Ignoring a Code Block](#ignoring-a-code-block)
   - [Node.js on the Server](#nodejs-on-the-server)
 - [Supported Languages](#supported-languages)
 - [Custom Usage](#custom-usage)
@@ -91,18 +91,17 @@ work for you, or you simply prefer to be explicit, you can specify the language 
 <pre><code class="language-html">...</code></pre>
 ```
 
-#### Plaintext Blocks
+#### Plaintext Code Blocks
 
-To style arbitrary text like code, but without highlighting, use the
-`plaintext` language:
+To apply the Highlight.js styling to plaintext without actually highlighting it, use the `plaintext` language:
 
 ```html
 <pre><code class="language-plaintext">...</code></pre>
 ```
 
-#### Skip Highlighting a Block
+#### Ignoring a Code Block
 
-To skip highlighting of a tag completely, use the `nohighlight` class:
+To skip highlighting of a code block completely, use the `nohighlight` class:
 
 ```html
 <pre><code class="nohighlight">...</code></pre>
@@ -113,45 +112,44 @@ To skip highlighting of a tag completely, use the `nohighlight` class:
 The bare minimum to auto-detect the language and highlight some code.
 
 ```js
-// load the library and all languages
-hljs = require('./highlight.js');
+// load the library and ALL languages
+hljs = require('highlight.js');
 html = hljs.highlightAuto('<h1>Hello World!</h1>').value
 ```
 
-To load only a popular subset of languages:
+To load only a "common" subset of popular languages:
 
 ```js
 hljs = require('highlight.js/lib/common');
 ```
 
-Or to highlight code with a specific language:
+To highlight code with a specific language, use `highlight`:
 
 ```js
-highlightedCode = hljs.highlight('<h1>Hello World!</h1>',
-  {language: 'xml'}).value
+html = hljs.highlight('<h1>Hello World!</h1>', {language: 'xml'}).value
 ```
 
-See [Importing the Library](#importing-the-library) for more examples of `require` vs `import` usage, etc.
+See [Importing the Library](#importing-the-library) for more examples of `require` vs `import` usage, etc.  For more information about the result object returned by `highlight` or `highlightAuto` refer to the [api docs](https://highlightjs.readthedocs.io/en/latest/api.html).
+
+
 
 ## Supported Languages
 
-Highlight.js supports over 180 different languages in the core library.  There are also 3rd party
-language grammars available to support additional languages. You can find the full list of supported languages
-in [SUPPORTED_LANGUAGES.md][9].
+Highlight.js supports over 180 languages in the core library.  There are also 3rd party
+language definitions available to support even more languages. You can find the full list of supported languages in [SUPPORTED_LANGUAGES.md][9].
 
 ## Custom Usage
 
-When you need a bit more control over the initialization of
-highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
+If you need a bit more control over the initialization of
+Highlight.js, you can use the [`highlightElement`][3] and [`configure`][4]
 functions. This allows you to better control *what* to highlight and *when*.
 
-Here’s the equivalent of calling [`highlightAll`][1] using
-only vanilla JS:
+For example, here’s the rough equivalent of calling [`highlightAll`][1] but doing the work manually instead:
 
 ```js
 document.addEventListener('DOMContentLoaded', (event) => {
-  document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block);
+  document.querySelectorAll('pre code').forEach((el) => {
+    hljs.highlightElement(el);
   });
 });
 ```
@@ -176,9 +174,9 @@ To highlight such blocks manually:
 
 ```js
 // first, find all the div.code blocks
-document.querySelectorAll('div.code').forEach(block => {
+document.querySelectorAll('div.code').forEach(el => {
   // then highlight each
-  hljs.highlightBlock(block);
+  hljs.highlightElement(el);
 });
 ```
 
@@ -244,12 +242,13 @@ onmessage = (event) => {
 ```
 
 ## Importing the Library
+
+First, you'll likely be installing the library via `npm` or `yarn` -- see [Getting the Library](#getting-the-library).
+
+
 ### Node.js / `require`
 
-You can use highlight.js with node to highlight content before sending it to the browser.
-Make sure to use the `.value` property to get the formatted html.
-For more info about the returned object refer to the [api docs](https://highlightjs.readthedocs.io/en/latest/api.html).
-
+Requiring the top-level library will load all languages:
 
 ```js
 // require the highlight.js library, including all languages
@@ -270,13 +269,13 @@ const highlightedCode = hljs.highlight('<span>Hello World!</span>', {language: '
 
 ### ES6 Modules / `import`
 
-First, you'll likely install the library via `npm` or `yarn` -- see [Getting the Library](#getting-the-library). Then just:
+The default import will register all languages:
 
 ```js
 import hljs from 'highlight.js';
 ```
 
-The default import will register all languages. It is more efficient to import only the library and register the languages you need:
+ It is more efficient to import only the library and register the languages you need:
 
 ```js
 import hljs from 'highlight.js/lib/core';
