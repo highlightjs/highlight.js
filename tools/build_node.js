@@ -103,6 +103,7 @@ async function buildPackageJSON() {
 
   const exports = {
     ".": dual("./lib/index.js"),
+    "./package.json": "./package.json",
     "./lib/common": dual("./lib/common.js"),
     "./lib/core": dual("./lib/core.js"),
     "./lib/languages/*": dual("./lib/languages/*.js"),
