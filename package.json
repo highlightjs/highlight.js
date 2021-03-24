@@ -32,7 +32,8 @@
     "type": "git",
     "url": "git://github.com/highlightjs/highlight.js.git"
   },
-  "main": "./lib/index.mjs",
+  "type": "commonjs",
+  "main": "./lib/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
     "mocha": "mocha",

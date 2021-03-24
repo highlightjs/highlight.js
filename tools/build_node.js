@@ -6,14 +6,14 @@ const { filter } = require("./lib/dependencies");
 const { rollupWrite } = require("./lib/bundling.js");
 const log = (...args) => console.log(...args);
 
-async function buildNodeIndex(name, languages) {
+async function buildESMIndex(name, languages) {
   const header = `import hljs from './core.mjs';`;
   const footer = "export default hljs;";
 
   const registration = languages.map((lang) => {
     let out = '';
     const importName = "L_" + lang.name.replace("-","_")
-    let require = `import ${importName} from './languages/${lang.name}.mjs';`;
+    let require = `import ${importName} from './languages/${lang.name}.js';`;
     // TODO: break this with v11? All modules must export default?
     if (lang.loader) {
       require = require += `.${lang.loader}`;
@@ -25,23 +25,84 @@ async function buildNodeIndex(name, languages) {
   });
 
   const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
-  await fs.writeFile(`${process.env.BUILD_DIR}/lib/${name}.mjs`, index);
+  await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, index);
+}
+
+async function buildCJSIndex(name, languages) {
+  const header = "var hljs = require('./core');";
+  const footer = "module.exports = hljs;";
+
+  const registration = languages.map((lang) => {
+    let require = `require('./languages/${lang.name}')`;
+    if (lang.loader) {
+      require = require += `.${lang.loader}`;
+    }
+    return `hljs.registerLanguage('${lang.name}', ${require});`;
+  });
+
+  const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
+  await fs.writeFile(`${process.env.BUILD_DIR}/lib/${name}.js`, index);
 }
 
 async function buildNodeLanguage(language) {
   const input = { ...config.rollup.node.input, input: language.path };
-  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.mjs` };
+  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` };
+  await rollupWrite(input, output);
+  await rollupWrite(input, {...output,
+    format: "es",
+    file: output.file.replace("/lib/", "/es/")
+  });
+}
+
+const EXCLUDE = ["join"];
+
+async function buildESMUtils() {
+  const input = { ...config.rollup.node.input, input: `src/lib/regex.js` };
+  input.plugins = [...input.plugins, {
+    transform: (code) => {
+      EXCLUDE.forEach((fn) => {
+        code = code.replace(`export function ${fn}(`, `function ${fn}(`);
+      });
+      return code;
+    }
+  }];
+  const output = {
+    ...config.rollup.node.output,
+    format: "es",
+    file: `${process.env.BUILD_DIR}/es/utils/regex.js`
+  };
   await rollupWrite(input, output);
 }
 
+
 async function buildNodeHighlightJS() {
   const input = { ...config.rollup.node.input, input: `src/highlight.js` };
-  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.mjs` };
+  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
   await rollupWrite(input, output);
+  await rollupWrite(input, { ...output,
+    format: "es",
+    file: `${process.env.BUILD_DIR}/es/core.js`
+  });
+}
+
+function dual(file) {
+  return {
+    require: file,
+    import: file.replace("/lib/", "/es/")
+  };
 }
 
 async function buildPackageJSON() {
   const packageJson = require("../package");
+
+  const exports = {
+    ".": dual("./lib/index.js"),
+    "./lib/common": dual("./lib/common.js"),
+    "./lib/core": dual("./lib/core.js"),
+    "./lib/languages/*": dual("./lib/languages/*.js"),
+  };
+  packageJson.exports = exports;
+
   await fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(packageJson, null, 2));
 }
 
@@ -58,6 +119,7 @@ async function buildLanguages(languages) {
 
 async function buildNode(options) {
   mkdir("lib/languages");
+  mkdir("es/languages");
   mkdir("scss");
   mkdir("styles");
   mkdir("types");
@@ -80,8 +142,11 @@ async function buildNode(options) {
   // filter languages for inclusion in the highlight.js bundle
   languages = filter(languages, options.languages);
 
-  await buildNodeIndex("index", languages);
-  await buildNodeIndex("common", languages.filter(l => l.categories.includes("common")));
+  await buildESMIndex("index", languages);
+  await buildESMIndex("common", languages.filter(l => l.categories.includes("common")));
+  await buildESMUtils();
+  await buildCJSIndex("index", languages);
+  await buildCJSIndex("common", languages.filter(l => l.categories.includes("common")));
   await buildLanguages(languages);
 
   log("Writing highlight.js");
