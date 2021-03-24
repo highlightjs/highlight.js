@@ -1,20 +1,23 @@
 # Highlight.js
 
 [![latest version](https://badgen.net/npm/v/highlight.js?label=latest)](https://www.npmjs.com/package/highlight.js)
-[![discord](https://badgen.net/badge/icon/discord?icon=discord&label&color=pink)](https://discord.gg/M24EbU7ja9)
 [![license](https://badgen.net/github/license/highlightjs/highlight.js?color=cyan)](https://github.com/highlightjs/highlight.js/blob/main/LICENSE)
 [![install size](https://badgen.net/packagephobia/install/highlight.js?label=npm+install)](https://packagephobia.now.sh/result?p=highlight.js)
 ![minified](https://img.shields.io/github/size/highlightjs/cdn-release/build/highlight.min.js?label=minified)
 [![NPM downloads weekly](https://badgen.net/npm/dw/highlight.js?label=npm+downloads&color=purple)](https://www.npmjs.com/package/highlight.js)
 [![jsDelivr CDN downloads](https://badgen.net/jsdelivr/hits/gh/highlightjs/cdn-release?label=jsDelivr+CDN&color=purple)](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release)
-![dev deps](https://badgen.net/david/dev/highlightjs/highlight.js?label=dev+deps)
-[![code quality](https://badgen.net/lgtm/grade/g/highlightjs/highlight.js/js)](https://lgtm.com/projects/g/highlightjs/highlight.js/?mode=list)
 
-[![build and CI status](https://badgen.net/github/checks/highlightjs/highlight.js?label=build)](https://github.com/highlightjs/highlight.js/actions?query=workflow%3A%22Node.js+CI%22)
+<!-- [![build and CI status](https://badgen.net/github/checks/highlightjs/highlight.js?label=build)](https://github.com/highlightjs/highlight.js/actions?query=workflow%3A%22Node.js+CI%22) -->
+![build and CI status](https://badgen.net/github/checks/highlightjs/highlight.js/main?label=build)
+[![code quality](https://badgen.net/lgtm/grade/g/highlightjs/highlight.js/js?label=code+quality)](https://lgtm.com/projects/g/highlightjs/highlight.js/?mode=list)
+[![vulnerabilities](https://badgen.net/snyk/highlightjs/highlight.js)](https://snyk.io/test/github/highlightjs/highlight.js?targetFile=package.json)
+![dev deps](https://badgen.net/david/dev/highlightjs/highlight.js?label=dev+deps)
+
+
+[![discord](https://badgen.net/badge/icon/discord?icon=discord&label&color=pink)](https://discord.gg/M24EbU7ja9)
 [![open issues](https://badgen.net/github/open-issues/highlightjs/highlight.js?label=issues)](https://github.com/highlightjs/highlight.js/issues)
 [![help welcome issues](https://badgen.net/github/label-issues/highlightjs/highlight.js/help%20welcome/open)](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+welcome%22)
 [![good first issue](https://badgen.net/github/label-issues/highlightjs/highlight.js/good%20first%20issue/open)](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22beginner+friendly%22)
-[![vulnerabilities](https://badgen.net/snyk/highlightjs/highlight.js)](https://snyk.io/test/github/highlightjs/highlight.js?targetFile=package.json)
 
 <!-- [![Build CI](https://img.shields.io/github/workflow/status/highlightjs/highlight.js/Node.js%20CI)](https://github.com/highlightjs/highlight.js/actions?query=workflow%3A%22Node.js+CI%22) -->
 <!-- [![commits since release](https://img.shields.io/github/commits-since/highlightjs/highlight.js/latest?label=commits+since)](https://github.com/highlightjs/highlight.js/commits/main) -->
@@ -25,17 +28,18 @@
 
 Highlight.js is a syntax highlighter written in JavaScript. It works in
 the browser as well as on the server. It can work with pretty much any
-markup, doesn’t depend on any framework, and has automatic language
+markup, doesn’t depend on any other frameworks, and has automatic language
 detection.
 
 **Contents**
 
-- [Getting Started](#getting-started)
-  - [Simple Usage](#simple-usage)
-  - [Plaintext](#plaintext)
-  - [How to Disable Highlighting](#how-to-disable-highlighting)
+- [Basic Usage](#basic-usage)
+  - [In the Browser](#in-the-browser)
+    - [Plaintext Blocks](#plaintext-blocks)
+    - [Skip Highlighting a Block](#skip-highlighting-a-block)
+  - [Node.js on the Server](#nodejs-on-the-server)
 - [Supported Languages](#supported-languages)
-- [Custom Usage Scenarios](#custom-usage-scenarios)
+- [Custom Usage](#custom-usage)
   - [Using custom HTML](#using-custom-html)
   - [Using with Vue.js](#using-with-vuejs)
   - [Using Web Workers](#using-web-workers)
@@ -43,11 +47,11 @@ detection.
   - [Node.js / `require`](#nodejs--require)
   - [ES6 Modules / `import`](#es6-modules--import)
 - [Getting the Library](#getting-the-library)
-  - [CDN](#cdn)
-  - [Download from website](#download-from-website)
-  - [Prebuilt CDN assets](#prebuilt-cdn-assets)
-  - [NPM package / Node.js module](#npm-package--nodejs-module)
-  - [Source](#source)
+  - [Fetch via CDN](#fetch-via-cdn)
+    - [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)
+  - [Download from our website](#download-from-our-website)
+  - [Install via NPM package](#install-via-npm-package)
+  - [Build from Source](#build-from-source)
 - [Requirements](#requirements)
 - [License](#license)
 - [Links](#links)
@@ -66,9 +70,8 @@ Please read [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/
 
 Please see [SECURITY.md](https://github.com/highlightjs/highlight.js/blob/main/SECURITY.md) for support information.
 
-## Getting Started
-
-### Simple Usage
+## Basic Usage
+### In the Browser
 
 The bare minimum for using highlight.js on a web page is linking to the
 library along with one of the styles and calling [`highlightAll`][1]:
@@ -81,42 +84,62 @@ library along with one of the styles and calling [`highlightAll`][1]:
 
 This will find and highlight code inside of `<pre><code>` tags; it tries
 to detect the language automatically. If automatic detection doesn’t
-work for you, you can specify the language in the `class` attribute:
+work for you, or you simply prefer to be explicit, you can specify the language manually in the using the `class` attribute:
 
-```html
-<pre><code class="html">...</code></pre>
-```
-
-Classes may also be prefixed with either `language-` or `lang-`.
 
 ```html
 <pre><code class="language-html">...</code></pre>
 ```
 
-### Plaintext
+#### Plaintext Blocks
 
-To style arbitrary text like code, but without any highlighting, use the
-`plaintext` class:
+To style arbitrary text like code, but without highlighting, use the
+`plaintext` language:
 
 ```html
-<pre><code class="plaintext">...</code></pre>
+<pre><code class="language-plaintext">...</code></pre>
 ```
 
-### How to Disable Highlighting
+#### Skip Highlighting a Block
 
-To disable highlighting of a tag completely, use the `nohighlight` class:
+To skip highlighting of a tag completely, use the `nohighlight` class:
 
 ```html
 <pre><code class="nohighlight">...</code></pre>
 ```
 
+### Node.js on the Server
+
+The bare minimum to auto-detect the language and highlight some code.
+
+```js
+// load the library and all languages
+hljs = require('./highlight.js');
+html = hljs.highlightAuto('<h1>Hello World!</h1>').value
+```
+
+To load only a popular subset of languages:
+
+```js
+hljs = require('highlight.js/lib/common');
+```
+
+Or to highlight code with a specific language:
+
+```js
+highlightedCode = hljs.highlight('<h1>Hello World!</h1>',
+  {language: 'xml'}).value
+```
+
+See [Importing the Library](#importing-the-library) for more examples of `require` vs `import` usage, etc.
+
 ## Supported Languages
 
 Highlight.js supports over 180 different languages in the core library.  There are also 3rd party
-language plugins available for additional languages. You can find the full list of supported languages
+language grammars available to support additional languages. You can find the full list of supported languages
 in [SUPPORTED_LANGUAGES.md][9].
 
-## Custom Usage Scenarios
+## Custom Usage
 
 When you need a bit more control over the initialization of
 highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
@@ -290,7 +313,7 @@ example:
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
-### CDN
+### Fetch via CDN
 
 A prebuilt version of Highlight.js bundled with many common languages is hosted by several popular CDNs.
 When using Highlight.js via CDN you can use Subresource Integrity for additional security.  For details
@@ -326,7 +349,13 @@ see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/main/DIGESTS.md
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
 very large. You can find our list of "common" languages that we bundle by default on our [download page][5].
 
-### Download from website
+#### Download prebuilt CDN assets
+
+You can also download and self-host the same assets we serve up via our own CDNs.  We publish those builds to the [cdn-release](https://github.com/highlightjs/cdn-release) GitHub repository.  You can easily pull individual files off the CDN endpoints with `curl`, etc; if say you only needed `highlight.min.js` and a single CSS file.
+
+There is also an npm package [@highlightjs/cdn-assets](https://www.npmjs.com/package/@highlightjs/cdn-assets) if pulling the assets in via `npm` or `yarn` would be easier for your build process.
+
+### Download from our website
 
 The [download page][5] can quickly generate a custom bundle including only the languages you need.
 
@@ -341,16 +370,9 @@ See our [building documentation][6] for more information.
 **Note:** Building from source should always result in the smallest size builds.  The website download page is optimized for speed, not size.
 
 
-### Prebuilt CDN assets
+### Install via NPM package
 
-You can also download and self-host the same assets we serve up via our own CDNs.  We publish those builds to the [cdn-release](https://github.com/highlightjs/cdn-release) GitHub repository.  You can easily pull individual files off the CDN endpoints with `curl`, etc; if say you only needed `highlight.min.js` and a single CSS file.
-
-There is also an npm package [@highlightjs/cdn-assets](https://www.npmjs.com/package/@highlightjs/cdn-assets) if pulling the assets in via `npm` or `yarn` would be easier for your build process.
-
-
-### NPM package / Node.js module
-
-Highlight.js can also be used on the server. The package with all supported languages can be installed with NPM or Yarn:
+Our NPM package including all supported languages can be installed with NPM or Yarn:
 
 ```bash
 npm install highlight.js
@@ -358,36 +380,38 @@ npm install highlight.js
 yarn add highlight.js
 ```
 
-Alternatively, you can build it from [source](#source):
+Alternatively, you can build the NPM package from source.
+
+
+### Build from Source
+
+The [current source code][10] is always available on GitHub.
 
 ```bash
 node tools/build.js -t node
+node tools/build.js -t browser :common
+node tools/build.js -t cdn :common
 ```
 
 See our [building documentation][6] for more information.
 
 
-### Source
-
-The [current source][10] is always available on GitHub.
-
-
 ## Requirements
 
-Highlight.js run's on all modern browsers and supported Node.js versions.  You'll need the following software to contribute:
+Highlight.js works on all modern browsers and currently supported Node.js versions.  You'll need the following software to contribute to the core library:
 
 - Node.js >= 12.x
 - npm >= 6.x
 
 ## License
 
-Highlight.js is released under the BSD License. See [LICENSE][7] file
+Highlight.js is released under the BSD License. See our [LICENSE][7] file
 for details.
 
 
 ## Links
 
-The official site for the library is at <https://highlightjs.org/>.
+The official website for the library is <https://highlightjs.org/>.
 
 Further in-depth documentation for the API and other topics is at
 <http://highlightjs.readthedocs.io/>.
@@ -396,8 +420,8 @@ A list of the Core Team and contributors can be found in the [CONTRIBUTORS.md][8
 
 [1]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightall
 [2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
-[3]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightblock-block
-[4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure-options
+[3]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightelement
+[4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure
 [5]: https://highlightjs.org/download/
 [6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
 [7]: https://github.com/highlightjs/highlight.js/blob/main/LICENSE
