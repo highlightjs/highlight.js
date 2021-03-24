@@ -19,14 +19,9 @@ async function buildESMIndex(name, languages) {
   const registration = languages.map((lang) => {
     let out = '';
     const importName = safeImportName(lang.name);
-    let require = `import ${importName} from './languages/${lang.name}.js';`;
-    // TODO: break this with v11? All modules must export default?
-    if (lang.loader) {
-      require = require += `.${lang.loader}`;
-    } else {
-      out += require;
-      out += `hljs.registerLanguage('${lang.name}', ${importName});`;
-    }
+    const require = `import ${importName} from './languages/${lang.name}.js';`;
+    out += require;
+    out += `hljs.registerLanguage('${lang.name}', ${importName});`;
     return out;
   });
 
@@ -39,10 +34,7 @@ async function buildCJSIndex(name, languages) {
   const footer = "module.exports = hljs;";
 
   const registration = languages.map((lang) => {
-    let require = `require('./languages/${lang.name}')`;
-    if (lang.loader) {
-      require = require += `.${lang.loader}`;
-    }
+    const require = `require('./languages/${lang.name}')`;
     return `hljs.registerLanguage('${lang.name}', ${require});`;
   });
 
