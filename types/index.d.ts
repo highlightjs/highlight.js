@@ -144,7 +144,7 @@ type AnnotatedError = Error & {mode?: Mode | Language, languageName?: string, ba
 type ModeCallback = (match: RegExpMatchArray, response: CallbackResponse) => void
 type HighlightedHTMLElement = HTMLElement & {result?: object, second_best?: object, parentNode: HTMLElement}
 type EnhancedMatch = RegExpMatchArray & {rule: CompiledMode, type: MatchType}
-type MatchType = "begin" | "end" | "illegal"
+export type MatchType = "begin" | "end" | "illegal"
 
  interface Emitter {
     addKeyword(text: string, kind: string): void
@@ -243,17 +243,9 @@ interface ModeDetails {
 // deprecated API since v10
 // declare module 'highlight.js/lib/highlight.js';
 
-declare module 'highlight.js' {
-    export = hljs;
-}
+export as namespace hljs;
+export = hljs;
 
-declare module 'highlight.js/lib/core' {
-    export = hljs;
-}
-
-declare module 'highlight.js/lib/core.js' {
-    export = hljs;
-}
 
 declare module 'highlight.js/lib/languages/*' {
     export default function(hljs?: HLJSApi): LanguageDetail;
