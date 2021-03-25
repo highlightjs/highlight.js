@@ -12,7 +12,7 @@
 ## Welcome
 Hi, and welcome to Highlight.js. We're a code-highlighting engine etc., but you probably know that. You want to contribute, and this document will be your guide.
 
-There are many ways to contribute to Highlight.js. Reporting issues is super useful. Feel free to work on an open issue. You can also help by writing [a plugin](https://highlightjs.readthedocs.io/en/latest/plugin-api.html), adding [a 3rd party grammar](https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md), or creating [a theme](https://highlightjs.readthedocs.io/en/latest/style-guide.html).
+There are many ways to contribute to Highlight.js. Reporting issues is super useful. Feel free to work on an open issue. You can also help by writing [a plugin](https://highlightjs.readthedocs.io/en/latest/plugin-api.html), adding [a 3rd party grammar](https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md), or developing [a theme](https://highlightjs.readthedocs.io/en/latest/style-guide.html).
 
 If you need support, you can [open a GitHub issue](https://github.com/highlightjs/highlight.js/issues/new/choose).
 
@@ -25,7 +25,7 @@ Some bullet points:
 
 - Our [lack of line numbers is a feature](https://highlightjs.readthedocs.io/en/latest/line-numbers.html). It's usually pretty simple to add them yourself ([example](https://github.com/taufik-nurrohman/highlight.ln.js)).
 - We [embrace plug-ins and extensions](https://github.com/highlightjs/highlight.js/issues/2225) rather than adding lots of tiny features and configuration options.
-- We are much more than a keyword highlighter. We do make attempts to understand context...
+- We are more than a keyword highlighter in that we do make _some_ attempt to understand context...
 - ...Yet we are not a full parser for any language, we're still just a fancy nested pattern matcher.
 - Our [auto-detect is sadly not powered by magic unicorn dust](https://github.com/highlightjs/highlight.js/issues/1213). It's best effort, not best in class.
 
@@ -39,14 +39,14 @@ If you'd like to contribute a feature you should always first open an issue to d
 
 
 ## Reporting an Issue
-(Misc.)
+If you find a bug or think of an improvement, feel free to [open an issue](https://github.com/highlightjs/highlight.js/issues/new/choose).
 - If you found a language highlighting issue, use [this JSFiddle](https://jsfiddle.net/ajoshguy/2bmdswn6/) to create a test case.
 
 
 ## Fixing an Issue (PRs)
 If you're new to contributing to open-source, have a look at [this GitHub Guide](https://guides.github.com/activities/forking). It explains the general process of GitHub collaboration.
 
-If you feel comfortable with our [prerequisites](#prerequisites), you can grab any issue [marked `beginner friendly`](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22beginner+friendly%22).
+If you feel comfortable with our [prerequisites](#prerequisites), you can grab any issue [marked "good first issue"](https://github.com/highlightjs/highlight.js/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
 
 
 ### Rules
@@ -82,7 +82,7 @@ npm run build-browser
 npm run test-browser
 ```
 
-There's also a tool for visual testing at [tools/developer.html](https://github.com/highlightjs/highlight.js/blob/master/tools/developer.html)
+There's also a tool for visual testing at [tools/developer.html](https://github.com/highlightjs/highlight.js/blob/master/tools/developer.html). It requires a browser build to be present. (ie `npm run build_browser` first)
 
 
 For more details, see [Building and Testing](https://highlightjs.readthedocs.io/en/latest/building-testing.html) in our docs.
@@ -93,5 +93,4 @@ Are you someone who...
 - has a working familiarity with Regex? (you won't get too far without this)
 - perhaps has some rough familiarity with the idea of parsing text in general?
 - is willing to read our grammar documentation and look at other grammars?
-
-
+- wants to help, but doesn't fit any of these requirements?
