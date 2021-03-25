@@ -1,0 +1,5 @@
+public static <A,B,C> Tuple<A,B,C> fun(Future<Tuple<A,B,C>> future) throws Exceptions {
+}
+
+static Optional<List<Token>> parseAll(String s) {
+}

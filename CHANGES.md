@@ -9,6 +9,7 @@ Grammars:
 
 - chore(properties) disable auto-detection #3102 [Josh Goebel][]
 - fix(properties) fix incorrect handling of non-alphanumeric keys #3102 [Egor Rogov][]
+- enh(java) support functions with nested template types (#2641) [Josh Goebel][]
 - enh(shell) add alias ShellSession [Ryan Mulligan][]
 - enh(shell) consider one space after prompt as part of prompt [Ryan Mulligan][]
 - fix(nginx) fix bug with $ and @ variables [Josh Goebel][]
