@@ -7,7 +7,7 @@ describe('.highlight()', () => {
   it('should support ignoreIllegals (old API)', () => {
     let code = "float # float";
     let result = hljs.highlight("java", code, true);
-    result.value.should.equal(`<span class="hljs-keyword">float</span> # <span class="hljs-keyword">float</span>`);
+    result.value.should.equal(`<span class="hljs-type">float</span> # <span class="hljs-type">float</span>`);
 
     code = "float # float";
     result = hljs.highlight("java", code, false);
@@ -17,7 +17,7 @@ describe('.highlight()', () => {
   it('should support ignoreIllegals (new API)', () => {
     let code = "float # float";
     let result = hljs.highlight(code, { language: "java", ignoreIllegals: true });
-    result.value.should.equal(`<span class="hljs-keyword">float</span> # <span class="hljs-keyword">float</span>`);
+    result.value.should.equal(`<span class="hljs-type">float</span> # <span class="hljs-type">float</span>`);
 
     code = "float # float";
     result = hljs.highlight(code, { language: "java", ignoreIllegals: false });
@@ -37,9 +37,9 @@ describe('.highlight()', () => {
     result.value.should.equal(
       '<span class="hljs-function"><span class="hljs-keyword">public</span> ' +
       '<span class="hljs-keyword">void</span> <span class="hljs-title">moveTo</span>' +
-      '<span class="hljs-params">(<span class="hljs-keyword">int</span> x, ' +
-      '<span class="hljs-keyword">int</span> y, ' +
-      '<span class="hljs-keyword">int</span> z)</span></span>;'
+      '<span class="hljs-params">(<span class="hljs-type">int</span> x, ' +
+      '<span class="hljs-type">int</span> y, ' +
+      '<span class="hljs-type">int</span> z)</span></span>;'
     );
   });
   it('should works without continuation', () => {
@@ -49,9 +49,9 @@ describe('.highlight()', () => {
     result.value.should.equal(
       '<span class="hljs-function"><span class="hljs-keyword">public</span> ' +
       '<span class="hljs-keyword">void</span> <span class="hljs-title">moveTo</span>' +
-      '<span class="hljs-params">(<span class="hljs-keyword">int</span> x, ' +
-      '<span class="hljs-keyword">int</span> y, ' +
-      '<span class="hljs-keyword">int</span> z)</span></span>;'
+      '<span class="hljs-params">(<span class="hljs-type">int</span> x, ' +
+      '<span class="hljs-type">int</span> y, ' +
+      '<span class="hljs-type">int</span> z)</span></span>;'
     );
   });
 });
