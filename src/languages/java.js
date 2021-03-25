@@ -5,7 +5,9 @@ Category: common, enterprise
 Website: https://www.java.com/
 */
 
-import { NUMERIC } from "./lib/java.js";
+import {
+  NUMERIC as NUMBER
+} from "./lib/java.js";
 
 /**
  * Allows recursive regex expressions to a given depth
@@ -16,7 +18,7 @@ import { NUMERIC } from "./lib/java.js";
  * @param {string} re
  * @param {RegExp} substitution (should be a g mode regex)
  * @param {number} depth
- * @returns {string}
+ * @returns {string}``
  */
 function recurRegex(re, substitution, depth) {
   if (depth === -1) return "";
@@ -26,32 +28,88 @@ function recurRegex(re, substitution, depth) {
   });
 }
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
-  var GENERIC_IDENT_RE = JAVA_IDENT_RE +
-    recurRegex('(<' + JAVA_IDENT_RE + '~~~(\\s*,\\s*' + JAVA_IDENT_RE + '~~~)*>)?',/~~~/g, 2);
-  var KEYWORDS = 'false synchronized int abstract float private char boolean var static null if const ' +
-    'for true while long strictfp finally protected import native final void ' +
-    'enum else break transient catch instanceof byte super volatile case assert short ' +
-    'package default double public try this switch continue throws protected public private ' +
-    'module requires exports do';
+  const JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
+  const GENERIC_IDENT_RE = JAVA_IDENT_RE +
+    recurRegex('(<' + JAVA_IDENT_RE + '~~~(\\s*,\\s*' + JAVA_IDENT_RE + '~~~)*>)?', /~~~/g, 2);
+  const MAIN_KEYWORDS = [
+    'false',
+    'synchronized',
+    'int',
+    'abstract',
+    'float',
+    'private',
+    'char',
+    'boolean',
+    'var',
+    'static',
+    'null',
+    'if',
+    'const ',
+    'for',
+    'true',
+    'while',
+    'long',
+    'strictfp',
+    'finally',
+    'protected',
+    'import',
+    'native',
+    'final',
+    'void',
+    'enum',
+    'else',
+    'break',
+    'transient',
+    'catch',
+    'instanceof',
+    'byte',
+    'super',
+    'volatile',
+    'case',
+    'assert',
+    'short',
+    'package',
+    'default',
+    'double',
+    'public',
+    'try',
+    'this',
+    'switch',
+    'continue',
+    'throws',
+    'protected',
+    'public',
+    'private',
+    'module',
+    'requires',
+    'exports',
+    'do'
+  ];
 
-  var ANNOTATION = {
+  const LITERALS = [];
+
+  const KEYWORDS = {
+    keyword: MAIN_KEYWORDS,
+    literal: LITERALS
+  };
+
+  const ANNOTATION = {
     className: 'meta',
     begin: '@' + JAVA_IDENT_RE,
     contains: [
       {
         begin: /\(/,
         end: /\)/,
-        contains: ["self"] // allow nested () inside our annotation
-      },
+        contains: [ "self" ] // allow nested () inside our annotation
+      }
     ]
   };
-  const NUMBER = NUMERIC;
 
   return {
     name: 'Java',
-    aliases: ['jsp'],
+    aliases: [ 'jsp' ],
     keywords: KEYWORDS,
     illegal: /<\/|#/,
     contains: [
@@ -63,7 +121,8 @@ export default function(hljs) {
           contains: [
             {
               // eat up @'s in emails to prevent them to be recognized as doctags
-              begin: /\w+@/, relevance: 0
+              begin: /\w+@/,
+              relevance: 0
             },
             {
               className: 'doctag',
@@ -84,7 +143,9 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'class',
-        beginKeywords: 'class interface enum', end: /[{;=]/, excludeEnd: true,
+        beginKeywords: 'class interface enum',
+        end: /[{;=]/,
+        excludeEnd: true,
         // TODO: can this be removed somehow?
         // an extra boost because Java is more popular than other languages with
         // this same syntax feature (this is just to preserve our tests passing
@@ -93,7 +154,9 @@ export default function(hljs) {
         keywords: 'class interface enum',
         illegal: /[:"\[\]]/,
         contains: [
-          { beginKeywords: 'extends implements' },
+          {
+            beginKeywords: 'extends implements'
+          },
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
@@ -111,21 +174,22 @@ export default function(hljs) {
         end: /[{;=]/,
         keywords: KEYWORDS,
         contains: [
-          { beginKeywords: "record" },
+          {
+            beginKeywords: "record"
+          },
           {
             begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
             returnBegin: true,
             relevance: 0,
-            contains: [hljs.UNDERSCORE_TITLE_MODE]
+            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
           },
           {
             className: 'params',
-            begin: /\(/, end: /\)/,
+            begin: /\(/,
+            end: /\)/,
             keywords: KEYWORDS,
             relevance: 0,
-            contains: [
-              hljs.C_BLOCK_COMMENT_MODE
-            ]
+            contains: [ hljs.C_BLOCK_COMMENT_MODE ]
           },
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
@@ -133,18 +197,22 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + GENERIC_IDENT_RE + '\\s+)+' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true, end: /[{;=]/,
+        begin: '(' + GENERIC_IDENT_RE + '\\s+)+' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
+        returnBegin: true,
+        end: /[{;=]/,
         excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           {
-            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(', returnBegin: true,
+            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
+            returnBegin: true,
             relevance: 0,
-            contains: [hljs.UNDERSCORE_TITLE_MODE]
+            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
           },
           {
             className: 'params',
-            begin: /\(/, end: /\)/,
+            begin: /\(/,
+            end: /\)/,
             keywords: KEYWORDS,
             relevance: 0,
             contains: [
