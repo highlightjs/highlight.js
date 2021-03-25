@@ -34,23 +34,15 @@ export default function(hljs) {
   const GENERIC_IDENT_RE = JAVA_IDENT_RE +
     recurRegex('(<' + JAVA_IDENT_RE + '~~~(\\s*,\\s*' + JAVA_IDENT_RE + '~~~)*>)?', /~~~/g, 2);
   const MAIN_KEYWORDS = [
-    'false',
     'synchronized',
-    'int',
     'abstract',
-    'float',
     'private',
-    'char',
-    'boolean',
     'var',
     'static',
-    'null',
     'if',
     'const ',
     'for',
-    'true',
     'while',
-    'long',
     'strictfp',
     'finally',
     'protected',
@@ -64,15 +56,12 @@ export default function(hljs) {
     'transient',
     'catch',
     'instanceof',
-    'byte',
     'super',
     'volatile',
     'case',
     'assert',
-    'short',
     'package',
     'default',
-    'double',
     'public',
     'try',
     'this',
@@ -88,11 +77,27 @@ export default function(hljs) {
     'do'
   ];
 
-  const LITERALS = [];
+  const LITERALS = [
+    'false',
+    'true',
+    'null'
+  ];
+
+  const TYPES = [
+    'char',
+    'boolean',
+    'long',
+    'float',
+    'int',
+    'byte',
+    'short',
+    'double'
+  ];
 
   const KEYWORDS = {
     keyword: MAIN_KEYWORDS,
-    literal: LITERALS
+    literal: LITERALS,
+    type: TYPES
   };
 
   const ANNOTATION = {

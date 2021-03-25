@@ -8,5 +8,5 @@
 }
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Example</span> </span>{
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-meta">@SuppressWarnings(&quot;unused&quot;)</span> <span class="hljs-keyword">int</span> bar)</span> </span>{ }
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-meta">@SuppressWarnings(&quot;unused&quot;)</span> <span class="hljs-type">int</span> bar)</span> </span>{ }
 }
