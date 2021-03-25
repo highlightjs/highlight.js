@@ -7,9 +7,29 @@ Website: https://www.java.com/
 
 import { NUMERIC } from "./lib/java.js";
 
+/**
+ * Allows recursive regex expressions to a given depth
+ *
+ * ie: recurRegex("(abc~~~)", /~~~/g, 2) becomes:
+ * (abc(abc(abc)))
+ *
+ * @param {string} re
+ * @param {RegExp} substitution (should be a g mode regex)
+ * @param {number} depth
+ * @returns {string}
+ */
+function recurRegex(re, substitution, depth) {
+  if (depth === -1) return "";
+
+  return re.replace(substitution, _ => {
+    return recurRegex(re, substitution, depth - 1);
+  });
+}
+
 export default function(hljs) {
   var JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
-  var GENERIC_IDENT_RE = JAVA_IDENT_RE + '(<' + JAVA_IDENT_RE + '(\\s*,\\s*' + JAVA_IDENT_RE + ')*>)?';
+  var GENERIC_IDENT_RE = JAVA_IDENT_RE +
+    recurRegex('(<' + JAVA_IDENT_RE + '~~~(\\s*,\\s*' + JAVA_IDENT_RE + '~~~)*>)?',/~~~/g, 2);
   var KEYWORDS = 'false synchronized int abstract float private char boolean var static null if const ' +
     'for true while long strictfp finally protected import native final void ' +
     'enum else break transient catch instanceof byte super volatile case assert short ' +
