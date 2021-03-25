@@ -382,12 +382,18 @@ export default function(hljs) {
           hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
         ]
       },
+      // catch ... so it won't trigger the property rule below
+      {
+        begin: /\.\.\./,
+        relevance: 0
+      },
       {
         begin: regex.concat(/\./, regex.lookahead(IDENT_RE)),
         end: IDENT_RE,
         excludeBegin: true,
         keywords: "prototype",
-        className: "property"
+        className: "property",
+        relevance: 0
       },
       // hack: prevents detection of keywords in some circumstances
       // .keyword()
