@@ -6,19 +6,22 @@ const { filter } = require("./lib/dependencies");
 const { rollupWrite } = require("./lib/bundling.js");
 const log = (...args) => console.log(...args);
 
+const safeImportName = (s) => {
+  s = s.replace(/-/g, "_");
+  if (/^\d/.test(s)) s = `L_${s}`;
+  return s;
+};
+
 async function buildESMIndex(name, languages) {
   const header = `import hljs from './core.mjs';`;
   const footer = "export default hljs;";
 
-  const safeImportName = (s) => {
-    s = s.replace(/-/g, "_");
-    if (/^\d/.test(s)) s = `L_${s}`;
-    return s;
-  };
 
-  const registration = languages.map((lang) => 
-    `import ${safeImportName(lang.name)} from './languages/${lang.name}.js';` +
-    `hljs.registerLanguage('${lang.name}', ${importName});`);
+  const registration = languages.map((lang) => {
+    const importName = safeImportName(lang.name);
+    return `import ${importName} from './languages/${lang.name}.js';\n` +
+      `hljs.registerLanguage('${lang.name}', ${importName});`;
+  });
 
   const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
   await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, index);
