@@ -279,7 +279,7 @@ export function compileLanguage(language, { plugins }) {
    */
   function compileMode(mode, parent) {
     const cmode = /** @type CompiledMode */ (mode);
-    if (mode.compiled) return cmode;
+    if (mode.isCompiled) return cmode;
 
     [
       // do this early so compiler extensions generally don't have to worry about
@@ -301,7 +301,7 @@ export function compileLanguage(language, { plugins }) {
       EXT.compileRelevance
     ].forEach(ext => ext(mode, parent));
 
-    mode.compiled = true;
+    mode.isCompiled = true;
 
     let keywordPattern = null;
     if (typeof mode.keywords === "object") {

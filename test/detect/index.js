@@ -56,6 +56,6 @@ describe('hljs.highlightAuto()', () => {
 
   it("compiling the grammars", async function() {
     const languages = hljs.listLanguages();
-    languages.forEach(l => hljs.highlight(l, ""))
+    languages.forEach(lang => hljs.highlight("", { language: lang} ))
   }); // this is also required for the dynamic test generation above to work
 });

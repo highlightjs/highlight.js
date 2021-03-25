@@ -1,4 +1,4 @@
-<span class="hljs-meta">~/docs&gt;</span><span class="bash"> cat readme.adoc</span>
+<span class="hljs-meta">~/docs&gt; </span><span class="bash">cat readme.adoc</span>
 = Highlight.js
 
 Highlight.js is a syntax highlighter written in JavaScript.

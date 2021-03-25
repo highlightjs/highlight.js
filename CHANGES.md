@@ -1,7 +1,27 @@
-## Version 10.7.0 (in progress)
+## Version next
 
-Bugs:
+- enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
+- enh(shell) add alias ShellSession [Ryan Mulligan][]
+- enh(shell) consider one space after prompt as part of prompt [Ryan Mulligan][]
 
+Theme Improvements:
+
+- chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+[Ryan Mulligan]: https://github.com/ryantm
+
+
+## Version 10.7.1
+
+- fix(parser) Resolves issues with TypeScript types [Josh Goebel][]
+
+### Version 10.7.0
+
+Parser:
+
+- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
+- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 - fix(parser) `highlightAll()` now works if the library is lazy loaded [Josh Goebel][]
 
 New Languages:
@@ -12,6 +32,7 @@ New Languages:
 
 Language grammar improvements:
 
+- enh(parser) smarter detection of comments (#2827) [Josh Goebel][]
 - fix(python) allow keywords immediately following numbers (#2985) [Josh Goebel][]
 - fix(xml) char immediately following tag close mis-highlighted (#3044) [Josh Goebel][]
 - fix(ruby) fix `defined?()` mis-highlighted as `def` (#3025) [Josh Goebel][]
@@ -35,20 +56,16 @@ Language grammar improvements:
 
 Deprecations:
 
+- `highlight(languageName, code, ignoreIllegals, continuation)` deprecated as of 10.7
+  - Please use the newer API which takes `code` and then accepts options as an object
+  - IE: `highlight(code, {language, ignoreIllegals})`
+  - `continuation` is for internal use only and no longer supported
 - `highlightBlock(el)` deprecated as of 10.7.
   - Please use `highlightElement(el)` instead.
   - Plugin callbacks renamed `before/after:highlightBlock` => `before/after:highlightElement`
   - Plugin callback now takes `el` vs `block` attribute
   - The old API and callbacks will be supported until v12.
 
-API:
-
-- enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
-- enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
-
-Theme Improvements:
-
-- chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
 
 [Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
