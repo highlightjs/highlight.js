@@ -4,6 +4,10 @@
 - enh(shell) add alias ShellSession [Ryan Mulligan][]
 - enh(shell) consider one space after prompt as part of prompt [Ryan Mulligan][]
 
+Theme Improvements:
+
+- chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
+
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
 
@@ -62,6 +66,7 @@ Deprecations:
   - Plugin callback now takes `el` vs `block` attribute
   - The old API and callbacks will be supported until v12.
 
+
 [Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
@@ -73,6 +78,7 @@ Deprecations:
 [David Ostrovsky]: https://github.com/davido
 [AndyKIron]: https://github.com/AndyKIron
 [Samuel Colvin]: https://github.com/samuelcolvin
+[Jan Pilzer]: https://github.com/Hirse
 
 ## Version 10.6.0
 
