@@ -3,6 +3,8 @@
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
 - enh(shell) add alias ShellSession [Ryan Mulligan][]
 - enh(shell) consider one space after prompt as part of prompt [Ryan Mulligan][]
+- fix(nginx) fix bug with $ and @ variables [Josh Goebel][]
+- enh(nginx) improving highlighting of some sections [Josh Goebel][]
 
 Theme Improvements:
 

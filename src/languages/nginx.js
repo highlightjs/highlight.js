@@ -6,6 +6,9 @@ Category: common, config
 Website: https://www.nginx.com
 */
 
+import * as regex from '../lib/regex.js';
+
+/** @type LanguageFn */
 export default function(hljs) {
   const VAR = {
     className: 'variable',
@@ -14,18 +17,17 @@ export default function(hljs) {
         begin: /\$\d+/
       },
       {
-        begin: /\$\{/,
-        end: /\}/
+        begin: /\$\{\w+\}/
       },
       {
-        begin: /[$@]/ + hljs.UNDERSCORE_IDENT_RE
+        begin: regex.concat(/[$@]/, hljs.UNDERSCORE_IDENT_RE)
       }
     ]
   };
   const DEFAULT = {
     endsWithParent: true,
     keywords: {
-      $pattern: '[a-z/_]+',
+      $pattern: /[a-z_]{2,}|\/dev\/poll/,
       literal:
         'on off yes no true false none blocked debug info notice warn error crit ' +
         'select break last permanent redirect kqueue rtsig epoll poll /dev/poll'
@@ -95,7 +97,7 @@ export default function(hljs) {
       // units
       {
         className: 'number',
-        begin: '\\b\\d+[kKmMgGdshdwy]*\\b',
+        begin: '\\b\\d+[kKmMgGdshdwy]?\\b',
         relevance: 0
       },
       VAR
@@ -108,21 +110,21 @@ export default function(hljs) {
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
-        begin: hljs.UNDERSCORE_IDENT_RE + '\\s+\\{',
-        returnBegin: true,
-        end: /\{/,
-        contains: [
-          {
-            className: 'section',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          }
-        ],
+        beginKeywords: "upstream location",
+        end: /;|\{/,
+        contains: DEFAULT.contains,
+        keywords: {
+          section: "upstream location"
+        }
+      },
+      {
+        className: 'section',
+        begin: regex.concat(hljs.UNDERSCORE_IDENT_RE + regex.lookahead(/\s+\{/)),
         relevance: 0
       },
       {
-        begin: hljs.UNDERSCORE_IDENT_RE + '\\s',
+        begin: regex.lookahead(hljs.UNDERSCORE_IDENT_RE + '\\s'),
         end: ';|\\{',
-        returnBegin: true,
         contains: [
           {
             className: 'attribute',
@@ -133,6 +135,6 @@ export default function(hljs) {
         relevance: 0
       }
     ],
-    illegal: '[^\\s\\}]'
+    illegal: '[^\\s\\}\\{]'
   };
 }
