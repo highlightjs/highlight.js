@@ -29,12 +29,6 @@
   color: #668bb0;
 }
 
-.hljs-code,
-.hljs-class .hljs-title,
-.hljs-section {
-  color: white;
-}
-
 .hljs-regexp,
 .hljs-link {
   color: #d39745;
@@ -85,4 +79,11 @@
 .hljs-name,
 .hljs-strong {
   font-weight: bold;
+}
+
+.hljs-code,
+.hljs-title-class,
+.hljs-class .hljs-title,
+.hljs-section {
+  color: white;
 }

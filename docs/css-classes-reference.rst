@@ -60,6 +60,8 @@ your language is not considered a "Markup" language.
 | title                    | name of a class or a function at the place of     |
 |                          | declaration                                       |
 +--------------------------+---------------------------------------------------+
+| title.class              | name of a class                                   |
++--------------------------+---------------------------------------------------+
 | params                   | block of function arguments (parameters) at the   |
 |                          | place of declaration                              |
 +--------------------------+---------------------------------------------------+
@@ -134,6 +136,24 @@ your language is not considered a "Markup" language.
 +--------------------------+---------------------------------------------------+
 | deletion                 | deleted line                                      |
 +--------------------------+---------------------------------------------------+
+
+A note on namespaced classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some class names above have a ``.`` in them - which is not a valid character in
+a CSS class name.  We use this notation to specify nested scopes.  In the
+generated HTML this will output two different classes.  An example.  Lets say
+the class name is ``title.class``.  The generated HTML would be:
+
+::
+
+  class <span class="hljs-title hljs-title-class">Render</span>
+
+Render is a ``title``, but it is also the title of a class in particular. Some
+definitions still use nested rules/tags to do this, but the preferred way is now
+to handle this with the new namespaced classes and simplify the language
+defintions when possible.
+
 
 A note on newer classes
 ^^^^^^^^^^^^^^^^^^^^^^^

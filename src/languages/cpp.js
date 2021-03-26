@@ -406,7 +406,7 @@ export default function(hljs) {
           beforeMatch: /\b(enum|class|struct|union)\s+/,
           keywords: "enum class struct union",
           match: /\w+/,
-          className: "title"
+          className: "title.class"
         }
       ])
   };

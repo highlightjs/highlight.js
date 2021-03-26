@@ -48,6 +48,7 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
   font-weight: normal;
 }
 
+.hljs-title-class,
 .hljs-class .hljs-title,
 .hljs-type,
 .hljs-name {

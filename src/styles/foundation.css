@@ -46,7 +46,9 @@ Date: 2013-04-02
   color: #900;
 }
 
+
 .hljs-class .hljs-title,
+.hljs-title-class,
 .hljs-type {
   color: #458;
 }
