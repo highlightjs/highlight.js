@@ -1,6 +1,7 @@
 import * as regex from './regex.js';
 import { inherit } from './utils.js';
 import * as EXT from "./compiler_extensions.js";
+import { beforeMatchExt } from "./exts/before_match.js";
 import { compileKeywords } from "./compile_keywords.js";
 import { MultiClass } from "./ext/multi_class.js";
 
@@ -286,7 +287,8 @@ export function compileLanguage(language, { plugins }) {
       // do this early so compiler extensions generally don't have to worry about
       // the distinction between match/begin
       EXT.compileMatch,
-      MultiClass
+      MultiClass,
+      beforeMatchExt
     ].forEach(ext => ext(mode, parent));
 
     language.compilerExtensions.forEach(ext => ext(mode, parent));
