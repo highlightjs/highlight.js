@@ -27,7 +27,7 @@ export default function(hljs) {
     '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE) +
   ')';
   const CPP_PRIMITIVE_TYPES = {
-    className: 'keyword',
+    className: 'type',
     begin: '\\b[a-z\\d_]*_t\\b'
   };
 
@@ -105,19 +105,61 @@ export default function(hljs) {
 
   const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
 
+  const C_KEYWORDS = [
+    "auto",
+    "break",
+    "case",
+    "const",
+    "continue",
+    "default",
+    "do",
+    "else",
+    "enum",
+    "extern",
+    "for",
+    "goto",
+    "if",
+    "inline",
+    "register",
+    "restrict",
+    "return",
+    "short",
+    "sizeof",
+    "static",
+    "struct",
+    "switch",
+    "typedef",
+    "union",
+    "volatile",
+    "while",
+    "_Alignas",
+    "_Alignof",
+    "_Atomic",
+    "_Bool",
+    "_Complex",
+    "_Generic",
+    "_Imaginary",
+    "_Noreturn",
+    "_Static_assert",
+    "_Thread_local"
+  ];
+
+  const C_TYPES = [
+    "float",
+    "double",
+    "signed",
+    "unsigned",
+    "int",
+    "long",
+    "char",
+    "void"
+  ];
+
   const CPP_KEYWORDS = {
-    keyword: 'int float while private char char8_t char16_t char32_t catch import module export virtual operator sizeof ' +
-      'dynamic_cast|10 typedef const_cast|10 const for static_cast|10 union namespace ' +
-      'unsigned long volatile static protected bool template mutable if public friend ' +
-      'do goto auto void enum else break extern using asm case typeid wchar_t ' +
-      'short reinterpret_cast|10 default double register explicit signed typename try this ' +
-      'switch continue inline delete alignas alignof constexpr consteval constinit decltype ' +
-      'concept co_await co_return co_yield requires ' +
-      'noexcept static_assert thread_local restrict final override ' +
-      'atomic_bool atomic_char atomic_schar ' +
-      'atomic_uchar atomic_short atomic_ushort atomic_int atomic_uint atomic_long atomic_ulong atomic_llong ' +
-      'atomic_ullong new throw return ' +
-      'and and_eq bitand bitor compl not not_eq or or_eq xor xor_eq',
+    keyword: C_KEYWORDS,
+    type: C_TYPES,
+    literal: 'true false nullptr NULL',
+    // TODO: apply hinting work similar to what was done in cpp.js
     built_in: 'std string wstring cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream ' +
       'auto_ptr deque list queue stack vector map set pair bitset multiset multimap unordered_set ' +
       'unordered_map unordered_multiset unordered_multimap priority_queue make_pair array shared_ptr abort terminate abs acos ' +
@@ -127,7 +169,6 @@ export default function(hljs) {
       'printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp ' +
       'strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan ' +
       'vfprintf vprintf vsprintf endl initializer_list unique_ptr _Bool complex _Complex imaginary _Imaginary',
-    literal: 'true false nullptr NULL'
   };
 
   const EXPRESSION_CONTAINS = [
