@@ -35,11 +35,6 @@
   color: #fd8b19;
 }
 
-/* Yellow */
-.hljs-class .hljs-title {
-  color: #fdcc59;
-}
-
 /* Green */
 .hljs-string,
 .hljs-symbol,
@@ -58,6 +53,12 @@
 .hljs-section,
 .hljs-title {
   color: #1290bf;
+}
+
+/* Yellow */
+.hljs-title-class,
+.hljs-class .hljs-title {
+  color: #fdcc59;
 }
 
 /* Purple */

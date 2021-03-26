@@ -66,6 +66,7 @@
   color: #a85;
 }
 
+.hljs-title-class,
 .hljs-class .hljs-title,
 .hljs-type {
   color: #96c;
