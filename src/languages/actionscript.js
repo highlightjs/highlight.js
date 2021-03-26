@@ -10,6 +10,10 @@ import * as regex from '../lib/regex.js';
 /** @type LanguageFn */
 export default function(hljs) {
   const IDENT_RE = /[a-zA-Z_$][a-zA-Z0-9_$]*/;
+  const PKG_NAME_RE = regex.concat(
+    IDENT_RE,
+    regex.concat("(\\.", IDENT_RE, ")*")
+  );
   const IDENT_FUNC_RETURN_TYPE_RE = /([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)/;
 
   const AS3_REST_ARG_MODE = {
@@ -92,20 +96,16 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       {
-        className: 'class',
-        beginKeywords: 'package',
-        end: /\{/,
-        contains: [ hljs.TITLE_MODE ]
+        beforeMatch: /\b(package)\s+/,
+        keywords: "package",
+        match: PKG_NAME_RE,
+        className: "title.class"
       },
       {
-        className: 'class',
-        beginKeywords: 'class interface',
-        end: /\{/,
-        excludeEnd: true,
-        contains: [
-          { beginKeywords: 'extends implements' },
-          hljs.TITLE_MODE
-        ]
+        beforeMatch: /\b(class|interface|extends|implements)\s+/,
+        keywords: "class interface extends implements",
+        match: IDENT_RE,
+        className: "title.class"
       },
       {
         className: 'meta',
