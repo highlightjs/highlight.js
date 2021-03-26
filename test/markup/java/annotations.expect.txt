@@ -4,9 +4,9 @@
 <span class="hljs-meta">@Slf4j</span>
 <span class="hljs-meta">@RunWith(SpringRunner.class)</span>
 <span class="hljs-meta">@Something(1+(3+4))</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BoardControllerTest</span> </span>{
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title hljs-title-class">BoardControllerTest</span> {
 }
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Example</span> </span>{
+<span class="hljs-keyword">class</span> <span class="hljs-title hljs-title-class">Example</span> {
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-meta">@SuppressWarnings(&quot;unused&quot;)</span> <span class="hljs-type">int</span> bar)</span> </span>{ }
 }

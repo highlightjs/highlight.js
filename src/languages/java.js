@@ -147,23 +147,10 @@ export default function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        className: 'class',
-        beginKeywords: 'class interface enum',
-        end: /[{;=]/,
-        excludeEnd: true,
-        // TODO: can this be removed somehow?
-        // an extra boost because Java is more popular than other languages with
-        // this same syntax feature (this is just to preserve our tests passing
-        // for now)
-        relevance: 1,
-        keywords: 'class interface enum',
-        illegal: /[:"\[\]]/,
-        contains: [
-          {
-            beginKeywords: 'extends implements'
-          },
-          hljs.UNDERSCORE_TITLE_MODE
-        ]
+        beforeMatch: /\b(class|interface|enum|extends|implements)\s+/,
+        keywords: "class interface enum extends implements",
+        match: JAVA_IDENT_RE,
+        className: "title.class"
       },
       {
         // Expression keywords prevent 'keyword Name(...)' from being
