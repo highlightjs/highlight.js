@@ -128,6 +128,10 @@ This function was deprecated in v10.2.  It is not our goal to provide random str
 
 This rule was too broad for bring inclusion in core and has been removed.
 
+- `endSameAsBegin` mode attribute has been removed.
+
+Use the new `END_SAME_AS_BEGIN` mode rule/function instead.
+
 - `useBR` configuration has been removed.
 
 This configuration option was deprecated in v10.1. Use a plugin or preferably simply CSS `white-space: pre`. [Ref: #2559](https://github.com/highlightjs/highlight.js/issues/2559)

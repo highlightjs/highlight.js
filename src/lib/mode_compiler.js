@@ -334,7 +334,6 @@ export function compileLanguage(language, { plugins }) {
     if (parent) {
       if (!mode.begin) mode.begin = /\B|\b/;
       cmode.beginRe = langRe(mode.begin);
-      if (mode.endSameAsBegin) mode.end = mode.begin;
       if (!mode.end && !mode.endsWithParent) mode.end = /\B|\b/;
       if (mode.end) cmode.endRe = langRe(mode.end);
       cmode.terminatorEnd = regex.source(mode.end) || '';
