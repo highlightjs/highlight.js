@@ -26,7 +26,7 @@ export default function(hljs) {
     regex.optional(NAMESPACE_RE) +
     '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE) +
   ')';
-  const CPP_PRIMITIVE_TYPES = {
+  const PRIMITIVE_TYPES = {
     className: 'type',
     begin: '\\b[a-z\\d_]*_t\\b'
   };
@@ -155,7 +155,7 @@ export default function(hljs) {
     "void"
   ];
 
-  const CPP_KEYWORDS = {
+  const KEYWORDS = {
     keyword: C_KEYWORDS,
     type: C_TYPES,
     literal: 'true false nullptr NULL',
@@ -173,7 +173,7 @@ export default function(hljs) {
 
   const EXPRESSION_CONTAINS = [
     PREPROCESSOR,
-    CPP_PRIMITIVE_TYPES,
+    PRIMITIVE_TYPES,
     C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     NUMBERS,
@@ -198,12 +198,12 @@ export default function(hljs) {
         end: /;/
       }
     ],
-    keywords: CPP_KEYWORDS,
+    keywords: KEYWORDS,
     contains: EXPRESSION_CONTAINS.concat([
       {
         begin: /\(/,
         end: /\)/,
-        keywords: CPP_KEYWORDS,
+        keywords: KEYWORDS,
         contains: EXPRESSION_CONTAINS.concat([ 'self' ]),
         relevance: 0
       }
@@ -217,12 +217,12 @@ export default function(hljs) {
     returnBegin: true,
     end: /[{;=]/,
     excludeEnd: true,
-    keywords: CPP_KEYWORDS,
+    keywords: KEYWORDS,
     illegal: /[^\w\s\*&:<>.]/,
     contains: [
       { // to prevent it from being confused as the function title
         begin: DECLTYPE_AUTO_RE,
-        keywords: CPP_KEYWORDS,
+        keywords: KEYWORDS,
         relevance: 0
       },
       {
@@ -235,19 +235,19 @@ export default function(hljs) {
         className: 'params',
         begin: /\(/,
         end: /\)/,
-        keywords: CPP_KEYWORDS,
+        keywords: KEYWORDS,
         relevance: 0,
         contains: [
           C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
           STRINGS,
           NUMBERS,
-          CPP_PRIMITIVE_TYPES,
+          PRIMITIVE_TYPES,
           // Count matching parentheses.
           {
             begin: /\(/,
             end: /\)/,
-            keywords: CPP_KEYWORDS,
+            keywords: KEYWORDS,
             relevance: 0,
             contains: [
               'self',
@@ -255,12 +255,12 @@ export default function(hljs) {
               hljs.C_BLOCK_COMMENT_MODE,
               STRINGS,
               NUMBERS,
-              CPP_PRIMITIVE_TYPES
+              PRIMITIVE_TYPES
             ]
           }
         ]
       },
-      CPP_PRIMITIVE_TYPES,
+      PRIMITIVE_TYPES,
       C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       PREPROCESSOR
@@ -272,7 +272,7 @@ export default function(hljs) {
     aliases: [
       'h'
     ],
-    keywords: CPP_KEYWORDS,
+    keywords: KEYWORDS,
     // Until differentiations are added between `c` and `cpp`, `c` will
     // not be auto-detected to avoid auto-detect conflicts between C and C++
     disableAutodetect: true,
@@ -286,15 +286,15 @@ export default function(hljs) {
         { // containers: ie, `vector <int> rooms (9);`
           begin: '\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<',
           end: '>',
-          keywords: CPP_KEYWORDS,
+          keywords: KEYWORDS,
           contains: [
             'self',
-            CPP_PRIMITIVE_TYPES
+            PRIMITIVE_TYPES
           ]
         },
         {
           begin: hljs.IDENT_RE + '::',
-          keywords: CPP_KEYWORDS
+          keywords: KEYWORDS
         },
         {
           className: 'class',
@@ -311,7 +311,7 @@ export default function(hljs) {
     exports: {
       preprocessor: PREPROCESSOR,
       strings: STRINGS,
-      keywords: CPP_KEYWORDS
+      keywords: KEYWORDS
     }
   };
 }
