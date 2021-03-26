@@ -14,16 +14,17 @@
   - [Language Requests](#language-requests)
 - [Reporting Issues](#reporting-issues)
 - [Fixing Issues (PRs)](#fixing-issues-prs)
-  - [Setup, Build, and Test](#setup-build-and-test)
+  - [In a nutshell](#in-a-nutshell)
+  - [Build and Test](#build-and-test)
 
 
 ## Welcome
 
-Hello, and welcome to Highlight.js. We're a code-highlighting engine, but you probably knew that already. If you'd like to pitch in this document will be your guide.
+Hello and welcome to Highlight.js. We're a code-highlighting engine, but you probably knew that already. If you are considering contributing to Highlight.js this document will be hopefully be a helpful resource.
 
-**You do not have to be a programmer to help.**
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-There are many ways to contribute::
+**You do not have to be a programmer.** There are many ways to contribute::
 
 - Hang out on our [Discord](https://discord.gg/M24EbU7ja9) and help answers questions as they come up
 - Report [new issues or bugs](https://github.com/highlightjs/highlight.js/issues/new/choose) or join the existing discussion on open issues
@@ -70,14 +71,27 @@ If you find a bug or think of an improvement, feel free to [open an issue](https
 
 ## Fixing Issues (PRs)
 
-If you're new to contributing to open-source, have a look at [this GitHub Guide](https://guides.github.com/activities/forking). It explains the general process of GitHub collaboration.
 
 If you feel comfortable with the [prerequisites](#prerequisites), you can grab any issue marked ["good first issue"](https://github.com/highlightjs/highlight.js/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22). Or feel free to jump in with thoughts or comments on any of the more complex issues.
 
+### In a nutshell
 
-### Rules <!-- omit in toc -->
+If you're new to contributing to open-source, have a look at [this GitHub Guide](https://guides.github.com/activities/forking). It explains the general process of GitHub collaboration.
 
-Don't worry, it's all pretty standard. Please open a new issue before your PR (or join the discussion on the existing issue), so we can explore and discuss the topic at hand. Your time is important, and we need to be sure it's well-spent.
+Highlight.js is developed in JavaScript, so you'll need the usual suspects: [Node.js](https://nodejs.dev/download/), npm (or yarn), git, etc.  You'll likely start by forking the repository on GitHub and then cloning it locally.
+
+1. Fork this project on GitHub.
+2. Clone it locally `git clone git@github.com:username/highlight.js.git`.
+3. Create a work branch (`git checkout -b my-branch`).
+4. Commit your changes (`git commit -m 'my changes'`).
+5. [Build and Test](#build-and-test)
+6. Push the branch (`git push origin my-branch`).
+7. Open a Pull Request from your fork back to this repository.
+
+
+### Keep in Mind <!-- omit in toc -->
+
+Please open a new issue before your PR (or join the discussion on the existing issue), so we can explore and discuss the topic at hand. Your time is important, and we need to be sure it's well-spent.
 
 *Before* you start coding, keep these tips in mind:
 
@@ -85,15 +99,12 @@ Don't worry, it's all pretty standard. Please open a new issue before your PR (o
 - Change only what needs to be changed; don't re-lint or rewrite whole files when fixing small bugs
 - Linting or major re-organization needs a dedicated commit
 
-*After* you make your changes, we have some housekeeping tasks for you. The PR template will be your guide.
+*After* you make your changes, we have some housekeeping tasks for you - like updating the [changelog](https://github.com/highlightjs/highlight.js/blob/main/CHANGES.md). The PR template will be your guide.
 
 
-### Setup, Build, and Test
+### Build and Test
 
-Highlight.js is developed in JavaScript, so you'll need the usual suspects: [Node.js](https://nodejs.dev/download/), npm (or yarn), git, etc.  You'll likely start by forking the repository on GitHub and then cloning it locally.
-
-When contributing a PR (that doesn't make any specific changes to browser
-features) it's often more than sufficient to build and test only the Node.js build.  Our CI process will guarantee that the browser build is still green.
+When contributing a PR (that doesn't make any specific changes to browser features) it's usually sufficient to build and test only the Node.js build.  Our CI process will guarantee that the browser build is still green.
 
 Testing the Node.js build:
 
