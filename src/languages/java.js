@@ -8,6 +8,7 @@ Website: https://www.java.com/
 import {
   NUMERIC as NUMBER
 } from "./lib/java.js";
+import * as regex from '../lib/regex.js';
 
 /**
  * Allows recursive regex expressions to a given depth
@@ -111,6 +112,17 @@ export default function(hljs) {
       }
     ]
   };
+  const PARAMS = {
+    className: 'params',
+    begin: /\(/,
+    end: /\)/,
+    keywords: KEYWORDS,
+    relevance: 0,
+    contains: [
+      hljs.C_BLOCK_COMMENT_MODE
+    ],
+    endsParent: true
+  };
 
   return {
     name: 'Java',
@@ -147,10 +159,26 @@ export default function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        beforeMatch: /\b(class|interface|enum|extends|implements)\s+/,
-        keywords: "class interface enum extends implements",
+        beforeMatch: /\b(class|interface|enum|extends|implements|new)\s+/,
+        keywords: "class interface enum extends implements new",
         match: JAVA_IDENT_RE,
         className: "title.class"
+      },
+      {
+        begin: [
+          /record/,
+          /\s+/,
+          JAVA_IDENT_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title.class"
+        },
+        contains: [
+          PARAMS,
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
       },
       {
         // Expression keywords prevent 'keyword Name(...)' from being
@@ -159,37 +187,8 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'class',
-        begin: 'record\\s+' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
-        returnBegin: true,
-        excludeEnd: true,
-        end: /[{;=]/,
-        keywords: KEYWORDS,
-        contains: [
-          {
-            beginKeywords: "record"
-          },
-          {
-            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
-            returnBegin: true,
-            relevance: 0,
-            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
-          },
-          {
-            className: 'params',
-            begin: /\(/,
-            end: /\)/,
-            keywords: KEYWORDS,
-            relevance: 0,
-            contains: [ hljs.C_BLOCK_COMMENT_MODE ]
-          },
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
-        ]
-      },
-      {
         className: 'function',
-        begin: '(' + GENERIC_IDENT_RE + '\\s+)+' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
+        begin: '(' + GENERIC_IDENT_RE + '\\s+)' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
         returnBegin: true,
         end: /[{;=]/,
         excludeEnd: true,

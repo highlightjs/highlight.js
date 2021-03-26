@@ -35,7 +35,7 @@ describe('.highlight()', () => {
     const result = hljs.highlight(code, { language: "java" });
 
     result.value.should.equal(
-      '<span class="hljs-function"><span class="hljs-keyword">public</span> ' +
+      '<span class="hljs-keyword">public</span> <span class="hljs-function">' +
       '<span class="hljs-keyword">void</span> <span class="hljs-title">moveTo</span>' +
       '<span class="hljs-params">(<span class="hljs-type">int</span> x, ' +
       '<span class="hljs-type">int</span> y, ' +
@@ -47,7 +47,7 @@ describe('.highlight()', () => {
     const result = hljs.highlight(code, { language: 'java' });
 
     result.value.should.equal(
-      '<span class="hljs-function"><span class="hljs-keyword">public</span> ' +
+      '<span class="hljs-keyword">public</span> <span class="hljs-function">' +
       '<span class="hljs-keyword">void</span> <span class="hljs-title">moveTo</span>' +
       '<span class="hljs-params">(<span class="hljs-type">int</span> x, ' +
       '<span class="hljs-type">int</span> y, ' +
