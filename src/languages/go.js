@@ -8,7 +8,7 @@ Category: common, system
 */
 
 export default function(hljs) {
-  const GO_KEYWORDS = {
+  const KEYWORDS = {
     keyword:
       'break default func interface select case map struct chan else goto package switch ' +
       'const fallthrough if range type continue for import return var go defer ' +
@@ -22,7 +22,7 @@ export default function(hljs) {
   return {
     name: 'Go',
     aliases: ['golang'],
-    keywords: GO_KEYWORDS,
+    keywords: KEYWORDS,
     illegal: '</',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
@@ -62,7 +62,7 @@ export default function(hljs) {
             className: 'params',
             begin: /\(/,
             end: /\)/,
-            keywords: GO_KEYWORDS,
+            keywords: KEYWORDS,
             illegal: /["']/
           }
         ]

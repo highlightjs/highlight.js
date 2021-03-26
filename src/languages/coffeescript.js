@@ -164,7 +164,8 @@ export default function(hljs) {
     ],
     keywords: KEYWORDS,
     illegal: /\/\*/,
-    contains: EXPRESSIONS.concat([
+    contains: [
+      ...EXPRESSIONS,
       hljs.COMMENT('###', '###'),
       hljs.HASH_COMMENT_MODE,
       {
@@ -211,6 +212,6 @@ export default function(hljs) {
         returnEnd: true,
         relevance: 0
       }
-    ])
+    ]
   };
 }
