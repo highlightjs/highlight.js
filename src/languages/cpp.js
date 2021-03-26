@@ -413,11 +413,6 @@ export default function(hljs) {
             hljs.TITLE_MODE
           ]
         }
-      ]),
-    exports: {
-      preprocessor: PREPROCESSOR,
-      strings: STRINGS,
-      keywords: CPP_KEYWORDS
-    }
+      ])
   };
 }
