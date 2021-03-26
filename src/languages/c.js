@@ -123,7 +123,6 @@ export default function(hljs) {
     "register",
     "restrict",
     "return",
-    "short",
     "sizeof",
     "static",
     "struct",
@@ -150,6 +149,7 @@ export default function(hljs) {
     "signed",
     "unsigned",
     "int",
+    "short",
     "long",
     "char",
     "void"
