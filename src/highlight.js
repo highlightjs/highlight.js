@@ -344,10 +344,6 @@ const HLJS = function(hljs) {
         if (resp.isMatchIgnored) return doIgnore(lexeme);
       }
 
-      if (newMode && newMode.endSameAsBegin) {
-        newMode.endRe = regex.escape(lexeme);
-      }
-
       if (newMode.skip) {
         modeBuffer += lexeme;
       } else {
@@ -360,10 +356,6 @@ const HLJS = function(hljs) {
         }
       }
       startNewMode(newMode, match);
-      // if (mode["after:begin"]) {
-      //   let resp = new Response(mode);
-      //   mode["after:begin"](match, resp);
-      // }
       return newMode.returnBegin ? 0 : lexeme.length;
     }
 
@@ -401,9 +393,6 @@ const HLJS = function(hljs) {
         top = top.parent;
       } while (top !== endMode.parent);
       if (endMode.starts) {
-        if (endMode.endSameAsBegin) {
-          endMode.starts.endRe = endMode.endRe;
-        }
         startNewMode(endMode.starts, match);
       }
       return origin.returnEnd ? 0 : lexeme.length;
@@ -490,13 +479,9 @@ const HLJS = function(hljs) {
       }
 
       /*
-      Why might be find ourselves here?  Only one occasion now.  An end match that was
-      triggered but could not be completed.  When might this happen?  When an `endSameasBegin`
-      rule sets the end rule to a specific match.  Since the overall mode termination rule that's
-      being used to scan the text isn't recompiled that means that any match that LOOKS like
-      the end (but is not, because it is not an exact match to the beginning) will
-      end up here.  A definite end match, but when `doEndMatch` tries to "reapply"
-      the end rule and fails to match, we wind up here, and just silently ignore the end.
+      Why might be find ourselves here?  An potential end match that was
+      triggered but could not be completed.  IE, `doEndMatch` returned NO_MATCH.
+      (this could be because a callback requests the match be ignored, etc)
 
       This causes no real harm other than stopping a few times too many.
       */
