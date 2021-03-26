@@ -250,6 +250,29 @@ This callback is triggered the moment an end match is detected. ``matchData`` in
 For an example of usage see ``END_SAME_AS_BEGIN`` in ``modes.js``.
 
 
+beforeMatch
+^^^^^^^^^^^
+
+- **type**: string
+
+Used to qualify a match by the content that immediately precedes it.  This is syntactic sugar that generates a much more complex mode that first matches the entire sequence (using look-ahead), then glosses over the ``beforeMatch`` portion and ``starts`` a new rule to handle the actual match.
+
+Notes:
+
+- Any ``keywords`` specified are applied to the ``beforeMatch`` text as well (as shown in the example below)
+- Do not get this confused with any type of look-behind.  We are always looking forward.
+- This is incompatible with ``starts``.
+
+::
+
+  {
+    beforeMatch: /\b(enum|class|struct|union)\s+/,
+    keywords: "enum class struct union",
+    begin: /\w+/,
+    className: "title.class"
+  }
+
+
 beginKeywords
 ^^^^^^^^^^^^^
 
