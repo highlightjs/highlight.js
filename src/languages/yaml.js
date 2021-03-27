@@ -8,38 +8,58 @@ Website: https://yaml.org
 Category: common, config
 */
 export default function(hljs) {
-  var LITERALS = 'true false yes no null';
+  const LITERALS = 'true false yes no null';
 
   // YAML spec allows non-reserved URI characters in tags.
-  var URI_CHARACTERS = '[\\w#;/?:@&=+$,.~*\'()[\\]]+';
+  const URI_CHARACTERS = '[\\w#;/?:@&=+$,.~*\'()[\\]]+';
 
   // Define keys as starting with a word character
   // ...containing word chars, spaces, colons, forward-slashes, hyphens and periods
   // ...and ending with a colon followed immediately by a space, tab or newline.
   // The YAML spec allows for much more than this, but this covers most use-cases.
-  var KEY = {
+  const KEY = {
     className: 'attr',
     variants: [
-      { begin: '\\w[\\w :\\/.-]*:(?=[ \t]|$)' },
-      { begin: '"\\w[\\w :\\/.-]*":(?=[ \t]|$)' }, // double quoted keys
-      { begin: '\'\\w[\\w :\\/.-]*\':(?=[ \t]|$)' } // single quoted keys
+      {
+        begin: '\\w[\\w :\\/.-]*:(?=[ \t]|$)'
+      },
+      { // double quoted keys
+        begin: '"\\w[\\w :\\/.-]*":(?=[ \t]|$)'
+      },
+      { // single quoted keys
+        begin: '\'\\w[\\w :\\/.-]*\':(?=[ \t]|$)'
+      }
     ]
   };
 
-  var TEMPLATE_VARIABLES = {
+  const TEMPLATE_VARIABLES = {
     className: 'template-variable',
     variants: [
-      { begin: /\{\{/, end: /\}\}/ }, // jinja templates Ansible
-      { begin: /%\{/, end: /\}/ } // Ruby i18n
+      { // jinja templates Ansible
+        begin: /\{\{/,
+        end: /\}\}/
+      },
+      { // Ruby i18n
+        begin: /%\{/,
+        end: /\}/
+      }
     ]
   };
-  var STRING = {
+  const STRING = {
     className: 'string',
     relevance: 0,
     variants: [
-      { begin: /'/, end: /'/ },
-      { begin: /"/, end: /"/ },
-      { begin: /\S+/ }
+      {
+        begin: /'/,
+        end: /'/
+      },
+      {
+        begin: /"/,
+        end: /"/
+      },
+      {
+        begin: /\S+/
+      }
     ],
     contains: [
       hljs.BACKSLASH_ESCAPE,
@@ -49,46 +69,54 @@ export default function(hljs) {
 
   // Strings inside of value containers (objects) can't contain braces,
   // brackets, or commas
-  var CONTAINER_STRING = hljs.inherit(STRING, {
+  const CONTAINER_STRING = hljs.inherit(STRING, {
     variants: [
-      { begin: /'/, end: /'/ },
-      { begin: /"/, end: /"/ },
-      { begin: /[^\s,{}[\]]+/ }
+      {
+        begin: /'/,
+        end: /'/
+      },
+      {
+        begin: /"/,
+        end: /"/
+      },
+      {
+        begin: /[^\s,{}[\]]+/
+      }
     ]
   });
 
-  var DATE_RE = '[0-9]{4}(-[0-9][0-9]){0,2}';
-  var TIME_RE = '([Tt \\t][0-9][0-9]?(:[0-9][0-9]){2})?';
-  var FRACTION_RE = '(\\.[0-9]*)?';
-  var ZONE_RE = '([ \\t])*(Z|[-+][0-9][0-9]?(:[0-9][0-9])?)?';
-  var TIMESTAMP = {
+  const DATE_RE = '[0-9]{4}(-[0-9][0-9]){0,2}';
+  const TIME_RE = '([Tt \\t][0-9][0-9]?(:[0-9][0-9]){2})?';
+  const FRACTION_RE = '(\\.[0-9]*)?';
+  const ZONE_RE = '([ \\t])*(Z|[-+][0-9][0-9]?(:[0-9][0-9])?)?';
+  const TIMESTAMP = {
     className: 'number',
     begin: '\\b' + DATE_RE + TIME_RE + FRACTION_RE + ZONE_RE + '\\b'
   };
 
-  var VALUE_CONTAINER = {
+  const VALUE_CONTAINER = {
     end: ',',
     endsWithParent: true,
     excludeEnd: true,
     keywords: LITERALS,
     relevance: 0
   };
-  var OBJECT = {
+  const OBJECT = {
     begin: /\{/,
     end: /\}/,
-    contains: [VALUE_CONTAINER],
+    contains: [ VALUE_CONTAINER ],
     illegal: '\\n',
     relevance: 0
   };
-  var ARRAY = {
+  const ARRAY = {
     begin: '\\[',
     end: '\\]',
-    contains: [VALUE_CONTAINER],
+    contains: [ VALUE_CONTAINER ],
     illegal: '\\n',
     relevance: 0
   };
 
-  var MODES = [
+  const MODES = [
     KEY,
     {
       className: 'meta',
@@ -145,7 +173,9 @@ export default function(hljs) {
     hljs.HASH_COMMENT_MODE,
     {
       beginKeywords: LITERALS,
-      keywords: { literal: LITERALS }
+      keywords: {
+        literal: LITERALS
+      }
     },
     TIMESTAMP,
     // numbers are any valid C-style number that
@@ -160,7 +190,7 @@ export default function(hljs) {
     STRING
   ];
 
-  var VALUE_MODES = [...MODES];
+  const VALUE_MODES = [ ...MODES ];
   VALUE_MODES.pop();
   VALUE_MODES.push(CONTAINER_STRING);
   VALUE_CONTAINER.contains = VALUE_MODES;
