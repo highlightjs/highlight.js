@@ -99,12 +99,18 @@ export default function(hljs) {
         begin: /[bwtglsav]:[\w\d_]+/
       },
       {
-        className: 'function',
-        beginKeywords: 'function function!',
+        begin: [
+          /\b(?:function|function!)/,
+          /\s+/,
+          hljs.IDENT_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title"
+        },
         end: '$',
         relevance: 0,
         contains: [
-          hljs.TITLE_MODE,
           {
             className: 'params',
             begin: '\\(',
