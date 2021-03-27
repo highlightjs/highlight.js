@@ -24,13 +24,37 @@ export default function(hljs) {
       }
     ]
   };
+  const LITERALS = [
+    "on",
+    "off",
+    "yes",
+    "no",
+    "true",
+    "false",
+    "none",
+    "blocked",
+    "debug",
+    "info",
+    "notice",
+    "warn",
+    "error",
+    "crit",
+    "select",
+    "break",
+    "last",
+    "permanent",
+    "redirect",
+    "kqueue",
+    "rtsig",
+    "epoll",
+    "poll",
+    "/dev/poll"
+  ];
   const DEFAULT = {
     endsWithParent: true,
     keywords: {
       $pattern: /[a-z_]{2,}|\/dev\/poll/,
-      literal:
-        'on off yes no true false none blocked debug info notice warn error crit ' +
-        'select break last permanent redirect kqueue rtsig epoll poll /dev/poll'
+      literal: LITERALS
     },
     relevance: 0,
     illegal: '=>',

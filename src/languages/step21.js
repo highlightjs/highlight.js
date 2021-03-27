@@ -9,7 +9,11 @@ export default function(hljs) {
   const STEP21_IDENT_RE = '[A-Z_][A-Z0-9_.]*';
   const STEP21_KEYWORDS = {
     $pattern: STEP21_IDENT_RE,
-    keyword: 'HEADER ENDSEC DATA'
+    keyword: [
+      "HEADER",
+      "ENDSEC",
+      "DATA"
+    ]
   };
   const STEP21_START = {
     className: 'meta',

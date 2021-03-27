@@ -37,18 +37,94 @@ export default function(hljs) {
     ]
   };
 
+  const KEYWORDS = [
+    "ABORT",
+    "ACC",
+    "ADJUST",
+    "AND",
+    "AP_LD",
+    "BREAK",
+    "CALL",
+    "CNT",
+    "COL",
+    "CONDITION",
+    "CONFIG",
+    "DA",
+    "DB",
+    "DIV",
+    "DETECT",
+    "ELSE",
+    "END",
+    "ENDFOR",
+    "ERR_NUM",
+    "ERROR_PROG",
+    "FINE",
+    "FOR",
+    "GP",
+    "GUARD",
+    "INC",
+    "IF",
+    "JMP",
+    "LINEAR_MAX_SPEED",
+    "LOCK",
+    "MOD",
+    "MONITOR",
+    "OFFSET",
+    "Offset",
+    "OR",
+    "OVERRIDE",
+    "PAUSE",
+    "PREG",
+    "PTH",
+    "RT_LD",
+    "RUN",
+    "SELECT",
+    "SKIP",
+    "Skip",
+    "TA",
+    "TB",
+    "TO",
+    "TOOL_OFFSET",
+    "Tool_Offset",
+    "UF",
+    "UT",
+    "UFRAME_NUM",
+    "UTOOL_NUM",
+    "UNLOCK",
+    "WAIT",
+    "X",
+    "Y",
+    "Z",
+    "W",
+    "P",
+    "R",
+    "STRLEN",
+    "SUBSTR",
+    "FINDSTR",
+    "VOFFSET",
+    "PROG",
+    "ATTR",
+    "MN",
+    "POS"
+  ];
+  const LITERALS = [
+    "ON",
+    "OFF",
+    "max_speed",
+    "LPOS",
+    "JPOS",
+    "ENABLE",
+    "DISABLE",
+    "START",
+    "STOP",
+    "RESET"
+  ];
+
   return {
     name: 'TP',
     keywords: {
-      keyword:
-        'ABORT ACC ADJUST AND AP_LD BREAK CALL CNT COL CONDITION CONFIG DA DB ' +
-        'DIV DETECT ELSE END ENDFOR ERR_NUM ERROR_PROG FINE FOR GP GUARD INC ' +
-        'IF JMP LINEAR_MAX_SPEED LOCK MOD MONITOR OFFSET Offset OR OVERRIDE ' +
-        'PAUSE PREG PTH RT_LD RUN SELECT SKIP Skip TA TB TO TOOL_OFFSET ' +
-        'Tool_Offset UF UT UFRAME_NUM UTOOL_NUM UNLOCK WAIT X Y Z W P R STRLEN ' +
-        'SUBSTR FINDSTR VOFFSET PROG ATTR MN POS',
-      literal:
-        'ON OFF max_speed LPOS JPOS ENABLE DISABLE START STOP RESET'
+      keyword: KEYWORDS,
+      literal: LITERALS
     },
     contains: [
       TPDATA,

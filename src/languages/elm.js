@@ -52,11 +52,33 @@ export default function(hljs) {
     illegal: '.'
   };
 
+  const KEYWORDS = [
+    "let",
+    "in",
+    "if",
+    "then",
+    "else",
+    "case",
+    "of",
+    "where",
+    "module",
+    "import",
+    "exposing",
+    "type",
+    "alias",
+    "as",
+    "infix",
+    "infixl",
+    "infixr",
+    "port",
+    "effect",
+    "command",
+    "subscription"
+  ];
+
   return {
     name: 'Elm',
-    keywords:
-      'let in if then else case of where module import exposing ' +
-      'type alias as infix infixl infixr port effect command subscription',
+    keywords: KEYWORDS,
     contains: [
 
       // Top-level constructions.
@@ -108,7 +130,6 @@ export default function(hljs) {
       },
 
       // Literals and names.
-
       CHARACTER,
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
@@ -118,9 +139,9 @@ export default function(hljs) {
       }),
       COMMENT,
 
-      {
+      { // No markup, relevance booster
         begin: '->|<-'
-      } // No markup, relevance booster
+      }
     ],
     illegal: /;/
   };

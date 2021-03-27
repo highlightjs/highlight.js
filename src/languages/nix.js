@@ -6,20 +6,44 @@ Website: http://nixos.org/nix
 */
 
 export default function(hljs) {
-  const NIX_KEYWORDS = {
-    keyword:
-      'rec with let in inherit assert if else then',
-    literal:
-      'true false or and null',
-    built_in:
-      'import abort baseNameOf dirOf isNull builtins map removeAttrs throw ' +
-      'toString derivation'
+  const KEYWORDS = {
+    keyword: [
+      "rec",
+      "with",
+      "let",
+      "in",
+      "inherit",
+      "assert",
+      "if",
+      "else",
+      "then"
+    ],
+    literal: [
+      "true",
+      "false",
+      "or",
+      "and",
+      "null"
+    ],
+    built_in: [
+      "import",
+      "abort",
+      "baseNameOf",
+      "dirOf",
+      "isNull",
+      "builtins",
+      "map",
+      "removeAttrs",
+      "throw",
+      "toString",
+      "derivation"
+    ]
   };
   const ANTIQUOTE = {
     className: 'subst',
     begin: /\$\{/,
     end: /\}/,
-    keywords: NIX_KEYWORDS
+    keywords: KEYWORDS
   };
   const ATTRS = {
     begin: /[a-zA-Z0-9-_]+(\s*=)/,
@@ -57,7 +81,7 @@ export default function(hljs) {
   return {
     name: 'Nix',
     aliases: [ "nixos" ],
-    keywords: NIX_KEYWORDS,
+    keywords: KEYWORDS,
     contains: EXPRESSIONS
   };
 }
