@@ -19,6 +19,7 @@ interface PublicApi {
     highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
     fixMarkup: (html: string) => string
     highlightBlock: (element: HTMLElement) => void
+    highlightElement: (element: HTMLElement) => void
     configure: (options: Partial<HLJSOptions>) => void
     initHighlighting: () => void
     initHighlightingOnLoad: () => void
